@@ -1,0 +1,50 @@
+/* Client side */
+
+.cfct-build { /* Prevent overflow issues in IE */
+	overflow:hidden;
+	width:100%;
+}
+
+.cfct-row:after { /* Clear floats */
+	clear: both;
+	content: " ";
+	display: block;
+	font-size: 0;
+	height: 0;
+	line-height: 0;
+	visibility: hidden;
+}
+.cfct-row {
+	display: block;
+	zoom: 1; /* Clearfix for IE */
+}
+
+.cfct-block {
+	display:inline; /* Double-margin float bug innoculation */
+	float:left;
+	/**
+	 * Prevent empty left-hand columns from collapsing by giving them a min-height.
+	 * Does not require min-height fast-hack because IE < 7 does not collapse empty elements
+	 */
+	min-height: 1px;
+	overflow: hidden; /* Overflow-proofing */
+}
+
+.cfct-module {
+	margin-right: 15px;
+	margin-left: 15px;
+}
+
+.cfct-block-a .cfct-module, 
+.cfct-block-ab .cfct-module,
+.cfct-block-abc .cfct-module,
+.cfct-block-d .cfct-module {
+	margin-left: 0;	
+}
+
+.cfct-block-c .cfct-module,
+.cfct-block-bc .cfct-module,
+.cfct-block-abc .cfct-module,
+.cfct-block-e .cfct-module {
+	margin-right: 0;
+}

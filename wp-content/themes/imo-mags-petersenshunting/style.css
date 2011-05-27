@@ -1,0 +1,145 @@
+/** 
+ * Theme Name: IMO Mags - Petersens Hunting
+ * Theme URI: http://imomags.com/petersenshunting
+ * Description: Petersen's Hunting Theme
+ * Version: 1.0.0
+ * Template: carrington-business
+ * Author: IMOutdoors
+ * Author URI: http://imomags.com/
+ *
+ * @package carrington-business
+ *
+ * This file is part of the Carrington Business Theme for WordPress
+ * http://carringtontheme.com
+ *
+ * Copyright (c) 2008-2011 Crowd Favorite, Ltd. All rights reserved.
+ * http://crowdfavorite.com
+ *
+ * Released under the GPL license
+ * http://www.opensource.org/licenses/gpl-license.php
+ *
+ * **********************************************************************
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * **********************************************************************
+ *
+ */
+
+
+/*PAGE LAYOUT MODS*/
+ 
+.str-container {
+	margin: 0 auto;
+	width: 1020px;
+}
+.col-abc {
+	display: block;
+	float: none;
+	width: 960px;
+}
+.col-ab, .col-bc, .cfct-block-ab, .cfct-block-bc {
+	width: 608px;
+	
+}
+.col-a, .col-b, .col-c, .cfct-block-a, .cfct-block-b, .cfct-block-c, .col-ab .cfct-block-d, .col-ab .cfct-block-e {
+	width: 300px;
+}
+
+.centerad {
+    margin-top: 10px;
+    margin-bottom: 10px;
+	text-align: center;
+    clear:both;
+}
+
+#main-content, #footer-content {
+border-style: none;
+border-width: 0px;
+}
+#main-content {
+-moz-border-radius-topleft: 0px;
+border-radius: 0px 0px 0 0;
+-moz-border-radius-topright: 0px;
+border-radius: 0px 0px 0 0;
+position: relative;
+}
+
+#main-content .str-content {
+-moz-border-radius-topleft: 0px;
+border-radius: 0px 0px 0 0;
+-moz-border-radius-topright: 0px;
+border-radius: 0px 0px 0 0;
+background-color: white;
+min-height: 400px;
+padding-bottom: 30px;
+padding-top: 30px;
+position: relative;
+}
+#masthead {
+background: #CCC;
+background: -webkit-gradient(linear, left top, left bottom, from(#F2F2F2), to(#E3E3E3));
+background: -moz-linear-gradient(top, #F2F2F2, #E3E3E3);
+-pie-background: linear-gradient(#F2F2F2, #E3E3E3);
+bottom: 30px;
+border-bottom: 1px solid #494949;
+margin-left: -15px;
+overflow: hidden;
+padding: 15px;
+position: relative;
+width: 990px;
+}
+
+#footer-content .col-a, #footer-content .col-b, #footer-content .col-c, #footer-content .cfct-block-a, #footer-content .cfct-block-b, #footer-content .cfct-block-c, #footer-content .col-ab .cfct-block-d, #footer-content .col-ab .cfct-block-e {
+    width: 286px;
+    }
+
+/* Replace Site Title with Logo */
+#header .site-title a {
+	background: url(img/my-logo.png) 0 0 no-repeat; /*enter the proper file name for you logo graphic*/
+	display: block;
+	height: 107px; /*enter the height of your logo graphic*/
+	width: 532px; /*enter the width of your logo graphic*/
+	overflow: hidden;
+	text-indent: -9999em;
+}
+#header {
+	background: #fff;
+	border-color: #CCC;
+	border-width: 1px;
+	border-style: solid;
+	border-bottom: none;
+	margin: 0 auto;
+	width: 1018px;
+}
+
+#header .site-title {
+	margin: 0 0 12px 30px;
+	padding-top: 20px; 
+}
+.nav-main {
+	padding: 0 20px 0 25px;
+	width: 973px;
+	border-color: #CCC;
+	border-width: 1px;
+	border-style: solid;
+	border-left: none;
+	border-right: none;
+}
+
+#main-content .str-content {
+	border-color: #CCC;
+	border-width: 1px;
+	border-style: solid;
+	border-top: none;
+	border-bottom: none;
+}
+#masthead {
+-moz-border-radius-topleft: 0px;
+-webkit-border-top-left-radius: 0px;
+-khtml-border-top-left-radius: 0px;
+-moz-border-radius-topright: 0px;
+-webkit-border-top-right-radius: 0px;
+-khtml-border-top-right-radius: 0px;
+border-radius: 0;
+}
