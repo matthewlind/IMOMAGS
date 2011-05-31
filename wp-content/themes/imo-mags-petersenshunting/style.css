@@ -143,3 +143,7 @@ width: 990px;
 -khtml-border-top-right-radius: 0px;
 border-radius: 0;
 }
+
+body {
+    background: #170f0c url(img/my-background.jpg) no-repeat fixed center top;
+}
