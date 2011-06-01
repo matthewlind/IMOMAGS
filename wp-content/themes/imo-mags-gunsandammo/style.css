@@ -145,5 +145,5 @@ border-radius: 0;
 }
 
 body {
-    background: #000000 url(img/my-background.jpg) no-repeat fixed left top;
+    background: #000000 url(img/my-background.jpg) no-repeat fixed center top;
 }
