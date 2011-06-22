@@ -45,13 +45,24 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 	
 	wp_head();
 	?>
+ <?php if (is_page_template("page-cabelas.php")) { ?>
+                <link rel="stylesheet" type="text/css" media="screen" href="<?php bloginfo('template_url'); ?>/css/contest.css?ver=<?php echo CFCT_URL_VERSION; ?>" />
+        <?php  } ?>     	
 	
+<!-- +++++++++ IMO MODS ++++++++ -->
 	
-	<!-- IMO MODS -->
+	<!-- FONTS -->
+	<link href='http://fonts.googleapis.com/css?family=Lato:100,regular,bold&v1' rel='stylesheet' type='text/css'>
+
 	<script type="text/javascript">
 
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-5816642-20']);
+  _gaq.push(['_setDomainName', 'none']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+  _gaq.push(['_setAccount', 'UA-2409437-11']);
+  _gaq.push(['_setDomainName', '.petersenshunting.com']);
   _gaq.push(['_trackPageview']);
 
   (function() {

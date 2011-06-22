@@ -45,7 +45,9 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 	
 	wp_head();
 	?>
-	
+ <?php if (is_page_template("page-cabelas.php")) { ?>
+                <link rel="stylesheet" type="text/css" media="screen" href="<?php bloginfo('template_url'); ?>/css/contest.css?ver=<?php echo CFCT_URL_VERSION; ?>" />
+        <?php  } ?>	
 	
 	<!-- IMO MODS -->
 	<script type="text/javascript">

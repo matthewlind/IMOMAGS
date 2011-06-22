@@ -45,9 +45,15 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 	
 	wp_head();
 	?>
+ <?php if (is_page_template("page-cabelas.php")) { ?>
+                <link rel="stylesheet" type="text/css" media="screen" href="<?php bloginfo('template_url'); ?>/css/contest.css?ver=<?php echo CFCT_URL_VERSION; ?>" />
+        <?php  } ?>     	
 	
+<!-- +++++++++ IMO MODS ++++++++ -->
 	
-	<!-- IMO MODS -->
+	<!-- FONTS -->
+	<link href='http://fonts.googleapis.com/css?family=Anton&v1' rel='stylesheet' type='text/css'>
+
 	<script type="text/javascript">
 
   var _gaq = _gaq || [];

@@ -3,4 +3,4 @@
  * functions.php 
  */
 
-define("JETPACK_SITE", "shootingtimes");
+define("JETPACK_SITE", "gunsammo");

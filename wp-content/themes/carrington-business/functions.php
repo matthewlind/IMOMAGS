@@ -15,6 +15,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
  * **********************************************************************
  */
+define("USE_IFRAME_ADS",FALSE);
 
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 
@@ -44,6 +45,8 @@ include_once(CFCT_PATH.'functions/patch-nav-menu.php');
 include_once(CFCT_PATH.'functions/css3pie.php');
 include_once(CFCT_PATH.'functions/post-type-news.php');
 include_once(CFCT_PATH.'functions/sidebars.php');
+include_once(CFCT_PATH.'functions/header-includes.php');
+#include_once(CFCT_PATH.'functions/rewrites.php');
 include_once(CFCT_PATH.'functions/admin.php');
 
 if ( ! function_exists( 'cfct_setup' ) ) {
@@ -54,7 +57,7 @@ if ( ! function_exists( 'cfct_setup' ) ) {
 		// This theme uses post thumbnails
 		add_theme_support( 'post-thumbnails' );
 		// Width, Height, Crop
-		set_post_thumbnail_size( 90, 90, true );
+		set_post_thumbnail_size( 190, 120, true );
 		// Image sizes to support Carousel
 		add_image_size('post-image-large', 584, 370, true);
 		add_image_size('post-image-medium', 426, 270, true);
@@ -244,4 +247,3 @@ function cfct_cfct_row_html($html, $class) {
 }
 add_filter('cfct-row-html', 'cfct_cfct_row_html', 10, 3);
 remove_action('wp_head', 'wp_generator'); 
-?>

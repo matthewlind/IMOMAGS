@@ -3,4 +3,6 @@
  * functions.php 
  */
 
-define("JETPACK_SITE", "gameandfish");
+define("JETPACK_SITE", "gamefish");
+define("DARTADGEN_SITE", "imo.gameandfish");
+define("USE_IFRAME_ADS",TRUE);

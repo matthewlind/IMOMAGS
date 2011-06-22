@@ -24,10 +24,11 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 	<div class="entry-header">
 		<h2 class="entry-title"><a rel="bookmark" href="<?php the_permalink() ?>"><?php the_title() ?></a></h2>
 		<div class="entry-info">
+			<span class="author vcard"><span class="fn">by <?php the_author(); ?></span></span>
+			<span class="spacer">&bull;</span>
 			<abbr class="published" title="<?php the_time('Y-m-d\TH:i'); ?>"><?php the_time('F j, Y'); ?></abbr>
 			<span class="spacer">&bull;</span>
-			<span class="author vcard"><span class="fn"><?php the_author(); ?></span></span>
-			<span class="spacer">&bull;</span>
+			
 			<?php comments_popup_link(__('No comments', 'carrington-business'), __('1 comment', 'carrington-business'), __('% comments', 'carrington-business')); ?>
 		</div>
 	</div>

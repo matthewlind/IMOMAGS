@@ -22,7 +22,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 get_header();
 ?>
 <header id="masthead">
-	<h1><?php _e('Archives', 'carrington-business'); wp_title('&rsaquo;'); ?></h1>
+	<h1><?php _e('', 'carrington-business'); wp_title('&rsaquo;'); ?></h1>
 </header><!-- #masthead -->
 <div class="col-ab">
 	<?php

@@ -45,13 +45,24 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 	
 	wp_head();
 	?>
+ <?php if (is_page_template("page-cabelas.php")) { ?>
+                <link rel="stylesheet" type="text/css" media="screen" href="<?php bloginfo('template_url'); ?>/css/contest.css?ver=<?php echo CFCT_URL_VERSION; ?>" />
+        <?php  } ?>     	
 	
+<!-- +++++++++ IMO MODS ++++++++ -->
 	
-	<!-- IMO MODS -->
+	<!-- FONTS -->
+	<link href='http://fonts.googleapis.com/css?family=Arvo:regular,bold&v1' rel='stylesheet' type='text/css'>
+
 	<script type="text/javascript">
 
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-5816642-20']);
+  _gaq.push(['_setDomainName', 'none']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+_gaq.push(['_setAccount', 'UA-2409437-2']);
+  _gaq.push(['_setDomainName', '.floridasportsman.com']);
   _gaq.push(['_trackPageview']);
 
   (function() {
@@ -71,6 +82,11 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 <div class='str-container'>
         <div class='aligncenter centerad'>
 	<!-- 728x90 Ad: -->
+	
+<?php if (USE_IFRAME_ADS == TRUE): ?>		
+	<iframe src="/iframe-ads.php?ad_size=728x90&dartadgen_site=<?php print DARTADGEN_SITE; ?>" width="738" height="100">
+<?php endif; ?>
+
 <script type="text/javascript">
 document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dartadsgen_site+'/;sect=;page=index;subs=;sz=728x90;dcopt=;tile='+pr_tile+';ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
 </script>
@@ -78,17 +94,45 @@ document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dart
     ++pr_tile;
 </script>
 <noscript>
-    <a href="http://ad.doubleclick.net/adj/imo.gunsandammo/;sect=;page=index;subs=;sz=728x90;dcopt=;tile=1;ord=7391727509?">
-        <img src="http://ad.doubleclick.net/ad/imo.gunsandammo/home;sect=;page=index;subs=;sz=728x90;dcopt=;tile=1;ord=7391727509?" border="0" />
+    <a href="http://ad.doubleclick.net/adj/imo.outdoorsbest/;sect=;page=index;subs=;sz=728x90;dcopt=;tile=1;ord=7391727509?">
+        <img src="http://ad.doubleclick.net/ad/imo.outdoorsbest/home;sect=;page=index;subs=;sz=728x90;dcopt=;tile=1;ord=7391727509?" border="0" />
     </a>
 </noscript>
+
+<?php if (USE_IFRAME_ADS == TRUE): ?>		
+	</iframe>
+<?php endif; ?>
+
 <!-- END 728x90 Ad: -->
 </div>
 </div>
 
 	<header id="header">
     		<div class="str-container">
+			
+		
+			
+			<div style="float:right;padding-top:10px;width:240px;">
+				<div style="float:right;p">
+                                        <a href="https://secure.palmcoastd.com/pcd/eSv?iMagId=0146F&i4Ky=IBZN"><img style="border: 1px solid #cccccc;" width="83px" src="http://dev.imomags.com/imgs/floridasportsman-magazine.png"></a> 
+                                 </div> 
+				<div style="float:left; adding-right:10px;margin-right:10px;text-align:right;">
+					<p style="FONT-WEIGHT: bold; COLOR: #56a2d6;line-height:13px;">Save Over 70% off<br> the Cover Price </p> 
+					<p style="margin-bottom:2px;margin-top:10px;"><a href="https://secure.palmcoastd.com/pcd/eSv?iMagId=0146F&i4Ky=IBZN" style="FONT-WEIGHT: bold; COLOR: #ffffff; TEXT-DECORATION: none">Subscribe Now!</a></p> 
+					<p style="margin-bottom:2px;"><a href="https://secure.palmcoastd.com/pcd/eSv?iMagId=0146F&i4Ky=IBZN" style="FONT-WEIGHT: bold; COLOR: #ffffff; TEXT-DECORATION: none">Give a Gift</a></p> 
+					<p><a href="https://secure.palmcoastd.com/pcd/eServ?iServ=MDE0NkY0NDA2OCZpVHlwZT1FTlRFUg==" style="FONT-WEIGHT: bold; COLOR: #ffffff; TEXT-DECORATION: none">Subscriber Services</a></p> 
+				</div>	
+				
+ 
+                                
+			</div>   
+			
+			
+			
+			
 			<h1 class="site-title"><a href="<?php echo home_url('/'); ?>" title="<?php _e('Home', 'carrington-business') ?>"><?php bloginfo('name'); ?></a></h1>
+			
+			
 		
 			<?php
 			wp_nav_menu(array( 

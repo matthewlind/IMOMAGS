@@ -35,9 +35,11 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 		}
 		?>
 		<div class="entry-info">
-			<abbr class="published" title="<?php the_time('Y-m-d\TH:i'); ?>"><?php the_time('F j, Y'); ?></abbr>
+			<span class="author vcard"><span class="fn">by <?php the_author(); ?></span></span>
 			<span class="spacer">&bull;</span>
-			<span class="author vcard"><span class="fn"><?php the_author(); ?></span></span>
+			<abbr class="published" title="<?php the_time('Y-m-d\TH:i'); ?>"><?php the_time('F j, Y'); ?></abbr>
+			
+			
 			<?php
 			if ($this_post_is_not_single) {
 				echo ' <span class="spacer">&bull;</span> ';

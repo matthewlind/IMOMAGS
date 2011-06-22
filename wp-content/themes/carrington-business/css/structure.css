@@ -141,7 +141,7 @@ nav.nav-secondary,
 	overflow: hidden;
 	-o-text-overflow: ellipsis; /* Opera */
 	text-overflow: ellipsis; /* IE6+, Safari, Konqueror, Standard? */
-	width: 730px;
+	/*width: 500px;*/
 }
 #header .site-title a {
 	color: #3f3f3f;
@@ -453,7 +453,7 @@ nav.nav-secondary li ul a:hover {
 
 /* Footer */
 #footer {
-	background-color: #494949;
+	/*background-color: #494949;*/
 }
 #footer .str-content {
 	background-color: #535353;
@@ -468,6 +468,7 @@ nav.nav-secondary li ul a:hover {
  * Uses lte-ie7.css for zoom clearing fix
  */
 #footer-sub {
+	display: none;
 	color: #575757;
 	font-size: 10px;
 	line-height: 18px;
