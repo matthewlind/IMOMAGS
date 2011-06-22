@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>{#gallery_dlg.title}</title>
+        <script type="text/javascript" src="../../../../../wp-includes/js/tinymce/tiny_mce_popup.js"></script>
+	
+	<script type="text/javascript" src="../../../../../wp-includes/js/tinymce/utils/form_utils.js"></script>
+	<script type="text/javascript" src="../../../../../wp-includes/js/tinymce/utils/validate.js"></script>
+	<script type="text/javascript" src="../../../../../wp-includes/js/tinymce/utils/editable_selects.js"></script>
+        <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui-1.8.5.custom.min.js"></script>
+        <script type="text/javascript" src="js/EasyTableCreator.js"></script>
+        <script type="text/javascript" src="../../includes/farbtastic/farbtastic.js"></script>
+	
+        <link href="css/easy-table-creator.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="../../includes/farbtastic/farbtastic.css" type="text/css" />
+</head>
+<body id="gallery">
+
+    
+<form onsubmit="EasyTableCreatorDialog.insert();return false;" action="#">
+   
+   
+         <div id="EasyTableCreator_form">
+             <div id="header_actions">
+                  <p style="float:right;"><a href="#" onclick="EasyTableCreatorDialog.deleteColumn();return false;">Remove column</a> | <a href="#" onclick="EasyTableCreatorDialog.addColumn();return false;">Add column</a> </p>
+                  <p style="float:left;"><a id="delete" href="#" onclick="EasyTableCreatorDialog.deleteTable();return false">Delete Table</a> | Width:<input type="text" style="width:50px;" name="width" id="width" value="100%"/> | Header <input type="checkbox" name="header" id="header" CHECKED /> | Footer <input type="checkbox" name="footer" id="footer" CHECKED /> </p>
+                  <div class="clear"></div>
+             </div>
+             <input type="hidden" name="is_edit" value="0" id="is_edit" />
+             
+
+             <table style="clear:both;" id="EasyTableCreator_table">
+                 <thead>
+                     <tr>
+                         <th>Header</th>
+                         <td>Row 1<br /><input type="text" class="th" name="th[]" /></td>
+                         <td>Row 2<br /><input type="text" class="th" name="th[]" /></td>
+                         <td>Row 3<br /><input type="text" class="th" name="th[]" /></td>
+                         <td>Row 4<br /><input type="text" class="th" name="th[]" /></td>
+                     </tr>
+                 </thead>
+                 <tbody>
+                     <tr>
+                         <th>Row</th>
+                         <td><input type="text" class="td" name="td[][]" /></td>
+                         <td><input type="text" class="td" name="td[][]" /></td>
+                         <td><input type="text" class="td" name="td[][]" /></td>
+                         <td><input type="text" class="td" name="td[][]" /></td>
+                     </tr>
+                     <tr>
+                         <th>Row</th>
+                         <td><input type="text" class="td" name="td[][]" /></td>
+                         <td><input type="text" class="td" name="td[][]" /></td>
+                         <td><input type="text" class="td" name="td[][]" /></td>
+                         <td><input type="text" class="td" name="td[][]" /></td>
+                     </tr>
+                 </tbody>
+                 <tfoot>
+                     <tr>
+                         <th>Footer</th>
+                         <td><input type="text" class="tf" name="tf[]" /></td>
+                         <td><input type="text" class="tf" name="tf[]" /></td>
+                         <td><input type="text" class="tf" name="tf[]" /></td>
+                         <td><input type="text" class="tf" name="tf[]" /></td>
+
+                     </tr>
+
+                 </tfoot>
+             </table>
+             <div id="footer_actions">
+                    <p style="float:right;clear:both;"><a href="#" onclick="EasyTableCreatorDialog.deleteRow();return false;">Delete Row</a> | <a href="#" onclick="EasyTableCreatorDialog.addRow();return false;">Add Row</a></p>
+                    <p style="float: left; margin-top: 5px; margin-bottom: 0pt;padding:0;"><a href="#"><img style="border:none;" src="img/PV_logo.png" /></a></p>
+                    <div class="clear"></div>
+             </div>
+
+         
+                 <div class="table_preview">
+                     
+                 </div>
+                 <div class="clear"></div>
+             
+             
+         </div>
+
+        <div id="srcbrowsercontainer"></div>
+         
+	<div class="mceActionPanel">
+		<div style="float: left">
+		<input type="button" id="cancel" name="cancel" value="Cancel" onclick="tinyMCEPopup.close();" />
+
+		</div>
+
+		<div style="float: right">
+			
+                        <input type="button" id="insert" name="insert" value="Insert" onclick="EasyTableCreatorDialog.insert();" />
+		</div>
+	</div>
+         <br />
+</form>
+
+</body>
+</html>
+<script type="text/javascript">
+jQuery(document).ready(function(){
+    jQuery("#header").change(function(){
+        if (jQuery(this).not(':checked').length) {
+            jQuery("#EasyTableCreator_table").find("thead").remove();
+
+        } else {
+           //add the header
+           var num_cols = jQuery("#EasyTableCreator_table tbody tr:first td").length;
+       
+           var thead = jQuery("<thead><tr><th>Header</th></tr></thead>");
+           for (i=0;i<num_cols;i++) {
+               jQuery(thead).children("tr").append('<td><input type="text" class="th" name="th[]" /></td>')
+           }
+           jQuery("#EasyTableCreator_table").prepend(thead)
+        }
+
+    })
+
+
+   jQuery("#footer").change(function(){
+        if (jQuery(this).not(':checked').length) {
+            jQuery("#EasyTableCreator_table").find("tfoot").remove();
+
+        } else {
+           //add the header
+           var num_cols = jQuery("#EasyTableCreator_table tbody tr:first td").length;
+
+           var tfoot = jQuery("<tfoot><tr><th>Footer</th></tr></tfoot>");
+           for (i=0;i<num_cols;i++) {
+               jQuery(tfoot).children("tr").append('<td><input type="text" class="tf" name="tf[]" /></td>')
+           }
+           jQuery("#EasyTableCreator_table").append(tfoot)
+        }
+
+    })
+
+
+});
+</script>
