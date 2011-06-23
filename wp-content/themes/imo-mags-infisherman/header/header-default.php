@@ -101,7 +101,7 @@ document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dart
     		<div class="str-container">
 			<div style="float:right;padding-top:20px;width:240px;">
 				<div style="float:right;p">
-                                        <a href="https://secure.palmcoastd.com/pcd/eSv?iMagId=01469&i4Ky=IBZN><img style="border: 1px solid #555555;" width="83px" src="http://dev.imomags.com/imgs/infisherman-magazine.png"></a> 
+                                        <a href="https://secure.palmcoastd.com/pcd/eSv?iMagId=01469&i4Ky=IBZN"><img style="border: 1px solid #555555;" width="83px" src="http://dev.imomags.com/imgs/infisherman-magazine.png"></a> 
                                  </div> 
 				<div style="float:left; adding-right:10px;margin-right:10px;text-align:right;">
 					<p style="FONT-WEIGHT: bold; COLOR:#555555;line-height:13px;">Save Over 70% off<br> the Cover Price </p> 
