@@ -25,7 +25,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 <head>
 	<meta http-equiv="content-type" content="<?php bloginfo('html_type') ?>; charset=<?php bloginfo('charset') ?>" />
 
-	<title><?php wp_title( '-', true, 'right' ); esc_attr_e(get_bloginfo('name')); ?></title>
+        <title><?php wp_title(''); ?></title>
 
 	<meta http-equiv="X-UA-Compatible" content="chrome=1" />
 	<link rel="pingback" href="<?php bloginfo('pingback_url') ?>" />
