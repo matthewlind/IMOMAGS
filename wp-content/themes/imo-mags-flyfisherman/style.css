@@ -28,11 +28,11 @@
 
 
 a {
-	color: #cc3300;
+	color: #907E61;
 	text-decoration: none;
 }
 html {
-	background: #000000;
+	background: #DCE9EB;
 }
 
 /*PAGE LAYOUT MODS*/
@@ -156,7 +156,7 @@ nav.nav-main, nav.nav-featured {
 	border-style: solid;
 	border-left: none;
 	border-right: none;
-	background: #191b41 url(img/my-nav-bg.jpg) no-repeat;
+	background: #06254B url(img/my-nav-bg.jpg) no-repeat;
 }
 
 nav.nav a {
@@ -166,7 +166,7 @@ nav.nav a {
 	font-family: helvetica, arial, serif, sans-serif;
 	text-transform: uppercase;
 	font-size: 15px;
-	color: #bcbec6;
+	color: #ffffff;
 	display: block;
 	-o-text-overflow: ellipsis;
 	text-overflow: ellipsis;
@@ -178,7 +178,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a {
 	padding-right: 15px;
 }
 nav.nav a:hover {
-	color: #ce2b24;
+	color: #907E61;
 }
 
 nav.nav li ul a {
@@ -227,7 +227,8 @@ border-radius: 0;
 }
 
 body {
-    background: #000000 url(img/my-background.jpg) repeat-x fixed top;
+    /*background: #000000 url(img/my-background.jpg) repeat-x fixed top;*/
+    background: white;
 }
 
 
@@ -260,12 +261,17 @@ body {
 .cfct-module .cfct-mod-title, .widget .widget-title {
 	padding-left: 0px;
 	font-weight: bold;
-	color: black;
+	color: #03152b;
 	margin: 0 0 20px 0;
 	background-repeat: no-repeat;
 	font-size: 20px;
 	font-family: 'Arvo', arial, serif;
 	text-transform: uppercase;
+	
+}
+
+.cfct-module .cfct-mod-title a, .widget .widget-title a {
+	color: #72171B;
 	
 }
 
@@ -366,5 +372,8 @@ body {
 }
 
 h2.entry-title a {
-	color: #000000;
+	color: #72171B;
+}
+h2.entry-title a:hover {
+	color: #72171B;
 }
