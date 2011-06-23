@@ -101,7 +101,7 @@ document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dart
     	<div class="str-container">
     		<div id="site-tagline"></div>
 		
-			<div style="float:right;padding-top:0px;width:240px;padding-right:30px;">
+			<div style="float:right;padding-top:0px;width:220px;padding-right:30px;">
 				<div style="float:right;">
                                         <a href="https://secure.palmcoastd.com/pcd/eSv?iMagId=0145V&i4Ky=IBZN"><img style="border: 1px solid #555555;" src="http://dev.imomags.com/imgs/shotgunnews-magazine2.png"></a> 
                                  </div> 

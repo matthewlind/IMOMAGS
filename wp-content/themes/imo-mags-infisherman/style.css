@@ -28,11 +28,11 @@
 
 
 a {
-	color: #990000;
+	color: #232E53;
 	text-decoration: none;
 }
 html {
-	background: #000000;
+	background: #FFFFFF;
 }
 
 /*PAGE LAYOUT MODS*/
@@ -111,7 +111,7 @@ position: relative;
 	padding: 10px 15px;
 	-o-text-overflow: ellipsis;
 	text-overflow: ellipsis;
-	font-family: 'Arimo', arial, serif;
+	font-family: 'Arvo', arial, serif;
 	font-weight: bold;
 }
 
@@ -156,15 +156,16 @@ nav.nav-main, nav.nav-featured {
 	border-style: solid;
 	border-left: none;
 	border-right: none;
-	background: #000000 url(img/my-nav-bg.jpg) repeat-x;
+	background: #F1C548;
 }
 
 nav.nav a {
 	letter-spacing: 0px;
-	font-family: helvetica, arial, serif, sans-serif;
+	font-family: arial, serif, sans-serif;
+	font-weight: bold;
 	text-transform: uppercase;
 	font-size: 14px;
-	color: #e9e9e9;
+	color: #000000;
 	display: block;
 	-o-text-overflow: ellipsis;
 	text-overflow: ellipsis;
@@ -198,7 +199,7 @@ border-radius: 0;
 }
 
 body {
-    background: #000000 url(img/my-background.png) repeat-x fixed top;
+    background: #FFFFFF;
 }
 
 
@@ -229,14 +230,14 @@ body {
 
 
 .cfct-module .cfct-mod-title, .widget .widget-title {
-	padding-left: 5px;
+	padding-left: 0px;
 	font-style: normal;
 	font-weight: normal;
 	color: black;
 	margin: 0 0 20px 0;
 	background-repeat: no-repeat;
-	font-size: 20px;
-	font-family: 'Arimo', arial, serif;
+	font-size: 18px;
+	font-family: arial, serif;
 	text-transform: uppercase;
 }
 
@@ -285,16 +286,17 @@ body {
 	color: #232323;
 	font-size: 20px;
 	text-transform: none;
-	font-family: 'Arimo', arial, serif;
+	font-family: 'Arvo', arial, serif;
 	border-bottom: 5px solid #E3E3E3;
 }
 
 
 .entry .entry-header h1.entry-title {
 
-	font-family: 'Arimo', arial, serif;
+	font-family: 'Arvo', arial, serif;
 	font-size: 40px;
 	margin-bottom: 4px;
+	font-weight: bold;
 }
 
 .cfct-module-loop .cfct-mod-content .entry .entry-title, .cfct-module-loop-subpages .cfct-mod-content .entry .entry-title {
@@ -337,5 +339,14 @@ body {
 }
 
 h2.entry-title a {
-	color: #000000;
+font-family: 'Arvo', arial, serif;
+font-weight: bold;
+font-size: 24px;
+	color: #B22730;
+	
+}
+
+h2.entry-title a:hover {
+	text-decoration: none;
+	color: #F1C548;
 }

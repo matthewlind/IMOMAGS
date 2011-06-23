@@ -28,7 +28,7 @@
 
 
 a {
-	color: #0066cc;
+	color: #0079ba;
 	text-decoration: none;
 }
 html {
@@ -126,13 +126,13 @@ position: relative;
 #header .site-title a {
 	background: url(img/my-logo.png) 0 0 no-repeat; /*enter the proper file name for you logo graphic*/
 	display: block;
-	height: 119px; /*enter the height of your logo graphic*/
-	width: 744px; /*enter the width of your logo graphic*/
+	height: 120px; /*enter the height of your logo graphic*/
+	width: 684px; /*enter the width of your logo graphic*/
 	overflow: hidden;
 	text-indent: -9999em;
 }
 #header {
-	
+	background: #fff;
 	border-color: #CCC;
 	border-width: 0px;
 	border-style: solid;
@@ -142,7 +142,7 @@ position: relative;
 }
 
 #header .site-title {
-	margin: 0 0 0px 0px;
+	margin: 0 0 0px 30px;
 	padding-top: 20px; 
 }
 
@@ -234,16 +234,15 @@ body {
 
 
 .cfct-module .cfct-mod-title, .widget .widget-title {
-	padding-left: 5px;
+	padding-left: 0px;
 	font-style: normal;
 	font-weight: normal;
-	color: white;
+	color: #00467f;
 	margin: 0 0 20px 0;
 	background-repeat: no-repeat;
 	font-size: 26px;
 	font-family: Arvo, arial, serif;
 	text-transform: uppercase;
-	background: #e44d1b;
 }
 
 .car-pagination .cfct-carousel-prev, .car-pagination .cfct-carousel-next {
@@ -342,4 +341,7 @@ body {
 
 h2.entry-title a {
 	color: #000000;
+}
+
+#header-sub p{
 }
