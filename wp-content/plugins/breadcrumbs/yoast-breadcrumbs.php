@@ -210,7 +210,8 @@ function yoast_breadcrumb($prefix = '', $suffix = '', $display = true) {
 	
 	if ($on_front == "page") {
 		$homelink = '<a'.$nofollow.'href="'.get_permalink(get_option('page_on_front')).'">'.$opt['home'].'</a>';
-		$bloglink = $homelink.' '.$opt['sep'].' <a href="'.get_permalink(get_option('page_for_posts')).'">'.$opt['blog'].'</a>';
+		//$bloglink = $homelink.' '.$opt['sep'].' <a href="'.get_permalink(get_option('page_for_posts')).'">'.$opt['blog'].'</a>';
+		$bloglink = $homelink;
 	} else {
 		$homelink = '<a'.$nofollow.'href="'.get_bloginfo('url').'">'.$opt['home'].'</a>';
 		$bloglink = $homelink;
