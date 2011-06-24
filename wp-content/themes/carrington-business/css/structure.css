@@ -555,3 +555,26 @@ nav.nav-footer a:hover {
 	font-size: 11px;
 	color: #555;
 }
+
+/*fixes the images in the 'popular posts' widget*/
+#wpp-4 ul li {
+list-style: none;
+}
+#wpp-3 ul, #wpp-4 ul, .widget.popular-posts ul {
+margin-left: 0;
+}
+
+#wpp-3 ul li, .widget.popular-posts ul li {
+list-style: none;
+clear: left;
+}
+
+#wpp-3 ul li a img, .widget.popular-posts ul li a img {
+float: left;
+margin: 0 10px 10px 0;
+}
+#wpp-3 ul li a img, .widget.popular-posts ul li a img {
+float: left;
+margin: 0 10px 10px 0;
+font-weight: bold;
+}

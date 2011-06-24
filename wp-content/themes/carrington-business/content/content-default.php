@@ -41,10 +41,10 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 			
 			
 			<?php
-			if ($this_post_is_not_single) {
+			//if ($this_post_is_not_single) {
 				echo ' <span class="spacer">&bull;</span> ';
 				comments_popup_link(__('No comments', 'carrington-business'), __('1 comment', 'carrington-business'), __('% comments', 'carrington-business'));
-			}
+			//}
 			?>
 		</div>
 	</div>
