@@ -25,7 +25,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 <head>
 	<meta http-equiv="content-type" content="<?php bloginfo('html_type') ?>; charset=<?php bloginfo('charset') ?>" />
 
-        <title><?php wp_title(''); ?></title>
+	<title><?php wp_title( '-', true, 'right' ); esc_attr_e(get_bloginfo('name')); ?></title>
 
 	<meta http-equiv="X-UA-Compatible" content="chrome=1" />
 	<link rel="pingback" href="<?php bloginfo('pingback_url') ?>" />
@@ -117,9 +117,9 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
                                         <a href="https://secure.palmcoastd.com/pcd/eSv?iMagId=0145V&i4Ky=IBZN"><img style="border: 1px solid #cccccc;" width="83px" src="http://dev.imomags.com/imgs/gunsandammo-magazine.png"></a> 
                                  </div> 
 				<div style="float:left; adding-right:10px;margin-right:10px;text-align:right;">
-					<p style="FONT-WEIGHT: bold; COLOR:#cccccc;line-height:13px;">Save Over 70% off<br> the Cover Price </p> 
+					<p style="FONT-WEIGHT: bold; COLOR:#cccccc;line-height:13px;">Save Over 80% off<br> the Cover Price </p> 
 					<p style="margin-bottom:2px;margin-top:10px;"><a href="https://secure.palmcoastd.com/pcd/eSv?iMagId=0145V&i4Ky=IBZN" style="FONT-WEIGHT: bold; COLOR: #ffffff; TEXT-DECORATION: none">Subscribe Now!</a></p> 
-					<p style="margin-bottom:2px;"><a href="https://secure.palmcoastd.com/pcd/eSv?iMagId=0145V&i4Ky=IBZN" style="FONT-WEIGHT: bold; COLOR: #ffffff; TEXT-DECORATION: none">Give a Gift</a></p> 
+					<p style="margin-bottom:2px;"><a href="https://secure.palmcoastd.com/pcd/eSv?iMagId=0145V&i4Ky=IGZN" style="FONT-WEIGHT: bold; COLOR: #ffffff; TEXT-DECORATION: none">Give a Gift</a></p> 
 					<p><a href="https://secure.palmcoastd.com/pcd/eServ?iServ=MDE0NVY0NDY5Mg=" style="FONT-WEIGHT: bold; COLOR: #ffffff; TEXT-DECORATION: none">Subscriber Services</a></p> 
 				</div>	
 				
@@ -149,7 +149,15 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 			?>
 			
 		</div>
-	</header><!-- #header -->
+		</header><!-- #header -->
+	
+	<!-- Breadcrumbs -->
+	<?php if ( !is_front_page() && function_exists('yoast_breadcrumb') ): ?>
+	<div id="crumb-wrapper">
+		<?php	yoast_breadcrumb('<p id="breadcrumbs">','</p>'); ?>
+	</div>
+	<?php endif; ?>
+	<!-- end Breadcrumbs -->
 	
 	<hr class="accessibility" />
 	<section id="main" class="str-container">

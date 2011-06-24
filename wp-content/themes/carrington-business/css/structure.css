@@ -545,3 +545,13 @@ nav.nav-footer a:hover {
 	text-indent: -32000px;
 	width: 92px;
 }
+
+#crumb-wrapper {
+	margin: 0 auto;
+	width: 960px;
+	background: #FFFFFF;
+	padding: 10px 30px 0px 30px;
+	border-bottom: 1px dotted #E3E3E3;
+	font-size: 11px;
+	color: #555;
+}

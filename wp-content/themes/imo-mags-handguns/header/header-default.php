@@ -103,7 +103,7 @@ document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dart
 				<div style="float:left; adding-right:10px;margin-right:10px;text-align:right;">
 					<p style="FONT-WEIGHT: bold; COLOR:#cccccc;line-height:13px;">Save Over 70% off<br> the Cover Price </p> 
 					<p style="margin-bottom:2px;margin-top:10px;"><a href="https://secure.palmcoastd.com/pcd/eSv?iMagId=0146S&i4Ky=IBZN" style="FONT-WEIGHT: bold; COLOR: #ffffff; TEXT-DECORATION: none">Subscribe Now!</a></p> 
-					<p style="margin-bottom:2px;"><a href="https://secure.palmcoastd.com/pcd/eSv?iMagId=0146S&i4Ky=IBZN" style="FONT-WEIGHT: bold; COLOR: #ffffff; TEXT-DECORATION: none">Give a Gift</a></p> 
+					<p style="margin-bottom:2px;"><a href="https://secure.palmcoastd.com/pcd/eSv?iMagId=0146S&i4Ky=IGZN" style="FONT-WEIGHT: bold; COLOR: #ffffff; TEXT-DECORATION: none">Give a Gift</a></p> 
 					<p><a href="https://secure.palmcoastd.com/pcd/eServ?iServ=MDE0NlM0NDY5NCZpVHlwZT1FTlRFUg==" style="FONT-WEIGHT: bold; COLOR: #ffffff; TEXT-DECORATION: none">Subscriber Services</a></p> 
 				</div>	
 				
@@ -131,7 +131,15 @@ document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dart
 //			cfct_form('search');
 			?>
 		</div>
-	</header><!-- #header -->
+		</header><!-- #header -->
+	
+	<!-- Breadcrumbs -->
+	<?php if ( !is_front_page() && function_exists('yoast_breadcrumb') ): ?>
+	<div id="crumb-wrapper">
+		<?php	yoast_breadcrumb('<p id="breadcrumbs">','</p>'); ?>
+	</div>
+	<?php endif; ?>
+	<!-- end Breadcrumbs -->
 	
 	<hr class="accessibility" />
 	<section id="main" class="str-container">

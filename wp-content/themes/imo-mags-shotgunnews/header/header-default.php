@@ -103,13 +103,13 @@ document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dart
 		
 			<div style="float:right;padding-top:0px;width:220px;padding-right:30px;">
 				<div style="float:right;">
-                                        <a href="https://secure.palmcoastd.com/pcd/eSv?iMagId=0145V&i4Ky=IBZN"><img style="border: 1px solid #555555;" src="http://dev.imomags.com/imgs/shotgunnews-magazine2.png"></a> 
+                                        <a href="https://secure.palmcoastd.com/pcd/eSv?iMagId=27701&i4Ky=IBZN"><img style="border: 1px solid #555555;" src="http://dev.imomags.com/imgs/shotgunnews-magazine2.png"></a> 
                                  </div> 
 				<div style="float:left; adding-right:10px;margin-right:10px;text-align:right;">
-					<p style="FONT-WEIGHT: bold; COLOR:#cccccc;line-height:13px;">Save Over 70% off<br> the Cover Price </p> 
-					<p style="margin-bottom:0px;margin-top:8px;"><a href="https://secure.palmcoastd.com/pcd/eSv?iMagId=0145V&i4Ky=IBZN" style="FONT-WEIGHT: bold; COLOR: #000000; TEXT-DECORATION: none">Subscribe Now!</a></p> 
-					<p style="margin-bottom:0px;"><a href="https://secure.palmcoastd.com/pcd/eSv?iMagId=0145V&i4Ky=IBZN" style="FONT-WEIGHT: bold; COLOR: #000000; TEXT-DECORATION: none">Give a Gift</a></p> 
-					<p><a href="https://secure.palmcoastd.com/pcd/eServ?iServ=MDE0NVY0NDY5Mg=" style="FONT-WEIGHT: bold; COLOR: #000000; TEXT-DECORATION: none">Subscriber Services</a></p> 
+					<p style="FONT-WEIGHT: bold; COLOR:#cccccc;line-height:13px;">Save Over 80% off<br> the Cover Price </p> 
+					<p style="margin-bottom:0px;margin-top:8px;"><a href="https://secure.palmcoastd.com/pcd/eSv?iMagId=27701&i4Ky=IBZN" style="FONT-WEIGHT: bold; COLOR: #000000; TEXT-DECORATION: none">Subscribe Now!</a></p> 
+					<p style="margin-bottom:0px;"><a href="https://secure.palmcoastd.com/pcd/eSv?iMagId=27701&i4Ky=IGZN" style="FONT-WEIGHT: bold; COLOR: #000000; TEXT-DECORATION: none">Give a Gift</a></p> 
+					<p><a href="https://secure.palmcoastd.com/pcd/eServ?iServ=Mjc3MDE0NDc4NSZpVHlwZT1FTlRFUg==" style="FONT-WEIGHT: bold; COLOR: #000000; TEXT-DECORATION: none">Subscriber Services</a></p> 
 				</div>	
 				
  
@@ -137,6 +137,14 @@ document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dart
 			?>
 		</div>
 	</header><!-- #header -->
+	
+	<!-- Breadcrumbs -->
+	<?php if ( !is_front_page() && function_exists('yoast_breadcrumb') ): ?>
+	<div id="crumb-wrapper">
+		<?php	yoast_breadcrumb('<p id="breadcrumbs">','</p>'); ?>
+	</div>
+	<?php endif; ?>
+	<!-- end Breadcrumbs -->
 	
 	<hr class="accessibility" />
 	<section id="main" class="str-container">

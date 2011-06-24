@@ -168,9 +168,50 @@ nav.nav a {
 nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a {
 	padding-right: 15px;
 }
+
 nav.nav a:hover {
 	color: #f78100;
 }
+
+nav.nav li ul a:hover {
+	color: #204d8e;
+}
+
+nav.nav li ul a {
+	font-size: 14px;
+	color: #000;
+	font-weight: bold;
+	font-family: helvetica, arial, serif;
+}
+
+
+nav.nav li ul {
+border-left-style: solid;
+border-bottom-style: solid;
+border-right-style: solid;
+border-top-style: none;
+border-width: 1px;
+border-color: #000a0e;
+background-color: #e4e4e4;
+-moz-border-radius: 0px;
+-webkit-border-radius: 0px;
+-khtml-border-radius: 0px;
+-moz-border-radius-topleft: 0;
+border-radius: 0 0px 0px 0px;
+border-radius: 0 0px 0px 0px;
+-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+font-size: 13px;
+left: -32000px;
+line-height: 1.2;
+min-width: 100%;
+max-width: 400px;
+padding: 7px 0;
+position: absolute;
+z-index: 99;
+}
+
 
 #main-content .str-content {
 	border-color: #CCC;
@@ -310,5 +351,5 @@ body {
 }
 .cfct-module.style-c h2.cfct-mod-title {
 	margin: 0 0 4px 0;
-	color: #F78100;
+	color: #f78100;
 }

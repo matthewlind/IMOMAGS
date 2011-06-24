@@ -119,7 +119,7 @@ document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dart
 				<div style="float:left; padding-top:16px;padding-right:0px;margin-right:0px;text-align:right;">
 					<p style="FONT-WEIGHT: bold; COLOR: #56a2d6;line-height:12px;">Save Over 70% off<br> the Cover Price </p> 
 					<p style="margin-bottom:0px;margin-top:0px;"><a href="https://secure.palmcoastd.com/pcd/eSv?iMagId=0146F&i4Ky=IBZN" style="FONT-WEIGHT: bold; COLOR: #0066cc; TEXT-DECORATION: none">Subscribe Now!</a></p> 
-					<p style="margin-bottom:0px;"><a href="https://secure.palmcoastd.com/pcd/eSv?iMagId=0146F&i4Ky=IBZN" style="FONT-WEIGHT: bold; COLOR: #0066cc; TEXT-DECORATION: none">Give a Gift</a></p> 
+					<p style="margin-bottom:0px;"><a href="https://secure.palmcoastd.com/pcd/eSv?iMagId=0146F&i4Ky=IGZN" style="FONT-WEIGHT: bold; COLOR: #0066cc; TEXT-DECORATION: none">Give a Gift</a></p> 
 					<p><a href="https://secure.palmcoastd.com/pcd/eServ?iServ=MDE0NkY0NDA2OCZpVHlwZT1FTlRFUg==" style="FONT-WEIGHT: bold; COLOR: #0066cc; TEXT-DECORATION: none">Subscriber Services</a></p> 
 				</div>	
 				
@@ -154,6 +154,14 @@ document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dart
 			?>
 		</div>
 	</header><!-- #header -->
+	
+	<!-- Breadcrumbs -->
+	<?php if ( !is_front_page() && function_exists('yoast_breadcrumb') ): ?>
+	<div id="crumb-wrapper">
+		<?php	yoast_breadcrumb('<p id="breadcrumbs">','</p>'); ?>
+	</div>
+	<?php endif; ?>
+	<!-- end Breadcrumbs -->
 	
 	<hr class="accessibility" />
 	<section id="main" class="str-container">
