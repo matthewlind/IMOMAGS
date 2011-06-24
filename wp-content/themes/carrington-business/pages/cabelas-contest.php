@@ -25,7 +25,7 @@ the_post();
 <div class="col-abc">
 	<div <?php post_class('entry entry-full clearfix'); ?>>
 		<div class="entry-content">
-<iframe src="http://imo.perfectprize.com/?m=<?php global $blog_id; print $blog_id; ?>" id="contest-frame" width="100%" height="570">
+<iframe src="http://imo.perfectprize.com/?m=<?php global $blog_id; print $blog_id; ?>" id="contest-frame" width="100%" height="570" frameBorder="0" scrolling="no" allowTransparency="true">
   <p>Your browser does not support iframes.</p>
 </iframe>
 			<?php
