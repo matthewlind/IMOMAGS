@@ -1,5 +1,6 @@
 .htaccess
 .DS_Store
+wf-ads.html
 wp-activate.php
 wp-app.php
 wp-atom.php
@@ -8,6 +9,7 @@ wp-comments-post.php
 wp-commentsrss2.php
 wp-config-sample.php
 wp-config.php
+wp-config.php*
 wp-cron.php
 wp-feed.php
 wp-links-opml.php
