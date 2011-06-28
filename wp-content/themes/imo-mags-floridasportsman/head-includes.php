@@ -9,7 +9,6 @@ if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 ?>
-<!-- +++++++++ IMO MODS ++++++++ -->
 	
 	<!-- FONTS -->
 	<link href='http://fonts.googleapis.com/css?family=Arvo:regular,bold&v1' rel='stylesheet' type='text/css'>

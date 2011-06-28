@@ -343,5 +343,22 @@ h2.entry-title a {
 	color: #000000;
 }
 
-#header-sub p{
+#header-sub .left {
+    padding-top: 16px;
+}
+#header-sub {
+    float:right;
+    padding-top:10px;
+    padding-right:30px;
+    width:240px;
+}
+#header-sub p {
+    margin-bottom: 0;
+}
+#header-sub p.title {
+    color: #56A2D6;
+    margin-bottom: 5px;
+}
+#header-sub p a {
+    color: #06C;
 }
