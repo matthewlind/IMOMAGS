@@ -336,3 +336,10 @@ body {
 h2.entry-title a {
 	color: #000000;
 }
+#header-sub {
+    padding-top: 0;
+}
+
+#header-sub img {
+    width: 71px;
+}
