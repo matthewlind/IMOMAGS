@@ -34,6 +34,7 @@
 }
 #header-sub img {
     border: 1px solid #cccccc;
+    width: 83px;
 }
 #header-sub a {
     text-decoration:none;

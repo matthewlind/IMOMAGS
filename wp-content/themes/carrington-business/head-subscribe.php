@@ -5,7 +5,7 @@
 ?>
 <div id="header-sub" class="subscription-block"> 
 	<div class='right' >
-	<a href="<?php print SUBS_LINK;?>"><img width="83px" src="<?php print get_stylesheet_directory_uri(); ?>/img/magazine.png"></a> 
+	<a href="<?php print SUBS_LINK;?>"><img src="<?php print get_stylesheet_directory_uri(); ?>/img/magazine.png"></a> 
 	</div> 
 	<div class="left" >
 	<p class='title'><?php print SUBS_DEAL_STRING; ?></p> 
