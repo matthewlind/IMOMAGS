@@ -30,6 +30,7 @@
     line-height: 13px;
     margin-bottom:10px;
     font-weight: bold;
+    color: #cccccc;
 }
 #header-sub img {
     border: 1px solid #cccccc;
@@ -37,7 +38,7 @@
 #header-sub a {
     text-decoration:none;
     font-weight:bold;
-    color: #999;
+    color: #fff;
 }
 #header-sub p {
     margin-bottom:2px;
