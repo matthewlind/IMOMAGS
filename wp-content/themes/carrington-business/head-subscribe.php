@@ -3,7 +3,7 @@
 * Header Subscribe
 */
 ?>
-<div class="subscription-block" style="float:right;padding-top:30px;width:240px;">
+<div id="header-sub" class="subscription-block" style="float:right;padding-top:20px;width:240px;">
 	<div class='right' style="float:right;">
 	<a href="<?php print SUBS_LINK;?>"><img style="border: 1px solid #cccccc;" width="83px" src="<?php print get_stylesheet_directory_uri(); ?>/img/magazine.png"></a> 
 	</div> 
