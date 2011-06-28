@@ -338,3 +338,5 @@ body {
 h2.entry-title a {
 	color: #000000;
 }
+#header-sub p.title { color: #ccc;}
+#header-sub p a { color:#ffffff; }
