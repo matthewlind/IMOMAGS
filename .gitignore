@@ -1,5 +1,6 @@
 .htaccess
 .DS_Store
+*~
 wf-ads.html
 wp-activate.php
 wp-app.php
