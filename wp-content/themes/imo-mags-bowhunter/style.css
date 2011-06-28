@@ -339,3 +339,11 @@ body {
 h2.entry-title a {
 	color: #000000;
 }
+#header-sub {
+    padding-top: 30px;
+}
+#header-sub p {
+    color:#CCC;
+}
+#header-sub p a {
+    color: #fff;
