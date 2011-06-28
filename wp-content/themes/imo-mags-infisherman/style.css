@@ -350,3 +350,12 @@ h2.entry-title a:hover {
 	text-decoration: none;
 	color: #F1C548;
 }
+#header-sub p.title { 
+    color: #555;
+}
+#header-sub p a {
+    color: #000;
+}
+#header-sub {
+    padding-top: 20px;
+}
