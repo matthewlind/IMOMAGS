@@ -377,3 +377,13 @@ h2.entry-title a {
 h2.entry-title a:hover {
 	color: #72171B;
 }
+
+#header-sub p {
+    color:#232754;
+}
+#header-sub p a {
+    color:#555;
+}
+#header-sub {
+    padding-top: 20px;
+}
