@@ -1,0 +1,45 @@
+/**
+ * custom.css
+ *
+ * supports all custom css in carrington build.
+ */
+
+
+/**
+ * Default configuration for the subscriptions
+ */
+
+#headersub {
+    float: right;
+    width: 240px;
+    padding-top: 10px;
+}
+
+#header-sub .left {
+    float: left;
+    text-align: right;
+    padding-right: 10px;
+    margin-rigt: 10px;
+}
+
+#header-sub .right {
+    float: right;
+}
+
+#header-sub p.title {
+    line-height: 13px;
+    margin-bottom:10px;
+    font-weight: bold;
+}
+#header-sub img {
+    border: 1px solid #cccccc;
+}
+#header-sub a {
+    text-decoration:none;
+    font-weight:bold;
+    color: #999;
+}
+#header-sub p {
+    margin-bottom:2px;
+    color: #000;
+}
