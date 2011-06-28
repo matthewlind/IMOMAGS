@@ -329,3 +329,10 @@ body {
 	margin: 0 0 4px 0;
 	color: #F78100;
 }
+#header-sub p.title { 
+    color: #cccccc;
+}
+
+#header-sub p a {
+    color: #ffffff;
+}
