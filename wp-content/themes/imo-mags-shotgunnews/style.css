@@ -355,3 +355,12 @@ body {
 h2.entry-title a {
 	color: #000000;
 }
+
+#header-sub { padding-right:30px; padding-top: 0; }
+#header-sub img {width : 73px;}
+#header-sub p.title { color: #DDD; margin-bottom:5px; }
+#header-sub p a { color: #000;}
+header#header {
+    background: white url('img/my-tagline.jpg') no-repeat center 30px;
+    padding-top: 55px;
+}
