@@ -1,4 +1,4 @@
-/** 
+/* 
  * Theme Name: IMO Mags - Wildfowl
  * Theme URI: http://imomags.com/wildfowl
  * Description: A Wildfowl theme for the IMO Mags site.
@@ -341,3 +341,5 @@ body {
 h2.entry-title a {
 	color: #000000;
 }
+
+#header-sub p.title { color: #555; }
