@@ -6,6 +6,7 @@
  * Defines additions to Carrington Build's theme. 
  */
 
+include_once(CFCT_PATH.'widgets/subscribe.php');
 
 
 function imo_addons_sidebar_init() {
