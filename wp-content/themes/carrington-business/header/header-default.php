@@ -79,7 +79,13 @@ document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dart
     		<div class="str-container">
 		
 			
-<?php if (defined("SUBS_LINK")) { include_once get_template_directory() . "/head-subscribe.php"; } ?>
+<?php if (!is_active_sidebar("header-slot")) { 
+    include_once get_template_directory() . "/head-subscribe.php"; 
+}
+else { 
+    dynamic_sidebar("header-slot");
+}
+?>
 			
 			
 			     <h1 class="site-title"><a href="<?php echo home_url('/'); ?>" title="<?php _e('Home', 'carrington-business') ?>"><?php bloginfo('name'); ?></a></h1>

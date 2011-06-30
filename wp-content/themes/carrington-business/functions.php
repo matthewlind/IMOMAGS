@@ -46,7 +46,7 @@ include_once(CFCT_PATH.'functions/css3pie.php');
 include_once(CFCT_PATH.'functions/post-type-news.php');
 include_once(CFCT_PATH.'functions/sidebars.php');
 include_once(CFCT_PATH.'functions/header-includes.php');
-#include_once(CFCT_PATH.'functions/rewrites.php');
+include_once(CFCT_PATH.'functions/imo-addons.php');
 include_once(CFCT_PATH.'functions/admin.php');
 
 if ( ! function_exists( 'cfct_setup' ) ) {
