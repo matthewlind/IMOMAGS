@@ -6,18 +6,81 @@
 
 namespace imo;
 
-class SubscribeWidget extends \WP_Widget {
+/**
+ * SubscribeHeaderWidget
+ *
+ * Creates he little block at the top of the page.
+ */
+class SubscribeHeaderWidget extends \WP_Widget {
 
     function __construct()
     {
-        $options = array();
         parent::__construct("subscribe-header", "Subscribe Header");
     }
 
     /**
      * renders administrative form for the widget
+     *
+     * tite
+     * gift
+     * service
+     * image url
+      
      */
-    function form($istance) {
+    function form($instance) {
+        
+    }
+
+    /**
+     * Updates the contents of the widget.
+     * @See WP_Widget:update
+     */
+    function update($new_instance, $old_instance) {
+    }
+
+    /**
+     * Outputs the widget contet.
+     * @see WP_Widget::widget
+     */
+    function widget($args, $instance) {
+        extract( $args );
+        print $before_widget;
+?>
+<!-- Header Widget -->
+<div id="header-sub" class="subscription-block"> 
+	<div class='right' >
+	<a href="<?php print get_option("subs_link");?>"><img src='<?php print get_option("magainze_cover_url", get_stylesheet_directory_uri(). "/img/magazine.png" ); ?>'></a> 
+	</div> 
+	<div class="left" >
+	<p class='title'><?php print get_option("deal_copy", "Save up to 70%<br/> Off the Cover Price!"); ?></p> 
+		<p ><a href="<?php print get_option("subs_link"); ?>" target="_blank">Subscribe Now!</a></p> 
+		<p style="margin-bottom:2px;"><a href="<?php print get_option("gift_link");?>" target="_blank">Give a Gift</a></p> 
+		<p><a href="<?php print get_option("service_link"); ?>" target="_blank">Subscriber Services</a></p> 
+	</div>	
+</div> <!-- End Header Widget -->
+<?php
+        print $after_widget;
+    }
+}
+
+class SubscribeWidget extends \WP_Widget {
+
+    function __construct()
+    {
+        parent::__construct("subscribe-forum", "Subscription Form");
+    }
+
+    /**
+     * renders administrative form for the widget
+     *
+     * tite
+     * gift
+     * service
+     * image url
+      
+     */
+    function form($instance) {
+        
     }
 
     /**
@@ -37,13 +100,13 @@ class SubscribeWidget extends \WP_Widget {
 ?>
 <!-- Magazine sign up  --> 
 <div class="block " id="store"> 
-    <h2 class="title">Save over 70% Off the Cover Price!</h2> 
+<h2 class="title"><?php print strip_tags(get_option("deal_copy"));?></h2> 
     <div class="content"> 
         <div class="subscribeAdMod"> 
             <div class="subscribeAdModContent"> 
-                <form method="POST" action="https://secure.palmcoastd.com/pcd/eSv?iMagId=0145V&i4Ky=IBZN" target="_blank">
-                    <input type="hidden" name="i4Ky" value="IBZN" />
-                    <input type="hidden" name="iMagId" value="0145V" />
+                <form method="POST" action="https://secure.palmcoastd.com/pcd/eSv?iMagId=<?php print get_option('iMagId')?>&i4Ky=<?php print get_option('i4ky', 'IBZN')?>" target="_blank">
+                    <input type="hidden" name="i4Ky" value="<?php print get_option('i4ky', 'IBZN')?>" />
+                    <input type="hidden" name="iMagId" value="<?php print get_option('iMagId')?>" />
                     <div class="subscribe-row"> 
                         <span class="text">First Name</span> 
                         <input type="text" class="form-text" name="iOrdBillFName"/> 
@@ -139,6 +202,7 @@ class SubscribeWidget extends \WP_Widget {
 
                     <br clear="all" /> 
             </div></div> 
+            <?php ?> 
 <?php
         print $after_widget;
     }
@@ -146,4 +210,8 @@ class SubscribeWidget extends \WP_Widget {
 
 add_action("widgets_init", function() {
     return register_widget("imo\SubscribeWidget");
+});
+
+add_action("widgets_init", function() {
+    return register_widget("imo\SubscribeHeaderWidget");
 });
