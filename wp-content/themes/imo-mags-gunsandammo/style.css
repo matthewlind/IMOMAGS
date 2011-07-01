@@ -353,3 +353,17 @@ body {
 	margin: 0 0 4px 0;
 	color: #f78100;
 }
+
+.widget.widget_subscribe-form h2 {
+    font-family: "Kameron", arial, sans-serif;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+} 
+.widget.widget_subscribe-form {
+    border:3px solid #eee;
+}
+.widget.widget_subscribe-form div.mag-cover {
+}
+.subscribe-form-block {
+    margin: 14px;
+}
