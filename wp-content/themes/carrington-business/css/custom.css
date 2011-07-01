@@ -45,21 +45,38 @@
     margin-bottom:2px;
     color: #000;
 }
+/**
+ * Subscribe form css
+ */
+.widget.widget_subscribe-form h2 {
+   margin-left: 105px;
+}
+.widget.widget_subscribe-form {
+    border:1px solid #eee;
+}
+.widget.widget_subscribe-form div.mag-cover {
+    float:left;;
+    width: 82px;
+}
+.subscribe-form-block{
+    margin: 18px;
+}
 .subscribeAdModContent form .subscribe-row {
     clear:both;
 }
 .subscribeAdModContent form .subscribe-row .text {
+    display:block;float:left;font-size:14px;margin:2px 25px 0px 0px;text-align:right;width:82px;
 }
-.subscribeAdModContent form .subscribe-row .text{
-    display:block;float:left;font-size:14px;margin:2px 5px 0px 0px;text-align:right;width:100px;
-}
-.subscribeAdModContent form .subscribe-row input.form-text{background:#fff;border:1px solid #909294;color:#555;font-size:14px;font-weight:bold;margin:0px 0px 1px;text-indent:3px;vertical-align:middle;width:170px;}
+.subscribeAdModContent form .subscribe-row input.form-text {
+    background:#fff;border:1px solid #909294;color:#555;font-size:14px;font-weight:bold;margin:0px 0px 1px;text-indent:3px;vertical-align:middle;width:150px;}
+
 .subscribeAdModContent form .subscribe-row .text.zip {
     width: auto; 
     padding-left: 10px;
 }
+
 .subscribeAdModContent form .subscribe-row input.form-text.zipCode {
-width: 76px;
+width: 55px;
 }
   .subscribeAdModContent form .subscribe-row input.form-text:focus,
   .subscribeAdModContent form .subscribe-row input.form-text.focus 
@@ -67,12 +84,11 @@ width: 76px;
       border-color: #7A7;    }
   .subscribeButton .submit-button{
       background:#115FA4 url(../images/mask.png) repeat-x;border:2px solid #115FA4;
-      border-radius:3px;-moz-border-radius:3px;border-bottom-left-radius:3px 3px;border-bottom-right-radius:3px 3px;border-top-left-radius:3px 3px;border-top-right-radius:3px 3px;color:white;display:block;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:16px;padding:5px 15px;text-align:center;text-decoration:none;text-transform:uppercase;width:170px;font-weight:bold;margin-left:105px;}
+      border-radius:3px;-moz-border-radius:3px;border-bottom-left-radius:3px 3px;border-bottom-right-radius:3px 3px;border-top-left-radius:3px 3px;border-top-right-radius:3px 3px;color:white;display:block;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:16px;padding:5px 15px;text-align:center;text-decoration:none;text-transform:uppercase;width:153px;font-weight:bold;margin-left:108px;}
   .subscribeAdModContent .jquery_dropdown_container{float:left;width:50px;}
   .subscribeAdModContent #stateDropDown{float:left;margin:0px;padding:0px;width:50px;}
   .subscribeAdModContent .jquery_dropdown_container ul.jquery_dropdown_list{width:50px;}
-  .block .subscribeAdModContent form .subscribe-row .zip{width:30px;}
-  .block .subscribeAdModContent form .subscribe-row .zipCode{width:85px;}
+  .block .subscribeAdModContent form .subscribe-row .zip{width:30px; margin-right: 5px;}
   .subscribeAdModContent  .subscribeLinks ul{margin:20px 0 0 0;padding:0;text-align:center;}
   .subscribeAdModContent .subscribeLinks  ul li{display:inline-block;padding-left:10px;margin-left:10px;}
   .subscribeAdModContent .subscribeLinks  ul li.first{background-image:none;}
