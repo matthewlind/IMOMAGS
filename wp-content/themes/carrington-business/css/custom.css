@@ -103,31 +103,47 @@
  * Newsletter Form
  */
 
-#newsletter h2 {
+.newsletter h3, form.newsletter  h3.gform_title, .newsletter h2 {
     font-size: 16px; 
     font-weight: bold;
+    margin: 0 0 10px 0;
 }
-#newsletter {
-    background: #BBC url(../images/bbc_gradient.gif) repeat-x;
+.gform_wrapper .newsletter .gform_footer { 
+    margin:14px 0 0 180px;
+    padding:0;
+    width: 80px;
+    clear:none;
+}
+.gform_wrapper .newsletter .gform_heading { 
+    margin:0;
+}
+.gform_wrapper form.newsletter .gfield_label {
+    display:none;
+}
+.newsletter {
+    background: #BBC url(../img/bbc_gradient.gif) repeat-x;
     padding:20px;
     border:1px solid #ccc;
     vertical-align: middle;
     position:relative;
           }
-#newsletter .form-submit {
-  background: #ccc url(../images/button_gradient.gif) repeat-x;
+#sidebar .newsletter .gform_button {
+  background: #ccc url(../img/button_gradient.gif) repeat-x;
   color: #06C;
   border: 1px solid #AAA;
   height:26px;
   font-size: 14px;
   border-radius: 0;
   vertical-align:middle;
-  margin-left:177px;
   display:block;
 }
-#newsletter .form-text {
+.newsletter .gform_body {
+    width: 175px;
+    float:left;
+}
+#sidebar .gform_wrapper .newsletter .ginput_container input {
     border: 1px solid #AAA;
-    width:175px;
+    width:170px;
     padding:0;
     vertical-align: middle;
     margin:0;
@@ -135,5 +151,6 @@
     font-size: 16px; 
     line-height:26px;
     float:left;
+    text-indent: 8px;
 }
 
