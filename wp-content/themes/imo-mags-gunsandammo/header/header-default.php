@@ -1,19 +1,7 @@
 <?php
-
 /**
- * @package carrington-business
- *
- * This file is part of the Carrington Business Theme for WordPress
- * http://crowdfavorite.com/wordpress/themes/carrington-business/
- *
- * Copyright (c) 2008-2011 Crowd Favorite, Ltd. All rights reserved.
- * http://crowdfavorite.com
- *
- * **********************************************************************
- * This program is distributed in the hope that it will be useful, but
- * WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
- * **********************************************************************
+ * This file was forked from Carrington Business, and should eventually be merged back into
+ * the main line. 
  */
 
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
@@ -61,6 +49,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 <div class='str-container'>
         <div class='aligncenter centerad'>
 	<!-- 728x90 Ad: -->
+<div class="ad-left">
 <script type="text/javascript">
 document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dartadsgen_site+'/;sect=;page=index;subs=;sz=728x90;dcopt=;tile='+pr_tile+';ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
 </script>
@@ -74,8 +63,11 @@ document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dart
 </noscript>
 <!-- END 728x90 Ad: -->
 </div>
+<div class='ad-right'>
+    <a href="http://www.nssf.org/FirstShots/" target="_blank"><img src='<?php print bloginfo('stylesheet_directory') . "/img/nssf.png"?>' alt="Visit the National Shooting Sports Foundation"/></a>
 </div>
-
+</div>
+</div>
 	<header id="header">
     		<div class="str-container">
 		

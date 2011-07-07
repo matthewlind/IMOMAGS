@@ -56,8 +56,14 @@ a {
     margin-top: 10px;
     margin-bottom: 10px;
 	text-align: center;
+    height: 90px;
+    width: 100%;
+    position: relative;
     clear:both;
 }
+
+.centerad .ad-left { position: absolute; left: 75px; width: 730px; }
+.centerad .ad-right { position: absolute; right: 75px; width: 120px; }
 
 #main-content, #footer-content {
 border-style: none;
@@ -367,3 +373,4 @@ body {
 .subscribe-form-block {
     margin: 14px;
 }
+#header aside.widget { margin-right: 20px; }

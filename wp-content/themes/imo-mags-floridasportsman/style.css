@@ -362,3 +362,6 @@ h2.entry-title a {
 #header-sub p a {
     color: #06C;
 }
+#header aside.widget { 
+    overflow: visible; 
+}
