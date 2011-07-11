@@ -1,0 +1,7 @@
+
+// Define Tokens
+// Remember to include the entire string; brightcove write tokesn often terminate
+// with two periods '..'
+define("BC_WRITE_TOKEN", "");
+define("BC_READ_TOKEN", "");
+
