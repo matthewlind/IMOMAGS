@@ -24,7 +24,7 @@ require('bc-config.php');
  */
 function _bc_import_create_post($title, $description, $id, $tags=array()){
     global $user_ID;
-    $post_content = "http://brightcove=" . $id . " \n " . $description;
+    $post_content = _bc_embed_format_tag($id) . " \n " . $description;
 
     $post = array(
         "post_type" => "post",
@@ -48,15 +48,15 @@ function _bc_import_create_post($title, $description, $id, $tags=array()){
  * @return - array of video assets
  */
 function _bc_import_gather_videos($method = 'all', $query){
-    if(empty($query)) {
-        return "";
+    if(empty($query) || !is_string($query)) {
+        return array(); 
     }
     $bc = new BCMAPI(BC_READ_TOKEN, BC_WRITE_TOKEN);
 
+    $videos = array();
     switch($method) {
     case "tag":
-        $tags = is_array($query) ? implode(",", $query) : $query; 
-        $videos = $bc->search("video", array(), array('all'=>"tag:" . $tags));
+        $videos = $bc->search("video", array(), array('all'=>"tag:" . $query));
         break;
     case "search":
         $videos = $bc->search("video", array(), array('all'=>"display_name:" . $query));
@@ -72,43 +72,52 @@ function _bc_import_gather_videos($method = 'all', $query){
     default:
         // pass
     } 
+
     return $videos;
 }
 
 
 /**
- * create an admin page.
+ * Admin menu add_action callback.
  */
-
 function bc_import_menu(){
+    if (!is_plugin_active("bc_embed/plugin.php")) {
+        print "<div class='error'>Brightcove Embed is not enabled. Video import is disabled.</div>";
+    }
     add_options_page('Brightcove Importer', 'Brightcove Import', "manage_options", "bc_import", "bc_import_options");
 }
 
+
+/**
+ * Options Page Callback
+ */
 function bc_import_options() {
     if (!current_user_can('manage_options'))  {
         wp_die( __('You do not have sufficient permissions to access this page.') );
     }
-    $videos = _bc_import_gather_videos($_POST['meth'], $_POST['bc_query']);
-    if ( isset($_POST['bc_query']) && $_POST['bc_action'] == "import") {
-        $resp="<h3>Videos Imported</h3><ul>";
-        foreach ($videos as $video) {
-            if( $bid = _bc_import_create_post($video->name, $video->shortDescription, $video->id, implode( ',', $video->tags )) )
-            {
-                //success
-                $resp .= "<li class='green'>Added: $video->name with bid $bid</li>";
-            }
-            else {
-                //failure
-                $resp .="<li class='red'>Failure: $video->name</li>";
+    if ( empty($_POST['bc_query']) || empty($_POST["bc_meth"]) || !is_plugin_active("bc_embed/plugin.php") ) {
+        $resp="";
+    }
+    else {
+        $videos = _bc_import_gather_videos($_POST["bc_meth"], $_POST['bc_query']);
+        if ( $_POST['bc_action'] == "import") {
+            $resp="<h3>Videos Imported</h3><ul>";
+            foreach ($videos as $video) {
+                if( $bid = _bc_import_create_post($video->name, $video->shortDescription, $video->id, implode( ',', $video->tags )) ) { //success
+                    $resp .= "<li class='green'>Added: $video->name with bid $bid</li>";
+                }
+                else { //failure
+                    $resp .="<li class='red'>Failure: $video->name</li>";
+                }
             }
         }
-    }
-    else { // show default action.
-        $resp = "<h3>Videos Found</h3><ul>";
-        foreach ($videos as $video) {
-            $resp .= "<li class='green'> $video->name</li>";
-        }        
-        $resp .="</ul>";
+        else { // show default action.
+            $resp = "<h3>Videos Found</h3><ul>";
+            foreach ($videos as $video) {
+                $resp .= "<li class='green'> $video->name</li>";
+            }        
+            $resp .="</ul>";
+        }
     }
     include("bc-import-options.tpl.php");
 }

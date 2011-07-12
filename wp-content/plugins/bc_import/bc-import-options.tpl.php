@@ -11,8 +11,8 @@
 <h2>Brightcove Importer</h2>
 <?php print $resp; ?>
 <form action="" method="post">
-<p><label for="meth">Search 
-<select name="meth" id="meth">
+<p><label for="bc_meth">Search 
+<select name="bc_meth" id="bc_meth">
 <?php 
     $opts = array(
         "tag"=>"By Tags",

@@ -45,13 +45,27 @@ function wp_embed_handler_brightcove ( $matches, $attr, $url, $rawattr ) {
     $embed = sprintf( $output,
         _BC_DEFAULT_PLAYER_ID,
         _BC_PUBLISHER_ID,
-	$videoid,
+        $videoid,
         $width,
         $height,
-	_BC_DEFAULT_PLAYER_KEY,
-	11111, 1312,13123,123123,123123123,1231
-    );
+        _BC_DEFAULT_PLAYER_KEY);
     return apply_filters( 'embed_brightcove', $embed, $matches, $attr, $url, $rawattr );
+}
+
+
+/**
+ * Embed formatter, included incase we decide to change the method of including
+ * brightcove videos.
+ *
+ * @param $brightcove_ID - string
+ *
+ * @return - string - formatted tag for brightcove.
+ */
+function _bc_embed_format_tag($brightcove_ID) {
+    $tag = "http://brightcove=%s";
+    $brightcove_ID = preg_replace('/[^0-9]/', '', esc_attr($brightcove_ID));
+
+    return sprintf($tag, $brightcove_ID);
 }
 
 wp_embed_register_handler( "brightcove", '#http://brightcove=([^]]*)#i', "wp_embed_handler_brightcove");

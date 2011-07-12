@@ -183,3 +183,15 @@ aside.widget .newsletter h3.gform_title {
     text-transform: uppercase;
     font-weight: bold;
 }
+
+/** Store Widget ***/
+#imoprodgallery { 
+    border: 3px solid #ccc;
+}
+.widget .regprice {
+    color: #000;
+    font-family: Helvetica, Arial, sans-serif;
+}
+.widget .gform_wrapper {
+    max-width: 100%;
+}
