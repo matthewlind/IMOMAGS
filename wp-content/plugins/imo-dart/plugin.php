@@ -9,11 +9,10 @@
  */
 include_once("AdvertWidget.php");
 /**
- * returns a tring containing the formatted dart tag.
- *
+ * returns a string containing the formatted dart tag.
  */
-function get_imo_dart_tag($size, $tile=1, $iframe="false") {
-    $params = _imo_dart_get_params($size, $tile);
+function get_imo_dart_tag($size, $tile=1, $iframe="false", $override_params=array()) {
+    $params = array_merge(_imo_dart_get_params($size, $tile), $override_params);
     $tag = _imo_dart_get_tag($iframe);
     return _imo_dart_sprint_tag($params, $tag); 
 }
@@ -71,7 +70,7 @@ function _imo_dart_get_params($size, $tile) {
 function _imo_dart_get_tag($iframe) {
     if ($iframe) 
     {
-        $tag = '<iframe frameBorder="0" width="%8$s" height="%9$s" scrolling="no" allowTransparency="true">';
+        $tag = '<iframe src="/iframe-advertisement.php?size=%1$s&zone=%2$s" frameBorder="0" width="%8$s" height="%9$s" scrolling="no" allowTransparency="true">';
         $tag .= _imo_dart_get_tag(false);
         $tag .="</iframe>";
     }
@@ -114,11 +113,16 @@ function _imo_dart_guess_domain() {
 
 /**
  * prints the dart tag to the page.
+ *
+ * $size - size of the placement
+ * $iframe - boolean - set to true or false depending on whether to generate an iframetag or normal tag.
+ * $override_params: will be merged into params at the end, so that we can pass params to the iframe
+ *
  */
-function imo_dart_tag($size, $iframe="false") {
+function imo_dart_tag($size, $iframe="false", $override_params=array()) {
     static $tile = 0; 
     $tile++;
-    print get_imo_dart_tag($size, $tile, $iframe);
+    print get_imo_dart_tag($size, $tile, $iframe, $override_params);
 }
 
 
@@ -150,3 +154,49 @@ if (__FILE__ == $_SERVER['PWD'] . '/'. $_SERVER['SCRIPT_FILENAME']) {
 }
 
 
+function iframe_maker () {
+    if (preg_match("/^\/iframe-advert\.php(\?(.+)?)?$/", $_SERVER['REQUEST_URI'])) {
+?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="refresh" content="45">
+    </head>
+    <body style="margin:0px;border:0px;">
+        <script type="text/javascript">
+        var dartadsgen_rand = Math.floor((Math.random()) * 100000000), pr_tile = 1; 
+        </script>
+<?php
+        $sizes = array(
+            "box-ad" => "300x250", "skyscraper" => "160x600", "leaderboard" => "728x90",
+            "rectangle" => "180x150", "wide-skyscraper" => "300x600", "button2" => "120x60",
+        );
+        $size=$_GET['size'];
+
+        if ( !in_array($size, $sizes)) {
+            $size = "300x250";
+        }
+        
+        $params = array();
+        if (isset($_GET['page'])) {
+            $params["page"] = imo_dart_clean_tag($_GET['page']);
+        }
+        
+if (isset($_GET['zone'])) {
+            $params["zone"] = imo_dart_clean_tag($_GET['zone']);
+        }
+        
+        imo_dart_tag($size, False, $params);
+?>
+    </body>
+    </html>
+<?php
+        die();
+    }
+}
+
+
+function imo_dart_clean_tag($string) {
+    return preg_replace("/\s+/", '_', preg_replace("/[^a-z0-9 ]/", '', strtolower($string)));
+}
+add_action("init", "iframe_maker");
