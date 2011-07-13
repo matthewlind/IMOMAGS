@@ -20,6 +20,7 @@ if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 ?>
 <!DOCTYPE html>
+<!-- bid: <?php global $blog_id; print $blog_id ?>; env: <?php if(defined("WEB_ENV")) { print WEB_ENV; } else { print "production"; } ?> -->
 <!--[if IE 6]><![endif]-->
 <html <?php language_attributes() ?>>
 <head>

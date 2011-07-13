@@ -92,6 +92,7 @@ if ( ! function_exists( 'cfct_setup' ) ) {
 		
 		if (!is_admin()) {
 			wp_enqueue_script('carrington-business', get_bloginfo('template_directory') . '/js/master.js', array('jquery'), CFCT_URL_VERSION);
+			wp_enqueue_script('carrington-business', get_bloginfo('template_directory') . '/js/custom.js', array('jquery'), CFCT_URL_VERSION);
 		}
 		
 		// Enqueue child styles at theme setup (allow child themes to override)

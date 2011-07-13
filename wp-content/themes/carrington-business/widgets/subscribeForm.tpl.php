@@ -105,7 +105,8 @@
                     </div> 
                 </form> 
 
-                <div class="subscribeLinks"> 
-
-                    <br clear="all" /> 
-            </div></div> 
+                <div class="subscribeLinks"> <br clear="all" /> </div>
+            </div> 
+        </div>
+    </div>
+</div>
