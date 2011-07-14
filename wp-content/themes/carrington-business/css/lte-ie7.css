@@ -42,3 +42,16 @@ nav.nav li ul {
 .cfct-block-abc .cfct-module-carousel {
 	width: 918px;
 }
+
+div#featured div.right { width: 230px; }
+.scroller-controller UL.scroll-dots {
+	position:relative;
+}
+.jcarousel-skin-featured {
+	position: relative;
+	z-index: 10;
+}
+.scroller-controller UL.scroll-dots LI.dot A {
+	display:block;
+	float:left;
+}
