@@ -33,9 +33,11 @@
 	float:left;
 }
 
-body {
+/*
+ body {
 	height: 100%;
 }
+*/
 
 #shShutter *, #shDisplay * {
 	padding: 0;

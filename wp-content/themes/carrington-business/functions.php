@@ -15,6 +15,27 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
  * **********************************************************************
  */
+
+/* This function allows for logging when debugging mode is on */
+if(!function_exists('_log')){
+  function _log( $message ) {
+    if( WP_DEBUG === true ){
+      if( is_array( $message ) || is_object( $message ) ){
+        error_log( print_r( $message, true ) );
+      } else {
+        error_log( $message );
+      }
+    }
+  }
+}
+
+
+add_image_size("small-featured-thumb",110,70,TRUE);
+add_image_size("large-featured-thumb",308,225,TRUE);
+
+
+
+
 define("USE_IFRAME_ADS",FALSE);
 
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
