@@ -70,7 +70,7 @@ function _imo_dart_get_params($size, $tile) {
 function _imo_dart_get_tag($iframe) {
     if ($iframe) 
     {
-        $tag = '<iframe src="/iframe-advertisement.php?size=%1$s&zone=%2$s" frameBorder="0" width="%8$s" height="%9$s" scrolling="no" allowTransparency="true">';
+        $tag = '<iframe src="/iframe-advert.php?size=%1$s&zone=%3$s&sect=%4$s&page=%6$s&subs=%5$s" frameBorder="0" width="%8$s" height="%9$s" scrolling="no" allowTransparency="true">';
         $tag .= _imo_dart_get_tag(false);
         $tag .="</iframe>";
     }
@@ -172,20 +172,17 @@ function iframe_maker () {
             "rectangle" => "180x150", "wide-skyscraper" => "300x600", "button2" => "120x60",
         );
         $size=$_GET['size'];
-
+        $string_list = array("size", "zone", "sect", "subs", "page");
+        $params = array();
+        foreach ($string_list as $parameter) {
+            if(isset($_GET[$parameter])) {
+                $params[$parameter] = imo_dart_clean_tag($_GET[$parameter]);
+            }
+        }
         if ( !in_array($size, $sizes)) {
             $size = "300x250";
         }
-        
-        $params = array();
-        if (isset($_GET['page'])) {
-            $params["page"] = imo_dart_clean_tag($_GET['page']);
-        }
-        
-if (isset($_GET['zone'])) {
-            $params["zone"] = imo_dart_clean_tag($_GET['zone']);
-        }
-        
+               
         imo_dart_tag($size, False, $params);
 ?>
     </body>
