@@ -47,6 +47,11 @@ function imo_addons_sidebar_init() {
 		'name' => __('Video Sidebar', 'carrington-business'),
 		'description' => __('Shown on video posts.', 'carrington-business')
 	)));
+    register_sidebar(array_merge($sidebar_defaults, array(
+		'id' => 'sidebar-articles',
+		'name' => __('Article Sidebar', 'carrington-business'),
+		'description' => __('Shown on article posts.', 'carrington-business')
+	)));
 }
 
 /**
