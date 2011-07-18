@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @package carrington-business
  *
@@ -21,9 +20,6 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 get_header();
 ?>
-<header id="masthead">
-	<h1><?php cfct_blog_title(); ?></h1>
-</header><!-- #masthead -->
 <div class="col-ab">
 	<?php
 	cfct_loop();

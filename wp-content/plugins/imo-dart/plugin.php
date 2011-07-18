@@ -33,7 +33,7 @@ function _imo_dart_get_params($size, $tile) {
     }
 
     // grab the correct parameters
-    $params = array(
+    $defaults = array(
         "domain" => get_option("dart_domain", _imo_dart_guess_domain()),
         "width"=> array_shift(explode("x", $size)),
         "height"=> array_pop(explode("x", $size)),
@@ -41,26 +41,56 @@ function _imo_dart_get_params($size, $tile) {
         "tile" => $tile,
     );
     if (is_front_page()) {
-        $params = array_merge( $params, array(
+        $params = array(
             "zone" => "home",
             "sect" => "home",
             "subs" => "",
-            "page" => "index",)
+            "page" => "index",
         );
     }
+    elseif (is_single()) {
+
+        global $the_ID;
+        $cat = array_shift(get_the_category($the_ID));
+        $params = array(
+            "zone" => $cat->name,
+            "sect" => $cat->name,
+            "subs" => "",
+            "page" => the_title("","", false),
+        );
+
+    }
     elseif (is_page()) {
-    }
+        $page = get_page();
+        $zone = (isset($page->cat_name)) ? $page->cat_name : $page->post_name;
+        $params = array(
+            "zone" => $zone,
+            "sect" => $zone,
+            "subs" => "",
+            "page" => $page->post_title,
+        ); }
     elseif ( is_tax() || is_tag() || is_category() ) {
-    }
+        if (is_category()) {
+            $tax_title = single_cat_title('', False);
+        }
+        else {
+            $tax_title = single_tag_title("", False);
+        }
+    $params = array(
+            "zone" => $tax_title,
+            "sect" => $tax_title,
+            "subs" => "",
+            "page" => $tax_title . " Archive", 
+        ); }
     else {
-        $params = array_merge( $params, array(
+        $params = array(
             "zone" => "misc",
             "sect" => "misc",
             "subs" => "",
-            "page" => "index",)
+            "page" => "index",
         );  
     }
-    return $params;
+    return array_merge(array_map("imo_dart_clean_tag", $params), $defaults);
 } 
 
 
@@ -182,7 +212,7 @@ function iframe_maker () {
         if ( !in_array($size, $sizes)) {
             $size = "300x250";
         }
-               
+
         imo_dart_tag($size, False, $params);
 ?>
     </body>
