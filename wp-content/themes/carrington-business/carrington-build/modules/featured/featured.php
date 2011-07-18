@@ -280,8 +280,6 @@ if (!class_exists('cfct_module_featured') && class_exists('cfct_build_module')) 
 		protected function get_custom_loop_default($data, $args = array()) {
 			
 			
-			_log("************************************************get_custom_loop_default");
-			_log("************************************************get_custom_loop_default");
 			$this->cache_global_post();
 			
 			ob_start();
@@ -322,16 +320,17 @@ if (!class_exists('cfct_module_featured') && class_exists('cfct_build_module')) 
 						$this->the_featured_slider_block();
 					if ($count >3 && $count <= 6)
 						$this->the_featured_image_links();
-					if ($count >6 && $count <= 10)
+					if ($count >6 && $count <= 9)
 						$this->the_featured_links();
 					
-
+					
+					
+					
 					$item = ob_get_clean();
 					$item = apply_filters('cfct-build-loop-item', $item, $data, $args, $query); // @TODO deprecate in 1.2? doesn't scale well when extending the loop object
 					echo apply_filters($this->id_base.'-loop-item', $item, $data, $args, $query);
 					
 					
-
 					
 					if ($count == 3) {
 						
@@ -356,7 +355,7 @@ if (!class_exists('cfct_module_featured') && class_exists('cfct_build_module')) 
 						<?php
 					}
 					
-					if ($count == 10) {
+					if ($count == 9) {
 						
 						
 						?>
@@ -459,7 +458,7 @@ if (!class_exists('cfct_module_featured') && class_exists('cfct_build_module')) 
 		}
 		
 		
-		function the_featured_slider_block() {   _log("************************************************SLIDER");
+		function the_featured_slider_block() {   
 			?>
 			<li class="featured-item">
 				<div class="feature-image"> 
@@ -468,7 +467,9 @@ if (!class_exists('cfct_module_featured') && class_exists('cfct_build_module')) 
 				
 				<h2 class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 				
-				 <span class="byline"><?php the_author(); ?></span>
+				 <span class="byline">by <?php the_author(); ?>
+				 <span class="spacer">&bull;</span>
+				 <span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'carrington-build' ), __( '1 Comment', 'carrington-build' ), __( '% Comments', 'carrington-build' ) ); ?></span></span>
 				 
 				<p><?php $this->the_excerpt_max_charlength(100); ?></p> 
 			</li> 
@@ -480,11 +481,11 @@ if (!class_exists('cfct_module_featured') && class_exists('cfct_build_module')) 
 			
 			<?php
 			
-			_log("************************************************SLIDEREND");
+			
 		}
 		
 		
-		function the_featured_image_links() {   _log("************************************************ilinks");
+		function the_featured_image_links() {  
 			?>
 			<li> 
 			<div class="image"> 
@@ -501,17 +502,17 @@ if (!class_exists('cfct_module_featured') && class_exists('cfct_build_module')) 
 			
 			<?php
 			
-			_log("************************************************linksEND");
+			
 		}
 		
 		
-		function the_featured_links() {   _log("************************************************ilinks");
+		function the_featured_links() { 
 			?>
 			<li><a href="<?php the_permalink(); ?>"><?php echo the_title(); ?></a></li> 
 			
 			<?php
 			
-			_log("************************************************linksEND");
+			
 		}
 		
 		
@@ -526,7 +527,7 @@ if (!class_exists('cfct_module_featured') && class_exists('cfct_build_module')) 
 
 	
 var custom_feature_config = {};
-var custom_whatsnew_config = {};
+
 	
 	
       /**
@@ -625,12 +626,10 @@ var custom_whatsnew_config = {};
             $(".scroller-controller", carousel.container.parent().parent()).css("backgroundPositionY", setItem);
             });
       }  
-      var whatsnew_config = {  scroll: 4,
-        setupCallback:init_scrolldots
-      }, feature_config = {  scroll:1,
-setupCallback:init_scrolldots
+      var feature_config = {
+      scroll:1,
+	setupCallback:init_scrolldots
       };
-      $.extend(whatsnew_config, custom_whatsnew_config);
       $.extend(feature_config, custom_feature_config);
       // console.log(feature_config);
       
@@ -774,7 +773,7 @@ EOD;
 		 *
 		 * @return void - function echoes
 		 */		
-		protected function the_excerpt() { _log("************************************************exerpt".get_the_ID());
+		protected function the_excerpt() { 
 		
 			echo "GOOGOGOG";
 		
@@ -832,7 +831,7 @@ EOD;
 		 *
 		 * @return void - function echoes
 		 */
-		protected function the_content() {_log("************************************************content");
+		protected function the_content() {
 			?>
 			<div data-post-id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'carrington-build' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
@@ -873,10 +872,10 @@ EOD;
 		 *
 		 * @return void
 		 */
-		protected function post_item_excerpt() {_log("************************************************post_item_excerpt");
+		protected function post_item_excerpt() {
 			if (function_exists('cfct_excerpt')) {
 				
-				_log("************************************************cfcf_experpts");
+				
 				cfct_excerpt();
 			}
 			else {
@@ -889,7 +888,7 @@ EOD;
 		 *
 		 * @return void
 		 */
-		protected function post_item_content() {_log("************************************************post_item_content");
+		protected function post_item_content() {
 			if (function_exists('cfct_content')) {
 				cfct_content();
 			}

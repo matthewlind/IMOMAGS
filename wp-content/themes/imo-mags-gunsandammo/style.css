@@ -45,11 +45,14 @@ a {
 	width: 960px;
 }
 .col-ab, .col-bc, .cfct-block-ab, .cfct-block-bc {
-	width: 584px;
-	margin-right: 40px;
+	width: 620px;
+	margin-right: 5px;
 }
 .col-a, .col-b, .col-c, .cfct-block-a, .cfct-block-b, .cfct-block-c, .col-ab .cfct-block-d, .col-ab .cfct-block-e, .cfct-block-float-c {
 	width: 300px;
+}
+.cfct-block-c {
+	padding-left:20px;
 }
 
 .centerad {
@@ -276,6 +279,10 @@ body {
 	background: none;
 
 }
+
+/* Change Subs Margins */
+
+#header-sub {padding-right:30px;}
 
 
 /* CAROUSEL */

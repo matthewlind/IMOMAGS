@@ -88,7 +88,6 @@ position: relative;
 #footer-universal {    background-image: url(../imo-footer/images/new-footer-bg.jpg);
     background-repeat: no-repeat;padding-bottom:1em;}
 #block-menu-menu-footer-links {
-	display: none;
 	border-top: 1px solid #CCC;background: url(../imo-footer/images/footer-site.png) repeat-x #555052;
 }
 #block-menu-menu-footer-links li {display: inline;}
@@ -200,6 +199,7 @@ position: relative;
 #block-menu-menu-footer-links .menu {
     float:left;
     padding-left:0px;
+    margin-top:15px;
 }
 #block-menu-menu-footer-links .menu li a {
     font-size: 12px;
@@ -220,7 +220,7 @@ position: relative;
 #footer-partners {text-align:right;margin-right:20px;}
 
 #conservation-links #conservation-link {font-size: 12px;}
-#conservation-links {position:absolute;z-index:9;color:#ffffff;margin-left:810px;margin-top:20px;}
+#conservation-links {position:absolute;z-index:9;color:#ffffff;margin-left:810px;margin-top:15px;}
 #conservation-lists {
     display:none;
     background: #231f20;padding: 10px;width:400px;
