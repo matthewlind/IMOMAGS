@@ -5,8 +5,14 @@
  *
  * Defines additions to Carrington Build's theme. 
  */
-
 include_once(CFCT_PATH.'widgets/subscribe.php');
+
+/**
+ * Includes a header file at the top of the page. 
+ */
+function imo_addons_include_header_file() {
+	include(CFCT_PATH.'functions/header-content.php');
+}
 
 function imo_addons_sidebar_init() {
 
@@ -108,4 +114,4 @@ function imo_addons_subscription_page() {
 }
 add_action("widgets_init", 'imo_addons_sidebar_init'); 
 add_action("admin_menu", "imo_addons_create_subscriptions_menu");
-
+add_action('wp_head','imo_addons_include_header_file');
