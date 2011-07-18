@@ -7,7 +7,7 @@
 			.jcarousel-skin-featured .jcarousel-container .jcarousel-list-horizontal {}
 			.jcarousel-skin-featured .jcarousel-item { width:310px; height: 380px; margin-left:0; margin-right: 10px; margin-top:0px;}
 			
-                        .jcarousel-skin-featured .jcarousel-item h2.title {margin-top:5px;}
+                        .jcarousel-skin-featured .jcarousel-item h2.title {margin-top:5px;margin-bottom:0px;line-height:1em;}
                         
                         
 			.jcarousel-skin-featured .jcarousel-next-horizontal {
@@ -121,17 +121,19 @@ ul.withpic {
 ul.withpic li {
   list-style:none;
   min-height: 75px;
-  padding-right:20px;
+  padding-right:0px;
   margin-bottom:15px;
 
 }
 ul.withpic li h3 {
   margin-left:120px;
   margin-bottom:0px;
+  line-height:0.8em;
 }
 
 ul.withpic li h3 a{
-  font-size:14px;
+  font-size:13px;
+  
 }
 
 ul.withpic li p {
@@ -175,7 +177,7 @@ div.feature-image {
 
 
 /** Featured Story **/
-#featured { width: 100%; height:410px;}
+#featured { width: 100%; height:400px;}
 #featured .content {
   padding-bottom:20px;
 }
@@ -185,7 +187,7 @@ div.feature-image {
 }
 #featured .right {
   margin-left: 330px;
-  width:250px;
+  width:270px;
   height:380px;
   padding-left:20px; 
   border-left: 1px solid #CCC;
