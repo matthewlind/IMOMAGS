@@ -48,8 +48,12 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 	
 <div class='str-container'>
         <div class='aligncenter centerad'>
+            <div class="ad-left">
+<?php if (function_exists("imo_dart_tag")) {
+    imo_dart_tag("728x90");
+}
+else { ?>
 	<!-- 728x90 Ad: -->
-<div class="ad-left">
 <script type="text/javascript">
 document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dartadsgen_site+'/;sect=;page=index;subs=;sz=728x90;dcopt=;tile='+pr_tile+';ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
 </script>
@@ -62,6 +66,7 @@ document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dart
     </a>
 </noscript>
 <!-- END 728x90 Ad: -->
+<?php } ?>
 </div>
 <div class='ad-right'>
     <a href="http://www.nssf.org/FirstShots/" target="_blank"><img src='<?php print bloginfo('stylesheet_directory') . "/img/nssf.png"?>' alt="Visit the National Shooting Sports Foundation"/></a>

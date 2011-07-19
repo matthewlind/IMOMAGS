@@ -27,10 +27,11 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 </div>
         <div class='aligncenter centerad'>
 	<!-- 728x90 Ad: -->
-	<?php if (USE_IFRAME_ADS == TRUE): ?>	
-		<iframe src="/iframe-ads.php?ad_size=728x90&dartadgen_site=<?php print DARTADGEN_SITE; ?>" width="738" height="100">
-	<?php endif; ?>
 	
+<?php if (function_exists("imo_dart_tag")) {
+    imo_dart_tag("728x90");
+}
+else { ?>
 		<script type="text/javascript">
 		document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dartadsgen_site+'/;sect=;page=index;subs=;sz=728x90;dcopt=;tile='+pr_tile+';ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
 		</script>
@@ -43,9 +44,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 		    </a>
 		</noscript>
 	
-	<?php if (USE_IFRAME_ADS == TRUE): ?>	
-		</iframe>
-	<?php endif; ?>
+<?php } ?>
 	
 	<!-- END 728x90 Ad: -->
 	</div>
