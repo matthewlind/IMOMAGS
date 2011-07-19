@@ -11,7 +11,7 @@ include_once("AdvertWidget.php");
 /**
  * returns a string containing the formatted dart tag.
  */
-function get_imo_dart_tag($size, $tile=1, $iframe="false", $override_params=array()) {
+function get_imo_dart_tag($size, $tile=1, $iframe=False, $override_params=array()) {
     $params = array_merge(_imo_dart_get_params($size, $tile), $override_params);
     $tag = _imo_dart_get_tag($iframe);
     return _imo_dart_sprint_tag($params, $tag); 
@@ -128,7 +128,10 @@ function _imo_dart_sprint_tag($params, $tag) {
  * Attempt to formulate a domain based on the currentiste domain.
  */
 function _imo_dart_guess_domain() {
-    if ($site = get_site_url()) {
+    if ($domain = get_option("dart_domain", false)) {
+        return $domain;
+    }
+    elseif ($site = get_site_url()) {
         $domain = explode(".", substr($site, 7));
         $domain = "imo." . $domain[1];        
         if (substr($domain, -3)=="mag") {
@@ -149,7 +152,7 @@ function _imo_dart_guess_domain() {
  * $override_params: will be merged into params at the end, so that we can pass params to the iframe
  *
  */
-function imo_dart_tag($size, $iframe="false", $override_params=array()) {
+function imo_dart_tag($size, $iframe=False, $override_params=array()) {
     static $tile = 0; 
     $tile++;
     print get_imo_dart_tag($size, $tile, $iframe, $override_params);
@@ -227,3 +230,17 @@ function imo_dart_clean_tag($string) {
     return preg_replace("/\s+/", '_', preg_replace("/[^a-z0-9 ]/", '', strtolower($string)));
 }
 add_action("init", "iframe_maker");
+
+
+function imo_dart_domain_settings_option() {
+    echo "<input type='text' name='dart_domain' id='imo-dart_dart-domain' value='".get_option("dart_domain",  "")."' />";
+}
+function imo_dart_settings_section() {
+    echo "";
+}
+function imo_dart_settings_init() {
+add_settings_section("dart_domain", __("Dart Settings"), "imo_dart_settings_section", "general");
+add_settings_field("dart_domain", __("Domain"), "imo_dart_domain_settings_option", "general", "dart_domain");
+
+}
+add_action('admin_init', 'imo_dart_settings_init');
