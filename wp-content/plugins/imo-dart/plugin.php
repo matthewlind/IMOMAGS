@@ -8,6 +8,8 @@
  * Author URI: http://imomags.com
  */
 include_once("AdvertWidget.php");
+
+
 /**
  * returns a string containing the formatted dart tag.
  */
@@ -226,21 +228,29 @@ function iframe_maker () {
 }
 
 
+/* The only valid characters are alphanumeric characters, numbers and underscores. */
 function imo_dart_clean_tag($string) {
     return preg_replace("/\s+/", '_', preg_replace("/[^a-z0-9 ]/", '', strtolower($string)));
 }
 add_action("init", "iframe_maker");
 
 
-function imo_dart_domain_settings_option() {
-    echo "<input type='text' name='dart_domain' id='imo-dart_dart-domain' value='".get_option("dart_domain",  "")."' />";
-}
-function imo_dart_settings_section() {
-    echo "";
-}
-function imo_dart_settings_init() {
-add_settings_section("dart_domain", __("Dart Settings"), "imo_dart_settings_section", "general");
-add_settings_field("dart_domain", __("Domain"), "imo_dart_domain_settings_option", "general", "dart_domain");
+/******************************************************************************************
+ * Administration Menus
+ * Adds a dart_domain setting to the General Options page in the admin_menu, allowing for 
+ * overriding the inferred domain tag.
+ ******************************************************************************************/
 
+/* add_settings_field callback */
+function imo_dart_domain_settings_option() {
+    echo "<input type='text' name='dart_domain' id='imo-dart_dart-domain' value='".get_option("dart_domain", _imo_dart_guess_domain()  )."' />";
 }
-add_action('admin_init', 'imo_dart_settings_init');
+
+
+/* admin_menu callback. */
+function imo_dart_settings_init() {
+    add_settings_section("dart_settings", __("Dart Settings"), "imo_dart_settings_section", "general");
+    add_settings_field("dart_domain", __("Domain"), "imo_dart_domain_settings_option", "general", "dart_settings");
+    register_setting("general", "dart_domain");
+}
+add_action("admin_menu", "imo_dart_settings_init");

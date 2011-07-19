@@ -35,7 +35,11 @@ wp-content/advanced-cache.php
 wp-content/wp-cache-config.php
 wp-content/cache/*
 wp-content/cache/supercache/*
+wp-content/w3*
 wp-content/blogs.dir/
 wp-content/blogs.dir/*
 sitemap.xml
 sitemap.xml.gz
+imgs/
+wp-content/db.php
+wp-content/object-cache.php
