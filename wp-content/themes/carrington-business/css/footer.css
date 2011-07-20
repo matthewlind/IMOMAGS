@@ -229,8 +229,9 @@ position: relative;
 #conservation-lists h3 {color:white;padding-left:10px;padding-top:10px; margin-left:0;margin-top:0;margin-bottom:0;}
 #conservation-links ul {
     width: 190px;float:left;padding-left:10px;
+    margin: 0;
 }
-#conservation-links ul li {display: block;border-bottom: 1px dashed #777;padding:5px 0}
+#conservation-links ul li {display: block;border-bottom: 1px dashed #777;padding:5px 0; line-height:105%; margin:0;}
 #conservation-links ul li.last {border-bottom:none;}
 
 #conservation-links a,#conservation-links a:visited {
