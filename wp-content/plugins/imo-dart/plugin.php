@@ -8,10 +8,12 @@
  * Author URI: http://imomags.com
  */
 include_once("AdvertWidget.php");
+
+
 /**
  * returns a string containing the formatted dart tag.
  */
-function get_imo_dart_tag($size, $tile=1, $iframe="false", $override_params=array()) {
+function get_imo_dart_tag($size, $tile=1, $iframe=False, $override_params=array()) {
     $params = array_merge(_imo_dart_get_params($size, $tile), $override_params);
     $tag = _imo_dart_get_tag($iframe);
     return _imo_dart_sprint_tag($params, $tag); 
@@ -33,7 +35,7 @@ function _imo_dart_get_params($size, $tile) {
     }
 
     // grab the correct parameters
-    $params = array(
+    $defaults = array(
         "domain" => get_option("dart_domain", _imo_dart_guess_domain()),
         "width"=> array_shift(explode("x", $size)),
         "height"=> array_pop(explode("x", $size)),
@@ -41,26 +43,56 @@ function _imo_dart_get_params($size, $tile) {
         "tile" => $tile,
     );
     if (is_front_page()) {
-        $params = array_merge( $params, array(
+        $params = array(
             "zone" => "home",
             "sect" => "home",
             "subs" => "",
-            "page" => "index",)
+            "page" => "index",
         );
     }
+    elseif (is_single()) {
+
+        global $the_ID;
+        $cat = array_shift(get_the_category($the_ID));
+        $params = array(
+            "zone" => $cat->name,
+            "sect" => $cat->name,
+            "subs" => "",
+            "page" => the_title("","", false),
+        );
+
+    }
     elseif (is_page()) {
-    }
+        $page = get_page();
+        $zone = (isset($page->cat_name)) ? $page->cat_name : $page->post_name;
+        $params = array(
+            "zone" => $zone,
+            "sect" => $zone,
+            "subs" => "",
+            "page" => $page->post_title,
+        ); }
     elseif ( is_tax() || is_tag() || is_category() ) {
-    }
+        if (is_category()) {
+            $tax_title = single_cat_title('', False);
+        }
+        else {
+            $tax_title = single_tag_title("", False);
+        }
+    $params = array(
+            "zone" => $tax_title,
+            "sect" => $tax_title,
+            "subs" => "",
+            "page" => $tax_title . " Archive", 
+        ); }
     else {
-        $params = array_merge( $params, array(
+        $params = array(
             "zone" => "misc",
             "sect" => "misc",
             "subs" => "",
-            "page" => "index",)
+            "page" => "index",
         );  
     }
-    return $params;
+    return array_merge(array_map("imo_dart_clean_tag", $params), $defaults);
 } 
 
 
@@ -98,7 +130,10 @@ function _imo_dart_sprint_tag($params, $tag) {
  * Attempt to formulate a domain based on the currentiste domain.
  */
 function _imo_dart_guess_domain() {
-    if ($site = get_site_url()) {
+    if ($domain = get_option("dart_domain", false)) {
+        return $domain;
+    }
+    elseif ($site = get_site_url()) {
         $domain = explode(".", substr($site, 7));
         $domain = "imo." . $domain[1];        
         if (substr($domain, -3)=="mag") {
@@ -119,7 +154,7 @@ function _imo_dart_guess_domain() {
  * $override_params: will be merged into params at the end, so that we can pass params to the iframe
  *
  */
-function imo_dart_tag($size, $iframe="false", $override_params=array()) {
+function imo_dart_tag($size, $iframe=False, $override_params=array()) {
     static $tile = 0; 
     $tile++;
     print get_imo_dart_tag($size, $tile, $iframe, $override_params);
@@ -182,7 +217,7 @@ function iframe_maker () {
         if ( !in_array($size, $sizes)) {
             $size = "300x250";
         }
-               
+
         imo_dart_tag($size, False, $params);
 ?>
     </body>
@@ -193,7 +228,29 @@ function iframe_maker () {
 }
 
 
+/* The only valid characters are alphanumeric characters, numbers and underscores. */
 function imo_dart_clean_tag($string) {
     return preg_replace("/\s+/", '_', preg_replace("/[^a-z0-9 ]/", '', strtolower($string)));
 }
 add_action("init", "iframe_maker");
+
+
+/******************************************************************************************
+ * Administration Menus
+ * Adds a dart_domain setting to the General Options page in the admin_menu, allowing for 
+ * overriding the inferred domain tag.
+ ******************************************************************************************/
+
+/* add_settings_field callback */
+function imo_dart_domain_settings_option() {
+    echo "<input type='text' name='dart_domain' id='imo-dart_dart-domain' value='".get_option("dart_domain", _imo_dart_guess_domain()  )."' />";
+}
+
+
+/* admin_menu callback. */
+function imo_dart_settings_init() {
+    add_settings_section("dart_settings", __("Dart Settings"), "imo_dart_settings_section", "general");
+    add_settings_field("dart_domain", __("Domain"), "imo_dart_domain_settings_option", "general", "dart_settings");
+    register_setting("general", "dart_domain");
+}
+add_action("admin_menu", "imo_dart_settings_init");

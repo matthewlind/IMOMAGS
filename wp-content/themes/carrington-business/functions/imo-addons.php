@@ -7,6 +7,19 @@
  */
 include_once(CFCT_PATH.'widgets/subscribe.php');
 
+
+/**
+ * A title callback for the article type.
+ */
+function cfct_articles_title() {
+	$title = cfct_get_option('cfctbiz_articles_title');
+	if (!$title) {
+		$title = sprintf(__('%s Articles', 'carrington-business'), get_bloginfo('name'));
+	}
+	echo $title;
+}
+
+
 /**
  * Includes a header file at the top of the page. 
  */
@@ -46,6 +59,11 @@ function imo_addons_sidebar_init() {
 		'id' => 'sidebar-video',
 		'name' => __('Video Sidebar', 'carrington-business'),
 		'description' => __('Shown on video posts.', 'carrington-business')
+	)));
+    register_sidebar(array_merge($sidebar_defaults, array(
+		'id' => 'sidebar-articles',
+		'name' => __('Article Sidebar', 'carrington-business'),
+		'description' => __('Shown on article posts.', 'carrington-business')
 	)));
 }
 
