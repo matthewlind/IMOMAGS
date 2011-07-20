@@ -458,6 +458,29 @@ if (!class_exists('cfct_module_featured') && class_exists('cfct_build_module')) 
 		}
 		
 		
+		/**
+		 * Short function for clipping an title
+		 */
+		function the_title_max_charlength($charlength) {
+		   $excerpt = get_the_title();
+		   $charlength++;
+		   if(strlen($excerpt)>$charlength) {
+		       $subex = substr($excerpt,0,$charlength-5);
+		       $exwords = explode(" ",$subex);
+		       $excut = -(strlen($exwords[count($exwords)-1]));
+		       if($excut<0) {
+			    echo substr($subex,0,$excut);
+		       } else {
+			    echo $subex;
+		       }
+		       echo "...";
+		   } else {
+			   echo $excerpt;
+		   }
+		}
+		
+		
+		
 		function the_featured_slider_block() {   
 			?>
 			<li class="featured-item">
@@ -465,7 +488,7 @@ if (!class_exists('cfct_module_featured') && class_exists('cfct_build_module')) 
 					<a href="<?php the_permalink(); ?>"><?php echo get_the_post_thumbnail(get_the_ID(),"large-featured-thumb"); ?></a>
 				</div>
 				
-				<h2 class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+				<h2 class="title"><a href="<?php the_permalink(); ?>"><?php $this->the_title_max_charlength(51); ?></a></h2>
 				
 				 <span class="byline">by <?php the_author(); ?>
 				 <span class="spacer">&bull;</span>
