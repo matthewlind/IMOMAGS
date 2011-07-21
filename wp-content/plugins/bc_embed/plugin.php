@@ -29,16 +29,16 @@ function wp_embed_handler_brightcove ( $matches, $attr, $url, $rawattr ) {
     $videoid = preg_replace('/[^0-9]/', '', esc_attr($matches[1]));
     
     $output = '<object id="flashObj" width="%4$s" height="%5$s" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,47,0">
-	<param name="movie" value="http://c.brightcove.com/services/viewer/federated_f9?isVid=1&isUI=1" />
+	<param name="movie" value="http://c.brightcove.com/services/viewer/federated_f9?isVid=1&amp;isUI=1" />
 	<param name="bgcolor" value="#FFFFFF" />
-	<param name="flashVars" value="playerID=%1$s&playerKey=%6$s&domain=embed&dynamicStreaming=true" />
+	<param name="flashVars" value="@videoPlayer=%3$s&amp;playerID=%1$s&amp;playerKey=%6$s&amp;domain=embed&amp;dynamicStreaming=true" />
 	<param name="base" value="http://admin.brightcove.com" />
 	<param name="seamlesstabbing" value="false" />
 	<param name="allowFullScreen" value="true" />
 	<param name="swLiveConnect" value="true" />
 	<param name="allowScriptAccess" value="always" />
 	<param name="@videoPlayer" value="%3$s" />
-	<embed src="http://c.brightcove.com/services/viewer/federated_f9?isVid=1&isUI=1" bgcolor="#FFFFFF" flashVars="playerID=%1$s&@videoPlayer=%3$s&playerKey=%6$s&domain=embed&dynamicStreaming=true" base="http://admin.brightcove.com" name="flashObj" width="%4$s" height="%5$s" seamlesstabbing="false" type="application/x-shockwave-flash" allowFullScreen="true" allowScriptAccess="always" swLiveConnect="true" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash">
+	<embed src="http://c.brightcove.com/services/viewer/federated_f9?isVid=1&amp;isUI=1" bgcolor="#FFFFFF" flashVars="@videoPlayer=%3$s&amp;playerID=%1$s&amp;playerKey=%6$s&amp;domain=embed&amp;dynamicStreaming=true" base="http://admin.brightcove.com" name="flashObj" width="%4$s" height="%5$s" seamlesstabbing="false" type="application/x-shockwave-flash" allowFullScreen="true" allowScriptAccess="always" swLiveConnect="true" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash">
 	</embed>
 	</object>';
 
