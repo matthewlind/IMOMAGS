@@ -368,3 +368,70 @@ h2.entry-title a {
     overflow: visible; 
     margin-bottom: 0;
 }
+
+/* Style A - basic text style with no box */
+.cfct-module.style-a {
+    background: transparent url(img/label-gradient.png) repeat-x;
+}
+.cfct-module.style-a .cfct-mod-title {
+    background: transparent url(img/arrow.png) no-repeat left center;
+	margin: 4px 0 5px 5px;
+    padding-left: 25px;
+    font-size: 26px;
+    color:white;
+}
+.cfct-module.style-a .cfct-mod-title a {
+    background: transparent;
+    color:white;
+}
+.cfct-module.style-a .box-img {
+	float: left;
+	margin: 4px 15px 10px 0;
+}
+
+
+/* Style B - stylized box with title bar */
+.cfct-module.style-b {
+	border-width: 0px;
+	margin-bottom: 20px;
+}
+.cfct-module.style-b .cfct-mod-title {
+	background: transparent;
+	background: none;
+	border-bottom: none;
+	line-height: 1.2em;
+	margin: 0;
+	padding: 3px 0px 3px 150px;
+	text-shadow: transparent 0 1px 1px;
+	-moz-border-radius-topleft: 0px; /* FF1+ */
+	-webkit-border-top-left-radius: 0px; /* Saf3+, Chrome */
+	-khtml-border-top-left-radius: 0px; /* Konqueror */
+	-moz-border-radius-topright: 0px; /* FF1+ */
+	-webkit-border-top-right-radius: 0px; /* Saf3+, Chrome */
+	-khtml-border-top-right-radius: 0px; /* Konqueror */
+	border-radius: 0px 0px 0 0; /* Standard. IE9 */
+	/**
+	 * @workaround PIE z-index bug
+	 * @affected IE8
+	 */
+	position: relative;
+    background: transparent url(img/background-fish-waves.png) no-repeat;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-transform: none;
+    font-style: italic;
+    font-size: 30px;
+    text-shadow: #000 0 1px 2px;
+}
+
+.cfct-module.style-b .cfct-mod-title a {
+    color: white;
+}
+.style-b .box-img {
+	float: left;
+	margin: 4px 15px 10px 0px;
+}
+.style-b .cfct-mod-content {
+	margin: 0px 0px;
+}
+
