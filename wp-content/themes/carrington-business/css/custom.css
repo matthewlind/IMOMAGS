@@ -83,7 +83,7 @@
 {
     border-color: #7A7;    }
 .subscribeButton .submit-button{
-    background:#115FA4 url(../images/mask.png) repeat-x;border:2px solid #115FA4;
+    background:#115FA4 url(../imo-footer/images/mask.png) repeat-x;border:2px solid #115FA4;
     border-radius:3px;-moz-border-radius:3px;border-bottom-left-radius:3px 3px;border-bottom-right-radius:3px 3px;border-top-left-radius:3px 3px;border-top-right-radius:3px 3px;color:white;display:block;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:16px;padding:5px 15px;text-align:center;text-decoration:none;text-transform:uppercase;width:153px;font-weight:bold;margin-left:108px;}
 .subscribeAdModContent .jquery_dropdown_container{float:left;width:50px;}
 .subscribeAdModContent #stateDropDown{float:left;margin:0px;padding:0px;width:50px;}
@@ -195,3 +195,6 @@ aside.widget .newsletter h3.gform_title {
 .widget .gform_wrapper {
     max-width: 100%;
 }
+
+
+

@@ -132,7 +132,7 @@ position: relative;
 	text-indent: -9999em;
 }
 #header {
-	background: #fff;
+	background: transparent;
 	border-color: #CCC;
 	border-width: 0px;
 	border-style: solid;
@@ -236,13 +236,14 @@ body {
 .cfct-module .cfct-mod-title, .widget .widget-title {
 	padding-left: 0px;
 	font-style: normal;
-	font-weight: normal;
+	font-weight: bold;
 	color: #00467f;
 	margin: 0 0 20px 0;
 	background-repeat: no-repeat;
 	font-size: 26px;
 	font-family: Arvo, arial, serif;
 	text-transform: uppercase;
+    letter-spacing: -1px;
 }
 
 .car-pagination .cfct-carousel-prev, .car-pagination .cfct-carousel-next {
@@ -356,12 +357,14 @@ h2.entry-title a {
     margin-bottom: 0;
 }
 #header-sub p.title {
-    color: #56A2D6;
+    color: #FFF;
+    font-size: 110%;
     margin-bottom: 5px;
 }
 #header-sub p a {
-    color: #06C;
+    color: #6FF;
 }
 #header aside.widget { 
     overflow: visible; 
+    margin-bottom: 0;
 }

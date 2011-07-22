@@ -20,107 +20,107 @@ if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 ?>
 <div class="cfct-row cfct-row-abc" style="clear:both"> 
-	<div class="cfct-block block-0 cfct-block-abc"> 
-			<div class="cfct-module cfct-divider "> 
-				<hr class="cfct-div-solid" /> 
-			</div></div> 
+    <div class="cfct-block block-0 cfct-block-abc"> 
+            <div class="cfct-module cfct-divider "> 
+                <hr class="cfct-div-solid" /> 
+            </div></div> 
 </div>
         <div class='aligncenter centerad'>
-	<!-- 728x90 Ad: -->
-	
+    <!-- 728x90 Ad: -->
+
 <?php if (function_exists("imo_dart_tag")) {
     imo_dart_tag("728x90");
 }
 else { ?>
-		<script type="text/javascript">
-		document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dartadsgen_site+'/;sect=;page=index;subs=;sz=728x90;dcopt=;tile='+pr_tile+';ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
-		</script>
-		<script type="text/javascript">
-		    ++pr_tile;
-		</script>
-		<noscript>
-		    <a href="http://ad.doubleclick.net/adj/imo.outdoorsbest/;sect=;page=index;subs=;sz=728x90;dcopt=;tile=1;ord=7391727509?">
-			<img src="http://ad.doubleclick.net/ad/imo.outdoorsbest/home;sect=;page=index;subs=;sz=728x90;dcopt=;tile=1;ord=7391727509?" border="0" />
-		    </a>
-		</noscript>
-	
+<script type="text/javascript">
+    document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dartadsgen_site+'/;sect=;page=index;subs=;sz=728x90;dcopt=;tile='+pr_tile+';ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
+</script>
+    <script type="text/javascript">
+    ++pr_tile;
+</script>
+        <noscript>
+            <a href="http://ad.doubleclick.net/adj/imo.outdoorsbest/;sect=;page=index;subs=;sz=728x90;dcopt=;tile=1;ord=7391727509?">
+            <img src="http://ad.doubleclick.net/ad/imo.outdoorsbest/home;sect=;page=index;subs=;sz=728x90;dcopt=;tile=1;ord=7391727509?" border="0" />
+            </a>
+        </noscript>
+
 <?php } ?>
-	
-	<!-- END 728x90 Ad: -->
-	</div>
+
+    <!-- END 728x90 Ad: -->
+    </div>
 
 
-		</div><!-- .str-content -->
-	</div><!-- #main-content -->
+        </div><!-- .str-content -->
+    </div><!-- #main-content -->
 </section><!-- .str-container -->
 <hr class="accessibility" />
 <footer id="footer">
-	<div class="str-container">
-		<div id="footer-content">
-			<div class="str-content clearfix">
-				<div class="col-a">
-					<?php
-					if (!dynamic_sidebar('footer-a')) { ?>
-					<aside class="widget style-f">
-						<h1 class="widget-title"><?php _e('No Widgets Yet!', 'carrington-business'); ?></h1>
-						<p><?php printf(__('It looks like you haven&rsquo;t added any widgets to this sidebar (Footer Left) yet. To customize this sidebar, go <a href="%s">add some</a>!', 'carrington-business'), admin_url('widgets.php')); ?></p>
-					</aside>
-					<?php
-					}
-					?>
-				</div>
-				<div class="col-b">
-					<?php
-					if (!dynamic_sidebar('footer-b')) { ?>
-					<aside class="widget style-f">
-						<h1 class="widget-title"><?php _e('No Widgets Yet!', 'carrington-business'); ?></h1>
-						<p><?php printf(__('It looks like you haven&rsquo;t added any widgets to this sidebar (Footer Center) yet. To customize this sidebar, go <a href="%s">add some</a>!', 'carrington-business'), admin_url('widgets.php')); ?></p>
-					</aside>
-					<?php
-					}
-					?>
-				</div>
-				<div class="col-c">
-					<?php
-					if (!dynamic_sidebar('footer-c')) { ?>
-					<aside class="widget style-f">
-						<h1 class="widget-title"><?php _e('No Widgets Yet!', 'carrington-business'); ?></h1>
-						<p><?php printf(__('It looks like you haven&rsquo;t added any widgets to this sidebar (Footer Right) yet. To customize this sidebar, go <a href="%s">add some</a>!', 'carrington-business'), admin_url('widgets.php')); ?></p>
-					</aside>
-					<?php
-					}
-					?>
-				</div>
-			</div><!-- .str-content -->
-		</div><!-- #footer-content -->
-		<div id="footer-sub">
-			<nav class="nav nav-footer">
-				<h3 class="site-title"><a href="<?php echo home_url('/') ?>" title="<?php _e('Home', 'carrington-business') ?>"><?php bloginfo('name') ?></a></h3>
-				<?php
-				wp_nav_menu(array( 
-					'theme_location' => 'footer',
-					'container' => false,
-					'depth' => 1,
-				));
-				?>
-			</nav><!--/nav-footer-->
-			<?php
-			if (cfct_get_option('cfct_credit') == 'yes') { ?>
-			<p id="site-generator"><?php
-			printf(__('Powered by <a href="%s">WordPress</a>. <a href="%s" title="Carrington Business theme for WordPress">Carrington Business</a> by <a id="cf-logo" title="Custom Web Applications and WordPress Development" href="%s">Crowd Favorite</a>', 'carrington-business'), 'http://wordpress.org/', 'http://crowdfavorite.com/wordpress/themes/carrington-business/', 'http://crowdfavorite.com/');
-			?></p>
-			<?php 
-			}
-			
-			$colophon = str_replace('%Y', date('Y'), cfct_get_option('cfctbiz_legal_footer'));
-			$sep = ($colophon ? ' &bull; ' : '');
-			$loginout = cfct_get_loginout('', $sep);
-			if ($colophon || $loginout) {
-				echo '<p>'.$colophon.$loginout.'</p>';
-			}
-			?>
-		</div><!-- #footer-sub -->
-	</div><!-- .str-container -->
+    <div class="str-container">
+        <div id="footer-content">
+            <div class="str-content clearfix">
+                <div class="col-a">
+<?php
+    if (!dynamic_sidebar('footer-a')) { ?>
+                    <aside class="widget style-f">
+                        <h1 class="widget-title"><?php _e('No Widgets Yet!', 'carrington-business'); ?></h1>
+                        <p><?php printf(__('It looks like you haven&rsquo;t added any widgets to this sidebar (Footer Left) yet. To customize this sidebar, go <a href="%s">add some</a>!', 'carrington-business'), admin_url('widgets.php')); ?></p>
+                    </aside>
+<?php
+    }
+?>
+                </div>
+                <div class="col-b">
+<?php
+if (!dynamic_sidebar('footer-b')) { ?>
+                    <aside class="widget style-f">
+                        <h1 class="widget-title"><?php _e('No Widgets Yet!', 'carrington-business'); ?></h1>
+                        <p><?php printf(__('It looks like you haven&rsquo;t added any widgets to this sidebar (Footer Center) yet. To customize this sidebar, go <a href="%s">add some</a>!', 'carrington-business'), admin_url('widgets.php')); ?></p>
+                    </aside>
+<?php
+}
+?>
+                </div>
+                <div class="col-c">
+<?php
+if (!dynamic_sidebar('footer-c')) { ?>
+                    <aside class="widget style-f">
+                        <h1 class="widget-title"><?php _e('No Widgets Yet!', 'carrington-business'); ?></h1>
+                        <p><?php printf(__('It looks like you haven&rsquo;t added any widgets to this sidebar (Footer Right) yet. To customize this sidebar, go <a href="%s">add some</a>!', 'carrington-business'), admin_url('widgets.php')); ?></p>
+                    </aside>
+<?php
+}
+?>
+                </div>
+            </div><!-- .str-content -->
+        </div><!-- #footer-content -->
+        <div id="footer-sub">
+            <nav class="nav nav-footer">
+                <h3 class="site-title"><a href="<?php echo home_url('/') ?>" title="<?php _e('Home', 'carrington-business') ?>"><?php bloginfo('name') ?></a></h3>
+<?php
+wp_nav_menu(array( 
+    'theme_location' => 'footer',
+    'container' => false,
+    'depth' => 1,
+));
+?>
+            </nav><!--/nav-footer-->
+<?php
+if (cfct_get_option('cfct_credit') == 'yes') { ?>
+    <p id="site-generator"><?php
+    printf(__('Powered by <a href="%s">WordPress</a>. <a href="%s" title="Carrington Business theme for WordPress">Carrington Business</a> by <a id="cf-logo" title="Custom Web Applications and WordPress Development" href="%s">Crowd Favorite</a>', 'carrington-business'), 'http://wordpress.org/', 'http://crowdfavorite.com/wordpress/themes/carrington-business/', 'http://crowdfavorite.com/');
+?></p>
+<?php 
+}
+
+$colophon = str_replace('%Y', date('Y'), cfct_get_option('cfctbiz_legal_footer'));
+$sep = ($colophon ? ' &bull; ' : '');
+$loginout = cfct_get_loginout('', $sep);
+if ($colophon || $loginout) {
+    echo '<p>'.$colophon.$loginout.'</p>';
+}
+?>
+        </div><!-- #footer-sub -->
+    </div><!-- .str-container -->
 </footer><!-- #footer -->
 
 <?php
@@ -133,62 +133,37 @@ if (CFCT_DEBUG) {
 wp_footer();
 ?>
 
-
-<script> 
- 
-$(
-  function() {
-    $("#conservation-link").hover(
-        function () {
-            $('#conservation-lists').fadeIn();
-        },
-        function () {
-        }
-    );
-    $("#conservation-lists").hover(
-        function () {
-        },
-        function () {
-            $('#conservation-lists').fadeOut();
-        }
-    );
-  }
-);
-</script> 
- 
- 
- 
 <div id="footer-section"> 
     <div id='footer'> 
         <div id='footer-universal' class='footer-row'> 
                 <div class='footer-col-wrapper'> 
                     <div class='section'> 
-                        
+
                         <ul id='hunt' class='footer-menu'> 
-                            
+
                             <li class="first"><a class="bowhunting" href="http://www.bowhuntingmag.com">Petersen's Bowhunting</a></li> 
                             <li><a class="northamericanwhitetail" href="http://www.northamericanwhitetail.com">North American Whitetail</a></li> 
                             <li><a class="gundog" href="http://www.gundogmag.com">Gun Dog</a></li> 
                             <li><a class="wildfowl" href="http://www.wildfowlmag.com">Wildfowl</a></li> 
                             <li><a class="bowhunter" href="http://www.bowhunter.com">Bowhunter</a></li> 
                             <li class="last"><a class="petersenshunting" href="http://www.petersenshunting.com">Petersen's Hunting</a></li> 
-                            
-                            
-                            
- 
+
+
+
+
                         </ul> 
                     </div> 
                 </div> 
                 <div class='footer-col-wrapper'> 
                     <div class='section'> 
-                        
+
                         <ul id='shoot' class='footer-menu'> 
                             <li  class="first"><a class='handguns' href="http://www.handgunsmag.com">Handguns</a></li> 
                             <li><a class='rifleshooter' href="http://www.rifleshootermag.com">Rifleshooter</a></li> 
                             <li><a class='shootingtimes' href="http://www.shootingtimes.com">Shooting Times</a></li> 
                             <li><a class='shotgunnews' href="http://www.shotgunnews.com">Shotgun News</a></li> 
-                            
-                            
+
+
                             <li><a class='gunsandammo' href="http://www.gunsandammo.com">Guns &amp; Ammo</a></li> 
                             <li class="last"><a class='tacticalgunfan' href="http://www.tacticalgunfan.com">Tactical Gun Fan</a></li> 
                         </ul> 
@@ -196,17 +171,17 @@ $(
                 </div> 
                 <div class='footer-col-wrapper'> 
                     <div class='section'> 
-                        
+
                         <ul id='fish' class='footer-menu'> 
                             <li class="first"><a class="infisherman" href="http://www.in-fisherman.com">In-Fisherman</a></li> 
                             <li><a class="flyfish" href="http://www.flyfisherman.com">Fly Fisherman</a></li> 
                             <li><a class="floridasportsman" href="http://www.floridasportsman.com">Florida Sportsman</a></li> 
-                            
+
                             <li class="last"><a class="bassfan" href="http://www.bassfan.com">BassFan</a></li> 
                         </ul> 
                     </div> 
                 </div> 
-                
+
                 <div class='footer-col-wrapper r-col statebystate'> 
                     <div class='section'> 
                         <ul id='more' class='footer-menu'> 
@@ -214,19 +189,16 @@ $(
                             <li class=""><a class="sportsmanchannel" href="http://www.thesportsmanchannel.com">The Sportsman Channel</a></li> 
                             <li class="last"><a class="imostore" href="http://store.intermediaoutdoors.com">The IMO Store</a></li> 
                         </ul> 
-                        
-                        
-                        
+
+
+
                     </div> 
                 </div> 
-                
+
                 <div style='clear: both;'></div> 
             </div> 
     </div> 
-    
-    
     <div id="block-menu-menu-footer-links" class="block block-menu region-even odd region-count-2 count-19"> 
-  
   <div class="content"> 
     <ul class="menu"> 
       <li class="leaf first"><a href="http://www.imoutdoorsmedia.com/IM3/about.php" title="">About</a></li>
@@ -237,16 +209,11 @@ $(
       <!--<li class="leaf last"><a href="/terms" title="">Terms of Use</a></li> --> 
     </ul> 
   </div> 
- 
   </div> <!-- /.block -->   
-    
+
 <div id="block-gunsandammo_blocks-conservation_links" class="block block-gunsandammo_blocks region-odd even region-count-3 count-20"> 
-  
   <div class="content">     
     <div id='conservation-links'> <a id='conservation-link' href="">Conservation Partners</a> 
-    
-    
-    
         <div id='conservation-lists'> 
             <h3>Conservation Partners</h3> 
             <ul> 
@@ -284,14 +251,12 @@ $(
     <div style='clear: both;'></div> 
 </div> 
 </div> 
-    
     <div id='footer-imo' class='footer-row'> 
             <div id='clearfix' class='section clearfix'> 
                 <div id='footer-copyright'><img src='/imologo.png'/>&copy; 2011 InterMedia Outdoors</div> 
                 <div id='footer-partners'><img src='/footer-partners.jpg'></div> 
             </div> 
     </div> 
-    
 </div> 
 
 </body>
