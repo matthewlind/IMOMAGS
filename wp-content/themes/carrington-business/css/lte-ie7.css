@@ -55,3 +55,9 @@ div#featured div.right { width: 230px; }
 	display:block;
 	float:left;
 }
+
+/*fixes FS Featured section*/
+
+#main-content #fs-featured .right {
+	width:auto;
+}
