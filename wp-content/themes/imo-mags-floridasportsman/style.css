@@ -302,6 +302,9 @@ body {
 .entry .entry-header h1.entry-title {
 	font-size: 36px;
 	margin-bottom: 4px;
+    font-family: "Arvo", Helvetica, Arial, sans-serif;
+    letter-spacing: -1px;
+    font-weight: bold;
 }
 
 .cfct-module-loop .cfct-mod-content .entry .entry-title, .cfct-module-loop-subpages .cfct-mod-content .entry .entry-title {
@@ -376,6 +379,7 @@ h2.entry-title a {
 .cfct-module .cfct-mod-title, .widget .widget-titler {
 
 }
+.cfct-module.cfct-callout .cfct-mod-title, 
 .cfct-module.cf-post-callout-module .cfct-mod-title, 
 .cfct-module-loop .cfct-mod-content .entry .entry-title, 
 .cfct-module-loop-subpages .cfct-mod-content .entry .entry-title {
@@ -471,11 +475,11 @@ h2.entry-title a {
 .cfct-module.style-c {
 	border-width: 0px;
 	margin-bottom: 20px;
-    border: 5px solid #0079BA;
+    border: 5px solid #04a8dd;
     padding: 10px 7px 2px;
 }
 .cfct-module.style-c .cfct-mod-title {
-    color: #E60;
+    color: #F60;
     font-size: 20px;
     text-transform: uppercase;
     font-family: "Arvo", Helvetica, Arial, sans-serif;
@@ -496,4 +500,57 @@ h2.entry-title a {
 .style-c .cfct-mod-content {
 	margin: 0px 0px;
 }
+/*****************************************/
+/* Sidebar Styles                        */
+/*****************************************/
+.cfct-sidebar-module aside.widget, #sidebar aside.widget {
+	border-width: 0px;
+	margin-bottom: 20px;
+    padding: 10px 12px 10px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+#cfct-sidebar-module aside.widget, #sidebar aside.widget.widget_advert-widget {
+    padding:0;
+    border:none;
+}
+.cfct-sidebar-module aside.widget.gform_widget, 
+#sidebar aside.widget.gform_widget {
+    border: 5px solid #04a8dd;
+}
 
+.widget.widget_subscribe-form h2, 
+.cfct-sidebar-module aside.widget h1.widget-title, #sidebar aside.widget h1.widget-title {
+
+    color: #F60;
+    font-size: 20px;
+    margin-bottom:0;
+    border-bottom:0;
+    text-transform: uppercase;
+    font-family: "Arvo", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    letter-spacing: -1px;
+}
+
+.widget.widget_subscribe-form h2,.widget.widget_subscribe-form {
+    background: #0079ba;
+    color: #fff;
+}
+.widget.widget_subscribe-form h2 {
+    color: #FD0;
+}
+.subscribeButton .submit-button { 
+    color: #000;
+    background-color: #FD0;
+    border-color: #DB0;
+}
+.cfct-sidebar-module aside.widget h1.widget-title a, 
+#sidebar aside.widget h1.widget-title a {
+    color: #F60;
+}
+.cfct-sidebar-module aside.widget_subscribe-form,
+#sidebar aside.widget_subscribe-form {
+    margin: 0 0 12px 0;
+    border: 1px solid #eee;
+    padding:0;
+}
