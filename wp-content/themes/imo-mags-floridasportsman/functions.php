@@ -40,6 +40,8 @@ function fs_region_init() {
             "rewrite" => array("slug"=>"regions"),
         )
     );
+    /** Removes bad selectors from CSS PIE; affects IE7 and IE8 **/
+     css3pie_remove(".cfct-module.style-b, .cfct-module.style-b .cfct-mod-title");
 }
 add_action("init", "fs_region_init");
 

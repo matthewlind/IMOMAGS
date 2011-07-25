@@ -438,18 +438,13 @@ h2.entry-title a {
 	line-height: 1.2em;
 	margin: 0;
 	padding: 3px 0px 3px 150px;
-	text-shadow: transparent 0 1px 1px;
+/*	text-shadow: transparent 0 1px 1px; */
 	-moz-border-radius-topleft: 0px; /* FF1+ */
 	-webkit-border-top-left-radius: 0px; /* Saf3+, Chrome */
 	-khtml-border-top-left-radius: 0px; /* Konqueror */
 	-moz-border-radius-topright: 0px; /* FF1+ */
 	-webkit-border-top-right-radius: 0px; /* Saf3+, Chrome */
 	-khtml-border-top-right-radius: 0px; /* Konqueror */
-	border-radius: 0px 0px 0 0; /* Standard. IE9 */
-	/**
-	 * @workaround PIE z-index bug
-	 * @affected IE8
-	 */
 	position: relative;
     background: transparent url(img/background-fish-waves.png) no-repeat;
     color: white;
