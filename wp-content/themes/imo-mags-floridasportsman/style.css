@@ -59,9 +59,12 @@ body {
 .cfct-block-c {
 	padding-left:20px;
 }
+
 .cfct-row-a-b-c .cfct-block-c {
 padding: 0;
+
 }
+
 
 .centerad {
     margin-top: 10px;
@@ -301,6 +304,9 @@ body {
 .entry .entry-header h1.entry-title {
 	font-size: 36px;
 	margin-bottom: 4px;
+    font-family: "Arvo", Helvetica, Arial, sans-serif;
+    letter-spacing: -1px;
+    font-weight: bold;
 }
 
 .cfct-module-loop .cfct-mod-content .entry .entry-title, .cfct-module-loop-subpages .cfct-mod-content .entry .entry-title {
@@ -371,16 +377,44 @@ h2.entry-title a {
     margin-bottom: 0;
 }
 
+/** Basic Widget Styling. **/
+.cfct-module .cfct-mod-title, .widget .widget-titler {
+
+}
+.cfct-module.cfct-callout .cfct-mod-title, 
+.cfct-module.cf-post-callout-module .cfct-mod-title, 
+.cfct-module-loop .cfct-mod-content .entry .entry-title, 
+.cfct-module-loop-subpages .cfct-mod-content .entry .entry-title {
+    text-transform: none;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 22px;
+    font-weight: normal;
+    color: black;
+
+}
+
+.cfct-module .cfct-mod-title a, .widget .widget-title a,
+.cfct-module .cfct-mod-title a:visited, .widget .widget-title a:visited {
+    color: #000000;
+}
+.cfct-module .cfct-mod-title a:active, .widget .widget-title a:active,
+.cfct-module .cfct-mod-title a:hover, .widget .widget-title a:hover {
+    color: #0079BA;
+}
+
 /* Style A - basic text style with no box */
 .cfct-module.style-a {
     background: transparent url(img/label-gradient.png) repeat-x;
 }
 .cfct-module.style-a .cfct-mod-title {
     background: transparent url(img/arrow.png) no-repeat left center;
-	margin: 4px 0 5px 5px;
+	margin: 4px 0 15px 5px;
     padding-left: 25px;
     font-size: 26px;
     color:white;
+    letter-spacing: -1px;
+    font-weight: bold;
+    font-family: 'Arvo', Helvetica, Arial, sans-serif;
 }
 .cfct-module.style-a .cfct-mod-title a {
     background: transparent;
@@ -437,3 +471,88 @@ h2.entry-title a {
 	margin: 0px 0px;
 }
 
+/*****************************************/
+/* Style C - stylized box with title bar */
+/*****************************************/
+.cfct-module.style-c {
+	border-width: 0px;
+	margin-bottom: 20px;
+    border: 5px solid #04a8dd;
+    padding: 10px 7px 2px;
+}
+.cfct-module.style-c .cfct-mod-title {
+    color: #F60;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-family: "Arvo", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    letter-spacing: -1px;
+}
+
+.cfct-module.style-c .cfct-mod-title a {
+    color: #F60;
+}
+.style-c .box-img {
+	float: left;
+	margin: 4px 15px 10px 0px;
+}
+.style-c .cfct-mod-content {
+
+}
+.style-c .cfct-mod-content {
+	margin: 0px 0px;
+}
+/*****************************************/
+/* Sidebar Styles                        */
+/*****************************************/
+.cfct-sidebar-module aside.widget, #sidebar aside.widget {
+	border-width: 0px;
+	margin-bottom: 20px;
+    padding: 10px 12px 10px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+#cfct-sidebar-module aside.widget, #sidebar aside.widget.widget_advert-widget {
+    padding:0;
+    border:none;
+}
+.cfct-sidebar-module aside.widget.gform_widget, 
+#sidebar aside.widget.gform_widget {
+    border: 5px solid #04a8dd;
+}
+
+.widget.widget_subscribe-form h2, 
+.cfct-sidebar-module aside.widget h1.widget-title, #sidebar aside.widget h1.widget-title {
+
+    color: #F60;
+    font-size: 20px;
+    margin-bottom:0;
+    border-bottom:0;
+    text-transform: uppercase;
+    font-family: "Arvo", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    letter-spacing: -1px;
+}
+
+.widget.widget_subscribe-form h2,.widget.widget_subscribe-form {
+    background: #0079ba;
+    color: #fff;
+}
+.widget.widget_subscribe-form h2 {
+    color: #FD0;
+}
+.subscribeButton .submit-button { 
+    color: #000;
+    background-color: #FD0;
+    border-color: #DB0;
+}
+.cfct-sidebar-module aside.widget h1.widget-title a, 
+#sidebar aside.widget h1.widget-title a {
+    color: #F60;
+}
+.cfct-sidebar-module aside.widget_subscribe-form,
+#sidebar aside.widget_subscribe-form {
+    margin: 0 0 12px 0;
+    border: 1px solid #eee;
+    padding:0;
+}
