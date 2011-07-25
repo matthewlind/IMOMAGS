@@ -42,3 +42,22 @@ function fs_region_init() {
     );
 }
 add_action("init", "fs_region_init");
+
+
+/**
+ * Adds widget area to Featured Sidget
+ */
+if (function_exists('register_sidebar')) {
+
+ register_sidebar(array(
+ 'name' => 'FS Featured Area',
+ 'id'   => 'fs_featured_area',
+ 'description'   => 'Right side of FS featured slider',
+ 'before_widget' => '<div id="fs_featured_area">',
+ 'after_widget'  => '</div>',
+ 'before_title'  => '<h2>',
+ 'after_title'   => '</h2>'
+ ));
+
+ }
+

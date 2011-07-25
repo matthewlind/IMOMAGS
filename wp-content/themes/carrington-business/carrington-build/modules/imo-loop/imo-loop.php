@@ -14,7 +14,7 @@
  * @param object $module 
  * @return array
  */
-/*
+/*		
 function the_cb_lemay_fix($data, $module) {
 	if (!empty($data[$module->gfn('taxonomy-1')])) {
 		$i = 1;
@@ -37,15 +37,15 @@ add_filter('cfct-migrate-loop-data', 'the_cb_lemay_fix', 10, 2);
  * There's a base class that outputs full loop content, but 2 class
  * extensions which extend it, but change it to "excerpts" or "titles"
  *
- * Don't forget to call cfct_module_featured::init() in your constructor if you
+ * Don't forget to call imo_loop::init() in your constructor if you
  * derive from this class!
  */
-if (!class_exists('cfct_module_featured') && class_exists('cfct_build_module')) {
-	class cfct_module_featured extends cfct_build_module {
-		const POST_TYPES_FILTER = 'cfct-module-loop-post-types';
-		const TAXONOMY_TYPES_FILTER = 'cfct-module-loop-taxonomy-types';
+if (!class_exists('imo_loop') && class_exists('cfct_build_module')) {
+	class imo_loop extends cfct_build_module {
+		const POST_TYPES_FILTER = 'imo-loop-post-types';
+		const TAXONOMY_TYPES_FILTER = 'imo-loop-taxonomy-types';
 		
-		protected $_deprecated_id = 'cfct-module-featured'; // deprecated property, not needed for new module development
+		protected $_deprecated_id = 'imo-loop'; // deprecated property, not needed for new module development
 
 		protected $default_display_args = array(
 			'caller_get_posts' => 1
@@ -53,7 +53,7 @@ if (!class_exists('cfct_module_featured') && class_exists('cfct_build_module')) 
 
 		protected $content_display_options = array();		
 		protected $default_content_display = 'title';
-		protected $default_item_count = 15;
+		protected $default_item_count = 10;
 		protected $default_item_offset = 0;
 		protected $default_post_type = 'post';
 		protected $default_relation = 'AND';
@@ -62,26 +62,10 @@ if (!class_exists('cfct_module_featured') && class_exists('cfct_build_module')) 
 
 		public function __construct() {
 			$opts = array(
-				'description' => __('A featured items slider with extra links.', 'carrington-build'),
-				'icon' => 'featured/icon.png'
+				'description' => __('Choose and display a set of posts (any post type).', 'carrington-build'),
+				'icon' => 'imo-loop/icon.png'
 			);
-			parent::__construct('cfct-module-featured', __('Featured', 'carrington-build'), $opts);
-			
-			
-			wp_register_script('jcarousel', $this->get_url().'js/jquery.jcarousel.min.js', array('jquery'));
-			
-			wp_register_style('featured-style',$this->get_url().'css/featured.css');
-			
-			if (!is_admin()) {
-				//wp_enqueue_script('jquery-cycle');
-				wp_enqueue_script('jcarousel');
-				wp_enqueue_style('featured-style');
-				
-			}
-			
-			
-			
-			
+			parent::__construct('imo-loop', __('IMO Loop', 'carrington-build'), $opts);
 			$this->init();
 		}
 
@@ -98,7 +82,10 @@ if (!class_exists('cfct_module_featured') && class_exists('cfct_build_module')) 
 
 			// Taxonomy Filter Request Handler
 			$this->register_ajax_handler($this->id_base.'-get-new-taxonomy-block', array($this, 'get_new_taxonomy_block'));
-			add_action('wp_ajax_cf_taxonomy_filter_autocomplete', array($this, 'taxonomy_filter_autocomplete'));			
+			add_action('wp_ajax_cf_taxonomy_filter_autocomplete', array($this, 'taxonomy_filter_autocomplete'));
+			
+			
+			
 		}
 
 # Data upgrade
@@ -238,10 +225,7 @@ if (!class_exists('cfct_module_featured') && class_exists('cfct_build_module')) 
 			$args['author'] = !empty($data[$this->get_field_name('author')]) ? $data[$this->get_field_name('author')] : null;
 
 			// Number of items
-			//$args['posts_per_page'] = intval(!empty($data[$this->get_field_name('item_count')]) ? $data[$this->get_field_name('item_count')] : $this->default_item_count);
-			$args['posts_per_page'] = $this->default_item_count;
-
-
+			$args['posts_per_page'] = intval(!empty($data[$this->get_field_name('item_count')]) ? $data[$this->get_field_name('item_count')] : $this->default_item_count);
 
 			// Item offset
 			$args['offset'] = intval(isset($data[$this->get_field_name('item_offset')]) ? $data[$this->get_field_name('item_offset')] : $this->default_item_offset);
@@ -278,100 +262,27 @@ if (!class_exists('cfct_module_featured') && class_exists('cfct_build_module')) 
 		 * @return string HTML
 		 */
 		protected function get_custom_loop_default($data, $args = array()) {
-			
-			
 			$this->cache_global_post();
 			
 			ob_start();
 			$query = new WP_Query($args);
 			do_action($this->id_base.'-query-results', $query);
-			
-			$count = 0;
-			
-			$sliderSize = 3;
-			$picturelinkSize = $sliderSize + 3;
-			$textLinkSize = $picturelinkSize + 3;
-			
-			
+
 			if ($query->have_posts()) {
-				
-				
-				
 				while ($query->have_posts()) {
 					$query->the_post();
 
 					ob_start();
-					
-					$count++;
-					
-					if ($count == 1) {
-						
-						?>
-						<div id="featured">
-							<div class="left"> 
-								<ul id="feature-carousel" class="jcarousel-skin-featured">
-			
-						<?php		
-						
+					if ($args['display'] == 'excerpt') {
+						$this->post_item_excerpt();
 					}
-						
-					
-					
-					if ($count >=1 && $count<= $sliderSize)
-						$this->the_featured_slider_block();
-					if ($count > $sliderSize && $count <= $picturelinkSize)
-						$this->the_featured_image_links();
-					if ($count > $picturelinkSize && $count <= $textLinkSize)
-						$this->the_featured_links();
-					
-					
-					
-					
+					elseif ($args['display'] == 'content') {
+						$this->post_item_content();
+					}
 					$item = ob_get_clean();
 					$item = apply_filters('cfct-build-loop-item', $item, $data, $args, $query); // @TODO deprecate in 1.2? doesn't scale well when extending the loop object
 					echo apply_filters($this->id_base.'-loop-item', $item, $data, $args, $query);
-					
-					
-					
-					if ($count == $sliderSize) {
-						
-						
-						?>
-						</ul>
-						<div class="scroller-controller">
-						</div> 
-						</div><!--/endleft-->
-						<div class="right"> 
-							<ul class="withpic">
-			
-						<?php
-					}
-					
-					if ($count == $picturelinkSize) {
-						
-						
-						?>
-						</ul>
-						<ul class="linklist">
-						<?php
-					}
-					
-					if ($count == $textLinkSize) {
-						
-						
-						?>
-						</ul>
-						</div><!--/endright-->
-						</div><!--/featured-->
-						<?php
-					}
-					
 				}
-				
-				
-				
-				
-				
 			}
 			$html = ob_get_clean();
 			$this->reset_global_post();
@@ -433,263 +344,13 @@ if (!class_exists('cfct_module_featured') && class_exists('cfct_build_module')) 
 			<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
 			<?php
 		}
-		
-		
-		
-		
-		/**
-		 * Short function for clipping an exerpt
-		 */
-		function the_excerpt_max_charlength($charlength) {
-		   $excerpt = get_the_excerpt();
-		   $charlength++;
-		   if(strlen($excerpt)>$charlength) {
-		       $subex = substr($excerpt,0,$charlength-5);
-		       $exwords = explode(" ",$subex);
-		       $excut = -(strlen($exwords[count($exwords)-1]));
-		       if($excut<0) {
-			    echo substr($subex,0,$excut);
-		       } else {
-			    echo $subex;
-		       }
-		       echo "[...]";
-		   } else {
-			   echo $excerpt;
-		   }
-		}
-		
-		
-		/**
-		 * Short function for clipping an title
-		 */
-		function the_title_max_charlength($charlength) {
-		   $excerpt = get_the_title();
-		   $charlength++;
-		   if(strlen($excerpt)>$charlength) {
-		       $subex = substr($excerpt,0,$charlength-5);
-		       $exwords = explode(" ",$subex);
-		       $excut = -(strlen($exwords[count($exwords)-1]));
-		       if($excut<0) {
-			    echo substr($subex,0,$excut);
-		       } else {
-			    echo $subex;
-		       }
-		       echo "...";
-		   } else {
-			   echo $excerpt;
-		   }
-		}
-		
-		
-		
-		function the_featured_slider_block() {   
-			?>
-			<li class="featured-item">
-				<div class="feature-image"> 
-					<a href="<?php the_permalink(); ?>"><?php echo get_the_post_thumbnail(get_the_ID(),"large-featured-thumb"); ?></a>
-				</div>
-				
-				<h2 class="title"><a href="<?php the_permalink(); ?>"><?php $this->the_title_max_charlength(51); ?></a></h2>
-				
-				 <span class="byline">by <?php the_author(); ?>
-				 <span class="spacer">&bull;</span>
-				 <span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'carrington-build' ), __( '1 Comment', 'carrington-build' ), __( '% Comments', 'carrington-build' ) ); ?></span></span>
-				 
-				<p><?php $this->the_excerpt_max_charlength(100); ?></p> 
-			</li> 
-			
-			
-			
-			
-			
-			
-			<?php
-			
-			
-		}
-		
-		
-		function the_featured_image_links() {  
-			?>
-			<li> 
-			<div class="image"> 
-			  <a href="<?php the_permalink(); ?>"><?php echo get_the_post_thumbnail(get_the_ID(),"small-featured-thumb"); ?></a> 
-			</div> 
-			<h3 class="title"><a href="<?php the_permalink(); ?>"><?php echo the_title(); ?></a></h3> 
-			
-			</li> 
-					
-			
-			
-			
-			
-			
-			<?php
-			
-			
-		}
-		
-		
-		function the_featured_links() { 
-			?>
-			<li><a href="<?php the_permalink(); ?>"><?php echo the_title(); ?></a></li> 
-			
-			<?php
-			
-			
-		}
-		
-		function css() {
-			
-			
-			
-			$output = <<<EOFFF
-			
-			.jcarousel-skin-featured .jcarousel-item h2.title a {font-size:30px;}
 
-EOFFF;
-		return $output;
-		}
-		
-		public function js() {
-			
-			
-			
-			$output = ';(function($) {$(function() {';
-			
-			$output .= <<<EOD
-
-	
-var custom_feature_config = {};
-
-	
-	
-      /**
-       * 
-       * Configure the scroll dots
-       */
-      function init_scrolldots(carousel) {
-      
-      $(".scroller-controller", carousel.container.parent().parent()).append("<ul class='scroll-dots'></ul>");
-      //calculate number of pages
-      var pages = Math.ceil(carousel.options.size / carousel.options.scroll);
-      for (var i=1, j=pages; i <= j; i++) {
-      //set up links         
-        addDot(carousel, i);
-      }
-      if($.browser.msie && $.browser.version <= 7) {
-        var intendedWidth = Number( $(".scroller-controller .scroll-dots a:eq(0)", carousel.container.parent().parent()).width() * pages);
-        var leftOffset = ( Number( $(".scroller-controller", carousel.container.parent().parent()).width()) - intendedWidth)/2;
-        $(".scroller-controller .scroll-dots", carousel.container.parent().parent()).width(intendedWidth);
-        $(".scroller-controller .scroll-dots", carousel.container.parent().parent()).css("left", leftOffset+"px");
-      }
-      //add events to the scroller buttons. 
-      function activatePage (direction) {
-        return function() {
-          if(String($(this).attr("disabled")) == "false"){ 
-            var activeListItem = $(".active", $(carousel.container.parent().parent()));
-            var activeIndex = Number($('a', activeListItem).text());
-            activeListItem.removeClass("active"); 
-            if (direction=='prev') {
-              if (activeIndex == 1) {
-                activeIndex = 2;
-              }
-              $(".page"+(activeIndex-1), activeListItem.parent()).addClass("active");
-            }
-            else { // next!
-              if(activeIndex==pages) {
-                activeIndex=pages-1;
-              }                      
-              $(".page"+(activeIndex+1), activeListItem.parent()).addClass("active");
-            }
-          }
-        };
-      }
-
-      $(carousel.buttonNext).bind("click", activatePage('next'));
-      $(carousel.buttonPrev).bind("click", activatePage('prev'));
-      
-      //Move arrows depending on Number of dots
-      
-      var rightMargin = 131-(8*pages);
-      var leftMargin = 124-(8*pages);
-      $(".jcarousel-skin-featured .jcarousel-next-horizontal").css("margin-right",rightMargin + "px");
-      $(".jcarousel-skin-featured .jcarousel-prev-horizontal").css("margin-left",leftMargin + "px");
-      
-      }
-
-      function addDot(carousel, page) {
-        var dot = $("<li class='dot page"+page+"'><a href='#page" + page + "'>" + page + "</a></li>");
-        if (page == 1) {
-          dot.addClass('active');
-        }
-        $(".scroller-controller > ul", carousel.container.parent().parent()).append(dot);
-        $(dot).bind("click", function() {
-            var lastItem = page * carousel.options.scroll;
-            if (lastItem > carousel.options.size) {
-            lastItem = carousel.options.size;
-            }
-
-            $(this).parent().children().removeClass("active");
-            $(this).addClass("active");
-            carousel.scroll(Number(1+lastItem-carousel.options.scroll));
-            return false;
-            }); 
-      }
-      
-      function setDotActive(carousel, item, idx, state) {
-	var page = idx;
-	console.log(page);
-	$("dot page" + page).parent().children().removeClass("active");
-	$("dot page" + page).addClass("active");
-      }
-      
-      var feature_config = {
-      scroll:1,
-      auto:0,
-      itemVisibleInCallback: setDotActive,
-      
-	setupCallback:init_scrolldots
-      };
-      $.extend(feature_config, custom_feature_config);
-      // console.log(feature_config);
-      
-      $("#feature-carousel").jcarousel(feature_config);
-      
-
-      
-      
-      
-      
-});
-})(jQuery);
-
-			
-EOD;
-			
-			return $output;
-			
-		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		/**
 		 * The way the twentyten theme does the excerpt of a post
 		 *
 		 * @return void - function echoes
-		 */		
-		protected function the_excerpt() { 
-		
-			echo "GOOGOGOG";
-		
+		 */
+		protected function the_excerpt() {
 			?>
 			<div data-post-id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'carrington-build' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
@@ -697,20 +358,6 @@ EOD;
 				<div class="entry-meta">
 					<?php $this->posted_on(); ?>
 				</div><!-- .entry-meta -->
-				<div class="thumb-image">
-				<?php
-					if (has_post_thumbnail()) {
-						echo '<a href="', the_permalink(),'">', the_post_thumbnail('post-thumbnail', array('class' => 'entry-img')), '</a>';
-					}
-				
-				?>
-				
-				
-				<?php echo get_the_post_thumbnail(get_the_ID(),"large-featured-thumb"); ?>
-				<?php echo get_the_post_thumbnail(get_the_ID(),"small-featured-thumb"); ?>
-				</div>
-				
-				
 
 				<div class="entry-summary">
 					<?php the_excerpt(); ?>
@@ -787,8 +434,6 @@ EOD;
 		 */
 		protected function post_item_excerpt() {
 			if (function_exists('cfct_excerpt')) {
-				
-				
 				cfct_excerpt();
 			}
 			else {
@@ -820,12 +465,15 @@ EOD;
 		 */
 		public function admin_form($data) {
 			$data = $this->migrate_data($data);
+			
+			
 			return '
 				<div id="'.$this->id_base.'-admin-form-wrapper">'.
 					$this->admin_form_title($data).
 					$this->admin_form_post_types($data).
 					$this->admin_form_taxonomy_filter($data).
-					//$this->admin_form_display_options($data).
+					$this->admin_form_taxonomy_not_filter($data).
+					$this->admin_form_display_options($data).
 				'</div>';
 		}
 
@@ -926,6 +574,77 @@ EOD;
 			return $taxonomies;
 		}
 
+
+
+		/**
+		 * Show module taxonomy filter NOT options
+		 *
+		 * @param array $data - saved module data
+		 * @return string HTML
+		 */
+		public function admin_form_taxonomy_not_filter($data) {
+			$html = '';
+			
+			$post_type = ($data[$this->get_field_name('post_type')]) ? $data[$this->get_field_name('post_type')] : $this->default_post_type;
+			
+			
+			
+			$_taxes = apply_filters(self::TAXONOMY_TYPES_FILTER, get_object_taxonomies($post_type, 'objects'), $this);
+			
+			
+			
+			$tax_defs = array();
+			foreach ($_taxes as $tax_type => $taxonomy) {
+				if ($tax_type == 'post_format') { 
+					continue;
+				}
+				if (!is_array($post_type)) {
+					$post_type = array($post_type);
+				}
+				$matches = array_intersect($post_type, $taxonomy->object_type);
+				if (count($matches) == count($post_type)) {
+					$taxes[$tax_type] = $taxonomy;
+				}
+			}
+			unset($_taxes);
+
+			$html = '
+				<fieldset class="cfct-form-section">
+					<script type="text/javascript">
+						// you will not see this in the DOM, it gets parsed right away at ajax load
+						var tax_defs = '.json_encode($tax_defs).';
+					</script>
+					<legend>'.__('Taxonomies', 'carrington-build').'</legend>
+					<!-- taxonomy select -->
+					<div class="'.$this->id_base.'-input-wrapper '.$this->id_base.'-post-category-select '.$this->id_base.'-tax-wrapper">
+						<div id="'.$this->gfi('tax-select-inputs').'" class="cfct-inline-els">
+							'.$this->get_taxonomy_dropdown($taxes, $data).'
+							<button id="'.$this->id_base.'-add-tax-button" class="button" type="button">'.__('Add Filter', 'carrington-build').'</button>
+							<span class="'.$this->id_base.'-loading cfct-spinner" style="display: none;">Loading&hellip;</span>
+						</div>
+						<div id="'.$this->id_base.'-tax-filter-items" class="cfct-module-admin-repeater-block">
+							<ol class="'.(empty($data[$this->gfn('tax_input')]) ? ' no-items' : '').'">';
+								$html .= $this->get_taxonomy_filter_items($data);
+								$html .= '
+							</ol>
+						</div>
+					</div>
+					'.$this->get_filter_advanced_options($data).'
+					<!-- /taxonomy select -->
+				</fieldset>
+				<fieldset class="cfct-form-section">
+					<legend>'.__('Author', 'carrington-build').'</legend>
+					<!-- author select -->
+					<div class="cfct-inline-els">
+						'.$this->get_author_dropdown($data).'
+					</div>
+					<!-- /author select -->
+				</fieldset>';
+			return $html;
+		}
+
+
+
 		/**
 		 * Show module taxonomy filter options
 		 *
@@ -936,7 +655,12 @@ EOD;
 			$html = '';
 			
 			$post_type = ($data[$this->get_field_name('post_type')]) ? $data[$this->get_field_name('post_type')] : $this->default_post_type;
+			
+			
+			
 			$_taxes = apply_filters(self::TAXONOMY_TYPES_FILTER, get_object_taxonomies($post_type, 'objects'), $this);
+			
+			
 			
 			$tax_defs = array();
 			foreach ($_taxes as $tax_type => $taxonomy) {
@@ -1111,6 +835,9 @@ EOD;
 		
 		protected function get_taxonomy_filter_items($data) {
 			$html = '';
+			
+			
+			
 			
 			if (!empty($data[$this->gfn('tax_input')])) {
 				foreach ($data[$this->gfn('tax_input')] as $taxonomy => $tax_input) {
@@ -1589,7 +1316,7 @@ EOD;
 		}
 
 		/**
-		 * Prints HTML with meta information for the current postdate/time and author.  Thanks TwentyTen 1.0
+		 * Prints HTML with meta information for the current post—date/time and author.  Thanks TwentyTen 1.0
 		 */
 		protected function posted_on() {
 			printf( __( '<span class="%1$s">Posted on</span> %2$s <span class="meta-sep">by</span> %3$s', 'carrington-build' ),
@@ -1721,6 +1448,6 @@ EOD;
 			return $data;
 		}
 	}
-	cfct_build_register_module('cfct_module_featured');
+	cfct_build_register_module('imo_loop');
 }
 ?>

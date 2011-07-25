@@ -53,7 +53,7 @@ a {
 }
 .cfct-block-float-c {
 	float: right;
-	margin: 0 0 0 50px;
+	margin: 0 0 0 40px;
 }
 
 .centerad {
@@ -338,6 +338,7 @@ h2.entry-title a {
 }
 #header-sub {
     padding-top: 0;
+    padding-right:30px;
 }
 
 #header-sub img {

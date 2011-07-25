@@ -40,12 +40,12 @@ add_filter('cfct-migrate-loop-data', 'the_cb_lemay_fix', 10, 2);
  * Don't forget to call cfct_module_featured::init() in your constructor if you
  * derive from this class!
  */
-if (!class_exists('cfct_module_featured') && class_exists('cfct_build_module')) {
-	class cfct_module_featured extends cfct_build_module {
+if (!class_exists('cfct_module_fs_featured') && class_exists('cfct_build_module')) {
+	class cfct_module_fs_featured extends cfct_build_module {
 		const POST_TYPES_FILTER = 'cfct-module-loop-post-types';
 		const TAXONOMY_TYPES_FILTER = 'cfct-module-loop-taxonomy-types';
 		
-		protected $_deprecated_id = 'cfct-module-featured'; // deprecated property, not needed for new module development
+		protected $_deprecated_id = 'cfct-module-fs-featured'; // deprecated property, not needed for new module development
 
 		protected $default_display_args = array(
 			'caller_get_posts' => 1
@@ -62,20 +62,20 @@ if (!class_exists('cfct_module_featured') && class_exists('cfct_build_module')) 
 
 		public function __construct() {
 			$opts = array(
-				'description' => __('A featured items slider with extra links.', 'carrington-build'),
-				'icon' => 'featured/icon.png'
+				'description' => __('A featured items slider that just for Florida Sportsman.', 'carrington-build'),
+				'icon' => 'fs-featured/icon.png'
 			);
-			parent::__construct('cfct-module-featured', __('Featured', 'carrington-build'), $opts);
+			parent::__construct('cfct-module-fs-featured', __('FS Featured', 'carrington-build'), $opts);
 			
 			
 			wp_register_script('jcarousel', $this->get_url().'js/jquery.jcarousel.min.js', array('jquery'));
 			
-			wp_register_style('featured-style',$this->get_url().'css/featured.css');
+			wp_register_style('fs-featured-style',$this->get_url().'css/fs-featured.css');
 			
 			if (!is_admin()) {
 				//wp_enqueue_script('jquery-cycle');
 				wp_enqueue_script('jcarousel');
-				wp_enqueue_style('featured-style');
+				wp_enqueue_style('fs-featured-style');
 				
 			}
 			
@@ -288,7 +288,7 @@ if (!class_exists('cfct_module_featured') && class_exists('cfct_build_module')) 
 			
 			$count = 0;
 			
-			$sliderSize = 3;
+			$sliderSize = 9;
 			$picturelinkSize = $sliderSize + 3;
 			$textLinkSize = $picturelinkSize + 3;
 			
@@ -307,9 +307,15 @@ if (!class_exists('cfct_module_featured') && class_exists('cfct_build_module')) 
 					if ($count == 1) {
 						
 						?>
-						<div id="featured">
+						<div id="fs-featured-title">
+							<div id="fs-featured-title-text">
+								<span class="gray">What's</span> Biting Now!
+							</div>
+						
+						</div>
+						<div id="fs-featured">
 							<div class="left"> 
-								<ul id="feature-carousel" class="jcarousel-skin-featured">
+								<ul id="fs-feature-carousel" class="jcarousel-skin-fs-featured">
 			
 						<?php		
 						
@@ -319,10 +325,7 @@ if (!class_exists('cfct_module_featured') && class_exists('cfct_build_module')) 
 					
 					if ($count >=1 && $count<= $sliderSize)
 						$this->the_featured_slider_block();
-					if ($count > $sliderSize && $count <= $picturelinkSize)
-						$this->the_featured_image_links();
-					if ($count > $picturelinkSize && $count <= $textLinkSize)
-						$this->the_featured_links();
+				
 					
 					
 					
@@ -341,26 +344,28 @@ if (!class_exists('cfct_module_featured') && class_exists('cfct_build_module')) 
 						<div class="scroller-controller">
 						</div> 
 						</div><!--/endleft-->
-						<div class="right"> 
-							<ul class="withpic">
-			
+						<div class="right">
+							<div class="right-content">
+							
+						
+								
+								<?php
+								//wp_nav_menu('menu=Reports');
+								?>
+								
+								<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('fs_featured_area')) : else : ?><?php endif; ?>
+						
+						
 						<?php
 					}
 					
-					if ($count == $picturelinkSize) {
-						
-						
-						?>
-						</ul>
-						<ul class="linklist">
-						<?php
-					}
+				
 					
 					if ($count == $textLinkSize) {
 						
 						
 						?>
-						</ul>
+						</div><!--/endrightcontent-->
 						</div><!--/endright-->
 						</div><!--/featured-->
 						<?php
@@ -485,17 +490,30 @@ if (!class_exists('cfct_module_featured') && class_exists('cfct_build_module')) 
 		function the_featured_slider_block() {   
 			?>
 			<li class="featured-item">
+				
 				<div class="feature-image"> 
 					<a href="<?php the_permalink(); ?>"><?php echo get_the_post_thumbnail(get_the_ID(),"large-featured-thumb"); ?></a>
 				</div>
 				
-				<h2 class="title"><a href="<?php the_permalink(); ?>"><?php $this->the_title_max_charlength(51); ?></a></h2>
+				<?php
+				$terms = get_the_terms( get_the_ID(), "region");
+				if($terms): ?>
+					<div class="feature-region">
+						<span class="region-text">
+							<?php the_terms( get_the_ID(), "region"); ?>
+						</span>
+						<span class="flag-part">
+						</span>
+					</div>
+				<?php endif; ?>
 				
-				 <span class="byline">by <?php the_author(); ?>
-				 <span class="spacer">&bull;</span>
-				 <span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'carrington-build' ), __( '1 Comment', 'carrington-build' ), __( '% Comments', 'carrington-build' ) ); ?></span></span>
-				 
-				<p><?php $this->the_excerpt_max_charlength(100); ?></p> 
+				<h2 class="title"><a href="<?php the_permalink(); ?>"><?php $this->the_title_max_charlength(43); ?></a></h2>
+				
+				
+				
+				<p><?php $this->the_excerpt_max_charlength(100); ?></p>
+				
+				<a href="<?php the_permalink(); ?>" class="read-more">&rarr; Read Entire Fishing Report</a>
 			</li> 
 			
 			
@@ -571,50 +589,66 @@ var custom_feature_config = {};
       function init_scrolldots(carousel) {
       
       $(".scroller-controller", carousel.container.parent().parent()).append("<ul class='scroll-dots'></ul>");
-      //calculate number of pages
-      var pages = Math.ceil(carousel.options.size / carousel.options.scroll);
-      for (var i=1, j=pages; i <= j; i++) {
-      //set up links         
-        addDot(carousel, i);
-      }
-      if($.browser.msie && $.browser.version <= 7) {
-        var intendedWidth = Number( $(".scroller-controller .scroll-dots a:eq(0)", carousel.container.parent().parent()).width() * pages);
-        var leftOffset = ( Number( $(".scroller-controller", carousel.container.parent().parent()).width()) - intendedWidth)/2;
-        $(".scroller-controller .scroll-dots", carousel.container.parent().parent()).width(intendedWidth);
-        $(".scroller-controller .scroll-dots", carousel.container.parent().parent()).css("left", leftOffset+"px");
-      }
-      //add events to the scroller buttons. 
-      function activatePage (direction) {
-        return function() {
-          if(String($(this).attr("disabled")) == "false"){ 
-            var activeListItem = $(".active", $(carousel.container.parent().parent()));
-            var activeIndex = Number($('a', activeListItem).text());
-            activeListItem.removeClass("active"); 
-            if (direction=='prev') {
-              if (activeIndex == 1) {
-                activeIndex = 2;
-              }
-              $(".page"+(activeIndex-1), activeListItem.parent()).addClass("active");
-            }
-            else { // next!
-              if(activeIndex==pages) {
-                activeIndex=pages-1;
-              }                      
-              $(".page"+(activeIndex+1), activeListItem.parent()).addClass("active");
-            }
-          }
-        };
-      }
-
-      $(carousel.buttonNext).bind("click", activatePage('next'));
-      $(carousel.buttonPrev).bind("click", activatePage('prev'));
-      
-      //Move arrows depending on Number of dots
-      
-      var rightMargin = 131-(8*pages);
-      var leftMargin = 124-(8*pages);
-      $(".jcarousel-skin-featured .jcarousel-next-horizontal").css("margin-right",rightMargin + "px");
-      $(".jcarousel-skin-featured .jcarousel-prev-horizontal").css("margin-left",leftMargin + "px");
+	//calculate number of pages
+	var pages = Math.ceil(carousel.options.size / carousel.options.scroll);
+	for (var i=1, j=pages; i <= j; i++) {
+	//set up links         
+	  addDot(carousel, i);
+	}
+	if($.browser.msie && $.browser.version <= 7) {
+	  var intendedWidth = Number( $(".scroller-controller .scroll-dots a:eq(0)", carousel.container.parent().parent()).width() * pages);
+	  var leftOffset = ( Number( $(".scroller-controller", carousel.container.parent().parent()).width()) - intendedWidth)/2;
+	  $(".scroller-controller .scroll-dots", carousel.container.parent().parent()).width(intendedWidth);
+	  $(".scroller-controller .scroll-dots", carousel.container.parent().parent()).css("left", leftOffset+"px");
+	}
+	//add events to the scroller buttons. 
+	function activatePage (direction) {
+	  return function() {
+	    if(String($(this).attr("disabled")) == "false"){ 
+	      var activeListItem = $(".active", $(carousel.container.parent().parent()));
+	      var activeIndex = Number($('a', activeListItem).text());
+	      activeListItem.removeClass("active"); 
+	      if (direction=='prev') {
+		if (activeIndex == 1) {
+		  activeIndex = 2;
+		}
+		$(".page"+(activeIndex-1), activeListItem.parent()).addClass("active");
+	      }
+	      else { // next!
+		if(activeIndex==pages) {
+		  activeIndex=pages-1;
+		}                      
+		$(".page"+(activeIndex+1), activeListItem.parent()).addClass("active");
+	      }
+	    }
+	  };
+	}
+  
+	$(carousel.buttonNext).bind("click", activatePage('next'));
+	$(carousel.buttonPrev).bind("click", activatePage('prev'));
+	
+	//Move arrows depending on Number of dots
+	
+	var rightMargin = 131-(8*pages);
+	var leftMargin = 124-(8*pages);
+	$(".jcarousel-skin-fs-featured .jcarousel-next-horizontal").css("margin-right",rightMargin + "px");
+	$(".jcarousel-skin-fs-featured .jcarousel-prev-horizontal").css("margin-left",leftMargin + "px");
+	
+	// Disable autoscrolling if the user clicks the prev or next button.
+	carousel.buttonNext.bind('click', function() {
+	    carousel.startAuto(0);
+	});
+     
+	carousel.buttonPrev.bind('click', function() {
+	    carousel.startAuto(0);
+	});
+     
+	// Pause autoscrolling if the user moves with the cursor over the clip.
+	carousel.clip.hover(function() {
+	    carousel.stopAuto();
+	}, function() {
+	    carousel.startAuto();
+	});
       
       }
 
@@ -640,13 +674,14 @@ var custom_feature_config = {};
       function setDotActive(carousel, item, idx, state) {
 	var page = idx;
 	console.log(page);
-	$("dot page" + page).parent().children().removeClass("active");
-	$("dot page" + page).addClass("active");
+	$(".dot.page" + page).parent().children().removeClass("active");
+	$(".dot.page" + page).addClass("active");
       }
       
       var feature_config = {
       scroll:1,
-      auto:0,
+      auto:3,
+      wrap: 'last',
       itemVisibleInCallback: setDotActive,
       
 	setupCallback:init_scrolldots
@@ -654,7 +689,7 @@ var custom_feature_config = {};
       $.extend(feature_config, custom_feature_config);
       // console.log(feature_config);
       
-      $("#feature-carousel").jcarousel(feature_config);
+      $("#fs-feature-carousel").jcarousel(feature_config);
       
 
       
@@ -1721,6 +1756,6 @@ EOD;
 			return $data;
 		}
 	}
-	cfct_build_register_module('cfct_module_featured');
+	cfct_build_register_module('cfct_module_fs_featured');
 }
 ?>
