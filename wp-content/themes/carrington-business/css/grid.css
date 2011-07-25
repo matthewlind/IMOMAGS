@@ -174,3 +174,29 @@
 	float: right;
 	margin: 0 0 0 15px;
 }
+
+
+/*PAGE LAYOUT MODS*/
+ 
+.str-container {
+	margin: 0 auto;
+	width: 1020px;
+}
+.col-abc {
+	display: block;
+	float: none;
+	width: 960px;
+}
+.col-ab, .col-bc, .cfct-block-ab, .cfct-block-bc {
+	width: 620px;
+	margin-right: 5px;
+}
+.col-a, .col-b, .col-c, .cfct-block-a, .cfct-block-b, .cfct-block-c, .col-ab .cfct-block-d, .col-ab .cfct-block-e, .cfct-block-float-c {
+	width: 300px;
+}
+.cfct-block-c {
+	padding-left:20px;
+}
+.cfct-row-a-b-c .cfct-block-c {
+padding: 0;
+}

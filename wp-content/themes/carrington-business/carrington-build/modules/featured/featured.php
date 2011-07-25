@@ -639,14 +639,14 @@ var custom_feature_config = {};
       
       function setDotActive(carousel, item, idx, state) {
 	var page = idx;
-	console.log(page);
-	$("dot page" + page).parent().children().removeClass("active");
-	$("dot page" + page).addClass("active");
+	$(".dot.page" + page).parent().children().removeClass("active");
+	$(".dot.page" + page).addClass("active");
       }
       
       var feature_config = {
       scroll:1,
-      auto:0,
+      auto:3,
+      wrap: 'last',
       itemVisibleInCallback: setDotActive,
       
 	setupCallback:init_scrolldots

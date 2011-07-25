@@ -47,15 +47,17 @@ html {
 	width: 960px;
 }
 .col-ab, .col-bc, .cfct-block-ab, .cfct-block-bc {
-	width: 584px;
-	margin-right: 40px;
+	width: 620px;
+	margin-right: 5px;
 }
 .col-a, .col-b, .col-c, .cfct-block-a, .cfct-block-b, .cfct-block-c, .col-ab .cfct-block-d, .col-ab .cfct-block-e, .cfct-block-float-c {
 	width: 300px;
 }
-.cfct-block-float-c {
-	float: right;
-	margin: 0 0 0 50px;
+.cfct-block-c {
+	padding-left:20px;
+}
+.cfct-row-a-b-c .cfct-block-c {
+padding: 0;
 }
 
 .centerad {

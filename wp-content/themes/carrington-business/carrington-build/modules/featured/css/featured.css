@@ -16,7 +16,7 @@
 			  cursor: pointer;
 			  float:right;
 			  margin-right: 107px;
-			  background: transparent url(../images/scroller_sprite.png) no-repeat 0 0 ;
+			  background: transparent url(scroller_sprite.png) no-repeat 0 0 ;
                           z-index:100;
                           position:relative;
 			}
@@ -48,7 +48,7 @@
 			  cursor: pointer;
 			  float:left;
 			  margin-left: 100px;
-			  background: transparent url(../images/scroller_sprite.png) no-repeat  -20px 0;
+			  background: transparent url(scroller_sprite.png) no-repeat  -20px 0;
                           z-index:100;
                           position:relative;
 			}
@@ -73,7 +73,6 @@
 			.scroller-controller ul.scroll-dots li.dot a,
 			.jcarousel-skin-featured .jcarousel-next-horizontal,
 			.jcarousel-skin-featured .jcarousel-prev-horizontal {
-			  background-image: url(scroller_sprite.png);
 			  -webkit-user-select: none;
 			  -khtml-user-select: none;
 			  -moz-user-select: none;

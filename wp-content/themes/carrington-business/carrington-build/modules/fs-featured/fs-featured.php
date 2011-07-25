@@ -288,9 +288,9 @@ if (!class_exists('cfct_module_fs_featured') && class_exists('cfct_build_module'
 			
 			$count = 0;
 			
-			$sliderSize = 9;
-			$picturelinkSize = $sliderSize + 3;
-			$textLinkSize = $picturelinkSize + 3;
+			$sliderSize = 11;
+
+			
 			
 			
 			if ($query->have_posts()) {
@@ -299,6 +299,9 @@ if (!class_exists('cfct_module_fs_featured') && class_exists('cfct_build_module'
 				
 				while ($query->have_posts()) {
 					$query->the_post();
+					
+					if ($sliderSize > $query->post_count)
+						$sliderSize = $query->post_count;
 
 					ob_start();
 					
@@ -308,6 +311,10 @@ if (!class_exists('cfct_module_fs_featured') && class_exists('cfct_build_module'
 						
 						?>
 						<div id="fs-featured-title">
+							<div id="fs-featured-date">
+								<?php echo date("F j, Y"); ?>
+							</div>
+							
 							<div id="fs-featured-title-text">
 								<span class="gray">What's</span> Biting Now!
 							</div>
@@ -355,21 +362,13 @@ if (!class_exists('cfct_module_fs_featured') && class_exists('cfct_build_module'
 								
 								<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('fs_featured_area')) : else : ?><?php endif; ?>
 						
-						
-						<?php
-					}
-					
-				
-					
-					if ($count == $textLinkSize) {
-						
-						
-						?>
 						</div><!--/endrightcontent-->
 						</div><!--/endright-->
 						</div><!--/featured-->
 						<?php
 					}
+					
+				
 					
 				}
 				
@@ -673,7 +672,6 @@ var custom_feature_config = {};
       
       function setDotActive(carousel, item, idx, state) {
 	var page = idx;
-	console.log(page);
 	$(".dot.page" + page).parent().children().removeClass("active");
 	$(".dot.page" + page).addClass("active");
       }

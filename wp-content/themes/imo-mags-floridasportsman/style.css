@@ -59,7 +59,9 @@ body {
 .cfct-block-c {
 	padding-left:20px;
 }
-
+.cfct-row-a-b-c .cfct-block-c {
+padding: 0;
+}
 
 .centerad {
     margin-top: 10px;

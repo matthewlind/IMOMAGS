@@ -386,3 +386,26 @@ body {
 aside.widget .newsletter h3.gform_title {
     font-family: "Kameron", arial, sans-serif;
 }
+
+/** Featured Slider dot customization: **/
+#featured .jcarousel-skin-featured .jcarousel-next-horizontal {
+
+			  background: transparent url(img/scroller_sprite_ga.png) no-repeat 0 0 ;
+
+			}
+#featured .jcarousel-skin-featured .jcarousel-prev-horizontal {
+
+			  background: transparent url(img/scroller_sprite_ga.png) no-repeat  -20px 0;
+
+			}
+#featured .scroller-controller ul.scroll-dots li.dot a{
+			  background: transparent url(img/scroller_sprite_ga.png) no-repeat -46px -40px;
+			  width: 16px; 
+			  height: 16px;
+			  text-indent: -9000em;
+			  display:inline-block;
+			}
+#featured .scroller-controller ul.scroll-dots li.dot.active a,
+			.scroller-controller ul.scroll-dots li.dot a:hover{
+			  background-position: -46px -20px;
+			}

@@ -111,7 +111,7 @@
 			  background-position: -46px -20px;
 			}
 			
-			.scroller-controller {
+			#fs-featured .scroller-controller {
 			position: absolute;
 		        z-index:1;
 			width: 327px;
@@ -185,17 +185,32 @@ div.feature-image {
 }
 
 /** Featured What's Biting Title **/
-#fs-featured-title {
-  background-image: url(fs-feature-title-bg.png);
-  background-repeat: repeat-x;
-  width:610px;
-  height:40px;
+#fs-featured-title-text {
+
   color:#ffffff;
   font-family: Arvo, arial, serif;
   font-size:26px;
   text-transform:uppercase;
   vertical-align:middle;
+  
+  
+}
+#fs-featured-title {
+    background-image: url(fs-feature-title-bg.png);
+  background-repeat: repeat-x;
+  width:610px;
+  height:40px;
   padding-left:10px;
+}
+
+
+#fs-featured-date {
+  
+  float:right;
+  vertical-align:center;
+  color:#999999;
+  margin-right:10px;
+  margin-top:10px;
   
 }
 
@@ -319,6 +334,8 @@ div.feature-image {
   background-position:100%;
   
 }
+
+
 
 #fs-featured .feature-region .region-text {
   background-color:#22588b;
