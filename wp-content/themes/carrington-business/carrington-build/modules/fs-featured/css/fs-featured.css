@@ -21,7 +21,7 @@
 			  float:right;
 			  margin-right: 107px;
 			  background: transparent url(scroller_sprite.png) no-repeat 0 0 ;
-                          z-index:100;
+                          z-index:1000;
                           position:relative;
 			}
 			
@@ -53,7 +53,7 @@
 			  float:left;
 			  margin-left: 100px;
 			  background: transparent url(scroller_sprite.png) no-repeat  -20px 0;
-                          z-index:100;
+                          z-index:1000;
                           position:relative;
 			}
 			
@@ -85,8 +85,7 @@
 			  user-select: none;
 			}
 			
-			
-			scroller-controller {}
+		
 			.scroller-controller ul.scroll-dots {
 			  margin:0; 
 			  padding:0;
