@@ -61,3 +61,8 @@ div#featured div.right { width: 230px; }
 #main-content #fs-featured .right {
 	width:auto;
 }
+#main-content #fs-featured .scroller-controller {
+	position: absolute;
+	z-index:-20;
+	width: 327px;
+}
