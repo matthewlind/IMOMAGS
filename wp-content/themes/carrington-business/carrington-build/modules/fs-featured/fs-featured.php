@@ -678,7 +678,7 @@ var custom_feature_config = {};
       
       var feature_config = {
       scroll:1,
-      auto:3,
+      auto:4,
       wrap: 'last',
       itemVisibleInCallback: setDotActive,
       
