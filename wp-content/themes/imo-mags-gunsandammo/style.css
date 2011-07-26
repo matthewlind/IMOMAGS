@@ -380,7 +380,7 @@ body {
 .subscribe-form-block {
     margin: 14px;
 }
-#header aside.widget { margin-right: 20px; }
+#header aside.widget { margin-right: 0px; }
 
 /** subscribe to newsletter styling. **/
 aside.widget .newsletter h3.gform_title {
