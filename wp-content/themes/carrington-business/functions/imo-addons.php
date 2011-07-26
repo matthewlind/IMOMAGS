@@ -29,6 +29,11 @@ function imo_addons_include_header_file() {
 
 function imo_addons_sidebar_init() {
 
+    
+    register_nav_menus(array(
+        'subnav' => __( 'Sub Navigation', 'carrington-business' ),
+        'subnav-right' => __( 'Sub Navigation - Right', 'carrington-business' ),
+    ));
     //default configuration from carrington build
     $sidebar_defaults = array(
         'before_widget' => '<aside id="%1$s" class="widget clearfix %2$s">',
