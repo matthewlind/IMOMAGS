@@ -106,6 +106,20 @@ else {
 				'depth' => 2,
 			));
 		
+            wp_nav_menu(array( 
+				'theme_location' => 'subnav-right',
+				'container' => 'nav',
+				'container_class' => 'nav-subnav nav-subnav-right nav',
+				'depth' => 2,
+				'fallback_cb' => null
+			));
+            wp_nav_menu(array( 
+				'theme_location' => 'subnav',
+				'container' => 'nav',
+				'container_class' => 'nav-subnav nav',
+				'depth' => 2,
+				'fallback_cb' => null
+			));
 //			cfct_form('search');
 			?>
 		</div>
