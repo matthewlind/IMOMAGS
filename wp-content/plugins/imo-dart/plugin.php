@@ -246,6 +246,9 @@ function imo_dart_domain_settings_option() {
     echo "<input type='text' name='dart_domain' id='imo-dart_dart-domain' value='".get_option("dart_domain", _imo_dart_guess_domain()  )."' />";
 }
 
+function imo_dart_settings_section() {
+    echo "";
+}
 
 /* admin_menu callback. */
 function imo_dart_settings_init() {

@@ -37,7 +37,7 @@ function fs_region_init() {
             "hierarchical" => True,
             "show_ui" => True,
             "query_var" => True,
-            "rewrite" => array("slug"=>"regions"),
+            "rewrite" => array("slug"=>"region"),
         )
     );
     
