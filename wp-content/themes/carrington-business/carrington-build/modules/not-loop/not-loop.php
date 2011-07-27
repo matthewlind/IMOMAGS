@@ -235,6 +235,9 @@ if (!class_exists('not_loop') && class_exists('cfct_build_module')) {
 			$terms = get_terms('category',array("orderby"=>"name","name__like"=>"Featured"));
 			if (empty($terms[0]))
 				$terms = get_terms('category',array("orderby"=>"name","name__like"=>"GA Featured"));
+			if (empty($terms[0]))
+				$terms = get_terms('category',array("orderby"=>"name","name__like"=>"Features"));	
+				
 			$tid = $terms[0]->term_id;
 			
 		
