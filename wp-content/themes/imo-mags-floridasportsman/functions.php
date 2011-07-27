@@ -40,6 +40,18 @@ function fs_region_init() {
             "rewrite" => array("slug"=>"regions"),
         )
     );
+    
+    //default configuration from carrington build
+    $sidebar_settings = array(
+        'before_widget' => '<aside id="%1$s" class="widget clearfix %2$s">',
+        'after_widget' => '</aside>',
+        'before_title' => '<h1 class="widget-title">',
+        'after_title' => '</h1>',
+		'id' => 'sidebar-region',
+		'name' => __('Region Sidebar', 'carrington-business'),
+		'description' => __('Shown on Region Pages.', 'carrington-business')
+    );
+    register_sidebar($sidebar_settings);	
     /** Removes bad selectors from CSS PIE; affects IE7 and IE8 **/
      css3pie_remove(".cfct-module.style-b, .cfct-module.style-b .cfct-mod-title");
 }
