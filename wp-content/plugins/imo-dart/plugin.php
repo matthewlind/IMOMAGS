@@ -42,7 +42,14 @@ function _imo_dart_get_params($size, $tile) {
         "size" => $size,
         "tile" => $tile,
     );
-    if (is_front_page()) {
+    if (is_admin()) {
+        $params = array(
+            "zone" => "admin",
+            "sect" => "admin",
+            "subs" => "",
+            "page" => "admin",
+        );  }
+    elseif (is_front_page()) {
         $params = array(
             "zone" => "home",
             "sect" => "home",
@@ -51,7 +58,6 @@ function _imo_dart_get_params($size, $tile) {
         );
     }
     elseif (is_single()) {
-
         global $the_ID;
         $cat = array_shift(get_the_category($the_ID));
         $params = array(
