@@ -63,7 +63,8 @@ function _imo_dart_get_params($size, $tile) {
 
     }
     elseif (is_page()) {
-        $page = get_page();
+        global $post;
+        $page = get_page($post->ID);
         $zone = (isset($page->cat_name)) ? $page->cat_name : $page->post_name;
         $params = array(
             "zone" => $zone,
@@ -159,7 +160,6 @@ function imo_dart_tag($size, $iframe=False, $override_params=array()) {
     $tile++;
     print get_imo_dart_tag($size, $tile, $iframe, $override_params);
 }
-
 
 /**
  * Testing
