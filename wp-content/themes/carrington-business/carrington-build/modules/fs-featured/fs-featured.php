@@ -290,9 +290,21 @@ if (!class_exists('cfct_module_fs_featured') && class_exists('cfct_build_module'
 			
 			$sliderSize = 11;
 
+			$title = ( !empty($data[$this->get_field_name('title')]) ? esc_html($data[$this->get_field_name('title')]) : '');
 			
 			
 			
+			
+			//$title = "<span class='gray'>What's</span> Biting Now!";
+			
+			
+			if (strstr($title," ")) {
+				
+				$title = preg_replace("/ /", "</span> ",$title,1);
+				$title = "<span class='variant'>" . $title;
+			}
+			
+				
 			if ($query->have_posts()) {
 				
 				
@@ -316,7 +328,8 @@ if (!class_exists('cfct_module_fs_featured') && class_exists('cfct_build_module'
 							</div>
 							
 							<div id="fs-featured-title-text">
-								<span class="gray">What's</span> Biting Now!
+								<!--<span class="gray">What's</span> Biting Now!-->
+								<?php echo $title; ?>
 							</div>
 						
 						</div>
