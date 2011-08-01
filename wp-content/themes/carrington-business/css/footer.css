@@ -16,14 +16,14 @@
 	margin-right: auto;
 } 
  
-#footer {
+#footer-universal-outer {
 
 margin: 0px;
 position: relative;
 
 }
 
-#footer .region-footer {
+div#footer-universal-outer .region-footer {
     clear:both;
     background-color: #231f20;
     background-image: url(../imo-footer/images/footer-bg.png);
@@ -32,29 +32,29 @@ position: relative;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color:#D7D9DC;
 }
-#footer a {
+#footer-universal-outer a {
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color:#D7D9DC;
     text-decoration: none;
     font-size: 11px;
 }
 
-#footer a:hover {
+#footer-universal-outer a:hover {
 
   color: #F58220;
 } 
 
-#footer ul {
+#footer-universal-outer ul {
     list-style: none;
     margin:0;
     padding:0;
 }
-#footer li {
+#footer-universal-outer li {
     list-style: none;
     margin:0;
     padding:0;
 }
-#footer h3{
+#footer-universal-outer h3{
     font-size: 20px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: bold;
@@ -66,7 +66,6 @@ position: relative;
     color: #231f20;
 }
 .footer-row {
-    width: 100%;
     clear:both;
     height:309px;
     padding-left: 110px;
@@ -79,7 +78,7 @@ position: relative;
 .footer-col-wrapper .section {
     margin-left: 20px;
 }
-#footer .r-col  .section ul {  }
+#footer-universal-outer .r-col  .section ul {  }
 
 
 /**
@@ -242,7 +241,7 @@ text-decoration: none;
 }
 
 
-#footer .statebystate ul li, #footer .sportsman ul li  {}
+#footer-universal-outer .statebystate ul li, #footer-universal-outer .sportsman ul li  {}
 .statebystate .logo-link, .sportsman .logo-link {
      display: block; text-indent: -9000em; width: 100%;
     background: no-repeat;height: 38px;

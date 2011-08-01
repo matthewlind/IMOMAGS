@@ -134,7 +134,7 @@ wp_footer();
 ?>
 
 <div id="footer-section"> 
-    <div id='footer'> 
+    <div id='footer-universal-outer'> 
         <div id='footer-universal' class='footer-row'> 
                 <div class='footer-col-wrapper'> 
                     <div class='section'> 
@@ -228,7 +228,6 @@ wp_footer();
                 <li><a class="" target="_blank" href="http://www.nwtf.org/">NWTF</a></li> 
                 <li><a class="" target="_blank" href="http://www.deltawaterfowl.org/">Delta Waterfowl</a></li> 
                 <li><a class="" target="_blank" href="http://www.riverscoalition.org/">The Rivers Coalition</a></li> 
-                <li><a class="" target="_blank" href="http://www.riverkeepers.org/">The Riverkeepers</a></li> 
                 <li class='last'><a class="" target="_blank" href="http://www.floridaoceanographic.org/">Florida Oceanographic Society</a></li> 
             </ul> 
             <ul> 
@@ -242,8 +241,7 @@ wp_footer();
                 <li><a class="" target="_blank" href="http://www.ducksunlimited.org/">Ducks Unlimited</a></li> 
                 <li><a class="" target="_blank" href="http://www.quailforever.org/">Quail Forever</a></li> 
                 <li><a class="" target="_blank" href="http://fl.audubon.org/index.html">Florida Audubon Society</a></li> 
-                <li><a class="" target="_blank" href="http://www.earthjustice.org/">Earthjustice</a></li> 
-                <li><a class="" target="_blank" href="http://www.sierraclub.org/">Sierra Club</a></li> 
+                <li><a class="" target="_blank" href="http://www.riverkeepers.org/">The Riverkeepers</a></li> 
                 <li class='last'><a class="" target="_blank" href="http://www.nssf.org/">NSSF</a></li> 
             </ul> 
         </div> 
