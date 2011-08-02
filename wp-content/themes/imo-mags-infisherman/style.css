@@ -361,4 +361,74 @@ h2.entry-title a:hover {
 #header-sub {
     padding-top: 20px;
 }
+/** Skip Changes Here **/
+div.anglerhead {
+    width: 896px;
+    height: 231px;
+    background: url(img/ma-header.jpg) 0 0 no-repeat;
+    margin-bottom: 0px;
+}
+.cfct-module.cfct-module-image img.cfct-mod-image {
+    border-width: 0px;
+}
+h2.entry-title a {
+font-family: 'Arvo', arial, serif;
+font-weight: bold;
+font-size: 24px;
+	color: #B22730;
+	
+}
 
+h2.entry-title a:hover {
+	text-decoration: none;
+	color: #F1C548;
+}
+.halv h2{color:#c0633f;font-size:15px;font-family:"Arvo";}
+
+.halv {width:400px;float:left; margin:4px 15px;}
+
+.rulez{background:#fff5d2; border:4px solid #c0633f; width:876px;position:relative;padding:15px 0 0 0;}
+.rulez p {line-height: 17px;
+   margin: 0 0 10px;
+   padding: 0 20px;}
+.rulez2{width:876px;position:relative;}
+
+.rulez2 h1{background:#c0633f;font-size:25px;font-family:"Arvo";color:#fff;padding:7px;text-align:center;width:200px;margin: 0 auto;-moz-border-radius: 6px 6px 0 0; -khtml-border-radius: 6px 6px 0 0; -webkit-border-radius: 6px 6px 0 0; border-radius: 6px 6px 0 0;}
+.arvo {font-family:"arvo";font-size:20px; padding-right:5px;}
+
+h1.entry{background:#c0633f;font-size:25px;font-family:"Arvo";color:#fff;padding:9px;text-align:center;width:50%;margin: 12px auto 0;-moz-border-radius: 15px; -khtml-border-radius: 15px; -webkit-border-radius: 15px; border-radius: 15px;}
+
+/*form post styles*/
+
+.maphoto img{max-width:571px;padding:3px;border:1px solid #ccc;}
+
+.manametitle{border-bottom: 2px solid #ccc;font-family:"arvo";display:block;width:585px;min-height:30px;float:none; position:relative;padding-bottom:10px;margin-bottom:10px;}
+.maname{
+	color: #B22730;
+    float: left;
+    font-size: 26px;
+    font-weight: bold;
+	}
+
+.macity{font-size: 17px;font-weight: normal;float:right;color:#757474;margin-top:8px;}
+
+.fishinfo{background: url(img/ma-fishinfo-logo.png) top right no-repeat; font-size:17px;color:#B22730;}
+.fishinfo span.grayz {color:#757474;}
+.tellyourstory{
+	border-top: 1px dashed #CCCCCC;
+	border-bottom: 1px dashed #CCCCCC;
+    color: #000000;
+    font-size: 12px;
+    line-height: 20px;
+    margin: 14px 0;
+    padding: 14px 0;
+	}
+	
+	
+	.gform_wrapper .top_label .gfield_label {
+	    font-family: "arvo";
+	}
+	
+		.gform_wrapper ul li.weight{clear: none;
+	    float: left;
+	    margin-right: 26px;}

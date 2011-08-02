@@ -42,7 +42,14 @@ function _imo_dart_get_params($size, $tile) {
         "size" => $size,
         "tile" => $tile,
     );
-    if (is_front_page()) {
+    if (is_admin()) {
+        $params = array(
+            "zone" => "admin",
+            "sect" => "admin",
+            "subs" => "",
+            "page" => "admin",
+        );  }
+    elseif (is_front_page()) {
         $params = array(
             "zone" => "home",
             "sect" => "home",
@@ -51,7 +58,6 @@ function _imo_dart_get_params($size, $tile) {
         );
     }
     elseif (is_single()) {
-
         global $the_ID;
         $cat = array_shift(get_the_category($the_ID));
         $params = array(
@@ -63,7 +69,8 @@ function _imo_dart_get_params($size, $tile) {
 
     }
     elseif (is_page()) {
-        $page = get_page();
+        global $post;
+        $page = get_page($post->ID);
         $zone = (isset($page->cat_name)) ? $page->cat_name : $page->post_name;
         $params = array(
             "zone" => $zone,
@@ -160,7 +167,6 @@ function imo_dart_tag($size, $iframe=False, $override_params=array()) {
     print get_imo_dart_tag($size, $tile, $iframe, $override_params);
 }
 
-
 /**
  * Testing
  */
@@ -246,6 +252,9 @@ function imo_dart_domain_settings_option() {
     echo "<input type='text' name='dart_domain' id='imo-dart_dart-domain' value='".get_option("dart_domain", _imo_dart_guess_domain()  )."' />";
 }
 
+function imo_dart_settings_section() {
+    echo "";
+}
 
 /* admin_menu callback. */
 function imo_dart_settings_init() {

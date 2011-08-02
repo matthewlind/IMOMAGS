@@ -517,6 +517,7 @@ h2.entry-title a {
 }
 
 .widget.widget_subscribe-form h2, 
+aside.widget .newsletter h3.gform_title,
 .cfct-sidebar-module aside.widget h1.widget-title, #sidebar aside.widget h1.widget-title {
 
     color: #F60;
@@ -550,4 +551,17 @@ h2.entry-title a {
     margin: 0 0 12px 0;
     border: 1px solid #eee;
     padding:0;
+}
+
+.newsletter {
+    border:none;
+    padding:0;
+    margin:0;
+    background: white;
+}
+aside .gform_wrapper {
+    margin-top:0;
+}
+.gform_wrapper .newsletter .gform_footer {
+    margin-top: 4px;
 }
