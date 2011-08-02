@@ -225,6 +225,11 @@ div.feature-image {
   
 }
 
+#fs-featured-title .variant {
+  color:#aaaaaa;
+  
+}
+
 /** Featured Story **/
 #fs-featured {
   width:600px;
