@@ -201,7 +201,7 @@ wp_footer();
     <div id="block-menu-menu-footer-links" class="block block-menu region-even odd region-count-2 count-19"> 
   <div class="content"> 
     <ul class="menu"> 
-      <li class="leaf first"><a href="http://www.imoutdoorsmedia.com/IM3/about.php" title="">About</a></li>
+      <li class="leaf first"><a href="http://www.imoutdoorsmedia.com/IM3/" title="">About</a></li>
       <li class="leaf"><a href="http://www.imoutdoorsmedia.com" title="">Advertise</a></li> 
       <!--<li class="leaf"><a href="/contact" title="Send us an e-mail">Contact Us</a></li>-->
       <!--<li class="leaf"><a href="http://www.intermediaoutdoors.com/jobs/" title="">Jobs</a></li> --> 
