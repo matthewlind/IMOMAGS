@@ -16,6 +16,23 @@
  * **********************************************************************
  */
 
+/**
+ * Adds a Widget area for the Bonus Column
+ */
+if (function_exists('register_sidebar')) {
+
+  register_sidebar(array(
+  'name' => 'Bonus Sidebar',
+  'id'   => 'bonus_sidebar',
+  'description'   => 'Appears on pages that use the Right Sidebar template',
+  'before_widget' => '<div id="bonus-area">',
+  'after_widget'  => '</div>',
+  'before_title'  => '<h2>',
+  'after_title'   => '</h2>'
+  ));
+
+ }
+
 /* This function allows for logging when debugging mode is on */
 if(!function_exists('_log')){
   function _log( $message ) {
@@ -29,14 +46,23 @@ if(!function_exists('_log')){
   }
 }
 
-
+/**
+ * Adds Additional Images sizes for featured widget.
+ * NOTE: Thumbnails must be rebuilt after adding additional image sizes
+ * 
+ */
 add_image_size("small-featured-thumb",110,70,TRUE);
 add_image_size("large-featured-thumb",308,225,TRUE);
 
 
 
-
+/**
+ * If set to TRUE, ads will be automatically be refreshed periodically without reloading the page.
+ * This is set to FALSE so that it can be set to TRUE on a per theme basis.
+ */
 define("USE_IFRAME_ADS",FALSE);
+
+
 
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 
