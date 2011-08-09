@@ -22,7 +22,7 @@ require('bc-config.php');
  *
  * @return boolean - succes on true, failure on false
  */
-function _bc_import_create_post($title, $description, $id, $tags=array()){
+function _bc_import_create_post($video, $title, $description, $id, $tags=array()){
     global $user_ID;
     $post_content = _bc_embed_format_tag($id) . " \n " . $description;
 
@@ -36,10 +36,72 @@ function _bc_import_create_post($title, $description, $id, $tags=array()){
         "tags_input" => $tags,
     );
 
-    return wp_insert_post($post);
+    $result = wp_insert_post($post);
+
+    if ( is_int($result) && $result !== 0 )
+    {
+        // attaching image.
+        if ( !empty($video->videoStillURL) ) 
+        {
+            _bc_import_media_sideload_image($video->videoStillURL, $result, "Thumbnail for the video '" . $title . "'"); 
+        }
+        return true; 
+    }
+    else 
+    {
+        return false;
+    }
 }
 
 
+/**
+ * Modified version of media_sideload_image; instead of returning HTML, attaches
+ * the image as a featured image. 
+ *
+ * Download an image from the specified URL and attach it as a featured image.
+ *
+ * @see media_sideload_image
+ * @since 2.6.0
+ *
+ * @param string $file The URL of the image to download
+ * @param int $post_id The post ID the media is to be associated with
+ * @param string $desc Optional. Description of the image
+ * @return boolean|WP_Error True on success
+ *
+ */
+function _bc_import_media_sideload_image($file, $post_id, $desc = null) {
+    if ( ! empty($file) ) {
+        // Download file to temp location
+        $tmp = download_url( $file );
+
+        // Set variables for storage
+        // fix file filename for query strings
+        preg_match('/[^\?]+\.(jpg|JPG|jpe|JPE|jpeg|JPEG|gif|GIF|png|PNG)/', $file, $matches);
+        $file_array['name'] = basename($matches[0]);
+        $file_array['tmp_name'] = $tmp;
+
+        // If error storing temporarily, unlink
+        if ( is_wp_error( $tmp ) ) {
+            @unlink($file_array['tmp_name']);
+            $file_array['tmp_name'] = '';
+        }
+
+        // do the validation and storage stuff
+        $id = media_handle_sideload( $file_array, $post_id, $desc );
+        // If error storing permanently, unlink
+        if ( is_wp_error($id) ) {
+            @unlink($file_array['tmp_name']);
+            return $id;
+        }
+
+        $src = wp_get_attachment_url( $id );
+    }
+
+    // Finally check to make sure the file has been saved, then return the html
+    if ( ! empty($src) ) {
+        return add_post_meta($post_id, '_thumbnail_id', $id);
+    }
+}
 /**
  * handle the submissino.
  * @param $method - string, 'tag', 'search', 'all'
@@ -48,13 +110,15 @@ function _bc_import_create_post($title, $description, $id, $tags=array()){
  * @return - array of video assets
  */
 function _bc_import_gather_videos($method = 'all', $query){
-    if(empty($query) || !is_string($query)) {
+    if(empty($query) || !is_string($query)) 
+    {
         return array(); 
     }
     $bc = new BCMAPI(BC_READ_TOKEN, BC_WRITE_TOKEN);
 
     $videos = array();
-    switch($method) {
+    switch($method) 
+    {
     case "tag":
         $videos = $bc->search("video", array(), array('all'=>"tag:" . $query));
         break;
@@ -80,8 +144,9 @@ function _bc_import_gather_videos($method = 'all', $query){
 /**
  * Admin menu add_action callback.
  */
-function bc_import_menu(){
-    if (!is_plugin_active("bc_embed/plugin.php")) {
+function bc_import_menu() {
+    if (!is_plugin_active("bc_embed/plugin.php")) 
+    {
         print "<div class='error'>Brightcove Embed is not enabled. Video import is disabled.</div>";
     }
     add_options_page('Brightcove Importer', 'Brightcove Import', "manage_options", "bc_import", "bc_import_options");
@@ -92,30 +157,41 @@ function bc_import_menu(){
  * Options Page Callback
  */
 function bc_import_options() {
-    if (!current_user_can('manage_options'))  {
+    if (!current_user_can('manage_options'))  
+    {
         wp_die( __('You do not have sufficient permissions to access this page.') );
     }
-    if ( empty($_POST['bc_query']) || empty($_POST["bc_meth"]) || !is_plugin_active("bc_embed/plugin.php") ) {
+
+    if ( empty($_POST['bc_query']) || empty($_POST["bc_meth"]) || !is_plugin_active("bc_embed/plugin.php") ) 
+    {
         $resp="";
     }
-    else {
+    else 
+    {
         $videos = _bc_import_gather_videos($_POST["bc_meth"], $_POST['bc_query']);
-        if ( $_POST['bc_action'] == "import") {
+        if ( $_POST['bc_action'] == "import") 
+        {
             $resp="<h3>Videos Imported</h3><ul>";
             foreach ($videos as $video) {
-                if( $bid = _bc_import_create_post($video->name, $video->shortDescription, $video->id, implode( ',', $video->tags )) ) { //success
+                if( $bid = _bc_import_create_post($video, $video->name, $video->shortDescription, $video->id, implode( ',', $video->tags )) ) 
+                { //success
                     $resp .= "<li class='green'>Added: $video->name with bid $bid</li>";
                 }
-                else { //failure
+                else 
+                { //failure
                     $resp .="<li class='red'>Failure: $video->name</li>";
                 }
             }
         }
-        else { // show default action.
+        else 
+        { // show default action.
             $resp = "<h3>Videos Found</h3><ul>";
-            foreach ($videos as $video) {
+
+            foreach ($videos as $video) 
+            {
                 $resp .= "<li class='green'> $video->name</li>";
             }        
+
             $resp .="</ul>";
         }
     }
