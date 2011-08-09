@@ -16,22 +16,7 @@
  * **********************************************************************
  */
 
-/**
- * Adds a Widget area for the Bonus Column
- */
-if (function_exists('register_sidebar')) {
 
-  register_sidebar(array(
-  'name' => 'Bonus Sidebar',
-  'id'   => 'bonus_sidebar',
-  'description'   => 'Appears on pages that use the Right Sidebar template',
-  'before_widget' => '<div id="bonus-area">',
-  'after_widget'  => '</div>',
-  'before_title'  => '<h2>',
-  'after_title'   => '</h2>'
-  ));
-
- }
 
 /* This function allows for logging when debugging mode is on */
 if(!function_exists('_log')){

@@ -380,7 +380,7 @@ body {
 .subscribe-form-block {
     margin: 14px;
 }
-#header aside.widget { margin-right: 0px; }
+
 
 /** subscribe to newsletter styling. **/
 aside.widget .newsletter h3.gform_title {
@@ -409,3 +409,65 @@ aside.widget .newsletter h3.gform_title {
 			.scroller-controller ul.scroll-dots li.dot a:hover{
 			  background-position: -46px -20px;
 			}
+
+
+/* HOT FIXES */
+
+#header .site-title a {
+    background: url(/files/2011/08/ga-logo.png) no-repeat scroll 0 0 transparent;
+   }
+#header aside.widget {
+    margin-bottom: 0px;
+}
+#header .site-title {
+    margin: 0 0 12px 0px;
+    }
+#header-sub {
+    padding-right: 0px;
+}
+    #header-sub p.title {
+    color: #333333;
+    margin-bottom: 0;
+    }
+    #header-sub a {
+    color: #095FAA;
+    }
+#header-sub .left {
+padding-top: 15px;
+}
+body {
+margin: auto;
+width: 1048px;
+moz-box-shadow: 0px 0px 8px #333333; /* FF3.5+ */
+webkit-box-shadow: 0px 0px 8px #333333; /* Saf3.0+, Chrome */
+box-shadow: 0px 0px 8px #333333; /* Opera 10.5, IE9, Chrome 10+ */
+background: none repeat scroll 0 0 #ffffff !important;
+}
+html {
+background: url(http://imomags.com/gunsandammo/files/2011/08/ga_wordpress_featured_03.jpg) repeat-x scroll 0 0 #000000 !important;
+}
+.cfct-module.cfct-callout.soga-header {
+	background: url(/files/2011/08/SOGAblogHeader.jpg) no-repeat;
+	height: 230px;
+}
+.cfct-module.cfct-callout.soga-header .cfct-mod-title {
+	margin-top: 120px;
+margin-left: 20px; 
+}
+.cfct-module.cfct-callout.soga-header .cfct-mod-content {
+	margin-top: 10px; 
+margin-left: 20px;
+}
+nav.nav-subnav.nav {
+    background: url(/files/2011/08/ga-subnav-bg.jpg) repeat scroll 0 0 white;
+    border-bottom: 0 solid #CCCCCC;
+}
+nav.nav-subnav.nav a, nav.nav-subnav.nav a:visited {
+text-transform: capitalize;
+color: #888;
+font-weight: bold;
+font-size: 14px;
+}
+nav.nav-subnav.nav a:hover {
+color: #555;
+}

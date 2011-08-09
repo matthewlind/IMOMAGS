@@ -1,4 +1,4 @@
-<?php
+  <?php
 
 /**
  * imo-addons.php
@@ -6,7 +6,6 @@
  * Defines additions to Carrington Build's theme. 
  */
 include_once(CFCT_PATH.'widgets/subscribe.php');
-
 
 /**
  * A title callback for the article type.
@@ -70,7 +69,17 @@ function imo_addons_sidebar_init() {
 		'name' => __('Article Sidebar', 'carrington-business'),
 		'description' => __('Shown on article posts.', 'carrington-business')
 	)));
-}
+    
+    register_sidebar(array(
+	    'name' => 'Bonus Sidebar',
+	    'id'   => 'bonus_sidebar',
+	    'description'   => 'Appears on pages that use the Right Sidebar template',
+	    'before_widget' => '<div id="bonus-area">',
+	    'after_widget'  => '</div>',
+	    'before_title'  => '<h2>',
+	    'after_title'   => '</h2>'
+	  ));
+    }
 
 /**
  * Callback Handler for the admin_menu action.

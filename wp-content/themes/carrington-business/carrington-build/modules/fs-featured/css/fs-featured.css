@@ -1,4 +1,4 @@
-
+  
 			/** Featured Widget **/
 			.jcarousel-skin-fs-featured .jcarousel-container { width: 330px; height: 360px;}
 			.jcarousel-skin-fs-featured .jcarousel-container-horizontal { width: 330px; height:360px;}
@@ -197,7 +197,7 @@ div.feature-image {
 #fs-featured-title {
     background-image: url(fs-feature-title-bg.png);
   background-repeat: repeat-x;
-  width:610px;
+  width:620px;
   height:40px;
   padding-left:10px;
 }
@@ -232,7 +232,7 @@ div.feature-image {
 
 /** Featured Story **/
 #fs-featured {
-  width:600px;
+  width:610px;
 
   height:420px;
   border-left:10px solid #545454;
@@ -348,4 +348,8 @@ div.feature-image {
 
 #fs-featured .feature-region a {
   color:#ffffff;
+}
+
+.cfct-module.cfct-module-fs-featured {
+width: 630px;
 }

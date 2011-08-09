@@ -243,7 +243,7 @@ body {
 	font-style: normal;
 	font-weight: bold;
 	color: #00467f;
-	margin: 0 0 20px 0;
+	margin: 0 0 10px 0;
 	background-repeat: no-repeat;
 	font-size: 26px;
 	font-family: Arvo, arial, serif;
@@ -438,13 +438,18 @@ h2.entry-title a {
 	line-height: 1.2em;
 	margin: 0;
 	padding: 3px 0px 3px 150px;
-/*	text-shadow: transparent 0 1px 1px; */
+	text-shadow: transparent 0 1px 1px;
 	-moz-border-radius-topleft: 0px; /* FF1+ */
 	-webkit-border-top-left-radius: 0px; /* Saf3+, Chrome */
 	-khtml-border-top-left-radius: 0px; /* Konqueror */
 	-moz-border-radius-topright: 0px; /* FF1+ */
 	-webkit-border-top-right-radius: 0px; /* Saf3+, Chrome */
 	-khtml-border-top-right-radius: 0px; /* Konqueror */
+	border-radius: 0px 0px 0 0; /* Standard. IE9 */
+	/**
+	 * @workaround PIE z-index bug
+	 * @affected IE8
+	 */
 	position: relative;
     background: transparent url(img/background-fish-waves.png) no-repeat;
     color: white;
@@ -501,11 +506,13 @@ h2.entry-title a {
 /* Sidebar Styles                        */
 /*****************************************/
 .cfct-sidebar-module aside.widget, #sidebar aside.widget {
-	border-width: 0px;
-	margin-bottom: 20px;
-    padding: 10px 12px 10px;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
+
+    
+    border-width: 0px;
+margin-bottom: 0px;
+padding: 0px 0px 10px 0px;
+border-top: 0px solid #CCC;
+border-bottom: 0px solid #CCC;
 }
 #cfct-sidebar-module aside.widget, #sidebar aside.widget.widget_advert-widget {
     padding:0;
@@ -517,7 +524,6 @@ h2.entry-title a {
 }
 
 .widget.widget_subscribe-form h2, 
-aside.widget .newsletter h3.gform_title,
 .cfct-sidebar-module aside.widget h1.widget-title, #sidebar aside.widget h1.widget-title {
 
     color: #F60;
@@ -553,15 +559,18 @@ aside.widget .newsletter h3.gform_title,
     padding:0;
 }
 
-.newsletter {
-    border:none;
-    padding:0;
-    margin:0;
-    background: white;
+
+nav.nav-subnav.nav a, nav.nav-subnav.nav a:visited {
+text-transform: capitalize;
+color: #888;
+font-weight: bold;
+font-size: 13px;
 }
-aside .gform_wrapper {
-    margin-top:0;
+nav.nav-subnav.nav a:hover {
+color: #555;
 }
-.gform_wrapper .newsletter .gform_footer {
-    margin-top: 4px;
+#menu-whats-biting-regions {
+line-height: 1.3em;
 }
+
+

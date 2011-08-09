@@ -1,6 +1,9 @@
 <?php
 
 /**
+ * Template Name: Right Column Bonus (Homepage)
+ * Description: A page with a right BONUS sidebar column.
+ *
  * @package carrington-business
  *
  * This file is part of the Carrington Business Theme for WordPress
@@ -17,28 +20,9 @@
  */
 
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
-if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
-get_header();
+// NOTE: this file is here for compatibility reasons - active templates are in the pages/ dir 
 
-the_post();
+cfct_page('right-sidebar-homepage');
+
 ?>
-<div class="page-template-page-right-php">
-	<div class="bonus">
-		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('bonus_sidebar')) : else : ?><?php endif; ?>
-	</div>
-	<div class="col-abc">
-		<div <?php post_class('entry entry-full clearfix'); ?>>
-			<div class="entry-content">
-				<?php
-				the_content(__('Continued&hellip;', 'carrington-business'));
-				wp_link_pages();
-				
-				?>
-			</div>
-			<?php edit_post_link(__('Edit', 'carrington-business')); ?>
-		</div><!-- .entry -->
-		<?php comments_template(); ?>
-	</div><!-- .col-abc -->
-</div>
-<?php get_footer(); ?>

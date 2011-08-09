@@ -203,37 +203,4 @@ padding: 0;
 
 
 
-/*BONUS COLUMN MODS*/
-.bonus {
-	float:right;
-	width: 300px;
-
-	margin-right:15px;
-}
-
-.page-template-page-right-php .col-a,
-.page-template-page-right-php .col-b,
-.page-template-page-right-php .col-c,
-.page-template-page-right-php .cfct-block-a,
-.page-template-page-right-php .cfct-block-b,
-.page-template-page-right-php .cfct-block-c,
-.page-template-page-right-php .col-ab,
-.page-template-page-right-php .cfct-block-d,
-.page-template-page-right-php .col-ab,
-.page-template-page-right-php .cfct-block-e,
-.page-template-page-right-php .cfct-block-float-c {
-    width: 190px;
-}
-
-.page-template-page-right-php .col-ab,
-.page-template-page-right-php .col-bc,
-.page-template-page-right-php .cfct-block-ab,
-.page-template-page-right-php .cfct-block-bc {
-width: 410px;
-
-}
-
-.page-template-page-right-php .cfct-block-c {
-	padding-left:10px;
-}
 
