@@ -13,7 +13,7 @@ function _imo_global_redirect() {
     {
         if (defined("DRUPAL_SITE") && DRUPAL_SITE == true) 
         {
-            $location = "http://" . str_replace("www", "archives", $_SERVER["HTTP_HOST"]) . $_SERVER['REQUEST_URI'];
+            $location = "http://" . str_replace("www", "archive", $_SERVER["HTTP_HOST"]) . $_SERVER['REQUEST_URI'];
             header("Location: $location", TRUE, 307);
         }
         else
