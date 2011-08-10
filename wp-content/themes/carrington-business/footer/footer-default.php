@@ -20,35 +20,7 @@ if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 ?>
 <div class="cfct-row cfct-row-abc" style="clear:both"> 
-    <div class="cfct-block block-0 cfct-block-abc"> 
-            <div class="cfct-module cfct-divider "> 
-                <hr class="cfct-div-solid" /> 
-            </div></div> 
 </div>
-        <div class='aligncenter centerad'>
-    <!-- 728x90 Ad: -->
-
-<?php if (function_exists("imo_dart_tag")) {
-    imo_dart_tag("728x90");
-}
-else { ?>
-<script type="text/javascript">
-    document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dartadsgen_site+'/;sect=;page=index;subs=;sz=728x90;dcopt=;tile='+pr_tile+';ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
-</script>
-    <script type="text/javascript">
-    ++pr_tile;
-</script>
-        <noscript>
-            <a href="http://ad.doubleclick.net/adj/imo.outdoorsbest/;sect=;page=index;subs=;sz=728x90;dcopt=;tile=1;ord=7391727509?">
-            <img src="http://ad.doubleclick.net/ad/imo.outdoorsbest/home;sect=;page=index;subs=;sz=728x90;dcopt=;tile=1;ord=7391727509?" border="0" />
-            </a>
-        </noscript>
-
-<?php } ?>
-
-    <!-- END 728x90 Ad: -->
-    </div>
-
 
         </div><!-- .str-content -->
     </div><!-- #main-content -->
