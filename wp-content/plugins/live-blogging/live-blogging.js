@@ -28,6 +28,9 @@ function live_blogging_handle_data(data)
 
 function live_blogging_poll(id)
 {
+    if (typeof id == 'undefined') {
+        id = live_blogging.id;
+    }
     jQuery.post(
         live_blogging.ajaxurl,
         {
@@ -35,31 +38,29 @@ function live_blogging_poll(id)
             liveblog_id: id
         },
         function(response) {
-            entries = JSON.parse(response)
+            var entries = response;
             for (entry in entries)
             {
                 live_blogging_handle_entry(entries[entry])
             }
         },
-        'application/json'
+        'json'
     )
     setTimeout(live_blogging_poll, 15000, id)
 }
 
 function live_blogging_handle_entry(entry)
-{
+{ 
     var div_id = '#liveblog-entry-' + entry.id
     if ('entry' == entry.type)
     {
         if (0 == jQuery(div_id).length)
-        {
+        { 
             // Entry doesn't already exist
-            if ('bottom' == live_blogging.update_effect)
-            {
+            if ('bottom' == live_blogging.update_effect) {
                 jQuery('#liveblog-' + entry.liveblog).append('<div id="liveblog-entry-' + entry.id + '" style="display: none; position: absolute;">' + entry.html + '</div>');
             }
-            else
-            {
+            else {
                 jQuery('#liveblog-' + entry.liveblog).prepend('<div id="liveblog-entry-' + entry.id + '" style="display: none; position: absolute;">' + entry.html + '</div>');
             }
             jQuery(div_id).fadeTo(0, 0,
