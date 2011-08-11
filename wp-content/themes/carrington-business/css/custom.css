@@ -264,6 +264,13 @@ width: 410px;
 
 }
 
+.page-template-page-right-php .cfct-block-d,
+.page-template-page-right-php .cfct-block-e {
+     
+     width:300px;
+
+}
+
 .page-template-page-right-php .cfct-block-c {
 	padding-left:10px;
 }
