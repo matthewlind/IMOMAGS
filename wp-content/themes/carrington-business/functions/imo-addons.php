@@ -1,4 +1,4 @@
-  <?php
+<?php
 
 /**
  * imo-addons.php
@@ -11,11 +11,11 @@ include_once(CFCT_PATH.'widgets/subscribe.php');
  * A title callback for the article type.
  */
 function cfct_articles_title() {
-	$title = cfct_get_option('cfctbiz_articles_title');
-	if (!$title) {
-		$title = sprintf(__('%s Articles', 'carrington-business'), get_bloginfo('name'));
-	}
-	echo $title;
+    $title = cfct_get_option('cfctbiz_articles_title');
+    if (!$title) {
+        $title = sprintf(__('%s Articles', 'carrington-business'), get_bloginfo('name'));
+    }
+    echo $title;
 }
 
 
@@ -23,12 +23,12 @@ function cfct_articles_title() {
  * Includes a header file at the top of the page. 
  */
 function imo_addons_include_header_file() {
-	include(CFCT_PATH.'functions/header-content.php');
+    include(CFCT_PATH.'functions/header-content.php');
 }
 
 function imo_addons_sidebar_init() {
 
-    
+
     register_nav_menus(array(
         'subnav' => __( 'Sub Navigation', 'carrington-business' ),
         'subnav-right' => __( 'Sub Navigation - Right', 'carrington-business' ),
@@ -48,38 +48,38 @@ function imo_addons_sidebar_init() {
     )));
 
     register_sidebar(array_merge($sidebar_defaults, array(
-		'id' => 'sidebar-home',
-		'name' => __('Homepage Sidebar', 'carrington-business'),
-		'description' => __('Shown on the homepage.', 'carrington-business')
-	)));
+        'id' => 'sidebar-home',
+        'name' => __('Homepage Sidebar', 'carrington-business'),
+        'description' => __('Shown on the homepage.', 'carrington-business')
+    )));
 
     register_sidebar(array_merge($sidebar_defaults, array(
-		'id' => 'sidebar-landing',
-		'name' => __('Landing Page Sidebar', 'carrington-business'),
-		'description' => __('Shown on Landing Pages.', 'carrington-business')
+        'id' => 'sidebar-landing',
+        'name' => __('Landing Page Sidebar', 'carrington-business'),
+        'description' => __('Shown on Landing Pages.', 'carrington-business')
     )));	
-    
+
     register_sidebar(array_merge($sidebar_defaults, array(
-		'id' => 'sidebar-video',
-		'name' => __('Video Sidebar', 'carrington-business'),
-		'description' => __('Shown on video posts.', 'carrington-business')
-	)));
+        'id' => 'sidebar-video',
+        'name' => __('Video Sidebar', 'carrington-business'),
+        'description' => __('Shown on video posts.', 'carrington-business')
+    )));
     register_sidebar(array_merge($sidebar_defaults, array(
-		'id' => 'sidebar-articles',
-		'name' => __('Article Sidebar', 'carrington-business'),
-		'description' => __('Shown on article posts.', 'carrington-business')
-	)));
-    
+        'id' => 'sidebar-articles',
+        'name' => __('Article Sidebar', 'carrington-business'),
+        'description' => __('Shown on article posts.', 'carrington-business')
+    )));
+
     register_sidebar(array(
-	    'name' => 'Bonus Sidebar',
-	    'id'   => 'bonus_sidebar',
-	    'description'   => 'Appears on pages that use the Right Sidebar template',
-	    'before_widget' => '<div id="bonus-area">',
-	    'after_widget'  => '</div>',
-	    'before_title'  => '<h2>',
-	    'after_title'   => '</h2>'
-	  ));
-    }
+        'name' => 'Bonus Sidebar',
+        'id'   => 'bonus_sidebar',
+        'description'   => 'Appears on pages that use the Right Sidebar template',
+        'before_widget' => '<div id="bonus-area">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h2>',
+        'after_title'   => '</h2>'
+    ));
+}
 
 /**
  * Callback Handler for the admin_menu action.
@@ -113,7 +113,7 @@ function imo_addons_subscription_page() {
         <th scope="row">Deal Copy</th>
         <td><input type="text" name="deal_copy" value="<?php echo get_option('deal_copy'); ?>" /></td>
         </tr>
-         
+
         <tr valign="top">
         <th scope="row">Subscription Link</th>
         <td><input type="text" name="subs_link" value="<?php echo get_option('subs_link'); ?>" /></td>
@@ -136,7 +136,7 @@ function imo_addons_subscription_page() {
         <td><input type="text" name="i4ky" value="<?php echo get_option('i4ky'); ?>" /></td>
         </tr>
   </table>
-    
+
     <p class="submit">
     <input type="submit" class="button-primary" value="<?php _e('Save Changes') ?>" />
     </p>

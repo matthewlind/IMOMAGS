@@ -716,7 +716,8 @@ function live_blogging_shortcode($atts, $id = null)
     {
         $s .= '<script type="text/javascript">
                /*<![CDATA[ */
-                setTimeout(live_blogging_poll, 15000, "' . $id . '")
+                live_blogging.id = "' . $id . '";
+                setTimeout(live_blogging_poll, 15000, "' . $id . '");
                /*]]>*/
                </script>';
     }

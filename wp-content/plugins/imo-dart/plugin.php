@@ -41,6 +41,7 @@ function _imo_dart_get_params($size, $tile) {
         "height"=> array_pop(explode("x", $size)),
         "size" => $size,
         "tile" => $tile,
+        "refresh" => 45,
     );
     if (is_admin()) {
         $params = array(
@@ -85,21 +86,21 @@ function _imo_dart_get_params($size, $tile) {
         else {
             $tax_title = single_tag_title("", False);
         }
-    $params = array(
+        $params = array(
             "zone" => $tax_title,
             "sect" => $tax_title,
             "subs" => "",
             "page" => $tax_title . " Archive", 
         ); }
-    else {
-        $params = array(
-            "zone" => "misc",
-            "sect" => "misc",
-            "subs" => "",
-            "page" => "index",
-        );  
-    }
-    return array_merge(array_map("imo_dart_clean_tag", $params), $defaults);
+        else {
+            $params = array(
+                "zone" => "misc",
+                "sect" => "misc",
+                "subs" => "",
+                "page" => "index",
+            );  
+        }
+        return array_merge(array_map("imo_dart_clean_tag", $params), $defaults);
 } 
 
 
@@ -109,7 +110,7 @@ function _imo_dart_get_params($size, $tile) {
 function _imo_dart_get_tag($iframe) {
     if ($iframe) 
     {
-        $tag = '<iframe src="/iframe-advert.php?size=%1$s&zone=%3$s&sect=%4$s&page=%6$s&subs=%5$s" frameBorder="0" width="%8$s" height="%9$s" scrolling="no" allowTransparency="true">';
+        $tag = '<iframe src="/iframe-advert.php?size=%1$s&zone=%3$s&sect=%4$s&page=%6$s&rr=%10$s&subs=%5$s" frameBorder="0" width="%8$s" height="%9$s" scrolling="no" allowTransparency="true">';
         $tag .= _imo_dart_get_tag(false);
         $tag .="</iframe>";
     }
@@ -131,7 +132,7 @@ document.write(unescape(\'%%3Cscript src="http://ad.doubleclick.net/adj/%2$s/%3$
 
 
 function _imo_dart_sprint_tag($params, $tag) {
-    return sprintf($tag, $params['size'], $params['domain'], $params['zone'], $params['sect'], $params['subs'],$params['page'], $params['tile'], $params['width'], $params['height']);
+    return sprintf($tag, $params['size'], $params['domain'], $params['zone'], $params['sect'], $params['subs'],$params['page'], $params['tile'], $params['width'], $params['height'], $params['refresh']);
 }
 /**
  * Attempt to formulate a domain based on the currentiste domain.
@@ -196,19 +197,10 @@ if (__FILE__ == $_SERVER['PWD'] . '/'. $_SERVER['SCRIPT_FILENAME']) {
 
 
 function iframe_maker () {
-    if (preg_match("/^\/iframe-advert\.php(\?(.+)?)?$/", $_SERVER['REQUEST_URI'])) {
-?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="refresh" content="45">
-    </head>
-    <body style="margin:0px;border:0px;">
-        <script type="text/javascript">
-        var dartadsgen_rand = Math.floor((Math.random()) * 100000000), pr_tile = 1; 
-        </script>
-<?php
-        $sizes = array(
+    if (preg_match("/^\/iframe-advert\.php(\?(.+)?)?$/", $_SERVER['REQUEST_URI'])) 
+    {
+        $refresh_rate = ( intval($_GET['rr']) < 45 || empty($_GET['rr']) ) ? 45 : intval($_GET['rr']);
+         $sizes = array(
             "box-ad" => "300x250", "skyscraper" => "160x600", "leaderboard" => "728x90",
             "rectangle" => "180x150", "wide-skyscraper" => "300x600", "button2" => "120x60",
         );
@@ -223,9 +215,17 @@ function iframe_maker () {
         if ( !in_array($size, $sizes)) {
             $size = "300x250";
         }
-
-        imo_dart_tag($size, False, $params);
 ?>
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta http-equiv="refresh" content="<?php print $refresh_rate; ?>">
+    </head>
+    <body style="margin:0px;border:0px;">
+        <script type="text/javascript">
+        var dartadsgen_rand = Math.floor((Math.random()) * 100000000), pr_tile = 1; 
+        </script>
+<?php imo_dart_tag($size, False, $params); ?>
     </body>
     </html>
 <?php
@@ -249,7 +249,7 @@ add_action("init", "iframe_maker");
 
 /* add_settings_field callback */
 function imo_dart_domain_settings_option() {
-    echo "<input type='text' name='dart_domain' id='imo-dart_dart-domain' value='".get_option("dart_domain", _imo_dart_guess_domain()  )."' />";
+    echo "<input type='text' name='dart_domain' id='imo-dart_dart-domain' value='".get_option("dart_domain", "" )."' />";
 }
 
 function imo_dart_settings_section() {

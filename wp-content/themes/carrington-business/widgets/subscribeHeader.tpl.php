@@ -9,7 +9,7 @@
 <!-- Header Widget -->
 <div id="header-sub" class="subscription-block"> 
 	<div class='right' >
-	<a href="<?php print get_option("subs_link");?>"><img src='<?php print get_option("magainze_cover_url", get_stylesheet_directory_uri(). "/img/magazine.png" ); ?>'></a> 
+	<a href="<?php print get_option("subs_link");?>"><img src='<?php print get_option("magazine_cover_uri", get_stylesheet_directory_uri(). "/img/magazine.png" ); ?>'></a> 
 	</div> 
 	<div class="left" >
 	<p class='title'><?php print get_option("deal_copy", "Save up to 70%<br/> Off the Cover Price!"); ?></p> 
