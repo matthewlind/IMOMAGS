@@ -56,4 +56,6 @@ display:block; width: 100px;height:79px; margin-left:4px;
   background-repeat: no-repeat;
   } 
 #featured-articles-navigator li a {background-color: #231F20; display:block;height: 70px;width:94px;border:2px solid #231F20;}
-.featured-articles .tab-content { cursor: pointer; }
+
+
+.featured-articles .featured-item-pane { cursor: pointer; }
