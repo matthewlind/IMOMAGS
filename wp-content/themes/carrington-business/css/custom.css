@@ -235,11 +235,42 @@ nav.nav-featured, nav.nav-subnav-right.nav {
 
 
 /*BONUS COLUMN MODS*/
+
+body.page-template-page-right-php {
+    
+    width:1010px;
+}
+
+.bonus-background {
+    float:right;
+    width:310px;
+    background-color:#eeeeee;
+}
+
 .bonus {
 	float:right;
+	margin-top:5px;
+	margin-left:5px;
 	width: 300px;
 
-	margin-right:15px;
+}
+
+.page-template-page-right-php .cfct-block-c,
+.page-template-page-right-php .cfct-block-b,
+.page-template-page-right-php .cfct-block-a{
+    
+    background-color:oldlace;
+}
+
+
+.page-template-page-right-php .str-container {
+    width:1010px;
+    margin:0px;
+}
+
+.page-template-page-right-php .nav-main {
+    
+    width:auto;
 }
 
 .page-template-page-right-php .col-a,
@@ -249,28 +280,69 @@ nav.nav-featured, nav.nav-subnav-right.nav {
 .page-template-page-right-php .cfct-block-b,
 .page-template-page-right-php .cfct-block-c,
 .page-template-page-right-php .col-ab,
-.page-template-page-right-php .cfct-block-d,
 .page-template-page-right-php .col-ab,
-.page-template-page-right-php .cfct-block-e,
 .page-template-page-right-php .cfct-block-float-c {
-    width: 190px;
+    width: 200px;
 }
+.page-template-page-right-php .col-a,
+.page-template-page-right-php .col-b,
+.page-template-page-right-php .col-c,
+.page-template-page-right-php .col-ab,
+.page-template-page-right-php .col-bc,
+.page-template-page-right-php .col-abc,
+.page-template-page-right-php .col-d,
+.page-template-page-right-php .col-e,
+.page-template-page-right-php .col-f,
+.page-template-page-right-php .col-g,
+.page-template-page-right-php .col-h,
+.page-template-page-right-php  .cfct-block {
+    
+    margin-right:10px;
+    margin-left:10px;
+    
+}
+
+
+.page-template-page-right-php  .col-abc .col-a,
+.page-template-page-right-php  .col-abc .col-ab,
+.page-template-page-right-php  .col-abc .col-d,
+.page-template-page-right-php  .col-ab .col-a,
+.page-template-page-right-php  .col-bc .col-b,
+.page-template-page-right-php  .col-ab .cfct-block-a,
+.page-template-page-right-php  .col-ab .cfct-block-ab,
+.page-template-page-right-php  .col-ab .cfct-block-abc,
+.page-template-page-right-php  .col-ab .cfct-block-d,
+.page-template-page-right-php  .col-bc .cfct-block-a,
+.page-template-page-right-php  .col-bc .cfct-block-ab,
+.page-template-page-right-php  .col-bc .cfct-block-bc,
+.page-template-page-right-php  .col-bc .cfct-block-abc,
+.page-template-page-right-php  .col-bc .cfct-block-d,
+.page-template-page-right-php  .col-abc .cfct-block-a,
+.page-template-page-right-php  .col-abc .cfct-block-ab,
+.page-template-page-right-php  .col-abc .cfct-block-abc,
+.page-template-page-right-php  .col-abc .cfct-block-d,
+.page-template-page-right-php  .col-d .col-f,
+.page-template-page-right-php  .col-e .col-f {
+
+    margin-left:0px;
+}
+
 
 .page-template-page-right-php .col-ab,
 .page-template-page-right-php .col-bc,
 .page-template-page-right-php .cfct-block-ab,
 .page-template-page-right-php .cfct-block-bc {
-width: 410px;
+width: 420px;
 
 }
 
 .page-template-page-right-php .cfct-block-d,
 .page-template-page-right-php .cfct-block-e {
      
-     width:300px;
+     width:310px;
 
 }
 
 .page-template-page-right-php .cfct-block-c {
-	padding-left:10px;
+	padding-left:0px;
 }

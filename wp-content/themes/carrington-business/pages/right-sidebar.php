@@ -24,8 +24,10 @@ get_header();
 the_post();
 ?>
 <div class="page-template-page-right-php">
-	<div class="bonus">
-		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('bonus_sidebar')) : else : ?><?php endif; ?>
+	<div class="bonus-background">
+		<div class="bonus">
+			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('bonus_sidebar')) : else : ?><?php endif; ?>
+		</div>
 	</div>
 	<div class="col-abc">
 		<div <?php post_class('entry entry-full clearfix'); ?>>

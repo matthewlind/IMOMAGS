@@ -51,9 +51,6 @@ a {
 .col-a, .col-b, .col-c, .cfct-block-a, .cfct-block-b, .cfct-block-c, .col-ab .cfct-block-d, .col-ab .cfct-block-e, .cfct-block-float-c {
 	width: 300px;
 }
-.cfct-block-c {
-	padding-left:20px;
-}
 
 .centerad {
     margin-top: 10px;
@@ -437,7 +434,7 @@ padding-top: 15px;
 }
 body {
 margin: auto;
-width: 1048px;
+width: 1020px;
 moz-box-shadow: 0px 0px 8px #333333; /* FF3.5+ */
 webkit-box-shadow: 0px 0px 8px #333333; /* Saf3.0+, Chrome */
 box-shadow: 0px 0px 8px #333333; /* Opera 10.5, IE9, Chrome 10+ */
@@ -470,4 +467,71 @@ font-size: 14px;
 }
 nav.nav-subnav.nav a:hover {
 color: #555;
+}
+
+
+/* EVEN MORE HOT FIXES */
+
+body {
+width: 1020px;
+}
+#header .site-title {
+margin: 0 0 12px 20px;
+}
+#header aside.widget {
+margin-right: 20px;
+}
+nav.nav-featured > ul > li > a {
+font-size: 16px;
+}
+.str-content {
+padding: 20px;
+}
+.nav-home { 
+margin-top: 13px !important;
+height: 20px;
+text-indent: -9999px;
+background: url(/files/2011/08/home.png) no-repeat;
+}
+
+.page-template-page-right-php .cfct-block-d,
+.page-template-page-right-php .cfct-block-e { width:300px;}
+.home-trending {
+width: 180px;
+}
+.home-trending .widget .widget-title {
+color: #F7941D;
+}
+.featured-item-description h2 {
+font-size: 20px;
+padding: 10px;
+}
+a:visited {
+color: #095FAA;
+}
+#wpp-3 ul li, .widget.popular-posts ul li {
+padding: 0 0 5px 0;
+font-weight: bold;
+}
+#wpp-3 ul li, .widget.popular-posts ul li a {
+color: #000000;
+}
+.cfct-module.cf-post-callout-module, .cfct-module.style-c, .cfct-module.style-b {
+line-height: 1.3em;
+}
+.cfct-module .cfct-mod-title {
+line-height: 1em;
+font-size: 16px;
+}
+.cfct-module.cfct-heading  .cfct-mod-title {
+font-size: 20px;
+}
+
+.bonus {
+margin-right: 0px;
+}
+
+.page-template-page-right-php .col-abc {
+width:660px;
+margin-left:0px
 }

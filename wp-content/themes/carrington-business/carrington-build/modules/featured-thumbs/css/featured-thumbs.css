@@ -5,7 +5,7 @@
 
 .featured-articles {
   
-  width:412px;
+  width:420px;
   
 }
 
@@ -14,7 +14,7 @@
   width: 420px; height: 365px; position:relative; margin-left:20px;float:left;overflow:hidden;
 }
 .featured-item-pane {
-  position: relative; height:268px;width: 410px;
+  position: relative; height:300px;width: 420px;
 }
 .ui-tabs-hide {
 display: none;
@@ -47,15 +47,21 @@ display: none;
 }
 #featured-articles-navigator li.first {margin-left:0;} 
 
-#featured-articles-navigator li {list-style:none; padding-top: 8px;margin-top:4px;float:left;
-display:block; width: 100px;height:79px; margin-left:4px;
+#featured-articles-navigator li {
+  list-style:none;
+  padding-top: 8px;
+  margin-top:4px;
+  float:left;
+  display:block;
+  width: 100px;
+  margin-left:6px;
 }
 #featured-articles-navigator li.ui-tabs-selected {
   background-image: url(../img/tab-selected-arrow-up.png);
   background-position: center top;
   background-repeat: no-repeat;
   } 
-#featured-articles-navigator li a {background-color: #231F20; display:block;height: 70px;width:94px;border:2px solid #231F20;}
+#featured-articles-navigator li a {background-color: #231F20; display:block;height: 76px;width:98px;border:2px solid #231F20;}
 
 
 .featured-articles .featured-item-pane { cursor: pointer; }
