@@ -21,6 +21,9 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 get_header();
 ?>
+<?php if (in_category(295)) { ?>
+<a href="/blogs/sons-of-gunsandammo/" title="Sons of Guns & Ammo"><div class="soga-header"></div></a>
+<?php } ?>
 <div class="col-ab">
 	<?php
 	cfct_loop();
