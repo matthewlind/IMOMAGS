@@ -521,6 +521,8 @@ border-bottom: 0px solid #CCC;
 .cfct-sidebar-module aside.widget.gform_widget, 
 #sidebar aside.widget.gform_widget {
     border: 5px solid #04a8dd;
+    padding: 5px 15px;
+    margin-bottom: 20px;
 }
 
 .widget.widget_subscribe-form h2, 
@@ -573,4 +575,24 @@ color: #555;
 line-height: 1.3em;
 }
 
-
+/**
+ Gform styling
+ */
+.newsletter {
+    margin: 0 0 0px 0;
+    padding:0;
+    border: none;
+}
+.gform_wrapper .newsletter .gform_footer {
+    margin-top:4px;
+}
+aside.widget .newsletter h3.gform_title {
+    letter-spacing: -1px;
+    color: #F60;
+    font-size: 20px;
+    margin-bottom: 0;
+    border-bottom: 0;
+    text-transform: uppercase;
+    font-family: "Arvo", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+}
