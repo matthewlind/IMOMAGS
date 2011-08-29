@@ -80,7 +80,7 @@ function imo_hotfix_css() {
 
 function imo_hotfix_add_stylesheet(){
     $contents = get_option("hotfix_css",'');
-    if (!empty($contents)) {
+    if (!empty($contents) && !is_admin()) {
         wp_enqueue_style("hotfix_stylesheet", "/hotfix-style.css", array(), get_option("hotfix_cachebuster"), 'screen');
     }
 }
