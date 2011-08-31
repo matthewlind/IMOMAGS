@@ -105,9 +105,9 @@
  */
 
 .newsletter h3, form.newsletter  h3.gform_title, .newsletter h2 {
-    font-size: 16px; 
-    font-weight: bold;
-    margin: 0 0 10px 0;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    letter-spacing: -1px;
+    text-transform: capitalize;
 }
 .gform_wrapper .newsletter .gform_footer { 
     margin:14px 0 0 180px;
@@ -142,6 +142,7 @@
     width: 175px;
     float:left;
 }
+    .gform_wrapper .newsletter .top_label input.medium,
 #sidebar .gform_wrapper .newsletter .ginput_container input {
     border: 1px solid #AAA;
     width:170px;
@@ -161,12 +162,15 @@
     background-image: none;
     background-color: white;
 }
+.newsletter h3, form.newsletter  h3.gform_title, .newsletter h2,
 aside.widget .newsletter h3.gform_title {
     font-size: 20px;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     letter-spacing: -1px;
     text-transform: capitalize;
+    margin-bottom:10px;
 }
+    .gform_wrapper .newsletter .gform_footer input.button, .gform_wrapper .newsletter .gform_footer input[type="submit"],
 #sidebar .newsletter .gform_button {
     background: #115FA4 url(../images/mask.png) repeat-x;
     border: 2px solid #115FA4;
