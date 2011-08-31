@@ -96,6 +96,7 @@ function register_imo_subscribe_settings () {
     register_setting( 'imo-subs-settings-group', 'gift_link' );
     register_setting( 'imo-subs-settings-group', 'service_link' );
     register_setting( 'imo-subs-settings-group', 'magazine_cover_uri' );
+    register_setting( 'imo-subs-settings-group', 'subs_form_link' );
     register_setting( 'imo-subs-settings-group', 'i4ky' );
 }
 /**
@@ -129,8 +130,12 @@ function imo_addons_subscription_page() {
         <th scope="row">Magazine Cover URL</th>
         <td><input type="text" name="magazine_cover_uri" value="<?php echo get_option('magazine_cover_uri'); ?>" /></td>
         </tr>
+        <tr valign="top">
+        <th scope="row">Subscription Form Action</th>
+        <td><input type="text" name="subs_form_link" value="<?php echo get_option('subs_form_link'); ?>" /><p>(No slash at the end: 'http://www.example.com'.)</p></td>
+        </tr>        
         <th scope="row">iMagID</th>
-        <td><input type="text" name="iMagID" value="<?php echo get_option('iMagID'); ?>" /></br><p>(Leave this alone if you don't konw what this does.)</td>
+        <td><input type="text" name="iMagID" value="<?php echo get_option('iMagID'); ?>" /></br><p>(Leave this alone if you don't konw what this does.)</p></td>
         </tr> <tr valign="top">
         <th scope="row">Special Keys</th>
         <td><input type="text" name="i4ky" value="<?php echo get_option('i4ky'); ?>" /></td>
