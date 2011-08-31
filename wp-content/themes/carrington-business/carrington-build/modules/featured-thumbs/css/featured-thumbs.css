@@ -63,5 +63,8 @@ display: none;
   } 
 #featured-articles-navigator li a {background-color: #231F20; display:block;height: 76px;width:98px;border:2px solid #231F20;}
 
+#featured-articles-navigator ul {
+  height: 92px;
+}
 
 .featured-articles .featured-item-pane { cursor: pointer; }
