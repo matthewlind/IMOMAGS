@@ -123,7 +123,7 @@
 }
 .newsletter {
     background: #BBC url(../img/bbc_gradient.gif) repeat-x;
-    padding:20px;
+    padding: 10px 20px 20px;
     border:1px solid #ccc;
     vertical-align: middle;
     position:relative;
@@ -158,17 +158,18 @@
 /** Overridden stye **/
 .newsletter { 
     border: 3px solid #ccc;
-    padding: 17px;
+    padding: 17px 17px;
     background-image: none;
     background-color: white;
 }
 .newsletter h3, form.newsletter  h3.gform_title, .newsletter h2,
 aside.widget .newsletter h3.gform_title {
-    font-size: 20px;
+    font-size: 16px;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     letter-spacing: -1px;
     text-transform: capitalize;
     margin-bottom:10px;
+    margin-top:0;
 }
     .gform_wrapper .newsletter .gform_footer input.button, .gform_wrapper .newsletter .gform_footer input[type="submit"],
 #sidebar .newsletter .gform_button {
