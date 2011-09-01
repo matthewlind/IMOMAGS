@@ -190,9 +190,7 @@ aside.widget .newsletter h3.gform_title {
 }
 
 /** Store Widget ***/
-#imoprodgallery { 
-    border: 3px solid #ccc;
-}
+
 .widget .regprice {
     color: #000;
     font-family: Helvetica, Arial, sans-serif;
@@ -245,6 +243,7 @@ body.page-template-page-right-php {
     width:1010px;
 }
 
+
 .bonus-background {
     float:right;
     width:310px;
@@ -252,7 +251,7 @@ body.page-template-page-right-php {
 }
 
 .bonus {
-	float:right;
+
 	margin-top:5px;
 	margin-left:5px;
 	width: 300px;
@@ -263,7 +262,7 @@ body.page-template-page-right-php {
 .page-template-page-right-php .cfct-block-b,
 .page-template-page-right-php .cfct-block-a{
     
-    background-color:oldlace;
+
 }
 
 
