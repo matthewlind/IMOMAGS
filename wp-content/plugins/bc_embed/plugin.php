@@ -49,7 +49,8 @@ function wp_embed_handler_brightcove ( $matches, $attr, $url, $rawattr ) {
         $videoid,
         $width,
         $height,
-        _BC_DEFAULT_PLAYER_KEY,
+        get_option("bc_player_key", _BC_DEFAULT_PLAYER_KEY),
+        
         $video_link
     );
     return apply_filters( 'embed_brightcove', $embed, $matches, $attr, $url, $rawattr );
