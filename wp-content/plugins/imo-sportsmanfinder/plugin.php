@@ -18,7 +18,7 @@ class IMOSportsmanWidget extends \WP_Widget {
 
     function __construct()
     {
-        parent::__construct("store-widget", "Store Widget");
+        parent::__construct("channel-widget", "Channel Widget");
     }
 
     /**
@@ -43,10 +43,17 @@ class IMOSportsmanWidget extends \WP_Widget {
         extract( $args );
         print $before_widget;
 ?>
-<form>
-<input type="text" value="Zipcode" />
-<input type="button" class="find-zipcode" value="Find It" />
-</form>
+<script>
+function popwin(loc,winname,w,h,scroll,resize) {
+	var newwin = window.open( loc, winname, "width="+w+",height="+h+",top="+((screen.height - h) / 2)+",left="+((screen.width - w) / 2)+",location=no,scrollbars="+scroll+",menubar=no,toolbar=no,resizable="+resize);
+} // function..popwin
+</script>
+<div id="locateChannel">
+			<h3>Get Sportsman Channel</h3>
+			<input type="text" name="zip" id="zip" onfocus="if(this.value == this.defaultValue) this.value = '';" value="Enter ZIP" class="searchbox" />
+			<a href="#" onclick="javascript:popwin('http://thesportsmanchannel.viewerlink.tv/?zip='+document.getElementById('zip').value,'indicator',615,550,'yes','yes');"><input type="submit" value="GO&raquo;" class="button" /></a>
+		</div>
+
 <?php
         print $after_widget;
     }
