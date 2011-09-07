@@ -13,7 +13,48 @@ function _imo_global_redirect() {
     {
         if ( get_option("imo_redirect_enable", False)  ) 
         {
-            $location = "http://" . str_replace("www", get_option('redirect_domain', "archive"), $_SERVER["HTTP_HOST"]) . $_SERVER['REQUEST_URI'];
+            // Need to redirect to potential story.
+            $path_string = array_filter(explode("/", strtolower( $_SERVER['REQUEST_URI'])));
+            $potential_slug = array_pop($path_string);
+            // if it's "index.html" then we need to ignore it. 
+            if (substr($potential_slug, 0, 5) == "index") 
+            {
+                $potential_slug = array_pop($path_string);
+            }
+            $potential_slug = join("_", $path_string) . "_" . $potential_slug;
+
+            // 
+            global $wpdb;
+            $result = $wpdb->get_results(
+                $wpdb->prepare(
+                    "SELECT ID 
+                    FROM $wpdb->posts
+                    WHERE post_type='post'
+                    AND post_name='%s'
+                    LIMIT 1
+                    ",
+                    $potential_slug
+                ),
+                ARRAY_A
+            );
+
+            $pID = (int) array_shift($result[0]);
+
+            if ($pID) 
+            {
+               $location = get_permalink($pID); 
+            }
+            else 
+            {
+                $target_host = str_replace("www", get_option('redirect_domain', "www"), $_SERVER["HTTP_HOST"]);
+                $location = "http://" . $target_host;
+
+                // we only append the current URI if the target host does not match the current host. 
+                if ($target_host != $_SERVER["HTTP_HOST"]) 
+                {
+                    $location .= $_SERVER['REQUEST_URI'];
+                }
+            }
             header("Location: $location", TRUE, 307);
         }
         else
@@ -42,7 +83,9 @@ function imo_redirector_enable_settings_option() {
     echo "<input type='checkbox' name='imo_redirect_enable' id='imo-redirector_imo-redirect-enable' ". (($checked) ? "checked='true'" : "") ." value='True' />";
 }
 function imo_redirector_domain_settings_option() {
-    echo "<input type='text' name='redirect_domain' id='imo-redirector_redirect-domain' value='".get_option("redirect_domain", "archive"  )."' />";
+
+    echo "<input type='text' name='redirect_domain' id='imo-redirector_redirect-domain' value='".get_option("redirect_domain", "www"  )."' />";
+    echo "<p>(Leaving this set to 'www' will redirect all missing pages to the homepage.)</p>";
 }
 
 function imo_redirector_settings_section() {
