@@ -129,11 +129,36 @@ jQuery(document).ready(function($) {
         }
     };
 
+    var aboveCustomString = $('#above_custom_string'); 
+    var aboveCustomStringShow = function(){
+        if ( aboveCustomString.prop('checked') != 'undefined' &&  aboveCustomString.prop('checked') == true)
+        {
+            $('#above_custom_string_input').removeClass('hidden');
+        }
+        else
+        {
+            $('#above_custom_string_input').addClass('hidden');
+        }
+    };
+    var belowCustomString = $('#below_custom_string'); 
+    var belowCustomStringShow = function(){
+        if ( belowCustomString.prop('checked') != 'undefined' &&  belowCustomString.prop('checked') == true)
+        {
+            $('#below_custom_string_input').removeClass('hidden');
+        }
+        else
+        {
+            $('#below_custom_string_input').addClass('hidden');
+        }
+    };
+
     aboveCustomShow();
     belowCustomShow();
+    aboveCustomStringShow();
+    belowCustomStringShow();
 
-    $('input[name="addthis_settings[above]"]').change( function(){aboveCustomShow();} );
-    $('input[name="addthis_settings[below]"]').change( function(){belowCustomShow();} );
+    $('input[name="addthis_settings[above]"]').change( function(){aboveCustomShow(); aboveCustomStringShow();} );
+    $('input[name="addthis_settings[below]"]').change( function(){belowCustomShow(); belowCustomStringShow();} );
 
 
 });

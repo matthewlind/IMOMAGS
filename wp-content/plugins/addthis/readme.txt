@@ -1,18 +1,16 @@
-=== AddThis featuring Sharing Buttons / Facebook Like / Tweet Button / Google + 1 === 
+=== AddThis featuring Sharing Buttons / Facebook Like / Tweet Button === 
 Contributors: _mjk_, jorbin
-Tags: share, addthis, social, bookmark, sharing, bookmarking, widget,AddThis, addtoany, aim, bookmark, buzz, del.icio.us, Digg,e-mail, email, Facebook, google bookmarks, google buzz, myspace,network, NewsVine, Reddit, Share, share this, sharethis, social, socialize, stumbleupon, twitter, windows live, yahoo buzz, plus one, google plus one, plus 1, + one, + 1, address bar sharing
+Tags: share, addthis, social, bookmark, sharing, bookmarking, widget,AddThis, addtoany, aim, bookmark, buzz, del.icio.us, Digg,e-mail, email, Facebook, google bookmarks, google buzz, myspace,network, NewsVine, Reddit, Share, share this, sharethis, social, socialize, stumbleupon, twitter, windows live, yahoo buzz
 Requires at least: 2.9
-Tested up to: 3.1.3
-Stable tag: 2.1.3
+Tested up to: 3.2.0
+Stable tag: 2.2.1
 
 The AddThis Social Bookmarking Widget allows any visitor to bookmark and share your site easily with many popular services. 
 
 == Description ==
-Get more traffic back to your site by installing the AddThis WordPress plugin. With AddThis, your users can promote your content by sharing to 295 of the most popular social networking and bookmarking sites (like Facebook, Twitter, Digg, StumbleUpon and MySpace). Our button is small, unobtrusive, quick to load and recognized all over the web.
+Get more traffic back to your site by installing the AddThis WordPress plugin. With AddThis, your users can promote your content by sharing to 295 of the most popular social networking and bookmarking sites (like Facebook, Twitter, Digg, StumbleUpon and MySpace). Our button is small, unobtrusive, quick to load and recognized all over the web.  We also optionaly support address bar sharing in modern browsers.
 
 Optionally, sign up for a free AddThis.com account to see how your visitors are sharing your content: which services they're using for sharing, which content is shared the most, and more.
-
-Another options feature is Address Bar sharing. <a title="Address Bar Sharing Information" href="http://www.addthis.com/help/address-bar-sharing-analytics">Address Bar sharing analytics</a> give you the ability to track URLs that have been sent via emails, IMs and to forums using copy/paste. This captures a whole new segment of sharing that we have found to be up to 10x that of using social buttons. You now get a larger picture of where your direct traffic is coming from and how your users are really sharing your content.
 
 <a href="http://www.addthis.com/blog">AddThis Blog</a> | <a href="http://www.addthis.com/privacy">Privacy Policy</a>
 
@@ -33,11 +31,12 @@ To upload the plugin through WordPress, instead of FTP:
 
 1. Upload the downloaded zip file on the 'Add New' plugins screen (see the 'Upload' tab) in your WordPress admin area and activate.
 
+
 == Frequently Asked Questions ==
 
 = Is AddThis free? =
 
-Yep! The features you see today on AddThis will always be free. 
+Yep! The features you see today on AddThis will always be free.
 
 = Do I need to create an account? =
 
@@ -59,7 +58,7 @@ All of the options required through this plugin require javascript.   JavaScript
 Over 1,200,000 sites have installed AddThis. With over a billion unique users, AddThis is helping share content all over the world, in more than sixty languages. You might be surprised who's sharing their website using AddThis--<a href="http://www.addthis.com/features#partners">here are just a few</a>.
 
 = What services does AddThis support? =
-We currently support over 295 services, from email and blogging platforms to social networks and news aggregators, and we add new services every month. Want to know if your favorite service is supported? This list is accurate up to the minute: <a href="http://www.addthis.com/services">http://www.addthis.com/services</a>.
+We currently support over 300 services, from email and blogging platforms to social networks and news aggregators, and we add new services every month. Want to know if your favorite service is supported? This list is accurate up to the minute: <a href="http://www.addthis.com/services">http://www.addthis.com/services</a>.
 
 = How do I remove AddThis from a page =
 In the screen options you can enable the AddThis meta box.  Check the box and save if you've already published that page or post to disable AddThis on that page or post.  
@@ -75,14 +74,16 @@ In the screen options you can enable the AddThis meta box.  Check the box and sa
 PHP 5+ is preferred; PHP 4 is supported.
 
 == Changelog ==
-= 2.1.3 =
-Fix bugs
+= 2.2.1 =
+* Fix compatability with 3.2
+* Fix over agressive regular expression
 
-= 2.1.2 =
-Add Address Bar sharing
+= 2.2.0 =
+* More Customization Option
+* optionally shorten urls with one bit.ly account
 
 = 2.1.1 =
-* Add Google +1
+* Add +1
 
 = 2.1.0 =
 * Add Twitter Template Option
@@ -166,14 +167,11 @@ Fixed nondeterministic bug with the_title(), causing the title to occasionally a
 
 
 == Upgrade Notice ==
-= 2.1.3 =
-Fix JS bugs in versions less the 3.2
+= 2.2.1 = 
+Add 3.2 compatability
 
-= 2.1.2 =
-Add Addresss Bar Sharing
-
-= 2.1.1 =
-Add +1 to the button options
+= 2.2.0 =
+More Customization options
 
 = 2.1.0 =
 More Features, More Filters, More Social Goodness
