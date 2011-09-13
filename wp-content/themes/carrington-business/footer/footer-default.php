@@ -136,8 +136,8 @@ wp_footer();
                             <li><a class='shotgunnews' href="http://www.shotgunnews.com">Shotgun News</a></li> 
 
 
-                            <li><a class='gunsandammo' href="http://www.gunsandammo.com">Guns &amp; Ammo</a></li> 
-                            <li class="last"><a class='tacticalgunfan' href="http://www.tacticalgunfan.com">Tactical Gun Fan</a></li> 
+                            <li class="last"><a class='gunsandammo' href="http://www.gunsandammo.com">Guns &amp; Ammo</a></li> 
+   
                         </ul> 
                     </div> 
                 </div> 
