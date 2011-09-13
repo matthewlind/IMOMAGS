@@ -238,25 +238,43 @@ nav.nav-featured, nav.nav-subnav-right.nav {
 /*CHANNEL FINDER */
 
 #locateChannel h3 {
-	color: #333333;
-	font-family: Impact, "Trebuchet MS";
+	color: #ff8400;
+	font-family: "Helvetica","Arial",sans-serif;
 	text-transform: uppercase;
-	font-size: 20px;
+	font-size: 14px;
+	font-style:italic;
 	margin: 0;
-	padding: 0 0 13px;
-	font-weight: normal;
+	padding-top:6px;
+	font-weight: bold;
 }	
 #locateChannel {
-	background: #dddfe0 url(/wp-content/themes/carrington-business/img/channel-hunter.gif) no-repeat right bottom;
-	padding: 20px;
+	background: #dddfe0 url(/wp-content/themes/carrington-business/img/cf-background.png) no-repeat center top;
+
+	height:165px;
+	margin-bottom:10px;
 }
+#locateChannel #channelControlsContainer{
+    background: #000000 url(/wp-content/themes/carrington-business/img/logofind.png) no-repeat 13px 34px;
+    width:275px;
+    padding-top:10px;
+    padding-left:18px;
+    height:110px;
+    
+}
+
+#locateChannel #channelControlsContainer #channelControls{
+    
+    margin-top:88px;
+}
+
+
 #locateChannel input.searchbox {
 	border: 1px solid #cccccc;
 	padding: 4px;
 	font-family: verdana;
 	font-weight: bold;
-	color: #333;
-	width: 80px;
+	color: #999;
+	width: 170px;
 }
 
 #locateChannel input.button{
@@ -265,23 +283,16 @@ border: 0;
 text-decoration: none;
 text-transform: uppercase;
 font-size: 12px;
--webkit-border-radius: 7px;
--moz-border-radius: 7px;
-border-radius: 7px;
+
 text-shadow: 1px 1px 1px black;
 filter: dropshadow(color=#000000, offx=1, offy=1);
 padding: 4px 8px;
 font-family: verdana;
 font-weight: bold;
+width:81px;
 color: white;
-background: #535353;
-background: -moz-linear-gradient(top, #535353 0%, #1F1F1F 100%);
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#535353), color-stop(100%,#1F1F1F));
-background: -webkit-linear-gradient(top, #535353 0%,#1F1F1F 100%);
-background: -o-linear-gradient(top, #535353 0%,#1F1F1F 100%);
-background: -ms-linear-gradient(top, #535353 0%,#1F1F1F 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#535353', endColorstr='#1F1F1F',GradientType=0 );
-background: linear-gradient(top, #535353 0%,#1F1F1F 100%);
+background-color: #ff8400;
+background-image: url(/wp-content/themes/carrington-business/img/button-bg.png);
 }
 
 
