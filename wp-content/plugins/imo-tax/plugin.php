@@ -104,9 +104,9 @@ function imo_tax_init() {
 
     $types = array("post");
 
-    foreach ($taxonomies as $taxonomy_name => $taxonomy) {
+    foreach ($taxonomies as $target_taxonomy => $taxonomy) {
         register_taxonomy(
-            $taxonomy_name,
+            $target_taxonomy,
             $types,
             $taxonomy);
     }
@@ -114,3 +114,98 @@ function imo_tax_init() {
 
 add_action("init", "imo_tax_init");
 
+/**
+ * imo_tax_import_taxonomy() 
+ * Recursivly imports terms from a nested array.
+ *
+ * $terms - array
+ * $taxonomy - string - the name of the taxonomy, not the id
+ * $parent_id - integer
+ *        
+ * returns - boolean, false means that you put in bad parameters.  
+ */
+function imo_tax_import_taxonomy($terms, $taxonomy, $parent_id=Null) {
+
+    if ( !is_array($terms) || !is_string($taxonomy)) {
+        // bad inputs. do not try to import.
+        return False;
+    }
+    else {
+        foreach ($terms as $term) {
+            // slugs may only contain lower-case alphanumeric, -, and _ characters
+            $slug = preg_replace( '/[^a-z0-9_-]+/', '-', strtolower( $taxonomy . "-" . $term['name'] ) );
+            $new_term = wp_insert_term( $term['name'], $taxonomy, array(Null, $slug, (int) $parent_id) );
+            if ( isset($term['children']) ) {
+                imo_tax_import_taxonomy($term['children'], $taxonomy, $new_term['term_id']);
+            }
+        }
+
+        return True;
+    }
+
+}
+
+/**
+ * Admin menu add_action callback.
+ */
+function imo_tax_menu() {
+    add_options_page('IMO Term Importer', 'IMO Term Import', "administrator", "imo_tax", "imo_tax_options");
+}
+
+
+/**
+ * Options Page Callback
+ */
+function imo_tax_options() {
+    $taxonomy_list = array(
+        "activity"=> array(),
+        "gear" => array(),
+        "species" => array(),
+        "location" => array(),
+    );
+    /**
+     * ONLY ADMINS SHOULD BE ABLE TO SEE THIS.
+     */
+    if (!current_user_can('administrator'))  
+    {
+        wp_die( __('You do not have sufficient permissions to access this page.') );
+    }
+
+    elseif ( empty($_POST['taxonomy']) || empty($_POST["tax_action"]) ) {
+        $resp=""; // first time visiting...
+    }
+
+    elseif ( $_POST['tax_action'] == 'preview' ) {
+        $resp = "<p>Preview goes here.</p>";
+    }
+
+    elseif ( $_POST['tax_action'] == 'import' ) {
+
+        $taxonomies = array("activity", "gear", "species", "location");
+        $target_taxonomy = strtolower($_POST['taxonomy']);
+
+        if ($target_taxonomy == "all") {
+
+            foreach ($taxonomies as $taxon) {
+                imo_tax_import_terms($taxonomy_list[$taxon], $taxon, NULL);
+            }
+
+        }
+
+        elseif ( in_array($target_taxonomy, $taxonomies) ) {
+            imo_tax_import_terms($taxonomy_list[$target_taxonomy], $target_taxonomy, NULL);
+        }
+
+        else {
+            $restp = "<p>Sorry, we do not recognize that taxonomy term.</p>";
+        }
+    }
+
+    else {
+        $resp = "<p style='color:#C00;'>Sorry, you did not choose a valid entry.</p>";
+    }
+
+    include("imo_tax_options_page.tpl.php");
+}
+
+add_action("admin_menu", "imo_tax_menu");
