@@ -224,6 +224,7 @@ function imo_bc_import_settings_init() {
     add_settings_section("bc_import_settings", __("Brightcove API Settings"), "imo_bc_import_settings_section", "general");
     add_settings_field("bc_write_key", __("Brightcove Write Token"), "bc_import_read_key_settings_option", "general", "bc_import_settings");
     add_settings_field("bc_read_key", __("Brightcove Read Token"), "bc_import_write_key_settings_option", "general", "bc_import_settings");
-    register_setting("general", "bc_player_id");
+    register_setting("general", "bc_write_key");
+    register_setting("general", "bc_read_key");
 }
 add_action("admin_menu", "imo_bc_import_settings_init");
