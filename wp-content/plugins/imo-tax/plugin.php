@@ -149,7 +149,7 @@ function imo_tax_import_taxonomy($terms, $taxonomy, $parent_id=Null) {
  * Admin menu add_action callback.
  */
 function imo_tax_menu() {
-    add_options_page('IMO Term Importer', 'IMO Term Import', "administrator", "imo_tax", "imo_tax_options");
+    add_options_page('IMO Term Importer', 'IMO Term Import', "administrator", "imo-tax", "imo_tax_options");
 }
 
 
@@ -171,41 +171,66 @@ function imo_tax_options() {
         wp_die( __('You do not have sufficient permissions to access this page.') );
     }
 
-    elseif ( empty($_POST['taxonomy']) || empty($_POST["tax_action"]) ) {
+    $taxonomies = array("activity", "gear", "species", "location");
+    $target_taxonomy = strtolower($_POST['taxonomy']);
+
+
+    if ( empty($_POST['taxonomy']) || empty($_POST["tax_action"]) ) {
         $resp=""; // first time visiting...
     }
 
-    elseif ( $_POST['tax_action'] == 'preview' ) {
-        $resp = "<p>Preview goes here.</p>";
+    elseif ( $target_taxonomy == "all" ) {
+        $resp = "";
+        foreach ($taxonomies as $taxon) {
+            $resp .= imo_tax_handle_action($_POST['tax_action'], $taxonomy_list[$taxon], $taxon);
+        }
     }
 
-    elseif ( $_POST['tax_action'] == 'import' ) {
+    elseif ( in_array($target_taxonomy, $taxonomies) ) {
+        $resp = imo_tax_handle_action($_POST['tax_action'], $taxonomy_list[$target_taxonomy], $target_taxonomy);
 
-        $taxonomies = array("activity", "gear", "species", "location");
-        $target_taxonomy = strtolower($_POST['taxonomy']);
-
-        if ($target_taxonomy == "all") {
-
-            foreach ($taxonomies as $taxon) {
-                imo_tax_import_terms($taxonomy_list[$taxon], $taxon, NULL);
-            }
-
-        }
-
-        elseif ( in_array($target_taxonomy, $taxonomies) ) {
-            imo_tax_import_terms($taxonomy_list[$target_taxonomy], $target_taxonomy, NULL);
-        }
-
-        else {
-            $restp = "<p>Sorry, we do not recognize that taxonomy term.</p>";
-        }
     }
 
     else {
-        $resp = "<p style='color:#C00;'>Sorry, you did not choose a valid entry.</p>";
+        $resp = "<p style='color:#C00;'>Sorry, Wordpress did not recognize your request.</p>";
     }
 
-    include("imo_tax_options_page.tpl.php");
+    include("imo-tax-options-page.tpl.php");
+}
+
+
+/**
+ * Helper function
+ * @see imo_tax_options()
+ *
+ * @params
+ * $action - string 
+ *    Current actions: 
+ *    preview -> prints a preview of the terms.
+ *    import -> imports the new item.
+ *
+ * $tax_array - array - contains the list of terms. 
+ * $tax_name - string - the name of the taxonomy into which the terms are going.
+ *
+ * returns nothing; purely procedural
+ */
+function imo_tax_handle_action( $action, $tax_array, $tax_name ) {
+
+    switch ($action) {
+    case "import":
+        imo_tax_import_terms($tax_array, $tax_name, NULL);
+        return "<p>Importer terms to $tax_name</p>";
+        break; 
+
+    case "preview":
+        $response = "<h3 style='margin-bottom:5px;'>$tax_name</h3>";
+        $response .= "<pre style='border:1px dashed #DDD;background: #fff; padding: 5px 8px;'>";
+        $response .= print_r($tax_array, TRUE);
+        $response .= "</pre>";
+        return $response;
+        break;
+    }
+    return "<p style='color:#C00;'>Sorry, Wordpress did not recognize your request.</p>";
 }
 
 add_action("admin_menu", "imo_tax_menu");
