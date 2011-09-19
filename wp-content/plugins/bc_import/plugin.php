@@ -114,7 +114,7 @@ function _bc_import_gather_videos($method = 'all', $query){
     {
         return array(); 
     }
-    $bc = new BCMAPI(BC_READ_TOKEN, BC_WRITE_TOKEN);
+    $bc = new BCMAPI(get_option("bc_write_key", BC_READ_TOKEN), get_option("bc_write_key", BC_WRITE_TOKEN));
 
     $videos = array();
     switch($method) 
@@ -199,3 +199,31 @@ function bc_import_options() {
 }
 
 add_action("admin_menu", "bc_import_menu");
+
+/******************************************************************************************
+ * Administration Menus
+ * Adds a bc_player_id setting to the General Options page in the admin_menu, allowing for 
+ * overriding the inferred domain tag.
+ ******************************************************************************************/
+
+/* add_settings_field callback */
+function bc_import_read_key_settings_option() {
+    echo "<input type='text' name='bc_read_key' id='bc-player_bc-read-key' value='" . get_option("bc_read_key", BC_READ_TOKEN)."' size='52' />";
+}
+
+function bc_import_write_key_settings_option() {
+    echo "<input type='text' name='bc_write_key' id='bc-player_bc-write' value='".get_option("bc_write_key", BC_WRITE_TOKEN )."' size='52' />";
+}
+
+function imo_bc_import_settings_section() {
+    echo "<p>Brightcove API tokens often terminate with one or more periods. They are required.</p>";
+}
+
+/* admin_menu callback. */
+function imo_bc_import_settings_init() {
+    add_settings_section("bc_import_settings", __("Brightcove API Settings"), "imo_bc_import_settings_section", "general");
+    add_settings_field("bc_write_key", __("Brightcove Write Token"), "bc_import_read_key_settings_option", "general", "bc_import_settings");
+    add_settings_field("bc_read_key", __("Brightcove Read Token"), "bc_import_write_key_settings_option", "general", "bc_import_settings");
+    register_setting("general", "bc_player_id");
+}
+add_action("admin_menu", "imo_bc_import_settings_init");
