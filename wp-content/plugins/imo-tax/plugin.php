@@ -115,7 +115,7 @@ function imo_tax_init() {
 add_action("init", "imo_tax_init");
 
 /**
- * imo_tax_import_taxonomy() 
+ * imo_tax_import_terms() 
  * Recursivly imports terms from a nested array.
  *
  * $terms - array
@@ -124,25 +124,52 @@ add_action("init", "imo_tax_init");
  *        
  * returns - boolean, false means that you put in bad parameters.  
  */
-function imo_tax_import_taxonomy($terms, $taxonomy, $parent_id=Null) {
+function imo_tax_import_terms($terms, $taxonomy, $parent_id=NULL) {
 
     if ( !is_array($terms) || !is_string($taxonomy)) {
         // bad inputs. do not try to import.
         return False;
     }
     else {
-        foreach ($terms as $term) {
+        foreach ($terms as $term_key=>$term_value) {
             // slugs may only contain lower-case alphanumeric, -, and _ characters
-            $slug = preg_replace( '/[^a-z0-9_-]+/', '-', strtolower( $taxonomy . "-" . $term['name'] ) );
-            $new_term = wp_insert_term( $term['name'], $taxonomy, array(Null, $slug, (int) $parent_id) );
-            if ( isset($term['children']) ) {
-                imo_tax_import_taxonomy($term['children'], $taxonomy, $new_term['term_id']);
+            $term_name = (is_array($term_value)) ? $term_key : $term_value;
+            $slug = preg_replace( '/[^a-z0-9_-]+/', '-', strtolower( $taxonomy . "-" . $term_name ) );
+            $new_term = wp_insert_term( $term_name, $taxonomy, array('slug'=> $slug, "parent"=> (int) $parent_id) );
+            if ( is_array($term_value) ) {
+                imo_tax_import_terms($term_value, $taxonomy, (int) $new_term['term_id']);
             }
         }
 
         return True;
     }
 
+}
+function imo_tax_simulate_values($terms, $taxonomy, $parent_id=NULL, $string='') {
+    if ($parent_id==NULL) {
+        $string .= "<ul class='imo-preview'>";
+    }
+    foreach ($terms as $term_key=>$term_value) {
+        $term_name = (is_array($term_value))? $term_key : $term_value;
+        $slug = preg_replace( '/[^a-z0-9_-]+/', '-', strtolower( $taxonomy . "-" . $term_name ) );
+        $string .= "<li><strong>name: </strong>$term_name<br /><strong>slug: </strong>$slug<br />"; 
+        if ($parent_id !== NULL) {
+            $string .= "<strong>parent:</strong> $parent_id";
+        }
+        else {
+            $string .= "<strong>children</strong>";
+        }
+        if ( is_array($term_value)  ) {
+            $child_string = imo_tax_simulate_values($term_value, $taxonomy, $term_name, ""); 
+            $string .= "<ul class='child-taxonomy'>$child_string</ul>";
+        }
+        $string .="</li>";
+
+    }
+    if ($parent_id==NULL) {
+        $string .= "</ul>";
+    }
+    return $string;
 }
 
 /**
@@ -158,10 +185,71 @@ function imo_tax_menu() {
  */
 function imo_tax_options() {
     $taxonomy_list = array(
-        "activity"=> array(),
-        "gear" => array(),
-        "species" => array(),
-        "location" => array(),
+        "activity"=> array(
+            "Hunting" => array(
+                "Rifle Hunting",
+                "Shotgun Hunting",
+                "Handgun Hunting",
+                "Muzzleloader Hunting",
+                "Bowhunting",
+                "Crossbow Hunting",
+                "Dog Training",
+                "Scouting",
+                "Management",
+            ),
+            "Shooting" => array(
+                "Personal Defense",
+                "Competitive",
+                "Tactical",
+                "Reloading",
+                "Gunsmithing",
+            ),
+            "Fishing" => array(
+                "Fly Fishing",
+                "Spin Fishing",
+                "Ice Fishing",
+            ),
+        ),
+        "gear" => array(
+            "Ammo",
+            "Bows",
+            "Firearms",
+            "Clothing & Apparel",
+            "Optics",
+            "Accessories",
+            "ATVs",
+            "Boats",
+            "Autos",
+            "Rods",
+            "Reels",
+        ),
+        "species" => array(
+            "Deer" => array(
+                "Coues", "Whitetail", "Blacktail", "Mule Deer", "Sitka",
+            ),
+            "Big Game" => array(
+                "Bear", "Moose", "Caribou", "Sheep & Goats", "Hogs", "Elk", "Musk Ox", "Pronghorn", "Bison",
+            ),
+            "Birds" => array(
+                "Waterfowl", "Upland", "Turkey",
+            ),
+            "Small Game & Predators" => array(
+                "Cats", "Varmints", "Squirrels & Rabbits", "Wolves",
+            ),
+            "African Game" => array(
+                "Plains Game", "Dangerous Game",
+            ),
+            "Exotic" => array(
+                "North American", "International",
+            ),
+            "Fish" => array(
+                "Saltwater", "Freshwater",
+            ),
+        ),
+        "location" => array(
+            "North America" => array(),
+            "International" => array(),
+        ),
     );
     /**
      * ONLY ADMINS SHOULD BE ABLE TO SEE THIS.
@@ -224,9 +312,13 @@ function imo_tax_handle_action( $action, $tax_array, $tax_name ) {
 
     case "preview":
         $response = "<h3 style='margin-bottom:5px;'>$tax_name</h3>";
+        $response .= "<h4 style='margin-bottom:5px;'>Raw</h4>";
         $response .= "<pre style='border:1px dashed #DDD;background: #fff; padding: 5px 8px;'>";
         $response .= print_r($tax_array, TRUE);
         $response .= "</pre>";
+        $response .= "<style>.imo-preview { } ol.imo-preview {} ul.imo-preview { margin:0 0 0 1em; list-style: disc; color: #000; } ol.imo-preview li, ul.imo-preview li{ } ol.imo-preview li > ol, ul.imo-preview li > ul { color: #777; list-style: square;margin-left:2em; } ol.imo-preview li > ol > li, ul.imo-preview li > ul > li{}</style>";
+        $response .= "<h4 style='margin-bottom:5px;'>Processed</h4>";
+        $response .= imo_tax_simulate_values($tax_array, $tax_name, NULL, "");
         return $response;
         break;
     }

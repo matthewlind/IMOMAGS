@@ -410,3 +410,18 @@ width: 420px;
 .page-template-page-right-php .cfct-block-c {
 	padding-left:0px;
 }
+.imo-preview {
+    padding: 10px; background: #fff; border: 1px dotted #ccc;
+}
+ol.imo-preview {}
+ul.imo-preview {
+    margin:0 0 0 1em; list-style: disc;
+    color: #000;
+}
+ol.imo-preview li, ul.imo-preview li{
+}
+ol.imo-preview li > ol, ul.imo-preview li > ul {
+    color: #777
+}
+ol.imo-preview li > ol > li, ul.imo-preview li > ul > li{
+}
