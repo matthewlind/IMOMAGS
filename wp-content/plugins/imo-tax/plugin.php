@@ -148,6 +148,19 @@ function imo_tax_import_terms($terms, $taxonomy, $parent_id=NULL) {
     }
 
 }
+function imo_tax_view_existing_terms($tax_name) {
+    print $tax_name;
+    $terms  =  get_terms($tax_name, array("taxonomy" => $tax_name, "fields"=>"names", "hide_empty"=>0));
+    return $terms;
+}
+
+function imo_tax_delete_terms($tax_name) {
+    $terms = get_terms($tax_name, array("taxonomy"=> $tax_name, "fields"=>"ids", "hide_empty"=>0));
+
+    foreach ($terms as $id) {
+        wp_delete_term( $id, $tax_name);   
+    }
+}
 function imo_tax_simulate_values($terms, $taxonomy, $parent_id=NULL, $string='') {
     if ($parent_id==NULL) {
         $string .= "<ul class='imo-preview'>";
@@ -366,6 +379,16 @@ function imo_tax_handle_action( $action, $tax_array, $tax_name ) {
         delete_option($tax_name."_children");
         return "<p>Imported terms into the <a href='".admin_url( "edit-tags.php?taxonomy=$tax_name", "http"). "' target='_blank'>" . ucfirst( $tax_name ) . " taxonomy</a></p>"; 
         break; 
+
+    case "delete":
+        imo_tax_delete_terms($tax_name);
+        return "<p>Deleted all terms in the <a href='".admin_url( "edit-tags.php?taxonomy=$tax_name", "http"). "' target='_blank'>" . ucfirst( $tax_name ) . " taxonomy</a></p>"; 
+        break;
+
+    case "view_existing":
+        $terms_array = imo_tax_view_existing_terms($tax_name);
+        return "<pre>" . print_r($terms_array, TRUE) . "</pre>";
+        break;
 
     case "preview":
         $response = "<h3 style='margin-bottom:5px;'>$tax_name</h3>";

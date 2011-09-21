@@ -31,8 +31,10 @@ foreach ($opts as $option) {
 </select> and then
 </label>
 <select name="tax_action" id="tax_action">
-   <option value="preview">Preview</option>
-   <option value="import">Import</option>
+   <option value="preview">Preview Term List</option>
+   <option value="import">Import Terms</option>
+   <option value="view_existing">View Existing Terms</option>
+   <option value="delete">Delete Existing Terms</option>
 </select>
 the terms
 </p>
