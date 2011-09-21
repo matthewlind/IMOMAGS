@@ -136,7 +136,10 @@ function imo_tax_import_terms($terms, $taxonomy, $parent_id=NULL) {
             $term_name = (is_array($term_value)) ? $term_key : $term_value;
             $slug = preg_replace( '/[^a-z0-9_-]+/', '-', strtolower( $taxonomy . "-" . $term_name ) );
             $new_term = wp_insert_term( $term_name, $taxonomy, array('slug'=> $slug, "parent"=> (int) $parent_id) );
-            if ( is_array($term_value) ) {
+            if ( is_wp_error($new_term) ) {
+                print "<p>Could not import term $term_name:" . $new_term->get_error_message() . "</p>";
+            }
+            elseif ( is_array($term_value) ) {
                 imo_tax_import_terms($term_value, $taxonomy, (int) $new_term['term_id']);
             }
         }
@@ -205,15 +208,18 @@ function imo_tax_options() {
                 "Gunsmithing",
             ),
             "Fishing" => array(
+                "Casting",
+                "Trolling",
+                "Rigging",
+                "Still Fishing",
                 "Fly Fishing",
-                "Spin Fishing",
                 "Ice Fishing",
             ),
         ),
         "gear" => array(
             "Ammo",
             "Bows",
-            "Firearms",
+            "Firearms" => array("Handguns", "Shotguns", "Rifles", "Muzzleloaders"),
             "Clothing & Apparel",
             "Optics",
             "Accessories",
@@ -222,6 +228,12 @@ function imo_tax_options() {
             "Autos",
             "Rods",
             "Reels",
+            "Motors",
+            "Boats",
+            "Electronics",
+            "Lines",
+            "Tackle",
+            "Lures",
         ),
         "species" => array(
             "Deer" => array(
@@ -243,12 +255,55 @@ function imo_tax_options() {
                 "North American", "International",
             ),
             "Fish" => array(
-                "Saltwater", "Freshwater",
+                "Saltwater" => array(
+                    "Snook", "Tarpon", "Sea Trout", 
+                    "Redfish", "Grouper", "Flounder",
+                    "Dolphin", "Wahoo", "King Mackerel", 
+                    "Cobio", "Sailfish", "Red Snapper",
+                ),
+                "Freshwater" => array(
+                    "Largemouth Bass", "Smallmouth Bass", "Walleye",
+                    "Panfish", "Catfish", "Pike", 
+                    "Muskie", "Trout", "Salmon",
+                    "Burbot", "Carp", "Drum", 
+                    "Gar", "Herring, Shad & Smelt", "Sauger",
+                    "Sucker", "Temperate Bass", "Whitefish",
+                ),
             ),
         ),
         "location" => array(
-            "North America" => array(),
-            "International" => array(),
+            "North America" => array(
+                "West" => array(
+                    "Washington", "Oregon", "California", "Idaho", "Nevada", "Montana",
+                    "Wyoming", "Utah", "Colorado",
+                ),
+                "Southwest" => array(
+                    "Arizona", "New Mexico", "Texas", "Oklahoma", 
+                ),
+                "Midwest" => array(
+                    "North Dakota", "South Dakota", "Nebraska", "Kansas",
+                    "Minnesota", "Iowa", "Missouri", "Wisconsin",
+                    "Illinois", "Michigan", "Indiana", "Ohio",
+                ),
+                "Northeast" => array(
+                    "Pennsylvania", "Maryland", "Delaware", "New Jersey",
+                    "New York", "Connecticut", "Rhode Island", "Vermont",
+                    "Massachusetts", "New Hampshire", "Maine",
+                ),
+                "Southeast" => array(
+                    "Arkansas", "Louisiana", "Mississippi", "Tennessee",
+                    "Kentucky", "Alabama", "Florida", "Georgia", "North Carolina",
+                    "South Carolina", "Virginia", "West Virginia",
+                ),
+                "Canada" => array(
+                    "British Columbia", "Alberta", "Sakatchewan", "Manitoba", "Ontario",
+                    "Quebec", "New Brunswick", "Nova Scotia", "Prince Edward Island",
+                    "Yukon", "Northwest Territories", "Nunavut", "Newfoundland and Labrador",
+                ),
+            ),
+            "International" => array(
+                "Africa", "Asia", "Australia", "Europe", "South America",
+            ),
         ),
     );
     /**
@@ -307,7 +362,9 @@ function imo_tax_handle_action( $action, $tax_array, $tax_name ) {
     switch ($action) {
     case "import":
         imo_tax_import_terms($tax_array, $tax_name, NULL);
-        return "<p>Importer terms to $tax_name</p>";
+        // if you don't delete this cache, then you will only see the parents, major bummer. 
+        delete_option($tax_name."_children");
+        return "<p>Imported terms into the <a href='".admin_url( "edit-tags.php?taxonomy=$tax_name", "http"). "' target='_blank'>" . ucfirst( $tax_name ) . " taxonomy</a></p>"; 
         break; 
 
     case "preview":
