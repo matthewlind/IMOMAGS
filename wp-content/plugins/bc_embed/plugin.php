@@ -99,5 +99,6 @@ function imo_bc_embed_settings_init() {
     add_settings_field("bc_player_id", __("Brightcove Player ID"), "bc_embed_settings_option", "general", "bc_embed_settings");
     add_settings_field("bc_player_key", __("Brightcove Player Key"), "bc_embed_key_settings_option", "general", "bc_embed_settings");
     register_setting("general", "bc_player_id");
+    register_setting("general", "bc_player_key");
 }
 add_action("admin_menu", "imo_bc_embed_settings_init");

@@ -13,48 +13,43 @@ function _imo_global_redirect() {
     {
         if ( get_option("imo_redirect_enable", False)  ) 
         {
-            // Need to redirect to potential story.
-            $path_string = array_filter(explode("/", strtolower( $_SERVER['REQUEST_URI'])));
-            $potential_slug = array_pop($path_string);
-            // if it's "index.html" then we need to ignore it. 
-            if (substr($potential_slug, 0, 5) == "index") 
+            $location = _imo_redirect_get_default_location();
+
+            // If the redirect domain is www, aka home, then we need to try to guess the url
+            // based on the slug. 
+            if ( get_option("redirect_domain", "www") == "www" ) 
             {
+                // Need to redirect to potential story.
+                $path_string = array_filter(explode("/", strtolower( $_SERVER['REQUEST_URI'])));
                 $potential_slug = array_pop($path_string);
-            }
-            $potential_slug = join("_", $path_string) . "_" . $potential_slug;
-
-            // 
-            global $wpdb;
-            $result = $wpdb->get_results(
-                $wpdb->prepare(
-                    "SELECT ID 
-                    FROM $wpdb->posts
-                    WHERE post_type='post'
-                    AND post_name='%s'
-                    LIMIT 1
-                    ",
-                    $potential_slug
-                ),
-                ARRAY_A
-            );
-
-            $pID = (int) array_shift($result[0]);
-
-            if ($pID) 
-            {
-               $location = get_permalink($pID); 
-            }
-            else 
-            {
-                $target_host = str_replace("www", get_option('redirect_domain', "www"), $_SERVER["HTTP_HOST"]);
-                $location = "http://" . $target_host;
-
-                // we only append the current URI if the target host does not match the current host. 
-                if ($target_host != $_SERVER["HTTP_HOST"]) 
+                // if it's "index.html" then we need to ignore it. 
+                if (substr($potential_slug, 0, 5) == "index") 
                 {
-                    $location .= $_SERVER['REQUEST_URI'];
+                    $potential_slug = array_pop($path_string);
+                }
+                $potential_slug = join("_", $path_string) . "_" . $potential_slug;
+
+                // slugs should be unique, so we should only grab one.  
+                global $wpdb;
+                $result = $wpdb->get_results(
+                    $wpdb->prepare(
+                        "SELECT ID 
+                        FROM $wpdb->posts
+                        WHERE post_type='post'
+                        AND post_name='%s'
+                        LIMIT 1
+                        ",
+                        $potential_slug
+                    ),
+                    ARRAY_A
+                );
+
+                if ($pID = (int) array_shift($result[0]) ) 
+                {
+                   $location = get_permalink($pID); 
                 }
             }
+
             header("Location: $location", TRUE, 307);
         }
         else
@@ -69,6 +64,23 @@ function _imo_global_redirect() {
     }
 }
 
+/**
+ * Helper function, returns the default location.
+ */
+function _imo_redirect_get_default_location() {
+    if (get_option('redirect_domain', "www")) {
+        return $_SERVER["HTTP_HOST"];
+    }
+    $target_host = str_replace("www", get_option('redirect_domain', "www"), $_SERVER["HTTP_HOST"]);
+    $location = "http://" . $target_host;
+
+    // we only append the current URI if the target host does not match the current host. 
+    if ($target_host != $_SERVER["HTTP_HOST"]) 
+    {
+        $location .= $_SERVER['REQUEST_URI'];
+    }
+    return $location;
+}
 add_action("template_redirect", "_imo_global_redirect");
 
 /******************************************************************************************
