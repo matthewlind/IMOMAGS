@@ -59,11 +59,20 @@ function imo_addons_sidebar_init() {
         'description' => __('Shown on Landing Pages.', 'carrington-business')
     )));	
 
+
     register_sidebar(array_merge($sidebar_defaults, array(
         'id' => 'sidebar-video',
         'name' => __('Video Sidebar', 'carrington-business'),
         'description' => __('Shown on video posts.', 'carrington-business')
     )));
+    
+    register_sidebar(array_merge($sidebar_defaults, array(
+        'id' => 'sidebar-gallery',
+        'name' => __('Gallery Sidebar', 'carrington-business'),
+        'description' => __('Sidebar for Gallery posts.', 'carrington-business')
+    )));
+    
+    
     register_sidebar(array_merge($sidebar_defaults, array(
         'id' => 'sidebar-articles',
         'name' => __('Article Sidebar', 'carrington-business'),

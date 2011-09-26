@@ -16,15 +16,16 @@ Follow variables are useable :
 ?>
 <?php if (!defined ('ABSPATH')) die ('No direct access allowed'); ?><?php if (!empty ($image)) : ?>
 
+<a name="image"></a>
 <div class="ngg-imagebrowser" id="<?php echo $image->anchor ?>">
 
 	
 	<div class="ngg-imagebrowser-nav"> 
 		<div class="back">
-			<a class="ngg-browser-prev" id="ngg-prev-<?php echo $image->previous_pid ?>" href="<?php echo $image->previous_image_link ?>">&#9668; <?php _e('Back', 'nggallery') ?></a>
+			<a class="ngg-browser-prev" id="ngg-prev-<?php echo $image->previous_pid ?>" href="<?php echo $image->previous_image_link ?>#image">&#9668; <?php _e('Back', 'nggallery') ?></a>
 		</div>
 		<div class="next">
-			<a class="ngg-browser-next" id="ngg-next-<?php echo $image->next_pid ?>" href="<?php echo $image->next_image_link ?>"><?php _e('Next', 'nggallery') ?> &#9658;</a>
+			<a class="ngg-browser-next" id="ngg-next-<?php echo $image->next_pid ?>" href="<?php echo $image->next_image_link ?>#image"><?php _e('Next', 'nggallery') ?> &#9658;</a>
 		</div>
 		<div class="counter"><?php _e('Picture', 'nggallery') ?> <?php echo $image->number ?> <?php _e('of', 'nggallery')?> <?php echo $image->total ?></div>
 		
@@ -34,6 +35,7 @@ Follow variables are useable :
 	
 	<div class="ngg-imagebrowser-desc"><p><?php echo $image->description ?></p></div>
 
-</div>	
+</div>
+
 
 <?php endif; ?>
