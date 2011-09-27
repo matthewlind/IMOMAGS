@@ -22,7 +22,15 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 global $the_ID;
 $cat = array_shift(get_the_category($the_ID));
-$sidebar_name =  ($cat->name == "Video") ?  "sidebar-video" : "sidebar-default";
+
+$sidebar_name = "sidebar-default";
+
+if ($cat->name == "Video")
+	$sidebar_name = "sidebar-video";
+if ($cat->name == "Gallery")
+	$sidebar_name = "sidebar-gallery";	
+	
+	
 ?>
 
 <div id="sidebar" class="col-c">
