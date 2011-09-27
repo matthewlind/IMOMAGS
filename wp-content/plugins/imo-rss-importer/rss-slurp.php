@@ -31,10 +31,22 @@ License: GPL2
 
 add_action('init', 'digmag_article_init');
 function digmag_article_init() {
-	
+	$labels = array(
+		'name' => _x('DIGMAG Articles', 'post type general name'),
+		'singular_name' => _x('DIGMAG Article', 'post type singular name'),
+		'add_new' => _x('Add New', 'article'),
+		'add_new_item' => __("Add New DIGMAG Article"),
+		'edit_item' => __("Edit DIGMAG Article"),
+		'new_item' => __("New DIGMAG Article"),
+		'view_item' => __("View DIGMAG Article"),
+		'search_items' => __("Search DIGMAG Article"),
+		'not_found' =>  __('No DIGMAG articles found'),
+		'not_found_in_trash' => __('No DIGMAG Articles found in Trash'), 
+		'parent_item_colon' => ''
+	  );
 
 	  $args = array(
-		'labels' => null,
+		'labels' => $labels,
 		'public' => true,
 		'publicly_queryable' => true,
 		'show_ui' => true, 
