@@ -39,7 +39,7 @@ $zn_slug = "zombie-nation";
 ?>
 
 <?php if (in_category($soga_slug)) { ?>
-<a href="/blogs/<?php echo $soga_slug; ?>/" title="<?php echo $current_category; ?>"><div class="soga-header"></div></a>
+<a href="/blogs/<?php echo "sons-of-gunsandammo"; ?>/" title="<?php echo $current_category; ?>"><div class="soga-header"></div></a>
 
 <?php } else if (in_category($floc_slug)) { ?>
 <a href="/blogs/<?php echo $floc_slug; ?>/" title="<?php echo $current_category; ?>"><div class="floc-header"></div></a>
