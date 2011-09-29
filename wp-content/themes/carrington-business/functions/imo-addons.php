@@ -78,6 +78,14 @@ function imo_addons_sidebar_init() {
         'name' => __('Article Sidebar', 'carrington-business'),
         'description' => __('Shown on article posts.', 'carrington-business')
     )));
+    
+    
+     register_sidebar(array_merge($sidebar_defaults, array(
+        'id' => 'sidebar-digmag-article',
+        'name' => __('DIGMAG Article Sidebar', 'carrington-business'),
+        'description' => __('Shown on DIGMAG article posts.', 'carrington-business')
+    )));   
+    
 
     register_sidebar(array(
         'name' => 'Bonus Sidebar',

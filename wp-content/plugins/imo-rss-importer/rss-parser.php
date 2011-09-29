@@ -177,7 +177,7 @@ class ItemTag extends Tag
 		$post_date_gmt = strtotime($post_date_gmt[0]);
 		$post_date_gmt = gmdate('Y-m-d H:i:s', $post_date_gmt);
 		$post_date = get_date_from_gmt( $post_date_gmt );
-		$post_type = 'digmag-article';
+		$post_type = 'digmag_article';
 		$post_name = "node-$post_nid";
 		
 		print_r($post_nid);
@@ -200,7 +200,7 @@ class ItemTag extends Tag
 		//       imported post
 		$post_status = 'publish';
 		
-		$post_type = 'digmag-article';
+		
 
 		$post = compact('post_author',
 		  'post_date', 

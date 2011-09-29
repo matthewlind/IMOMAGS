@@ -51,15 +51,14 @@ function digmag_article_init() {
 		'publicly_queryable' => true,
 		'show_ui' => true, 
 		'query_var' => true,
-		'rewrite' => array('slug' => 'sharing', 'with_front' => FALSE),
+		'rewrite' => array('slug' => 'magazine/digital/share/article', 'with_front' => FALSE),
 		'capability_type' => 'post',
 		'hierarchical' => false,
 		'menu_position' => null,
-		'supports' => array('title')
+		'supports' => array('title','editor')
 	  ); 
-	  register_post_type('digmag-article',$args);
-	
-	
+	  register_post_type('digmag_article',$args);
+
 }
 
 //function digmag_article_flush() {
