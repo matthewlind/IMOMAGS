@@ -68,9 +68,11 @@ function _imo_global_redirect() {
  * Helper function, returns the default location.
  */
 function _imo_redirect_get_default_location() {
-    if (get_option('redirect_domain', "www")) {
-        return $_SERVER["HTTP_HOST"];
-    }
+    
+    //Aaron Commented out these 3 lines because the thought they broke the redirects to the Drupal sites.
+    //if (get_option('redirect_domain', "www")) {
+    //    return $_SERVER["HTTP_HOST"];
+    //}
     $target_host = str_replace("www", get_option('redirect_domain', "www"), $_SERVER["HTTP_HOST"]);
     $location = "http://" . $target_host;
 
