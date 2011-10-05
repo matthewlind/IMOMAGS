@@ -230,23 +230,57 @@ function imo_tax_options() {
             ),
         ),
         "gear" => array(
-            "Ammo",
-            "Bows",
-            "Firearms" => array("Handguns", "Shotguns", "Rifles", "Muzzleloaders"),
-            "Clothing & Apparel",
-            "Optics",
-            "Accessories",
+            "Ammo" => array("Handgun Ammo","Shotgun Ammo","Rifle Ammo","Muzzleloader Ammo","Propellant Ammo"),
+            "Archery" => array("Compound Bows","Crossbows","Traditional Bows","Arrows","Broadheads","Rests","Sights","Archery Accessories"),
+            "Firearms" => array(
+                                "Handguns" => array(
+                                    "Revolvers","Single Action Handguns","Double Action Handguns","Semi-Auto Handguns",
+                                ),
+                                "Shotguns" => array(
+                                                    "Semi-Auto Shotguns","Pump Shotguns","Slug Shotguns","Double Barrel Shotguns"
+                                ),
+                                "Rifles" => array(
+                                    
+                                    "Bolt-Action Rifles","Semi-Auto Rifles","Lever-Action Rifles","Single Shot Rifles","Rimfire Rifles","Slide-Action Rifles","Full Auto Rifles",
+                                ),
+                                "Muzzleloaders" => array("In-Line Muzzleloader","Traditional Muzzleloader"),
+                        ),
+            "Clothing & Apparel" => array(
+                                          "Fishing" => array(
+                                                    "Waders","Fly Vests","Sunglasses",
+                                                ),
+                                          "Hunting" => array(
+                                                    "Fieldware","Boots","Packs",
+                                                ),
+                                          "Shooting" => array(
+                                                    "Tactical Wear","Range Gear"
+                                                ),
+                                        ),
+            "Optics" => array("Binoculars","Riflescopes","Spotting Scopes","Rangefinders","Crossbow Scopes","Optic Accessories","Red Dot Scopes","Laser Sights",),            
+            "Treestands" => array("Portable","Ladder","Hang On","Climber"),
+            "Blinds" => array("Waterfowl","Big Game/Turkey"),
+            "Knives",
+            "Decoys" => array("Turkey Decoys","Waterfowl Decoys","Big Game Decoys","Predator Decoys",),
+            "Targets" => array("Shooting Targets","Archery Targets"),
+            "Accessories" => array("Hunting","Fishing","Shooting"),
+            "Dog Gear" => array("Training Collars","Confinement Systems","Health & Nutrition Products","Training Tools","Accessories",),
             "ATVs",
-            "Boats",
-            "Autos",
-            "Rods",
-            "Reels",
-            "Motors",
-            "Boats",
-            "Electronics",
-            "Lines",
-            "Tackle",
-            "Lures",
+            "Calls" => array("Waterfowl Calls","Big Game Calls","Whitetail Calls","Turkey Calls","Predator Calls",),
+            "Vehicles" => array("Trucks","SUVs","Accessories"),
+            "Trailers" => array("Boat Trailers","ATV Trailers","Hunting Trailers"),
+            "Rods" => array("Freshwater Casting Rods","Freshwater Spinning Rods","Freshwater Fly Fishing Rods","Ice Fishing Rods","Saltwater Casting Rods","Saltwater Spinning Rods","Saltwater Fly Fishing Rods",),
+            "Reels" => array("Freshwater Casting Reels","Freshwater Spinning Reels","Freshwater Fly Fishing Reels","Saltwater Casting Reels","Saltwater Spinning Reels","Saltwater Fly Fishing Reels",),
+            "Nets" => array("Freshwater Nets","Saltwater Nets","Fly Fishing Nets"),
+            "Boats" => array("Waterfowl Boats","Freshwater Boats","Saltwater Boats","Kayaks/Canoes","Boating Accessories"),
+            "Motors" => array("Mud","Outboard","Inboard","I/O","Trolling"),
+            "Electronics" => array("Fishing Electronics","Hunting Electronics","Shooting Electronics"),
+            "Lines" => array("Monofilaments","Fluorocarbon","Superlines","Tippet","Leaders"),
+            "Tackle" => array("Hooks","Sinkers","Bobbers","Swivels"),
+            "Tackle Storage" => array("Fly Fishing Tackle Storage","Freshwater Tackle Storage","Saltwater Tackle Storage"),
+            "Fly Tying" => array("Desk/Benches","Vises","Fly Tying Materials"),
+            "Lures" => array("Topwater","Crankbaits","Swimbaits","Softbaits","Jigs","Flies","Spoons","Spinners"),
+            
+            
         ),
         "species" => array(
             "Deer" => array(
@@ -256,10 +290,10 @@ function imo_tax_options() {
                 "Bear", "Moose", "Caribou", "Sheep & Goats", "Hogs", "Elk", "Musk Ox", "Pronghorn", "Bison",
             ),
             "Birds" => array(
-                "Waterfowl", "Upland", "Turkey",
+                "Turkey","Geese","Ducks","Pheasants","Grouse","Quail","Doves","Chukar",
             ),
             "Small Game & Predators" => array(
-                "Cats", "Varmints", "Squirrels & Rabbits", "Wolves",
+                "Cougar", "Varmints", "Squirrels & Rabbits/Hares", "Wolves","Coyotes",
             ),
             "African Game" => array(
                 "Plains Game", "Dangerous Game",
@@ -272,41 +306,48 @@ function imo_tax_options() {
                     "Snook", "Tarpon", "Sea Trout", 
                     "Redfish", "Grouper", "Flounder",
                     "Dolphin", "Wahoo", "King Mackerel", 
-                    "Cobio", "Sailfish", "Red Snapper",
+                    "Cobio", "Sailfish", "Red Snapper","Bluefish"
                 ),
                 "Freshwater" => array(
-                    "Largemouth Bass", "Smallmouth Bass", "Walleye",
+                    "Largemouth Bass", "Smallmouth Bass", "White Bass" ,"Striped Bass","Crappie","Peacock Bass",
+                    "Walleye",
                     "Panfish", "Catfish", "Pike", 
                     "Muskie", "Trout", "Salmon",
                     "Burbot", "Carp", "Drum", 
-                    "Gar", "Herring, Shad & Smelt", "Sauger",
+                    "Gar", "Herring", "Shad & Smelt", "Sauger",
                     "Sucker", "Temperate Bass", "Whitefish",
                 ),
             ),
         ),
         "location" => array(
             "North America" => array(
-                "West" => array(
-                    "Washington", "Oregon", "California", "Idaho", "Nevada", "Montana",
-                    "Wyoming", "Utah", "Colorado",
+                "West Coast" => array(
+                    "Washington", "Oregon", "California", 
                 ),
-                "Southwest" => array(
-                    "Arizona", "New Mexico", "Texas", "Oklahoma", 
+                "Rocky Mountain" => array(
+                    "Arizona", "New Mexico", "Idaho", "Nevada", "Montana",
+                    "Wyoming", "Utah", "Colorado", 
                 ),
-                "Midwest" => array(
+                "Great Plains" => array(
                     "North Dakota", "South Dakota", "Nebraska", "Kansas",
-                    "Minnesota", "Iowa", "Missouri", "Wisconsin",
-                    "Illinois", "Michigan", "Indiana", "Ohio",
                 ),
-                "Northeast" => array(
-                    "Pennsylvania", "Maryland", "Delaware", "New Jersey",
-                    "New York", "Connecticut", "Rhode Island", "Vermont",
+                
+                "North" => array(
+                    "Minnesota", "Iowa", "Missouri", "Wisconsin",
+                    "Illinois", "Michigan", "Indiana", "Ohio","New York","Pennsylvania",
+                ),
+                "New England" => array(
+                     "Connecticut", "Rhode Island", "Vermont",
                     "Massachusetts", "New Hampshire", "Maine",
                 ),
-                "Southeast" => array(
+                "Mid-Atlantic" => array(
+                     "Maryland", "Delaware", "New Jersey",
+                ),
+                
+                "South" => array(
                     "Arkansas", "Louisiana", "Mississippi", "Tennessee",
                     "Kentucky", "Alabama", "Florida", "Georgia", "North Carolina",
-                    "South Carolina", "Virginia", "West Virginia",
+                    "South Carolina", "Virginia", "West Virginia","Texas", "Oklahoma",
                 ),
                 "Canada" => array(
                     "British Columbia", "Alberta", "Sakatchewan", "Manitoba", "Ontario",

@@ -173,7 +173,7 @@ aside.widget .newsletter h3.gform_title {
 }
     .gform_wrapper .newsletter .gform_footer input.button, .gform_wrapper .newsletter .gform_footer input[type="submit"],
 #sidebar .newsletter .gform_button {
-    background: #115FA4 url(../images/mask.png) repeat-x;
+    background-color: #115FA4;
     border: 2px solid #115FA4;
     border-radius: 3px;
     -moz-border-radius: 3px;
