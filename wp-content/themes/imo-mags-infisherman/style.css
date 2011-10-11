@@ -1,4 +1,4 @@
-/** 
+/**
  * Theme Name: IMO Mags - In-Fisherman
  * Theme URI: http://imomags.com/infisherman
  * Description: A In-Fisherman theme for the IMO Mags site.
@@ -47,17 +47,27 @@ html {
 	width: 960px;
 }
 .col-ab, .col-bc, .cfct-block-ab, .cfct-block-bc {
-	width: 620px;
-	margin-right: 5px;
+width: 620px;
+margin-right: 5px;
+}
+
+/*.col-ab, .col-bc, .cfct-block-ab, .cfct-block-bc {
+	width: 584px;
+	margin-right: 40px;
+*/
 }
 .col-a, .col-b, .col-c, .cfct-block-a, .cfct-block-b, .cfct-block-c, .col-ab .cfct-block-d, .col-ab .cfct-block-e, .cfct-block-float-c {
 	width: 300px;
 }
 .cfct-block-c {
-	padding-left:20px;
+padding-left:20px;
 }
 .cfct-row-a-b-c .cfct-block-c {
 padding: 0;
+}
+.cfct-block-float-c {
+	float: right;
+	margin: 0 0 0 50px;
 }
 
 .centerad {
@@ -142,7 +152,7 @@ position: relative;
 
 #header .site-title {
 	margin: 0 0 12px 0px;
-	padding-top: 20px; 
+padding-top: 20px;
 }
 
 nav.nav-main, nav.nav-featured {
@@ -264,12 +274,16 @@ body {
 	margin-bottom: 8px;
 }
 .car-overlay .car-title a {
-	font-family: Helvetica, arial, serif;
+/*	font-family: Helvetica, arial, serif;*/
 	font-size: 38px;
 	text-decoration: none;
 	font-weight: bolder;
-	line-height: 30px;
+	line-height: 38px;
+	color: #C0633F;
+	    font-family: "Arvo";
+
 }
+
 .carousel-inner {
 	padding: 0px;
 }
@@ -291,6 +305,8 @@ body {
 	font-family: 'Arvo', arial, serif;
 	border-bottom: 5px solid #E3E3E3;
 }
+
+
 
 
 .entry .entry-header h1.entry-title {
@@ -352,7 +368,7 @@ h2.entry-title a:hover {
 	text-decoration: none;
 	color: #F1C548;
 }
-#header-sub p.title { 
+#header-sub p.title {
     color: #555;
 }
 #header-sub p a {
@@ -375,13 +391,17 @@ h2.entry-title a {
 font-family: 'Arvo', arial, serif;
 font-weight: bold;
 font-size: 24px;
-	color: #B22730;
-	
+color: #B22730;
 }
+div.anglerhead{width:896px;height:270px;background: url(img/header.jpg) 0 0 no-repeat;margin-bottom:0px;}
+
+div.noimgborder img{border-width:0px;}
+
+.cfct-module.cfct-module-image img.cfct-mod-image{border-width:0px;}
 
 h2.entry-title a:hover {
-	text-decoration: none;
-	color: #F1C548;
+text-decoration: none;
+color: #F1C548;
 }
 .halv h2{color:#c0633f;font-size:15px;font-family:"Arvo";}
 
@@ -396,7 +416,7 @@ h2.entry-title a:hover {
 .rulez2 h1{background:#c0633f;font-size:25px;font-family:"Arvo";color:#fff;padding:7px;text-align:center;width:200px;margin: 0 auto;-moz-border-radius: 6px 6px 0 0; -khtml-border-radius: 6px 6px 0 0; -webkit-border-radius: 6px 6px 0 0; border-radius: 6px 6px 0 0;}
 .arvo {font-family:"arvo";font-size:20px; padding-right:5px;}
 
-h1.entry{background:#c0633f;font-size:25px;font-family:"Arvo";color:#fff;padding:9px;text-align:center;width:50%;margin: 12px auto 0;-moz-border-radius: 15px; -khtml-border-radius: 15px; -webkit-border-radius: 15px; border-radius: 15px;}
+h1.entry{background:#c0633f;font-size:25px;font-family:"Arvo";color:#fff;padding:9px;text-align:center;width:50%;margin: 9px auto 0;-moz-border-radius: 15px; -khtml-border-radius: 15px; -webkit-border-radius: 15px; border-radius: 15px;}
 
 /*form post styles*/
 
@@ -412,7 +432,7 @@ h1.entry{background:#c0633f;font-size:25px;font-family:"Arvo";color:#fff;padding
 
 .macity{font-size: 17px;font-weight: normal;float:right;color:#757474;margin-top:8px;}
 
-.fishinfo{background: url(img/ma-fishinfo-logo.png) top right no-repeat; font-size:17px;color:#B22730;}
+.fishinfo{background: url(img/ma-fishinfo-logo.png) top right no-repeat; font-size:17px;color:#B22730; margin-bottom: 20px;}
 .fishinfo span.grayz {color:#757474;}
 .tellyourstory{
 	border-top: 1px dashed #CCCCCC;
@@ -432,3 +452,37 @@ h1.entry{background:#c0633f;font-size:25px;font-family:"Arvo";color:#fff;padding
 		.gform_wrapper ul li.weight{clear: none;
 	    float: left;
 	    margin-right: 26px;}
+	
+	
+		.cfct-block-abc .cfct-module-carousel .car-content {
+		    background: none repeat scroll 0 0 #FFFFFF;
+		    border: 5px solid #CCCCCC;
+		    margin: 10px 16px;
+		    padding: 3px;
+		}
+		
+		.cfct-block-abc .cfct-module-carousel .car-overlay .car-title {
+			margin-top: 10px;
+		    font-size: 1.4em;
+
+		}
+		
+		.cfct-block-abc .cfct-module-carousel {
+		width:847px;
+	    padding: 12px 30px 10px;
+	-moz-border-radius: 15px; -khtml-border-radius: 15px; -webkit-border-radius: 15px; border-radius: 15px;
+		margin-bottom:-30px;
+		}
+		
+		
+		.car-overlay {
+		    min-height: 300px;
+		}
+		.car-description, .car-cta {
+		    
+		}
+		
+		.cfct-module-hero, .cfct-block-abc .cfct-module-carousel {
+			background:none;
+			border-bottom:0px;
+		}
