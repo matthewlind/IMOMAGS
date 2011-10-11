@@ -84,10 +84,16 @@ function imo_tax_converter_associate_terms($old_term,$new_term) {
     $output = "";
     while ( $query->have_posts() ) : $query->the_post();
             
-            $output .= get_the_title() . "<br>";
+            $output .= "$old_term: " . get_the_title() . "<br>";
             
             $postid = get_the_ID();
-            wp_set_post_terms($postid,array($new_term_id),NULL,TRUE);
+            
+            //get the new taxonomy name
+            $taxNameParts = explode("-",$new_term);
+            $newTaxonomy = strtolower($taxNameParts[0]);            
+            
+            $output .= "--PID: $postid new_term_id: $new_term_id new taxonomy: $newTaxonomy <br>";
+            wp_set_post_terms($postid,array($new_term_id),$newTaxonomy,TRUE);
             
             
     endwhile;
@@ -108,7 +114,7 @@ function imo_tax_converter_associate_terms($old_term,$new_term) {
                 $taxNameParts = explode("-",$new_term);
                 $newTaxonomy = strtolower($taxNameParts[0]);
                 
-                
+                $output .= "--PID: $postid new_term_id: $new_term_id new taxonomy: $newTaxonomy <br>";
                 wp_set_post_terms($postid,array($new_term_id),$newTaxonomy  ,TRUE);
                 
                 
