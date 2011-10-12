@@ -79,7 +79,14 @@ function imo_tax_converter_associate_terms($old_term,$new_term) {
     $new_term_id =  term_exists($new_term);
     
     //First, Search by category
-    $query = new WP_Query( "category_name=$old_term" );
+    $args = array(
+      "category_name" => $old_term,
+      "posts_per_page" => -1,
+      "nopaging" => TRUE,
+    );
+    
+    
+    $query = new WP_Query( $args );
     // The Loop
     $output = "";
     while ( $query->have_posts() ) : $query->the_post();
@@ -101,7 +108,14 @@ function imo_tax_converter_associate_terms($old_term,$new_term) {
     if (!$query->have_posts()) {
             
         //Then, Search by tag
-        $query = new WP_Query( "tag=$old_term" );
+        $args = array(
+            "tag" => $old_term,
+            "posts_per_page" => -1,
+            "nopaging" => TRUE,
+        );
+        
+        
+        $query = new WP_Query( $args );
         // The Loop
         $output = "";
         while ( $query->have_posts() ) : $query->the_post();
