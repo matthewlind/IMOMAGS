@@ -485,4 +485,5 @@ h1.entry{background:#c0633f;font-size:25px;font-family:"Arvo";color:#fff;padding
 		.cfct-module-hero, .cfct-block-abc .cfct-module-carousel {
 			background:none;
 			border-bottom:0px;
+			background-color:#fff;
 		}
