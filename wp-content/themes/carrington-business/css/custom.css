@@ -129,7 +129,8 @@
     position:relative;
           }
 #sidebar .newsletter .gform_button {
-  background: #ccc url(../img/button_gradient.gif) repeat-x;
+  /*background: #ccc url(../img/button_gradient.gif) repeat-x;*/
+  /*background: #115FA4 url(../img/button_gradient.gif) repeat-x;*/
   color: #06C;
   border: 1px solid #AAA;
   height:26px;
@@ -173,6 +174,7 @@ aside.widget .newsletter h3.gform_title {
 }
     .gform_wrapper .newsletter .gform_footer input.button, .gform_wrapper .newsletter .gform_footer input[type="submit"],
 #sidebar .newsletter .gform_button {
+    /*background: #115FA4 url(../img/button_gradient.gif) repeat-x;*/
     background-color: #115FA4;
     border: 2px solid #115FA4;
     border-radius: 3px;
