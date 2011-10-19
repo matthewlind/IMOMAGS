@@ -40,7 +40,7 @@ the_post();
 			</div>
 			<?php edit_post_link(__('Edit', 'carrington-business')); ?>
 		</div><!-- .entry -->
-		<?php comments_template(); ?>
+		<?php //comments_template(); ?>
 	</div><!-- .col-abc -->
 </div>
 <?php get_footer(); ?>

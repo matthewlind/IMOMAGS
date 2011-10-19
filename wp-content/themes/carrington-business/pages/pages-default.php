@@ -36,6 +36,6 @@ the_post();
 			?>
 		</div>
 	</div><!-- .entry -->
-	<?php comments_template(); ?>
+	<?php //comments_template(); ?>
 </div><!-- .col-abc -->
 <?php get_footer(); ?>
