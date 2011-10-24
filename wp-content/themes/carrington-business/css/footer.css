@@ -166,6 +166,9 @@ div#footer-universal-outer .region-footer {
     background-image: url(../imo-footer/images/gameandfish_logo-on.png);
 }
 
+
+
+
 #more.footer-menu li a.sportsmanchannel {
     background-image: url(../imo-footer/images/tv_logo.png);
     background-repeat:no-repeat;
@@ -175,6 +178,11 @@ div#footer-universal-outer .region-footer {
     width: 100%;
     display:block;
     margin-top:10px;
+}
+
+
+#more.footer-menu li a.sportsmanchannel:hover {
+    background-image: url(../imo-footer/images/tv_logo_on.png);
 }
 
 #more.footer-menu li a.imostore {

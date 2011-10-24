@@ -175,7 +175,7 @@ wp_footer();
     <ul class="menu"> 
       <li class="leaf first"><a href="http://www.imoutdoorsmedia.com/IM3/" title="">About</a></li>
       <li class="leaf"><a href="http://www.imoutdoorsmedia.com" title="">Advertise</a></li> 
-      <!--<li class="leaf"><a href="/contact" title="Send us an e-mail">Contact Us</a></li>-->
+      <li class="leaf"><a href="/contact" title="Send us an e-mail">Contact</a></li>
       <!--<li class="leaf"><a href="http://www.intermediaoutdoors.com/jobs/" title="">Jobs</a></li> --> 
       <!--<li class="leaf"><a href="/privacy" title="">Privacy</a></li> --> 
       <!--<li class="leaf last"><a href="/terms" title="">Terms of Use</a></li> --> 
