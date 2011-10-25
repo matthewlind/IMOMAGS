@@ -13,6 +13,7 @@
             <div class="subscribeAdModContent"> 
                 <form method="GET" action="<?php print get_option("subs_form_link"); ?>/?pkey=<?php print get_option('i4ky', 'IBZE')?>" target="_blank">
                     <input type="hidden" name="i4Ky" value="<?php print get_option('i4ky', 'IBZN')?>" />
+                    <input type="hidden" name="pkey" value="<?php print get_option('i4ky', 'IBZN')?>" />
                     <input type="hidden" name="iMagId" value="<?php print get_option('iMagId')?>" />
                     <div class="subscribe-row"> 
                         <span class="text">First Name</span> 
