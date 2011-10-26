@@ -1,0 +1,557 @@
+  /**
+ * What's New Carousel.
+ */
+.carousel-cell {
+  width:110px;
+}
+.carousel-cell div.image {}
+.carousel-cell div.image img   { border: 1px solid #cccccc;}
+.carousel-cell h3 { text-transform: capitalize; font-size: 12px; font-weight: normal;color:#555}
+.carousel-cell p { text-transform: uppercase;font-weight: bold; font-size: 11px;position: absolute; bottom:0; margin:0; }
+#whats-new .scroller-controller { position: absolute; bottom: 10px; width: 100%; }
+#whats-new .content { position: relative; }
+
+  
+  
+  
+  
+  
+.jcarousel-skin-krang .jcarousel-container {
+    border: 1px solid #cccccc;
+}
+
+.jcarousel-skin-krang .jcarousel-direction-rtl {
+    direction: rtl;
+}
+
+.jcarousel-skin-krang .jcarousel-container-horizontal {
+   
+    padding: 20px 40px;
+}
+
+.jcarousel-skin-krang .jcarousel-container-vertical {
+    width: 75px;
+    height: 245px;
+    padding: 40px 20px;
+}
+
+.jcarousel-skin-krang .jcarousel-clip {
+    overflow: hidden;
+}
+
+.jcarousel-skin-krang .jcarousel-clip-horizontal {
+
+    height: 140px;
+}
+
+.jcarousel-skin-krang .jcarousel-clip-vertical {
+    width:  75px;
+    height: 245px;
+}
+
+.jcarousel-skin-krang .jcarousel-item {
+    width: 120px;
+    height: 140px;
+}
+
+.jcarousel-skin-krang .jcarousel-item-horizontal {
+    margin-left: 9px;
+    margin-right: 9px;
+}
+
+.jcarousel-skin-krang .jcarousel-direction-rtl .jcarousel-item-horizontal {
+    margin-left: 9px;
+    margin-right: 9px;
+}
+
+.jcarousel-skin-krang .jcarousel-item-vertical {
+    margin-bottom: 9px;
+}
+
+.jcarousel-skin-krang .jcarousel-item-placeholder {
+    background: #fff;
+    color: #000;
+}
+
+/**
+ *  Horizontal Buttons
+ */
+.jcarousel-skin-krang .jcarousel-next-horizontal {
+    position: absolute;
+    top: 00px;
+    right: 0px;
+    width: 20px;
+    height: 180px;
+    cursor: pointer;
+    background: #FC0 url(next-horizontal.png) no-repeat -12px center;
+}
+
+.jcarousel-skin-krang .jcarousel-direction-rtl .jcarousel-next-horizontal {
+    left: 0px;
+    right: auto;
+    background-image: url(prev-horizontal.png);
+}
+
+.jcarousel-skin-krang .jcarousel-next-horizontal:hover,
+.jcarousel-skin-krang .jcarousel-next-horizontal:focus {
+    background-position: -12px center;
+}
+
+.jcarousel-skin-krang .jcarousel-next-horizontal:active {
+    background-position: -12px center;
+}
+
+.jcarousel-skin-krang .jcarousel-next-disabled-horizontal,
+.jcarousel-skin-krang .jcarousel-next-disabled-horizontal:hover,
+.jcarousel-skin-krang .jcarousel-next-disabled-horizontal:focus,
+.jcarousel-skin-krang .jcarousel-next-disabled-horizontal:active {
+    cursor: default;
+    background-position: -109px center;
+    background-color: #ccc;
+}
+
+.jcarousel-skin-krang .jcarousel-prev-horizontal {
+    position: absolute;
+    top: 00px;
+    left: 0px;
+    width: 20px;
+    height: 180px;
+    cursor: pointer;
+    background: #FC0 url(prev-horizontal.png) no-repeat 0 center;
+}
+
+.jcarousel-skin-krang .jcarousel-direction-rtl .jcarousel-prev-horizontal {
+    left: auto;
+    right: 5px;
+    background-image: url(next-horizontal.png);
+}
+
+.jcarousel-skin-krang .jcarousel-prev-horizontal:hover, 
+.jcarousel-skin-krang .jcarousel-prev-horizontal:focus {
+    background-position: -32px center;
+}
+
+.jcarousel-skin-krang .jcarousel-prev-horizontal:active {
+    background-position: -64px center;
+}
+
+.jcarousel-skin-krang .jcarousel-prev-disabled-horizontal,
+.jcarousel-skin-krang .jcarousel-prev-disabled-horizontal:hover,
+.jcarousel-skin-krang .jcarousel-prev-disabled-horizontal:focus,
+.jcarousel-skin-krang .jcarousel-prev-disabled-horizontal:active {
+    cursor: default;
+    background-position: -96px center;
+    background-color:#ccc;
+}
+
+/**
+ *  Vertical Buttons
+ */
+.jcarousel-skin-krang .jcarousel-next-vertical {
+    position: absolute;
+    bottom: 5px;
+    left: 43px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background: transparent url(next-vertical.png) no-repeat 0 0;
+}
+
+.jcarousel-skin-krang .jcarousel-next-vertical:hover,
+.jcarousel-skin-krang .jcarousel-next-vertical:focus {
+    background-position: 0 -32px;
+}
+
+.jcarousel-skin-krang .jcarousel-next-vertical:active {
+    background-position: 0 -64px;
+}
+
+.jcarousel-skin-krang .jcarousel-next-disabled-vertical,
+.jcarousel-skin-krang .jcarousel-next-disabled-vertical:hover,
+.jcarousel-skin-krang .jcarousel-next-disabled-vertical:focus,
+.jcarousel-skin-krang .jcarousel-next-disabled-vertical:active {
+    cursor: default;
+    background-position: 0 -96px;
+}
+
+.jcarousel-skin-krang .jcarousel-prev-vertical {
+    position: absolute;
+    top: 5px;
+    left: 43px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background: transparent url(prev-vertical.png) no-repeat 0 0;
+}
+
+.jcarousel-skin-krang .jcarousel-prev-vertical:hover,
+.jcarousel-skin-krang .jcarousel-prev-vertical:focus {
+    background-position: 0 -32px;
+}
+
+.jcarousel-skin-krang .jcarousel-prev-vertical:active {
+    background-position: 0 -64px;
+}
+
+.jcarousel-skin-krang .jcarousel-prev-disabled-vertical,
+.jcarousel-skin-krang .jcarousel-prev-disabled-vertical:hover,
+.jcarousel-skin-krang .jcarousel-prev-disabled-vertical:focus,
+.jcarousel-skin-krang .jcarousel-prev-disabled-vertical:active {
+    cursor: default;
+    background-position: 0 -96px;
+}
+
+  
+  
+  
+  
+			/** Featured Widget **/
+			.jcarousel-skin-imo-slider .jcarousel-container { width: 330px; height: 360px;}
+			.jcarousel-skin-imo-slider .jcarousel-container-horizontal { width: 330px; height:360px;}
+			.jcarousel-skin-imo-slider .jcarousel-container .jcarousel-clip { overflow:hidden;height:380px;}
+			.jcarousel-skin-imo-slider .jcarousel-container .jcarousel-list {}
+			.jcarousel-skin-imo-slider .jcarousel-container .jcarousel-list-horizontal {}
+			.jcarousel-skin-imo-slider .jcarousel-item { width:310px; height: 363px; margin-left:20px; margin-right: 10px; margin-top:20px;}
+			
+                        .jcarousel-skin-imo-slider .jcarousel-item h2.title {margin-top:5px;margin-bottom:0px;line-height:.8em;}
+                        .jcarousel-skin-imo-slider .jcarousel-item h2.title a {color:#f86b01;text-transform:uppercase;font-family:"Arial Black",Helvetica,Arial;font-size:18px;}
+                        
+			.jcarousel-skin-imo-slider {
+			  height:380px;
+			}
+			
+			.jcarousel-skin-imo-slider .jcarousel-next-horizontal {
+			  width: 16px;
+			  height: 16px;
+			  cursor: pointer;
+			  float:right;
+			  margin-right: 107px;
+			  background: transparent url(scroller_sprite.png) no-repeat 0 0 ;
+                          z-index:1000;
+                          position:relative;
+			}
+			
+			.jcarousel-skin-imo-slider .jcarousel-direction-rtl .jcarousel-next-horizontal {
+			  left: 0px;
+			  right: auto;
+			  background-position: 0 -20px;
+			}
+			
+			.jcarousel-skin-imo-slider .jcarousel-next-horizontal:hover,
+			.jcarousel-skin-imo-slider .jcarousel-next-horizontal:focus {
+			}
+			
+			.jcarousel-skin-imo-slider .jcarousel-next-horizontal:active {
+			}
+			
+			.jcarousel-skin-imo-slider .jcarousel-next-disabled-horizontal,
+			.jcarousel-skin-imo-slider .jcarousel-next-disabled-horizontal:hover,
+			.jcarousel-skin-imo-slider .jcarousel-next-disabled-horizontal:focus,
+			.jcarousel-skin-imo-slider .jcarousel-next-disabled-horizontal:active {
+			  cursor: default;
+			  background-position: 0 -20px ;
+			}
+			
+			.jcarousel-skin-imo-slider .jcarousel-prev-horizontal {
+			  width: 16px;
+			  height: 16px;
+			  cursor: pointer;
+			  float:left;
+			  margin-left: 100px;
+			  background: transparent url(scroller_sprite.png) no-repeat  -20px 0;
+                          z-index:1000;
+                          position:relative;
+			}
+			
+			.jcarousel-skin-imo-slider .jcarousel-direction-rtl .jcarousel-prev-horizontal {
+			  background-position: 0 0;
+			  left: auto;
+			}
+			.jcarousel-skin-imo-slider .jcarousel-prev-horizontal:active {
+			}
+			
+			.jcarousel-skin-imo-slider .jcarousel-prev-disabled-horizontal,
+			.jcarousel-skin-imo-slider .jcarousel-prev-disabled-horizontal:hover,
+			.jcarousel-skin-imo-slider .jcarousel-prev-disabled-horizontal:focus,
+			.jcarousel-skin-imo-slider .jcarousel-prev-disabled-horizontal:active {
+			  cursor: default;
+			  background-position: -20px -20px;
+			}
+			
+						
+			
+			.scroller-controller ul.scroll-dots li.dot a,
+			.jcarousel-skin-imo-slider .jcarousel-next-horizontal,
+			.jcarousel-skin-imo-slider .jcarousel-prev-horizontal {
+	
+			  -webkit-user-select: none;
+			  -khtml-user-select: none;
+			  -moz-user-select: none;
+			  -o-user-select: none;
+			  user-select: none;
+			}
+			
+		
+			.scroller-controller ul.scroll-dots {
+			  margin:0; 
+			  padding:0;
+			  text-align: center;
+			}
+			.scroller-controller ul.scroll-dots li.dot{
+			  margin: 2px 0;
+			  width:16px;
+			  height: 16px;
+			  display:inline;
+			  text-align: left;
+			}
+			.scroller-controller ul.scroll-dots li.dot a{
+			  background: transparent url(scroller_sprite.png) no-repeat -46px -40px;
+			  width: 16px; 
+			  height: 16px;
+			  text-indent: -9000em;
+			  display:inline-block;
+			}
+			.scroller-controller ul.scroll-dots li.dot.active a,
+			.scroller-controller ul.scroll-dots li.dot a:hover{
+			  background-position: -46px -20px;
+			}
+			
+			#imo-slider .scroller-controller {
+			position: absolute;
+		        z-index:1;
+			width: 327px;
+			display:none;
+			}
+                        
+                        
+                        
+                        /** 
+ * List Styles
+ */
+ul.withpic {
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+ul.withpic li {
+  list-style:none;
+  min-height: 75px;
+  padding-right:0px;
+  margin-bottom:15px;
+
+}
+ul.withpic li h3 {
+  margin-left:120px;
+  margin-bottom:0px;
+  line-height:0.8em;
+}
+
+ul.withpic li h3 a{
+  font-size:13px;
+  
+}
+
+ul.withpic li p {
+    margin-top:0px;
+  margin-left:120px;
+}
+ul.withpic li div.image {
+  float:left;
+  width: 110px;
+  height:70px;
+  overflow:hidden;
+  border:2px solid #CCC;
+}
+
+ul.linklist {
+  margin-top: 10px;
+  margin-left:10px;
+}
+ul.linklist li {
+  font-size: 12px;  
+  text-transform: capitalize;
+  font-weight: bold;
+  color:#095FAA;
+  
+}
+
+ul.arrowlist {
+  margin-left: 22px;
+}
+ul.arrowlist li {
+  list-style-image: url(../images/rarr.png);
+}
+
+
+div.feature-image {
+  width:308px;
+  overflow:hidden;
+  height: 225px;
+  border:1px solid #ccc;
+}
+
+/** Featured What's Biting Title **/
+#imo-slider-title-text {
+
+  color:#000000;
+  font-size:26px;
+  vertical-align:middle;
+  
+  
+}
+#imo-slider-title {
+    background-image: url(imo-slider-title-bg.png);
+  background-repeat: repeat-x;
+  width:620px;
+  height:40px;
+  padding-left:10px;
+}
+
+
+#imo-slider-date {
+  
+  float:right;
+  vertical-align:center;
+  color:#999999;
+  margin-right:10px;
+  margin-top:10px;
+  
+}
+
+#imo-slider-title #imo-slider-title-text {
+  background-image: url(fs-blue-arrow.png);
+  background-repeat: no-repeat;
+  background-position: left center;
+  padding-left:25px;
+}
+
+#imo-slider-title .gray {
+  color:#aaaaaa;
+  
+}
+
+#imo-slider-title .variant {
+  color:#aaaaaa;
+  
+}
+
+/** Featured Story **/
+#imo-slider {
+
+
+ padding-bottom:10px;
+  }
+#imo-slider .content {
+  padding-bottom:20px;
+}
+#imo-slider .left { 
+  float: left;
+  width:320px;
+}
+#imo-slider .right {
+  margin-left: 330px;
+  width:270px;
+  height:370px;
+  padding-left:20px;
+  padding-top:20px;
+  
+}
+
+#imo-slider .right .right-content {
+  border-left: 1px solid #CCC;
+  padding-left:20px;
+  height:380px;
+}
+#imo-slider .right .right-content .ffcast{
+  margin-top:30px;
+}
+#imo-slider .right .right-content .menu-reports-container ul {
+  margin:0px 0 0 15px;
+  padding:0px;
+  
+  
+  
+}
+#imo-slider .right .right-content .menu-reports-container ul li {
+  margin-left:0px;
+  padding-left:0px;
+  margin-bottom:0px;
+  margin-top:0px;
+  color:#0079BA;
+  line-height: 1.3em;
+}
+
+#imo-slider .right .right-content .menu-reports-container ul li a {
+  font-weight:bold;
+}
+
+#imo-slider .right h2 {
+  font-family: "Arial Black",Helvetica,Arial;
+  font-weight:bold;
+  color:#00457c;
+  text-transform:uppercase;
+  line-height:.95em;
+}
+#imo-slider .right h3 {
+  color:#58d4d7;
+  margin-top:10px;
+  font-size:16px;
+}
+
+
+#imo-slider p {
+  margin-top: 7px;
+  margin-bottom:0;
+  padding-bottom: 10px;
+  height: 30px;
+  color:#666666;
+  line-height: 1.3em;
+
+}
+
+#imo-slider .featured-item a.read-more {
+  color:#007cbc;
+  font-weight:bold;
+  margin-top:10px;
+}
+
+.left { 
+  float: left;
+}
+.right {
+
+}
+.byline {
+  color: #999;
+}
+
+#imo-slider .feature-region {
+  padding:5px 30px 5px 1px;
+  position:absolute;
+
+  font-weight:bold;
+  font-size:14px;
+  margin-top:1px;
+  top:204px;
+  color:#ffffff;
+  
+  background-image:url(fs-flag-part2.png);
+  background-repeat:no-repeat;
+  background-position:100%;
+  
+}
+
+
+
+#imo-slider .feature-region .region-text {
+  background-color:#22588b;
+  padding:7px 5px 8px 10px;
+}
+
+#imo-slider .feature-region a {
+  color:#ffffff;
+}
+
+/*.cfct-module.cfct-module-imo-slider {*/
+/*width: 630px;*/
+/*}*/
