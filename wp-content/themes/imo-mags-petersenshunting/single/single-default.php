@@ -30,29 +30,30 @@ $current_category = single_cat_title("", false);
 
 ?>
 
+
 <?php if (in_category("the-dirty-lens")) { ?>
-<a href="/blogs/<?php echo "the-dirty-lens"; ?>/" title="<?php echo $current_category; ?>"><div class="dl-header-mini"></div></a>
+<a href="/blogs/<?php echo "the-dirty-lens"; ?>/" title=""><div class="dl-header-mini"></div></a>
 
-<?php } else if (in_category("deadly-passion")) { ?>
-<a href="/blogs/<?php echo "deadly-passion"; ?>/" title="<?php echo $current_category; ?>"><div class="dd-header-mini"></div></a>
+<?php } else if (in_category("deadly-draw")) { ?>
+<a href="/blogs/<?php echo "deadly-draw"; ?>/" title=""><div class="dd-header-mini"></div></a>
 
-<?php } else if (in_category("the-guns-crush")) { ?>
-<a href="/blogs/<?php echo "the-guns-crush"; ?>/" title="<?php echo $current_category; ?>"><div class="gc-header-mini"></div></a>
+<?php } else if (in_category("the-gun-crush")) { ?>
+<a href="/blogs/<?php echo "the-gun-crush"; ?>/" title=""><div class="gc-header-mini"></div></a>
 
 <?php } else if (in_category("the-urban-huntress")) { ?>
-<a href="/blogs/<?php echo "the-urban-huntress"; ?>/" title="<?php echo $current_category; ?>"><div class="uh-header-mini"></div></a>
+<a href="/blogs/<?php echo "the-urban-huntress"; ?>/" title=""><div class="uh-header-mini"></div></a>
 
 <?php } else if (in_category("editor-at-large")) { ?>
-<a href="/blogs/<?php echo "editor-at-large"; ?>/" title="<?php echo $current_category; ?>"><div class="eal-header-mini"></div></a>
+<a href="/blogs/<?php echo "editor-at-large"; ?>/" title=""><div class="eal-header-mini"></div></a>
 
 <?php } else if (in_category("fare-game")) { ?>
-<a href="/blogs/<?php echo "fare-game"; ?>/" title="<?php echo $current_category; ?>"><div class="fg-header-mini"></div></a>
+<a href="/blogs/<?php echo "fare-game"; ?>/" title=""><div class="fg-header-mini"></div></a>
 
 <?php } else if (in_category("buck-wild")) { ?>
-<a href="/blogs/<?php echo "buck-wild"; ?>/" title="<?php echo $current_category; ?>"><div class="bw-header-mini"></div></a>
+<a href="/blogs/<?php echo "buck-wild"; ?>/" title=""><div class="bw-header-mini"></div></a>
 
 <?php } else if (in_category("news-brief")) { ?>
-<a href="/blogs/<?php echo "news-brief"; ?>/" title="<?php echo $current_category; ?>"><div class="nb-header-mini"></div></a>
+<a href="/blogs/<?php echo "news-brief"; ?>/" title=""><div class="nb-header-mini"></div></a>
 
 <?php } ?>
 
