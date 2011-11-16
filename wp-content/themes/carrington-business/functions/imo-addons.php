@@ -5,6 +5,24 @@
  *
  * Defines additions to Carrington Build's theme. 
  */
+ 
+
+/**
+ * Adds pagination after the post
+ * Added by Berry 11/16/2011
+ * @uses is_single()
+ */
+add_filter('the_content','pagination_after_post',1);
+
+function pagination_after_post($content){
+    if( is_single() ){
+        $content .= '<div class="pagination">' . wp_link_pages('before=&after=&next_or_number=number&nextpagelink= &previouspagelink= &echo=0') . '</div>';
+        return $content;
+    } // if
+} // pagination_after_post
+ 
+ 
+ 
 include_once(CFCT_PATH.'widgets/subscribe.php');
 
 /**

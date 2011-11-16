@@ -4,6 +4,45 @@
  * supports all custom css in carrington build.
  */
 
+/**
+ * Single Post Pagination
+ * Added By Berry 11/16/2011
+ */
+ .pagination {
+	border-top: 0px dotted #CCC;
+	border-bottom: 1px dotted #CCC;
+	margin: 15px auto;
+	overflow: hidden;
+	padding: 10px 0;
+}
+.pagination a {
+	padding: 5px 10px;
+	margin: 0 0 0 0px;
+	background: #EEE;
+}
+.pagination a:hover {
+	text-decoration: none;
+	background: #DDD;
+}
+.pagination p {
+	color: #BBB;
+	margin: 0;
+	text-align: center;
+}
+.pagination-content {
+	font-size: 1.5em;
+	font-weight: normal;
+}
+
+.imo-related-posts {
+	border-top: 1px dotted #CCC;
+	margin-top: 10px;
+	padding-top: 20px;
+}
+
+.addthis_toolbox.addthis_default_style {
+	margin: 15px 0;
+}
 
 /**
  * Default configuration for the subscriptions
