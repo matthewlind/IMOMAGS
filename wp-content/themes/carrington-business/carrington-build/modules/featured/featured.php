@@ -68,13 +68,12 @@ if (!class_exists('cfct_module_featured') && class_exists('cfct_build_module')) 
 			parent::__construct('cfct-module-featured', __('Featured', 'carrington-build'), $opts);
 			
 			
-			wp_register_script('jcarousel', $this->get_url().'js/jquery.jcarousel.min.js', array('jquery'));
 			
 			wp_register_style('featured-style',$this->get_url().'css/featured.css');
 			
 			if (!is_admin()) {
 				//wp_enqueue_script('jquery-cycle');
-				wp_enqueue_script('jcarousel');
+
 				wp_enqueue_style('featured-style');
 				
 			}
@@ -308,8 +307,8 @@ if (!class_exists('cfct_module_featured') && class_exists('cfct_build_module')) 
 						
 						?>
 						<div id="featured">
-							<div class="left"> 
-								<ul id="feature-carousel" class="jcarousel-skin-featured">
+							<div id="featured_slideshow_mask" class="left"> 
+								<div id="featured_slideshow">
 			
 						<?php		
 						
@@ -337,10 +336,13 @@ if (!class_exists('cfct_module_featured') && class_exists('cfct_build_module')) 
 						
 						
 						?>
-						</ul>
-						<div class="scroller-controller">
-						</div> 
-						</div><!--/endleft-->
+						</div>
+								<a id="prev"></a>
+						<a id="next"></a>
+						<div id="pager">
+						</div>
+						
+						</div><!--/feature_slideshow_mask-->
 						<div class="right"> 
 							<ul class="withpic">
 			
@@ -484,7 +486,7 @@ if (!class_exists('cfct_module_featured') && class_exists('cfct_build_module')) 
 		
 		function the_featured_slider_block() {   
 			?>
-			<li class="featured-item">
+			<div class="slide">
 				<div class="feature-image"> 
 					<a href="<?php the_permalink(); ?>"><?php echo get_the_post_thumbnail(get_the_ID(),"large-featured-thumb"); ?></a>
 				</div>
@@ -496,7 +498,7 @@ if (!class_exists('cfct_module_featured') && class_exists('cfct_build_module')) 
 				 <span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'carrington-build' ), __( '1 Comment', 'carrington-build' ), __( '% Comments', 'carrington-build' ) ); ?></span></span>
 				 
 				<p><?php $this->the_excerpt_max_charlength(100); ?></p> 
-			</li> 
+			</div> 
 			
 			
 			
@@ -545,12 +547,17 @@ if (!class_exists('cfct_module_featured') && class_exists('cfct_build_module')) 
 			
 			$output = <<<EOFFF
 			
-			.jcarousel-skin-featured .jcarousel-item h2.title a {font-size:30px;}
+
 
 EOFFF;
 		return $output;
 		}
 		
+		
+		
+		
+		//Instead of including separate files, the JS libraries have been pasted into here so that
+		//the libraries are only loaded on pages that use this module.
 		public function js() {
 			
 			
@@ -559,107 +566,27 @@ EOFFF;
 			
 			$output .= <<<EOD
 
-	
-var custom_feature_config = {};
 
-	
-	
-      /**
-       * 
-       * Configure the scroll dots
-       */
-      function init_scrolldots(carousel) {
-      
-      $(".scroller-controller", carousel.container.parent().parent()).append("<ul class='scroll-dots'></ul>");
-      //calculate number of pages
-      var pages = Math.ceil(carousel.options.size / carousel.options.scroll);
-      for (var i=1, j=pages; i <= j; i++) {
-      //set up links         
-        addDot(carousel, i);
-      }
-      if($.browser.msie && $.browser.version <= 7) {
-        var intendedWidth = Number( $(".scroller-controller .scroll-dots a:eq(0)", carousel.container.parent().parent()).width() * pages);
-        var leftOffset = ( Number( $(".scroller-controller", carousel.container.parent().parent()).width()) - intendedWidth)/2;
-        $(".scroller-controller .scroll-dots", carousel.container.parent().parent()).width(intendedWidth);
-        $(".scroller-controller .scroll-dots", carousel.container.parent().parent()).css("left", leftOffset+"px");
-      }
-      //add events to the scroller buttons. 
-      function activatePage (direction) {
-        return function() {
-          if(String($(this).attr("disabled")) == "false"){ 
-            var activeListItem = $(".active", $(carousel.container.parent().parent()));
-            var activeIndex = Number($('a', activeListItem).text());
-            activeListItem.removeClass("active"); 
-            if (direction=='prev') {
-              if (activeIndex == 1) {
-                activeIndex = 2;
-              }
-              $(".page"+(activeIndex-1), activeListItem.parent()).addClass("active");
-            }
-            else { // next!
-              if(activeIndex==pages) {
-                activeIndex=pages-1;
-              }                      
-              $(".page"+(activeIndex+1), activeListItem.parent()).addClass("active");
-            }
-          }
-        };
-      }
+//jQuery Easing Library
+jQuery.easing['jswing']=jQuery.easing['swing'];jQuery.extend(jQuery.easing,{def:'easeOutQuad',swing:function(x,t,b,c,d){return jQuery.easing[jQuery.easing.def](x,t,b,c,d)},easeInQuad:function(x,t,b,c,d){return c*(t/=d)*t+b},easeOutQuad:function(x,t,b,c,d){return-c*(t/=d)*(t-2)+b},easeInOutQuad:function(x,t,b,c,d){if((t/=d/2)<1)return c/2*t*t+b;return-c/2*((--t)*(t-2)-1)+b},easeInCubic:function(x,t,b,c,d){return c*(t/=d)*t*t+b},easeOutCubic:function(x,t,b,c,d){return c*((t=t/d-1)*t*t+1)+b},easeInOutCubic:function(x,t,b,c,d){if((t/=d/2)<1)return c/2*t*t*t+b;return c/2*((t-=2)*t*t+2)+b},easeInQuart:function(x,t,b,c,d){return c*(t/=d)*t*t*t+b},easeOutQuart:function(x,t,b,c,d){return-c*((t=t/d-1)*t*t*t-1)+b},easeInOutQuart:function(x,t,b,c,d){if((t/=d/2)<1)return c/2*t*t*t*t+b;return-c/2*((t-=2)*t*t*t-2)+b},easeInQuint:function(x,t,b,c,d){return c*(t/=d)*t*t*t*t+b},easeOutQuint:function(x,t,b,c,d){return c*((t=t/d-1)*t*t*t*t+1)+b},easeInOutQuint:function(x,t,b,c,d){if((t/=d/2)<1)return c/2*t*t*t*t*t+b;return c/2*((t-=2)*t*t*t*t+2)+b},easeInSine:function(x,t,b,c,d){return-c*Math.cos(t/d*(Math.PI/2))+c+b},easeOutSine:function(x,t,b,c,d){return c*Math.sin(t/d*(Math.PI/2))+b},easeInOutSine:function(x,t,b,c,d){return-c/2*(Math.cos(Math.PI*t/d)-1)+b},easeInExpo:function(x,t,b,c,d){return(t==0)?b:c*Math.pow(2,10*(t/d-1))+b},easeOutExpo:function(x,t,b,c,d){return(t==d)?b+c:c*(-Math.pow(2,-10*t/d)+1)+b},easeInOutExpo:function(x,t,b,c,d){if(t==0)return b;if(t==d)return b+c;if((t/=d/2)<1)return c/2*Math.pow(2,10*(t-1))+b;return c/2*(-Math.pow(2,-10*--t)+2)+b},easeInCirc:function(x,t,b,c,d){return-c*(Math.sqrt(1-(t/=d)*t)-1)+b},easeOutCirc:function(x,t,b,c,d){return c*Math.sqrt(1-(t=t/d-1)*t)+b},easeInOutCirc:function(x,t,b,c,d){if((t/=d/2)<1)return-c/2*(Math.sqrt(1-t*t)-1)+b;return c/2*(Math.sqrt(1-(t-=2)*t)+1)+b},easeInElastic:function(x,t,b,c,d){var s=1.70158;var p=0;var a=c;if(t==0)return b;if((t/=d)==1)return b+c;if(!p)p=d*.3;if(a<Math.abs(c)){a=c;var s=p/4}else var s=p/(2*Math.PI)*Math.asin(c/a);return-(a*Math.pow(2,10*(t-=1))*Math.sin((t*d-s)*(2*Math.PI)/p))+b},easeOutElastic:function(x,t,b,c,d){var s=1.70158;var p=0;var a=c;if(t==0)return b;if((t/=d)==1)return b+c;if(!p)p=d*.3;if(a<Math.abs(c)){a=c;var s=p/4}else var s=p/(2*Math.PI)*Math.asin(c/a);return a*Math.pow(2,-10*t)*Math.sin((t*d-s)*(2*Math.PI)/p)+c+b},easeInOutElastic:function(x,t,b,c,d){var s=1.70158;var p=0;var a=c;if(t==0)return b;if((t/=d/2)==2)return b+c;if(!p)p=d*(.3*1.5);if(a<Math.abs(c)){a=c;var s=p/4}else var s=p/(2*Math.PI)*Math.asin(c/a);if(t<1)return-.5*(a*Math.pow(2,10*(t-=1))*Math.sin((t*d-s)*(2*Math.PI)/p))+b;return a*Math.pow(2,-10*(t-=1))*Math.sin((t*d-s)*(2*Math.PI)/p)*.5+c+b},easeInBack:function(x,t,b,c,d,s){if(s==undefined)s=1.70158;return c*(t/=d)*t*((s+1)*t-s)+b},easeOutBack:function(x,t,b,c,d,s){if(s==undefined)s=1.70158;return c*((t=t/d-1)*t*((s+1)*t+s)+1)+b},easeInOutBack:function(x,t,b,c,d,s){if(s==undefined)s=1.70158;if((t/=d/2)<1)return c/2*(t*t*(((s*=(1.525))+1)*t-s))+b;return c/2*((t-=2)*t*(((s*=(1.525))+1)*t+s)+2)+b},easeInBounce:function(x,t,b,c,d){return c-jQuery.easing.easeOutBounce(x,d-t,0,c,d)+b},easeOutBounce:function(x,t,b,c,d){if((t/=d)<(1/2.75)){return c*(7.5625*t*t)+b}else if(t<(2/2.75)){return c*(7.5625*(t-=(1.5/2.75))*t+.75)+b}else if(t<(2.5/2.75)){return c*(7.5625*(t-=(2.25/2.75))*t+.9375)+b}else{return c*(7.5625*(t-=(2.625/2.75))*t+.984375)+b}},easeInOutBounce:function(x,t,b,c,d){if(t<d/2)return jQuery.easing.easeInBounce(x,t*2,0,c,d)*.5+b;return jQuery.easing.easeOutBounce(x,t*2-d,0,c,d)*.5+c*.5+b}});
 
-      $(carousel.buttonNext).bind("click", activatePage('next'));
-      $(carousel.buttonPrev).bind("click", activatePage('prev'));
-      
-      //Move arrows depending on Number of dots
-      
-      var rightMargin = 131-(8*pages);
-      var leftMargin = 124-(8*pages);
-      $(".jcarousel-skin-featured .jcarousel-next-horizontal").css("margin-right",rightMargin + "px");
-      $(".jcarousel-skin-featured .jcarousel-prev-horizontal").css("margin-left",leftMargin + "px");
-      
-      }
 
-      function addDot(carousel, page) {
-        var dot = $("<li class='dot page"+page+"'><a href='#page" + page + "'>" + page + "</a></li>");
-        if (page == 1) {
-          dot.addClass('active');
-        }
-        $(".scroller-controller > ul", carousel.container.parent().parent()).append(dot);
-        $(dot).bind("click", function() {
-            var lastItem = page * carousel.options.scroll;
-            if (lastItem > carousel.options.size) {
-            lastItem = carousel.options.size;
-            }
+//keighl's Scrollface Library
+(function(a){"use strict";var b={init:function(d){return a(this).each(function(){var e=a(this),f=a(this).data("scrollface"),g={pager:null,pager_builder:b.pager_builder,next:null,prev:null,active_pager_class:"active",speed:300,easing:"linear",auto:!0,interval:2e3,before:b.before,after:b.after,transition:"horizontal"};if(!f){d&&a.extend(g,d),g.slides=a(this).children(),g.count=g.slides.size(),g.height=a(this).height(),g.width=a(this).width(),g.index=0,g.is_moving=!1,g.timer=null;switch(g.transition){case"vertical":g.transition=c.vertical;break;case"random":g.transition=c.random;break;default:g.transition=c.horizontal}a(this).css({position:"absolute"}),a(g.slides).each(function(c,d){a(d).css({position:"absolute",left:c===0?0:g.width*100,top:0,display:c===0?"block":"none"});var f=null;a(g.pager).size()&&typeof g.pager_builder=="function"&&(f=g.pager_builder.call(e,g.pager,c,d),c===0&&a(f).addClass(g.active_pager_class),a(f).bind("click.scrollface",function(){return b.interrupt.call(e),b.step_to.call(e,c),!1}))}),a(g.next).size()&&a(g.next).bind("click.scrollface",function(a){b.interrupt.call(e),b.next.call(e)}),a(g.prev).size()&&a(g.prev).bind("click.scrollface",function(a){b.interrupt.call(e),b.prev.call(e)}),a(this).data("scrollface",g),g.auto&&b.start.call(e)}})},destroy:function(){return a(this).each(function(){var b=a(this).data("scrollface");if(b)a(b.next).size()&&a(b.next).unbind("click.scrollface"),a(b.prev).size()&&a(b.prev).unbind("click.scrollface"),a(this).data("scrollface",null);else return!1})},step_to:function(b,d,e){return a(this).each(function(){var f=a(this).data("scrollface");if(!f)return!1;if(!f.is_moving&&b!==f.index&&b<=f.count-1&&b>=0){f.is_moving=!0,a(f.pager).size()&&(a("a",f.pager).removeClass(f.active_pager_class),a("a",f.pager).eq(b).addClass(f.active_pager_class));if(typeof f.before=="function"){var g={id:f.index,slide:a(f.slides[f.index])},h={id:b,slide:a(f.slides[b])};f.before.call(this,g,h)}e&&c[e]?c[e].call(this,b,d):f.transition.call(this,b,d)}})},next:function(c,d){return a(this).each(function(){var e=a(this).data("scrollface");if(!e)return!1;var f=e.index===e.count-1?0:e.index+1;c=c||"advance",b.step_to.call(this,f,c,d)})},prev:function(c,d){return a(this).each(function(){var e=a(this).data("scrollface");if(!e)return!1;var f=e.index===0?e.count-1:e.index-1;c=c||"retreat",b.step_to.call(this,f,c,d)})},start:function(){return a(this).each(function(){var c=a(this).data("scrollface");if(!c)return!1;var d=this;c.timer||(c.timer=setInterval(function(){b.next.call(d)},c.interval))})},stop:function(){return a(this).each(function(){var b=a(this).data("scrollface");if(!b)return!1;b.timer&&(clearInterval(b.timer),b.timer=null)})},interrupt:function(c){return a(this).each(function(){var d=a(this).data("scrollface");if(!d)return!1;var e=a(this),f=0;d.timer&&(typeof c!="number"?f=d.interval:f=c,b.stop.call(this),setTimeout(function(){b.start.call(e)},f))})},pager_builder:function(b,c,d){var e=a(document.createElement("a")).html(c+1).appendTo(a(b));return e},before:function(a,b){return!0},after:function(a,b){return!0}},c={horizontal:function(b,c){var d=a(this).data("scrollface");if(!d)return!1;var e=parseInt(a(this).css("left"),10)||0,f=a(d.slides[d.index]),g=parseInt(a(f).css("left"),10)||0,h=parseInt(a(f).css("top"),10)||0,i=c==="advance"?g+d.width:g-d.width,j=a(d.slides[b]).css({left:i,top:h}).show(),k=c==="advance"?e-d.width:e+d.width;a(this).stop().animate({left:k},d.speed,d.easing,function(){if(typeof d.after=="function"){var c={id:d.index,slide:a(d.slides[d.index])},e={id:b,slide:a(d.slides[b])};d.after.call(this,c,e)}a(f).hide(),d.index=b,d.is_moving=!1})},vertical:function(b,c){var d=a(this).data("scrollface");if(!d)return!1;var e=parseInt(a(this).css("top"),10)||0,f=a(d.slides[d.index]),g=parseInt(a(f).css("top"),10)||0,h=parseInt(a(f).css("left"),10)||0,i=c==="advance"?g+d.height:g-d.height,j=a(d.slides[b]).css({top:i,left:h}).show(),k=c==="advance"?e-d.height:e+d.height;a(this).stop().animate({top:k},d.speed,d.easing,function(){if(typeof d.after=="function"){var c={id:d.index,slide:a(d.slides[d.index])},e={id:b,slide:a(d.slides[b])};d.after.call(this,c,e)}a(f).hide(),d.index=b,d.is_moving=!1})},random:function(b,d){var e=a(this).data("scrollface");if(!e)return!1;var f=["horizontal","vertical"],g=f[Math.floor(Math.random()*f.length)];c[g].call(this,b,d)}};a.fn.scrollface=function(c){if(b[c])return b[c].apply(this,Array.prototype.slice.call(arguments,1));if(typeof c=="object"||!c)return b.init.apply(this,arguments);a.error("Method "+c+" does not exist on jQuery.scrollface!")}})(jQuery)
 
-            $(this).parent().children().removeClass("active");
-            $(this).addClass("active");
-            carousel.scroll(Number(1+lastItem-carousel.options.scroll));
-            return false;
-            }); 
-      }
-      
-      function setDotActive(carousel, item, idx, state) {
-	var page = idx;
-	$(".dot.page" + page).parent().children().removeClass("active");
-	$(".dot.page" + page).addClass("active");
-      }
-      
-      var feature_config = {
-      scroll:1,
-      auto:4,
-      wrap: 'both',
-      itemVisibleInCallback: setDotActive,
-      
-	setupCallback:init_scrolldots
-      };
-      $.extend(feature_config, custom_feature_config);
-      // console.log(feature_config);
-      
-      $("#feature-carousel").jcarousel(feature_config);
-      
 
-      
-      
-      
+
+
+$('#featured_slideshow').scrollface({
+  next   : $('#next'),
+  prev   : $('#prev'),
+  pager  : $('#pager'),
+  speed  : 400,
+  interval : 3000,
+  easing : 'easeOutCubic'
+});
+    
+			
       
 });
 })(jQuery);
