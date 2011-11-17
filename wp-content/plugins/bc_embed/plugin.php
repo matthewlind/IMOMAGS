@@ -13,7 +13,7 @@ License: GPL2
 define("_BC_PUBLISHER_ID", "1");
 
 //Set a default player to use - YOU MUST SET THIS TO YOUR OWN DEFAULT PLAYER
-define("_BC_DEFAULT_PLAYER_ID", "973698996001");
+define("_BC_DEFAULT_PLAYER_ID", "958487378001");
 define("_BC_DEFAULT_PLAYER_KEY", "AQ~~,AAAAAETeEfI~,i-5J2ubuAMtrBswh0PvpouAMH3Ey66kE");
 
 /**
@@ -28,20 +28,52 @@ function wp_embed_handler_brightcove ( $matches, $attr, $url, $rawattr ) {
     // we don't want to use an int conversion, becuase ids are very large and will overflow.
     $videoid = preg_replace('/[^0-9]/', '', esc_attr($matches[1]));
     global $the_ID;
-    $video_link = !empty($the_ID) ? get_permalink($the_ID) :  site_url() . $_SERVER['REQUEST_URI']; 
-    $output = '<object id="flashObj" width="%4$s" height="%5$s" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,47,0">
-	<param name="movie" value="http://c.brightcove.com/services/viewer/federated_f9?isVid=1&amp;isUI=1" />
-	<param name="bgcolor" value="#FFFFFF" />
-	<param name="flashVars" value="@videoPlayer=%3$s&amp;playerID=%1$s&amp;playerKey=%6$s&amp;domain=embed&amp;dynamicStreaming=true" />
-	<param name="seamlesstabbing" value="false" />
-	<param name="allowFullScreen" value="true" />
-	<param name="swLiveConnect" value="true" />
-	<param name="allowScriptAccess" value="always" />
-    <param name="linkBaseURL" value="%7$s" />
-	<param name="@videoPlayer" value="%3$s" />
-	<embed src="http://c.brightcove.com/services/viewer/federated_f9?isVid=1&amp;isUI=1" bgcolor="#FFFFFF" flashVars="@videoPlayer=%3$s&amp;playerID=%1$s&amp;playerKey=%6$s&amp;domain=embed&amp;dynamicStreaming=true&linkBaseURL=%7$s" base="http://admin.brightcove.com" name="flashObj" width="%4$s" height="%5$s" seamlesstabbing="false" type="application/x-shockwave-flash" allowFullScreen="true" allowScriptAccess="always" swLiveConnect="true" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash">
-	</embed>
-	</object>';
+    $video_link = !empty($the_ID) ? get_permalink($the_ID) :  site_url() . $_SERVER['REQUEST_URI'];
+    
+    
+    $adServerURL = "http://ad.doubleclick.net/pfadx/" .  get_option("dart_domain", _imo_dart_guess_domain())  ."/video";
+	
+	
+    $output = '<!-- Start of Brightcove Player -->
+
+<div style="display:none">
+Plays videos on our IMO Mags website 
+</div>
+
+<!--
+By use of this code snippet, I agree to the Brightcove Publisher T and C 
+found at https://accounts.brightcove.com/en/terms-and-conditions/. 
+-->
+
+<script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+
+<object id="myExperience" class="BrightcoveExperience">
+  <param name="bgcolor" value="#FFFFFF" />
+  <param name="width" value="%4$s" />
+  <param name="height" value="%5$s" />
+  <param name="playerID" value="%1$s" />
+  <param name="playerKey" value="%6$s" />
+  <param name="isVid" value="true" />
+  <param name="isUI" value="true" />
+  <param name="dynamicStreaming" value="true" />
+  <param name="linkBaseURL" value="%7$s" />
+  <param name="@videoPlayer" value="%3$s" />
+  
+  <param name="adServerURL" value="%8$s" />
+  
+</object>
+
+<!-- 
+This script tag will cause the Brightcove Players defined above it to be created as soon
+as the line is read by the browser. If you wish to have the player instantiated only after
+the rest of the HTML is processed and the page load is complete, remove the line.
+-->
+<script type="text/javascript">brightcove.createExperiences();</script>
+
+<!-- End of Brightcove Player -->';
+
+	
+	
 
     $embed = sprintf( $output,
          get_option("bc_player_id", _BC_DEFAULT_PLAYER_ID ),
@@ -51,7 +83,8 @@ function wp_embed_handler_brightcove ( $matches, $attr, $url, $rawattr ) {
         $height,
         get_option("bc_player_key", _BC_DEFAULT_PLAYER_KEY),
         
-        $video_link
+        $video_link,
+	$adServerURL
     );
     return apply_filters( 'embed_brightcove', $embed, $matches, $attr, $url, $rawattr );
 }
