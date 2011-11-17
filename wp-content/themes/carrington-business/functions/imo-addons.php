@@ -16,7 +16,7 @@ add_filter('the_content','pagination_after_post',1);
 
 function pagination_after_post($content){
     if( is_single() ){
-        $content .= '<div class="pagination">' . wp_link_pages('before=&after=&next_or_number=number&nextpagelink= &previouspagelink= &echo=0') . '</div>';
+        $content .= " \n" . '<div class="pagination">' . wp_link_pages('before=&after=&next_or_number=number&nextpagelink= &previouspagelink= &echo=0') . '</div>';
         return $content;
     } // if
 } // pagination_after_post
