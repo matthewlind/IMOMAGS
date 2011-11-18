@@ -17,8 +17,11 @@ add_filter('the_content','pagination_after_post',1);
 function pagination_after_post($content){
     if( is_single() ){
         $content .= " \n" . '<div class="pagination">' . wp_link_pages('before=&after=&next_or_number=number&nextpagelink= &previouspagelink= &echo=0') . '</div>';
-        return $content;
+        
     } // if
+    
+    return $content;
+    
 } // pagination_after_post
  
  
