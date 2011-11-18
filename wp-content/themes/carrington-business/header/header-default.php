@@ -132,7 +132,7 @@ else {
 	</header><!-- #header -->
 	
 	<!-- Breadcrumbs -->
-	<?php if ( !is_front_page() && function_exists('yoast_breadcrumb') ): ?>
+	<?php if ( !is_front_page() && is_page() && is_archive() && function_exists('yoast_breadcrumb') ): ?>
 	<div id="crumb-wrapper">
 		<?php	yoast_breadcrumb('<p id="breadcrumbs">','</p>'); ?>
 	</div>
