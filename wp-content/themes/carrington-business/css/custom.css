@@ -456,3 +456,13 @@ width: 420px;
 #main-content .ngg-imagebrowser {
     padding-top: 20px;
 }
+
+/**
+ * Fix for Main Content width for Uber Menu
+ * Added By Aaron 11/18/2011
+ */
+#main-content {
+       width: 1020px;
+}
+
+
