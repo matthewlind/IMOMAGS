@@ -221,13 +221,13 @@
 
 #megaMenu ul li.ss-nav-menu-reg li.megaReg-with-sub > a{
 	background-image:url(images/subtri.png);
-	background-position: 94% 50%;
+	background-position: 94% 57%;
 	background-repeat: no-repeat;
 	padding-right:15px;
 }
 #megaMenu ul li.mega-with-sub > a,
 #megaMenu ul li.ss-nav-menu-mega > a{
-	background-image:url(images/toptri.png);
+	background-image:url(images/toptri_white.png);
 	background-position: 97% 50%;
 	background-repeat: no-repeat;
 	padding-right:20px;

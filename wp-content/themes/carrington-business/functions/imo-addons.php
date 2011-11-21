@@ -6,19 +6,33 @@
  * Defines additions to Carrington Build's theme. 
  */
  
+ 
+/** tweak excerpts **/
+function new_excerpt_length($length) {
+	return 20;
+}
+add_filter('excerpt_length', 'new_excerpt_length');
+
+function new_excerpt_more($more) {
+       global $post;
+	return '<a href="'. get_permalink($post->ID) . '">...&raquo;</a>';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
+ 
 
 /**
  * Adds pagination after the post
  * Added by Berry 11/16/2011
  * @uses is_single()
  */
+ 
 add_filter('the_content','pagination_after_post',1);
 
 function pagination_after_post($content){
     if( is_single() ){
         $content .= " \n" . '<div class="pagination">' . wp_link_pages('before=&after=&next_or_number=number&nextpagelink= &previouspagelink= &echo=0') . '</div>';
-        return $content;
-    } // if
+    }
+    return $content;
 } // pagination_after_post
  
  

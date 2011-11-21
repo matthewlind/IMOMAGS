@@ -3,6 +3,13 @@
  *
  * supports all custom css in carrington build.
  */
+ 
+ 
+.cfct-module-loop .cfct-mod-content .entry, .cfct-module-loop-subpages .cfct-mod-content .entry {
+margin: 0 0 30px 0;
+border-bottom: 1px dotted #999;
+padding: 0 0 20px 0;
+}
 
 /**
  * Single Post Pagination
@@ -465,4 +472,20 @@ width: 420px;
        width: 1020px;
 }
 
+/** Entery excerpt **/
 
+.entry .entry-footer, .entry .entry-info, .reply .reply-footer {
+	margin-bottom: 5px;
+}
+
+h2.entry-title a {
+	color: #333;
+}
+h2.entry-title a:hover {
+	color: #000;
+}
+.entry-summary .entry-info h2.entry-title {
+	padding-top: 10px;
+	color: #000;
+	line-height: 1em;
+}
