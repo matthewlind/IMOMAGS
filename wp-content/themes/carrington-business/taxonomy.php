@@ -55,9 +55,9 @@ $taxonomy = $term->taxonomy;
 <?php
 
 $args = array(
-	'location'=> $term_slug,
+	$taxonomy => $term_slug,
 	'paged' => get_query_var('paged'),
-	'posts_per_page' => 20,
+	'posts_per_page' => 14,
 
 );
 
@@ -110,7 +110,7 @@ $item = array();
 					<?php
 					$args = array(
 						$taxonomy => $term_slug,
-						"posts_per_page" => 8,
+						"posts_per_page" => 7,
 						"orderby" => "comment_count",
 						
 					);
@@ -193,7 +193,7 @@ $item = array();
 			
 			</div>  <!-- End taxonomy-featured-containter -->
 
-<br>
+<hr>
 			<?php
 			
 			
