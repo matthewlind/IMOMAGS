@@ -470,6 +470,7 @@ width: 420px;
  */
 #main-content {
        width: 1020px;
+       clear: both;
 }
 
 /** Entery excerpt **/
