@@ -5,7 +5,7 @@
  */
  
  
-.cfct-module-loop .cfct-mod-content .entry, .cfct-module-loop-subpages .cfct-mod-content .entry {
+.entry {
 	margin: 0 0 30px 0;
 	border-bottom: 1px dotted #999;
 	padding: 0 0 20px 0;
@@ -15,12 +15,16 @@
  * Single Post Pagination
  * Added By Berry 11/16/2011
  */
- .pagination {
+.pagination {
 	border-top: 0px dotted #CCC;
 	border-bottom: 1px dotted #CCC;
 	margin: 15px auto;
 	overflow: hidden;
 	padding: 10px 0;
+	font-size: 1em;
+}
+.pagination-content {
+	font-size: 1.2em;
 }
 .pagination a {
 	padding: 5px 10px;
@@ -31,10 +35,16 @@
 	text-decoration: none;
 	background: #DDD;
 }
+.pagination a.next, .pagination a.prev {
+	padding: 10px 15px;
+	background: #EEE;
+	font-size: 
+}
 .pagination p {
 	color: #BBB;
 	margin: 0;
 	text-align: center;
+	margin: 10px;
 }
 .pagination-content {
 	font-size: 1.5em;
@@ -311,10 +321,8 @@ nav.nav-featured, nav.nav-subnav-right.nav {
 }
 
 #locateChannel #channelControlsContainer #channelControls{
-    
     margin-top:88px;
 }
-
 
 #locateChannel input.searchbox {
 	border: 1px solid #cccccc;
@@ -352,28 +360,23 @@ body.page-template-page-right-php {
     width:1010px;
 }
 
-
 .bonus-background {
     float:right;
     width:310px;
-    background-color:#eeeeee;
+    background-color:#fff;
 }
 
 .bonus {
-
 	margin-top:5px;
 	margin-left:5px;
 	width: 300px;
-
 }
 
 .page-template-page-right-php .cfct-block-c,
 .page-template-page-right-php .cfct-block-b,
 .page-template-page-right-php .cfct-block-a{
     
-
 }
-
 
 .page-template-page-right-php .str-container {
     width:1010px;
