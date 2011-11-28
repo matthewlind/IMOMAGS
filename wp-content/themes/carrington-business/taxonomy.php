@@ -35,7 +35,7 @@ if (!is_admin()) {
 	<h1><?php single_cat_title('');?></h1>
 </header><!-- #masthead -->
 
-<div class="page-template-page-right-php">
+<div class="page-template-page-right-php taxonomy-page">
 	<div class="bonus-background">
 		<div class="bonus">
 			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-landing')) : else : ?><?php endif; ?>
@@ -43,7 +43,7 @@ if (!is_admin()) {
 	</div>
 
 
-<div class="col-abc">
+<div class="col-abc taxonomy-col-abc">
 
 <?php
 $term = get_queried_object();
@@ -102,7 +102,7 @@ $item = array();
 			
 			<div class="taxonomy-featured-container">
 				
-				<div class='taxonomy-right-box widget' style="float:right;width:190px;margin-right:10px;border:5px solid #e3e3e3;padding:10px;height:363px;">
+				<div class='taxonomy-right-box widget' style="">
 					<h2 class="widget-title">Trending Now</h2>
 					
 					<ul>

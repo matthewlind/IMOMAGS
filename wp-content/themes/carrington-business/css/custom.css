@@ -476,6 +476,23 @@ width: 420px;
        clear: both;
 }
 
+/**
+ * Taxonomy Template CSS
+ * Added By Aaron 11/28/2011
+ */
+.taxonomy-page .taxonomy-col-abc {width:650px;}
+
+
+
+.taxonomy-page .taxonomy-right-box {
+	float:right;width:160px;margin-right:0px;border:5px solid #e3e3e3;padding:10px;height:363px;
+}
+
+.taxonomy-featured-container {
+	
+	margin-bottom:30px;
+}
+
 /** Entery excerpt **/
 
 .entry .entry-footer, .entry .entry-info, .reply .reply-footer {
