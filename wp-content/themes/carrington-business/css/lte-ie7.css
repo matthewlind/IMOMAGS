@@ -70,3 +70,12 @@ div#featured div.right { width: 230px; }
 nav.nav.nav-subnav-right { border-bottom: 1px solid #ccc; }
 nav.nav.nav-featured {}
 #header aside.widget { width: 260px; }
+
+/* IE 7 Fixes for bonus column */
+
+.page-template-page-right-php .col-abc {
+	
+	width:650px;
+}
+
+
