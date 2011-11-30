@@ -152,7 +152,7 @@ $item = array();
 							   <img src="<?php echo $item['img_src'][0]; ?>"/>
 							</div>
 							<div class='featured-item-description'>
-							  <h2><a href="<?php echo $item['link']; ?>"><?php echo $item['title']; ?><span>View</span></a></h2>
+							  <h2><a href="<?php echo $item['link']; ?>"><?php echo $item['title']; ?></a></h2>
 							</div>
 						</div>
 						
