@@ -37,7 +37,7 @@ the_post();
 </nav>
 
 
-<div class="page-template-page-right-php">
+<div class="page-template-page-right-php reeltime-template">
 	<div class="bonus-background">
 		<div class="bonus reeltime-bonus">
 			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-reeltime')) : else : ?><?php endif; ?>
@@ -54,7 +54,7 @@ the_post();
 			</div>
 			<?php edit_post_link(__('Edit', 'carrington-business')); ?>
 		</div><!-- .entry -->
-		<?php //comments_template(); ?>
+		<?php comments_template(); ?>
 	</div><!-- .col-abc -->
 </div>
 

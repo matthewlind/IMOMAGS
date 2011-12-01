@@ -703,3 +703,19 @@ nav.nav-secondary li.current-menu-item a {
 	text-transform: none;
 	color: #2e2e2e;
 }
+
+.page-template-page-right-php.reeltime-template .bonus-background {
+width: 335px;
+}
+.page-template-page-right-php.reeltime-template .bonus {
+margin-left: 25px;
+}
+.page-template-page-right-php.reeltime-template .col-abc {
+width: 630px;
+}
+.page-template-page-right-php.reeltime-template .cfct-block.block-1.cfct-block-b, .page-template-page-right-php.reeltime-template .cfct-block.block-2.cfct-block-c {
+margin-left: 5px;
+}
+.page-template-page-right-php.reeltime-template .cfct-block.block-2.cfct-block-c {
+margin-right: 0px;
+}
