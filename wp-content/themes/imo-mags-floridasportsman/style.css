@@ -26,6 +26,10 @@
  *
  */
 
+.ngg-imagebrowser-nav a {
+color: #fff !important;
+background: #BF3D06;
+}
 
 a {
 	color: #0079ba;
@@ -718,4 +722,18 @@ margin-left: 5px;
 }
 .page-template-page-right-php.reeltime-template .cfct-block.block-2.cfct-block-c {
 margin-right: 0px;
+}
+
+.page-template-page-right-php.reeltime-template .cfct-module .cfct-mod-title a {
+font-size: 18px;
+}
+.page-template-page-right-php.reeltime-template .cfct-block-c {
+padding-left: 0px;
+margin: 0px;
+}
+.page-template-page-right-php.reeltime-template .cfct-block-bc {
+margin: 0px;
+}
+.page-template-page-right-php.reeltime-template .entry-full {
+border-bottom: 0px dotted #999;
 }
