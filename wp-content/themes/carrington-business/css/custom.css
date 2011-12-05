@@ -510,3 +510,33 @@ h2.entry-title a:hover {
 	color: #000;
 	line-height: 1em;
 }
+
+/*GALLERY BUTTONS*/
+.ngg-imagebrowser .ngg-imagebrowser-nav .counter {
+	font-size: 1.2em !important;
+	color: #999;
+	font-weight: bold;
+	padding: 0 8px;
+	margin-top: 0px;
+}
+.ngg-imagebrowser-nav {
+
+}
+.ngg-imagebrowser-nav a {
+	color: #fff;
+	padding: 10px 25px;
+	background: #000;
+	-moz-border-radius: 2px;
+	-o-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	border-radius: 2px;
+}
+.ngg-imagebrowser .ngg-imagebrowser-nav .back, .ngg-imagebrowser .ngg-imagebrowser-nav .next {
+	margin-right: 0px;
+	border: 0px solid #DDD;
+	padding: 0px;
+}
+.ngg-imagebrowser .ngg-imagebrowser h3 {
+	margin-top: 15px;
+}

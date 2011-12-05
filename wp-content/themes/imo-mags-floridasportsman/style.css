@@ -26,6 +26,10 @@
  *
  */
 
+.ngg-imagebrowser-nav a {
+color: #fff !important;
+background: #BF3D06;
+}
 
 a {
 	color: #0079ba;
@@ -595,4 +599,141 @@ aside.widget .newsletter h3.gform_title {
     text-transform: uppercase;
     font-family: "Arvo", Helvetica, Arial, sans-serif;
     font-weight: bold;
+}
+/*BONUS SIDEBAR*/
+
+.bonus-background {
+	width: 330px;
+	background-color: none;
+	border-left: 1px solid #EEE;
+}
+
+.bonus {
+	margin-top: 0px;
+	margin-left: 15px;
+	width: 300px;
+}
+
+/*REEL TIME*/
+#reeltime-wrapper a {
+	color: #bf3d06;
+}
+
+/*REEL TIME NAV*/
+nav.nav-secondary {
+	background-color: transparent;
+	bottom: 40px;
+	font-size: 13px;
+	line-height: 1;
+	margin: 0;
+	padding: 0 15px;
+	position: relative;
+	border-bottom: 1px solid #bf3d06
+}
+nav.nav-secondary ul {
+	top: 1px
+}
+nav.nav-secondary li {
+	margin: 0;
+	top: 1px
+}
+
+nav.nav-secondary a {
+	color: #fff !important;
+	background: #bf3d06;
+	font-style: normal;
+	font-weight: bold;
+	letter-spacing: 0px;
+	font-family: helvetica, arial, serif, sans-serif;
+	text-transform: uppercase;
+	font-size: 12px;
+	display: block;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	text-decoration: none;
+	padding: 10px 14px 8px 14px;
+	border-top: 2px solid #bf3d06;
+	border-right: 1px solid #bf3d06;
+	border-left: 1px solid #bf3d06;
+	border-bottom: 2px solid #BF3D06;
+}
+nav.nav-secondary a:hover,
+nav.nav-secondary li:hover a {
+	border-top: 2px solid #bf3d06;
+	padding: 10px 14px 8px 14px;
+	color: #d2d2d2 !important;
+}
+nav.nav-secondary li.current-menu-item a {
+	color: #bf3d06 !important;
+	background: #fff;
+	border-bottom: 3px solid #fff;
+	
+	
+}
+
+/*REEL TIME*/
+
+#rt-wrapper {
+
+}
+
+#masthead.reeltime-header {
+	background: url(img/reeltime-header.jpg) 0 0 no-repeat;
+	border-bottom: 0px dotted #999;
+	bottom: 0px;
+	left: 15px;
+	padding: 0;
+	height: 205px;
+}
+
+#masthead.reeltime-header .reeltime-title {
+	background: url(img/reeltime-logo.png) 0 0 no-repeat;
+	display: block;
+	height: 141px;
+	width: 330px;
+	overflow: hidden;
+	text-indent: -9999em;
+	margin: 12px 0 0 15px;
+}
+#bonus-area {
+	padding-bottom: 30px
+	border-bottom: 1px solid #eee;
+	margin-bottom: 30px
+}
+#reeltime-wrapper #bonus-area h2, #reeltime-wrapper h2.cfct-mod-title {
+	font-family: 'Bitter', serif;
+	text-transform: none;
+	color: #2e2e2e;
+}
+
+.page-template-page-right-php.reeltime-template .bonus-background {
+width: 335px;
+}
+.page-template-page-right-php.reeltime-template .bonus {
+margin-left: 25px;
+}
+.page-template-page-right-php.reeltime-template .col-abc {
+width: 630px;
+}
+.page-template-page-right-php.reeltime-template .cfct-block.block-1.cfct-block-b, .page-template-page-right-php.reeltime-template .cfct-block.block-2.cfct-block-c {
+margin-left: 5px;
+}
+.page-template-page-right-php.reeltime-template .cfct-block.block-2.cfct-block-c {
+margin-right: 0px;
+}
+
+.page-template-page-right-php.reeltime-template .cfct-module .cfct-mod-title a {
+font-size: 18px;
+}
+.page-template-page-right-php.reeltime-template .cfct-block-c {
+padding-left: 0px;
+margin: 0px;
+}
+.page-template-page-right-php.reeltime-template .cfct-block-bc {
+margin: 0px;
+}
+.page-template-page-right-php.reeltime-template .entry-full {
+border-bottom: 0px dotted #999;
 }

@@ -10,6 +10,9 @@ define("SUBS_LINK", "https://secure.palmcoastd.com/pcd/eSv?iMagId=0146F&i4Ky=IBZ
 define("GIFT_LINK", "https://secure.palmcoastd.com/pcd/eSv?iMagId=0146F&i4Ky=IGZN");
 define("SERVICE_LINK", "https://secure.palmcoastd.com/pcd/eServ?iServ=MDE0NkY0NDA2OCZpVHlwZT1FTlRFUg==");
 define("SUBS_DEAL_STRING", "Save Over 70% off<br> the Cover Price");
+define("GOOGLE_FONT", "http://fonts.googleapis.com/css?family=Bitter");
+
+
 
 
 /**
@@ -72,6 +75,26 @@ if (function_exists('register_sidebar')) {
  'before_title'  => '<h2>',
  'after_title'   => '</h2>'
  ));
+ 
+ 
 
- }
+}
+if (function_exists('register_sidebar')) {
+register_sidebar(array(
+        'id' => 'sidebar-reeltime',
+        'name' => 'FS Reel Time Sidebar',
+        'description' => 'Shown on FS Reel Time Pages.',
+        'before_widget' => '<div id="bonus-area">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h2>',
+        'after_title'   => '</h2>'
+    ));
+}
 
+/*New Menu for REEL TIME*/
+
+add_action( 'init', 'register_rt_menu' );
+
+function register_rt_menu() {
+	register_nav_menu( 'reeltime-menu', __( 'REEL TIME Menu' ) );
+}
