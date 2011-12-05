@@ -21,8 +21,8 @@ define("_BC_DEFAULT_PLAYER_KEY", "AQ~~,AAAAAETeEfI~,i-5J2ubuAMtrBswh0PvpouAMH3Ey
  */
 function wp_embed_handler_brightcove ( $matches, $attr, $url, $rawattr ) {
     //Set width and height for the default video player
-    $width = 480;
-    $height = 270;
+    $width = 620;
+    $height = 349;
 
     // videoid should be alpha numeric. remove all and any non numbers from the string. 
     // we don't want to use an int conversion, becuase ids are very large and will overflow.
