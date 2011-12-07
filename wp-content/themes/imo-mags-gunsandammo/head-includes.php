@@ -2,7 +2,7 @@
 
 /**
  * head-includes.php
- * sets up all the cool site specific stylings in an easy to find place.i
+ * sets up all the cool site specific stylings in an easy to find place.
 */
 
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
