@@ -540,3 +540,9 @@ h2.entry-title a:hover {
 .ngg-imagebrowser .ngg-imagebrowser h3 {
 	margin-top: 15px;
 }
+
+
+/*Newsletter Form Edits*/
+.gform_wrapper ul li.gfield {
+	margin-top: 4px;
+}
