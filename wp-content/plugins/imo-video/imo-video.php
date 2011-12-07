@@ -80,7 +80,7 @@ function imo_video_init() {
 		'capability_type' => 'post',
 		'hierarchical' => false,
 		'menu_position' => null,
-		'supports' => array('title','thumbnail','excerpt','editor'),
+		'supports' => array('title','thumbnail','excerpt','editor','author'),
 		'rewrite' => array('slug' => 'video', 'with_front' => FALSE),
 		'taxonomies' => array('video_channel','post_tag'),
 	  ); 
@@ -111,9 +111,27 @@ function imo_video_add_custom_box() {
         'imo_video_inner_custom_box',
         'imo_video' 
     );
+    add_meta_box( 
+        'imo_video_legacy',
+        __( 'Legacy URL', 'imo_video_legacy_domain' ),
+        'imo_video_inner_custom_box_legacy',
+        'imo_video' 
+    );
 
 }
+/* Prints the box content */
+function imo_video_inner_custom_box_legacy( $post ) {
 
+  // Use nonce for verification
+  wp_nonce_field( plugin_basename( __FILE__ ), 'imo_video_noncename' );
+  
+  
+  $valueTag = "value='" .  get_post_meta($post->ID, '_video_legacy_url', TRUE) . "'";
+  
+  
+  // The actual fields for data entry
+  echo '<input type="text" id="imo_video_legacy_url" name="imo_video_legacy_url" size="50" ' . $valueTag . ' />';
+}
 /* Prints the box content */
 function imo_video_inner_custom_box( $post ) {
 
@@ -137,14 +155,12 @@ function imo_video_save_postdata( $post_id ) {
   // If it is our form has not been submitted, so we dont want to do anything
   if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
       return;
-
   // verify this came from the our screen and with proper authorization,
   // because save_post can be triggered at other times
 
   if ( !wp_verify_nonce( $_POST['imo_video_noncename'], plugin_basename( __FILE__ ) ) )
       return;
 
-  
   // Check permissions
   if ( 'page' == $_POST['post_type'] ) 
   {
@@ -160,11 +176,12 @@ function imo_video_save_postdata( $post_id ) {
   // OK, we're authenticated: we need to find and save the data
 
   $mydata = $_POST['imo_video_video_id'];
+  $legacyURL = $_POST['imo_video_legacy_url'];
 
   // Do something with $mydata 
   // probably using add_post_meta(), update_post_meta(), or 
   // a custom table (see Further Reading section below)
-  
+  update_post_meta($post_id, '_video_legacy_url', esc_attr($legacyURL) );
   update_post_meta($post_id, '_video_id', esc_attr($mydata) );
   
   
