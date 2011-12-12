@@ -2,12 +2,12 @@
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
 
-</section><!-- .str-container -->
+</section><!-- .container -->
 
   <footer id="footer">
     
       <section id="imo-network">
-        <div class="str-container">
+        <div class="container">
           <h4><span>Guns &amp; Ammo</span> Shooting Network</h4>
           <div id="handguns-mag" class="mag first">
             <h5>Handguns</h5>
@@ -58,8 +58,8 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
         </div>
       </section>
       
-      <section id="stay-connected">
-        <div class="str-container">
+      <section class="stay-connected">
+        <div class="container">
           
           <div class="top">
             <h4>Stay Connected</h4>

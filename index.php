@@ -6,6 +6,12 @@
  * @package WordPress
  */
 
+error_reporting(E_ALL);
+ini_set('display_errors', TRUE);
+ini_set('display_startup_errors', TRUE);
+
+
+
 /**
  * Tells WordPress to load the WordPress theme and output it.
  *

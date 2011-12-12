@@ -15,6 +15,4 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
   
   <a class="comments" href="<?php comments_link(); ?>"><?php comments_number('0', '1', '%'); ?></a>
 
-	<?php edit_post_link(__('Edit', 'carrington-business')); ?>
-
 </article>

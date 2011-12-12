@@ -39,9 +39,9 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
 <body <?php body_class(); ?>>
   
 	<header id="header">
-    <div class="primary str-container">
+    <div class="primary container">
 
-      <div class="aligncenter centerad">
+      <div class="centerad">
         <div class="ad-left">
           <?php if (function_exists("imo_dart_tag")) {
             imo_dart_tag("728x90");
@@ -83,14 +83,23 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
 		</div>
 		
 		<div id="site-menu">
-		  <div class="str-container">
+		  <div class="container">
 		    <?php wp_nav_menu(array( 
   				'theme_location' => 'main',
   				'container' => 'nav',
   				'container_class' => 'nav-main nav',
   				'depth' => 2,
-  			));
-  			// Share/Follow buttons, badges, & links ?>
+  			)); ?>
+  			
+  			<div class="stay-connected">
+  			 <div class="fb-like" data-href="http://www.facebook.com/pages/Guns-and-Ammo/110008639020864" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>
+  			 <span class="label">Stay Connected</span>
+  			 <ul class="connections">
+  			   <li><a class="facebook" href="#">Facebook</a></li>
+  			   <li><a class="twitter" href="#">Twitter</a></li>
+  			   <li><a class="feed" href="#">RSS Feed</a></li>
+  			 </ul>
+  			</div>
 		  </div>
 		</div>
 	</header>
@@ -99,4 +108,4 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
 	if (!is_front_page() && function_exists('yoast_breadcrumb'))
 	  yoast_breadcrumb('<div id="breadcrumbs">','</div>'); ?>
 	
-	<section id="main" class="str-container">
+	<section id="main" class="container">
