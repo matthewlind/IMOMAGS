@@ -123,7 +123,7 @@ $item = array();
 					// The Loop
 					while ( $the_query->have_posts() ) : $the_query->the_post();
 						echo '<li>';
-						echo "<a href='" . the_link . "'>";
+						echo "<a href='" . the_link() . "'>";
 						the_title();
 						echo '</a></li>';
 					endwhile;
