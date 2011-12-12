@@ -122,10 +122,10 @@ $item = array();
 					
 					// The Loop
 					while ( $the_query->have_posts() ) : $the_query->the_post();
-						echo '<li>';
-						echo "<a href='" . the_link() . "'>";
-						the_title();
-						echo '</a></li>';
+						$url = get_permalink();
+						$title = the_title(null,null,FALSE);
+						echo "<li><a href='$url'>$title</a></li>";
+
 					endwhile;
 					
 					// Reset Post Data
