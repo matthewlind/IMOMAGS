@@ -656,7 +656,7 @@ a.comments {
       background: none;
       border: none;
     }
-    .gform_widget {
+    .gform_widget { // Temporary 
       background: image-url('box_bg.png');
       border: none;
       padding: 4px;
@@ -666,7 +666,7 @@ a.comments {
         background: white;
         padding: 18px 12px;
       }
-      .box_title {
+      .widget-title {
         @include inline-block;
 
         background: image-url('box_title_bg.png') left center repeat-x;
