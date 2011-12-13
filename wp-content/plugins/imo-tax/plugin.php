@@ -112,7 +112,7 @@ function imo_tax_init() {
     }
 }
 
-add_action("init", "imo_tax_init");
+add_action("after_setup_theme", "imo_tax_init");
 
 /**
  * imo_tax_import_terms() 
