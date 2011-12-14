@@ -2,7 +2,7 @@
   position:relative;
   overflow:hidden;
   width:620px;
-  height:140px;
+  height:150px;
   margin:0 auto;
 }
 
@@ -11,17 +11,17 @@ ul#scroll {
   padding:0;
   position:absolute;
   width:9999em;
-  height:140px;
+  height:150px;
   list-style-type:none;
 
 }
 
 ul#scroll li {
   float:left;
-  width:140px;
-  height:140px;
+  width:134px;
+  height:150px;
   margin:0 20px 0 0;
-  background-color:pink;
+
 }
 
 a.inactive {
