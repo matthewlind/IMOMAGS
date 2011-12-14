@@ -32,8 +32,12 @@ class IMOSliderWidget extends \WP_Widget {
 	$instance = wp_parse_args( (array) $instance, $defaults ); ?>
 
 	<!-- Widget Header: Text Input -->
-	<p style="height:350px;">
-		<label for="<?php echo $this->get_field_id( 'taxonomy' ); ?>">Select Terms:</label>
+	<p style="height:380px;">
+
+        <label for="<?php echo $this->get_field_id( 'header' ); ?>">Title:</label>
+        <input id="<?php echo $this->get_field_id( 'header' ); ?>" name="<?php echo $this->get_field_name( 'header' ); ?>" value="<?php echo $instance['header']; ?>" style="width:100%;" />
+
+		<label for="<?php echo $this->get_field_id( 'taxonomy' ); ?>" style="display:block;padding-top:10px;" >Select Terms:</label>
         <?php $this->the_taxonomy_select($instance); ?>
         <label for="<?php echo $this->get_field_id( 'post_type' ); ?>" style="display:block;padding-top:10px;" >Post Type:</label>
         <?php $this->the_post_type_select($instance); ?>
@@ -61,6 +65,7 @@ class IMOSliderWidget extends \WP_Widget {
         
 		$instance['taxonomy'] = $new_instance['taxonomy'];
         $instance['limit'] = $new_instance['limit'];
+        $instance['header'] = $new_instance['header'];
 
 		return $instance;
     }
@@ -91,6 +96,14 @@ class IMOSliderWidget extends \WP_Widget {
             
         // The Query
         $the_query = new \WP_Query( $args );
+
+
+        if (!empty($instance['header'])) {
+            
+            echo "<div class='imo-slider-header'>";
+            echo $instance['header'];
+            echo "</div>";
+        }
         
 
         echo "<div id='scroll_mask'>\n";
@@ -100,7 +113,18 @@ class IMOSliderWidget extends \WP_Widget {
         while ( $the_query->have_posts() ) : $the_query->the_post();
                         $url = get_permalink();
                         $title = the_title(null,null,FALSE);
-                        echo "<li><img src='http://www.gunsandammo.com/files/2011/12/ak47vsm16-190x120.jpg'><a href='$url'>$title</a></li>\n";
+                        
+                        error_log("****************77777777777777666665556665656656656774778*******");
+
+
+                        $_img_id = get_post_thumbnail_id();
+
+                        $imgArray = wp_get_attachment_image_src($_img_id, "imo-slider-thumb", false);
+
+
+                        $imgSrc = $imgArray[0];
+
+                        echo "<li><a href='$url'><img src='$imgSrc'></a><a href='$url'>$title</a></li>\n";
 
         endwhile;
 
@@ -119,11 +143,9 @@ class IMOSliderWidget extends \WP_Widget {
 
     function get_query_args_from_term_slug_array($termSlugs,$contentType){
         
-        $taxonomyArgs = array(
-          'public'   => true,
-          '_builtin' => false,);
 
-         $taxonomyList = get_taxonomies($taxonomyArgs); 
+
+         $taxonomyList = get_taxonomies(); 
 
          $taxQuery = array('relation' => 'AND');
 
@@ -214,12 +236,10 @@ class IMOSliderWidget extends \WP_Widget {
     }
 
     function the_taxonomy_select($instance) {
-        $taxonomyArgs = array(
-                  'public'   => true,
-                  '_builtin' => false,);
 
 
-        $taxonomies = get_taxonomies($taxonomyArgs);           
+
+        $taxonomies = get_taxonomies();           
 
         //$taxonomies = array('activity','gear','location','species');
 
