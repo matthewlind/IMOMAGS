@@ -95,17 +95,16 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
   			 <div class="fb-like" data-href="http://www.facebook.com/pages/Guns-and-Ammo/110008639020864" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>
   			 <span class="label">Stay Connected</span>
   			 <ul class="connections">
-  			   <li><a class="facebook" href="#">Facebook</a></li>
-  			   <li><a class="twitter" href="#">Twitter</a></li>
-  			   <li><a class="feed" href="#">RSS Feed</a></li>
+  			   <li><a class="facebook" href="http://www.facebook.com/GunsAndAmmoMag" title="Find us on Facebook">Facebook</a></li>
+  			   <li><a class="twitter" href="http://twitter.com/gunsandammomag" title="Follow us on Twitter">Twitter</a></li>
+  			   <li><a class="feed" href="http://feeds.feedburner.com/GunsAndAmmoMag" title="Get the RSS Feed">RSS Feed</a></li>
   			 </ul>
   			</div>
 		  </div>
 		</div>
 	</header>
 	
-	<?php // Yoast Breadcrumbs
-	if (!is_front_page() && function_exists('yoast_breadcrumb'))
-	  yoast_breadcrumb('<div id="breadcrumbs">','</div>'); ?>
-	
 	<section id="main" class="container">
+	  <?php // Yoast Breadcrumbs
+  	// if (!is_front_page() && function_exists('yoast_breadcrumb'))
+  	//  yoast_breadcrumb('<div id="breadcrumbs">','</div>'); ?>

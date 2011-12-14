@@ -64,11 +64,9 @@ $zn_slug = "zombie-nation";
 
 <?php } ?>
 
-<div class="col-ab">
-	<?php
-	cfct_loop();
-	comments_template();
-	?>
+<div id="content" class="col-ab">
+	<?php cfct_loop(); ?>
+	<?php comments_template(); ?>
 </div>
 <?php
 get_sidebar();

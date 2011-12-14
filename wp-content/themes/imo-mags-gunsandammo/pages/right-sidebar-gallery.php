@@ -6,9 +6,9 @@ get_header();
 
 the_post(); ?>
 
-<div class="page-template-page-right-php right-sidebar-homepage">
-	<div id="sidebar">
-		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('homepage-sidebar')) : else : ?><?php endif; ?>
+<div class="page-template-page-right-php right-sidebar-gallery">
+  <div id="sidebar">
+		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-gallery')) : else : ?><?php endif; ?>
 	</div>
 	<div id="content">
 		<div <?php post_class('entry entry-full'); ?>>
@@ -18,10 +18,6 @@ the_post(); ?>
 				wp_link_pages(); ?>
 			</div>
 		</div>
-	</div>
-	
-	<div id="secondary">
-	 	<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('homepage-secondary')) : else : ?><?php endif; ?>
 	</div>
 </div>
 
