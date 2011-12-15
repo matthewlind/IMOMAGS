@@ -7,6 +7,10 @@ get_header();
 the_post(); ?>
 
 <div class="page-template-page-right-php right-sidebar-landing">
+
+  <header id="masthead">
+    <h1><?php the_title(); ?></h1>
+  </header>
   <div id="sidebar">
 		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-landing')) : else : ?><?php endif; ?>
 	</div>

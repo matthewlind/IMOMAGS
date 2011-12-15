@@ -15,6 +15,6 @@ else {
 } ?>
 
 <form id="searchform" action="<?php echo home_url( '/' ); ?>" method="get" onsubmit="<?php echo $onsubmit; ?>">
-  <input type="search" name="s" id="<?php echo $id; ?>" value="<?php esc_attr_e($s); ?>" placeholder="Search the Site">
+  <input type="search" class="searchfield" name="s" id="<?php echo $id; ?>" value="<?php esc_attr_e($s); ?>" placeholder="Search the Site">
   <input type="submit" class="searchsubmit" value="<?php _e('Search', 'carrington-business'); ?>" />
 </form>

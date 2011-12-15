@@ -72,9 +72,9 @@ h5 { font-size: 18px; }
 h6 { font-size: 16px; }
 p,ul,ol,dl {
   font-size: 15px;
-  line-height: 28px;
   margin: 1em 0;
 }
+p { line-height: 28px; }
 a, a:visited {
   color: $red;
   text-decoration: none;
@@ -89,29 +89,6 @@ hr {
 }
 
 /* Lists - Fancy and otherwise */
-.fancy {
-  ul, ol {
-    list-style: none;
-    font-size: 13px;
-    line-height: 30px;
-    padding: 0;
-    text-align: center;
-
-    li {
-      background: white;
-      display: block;
-      
-      &:nth-child(2n + 1) {
-        background: #f3f3f3;
-      }
-      a {
-        color: $darkgray;
-      }
-    }
-  }
-}
-
-
 ul.fancy, ol.fancy {
   list-style: none;
   font-size: 13px;
@@ -124,7 +101,7 @@ ul.fancy, ol.fancy {
     display: block;
     
     &:nth-child(2n + 1) {
-      background: #f3f3f3;
+      background: #F3F3F3;
     }
     a {
       color: $darkgray;
@@ -331,7 +308,7 @@ a.comment-count {
   }
   p {
     font-size: 13px;
-    line-height: 20px;
+    line-height: 1.5;
   }
 }
 
@@ -398,11 +375,13 @@ a.comment-count {
     }
   }
 }
+
 /* Carrington Module Layout */
-.col-abc {
+#carrington-modules.col-abc {
   width: 100%;
   .cfct-row {
     float: left;
+    margin-bottom: 32px;
     width: 100%;
   }
   .cfct-block-a,
@@ -423,6 +402,42 @@ a.comment-count {
     margin-right: 0;
   }
 }
+
+/* Carrington Module Layout within #content */
+#content {
+  .cfct-row {
+    float: left;
+    margin-bottom: 32px;
+    width: 100%;
+  }
+  .cfct-block-a,
+  .cfct-block-c {
+    @include column(3);
+  }
+  .cfct-block-ab,
+  .cfct-block-bc {
+    @include column(5);
+  }
+  .cfct-block-abc {
+    @include column(8);
+  }
+  .cfct-block-c,
+  .cfct-block-bc,
+  .cfct-block-abc {
+    margin-right: 0;
+  }
+  .cfct-row-a-b-c {
+    .cfct-block {
+      float: left;
+      margin-right: 15px;
+      width: 206px;
+    }
+    .cfct-block-c {
+      margin-right: 0;
+    }
+  }
+}
+
 
 /*
  * AD NETWORK
@@ -583,7 +598,7 @@ a.comment-count {
     position: absolute;
     top: 158px;
     
-    input[type="search"] {
+    input[type="search"], input.searchfield {
       background: white image-url('icon/search_icon.png') 5px center no-repeat;
       border: 4px solid white;
       font-size: 13px;
@@ -600,6 +615,7 @@ a.comment-count {
       height: 28px;
       position: absolute;
       right: 4px;
+      text-transform: capitalize;
       top: 4px;
       width: 28px;
       
@@ -653,9 +669,11 @@ a.comment-count {
     
     .fb-like {
       float: left;
+      line-height: 1;
+      margin-top: 18px;
     }
     .label {
-      @include font-stag-bold-italic;
+      @include font-stag-italic;
       
       color: #959595;
       float: left;
@@ -701,16 +719,11 @@ a.comment-count {
 
 .home {
   // Carrington Module Layout Classes
-  .cfct-row {
-    float: left;
-    margin-bottom: 32px;
-    width: 100%;
-  }
   .cfct-module {
     float: left;
     width: 100%;
   }
-  .cfct-row-ab-c {
+  #content .cfct-row-ab-c {
     .cfct-block-ab {
       float: left;
       margin-right: 16px;
@@ -721,7 +734,7 @@ a.comment-count {
       width: 232px;
     } 
   }
-  .cfct-row-a-bc {
+  #content .cfct-row-a-bc {
     .cfct-block-a {
       float: left;
       margin-right: 24px;
@@ -928,7 +941,7 @@ a.comment-count {
 
 /*
  * FEATURED THUMBS
- * Carrington slideshow
+ * Carrington Slideshow Module
  *
  */
 
@@ -954,6 +967,42 @@ a.comment-count {
     vertical-align: 0;
   }
 }
+
+
+/*
+ * CALLOUT
+ * Carrington Callout Module
+ *
+ */
+
+.cf-post-callout-module {
+  a {
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+  img {
+    margin-bottom: 20px;
+  }
+  .cfct-mod-title {
+    font-size: 16px;
+    line-height: 1.2;
+    text-align: center;
+    
+    a {
+      color: black;
+      
+      &:hover {
+        color: $red;
+      }
+    }
+  }
+  .cfct-mod-content p {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+}
+
 
 /*
  * MAIN CONTENT AREA
@@ -1180,7 +1229,7 @@ a.comment-count {
     padding: 12px;
     position: relative;
   }
-  input[type="search"] {
+  input[type="search"], input.searchfield {
     border: 1px solid #CCC;
     font-size: 13px;
     line-height: 1;
@@ -1196,6 +1245,7 @@ a.comment-count {
     height: 28px;
     position: absolute;
     right: 16px;
+    text-transform: capitalize;
     top: 16px;
     width: 28px;
     
@@ -1245,6 +1295,7 @@ a.comment-count {
       height: 28px;
       position: absolute;
       right: 4px;
+      text-transform: capitalize;
       top: 4px;
       width: 28px;
       
@@ -1351,6 +1402,93 @@ a.comment-count {
     }
   }
 }
+
+/* Popular Posts Widget */
+#sidebar .popular-posts, .cfct-sidebar .popular-posts {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    float: left;
+    margin-bottom: 40px;
+    width: 100%;
+  }
+  a {
+    color: $gunmetal;
+    
+    &:hover {
+      color: black;
+    }
+  }
+  .wpp-thumbnail {
+    float: left;
+    margin-right: 14px;
+  }
+  .wpp-post-title {
+    @include font-stag;
+    
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+/* IMO Slider Widget */
+.widget_slider-widget {
+  position: relative;
+  
+  #scroll_mask {
+    margin-bottom: 16px;
+    width: 570px;
+  }
+  #scroll {
+    li {
+      margin: 0 12px 0 0;
+      font-size: 13px;
+      font-weight: bold;
+      text-align: center;
+      
+      a {
+        color: $gunmetal;
+        display: block;
+        
+        &:hover {
+          color: black;
+        }
+      }
+    }
+  }
+  #prev, #next {
+    @include hide-text;
+
+    background-color: #E0E0E0;
+    background-position: center center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    display: block;
+    height: 90px;
+    position: absolute;
+    top: 0;
+    width: 25px;
+    
+    &:hover {
+      background-color: black;
+    }
+    &.inactive {
+      display: none;
+    }
+  }
+  #prev {
+    background-image: image-url('icon/arrow_white_left.png');
+    left: 0;
+  }
+  #next {
+    background-image: image-url('icon/arrow_white.png');
+    right: 0;
+  }
+}
+
 
 /*
  * FOOTER
@@ -1590,7 +1728,7 @@ a.comment-count {
     padding: 0;
   }
   .pds-question-top {
-    @include font-stag-bold-italic;
+    @include font-stag-italic;
     
     color: #A8A8A8;
     font-size: 16px;
@@ -1635,4 +1773,23 @@ a.comment-count {
       border-color: black;
     }
   }
+  .pds-links a {
+    @include font-platin;
+    
+    color: black;
+    
+    &:hover {
+      color: $red;
+      text-decoration: none;
+    }
+  }
 }
+
+
+/*
+ * IE STYLES
+ * Crutches for poor, old versions of Internet Explorer
+ *
+ */
+ 
+@import "ie";
