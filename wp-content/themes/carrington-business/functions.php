@@ -40,6 +40,7 @@ add_image_size("small-featured-thumb",110,70,TRUE);
 add_image_size("large-featured-thumb",308,225,TRUE);
 add_image_size("small-featured-thumb-x",98,76,TRUE);
 add_image_size("large-featured-thumb-x",420,300,TRUE);
+add_image_size("imo-slider-thumb",134,90,TRUE);
 
 
 
