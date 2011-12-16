@@ -357,7 +357,9 @@ a.comment-count {
  */
  
 #header {
+  position: relative;
   width: 100%;
+  z-index: 10;
 }
 .container {
   @include container;
@@ -365,6 +367,8 @@ a.comment-count {
 }
 #main {
   padding: 0 10px; // So the author photos can hang over the edge
+  position: relative;
+  z-index: 5;
 
   #breadcrumbs {
     @include column(8);
@@ -504,7 +508,6 @@ a.comment-count {
   background: #161616 image-url('header_bg.jpg') center top no-repeat;
   height: 380px;
   margin-bottom: 50px;
-  position: relative;
   
   .container {
     background: image-url('header_primary_bg.png') bottom left repeat-x;
