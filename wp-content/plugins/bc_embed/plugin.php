@@ -58,7 +58,7 @@ found at https://accounts.brightcove.com/en/terms-and-conditions/.
   <param name="dynamicStreaming" value="true" />
   <param name="linkBaseURL" value="%7$s" />
   <param name="@videoPlayer" value="%3$s" />
-  
+  <param name="media_delivery" value="http" />
   <param name="adServerURL" value="%8$s" />
   
 </object>

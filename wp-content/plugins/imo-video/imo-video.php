@@ -82,17 +82,18 @@ function imo_video_init() {
 		'menu_position' => null,
 		'supports' => array('title','thumbnail','excerpt','editor','author'),
 		'rewrite' => array('slug' => 'video', 'with_front' => FALSE),
-		'taxonomies' => array('video_channel','post_tag'),
+		'taxonomies' => array('video_channel','post_tag','activity','location','gear','species'),
 	  ); 
 	  register_post_type('imo_video',$args);
+    flush_rewrite_rules();
 }
 
 function imo_video_flush() {
-  imo_video_init();
+  //imo_video_init();
   flush_rewrite_rules();
 }
 register_activation_hook(__FILE__, 'imo_video_flush');
-
+register_deactivation_hook( __FILE__, 'imo_video_flush' );
 
 
 
@@ -109,7 +110,9 @@ function imo_video_add_custom_box() {
         'imo_video_sectionid',
         __( 'Choose Brightcove Video', 'imo_video_textdomain' ),
         'imo_video_inner_custom_box',
-        'imo_video' 
+        'imo_video',
+        'side',
+        'high' 
     );
     add_meta_box( 
         'imo_video_legacy',
