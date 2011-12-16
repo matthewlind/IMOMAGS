@@ -1,9 +1,12 @@
 @import "compass";
 @import "compass/css3";
 @import "compass/utilities/general";
+@import "compass/utilities/text/ellipsis";
 @import "compass/typography/text";
 @import "blueprint";
 @import "normalize";
+
+$use-mozilla-ellipsis-binding: true;
 
 // Here is where you can define your constants for your application and to configure the blueprint framework.
 // Feel free to delete these if you want keep the defaults:

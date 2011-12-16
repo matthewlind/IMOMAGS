@@ -89,16 +89,22 @@ hr {
 }
 
 /* Lists - Fancy and otherwise */
-ul.fancy, ol.fancy {
+ul.fancy,
+ol.fancy,
+.fancy ul,
+.fancy ol {
   list-style: none;
   font-size: 13px;
-  line-height: 30px;
   padding: 0;
   text-align: center;
 
   li {
+    @include ellipsis;
+    
     background: white;
     display: block;
+    line-height: 1.2;
+    padding: 7px 4px;
     
     &:nth-child(2n + 1) {
       background: #F3F3F3;
@@ -114,8 +120,8 @@ ul.fancy, ol.fancy {
   }
 }
 
-
-ol.fancy {
+ol.fancy,
+.fancy ol {
   li {
     border-bottom: 1px solid white;
     min-height: 30px;
@@ -134,6 +140,27 @@ ol.fancy {
       position: absolute;
       top: 0;
       width: 30px;
+    }
+  }
+}
+
+/* Fancy Titles */
+.fancy {
+  text-align: center;
+
+  h4 {
+    @include inline-block;
+
+    background: image-url('box_title_bg.png') left center repeat-x;
+    padding: 0 17px;
+    position: relative;
+    text-align: center;
+    top: -7px;
+
+    span {
+      background: white;
+      padding: 0 7px;
+      position: relative;
     }
   }
 }
@@ -164,6 +191,7 @@ a.cta {
     @include inline-block;
     @include icon-sprite(arrow_red);
     
+    margin-left: 5px;
     position: relative;
     top: -2px;
   }
@@ -468,6 +496,7 @@ a.comment-count {
 
 /*
  * HEADER
+ * branding, navigation, and social networking
  *
  */
 
@@ -477,50 +506,21 @@ a.comment-count {
   margin-bottom: 50px;
   position: relative;
   
-  .primary {
+  .container {
     background: image-url('header_primary_bg.png') bottom left repeat-x;
     height: 323px;
-    position: relative;
-
-    .nav {
-      background: image-url('mega_menus_bg.png') 0 0 repeat-x;
-      bottom: 14px;
-      height: 78px;
-      left: 0;
-      position: absolute;
-      width: 664px;
-      
-      ul {
-        margin: 0;
-        padding: 0;
-        
-        li {
-          @include inline-block;
-          
-          a {
-            @include font-stag;
-            @include inline-block;
-            
-            background: image-url('icon/arrow_red_down.png') 90% center no-repeat;
-            color: white;
-            font-size: 28px;
-            line-height: 78px;
-            margin-right: 20px;
-            padding: 0 38px 0 22px;
-            
-            &:hover {
-              background: $red image-url('icon/arrow_white_down.png') 90% center no-repeat;
-              color: white;
-            }
-          }
-          &:first-child {
-            a {
-              padding-left: 0;
-            }
-          }
-        }
-      }
-    }
+  }
+  .title {
+    @include hide-text;
+    
+    background: image-url('subscribe_save_badge.png') 0 0 no-repeat;
+    display: block;
+    height: 74px;
+    right: 132px;
+    position: absolute;
+    width: 75px;
+    bottom: 75px;
+    z-index: 300;
   }
   .subscription-block {
     height: 152px;
@@ -535,18 +535,6 @@ a.comment-count {
       position: absolute;
       top: 0;
       z-index: 30;
-    }
-    .title {
-      @include hide-text;
-      
-      background: image-url('subscribe_save_badge.png') 0 0 no-repeat;
-      display: block;
-      height: 74px;
-      left: 112px;
-      position: absolute;
-      width: 75px;
-      top: 8px;
-      z-index: 35;
     }
     .cta {
       @include font-stag;
@@ -571,7 +559,7 @@ a.comment-count {
       background: $red;
       bottom: 0;
       display: block;
-      height: 76px;
+      height: 78px;
       position: absolute;
       right: 0;
       width: 100%;
@@ -625,6 +613,353 @@ a.comment-count {
     }
   }
 }
+
+/* Uber Menu */
+#header #megaMenu {
+  height: 78px;
+  margin: 0 auto;
+  padding-right: 300px;
+  position: relative;
+  top: -92px;
+  width: 680px;
+  z-index: 100;
+  
+  ul.megaMenu {
+    background: image-url('mega_menus_bg.png') 0 0 repeat-x;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    
+    & > .menu-item {
+      @include inline-block;
+      
+      & > a {
+        @include font-stag;
+        @include inline-block;
+        
+        background: image-url('icon/arrow_red_down.png') 90% center no-repeat;
+        color: white;
+        font-size: 28px;
+        line-height: 78px;
+        margin-right: 20px;
+        padding: 0 38px 0 22px;
+        
+        &:hover {
+          background: $red image-url('icon/arrow_white_down.png') 90% center no-repeat;
+          color: white;
+        }
+        .wpmega-link-title {
+          line-height: 78px;
+        }
+      }
+      &.megaHover > a {
+        background: $red image-url('icon/arrow_white_down.png') 90% center no-repeat;
+        color: white;
+      }
+      &:first-child {
+        a {
+          padding-left: 0;
+        }
+      }
+    }
+  }
+  .sub-menu li a {
+    margin: 0;
+  }
+  ul.sub-menu-1 {
+    @include box-shadow(rgba(black, 0.35) 2px 2px 4px);
+    
+    background: white;
+    border: none;
+    display: none;
+    top: 93px;
+  }
+
+  /* Default fly-out menu styles */
+  li.ss-nav-menu-reg {
+    ul.sub-menu-1 {
+      padding: 12px;
+      
+      & > .menu-item {
+        @include font-stag;
+
+        font-size: 18px;
+        
+        a {
+          background: none;
+          padding: 0;
+
+          &:hover {
+            color: $red;
+          }
+        }
+      }
+      ul.sub-menu-2 {
+        @include box-shadow(none);
+        padding: 0;
+        
+        & > .menu-item {
+          @include font-helvetica;
+          
+          font-size: 15px;
+        }
+      }
+    }
+  }
+
+  /* Default mega menu styles */
+  li.ss-nav-menu-mega {
+    ul.sub-menu-1 {
+      left: 0 !important;
+      padding: 24px;
+      top: 93px;
+      width: 932px !important;
+      
+      & > .menu-item {
+        @include font-stag;
+
+        font-size: 21px;
+        line-height: 1.5;
+        
+        a {
+          background: none;
+          padding: 0;
+
+          &:hover {
+            color: $red;
+          }
+        }
+        .wpmega-link-title {
+          line-height: 1;
+        }
+      }
+      .menu-item {
+        background: none;
+        line-height: 1.2;
+        margin: 0 16px 0 0;
+        width: 192px;
+        
+        a:hover {
+          color: black;
+        }
+        &.ss-sidebar {
+//          margin-right: 0;
+          width: 308px;
+        }
+        .wpmega-widgetarea {
+          padding: 0;
+          width: 100%;
+        }
+      }
+      ul.sub-menu-2 {
+        @include box-shadow(none);
+        
+        left: 0 !important;
+        margin: 0.5em 0 1em 0;
+        padding: 0;
+        position: relative;
+        top: 0 !important;
+        width: 100% !important;
+        
+        & > .menu-item {
+          @include font-helvetica;
+          
+          font-size: 16px;
+          
+          a {
+            color: $gunmetal;
+            
+            &:hover {
+              color: black;
+            }
+          }
+          .wpmega-link-title {
+            line-height: 1.8;
+          }
+        }
+      }
+    }
+  }
+  
+  /* Reviews */
+  li.reviews {
+    position: static;
+  }
+  
+  /* Shooting */
+  li.shooting {
+    position: static;
+  }
+  
+  /* Blogs */
+  li.blogs ul.sub-menu-1 {
+    width: 400px;
+    
+    .news-brief,
+    .sons-guns-ammo,
+    .defend-thyself,
+    .history-books,
+    .love-competition,
+    .zombie-nation {
+      background-image: image-url('mm_blogs_sprite.jpg');
+    }
+    
+    & > .menu-item {
+      background-color: #E5E5E5;
+      background-repeat: no-repeat;
+      line-height: 1;
+      margin-top: 4px;
+      padding: 0;
+      
+      a {
+        background: image-url('mm_blogs_arrow.png') right center no-repeat;
+        color: black;
+        display: block;
+        font-size: 18px;
+        height: 80px;
+        padding: 0 0 0 20px;
+        width: 380px;
+      }
+      .wpmega-link-title {
+        line-height: 80px;
+      }
+      &:first-child {
+        margin: 0;
+      }
+      &:hover {
+        a {
+          background-image: image-url('mm_blogs_arrow_hover.png');
+          color: white;
+        }
+      }
+      &.news-brief {
+       background-position: left top; 
+       &:hover {
+         background-position: right top;
+       }
+      }
+      &.sons-guns-ammo {
+       background-position: left -80px; 
+       &:hover {
+         background-position: right -80px;
+       }
+      }
+      &.defend-thyself {
+       background-position: left -160px; 
+       &:hover {
+         background-position: right -160px;
+       }
+      }
+      &.history-books {
+       background-position: left -240px; 
+       &:hover {
+         background-position: right -240px;
+       }
+      }
+      &.love-competition {
+       background-position: left -320px; 
+       &:hover {
+         background-position: right -320px;
+       }
+      }
+      &.zombie-nation {
+       background-position: left -400px; 
+       &:hover {
+         background-position: right -400px;
+       }
+      }
+    }
+  }
+  
+  /* Video */
+  li.video {
+    position: static;
+  }
+  
+  /* The Magazine */
+  ul.megaMenu li.magazine {
+    position: absolute;
+    right: -300px;
+    z-index: 120;
+    
+    & > a {
+      background: image-url('icon/arrow_black_down.png') 90% center no-repeat;
+      font-size: 20px;
+      line-height: 76px;
+      padding-right: 37px;
+      margin: 0;
+    }
+    &.megaHover > a {
+      background-image: image-url('icon/arrow_black_down.png');
+      background-color: white;
+      color: black;
+    }
+    ul.sub-menu-1 {
+      left: auto !important;
+      right: 0 !important;
+      top: 78px;
+    }
+  }
+  
+  /* Widgets */
+  .wpmega-widgetarea {
+    .widget {
+      margin: 0 0 26px;
+      width: 100%;
+      
+      li {
+        font-size: 14px;
+        margin: 0.5em 0;
+        
+        a {
+          color: $gunmetal;
+          font-weight: bold;
+        }
+      }
+      &.wpmega-last-child {
+        margin-bottom: 10px;
+      }
+    }
+    .widgettitle {
+      font-size: 24px;
+      margin: 0;
+    }
+    
+    /* Popular Posts Widget */
+    .popular-posts {
+      .wpp-thumbnail {
+        float: left;
+        margin-right: 14px;
+      }
+      .wpp-post-title {
+        @include font-stag;
+        
+        color: $gunmetal;
+        font-size: 16px;
+        line-height: 1.2;
+        
+        &:hover {
+         color: black; 
+        }
+      }
+      .wpp-excerpt {
+        font-size: 13px;
+        line-height: 1.5;
+      }
+    }
+    
+    /* Subscribe Form Widget */
+    .widget_subscribe-form {
+      .title {
+        display: none;
+      }
+      .subscribe-row {
+        margin-bottom: 5px;
+      }
+    }
+  }
+}
+
 #site-menu {
   background: #F1F1F1 image-url('menu_site_bg.png') center 0 repeat-x;
   bottom: 0;
@@ -1052,6 +1387,9 @@ a.comment-count {
   &.galleries .icon {
     @include icon-sprite(title_icon_galleries);
   }
+  &.comments .icon {
+    @include icon-sprite(title_icon_comments);
+  }
 }
 .section-footer {
   border-bottom: 4px solid black;
@@ -1404,7 +1742,8 @@ a.comment-count {
 }
 
 /* Popular Posts Widget */
-#sidebar .popular-posts, .cfct-sidebar .popular-posts {
+#sidebar .popular-posts,
+.cfct-sidebar .popular-posts {
   ul {
     list-style: none;
     margin: 0;
@@ -1486,6 +1825,68 @@ a.comment-count {
   #next {
     background-image: image-url('icon/arrow_white.png');
     right: 0;
+  }
+}
+
+/* Channel Widget */
+.widget_channel-widget,
+#header #megaMenu .wpmega-widgetarea .widget_channel-widget {
+  border: none !important;
+  width: 300px;
+}
+#header #megaMenu .wpmega-widgetarea .widget_channel-widget #channelControls a {
+  padding: 0;
+  display: inline;
+}
+#locateChannel {
+  background: #dddfe0 url(/wp-content/themes/carrington-business/img/cf-background.png) no-repeat center top;
+  height: 165px;
+  margin-bottom: 10px;
+  
+  h3 {
+    color: #ff8400;
+    font-family: "Helvetica","Arial", sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-style: italic;
+    margin: 0;
+    padding-top: 6px;
+    font-weight: bold;
+  }
+  #channelControlsContainer {
+    background: #000000 url(/wp-content/themes/carrington-business/img/logofind.png) no-repeat 13px 34px;
+    width: 275px;
+    padding-top: 10px;
+    padding-left: 18px;
+    height: 110px;
+  }
+  #channelControlsContainer #channelControls {
+    margin-top: 88px;
+  }
+  input.searchbox {
+    border: 1px solid #cccccc;
+    padding: 4px;
+    font-family: verdana;
+    font-size: 11px;
+    font-weight: bold;
+    color: #999;
+    width: 170px;
+  }
+  input.button {
+    margin: 0;
+    border: 0;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 12px;
+    text-shadow: 1px 1px 1px black;
+    filter: dropshadow(color=#000000, offx=1, offy=1);
+    padding: 4px 8px;
+    font-family: verdana;
+    font-weight: bold;
+    width: 81px;
+    color: white;
+    background-color: #d7ab55;
+    background-image: url(/wp-content/themes/carrington-business/img/button-bg.png);
   }
 }
 

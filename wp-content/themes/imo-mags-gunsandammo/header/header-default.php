@@ -39,7 +39,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
 <body <?php body_class(); ?>>
   
 	<header id="header">
-    <div class="primary container">
+    <div class="container">
 
       <div class="centerad">
         <div class="ad-left">
@@ -69,18 +69,14 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
       <a href="<?php echo home_url('/'); ?>" class="brand" title="<?php _e('Home', 'carrington-business') ?>"><img src="<?php print get_stylesheet_directory_uri(); ?>/img/logo.png" alt="<?php bloginfo('name'); ?>" /></a>
       
       <?php cfct_form('search'); ?>
-		
-			<?php wp_nav_menu(array( 
-				'theme_location' => 'featured',
-				'container' => 'nav',
-				'container_class' => 'nav-featured nav',
-				'depth' => 2,
-				'fallback_cb' => null
-			)); ?>
 			
 			<?php get_template_part('head', 'subscribe') ?>
 			
 		</div>
+		
+		<div class="uber-nav">
+	    <?php wp_nav_menu(array( 'theme_location' => 'featured' )); ?>
+	  </div>
 		
 		<div id="site-menu">
 		  <div class="container">
