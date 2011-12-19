@@ -86,7 +86,7 @@ function imo_gallery_add_custom_box() {
         __( 'Choose Gallery', 'imo_gallery_textdomain' ),
         'imo_gallery_inner_custom_box',
         'imo_gallery',
-        'side',
+        'normal',
         'high' 
     );
 
