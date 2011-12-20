@@ -25,11 +25,7 @@
  * **********************************************************************
  *
  */
-
-.ngg-imagebrowser-nav a {
-color: #fff !important;
-background: #BF3D06;
-}
+ 
 
 a {
 	color: #0079ba;
@@ -600,6 +596,18 @@ aside.widget .newsletter h3.gform_title {
     font-family: "Arvo", Helvetica, Arial, sans-serif;
     font-weight: bold;
 }
+
+/*sign up email field fix*/
+#field_3_1 {
+margin: 0px;
+}
+/*next gen button color*/
+.ngg-imagebrowser-nav a {
+color: #fff !important;
+background: #BF3D06;
+}
+
+
 /*BONUS SIDEBAR*/
 
 .bonus-background {
@@ -709,31 +717,38 @@ nav.nav-secondary li.current-menu-item a {
 }
 
 .page-template-page-right-php.reeltime-template .bonus-background {
-width: 335px;
+	width: 335px;
 }
 .page-template-page-right-php.reeltime-template .bonus {
-margin-left: 25px;
+	margin-left: 25px;
 }
 .page-template-page-right-php.reeltime-template .col-abc {
-width: 630px;
+	width: 630px;
 }
 .page-template-page-right-php.reeltime-template .cfct-block.block-1.cfct-block-b, .page-template-page-right-php.reeltime-template .cfct-block.block-2.cfct-block-c {
-margin-left: 5px;
+	margin-left: 5px;
 }
 .page-template-page-right-php.reeltime-template .cfct-block.block-2.cfct-block-c {
-margin-right: 0px;
+	margin-right: 0px;
 }
 
 .page-template-page-right-php.reeltime-template .cfct-module .cfct-mod-title a {
-font-size: 18px;
+	font-size: 18px;
 }
 .page-template-page-right-php.reeltime-template .cfct-block-c {
-padding-left: 0px;
-margin: 0px;
+	padding-left: 0px;
+	margin: 0px;
 }
 .page-template-page-right-php.reeltime-template .cfct-block-bc {
-margin: 0px;
+	margin: 0px;
 }
 .page-template-page-right-php.reeltime-template .entry-full {
-border-bottom: 0px dotted #999;
+	border-bottom: 0px dotted #999;
+}
+
+#reeltime-wrapper #idc-container-parent {
+	display: none;
+}
+#reeltime-wrapper #bonus-area h2 {
+	font-size: 16px;
 }
