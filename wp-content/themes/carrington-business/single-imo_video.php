@@ -33,7 +33,10 @@ if (have_posts()) :
       <?php
       
       $video_id = get_post_meta(get_the_ID(), '_video_id', TRUE);
-      
+      $player_id = get_option("bc_player_id", _BC_DEFAULT_PLAYER_ID );
+      $player_key = get_option("bc_player_key", _BC_DEFAULT_PLAYER_KEY);
+      $adServerURL = "http://ad.doubleclick.net/pfadx/" .  get_option("dart_domain", _imo_dart_guess_domain())  ."/video";
+      $video_link = !empty($the_ID) ? get_permalink($the_ID) :  site_url() . $_SERVER['REQUEST_URI'];
       
       ?>
       <h1><?php the_title();?></h1>
@@ -43,15 +46,17 @@ if (have_posts()) :
 	<p><script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script></p>
 	<p><object id="myExperience" class="BrightcoveExperience">
 		<param name="bgcolor" value="#FFFFFF" />
-		<param name="width" value="480" />
-		<param name="height" value="270" />
-		<param name="playerID" value="973698996001" />
-		<param name="playerKey" value="AQ~~,AAAAAETeEfI~,i-5J2ubuAMtrBswh0PvpouAMH3Ey66kE" />
+		<param name="width" value="620" />
+		<param name="height" value="350" />
+		<param name="playerID" value="<?php echo $player_id;?>" />
+		<param name="playerKey" value="<?php echo $player_key; ?>" />
 		<param name="isVid" value="true" /><param name="isUI" value="true" />
 		<param name="dynamicStreaming" value="true" />
-		<param name="linkBaseURL" value="http://www.gunsandammo.com/2011/11/22/benelli-three-gun-lineup/" />
+		<param name="linkBaseURL" value="<?php echo $video_link; ?>" />
 		<param name="@videoPlayer" value="<?php echo $video_id; ?>" />
-		<param name="adServerURL" value="http://ad.doubleclick.net/pfadx/imo.gunsandammo/video" /></object></p>
+		<param name="adServerURL" value="<?php echo $adServerURL; ?>" />
+		<param name="media_delivery" value="http" />
+		</object></p>
 	<p><!--<br />
 	This script tag will cause the Brightcove Players defined above it to be created as soon<br />
 	as the line is read by the browser. If you wish to have the player instantiated only after<br />

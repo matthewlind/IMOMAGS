@@ -50,6 +50,9 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 			?>
 		</div>
 	</div>
+
+	<?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
+
 	<div class="entry-content">
 		<?php
 		// Un-comment this if you want featured images to automatically appear on full posts
@@ -57,6 +60,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 		the_content(__('Continued&hellip;', 'carrington-business'));
 		?>
 	</div>
+	<?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
 	<div class="entry-footer">
 		<?php _e('In', 'carrington-business'); ?>
 		<?php
