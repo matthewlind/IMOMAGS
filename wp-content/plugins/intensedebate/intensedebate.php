@@ -631,7 +631,7 @@ Author URI: http://intensedebate.com
 			$this->addProp( 'comment_date' );
 			$this->addProp( 'comment_date_gmt' );
 			$this->addProp( 'comment_content', 'comment_text' );
-			// $this->addProp( 'comment_karma' );
+			$this->addProp( 'comment_karma' );
 			$this->addProp( 'comment_approved', 'comment_status' );
 			$this->addProp( 'comment_agent' );
 			$this->addProp( 'comment_type' );
