@@ -18,6 +18,33 @@
 
 
 
+$allowedposttags["object"] = array(
+ "height" => array(),
+ "width" => array()
+);
+
+$allowedposttags["param"] = array(
+ "name" => array(),
+ "value" => array()
+);
+
+$allowedposttags["embed"] = array(
+ "src" => array(),
+ "type" => array(),
+ "allowfullscreen" => array(),
+ "allowscriptaccess" => array(),
+ "height" => array(),
+ "width" => array()
+);
+
+
+$allowedposttags["script"] = array(
+ "src" => array(),
+ "type" => array(),
+ "language" => array()
+);
+
+
 /* This function allows for logging when debugging mode is on */
 if(!function_exists('_log')){
   function _log( $message ) {

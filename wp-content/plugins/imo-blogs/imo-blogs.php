@@ -43,7 +43,7 @@ function imo_blog_tax_init() {
             "hierarchical" => True,
             "show_ui" => True,
             "query_var" => True,
-            "rewrite" => array("slug"=>"blogs"),
+            "rewrite" => array("slug"=>"blog"),
         )
     );
 
@@ -81,7 +81,7 @@ function imo_blog_init() {
 		'hierarchical' => false,
 		'menu_position' => null,
 		'supports' => array('title','thumbnail','excerpt','editor','author'),
-		'rewrite' => array('slug' => 'blogs', 'with_front' => FALSE),
+		'rewrite' => array('slug' => 'blog-posts', 'with_front' => FALSE),
 		'taxonomies' => array('blog_tax','post_tag','activity','location','gear','species'),
 	  ); 
 	  register_post_type('imo_blog',$args);

@@ -29,7 +29,10 @@ class IMOSliderWidget extends \WP_Widget {
     );
 
 
-	$instance = wp_parse_args( (array) $instance, $defaults ); ?>
+	$instance = wp_parse_args( (array) $instance, $defaults ); 
+    //_log(var_export($instance,1));
+    ?>
+
 
 	<!-- Widget Header: Text Input -->
 	<p style="height:380px;">
