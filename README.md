@@ -45,8 +45,16 @@ Creates a featured post carousell, which pulls from the selected categories.
 ##### Caveats
 For the Not-Loop and Featured Posts modules to work properly on the same page, one must add the "Feature" category to the Featured Posts module, or else duplicate posts will appear on the same page.
 
-Plugins
--------
+Carrington Business Modifications
+---------------------------------
+### Modified Files
+
+The Intense Debate plugin has been slightly modified.  If the plugin is ever updated, this changed needs to be made again: https://github.com/imoutdoors/IMOMags/commit/858f51fa31443dfa4aa50724cd7eef8fe3824a30
+
+
+
+IMO Plugins
+-----------
 
 ### Brightcove Embed
 Allows a user to embed a brightcove video into a post on a multi-site install of wordpress without needing to be an admin. 
