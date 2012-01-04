@@ -4,6 +4,9 @@
  * supports all custom css in carrington build.
  */
  
+#sidebar {
+	float: right;
+}
  
 .entry {
 	margin: 0 0 30px 0;

@@ -65,8 +65,7 @@ add_action("init", "fs_region_init");
  * Adds widget area to Featured Sidget
  */
 if (function_exists('register_sidebar')) {
-
- register_sidebar(array(
+register_sidebar(array(
  'name' => 'FS Featured Area',
  'id'   => 'fs_featured_area',
  'description'   => 'Right side of FS featured slider',
@@ -90,6 +89,17 @@ register_sidebar(array(
         'after_title'   => '</h2>'
     ));
 }
+if (function_exists('register_sidebar')) {
+register_sidebar(array(
+        'id' => 'sidebar-fstv',
+        'name' => 'FSTV Sidebar',
+        'description' => 'Shown on FSTV Pages.',
+        'before_widget' => '<div id="bonus-area">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h2>',
+        'after_title'   => '</h2>'
+    ));
+}
 
 /*New Menu for REEL TIME*/
 
@@ -97,4 +107,11 @@ add_action( 'init', 'register_rt_menu' );
 
 function register_rt_menu() {
 	register_nav_menu( 'reeltime-menu', __( 'REEL TIME Menu' ) );
+}
+/*New Menu for FSTV*/
+
+add_action( 'init', 'register_fstv_menu' );
+
+function register_fstv_menu() {
+	register_nav_menu( 'fstv-menu', __( 'FSTV Menu' ) );
 }
