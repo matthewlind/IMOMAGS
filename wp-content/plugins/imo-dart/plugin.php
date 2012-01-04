@@ -14,6 +14,7 @@ include_once("AdvertWidget.php");
  * returns a string containing the formatted dart tag.
  */
 function get_imo_dart_tag($size, $tile=1, $iframe=False, $override_params=array()) {
+
     $params = array_merge(_imo_dart_get_params($size, $tile), $override_params);
 
     if (!empty($params['camp'])) {
@@ -27,6 +28,7 @@ function get_imo_dart_tag($size, $tile=1, $iframe=False, $override_params=array(
 }
 
 
+
 /**
  * format the correct parameters based on the size and tile wanted.
  */
@@ -34,9 +36,13 @@ function _imo_dart_get_params($size, $tile) {
 
     //Check for add campaigns and grab the slug for later.
 
-
+    $adCampaignSlug = null;
     if (function_exists("get_terms")) {
-        if ($adCampaignTerms = get_terms("campaign")) {
+        $post = get_queried_object();
+        _log($post);
+        $postID = $post->ID;
+
+        if ($adCampaignTerms = wp_get_object_terms($postID,"campaign")) {
 
             if (!is_object($adCampaignTerms)) {
 
@@ -339,7 +345,7 @@ function imo_add_campaign_init() {
         )
     );
 
-    $types = array("post","page","imo_video","imo_gallery");
+    $types = array("post","page","imo_video","imo_gallery","imo_blog");
 
     foreach ($taxonomies as $target_taxonomy => $taxonomy) {
         register_taxonomy(
