@@ -2838,6 +2838,29 @@ a.comment-count {
 
 
 /*
+ * NEXTGEN GALLERY OVERRIDES
+ *
+ */
+
+.entry-content .ngg-imagebrowser {
+  background: black;
+  padding: 560px 30px 60px;
+  position: relative;
+  
+  .pic {
+    left: 30px;
+    position: absolute;
+    top: 30px;
+    
+    img {
+      margin: 0;
+      max-width: 588px;
+    }
+  }
+}
+
+
+/*
  * IE STYLES
  * Crutches for poor, old versions of Internet Explorer
  *

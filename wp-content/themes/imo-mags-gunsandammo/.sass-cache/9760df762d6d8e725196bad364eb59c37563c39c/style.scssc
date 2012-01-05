@@ -1,7 +1,7 @@
 3.1.11 (Brainy Betty)
-96caf9c94129e389925c4ce0c5225373b06449b0
+cba64b5063c201084215601a775b1457bb64e365
 o:Sass::Tree::RootNode
-:@template"»Æ/*!
+:@template"ÖÇ/*!
  * Theme Name: IMO Mags - Guns & Ammo
  * Theme URI: http://imomags.com/gunsandammo
  * Description: A skin for Guns & Ammo's imomags.com page
@@ -2841,13 +2841,36 @@ a.comment-count {
 
 
 /*
+ * NEXTGEN GALLERY OVERRIDES
+ *
+ */
+
+.entry-content .ngg-imagebrowser {
+  background: black;
+  padding: 560px 30px 60px;
+  position: relative;
+  
+  .pic {
+    left: 30px;
+    position: absolute;
+    top: 30px;
+    
+    img {
+      margin: 0;
+      max-width: 588px;
+    }
+  }
+}
+
+
+/*
  * IE STYLES
  * Crutches for poor, old versions of Internet Explorer
  *
  */
  
 @import "ie";:@has_childrenT:@options{ :
-@linei:@children[vo:Sass::Tree::CommentNode:
+@linei:@children[xo:Sass::Tree::CommentNode:
 @loudi ;@:@silent0:@value["ž/*
  * Theme Name: IMO Mags - Guns & Ammo
  * Theme URI: http://imomags.com/gunsandammo
@@ -6185,11 +6208,28 @@ o;;@D;[o;:;["idc-new_subscribe;@D;	i;	i;	i;	i;
 [o; ;i ;["border;@;o;!;@;"	none;";#;	i;
 [ ;$;%o; ;i ;["margin-bottom;@;o;!;@;"
 100px;";#;	i;
+[ ;$;%o;;0;@;0;["+/*
+ * NEXTGEN GALLERY OVERRIDES
+ *
+ */;	i;
+[ o;;i ;T;["%.entry-content .ngg-imagebrowser;@;o;;" ;[o;;[o;;@qD;[o;:;["entry-content;@qD;	i;	io;;@qD;[o;:;["ngg-imagebrowser;@qD;	i;	i;	i;	i;
+[	o; ;i ;["background;@;o;!;@;"
+black;";#;	i;
+[ ;$;%o; ;i ;["padding;@;o;!;@;"560px 30px 60px;";#;	i;
+[ ;$;%o; ;i ;["position;@;o;!;@;"relative;";#;	i ;
+[ ;$;%o;;i ;T;["	.pic;@;o;;" ;[o;;[o;;@–D;[o;:;["pic;@–D;	i";	i";	i";	i";
+[	o; ;i ;["	left;@;o;!;@;"	30px;";#;	i#;
+[ ;$;%o; ;i ;["position;@;o;!;@;"absolute;";#;	i$;
+[ ;$;%o; ;i ;["top;@;o;!;@;"	30px;";#;	i%;
+[ ;$;%o;;i ;T;["img;@;o;;" ;[o;;[o;;@¶D;[o;&	;0;["img;@¶D;	i';	i';	i';	i';
+[o; ;i ;["margin;@;o;!;@;"0;";#;	i(;
+[ ;$;%o; ;i ;["max-width;@;o;!;@;"
+588px;";#;	i);
 [ ;$;%o;;0;@;0;["S/*
  * IE STYLES
  * Crutches for poor, old versions of Internet Explorer
  *
- */;	i;
+ */;	i/;
 [ o;
-;0;@;	i;"ie;
+;0;@;	i5;"ie;
 [ 
