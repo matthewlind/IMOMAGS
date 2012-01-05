@@ -43,8 +43,10 @@ class IMOStoreWidget extends \WP_Widget {
         extract( $args );
         print $before_widget;
 ?>
+<h3 class="widget-title"><span>From the G&A Store</span></h3>
 <div style="" id="imoprodgallery">
 </div>
+
 <script src="http://shop.intermediaoutdoors.com/pg1/imoprodgallery.js" type="text/javascript"></script>
 <?php
         print $after_widget;
