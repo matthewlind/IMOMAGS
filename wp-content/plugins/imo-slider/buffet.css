@@ -6,7 +6,7 @@
   margin:0 auto;
 }
 
-ul.scroll-1 {
+ul.scroll {
   margin:0;
   padding:0;
   position:absolute;
@@ -16,7 +16,7 @@ ul.scroll-1 {
 
 }
 
-ul.scroll-1 li {
+ul.scroll li {
   float:left;
   width:134px;
   height:150px;
