@@ -1,4 +1,12 @@
-#scroll_mask {
+#scroll_mask-1,
+#scroll_mask-2,
+#scroll_mask-3,
+#scroll_mask-4,
+#scroll_mask-5,
+#scroll_mask-6,
+#scroll_mask-7,
+#scroll_mask-8,
+#scroll_mask-0{
   position:relative;
   overflow:hidden;
   width:620px;
@@ -6,7 +14,15 @@
   margin:0 auto;
 }
 
-ul#scroll {
+ul#scroll-1,
+ul#scroll-2,
+ul#scroll-3,
+ul#scroll-4,
+ul#scroll-5,
+ul#scroll-6,
+ul#scroll-7,
+ul#scroll-8,
+ul#scroll-9{
   margin:0;
   padding:0;
   position:absolute;
@@ -16,7 +32,15 @@ ul#scroll {
 
 }
 
-ul#scroll li {
+ul#scroll-1 li,
+ul#scroll-2 li,
+ul#scroll-3 li,
+ul#scroll-4 li,
+ul#scroll-5 li,
+ul#scroll-6 li,
+ul#scroll-7 li,
+ul#scroll-8 li,
+ul#scroll-9 li{
   float:left;
   width:134px;
   height:150px;
