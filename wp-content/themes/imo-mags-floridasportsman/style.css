@@ -752,3 +752,24 @@ nav.nav-secondary li.current-menu-item a {
 #reeltime-wrapper #bonus-area h2 {
 	font-size: 16px;
 }
+
+/*FSTV*/
+
+#masthead.fstv-header {
+	background: #000000;
+	border-bottom: 0px dotted #999;
+	bottom: 0px;
+	left: 15px;
+	padding: 0;
+	height: 205px;
+}
+
+#masthead.fstv-header .fstv-title {
+	background: url(img/fstv-logo.jpg) 0 0 no-repeat;
+	display: block;
+	height: 141px;
+	width: 330px;
+	overflow: hidden;
+	text-indent: -9999em;
+	margin: 12px 0 0 15px;
+}

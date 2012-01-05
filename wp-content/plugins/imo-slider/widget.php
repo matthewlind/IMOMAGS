@@ -29,7 +29,10 @@ class IMOSliderWidget extends \WP_Widget {
     );
 
 
-	$instance = wp_parse_args( (array) $instance, $defaults ); ?>
+	$instance = wp_parse_args( (array) $instance, $defaults ); 
+    //_log(var_export($instance,1));
+    ?>
+
 
 	<!-- Widget Header: Text Input -->
 	<p style="height:380px;">
@@ -114,7 +117,6 @@ class IMOSliderWidget extends \WP_Widget {
                         $url = get_permalink();
                         $title = the_title(null,null,FALSE);
                         
-                        error_log("****************77777777777777666665556665656656656774778*******");
 
 
                         $_img_id = get_post_thumbnail_id();

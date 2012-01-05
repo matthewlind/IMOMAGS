@@ -29,41 +29,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 <footer id="footer">
     <div class="str-container">
         <div id="footer-content">
-            <div class="str-content clearfix">
-                <div class="col-a">
-<?php
-    if (!dynamic_sidebar('footer-a')) { ?>
-                    <aside class="widget style-f">
-                        <h1 class="widget-title"><?php _e('No Widgets Yet!', 'carrington-business'); ?></h1>
-                        <p><?php printf(__('It looks like you haven&rsquo;t added any widgets to this sidebar (Footer Left) yet. To customize this sidebar, go <a href="%s">add some</a>!', 'carrington-business'), admin_url('widgets.php')); ?></p>
-                    </aside>
-<?php
-    }
-?>
-                </div>
-                <div class="col-b">
-<?php
-if (!dynamic_sidebar('footer-b')) { ?>
-                    <aside class="widget style-f">
-                        <h1 class="widget-title"><?php _e('No Widgets Yet!', 'carrington-business'); ?></h1>
-                        <p><?php printf(__('It looks like you haven&rsquo;t added any widgets to this sidebar (Footer Center) yet. To customize this sidebar, go <a href="%s">add some</a>!', 'carrington-business'), admin_url('widgets.php')); ?></p>
-                    </aside>
-<?php
-}
-?>
-                </div>
-                <div class="col-c">
-<?php
-if (!dynamic_sidebar('footer-c')) { ?>
-                    <aside class="widget style-f">
-                        <h1 class="widget-title"><?php _e('No Widgets Yet!', 'carrington-business'); ?></h1>
-                        <p><?php printf(__('It looks like you haven&rsquo;t added any widgets to this sidebar (Footer Right) yet. To customize this sidebar, go <a href="%s">add some</a>!', 'carrington-business'), admin_url('widgets.php')); ?></p>
-                    </aside>
-<?php
-}
-?>
-                </div>
-            </div><!-- .str-content -->
+            
         </div><!-- #footer-content -->
         <div id="footer-sub">
             <nav class="nav nav-footer">
