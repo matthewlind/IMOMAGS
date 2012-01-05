@@ -14,6 +14,10 @@ Stable tag: 0.1
 License: IMO
 */
 
+// Requires the PHP MAPI Wrapper
+require_once(WP_CONTENT_DIR . '/plugins/bc_import/bc_mapi/bc-mapi.php');
+require_once(WP_CONTENT_DIR . '/plugins/bc_import/bc-config.php');
+require_once(WP_CONTENT_DIR . '/plugins/bc_import/plugin.php');
 
 
 add_action('init', 'imo_video_init');
@@ -151,6 +155,10 @@ function imo_video_inner_custom_box( $post ) {
        _e("Video ID", 'imo_video_textdomain' );
   echo '</label> ';
   echo '<input type="text" id="imo_video_video_id" name="imo_video_video_id" placeholder="36124564556" size="25" ' . $valueTag . ' />';
+
+
+ //_log(imo_video_bc_import_gather_videos());
+
 }
 
 /* When the post is saved, saves our custom data */
@@ -190,5 +198,39 @@ function imo_video_save_postdata( $post_id ) {
   
   
 }
+
+
+/**
+ * handle the submissino.
+ * @param $method - string, 'tag', 'search', 'all'
+ * @param $query - string, the specific term used to filter.
+ *
+ * @return - array of video assets
+ */
+function imo_video_bc_import_gather_videos(){
+
+    $bc = new BCMAPI(get_option("bc_write_key", BC_READ_TOKEN), get_option("bc_write_key", BC_WRITE_TOKEN));
+
+    $videos = array();
+
+    // Define our parameters
+    $params = array(
+      'video_fields' => 'id,name'
+    );
+
+    // Set our search terms
+    $terms = array(
+      'all' => 'display_name:"shotgun"'
+    );
+
+    // Make our API call
+    $videos = $bc->search('video',$terms, $params);
+
+
+    return $videos;
+}
+
+
+
 
 

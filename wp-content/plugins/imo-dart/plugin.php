@@ -39,7 +39,7 @@ function _imo_dart_get_params($size, $tile) {
     $adCampaignSlug = null;
     if (function_exists("get_terms")) {
         $post = get_queried_object();
-        _log($post);
+
         $postID = $post->ID;
 
         if ($adCampaignTerms = wp_get_object_terms($postID,"campaign")) {
