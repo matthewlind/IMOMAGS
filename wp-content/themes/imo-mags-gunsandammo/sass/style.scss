@@ -204,7 +204,7 @@ a.cta {
 /* Buttons */
 a.button {
   @include inline-block;
-  @include font-platin;
+  @include font-stag;
   
   background: $red image-url('button_bg.png') 0 0 repeat-x;
   border: 1px solid #AF0C10;
@@ -252,9 +252,10 @@ a.comment-count {
 /* Widgets */
 #sidebar,
 #secondary,
-.cfct-sidebar {
+.cfct-sidebar,
+#carrington-modules .cfct-row-ab-c .cfct-block-c {
   .widget {
-    background: image-url('secondary_section_bg.png') 4px 0 repeat-x;
+    background: image-url('widget_stripe_bg_38.png') 4px 0 repeat-x;
     border-top: 4px solid black;
 
     .widget-title {
@@ -271,6 +272,73 @@ a.comment-count {
         top: 26px;
       }
     }
+  }
+}
+
+/* Slideshow */
+.ui-tabs {
+  left: 0;
+  position: relative;
+  text-align: center;
+  top: 0;
+  
+  & > div {
+    background: black;
+    border: 4px solid black;
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+  .ui-tabs-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    
+    li {
+      @include inline-block;
+      
+      a {
+        @include inline-block;
+        
+        background: #181818;
+        cursor: pointer;
+        height: 10px;
+        width: 10px;
+
+        &:hover {
+         background: #888; 
+        }
+      }
+      &.ui-tabs-selected a,
+      &.ui-tabs-active a {
+        background: $red;
+        cursor: default;
+      } 
+    }
+  }
+  .prev-tab,
+  .next-tab {
+    @include hide-text;
+    
+    background: black image-url('ui_tab_prev.png') center center no-repeat;
+    display: none;
+    height: 60px;
+    position: absolute;
+    top: 150px;
+    width: 60px;
+    z-index: 30;
+    
+    &:hover {
+      background-color: $red;
+    }
+  }
+  .prev-tab {
+    left: 0;
+  }
+  .next-tab {
+    background-image: image-url('ui_tab_next.png');
+    right: 0;
   }
 }
 
@@ -366,14 +434,22 @@ a.comment-count {
   position: relative;
 }
 #main {
-  padding: 0 10px; // So the author photos can hang over the edge
+  margin-top: 0;
+  padding: 60px 10px 0; // So the author photos can hang over the edge
   position: relative;
   z-index: 5;
-
+  
+  #masthead {
+    left: 10px;
+    position: absolute;
+    top: 0;
+  }
   #breadcrumbs {
     @include column(8);
   }
-  #sidebar, .cfct-sidebar {
+  #sidebar,
+  .cfct-sidebar,
+  #carrington-modules .cfct-row-ab-c .cfct-block-c {
     @include column(4,true);
     float: right;
     margin-left: 16px;
@@ -507,7 +583,6 @@ a.comment-count {
 #header {
   background: #161616 image-url('header_bg.jpg') center top no-repeat;
   height: 380px;
-  margin-bottom: 50px;
   
   .container {
     background: image-url('header_primary_bg.png') bottom left repeat-x;
@@ -537,6 +612,7 @@ a.comment-count {
       left: 0;
       position: absolute;
       top: 0;
+      width: 140px;
       z-index: 30;
     }
     .cta {
@@ -640,28 +716,24 @@ a.comment-count {
         @include font-stag;
         @include inline-block;
         
-        background: image-url('icon/arrow_red_down.png') 90% center no-repeat;
+        background: image-url('icon/arrow_red_down.png') 88% center no-repeat;
         color: white;
         font-size: 28px;
         line-height: 78px;
-        margin-right: 20px;
-        padding: 0 38px 0 22px;
-        
-        &:hover {
-          background: $red image-url('icon/arrow_white_down.png') 90% center no-repeat;
-          color: white;
-        }
+        margin-right: 2px;
+        padding: 0 43px 0 31px;
+
         .wpmega-link-title {
           line-height: 78px;
         }
       }
       &.megaHover > a {
-        background: $red image-url('icon/arrow_white_down.png') 90% center no-repeat;
+        background: $red image-url('icon/arrow_white_down.png') 88% center no-repeat;
         color: white;
       }
       &:first-child {
         a {
-          padding-left: 0;
+          padding-left: 20px;
         }
       }
     }
@@ -670,12 +742,12 @@ a.comment-count {
     margin: 0;
   }
   ul.sub-menu-1 {
-    @include box-shadow(rgba(black, 0.35) 2px 2px 4px);
+    @include box-shadow(rgba(black, 0.35) 2px 2px 5px);
     
     background: white;
     border: none;
     display: none;
-    top: 93px;
+    top: 92px;
   }
 
   /* Default fly-out menu styles */
@@ -714,14 +786,14 @@ a.comment-count {
   li.ss-nav-menu-mega {
     ul.sub-menu-1 {
       left: 0 !important;
-      padding: 24px;
+      padding: 0;
       top: 93px;
-      width: 932px !important;
+      width: 980px !important;
       
       & > .menu-item {
         @include font-stag;
 
-        font-size: 21px;
+        font-size: 20px;
         line-height: 1.5;
         
         a {
@@ -736,18 +808,26 @@ a.comment-count {
           line-height: 1;
         }
       }
-      .menu-item {
+      .ss-nav-menu-item-depth-1 {
         background: none;
+        border-left: 1px solid #E3E3E3;
         line-height: 1.2;
-        margin: 0 16px 0 0;
-        width: 192px;
+        margin: 32px 0 32px 4px;
+        padding: 0 10px 0 32px;
+        width: 158px;
         
         a:hover {
           color: black;
         }
+        &:first-child {
+          border: none;
+          margin-left: 0;
+        }
         &.ss-sidebar {
-//          margin-right: 0;
-          width: 308px;
+          background: #F6F6F6;
+          margin: 0;
+          padding: 32px 36px;
+          width: 296px;
         }
         .wpmega-widgetarea {
           padding: 0;
@@ -758,7 +838,7 @@ a.comment-count {
         @include box-shadow(none);
         
         left: 0 !important;
-        margin: 0.5em 0 1em 0;
+        margin: 1em 0 0;
         padding: 0;
         position: relative;
         top: 0 !important;
@@ -768,16 +848,17 @@ a.comment-count {
           @include font-helvetica;
           
           font-size: 16px;
+          font-weight: bold;
           
           a {
-            color: $gunmetal;
+            color: #515151;
             
             &:hover {
               color: black;
             }
           }
           .wpmega-link-title {
-            line-height: 1.8;
+            line-height: 2;
           }
         }
       }
@@ -886,64 +967,144 @@ a.comment-count {
     z-index: 120;
     
     & > a {
-      background: image-url('icon/arrow_black_down.png') 90% center no-repeat;
+      background: image-url('icon/arrow_black_down.png') 92% center no-repeat;
       font-size: 20px;
       line-height: 76px;
-      padding-right: 37px;
+      padding: 0 30px 0 16px;
       margin: 0;
     }
     &.megaHover > a {
-      background-image: image-url('icon/arrow_black_down.png');
-      background-color: white;
-      color: black;
+      background-position: 92% center;
     }
     ul.sub-menu-1 {
       left: auto !important;
+      padding: 32px 0 23px;
       right: 0 !important;
-      top: 78px;
+      top: 92px;
+      
+      .wpmega-nonlink {
+        padding: 0;
+      }
+      .current-issue {
+        background: image-url('mm_current_issue_shadow.png') center bottom no-repeat;
+        border-bottom: 1px solid #DFDFDF;
+        margin-bottom: 27px;
+        overflow: hidden;
+        text-align: center;
+
+        .month {
+          @include font-stag;
+          margin-bottom: 24px;
+        }
+        img {
+          display: block;
+          margin: 0 auto -42px;
+        }
+      }
+      .menu-item a {
+        @include font-stag;
+        
+        background: white image-url('icon/arrow_gray.png') 95% center no-repeat;
+        border: 1px solid #DFDFDF;
+        color: $gunmetal;
+        font-size: 14px;
+        height: 35px;
+        line-height: 35px;
+        margin: 0 30px 5px;
+        position: relative;
+        text-align: center;
+        vertical-align: baseline;
+        width: 256px;
+        
+        span {
+          line-height: 35px;
+        }
+        &:hover {
+          background: $red image-url('icon/arrow_white.png') 95% center no-repeat;
+          border: 1px solid #AF0C10;
+          color: white;
+        }
+      }
+      .subscribe a {
+        background: $red image-url('icon/arrow_white.png') 95% center no-repeat;
+        border-color: $red;
+        color: white;
+        
+        &:hover {
+          background-color: black;
+          border-color: black;
+        }
+      }
     }
   }
   
   /* Widgets */
   .wpmega-widgetarea {
+    &.ss-colgroup-2 li {
+      margin: 0;
+    }
     .widget {
-      margin: 0 0 26px;
+      margin: 0 0 18px;
       width: 100%;
+      border-bottom: 1px dotted #4F4F4F;
+      padding-bottom: 20px;
+      &:first-child {
+        margin-bottom: 18px;
+      }
+      &.wpmega-last-child {
+        border: none;
+        padding: 0;
+      }
       
-      li {
+      li {        
         font-size: 14px;
         margin: 0.5em 0;
+        text-align: left;
         
         a {
           color: $gunmetal;
           font-weight: bold;
         }
       }
-      &.wpmega-last-child {
-        margin-bottom: 10px;
-      }
     }
     .widgettitle {
-      font-size: 24px;
-      margin: 0;
+      @include font-stag;
+      
+      color: #2C2C2C;
+      font-size: 20px;
+      margin: 0 0 15px;
     }
     
     /* Popular Posts Widget */
     .popular-posts {
+      &.wpmega-last-child .wpp-post-title {
+        @include font-helvetica;
+        
+        font-size: 13px;
+      }
+      &.wpmega-last-child .fancy li {
+        background: none;
+        padding: 6px 10px;
+        
+        &.odd {
+          background: #E0E0E0;
+        }
+        a {
+          color: #262626;
+        }
+        a:hover {
+          color: $red;
+        }
+      }
       .wpp-thumbnail {
         float: left;
         margin-right: 14px;
       }
       .wpp-post-title {
-        @include font-stag;
+        @include font-stag-bold;
         
-        color: $gunmetal;
         font-size: 16px;
         line-height: 1.2;
-        
-        &:hover {
-         color: black; 
-        }
       }
       .wpp-excerpt {
         font-size: 13px;
@@ -1085,7 +1246,7 @@ a.comment-count {
   }
   #sidebar {
     .widget {
-      background: image-url('widget_bg.png') 4px 0 repeat-x;
+      background: image-url('widget_stripe_bg_29.png') 4px 0 repeat-x;
       border-top: 4px solid $gunmetal;
 
       .widget_title, .widget-title {
@@ -1138,6 +1299,11 @@ a.comment-count {
     }
   }
   #content {
+    .ui-tabs {
+      .prev-tab, .next-tab {
+        top: 110px;
+      }
+    }
     .popular-posts {
       text-align: center;
 
@@ -1157,6 +1323,9 @@ a.comment-count {
       }
     }
     
+    .cfct-heading .cfct-mod-title {
+      margin-bottom: 1em;
+    }
     .trending {
       .entry-excerpt {
         background: image-url('trending_border_bg.png') right bottom repeat-x;
@@ -1174,10 +1343,10 @@ a.comment-count {
           width: 275px;
         }
         .entry-category {
-          font-size: 14px;
+          font-size: 13px;
         }
         .entry-title {
-          font-size: 22px;
+          font-size: 16px;
           line-height: 1.2;
           a {
             color: black;
@@ -1278,8 +1447,8 @@ a.comment-count {
 
 
 /*
- * FEATURED THUMBS
- * Carrington Slideshow Module
+ * BREADCRUMBS
+ * Yoast SEO Plugin
  *
  */
 
@@ -1348,7 +1517,7 @@ a.comment-count {
  */
 
 #masthead {
-  margin-bottom: 36px;
+//  margin-bottom: 36px;
 }
 .section-title {
   border-top: 4px solid black;
@@ -1392,6 +1561,9 @@ a.comment-count {
   }
   &.comments .icon {
     @include icon-sprite(title_icon_comments);
+  }
+  &.videos .icon {
+    @include icon-sprite(title_icon_videos);
   }
 }
 .section-footer {
@@ -1477,7 +1649,7 @@ a.comment-count {
 .single {
   .entry-header {
     border-bottom: 4px solid black;
-    margin-bottom: 44px;
+    margin-bottom: 12px;
     position: relative;
   }
   .entry-title {
@@ -1486,12 +1658,18 @@ a.comment-count {
   .entry-info {
     color: black;
     font-size: 13px;
-    margin: 1em 0 1.5em;
+    margin: 1em 0;
+  }
+  .entry-footer {
+    clear: both;
   }
   .comment-count {
     position: absolute;
     right: 0;
     top: 0;
+  }
+  .addthis_toolbox {
+    margin-bottom: 56px;
   }
   .pagination {
     a {
@@ -1508,8 +1686,47 @@ a.comment-count {
       }
     }
   }
-  #idc-container {
-    border-top: 4px solid black;
+  .related-posts-container {
+    float: left;
+    margin-bottom: 32px;
+    width: 100%;
+    
+    .related-title {
+      border-top: 4px solid black;
+      color: #B5B5B5;
+      padding: 12px 0;
+    }
+    .entry-excerpt {
+      float: left;
+      margin: 0 0 0 15px;
+      text-align: center;
+      width: 206px;
+      
+      &:first-child {
+        margin: 0;
+      }
+      a {
+        @include inline-block;
+      }
+    }
+    .entry-img {
+      height: 126px;
+      margin: 0 0 16px;
+      width: 206px;
+    }
+    .entry-title,
+    .entry-summary {
+      width: 100%;
+    }
+    .entry-title {
+      font-size: 16px;
+      a {
+        color: black;
+        &:hover {
+          color: $red;
+        }
+      }
+    }
   }
   #sidebar { // So the sidebar lines up with the breadcrumbs
     position: relative;
@@ -1517,19 +1734,212 @@ a.comment-count {
   }
 } 
 
+
+/*
+ * VIDEO POST TYPE ARCHIVE & SINGLE
+ *
+ */
+ 
+.post-type-archive-imo_video {
+  .ui-tabs {
+    height: 480px;
+    
+    .wp-post-image {
+      display: block;
+      // Leave the following if there are old post thumbnails that are smaller than these dimensions
+      width: 640px;
+      height: 350px;
+    }
+    .play {
+      @include icon-sprite(video_play);
+      
+      display: block;
+      left: 271px;
+      position: absolute;
+      top: 146px;
+    }
+    .slide-info {
+      height: 86px;
+      overflow: hidden;
+
+      .category {
+        @include font-platin;
+
+        color: $red;
+        display: block;
+        font-size: 14px;
+        padding-top: 12px;
+      }
+      h2 {
+        @include ellipsis;
+      }
+      h2 a {
+        color: white;
+      }
+    }
+    .ui-tabs-nav {
+      top: 456px;
+    }
+  }
+  .newest-videos {
+    margin-bottom: 80px;
+  }
+  .video-category {
+    border-bottom: 1px solid #D1D1D1;
+    margin-bottom: 36px;
+    position: relative;
+    
+    h4 {
+      color: $gunmetal;
+    }
+    .cta {
+      position: absolute;
+      right: 0;
+      top: 7px;
+    }
+    &:last-child {
+      border: none;
+    }
+  }
+  
+  .widget_slider-widget #scroll_mask {
+    margin: 24px auto 36px;
+  }
+}
+
+.single-imo_video {
+  .entry-header {
+    margin-bottom: 44px;
+  }
+}
+
+/*
+ * BLOGS PAGE
+ *
+ */
+
+#carrington-modules.blogs {
+  .cfct-row {
+    margin: 0 !important;
+  }
+  .cfct-row-ab-c {
+    border-bottom: 1px solid #E6E6E6;
+  }
+  .cfct-block-ab {
+    border-right: 1px solid #E6E6E6;
+    margin-right: 0;
+    width: 647px !important;
+  }
+  .cfct-block-c {
+    border-left: 1px solid #E6E6E6;
+    left: -1px;
+    margin: 0 !important;
+    position: relative;
+    padding-left: 20px;
+    width: 311px !important;
+  }
+  .entry-excerpt {
+    margin: 50px 0;
+    
+    .comment-count {
+      right: 32px;
+    }
+    .entry-title, p {
+      width: 92%;
+    }
+    p {
+      margin-bottom: 0;
+    }
+  }
+  .not-loop ul,
+  .cfct-module-loop ul {
+    @include clearfix;
+    
+    list-style: none;
+    margin: 50px 0 32px;
+    padding: 0;
+    
+    li {
+      border-top: 1px dotted #CCC;
+      float: left;
+      margin: 0 0 12px;
+      padding: 12px 0 0;
+      width: 100%;
+      
+      &:first-child {
+        border: none;
+        padding: 0;
+      }
+    }
+    time {
+      float: left;
+      width: 72px;
+    }
+    a {
+      @include font-stag;
+      
+      color: $gunmetal;
+      float: left;
+      font-size: 16px;
+      line-height: 1.2;
+      width: 235px;
+
+      &:hover {
+        color: black;
+      }
+    }
+  }
+  .cta {
+    @include inline-block;
+    
+    margin: 16px 0 92px;
+  }
+}
+
+/* Blog Header */
+.blog-header {
+  background: #161616;
+  padding-top: 56px;
+  position: relative;
+  
+  img {
+    display: block;
+  }
+  .cfct-mod-title {
+    color: white;
+    height: 56px;
+    left: 0;
+    line-height: 56px;
+    padding: 0 20px;
+    position: absolute;
+    top: 0;
+    
+    a {
+      display: block;
+      color: white;
+    }
+  }
+}
+
+
 /*
  * SIDEBAR
  *
  */
  
 #sidebar,
-.cfct-sidebar {
+.cfct-sidebar,
+#carrington-modules .cfct-row-ab-c .cfct-block-c {
   .widget {
-    margin-bottom: 26px;
+    margin-bottom: 32px;
   }
   .widget_advert-widget {
     background: none;
     border: none;
+    
+    img {
+      display: block;
+    }
   }
   .box {
     background: image-url('box_bg.png');
@@ -1671,40 +2081,55 @@ a.comment-count {
 
 /* Subscribe Form Widget */
 .widget_subscribe-form {
+  background-position: left bottom !important;
+  border-bottom: 1px solid #CCC;
+  
   .mag-cover {
-    margin-top: 20px;
-    text-align: center;
+    float: left;
+    margin: 24px 0 27px;
+    
+    img {
+      display: block;
+      width: 106px;
+    }
   }
   .title {
     @include font-stag;
-    
-    color: $red;
-    font-size: 16px;
-    margin-bottom: 16px;
-    text-align: center;
+
+    font-size: 24px;
+    line-height: 1.1;
+    margin: 0 0 27px 125px;
+    position: relative;
+    top: 62px;
+    width: 150px;
+  }
+  .content {
+    clear: both;
   }
   .subscribe-row {
     margin-bottom: 6px;
     width: 100%;
     
     .text {
-      @include font-platin;
-      
+      color: $gunmetal;
       display: block;
       float: left;
-      font-size: 14px;
-      padding: 5px 0;
-      width: 28%;
+      font-size: 13px;
+      padding: 5px 10% 5px 0;
+      text-align: right;
+      width: 32%;
       
       &.zip {
         clear: left;
       }
     }
     input {
+      @include box-shadow(inset rgba(black, 0.1) 0 2px 5px);
+      
       border: 1px solid #CCC;
       font-size: 14px;
       padding: 6px 3px;
-      width: 69%;
+      width: 55%;
     }
     select {
       margin-bottom: 6px;
@@ -1716,15 +2141,16 @@ a.comment-count {
   }
   input[type="submit"] {
     @include inline-block;
-    @include font-platin;
+    @include font-stag;
 
     background: $red image-url('button_bg.png') 0 0 repeat-x;
     border: 1px solid #AF0C10;
     color: white;
-    font-size: 14px;
+    font-size: 16px;
     height: 35px;
     line-height: 35px;
-    padding: 0 32px 0 32px;
+    margin-left: 66px;
+    padding: 0 20px 0 20px;
     position: relative;
     text-align: center;
     vertical-align: baseline;
@@ -1789,8 +2215,13 @@ a.comment-count {
       margin: 0 12px 0 0;
       font-size: 13px;
       font-weight: bold;
+      line-height: 1.3;
       text-align: center;
       
+      img {
+        display: block;
+        margin-bottom: 15px;
+      }
       a {
         color: $gunmetal;
         display: block;
@@ -1804,7 +2235,7 @@ a.comment-count {
   #prev, #next {
     @include hide-text;
 
-    background-color: #E0E0E0;
+    background-color: black;
     background-position: center center;
     background-repeat: no-repeat;
     cursor: pointer;
@@ -1815,10 +2246,11 @@ a.comment-count {
     width: 25px;
     
     &:hover {
-      background-color: black;
+      background-color: red;
     }
     &.inactive {
-      display: none;
+      background-color: #E0E0E0;
+      cursor: default;
     }
   }
   #prev {
@@ -1828,6 +2260,38 @@ a.comment-count {
   #next {
     background-image: image-url('icon/arrow_white.png');
     right: 0;
+  }
+}
+
+/* G&A iPad App Widget */
+#sidebar #get_ipad_app {
+  background-image: image-url('widget_stripe_bg_78.png');
+  background-position: 0 bottom;
+  background-repeat: repeat-x;
+  border-bottom: 1px solid #CCC;
+  padding: 32px 0 0 0;
+  text-align: center;
+  
+  .title {
+    @include font-stag;
+    
+    background: none;
+    color: black;
+    font-size: 22px;
+    line-height: 1.2;
+  }
+  .cta {
+    color: $red;
+    
+    &:hover {
+      color: black;
+    }
+  }
+  .ipad {
+    background: image-url('widget_ipad_app.png') center bottom no-repeat;
+    height: 161px;
+    margin: 24px auto 0;
+    width: 244px;
   }
 }
 
@@ -2080,7 +2544,7 @@ a.comment-count {
 }
 .alignleft {
   float: left;
-  margin: 0 20px 20px 0;
+  margin: 8px 20px 20px 0 !important;
   
   .wp-caption-text {
     padding-right: 50px;
@@ -2088,7 +2552,7 @@ a.comment-count {
 }
 .alignright {
   float: right;
-  margin: 0 0 20px 20px;
+  margin: 8px 0 20px 20px !important;
   
   .wp-caption-text {
     padding-left: 50px;
@@ -2096,7 +2560,7 @@ a.comment-count {
 }
 .aligncenter {
   display: block;
-  margin: 0 auto 20px;
+  margin: 0 auto 20px !important;
   text-align: center;
 }
 .wp-caption {
@@ -2155,7 +2619,7 @@ a.comment-count {
   .pds-vote-button {
     @include border-radius(0);
     @include inline-block;
-    @include font-platin;
+    @include font-stag;
 
     background: $red image-url('button_bg.png') 0 0 repeat-x;
     border: 1px solid #AF0C10;
@@ -2186,6 +2650,189 @@ a.comment-count {
       color: $red;
       text-decoration: none;
     }
+  }
+}
+
+
+/*
+ * INTENSE DEBATE OVERRIDES
+ *
+ */
+ 
+#content #idc-container {
+  .idc-text,
+  textarea.idc-text,
+  textarea.idc-text_noresize {
+    @include border-radius(0);
+  }
+  textarea.idc-text,
+  textarea.idc-text_noresize {
+    width: 98% !important;
+  }
+  .idc-head {
+    border-top: 4px solid black;
+    margin-bottom: 36px;
+    position: relative;
+    
+    h3 {
+      @include inline-block;
+
+      background: image-url('section_title_bg.png') 2px 0;
+      height: 36px;
+      margin-left: 8px;
+      padding: 0 5px 5px 0;
+      position: relative;
+
+      .icon, #idc-commentcount_wrap {
+        @include icon-sprite(title_icon_comments);
+        @include hide-text;
+        
+        display: block;
+        left: -8px;
+        position: absolute;
+        top: -4px;
+        z-index: 20;
+      }
+      #idc-commentcount_label {
+        @include inline-block;
+
+        background-color: black;
+        color: white;
+        height: 41px;
+        line-height: 41px;
+        padding: 0 24px 0 50px;
+        position: relative;
+        top: -4px;
+      }
+    }
+    .idc-right {
+      margin-top: 4px;
+      
+      .idc-head_tools-login {
+        float: left;
+        margin-right: 5px;
+      }
+      .idc-share {
+        
+      }
+    }
+  }
+  .idc-toolbar {
+    margin: 24px 0;
+    text-align: center;
+  }
+  #idc-sortLinks p {
+    font-weight: bold;
+    a {
+      color: $gunmetal;
+      font-weight: normal;
+      &:hover {
+        color: $red;
+      }
+      &.idc-sel {
+        color: $red;
+        font-weight: bold;
+      }
+    }
+    
+  }
+  .idc-comments {
+    .idc-c .idc-c-h {
+      background: none;
+      
+      .idc-i span {
+        color: $red;
+        font-size: 15px;
+        font-weight: bold;
+      }
+    }
+    .idc-c {
+      border-bottom: 1px solid #CCC;
+      margin: 0;
+      padding: 24px 24px 42px;
+    }
+    .idc-c-t {
+      @include font-helvetica;
+
+      background: image-url('comments_quote_bg.png') 0 0 no-repeat;
+      margin: 0 0 24px 75px;
+      padding: 0 58px 0 67px;
+      
+      .idc-c-t-inner {
+        color: #4C4C4C;
+        font-size: 15px;
+        line-height: 1.6;
+        min-height: 40px; // so the background image doesn't get cut off on short comments
+      }
+    }
+    .idc-thread .idc-thread .idc-c {
+      background: #F7F7F7;
+      padding-left: 90px;
+    }
+    .idc-thread .idc-thread .idc-thread {
+      padding: 0 !important;
+
+      .idc-c {
+        background: #F1F1F1;
+        padding-left: 156px;
+      }
+    }      
+  }
+  .idc-btn_s, .idc-btn_l {
+    span {
+      background: none;
+      height: 0;
+      width: 0;
+    }
+    .idc-r {
+      @include font-stag;
+      @include text-shadow(0 1px 0 white);
+      
+      background: #F2F2F2 image-url('comments_reply_bg.png') 0 0 repeat-x;
+      border: 1px solid #CACACA;
+      color: $gunmetal;
+      font-size: 14px !important;
+      height: 28px;
+      line-height: 28px;
+      padding: 0 12px;
+      width: auto;
+    }
+  }
+  .idc-btn_l .idc-r {
+    background: $red image-url('button_bg.png') 0 0 repeat-x;
+    border-color: #AF0C10;
+    color: white;
+    font-size: 15px !important;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 24px;
+    position: relative;
+    vertical-align: baseline;
+    
+    &:hover {
+      background: black;
+      border-color: black;
+    }
+  }
+  .idc-btn_s {
+    margin: 0 10px 0 142px;
+  }
+  .idc-c-b {
+    line-height: 28px !important;
+  }
+  .idc-btn_l-secondary,
+  .idc-new_subscribe {
+    line-height: 40px !important;
+  }
+  .idc-new {
+    h3 {
+      margin: 50px 0;
+      text-align: center;
+    }
+  }
+  .idc-foot {
+    border: none;
+    margin-bottom: 100px;
   }
 }
 

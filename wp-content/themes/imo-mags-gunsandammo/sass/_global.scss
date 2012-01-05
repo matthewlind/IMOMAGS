@@ -37,7 +37,9 @@ $gold: #FFBE21;
   font-family: "Helvetica Nueue", Helvetica, Arial, sans-serif;
 }
 @mixin font-platin {
-	font-family: "PlatinSemiboldItalic";
+//  font-family: "PlatinSemiboldItalic";
+  font-family: Georgia, serif;
+  font-style: italic;
 	font-weight: normal;
 }
 @mixin font-stag {

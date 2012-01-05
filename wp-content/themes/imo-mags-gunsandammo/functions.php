@@ -26,6 +26,7 @@ if(!function_exists('_log')){
 
 // Add new image size for post lists
 add_image_size('post-thumb', 226, 147, true);
+add_image_size('post-slide', 640, 350, true);
 
 
 // New excerpt ending
@@ -136,43 +137,37 @@ function cfct_widgets_init() {
 add_action( 'widgets_init', 'cfct_widgets_init' );
 
 
-// Custom Signup Form Widget powered by Gravity Forms
-class Signup_Widget extends WP_Widget {
-	function Signup_Widget() {
-		$widget_ops = array('classname' => 'widget_gravity_form', 'description' => 'Add a Gravity Form email signup form.' );
-		$this->WP_Widget('newsletter_signup', 'Newsletter Signup', $widget_ops);
-	}
- 
-	function widget($args, $instance) {
-		extract($args, EXTR_SKIP);
- 
-    $title = empty($instance['title']) ? '' : apply_filters('widget_title', $instance['title']); ?>
+include_once get_stylesheet_directory().'/widgets/newsletter-signup.php';
+include_once get_stylesheet_directory().'/widgets/ipad-app.php';
 
-    <aside id="newsletter_signup" class="box widget_gravity_form">
-      <div class="content_wrapper">
-        <?php if(!empty($title)) : ?>
-        <h5 class="box_title">
-          <span><?php echo $title; ?></span>
-        </h5>
-        <?php endif; ?>
-        <?php if (function_exists('gravity_form')) gravity_form(2, false, false); ?>
-      </div>
-    </aside>
 
-<?php	}
- 
-	function update($new_instance, $old_instance) {
-		$instance = $old_instance;
-		$instance['title'] = strip_tags($new_instance['title']);
-		return $instance;
-	}
- 
-	function form($instance) {
-		$instance = wp_parse_args((array) $instance, array('title' => ''));
-		$title = strip_tags($instance['title']);
-?>
-			<p><label for="<?php echo $this->get_field_id('title'); ?>">Title: <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo attribute_escape($title); ?>" /></label></p>
-<?php
-	}
+// SHORTCODES
+/*
+ * [mm-current-issue]
+ *
+ * For use with the UberMenu plugin.
+ *
+ */
+function mm_current_issue($atts, $content = null) {
+	extract(shortcode_atts(array(
+    "" => ""
+	), $atts));
+	
+	$magazine_img = get_option("magazine_cover_uri", get_stylesheet_directory_uri(). "/img/magazine.png" );
+  if (empty($magazine_img)) {
+      $magazine_img = get_stylesheet_directory_uri(). "/img/magazine.png";
+  }
+	
+	return '<div class="current-issue">
+	        <h3 class="month">November 2011</h3>
+	        <img src="'.$magazine_img.'" alt />
+	        </div>
+	        <ul class="subscriber-links">
+	        <li class="subscribe"><a href="'.SUBS_LINK.'">Subscribe</a></li>
+	        <li><a href="'.SUBS_LINK.'">Give a Gift</a></li>
+          <li><a href="'.SERVICE_LINK.'">Subscriber Services</a></li>
+	        </ul>';
 }
-register_widget('Signup_Widget');
+add_shortcode("mm-current-issue", "mm_current_issue");
+
+

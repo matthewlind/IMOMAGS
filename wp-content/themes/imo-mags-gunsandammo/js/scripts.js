@@ -38,5 +38,56 @@ jQuery(document).ready(function($) {
 		});
 
 	}
+	
+  // Video Slideshow
+  $("#video-slideshow").tabs();
+  
+  // We need to modify the Intense Debate comments title
+  function sectionIconWrapper() {
+    if ($("#idc-commentcount_wrap").length == 0) {
+     $("#idc-container .idc-head #idc-commentcount_label").before('<div class="icon"></div>'); 
+    }
+  } 
+  // We also need to delay the modification until after Intense Debate has loaded
+  setTimeout(sectionIconWrapper, 2000);
+  
+  var $tabs = $('.ui-tabs').tabs();
+  
+  // Add Prev/Next Navigation to jQuery UI Tabs
+  $(".ui-tabs").each(function() {
+    $(this).append("<a href='#' class='next-tab'>Next Page &#187;</a><a href='#' class='prev-tab'>&#171; Prev Page</a>");
+  });
+  
+  var totalSize = $(".ui-tabs-panel").size() - 1;
+  
+  $('.next-tab').click(function() {
+    var selected = $tabs.tabs('option', 'selected');
+    if (selected == totalSize) {
+      selected = 0; 
+    } else {
+     selected++;
+    }
+    $tabs.tabs('select', selected);
+    return false;
+  });
+
+  $('.prev-tab').click(function() {
+    var selected = $tabs.tabs('option', 'selected');
+    if (selected == 0) {
+      selected = totalSize; 
+    } else {
+     selected--;
+    }
+    $tabs.tabs('select', selected);
+    return false;
+  });
+  
+  // Show the Prev/Next navigation only on hover
+  $(".ui-tabs").mouseover(function() {
+    $('.prev-tab, .next-tab').show();
+  }).mouseout(function() {
+    $('.prev-tab, .next-tab').hide();
+  });
+  
 
 });
