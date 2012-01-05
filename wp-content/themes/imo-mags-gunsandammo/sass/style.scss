@@ -2206,11 +2206,11 @@ a.comment-count {
 .widget_slider-widget {
   position: relative;
   
-  #scroll_mask {
+  .scroll_mask {
     margin-bottom: 16px;
     width: 570px;
   }
-  #scroll {
+  .scroll {
     li {
       margin: 0 12px 0 0;
       font-size: 13px;
@@ -2232,7 +2232,7 @@ a.comment-count {
       }
     }
   }
-  #prev, #next {
+  .prev, .next {
     @include hide-text;
 
     background-color: black;
@@ -2253,11 +2253,11 @@ a.comment-count {
       cursor: default;
     }
   }
-  #prev {
+  .prev {
     background-image: image-url('icon/arrow_white_left.png');
     left: 0;
   }
-  #next {
+  .next {
     background-image: image-url('icon/arrow_white.png');
     right: 0;
   }

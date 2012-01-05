@@ -81,9 +81,12 @@ class IMOSliderWidget extends \WP_Widget {
         global $add_slider_script;
         $add_slider_script = TRUE;
         
+
+        global $imoSliderCount;
+        $imoSliderCount++;
+
         extract( $args );
 	
-        
         
     	$taxonomy = $instance['taxonomy'];
  
@@ -109,8 +112,8 @@ class IMOSliderWidget extends \WP_Widget {
         }
         
 
-        echo "<div id='scroll_mask'>\n";
-        echo "<ul id='scroll'>\n";
+        echo "<div id='scroll_mask-$imoSliderCount' class='scroll_mask'>\n";
+        echo "<ul id='scroll-$imoSliderCount' class='scroll'>\n";
 
         // The Loop
         while ( $the_query->have_posts() ) : $the_query->the_post();
@@ -132,8 +135,8 @@ class IMOSliderWidget extends \WP_Widget {
 
         echo "</ul>\n";
         echo "</div>\n";
-        echo "<a id='prev'>PREV</a>\n";
-        echo "<a id='next'>NEXT</a>\n";
+        echo "<a id='prev-$imoSliderCount' class='prev'>PREV</a>\n";
+        echo "<a id='next-$imoSliderCount' class='next'>NEXT</a>\n";
                     
         
         // Reset Post Data
