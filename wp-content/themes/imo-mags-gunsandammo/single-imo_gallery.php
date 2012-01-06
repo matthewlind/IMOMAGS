@@ -18,9 +18,7 @@ get_header(); ?>
     		<a class="comment-count" href="<?php comments_link(); ?>"><?php comments_number('0', '1', '%'); ?></a>
     	</div>
     	<div class="entry-content">
-    	  <div class="gallery-description" style="width:640px;">
-  				<?php the_content(); ?>
-  			</div>
+				<?php the_content(); ?>
   		</div>
     </div>
     <div class="cfct-block cfct-block-c">
@@ -32,7 +30,7 @@ get_header(); ?>
   </div>
   <div class="cfct-row cfct-row-abc">
     <div class="cfct-block cfct-block-abc">
-      
+      <div class="ngg-imagebrowser-container">
       <?php $gallery_id = get_post_meta(get_the_ID(), '_gallery_id', TRUE);
 
     	// get the pictures
@@ -102,22 +100,51 @@ get_header(); ?>
   			<a name="image"></a>
   			<div class="ngg-imagebrowser" id="<?php echo $picture->anchor ?>">
           <div class="pic"><?php echo $picture->href_link ?></div>
-  			</div>
-  			<div class="ngg-imagebrowser-nav"> 
-					<div class="back">
-						<a class="ngg-browser-prev" id="ngg-prev-<?php echo $picture->previous_pid ?>" href="<?php echo $picture->previous_image_link ?>#image">&#9668; <?php _e('Back', 'nggallery') ?></a>
-					</div>
-					<div class="next">
-						<a class="ngg-browser-next" id="ngg-next-<?php echo $picture->next_pid ?>" href="<?php echo $picture->next_image_link ?>#image"><?php _e('Next', 'nggallery') ?> &#9658;</a>
-					</div>
-					<h3 class="imo-gallery-title" style="clear:both;padding-top:20px;"><?php echo $picture->alttext ?></h3>
-					<div class="counter"><?php _e('Picture', 'nggallery') ?> <?php echo $picture->number ?> <?php _e('of', 'nggallery')?> <?php echo $picture->total ?></div>
-					<div class="ngg-imagebrowser-desc"><p><?php echo $picture->description ?></p></div>
+  			
+    			<div class="ngg-imagebrowser-nav"> 
+  					<div class="back">
+  						<a class="ngg-browser-prev" id="ngg-prev-<?php echo $picture->previous_pid ?>" href="<?php echo $picture->previous_image_link ?>#image">&#9668; <?php _e('Back', 'nggallery') ?></a>
+  					</div>
+  					<div class="next">
+  						<a class="ngg-browser-next" id="ngg-next-<?php echo $picture->next_pid ?>" href="<?php echo $picture->next_image_link ?>#image"><?php _e('Next', 'nggallery') ?> &#9658;</a>
+  					</div>
+  					<h3 class="imo-gallery-title"><?php echo $picture->alttext ?></h3>
+  					<div class="counter"><?php echo $picture->number ?> <?php _e('of', 'nggallery')?> <?php echo $picture->total ?></div>
+  					<div class="ngg-imagebrowser-desc"><p><?php echo $picture->description ?></p></div>
+  				</div>
+				</div>
+				<div class="gallery-sidebar">
+				  <?php the_widget('imo\AdvertWidget'); ?>
+				  
+				  <div class="more-lists fancy">
+				    <h4><span>More G&amp;A Lists</span></h4>
+				    <?php
+          	$args = array(
+          		'post_type'			=>	'imo_gallery',
+          		'posts_per_page'	=>	3,
+          		'orderby'			=>	'rand', // may need to switch to menu_order
+          		'order'				=>	'ASC'
+          	);
+          	$galleries = new WP_Query($args); 
+          	while ($galleries->have_posts()) : $galleries->the_post(); ?>
+          	<article id="post-excerpt-<?php the_ID(); ?>" <?php post_class('entry') ?>>
+          	  <?php	if (has_post_thumbnail()) :
+            		echo '<a href="', the_permalink(),'">', the_post_thumbnail('small-featured-thumb', array('class' => 'entry-img')), '</a>'; ?>
+              <?php	endif; ?>
+
+            	<div class="entry-summary">
+            		<h5 class="entry-title"><a rel="bookmark" href="<?php the_permalink() ?>"><?php the_title() ?></a></h5>
+            	</div>
+            </article>
+          	<?php endwhile; ?>
+          	
+          	<a class="cta" href="<?php echo get_post_type_archive_link('imo_gallery'); ?>">More Lists <span></span></a>
+				  </div>
 				</div>
 
 	      <?php endif; ?>
-      
-      
+        
+        </div>
     </div>
   </div>
 	<div class="cfct-row cfct-row-ab-c">

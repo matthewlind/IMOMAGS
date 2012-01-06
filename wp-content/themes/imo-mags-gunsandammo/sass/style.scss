@@ -368,12 +368,14 @@ a.comment-count {
   }
   .entry-summary {
     float: left;
+    line-height: 1;
     width: 358px;
   }
   .entry-category {
     @include font-platin;
 
     font-size: 14px;
+    
     a {
       &:hover {
         border: none;
@@ -386,9 +388,12 @@ a.comment-count {
 
     font-size: 22px;
     line-height: 1.2;
+    margin-top: 5px;
     width: 95%;
 
     a {
+      @include inline-block;
+      
       color: $gunmetal;
 
       &:hover {
@@ -721,8 +726,8 @@ a.comment-count {
         color: white;
         font-size: 28px;
         line-height: 78px;
-        margin-right: 2px;
-        padding: 0 43px 0 31px;
+//        margin-right: 1px;
+        padding: 0 42px 0 31px;
 
         .wpmega-link-title {
           line-height: 78px;
@@ -734,7 +739,7 @@ a.comment-count {
       }
       &:first-child {
         a {
-          padding-left: 20px;
+//          padding-left: 20px;
         }
       }
     }
@@ -1814,6 +1819,210 @@ a.comment-count {
   }
 }
 
+
+/*
+ * NEXTGEN GALLERY OVERRIDES
+ *
+ */
+
+#main .ngg-imagebrowser {
+  background: black;
+  padding: 30px 30px 60px;
+  position: relative;
+  
+  .pic {
+    left: 0;
+    margin: 30px 0 42px;
+    position: relative;
+    top: 0;
+    
+    img {
+      margin: 0;
+      max-width: 588px;
+    }
+  }
+  h3 {
+    @include font-stag;
+    @include inline-block;
+    
+    color: white;
+    line-height: 1.2;
+    margin: 4px 0 0;
+    position: relative;
+    text-align: left;
+  }
+  .counter {
+    @include font-platin;
+    
+    color: $red;
+    line-height: 40px;
+    margin: 0;
+    position: absolute;
+    right: 102px;
+    top: 0;
+    width: 100px;
+    text-align: right;
+  }
+  .ngg-imagebrowser-desc {
+    color: white;
+    font-size: 12px;
+    position: relative;
+    top: 0;
+    
+    p {
+      margin: 0;
+    }
+    
+  }
+  .ngg-imagebrowser-nav {
+    position: relative;
+    
+    .back, .next {
+      border: none;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      
+      
+      a {
+        @include hide-text;
+
+        background-color: #222;
+        background-position: center center;
+        background-repeat: no-repeat;
+        display: block;
+        height: 40px;
+        width: 40px;
+        
+        &:hover {
+          background-color: $red;
+        }
+      }
+    }
+    .back {
+      right: 46px;
+      
+      a {
+        background-image: image-url('ui_tab_prev.png');
+      }
+    }
+    .next {
+      right: 0px;
+      
+      a {
+        background-image: image-url('ui_tab_next.png');
+      }
+    }
+  }
+}
+
+
+/*
+ * GALLERY POST TYPE ARCHIVE & SINGLE
+ *
+ */
+ 
+.single-imo_gallery #main {
+  .pagination {
+    display: none;
+  }
+  .ngg-imagebrowser-container {
+    @include clearfix;
+    
+    background: black image-url('imo_gallery_sidebar_bg.png') top right repeat-y;
+    margin: 0 0 50px 0;
+    padding: 30px 22px 30px 30px;
+  }
+  .ngg-imagebrowser {
+    float: left;
+    background: none;
+    margin: 0 34px 0 0;
+    padding: 0;
+    width: 594px;
+    .pic {
+      margin: 0 0 20px;
+
+      img {
+        max-width: 100%;
+      }
+    }
+    h3 {
+      width: 450px;
+    }
+    .ngg-imagebrowser-desc {
+      margin: 40px 0;
+    }
+  }
+  .gallery-sidebar {
+    float: left;
+    width: 300px;
+    
+    .more-lists {
+      margin-top: 32px;
+      
+      &.fancy h4 {
+        background-image: image-url('box_title_bg_reversed.png');
+        margin-bottom: 15px;
+        
+        span {
+          color: white;
+          background: #1c1c1c;
+        }
+      }
+      article {
+        @include clearfix;
+        
+        margin-bottom: 20px;
+        text-align: left;
+        
+        .wp-post-image {
+          float: left;
+          height: 65px;
+          margin-right: 16px;
+          width: 102px;
+        }
+        .entry-summary {
+          float: left;
+        }
+        .entry-title {
+          @include font-helvetica;
+          
+          font-size: 13px;
+          font-weight: bold;
+          line-height: 1.2;
+          width: 182px;
+          
+          a {
+            color: #8C8C8C;
+            
+            &:hover {
+              color: white;
+            }
+          }
+        }
+      }
+      .cta {
+        color: white;
+        float: right;
+        margin-top: 50px;
+        
+        span {
+          @include icon-sprite(arrow_white);
+        }
+        
+        &:hover {
+          color: $red;
+          
+          span {
+            @include icon-sprite(arrow_red);
+          }
+        }
+      }
+    }
+  }
+}
+ 
+
 /*
  * BLOGS PAGE
  *
@@ -2101,7 +2310,7 @@ a.comment-count {
     line-height: 1.1;
     margin: 0 0 27px 125px;
     position: relative;
-    top: 62px;
+    top: 54px;
     width: 150px;
   }
   .content {
@@ -2837,103 +3046,6 @@ a.comment-count {
   .idc-foot {
     border: none;
     margin-bottom: 100px;
-  }
-}
-
-
-/*
- * NEXTGEN GALLERY OVERRIDES
- *
- */
-
-#main .ngg-imagebrowser {
-  background: black;
-  padding: 560px 30px 60px;
-  position: relative;
-  
-  .pic {
-    left: 30px;
-    position: absolute;
-    top: 30px;
-    
-    img {
-      margin: 0;
-      max-width: 588px;
-    }
-  }
-  h3 {
-    @include font-stag;
-    @include inline-block;
-    
-    color: white;
-    position: relative;
-    text-align: left;
-  }
-  .counter {
-    @include font-platin;
-    
-    color: $red;
-    line-height: 40px;
-    margin: 0;
-    position: absolute;
-    right: 130px;
-    top: 0;
-    width: 100px;
-    text-align: right;
-  }
-  .ngg-imagebrowser-desc {
-    color: white;
-    font-size: 12px;
-    margin-bottom: 30px;
-    position: relative;
-    top: 42px;
-    
-    p {
-      margin: 0;
-    }
-    
-  }
-  .ngg-imagebrowser-nav {
-    position: absolute;
-    right: 0;
-    top: 560px;
-    
-    .back, .next {
-      border: none;
-      margin: 0;
-      padding: 0;
-      position: relative;
-      
-      
-      a {
-        @include hide-text;
-
-        background-color: #222;
-        background-position: center center;
-        background-repeat: no-repeat;
-        display: block;
-        height: 40px;
-        width: 40px;
-        
-        &:hover {
-          background-color: $red;
-        }
-      }
-    }
-    .back {
-      right: 36px;
-      
-      a {
-        background-image: image-url('ui_tab_prev.png');
-      }
-    }
-    .next {
-      right: 30px;
-      
-      a {
-        background-image: image-url('ui_tab_next.png');
-      }
-    }
   }
 }
 
