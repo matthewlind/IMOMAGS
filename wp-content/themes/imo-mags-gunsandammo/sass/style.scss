@@ -434,6 +434,7 @@ a.comment-count {
   position: relative;
 }
 #main {
+  background: white;
   margin-top: 0;
   padding: 60px 10px 0; // So the author photos can hang over the edge
   position: relative;
@@ -2225,6 +2226,7 @@ a.comment-count {
       a {
         color: $gunmetal;
         display: block;
+        line-height: 1.2;
         
         &:hover {
           color: black;
@@ -2659,7 +2661,9 @@ a.comment-count {
  *
  */
  
-#content #idc-container {
+#main #idc-container {
+  margin: 0;
+  
   .idc-text,
   textarea.idc-text,
   textarea.idc-text_noresize {
@@ -2842,7 +2846,7 @@ a.comment-count {
  *
  */
 
-.entry-content .ngg-imagebrowser {
+#main .ngg-imagebrowser {
   background: black;
   padding: 560px 30px 60px;
   position: relative;
@@ -2855,6 +2859,80 @@ a.comment-count {
     img {
       margin: 0;
       max-width: 588px;
+    }
+  }
+  h3 {
+    @include font-stag;
+    @include inline-block;
+    
+    color: white;
+    position: relative;
+    text-align: left;
+  }
+  .counter {
+    @include font-platin;
+    
+    color: $red;
+    line-height: 40px;
+    margin: 0;
+    position: absolute;
+    right: 130px;
+    top: 0;
+    width: 100px;
+    text-align: right;
+  }
+  .ngg-imagebrowser-desc {
+    color: white;
+    font-size: 12px;
+    margin-bottom: 30px;
+    position: relative;
+    top: 42px;
+    
+    p {
+      margin: 0;
+    }
+    
+  }
+  .ngg-imagebrowser-nav {
+    position: absolute;
+    right: 0;
+    top: 560px;
+    
+    .back, .next {
+      border: none;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      
+      
+      a {
+        @include hide-text;
+
+        background-color: #222;
+        background-position: center center;
+        background-repeat: no-repeat;
+        display: block;
+        height: 40px;
+        width: 40px;
+        
+        &:hover {
+          background-color: $red;
+        }
+      }
+    }
+    .back {
+      right: 36px;
+      
+      a {
+        background-image: image-url('ui_tab_prev.png');
+      }
+    }
+    .next {
+      right: 30px;
+      
+      a {
+        background-image: image-url('ui_tab_next.png');
+      }
     }
   }
 }
