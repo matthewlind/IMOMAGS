@@ -155,6 +155,7 @@ function imo_video_inner_custom_box( $post ) {
        _e("Video ID", 'imo_video_textdomain' );
   echo '</label> ';
   echo '<input type="text" id="imo_video_video_id" name="imo_video_video_id" placeholder="36124564556" size="25" ' . $valueTag . ' />';
+  echo '<p>A <b>Featured Image</b> will automatically be downloaded from Brightcove when this post is published.  There is no need to add a Featured Image.</p>';
 
 
  //_log(imo_video_bc_import_gather_videos());
@@ -195,6 +196,14 @@ function imo_video_save_postdata( $post_id ) {
   // a custom table (see Further Reading section below)
   update_post_meta($post_id, '_video_legacy_url', esc_attr($legacyURL) );
   update_post_meta($post_id, '_video_id', esc_attr($mydata) );
+
+  //Get The thumbnail
+  $videoID = $mydata;
+  $videos = _bc_import_gather_videos('id',$videoID);
+  $video = $videos[0];
+
+  imo_video_bc_import_media_sideload_image($video->videoStillURL,$post_id);
+
   
   
 }
@@ -232,5 +241,52 @@ function imo_video_bc_import_gather_videos(){
 
 
 
+/**
+ * Modified version of media_sideload_image; instead of returning HTML, attaches
+ * the image as a featured image. 
+ *
+ * Download an image from the specified URL and attach it as a featured image.
+ *
+ * @see media_sideload_image
+ * @since 2.6.0
+ *
+ * @param string $file The URL of the image to download
+ * @param int $post_id The post ID the media is to be associated with
+ * @param string $desc Optional. Description of the image
+ * @return boolean|WP_Error True on success
+ *
+ */
+function imo_video_bc_import_media_sideload_image($file, $post_id, $desc = null) {
+    if ( ! empty($file) ) {
+        // Download file to temp location
+        $tmp = download_url( $file );
 
+        // Set variables for storage
+        // fix file filename for query strings
+        preg_match('/[^\?]+\.(jpg|JPG|jpe|JPE|jpeg|JPEG|gif|GIF|png|PNG)/', $file, $matches);
+        $file_array['name'] = basename($matches[0]);
+        $file_array['tmp_name'] = $tmp;
+
+        // If error storing temporarily, unlink
+        if ( is_wp_error( $tmp ) ) {
+            @unlink($file_array['tmp_name']);
+            $file_array['tmp_name'] = '';
+        }
+
+        // do the validation and storage stuff
+        $id = media_handle_sideload( $file_array, $post_id, $desc );
+        // If error storing permanently, unlink
+        if ( is_wp_error($id) ) {
+            @unlink($file_array['tmp_name']);
+            return $id;
+        }
+
+        $src = wp_get_attachment_url( $id );
+    }
+
+    // Finally check to make sure the file has been saved, then return the html
+    if ( ! empty($src) ) {
+        return add_post_meta($post_id, '_thumbnail_id', $id);
+    }
+}
 
