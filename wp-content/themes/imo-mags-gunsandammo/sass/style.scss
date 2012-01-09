@@ -2890,32 +2890,14 @@ a.comment-count {
     h3 {
       @include inline-block;
 
-      background: image-url('section_title_bg.png') 2px 0;
-      height: 36px;
-      margin-left: 8px;
-      padding: 0 5px 5px 0;
+      background: image-url('section_title_comments.gif') 0 0 no-repeat;
+      height: 51px;
       position: relative;
+      top: -4px;
+      width: 201px;
 
-      .icon, #idc-commentcount_wrap {
-        @include icon-sprite(title_icon_comments);
-        @include hide-text;
-        
-        display: block;
-        left: -8px;
-        position: absolute;
-        top: -4px;
-        z-index: 20;
-      }
-      #idc-commentcount_label {
-        @include inline-block;
-
-        background-color: black;
-        color: white;
-        height: 41px;
-        line-height: 41px;
-        padding: 0 24px 0 50px;
-        position: relative;
-        top: -4px;
+      #idc-commentcount_wrap, #idc-commentcount_label {
+        display: none;
       }
     }
     .idc-right {

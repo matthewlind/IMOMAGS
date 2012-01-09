@@ -42,14 +42,14 @@ jQuery(document).ready(function($) {
   // Video Slideshow
   $("#video-slideshow").tabs();
   
-  // We need to modify the Intense Debate comments title
-  function sectionIconWrapper() {
-    if ($("#idc-commentcount_wrap").length == 0) {
-     $("#idc-container .idc-head #idc-commentcount_label").before('<div class="icon"></div>'); 
-    }
-  } 
-  // We also need to delay the modification until after Intense Debate has loaded
-  setTimeout(sectionIconWrapper, 2000);
+  // // We need to modify the Intense Debate comments title
+  // function sectionIconWrapper() {
+  //   if ($("#idc-commentcount_wrap").length == 0) {
+  //    $("#idc-container .idc-head #idc-commentcount_label").before('<div class="icon"></div>'); 
+  //   }
+  // } 
+  // // We also need to delay the modification until after Intense Debate has loaded
+  // setTimeout(sectionIconWrapper, 2000);
   
   var $tabs = $('.ui-tabs').tabs();
   
