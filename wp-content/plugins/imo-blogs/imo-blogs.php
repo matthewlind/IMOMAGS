@@ -47,7 +47,7 @@ function imo_blog_tax_init() {
         )
     );
 
-    $types = array("imo_blog","posts");
+    $types = array("imo_blog","post");
 
     foreach ($taxonomies as $target_taxonomy => $taxonomy) {
         register_taxonomy(
