@@ -47,7 +47,7 @@ function imo_blog_tax_init() {
         )
     );
 
-    $types = array("imo_blog");
+    $types = array("imo_blog","posts");
 
     foreach ($taxonomies as $target_taxonomy => $taxonomy) {
         register_taxonomy(
@@ -81,22 +81,97 @@ function imo_blog_init() {
 		'hierarchical' => false,
 		'menu_position' => null,
 		'supports' => array('title','thumbnail','excerpt','editor','author'),
-		'rewrite' => array('slug' => 'blog-posts', 'with_front' => FALSE),
+		'rewrite' => array('slug' => 'blog_posts',FALSE),
 		'taxonomies' => array('blog_tax','post_tag','activity','location','gear','species'),
 	  ); 
-	  register_post_type('imo_blog',$args);
+	register_post_type('imo_blog',$args);
+
+    // Uncomment this later if you want to use dates in the path
+    // global $wp_rewrite;
+    // $gallery_structure = '/%year%/%monthnum%/%day%/de/%imo_blog%';
+    // $wp_rewrite->add_rewrite_tag("%imo_blog%", '([^/]+)', "imo_blog=");
+    // $wp_rewrite->add_permastruct('imo_blog', $gallery_structure, false);
+
+
     flush_rewrite_rules();
 }
 
 function imo_blog_flush() {
   //imo_blog_init();
   flush_rewrite_rules();
+
 }
 register_activation_hook(__FILE__, 'imo_blog_flush');
 register_deactivation_hook( __FILE__, 'imo_blog_flush' );
 
+// Add filter to plugin init function
+
+//Uncomment this later if you want to use dates in the path.
+//add_filter('post_type_link', 'imo_blog_permalink', 10, 3);   
 
 
-
+// Adapted from get_permalink function in wp-includes/link-template.php
+function imo_blog_permalink($permalink, $post_id, $leavename) {
+    $post = get_post($post_id);
+    $rewritecode = array(
+        '%year%',
+        '%monthnum%',
+        '%day%',
+        '%hour%',
+        '%minute%',
+        '%second%',
+        $leavename? '' : '%postname%',
+        '%post_id%',
+        '%category%',
+        '%author%',
+        $leavename? '' : '%pagename%',
+    );
+ 
+    if ( '' != $permalink && !in_array($post->post_status, array('draft', 'pending', 'auto-draft')) ) {
+        $unixtime = strtotime($post->post_date);
+ 
+        $category = '';
+        if ( strpos($permalink, '%category%') !== false ) {
+            $cats = get_the_category($post->ID);
+            if ( $cats ) {
+                usort($cats, '_usort_terms_by_ID'); // order by ID
+                $category = $cats[0]->slug;
+                if ( $parent = $cats[0]->parent )
+                    $category = get_category_parents($parent, false, '/', true) . $category;
+            }
+            // show default category in permalinks, without
+            // having to assign it explicitly
+            if ( empty($category) ) {
+                $default_category = get_category( get_option( 'default_category' ) );
+                $category = is_wp_error( $default_category ) ? '' : $default_category->slug;
+            }
+        }
+ 
+        $author = '';
+        if ( strpos($permalink, '%author%') !== false ) {
+            $authordata = get_userdata($post->post_author);
+            $author = $authordata->user_nicename;
+        }
+ 
+        $date = explode(" ",date('Y m d H i s', $unixtime));
+        $rewritereplace =
+        array(
+            $date[0],
+            $date[1],
+            $date[2],
+            $date[3],
+            $date[4],
+            $date[5],
+            $post->post_name,
+            $post->ID,
+            $category,
+            $author,
+            $post->post_name,
+        );
+        $permalink = str_replace($rewritecode, $rewritereplace, $permalink);
+    } else { // if they're not using the fancy permalink option
+    }
+    return $permalink;
+}
 
 
