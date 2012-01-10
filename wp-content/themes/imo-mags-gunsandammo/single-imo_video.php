@@ -48,11 +48,12 @@ get_header(); ?>
 
   		<?php the_content(__('Continued&hellip;', 'carrington-business')); ?>
   	</div>
-  	<div class="entry-footer">
-  		<?php the_tags(__('Tagged ', 'carrington-business'), ', ', '');
-  		wp_link_pages(); ?>
-  	</div>
+    <!-- <div class="entry-footer">
+      <?php the_tags(__('Tagged ', 'carrington-business'), ', ', '');
+      wp_link_pages(); ?>
+    </div> -->
   </div>
+  <?php if (function_exists(related_posts())) related_posts(); ?>
   <?php comments_template(); ?>
 </div>
 <div id="sidebar">

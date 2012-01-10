@@ -33,13 +33,13 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 		the_content(__('Continued&hellip;', 'carrington-business'));
 		?>
 	</div>
-	<div class="entry-footer">
-		<?php _e('In', 'carrington-business'); ?>
-		<?php
-		the_category(', ');
-		the_tags(__(' <span class="spacer">&bull;</span> Tagged ', 'carrington-business'), ', ', '');
-		wp_link_pages();
-		?>
-	</div>
+  <!-- <div class="entry-footer">
+    <?php _e('In', 'carrington-business'); ?>
+    <?php
+    the_category(', ');
+    the_tags(__(' <span class="spacer">&bull;</span> Tagged ', 'carrington-business'), ', ', '');
+    wp_link_pages();
+    ?>
+  </div> -->
 	<?php edit_post_link(__('Edit', 'carrington-business')); ?>
 </div>

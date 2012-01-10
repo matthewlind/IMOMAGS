@@ -722,7 +722,7 @@ a.comment-count {
         @include font-stag;
         @include inline-block;
         
-        background: image-url('icon/arrow_red_down.png') 88% 47% no-repeat;
+        background: image-url('icon/arrow_red_down.png') 88% 45% no-repeat;
         color: white;
         font-size: 28px;
         height: 90px;
@@ -733,7 +733,7 @@ a.comment-count {
         }
       }
       &.megaHover > a {
-        background: $red image-url('icon/arrow_white_down.png') 88% 47% no-repeat;
+        background: $red image-url('icon/arrow_white_down.png') 88% 45% no-repeat;
         color: white;
       }
     }
@@ -966,14 +966,14 @@ a.comment-count {
     z-index: 120;
     
     & > a {
-      background: image-url('icon/arrow_black_down.png') 92% center no-repeat;
+      background: image-url('icon/arrow_black_down.png') 92% 45% no-repeat;
       font-size: 20px;
       line-height: 76px;
       padding: 0 30px 0 16px;
       margin: 0;
     }
     &.megaHover > a {
-      background-position: 92% center;
+      background-position: 92% 45%;
     }
     ul.sub-menu-1 {
       left: auto !important;
@@ -1089,6 +1089,7 @@ a.comment-count {
           background: #E0E0E0;
         }
         a {
+          @include ellipsis;
           color: #262626;
         }
         a:hover {
@@ -1920,7 +1921,58 @@ a.comment-count {
     }
   }
 }
- 
+
+
+/*
+ * CAPTION CONTEST SINGLE
+ *
+ */
+
+.single-imo_caption_contest {
+  .caption-contest {
+    @include clearfix;
+    
+    background: #1C1C1C;
+    clear: both;
+    margin-bottom: 60px;
+    padding: 16px;
+    
+    .wp-post-image {
+      display: block;
+      max-width: 100%;
+    }
+    h2 {
+      color: white;
+      margin: 28px 0;
+      text-align: center;
+    }
+    .avatar {
+      float: left;
+      margin: 0 18px 0 30px;
+      position: relative;
+    }
+    .winning-caption {
+      float: left;
+      width: 490px;
+    }
+    .author {
+      color: $red;
+      font-size: 15px;
+      font-weight: bold;
+    }
+    .caption {
+      @include font-platin;
+      
+      color: white;
+      font-size: 18px;
+      margin-bottom: 32px;
+    }
+  }
+  #main #idc-container .idc-head h3 {
+    background-image: image-url('section_title_captions.gif');
+  }
+}
+
 
 /*
  * BLOGS PAGES
@@ -2088,6 +2140,12 @@ a.comment-count {
   }
 }
 
+// 2114 is the ID of the Blogs landing page
+body.parent-pageid-2114 #main {
+  padding-top: 0;
+  top: -36px;
+}
+
 /* Blog Header */
 .blog-header {
   background: #161616;
@@ -2122,15 +2180,15 @@ a.comment-count {
 .single {
   
   #main {
-    padding-top: 0;
-    top: -40px;
+    top: -36px;
   }
   /* Blog Headers */
   .blog-header {
     display: block;
-    margin-bottom: 26px;
+    margin-bottom: -34px;
     padding: 0;
     position: relative;
+    top: -60px;
     width: 100%;
   }
   .soga-header {
@@ -3003,7 +3061,7 @@ a.comment-count {
       }
     }
     .idc-right {
-      margin-top: 4px;
+      margin-top: 86px;
       
       .idc-head_tools-login {
         float: left;
@@ -3015,8 +3073,10 @@ a.comment-count {
     }
   }
   .idc-toolbar {
+    border-bottom: 1px solid #CCC;
     margin: 24px 0;
-    text-align: center;
+    padding-bottom: 18px;
+    text-align: left;
   }
   #idc-sortLinks p {
     font-weight: bold;
@@ -3073,6 +3133,9 @@ a.comment-count {
         background: #F1F1F1;
         padding-left: 156px;
       }
+    }
+    .idc-time {
+      @include font-platin;
     }      
   }
   .idc-btn_s, .idc-btn_l {

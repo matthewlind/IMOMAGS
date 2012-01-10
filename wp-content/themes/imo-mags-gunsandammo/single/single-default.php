@@ -66,6 +66,7 @@ $zn_slug = "zombie-nation";
 
 <div id="content" class="col-ab">
 	<?php cfct_loop(); ?>
+	<?php if (function_exists(related_posts())) related_posts(); ?>
 	<?php comments_template(); ?>
 </div>
 <?php
