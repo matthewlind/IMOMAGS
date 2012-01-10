@@ -2015,6 +2015,29 @@ a.comment-count {
     padding-left: 20px;
     width: 311px !important;
   }
+  .blog-header {
+    background: #161616;
+    padding-top: 56px;
+    position: relative;
+
+    img {
+      display: block;
+    }
+    .cfct-mod-title {
+      color: white;
+      height: 56px;
+      left: 0;
+      line-height: 56px;
+      padding: 0 20px;
+      position: absolute;
+      top: 0;
+
+      a {
+        display: block;
+        color: white;
+      }
+    }
+  }
   .trending .popular-posts {
     margin-top: -50px;
     
@@ -2146,29 +2169,46 @@ body.parent-pageid-2114 #main {
   top: -36px;
 }
 
-/* Blog Header */
-.blog-header {
-  background: #161616;
-  padding-top: 56px;
+/* Blog Headers */
+.single .blog-header, .blog .cfct-callout {
+  display: block;
+  height: 232px;
+  margin-bottom: -28px;
+  padding: 0;
   position: relative;
+  top: -60px;
+  width: 100%;
   
-  img {
-    display: block;
+  /* Sons of Guns & Ammo */
+  &.soga-header {
+    background: image-url('blogs/sonsofguns.jpg') left bottom no-repeat;
   }
-  .cfct-mod-title {
-    color: white;
-    height: 56px;
-    left: 0;
-    line-height: 56px;
-    padding: 0 20px;
-    position: absolute;
-    top: 0;
-    
-    a {
-      display: block;
-      color: white;
-    }
+  /* For the Love of Competition */
+  &.floc-header {
+    background: image-url('blogs/love-competition.jpg') left bottom no-repeat;
   }
+  /* Defend Thyself */
+  &.dt-header {
+    background: image-url('blogs/defend-thyself.jpg') left bottom no-repeat;
+  }
+  /* Zombie Nation */
+  &.zn-header {
+    background: image-url('blogs/zombie-nation.jpg') left bottom no-repeat;
+  }
+  /* From the History Books */
+  &.hb-header {
+    background: image-url('blogs/history-books.jpg') left bottom no-repeat;
+  }
+  /* News Briefs */
+  &.nb-header { height: 0; }
+  &.tfl-header { height: 0; }
+  &.tgg-header { height: 0; }
+  /* The Gun Room */
+  &.tgr-header { height: 0; }
+}
+.blog .cfct-callout {
+  top: 0;
+  margin-bottom: 0;
 }
 
 
@@ -2182,26 +2222,6 @@ body.parent-pageid-2114 #main {
   #main {
     top: -36px;
   }
-  /* Blog Headers */
-  .blog-header {
-    display: block;
-    margin-bottom: -34px;
-    padding: 0;
-    position: relative;
-    top: -60px;
-    width: 100%;
-  }
-  .soga-header {
-    background: image-url('blogs/sonsofguns.jpg') 0 0 no-repeat;
-    height: 232px;
-  }
-  .floc-header {}
-  .dt-header {}
-  .nb-header {}
-  .tfl-header {}
-  .tgg-header {}
-  .tgr-header {}
-  .zn-header {}
   
   /* Article */
   .entry-header {
@@ -2313,7 +2333,7 @@ body.parent-pageid-2114 #main {
   }
   .box {
     background: image-url('box_bg.png');
-    margin-bottom: 26px;
+    margin-bottom: 32px;
     padding: 4px;
     text-align: center;
     
