@@ -27,7 +27,6 @@ $darkgray: #313131;
 $gold: #FFBE21;
 
 // Setup @font-face
-//@include font-face("PlatinSemiboldItalic", font-files("plantinstd-semibolditalic-webfont.woff", woff, "plantinstd-semibolditalic-webfont.ttf", truetype, "plantinstd-semibolditalic-webfont.svg", svg), "plantinstd-semibolditalic-webfont.eot");
 @include font-face("StagMedium", font-files("stag-medium-webfont.woff", woff, "stag-medium-webfont.ttf", truetype, "stag-medium-webfont.svg", svg), "stag-medium-webfont.eot");
 @include font-face("StagMediumItalic", font-files("stag-mediumitalic-webfont.woff", woff, "stag-mediumitalic-webfont.ttf", truetype, "stag-mediumitalic-webfont.svg", svg), "stag-mediumitalic-webfont.eot");
 @include font-face("StagBold", font-files("stag-bold-webfont.woff", woff, "stag-bold-webfont.ttf", truetype, "stag-bold-webfont.svg", svg), "stag-bold-webfont.eot");
@@ -37,8 +36,7 @@ $gold: #FFBE21;
   font-family: "Helvetica Nueue", Helvetica, Arial, sans-serif;
 }
 @mixin font-platin {
-//  font-family: "PlatinSemiboldItalic";
-  font-family: Georgia, serif;
+  font-family: 'Lora', serif;
   font-style: italic;
 	font-weight: normal;
 }
