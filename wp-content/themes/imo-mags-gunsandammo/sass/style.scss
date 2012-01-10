@@ -722,11 +722,10 @@ a.comment-count {
         @include font-stag;
         @include inline-block;
         
-        background: image-url('icon/arrow_red_down.png') 88% center no-repeat;
+        background: image-url('icon/arrow_red_down.png') 88% 47% no-repeat;
         color: white;
         font-size: 28px;
-        line-height: 78px;
-//        margin-right: 1px;
+        height: 90px;
         padding: 0 42px 0 31px;
 
         .wpmega-link-title {
@@ -734,13 +733,8 @@ a.comment-count {
         }
       }
       &.megaHover > a {
-        background: $red image-url('icon/arrow_white_down.png') 88% center no-repeat;
+        background: $red image-url('icon/arrow_white_down.png') 88% 47% no-repeat;
         color: white;
-      }
-      &:first-child {
-        a {
-//          padding-left: 20px;
-        }
       }
     }
   }
@@ -753,7 +747,6 @@ a.comment-count {
     background: white;
     border: none;
     display: none;
-    top: 92px;
   }
 
   /* Default fly-out menu styles */
@@ -793,7 +786,7 @@ a.comment-count {
     ul.sub-menu-1 {
       left: 0 !important;
       padding: 0;
-      top: 93px;
+      top: 92px;
       width: 980px !important;
       
       & > .menu-item {
@@ -1648,100 +1641,6 @@ a.comment-count {
 }
 
 /*
- * SINGLE POST
- *
- */
- 
-.single {
-  .entry-header {
-    border-bottom: 4px solid black;
-    margin-bottom: 12px;
-    position: relative;
-  }
-  .entry-title {
-    width: 92%;
-  }
-  .entry-info {
-    color: black;
-    font-size: 13px;
-    margin: 1em 0;
-  }
-  .entry-footer {
-    clear: both;
-  }
-  .comment-count {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .addthis_toolbox {
-    margin-bottom: 56px;
-  }
-  .pagination {
-    a {
-      background-image: image-url('button_bg.png');
-      background-position: 0 0;
-      background-repeat: repeat-x;
-      display: inline;
-      margin: 0 5px;
-      padding: 3px 8px;
-      vertical-align: 0;
-
-      &:hover {
-        background: black;
-      }
-    }
-  }
-  .related-posts-container {
-    float: left;
-    margin-bottom: 32px;
-    width: 100%;
-    
-    .related-title {
-      border-top: 4px solid black;
-      color: #B5B5B5;
-      padding: 12px 0;
-    }
-    .entry-excerpt {
-      float: left;
-      margin: 0 0 0 15px;
-      text-align: center;
-      width: 206px;
-      
-      &:first-child {
-        margin: 0;
-      }
-      a {
-        @include inline-block;
-      }
-    }
-    .entry-img {
-      height: 126px;
-      margin: 0 0 16px;
-      width: 206px;
-    }
-    .entry-title,
-    .entry-summary {
-      width: 100%;
-    }
-    .entry-title {
-      font-size: 16px;
-      a {
-        color: black;
-        &:hover {
-          color: $red;
-        }
-      }
-    }
-  }
-  #sidebar { // So the sidebar lines up with the breadcrumbs
-    position: relative;
-//    top: -44px;
-  }
-} 
-
-
-/*
  * VIDEO POST TYPE ARCHIVE & SINGLE
  *
  */
@@ -2024,13 +1923,29 @@ a.comment-count {
  
 
 /*
- * BLOGS PAGE
+ * BLOGS PAGES
  *
  */
 
 #carrington-modules.blogs {
   .cfct-row {
     margin: 0 !important;
+    
+    &:first-child {
+      border-bottom: 4px solid black;
+      margin: 0 0 20px !important;
+      padding-bottom: 18px;
+      
+      .cfct-block-ab, .cfct-block-c {
+        border: none;
+      }
+      .cfct-block-ab {
+        width: 648px !important;
+      }
+      .cfct-block-c {
+        width: 300px !important;
+      }
+    }
   }
   .cfct-row-ab-c {
     border-bottom: 1px solid #E6E6E6;
@@ -2047,6 +1962,51 @@ a.comment-count {
     position: relative;
     padding-left: 20px;
     width: 311px !important;
+  }
+  .trending .popular-posts {
+    margin-top: -50px;
+    
+    .widget-title {
+      color: #B5B5B5;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      float: left;
+      margin: 0 0 0 15px;
+      text-align: center;
+      width: 206px;
+      
+      &:first-child {
+        margin: 0;
+      }
+      a {
+        @include inline-block;
+      }
+    }
+    .wpp-thumbnail {
+      margin: 0 0 16px;
+    }
+    a {
+      .wpp-post-title {
+        @include font-stag;
+
+        color: black;
+        font-size: 16px;
+        line-height: 1.2;
+      }
+      &:hover .wpp-post-title {
+        color: $red;
+      }
+    }
+  }
+  .blogs-title {
+    h2 {
+      color: black;
+      margin-bottom: 20px;
+    }
   }
   .entry-excerpt {
     margin: 50px 0;
@@ -2106,6 +2066,28 @@ a.comment-count {
   }
 }
 
+#carrington-modules.blog {
+  .blog-header {
+    padding: 0;
+  }
+  .blog-description {
+    @include font-stag;
+    
+    color: black;
+    font-size: 18px;
+  }
+  .cfct-widget-module-addthis-widget {
+    margin: 24px 0 50px;
+    border-bottom: 4px solid black;
+    padding-bottom: 24px;
+  }
+  .entry-excerpt {
+    border-bottom: 1px dotted black;
+    margin-bottom: 60px;
+    padding-bottom: 55px;
+  }
+}
+
 /* Blog Header */
 .blog-header {
   background: #161616;
@@ -2130,6 +2112,126 @@ a.comment-count {
     }
   }
 }
+
+
+/*
+ * SINGLE POST
+ *
+ */
+ 
+.single {
+  
+  #main {
+    padding-top: 0;
+    top: -40px;
+  }
+  /* Blog Headers */
+  .blog-header {
+    display: block;
+    margin-bottom: 26px;
+    padding: 0;
+    position: relative;
+    width: 100%;
+  }
+  .soga-header {
+    background: image-url('blogs/sonsofguns.jpg') 0 0 no-repeat;
+    height: 232px;
+  }
+  .floc-header {}
+  .dt-header {}
+  .nb-header {}
+  .tfl-header {}
+  .tgg-header {}
+  .tgr-header {}
+  .zn-header {}
+  
+  /* Article */
+  .entry-header {
+    border-bottom: 4px solid black;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .entry-title {
+    width: 92%;
+  }
+  .entry-info {
+    color: black;
+    font-size: 13px;
+    margin: 1em 0;
+  }
+  .entry-footer {
+    clear: both;
+  }
+  .comment-count {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .addthis_toolbox {
+    margin-bottom: 56px;
+  }
+  .pagination {
+    a {
+      background-image: image-url('button_bg.png');
+      background-position: 0 0;
+      background-repeat: repeat-x;
+      display: inline;
+      margin: 0 5px;
+      padding: 3px 8px;
+      vertical-align: 0;
+
+      &:hover {
+        background: black;
+      }
+    }
+  }
+  .related-posts-container {
+    float: left;
+    margin-bottom: 32px;
+    width: 100%;
+    
+    .related-title {
+      border-top: 4px solid black;
+      color: #B5B5B5;
+      padding: 12px 0;
+    }
+    .entry-excerpt {
+      float: left;
+      margin: 0 0 0 15px;
+      text-align: center;
+      width: 206px;
+      
+      &:first-child {
+        margin: 0;
+      }
+      a {
+        @include inline-block;
+      }
+    }
+    .entry-img {
+      height: 126px;
+      margin: 0 0 16px;
+      width: 206px;
+    }
+    .entry-title,
+    .entry-summary {
+      width: 100%;
+    }
+    .entry-title {
+      font-size: 16px;
+      a {
+        color: black;
+        &:hover {
+          color: $red;
+        }
+      }
+    }
+  }
+  #sidebar { // So the sidebar lines up with the breadcrumbs
+    position: relative;
+//    top: -44px;
+  }
+} 
 
 
 /*

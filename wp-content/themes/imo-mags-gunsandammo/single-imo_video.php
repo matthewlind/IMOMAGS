@@ -37,6 +37,7 @@ get_header(); ?>
     		<param name="@videoPlayer" value="<?php echo $video_id; ?>" />
     		<param name="adServerURL" value="<?php echo $adServerURL; ?>" />
     		<param name="media_delivery" value="http" />
+    		<param name="wmode" value="transparent" />
     		</object></p>
     	<!--<br />
     	This script tag will cause the Brightcove Players defined above it to be created as soon<br />
