@@ -167,7 +167,7 @@ ol.fancy,
 
 /* Call to Action */
 a.cta {
-  @include font-platin;
+  @include font-lora;
   
   color: black;
   font-size: 14px;
@@ -372,7 +372,7 @@ a.comment-count {
     width: 358px;
   }
   .entry-category {
-    @include font-platin;
+    @include font-lora;
 
     font-size: 14px;
     
@@ -1579,7 +1579,7 @@ a.comment-count {
 
 /* Pagination */
 .pagination {
-  @include font-platin;
+  @include font-lora;
   
   float: left;
   margin-bottom: 36px;
@@ -1669,7 +1669,7 @@ a.comment-count {
       overflow: hidden;
 
       .category {
-        @include font-platin;
+        @include font-lora;
 
         color: $red;
         display: block;
@@ -1752,7 +1752,7 @@ a.comment-count {
     text-align: left;
   }
   .counter {
-    @include font-platin;
+    @include font-lora;
     
     color: $red;
     line-height: 40px;
@@ -1961,7 +1961,7 @@ a.comment-count {
       font-weight: bold;
     }
     .caption {
-      @include font-platin;
+      @include font-lora;
       
       color: white;
       font-size: 18px;
@@ -3033,7 +3033,7 @@ body.parent-pageid-2114 #main {
     }
   }
   .pds-links a {
-    @include font-platin;
+    @include font-lora;
     
     color: black;
     
@@ -3155,7 +3155,7 @@ body.parent-pageid-2114 #main {
       }
     }
     .idc-time {
-      @include font-platin;
+      @include font-lora;
     }      
   }
   .idc-btn_s, .idc-btn_l {

@@ -1,7 +1,7 @@
 3.1.11 (Brainy Betty)
-1afaca6d95b746812b42afa575a2459fca5d3583
+804ec766114244cb816ba61bb80b5f3f0a9d0dec
 o:Sass::Tree::RootNode
-:@template"Üà/*!
+:@template"Ìà/*!
  * Theme Name: IMO Mags - Guns & Ammo
  * Theme URI: http://imomags.com/gunsandammo
  * Description: A skin for Guns & Ammo's imomags.com page
@@ -170,7 +170,7 @@ ol.fancy,
 
 /* Call to Action */
 a.cta {
-  @include font-platin;
+  @include font-lora;
   
   color: black;
   font-size: 14px;
@@ -375,7 +375,7 @@ a.comment-count {
     width: 358px;
   }
   .entry-category {
-    @include font-platin;
+    @include font-lora;
 
     font-size: 14px;
     
@@ -1582,7 +1582,7 @@ a.comment-count {
 
 /* Pagination */
 .pagination {
-  @include font-platin;
+  @include font-lora;
   
   float: left;
   margin-bottom: 36px;
@@ -1672,7 +1672,7 @@ a.comment-count {
       overflow: hidden;
 
       .category {
-        @include font-platin;
+        @include font-lora;
 
         color: $red;
         display: block;
@@ -1755,7 +1755,7 @@ a.comment-count {
     text-align: left;
   }
   .counter {
-    @include font-platin;
+    @include font-lora;
     
     color: $red;
     line-height: 40px;
@@ -1964,7 +1964,7 @@ a.comment-count {
       font-weight: bold;
     }
     .caption {
-      @include font-platin;
+      @include font-lora;
       
       color: white;
       font-size: 18px;
@@ -3036,7 +3036,7 @@ body.parent-pageid-2114 #main {
     }
   }
   .pds-links a {
-    @include font-platin;
+    @include font-lora;
     
     color: black;
     
@@ -3158,7 +3158,7 @@ body.parent-pageid-2114 #main {
       }
     }
     .idc-time {
-      @include font-platin;
+      @include font-lora;
     }      
   }
   .idc-btn_s, .idc-btn_l {
@@ -3416,7 +3416,7 @@ white;";#;	i¡;
 [ ;$;%o;;0;@;0;["/* Call to Action */;	i¨;
 [ o;;i ;T;["
 a.cta;@;o;;" ;[o;;[o;;@Ê;[o;&	;0;["a;@Ê;	i©o;:;["cta;@Ê;	i©;	i©;	i©;	i©;
-[o;;[ ;"font-platin;@;	iª;
+[o;;[ ;"font-lora;@;	iª;
 [ ;{ o; ;i ;["
 color;@;o;!;@;"
 black;";#;	i¬;
@@ -3626,7 +3626,7 @@ float;@;o;!;@;"	left;";#;	ir;
 width;@;o;!;@;"
 358px;";#;	it;
 [ ;$;%o;;i ;T;[".entry-category;@;o;;" ;[o;;[o;;@Œ;[o;:;["entry-category;@Œ;	iv;	iv;	iv;	iv;
-[o;;[ ;"font-platin;@;	iw;
+[o;;[ ;"font-lora;@;	iw;
 [ ;{ o; ;i ;["font-size;@;o;!;@;"	14px;";#;	iy;
 [ ;$;%o;;i ;T;["a;@;o;;" ;[o;;[o;;@¥;[o;&	;0;["a;@¥;	i{;	i{;	i{;	i{;
 [o;;i ;T;["&:hover;@;o;;" ;[o;;[o;;@³;[o;;;@³;	i|o;7
@@ -4847,7 +4847,7 @@ white;";#;	i&;
 [ ;$;%o; ;i ;["top;@;o;!;@;"	11px;";#;	i(;
 [ ;$;%o;;0;@;0;["/* Pagination */;	i,;
 [ o;;i ;T;[".pagination;@;o;;" ;[o;;[o;;@Á%;[o;:;["pagination;@Á%;	i-;	i-;	i-;	i-;
-[o;;[ ;"font-platin;@;	i.;
+[o;;[ ;"font-lora;@;	i.;
 [ ;{ o; ;i ;["
 float;@;o;!;@;"	left;";#;	i0;
 [ ;$;%o; ;i ;["margin-bottom;@;o;!;@;"	36px;";#;	i1;
@@ -4961,7 +4961,7 @@ o; ;i ;["height;@;o;!;@;"	86px;";#;	i„;
 [ ;$;%o; ;i ;["overflow;@;o;!;@;"hidden;";#;	i…;
 [ ;$;%o;;i ;T;[".category;@;o;;" ;[o;;[o;;@8(;[o;:;["category;@8(;	i‡;	i‡;	i‡;	i‡;
 [
-o;;[ ;"font-platin;@;	iˆ;
+o;;[ ;"font-lora;@;	iˆ;
 [ ;{ o; ;i ;["
 color;@;o;'	;"red;@;("red;	iŠ;	iŠ;
 [ ;$;%o; ;i ;["display;@;o;!;@;"
@@ -5029,7 +5029,7 @@ white;";#;	iÔ;
 [ ;$;%o; ;i ;["position;@;o;!;@;"relative;";#;	i×;
 [ ;$;%o; ;i ;["text-align;@;o;!;@;"	left;";#;	iØ;
 [ ;$;%o;;i ;T;[".counter;@;o;;" ;[o;;[o;;@ü);[o;:;["counter;@ü);	iÚ;	iÚ;	iÚ;	iÚ;
-[o;;[ ;"font-platin;@;	iÛ;
+[o;;[ ;"font-lora;@;	iÛ;
 [ ;{ o; ;i ;["
 color;@;o;'	;"red;@;("red;	iÝ;	iÝ;
 [ ;$;%o; ;i ;["line-height;@;o;!;@;"	40px;";#;	iÞ;
@@ -5237,7 +5237,7 @@ color;@;o;'	;"red;@;("red;	i§;	i§;
 [ ;$;%o; ;i ;["font-size;@;o;!;@;"	15px;";#;	i¨;
 [ ;$;%o; ;i ;["font-weight;@;o;!;@;"	bold;";#;	i©;
 [ ;$;%o;;i ;T;[".caption;@;o;;" ;[o;;[o;;@….;[o;:;["caption;@….;	i«;	i«;	i«;	i«;
-[	o;;[ ;"font-platin;@;	i¬;
+[	o;;[ ;"font-lora;@;	i¬;
 [ ;{ o; ;i ;["
 color;@;o;!;@;"
 white;";#;	i®;
@@ -6737,7 +6737,7 @@ black;";#;	i×;
 [ ;$;%o; ;i ;["border-color;@;o;!;@;"
 black;";#;	iØ;
 [ ;$;%o;;i ;T;[".pds-links a;@;o;;" ;[o;;[o;;@±H;[o;:;["pds-links;@±H;	iÛ;	iÛo;;@±H;[o;&	;0;["a;@±H;	iÛ;	iÛ;	iÛ;	iÛ;
-[o;;[ ;"font-platin;@;	iÜ;
+[o;;[ ;"font-lora;@;	iÜ;
 [ ;{ o; ;i ;["
 color;@;o;!;@;"
 black;";#;	iÞ;
@@ -6850,7 +6850,7 @@ idc-c;@§K;	iP;	iP;	iP;	iP;
 [ ;$;%o; ;i ;["padding-left;@;o;!;@;"
 156px;";#;	iR;
 [ ;$;%o;;i ;T;[".idc-time;@;o;;" ;[o;;[o;;@ÁK;[o;:;["idc-time;@ÁK;	iU;	iU;	iU;	iU;
-[o;;[ ;"font-platin;@;	iV;
+[o;;[ ;"font-lora;@;	iV;
 [ ;{ o;;i ;T;[".idc-btn_s, .idc-btn_l;@;o;;" ;[o;;[o;;@ÔK;[o;:;["idc-btn_s;@ÔK;	iY;	iYo;;[o;;@ÔK;[o;:;["idc-btn_l;@ÔK;	iY;	iY;	iY;	iY;
 [o;;i ;T;["	span;@;o;;" ;[o;;[o;;@éK;[o;&	;0;["	span;@éK;	iZ;	iZ;	iZ;	iZ;
 [o; ;i ;["background;@;o;!;@;"	none;";#;	i[;
