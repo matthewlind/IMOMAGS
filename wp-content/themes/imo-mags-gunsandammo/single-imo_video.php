@@ -37,6 +37,7 @@ get_header(); ?>
     		<param name="@videoPlayer" value="<?php echo $video_id; ?>" />
     		<param name="adServerURL" value="<?php echo $adServerURL; ?>" />
     		<param name="media_delivery" value="http" />
+    		<param name="wmode" value="transparent" />
     		</object></p>
     	<!--<br />
     	This script tag will cause the Brightcove Players defined above it to be created as soon<br />
@@ -47,11 +48,12 @@ get_header(); ?>
 
   		<?php the_content(__('Continued&hellip;', 'carrington-business')); ?>
   	</div>
-  	<div class="entry-footer">
-  		<?php the_tags(__('Tagged ', 'carrington-business'), ', ', '');
-  		wp_link_pages(); ?>
-  	</div>
+    <!-- <div class="entry-footer">
+      <?php the_tags(__('Tagged ', 'carrington-business'), ', ', '');
+      wp_link_pages(); ?>
+    </div> -->
   </div>
+  <?php if (function_exists(related_posts())) related_posts(); ?>
   <?php comments_template(); ?>
 </div>
 <div id="sidebar">

@@ -2,12 +2,9 @@
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
-// Getting the Author's info for #author-title
-if(isset($_GET['author_name'])) :
-$curauth = get_userdatabylogin($author_name);
-else :
-$curauth = get_userdata(intval($author));
-endif;?>
+// Test if this is a blog homepage (a child of Blogs landing page)
+$blog = $post->post_parent == get_id_by_slug('blogs') ? "blog" : null;
+?>
 
 <article id="post-excerpt-<?php the_ID(); ?>" <?php post_class('entry entry-excerpt') ?>>
 
@@ -17,6 +14,7 @@ endif;?>
   <?php	endif; ?>
 	
 	<div class="entry-summary">
+	  
 	  <span class="entry-category"><?php the_category(', '); ?></span>
 		<h2 class="entry-title"><a rel="bookmark" href="<?php the_permalink() ?>"><?php the_title() ?></a></h2>
 		<?php the_excerpt(); ?>

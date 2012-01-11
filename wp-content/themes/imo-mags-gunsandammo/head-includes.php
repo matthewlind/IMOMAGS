@@ -17,6 +17,8 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));</script>
 	
+  <link href='http://fonts.googleapis.com/css?family=Lora:400italic' rel='stylesheet' type='text/css'>
+	
 	<script type="text/javascript">
 
   var _gaq = _gaq || [];
