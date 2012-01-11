@@ -46,6 +46,7 @@ class Caption_Contest_Widget extends WP_Widget {
     
     $contestID = $instance['contestID'];
     
+    // Get Caption Contest posts so we can display them in a drop down menu
     $contests = get_posts('post_type=imo_caption_contest'); ?>
     
     <select name="<?php echo $this->get_field_id('contestID'); ?>" id="<?php echo $this->get_field_id('contestID'); ?>">
