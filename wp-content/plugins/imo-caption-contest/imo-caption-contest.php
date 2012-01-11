@@ -64,7 +64,7 @@ function imo_caption_contest_init() {
         class RWMB_Caption_Field {
 
           /**
-           * Add default value for 'taxonomy' field
+           * Add default value for 'caption' field
            * @param $field
            * @return array
            */
@@ -101,9 +101,9 @@ function imo_caption_contest_init() {
 
             $options = $field['options'];
 
-            $meta = wp_get_post_terms( $post->ID, $options['taxonomy'], array( 'fields' => 'ids' ) );
+            $meta = wp_get_post_terms( $post->ID, $options['caption'], array( 'fields' => 'ids' ) );
             $meta = is_array( $meta ) ? $meta : ( array ) $meta;
-            $terms = get_terms( $options['taxonomy'], $options['args'] );
+            $terms = get_terms( $options['caption'], $options['args'] );
 
             $html = '';
             // Checkbox_list
@@ -132,7 +132,7 @@ function imo_caption_contest_init() {
            * @param $new
            */
           static function save( $new, $old, $post_id, $field ) {
-            wp_set_post_terms( $post_id, $new, $field['options']['taxonomy'] );
+            wp_set_post_terms( $post_id, $new, $field['options']['caption'] );
           }
         }
       }
@@ -163,7 +163,14 @@ function imo_caption_contest_init() {
           'desc' => 'Photo of the Featured Product',
           'id' => $prefix . 'product',
           'type' => 'image'                // Field type: image upload
-        )
+        ),
+        array(
+          'name' => 'Product Name',          // Field name
+          'desc' => '', // Field description, optional
+          'id' => $prefix . 'product_name',      // Field id, i.e. the meta key
+          'type' => 'text',               // Field type: text box
+          'std' => ''             // Default value, optional
+        ),
       )
     );
 
