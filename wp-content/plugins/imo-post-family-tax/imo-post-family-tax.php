@@ -45,7 +45,7 @@ function imo_post_family_init() {
         )
     );
 
-    $types = array("imo_blog","post","imo_gallery");
+    $types = array("imo_blog","post","imo_gallery","posts");
 
     foreach ($taxonomies as $target_taxonomy => $taxonomy) {
         register_taxonomy(
