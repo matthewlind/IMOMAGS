@@ -2748,7 +2748,7 @@ body.parent-pageid-2114 #main {
 
 /* Caption Contest Widget */
 #caption_contest_promo {
-  background: black;
+  background: black image-url('widget_caption_contest_bg.jpg') 0 0 no-repeat;
   color: white;
   margin-bottom: 32px;
   text-align: center;
@@ -2787,7 +2787,7 @@ body.parent-pageid-2114 #main {
     }
   }
   .prize {
-    margin: 16px;
+    margin: 24px 0 18px;
     
     h6 {
       @include font-helvetica;
