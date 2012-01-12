@@ -142,7 +142,7 @@ function ga_cfct_widgets_init() {
 		'description' => __('Shown on news pages and archives.', 'carrington-business')
 	)));	
 }
-add_action( 'widgets_init', 'gupnp_service_action_get(action, name, type)cfct_widgets_init' );
+add_action( 'widgets_init', 'ga_cfct_widgets_init' );
 
 
 include_once get_stylesheet_directory().'/widgets/newsletter-signup.php';
