@@ -124,7 +124,7 @@ function imo_addons_sidebar_init() {
 add_action( 'widgets_init', 'imo_addons_sidebar_init' );
 
 
-function cfct_widgets_init() {
+function ga_cfct_widgets_init() {
   $sidebar_defaults = array(
     'before_widget' => '<aside id="%1$s" class="widget %2$s">',
     'after_widget' => '</aside>',
@@ -142,7 +142,7 @@ function cfct_widgets_init() {
 		'description' => __('Shown on news pages and archives.', 'carrington-business')
 	)));	
 }
-add_action( 'widgets_init', 'cfct_widgets_init' );
+add_action( 'widgets_init', 'ga_cfct_widgets_init' );
 
 
 include_once get_stylesheet_directory().'/widgets/newsletter-signup.php';
