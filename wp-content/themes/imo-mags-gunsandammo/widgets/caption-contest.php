@@ -22,7 +22,10 @@ class Caption_Contest_Widget extends WP_Widget {
       </div>
       
       <?php $img_src = wp_get_attachment_image_src(get_post_thumbnail_id($contestID), "medium"); ?>
-	    <img src="<?php echo $img_src[0]; ?>" class="wp-post-image" alt="<?php the_title(); ?>" />
+      <a href="<?php echo get_page_link($contestID); ?>">
+        <img src="<?php echo $img_src[0]; ?>" class="wp-post-image" alt="<?php the_title(); ?>" />
+      </a>
+	    
 	    
 	    <div class="prize">
         <h6>This Week&rsquo;s Prize:</h6>

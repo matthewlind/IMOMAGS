@@ -15,7 +15,13 @@ $blog = $post->post_parent == get_id_by_slug('blogs') ? "blog" : null;
 	
 	<div class="entry-summary">
 	  
-	  <span class="entry-category"><?php the_category(', '); ?></span>
+	  <span class="entry-category">
+	    <?php if (has_term('', 'blogs')) {
+	      the_terms($post->ID, 'blogs', '', ', ');
+	    } else {
+	      the_category(', ');
+	    }	?>
+	  </span>
 		<h2 class="entry-title"><a rel="bookmark" href="<?php the_permalink() ?>"><?php the_title() ?></a></h2>
 		<?php the_excerpt(); ?>
 	</div>
