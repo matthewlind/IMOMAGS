@@ -9,12 +9,12 @@ class Caption_Contest_Widget extends WP_Widget {
 	function widget($args, $instance) {
 		extract($args);
  
-    $contestID = empty($instance['contestID']) ? '6805' : $instance['contestID']; // Remove '6805', should just be empty quotes ''
+    $contestID = empty($instance['contestID']) ? '' : $instance['contestID']; // Remove '6805', should just be empty quotes ''
     
     if (!empty($contestID)) : ?>
     
     <aside id="caption_contest_promo" class="widget_caption_contest">
-      <?php // print_r(get_post_meta_keys($contestID)); ?>
+      <!-- <?php print_r(get_post_custom_keys($contestID)); ?> -->
       
       <div class="banner">
         <h4>Caption Contest</h4>
@@ -49,10 +49,10 @@ class Caption_Contest_Widget extends WP_Widget {
     // Get Caption Contest posts so we can display them in a drop down menu
     $contests = get_posts('post_type=imo_caption_contest'); ?>
     
-    <select name="<?php echo $this->get_field_id('contestID'); ?>" id="<?php echo $this->get_field_id('contestID'); ?>">
+    <select name="<?php echo $this->get_field_name('contestID'); ?>" id="<?php echo $this->get_field_id('contestID'); ?>">
     	<option value="">-- Select a Caption Contest --</option>
     	<?php foreach ($contests as $contest) : ?>
-    	<option value="<?php echo $contest->ID; ?>" <?php if ($contestID == $contest->ID) echo "selected"?>><?php echo $contest->post_title; ?></option>
+    	<option value="<?php echo esc_attr($contest->ID); ?>" <?php if ($contestID == $contest->ID) echo "selected"?>><?php echo $contest->post_title; ?></option>
     	<?php endforeach; ?>
     </select>
 
