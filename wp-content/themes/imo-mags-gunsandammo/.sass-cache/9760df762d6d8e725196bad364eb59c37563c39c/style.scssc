@@ -1,7 +1,7 @@
 3.1.11 (Brainy Betty)
-3db5f0d0d18f5da053f6d02b110d0ffcb5b365d0
+2fca66e9b423a5d1606eb4bfe68c32c0b61b528d
 o:Sass::Tree::RootNode
-:@template"»õ/*!
+:@template"ö/*!
  * Theme Name: IMO Mags - Guns & Ammo
  * Theme URI: http://imomags.com/gunsandammo
  * Description: A skin for Guns & Ammo's imomags.com page
@@ -3404,8 +3404,15 @@ body.page-comment div.imo_legacy_post { width: 100%; }
  *
  */
  
-@import "ie";:@has_childrenT:@options{ :
-@linei:@children[¤o:Sass::Tree::CommentNode:
+@import "ie";
+
+
+@media only screen and (max-device-width:1024px) {
+     body {
+      min-width: 1100px;
+    }
+  }:@has_childrenT:@options{ :
+@linei:@children[¥o:Sass::Tree::CommentNode:
 @loudi ;@:@silent0:@value["ž/*
  * Theme Name: IMO Mags - Guns & Ammo
  * Theme URI: http://imomags.com/gunsandammo
@@ -7380,4 +7387,7 @@ pager;@ºU;	i?;	i?;	i?;	i?;
  */;	iF;
 [ o;
 ;0;@;	iL;"ie;
-[ 
+[ o:Sass::Tree::MediaNode;i :@query".only screen and (max-device-width:1024px);T;@;" ;	iO;
+[o;;i ;T;["	body;@;o;;" ;[o;;[o;;@ÞU;[o;&	;0;["	body;@ÞU;	iP;	iP;	iP;	iP;
+[o; ;i ;["min-width;@;o;!;@;"1100px;";#;	iQ;
+[ ;$;%

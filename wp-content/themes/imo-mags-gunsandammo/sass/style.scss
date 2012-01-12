@@ -3402,3 +3402,10 @@ body.page-comment div.imo_legacy_post { width: 100%; }
  */
  
 @import "ie";
+
+
+@media only screen and (max-device-width:1024px) {
+     body {
+      min-width: 1100px;
+    }
+  }

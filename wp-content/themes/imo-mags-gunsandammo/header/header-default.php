@@ -17,6 +17,8 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
 	<link rel="pingback" href="<?php bloginfo('pingback_url') ?>" />
 	<?php wp_get_archives(array('type' => 'monthly', 'format' => 'link')); ?>
   
+  <meta name="viewport" content="width=device-width">
+  
   <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
 	
 	<?php // Include javascript for threaded comments if needed
