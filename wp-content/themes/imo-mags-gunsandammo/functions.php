@@ -24,13 +24,6 @@ if(!function_exists('_log')){
 }
 
 
-register_sidebar(array_merge($sidebar_defaults, array(
-'name' => 'Reviews Sidebar',
-'id' => 'reviews_sidebar',
-'description' => 'Appears on pages that are Reviews',
-)));
-
-
 // Add new image size for post lists
 add_image_size('post-thumb', 226, 147, true);
 add_image_size('post-slide', 640, 350, true);
@@ -126,6 +119,12 @@ function ga_imo_addons_sidebar_init() {
       'id'   => 'bonus_sidebar',
       'description'   => 'Appears on pages that use the Right Sidebar template',
   )));
+  
+  register_sidebar(array_merge($sidebar_defaults, array(
+  		'name' => 'Reviews Sidebar',
+		'id' => 'reviews_sidebar',
+		'description' => 'Appears on pages that are Reviews',
+)));
 
 }
 add_action( 'widgets_init', 'ga_imo_addons_sidebar_init' );
