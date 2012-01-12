@@ -46,7 +46,7 @@ function get_id_by_slug($page_slug) {
 }
 
 // Widget structure
-function imo_addons_sidebar_init() {
+function ga_imo_addons_sidebar_init() {
   
   register_nav_menus(array(
       'subnav' => __( 'Sub Navigation', 'carrington-business' ),
@@ -121,7 +121,7 @@ function imo_addons_sidebar_init() {
   )));
 
 }
-add_action( 'widgets_init', 'imo_addons_sidebar_init' );
+add_action( 'widgets_init', 'ga_imo_addons_sidebar_init' );
 
 
 function ga_cfct_widgets_init() {
