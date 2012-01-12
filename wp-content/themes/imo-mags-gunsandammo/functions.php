@@ -30,11 +30,11 @@ add_image_size('post-slide', 640, 350, true);
 
 
 // New excerpt ending
-function new_excerpt_more($more) {
+function ga_new_excerpt_more($more) {
   global $post;
  return '&nbsp;&hellip; ';
 }
-add_filter('excerpt_more', 'new_excerpt_more');
+add_filter('excerpt_more', 'ga_new_excerpt_more');
 
 function get_id_by_slug($page_slug) {
     $page = get_page_by_path($page_slug);
@@ -142,7 +142,7 @@ function ga_cfct_widgets_init() {
 		'description' => __('Shown on news pages and archives.', 'carrington-business')
 	)));	
 }
-add_action( 'widgets_init', 'ga_cfct_widgets_init' );
+add_action( 'widgets_init', 'gupnp_service_action_get(action, name, type)cfct_widgets_init' );
 
 
 include_once get_stylesheet_directory().'/widgets/newsletter-signup.php';
