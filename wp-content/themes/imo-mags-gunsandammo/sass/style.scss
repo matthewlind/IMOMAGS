@@ -3275,6 +3275,126 @@ body.parent-pageid-2114 #main {
 }
 
 
+/**************
+ * legacy article
+ **************/
+
+.node-type-article-guns .subtitle {
+  font-size:14px;
+  padding:0px 0 10px 0;
+}
+
+.node-type-article-guns .content .thumb .count {display:none}
+.node-type-article-guns .content .top {
+  margin-bottom:0px;
+}
+.node-type-article-guns h1.title {
+  border-bottom: 1px dotted #adadad;
+}
+
+div.imo_legacy_post .article-graphics {
+  float:left;
+  padding-right:10px;
+}
+
+div.imo_legacy_post .brightcove-video {
+  float: left;
+margin-right: 10px;
+}
+
+div.imo_legacy_post span.next-page a,
+div.imo_legacy_post span.prev-page a{
+  
+      background: #115FA4 url(../images/mask.png) repeat-x;
+border: 2px solid #115FA4;
+border-bottom-left-radius: 3px 3px;
+border-bottom-right-radius: 3px 3px;
+border-top-left-radius: 3px 3px;
+border-top-right-radius: 3px 3px;
+color: white;
+font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+font-size: 18px;
+padding: 5px 15px;
+text-align: center;
+text-decoration: none;
+text-transform: uppercase;
+color: white;
+}
+/** slideshow styles **/
+
+div.imo_legacy_post div.slideshow-image { 
+  margin-bottom: 20px; width: 640px; position: relative;
+  height: 395px; 
+}
+  
+  div.imo_legacy_post div.slideshow-image div.images { background: #eeeeee; height: 390px; }
+  div.imo_legacy_post div.slideshow-image div.image { display: inline; }
+  div.imo_legacy_post div.slideshow-image div.image img { margin: 10px 0 0 10px; }
+  
+  div.imo_legacy_post div.thumbs { position: absolute; top: 8px; right: 10px; }
+    div.imo_legacy_post div.thumbs div.thumb { position: relative; cursor: pointer; height: 75px; width: 112px; }
+      div.imo_legacy_post div.thumbs div.thumb span.count { 
+        position: absolute; top: 0; left: 5px; color: #B72525; z-index: 100; font-size: 13pt;
+        padding: 1px; font-family: "Verdana";
+      }
+      div.imo_legacy_post div.thumbs div.thumb img { border: 2px solid #dddddd; }
+        div.imo_legacy_post div.thumbs div.thumb img:hover, div.imo_legacy_post div.thumbs div.thumb img.active { 
+          border-color: #dddddd; 
+        }
+
+  div.imo_legacy_post div.slideshow-image div.slideshow-caption-background { 
+    position: absolute; top: 300px; left: 10px; z-index: 100; background: #333;
+    width: 500px; height: 80px; opacity:0.4; filter:alpha(opacity=40);
+  }
+    div.imo_legacy_post div.slideshow-image div.slideshow-caption {
+      font-size:14px;
+      padding: 0; margin: 0; line-height: 15px; color: #fff; position: absolute;
+      top: 314px; z-index: 200; left: 20px; width: 490px; display: none;/** hide by default **/
+    }
+      div.imo_legacy_post div.slideshow-image div.caption-count-1 { display: block; }/** show first **/  
+  
+/** landscape image styles **/
+
+div.imo_legacy_post div.landscape-image { margin-bottom: 20px; width: 640px; }
+  div.imo_legacy_post div.landscape-image div.image { background: #dddddd; }
+  div.imo_legacy_post div.landscape-image div.image img { margin: 10px 0 10px 10px; }
+  
+  div.imo_legacy_post div.caption { 
+   margin-top: 2px; padding: 5px 5px; position: relative;text-align: left;width: 320px;margin-bottom:10px;
+  }
+  div.imo_legacy_post span.caption_header_right { 
+    width: 5px; height: 4px; background: url(../images/bg_caption_right_top.gif) no-repeat;
+    position: absolute; right: 0; top: 0; display: block; 
+  }
+  div.imo_legacy_post span.caption_header_left { 
+    width: 5px; height: 4px; background: url(../images/bg_caption_left_top.gif) no-repeat;
+    position: absolute; left: 0; top: 0; display: block;
+  }
+  div.imo_legacy_post span.caption_footer_left { 
+    width: 5px; height: 4px; background: url(../images/bg_caption_left_bottom.gif) no-repeat;
+    position: absolute; left: 0; bottom: 0; display: block;
+  }
+  div.imo_legacy_post span.caption_footer_right { 
+    width: 5px; height: 4px; background: url(../images/bg_caption_right_bottom.gif) no-repeat;
+    position: absolute; right: 0; bottom: 0; display: block;
+  }
+
+div.imo_legacy_post div.body { line-height: 19px;}
+
+div.imo_legacy_post div.body.large_chart_with_pic { min-height: 600px; height: auto;}
+div.imo_legacy_post div.body.large_chart_with_video { min-height: 710px; height: auto;}
+div.imo_legacy_post div.body.large_chart_with_pic_and_video { min-height: 1000px; height: auto;}
+div.imo_legacy_post div.body.with_slideshow { padding-top:420px;}
+div.article_chart_large {clear:both;}
+body.page-comment div.imo_legacy_post { width: 100%; }
+
+.node-type-article-guns .pager {
+  margin-top:20px;
+}
+
+
+
+
 /*
  * IE STYLES
  * Crutches for poor, old versions of Internet Explorer
