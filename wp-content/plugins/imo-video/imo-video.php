@@ -51,7 +51,7 @@ function imo_video_channel_init() {
         )
     );
 
-    $types = array("imo_video");
+    $types = array("imo_video","post","posts");
 
     foreach ($taxonomies as $target_taxonomy => $taxonomy) {
         register_taxonomy(

@@ -74,7 +74,8 @@ function imo_tax_converter_associate_terms($old_term,$new_term) {
         return "***** ERROR: <span style='color:red'>$new_term</span> does not exist! *****";
     }   
     
-    
+    $postCount = 0;
+
     $old_term_id =  term_exists($old_term);
     $new_term_id =  term_exists($new_term);
     
@@ -83,6 +84,7 @@ function imo_tax_converter_associate_terms($old_term,$new_term) {
       "category_name" => $old_term,
       "posts_per_page" => -1,
       "nopaging" => TRUE,
+      "post_type" => array('post','posts','imo_video','imo_gallery','imo_blogs','imo_legacy_post'),
     );
     
     
@@ -101,6 +103,7 @@ function imo_tax_converter_associate_terms($old_term,$new_term) {
             
             $output .= "--PID: $postid new_term_id: $new_term_id new taxonomy: $newTaxonomy <br>";
             wp_set_post_terms($postid,array($new_term_id),$newTaxonomy,TRUE);
+            $postCount++;
             
             
     endwhile;
@@ -112,12 +115,14 @@ function imo_tax_converter_associate_terms($old_term,$new_term) {
             "tag" => $old_term,
             "posts_per_page" => -1,
             "nopaging" => TRUE,
+            "post_type" => array('post','posts','imo_video','imo_gallery','imo_blogs','imo_legacy_post'),
         );
         
         
         $query = new WP_Query( $args );
         // The Loop
         $output = "";
+        
         while ( $query->have_posts() ) : $query->the_post();
                 
                 $output .= "$old_term: " . get_the_title() . "<br>";
@@ -130,6 +135,7 @@ function imo_tax_converter_associate_terms($old_term,$new_term) {
                 
                 $output .= "--PID: $postid new_term_id: $new_term_id new taxonomy: $newTaxonomy <br>";
                 wp_set_post_terms($postid,array($new_term_id),$newTaxonomy  ,TRUE);
+                $postCount++;
                 
                 
         endwhile;
@@ -143,7 +149,7 @@ function imo_tax_converter_associate_terms($old_term,$new_term) {
     
     
     //return $output;
-    return "$old_term -> $new_term : <span style='color:green'>SUCCESS</span>";
+    return "$old_term -> $new_term : <span style='color:green'>SUCCESS - $postCount</span>";
 }
 
 

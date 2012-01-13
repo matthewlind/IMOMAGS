@@ -41,7 +41,7 @@ function imo_post_family_init() {
             "hierarchical" => True,
             "show_ui" => True,
             "query_var" => True,
-            "rewrite" => False,
+            'rewrite' => array('slug' => 'posts', 'with_front' => TRUE),
         )
     );
 
@@ -55,22 +55,7 @@ function imo_post_family_init() {
     }
 
 
-    wp_insert_term(
-      'Review', // the term 
-      'post_family', // the taxonomy
-      array(
 
-        'slug' => 'review'
-      )
-    );
-        wp_insert_term(
-      'Gallery', // the term 
-      'post_family', // the taxonomy
-      array(
-
-        'slug' => 'gallery'
-      )
-    );
 
 }
 
