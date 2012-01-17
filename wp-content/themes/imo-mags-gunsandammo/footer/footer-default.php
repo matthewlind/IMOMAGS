@@ -82,7 +82,7 @@ $args = array(
           <hr />
         
           <div class="extras">
-            <a href="http://www.thesportsmanchannel/">Watch the Sportsman TV Network</a> | <a href="#">Visit the Store</a>
+            <a href="http://www.thesportsmanchannel.com/">Watch the Sportsman TV Network</a> | <a href="https://store.intermediaoutdoors.com/brands.php?brand=GUNSANDAMMO">Visit the Store</a>
             <form>
               <label>Other IMO Magazines</label>
               <select>
@@ -103,7 +103,7 @@ $args = array(
             <ul class="connections">
               <li><a href="http://www.facebook.com/GunsAndAmmoMag" title="Find us on Facebook">Facebook</a></li>
               <li><a href="http://twitter.com/gunsandammomag" title="Follow us on Twitter">Twitter</a></li>
-              <li><a href="/newsletter/">Newsletter</a></li>
+              <!--<li><a href="/newsletter/">Newsletter</a></li>-->
               <li><a href="/apps/">Apps</a></li>
               <li><a href="https://secure.palmcoastd.com/pcd/eSv?iMagId=0145V&i4Ky=IBZN">Get the Magazine</a></li>
             </ul>
@@ -120,10 +120,10 @@ $args = array(
 
             <div class="utility"> 
               <a href="http://www.imoutdoorsmedia.com/IM3/" title="">About</a> &middot;
-              <a href="#">Conservation Partners</a> &middot;
+              <!--<a href="#">Conservation Partners</a> &middot;-->
               <a href="http://www.imoutdoorsmedia.com" title="">Advertise</a> &middot;
-              <a href="/privacy" title="">Privacy Policy</a> &middot;
-              <a href="/terms" title="">Terms &amp; Conditions</a>
+             <!-- <a href="/privacy" title="">Privacy Policy</a> &middot;-->
+              <!--<a href="/terms" title="">Terms &amp; Conditions</a>-->
             </div>
           </div>
 

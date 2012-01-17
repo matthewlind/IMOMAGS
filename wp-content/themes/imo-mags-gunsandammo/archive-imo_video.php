@@ -61,27 +61,40 @@ if (have_posts()) : ?>
     <h4>Tips &amp; Tactics</h4>
     <?php $instance = array (
       'post_type' => 'imo_video',
-      'limit' => '12'
+      'limit' => '12',
+      'taxonomy' => 
+          array (
+            0 => 'tips-tactics'
+          ),
     );
     the_widget('imo\IMOSliderWidget', $instance); ?>
     <a class="cta" href="#">View All <span></span></a>
   </div>
 
   <div class="video-category">
-    <h4>Guns &amp; Gear</h4>
+    <h4>Reviews</h4>
     <?php $instance = array (
       'post_type' => 'imo_video',
-      'limit' => '12'
+      'limit' => '12',
+      'taxonomy' => 
+          array (
+            0 => 'reviews-guns-gear',
+          ),
     );
     the_widget('imo\IMOSliderWidget', $instance); ?>
     <a class="cta" href="#">View All <span></span></a>
   </div>
 
   <div class="video-category">
-    <h4>Personal Defense</h4>
+    <h4>Torture Tests</h4>
     <?php $instance = array (
       'post_type' => 'imo_video',
-      'limit' => '12'
+      'limit' => '12',
+      'taxonomy' => 
+          array (
+            0 => 'torture-tests-guns-gear',
+          ),
+
     );
     the_widget('imo\IMOSliderWidget', $instance); ?>
     <a class="cta" href="#">View All <span></span></a>
