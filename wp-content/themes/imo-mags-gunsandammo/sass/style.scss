@@ -3413,6 +3413,45 @@ body.page-comment div.imo_legacy_post { width: 100%; }
   margin-top:20px;
 }
 
+div.imo_legacy_post {
+  
+  th, td, table{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.875em;
+  line-height: 1.286em;
+  }
+
+  caption {
+    font-weight:bold;
+    padding:10px;
+    font-size:16px;
+  }
+
+  tr {
+
+    border-bottom: 1px solid #CCC;
+
+  }
+
+  tr.odd {
+    background-color: #EEE;
+
+  }
+
+  td, th {
+    padding-top:5px;
+    padding-bottom:5px;
+    padding-left:5px;
+  }
+
+  .thumb .count {
+    display: none;
+  }
+
+
+}
+
+
 
 
 /*

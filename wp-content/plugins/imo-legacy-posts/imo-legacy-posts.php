@@ -19,6 +19,11 @@ License: IMO
 add_action('init', 'imo_legacy_post_init');
 
 function imo_legacy_post_init() {
+
+	wp_register_script('imo-legacy-posts', plugins_url('imo-legacy-posts.js', __FILE__), array('jquery'), '1.0');
+	wp_enqueue_script('imo-legacy-posts');
+
+
 	$labels = array(
 		'name' => _x('Legacy Posts', 'post type general name'),
 		'singular_name' => _x('Legacy Post', 'post type singular name'),
@@ -50,7 +55,6 @@ function imo_legacy_post_init() {
 }
 
 function imo_legacy_post_flush() {
-  //imo_legacy_post_init();
   flush_rewrite_rules();
 }
 register_activation_hook(__FILE__, 'imo_legacy_post_flush');
