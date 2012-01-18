@@ -148,6 +148,10 @@ function register_fs_challenge_menu() {
 
 add_action( 'init', 'register_imafs_menu' );
 
+<<<<<<< HEAD
 function register_imafs_menu() {
+=======
+function register_ima_fs_menu() {
+>>>>>>> b670e7cee36fa5bec5c88855302db231b57f6538
 	register_nav_menu( 'imafs-menu', __( 'Im A FS Menu' ) );
 }
