@@ -102,7 +102,7 @@ function imo_tax_init() {
         ),
     );
 
-    $types = array("post");
+    $types = array("post","page","imo_video","imo_gallery");
 
     foreach ($taxonomies as $target_taxonomy => $taxonomy) {
         register_taxonomy(
@@ -112,7 +112,7 @@ function imo_tax_init() {
     }
 }
 
-add_action("init", "imo_tax_init");
+add_action("after_setup_theme", "imo_tax_init");
 
 /**
  * imo_tax_import_terms() 
@@ -321,33 +321,26 @@ function imo_tax_options() {
         ),
         "location" => array(
             "North America" => array(
-                "West Coast" => array(
-                    "Washington", "Oregon", "California", 
-                ),
-                "Rocky Mountain" => array(
-                    "Arizona", "New Mexico", "Idaho", "Nevada", "Montana",
-                    "Wyoming", "Utah", "Colorado", 
-                ),
-                "Great Plains" => array(
-                    "North Dakota", "South Dakota", "Nebraska", "Kansas",
-                ),
-                
-                "North" => array(
-                    "Minnesota", "Iowa", "Missouri", "Wisconsin",
-                    "Illinois", "Michigan", "Indiana", "Ohio","New York","Pennsylvania",
+                "Midwest" => array(
+                    "Illinois", "Indiana", "Iowa", "Kansas", "Michigan", "Minnesota", "Missouri", "Nebraska", "North Dakota", "Ohio", "South Dakota", "Wisconsin",
                 ),
                 "New England" => array(
-                     "Connecticut", "Rhode Island", "Vermont",
-                    "Massachusetts", "New Hampshire", "Maine",
+                    "Connecticut", "Maine", "Massachusetts", "New Hampshire", "Rhode Island", "Vermont",
                 ),
-                "Mid-Atlantic" => array(
-                     "Maryland", "Delaware", "New Jersey",
+                "Northeast" => array(
+                    "Delaware", "Maryland", "New Jersey", "New York","Pennsylvania", 
                 ),
-                
+                "Rocky Mountain" => array(
+                    "Colorado", "Idaho", "Montana", "Utah", "Wyoming",
+                ),
                 "South" => array(
-                    "Arkansas", "Louisiana", "Mississippi", "Tennessee",
-                    "Kentucky", "Alabama", "Florida", "Georgia", "North Carolina",
-                    "South Carolina", "Virginia", "West Virginia","Texas", "Oklahoma",
+                    "Alabama", "Arkansas", "Florida", "Georgia", "Kentucky", "Louisiana", "Mississippi", "North Carolina", "South Carolina", "Tennessee", "Virginia", "West Virginia",
+                ),
+                "Southwest" => array(
+                	"Arizona", "Nevada", "New Mexico", "Oklahoma", "Texas",
+                ),
+                "West Coast" => array(
+                    "California", "Oregon", "Washington",
                 ),
                 "Canada" => array(
                     "British Columbia", "Alberta", "Sakatchewan", "Manitoba", "Ontario",

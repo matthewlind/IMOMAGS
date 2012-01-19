@@ -47,6 +47,10 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 	wp_head();
 	include_once get_stylesheet_directory() . "/head-includes.php"; 
 	?>
+<?php if (defined('GOOGLE_FONT')): ?>
+	<link href='<?php print GOOGLE_FONT; ?>' rel='stylesheet' type='text/css'>
+<?php endif; ?>
+
 <?php if (is_page_template("page-cabelas.php")) : ?>
 	<link rel="stylesheet" type="text/css" media="screen" href="<?php bloginfo('template_url'); ?>/css/contest.css?ver=<?php echo CFCT_URL_VERSION; ?>" />
 <?php  endif; ?>     	
@@ -58,8 +62,8 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 </head>
 <body <?php body_class(); ?>>
 	
-<div class='str-container'>
-        <div class='aligncenter centerad'>
+<div class="str-container">
+        <div class="aligncenter centerad">
 <?php if (function_exists("imo_dart_tag")) {
     imo_dart_tag("728x90");
 }
@@ -132,7 +136,7 @@ else {
 	</header><!-- #header -->
 	
 	<!-- Breadcrumbs -->
-	<?php if ( !is_front_page() && function_exists('yoast_breadcrumb') ): ?>
+	<?php if ( !is_front_page() && is_page() && is_archive() && function_exists('yoast_breadcrumb') ): ?>
 	<div id="crumb-wrapper">
 		<?php	yoast_breadcrumb('<p id="breadcrumbs">','</p>'); ?>
 	</div>

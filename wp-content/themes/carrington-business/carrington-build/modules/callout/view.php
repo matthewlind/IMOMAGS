@@ -1,7 +1,13 @@
 <?php
 
 	if (!empty($image)) {
-		echo $image;
+		
+		if (!empty($url)) {
+			echo "<a href='$url'>" . $image ."</a>";
+		} else {
+			echo $image;
+		}
+		
 	}
 
 	if (!empty($title)) {

@@ -9,8 +9,8 @@
  */
 
 // Requires the PHP MAPI Wrapper
-require('bc_mapi/bc-mapi.php');
-require('bc-config.php');
+require_once('bc_mapi/bc-mapi.php');
+require_once('bc-config.php');
 
 
 /**

@@ -1,7 +1,11 @@
 <?php
 
 	if (!empty($image)) {
-		echo $image;
+		if (!empty($permalink)) {
+			echo "<a href='$permalink'>" . $image ."</a>";
+		} else {
+			echo $image;
+		}
 	}
 	if (!empty($title)) {
 		echo '<h2 class="cfct-mod-title';

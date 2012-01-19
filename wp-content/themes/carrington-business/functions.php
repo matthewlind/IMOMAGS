@@ -18,6 +18,33 @@
 
 
 
+$allowedposttags["object"] = array(
+ "height" => array(),
+ "width" => array()
+);
+
+$allowedposttags["param"] = array(
+ "name" => array(),
+ "value" => array()
+);
+
+$allowedposttags["embed"] = array(
+ "src" => array(),
+ "type" => array(),
+ "allowfullscreen" => array(),
+ "allowscriptaccess" => array(),
+ "height" => array(),
+ "width" => array()
+);
+
+
+$allowedposttags["script"] = array(
+ "src" => array(),
+ "type" => array(),
+ "language" => array()
+);
+
+
 /* This function allows for logging when debugging mode is on */
 if(!function_exists('_log')){
   function _log( $message ) {
@@ -40,6 +67,7 @@ add_image_size("small-featured-thumb",110,70,TRUE);
 add_image_size("large-featured-thumb",308,225,TRUE);
 add_image_size("small-featured-thumb-x",98,76,TRUE);
 add_image_size("large-featured-thumb-x",420,300,TRUE);
+add_image_size("imo-slider-thumb",134,90,TRUE);
 
 
 
@@ -281,4 +309,4 @@ function cfct_cfct_row_html($html, $class) {
 </div>';
 }
 add_filter('cfct-row-html', 'cfct_cfct_row_html', 10, 3);
-remove_action('wp_head', 'wp_generator'); 
+remove_action('wp_head', 'wp_generator');

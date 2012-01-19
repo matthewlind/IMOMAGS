@@ -14,16 +14,45 @@ include_once("AdvertWidget.php");
  * returns a string containing the formatted dart tag.
  */
 function get_imo_dart_tag($size, $tile=1, $iframe=False, $override_params=array()) {
+
     $params = array_merge(_imo_dart_get_params($size, $tile), $override_params);
+
+    if (!empty($params['camp'])) {
+        
+        $params['campaign-key-value-pair'] = "camp=" . imo_dart_clean_tag($params['camp']) . ";";
+        $params['campaign'] = imo_dart_clean_tag($params['camp']);
+    }
+
     $tag = _imo_dart_get_tag($iframe);
     return _imo_dart_sprint_tag($params, $tag); 
 }
+
 
 
 /**
  * format the correct parameters based on the size and tile wanted.
  */
 function _imo_dart_get_params($size, $tile) {
+
+    //Check for add campaigns and grab the slug for later.
+
+    $adCampaignSlug = null;
+    if (function_exists("get_terms")) {
+        $post = get_queried_object();
+
+        $postID = $post->ID;
+
+        if ($adCampaignTerms = wp_get_object_terms($postID,"campaign")) {
+
+            if (!is_object($adCampaignTerms)) {
+
+                $adCampaignTerm = $adCampaignTerms[0];
+                $adCampaignSlug = $adCampaignTerm->slug;
+
+            }
+        }
+    }
+
     // only allow proper sizes to be used; the names are only included
     // for referecee
     $sizes = array(
@@ -43,6 +72,8 @@ function _imo_dart_get_params($size, $tile) {
         "tile" => $tile,
         "refresh" => 45,
     );
+
+
     if (is_admin()) {
         $params = array(
             "zone" => "admin",
@@ -100,7 +131,23 @@ function _imo_dart_get_params($size, $tile) {
                 "page" => "index",
             );  
         }
-        return array_merge(array_map("imo_dart_clean_tag", $params), $defaults);
+
+            //If there is an ad campaign, add a key/value pair
+
+
+    
+
+    $mergedParams = array_merge(array_map("imo_dart_clean_tag", $params), $defaults);
+
+
+    if (!empty($adCampaignSlug)) {
+        $mergedParams['campaign-key-value-pair'] = "camp=" . imo_dart_clean_tag($adCampaignSlug) . ";";
+        $mergedParams['campaign'] = $adCampaignSlug;
+
+    }
+
+
+        return $mergedParams;
 } 
 
 
@@ -110,7 +157,7 @@ function _imo_dart_get_params($size, $tile) {
 function _imo_dart_get_tag($iframe) {
     if ($iframe) 
     {
-        $tag = '<iframe src="/iframe-advert.php?size=%1$s&zone=%3$s&sect=%4$s&page=%6$s&rr=%10$s&subs=%5$s" frameBorder="0" width="%8$s" height="%9$s" scrolling="no" allowTransparency="true">';
+        $tag = '<iframe src="/iframe-advert.php?size=%1$s&zone=%3$s&sect=%4$s&page=%6$s&rr=%10$s&subs=%5$s&camp=%12$s" frameBorder="0" width="%8$s" height="%9$s" scrolling="no" allowTransparency="true">';
         $tag .= _imo_dart_get_tag(false);
         $tag .="</iframe>";
     }
@@ -118,11 +165,11 @@ function _imo_dart_get_tag($iframe) {
     {
         $tag = '<!-- %1$s Ad: -->
             <script type="text/javascript">
-document.write(unescape(\'%%3Cscript src="http://ad.doubleclick.net/adj/%2$s/%3$s;sect=%4$s;page=%6$s;subs=%5$s;sz=%1$s;dcopt=;tile=%7$s;ord=\'+dartadsgen_rand+\'?"%%3E%%3C/script%%3E\'));
+document.write(unescape(\'%%3Cscript src="http://ad.doubleclick.net/adj/%2$s/%3$s;%11$ssect=%4$s;page=%6$s;subs=%5$s;sz=%1$s;dcopt=;tile=%7$s;ord=\'+dartadsgen_rand+\'?"%%3E%%3C/script%%3E\'));
     </script>
     <noscript>
-        <a href="http://ad.doubleclick.net/adj/%2$s/%3$s;sect=%4$s;page=%6$s;subs=%5$s;sz=%1$s;dcopt=;tile=%7$s;ord=6545512368?">
-            <img src="http://ad.doubleclick.net/ad/%2$s/%3$s;sect=%4$s;page=%6$s;subs=%5$s;sz=%1$s;dcopt=;tile=%7$s;ord=6545512368?" border="0" />
+        <a href="http://ad.doubleclick.net/adj/%2$s/%3$s;%11$ssect=%4$s;page=%6$s;subs=%5$s;sz=%1$s;dcopt=;tile=%7$s;ord=6545512368?">
+            <img src="http://ad.doubleclick.net/ad/%2$s/%3$s;%11$ssect=%4$s;page=%6$s;subs=%5$s;sz=%1$s;dcopt=;tile=%7$s;ord=6545512368?" border="0" />
         </a>
     </noscript>
 <!-- END %1$s Ad: -->';
@@ -132,7 +179,7 @@ document.write(unescape(\'%%3Cscript src="http://ad.doubleclick.net/adj/%2$s/%3$
 
 
 function _imo_dart_sprint_tag($params, $tag) {
-    return sprintf($tag, $params['size'], $params['domain'], $params['zone'], $params['sect'], $params['subs'],$params['page'], $params['tile'], $params['width'], $params['height'], $params['refresh']);
+    return sprintf($tag, $params['size'], $params['domain'], $params['zone'], $params['sect'], $params['subs'],$params['page'], $params['tile'], $params['width'], $params['height'], $params['refresh'],$params['campaign-key-value-pair'],$params['campaign']);
 }
 /**
  * Attempt to formulate a domain based on the currentiste domain.
@@ -205,7 +252,7 @@ function iframe_maker () {
             "rectangle" => "180x150", "wide-skyscraper" => "300x600", "button2" => "120x60",
         );
         $size=$_GET['size'];
-        $string_list = array("size", "zone", "sect", "subs", "page");
+        $string_list = array("size", "zone", "sect", "subs", "page","camp");
         $params = array();
         foreach ($string_list as $parameter) {
             if(isset($_GET[$parameter])) {
@@ -238,6 +285,7 @@ function iframe_maker () {
 function imo_dart_clean_tag($string) {
     return preg_replace("/\s+/", '_', preg_replace("/[^a-z0-9 ]/", '', strtolower($string)));
 }
+
 add_action("init", "iframe_maker");
 
 
@@ -263,3 +311,55 @@ function imo_dart_settings_init() {
     register_setting("general", "dart_domain");
 }
 add_action("admin_menu", "imo_dart_settings_init");
+
+/******************************************************************************************
+ * Ad Campaign Taxonomy
+ ******************************************************************************************/
+add_action("init", "imo_add_campaign_init");
+
+
+function imo_add_campaign_init() {
+    $labels = array();
+
+    $labels['campaign'] = array(
+        'name' => _x( 'Ad Campaigns', 'taxonomy general name' ),
+        'singular_name' => _x( 'Campaign', 'taxonomy singular name' ),
+        'search_items' =>  __( 'Search Campaigns' ),
+        'all_items' => __( 'All Ad Campaigns' ),
+        'parent_item' => __( 'Parent Campaign' ),
+        'parent_item_colon' => __( 'Parent Campaign:' ),
+        'edit_item' => __( 'Edit Campaign' ), 
+        'update_item' => __( 'Update Campaign' ),
+        'add_new_item' => __( 'Add New Campaign' ),
+        'new_item_name' => __( 'New Ad Campaign Name' ),
+        'menu_name' => __( 'Ad Campaigns' ),
+    ); 
+
+    $taxonomies = array(
+        "campaign" => array(
+            "labels" => $labels['campaign'],
+            "hierarchical" => True,
+            "show_ui" => True,
+            "query_var" => True,
+            "rewrite" => array("slug"=>"campaign"),
+        )
+    );
+
+    $types = array("post","page","imo_video","imo_gallery","imo_blog");
+
+    foreach ($taxonomies as $target_taxonomy => $taxonomy) {
+        register_taxonomy(
+            $target_taxonomy,
+            $types,
+            $taxonomy);
+    }
+}
+
+
+
+
+
+
+
+
+

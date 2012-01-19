@@ -3,7 +3,66 @@
  *
  * supports all custom css in carrington build.
  */
+ 
+#sidebar {
+	float: right;
+}
+ 
+.entry {
+	margin: 0 0 30px 0;
+	border-bottom: 1px dotted #999;
+	padding: 0 0 20px 0;
+}
 
+/**
+ * Single Post Pagination
+ * Added By Berry 11/16/2011
+ */
+.pagination {
+	border-top: 0px dotted #CCC;
+	border-bottom: 1px dotted #CCC;
+	margin: 15px auto;
+	overflow: hidden;
+	padding: 10px 0;
+	font-size: 1em;
+}
+.pagination-content {
+	font-size: 1.2em;
+}
+.pagination a {
+	padding: 5px 10px;
+	margin: 0 0 0 0px;
+	background: #EEE;
+}
+.pagination a:hover {
+	text-decoration: none;
+	background: #DDD;
+}
+.pagination a.next, .pagination a.prev {
+	padding: 10px 15px;
+	background: #EEE;
+	font-size: 
+}
+.pagination p {
+	color: #BBB;
+	margin: 0;
+	text-align: center;
+	margin: 10px;
+}
+.pagination-content {
+	font-size: 1.5em;
+	font-weight: normal;
+}
+
+.imo-related-posts {
+	border-top: 1px dotted #CCC;
+	margin-top: 10px;
+	padding-top: 20px;
+}
+
+.addthis_toolbox.addthis_default_style {
+	margin: 15px 0;
+}
 
 /**
  * Default configuration for the subscriptions
@@ -265,10 +324,8 @@ nav.nav-featured, nav.nav-subnav-right.nav {
 }
 
 #locateChannel #channelControlsContainer #channelControls{
-    
     margin-top:88px;
 }
-
 
 #locateChannel input.searchbox {
 	border: 1px solid #cccccc;
@@ -306,28 +363,23 @@ body.page-template-page-right-php {
     width:1010px;
 }
 
-
 .bonus-background {
     float:right;
     width:310px;
-    background-color:#eeeeee;
+    background-color:#fff;
 }
 
 .bonus {
-
 	margin-top:5px;
 	margin-left:5px;
 	width: 300px;
-
 }
 
 .page-template-page-right-php .cfct-block-c,
 .page-template-page-right-php .cfct-block-b,
 .page-template-page-right-php .cfct-block-a{
     
-
 }
-
 
 .page-template-page-right-php .str-container {
     width:1010px;
@@ -416,4 +468,84 @@ width: 420px;
 
 #main-content .ngg-imagebrowser {
     padding-top: 20px;
+}
+
+/**
+ * Fix for Main Content width for Uber Menu
+ * Added By Aaron 11/18/2011
+ */
+#main-content {
+       width: 1020px;
+       clear: both;
+}
+
+/**
+ * Taxonomy Template CSS
+ * Added By Aaron 11/28/2011
+ */
+.taxonomy-page .taxonomy-col-abc {width:650px;}
+
+
+
+.taxonomy-page .taxonomy-right-box {
+	float:right;width:160px;margin-right:0px;border:5px solid #e3e3e3;padding:10px;height:363px;
+}
+
+.taxonomy-featured-container {
+	
+	margin-bottom:30px;
+}
+
+/** Entery excerpt **/
+
+.entry .entry-footer, .entry .entry-info, .reply .reply-footer {
+	margin-bottom: 5px;
+}
+
+h2.entry-title a {
+	color: #333;
+}
+h2.entry-title a:hover {
+	color: #000;
+}
+.entry-summary .entry-info h2.entry-title {
+	padding-top: 10px;
+	color: #000;
+	line-height: 1em;
+}
+
+/*GALLERY BUTTONS*/
+.ngg-imagebrowser .ngg-imagebrowser-nav .counter {
+	font-size: 1.2em !important;
+	color: #999;
+	font-weight: bold;
+	padding: 0 8px;
+	margin-top: 0px;
+}
+.ngg-imagebrowser-nav {
+
+}
+.ngg-imagebrowser-nav a {
+	color: #fff;
+	padding: 10px 25px;
+	background: #000;
+	-moz-border-radius: 2px;
+	-o-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	border-radius: 2px;
+}
+.ngg-imagebrowser .ngg-imagebrowser-nav .back, .ngg-imagebrowser .ngg-imagebrowser-nav .next {
+	margin-right: 0px;
+	border: 0px solid #DDD;
+	padding: 0px;
+}
+.ngg-imagebrowser .ngg-imagebrowser h3 {
+	margin-top: 15px;
+}
+
+
+/*Newsletter Form Edits*/
+.gform_wrapper ul li.gfield {
+	margin-top: 4px;
 }
