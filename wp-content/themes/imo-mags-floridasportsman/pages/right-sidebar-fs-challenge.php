@@ -25,7 +25,7 @@ the_post();
 ?>
 <div id="reeltime-wrapper">
 
-<header id="masthead" class="reeltime-header">
+<header id="masthead" class="fs-challenge-header">
 	<a href="/challenge/" title="Florida Sportsman Challenge"><h1 class="fs-challenge-title"><?php the_title(); ?></h1></a>
 	
 </header><!-- #masthead -->
