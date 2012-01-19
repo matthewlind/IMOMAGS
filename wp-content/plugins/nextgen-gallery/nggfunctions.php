@@ -157,6 +157,7 @@ function nggShowGallery( $galleryID, $template = '', $images = false ) {
     $ngg_options['galSortDir'] = ($ngg_options['galSortDir'] == 'DESC') ? 'DESC' : 'ASC';
     
     // get gallery values
+    //TODO: Use pagination limits here to reduce memory needs
     $picturelist = nggdb::get_gallery($galleryID, $ngg_options['galSort'], $ngg_options['galSortDir']);
 
     if ( !$picturelist )
@@ -346,12 +347,12 @@ function nggCreateGallery($picturelist, $galleryID = false, $template = '', $ima
             $thumbcode = ($ngg_options['galImgBrowser']) ? '' : $picture->get_thumbcode(get_the_title());
 
         // create link for imagebrowser and other effects
-        $args ['nggpage'] = empty($nggpage) ? false : $nggpage;
+        $args ['nggpage'] = empty($nggpage) || ($template != 'carousel') ? false : $nggpage;  // only needed for carousel mode
         $args ['pid']     = ($ngg_options['usePermalinks']) ? $picture->image_slug : $picture->pid;
         $picturelist[$key]->pidlink = $nggRewrite->get_permalink( $args );
         
         // generate the thumbnail size if the meta data available
-        if (is_array ($size = $picturelist[$key]->meta_data['thumbnail']) )
+        if ( isset($picturelist[$key]->meta_data['thumbnail']) && is_array ($size = $picturelist[$key]->meta_data['thumbnail']) )
         	$thumbsize = 'width="' . $size['width'] . '" height="' . $size['height'] . '"';
         
         // choose link between imagebrowser or effect
@@ -405,9 +406,10 @@ function nggCreateGallery($picturelist, $galleryID = false, $template = '', $ima
  * @access public 
  * @param int | string $albumID
  * @param string (optional) $template
+ * @param string (optional) $gallery_template
  * @return the content
  */
-function nggShowAlbum($albumID, $template = 'extend') {
+function nggShowAlbum($albumID, $template = 'extend', $gallery_template = '') {
     
     // $_GET from wp_query
     $gallery  = get_query_var('gallery');
@@ -425,7 +427,7 @@ function nggShowAlbum($albumID, $template = 'extend') {
                 return;
                 
         // if gallery is submit , then show the gallery instead 
-        $out = nggShowGallery( $gallery );
+        $out = nggShowGallery( $gallery, $gallery_template );
         $GLOBALS['nggShowGallery'] = true;
         
         return $out;
@@ -525,11 +527,7 @@ function nggCreateAlbum( $galleriesID, $template = 'extend', $album = 0) {
             $args['gallery'] = false; 
             $args['nggpage'] = false;
             $pageid = (isset($subalbum->pageid) ? $subalbum->pageid : 0);
-            if ($pageid > 0) {
-                $galleries[$key]->pagelink = get_permalink($pageid);
-            } else {
-                $galleries[$key]->pagelink = $nggRewrite->get_permalink($args);
-            }
+            $galleries[$key]->pagelink = ($pageid > 0) ? get_permalink($pageid) : $nggRewrite->get_permalink($args);
             $galleries[$key]->galdesc = html_entity_decode ( nggGallery::i18n($subalbum->albumdesc) );
             $galleries[$key]->title = html_entity_decode ( nggGallery::i18n($subalbum->name) ); 
             
@@ -569,7 +567,7 @@ function nggCreateAlbum( $galleriesID, $template = 'extend', $album = 0) {
         }
         
         // description can contain HTML tags
-        $galleries[$key]->galdesc = html_entity_decode ( stripslashes($galleries[$key]->galdesc) ) ;
+        $galleries[$key]->galdesc = html_entity_decode ( nggGallery::i18n( stripslashes($galleries[$key]->galdesc) ) ) ;
 
         // i18n
         $galleries[$key]->title = html_entity_decode ( nggGallery::i18n( stripslashes($galleries[$key]->title) ) ) ;
@@ -577,7 +575,10 @@ function nggCreateAlbum( $galleriesID, $template = 'extend', $album = 0) {
         // apply a filter on gallery object before the output
         $galleries[$key] = apply_filters('ngg_album_galleryobject', $galleries[$key]);
     }
-
+    
+    // apply a filter on gallery object before paging starts
+    $galleries = apply_filters('ngg_album_galleries_before_paging', $galleries, $album);
+    
     // check for page navigation
     if ($maxElement > 0) {
         if ( !is_home() || $pageid == get_the_ID() ) {
@@ -725,6 +726,7 @@ function nggCreateImageBrowser($picturelist, $template = '') {
     
     // let's get the meta data
     $meta = new nggMeta($act_pid);
+    $meta->sanitize();
     $exif = $meta->get_EXIF();
     $iptc = $meta->get_IPTC();
     $xmp  = $meta->get_XMP();
@@ -796,12 +798,12 @@ function nggSinglePicture($imageID, $width = 250, $height = 250, $mode = '', $fl
     $picture->thumbnailURL = false;
 
     // check fo cached picture
-    if ( ($ngg_options['imgCacheSinglePic']) && ($post->post_status == 'publish') )
+    if ( $post->post_status == 'publish' )
         $picture->thumbnailURL = $picture->cached_singlepic_file($width, $height, $mode );
     
     // if we didn't use a cached image then we take the on-the-fly mode 
     if (!$picture->thumbnailURL) 
-        $picture->thumbnailURL = home_url() . '/' . 'index.php?callback=image&amp;pid=' . $imageID . '&amp;width=' . $width . '&amp;height=' . $height . '&amp;mode=' . $mode;
+        $picture->thumbnailURL = trailingslashit( home_url() ) . 'index.php?callback=image&amp;pid=' . $imageID . '&amp;width=' . $width . '&amp;height=' . $height . '&amp;mode=' . $mode;
 
     // add more variables for render output
     $picture->imageURL = ( empty($link) ) ? $picture->imageURL : $link;
@@ -820,6 +822,7 @@ function nggSinglePicture($imageID, $width = 250, $height = 250, $mode = '', $fl
 
     // let's get the meta data
     $meta = new nggMeta($imageID);
+    $meta->sanitize();
     $exif = $meta->get_EXIF();
     $iptc = $meta->get_IPTC();
     $xmp  = $meta->get_XMP();
@@ -1130,4 +1133,60 @@ function nggTagCloud($args ='', $template = '') {
     
     return $out;
 }
+
+function get_objects_in_term_ex( $term_ids, $taxonomies, $args = array() ) {
+    global $wpdb;
+
+    if ( ! is_array( $term_ids ) )
+        $term_ids = array( $term_ids );
+
+    if ( ! is_array( $taxonomies ) )
+        $taxonomies = array( $taxonomies );
+
+    foreach ( (array) $taxonomies as $taxonomy ) {
+        if ( ! taxonomy_exists( $taxonomy ) )
+            return new WP_Error( 'invalid_taxonomy', __( 'Invalid Taxonomy' ) );
+    }
+
+    $defaults = array( 'order' => 'ASC' );
+    $args = wp_parse_args( $args, $defaults );
+    extract( $args, EXTR_SKIP );
+
+    $order = ( 'desc' == strtolower( $order ) ) ? 'DESC' : 'ASC';
+
+    $term_ids = array_map('intval', $term_ids );
+
+    $taxonomies = "'" . implode( "', '", $taxonomies ) . "'";
+    //$term_ids = "'" . implode( "', '", $term_ids ) . "'";
+
+
+
+
+    $sql_query = "SELECT distinct tr.object_id FROM $wpdb->term_relationships AS tr INNER JOIN $wpdb->term_taxonomy AS tt ON tr.term_taxonomy_id = tt.term_taxonomy_id WHERE tt.taxonomy IN ($taxonomies) ";
+
+   foreach($term_ids as $term_id){
+    $sql_query .= " AND tr.object_id IN (SELECT tr.object_id FROM $wpdb->term_relationships tr, $wpdb->term_taxonomy tt WHERE tr.term_taxonomy_id IN (SELECT term_taxonomy_id FROM $wpdb->term_taxonomy WHERE term_id = '". $term_id ."'))" ;
+
+    } 
+
+
+    $sql_query .= " ORDER BY tr.object_id $order"; 
+/*
+$test = mysql_query("SELECT * FROM $wpdb->terms");
+while ($row = mysql_fetch_object($test)){
+    
+    print_r($row);
+    echo "<br>";
+} */
+
+    $object_ids = $wpdb->get_col($sql_query);
+
+    if ( ! $object_ids )
+        return array();
+
+    return $object_ids;
+}
+
+
+
 ?>

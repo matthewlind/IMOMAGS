@@ -67,7 +67,7 @@ class nggSlideshowWidget extends WP_Widget {
 		$swfobject->add_attributes('styleclass', 'slideshow-widget');
 	
 		// adding the flash parameter	
-		$swfobject->add_flashvars( 'file', urlencode( home_url() . '/' . 'index.php?callback=imagerotator&gid=' . $galleryID ) );
+		$swfobject->add_flashvars( 'file', urlencode( trailingslashit( home_url() ) . 'index.php?callback=imagerotator&gid=' . $galleryID ) );
 		$swfobject->add_flashvars( 'shownavigation', 'false', 'true', 'bool');
 		$swfobject->add_flashvars( 'shuffle', $ngg_options['irShuffle'], 'true', 'bool');
 		$swfobject->add_flashvars( 'showicons', $ngg_options['irShowicons'], 'true', 'bool');
@@ -172,7 +172,10 @@ class nggWidget extends WP_Widget {
 		$instance['height']	= (int) $new_instance['height'];
 		$instance['exclude'] = $new_instance['exclude'];
 		$instance['list']	 = $new_instance['list'];
+		$instance['tags']	 = $new_instance['tags'];
+		$instance['url']	 = $new_instance['url'];
 		$instance['webslice']= (bool) $new_instance['webslice'];
+		$instance['match_all_tags']= (bool) $new_instance['match_all_tags'];
 
 		return $instance;
 	}
@@ -251,7 +254,27 @@ class nggWidget extends WP_Widget {
 			<br /><small><?php _e('Gallery IDs, separated by commas.','nggallery'); ?></small>
 			</label>
 		</p>
-		
+
+		<p>
+			<label for="<?php echo $this->get_field_id('tags'); ?>"><?php _e('Tags :','nggallery'); ?>
+			<input id="<?php echo $this->get_field_id('tags'); ?>" name="<?php echo $this->get_field_name('tags'); ?>" type="text" class="widefat" value="<?php echo $instance['tags']; ?>" />
+			<br /><small><?php _e('Tags, separated by commas.','nggallery'); ?></small>
+			</label>
+		</p>
+
+		<p>
+			<label for="<?php echo $this->get_field_id('match_all_tags'); ?>">
+			<input id="<?php echo $this->get_field_id('match_all_tags'); ?>" name="<?php echo $this->get_field_name('match_all_tags'); ?>" type="checkbox" value="1" <?php checked(true , $instance['match_all_tags']); ?> /> <?php _e('Only include images matching all tags','nggallery'); ?>
+			</label>
+		</p>
+
+		<p>
+			<label for="<?php echo $this->get_field_id('url'); ?>"><?php _e('URL :','nggallery'); ?>
+			<input id="<?php echo $this->get_field_id('url'); ?>" name="<?php echo $this->get_field_name('url'); ?>" type="text" class="widefat" value="<?php echo $instance['url']; ?>" />
+			<br /><small><?php _e('URL that the gallery will link to','nggallery'); ?></small>
+			</label>
+		</p>
+
 	<?php
 	
 	}
@@ -266,6 +289,9 @@ class nggWidget extends WP_Widget {
 		$items 	= $instance['items'];
 		$exclude = $instance['exclude'];
 		$list = $instance['list'];
+		$tags = $instance['tags'];
+		$url = $instance['url'];
+		$match_all_tags = $instance['match_all_tags'];
 		$webslice = $instance['webslice'];
 
 		$count = $wpdb->get_var("SELECT COUNT(*) FROM $wpdb->nggpictures WHERE exclude != 1 ");
@@ -291,10 +317,46 @@ class nggWidget extends WP_Widget {
                 $exclude_list = "AND t.author IN ($list)";                
 		}
 		
+
+
+	
+	$match_all_tags_sql = "";
+	if ($match_all_tags){ 
+
+		$taglist = explode(",", $tags);
+				
+		if ( !is_array($taglist) )
+			$taglist = array($taglist);
+		
+		$taglist = array_map('trim', $taglist);
+		$new_slugarray = array_map('sanitize_title', $taglist);
+		$sluglist   = "'" . implode("', '", $new_slugarray) . "'";
+		
+		// first get all $term_ids with this tag
+		
+		$term_ids = $wpdb->get_col( $wpdb->prepare("SELECT term_id FROM $wpdb->terms WHERE slug IN ($sluglist) ORDER BY term_id ASC "));
+
+		
+		
+		 
+		// get image ids
+		$picids = get_objects_in_term_ex($term_ids, 'ngg_tag');
+		
+		
+
+		$pics_matching_all_tags = implode(",", $picids);
+		$match_all_tags_sql = " pid in (".$pics_matching_all_tags.")";
+
+
+	}
+
+
 		if ( $instance['type'] == 'random' ) 
-			$imageList = $wpdb->get_results("SELECT t.*, tt.* FROM $wpdb->nggallery AS t INNER JOIN $wpdb->nggpictures AS tt ON t.gid = tt.galleryid WHERE tt.exclude != 1 $exclude_list ORDER by rand() limit {$items}");
+			$imageList = $wpdb->get_results("SELECT t.*, tt.* FROM $wpdb->nggallery AS t INNER JOIN $wpdb->nggpictures AS tt ON t.gid = tt.galleryid WHERE tt.exclude != 1 $exclude_list AND $match_all_tags_sql ORDER by rand() limit {$items}");
 		else
-			$imageList = $wpdb->get_results("SELECT t.*, tt.* FROM $wpdb->nggallery AS t INNER JOIN $wpdb->nggpictures AS tt ON t.gid = tt.galleryid WHERE tt.exclude != 1 $exclude_list ORDER by pid DESC limit 0,$items");
+			$imageList = $wpdb->get_results("SELECT t.*, tt.* FROM $wpdb->nggallery AS t INNER JOIN $wpdb->nggpictures AS tt ON t.gid = tt.galleryid WHERE tt.exclude != 1 $exclude_list AND $match_all_tags_sql ORDER by pid DESC limit 0,$items");
+
+	
 		
         // IE8 webslice support if needed
 		if ( $webslice ) {
@@ -304,36 +366,42 @@ class nggWidget extends WP_Widget {
 			$after_widget  =  '</div>'."\n" . $after_widget;			
 		}	
 		                      
-		echo $before_widget . $before_title . $title . $after_title;
-		echo "\n" . '<div class="ngg-widget entry-content">'. "\n";
-	
-		if (is_array($imageList)){
-			foreach($imageList as $image) {
-				// get the URL constructor
-				$image = new nggImage($image);
-
-				// get the effect code
-				$thumbcode = $image->get_thumbcode( $widget_id );
-				
-				// enable i18n support for alttext and description
-				$alttext      =  htmlspecialchars( stripslashes( nggGallery::i18n($image->alttext, 'pic_' . $image->pid . '_alttext') ));
-				$description  =  htmlspecialchars( stripslashes( nggGallery::i18n($image->description, 'pic_' . $image->pid . '_description') ));
-				
-				//TODO:For mixed portrait/landscape it's better to use only the height setting, if widht is 0 or vice versa
-				$out = '<a href="' . $image->imageURL . '" title="' . $description . '" ' . $thumbcode .'>';
-				// Typo fix for the next updates (happend until 1.0.2)
-				$instance['show'] = ( $instance['show'] == 'orginal' ) ? 'original' : $instance['show'];
-				
-				if ( $instance['show'] == 'original' )
-					$out .= '<img src="' . home_url() . '/' . 'index.php?callback=image&amp;pid='.$image->pid.'&amp;width='.$instance['width'].'&amp;height='.$instance['height']. '" title="'.$alttext.'" alt="'.$alttext.'" />';
-				else	
-					$out .= '<img src="'.$image->thumbURL.'" width="'.$instance['width'].'" height="'.$instance['height'].'" title="'.$alttext.'" alt="'.$alttext.'" />';			
-				
-				echo $out . '</a>'."\n";
-				
-			}
-		}
+		echo $before_widget;//
+	//	echo $before_title . $title . $after_title;
+	//	echo $tags;
 		
+		echo "\n" . '<div class="ngg-widget entry-content">'. "\n";
+		
+		
+			if (is_array($imageList)){
+				foreach($imageList as $image) {
+					// get the URL constructor
+					$image = new nggImage($image);
+
+					// get the effect code
+					$thumbcode = $image->get_thumbcode( $widget_id );
+					
+					// enable i18n support for alttext and description
+					$alttext      =  htmlspecialchars( stripslashes( nggGallery::i18n($image->alttext, 'pic_' . $image->pid . '_alttext') ));
+					$description  =  htmlspecialchars( stripslashes( nggGallery::i18n($image->description, 'pic_' . $image->pid . '_description') ));
+					
+					//TODO:For mixed portrait/landscape it's better to use only the height setting, if width is 0 or vice versa
+					$out = '<a href="' . $image->imageURL . '" title="' . $description . '" ' . $thumbcode .'>';
+					// Typo fix for the next updates (happened until 1.0.2)
+					$instance['show'] = ( $instance['show'] == 'orginal' ) ? 'original' : $instance['show'];
+					
+					if ( $instance['show'] == 'original' )
+						$out .= '<img src="' . trailingslashit( home_url() ) . 'index.php?callback=image&amp;pid='.$image->pid.'&amp;width='.$instance['width'].'&amp;height='.$instance['height']. '" title="'.$alttext.'" alt="'.$alttext.'" />';
+					else	
+						$out .= '<img src="'.$image->thumbURL.'" width="'.$instance['width'].'" height="'.$instance['height'].'" title="'.$alttext.'" alt="'.$alttext.'" />';			
+					
+					echo $out . '</a>'."\n";
+					
+				}
+			}
+			
+		
+		echo '<a class="nggallery-widget-url" href="'.$url.'">More '.$title.'</a>';	
 		echo '</div>'."\n";
 		echo $after_widget;
 		

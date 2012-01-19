@@ -1,5 +1,6 @@
-  
-			/** Featured Widget **/
+/* @override http://www.floridasportsman.devc/wp-content/themes/carrington-business/carrington-build/modules/fs-featured/css/fs-featured.css?ver=3.2.1 */
+
+/** Featured Widget **/
 			.jcarousel-skin-fs-featured .jcarousel-container { width: 330px; height: 360px;}
 			.jcarousel-skin-fs-featured .jcarousel-container-horizontal { width: 330px; height:360px;}
 			.jcarousel-skin-fs-featured .jcarousel-container .jcarousel-clip { overflow:hidden;height:380px;}
@@ -195,11 +196,10 @@ div.feature-image {
   
 }
 #fs-featured-title {
-    background-image: url(fs-feature-title-bg.png);
-  background-repeat: repeat-x;
   width:620px;
   height:40px;
   padding-left:10px;
+	background: #717f5e none repeat-x;
 }
 
 
@@ -235,10 +235,11 @@ div.feature-image {
   width:610px;
 
   height:420px;
-  border-left:10px solid #545454;
-  border-right:10px solid #545454;
-  border-bottom:10px solid #545454;
-  }
+  border-left:10px solid #717f5e;
+  border-right:10px solid #717f5e;
+  border-bottom:10px solid #717f5e;
+	background-color: white;
+}
 #fs-featured .content {
   padding-bottom:20px;
 }

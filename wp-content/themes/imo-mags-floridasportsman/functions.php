@@ -12,6 +12,51 @@ define("SERVICE_LINK", "https://secure.palmcoastd.com/pcd/eServ?iServ=MDE0NkY0ND
 define("SUBS_DEAL_STRING", "Save Over 70% off<br> the Cover Price");
 
 
+
+function new_excerpt_length($length) {
+	return 20;
+}
+add_filter('excerpt_length', 'new_excerpt_length');
+
+
+
+if ( ! function_exists( 'cfct_setup' ) ) {
+	function cfct_setup() {
+		// Add default posts and comments RSS feed links to head
+		add_theme_support( 'automatic-feed-links' );
+		
+		// This theme uses post thumbnails
+		add_theme_support( 'post-thumbnails' );
+		// Width, Height, Crop
+		set_post_thumbnail_size( 140, 120, true );
+		// Image sizes to support Carousel
+		add_image_size('post-image-large', 584, 370, true);
+		add_image_size('post-image-medium', 426, 270, true);
+		add_image_size('post-image-small', 268, 170, true);
+
+		register_nav_menus(array(
+			'main' => __( 'Main Navigation', 'carrington-business' ),
+			'featured' => __( 'Featured Navigation', 'carrington-business' ),
+			'footer' => __( 'Footer Navigation', 'carrington-business' )
+		));
+		
+		if (!is_admin()) {
+			wp_enqueue_script('carrington-business', get_bloginfo('template_directory') . '/js/master.js', array('jquery'), CFCT_URL_VERSION);
+			wp_enqueue_script('carrington-business-custom', get_bloginfo('template_directory') . '/js/custom.js', array('jquery'), CFCT_URL_VERSION);
+		}
+		
+		// Enqueue child styles at theme setup (allow child themes to override)
+		if (is_child_theme() && !is_admin()) {
+			wp_enqueue_style('carrington-business', get_bloginfo('stylesheet_url'), array(), CFCT_URL_VERSION, 'screen');
+		}
+		
+		// Attach CSS3PIE behavior to the following elements
+		css3pie_enqueue('#main-content, #main-content .str-content, #masthead, #footer-content, #footer-content .str-content, nav.nav li ul, .cfct-module.style-b, .cfct-module.style-b .cfct-mod-title, .cfct-module.style-c, .cfct-module.style-d, .cft-module.style-d .cfct-mod-title, .cfct-notice, .notice, .cfct-pullquote, .cfct-module-image img.cfct-mod-image, .cfct-module-hero, .cfct-module-hero-image, .wp-caption, .loading span, .cfct-block-abc .cfct-module-carousel, .cfct-block-abc .cfct-module-carousel, .carousel, .cfct-block-abc .cfct-module-carousel .car-content');
+	}
+}
+add_action( 'after_setup_theme', 'cfct_setup' );
+
+
 /**
  * Define Region Custom Taxonomy
  */
@@ -75,3 +120,11 @@ if (function_exists('register_sidebar')) {
 
  }
 
+/**
+ * Run the following tasks on init
+ * Keep Carrington Build styles out of the front-end. We'll add our own.
+ */
+function my_theme_remove_build_css() {
+	wp_deregister_style('cfct-build-css');
+}
+add_action('init', 'my_theme_remove_build_css');

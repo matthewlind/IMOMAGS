@@ -2,7 +2,7 @@
 CSS Name: Default Styles
 Description: NextGEN Default Gallery Stylesheet
 Author: Alex Rabe
-Version: 2.10
+Version: 2.11
 
 This is a template stylesheet that can be used with NextGEN Gallery. I tested the
 styles with a default theme Kubrick. Modify it when your theme struggle with it,
@@ -169,9 +169,9 @@ html>body .ngg-album {
 	font-size:0.9em !important;
 	clear:both !important;
 	display:block !important;
-	padding-top:15px;
+	padding-top: 15px;
+    padding-bottom: 2px;
 	text-align:center;
-	
 }
 
 .ngg-navigation span {
@@ -187,7 +187,8 @@ html>body .ngg-album {
 .ngg-navigation span.prev {
 	border:1px solid #DDDDDD;
 	margin-right:3px;
-	padding:3px 7px;
+	padding:3px 8px;
+    text-decoration: none;
 }
 
 .ngg-navigation a.page-numbers:hover,
@@ -204,26 +205,25 @@ html>body .ngg-album {
 /* ----------- Image browser style -------------*/
 
 .ngg-imagebrowser {
-	margin-top:10px;
+	
 }
 
 .ngg-imagebrowser h3 {
 	text-align:center;
-	margin-top:4px;
 }
 
 .ngg-imagebrowser img {
-	
+	border:1px solid #A9A9A9;
 	margin-top: 10px; 
 	margin-bottom: 10px; 
 	width: 100%;
 	display:block !important;
-	
+	padding:5px;
 }
 
 .ngg-imagebrowser-nav {
-	/*padding:5px;
-	margin-left:10px;*/	
+	padding:5px;
+	margin-left:10px;	
 }
 
 .ngg-imagebrowser-nav .back {
@@ -243,8 +243,6 @@ html>body .ngg-album {
 .ngg-imagebrowser-nav .counter {
 	text-align:center;
 	font-size:0.9em !important;
-	margin-top:7px;
-	color: #999;
 }
 
 .exif-data {

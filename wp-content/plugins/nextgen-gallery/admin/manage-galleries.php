@@ -60,7 +60,7 @@ function nggallery_manage_gallery_main() {
         	}, true);
         }
     	
-        if ( document.activeElement.name == 'paged' )
+        if ( document.activeElement.name == 'post_paged' )
             return true;
 	
 		var numchecked = getNumChecked(document.getElementById('editgalleries'));
@@ -283,6 +283,7 @@ if($gallerylist) {
 					<i>( <?php _e('Allowed characters for file and folder names are', 'nggallery') ;?>: a-z, A-Z, 0-9, -, _ )</i>
 				</td>
 		  	</tr>
+            <?php do_action('ngg_add_new_gallery_form'); ?>
 		  	<tr align="right">
 		    	<td class="submit">
 		    		<input class="button-primary" type="submit" name="addgallery" value="<?php _e('OK','nggallery'); ?>" />
