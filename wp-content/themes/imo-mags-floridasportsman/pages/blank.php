@@ -23,6 +23,7 @@ get_header();
 
 the_post();
 ?>
+<div class="page-template-page-right-php">
 <div class="col-abc">
 	<div <?php post_class('entry entry-full clearfix'); ?>>
 		<div class="entry-content">
@@ -36,4 +37,5 @@ the_post();
 	</div><!-- .entry -->
 	<?php //comments_template(); ?>
 </div><!-- .col-abc -->
+</div>
 <?php get_footer(); ?>

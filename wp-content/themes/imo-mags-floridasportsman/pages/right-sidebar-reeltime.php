@@ -55,7 +55,7 @@ the_post();
 			<?php edit_post_link(__('Edit', 'carrington-business')); ?>
 		</div><!-- .entry -->
 		
-		<?php if (is_page(array('rtfs','your-host-george-gozdz','prizes','about-rtfs','episode-guide','sponsors'))) {
+		<?php if (is_page(array('rtfs','host-george-gozdz','prizes','about-rtfs','episode-guide','sponsors'))) {
 			 
 		} else {
 			comments_template();

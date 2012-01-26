@@ -549,7 +549,18 @@ class nggMeta{
 		$meta['height'] = $this->size[1];
 		
 		return $meta;		
+
+
 	}
+
+	    /**
+     * If needed sanitize each value before output 
+     * 
+     * @return void
+     */
+    function sanitize () {
+        $this->sanitize = true;
+    }
 
 }
 

@@ -16,6 +16,9 @@ Follow variables are useable :
 ?>
 <?php if (!defined ('ABSPATH')) die ('No direct access allowed'); ?><?php if (!empty ($image)) : ?>
 
+<?php $album = nggdb::find_album( get_query_var('album') ); ?>
+<h2><a href="<?php the_permalink(); ?>"><?php echo $album->name?></a>: <?php echo $gallery->title?></h2>
+
 <div class="ngg-imagebrowser" id="<?php echo $image->anchor ?>">
 
 	<h3><?php echo $image->alttext ?></h3>

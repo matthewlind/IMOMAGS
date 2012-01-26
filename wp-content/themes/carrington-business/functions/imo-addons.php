@@ -6,11 +6,11 @@
  * Defines additions to Carrington Build's theme. 
  */
  
- 
+  
 /** tweak excerpts **/
-function new_excerpt_length($length) {
+ function new_excerpt_length($length) {
 	return 20;
-}
+} 
 add_filter('excerpt_length', 'new_excerpt_length');
 
 function new_excerpt_more($more) {

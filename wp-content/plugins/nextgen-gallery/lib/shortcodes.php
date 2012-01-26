@@ -272,6 +272,9 @@ class NextGEN_shortcodes {
     
     function show_tags( $atts ) {
     
+    $temp = str_replace('-', ' ', $atts['gallery']);
+    $temp = ucwords($temp);
+    $GLOBALS['ngg_shortcode'] = $temp;
         extract(shortcode_atts(array(
             'gallery'       => '',
             'album'         => ''
@@ -318,7 +321,7 @@ class NextGEN_shortcodes {
         
         return $out;
     }
-
+ 
     /**
      * Function to show a gallery of random or the most recent images with shortcode of type:
      * 

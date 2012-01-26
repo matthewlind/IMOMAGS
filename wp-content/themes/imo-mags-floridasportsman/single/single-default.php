@@ -21,6 +21,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 get_header();
 ?>
+<div class="bw-fullwidth">
 <div class="col-ab">
 	<?php
 	cfct_loop();
@@ -29,5 +30,8 @@ get_header();
 </div>
 <?php
 get_sidebar();
+?>
+</div>
+<?php
 get_footer();
 ?>

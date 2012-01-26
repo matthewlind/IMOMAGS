@@ -29,7 +29,7 @@ the_post();
 </header><!-- #masthead -->
 <div class="col-abc">
 	<div <?php post_class('entry entry-full clearfix'); ?>>
-		<div class="entry-content">
+		<div class="entry-content ">
 			<?php
 			the_content(__('Continued&hellip;', 'carrington-business'));
 			wp_link_pages();

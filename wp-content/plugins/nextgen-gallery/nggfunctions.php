@@ -726,7 +726,7 @@ function nggCreateImageBrowser($picturelist, $template = '') {
     
     // let's get the meta data
     $meta = new nggMeta($act_pid);
-    $meta->sanitize();
+    //$meta->sanitize();
     $exif = $meta->get_EXIF();
     $iptc = $meta->get_IPTC();
     $xmp  = $meta->get_XMP();
@@ -1134,7 +1134,7 @@ function nggTagCloud($args ='', $template = '') {
     return $out;
 }
 
-function get_objects_in_term_ex( $term_ids, $taxonomies, $args = array() ) {
+function get_objects_in_term_ex( $term_ids, $taxonomies, $args = array() , $match_all_tags = 0) {
     global $wpdb;
 
     if ( ! is_array( $term_ids ) )
@@ -1164,13 +1164,37 @@ function get_objects_in_term_ex( $term_ids, $taxonomies, $args = array() ) {
 
     $sql_query = "SELECT distinct tr.object_id FROM $wpdb->term_relationships AS tr INNER JOIN $wpdb->term_taxonomy AS tt ON tr.term_taxonomy_id = tt.term_taxonomy_id WHERE tt.taxonomy IN ($taxonomies) ";
 
+$x = 0;
+$num_terms = count($term_ids);
+
+$sql_query .= "AND (";
+
+if ($match_all_tags) {
+
+
    foreach($term_ids as $term_id){
-    $sql_query .= " AND tr.object_id IN (SELECT tr.object_id FROM $wpdb->term_relationships tr, $wpdb->term_taxonomy tt WHERE tr.term_taxonomy_id IN (SELECT term_taxonomy_id FROM $wpdb->term_taxonomy WHERE term_id = '". $term_id ."'))" ;
+    $x++;
+    
+    $sql_query .= " tr.object_id IN (SELECT tr.object_id FROM $wpdb->term_relationships tr, $wpdb->term_taxonomy tt WHERE tr.term_taxonomy_id IN (SELECT term_taxonomy_id FROM $wpdb->term_taxonomy WHERE term_id = '". $term_id ."'))" ;
+    if ($x < $num_terms)
+    $sql_query .= " AND ";
 
-    } 
+    }
+} else {
+
+   foreach($term_ids as $term_id){
+    $x++;
+    $sql_query .= " tr.object_id IN (SELECT tr.object_id FROM $wpdb->term_relationships tr, $wpdb->term_taxonomy tt WHERE tr.term_taxonomy_id IN (SELECT term_taxonomy_id FROM $wpdb->term_taxonomy WHERE term_id = '". $term_id ."'))" ;
+    if ($x < $num_terms)
+    $sql_query .= " OR ";
+    }
+}
 
 
-    $sql_query .= " ORDER BY tr.object_id $order"; 
+
+
+    $sql_query .= ") ORDER BY tr.object_id $order"; 
+    
 /*
 $test = mysql_query("SELECT * FROM $wpdb->terms");
 while ($row = mysql_fetch_object($test)){
