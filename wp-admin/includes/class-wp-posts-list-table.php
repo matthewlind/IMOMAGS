@@ -213,11 +213,12 @@ class WP_Posts_List_Table extends WP_List_Table {
 			if ( is_object_in_taxonomy( $post_type, 'category' ) ) {
 				$dropdown_options = array(
 					'show_option_all' => __( 'View all categories' ),
-					'hide_empty' => 0,
+					'hide_empty' => 1,
 					'hierarchical' => 1,
 					'show_count' => 0,
 					'orderby' => 'name',
-					'selected' => $cat
+					'selected' => $cat,
+					'hide_if_empty' => true
 				);
 				wp_dropdown_categories( $dropdown_options );
 			}
