@@ -310,3 +310,5 @@ function cfct_cfct_row_html($html, $class) {
 }
 add_filter('cfct-row-html', 'cfct_cfct_row_html', 10, 3);
 remove_action('wp_head', 'wp_generator');
+
+

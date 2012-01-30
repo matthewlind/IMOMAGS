@@ -23,21 +23,28 @@ get_header();
 
 the_post();
 ?>
+<!--
+<header id="masthead">
+	<h1><?php // the_title(); ?></h1>
+	<?php // edit_post_link(__('Edit', 'carrington-business')); ?>
+</header>
+--!>
 <div class="page-template-page-right-php">
 	<div class="bonus-background">
 		<div class="bonus">
-			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-landing')) : else : ?><?php endif; ?>
+			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-gallery')) : else : ?><?php endif; ?>
 		</div>
 	</div>
+    
 	<div class="col-abc ">
 		<div <?php post_class('entry entry-full clearfix'); ?>>
-			<div class="entry-content bw-fullwidth">
+			<div class="entry-content ">
 				<?php
 				the_content(__('Continued&hellip;', 'carrington-business'));
 				wp_link_pages();
 				
 				?>
-                            <?php comments_template(); ?>
+                             <?php /*comments_template();  */ ?>
 
 			</div>
 			<?php edit_post_link(__('Edit', 'carrington-business')); ?>

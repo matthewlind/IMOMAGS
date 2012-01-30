@@ -57,7 +57,7 @@ if (!class_exists('imo_loop') && class_exists('cfct_build_module')) {
 		protected $default_item_offset = 0;
 		protected $default_post_type = 'post';
 		protected $default_relation = 'AND';
-		protected $default_tax_select_text = '&mdash; Select taxonomy to filter &mdash;';
+		protected $default_tax_select_text = '&mdash; Select a taxonomy to filter &mdash;';
 		protected $js_base;
 
 		public function __construct() {

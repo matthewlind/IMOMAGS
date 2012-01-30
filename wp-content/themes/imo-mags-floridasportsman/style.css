@@ -29,6 +29,7 @@
  */
 
 @import url(http://fonts.googleapis.com/css?family=Bevan|Francois+One);
+@import url(http://fonts.googleapis.com/css?family=Bitter);
 
 a {
 	color: #0079ba;
@@ -56,33 +57,49 @@ body {
 	width: 1020px;
 	margin: 0;
 }
+.taxonomy-col-abc {
+	width: 630px !important;
+}
 
 .col-ab, .cfct-block-ab {
 	width: 630px;
-	margin-left: 30px;
+	margin-left: 0px;
 	margin-right: 0;
 }
 
 .col-bc, .cfct-block-bc {
 	width: 630px;
-	margin:  0px !important;
+	margin:  0 !important;
 	padding:  0px !important;
 }
 
-.col-a, .col-b, .col-c, .cfct-block-a, .cfct-block-b, .cfct-block-c, .col-ab .cfct-block-d, .col-ab .cfct-block-e, .cfct-block-float-c {
-	/* width: 300px; */
-	margin: 0 30px 0 0;
-	padding: 0;
+.cfct-row-a-b-c .cfct-block-a, .cfct-row-a-b-c .cfct-block-b, .cfct-row-a-b-c .cfct-block-c {
+	width: 300px;
+}
+
+.cfct-row-a-b-c-mod1 .cfct-block-f {
+	margin: 0;
+}
+.cfct-row-a-b-c-mod1 .cfct-block-d {
+	margin: 0;
+	width: 420px !important;
 }
 
 .cfct-block-c {
 	float: right;
+	padding:  0px;
+	margin:  0px;
 }
 
 .cfct-row-a-b-c .cfct-block-c {
-	padding-top: 0;
-	padding-bottom: 0;
-	padding-right: 0;
+	margin: 0;
+}
+.cfct-row-ab-c .cfct-block-c {
+	margin: 0;
+}
+.cfct-row-a-b-c .cfct-block-a, .cfct-row-a-b-c .cfct-block-b {
+	margin-right: 30px !important;
+	margin-left: 0 !important;
 }
 
 .centerad {
@@ -148,21 +165,28 @@ body {
 }
 
 #footer-content .col-a, #footer-content .col-b, #footer-content .col-c, #footer-content .cfct-block-a, #footer-content .cfct-block-b, #footer-content .cfct-block-c, #footer-content .col-ab .cfct-block-d, #footer-content .col-ab .cfct-block-e {
-	
+	width: 300px;
+}
+#footer .col-a, #footer .col-b {
+	margin-left: 0;
+	margin-right: 30px;
+}
+#footer .col-c {
+	margin: 0px;
 }
 
 /* Replace Site Title with Logo */
 
 #header .site-title a {
-	background: url() 0 0 no-repeat;
+	background: url(img/floridasportsman-logo.png) 0 0 no-repeat;
 
 
 /*enter the proper file name for you logo graphic*/
 	display: block;
-	height: 94px;
+	height: 93px;
 
 /*enter the height of your logo graphic*/
-	width: 684px
+	width: 345px
 
 ;
 	/*enter the width of your logo graphic*/
@@ -171,7 +195,7 @@ body {
 }
 
 #header {
-	background: transparent url(/files/2011/12/FS-WebpageMast-dummy.png) no-repeat 0 top;
+	background: transparent no-repeat 0 top;
 	border-width: 0px;
 	border-style: solid;
 	border-bottom: none;
@@ -181,6 +205,8 @@ body {
 
 #header .site-title {
 	margin: 0 0 0px;
+	display: block;
+	float: left;
 }
 
 nav.nav-main, nav.nav-featured {
@@ -197,6 +223,7 @@ nav.nav-main, nav.nav-featured {
 	padding-top: 0;
 	padding-bottom: 0;
 	padding-left: 25px;
+	clear: left;
 }
 
 nav.nav a {
@@ -237,7 +264,7 @@ nav.nav a:hover {
 }
 
 body {
-		background: #003e5e url(img/bg-flats-bot.jpg) no-repeat scroll center bottom;
+		background: #003e5e url(img/bg-lighthouse-bot.jpg) no-repeat scroll center bottom;
 		border-top:  none;
 }
 
@@ -366,7 +393,8 @@ h2.widget-title {
 }
 
 .home .cfct-module-loop .entry {
-	min-height: 155px;
+	min-height: 170px;
+	border-style: none;
 }
 
 .cfct-module.style-b, .cfct-module.style-c, .cfct-module.style-d, .cfct-module-image img.cfct-mod-image {
@@ -408,12 +436,13 @@ h2.entry-title a {
 	font-size: 12px;
 }
 
-.pagination {
-	border: none !important;
+div.pagination {
 	margin: 0 auto 5px;
 	overflow: hidden;
 	padding-top: 0;
 	padding-bottom: 0;
+	border-style: none !important;
+	border-width: 0px;
 }
 
 #header-sub .left {
@@ -453,6 +482,10 @@ h2.entry-title a {
 	
 }
 
+.cfct-module-loop h2.cfct-mod-title a, .not-loop h2.cfct-mod-title a {
+ 	color: white;	
+}
+
 .cfct-module.cfct-callout .cfct-mod-title, 
 .cfct-module.cf-post-callout-module .cfct-mod-title, 
 .cfct-module-loop .cfct-mod-content .entry .entry-title, 
@@ -464,14 +497,12 @@ h2.entry-title a {
 	color: black;
 }
 
-.cfct-module .cfct-mod-title a, .widget .widget-title a,
-.cfct-module .cfct-mod-title a:visited, .widget .widget-title a:visited {
-	color: #000000;
-}
+
 
 .cfct-module .cfct-mod-title a:active, .widget .widget-title a:active,
 .cfct-module .cfct-mod-title a:hover, .widget .widget-title a:hover {
-	color: #0079BA;
+	color: #00fcfd;
+	text-decoration: none;
 }
 
 /* Style A - basic text style with no box */
@@ -691,6 +722,10 @@ nav.nav-subnav.nav a:hover {
 
 #menu-whats-biting-regions {
 	line-height: 1.3em;
+	
+}
+#menu-whats-biting-regions li.mwbr-tropic {
+	margin-top: 15px;
 }
 
 /**
@@ -717,15 +752,54 @@ aside.widget .newsletter h3.gform_title {
 	font-family: "Arvo", Helvetica, Arial, sans-serif;
 	font-weight: bold;
 }
+/* --------------- */
+/* BOLDWATER STYLES */
+/* ---------------- */
 
-/* Boldwater Styles */
+.cfct-row {
+	display: block;
+	zoom: 1;
+	padding-right: 30px;
+	padding-left: 30px;
+	background-color: white;
+}
 
-.col-ab, .col-bc, .col-abc, .cfct-block-abc {
+.entry {padding: 0;
+border-style: none;}
+#bottom-wrap {
+	background: url(img/bg-lighthouse-top.jpg) no-repeat scroll center top;
+}
+
+body.page-template-page-right-php { width: 100% !important; }
+
+.page-template-page-right-php {
+}
+
+.page-template-page-right-php .str-container { width: 1020px; margin: auto; }
+
+.page-template-page-right-php .cfct-block-d,.page-template-page-right-php .cfct-block-e {          width:300px;
+}
+.page-template-page-right-php .cfct-block-d {
+	margin-right: 30px !important;
+}
+.page-template-page-right-php .cfct-block-e {
+	margin: 0 0 0 0 !important;
+}
+
+.page-template-page-right-php .col-abc {
+	margin: 0;
+	padding: 0;
+}
+.page-template-page-right-php .col-ab,.page-template-page-right-php .col-bc,.page-template-page-right-php .cfct-block-ab,.page-template-page-right-php .cfct-block-bc {}
+
+.cfct-module-hero .cfct-mod-title {font-size: 30px;font-weight: normal;text-shadow: black 1px 1px 2px;-o-text-overflow: ellipsis;
+	color: white;
+}
+
+.col-ab .entry, .col-bc .entry, .cfct-block-ab .entry, .cfct-block-bc .entry {
 	
 }
-.home #main-content .str-content {
-	padding-top: 0;
-}
+
 #main-content .str-content {
 	-moz-border-radius-topleft: 0px;
 	-webkit-border-top-left-radius: 0px;
@@ -743,38 +817,94 @@ aside.widget .newsletter h3.gform_title {
 
 }
 
-
-
-.home #main-content .str-content {
-	background-color: transparent !important;
+#footer-content .str-content {
+	border-width: 0px;
+	border-style: none;
+	overflow: hidden;
+	padding: 0 0 10px 30px;
+	background-color: #07293b;
 }
 
-.home .cfct-build>:first-child {
-	background-color: rgba(0,0,0,0.68);
-	padding-top: 15px;
-	border-bottom: 15px solid white;
+#sidebar.col-c {
+	float: right;
+	margin: 0;
 }
 
-.cfct-row {
+.entry .entry-content,.entry .entry-summary,.reply .reply-content,.entry .entry-footer,.reply .reply-footer {
+	margin-bottom: 0px;
+}
+
+.entry-full.cfct-can-haz-build {
+	margin-bottom: 0px;
+}
+
+.cfct-block-third {
+	margin-left: 0px !important;
+	margin-right: 18px !important;
+}
+.reeltime-template .cfct-block-third {
+	width: 32%;
+}
+.cfct-block-third-last {
+	margin-right: 0px !important;
+	margin-left: 0px !important;
+}
+.cfct_row_4col-block-a, .cfct_row_4col-block-b, .cfct_row_4col-block-c {
+	margin: 0 15px 0 0 !important;
+}
+.cfct_row_4col-block-d {
+	margin: 0 !important;
+}
+.cfct_row_4col .cfct-mod-content h2 {
+	display: none;
+}
+.cfct-row-a-b-c-mod1 .cfct-block-g {
+	width: 300px;
+	margin: 0;
+}
+
+.cfct-block-abc .cfct-module-hero {
+	margin-left: -30px;
+	width: 660px;
+	margin-top: 15px;
+}
+.cfct-module-hero p {
+	padding: 8px;
+	background-color: rgba(255,254,255,0.48);
+	font-weight: bold;
+}
+.cfct-widget-module-nav_menu {
+	margin: 0px;
+}
+.pagination a {
+	background-color: transparent;
+	padding: 0 !important;
+}
+
+#header #searchform {
+	width: 175px;
+}
+#header #searchform .screen-reader-text {
+	display: none;
+}
+#header #searchform #s {
+	width: 100px;
+	height: 20px;
+}
+
+img.header-feature-nav {
 	display: block;
-	zoom: 1;
-	padding-right: 30px;
-	padding-left: 30px;
-	background-color: white;
+	float: left;
 }
 
-.home h2.cfct-mod-title {
-	color: white;
-	background-color: #003e5e;
-	padding-left: 8px;
-	padding-top: 2px;
-	padding-bottom: 2px;
-	font-family: 'Bevan';
-	font-weight: normal;
-	font-style: normal;
-	letter-spacing: inherit;
-	background-image: url(img/loop-title-bg.jpg);
-	text-shadow: black 1px 1px 1px;
+a.header-webxtra {
+	margin-left: 90px;
+	height: 50px;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	float: left;
+	margin-top: 15px;
 }
 
 nav.nav-subnav.nav {
@@ -788,23 +918,20 @@ nav.nav-main li {
 	margin-right: 0px;
 }
 
-.bonus-background {
-	float: right;
-	width: 300px;
-	background-color: white;
-	margin-right: 30px;
-}
-
-.bonus {
-	margin-top: 0px;
-	margin-left: 0;
-	width: 300px;
-}
-
 ul.sub-menu {
 	background-color: #49637f !important;
 	margin: 0;
 	padding: 0;
+}
+.nav-subnav ul.sub-menu {
+	background-color: white !important;
+}
+.nav-subnav ul.sub-menu a {
+	padding-right: 10px;
+	padding-left: 10px;
+}
+.nav-subnav ul.sub-menu a:hover {
+	color: white;
 }
 
 ul.sub-menu a {
@@ -821,6 +948,14 @@ nav.nav ul.sub-menu li a:hover {
 	background-color: #717f5e;
 	text-shadow: #000000 1px 1px 1px;
 }
+li.mainnav-resources {
+	position: relative;
+}
+li.mainnav-resources:hover ul.sub-menu{
+    left:auto;  
+    right:-1px;  
+    top:auto;  
+}
 
 #crumb-wrapper {
 	margin: 0 auto;
@@ -836,43 +971,230 @@ nav.nav ul.sub-menu li a:hover {
 	margin: 0;
 	color: white;
 }
-<<<<<<< HEAD
+
 #breadcrumbs a {
 	color: white;
 	font-weight: bold;
 }
 
-.col-ab .entry, .col-bc .entry, .cfct-block-ab .entry, .cfct-block-bc .entry {
-	
+.home-feature-menu {
+	background-color: white;
+	width: 165px;
+	padding: 10px;
+	margin-right: 25px;
+}
+.home-feature-menu div.widget_nav_menu, .home-feature-menu .cfct-mod-content {
+	margin: 0;
+}
+.home #main-content .str-content {
+	padding-top: 0;
 }
 
-#sidebar.col-c {
+.home #main-content .str-content {
+	background-color: transparent !important;
+}
+
+.home .cfct-build>:first-child {
+	background-color: rgba(0,0,0,0.68);
+	padding-top: 15px;
+	border-bottom: 15px solid white;
+}
+
+.home h2.cfct-mod-title {
+	color: white;
+	background-color: #003e5e;
+	padding-left: 8px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	font-family: 'Bevan';
+	font-weight: normal;
+	font-style: normal;
+	letter-spacing: inherit;
+	background-image: url(img/loop-title-bg.jpg);
+	text-shadow: black 1px 1px 1px;
+}
+.news-flash {
+	width: 185px;
+	background-color: #1c5a79;
+	color: white;
+	margin-top: 20px;
+}
+.news-flash img {
+	display: none;
+}
+.news-flash .cfct-mod-title {
+	color: white;
+	background-image: none;
+	margin: 0;
+	padding: 0;
+	text-transform: uppercase;
+}
+.news-flash h2 {
+	background-color: #003e5e;
+	font: normal 18px 'Francois One',Times New Roman !important;
+	padding: 3px 8px 3px 8px  !important;
+
+}
+
+.news-flash p {
+	padding: 8px;
+	margin: 0;
+}
+.news-flash p a {
+	color: white;
+}
+.news-flash .cfct-mod-title a:link, .news-flash .cfct-mod-title a:visited {
+	color: white !important;
+}
+.cfct-html.featured-sub-promo {
+	padding: 0px;
+	margin: 25px 0px 0px;
+}
+
+div.forecast {
+	display: block;
+	float: left;
+	margin: 0;
+	border-top: 4px solid #717f5e;
+		border-bottom: 4px solid #717f5e;
+	padding-top: 10px;
+	padding-bottom: 5px;
+}
+
+.forecast h2.cfct-header-small  {
+	font-size: 14px !important;
+	font-weight: bold !important;
+}
+.forecast img {
+	width: 80px;
+	height: 80px;
+}
+.forecast a:link, .forecast a:visited {
+	color: #717f5e !important;
+}
+.forecast a:hover {
+	color: #68809a !important;
+}
+
+.taxonomy-page .taxonomy-right-box {float:right;width: 180px;margin-right:0px;border: 5px none #e3e3e3;padding:10px;height:363px;}
+
+.ngg-album {
+	width: 290px;
+	float: left;
+	border-style: none !important;
+	margin-right: 10px;
+	min-height: 250px;
+}
+
+.ngg-thumbnail img {
+	background-color:#FFFFFF;
+	border:1px solid #A9A9A9;
+	margin:4px 0px 4px 5px;
+	padding: 0 !important;
+	position:relative;
+}
+
+
+.ngg-gallery-thumbnail img {
+	background-color:#FFFFFF;
+	border:1px solid #A9A9A9;
+	display:block;  
+	margin: 4px 0px 4px 0;
+	padding: 0 !important;
+	position:relative;
+}
+
+.ngg-album p {
+	font-size: 12px;
+}
+
+.ngg-widget a img {
+	padding: 0px !important;
+	border: 1px solid white !important;
+}
+.ngg-widget a {
+	display: inline-block;
+	float: left;
+	margin: 0;
+	padding: 10px 10px 0;
+}
+
+.ngg-widget,
+.ngg-widget-slideshow {
+	overflow: hidden;
+	margin:0 ;
+	padding: 0 !important;
+	text-align:left;
+}
+.ngg_images {
+}
+div.gal-widget-head-row h1.cfct-mod-title {
+	height: 25px;
+	margin: 0 0 5px;
+}
+.gal-widget-head-row {
+	margin: 0;
+}
+.gal-widget-multithumb a {
+}
+.nggallery-widget-url {
+	float: left;
+	display: block;
+	clear: left;
+}
+a.nggallery-widget-url {
+	background-color: #00457c;
+	font-weight: bold;
+	color: white;
+	width: 100%;
+	padding: 0 0 5px 10px;
+}
+div.ngg-widget.entry-content {
+	width: 100% !important;
+	background-color: #003e5e;
+}
+
+.cfct-module-featured-thumbs {
+  
+  width:420px;
+	height: 390px;
+	overflow: hidden;
+}
+
+
+#footer .col-b .textwidget {
+	background-color: white;
+}
+
+.bonus {
+	margin-top: 0px;
+	margin-left: 0;
+	width: 300px;
 	float: right;
 }
 
-#footer-content .str-content {
-	border-width: 0px;
-	border-style: none;
-	overflow: hidden;
-	padding: 0 0 0 30px;
-	background-color: #07293b;
+.bonus-background {
+	float: right;
+	width: 300px;
+	background-color: white;
+	margin-right: 30px;
 }
 
-.entry .entry-content,.entry .entry-summary,.reply .reply-content,.entry .entry-footer,.reply .reply-footer {
-	margin-bottom: 0px;
+.bw-fullwidth {
+	padding-right: 30px;
+	padding-left: 30px;
 }
 
-.entry-full.cfct-can-haz-build {
-	margin-bottom: 0px;
+.bw-fullwidth .bonus-background {
+	margin: 0;
+}
+
+.bw-fullwidth .entry {
+	width: 630px;
 }
 
 #idc-container-parent {
 	
-}
-
-.page-template-page-right-php .col-abc {
-	margin: 0;
-	padding: 0;
 }
 
 #imoprodgallery {
@@ -901,6 +1223,7 @@ font: 20px 'Bevan' !important;
 
 #imoprodscrollselector {
 	top: 215px !important;
+		background:none !important;
 }
 
 .itemtitle div {
@@ -923,30 +1246,6 @@ font: 20px 'Bevan' !important;
 
 .nav-home a {
 text-indent: -9999px;
-background: url(http://www.floridasportsman.com/files/2011/08/home1.png) no-repeat 4px 4px;
-}
-
-#fs-featured-title-text {
-  font-family: 'Bevan' !important;
-	text-shadow: black 1px 1px 1px;
-}
-
-#fs-featured .right h2 {
-  font-family: 'Francois One', "Arial Black", Helvetica, Arial !important;
-  font-weight: normal !important;
-  color: #717f5e !important;
-}
-
-.ngg-widget a img {
-	padding: 0px !important;
-	border: 1px solid white !important;
-}
-.ngg-widget a {
-	padding: 10px !important;
-	background-color: #00457c;
-	display: inline-block;
-	margin-right: 0px;
-	float: left;
 }
 div.widget_advert-widget {
 	text-align: center;
@@ -961,30 +1260,20 @@ span.next {
 	text-transform: capitalize;
 	font-size: 12px;
 }
-.page-template-page-right-php {
+
+#fs-featured-title-text {
+  font-family: 'Bevan' !important;
+	text-shadow: black 1px 1px 1px;
 }
-#bottom-wrap {
-	background: url(img/bg-flats-top.jpg) no-repeat scroll center top;
+
+#fs-featured .right h2 {
+  font-family: 'Francois One', "Arial Black", Helvetica, Arial !important;
+  font-weight: normal !important;
+  color: #717f5e !important;
 }
-.bw-fullwidth {
-	padding-right: 30px;
-	padding-left: 30px;
+
+#featured-articles-navigator li a {background-color: #231F20; display:block;height: 76px;width:95px !important;border-style:none !important;
 }
-.page-template-page-right-php .col-ab,.page-template-page-right-php .col-bc,.page-template-page-right-php .cfct-block-ab,.page-template-page-right-php .cfct-block-bc {width: 400px;}
-.cfct-block-abc .cfct-module-hero {margin-left: -30px;width: 660px;
-	margin-top: 15px;
-}
-.cfct-module-hero .cfct-mod-title {font-size: 30px;font-weight: normal;text-shadow: black 1px 1px 2px;-o-text-overflow: ellipsis;
-	color: white;
-}
-.cfct-module-hero p {
-	padding: 8px;
-	background-color: rgba(255,254,255,0.48);
-	font-weight: bold;
-}
- 
- 
-#featured-articles-navigator li a {background-color: #231F20; display:block;height: 76px;width:95px !important;border-style:none !important;}
 
 #featured-articles-navigator li {
   list-style:none;
@@ -993,54 +1282,17 @@ span.next {
   float:left;
   display:block;
   width: 95px !important;
-  margin-left:6px;
+  margin-left: 6px;
+	padding-left: 7px;
 }
-#header #searchform {
-	width: 175px;
+#featured-articles-navigator li.first {
+	padding-left: 0;
 }
-#header #searchform .screen-reader-text {
-	display: none;
+.featured-item-description h2 {
+	font: normal 24px 'Francois One' !important;
+	padding: 15px !important;
+	background-color: rgba(0,62,94,0.59);
 }
-#header #searchform #s {
-	width: 100px;
-	height: 20px;
-}
-
-.ngg-widget,
-.ngg-widget-slideshow {
-	overflow: hidden;
-	margin:0pt;
-	padding: 0px 0px 0px 0pt;
-	text-align:left;
-}
-.cfct_row_4col-block-a, .cfct_row_4col-block-b, .cfct_row_4col-block-c {
-	margin: 0 15px 0 0;
-}
-.cfct_row_4col-block-d {
-	margin: 0;
-}
-.cfct_row_4col .cfct-mod-content h2 {
-	display: none;
-}
-div.gal-widget-head-row h1.cfct-mod-title {
-	margin: 0;
-	height: 30px;
-	border-bottom-style: solid;
-	border-bottom-width: 2px;
-}
-.nggallery-widget-url {
-	float: left;
-	display: block;
-	clear: left;
-	border-bottom-style: solid;
-}
-a.nggallery-widget-url {
-	background-color: transparent;
-	font-weight: bold;
-	padding: 10px 0 0  !important;
-	float: left;
-=======
-
 /*sign up email field fix*/
 #field_3_1 {
 margin: 0px;
@@ -1055,15 +1307,10 @@ background: #BF3D06;
 /*BONUS SIDEBAR*/
 
 .bonus-background {
-	width: 330px;
 	background-color: none;
-	border-left: 1px solid #EEE;
 }
 
 .bonus {
-	margin-top: 0px;
-	margin-left: 15px;
-	width: 300px;
 }
 
 /*REEL TIME*/
@@ -1132,12 +1379,13 @@ nav.nav-secondary li.current-menu-item a {
 }
 
 #masthead.reeltime-header {
-	background: url(img/reeltime-header.jpg) 0 0 no-repeat;
+	background: url(img/reeltime-header.jpg) 15px 0 no-repeat;
 	border-bottom: 0px dotted #999;
 	bottom: 0px;
-	left: 15px;
+	left: 0px;
 	padding: 0;
-	height: 205px;
+	height: 200px;
+	margin: 0px;
 }
 
 #masthead.reeltime-header .reeltime-title {
@@ -1147,12 +1395,12 @@ nav.nav-secondary li.current-menu-item a {
 	width: 330px;
 	overflow: hidden;
 	text-indent: -9999em;
-	margin: 12px 0 0 15px;
+	margin: 12px 0 0 30px;
 }
 #bonus-area {
-	padding-bottom: 30px
+	padding-bottom: 30px;
 	border-bottom: 1px solid #eee;
-	margin-bottom: 30px
+	margin-bottom: 30px;
 }
 #reeltime-wrapper #bonus-area h2, #reeltime-wrapper h2.cfct-mod-title {
 	font-family: 'Bitter', serif;
@@ -1161,13 +1409,12 @@ nav.nav-secondary li.current-menu-item a {
 }
 
 .page-template-page-right-php.reeltime-template .bonus-background {
-	width: 335px;
+	width: 300px;
 }
 .page-template-page-right-php.reeltime-template .bonus {
-	margin-left: 25px;
+	margin-left: 0px;
 }
 .page-template-page-right-php.reeltime-template .col-abc {
-	width: 630px;
 }
 .page-template-page-right-php.reeltime-template .cfct-block.block-1.cfct-block-b, .page-template-page-right-php.reeltime-template .cfct-block.block-2.cfct-block-c {
 	margin-left: 5px;
@@ -1188,14 +1435,14 @@ nav.nav-secondary li.current-menu-item a {
 }
 .page-template-page-right-php.reeltime-template .entry-full {
 	border-bottom: 0px dotted #999;
+
 }
+
 
 #reeltime-wrapper #idc-container-parent {
 	display: none;
 }
-#reeltime-wrapper #bonus-area h2 {
-	font-size: 16px;
-}
+
 
 /*FSTV*/
 
@@ -1216,4 +1463,114 @@ nav.nav-secondary li.current-menu-item a {
 	overflow: hidden;
 	text-indent: -9999em;
 	margin: 12px 0 0 15px;
+}
+
+/* HOTFIXES */
+
+#reeltime-wrapper .widget .widget-title {
+font-size: 16px;
+font-family: Helvetica;
+}
+#reeltime-wrapper .cfct-module.cfct-heading h2.cfct-mod-title {
+font-family: 'Bitter', serif;
+text-transform: none;
+color: #2E2E2E;
+}
+#reeltime-wrapper #bonus-area h2 {
+font-size: 16px;
+}
+#field_3_1 {
+margin: 0px;
+}
+#reeltime-wrapper #idc-container-parent {
+	display: none;
+}
+.page-template-page-right-php.reeltime-template .entry-full {
+border-bottom: 0px dotted #999;
+}
+.ngg-imagebrowser-nav a {
+color: #fff !important;
+background: #BF3D06;
+}
+.page-template-page-right-php.reeltime-template .cfct-module .cfct-mod-title a {
+font-size: 18px;
+}
+.page-template-page-right-php.reeltime-template .cfct-block-c {
+padding-left: 0px;
+margin: 0px;
+}
+.page-template-page-right-php.reeltime-template .cfct-block-bc {
+margin: 0px;
+}
+.nav-home { 
+margin-top: 7px !important;
+height: 20px;
+text-indent: -9999px;
+background: url(/files/2011/08/home1.png) no-repeat;
+}
+
+#masthead.fstv-header {
+		background: url(/files/2012/01/fs-tv-header.jpg) 0 0 no-repeat;
+		border-bottom: 0px dotted #999;
+	bottom: 0px;
+	left: 0px;
+	padding: 0;
+	height: 200px;
+	margin: 0px;
+}
+
+#masthead.fstv-header .fstv-title {
+		background:url(/files/2012/01/fs-tv-logo-black.jpg) 0 0 no-repeat !important;
+display: block;
+height: 141px;
+		width: 330px;
+		overflow: hidden;
+		text-indent: -9999em;
+		margin: 12px 0 0 30px;
+}
+
+
+
+#masthead.fs-challenge-header {
+		background: url(/files/2012/01/sportsmans-challenge-header.jpg) no-repeat 15px 0;
+		border-bottom: 0px dotted #999;
+	bottom: 0px;
+	left: 0px;
+	padding: 0;
+	height: 200px;
+	margin: 0px;
+	}
+
+
+
+
+#main-content #masthead.imafs-header {
+		background: url(/files/2012/01/imafs-header.jpg) 0 0 no-repeat;
+		border-bottom: 0px dotted #999;
+		bottom: 0px;
+		left: 15px;
+		padding: 0;
+		height: 205px;
+}
+
+
+#main-content #masthead.fs-challenge-header .fs-challenge-title {
+		background: url(/files/2012/01/sportsmans-challenge-logo.jpg) 0 0 no-repeat;
+		display: block;
+		height: 141px;
+		width: 330px;
+		overflow: hidden;
+		text-indent: -9999em;
+		margin: 12px 0 0 30px;
+}
+
+#masthead .imafs-title {
+
+		display: block;
+		height: 141px;
+		width: 330px;
+		overflow: hidden;
+		text-indent: -9999em;
+		margin: 12px 0 0 15px;
+		background: url(/files/2012/01/imafs-logo.jpg) 0 0 no-repeat;
 }

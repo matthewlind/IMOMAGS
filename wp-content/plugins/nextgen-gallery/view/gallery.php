@@ -14,7 +14,19 @@ Follow variables are useable :
 ?>
 <?php if (!defined ('ABSPATH')) die ('No direct access allowed'); ?><?php if (!empty ($gallery)) : ?>
 
+<?php $album = nggdb::find_album( get_query_var('album') ); ?>
 <div class="ngg-galleryoverview" id="<?php echo $gallery->anchor ?>">
+<h2><a href="<?php the_permalink(); ?>"><?php
+
+
+ if ($album->name)
+  	echo $album->name . '</a>: '. $gallery->title;
+ else
+ 	echo substr($GLOBALS['ngg_shortcode'], 3) . '</a>';
+
+ 	 ?>
+
+ 	 </h2>
 
 <?php if ($gallery->show_slideshow) { ?>
 	<!-- Slideshow link -->

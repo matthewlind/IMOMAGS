@@ -321,7 +321,9 @@ class nggWidget extends WP_Widget {
 
 	
 	$match_all_tags_sql = "";
-	if ($match_all_tags){ 
+	
+
+	if (strlen($tags) > 0) { 
 
 		$taglist = explode(",", $tags);
 				
@@ -340,21 +342,22 @@ class nggWidget extends WP_Widget {
 		
 		 
 		// get image ids
-		$picids = get_objects_in_term_ex($term_ids, 'ngg_tag');
+
+		$picids = get_objects_in_term_ex($term_ids, 'ngg_tag', $match_all_tags);
 		
 		
 
 		$pics_matching_all_tags = implode(",", $picids);
-		$match_all_tags_sql = " pid in (".$pics_matching_all_tags.")";
+		$match_all_tags_sql = " AND pid in (".$pics_matching_all_tags.")";
 
 
 	}
 
 
 		if ( $instance['type'] == 'random' ) 
-			$imageList = $wpdb->get_results("SELECT t.*, tt.* FROM $wpdb->nggallery AS t INNER JOIN $wpdb->nggpictures AS tt ON t.gid = tt.galleryid WHERE tt.exclude != 1 $exclude_list AND $match_all_tags_sql ORDER by rand() limit {$items}");
+			$imageList = $wpdb->get_results("SELECT t.*, tt.* FROM $wpdb->nggallery AS t INNER JOIN $wpdb->nggpictures AS tt ON t.gid = tt.galleryid WHERE tt.exclude != 1 $exclude_list $match_all_tags_sql ORDER by rand() limit {$items}");
 		else
-			$imageList = $wpdb->get_results("SELECT t.*, tt.* FROM $wpdb->nggallery AS t INNER JOIN $wpdb->nggpictures AS tt ON t.gid = tt.galleryid WHERE tt.exclude != 1 $exclude_list AND $match_all_tags_sql ORDER by pid DESC limit 0,$items");
+			$imageList = $wpdb->get_results("SELECT t.*, tt.* FROM $wpdb->nggallery AS t INNER JOIN $wpdb->nggpictures AS tt ON t.gid = tt.galleryid WHERE tt.exclude != 1 $exclude_list $match_all_tags_sql ORDER by pid DESC limit 0,$items");
 
 	
 		
@@ -400,8 +403,9 @@ class nggWidget extends WP_Widget {
 				}
 			}
 			
-		
-		echo '<a class="nggallery-widget-url" href="'.$url.'">More '.$title.'</a>';	
+		if (strlen($url) > 0)
+			echo '<a class="nggallery-widget-url" href="'.$url.'">More '.$title.'</a>';	
+
 		echo '</div>'."\n";
 		echo $after_widget;
 		

@@ -92,6 +92,13 @@ else {
 }
 ?>
 	     <h1 class="site-title"><a href="<?php echo home_url('/'); ?>" title="<?php _e('Home', 'carrington-business') ?>"><?php bloginfo('name'); ?></a></h1>
+         <img class="header-feature-nav" src="/wp-content/themes/imo-mags-floridasportsman/img/header-feature-nav.png" width="483" height="93" border="0" usemap="#featureheader" />
+  <map name="featureheader" id="featureheader">
+    <area shape="rect" coords="1,2,161,90" href="/rtfs/" alt="Reel Time with Florida Sportsman" />
+    <area shape="rect" coords="162,2,305,88" href="/galleries/" alt="Florida Sportsman Member Photos" />
+    <area shape="rect" coords="309,4,459,87" href="/imafs/" alt="Are you a Florida Sportsman?" />
+  </map>
+<a class="header-webxtra" href="/xtra/"><img  src="/wp-content/themes/imo-mags-floridasportsman/img/header-webxtra.png"></a>
 					     
 			 
 		

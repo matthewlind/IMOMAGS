@@ -16,10 +16,15 @@ define("GOOGLE_FONT", "http://fonts.googleapis.com/css?family=Bitter");
 
 
 
-function new_excerpt_length($length) {
+function boldwater_excerpt_length($length) {
+    
 	return 20;
+
 }
-add_filter('excerpt_length', 'new_excerpt_length');
+
+
+
+
 
 
 
@@ -31,7 +36,7 @@ if ( ! function_exists( 'cfct_setup' ) ) {
 		// This theme uses post thumbnails
 		add_theme_support( 'post-thumbnails' );
 		// Width, Height, Crop
-		set_post_thumbnail_size( 140, 120, true );
+		set_post_thumbnail_size( 150, 120, true );
 		// Image sizes to support Carousel
 		add_image_size('post-image-large', 584, 370, true);
 		add_image_size('post-image-medium', 426, 270, true);
@@ -51,6 +56,7 @@ if ( ! function_exists( 'cfct_setup' ) ) {
 		// Enqueue child styles at theme setup (allow child themes to override)
 		if (is_child_theme() && !is_admin()) {
 			wp_enqueue_style('carrington-business', get_bloginfo('stylesheet_url'), array(), CFCT_URL_VERSION, 'screen');
+            add_filter('excerpt_length', 'boldwater_excerpt_length');
 		}
 		
 		// Attach CSS3PIE behavior to the following elements
@@ -86,8 +92,79 @@ function fs_region_init() {
             "show_ui" => True,
             "query_var" => True,
             "rewrite" => array("slug"=>"region"),
-        )
+        ));
+		
+$labels = array(
+        'name' => _x( 'Columns', 'taxonomy general name' ),
+        'singular_name' => _x( 'Column', 'taxonomy singular name' ),
+        'search_items' =>  __( 'Search Columns' ),
+        'all_items' => __( 'All Columns' ),
+        'parent_item' => __( 'Parent Column' ),
+        'parent_item_colon' => __( 'Parent Columns:' ),
+        'edit_item' => __( 'Edit Columns' ), 
+        'update_item' => __( 'Update Column' ),
+        'add_new_item' => __( 'Add New Column' ),
+        'new_item_name' => __( 'New Column Name' ),
+        'menu_name' => __( 'Columns' ),
     );
+    register_taxonomy(
+        "column",
+        "post",
+         array(
+            "labels" => $labels,
+            "hierarchical" => True,
+			"public" => True,
+            "show_ui" => True,
+            "query_var" => "column",
+            "rewrite" => array("slug"=>"columns"),
+        ));
+
+$labels = array(
+        'name' => _x( 'Shows', 'taxonomy general name' ),
+        'singular_name' => _x( 'Show', 'taxonomy singular name' ),
+        'search_items' =>  __( 'Search Shows' ),
+        'all_items' => __( 'All Shows' ),
+        'edit_item' => __( 'Edit Shows' ), 
+        'update_item' => __( 'Update Column' ),
+        'add_new_item' => __( 'Add New Show' ),
+        'new_item_name' => __( 'New Show Name' ),
+        'menu_name' => __( 'Shows' ),
+    );
+    register_taxonomy(
+        "show",
+        "post",
+         array(
+            "labels" => $labels,
+            "hierarchical" => False,
+			"public" => True,
+            "show_ui" => True,
+            "query_var" => "show",
+            "rewrite" => array("slug"=>"show"),
+        ));
+
+$labels = array(
+        'name' => _x( 'Marketplace', 'taxonomy general name' ),
+        'singular_name' => _x( 'Marketplace', 'taxonomy singular name' ),
+        'search_items' =>  __( 'Search Marketplace' ),
+        'all_items' => __( 'All Marketplace' ),
+        'edit_item' => __( 'Edit Marketplace' ), 
+        'update_item' => __( 'Update Marketplace' ),
+        'add_new_item' => __( 'Add New Marketplace' ),
+        'new_item_name' => __( 'New Marketplace Name' ),
+        'menu_name' => __( 'Marketplace' ),
+    );
+    register_taxonomy(
+        "marketplace",
+        "post",
+         array(
+            "labels" => $labels,
+            "hierarchical" => False,
+			"public" => True,
+            "show_ui" => True,
+            "query_var" => "marketplace",
+            "rewrite" => array("slug"=>"marketplace"),
+        ));
+
     
     //default configuration from carrington build
     $sidebar_settings = array(
@@ -207,5 +284,69 @@ function my_theme_remove_build_css() {
 }
 add_action('init', 'my_theme_remove_build_css');
 
+add_action( 'load-edit.php', 'no_category_dropdown' );
+function no_category_dropdown() {
+    add_filter( 'wp_dropdown_cats', '__return_false' );
+}
+
+function restrict_posts_by_column() {
+		global $typenow;
+		$post_type = 'post'; // change HERE
+		$taxonomy = 'column'; // change HERE
+		if ($typenow == $post_type) {
+			$selected = isset($_GET[$taxonomy]) ? $_GET[$taxonomy] : '';
+			$info_taxonomy = get_taxonomy($taxonomy);
+			wp_dropdown_categories(array(
+				'show_option_all' => __("Show All {$info_taxonomy->label}"),
+				'taxonomy' => $taxonomy,
+				'name' => $taxonomy,
+				'orderby' => 'name',
+				'selected' => $selected,
+				'show_count' => true,
+				'hide_empty' => true,
+			));
+		};
+	}
+
+	add_action('restrict_manage_posts', 'restrict_posts_by_column');
+
+	function convert_id_to_term_in_query($query) {
+		global $pagenow;
+		$post_type = 'post'; // change HERE
+		$taxonomy = 'column'; // change HERE
+		$q_vars = &$query->query_vars;
+		if ($pagenow == 'edit.php' && isset($q_vars['post_type']) && $q_vars['post_type'] == $post_type && isset($q_vars[$taxonomy]) && is_numeric($q_vars[$taxonomy]) && $q_vars[$taxonomy] != 0) {
+			$term = get_term_by('id', $q_vars[$taxonomy], $taxonomy);
+			$q_vars[$taxonomy] = $term->slug;
+		}
+	}
+
+	add_filter('parse_query', 'convert_id_to_term_in_query');
+
+function ilc_cpt_columns($defaults) {
+
+    $defaults['region'] = 'Regions';
+    $defaults['column'] = 'Columns';
+    $defaults['activity'] = 'Activities';
+    return $defaults;
+}
 
 
+function ilc_cpt_custom_column($column_name, $post_id) {
+
+    $taxonomy = $column_name;
+    $post_type = get_post_type($post_id);
+    $terms = get_the_terms($post_id, $taxonomy);
+    
+    if ( !empty($terms) ) {
+        foreach ( $terms as $term )
+            $post_terms[] = "<a href='edit.php?post_type={$post_type}&{$taxonomy}={$term->slug}'> " . esc_html(sanitize_term_field('name', $term->name, $term->term_id, $taxonomy, 'edit')) . "</a>";
+        echo join( ', ', $post_terms );
+    }
+    else echo '<i>No terms</i>';
+}
+
+add_filter( 'manage_posts_columns', 'ilc_cpt_columns' );
+//add_filter( 'manage_posts_columns', 'ilc_cpt_columns' );
+add_action('manage_posts_custom_column', 'ilc_cpt_custom_column', 10, 2);
+//add_action('manage_region_posts_custom_column', 'ilc_cpt_custom_column', 10, 2);
