@@ -1,9 +1,9 @@
 <?php
 
-// This file is part of the Carrington Core Framework for WordPress
-// http://carringtontheme.com
+// This file is part of the Carrington Core Platform for WordPress
+// http://crowdfavorite.com/wordpress/carrington-core/
 //
-// Copyright (c) 2008-2010 Crowd Favorite, Ltd. All rights reserved.
+// Copyright (c) 2008-2011 Crowd Favorite, Ltd. All rights reserved.
 // http://crowdfavorite.com
 //
 // Released under the GPL license
@@ -20,7 +20,7 @@ if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 // 	ini_set('display_errors', '1');
 // 	ini_set('error_reporting', E_ALL);
 
-define('CFCT_CORE_VERSION', '3.1');
+define('CFCT_CORE_VERSION', '3.3');
 
 // Path to Carrington Core parent directory (usually the theme).
 if (!defined('CFCT_PATH')) {
@@ -28,10 +28,6 @@ if (!defined('CFCT_PATH')) {
 }
 
 load_theme_textdomain('carrington');
-
-$cfct_options[] = 'cfct_about_text';
-$cfct_options[] = 'cfct_credit';
-$cfct_options[] = 'cfct_wp_footer';
 
 include_once(CFCT_PATH.'carrington-core/admin.php');
 include_once(CFCT_PATH.'carrington-core/templates.php');
@@ -48,18 +44,27 @@ cfct_load_plugins();
 **/ 
 function cfct_init() {
 	cfct_admin_request_handler();
-	if (cfct_get_option('cfct_ajax_load') == 'yes') {
+	if (cfct_get_option('ajax_load') == 'yes') {
 		cfct_ajax_load();
 	}
 }
-add_action('init', 'cfct_init');
+//add_action('init', 'cfct_init');
+
+/**
+ * Loads header code from Carrington Options
+ * 
+**/
+function cfct_wp_head() {
+	echo cfct_get_option('wp_head');
+}
+add_action('wp_head', 'cfct_wp_head');
 
 /**
  * Loads footer code from Carrington Options
  * 
 **/
 function cfct_wp_footer() {
-	echo get_option('cfct_wp_footer');
+	echo cfct_get_option('wp_footer');
 }
 add_action('wp_footer', 'cfct_wp_footer');
 
@@ -70,7 +75,7 @@ add_action('wp_footer', 'cfct_wp_footer');
  * 
 **/
 function cfct_about_text() {
-	$about_text = get_option('cfct_about_text');
+	$about_text = cfct_get_option('about_text');
 	if (!empty($about_text)) {
 		$about_text = cfct_basic_content_formatting($about_text);
 	}
@@ -125,4 +130,3 @@ if (!defined('CFCT_DEBUG')) {
 	define('CFCT_DEBUG', false);
 }
 
-?>

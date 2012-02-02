@@ -1,9 +1,9 @@
 <?php
 
-// This file is part of the Carrington Core Framework for WordPress
-// http://carringtontheme.com
+// This file is part of the Carrington Core Platform for WordPress
+// http://crowdfavorite.com/wordpress/carrington-core/
 //
-// Copyright (c) 2008-2010 Crowd Favorite, Ltd. All rights reserved.
+// Copyright (c) 2008-2011 Crowd Favorite, Ltd. All rights reserved.
 // http://crowdfavorite.com
 //
 // Released under the GPL license
@@ -61,14 +61,32 @@ function cfct_banner($str = '') {
 **/
 function cfct_get_option($name) {
 	$defaults = array(
-		'cfct_credit' => 'yes',
-		'cfct_lightbox' => 'yes',
-		'cfct_header_image' => 0,
+		cfct_option_name('login_link_enabled') => 'yes',
+		cfct_option_name('copyright') => sprintf(__('Copyright &copy; %s &nbsp;&middot;&nbsp; %s', 'carrington'), date('Y'), get_bloginfo('name')),
+		cfct_option_name('credit') => 'yes',
+		cfct_option_name('lightbox') => 'yes',
+		cfct_option_name('header_image') => 0,
 	);
+	$name = cfct_option_name($name);
+	
 	$defaults = apply_filters('cfct_option_defaults', $defaults);
 	$value = get_option($name);
-	if ($value == '' && isset($defaults[$name])) {
-		$value = $defaults[$name];
+	
+	
+	// We want to check for defaults registered using the prefixed and unprefixed versions of the option name.
+	if ($value === false) {
+		$prefix = cfct_get_option_prefix();
+		$basname = substr($name, strlen($prefix) + 1, -1);
+		
+		if (isset($defaults[$name])) {
+			$value = $defaults[$name];
+		}
+		else if (isset($basename) && isset($defaults[$basename])) {
+			$value = $defaults[$basename];
+		}
+	}
+	if ($name == cfct_option_name('copyright')) {
+		$value = str_replace('%Y', date('Y'), $value);
 	}
 	return $value;
 }
@@ -288,25 +306,44 @@ function cfct_template($dir, $keys = array()) {
  * 
  * @param string $dir Directory the file will be in
  * @param string $file Filename
- * @param $data not used
+ * @param array $data pass in data to be extracted for use by the template
  * 
 **/
-function cfct_template_file($dir, $file, $data = null) {
+function cfct_template_file($dir, $file, $data = array()) {
 	$path = '';
 	if (!empty($file)) {
 		$file = basename($file, '.php');
-		// child theme support
-		$path = STYLESHEETPATH.'/'.$dir.'/'.$file.'.php';
-		if (!file_exists($path)) {
-			$path = CFCT_PATH.$dir.'/'.$file.'.php';
+		/* Check for file in the child theme first
+		var name is deliberately funny. Avoids inadvertantly
+		overwriting path variable with extract() below. */
+		$_cfct_filepath = STYLESHEETPATH.'/'.$dir.'/'.$file.'.php';
+		if (!file_exists($_cfct_filepath)) {
+			$_cfct_filepath = CFCT_PATH.$dir.'/'.$file.'.php';
 		}
 	}
-	if (file_exists($path)) {
-		include($path);
+	if (file_exists($_cfct_filepath)) {
+		/* Extract $data as late as possible, so we don't accidentally overwrite
+		local function vars */
+		extract($data);
+		include($_cfct_filepath);
 	}
 	else {
 		cfct_die('Error loading '.$file.' '.__LINE__);
 	}
+}
+
+/**
+ * Include a specific file based on directory and filename and return the output
+ * 
+ * @param string $dir Directory the file will be in
+ * @param string $file Filename
+ * @param array $data pass in data to be extracted for use by the template
+ * 
+**/
+function cfct_template_content($dir, $file, $data = array()) {
+	ob_start();
+	cfct_template_file($dir, $file, $data);
+	return ob_get_clean();
 }
 
 /**
@@ -575,7 +612,7 @@ function cfct_choose_single_template($files = array(), $filter = '*', $dir = '')
  * 
 **/
 function cfct_choose_single_template_type($dir, $files, $filter) {
-	$type_files = cfct_type_templates($dir, $files);
+	$type_files = cfct_type_templates($dir, $files, $filter);
 	if (count($type_files)) {
 		global $post;
 		$file = cfct_filename_filter('type-'.$post->post_type.'.php', $filter);
@@ -596,9 +633,9 @@ function cfct_choose_single_template_type($dir, $files, $filter) {
  * 
 **/
 function cfct_choose_single_template_author($dir, $files, $filter) {
-	$author_files = cfct_author_templates($dir, $files);
+	$author_files = cfct_author_templates($dir, $files, $filter);
 	if (count($author_files)) {
-		$author = get_the_author_login();
+		$author = get_the_author_meta('login');
 		$file = cfct_filename_filter('author-'.$author.'.php', $filter);
 		if (in_array($file, $author_files)) {
 			return $file;
@@ -618,7 +655,7 @@ function cfct_choose_single_template_author($dir, $files, $filter) {
 **/
 function cfct_choose_single_template_meta($dir, $files, $filter) {
 	global $post;
-	$meta_files = cfct_meta_templates('', $files);
+	$meta_files = cfct_meta_templates('', $files, $filter);
 	if (count($meta_files)) {
 		$meta = get_post_custom($post->ID);
 		if (count($meta)) {
@@ -655,7 +692,7 @@ function cfct_choose_single_template_meta($dir, $files, $filter) {
 **/
 function cfct_choose_single_template_format($dir, $files, $filter) {
 	global $post;
-	$format_files = cfct_format_templates($dir, $files);	
+	$format_files = cfct_format_templates($dir, $files, $filter);	
 	if (count($format_files)) {
 		$post_format = get_post_format($post->ID);
 		foreach ($format_files as $file) {
@@ -677,10 +714,9 @@ function cfct_choose_single_template_format($dir, $files, $filter) {
  * 
 **/
 function cfct_choose_single_template_category($dir, $files, $filter) {
-	$cat_files = cfct_cat_templates($dir, $files);
+	$cat_files = cfct_cat_templates($dir, $files, $filter);
 	if (count($cat_files)) {
 		foreach ($cat_files as $file) {
-			$file = cfct_filename_filter($file, $filter);
 			$cat_id = cfct_cat_filename_to_id($file);
 			if (in_category($cat_id)) {
 				return $file;
@@ -700,7 +736,7 @@ function cfct_choose_single_template_category($dir, $files, $filter) {
  * 
 **/
 function cfct_choose_single_template_role($dir, $files, $filter) {
-	$role_files = cfct_role_templates($dir, $files);
+	$role_files = cfct_role_templates($dir, $files, $filter);
 	if (count($role_files)) {
 		$user = new WP_User(get_the_author_meta('ID'));
 		if (count($user->roles)) {
@@ -728,7 +764,8 @@ function cfct_choose_single_template_role($dir, $files, $filter) {
 **/
 function cfct_choose_single_template_taxonomy($dir, $files, $filter) {
 	global $post;
-	$tax_files = cfct_tax_templates($dir, $files);
+
+	$tax_files = cfct_tax_templates($dir, $files, $filter);
 	if (count($tax_files)) {
 		foreach ($tax_files as $file) {
 			$file = cfct_filename_filter($file, $filter);
@@ -759,7 +796,7 @@ function cfct_choose_single_template_taxonomy($dir, $files, $filter) {
 **/
 function cfct_choose_single_template_tag($dir, $files, $filter) {
 	global $post;
-	$tag_files = cfct_tag_templates($dir, $files);
+	$tag_files = cfct_tag_templates($dir, $files, $filter);
 	if (count($tag_files)) {
 		$tags = get_the_tags($post->ID);
 		if (is_array($tags) && count($tags)) {
@@ -787,7 +824,7 @@ function cfct_choose_single_template_tag($dir, $files, $filter) {
 **/
 function cfct_choose_single_template_parent($dir, $files, $filter) {
 	global $post;
-	$parent_files = cfct_parent_templates($dir, $files);
+	$parent_files = cfct_parent_templates($dir, $files, $filter);
 	if (count($parent_files) && $post->post_parent > 0) {
 		$parent = cfct_post_id_to_slug($post->post_parent);
 		$file = cfct_filename_filter('parent-'.$parent.'.php', $filter);
@@ -816,6 +853,25 @@ function cfct_choose_content_template($type = 'content') {
 	}
 	return apply_filters('cfct_choose_content_template', $filename, $type);
 }
+
+/**
+ * Handle content template selection for feed requests. Leverages single context with a feed- prefix.
+ * 
+ * @param string $dir Directory to use for selecting the template file
+ * @param array $files A list of files to loop through
+ * @return mixed Path to the file, false if no file exists
+ * 
+**/
+function cfct_choose_content_template_feed($type = 'content') {
+	$files = cfct_files(CFCT_PATH.$type);
+	$files = cfct_filter_files($files, 'feed-');
+	if (count($files)) {
+		$filename = cfct_choose_single_template($files, 'feed-*');
+		return $filename;
+	}
+	return false;
+}
+
 
 /**
  * Chooses which template to display for the comment context
@@ -978,10 +1034,10 @@ function cfct_choose_comment_template_default($files) {
 }
 
 /**
- * Filters a filename based on an inputted string
+ * Adds to a filename based on a filter string
  * 
  * @param string $filename Filename to filter
- * @param string $filter What to filter with
+ * @param string $filter What to add
  * @return string The filtered filename
  * 
 **/
@@ -1043,7 +1099,7 @@ function cfct_filter_files($files = array(), $prefix = '') {
 	$matches = array();
 	if (count($files)) {
 		foreach ($files as $file) {
-			if (strpos($file, $prefix) !== false) {
+			if (strpos($file, $prefix) === 0) {
 				$matches[] = $file;
 			}
 		}
@@ -1059,11 +1115,12 @@ function cfct_filter_files($files = array(), $prefix = '') {
  * @return array List of files that match the meta template structure
  * 
 **/
-function cfct_meta_templates($dir, $files = null) {
+function cfct_meta_templates($dir, $files = null, $filter = '*') {
 	if (is_null($files)) {
 		$files = cfct_files(CFCT_PATH.$dir);
 	}
-	$matches = cfct_filter_files($files, 'meta-');
+	$prefix = str_replace('*', '', $filter).'meta-';
+	$matches = cfct_filter_files($files, $prefix);
 	return apply_filters('cfct_meta_templates', $matches);
 }
 
@@ -1075,11 +1132,12 @@ function cfct_meta_templates($dir, $files = null) {
  * @return array List of files that match the category template structure
  * 
 **/
-function cfct_cat_templates($dir, $files = null) {
+function cfct_cat_templates($dir, $files = null, $filter = '*') {
 	if (is_null($files)) {
 		$files = cfct_files(CFCT_PATH.$dir);
 	}
-	$matches = cfct_filter_files($files, 'cat-');
+	$prefix = str_replace('*', '', $filter).'cat-';
+	$matches = cfct_filter_files($files, $prefix);
 	return apply_filters('cfct_cat_templates', $matches);
 }
 
@@ -1091,11 +1149,12 @@ function cfct_cat_templates($dir, $files = null) {
  * @return array List of files that match the tag template structure
  * 
 **/
-function cfct_tag_templates($dir, $files = null) {
+function cfct_tag_templates($dir, $files = null, $filter = '*') {
 	if (is_null($files)) {
 		$files = cfct_files(CFCT_PATH.$dir);
 	}
-	$matches = cfct_filter_files($files, 'tag-');
+	$prefix = str_replace('*', '', $filter).'tag-';
+	$matches = cfct_filter_files($files, $prefix);
 	return apply_filters('cfct_tag_templates', $matches);
 }
 
@@ -1107,11 +1166,12 @@ function cfct_tag_templates($dir, $files = null) {
  * @return array List of files that match the custom taxonomy template structure
  * 
 **/
-function cfct_tax_templates($dir, $files = null) {
+function cfct_tax_templates($dir, $files = null, $filter = '*') {
 	if (is_null($files)) {
 		$files = cfct_files(CFCT_PATH.$dir);
 	}
-	$matches = cfct_filter_files($files, 'tax-');
+	$prefix = str_replace('*', '', $filter).'tax-';
+	$matches = cfct_filter_files($files, $prefix);
 	return apply_filters('cfct_tax_templates', $matches);
 }
 
@@ -1123,11 +1183,12 @@ function cfct_tax_templates($dir, $files = null) {
  * @return array List of files that match the post format template structure
  * 
 **/
-function cfct_format_templates($dir, $files = null) {
+function cfct_format_templates($dir, $files = null, $filter = '*') {
 	if (is_null($files)) {
 		$files = cfct_files(CFCT_PATH.$dir);
 	}
-	$matches = cfct_filter_files($files, 'format-');
+	$prefix = str_replace('*', '', $filter).'format-';
+	$matches = cfct_filter_files($files, $prefix);
 	return apply_filters('cfct_format_templates', $matches);
 }
 
@@ -1139,11 +1200,12 @@ function cfct_format_templates($dir, $files = null) {
  * @return array list of files that match the author template structure
  * 
 **/
-function cfct_author_templates($dir, $files = null) {
+function cfct_author_templates($dir, $files = null, $filter = '*') {
 	if (is_null($files)) {
 		$files = cfct_files(CFCT_PATH.$dir);
 	}
-	$matches = cfct_filter_files($files, 'author-');
+	$prefix = str_replace('*', '', $filter).'author-';
+	$matches = cfct_filter_files($files, $prefix);
 	return apply_filters('cfct_author_templates', $matches);
 }
 
@@ -1155,11 +1217,12 @@ function cfct_author_templates($dir, $files = null) {
  * @return array List of files that match the custom post type template structure
  * 
 **/
-function cfct_type_templates($dir, $files = null) {
+function cfct_type_templates($dir, $files = null, $filter = '*') {
 	if (is_null($files)) {
 		$files = cfct_files(CFCT_PATH.$dir);
 	}
-	$matches = cfct_filter_files($files, 'type-');
+	$prefix = str_replace('*', '', $filter).'type-';
+	$matches = cfct_filter_files($files, $prefix);
 	return apply_filters('cfct_type_templates', $matches);
 }
 
@@ -1171,11 +1234,12 @@ function cfct_type_templates($dir, $files = null) {
  * @return array List of files that match the user role template structure
  * 
 **/
-function cfct_role_templates($dir, $files = null) {
+function cfct_role_templates($dir, $files = null, $filter = '*') {
 	if (is_null($files)) {
 		$files = cfct_files(CFCT_PATH.$dir);
 	}
-	$matches = cfct_filter_files($files, 'role-');
+	$prefix = str_replace('*', '', $filter).'role-';
+	$matches = cfct_filter_files($files, $prefix);
 	return apply_filters('cfct_role_templates', $matches);
 }
 
@@ -1187,11 +1251,12 @@ function cfct_role_templates($dir, $files = null) {
  * @return array List of files that match the post parent template structure
  * 
 **/
-function cfct_parent_templates($dir, $files = null) {
+function cfct_parent_templates($dir, $files = null, $filter = '*') {
 	if (is_null($files)) {
 		$files = cfct_files(CFCT_PATH.$dir);
 	}
-	$matches = cfct_filter_files($files, 'parent-');
+	$prefix = str_replace('*', '', $filter).'parent-';
+	$matches = cfct_filter_files($files, $prefix);
 	return apply_filters('cfct_parent_templates', $matches);
 }
 
@@ -1209,6 +1274,22 @@ function cfct_single_templates($dir, $files = null) {
 	}
 	$matches = cfct_filter_files($files, 'single');
 	return apply_filters('cfct_single_templates', $matches);
+}
+
+/**
+ * Get a list of files from list that should be used in feed consideration 
+ * 
+ * @param string $dir Directory to search through for files if none are given
+ * @param array $files A list of files to search through
+ * @return array List of files that match the single template structure
+ * 
+**/
+function cfct_feed_templates($dir, $files = null) {
+	if (is_null($files)) {
+		$files = cfct_files(CFCT_PATH.$dir);
+	}
+	$matches = cfct_filter_files($files, 'feed');
+	return apply_filters('cfct_feed_templates', $matches);
 }
 
 /**
@@ -1269,7 +1350,9 @@ function cfct_cat_filename_to_name($file) {
  * 
 **/
 function cfct_cat_filename_to_slug($file) {
-	return str_replace(array('single-cat-', 'cat-', '.php'), '', $file);
+	$prefixes = apply_filters('cfct_cat_filename_prefixes', array('feed-cat-', 'single-cat-', 'cat-'));
+	$suffixes = apply_filters('cfct_cat_filename_suffixes', array('.php'));
+	return str_replace(array_merge($prefixes, $suffixes), '', $file);
 }
 
 /**
@@ -1292,7 +1375,8 @@ function cfct_cat_id_to_slug($id) {
  * 
 **/
 function cfct_username_to_id($username) {
-	return get_profile('ID', $username);
+	$user = get_user_by('ID', $username);
+	return (isset($user->ID) ? $user->ID : 0);
 }
 
 /**
@@ -1303,7 +1387,9 @@ function cfct_username_to_id($username) {
  *  
 **/
 function cfct_tag_filename_to_name($file) {
-	return str_replace(array('single-tag-', 'tag-', '.php'), '', $file);
+	$prefixes = apply_filters('cfct_tag_filename_prefixes', array('feed-tag-', 'single-tag-', 'tag-'));
+	$suffixes = apply_filters('cfct_tag_filename_suffixes', array('.php'));
+	return str_replace(array_merge($prefixes, $suffixes), '', $file);
 }
 
 /**
@@ -1314,7 +1400,9 @@ function cfct_tag_filename_to_name($file) {
  *  
 **/
 function cfct_author_filename_to_name($file) {
-	return str_replace(array('single-author-', 'author-', '.php'), '', $file);
+	$prefixes = apply_filters('cfct_author_filename_prefixes', array('feed-author-', 'single-author-', 'author-'));
+	$suffixes = apply_filters('cfct_author_filename_suffixes', array('.php'));
+	return str_replace(array_merge($prefixes, $suffixes), '', $file);
 }
 
 /**
@@ -1325,7 +1413,9 @@ function cfct_author_filename_to_name($file) {
  *  
 **/
 function cfct_role_filename_to_name($file) {
-	return str_replace(array('single-role-', 'role-', '.php'), '', $file);
+	$prefixes = apply_filters('cfct_role_filename_prefixes', array('feed-role-', 'single-role-', 'role-'));
+	$suffixes = apply_filters('cfct_role_filename_suffixes', array('.php'));
+	return str_replace(array_merge($prefixes, $suffixes), '', $file);
 }
 
 /**
@@ -1336,7 +1426,9 @@ function cfct_role_filename_to_name($file) {
  *  
 **/
 function cfct_format_filename_to_format($file) {
-	return str_replace(array('single-format-', 'format-', '.php'), '', $file);
+	$prefixes = apply_filters('cfct_format_filename_prefixes', array('feed-format-', 'single-format-', 'format-'));
+	$suffixes = apply_filters('cfct_format_filename_suffixes', array('.php'));
+	return str_replace(array_merge($prefixes, $suffixes), '', $file);
 }
 
 /**
@@ -1347,7 +1439,9 @@ function cfct_format_filename_to_format($file) {
  *  
 **/
 function cfct_tax_filename_to_tax_name($file) {
-	$tax = str_replace(array('single-tax-', 'tax-', '.php'), '', $file);
+	$prefixes = apply_filters('cfct_tax_filename_prefixes', array('feed-tax-', 'single-tax-', 'tax-'));
+	$suffixes = apply_filters('cfct_tax_filename_suffixes', array('.php'));
+	$tax = str_replace(array_merge($prefixes, $suffixes), '', $file);
 	$tax = explode('-', $tax);
 	return $tax[0];
 }
@@ -1360,10 +1454,13 @@ function cfct_tax_filename_to_tax_name($file) {
  *  
 **/
 function cfct_tax_filename_to_slug($file) {
-	$slug = str_replace(array('single-tax-', 'tax-', '.php'), '', $file);
+	$prefixes = apply_filters('cfct_tax_filename_prefixes', array('feed-tax-', 'single-tax-', 'tax-'));
+	$suffixes = apply_filters('cfct_tax_filename_suffixes', array('.php'));
+	$slug = str_replace(array_merge($prefixes, $suffixes), '', $file);
 	$slug = explode('-', $slug);
-	if (!empty($slug[1])) {
-		return $slug[1];
+	unset($slug[0]);
+	if (count($slug)) {
+		return implode('-', $slug);
 	}
 	return '';
 }
@@ -1429,4 +1526,59 @@ if (!function_exists('get_post_format')) {
 	}
 }
 
-?>
+/**
+ * Generate markup for login/logout links
+ * 
+ * @param string $redirect URL to redirect after the login or logout
+ * @param string $before Markup to display before
+ * @param string $after Markup to display after
+ * @return string Generated login/logout Markup
+ */ 
+function cfct_get_loginout($redirect = '', $before = '', $after = '') {
+	if (cfct_get_option('login_link_enabled') != 'no') {
+		return $before . wp_loginout($redirect, false) . $after;
+	}
+} 
+
+/**
+ * Recursively merges two arrays down overwriting values if keys match.
+ * 
+ * @param array $array_1 Array to merge into
+ * @param array $array_2 Array in which values are merged from
+ * 
+ * @return array Merged array
+ */ 
+function cfct_array_merge_recursive($array_1, $array_2) {
+	foreach ($array_2 as $key => $value) {
+		if (isset($array_1[$key]) && is_array($array_1[$key]) && is_array($value)) {
+			$array_1[$key] = cfct_array_merge_recursive($array_1[$key], $value);
+		}
+		else {
+			$array_1[$key] = $value;
+		}
+	}
+	
+	return $array_1;
+}
+
+/**
+ * Returns the options prefix
+ */ 
+function cfct_get_option_prefix() {
+	return apply_filters('cfct_option_prefix', 'cfct');
+}
+
+/**
+ * Prefix options names
+ */ 
+function cfct_option_name($name) {
+	$prefix = cfct_get_option_prefix();
+	// If its already prefixed, we don't need to do it again.
+	if (strpos($name, $prefix.'_') !== 0) {
+		return $prefix.'_'.$name;
+	}
+	else {
+		return $name;
+	}
+}
+

@@ -1,9 +1,9 @@
 <?php
 
-// This file is part of the Carrington Core Framework for WordPress
-// http://carringtontheme.com
+// This file is part of the Carrington Core Platform for WordPress
+// http://crowdfavorite.com/wordpress/carrington-core/
 //
-// Copyright (c) 2008-2010 Crowd Favorite, Ltd. All rights reserved.
+// Copyright (c) 2008-2011 Crowd Favorite, Ltd. All rights reserved.
 // http://crowdfavorite.com
 //
 // Released under the GPL license
@@ -24,7 +24,7 @@
 **/
 function cfct_get_adjacent_image_link($prev = true) {
 	global $post;
-	$post = get_post($post);
+	
 	$attachments = array_values(get_children( array('post_parent' => $post->post_parent, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => 'ASC', 'orderby' => 'menu_order ID') ));
 
 	foreach ( $attachments as $k => $attachment )
@@ -138,4 +138,3 @@ function cfct_post_gallery($unused, $attr) {
 }
 add_filter('post_gallery', 'cfct_post_gallery', 10, 2);
 
-?>

@@ -1,9 +1,9 @@
 <?php
 
-// This file is part of the Carrington Core Framework for WordPress
-// http://carringtontheme.com
+// This file is part of the Carrington Core Platform for WordPress
+// http://crowdfavorite.com/wordpress/carrington-core/
 //
-// Copyright (c) 2008-2010 Crowd Favorite, Ltd. All rights reserved.
+// Copyright (c) 2008-2011 Crowd Favorite, Ltd. All rights reserved.
 // http://crowdfavorite.com
 //
 // Released under the GPL license
@@ -103,12 +103,67 @@ function cfct_content() {
 }
 
 /**
+ * Chooses the appropriate template file for the content in a feed and returns that content
+ *  
+**/
+function cfct_content_feed($content) {
+	if (is_feed()) {
+// find template
+		$file = cfct_choose_content_template_feed();
+		if ($file) {
+// load template
+			$content = cfct_template_content('content', $file);
+		}
+	}
+	$content = str_replace(']]>', ']]&gt;', $content);
+	return $content;
+}
+add_filter('the_content_feed', 'cfct_content_feed');
+
+/**
+ * Output feed content without infinite loop
+ *  
+**/
+function cfct_the_content_feed() {
+	remove_filter('the_content_feed', 'cfct_content_feed');
+	the_content_feed('rss2');
+	add_filter('the_content_feed', 'cfct_content_feed');
+}	
+
+/**
  * Includes the appropriate template file for the excerpt
  *  
 **/
 function cfct_excerpt() {
 	$file = cfct_choose_content_template('excerpt');
 	cfct_template_file('excerpt', $file);
+}
+
+/**
+ * Chooses the appropriate template file for the excerpt in a feed and returns that content
+ *  
+**/
+function cfct_excerpt_feed($content) {
+	if (is_feed()) {
+// find template
+		$file = cfct_choose_content_template_feed('excerpt');
+		if ($file) {
+// load template
+			$content = cfct_template_content('excerpt', $file);
+		}
+	}
+	return $content;
+}
+add_filter('the_excerpt_rss', 'cfct_excerpt_feed');
+
+/**
+ * Output feed content without infinite loop
+ *  
+**/
+function cfct_the_excerpt_feed() {
+	remove_filter('the_excerpt_rss', 'cfct_excerpt_feed');
+	the_excerpt_rss();
+	add_filter('the_excerpt_rss', 'cfct_excerpt_feed');
 }
 
 /**
@@ -176,4 +231,3 @@ function cfct_error($name = '') {
 	cfct_template_file('error', $name);
 }
 
-?>

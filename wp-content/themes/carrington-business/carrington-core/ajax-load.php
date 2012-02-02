@@ -1,9 +1,9 @@
 <?php
 
-// This file is part of the Carrington Core Framework for WordPress
-// http://carringtontheme.com
+// This file is part of the Carrington Core Platform for WordPress
+// http://crowdfavorite.com/wordpress/carrington-core/
 //
-// Copyright (c) 2008-2010 Crowd Favorite, Ltd. All rights reserved.
+// Copyright (c) 2008-2011 Crowd Favorite, Ltd. All rights reserved.
 // http://crowdfavorite.com
 //
 // Released under the GPL license
@@ -35,7 +35,7 @@ function cfct_ajax_post_content($post_id) {
 	// If the post is private, make sure the user is allowed to see it before we show it.
 	if ($post->post_status == 'private') {
 		$user = wp_get_current_user();
-		if (!$user->ID || $user->ID != $post->post_author) {
+		if (!$user->ID || !($user->ID == $post->post_author || current_user_can('editor') || current_user_can('administrator'))) {
 			die();
 		}
 	}
@@ -83,8 +83,11 @@ function cfct_ajax_load() {
 					$post_id = url_to_postid($_GET['url']);
 				}
 				if ($post_id) {
-					call_user_func('cfct_ajax_'.$_GET['cfct_action'], $post_id);
-					die();
+					$action = 'cfct_ajax_'.sanitize_key($_GET['cfct_action']);
+					if (function_exists($action)) {
+						call_user_func($action, $post_id);
+						die();
+					}
 				}
 		}
 	}
@@ -118,20 +121,22 @@ add_filter('comments_popup_link_attributes', 'cfct_ajax_comment_link');
  * @return int The number of posts to display on an archive page
 **/
 function cfct_posts_per_archive_page_setting() {
-	$count = get_option('cfct_posts_per_archive_page');
+	$count = cfct_get_option('posts_per_archive_page');
 	intval($count) > 0 ? $count = $count : $count = 25;
 	return $count;
 }
 
 /**
- * Add a self-removing filter to handle category pages
+ * Add a self-removing filter to handle category pages (except in admin)
  * 
 **/ 
 function cfct_add_posts_per_archive_page() {
 	add_filter('pre_get_posts', 'cfct_posts_per_archive_page');
 	add_filter('pre_get_posts', 'cfct_posts_per_category_page');
 }
-add_filter('parse_request', 'cfct_add_posts_per_archive_page');
+if (!is_admin()) {
+	add_filter('parse_request', 'cfct_add_posts_per_archive_page');
+}
 
 /**
  * Set the posts per archive page number
@@ -159,4 +164,3 @@ function cfct_posts_per_category_page($query) {
 	return $query;
 }
 
-?>
