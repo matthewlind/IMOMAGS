@@ -269,10 +269,11 @@ function cfct_news_title() {
 	}
 	echo $title;
 }
-
-function cfct_get_loginout($redirect = '', $before = '', $after = '') {
-	if (cfct_get_option('cfctbiz_login_link_enable') != 'no') {
-		return $before . wp_loginout($redirect, false) . $after;
+if ( ! function_exists( 'cfct_get_loginout' ) ) {
+	function cfct_get_loginout($redirect = '', $before = '', $after = '') {
+		if (cfct_get_option('cfctbiz_login_link_enable') != 'no') {
+			return $before . wp_loginout($redirect, false) . $after;
+		}
 	}
 }
 
