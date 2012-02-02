@@ -105,14 +105,14 @@ return '
 	}
 	
 	/* Columns */
-	.'.$id_base.'-col-a {
+	.'.$id_base.'-c6-12 {
 		display: inline;
 		float: left;
 		width: 355px;
 		margin-right: 20px;
 	}
 	
-	.'.$id_base.'-col-b {
+	.'.$id_base.'-c6-34 {
 		float: left;
 		width: 365px;
 	}

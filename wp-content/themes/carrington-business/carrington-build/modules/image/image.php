@@ -225,7 +225,7 @@ if (!class_exists('cfct_module_image')) {
 		
 		// helpers
 		function post_image_selector($data = false, $multiple = false) {
-			$ajax_args = cf_json_decode((!empty($_POST['args']) ? stripslashes($_POST['args']) : ''), true);
+			$ajax_args = cfcf_json_decode((!empty($_POST['args']) ? stripslashes($_POST['args']) : ''), true);
 			
 			$selected = 0;
 			if (!empty($data[$this->get_field_id('post_image')])) {

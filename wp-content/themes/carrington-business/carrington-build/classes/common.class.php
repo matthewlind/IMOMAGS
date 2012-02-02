@@ -39,7 +39,6 @@ class cfct_build_common {
 		}
 
 		$this->set_post_id($post_id);
-		$this->postmeta_key = apply_filters('cfct_build_postmeta_key', $this->postmeta_key); // @deprecated, remove in 1.2
 		$this->postmeta_key = apply_filters('cfct-build-postmeta-key', $this->postmeta_key);		
 
 		if ($postmeta = $this->get_postmeta()) {
@@ -150,6 +149,15 @@ class cfct_build_common {
 		}
 		return $path;
 	}
+
+	function get_module_options_path($basename) {
+		$path = null;
+		$loaded_module_options = $this->included_module_options(true);
+		if (!empty($loaded_module_options[$basename])) {
+			$path = $loaded_module_options[$basename];
+		}
+		return $path;
+	}
 	
 	/**
 	 * See if we can determine the url of the included module
@@ -187,10 +195,8 @@ class cfct_build_common {
 			default:
 				# if we've gotten this far then we haven't determined a usable url, give the developer a chance to recover
 				$url = '';
-				$url = apply_filters('cfct_build_module_url_unknown', $url, dirname($module), $file_key); // @deprecated, remove in 1.2
 				$url = apply_filters('cfct-build-module-url-unknown', $url, dirname($module), $file_key);
 		}
-		$url = apply_filters('cfct_build_module_url', $url, $module, $file_key); // @deprecated, remove in 1.2
 		return apply_filters('cfct-build-module-url', $url, $module, $file_key);
 	}
 	
@@ -214,7 +220,6 @@ class cfct_build_common {
 				}
 			}
 		}
-		$module_urls = apply_filters('cfct_build_module_urls', $module_urls); // @deprecated, remove in 1.2
 		$this->module_urls = apply_filters('cfct-build-module-urls', $module_urls);
 		do_action('cfct-modules-included', $modules);
 		return true;
@@ -294,9 +299,12 @@ class cfct_build_common {
 		return true;
 	}
 
-	public function included_module_options() {
-		if ($modules = wp_cache_get('cfct-build-included-module-options', 'cfct_build')) {
-			return $modules;
+	public function included_module_options($get_lookup = false) {
+		if ($modules = wp_cache_get('cfct-build-included-module-options-lookup', 'cfct_build')) {
+			if ($get_lookup) {
+				return $modules;
+			}
+			return array_values($modules);
 		}
 	
 		$paths = apply_filters('cfct-module-option-dirs', array_merge(array(trailingslashit(CFCT_BUILD_DIR).'module-options'), $this->registered_module_options_dirs));
@@ -306,14 +314,17 @@ class cfct_build_common {
 				while (false !== ($file = readdir($handle))) {
 					$path = trailingslashit($path);
 					if (is_dir($path.$file) && is_file($path.$file.'/'.$file.'.php')) {
-						$modules[] = $path.$file.'/'.$file.'.php';
+						$modules[$file] = $path.$file.'/'.$file.'.php';
 					}
 				}
 			}
 		}
 
-		wp_cache_set('cfct-build-included-module-options', $modules, 'cfct_build', 3600);
-		return $modules;
+		wp_cache_set('cfct-build-included-module-options-lookup', $modules, 'cfct_build', 3600);
+		if ($get_lookup) {
+			return $modules;
+		}
+		return array_values($modules);
 	}
 
 // Included Rows

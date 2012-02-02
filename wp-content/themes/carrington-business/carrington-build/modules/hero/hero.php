@@ -48,7 +48,7 @@ if (!class_exists('cfct_module_hero') && class_exists('cfct_module_image')) {
 			$html .= '
 				<fieldset class="cfct-ftl-border">
 					<legend>Formatting</legend>
-					<div class="cfct-inline-els '.$this->id_base.'-col-a">
+					<div class="cfct-inline-els '.$this->id_base.'-c6-12">
 						<label>Image Alignment</label>
 						<div class="'.$this->id_base.'-hero-align-select">
 							<table>
@@ -73,7 +73,7 @@ if (!class_exists('cfct_module_hero') && class_exists('cfct_module_image')) {
 							<div id="'.$this->id_base.'-selected-alignment">'.str_replace('-', '/', $selected_alignment).'</div>
 						</div>
 					</div>
-					<div class="'.$this->id_base.'-col-b">
+					<div class="'.$this->id_base.'-c6-34">
 						<label for="'.$this->get_field_id('box-height').'">'.__('Box Height', 'carrington-build').'</label>
 						<input type="text" name="'.$this->get_field_name('box-height').'" id="'.$this->get_field_id('box-height').'" value="'.(!empty($data[$this->get_field_name('box-height')]) ? esc_attr($data[$this->get_field_name('box-height')]) : $this->default_box_height).'" /> <span>pixels</span>
 					</div>
@@ -90,11 +90,17 @@ if (!class_exists('cfct_module_hero') && class_exists('cfct_module_image')) {
 		 * @return array string HTML
 		 */
 		public function display($data) {
-			$image_src = wp_get_attachment_image_src(intval($data[$this->get_field_name('image_id')]), esc_attr($data[$this->get_field_name('image_id').'-size']), false);
+			if (isset($data[$this->get_field_name('image_id')])) {
+				$image_src = wp_get_attachment_image_src(intval($data[$this->get_field_name('image_id')]), esc_attr($data[$this->get_field_name('image_id').'-size']), false);
+				$image_alignment = esc_attr(str_replace('-', ' ', $data[$this->get_field_name('hero_alignment')]));
+			}
+			else {
+				$image_src = '';
+				$image_alignment = '';
+			}
 			$title = (!empty($data[$this->get_field_name('title')]) ? esc_html($data[$this->get_field_name('title')]) : '');
 			$content = (!empty($data[$this->get_field_name('content')]) ? $this->wp_formatting($data[$this->get_field_name('content')]) : '');
 			$box_height = (!empty($data[$this->get_field_name('box-height')]) ? intval($data[$this->get_field_name('box-height')]) : 0);
-			$image_alignment = esc_attr(str_replace('-', ' ', $data[$this->get_field_name('hero_alignment')]));
 			$id_base = $this->id_base;
 			$url = $this->get_link_url($data);
 			
@@ -125,21 +131,21 @@ if (!class_exists('cfct_module_hero') && class_exists('cfct_module_image')) {
 				#'.$this->id_base.'-edit-form fieldset.'.$this->id_base.'-content-section .cfct-inline-els textarea {
 					height: 150px;
 				}	
-				#'.$this->id_base.'-edit-form fieldset .cfct-inline-els.'.$this->id_base.'-col-a {
+				#'.$this->id_base.'-edit-form fieldset .cfct-inline-els.'.$this->id_base.'-c6-12 {
 					width: 300px;
 					height: 100px;
 					float: left;
 				}
-				#'.$this->id_base.'-edit-form fieldset .'.$this->id_base.'-col-b {
+				#'.$this->id_base.'-edit-form fieldset .'.$this->id_base.'-c6-34 {
 					float: left;
 					display: block;
 					margin-top: 10px;
 					margin-top: 5px;
 				}
-				#'.$this->id_base.'-edit-form fieldset .'.$this->id_base.'-col-b input[type=text] {
+				#'.$this->id_base.'-edit-form fieldset .'.$this->id_base.'-c6-34 input[type=text] {
 					width: 50px;
 				}
-				#'.$this->id_base.'-edit-form fieldset .'.$this->id_base.'-col-b label {
+				#'.$this->id_base.'-edit-form fieldset .'.$this->id_base.'-c6-34 label {
 					width: 90px;
 				}
 				#'.$this->id_base.'-edit-form fieldset .'.$this->id_base.'-hero-align-select {

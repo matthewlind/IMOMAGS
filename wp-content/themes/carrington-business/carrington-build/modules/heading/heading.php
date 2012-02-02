@@ -88,7 +88,6 @@ if (!class_exists('cfct_module_heading')) {
 				'h5' => '&lt;H5&gt;',
 				'h6' => '&lt;H6&gt;',
 			);
-			$tags = apply_filters('cfct_module_heading_h_tags', $tags); // @deprecated, remove in 1.2
 			return apply_filters('cfct-module-heading-h-tags', $tags);
 		}
 

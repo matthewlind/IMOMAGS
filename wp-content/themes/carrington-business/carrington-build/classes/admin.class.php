@@ -19,7 +19,7 @@ class cfct_build_admin extends cfct_build_common {
 		add_action('admin_head_media_upload_library_form',array($this,'admin_head_media_iframe_css'), 10);
 		add_action('admin_head_media_upload_gallery_form',array($this,'admin_head_media_iframe_css'), 10);
 
-		if (false !== $this->do_build_edit_screen()) {
+		if ($this->do_build_edit_screen() !== false) {
 			add_action('edit_form_advanced', array($this, 'display'), 1);
 			add_action('edit_page_form', array($this, 'display'), 1);
 			add_action('admin_head', array($this, '_init'));
@@ -34,7 +34,7 @@ class cfct_build_admin extends cfct_build_common {
 				add_action('admin_head', 'cfct_build_admin_scripts', 99999);
 			}
 			else {
-				wp_enqueue_script('cfct-admin-js',admin_url('?cfct_action=cfct_admin_js'), array('jquery'), CFCT_BUILD_VERSION);
+				wp_enqueue_script('cfct-admin-js',admin_url('?cfct_action=cfct_admin_js'), array('jquery', 'jquery-popover'), CFCT_BUILD_VERSION);
 				wp_enqueue_style('cfct-admin-css',admin_url('?cfct_action=cfct_admin_css'), array(), CFCT_BUILD_VERSION, 'screen');			   
 			}
 
@@ -45,7 +45,7 @@ class cfct_build_admin extends cfct_build_common {
 	}
 	
 	private function do_build_edit_screen() {
-		$build_pages = apply_filters('cfct_build_enabled_post_types', array('page')); // @deprecated, remove in 1.2
+		$build_pages = array('page', 'cftl-tax-landing');
 		$build_pages = apply_filters('cfct-build-enabled-post-types', $build_pages);
 
 		$ret = true;
@@ -153,15 +153,13 @@ class cfct_build_admin extends cfct_build_common {
 
 	public function display() {
 		$this->template->init();
-		do_action('cfct_admin_pre_build', $this); // @deprecated, remove in 1.2
 		do_action('cfct-admin-pre-build', $this);
-
 		$this->html .= '
 			<div id="cfct-build" '.($this->edit_mode == 'new' ? ' class="new"' : null).'>
 				<input type="hidden" name="cfct-autosave-title" id="cfct-autosave-title" value="'.apply_filters('cfct-autosave-title', __('Untitled Build', 'carrington-build')).'" />
 				<div id="cfct-build-header" class="cfct-clearfix">
 					<div class="cfct-build-header-group">
-						<ul id="cfct-build-tabs">
+						<ul id="cfct-build-tabs" class="cfct-tabs">
 							<li'.($this->edit_mode == 'wordpress' || $this->edit_mode == 'new' ? ' class="active"' : null).'>
 								<a title="'.__('Standard WordPress editing mode', 'carrington-build').'" href="'.(user_can_richedit() ? '#postdivrich' : '#postdiv').'"><img class="cfct-icon-wp" src="'.CFCT_BUILD_URL.'img/x.gif" alt="" />'.__('WordPress', 'carrington-build').'</a>
 							</li>
@@ -197,7 +195,6 @@ class cfct_build_admin extends cfct_build_common {
 				'.$this->dialogs().'
 			</div><!-- /cfct-build -->
 			';
-		do_action('cfct_admin_post_build', $this); // @deprecated, remove in 1.2
 		do_action('cfct-admin-post-build', $this);
 		echo $this->html;
 	}
@@ -278,28 +275,28 @@ class cfct_build_admin extends cfct_build_common {
 
 		$html .= '	  
 				<div class="cfct-faux-build" role="presentation">
-					<div class="cfct-faux-row">
-						<div class="cfct-block cfct-block-d">
-							<div class="cfct-faux-block-dashes"></div>
+					<div class="row">
+						<div class="c c4-12">
+							<div class="cfct-faux-module"></div>
 						</div>
-						<div class="cfct-block cfct-block-e">
-							<div class="cfct-faux-block-dashes"></div>
+						<div class="c c4-12">
+							<div class="cfct-faux-module"></div>
 						</div>
-					</div><!--/cfct-faux-row-->
+					</div><!--/row-->
 					<div id="cfct-welcome-faux-bottom-rows">
-						<div class="cfct-faux-row">
-							<div class="cfct-block cfct-block-abc">
-								<div class="cfct-faux-block-dashes"></div>
+						<div class="row">
+							<div class="c c4-1234">
+								<div class="cfct-faux-module"></div>
 							</div>
-						</div><!--/cfct-faux-row-->
-						<div class="cfct-faux-row">
-							<div class="cfct-block cfct-block-ab">
-								<div class="cfct-faux-block-dashes"></div>
+						</div><!--/row-->
+						<div class="row">
+							<div class="c c6-1234">
+								<div class="cfct-faux-module"></div>
 							</div>
-							<div class="cfct-block cfct-block-c">
-								<div class="cfct-faux-block-dashes"></div>
+							<div class="c c6-56">
+								<div class="cfct-faux-module"></div>
 							</div>
-						</div><!--/cfct-faux-row-->
+						</div><!--/row-->
 					</div><!--/cfct-welcome-faux-bottom-rows-->
 				</div><!--/cfct-faux-build-->
 			</div>
@@ -656,7 +653,6 @@ class cfct_build_admin extends cfct_build_common {
 		$this->template->set_is_admin(false);
 		$build->set_template($this->template);
 
-		do_action('pre_cfct_build', $build); // @deprecated, remove in 1.2
 		do_action('pre-cfct-build', $build);
 		$post_update = apply_filters('cfct-pre-save-post', array(
 			'ID' => $post_id, 
@@ -767,6 +763,7 @@ class cfct_build_admin extends cfct_build_common {
 		}
 
 		if (!empty($func)) {
+			define("DOING_BUILD_AJAX", true);
 			try {
 				$result = call_user_func($func, $args);
 			}
@@ -800,7 +797,7 @@ class cfct_build_admin extends cfct_build_common {
 	 */
 	public function ajax_decode_json($json, $array = false) {
 		$json = stripslashes($json);
-		return cf_json_decode($json, $array);
+		return cfcf_json_decode($json, $array);
 	}
 
 	/**
@@ -818,7 +815,6 @@ class cfct_build_admin extends cfct_build_common {
 			throw new cfct_template_exception(__('Template id not found','carrington-build').' (template_id: '.$args['template_id'].')');
 		}
 		$this->template->init();
-		do_action('cfct_admin_pre_build', $this); // @deprecated, remove in 1.2
 		do_action('cfct-admin-pre-build', $this);
 		$template = $templates[$args['template_id']]['template'];
 		$template['from_template_id'] = $args['template_id'];
@@ -1076,7 +1072,9 @@ class cfct_build_admin extends cfct_build_common {
 	public function ajax_save_module($args) {
 		kses_init();
 		$post_data = $this->get_postmeta($args['post_id']);
-
+		if (!isset($post_data['data']) || !is_array($post_data['data'])) {
+			$post_data['data'] = array('blocks' => array(), 'modules' => array());
+		}
 		if (isset($args['module_type'])) {
 			$module_type = $args['module_type'];
 			$old_data = array();
@@ -1100,10 +1098,12 @@ class cfct_build_admin extends cfct_build_common {
 				
 				// $save['module_id'] = $save['module_id']; // @huh? not sure why this was this way
 				$save['block_id'] = $args['block_id'];
+
+				$save['render'] = (isset($data['render']) ? $data['render'] : true) ? 1 : 0;
 				
 				unset($save['guid']);
 
-				if (empty($post_data['data']['modules'][$save['module_id']])) {
+				if (!isset($post_data['data']['modules'][$save['module_id']]) || empty($post_data['data']['modules'][$save['module_id']])) {
 					$post_data['data']['blocks'][$save['block_id']][] = $save['module_id'];
 				}
 				$post_data['data']['modules'][$save['module_id']] = $save;
@@ -1135,6 +1135,40 @@ class cfct_build_admin extends cfct_build_common {
 		return $ret;
 	}
 	
+	public function ajax_toggle_render($args) {
+		$post_data = $this->get_postmeta($args['post_id']);
+		if (empty($post_data['data']['modules'][$args['module_id']])) {
+			throw new cfct_row_exception(__('Could not get postmeta for post on module render toggle','carrington-build').' (post_id: '.$args['post_id'].')');
+		}		
+		$post_data['data']['modules'][$args['module_id']]['render'] = (!$post_data['data']['modules'][$args['module_id']]['render']) ? 1 : 0;
+		if ($post_data['data']['modules'][$args['module_id']]['render']) {
+			$action = 'disable';
+			$state = 'enabled';
+		}
+		else {
+			$action = 'enable';
+			$state = 'disabled';
+		}
+		if (!$this->set_postmeta($args['post_id'], $post_data)) {
+			throw new cfct_row_exception(__('Could not save postmeta for post on module render toggle','carrington-build').' (post_id: '.$args['post_id'].')');
+		}
+		$this->set_post_content($args['post_id']);
+
+		$ret = new cfct_message(array(
+			'success' => true,
+			'html' => $state,
+			'message' => 'module id '.$args['module_id'].' '.__('Module ' . $state, 'carrington-build'),
+			'extra' => array(
+				'module_id' => $args['module_id'],
+				'row_id' => $args['row_id'],
+				'block_id' => $args['block_id']
+			)
+		));
+
+
+		return $ret;
+	}
+
 	public function ajax_delete_module($args) {
 		$post_data = $this->get_postmeta($args['post_id']);
 		$cleared = false;
@@ -1170,12 +1204,14 @@ class cfct_build_admin extends cfct_build_common {
 
 	function ajax_content_chooser_state($args) {
 		$user = wp_get_current_user();
-		update_user_meta($user->ID, 'cfct_content_chooser_state', esc_attr($args['state']));
+		$args = (array) $args;
+		$state = isset($args['state']) ? $args['state'] : '';
+		update_user_meta($user->ID, 'cfct_content_chooser_state', esc_attr($state));
 		// if ($updated) {
 			$ret = new cfct_message(array(
 				'success' => true,
 				'html' => '<p>'.__('State Saved','carrington-build').'</p>',
-				'message' => __('usermeta saved for cfct_content_chooser_state', 'carrington-build').': '.$state
+				'message' => __('usermeta saved for cfct_content_chooser_state', 'carrington-build').': ' . $state
 			));
 		// }
 		// else {
@@ -1191,6 +1227,7 @@ class cfct_build_admin extends cfct_build_common {
 	 * @return object/exception
 	 */
 	public function ajax_reset_build($args) {
+		$edit_state = isset($args['edit_state']) ? $args['edit_state'] : NULL;
 		if (intval($args['post_id']) < 0) {
 			$ret = new cfct_message(array(
 				'success' => true,
@@ -1198,7 +1235,7 @@ class cfct_build_admin extends cfct_build_common {
 				'message' => __('cannot reset new post', 'carrington-build')
 			));
 		}
-		elseif ($this->reset_edit_state($args['edit_state'], $args['post_id'])) {
+		elseif ($this->reset_edit_state($edit_state, $args['post_id'])) {
 			$ret = new cfct_message(array(
 				'success' => true,
 				'html' => '<div><p>'.__('Build Data Reset').'</p></div>',
@@ -1287,7 +1324,9 @@ class cfct_build_admin extends cfct_build_common {
 	function check_post_edit_state() {
 		global $post;
 		$this->set_edit_mode();
-		$post->post_content = cfct_build_clear_build_search_content($post->post_content);
+		if (is_object($post)) {
+			$post->post_content = cfct_build_clear_build_search_content($post->post_content);
+		}
 	}
 
 	/**
@@ -1351,7 +1390,6 @@ class cfct_build_admin extends cfct_build_common {
 
 		$css .= file_get_contents(CFCT_BUILD_DIR.'css/cfct-build-admin.css');
 		$css .= file_get_contents(CFCT_BUILD_DIR.'css/cfct-build-form.css');
-		$css .= file_get_contents(CFCT_BUILD_DIR.'css/cfct-build-common.css');
 		$css = str_replace('../img/', CFCT_BUILD_URL.'img/', $css);
 
 		$css .= $this->get_module_extras('css', true);

@@ -73,7 +73,7 @@ if (!class_exists('cfct_module_sidebar')) {
 			
 			ob_start();
 			dynamic_sidebar($data['sidebar_id']);
-			$sidebar_html .= ob_get_clean();
+			$sidebar_html = ob_get_clean();
 
 			return $this->load_view($data, compact('sidebar_html', 'wrapper'));
 		}

@@ -423,61 +423,67 @@ p.cancel {
 ========================= */
 
 #cfct-build-header {
-	background:url(../img/button-gradients-sprite.gif) repeat-x 0 -700px;
+	background: url(../img/button-gradients-sprite.gif) repeat-x 0 -700px;
 	height: 28px;
 	margin: 0 0 10px;
-	padding-bottom:1px;
+	padding-bottom: 1px;
 	padding-left: 10px;
 	position: relative;
 	z-index: 6;
 }
 .cfct-build-header-group {
-	float:left;
-	margin-right:10px;
+	margin-right: 10px;
 }
 .cfct-build-header-group-secondary {
-	float:right;
-	margin-left:10px;
+	float: right;
+	margin-left: 10px;
 }
-#cfct-build-tabs li {
+
+/* Main tab controls */
+.cfct-tabs {
+	margin: 0;
+	padding: 0;
+}
+.cfct-tabs li {
 	display: inline;
 	float: left;
-	margin:0 2px 0 0;
+	margin: 0 2px 0 0;
 }
-#cfct-build-tabs li.active {
+.cfct-tabs li.active {
 	border-bottom:1px solid #f9f9f9;
 }
-#cfct-build-tabs li a,
-#cfct-build-tabs li a:visited {
+.cfct-tabs a,
+.cfct-tabs a:visited {
 	background:#F1F1F1 url(../img/button-gradients-sprite.gif) repeat-x 0 0;
 	border: 1px solid #eee;
-	border-color:#e1e1e1 #e1e1e1 #c6c6c6;
-	border-bottom-width:0;
-	-moz-border-radius: 6px 6px 0 0;
-	-webkit-border-top-right-radius: 6px;
-	-webkit-border-top-left-radius: 6px;
-	-khtml-border-top-right-radius: 6px;
-	-khtml-border-top-left-radius: 6px;
-	border-top-right-radius: 6px;
-	border-top-left-radius: 6px;
-	color:#999;
-	float:left;
-	font:16px/26px Georgia,"Times New Roman","Bitstream Charter",Times,serif;
+	border-color: #e1e1e1 #e1e1e1 #c6c6c6;
+	border-bottom-width: 0;
+	-moz-border-radius-topleft: 6px; /* FF1+ */
+	-webkit-border-top-left-radius: 6px; /* Saf3+, Chrome */
+	-khtml-border-top-left-radius: 6px; /* Konqueror */
+	border-top-left-radius: 6px; /* Standard. IE9 */
+	-moz-border-radius-topright: 6px; /* FF1+ */
+	-webkit-border-top-right-radius: 6px; /* Saf3+, Chrome */
+	-khtml-border-top-right-radius: 6px; /* Konqueror */
+	border-top-right-radius: 6px; /* Standard. IE9 */
+	color: #999;
+	float: left;
+	font: 16px/26px Georgia,"Times New Roman","Bitstream Charter",Times,serif;
 	height: 26px;
 	padding: 0 12px;
-	text-shadow:#fff 0 1px 0;
+	text-shadow: #fff 0 1px 0;
 	text-decoration: none;
 }
-#cfct-build-tabs li a:focus,
-#cfct-build-tabs li a:hover {
+.cfct-tabs a:focus,
+.cfct-tabs a:hover {
 	color:#777;
 }
-#cfct-build-tabs li.active a,
-#cfct-build-tabs li.active a:visited {
+.cfct-tabs .active a,
+.cfct-tabs .active a:visited {
 	background-color: #f9f9f9;
-	background-position:0 -100px;
-	border-color:#c6c6c6 #c6c6c6 #f9f9f9;
-	border-bottom-width:1px;
+	background-position: 0 -100px;
+	border-color: #c6c6c6 #c6c6c6 #f9f9f9;
+	border-bottom-width: 1px;
 	color: #333;
 	cursor: default;
 }
@@ -589,24 +595,23 @@ p.cancel {
 }
 
 /* =Rows
-These also have partial declarations in cfct-build-common.css
 ============================================================== */
 
 #cfct-sortables { /* Row sortables */
 	position:relative; /* Bugfix: prevents draggables positioning bug in Gecko */
 }
 
-.cfct-row,
+.row,
 .cfct-row-draggable-placeholder {
 	margin: 0 0 5px;
 }
-.cfct-row {
-	background:#4e4e4e;
+.row {
+	background: #4e4e4e;
 	border:3px solid #4e4e4e;
-	-moz-border-radius:6px;
-	-webkit-border-radius:6px;
-	-khtml-border-radius:6px;
-	border-radius:6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-khtml-border-radius: 6px;
+	border-radius: 6px;
 	position:relative;
 }
 .cfct-row-inner {
@@ -617,12 +622,23 @@ These also have partial declarations in cfct-build-common.css
 }
 .cfct-row-blocks { /* table */
 	background-color: #6f6f6f;
-	-moz-border-radius:4px;
-	-webkit-border-radius:4px;
-	-khtml-border-radius:4px;
-	border-radius:4px;
-	border-collapse:collapse;
+	/**
+	 * Necessary for WP3.3+ compatibility
+	 * Previous versions of WordPress set this on tables everywhere.
+	 */
+	table-layout: fixed;
+	-moz-border-radius: 4px; /* FF1+ */
+	-webkit-border-radius: 4px; /* Saf3+, Chrome */
+	-khtml-border-radius: 4px; /* Konqueror */
+	border-radius: 4px; /* Standard. IE9 */
+	border-collapse: collapse;
 	width: 100%;
+}
+.cfct-row-blocks tr {
+	vertical-align: top;
+}
+.cfct-row-blocks td {
+	padding: 0;
 }
 
 .cfct-row-handle {
@@ -686,39 +702,50 @@ These also have partial declarations in cfct-build-common.css
 }
 
 /* Faux rows (for welcome) */
-
-.cfct-faux-row {
-	height:100px;
+.cfct-faux-build .row {
+	background: transparent;
+	border: 0;
+	overflow: hidden;
+	padding: 0;
 }
-.cfct-faux-row .cfct-block {
-	float:left;
-	padding:0;
-	position:static;
+.cfct-faux-build .c {
+	float: left;
+	padding: 0;
+	z-index: 0;
 }
-.cfct-faux-block-dashes {
-	border:4px dashed #ddd;
-	-moz-border-radius:6px;
-	-webkit-border-radius:6px;
-	-khtml-border-radius:6px;
-	border-radius:6px;
-	height:78px;
-	margin:5px;
+.cfct-faux-module {
+	border: 4px dashed #ddd;
+	-moz-border-radius: 6px; /* FF1+ */
+	-webkit-border-radius: 6px; /* Saf3+, Chrome */
+	-khtml-border-radius: 6px; /* Konqueror */
+	border-radius: 6px; /* Standard. IE9 */
+	height: 78px;
+	margin: 5px;
 }
 
 /* =Blocks
 ========================= */
 
-.cfct-block {
-	padding:2px 2px 0 0;
-	position:relative;
-	vertical-align:top;
+.c {
+	position: relative;
+	vertical-align: top;
 }
-.block-0 {
-	padding-left:2px;
+
+.c6-12,
+.c6-34,
+.c6-56 {
+	width: 33.3%;
 }
-.cfct-block-inside {
-	border:1px solid #595959;
-	border-width:0 0 1px 1px;
+.c6-1234,
+.c6-3456 {
+	width: 66.6%;
+}
+.c4-1234 {
+	width: 100%;
+}
+.c4-12,
+.c4-34 {
+	width: 49.999%;
 }
 
 /* =Modules
@@ -761,18 +788,46 @@ These also have partial declarations in cfct-build-common.css
 }
 .cfct-build-add-module a:focus,
 .cfct-build-add-module a:hover {
-	color:#fff;
+	color: #fff;
 }
 .cfct-build-add-module a:active {
-	background-color:#666;
-	background-position:0 -300px;
-	color:#fff;
+	background-color: #666;
+	background-position: 0 -300px;
+	color: #fff;
 }
 
 .cfct-block-modules {
-	position:relative;
-	min-height:71px;
+	position: relative;
+	padding: 2px 1px 0;
+	min-height: 71px;
 }
+/* Extra padding for first column of modules */
+.c4-1 .cfct-block-modules,
+.c4-12 .cfct-block-modules,
+.c4-123 .cfct-block-modules,
+.c4-1234 .cfct-block-modules,
+.c6-1 .cfct-block-modules,
+.c6-12 .cfct-block-modules,
+.c6-123 .cfct-block-modules,
+.c6-1234 .cfct-block-modules,
+.c6-12345 .cfct-block-modules,
+.c6-123456 .cfct-block-modules {
+	padding-left: 2px;
+}
+/* Extra padding for last column of modules */
+.c4-4 .cfct-block-modules,
+.c4-34 .cfct-block-modules,
+.c4-234 .cfct-block-modules,
+.c4-1234 .cfct-block-modules,
+.c6-6 .cfct-block-modules,
+.c6-56 .cfct-block-modules,
+.c6-456 .cfct-block-modules,
+.c6-3456 .cfct-block-modules,
+.c6-23456 .cfct-block-modules,
+.c6-123456 .cfct-block-modules {
+	padding-right: 2px;
+}
+
 .cfct-module {
 	background:#565656 url(../img/module-gradient.gif) no-repeat -1px 0;
 	color:#eee;
@@ -795,6 +850,11 @@ These also have partial declarations in cfct-build-common.css
 .cfct-module dd {
 	margin: 2px 0 0 0;
 }
+
+.cfct-module .cfct-module-rendering {
+	float: right;
+}
+
 .cfct-module .cfct-module-edit-clear {
 	margin-left:-3px;
 }
@@ -834,7 +894,7 @@ These also have partial declarations in cfct-build-common.css
 	font-size:10px;
 }
 .cfct-row-blocks .ui-sortable .cfct-module {
-	cursor:move;
+	cursor: move;
 }
 .cfct-module:hover .cfct-module-content { /* show it on rollover */
 	background:url(../img/module-drag-handle.gif) no-repeat right center;
@@ -845,15 +905,14 @@ These also have partial declarations in cfct-build-common.css
 .cfct-module-draggable-placeholder {
 	background:#6f6f6f;
 	border: 1px dashed #555;
-	-moz-border-radius:6px;
-	-webkit-border-radius:6px;
-	-khtml-border-radius:6px;
-	border-radius:6px;
-	margin-bottom:2px;
-	padding:10px 9px 9px;
-	z-index:5;
+	-moz-border-radius: 6px; /* FF1+ */
+	-webkit-border-radius: 6px; /* Saf3+, Chrome */
+	-khtml-border-radius: 6px; /* Konqueror */
+	border-radius: 6px; /* Standard. IE9 */
+	margin-bottom: 2px;
+	padding: 3px;
+	z-index: 5;
 }
-
 
 /* =Popup
 ========================= */
@@ -861,7 +920,7 @@ These also have partial declarations in cfct-build-common.css
 	background:url(../img/cfct-popup-tick-sprite.png) no-repeat center 0;
 	padding-top:8px;
 }
-.cfct-popup-anchored.cfct-popup-anchored-bottom {
+.flopped-y .cfct-popup-anchored {
 	background-position:center bottom;
 	padding-bottom:8px;
 	padding-top:0;
@@ -873,11 +932,6 @@ These also have partial declarations in cfct-build-common.css
 	-khtml-border-radius:6px;
 	border-radius:6px;
 	padding:7px;
-	/**
-	 * @bugfix weird overflow:auto offset artifacts
-	 * @affected Safari, Chrome
-	 */
-	position: relative;
 }
 .cfct-popup-inner-wrap {
 	/**
@@ -987,7 +1041,7 @@ These also have partial declarations in cfct-build-common.css
 }
 .cfct-popup-content {
 	background: #ddd url(../img/popup-gradients.gif) repeat-x 0 -1000px;
-	padding: 12px 12px 2px;
+	padding: 12px;
 	position: relative;
 }
 .cfct-popup-content.cfct-module-sideload {
@@ -1233,6 +1287,28 @@ These also have partial declarations in cfct-build-common.css
 	opacity: 0.35;
 }
 
+/* =Module-level spinner
+========================= */
+.cfct-module-status,
+.cfct-module-status-overlay {
+	position:absolute; 
+	z-index:99; 
+	height:100%; 
+	width:100%; 
+	top:0; 
+	left:0;	
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	-khtml-border-radius:6px;
+	border-radius:6px;
+	overflow: hidden;
+}
+.cfct-module-status-overlay {
+	background:black; 
+	filter: alpha(opacity=35);
+	opacity: 0.35;
+}
+
 /* =Generic Loading Spinner Div
 ========================= */
 #cfct-popup .cfct-loading {
@@ -1362,6 +1438,7 @@ a:active .cfct-il-icon {
 	margin:60px auto 0 -240px;
 	position:absolute;
 	width:480px;
+	z-index: 10;
 }
 #cfct-welcome-options li {
 	display:inline;
@@ -1553,6 +1630,8 @@ a:active .cfct-il-icon {
 .cfct-module-tabs ul {
 	display:-moz-inline-box; /* FF2 */
 	display:inline-block; /* Standard. IE8+, Saf, FF3+ */
+	margin: 0;
+	padding: 0;
 	/**
 	 * @bugfix inline-block fix
 	 * @see http://blog.mozilla.com/webdev/2009/02/20/cross-browser-inline-block/

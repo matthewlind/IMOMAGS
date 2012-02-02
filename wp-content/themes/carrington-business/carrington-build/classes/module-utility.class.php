@@ -119,7 +119,7 @@ class cfct_build_module_utility {
 		}
 		
 		$html = '
-			<div class="'.$this->id_base.'-col-b cfct-post-layout-controls">';
+			<div class="'.$this->id_base.'-c6-34 cfct-post-layout-controls">';
 		if (in_array('header', $controls)) {
 			$html .= '
 				<p class="cfct-style-title-chooser">'.$this->custom_css_dropdown('style-title', __('Header Size', 'carrington-build'), 'header', $data).'</p>';
@@ -159,7 +159,7 @@ class cfct_build_module_utility {
 	
 	function custom_css_dropdown($name, $title, $type, $data) {
 		$options = cfct_class_groups($type);
-		$current_setting = ($data[$this->get_field_name($name)] ? $data[$this->get_field_name($name)] : false);
+		$current_setting = (!empty($data[$this->get_field_name($name)]) ? $data[$this->get_field_name($name)] : false);
 		
 		$ret = '<label for="'.$this->get_field_id($name).'">'.$title.'</label>
 			<select class="cfct-style-chooser" name="'.$this->get_field_name($name).'" id="'.$this->get_field_id($name).'"><option value="">'.__('-none-', 'carrington-build').'</option>';
@@ -447,7 +447,7 @@ class cfct_build_module_utility {
 	 */
 	public function _image_list($attachments, $args) {
 		// push the selected image to the front of the list of images
-		if ($args['selected_image'] != false) {
+		if (isset($args['selected_image']) && $args['selected_image'] != false) {
 			$selected_images = (!empty($args['selected_image']) ? explode(',', $args['selected_image']) : 0);
 			$_attachments = $attachments;
 			foreach($_attachments as $key => $attachment) {
@@ -533,7 +533,7 @@ class cfct_build_module_utility {
 		);
 		
 		header('content-type: text/javascript charset=utf8');
-		echo cf_json_encode($ret);
+		echo cfcf_json_encode($ret);
 		exit;
 	}
 
@@ -541,28 +541,30 @@ class cfct_build_module_utility {
 	
 	/**
 	 * Returns a label and dropdown for a list of authors
+	 * (using the same method as the core WP author list)
 	 *
 	 * @param array $data data set in the module
-	 * @param string $post_type the permissions of post type the users must have
+	 * @param string $post_type @deprecated @since 1.2
 	 * @return void
 	 */
-	protected function get_author_dropdown($data = array(), $post_type = 'post') {
-		global $current_user;
-		$authors = get_editable_user_ids( $current_user->id, true, $post_type ); // TODO: ROLE SYSTEM
-		if (is_array($authors)) {
-			$dropdown_args = array(
-				'include' => $authors, 
-				'name' => $this->get_field_name('author'), 
-				'selected' => $data[$this->get_field_name('author')],
-				'echo' => 0,
-				'class' => null,
-				'show_option_all' => __('Any Author', 'carrington-build'),
-			);
-			$html = '
-				'.wp_dropdown_users($dropdown_args).'
-			';
-			return $html;
+	protected function get_author_dropdown($data = array(), $post_type = null) {
+		if (!is_null($post_type)) {
+			_deprecated_argument(__FUNCTION__, '1.2' , 'Use of the <code>$post_type</code> parameter has been deprecated.  The author dropdown includes all authors, similar to the WordPress admin author dropdown.');
 		}
+
+		$dropdown_args = array(
+			'who' => 'authors',
+			'name' => $this->get_field_name('author'), 
+			'selected' => isset($data[$this->get_field_name('author')]) ? $data[$this->get_field_name('author')] : null,
+			'include_selected' => true,
+			'echo' => 0,
+			'class' => null,
+			'show_option_all' => __('Any Author', 'carrington-build'),
+		);
+		$html = '
+			'.wp_dropdown_users($dropdown_args).'
+		';
+		return $html;
 	}
 
 	protected function get_taxonomy_selector($args) {

@@ -8,15 +8,19 @@ if (!class_exists('cfct_row_a')) {
 			$config = array(
 				'name' => __('1 Column', 'carrington-build'),
 				'description' => __('A single full-width column', 'carrington-build'),
-				'icon' => '1col/icon.png',
-				'class' => 'cfct-row-abc',
-				'blocks' => array(
-					array(
-						'class' => 'cfct-block-abc'
-					)
-				)
+				'icon' => '1col/icon.png'
 			);
-			parent::__construct($config);		
+			/* Filters in rows used to be keyed by the single classname
+			that was registered for the class. Maintain backwards
+			compatibility for filters by setting modifier for this row to
+			the old classname property. */
+			$this->set_filter_mod('cfct-row-abc');
+			
+			$this->add_classes(array('row-c4-1234'));
+			
+			$this->push_block(new cfct_block_c4_1234);
+
+			parent::__construct($config);
 		}
 	}
 	cfct_build_register_row('cfct_row_a');

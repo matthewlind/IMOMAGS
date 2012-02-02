@@ -117,7 +117,7 @@ if (!class_exists('cfct_module_callout')) {
 					<!-- /inputs -->
 					
 					<!-- styling -->
-					<div id="'.$this->id_base.'-content-styles" class="'.$this->id_base.'-col-b">
+					<div id="'.$this->id_base.'-content-styles" class="'.$this->id_base.'-c6-34">
 						'.$this->post_layout_controls($this->content_support['layout_controls'], $data).'
 					</div>
 					<!-- /styling -->
@@ -236,8 +236,6 @@ if (!class_exists('cfct_module_callout')) {
 					return true;
 				});
 			';
-			// @deprecated
-			#$js .= $this->post_image_selector_js('post_image', array('direction' => 'horizontal'));
 			$js .= $this->global_image_selector_js('global_image', array('direction' => 'horizontal'));
 			return $js;
 		}
@@ -264,7 +262,12 @@ if (!class_exists('cfct_module_callout')) {
 		}
 		
 		function post_image_selector($data = false) {
-			$ajax_args = cf_json_decode(stripslashes($_POST['args']), true);
+			if (isset($_POST['args'])) {
+				$ajax_args = cfcf_json_decode(stripslashes($_POST['args']), true);
+			}
+			else {
+				$ajax_args = null;
+			}
 
 			$selected = 0;
 			if (!empty($data[$this->get_field_id('post_image')])) {
@@ -280,7 +283,7 @@ if (!class_exists('cfct_module_callout')) {
 				'field_name' => 'post_image',
 				'selected_image' => $selected,
 				'selected_size' => $selected_size,
-				'post_id' => $ajax_args['post_id'],
+				'post_id' => isset($ajax_args['post_id']) ? $ajax_args['post_id'] : null,
 				'select_no_image' => true,
 				'suppress_size_selector' => true
 			);

@@ -55,7 +55,7 @@ if (!class_exists('post_callout_module')) {
 
 			$image = $title = $content = null;
 
-			if ($data[$this->get_field_name('custom_values')]) {
+			if (isset($data[$this->get_field_name('custom_values')]) && $data[$this->get_field_name('custom_values')]) {
 				if (!empty($data[$this->get_field_name('featured_image')])) {
 					$image = wp_get_attachment_image($data[$this->get_field_name('featured_image')], $img_size, false, $img_atts);
 				}
@@ -70,15 +70,17 @@ if (!class_exists('post_callout_module')) {
 			}
 			else {
 				$post = get_post($data[$this->get_field_name('post_id')]);
-				$title = $post->post_title;
-				$content = $this->get_excerpt($post);
+				if (!empty($post)) {
+					$title = $post->post_title;
+					$content = $this->get_excerpt($post);
 								
-				// Check if theme supports get_the_post_thumbnail
-				if (function_exists('get_the_post_thumbnail')) {
-					$image = get_the_post_thumbnail($post->ID, $img_size, $img_atts);
-				} else {
-					$image = wp_get_attachment_image(get_post_meta($post->ID, '_thumbnail_id', true), $img_size, false, $img_atts);
-				}				
+					// Check if theme supports get_the_post_thumbnail
+					if (function_exists('get_the_post_thumbnail')) {
+						$image = get_the_post_thumbnail($post->ID, $img_size, $img_atts);
+					} else {
+						$image = wp_get_attachment_image(get_post_meta($post->ID, '_thumbnail_id', true), $img_size, false, $img_atts);
+					}
+				}			
 			}
 
 			if (!empty($title)) {
@@ -93,23 +95,34 @@ if (!class_exists('post_callout_module')) {
 		}	
 
 		public function admin_form($data) {
-			$checked = checked($data[$this->get_field_name('custom_values')], true, false);
+			if (isset($data[$this->get_field_name('custom_values')])) {
+				$checked = checked($data[$this->get_field_name('custom_values')], true, false);
+			}
+			else {
+				$checked = '';
+			}
 			
 			if (empty($checked) && isset($data[$this->get_field_name('post_id')])) {
 				$post = get_post($data[$this->get_field_name('post_id')]);
-				$title = $post->post_title;
-				$content = $post->post_content;
-				$current_image = get_post_meta($post->ID, '_thumbnail_id', TRUE);
+				if ($post) {
+					$title = $post->post_title;
+					$content = $post->post_content;
+					$current_image = get_post_meta($post->ID, '_thumbnail_id', TRUE);
+				}
+				else {
+					$title = null;
+					$content = null;
+					$current_image = null;
+				}
 			}
 			else {
 				$title = (isset($data[$this->get_field_name('title')]) ? $data[$this->get_field_name('title')] : null);
 				$content = (isset($data[$this->get_field_name('content')]) ? $data[$this->get_field_name('content')] : null);
-				$current_image = $data[$this->get_field_name('featured_image')];
+				$current_image = (isset($data[$this->get_field_name('featured_image')]) ? $data[$this->get_field_name('featured_image')] : null);
 			}
 			
 			$current_image_link = '<p>'.__('No image', 'carrington-build').'</p>';
 			if (!empty($current_image)) {
-				$current_image = $data[$this->get_field_name('featured_image')];
 				$current_image_link = wp_get_attachment_image($current_image, $this->default_img_size);
 			}
 			if (empty($data[$this->get_field_name('image-alignment')])) {
@@ -143,18 +156,18 @@ if (!class_exists('post_callout_module')) {
 					<div id="'.$this->id_base.'-post-preview-wrap"'.(!empty($data[$this->get_field_name('post_id')]) ? ' class="active"' : '').'>
 					
 						<!-- content preview -->
-						<div id="'.$this->id_base.'-post-preview-content" class="'.$this->id_base.'-col-a">
+						<div id="'.$this->id_base.'-post-preview-content" class="'.$this->id_base.'-c6-12">
 							<div id="'.$this->id_base.'-post-callout-preview" class="'.$this->id_base.'-post-summary">
-								'.$this->admin_post_preview($data[$this->get_field_name('post_id')], $data).'
+								'.(isset($data[$this->get_field_name('post_id')]) ? $this->admin_post_preview($data[$this->get_field_name('post_id')], $data) : '') .'
 							</div>
 						</div>
 						<!-- /content preview -->
 						
 						<!-- layout controls -->
-						<div class="'.$this->id_base.'-col-b">
+						<div class="'.$this->id_base.'-c6-34">
 							'.$this->post_layout_controls($this->content_support['layout_controls'], $data).'
 						</div>
-						<div class="'.$this->id_base.'-col-b">
+						<div class="'.$this->id_base.'-c6-34">
 							<p'.(empty($data[$this->get_field_name('post_id')]) ? ' style="display: none"' : '').' id="'.$this->id_base.'-custom-check" class="customize">
 								<span>
 									<input type="checkbox" name="'.$this->get_field_name('custom_values').'" value="1"'.$checked.' id="'.$this->get_field_id('custom_values').'" />
@@ -262,7 +275,7 @@ if (!class_exists('post_callout_module')) {
 		function post_image_selector($data = false) {
 			$post_id = (!empty($data[$this->get_field_name('post_id')]) ? $data[$this->get_field_name('post_id')] : 0);			
 			if (!empty($_POST['action']) && $_POST['action'] == 'cfcpm_post_load_images') {
-				$ajax_args = cf_json_decode(stripslashes($_POST['args']), true);
+				$ajax_args = cfcf_json_decode(stripslashes($_POST['args']), true);
 				$post_id = intval($ajax_args['post_id']);
 			}
 			
@@ -319,13 +332,16 @@ if (!class_exists('post_callout_module')) {
 		 * @return string
 		 */
 		public function text($data) {
-			if ($data[$this->get_field_name('custom_values')]) {
+			if (!empty($data[$this->get_field_name('custom_values')])) {
 				return $data[$this->get_field_name('title')].' '.$data[$this->get_field_name('content')];
 			}
 			else {
 				$post = get_post($data[$this->get_field_name('post_id')]);
-				$content = $this->get_excerpt($post);
-				return $post->post_title.' '.$content;
+				if ($post) {
+					$content = $this->get_excerpt($post);
+					return $post->post_title.' '.$content;
+				}
+				return '';
 			}
 		}
 
@@ -402,7 +418,7 @@ if (!class_exists('post_callout_module')) {
 				$html = '<p>'.sprintf(__('No posts found for term "%s"', 'carrington-build'), esc_html($_POST['term'])).'</p>';
 			}
 			$html .= '</div>';
-			echo cf_json_encode(compact('term', 'html'));
+			echo cfcf_json_encode(compact('term', 'html'));
 			exit();
 		}
 		
@@ -420,28 +436,29 @@ if (!class_exists('post_callout_module')) {
 					'error_html' => '<p class="error">'.__('Could not retrieve images for the selected post','carrington-build').'.</p>'
 				);
 			}
-			echo cf_json_encode($ret);
+			echo cfcf_json_encode($ret);
 			exit;
 		}
 		
 		public function admin_post_preview($post_id = null, $data = false) {
+			global $post;
+			$old_post = $post;
 			$post = $ret = false;
-			$post = get_post($post_id);
+			$post = get_post($post_id, 'OBJECT');
 			if ($post) {
 				setup_postdata($post);
-		
 				$cats = trim(get_the_category_list(', '));
 				$category_info = $cats ? ' in '.$cats : '';
 
-				if (!empty($data) && $data[$this->get_field_id('custom_values')] == 1) {
+				if (!empty($data) && isset($data[$this->get_field_id('custom_values')]) && $data[$this->get_field_id('custom_values')] == 1) {
 					$title = $data[$this->get_field_id('title')];
-					$image = wp_get_attachment_image($data[$this->get_field_id('featured_image')], array(75, 75));
+					$image = isset($data[$this->get_field_id('featured_image')]) ? wp_get_attachment_image($data[$this->get_field_id('featured_image')], array(75, 75)) : '';
 					$excerpt = $data[$this->get_field_id('content')];
 				}
 				else {
 					$title = get_the_title($post_id);
 					$image = wp_get_attachment_image(get_post_meta($post_id, '_thumbnail_id', true), array(75, 75));
-					$excerpt = get_the_excerpt();
+					$excerpt = $this->get_excerpt($post);
 				}
 								
 				$ret = '
@@ -457,6 +474,12 @@ if (!class_exists('post_callout_module')) {
 				$ret = '<div class="'.$this->id_base.'-post-summary-none">'.__('No Selected Post <span>Click "Find a Post" to search for one</span>', 'carrington-build').'</div>';
 			}
 			wp_reset_query();
+
+			$post = $old_post;
+			if ($post) {
+				setup_postdata($post);
+			}
+
 			return $ret;
 		}
 
@@ -502,25 +525,30 @@ if (!class_exists('post_callout_module')) {
 				'post_thumbnail' => $image_id,
 				'post_thumbnail_markup' => wp_get_attachment_image($image_id, $this->default_img_size),
 			);
-			return cf_json_encode($item);
+			return cfcf_json_encode($item);
 		}
 		
 		public function get_excerpt($_post) {
 			global $post;
 			$old_post = $post;
 			$post = $_post;
-			setup_postdata($post);
-			
-			$output = $post->post_excerpt;
-			if ( post_password_required($post) ) {
-				$output = __('There is no excerpt because this is a protected post.', 'carrington-build');
-				return $output;
+			if ($post) {
+				setup_postdata($post);
+				
+				$output = $post->post_excerpt;
+				if ( post_password_required($post) ) {
+					$output = __('There is no excerpt because this is a protected post.', 'carrington-build');
+					return $output;
+				}
+				$ret = apply_filters('get_the_excerpt', $output);
+				
+				$post = $old_post;
+				if ($post) {
+					setup_postdata($post);
+				}
+				return $ret;
 			}
-			$ret = apply_filters('get_the_excerpt', $output);
-			
-			$post = $old_post;
-			setup_postdata($post);
-			return $ret;
+			return '';
 		}
 		
 // Content Move Helpers

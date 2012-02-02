@@ -53,7 +53,6 @@ class cfct_build extends cfct_build_common {
 	 */
 	public function display($echo = false, $post_id = null, $html = true) {
 		$this->_init($post_id);
-		do_action('cfct_build_pre_build', $this); // @deprecated, remove in 1.2
 		do_action('cfct-build-pre-build', $this);
 		
 		if ($this->can_do_build()) {
@@ -61,7 +60,7 @@ class cfct_build extends cfct_build_common {
 				$this->cache_filters_state();
 				$this->add_carrington_framework_filters(); // @carrington-framework
 				$this->ret = '
-					<div id="'.apply_filters('cfct-build-display-id', 'cfct-build-'.$this->post_id).'" class="'.apply_filters('cfct-build-display-class', 'cfct-build').'">
+					<div id="'.apply_filters('cfct-build-display-id', 'cfct-build-'.$this->post_id).'" class="'.apply_filters('cfct-build-display-class', 'cfct-build grid hideoverflow').'">
 						'.$this->template->html($this->data).'
 					</div>
 					';
@@ -76,10 +75,8 @@ class cfct_build extends cfct_build_common {
 			$this->ret = false;
 		}
 		
-		do_action('cfct_build_post_build', $this); // @deprecated, remove in 1.2
 		do_action('cfct-build-post-build', $this);
 		$ret = $this->ret;
-		$ret = apply_filters('cfct_build_content', $ret); // @deprecated, remove in 1.2
 		$ret = apply_filters('cfct-build-content', $ret);
 				
 		if ($echo) {
@@ -114,7 +111,6 @@ class cfct_build extends cfct_build_common {
 
 })(jQuery);		
 			';		
-		$js = apply_filters('cfct_build_js', $js);
 		$js = apply_filters('cfct-build-js', $js);
 		echo $js;
 		exit;
@@ -131,12 +127,12 @@ class cfct_build extends cfct_build_common {
 
 		$css = '';
 
-		$css .= file_get_contents(CFCT_BUILD_DIR.'css/cfct-build-common.css');
-		$css .= file_get_contents(CFCT_BUILD_DIR.'css/cfct-build-client.css');
+		$css .= file_get_contents(
+			CFCT_BUILD_DIR.'css/cfct-build-client.css'
+		);
 		$css .= $this->get_module_extras('css');
 		$css .= $this->get_row_extras('css');
 
-		$css = apply_filters('cfct_build_css', $css); // @deprecated, remove in 1.2
 		$css = apply_filters('cfct-build-css', $css);
 		echo $css;
 		exit;

@@ -25,7 +25,11 @@ class cfct_module_option_custom_classes extends cfct_module_option {
 	 */
 	public function apply_classes($class, $data) {
 		if (!empty($data['cfct-module-options'][$this->id_base]['custom-css'])) {
-			$class .= ' '.implode(' ', $data['cfct-module-options'][$this->id_base]['custom-css']);
+			$classes = cfct_tpl::extract_classes($class);
+			$class = cfct_tpl::to_classname(
+				$classes,
+				$data['cfct-module-options'][$this->id_base]['custom-css']
+			);
 		}
 		return $class;
 	}
@@ -36,6 +40,9 @@ class cfct_module_option_custom_classes extends cfct_module_option {
 		$input_class = (empty($dropdown_opts) ? 'no-button' : null);
 		
 		$value = null;
+		if (!isset($data['custom-css'])) {
+			$data['custom-css'] = array();
+		}
 		if (!empty($data['custom-css'])) {
 			$value = implode(' ', array_map('esc_attr', $data['custom-css']));
 		}

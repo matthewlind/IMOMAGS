@@ -53,7 +53,7 @@ if (!class_exists('cfct_module_divider')) {
 			';
 			foreach ($classes as $class => $display) {
 				$output .= '
-		<option value="'.esc_attr($class).'" '.selected($class, $data[$this->get_field_id('css_class')], false).'>'.esc_html($display).'</option>
+		<option value="'.esc_attr($class).'" '.selected($class, isset($data[$this->get_field_id('css_class')]) ? $data[$this->get_field_id('css_class')] : '', false).'>'.esc_html($display).'</option>
 				';
 			}
 			$output .= '

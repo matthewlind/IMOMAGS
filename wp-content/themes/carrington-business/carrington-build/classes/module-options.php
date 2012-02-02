@@ -58,6 +58,24 @@ class cfct_module_options {
 		return $ret;
 	}
 	
+	public function options_layout_html($data, $options_data, $module_type) {
+		$ret = '';
+		if (count($this->module_extras)) {
+			foreach ($this->module_extras as $extra) {
+				$option_data = (!empty($options_data[$extra->id_base]) ? $options_data[$extra->id_base] : null);
+				$ret .= $extra->_layout_html($data, $option_data, $module_type);
+			}
+			foreach ($this->module_extra_buttons as $extra) {
+				$option_data = (!empty($options_data[$extra->id_base]) ? $options_data[$extra->id_base] : null);
+				$ret .= $extra->_layout_html($data, $option_data, $module_type);
+			}
+		}
+		if (trim($ret) != '') {
+			$ret = '<div class="cfct-module-options-layout">' . $ret . '</div>';
+		}
+		return $ret;
+	}
+	
 	public function update($new_data, $old_data) {
 		$ret = array();
 		if (count($this->module_extras)) {
@@ -202,11 +220,27 @@ class cfct_module_option {
 		return $ret;
 	}
 	
+	public function _layout_html($data, $options_data, $module_type) {
+		$layout_html = $this->layout_html($data, $options_data, $module_type);
+		if (trim($layout_html) == '') {
+			return '';
+		}
+		$ret = '
+			<div id="cfct-module-options-layout-'.$this->id_base.'">
+				'.$this->layout_html($data, $options_data, $module_type).'
+			</div>';
+		return $ret;
+	}
+	
 	public function update($new_data, $old_data) {
 		return $new_data;
 	}
 	
 	public function form($data) {
+		return null;
+	}
+	
+	public function layout_html($data, $options_data, $module_type) {
 		return null;
 	}
 	
@@ -240,6 +274,52 @@ class cfct_module_option {
 	public function admin_css() {
 		return null;
 	}
+	
+	/**
+	 * Load the view 
+	 * 
+	 * $params is an associative array that will be extracted for the view
+	 * All keys in the array will become available variables in the view in
+	 * addition to the $data variable
+	 *
+	 * @param string $view 
+	 * @param string $params - additional params to be made available to the template 
+	 * @return void
+	 */
+	public function load_view($view, $params = array(), $data = null) {
+		global $cfct_build;
+		
+		$view = apply_filters('cfct-module-options-'.$this->id_base.'-view', $view, $data);
+
+		// find file
+		$view_path = '';
+		if (is_file($view)) {
+			// full path to view given
+			$view_path = $view;
+		}
+		else {
+			// look for view in module folder
+			global $cfct_build;
+			$path = dirname($cfct_build->get_module_options_path($this->id_base));
+			if (is_file(trailingslashit($path).$view)) {
+				$view_path = trailingslashit($path).$view;
+			}
+		}
+		// render
+		if (!empty($view_path)) {	
+			extract($params);
+			ob_start();
+		
+			include($view_path);
+		
+			$buffer = ob_get_clean();
+			return $buffer;
+		}
+		else {
+			return null;
+		}
+	}
+
 }
 
 ?>

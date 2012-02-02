@@ -85,15 +85,13 @@ class cfct_build_module extends cfct_build_module_utility {
 		// get display html & apply generic filter
 		$module_display = apply_filters('cfct-module-display', $this->display($data), $this->id_base, $data);
 		// apply more module specific filters to output
-		$module_display = apply_filters('cfct_module_'.$this->id_base.'_display', $module_display, $data); // @deprecated, remove in 1.2
-		$module_display = apply_filters('cfct-module-'.$this->id_base.'-display', $module_display, $data);		
+		$module_display = apply_filters('cfct-module-'.$this->id_base.'-display', $module_display, $data);
 		
 		$ret = '
 			<div class="'.$module_class.'">
 				'.$module_display.'
 			</div>';
 		
-		$ret = apply_filters('cfct_module_'.$this->id_base.'_html', $ret, $data); // @deprecated, remove in 1.2
 		return apply_filters('cfct-module-'.$this->id_base.'-html', $ret, $data);
 	}
 	
@@ -168,7 +166,6 @@ class cfct_build_module extends cfct_build_module_utility {
 		// get admin form html & apply generic filter
 		$module_form =  apply_filters('cfct-module-admin-form', $this->admin_form($data), $this->id_base, $data);
 		// apply module specific admin form html filters
-		$module_form = apply_filters('cfct_module_'.$this->id_base.'_admin_form', $module_form, $data); // @deprecated, remove in 1.2
 		$module_admin_content = apply_filters('cfct-module-'.$this->id_base.'-admin-form', $module_form, $data);
 
 		if ($mode == 'edit') {
@@ -189,7 +186,8 @@ class cfct_build_module extends cfct_build_module_utility {
 					</div>';
 
 			$guid = isset($data['module_id']) && !empty($data['module_id']) ? $data['module_id'] : cfct_build_guid($this->id_base, 'module');
-
+			$render = (int) (isset($data['render']) ? $data['render'] : 1);
+			
 			$style = '';
 			if (isset($data['max-height'])) {
 				$this->max_height = floor($data['max-height']);
@@ -240,12 +238,13 @@ class cfct_build_module extends cfct_build_module_utility {
 								<input type="hidden" name="module_id_base" value="'.$this->id_base.'" />
 								<input type="hidden" name="module_type" value="'.$this->get_type().'" />
 								<input type="hidden" name="module_id" value="'.$guid.'" />
+								<input type="hidden" name="render" value="'.$render.'" />
 							</div>
 						</form>
 					</div>';
 					
 			// wrap it all up nice and neat
-			$html .= '
+			$html = '
 				<div class="'.$this->id_base.'-edit cfct-popup">
 					<div class="cfct-popup-inner-wrap">
 					'.apply_filters('cfct-module-'.$this->id_base.'-admin-popup-contents', $popup_contents, $this).'
@@ -262,11 +261,28 @@ class cfct_build_module extends cfct_build_module_utility {
 				$text = $this->name;
 			}
 			
+			$options_layout_html = '';
+			if ($this->do_custom_attributes()) {
+				$module_options = array();
+				if (isset($data['cfct-module-options'])) {
+					$module_options = $data['cfct-module-options'];
+					unset($data['cfct-module-options']);
+				}
+				$options_layout_html = $this->module_options->options_layout_html($data, $module_options, $this->get_type());
+			}
+
 			$html = '
-				<div id="'.$data['module_id'].'" class="cfct-module cfct-module-'.$this->id_base.'">			
+				<div id="'.$data['module_id'].'" class="cfct-module cfct-module-'.$this->id_base.'">
 					<dl class="cfct-module-content">
 						<dt class="cfct-module-content-title">
-							<img class="cfct-module-content-icon" src="'.$this->get_icon().'" alt="'.$this->get_name().'" />
+						<img class="cfct-module-content-icon" src="'.$this->get_icon().'" alt="'.$this->get_name().'" />';
+			/* Disabled in 1.2 */
+			/* $html .= '
+					<div class="cfct-module-edit-clear cfct-module-rendering">
+							<a href="#'.$data['module_id'].'" class="cfct-module-toggle-render">'.__((!isset($data['render']) || $data['render']) ? 'Enabled' : 'Disabled', 'carrington-build').'</a>
+					</div>';
+			*/
+			$html .= '
 							<small class="cfct-module-content-type">'.$this->name.'</small>
 							'.esc_html($text).'
 						</dt>
@@ -276,17 +292,17 @@ class cfct_build_module extends cfct_build_module_utility {
 			}
 			$html .= '<a href="#'.$data['module_id'].'" class="cfct-module-clear">'.__('Delete', 'carrington-build').'</a>
 						</dd>
-					</dl>
+					</dl>'.
+					$options_layout_html 
+					.'
 				</div>';
 		}
 		
-		$html = apply_filters('cfct_module_'.$this->id_base.'_admin', $html, $mode); // @deprecated, remove in 1.2
 		return apply_filters('cfct-module-'.$this->id_base.'-admin', $html, $mode);
 	}
 	
 	public function _text($data) {
 		$module_text = $this->text($data);
-		$module_text = apply_filters('cfct_module_'.$this->id_base.'_text', $module_text, $data); // @deprecated, remove in 1.2
 		return apply_filters('cfct-module-'.$this->id_base.'-text', $module_text, $data);
 	}
 	
@@ -324,7 +340,6 @@ class cfct_build_module extends cfct_build_module_utility {
 			// provide generic icon
 			$icon = CFCT_BUILD_URL.'img/default-icon.png';
 		}
-		$icon = apply_filters('cfct-'.$this->id_base.'module-icon', $icon); // @deprecated, remove in 1.2
 		return apply_filters('cfct-'.$this->id_base.'-module-icon', $icon);
 	}
 
@@ -419,7 +434,6 @@ class cfct_build_module extends cfct_build_module_utility {
 		}
 		
 		$processed = $this->update($new_data, $old_data);
-		$processed = apply_filters('cfct_module_'.$this->id_base.'_update', $processed, $new_data, $old_data); // @deprecated, remove in 1.2
 		$processed = apply_filters('cfct-module-'.$this->id_base.'-update', $processed, $new_data, $old_data);
 				
 		if ($this->do_custom_attributes()) {
@@ -625,7 +639,6 @@ cfct_builder.addModuleLoadCallback("'.$this->id_base.'", function(form) {
 		if (empty($this->url)) {
 			global $cfct_build;
 			$url = $cfct_build->get_module_url($this->basename);
-			$url = apply_filters('cfct_module_'.$this->id_base.'_url', $url, $this->basename); // @deprecated, remove in 1.2
 			$this->url = apply_filters('cfct-module-'.$this->id_base.'-url', $url, $this->basename);
 		}
 		return $this->url;
@@ -634,7 +647,6 @@ cfct_builder.addModuleLoadCallback("'.$this->id_base.'", function(form) {
 	public function get_path() {
 		global $cfct_build;
 		$path = dirname($cfct_build->get_module_path($this->basename));
-		$path = apply_filters('cfct_module_'.$this->id_base.'_path', $path, $this->basename); // @deprecated, remove in 1.2
 		return apply_filters('cfct-module-'.$this->id_base.'-path', $path, $this->basename);
 	}
 	

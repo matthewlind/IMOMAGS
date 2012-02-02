@@ -13,20 +13,21 @@ if (!class_exists('cfct_row_abc')) {
 			$config = array(
 				'name' => __('3 Column', 'carrington-build'),
 				'description' => __('A 3 column row.', 'carrington-build'),
-				'icon' => '3col/icon.png',
-				'class' => 'cfct-row-a-b-c',
-				'blocks' => array(
-					array(
-						'class' => 'cfct-block-a',
-					),
-					array(
-						'class' => 'cfct-block-b',
-					),
-					array(
-						'class' => 'cfct-block-c',
-					)
-				)
+				'icon' => '3col/icon.png'
 			);
+			
+			/* Filters in rows used to be keyed by the single classname
+			that was registered for the class. Maintain backwards
+			compatibility for filters by setting modifier for this row to
+			the old classname property. */
+			$this->set_filter_mod('cfct-row-a-b-c');
+			
+			$this->add_classes(array('row-c6-12-34-56'));
+			
+			$this->push_block(new cfct_block_c6_12);
+			$this->push_block(new cfct_block_c6_34);
+			$this->push_block(new cfct_block_c6_56);
+			
 			parent::__construct($config);
 		}
 	}

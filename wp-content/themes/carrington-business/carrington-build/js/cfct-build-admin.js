@@ -35,6 +35,7 @@
 				
 		// insert in to DOM
 		$('#titlediv').after(cfct_build);
+		cfct_builder.$rowTrigger = $(cfct_builder.opts.rowTriggerSelector);
 		cfct_builder.bindClickables();
 		cfct_builder.bindLiveClickables();
 		
@@ -76,8 +77,10 @@
 		
 		var do_tab_switch = true;
 		
-		if (switchMessage != null && confirm(switchMessage)) {
-			cfctDoTabSwitch(_this);
+		if (switchMessage != null) {
+			if (confirm(switchMessage)) {
+				cfctDoTabSwitch(_this);
+			}
 		}
 		else {
 			cfctDoTabSwitch(_this);
@@ -122,10 +125,10 @@
 	};
 	
 	cfctPrepMediaGallery = function(moveTo) {
-		var mediaButtons = $('#media-buttons');
+		var mediaButtons = $('#media-buttons,#wp-content-media-buttons');
 		switch (moveTo) {
 			case 'wordpress':
-				$('#editor-toolbar').append(mediaButtons);
+				$('#editor-toolbar,#wp-content-editor-tools').append(mediaButtons);
 				break;
 			case 'build':
 				$('#build-editor-toolbar').append(mediaButtons);
@@ -218,6 +221,7 @@
 			revert: 150,
 			forcePlaceholderSize:true
 		},
+		rowTriggerSelector: '#cfct-sortables-add',
 		dialog_selectors: {
 			popup: '#cfct-popup',
 			delete_row: '#cfct-delete-row',
@@ -273,8 +277,8 @@
 				$('body').trigger('click');
 				$('#cfct-welcome-splash').hide();
 				$('#cfct-welcome-faux-bottom-rows').slideUp('normal', function() {
-					_rowchooser.fadeIn('fast', function(){
-						cfct_builder.toggleRowSelect('show');
+					_rowchooser.fadeIn('fast', function () {
+						cfct_builder.$rowTrigger.data('popover').show();
 					});
 				});
 				return false;
@@ -335,7 +339,7 @@
 
 		$('#cfct-sortables', cfct_build).append($(res.html)).sortable('refresh');
 		$('#cfct-choose-template').slideUp('normal', function() {
-			cfct_builder.toggleRowSelect('open');
+			cfct_builder.$rowTrigger.data('popover').show();
 			$('#cfct-sortables-add-container').slideDown();
 		});
 		cfct_builder.bindClickables();
@@ -540,12 +544,8 @@
 	};
 
 // Add Row Functions
-	cfct_builder.addRow = function() {
-		this.toggleRowSelect();
-	};
-	
 	cfct_builder.insertRow = function(row_type) {
-		this.toggleRowSelect('hide');
+		// this.$rowTrigger.data('popover').hide();
 		if (!cfct_builder.opts.welcome_removed) {
 			cfct_builder.hideWelcome();
 		}
@@ -1059,7 +1059,19 @@
 
 		return true;
 	});
-	
+// Module enable/disable callback
+	$(cfct_builder).bind('toggle-render-response', function(evt, ret) {
+		$('#' + ret.module_id).find('.cfct-module-status').remove();
+		if (!ret.success) {
+			ret.html = ret.html + "<p>Could not toggle render state.</p>";
+			cfct_builder.doError(ret);
+			return false;
+		}
+		var _this = $('#' + ret.module_id + ' a.cfct-module-toggle-render');
+		_this.html(ret.html);
+		return true;
+	});
+
 // Module Callbacks
 	cfct_builder.doModuleSaveCallback = function(form) {
 		var _form = $(form);
@@ -1203,19 +1215,21 @@
 	};
 	
 	cfct_builder.bindLiveClickables = function() {
-		// Rows
-			// add new row
-			$('#cfct-build-data #cfct-sortables-add').live('click', function() {	
-				cfct_builder.addRow();
-				return false;
+		var _that = this;
+		if (!this.$rowTrigger.data('popover')) {
+			this.$rowTrigger.popover({
+				my: 'center top',
+				at: 'center bottom',
+				offset: '0 1px'
 			});
-		
-			// select row to insert
-			$('#cfct-select-new-row ul li > a').live('click', function() {
+		}
+		// Rows
+			// select row to insert buttons
+			$('#cfct-select-new-row .cfct-il-a').live('click', function(e) {
+				_that.$rowTrigger.data('popover').hide();
 				cfct_builder.insertRow($(this).attr('rel'));
 				return false;
 			});
-		
 			// delete row buttons
 			$('#cfct-sortables .cfct-row-delete').live('click', function() {
 				var _this = $(this);
@@ -1223,7 +1237,7 @@
 					cfct_builder.doRemoveRow(_this.parents('.cfct-row'));
 				}
 				else {
-					cfct_builder.confirmRemoveRow(_this.parents('.cfct-row'));				
+					cfct_builder.confirmRemoveRow(_this.parents('.cfct-row'));
 				}
 				return false;
 			});
@@ -1283,7 +1297,24 @@
 				}
 				return false;
 			});
-			
+		// Enable / disable module rendering actions
+			$('a.cfct-module-toggle-render').live('click', function() {
+				var _this = $(this);
+				cfct_builder.module_spinner(_this);
+				var module_data = {
+					'module_id':_this.attr('href').slice(_this.attr('href').indexOf('#')+1),
+					'block_id':_this.parents('.cfct-block').attr('id'),
+					'row_id':_this.parents('.cfct-row').attr('id')
+				};
+				
+				cfct_builder.fetch('toggle_render',
+					module_data,
+					'toggle-render-response'
+				);
+				return false;
+			});
+
+				
 		// Delete Module Confirmation
 			// standard delete module button
 			$('#cfct-delete-module-confirm').live('click', function() {
@@ -1462,9 +1493,6 @@
 			if ($('#cfct-build-header .cfct-build-options .cfct-build-options-list').is(':visible')) {
 				cfct_builder.toggleOptions();
 			}
-			if ($('#cfct-select-new-row').is(':visible')) {
-				cfct_builder.toggleRowSelect('hide');
-			}
 		});
 		
 		// global keypress handler
@@ -1579,48 +1607,26 @@
 		_optionsmenu[func]();		
 	};
 
-	cfct_builder.toggleRowSelect = function(dir) {
-		var _chooser = $('#cfct-select-new-row');
-		
-		switch(true) {
-			case _chooser.is(':visible'):
-			case dir == 'hide':
-				func = 'hide';
-				break;
-			case _chooser.is(':hidden'):
-			case dir == 'show':
-				cfct_builder.positionRowSelect(_chooser);
-				func = 'show';
-				break;
-		}
-				
-		_chooser[func](); // Don't give this guy a speed unless you want to make a custom show/hide routine!
-	};
-	
-	cfct_builder.positionRowSelect = function(chooser) {
-		var _chooser = $(chooser) || $('#cfct-select-new-row');
-		
-		// horizontal is straight forward
-		_chooser.css({'left':(_chooser.parents('div#cfct-sortables-add-container').width()/2)-(_chooser.width()/2) + 'px'});		
-
-		// vertical requires more work...
-		if ($('#cfct-sortables').height() > _chooser.height()) {
-			_chooser.find('.cfct-popup-anchored').addClass('cfct-popup-anchored-bottom');
-		 	_chooser.css({'top':'-' + (_chooser.height()-6) + 'px','bottom':'auto'});
-		}
-		else {
-			_chooser.find('.cfct-popup-anchored').removeClass('cfct-popup-anchored-bottom');
-			_chooser.css({'bottom':'-' + (_chooser.height()-7) + 'px','top':'auto'});
-		}
-	};
-	
 	cfct_builder.hasRows = function() {
 		return $('#cfct-sortables .cfct-row').size() > 0;
 	};
 	
 	cfct_builder.spinner = function(message) {
 		var _message = message || 'Loading&hellip;';
-		return '<div id="cfct-spinner-dialog" class="cfct-popup"><div class="cfct-popup-spinner">' + message + '</div></div>';
+		return '<div id="cfct-spinner-dialog" class="cfct-popup"><div class="cfct-popup-spinner">' + _message + '</div></div>';
+	};
+	
+	cfct_builder.module_spinner = function(module, message) {
+		$(module).append(
+			$('<div class="cfct-module-status">')
+				.append($('<div class="cfct-module-status-wrapper" />')
+					.css({
+						'padding-top':($(module).height() / 3) + 'px',
+						'height':$(module).height() + 'px'
+					})
+					.append('<div class="cfct-module-status-overlay" />', cfct_builder.spinner(message))
+				)
+		);
 	};
 
 // Triggered Row Responses 
@@ -1628,7 +1634,7 @@
 	$(cfct_builder).bind('row-removed', function(evt) {
 		if ($('#cfct-sortables .cfct-row, cfct_build').length == 0) {
 			cfct_builder.toggleOptionsMenu('hide');
-		}
+		};
 	});
 
 	$(cfct_builder).bind('new-row-inserted', function(evt, row) {

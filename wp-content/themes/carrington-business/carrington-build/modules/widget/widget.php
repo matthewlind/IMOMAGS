@@ -102,6 +102,9 @@ if (!class_exists('cfct_module_widget')) {
 			$widget_html = '';
 			if (is_array($control['callback']) && $control['callback'][0] instanceof WP_Widget) {
 				// set widget data for get_option filter
+				if (!isset($data['widget'])) {
+					$data['widget'] = null;
+				}
 				$this->widget_data = $data['widget'];
 
 				// widgets echo, run through output buffer
@@ -122,7 +125,9 @@ if (!class_exists('cfct_module_widget')) {
 			}
 
 			$html = '';
-			$html .= '<p>'.$widget_id.'</p>';
+			if (isset($data['widget_id'])) {
+				$html .= '<p>'.$data['widget_id'].'</p>';
+			}
 
 			// widget select list
 			if ($this->suppress_chooser || !$this->available) {
@@ -196,6 +201,9 @@ if (!class_exists('cfct_module_widget')) {
 			// grab the widget we need		
 			$control = $this->registered_widget_updates[$new_data['id_base']];
 			if (is_array($control['callback']) && $control['callback'][0] instanceof WP_Widget) {
+				if (!isset($new_data['widget-'.$new_data['id_base']])) {
+					return $new_data;
+				}
 				$new_widget_data = $new_data['widget-'.$new_data['id_base']][$new_data['widget_number']];
 				unset($new_data['widget-'.$new_data['id_base']], $new_data['widget_number'], $new_data['id_base']);
 
@@ -204,7 +212,7 @@ if (!class_exists('cfct_module_widget')) {
 					$old_widget_data = $old_data['widget'];
 				}
 
-				$processed = $control['callback'][0]->update($new_widget_data, $old_widget_data);
+				$processed = @$control['callback'][0]->update($new_widget_data, $old_widget_data);
 				$new_data['widget'] = $processed;
 			}
 			else {

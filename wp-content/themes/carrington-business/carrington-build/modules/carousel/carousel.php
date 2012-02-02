@@ -153,7 +153,7 @@ if (!class_exists('cfct_module_carousel') && class_exists('cfct_build_module')) 
 							'.$this->_image_selector_size_select($size_select_args).'
 						</div>
 						<div class="cfct-elm-block has-checkbox mar-bottom-double">
-							<input type="checkbox" class="elm-checkbox" id="'.$this->get_field_id('link_images').'" name="'.$this->get_field_name('link_images').'" value="1" '.checked('1', $data[$this->get_field_name('link_images')], false).' />
+							<input type="checkbox" class="elm-checkbox" id="'.$this->get_field_id('link_images').'" name="'.$this->get_field_name('link_images').'" value="1" '.checked('1', isset($data[$this->get_field_name('link_images')]) ? $data[$this->get_field_name('link_images')] : '', false).' />
 							<label for="'.$this->get_field_id('link_images').'" class="lbl-checkbox">'.__('Link images', 'carrington-buld').'</label>
 						</div>
 						<div class="cfct-elm-block elm-width-100">
@@ -176,7 +176,7 @@ if (!class_exists('cfct_module_carousel') && class_exists('cfct_build_module')) 
 							<select id="'.$this->get_field_id('transition').'" name="'.$this->get_field_name('transition').'" class="elm-select">';
 			foreach ($this->transitions as $transition_name => $transition_title) {
 				$html .= '
-								<option value="'.$transition_name.'"'.selected($transition_name, $data[$this->get_field_name('transition')], false).'>'.$transition_title.'</option>';
+								<option value="'.$transition_name.'"'.selected($transition_name, isset($data[$this->get_field_name('transition')]) ? $data[$this->get_field_name('transition')] : '', false).'>'.$transition_title.'</option>';
 			}
 
 			$html .= '
@@ -202,7 +202,7 @@ if (!class_exists('cfct_module_carousel') && class_exists('cfct_build_module')) 
 						</div>
 						<div class="car-items-wrapper">
 							<ol class="carousel-list">';
-				if (count($data[$this->get_field_name('posts')])) {
+				if (isset($data[$this->get_field_name('posts')]) && count($data[$this->get_field_name('posts')])) {
 					foreach ($data[$this->get_field_name('posts')] as $item) {
 						$html .= $this->get_carousel_admin_item($item);
 					}
@@ -312,6 +312,10 @@ if (!class_exists('cfct_module_carousel') && class_exists('cfct_build_module')) 
 					-webkit-border-bottom-right-radius: 4px; /* Saf3+, Chrome */
 					border-bottom-right-radius: 4px; /* Standard. IE9 */
 				}
+				.carousel-list li.no-items {
+					line-height: 45px;
+				}
+				
 				/* clearfix */
 				.carousel-list li:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
 
@@ -497,7 +501,16 @@ if (!class_exists('cfct_module_carousel') && class_exists('cfct_build_module')) 
 			
 				cfct_builder.addModuleLoadCallback("'.$this->id_base.'", function() {
 					'.$this->cfct_module_tabs_js().'
-					
+					var cfct_car_link_search_results = function(target) {
+						$(target).unbind().bind("otypeahead-select", function() {
+							var _insert = $(this).find("li.otypeahead-current").clone().removeClass("otypeahead-current");
+							'.$js_base.'_insert_selected_item(_insert);
+						}).find(".car-search-elements a").click(function() {
+							var _insert = $(this).closest("li").clone();
+							'.$js_base.'_insert_selected_item(_insert);
+							return false;
+						});
+					};
 					// set up search
 					$("#car-item-search #car-search-term").oTypeAhead({
 						searchParams: {
@@ -508,16 +521,7 @@ if (!class_exists('cfct_module_carousel') && class_exists('cfct_build_module')) 
 						loading: "<div class=\"'.$this->id_base.'-loading\">'.__('Loading...', 'carrington-build').'<\/div>",
 						form: ".car-item-search-container",
 						disableForm: false,
-						resultsCallback: function(target) {
-							$(target).unbind().bind("otypeahead-select", function() {
-								var _insert = $(this).find("li.otypeahead-current").clone().removeClass("otypeahead-current");
-								'.$js_base.'_insert_selected_item(_insert);
-							}).find("a").click(function() {
-								var _insert = $(this).closest("li").clone();
-								'.$js_base.'_insert_selected_item(_insert);
-								return false;
-							});
-						}
+						resultsCallback: cfct_car_link_search_results
 					});
 									
 					// init sortabled
@@ -528,7 +532,32 @@ if (!class_exists('cfct_module_carousel') && class_exists('cfct_build_module')) 
 						containment: "parent",
 						placeholder: "carousel-sortable-placeholder"
 					});
+					$(".car-search-pagination a").live("click", function() {
+								var page_str_idx = this.href.indexOf("car_search_page=");
+								var target_page = 1;
+								$("#car-item-search div.otypeahead-target").html("<div class=\"'.$this->id_base.'-loading\">'.__('Loading...', 'carrington-build').'<\/div>").slideDown("fast");
+								if (page_str_idx != -1) {
+									target_page = this.href.substr(page_str_idx + 16);
+								}
+								$.ajax({
+									type: "POST",
+									url: cfct_builder.opts.ajax_url,
+									data: {
+										action: "cfct_carousel_post_search",
+										carousel_action: "do_search",
+										car_search_page: target_page,
+										"car-search-term": $("#car-search-term").val()
+									},
+									success: function(data){
+										$("#car-item-search div.otypeahead-target").html(data.html).show();
+										cfct_car_link_search_results($("#car-item-search div.otypeahead-target"));
+									},
+									dataType: "json"
+								});
+								return false;
+							});
 				});
+
 			
 				var '.$js_base.'_insert_selected_item = function(_insert) {
 					$("#car-items ol").append(_insert).find(".no-items").hide().end().sortable("refresh");
@@ -636,22 +665,35 @@ if (!class_exists('cfct_module_carousel') && class_exists('cfct_build_module')) 
 		}
 		
 		protected function _carousel_do_search() {
+			$posts_per_page = 8;
+			$page = isset($_POST['car_search_page']) ? absint($_POST['car_search_page']) : 1;
+			
 			// ONLY PULLS POSTS THAT HAVE A FEATURED IMAGE
 			$s = new WP_Query(array(
 				's' => $_POST['car-search-term'],
 				'post_type' => apply_filters('cfct-carousel-search-in', array_filter(get_post_types(array('public' => 1)), array($this, 'filter_post_types'))),
-				'posts_per_page' => 8,
+				'posts_per_page' => $posts_per_page,
+				'paged' => $page,
 				'meta_key' => '_thumbnail_id'
 			));
 			
+			$ids = array();
 			$ret = array(
 				'html' => '',
-				'key' => $_POST['key']
+				'key' => isset($_POST['key']) ? $_POST['key'] : ''
 			);
+			
+			
+			$html = '';
 			if ($s->have_posts()) {
-				$html = '<ul>';
+				$html = '<ul class="car-search-elements">';
 				while ($s->have_posts()) {
 					$s->the_post();
+					$post_id = get_the_id();
+					if (in_array($post_id, $ids)) {
+						continue;
+					}
+					$ids[] = $post_id;
 					remove_filter('the_content', 'wptexturize');
 					$postdata = array(
 						'id' => get_the_id(),
@@ -663,9 +705,20 @@ if (!class_exists('cfct_module_carousel') && class_exists('cfct_build_module')) 
 					$html .= $this->get_carousel_admin_item($postdata);
 				}
 				$html .= '</ul>';
-				$ret['html'] = $html;
+				if ($s->found_posts > $posts_per_page) {
+					$paginate_args = array(
+						'base' => '#%_%',
+						'format' => '?car_search_page=%#%',
+						'total' => $s->max_num_pages,
+						'current' => $page,
+						);
+					$paginate_html = paginate_links($paginate_args);
+					$html .= '<span class="car-search-pagination">'.$paginate_html.'</span>';
+				}
 			}
-			else {
+			$ret['html'] .= $html;
+
+			if (empty($ret['html'])) {
 				$ret['html'] = '<ul><li class="no-items-found">No items found for search: "'.esc_html($_POST['car-search-term']).'"</li></ul>';
 			}
 						

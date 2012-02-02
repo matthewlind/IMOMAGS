@@ -12,6 +12,9 @@ This module option also has the ability to include pre-defined class names as op
 Example:
 
 	function my_predefined_classes($classes) {
+		if (empty($classes)) {
+			$classes = array();
+		}
 		$classes = array_merge($classes, array(
 			'cfct-custom-one' => 'Custom class one',
 			'cfct-custom-two' => 'Custom class two'

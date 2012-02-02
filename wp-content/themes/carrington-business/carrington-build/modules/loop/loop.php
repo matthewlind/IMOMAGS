@@ -48,7 +48,7 @@ if (!class_exists('cfct_module_loop') && class_exists('cfct_build_module')) {
 		protected $_deprecated_id = 'cfct-module-loop'; // deprecated property, not needed for new module development
 
 		protected $default_display_args = array(
-			'caller_get_posts' => 1
+			'ignore_sticky_posts' => 1
 		);
 
 		protected $content_display_options = array();		
@@ -95,6 +95,9 @@ if (!class_exists('cfct_module_loop') && class_exists('cfct_build_module')) {
 		 * @return array
 		 */
 		protected function migrate_data($data) {
+			if (!isset($data[$this->gfn('post_type')])) {
+				$data[$this->gfn('post_type')] = array();
+			}
 			// post types used to be singular and stored as strings
 			if (!is_array($data[$this->gfn('post_type')])) {
 				$data[$this->gfn('post_type')] = (array) $data[$this->gfn('post_type')];
@@ -191,11 +194,13 @@ if (!class_exists('cfct_module_loop') && class_exists('cfct_build_module')) {
 		protected function set_display_args($data) {
 			// Set default
 			$args = $this->default_display_args;
-
+			
 			// Figure out post type or use default
-			$post_type = $data[$this->get_field_name('post_type')];
-			if (!empty($post_type)) {
-				$args['post_type'] = $post_type;
+			if (isset($data[$this->get_field_name('post_type')])) {
+				$post_type = $data[$this->get_field_name('post_type')];
+				if (!empty($post_type)) {
+					$args['post_type'] = $post_type;
+				}
 			}
 			
 			$tax_input = $this->get_data('tax_input', $data);
@@ -483,7 +488,7 @@ if (!class_exists('cfct_module_loop') && class_exists('cfct_build_module')) {
 					<!-- title -->
 					<legend>'.__('Title', 'carrington-build').'</legend>
 					<span class="cfct-input-full">
-						<input type="text" name="'.$this->get_field_id('title').'" id="'.$this->get_field_id('title').'" value="'.esc_attr($data[$this->get_field_name('title')]).'" />
+						<input type="text" name="'.$this->get_field_id('title').'" id="'.$this->get_field_id('title').'" value="'.esc_attr(isset($data[$this->get_field_name('title')]) ? $data[$this->get_field_name('title')] : '').'" />
 					</span>
 					<!-- /title -->
 				</fieldset>';
@@ -494,13 +499,11 @@ if (!class_exists('cfct_module_loop') && class_exists('cfct_build_module')) {
 		 * If only 1 post type is available the method ouputs a hidden
 		 * element instead of a select list
 		 *
-		 * @see this::get_post_type_dropdown() for how $type is used
-		 * @param string $type - 'post' or 'page' - does this even do anything? ~sp
 		 * @param array $data - saved module data
 		 * @return string HTML
 		 */
 		public function admin_form_post_types($data) {
-			$post_types = $this->get_post_types($type);
+			$post_types = $this->get_post_types(null);
 			$selected = (!empty($data[$this->gfn('post_type')]) ? $data[$this->gfn('post_type')] : array());
 
 			$_taxes = apply_filters(self::TAXONOMY_TYPES_FILTER, get_object_taxonomies(array_keys($post_types), 'objects'), $this);
@@ -794,11 +797,11 @@ if (!class_exists('cfct_module_loop') && class_exists('cfct_build_module')) {
 					}
 				}
 				$html .= '
-						<label class="cfct-title" for="'.$this->gfi('tax-filter-'.$tax_type).'">' . $taxonomy->label . '</label>
+						<label class="cfct-title" for="'.$this->gfi('tax-filter-'.$taxonomy->name).'">' . $taxonomy->label . '</label>
 
 						<div class="cfct-tax-filter-type-ahead-wrapper">
 							<span class="cfct-input-full">
-								<input class="'.$this->id_base.'-tax-filter-type-ahead-search" name="tax_input['.$taxonomy->name.']" id="'.$this->gfi('tax-input-'.$tax_type).'" type="text" value="'.(!empty($tax_input) ? implode(', ', $tax_input) : '').'" />
+								<input class="'.$this->id_base.'-tax-filter-type-ahead-search" name="tax_input['.$taxonomy->name.']" id="'.$this->gfi('tax-input-'.$taxonomy->name).'" type="text" value="'.(!empty($tax_input) ? implode(', ', $tax_input) : '').'" />
 							</span>
 							<div class="cfct-help">'.__('Start typing to search for a term. Separate terms with commas. If a term is misspelled (ie: does not exist) it will be discarded during save.', 'carrington-build').'</div>
 						</div>';
@@ -824,13 +827,15 @@ if (!class_exists('cfct_module_loop') && class_exists('cfct_build_module')) {
 			$options = array();
 			if (!empty($items)) {
 				foreach ($items as $k => $v) {
-					if (in_array($key, array('link_category', 'nav_menu'))) {
+					if (in_array($k, array('link_category', 'nav_menu'))) {
 						continue;
 					}
 					$options[$k] = $v->labels->name;
 				}
 			}
 			
+			//print_r($data);
+			$index = ""; // TODO: What is $index supposed to be here?  Setting it blank.
 			$field_name = $this->get_field_name('taxonomy-'.$index);
 			$value = (isset($data[$field_name])) ? $data[$field_name] : 0;
 			
@@ -1263,7 +1268,8 @@ if (!class_exists('cfct_module_loop') && class_exists('cfct_build_module')) {
 				'label' => '', // The text for the label element
 				'default' => null, // Add a default option ('all', 'none', etc.)
 				'excludes' => array(), // values to exclude from options
-				'class_name' => null // name to use in the class; defaults to $field_name
+				'class_name' => null, // name to use in the class; defaults to $field_name
+				'multi' => false // use a multi-select instead of a single select
 			);
 			$args = array_merge($defaults, $args);
 			extract($args);

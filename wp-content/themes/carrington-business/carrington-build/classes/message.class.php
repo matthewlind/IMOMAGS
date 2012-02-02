@@ -18,7 +18,8 @@ class cfct_message {
 	}
 	
 // Setters
-	public function add(array $args = array('success' => false, 'html' => null, 'message' => null, 'extra' => null)) {
+	public function add(array $args = array()) {
+		$args = array_merge(array('success' => false, 'html' => null, 'message' => null, 'extra' => null), $args);
 		$this->_success = (bool) $args['success'];
 		$this->_html = strval($args['html']);
 		$this->_message = strval($args['message']);
@@ -34,7 +35,7 @@ class cfct_message {
 // Getters
 	public function get_results() {
 		$ret = array(
-			'success' => trim($this->_success),
+			'success' => (bool) trim($this->_success),
 			'html' => trim($this->_html),
 			'message' => trim($this->_message)
 		);
@@ -46,7 +47,7 @@ class cfct_message {
 	}
 	
 	public function get_json() {
-		return cf_json_encode($this->get_results());
+		return cfcf_json_encode($this->get_results());
 	}
 
 	public function __toString() {

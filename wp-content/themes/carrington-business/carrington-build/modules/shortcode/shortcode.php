@@ -73,7 +73,10 @@ class cfct_module_shortcode extends cfct_build_module {
 	 * @return string text
 	 */
 	public function text($data) {
-		return strip_tags(do_shortcode($data[$this->get_field_id('content')]));
+		// Some shortcodes, like [gallery], have problems if there isn't
+		// a post.  There's not much we can do about that here, so @ to
+		// silence the complaints.
+		return strip_tags(@do_shortcode($data[$this->get_field_id('content')]));
 	}
 
 	/**

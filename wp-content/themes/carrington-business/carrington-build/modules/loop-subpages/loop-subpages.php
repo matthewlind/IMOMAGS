@@ -6,7 +6,7 @@ if (!class_exists('cfct_module_loop')) {
 if (!class_exists('cfct_module_loop_subpages') && class_exists('cfct_module_loop')) {
 	class cfct_module_loop_subpages extends cfct_module_loop {
 		protected $_deprecated_id = 'cfct-module-loop-subpages'; // deprecated property, not needed for new module development
-		
+
 		public function __construct() {
 			global $cfct_build;
 			
@@ -124,7 +124,7 @@ if (!class_exists('cfct_module_loop_subpages') && class_exists('cfct_module_loop
 						}
 					}
 				}
-				set_transient('cfct-build-loop-parent_pages', $html, 3600);
+				set_transient('cfct-build-loop-parent_pages', $pages, 3600);
 			}
 			
 			$html = ''; // set it just to be sure we're clean
@@ -247,6 +247,12 @@ if (!class_exists('cfct_module_loop_subpages') && class_exists('cfct_module_loop
 
 			return $data;
 		}
+
+		/* Do nothing here */
+		protected function migrate_data($data) {
+			return $data;
+		}
+
 	}
 
 	// Register our module...
@@ -262,7 +268,7 @@ if (!class_exists('cfct_module_loop_subpages') && class_exists('cfct_module_loop
 	function cfct_module_loop_subpages_post_save($post_id, $post) {
 		global $cfct_build;
 		if (!$cfct_build->in_ajax() && $post->post_type == 'page') {
-			delete_transient('cfct-build-loop-parent_page_options');
+			delete_transient('cfct-build-loop-parent_pages');
 		}
 	}
 	add_action('save_post', 'cfct_module_loop_subpages_post_save', 10, 2);

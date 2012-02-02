@@ -13,17 +13,20 @@ if (!class_exists('cfct_row_a_bc')) {
 			$config = array(
 				'name' => __('Left Sidebar', 'carrington-build'),
 				'description' => __('2 Columns. The second column is wider than the first.', 'carrington-build'),
-				'icon' => '2col-2wide/icon.png',
-				'class' => 'cfct-row-a-bc',
-				'blocks' => array(
-					array(
-						'class' => 'cfct-block-a',
-					),
-					array(
-						'class' => 'cfct-block-bc',
-					)
-				)
+				'icon' => '2col-2wide/icon.png'
 			);
+			
+			/* Filters in rows used to be keyed by the single classname
+			that was registered for the class. Maintain backwards
+			compatibility for filters by setting modifier for this row to
+			the old classname property. */
+			$this->set_filter_mod('cfct-row-a-bc');
+			
+			$this->add_classes(array('row-c6-12-3456'));
+			
+			$this->push_block(new cfct_block_c6_12);
+			$this->push_block(new cfct_block_c6_3456);
+			
 			parent::__construct($config);
 		}
 	}

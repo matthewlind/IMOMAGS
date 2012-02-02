@@ -1,12 +1,6 @@
 <?php
 	if (!empty($title)) {
-		echo '<h2 class="cfct-mod-title">';
-		if (!empty($pagination_url)) 
-			echo '<a href="'.$pagination_url.'" title="Next Page">';
-		echo esc_html($title);
-		if (!empty($pagination_url)) 
-			echo '</a>';
-		echo '</h2>';
+		echo '<h2 class="cfct-mod-title">'.esc_html($title).'</h2>';
 	}
 ?>
 <div class="cfct-mod-content">

@@ -17,8 +17,8 @@ if (!function_exists('json_encode') && !class_exists('Services_JSON')) {
  * @param array/object $json 
  * @return string json
  */
-if (!function_exists('cf_json_encode')) {
-	function cf_json_encode($data) {
+if (!function_exists('cfcf_json_encode')) {
+	function cfcf_json_encode($data) {
 		if (function_exists('json_encode')) {
 			return json_encode($data);
 		}
@@ -39,8 +39,8 @@ if (!function_exists('cf_json_encode')) {
  * @param bool $array - toggle true to return array, false to return object  
  * @return array/object
  */
-if (!function_exists('cf_json_decode')) {
-	function cf_json_decode($json, $array) {
+if (!function_exists('cfcf_json_decode')) {
+	function cfcf_json_decode($json, $array) {
 		if (function_exists('json_decode')) {
 			$ret = json_decode($json, $array);
 		}
@@ -96,7 +96,7 @@ if (!function_exists('cf_ajax_decode_json')) {
 		if (!get_magic_quotes_gpc()) {
 			$json = stripslashes($json);
 		}
-		return cf_json_decode($json, $array);
+		return cfcf_json_decode($json, $array);
 	}
 }
 ?>

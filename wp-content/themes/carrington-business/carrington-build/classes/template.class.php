@@ -28,7 +28,6 @@ class cfct_build_template implements Iterator {
 			
 	public function __construct() {
 		$default_types = array('row', 'module');
-		$default_types = apply_filters('cfct_template_valid_types', $default_types); // @deprecated, remove in 1.2
 		$this->types = apply_filters('cfct-template-valid-types', $default_types);
 		
 		$this->set_is_admin(is_admin());
@@ -37,7 +36,6 @@ class cfct_build_template implements Iterator {
 
 	public function init() {
 		$this->init_types();
-		do_action('cfct_template_init', $this); // @deprecated, remove in 1.2
 		do_action('cfct-template-init', $this);
 	}
 
@@ -45,13 +43,11 @@ class cfct_build_template implements Iterator {
 		if (!$template || empty($template)) {
 			// start a new template
 			$template = $this->new_template();
-			$template = apply_filters('cfct_default_template', $template); // @deprecated, remove in 1.2
 			$template = apply_filters('cfct-default-template', $template);
 		}
 		elseif (is_int($template)) {
 			// @TODO pull structure from database?
 		}
-		$template = apply_filters('cfct_build_template', $template); // @deprecated, remove in 1.2
 		$this->template = apply_filters('cfct-build-template', $template);		
 		return true;
 	}
@@ -81,7 +77,6 @@ class cfct_build_template implements Iterator {
 			$this->html .= $this->row($row);
 		}
 		
-		$this->html = apply_filters('cfct_build_template_html', $this->html, $this); // @deprecated, remove in 1.2
 		return apply_filters('cfct-build-template-html', $this->html, $this);
 	}
 	
@@ -162,7 +157,6 @@ class cfct_build_template implements Iterator {
 		// TBD - pick row type here
 		// ie: a, a-bc, ab-c, a-b-c
 		$class = 'cfct-build-row';
-		$class = apply_filters('cfct_row_class', $class); // @deprecated, remove in 1.2
 		return apply_filters('cfct-row-class', $class);
 	}
 	

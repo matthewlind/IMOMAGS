@@ -58,6 +58,9 @@ if (!class_exists('cfct_module_multi_base')) {
 				$count = count($modules);
 				$i = 1;
 				foreach ($modules as $module) {
+					if (!$module['render']) {
+						continue;
+					}
 					$html .= $this->before_module($data, $module, $i, $count).
 						$cfct_build->template->get_module($module['module_type'])->html($module).
 					$this->after_module($data, $module, $i++, $count);
@@ -240,7 +243,7 @@ if (!class_exists('cfct_multi_module_row')) {
 				'class' => 'cfct-row-abc cfct-multi-module-row',
 				'blocks' => array(
 					array(
-						'class' => 'cfct-block-abc cfct-multi-module-block'
+						'class' => 'c4-1234 cfct-multi-module-block'
 					)
 				)
 			);

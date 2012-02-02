@@ -1,5 +1,17 @@
 # Carrington Build Changelog
 
+## 1.2
+- now requires WordPress version 3.3 or better
+- change css classes to use the new grid system
+- add the taxonomy-landing plugin to allow Buildable taxonomy landing pages.
+- fix various issues adding, resetting, and viewing modules with WP_DEBUG enabled
+- fix caching of parent page list in subpage module
+- add filters for row classes (cfct-build-row-{rowclass}-classes, such as cfct-build-row-cfct-row-abc-classes)
+- add automatic row classes based on modules in the row (example: cfct-inrow-loop-subpages for a subpage list module)
+- remove use of deprecated function in author dropdown list
+- remove deprecated hooks named with an underscore (cfct_*) in favor of cfct-*
+- improve compatibility with Disqus plugin
+
 ## 1.1.2
 - fix a very rare condition where the default image selector tab may not display in the post-callout & callout modules
 - fix internationalization method call in post-callout module
@@ -13,6 +25,7 @@
 - removed objects being passed by reference in carousel module as Build only support PHP5 and don't need the backward compatibility
 - loading textdomain for 'carrington-build' and adding languages folder to support future internationalizations
 - removed "stacked" multi-row from default row set. Row can be reactivated by uncommenting the registration function call at the bottom of the row file
+- catching condition in post-callout where the post has gone missing
 
 ## 1.1.1
 - fix issue with reset of global post data after loop module run
