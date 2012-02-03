@@ -27,6 +27,12 @@ if (!class_exists('cfct_row_abc_mod1')) {
 					)
 				)
 			);
+			$this->push_block(new cfct_block_c6_d);
+			$this->push_block(new cfct_block_c6_f);
+			$this->push_block(new cfct_block_c6_g);
+
+			
+
 			parent::__construct($config);
 		}
 	}

@@ -273,4 +273,32 @@ class cfct_block_c6_3456 extends cfct_block {
 		parent::__construct($classes);
 	}
 }
+
+/* Thirds */
+class cfct_block_c6_d extends cfct_block {
+	public function __construct($classes = array()) {
+		$this->add_classes(array('c6-12'));
+		$this->add_classes(array('cfct-block-d'));
+		parent::__construct($classes);
+	}
+}
+class cfct_block_c6_f extends cfct_block {
+	public function __construct($classes = array()) {
+		$this->add_classes(array('c6-34'));
+		$this->add_classes(array('cfct-block-f'));
+		parent::__construct($classes);
+	}
+}
+class cfct_block_c6_g extends cfct_block {
+	public function __construct($classes = array()) {
+		$this->add_classes(array('c6-56'));
+		$this->add_classes(array('cfct-block-g'));
+		parent::__construct($classes);
+	}
+}
+
+
+
+
+
 ?>
