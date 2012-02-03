@@ -28,6 +28,20 @@ class cfct_row_4col extends cfct_build_row {
 				)
 			)
 		);
+
+		$this->set_filter_mod('cfct_row_4col');
+
+		$this->add_classes(array('row-c8-12-34-56-78'));
+		$this->add_classes(array('cfct_row_4col'));
+		$this->add_classes(array('cfct-row'));
+
+		$this->push_block(new cfct_block_c8_a);
+		$this->push_block(new cfct_block_c8_b);
+		$this->push_block(new cfct_block_c8_c);
+		$this->push_block(new cfct_block_c8_d);
+
+
+
 		parent::__construct($config);
 	}
 }

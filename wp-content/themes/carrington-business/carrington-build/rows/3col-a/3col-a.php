@@ -27,11 +27,17 @@ if (!class_exists('cfct_row_abc_mod1')) {
 					)
 				)
 			);
+
+			$this->set_filter_mod('cfct-row-a-b-c-mod1');
+
+			$this->add_classes(array('row-c6-12-34-56'));
+			$this->add_classes(array('cfct-row-a-b-c-mod1'));
+
 			$this->push_block(new cfct_block_c6_d);
 			$this->push_block(new cfct_block_c6_f);
 			$this->push_block(new cfct_block_c6_g);
 
-			
+			$this->add_classes(array('cfct-row'));
 
 			parent::__construct($config);
 		}

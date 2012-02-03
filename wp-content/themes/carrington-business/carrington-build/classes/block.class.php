@@ -274,7 +274,7 @@ class cfct_block_c6_3456 extends cfct_block {
 	}
 }
 
-/* Thirds */
+/* Conans */
 class cfct_block_c6_d extends cfct_block {
 	public function __construct($classes = array()) {
 		$this->add_classes(array('c6-12'));
@@ -297,6 +297,62 @@ class cfct_block_c6_g extends cfct_block {
 	}
 }
 
+
+/* Conans */
+class cfct_block_c6_third extends cfct_block {
+	public function __construct($classes = array()) {
+		$this->add_classes(array('c6-12'));
+		$this->add_classes(array('cfct-block-third'));
+		parent::__construct($classes);
+	}
+}
+class cfct_block_c6_third_2 extends cfct_block {
+	public function __construct($classes = array()) {
+		$this->add_classes(array('c6-34'));
+		$this->add_classes(array('cfct-block-third'));
+		parent::__construct($classes);
+	}
+}
+
+class cfct_block_c6_third_last extends cfct_block {
+	public function __construct($classes = array()) {
+		$this->add_classes(array('c6-56'));
+		$this->add_classes(array('cfct-block-third-last'));
+		parent::__construct($classes);
+	}
+}
+/* Conans */
+class cfct_block_c8_a extends cfct_block {
+	public function __construct($classes = array()) {
+		$this->add_classes(array('c8-12'));
+		$this->add_classes(array('cfct_row_4col-block-a'));
+		parent::__construct($classes);
+	}
+}
+
+class cfct_block_c8_b extends cfct_block {
+	public function __construct($classes = array()) {
+		$this->add_classes(array('c8-34'));
+		$this->add_classes(array('cfct_row_4col-block-b'));
+		parent::__construct($classes);
+	}
+}
+
+class cfct_block_c8_c extends cfct_block {
+	public function __construct($classes = array()) {
+		$this->add_classes(array('c8-56'));
+		$this->add_classes(array('cfct_row_4col-block-c'));
+		parent::__construct($classes);
+	}
+}
+
+class cfct_block_c8_d extends cfct_block {
+	public function __construct($classes = array()) {
+		$this->add_classes(array('c8-78'));
+		$this->add_classes(array('cfct_row_4col-block-d'));
+		parent::__construct($classes);
+	}
+}
 
 
 
