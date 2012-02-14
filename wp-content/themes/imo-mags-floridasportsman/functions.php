@@ -460,9 +460,9 @@ function eg_add_rewrite_rules(){
     add_rewrite_rule('(show|region|species|marketplace|activity|gear|column)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]', 'top');
     
 
-    add_rewrite_tag('%gallery%','([^/]+)');
-    add_rewrite_tag('%album%','([^/]+)');
-    add_rewrite_rule('^galleries/([^/]+)/?$', 'index.php?pagename=galleries&album=1&gallery=$matches[1]','top');
+    // add_rewrite_tag('%gallery%','([^/]+)');
+    // add_rewrite_tag('%album%','([^/]+)');
+    // add_rewrite_rule('^galleries/([^/]+)/?$', 'index.php?pagename=galleries&album=1&gallery=$matches[1]','top');
 
 
     
