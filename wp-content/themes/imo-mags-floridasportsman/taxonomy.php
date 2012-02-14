@@ -31,7 +31,7 @@ if (!is_admin()) {
 <?php get_header(); ?>
 
 <header id="masthead">
-	<h1><?php single_cat_title('');?></h1>
+	<h1><?php wp_title_multitax('');?></h1>
 </header><!-- #masthead -->
 
 <div class="page-template-page-right-php taxonomy-page bw-fullwidth">
@@ -61,15 +61,52 @@ $taxonomy = $term->taxonomy;
 ?>
 
 <?php
-
+/*
 $args = array(
 	$taxonomy => $term_slug,
 	'paged' => get_query_var('paged'),
 	'posts_per_page' => 30,
 
 );
+*/
 
-query_posts($args);
+
+//?activity=activity-fishing&region=region-keys&column=
+$qs = wp_parse_args($query_string);
+
+$activity = $qs['activity'];
+$region = $qs['region'];
+$column = $qs['column'];
+$gear = $qs['gear'];
+$location = $qs['location'];
+$species = $qs['species'];
+$campaign = $qs['campaign'];
+$show = $qs['show'];
+$marketplace = $qs['marketplace'];
+
+
+
+$args = array(	
+	'paged' => get_query_var('paged'),
+	'posts_per_page' => 30,
+	'column' => $column,
+	'region' => $region,
+	'activity' => $activity,
+	'gear' => $gear,
+	'location' => $location,
+	'species' => $species,
+	'campaign' => $campaign,
+	'show' => $show,
+	'marketplace' => $marketplace
+
+
+); 
+
+
+
+
+$posts_array = query_posts($args);
+
 
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $count = 0;
@@ -84,8 +121,10 @@ $item = array();
 <?php 
 	$count++;
 
+
+
 	
-	if ($count <= 4 && $paged == 1) {//If we are on the first page, show the featured thumbs followed by regular loop.
+	if ($count <= 4 && $paged == 1 && count($posts_array) >= 4) {//If we are on the first page, show the featured thumbs followed by regular loop.
 		
 		
 	        $item['title'] = get_the_title();

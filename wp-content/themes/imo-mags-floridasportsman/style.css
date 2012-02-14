@@ -1153,6 +1153,31 @@ div.ngg-widget.entry-content {
 	width: 100% !important;
 	background-color: #003e5e;
 }
+.ngg-imagebrowser {
+	background-color: #0b3858;
+	padding: 10px;
+}
+.ngg-imagebrowser img {
+	border:none !important;
+	margin: 0px !important;
+	display:block !important;
+	padding:0px !important;
+}
+.ngg-imagebrowser-nav {
+	padding:0px !important;
+	margin-left:0px !important;	
+}
+.ngg-imagebrowser p {
+	padding: 10px;
+	margin-top: 10px;
+	margin-bottom: 0;
+	font-size: 15px;
+	background-color: #125687;
+	color: white;
+}
+.ngg-imagebrowser h3 {
+	color: silver;
+}
 
 .cfct-module-featured-thumbs {
   
@@ -1301,6 +1326,10 @@ margin: 0px;
 .ngg-imagebrowser-nav a {
 color: #fff !important;
 background: #BF3D06;
+}
+.ngg-imagebrowser-nav a:hover {
+	background: #000 !important;
+	text-decoration: none;
 }
 
 

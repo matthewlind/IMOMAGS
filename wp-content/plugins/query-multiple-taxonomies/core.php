@@ -107,6 +107,62 @@ class QMT_Template {
 		return implode( '; ', $title );
 	}
 
+
+	public function get_title_multitax() {
+		$title = array();
+
+		foreach ( qmt_get_query() as $tax => $value ) {
+			$terms = explode( '+', $value );
+
+			$out = array();
+			foreach ( $terms as $slug ) {
+				$term_obj = get_term_by( 'slug', $slug, $tax );
+
+				if ( $term_obj )
+					$out[] = $term_obj->name;
+			}
+
+			$tax_obj = get_taxonomy( $tax );
+			if ( count( $out ) == 1 )
+				$key = $tax_obj->labels->singular_name;
+			else
+				$key = $tax_obj->labels->name;
+
+			switch(strtolower($tax_obj->labels->singular_name)) {
+				case "show":
+					$title[0] .=  implode( ' + ', $out );
+					break;
+				case "region":
+					$title[1] .=  implode( ' + ', $out );
+					break;					
+				case "species":
+					$title[2] .=  implode( ' + ', $out );
+					break;
+				case "marketplace":
+					$title[3] .=  implode( ' + ', $out );
+					break;
+				case "activity":
+					$title[4] .=  implode( ' + ', $out );
+					break;
+				case "gear":
+					$title[5] .=  implode( ' + ', $out );
+					break;
+				case "column":
+					$title[6] .=  implode( ' + ', $out );
+					break;
+			}
+
+			//$title[] .=  implode( ' + ', $out );
+		}
+		$title_ou = '';
+		
+		for($x=0;$x<=6;$x++){
+			$title_out .= $title[$x]." ";
+
+		}
+		return $title_out; //implode( ' ', $title );
+	}	
+
 	function wp_title( $title, $sep, $seplocation ) {
 		$tax_title = QMT_Template::get_title();
 
@@ -120,10 +176,24 @@ class QMT_Template {
 
 		return $title;
 	}
+
+	function wp_title_multitax( $title, $sep, $seplocation ) {
+		$tax_title = QMT_Template::get_title_multitax();
+
+		if ( empty( $tax_title ) )
+			return $title;
+
+		if ( 'right' == $seplocation )
+			$title = "$tax_title $sep ";
+		else
+			$title = " $sep $tax_title";
+
+		return $title;
+	}	
 }
 
 add_filter( 'wp_title', array( 'QMT_Template', 'wp_title' ), 10, 3 );
-
+add_filter( 'wp_title_multitax', array( 'QMT_Template', 'wp_title_multitax' ), 10, 3 );
 /**
  * Wether multiple taxonomies are queried
  * @param array $taxonomies A list of taxonomies to check for (AND).

@@ -85,12 +85,13 @@ function fs_region_init() {
     );
     register_taxonomy(
         "region",
-        "post",
+        array("post"),
          array(
             "labels" => $labels,
+            "public" => True,
             "hierarchical" => True,
             "show_ui" => True,
-            "query_var" => True,
+            "query_var" => "region",
             "rewrite" => array("slug"=>"region"),
         ));
 		
@@ -289,6 +290,7 @@ function no_category_dropdown() {
     add_filter( 'wp_dropdown_cats', '__return_false' );
 }
 
+/**
 function restrict_posts_by_column() {
 		global $typenow;
 		$post_type = 'post'; // change HERE
@@ -309,6 +311,8 @@ function restrict_posts_by_column() {
 	}
 
 	add_action('restrict_manage_posts', 'restrict_posts_by_column');
+	
+	 */
 
 	function convert_id_to_term_in_query($query) {
 		global $pagenow;
@@ -346,7 +350,178 @@ function ilc_cpt_custom_column($column_name, $post_id) {
     else echo '<i>No terms</i>';
 }
 
-add_filter( 'manage_posts_columns', 'ilc_cpt_columns' );
+
+function wp_title_multitax($sep = '&raquo;', $display = true, $seplocation = '') {
+    global $wpdb, $wp_locale;
+
+    $m = get_query_var('m');
+    $year = get_query_var('year');
+    $monthnum = get_query_var('monthnum');
+    $day = get_query_var('day');
+    $search = get_query_var('s');
+    $title = '';
+
+    $t_sep = '%WP_TITILE_SEP%'; // Temporary separator, for accurate flipping, if necessary
+
+    // If there is a post
+    if ( is_single() || ( is_home() && !is_front_page() ) || ( is_page() && !is_front_page() ) ) {
+        $title = single_post_title( '', false );
+    }
+
+    // If there's a category or tag
+    if ( is_category() || is_tag() ) {
+        $title = single_term_title( '', false );
+    }
+
+    // If there's a taxonomy
+    if ( is_tax() ) {
+        $term = get_queried_object();
+        $tax = get_taxonomy( $term->taxonomy );
+        $title = single_term_title( $tax->labels->name . $t_sep, false );
+    }
+
+    // If there's an author
+    if ( is_author() ) {
+        $author = get_queried_object();
+        $title = $author->display_name;
+    }
+
+    // If there's a post type archive
+    if ( is_post_type_archive() )
+        $title = post_type_archive_title( '', false );
+
+    // If there's a month
+    if ( is_archive() && !empty($m) ) {
+        $my_year = substr($m, 0, 4);
+        $my_month = $wp_locale->get_month(substr($m, 4, 2));
+        $my_day = intval(substr($m, 6, 2));
+        $title = $my_year . ( $my_month ? $t_sep . $my_month : '' ) . ( $my_day ? $t_sep . $my_day : '' );
+    }
+
+    // If there's a year
+    if ( is_archive() && !empty($year) ) {
+        $title = $year;
+        if ( !empty($monthnum) )
+            $title .= $t_sep . $wp_locale->get_month($monthnum);
+        if ( !empty($day) )
+            $title .= $t_sep . zeroise($day, 2);
+    }
+
+    // If it's a search
+    if ( is_search() ) {
+        // translators: 1: separator, 2: search phrase 
+        $title = sprintf(__('Search Results %1$s %2$s'), $t_sep, strip_tags($search));
+    }
+
+    // If it's a 404 page
+    if ( is_404() ) {
+        $title = __('Page not found');
+    }
+
+    $prefix = '';
+    if ( !empty($title) )
+        $prefix = " $sep ";
+
+    // Determines position of the separator and direction of the breadcrumb
+    if ( 'right' == $seplocation ) { // sep on right, so reverse the order
+        $title_array = explode( $t_sep, $title );
+        $title_array = array_reverse( $title_array );
+        $title = implode( " $sep ", $title_array ) . $prefix;
+    } else {
+        $title_array = explode( $t_sep, $title );
+        $title = $prefix . implode( " $sep ", $title_array );
+    }
+
+    $title = apply_filters('wp_title_multitax', $title, $sep, $seplocation);
+
+    // Send it out
+    if ( $display )
+        echo $title;
+    else
+        return $title;
+
+} 
+
+
+
+
+function eg_add_rewrite_rules(){
+
+
+
+    add_rewrite_rule( '(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/?$','index.php?$matches[1]=$matches[2]&$matches[3]=$matches[4]&$matches[5]=$matches[6]&$matches[7]=$matches[8]&$matches[9]=$matches[10]&$matches[11]=$matches[12]&$matches[13]=$matches[14])', 'top');
+    add_rewrite_rule('(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]&$matches[3]=$matches[4]&$matches[5]=$matches[6]&$matches[7]=$matches[8]&$matches[9]=$matches[10]&$matches[11]=$matches[12]', 'top');
+    add_rewrite_rule('(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]&$matches[3]=$matches[4]&$matches[5]=$matches[6]&$matches[7]=$matches[8]&$matches[9]=$matches[10]', 'top');
+    
+    add_rewrite_rule('(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]&$matches[3]=$matches[4]&$matches[5]=$matches[6]&$matches[7]=$matches[8]', 'top');
+    
+    add_rewrite_rule('(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]&$matches[3]=$matches[4]&$matches[5]=$matches[6]', 'top');
+    add_rewrite_rule('(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]&$matches[3]=$matches[4]', 'top'); 
+    add_rewrite_rule('(show|region|species|marketplace|activity|gear|column)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]', 'top');
+    
+
+    add_rewrite_tag('%gallery%','([^/]+)');
+    add_rewrite_tag('%album%','([^/]+)');
+    add_rewrite_rule('^galleries/([^/]+)/?$', 'index.php?pagename=galleries&album=1&gallery=$matches[1]','top');
+
+
+    
+
+} 
 //add_filter( 'manage_posts_columns', 'ilc_cpt_columns' );
-add_action('manage_posts_custom_column', 'ilc_cpt_custom_column', 10, 2);
+//add_filter( 'manage_posts_columns', 'ilc_cpt_columns' );
+//add_action('manage_posts_custom_column', 'ilc_cpt_custom_column', 10, 2);
 //add_action('manage_region_posts_custom_column', 'ilc_cpt_custom_column', 10, 2);
+
+add_action('init', 'eg_add_rewrite_rules');
+add_action('init', 'flush_rewrite_rules');
+add_action('admin_init', 'flush_rewrite_rules');
+
+
+add_action('init', 'setup_cpt_filters');
+function setup_cpt_filters() {
+
+
+    $filter_array = array(
+                            'region' => array(
+                                                    'name' => 'Region',
+                                                    'taxonomy' => 'region',
+                                                    ),
+                            'marketplace' => array(
+                                                    'name' => 'Marketplace',
+                                                    'taxonomy' => 'marketplace',
+                                                    ),
+                            'column' => array(
+                                                    'name' => 'Column',
+                                                    'taxonomy' => 'column',
+                                                    ),
+                            'show' => array(
+                                                    'name' => 'Show',
+                                                    'taxonomy' => 'show',
+                                                    ),
+                            'species' => array(
+                                                    'name' => 'Species',
+                                                    'taxonomy' => 'species',
+                                                    ),
+                            'gear' => array(
+                                                    'name' => 'Gear',
+                                                    'taxonomy' => 'gear',
+                                                    ),
+                            'activity' => array(
+                                                    'name' => 'Activity',
+                                                    'taxonomy' => 'activity',
+                                                    ),                                                    
+                                                                                                                                                  
+                        );
+
+
+    $show_ui = true;
+    // globalize it so that we can call methods on the returned object
+    global $my_cpt_filters;
+    // We'll show you what goes in this later
+    
+    $my_cpt_filters = tribe_setup_apm('post', $filter_array );
+    $my_cpt_filters->add_taxonomies = false;
+
+
+}
