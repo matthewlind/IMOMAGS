@@ -520,7 +520,8 @@ function setup_cpt_filters() {
     global $my_cpt_filters;
     // We'll show you what goes in this later
     
-    $my_cpt_filters = tribe_setup_apm('post', $filter_array );
+    if (function_exists("tribe_setup_apm"))
+        $my_cpt_filters = tribe_setup_apm('post', $filter_array );
     $my_cpt_filters->add_taxonomies = false;
 
 
