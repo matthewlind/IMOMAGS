@@ -492,18 +492,18 @@ function eg_add_rewrite_rules(){
     add_rewrite_rule('(show|region|species|marketplace|activity|gear|column)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]', 'top');
     
 
-    //add_rewrite_tag('%gallery%','([^/]+)');
-    //add_rewrite_tag('%album%','([^/]+)');
+    // add_rewrite_tag('%gallery%','([^/]+)');
+    // add_rewrite_tag('%album%','([^/]+)');
 
 
 
 
-   // add_rewrite_rule('^galleries/([^/]+)/?$', 'index.php?pagename=galleries&album=1&gallery=$matches[1]','top');
-    //add_rewrite_rule('^tag/([^/]+)/?$', 'index.php?pagename=galleries/photos-by-tag&gallerytag=$matches[1]','top');
-    //add_rewrite_rule('^galleries/tag/([^/]+)/?$', 'index.php?pagename=galleries&gallerytag=$matches[1]','top');
-
-
-    
+    // add_rewrite_rule('^galleries/([^/]+)/?$', 'index.php?pagename=galleries&album=1&gallery=$matches[1]','top');
+    // add_rewrite_rule('^tag/([^/]+)/?$', 'index.php?pagename=galleries/photos-by-tag&gallerytag=$matches[1]','top');
+    // add_rewrite_rule('^galleries/tag/([^/]+)/?$', 'index.php?pagename=galleries&gallerytag=$matches[1]','top');
+    // add_rewrite_tag('%gallery%','([^/]+)');
+    // add_rewrite_tag('%album%','([^/]+)');
+    // add_rewrite_rule('^galleries/([^/]+)/?$', 'index.php?pagename=galleries&album=1&gallery=$matches[1]','top');  
 
 } 
 
@@ -573,7 +573,8 @@ function setup_cpt_filters() {
     global $my_cpt_filters;
     
     
-    $my_cpt_filters = tribe_setup_apm('post', $filter_array );
+    if (function_exists("tribe_setup_apm"))
+        $my_cpt_filters = tribe_setup_apm('post', $filter_array );
     $my_cpt_filters->add_taxonomies = false;
 
 
