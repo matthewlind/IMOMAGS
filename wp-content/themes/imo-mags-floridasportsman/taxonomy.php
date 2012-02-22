@@ -83,6 +83,7 @@ $species = $qs['species'];
 $campaign = $qs['campaign'];
 $show = $qs['show'];
 $marketplace = $qs['marketplace'];
+$blog = $qs['blog'];
 
 
 
@@ -97,8 +98,8 @@ $args = array(
 	'species' => $species,
 	'campaign' => $campaign,
 	'show' => $show,
-	'marketplace' => $marketplace
-
+	'marketplace' => $marketplace,
+	'blog' => $blog
 
 ); 
 

@@ -1,4 +1,6 @@
 <?php
+
+
 /**
  * functions.php 
  */
@@ -12,21 +14,11 @@ define("SERVICE_LINK", "https://secure.palmcoastd.com/pcd/eServ?iServ=MDE0NkY0ND
 define("SUBS_DEAL_STRING", "Save Over 70% off<br> the Cover Price");
 define("GOOGLE_FONT", "http://fonts.googleapis.com/css?family=Bitter");
 
-
-
-
-
 function boldwater_excerpt_length($length) {
     
 	return 20;
 
 }
-
-
-
-
-
-
 
 if ( ! function_exists( 'cfct_setup' ) ) {
 	function cfct_setup() {
@@ -36,7 +28,7 @@ if ( ! function_exists( 'cfct_setup' ) ) {
 		// This theme uses post thumbnails
 		add_theme_support( 'post-thumbnails' );
 		// Width, Height, Crop
-		set_post_thumbnail_size( 150, 120, true );
+		set_post_thumbnail_size( 190, 120, true );
 		// Image sizes to support Carousel
 		add_image_size('post-image-large', 584, 370, true);
 		add_image_size('post-image-medium', 426, 270, true);
@@ -66,127 +58,11 @@ if ( ! function_exists( 'cfct_setup' ) ) {
 add_action( 'after_setup_theme', 'cfct_setup' );
 
 
-/**
- * Define Region Custom Taxonomy
- */
-function fs_region_init() {
-    $labels = array(
-        'name' => _x( 'Regions', 'taxonomy general name' ),
-        'singular_name' => _x( 'Region', 'taxonomy singular name' ),
-        'search_items' =>  __( 'Search Regions' ),
-        'all_items' => __( 'All Regions' ),
-        'parent_item' => __( 'Parent Region' ),
-        'parent_item_colon' => __( 'Parent Region:' ),
-        'edit_item' => __( 'Edit Region' ), 
-        'update_item' => __( 'Update Region' ),
-        'add_new_item' => __( 'Add New Region' ),
-        'new_item_name' => __( 'New Region Name' ),
-        'menu_name' => __( 'Region' ),
-    );
-    register_taxonomy(
-        "region",
-        array("post"),
-         array(
-            "labels" => $labels,
-            "public" => True,
-            "hierarchical" => True,
-            "show_ui" => True,
-            "query_var" => "region",
-            "rewrite" => array("slug"=>"region"),
-        ));
-		
-$labels = array(
-        'name' => _x( 'Columns', 'taxonomy general name' ),
-        'singular_name' => _x( 'Column', 'taxonomy singular name' ),
-        'search_items' =>  __( 'Search Columns' ),
-        'all_items' => __( 'All Columns' ),
-        'parent_item' => __( 'Parent Column' ),
-        'parent_item_colon' => __( 'Parent Columns:' ),
-        'edit_item' => __( 'Edit Columns' ), 
-        'update_item' => __( 'Update Column' ),
-        'add_new_item' => __( 'Add New Column' ),
-        'new_item_name' => __( 'New Column Name' ),
-        'menu_name' => __( 'Columns' ),
-    );
-    register_taxonomy(
-        "column",
-        "post",
-         array(
-            "labels" => $labels,
-            "hierarchical" => True,
-			"public" => True,
-            "show_ui" => True,
-            "query_var" => "column",
-            "rewrite" => array("slug"=>"columns"),
-        ));
-
-$labels = array(
-        'name' => _x( 'Shows', 'taxonomy general name' ),
-        'singular_name' => _x( 'Show', 'taxonomy singular name' ),
-        'search_items' =>  __( 'Search Shows' ),
-        'all_items' => __( 'All Shows' ),
-        'edit_item' => __( 'Edit Shows' ), 
-        'update_item' => __( 'Update Column' ),
-        'add_new_item' => __( 'Add New Show' ),
-        'new_item_name' => __( 'New Show Name' ),
-        'menu_name' => __( 'Shows' ),
-    );
-    register_taxonomy(
-        "show",
-        "post",
-         array(
-            "labels" => $labels,
-            "hierarchical" => False,
-			"public" => True,
-            "show_ui" => True,
-            "query_var" => "show",
-            "rewrite" => array("slug"=>"show"),
-        ));
-
-$labels = array(
-        'name' => _x( 'Marketplace', 'taxonomy general name' ),
-        'singular_name' => _x( 'Marketplace', 'taxonomy singular name' ),
-        'search_items' =>  __( 'Search Marketplace' ),
-        'all_items' => __( 'All Marketplace' ),
-        'edit_item' => __( 'Edit Marketplace' ), 
-        'update_item' => __( 'Update Marketplace' ),
-        'add_new_item' => __( 'Add New Marketplace' ),
-        'new_item_name' => __( 'New Marketplace Name' ),
-        'menu_name' => __( 'Marketplace' ),
-    );
-    register_taxonomy(
-        "marketplace",
-        "post",
-         array(
-            "labels" => $labels,
-            "hierarchical" => False,
-			"public" => True,
-            "show_ui" => True,
-            "query_var" => "marketplace",
-            "rewrite" => array("slug"=>"marketplace"),
-        ));
-
-    
-    //default configuration from carrington build
-    $sidebar_settings = array(
-        'before_widget' => '<aside id="%1$s" class="widget clearfix %2$s">',
-        'after_widget' => '</aside>',
-        'before_title' => '<h1 class="widget-title">',
-        'after_title' => '</h1>',
-		'id' => 'sidebar-region',
-		'name' => __('Region Sidebar', 'carrington-business'),
-		'description' => __('Shown on Region Pages.', 'carrington-business')
-    );
-    register_sidebar($sidebar_settings);	
-    /** Removes bad selectors from CSS PIE; affects IE7 and IE8 **/
-     css3pie_remove(".cfct-module.style-b, .cfct-module.style-b .cfct-mod-title");
-}
-add_action("init", "fs_region_init");
 
 
 /**
- * Adds widget area to Featured Sidget
- */
+* ADD SIDEBARS
+*/
 if (function_exists('register_sidebar')) {
 register_sidebar(array(
  'name' => 'FS Featured Area',
@@ -267,7 +143,7 @@ add_action( 'init', 'register_fs_challenge_menu' );
 function register_fs_challenge_menu() {
 	register_nav_menu( 'fs-challenge-menu', __( 'FS Challenge Menu' ) );
 }
-/*New Menu for I'm A Florida Sportsman*/
+/* New Menu for I'm A Florida Sportsman*/
 
 add_action( 'init', 'register_ima_fs_menu' );
 
@@ -284,6 +160,8 @@ function my_theme_remove_build_css() {
 	wp_deregister_style('cfct-build-css');
 }
 add_action('init', 'my_theme_remove_build_css');
+
+/* Remove Category Dropdown from Edit Screen */
 
 add_action( 'load-edit.php', 'no_category_dropdown' );
 function no_category_dropdown() {
@@ -314,7 +192,7 @@ function restrict_posts_by_column() {
 	
 	 */
 
-	function convert_id_to_term_in_query($query) {
+function convert_id_to_term_in_query($query) {
 		global $pagenow;
 		$post_type = 'post'; // change HERE
 		$taxonomy = 'column'; // change HERE
@@ -444,6 +322,160 @@ function wp_title_multitax($sep = '&raquo;', $display = true, $seplocation = '')
 
 
 
+/* TAXONOMY FUNCTIONS SECTIONS
+
+
+/* fs_region_init()
+/* Defines custom taxonomies for this theme
+/* To add a taxonomy, copy and add a new $labels array and a register_taxonomy call, and set the values accordingly
+ */
+
+function fs_region_init() {
+    $labels = array(
+        'name' => _x( 'Regions', 'taxonomy general name' ),
+        'singular_name' => _x( 'Region', 'taxonomy singular name' ),
+        'search_items' =>  __( 'Search Regions' ),
+        'all_items' => __( 'All Regions' ),
+        'parent_item' => __( 'Parent Region' ),
+        'parent_item_colon' => __( 'Parent Region:' ),
+        'edit_item' => __( 'Edit Region' ), 
+        'update_item' => __( 'Update Region' ),
+        'add_new_item' => __( 'Add New Region' ),
+        'new_item_name' => __( 'New Region Name' ),
+        'menu_name' => __( 'Region' ),
+    );
+    register_taxonomy(
+        "region",
+        array("post"),
+         array(
+            "labels" => $labels,
+            "public" => True,
+            "hierarchical" => True,
+            "show_ui" => True,
+            "query_var" => "region",
+            "rewrite" => array("slug"=>"region"),
+        ));
+        
+$labels = array(
+        'name' => _x( 'Columns', 'taxonomy general name' ),
+        'singular_name' => _x( 'Column', 'taxonomy singular name' ),
+        'search_items' =>  __( 'Search Columns' ),
+        'all_items' => __( 'All Columns' ),
+        'parent_item' => __( 'Parent Column' ),
+        'parent_item_colon' => __( 'Parent Columns:' ),
+        'edit_item' => __( 'Edit Columns' ), 
+        'update_item' => __( 'Update Column' ),
+        'add_new_item' => __( 'Add New Column' ),
+        'new_item_name' => __( 'New Column Name' ),
+        'menu_name' => __( 'Columns' ),
+    );
+    register_taxonomy(
+        "column",
+        "post",
+         array(
+            "labels" => $labels,
+            "hierarchical" => True,
+            "public" => True,
+            "show_ui" => True,
+            "query_var" => "column",
+            "rewrite" => array("slug"=>"columns"),
+        ));
+
+$labels = array(
+        'name' => _x( 'Shows', 'taxonomy general name' ),
+        'singular_name' => _x( 'Show', 'taxonomy singular name' ),
+        'search_items' =>  __( 'Search Shows' ),
+        'all_items' => __( 'All Shows' ),
+        'edit_item' => __( 'Edit Shows' ), 
+        'update_item' => __( 'Update Column' ),
+        'add_new_item' => __( 'Add New Show' ),
+        'new_item_name' => __( 'New Show Name' ),
+        'menu_name' => __( 'Shows' ),
+    );
+    register_taxonomy(
+        "show",
+        "post",
+         array(
+            "labels" => $labels,
+            "hierarchical" => False,
+            "public" => True,
+            "show_ui" => True,
+            "query_var" => "show",
+            "rewrite" => array("slug"=>"show"),
+        ));
+
+$labels = array(
+        'name' => _x( 'Marketplace', 'taxonomy general name' ),
+        'singular_name' => _x( 'Marketplace', 'taxonomy singular name' ),
+        'search_items' =>  __( 'Search Marketplace' ),
+        'all_items' => __( 'All Marketplace' ),
+        'edit_item' => __( 'Edit Marketplace' ), 
+        'update_item' => __( 'Update Marketplace' ),
+        'add_new_item' => __( 'Add New Marketplace' ),
+        'new_item_name' => __( 'New Marketplace Name' ),
+        'menu_name' => __( 'Marketplace' ),
+    );
+    register_taxonomy(
+        "marketplace",
+        "post",
+         array(
+            "labels" => $labels,
+            "hierarchical" => False,
+            "public" => True,
+            "show_ui" => True,
+            "query_var" => "marketplace",
+            "rewrite" => array("slug"=>"marketplace"),
+        ));
+
+    
+
+$labels = array(
+        'name' => _x( 'Blogs', 'taxonomy general name' ),
+        'singular_name' => _x( 'Blog', 'taxonomy singular name' ),
+        'search_items' =>  __( 'Search Blogs' ),
+        'all_items' => __( 'All Blogs' ),
+        'edit_item' => __( 'Edit Blog' ), 
+        'update_item' => __( 'Update Blog' ),
+        'add_new_item' => __( 'Add New Blog' ),
+        'new_item_name' => __( 'New Blog Name' ),
+        'menu_name' => __( 'Blogs' ),
+    );
+    register_taxonomy(
+        "blog",
+        "post",
+         array(
+            "labels" => $labels,
+            "hierarchical" => True,
+            "public" => True,
+            "show_ui" => True,
+            "query_var" => "blog",
+            "rewrite" => array("slug"=>"blog"),
+        ));
+
+    //default configuration from carrington build
+    $sidebar_settings = array(
+        'before_widget' => '<aside id="%1$s" class="widget clearfix %2$s">',
+        'after_widget' => '</aside>',
+        'before_title' => '<h1 class="widget-title">',
+        'after_title' => '</h1>',
+        'id' => 'sidebar-region',
+        'name' => __('Region Sidebar', 'carrington-business'),
+        'description' => __('Shown on Region Pages.', 'carrington-business')
+    );
+    register_sidebar($sidebar_settings);    
+    /** Removes bad selectors from CSS PIE; affects IE7 and IE8 **/
+     css3pie_remove(".cfct-module.style-b, .cfct-module.style-b .cfct-mod-title");
+}
+
+add_action("init", "fs_region_init");
+
+
+
+
+/* eg_add_rewrite_rules
+/* defines rewrites for custom taxonomy drill-downs
+ */
+
 
 function eg_add_rewrite_rules(){
 
@@ -460,25 +492,46 @@ function eg_add_rewrite_rules(){
     add_rewrite_rule('(show|region|species|marketplace|activity|gear|column)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]', 'top');
     
 
-    add_rewrite_tag('%gallery%','([^/]+)');
-    add_rewrite_tag('%album%','([^/]+)');
-    add_rewrite_rule('^galleries/([^/]+)/?$', 'index.php?pagename=galleries&album=1&gallery=$matches[1]','top');
+    //add_rewrite_tag('%gallery%','([^/]+)');
+    //add_rewrite_tag('%album%','([^/]+)');
+
+
+
+
+   // add_rewrite_rule('^galleries/([^/]+)/?$', 'index.php?pagename=galleries&album=1&gallery=$matches[1]','top');
+    //add_rewrite_rule('^tag/([^/]+)/?$', 'index.php?pagename=galleries/photos-by-tag&gallerytag=$matches[1]','top');
+    //add_rewrite_rule('^galleries/tag/([^/]+)/?$', 'index.php?pagename=galleries&gallerytag=$matches[1]','top');
 
 
     
 
 } 
+
+add_action('init', 'eg_add_rewrite_rules');
+
 //add_filter( 'manage_posts_columns', 'ilc_cpt_columns' );
 //add_filter( 'manage_posts_columns', 'ilc_cpt_columns' );
 //add_action('manage_posts_custom_column', 'ilc_cpt_custom_column', 10, 2);
 //add_action('manage_region_posts_custom_column', 'ilc_cpt_custom_column', 10, 2);
 
-add_action('init', 'eg_add_rewrite_rules');
+
+
+/* Flushes Rewrites and Permalinks, COMMENT OUT FOR PRODUCTION */
+
 add_action('init', 'flush_rewrite_rules');
 add_action('admin_init', 'flush_rewrite_rules');
 
 
-add_action('init', 'setup_cpt_filters');
+
+/* setup_cpt_filters()
+/* sets up filters for Advanced Post Manager admin plugin */
+
+
+if (function_exists(setup_cpt_filters)){
+    add_action('init', 'setup_cpt_filters');
+}
+
+
 function setup_cpt_filters() {
 
 
@@ -518,7 +571,7 @@ function setup_cpt_filters() {
     $show_ui = true;
     // globalize it so that we can call methods on the returned object
     global $my_cpt_filters;
-    // We'll show you what goes in this later
+    
     
     $my_cpt_filters = tribe_setup_apm('post', $filter_array );
     $my_cpt_filters->add_taxonomies = false;
