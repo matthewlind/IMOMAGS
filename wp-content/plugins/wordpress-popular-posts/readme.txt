@@ -1,10 +1,10 @@
 === Wordpress Popular Posts ===
-Contributors: Ikki24
+Contributors: hcabrera
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=dadslayer%40gmail%2ecom&lc=GB&item_name=Wordpress%20Popular%20Posts%20Plugin&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG_global%2egif%3aNonHosted
 Tags: popular, posts, widget, seo, wordpress
 Requires at least: 2.8
-Tested up to: 3.0.0
-Stable tag: 2.1.4
+Tested up to: 3.2.1
+Stable tag: 2.2.1
 
 With Wordpress Popular Posts, you can show your visitors what are the most popular entries on your blog.
 
@@ -14,25 +14,27 @@ Wordpress Popular Posts is a highly customizable sidebar widget that displays th
 
 **IMPORTANT NOTICES:**
 
+Due to critical security issues, from Wordpress Popular Posts v.2.1.5 and on **TimThumb support has been dropped**. Please upgrade as soon as possible since your site may be under risk of being exploited.
+
 From **version 2.0** and on, **Wordpress Popular Posts** requires at least **Wordpress 2.8** in order to function correctly. If you are not running Wordpress 2.8 or can't update your blog right now, please don't upgrade to/install version 2.x!
 
 Also, if you are upgrading from any version prior to 1.4.6, please [update to 1.4.6](http://downloads.wordpress.org/plugin/wordpress-popular-posts.1.4.6.zip) before moving to 2.x!
 
 **What's new**
 
-* Include a **thumbnail** of your posts! **Pick one of your choice** or **let Wordpress Popular Posts generate it for you**! (*see the [FAQ section](http://wordpress.org/extend/plugins/wordpress-popular-posts/faq/) for technical requirements*)
-* From version 2.0.3 and on, Wordpress Popular Posts will include a **Dashboard panel** where you can monitor what are the most popular posts on your site directly from your wp-admin area!
-* Wordpress Popular Posts is now **multi-widget** capable! Install multiple instances of Wordpress Popular Posts on your sidebars, each with its own unique settings!
+* Include a **thumbnail** of your posts! (*see the [FAQ section](http://wordpress.org/extend/plugins/wordpress-popular-posts/faq/) for technical requirements*)
+* From version 2.0.3 and on, Wordpress Popular Posts includes a **Dashboard panel** where you can monitor what are the most popular posts on your site directly from your wp-admin area!
+* Wordpress Popular Posts is **multi-widget** capable! Install multiple instances of Wordpress Popular Posts on your sidebars, each with its own unique settings!
 * **Shortcode support!** - from version 2.0, you can showcase your most popular posts on pages, too!
 * **Category exclusion** - Want to exclude certain categories from the listing? Use the *Exclude Category* option!
 * **Automatic maintenance** - Wordpress Popular Posts will wipe out from its cache automatically all those posts that have not been viewed more than 30 days from the current date, keeping the popular ones on the list! This ensures that your cache table will remain as compact as possible! (You can also clear it manually if you like, [look here for instructions](http://wordpress.org/extend/plugins/wordpress-popular-posts/faq/)!).
-* **Template tags** - Don't feel like using widgets? No problem! You can still embed your most popular entries on your theme using the **wpp_get_mostpopular()** template tag. Additionally, a *new* tag has been included on this release: **wpp_gets_views()**. For usage and instructions, please refer to the [instalation section](http://wordpress.org/extend/plugins/wordpress-popular-posts/installation/).
+* **Template tags** - Don't feel like using widgets? No problem! You can still embed your most popular entries on your theme using the **wpp_get_mostpopular()** template tag. Additionally, the **wpp_gets_views()** template tag allows you to retrieve the views count for a particular post. For usage and instructions, please refer to the [instalation section](http://wordpress.org/extend/plugins/wordpress-popular-posts/installation/).
 
 **Other features**
 
 * Use **your own layout**! Control how your most popular posts are shown on your theme.
 * *Wordpress Popular Posts can be localized*! Languages included on this release: *English* (default), *Italian* and *Spanish*. Wanna know how to translate Wordpress Popular Posts into your language? See the [FAQ section](http://wordpress.org/extend/plugins/wordpress-popular-posts/faq/) for more!
-* *Time Range* - list your most popular posts within a specific time range (eg. today's popular posts, this week's popular posts, etc.)!
+* *Time Range* - list your most popular posts within a specific time range (eg. popular posts of the last 24 hours, this week's popular posts, etc.)!
 * [WP-PostRatings](http://wordpress.org/extend/plugins/wp-postratings/) support added!  Show your visitors how your readers are rating your posts!
 * Wanna show your readers a sneak peak of your most popular entries? Wordpress Popular Posts can include excerpts, too!
 * List your posts either by **comment count**, **views** or **average daily views**. Sorted by **comment count** by default.
@@ -57,6 +59,11 @@ If you want to use Wordpress Popular Posts on your pages (a "Hall of Fame" page,
 `[wpp]`
 
 `[wpp attribute='value']`
+
+Example:
+
+`[wpp range=today stats_views=1 order_by=views wpp_start=<ol> wpp_end=</ol>]`
+
 
 
 = Template Tags =
@@ -97,9 +104,10 @@ The **wpp_get_views** template tag retrieves the views count of a single post si
 There are a number of reasons that might explain why you are seeing this message: Wordpress Popular Posts won't count views generated by logged in users (if your blog requires readers to be logged in to access its contents, [this tutorial](http://wordpress.org/support/topic/398760) is for you); your current theme does not have the [wp_header()](http://codex.wordpress.org/Theme_Development#Plugin_API_Hooks) tag in its &lt;head&gt; section, required by my plugin to keep track of what your visitors are viewing on your site; no one has seen your posts/pages since Wordpress Popular Posts activation, you should give it some time. Wordpress Popular Posts works based on views, mainly. Whenever a post gets a view, WPP will register it on its cache table. Only those posts registered by my plugin will be listed. It doesn't really make much difference if a post has got a lot of comments or not if it hasn't been cached by my plugin - it still needs to be viewed by someone/people in order to rank as popular.
 
 * *I'm unable to activate the "Display post thumbnail" option. Why?*
-Make sure that: your host is running **PHP 4.3 or higher**; the **GD library** is installed and [enabled by your host](http://wordpress.org/support/topic/289778#post-1366038); your "wordpress-popular-posts/scripts/cache" directory **exists** and is **writable**; there are images on your posts (either attachted or selected under Featured Image).
+Make sure that: your host is running **PHP 4.3 or higher**; the **GD library** is installed and [enabled by your host](http://wordpress.org/support/topic/289778#post-1366038); your theme has been enabled to use the [Featured Images functionality](http://codex.wordpress.org/Post_Thumbnails#Enabling_Support_for_Post_Thumbnails).
 
-* *I want to use custom thumbnails. Can it be done?* Yup. Please follow these instructions to [use your own thumbnails](http://wordpress.org/support/topic/413441#post-1562888).
+* *I'm seeing a "No thumbnail" image, where's my post thumbnail?*
+Make sure you have assigned one to your posts (either by [attaching an image to your post](http://codex.wordpress.org/Using_Image_and_File_Attachments#Attachment_to_a_Post) or selected one using the [Featured Images functionality](http://codex.wordpress.org/Post_Thumbnails#Enabling_Support_for_Post_Thumbnails)), otherwise my plugin will show this image by default.
 
 * *Can I embed my most popular posts in any other ways than via sidebar widgets?*
 Yes. You have two other ways to achieve this: via **shortcode** [wpp] (so you can embed it directly on your posts / pages), or via **template tag**.
@@ -111,10 +119,17 @@ You can find a complete list of parameters via wp-admin > Settings > Wordpress P
 If you go to *wp-admin > Settings > Wordpress Popular Posts*, you'll find two buttons that should do what you need: **Clear cache** and **Clear all data**. The first one just wipes out what's in cache, keeping the historical data intact (All-time). The latter, wipes out everything from Wordpress Popular Posts data tables - even the historical data. Note that this **cannot be undone**.
 
 * *Does your plugin include any css stylesheets?*
-Yes, *but* there are no predefined styles (well, almost). It's there for you to style your most popular posts list as you like. You might need a hand with that if you don't know html/css, though.
+Yes, *but* there are no predefined styles (well, almost). Wordpress Popular Posts will first look into your theme's folder for the wpp.css file and use it if found so that any custom CSS styles are not overwritten, otherwise will use the one bundled with the plugin. It's up to you to style your most popular posts list as you like. You might need a hand with that if you don't know HTML/CSS, though.
+
+* *Each time Wordpress Popular Posts gets updated, the stylesheet gets reset.*
+You need to copy your custom wpp.css to your theme's folder, otherwise my plugin will use the one 
 
 * *Would you help me style my list, please?*
 For a small donation, sure why not?
+
+* *I want to remove WPP's stylesheet. How can I do that?*
+Simply add the following code to yout theme's functions.php file:
+`add_action('wp_head', 'remove_wpp_stylesheet', 1); function remove_wpp_stylesheet() { global $wp_widget_factory; remove_action( 'wp_head', array($wp_widget_factory->widgets['WordpressPopularPosts'], 'wpp_print_stylesheet') ); }`
 
 * *I want your plugin to have x or y functionality. Would you do it for me?*
 I usually accept suggestions, yes. However, if it doesn't fit the nature of my plugin (to list popular posts) or requires something that might affect other users' experiences, chances are that I won't implement it. However, I could cook up a customized version of Wordpress Popular Posts just for you if you really, really need that special feature/capability ... but it won't be for free.
@@ -133,6 +148,33 @@ Please don't, and read my words carefully, don't use my email address to contact
 4. Wordpress Popular Posts Stats panel.
 
 == Changelog ==
+= 2.2.1 =
+* Quick update to fix error with All-time combined with views breaking the plugin.
+
+= 2.2.0 =
+* Featured Image is generated for the user automatically if not present and if there's an image attached to the post.
+* Range feature Today option changed. Replaced with Last 24 hours.
+* Category exclusion query simplified. Thanks to almergabor for the suggestion!
+* Fixed bug caused by selecting Avg. Views and All-Time that prevented WPP from getting any data from the BD. Thanks Janseo!
+* Updated the get_summary function to strip out shortcodes from excerpt as well.
+* Fixed bug in the truncate function affecting accented characters. Thanks r3df!
+* Fixed bug keeping db tables from being created. Thanks northlake!
+* Fixed bug on the shortcode which was showing pages even if turned off. Thanks danpkraus!
+
+= 2.1.7 =
+* Added stylesheet detection. If wpp.css is on theme's folder, will use that instead the one bundled with the plugin.
+
+= 2.1.6 =
+* Added DB character set and collate detection.
+* Fixed excerpt translation issue when the qTrans plugin is present. Thanks r3df!.
+* Fixed thumbnail dimensions issue.
+* Fixed widget page link.
+* Fixed widget title encoding bug.
+* Fixed deprecated errors on load_plugin_textdomain and add_submenu_page.
+
+= 2.1.5 =
+* Dropped TimThumb support in favor of Wordpress's Featured Image function.
+
 = 2.1.4 =
 * Added italian localization. Thanks Gianni!
 * Added charset detection.
@@ -234,4 +276,4 @@ Please don't, and read my words carefully, don't use my email address to contact
 
 == Upgrade Notice ==
 
-From version 2.x and on, Wordpress Popular Posts requires at least Wordpress 2.8 in order to function properly. If you can't move to Wordpress 2.8 or newer right now, please install version 1.5.1.
+Due to critical security issues, from Wordpress Popular Posts v.2.1.5 TimThumb support has been dropped. Please upgrade as soon as possible since your site may be under risk of being exploited.
