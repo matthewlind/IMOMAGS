@@ -55,6 +55,32 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 <?php if (defined('JETPACK_SITE')): ?>
 <script type='text/javascript' src='http://ads.jetpackdigital.com/sites/<?php print JETPACK_SITE; ?>/jpd.js'></script>
 <?php endif; ?> 
+
+<!-- code for custom ad units from REGGIE HUDSON -->
+<script type='text/javascript'>
+var googletag = googletag || {};
+googletag.cmd = googletag.cmd || [];
+(function() {
+var gads = document.createElement('script');
+gads.async = true;
+gads.type = 'text/javascript';
+var useSSL = 'https:' == document.location.protocol;
+gads.src = (useSSL ? 'https:' : 'http:') + 
+'//www.googletagservices.com/tag/js/gpt.js';
+var node = document.getElementsByTagName('script')[0];
+node.parentNode.insertBefore(gads, node);
+})();
+</script>
+
+<script type='text/javascript'>
+googletag.cmd.push(function() {
+googletag.defineSlot('/4930/imo.floridasportsman/rtfs/sponsors/yeti-coolers', [[160, 600], [300, 250], [728, 90]], 'div-gpt-ad-1331066554622-0').addService(googletag.pubads());
+googletag.pubads().enableSingleRequest();
+googletag.enableServices();
+});
+</script>
+<!-- end that custom REGGIE UNIT STUFF -->
+
 </head>
 <body <?php body_class(); ?>>
 <div id="bottom-wrap">
