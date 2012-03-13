@@ -55,6 +55,7 @@ function digmag_article_init() {
 		'capability_type' => 'post',
 		'hierarchical' => false,
 		'menu_position' => null,
+		'exclude_from_search' => true,
 		'supports' => array('title','editor')
 	  ); 
 	  register_post_type('digmag_article',$args);
