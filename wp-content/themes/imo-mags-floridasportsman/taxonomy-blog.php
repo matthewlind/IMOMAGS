@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Generic Template for Taxonomy Archive
+ * CUSTOMIZED TEMPLATE FOR BLOG ARCHIVES
  * 
  *
  * @package carrington-business
@@ -31,13 +31,14 @@ if (!is_admin()) {
 <?php get_header(); ?>
 
 <header id="masthead">
-	<h1><?php wp_title_multitax('');?></h1>
+	<h1><?php wp_title_multitax('');?> at Florida Sportsman</h1>
 </header><!-- #masthead -->
 
 <div class="page-template-page-right-php taxonomy-page bw-fullwidth">
 	<div class="bonus-background">
-		<div class="bonus">
-			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('blog-sidebar')) : else : ?><?php endif; ?>
+    	<div class="bonus">
+        
+			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-default')) : else : ?><?php endif; ?>
 		</div>
 	</div>
 
@@ -90,9 +91,9 @@ $blog = $qs['blog'];
 $args = array(	
 	'paged' => get_query_var('paged'),
 	'posts_per_page' => 20,
-	'activity' => $activity,
 	'column' => $column,
 	'region' => $region,
+	'activity' => $activity,
 	'gear' => $gear,
 	'location' => $location,
 	'species' => $species,
@@ -102,6 +103,8 @@ $args = array(
 	'blog' => $blog
 
 ); 
+
+
 
 
 $posts_array = query_posts($args);
@@ -118,7 +121,6 @@ $item = array();
 <?php while (have_posts()) : the_post(); ?> 
 
 <?php 
-
 	$count++;
 
 

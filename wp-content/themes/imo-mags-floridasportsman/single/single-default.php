@@ -28,6 +28,7 @@ get_header();
 	comments_template();
 	?>
 </div>
+
 <?php
 get_sidebar();
 ?>
