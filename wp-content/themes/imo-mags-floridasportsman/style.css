@@ -1603,3 +1603,40 @@ height: 141px;
 		margin: 12px 0 0 15px;
 		background: url(/files/2012/01/imafs-logo.jpg) 0 0 no-repeat;
 }
+.bio-title {
+	background-color: #003e5e;
+	font: normal 18px 'Francois One',Times New Roman !important;
+	padding: 3px 8px 3px 8px  !important;
+	display: block;
+	color: white;
+}
+ul.author-bio {
+	list-style-type: none;
+	margin: 0 0 10px;
+	padding: 10px;
+	border: 2px solid #003e5e;
+}
+li.author-avatar {
+	display: inline-block;
+	float: right;
+	padding: 0;
+	margin: 0 0 0 10px;
+}
+li.author-name {
+	font: normal 18px 'Francois One',Times New Roman !important;
+	color: #003e5e;
+	font-size: 16px;
+}
+li.author-description {
+	font-size: 12px;
+	color: gray;
+}
+#fls-blogs-nav {
+	margin-bottom: 15px;
+}
+#fls-blogs-nav h4 {
+	text-transform: capitalize;
+	padding-left: 8px;
+	border-left: 8px solid #0089ca;
+	margin: 0;
+}

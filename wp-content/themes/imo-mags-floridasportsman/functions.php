@@ -28,7 +28,7 @@ if ( ! function_exists( 'cfct_setup' ) ) {
 		// This theme uses post thumbnails
 		add_theme_support( 'post-thumbnails' );
 		// Width, Height, Crop
-		set_post_thumbnail_size( 190, 120, true );
+		set_post_thumbnail_size( 150, 100, true );
 		// Image sizes to support Carousel
 		add_image_size('post-image-large', 584, 370, true);
 		add_image_size('post-image-medium', 426, 270, true);
@@ -151,6 +151,7 @@ function register_ima_fs_menu() {
     register_nav_menu( 'imafs-menu', __( 'Im A FS Menu' ) );
 }
 
+
 /**
  * Run the following tasks on init
  * Keep Carrington Build styles out of the front-end. We'll add our own.
@@ -168,29 +169,7 @@ function no_category_dropdown() {
     add_filter( 'wp_dropdown_cats', '__return_false' );
 }
 
-/**
-function restrict_posts_by_column() {
-		global $typenow;
-		$post_type = 'post'; // change HERE
-		$taxonomy = 'column'; // change HERE
-		if ($typenow == $post_type) {
-			$selected = isset($_GET[$taxonomy]) ? $_GET[$taxonomy] : '';
-			$info_taxonomy = get_taxonomy($taxonomy);
-			wp_dropdown_categories(array(
-				'show_option_all' => __("Show All {$info_taxonomy->label}"),
-				'taxonomy' => $taxonomy,
-				'name' => $taxonomy,
-				'orderby' => 'name',
-				'selected' => $selected,
-				'show_count' => true,
-				'hide_empty' => true,
-			));
-		};
-	}
 
-	add_action('restrict_manage_posts', 'restrict_posts_by_column');
-	
-	 */
 
 function convert_id_to_term_in_query($query) {
 		global $pagenow;
@@ -489,21 +468,27 @@ function eg_add_rewrite_rules(){
     
     add_rewrite_rule('(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]&$matches[3]=$matches[4]&$matches[5]=$matches[6]', 'top');
     add_rewrite_rule('(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]&$matches[3]=$matches[4]', 'top'); 
-    add_rewrite_rule('(show|region|species|marketplace|activity|gear|column)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]', 'top');
+   // add_rewrite_rule('(show|region|species|marketplace|activity|gear|column)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]', 'top');
     
 
-    // add_rewrite_tag('%gallery%','([^/]+)');
-    // add_rewrite_tag('%album%','([^/]+)');
+     add_rewrite_tag('%gallery%','([^/]+)');
+     add_rewrite_tag('%album%','([^/]+)');
+     add_rewrite_tag('%tags%','([^/]+)');
 
 
 
 
     // add_rewrite_rule('^galleries/([^/]+)/?$', 'index.php?pagename=galleries&album=1&gallery=$matches[1]','top');
     // add_rewrite_rule('^tag/([^/]+)/?$', 'index.php?pagename=galleries/photos-by-tag&gallerytag=$matches[1]','top');
-    // add_rewrite_rule('^galleries/tag/([^/]+)/?$', 'index.php?pagename=galleries&gallerytag=$matches[1]','top');
+     
+   //  add_rewrite_rule('^galleries/([^/]+)/tag/([^/]+)/?$', 'index.php?pagename=galleries&album=1&gallery=$matches[1]&ngg_tag=$matches[2]','top');
+     //galleries/tag/?album=1&gallery=16
+     add_rewrite_rule('^album/([^/]+)/gallery/([^/]+)/?$', 'index.php?pagename=galleries/tag&album=$matches[1]&gallery=$matches[2]','top');     
+     add_rewrite_rule('^album/([^/]+)/gallery/([^/]+)/tags/([^/]+)/?$', 'index.php?pagename=galleries/tag&album=$matches[1]&gallery=$matches[2]&tags=$matches[3]','top');
+     //add_rewrite_rule('^galleries/tag/([^/]+)/?$', 'index.php?pagename=galleries&gallerytag=$matches[1]','top');
     // add_rewrite_tag('%gallery%','([^/]+)');
-    // add_rewrite_tag('%album%','([^/]+)');
-    // add_rewrite_rule('^galleries/([^/]+)/?$', 'index.php?pagename=galleries&album=1&gallery=$matches[1]','top');  
+     //add_rewrite_tag('%album%','([^/]+)');
+       
 
 } 
 
@@ -563,7 +548,11 @@ function setup_cpt_filters() {
                             'activity' => array(
                                                     'name' => 'Activity',
                                                     'taxonomy' => 'activity',
-                                                    ),                                                    
+                                                    ),
+    						'blog' => array(
+    												'name' => 'Blog',
+    												'taxonomy' => 'blog',
+    												),    		                                                   
                                                                                                                                                   
                         );
 
@@ -579,3 +568,1584 @@ function setup_cpt_filters() {
 
 
 }
+
+
+// customize the text for the NGG picture tag taxonomy label
+add_filter('the_content','replace_content', 99);
+function replace_content($content)
+{
+	// change this to whatever you want the new label to be
+	$newlabel = 'Show pictures tagged with:';
+	
+	$content = str_replace('Picture tag:', $newlabel ,$content);
+	
+	return $content;
+}
+
+
+
+
+/**
+ * nggShowSingleGalleryTags() - create a gallery based on the tags, using images from a single, specified album-gallery
+ *
+ * @access public
+ * @param string $taglist list of tags as csv
+ * @return the content
+ */
+function nggShowSingleGalleryTags($galleryID, $taglist) {
+
+	
+	
+	// $_GET from wp_query
+	$pid    = $_GET["pid"];
+	$pageid = get_query_var('pageid');
+	$tags = $_POST["ngg_tag"] . $_GET['tags'];
+
+	if (empty($tags))
+		$tags = get_query_var('tags');
+	$tags = str_replace('+', ' ', $tags);
+	$tags = str_replace('%20', ' ', $tags);
+	
+	$post_gallery = get_query_var('gallery');
+
+	
+	if (empty($tags)){
+		 
+		// get now the related images
+		$picturelist = nggTags::find_images_for_tags($taglist , 'ASC');
+		 
+	}
+	else{
+		$gallery = $post_gallery;
+		$picturelist = nggTags::find_images_for_tags($tags , 'ASC');
+		
+	}
+
+	// filter through the picture list and remove images from other galleries
+	foreach($picturelist as $key => $picture){
+		if ($picture->galleryid != $gallery){
+
+			unset($picturelist[$key]);
+
+
+		}
+
+	}
+	// normalize the array if any elements were removed
+	$picturelist = array_values($picturelist);
+
+
+	// look for ImageBrowser if we have a $_GET('pid')
+	if ( $pageid == get_the_ID() || !is_home() )
+		if (!empty( $pid ))  {
+		 
+		$out = nggCreateImageBrowser( $picturelist );
+
+		return $out;
+	}
+
+	// go on if not empty
+	if ( empty($picturelist) )
+		return;
+
+	// show gallery
+	if ( is_array($picturelist) )
+		$out = nggCreateTagBasedGallery($picturelist, $gallery, $tags);
+
+	$out = apply_filters('ngg_show_gallery_tags_content', $out, $taglist);
+	return $out;
+}
+
+function show_tag_for_header($tag){
+	$tag = str_replace("pic-", "", $tag);
+	$tag = str_replace("pic ", "", $tag);
+	$tag = str_replace("-", " " , $tag);
+	$tag = ucwords($tag);
+	return $tag;
+}
+
+
+function get_objects_in_term_ex( $term_ids, $taxonomies, $args = array() , $match_all_tags = 0) {
+	global $wpdb;
+
+	if ( ! is_array( $term_ids ) )
+		$term_ids = array( $term_ids );
+
+	if ( ! is_array( $taxonomies ) )
+		$taxonomies = array( $taxonomies );
+
+	foreach ( (array) $taxonomies as $taxonomy ) {
+		if ( ! taxonomy_exists( $taxonomy ) )
+			return new WP_Error( 'invalid_taxonomy', __( 'Invalid Taxonomy' ) );
+	}
+
+	$defaults = array( 'order' => 'ASC' );
+	$args = wp_parse_args( $args, $defaults );
+	extract( $args, EXTR_SKIP );
+
+	$order = ( 'desc' == strtolower( $order ) ) ? 'DESC' : 'ASC';
+
+	$term_ids = array_map('intval', $term_ids );
+
+	$taxonomies = "'" . implode( "', '", $taxonomies ) . "'";
+	//$term_ids = "'" . implode( "', '", $term_ids ) . "'";
+
+
+
+
+	$sql_query = "SELECT distinct tr.object_id FROM $wpdb->term_relationships AS tr INNER JOIN $wpdb->term_taxonomy AS tt ON tr.term_taxonomy_id = tt.term_taxonomy_id WHERE tt.taxonomy IN ($taxonomies) ";
+
+	$x = 0;
+	$num_terms = count($term_ids);
+
+	$sql_query .= "AND (";
+
+	if ($match_all_tags) {
+
+
+		foreach($term_ids as $term_id){
+			$x++;
+
+			$sql_query .= " tr.object_id IN (SELECT tr.object_id FROM $wpdb->term_relationships tr, $wpdb->term_taxonomy tt WHERE tr.term_taxonomy_id IN (SELECT term_taxonomy_id FROM $wpdb->term_taxonomy WHERE term_id = '". $term_id ."'))" ;
+			if ($x < $num_terms)
+				$sql_query .= " AND ";
+
+		}
+	} else {
+
+		foreach($term_ids as $term_id){
+			$x++;
+			$sql_query .= " tr.object_id IN (SELECT tr.object_id FROM $wpdb->term_relationships tr, $wpdb->term_taxonomy tt WHERE tr.term_taxonomy_id IN (SELECT term_taxonomy_id FROM $wpdb->term_taxonomy WHERE term_id = '". $term_id ."'))" ;
+			if ($x < $num_terms)
+				$sql_query .= " OR ";
+		}
+	}
+
+
+
+
+	$sql_query .= ") ORDER BY tr.object_id $order";
+
+	/*
+	$test = mysql_query("SELECT * FROM $wpdb->terms");
+	while ($row = mysql_fetch_object($test)){
+
+	print_r($row);
+	echo "<br>";
+	} */
+
+	$object_ids = $wpdb->get_col($sql_query);
+
+	if ( ! $object_ids )
+		return array();
+
+		return $object_ids;
+}
+
+
+
+/**
+ * Build a tag-driven gallery output
+ *
+ * @access internal
+ * @param array $picturelist
+ * @param bool $galleryID, if you supply a gallery ID, you can add a slideshow link
+ * @param string $tags
+ * @param string $template (optional) name for a template file, look for gallery-$template
+ * @param int $images (optional) number of images per page
+ * @return the content
+ */
+function nggCreateTagBasedGallery($picturelist, $galleryID = false, $tags, $template = '', $images = false) {
+	global $nggRewrite;
+	
+
+	//require_once (dirname (__FILE__) . '/lib/media-rss.php');
+
+	$ngg_options = nggGallery::get_option('ngg_options');
+
+	//the shortcode parameter will override global settings, TODO: rewrite this to a class
+	$ngg_options['galImages'] = ( $images === false ) ? $ngg_options['galImages'] : (int) $images;
+
+	$current_pid = false;
+
+	// $_GET from wp_query
+	$nggpage  = get_query_var('nggpage');
+	$pageid   = get_query_var('pageid');
+	$pid      = get_query_var('pid');
+
+	// in case of permalinks the pid is a slug, we need the id
+	if( !is_numeric($pid) && !empty($pid) ) {
+		$picture = nggdb::find_image($pid);
+		$pid = $picture->pid;
+	}
+
+	// we need to know the current page id
+	$current_page = (get_the_ID() == false) ? 0 : get_the_ID();
+
+	if ( !is_array($picturelist) )
+		$picturelist = array($picturelist);
+
+	// Populate galleries values from the first image
+	$first_image = current($picturelist);
+	$gallery = new stdclass;
+	$gallery->ID = (int) $galleryID;
+	$gallery->show_slideshow = false;
+	$gallery->show_piclens = false;
+	$gallery->name = stripslashes ( $first_image->name  );
+	$gallery->title = stripslashes( $first_image->title );
+	$gallery->description = html_entity_decode(stripslashes( $first_image->galdesc));
+	$gallery->pageid = $first_image->pageid;
+	$gallery->anchor = 'ngg-gallery-' . $galleryID . '-' . $current_page;
+	reset($picturelist);
+
+	$maxElement  = $ngg_options['galImages'];
+	$thumbwidth  = $ngg_options['thumbwidth'];
+	$thumbheight = $ngg_options['thumbheight'];
+
+	// fixed width if needed
+	$gallery->columns    = intval($ngg_options['galColumns']);
+	$gallery->imagewidth = ($gallery->columns > 0) ? 'style="width:' . floor(100/$gallery->columns) . '%;"' : '';
+
+	// obsolete in V1.4.0, but kept for compat reason
+	// pre set thumbnail size, from the option, later we look for meta data.
+	$thumbsize = ($ngg_options['thumbfix']) ? $thumbsize = 'width="' . $thumbwidth . '" height="'.$thumbheight . '"' : '';
+
+	// show slideshow link
+	if ($galleryID) {
+		if ($ngg_options['galShowSlide']) {
+			$gallery->show_slideshow = true;
+			$gallery->slideshow_link = $nggRewrite->get_permalink(array ( 'show' => 'slide') );
+			$gallery->slideshow_link_text = nggGallery::i18n($ngg_options['galTextSlide']);
+		}
+
+		if ($ngg_options['usePicLens']) {
+			$gallery->show_piclens = true;
+			$gallery->piclens_link = "javascript:PicLensLite.start({feedUrl:'" . htmlspecialchars( nggMediaRss::get_gallery_mrss_url($gallery->ID) ) . "'});";
+		}
+	}
+
+	// check for page navigation
+	if ($maxElement > 0) {
+
+		if ( !is_home() || $pageid == $current_page )
+			$page = ( !empty( $nggpage ) ) ? (int) $nggpage : 1;
+		else
+			$page = 1;
+			
+		$start = $offset = ( $page - 1 ) * $maxElement;
+
+		$total = count($picturelist);
+
+		//we can work with display:hidden for some javascript effects
+		if (!$ngg_options['galHiddenImg']){
+			// remove the element if we didn't start at the beginning
+			if ($start > 0 )
+				array_splice($picturelist, 0, $start);
+
+			// return the list of images we need
+			array_splice($picturelist, $maxElement);
+		}
+
+		$nggNav = new nggTagGalleryNavigation;
+		
+		$navigation = $nggNav->create_navigation($page, $total, $maxElement);
+	} else {
+		$navigation = '<div class="ngg-clear"></div>';
+	}
+
+	//we cannot use the key as index, cause it's filled with the pid
+	$index = 0;
+	foreach ($picturelist as $key => $picture) {
+
+		//needed for hidden images (THX to Sweigold for the main idea at : http://wordpress.org/support/topic/228743/ )
+		$picturelist[$key]->hidden = false;
+		$picturelist[$key]->style  = $gallery->imagewidth;
+
+		if ($maxElement > 0 && $ngg_options['galHiddenImg']) {
+			if ( ($index < $start) || ($index > ($start + $maxElement -1)) ){
+				$picturelist[$key]->hidden = true;
+				$picturelist[$key]->style  = ($gallery->columns > 0) ? 'style="width:' . floor(100/$gallery->columns) . '%;display: none;"' : 'style="display: none;"';
+			}
+			$index++;
+		}
+
+		// get the effect code
+		if ($galleryID)
+			$thumbcode = ($ngg_options['galImgBrowser']) ? '' : $picture->get_thumbcode('set_' . $galleryID);
+		else
+			$thumbcode = ($ngg_options['galImgBrowser']) ? '' : $picture->get_thumbcode(get_the_title());
+
+		// create link for imagebrowser and other effects
+		$args ['nggpage'] = empty($nggpage) || ($template != 'carousel') ? false : $nggpage;  // only needed for carousel mode
+		$args ['pid']     = ($ngg_options['usePermalinks']) ? $picture->image_slug : $picture->pid;
+		$picturelist[$key]->pidlink = $nggRewrite->get_permalink( $args ) . '&tags='.urlencode($tags);
+
+		// generate the thumbnail size if the meta data available
+		if ( isset($picturelist[$key]->meta_data['thumbnail']) && is_array ($size = $picturelist[$key]->meta_data['thumbnail']) )
+			$thumbsize = 'width="' . $size['width'] . '" height="' . $size['height'] . '"';
+
+		// choose link between imagebrowser or effect
+		$link = ($ngg_options['galImgBrowser']) ? $picturelist[$key]->pidlink : $picture->imageURL;
+		// bad solution : for now we need the url always for the carousel, should be reworked in the future
+		$picturelist[$key]->url = $picture->imageURL;
+		// add a filter for the link
+		$picturelist[$key]->imageURL = apply_filters('ngg_create_gallery_link', $link, $picture);
+		$picturelist[$key]->thumbnailURL = $picture->thumbURL;
+		$picturelist[$key]->size = $thumbsize;
+		$picturelist[$key]->thumbcode = $thumbcode;
+		$picturelist[$key]->caption = ( empty($picture->description) ) ? '&nbsp;' : html_entity_decode ( stripslashes(nggGallery::i18n($picture->description, 'pic_' . $picture->pid . '_description')) );
+		$picturelist[$key]->description = ( empty($picture->description) ) ? ' ' : htmlspecialchars ( stripslashes(nggGallery::i18n($picture->description, 'pic_' . $picture->pid . '_description')) );
+		$picturelist[$key]->alttext = ( empty($picture->alttext) ) ?  ' ' : htmlspecialchars ( stripslashes(nggGallery::i18n($picture->alttext, 'pic_' . $picture->pid . '_alttext')) );
+
+		// filter to add custom content for the output
+		$picturelist[$key] = apply_filters('ngg_image_object', $picturelist[$key], $picture->pid);
+
+		//check if $pid is in the array
+		if ($picture->pid == $pid)
+			$current_pid = $picturelist[$key];
+	}
+	reset($picturelist);
+
+	//for paged galleries, take the first image in the array if it's not in the list
+	$current_pid = ( empty($current_pid) ) ? current( $picturelist ) : $current_pid;
+
+	// look for gallery-$template.php or pure gallery.php
+	$filename = ( empty($template) ) ? 'gallery' : 'gallery-' . $template;
+
+	//filter functions for custom addons
+	$gallery     = apply_filters( 'ngg_gallery_object', $gallery, $galleryID );
+	$picturelist = apply_filters( 'ngg_picturelist_object', $picturelist, $galleryID );
+
+	//additional navigation links
+	$next = ( empty($nggNav->next) ) ? false : $nggNav->next;
+	$prev = ( empty($nggNav->prev) ) ? false : $nggNav->prev;
+
+	// create the output
+	$out = nggGallery::capture ( $filename, array ('gallery' => $gallery, 'images' => $picturelist, 'pagination' => $navigation, 'current' => $current_pid, 'next' => $next, 'prev' => $prev) );
+
+	// apply a filter after the output
+	$out = apply_filters('ngg_gallery_output', $out, $picturelist);
+
+	return $out;
+}
+
+add_filter('wp_title' , 'rewrite_title', 99 );
+function rewrite_title($title) {
+
+
+    $title = preg_replace("/[a-zA-Z]+ [0-9]+ &laquo;/i", "", $title); 
+	//$title = preg_replace("/Member Photo Galleries - /i", "",  $title);
+	$new_title = '';
+	// the separataor
+	$sep = ' &laquo; ';
+
+	// $_GET from wp_query
+	$pid     = get_query_var('pid');
+	$pageid  = get_query_var('pageid');
+	$nggpage = get_query_var('nggpage');
+	$gallery = get_query_var('gallery');
+	$album   = get_query_var('album');
+	$tag  	 = get_query_var('gallerytag');
+	$show    = get_query_var('show');
+
+	//TODO: I could parse for the Picture name , gallery etc, but this increase the queries
+	//TODO: Class nggdb need to cache the query for the nggfunctions.php
+
+	if ( $show == 'slide' )
+		$new_title .= __('Slideshow', 'nggallery') . $sep ;
+	elseif ( $show == 'show' )
+	$new_title .= __('Gallery', 'nggallery') . $sep ;
+
+	if ( !empty($pid) )
+		$new_title .= __('Picture', 'nggallery') . ' ' . esc_attr($pid) . $sep ;
+
+	if ( !empty($album) )
+		$new_title .= __('Album', 'nggallery') . ' ' . esc_attr($album) . $sep ;
+
+	if ( !empty($gallery) )
+		$new_title .= __('Gallery', 'nggallery') . ' ' . esc_attr($gallery) . $sep ;
+		
+	if ( !empty($nggpage) )
+		$new_title .= __('Page', 'nggallery') . ' ' . esc_attr($nggpage) . $sep ;
+
+	//esc_attr should avoid XSS like http://domain/?gallerytag=%3C/title%3E%3Cscript%3Ealert(document.cookie)%3C/script%3E
+	if ( !empty($tag) )
+		$new_title .= esc_attr($tag) . $sep;
+
+
+
+	global $wpdb;
+
+	$albumcontent = $wpdb->get_row("SELECT * FROM $wpdb->nggalbum WHERE id = '$album' ");
+	$gallerycontent = $wpdb->get_row("SELECT * FROM $wpdb->nggallery WHERE gid = '$gallery' ");
+	$imagecontent = $wpdb->get_row("SELECT * FROM $wpdb->nggpictures WHERE pid = '$pid' ");
+
+	if (!empty($imagecontent->alttext))
+		$image_title = $imagecontent->alttext;
+	else
+		$image_title = $imagecontent->description;
+
+	$gallery_title = $gallerycontent->title;
+
+
+
+	if ($_POST['ngg_tag'] || $_GET['tags'])
+		$gallery_title = show_tag_for_header($_POST['ngg_tag'] . $_GET['tags']) . ' - ' . $gallery_title; //. ' - Gallery: View Photos by Tag';
+
+	if (!empty($gallery_title))
+		$gallery_title .= ' - ';
+
+
+	if (!empty($image_title))
+		$image_title .= ' - ';
+
+	if(!empty($gallerycontent->title)) {
+			
+		$new_title = $image_title . $gallery_title;
+	}
+
+
+
+
+	//prepend the data
+	$title = $new_title . $title;
+
+
+
+
+	return $title;
+}
+
+
+    function show_tags_single_gallery( $atts ) {
+    
+    $temp = str_replace('-', ' ', $atts['gallery']);
+    $temp = ucwords($temp);
+    $GLOBALS['ngg_shortcode'] = $temp;
+        extract(shortcode_atts(array(
+            'gallery'       => '',
+            'tags'          => ''
+        ), $atts ));
+        
+ 		$out = nggShowSingleGalleryTags($gallery, $tags);
+        return $out;
+    }
+
+    
+    /**
+     * nggShowGallery() - return a gallery
+     *
+     * @access public
+     * @param int | string ID or slug from a gallery
+     * @param string $template (optional) name for a template file, look for gallery-$template
+     * @param int $images (optional) number of images per page
+     * @return the content
+     */
+    function nggShowGalleryMod( $galleryID, $template = '', $images = false, $onclick = '' ) {
+    
+    	global $nggRewrite;
+    
+    	$ngg_options = nggGallery::get_option('ngg_options');
+    
+    	//Set sort order value, if not used (upgrade issue)
+    	$ngg_options['galSort'] = ($ngg_options['galSort']) ? $ngg_options['galSort'] : 'pid';
+    	$ngg_options['galSortDir'] = ($ngg_options['galSortDir'] == 'DESC') ? 'DESC' : 'ASC';
+    
+    	// get gallery values
+    	//TODO: Use pagination limits here to reduce memory needs
+    	$picturelist = nggdb::get_gallery($galleryID, $ngg_options['galSort'], $ngg_options['galSortDir']);
+    
+    	if ( !$picturelist )
+    		return __('[Gallery not found]','nggallery');
+    
+    	// If we have we slug instead the id, we should extract the ID from the first image
+    	if ( !is_numeric($galleryID) ) {
+    		$first_image = current($picturelist);
+    		$galleryID = intval($first_image->gid);
+    	}
+    
+    	// $_GET from wp_query
+    	$show    = get_query_var('show');
+    	$pid     = get_query_var('pid');
+    	$pageid  = get_query_var('pageid');
+    
+    	// set $show if slideshow first
+    	if ( empty( $show ) AND ($ngg_options['galShowOrder'] == 'slide')) {
+    		if ( is_home() )
+    			$pageid = get_the_ID();
+    
+    		$show = 'slide';
+    	}
+    
+    	// filter to call up the imagebrowser instead of the gallery
+    	// use in your theme : add_action( 'ngg_show_imagebrowser_first', create_function('', 'return true;') );
+    	if ( apply_filters('ngg_show_imagebrowser_first', false, $galleryID ) && $show != 'thumbnails' )  {
+    		$out = nggShowImageBrowser( $galleryID, $template );
+    		return $out;
+    	}
+    
+    	// go on only on this page
+    	if ( !is_home() || $pageid == get_the_ID() ) {
+    
+    		// 1st look for ImageBrowser link
+    		if ( !empty($pid) && $ngg_options['galImgBrowser'] && ($template != 'carousel') )  {
+    			$out = nggShowImageBrowser( $galleryID, $template );
+    			return $out;
+    		}
+    
+    		// 2nd look for slideshow
+    		if ( $show == 'slide' ) {
+    			$args['show'] = "gallery";
+    			$out  = '<div class="ngg-galleryoverview">';
+    			$out .= '<div class="slideshowlink"><a class="slideshowlink" href="' . $nggRewrite->get_permalink($args) . '">'.nggGallery::i18n($ngg_options['galTextGallery']).'</a></div>';
+    			$out .= nggShowSlideshow($galleryID, $ngg_options['irWidth'], $ngg_options['irHeight']);
+    			$out .= '</div>'."\n";
+    			$out .= '<div class="ngg-clear"></div>'."\n";
+    			return $out;
+    		}
+    	}
+    
+    	// get all picture with this galleryid
+    	if ( is_array($picturelist) ){
+    		if ( $onclick != 'lightbox')
+    			$out = nggCreateGallery($picturelist, $galleryID, $template, $images);
+    		else
+    			$out = nggCreateGalleryMod($picturelist, $galleryID, $template, $images);
+    			
+    	}
+    	$out = apply_filters('ngg_show_gallery_content', $out, intval($galleryID));
+    	return $out;
+    }
+    
+    
+    
+    /**
+     * Build a gallery output
+     *
+     * @access internal
+     * @param array $picturelist
+     * @param bool $galleryID, if you supply a gallery ID, you can add a slideshow link
+     * @param string $template (optional) name for a template file, look for gallery-$template
+     * @param int $images (optional) number of images per page
+     * @return the content
+     */
+    function nggCreateGalleryMod($picturelist, $galleryID = false, $template = '', $images = false) {
+    	global $nggRewrite;
+    
+    //	require_once (dirname (__FILE__) . '/lib/media-rss.php');
+    
+    	$ngg_options = nggGallery::get_option('ngg_options');
+    
+    	//the shortcode parameter will override global settings, TODO: rewrite this to a class
+    	$ngg_options['galImages'] = ( $images === false ) ? $ngg_options['galImages'] : (int) $images;
+    
+    	$current_pid = false;
+    
+    	// $_GET from wp_query
+    	$nggpage  = get_query_var('nggpage');
+    	$pageid   = get_query_var('pageid');
+    	$pid      = get_query_var('pid');
+    
+    	// in case of permalinks the pid is a slug, we need the id
+    	if( !is_numeric($pid) && !empty($pid) ) {
+    		$picture = nggdb::find_image($pid);
+    		$pid = $picture->pid;
+    	}
+    
+    	// we need to know the current page id
+    	$current_page = (get_the_ID() == false) ? 0 : get_the_ID();
+    
+    	if ( !is_array($picturelist) )
+    		$picturelist = array($picturelist);
+    
+    	// Populate galleries values from the first image
+    	$first_image = current($picturelist);
+    	$gallery = new stdclass;
+    	$gallery->ID = (int) $galleryID;
+    	$gallery->show_slideshow = false;
+    	$gallery->show_piclens = false;
+    	$gallery->name = stripslashes ( $first_image->name  );
+    	$gallery->title = stripslashes( $first_image->title );
+    	$gallery->description = html_entity_decode(stripslashes( $first_image->galdesc));
+    	$gallery->pageid = $first_image->pageid;
+    	$gallery->anchor = 'ngg-gallery-' . $galleryID . '-' . $current_page;
+    	reset($picturelist);
+    
+    	$maxElement  = $ngg_options['galImages'];
+    	$thumbwidth  = $ngg_options['thumbwidth'];
+    	$thumbheight = $ngg_options['thumbheight'];
+    
+    	// fixed width if needed
+    	$gallery->columns    = intval($ngg_options['galColumns']);
+    	$gallery->imagewidth = ($gallery->columns > 0) ? 'style="width:' . floor(100/$gallery->columns) . '%;"' : '';
+    
+    	// obsolete in V1.4.0, but kept for compat reason
+    	// pre set thumbnail size, from the option, later we look for meta data.
+    	$thumbsize = ($ngg_options['thumbfix']) ? $thumbsize = 'width="' . $thumbwidth . '" height="'.$thumbheight . '"' : '';
+    
+    	// show slideshow link
+    	if ($galleryID) {
+    		if ($ngg_options['galShowSlide']) {
+    			$gallery->show_slideshow = true;
+    			$gallery->slideshow_link = $nggRewrite->get_permalink(array ( 'show' => 'slide') );
+    			$gallery->slideshow_link_text = nggGallery::i18n($ngg_options['galTextSlide']);
+    		}
+    
+    		if ($ngg_options['usePicLens']) {
+    			$gallery->show_piclens = true;
+    			$gallery->piclens_link = "javascript:PicLensLite.start({feedUrl:'" . htmlspecialchars( nggMediaRss::get_gallery_mrss_url($gallery->ID) ) . "'});";
+    		}
+    	}
+    
+    	// check for page navigation
+    	if ($maxElement > 0) {
+    
+    		if ( !is_home() || $pageid == $current_page )
+    			$page = ( !empty( $nggpage ) ) ? (int) $nggpage : 1;
+    		else
+    			$page = 1;
+    		 
+    		$start = $offset = ( $page - 1 ) * $maxElement;
+    
+    		$total = count($picturelist);
+    
+    		//we can work with display:hidden for some javascript effects
+    		if (!$ngg_options['galHiddenImg']){
+    			// remove the element if we didn't start at the beginning
+    			if ($start > 0 )
+    				array_splice($picturelist, 0, $start);
+    			 
+    			// return the list of images we need
+    			array_splice($picturelist, $maxElement);
+    		}
+    
+    		$nggNav = new nggNavigation;
+    		$navigation = $nggNav->create_navigation($page, $total, $maxElement);
+    	} else {
+    		$navigation = '<div class="ngg-clear"></div>';
+    	}
+    	 
+    	//we cannot use the key as index, cause it's filled with the pid
+    	$index = 0;
+    	foreach ($picturelist as $key => $picture) {
+    
+    		//needed for hidden images (THX to Sweigold for the main idea at : http://wordpress.org/support/topic/228743/ )
+    		$picturelist[$key]->hidden = false;
+    		$picturelist[$key]->style  = $gallery->imagewidth;
+    
+    		if ($maxElement > 0 && $ngg_options['galHiddenImg']) {
+    			if ( ($index < $start) || ($index > ($start + $maxElement -1)) ){
+    				$picturelist[$key]->hidden = true;
+    				$picturelist[$key]->style  = ($gallery->columns > 0) ? 'style="width:' . floor(100/$gallery->columns) . '%;display: none;"' : 'style="display: none;"';
+    			}
+    			$index++;
+    		}
+    
+    		// get the effect code
+    		if ($galleryID)
+    			$thumbcode = $picture->get_thumbcode('set_' . $galleryID);
+    		else
+    			$thumbcode = $picture->get_thumbcode(get_the_title());
+    		if (empty($thumbcode))
+    		 $thumbcode = 'class="thickbox" rel="set_6"';
+
+    		// create link for imagebrowser and other effects
+    		$args ['nggpage'] = empty($nggpage) || ($template != 'carousel') ? false : $nggpage;  // only needed for carousel mode
+    		$args ['pid']     = ($ngg_options['usePermalinks']) ? $picture->image_slug : $picture->pid;
+    		
+    		$picturelist[$key]->pidlink = $nggRewrite->get_permalink( $args );
+    
+    		// generate the thumbnail size if the meta data available
+    		if ( isset($picturelist[$key]->meta_data['thumbnail']) && is_array ($size = $picturelist[$key]->meta_data['thumbnail']) )
+    			$thumbsize = 'width="' . $size['width'] . '" height="' . $size['height'] . '"';
+    
+    		// choose link between imagebrowser or effect
+    		$link =  $picture->imageURL;
+    		// bad solution : for now we need the url always for the carousel, should be reworked in the future
+    		$picturelist[$key]->url = $picture->imageURL;
+    		// add a filter for the link
+    		$picturelist[$key]->imageURL = apply_filters('ngg_create_gallery_link', $link, $picture);
+    		$picturelist[$key]->thumbnailURL = $picture->thumbURL;
+    		$picturelist[$key]->size = $thumbsize;
+    		$picturelist[$key]->thumbcode = $thumbcode;
+    		$picturelist[$key]->caption = ( empty($picture->description) ) ? '&nbsp;' : html_entity_decode ( stripslashes(nggGallery::i18n($picture->description, 'pic_' . $picture->pid . '_description')) );
+    		$picturelist[$key]->description = ( empty($picture->description) ) ? ' ' : htmlspecialchars ( stripslashes(nggGallery::i18n($picture->description, 'pic_' . $picture->pid . '_description')) );
+    		$picturelist[$key]->alttext = ( empty($picture->alttext) ) ?  ' ' : htmlspecialchars ( stripslashes(nggGallery::i18n($picture->alttext, 'pic_' . $picture->pid . '_alttext')) );
+    
+    		// filter to add custom content for the output
+    		$picturelist[$key] = apply_filters('ngg_image_object', $picturelist[$key], $picture->pid);
+    
+    		//check if $pid is in the array
+    		if ($picture->pid == $pid)
+    			$current_pid = $picturelist[$key];
+    	}
+    	reset($picturelist);
+    
+    	//for paged galleries, take the first image in the array if it's not in the list
+    	$current_pid = ( empty($current_pid) ) ? current( $picturelist ) : $current_pid;
+    
+    	// look for gallery-$template.php or pure gallery.php
+    	$filename = ( empty($template) ) ? 'gallery' : 'gallery-' . $template;
+    
+    	//filter functions for custom addons
+    	$gallery     = apply_filters( 'ngg_gallery_object', $gallery, $galleryID );
+    	$picturelist = apply_filters( 'ngg_picturelist_object', $picturelist, $galleryID );
+    
+    	//additional navigation links
+    	$next = ( empty($nggNav->next) ) ? false : $nggNav->next;
+    	$prev = ( empty($nggNav->prev) ) ? false : $nggNav->prev;
+    
+    	// create the output
+    	$out = nggGallery::capture ( $filename, array ('gallery' => $gallery, 'images' => $picturelist, 'pagination' => $navigation, 'current' => $current_pid, 'next' => $next, 'prev' => $prev) );
+    
+    	// apply a filter after the output
+    	$out = apply_filters('ngg_gallery_output', $out, $picturelist);
+    
+    	return $out;
+    }
+    
+    
+    /**
+     * nggNavigation - PHP class for the pagination
+    *
+    * @package NextGEN Gallery
+    * @author Alex Rabe
+    * @copyright 2009-2011
+    * @version 1.0.1
+    * @access public
+    */
+    class nggTagGalleryNavigation {
+    
+    	/**
+    	 * Return the navigation output
+    	 *
+    	 * @access public
+    	 * @var string
+    	 */
+    	var $output = false;
+    
+    	/**
+    	 * Link to previous page
+    	 *
+    	 * @access public
+    	 * @var string
+    	 */
+    	var $prev = false;
+    
+    	/**
+    	 * Link to next page
+    	 *
+    	 * @access public
+    	 * @var string
+    	 */
+    	var $next = false;
+    
+    	/**
+    	 * PHP4 compatibility layer for calling the PHP5 constructor.
+    	 *
+    	 */
+    	function nggNavigation() {
+    		return $this->__construct();
+    	}
+    
+    	/**
+    	 * Main constructor - Does nothing.
+    	 * Call create_navigation() method when you need a navigation.
+    	 *
+    	 */
+    	function __construct() {
+    		return;
+    	}
+    
+    	/**
+    	 * nggNavigation::create_navigation()
+    	 *
+    	 * @param mixed $page
+    	 * @param integer $totalElement
+    	 * @param integer $maxElement
+    	 * @return string pagination content
+    	 */
+    	function create_navigation($page, $totalElement, $maxElement = 0) {
+    		global $nggRewrite;
+    
+    		$prev_symbol = apply_filters('ngg_prev_symbol', '&#9668;');
+    		$next_symbol = apply_filters('ngg_prev_symbol', '&#9658;');
+    
+    		if ($maxElement > 0) {
+    			$total = $totalElement;
+    				
+    			// create navigation
+    			if ( $total > $maxElement ) {
+    				$total_pages = ceil( $total / $maxElement );
+    				$r = '';
+    				if ( 1 < $page ) {
+    					$args['nggpage'] = ( 1 == $page - 1 ) ? FALSE : $page - 1;
+    					$previous = $args['nggpage'];
+    					if (FALSE == $args['nggpage']) {
+    						$previous = 1;
+    					}
+    					//$this->prev = $nggRewrite->get_permalink ( $args );
+    					$link = $nggRewrite->get_permalink( $args );
+    					if (!empty($_POST['ngg_tag'])){
+    						$tag_insert = "/tags/".$_POST['ngg_tag'];
+    						$link = str_insert($tag_insert, $link, strpos($link, "?") -1);
+    					}
+    					$this->prev = $link;    					
+    					
+    					$r .=  '<a class="prev" id="ngg-prev-' . $previous . '" href="' . $this->prev . '">' . $prev_symbol . '</a>';
+    				}
+    
+    				$total_pages = ceil( $total / $maxElement );
+    
+    				if ( $total_pages > 1 ) {
+    					for ( $page_num = 1; $page_num <= $total_pages; $page_num++ ) {
+    						if ( $page == $page_num ) {
+    							$r .=  '<span class="current">' . $page_num . '</span>';
+    						} else {
+    							$p = false;
+    							if ( $page_num < 3 || ( $page_num >= $page - 3 && $page_num <= $page + 3 ) || $page_num > $total_pages - 3 ) {
+    								$args['nggpage'] = ( 1 == $page_num ) ? FALSE : $page_num;
+    								
+    								$link = $nggRewrite->get_permalink( $args );
+    								if (!empty($_POST['ngg_tag'])){
+    									$tag_insert = "/tags/".$_POST['ngg_tag'];
+    									$link = str_insert($tag_insert, $link, strpos($link, "?") -1);
+    								}
+    								$r .= '<a class="page-numbers" href="' . $link . '">' . ( $page_num ) . '</a>';
+    								$in = true;
+    							} elseif ( $in == true ) {
+    								$r .= '<span class="more">...</span>';
+    								$in = false;
+    							}
+    						}
+    					}
+    				}
+    
+    				if ( ( $page ) * $maxElement < $total || -1 == $total ) {
+    					$args['nggpage'] = $page + 1;
+    					//$this->next = $nggRewrite->get_permalink ( $args );
+    					$link = $nggRewrite->get_permalink( $args );
+    					if (!empty($_POST['ngg_tag'])){
+    						$tag_insert = "/tags/".$_POST['ngg_tag'];
+    						$link = str_insert($tag_insert, $link, strpos($link, "?") -1);
+    					}    					
+    					$this->next = $link;
+    					$r .=  '<a class="next" id="ngg-next-' . $args['nggpage'] . '" href="' . $this->next . '">' . $next_symbol . '</a>';
+    				}
+    
+    				$this->output = "<div class='ngg-navigation'>$r</div>";
+    			} else {
+    				$this->output = "<div class='ngg-clear'></div>"."\n";
+    			}
+    		}
+    
+    		return $this->output;
+    	}
+    }
+
+    function str_insert($insertstring, $intostring, $offset) {
+    	$part1 = substr($intostring, 0, $offset);
+    	$part2 = substr($intostring, $offset);
+    
+    	$part1 = $part1 . $insertstring;
+    	$whole = $part1 . $part2;
+    	return $whole;
+    }    
+    
+ 
+
+    
+    class SidebarRecentBlogPosts extends WP_Widget
+    {
+    	function SidebarRecentBlogPosts()
+    	{
+    		$widget_ops = array('classname' => 'SidebarRecentBlogPosts', 'description' => 'Displays links to recent blog posts in the sidebar' );
+    		$this->WP_Widget('SidebarRecentBlogPosts', 'Recent Blog Posts and Blog Listing', $widget_ops);
+    	}
+    
+    	function form($instance)
+    	{
+    		$instance = wp_parse_args( (array) $instance, array( 'title' => '' ) );
+    		$title = $instance['title'];
+    		?>
+          <p><label for="<?php echo $this->get_field_id('title'); ?>">Title: <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo attribute_escape($title); ?>" /></label></p>
+        <?php
+          }
+         
+          function update($new_instance, $old_instance)
+          {
+            $instance = $old_instance;
+            $instance['title'] = $new_instance['title'];
+            return $instance;
+          }
+         
+          function widget($args, $instance)
+          {
+            extract($args, EXTR_SKIP);
+         
+            echo $before_widget;
+            $title = empty($instance['title']) ? ' ' : apply_filters('widget_title', $instance['title']);
+         
+            if (!empty($title))
+              echo $before_title . $title . $after_title;
+         
+		    //SHOW LATEST POSTS FROM BLOGS ONLY ON BLOG PAGES
+    
+    
+    // Display recent blog posts in blog currently being viewed
+    if ( is_tax('blog') || has_term('', 'blog')) {
+    	
+    ?>
+    <div id="fls-blogs-nav">
+    <?php
+    
+    // List posts by the terms for a custom taxonomy of any post type
+    
+    $post_type = 'post';
+    $tax = 'blog';
+    global $post;
+    $terms = get_the_terms($post->ID, 'blog');
+    
+    foreach($terms as $term){
+    	$blog_name = $term->slug; 
+    }
+    
+    $tax_terms = get_terms( $tax );
+    if ($tax_terms) {
+    	foreach ($tax_terms  as $tax_term) {
+    		if ($tax_term->slug == $blog_name){
+    	$args = array(
+    		'post_type' => $post_type,
+    		"$tax" => $tax_term->slug,
+    		'post_status' => 'publish',
+    		'posts_per_page' => 4,
+    		'caller_get_posts'=> 1
+    	);
+    
+    		$my_query = null;
+    		$my_query = new WP_Query($args);
+    
+    		if( $my_query->have_posts() ) : ?>
+    
+    			<h3 class="breadcrumb">Latest from <a href="<?php bloginfo('url'); ?>/<?php echo $tax; ?>/<?php echo $tax_term->slug; ?>"><?php echo $tax_term->name; ?></a></h3>
+    			<ul class="taxlist">
+    			<?php while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
+    
+    				<li id="post-<?php the_ID(); ?>">
+    					<a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+    				</li>
+    
+    			<?php endwhile; // end of loop ?>
+    
+    			</ul>
+    
+    		<?php else : ?>
+    		<?php endif; // if have_posts()
+    		wp_reset_query();
+    
+    	}
+    	} // end foreach #tax_terms
+    	?>
+        <h2>Sportsman Blogs</h2>
+        <?php
+    	
+    	foreach ($tax_terms  as $tax_term) {
+    		if ($tax_term->slug != $blog_name) {
+    		$my_query = null;
+    		$my_query = new WP_Query($args);
+    	
+    			if( $my_query->have_posts() ) : ?>
+    	
+    				<h4 class="breadcrumb"><a href="<?php bloginfo('url'); ?>/<?php echo $tax; ?>/<?php echo $tax_term->slug; ?>"><?php echo $tax_term->name; ?></a></h4>
+    	
+    			<?php else : ?>
+    			<?php endif; // if have_posts()
+    			wp_reset_query();
+    		}
+    		} // end foreach #tax_terms	
+    	
+    }
+    }
+    ?>
+     </div>   
+         <?php 
+            echo $after_widget;
+          }
+         
+        }
+        add_action( 'widgets_init', create_function('', 'return register_widget("SidebarRecentBlogPosts");') );
+        
+        
+        
+        
+        class SidebarBlogTitles extends WP_Widget
+        {
+        	function SidebarBlogTitles()
+        	{
+        		$widget_ops = array('classname' => 'SidebarBlogTitles', 'description' => 'Displays links to blogs in the sidebar' );
+        		$this->WP_Widget('SidebarBlogTitles', 'List of Blogs', $widget_ops);
+        	}
+        
+        	function form($instance)
+        	{
+        		$instance = wp_parse_args( (array) $instance, array( 'title' => '' ) );
+        		$title = $instance['title'];
+        		?>
+                  <p><label for="<?php echo $this->get_field_id('title'); ?>">Title: <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo attribute_escape($title); ?>" /></label></p>
+                <?php
+                  }
+                 
+                  function update($new_instance, $old_instance)
+                  {
+                    $instance = $old_instance;
+                    $instance['title'] = $new_instance['title'];
+                    return $instance;
+                  }
+                 
+                  function widget($args, $instance)
+                  {
+                    extract($args, EXTR_SKIP);
+                 
+                    echo $before_widget;
+                    $title = empty($instance['title']) ? ' ' : apply_filters('widget_title', $instance['title']);
+                 
+                    if (!empty($title))
+                      echo $before_title . $title . $after_title;
+                    ?>
+                    <div id="fls-blogs-nav">
+                    <?php
+                    
+                    if ( is_tax('blog') || has_term('', 'blog')) {
+                    
+	                    	?>
+	                    <h2>The Sportsman's Blogs</h2>
+	                    <?php
+	                    
+	                    // List posts by the terms for a custom taxonomy of any post type
+	                    
+	                    $post_type = 'post';
+	                    $tax = 'blog';
+	                    $tax_terms = get_terms( $tax );
+	                    if ($tax_terms) {
+	                    	foreach ($tax_terms  as $tax_term) {
+	                  		?>
+	                    	      <h4 class="blog-latest-title"><a href="<?php bloginfo('url'); ?>/<?php echo $tax; ?>/<?php echo $tax_term->slug; ?>"><?php echo $tax_term->name; ?></a></h4>
+	                        <?php 
+	                    		wp_reset_query();
+	                    
+	                    	} // end foreach #tax_terms
+	                    }
+                    }
+                    ?>
+                        </div>
+                    
+                    
+                    
+                 <?php 
+                    echo $after_widget;
+                  }
+                 
+                }
+                add_action( 'widgets_init', create_function('', 'return register_widget("SidebarBlogTitles");') );
+                
+                
+            
+
+                
+                class BioWidgetNew extends WP_Widget {
+                	/** constructor */
+                	function BioWidgetNew() {
+                		parent::WP_Widget(false, $name = 'Author Bio');
+                	}
+                
+                	function widget($args, $instance) {
+                
+                		global $post;
+                		$title = apply_filters('widget_title', $instance['title']);
+                		$av_size = $instance['size'];
+                
+                		$author = $post->post_author;
+                
+                		$name = get_the_author_meta('nickname', $author);
+                		$alt_name = get_the_author_meta('display_name', $author);
+                		$avatar = get_avatar($author, $av_size, 'Gravatar Logo', $alt_name.'-photo');
+                		$description = get_the_author_meta('description', $author);
+                		$author_link = get_author_posts_url($author);
+                		?>
+                   
+                   
+                   <span class="bio-title"><?php echo $title ?></span>
+                   <ul class="author-bio">
+                    <li class="author-avatar"><?php echo $avatar; ?></li>
+                    <li class="author-name"><?php echo $alt_name; ?></li>
+                    <li class="author-description"><?php echo $description; ?> </li>
+                   </ul>
+                   
+                   
+                    <?php
+                    }
+                
+                    function update($new_instance, $old_instance) {       
+                  $instance = $old_instance;
+                  $instance['title'] = strip_tags($new_instance['title']);
+                  $instance['size'] = strip_tags($new_instance['size']);
+                        return $instance;
+                    }
+                
+                    function form($instance) {
+                      if(array_key_exists('title', $instance)){
+                        $title = esc_attr($instance['title']);
+                      }else{$title='';}
+                      
+                      if(array_key_exists('size', $instance)){
+                        $size = esc_attr($instance['size']);
+                      }else{$size=64;}
+                     
+                        ?>
+                            <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?> <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" /></label></p>
+                            <p><label for="<?php echo $this->get_field_id('size'); ?>"><?php _e('Avatar Size:'); ?>
+                              <select id="<?php echo $this->get_field_id('size'); ?>" name="<?php echo $this->get_field_name('size'); ?>" value="<?php echo $size; ?>" >
+                             <?php
+                             for ( $i = 16; $i <= 256; $i+=16 )
+                              echo "<option value='$i' " . ( $size == $i ? "selected='selected'" : '' ) . ">$i</option>";
+                               ?>
+                              </select></label></p> 
+                        <?php 
+                    }
+                }
+                add_action('widgets_init', create_function('', 'return register_widget("BioWidgetNew");'));
+
+                
+                
+                class NextGEN_shortcodes_mod {
+                
+                	// register the new shortcodes
+                	function NextGEN_shortcodes_mod() {
+                
+                		//Long posts should require a higher limit, see http://core.trac.wordpress.org/ticket/8553
+                		@ini_set('pcre.backtrack_limit', 500000);
+                
+                		// convert the old shortcode
+                		add_filter('the_content', array(&$this, 'convert_shortcode'));
+                
+                		// do_shortcode on the_excerpt could causes several unwanted output. Uncomment it on your own risk
+                		// add_filter('the_excerpt', array(&$this, 'convert_shortcode'));
+                		// add_filter('the_excerpt', 'do_shortcode', 11);
+                
+                		add_shortcode( 'singlepic', array(&$this, 'show_singlepic' ) );
+                		add_shortcode( 'album', array(&$this, 'show_album' ) );
+                		add_shortcode( 'nggallery', array(&$this, 'show_gallery') );
+                		add_shortcode( 'nggallery_mod', array(&$this, 'show_gallery_mod') );
+                		add_shortcode( 'imagebrowser', array(&$this, 'show_imagebrowser' ) );
+                		add_shortcode( 'slideshow', array(&$this, 'show_slideshow' ) );
+                		add_shortcode( 'nggtags', array(&$this, 'show_tags' ) );
+                		add_shortcode( 'nggallery_tags', array(&$this, 'show_tags_single_gallery' ) );
+                		add_shortcode( 'thumb', array(&$this, 'show_thumbs' ) );
+                		add_shortcode( 'random', array(&$this, 'show_random' ) );
+                		add_shortcode( 'recent', array(&$this, 'show_recent' ) );
+                		add_shortcode( 'tagcloud', array(&$this, 'show_tagcloud' ) );
+                	}
+                
+                	/**
+                	 * NextGEN_shortcodes::convert_shortcode()
+                	 * convert old shortcodes to the new WordPress core style
+                	 * [gallery=1]  ->> [nggallery id=1]
+                	 *
+                	 * @param string $content Content to search for shortcodes
+                	 * @return string Content with new shortcodes.
+                	 */
+                	function convert_shortcode($content) {
+                
+                		$ngg_options = nggGallery::get_option('ngg_options');
+                
+                		if ( stristr( $content, '[singlepic' )) {
+                			$search = "@\[singlepic=(\d+)(|,\d+|,)(|,\d+|,)(|,watermark|,web20|,)(|,right|,center|,left|,)\]@i";
+                			if (preg_match_all($search, $content, $matches, PREG_SET_ORDER)) {
+                
+                				foreach ($matches as $match) {
+                					// remove the comma
+                					$match[2] = ltrim($match[2], ',');
+                					$match[3] = ltrim($match[3], ',');
+                					$match[4] = ltrim($match[4], ',');
+                					$match[5] = ltrim($match[5], ',');
+                					$replace = "[singlepic id=\"{$match[1]}\" w=\"{$match[2]}\" h=\"{$match[3]}\" mode=\"{$match[4]}\" float=\"{$match[5]}\" ]";
+                					$content = str_replace ($match[0], $replace, $content);
+                				}
+                			}
+                		}
+                
+                		if ( stristr( $content, '[album' )) {
+                			$search = "@(?:<p>)*\s*\[album\s*=\s*(\w+|^\+)(|,extend|,compact)\]\s*(?:</p>)*@i";
+                			if (preg_match_all($search, $content, $matches, PREG_SET_ORDER)) {
+                
+                				foreach ($matches as $match) {
+                					// remove the comma
+                					$match[2] = ltrim($match[2],',');
+                					$replace = "[album id=\"{$match[1]}\" template=\"{$match[2]}\"]";
+                					$content = str_replace ($match[0], $replace, $content);
+                				}
+                			}
+                		}
+                
+                		if ( stristr( $content, '[gallery' )) {
+                			$search = "@(?:<p>)*\s*\[gallery\s*=\s*(\w+|^\+)\]\s*(?:</p>)*@i";
+                			if (preg_match_all($search, $content, $matches, PREG_SET_ORDER)) {
+                
+                				foreach ($matches as $match) {
+                					$replace = "[nggallery id=\"{$match[1]}\"]";
+                					$content = str_replace ($match[0], $replace, $content);
+                				}
+                			}
+                		}
+                
+                		if ( stristr( $content, '[imagebrowser' )) {
+                			$search = "@(?:<p>)*\s*\[imagebrowser\s*=\s*(\w+|^\+)\]\s*(?:</p>)*@i";
+                			if (preg_match_all($search, $content, $matches, PREG_SET_ORDER)) {
+                
+                				foreach ($matches as $match) {
+                					$replace = "[imagebrowser id=\"{$match[1]}\"]";
+                					$content = str_replace ($match[0], $replace, $content);
+                				}
+                			}
+                		}
+                
+                		if ( stristr( $content, '[slideshow' )) {
+                			$search = "@(?:<p>)*\s*\[slideshow\s*=\s*(\w+|^\+)(|,(\d+)|,)(|,(\d+))\]\s*(?:</p>)*@i";
+                			if (preg_match_all($search, $content, $matches, PREG_SET_ORDER)) {
+                
+                				foreach ($matches as $match) {
+                					// remove the comma
+                					$match[3] = ltrim($match[3],',');
+                					$match[5] = ltrim($match[5],',');
+                					$replace = "[slideshow id=\"{$match[1]}\" w=\"{$match[3]}\" h=\"{$match[5]}\"]";
+                					$content = str_replace ($match[0], $replace, $content);
+                				}
+                			}
+                		}
+                
+                		if ( stristr( $content, '[tags' )) {
+                			$search = "@(?:<p>)*\s*\[tags\s*=\s*(.*?)\s*\]\s*(?:</p>)*@i";
+                			if (preg_match_all($search, $content, $matches, PREG_SET_ORDER)) {
+                
+                				foreach ($matches as $match) {
+                					$replace = "[nggtags gallery=\"{$match[1]}\"]";
+                					$content = str_replace ($match[0], $replace, $content);
+                				}
+                			}
+                		}
+                
+                		if ( stristr( $content, '[albumtags' )) {
+                			$search = "@(?:<p>)*\s*\[albumtags\s*=\s*(.*?)\s*\]\s*(?:</p>)*@i";
+                			if (preg_match_all($search, $content, $matches, PREG_SET_ORDER)) {
+                
+                				foreach ($matches as $match) {
+                					$replace = "[nggtags album=\"{$match[1]}\"]";
+                					$content = str_replace ($match[0], $replace, $content);
+                				}
+                			}
+                		}
+                
+                		// attach related images based on category or tags
+                		if ($ngg_options['activateTags'])
+                			$content .= nggShowRelatedImages();
+                
+                		return $content;
+                	}
+                
+                	/**
+                	 * Function to show a single picture:
+                	 *
+                	 *     [singlepic id="10" float="none|left|right" width="" height="" mode="none|watermark|web20" link="url" "template="filename" /]
+                	 *
+                	 * where
+                	 *  - id is one picture id
+                	 *  - float is the CSS float property to apply to the thumbnail
+                	 *  - width is width of the single picture you want to show (original width if this parameter is missing)
+                	 *  - height is height of the single picture you want to show (original height if this parameter is missing)
+                	 *  - mode is one of none, watermark or web20 (transformation applied to the picture)
+                	 *  - link is optional and could link to a other url instead the full image
+                	 *  - template is a name for a gallery template, which is located in themefolder/nggallery or plugins/nextgen-gallery/view
+                	 *
+                	 * If the tag contains some text, this will be inserted as an additional caption to the picture too. Example:
+                	 *      [singlepic id="10"]This is an additional caption[/singlepic]
+                	 * This tag will show a picture with under it two HTML span elements containing respectively the alttext of the picture
+                	 * and the additional caption specified in the tag.
+                	 *
+                	 * @param array $atts
+                	 * @param string $caption text
+                	 * @return the content
+                	 */
+                	function show_singlepic( $atts, $content = '' ) {
+                
+                		extract(shortcode_atts(array(
+                				'id'        => 0,
+                				'w'         => '',
+                				'h'         => '',
+                				'mode'      => '',
+                				'float'     => '',
+                				'link'      => '',
+                				'template'  => ''
+                		), $atts ));
+                
+                		$out = nggSinglePicture($id, $w, $h, $mode, $float, $template, $content, $link);
+                
+                		return $out;
+                	}
+                
+                	/**
+                	 * Function to show a collection of galleries:
+                	 *
+                	 * [album id="1,2,4,5,..." template="filename" gallery="filename" /]
+                	 * where
+                	 * - id of a album
+                	 * - template is a name for a album template, which is located in themefolder/nggallery or plugins/nextgen-gallery/view
+                	 * - template is a name for a gallery template, which is located in themefolder/nggallery or plugins/nextgen-gallery/view
+                	 *
+                	 * @param array $atts
+                	 * @return the_content
+                	 */
+                	function show_album( $atts ) {
+                
+                		extract(shortcode_atts(array(
+                				'id'        => 0,
+                				'template'  => 'extend',
+                				'gallery'   => ''
+                		), $atts ));
+                
+                
+                		$out = nggShowAlbum($id, $template, $gallery);
+                
+                		return $out;
+                	}
+                	/**
+                	 * Function to show a thumbnail or a set of thumbnails with shortcode of type:
+                	 *
+                	 * [gallery id="1,2,4,5,..." template="filename" images="number of images per page" /]
+                	 * where
+                	 * - id of a gallery
+                	 * - images is the number of images per page (optional), 0 will show all images
+                	 * - template is a name for a gallery template, which is located in themefolder/nggallery or plugins/nextgen-gallery/view
+                	 *
+                	 * @param array $atts
+                	 * @return the_content
+                	 */
+                	function show_gallery( $atts ) {
+                
+                		global $wpdb;
+                
+                		extract(shortcode_atts(array(
+                				'id'        => 0,
+                				'template'  => '',
+                				'images'    => false
+                		), $atts ));
+                
+                		// backward compat for user which uses the name instead, still deprecated
+                		if( !is_numeric($id) )
+                			$id = $wpdb->get_var( $wpdb->prepare ("SELECT gid FROM $wpdb->nggallery WHERE name = '%s' ", $id) );
+                
+                		$out = nggShowGallery( $id, $template, $images );
+                
+                		return $out;
+                	}
+                
+                	function show_gallery_mod( $atts ) {
+                
+                		global $wpdb;
+                
+                		extract(shortcode_atts(array(
+                				'id'        => 0,
+                				'template'  => '',
+                				'images'    => false,
+                				'onclick'   => ''
+                		), $atts ));
+                
+                		// backward compat for user which uses the name instead, still deprecated
+                		if( !is_numeric($id) )
+                			$id = $wpdb->get_var( $wpdb->prepare ("SELECT gid FROM $wpdb->nggallery WHERE name = '%s' ", $id) );
+                
+                		$out = nggShowGalleryMod( $id, $template, $images, $onclick );
+                
+                		return $out;
+                	}
+                
+                	function show_imagebrowser( $atts ) {
+                
+                		global $wpdb;
+                
+                		extract(shortcode_atts(array(
+                				'id'        => 0,
+                				'template'  => ''
+                		), $atts ));
+                
+                		$out = nggShowImageBrowser($id, $template);
+                
+                		return $out;
+                	}
+                
+                	function show_slideshow( $atts ) {
+                
+                		global $wpdb;
+                
+                		extract(shortcode_atts(array(
+                				'id'        => 0,
+                				'w'         => '',
+                				'h'         => ''
+                		), $atts ));
+                
+                		if( !is_numeric($id) )
+                			$id = $wpdb->get_var( $wpdb->prepare ("SELECT gid FROM $wpdb->nggallery WHERE name = '%s' ", $id) );
+                
+                		if( !empty( $id ) )
+                			$out = nggShowSlideshow($id, $w, $h);
+                		else
+                			$out = __('[Gallery not found]','nggallery');
+                
+                		return $out;
+                	}
+                
+                	function show_tags( $atts ) {
+                
+                		$temp = str_replace('-', ' ', $atts['gallery']);
+                		$temp = ucwords($temp);
+                		$GLOBALS['ngg_shortcode'] = $temp;
+                		extract(shortcode_atts(array(
+                				'gallery'       => '',
+                				'album'         => ''
+                		), $atts ));
+                
+                		if ( !empty($album) )
+                			$out = nggShowAlbumTags($album);
+                		else
+                			$out = nggShowGalleryTags($gallery);
+                		return $out;
+                	}
+                
+                
+                
+                	function show_tags_single_gallery( $atts ) {
+                
+                		$temp = str_replace('-', ' ', $atts['gallery']);
+                		$temp = ucwords($temp);
+                		$GLOBALS['ngg_shortcode'] = $temp;
+                		extract(shortcode_atts(array(
+                				'gallery'       => '',
+                				'tags'          => ''
+                		), $atts ));
+                
+                		$out = nggShowSingleGalleryTags($gallery, $tags);
+                		return $out;
+                	}
+                
+                
+                	/**
+                	 * Function to show a thumbnail or a set of thumbnails with shortcode of type:
+                	 *
+                	 * [thumb id="1,2,4,5,..." template="filename" /]
+                	 * where
+                	 * - id is one or more picture ids
+                	 * - template is a name for a gallery template, which is located in themefolder/nggallery or plugins/nextgen-gallery/view
+                	 *
+                	 * @param array $atts
+                	 * @return the_content
+                	 */
+                	function show_thumbs( $atts ) {
+                
+                		extract(shortcode_atts(array(
+                				'id'        => '',
+                				'template'  => ''
+                		), $atts));
+                
+                		// make an array out of the ids
+                		$pids = explode( ',', $id );
+                
+                		// Some error checks
+                		if ( count($pids) == 0 )
+                			return __('[Pictures not found]','nggallery');
+                
+                		$picturelist = nggdb::find_images_in_list( $pids );
+                
+                		// show gallery
+                		if ( is_array($picturelist) )
+                			$out = nggCreateGallery($picturelist, false, $template);
+                
+                		return $out;
+                	}
+                
+                	/**
+                	 * Function to show a gallery of random or the most recent images with shortcode of type:
+                	 *
+                	 * [random max="7" template="filename" id="2" /]
+                	 * [recent max="7" template="filename" id="3" mode="date" /]
+                	 * where
+                	 * - max is the maximum number of random or recent images to show
+                	 * - template is a name for a gallery template, which is located in themefolder/nggallery or plugins/nextgen-gallery/view
+                	 * - id is the gallery id, if the recent/random pictures shall be taken from a specific gallery only
+                	 * - mode is either "id" (which takes the latest additions to the databse, default)
+                	 *               or "date" (which takes the latest pictures by EXIF date)
+                	 *               or "sort" (which takes the pictures by user sort order)
+                	 *
+                	 * @param array $atts
+                	 * @return the_content
+                	 */
+                	function show_random( $atts ) {
+                
+                		extract(shortcode_atts(array(
+                				'max'       => '',
+                				'template'  => '',
+                				'id'        => 0
+                		), $atts));
+                
+                		$out = nggShowRandomRecent('random', $max, $template, $id);
+                
+                		return $out;
+                	}
+                
+                	function show_recent( $atts ) {
+                
+                		extract(shortcode_atts(array(
+                				'max'       => '',
+                				'template'  => '',
+                				'id'        => 0,
+                				'mode'      => 'id'
+                		), $atts));
+                
+                		$out = nggShowRandomRecent($mode, $max, $template, $id);
+                
+                		return $out;
+                	}
+                
+                	/**
+                	 * Shortcode for the Image tag cloud
+                	 * Usage : [tagcloud template="filename" /]
+                	 *
+                	 * @param array $atts
+                	 * @return the content
+                	 */
+                	function show_tagcloud( $atts ) {
+                
+                		extract(shortcode_atts(array(
+                				'template'  => ''
+                		), $atts));
+                
+                		$out = nggTagCloud( '', $template );
+                
+                		return $out;
+                	}
+                
+                }
+                
+                // let's use it
+                $nggShortcodes = new NextGEN_Shortcodes_mod;                
+                
+                
+                function my_load_loop_view($view, $data) {
+                	if (is_home() || is_front_page()) {
+                		$view = 'views/cfct-module-loop-view.php';
+                	}
+                	return $view;
+                }
+                add_filter('cfct-module-loop-view', 'my_load_loop_view', 10, 2);                
+               
+                 
+                  
+    ?>

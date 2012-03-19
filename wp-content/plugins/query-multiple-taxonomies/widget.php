@@ -48,6 +48,7 @@ jQuery(function($){
 	}
 
 	function form( $instance ) {
+		
 		if ( empty( $instance ) )
 			$instance = $this->defaults;
 
@@ -169,17 +170,52 @@ jQuery(function($){
 	}
 
 	private function generate_dropdowns( $taxonomies ) {
-		$data = array_merge( self::get_reset_data(), array(
-			'base-url' => QMT_URL::get_base(),
-			'submit-text' => __( 'Submit', 'query-multiple-taxonomies' ),
-		) );
+		
+		$path = '';
+		
+		if (strpos($_SERVER['REQUEST_URI'], '/galleries/') == 0){
+			$gallery = empty($_GET['gallery']) ?  get_query_var('gallery') : $_GET['gallery'];
+			$album  = empty($_GET['album']) ?  get_query_var('album') : $_GET['album'];
+			//$path = '/galleries/tag/?album='.$album.'&gallery='.$gallery;
+			$path = '/album/'.$album.'/gallery/'.$gallery.'/';
+			
+		}	
+			$data = array_merge( self::get_reset_data(), array(
+						'base-url' => QMT_URL::get_base() . $path,
+						'submit-text' => __( 'Submit', 'query-multiple-taxonomies' ),
+			) );			
+			
+		
 
 		foreach ( $taxonomies as $taxonomy ) {
 			$terms = $this->get_terms( $taxonomy );
-
+			
+			
 			if ( empty( $terms ) )
 				continue;
-
+			if ($taxonomy = "ngg_tag"){
+				
+				foreach($terms as $key => $term){
+					
+					if ($this->is_tag_in_gallery($term->slug, $gallery)){
+					
+					$term->slug = $term->name;
+					$term->name = str_replace("pic-", "", $term->name);
+					$term->name = str_replace("pic ", "", $term->name);
+					$term->name = str_replace("-", " " , $term->name);
+					$term->name = ucwords($term->name);
+					$name[$key]  = $term->name;
+					}
+					else
+					{
+						unset($terms[$key]);
+					}
+				}
+				if ($name)
+					array_multisort($name, SORT_ASC, SORT_STRING, $terms);
+			}
+			
+			
 			$data['taxonomy'][] = array(
 				'name' => get_taxonomy( $taxonomy )->query_var,
 				'title' => get_taxonomy( $taxonomy )->label,
@@ -192,13 +228,30 @@ jQuery(function($){
 				) )
 			);
 		}
-
+		
 		if ( empty( $data['taxonomy'] ) )
 			return '';
 
-		return self::mustache_render( 'dropdowns.html', $data );
+		// if there are no options, don't render a dropdown
+		if (!empty($data['taxonomy'][0]['options']))
+			return self::mustache_render( 'dropdowns.html', $data );
+		else
+			return '';
 	}
 
+	
+	private function is_tag_in_gallery($tag, $gallery){
+		
+		$picturelist = nggTags::find_images_for_tags($tag , 'ASC');
+		
+		foreach($picturelist as $picture){
+			if ($picture->galleryid == $gallery){
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	private function get_reset_data() {
 		return array(
 			'reset-text' => __( 'Reset', 'query-multiple-taxonomies' ),

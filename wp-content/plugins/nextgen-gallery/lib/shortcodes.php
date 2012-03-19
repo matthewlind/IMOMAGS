@@ -25,9 +25,11 @@ class NextGEN_shortcodes {
         add_shortcode( 'singlepic', array(&$this, 'show_singlepic' ) );
         add_shortcode( 'album', array(&$this, 'show_album' ) );
         add_shortcode( 'nggallery', array(&$this, 'show_gallery') );
+        add_shortcode( 'nggallery_mod', array(&$this, 'show_gallery_mod') );
         add_shortcode( 'imagebrowser', array(&$this, 'show_imagebrowser' ) );
         add_shortcode( 'slideshow', array(&$this, 'show_slideshow' ) );
         add_shortcode( 'nggtags', array(&$this, 'show_tags' ) );
+        add_shortcode( 'nggallery_tags', array(&$this, 'show_tags_single_gallery' ) );
         add_shortcode( 'thumb', array(&$this, 'show_thumbs' ) );
         add_shortcode( 'random', array(&$this, 'show_random' ) );
         add_shortcode( 'recent', array(&$this, 'show_recent' ) );
@@ -200,6 +202,7 @@ class NextGEN_shortcodes {
             'gallery'   => ''  
         ), $atts ));
         
+        
         $out = nggShowAlbum($id, $template, $gallery);
             
         return $out;
@@ -234,6 +237,26 @@ class NextGEN_shortcodes {
             
         return $out;
     }
+    
+    function show_gallery_mod( $atts ) {
+    
+    	global $wpdb;
+    
+    	extract(shortcode_atts(array(
+    			'id'        => 0,
+    			'template'  => '',
+    			'images'    => false,
+    			'onclick'   => ''
+    	), $atts ));
+    
+    	// backward compat for user which uses the name instead, still deprecated
+    	if( !is_numeric($id) )
+    		$id = $wpdb->get_var( $wpdb->prepare ("SELECT gid FROM $wpdb->nggallery WHERE name = '%s' ", $id) );
+    
+    	$out = nggShowGalleryMod( $id, $template, $images, $onclick );
+    
+    	return $out;
+    }    
 
     function show_imagebrowser( $atts ) {
         
@@ -284,9 +307,25 @@ class NextGEN_shortcodes {
             $out = nggShowAlbumTags($album);
         else
             $out = nggShowGalleryTags($gallery);
-        
         return $out;
     }
+
+
+
+    function show_tags_single_gallery( $atts ) {
+    
+    $temp = str_replace('-', ' ', $atts['gallery']);
+    $temp = ucwords($temp);
+    $GLOBALS['ngg_shortcode'] = $temp;
+        extract(shortcode_atts(array(
+            'gallery'       => '',
+            'tags'          => ''
+        ), $atts ));
+        
+ 		$out = nggShowSingleGalleryTags($gallery, $tags);
+        return $out;
+    }
+
 
     /**
      * Function to show a thumbnail or a set of thumbnails with shortcode of type:
