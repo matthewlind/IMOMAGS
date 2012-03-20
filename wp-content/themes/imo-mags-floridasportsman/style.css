@@ -1638,5 +1638,5 @@ li.author-description {
 	text-transform: capitalize;
 	padding-left: 8px;
 	border-left: 8px solid #0089ca;
-	margin: 0;
+	margin: 0 0 8px;
 }

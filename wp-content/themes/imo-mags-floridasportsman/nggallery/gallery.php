@@ -38,7 +38,7 @@ else
 
 
  if ($album->name)
-  	echo $album->name . '</a>: '. '<a href="http://www.floridasportsman.devc/galleries/?album='. $album->id.'&gallery='.$gallery->ID.'">'.$gallery->title .'</a>';
+  	echo $album->name . '</a>: '. '<a href="/galleries/?album='. $album->id.'&gallery='.$gallery->ID.'">'.$gallery->title .'</a>';
  else
  	echo substr($GLOBALS['ngg_shortcode'], 3) . '</a>';
  

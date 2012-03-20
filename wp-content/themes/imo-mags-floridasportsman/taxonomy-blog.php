@@ -26,12 +26,15 @@ if (!is_admin()) {
 	wp_enqueue_script('featured-thumbs-js',NULL,array('jquery','jquery-ui-core','jquery-ui-tabs'));
 				
 }
-
+$term = get_queried_object();
+$term_id = $term->term_id;
+$term_slug = $term->slug;
+$taxonomy = $term->taxonomy;
 ?>
 <?php get_header(); ?>
 
 <header id="masthead">
-	<h1><?php wp_title_multitax('');?> at Florida Sportsman</h1>
+	<h1><?php echo $term->name; ?> at Florida Sportsman</h1>
 </header><!-- #masthead -->
 
 <div class="page-template-page-right-php taxonomy-page bw-fullwidth">

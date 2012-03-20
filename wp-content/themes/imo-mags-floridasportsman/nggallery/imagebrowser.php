@@ -22,7 +22,7 @@ Follow variables are useable :
 
 <h2><a href="<?php 
 
-if (strpos($_SERVER['REQUEST_URI'], '/tag/'))
+if (strpos($_SERVER['REQUEST_URI'], '/tag/') || strpos($_SERVER['REQUEST_URI'], '/gallery/'))
 	echo 'http://'.$_SERVER['HTTP_HOST'] . '/galleries/';
 else
 	the_permalink();
@@ -34,7 +34,7 @@ else
 
 if ($album->name){
 
-echo $album->name?></a>: <?php echo '<a href="http://www.floridasportsman.devc/galleries/?album='. $album->id.'&gallery='.$gallery->gid.'">'.$gallery->title;?></a> 
+echo $album->name?></a>: <?php echo '<a href="/galleries/?album='. $album->id.'&gallery='.$gallery->gid.'">'.$gallery->title;?></a> 
 
 <?php 
 
@@ -76,7 +76,12 @@ the_widget('Taxonomy_Drill_Down_Widget', array(
                 <div class="ngg-imagebrowser-desc"><h3><?php echo $image->alttext ?></h3></div>
 	</div>	
 
-	<div class="pic"><?php echo $image->href_link ?></div>
+	<div class="pic">
+	
+	<?php echo str_replace('<a href','<a class="thickbox no_icon" rel="gallery-30691" href',$image->href_link) ?>
+	
+	
+	</div>
     <p><?php echo $image->description ?></p>
 
 
