@@ -1080,7 +1080,7 @@ function rewrite_title($title) {
     	// filter to call up the imagebrowser instead of the gallery
     	// use in your theme : add_action( 'ngg_show_imagebrowser_first', create_function('', 'return true;') );
     	if ( apply_filters('ngg_show_imagebrowser_first', false, $galleryID ) && $show != 'thumbnails' )  {
-    		$out = nggShowImageBrowser( $galleryID, $template );
+    		$out = nggShowImageBrowserMod( $galleryID, $template );
     		return $out;
     	}
     
@@ -1089,7 +1089,7 @@ function rewrite_title($title) {
     
     		// 1st look for ImageBrowser link
     		if ( !empty($pid) && $ngg_options['galImgBrowser'] && ($template != 'carousel') )  {
-    			$out = nggShowImageBrowser( $galleryID, $template );
+    			$out = nggShowImageBrowserMod( $galleryID, $template );
     			return $out;
     		}
     
@@ -2139,13 +2139,267 @@ function rewrite_title($title) {
                 
                 
                 function my_load_loop_view($view, $data) {
-                	if (is_home() || is_front_page()) {
-                		$view = 'views/cfct-module-loop-view.php';
-                	}
+                	//if (is_home() || is_front_page()) {
+                		//$view = 'views/cfct-module-loop-view.php';
+                		$view = '/data/wordpress/imomags/wp-content/themes/imo-mags-floridasportsman/views/cfct-module-loop-view.php';
+                	//}
                 	return $view;
                 }
-                add_filter('cfct-module-loop-view', 'my_load_loop_view', 10, 2);                
+                add_filter('cfct-module-loop-view', 'my_load_loop_view', 1, 2);                
                
-                 
-                  
+                
+                
+                /**
+                 * nggShowImageBrowser()
+                 *
+                 * @access public
+                 * @param int|string $galleryID or gallery name
+                 * @param string $template (optional) name for a template file, look for imagebrowser-$template
+                 * @return the content
+                 */
+                function nggShowImageBrowserMod($galleryID, $template = '', $tags = '') {
+                
+                	global $wpdb;
+                
+                	$ngg_options = nggGallery::get_option('ngg_options');
+                
+                	//Set sort order value, if not used (upgrade issue)
+                	$ngg_options['galSort'] = ($ngg_options['galSort']) ? $ngg_options['galSort'] : 'pid';
+                	$ngg_options['galSortDir'] = ($ngg_options['galSortDir'] == 'DESC') ? 'DESC' : 'ASC';
+                
+                	// get the pictures
+                	
+                	
+                	
+                	
+                	
+                	
+                	
+                	
+                	if (empty($tags))
+                		$picturelist = nggdb::get_gallery($galleryID, $ngg_options['galSort'], $ngg_options['galSortDir']);
+                	else{
+                		$picturelist = nggTags::find_images_for_tags($tags , 'ASC');
+                	
+                	
+	                	// filter through the picture list and remove images from other galleries
+	                	foreach($picturelist as $key => $picture){
+	                		if ($picture->galleryid != $galleryID){
+                	
+    	            			unset($picturelist[$key]);
+    	
+	        	        	}
+	                	
+	                	}
+	                	//normalize the array if any elements were removed
+	                	$picturelist = array_values($picturelist);
+                	}
+                	
+             	
+                	
+                	
+                
+                	if ( is_array($picturelist) )
+                		$out = nggCreateImageBrowser($picturelist, $template);
+                	else
+                		$out = __('[Gallery not found]','nggallery');
+                
+                	$out = apply_filters('ngg_show_imagebrowser_content', $out, $galleryID);
+                
+                	return $out;
+                
+                } 
+      /*          
+            class FLSP_nggLoader extends nggLoader{    
+
+            	
+            	function FLSP_nggLoader() {
+            	
+            		// Stop the plugin if we missed the requirements
+            		if ( ( !$this->required_version() ) || ( !$this->check_memory_limit() ) )
+            			return;
+            			
+            		// Get some constants first
+            		$this->load_options();
+            		$this->define_constant();
+            		$this->define_tables();
+            		$this->load_dependencies();
+            		$this->start_rewrite_module();
+            	
+            		$this->plugin_name = basename(dirname(__FILE__)).'/'.basename(__FILE__);
+            	
+            		// Init options & tables during activation & deregister init option
+            		register_activation_hook( $this->plugin_name, array(&$this, 'activate') );
+            		register_deactivation_hook( $this->plugin_name, array(&$this, 'deactivate') );
+            	
+            		// Register a uninstall hook to remove all tables & option automatic
+            		register_uninstall_hook( $this->plugin_name, array('nggLoader', 'uninstall') );
+            	
+            		// Start this plugin once all other plugins are fully loaded
+            		add_action( 'plugins_loaded', array(&$this, 'start_plugin') );
+            	
+            		// Register_taxonomy must be used during the init
+            		add_action( 'init', array(&$this, 'register_taxonomy') );
+            	
+            		// Hook to upgrade all blogs with one click and adding a new one later
+            		add_action( 'wpmu_upgrade_site', array(&$this, 'multisite_upgrade') );
+            		add_action( 'wpmu_new_blog', array(&$this, 'multisite_new_blog'), 10, 6);
+            	
+            		// Add a message for PHP4 Users, can disable the update message later on
+            		if (version_compare(PHP_VERSION, '5.0.0', '<'))
+            			add_filter('transient_update_plugins', array(&$this, 'disable_upgrade'));
+            	
+            		//Add some links on the plugin page
+            		add_filter('plugin_row_meta', array(&$this, 'add_plugin_links'), 10, 2);
+            	
+            		// Check for the header / footer
+            		add_action( 'init', array(&$this, 'test_head_footer_init' ) );
+            	
+            		// Show NextGEN version in header
+            		add_action('wp_head', array('nggGallery', 'nextgen_version') );
+            	
+            	}
+            	            	
+            	
+            	
+                function load_scripts() {
+                	$this->options['thumbEffect'] = "shutter";
+                	// if you don't want that NGG load the scripts, add this constant
+                	if ( defined('NGG_SKIP_LOAD_SCRIPTS') )
+                		return;
+                
+                	//	activate Thickbox
+                	if ($this->options['thumbEffect'] == 'thickbox') {
+                		wp_enqueue_script( 'thickbox' );
+                		// Load the thickbox images after all other scripts
+                		add_action( 'wp_footer', array(&$this, 'load_thickbox_images'), 11 );
+                
+                	}
+                
+                	// activate modified Shutter reloaded if not use the Shutter plugin
+                	if ( ($this->options['thumbEffect'] == "shutter") && !function_exists('srel_makeshutter') ) {
+                		wp_register_script('shutter', NGGALLERY_URLPATH .'shutter/shutter-reloaded.js', false ,'1.3.3');
+                		wp_localize_script('shutter', 'shutterSettings', array(
+                				'msgLoading' => __('L O A D I N G', 'nggallery'),
+                				'msgClose' => __('Click to Close', 'nggallery'),
+                				'imageCount' => '1'
+                		) );
+                		wp_enqueue_script( 'shutter' );
+                	}
+                
+                	// required for the slideshow
+                	if ( NGGALLERY_IREXIST == true && $this->options['enableIR'] == '1' && nggGallery::detect_mobile_phone() === false )
+                		wp_enqueue_script('swfobject', NGGALLERY_URLPATH .'admin/js/swfobject.js', FALSE, '2.2');
+                	else {
+                		wp_register_script('jquery-cycle', NGGALLERY_URLPATH .'js/jquery.cycle.all.min.js', array('jquery'), '2.9995');
+                		wp_enqueue_script('ngg-slideshow', NGGALLERY_URLPATH .'js/ngg.slideshow.min.js', array('jquery-cycle'), '1.05');
+                
+                	}
+                
+                	// Load AJAX navigation script, works only with shutter script as we need to add the listener
+                	//if ( $this->options['galAjaxNav'] ) {
+                
+                	$pid = get_query_var('pid');
+
+                	if ( !empty($pid) ) {
+                		if ( ($this->options['thumbEffect'] == "shutter") || function_exists('srel_makeshutter') ) {
+                			wp_enqueue_script ( 'ngg_script', NGGALLERY_URLPATH . 'js/ngg.js', array('jquery'), '2.1');
+                			wp_localize_script( 'ngg_script', 'ngg_ajax', array('path'		=> NGGALLERY_URLPATH,
+                					'callback'  => home_url() . '/' . 'index.php?callback=ngg-ajax&tags='.$_GET['tags'],
+                					'loading'	=> __('loading', 'nggallery'),
+                			) );
+                		}
+                	}
+                
+                }
+
+                function check_request( $wp ) {
+
+
+                	if ( !array_key_exists('callback', $wp->query_vars) ){
+                		
+                		return;
+                	}
+                	if ( $wp->query_vars['callback'] == 'imagerotator') {
+                		require_once (dirname (__FILE__) . '/xml/imagerotator.php');
+                		exit();
+                	}
+                
+                	if ( $wp->query_vars['callback'] == 'json') {
+                		require_once (dirname (__FILE__) . '/xml/json.php');
+                		exit();
+                	}
+                
+                	if ( $wp->query_vars['callback'] == 'image') {
+                		require_once (dirname (__FILE__) . '/nggshow.php');
+                		exit();
+                	}
+                
+                	//TODO:see trac #12400 could be an option for WP3.0
+                	if ( $wp->query_vars['callback'] == 'ngg-ajax') {
+                		//require_once (dirname (__FILE__) . '/xml/ajax.php');
+                		$this->load_ajax();
+                		
+                		exit();
+                	}
+                
+                }                
+                
+            
+
+            function load_ajax(){
+            	
+            	// check if we have all needed parameter
+            	if ( !defined('ABSPATH') || (!isset($_GET['galleryid']) || !is_numeric($_GET['galleryid'])) || (!isset($_GET['p']) || !is_numeric($_GET['p'])) || !isset($_GET['type'])){
+            		// if it's not ajax request, back to main page
+            		if($_SERVER['HTTP_X_REQUESTED_WITH'] != 'XMLHttpRequest')
+            			header('Location: http://'. $_SERVER['HTTP_HOST']);
+            		die();
+            	}
+            	
+            	switch ($_GET['type']) {
+            		case 'gallery':
+            	
+            			// get the navigation page
+            			set_query_var('nggpage', intval($_GET['nggpage']));
+            	
+            			// get the current page/post id
+            			set_query_var('pageid', intval($_GET['p']));
+            			set_query_var('show', 'gallery');
+            			$GLOBALS['id'] = intval($_GET['p']);
+            	
+            			echo nggShowGallery( intval($_GET['galleryid']) );
+            	
+            			break;
+            		case 'browser':
+            	
+            			// which image should be shown ?
+            			set_query_var('pid', intval($_GET['pid']));
+            	
+            			// get the current page/post id
+            			set_query_var('pageid', intval($_GET['p']));
+            			$GLOBALS['id'] = intval($_GET['p']);
+            				
+            			//echo nggShowImageBrowser( intval($_GET['galleryid']) );
+            	
+            			echo nggShowImageBrowserMod( intval($_GET['galleryid']), '', $_GET['tags'] );
+            			break;
+            		default:
+            			echo 'Wrong request type specified.';
+            	}            	
+            	
+            }
+            }
+            
+            global $ngg;
+            
+            $ngg = new FLSP_nggLoader();
+            
+            add_action('template_redirect', array($ngg, 'load_scripts'), 1 );
+            add_action('parse_request',  array($ngg, 'check_request'), 1 );
+            add_action( 'plugins_loaded', array($ngg, 'start_plugin'), 1 );            
+            */
+                
+                
+                
     ?>

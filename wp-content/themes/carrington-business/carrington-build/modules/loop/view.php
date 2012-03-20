@@ -1,7 +1,14 @@
 <?php
-	if (!empty($title)) {
-		echo '<h2 class="cfct-mod-title">'.esc_html($title).'</h2>';
+global $blog_id;
+	if (!empty($title) && $blog_id == 13) {
+		if (!empty($pagination_url))
+			echo '<h2 class="cfct-mod-title"><a href="'.$pagination_url.'">'.esc_html($title).'</a></h2>';
 	}
+	else
+		echo '<h2 class="cfct-mod-title">'.esc_html($title).'</h2>';
+
+	
+
 ?>
 <div class="cfct-mod-content">
 	<?php 
