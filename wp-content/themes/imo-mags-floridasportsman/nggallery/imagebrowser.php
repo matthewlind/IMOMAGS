@@ -78,7 +78,7 @@ the_widget('Taxonomy_Drill_Down_Widget', array(
 
 	<div class="pic">
 	
-	<?php echo str_replace('<a href','<a class="thickbox no_icon" rel="gallery-30691" href',$image->href_link) ?>
+	<?php echo $image->href_link; ?>
 	
 	
 	</div>
