@@ -345,7 +345,7 @@ function nggCreateGallery($picturelist, $galleryID = false, $template = '', $ima
             $thumbcode = ($ngg_options['galImgBrowser']) ? '' : $picture->get_thumbcode('set_' . $galleryID);
         else
             $thumbcode = ($ngg_options['galImgBrowser']) ? '' : $picture->get_thumbcode(get_the_title());
-echo $thumbcode;
+
         // create link for imagebrowser and other effects
         $args ['nggpage'] = empty($nggpage) || ($template != 'carousel') ? false : $nggpage;  // only needed for carousel mode
         $args ['pid']     = ($ngg_options['usePermalinks']) ? $picture->image_slug : $picture->pid;
@@ -745,6 +745,7 @@ function nggCreateImageBrowser($picturelist, $template = '') {
 
     // create the output
     $out = nggGallery::capture ( $filename , array ('image' => $picture , 'meta' => $meta, 'exif' => $exif, 'iptc' => $iptc, 'xmp' => $xmp, 'db' => $db) );
+    
     
     return $out;
     
