@@ -20,7 +20,7 @@ $('.post-container').masonry({
 
   function ShowRequest(formData, jqForm, options) {
     var queryString = $.param(formData);
-    alert('BeforeSend method: \n\nAbout to submit: \n\n' + queryString);
+    //alert('BeforeSend method: \n\nAbout to submit: \n\n' + queryString);
     return true;
   }
 
@@ -29,10 +29,10 @@ $('.post-container').masonry({
   }
 
   function SubmitSuccesful(responseText, statusText) {     
-    alert("SuccesMethod:\n\n" + responseText);
+    //alert("SuccesMethod:\n\n" + responseText);
 
     var response = jQuery.parseJSON(responseText);
-    console.log(response);
+
 
     addNewBox(response);
 
@@ -44,19 +44,20 @@ $('.post-container').masonry({
     
     response.gravatar_hash = "http://www.gravatar.com/avatar/" + response.gravatar_hash + ".jpg?s=25&d=identicon";
     
-    console.log(response);
 
 
-    var cloneTarget = $("." + response.clone_target);
+    var cloneTarget = $("." + response.clone_target).last();
     var attachTarget = $("." + response.attach_target);
     var attachPoint = response.attachment_point;
 
     var clone = cloneTarget.clone();
 
+
+    //This loop should handle updating the clone in most situations
     $.each(response, function(index,value){
       console.log(index + ":" + value);
 
-      var targetElement = $(clone).find(index);
+      var targetElement = $(clone).find(".superclass-" + index);
 
       if (targetElement.is("img")) {
         targetElement.attr("src",value);
@@ -67,9 +68,14 @@ $('.post-container').masonry({
 
     });//end each
 
-    console.log("CLONE:");
-    console.log(clone);
+    //For clone elements with a ID in a url:
+    var idLinks = $(clone).find(".superclass-id_url");
+    var oldURL = idLinks.first().attr("href");
+    var newURL = oldURL.replace(/\d*$/, '') + response.id;
+    idLinks.attr("href",newURL);
 
+
+    //Attach the clone!
     attachTarget.prepend(clone).imagesLoaded( function(){
           $(attachTarget).masonry("reload");
     });

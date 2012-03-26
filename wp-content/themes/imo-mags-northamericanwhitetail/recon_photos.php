@@ -80,7 +80,7 @@ $data = json_decode($file);
                       <?php foreach ($data as $superpost): ?>
                             <div class='superpost-box'>
                                 <div>
-                                    <img src='<?php echo $superpost->img_url; ?>' class='superclass-img_url animal-img'/>
+                                    <a class="superclass-id_url" href="/recon-photo/<?php echo $superpost->id; ?>"><img src='<?php echo $superpost->img_url; ?>' class='superclass-img_url animal-img'/></a>
                                 </div>
                                 <div class='superclass-body'><?php echo $superpost->body; ?></div>
                                 <div class="avatar-holder">
