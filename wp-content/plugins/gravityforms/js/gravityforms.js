@@ -10,41 +10,7 @@ function Currency(currency){
         if(this.isNumeric(text))
             return parseFloat(text);
 
-        //converting to a string if a number as passed
-        text = text + " ";
-
-        //Removing symbol in unicode format (i.e. &#4444;)
-        text = text.replace(/&.*?;/, "", text);
-
-        //Removing all non-numeric characters
-        var clean_number = "";
-        var is_negative = false;
-        for(var i=0; i<text.length; i++){
-            var digit = text.substr(i,1);
-            if( (parseInt(digit) >= 0 && parseInt(digit) <= 9) || digit == "," || digit == "." )
-                clean_number += digit;
-            else if(digit == '-')
-                is_negative = true;
-        }
-
-        //Removing thousand separators but keeping decimal point
-        var float_number = "";
-        var decimal_separator = this.currency && this.currency["decimal_separator"] ? this.currency["decimal_separator"] : ".";
-
-        for(var i=0; i<clean_number.length; i++)
-        {
-            var char = clean_number.substr(i,1);
-            if (char >= '0' && char <= '9')
-                float_number += char;
-            else if(char == decimal_separator){
-                float_number += ".";
-            }
-        }
-
-        if(is_negative)
-            float_number = "-" + float_number;
-
-        return this.isNumeric(float_number) ? parseFloat(float_number) : false;
+        return gformCleanNumber(text, this.currency["symbol_right"], this.currency["symbol_left"], this.currency["decimal_separator"]);
     };
 
     this.toMoney = function(number){
@@ -95,9 +61,8 @@ function Currency(currency){
     }
 
     this.isNumeric = function(number){
-        return !isNaN(parseFloat(number)) && isFinite(number);
+        return gformIsNumber(number);
     };
-
 
     this.htmlDecode = function(text) {
         var c,m,d = text;
@@ -123,6 +88,67 @@ function Currency(currency){
     };
 }
 
+function gformCleanNumber(text, symbol_right, symbol_left, decimal_separator){
+    //converting to a string if a number as passed
+    text = text + " ";
+
+    //Removing symbol in unicode format (i.e. &#4444;)
+    text = text.replace(/&.*?;/, "", text);
+
+    //Removing symbol from text
+    text = text.replace(symbol_right, "");
+    text = text.replace(symbol_left, "");
+
+
+    //Removing all non-numeric characters
+    var clean_number = "";
+    var is_negative = false;
+    for(var i=0; i<text.length; i++){
+        var digit = text.substr(i,1);
+        if( (parseInt(digit) >= 0 && parseInt(digit) <= 9) || digit == decimal_separator )
+            clean_number += digit;
+        else if(digit == '-')
+            is_negative = true;
+    }
+
+    //Removing thousand separators but keeping decimal point
+    var float_number = "";
+
+    for(var i=0; i<clean_number.length; i++)
+    {
+        var char = clean_number.substr(i,1);
+        if (char >= '0' && char <= '9')
+            float_number += char;
+        else if(char == decimal_separator){
+            float_number += ".";
+        }
+    }
+
+    if(is_negative)
+        float_number = "-" + float_number;
+
+    return gformIsNumber(float_number) ? parseFloat(float_number) : false;
+}
+
+function gformIsNumber(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
+function gformIsNumeric(value, number_format){
+
+    switch(number_format){
+        case "decimal_dot" :
+            var r = new RegExp("^(-?[0-9]{1,3}(?:,?[0-9]{3})*(?:\.[0-9]+)?)$");
+            return r.test(value);
+        break;
+
+        case "decimal_comma" :
+            var r = new RegExp("^(-?[0-9]{1,3}(?:\.?[0-9]{3})*(?:,[0-9]+)?)$");
+            return r.test(value);
+        break;
+    }
+    return false;
+}
 
 //------------------------------------------------
 //---------- MULTI-PAGE --------------------------
@@ -159,7 +185,7 @@ var _gformPriceFields = new Array();
 var _anyProductSelected;
 
 function gformIsHidden(element){
-    return element.parents('.gfield').css("display") == "none";
+    return element.parents('.gfield').not(".gfield_hidden_product").css("display") == "none";
 }
 
 function gformCalculateTotalPrice(formId){
@@ -180,6 +206,11 @@ function gformCalculateTotalPrice(formId){
         var shipping = gformGetShippingPrice(formId)
         price += shipping;
     }
+
+    //gform_product_total filter. Allows uers to perform custom price calculation
+    if(window["gform_product_total"])
+        price = window["gform_product_total"](formId, price);
+
     //updating total
     var totalElement = jQuery(".ginput_total_" + formId);
     if(totalElement.length > 0){
@@ -192,7 +223,7 @@ function gformGetShippingPrice(formId){
     var shippingField = jQuery(".gfield_shipping_" + formId + " input[type=\"hidden\"], .gfield_shipping_" + formId + " select, .gfield_shipping_" + formId + " input:checked");
     var shipping = 0;
     if(shippingField.length == 1 && !gformIsHidden(shippingField)){
-        if(shippingField.attr("type").toLowerCase() == "hidden")
+        if(shippingField.attr("type") && shippingField.attr("type").toLowerCase() == "hidden")
             shipping = shippingField.val();
         else
             shipping = gformGetPrice(shippingField.val());
@@ -366,10 +397,6 @@ function gformGetPrice(text){
     return 0;
 }
 
-function gformIsNumber(n) {
-  return !isNaN(parseFloat(n)) && isFinite(n);
-}
-
 function gformRegisterPriceField(item){
 
     if(!_gformPriceFields[item.formId])
@@ -461,5 +488,112 @@ function gformPasswordStrength(password1, password2) {
         return "good";
 
     return "strong";
+
 }
 
+//----------------------------
+//------ LIST FIELD ----------
+//----------------------------
+var gfield_original_title = "";
+function gformAddListItem(element, max){
+
+    if(jQuery(element).hasClass("gfield_icon_disabled"))
+        return;
+
+    var tr = jQuery(element).parent().parent();
+    var clone = tr.clone();
+    clone.find("input, select").val("").attr("tabindex", clone.find('input:last').attr("tabindex"));
+    tr.after(clone);
+    gformToggleIcons(tr.parent(), max);
+    gformAdjustClasses(tr.parent());
+}
+
+function gformDeleteListItem(element, max){
+    var tr = jQuery(element).parent().parent();
+    var parent = tr.parent();
+    tr.remove();
+    gformToggleIcons(parent, max);
+    gformAdjustClasses(parent);
+}
+
+function gformAdjustClasses(table){
+    var rows = table.children();
+    for(var i=0; i<rows.length; i++){
+        var odd_even_class = (i+1) % 2 == 0 ? "gfield_list_row_even" : "gfield_list_row_odd";
+        jQuery(rows[i]).removeClass("gfield_list_row_odd").removeClass("gfield_list_row_even").addClass(odd_even_class);
+    }
+}
+
+function gformToggleIcons(table, max){
+    var rowCount = table.children().length;
+    if(rowCount == 1){
+        table.find(".delete_list_item").css("visibility", "hidden");
+    }
+    else{
+        table.find(".delete_list_item").css("visibility", "visible");
+    }
+
+    if(max > 0 && rowCount >= max){
+        gfield_original_title = table.find(".add_list_item:first").attr("title");
+        table.find(".add_list_item").addClass("gfield_icon_disabled").attr("title", "");
+    }
+    else{
+        var addIcons = table.find(".add_list_item");
+        addIcons.removeClass("gfield_icon_disabled");
+        if(gfield_original_title)
+            addIcons.attr("title", gfield_original_title);
+    }
+}
+
+function gformMatchCard(id) {
+
+    var cardType = gformFindCardType(jQuery('#' + id).val());
+    var cardContainer = jQuery('#' + id).parents('.gfield').find('.gform_card_icon_container');
+
+    if(!cardType) {
+
+        jQuery(cardContainer).find('.gform_card_icon').removeClass('gform_card_icon_selected gform_card_icon_inactive');
+
+    } else {
+
+        jQuery(cardContainer).find('.gform_card_icon').removeClass('gform_card_icon_selected').addClass('gform_card_icon_inactive');
+        jQuery(cardContainer).find('.gform_card_icon_' + cardType).removeClass('gform_card_icon_inactive').addClass('gform_card_icon_selected');
+    }
+}
+
+function gformFindCardType(value) {
+
+    if(value.length < 4)
+        return false;
+
+    var rules = window['gf_cc_rules'];
+    var validCardTypes = new Array();
+
+    for(type in rules) {
+        for(i in rules[type]) {
+
+            if(rules[type][i].indexOf(value.substring(0, rules[type][i].length)) === 0) {
+                validCardTypes[validCardTypes.length] = type;
+                break;
+            }
+
+        }
+    }
+
+    return validCardTypes.length == 1 ? validCardTypes[0].toLowerCase() : false;
+}
+
+
+//----------------------------------------
+//------ CHOSEN DROP DOWN FIELD ----------
+//----------------------------------------
+
+function gformInitChosenFields(fieldList, noResultsText){
+    return jQuery(fieldList).each(function(){
+        var element = jQuery(this);
+        //only initialize once
+        if(element.is(":visible") && element.siblings(".chzn-container").length == 0){
+            jQuery(this).chosen({no_results_text: noResultsText});
+        }
+    });
+}
