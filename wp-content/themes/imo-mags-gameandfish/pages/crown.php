@@ -254,7 +254,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 			<p class="required"><span>*</span> = Required.</p>
 			<?php 
 			// Call the forms
-			gravity_form(8, false, false, false, '', false);
+			gravity_form(9, false, false, false, '', false);
 			?>		
 		</div><!-- /end container -->
 	</div><!-- /end sign up area -->	
