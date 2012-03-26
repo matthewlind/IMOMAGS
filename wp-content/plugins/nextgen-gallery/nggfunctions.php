@@ -159,7 +159,7 @@ function nggShowGallery( $galleryID, $template = '', $images = false ) {
     // get gallery values
     //TODO: Use pagination limits here to reduce memory needs
     $picturelist = nggdb::get_gallery($galleryID, $ngg_options['galSort'], $ngg_options['galSortDir']);
-
+    
     if ( !$picturelist )
         return __('[Gallery not found]','nggallery');
 
@@ -399,6 +399,9 @@ function nggCreateGallery($picturelist, $galleryID = false, $template = '', $ima
     
     return $out;
 }
+
+
+
 
 /**
  * nggShowAlbum() - return a album based on the id
@@ -668,7 +671,9 @@ function nggCreateImageBrowser($picturelist, $template = '') {
     $current_page = (get_the_ID() == false) ? 0 : get_the_ID();
     
     // create a array with id's for better walk inside
+    
     foreach ($picturelist as $picture)
+    
         $picarray[] = $picture->pid;
 
     $total = count($picarray);
@@ -740,6 +745,7 @@ function nggCreateImageBrowser($picturelist, $template = '') {
 
     // create the output
     $out = nggGallery::capture ( $filename , array ('image' => $picture , 'meta' => $meta, 'exif' => $exif, 'iptc' => $iptc, 'xmp' => $xmp, 'db' => $db) );
+    
     
     return $out;
     
@@ -842,6 +848,12 @@ function nggSinglePicture($imageID, $width = 250, $height = 250, $mode = '', $fl
     return $out;
 }
 
+
+
+
+
+
+
 /**
  * nggShowGalleryTags() - create a gallery based on the tags
  * 
@@ -858,6 +870,7 @@ function nggShowGalleryTags($taglist) {
     // get now the related images
     $picturelist = nggTags::find_images_for_tags($taglist , 'ASC');
 
+    
     // look for ImageBrowser if we have a $_GET('pid')
     if ( $pageid == get_the_ID() || !is_home() )  
         if (!empty( $pid ))  {
@@ -949,7 +962,7 @@ function nggShowAlbumTags($taglist) {
     
     // get now the related images
     $picturelist = nggTags::get_album_images($taglist);
-
+       
     // go on if not empty
     if ( empty($picturelist) )
         return;
@@ -1134,82 +1147,12 @@ function nggTagCloud($args ='', $template = '') {
     return $out;
 }
 
-function get_objects_in_term_ex( $term_ids, $taxonomies, $args = array() , $match_all_tags = 0) {
-    global $wpdb;
-
-    if ( ! is_array( $term_ids ) )
-        $term_ids = array( $term_ids );
-
-    if ( ! is_array( $taxonomies ) )
-        $taxonomies = array( $taxonomies );
-
-    foreach ( (array) $taxonomies as $taxonomy ) {
-        if ( ! taxonomy_exists( $taxonomy ) )
-            return new WP_Error( 'invalid_taxonomy', __( 'Invalid Taxonomy' ) );
-    }
-
-    $defaults = array( 'order' => 'ASC' );
-    $args = wp_parse_args( $args, $defaults );
-    extract( $args, EXTR_SKIP );
-
-    $order = ( 'desc' == strtolower( $order ) ) ? 'DESC' : 'ASC';
-
-    $term_ids = array_map('intval', $term_ids );
-
-    $taxonomies = "'" . implode( "', '", $taxonomies ) . "'";
-    //$term_ids = "'" . implode( "', '", $term_ids ) . "'";
 
 
 
 
-    $sql_query = "SELECT distinct tr.object_id FROM $wpdb->term_relationships AS tr INNER JOIN $wpdb->term_taxonomy AS tt ON tr.term_taxonomy_id = tt.term_taxonomy_id WHERE tt.taxonomy IN ($taxonomies) ";
-
-$x = 0;
-$num_terms = count($term_ids);
-
-$sql_query .= "AND (";
-
-if ($match_all_tags) {
 
 
-   foreach($term_ids as $term_id){
-    $x++;
-    
-    $sql_query .= " tr.object_id IN (SELECT tr.object_id FROM $wpdb->term_relationships tr, $wpdb->term_taxonomy tt WHERE tr.term_taxonomy_id IN (SELECT term_taxonomy_id FROM $wpdb->term_taxonomy WHERE term_id = '". $term_id ."'))" ;
-    if ($x < $num_terms)
-    $sql_query .= " AND ";
-
-    }
-} else {
-
-   foreach($term_ids as $term_id){
-    $x++;
-    $sql_query .= " tr.object_id IN (SELECT tr.object_id FROM $wpdb->term_relationships tr, $wpdb->term_taxonomy tt WHERE tr.term_taxonomy_id IN (SELECT term_taxonomy_id FROM $wpdb->term_taxonomy WHERE term_id = '". $term_id ."'))" ;
-    if ($x < $num_terms)
-    $sql_query .= " OR ";
-    }
-}
-
-
-
-
-    $sql_query .= ") ORDER BY tr.object_id $order"; 
-    
-/*
-$test = mysql_query("SELECT * FROM $wpdb->terms");
-while ($row = mysql_fetch_object($test)){
-    
-    print_r($row);
-    echo "<br>";
-} */
-
-    $object_ids = $wpdb->get_col($sql_query);
-
-    if ( ! $object_ids )
-        return array();
-
-    return $object_ids;
-}
 
 
 

@@ -89,10 +89,10 @@ $blog = $qs['blog'];
 
 $args = array(	
 	'paged' => get_query_var('paged'),
-	'posts_per_page' => 30,
+	'posts_per_page' => 20,
+	'activity' => $activity,
 	'column' => $column,
 	'region' => $region,
-	'activity' => $activity,
 	'gear' => $gear,
 	'location' => $location,
 	'species' => $species,
@@ -102,8 +102,6 @@ $args = array(
 	'blog' => $blog
 
 ); 
-
-
 
 
 $posts_array = query_posts($args);
@@ -120,6 +118,7 @@ $item = array();
 <?php while (have_posts()) : the_post(); ?> 
 
 <?php 
+
 	$count++;
 
 

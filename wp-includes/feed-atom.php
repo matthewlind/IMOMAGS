@@ -7,7 +7,9 @@
 
 header('Content-Type: ' . feed_content_type('atom') . '; charset=' . get_option('blog_charset'), true);
 $more = 1;
-
+$out = ob_get_contents();
+$out = str_replace(array("\n", "\r", "\t", " "), "", $input);
+ob_end_clean();
 echo '<?xml version="1.0" encoding="'.get_option('blog_charset').'"?'.'>'; ?>
 <feed
   xmlns="http://www.w3.org/2005/Atom"

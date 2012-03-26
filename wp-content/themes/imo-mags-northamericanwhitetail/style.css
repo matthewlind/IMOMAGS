@@ -122,7 +122,7 @@ position: relative;
 #header .site-title a {
 	background: url(img/my-logo.png) 0 0 no-repeat; /*enter the proper file name for you logo graphic*/
 	display: block;
-	height: 117px; /*enter the height of your logo graphic*/
+	height: 129px; /*enter the height of your logo graphic*/
 	width: 577px; /*enter the width of your logo graphic*/
 	overflow: hidden;
 	text-indent: -9999em;
@@ -135,6 +135,10 @@ position: relative;
 	border-bottom: none;
 	margin: 0 auto;
 	width: 1020px;
+}
+
+#header-sub {
+	padding-top:29px;
 }
 
 #header .site-title {

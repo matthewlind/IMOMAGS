@@ -7,7 +7,9 @@
 
 header('Content-Type: ' . feed_content_type('rss-http') . '; charset=' . get_option('blog_charset'), true);
 $more = 1;
-
+$out = ob_get_contents();
+$out = str_replace(array("\n", "\r", "\t", " "), "", $input);
+ob_end_clean();
 echo '<?xml version="1.0" encoding="'.get_option('blog_charset').'"?'.'>'; ?>
 
 <rss version="2.0"
