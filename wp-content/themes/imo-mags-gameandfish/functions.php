@@ -16,7 +16,7 @@ define("SUBS_DEAL_STRING", "Save Over 70% off<br/> the Cover Price");
  * Register widgetized areas
  * @uses register_sidebar
  */
-function cfct_widgets_init() {
+function gf_widgets_init() {
 	$sidebar_defaults = array(
 		'before_widget' => '<aside id="%1$s" class="widget clearfix %2$s">',
 		'after_widget' => '</aside>',
@@ -61,4 +61,4 @@ function cfct_widgets_init() {
 		'description' => __('Customizable footer area on the right.', 'carrington-business')
 	)));
 }
-add_action( 'widgets_init', 'cfct_widgets_init' );
+add_action( 'widgets_init', 'gf_widgets_init' );
