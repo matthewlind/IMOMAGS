@@ -1,0 +1,28 @@
+
+img.animal-img {
+
+	width:248px;
+	border:1px solid #777777;
+}
+
+.superpost-box, .superpost-form {
+
+	border:1px solid #777777;
+	padding:5px;
+	width:250px;
+	margin:10px;
+	background-color:#dddddd;
+}
+
+.caption-holder {
+	margin-top:5px;
+}
+
+#fileUploadForm {
+
+	width:210px;
+	margin:10px;
+}
+input.submit {
+	width:100%;
+}
