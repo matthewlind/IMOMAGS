@@ -297,7 +297,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 					<p class="white callout upload"><a href="#sign-up-area">Submit<br />Your<br />Photo</a></p>
 				</div>
 				<div class="box-110">
-					<p class="white callout gallery"><a href="#gallery">View<br />Member<br />Photos</a></p>
+					<p class="white callout gallery"><a href="#gallery">View<br />Entries</a></p>
 				</div>
 				<div class="box-110">
 					<p class="white callout rules"><a href="#footer">The<br />Official<br />Rules</a></p>
