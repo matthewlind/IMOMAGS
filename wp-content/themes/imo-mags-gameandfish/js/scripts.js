@@ -46,11 +46,18 @@ var dartadsgen_rand = Math.floor((Math.random()) * 100000000), pr_tile = 1, dart
     //scroll to rules area
 	$('.rules-area').click(function(){
 		$('html, body').animate({
-               scrollTop: $("#footer").offset().top
+        		scrollTop: $("#footer").offset().top
         }, 1300);
 			
 	});
 	
+	//if validation error, scroll to form when page reloads
+	if($('div.validation_error').hasClass('validation_error')){
+		$('html, body').animate({
+        	scrollTop: $("#sign-up-area").offset().top
+    	}, 1500);
+	}
+		
 	//image hover
 	$(function(){
 		

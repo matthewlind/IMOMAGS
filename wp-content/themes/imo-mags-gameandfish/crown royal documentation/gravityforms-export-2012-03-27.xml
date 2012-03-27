@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<forms version="1.6.3.2.1">
+	<form labelPlacement="top_label" useCurrentUserAsAuthor="1" postAuthor="1" postCategory="1" postStatus="publish" postFormat="0">
+		<title><![CDATA[Crown Royal 2012]]></title>
+		<description><![CDATA[Crown Royal Photo Contest]]></description>
+		<confirmation type="message">
+			<message><![CDATA[<h3>Thank you, {Name (First):1.3}! Your photo has been entered.</h3>
+<img class="size-large submitted" src="{Your photo:9:large:url}" />
+<h2>{Title:7}</h2>
+<p>{Description:8}</p>
+<p>Species: {Species Caught:15}</p>
+<p>Location Caught: {Location Caught:16}</p>
+<p>Date Caught: {Date Caught:11}</p>
+<p>Gear Used: {Gear (separate by comma):13}</p>
+<p class="share-btn"><a class="button" href="http://www.gameandfishmag.fox/?p={post_id}">View and Share your entry</a></p>
+
+<script type="text/javascript">
+//when page loads scroll to results
+;(function($) {$(function() {
+$('html, body').animate({
+scrollTop: $("#sign-up-area").offset().top
+}, 1500);
+});
+})(jQuery); 
+</script>]]></message>
+			<disableAutoformat><![CDATA[1]]></disableAutoformat>
+		</confirmation>
+		<button type="image">
+			<text><![CDATA[Submit]]></text>
+		</button>
+		<fields>
+			<field id="1" isRequired="1" size="medium" type="name" nameFormat="normal">
+				<label><![CDATA[Name]]></label>
+				<inputs>
+					<input id="1.3">
+						<label><![CDATA[First]]></label>
+					</input>
+					<input id="1.6">
+						<label><![CDATA[Last]]></label>
+					</input>
+				</inputs>
+			</field>
+			<field id="3" isRequired="1" noDuplicates="1" size="medium" type="email">
+				<label><![CDATA[Email]]></label>
+			</field>
+			<field id="10" isRequired="1" size="medium" type="date" calendarIconType="calendar" dateType="datepicker">
+				<label><![CDATA[Date of Birth]]></label>
+			</field>
+			<field id="2" isRequired="1" size="medium" type="address" addressType="international" hideAddress2="1" hideCountry="1">
+				<label><![CDATA[Address]]></label>
+				<defaultCountry><![CDATA[United States]]></defaultCountry>
+				<inputs>
+					<input id="2.1">
+						<label><![CDATA[Street Address]]></label>
+					</input>
+					<input id="2.2">
+						<label><![CDATA[Address Line 2]]></label>
+					</input>
+					<input id="2.3">
+						<label><![CDATA[City]]></label>
+					</input>
+					<input id="2.4">
+						<label><![CDATA[State / Province]]></label>
+					</input>
+					<input id="2.5">
+						<label><![CDATA[Zip / Postal Code]]></label>
+					</input>
+					<input id="2.6">
+						<label><![CDATA[Country]]></label>
+					</input>
+				</inputs>
+			</field>
+			<field id="9" isRequired="1" size="medium" type="post_image">
+				<label><![CDATA[Your photo]]></label>
+				<allowedExtensions><![CDATA[jpg, jpeg, png, gif]]></allowedExtensions>
+				<postFeaturedImage><![CDATA[1]]></postFeaturedImage>
+			</field>
+			<field id="7" isRequired="1" size="medium" type="post_title">
+				<label><![CDATA[Title]]></label>
+				<saveAsCPT><![CDATA[catch_your_crown]]></saveAsCPT>
+			</field>
+			<field id="8" isRequired="1" size="medium" type="post_content">
+				<label><![CDATA[Description]]></label>
+				<maxLength><![CDATA[375]]></maxLength>
+			</field>
+			<field id="15" isRequired="1" size="medium" type="text">
+				<label><![CDATA[Species Caught]]></label>
+			</field>
+			<field id="16" isRequired="1" size="medium" type="text">
+				<label><![CDATA[Location Caught]]></label>
+			</field>
+			<field id="11" size="medium" type="date" calendarIconType="calendar">
+				<label><![CDATA[Date Caught]]></label>
+			</field>
+			<field id="13" size="medium" type="text">
+				<label><![CDATA[Gear (separate by comma)]]></label>
+			</field>
+			<field id="14" isRequired="1" size="medium" type="checkbox">
+				<label><![CDATA[I Am 21 or Over and Agree to terms]]></label>
+				<choices>
+					<choice>
+						<text><![CDATA[I Agree]]></text>
+					</choice>
+				</choices>
+			</field>
+		</fields>
+		<enableHoneypot><![CDATA[1]]></enableHoneypot>
+		<postContentTemplateEnabled><![CDATA[1]]></postContentTemplateEnabled>
+		<postContentTemplate><![CDATA[<a class="back" href="{embed_url}">&laquo; Back to the contest page</a>
+<div style="clear:both;">{Your photo:9:medium:center}</div>
+<p class="desc">{Description:8}</p>
+<p><strong>Species:</strong> {Species Caught:15}</p>
+<p><strong>Location Caught:</strong> {Location Caught:16}</p>
+<p><strong>Date Caught:</strong> {Date Caught:11}</p>
+<p><strong>Gear Used:</strong> {Gear (separate by comma):13}</p>
+<h2 class="share">Share this entry:</h2>]]></postContentTemplate>
+		<notification>
+			<subject><![CDATA[New submission from {form_title}]]></subject>
+			<message><![CDATA[{all_fields}]]></message>
+		</notification>
+		<autoResponder>
+			<from><![CDATA[berry.blanton@imoutdoors.com]]></from>
+		</autoResponder>
+		<descriptionPlacement><![CDATA[below]]></descriptionPlacement>
+	</form>
+</forms>

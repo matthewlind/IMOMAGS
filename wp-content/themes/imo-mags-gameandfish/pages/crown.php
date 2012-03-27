@@ -113,12 +113,10 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 			<!-- left content -->
 			<div class='grid_4'>
 				<div class="box-230">
-					<p class="purple purp-callout">Enter To Win<br />And Share Your<br />Best Catch</p>
+					<p class="purple purp-callout">This story<br />calls for a Crown</p>
 				</div>
-				
-
 				<div class="box-110">
-					<p class="white callout upload"><a href="#sign-up-area">Upload<br />Your<br />Photo</a></p>
+					<p class="white callout upload"><a href="#sign-up-area">Submit<br />Your<br />Photo</a></p>
 				</div>
 				<div class="box-110 box-right">
 					<p class="white callout gallery"><a href="#gallery">View<br />Entries</a></p>
@@ -131,31 +129,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 			<!-- right content -->
 			<div class='grid_12'>
 				<div class="box-710">
-			<?php
-		
-			$the_query = new WP_Query( array( 'post_type' => 'photo_contest', 'posts_per_page' => 1, 'orderby' => 'rand') );
-			while ( $the_query->have_posts() ) : $the_query->the_post();   
-			?> 		
-			<a href="<?php the_permalink(); ?>" class="slide">
-			<?php if(has_post_thumbnail()){  
-			the_post_thumbnail(array(710,'auto')); 
-			} ?>
-			<div class="meta"><h2>
-			<?php 
-			//truncate the title
-			$tit = the_title('','',FALSE);
-			echo substr($tit, 0, 32);
-			if (strlen($tit) > 32) echo " ...";
-			?>
-			</h2>
-			<span><em>posted on <?php the_date(); ?></em></span>
-			</div></a>
-			
-			<?php
-					
-			endwhile;	
-			// Reset Post Data
-			wp_reset_postdata(); ?>
+					<img src="<?php bloginfo('stylesheet_directory'); ?>/img/catch_your_crown.jpg" alt="Catch Your Crown" />
 				</div>
 				<div class="box-350 slideshow_btm">
 					<a href="#prizes" class="prizes-area">
@@ -197,7 +171,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
  						<ul class="scroll">
 						<?php
 						//Most Recent
-						$the_query = new WP_Query( array( 'post_type' => 'photo_contest', 'orderby' => 'date', 'order' => 'DESC' ) );
+						$the_query = new WP_Query( array( 'post_type' => 'catch_your_crown', 'orderby' => 'date', 'order' => 'DESC' ) );
 						while ( $the_query->have_posts() ) : $the_query->the_post(); 
 							if(has_post_thumbnail()){  
 								foreach($the_query as $query) ?>
@@ -221,7 +195,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 			
 						<?php
 						//Random Order
-						$the_query = new WP_Query( array( 'post_type' => 'photo_contest', 'orderby' => 'rand' ) );
+						$the_query = new WP_Query( array( 'post_type' => 'catch_your_crown', 'orderby' => 'rand' ) );
 							while ( $the_query->have_posts() ) : $the_query->the_post(); 
 								if(has_post_thumbnail()){  
 									foreach($the_query as $query) ?>
@@ -248,7 +222,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 	<div id="sign-up-area">
 		<!-- container -->
 		<div class="sign-up-form">
-			<h1>Register</h1>
+			<h1>Crown Your Catch Entry Form</h1>
 			<p class="required"><span>*</span> = Required.</p>
 			<?php 
 			// Call the forms
@@ -317,10 +291,10 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 			<!-- right content -->
 			<div class='grid_2'>
 				<div class="box-110">
-					<p class="purple purp-callout">Check Out<br />These<br />Prizes</p>
+					<p class="purple purp-callout">Check Out<br />The<br />Prizes</p>
 				</div>
 				<div class="box-110">
-					<p class="white callout upload"><a href="#sign-up-area">Upload<br />Your<br />Photo</a></p>
+					<p class="white callout upload"><a href="#sign-up-area">Submit<br />Your<br />Photo</a></p>
 				</div>
 				<div class="box-110">
 					<p class="white callout gallery"><a href="#gallery">View<br />Member<br />Photos</a></p>

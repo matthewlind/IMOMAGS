@@ -544,13 +544,17 @@ ul.linklist li {
 
 }
 h2.share{
+	font-family: 'Gudea', sans-serif;
+	font-weight: normal;
  	margin-top: -30px !important;
     position: relative !important;
     top: 40px !important;
 }
 p.desc{ margin-top: 20px; }
-.recent-entries .hentry{float:left;width: 50%;border-top: 1px dotted #ccc;padding: 10px;
-    width: 43%;}
+.recent-entries .hentry{border-top: 1px dotted #ccc;padding: 10px;float:left;width:93%;}
+.recent-entries .lb-th {float: left;margin: 0 10px 10px 0;}
+.recent-entries .lb-th img{border:1px solid #ccc;padding: 6px;background-color: #fff;}
+.recent-entries h4{font-weight: normal;}
 .recent-entries #nav-below{display: none;}
 .recent-entries h2{font-family: 'Gudea', sans-serif;font-weight: normal;padding: 4px 8px 0;}
 .callout-ad{height: 90px; margin: -10px 0 15px 12px;width: 964px;background: url(img/banner_temp.png) no-repeat 22px -38px #731a81;
@@ -568,3 +572,8 @@ a:hover .callout-ad{background-color: #e69b1b;
 -ms-transition: all 0.35s ease-in 0s;
 transition: all 0.35s ease-in 0s;
 }
+.pagination {border-bottom: none !important;}
+.catch_your_crown .author{display: none !important;}
+.catch_your_crown .entry-info .spacer {display: none !important;}
+.catch_your_crown .entry-info a {padding-left: 10px;}
+.top-footer{padding: 0 16px;}
