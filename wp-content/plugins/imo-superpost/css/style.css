@@ -26,3 +26,11 @@ img.animal-img {
 input.submit {
 	width:100%;
 }
+
+.superpost-comment {
+
+	margin:10px;
+	padding:10px;
+	width:620px;
+	background-color:#eeeeee;
+}

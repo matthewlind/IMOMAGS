@@ -79,6 +79,7 @@ $grav_url = "http://www.gravatar.com/avatar/" . $data->gravatar_hash . ".jpg?s=2
             <input type="hidden" name="clone_target" value="superpost-comment">
             <input type="hidden" name="attach_target" value="superpost-comments">
             <input type="hidden" name="attachment_point" value="prepend">
+            <input type="hidden" name="masonry" value="false">
             <input type="submit" value="Submit" class="submit" />
         </form>
 	</div>
@@ -86,11 +87,18 @@ $grav_url = "http://www.gravatar.com/avatar/" . $data->gravatar_hash . ".jpg?s=2
 	<div class="superpost-comments">
 		
         <pre><?php //print_r($commentData);?></pre>
-        <?php foreach ($commentData as $comment) { ?>
+        <?php foreach ($commentData as $comment) {    
+            $displayImage = "";
+            if (empty($comment->img_url))
+                $diplayImage = "display:none;";
+            ?>
         	<div class="superpost-comment" <?php echo $visible; ?> >
         		<div class="superclass-body">
         			<?php echo $comment->body; ?>
         		</div>
+                <div class="superpost-image">
+                    <img src="<?php echo $comment->img_url; ?>" class="superclass-img_url" width=200 style="<?php echo $displayImage; ?>">
+                </div>
         		<div class="avatar-holder">
                     <img src="http://www.gravatar.com/avatar/<?php echo $comment->gravatar_hash; ?>.jpg?s=25&d=identicon" class="superclass-gravatar_hash">
                     <a href="userlink"><?php echo $comment->username; ?></a>

@@ -55,7 +55,7 @@ $('.post-container').masonry({
 
     //This loop should handle updating the clone in most situations
     $.each(response, function(index,value){
-      console.log(index + ":" + value);
+      //console.log(index + ":" + value);
 
       var targetElement = $(clone).find(".superclass-" + index);
 
@@ -66,7 +66,18 @@ $('.post-container').masonry({
       }
 
 
+
+
     });//end each
+
+    //Hide images that don't exist:
+    var imgElement = $(clone).find(".superclass-img_url");
+    if (typeof response.img_url === "undefined") {
+      imgElement.hide();
+    } else {
+      imgElement.show();
+    }
+
 
     //For clone elements with a ID in a url:
     if ($(clone).find(".superclass-id_url").length > 0 ) {
@@ -75,7 +86,7 @@ $('.post-container').masonry({
         var oldURL = idLinks.first().attr("href");
         var newURL = oldURL.replace(/\d*$/, '') + response.id;
         idLinks.attr("href",newURL);
-    }
+      }
 
 
     }
@@ -84,9 +95,14 @@ $('.post-container').masonry({
 
 
     //Attach the clone!
-    attachTarget.prepend(clone).imagesLoaded( function(){
+    if (response.masonry == "true") {
+      attachTarget.prepend(clone).imagesLoaded( function(){
           $(attachTarget).masonry("reload");
-    })
+      });
+    } else {
+       attachTarget.prepend(clone);
+    }
+    
 
     clone.hide().slideDown();
 

@@ -73,6 +73,7 @@ $data = json_decode($file);
                                 <input type="hidden" name="clone_target" value="superpost-box">
                                 <input type="hidden" name="attach_target" value="post-container">
                                 <input type="hidden" name="attachment_point" value="prepend">
+                                <input type="hidden" name="masonry" value="true">
                                 <input type="submit" value="Submit" class="submit" />
                             </form>
                         </div>
