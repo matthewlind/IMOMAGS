@@ -509,3 +509,62 @@ ul.linklist li {
 	color: #000;
 	
 }
+
+
+/********* crown royal contest for post page 2012 *********/
+
+.back {
+	color: #fff !important;
+	padding: 10px 20px;
+	background: -moz-linear-gradient(
+		top,
+		#6b6b6b 0%,
+		#000000);
+	background: -webkit-gradient(
+		linear, left top, left bottom, 
+		from(#6b6b6b),
+		to(#000000));
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border: 1px solid #000000;
+	-moz-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 1px rgba(255,255,255,0.7);
+	-webkit-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 1px rgba(255,255,255,0.7);
+	text-shadow:
+		0px -1px 0px rgba(000,000,000,0.4),
+		0px 1px 0px rgba(255,255,255,0.3);
+		font-size: 1em;
+  		margin: 10px 0 20px;
+  		cursor: pointer;
+  		float: left;
+
+}
+h2.share{
+ 	margin-top: -30px !important;
+    position: relative !important;
+    top: 40px !important;
+}
+p.desc{ margin-top: 20px; }
+.recent-entries .hentry{float:left;width: 50%;border-top: 1px dotted #ccc;padding: 10px;
+    width: 43%;}
+.recent-entries #nav-below{display: none;}
+.recent-entries h2{font-family: 'Gudea', sans-serif;font-weight: normal;padding: 4px 8px 0;}
+.callout-ad{height: 90px; margin: -10px 0 15px 12px;width: 964px;background: url(img/banner_temp.png) no-repeat 22px -38px #731a81;
+-moz-transition: all 0.35s ease-in 0s;
+-webkit-transition: all 0.35s ease-in 0s;
+-o-transition: all 0.35s ease-in 0s;
+-ms-transition: all 0.35s ease-in 0s;
+transition: all 0.35s ease-in 0s;
+}
+.callout-ad h1{font-family: 'Gudea', sans-serif;color: #fff;font-size: 2.5em;line-height: 1.2em;margin: 25px 0 0 300px;float: left;}
+a:hover .callout-ad{background-color: #e69b1b;
+-moz-transition: all 0.35s ease-in 0s;
+-webkit-transition: all 0.35s ease-in 0s;
+-o-transition: all 0.35s ease-in 0s;
+-ms-transition: all 0.35s ease-in 0s;
+transition: all 0.35s ease-in 0s;
+}
