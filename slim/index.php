@@ -177,7 +177,19 @@ $app->post('/api/superpost/add',function() {
 			}
 		}
 	
-		$paramList = array("parent","post_type","title","body","user_id","username","gravatar_hash","img_url","ip");
+		$paramList = array(
+			"parent",
+			"post_type",
+			"title",
+			"body",
+			"user_id",
+			"username",
+			"gravatar_hash",
+			"img_url",
+			"ip",
+			"state",
+			"video_url"
+		);
 
 		if (!empty($fileName)) {
 			$params['img_url'] = $imgURL;

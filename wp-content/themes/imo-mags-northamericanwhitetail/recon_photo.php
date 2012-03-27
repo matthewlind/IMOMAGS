@@ -49,6 +49,7 @@ $grav_url = "http://www.gravatar.com/avatar/" . $data->gravatar_hash . ".jpg?s=2
 <header id="masthead">
 	<h1>RECON NETWORK: PHOTO</h1>
 	<?php edit_post_link(__('Edit', 'carrington-business')); ?>
+    <?php //echo $requestURL; ?>
 </header><!-- #masthead -->
 <div class="bonus-background">
 	<div class="bonus">
@@ -70,16 +71,16 @@ $grav_url = "http://www.gravatar.com/avatar/" . $data->gravatar_hash . ".jpg?s=2
 	<h2>Comments:</h2>
 	<div class="superpost-comment-form">
         <form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="superpost-form">
-            <h3>Post a Photo!</h3>
+            <h3>Post a Comment!</h3>
+           <textarea name="body" id="body" placeholder="What do you want to say?"></textarea>
             <input type="file" id="photo-upload" name="photo-upload"  /><br/>
-
-            <input type="text" name="body" id="body" placeholder="What do you want to say?"/>
             <input type="hidden" name="parent" value="<?php echo $spid;?>">
             <input type="hidden" name="post_type" value="comment">
             <input type="hidden" name="clone_target" value="superpost-comment">
             <input type="hidden" name="attach_target" value="superpost-comments">
             <input type="hidden" name="attachment_point" value="prepend">
             <input type="hidden" name="masonry" value="false">
+            <input type="hidden" name="form_id" value="fileUploadForm">
             <input type="submit" value="Submit" class="submit" />
         </form>
 	</div>

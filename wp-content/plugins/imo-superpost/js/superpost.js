@@ -1,6 +1,6 @@
 jQuery(document).ready(function($) {
 
-$('.post-container').masonry({
+$('.masonry-container').masonry({
                       itemSelector: '.superpost-box',
                       isAnimated: true,
                   });
@@ -10,7 +10,7 @@ $('.post-container').masonry({
 
   $(function() {      
 
-    $('#fileUploadForm').ajaxForm({                 
+    $('.superpost-form').ajaxForm({                 
       beforeSubmit: ShowRequest,
       success: SubmitSuccesful,
       data:userIMO,
@@ -92,18 +92,23 @@ $('.post-container').masonry({
     }
     
 
-
+    //alert(response.masonry);
 
     //Attach the clone!
-    if (response.masonry == "true") {
+    if (response.masonry == true || response.masonry == "true") {
       attachTarget.prepend(clone).imagesLoaded( function(){
           $(attachTarget).masonry("reload");
+
       });
     } else {
        attachTarget.prepend(clone);
     }
     
+    //Clean up the form
+    var form = $("#" + response.form_id);
+    resetForm(form);
 
+    //Finally show the new post
     clone.hide().slideDown();
 
 

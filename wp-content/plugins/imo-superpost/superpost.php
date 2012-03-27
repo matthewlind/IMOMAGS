@@ -39,7 +39,6 @@ function imo_superpost_flush_rules()
     add_rewrite_rule('recon-photos/([^/]*)', 'index.php?pagename=recon-photos&templatename=recon_photos&username=$matches[1]', 'top');
     add_rewrite_rule('recon-photos/?$', 'index.php?pagename=recon-photos&templatename=recon_photos', 'top');
     add_rewrite_rule('recon-photo/([^/]+)', 'index.php?pagename=recon-photo&templatename=recon_photo&spid=$matches[1]', 'top');
-
     flush_rewrite_rules(false);
 }
 

@@ -62,9 +62,9 @@ $data = json_decode($file);
             </div>
             <div class="container-fluid">
                 <div class="row-fluid">
-                    <div class="post-container">
-                        <div class="superpost-box">
-                             <form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="superpost-form">
+                    <div class="post-container masonry-container">
+                        <div class="superpost-box masonry-box">
+                             <form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-form">
                                 <h3>Post a Photo!</h3>
                                 <input type="file" id="photo-upload" name="photo-upload"  /><br/>
 
@@ -74,6 +74,7 @@ $data = json_decode($file);
                                 <input type="hidden" name="attach_target" value="post-container">
                                 <input type="hidden" name="attachment_point" value="prepend">
                                 <input type="hidden" name="masonry" value="true">
+                                <input type="hidden" name="form_id" value="fileUploadForm">
                                 <input type="submit" value="Submit" class="submit" />
                             </form>
                         </div>
