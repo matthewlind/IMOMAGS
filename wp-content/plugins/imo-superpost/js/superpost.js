@@ -69,16 +69,26 @@ $('.post-container').masonry({
     });//end each
 
     //For clone elements with a ID in a url:
-    var idLinks = $(clone).find(".superclass-id_url");
-    var oldURL = idLinks.first().attr("href");
-    var newURL = oldURL.replace(/\d*$/, '') + response.id;
-    idLinks.attr("href",newURL);
+    if ($(clone).find(".superclass-id_url").length > 0 ) {
+      var idLinks = $(clone).find(".superclass-id_url");
+      if (typeof idLinks != 'undefined') {
+        var oldURL = idLinks.first().attr("href");
+        var newURL = oldURL.replace(/\d*$/, '') + response.id;
+        idLinks.attr("href",newURL);
+    }
+
+
+    }
+    
+
 
 
     //Attach the clone!
     attachTarget.prepend(clone).imagesLoaded( function(){
           $(attachTarget).masonry("reload");
-    });
+    })
+
+    clone.hide().slideDown();
 
 
 
