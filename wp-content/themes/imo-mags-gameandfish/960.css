@@ -524,23 +524,43 @@ h3{font-family: 'Gudea', sans-serif;margin-top: -20px;}
 .callout{font-family: 'Gudea', sans-serif;color: #000;font-size: 1.5em;line-height: 1.2em;}
 .upload {
 -moz-transition: all 0.35s ease-in 0s;
+-webkit-transition: all 0.35s ease-in 0s;
+-o-transition: all 0.35s ease-in 0s;
+-ms-transition: all 0.35s ease-in 0s;
+transition: all 0.35s ease-in 0s;
 }
 .gallery{
 -moz-transition: all 0.35s ease-in 0s;
+-webkit-transition: all 0.35s ease-in 0s;
+-o-transition: all 0.35s ease-in 0s;
+-ms-transition: all 0.35s ease-in 0s;
+transition: all 0.35s ease-in 0s;
 }
 .upload:hover {
     -moz-transition: all 0.35s ease-in 0s;
+-webkit-transition: all 0.35s ease-in 0s;
+-o-transition: all 0.35s ease-in 0s;
+-ms-transition: all 0.35s ease-in 0s;
+transition: all 0.35s ease-in 0s;
     background-color: #fe500d;
     cursor: pointer;
     color: #fff; 
 }
 .gallery:hover {
     -moz-transition: all 0.35s ease-in 0s;
+-webkit-transition: all 0.35s ease-in 0s;
+-o-transition: all 0.35s ease-in 0s;
+-ms-transition: all 0.35s ease-in 0s;
+transition: all 0.35s ease-in 0s;
     background-color: #fd0008;
     cursor: pointer;
     color: #fff; 
 }
 .rules:hover{-moz-transition: all 0.35s ease-in 0s;
+-webkit-transition: all 0.35s ease-in 0s;
+-o-transition: all 0.35s ease-in 0s;
+-ms-transition: all 0.35s ease-in 0s;
+transition: all 0.35s ease-in 0s;
     background-color: #e69b1b;
     cursor: pointer;
     color: #fff; 
@@ -549,9 +569,17 @@ h3{font-family: 'Gudea', sans-serif;margin-top: -20px;}
 .callout a{
 	color: #000 !important;
 	-moz-transition: all 0.35s ease-in 0s;
+-webkit-transition: all 0.35s ease-in 0s;
+-o-transition: all 0.35s ease-in 0s;
+-ms-transition: all 0.35s ease-in 0s;
+transition: all 0.35s ease-in 0s;
 }
 .gallery:hover a, .upload:hover a, .rules:hover a, .grand-prize:hover a, .second-prize:hover a, .state-prize:hover a{
 	-moz-transition: all 0.35s ease-in 0s;
+-webkit-transition: all 0.35s ease-in 0s;
+-o-transition: all 0.35s ease-in 0s;
+-ms-transition: all 0.35s ease-in 0s;
+transition: all 0.35s ease-in 0s;
 	color: #fff !important;
 }
 #prizes div{
@@ -613,6 +641,10 @@ color: #ffffff;
 		font-size: 1em;
   		cursor: pointer;
   		-moz-transition: all 0.35s ease-in 0s;
+-webkit-transition: all 0.35s ease-in 0s;
+-o-transition: all 0.35s ease-in 0s;
+-ms-transition: all 0.35s ease-in 0s;
+transition: all 0.35s ease-in 0s;
 }
 
 #sign-up-area input[type="submit"]:hover {
@@ -641,6 +673,10 @@ color: #ffffff;
 		0px -1px 0px rgba(000,000,000,0.4),
 		0px 1px 0px rgba(255,255,255,0.3);
     -moz-transition: all 0.35s ease-in 0s;
+-webkit-transition: all 0.35s ease-in 0s;
+-o-transition: all 0.35s ease-in 0s;
+-ms-transition: all 0.35s ease-in 0s;
+transition: all 0.35s ease-in 0s;
 }
 #page-top{background-color: #2f3437;height: 650px;padding-top: 0;margin-top:0;}
 #gallery{background: url(img/gradient-bg.png) repeat-x top left;padding-top: 30px;height: 400px;background-color:
@@ -788,12 +824,24 @@ right: 52px;}
 ul#filters li:first-child{padding-right: 10px;color: #fff;font-size: 0.9em;}
 ul#filters li{float: left; padding: 0 4px;}
 ul#filters li a{color: #000;padding: 8px;width: 90px;height: 30px;background-color: #fff;text-align: center;-moz-transition: all 0.35s ease-in 0s;
+-webkit-transition: all 0.35s ease-in 0s;
+-o-transition: all 0.35s ease-in 0s;
+-ms-transition: all 0.35s ease-in 0s;
+transition: all 0.35s ease-in 0s;
 	border-radius: 5px;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;}
-ul#filters li a:hover{color: #fff;background-color: #731a81;-moz-transition: all 0.35s ease-in 0s;}
+ul#filters li a:hover{color: #fff;background-color: #731a81;-moz-transition: all 0.35s ease-in 0s;
+-webkit-transition: all 0.35s ease-in 0s;
+-o-transition: all 0.35s ease-in 0s;
+-ms-transition: all 0.35s ease-in 0s;
+transition: all 0.35s ease-in 0s;}
 
-#gallery a:hover span{position:absolute;background-color: rgba(15, 15, 15, 0.3);-moz-transition: all 0.35s ease-in 0s;width: 150px;height: 150px;}
+#gallery a:hover span{position:absolute;background-color: rgba(15, 15, 15, 0.3);-moz-transition: all 0.35s ease-in 0s;
+-webkit-transition: all 0.35s ease-in 0s;
+-o-transition: all 0.35s ease-in 0s;
+-ms-transition: all 0.35s ease-in 0s;
+transition: all 0.35s ease-in 0s;width: 150px;height: 150px;}
 #tabs .ui-widget-content{float: left;margin-top: -50px;}
 #tabs .ui-tabs-hide {display:none;}
 ul#filters li.ui-state-active a{color: #fff !important;background-color: #731a81 !important;}

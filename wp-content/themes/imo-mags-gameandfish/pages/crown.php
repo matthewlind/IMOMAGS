@@ -139,9 +139,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 			<a href="<?php the_permalink(); ?>" class="slide">
 			<?php if(has_post_thumbnail()){  
 			the_post_thumbnail(array(710,'auto')); 
-			}else{ ?>
-			<!-- <img src="<?php //create and use a first post??? ?>" alt="Photo Entry" /> -->
-			<?php }	?>
+			} ?>
 			<div class="meta"><h2>
 			<?php 
 			//truncate the title
