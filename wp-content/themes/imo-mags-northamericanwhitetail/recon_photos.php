@@ -103,6 +103,10 @@ $data = json_decode($file);
 
 		</div>
 	</div><!-- .entry -->
-	<?php //comments_template(); ?>
+	
+
+
+
+
 </div><!-- .col-abc -->
 <?php get_footer(); ?>

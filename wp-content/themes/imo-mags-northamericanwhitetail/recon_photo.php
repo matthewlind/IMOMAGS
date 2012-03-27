@@ -23,6 +23,8 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 get_header();
 
+
+//First get post data
 $spid =  get_query_var("spid");
 $requestURL = "http://www.northamericanwhitetail.deva/slim/api/superpost/post/$spid";
 
@@ -30,6 +32,17 @@ $file = file_get_contents($requestURL);
 $data = json_decode($file);
 $data = $data[0];
 
+//Then get comment data
+$requestURL2 = "http://www.northamericanwhitetail.deva/slim/api/superpost/children/comment/$spid";
+
+$file2 = file_get_contents($requestURL2);
+$commentData = json_decode($file2);
+
+if (empty($commentData[0])) {
+
+	$commentData[0] = "hey";
+	$visible = "style='display:none;'";
+}
 
 $grav_url = "http://www.gravatar.com/avatar/" . $data->gravatar_hash . ".jpg?s=25&d=identicon";
 ?>
@@ -53,6 +66,44 @@ $grav_url = "http://www.gravatar.com/avatar/" . $data->gravatar_hash . ".jpg?s=2
      
 		</div>
 	</div><!-- .entry -->
-	<?php //comments_template(); ?>
+
+	<h2>Comments:</h2>
+	<div class="superpost-comment-form">
+        <form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="superpost-form">
+            <h3>Post a Photo!</h3>
+            <input type="file" id="photo-upload" name="photo-upload"  /><br/>
+
+            <input type="text" name="body" id="body" placeholder="What do you want to say?"/>
+            <input type="hidden" name="parent" value="<?php echo $spid;?>">
+            <input type="hidden" name="post_type" value="comment">
+            <input type="hidden" name="clone_target" value="superpost-comment">
+            <input type="hidden" name="attach_target" value="superpost-comments">
+            <input type="hidden" name="attachment_point" value="prepend">
+            <input type="submit" value="Submit" class="submit" />
+        </form>
+	</div>
+
+	<div class="superpost-comments">
+		
+        <pre><?php //print_r($commentData);?></pre>
+        <?php foreach ($commentData as $comment) { ?>
+        	<div class="superpost-comment" <?php echo $visible; ?> >
+        		<div class="superclass-body">
+        			<?php echo $comment->body; ?>
+        		</div>
+        		<div class="avatar-holder">
+                    <img src="http://www.gravatar.com/avatar/<?php echo $comment->gravatar_hash; ?>.jpg?s=25&d=identicon" class="superclass-gravatar_hash">
+                    <a href="userlink"><?php echo $comment->username; ?></a>
+                </div>
+
+        	</div>
+
+
+        <?php } ?>
+
+
+
+    </div>
+
 </div><!-- .col-abc -->
 <?php get_footer(); ?>
