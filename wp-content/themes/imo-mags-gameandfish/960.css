@@ -616,6 +616,8 @@ border-radius: 5px;
 box-shadow: 1px 1px 2px -1px inset;
 -moz-box-shadow: 1px 1px 2px -1px inset;
 -webkit-box-shadow: 1px 1px 2px -1px inset;
+-o-box-shadow: 1px 1px 2px -1px inset;
+-ms-box-shadow: 1px 1px 2px -1px inset;
 }
 .gform_wrapper .ginput_complex .ginput_left select, .gform_wrapper .ginput_complex .ginput_right select {
     margin-top: 21px;
@@ -725,9 +727,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', end
 #gallery h1, #prizes h1{color: #fff;text-shadow: #000 0px 1px 1px;}
 
 #prizes{background: url(img/line-bg.gif) repeat top left #22272a;height: 800px;padding-top: 30px;}
-#footer{background: url(img/saw-tooth-foot.gif) repeat-x top left #f2f2f2;height: 300px;padding: 30px;}
+#footer{background: url(img/saw-tooth-foot.gif) repeat-x top left #f2f2f2;height: 2200px;padding: 30px;font-size: 0.8em;}
 #footer .rules-right{padding-top: 72px;}
 #footer p{margin: 0 !important;padding: 0 !important;}
+#footer ol{}
+#footer li{}
 #to-top-button {
     background: url("../images/back-to-top.png") no-repeat scroll 0 0 transparent;
     border-radius: 100px 100px 100px 100px;
