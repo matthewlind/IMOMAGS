@@ -406,7 +406,133 @@ aside.widget .newsletter h3.gform_title {
 			.scroller-controller ul.scroll-dots li.dot a:hover{
 			  background-position: -46px -20px;
 			}
+			
+						
+/*TV*/
+#tv-wrapper a {
+	color: #bf3d06;
+}
 
+/*TV NAV*/
+nav.nav-secondary {
+	background-color: transparent;
+	bottom: 35px;
+	font-size: 13px;
+	line-height: 1;
+	margin: 0;
+	padding: 0 15px;
+	position: relative;
+	border-bottom: none;
+}
+nav.nav-secondary ul {
+	top: 1px
+}
+nav.nav-secondary li {
+	margin: 0;
+	top: 1px
+}
+
+nav.nav-secondary a {
+	color: #fff !important;
+	background: #000000;
+	font-style: normal;
+	font-weight: bold;
+	letter-spacing: 0px;
+	font-family: helvetica, arial, serif, sans-serif;
+	text-transform: uppercase;
+	font-size: 12px;
+	display: block;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	text-decoration: none;
+	padding: 10px 14px 8px 14px;
+	border-top: 2px solid #000000;
+	border-right: 1px solid #000000;
+	border-left: 1px solid #000000;
+	border-bottom: 2px solid #000000;
+}
+nav.nav-secondary a:hover,
+nav.nav-secondary li:hover a {
+	border-top: 2px solid #bf3d06;
+	padding: 10px 14px 8px 14px;
+	color: #d2d2d2 !important;
+}
+nav.nav-secondary li.current-menu-item a {
+	color: #bf3d06 !important;
+	background: #fff;
+	border-bottom: 3px solid #fff;
+	
+	
+}
+
+/*TV*/
+
+#tv-wrapper {
+
+}
+
+#masthead.tv-header {
+	background: url(http://www.gunsandammo.com/files/2012/03/ga-tv-banner-NEW2.png) 15px 0 no-repeat;
+	border-bottom: 0px dotted #999;
+	bottom: 0px;
+	left: -11.5px;
+	padding: 0;
+	height: 205px;
+	margin: 0px;
+}
+
+#masthead.tv-header .tv-title {
+	display: none;
+
+}
+#bonus-area {
+	padding-bottom: 30px;
+	border-bottom: 1px solid #eee;
+	margin-bottom: 30px;
+}
+#tv-wrapper #bonus-area h2, #tv-wrapper h2.cfct-mod-title {
+	font-family: 'Bitter', serif;
+	text-transform: none;
+	color: #2e2e2e;
+}
+
+.page-template-page-right-php.tv-template .bonus-background {
+	width: 300px;
+}
+.page-template-page-right-php.tv-template .bonus {
+	margin-left: 0px;
+}
+.page-template-page-right-php.tv-template .col-abc {
+}
+.page-template-page-right-php.tv-template .cfct-block.block-1.cfct-block-b, .page-template-page-right-php.tv-template .cfct-block.block-2.cfct-block-c {
+	margin-left: 5px;
+}
+.page-template-page-right-php.tv-template .cfct-block.block-2.cfct-block-c {
+	margin-right: 0px;
+}
+
+.page-template-page-right-php.tv-template .cfct-module .cfct-mod-title a {
+	font-size: 18px;
+}
+.page-template-page-right-php.tv-template .cfct-block-c {
+	padding-left: 0px;
+	margin: 0px;
+}
+.page-template-page-right-php.tv-template .cfct-block-bc {
+	margin: 0px;
+}
+.page-template-page-right-php.tv-template .entry-full {
+	border-bottom: 0px dotted #999;
+
+}
+
+
+#tv-wrapper #idc-container-parent {
+	display: none;
+}			
+			
 
 /* HOT FIXES */
 
