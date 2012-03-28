@@ -512,10 +512,10 @@ ul.linklist li {
 
 
 /********* crown royal contest for post page 2012 *********/
-
-.back {
+.back{float: left;}
+.crown_your_catch .navigation a {
 	color: #fff !important;
-	padding: 10px 20px;
+	padding: 4px 20px;
 	background: -moz-linear-gradient(
 		top,
 		#6b6b6b 0%,
@@ -538,10 +538,8 @@ ul.linklist li {
 		0px -1px 0px rgba(000,000,000,0.4),
 		0px 1px 0px rgba(255,255,255,0.3);
 		font-size: 1em;
-  		margin: 10px 0 20px;
   		cursor: pointer;
-  		float: left;
-
+  		
 }
 h2.share{
 	font-family: 'Gudea', sans-serif;
@@ -573,7 +571,10 @@ a:hover .callout-ad{background-color: #e69b1b;
 transition: all 0.35s ease-in 0s;
 }
 .pagination {border-bottom: none !important;}
-.catch_your_crown .author{display: none !important;}
-.catch_your_crown .entry-info .spacer {display: none !important;}
-.catch_your_crown .entry-info a {padding-left: 10px;}
+.crown_your_catch .meta-info{float: left;}
+.crown_your_catch .navigation {float: right;margin-top: 0px;}
+.crown_your_catch .navigation .alignleft {margin-right: 0 !important;}
+.crown_your_catch .navigation .alignleft, .alignright {margin-top: 0 !important;}
+.crown_your_catch .entry-info{margin-top: 8px;}
+.crown_your_catch .entry-content{margin-top: 8px;}
 .top-footer{padding: 0 16px;}
