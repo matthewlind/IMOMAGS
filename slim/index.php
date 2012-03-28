@@ -3,9 +3,12 @@ error_reporting(E_ALL);
 ini_set('display_errors', TRUE);
 ini_set('display_startup_errors', TRUE);
 
+$DOMAIN = "deva";
+
 require 'Slim/Slim.php';
 include 'mysql.php';
 include 'auth.php';
+include 'images.php';
 
 $app = new Slim();
 
@@ -25,6 +28,7 @@ function get_IP() {
 $app->get('/',function(){
 	echo "<h1>Hello Berry!</h1>";
 });
+
 
 
 //*********************************
@@ -165,13 +169,14 @@ $app->post('/api/superpost/add',function() {
 		$fileName = $_FILES['photo-upload']['name'];
 		$tmpName = $_FILES['photo-upload']['tmp_name'];
 
-		$target_path = "images/";
+		$target_path = "images/tmp/";
 		$target_path = $target_path . basename( $fileName ); 
 		
 		$imgURL = "";
 		if (!empty($_FILES['photo-upload']['name'])) { //Check if file exists
 			if(move_uploaded_file($tmpName, $target_path)) { //check if file upload failed
-				$imgURL = "http://www.imomags.deva/slim/images/" . $fileName;
+				//Then resize and move the file!
+				$imgURL = resizeImages($target_path);
 			} else{
 			    error_log("There was an error uploading the file, please try again!");
 			}
