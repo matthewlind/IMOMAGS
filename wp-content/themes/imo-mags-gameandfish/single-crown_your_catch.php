@@ -21,7 +21,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 get_header();
 ?>
-<a class="crown-ad" href="<?php echo home_url(); ?>/crown-royal-2012/"><div class="callout-ad"><h1>Enter To Win And Share Your Best Catch</h1></div></a>
+<a class="crown-ad" href="<?php echo home_url(); ?>/crownroyal/"><div class="callout-ad"><h1>Enter To Win And Share Your Best Catch</h1></div></a>
 <div class="col-ab">
 	<?php
 	cfct_loop();
