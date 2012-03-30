@@ -482,11 +482,24 @@ h3{font-family: 'Gudea', sans-serif;margin-top: -20px;}
 
 /* modules */
 .box-110, .box-190, .box-230, .box-350{float:left;}
-.box-110{width:110px;margin:0;}
+.box-110 {width:110px;margin:0;}
+.box-110 p.prizes {background: url(img/Crown-Royal-buttons-prizes.jpeg) no-repeat left top;}
+
+.box-110 p.submit {background: url(img/Crown-Royal-buttons-submit.jpeg) no-repeat left top;}
+.box-110 p.submit:hover {background: url(img/Crown-Royal-buttons-submit-rollover.jpeg) no-repeat left top;}
+
+.box-110 p.entry {background: url(img/Crown-Royal-buttons-view.jpeg) no-repeat left top;}
+.box-110 p.entry:hover {background: url(img/Crown-Royal-buttons-view-rollover.jpeg) no-repeat left top;}
+
+.box-110 p.rules {background: url(img/Crown-Royal-buttons-official.jpeg) no-repeat left top;}
+.box-110 p.rules:hover {background: url(img/Crown-Royal-buttons-official-rollover.jpeg) no-repeat left top;}
+
 .box-right{margin-left:10px !important;}
 .box-110 p{height:110px;}/*temp*/
-.box-230 p.purp-callout {height:107px !important;}/*temp*/
-.box-230 p.cr-callout {height:244px !important;background: url(img/cr-bottle.jpg) no-repeat left top;}/*temp*/
+.box-230 p.purp-callout {height:107px !important;background: url(img/This-story-calls-for-a-crown.jpeg) no-repeat left top;}/*temp*/
+.box-230 p.cr-callout {height:244px !important;background: url(img/Crown-Royal-image.jpeg) no-repeat left top;}/*temp*/
+.box-230 p.view-entries {background: url(img/View-Entries-button.jpeg) no-repeat left top;height:110px;}
+.box-230 p.view-entries:hover {background: url(img/View-Entries-button-rollover.jpeg) no-repeat left top;}
 .box-190{width:190px;}
 .box-350{width:350px;}
 .box-230{width:230px;}

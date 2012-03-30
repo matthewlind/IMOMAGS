@@ -112,14 +112,12 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 			<!-- left content -->
 			<div class='grid_4'>
 				<div class="box-230">
-					<p class="purple purp-callout">This story<br />calls for a Crown</p>
+					<p class="purple purp-callout"></p>
 				</div>
-				<div class="box-110">
-					<p class="white callout upload"><a href="#sign-up-area">Submit<br />Your<br />Photo</a></p>
+				<div class="box-230">
+					<p class="white callout upload view-entries"><a href="#gallery"></a></p>
 				</div>
-				<div class="box-110 box-right">
-					<p class="white callout gallery"><a href="#gallery">View<br />Entries</a></p>
-				</div>
+
 				<div class="box-230">
 					<p class="white cr-callout"></p>
 				</div>
@@ -128,7 +126,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 			<!-- right content -->
 			<div class='grid_12'>
 				<div class="box-710">
-					<img src="<?php bloginfo('stylesheet_directory'); ?>/img/crown_your_catch.jpg" alt="Catch Your Crown" />
+					<a href="#sign-up-area"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/Crown-Royal-homepage-image.jpeg" alt="Catch Your Crown" /></a>
 				</div>
 				<div class="box-350 slideshow_btm">
 					<a href="#prizes" class="prizes-area">
@@ -290,16 +288,16 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 			<!-- right content -->
 			<div class='grid_2'>
 				<div class="box-110">
-					<p class="purple purp-callout">Check Out<br />The<br />Prizes</p>
+					<p class="prizes white callout"></p>
 				</div>
 				<div class="box-110">
-					<p class="white callout upload"><a href="#sign-up-area">Submit<br />Your<br />Photo</a></p>
+					<p class="white callout upload submit"><a href="#sign-up-area"></a></p>
 				</div>
 				<div class="box-110">
-					<p class="white callout gallery"><a href="#gallery">View<br />Entries</a></p>
+					<p class="white callout gallery entry"><a href="#gallery"></a></p>
 				</div>
 				<div class="box-110">
-					<p class="white callout rules"><a href="#footer">The<br />Official<br />Rules</a></p>
+					<p class="white callout rules"><a href="#footer"></a></p>
 				</div>
 			</div>
 
