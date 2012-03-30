@@ -67,8 +67,8 @@ $data = json_decode($file);
                              <form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-form">
                                 <h3>Post a Photo!</h3>
                                 <input type="file" id="photo-upload" name="photo-upload"  /><br/>
-
-                                <input type="text" name="body" id="body" placeholder="Add a Caption!"/>
+                                <input type="text" name="title" id="title" placeholder="Title"/>
+                                <input type="text" name="body" id="body" placeholder="Add a Description!"/>
                                 <input type="hidden" name="post_type" value="photo">
                                 <input type="hidden" name="clone_target" value="superpost-box">
                                 <input type="hidden" name="attach_target" value="post-container">
@@ -84,6 +84,7 @@ $data = json_decode($file);
                                 <div>
                                     <a class="superclass-id_url" href="/recon-photo/<?php echo $superpost->id; ?>"><img src='<?php echo $superpost->img_url; ?>' class='superclass-img_url animal-img'/></a>
                                 </div>
+                                <h3 class="superclass-title"><?php echo $superpost->title; ?></h3>
                                 <div class='superclass-body'><?php echo $superpost->body; ?></div>
                                 <div class="avatar-holder">
                                     <img src="http://www.gravatar.com/avatar/<?php echo $superpost->gravatar_hash; ?>.jpg?s=25&d=identicon" class="superclass-gravatar_hash">

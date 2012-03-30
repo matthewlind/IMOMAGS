@@ -22,7 +22,9 @@ function imo_superpost_scripts() {
 	wp_enqueue_script('jquery-form',null,null,null,false);
 	wp_enqueue_script('superpost-js',plugins_url('js/superpost.js', __FILE__));
 	wp_enqueue_script('jquery-masonry',plugins_url('js/jquery.masonry.js', __FILE__));
-	wp_enqueue_style('superpost-css',plugins_url('css/style.css', __FILE__));
+    wp_enqueue_script('jquery-timeago',plugins_url('js/jquery.timeago.js', __FILE__));
+
+	wp_enqueue_style('superpost-css',plugins_url('css/superpost.css', __FILE__));
 	
 }
 

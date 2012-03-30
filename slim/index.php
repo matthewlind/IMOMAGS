@@ -6,12 +6,12 @@ ini_set('display_startup_errors', TRUE);
 $DOMAIN = "deva";
 
 require 'Slim/Slim.php';
-include 'mysql.php';
-include 'auth.php';
-include 'images.php';
 
 $app = new Slim();
-
+include 'mysql.php';
+include 'auth.php';
+include 'userinfo.php';
+include 'images.php';
 
 function get_IP() {
 	$headers = apache_request_headers(); 
@@ -34,7 +34,7 @@ $app->get('/',function(){
 //*********************************
 //********* Get all Posts *********
 //*********************************
-$app->get('/api/superpost/all(/:count(/:start/))',function($count = 20,$start = 0){
+$app->get('/api/superpost/all(/:count(/:start))',function($count = 20,$start = 0){
 
 	header('Access-Control-Allow-Origin: *');  
 
@@ -59,7 +59,7 @@ $app->get('/api/superpost/all(/:count(/:start/))',function($count = 20,$start = 
 //*********************************
 //**** Get all Posts of a Type ****
 //*********************************
-$app->get('/api/superpost/type/:post_type',function($post_type){
+$app->get('/api/superpost/type/:post_type(/:count(/:start))',function($post_type,$count = 20,$start = 0){
 
 	header('Access-Control-Allow-Origin: *');
 
@@ -67,8 +67,15 @@ $app->get('/api/superpost/type/:post_type',function($post_type){
 
 		$db = dbConnect();
 
+		$whereClause = "WHERE post_type = ?";
 
-		$sql = "SELECT * FROM superposts WHERE post_type = ? ORDER BY id DESC";
+		if ($post_type == "all")
+			$whereClause = "";
+
+		$limitClause = "LIMIT $start,$count";
+
+
+		$sql = "SELECT * FROM superposts $whereClause ORDER BY id DESC $limitClause";
 
 		$stmt = $db->prepare($sql);
 		$stmt->execute(array($post_type));

@@ -1,0 +1,141 @@
+
+
+/*HOMEPAGE BASIC LAYOUT*/
+
+.recon-box {
+
+	margin-top:10px;
+	margin-bottom:10px;
+	height:420px;
+}
+
+img.superpost-thumb {
+	width:338px;
+}
+
+.recon-title-box {
+	height:278px;
+	width:278px;
+	position:absolute;
+	padding:30px;
+
+}
+
+.recon-title-box.cover-pic {
+	background-image:url('/wp-content/themes/imo-mags-northamericanwhitetail/img/transbg.png');
+}
+
+.recon-title-box h3 {
+	color:white;
+}
+
+.recon-title-detail {
+	background-color:#403b35;
+	padding:5px;
+	color:white;
+	width:auto;
+	display:inline-block;
+}
+
+.recon-image-box {
+	height:338px;
+}
+
+.masonry-box, .masonry-form {
+	width:338px;
+
+}
+
+.under-box {
+	margin-top:20px;
+}
+
+.under-title {
+text-overflow: ellipsis;
+
+}
+
+img.recon-gravatar{
+
+
+    border: 3px solid white;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.58);
+    -moz-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.58);
+    -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.58);
+    margin-right:20px;
+    float:left;
+    cursor: pointer;
+
+}
+
+img.recon-gravatar:hover {
+	border-color:#c65517;
+}
+
+.recon-date {
+	color:#999999;
+	font-size:10px;
+}
+
+.author-name {
+	font-weight:bold;
+}
+
+.caption-holder {
+	margin-top:5px;
+}
+
+#fileUploadForm {
+
+	width:210px;
+	margin:10px;
+}
+input.submit {
+	width:100%;
+}
+
+.superpost-comment {
+
+	margin:10px;
+	padding:10px;
+	width:620px;
+	background-color:#eeeeee;
+}
+
+/* Homepage Controls */
+ul.post-type-select {
+	text-align:right;
+}
+ul.post-type-select li {
+	display:inline;
+	margin:10px;
+	padding:5px 10px 5px 10px;
+	background-color:gray;
+	color:white;
+	cursor: pointer;
+}
+
+ul.post-type-select li.selected {
+	background-color:#829b40;
+}
+
+ul.post-type-select li:hover {
+	background-color:#414d20;
+}
+
+/* User Popup */
+
+div.user-details-box {
+	padding:10px;
+	background-color:#181818;
+	position: absolute;
+	bottom: 75px;
+	color:white;
+}
+
+.user-details-box .name-box {
+	font-weight:bold;
+}
+
+
+
