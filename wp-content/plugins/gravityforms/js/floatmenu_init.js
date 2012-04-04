@@ -2,12 +2,14 @@
 window.onscroll = function()
 {
     if( window.XMLHttpRequest ) {
-        if (document.documentElement.scrollTop > 160 || self.pageYOffset > 160) {
+                
+        basePosition = jQuery('#gf_form_toolbar').offset().top;
+        
+        if (document.documentElement.scrollTop > basePosition || self.pageYOffset > basePosition) {
             jQuery('#floatMenu').css('position','fixed');
-            jQuery('#floatMenu').css('top','5px');
-        } else if (document.documentElement.scrollTop < 120 || self.pageYOffset < 120) {
-            jQuery('#floatMenu').css('position','absolute');
-            jQuery('#floatMenu').css('top','120px');
+            jQuery('#floatMenu').css('top', '40px');
+        } else {
+            jQuery('#floatMenu').css('position','static');
         }
     }
 }

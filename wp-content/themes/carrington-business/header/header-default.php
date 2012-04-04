@@ -50,7 +50,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 <?php if (defined('GOOGLE_FONT')): ?>
 	<link href='<?php print GOOGLE_FONT; ?>' rel='stylesheet' type='text/css'>
 <?php endif; ?>
-
+<link href='http://fonts.googleapis.com/css?family=Glegoo|Lato:300,400|Gudea|Share' rel='stylesheet' type='text/css'>
 <?php if (is_page_template("page-cabelas.php")) : ?>
 	<link rel="stylesheet" type="text/css" media="screen" href="<?php bloginfo('template_url'); ?>/css/contest.css?ver=<?php echo CFCT_URL_VERSION; ?>" />
 <?php  endif; ?>     	

@@ -23,3 +23,26 @@ if(!function_exists('_log')){
   }
 }
 
+/*New Menu for TV*/
+
+add_action( 'init', 'register_rt_menu' );
+
+function register_rt_menu() {
+	register_nav_menu( 'tv-menu', __( 'TV Menu' ) );
+}
+
+/*CLOSED*/
+
+if (function_exists('register_sidebar')) {
+register_sidebar(array(
+'id' => 'sidebar-tv',
+'name' => 'TV Sidebar',
+'description' => 'Shown on GA TV Pages.',
+'before_widget' => '<div id="bonus-area">',
+'after_widget' => '</div>',
+'before_title' => '<h2>',
+'after_title' => '</h2>'
+));
+}
+
+?>

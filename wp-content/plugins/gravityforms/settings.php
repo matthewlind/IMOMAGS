@@ -17,7 +17,8 @@ class GFSettings{
         ?>
         <link rel="stylesheet" href="<?php echo GFCommon::get_base_url()?>/css/admin.css" />
         <div class="wrap">
-            <img alt="<?php $page_title ?>" src="<?php echo $icon_path?>" style="float:left; margin:15px 7px 0 0;"/>
+
+            <div class="icon32" id="gravity-settings-icon"><br></div>
             <h2><?php echo $page_title ?></h2>
 
         <?php
@@ -54,6 +55,11 @@ class GFSettings{
         if(!GFCommon::ensure_wp_version())
             return;
 
+        if(isset($_GET["setup"])){
+            //forcing setup
+            RGForms::setup(true);
+        }
+
         if(isset($_POST["submit"])){
             check_admin_referer('gforms_update_settings', 'gforms_update_settings');
 
@@ -63,9 +69,13 @@ class GFSettings{
             RGFormsModel::save_key($_POST["gforms_key"]);
             update_option("rg_gforms_disable_css", $_POST["gforms_disable_css"]);
             update_option("rg_gforms_enable_html5", $_POST["gforms_enable_html5"]);
+            update_option("gform_enable_noconflict", $_POST["gform_enable_noconflict"]);
+            update_option("rg_gforms_enable_akismet", $_POST["gforms_enable_akismet"]);
             update_option("rg_gforms_captcha_public_key", $_POST["gforms_captcha_public_key"]);
             update_option("rg_gforms_captcha_private_key", $_POST["gforms_captcha_private_key"]);
-            update_option("rg_gforms_currency", $_POST["gforms_currency"]);
+
+            if(!rgempty("gforms_currency"))
+                update_option("rg_gforms_currency", rgpost("gforms_currency"));
 
 
             //Updating message because key could have been changed
@@ -148,14 +158,39 @@ class GFSettings{
                      <th scope="row"><label for="gforms_enable_html5"><?php _e("Output HTML5", "gravityforms"); ?></label>  <?php gform_tooltip("settings_html5") ?></th>
                     <td>
                         <input type="radio" name="gforms_enable_html5" value="1" <?php echo get_option('rg_gforms_enable_html5') == 1 ? "checked='checked'" : "" ?> id="gforms_enable_html5"/> <?php _e("Yes", "gravityforms"); ?>&nbsp;&nbsp;
-                        <input type="radio" name="gforms_enable_html5" value="0" <?php echo get_option('rg_gforms_enable_html5') == 1 ? "" : "checked='checked'" ?> /><?php _e("No", "gravityforms"); ?><br />
+                        <input type="radio" name="gforms_enable_html5" value="0" <?php echo get_option('rg_gforms_enable_html5') == 1 ? "" : "checked='checked'" ?> /> <?php _e("No", "gravityforms"); ?><br />
                         <?php _e("Set this to No if you would like to disable the plugin from outputting HTML5 form fields.", "gravityforms"); ?>
                     </td>
                 </tr>
+
+                <tr valign="top">
+                     <th scope="row"><label for="gform_enable_noconflict"><?php _e("No-Conflict Mode", "gravityforms"); ?></label>  <?php gform_tooltip("settings_noconflict") ?></th>
+                    <td>
+                        <input type="radio" name="gform_enable_noconflict" value="1" <?php echo get_option('gform_enable_noconflict') == 1 ? "checked='checked'" : "" ?> id="gform_enable_noconflict"/> <?php _e("On", "gravityforms"); ?>&nbsp;&nbsp;
+                        <input type="radio" name="gform_enable_noconflict" value="0" <?php echo get_option('gform_enable_noconflict') == 1 ? "" : "checked='checked'" ?> id="gform_disable_noconflict"/> <?php _e("Off", "gravityforms"); ?><br />
+                        <?php _e("Set this to On to prevent extraneous scripts and styles from being printed on Gravity Forms admin pages, reducing conflicts with other plugins and themes.", "gravityforms"); ?>
+                    </td>
+                </tr>
+
+                <?php if(GFCommon::has_akismet()){ ?>
+                <tr valign="top">
+                     <th scope="row"><label for="gforms_enable_akismet"><?php _e("Akismet Integration", "gravityforms"); ?></label>  <?php gform_tooltip("settings_akismet") ?></th>
+                    <td>
+                        <input type="radio" name="gforms_enable_akismet" value="1" <?php echo get_option('rg_gforms_enable_akismet') == 1 ? "checked='checked'" : "" ?> id="gforms_enable_akismet"/> <?php _e("Yes", "gravityforms"); ?>&nbsp;&nbsp;
+                        <input type="radio" name="gforms_enable_akismet" value="0" <?php echo get_option('rg_gforms_enable_akismet') == 1 ? "" : "checked='checked'" ?> /> <?php _e("No", "gravityforms"); ?><br />
+                        <?php _e("Protect your form entries from spam using Akismet.", "gravityforms"); ?>
+                    </td>
+                </tr>
+                <?php } ?>
+
                 <tr valign="top">
                     <th scope="row"><label for="gforms_currency"><?php _e("Currency", "gravityforms"); ?></label>  <?php gform_tooltip("settings_currency") ?></th>
                     <td>
-                        <select id="gforms_currency" name="gforms_currency">
+                        <?php
+                        $disabled = apply_filters("gform_currency_disabled", false) ? "disabled='disabled'" : ""
+                        ?>
+
+                        <select id="gforms_currency" name="gforms_currency" <?php echo $disabled ?>>
                             <?php
                                 require_once("currency.php");
                                 $current_currency = GFCommon::get_currency();
@@ -167,6 +202,7 @@ class GFSettings{
                                 }
                             ?>
                         </select>
+                        <?php do_action("gform_currency_setting_message", ""); ?>
                     </td>
                 </tr>
             </table>
@@ -175,7 +211,7 @@ class GFSettings{
 
               <h3><?php _e("reCAPTCHA Settings", "gravityforms"); ?></h3>
 
-              <p style="text-align: left;"><?php _e("Gravity Forms integrates with reCAPTCHA, a free CAPTCHA service that helps to digitize books while protecting your forms from spam bots. ", "gravityforms"); ?><a href="http://recaptcha.net/" target="_blank"><?php _e("Read more about reCAPTCHA", "gravityforms"); ?></a>.</p>
+              <p style="text-align: left;"><?php _e("Gravity Forms integrates with reCAPTCHA, a free CAPTCHA service that helps to digitize books while protecting your forms from spam bots. ", "gravityforms"); ?><a href="http://www.google.com/recaptcha/" target="_blank"><?php _e("Read more about reCAPTCHA", "gravityforms"); ?></a>.</p>
 
               <table class="form-table">
 
@@ -184,14 +220,14 @@ class GFSettings{
                    <th scope="row"><label for="gforms_captcha_public_key"><?php _e("reCAPTCHA Public Key", "gravityforms"); ?></label>  <?php gform_tooltip("settings_recaptcha_public") ?></th>
                     <td>
                         <input type="text" name="gforms_captcha_public_key" style="width:350px;" value="<?php echo get_option("rg_gforms_captcha_public_key") ?>" /><br />
-                        <?php _e("Required only if you decide to use the reCAPTCHA field.", "gravityforms"); ?> <?php _e(sprintf("%sSign up%s for a free account to get the key.", '<a target="_blank" href="https://admin.recaptcha.net/recaptcha/createsite/?app=php">', '</a>'), "gravityforms"); ?>
+                        <?php _e("Required only if you decide to use the reCAPTCHA field.", "gravityforms"); ?> <?php printf(__("%sSign up%s for a free account to get the key.", "gravityforms"), '<a target="_blank" href="http://www.google.com/recaptcha/whyrecaptcha">', '</a>'); ?>
                     </td>
                 </tr>
                 <tr valign="top">
                    <th scope="row"><label for="gforms_captcha_private_key"><?php _e("reCAPTCHA Private Key", "gravityforms"); ?></label>  <?php gform_tooltip("settings_recaptcha_private") ?></th>
                     <td>
                         <input type="text" name="gforms_captcha_private_key" style="width:350px;" value="<?php echo esc_attr(get_option("rg_gforms_captcha_private_key")) ?>" /><br />
-                        <?php _e("Required only if you decide to use the reCAPTCHA field.", "gravityforms"); ?> <?php _e(sprintf("%sSign up%s for a free account to get the key.", '<a target="_blank" href="https://admin.recaptcha.net/recaptcha/createsite/?app=php">', '</a>'), "gravityforms"); ?>
+                        <?php _e("Required only if you decide to use the reCAPTCHA field.", "gravityforms"); ?> <?php printf(__("%sSign up%s for a free account to get the key.", "gravityforms"), '<a target="_blank" href="http://www.google.com/recaptcha/whyrecaptcha">', '</a>'); ?>
                     </td>
                 </tr>
 
@@ -278,7 +314,7 @@ class GFSettings{
                     </td>
                     <td>
                         <?php
-                            if(version_compare(get_bloginfo("version"), '2.8.0', '>')){
+                            if(version_compare(get_bloginfo("version"), '3.0', '>')){
                                 ?>
                                 <img src="<?php echo GFCommon::get_base_url() ?>/images/tick.png"/>
                                 <?php
@@ -286,7 +322,7 @@ class GFSettings{
                             else{
                                 ?>
                                 <img src="<?php echo GFCommon::get_base_url() ?>/images/cross.png"/>
-                                <span class="installation_item_message"><?php _e("Gravity Forms requires WordPress 2.8 or above.", "gravityforms"); ?></span>
+                                <span class="installation_item_message"><?php _e("Gravity Forms requires WordPress 3.0 or above.", "gravityforms"); ?></span>
                                 <?php
                             }
                         ?>
@@ -333,7 +369,7 @@ class GFSettings{
     }
 
     public static function upgrade_license(){
-        check_ajax_referer('gf_upgrade_license','gf_upgrade_license');
+        //check_ajax_referer('gf_upgrade_license','gf_upgrade_license');
 
         $key = GFCommon::get_key();
         $body = "key=$key";
