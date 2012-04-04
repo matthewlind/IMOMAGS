@@ -1318,6 +1318,50 @@ span.next {
 	padding: 15px !important;
 	background-color: rgba(0,62,94,0.59);
 }
+
+.cfct-widget-module-better_rss_widget, .widget_better_rss_widget {
+	margin: 0;
+	padding-left: 3px;
+}
+.widget_better_rss_widget li, .widget_better_rss_widget ul {
+	list-style-type: none;
+	margin: 0 0 0 3px;
+	padding: 0;
+	font-size: 10px;
+}
+.widget_better_rss_widget li a.rsswidget {
+	clear: both;
+	display: block;
+	font-size: 12px;
+	max-height: 20px;
+	overflow: hidden;
+}
+.widget_better_rss_widget h2.widget-title {
+	border-style: none;
+	margin: 0;
+	font-size: 16px;
+	color: teal;
+}
+.widget_better_rss_widget h2 a:link {
+	color: #003e5e;
+}
+.widget_better_rss_widget h2 a.rsswidget:hover {
+	color: #717f5e;
+}
+.forums-title {
+	margin: 0 0 8px;
+}
+.forums-title h3.cfct-mod-title {
+	margin: 0;
+	background-color: #717f5e;
+	color: white;
+	padding-top: 4px;
+	text-shadow: #3d4532 1px 1px 2px;
+	padding-left: 6px;
+	font-size: 22px;
+	padding-bottom: 3px;
+}
+
 /*sign up email field fix*/
 #field_3_1 {
 margin: 0px;
