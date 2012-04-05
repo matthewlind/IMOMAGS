@@ -1,6 +1,6 @@
 <?php
-
-
+ 
+ 
 /**
  * functions.php 
  */
@@ -460,15 +460,16 @@ function eg_add_rewrite_rules(){
 
 
 
-    add_rewrite_rule( '(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/?$','index.php?$matches[1]=$matches[2]&$matches[3]=$matches[4]&$matches[5]=$matches[6]&$matches[7]=$matches[8]&$matches[9]=$matches[10]&$matches[11]=$matches[12]&$matches[13]=$matches[14])', 'top');
-    add_rewrite_rule('(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]&$matches[3]=$matches[4]&$matches[5]=$matches[6]&$matches[7]=$matches[8]&$matches[9]=$matches[10]&$matches[11]=$matches[12]', 'top');
-    add_rewrite_rule('(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]&$matches[3]=$matches[4]&$matches[5]=$matches[6]&$matches[7]=$matches[8]&$matches[9]=$matches[10]', 'top');
+    add_rewrite_rule( '(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/?$','index.php?$matches[1]=$matches[2]&$matches[3]=$matches[4]&$matches[5]=$matches[6]&$matches[7]=$matches[8]&$matches[9]=$matches[10]&$matches[11]=$matches[12]&$matches[13]=$matches[14])', 'top');
+    add_rewrite_rule('(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]&$matches[3]=$matches[4]&$matches[5]=$matches[6]&$matches[7]=$matches[8]&$matches[9]=$matches[10]&$matches[11]=$matches[12]', 'top');
+    add_rewrite_rule('(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]&$matches[3]=$matches[4]&$matches[5]=$matches[6]&$matches[7]=$matches[8]&$matches[9]=$matches[10]', 'top');
     
-    add_rewrite_rule('(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]&$matches[3]=$matches[4]&$matches[5]=$matches[6]&$matches[7]=$matches[8]', 'top');
+    add_rewrite_rule('(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]&$matches[3]=$matches[4]&$matches[5]=$matches[6]&$matches[7]=$matches[8]', 'top');
     
-    add_rewrite_rule('(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]&$matches[3]=$matches[4]&$matches[5]=$matches[6]', 'top');
-    add_rewrite_rule('(show|region|species|marketplace|activity|gear|column)/(.+)/(show|region|species|marketplace|activity|gear|column)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]&$matches[3]=$matches[4]', 'top'); 
-   // add_rewrite_rule('(show|region|species|marketplace|activity|gear|column)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]', 'top');
+    add_rewrite_rule('(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]&$matches[3]=$matches[4]&$matches[5]=$matches[6]', 'top');
+    //add_rewrite_rule('(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]&$matches[3]=$matches[4]', 'top'); 
+    add_rewrite_rule('(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]&$matches[3]=$matches[4]', 'top');
+   // add_rewrite_rule('(show|region|species|marketplace|activity|gear|column|page)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]', 'top');
     
 
      add_rewrite_tag('%gallery%','([^/]+)');
@@ -658,6 +659,8 @@ function nggShowSingleGalleryTags($galleryID, $taglist) {
 
 function show_tag_for_header($tag){
 	$tag = str_replace("pic-", "", $tag);
+	$tag = str_replace("pic+", "", $tag);
+	$tag = str_replace("+", " ", $tag);
 	$tag = str_replace("pic ", "", $tag);
 	$tag = str_replace("-", " " , $tag);
 	$tag = ucwords($tag);
@@ -722,7 +725,7 @@ function get_objects_in_term_ex( $term_ids, $taxonomies, $args = array() , $matc
 	}
 
 
-
+ 
 
 	$sql_query .= ") ORDER BY tr.object_id $order";
 
@@ -2160,7 +2163,7 @@ function rewrite_title($title) {
                 function nggShowImageBrowserMod($galleryID, $template = '', $tags = '') {
                 
                 	global $wpdb;
-                
+                	
                 	$ngg_options = nggGallery::get_option('ngg_options');
                 
                 	//Set sort order value, if not used (upgrade issue)
@@ -2205,11 +2208,14 @@ function rewrite_title($title) {
                 		$out = __('[Gallery not found]','nggallery');
                 
                 	$out = apply_filters('ngg_show_imagebrowser_content', $out, $galleryID);
-                
+                	
+                	if (strpos($out, "thickbox") === false){
+                		$out = preg_replace('/" title/', '" class="thickbox no_icon" rel="gallery-3826" title' , $out );
+                	}                	
                 	return $out;
                 
                 } 
-      /*          
+      
             class FLSP_nggLoader extends nggLoader{    
 
             	
@@ -2223,7 +2229,7 @@ function rewrite_title($title) {
             		$this->load_options();
             		$this->define_constant();
             		$this->define_tables();
-            		$this->load_dependencies();
+            		//$this->load_dependencies();
             		$this->start_rewrite_module();
             	
             		$this->plugin_name = basename(dirname(__FILE__)).'/'.basename(__FILE__);
@@ -2383,6 +2389,7 @@ function rewrite_title($title) {
             			//echo nggShowImageBrowser( intval($_GET['galleryid']) );
             	
             			echo nggShowImageBrowserMod( intval($_GET['galleryid']), '', $_GET['tags'] );
+            			
             			break;
             		default:
             			echo 'Wrong request type specified.';
@@ -2398,7 +2405,7 @@ function rewrite_title($title) {
             add_action('template_redirect', array($ngg, 'load_scripts'), 1 );
             add_action('parse_request',  array($ngg, 'check_request'), 1 );
             add_action( 'plugins_loaded', array($ngg, 'start_plugin'), 1 );            
-            */
+            
                 
                 
                 
