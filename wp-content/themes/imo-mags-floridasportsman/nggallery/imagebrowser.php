@@ -54,6 +54,8 @@ echo substr($GLOBALS['ngg_shortcode'], 3) . '</a>';
 </h2>
 
 <?php 
+// if this is an AJAX callback then we already have the widget and don't need to generate another instance
+if (empty($_GET['callback']))
 the_widget('Taxonomy_Drill_Down_Widget', array(
 		'title' => '',
 		'mode' => 'dropdowns',
@@ -61,9 +63,26 @@ the_widget('Taxonomy_Drill_Down_Widget', array(
 ));
 
 ?>
-<a name="image"></a>
+ 
 <div class="ngg-imagebrowser" id="<?php echo $image->anchor ?>">
+<?php
+$description = !empty($image->alttext)  ? trim( preg_replace( '/\s+/', ' ', $image->alttext ) ) : trim( preg_replace( '/\s+/', ' ', $image->description ) );
+$description = show_tag_for_header($description);
+echo '<script type="text/javascript">';
+	echo 'jQuery(document).ready(function() {
+	url = document.URL;
+	title = document.title;
+	document.title = title.replace( new RegExp("[^-]+ - "), "'.$description.' - ");
+	txt = url.replace( new RegExp( "pid=[0-9]+" ), "pid='.$image->pid.'" ); 
 	
+	history.pushState({}, "html5", txt)
+	
+	} );';
+	
+
+	echo '</script>';
+	
+	?>
 	<div class="ngg-imagebrowser-nav"> 
 		<div class="back">
 			<a class="ngg-browser-prev" id="ngg-prev-<?php echo $image->previous_pid ?>" href="<?php echo $image->previous_image_link ?>#image">&#9668; <?php _e('Back', 'nggallery') ?></a>
