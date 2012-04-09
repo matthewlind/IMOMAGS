@@ -576,7 +576,7 @@ add_filter('the_content','replace_content', 99);
 function replace_content($content)
 {
 	// change this to whatever you want the new label to be
-	$newlabel = 'Show pictures tagged with:';
+	$newlabel = 'View related galleries:';
 	
 	$content = str_replace('Picture tag:', $newlabel ,$content);
 	
