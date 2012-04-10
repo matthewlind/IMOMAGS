@@ -47,11 +47,11 @@ function imo_video_channel_init() {
             "hierarchical" => True,
             "show_ui" => True,
             "query_var" => True,
-            "rewrite" => array("slug"=>"channel"),
+            "rewrite" => FALSE,
         )
     );
 
-    $types = array("imo_video");
+    $types = array("imo_video","post","posts");
 
     foreach ($taxonomies as $target_taxonomy => $taxonomy) {
         register_taxonomy(
@@ -85,7 +85,7 @@ function imo_video_init() {
 		'capability_type' => 'post',
 		'hierarchical' => false,
 		'menu_position' => null,
-		'supports' => array('title','thumbnail','excerpt','editor','author'),
+		'supports' => array('title','thumbnail','excerpt','editor','author','comments'),
 		'rewrite' => array('slug' => 'video', 'with_front' => FALSE),
 		'taxonomies' => array('video_channel','post_tag','activity','location','gear','species'),
 	  ); 

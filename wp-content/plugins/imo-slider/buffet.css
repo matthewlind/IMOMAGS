@@ -1,4 +1,4 @@
-#scroll_mask {
+.scroll_mask {
   position:relative;
   overflow:hidden;
   width:620px;
@@ -6,7 +6,7 @@
   margin:0 auto;
 }
 
-ul#scroll {
+ul.scroll {
   margin:0;
   padding:0;
   position:absolute;
@@ -16,7 +16,7 @@ ul#scroll {
 
 }
 
-ul#scroll li {
+ul.scroll li {
   float:left;
   width:134px;
   height:150px;

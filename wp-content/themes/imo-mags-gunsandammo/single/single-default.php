@@ -39,36 +39,34 @@ $zn_slug = "zombie-nation";
 ?>
 
 <?php if (in_category($soga_slug)) { ?>
-<a href="/blogs/<?php echo "sons-of-gunsandammo"; ?>/" title="<?php echo $current_category; ?>"><div class="soga-header"></div></a>
+<a class="blog-header soga-header" href="/blogs/<?php echo "sons-of-gunsandammo"; ?>/" title="<?php echo $current_category; ?>"></a>
 
 <?php } else if (in_category($floc_slug)) { ?>
-<a href="/blogs/<?php echo $floc_slug; ?>/" title="<?php echo $current_category; ?>"><div class="floc-header"></div></a>
+<a class="blog-header floc-header" href="/blogs/<?php echo $floc_slug; ?>/" title="<?php echo $current_category; ?>"></a>
 
 <?php } else if (in_category($dt_slug)) { ?>
-<a href="/blogs/<?php echo $dt_slug; ?>/" title="<?php echo $current_category; ?>"><div class="dt-header"></div></a>
+<a class="blog-header dt-header" href="/blogs/<?php echo $dt_slug; ?>/" title="<?php echo $current_category; ?>"></a>
 
 <?php } else if (in_category($nb_slug)) { ?>
-<a href="/blogs/<?php echo $nb_slug; ?>/" title="<?php echo $current_category; ?>"><div class="nb-header"></div></a>
+<a class="blog-header nb-header" href="/blogs/<?php echo $nb_slug; ?>/" title="<?php echo $current_category; ?>"></a>
 
 <?php } else if (in_category($tfl_slug)) { ?>
-<a href="/blogs/<?php echo $tfl_slug; ?>/" title="<?php echo $current_category; ?>"><div class="tfl-header"></div></a>
+<a class="blog-header tfl-header" href="/blogs/<?php echo $tfl_slug; ?>/" title="<?php echo $current_category; ?>"></a>
 
 <?php } else if (in_category($tgg_slug)) { ?>
-<a href="/blogs/<?php echo $tgg_slug; ?>/" title="<?php echo $current_category; ?>"><div class="tgg-header"></div></a>
+<a class="blog-header tgg-header" href="/blogs/<?php echo $tgg_slug; ?>/" title="<?php echo $current_category; ?>"></a>
 
 <?php } else if (in_category($tgr_slug)) { ?>
-<a href="/blogs/<?php echo $tgr_slug; ?>/" title="<?php echo $current_category; ?>"><div class="tgr-header"></div></a>
+<a class="blog-header tgr-header" href="/blogs/<?php echo $tgr_slug; ?>/" title="<?php echo $current_category; ?>"></a>
 
 <?php } else if (in_category($zn_slug)) { ?>
-<a href="/blogs/<?php echo $zn_slug; ?>/" title="<?php echo $current_category; ?>"><div class="zn-header"></div></a>
+<a class="blog-header zn-header" href="/blogs/<?php echo $zn_slug; ?>/" title="<?php echo $current_category; ?>"></a>
 
 <?php } ?>
 
-<div class="col-ab">
-	<?php
-	cfct_loop();
-	comments_template();
-	?>
+<div id="content" class="col-ab">
+	<?php cfct_loop(); ?>
+	<?php comments_template(); ?>
 </div>
 <?php
 get_sidebar();
