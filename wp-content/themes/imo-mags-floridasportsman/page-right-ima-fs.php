@@ -1,6 +1,9 @@
 <?php
 
 /**
+ * Template Name: IMA FS
+ * Description: A page with a right BONUS sidebar column.
+ *
  * @package carrington-business
  *
  * This file is part of the Carrington Business Theme for WordPress
@@ -18,25 +21,8 @@
 
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 
-// NOTE: this file is here for compatibility reasons - active templates are in the posts/ dir 
+// NOTE: this file is here for compatibility reasons - active templates are in the pages/ dir 
 
-if (CFCT_DEBUG) { cfct_banner(__FILE__); }
-
-get_header(); 
-?>
-
-<header id="masthead">
-	<h1><?php single_cat_title('');?></h1>
-</header>
-
-<div id="content" class="col-ab">
-	<?php
-	cfct_loop();
-	cfct_misc('nav-posts'); ?>
-</div>
-
-<?php
-get_sidebar();
-get_footer(); ?>
+cfct_page('right-sidebar-ima-fs');
 
 ?>

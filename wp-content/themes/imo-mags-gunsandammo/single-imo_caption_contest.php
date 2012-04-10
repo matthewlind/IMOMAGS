@@ -3,7 +3,6 @@ if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 get_header(); ?>
-
 <div id="content" class="col-abc">
   <div <?php post_class('entry entry-full clearfix') ?>>
   	<div class="entry-header">

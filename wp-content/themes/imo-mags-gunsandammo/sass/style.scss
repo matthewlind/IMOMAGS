@@ -48,8 +48,16 @@ body {
   width: 100%;
   -webkit-font-smoothing: antialiased;
 }
+  /* Blogs SPACING FIX */
 
+body.page-id-2114 {
 
+  #main {
+    padding-top:0px;
+    padding: 0px 10px 0;
+  }
+
+}
 /*
  * GLOBAL STYLE
  * default styles for elements that will be used everywhere
@@ -60,16 +68,17 @@ h1, h2, h3, h4, h5, h6 {
   @include font-stag-bold;
 
   color: #252525;
+
 }
 h1 {
   font-size: 34px;
   line-height: 36px;
 }
-h2 { font-size: 24px; }
-h3 { font-size: 22px; }
-h4 { font-size: 20px; }
-h5 { font-size: 18px; }
-h6 { font-size: 16px; }
+h2 { font-size: 24px; letter-spacing: 0.04em;}
+h3 { font-size: 22px; letter-spacing: 0.04em;}
+h4 { font-size: 20px; letter-spacing: 0.04em;}
+h5 { font-size: 18px; letter-spacing: 0.04em;}
+h6 { font-size: 16px; letter-spacing: 0.04em;}
 p,ul,ol,dl {
   font-size: 15px;
   margin: 1em 0;
@@ -410,7 +419,13 @@ a.comment-count {
     line-height: 1.5;
   }
 }
-
+/*
+ * Site menu fix
+ */
+#site-menu .menu {
+padding: 0;
+margin: 32px 0 0 0;
+}
 
 /*
  * ENTRY EXCERPT
@@ -872,7 +887,8 @@ a.comment-count {
     position: static;
   }
   
-  /* Blogs */
+
+
   li.blogs ul.sub-menu-1 {
     width: 400px;
     
@@ -1406,6 +1422,7 @@ a.comment-count {
       
       font-size: 24px;
       line-height: 26px;
+      letter-spacing: 0.04em;
     }
   }
   #featured-articles-navigator {
@@ -2246,7 +2263,7 @@ body.parent-pageid-2114 #main {
     top: 0;
   }
   .addthis_toolbox {
-    margin-bottom: 56px;
+    margin-bottom: 16px;
   }
   .pagination {
     a {
@@ -2759,6 +2776,7 @@ body.parent-pageid-2114 #main {
     
     height: 200px;
   }
+
   .wp-post-image {
     @include inline-block;
     
@@ -2801,7 +2819,10 @@ body.parent-pageid-2114 #main {
     p {
       color: #D9D9D9;
       font-size: 13px;
-      margin: 0;
+      margin-left:auto;
+      margin-right:auto;
+      width:250px;
+      line-height:18px;
     }
   }
 }
@@ -3390,6 +3411,44 @@ body.page-comment div.imo_legacy_post { width: 100%; }
 
 .node-type-article-guns .pager {
   margin-top:20px;
+}
+
+div.imo_legacy_post {
+  
+  th, td, table{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.875em;
+  line-height: 1.286em;
+  }
+
+  caption {
+    font-weight:bold;
+    padding:10px;
+    font-size:16px;
+  }
+
+  tr {
+
+    border-bottom: 1px solid #CCC;
+
+  }
+
+  tr.odd {
+    background-color: #EEE;
+
+  }
+
+  td, th {
+    padding-top:5px;
+    padding-bottom:5px;
+    padding-left:5px;
+  }
+
+  .thumb .count {
+    display: none;
+  }
+
+
 }
 
 

@@ -53,7 +53,7 @@ get_header(); ?>
       wp_link_pages(); ?>
     </div> -->
   </div>
-  <?php if (function_exists(related_posts())) related_posts(); ?>
+
   <?php comments_template(); ?>
 </div>
 <div id="sidebar">

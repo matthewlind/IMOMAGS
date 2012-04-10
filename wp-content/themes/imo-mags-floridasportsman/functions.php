@@ -100,6 +100,28 @@ register_sidebar(array(
         'after_title'   => '</h2>'
     ));
 }
+if (function_exists('register_sidebar')) {
+register_sidebar(array(
+        'id' => 'sidebar-fs-challenge',
+        'name' => 'FS Challenge Sidebar',
+        'description' => 'Shown on FS Challenge Pages.',
+        'before_widget' => '<div id="bonus-area">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h2>',
+        'after_title'   => '</h2>'
+    ));
+}
+if (function_exists('register_sidebar')) {
+register_sidebar(array(
+        'id' => 'sidebar-imafs',
+        'name' => 'Im A Florida Sportsman Sidebar',
+        'description' => 'Shown on Im A Florida Sportsman Pages.',
+        'before_widget' => '<div id="bonus-area">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h2>',
+        'after_title'   => '</h2>'
+    ));
+}
 
 /*New Menu for REEL TIME*/
 
@@ -114,4 +136,18 @@ add_action( 'init', 'register_fstv_menu' );
 
 function register_fstv_menu() {
 	register_nav_menu( 'fstv-menu', __( 'FSTV Menu' ) );
+}
+/*New Menu for FS Challenge*/
+
+add_action( 'init', 'register_fs_challenge_menu' );
+
+function register_fs_challenge_menu() {
+	register_nav_menu( 'fs-challenge-menu', __( 'FS Challenge Menu' ) );
+}
+/*New Menu for I'm A Florida Sportsman*/
+
+add_action( 'init', 'register_imafs_menu' );
+
+function register_ima_fs_menu() {
+	register_nav_menu( 'imafs-menu', __( 'Im A FS Menu' ) );
 }
