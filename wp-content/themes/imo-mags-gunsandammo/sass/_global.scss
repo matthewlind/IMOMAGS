@@ -42,7 +42,7 @@ $gold: #FFBE21;
 }
 @mixin font-stag {
 	font-family: "StagMedium";
-  font-weight: normal;
+  font-weight: lighter;
 }
 @mixin font-stag-italic {
 	font-family: "StagMediumItalic";
@@ -50,11 +50,11 @@ $gold: #FFBE21;
 }
 @mixin font-stag-bold {
 	font-family: "StagBold";
-  font-weight: normal;
+  font-weight: lighter;
 }
 @mixin font-stag-bold-italic {
 	font-family: "StagBoldItalic";
-	font-weight: normal;
+	font-weight: lighter;
 }
 
 
