@@ -1,10 +1,13 @@
 <?php
 
 /**
- * @package carrington-business
+ * Template Name: Crown Gallery page
+ * Description: Home page template for SV
  *
- * This file is part of the Carrington Business Theme for WordPress
- * http://crowdfavorite.com/wordpress/themes/carrington-business/
+ * @package favebusiness
+ *
+ * This file is part of the FaveBusiness Theme for WordPress
+ * http://crowdfavorite.com/wordpress/themes/favebusiness/
  *
  * Copyright (c) 2008-2011 Crowd Favorite, Ltd. All rights reserved.
  * http://crowdfavorite.com
@@ -17,19 +20,9 @@
  */
 
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
-if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
-get_header();
-?>
-<a class="crown-ad" href="<?php echo home_url(); ?>/crown-royal-2012/"><div class="callout-ad"><h1>Enter To Win And Share Your Best Catch</h1></div></a>
-<div class="col-ab">
+// NOTE: this file is here for compatibility reasons - active templates are in the pages/ dir 
 
-	<?php
-	cfct_loop();
-	comments_template();
-	?>
-</div>
-<?php
-get_sidebar('crown');
-get_footer();
+cfct_page('crown-gallery');
+
 ?>
