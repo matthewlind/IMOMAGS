@@ -579,3 +579,12 @@ transition: all 0.35s ease-in 0s;
 .crown_your_catch .entry-info{margin-top: 8px;}
 .crown_your_catch .entry-content{margin-top: 8px;}
 .top-footer{padding: 0 16px;}
+
+.crown-gallery ul{width: 620px;margin: 0 auto;}
+.crown-gallery li{list-style: none;float: left;padding: 0 42px 10px 0;}
+.crown-gallery img {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    padding: 6px;
+}
+.view-entries{float: right;}
