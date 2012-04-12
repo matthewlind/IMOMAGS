@@ -61,7 +61,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 <?php endif; ?> 
 </head>
 <body <?php body_class(); ?>>
-	
+<div id="fb-root"></div>
 <div class="str-container">
         <div class="aligncenter centerad">
 <?php if (function_exists("imo_dart_tag")) {

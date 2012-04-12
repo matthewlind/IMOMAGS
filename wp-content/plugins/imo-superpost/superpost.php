@@ -3,7 +3,7 @@
 /*
 Plugin Name: IMO SuperPost
 Plugin URI: http://imomags.com
-Description: Creates a service based UGC post type that is useful for 
+Description: Creates a service based UGC post type that is useful for posting Photos, Tips, Comments, Videos, Reports and more.
 Author: aaron
 Author URI:
 Version: 0.1
