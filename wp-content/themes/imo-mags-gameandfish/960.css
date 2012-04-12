@@ -758,11 +758,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', end
 }
 
 /*header overrides */
-.str-container-cr {
-	left: 358px;
-    position: relative;
-    top: -71px;
-    }
 .site-title-cr a {
     background: url("img/my-logo-cr.png") no-repeat scroll 0 0 transparent !important;
     display: block;
@@ -786,6 +781,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', end
 .str-container-cr {
     margin-left: 93px;
     width: 599px !important;
+    left: 647px;
+    position: absolute;
+    top: 56px;
 }
 #megaMenu ul.megaMenu {
     background: none !important;
@@ -1002,7 +1000,7 @@ width: 350px;
 height: 60px;
 padding: 50px 0;
 text-align: center;
-z-index: 99998;
+z-index: 99;
 top: 0;
 background-color: rgba(15, 15, 15, 0.4);
 color: #fff;

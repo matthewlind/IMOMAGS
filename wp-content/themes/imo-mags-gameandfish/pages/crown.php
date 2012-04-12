@@ -115,7 +115,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 					<p class="purple purp-callout"></p>
 				</div>
 				<div class="box-230">
-					<p class="white callout upload view-entries"><a href="#gallery"></a></p>
+					<p class="white callout gallery view-entries"><a href="#gallery"></a></p>
 				</div>
 
 				<div class="box-230">
@@ -125,7 +125,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 			<!-- right content -->
 			<div class='grid_12'>
-				<div class="box-710">
+				<div class="box-710 upload">
 					<a href="#sign-up-area"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/Crown-Royal-homepage-image.jpeg" alt="Catch Your Crown" /></a>
 				</div>
 				<div class="box-350 slideshow_btm">
@@ -224,7 +224,8 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 			<?php 
 			// Call the forms
 			gravity_form(9, false, false, false, '', false);
-			?>		
+			?>	
+			<em>This contest is only open to residents of Alabama, Connecticut, Maine, Massachusetts, Mississippi, New Hampshire, New York, North Carolina, Pennsylvania, Rhode Island, Virginia, West Virginia, and Vermont.</em>	
 		</div><!-- /end container -->
 	</div><!-- /end sign up area -->	
 			
@@ -270,7 +271,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 				<div class="box-350 box-350-states">
 					<h2>State Prizes</h2>
 					<a href="javascript:void(0)">
-						<span>There will be 13 winners, one from each eligible state.<br />The State Prize package will consist of:<br /><br />
+						<span>There will be 13 winners, one from each eligible state. The State Prize package will consist of:<br /><br />
 							<ol>
 								<li>"This Story Calls for a Crown" fishing jersey</li>
 								<li>Crown Royal fishing cap</li>
