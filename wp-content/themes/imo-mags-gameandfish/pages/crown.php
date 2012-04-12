@@ -131,14 +131,14 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 				<div class="box-350 slideshow_btm">
 					<a href="#prizes" class="prizes-area">
            			<span><abbr>View The Prizes</abbr></span>
-            		<img src="<?php bloginfo('stylesheet_directory'); ?>/img/home_prizes.jpg" alt="Prizes" />
+            		<img src="<?php bloginfo('stylesheet_directory'); ?>/img/prizes.jpg" alt="Prizes" />
        				</a>
 
 				</div>
 				<div class="box-350 slideshow_btm box-right">
 					<a href="#footer" class="rules-area">
            			<span><abbr>View The Rules</abbr></span>
-            		<img src="<?php bloginfo('stylesheet_directory'); ?>/img/home_rules.jpg" alt="Rules" />
+            		<img src="<?php bloginfo('stylesheet_directory'); ?>/img/rules.jpg" alt="Rules" />
        				</a>
 
 				</div>			
@@ -238,26 +238,26 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 			<!-- left content -->
 			<div class='grid_8'>
 				<div class="box-470 grand">
-					<h2>1st Grand Prize</h2>
+					<h2>Grand Prize</h2>
            			<a href="javascript:void(0)">
            			<span>
            				<ol>
-							<li>2012 Triton Explorer Series Boat</li>
+							<li>2012 Triton Explorer Series boat</li>
 							<li>115 HP Mercury outboard</li>
-							<li>Complete with trailer and Motor Guide trolling motor.</li>
+							<li>Complete with trailer and Motor Guide trolling motor</li>
 						</ol>
 					</span>
             		<img src="<?php bloginfo('stylesheet_directory'); ?>/img/grand_prize.jpg" alt="Grand Prize" />
        				</a>
 				</div>
 				<div class="box-470 grand">
-					<h2>2nd Grand Prize</h2>
+					<h2>First Prize</h2>
 					<a href="javascript:void(0)">
 					<span>
 						<ol>
-							<li>All expense paid trip for two to the Florida Keys</li>
-							<li>Two night stay and one full day guided fishing trip with all tackle and license provided</li>
-							<li>Round trip air fare and meals included</li>
+							<li>Fishing excursion for winner and guest to the Florida Keys</li>
+							<li>Two night stay and one full day guided fishing trip<br />with all tackle and license provided</li>
+							<li>Roundtrip airfare and accommodations for two included</li>
 						</ol>
 					</span>
             		<img src="<?php bloginfo('stylesheet_directory'); ?>/img/second_prize.jpg" alt="Second Grand Prize" />
@@ -270,9 +270,9 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 				<div class="box-350 box-350-states">
 					<h2>State Prizes</h2>
 					<a href="javascript:void(0)">
-						<span>There will be 9 winners, one, from each state.<br />The Prize package will consist of:<br /><br />
+						<span>There will be 13 winners, one from each eligible state.<br />The State Prize package will consist of:<br /><br />
 							<ol>
-								<li>"This Story Calls for a Crown" Fishing Jersey</li>
+								<li>"This Story Calls for a Crown" fishing jersey</li>
 								<li>Crown Royal fishing cap</li>
 								<li>Plano fishing tackle box</li>
 								<li>Penn Rod and Reel Combo</li>
@@ -297,7 +297,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 					<p class="white callout gallery entry"><a href="#gallery"></a></p>
 				</div>
 				<div class="box-110">
-					<p class="white callout rules"><a href="#footer"></a></p>
+					<p class="white callout rules-area rules"><a href="#footer"></a></p>
 				</div>
 			</div>
 
