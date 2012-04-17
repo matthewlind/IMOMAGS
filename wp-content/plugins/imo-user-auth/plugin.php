@@ -29,13 +29,18 @@ function imo_user_set() {
 	global $user_ID;
 	global $user_email;
 
+	$timecode = time();
+
 	$userhash = md5($user_login . $salt);
+	$timecode_hash = md5($timecode . $salt);
 
 	$user = array(
 		"username" => $user_login,
 		"user_id" => $user_ID,
 		"userhash" => $userhash,
-		"gravatar_hash" => md5($user_email)
+		"gravatar_hash" => md5($user_email),
+		"timecode" => $timecode,
+		"timecode_hash" => $timecode_hash
 	);
 
 	// send the user variables to the javascript

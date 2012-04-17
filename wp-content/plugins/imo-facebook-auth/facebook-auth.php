@@ -53,11 +53,26 @@ function imo_facebook_usercheck() {
 
 		$email = $user_profile['email'];
 
+		_log($user_profile);
+
 		$json = json_encode("NO USER EXISTS");
-        //Check if email address is in db
-        if ($user = get_user_by("email",$email)) {
+
+
+		//Check if user already exists
+        if ($user = get_user_by("email",$email)) {//if yes, log them in
         	wp_authenticate("facebook","dgrsvgqt4523facebook");
         	$json = json_encode($user);
+        } else { //if not, register the user
+
+        	$userdata = array();
+        	$userdata['user_email'] = $email;
+        	$userdata['first_name'] = $user_profile['first_name'];
+        	$userdata['last_name'] = $user_profile['last_name'];
+        	$userdata['display_name'] = $user_profile['first_name'] . " " . $user_profile['last_name'];
+
+       		$userID = wp_insert_user($userdata);
+       		wp_set_auth_cookie($userID,true);
+
         }
 
         
@@ -74,7 +89,7 @@ add_action("init", "imo_facebook_usercheck");
 
 
 /********************************
-******AUTHENTICATION FILTER******
+******AUTHENTICATION PLUGGABLE******
 *********************************/
 if ( !function_exists('wp_authenticate') ) :
 /**
@@ -89,8 +104,6 @@ if ( !function_exists('wp_authenticate') ) :
 function wp_authenticate($username, $password) {
 	$username = sanitize_user($username);
 	$password = trim($password);
-
-	_log("THIS IS MY AUTH!!!!!!!!!!!!!!!!");
 
 	$user = apply_filters('authenticate', null, $username, $password);
 
@@ -138,53 +151,7 @@ function wp_authenticate($username, $password) {
 		do_action('wp_login_failed', $username);
 	}
 
-	_log($user);
+
 	return $user;
 }
 endif;
-
-
-
-
-
-
-
-// add_filter( 'authenticate', 'imo_facebook_auth_login', 10, 3 );
-
-// function imo_facebook_auth_login( $user, $username, $password ){
-
-//     $facebook = new Facebook(array(
-// 	  'appId'  => '127971893974432',
-// 	  'secret' => '998a58347d730b52dd2bac877180bedd',
-// 	));
-
-// 	// Get FB User ID
-// 	$fbuser = $facebook->getUser();
-
-// 	if ($fbuser) {
-// 	  try {
-// 	    // Proceed knowing you have a logged in user who's authenticated.
-// 	    $user_profile = $facebook->api('/me');
-// 	  } catch (FacebookApiException $e) {
-// 	    error_log($e);
-// 	    $user = null;
-// 	  }
-// 	}
-
-// 	$email = $user_profile['email'];
-
-
-//       //Check if email address is in db
-//     if ($user = get_user_by("email",$email)) {
-//     	//remove_action('authenticate', 'wp_authenticate_username_password', 20);
-//     	_log("HEY HEY HYE");
-//     	_log($user);
-//     	return $user;
-//     } else {
-
-//     }
-
-   
-//      return $user;
- 
-// }

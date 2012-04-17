@@ -30,17 +30,25 @@ get_header();
         <div class="entry-content">
             <h1>Recon Network</h1>
 
+            <span id="toggle-display-button">
+                Toggle Display
+            </span>
+
             <ul class="post-type-select">
                 <li class='selected' title='all'>ALL</li>
                 <li title='photo'>Photos</li>
                 <li title='report'>Reports</li>
                 <li title='tip'>Tips</li>
             </ul>
-            
+            <!-- This div id="recon-activity" is filled with posts by the displayRecon() function
+                     inside plus.js -->    
             <div id="recon-activity">
 
 
             </div>
+            <span id="more-superposts-button">
+                More Recon
+            </span>
 
 
 

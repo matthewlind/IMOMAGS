@@ -1,23 +1,74 @@
 jQuery(document).ready(function($) {
 
+
+var displayAtOnce = 6;
+var currentDisplayStart = 0;
+var displayMode = "list"; //either "list" or "tile"
+
 var bgcolors = new Array("#403b35","#c65517","#829b40");
 
 
 //Make sure we should run all of this stuff
 if ($("#recon-activity").length > 0){
 
-	displayRecon("all");
+	if (displayMode == "tile") { //then show some tiles
+		displayRecon("all");
+
+	} else { //then show the list
+		displayReconList("all");
+	}
 }
 
-//activate Recon Network Controls
+//activate Recon Network Controls - tabs
 $("ul.post-type-select li").click(function(){
 	
 	var postType = $(this).attr('title');
 
-	displayRecon(postType);
+	currentDisplayStart = 0;
+
+	if (displayMode == "tile") { //then show some tiles
+		displayRecon(postType);
+
+	} else { //then show the list
+		displayReconList(postType);
+	}
+
 	$("ul.post-type-select li.selected").removeClass("selected");
 	$(this).addClass("selected");	
 });
+
+//activate Recon Network Controls - more button
+$("#more-superposts-button").click(function(){
+	
+	var postType = $("ul.post-type-select li.selected").attr("title");
+
+	currentDisplayStart += displayAtOnce;
+	if (displayMode == "tile") { //then show some tiles
+		displayRecon(postType);
+
+	} else { //then show the list
+		displayReconList(postType);
+	}
+
+});
+
+//activate Recon Network Controls - Toggle Display Button
+$("#toggle-display-button").click(function(){
+
+	var postType = $("ul.post-type-select li.selected").attr("title");
+
+	if (displayMode == "tile") { //then switch to list mode
+		displayReconList(postType);
+		displayMode = "list";
+	} else { //then switch to tile mode
+		displayRecon(postType);
+		displayMode = "tile";
+	}
+	
+	
+
+});
+
 
 
 //Hide popup elements on click
@@ -29,9 +80,14 @@ $(document).click(function() {
 //Display the recon!
 function displayRecon(type) {
 
-	$("#recon-activity").html("");	
+	if (currentDisplayStart == 0) {
+		$("#recon-activity").html("");
+	}
+		
 
 	var dataURL = "http://www.imomags.deva/slim/api/superpost/type/" + type;  	
+	dataURL += "/" + displayAtOnce;
+	dataURL += "/" + currentDisplayStart;
 
     var getdata = $.getJSON(dataURL, function(data) {
     
@@ -64,13 +120,18 @@ function displayRecon(type) {
 			userDetailsBox.append(nameBox);
 			userDetailsBox.append(statsBox);
 
-
+			//Store some user data so that we can retrieve it later on hover
 	        gravatar.data('user_id',this.user_id);
 	        gravatar.data('username',this.username);
 
 	        titleBox.append(titleDetailBox);
 	        titleBox.append(title);
-	        imageBox.append(image);
+
+	        if (this.img_url) {
+	        	imageBox.append(image);
+	        }
+
+	        
 	        underBox.append(userDetailsBox);
 	        underBox.append(gravatar);
 	        underBox.append(authorInfo);
@@ -95,7 +156,84 @@ function displayRecon(type) {
 	        if ($(data).length == count) {
 	            $("#recon-activity").imagesLoaded( function(){
 
-	            	afterImageLoaded()
+	            	afterImageLoaded();
+	                
+	            });
+	        }
+	        
+	    });
+
+	});
+
+} //End function displayRecon()
+
+
+
+
+function displayReconList(type) {
+
+	if (currentDisplayStart == 0) {
+		$("#recon-activity").html("");
+	}
+		
+
+	var dataURL = "http://www.imomags.deva/slim/api/superpost/type/" + type;  	
+	dataURL += "/" + displayAtOnce;
+	dataURL += "/" + currentDisplayStart;
+
+
+
+    var getdata = $.getJSON(dataURL, function(data) {
+    
+	    //$(".animal-container").html("");
+	    
+	    var count = 0;
+	    $(data).each(function(index) {
+	        count++;
+
+	        //usables: this.id, this.username, this.img_url, this.post_type,
+
+	        var gravatar = $("<img class='recon-gravatar'>").attr("src","http://www.gravatar.com/avatar/" + this.gravatar_hash + ".jpg?s=50&d=identicon");
+	        var authorInfo = $("<div class='recon-author-info'><span class='author-name'></span><span class='author-action'></span></div>");
+	        authorInfo.find(".author-name").text(this.username);
+	        authorInfo.find(".author-action").text(" posted a " + capitaliseFirstLetter(this.post_type));
+
+	        var date = $("<abbr class='recon-date timeago' title=''></abbr>").attr("title",this.created);
+
+	        var image = $("<img class='superpost-list-thumb'>").attr("src",this.img_url);
+
+
+
+	        //Userpopup stuff
+	        var userDetailsBox = $("<div class='user-details-box' style='display:none'></div>");
+			var nameBox = $("<div class='name-box'></div>").text(this.username);
+			var statsBox = $("<div class='stats-box'></div>");
+
+
+			var reconRow = $("<div class='recon-row masonry-box'><ul><li><div>" + this.title + "</div></li><li>2 Points</li><li>" + this.comment_count + " Comments</li><li>23 Shares</li></ul></a>");
+
+
+			$("#recon-activity").append(reconRow);
+
+			userDetailsBox.append(nameBox);
+			userDetailsBox.append(statsBox);
+
+
+	        //Store some user data so that we can retrieve it later on hover
+	        gravatar.data('user_id',this.user_id);
+	        gravatar.data('username',this.username);
+
+	 
+	        if (this.img_url) {
+	        	//imageBox.append(image);
+	        }
+
+
+
+	        if ($(data).length == count) {
+	            $("#recon-activity").imagesLoaded( function(){
+
+	            	afterImageLoaded();
 	                
 	            });
 	        }
@@ -113,14 +251,25 @@ function afterImageLoaded() {
 	//Add relative time
 	jQuery("abbr.timeago").timeago();
 
+	var masonryColumnWidth = 338;
+	var masonryGutterWidth = 3;
+	var masonryItemSelector = ".recon-box";
+
+	if (displayMode == "list") {
+		masonryColumnWidth = 1000;
+		masonryGutterWidth = 0;
+		masonryItemSelector = ".recon-row";
+	}
+
     //reset masonry
     if ($('#recon-activity').hasClass("masonry")) {
+    	$('#recon-activity').masonry( 'option', { columnWidth: masonryColumnWidth, gutterWidth: masonryGutterWidth, itemSelector:masonryItemSelector } )
     	$('#recon-activity').masonry('reload');
     } else {
     	$('#recon-activity').masonry({
-        	columnWidth: 338,
-        	gutterWidth: 3,
-            itemSelector: '.recon-box',
+        	columnWidth: masonryColumnWidth,
+        	gutterWidth: masonryGutterWidth,
+            itemSelector: masonryItemSelector,
             isAnimated: true,
     	});
     }
@@ -171,8 +320,6 @@ function afterImageLoaded() {
 	});
 
 }
-
-
 
 
 

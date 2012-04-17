@@ -2,6 +2,11 @@
 
 /*HOMEPAGE BASIC LAYOUT*/
 
+
+#recon-activity {
+	height:500px;
+}
+
 .recon-box {
 
 	margin-top:10px;
@@ -102,6 +107,24 @@ input.submit {
 	background-color:#eeeeee;
 }
 
+
+
+/*HOMEPAGE LIST LAYOUT*/
+
+.recon-row {
+
+	margin-top:10px;
+	margin-bottom:10px;
+	height:150px;
+	width:100%;
+	background-color:pink;
+}
+
+img.superpost-list-thumb {
+	width:90px;
+	height:90px;
+}
+
 /* Homepage Controls */
 ul.post-type-select {
 	text-align:right;
@@ -122,6 +145,53 @@ ul.post-type-select li.selected {
 ul.post-type-select li:hover {
 	background-color:#414d20;
 }
+
+#more-superposts-button {
+	cursor: pointer;
+	background-color:#cccccc;
+	display:block;
+	width:80px;
+	text-align:center;
+	padding:10px;
+	margin:10px auto 10px auto;
+
+
+
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+#more-superposts-button:active {
+	background-color:#999999;
+}
+
+#toggle-display-button {
+	cursor: pointer;
+	background-color:#cccccc;
+	display:block;
+	width:130px;
+	text-align:center;
+	padding:6px;
+
+
+
+
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+#toggle-display-button:active {
+	background-color:#999999;
+}
+
 
 /* User Popup */
 

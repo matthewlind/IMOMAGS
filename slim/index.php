@@ -34,6 +34,7 @@ $app->get('/',function(){
 //*********************************
 //********* Get all Posts *********
 //*********************************
+//Note, this does not fetch comments or answers
 $app->get('/api/superpost/all(/:count(/:start))',function($count = 20,$start = 0){
 
 	header('Access-Control-Allow-Origin: *');  
@@ -42,7 +43,9 @@ $app->get('/api/superpost/all(/:count(/:start))',function($count = 20,$start = 0
 
 		$db = dbConnect();
 
-		$sql = "SELECT * FROM superposts ORDER BY id DESC";
+		$limitClause = "LIMIT $start,$count";
+
+		$sql = "SELECT * FROM allcounts ORDER BY id DESC $limitClause";
 		$stmt = $db->query($sql);
 		$posts = $stmt->fetchAll(PDO::FETCH_OBJ);
 
@@ -70,12 +73,12 @@ $app->get('/api/superpost/type/:post_type(/:count(/:start))',function($post_type
 		$whereClause = "WHERE post_type = ?";
 
 		if ($post_type == "all")
-			$whereClause = "";
+			$whereClause = "WHERE post_type != 'comment' AND post_type != 'answer'";
 
 		$limitClause = "LIMIT $start,$count";
 
 
-		$sql = "SELECT * FROM superposts $whereClause ORDER BY id DESC $limitClause";
+		$sql = "SELECT * FROM allcounts $whereClause ORDER BY id DESC $limitClause";
 
 		$stmt = $db->prepare($sql);
 		$stmt->execute(array($post_type));
@@ -106,7 +109,7 @@ $app->get('/api/superpost/post/:id',function($id){
 		$db = dbConnect();
 
 
-		$sql = "SELECT * FROM superposts WHERE id = ? ORDER BY id DESC";
+		$sql = "SELECT * FROM allcounts WHERE id = ? ORDER BY id DESC";
 
 		$stmt = $db->prepare($sql);
 		$stmt->execute(array($id));
