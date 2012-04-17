@@ -19,8 +19,10 @@ Follow variables are useable :
 <?php $gallery = nggdb::find_gallery( get_query_var('gallery') ); 
 
 ?>
+<?php if (empty($_GET['callback'])) { 
 
-<h2><a href="<?php 
+?>
+<h2 class="album-breadcrumb"><a href="<?php 
 
 if (strpos($_SERVER['REQUEST_URI'], '/tag/') || strpos($_SERVER['REQUEST_URI'], '/gallery/'))
 	echo 'http://'.$_SERVER['HTTP_HOST'] . '/galleries/';
@@ -28,7 +30,7 @@ else
 	the_permalink();
 
 
-?>"><?php 
+?>"><?php } 
 
 
 
@@ -87,12 +89,13 @@ echo '<script type="text/javascript">';
 		<div class="back">
 			<a class="ngg-browser-prev" id="ngg-prev-<?php echo $image->previous_pid ?>" href="<?php echo $image->previous_image_link ?>#image">&#9668; <?php _e('Back', 'nggallery') ?></a>
 		</div>
-        		
 		<div class="next">
 			<a class="ngg-browser-next" id="ngg-next-<?php echo $image->next_pid ?>" href="<?php echo $image->next_image_link ?>#image"><?php _e('Next', 'nggallery') ?> &#9658;</a>
 		</div>
-        <div class="counter"><?php _e('Picture', 'nggallery') ?> <?php echo $image->number ?> <?php _e('of', 'nggallery')?> <?php echo $image->total ?></div>
-                <div class="ngg-imagebrowser-desc"><h3><?php echo $image->alttext ?></h3></div>
+        <!-- <div class="counter"><?php _e('Picture', 'nggallery') ?> <?php echo $image->number ?> <?php _e('of', 'nggallery')?> <?php echo $image->total ?></div> -->
+                <div class="ngg-imagebrowser-desc"><h3><?php echo $image->alttext ?></h3>
+                    <p><?php echo $image->description ?></p>
+</div>
 	</div>	
 
 	<div class="pic">
@@ -101,7 +104,6 @@ echo '<script type="text/javascript">';
 	
 	
 	</div>
-    <p><?php echo $image->description ?></p>
 
 
 </div>	
