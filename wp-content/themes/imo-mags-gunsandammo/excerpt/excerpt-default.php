@@ -49,6 +49,6 @@ if (!(has_term('news-brief','blog_tax')))
 		<?php the_excerpt(); ?>
 	</div>
   
-  <a class="comment-count" href="<?php comments_link(); ?>"><?php comments_number('0', '1', '%'); ?></a>
+  <a class="comment-count" href="<?php comments_link(); ?>"><?php echo get_comments_number(); ?></a>
 
 </article>
