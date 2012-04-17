@@ -102,7 +102,7 @@ function imo_tax_init() {
         ),
     );
 
-    $types = array("post","page","imo_video","imo_gallery");
+    $types = array("post","page","imo_video","imo_gallery","reviews");
 
     foreach ($taxonomies as $target_taxonomy => $taxonomy) {
         register_taxonomy(

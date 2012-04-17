@@ -21,14 +21,26 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 get_header();
 ?>
-<a class="crown-ad" href="<?php echo home_url(); ?>/crown-royal-2012/"><div class="callout-ad"><h1>Enter To Win And Share Your Best Catch</h1></div></a>
-<div class="col-ab">
+<a class="crown-ad" href="<?php echo home_url(); ?>/crownroyal/"><div class="callout-ad">&nbsp;</div></a>
+<div class="col-ab crown-gallery">
+	<h1>
+	<?php the_title(); ?>
+	</h1>
 	<?php
-	cfct_loop();
-	comments_template();
-	?>
+		//Most Recent
+		$the_query = new WP_Query( array( 'post_type' => 'crown_your_catch', 'orderby' => 'date', 'order' => 'DESC' ) );
+		while ( $the_query->have_posts() ) : $the_query->the_post(); 
+				if(has_post_thumbnail()){  
+					foreach($the_query as $query) ?>
+						<li><a href="<?php echo $query->guid; ?>"><span></span><?php the_post_thumbnail('thumbnail'); ?></a></li>
+          <?php }
+		endwhile;	
+		// Reset Post Data
+		wp_reset_postdata();
+		?>
 </div>
-<?php get_sidebar('crown'); ?>
+<?php get_sidebar('crown'); 
+?>
 <div class="top-footer">
 <p>Please Drink Responsibly.</p>
 <p>CROWN ROYAL Blended Canadian Whisky. 40% Alc/Vol. &copy; <?php the_date('Y') ?> The Crown Royal Company, Norwalk, CT. NO PURCHASE NECESSARY. Contest valid only to residents of AL, MS, NC, WV, VA, PA, ME, NH, VT.<br />Must be 21 to enter.<p>
