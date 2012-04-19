@@ -55,6 +55,7 @@ $("#more-superposts-button").click(function(){
 //activate Recon Network Controls - Toggle Display Button
 $("#toggle-display-button").click(function(){
 
+	currentDisplayStart = 0;
 	var postType = $("ul.post-type-select li.selected").attr("title");
 
 	if (displayMode == "tile") { //then switch to list mode
@@ -209,8 +210,22 @@ function displayReconList(type) {
 			var nameBox = $("<div class='name-box'></div>").text(this.username);
 			var statsBox = $("<div class='stats-box'></div>");
 
+			var points = parseInt(this.comment_count) + parseInt(this.share_count);
 
-			var reconRow = $("<div class='recon-row masonry-box'><ul><li><div>" + this.title + "</div></li><li>2 Points</li><li>" + this.comment_count + " Comments</li><li>23 Shares</li></ul></a>");
+			var reconRow = $("\
+				<div class='recon-row masonry-box'>\
+					<ul>\
+						<li>\
+							<div class='row-info'>\
+								<div class='row-post-type post-type-" + this.post_type + "'>" + this.post_type + "</div>\
+								<div class='row-title'>" + this.title + "</div>\
+							</div>\
+						</li>\
+						<li class='count-field' >" + points + " Points</li>\
+						<li class='count-field' >" + this.comment_count + " Comments</li>\
+						<li class='count-field' >" + this.share_count + " Shares</li>\
+					</ul>\
+				</div>");
 
 
 			$("#recon-activity").append(reconRow);
@@ -226,6 +241,10 @@ function displayReconList(type) {
 	 
 	        if (this.img_url) {
 	        	//imageBox.append(image);
+	        	reconRow.find("ul").prepend($("<li class='row-image'>").append(image.width(90)));
+	        	
+	        } else {
+	        	reconRow.find("div.row-info").addClass("no-image");
 	        }
 
 
@@ -233,6 +252,7 @@ function displayReconList(type) {
 	        if ($(data).length == count) {
 	            $("#recon-activity").imagesLoaded( function(){
 
+	            	$(".recon-row:odd").addClass("odd");
 	            	afterImageLoaded();
 	                
 	            });

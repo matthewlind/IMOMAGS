@@ -108,21 +108,86 @@ input.submit {
 }
 
 
+.row-post-type {
+	color:white;
+	display: inline-block;
+	text-transform:uppercase;
+	padding:3px 5px 3px 5px;
+	font-size:10px;
+}
+
+.post-type-tip {
+	background-color:#c65517;
+}
+
+.post-type-report {
+	background-color:#c3290a;
+}
+
+.post-type-photo {
+	background-color:#58534f;
+
+}
+
+.post-type-video {
+	background-color:#121212;
+}
+
 
 /*HOMEPAGE LIST LAYOUT*/
 
 .recon-row {
 
-	margin-top:10px;
-	margin-bottom:10px;
-	height:150px;
+	padding:20px 20px 20px 0px;
+	border-top:1px dashed gray;
+	height:90px;
 	width:100%;
-	background-color:pink;
+
+}
+
+.recon-row ul li {
+	display: table-cell;
+	vertical-align: middle;
+	height:90px;
+}
+
+.recon-row.odd {
+	background-color:#efece6;
+}
+
+
+.recon-row ul {
+	margin-left:0;
+}
+
+.recon-row ul li div.row-info {
+	display:inline-block;
+	width:400px;
+	margin-left:20px;
+}
+
+.recon-row ul li div.row-info.no-image {
+	width:510px;
+}
+
+.recon-row ul li.row-image {
+	padding-left:20px;
 }
 
 img.superpost-list-thumb {
 	width:90px;
 	height:90px;
+}
+
+.row-title {
+	font-size:18px;
+	font-weight:bold;
+}
+
+li.count-field {
+	padding-left:20px;
+	padding-right:20px;
+	text-transform:uppercase;
 }
 
 /* Homepage Controls */
