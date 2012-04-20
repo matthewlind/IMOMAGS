@@ -13,7 +13,7 @@ get_header(); ?>
   			<span class="spacer">|</span>
   			<time class="published" datetime="<?php the_time('Y-m-d\TH:i'); ?>"><?php the_time('F j, Y'); ?></time>
   		</div>
-  		<a class="comment-count" href="<?php comments_link(); ?>"><?php comments_number('0', '1', '%'); ?></a>
+  		<a class="comment-count" href="<?php comments_link(); ?>"><?php echo get_comments_number(); ?></a>
   	</div>
   	<div class="entry-content">
       <?php

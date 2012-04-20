@@ -19,7 +19,8 @@ the_post(); ?>
 			<div class="entry-content">
 				<?php
 				the_content(__('Continued&hellip;', 'carrington-business'));
-				wp_link_pages(); ?>
+				<?php wp_link_pages(); ?>
+				
 			</div>
 		</div>
 	</div>

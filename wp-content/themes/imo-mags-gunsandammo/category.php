@@ -24,19 +24,26 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 get_header(); 
 ?>
+<div class="page-template-page-right-php category-page">
+	<div id="sidebar">
+		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('homepage-sidebar')) : else : ?><?php endif; ?>
+	</div>
+	<div id="content" class="col-abc category-col-abc">
+		<div class="section-title posts" style="width:648px;">
+					<div class="cfct-mod-content">
+						<h4>
+ 							<div class="icon"></div>
+  								<span><?php single_cat_title('');?></span>
+						</h4>
+					</div>
+				</div>
 
-<header id="masthead">
-	<h1><?php single_cat_title('');?>hi</h1>
-</header>
-
-<div id="content" class="col-ab">
 	<?php
 	cfct_loop();
 	cfct_misc('nav-posts'); ?>
 </div>
 
 <?php
-get_sidebar();
 get_footer(); ?>
 
 ?>

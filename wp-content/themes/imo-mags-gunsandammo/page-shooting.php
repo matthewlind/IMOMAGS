@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: Reviews Page
+ * Template Name: Shooting Landing
  * Description: A page with a right BONUS sidebar column.
  *
  * @package carrington-business
@@ -23,6 +23,6 @@ if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 
 // NOTE: this file is here for compatibility reasons - active templates are in the pages/ dir 
 
-cfct_page('right-sidebar-reviews');
+cfct_page('shooting');
 
 ?>

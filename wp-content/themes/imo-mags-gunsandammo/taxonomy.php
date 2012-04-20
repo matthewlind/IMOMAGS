@@ -30,15 +30,19 @@ if (!is_admin()) {
 ?>
 <?php get_header(); ?>
 
-<header id="masthead">
-	<h1><?php single_cat_title('');?></h1>
-</header><!-- #masthead -->
-
 <div class="page-template-page-right-php taxonomy-page">
-<?php get_sidebar(); ?>	
-
-
-<div class="col-abc taxonomy-col-abc">
+	<div id="sidebar">
+		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('homepage-sidebar')) : else : ?><?php endif; ?>
+	</div>
+	<div class="col-abc taxonomy-col-abc">
+		<div class="section-title posts" style="width:648px;">
+					<div class="cfct-mod-content">
+						<h4>
+ 							<div class="icon"></div>
+  								<span><?php single_cat_title('');?></span>
+						</h4>
+					</div>
+				</div>
 
 <?php
 $term = get_queried_object();
@@ -53,7 +57,7 @@ $taxonomy = $term->taxonomy;
 $args = array(
 	$taxonomy => $term_slug,
 	'paged' => get_query_var('paged'),
-	'posts_per_page' => 14,
+	'posts_per_page' => 13,
 
 );
 
@@ -92,26 +96,14 @@ $item = array();
 		
 		
 		       
-		if ($count == 4) {
+		if ($count == 1) {
 			
-			?>
-			
-			<!--  <div class="taxonomy-featured-container">
-				
-				<div class="taxonomy-right-box widget fancy" style="">
-					<h2 class="widget-title">Trending Now</h2>
-					
-					<ul>-->
-					
-					<?php
-					$args = array(
+						$args = array(
 						$taxonomy => $term_slug,
 						"posts_per_page" => 7,
 						"orderby" => "comment_count",
 						
 					);
-					
-					
 					
 					// The Query
 					$the_query = new WP_Query( $args );
@@ -130,95 +122,67 @@ $item = array();
 					
 					?>
 					
-					<!--  </ul>
-					
-				</div> -->
-			
-				<div class='featured-articles'>
-					<?php
-					
-					$itemCount = 0;
-					foreach($items as $item) {//First create the big images
-						
-						$itemCount++;
-						?>
-						
-						<div class='featured-item-pane' id='featured-item-<?php echo $itemCount; ?>'>
-							<div class='featured-item-image'>
-							   <img src="<?php echo $item['img_src'][0]; ?>"/>
-							</div>
-							<div class='featured-item-description'>
-							  <h2><a href="<?php echo $item['link']; ?>"><?php echo $item['title']; ?></a></h2>
-							</div>
-						</div>
-						
-						<?php
-				
-					}
-					
-					
-					?>
-					<ul id='featured-articles-navigator'>	
-						<?php
-						
-						
-						$itemCount = 0;
-						foreach($items as $item) {//Then make the thumbs.
-							
-							$itemCount++;
-					
-							if ($itemCount == 1)
-								$listClass = "class='first'";
-							else
-								$listClass = "";
-							
-							?>
-								<li <?php echo $listClass; ?>>
-									<a href="#featured-item-<?php echo $itemCount; ?>">
-										<img src='<?php echo $item['img_src_thumb'][0]; ?>'/>
-									</a>
-								</li>
-							
-							<?php
-						
-						}			
-						
-						?>
-					</ul>
-				</div>
-			
-			</div>  <!-- End taxonomy-featured-containter -->
+		<div class='featured-wide-articles'>
 
+	<?php if (!empty($items)) {
+			$count = 0;
+			foreach ($items as $key => $item) {
+				
+				$count++;
+				
+				
+				?>
+					<div class='featured-item-pane' id='featured-item-<?php echo $count; ?>'>
+						<div class='featured-item-image'>
+						   <a href="<?php echo $item['link']; ?>"><img style="width:648px;height:auto;" src="<?php echo $item['img_src'][0]; ?>"/></a>
+						</div>
+						<div class='featured-item-description'>
+						  <h2><a href="<?php echo $item['link']; ?>"><?php echo $item['title']; ?></a></h2>
+						</div>
+					</div>
+				
+				<?php
+				
+				
+			}
+		}
+	?>
+	</div><!-- end feature -->  
+								
 <hr>
-<div id="cfct-block-4518ebeb1ea592985bec45605f5a7acd" class="c4-1234 cfct-block-abc cfct-block block-0">
+<div class="c4-1234 cfct-block-abc cfct-block block-0">
 			<div class="cfct-module cfct-html section-title posts">
 				<div class="cfct-mod-content"><h4>
   						<div class="icon"></div>
   						<span>Latest Reviews</span>
 				</h4></div>
-			</div>			<?php
-			
-			
+			</div>	
+	
+		<?php
+						
 		}
        
 	} else {//If not on first
 		?>
-		<div id="category-content" style="width:648px;">
-		<?php
-	       cfct_excerpt();
-		?>
-		</div>
+		<li class="page-reviews">
+		<?php if (has_post_thumbnail()) :
+		echo '<a href="', the_permalink(),'">', the_post_thumbnail('post-thumbnail', array('class' => 'entry-img')), '</a>'; ?>
+		<?php endif; ?>
+		<a class="title" rel="bookmark" href="<?php the_permalink() ?>"><?php the_title() ?></a><br />
+		<a class="comments" href="<?php comments_link(); ?>"><?php comments_number(); ?></a>
+		</li>
+
 		<?php
 	}
 		
 ?> 
 
 <?php endwhile;?>
+
 <?php cfct_misc('nav-posts'); ?>
 </div> <!-- end div col-abc-->
 </div> <!-- end class="page-template-page-right-php" -->
 
 <?php
-get_sidebar();
 get_footer();
 ?>
