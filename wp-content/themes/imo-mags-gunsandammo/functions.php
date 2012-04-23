@@ -51,7 +51,7 @@ register_sidebar(array(
 // Add new image size for post lists
 add_image_size('post-thumb', 226, 147, true);
 add_image_size('post-slide', 640, 350, true);
-
+add_image_size('huge-thumb', 648, 370, true);
 
 // New excerpt ending
 function ga_new_excerpt_more($more) {
@@ -90,6 +90,12 @@ function ga_imo_addons_sidebar_init() {
     'Shown on blog posts and archives.'
   )));
 
+  register_sidebar(array_merge($sidebar_defaults, array(
+      'id' => 'sidebar-ad',
+      'name' => 'Homepage Trending Ad',
+      'description' => 'Shown on the left of the trending section on the Homepage.',
+  )));
+  
   register_sidebar(array_merge($sidebar_defaults, array(
       'id' => 'header-slot',
       'name' => 'Header Slot',
