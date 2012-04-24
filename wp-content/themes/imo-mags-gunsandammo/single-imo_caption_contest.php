@@ -2,6 +2,17 @@
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
+
+
+$productName = get_post_meta($post->ID,"product_name",true);
+$productDescription = get_post_meta($post->ID,"production_descfription",true);
+$thumbnailID = get_post_meta($post->ID,"product",true);
+
+$thumbnailData = wp_get_attachment_image($thumbnailID,"thumbnail");
+print_r($thumbnailID);
+print_r($thumbnailData);
+
+
 get_header(); ?>
 <div id="content" class="col-abc">
   <div <?php post_class('entry entry-full clearfix') ?>>
@@ -14,10 +25,15 @@ get_header(); ?>
   		</div>
   		<a class="comment-count" href="<?php comments_link(); ?>"><?php echo get_comments_number(); ?></a>
   	</div>
-  	<div class="entry-content">
-  		<?php the_content(__('Continued&hellip;', 'carrington-business')); ?>
+  	<div class="entry-content"><p>
+  		<?php echo $post->post_content; ?></p>
   		
-  		<div class="caption-contest">
+  		<div class="caption-banner">
+        <div class="caption-banner-text">This Month's Photo</div>
+        
+      </div>
+
+      <div class="caption-contest">
   		  
   		  <?php $img_src = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), "full"); ?>
 		    <img src="<?php echo $img_src[0]; ?>" class="wp-post-image" alt="<?php the_title(); ?>" />

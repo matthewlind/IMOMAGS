@@ -171,6 +171,13 @@ function imo_caption_contest_init() {
           'type' => 'text',               // Field type: text box
           'std' => ''             // Default value, optional
         ),
+        array(
+          'name' => 'Product Description',          // Field name
+          'desc' => '', // Field description, optional
+          'id' => $prefix . 'product_description',      // Field id, i.e. the meta key
+          'type' => 'textarea',               // Field type: text box
+          'std' => ''             // Default value, optional
+        ),
       )
     );
 
@@ -244,10 +251,10 @@ function imo_caption_contest_inner_custom_box( $post ) {
 
 
   
-  //$args = array('post_id' => 6009);
+  $args = array('post_id' => 6009);
  
   //UNCOMMENT THIS LINE BEFORE LAUNCH!!!! (Also delete above line.)
-  $args = array('post_id' => $postID);
+  //$args = array('post_id' => $postID);
 
   $comments = get_comments($args);
 
