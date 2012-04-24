@@ -168,7 +168,7 @@ $item = array();
 		<?php if (has_post_thumbnail()) :
 		echo '<a href="', the_permalink(),'">', the_post_thumbnail('post-thumbnail', array('class' => 'entry-img')), '</a>'; ?>
 		<?php endif; ?>
-		<a class="title" rel="bookmark" href="<?php the_permalink() ?>"><?php the_title() ?></a><br />
+		<a class="title" rel="bookmark" href="<?php the_permalink(); ?>"><?php the_title() ?></a><br />
 		<a class="comments" href="<?php comments_link(); ?>"><?php comments_number(); ?></a>
 		</li>
 
