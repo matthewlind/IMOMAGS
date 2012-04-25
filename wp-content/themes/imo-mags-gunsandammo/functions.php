@@ -243,13 +243,12 @@ function wpse_5057_match_multiple_taxonomy_terms($where_clause, $wp_query) {
 
             foreach($arr_terms as $key => $value) {
 
-                $sql = "AND $wpdb->posts.guid as url
-                	AND $wpdb->posts.ID IN(
+                $sql = "AND $wpdb->posts.ID IN(
                     SELECT tr.object_id,
                     FROM $wpdb->term_relationships AS tr
                     INNER JOIN $wpdb->term_taxonomy AS tt ON tr.term_taxonomy_id = tt.term_taxonomy_id
                     INNER JOIN $wpdb->terms AS t ON tt.term_id = t.term_id
-                    WHERE tt.taxonomy='%s' AND t.slug='%s')";
+                    WHERE tt.taxonomy='%s' AND t.term_id='%s')";
 
                 $where_clause .= $wpdb->prepare($sql, $key, $value); // add to the where
 
