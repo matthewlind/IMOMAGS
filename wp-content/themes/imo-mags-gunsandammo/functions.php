@@ -213,4 +213,53 @@ function mm_current_issue($atts, $content = null) {
           <li><a href="'.SERVICE_LINK.'">Subscriber Services</a></li>
 	        </ul>';
 }
+
 add_shortcode("mm-current-issue", "mm_current_issue");
+
+
+
+			
+
+
+		
+
+
+
+
+/*
+** QUERY MULTIPLE TAXONOMIES WITH POST TYPE
+**
+*/
+function wpse_5057_match_multiple_taxonomy_terms($where_clause, $wp_query) {
+
+    // If the query obj exists
+    if (isset($wp_query->query)) {
+
+        $multi_query = $wp_query->query;
+
+        if (is_array($multi_query) && isset($multi_query['multiple_terms'])) {
+
+            global $wpdb;
+            $arr_terms = $multi_query['multiple_terms'];
+
+            foreach($arr_terms as $key => $value) {
+
+                $sql = "AND $wpdb->posts.ID IN(
+                    SELECT tr.object_id,
+                    FROM $wpdb->term_relationships AS tr
+                    INNER JOIN $wpdb->term_taxonomy AS tt ON tr.term_taxonomy_id = tt.term_taxonomy_id
+                    INNER JOIN $wpdb->terms AS t ON tt.term_id = t.term_id
+                    WHERE tt.taxonomy='%s' AND t.term_id='%s')";
+
+                $where_clause .= $wpdb->prepare($sql, $key, $value); // add to the where
+
+            }
+        }
+
+    }
+
+    return $where_clause; // return the filtered where
+
+}
+add_action('posts_where','wpse_5057_match_multiple_taxonomy_terms',10,2); // Hook this to posts_where
+
