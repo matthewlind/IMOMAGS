@@ -214,4 +214,3 @@ function mm_current_issue($atts, $content = null) {
 	        </ul>';
 }
 add_shortcode("mm-current-issue", "mm_current_issue");
-
