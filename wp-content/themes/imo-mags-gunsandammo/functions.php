@@ -44,5 +44,3 @@ register_sidebar(array(
 'after_title' => '</h2>'
 ));
 }
-
-?>

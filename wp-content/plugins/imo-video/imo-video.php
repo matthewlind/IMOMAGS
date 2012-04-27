@@ -90,7 +90,7 @@ function imo_video_init() {
 		'taxonomies' => array('video_channel','post_tag','activity','location','gear','species'),
 	  ); 
 	  register_post_type('imo_video',$args);
-    flush_rewrite_rules();
+
 }
 
 function imo_video_flush() {

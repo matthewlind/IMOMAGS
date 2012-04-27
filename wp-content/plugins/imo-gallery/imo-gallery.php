@@ -58,7 +58,7 @@ function imo_gallery_init() {
 		'taxonomies' => array('video_channel','post_tag','activity','location','gear','species'),
 	  ); 
 	  register_post_type('imo_gallery',$args);
-	  flush_rewrite_rules();
+
 }
 
 function imo_gallery_flush() {
