@@ -5,12 +5,12 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 
 $productName = get_post_meta($post->ID,"product_name",true);
-$productDescription = get_post_meta($post->ID,"production_descfription",true);
+$productDescription = get_post_meta($post->ID,"product_description",true);
 $thumbnailID = get_post_meta($post->ID,"product",true);
 
-$thumbnailData = wp_get_attachment_image($thumbnailID,"thumbnail");
-print_r($thumbnailID);
-print_r($thumbnailData);
+$thumbnailImage = wp_get_attachment_image($thumbnailID,"thumbnail");
+
+
 
 
 get_header(); ?>
@@ -51,6 +51,17 @@ get_header(); ?>
   		  <?php endif; ?>
   		
   		</div>
+
+      <div class="prize-box">
+        <div class="prize-thumb">
+          <?php echo $thumbnailImage; ?>
+        </div>
+        <h2>The Prize:</h2>
+        <h4><?php echo $productName; ?></h4>
+        <p><?php echo $productDescription; ?></p>
+
+        
+      </div>
 
   	</div>
     <!-- <div class="entry-footer">
