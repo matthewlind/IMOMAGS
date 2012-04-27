@@ -217,15 +217,6 @@ function mm_current_issue($atts, $content = null) {
 add_shortcode("mm-current-issue", "mm_current_issue");
 
 
-
-			
-
-
-		
-
-
-
-
 /*
 ** QUERY MULTIPLE TAXONOMIES WITH POST TYPE
 **
@@ -245,7 +236,7 @@ function wpse_5057_match_multiple_taxonomy_terms($where_clause, $wp_query) {
             foreach($arr_terms as $key => $value) {
 
                 $sql = "AND $wpdb->posts.ID IN(
-                    SELECT tr.object_id,
+                    SELECT tr.object_id
                     FROM $wpdb->term_relationships AS tr
                     INNER JOIN $wpdb->term_taxonomy AS tt ON tr.term_taxonomy_id = tt.term_taxonomy_id
                     INNER JOIN $wpdb->terms AS t ON tt.term_id = t.term_id
@@ -263,3 +254,14 @@ function wpse_5057_match_multiple_taxonomy_terms($where_clause, $wp_query) {
 }
 add_action('posts_where','wpse_5057_match_multiple_taxonomy_terms',10,2); // Hook this to posts_where
 
+/*
+** YARPP
+**
+*/
+function add_post_content($content) {
+	if(!is_feed() && !is_home()) {
+		$content .= '<div><fb:recommendations site="jerrycain.com" app_id="118280394918580"></fb:recommendations><div>';
+	}
+	return $content;
+}
+add_filter('the_content', 'add_post_content');

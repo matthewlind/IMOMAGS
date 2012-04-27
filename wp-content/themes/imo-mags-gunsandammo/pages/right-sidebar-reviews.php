@@ -51,7 +51,7 @@ the_post();
 							});
 						});
 					</script>
-					<form action="?" method="post" id="form">
+					<form action="<?php $_SELF['REQUEST_URI']; ?>" method="post" id="form">
 
 					Filter: 
 						<select>
@@ -101,6 +101,7 @@ the_post();
 				
 				if(isset($_POST['submit']) && $_POST['manufacturer'] != '' || $_POST['guntype'] != ''){
 					echo $_POST['manufacturer'];
+					echo $_POST['guntype'];
 					/* Print results based on query.
 					** 	---> $args will have to be variables that are 
 					**	---> replaced by $_POST values.
@@ -110,11 +111,11 @@ the_post();
 					$guntype = $_POST['guntype'];
 					$manufacturer = $_POST['manufacturer'];
 					$caliber = $_POST['caliber'];
-					
+					//, 'guntype' => $guntype, 'caliber' => $caliber
 					$tax = array(
 					
     				'post_type' => 'reviews',
-    				'multiple_terms' => array('guntype' => $guntype, 'manufacturer' => $manufacturer, 'caliber' => $caliber),
+    				'multiple_terms' => array('manufacturer' => $manufacturer),
     				'posts_per_page' => 9,
 					'orderby' => 'date',
 					'order' => 'DESC'
@@ -146,8 +147,7 @@ the_post();
 				// Latest Reviews default
 				}else{ 
 					$args = array(
-					
-    				'post_type' => 'reviews',
+					'post_type' => 'reviews',
     				'posts_per_page' => 9,
 					'orderby' => 'date',
 					'order' => 'DESC'
@@ -175,7 +175,7 @@ the_post();
 					<?php endwhile;
 					// Reset Post Data
 					wp_reset_postdata();
-					
+
 					
 					}
 				
