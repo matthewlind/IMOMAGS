@@ -47,6 +47,17 @@ register_sidebar(array(
 }
 
 
+//Add Scripts for Reviews Section
+add_action( 'init', 'imo_mags_ga_scripts' );
+function imo_mags_ga_scripts() {
+  wp_enqueue_script(
+    'imo-ga-reviews',
+    get_stylesheet_directory_uri() . '/js/reviews.js',
+    array('jquery')
+  );
+}
+
+
 
 // Add new image size for post lists
 add_image_size('post-thumb', 226, 147, true);
