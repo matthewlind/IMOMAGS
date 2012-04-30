@@ -68,7 +68,7 @@ if (have_posts()) : ?>
           ),
     );
     the_widget('imo\IMOSliderWidget', $instance); ?>
-    <a class="cta" href="#">View All <span></span></a>
+    <a class="cta" href="/?video_channel=tips-tactics/">View All <span></span></a>
   </div>
 
   <div class="video-category">
@@ -82,7 +82,7 @@ if (have_posts()) : ?>
           ),
     );
     the_widget('imo\IMOSliderWidget', $instance); ?>
-    <a class="cta" href="#">View All <span></span></a>
+    <a class="cta" href="/?video_channel=reviews-guns-gear/">View All <span></span></a>
   </div>
 
   <div class="video-category">
@@ -97,7 +97,7 @@ if (have_posts()) : ?>
 
     );
     the_widget('imo\IMOSliderWidget', $instance); ?>
-    <a class="cta" href="#">View All <span></span></a>
+    <a class="cta" href="/?video_channel=torture-tests-guns-gear/">View All <span></span></a>
   </div>
 	
 </div>

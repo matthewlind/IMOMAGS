@@ -26,6 +26,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 		</div>
 		<a class="comment-count" href="#idc-container"><?php echo get_comments_number(); ?></a>
 	</div>
+	<?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
 	<div class="entry-content">
 		<?php
 		// Un-comment this if you want featured images to automatically appear on full posts

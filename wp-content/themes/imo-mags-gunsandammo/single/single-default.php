@@ -21,7 +21,9 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 get_header();
 ?>
-
+<div id="sidebar">
+		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('homepage-sidebar')) : else : ?><?php endif; ?>
+	</div>
 <!-- Set the blog header on single blog entry pages -->
 <?php
 
@@ -66,9 +68,8 @@ $zn_slug = "zombie-nation";
 
 <div id="content" class="col-ab">
 	<?php cfct_loop(); ?>
+	<?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
 	<?php comments_template(); ?>
 </div>
-<?php
-get_sidebar();
-get_footer();
+<?php get_footer();
 ?>
