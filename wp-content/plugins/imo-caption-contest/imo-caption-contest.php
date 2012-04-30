@@ -58,10 +58,7 @@ function imo_caption_contest_init() {
 		'taxonomies' => array('video_channel','post_tag','activity','location','gear','species','blogs'),
 	  ); 
 	  register_post_type('imo_caption_contest',$args);
-<<<<<<< HEAD
-=======
 
->>>>>>> 55410d9b12b5fb1129cd745dca55cefc1093e51f
 
         if ( !class_exists( 'RWMB_Caption_Field' ) ) {
         class RWMB_Caption_Field {
