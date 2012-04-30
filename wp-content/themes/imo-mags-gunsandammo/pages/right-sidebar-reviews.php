@@ -27,7 +27,7 @@ the_post();
 				the_content(__('Continued&hellip;', 'carrington-business')); ?>
 				<div class="cfct-module cfct-html section-title posts">
 					<div class="cfct-mod-content">
-						<h4>
+						<h4 class="reviews-form-header">
  							<div class="icon"></div>
   								<span>Latest Reviews</span> 
 						</h4>
@@ -51,9 +51,9 @@ the_post();
 							});
 						});
 					</script>
-					<form action="<?php $_SELF['REQUEST_URI']; ?>" method="post" id="form">
+					<form action="<?php $_SELF['REQUEST_URI']; ?>" method="post" id="form" class="reviews-form">
 
-					Filter: 
+					<span>Filter:</span>
 						<select>
 							<option selected="selected" name="guntype" value="">Type</option>
 							<?php
@@ -84,7 +84,6 @@ the_post();
 							<option selected="selected" name="caliber" value="">Caliber</option>
 							<?php include('/wp-content/themes/imo-mags-gunsandammo/ajax_caliber.php'); ?>
 						</select>
-						<input name="submit" type="submit" value="Submit" />
 						<?php
 						/* 
 						**

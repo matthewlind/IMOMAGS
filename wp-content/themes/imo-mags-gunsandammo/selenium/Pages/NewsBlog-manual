@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://www.gunsandammo.test/" />
+<title>NewsBlog-manual</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">NewsBlog-manual</td></tr>
+</thead><tbody>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Pages</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Edit')])[19]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#cfct-row-d39de5bcef23128e0e6fe4a0122236db &gt; div.cfct-row-inner &gt; table.cfct-row-blocks &gt; tbody &gt; tr.cfct-build-module-controls &gt; td.cfct-build-add-module &gt; p &gt; a.cfct-add-new-module</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#cfct-popup-inner &gt; div.cfct-popup.cfct-add-module &gt; div.cfct-popup-content &gt; #cfct-module-list &gt; li.cfct-il-item &gt; a.cfct-add-module-cfct-html.cfct-il-a &gt; img.cfct-il-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=cfct-html-content</td>
+	<td>All the news you'll ever need from the world of guns, shooting and weird web stuff. Brought to you by the scribes at GunsandAmmo.com.</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Advanced Options</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Set CSS Classes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=custom-classes-custom-css</td>
+	<td>blog-description</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=module-cfct-html-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#cfct-module-62a906ce7204e2dec5e4be30827661f2 &gt; dl.cfct-module-content &gt; dd.cfct-module-edit-clear &gt; a.cfct-module-clear</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cfct-delete-module-confirm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#cfct-module-f138831910d01c754553e75e3bb96b10 &gt; dl.cfct-module-content &gt; dd.cfct-module-edit-clear &gt; a.cfct-module-clear</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cfct-delete-module-confirm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#cfct-module-5ec54e73232392ab015553b1fda3a1ec &gt; dl.cfct-module-content &gt; dd.cfct-module-edit-clear &gt; a.cfct-module-clear</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cfct-delete-module-confirm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'Add Module')])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#cfct-popup-inner &gt; div.cfct-popup.cfct-add-module &gt; div.cfct-popup-content &gt; #cfct-widgets-list &gt; li.cfct-il-item &gt; a.cfct-add-module-cfct-widget-module-newsletter_signup.cfct-il-a &gt; img.cfct-il-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=widget-newsletter_signup-0-title</td>
+	<td>Get the Newsletter</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=module-cfct-widget-module-newsletter_signup-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#cfct-module-c3c678b1b5a4c5e34b16bb5073c167cb &gt; dl.cfct-module-content &gt; dd.cfct-module-edit-clear &gt; a.cfct-module-edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//body</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=cfct-module-loop-taxonomy-select</td>
+	<td>label=Categories</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cfct-module-loop-add-tax-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=in-category-591</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=module-cfct-module-loop-submit</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

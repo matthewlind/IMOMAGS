@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://www.gunsandammo.test/" />
+<title>LoveCompBlog-manual</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">LoveCompBlog-manual</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/wp-admin/post.php?post=4720&amp;action=edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#cfct-module-fb9e4fbcb515b226aadf2bbf5c80a7fc &gt; dl.cfct-module-content &gt; dd.cfct-module-edit-clear &gt; a.cfct-module-clear</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cfct-delete-module-confirm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#cfct-module-105423354edc563bfbb0e8924c8be91b &gt; dl.cfct-module-content &gt; dd.cfct-module-edit-clear &gt; a.cfct-module-clear</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cfct-delete-module-confirm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#cfct-module-85dcfb7ede88a2a3f3190e054bcf6bc8 &gt; dl.cfct-module-content &gt; dd.cfct-module-edit-clear &gt; a.cfct-module-clear</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cfct-delete-module-confirm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#cfct-module-b3b2bad7941db39dae13e5db999ffcf1 &gt; dl.cfct-module-content &gt; dd.cfct-module-edit-clear &gt; a.cfct-module-clear</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cfct-delete-module-confirm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#cfct-module-12f838c81db0b233b677d3b3bbdfbf79 &gt; dl.cfct-module-content &gt; dd.cfct-module-edit-clear &gt; a.cfct-module-clear</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cfct-delete-module-confirm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#cfct-module-e05dfc21487a514796072f4fd03a4333 &gt; dl.cfct-module-content &gt; dd.cfct-module-edit-clear &gt; a.cfct-module-edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//body</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=cfct-module-loop-taxonomy-select</td>
+	<td>label=Categories</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cfct-module-loop-add-tax-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=in-category-590</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=module-cfct-module-loop-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'Add Module')])[6]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#cfct-popup-inner &gt; div.cfct-popup.cfct-add-module &gt; div.cfct-popup-content &gt; #cfct-widgets-list &gt; li.cfct-il-item &gt; a.cfct-add-module-cfct-widget-module-newsletter_signup.cfct-il-a &gt; img.cfct-il-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=widget-newsletter_signup-0-title</td>
+	<td>Get the Newsletter</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=module-cfct-widget-module-newsletter_signup-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#cfct-row-2fd234e4e6d4cb38d53f7810d864876a &gt; div.cfct-row-inner &gt; table.cfct-row-blocks &gt; tbody &gt; tr.cfct-build-module-controls &gt; td.cfct-build-add-module &gt; p &gt; a.cfct-add-new-module</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#cfct-popup-inner &gt; div.cfct-popup.cfct-add-module &gt; div.cfct-popup-content &gt; #cfct-module-list &gt; li.cfct-il-item &gt; a.cfct-add-module-cfct-html.cfct-il-a &gt; img.cfct-il-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Advanced Options</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Set CSS Classes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=custom-classes-custom-css</td>
+	<td>blog-description</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=cfct-html-content</td>
+	<td>For the Love of Competition</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=module-cfct-html-submit</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
