@@ -87,7 +87,7 @@ function imo_video_init() {
 		'menu_position' => null,
 		'supports' => array('title','thumbnail','excerpt','editor','author','comments'),
 		'rewrite' => array('slug' => 'video', 'with_front' => FALSE),
-		'taxonomies' => array('video_channel','post_tag','activity','location','gear','species'),
+		'taxonomies' => array('video_channel','post_tag','activity','location','gear','species','category'),
 	  ); 
 	  register_post_type('imo_video',$args);
 

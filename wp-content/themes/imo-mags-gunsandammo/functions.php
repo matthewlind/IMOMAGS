@@ -265,14 +265,3 @@ function wpse_5057_match_multiple_taxonomy_terms($where_clause, $wp_query) {
 }
 add_action('posts_where','wpse_5057_match_multiple_taxonomy_terms',10,2); // Hook this to posts_where
 
-/*
-** YARPP
-**
-*/
-function add_post_content($content) {
-	if(!is_feed() && !is_home()) {
-		$content .= '<div><fb:recommendations site="jerrycain.com" app_id="118280394918580"></fb:recommendations><div>';
-	}
-	return $content;
-}
-add_filter('the_content', 'add_post_content');

@@ -995,11 +995,10 @@ margin: 32px 0 0 0;
   }
   
   /* Video */
-  li.video {
-    position: static;
-  }
-  
-  /* The Magazine */
+   li.video {
+   	  position: static
+   } 
+   /* The Magazine */
   ul.megaMenu li.magazine {
     position: absolute;
     right: -300px;
@@ -1819,7 +1818,7 @@ margin: 32px 0 0 0;
  * NEXTGEN GALLERY OVERRIDES
  *
  */
-
+ 
 #main .ngg-imagebrowser {
   background: black;
   padding: 30px 30px 60px;
@@ -2118,26 +2117,10 @@ margin: 32px 0 0 0;
  *
  */
 
-#carrington-modules.blog-page {
+#carrington-modules.blogs {
   .cfct-row {
     margin: 0 !important;
-    
-    &:first-child {
-      border-bottom: 4px solid black;
-      margin: 0 0 20px !important;
-      padding-bottom: 18px;
-      
-      .cfct-block-ab, .cfct-block-c {
-        border: none;
-      }
-      .cfct-block-ab {
-        width: 648px !important;
-      }
-      .cfct-block-c {
-        width: 300px !important;
-      }
-    }
-  }
+   }
   .cfct-row-ab-c {
     border-bottom: 1px solid #E6E6E6;
   }
@@ -3663,6 +3646,8 @@ li.page-reviews {
   }
   
   
-/* FB Recommendations */
-
-.fb_iframe_widget{float:right;padding-top:42px;}
+/* post content */
+.comments-right{float:right;}
+.recommendations{float:left;width:300px;height: 280px;}
+.post-content-area{width:648px;height:330px;float: left;}
+.yarpp-content{float:left;width:347px;}
