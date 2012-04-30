@@ -2117,26 +2117,10 @@ margin: 32px 0 0 0;
  *
  */
 
-#carrington-modules.blog-page {
+#carrington-modules.blogs {
   .cfct-row {
     margin: 0 !important;
-    
-    &:first-child {
-      border-bottom: 4px solid black;
-      margin: 0 0 20px !important;
-      padding-bottom: 18px;
-      
-      .cfct-block-ab, .cfct-block-c {
-        border: none;
-      }
-      .cfct-block-ab {
-        width: 648px !important;
-      }
-      .cfct-block-c {
-        width: 300px !important;
-      }
-    }
-  }
+   }
   .cfct-row-ab-c {
     border-bottom: 1px solid #E6E6E6;
   }
