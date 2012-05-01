@@ -4,12 +4,22 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 get_header();
 ?>
+<div class="page-template-page-right-php right-sidebar-landing">
 
-<header id="masthead">
-  <h1>Video</h1>
-</header>
-<div id="content" class="col-abc">
-  <?php
+<div id="sidebar">
+  <?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-video')) : else : ?><?php endif; ?>
+</div>
+<div id="content">
+	<div class="entry-content">
+				<div class="cfct-module cfct-html section-title videos">
+					<div class="cfct-mod-content">
+						<h4>
+ 							<div class="icon"></div>
+  								<span>Videos</span>
+						</h4>
+					</div>
+				</div>
+<?php
 $posts = query_posts($query_string . '&posts_per_page=5');
 if (have_posts()) : ?>
   
@@ -22,7 +32,7 @@ if (have_posts()) : ?>
       <?php the_post_thumbnail('post-slide'); ?>
       
       <div class="slide-info">
-        <span class="category"><?php echo get_the_term_list($post->ID, 'video_channel'); ?></span>
+ 
         <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
       </div>
       
@@ -101,9 +111,7 @@ if (have_posts()) : ?>
   </div>
   
 </div>
-<div id="sidebar">
-  <?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-video')) : else : ?><?php endif; ?>
-</div>
+
 
 <?php
 get_footer();

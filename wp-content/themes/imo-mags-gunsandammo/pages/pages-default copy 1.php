@@ -6,6 +6,12 @@ get_header();
 global $post;
 the_post(); ?>
 
+<?php if (!is_page('blogs')) : ?>
+<header id="masthead">
+	<h1><?php the_title(); ?></h1>
+</header>
+<?php endif; ?>
+
 <div id="carrington-modules" class="col-abc <?php echo $post->post_name; ?>">
 	<div <?php post_class('entry entry-full'); ?>>
 		<div class="entry-content">

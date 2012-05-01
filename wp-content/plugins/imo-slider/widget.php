@@ -112,6 +112,8 @@ class IMOSliderWidget extends \WP_Widget {
         }
 
 
+        _log("ARGS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        _log($args);
             
         // The Query
         $the_query = new \WP_Query( $args );

@@ -38,15 +38,14 @@ the_post(); ?>
 		<div class="cfct-module not-loop trending">
 			<div class="cfct-mod-content">
 				<?php
-				$week = date('W');
-				$year = date('Y');
+				//$week = date('W');
+				//$year = date('Y');
 		
 				$args = array(
 					'post_type' => 'post',
 					'post_status'  => 'publish',
 					'posts_per_page' => 4,
-					'orderby' => array('comment_count',
-					'year=' . $year . '&w=' . $week),
+					'orderby' => 'comment_count',
 					'order' => 'DESC'
 				);
 				$query = new WP_Query( $args );
