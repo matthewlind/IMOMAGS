@@ -14,6 +14,7 @@ get_header(); ?>
   			<time class="published" datetime="<?php the_time('Y-m-d\TH:i'); ?>"><?php the_time('F j, Y'); ?></time>
   		</div>
   		<a class="comment-count" href="<?php comments_link(); ?>"><?php echo get_comments_number(); ?></a>
+      <?php imo_add_this(); ?>
   	</div>
   	<div class="entry-content">
       <?php
@@ -53,6 +54,16 @@ get_header(); ?>
       wp_link_pages(); ?>
     </div> -->
   </div>
+
+  <section class="newest-videos">
+    <h4>More Videos</h4>
+    <?php $instance = array (
+      'post_type' => 'imo_video',
+      'limit' => '12'
+    );
+    the_widget('imo\IMOSliderWidget', $instance); ?>
+  </section>
+
 
   <?php comments_template(); ?>
 </div>
