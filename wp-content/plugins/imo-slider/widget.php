@@ -81,9 +81,15 @@ class IMOSliderWidget extends \WP_Widget {
         global $add_slider_script;
         $add_slider_script = TRUE;
         
+
+        global $imoSliderCount;
+        $imoSliderCount++;
+
         extract( $args );
-	
-        
+	       
+
+
+
         
     	$taxonomy = $instance['taxonomy'];
  
@@ -96,6 +102,18 @@ class IMOSliderWidget extends \WP_Widget {
         $contentType = 'posts';
 
         $args = $this->get_query_args_from_term_slug_array($taxonomy,$contentType);
+
+
+
+        if ($instance['post_type'] != "any") {
+            $args['post_type'] = $instance['post_type'];
+        } else {
+            $args['post_type'] = array("post","review","imo_gallery","imo_video");
+        }
+
+
+        _log("ARGS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        _log($args);
             
         // The Query
         $the_query = new \WP_Query( $args );
@@ -109,8 +127,8 @@ class IMOSliderWidget extends \WP_Widget {
         }
         
 
-        echo "<div id='scroll_mask'>\n";
-        echo "<ul id='scroll'>\n";
+        echo "<div id='scroll_mask-$imoSliderCount' class='scroll_mask'>\n";
+        echo "<ul id='scroll-$imoSliderCount' class='scroll'>\n";
 
         // The Loop
         while ( $the_query->have_posts() ) : $the_query->the_post();
@@ -132,8 +150,8 @@ class IMOSliderWidget extends \WP_Widget {
 
         echo "</ul>\n";
         echo "</div>\n";
-        echo "<a id='prev'>PREV</a>\n";
-        echo "<a id='next'>NEXT</a>\n";
+        echo "<a id='prev-$imoSliderCount' class='prev'>PREV</a>\n";
+        echo "<a id='next-$imoSliderCount' class='next'>NEXT</a>\n";
                     
         
         // Reset Post Data
@@ -241,9 +259,9 @@ class IMOSliderWidget extends \WP_Widget {
 
 
 
-        $taxonomies = get_taxonomies();           
+        //$taxonomies = get_taxonomies();           
 
-        //$taxonomies = array('activity','gear','location','species');
+        $taxonomies = array('category');
 
         $defaults = $instance['taxonomy'];
             

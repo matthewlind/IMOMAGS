@@ -1,0 +1,62 @@
+@import "compass";
+@import "compass/css3";
+@import "compass/utilities/general";
+@import "compass/typography/text/ellipsis";
+@import "compass/typography/text";
+@import "blueprint";
+@import "normalize";
+
+$use-mozilla-ellipsis-binding: true;
+
+// Here is where you can define your constants for your application and to configure the blueprint framework.
+// Feel free to delete these if you want keep the defaults:
+
+$blueprint-grid-columns: 12;
+$blueprint-container-size: 980px;
+$blueprint-grid-margin: 16px;
+
+// Use this to calculate the width based on the total width.
+// Or you can set $blueprint-grid-width to a fixed value and unset $blueprint-container-size -- it will be calculated for you.
+$blueprint-grid-width: ($blueprint-container-size + $blueprint-grid-margin) / $blueprint-grid-columns - $blueprint-grid-margin;
+
+
+// Colors
+$red: #CE181E;
+$gunmetal: #5B6373;
+$darkgray: #313131;
+$gold: #FFBE21;
+
+// Setup @font-face
+@include font-face("StagMedium", font-files("stag-medium-webfont.woff", woff, "stag-medium-webfont.ttf", truetype, "stag-medium-webfont.svg", svg), "stag-medium-webfont.eot");
+@include font-face("StagMediumItalic", font-files("stag-mediumitalic-webfont.woff", woff, "stag-mediumitalic-webfont.ttf", truetype, "stag-mediumitalic-webfont.svg", svg), "stag-mediumitalic-webfont.eot");
+@include font-face("StagBold", font-files("stag-bold-webfont.woff", woff, "stag-bold-webfont.ttf", truetype, "stag-bold-webfont.svg", svg), "stag-bold-webfont.eot");
+@include font-face("StagBoldItalic", font-files("stag-bolditalic-webfont.woff", woff, "stag-bolditalic-webfont.ttf", truetype, "stag-bolditalic-webfont.svg", svg), "stag-bolditalic-webfont.eot");
+
+@mixin font-helvetica {
+  font-family: "Helvetica Nueue", Helvetica, Arial, sans-serif;
+}
+@mixin font-lora {
+  font-family: 'Lora', serif;
+  font-style: italic;
+	font-weight: normal;
+}
+@mixin font-stag {
+	font-family: "StagMedium";
+  font-weight: lighter;
+}
+@mixin font-stag-italic {
+	font-family: "StagMediumItalic";
+  font-weight: normal;
+}
+@mixin font-stag-bold {
+	font-family: "StagBold";
+  font-weight: lighter;
+}
+@mixin font-stag-bold-italic {
+	font-family: "StagBoldItalic";
+	font-weight: lighter;
+}
+
+
+// Generate sprite dimensions automagically
+$icon-sprite-dimensions: true;

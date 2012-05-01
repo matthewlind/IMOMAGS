@@ -14,8 +14,8 @@
  */
 function imo_ga_tax_init() {
     $labels = array();
-
-    $labels['manufacturer'] = array(
+	
+	$labels['manufacturer'] = array(
         'name' => _x( 'Manufacturers', 'taxonomy general name' ),
         'singular_name' => _x( 'Manufacturer', 'taxonomy singular name' ),
         'search_items' =>  __( 'Search Manufacturers' ),
@@ -52,6 +52,7 @@ function imo_ga_tax_init() {
             "query_var" => True,
             "rewrite" => array("slug"=>"manufacturer"),
         ),
+
         "caliber" => array(
             "labels" => $labels['caliber'],
             "hierarchical" => True,
@@ -72,3 +73,13 @@ function imo_ga_tax_init() {
 }
 
 add_action("after_setup_theme", "imo_ga_tax_init");
+
+
+
+function ga_tax_flush() {
+  //imo_video_init();
+  flush_rewrite_rules();
+}
+register_activation_hook(__FILE__, 'ga_tax_flush');
+register_deactivation_hook( __FILE__, 'ga_tax_flush' );
+

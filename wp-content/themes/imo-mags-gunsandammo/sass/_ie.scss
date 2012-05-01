@@ -1,0 +1,24 @@
+.ie7, .ie8 {
+  #main {
+    margin-top: 30px;
+    
+    #secondary aside.last {
+      margin-right: 0;
+    }
+  }
+  ul.fancy, ol.fancy {
+    .odd {
+      background: #f3f3f3;
+    }
+  }
+}
+.ie7 {
+  #header {
+    .subscription-block .drop-down {
+      bottom: -1px;
+    }
+    #megaMenu {
+      top: -91px;
+    }
+  }
+}

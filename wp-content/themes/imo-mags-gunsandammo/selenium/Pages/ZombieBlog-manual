@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://www.gunsandammo.test/" />
+<title>ZombieBlog-manual</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ZombieBlog-manual</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/wp-admin/post.php?post=4765&amp;action=edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#cfct-module-ec83cd5d34ee051c1829b58df5f9c44b &gt; dl.cfct-module-content &gt; dd.cfct-module-edit-clear &gt; a.cfct-module-clear</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cfct-delete-module-confirm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#cfct-module-74e808f6417b6728ef34593300555ca9 &gt; dl.cfct-module-content &gt; dd.cfct-module-edit-clear &gt; a.cfct-module-clear</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cfct-delete-module-confirm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#cfct-row-5f56e2e6c2c9a0ba0416913dc06cee0c &gt; div.cfct-row-inner &gt; table.cfct-row-blocks &gt; tbody &gt; tr.cfct-build-module-controls &gt; td.cfct-build-add-module &gt; p &gt; a.cfct-add-new-module</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#cfct-popup-inner &gt; div.cfct-popup.cfct-add-module &gt; div.cfct-popup-content &gt; #cfct-module-list &gt; li.cfct-il-item &gt; a.cfct-add-module-cfct-html.cfct-il-a &gt; img.cfct-il-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Advanced Options</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Set CSS Classes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=custom-classes-custom-css</td>
+	<td>blog-description</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=cfct-html-content</td>
+	<td>When the zombie horde is forming and you're helpless against their blood lust, don't say we didn't warn you. Get your tips, tactics and gear for zombie defense here.</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=module-cfct-html-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#cfct-module-f3639398bb96460f7f5c1c1a739e7565 &gt; dl.cfct-module-content &gt; dd.cfct-module-edit-clear &gt; a.cfct-module-clear</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cfct-delete-module-confirm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#cfct-module-93338d734db2888afdf4d1adf0898c29 &gt; dl.cfct-module-content &gt; dd.cfct-module-edit-clear &gt; a.cfct-module-clear</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cfct-delete-module-confirm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'Add Module')])[6]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#cfct-popup-inner &gt; div.cfct-popup.cfct-add-module &gt; div.cfct-popup-content &gt; #cfct-widgets-list &gt; li.cfct-il-item &gt; a.cfct-add-module-cfct-widget-module-newsletter_signup.cfct-il-a &gt; img.cfct-il-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=widget-newsletter_signup-0-title</td>
+	<td>Get the Newsletter</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=module-cfct-widget-module-newsletter_signup-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#cfct-module-4cec578bb65122ddf84d39944b4e6442 &gt; dl.cfct-module-content &gt; dd.cfct-module-edit-clear &gt; a.cfct-module-clear</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cfct-delete-module-confirm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#cfct-module-7c8580721a2f3938d898faec2029b449 &gt; dl.cfct-module-content &gt; dd.cfct-module-edit-clear &gt; a.cfct-module-edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//body</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=cfct-module-loop-taxonomy-select</td>
+	<td>label=Categories</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cfct-module-loop-add-tax-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=in-category-593</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=module-cfct-module-loop-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#wp-admin-bar-view &gt; a.ab-item</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

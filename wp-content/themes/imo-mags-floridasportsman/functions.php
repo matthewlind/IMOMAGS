@@ -143,6 +143,7 @@ add_action( 'init', 'register_fs_challenge_menu' );
 function register_fs_challenge_menu() {
 	register_nav_menu( 'fs-challenge-menu', __( 'FS Challenge Menu' ) );
 }
+
 /* New Menu for I'm A Florida Sportsman*/
 
 add_action( 'init', 'register_ima_fs_menu' );
