@@ -228,6 +228,14 @@ function mm_current_issue($atts, $content = null) {
 add_shortcode("mm-current-issue", "mm_current_issue");
 
 
+function my_scripts_method() {
+    wp_deregister_script( 'jquery' );
+    wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js');
+    wp_enqueue_script( 'jquery' );
+}    
+ 
+add_action('wp_enqueue_scripts', 'my_scripts_method');
+
 /*
 ** QUERY MULTIPLE TAXONOMIES WITH POST TYPE
 **
