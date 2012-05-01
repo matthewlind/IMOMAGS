@@ -277,6 +277,7 @@ function imo_ga_json() {
 
     }   
 
+
     //reviews.json
     if (preg_match("/^\/reviews\.json(\?(.+)?)?$/", $_SERVER['REQUEST_URI'])) {
         header('Content-type: application/json');
@@ -331,6 +332,10 @@ function imo_ga_json() {
 
 
 }
+<<<<<<< HEAD
+
+=======
+>>>>>>> e87354bde0fd70dea537349099673a0e1cd955b0
 
 /*
 ** QUERY MULTIPLE TAXONOMIES WITH POST TYPE

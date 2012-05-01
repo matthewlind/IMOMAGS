@@ -642,7 +642,7 @@ margin: 32px 0 0 0;
     height: 152px;
     position: absolute;
     right: 0;
-    top: 172px;
+    top: 173px;
     width: 316px;
     z-index: 20;
     
@@ -1092,6 +1092,10 @@ margin: 32px 0 0 0;
           background: $red image-url('icon/arrow_white.png') 95% center no-repeat;
           border: 1px solid #AF0C10;
           color: white;
+          /* transition */
+		-webkit-transition: 0s;
+		-moz-transition:  0s;
+		transition:  0s;
         }
       }
       .subscribe a {
@@ -1286,7 +1290,7 @@ margin: 32px 0 0 0;
  *
  */
 
-.home, .page-template-page-right-reviews-php, .page-template-page-shooting-php, .tax-guntype, .category, .tax-video_channel {
+.home, .page-template-page-right-reviews-php, .page-template-page-shooting-php, .tax-guntype, .category, .tax-video_channel, .page-template-page-galleries-php {
   #main {
     margin-top: 35px;
     padding-top: 0;
@@ -3868,3 +3872,10 @@ float:left;
 .slides-container-f .jcarousel-skin-tango .jcarousel-item-horizontal {
     margin: 0 4px;
 }
+
+/* SEO h1 Tags */
+h1.seo-h1{text-indent:-9999px;border:none;}
+
+
+/* GA Lists sidebar/comments fix */
+.ga-list-comments{width:648px !important;}

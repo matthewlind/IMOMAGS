@@ -108,7 +108,7 @@ get_header(); ?>
   				</div>
 				</div>
 				<div class="gallery-sidebar">
-				  				  
+				  <?php the_widget('imo\AdvertWidget'); ?>
 				  <div class="more-lists fancy">
 				    <h4><span>More G&amp;A Lists</span></h4>
 				    <?php
@@ -133,7 +133,6 @@ get_header(); ?>
           	
           	<a class="cta" href="<?php echo get_post_type_archive_link('imo_gallery'); ?>">More Lists <span></span></a>
 				  </div>
-				  <?php the_widget('imo\AdvertWidget'); ?>
 				</div>
 
 	      <?php endif; ?>
@@ -141,24 +140,18 @@ get_header(); ?>
         </div>
     </div>
   </div>
-	<div class="post-content-area">
-  		<div class="yarpp-content">
-  		 	<?php related_posts(); ?>
-  		 </div>
-  		 <div class="fb-recommendations recommendations" data-site="gunsandammo.com" data-width="300" data-height="250" data-header="true">
-  		 
-  		</div>
-  		<div class="cfct-row cfct-row-ab-c">
-    	<div class="cfct-block cfct-block-ab">
-     		<?php comments_template(); ?>
-		</div>
 	
+  <div class="cfct-row cfct-row-ab-c ga-list-comments">
+    <div class="cfct-block cfct-block-ab">
+     	<?php comments_template(); ?>
 	</div>
+	
+  </div>
 
-  	</div>
- 	 <div id="sidebar">
-		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('homepage-sidebar')) : else : ?><?php endif; ?>
-	</div>
-	</div>
+  
+  <div id="sidebar">
+		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-gallery')) : else : ?><?php endif; ?>
+  </div>
+</div>
 
 <?php get_footer(); ?>
