@@ -19,7 +19,7 @@ get_header(); ?>
     	</div>
     	<div class="entry-content">
     	<?php imo_add_this(); ?>
-				<?php //the_content(); ?>
+				<?php the_content(); ?>
   		</div>
     </div>
     </div>
