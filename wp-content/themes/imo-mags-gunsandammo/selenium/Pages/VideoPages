@@ -34,7 +34,7 @@
 <tr>
 	<td>select</td>
 	<td>id=page_template</td>
-	<td>label=Galleries</td>
+	<td>label=Video Page</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -129,7 +129,7 @@
 <tr>
 	<td>select</td>
 	<td>id=page_template</td>
-	<td>label=Galleries</td>
+	<td>label=Video Page</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -224,7 +224,7 @@
 <tr>
 	<td>select</td>
 	<td>id=page_template</td>
-	<td>label=Galleries</td>
+	<td>label=Video Page</td>
 </tr>
 <tr>
 	<td>click</td>

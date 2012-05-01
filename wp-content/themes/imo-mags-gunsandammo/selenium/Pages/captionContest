@@ -24,7 +24,7 @@
 <tr>
 	<td>type</td>
 	<td>id=title</td>
-	<td>Caption Contest</td>
+	<td>Caption Contests</td>
 </tr>
 <tr>
 	<td>select</td>
@@ -91,7 +91,6 @@
 	<td>id=publish</td>
 	<td></td>
 </tr>
-
 </tbody></table>
 </body>
 </html>

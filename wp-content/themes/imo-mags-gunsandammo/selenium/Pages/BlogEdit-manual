@@ -18,6 +18,21 @@
 </tr>
 <tr>
 	<td>click</td>
+	<td>xpath=(//a[contains(text(),'Edit')])[10]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=new-post-slug</td>
+	<td>blogs-page</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.save.button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
 	<td>css=#cfct-module-993124d47fcfc584bef3ed3e7058c206 &gt; dl.cfct-module-content &gt; dd.cfct-module-edit-clear &gt; a.cfct-module-edit</td>
 	<td></td>
 </tr>
@@ -1024,7 +1039,7 @@
 <tr>
 	<td>type</td>
 	<td>id=cfct-html-content</td>
-	<td>&lt;a href=&quot;/blogs/zombie-nation&quot; class=&quot;cta&quot;&gt;<br />&nbsp;&nbsp;Visit the Zombie Nation Blog &lt;span&gt;&lt;/span&gt;<br />&lt;/a&gt;</td>
+	<td>&lt;a href=&quot;/blogs/sons-of-gunsandammo/&quot; class=&quot;cta&quot;&gt;<br />&nbsp;&nbsp;Visit the Sons of Guns &amp; Ammo Blog &lt;span&gt;&lt;/span&gt;<br />&lt;/a&gt;</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -1084,7 +1099,7 @@
 <tr>
 	<td>type</td>
 	<td>id=cfct-html-content</td>
-	<td>&lt;a href=&quot;/blogs/zombie-nation&quot; class=&quot;cta&quot;&gt;<br />&nbsp;&nbsp;Visit the From the History Books Blog &lt;span&gt;&lt;/span&gt;<br />&lt;/a&gt;</td>
+	<td>&lt;a href=&quot;/blogs/defend-thyself/&quot; class=&quot;cta&quot;&gt;<br />&nbsp;&nbsp;Visit the From the History Books Blog &lt;span&gt;&lt;/span&gt;<br />&lt;/a&gt;</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -1119,7 +1134,7 @@
 <tr>
 	<td>type</td>
 	<td>id=cfct-html-content</td>
-	<td>&lt;a href=&quot;/blogs/zombie-nation&quot; class=&quot;cta&quot;&gt;<br />&nbsp;&nbsp;Visit the Love of Competition Blog &lt;span&gt;&lt;/span&gt;<br />&lt;/a&gt;</td>
+	<td>&lt;a href=&quot;/blogs/for-the-love-of-competition/&quot; class=&quot;cta&quot;&gt;<br />&nbsp;&nbsp;Visit the Love of Competition Blog &lt;span&gt;&lt;/span&gt;<br />&lt;/a&gt;</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -1149,7 +1164,7 @@
 <tr>
 	<td>type</td>
 	<td>id=cfct-html-content</td>
-	<td>&lt;a href=&quot;/blogs/zombie-nation&quot; class=&quot;cta&quot;&gt;<br />&nbsp;&nbsp;Visit the News Brief Blog &lt;span&gt;&lt;/span&gt;<br />&lt;/a&gt;</td>
+	<td>&lt;a href=&quot;/blogs/news-brief/&quot; class=&quot;cta&quot;&gt;<br />&nbsp;&nbsp;Visit the News Brief Blog &lt;span&gt;&lt;/span&gt;<br />&lt;/a&gt;</td>
 </tr>
 <tr>
 	<td>click</td>

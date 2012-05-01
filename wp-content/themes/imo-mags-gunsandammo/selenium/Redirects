@@ -186,7 +186,41 @@
 	<td>name=red_action</td>
 	<td>label=Redirect to URL</td>
 </tr>
-
+<tr>
+	<td>type</td>
+	<td>id=old</td>
+	<td>/blogs-page/</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=target</td>
+	<td>/blogs/</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=target</td>
+	<td>/blogs-page/</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=old</td>
+	<td>/blogs/</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=red_action</td>
+	<td>label=Pass-through</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
 </tbody></table>
 </body>
 </html>
