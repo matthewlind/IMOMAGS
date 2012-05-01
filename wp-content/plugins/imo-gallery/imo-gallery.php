@@ -50,7 +50,7 @@ function imo_gallery_init() {
 		'publicly_queryable' => true,
 		'show_ui' => true, 
 		'query_var' => true,
-		'rewrite' => array('slug' => 'galleries', 'with_front' => FALSE),
+		'rewrite' => array('slug' => 'ga-lists', 'with_front' => FALSE),
 		'capability_type' => 'post',
 		'hierarchical' => false,
 		'menu_position' => null,
