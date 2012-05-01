@@ -1009,8 +1009,8 @@ margin: 32px 0 0 0;
 		-webkit-transition: 0s;
 		-moz-transition:  0s;
 		transition:  0s;
-  		span{text-indent:-9999px;}
-  		&:hover {background-position: -258px top !important;}
+  		span{padding: 25px 0;text-align:center;}
+  		&:hover {background-position: -258px top !important;text-indent:-9999px;}
   }
   .pd-tv a{
   	background-image: image-url('pd-tv.jpg') !important;
@@ -1022,8 +1022,8 @@ margin: 32px 0 0 0;
 		-webkit-transition: 0s;
 		-moz-transition:  0s;
 		transition:  0s;
-  		span{text-indent:-9999px;}
-  		&:hover {background-position: -258px top !important;}
+  		span{padding: 25px 0;text-align:center;}
+  		&:hover {background-position: -258px top !important;text-indent:-9999px;}
   }
 
   #header #megaMenu li.video ul.sub-menu-1 {
@@ -1284,13 +1284,13 @@ margin: 32px 0 0 0;
     }
   }
 }
-
+ 
 /*
  * HOME PAGE
  *
  */
-
-.home, .page-template-page-right-reviews-php, .page-template-page-shooting-php, .tax-guntype, .category, .tax-video_channel, .page-template-page-galleries-php {
+ 
+.home, .page-template-page-right-reviews-php, .page-template-page-shooting-php, .tax-guntype, .category, .tax-video_channel, .page-template-page-galleries-php, .page-template-page-right-tv-php, .page-template-page-caption-contest-php {
   #main {
     margin-top: 35px;
     padding-top: 0;
@@ -1787,7 +1787,7 @@ margin: 32px 0 0 0;
     }
     .play {
       @include icon-sprite(video_play);
-      
+  
       display: block;
       left: 271px;
       position: absolute;
@@ -2362,7 +2362,7 @@ body.parent-pageid-2114 #main {
   &.tfl-header { height: 0; }
   &.tgg-header { height: 0; }
   /* The Gun Room */
-  &.tgr-header { height: 0; }
+  &.tgr-header { background: image-url('blogs/history-books.jpg') left bottom no-repeat; }
 }
 .blog .cfct-callout {
   top: 0;
@@ -3670,7 +3670,6 @@ li.page-reviews {
     width:650px;
     position:absolute;
     z-index:1000;
-    top:580px;
   }
 }
 
@@ -3861,8 +3860,16 @@ float:left;
 }
 
 /* SEO h1 Tags */
-h1.seo-h1{text-indent:-9999px;border:none;}
+h1.seo-h1{text-indent:-9999px;border:none;height:0;}
 
 
 /* GA Lists sidebar/comments fix */
 .ga-list-comments{width:648px !important;}
+
+/* sidebar blog single page fix */
+.blog-sidebar{
+    margin-top: 204px;
+}
+#site-menu .menu li a {
+	margin-right: 25px !important;
+}

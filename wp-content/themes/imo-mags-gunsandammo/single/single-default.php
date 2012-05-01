@@ -19,14 +19,6 @@
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
-get_header();
-?>
-<div id="sidebar">
-		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('homepage-sidebar')) : else : ?><?php endif; ?>
-	</div>
-<!-- Set the blog header on single blog entry pages -->
-<?php
-
 $current_category = single_cat_title("", false);
 
 $soga_slug = "sons-of-guns-and-ammo";
@@ -38,8 +30,34 @@ $tgg_slug = "the-gun-guys";
 $tgr_slug = "the-gun-room";
 $zn_slug = "zombie-nation";
 
+get_header();
 ?>
-
+<div id="sidebar"<?php if( in_category($soga_slug) || in_category($floc_slug) || in_category($dt_slug) || in_category($nb_slug) || in_category($zn_slug) || in_category($tgr_slug) ){echo ' class="blog-sidebar"';} ?>>
+<?php 
+	if(is_home()){
+		if (function_exists('dynamic_sidebar') && dynamic_sidebar('homepage-sidebar')) : else :  endif; 
+	} 
+	else if('reviews' == get_post_type()){
+		if (function_exists('dynamic_sidebar') && dynamic_sidebar('reviews-sidebar')) : else :  endif; 
+	}
+	else if('shooting' == get_post_type()){
+		if (function_exists('dynamic_sidebar') && dynamic_sidebar('shooting-sidebar')) : else :  endif; 
+	}
+	else if('ga-lists' == get_post_type()){
+		if (function_exists('dynamic_sidebar') && dynamic_sidebar('gallery-sidebar')) : else :  endif; 
+	}
+	else if('imo-video' == get_post_type()){
+		if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-video')) : else :  endif; 
+	}
+	else if( in_category($soga_slug) || in_category($floc_slug) || in_category($dt_slug) || in_category($nb_slug) || in_category($zn_slug) || in_category($tgr_slug) ) {
+		if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-default')) : else :  endif; 
+	}else{
+		if (function_exists('dynamic_sidebar') && dynamic_sidebar('homepage-sidebar')) : else :  endif; 
+	}
+	
+	?>
+	</div>
+<!-- Set the blog header on single blog entry pages -->
 <?php if (in_category($soga_slug)) { ?>
 <a class="blog-header soga-header" href="/blogs/<?php echo "sons-of-gunsandammo"; ?>/" title="<?php echo $current_category; ?>"></a>
 

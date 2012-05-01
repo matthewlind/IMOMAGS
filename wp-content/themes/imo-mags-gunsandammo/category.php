@@ -25,6 +25,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 get_header(); 
 ?>
 <div class="page-template-page-right-php category-page">
+	<h1 class="seo-h1"><?php single_cat_title('');?></h1>
 	<div id="sidebar">
 		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('homepage-sidebar')) : else : ?><?php endif; ?>
 	</div>

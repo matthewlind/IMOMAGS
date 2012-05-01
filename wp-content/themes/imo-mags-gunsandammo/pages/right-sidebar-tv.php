@@ -23,31 +23,23 @@ get_header();
 
 the_post();
 ?>
-<div id="tv-wrapper">
-
-<header id="masthead" class="tv-header">
-	<a href="/ga-tv-new/" title="Guns & Ammo Television"><h1 class="tv-title"><?php the_title(); ?></h1></a>
-	
-</header><!-- #masthead -->
-
-<nav class="nav nav-secondary"><!--new TV MENU-->
-	
-	<?php wp_nav_menu( array( 'theme_location' => 'tv-menu', 'fallback_cb' => '' ) ); ?>
-	
-</nav>
-
-
-<div class="page-template-page-right-php tv-template">
-	<div class="bonus-background">
-		<div class="bonus tv-bonus">
-			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-tv')) : else : ?><?php endif; ?>
-		</div>
+<div class="page-template-page-right-php right-sidebar-landing">
+	<div id="sidebar">
+		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('shooting-sidebar')) : else : ?><?php endif; ?>
 	</div>
-	<div class="col-abc">
-		<div <?php post_class('entry entry-full clearfix'); ?>>
+	<div id="content">
+		<h1 class="seo-h1">Shooting</h1>
+		<div <?php post_class('entry entry-full'); ?>>
 			<div class="entry-content">
-				<?php
-				the_content(__('Continued&hellip;', 'carrington-business'));
+			<div class="cfct-module cfct-html section-title posts">
+					<div class="cfct-mod-content">
+						<h4>
+ 							<div class="icon"></div>
+  								<span><?php the_title(); ?></span>
+						</h4>
+					</div>
+				</div>
+				<?php the_content(__('Continued&hellip;', 'carrington-business'));
 				wp_link_pages();
 				
 				?>
@@ -61,8 +53,9 @@ the_post();
 			comments_template();
 		}?>
 		
-	</div><!-- .col-abc -->
+							</div>
+		</div>
+	</div>
 </div>
 
-</div>
 <?php get_footer(); ?>

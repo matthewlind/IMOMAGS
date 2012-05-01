@@ -163,8 +163,18 @@ function ga_imo_addons_sidebar_init() {
   
   register_sidebar(array_merge($sidebar_defaults, array(
   		'name' => 'Reviews Sidebar',
-		'id' => 'reviews_sidebar',
+		'id' => 'reviews-sidebar',
 		'description' => 'Appears on pages that are Reviews',
+)));
+  register_sidebar(array_merge($sidebar_defaults, array(
+  		'name' => 'Shooting Sidebar',
+		'id' => 'shooting-sidebar',
+		'description' => 'Appears on pages that are Shooting',
+)));
+  register_sidebar(array_merge($sidebar_defaults, array(
+  		'name' => 'Caption Contest Sidebar',
+		'id' => 'cc-sidebar',
+		'description' => 'Appears on pages that are Caption Contests',
 )));
 
 }
@@ -332,10 +342,7 @@ function imo_ga_json() {
 
 
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> e87354bde0fd70dea537349099673a0e1cd955b0
 
 /*
 ** QUERY MULTIPLE TAXONOMIES WITH POST TYPE

@@ -31,9 +31,11 @@ if (!is_admin()) {
 <?php get_header(); ?>
 
 <div class="page-template-page-right-php taxonomy-page">
+	<h1 class="seo-h1"><?php single_cat_title('');?></h1>
 	<div id="sidebar">
-		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('homepage-sidebar')) : else : ?><?php endif; ?>
+		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('reviews-sidebar')) : else : ?><?php endif; ?>
 	</div>
+	
 	<div class="col-abc taxonomy-col-abc">
 		<div class="section-title posts" style="width:648px;">
 					<div class="cfct-mod-content">
