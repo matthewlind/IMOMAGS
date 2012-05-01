@@ -1858,7 +1858,10 @@ margin: 32px 0 0 0;
   background: black;
   padding: 30px 30px 60px;
   position: relative;
-  
+  p {
+      color: white;
+      margin: 0;
+    }
   .pic {
     left: 0;
     margin: 30px 0 42px;
@@ -1899,6 +1902,7 @@ margin: 32px 0 0 0;
     top: 0;
     
     p {
+      color: white;
       margin: 0;
     }
     
@@ -2948,7 +2952,7 @@ body.parent-pageid-2114 #main {
     background: white;
     border: none;
     color: black;
-    margin-bottom: 0px;
+    margin-bottom: 32px;
     padding: 0 28px 0 12px;
     
     span {
@@ -2966,19 +2970,6 @@ body.parent-pageid-2114 #main {
       }
     }
   }
-
-  p.view-all-p {
-    padding-bottom:10px;
-  }
-
-  a.view-all {
-    font-family: 'Lora', serif;
-    font-style: italic;
-    font-weight: normal;
-    font-size: 16px;
-
-  }
-
   .prize {
     margin: 24px 0 18px;
     

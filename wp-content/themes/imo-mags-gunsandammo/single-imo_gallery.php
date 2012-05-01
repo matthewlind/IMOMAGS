@@ -18,6 +18,7 @@ get_header(); ?>
     		<a class="comment-count" href="<?php comments_link(); ?>"><?php echo get_comments_number(); ?></a>
     	</div>
     	<div class="entry-content">
+    	<?php imo_add_this(); ?>
 				<?php //the_content(); ?>
   		</div>
     </div>
@@ -143,6 +144,7 @@ get_header(); ?>
 	
   <div class="cfct-row cfct-row-ab-c ga-list-comments">
     <div class="cfct-block cfct-block-ab">
+    	<?php imo_add_this(); ?>
      	<?php comments_template(); ?>
 	</div>
 	

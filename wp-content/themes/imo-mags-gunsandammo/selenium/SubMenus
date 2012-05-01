@@ -79,7 +79,7 @@
 <tr>
 	<td>type</td>
 	<td>id=custom-menu-item-url</td>
-	<td>/galleries/</td>
+	<td>/ga-lists/</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -114,21 +114,6 @@
 <tr>
 	<td>type</td>
 	<td>id=custom-menu-item-url</td>
-	<td>https://secure.palmcoastd.com/pcd/eServ?iServ=MDE0NVY0NDY5Mg=</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=custom-menu-item-name</td>
-	<td>Subscriber Services</td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>id=submit-customlinkdiv</td>
-	<td></td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=custom-menu-item-url</td>
 	<td>https://store.intermediaoutdoors.com/brands.php?brand=GUNSANDAMMO</td>
 </tr>
 <tr>
@@ -142,11 +127,50 @@
 	<td></td>
 </tr>
 <tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'View All')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=menu-item[-93][menu-item-object-id]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=submit-posttype-page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12507</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-menu-item-isMega-12507</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=custom-menu-item-url</td>
+	<td>/tv</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=custom-menu-item-name</td>
+	<td>TV</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=submit-customlinkdiv</td>
+	<td></td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
 	<td>id=save_menu_footer</td>
 	<td></td>
 </tr>
-
 </tbody></table>
 </body>
 </html>

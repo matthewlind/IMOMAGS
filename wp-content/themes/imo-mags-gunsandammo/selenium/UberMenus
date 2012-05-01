@@ -906,6 +906,81 @@
 	<td>id=edit-menu-item-title-12486</td>
 	<td>Reviews</td>
 </tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12347</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-menu-item-title-12347</td>
+	<td>Video Topics</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=custom-menu-item-url</td>
+	<td>/tv/guns-ammo-tv/</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=custom-menu-item-name</td>
+	<td>Guns &amp; Ammo TV</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=submit-customlinkdiv</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12508</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-menu-item-classes-12508</td>
+	<td>ga-tv</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=custom-menu-item-url</td>
+	<td>/tv/personal-defense-tv/</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#menu-item-settings-12509 &gt; a.wpmega-showhide-menu-ops</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#menu-item-settings-12509 &gt; a.wpmega-showhide-menu-ops</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-menu-item-isMega-12509</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=custom-menu-item-name</td>
+	<td>Personal Defense TV</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=submit-customlinkdiv</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12509</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-menu-item-classes-12509</td>
+	<td>pd-tv</td>
+</tr>
 </tbody></table>
 </body>
 </html>
