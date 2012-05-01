@@ -24,6 +24,7 @@ get_header(); ?>
   			<time class="published" datetime="<?php the_time('Y-m-d\TH:i'); ?>"><?php the_time('F j, Y'); ?></time>
   		</div>
   		<a class="comment-count" href="<?php comments_link(); ?>"><?php echo get_comments_number(); ?></a>
+      <?php imo_add_this(); ?>
   	</div>
   	<div class="entry-content"><p>
   		<?php echo $post->post_content; ?></p>

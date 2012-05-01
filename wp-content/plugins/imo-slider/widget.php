@@ -107,6 +107,8 @@ class IMOSliderWidget extends \WP_Widget {
 
         if ($instance['post_type'] != "any") {
             $args['post_type'] = $instance['post_type'];
+        } else {
+            $args['post_type'] = array("post","review","imo_gallery","imo_video");
         }
 
 
