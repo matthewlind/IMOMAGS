@@ -126,12 +126,6 @@ function ga_imo_addons_sidebar_init() {
   )));
 
   register_sidebar(array_merge($sidebar_defaults, array(
-      'id' => 'sidebar-landing',
-      'name' => __('Landing Page Sidebar', 'carrington-business'),
-      'description' => __('Shown on Landing Pages.', 'carrington-business')
-  )));	
-
-  register_sidebar(array_merge($sidebar_defaults, array(
       'id' => 'sidebar-video',
       'name' => __('Video Sidebar', 'carrington-business'),
       'description' => __('Shown on video posts.', 'carrington-business')

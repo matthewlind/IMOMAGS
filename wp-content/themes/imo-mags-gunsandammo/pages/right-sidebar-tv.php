@@ -25,7 +25,7 @@ the_post();
 ?>
 <div class="page-template-page-right-php right-sidebar-landing">
 	<div id="sidebar">
-		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('shooting-sidebar')) : else : ?><?php endif; ?>
+		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-tv')) : else : ?><?php endif; ?>
 	</div>
 	<div id="content">
 		<h1 class="seo-h1">Shooting</h1>
