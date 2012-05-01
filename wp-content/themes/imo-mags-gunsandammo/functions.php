@@ -332,7 +332,10 @@ function imo_ga_json() {
 
 
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> e87354bde0fd70dea537349099673a0e1cd955b0
 
 /*
 ** QUERY MULTIPLE TAXONOMIES WITH POST TYPE
