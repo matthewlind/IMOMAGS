@@ -1,4 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?php 
+// 
+header("Content-Type: text/xsl");
+echo '<?xml version="1.0" encoding="UTF-8"?>'; 
+?>
 <xsl:stylesheet version="2.0" 
                 xmlns:html="http://www.w3.org/TR/REC-html40"
 				xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
@@ -148,8 +152,8 @@
 						</table>
 					</xsl:if>
 				</div>
-				<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
-				<script type="text/javascript" src="http://cdn.yoast.com/js/jquery.tablesorter.min.js"></script>
+				<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+				<script type="text/javascript" src="<?php echo '//'.$_SERVER['HTTP_HOST'].str_replace('xml-sitemap-xsl.php','',$_SERVER['REQUEST_URI']); ?>jquery.tablesorter.min.js"></script>
 				<script	type="text/javascript"><![CDATA[
 					$(document).ready(function() { 
 				        $("#sitemap").tablesorter( { widgets: ['zebra'] } ); 
