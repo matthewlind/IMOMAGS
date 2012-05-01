@@ -998,15 +998,43 @@ margin: 32px 0 0 0;
   }
   
   /* Video */
-   li.video {
-   	  position: static
+  
+  .ga-tv a{
+  	background-image: image-url('ga-tv.jpg') !important;
+  	background-position: left top;
+  	width: 258px;
+    height: 84px;
+    margin-bottom: 10px !important;
+    /* transition */
+		-webkit-transition: 0s;
+		-moz-transition:  0s;
+		transition:  0s;
+  		span{text-indent:-9999px;}
+  		&:hover {background-position: -258px top !important;}
+  }
+  .pd-tv a{
+  	background-image: image-url('pd-tv.jpg') !important;
+  	background-position: left top;
+  	width: 258px;
+    height: 84px;
+    margin-bottom: 10px !important;
+    /* transition */
+		-webkit-transition: 0s;
+		-moz-transition:  0s;
+		transition:  0s;
+  		span{text-indent:-9999px;}
+  		&:hover {background-position: -258px top !important;}
+  }
+
+  #header #megaMenu li.video ul.sub-menu-1 {
+   		width:290px !important;
    } 
    /* The Magazine */
   ul.megaMenu li.magazine {
     position: absolute;
     right: -300px;
     z-index: 120;
-    
+   
     & > a {
       background: image-url('icon/arrow_black_down.png') 92% 45% no-repeat;
       font-size: 20px;
@@ -2033,6 +2061,7 @@ margin: 32px 0 0 0;
     background-color:#dddddd;
     margin:10px 10px 30px 10px;
     padding:10px 10px 10px 10px;
+    min-height: 170px;
 
 
     .prize-thumb {
@@ -3686,4 +3715,143 @@ li.page-reviews {
     }
 h4.reviews-form-header span{
 	width: 566px !important;
+}
+
+/* network */
+.intermedia-network {width:960px; height:45px; position:relative; border-top:1px solid #3E3E3E; padding:16px 0; margin:60px 0 0 0;}
+.intermedia-network .network-title {font-size:10px; color:#fff; text-align:center; width:340px; position:absolute; top:-20px; left:33%;}
+.otd-networkblock {float:left; width:960px; text-align:center;}
+.otd-networkblock img {margin:0 11px;}
+
+.extras {
+float:left;
+      color: white;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 28px;
+      
+      a {
+        color: white;
+        
+        &:hover, &:focus {
+          color: $gold;
+        }
+      }
+}
+
+.jcarousel-skin-tango .jcarousel-next-horizontal {
+    background: url("img/next-horizontal.png") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    height: 32px;
+    position: absolute;
+    right: -137px;
+    top: 40px;
+    width: 20px;
+}
+.jcarousel-skin-tango .jcarousel-direction-rtl .jcarousel-next-horizontal {
+    background-image: url("img/prev-horizontal.png");
+    left: 5px;
+    right: auto;
+}
+.jcarousel-skin-tango .jcarousel-prev-horizontal {
+    background: url("img/prev-horizontal.png") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    height: 32px;
+    left: -43px;
+    position: absolute;
+    top: 40px;
+    width: 20px;
+}
+.jcarousel-skin-tango .jcarousel-container-horizontal {
+    padding: 0;
+    width: 740px;
+}
+.jcarousel-skin-tango {
+    margin: 0 auto;
+    width: 740px;
+}
+.jcarousel-skin-tango .jcarousel-item {
+    background: url("img/slider-content-bg.png") no-repeat scroll left top transparent;
+    height: 101px;
+    padding: 3px;
+    position: relative;
+    width: 171px;
+}
+.jcarousel-skin-tango .jcarousel-clip-horizontal {
+    cursor: pointer;
+    height: 107px;
+    width: 740px;
+}
+.jcarousel-skin-tango .jcarousel-direction-rtl .jcarousel-prev-horizontal {
+    background-image: url("img/next-horizontal.png");
+    left: auto;
+    right: 5px;
+}
+.jcarousel-skin-tango .jcarousel-prev-horizontal:hover {
+    background-position: 0 0;
+}
+.jcarousel-skin-tango .jcarousel-prev-horizontal:active {
+    background-position: 0 0;
+}
+.jcarousel-skin-tango .jcarousel-item-horizontal {
+    margin: 0 4px;
+}
+#slides-footer {
+    position: relative;
+}
+.slides-container-f {
+    height: 54px;
+    margin: 0 auto;
+    width: 780px;
+}
+.slides-container-f .jcarousel-skin-tango .jcarousel-next-horizontal {
+    background: url("img/f-arrow-next.png") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    height: 25px;
+    position: absolute;
+    right: -60px;
+    top: 6px;
+    width: 25px;
+}
+.slides-container-f .jcarousel-skin-tango .jcarousel-direction-rtl .jcarousel-next-horizontal {
+    background-image: url("img/prev-horizontal.png");
+    left: 5px;
+    right: auto;
+}
+.slides-container-f .jcarousel-skin-tango .jcarousel-prev-horizontal {
+    background: url("img/f-arrow-perv.png") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    height: 25px;
+    left: -43px;
+    position: absolute;
+    top: 6px;
+    width: 25px;
+}
+.slides-container-f .jcarousel-skin-tango .jcarousel-container-horizontal {
+    padding: 0;
+    width: 780px;
+}
+.slides-container-f .jcarousel-skin-tango {
+    margin: 0 auto;
+    width: 780px;
+}
+.slides-container-f .jcarousel-skin-tango .jcarousel-item {
+    background: none repeat scroll 0 0 transparent;
+    height: 54px;
+    padding: 0;
+    position: relative;
+    width: 147px;
+}
+.slides-container-f .jcarousel-skin-tango .jcarousel-clip-horizontal {
+    cursor: pointer;
+    height: 54px;
+    width: 780px;
+}
+.slides-container-f .jcarousel-skin-tango .jcarousel-direction-rtl .jcarousel-prev-horizontal {
+    background-image: url("img/f-arrow-next.png");
+    left: auto;
+    right: 5px;
+}
+.slides-container-f .jcarousel-skin-tango .jcarousel-item-horizontal {
+    margin: 0 4px;
 }

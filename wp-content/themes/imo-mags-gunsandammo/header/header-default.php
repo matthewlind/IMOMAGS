@@ -19,7 +19,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
 	<?php wp_get_archives(array('type' => 'monthly', 'format' => 'link')); ?>
   
   <meta name="viewport" content="width=device-width">
-  
+ 	<?php wp_enqueue_script('my_scripts_method'); ?>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
 	
 	<?php // Include javascript for threaded comments if needed

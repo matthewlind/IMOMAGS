@@ -228,6 +228,15 @@ function mm_current_issue($atts, $content = null) {
 add_shortcode("mm-current-issue", "mm_current_issue");
 
 
+<<<<<<< HEAD
+function my_scripts_method() {
+    wp_deregister_script( 'jquery' );
+    wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js');
+    wp_enqueue_script( 'jquery' );
+}    
+ 
+add_action('wp_enqueue_scripts', 'my_scripts_method');
+=======
 
 /*
 ** Add JSON feeds for AJAX requests
@@ -322,6 +331,7 @@ function imo_ga_json() {
 
 
 }
+>>>>>>> aa223ef3428fe6f5c557aecbc3abe91cf67df9ad
 
 /*
 ** QUERY MULTIPLE TAXONOMIES WITH POST TYPE
