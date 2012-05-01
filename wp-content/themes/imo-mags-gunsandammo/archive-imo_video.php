@@ -68,7 +68,7 @@ if (have_posts()) : ?>
           ),
     );
     the_widget('imo\IMOSliderWidget', $instance); ?>
-    <a class="cta" href="/?video_channel=tips-tactics/">View All <span></span></a>
+    <a class="cta" href="/videos/tips-tactics/">View All <span></span></a>
   </div>
 
   <div class="video-category">
@@ -78,26 +78,26 @@ if (have_posts()) : ?>
       'limit' => '12',
       'taxonomy' => 
           array (
-            0 => 'reviews-guns-gear',
+            0 => 'video-reviews',
           ),
     );
     the_widget('imo\IMOSliderWidget', $instance); ?>
-    <a class="cta" href="/?video_channel=reviews-guns-gear/">View All <span></span></a>
+    <a class="cta" href="/videos/video-reviews">View All <span></span></a>
   </div>
 
   <div class="video-category">
-    <h4>Torture Tests</h4>
+    <h4>Personal Defense</h4>
     <?php $instance = array (
       'post_type' => 'imo_video',
       'limit' => '12',
       'taxonomy' => 
           array (
-            0 => 'torture-tests-guns-gear',
+            0 => 'personal-defense',
           ),
 
     );
     the_widget('imo\IMOSliderWidget', $instance); ?>
-    <a class="cta" href="/?video_channel=torture-tests-guns-gear/">View All <span></span></a>
+    <a class="cta" href="/videos/personal-defense">View All <span></span></a>
   </div>
 	
 </div>
