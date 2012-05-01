@@ -27,14 +27,13 @@ the_post();
 				the_content(__('Continued&hellip;', 'carrington-business')); ?>
 				<div class="cfct-module cfct-html section-title posts">
 					<div class="cfct-mod-content">
-						<h4>
+						<h4 class="reviews-form-header">
  							<div class="icon"></div>
-  								<span>Latest Reviews</span> 
+  								<span>Filter Reviews</span> 
 						</h4>
-					<form action="<?php $_SELF['REQUEST_URI']; ?>" method="post" id="form">
+					<form action="<?php $_SELF['REQUEST_URI']; ?>" method="post" id="form" class="reviews-form">
 
-					Filter: 
-						<select class="guntype reviews-select">
+					<select class="guntype reviews-select">
 							<option selected="selected" name="guntype" value="">Type</option>
 							<?php
 							$parents = array('parent' => 0);
@@ -62,10 +61,9 @@ the_post();
 						</select>
 						<select class="caliber reviews-select">
 							<option selected="selected" name="caliber" value="">Caliber</option>
-							<option name="null" value="">Choose a Manufacturer First...</option>
+							<option name="null" value="">Choose a Manufacturer</option>
 							<?php include('/wp-content/themes/imo-mags-gunsandammo/ajax_caliber.php'); ?>
 						</select>
-						<input name="submit" type="submit" value="Submit" />
 						<?php
 						/* 
 						**
@@ -77,6 +75,7 @@ the_post();
 				</div>
 
 				<div class="reviews-section">
+
 					<div class="reviews-cover" style="display:none;"></div>
 						<div class="reviews-container">
 					<?php
@@ -106,18 +105,19 @@ the_post();
 	  
 	  						<a class="comment-count" href="<?php comments_link(); ?>"><?php echo get_comments_number(); ?></a>
 
+
 							</article>		
 								
 						<?php endwhile;
 						// Reset Post Data
 						wp_reset_postdata();
-
-						
+				
 					
 					
 					wp_link_pages(); ?>
 					
 					</div>
+
 				</div>
 			</div>
 		</div>

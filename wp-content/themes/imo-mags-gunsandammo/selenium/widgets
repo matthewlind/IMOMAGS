@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://www.gunsandammo.test/" />
+<title>Widgets</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Widgets</td></tr>
+</thead><tbody>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Appearance</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Widgets</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=show-settings-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=access-on</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#widget-28_store-widget-__i__ &gt; div.widget-top &gt; div.widget-title-action &gt; a.widget-control-edit.hide-if-js &gt; span.add</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//input[@name='sidebar'])[6]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=secondary-home_position</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=savewidget</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#widget-32_text-__i__ &gt; div.widget-top &gt; div.widget-title-action &gt; a.widget-control-edit.hide-if-js &gt; span.add</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//input[@name='sidebar'])[6]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#widget-81_text-14 &gt; div.widget-top &gt; div.widget-title-action &gt; a.widget-control-edit.hide-if-js &gt; span.edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=widget-text-14-text</td>
+	<td>[polldaddy poll=5678820]</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=widget-text-14-title</td>
+	<td>G&amp;A Asks...</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=secondary-home_position</td>
+	<td>label=2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=savewidget</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#widget-32_text-__i__ &gt; div.widget-top &gt; div.widget-title-action &gt; a.widget-control-edit.hide-if-js &gt; span.add</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=widget-text-__i__-text</td>
+	<td>[Latest tweet]<br /><br />Follow Us @GunsAndAmmoMag</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=widget-text-__i__-title</td>
+	<td>The Feed</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//input[@name='sidebar'])[6]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=savewidget</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#widget-72_text-13 &gt; div.widget-top &gt; div.widget-title-action &gt; a.widget-control-edit.hide-if-js &gt; span.edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=removewidget</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#widget-18_newsletter_signup-__i__ &gt; div.widget-top &gt; div.widget-title-action &gt; a.widget-control-edit.hide-if-js &gt; span.add</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//input[@name='sidebar'])[5]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#widget-73_search-3 &gt; div.widget-top &gt; div.widget-title-action &gt; a.widget-control-edit.hide-if-js &gt; span.edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=removewidget</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#widget-78_newsletter_signup-2 &gt; div.widget-top &gt; div.widget-title-action &gt; a.widget-control-edit.hide-if-js &gt; span.edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=sidebar-home_position</td>
+	<td>label=2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=widget-newsletter_signup-__i__-title</td>
+	<td>Get the Newsletter</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=savewidget</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#widget-5_caption_contest-__i__ &gt; div.widget-top &gt; div.widget-title-action &gt; a.widget-control-edit.hide-if-js &gt; span.add</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//input[@name='sidebar'])[5]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=sidebar-home_position</td>
+	<td>label=3</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=widget-caption_contest-2-contestID</td>
+	<td>label=Caption Contest</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=savewidget</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#widget-32_text-__i__ &gt; div.widget-top &gt; div.widget-title-action &gt; a.widget-control-edit.hide-if-js</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=widget-text-__i__-title</td>
+	<td>This Week's Debate</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=widget-text-__i__-text</td>
+	<td>[polldaddy poll=5353370]</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//input[@name='sidebar'])[5]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=savewidget</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#widget-75_gform_widget-4 &gt; div.widget-top &gt; div.widget-title-action &gt; a.widget-control-edit.hide-if-js &gt; span.edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=removewidget</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#widget-75_channel-widget-5 &gt; div.widget-top &gt; div.widget-title-action &gt; a.widget-control-edit.hide-if-js &gt; span.edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=sidebar-home_position</td>
+	<td>label=5</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=savewidget</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#widget-78_text-16 &gt; div.widget-top &gt; div.widget-title-action &gt; a.widget-control-edit.hide-if-js &gt; span.edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=sidebar-home_position</td>
+	<td>label=4</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=savewidget</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#widget-15_ipad_app-__i__ &gt; div.widget-top &gt; div.widget-title-action &gt; a.widget-control-edit.hide-if-js &gt; span.add</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//input[@name='sidebar'])[5]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=sidebar-home_position</td>
+	<td>label=5</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=savewidget</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#widget-77_text-11 &gt; div.widget-top &gt; div.widget-title-action &gt; a.widget-control-edit.hide-if-js &gt; span.edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=widget-text-11-text</td>
+	<td>&lt;iframe src=&quot;http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FGunsAndAmmoMag&amp;amp;width=300&amp;amp;colorscheme=light&amp;amp;show_faces=true&amp;amp;stream=true&amp;amp;header=true&amp;amp;height=427&quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; style=&quot;background: white; border:none; overflow:hidden; width:300px; height:427px;&quot; allowTransparency=&quot;true&quot;&gt;&lt;/iframe&gt;</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=widget-text-11-title</td>
+	<td>Join the Conversation</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=savewidget</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#widget-78_channel-widget-5 &gt; div.widget-top &gt; div.widget-title-action &gt; a.widget-control-edit.hide-if-js &gt; span.edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=sidebar-home_position</td>
+	<td>label=6</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=savewidget</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#widget-80_advert-widget-12 &gt; div.widget-top &gt; div.widget-title-action &gt; a.widget-control-edit.hide-if-js &gt; span.edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=widget-advert-widget[12][size]</td>
+	<td>label=Box Ad (300x250)</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=sidebar-home_position</td>
+	<td>label=8</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=savewidget</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=savewidget</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#widget-2_advert-widget-__i__ &gt; div.widget-top &gt; div.widget-title-action &gt; a.widget-control-edit.hide-if-js &gt; span.add</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//input[@name='sidebar'])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=widget-advert-widget[__i__][size]</td>
+	<td>label=Skyscraper (160x600)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=savewidget</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

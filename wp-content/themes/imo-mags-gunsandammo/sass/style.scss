@@ -3667,3 +3667,22 @@ li.page-reviews {
 .recommendations{float:left;width:300px;height: 280px;}
 .post-content-area{width:648px;height:330px;float: left;}
 .yarpp-content{float:left;width:347px;}
+
+
+/* Reviews form */
+.reviews-form {
+	position: relative;
+    float: right;
+    top: -36px;
+    right: 4px;
+}
+.reviews-form span {
+	font-size:0.8em;
+	color: white;
+}
+.reviews-form select {
+    font-size: 85%;
+    }
+h4.reviews-form-header span{
+	width: 566px !important;
+}
