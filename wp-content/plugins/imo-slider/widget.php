@@ -86,7 +86,10 @@ class IMOSliderWidget extends \WP_Widget {
         $imoSliderCount++;
 
         extract( $args );
-	
+	       
+
+
+
         
     	$taxonomy = $instance['taxonomy'];
  
@@ -99,6 +102,14 @@ class IMOSliderWidget extends \WP_Widget {
         $contentType = 'posts';
 
         $args = $this->get_query_args_from_term_slug_array($taxonomy,$contentType);
+
+
+
+        if ($instance['post_type'] != "any") {
+            $args['post_type'] = $instance['post_type'];
+        }
+
+
             
         // The Query
         $the_query = new \WP_Query( $args );
@@ -244,9 +255,9 @@ class IMOSliderWidget extends \WP_Widget {
 
 
 
-        $taxonomies = get_taxonomies();           
+        //$taxonomies = get_taxonomies();           
 
-        //$taxonomies = array('activity','gear','location','species');
+        $taxonomies = array('category');
 
         $defaults = $instance['taxonomy'];
             
