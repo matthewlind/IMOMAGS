@@ -48,6 +48,9 @@ jQuery(document).ready(function($) {
 		} else if ($(".manufacturer").val()) { //If no caliber, check for manufacturer
 			dataString += "manufacturer=" + $(".manufacturer").val();
 		}
+
+
+		$(".reviews-cover").fadeIn();
 		
 		//Send the dataString and get the results
 		$.ajax({
@@ -58,7 +61,9 @@ jQuery(document).ready(function($) {
 			cache: false,
 			success: function(data) {
 
+
 				populateReviews(data);
+				$(".reviews-cover").fadeOut();
 				
 			}
 		});
@@ -73,13 +78,12 @@ jQuery(document).ready(function($) {
 		var article = $('<article class="post type-post status-publish format-standard hentry category-news-brief entry entry-excerpt has-img"><a class="thumbnail-link" href="http://www.gunsandammo.deva/reviews/browning-x-bolt-review/"><img width="190" height="120" src="http://www.gunsandammo.deva/files/2012/04/Browning-X-Bolt_0011-190x120.jpg" class="entry-img wp-post-image" alt="Browning-X-Bolt_001" title="Browning-X-Bolt_001" /></a><div class="entry-summary"><span class="entry-category"><span class="review-date" style="color:#CE181E;">April 24th, 2012</span></span><h2 class="entry-title"><a rel="bookmark" href="http://www.gunsandammo.deva/reviews/browning-x-bolt-review/">Browning X-Bolt Review</a></h2><p class="review-excerpt">May 2008 The closure of Winchester&#8217;s New Haven factory in 2006 made everyone in the shooting industry wince. Now what<a href="http://www.gunsandammo.deva/reviews/browning-x-bolt-review/">&#8230;&raquo;</a></p></p></div><a class="comment-count" href="http://www.gunsandammo.deva/reviews/browning-x-bolt-review/#comments">0</a></article>');
 
 		//Then, clear existing reviews
-		$(".reviews-section").empty();
+		$(".reviews-container").empty();
 
 		$(rows).each(function(i,row){
 
 			var articleClone = article.clone();
 
-			console.log(row);
 
 			articleClone.find("h2.entry-title a").html(row.title);//change title
 			articleClone.find("a").attr("href",row.permalink);//change all urls
@@ -88,7 +92,7 @@ jQuery(document).ready(function($) {
 			articleClone.find(".review-date").text(row.date);
 			articleClone.find(".review-excerpt").html(row.excerpt);
 
-			$(".reviews-section").append(articleClone);
+			$(".reviews-container").append(articleClone);
 
 		});
 

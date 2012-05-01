@@ -77,47 +77,48 @@ the_post();
 				</div>
 
 				<div class="reviews-section">
-				
-				<?php
-					
-				// Latest Reviews default
-					$args = array(
-						'post_type' => 'reviews',
-	    				'posts_per_page' => 9,
-						'orderby' => 'date',
-						'order' => 'DESC'
-					);		
+					<div class="reviews-cover" style="display:none;"></div>
+						<div class="reviews-container">
+					<?php
+						
+					// Latest Reviews default
+						$args = array(
+							'post_type' => 'reviews',
+		    				'posts_per_page' => 9,
+							'orderby' => 'date',
+							'order' => 'DESC'
+						);		
 
-					
-    				$query = new WP_Query( $args );
-					while ( $query->have_posts() ) : $query->the_post(); ?>
-						<article class="post type-post status-publish format-standard hentry category-news-brief entry entry-excerpt has-img">
-						<?php if(has_post_thumbnail()){ ?>
-							<a class="thumbnail-link" href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(190,120), array('class' => 'entry-img')); ?></a>
-						<?php } ?>
-						<div class="entry-summary">
-	  						<span class="entry-category">
-	    						<span class="review-date" style="color:#CE181E;"><?php the_time('F jS, Y') ?></span>
-	    					</span>
-	    					<h2 class="entry-title"><a rel="bookmark" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-							<p class="review-excerpt"><?php the_excerpt(); ?></p>
-						</div>
-  
-  						<a class="comment-count" href="<?php comments_link(); ?>"><?php echo get_comments_number(); ?></a>
+						
+	    				$query = new WP_Query( $args );
+						while ( $query->have_posts() ) : $query->the_post(); ?>
+							<article class="post type-post status-publish format-standard hentry category-news-brief entry entry-excerpt has-img">
+							<?php if(has_post_thumbnail()){ ?>
+								<a class="thumbnail-link" href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(190,120), array('class' => 'entry-img')); ?></a>
+							<?php } ?>
+							<div class="entry-summary">
+		  						<span class="entry-category">
+		    						<span class="review-date" style="color:#CE181E;"><?php the_time('F jS, Y') ?></span>
+		    					</span>
+		    					<h2 class="entry-title"><a rel="bookmark" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+								<p class="review-excerpt"><?php the_excerpt(); ?></p>
+							</div>
+	  
+	  						<a class="comment-count" href="<?php comments_link(); ?>"><?php echo get_comments_number(); ?></a>
 
-						</article>		
-							
-					<?php endwhile;
-					// Reset Post Data
-					wp_reset_postdata();
+							</article>		
+								
+						<?php endwhile;
+						// Reset Post Data
+						wp_reset_postdata();
 
+						
 					
-				
-				
-				wp_link_pages(); ?>
-				
+					
+					wp_link_pages(); ?>
+					
+					</div>
 				</div>
-				
 			</div>
 		</div>
 	</div>

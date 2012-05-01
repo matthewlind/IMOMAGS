@@ -908,6 +908,9 @@ margin: 32px 0 0 0;
     position: static;
   }
   
+
+
+
   /* Shooting */
   li.shooting {
     position: static;
@@ -3623,6 +3626,19 @@ li.page-reviews {
 		a.title{color:#5b6373;}
 }
 
+
+/* Reviews Page Styles */
+
+.reviews-section {
+  
+  .reviews-cover {
+    background: image-url('fadepixel.png') left top repeat;
+    height:100%;
+    width:650px;
+    position:absolute;
+    z-index:1000;
+  }
+}
 
 /* home page trending section */
 
