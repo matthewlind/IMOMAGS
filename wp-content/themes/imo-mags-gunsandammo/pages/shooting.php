@@ -46,7 +46,7 @@ the_post(); ?>
 
 				<?php the_post_thumbnail(array(312,312)); ?>
 				<a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a><br />
-				<a href="/topics/personal-defense/">More Personal Defense &raquo;</a>
+				<a href="/shooting/personal-defense/">More Personal Defense &raquo;</a>
 				<?php endwhile;
 
 				// Reset Post Data
@@ -78,7 +78,7 @@ the_post(); ?>
 			
 				<?php the_post_thumbnail(array(312,312)); ?>
 				<a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a><br />
-				<a href="/topics/new-products/">More New Products &raquo;</a>
+				<a href="/shooting/new-products/">More New Products &raquo;</a>
 				<?php endwhile;
 
 				// Reset Post Data
@@ -110,7 +110,7 @@ the_post(); ?>
 			
 				<?php the_post_thumbnail(array(312,312)); ?>
 				<a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a><br />
-				<a href="/topics/ammo/">More Ammo &raquo;</a>
+				<a href="/shooting/ammo/">More Ammo &raquo;</a>
 				<?php endwhile;
 
 				// Reset Post Data
@@ -142,7 +142,7 @@ the_post(); ?>
 			
 				<?php the_post_thumbnail(array(312,312)); ?>
 				<a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a><br />
-				<a href="/topics/reloading/">More Reloading &raquo;</a>
+				<a href="/shooting/reloading/">More Reloading &raquo;</a>
 				<?php endwhile;
 
 				// Reset Post Data
@@ -174,7 +174,7 @@ the_post(); ?>
 			
 				<?php the_post_thumbnail(array(312,312)); ?>
 				<a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a><br />
-				<a href="/topics/gear-and-accessories/">More Gear and Accessories &raquo;</a>
+				<a href="/shooting/gear-and-accessories/">More Gear and Accessories &raquo;</a>
 				<?php endwhile;
 
 				// Reset Post Data
@@ -206,7 +206,7 @@ the_post(); ?>
 			
 				<?php the_post_thumbnail(array(312,312)); ?>
 				<a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a><br />
-				<a href="/topics/tips-tactics/">More Tips & Tactics &raquo;</a>
+				<a href="/shooting/tips-tactics/">More Tips & Tactics &raquo;</a>
 				<?php endwhile;
 
 				// Reset Post Data
@@ -238,7 +238,7 @@ the_post(); ?>
 			
 				<?php the_post_thumbnail(array(312,312)); ?>
 				<a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a><br />
-				<a href="/topics/how-to/">More How To &raquo;</a>
+				<a href="/shooting/how-to/">More How To &raquo;</a>
 				<?php endwhile;
 
 				// Reset Post Data
@@ -270,7 +270,7 @@ the_post(); ?>
 			
 				<?php the_post_thumbnail(array(312,312)); ?>
 				<a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a><br />
-				<a href="/topics/second-amendment/">More Second Amendment &raquo;</a>
+				<a href="/shooting/second-amendment/">More Second Amendment &raquo;</a>
 				<?php endwhile;
 
 				// Reset Post Data
@@ -302,7 +302,7 @@ the_post(); ?>
 			
 				<?php the_post_thumbnail(array(312,312)); ?>
 				<a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a><br />
-				<a href="/topics/gunsmithing/">More Gunsmithing &raquo;</a>
+				<a href="/shooting/gunsmithing/">More Gunsmithing &raquo;</a>
 				<?php endwhile;
 
 				// Reset Post Data
@@ -334,7 +334,7 @@ the_post(); ?>
 			
 				<?php the_post_thumbnail(array(312,312)); ?>
 				<a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a><br />
-				<a href="/topics/military-law-enforcement/">More Military & Law &raquo;</a>
+				<a href="/shooting/military-law-enforcement/">More Military & Law &raquo;</a>
 				<?php endwhile;
 
 				// Reset Post Data
