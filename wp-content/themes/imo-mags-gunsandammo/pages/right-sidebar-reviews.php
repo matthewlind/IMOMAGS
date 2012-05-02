@@ -89,7 +89,7 @@ the_post();
 					// Latest Reviews default
 						$args = array(
 							'post_type' => 'reviews',
-		    				'posts_per_page' => 9,
+		    				'posts_per_page' => 20,
 							'orderby' => 'date',
 							'order' => 'DESC'
 						);		

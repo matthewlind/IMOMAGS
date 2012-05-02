@@ -5,9 +5,9 @@
 
 define("JETPACK_SITE", "gunsammo");
 define("DARTADGEN_SITE", "imo.gunsandammo");
-define("SUBS_LINK", "https://secure.palmcoastd.com/pcd/eSv?iMagId=0145V&i4Ky=IBZN");
-define("GIFT_LINK", "https://secure.palmcoastd.com/pcd/eSv?iMagId=0145V&i4Ky=IGZN");
-define("SERVICE_LINK", "https://secure.palmcoastd.com/pcd/eServ?iServ=MDE0NVY0NDY5Mg=");
+define("SUBS_LINK", "http://subs.gunsandammo.com");
+define("GIFT_LINK", "http://subs.gunsandammo.com/gift");
+define("SERVICE_LINK", "http://subs.gunsandammo.com/service");
 define("SUBS_DEAL_STRING", "Save 80%");
 define("DRUPAL_SITE", TRUE);
 
