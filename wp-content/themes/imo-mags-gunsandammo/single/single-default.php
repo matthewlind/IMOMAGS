@@ -59,27 +59,35 @@ get_header();
 	</div>
 <!-- Set the blog header on single blog entry pages -->
 <?php if (in_category($soga_slug)) { ?>
+<h1 class="seo-h1">Sons of guns & Ammo</h1>
 <a class="blog-header soga-header" href="/blogs/<?php echo "sons-of-gunsandammo"; ?>/" title="<?php echo $current_category; ?>"></a>
 
 <?php } else if (in_category($floc_slug)) { ?>
+<h1 class="seo-h1">For the Love of Competition</h1>
 <a class="blog-header floc-header" href="/blogs/<?php echo $floc_slug; ?>/" title="<?php echo $current_category; ?>"></a>
 
 <?php } else if (in_category($dt_slug)) { ?>
+<h1 class="seo-h1">Defend Thyself</h1>
 <a class="blog-header dt-header" href="/blogs/<?php echo $dt_slug; ?>/" title="<?php echo $current_category; ?>"></a>
 
 <?php } else if (in_category($nb_slug)) { ?>
+<h1 class="seo-h1">Guns & Ammo News Brief</h1>
 <a class="blog-header nb-header" href="/blogs/<?php echo $nb_slug; ?>/" title="<?php echo $current_category; ?>"></a>
 
 <?php } else if (in_category($tfl_slug)) { ?>
+<h1 class="seo-h1">The Front Lines</h1>
 <a class="blog-header tfl-header" href="/blogs/<?php echo $tfl_slug; ?>/" title="<?php echo $current_category; ?>"></a>
 
 <?php } else if (in_category($tgg_slug)) { ?>
+<h1 class="seo-h1">The Gun Guys</h1>
 <a class="blog-header tgg-header" href="/blogs/<?php echo $tgg_slug; ?>/" title="<?php echo $current_category; ?>"></a>
 
 <?php } else if (in_category($tgr_slug)) { ?>
+<h1 class="seo-h1">From the History Books</h1>
 <a class="blog-header tgr-header" href="/blogs/<?php echo $tgr_slug; ?>/" title="<?php echo $current_category; ?>"></a>
 
 <?php } else if (in_category($zn_slug)) { ?>
+<h1 class="seo-h1">Zombie Nation</h1>
 <a class="blog-header zn-header" href="/blogs/<?php echo $zn_slug; ?>/" title="<?php echo $current_category; ?>"></a>
 
 <?php } ?>
