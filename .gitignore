@@ -21,6 +21,7 @@ wp-content/w3*
 wp-content/blogs.dir
 wp-content/blogs.dir/
 wp-content/blogs.dir/*
+wp-content/plugins/bc_import/bc-config.php
 sitemap.xml
 sitemap.xml.gz
 imgs/
