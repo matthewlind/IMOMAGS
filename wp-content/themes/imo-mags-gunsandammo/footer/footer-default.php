@@ -98,11 +98,12 @@ $args = array(
                 <div class="otd-networkblock">
                 	 <div class="slides-container-f">
                         <ul id="slides-footer" class="jcarousel-skin-tango">
+                        	<li><a href="http://www.thesportsmanchannel.com/"><img src="/wp-content/themes/imo-mags-gunsandammo/img/imo_logos/new/sportsman_channel.png" alt="" /></a></li>
 							<li><a href="http://www.petersenshunting.com/"><img src="/wp-content/themes/imo-mags-gunsandammo/img/imo_logos/new/hunting.png" alt="" /></a></li>
 							<li><a href="http://www.floridasportsman.com/"><img src="/wp-content/themes/imo-mags-gunsandammo/img/imo_logos/new/florida_sportsman.png" alt="" /></a></li>
 							<li><a href="http://www.flyfisherman.com/"><img src="/wp-content/themes/imo-mags-gunsandammo/img/imo_logos/new/fly_fisherman.png" alt="" /></a></li>
 							<li><a href="http://www.gunsandammo.com/"><img src="/wp-content/themes/imo-mags-gunsandammo/img/imo_logos/new/gunsandammo.png" alt="" /></a></li>
-							<li><a href="http://www.thesportsmanchannel.com/"><img src="/wp-content/themes/imo-mags-gunsandammo/img/imo_logos/new/sportsman_channel.png" alt="" /></a></li>
+							
 							<li><a href="http://www.in-fisherman.com/"><img src="/wp-content/themes/imo-mags-gunsandammo/img/imo_logos/new/in_fisherman.png" alt="" /></a></li>
 							<li><a href="http://www.gameandfishmag.com/"><img src="/wp-content/themes/imo-mags-gunsandammo/img/imo_logos/new/game_and_fish.png" alt="" /></a></li>
 							<li><a href="http://www.gundogmag.com/"><img src="/wp-content/themes/imo-mags-gunsandammo/img/imo_logos/new/gun_dog.png" alt="" /></a></li>
