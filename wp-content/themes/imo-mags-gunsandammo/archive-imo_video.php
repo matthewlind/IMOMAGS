@@ -63,7 +63,7 @@ if (have_posts()) : ?>
   <section class="section-title videos">
     <h4>
       <div class="icon"></div>
-      <span>Categories</span>
+      <span>Video Channels</span>
     </h4>
   </section>
 

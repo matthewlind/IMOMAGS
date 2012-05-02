@@ -611,7 +611,6 @@ margin: 32px 0 0 0;
   }
 }
 
-
 /*
  * HEADER
  * branding, navigation, and social networking
@@ -636,7 +635,7 @@ margin: 32px 0 0 0;
     position: absolute;
     width: 75px;
     bottom: 75px;
-    z-index: 300;
+    z-index: 99999;
   }
   .subscription-block {
     height: 152px;
@@ -3891,3 +3890,23 @@ h1.seo-h1{text-indent:-9999px;border:none;height:0;}
 #site-menu .menu li a {
 	margin-right: 25px !important;
 }
+
+/* video excerpt layover */
+a.video-excerpt{
+	span {
+		width: 226px;
+    	height: 147px;
+    	position:absolute;
+   		background-color: rgba(0, 0, 0, 0.35);
+   		left: 0;
+		
+		background: image-url("play_button_03.png") no-repeat 80px center rgba(0, 0, 0, 0.35);
+		}
+		.video-arrow{
+			position:absolute;
+			left: 78px;
+   			top: 37px;
+		}
+}
+
+
