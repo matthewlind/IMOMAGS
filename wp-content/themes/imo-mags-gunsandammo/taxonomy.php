@@ -78,8 +78,15 @@ $item = array();
 <?php 
 	$count++;
 
+
+	$featuredPostCount = 4;
+
+	if ($taxonomy == "guntype") {
+		$featuredPostCount = 1;
+	}
+
 	
-	if ($count <= 4 && $paged == 1) {//If we are on the first page, show the featured thumbs followed by regular loop.
+	if ($count <= $featuredPostCount && $paged == 1) {//If we are on the first page, show the featured thumbs followed by regular loop.
 		
 		
 	    $item['title'] = get_the_title();
