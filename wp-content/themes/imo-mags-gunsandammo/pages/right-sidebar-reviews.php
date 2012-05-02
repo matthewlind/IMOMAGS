@@ -40,9 +40,14 @@ the_post();
 							$parents = array('parent' => 0);
 							$terms = get_terms("guntype", $parents);
  							$count = count($terms);
+
+ 							
+
+
  							if ( $count > 0 ){
 								foreach ( $terms as $term ) {
-       								echo "<option value=".$term->slug.">" . $term->name . "</option>";
+									$termName = str_replace(" Reviews","",$term->name);
+       								echo "<option value=".$term->slug.">" . $termName . "</option>";
         						}
 							}
 							?>
@@ -51,7 +56,7 @@ the_post();
 						<select name="manufacturer" class="manufacturer reviews-select" value="">
 							<option selected="selected" name="Manufacturer" value="">Manufacturer</option> 
 							<?php
-							$terms = get_terms("manufacturer");
+							$terms = get_terms("manufacturer",array("parent" => 0));
  							$count = count($terms);
  							if ( $count > 0 ){
 								foreach ( $terms as $term ) {

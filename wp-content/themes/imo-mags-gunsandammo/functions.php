@@ -228,7 +228,7 @@ function mm_current_issue($atts, $content = null) {
   }
 	
 	return '<div class="current-issue">
-	        <h3 class="month">November 2011</h3>
+	        <h3 class="month">May 2012</h3>
 	        <img src="'.$magazine_img.'" alt />
 	        </div>
 	        <ul class="subscriber-links">
