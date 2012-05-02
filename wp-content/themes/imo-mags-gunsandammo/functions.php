@@ -32,6 +32,14 @@ function register_rt_menu() {
 	register_nav_menu( 'tv-menu', __( 'TV Menu' ) );
 }
 
+/*Remove Pages From Search*/
+function ga_remove_pages_from_search() {
+    global $wp_post_types;
+    $wp_post_types['page']->exclude_from_search = true;
+}
+add_action('init', 'ga_remove_pages_from_search');
+
+
 /*CLOSED*/
 
 if (function_exists('register_sidebar')) {
