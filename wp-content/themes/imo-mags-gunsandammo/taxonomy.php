@@ -59,7 +59,7 @@ $taxonomy = $term->taxonomy;
 $args = array(
 	$taxonomy => $term_slug,
 	'paged' => get_query_var('paged'),
-	'posts_per_page' => 50,
+	'posts_per_page' => 90,
 
 );
 
