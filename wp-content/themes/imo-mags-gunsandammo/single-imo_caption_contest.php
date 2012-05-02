@@ -30,7 +30,7 @@ get_header(); ?>
   		<?php echo $post->post_content; ?></p>
   		
   		<div class="caption-banner">
-        <div class="caption-banner-text">This Month's Photo</div>
+        <div class="caption-banner-text">This Week's Photo</div>
         
       </div>
 
