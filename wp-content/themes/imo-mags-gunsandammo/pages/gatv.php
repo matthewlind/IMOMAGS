@@ -23,25 +23,22 @@ get_header();
 
 the_post();
 ?>
-<div id="tv-wrapper">
 
-<header id="masthead" class="tv-header">
-	<a href="/ga-tv-new/" title="Guns & Ammo Television"><h1 class="seo-h1"><?php the_title(); ?></h1></a>
-	
-</header><!-- #masthead -->
-<img src="http://www.gunsandammo.com/files/2012/05/ga-tv-landing.png" alt="Guns & Ammo TV" />
 <nav class="nav nav-secondary"><!--new TV MENU-->
-	
+	<img src="http://www.gunsandammo.com/files/2012/05/ga-tv-landing.png" alt="Guns & Ammo TV" />
 	<?php wp_nav_menu( array( 'theme_location' => 'tv-menu', 'fallback_cb' => '' ) ); ?>
-	
 </nav>
-<div class="page-template-page-right-php tv-template">
-
-	<div class="col-abc">
-		<div <?php post_class('entry entry-full clearfix'); ?>>
+<div class="gatv"></div>
+<div class="page-template-page-right-php right-sidebar-landing tv-pages">
+	<div id="sidebar">
+		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-tv')) : else : ?><?php endif; ?>
+	</div>
+	<div id="content" class="tv-pages">
+		<h1 class="seo-h1">GATV</h1>
+		<div <?php post_class('entry entry-full'); ?>>
 			<div class="entry-content">
-				<?php
-				the_content(__('Continued&hellip;', 'carrington-business'));
+		
+				<?php the_content(__('Continued&hellip;', 'carrington-business'));
 				wp_link_pages();
 				
 				?>
@@ -55,8 +52,9 @@ the_post();
 			comments_template();
 		}?>
 		
-	</div><!-- .col-abc -->
+			</div>
+		</div>
+	</div>
 </div>
 
-</div>
 <?php get_footer(); ?>

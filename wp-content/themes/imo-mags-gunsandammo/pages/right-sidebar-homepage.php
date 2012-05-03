@@ -32,7 +32,7 @@ the_post(); ?>
 			
 		<div class="c6-3456 cfct-block-bc cfct-block block-1">
 			<div class="cfct-module cfct-heading">
-				<h4 class="cfct-mod-title">Trending Articles</h4>
+				<h4 class="cfct-mod-title">Most Commented</h4>
 			</div>
 		<!-- trending articles -->
 		<div class="cfct-module not-loop trending">

@@ -113,12 +113,15 @@ get_header(); ?>
 				  <div class="more-lists fancy">
 				    <h4><span>More G&amp;A Lists</span></h4>
 				    <?php
-          	$args = array(
+				    
+				    $args = array(
+          		
           		'post_type'			=>	'imo_gallery',
-          		'posts_per_page'	=>	3,
-          		'orderby'			=>	'rand', // may need to switch to menu_order
-          		'order'				=>	'ASC'
+          		'posts_per_page' => 3,
+          		'orderby'			=>	'date', // may need to switch to menu_order
+          		'order'				=>	'DESC'
           	);
+          	
           	$galleries = new WP_Query($args); 
           	while ($galleries->have_posts()) : $galleries->the_post(); ?>
           	<article id="post-excerpt-<?php the_ID(); ?>" <?php post_class('entry') ?>>
@@ -130,15 +133,40 @@ get_header(); ?>
             		<h5 class="entry-title"><a rel="bookmark" href="<?php the_permalink() ?>"><?php the_title() ?></a></h5>
             	</div>
             </article>
-          	<?php endwhile; ?>
-          	
-          	<a class="cta" href="<?php echo get_post_type_archive_link('imo_gallery'); ?>">More Lists <span></span></a>
+          	<?php endwhile;
+         // Reset Post Data
+		wp_reset_postdata();
+
+
+          		$args2 = array(
+          		
+          		'category_name'			=>	'galleries',
+          		'posts_per_page' => 3,          		'orderby'			=>	'date', // may need to switch to menu_order
+          		'order'				=>	'DESC'
+          	);
+          			
+		$galleries_old = new WP_Query($args2); 
+          	while ($galleries_old->have_posts()) : $galleries_old->the_post(); ?>
+          	<article id="post-excerpt-<?php the_ID(); ?>" <?php post_class('entry') ?>>
+          	  <?php	if (has_post_thumbnail()) :
+            		echo '<a href="', the_permalink(),'">', the_post_thumbnail('small-featured-thumb', array('class' => 'entry-img')), '</a>'; ?>
+              <?php	endif; ?>
+
+            	<div class="entry-summary">
+            		<h5 class="entry-title"><a rel="bookmark" href="<?php the_permalink() ?>"><?php the_title() ?></a></h5>
+            	</div>
+            </article>
+          	<?php endwhile;
+         // Reset Post Data
+		wp_reset_postdata();
+        ?>
+        	<a class="cta" href="/ga-lists">More Lists <span></span></a>
 				  </div>
 				</div>
 
 	      <?php endif; ?>
-        
-        </div>
+	      
+	              </div>
     </div>
   </div>
 	

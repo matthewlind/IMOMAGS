@@ -56,7 +56,6 @@ body.page-id-2114 {
     padding-top:0px;
     padding: 0px 10px 0;
   }
-
 }
 /*
  * GLOBAL STYLE
@@ -68,7 +67,6 @@ h1, h2, h3, h4, h5, h6 {
   @include font-stag-bold;
 
   color: #252525;
-
 }
 h1 {
   font-size: 34px;
@@ -162,6 +160,7 @@ ol.fancy,
   }
 }
 
+
 /* Fancy Titles */
 .fancy {
   text-align: center;
@@ -171,7 +170,7 @@ ol.fancy,
 
     background: image-url('box_title_bg.png') left center repeat-x;
     padding: 0 17px;
-    position: relative;
+    
     text-align: center;
     top: -7px;
 
@@ -401,7 +400,7 @@ a.comment-count {
     @include font-lora;
 
     font-size: 14px;
-    
+     
     a {
       &:hover {
         border: none;
@@ -445,6 +444,7 @@ a.comment-count {
 padding: 0;
 margin: 32px 0 0 0;
 }
+
 
 /*
  * ENTRY EXCERPT
@@ -1244,6 +1244,8 @@ margin: 32px 0 0 0;
       color: #959595;
       float: left;
       font-size: 14px;
+      padding-left: 15px;
+      
     }
     .connections {
       float: right;
@@ -2841,6 +2843,7 @@ body.parent-pageid-2114 #main {
   }
 }
 
+
 /* G&A iPad App Widget */
 #sidebar #get_ipad_app {
   background-image: image-url('widget_stripe_bg_78.png');
@@ -2871,6 +2874,12 @@ body.parent-pageid-2114 #main {
     margin: 24px auto 0;
     width: 244px;
   }
+  .ipad-reloaded {
+    background: image-url('POI-ipad.png') center bottom no-repeat;
+    height: 161px;
+    margin: 24px auto 0;
+    width: 244px;
+  }
 }
 
 /* Channel Widget */
@@ -2884,7 +2893,6 @@ body.parent-pageid-2114 #main {
   display: inline;
 }
 #locateChannel {
-  background: #dddfe0 url(/wp-content/themes/carrington-business/img/cf-background.png) no-repeat center top;
   height: 165px;
   margin-bottom: 10px;
   
@@ -3910,4 +3918,70 @@ a.video-excerpt{
 		}
 }
 
+/* tv page */
+nav.nav-secondary {
+	width: 960px;
+    background-color: transparent;
+    bottom: 60px;
+    font-size: 13px;
+    line-height: 1;
+    margin: 0;
+    padding: 0 15px;
+    position: relative;
+    	img{
+    		margin-bottom: -4px;
+    		}
+}
+nav.nav-secondary ul {
+    top: 1px;
+}
+nav.nav-secondary li {
+    margin: 0;
+    top: 1px;
+}
+nav.nav-secondary a {
+	
+    background: none repeat scroll 0 0 #CE181E;
+    border-color: #BF3D06;
+    border-style: solid;
+    border-width: 2px 1px;
+    color: #FFFFFF !important;
+    display: block;
+    font-family: helvetica,arial,serif,sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: bold;
+    letter-spacing: 0;
+    overflow: hidden;
+    padding: 10px 14px 8px;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+nav.nav-secondary a:hover, nav.nav-secondary li:hover a {
+    border-top: 2px solid #BF3D06;
+    color: #D2D2D2 !important;
+    padding: 10px 14px 8px;
+}
+nav.nav-secondary li.current-menu-item a {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-bottom: 3px solid #FFFFFF;
+    color: #BF3D06 !important;
+}
+.gatv{
+	border-bottom: 1px solid #CE181E;
+	top: -23px;
+    position: relative;
+    margin-bottom: -20px;
+}
+.gatv-titles{margin-top:47px;}
 
+.tv-pages .cfct-image-left{
+	float:left;
+	padding: 0 10px 10px 0;
+}
+.tv-pages .cfct-callout{
+	margin-bottom: 40px;
+    min-height: 162px
+}
