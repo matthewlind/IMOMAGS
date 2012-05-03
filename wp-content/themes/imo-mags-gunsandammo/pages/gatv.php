@@ -28,7 +28,6 @@ the_post();
 	<img src="http://www.gunsandammo.com/files/2012/05/ga-tv-landing.png" alt="Guns & Ammo TV" />
 	<?php wp_nav_menu( array( 'theme_location' => 'tv-menu', 'fallback_cb' => '' ) ); ?>
 </nav>
-<div class="gatv"></div>
 <div class="page-template-page-right-php right-sidebar-landing tv-pages">
 	<div id="sidebar">
 		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-tv')) : else : ?><?php endif; ?>
