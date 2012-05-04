@@ -2,13 +2,6 @@
 
 
     jQuery(document).ready(function () {
-      jQuery('#scroll-reviews').buffet({
-        scroll_by : 4,
-        speed     : 400,
-        easing    : 'easeOutExpo',
-        next      : jQuery('#next-reviews'),
-        prev      : jQuery('#prev-reviews'),
-      });
       jQuery('#scroll-1').buffet({
         scroll_by : 4,
         speed     : 400,

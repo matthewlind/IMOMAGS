@@ -69,12 +69,6 @@ the_post();
 							<option selected="selected" name="caliber" value="">Caliber</option>
 							<option name="null" value="">Choose a Manufacturer</option>
 						</select>
-						<?php
-						/* 
-						**
-						** Add Alerts
-						*/
-						?>
 						</form>
 					</div>
 				</div>
