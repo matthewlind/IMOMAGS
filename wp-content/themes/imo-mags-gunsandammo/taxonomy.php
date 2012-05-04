@@ -47,10 +47,18 @@ if (!is_admin()) {
 				</div>
 
 <?php
+
+
+
 $term = get_queried_object();
 $term_id = $term->term_id;
 $term_slug = $term->slug;
 $taxonomy = $term->taxonomy;
+
+
+ $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
+
+
 
 ?>
 
@@ -59,7 +67,7 @@ $taxonomy = $term->taxonomy;
 $args = array(
 	$taxonomy => $term_slug,
 	'paged' => get_query_var('paged'),
-	'posts_per_page' => 90,
+	'posts_per_page' => 300,
 
 );
 
@@ -96,7 +104,7 @@ $item = array();
 		$_img = $_img_id = null;
 		$_img_id = get_post_meta($item['id'], '_thumbnail_id', true);
 		if (!empty($_img_id) && $_img = wp_get_attachment_image_src($_img_id, "large-featured-thumb-x", false)) {
-			$item['img_src'] = $_img;
+			$item['img_src'] = wp_get_attachment_image_src($_img_id, "huge-thumb", false);
 			$item['img_src_thumb'] = wp_get_attachment_image_src($_img_id, "small-featured-thumb-x", false);
 		}
 		

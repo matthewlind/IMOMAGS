@@ -68,7 +68,6 @@ the_post();
 						<select class="caliber reviews-select">
 							<option selected="selected" name="caliber" value="">Caliber</option>
 							<option name="null" value="">Choose a Manufacturer</option>
-							<?php include('/wp-content/themes/imo-mags-gunsandammo/ajax_caliber.php'); ?>
 						</select>
 						<?php
 						/* 
@@ -89,7 +88,7 @@ the_post();
 					// Latest Reviews default
 						$args = array(
 							'post_type' => 'reviews',
-		    				'posts_per_page' => 20,
+		    				'posts_per_page' => 25,
 							'orderby' => 'date',
 							'order' => 'DESC'
 						);		

@@ -321,7 +321,7 @@ function imo_ga_json() {
             $review['date'] = get_the_time('F jS, Y');
             $review['permalink'] = get_permalink();
             $review['comment_count'] = get_comments_number();
-            $review['thumbnail'] = get_the_post_thumbnail(null,null, array('class' => 'entry-img'));
+            $review['thumbnail'] = get_the_post_thumbnail(null,"post-thumb", array('class' => 'entry-img'));
 
 
             $review['excerpt'] = get_the_excerpt();

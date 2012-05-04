@@ -263,7 +263,7 @@ function imo_caption_contest_inner_custom_box( $post ) {
   // The actual fields for data entry
   //echo '<input type="text" id="imo_caption_contest_caption_id" name="imo_caption_contest_caption_id" placeholder="Select a caption" size="25" ' . $valueTag . ' />';
   echo '<select id="imo_caption_contest_caption_id" class="chzn-select" name="imo_caption_contest_caption_id" placeholder="Select a Caption" style="width:500px;" />';
-
+  echo "<option value='0'>Choose a Winner</option>";
   foreach ($comments as $comment) {
   	$count++;
   	
@@ -281,7 +281,7 @@ function imo_caption_contest_inner_custom_box( $post ) {
   	echo "<option value='$commentID' $active><b>$author</b> - $text</option>";
     $active = "";  
   }
-  if ($count < 1)
+  if ($count < 1) 
     echo "<option value='0'>No Comments Yet! Come back later.</option>";
 
 
