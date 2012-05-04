@@ -2,7 +2,7 @@
 
 class iPadApp_Widget_reloaded extends WP_Widget {
   
-	function iPadApp_Widget() {
+	function iPadApp_Widget_reloaded () {
 		$widget_ops = array('classname' => 'iPadApp_Widget_reloaded', 'description' => 'A link to the G&A Reloaded App in the iTunes App Store.' );
 		$this->WP_Widget('ipad_app_reloaded', 'iPad Reloaded App', $widget_ops);
 	}
