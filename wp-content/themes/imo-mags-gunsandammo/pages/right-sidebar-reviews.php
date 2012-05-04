@@ -34,7 +34,7 @@ the_post();
 						</h4>
 					<form action="<?php $_SELF['REQUEST_URI']; ?>" method="post" id="form" class="reviews-form">
 
-					<select class="guntype reviews-select">
+					<select class="guntype reviews-select reviews-select-guntype">
 							<option selected="selected" name="guntype" value="">Type</option>
 							<?php
 							$parents = array('parent' => 0);
@@ -53,7 +53,7 @@ the_post();
 							?>
 						</select>
 						<!-- disabled="disabled" -->
-						<select name="manufacturer" class="manufacturer reviews-select" value="">
+						<select name="manufacturer" class="manufacturer reviews-select reviews-select-manufacturer" value="">
 							<option selected="selected" name="Manufacturer" value="">Manufacturer</option> 
 							<?php
 							$terms = get_terms("manufacturer",array("parent" => 0));
@@ -65,7 +65,7 @@ the_post();
 							}
 							?>
 						</select>
-						<select class="caliber reviews-select">
+						<select class="caliber reviews-select reviews-select-caliber">
 							<option selected="selected" name="caliber" value="">Caliber</option>
 							<option name="null" value="">Choose a Manufacturer</option>
 						</select>

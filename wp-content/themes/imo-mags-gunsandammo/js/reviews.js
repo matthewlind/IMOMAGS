@@ -23,6 +23,9 @@ jQuery(document).ready(function($) {
 					var option = $("<option value='" + row.slug + "'>" + row.name + "</option>");
 					$("select.caliber").append(option);
 
+					$(".slider-reviews-guntype").trigger('change');
+					$(".reviews-select-guntype").trigger('change');
+
 				});
 			}
 		});
@@ -31,7 +34,7 @@ jQuery(document).ready(function($) {
 
 
 
-	$(".reviews-select").change(function(){
+	$(".reviews-select-guntype, .reviews-select-caliber").change(function(){
 
 
 		var dataString = "";
@@ -110,7 +113,7 @@ jQuery(document).ready(function($) {
 	}
 
 
-	$(".slider-reviews-select").change(function(){
+	$(".slider-reviews-guntype, .slider-reviews-caliber").change(function(){
 
 
 		var dataString = "";

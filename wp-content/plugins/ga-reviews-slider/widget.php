@@ -75,7 +75,7 @@ class GAReviewSliderWidget extends \WP_Widget {
     </h4>
     <form action="<?php $_SELF['REQUEST_URI']; ?>" method="post" id="form" class="reviews-form">
 
-        <select class="guntype slider-reviews-select">
+        <select class="guntype slider-reviews-select slider-reviews-guntype">
             <option selected="selected" name="guntype" value="">Type</option>
             <?php
             $parents = array('parent' => 0);
@@ -91,7 +91,7 @@ class GAReviewSliderWidget extends \WP_Widget {
             ?>
         </select>
         <!-- disabled="disabled" -->
-        <select name="manufacturer" class="manufacturer slider-reviews-select" value="">
+        <select name="manufacturer" class="manufacturer slider-reviews-select slider-reviews-manufacturer" value="">
             <option selected="selected" name="Manufacturer" value="">Manufacturer</option> 
             <?php
             $terms = get_terms("manufacturer",array("parent" => 0));
@@ -103,7 +103,7 @@ class GAReviewSliderWidget extends \WP_Widget {
             }
             ?>
         </select>
-        <select class="caliber slider-reviews-select">
+        <select class="caliber slider-reviews-select slider-reviews-caliber">
             <option selected="selected" name="caliber" value="">Caliber</option>
             <option name="null" value="">Choose a Manufacturer</option>
         </select>
