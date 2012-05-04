@@ -71,7 +71,7 @@ class GAReviewSliderWidget extends \WP_Widget {
 <div class="section-title posts">
     <h4 class="reviews-form-header">
         <div class="icon"></div>
-            <span>Filter Reviews</span> 
+            <span>Latest Reviews</span> 
     </h4>
     <form action="<?php $_SELF['REQUEST_URI']; ?>" method="post" id="form" class="reviews-form">
 

@@ -147,6 +147,8 @@ jQuery(document).ready(function($) {
 					fakePopulateSlider();
 				}
 
+				$('ul#scroll-reviews').css("left","0px");
+
 
 				$(".reviews-cover").fadeOut();
 				
