@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://www.gunsandammo.test/" />
+<title>SonsBlog-manual</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">SonsBlog-manual</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/wp-admin/post.php?post=2969&amp;action=edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#cfct-module-34b8c0e37c2a5b26f27768a5745754dc &gt; dl.cfct-module-content &gt; dd.cfct-module-edit-clear &gt; a.cfct-module-clear</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cfct-delete-module-confirm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#cfct-module-93b4bde8ec5fec9966ed07e7aaf579bb &gt; dl.cfct-module-content &gt; dd.cfct-module-edit-clear &gt; a.cfct-module-clear</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cfct-delete-module-confirm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#cfct-module-d3083f932cd4cee48505a729c9398248 &gt; dl.cfct-module-content &gt; dd.cfct-module-edit-clear &gt; a.cfct-module-clear</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cfct-delete-module-confirm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#cfct-module-dccf4be5865a18f1c63305b6d641e216 &gt; dl.cfct-module-content &gt; dd.cfct-module-edit-clear &gt; a.cfct-module-clear</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cfct-delete-module-confirm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#cfct-module-8221286e70f375993e452ab2df1321b4 &gt; dl.cfct-module-content &gt; dd.cfct-module-edit-clear &gt; a.cfct-module-clear</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cfct-delete-module-confirm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#cfct-module-eb53744f9e2f5ecd680051198df94d70 &gt; dl.cfct-module-content &gt; dd.cfct-module-edit-clear &gt; a.cfct-module-clear</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cfct-delete-module-confirm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#cfct-module-a4e660811ec81f40c5420d19e9f61116 &gt; dl.cfct-module-content &gt; dd.cfct-module-edit-clear &gt; a.cfct-module-edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//body</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=cfct-module-loop-taxonomy-select</td>
+	<td>label=Categories</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cfct-module-loop-add-tax-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=in-category-2442</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=module-cfct-module-loop-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'Add Module')])[6]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#cfct-popup-inner &gt; div.cfct-popup.cfct-add-module &gt; div.cfct-popup-content &gt; #cfct-widgets-list &gt; li.cfct-il-item &gt; a.cfct-add-module-cfct-widget-module-newsletter_signup.cfct-il-a &gt; img.cfct-il-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=widget-newsletter_signup-0-title</td>
+	<td>Get the Newsletter</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=module-cfct-widget-module-newsletter_signup-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#cfct-row-120405a0f90442402fc7c491b7d63904 &gt; div.cfct-row-inner &gt; table.cfct-row-blocks &gt; tbody &gt; tr.cfct-build-module-controls &gt; td.cfct-build-add-module &gt; p &gt; a.cfct-add-new-module</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#cfct-popup-inner &gt; div.cfct-popup.cfct-add-module &gt; div.cfct-popup-content &gt; #cfct-module-list &gt; li.cfct-il-item &gt; a.cfct-add-module-cfct-html.cfct-il-a &gt; img.cfct-il-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Advanced Options</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Set CSS Classes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=custom-classes-custom-css</td>
+	<td>blog-description</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=cfct-html-content</td>
+	<td>Will Hayden and the Red Jacket Crew bring you everything you love about Sons of Guns in a blog with all the firepower and none of the drama.</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=module-cfct-html-submit</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

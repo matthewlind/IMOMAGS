@@ -26,23 +26,17 @@ the_post();
 <div id="tv-wrapper">
 
 <header id="masthead" class="tv-header">
-	<a href="/ga-tv-new/" title="Guns & Ammo Television"><h1 class="tv-title"><?php the_title(); ?></h1></a>
+	<a href="/ga-tv-new/" title="Guns & Ammo Television"><h1 class="seo-h1"><?php the_title(); ?></h1></a>
 	
 </header><!-- #masthead -->
-
+<img src="http://www.gunsandammo.com/files/2012/05/ga-tv-landing.png" alt="Guns & Ammo TV" />
 <nav class="nav nav-secondary"><!--new TV MENU-->
 	
 	<?php wp_nav_menu( array( 'theme_location' => 'tv-menu', 'fallback_cb' => '' ) ); ?>
 	
 </nav>
-
-
 <div class="page-template-page-right-php tv-template">
-	<div class="bonus-background">
-		<div class="bonus tv-bonus">
-			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-tv')) : else : ?><?php endif; ?>
-		</div>
-	</div>
+
 	<div class="col-abc">
 		<div <?php post_class('entry entry-full clearfix'); ?>>
 			<div class="entry-content">

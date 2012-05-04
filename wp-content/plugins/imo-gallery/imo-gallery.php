@@ -50,15 +50,15 @@ function imo_gallery_init() {
 		'publicly_queryable' => true,
 		'show_ui' => true, 
 		'query_var' => true,
-		'rewrite' => array('slug' => 'gallery', 'with_front' => FALSE),
+		'rewrite' => array('slug' => 'ga-lists', 'with_front' => FALSE),
 		'capability_type' => 'post',
 		'hierarchical' => false,
 		'menu_position' => null,
 		'supports' => array('title','thumbnail','excerpt','editor'),
-		'taxonomies' => array('video_channel','post_tag','activity','location','gear','species'),
+		'taxonomies' => array('video_channel','post_tag','activity','location','gear','species','category'),
 	  ); 
 	  register_post_type('imo_gallery',$args);
-	  flush_rewrite_rules();
+
 }
 
 function imo_gallery_flush() {

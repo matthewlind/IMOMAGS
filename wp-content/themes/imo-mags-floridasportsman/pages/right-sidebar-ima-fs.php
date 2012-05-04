@@ -25,7 +25,9 @@ the_post();
 ?>
 <div id="reeltime-wrapper">
 
+
 <header id="masthead" class="imafs-header">
+
 	<a href="/imafs/" title="I'm A Florida Sportsman"><h1 class="imafs-title"><?php the_title(); ?></h1></a>
 	
 </header><!-- #masthead -->
