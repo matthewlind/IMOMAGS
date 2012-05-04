@@ -28,7 +28,7 @@ the_post();
 	<h1><?php // the_title(); ?></h1>
 	<?php // edit_post_link(__('Edit', 'carrington-business')); ?>
 </header>
---!>
+-->
 <div class="page-template-page-right-php">
 	<div class="bonus-background">
 		<div class="bonus">
@@ -44,7 +44,7 @@ the_post();
 				wp_link_pages();
 				
 				?>
-                             <?php /*comments_template();  */ ?>
+                             <?php /* comments_template(); */   ?>
 
 			</div>
 			<?php edit_post_link(__('Edit', 'carrington-business')); ?>
