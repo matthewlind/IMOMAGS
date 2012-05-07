@@ -26,19 +26,27 @@ get_header();
 	<h1>
 	<?php the_title(); ?>
 	</h1>
-	<?php
+		<?php
 		//Most Recent
-		$the_query = new WP_Query( array( 'post_type' => 'crown_your_catch', 'orderby' => 'date', 'order' => 'DESC' ) );
-		while ( $the_query->have_posts() ) : $the_query->the_post(); 
-				if(has_post_thumbnail()){  
-					foreach($the_query as $query) ?>
-						<li><a href="<?php echo $query->guid; ?>"><span></span><?php the_post_thumbnail('thumbnail'); ?></a></li>
+		$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+		query_posts( array( 'post_type' => 'crown_your_catch', 'posts_per_page' =>-1, 'orderby' => 'date', 'order' => 'DESC', 'paged' => $paged ) );
+		while ( have_posts() ) : the_post(); 
+				if(has_post_thumbnail()){  ?>
+					
+						<li><a href="<?php the_permalink(); ?>"><span></span><?php the_post_thumbnail('thumbnail'); ?></a></li>
           <?php }
-		endwhile;	
-		// Reset Post Data
-		wp_reset_postdata();
-		?>
+		endwhile;	?>
+		<div style="clear:both;"></div>
+		<div class="navigation">
+			<div class="alignleft">
+				<?php next_posts_link('&laquo; Older Entries'); ?>
+			</div>
+			<div class="alignright">
+				<?php previous_posts_link('Newer Entries &raquo;'); ?>
+			</div>
+		</div> <!-- end navigation -->
 </div>
+
 <?php get_sidebar('crown'); 
 ?>
 <div class="top-footer">

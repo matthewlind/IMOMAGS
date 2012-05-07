@@ -168,7 +168,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
  						<ul class="scroll">
 						<?php
 						//Most Recent
-						$the_query = new WP_Query( array( 'post_type' => 'crown_your_catch', 'orderby' => 'date', 'order' => 'DESC' ) );
+						$the_query = new WP_Query( array( 'post_type' => 'crown_your_catch','posts_per_page' =>-1, 'orderby' => 'date', 'order' => 'DESC' ) );
 						while ( $the_query->have_posts() ) : $the_query->the_post(); 
 							if(has_post_thumbnail()){  
 								foreach($the_query as $query) ?>
