@@ -1,0 +1,986 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://www.gunsandammo.test/" />
+<title>UberMenus</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">UberMenus</td></tr>
+</thead><tbody>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Plugins</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#ubermenu-wordpress-mega-menu-plugin &gt; td.plugin-title &gt; div.row-actions-visible &gt; span.activate &gt; a.edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Appearance</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Uber Menu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#container-wpmega-advanced &gt; h5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#container-wpmega-html5 &gt; label.ss-toggle-onoff.off &gt; span.ss-toggle-inner &gt; span.ss-toggle-mid</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#container-wpmega-shortcodes &gt; label.ss-toggle-onoff.off &gt; span.ss-toggle-inner &gt; span.ss-toggle-mid</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=wpmega-sidebars</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#container-wpmega-top-level-widgets &gt; label.ss-toggle-onoff.off &gt; span.ss-toggle-inner &gt; span.ss-toggle-mid</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=wpmega-hover-interval</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#container-wpmega-themeintegration &gt; h5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#container-wpmega-remove-conflicts &gt; label.ss-toggle-onoff.on &gt; span.ss-toggle-inner &gt; span.ss-toggle-mid</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#container-wpmega-include-jquery &gt; label.ss-toggle-onoff.on &gt; span.ss-toggle-inner &gt; span.ss-toggle-mid</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#container-wpmega-style-settings &gt; h5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=wpmega-style-preset</td>
+	<td>label=regexp:\s</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input.ss-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Menus</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=megaMenuThemeLoc-featured</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=wp-mega-menu-navlocs-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-3158</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=delete-3158</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-3128</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=delete-3128</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=custom-menu-item-url</td>
+	<td>/gun-reviews/</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=custom-menu-item-name</td>
+	<td>Reviews</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=submit-customlinkdiv</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12114</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-menu-item-classes-12114</td>
+	<td>reviews</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-menu-item-isMega-12114</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'View All')])[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#taxonomy-guntype &gt; p.button-controls &gt; span.list-controls &gt; a.select-all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=submit-taxonomy-guntype</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12119</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-menu-item-title-12119</td>
+	<td>Single Shot</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12118</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-menu-item-title-12118</td>
+	<td>Semi Auto</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12126</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-menu-item-title-12126</td>
+	<td>Semi Auto</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12122</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-menu-item-title-12122</td>
+	<td>Full Auto</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12127</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-menu-item-title-12127</td>
+	<td>Single Shot</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12131</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-menu-item-title-12131</td>
+	<td>Semi Auto</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=custom-menu-item-url</td>
+	<td>#</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=custom-menu-item-name</td>
+	<td>--notext--</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=submit-customlinkdiv</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12133</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#menu-item-settings-12133 &gt; a.wpmega-showhide-menu-ops</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-menu-item-sidebars-12133</td>
+	<td>label=UberMenu Widget Area 1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12133</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'View All')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=menu-item[-108][menu-item-object-id]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=submit-posttype-page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12149</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-menu-item-isMega-12149</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-menu-item-classes-12149</td>
+	<td>shooting</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=custom-menu-item-url</td>
+	<td>#</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=custom-menu-item-name</td>
+	<td>Guns &amp; Gear</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=submit-customlinkdiv</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=custom-menu-item-url</td>
+	<td>#</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=custom-menu-item-name</td>
+	<td>Topics</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=submit-customlinkdiv</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=custom-menu-item-url</td>
+	<td>#</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=custom-menu-item-name</td>
+	<td>--notext--</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=submit-customlinkdiv</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=custom-menu-item-url</td>
+	<td>#</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=custom-menu-item-name</td>
+	<td>--notext--</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=submit-customlinkdiv</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12162</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#menu-item-settings-12162 &gt; a.wpmega-showhide-menu-ops</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-menu-item-sidebars-12162</td>
+	<td>label=UberMenu Widget Area 1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#add-category &gt; div.handlediv</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'View All')])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=menu-item[-161][menu-item-object-id]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=menu-item[-156][menu-item-object-id]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=menu-item[-160][menu-item-object-id]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=menu-item[-164][menu-item-object-id]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=menu-item[-158][menu-item-object-id]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=menu-item[-159][menu-item-object-id]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=menu-item[-141][menu-item-object-id]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=menu-item[-165][menu-item-object-id]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=menu-item[-167][menu-item-object-id]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=menu-item[-170][menu-item-object-id]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=submit-taxonomy-category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'View All')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=menu-item[-84][menu-item-object-id]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=menu-item[-85][menu-item-object-id]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=menu-item[-86][menu-item-object-id]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=menu-item[-87][menu-item-object-id]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=menu-item[-88][menu-item-object-id]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=menu-item[-89][menu-item-object-id]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=menu-item[-90][menu-item-object-id]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=menu-item[-91][menu-item-object-id]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=menu-item[-92][menu-item-object-id]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=menu-item[-93][menu-item-object-id]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=submit-posttype-page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12163</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-menu-item-classes-12163</td>
+	<td>blogs</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12167</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=delete-12167</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12170</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=delete-12170</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12171</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=delete-12171</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=custom-menu-item-url</td>
+	<td>/video/</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=custom-menu-item-name</td>
+	<td>Video</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=submit-customlinkdiv</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12179</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-menu-item-classes-12179</td>
+	<td>video</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-menu-item-isMega-12179</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'View All')])[13]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=menu-item[-618][menu-item-object-id]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=menu-item[-619][menu-item-object-id]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=menu-item[-617][menu-item-object-id]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=menu-item[-610][menu-item-object-id]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=menu-item[-611][menu-item-object-id]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=menu-item[-612][menu-item-object-id]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=menu-item[-613][menu-item-object-id]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=menu-item[-606][menu-item-object-id]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=submit-taxonomy-video_channel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=custom-menu-item-url</td>
+	<td>#</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=custom-menu-item-name</td>
+	<td>--notext--</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=submit-customlinkdiv</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12194</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#menu-item-settings-12194 &gt; a.wpmega-showhide-menu-ops</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12201</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-menu-item-classes-12194</td>
+	<td>ga-tv</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-menu-item-classes-12201</td>
+	<td>pd-tv</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=custom-menu-item-url</td>
+	<td>#</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=custom-menu-item-name</td>
+	<td>The Magazine</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=submit-customlinkdiv</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=custom-menu-item-url</td>
+	<td>#</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=custom-menu-item-name</td>
+	<td>--notext--</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=submit-customlinkdiv</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12208</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-menu-item-classes-12208</td>
+	<td>magazine</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-menu-item-alignRight-12208</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#menu-item-settings-12208 &gt; a.wpmega-showhide-menu-ops</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12209</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#menu-item-settings-12209 &gt; a.wpmega-showhide-menu-ops</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-menu-item-shortcode-12209</td>
+	<td>[mm-current-issue]</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12168</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-menu-item-classes-12168</td>
+	<td>news-brief</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12166</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-menu-item-classes-12166</td>
+	<td>history-books</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12165</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-menu-item-classes-12165</td>
+	<td>love-competition</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12172</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-menu-item-classes-12172</td>
+	<td>zombie-nation</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12169</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-menu-item-classes-12169</td>
+	<td>sons-guns-ammo</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12164</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-menu-item-classes-12164</td>
+	<td>defend-thyself</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=delete-12200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12206</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=delete-12206</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12207</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=delete-12207</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12205</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=delete-12205</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12198</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=delete-12198</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12199</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=delete-12199</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12194</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=delete-12194</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12201</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=delete-12201</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'View All')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=menu-item[-131][menu-item-object-id]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=menu-item[-132][menu-item-object-id]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=submit-posttype-page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'2')])[5]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//input[@name='menu-item[-4][menu-item-object-id]'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=submit-posttype-page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12486</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-menu-item-title-12486</td>
+	<td>Reviews</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12347</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-menu-item-title-12347</td>
+	<td>Video Topics</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=custom-menu-item-url</td>
+	<td>/tv/guns-ammo-tv/</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=custom-menu-item-name</td>
+	<td>Guns &amp; Ammo TV</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=submit-customlinkdiv</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12508</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-menu-item-classes-12508</td>
+	<td>ga-tv</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=custom-menu-item-url</td>
+	<td>/tv/personal-defense-tv/</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#menu-item-settings-12509 &gt; a.wpmega-showhide-menu-ops</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#menu-item-settings-12509 &gt; a.wpmega-showhide-menu-ops</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-menu-item-isMega-12509</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=custom-menu-item-name</td>
+	<td>Personal Defense TV</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=submit-customlinkdiv</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-12509</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-menu-item-classes-12509</td>
+	<td>pd-tv</td>
+</tr>
+</tbody></table>
+</body>
+</html>

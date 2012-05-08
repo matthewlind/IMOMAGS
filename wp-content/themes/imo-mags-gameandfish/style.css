@@ -512,10 +512,10 @@ ul.linklist li {
 
 
 /********* crown royal contest for post page 2012 *********/
-
-.back {
+.back{float: left;}
+.crown_your_catch .navigation a {
 	color: #fff !important;
-	padding: 10px 20px;
+	padding: 4px 20px;
 	background: -moz-linear-gradient(
 		top,
 		#6b6b6b 0%,
@@ -538,28 +538,31 @@ ul.linklist li {
 		0px -1px 0px rgba(000,000,000,0.4),
 		0px 1px 0px rgba(255,255,255,0.3);
 		font-size: 1em;
-  		margin: 10px 0 20px;
   		cursor: pointer;
-  		float: left;
-
+  		
 }
 h2.share{
+	font-family: 'Gudea', sans-serif;
+	font-weight: normal;
  	margin-top: -30px !important;
     position: relative !important;
     top: 40px !important;
 }
 p.desc{ margin-top: 20px; }
-.recent-entries .hentry{float:left;width: 50%;border-top: 1px dotted #ccc;padding: 10px;
-    width: 43%;}
+.recent-entries .hentry{border-top: 1px dotted #ccc;padding: 10px;float:left;width:93%;}
+.recent-entries .lb-th {float: left;margin: 0 10px 10px 0;}
+.recent-entries .lb-th img{border:1px solid #ccc;padding: 6px;background-color: #fff;}
+.recent-entries h4{font-weight: normal;}
 .recent-entries #nav-below{display: none;}
 .recent-entries h2{font-family: 'Gudea', sans-serif;font-weight: normal;padding: 4px 8px 0;}
-.callout-ad{height: 90px; margin: -10px 0 15px 12px;width: 964px;background: url(img/banner_temp.png) no-repeat 22px -38px #731a81;
+.callout-ad{height: 90px; margin: -10px 0 15px 12px;width: 964px;background: url(img/Crown-Royal-964x90.jpeg) no-repeat left top;
 -moz-transition: all 0.35s ease-in 0s;
 -webkit-transition: all 0.35s ease-in 0s;
 -o-transition: all 0.35s ease-in 0s;
 -ms-transition: all 0.35s ease-in 0s;
 transition: all 0.35s ease-in 0s;
 }
+.callout-ad:hover {background: url(img/Crown-Royal-964x90-rollover.jpeg) no-repeat left top;}
 .callout-ad h1{font-family: 'Gudea', sans-serif;color: #fff;font-size: 2.5em;line-height: 1.2em;margin: 25px 0 0 300px;float: left;}
 a:hover .callout-ad{background-color: #e69b1b;
 -moz-transition: all 0.35s ease-in 0s;
@@ -568,3 +571,20 @@ a:hover .callout-ad{background-color: #e69b1b;
 -ms-transition: all 0.35s ease-in 0s;
 transition: all 0.35s ease-in 0s;
 }
+.pagination {border-bottom: none !important;}
+.crown_your_catch .meta-info{float: left;}
+.crown_your_catch .navigation {float: right;margin-top: 0px;}
+.crown_your_catch .navigation .alignleft {margin-right: 0 !important;}
+.crown_your_catch .navigation .alignleft, .alignright {margin-top: 0 !important;}
+.crown_your_catch .entry-info{margin-top: 8px;}
+.crown_your_catch .entry-content{margin-top: 8px;}
+.top-footer{padding: 0 16px;}
+
+.crown-gallery ul{width: 620px;margin: 0 auto;}
+.crown-gallery li{list-style: none;float: left;padding: 0 42px 10px 0;}
+.crown-gallery img {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    padding: 6px;
+}
+.view-all-entries{float: right;}

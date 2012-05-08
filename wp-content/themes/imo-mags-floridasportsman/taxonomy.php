@@ -72,6 +72,7 @@ $args = array(
 
 
 //?activity=activity-fishing&region=region-keys&column=
+
 $qs = wp_parse_args($query_string);
 
 $activity = $qs['activity'];
@@ -84,11 +85,13 @@ $campaign = $qs['campaign'];
 $show = $qs['show'];
 $marketplace = $qs['marketplace'];
 $blog = $qs['blog'];
+$page = $qs['paged'];
+
 
 
 
 $args = array(	
-	'paged' => get_query_var('paged'),
+	'paged' => $page ? $page : get_query_var('page'),
 	'posts_per_page' => 20,
 	'activity' => $activity,
 	'column' => $column,

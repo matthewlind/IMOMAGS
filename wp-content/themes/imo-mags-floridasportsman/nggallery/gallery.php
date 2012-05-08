@@ -26,7 +26,7 @@ Follow variables are useable :
 
 $album = nggdb::find_album( get_query_var('album') );  ?>
 <div class="ngg-galleryoverview" id="<?php echo $gallery->anchor ?>">
-<h2><a href="<?php 
+<h2 class="album-breadcrumb"><a href="<?php 
 
 if (preg_match('~/album/[0-9]+/gallery/[0-9+]+/~i', $_SERVER['REQUEST_URI']))
 	echo 'http://'.$_SERVER['HTTP_HOST'] . '/galleries/';

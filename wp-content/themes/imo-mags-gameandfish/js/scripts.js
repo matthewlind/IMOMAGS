@@ -46,20 +46,27 @@ var dartadsgen_rand = Math.floor((Math.random()) * 100000000), pr_tile = 1, dart
     //scroll to rules area
 	$('.rules-area').click(function(){
 		$('html, body').animate({
-               scrollTop: $("#footer").offset().top
+        		scrollTop: $("#footer").offset().top
         }, 1300);
 			
 	});
 	
+	//if validation error, scroll to form when page reloads
+	if($('div.validation_error').hasClass('validation_error')){
+		$('html, body').animate({
+        	scrollTop: $("#sign-up-area").offset().top
+    	}, 1500);
+	}
+		
 	//image hover
 	$(function(){
 		
 		//prizes area
 		$(".grand a").hover(function(){
-			$("img", this).stop().animate({top:"-270px"},{queue:false,duration:200});
+			//$("img", this).stop().animate({top:"-270px"},{queue:false,duration:200});
 			$("span", this).stop().animate({top:"0px"},{queue:false,duration:200});
 		}, function() {
-			$("img", this).stop().animate({top:"0px"},{queue:false,duration:200});
+			//$("img", this).stop().animate({top:"0px"},{queue:false,duration:200});
 			$("span", this).stop().animate({top:"-270px"},{queue:false,duration:200});
 		});
 		
@@ -67,20 +74,20 @@ var dartadsgen_rand = Math.floor((Math.random()) * 100000000), pr_tile = 1, dart
 		
 		//bottom images at top of page
 		$(".slideshow_btm a").hover(function(){
-			$("img", this).stop().animate({top:"-150px"},{queue:false,duration:200});
-			$("span", this).stop().animate({top:"0px"},{queue:false,duration:200});
-		}, function() {
-			$("img", this).stop().animate({top:"0px"},{queue:false,duration:200});
+			//$("img", this).stop().animate({top:"-150px"},{queue:false,duration:200});
 			$("span", this).stop().animate({top:"-160px"},{queue:false,duration:200});
+		}, function() {
+			//$("img", this).stop().animate({top:"0px"},{queue:false,duration:200});
+			$("span", this).stop().animate({top:"0px"},{queue:false,duration:200});
 		});
 			
 		
 		//state prizes
 		$(".box-350-states a").hover(function(){
-			$("img", this).stop().animate({top:"-460px"},{queue:false,duration:200});
+			//$("img", this).stop().animate({top:"-460px"},{queue:false,duration:200});
 			$("span", this).stop().animate({top:"0px"},{queue:false,duration:200});
 		}, function() {
-		$("img", this).stop().animate({top:"20px"},{queue:false,duration:200});
+			//$("img", this).stop().animate({top:"20px"},{queue:false,duration:200});
 			$("span", this).stop().animate({top:"-540px"},{queue:false,duration:200});
 		});
 		

@@ -19,8 +19,10 @@ Follow variables are useable :
 <?php $gallery = nggdb::find_gallery( get_query_var('gallery') ); 
 
 ?>
+<?php if (empty($_GET['callback'])) { 
 
-<h2><a href="<?php 
+?>
+<h2 class="album-breadcrumb"><a href="<?php 
 
 if (strpos($_SERVER['REQUEST_URI'], '/tag/') || strpos($_SERVER['REQUEST_URI'], '/gallery/'))
 	echo 'http://'.$_SERVER['HTTP_HOST'] . '/galleries/';
@@ -28,7 +30,7 @@ else
 	the_permalink();
 
 
-?>"><?php 
+?>"><?php } 
 
 
 
@@ -54,6 +56,8 @@ echo substr($GLOBALS['ngg_shortcode'], 3) . '</a>';
 </h2>
 
 <?php 
+// if this is an AJAX callback then we already have the widget and don't need to generate another instance
+if (empty($_GET['callback']))
 the_widget('Taxonomy_Drill_Down_Widget', array(
 		'title' => '',
 		'mode' => 'dropdowns',
@@ -61,19 +65,37 @@ the_widget('Taxonomy_Drill_Down_Widget', array(
 ));
 
 ?>
-<a name="image"></a>
+ 
 <div class="ngg-imagebrowser" id="<?php echo $image->anchor ?>">
+<?php
+$description = !empty($image->alttext)  ? trim( preg_replace( '/\s+/', ' ', $image->alttext ) ) : trim( preg_replace( '/\s+/', ' ', $image->description ) );
+$description = show_tag_for_header($description);
+echo '<script type="text/javascript">';
+	echo 'jQuery(document).ready(function() {
+	url = document.URL;
+	title = document.title;
+	document.title = title.replace( new RegExp("[^-]+ - "), "'.$description.' - ");
+	txt = url.replace( new RegExp( "pid=[0-9]+" ), "pid='.$image->pid.'" ); 
 	
+	history.pushState({}, "html5", txt)
+	
+	} );';
+	
+
+	echo '</script>';
+	
+	?>
 	<div class="ngg-imagebrowser-nav"> 
 		<div class="back">
 			<a class="ngg-browser-prev" id="ngg-prev-<?php echo $image->previous_pid ?>" href="<?php echo $image->previous_image_link ?>#image">&#9668; <?php _e('Back', 'nggallery') ?></a>
 		</div>
-        		
 		<div class="next">
 			<a class="ngg-browser-next" id="ngg-next-<?php echo $image->next_pid ?>" href="<?php echo $image->next_image_link ?>#image"><?php _e('Next', 'nggallery') ?> &#9658;</a>
 		</div>
-        <div class="counter"><?php _e('Picture', 'nggallery') ?> <?php echo $image->number ?> <?php _e('of', 'nggallery')?> <?php echo $image->total ?></div>
-                <div class="ngg-imagebrowser-desc"><h3><?php echo $image->alttext ?></h3></div>
+        <!-- <div class="counter"><?php _e('Picture', 'nggallery') ?> <?php echo $image->number ?> <?php _e('of', 'nggallery')?> <?php echo $image->total ?></div> -->
+                <div class="ngg-imagebrowser-desc"><h3><?php echo $image->alttext ?></h3>
+                    <p><?php echo $image->description ?></p>
+</div>
 	</div>	
 
 	<div class="pic">
@@ -82,7 +104,6 @@ the_widget('Taxonomy_Drill_Down_Widget', array(
 	
 	
 	</div>
-    <p><?php echo $image->description ?></p>
 
 
 </div>	

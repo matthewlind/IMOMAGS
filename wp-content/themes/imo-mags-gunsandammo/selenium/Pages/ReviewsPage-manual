@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://www.gunsandammo.test/" />
+<title>Reviews-page</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Reviews-page</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/wp-admin/index.php</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Pages</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=a.add-new-h2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=title</td>
+	<td>Reviews-te</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=page_template</td>
+	<td>label=Reviews Page</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Build</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//body</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cfct-start-build</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//body</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=img.cfct-il-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Add Module</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#cfct-popup-inner &gt; div.cfct-popup.cfct-add-module &gt; div.cfct-popup-content &gt; #cfct-module-list &gt; li.cfct-il-item &gt; a.cfct-add-module-cfct-module-featured-thumb-wide.cfct-il-a &gt; img.cfct-il-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=car-search-term</td>
+	<td>rev</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Browning X-Bolt Review</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.featured-thumbs-post-item.featured-thumbs-item-edit &gt; div.featured-thumbs-edit-form &gt; input[name=&quot;done&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=module-cfct-module-featured-thumb-wide-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=publish</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>
