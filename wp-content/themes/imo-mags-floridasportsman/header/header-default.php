@@ -118,9 +118,9 @@ else {
 }
 ?>
 	     <h1 class="site-title"><a href="<?php echo home_url('/'); ?>" title="<?php _e('Home', 'carrington-business') ?>"><?php bloginfo('name'); ?></a></h1>
-         <a href="/rtfs/"><img class="header-feature-nav" src="/wp-content/themes/imo-mags-floridasportsman/img/bw-header-reeltime.png" width="412" height="93" border="0" /></a>
-<a class="header-gallery" href="/galleries/"><img  src="/wp-content/themes/imo-mags-floridasportsman/img/bw-header-gallery.png"></a>
-<a class="header-webxtra" href="/xtra/"><img  src="/wp-content/themes/imo-mags-floridasportsman/img/header-webxtra.png"></a>
+         <a href="/rtfs/"><img class="header-feature-nav" src="/wp-content/themes/imo-mags-floridasportsman/img/bw-header_04.png" border="0" /></a>
+<a class="header-gallery" href="/galleries/"><img  src="/wp-content/themes/imo-mags-floridasportsman/img/bw-header_07.png"></a>
+<a class="header-webxtra" href="https://store.intermediaoutdoors.com/brands.php?brand=FLORIDASPORTSMAN" rel="nofollow"><img  src="/wp-content/themes/imo-mags-floridasportsman/img/bw-header_08.png"></a>
 					     
 			 
 		
