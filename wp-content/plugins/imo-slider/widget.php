@@ -165,7 +165,7 @@ class IMOSliderWidget extends \WP_Widget {
         
 
 
-         $taxonomyList = get_taxonomies(); 
+         $taxonomyList = array("category" => "category");
 
          $taxQuery = array('relation' => 'AND');
 
