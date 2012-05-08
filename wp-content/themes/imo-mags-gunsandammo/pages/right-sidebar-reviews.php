@@ -33,9 +33,7 @@ the_post();
   								<span>Filter Reviews</span> 
 						</h4>
 						<script>
-						$(function(){
-    						$("select").transformSelect();
-						});
+						
 						</script>
 					<form action="<?php $_SELF['REQUEST_URI']; ?>" method="post" id="form" class="reviews-form">
 					<div class="review-select1">
