@@ -322,7 +322,7 @@ function imo_ga_json() {
             $review['permalink'] = get_permalink();
             $review['comment_count'] = get_comments_number();
             $review['thumbnail'] = get_the_post_thumbnail(null,"post-thumb", array('class' => 'entry-img'));
-
+            $review['imo_slider_thumb'] = get_the_post_thumbnail(null,"imo-slider-thumb", array('class' => 'entry-img'));
 
             $review['excerpt'] = get_the_excerpt();
             

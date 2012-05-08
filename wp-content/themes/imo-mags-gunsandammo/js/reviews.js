@@ -23,6 +23,9 @@ jQuery(document).ready(function($) {
 					var option = $("<option value='" + row.slug + "'>" + row.name + "</option>");
 					$("select.caliber").append(option);
 
+					$(".slider-reviews-guntype").trigger('change');
+					$(".reviews-select-guntype").trigger('change');
+
 				});
 			}
 		});
@@ -31,7 +34,7 @@ jQuery(document).ready(function($) {
 
 
 
-	$(".reviews-select").change(function(){
+	$(".reviews-select-guntype, .reviews-select-caliber").change(function(){
 
 
 		var dataString = "";
@@ -63,6 +66,12 @@ jQuery(document).ready(function($) {
 
 
 				populateReviews(data);
+
+
+				if (data.length < 1) {
+					fakePopulateReviews();
+				}
+
 				$(".reviews-cover").fadeOut();
 				
 			}
@@ -97,6 +106,91 @@ jQuery(document).ready(function($) {
 		});
 
 	}
+
+	function fakePopulateReviews() {
+		var article = $('<article class="post type-post status-publish format-standard hentry category-news-brief entry entry-excerpt has-img"><a class="thumbnail-link" href=""><img width="190" height="120" src="/wp-content/themes/imo-mags-gunsandammo/img/graygun-b.png" class="entry-img wp-post-image" alt="" title="No Results Found." /></a><div class="entry-summary"><span class="entry-category"></span><h2 class="entry-title"><a rel="bookmark" href="">No Filter Results Found. <br>Please Try Again</a></h2></div></article>');
+		$(".reviews-container").append(article);
+	}
+
+
+	$(".slider-reviews-guntype, .slider-reviews-caliber").change(function(){
+
+
+		var dataString = "";
+
+		//First, get the guntype
+		if ($(".guntype").val()) {
+			dataString += "guntype=" + $(".guntype").val() + '&';
+	
+		}
+
+		//Then check for caliber
+		if ($(".caliber").val()) {
+			dataString += "manufacturer=" + $(".caliber").val();
+		} else if ($(".manufacturer").val()) { //If no caliber, check for manufacturer
+			dataString += "manufacturer=" + $(".manufacturer").val();
+		}
+
+
+		$(".reviews-cover").fadeIn();
+		
+		//Send the dataString and get the results
+		$.ajax({
+			type: "GET",
+			url: "/reviews.json",
+			data: dataString,
+			dataType: 'json',
+			cache: false,
+			success: function(data) {
+
+
+				populateSlider(data);
+
+				if (data.length < 1) {
+					fakePopulateSlider();
+				}
+
+				$('ul#scroll-reviews').css("left","0px");
+
+
+				$(".reviews-cover").fadeOut();
+				
+			}
+		});
+
+	});
+
+	function populateSlider(rows) {
+
+		//first grab a review to use as a template
+		var article = $("<li><a class='thumbnail-link' href='http://www.gunsandammo.deva/reviews/the-ruger-sr1911-review/'><img class='entry-img' src='http://www.gunsandammo.deva/files/2012/04/Ruger1911A-134x90.jpg'></a><a class='review-title' href='http://www.gunsandammo.deva/reviews/the-ruger-sr1911-review/'>Tackling the 1911: The Ruger SR1911 Review</a></li>")
+
+		//Then, clear existing reviews
+		$("ul#scroll-reviews").empty();
+
+		$(rows).each(function(i,row){
+
+			var articleClone = article.clone();
+
+
+			articleClone.find("a.review-title").html(row.title);//change title
+			articleClone.find("a").attr("href",row.permalink);//change all urls
+			articleClone.find(".entry-img").remove(); //Remove the Thumbnail
+			articleClone.find(".thumbnail-link").append(row.imo_slider_thumb);//Add the new thumbnail
+
+
+			$("ul#scroll-reviews").append(articleClone);
+
+		});
+
+	}
+
+	function fakePopulateSlider() {
+		var article = $("<li><a class='thumbnail-link' href=''><img class='entry-img' src='/wp-content/themes/imo-mags-gunsandammo/img/graygun-s.png'></a><a class='review-title' href=''>No Results Found. Please try again.</a></li>")
+		$("ul#scroll-reviews").append(article);
+
+	}
+
 
 
 });

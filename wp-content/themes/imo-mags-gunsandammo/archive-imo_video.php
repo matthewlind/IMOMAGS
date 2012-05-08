@@ -20,7 +20,12 @@ get_header();
 					</div>
 				</div>
 <?php
-$posts = query_posts($query_string . '&posts_per_page=5');
+
+
+//$query_string = "category_name=video-reviews";
+
+$posts = query_posts(array('category_name' => 'video', 'posts_per_page' => 5 ));
+
 if (have_posts()) : ?>
   
   <div id="video-slideshow">
@@ -54,8 +59,12 @@ if (have_posts()) : ?>
   <section class="newest-videos">
     <h4>Newest Videos</h4>
     <?php $instance = array (
-      'post_type' => 'imo_video',
-      'limit' => '12'
+      'post_type' => 'any',
+      'limit' => '12',
+      'taxonomy' => 
+        array (
+          0 => 'video'
+        ),
     );
     the_widget('imo\IMOSliderWidget', $instance); ?>
   </section>
@@ -70,25 +79,28 @@ if (have_posts()) : ?>
   <div class="video-category">
     <h4>Tips &amp; Tactics</h4>
     <?php $instance = array (
-      'post_type' => 'imo_video',
+      'post_type' => 'any',
       'limit' => '12',
       'taxonomy' => 
           array (
-            0 => 'tips-tactics'
+            0 => 'tips-tactics',
+            1 => 'video'
           ),
     );
     the_widget('imo\IMOSliderWidget', $instance); ?>
+    
     <a class="cta" href="/videos/tips-tactics/">View All <span></span></a>
   </div>
 
   <div class="video-category">
     <h4>Reviews</h4>
     <?php $instance = array (
-      'post_type' => 'imo_video',
+      'post_type' => 'any',
       'limit' => '12',
       'taxonomy' => 
           array (
             0 => 'video-reviews',
+
           ),
     );
     the_widget('imo\IMOSliderWidget', $instance); ?>
@@ -98,11 +110,12 @@ if (have_posts()) : ?>
   <div class="video-category">
     <h4>Personal Defense</h4>
     <?php $instance = array (
-      'post_type' => 'imo_video',
+      'post_type' => 'any',
       'limit' => '12',
       'taxonomy' => 
           array (
             0 => 'personal-defense',
+            1 => 'video'
           ),
 
     );

@@ -32,9 +32,14 @@ the_post();
  							<div class="icon"></div>
   								<span>Filter Reviews</span> 
 						</h4>
+						<script>
+						$(function(){
+    						$("select").transformSelect();
+						});
+						</script>
 					<form action="<?php $_SELF['REQUEST_URI']; ?>" method="post" id="form" class="reviews-form">
-
-					<select class="guntype reviews-select">
+					<div class="review-select1">
+					<select class="guntype reviews-select reviews-select-guntype">
 							<option selected="selected" name="guntype" value="">Type</option>
 							<?php
 							$parents = array('parent' => 0);
@@ -51,9 +56,9 @@ the_post();
         						}
 							}
 							?>
-						</select>
-						<!-- disabled="disabled" -->
-						<select name="manufacturer" class="manufacturer reviews-select" value="">
+						</select></div>
+						<div class="review-select2">
+						<select name="manufacturer" class="manufacturer reviews-select reviews-select-manufacturer" value="">
 							<option selected="selected" name="Manufacturer" value="">Manufacturer</option> 
 							<?php
 							$terms = get_terms("manufacturer",array("parent" => 0));
@@ -64,17 +69,12 @@ the_post();
         						}
 							}
 							?>
-						</select>
-						<select class="caliber reviews-select">
+						</select></div>
+						<div class="review-select3">
+						<select class="caliber reviews-select reviews-select-caliber">
 							<option selected="selected" name="caliber" value="">Caliber</option>
-							<option name="null" value="">Choose a Manufacturer</option>
-						</select>
-						<?php
-						/* 
-						**
-						** Add Alerts
-						*/
-						?>
+							<option name="null" value="">Choose Manufacturer</option>
+						</select></div>
 						</form>
 					</div>
 				</div>
