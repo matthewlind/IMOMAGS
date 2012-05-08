@@ -22,7 +22,7 @@ the_post(); ?>
 					</div>
 				</div>
 				<?php the_content(__('Continued&hellip;', 'carrington-business')); ?>
-								
+										
 				<?php
 				// PERSONAL DEFENSE
 				$args = array(
@@ -45,7 +45,11 @@ the_post(); ?>
 					</div>	
 				<div class="top">
 				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(134,90), array('class' => 'entry-img')); ?></a>
-				<a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a><br />
+				<a class="title" href="<?php the_permalink(); ?>"><?php $thetitle = get_the_title();
+																		$getlength = strlen($thetitle);
+																		$thelength = 60;
+																		echo substr($thetitle, 0, $thelength);
+																		if ($getlength > $thelength) echo "...";?></a><br />
 				<span><?php comments_number( 'no responses', 'one response', '% responses' ); ?></span>
 				
 				<?php endwhile;
@@ -103,7 +107,11 @@ the_post(); ?>
 					</div>	
 				<div class="top">
 				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(134,90), array('class' => 'entry-img')); ?></a>
-				<a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a><br />
+				<a class="title" href="<?php the_permalink(); ?>"><?php $thetitle = get_the_title();
+																		$getlength = strlen($thetitle);
+																		$thelength = 60;
+																		echo substr($thetitle, 0, $thelength);
+																		if ($getlength > $thelength) echo "...";?></a><br />
 				<span><?php comments_number( 'no responses', 'one response', '% responses' ); ?></span>				
 				<?php endwhile;
 
@@ -162,7 +170,11 @@ the_post(); ?>
 					</div>	
 				<div class="top">
 				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(134,90), array('class' => 'entry-img')); ?></a>
-				<a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a><br />
+				<a class="title" href="<?php the_permalink(); ?>"><?php $thetitle = get_the_title();
+																		$getlength = strlen($thetitle);
+																		$thelength = 60;
+																		echo substr($thetitle, 0, $thelength);
+																		if ($getlength > $thelength) echo "...";?></a><br />
 				<span><?php comments_number( 'no responses', 'one response', '% responses' ); ?></span>
 				
 				<?php endwhile;
@@ -222,7 +234,11 @@ the_post(); ?>
 					</div>	
 				<div class="top">
 				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(134,90), array('class' => 'entry-img')); ?></a>
-				<a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a><br />
+				<a class="title" href="<?php the_permalink(); ?>"><?php $thetitle = get_the_title();
+																		$getlength = strlen($thetitle);
+																		$thelength = 60;
+																		echo substr($thetitle, 0, $thelength);
+																		if ($getlength > $thelength) echo "...";?></a><br />
 				<span><?php comments_number( 'no responses', 'one response', '% responses' ); ?></span>
 				
 				<?php endwhile;
@@ -283,7 +299,11 @@ the_post(); ?>
 			
 				<div class="top">
 				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(134,90), array('class' => 'entry-img')); ?></a>
-				<a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a><br />
+				<a class="title" href="<?php the_permalink(); ?>"><?php $thetitle = get_the_title();
+																		$getlength = strlen($thetitle);
+																		$thelength = 60;
+																		echo substr($thetitle, 0, $thelength);
+																		if ($getlength > $thelength) echo "...";?></a><br />
 				<span><?php comments_number( 'no responses', 'one response', '% responses' ); ?></span>
 				
 				<?php endwhile;
@@ -344,7 +364,11 @@ the_post(); ?>
 			
 				<div class="top">
 				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(134,90), array('class' => 'entry-img')); ?></a>
-				<a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a><br />
+				<a class="title" href="<?php the_permalink(); ?>"><?php $thetitle = get_the_title();
+																		$getlength = strlen($thetitle);
+																		$thelength = 60;
+																		echo substr($thetitle, 0, $thelength);
+																		if ($getlength > $thelength) echo "...";?></a><br />
 				<span><?php comments_number( 'no responses', 'one response', '% responses' ); ?></span>
 				
 				<?php endwhile;
@@ -405,7 +429,11 @@ the_post(); ?>
 			
 				<div class="top">
 				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(134,90), array('class' => 'entry-img')); ?></a>
-				<a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a><br />
+				<a class="title" href="<?php the_permalink(); ?>"><?php $thetitle = get_the_title();
+																		$getlength = strlen($thetitle);
+																		$thelength = 60;
+																		echo substr($thetitle, 0, $thelength);
+																		if ($getlength > $thelength) echo "...";?></a><br />
 				<span><?php comments_number( 'no responses', 'one response', '% responses' ); ?></span>
 				
 				<?php endwhile;
@@ -469,7 +497,11 @@ the_post(); ?>
 			
 				<div class="top">
 				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(134,90), array('class' => 'entry-img')); ?></a>
-				<a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a><br />
+				<a class="title" href="<?php the_permalink(); ?>"><?php $thetitle = get_the_title();
+																		$getlength = strlen($thetitle);
+																		$thelength = 60;
+																		echo substr($thetitle, 0, $thelength);
+																		if ($getlength > $thelength) echo "...";?></a><br />
 				<span><?php comments_number( 'no responses', 'one response', '% responses' ); ?></span>
 				
 				<?php endwhile;
@@ -531,7 +563,11 @@ the_post(); ?>
 			
 				<div class="top">
 				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(134,90), array('class' => 'entry-img')); ?></a>
-				<a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a><br />
+				<a class="title" href="<?php the_permalink(); ?>"><?php $thetitle = get_the_title();
+																		$getlength = strlen($thetitle);
+																		$thelength = 60;
+																		echo substr($thetitle, 0, $thelength);
+																		if ($getlength > $thelength) echo "...";?></a><br />
 				<span><?php comments_number( 'no responses', 'one response', '% responses' ); ?></span>
 				
 				<?php endwhile;
@@ -591,7 +627,11 @@ the_post(); ?>
 			
 				<div class="top">
 				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(134,90), array('class' => 'entry-img')); ?></a>
-				<a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a><br />
+				<a class="title" href="<?php the_permalink(); ?>"><?php $thetitle = get_the_title();
+																		$getlength = strlen($thetitle);
+																		$thelength = 60;
+																		echo substr($thetitle, 0, $thelength);
+																		if ($getlength > $thelength) echo "...";?></a><br />
 				<span><?php comments_number( 'no responses', 'one response', '% responses' ); ?></span>
 				
 				<?php endwhile;

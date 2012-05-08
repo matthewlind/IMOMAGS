@@ -84,10 +84,7 @@ if (have_posts()) : ?>
       'taxonomy' => 
           array (
             0 => 'tips-tactics',
-<<<<<<< HEAD
-=======
             1 => 'video'
->>>>>>> 6a2cf2ce63a4970299e77137cdc05bc6b6f1ad1d
           ),
     );
     the_widget('imo\IMOSliderWidget', $instance); ?>
