@@ -74,10 +74,11 @@ if (have_posts()) : ?>
       'limit' => '12',
       'taxonomy' => 
           array (
-            0 => 'tips-tactics'
+            0 => 'tips-tactics',
           ),
     );
     the_widget('imo\IMOSliderWidget', $instance); ?>
+    
     <a class="cta" href="/videos/tips-tactics/">View All <span></span></a>
   </div>
 

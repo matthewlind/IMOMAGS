@@ -173,6 +173,7 @@ get_header(); ?>
   <div class="cfct-row cfct-row-ab-c ga-list-comments">
     <div class="cfct-block cfct-block-ab">
     	<?php imo_add_this(); ?>
+    	
      	<?php comments_template(); ?>
 	</div>
 	

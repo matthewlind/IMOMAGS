@@ -1811,7 +1811,8 @@ margin: 32px 0 0 0;
       }
       h2 {
         @include ellipsis;
-        margin-top: 25px;
+        margin-top: 10px;
+        white-space:normal;
       }
       h2 a {
         color: white;
@@ -3737,21 +3738,25 @@ li.page-reviews {
 		a.title{color:#5b6373;}
 }
 
+.section-title h4 span.icon-shooting{width:230px;}
+.odd { background-color:#FFF; }
+.even { background-color:#F3F3F3; }
 .tiles{
+	margin-bottom: 20px;
 	float: left;
-    height: 370px;
     padding: 6px;
     width: 312px;
-		a{
-			font-size:0.9em;
-			line-height:1em;
-		}
+    min-height:450px;
+    	.entry-img{float:left;padding-right:10px;}
+		
 		a.title{color:#5b6373;}
+		.more{clear:both;margin-top:10px;}
+		ul{list-style:none;clear: both;}
+		span{font-size: 0.9em;color: $red;}
+		.top{min-height:96px;}
 }
 
-
 /* Reviews Page Styles */
-
 .reviews-section {
   
   .reviews-cover {
@@ -3813,7 +3818,7 @@ select.caliber {
 .comments-right{float:right;}
 .recommendations{float:left;width:300px;height: 280px;}
 .post-content-area{width:648px;height:330px;float: left;}
-.yarpp-content{float:left;width:347px;}
+.yarpp-content{float:left;width:337px;padding-right:10px;}
 
 
 /* Reviews form */
@@ -4066,4 +4071,13 @@ nav.nav-secondary li.current-menu-item a {
 .tv-pages .cfct-callout{
 	margin-bottom: 40px;
     min-height: 162px
+}
+
+.uber-widget {
+	
+	
+	margin-top: -13px !important;
+		.wpmega-link-title {@include font-stag;font-size: 20px;line-height: 1;}
+		.hentry{height: 70px;}
+		img {float:left;padding-right:10px;}
 }
