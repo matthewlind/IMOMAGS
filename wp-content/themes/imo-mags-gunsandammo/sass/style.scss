@@ -390,6 +390,11 @@ a.comment-count {
     left: -8px;
     position: absolute;
     top: -14px;
+    .photo{
+    	border: 4px white solid;
+    	width: 34px;
+    	height: 34px;
+    }
   }
   .entry-summary {
     float: left;
@@ -4030,10 +4035,35 @@ a.video-excerpt{
 		
 		background: image-url("play_button_03.png") no-repeat 80px center rgba(0, 0, 0, 0.35);
 		}
-		.video-arrow{
-			position:absolute;
-			left: 78px;
-   			top: 37px;
+}
+a.video-excerpt-slider-wide{
+	span {
+		background: url("img/play_button_03.png?1336056336") no-repeat scroll 300px center rgba(0, 0, 0, 0.35);
+   		height: 370px;
+    	left: 0;
+    	position: absolute;
+    	width: 648px;
+    	margin-top: -400px;
+		}
+}
+a.video-excerpt-tile{
+	span {
+		background: url("img/play_button_03.png?1336056336") no-repeat scroll 66px center rgba(0, 0, 0, 0.35);
+    	height: 120px;
+    	left: 19px;
+    	position: absolute;
+    	width: 191px;
+   		margin-top: -128px;
+		}
+}
+a.video-excerpt-small{
+	span {
+		background: url("img/play_button_03.png?1336056336") no-repeat scroll 39px center rgba(0, 0, 0, 0.35);
+   	 	height: 90px;
+   		margin-left: -144px;
+    	margin-top: 0px;
+    	position: absolute;
+    	width: 134px;
 		}
 }
 
