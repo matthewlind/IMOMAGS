@@ -10,8 +10,7 @@ function resizeImages($localImage){
 
 	$imageSizes = array();
 	$imageSizes['thumb'] = 350;
-	$imageSizes['standard'] = 1000;
-	$imageSizes['retina'] = 2000;
+	$imageSizes['retina_thumb'] = 700;
 
 	// Original image
 	$filename = $localImage;
@@ -42,9 +41,19 @@ function resizeImages($localImage){
 
 	}
 
-	// Crop the image
+	//Create the new image
 	$canvas = imagecreatetruecolor($crop_width, $crop_height);
 	$current_image = imagecreatefromjpeg($filename);
+
+	//Before Crop, Save Full Size Image
+	$dir = "full";
+	if (!is_dir("images/$dir/" . $subDir)) 
+			mkdir("images/$dir/" . $subDir);
+
+
+
+
+	// Crop the image
 	imagecopy($canvas, $current_image, 0, 0, $left, $top, $current_width, $current_height);
 
 
@@ -58,7 +67,7 @@ function resizeImages($localImage){
 		$canvasResized = imagecreatetruecolor($new_size, $new_size);
 		imagecopyresampled($canvasResized, $canvas, 0, 0, 0, 0, $new_size, $new_size, $crop_width, $crop_height);
 
-		imagejpeg($canvasResized, "images/$dir/$subDir/$imageName.jpg", 100);
+		imagejpeg($canvasResized, "images/$dir/$subDir/$imageName.jpg", 80);
 
 
 	}
