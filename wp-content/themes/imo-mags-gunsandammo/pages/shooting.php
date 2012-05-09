@@ -44,7 +44,7 @@ the_post(); ?>
 						</h4></div>
 					</div>	
 				<div class="top">
-				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(134,90), array('class' => 'entry-img')); ?></a>
+				<a<?php if( get_post_type() == 'imo_video' || in_category('video') ){echo ' class="video-excerpt-small"';} ?> href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(134,90), array('class' => 'entry-img')); ?><?php if( get_post_type() == 'imo_video' || in_category('video') ){echo '<span></span>';} ?></a>
 				<a class="title" href="<?php the_permalink(); ?>"><?php $thetitle = get_the_title();
 																		$getlength = strlen($thetitle);
 																		$thelength = 60;
@@ -106,7 +106,7 @@ the_post(); ?>
 						</h4></div>
 					</div>	
 				<div class="top">
-				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(134,90), array('class' => 'entry-img')); ?></a>
+				<a<?php if( get_post_type() == 'imo_video' || in_category('video') ){echo ' class="video-excerpt-small"';} ?> href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(134,90), array('class' => 'entry-img')); ?><?php if( get_post_type() == 'imo_video' || in_category('video') ){echo '<span></span>';} ?></a>
 				<a class="title" href="<?php the_permalink(); ?>"><?php $thetitle = get_the_title();
 																		$getlength = strlen($thetitle);
 																		$thelength = 60;
@@ -169,7 +169,7 @@ the_post(); ?>
 						</h4></div>
 					</div>	
 				<div class="top">
-				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(134,90), array('class' => 'entry-img')); ?></a>
+				<a<?php if( get_post_type() == 'imo_video' || in_category('video') ){echo ' class="video-excerpt-small"';} ?> href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(134,90), array('class' => 'entry-img')); ?><?php if( get_post_type() == 'imo_video' || in_category('video') ){echo '<span></span>';} ?></a>
 				<a class="title" href="<?php the_permalink(); ?>"><?php $thetitle = get_the_title();
 																		$getlength = strlen($thetitle);
 																		$thelength = 60;
@@ -233,7 +233,7 @@ the_post(); ?>
 						</h4></div>
 					</div>	
 				<div class="top">
-				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(134,90), array('class' => 'entry-img')); ?></a>
+				<a<?php if( get_post_type() == 'imo_video' || in_category('video') ){echo ' class="video-excerpt-small"';} ?> href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(134,90), array('class' => 'entry-img')); ?><?php if( get_post_type() == 'imo_video' || in_category('video') ){echo '<span></span>';} ?></a>
 				<a class="title" href="<?php the_permalink(); ?>"><?php $thetitle = get_the_title();
 																		$getlength = strlen($thetitle);
 																		$thelength = 60;
@@ -298,7 +298,7 @@ the_post(); ?>
 					</div>	
 			
 				<div class="top">
-				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(134,90), array('class' => 'entry-img')); ?></a>
+				<a<?php if( get_post_type() == 'imo_video' || in_category('video') ){echo ' class="video-excerpt-small"';} ?> href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(134,90), array('class' => 'entry-img')); ?><?php if( get_post_type() == 'imo_video' || in_category('video') ){echo '<span></span>';} ?></a>
 				<a class="title" href="<?php the_permalink(); ?>"><?php $thetitle = get_the_title();
 																		$getlength = strlen($thetitle);
 																		$thelength = 60;
@@ -363,7 +363,7 @@ the_post(); ?>
 					</div>	
 			
 				<div class="top">
-				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(134,90), array('class' => 'entry-img')); ?></a>
+				<a<?php if( get_post_type() == 'imo_video' || in_category('video') ){echo ' class="video-excerpt-small"';} ?> href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(134,90), array('class' => 'entry-img')); ?><?php if( get_post_type() == 'imo_video' || in_category('video') ){echo '<span></span>';} ?></a>
 				<a class="title" href="<?php the_permalink(); ?>"><?php $thetitle = get_the_title();
 																		$getlength = strlen($thetitle);
 																		$thelength = 60;
@@ -428,7 +428,7 @@ the_post(); ?>
 					</div>	
 			
 				<div class="top">
-				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(134,90), array('class' => 'entry-img')); ?></a>
+				<a<?php if( get_post_type() == 'imo_video' || in_category('video') ){echo ' class="video-excerpt-small"';} ?> href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(134,90), array('class' => 'entry-img')); ?><?php if( get_post_type() == 'imo_video' || in_category('video') ){echo '<span></span>';} ?></a>
 				<a class="title" href="<?php the_permalink(); ?>"><?php $thetitle = get_the_title();
 																		$getlength = strlen($thetitle);
 																		$thelength = 60;
@@ -496,7 +496,7 @@ the_post(); ?>
 					</div>	
 			
 				<div class="top">
-				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(134,90), array('class' => 'entry-img')); ?></a>
+				<a<?php if( get_post_type() == 'imo_video' || in_category('video') ){echo ' class="video-excerpt-small"';} ?> href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(134,90), array('class' => 'entry-img')); ?><?php if( get_post_type() == 'imo_video' || in_category('video') ){echo '<span></span>';} ?></a>
 				<a class="title" href="<?php the_permalink(); ?>"><?php $thetitle = get_the_title();
 																		$getlength = strlen($thetitle);
 																		$thelength = 60;
@@ -562,7 +562,7 @@ the_post(); ?>
 					</div>	
 			
 				<div class="top">
-				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(134,90), array('class' => 'entry-img')); ?></a>
+				<a<?php if( get_post_type() == 'imo_video' || in_category('video') ){echo ' class="video-excerpt-small"';} ?> href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(134,90), array('class' => 'entry-img')); ?><?php if( get_post_type() == 'imo_video' || in_category('video') ){echo '<span></span>';} ?></a>
 				<a class="title" href="<?php the_permalink(); ?>"><?php $thetitle = get_the_title();
 																		$getlength = strlen($thetitle);
 																		$thelength = 60;
@@ -626,7 +626,7 @@ the_post(); ?>
 					</div>	
 			
 				<div class="top">
-				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(134,90), array('class' => 'entry-img')); ?></a>
+				<a<?php if( get_post_type() == 'imo_video' || in_category('video') ){echo ' class="video-excerpt-small"';} ?> href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(134,90), array('class' => 'entry-img')); ?><?php if( get_post_type() == 'imo_video' || in_category('video') ){echo '<span></span>';} ?></a>
 				<a class="title" href="<?php the_permalink(); ?>"><?php $thetitle = get_the_title();
 																		$getlength = strlen($thetitle);
 																		$thelength = 60;

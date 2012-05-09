@@ -33,9 +33,7 @@ the_post();
   								<span>Filter Reviews</span> 
 						</h4>
 						<script>
-						$(function(){
-    						$("select").transformSelect();
-						});
+						
 						</script>
 					<form action="<?php $_SELF['REQUEST_URI']; ?>" method="post" id="form" class="reviews-form">
 					<div class="review-select1">
@@ -98,7 +96,7 @@ the_post();
 						while ( $query->have_posts() ) : $query->the_post(); ?>
 							<article class="post type-post status-publish format-standard hentry category-news-brief entry entry-excerpt has-img">
 							<?php if(has_post_thumbnail()){ ?>
-								<a class="thumbnail-link" href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(190,120), array('class' => 'entry-img')); ?></a>
+								<a<?php if( get_post_type() == 'imo_video' || in_category('video') ){echo ' class="video-excerpt"';} ?> class="thumbnail-link" href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(190,120), array('class' => 'entry-img')); if( get_post_type() == 'imo_video' || in_category('video') ){echo '<span></span>';} ?></a>
 							<?php } ?>
 							<div class="entry-summary">
 		  						<span class="entry-category">

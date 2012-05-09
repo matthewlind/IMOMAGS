@@ -390,6 +390,11 @@ a.comment-count {
     left: -8px;
     position: absolute;
     top: -14px;
+    .photo{
+    	border: 4px white solid;
+    	width: 34px;
+    	height: 34px;
+    }
   }
   .entry-summary {
     float: left;
@@ -2594,7 +2599,7 @@ body.parent-pageid-2114 #main {
       color: #B0B0B0;
       font-size: 13px;
       line-height: 1;
-      padding: 10px 16px 9px 6px;
+      padding: 10px 16px 8px 6px;
       position: relative;
       width: 244px;
       
@@ -3832,6 +3837,9 @@ select.caliber {
     		margin: -3px 2px 0;
     		overflow: hidden;
     		padding: 0;
+    		-moz-border-radius: 4px;
+			-webkit-border-radius: 4px;
+			border-radius: 4px;
     		border: 1px solid #c3c3c3;
     		background-color: #f2f2f2 !important;
     		
@@ -3848,7 +3856,8 @@ select.caliber {
     		width:135px;
     		background: url("img/select-arrow.png") no-repeat 114px -3px;
     	}
-       	select {border:none;background:transparent;height:22px;-webkit-appearance: none;padding-left:4px;}
+       	select {border:none;background:transparent;height:22px;-webkit-appearance: none;padding-left:4px;
+       	}
 }
 .reviews-form span {
 	font-size:0.8em;
@@ -4026,10 +4035,35 @@ a.video-excerpt{
 		
 		background: image-url("play_button_03.png") no-repeat 80px center rgba(0, 0, 0, 0.35);
 		}
-		.video-arrow{
-			position:absolute;
-			left: 78px;
-   			top: 37px;
+}
+a.video-excerpt-slider-wide{
+	span {
+		background: url("img/play_button_03.png?1336056336") no-repeat scroll 300px center rgba(0, 0, 0, 0.35);
+   		height: 370px;
+    	left: 0;
+    	position: absolute;
+    	width: 648px;
+    	margin-top: -400px;
+		}
+}
+a.video-excerpt-tile{
+	span {
+		background: url("img/play_button_03.png?1336056336") no-repeat scroll 66px center rgba(0, 0, 0, 0.35);
+    	height: 120px;
+    	left: 19px;
+    	position: absolute;
+    	width: 191px;
+   		margin-top: -128px;
+		}
+}
+a.video-excerpt-small{
+	span {
+		background: url("img/play_button_03.png?1336056336") no-repeat scroll 39px center rgba(0, 0, 0, 0.35);
+   	 	height: 90px;
+   		margin-left: -144px;
+    	margin-top: 0px;
+    	position: absolute;
+    	width: 134px;
 		}
 }
 

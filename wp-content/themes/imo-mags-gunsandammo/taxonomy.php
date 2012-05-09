@@ -182,8 +182,8 @@ $item = array();
 	} else {//If not on first
 		?>
 		<li class="page-reviews">
-		<?php if (has_post_thumbnail()) :
-		echo '<a href="', the_permalink(),'">', the_post_thumbnail('post-thumbnail', array('class' => 'entry-img')), '</a>'; ?>
+		<?php if (has_post_thumbnail()) : ?>
+		<a<?php if( get_post_type() == 'imo_video' || in_category('video') ){echo ' class="video-excerpt-tile"';} ?> href="<?php the_permalink(); ?>"><?php the_post_thumbnail('post-thumbnail', array('class' => 'entry-img')); ?><?php if( get_post_type() == 'imo_video' || in_category('video') ){echo '<span></span>';} ?></a>
 		<?php endif; ?>
 		<a class="title" rel="bookmark" href="<?php the_permalink(); ?>"><?php the_title() ?></a><br />
 		<a class="comments" href="<?php comments_link(); ?>"><?php comments_number(); ?></a>
