@@ -1784,4 +1784,11 @@ aside .textwidget img {
 #TB_window {
 	background-color: black !important;
 	color: silver !important;
+	border: none !important;
+}
+#TB_window img {
+	border: none !important;
+}
+.cfct-block-abc {
+	margin: 0px !important;
 }
