@@ -56,6 +56,7 @@ $term_slug = $term->slug;
 $taxonomy = $term->taxonomy;
 
 
+
  $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
 
 
@@ -79,6 +80,8 @@ $count = 0;
 $items = array();
 $item = array();
 
+print_r("TERM--");
+print_r($term);
 
 ?> 
 <?php while (have_posts()) : the_post(); ?> 
