@@ -1,91 +1,10 @@
-<?php 
-
-// SHORTCODES
-/*
- * [mm-current-issue]
- *
- * For use with the UberMenu plugin.
- *
+<?php
+/**
+ * functions.php 
  */
-function mm_current_issue($atts, $content = null) {
-	extract(shortcode_atts(array(
-    "" => ""
-	), $atts));
-	
-	$magazine_img = get_option("magazine_cover_uri", get_stylesheet_directory_uri(). "/img/magazine.png" );
-  if (empty($magazine_img)) {
-      $magazine_img = get_stylesheet_directory_uri(). "/img/magazine.png";
-  }
-	
-	return '<div class="current-issue">
-	        <h3 class="month">May 2012</h3>
-	        <img src="'.$magazine_img.'" alt />
-	        </div>
-	        <ul class="subscriber-links">
-	        <li class="subscribe"><a href="'.SUBS_LINK.'">Subscribe</a></li>
-	        <li><a href="'.SUBS_LINK.'">Give a Gift</a></li>
-          <li><a href="'.SERVICE_LINK.'">Subscriber Services</a></li>
-	        </ul>';
-}
 
-add_shortcode("mm-current-issue", "mm_current_issue");
-
-/***
-**
-** Enqueue Scripts
-**
-***/
-function my_scripts_method() {
-    wp_deregister_script( 'jquery' );
-    wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js');
-    wp_enqueue_script( 'jquery' );
-}    
- 
-add_action('wp_enqueue_scripts', 'my_scripts_method');
-
-// Widget structure
-function naw_imo_addons_sidebar_init() {
-  
-  $sidebar_defaults = array(
-    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-    'after_widget' => '</aside>',
-    'before_title' => '<h3 class="widget-title"><span>',
-    'after_title' => '</span></h3>'
-  );
-  
-  register_sidebar(array_merge($sidebar_defaults, array(
-    'id' => 'sidebar-default',
-    'name' => 'Sidebar Default',
-    'Shown on blog posts and archives.'
-  )));
-
-  register_sidebar(array_merge($sidebar_defaults, array(
-      'id' => 'sidebar-home',
-      'name' => __('Homepage Sidebar', 'carrington-business'),
-      'description' => __('Shown on the homepage.', 'carrington-business')
-  )));
-  
-  register_sidebar(array_merge($sidebar_defaults, array(
-    'id' => 'secondary-home',
-    'name' => __('Homepage Secondary', 'carrington-business'),
-    'description' => __('area below main and sidebar columns on the homepage', 'carrington-business')
-  )));
-
-  register_sidebar(array_merge($sidebar_defaults, array(
-      'id' => 'sidebar-video',
-      'name' => __('Video Sidebar', 'carrington-business'),
-      'description' => __('Shown on video posts.', 'carrington-business')
-  )));
-  
-  register_sidebar(array_merge($sidebar_defaults, array(
-      'id' => 'sidebar-gallery',
-      'name' => __('Gallery Sidebar', 'carrington-business'),
-      'description' => __('Sidebar for Gallery posts.', 'carrington-business')
-  )));
-    
-}
-add_action( 'widgets_init', 'naw_imo_addons_sidebar_init' );
-
-
-
-?>
+define("JETPACK_SITE", "nawhitetail");
+define("SUBS_LINK", "https://secure.palmcoastd.com/pcd/eSv?iMagId=0148D&i4Ky=IBZN");
+define("GIFT_LINK", "https://secure.palmcoastd.com/pcd/eSv?iMagId=0148D&i4Ky=IGZN");
+define("SERVICE_LINK", "https://secure.palmcoastd.com/pcd/eServ?iServ=MDE0OEQ0NDcyNCZpVHlwZT1FTlRFUg==");
+define("SUBS_DEAL_STRING", "Save Over 70% off<br/> the Cover Price");
