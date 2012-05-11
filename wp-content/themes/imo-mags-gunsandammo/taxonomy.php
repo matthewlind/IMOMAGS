@@ -80,8 +80,7 @@ $count = 0;
 $items = array();
 $item = array();
 
-print_r("TERM--");
-print_r($term);
+
 
 ?> 
 <?php while (have_posts()) : the_post(); ?> 
