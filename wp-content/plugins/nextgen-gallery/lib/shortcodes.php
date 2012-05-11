@@ -25,11 +25,11 @@ class NextGEN_shortcodes {
         add_shortcode( 'singlepic', array(&$this, 'show_singlepic' ) );
         add_shortcode( 'album', array(&$this, 'show_album' ) );
         add_shortcode( 'nggallery', array(&$this, 'show_gallery') );
-        add_shortcode( 'nggallery_mod', array(&$this, 'show_gallery_mod') );
+        //add_shortcode( 'nggallery_mod', array(&$this, 'show_gallery_mod') );
         add_shortcode( 'imagebrowser', array(&$this, 'show_imagebrowser' ) );
         add_shortcode( 'slideshow', array(&$this, 'show_slideshow' ) );
         add_shortcode( 'nggtags', array(&$this, 'show_tags' ) );
-        add_shortcode( 'nggallery_tags', array(&$this, 'show_tags_single_gallery' ) );
+        //add_shortcode( 'nggallery_tags', array(&$this, 'show_tags_single_gallery' ) );
         add_shortcode( 'thumb', array(&$this, 'show_thumbs' ) );
         add_shortcode( 'random', array(&$this, 'show_random' ) );
         add_shortcode( 'recent', array(&$this, 'show_recent' ) );

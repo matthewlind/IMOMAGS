@@ -52,10 +52,7 @@ the_post();
 			
 		<div id="container">
 			
-			<header id="masthead">
-				<h1><?php the_title(); ?></h1>
-			
-			</header><!-- #masthead -->
+
 			<div id="content_container">
 
 				<div class="col-abc">

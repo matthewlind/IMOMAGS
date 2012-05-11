@@ -22,11 +22,43 @@ jQuery(document).ready(function($) {
 				$(data).each(function(i,row){
 					var option = $("<option value='" + row.slug + "'>" + row.name + "</option>");
 					$("select.caliber").append(option);
+				});
 
-					$(".slider-reviews-guntype").trigger('change');
-					$(".reviews-select-guntype").trigger('change');
+				$(".slider-reviews-caliber").trigger('change');
+				$(".reviews-select-caliber").trigger('change');
+			}
+		});
+
+	});
+
+	$(".guntype").change(function(){
+			var id=$(this).val();
+			var dataString = "guntype=" + id;
+
+
+		$.ajax({
+			type: "GET",
+			url: "/manufacturer.json",
+			data: dataString,
+			dataType: 'json',
+			cache: false,
+			success: function(data) {
+
+				$("select.manufacturer").empty();
+
+				var option = $("<option value=''>Manufacturer</option>");
+				$("select.manufacturer").append(option);
+
+				$(data).each(function(i,row){
+					var option = $("<option value='" + row.slug + "'>" + row.name + "</option>");
+					$("select.manufacturer").append(option);
+
+					
 
 				});
+
+				$(".slider-reviews-caliber").trigger('change');
+				$(".reviews-select-caliber").trigger('change');
 			}
 		});
 
@@ -34,7 +66,7 @@ jQuery(document).ready(function($) {
 
 
 
-	$(".reviews-select-guntype, .reviews-select-caliber").change(function(){
+	$(".reviews-select-caliber").change(function(){
 
 
 		var dataString = "";
@@ -113,7 +145,7 @@ jQuery(document).ready(function($) {
 	}
 
 
-	$(".slider-reviews-guntype, .slider-reviews-caliber").change(function(){
+	$(".slider-reviews-caliber").change(function(){
 
 
 		var dataString = "";

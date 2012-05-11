@@ -10,11 +10,11 @@ namespace imo;
  *
  * Creates the store wdiget for a page. 
  */
-class GAReviewSliderWidget extends \WP_Widget {
+class IMOSliderWidget extends \WP_Widget {
 
     function __construct()
     {
-        parent::__construct("ga-slider-widget", "GA Reivews Slider Widget");
+        parent::__construct("slider-widget", "IMO Slider Widget");
     }
 
     /**
@@ -24,7 +24,7 @@ class GAReviewSliderWidget extends \WP_Widget {
 	/* Set up some default widget settings. */
 
     $defaults = array (
-      'post_type' => 'review',
+      'post_type' => 'any',
       'limit' => '20',
     );
 
@@ -35,6 +35,19 @@ class GAReviewSliderWidget extends \WP_Widget {
 
 
 	<!-- Widget Header: Text Input -->
+	<p style="height:380px;">
+
+        <label for="<?php echo $this->get_field_id( 'header' ); ?>">Title:</label>
+        <input id="<?php echo $this->get_field_id( 'header' ); ?>" name="<?php echo $this->get_field_name( 'header' ); ?>" value="<?php echo $instance['header']; ?>" style="width:100%;" />
+
+		<label for="<?php echo $this->get_field_id( 'taxonomy' ); ?>" style="display:block;padding-top:10px;" >Select Terms:</label>
+        <?php $this->the_taxonomy_select($instance); ?>
+        <label for="<?php echo $this->get_field_id( 'post_type' ); ?>" style="display:block;padding-top:10px;" >Post Type:</label>
+        <?php $this->the_post_type_select($instance); ?>
+        <label for="<?php echo $this->get_field_id( 'limit' ); ?>" style="display:block;padding-top:10px;" >Post Count Limit:</label>
+        <?php $this->the_limit_input($instance); ?>
+
+	</p>
 
     <?php
     }
@@ -65,60 +78,12 @@ class GAReviewSliderWidget extends \WP_Widget {
      * @see WP_Widget::widget
      */
     function widget($args, $instance) {
-
-?>
-<div class="ga-reviews-slider">
-<div class="section-title posts">
-    <h4 class="reviews-form-header">
-        <div class="icon"></div>
-            <span>Latest Reviews</span> 
-    </h4>
-    <form action="<?php $_SELF['REQUEST_URI']; ?>" method="post" id="form" class="reviews-form">
-		<div class="review-select1">
-        <select class="guntype slider-reviews-select slider-reviews-guntype">
-            <option selected="selected" name="guntype" value="">Type</option>
-            <?php
-            $parents = array('parent' => 0);
-            $terms = get_terms("guntype", $parents);
-            $count = count($terms);
-
-            if ( $count > 0 ){
-                foreach ( $terms as $term ) {
-                    $termName = str_replace(" Reviews","",$term->name);
-                    echo "<option value=".$term->slug.">" . $termName . "</option>";
-                }
-            }
-            ?>
-        </select></div>
-       	<div class="review-select2">
-        <select name="manufacturer" class="manufacturer slider-reviews-select slider-reviews-manufacturer" value="">
-            <option selected="selected" name="Manufacturer" value="">Manufacturer</option> 
-            <?php
-            $terms = get_terms("manufacturer",array("parent" => 0));
-            $count = count($terms);
-            if ( $count > 0 ){
-                foreach ( $terms as $term ) {
-                    echo "<option value=".$term->slug.">" . $term->name . "</option>";
-                }
-            }
-            ?>
-        </select></div>
-        <div class="review-select3">
-        <select class="caliber slider-reviews-select slider-reviews-caliber">
-            <option selected="selected" name="caliber" value="">Caliber</option>
-            <option name="null" value="">Choose Manufacturer First...</option>
-        </select></div>
-    </form>
-</div>
-
-<div class="reviews-cover" style="display:none;"></div>
-
-  <?php
         global $add_slider_script;
         $add_slider_script = TRUE;
         
 
-        
+        global $imoSliderCount;
+        $imoSliderCount++;
 
         extract( $args );
 	       
@@ -140,13 +105,15 @@ class GAReviewSliderWidget extends \WP_Widget {
 
 
 
-        // if ($instance['post_type'] != "any") {
-        //     $args['post_type'] = $instance['post_type'];
-        // } else {
-        //     $args['post_type'] = array("reviews","imo_gallery","imo_video");
-        // }
+        if ($instance['post_type'] != "any") {
+            $args['post_type'] = $instance['post_type'];
+        } else {
+            $args['post_type'] = array("post","reviews","imo_gallery","imo_video");
+        }
 
-        $args['post_type'] = "reviews";
+
+        _log("ARGS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        _log($args);
             
         // The Query
         $the_query = new \WP_Query( $args );
@@ -160,8 +127,8 @@ class GAReviewSliderWidget extends \WP_Widget {
         }
         
 
-        echo "<div id='scroll_mask-reviews' class='scroll_mask'>\n";
-        echo "<ul id='scroll-reviews' class='scroll'>\n";
+        echo "<div id='scroll_mask-$imoSliderCount' class='scroll_mask'>\n";
+        echo "<ul id='scroll-$imoSliderCount' class='scroll'>\n";
 
         // The Loop
         while ( $the_query->have_posts() ) : $the_query->the_post();
@@ -183,14 +150,14 @@ class GAReviewSliderWidget extends \WP_Widget {
 
         echo "</ul>\n";
         echo "</div>\n";
-        echo "<a id='prev-reviews' class='prev'>PREV</a>\n";
-        echo "<a id='next-reviews' class='next'>NEXT</a>\n";
+        echo "<a id='prev-$imoSliderCount' class='prev'>PREV</a>\n";
+        echo "<a id='next-$imoSliderCount' class='next'>NEXT</a>\n";
                     
         
         // Reset Post Data
         wp_reset_postdata();
             
-echo "</div>";//ga-reviews-slider
+            
     	print $after_widget;
     }
 
@@ -198,7 +165,7 @@ echo "</div>";//ga-reviews-slider
         
 
 
-         $taxonomyList = get_taxonomies(); 
+         $taxonomyList = array("category" => "category");
 
          $taxQuery = array('relation' => 'AND');
 
@@ -345,6 +312,6 @@ echo "</div>";//ga-reviews-slider
 
 
 add_action("widgets_init", function() {
-    return register_widget("imo\GAReviewSliderWidget");
+    return register_widget("imo\IMOSliderWidget");
 });
 

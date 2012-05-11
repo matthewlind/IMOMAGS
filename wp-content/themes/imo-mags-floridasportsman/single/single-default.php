@@ -19,8 +19,24 @@
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
+
+
 get_header();
 ?>
+<?php
+if(has_term('sportsman-hd','column', $post->ID )) { ?> 
+<div class="bw-fullwidth picofday">
+<div class="col-abc">
+	<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-picofday')) : else : ?>
+	<?php endif; ?>
+	<?php
+	cfct_loop();
+	comments_template();
+	?>
+</div>
+
+<?php } 
+	else { ?>
 <div class="bw-fullwidth">
 <div class="col-ab">
 	<?php
@@ -33,6 +49,7 @@ get_header();
 get_sidebar();
 ?>
 </div>
+<?php } ?>
 <?php
 get_footer();
 ?>
