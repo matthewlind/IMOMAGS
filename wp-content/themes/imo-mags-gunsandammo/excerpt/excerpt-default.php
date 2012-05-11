@@ -12,7 +12,7 @@ if (!(has_term('news-brief','blog_tax')))
 	$showAvatar = has_term(null,'blog_tax');
 
 //COMMENT THIS OUT LATER TO BRING BACK AVATARS
-	$showAvatar = TRUE;	
+	$showAvatar = FALSE;	
 ?>
 
 <article id="post-excerpt-<?php the_ID(); ?>" <?php post_class('entry entry-excerpt') ?>>
