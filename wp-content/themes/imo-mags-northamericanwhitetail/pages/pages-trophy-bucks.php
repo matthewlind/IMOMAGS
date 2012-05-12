@@ -23,12 +23,12 @@ get_header();
 
 the_post();
 ?>
-<div class="page-template-page-default-php">
+<div class="page-template-page-trophy-php">
 	<header class="header-title">
-		<h1><?php cfct_blog_title(); ?></h1>
+		<h1><?php the_title(); ?></h1>
 	</header>	
 	<div class="bonus-background">
-		<div class="bonus">
+		<div class="sidebar">
 			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-default')) : else : ?><?php endif; ?>
 		</div>
 	</div>

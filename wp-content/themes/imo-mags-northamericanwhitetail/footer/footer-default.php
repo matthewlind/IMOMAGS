@@ -10,8 +10,8 @@ $args = array(
 	'orderby'			    =>	'date',
 	'order'				    =>	'DESC'
 ); ?>
-
-</section><!-- .container -->
+		</div><!-- #main -->
+	</section><!-- .container -->
 
   <footer id="footer">
     

@@ -236,6 +236,4 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 	</header>
 	<hr class="accessibility" />
 	<section id="main" class="str-container">
-		<div id="main-content">
-			<div class="str-content clearfix">
-		
+		<div id="main-content">		

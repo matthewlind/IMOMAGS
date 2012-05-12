@@ -55,13 +55,16 @@ a:hover{
 	width: 960px;
 }
 .col-ab, .col-bc, .cfct-block-ab, .cfct-block-bc {
-	width: 608px;
+	width: 690px;
 	
 }
+
 .col-a, .col-b, .col-c, .cfct-block-a, .cfct-block-b, .cfct-block-c, .col-ab .cfct-block-d, .col-ab .cfct-block-e {
 	width: 300px;
 }
-
+.col-a, .col-b, .col-c, .col-ab, .col-bc, .col-abc, .col-d, .col-e, .col-f, .col-g, .col-h, .cfct-block{
+	margin: 0 0 !important;
+}
 #main-content, #footer-content {
 border: none;
 
@@ -70,6 +73,13 @@ border: none;
 position: relative;
 border: none !important;
 border-radius: 0 !important;
+padding-left: 10px;
+}
+.home #main-content {
+position: relative;
+border: none !important;
+border-radius: 0 !important;
+padding-left: 0;
 }
 
 #main-content .str-content {
@@ -272,7 +282,7 @@ width: 990px;
     background: url("img/naw-icon-set.png") no-repeat scroll right center transparent;
     color: white;
     font-family: "rokkitt" serif;
-    font-size: 20px;
+    font-size: 1.2em;
     font-weight: lighter;
     line-height: 76px;
     margin-left: 150px;
@@ -293,7 +303,7 @@ width: 990px;
 #header .searchform input[type="search"], #header .searchform input.searchfield {
     background: url("img/icon/search_icon.png") no-repeat scroll 5px center #FFFFFF;
     border: 4px solid white;
-    font-size: 13px;
+    font-size: 1.1em;
     line-height: 1;
     padding: 7px 12px 7px 26px;
     position: relative;
@@ -364,8 +374,8 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     padding: 12px;
 }
 #header #megaMenu li.ss-nav-menu-reg ul.sub-menu-1 > .menu-item {
-    font-family: "StagMedium";
-    font-size: 18px;
+    
+    font-size: 1.3em;
     font-weight: lighter;
 }
 #header #megaMenu li.ss-nav-menu-reg ul.sub-menu-1 > .menu-item a {
@@ -381,7 +391,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 }
 #header #megaMenu li.ss-nav-menu-reg ul.sub-menu-1 ul.sub-menu-2 > .menu-item {
     font-family: "Helvetica Nueue",Helvetica,Arial,sans-serif;
-    font-size: 15px;
+    font-size: 1.2em;
 }
 #header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 {
     left: 0 !important;
@@ -391,7 +401,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 }
 #header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 > .menu-item {
     font-family: ProxyNova-semibold;
-    font-size: 20px;
+    font-size: 1.4em;
     font-weight: lighter;
     line-height: 1.5;
 }
@@ -441,7 +451,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 }
 #header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 ul.sub-menu-2 > .menu-item {
     font-family: "Helvetica Nueue",Helvetica,Arial,sans-serif;
-    font-size: 16px;
+    font-size: 1.2em;
     font-weight: bold;
 }
 #header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 ul.sub-menu-2 > .menu-item a {
@@ -487,7 +497,7 @@ top:20px;
     text-align: center;
 }
 #header #megaMenu ul.megaMenu li.magazine ul.sub-menu-1 .current-issue .month {
-    font-family: "StagMedium";
+    
     font-weight: lighter;
     margin-bottom: 24px;
 }
@@ -499,8 +509,7 @@ top:20px;
     background: url("img/icon/arrow_gray.png") no-repeat scroll 95% center #FFFFFF;
     border: 1px solid #DFDFDF;
     color: #5B6373;
-    font-family: "StagMedium";
-    font-size: 14px;
+    font-size: 1.2em;
     font-weight: lighter;
     height: 35px;
     line-height: 35px;
@@ -545,7 +554,7 @@ top:20px;
     padding: 0;
 }
 #header #megaMenu .wpmega-widgetarea .widget li {
-    font-size: 14px;
+    font-size: 1.2em;
     margin: 0.5em 0;
     text-align: left;
 }
@@ -555,14 +564,14 @@ top:20px;
 }
 #header #megaMenu .wpmega-widgetarea .widgettitle {
     color: #2C2C2C;
-    font-family: "StagMedium";
-    font-size: 20px;
+    
+    font-size: 1.4em;
     font-weight: lighter;
     margin: 0 0 15px;
 }
 #header #megaMenu .wpmega-widgetarea .popular-posts.wpmega-last-child .wpp-post-title {
     font-family: "Helvetica Nueue",Helvetica,Arial,sans-serif;
-    font-size: 13px;
+    font-size: 1.2em;
 }
 #header #megaMenu .wpmega-widgetarea .popular-posts.wpmega-last-child .fancy li {
     background: none repeat scroll 0 0 transparent;
@@ -586,13 +595,13 @@ top:20px;
     margin-right: 14px;
 }
 #header #megaMenu .wpmega-widgetarea .popular-posts .wpp-post-title {
-    font-family: "StagBold";
-    font-size: 16px;
+    
+    font-size: 1.2em;
     font-weight: lighter;
     line-height: 1.2;
 }
 #header #megaMenu .wpmega-widgetarea .popular-posts .wpp-excerpt {
-    font-size: 13px;
+    font-size: 1.2em;
     line-height: 1.5;
 }
 #header #megaMenu .wpmega-widgetarea .widget_subscribe-form .title {
@@ -760,7 +769,7 @@ top:20px;
     background: none repeat scroll 0 0 black;
     color: #a1a1a1;
     display: inline-block;
-    font-size: 16px;
+    font-size: 1.2em;
     left: 0;
     padding: 12px 20px;
     position: absolute;
@@ -911,7 +920,7 @@ top:20px;
 #footer .stay-connected .copyright {
     color: #444444;
     float: left;
-    font-size: 12px;
+    font-size: 1em;
     margin: 0;
 }
 #footer .stay-connected .utility {
@@ -949,6 +958,7 @@ top:20px;
  * branding, navigation, and social networking
  *
  */
+ 
 .intermedia-network {
     border-top: 1px solid #3E3E3E;
     height: 45px;
@@ -959,7 +969,7 @@ top:20px;
 }
 .intermedia-network .network-title {
     color: #FFFFFF;
-    font-size: 10px;
+    font-size: 0.8em;
     left: 33%;
     position: absolute;
     text-align: center;
@@ -1102,6 +1112,11 @@ top:20px;
     margin: 0 4px;
 }
 
+/*
+ * Secondary Sidebar
+ * Above footer
+ *
+ */
 
 #main .secondary {
     display: inline;
@@ -1120,3 +1135,164 @@ top:20px;
 #main .secondary .widget:last-child {
     margin-right: 0;
 }
+
+/*
+ * Excerpt
+ * branding, loops
+ *
+ */
+.entry{
+	padding: 0;
+}
+.entry-excerpt {
+    float: left;
+    position: relative;
+    width: 100%;
+    border: none;
+}
+.entry-excerpt .entry-img {
+    float: left;
+    height: 147px;
+    margin-right: 22px;
+    width: 226px;
+}
+.entry-excerpt .author-photo {
+    left: -8px;
+    position: absolute;
+    top: -14px;
+}
+.entry-excerpt .author-photo .photo {
+    border: 4px solid white;
+    height: 34px;
+    width: 34px;
+}
+.entry-excerpt .entry-summary {
+    float: left;
+    line-height: 1;
+    width: 358px;
+    padding-top: 5px;
+}
+.entry-excerpt .entry-category {
+    font-style: normal;
+    font-weight: normal;
+    margin-top:2px;
+}
+.entry-excerpt .entry-category a{
+	color:#c2290b;
+	font-family: ProximaNova-Regular;
+}
+.entry-excerpt .entry-category a:hover {
+    border: medium none;
+    color: black;
+}
+.entry-excerpt .entry-title {
+    font-size: 1.5em;
+    font-weight: lighter;
+    line-height: 1.2;
+    margin-bottom: 0;
+    margin-top: 0;
+    width: 95%;
+}
+.entry-excerpt .entry-title a {
+    -moz-box-orient: vertical;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1em;
+}
+.entry-excerpt .entry-title a:hover {
+    border: medium none;
+    color: black;
+}
+.entry-excerpt a.comment-count {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+a.comment-count {
+	background: url("img/icon-comment.png") no-repeat scroll 0 -30px transparent;
+    -moz-transition: all 0s ease 0s !important;
+    color: white;
+    display: block;
+    font-size: 0.9em;
+    font-weight: lighter;
+    height: 21px;
+    line-height: 22px;
+    padding-bottom: 6px;
+    text-align: center;
+    width: 27px;
+}
+a.comment-count:hover, a.comment-count.comments_hover, a.comment-count.comments-hover {
+    background-position: 0 -1px;
+    text-indent: -9999px;
+}
+a.comment-count:hover {
+    -moz-transition: all 0s ease 0s !important;
+    border: medium none;
+}
+.entry-excerpt p {
+    line-height: 1.2;
+    margin-top: 4px;
+   	font-family: ProximaNova-Regular;
+}
+.entry-excerpt .vcard {
+	color: #aaa197;	
+}
+.sponsored{
+	background-color: #f1f1f1;
+}
+
+/*
+ * Homepage
+ * 
+ *
+ */
+#super-post{
+	height: 200px;
+}
+.page-template-page-right-php .cfct-block-c{
+	padding-left: 40px;
+}
+
+/*
+ * Single Pages
+ * 
+ *
+ */
+
+.header-title{
+	border-bottom: 4px solid #000;
+	width: 1010px;
+	margin-bottom: 20px;
+}
+.header-title h1{
+	text-transform: uppercase;
+}
+.entry .entry-content, .entry .entry-summary, .reply .reply-content, .entry .entry-footer, .reply .reply-footer{
+	padding-left: 1px;
+}
+.wp-caption {
+    border-radius:0;
+}
+
+/*
+ * Sidebars
+ * 
+ *
+ */
+#sidebar{
+	padding-right: 10px;
+}
+
+/*
+ * Trophy Bucks Page
+ * 
+ *
+ */
+.page-template-page-trophy-php .header-title{
+	background: url("img/trophy-bucks-icon.png") no-repeat scroll 0 0 transparent;
+
+}
+.page-template-page-trophy-php .header-title h1{
+	margin-left: 90px;
+}
+

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @package carrington-business
  *
@@ -20,23 +19,14 @@ if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 get_header();
-
-the_post();
 ?>
-<div class="page-template-page-default-php">
-	<header class="header-title">
-		<h1><?php cfct_blog_title(); ?></h1>
-	</header>	
-	<div class="bonus-background">
-		<div class="bonus">
-			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-default')) : else : ?><?php endif; ?>
-		</div>
-	</div>
-	<div class="col-abc">
-		<?php the_content(__('Continued&hellip;', 'carrington-business')); ?>
-	</div><!-- .col-abc -->		
-		<?php edit_post_link(__('Edit', 'carrington-business')); ?>
-		</div><!-- .entry -->
-	</div><!-- .col-abc -->
+<div class="col-ab">
+	<?php
+	cfct_loop();
+	comments_template();
+	?>
 </div>
-<?php get_footer(); ?>
+<?php
+get_sidebar("");
+get_footer();
+?>

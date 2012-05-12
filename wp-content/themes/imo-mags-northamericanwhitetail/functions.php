@@ -60,12 +60,18 @@ function naw_imo_addons_sidebar_init() {
   )));
 
   register_sidebar(array_merge($sidebar_defaults, array(
-      'id' => 'sidebar-home',
-      'name' => __('Homepage Sidebar', 'carrington-business'),
-      'description' => __('Shown on the homepage.', 'carrington-business')
+      'id' => 'sidebar-home-top',
+      'name' => __('Top Homepage Sidebar', 'carrington-business'),
+      'description' => __('Shown on the top right of the homepage.', 'carrington-business')
   )));
   
   register_sidebar(array_merge($sidebar_defaults, array(
+      'id' => 'sidebar-home-bottom',
+      'name' => __('Bottom Homepage Sidebar', 'carrington-business'),
+      'description' => __('Shown on the bottom right of the homepage.', 'carrington-business')
+  )));
+  
+	register_sidebar(array_merge($sidebar_defaults, array(
     'id' => 'secondary-home',
     'name' => __('Homepage Secondary', 'carrington-business'),
     'description' => __('area below main and sidebar columns on the homepage', 'carrington-business')
