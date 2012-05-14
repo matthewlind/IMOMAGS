@@ -3,7 +3,7 @@ jQuery(document).ready(function($) {
 
 var displayAtOnce = 6;
 var currentDisplayStart = 0;
-var displayMode = "list"; //either "list" or "tile"
+var displayMode = "tile"; //either "list" or "tile"
 
 var bgcolors = new Array("#403b35","#c65517","#829b40");
 

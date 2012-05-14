@@ -9,6 +9,17 @@ Author URI:
 Version: 0.1
 Stable tag: 0.1
 License: IMO
+
+
+******************
+IMPORTANT NOTE: 
+For this template to work correctly, there must be a page this name and slug: superpost-single
+
+YES. The name of the page and the slug should both be superpost-single.
+
+Check out the imo-superpost plugin for the routing that causes this.  Check out functions.php for how the title is pulled for these pages.
+******************
+
 */
 
 /********************************
@@ -39,7 +50,9 @@ function imo_superpost_flush_rules()
 {
     add_rewrite_rule('recon-photos/([^/]*)', 'index.php?pagename=recon-photos&templatename=recon_photos&username=$matches[1]', 'top');
     add_rewrite_rule('recon-photos/?$', 'index.php?pagename=recon-photos&templatename=recon_photos', 'top');
-    add_rewrite_rule('recon-photo/([^/]+)', 'index.php?pagename=recon-photo&templatename=recon_photo&spid=$matches[1]', 'top');
+
+    add_rewrite_rule('plus/report/([^/]+)', 'index.php?pagename=superpost-single&templatename=superpost_single&spid=$matches[1]', 'top');
+    //add_rewrite_rule('plus/trophy-buck/([^/]+)', 'index.php?pagename=superpost&templatename=superpost_single&spid=$matches[1]', 'top');
     flush_rewrite_rules(false);
 }
 

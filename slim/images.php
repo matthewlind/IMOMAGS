@@ -50,6 +50,7 @@ function resizeImages($localImage){
 	if (!is_dir("images/$dir/" . $subDir)) 
 			mkdir("images/$dir/" . $subDir);
 
+	imagejpeg($current_image, "images/$dir/$subDir/$imageName.jpg", 80);
 
 
 
