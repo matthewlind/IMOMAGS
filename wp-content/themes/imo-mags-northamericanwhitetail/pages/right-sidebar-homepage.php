@@ -37,14 +37,71 @@ the_post();
 	</div><!-- .col-abc -->		
 		
 	<!-- Super post section -->
-	<div class="col-abc">
-		<div id="super-post">
-			<div class="activity-menu">
-					<h1 class="location">Illinois Activity</h1>
-				</div>	
-		</div>
-	</div>
+	<div class="col-abc super-post">
+		<div class="activity-menu">
+			<a href="#" class="location">Illinois Activity</a>
+			<ul>
+				<li>All Activity</li>
+				<li>Change State</li>
+				<li>Most Commented</li>
+				<li>Most Viewed</li>
+				<li>Log In</li>
+				<li>Sign Up</li>
+			</ul>
+			<div class="down-arrow"></div>
+		</div><!-- .activity-menu -->
 			
+			
+		<div class="view-type"></div><!-- .view-type -->
+			
+			
+		<div class="post-area-menu">
+			<ul>
+				<li>All</li>
+				<li>Reports</li>
+				<li>Trophy Bucks</li>
+				<li>Gear</li>
+				<li class="down-arrow"></li>
+			</ul>
+		</div><!-- .post-area-menu -->
+			
+			
+		<div class="super-tiles">
+			<div class="super-tile">
+				<div class="tile-top"></div>
+				<div class="tile-btm"></div>
+			</div>
+			
+			<div class="super-tile">
+				<div class="tile-top"></div>
+				<div class="tile-btm"></div>
+			</div>
+			
+			<div class="super-tile">
+				<div class="tile-top"></div>
+				<div class="tile-btm"></div>
+			</div>
+			
+			<div class="super-tile">
+				<div class="tile-top"></div>
+				<div class="tile-btm"></div>
+			</div>
+			
+			<div class="super-tile">
+				<div class="tile-top"></div>
+				<div class="tile-btm"></div>
+			</div>
+			
+			<div class="super-tile">
+				<div class="tile-top"></div>
+				<div class="tile-btm"></div>
+			</div>
+		</div><!-- .super-tiles -->
+		
+		
+		
+	</div><!-- .col-abc -->
+	<div class="clear"></div>
 	<!-- Editor's Picks w/ Sidebar Bottom -->		
 	<div class="bonus-background">
 		<div class="bonus">

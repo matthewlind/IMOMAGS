@@ -43,6 +43,10 @@ a, a:visited {
 a:hover{
 	text-decoration: none;
 }
+.clear{
+	clear: both;
+	height: 30px;
+}
 /*PAGE LAYOUT MODS*/
  
 .str-container {
@@ -1245,22 +1249,47 @@ a.comment-count:hover {
  * 
  *
  */
-#super-post{
-	min-height: 200px;
-}
+.super-post{clear: both;}
 .page-template-page-right-php .cfct-block-c{
 	padding-left: 40px;
 }
-#super-post .activity-menu{
+.super-post .activity-menu{
 	background-color: #829b40;
 	height: 40px;
     padding: 6px 0 0 14px;
     width: 200px;
+    float: left;
 }
-#super-post h1.location{
+.super-post h1.location{
 	color: #fff;
 	font-family: 'rokkitt',serif;
 }
+
+.super-post .view-type{float: right;width: 75px;}
+.super-post .post-area-menu{float: left;width: 400px;}
+.super-post .post-area-menu ul{list-style: none;}
+.super-post .post-area-menu li{
+	background-color: #CCCCCC;
+    float: left;
+    height: 40px;
+    line-height: 2.4em;
+    margin: 0 1px;
+    padding: 0 20px;
+}
+    }
+.super-post .activity-menu .down-arrow{}
+.super-post .post-area-menu .down-arrow{}
+.super-post .super-tiles{clear: both;width: 1020px;}
+.super-post .super-tiles .super-tile{
+	background-color: #CCCCCC;
+    float: left;
+    height: 336px;
+    margin: 2px;
+    width: 336px;
+}
+.super-post .super-tiles .super-tile .tile-top{}
+.super-post .super-tiles .super-tile .tile-btm{}
+
 
 /*
  * Single Pages
@@ -1343,7 +1372,7 @@ a.comment-count:hover {
  * 
  *
  */
-#sidebar{
+#sidebar, .sidebar{
 	padding-right: 10px;
 	margin:0;
 }
@@ -1364,11 +1393,11 @@ a.comment-count:hover {
     background: url('img/newsletter-bg.jpg') no-repeat center top #EDEDED;
     height: 200px;
 }
-.gform_wrapper {
-    max-width: 100%;
-    margin: 0;
+#newsletter_signup .gform_wrapper {
+    max-width: 100% !important;
+    margin: 0 0 10px;
 }
-.gform_wrapper .newsletter .top_label input.medium, #sidebar .gform_wrapper .newsletter .ginput_container input {
+#newsletter_signup .gform_wrapper .newsletter .top_label input.medium, #newsletter_signup .gform_wrapper .newsletter .ginput_container input {
     border: medium none;
     float: left;
     font-family: ProximaNovaA-regular;
@@ -1381,13 +1410,13 @@ a.comment-count:hover {
     vertical-align: middle;
     width: 283px;
 }
-.gform_wrapper .newsletter .gform_footer {
+#newsletter_signup .gform_wrapper .newsletter .gform_footer {
     clear: none;
     margin: 0 0 0 -7px;
     padding: 0;
     width: 80px;
 }
-.gform_wrapper .newsletter .gform_footer input.button, .gform_wrapper .newsletter .gform_footer input[type="submit"], #sidebar .newsletter .gform_button {
+#newsletter_signup .gform_wrapper .newsletter .gform_footer input.button, #newsletter_signup .gform_wrapper .newsletter .gform_footer input[type="submit"], #sidebar .newsletter .gform_button {
     background: url("img/sign-up-bg.png") no-repeat scroll 0 0 transparent;
     border: medium none;
     border-radius: 0;
@@ -1402,7 +1431,7 @@ a.comment-count:hover {
 .newsletter-sep{
 	position: relative;
     top: 183px;
-    z-index: 999;
+    z-index: 1;
 }
 .newsletter-sep span{
 	float: left;
