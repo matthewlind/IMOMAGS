@@ -1,0 +1,23 @@
+/**
+  Default Style 
+ **/
+
+iframe { 
+background: transparent;
+border: 0;
+}
+section div#main-content {
+background: #ffffff url(../img/contest-bg.jpg) no-repeat center top;
+}
+section div#main-content > .str-content {
+background-color: transparent;
+min-height:900px;
+padding-top: 312px;
+}
+.block-0 hr { border: none; }
+#main-content .centerad {
+width: 728px;
+background: #CCC;
+height: 90px;
+margin-top: 180px;
+}

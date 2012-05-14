@@ -95,6 +95,12 @@ get_header();
 <div id="content" class="col-ab">
 	<?php cfct_loop(); ?>
 	<?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
+	<div class="post-content-area">
+		<div class="yarpp-content">
+			<?php related_posts(); ?>
+		</div>
+		<div class="fb-recommendations recommendations" data-site="www.gunsandammo.com" data-width="300" data-height="250" data-header="true"></div>
+	</div>
 	<?php comments_template(); ?>
 </div>
 <?php get_footer();

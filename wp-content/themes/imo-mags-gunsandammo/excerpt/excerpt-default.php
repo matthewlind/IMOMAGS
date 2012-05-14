@@ -12,13 +12,13 @@ if (!(has_term('news-brief','blog_tax')))
 	$showAvatar = has_term(null,'blog_tax');
 
 //COMMENT THIS OUT LATER TO BRING BACK AVATARS
-	$showAvatar = FALSE;
+	$showAvatar = TRUE;	
 ?>
 
 <article id="post-excerpt-<?php the_ID(); ?>" <?php post_class('entry entry-excerpt') ?>>
 
-	<?php	if (has_post_thumbnail()) :
-		echo '<a href="', the_permalink(),'">', the_post_thumbnail('post-thumbnail', array('class' => 'entry-img')), '</a>'; ?>
+	<?php if (has_post_thumbnail()) : ?>
+		<a<?php if( get_post_type() == 'imo_video' || in_category('video') ){echo ' class="video-excerpt"';} ?> href="<?php the_permalink(); ?>"><?php the_post_thumbnail('post-thumbnail', array('class' => 'entry-img')); if( get_post_type() == 'imo_video' || in_category('video') ){echo '<span></span>';} ?></a>
 
 	  <?php if ($showAvatar): ?>
 	  	<div class="author-photo"><?php	echo userphoto_the_author_thumbnail(); ?></div>
@@ -50,5 +50,4 @@ if (!(has_term('news-brief','blog_tax')))
 	</div>
   
   <a class="comment-count" href="<?php comments_link(); ?>"><?php echo get_comments_number(); ?></a>
-
 </article>

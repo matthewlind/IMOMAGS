@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Template Name: TV v2 Page
- * Description: A page with tv sidebar.
+ * Template Name: Cabelas Contest page 
+ * Description: A page without a title. Makes a wide-open canvas for Carrington Build.
  *
  * @package carrington-business
  *
@@ -23,6 +23,6 @@ if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 
 // NOTE: this file is here for compatibility reasons - active templates are in the pages/ dir 
 
-cfct_page('tv');
+cfct_page('cabelas-contest');
 
 ?>

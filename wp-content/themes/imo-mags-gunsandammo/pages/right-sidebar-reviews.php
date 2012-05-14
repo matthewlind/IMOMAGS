@@ -32,8 +32,11 @@ the_post();
  							<div class="icon"></div>
   								<span>Filter Reviews</span> 
 						</h4>
+						<script>
+						
+						</script>
 					<form action="<?php $_SELF['REQUEST_URI']; ?>" method="post" id="form" class="reviews-form">
-
+					<div class="review-select1">
 					<select class="guntype reviews-select reviews-select-guntype">
 							<option selected="selected" name="guntype" value="">Type</option>
 							<?php
@@ -51,8 +54,8 @@ the_post();
         						}
 							}
 							?>
-						</select>
-						<!-- disabled="disabled" -->
+						</select></div>
+						<div class="review-select2">
 						<select name="manufacturer" class="manufacturer reviews-select reviews-select-manufacturer" value="">
 							<option selected="selected" name="Manufacturer" value="">Manufacturer</option> 
 							<?php
@@ -64,11 +67,12 @@ the_post();
         						}
 							}
 							?>
-						</select>
+						</select></div>
+						<div class="review-select3">
 						<select class="caliber reviews-select reviews-select-caliber">
 							<option selected="selected" name="caliber" value="">Caliber</option>
-							<option name="null" value="">Choose a Manufacturer</option>
-						</select>
+							<option name="null" value="">Choose Manufacturer</option>
+						</select></div>
 						</form>
 					</div>
 				</div>
@@ -92,7 +96,7 @@ the_post();
 						while ( $query->have_posts() ) : $query->the_post(); ?>
 							<article class="post type-post status-publish format-standard hentry category-news-brief entry entry-excerpt has-img">
 							<?php if(has_post_thumbnail()){ ?>
-								<a class="thumbnail-link" href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(190,120), array('class' => 'entry-img')); ?></a>
+								<a<?php if( get_post_type() == 'imo_video' || in_category('video') ){echo ' class="video-excerpt"';} ?> class="thumbnail-link" href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(190,120), array('class' => 'entry-img')); if( get_post_type() == 'imo_video' || in_category('video') ){echo '<span></span>';} ?></a>
 							<?php } ?>
 							<div class="entry-summary">
 		  						<span class="entry-category">

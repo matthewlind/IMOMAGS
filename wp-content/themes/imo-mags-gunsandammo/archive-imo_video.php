@@ -88,6 +88,7 @@ if (have_posts()) : ?>
           ),
     );
     the_widget('imo\IMOSliderWidget', $instance); ?>
+    
     <a class="cta" href="/videos/tips-tactics/">View All <span></span></a>
   </div>
 

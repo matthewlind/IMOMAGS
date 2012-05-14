@@ -23,39 +23,24 @@ get_header();
 
 the_post();
 ?>
-<div class="page-template-page-right-php right-sidebar-landing">
-	<div id="sidebar">
-		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-tv')) : else : ?><?php endif; ?>
+<div class="page-template-page-right-php">
+	<div class="bonus-background">
+		<div class="bonus">
+			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('bonus_sidebar')) : else : ?><?php endif; ?>
+		</div>
 	</div>
-	<div id="content">
-		<h1 class="seo-h1">TV</h1>
-		<div <?php post_class('entry entry-full'); ?>>
+	<div class="col-abc">
+		<div <?php post_class('entry entry-full clearfix'); ?>>
 			<div class="entry-content">
-			<div class="cfct-module cfct-html section-title posts">
-					<div class="cfct-mod-content">
-						<h4>
- 							<div class="icon"></div>
-  								<span><?php the_title(); ?></span>
-						</h4>
-					</div>
-				</div>
-				<?php the_content(__('Continued&hellip;', 'carrington-business'));
+				<?php
+				the_content(__('Continued&hellip;', 'carrington-business'));
 				wp_link_pages();
 				
 				?>
 			</div>
 			<?php edit_post_link(__('Edit', 'carrington-business')); ?>
 		</div><!-- .entry -->
-		
-		<?php if (is_page(array('rtfs','host-george-gozdz','prizes','about-rtfs','episode-guide','sponsors'))) {
-			 
-		} else {
-			comments_template();
-		}?>
-		
-							</div>
-		</div>
-	</div>
+		<?php // comments_template(); ?>
+	</div><!-- .col-abc -->
 </div>
-
 <?php get_footer(); ?>

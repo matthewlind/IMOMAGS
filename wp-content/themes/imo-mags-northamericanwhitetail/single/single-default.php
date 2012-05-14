@@ -21,6 +21,9 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 get_header();
 ?>
+<header class="header-title">
+	<h1><?php cfct_blog_title(); ?></h1>
+</header>
 <div class="col-ab">
 	<?php
 	cfct_loop();
