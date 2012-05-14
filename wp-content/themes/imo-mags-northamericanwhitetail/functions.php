@@ -93,5 +93,6 @@ function naw_imo_addons_sidebar_init() {
 add_action( 'widgets_init', 'naw_imo_addons_sidebar_init' );
 
 
+include_once get_stylesheet_directory().'/widgets/newsletter-signup.php';
 
 ?>

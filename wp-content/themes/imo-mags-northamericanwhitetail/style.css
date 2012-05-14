@@ -1222,8 +1222,7 @@ a.comment-count {
     width: 27px;
 }
 a.comment-count:hover, a.comment-count.comments_hover, a.comment-count.comments-hover {
-    background-position: 0 -1px;
-    text-indent: -9999px;
+      color:#666;
 }
 a.comment-count:hover {
     -moz-transition: all 0s ease 0s !important;
@@ -1247,10 +1246,20 @@ a.comment-count:hover {
  *
  */
 #super-post{
-	height: 200px;
+	min-height: 200px;
 }
 .page-template-page-right-php .cfct-block-c{
 	padding-left: 40px;
+}
+#super-post .activity-menu{
+	background-color: #829b40;
+	height: 40px;
+    padding: 6px 0 0 14px;
+    width: 200px;
+}
+#super-post h1.location{
+	color: #fff;
+	font-family: 'rokkitt',serif;
 }
 
 /*
@@ -1275,15 +1284,6 @@ a.comment-count:hover {
 }
 
 /*
- * Sidebars
- * 
- *
- */
-#sidebar{
-	padding-right: 10px;
-}
-
-/*
  * Trophy Bucks Page
  * 
  *
@@ -1296,3 +1296,129 @@ a.comment-count:hover {
 	margin-left: 90px;
 }
 
+/*
+ * Image slider
+ * 
+ *
+ */
+
+.featured-articles #featured-articles-navigator {
+    height: 10px;
+    right: 0;
+    top: 380px;
+}
+#featured-articles-navigator {
+    bottom: 0;
+    display: block;
+    height: 90px;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+.ui-tabs .next-tab {
+    background: url("img/ui_tab_next.png") no-repeat scroll center center #000000;
+    right: 0;
+}
+.ui-tabs .prev-tab {
+	 background: url("img/ui_tab_prev.png") no-repeat scroll center center #000000;
+    left: 0;
+}
+.ui-tabs .prev-tab, .ui-tabs .next-tab {
+    display: none;
+    height: 60px;
+    overflow: hidden;
+    position: absolute;
+    text-align: left;
+    text-indent: -119988px;
+    top: 100px;
+    width: 60px;
+    z-index: 30;
+}
+.ui-tabs .prev-tab:hover, .ui-tabs .next-tab:hover {
+    background-color: #000;
+}
+
+/*
+ * Sidebars
+ * 
+ *
+ */
+#sidebar{
+	padding-right: 10px;
+	margin:0;
+}
+.bonus-background, .bonus{
+	width: 324px;
+	margin:0;
+}
+
+
+/*
+ * Newsletter Widget
+ * 
+ *
+ */
+.newsletter {
+    border: 1px solid #D5D5D5;
+    padding: 17px;
+    background: url('img/newsletter-bg.jpg') no-repeat center top #EDEDED;
+    height: 200px;
+}
+.gform_wrapper {
+    max-width: 100%;
+    margin: 0;
+}
+.gform_wrapper .newsletter .top_label input.medium, #sidebar .gform_wrapper .newsletter .ginput_container input {
+    border: medium none;
+    float: left;
+    font-family: ProximaNovaA-regular;
+    font-size: 1em;
+    height: 35px;
+    line-height: 26px;
+    margin: 81px -7px 0 -1px;
+    padding: 0;
+    text-indent: 8px;
+    vertical-align: middle;
+    width: 283px;
+}
+.gform_wrapper .newsletter .gform_footer {
+    clear: none;
+    margin: 0 0 0 -7px;
+    padding: 0;
+    width: 80px;
+}
+.gform_wrapper .newsletter .gform_footer input.button, .gform_wrapper .newsletter .gform_footer input[type="submit"], #sidebar .newsletter .gform_button {
+    background: url("img/sign-up-bg.png") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    border-radius: 0;
+    display: block;
+    height: 45px;
+    margin-top: 144px;
+    margin-left: 6px;
+    text-indent: -9999px;
+    width: 104px;
+    cursor: pointer;
+}
+.newsletter-sep{
+	position: relative;
+    top: 183px;
+    z-index: 999;
+}
+.newsletter-sep span{
+	float: left;
+    font-family: ProximaNova-Regular;
+    font-size: 0.8em;
+    left: 135px;
+    position: relative;
+    top: -9px;
+}
+.fb-signup{
+	background: url("img/fb-signup-bg.png") no-repeat scroll 0 0 transparent;
+    border: none;
+    float: left;
+    height: 45px;
+    margin: -21px 0 0 148px;
+    text-indent: -9999px;
+    width: 142px;
+    cursor: pointer;
+}

@@ -39,8 +39,8 @@ the_post();
 	<!-- Super post section -->
 	<div class="col-abc">
 		<div id="super-post">
-			<div class="home-header-title">
-					<h1>Illinois Activity</h1>
+			<div class="activity-menu">
+					<h1 class="location">Illinois Activity</h1>
 				</div>	
 		</div>
 	</div>
@@ -61,12 +61,14 @@ the_post();
 					<h1>Editor's Picks</h1>
 				</div>
 				<?php
+				$paged = get_query_var('paged') ? get_query_var('paged') : 1;
 				$args = array(
 				'post_type' => 'post',
 				'post_status' => 'publish',
 				'orderby' => 'date',
 				'order' => 'DESC',
-				'posts_per_page' => 5
+				'posts_per_page' => 5,
+                'paged' => $paged,
 				);
 				// The Query
 				$the_query = new WP_Query( $args );
@@ -88,10 +90,13 @@ the_post();
  			 		<a class="comment-count" href="<?php comments_link(); ?>"><?php echo get_comments_number(); ?></a>
 				</article>
 				<?php endwhile;
-
+				next_posts_link();
+				previous_posts_link();
 				// Reset Post Data
-				wp_reset_postdata(); ?>
-
+				wp_reset_postdata(); 
+				
+				?>
+				
 			</div>
 			<?php edit_post_link(__('Edit', 'carrington-business')); ?>
 		</div><!-- .entry -->
