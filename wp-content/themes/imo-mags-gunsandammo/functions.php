@@ -241,6 +241,43 @@ function mm_current_issue($atts, $content = null) {
 
 add_shortcode("mm-current-issue", "mm_current_issue");
 
+/*
+ * blog headers
+ *
+ * For use anywhere
+ *
+ */
+/* Sons of Guns & Ammo Header */
+function sons_header_uri($atts, $content = null) {
+	extract(shortcode_atts(array(
+    "" => ""
+	), $atts));
+	
+	$sg_img = get_option("sons_header_uri", get_stylesheet_directory_uri(). "/img/blogs/sonsofguns.png" );
+  if (empty($sg_img)) {
+      $sg_img = get_stylesheet_directory_uri(). "/img/blogs/sonsofguns.png";
+  }
+	
+	return '<img src="'.$sg_img.'" alt />';
+}
+
+add_shortcode("sons-header-uri", "sons_header_uri");
+
+/* Zombie Nation Header */
+function zombie_header_uri($atts, $content = null) {
+	extract(shortcode_atts(array(
+    "" => ""
+	), $atts));
+	
+	$zn_img = get_option("zombie_header_uri", get_stylesheet_directory_uri(). "/img/blogs/zombie-nation.jpg" );
+  if (empty($zn_img)) {
+      $zn_img = get_stylesheet_directory_uri(). "/img/blogs/zombie-nation.jpg";
+  }
+	
+	return '<img src="'.$zn_img.'" alt />';
+}
+
+add_shortcode("zombie-header-uri", "zombie_header_uri");
 
 
 function my_scripts_method() {
