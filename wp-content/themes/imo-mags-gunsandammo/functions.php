@@ -104,11 +104,7 @@ function ga_imo_addons_sidebar_init() {
     'after_title' => '</span></h3>'
   );
   
-  register_sidebar(array_merge($sidebar_defaults, array(
-    'id' => 'sidebar-default',
-    'name' => 'Blog Sidebar',
-    'Shown on blog posts and archives.'
-  )));
+
 
   register_sidebar(array_merge($sidebar_defaults, array(
       'id' => 'sidebar-ad',

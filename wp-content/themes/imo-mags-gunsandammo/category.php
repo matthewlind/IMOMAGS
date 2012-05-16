@@ -30,8 +30,6 @@ $soga_slug = "sons-of-guns-and-ammo";
 $floc_slug = "for-the-love-of-competition";
 $dt_slug = "defend-thyself";
 $nb_slug = "news-brief";
-$tfl_slug = "the-front-lines";
-$tgg_slug = "the-gun-guys";
 $tgr_slug = "the-gun-room";
 $zn_slug = "zombie-nation";
 
@@ -66,11 +64,12 @@ if (empty($zn_img)) {
 	<h1 class="seo-h1"><?php single_cat_title('');?></h1>
 	<div id="sidebar">
 		<?php 
-		if(in_category('blogs')){
+		if( in_category($soga_slug) || in_category($floc_slug) || in_category($dt_slug) || in_category($nb_slug) || in_category($zn_slug) || in_category($tgr_slug) ) {
 			if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-default')) : else : endif;
 		}else{
 			if (function_exists('dynamic_sidebar') && dynamic_sidebar('homepage-sidebar')) : else : endif;
 		}
+		
 		 ?>
 	</div>
 	<div id="content" class="col-abc category-col-abc">
@@ -84,12 +83,6 @@ if (empty($zn_img)) {
 
 <?php } else if (in_category($nb_slug)) { ?>
 <a class="blog-header" href="/blogs/<?php echo $nb_slug; ?>/" title="<?php echo $current_category; ?>"><img src="<?php print $nb_img; ?>"></a>
-
-<?php } else if (in_category($tfl_slug)) { ?>
-<a class="blog-header tfl-header" href="/blogs/<?php echo $tfl_slug; ?>/" title="<?php echo $current_category; ?>"></a>
-
-<?php } else if (in_category($tgg_slug)) { ?>
-<a class="blog-header tgg-header" href="/blogs/<?php echo $tgg_slug; ?>/" title="<?php echo $current_category; ?>"></a>
 
 <?php } else if (in_category($tgr_slug)) { ?>
 <a class="blog-header" href="/blogs/<?php echo $tgr_slug; ?>/" title="<?php echo $current_category; ?>"><img src="<?php print $hb_img; ?>"></a>
