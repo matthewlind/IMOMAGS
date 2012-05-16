@@ -16,7 +16,7 @@ $floc_slug = "for-the-love-of-competition";
 $dt_slug = "defend-thyself";
 $nb_slug = "news-brief";
 $zn_slug = "zombie-nation";
-$fthb_slug = "from-the-history-books";
+$fthb_slug = "the-gun-room";
 
 $sg_img = get_option("sons_header_uri", get_stylesheet_directory_uri(). "/img/blogs/sonsofguns.png" );
 if (empty($sg_img)) {
