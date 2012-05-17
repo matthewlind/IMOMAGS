@@ -1147,6 +1147,7 @@ top:20px;
  */
 .entry{
 	padding: 0;
+	border-bottom: none !important;
 }
 .entry-excerpt {
     float: left;
@@ -1249,7 +1250,7 @@ a.comment-count:hover {
  * 
  *
  */
-.super-post{clear: both;}
+.super-post{clear: both;width:1030px;}
 .page-template-page-right-php .cfct-block-c{
 	padding-left: 40px;
 }
