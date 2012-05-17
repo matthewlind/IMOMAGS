@@ -95,4 +95,13 @@ add_action( 'widgets_init', 'naw_imo_addons_sidebar_init' );
 
 include_once get_stylesheet_directory().'/widgets/newsletter-signup.php';
 
-?>
+
+define("JETPACK_SITE", "nawhitetail");
+define("SUBS_LINK", "https://secure.palmcoastd.com/pcd/eSv?iMagId=0148D&i4Ky=IBZN");
+define("GIFT_LINK", "https://secure.palmcoastd.com/pcd/eSv?iMagId=0148D&i4Ky=IGZN");
+define("SERVICE_LINK", "https://secure.palmcoastd.com/pcd/eServ?iServ=MDE0OEQ0NDcyNCZpVHlwZT1FTlRFUg==");
+define("SUBS_DEAL_STRING", "Save Over 70% off<br/> the Cover Price");
+
+include("plus/functions-plus.php");
+
+

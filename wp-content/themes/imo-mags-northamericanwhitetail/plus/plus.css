@@ -1,0 +1,12 @@
+
+/*HOMEPAGE LAYOUT OVERRIDES*/
+
+.page-template-home-php .col-abc {
+
+	margin:0px;
+}
+
+
+.page-template-home-php .str-content {
+	padding:0px;
+}

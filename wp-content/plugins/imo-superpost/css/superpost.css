@@ -1,0 +1,276 @@
+
+
+/*HOMEPAGE BASIC LAYOUT*/
+
+
+#recon-activity {
+	height:500px;
+}
+
+.recon-box {
+
+	margin-top:10px;
+	margin-bottom:10px;
+	height:420px;
+}
+
+img.superpost-thumb {
+	width:338px;
+}
+
+.recon-title-box {
+	height:278px;
+	width:278px;
+	position:absolute;
+	padding:30px;
+
+}
+
+.recon-title-box.cover-pic {
+	background-image:url('/wp-content/themes/imo-mags-northamericanwhitetail/img/transbg.png');
+}
+
+.recon-title-box h3 {
+	color:white;
+}
+
+.recon-title-detail {
+	background-color:#403b35;
+	padding:5px;
+	color:white;
+	width:auto;
+	display:inline-block;
+}
+
+.recon-image-box {
+	height:338px;
+}
+
+.masonry-box, .masonry-form {
+	width:338px;
+
+}
+
+.under-box {
+	margin-top:20px;
+}
+
+.under-title {
+text-overflow: ellipsis;
+
+}
+
+img.recon-gravatar{
+
+
+    border: 3px solid white;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.58);
+    -moz-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.58);
+    -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.58);
+    margin-right:20px;
+    float:left;
+    cursor: pointer;
+
+}
+
+img.recon-gravatar:hover {
+	border-color:#c65517;
+}
+
+.recon-date {
+	color:#999999;
+	font-size:10px;
+}
+
+.author-name {
+	font-weight:bold;
+}
+
+.caption-holder {
+	margin-top:5px;
+}
+
+#fileUploadForm {
+
+	width:210px;
+	margin:10px;
+}
+input.submit {
+	width:100%;
+}
+
+.superpost-comment {
+
+	margin:10px;
+	padding:10px;
+	width:620px;
+	background-color:#eeeeee;
+}
+
+
+.row-post-type {
+	color:white;
+	display: inline-block;
+	text-transform:uppercase;
+	padding:3px 5px 3px 5px;
+	font-size:10px;
+}
+
+.post-type-tip {
+	background-color:#c65517;
+}
+
+.post-type-report {
+	background-color:#c3290a;
+}
+
+.post-type-photo {
+	background-color:#58534f;
+
+}
+
+.post-type-video {
+	background-color:#121212;
+}
+
+
+/*HOMEPAGE LIST LAYOUT*/
+
+.recon-row {
+
+	padding:20px 20px 20px 0px;
+	border-top:1px dashed gray;
+	height:90px;
+	width:100%;
+
+}
+
+.recon-row ul li {
+	display: table-cell;
+	vertical-align: middle;
+	height:90px;
+}
+
+.recon-row.odd {
+	background-color:#efece6;
+}
+
+
+.recon-row ul {
+	margin-left:0;
+}
+
+.recon-row ul li div.row-info {
+	display:inline-block;
+	width:400px;
+	margin-left:20px;
+}
+
+.recon-row ul li div.row-info.no-image {
+	width:510px;
+}
+
+.recon-row ul li.row-image {
+	padding-left:20px;
+}
+
+img.superpost-list-thumb {
+	width:90px;
+	height:90px;
+}
+
+.row-title {
+	font-size:18px;
+	font-weight:bold;
+}
+
+li.count-field {
+	padding-left:20px;
+	padding-right:20px;
+	text-transform:uppercase;
+}
+
+/* Homepage Controls */
+ul.post-type-select {
+	text-align:right;
+}
+ul.post-type-select li {
+	display:inline;
+	margin:10px;
+	padding:5px 10px 5px 10px;
+	background-color:gray;
+	color:white;
+	cursor: pointer;
+}
+
+ul.post-type-select li.selected {
+	background-color:#829b40;
+}
+
+ul.post-type-select li:hover {
+	background-color:#414d20;
+}
+
+#more-superposts-button {
+	cursor: pointer;
+	background-color:#cccccc;
+	display:block;
+	width:80px;
+	text-align:center;
+	padding:10px;
+	margin:10px auto 10px auto;
+
+
+
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+#more-superposts-button:active {
+	background-color:#999999;
+}
+
+#toggle-display-button {
+	cursor: pointer;
+	background-color:#cccccc;
+	display:block;
+	width:130px;
+	text-align:center;
+	padding:6px;
+
+
+
+
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+#toggle-display-button:active {
+	background-color:#999999;
+}
+
+
+/* User Popup */
+
+div.user-details-box {
+	padding:10px;
+	background-color:#181818;
+	position: absolute;
+	bottom: 75px;
+	color:white;
+}
+
+.user-details-box .name-box {
+	font-weight:bold;
+}
+
+
+
