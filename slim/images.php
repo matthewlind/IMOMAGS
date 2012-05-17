@@ -73,7 +73,7 @@ function resizeImages($localImage){
 
 	}
 
-	$thumbURL = "http://www.imomags.$DOMAIN/slim/images/thumb/$subDir/$imageName.jpg";
+	$thumbURL = "/slim/images/thumb/$subDir/$imageName.jpg";
 
 	return $thumbURL;
 }

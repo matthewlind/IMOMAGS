@@ -1,9 +1,22 @@
 jQuery(document).ready(function($) {
 
-$('.masonry-container').masonry({
-                      itemSelector: '.superpost-box',
-                      isAnimated: true,
-                  });
+  function SetupPostForm() {
+    $("input#image-upload").change(function(){
+      
+    });
+  }
+
+  $(".new-superpost-modal-container").modal({
+    opacity: 50, 
+    overlayClose: true,
+    onShow: SetupPostForm
+  });
+
+
+  $('.masonry-container').masonry({
+      itemSelector: '.superpost-box',
+      isAnimated: true,
+  });
 
    //Add a new post
   var caption;
@@ -15,12 +28,22 @@ $('.masonry-container').masonry({
       success: SubmitSuccesful,
       data:userIMO,
       error: AjaxError                               
-    });                                    
+    });    
+
+    $('.superpost-image-form').ajaxForm({                 
+      beforeSubmit: ShowRequest,
+      success: SubmitSuccessful,
+      data:userIMO,
+      error: AjaxError                               
+    });    
+
   });            
+
+  
 
   function ShowRequest(formData, jqForm, options) {
     var queryString = $.param(formData);
-    //alert('BeforeSend method: \n\nAbout to submit: \n\n' + queryString);
+    alert('BeforeSend method: \n\nAbout to submit: \n\n' + queryString);
     return true;
   }
 
@@ -28,20 +51,33 @@ $('.masonry-container').masonry({
     alert("An AJAX error occured.");
   }
 
-  function SubmitSuccesful(responseText, statusText) {     
+  function SubmitSuccessful(responseText, statusText) {     
     //alert("SuccesMethod:\n\n" + responseText);
 
     var response = jQuery.parseJSON(responseText);
 
+    console.log("response YO!");
+    console.log(response);
 
     addNewBox(response);
+  }
 
+
+  function ImageSubmitSuccessful(responseText, statusText) {
+
+    var response = jQuery.parseJSON(responseText);
+
+    console.log("response YO!");
+    console.log(response);
 
   }
 
   function addNewBox(response) {
 
-    
+    if (response == null) {
+      alert("You may not be logged in.");
+    }
+
     response.gravatar_hash = "http://www.gravatar.com/avatar/" + response.gravatar_hash + ".jpg?s=25&d=identicon";
     
 

@@ -86,7 +86,7 @@ function displayRecon(type) {
 	}
 		
 
-	var dataURL = "http://www.imomags.deva/slim/api/superpost/type/" + type;  	
+	var dataURL = "/slim/api/superpost/type/" + type;  	
 	dataURL += "/" + displayAtOnce;
 	dataURL += "/" + currentDisplayStart;
 
@@ -178,7 +178,7 @@ function displayReconList(type) {
 	}
 		
 
-	var dataURL = "http://www.imomags.deva/slim/api/superpost/type/" + type;  	
+	var dataURL = "/slim/api/superpost/type/" + type;  	
 	dataURL += "/" + displayAtOnce;
 	dataURL += "/" + currentDisplayStart;
 
@@ -307,7 +307,7 @@ function afterImageLoaded() {
 		var user_id = $(this).data("user_id");
 		var username = $(this).data("username");
 
-		var dataURL = "http://www.imomags.deva/slim/api/superpost/user/counts/" + user_id;  	
+		var dataURL = "/slim/api/superpost/user/counts/" + user_id;  	
 	    var getdata = $.getJSON(dataURL, function(data) {
 	    	
 	    	var countData = new Array();
