@@ -6,6 +6,9 @@ var dartadsgen_rand = Math.floor((Math.random()) * 100000000), pr_tile = 1, dart
 
 
 jQuery(document).ready(function($) {
+
+
+
   
   // Add some nth-child love for IE
   $('#secondary aside:nth-child(3n)').addClass('last');

@@ -39,6 +39,8 @@ function my_scripts_method() {
     wp_deregister_script( 'jquery' );
     wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js');
     wp_enqueue_script( 'jquery' );
+
+    wp_enqueue_script("jquery-simplemodal", get_stylesheet_directory_uri() . "/js/jquery.simplemodal.1.4.2.min.js");
 }    
  
 add_action('wp_enqueue_scripts', 'my_scripts_method');
@@ -96,11 +98,6 @@ add_action( 'widgets_init', 'naw_imo_addons_sidebar_init' );
 include_once get_stylesheet_directory().'/widgets/newsletter-signup.php';
 
 
-define("JETPACK_SITE", "nawhitetail");
-define("SUBS_LINK", "https://secure.palmcoastd.com/pcd/eSv?iMagId=0148D&i4Ky=IBZN");
-define("GIFT_LINK", "https://secure.palmcoastd.com/pcd/eSv?iMagId=0148D&i4Ky=IGZN");
-define("SERVICE_LINK", "https://secure.palmcoastd.com/pcd/eServ?iServ=MDE0OEQ0NDcyNCZpVHlwZT1FTlRFUg==");
-define("SUBS_DEAL_STRING", "Save Over 70% off<br/> the Cover Price");
 
 include("plus/functions-plus.php");
 

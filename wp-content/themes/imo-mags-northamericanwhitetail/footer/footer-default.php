@@ -156,5 +156,41 @@ $args = array(
 
   <?php wp_footer(); ?>
 
+  <div class="new-superpost-modal-container" style="display:none;height:200px:width:200px;background-color:white;">
+    <h1>POST THIS</h1>
+
+    <div class="media-section">
+      <form id="fileUploadForm-image" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-image-form">
+        <div id="fileupload" >
+          <div class="fileupload-buttonbar ">
+              <label class="upload-button">
+                  <span >Add Photo</span>
+                  <input id="image-upload" type="file" name="photo-upload" id="photo-upload" />
+
+              </label>
+          </div>
+        </div>
+        <input type="hidden" name="post_type" value="photo">
+        <input type="hidden" name="form_id" value="fileUploadForm">
+      </form>
+    </div>
+
+    <form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-form">
+
+        <input type="text" name="title" id="title" placeholder="Title"/>
+        <textarea name="body" id="body" placeholder="Tell Us Your Story."></textarea>
+        <input id="file" type="file" name="photo-upload" id="photo-upload" style="display:none"/>
+        <input type="hidden" name="post_type" value="report">
+        <input type="hidden" name="clone_target" value="superpost-box">
+        <input type="hidden" name="attach_target" value="post-container">
+        <input type="hidden" name="attachment_point" value="prepend">
+        <input type="hidden" name="masonry" value="true">
+        <input type="hidden" name="form_id" value="fileUploadForm">
+        <input type="submit" value="Submit" class="submit" />
+    </form>
+  </div>
+
+
+
 </body>
 </html>

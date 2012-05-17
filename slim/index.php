@@ -64,6 +64,9 @@ $app->get('/api/superpost/all(/:count(/:start))',function($count = 20,$start = 0
 //*********************************
 $app->get('/api/superpost/type/:post_type(/:count(/:start))',function($post_type,$count = 20,$start = 0){
 
+
+
+
 	header('Access-Control-Allow-Origin: *');
 
 	try {
@@ -166,7 +169,9 @@ $app->post('/api/superpost/add',function() {
 
 	$params = Slim::getInstance()->request()->post();
 
-	
+	error_log("PARAMS");
+	_log($params);
+	error_log("wait");
 
 	//Get the user info an authenticate
 	if (userIsGood($params['username'],$params['userhash'])) {
@@ -174,7 +179,8 @@ $app->post('/api/superpost/add',function() {
 		//Set additional parameters
 		$params['ip'] = ip2long(get_IP());
 
-		
+		//error_log($params);
+
 		//Handle the uploaded file
 		$fileName = $_FILES['photo-upload']['name'];
 		$tmpName = $_FILES['photo-upload']['tmp_name'];
@@ -283,6 +289,22 @@ $app->post('/api/superpost/add',function() {
 
 
 
+
+
+
+/* Better Logging Function */
+if(!function_exists('_log')){
+  function _log( $message ) {
+	  if( is_array( $message ) || is_object( $message ) ){
+
+	  	$errorString = var_export( $message, true );
+
+	    error_log( "$errorString",0);
+	  } else {
+	    error_log( $message );
+	  }
+  	}
+}
 
 
 

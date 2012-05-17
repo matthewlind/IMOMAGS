@@ -20,6 +20,15 @@
 
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
+
+
+//If the post is a Superpost, get the title
+if (get_the_title(null, false) == 'superpost-single') {
+  $postTitle = "Superpost! - ";
+} else {
+  $postTitle = wp_title( '-', false, 'right' ); 
+}
+
 ?>
 <!DOCTYPE html>
 <!-- bid: <?php global $blog_id; print $blog_id ?>; env: <?php if(defined("WEB_ENV")) { print WEB_ENV; } else { print "production"; } ?> -->
@@ -29,7 +38,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 	
 	<meta http-equiv="content-type" content="<?php bloginfo('html_type') ?>; charset=<?php bloginfo('charset') ?>" />
 
-	<title><?php wp_title( '-', true, 'right' ); esc_attr_e(get_bloginfo('name')); ?></title>
+	<title><?php echo $postTitle; esc_attr_e(get_bloginfo('name')); ?></title>
 
 	<meta http-equiv="X-UA-Compatible" content="chrome=1" />
 	<link rel="pingback" href="<?php bloginfo('pingback_url') ?>" />
