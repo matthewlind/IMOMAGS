@@ -108,11 +108,7 @@ hr {
 ul.fancy,
 ol.fancy,
 .fancy ul,
-.fancy ol, 
-.widget_rss ul,
-.widget_rss ol,
-.yarpp-content  ul,
-.yarpp-content ol {
+.fancy ol {
   list-style: none;
   font-size: 13px;
   padding: 0;
@@ -141,9 +137,7 @@ ol.fancy,
 }
 
 ol.fancy,
-.fancy ol,
-.widget_rss ol,
-.yarpp-content ol {
+.fancy ol {
   li {
     border-bottom: 1px solid white;
     min-height: 30px;
@@ -168,10 +162,7 @@ ol.fancy,
 
 
 /* Fancy Titles */
-.fancy,
-.widget_rss,
-.yarpp-content 
- {
+.fancy {
   text-align: center;
 
   h4 {
@@ -190,18 +181,7 @@ ol.fancy,
     }
   }
 }
-.yarpp-content ol{text-align:left;}
-.yarpp-content ol li {min-height:0 !important;padding-left: 8px;}
-.yarpp-content p{font-family:'StagMedium';}
-.yarpp-content {
-    float: left;
-    height: 234px;
-    margin-right: 10px;
-    padding: 7px;
-    text-align: left;
-    width: 322px;
-    
-}
+
 /* Call to Action */
 a.cta {
   @include font-lora;
@@ -305,11 +285,10 @@ a.comment-count {
 
     .widget-title {
       font-size: 18px;
-      height: 50px;
+      height: 72px;
       line-height: 1;
       position: relative;
       text-align: center;
-      margin:0;
 
       span {
         background: white;
@@ -320,7 +299,6 @@ a.comment-count {
     }
   }
 }
-
 
 /* Slideshow */
 .ui-tabs {
@@ -407,7 +385,6 @@ a.comment-count {
     height: 147px;
     margin-right: 22px;
     width: 226px;
-    margin-left: 5px;
   }
   .author-photo {
     left: -8px;
@@ -1322,7 +1299,7 @@ margin: 32px 0 0 0;
  *
  */
  
-.home, .page-template-page-right-reviews-php, .page-template-page-shooting-php, .tax-guntype, .category, .tax-video_channel, .page-template-page-galleries-php, .page-template-page-right-tv-php, .page-template-page-caption-contest-php, .page-template-page-videos-php, .post-type-archive-imo_video, .page-template-page-1911-php, .page-template-default {
+.home, .page-template-page-right-reviews-php, .page-template-page-shooting-php, .tax-guntype, .category, .tax-video_channel, .page-template-page-galleries-php, .page-template-page-right-tv-php, .page-template-page-caption-contest-php, .page-template-page-videos-php, .post-type-archive-imo_video, .page-template-page-1911-php {
   #main {
     margin-top: 35px;
     padding-top: 0;
@@ -2334,7 +2311,7 @@ margin: 32px 0 0 0;
   .cta {
     @include inline-block;
     
-    margin: 16px 0 32px;
+    margin: 16px 0 92px;
   }
 }
 
@@ -2359,7 +2336,6 @@ margin: 32px 0 0 0;
     border-bottom: 1px dotted black;
     margin-bottom: 30px;
     padding-bottom: 25px;
-    margin-left: 20px;
   }
 }
 
@@ -2376,7 +2352,7 @@ body.parent-pageid-2114 #main {
   margin-bottom: -28px;
   padding: 0;
   position: relative;
-  top: -50px;
+  top: -60px;
   width: 100%;
  
   /* Sons of Guns & Ammo */
@@ -2420,7 +2396,8 @@ body.parent-pageid-2114 #main {
 .single {
   
   #main {
-    top: -36px;
+    margin-top: 35px;
+    padding-top:50px;
   }
   
   /* Article */
@@ -2509,10 +2486,6 @@ body.parent-pageid-2114 #main {
     position: relative;
   }
 } 
-.category-zombie-nation #sidebar, .category-for-the-love-of-competition #sidebar, .category-defend-thyself #sidebar, .category-news-brief #sidebar, .category-the-gun-room #sidebar{margin-top:228px;}
-
-.category-sons-of-guns-and-ammo #sidebar{margin-top:238px;}
-
 
 
 /*
@@ -2673,7 +2646,6 @@ body.parent-pageid-2114 #main {
     height: 96px;
     margin-right: 14px;
     width: 140px;
-    margin-left: 5px;
   }
   .entry-summary {
     line-height: 17px;
@@ -3010,7 +2982,7 @@ body.parent-pageid-2114 #main {
     width: 275px;
     padding-top: 10px;
     padding-left: 18px;
-    height: 160px;
+    height: 110px;
   }
   #channelControlsContainer #channelControls {
     margin-top: 88px;
@@ -3852,6 +3824,7 @@ select.caliber {
 .comments-right{float:right;}
 .recommendations{float:left;width:300px;height: 280px;}
 .post-content-area{width:648px;height:330px;float: left;}
+.yarpp-content{float:left;width:337px;padding-right:10px;}
 
 /* Reviews form */
 .reviews-form {
@@ -4165,26 +4138,3 @@ nav.nav-secondary li.current-menu-item a {
 		.hentry{height: 70px;}
 		img {float:left;padding-right:10px;}
 }
-/* sponsored blogs */
-span.sponsored-thumb{
-	@include font-stag;
-	
-	background: url('img/sponsored-bg.png') no-repeat top left;
-	color: white;
-    font-family: "Stag";
-    font-size: 1em;
-    height: 43px;
-    left: -9px;
-    padding: 9px 25px 0 14px;
-    position: absolute;
-    top: -15px;
-    width: 57px;
-    z-index: 99;}
-    
-#megaMenu ul li.ss-nav-menu-mega a {
-    background-color: #000;
-    .current-menu-item{background-color:white;}
-}
-    
-#megaMenu ul li.current-menu-item a{background-color:white;}
-    
