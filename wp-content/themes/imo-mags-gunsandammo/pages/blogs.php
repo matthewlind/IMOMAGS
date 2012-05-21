@@ -57,7 +57,7 @@ if (empty($zn_img)) {
 						
 							<!-- BLOG Sons -->
 							<div class="cfct-module cfct-callout">
-								<a class="blog-header" href="/blogs/sons-of-gunsandammo/"><img src="<?php print $sg_img; ?>"></a>
+								<a class="blog-header" href="/shooting/blogs/sons-of-guns-and-ammo/"><img src="<?php print $sg_img; ?>"></a>
 							</div>
 
 						</div>
@@ -94,7 +94,7 @@ if (empty($zn_img)) {
 										<p><?php the_excerpt(); ?></p>
 									</div>
   
-  									<a class="comment-count" href="http://www.gunsandammo.fox/2012/04/12/introducing-the-smith-wesson-mp-shield/#comments"><?php echo get_comments_number(); ?></a>
+  									<a class="comment-count" href="<?php comments_link(); ?>"><?php echo get_comments_number(); ?></a>
 
 								</article>
 
@@ -137,7 +137,7 @@ if (empty($zn_img)) {
 				<div class="cfct-row-inner">
 					<div class="c4-1234 cfct-block-abc cfct-block block-0">
 						<div class="cfct-module cfct-html">
-							<div class="cfct-mod-content"><a href="/blogs/sons-of-gunsandammo" class="cta">Visit the Sons of Guns & Ammo Blog<span></span></a>
+							<div class="cfct-mod-content"><a href="/shooting/blogs/sons-of-guns-and-ammo" class="cta">Visit the Sons of Guns & Ammo Blog<span></span></a>
 							</div>
 						</div>
 			<div id="cfct-build-2114" class="cfct-build grid hideoverflow">
@@ -146,7 +146,7 @@ if (empty($zn_img)) {
 						<div class="c4-1234 cfct-block-abc cfct-block block-0">			
 						<!-- BLOG Zombie -->
 							<div class="cfct-module cfct-callout">
-								<a class="blog-header" href="/blogs/<?php echo $zn_slug; ?>/"><img src="<?php print $zn_img; ?>"></a>
+								<a class="blog-header" href="/shooting/blogs/<?php echo $zn_slug; ?>/"><img src="<?php print $zn_img; ?>"></a>
 							</div>
 
 						</div>
@@ -183,7 +183,7 @@ if (empty($zn_img)) {
 										<p><?php the_excerpt(); ?></p>
 									</div>
   
-  									<a class="comment-count" href="http://www.gunsandammo.fox/2012/04/12/introducing-the-smith-wesson-mp-shield/#comments"><?php echo get_comments_number(); ?></a>
+  									<a class="comment-count" href="<?php comments_link(); ?>"><?php echo get_comments_number(); ?></a>
 
 								</article>
 
@@ -226,7 +226,7 @@ if (empty($zn_img)) {
 				<div class="cfct-row-inner">
 					<div class="c4-1234 cfct-block-abc cfct-block block-0">
 						<div class="cfct-module cfct-html">
-							<div class="cfct-mod-content"><a href="/blogs/<?php echo $zn_slug ?>" class="cta">Visit the Zombie Nation Blog<span></span></a>
+							<div class="cfct-mod-content"><a href="/shooting/blogs/<?php echo $zn_slug ?>" class="cta">Visit the Zombie Nation Blog<span></span></a>
 							</div>
 						</div>
 			<div id="cfct-build-2114" class="cfct-build grid hideoverflow">
@@ -235,7 +235,7 @@ if (empty($zn_img)) {
 						<div class="c4-1234 cfct-block-abc cfct-block block-0">			
 						<!-- BLOG Defend -->
 							<div class="cfct-module cfct-callout">
-								<a class="blog-header" href="/blogs/<?php echo $dt_slug; ?>/"><img src="<?php print $dts_img; ?>"></a>
+								<a class="blog-header" href="/shooting/blogs/<?php echo $dt_slug; ?>/"><img src="<?php print $dts_img; ?>"></a>
 							</div>
 
 						</div>
@@ -272,7 +272,7 @@ if (empty($zn_img)) {
 										<p><?php the_excerpt(); ?></p>
 									</div>
   
-  									<a class="comment-count" href="http://www.gunsandammo.fox/2012/04/12/introducing-the-smith-wesson-mp-shield/#comments"><?php echo get_comments_number(); ?></a>
+  									<a class="comment-count" href="<?php comments_link(); ?>"><?php echo get_comments_number(); ?></a>
 
 								</article>
 
@@ -315,7 +315,7 @@ if (empty($zn_img)) {
 				<div class="cfct-row-inner">
 					<div class="c4-1234 cfct-block-abc cfct-block block-0">
 						<div class="cfct-module cfct-html">
-							<div class="cfct-mod-content"><a href="/blogs/<?php echo $dt_slug ?>" class="cta">Visit the Defend Thyself Blog<span></span></a>
+							<div class="cfct-mod-content"><a href="/shooting/blogs/<?php echo $dt_slug ?>" class="cta">Visit the Defend Thyself Blog<span></span></a>
 							</div>
 						</div>
 			<div id="cfct-build-2114" class="cfct-build grid hideoverflow">
@@ -324,7 +324,7 @@ if (empty($zn_img)) {
 						<div class="c4-1234 cfct-block-abc cfct-block block-0">
 						<!-- BLOG History -->
 							<div class="cfct-module cfct-callout">
-								<a class="blog-header" href="/blogs/<?php echo $fthb_slug; ?>/"><img src="<?php print $hb_img; ?>"></a>
+								<a class="blog-header" href="/shooting/blogs/<?php echo $fthb_slug; ?>/"><img src="<?php print $hb_img; ?>"></a>
 							</div>
 
 						</div>
@@ -361,7 +361,7 @@ if (empty($zn_img)) {
 										<p><?php the_excerpt(); ?></p>
 									</div>
   
-  									<a class="comment-count" href="http://www.gunsandammo.fox/2012/04/12/introducing-the-smith-wesson-mp-shield/#comments"><?php echo get_comments_number(); ?></a>
+  									<a class="comment-count" href="<?php comments_link(); ?>"><?php echo get_comments_number(); ?></a>
 
 								</article>
 
@@ -404,7 +404,7 @@ if (empty($zn_img)) {
 				<div class="cfct-row-inner">
 					<div class="c4-1234 cfct-block-abc cfct-block block-0">
 						<div class="cfct-module cfct-html">
-							<div class="cfct-mod-content"><a href="/blogs/<?php echo $fthb_slug ?>" class="cta">Visit the From History Blog<span></span></a>
+							<div class="cfct-mod-content"><a href="/shooting/blogs/<?php echo $fthb_slug ?>" class="cta">Visit the From History Blog<span></span></a>
 							</div>
 						</div>
 			<div id="cfct-build-2114" class="cfct-build grid hideoverflow">
@@ -413,7 +413,7 @@ if (empty($zn_img)) {
 						<div class="c4-1234 cfct-block-abc cfct-block block-0">			
 						<!-- BLOG Competition -->
 							<div class="cfct-module cfct-callout">
-								<a class="blog-header" href="/blogs/<?php echo $floc_slug; ?>/"><img src="<?php print $lc_img; ?>"></a>
+								<a class="blog-header" href="/shooting/blogs/<?php echo $floc_slug; ?>/"><img src="<?php print $lc_img; ?>"></a>
 							</div>
 
 						</div>
@@ -450,7 +450,7 @@ if (empty($zn_img)) {
 										<p><?php the_excerpt(); ?></p>
 									</div>
   
-  									<a class="comment-count" href="http://www.gunsandammo.fox/2012/04/12/introducing-the-smith-wesson-mp-shield/#comments"><?php echo get_comments_number(); ?></a>
+  									<a class="comment-count" href="<?php comments_link(); ?>"><?php echo get_comments_number(); ?></a>
 
 								</article>
 
@@ -493,13 +493,13 @@ if (empty($zn_img)) {
 				<div class="cfct-row-inner">
 					<div class="c4-1234 cfct-block-abc cfct-block block-0">
 						<div class="cfct-module cfct-html">
-							<div class="cfct-mod-content"><a href="/blogs/<?php echo $floc_slug ?>" class="cta">Visit the For the Love of Competition Blog<span></span></a>
+							<div class="cfct-mod-content"><a href="/shooting/blogs/<?php echo $floc_slug ?>" class="cta">Visit the For the Love of Competition Blog<span></span></a>
 							</div>
 						</div>
 						
 						<!-- BLOG News -->
 							<div class="cfct-module cfct-callout">
-								<a class="blog-header" href="/blogs/<?php echo $nb_slug; ?>/"><img src="<?php print $nb_img; ?>"></a>
+								<a class="blog-header" href="/shooting/blogs/<?php echo $nb_slug; ?>/"><img src="<?php print $nb_img; ?>"></a>
 							</div>
 
 						</div>
@@ -536,7 +536,7 @@ if (empty($zn_img)) {
 										<p><?php the_excerpt(); ?></p>
 									</div>
   
-  									<a class="comment-count" href="http://www.gunsandammo.fox/2012/04/12/introducing-the-smith-wesson-mp-shield/#comments"><?php echo get_comments_number(); ?></a>
+  									<a class="comment-count" href="<?php comments_link(); ?>"><?php echo get_comments_number(); ?></a>
 
 								</article>
 
@@ -579,7 +579,7 @@ if (empty($zn_img)) {
 				<div class="cfct-row-inner">
 					<div class="c4-1234 cfct-block-abc cfct-block block-0">
 						<div class="cfct-module cfct-html">
-							<div class="cfct-mod-content"><a href="/blogs/<?php echo $nb_slug ?>" class="cta">Visit the News Brief Blog<span></span></a>
+							<div class="cfct-mod-content"><a href="/shooting/blogs/<?php echo $nb_slug ?>" class="cta">Visit the News Brief Blog<span></span></a>
 							</div>
 						</div>
 	
