@@ -2311,7 +2311,7 @@ margin: 32px 0 0 0;
   .cta {
     @include inline-block;
     
-    margin: 16px 0 92px;
+    margin: 6px 0 42px;
   }
 }
 
@@ -4032,7 +4032,7 @@ a.video-excerpt{
     	height: 147px;
     	position:absolute;
    		background-color: rgba(0, 0, 0, 0.35);
-   		left: 0;
+   		left: 5px;
 		
 		background: image-url("play_button_03.png") no-repeat 80px center rgba(0, 0, 0, 0.35);
 		}

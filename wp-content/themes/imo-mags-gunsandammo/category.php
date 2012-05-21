@@ -30,7 +30,7 @@ $soga_slug = "sons-of-guns-and-ammo";
 $floc_slug = "for-the-love-of-competition";
 $dt_slug = "defend-thyself";
 $nb_slug = "news-brief";
-$tgr_slug = "the-gun-room";
+$tgr_slug = "history-books";
 $zn_slug = "zombie-nation";
 
 $sg_img = get_option("sons_header_uri", get_stylesheet_directory_uri(). "/img/blogs/sonsofguns.png" );
@@ -75,17 +75,22 @@ if (empty($zn_img)) {
 	<div id="content" class="col-abc category-col-abc">
 	<?php if (in_category($soga_slug)) { ?>
 <a class="blog-header" href="/blogs/<?php echo "sons-of-gunsandammo"; ?>/" title="<?php echo $current_category; ?>"><img src="<?php print $sg_img; ?>"></a>
+<div style="height:20px;"></div>
 <?php } else if (in_category($floc_slug)) { ?>
 <a class="blog-header" href="/blogs/<?php echo $floc_slug; ?>/" title="<?php echo $current_category; ?>"><img src="<?php print $lc_img; ?>"></a>
+<div style="height:20px;"></div>
 
 <?php } else if (in_category($dt_slug)) { ?>
 <a class="blog-header" href="/blogs/<?php echo $dt_slug; ?>/" title="<?php echo $current_category; ?>"><img src="<?php print $dts_img; ?>"></a>
+<div style="height:20px;"></div>
 
 <?php } else if (in_category($nb_slug)) { ?>
 <a class="blog-header" href="/blogs/<?php echo $nb_slug; ?>/" title="<?php echo $current_category; ?>"><img src="<?php print $nb_img; ?>"></a>
+<div style="height:20px;"></div>
 
 <?php } else if (in_category($tgr_slug)) { ?>
 <a class="blog-header" href="/blogs/<?php echo $tgr_slug; ?>/" title="<?php echo $current_category; ?>"><img src="<?php print $hb_img; ?>"></a>
+<div style="height:20px;"></div>
 
 <?php } else if (in_category($zn_slug)) { ?>
 <a class="blog-header" href="/blogs/<?php echo $zn_slug; ?>/" title="<?php echo $current_category; ?>"><img src="<?php print $zn_img; ?>"></a>

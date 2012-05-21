@@ -27,7 +27,7 @@ $dt_slug = "defend-thyself";
 $nb_slug = "news-brief";
 $tfl_slug = "the-front-lines";
 $tgg_slug = "the-gun-guys";
-$tgr_slug = "the-gun-room";
+$tgr_slug = "history-books";
 $zn_slug = "zombie-nation";
 
 get_header();
