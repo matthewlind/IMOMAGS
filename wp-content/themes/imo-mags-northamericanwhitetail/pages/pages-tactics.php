@@ -23,7 +23,7 @@ get_header();
 
 the_post();
 ?>
-<div class="page-template-page-trophy-php page-template-page">
+<div class="page-template-page-tactics-php page-template-page">
 	<header class="header-title">
 		<h1><?php the_title(); ?></h1>
 	</header>	

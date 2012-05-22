@@ -17,15 +17,16 @@
  */
 
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
+
+// NOTE: this file is here for compatibility reasons - active templates are in the posts/ dir 
+
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
-get_header();
-
-the_post();
+get_header(); 
 ?>
-<div class="page-template-page-trophy-php page-template-page">
+<div class="page-template-page-right-php category-page">
 	<header class="header-title">
-		<h1><?php the_title(); ?></h1>
+		<h1><?php single_cat_title(''); ?></h1>
 	</header>	
 	<div class="bonus-background">
 		<div class="sidebar">
@@ -33,10 +34,11 @@ the_post();
 		</div>
 	</div>
 	<div class="col-abc">
-		<?php the_content(__('Continued&hellip;', 'carrington-business')); ?>
 
-		<?php edit_post_link(__('Edit', 'carrington-business')); ?>
+		<?php
+		cfct_loop();
+		cfct_misc('nav-posts'); ?>
+	</div>
 
-	</div><!-- .col-abc -->
-</div>
-<?php get_footer(); ?>
+<?php
+get_footer(); ?>

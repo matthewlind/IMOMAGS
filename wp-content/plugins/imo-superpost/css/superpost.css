@@ -193,22 +193,48 @@ li.count-field {
 /* Homepage Controls */
 ul.post-type-select {
 	text-align:right;
+	margin-right:11px;
 }
 ul.post-type-select li {
-	display:inline;
-	margin:10px;
-	padding:5px 10px 5px 10px;
-	background-color:gray;
-	color:white;
-	cursor: pointer;
+	background-color: white;
+    border-bottom: 1px solid #CCCCCC;
+    border-left: 1px solid #CCCCCC;
+    border-top: 1px solid #CCCCCC;
+    color: black;
+    cursor: pointer;
+    display: inline;
+    margin: -2px;
+    padding: 13px 20px;
+}
+
+
+ul.post-type-select li:last-child{
+	border-right: 1px solid #CCCCCC !important;
+}
+
+div.plus{
+	background: url('../img/post.png') no-repeat top center;
+	height: 46px;
+    position: absolute;
+    right: 315px;
+    top: 69px;
+    width: 105px;
 }
 
 ul.post-type-select li.selected {
-	background-color:#829b40;
+	color: white;
+	border-bottom: 1px solid #347fe7; 
+	border-top: 1px solid #347fe7;
+	border-left: 1px solid #347fe7;
+	border-right: 1px solid #347fe7;
 }
 
 ul.post-type-select li:hover {
-	background-color:#414d20;
+	background-color:#347fe7;
+	color: white;
+	border-bottom: 1px solid #347fe7; 
+	border-top: 1px solid #347fe7;
+
 }
 
 #more-superposts-button {

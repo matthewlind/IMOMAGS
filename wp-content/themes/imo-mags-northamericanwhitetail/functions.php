@@ -30,6 +30,7 @@ function mm_current_issue($atts, $content = null) {
 
 add_shortcode("mm-current-issue", "mm_current_issue");
 
+
 /***
 **
 ** Enqueue Scripts
@@ -100,5 +101,4 @@ include_once get_stylesheet_directory().'/widgets/newsletter-signup.php';
 
 
 include("plus/functions-plus.php");
-
 

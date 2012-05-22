@@ -77,7 +77,7 @@ $args = array(
 
  			jQuery('#slides-footer').jcarousel({
  				easing: 'easeOutBack',
- 				animation:1000});	
+ 				animation:1000,scroll: 5});	
 			
  		});
 	 </script>

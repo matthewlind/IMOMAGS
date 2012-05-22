@@ -1,6 +1,9 @@
 <?php
 
 /**
+ * Template Name: Tactics Page
+ * Description: A page with a right BONUS sidebar column.
+ *
  * @package carrington-business
  *
  * This file is part of the Carrington Business Theme for WordPress
@@ -17,26 +20,9 @@
  */
 
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
-if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
-get_header();
+// NOTE: this file is here for compatibility reasons - active templates are in the pages/ dir 
 
-the_post();
+cfct_page('pages-tactics');
+
 ?>
-<div class="page-template-page-trophy-php page-template-page">
-	<header class="header-title">
-		<h1><?php the_title(); ?></h1>
-	</header>	
-	<div class="bonus-background">
-		<div class="sidebar">
-			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-default')) : else : ?><?php endif; ?>
-		</div>
-	</div>
-	<div class="col-abc">
-		<?php the_content(__('Continued&hellip;', 'carrington-business')); ?>
-
-		<?php edit_post_link(__('Edit', 'carrington-business')); ?>
-
-	</div><!-- .col-abc -->
-</div>
-<?php get_footer(); ?>

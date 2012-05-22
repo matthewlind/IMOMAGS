@@ -245,4 +245,4 @@ if (get_the_title(null, false) == 'superpost-single') {
 	</header>
 	<hr class="accessibility" />
 	<section id="main" class="str-container">
-		<div id="main-content">		
+		<div id="main-content">
