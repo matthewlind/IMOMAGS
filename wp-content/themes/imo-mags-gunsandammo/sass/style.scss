@@ -873,7 +873,7 @@ a {
 
 #main {
   background: white;
-  margin-top: 0;
+  margin-top: 35px;
   padding: 60px 10px 0;
   position: relative;
   z-index: 5;
@@ -3061,7 +3061,7 @@ body.parent-pageid-2114 #main {
 
 .single {
   #main {
-    top: -36px; }
+    margin-top: 35px; }
   .entry-header {
     border-bottom: 4px solid black;
     margin-bottom: 12px;
@@ -4276,7 +4276,7 @@ select {
   height: 110px; }
 
 .ie7 #main, .ie8 #main {
-  margin-top: 30px; }
+  margin-top: 35px; }
 
 .ie7 #main #secondary aside.last, .ie8 #main #secondary aside.last {
   margin-right: 0; }
