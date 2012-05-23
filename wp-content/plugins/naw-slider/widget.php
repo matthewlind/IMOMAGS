@@ -67,7 +67,7 @@ class NawSliderWidget extends \WP_Widget {
     function widget($args, $instance) {
 
 ?>
-<div class="ga-reviews-slider">
+<!--<div class="ga-reviews-slider">-->
 
 <?php
         global $add_slider_script;
@@ -137,7 +137,7 @@ class NawSliderWidget extends \WP_Widget {
         // Reset Post Data
         wp_reset_postdata();
             
-echo "</div>";//ga-reviews-slider
+//echo "</div>";//ga-reviews-slider
     	print $after_widget;
     }
 

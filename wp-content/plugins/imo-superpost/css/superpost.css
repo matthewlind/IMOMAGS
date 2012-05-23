@@ -212,7 +212,7 @@ ul.post-type-select li:last-child{
 	border-right: 1px solid #CCCCCC !important;
 }
 
-div.plus{
+a.plus{
 	background: url('../img/post.png') no-repeat top center;
 	height: 46px;
     position: absolute;
@@ -227,6 +227,7 @@ ul.post-type-select li.selected {
 	border-top: 1px solid #347fe7;
 	border-left: 1px solid #347fe7;
 	border-right: 1px solid #347fe7;
+	background-color: #347FE7;
 }
 
 ul.post-type-select li:hover {

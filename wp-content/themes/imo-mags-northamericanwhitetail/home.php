@@ -46,7 +46,7 @@ get_header();
             <span id="toggle-display-button">
                 Toggle Display
             </span>
-			<div class="plus"></div>
+			<a class="plus" href="#"></a>
             <ul class="post-type-select">
                 <li class='selected' title='all'><span></span>ALL</li>
                 <li title='photo'>Photos</li>
