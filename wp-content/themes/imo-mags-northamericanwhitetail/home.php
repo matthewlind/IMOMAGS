@@ -40,8 +40,8 @@ get_header();
 	<!-- Super post section -->
 <div class="col-abc super-post">
     <div <?php post_class('entry entry-full clearfix'); ?>>
-        <div class="entry-content">
-            <h1>Recon Network</h1>
+        <div class="entry-content recon-network">
+            <h1 class="recon">Recon Network</h1>
 
             <span id="toggle-display-button">
                 Toggle Display

@@ -5,6 +5,7 @@
 
 #recon-activity {
 	height:500px;
+	top:20px;
 }
 
 .recon-box {
@@ -216,8 +217,8 @@ a.plus{
 	background: url('../img/post.png') no-repeat top center;
 	height: 46px;
     position: absolute;
-    right: 315px;
-    top: 69px;
+    right: 316px;
+    top: 33px;
     width: 105px;
 }
 
@@ -245,7 +246,7 @@ ul.post-type-select li:hover {
 	width:80px;
 	text-align:center;
 	padding:10px;
-	margin:10px auto 10px auto;
+	margin:40px auto;
 
 
 
@@ -268,10 +269,7 @@ ul.post-type-select li:hover {
 	width:130px;
 	text-align:center;
 	padding:6px;
-
-
-
-
+	float:left;
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
