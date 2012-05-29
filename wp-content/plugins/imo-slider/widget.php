@@ -131,7 +131,6 @@ class IMOSliderWidget extends \WP_Widget {
         }
        
 		$width = $instance['width'];
-		echo $width;
         echo "<div id='scroll_mask-$imoSliderCount' class='scroll_mask' style='width:$width;'>\n";
         echo "<ul id='scroll-$imoSliderCount' class='scroll'>\n";
 

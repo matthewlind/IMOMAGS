@@ -26,6 +26,8 @@ the_post();
 <div class="page-template-page-tactics-php page-template-page">
 	<header class="header-title">
 		<h1><?php the_title(); ?></h1>
+		<h3>Part of</h3>
+		<div class="naw-ad"></div>
 	</header>	
 	<div class="bonus-background">
 		<div class="sidebar">
