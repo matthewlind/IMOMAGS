@@ -39,9 +39,11 @@ font-family: 'Rokkitt', serif;
 a, a:visited {
     -moz-transition: all 0.6s ease 0s;
     text-decoration: none;
+    color: #000033;
 }
 a:hover{
 	text-decoration: none;
+	color: #006699;
 }
 .clear{
 	clear: both;
@@ -336,6 +338,7 @@ width: 990px;
     z-index: 9999;
     top: -65px;
 }
+
 #header #megaMenu ul.megaMenu {
     margin: 0;
     padding: 0;
@@ -400,10 +403,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     font-size: 1.3em;
     font-weight: lighter;
 }
-#header #megaMenu li.ss-nav-menu-reg ul.sub-menu-1 > .menu-item a {
-    background: none repeat scroll 0 0 transparent;
-    padding: 0;
-}
+
 #header #megaMenu li.ss-nav-menu-reg ul.sub-menu-1 > .menu-item a:hover {
     color: #CE181E;
 }
@@ -431,6 +431,8 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 #header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 > .menu-item a {
     background: none repeat scroll 0 0 transparent;
     padding: 0;
+    font-family: "Helvetica Nueue",Helvetica,Arial,sans-serif !important;
+	color: #fff;
 }
 #header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 > .menu-item a:hover {
     color: #CE181E;
@@ -1197,6 +1199,9 @@ top:27px;
  * branding, loops
  *
  */
+.imo-loop .entry-img{
+	border: solid 8px #ededed;
+}
 .entry{
 	padding: 0;
 	border-bottom: none !important;
@@ -1258,7 +1263,7 @@ top:27px;
 }
 .entry-excerpt .entry-title a:hover {
     border: medium none;
-    color: black;
+    color: #006699;
 }
 .entry-excerpt a.comment-count {
     position: absolute;
@@ -1334,11 +1339,19 @@ a.comment-count:hover {
  */
 .page-template-page-trophy-php .header-title{
 	background: url("img/trophy-bucks-icon.png") no-repeat scroll 0 0 transparent;
-
+	width: 800px;
 }
 .page-template-page-trophy-php .header-title h1{
 	margin-left: 90px;
 }
+.page-template-page-trophy-php h3{
+	font-size: 0.9em;
+    position: absolute;
+    right: 220px;
+    top: 10px;
+    text-transform: uppercase;
+}
+
 
 /*
  * Tactics Page
@@ -1347,7 +1360,7 @@ a.comment-count:hover {
  */
 .page-template-page-tactics-php .header-title{
 	background: url("img/deer-tactics-icon.png") no-repeat scroll 0 0 transparent;
-	width: 810px;
+	width: 800px;
 
 }
 .page-template-page-tactics-php .header-title h1{
@@ -1375,11 +1388,11 @@ h1.more-header{
     top: -4px;
     width: 210px;
 }
-.page-template-page-tactics-php .bonus-background{
+.page-template-page-tactics-php .bonus-background, .page-template-page-trophy-php .bonus-background{
 	margin-top: 40px;
 }
-.page-template-page-tactics-php .cfct-module{
-	margin: 0 0 8px;
+.page-template-page-tactics-php .cfct-module, .page-template-page-trophy-bucks-php .cfct-module{
+	margin: 0 0 4px;
 }
 .mod-gallery{
 	background: url('img/mod-title-bg.png') no-repeat;
@@ -1388,7 +1401,7 @@ h1.more-header{
 }
 .mod-gallery h2{
 	color: white;
-	padding: 5px 76px;
+	padding: 6px 76px;
 	text-transform: uppercase;
 }
 .mod-gallery-loop{
@@ -1412,16 +1425,22 @@ h1.more-header{
 	height: auto;
 	width: 240px;
 }
+.naw-loop .comments-link a:link, .naw-loop .comments-link a:visited{
+	color: #829b40;
+}
+.naw-loop .comments-link a:hover{
+	color:#666 !important;
+}
 .blue-header{
 	color: #3e88e9;
 	padding: 0 30px;
 	font-size: 1em;
 }
-ul.imo-loop{
+ul.naw-loop{
 	list-style: none;
 	margin-left: 0;
 }
-ul.imo-loop li{
+ul.naw-loop li{
 	margin: 0;
     padding: 0;
 }
@@ -1538,6 +1557,10 @@ ul.imo-loop li{
     margin-top: 10px;
     width: 100%;
 }
+.secondary .widget-title{
+	border-top: 6px solid #000;
+	border-bottom: none;
+}
 /*
  * New Post Styles
  * 
@@ -1598,11 +1621,20 @@ ul.imo-loop li{
  * 
  *
  */
+a.about-link{
+	color: #006699 !important;
+    left: 30px;
+    position: relative;
+    top: -44px; 
+}
+a.about-link:hover{
+	color: #000033 !important;
+}
 .newsletter {
     border: 1px solid #D5D5D5;
     padding: 17px;
     background: url('img/newsletter-bg.jpg') no-repeat center top #EDEDED;
-    height: 188px;
+    height: 218px;
 }
 #newsletter_signup .gform_wrapper {
     max-width: 100% !important;
