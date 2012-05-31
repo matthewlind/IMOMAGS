@@ -23,7 +23,7 @@ get_header();
 
 the_post();
 ?>
-<div class="page-template-page-tactics-php page-template-page slider-height">
+<div class="page-template-page-land-php page-template-page slider-thumbs">
 	<header class="header-title">
 		<h1><?php the_title(); ?></h1>
 		<h3>Part of</h3>

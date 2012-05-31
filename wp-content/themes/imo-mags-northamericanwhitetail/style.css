@@ -1352,10 +1352,98 @@ a.comment-count:hover {
     text-transform: uppercase;
 }
 
+/*
+ * Deer of the Day Page
+ * 
+ *
+ */
+.page-template-page-dod-php .header-title{
+	background: url("img/dod-icon.png") no-repeat scroll 0 0 transparent;
+	height: 56px;
+}
+.page-template-page-dod-php .header-title h1{
+	margin-left: 120px;
+    padding-top: 12px;
+}
+.page-template-page-dod-php .dod-header-extras{
+   	position: absolute;
+    right: 0;
+    top: 24px;
+}
+.page-template-page-dod-php a.how-it-works{
+	color: #006699;
+    margin-top: 10px;
+}
+.page-template-page-dod-php a.how-it-works:hover{
+	color: #000033;
+}
+.page-template-page-dod-php a.submit-yours{
+	float: left;
+    height: 25px;
+    margin-right: 250px;
+    width: 149px;
+	background: url('img/submit-yours.gif') no-repeat;
+}
+.page-template-page-dod-php .dod-feature{
+	width: 672px;
+	height: 407px;
+	background-color: #000;
+}
+.page-template-page-dod-php h2.featured-entry-title{
+	font-size: 1.7em;
+    font-weight: 100;
+    padding: 10px 16px;
+}
+.page-template-page-dod-php h2.featured-entry-title a{
+	color: #fff;
+}
+.page-template-page-dod-php .title-area{
+	background-color: rgba(0, 0, 0, 0.7);
+    bottom: 104px;
+    height: 96px;
+    position: relative;
+    width: 100%;
+}
+.super-post-info{
+	background-color: #000;
+	width:214px;
+	height: 96px;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+.super-post-info img{
+	float: left;
+	margin: 24px 0 0 13px;
+}
+.super-post-info ul{
+	list-style: none;
+	float: left;
+	margin: 16px 0 0 1em;
+}
+.super-post-info li{
+	text-transform: uppercase;
+	font-family: "Helvetica",sans-serif;
+	color: #aaa197;
+	font-size: 0.8em;
+	margin: 0;
+}
+
+.super-post-info li.user-name{
+	font-weight: bold;
+	color: #DED4CB;
+}
+.super-post-info li.points{
+	margin-top: 6px;	
+}
+.page-template-page-dod-php h1.entries{
+	text-transform: uppercase;
+	margin-top: 40px;
+}
 
 /*
  * Tactics Page
- * 
+ * Your Land Page
  *
  */
 .page-template-page-tactics-php .header-title{
@@ -1367,7 +1455,23 @@ a.comment-count:hover {
 	margin-left: 60px;
 	
 }
+.page-template-page-land-php .header-title{
+	background: url("img/land-icon.png") no-repeat scroll 0 0 transparent;
+	width: 800px;
+
+}
+.page-template-page-land-php .header-title h1{
+	margin-left: 157px;
+	
+}
 .page-template-page-tactics-php h3{
+	font-size: 0.9em;
+    position: absolute;
+    right: 220px;
+    top: 10px;
+    text-transform: uppercase;
+}
+.page-template-page-land-php h3{
 	font-size: 0.9em;
     position: absolute;
     right: 220px;
@@ -1388,13 +1492,13 @@ h1.more-header{
     top: -4px;
     width: 210px;
 }
-.page-template-page-tactics-php .bonus-background, .page-template-page-trophy-php .bonus-background{
+.page-template-page-tactics-php .bonus-background, .page-template-page-trophy-php .bonus-background, .page-template-page-land-php .bonus-background {
 	margin-top: 40px;
 }
 .page-template-page-tactics-php .cfct-module, .page-template-page-trophy-bucks-php .cfct-module{
 	margin: 0 0 4px;
 }
-.mod-gallery{
+.mod-gallery, .mod-topics{
 	background: url('img/mod-title-bg.png') no-repeat;
 	height: 41px;
     width: 240px;
@@ -1403,6 +1507,20 @@ h1.more-header{
 	color: white;
 	padding: 6px 76px;
 	text-transform: uppercase;
+}
+.mod-topics h2{
+	color: white;
+	padding: 6px 53px;
+	text-transform: uppercase;
+}
+ul.land-topics{
+	list-style: none;
+	margin-left: 0;
+	text-align: center;
+}
+ul.land-topics li a{
+	color: #3e88e9;
+	font-size: 1.2em;
 }
 .mod-gallery-loop{
 	height: 200px;
@@ -1493,41 +1611,49 @@ ul.naw-loop li{
 .ui-tabs .prev-tab:hover, .ui-tabs .next-tab:hover {
     background-color: #000;
 }
-.page-template-page .featured-articles{
+
+.template-page-dod-php .featured-item-description{
+	top:0 !important;
+}
+.slider-height .featured-articles{
 	height: 450px;
 }
-.page-template-page .featured-item-description{
+.slider-height .featured-item-description{
 	bottom:-100px;
 	background-color: #000;
 }
-.page-template-page .featured-articles #featured-articles-navigator {
+.slider-height .featured-articles #featured-articles-navigator {
     float: right;
     height: 10px;
     margin: 108px 0 30px;
 }
-
-.page-template-page .featured-articles #featured-articles-navigator li {
+.slider-thumbs .featured-articles #featured-articles-navigator {
+    float: right;
+    height: 10px;
+    margin: 8px 0 30px;
+}
+.slider-height .featured-articles #featured-articles-navigator li, .slider-thumbs .featured-articles #featured-articles-navigator li {
     margin: 0 0 0 5px;
     padding: 0;
     width: 10px;
 }
-.page-template-page .featured-articles #featured-articles-navigator li a {
+.slider-height .featured-articles #featured-articles-navigator li a, .slider-thumbs .featured-articles #featured-articles-navigator li a {
     background: none repeat scroll 0 0 #181818;
     border: medium none;
     float: left;
     height: 10px;
     width: 10px;
 }
-.page-template-page .featured-articles #featured-articles-navigator li a img {
+.slider-height .featured-articles #featured-articles-navigator li a img, .slider-thumbs .featured-articles #featured-articles-navigator li a img {
     display: none;
 }
-.page-template-page .featured-articles #featured-articles-navigator li a:hover {
+.slider-height .featured-articles #featured-articles-navigator li a:hover, .slider-thumbs .featured-articles #featured-articles-navigator li a:hover {
     background: none repeat scroll 0 0 #809b40;
 }
-.page-template-page .featured-articles #featured-articles-navigator li.ui-state-active, .featured-articles #featured-articles-navigator li.ui-tabs-selected {
+.slider-height .featured-articles #featured-articles-navigator li.ui-state-active, .slider-height  .featured-articles #featured-articles-navigator li.ui-tabs-selected, .slider-thumbs .featured-articles #featured-articles-navigator li.ui-state-active, .slider-thumbs  .featured-articles #featured-articles-navigator li.ui-tabs-selected {
     background-image: none;
 }
-.page-template-page .featured-articles #featured-articles-navigator li.ui-state-active a, .featured-articles #featured-articles-navigator li.ui-tabs-selected a {
+.slider-height .featured-articles #featured-articles-navigator li.ui-state-active a, .slider-height .featured-articles #featured-articles-navigator li.ui-tabs-selected a, .slider-thumbs .featured-articles #featured-articles-navigator li.ui-state-active a, .slider-thumbs .featured-articles #featured-articles-navigator li.ui-tabs-selected a {
     background: none repeat scroll 0 0 #809b40;
     cursor: default;
 }

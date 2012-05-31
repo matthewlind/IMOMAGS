@@ -1,5 +1,8 @@
 <?php 
 
+// Thumbs
+add_image_size('huge-thumb', 672, 407, true);
+
 // SHORTCODES
 /*
  * [mm-current-issue]
