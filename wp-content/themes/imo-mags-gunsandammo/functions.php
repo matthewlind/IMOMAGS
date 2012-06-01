@@ -104,7 +104,11 @@ function ga_imo_addons_sidebar_init() {
     'after_title' => '</span></h3>'
   );
   
-
+  register_sidebar(array_merge($sidebar_defaults, array(
+    'id' => 'sidebar-default',
+    'name' => 'Blog Sidebar',
+    'Shown on blog posts and archives.'
+  )));
 
   register_sidebar(array_merge($sidebar_defaults, array(
       'id' => 'sidebar-ad',
@@ -225,7 +229,7 @@ function mm_current_issue($atts, $content = null) {
   }
 	
 	return '<div class="current-issue">
-	        <h3 class="month">May 2012</h3>
+	        <h3 class="month">'.date("F, Y").'</h3>
 	        <img src="'.$magazine_img.'" alt />
 	        </div>
 	        <ul class="subscriber-links">
@@ -237,43 +241,6 @@ function mm_current_issue($atts, $content = null) {
 
 add_shortcode("mm-current-issue", "mm_current_issue");
 
-/*
- * blog headers
- *
- * For use anywhere
- *
- */
-/* Sons of Guns & Ammo Header */
-function sons_header_uri($atts, $content = null) {
-	extract(shortcode_atts(array(
-    "" => ""
-	), $atts));
-	
-	$sg_img = get_option("sons_header_uri", get_stylesheet_directory_uri(). "/img/blogs/sonsofguns.png" );
-  if (empty($sg_img)) {
-      $sg_img = get_stylesheet_directory_uri(). "/img/blogs/sonsofguns.png";
-  }
-	
-	return '<img src="'.$sg_img.'" alt />';
-}
-
-add_shortcode("sons-header-uri", "sons_header_uri");
-
-/* Zombie Nation Header */
-function zombie_header_uri($atts, $content = null) {
-	extract(shortcode_atts(array(
-    "" => ""
-	), $atts));
-	
-	$zn_img = get_option("zombie_header_uri", get_stylesheet_directory_uri(). "/img/blogs/zombie-nation.jpg" );
-  if (empty($zn_img)) {
-      $zn_img = get_stylesheet_directory_uri(). "/img/blogs/zombie-nation.jpg";
-  }
-	
-	return '<img src="'.$zn_img.'" alt />';
-}
-
-add_shortcode("zombie-header-uri", "zombie_header_uri");
 
 
 function my_scripts_method() {
@@ -292,52 +259,6 @@ add_action('wp_enqueue_scripts', 'my_scripts_method');
 add_action("init", "imo_ga_json");
 
 function imo_ga_json() {
-
-
-    //caliber.json
-    if (preg_match("/^\/manufacturer\.json(\?(.+)?)?$/", $_SERVER['REQUEST_URI'])) {
-        header('Content-type: application/json');
-    
-        if($_GET['guntype']){
-         
-
-            $guntypeSlug = $_GET['guntype'];
-
-            $terms = array();
-
-            $guntypeTerm = get_term_by("slug",$guntypeSlug,"guntype");
-            $guntypeTermID = $guntypeTerm->term_taxonomy_id;
-
-            global $wpdb;
-
-            $sql = $wpdb->prepare("SELECT DISTINCT term_slug, term_name FROM `wp_2_term_relationships` tr
-                                            RIGHT JOIN `wp_2_manufacturer_posts` mp ON mp.post_id = tr.`object_id`
-                                            WHERE `term_taxonomy_id` = '%d' ",$guntypeTermID);
-
-            $rows = $wpdb->get_results($sql);
-
-     
-  
-            $parentTerm = get_term_by("slug",$parentSlug,"manufacturer");
-
-
-            foreach ($rows as $row) {
-                //$term = get_term_by( 'id', $child, $taxonomyName );
-                $row->name = $row->term_name;
-                $row->slug = $row->term_slug;
-                $terms[] = $row;
-            }
-
-            $json = json_encode($terms);
-            print $json;
-                
-        }
-
-
-        die();
-
-    }   
-
 
     //caliber.json
     if (preg_match("/^\/caliber\.json(\?(.+)?)?$/", $_SERVER['REQUEST_URI'])) {
