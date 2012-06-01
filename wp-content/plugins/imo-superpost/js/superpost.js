@@ -2,7 +2,7 @@ jQuery(document).ready(function($) {
 
   function SetupPostForm() {
     $("input#image-upload").change(function(){
-      
+      $('.superpost-image-form').submit();
     });
   }
 
@@ -25,14 +25,14 @@ jQuery(document).ready(function($) {
 
     $('.superpost-form').ajaxForm({                 
       beforeSubmit: ShowRequest,
-      success: SubmitSuccesful,
+      success: SubmitSuccessful,
       data:userIMO,
       error: AjaxError                               
     });    
 
     $('.superpost-image-form').ajaxForm({                 
-      beforeSubmit: ShowRequest,
-      success: SubmitSuccessful,
+      beforeSubmit: BeforeImageSubmit,
+      success: ImageSubmitSuccessful,
       data:userIMO,
       error: AjaxError                               
     });    
@@ -62,12 +62,46 @@ jQuery(document).ready(function($) {
     addNewBox(response);
   }
 
+  function BeforeImageSubmit(formData, jqForm, options) {
+    
+    $(".photo-attachement-header").fadeIn(1000);
+
+    var $loadingTag = $("<div class='loading-box' style=''><img src='/wp-content/themes/imo-mags-northamericanwhitetail/img/loader.gif'></div>");
+    //$(".attached-photos").append($loadingTag);
+
+    $loadingTag.hide().appendTo(".attached-photos").slideDown(1000);
+
+
+    return true;
+  }
 
   function ImageSubmitSuccessful(responseText, statusText) {
 
     var response = jQuery.parseJSON(responseText);
 
-    console.log("response YO!");
+    //first, get the image.
+    var $imageTag = $("<div><img src='" + response.img_url + "' height=75 width=75 style=''></div>");
+
+    //Then Append the image
+    $(".loading-box").fadeOut(function(){
+      //$(".attached-photos").append($imageTag.fadeIn());
+      $(this).remove();
+      $imageTag.hide().appendTo(".attached-photos").fadeIn();
+
+    });
+    
+
+    //Then, add the image IDs to the new post form
+    var attachmentIDs = $("input.attachment_id").val();
+     if (attachmentIDs) {
+      attachmentIDs = attachmentIDs + "," + response.id;
+     } else {
+      attachmentIDs = response.id;
+     }
+    $("input.attachment_id").val(attachmentIDs);
+
+
+    console.log("response Image YO!");
     console.log(response);
 
   }

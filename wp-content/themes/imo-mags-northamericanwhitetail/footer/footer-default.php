@@ -156,15 +156,20 @@ $args = array(
 
   <?php wp_footer(); ?>
 
-  <div class="new-superpost-modal-container" style="display:none;height:200px:width:200px;background-color:white;">
-    <h1>POST THIS</h1>
+  <div class="new-superpost-modal-container" style="display:none;height:500px:width:600px;background-color:white;">
+    <h1>Post Something!</h1>
 
     <div class="media-section">
+
+      <h4 style="display:none" class="photo-attachement-header">Photos</h4>
+      <div class="attached-photos">
+      </div>
+
       <form id="fileUploadForm-image" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-image-form">
         <div id="fileupload" >
           <div class="fileupload-buttonbar ">
               <label class="upload-button">
-                  <span >Add Photo</span>
+                  <span><span class="white-plus-sign">+</span>PHOTO</span>
                   <input id="image-upload" type="file" name="photo-upload" id="photo-upload" />
 
               </label>
@@ -172,20 +177,33 @@ $args = array(
         </div>
         <input type="hidden" name="post_type" value="photo">
         <input type="hidden" name="form_id" value="fileUploadForm">
+
       </form>
     </div>
 
     <form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-form">
 
-        <input type="text" name="title" id="title" placeholder="Title"/>
+        <input type="text" name="title" id="title" placeholder="Headline"/>
         <textarea name="body" id="body" placeholder="Tell Us Your Story."></textarea>
+        <select class="post_type" name="post_type">
+          <option value="general">General Discussion</option>
+          <option value="report">Rut Reports</option>
+          <option value="tip">Tips & Tactics</option>
+          <option value="lifestyle">Lifestyle</option>
+          <option value="trophy">Trophy Bucks</option>
+          <option value="gear">Gear</option>
+
+        </select>
         <input id="file" type="file" name="photo-upload" id="photo-upload" style="display:none"/>
-        <input type="hidden" name="post_type" value="report">
+<!--    
         <input type="hidden" name="clone_target" value="superpost-box">
         <input type="hidden" name="attach_target" value="post-container">
         <input type="hidden" name="attachment_point" value="prepend">
-        <input type="hidden" name="masonry" value="true">
+        <input type="hidden" name="masonry" value="true"> 
+-->
         <input type="hidden" name="form_id" value="fileUploadForm">
+        <input type="hidden" name="attachment_id" class="attachment_id" value="">
+
         <input type="submit" value="Submit" class="submit" />
     </form>
   </div>

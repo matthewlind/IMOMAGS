@@ -169,9 +169,6 @@ $app->post('/api/superpost/add',function() {
 
 	$params = Slim::getInstance()->request()->post();
 
-	error_log("PARAMS");
-	_log($params);
-	error_log("wait");
 
 	//Get the user info an authenticate
 	if (userIsGood($params['username'],$params['userhash'])) {
@@ -197,6 +194,23 @@ $app->post('/api/superpost/add',function() {
 			    error_log("There was an error uploading the file, please try again!");
 			}
 		}
+
+		/////////////////////////////////////
+		//If there are attachments, get the $imgURL
+		if (!empty($params['attachment_id'])) {
+			$attachmentIDstring = $params['attachment_id'];
+			$attachmentIDs = explode(",", $attachmentIDstring);
+			
+
+
+			$imgURL = getImgURL($attachmentIDs[0]);
+			$params['img_url'] = $imgURL;
+			
+		
+			
+		}
+
+
 	
 		$paramList = array(
 			"parent",
@@ -268,13 +282,25 @@ $app->post('/api/superpost/add',function() {
 
         $stmt->execute();
         $superpostID = $db->lastInsertId();
+        
+        
+        //If there are attachments, set the parent of the attachemnts
+     	if (!empty($params['attachment_id'])) {
+			$attachmentIDstring = $params['attachment_id'];
+			setAtttachment($superpostID, $attachmentIDstring);
+			
+		}
+        
 
 		$db = "";
 
 		$params['id'] = $superpostID;
+		$params['ip'] = long2ip($params['ip']);
+
+
 		$response = $params;
 
-		$params['ip'] = long2ip($params['ip']);
+		
 
 		echo json_encode($response);
 
@@ -287,6 +313,66 @@ $app->post('/api/superpost/add',function() {
 });
 
 
+function setAtttachment($spid,$attachmentIDstring) {
+	try {
+
+		$attachIDs = explode(",", $attachmentIDstring);
+
+		$db = dbConnect();
+
+
+		foreach ($attachIDs as $attachmentID) {
+			$sql = "UPDATE superposts SET parent = ? WHERE id IN(?)";
+
+			$stmt = $db->prepare($sql);
+
+			$stmt->execute(array($spid,$attachmentID));
+		
+			$row = $stmt->fetch(PDO::FETCH_OBJ);			
+		}
+
+
+
+
+
+
+
+		$db = "";
+		
+		return true;
+
+
+	} catch(PDOException $e) {
+    	echo $e->getMessage();
+    	return false;
+    }
+	
+}
+
+
+function getImgURL($spid) {
+	try {
+
+		$db = dbConnect();
+
+
+		$sql = "SELECT img_url FROM superposts WHERE id = ?";
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array($spid));
+	
+		$row = $stmt->fetch(PDO::FETCH_OBJ);
+
+		$db = "";
+		
+		return $row->img_url;
+
+
+	} catch(PDOException $e) {
+    	echo $e->getMessage();
+    }
+}
+
 
 
 
@@ -297,7 +383,7 @@ if(!function_exists('_log')){
   function _log( $message ) {
 	  if( is_array( $message ) || is_object( $message ) ){
 
-	  	$errorString = var_export( $message, true );
+	  	$errorString = print_r( $message, true );
 
 	    error_log( "$errorString",0);
 	  } else {

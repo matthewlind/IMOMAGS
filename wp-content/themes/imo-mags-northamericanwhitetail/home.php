@@ -33,6 +33,9 @@ get_header();
             <span id="toggle-display-button">
                 Toggle Display
             </span>
+            <span id="new-post-button">
+                + POST
+            </span>
 
             <ul class="post-type-select">
                 <li class='selected' title='all'>ALL</li>

@@ -1366,7 +1366,7 @@ a.comment-count:hover {
  .new-superpost-modal-container {
 
     padding:20px;
-    width:680px;
+    width:580px;
 
  }
 
@@ -1396,17 +1396,61 @@ a.comment-count:hover {
 }
 .upload-button
 {
+    font-family: ProximaNovaA-Semibold;
     position: relative;
     cursor: pointer;
     text-align: center;
     overflow: visible;
-    background-color: red;
+    background-color: #77a139;
     margin:0px;
-    padding:10px;
-    border:1px solid;
+    padding:5px 10px 5px 10px;
     overflow: hidden;
+    color:white;
+    font-size:14px;
 }
 
+
+.loading-box {
+    border:1px solid #bbbbbb;
+    width:74px;
+    height:74px;
+    background-color:white;
+}
+
+.loading-box img {
+    margin:auto;
+}
+
+.white-plus-sign {
+
+    color:white;
+    font-weight:bold;
+    font-family: Helvetica, Arial, "MS Trebuchet", sans-serif;
+    font-size:24px;
+    padding-right:6px;
+}
+
+.new-superpost-modal-container input#title {
+
+    width:400px;
+    height:30px;
+    border:1px solid #cccccc;
+    color: #333333;
+    font-size:14px;
+}
+
+.new-superpost-modal-container .superpost-image-form {
+    width:120px;
+}
+
+.new-superpost-modal-container textarea {
+    width:400px;
+    margin:20px 0 0 0;
+    height:300px;
+    border:1px solid #cccccc;
+    color: #333333;
+    font-size:14px;
+}
 
 /*
  * Newsletter Widget
