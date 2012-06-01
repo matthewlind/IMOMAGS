@@ -79,11 +79,7 @@ get_header();
 	<div class="col-abc">
 		<div <?php post_class('entry entry-full clearfix'); ?>>
 			<div class="entry-content">
-
-				
-				<div class="home-header-title">
-					<h1>Editor's Picks</h1>
-				</div>
+				<h1 class="more-header">Editor's Picks</h1>
 				<?php
 				$paged = get_query_var('paged') ? get_query_var('paged') : 1;
 				$args = array(
@@ -126,6 +122,11 @@ get_header();
 		</div><!-- .entry -->
 	</div><!-- .col-abc -->
 	<!-- Bottom Widget Area -->
+	
+	<div class="gear-slider">
+		<h1 class="more-header">Gear Reviews</h1>
+		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('gear-home')) : else : ?><?php endif; ?>
+	</div>
 	<div class="secondary">
 		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('secondary-home')) : else : ?><?php endif; ?>
 	</div>

@@ -19,7 +19,7 @@
 				?>
 					<div class='featured-item-pane' id='featured-item-<?php echo $count; ?>'>
 						<div class='featured-item-image'>
-						   <img src="<?php echo $item['img_src'][0]; ?>"/>
+						    <a href="<?php echo $item['link']; ?>"><img src="<?php echo $item['img_src'][0]; ?>"/></a>
 						</div>
 						<div class='featured-item-description'>
 						  <h2><a href="<?php echo $item['link']; ?>"><?php echo $item['title']; ?></a></h2>
