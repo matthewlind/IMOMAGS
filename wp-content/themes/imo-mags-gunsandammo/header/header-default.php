@@ -32,7 +32,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
   <?php if (is_page_template("page-cabelas.php")) : ?>
 	<link rel="stylesheet" type="text/css" media="screen" href="<?php bloginfo('template_url'); ?>/css/contest.css?ver=<?php echo CFCT_URL_VERSION; ?>" />
   <?php  endif; ?>     	
-
+  <script src="//cdn.optimizely.com/js/60055218.js"></script>
   <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/scripts.js"></script>
   
   <?php if (defined('JETPACK_SITE')): ?>
