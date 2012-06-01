@@ -2416,6 +2416,11 @@ a {
         background: #ce181e;
         cursor: default; } } } }
 
+.page-template-page-right-reviews-php #featured-articles-navigator, .page-template-page-shooting-php #featured-articles-navigator{
+	  display: none !important;
+}
+
+  	
 .featured-wide-articles {
   height: 390px;
   position: relative;
