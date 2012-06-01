@@ -37,15 +37,15 @@ add_filter('cfct-migrate-loop-data', 'the_cb_lemay_fix', 10, 2);
  * There's a base class that outputs full loop content, but 2 class
  * extensions which extend it, but change it to "excerpts" or "titles"
  *
- * Don't forget to call imo_loop::init() in your constructor if you
+ * Don't forget to call naw_loop::init() in your constructor if you
  * derive from this class!
  */
-if (!class_exists('imo_loop') && class_exists('cfct_build_module')) {
-	class imo_loop extends cfct_build_module {
-		const POST_TYPES_FILTER = 'imo-loop-post-types';
-		const TAXONOMY_TYPES_FILTER = 'imo-loop-taxonomy-types';
+if (!class_exists('naw_loop') && class_exists('cfct_build_module')) {
+	class naw_loop extends cfct_build_module {
+		const POST_TYPES_FILTER = 'naw-loop-post-types';
+		const TAXONOMY_TYPES_FILTER = 'naw-loop-taxonomy-types';
 		
-		protected $_deprecated_id = 'imo-loop'; // deprecated property, not needed for new module development
+		protected $_deprecated_id = 'naw-loop'; // deprecated property, not needed for new module development
 
 		protected $default_display_args = array(
 			'caller_get_posts' => 1
@@ -62,17 +62,17 @@ if (!class_exists('imo_loop') && class_exists('cfct_build_module')) {
 
 		public function __construct() {
 			$opts = array(
-				'description' => __('Choose and display a set of posts (any post type).', 'carrington-build'),
+				'description' => __('Choose and display a set of posts (any post type) with title only and comments.', 'carrington-build'),
 				'icon' => 'imo-loop/icon.png'
 			);
-			parent::__construct('imo-loop', __('IMO Loop', 'carrington-build'), $opts);
+			parent::__construct('naw-loop', __('NAW Loop', 'carrington-build'), $opts);
 			$this->init();
 		}
 
 		protected function init() {
 			// do this at init 'cause we can't do intl in member declarations
 			$this->content_display_options = array(
-				'title' => __('Titles Only', 'carrington-build'),
+				'title' => __('Titles Only with comments', 'carrington-build'),
 				'excerpt' => __('Titles &amp; Excerpts', 'carrington-build'),
 				'content' => __('Titles &amp; Post Content', 'carrington-build')
 			);
@@ -322,6 +322,8 @@ if (!class_exists('imo_loop') && class_exists('cfct_build_module')) {
 					$item = ob_get_clean();
 					$item = apply_filters('cfct-build-loop-item', $item, $data, $args, $query); // @TODO deprecate in 1.2? doesn't scale well when extending the loop object
 					echo apply_filters($this->id_base.'-loop-item', $item, $data, $args, $query);
+					?><span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'carrington-build' ), __( '1 Comment', 'carrington-build' ), __( '% Comments', 'carrington-build' ) ); ?></span>
+				<?php
 				}
 				echo '
 					</ul><!-- /'.esc_attr($class).' -->';
@@ -1448,6 +1450,6 @@ if (!class_exists('imo_loop') && class_exists('cfct_build_module')) {
 			return $data;
 		}
 	}
-	cfct_build_register_module('imo_loop');
+	cfct_build_register_module('naw_loop');
 }
 ?>

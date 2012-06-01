@@ -7,7 +7,17 @@
 	height:500px;
 	top:20px;
 }
-
+h1.recon{
+	background-color: #FFFFFF;
+    color: #aaa197;
+    font-size: 1.2em;
+    left: 432px;
+    padding: 0 14px;
+    position: absolute;
+    text-transform: uppercase;
+    top: 5px;
+    height: 34px;
+}
 .recon-box {
 
 	margin-top:10px;
@@ -218,7 +228,7 @@ a.plus{
 	height: 46px;
     position: absolute;
     right: 316px;
-    top: 33px;
+    top: 53px;
     width: 105px;
 }
 

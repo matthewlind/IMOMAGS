@@ -120,11 +120,11 @@ $args = array(
           <div class="top">
             <h4>Stay Connected</h4>
             <ul class="connections">
-              <li class="facebook"><a href="http://www.facebook.com/GunsAndAmmoMag" title="Find us on Facebook">Facebook</a></li>
-              <li class="twitter"><a href="http://twitter.com/gunsandammomag" title="Follow us on Twitter">Twitter</a></li>
+              <li class="facebook"><a href="http://www.facebook.com/NAWhitetail" title="Find us on Facebook">Facebook</a></li>
+              <li class="twitter"><a href="http://twitter.com/NAWhitetail" title="Follow us on Twitter">Twitter</a></li>
               <li class="news"><a href="/newsletter/">Newsletter</a></li>
               <li class="apps"><a href="/apps/">Apps</a></li>
-              <li class="mags"><a href="https://secure.palmcoastd.com/pcd/eSv?iMagId=0145V&i4Ky=IBZN">Get the Magazine</a></li>
+              <li class="mags"><a href="https://secure.palmcoastd.com/pcd/eServ?iServ=MDE0OEQ0NDcyNCZpVHlwZT1FTlRFUg==">Get the Magazine</a></li>
             </ul>
           </div>
         

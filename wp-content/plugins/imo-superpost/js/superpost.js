@@ -6,11 +6,11 @@ jQuery(document).ready(function($) {
     });
   }
 
-  $(".new-superpost-modal-container").modal({
-    opacity: 50, 
-    overlayClose: true,
-    onShow: SetupPostForm
-  });
+//  $(".new-superpost-modal-container").modal({
+//    opacity: 50, 
+//    overlayClose: true,
+//    onShow: SetupPostForm
+//  });
 
 
   $('.masonry-container').masonry({
@@ -23,12 +23,12 @@ jQuery(document).ready(function($) {
 
   $(function() {      
 
-    $('.superpost-form').ajaxForm({                 
-      beforeSubmit: ShowRequest,
-      success: SubmitSuccesful,
-      data:userIMO,
-      error: AjaxError                               
-    });    
+//    $('.superpost-form').ajaxForm({                 
+//      beforeSubmit: ShowRequest,
+//      success: SubmitSuccesful,
+//      data:userIMO,
+//      error: AjaxError                               
+//    });    
 
     $('.superpost-image-form').ajaxForm({                 
       beforeSubmit: ShowRequest,

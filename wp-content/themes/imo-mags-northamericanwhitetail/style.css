@@ -49,6 +49,10 @@ a:hover{
 	clear: both;
 	height: 30px;
 }
+hr.comm-sep{
+	border-top: 3px solid #EFECE7;
+    height: 34px;
+}
 /*PAGE LAYOUT MODS*/
  
 .str-container {
@@ -1307,7 +1311,7 @@ a.comment-count:hover {
  * 
  *
  */
-.super-post{clear: both;width:1030px !important;}
+.super-post{clear: both;width:1030px !important;padding-top:8px;}
 .home .page-template-page-right-php .cfct-block-c{
 	padding-left: 40px;
 }

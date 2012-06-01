@@ -41,7 +41,7 @@ get_header();
 <div class="col-abc super-post">
     <div <?php post_class('entry entry-full clearfix'); ?>>
         <div class="entry-content">
-            <h1 class="recon">Recon Network</h1>
+            <hr class="comm-sep"><h1 class="recon">Naw+ Community</h1>
 
             <span id="toggle-display-button">
                 Toggle Display
