@@ -76,7 +76,20 @@ the_post();
 				?>
 		
 		
-		<h1 class="entries">Past Entries</h1>
+		<div class="header-sort">
+			<h1 class="more-header">Past Entries</h1>
+			<div class='cssmenu'>
+				<ul>
+				   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
+				      <ul>
+				         <li><a href='#'><span>Category 1</span></a></li>
+				         <li><a href='#'><span>Category 2</span></a></li>
+				      </ul>
+				   </li>
+				</ul>
+			</div>
+		</div>
+										
 		<!-- Loop -->
 		<?php
 				$paged = get_query_var('paged') ? get_query_var('paged') : 1;

@@ -42,16 +42,26 @@ get_header();
     <div <?php post_class('entry entry-full clearfix'); ?>>
         <div class="entry-content">
             <hr class="comm-sep"><h1 class="recon">Naw+ Community</h1>
-
+            <div class='cssmenu'>
+				<ul>
+				   <li><a href='#' class="dd"><span>State Activity</span><span class="dd-arrow"></span></a>
+				      <ul>
+				         <li><a href='#'><span>Product 1</span></a></li>
+				         <li><a href='#'><span>Product 2</span></a></li>
+				      </ul>
+				   </li>
+				</ul>
+			</div>
             <span id="toggle-display-button">
                 Toggle Display
             </span>
-			<a class="plus" href="#"></a>
             <ul class="post-type-select">
-                <li class='selected' title='all'><span></span>ALL</li>
+            	<li class='post'><span>+</span>POST</li>
+                <li class='selected all' title='all'><span></span>ALL</li>
                 <li title='photo'>Photos</li>
                 <li title='report'>Reports</li>
                 <li title='tip'>Tips</li>
+                <li class="dd-arrow"></li>
             </ul>
             <!-- This div id="recon-activity" is filled with posts by the displayRecon() function
                      inside plus.js -->    
