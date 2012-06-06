@@ -6,11 +6,16 @@ jQuery(document).ready(function($) {
     });
   }
 
-  $(".new-superpost-modal-container").modal({
-    opacity: 50, 
-    overlayClose: true,
-    onShow: SetupPostForm
+  
+  $("#new-post-button").click(function(){
+      $(".new-superpost-modal-container").modal({
+        opacity: 50, 
+        overlayClose: true,
+        onShow: SetupPostForm
+      });
   });
+
+
 
 
   $('.masonry-container').masonry({
@@ -42,8 +47,8 @@ jQuery(document).ready(function($) {
   
 
   function ShowRequest(formData, jqForm, options) {
-    var queryString = $.param(formData);
-    alert('BeforeSend method: \n\nAbout to submit: \n\n' + queryString);
+    //var queryString = $.param(formData);
+    //alert('BeforeSend method: \n\nAbout to submit: \n\n' + queryString);
     return true;
   }
 
@@ -56,10 +61,11 @@ jQuery(document).ready(function($) {
 
     var response = jQuery.parseJSON(responseText);
 
-    console.log("response YO!");
-    console.log(response);
+    var url = "/plus/" + response.post_type + "/" + response.id;
 
-    addNewBox(response);
+
+    window.location = url;
+    //addNewBox(response);
   }
 
   function BeforeImageSubmit(formData, jqForm, options) {

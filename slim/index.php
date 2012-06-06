@@ -76,7 +76,7 @@ $app->get('/api/superpost/type/:post_type(/:count(/:start))',function($post_type
 		$whereClause = "WHERE post_type = ?";
 
 		if ($post_type == "all")
-			$whereClause = "WHERE post_type != 'comment' AND post_type != 'answer'";
+			$whereClause = "WHERE post_type != 'comment' AND post_type != 'answer' AND post_type != 'photo'";
 
 		$limitClause = "LIMIT $start,$count";
 
@@ -141,7 +141,7 @@ $app->get('/api/superpost/children/:post_type/:parent_id',function($post_type,$p
 		$db = dbConnect();
 
 
-		$sql = "SELECT * FROM superposts WHERE post_type = ? AND parent = ? ORDER BY id DESC";
+		$sql = "SELECT * FROM superposts WHERE post_type = ? AND parent = ? ORDER BY id ASC";
 
 		$stmt = $db->prepare($sql);
 		$stmt->execute(array($post_type,$parent_id));

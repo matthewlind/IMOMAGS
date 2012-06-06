@@ -26,6 +26,16 @@ img.superpost-thumb {
 
 }
 
+
+.detector-box {
+	height:278px;
+	width:278px;
+	position:absolute;
+	padding:30px;
+	z-index:1000;
+
+}
+
 .recon-title-box.cover-pic {
 	background-image:url('/wp-content/themes/imo-mags-northamericanwhitetail/img/transbg.png');
 }
@@ -252,6 +262,27 @@ ul.post-type-select li:hover {
 	-ms-user-select: none;
 	user-select: none;
 }
+#new-post-button {
+	cursor: pointer;
+	background-color:#cccccc;
+	display:block;
+	width:130px;
+	text-align:center;
+	padding:6px;
+
+	float:right;
+
+
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+
+
 
 #toggle-display-button:active {
 	background-color:#999999;

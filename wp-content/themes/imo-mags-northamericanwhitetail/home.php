@@ -39,9 +39,12 @@ get_header();
 
             <ul class="post-type-select">
                 <li class='selected' title='all'>ALL</li>
-                <li title='photo'>Photos</li>
                 <li title='report'>Reports</li>
                 <li title='tip'>Tips</li>
+                <li title='lifestyle'>LifeStyles</li>
+                <li title='trophy'>Trophy Bucks</li>
+                <li title='gear'>Gear</li>
+
             </ul>
             <!-- This div id="recon-activity" is filled with posts by the displayRecon() function
                      inside plus.js -->    

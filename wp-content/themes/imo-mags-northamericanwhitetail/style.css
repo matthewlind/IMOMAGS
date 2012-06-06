@@ -1418,7 +1418,8 @@ a.comment-count:hover {
 }
 
 .loading-box img {
-    margin:auto;
+    margin-left:27px;
+    margin-top:27px;
 }
 
 .white-plus-sign {

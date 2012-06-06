@@ -44,10 +44,26 @@ if (empty($commentData[0])) {
 	$visible = "style='display:none;'";
 }
 
+
+//Then get attachment data
+$requestURL3 = "http://www.northamericanwhitetail.deva/slim/api/superpost/children/photo/$spid";
+
+$file3 = file_get_contents($requestURL3);
+$photoData = json_decode($file3);
+
+if (empty($photoData[0])) {
+
+    $photoData[0] = "hey";
+}
+
+
 $grav_url = "http://www.gravatar.com/avatar/" . $data->gravatar_hash . ".jpg?s=25&d=identicon";
+
+$headerTitle = $data->post_type . ": " . $data->title;
+
 ?>
 <header id="masthead">
-	<h1>RECON NETWORK: PHOTO</h1>
+	<h1><?php echo $headerTitle; ?></h1>
 	<?php edit_post_link(__('Edit', 'carrington-business')); ?>
     <?php //echo $requestURL; ?>
 </header><!-- #masthead -->
@@ -60,7 +76,27 @@ $grav_url = "http://www.gravatar.com/avatar/" . $data->gravatar_hash . ".jpg?s=2
 	<div <?php post_class('entry entry-full clearfix'); ?>>
 		<div class="entry-content">
        
-            <img src="<?php echo $data->img_url; ?>" width=585>
+            <?php
+
+                foreach ($photoData as $photo) {
+                    
+                    $img = "";
+                    $photoURL = str_replace("thumb", "full", $photo->img_url);
+                    $img = "<li><img src='$photoURL' width=585></li>";
+                    echo $img;
+
+                }
+
+
+            ?>
+
+            <div class="description">
+                <?php echo $data->body;?>
+            </div>
+
+
+
+
             <div class="userinfo">
             <img src="<?php echo $grav_url; ?>"> <?php echo $data->username; ?>
             </div>

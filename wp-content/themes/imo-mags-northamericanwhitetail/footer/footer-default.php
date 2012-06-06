@@ -205,6 +205,8 @@ $args = array(
         <input type="hidden" name="attachment_id" class="attachment_id" value="">
 
         <input type="submit" value="Submit" class="submit" />
+        <p class="login-note">You will be asked to register before post appears on site.
+        </p>
     </form>
   </div>
 

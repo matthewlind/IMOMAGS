@@ -98,11 +98,15 @@ function displayRecon(type) {
 	    $(data).each(function(index) {
 	        count++;
 
+	        var url = "/plus/" + this.post_type + "/" + this.id;
+	        var link = $("<a href='" + url + "'>");
+
 	        var randomnumber=Math.floor(Math.random()*3); //Get randomColor
 	        var reconBox = $("<div class='recon-box masonry-box' id='recon-box-" + this.id +  "'></div>");
 	        var imageBox = $("<div class='recon-image-box'></div>").css("background-color",bgcolors[randomnumber]);;
 	        var image = $("<img class='superpost-thumb'>").attr("src",this.img_url);
 	        var titleBox = $("<div class='recon-title-box'></div>")
+	        var detectorBox = $("<div class='detector-box'></div>")
 	        var titleDetailBox = $("<span class='recon-title-detail'></span>").text(this.username + "'s " + this.post_type);
 	        var title = $("<h3></h3>").text(this.title);
 	        var underBox = $("<div class='under-box'></div>");
@@ -110,9 +114,9 @@ function displayRecon(type) {
 	        var authorInfo = $("<div class='recon-author-info'><span class='author-name'></span><span class='author-action'></span></div>");
 	        authorInfo.find(".author-name").text(this.username);
 	        authorInfo.find(".author-action").text(" posted a " + capitaliseFirstLetter(this.post_type));
-	        var underTitle = $("<div class='under-title'></div>").html(this.title);
+	        var underTitle = $("<div class='under-title'></div>").html("<a href='" + url + "'>" + this.title + "</a>");
 	        var date = $("<abbr class='recon-date timeago' title=''></abbr>").attr("title",this.created);
-
+	        var imgUrl =  this.img_url;
 
 	        //Userpopup stuff
 	        var userDetailsBox = $("<div class='user-details-box' style='display:none'></div>");
@@ -128,8 +132,16 @@ function displayRecon(type) {
 	        titleBox.append(titleDetailBox);
 	        titleBox.append(title);
 
+
+
+
+
 	        if (this.img_url) {
-	        	imageBox.append(image);
+	   			
+	   			link.append(image);
+	        	imageBox.append(link);
+	        	
+	        
 	        }
 
 	        
@@ -139,15 +151,31 @@ function displayRecon(type) {
 	        underBox.append(underTitle);
 	        underBox.append(date);
 
+	        detectorBox.hover(function(){
+	        	if (imgUrl) {
+	        		$(this).parent().parent().find(".recon-title-box").stop().fadeToggle();
+	        	}
+	        	
+
+	        });
+
 
 	        if (this.post_type != "photo" && this.post_type != "video") {
-	        	reconBox.append(titleBox);
+	        	link = $("<a href='" + url + "'>");
+	        	reconBox.append(link)
+	        	link.append(titleBox);
+
+	        	link = $("<a href='" + url + "'>");
+
+	        	reconBox.append(link);
+	        	link.append(detectorBox);
 	        }
 
-	        if (this.img_url != null && this.post_type == 'report') {
+	        if (this.img_url != null && this.title != null) {
 	        	titleBox.addClass("cover-pic");
 	        }
-	        
+
+	      	
 
 	        reconBox.append(imageBox);
 	        reconBox.append(underBox);

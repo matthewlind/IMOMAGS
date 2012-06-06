@@ -69,9 +69,15 @@ function imo_facebook_usercheck() {
         	$userdata['first_name'] = $user_profile['first_name'];
         	$userdata['last_name'] = $user_profile['last_name'];
         	$userdata['display_name'] = $user_profile['first_name'] . " " . $user_profile['last_name'];
+        	$userdata['user_login'] = "aaronbakerface";
+        	$userdata['user_pass'] = "fhGGh341s";
+
+        	_log("User Inserted?");
 
        		$userID = wp_insert_user($userdata);
        		wp_set_auth_cookie($userID,true);
+
+       		$json = json_encode($userdata);
 
         }
 
