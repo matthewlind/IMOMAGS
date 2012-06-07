@@ -53,7 +53,7 @@ $photoData = json_decode($file3);
 
 if (empty($photoData[0])) {
 
-    $photoData[0] = "hey";
+    //$photoData[0] = "hey";
 }
 
 
@@ -106,7 +106,7 @@ $headerTitle = $data->post_type . ": " . $data->title;
 
 	<h2>Comments:</h2>
 	<div class="superpost-comment-form">
-        <form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="superpost-form">
+        <form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="superpost-comment-form">
             <h3>Post a Comment!</h3>
            <textarea name="body" id="body" placeholder="What do you want to say?"></textarea>
             <input type="file" id="photo-upload" name="photo-upload"  /><br/>
@@ -134,7 +134,7 @@ $headerTitle = $data->post_type . ": " . $data->title;
         			<?php echo $comment->body; ?>
         		</div>
                 <div class="superpost-image">
-                    <img src="<?php echo $comment->img_url; ?>" class="superclass-img_url" width=200 style="<?php echo $displayImage; ?>">
+                    <!-- <img src="<?php echo $comment->img_url; ?>" class="superclass-img_url" width=200 style="<?php echo $displayImage; ?>"> -->
                 </div>
         		<div class="avatar-holder">
                     <img src="http://www.gravatar.com/avatar/<?php echo $comment->gravatar_hash; ?>.jpg?s=25&d=identicon" class="superclass-gravatar_hash">

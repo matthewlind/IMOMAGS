@@ -69,8 +69,8 @@ function imo_facebook_usercheck() {
         	$userdata['first_name'] = $user_profile['first_name'];
         	$userdata['last_name'] = $user_profile['last_name'];
         	$userdata['display_name'] = $user_profile['first_name'] . " " . $user_profile['last_name'];
-        	$userdata['user_login'] = "aaronbakerface";
-        	$userdata['user_pass'] = "fhGGh341s";
+        	$userdata['user_login'] = strtolower($user_profile['first_name']) . strtolower($user_profile['last_name']) . rand(100,999);
+        	$userdata['user_pass'] = imo_facebook_generate_password();
 
         	_log("User Inserted?");
 
@@ -92,6 +92,26 @@ function imo_facebook_usercheck() {
 }
 
 add_action("init", "imo_facebook_usercheck");
+
+
+function imo_facebook_generate_password($length=9, $strength=0) {
+	$vowels = 'aeuy23456789';
+	$consonants = 'bdghjmnpqrstvz';
+ 
+	$password = '';
+	$alt = time() % 2;
+	for ($i = 0; $i < $length; $i++) {
+		if ($alt == 1) {
+			$password .= $consonants[(rand() % strlen($consonants))];
+			$alt = 0;
+		} else {
+			$password .= $vowels[(rand() % strlen($vowels))];
+			$alt = 1;
+		}
+	}
+	return $password;
+}
+ 
 
 
 /********************************

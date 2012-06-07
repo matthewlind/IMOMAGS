@@ -185,15 +185,18 @@ $args = array(
 
         <input type="text" name="title" id="title" placeholder="Headline"/>
         <textarea name="body" id="body" placeholder="Tell Us Your Story."></textarea>
-        <select class="post_type" name="post_type">
-          <option value="general">General Discussion</option>
-          <option value="report">Rut Reports</option>
-          <option value="tip">Tips & Tactics</option>
-          <option value="lifestyle">Lifestyle</option>
-          <option value="trophy">Trophy Bucks</option>
-          <option value="gear">Gear</option>
+        
+        <div class="post_type_styled_select">
+          <select class="post_type" name="post_type">
+            <option value="general">General Discussion</option>
+            <option value="report">Rut Reports</option>
+            <option value="tip">Tips & Tactics</option>
+            <option value="lifestyle">Lifestyle</option>
+            <option value="trophy">Trophy Bucks</option>
+            <option value="gear">Gear</option>
 
-        </select>
+          </select>
+        </div>
         <input id="file" type="file" name="photo-upload" id="photo-upload" style="display:none"/>
 <!--    
         <input type="hidden" name="clone_target" value="superpost-box">
@@ -205,7 +208,7 @@ $args = array(
         <input type="hidden" name="attachment_id" class="attachment_id" value="">
 
         <input type="submit" value="Submit" class="submit" />
-        <p class="login-note">You will be asked to register before post appears on site.
+        <p class="login-note">
         </p>
     </form>
   </div>

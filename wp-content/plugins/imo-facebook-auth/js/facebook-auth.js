@@ -11,8 +11,11 @@ window.fbAsyncInit = function() {
       console.log(response);
       jQuery.getJSON('/facebook-usercheck.json', function(data) {
 	   		console.log(data);
+
+        window.location = "/naw-home";
+
 	   });
-  }, {scope: 'email,user_likes'});
+  });
 };
 (function(d){
    var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}

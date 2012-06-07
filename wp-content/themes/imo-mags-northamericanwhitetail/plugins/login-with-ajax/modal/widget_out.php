@@ -26,9 +26,9 @@
 	        
 	    	    
 
-				<div class="fb-login-button">Login with Facebook</div>
+				<div class="imo-fb-login-button">Login with Facebook</div>
 				<script>
-				jQuery(".fb-login-button").click(function(){
+				jQuery(".imo-fb-login-button").click(function(){
 					
 
 					FB.getLoginStatus(function(response) {

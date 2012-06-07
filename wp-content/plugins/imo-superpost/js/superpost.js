@@ -35,6 +35,14 @@ jQuery(document).ready(function($) {
       error: AjaxError                               
     });    
 
+
+    $('.superpost-comment-form').ajaxForm({                 
+      beforeSubmit: ShowRequest,
+      success: CommentSubmitSuccessful,
+      data:userIMO,
+      error: AjaxError                               
+    });    
+
     $('.superpost-image-form').ajaxForm({                 
       beforeSubmit: BeforeImageSubmit,
       success: ImageSubmitSuccessful,
@@ -66,6 +74,15 @@ jQuery(document).ready(function($) {
 
     window.location = url;
     //addNewBox(response);
+  }
+
+  function CommentSubmitSuccessful(responseText, statusText) {     
+    //alert("SuccesMethod:\n\n" + responseText);
+
+    var response = jQuery.parseJSON(responseText);
+
+
+    addNewBox(response);
   }
 
   function BeforeImageSubmit(formData, jqForm, options) {
