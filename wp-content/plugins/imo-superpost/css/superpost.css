@@ -5,7 +5,7 @@
 
 #recon-activity {
 	height:500px;
-	top:20px;
+	top:70px;
 }
 h1.recon{
 	background-color: #FFFFFF;
@@ -203,42 +203,36 @@ li.count-field {
 
 /* Homepage Controls */
 ul.post-type-select {
-	text-align:right;
-	margin-right:11px;
+	float: right;
+    position: relative;
+    width: 496px;
 }
 ul.post-type-select li {
+	font-family:"ProximaNovaS-Semibold";
+	font-size: 1em;
 	background-color: white;
-    border-bottom: 1px solid #CCCCCC;
-    border-left: 1px solid #CCCCCC;
-    border-top: 1px solid #CCCCCC;
+    border-right:1px solid #CCCCCC;
+    border-top:1px solid #CCCCCC;
+    border-bottom:1px solid #CCCCCC;
+    border-left: none;
     color: black;
     cursor: pointer;
     display: inline;
-    margin: -2px;
+    float:left;
     padding: 13px 20px;
 }
-
-
-ul.post-type-select li:last-child{
-	border-right: 1px solid #CCCCCC !important;
+ul.post-type-select li.all{
+	border-left:1px solid #fff !important;
 }
-
-a.plus{
-	background: url('../img/post.png') no-repeat top center;
-	height: 46px;
-    position: absolute;
-    right: 316px;
-    top: 53px;
-    width: 105px;
-}
-
 ul.post-type-select li.selected {
 	color: white;
 	border-bottom: 1px solid #347fe7; 
 	border-top: 1px solid #347fe7;
-	border-left: 1px solid #347fe7;
 	border-right: 1px solid #347fe7;
 	background-color: #347FE7;
+	text-shadow:
+		0px 0px 0px rgba(000,000,000,0.2),
+		1px 2px 0px rgba(000,000,000,0.4);
 }
 
 ul.post-type-select li:hover {
@@ -246,9 +240,51 @@ ul.post-type-select li:hover {
 	color: white;
 	border-bottom: 1px solid #347fe7; 
 	border-top: 1px solid #347fe7;
+	text-shadow:
+		0px 0px 0px rgba(000,000,000,0.2),
+		1px 2px 0px rgba(000,000,000,0.4);
 
 }
-
+ul.post-type-select li.post{
+	color: #ffffff;
+	background: #347fe7;
+	background: -webkit-gradient(
+		linear, left top, left bottom, 
+		from(#3e88e9),
+		to(#3e88e9));
+	border-radius: 0px;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	border: 1px;
+	border-style: solid;
+	border-color: #2861b2;
+	-moz-box-shadow:
+		0px 1px 0px rgba(000,000,000,0),
+		inset 1px 1px 0px rgba(103,159,237,1);
+	-webkit-box-shadow:
+		0px 1px 0px rgba(000,000,000,0),
+		inset 1px 1px 0px rgba(103,159,237,1);
+	text-shadow:
+		0px 0px 0px rgba(000,000,000,0.2),
+		1px 2px 0px rgba(000,000,000,0.4);
+}
+ul.post-type-select li.post span{
+	font-family: "ProximaNovaS-Extrabld";
+    font-size: 2.4em;
+    left: -6px;
+    line-height: 1px;
+    margin-left: 2px;
+    position: relative;
+    top: 5px;
+}
+ul.post-type-select li.dd-arrow{
+	background: url("../img/post-type-select-arrow.png") no-repeat scroll 21px center transparent;
+    padding: 25px 24px;
+}
+ul.post-type-select li.dd-arrow:hover{
+    border-top:1px solid #CCCCCC;
+    border-bottom:1px solid #CCCCCC;
+}
 #more-superposts-button {
 	cursor: pointer;
 	background-color:#cccccc;
@@ -256,10 +292,7 @@ ul.post-type-select li:hover {
 	width:80px;
 	text-align:center;
 	padding:10px;
-	margin:40px auto;
-
-
-
+	margin:100px auto;
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
@@ -286,6 +319,7 @@ ul.post-type-select li:hover {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+	margin-left: 140px;
 }
 
 #toggle-display-button:active {

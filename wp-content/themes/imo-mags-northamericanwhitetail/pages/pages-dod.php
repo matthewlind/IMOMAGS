@@ -27,7 +27,7 @@ the_post();
 	<header class="header-title">
 		<h1><?php the_title(); ?></h1>
 		<div class="dod-header-extras">
-			<a class="submit-yours" href="#"></a>
+			<a class="submit-yours plus-button" href="#"><span class="plus">+</span><span>Submit Yours</span></a>
 			<a href="#" class="how-it-works">How it works</a>
 		</div>
 	</header>	

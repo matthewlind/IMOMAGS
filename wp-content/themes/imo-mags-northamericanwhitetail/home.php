@@ -70,7 +70,7 @@ get_header();
 
             </div>
             <span id="more-superposts-button">
-                More Recon
+                More
             </span>
 
 
@@ -89,16 +89,65 @@ get_header();
 	<div class="col-abc">
 		<div <?php post_class('entry entry-full clearfix'); ?>>
 			<div class="entry-content">
-				<h1 class="more-header">Editor's Picks</h1>
+				<div class="header-sort home-questions">
+			<h1 class="more-header">Latest Questions</h1>
+			<div class='questions-right'>
+				<ul>
+				   <li class="plus-button"><a href="#"><span class="plus">+</span><span>Ask A Question</span></a></li>
+				   <li class="plus-button"><a href="#"><span>Sign In</span></a></li>
+				   <li class="plus-button reg"><a href="#"><span>Register</span></a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="questions-slider">
+            <div class="otd-questions">
+                <div class="slides-container-f">
+                	<div class="see-all home-see-all">See All Questions</div>
+                     <ul id="slides-footer" class="jcarousel-skin-tango">
+                        	<li>
+                        		<div class="user-info">
+                        			<img alt="user photo" src="http://www.northamericanwhitetail.fox/wp-content/themes/imo-mags-northamericanwhitetail/img/user-temp.jpg">
+                        			<span>Batman asks...</span>
+                        		</div>
+                        		<div class="quote-area">
+                        			<div class="top"></div>
+                        			<div class="mdl">
+	                        			<h4 class="quote">&#8220;I am going on a late season muzzle-loader hunt for whitetails in western PA this weekend. Any idea on how I should go about hunting them?&#8221;</h3>
+	                        		</div>
+                        			<div class="btm"></div>
+                        		</div>
+                        		<div class="answers-area">
+                        			<div class="answers-count">
+                        				Answers <span class="count">18</span>
+                        			</div>
+                        			<div class="answers-link">Answer This Question</div>                   
+                        		</div>
+                        	</li>
+                        </ul>
+                 </div>    
+            </div>
+        </div>
+				<div class="header-sort">
+					<h1 class="more-header">Editor's Picks</h1>
+					<div class='cssmenu'>
+						<ul>
+						   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
+						      <ul>
+						         <li><a href='#'><span>Category 1</span></a></li>
+						         <li><a href='#'><span>Category 2</span></a></li>
+						      </ul>
+						   </li>
+						</ul>
+					</div>
+				</div>
 				<?php
-				$paged = get_query_var('paged') ? get_query_var('paged') : 1;
 				$args = array(
 				'post_type' => 'post',
 				'post_status' => 'publish',
 				'orderby' => 'date',
 				'order' => 'DESC',
 				'posts_per_page' => 5,
-                'paged' => $paged,
 				);
 				// The Query
 				$the_query = new WP_Query( $args );
