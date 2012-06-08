@@ -169,7 +169,7 @@ $args = array(
         <div id="fileupload" >
           <div class="fileupload-buttonbar ">
               <label class="upload-button">
-                  <span><span class="white-plus-sign">+</span>PHOTO</span>
+                  <span><span class="white-plus-sign">+</span><span class="button-text">PHOTO</span></span>
                   <input id="image-upload" type="file" name="photo-upload" id="photo-upload" />
 
               </label>
@@ -178,7 +178,31 @@ $args = array(
         <input type="hidden" name="post_type" value="photo">
         <input type="hidden" name="form_id" value="fileUploadForm">
 
+
       </form>
+
+      <div class="video-button">
+        <span><span class="white-plus-sign">+</span>VIDEO</span>
+      </div>
+      <div class="video-url-form-holder-container" style="display:none;">
+
+        <div class="video-url-form-holder" style="">
+          <form id="video-url-form" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-image-form">
+            
+            <div class="video-body-holder">
+            <input type="text" name="body" id="video-body" placeholder="Paste YouTube URL or code here"/>
+            </div>
+            <input type="hidden" name="post_type" value="video">
+            <input type="hidden" name="form_id" value="fileUploadForm">
+
+
+          </form>
+
+        </div>
+        <div class="video-close-button">
+        </div>
+      </div>
+
     </div>
 
     <form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-form">

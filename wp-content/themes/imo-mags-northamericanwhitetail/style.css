@@ -1388,9 +1388,7 @@ a.comment-count:hover {
     float:right;
  }
 
- #fileupload {
-    margin-bottom:20px;
- }
+
 
 .fileupload-buttonbar input
 {
@@ -1406,8 +1404,14 @@ a.comment-count:hover {
     -moz-transform: translate(-300px, 0) scale(4);
     direction: ltr;
     cursor: pointer;
+    width:90px;
 
 }
+
+.fileupload-buttonbar span {
+    cursor: pointer;
+}
+
 .upload-button
 {
     font-family: ProximaNovaA-Semibold;
@@ -1417,12 +1421,69 @@ a.comment-count:hover {
     overflow: visible;
     background-color: #77a139;
     margin:0px;
-    padding:5px 10px 5px 10px;
+    padding:9px 10px 5px 10px;
     overflow: hidden;
     color:white;
     font-size:14px;
+    cursor: pointer;
 }
 
+.upload-button:hover
+{
+    background-color: #466913;
+}
+
+
+.video-button
+{
+    font-family: ProximaNovaA-Semibold;
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+    overflow: visible;
+    background-color: #c45523;
+    margin:10px 0px 0px 0px;
+    padding:0px;
+    overflow: hidden;
+    color:white;
+    font-size:14px;
+    width: 89px;
+}
+
+.video-button:hover {
+    background-color: #7f300b;
+}
+
+.video-close-button {
+    position: relative;
+    left: 248px;
+    top: -55px;
+    z-index: 100;
+    height:20px;
+    width:20px;
+    background-image: url("img/close-button.png");
+    cursor: pointer;
+
+}
+.video-body-holder {
+
+    background-color:white;
+    border: 5px solid white;
+    width: 250px;
+    position:relative;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.68);
+    -moz-box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.68);
+    -webkit-box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.68);
+}
+
+#video-body {
+
+    background-color: white;
+    border: 1px solid #CCC;
+    width: 227px;
+    padding: 10px;
+    
+}
 
 .loading-box {
     border:1px solid #bbbbbb;
@@ -1443,6 +1504,8 @@ a.comment-count:hover {
     font-family: Helvetica, Arial, "MS Trebuchet", sans-serif;
     font-size:24px;
     padding-right:6px;
+    height:10px;
+    line-height: 26px;
 }
 
 .new-superpost-modal-container input#title {
@@ -1486,6 +1549,8 @@ select.post_type {
    height: 34px;
 
 }
+
+
 
 /*
  * Newsletter Widget
