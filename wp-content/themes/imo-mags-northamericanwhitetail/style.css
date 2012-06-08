@@ -1294,13 +1294,13 @@ top:27px;
 }
 .questions-slider .quote-area .mdl{
 	background: url('img/questions-mod-bg.png') repeat-y top center;
-	width: 684px;	
+	width: 683px;	
 }
 .questions-slider .quote-area .btm{
 	background: url('img/questions-mod-btm.png') no-repeat top center;
 	height: 31px;
     margin-top: -8px;
-    width: 686px;
+    width: 684px;
 }
 .questions-slider .user-info{
 	font-family: ProximaNova-Regular;
