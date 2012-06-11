@@ -47,7 +47,6 @@ a:hover{
 }
 .clear{
 	clear: both;
-	height: 30px;
 }
 hr.comm-sep{
 	border-top: 3px solid #EFECE7;
@@ -1209,7 +1208,7 @@ top:27px;
 
 
 .questions-slider {
-    min-height: 350px;
+    min-height: 270px;
     margin: -30px 0 0;
     padding: 16px 0;
     position: relative;
@@ -1225,7 +1224,7 @@ top:27px;
     margin: 0 11px;
 }
 .questions-slider .slides-container-f {
-    min-height: 350px;
+    min-height: 270px;
     margin: 0 auto;
     width: 680px;
 }
@@ -1237,6 +1236,7 @@ top:27px;
     right:310px;
     top: -34px;
     width: 27px;
+    list-style: none;
 }
 .questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-direction-rtl .jcarousel-next-horizontal {
     background-image: url("img/prev-rounded.png");
@@ -1262,14 +1262,14 @@ top:27px;
 }
 .questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-item {
     background: none repeat scroll 0 0 transparent;
-    min-height: 350px;
+    min-height: 270px;
     padding: 0;
     position: relative;
-    width: 572px;
+    width: 680px;
 }
 .questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-clip-horizontal {
     cursor: pointer;
-    min-height: 350px;
+    min-height: 270px;
     width: 680px;
     margin-top: 40px;
 }
@@ -1288,19 +1288,22 @@ top:27px;
 	width: 680px;
 }
 .questions-slider .quote-area .top{
-	background: url('img/questions-mod-top.png') no-repeat top center;
-	height: 23px;
-    width: 683px;	
+	background: url("img/top-arrow.jpg") no-repeat scroll 25px top transparent;
+    height: 6px;
+    position: relative;
+    top: 1px;
+    width: 37px;
+    z-index: 9999;
 }
 .questions-slider .quote-area .mdl{
-	background: url('img/questions-mod-bg.png') repeat-y top center;
-	width: 683px;	
+	background: #f6f4eb;
+	border: 1px solid #dbd4cc;
+	width: 674px;	
 }
 .questions-slider .quote-area .btm{
-	background: url('img/questions-mod-btm.png') no-repeat top center;
-	height: 31px;
-    margin-top: -8px;
-    width: 684px;
+	background: url('img/shadow.jpg') no-repeat top center;
+	height: 11px;
+    width: 685px;
 }
 .questions-slider .user-info{
 	font-family: ProximaNova-Regular;
@@ -1313,7 +1316,7 @@ top:27px;
 .questions-slider h4.quote{
 	color: #C65517;
     font-size: 1.6em;
-    padding: 0 42px;
+	padding: 10px 42px 0;
     text-align: left;
     font-weight: lighter;
 	
@@ -1328,7 +1331,7 @@ top:27px;
 }
 .questions-slider .answers-area{
 	font-family: ProximaNova-Regular;
-	margin-top: 10px;
+	margin-top: 30px;
 	text-transform: uppercase;
 	font-size: 0.8em;
 }
@@ -2312,22 +2315,33 @@ a.about-link:hover{
 }
 /**
 * 
-* Questions Module
+* Questions Module & Page
 *
 **/
 .questions-right{
 	float: right;
 }
-.questions-right ul{
+.questions-page-nav{
+	float: left;
+	position: absolute;
+    left: 362px;
+    top: 4px;
+}
+.questions-right ul, .questions-page-nav ul{
 	list-style: none;
 }
-.questions-right li{
+.questions-right li, .questions-page-nav li{
 	float: left;
 	margin: 8px 4px;
 }
-.questions-right .plus-button.reg a{
+.questions-right .plus-button.reg a, .questions-page-nav .plus-button.reg a{
 	background: #aaa197 !important;
 }
-.questions-right .plus-button.reg a:hover{
+.questions-right .plus-button.reg a:hover, .questions-page-nav .plus-button.reg a:hover{
 	background: #3e88e9 !important;
+}
+.q-loop li{
+	float: none;
+    padding: 30px 0 70px;
+    border-bottom: 1px solid #ccc;
 }
