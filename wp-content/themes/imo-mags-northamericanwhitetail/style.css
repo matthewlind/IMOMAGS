@@ -1725,7 +1725,8 @@ a.comment-count:hover {
 	margin-top: 40px;
 }
 
-/*
+/* 
+ * Default Pages
  * Tactics Page
  * Your Land Page
  *
@@ -1734,6 +1735,9 @@ a.comment-count:hover {
 	background: url("img/deer-tactics-icon.png") no-repeat scroll 0 0 transparent;
 	width: 800px;
 
+}
+.page-template-page-default-php .header-title{
+	width: 800px;
 }
 .page-template-page-tactics-php .header-title h1{
 	margin-left: 60px;
@@ -1748,7 +1752,7 @@ a.comment-count:hover {
 	margin-left: 157px;
 	
 }
-.page-template-page-tactics-php h3{
+.page-template-page-tactics-php h3, .page-template-page-default-php h3{
 	font-size: 0.9em;
     position: absolute;
     right: 220px;
@@ -1776,11 +1780,11 @@ h1.more-header{
     top: -4px;
     width: 210px;
 }
-.page-template-page-tactics-php .bonus-background, .page-template-page-trophy-php .bonus-background, .page-template-page-land-php .bonus-background {
+.page-template-page-tactics-php .bonus-background, .page-template-page-trophy-php .bonus-background, .page-template-page-land-php .bonus-background, .page-template-page-default-php .bonus-background {
 	margin-top: 40px;
 }
-.page-template-page-tactics-php .cfct-module, .page-template-page-trophy-bucks-php .cfct-module{
-	margin: 0 0 4px;
+.page-template-page-tactics-php .cfct-module, .page-template-page-trophy-bucks-php .cfct-module, .page-template-page.page-template-page-default-php .cfct-module{
+	margin: 0 0 4px !important;
 }
 .mod-gallery, .mod-topics{
 	background: url('img/mod-title-bg.png') no-repeat;
