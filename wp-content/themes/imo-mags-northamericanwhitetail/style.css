@@ -431,23 +431,35 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     font-weight: lighter;
     line-height: 1.5;
 }
-#header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 > .menu-item a {
+#header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 > .menu-header.menu-header a {
     background: none repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    cursor: default;
+    font-family: 'rokkitt',serif !important;
+    font-size: 1.4em;
+    margin: 25px 0 9px 54px;
+    padding: 0;
+}
+#header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 > .menu-header.menu-header a:hover {
+    color: #fff !important;
+}
+#header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 > .menu-item a {
+    background: none;
     padding: 0;
     font-family: "Helvetica Nueue",Helvetica,Arial,sans-serif !important;
-	color: #fff;
+	color: #aaa197;
+	font-weight: 500;
 }
 #header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 > .menu-item a:hover {
-    color: #CE181E;
+    color:#ffe720 !important;
 }
 #header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 > .menu-item .wpmega-link-title {
     line-height: 1;
 }
 #header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 .ss-nav-menu-item-depth-1 {
     background: none repeat scroll 0 0 transparent;
-    border-left: 1px solid #E3E3E3;
     line-height: 1.2;
-    margin: 32px 0 32px 4px;
+    margin: 12px 0 12px 54px;
     padding: 0 10px 0 32px;
     width: 1030px;
     left: 0 !important;
@@ -624,7 +636,7 @@ top:27px;
     -moz-box-orient: vertical;
     display: inline-block;
     vertical-align: middle;
-    margin-right:33px;
+    margin-right:20px;
 }
 
 #site-menu .menu li a {
@@ -1048,7 +1060,7 @@ top:27px;
 
 
 /*
- * IMO Network Slider / Questions SLider
+ * IMO Network Slider / Questions Slider
  *
  */
  
@@ -1443,7 +1455,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     background-image: url("img/ui_tab_next_blue.png") !important;
     right: 0 !important;
 }
-
 #megaMenu ul li.trophy-bucks.ss-nav-menu-mega ul.sub-menu li{
 	width:956px;
 }
