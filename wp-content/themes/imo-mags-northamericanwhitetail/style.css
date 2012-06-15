@@ -1485,11 +1485,28 @@ a.comment-count:hover {
     
 }
 
+img.image-thumb {
+    vertical-align:middle;
+    margin-right:20px;
+    padding-bottom:10px;
+}
+
+form.thumb-caption {
+    display: inline;
+}
+
+input.caption-field {
+    width: 210px;
+}
+
+
+
 .loading-box {
     border:1px solid #bbbbbb;
     width:74px;
     height:74px;
     background-color:white;
+    margin-bottom:10px;
 }
 
 .loading-box img {
@@ -1550,7 +1567,10 @@ select.post_type {
 
 }
 
-
+.state-dropdown-container {
+    margin-top:10px;
+    margin-bottom:10px;
+}
 
 /*
  * Newsletter Widget

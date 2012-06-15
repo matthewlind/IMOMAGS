@@ -46,15 +46,12 @@ if (empty($commentData[0])) {
 
 
 //Then get attachment data
-$requestURL3 = "http://www.northamericanwhitetail.deva/slim/api/superpost/children/photo/$spid";
+$requestURL3 = "http://www.northamericanwhitetail.deva/slim/api/superpost/children/not_comment/$spid";
 
 $file3 = file_get_contents($requestURL3);
-$photoData = json_decode($file3);
+$attachmentData = json_decode($file3);
 
-if (empty($photoData[0])) {
 
-    //$photoData[0] = "hey";
-}
 
 
 $grav_url = "http://www.gravatar.com/avatar/" . $data->gravatar_hash . ".jpg?s=25&d=identicon";
@@ -75,24 +72,40 @@ $headerTitle = $data->post_type . ": " . $data->title;
 <div class="col-abc">
 	<div <?php post_class('entry entry-full clearfix'); ?>>
 		<div class="entry-content">
+
+            <div class="description">
+                <?php echo $data->body;?>
+            </div>
        
             <?php
 
-                foreach ($photoData as $photo) {
-                    
-                    $img = "";
-                    $photoURL = str_replace("thumb", "full", $photo->img_url);
-                    $img = "<li><img src='$photoURL' width=585></li>";
-                    echo $img;
+                foreach ($attachmentData as $attachment) {
+              
+                    $media = "";
+
+                    if ($attachment->post_type == "youtube") {
+
+                        $videoID = $attachment->meta;
+                        $media = "<li><div class='attachment-container'>";
+                        $media .= '<iframe width="640" height="480" src="http://www.youtube.com/embed/' . $videoID . '" frameborder="0" allowfullscreen></iframe>';
+                        $media .= "</div><div class='attachment-caption'>$attachment->body</div></li>";
+
+                    } else {
+
+                        $photoURL = str_replace("thumb", "medium", $attachment->img_url);
+                        $media = "<li><div class='attachment-container'><img src='$photoURL' width=585></div><div class='attachment-caption'>$attachment->body</div></li>";
+                        
+                    }
+
+
+                    echo $media;
 
                 }
 
 
             ?>
 
-            <div class="description">
-                <?php echo $data->body;?>
-            </div>
+            
 
 
 

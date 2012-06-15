@@ -1,122 +1,3 @@
-/*
-    jQuery `input` special event v1.1
- 
-http://whattheheadsaid.com/projects/input-special-event
- 
-    (c) 2010-2011 Andy Earnshaw
-    MIT license
-    www.opensource.org/licenses/mit-license.php
-*/
-(function($, udf) {
-    var ns = ".inputEvent ",
-        // A bunch of data strings that we use regularly
-        dataBnd = "bound.inputEvent",
-        dataVal = "value.inputEvent",
-        dataDlg = "delegated.inputEvent",
-        // Set up our list of events
-        bindTo = [
-            "input", "textInput", "propertychange", "paste", "cut", "keydown", "drop",
-        ""].join(ns),
-        // Events required for delegate, mostly for IE support
-        dlgtTo = [ "focusin", "mouseover", "dragstart", "" ].join(ns),
-        // Elements supporting text input, not including contentEditable
-        supported = {TEXTAREA:udf, INPUT:udf},
-        // Events that fire before input value is updated
-        delay = { paste:udf, cut:udf, keydown:udf, drop:udf, textInput:udf };
- 
-    $.event.special.txtinput = {
-        setup: function(data, namespaces, handler) {
-            var triggerTimer,
-                bndCount,
-                changeTimer,
-                // Get references to the element
-                elem  = this,
-                $elem = $(this),
-                triggered = false;
- 
-            if (elem.tagName in supported) {
-                bndCount = $.data(elem, dataBnd) || 0;
- 
-                if (!bndCount)
-                    $elem.bind(bindTo, handler);
- 
-                $.data(elem, dataBnd, ++bndCount);
-                $.data(elem, dataVal, elem.value);
-            } else {
-                $elem.bind(dlgtTo, function (e) {
-                    var target = e.target;
-                    if (target.tagName in supported && !$.data(elem, dataDlg)) {
-                        bndCount = $.data(target, dataBnd) || 0;
- 
-                        if (!bndCount)
-                            target.bind(bindTo, handler);
- 
-                        // make sure we increase the count only once for each bound ancestor
-                        $.data(elem, dataDlg, true);
-                        $.data(target, dataBnd, ++bndCount);
-                        $.data(target, dataVal, target.value);
-                    }
-                });
-            }
-            function handler (e) {
-                var elem = e.target;
- 
-                // Clear previous timers because we only need to know about 1 change
-                window.clearTimeout(timer), timer = null;
- 
-                // Return if we've already triggered the event
-                if (triggered)
-                    return;
- 
-                // paste, cut, keydown and drop all fire before the value is updated
-                if (e.type in delay && !timer) {
-                    // ...so we need to delay them until after the event has fired
-                    timer = window.setTimeout(function () {
-                        if (elem.value !== $.data(elem, dataVal)) {
-                            $(elem).trigger("txtinput");
-                            $.data(elem, dataVal, elem.value);
-                        }
-                    }, 0);
-                }
-                else if (e.type == "propertychange") {
-                    if (e.originalEvent.propertyName == "value") {
-                        $(elem).trigger("txtinput");
-                        $.data(elem, dataVal, elem.value);
-                        triggered = true;
-                        window.setTimeout(function () {
-                            triggered = false;
-                        }, 0);
-                    }
-                }
-                else {
-                    $(elem).trigger("txtinput");
-                    $.data(elem, dataVal, elem.value);
-                    triggered = true;
-                    window.setTimeout(function () {
-                        triggered = false;
-                    }, 0);
-                }
-            }
-        },
-        teardown: function () {
-            var elem = $(this);
-            elem.unbind(dlgtTo);
-            elem.find("input, textarea").andSelf().each(function () {
-                bndCount = $.data(this, dataBnd, ($.data(this, dataBnd) || 1)-1);
- 
-                if (!bndCount)
-                    elem.unbind(bindTo);
-            });
-        }
-    };
- 
-    // Setup our jQuery shorthand method
-    $.fn.input = function (handler) {
-        return handler ? this.bind("txtinput", handler) : this.trigger("txtinput");
-    }
-})(jQuery);
-
-
 
 
 
@@ -128,42 +9,53 @@ jQuery(document).ready(function($) {
       $(this).closest('.superpost-image-form').submit();
     });
 
-
-    // $("input#video-body").keydown(function(){
-    //   if ($(this).val().length > 8) {
-    //     alert("W00");
-    //   }
-      
-    // });
-
     $("input#video-body").bind("input",function(){
 
-        alert("W0asda0");
-
+      if ($("input#video-body").val().length > 7) {
+        //Then submit the form!
+        console.log($(this).closest('.superpost-image-form'));
+        $(this).closest('.superpost-image-form').submit();
+        
+        $(".video-url-form-holder-container").fadeOut(function(){
+          $("input#video-body").val("");
+        });
+      }
       
     });
 
+    $(".state-chzn").chosen();
 
-  }
+    $("select.post_type").change(function(){
+      if ($("select.post_type").val() == "report" || $("select.post_type").val() == "trophy") {
 
-  function SubmitVideo() {
-    $("input#video-body").closest('.superpost-image-form').submit();
-  }
+        if (($("select.post_type").val() == "report")) {
+          $(".chzn-container span").text("Oh! Where are you reporting from?");
+        }
+
+        $(".state-dropdown-container").slideDown();
+      }
+    });
+
+
+  }//End SetupPostFOrm
+
+
 
   
   $("#new-post-button").click(function(){
       $(".new-superpost-modal-container").modal({
         opacity: 50, 
         overlayClose: true,
+        position: Array("9%","20%"),
         onShow: SetupPostForm
       });
   });
 
-      $(".new-superpost-modal-container").modal({
-        opacity: 50, 
-        overlayClose: true,
-        onShow: SetupPostForm
-      });
+      // $(".new-superpost-modal-container").modal({
+      //   opacity: 50, 
+      //   overlayClose: true,
+      //   onShow: SetupPostForm
+      // });
 
 
   $('.masonry-container').masonry({
@@ -181,7 +73,7 @@ jQuery(document).ready(function($) {
   });
 
   $(".video-close-button").click(function(){
-    $(".video-url-form-holder-container").fadeOut().stopPropagation();
+    $(".video-url-form-holder-container").fadeOut();
   });
   
 
@@ -209,15 +101,18 @@ jQuery(document).ready(function($) {
       success: ImageSubmitSuccessful,
       data:userIMO,
       error: AjaxError                               
-    });    
+    });
+
+
+    
 
   });            
 
   
 
   function ShowRequest(formData, jqForm, options) {
-    //var queryString = $.param(formData);
-    //alert('BeforeSend method: \n\nAbout to submit: \n\n' + queryString);
+    var queryString = $.param(formData);
+    alert('BeforeSend method: \n\nAbout to submit: \n\n' + queryString);
     return true;
   }
 
@@ -237,6 +132,10 @@ jQuery(document).ready(function($) {
     //addNewBox(response);
   }
 
+  function CaptionSubmitSuccessful(responseText, statusText) {
+    alert("Yay! caption added!");
+  }
+
   function CommentSubmitSuccessful(responseText, statusText) {     
     //alert("SuccesMethod:\n\n" + responseText);
 
@@ -247,8 +146,13 @@ jQuery(document).ready(function($) {
   }
 
   function BeforeImageSubmit(formData, jqForm, options) {
+
+    if (formData[1].value == "youtube") {
+      $(".photo-attachement-header").text("Media");
+    }
     
     $(".photo-attachement-header").fadeIn(1000);
+
 
     var $loadingTag = $("<div class='loading-box' style=''><img src='/wp-content/themes/imo-mags-northamericanwhitetail/img/loader.gif'></div>");
     //$(".attached-photos").append($loadingTag);
@@ -263,8 +167,23 @@ jQuery(document).ready(function($) {
 
     var response = jQuery.parseJSON(responseText);
 
+    $(".new-superpost-modal-container").animate({
+      width: "760px"
+    }, 500 );
+
+    $(".media-section").animate({
+      width: "320px"
+    }, 500 );
+
+
     //first, get the image.
-    var $imageTag = $("<div><img src='" + response.img_url + "' height=75 width=75 style=''></div>");
+    var $imageTag = $("<div><img src='" + response.img_url + "' height=75 width=75 style='' class='image-thumb'>\
+                      <form method='POST' action='/slim/api/superpost/update_caption' enctype='multipart/form-data' class='superpost-caption-form thumb-caption'>\
+                      <input class='caption-field' name='body' type='text' placeholder='Caption (optional)'>\
+                      <input type='hidden' name='form_id' value='fileUploadForm'>\
+                      <input type='hidden' name='post_id' class='post_id' value='321'>\
+                      </form>\
+                      </a></div>");
 
     //Then Append the image
     $(".loading-box").fadeOut(function(){
@@ -283,6 +202,23 @@ jQuery(document).ready(function($) {
       attachmentIDs = response.id;
      }
     $("input.attachment_id").val(attachmentIDs);
+
+    //Then change the value of the caption's post_id hidden field
+    $imageTag.find('.post_id').val(response.id);
+
+    //Add the ajax form event to the caption form
+    $imageTag.find('.superpost-caption-form').ajaxForm({                 
+      beforeSubmit: ShowRequest,
+      success: CaptionSubmitSuccessful,
+      data:userIMO,
+      error: AjaxError                               
+    });    
+
+    //Then, add the change event to the caption field
+    $imageTag.find('.caption-field').change(function(){
+      $(this).closest('.superpost-caption-form').submit();
+    });
+
 
 
     console.log("response Image YO!");

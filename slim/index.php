@@ -12,6 +12,7 @@ include 'mysql.php';
 include 'auth.php';
 include 'userinfo.php';
 include 'images.php';
+include 'video.php';
 
 function get_IP() {
 	$headers = apache_request_headers(); 
@@ -76,7 +77,7 @@ $app->get('/api/superpost/type/:post_type(/:count(/:start))',function($post_type
 		$whereClause = "WHERE post_type = ?";
 
 		if ($post_type == "all")
-			$whereClause = "WHERE post_type != 'comment' AND post_type != 'answer' AND post_type != 'photo'";
+			$whereClause = "WHERE post_type != 'comment' AND post_type != 'answer' AND post_type != 'photo' AND post_type != 'youtube'";
 
 		$limitClause = "LIMIT $start,$count";
 
@@ -140,11 +141,20 @@ $app->get('/api/superpost/children/:post_type/:parent_id',function($post_type,$p
 
 		$db = dbConnect();
 
+		if ($post_type != "not_comment") {
 
-		$sql = "SELECT * FROM superposts WHERE post_type = ? AND parent = ? ORDER BY id ASC";
+			$sql = "SELECT * FROM superposts WHERE post_type = ? AND parent = ? ORDER BY id ASC";
 
-		$stmt = $db->prepare($sql);
-		$stmt->execute(array($post_type,$parent_id));
+			$stmt = $db->prepare($sql);
+			$stmt->execute(array($post_type,$parent_id));
+		} else { //If post_type == not_comment
+			
+			$sql = "SELECT * FROM superposts WHERE post_type != 'comment' AND parent = ? ORDER BY id ASC";
+
+			$stmt = $db->prepare($sql);
+			$stmt->execute(array($parent_id));
+		}
+		
 	
 		$posts = $stmt->fetchAll(PDO::FETCH_OBJ);
 
@@ -169,6 +179,8 @@ $app->post('/api/superpost/add',function() {
 
 	$params = Slim::getInstance()->request()->post();
 
+	_log("NEW POST STARTED");
+
 
 	//Get the user info an authenticate
 	if (userIsGood($params['username'],$params['userhash'])) {
@@ -179,13 +191,37 @@ $app->post('/api/superpost/add',function() {
 		//error_log($params);
 
 		//Handle the uploaded file
-		$fileName = $_FILES['photo-upload']['name'];
-		$tmpName = $_FILES['photo-upload']['tmp_name'];
+		if (!empty($_FILES['photo-upload']['name'])) {
+			$fileName = $_FILES['photo-upload']['name'];
+			$tmpName = $_FILES['photo-upload']['tmp_name'];
+			$target_path = "images/tmp/";
+			$target_path = $target_path . basename( $fileName );
 
-		$target_path = "images/tmp/";
-		$target_path = $target_path . basename( $fileName ); 
-		
-		$imgURL = "";
+		}
+		/////////////////////////////////////
+		//If there is a video....
+		$videoExists = false;
+		if ($params['post_type'] == "youtube") {
+
+			$videoID = extractVideoID($params['body']);
+
+			$video = getYoutubeVideo($videoID);
+
+			$params['body'] = "";
+			$params['meta'] = $videoID;
+
+			$target_path = $video['temp_image_path'];
+
+			_log($video);
+
+			$imgURL = resizeImages($target_path, TRUE);
+
+			$videoExists = TRUE;
+
+		}
+
+		 /////////////////////////////////////
+		//If there is an image
 		if (!empty($_FILES['photo-upload']['name'])) { //Check if file exists
 			if(move_uploaded_file($tmpName, $target_path)) { //check if file upload failed
 				//Then resize and move the file!
@@ -222,11 +258,12 @@ $app->post('/api/superpost/add',function() {
 			"gravatar_hash",
 			"img_url",
 			"ip",
+			"meta",
 			"state",
 			"video_url"
 		);
 
-		if (!empty($fileName)) {
+		if (!empty($fileName) || $videoExists) {
 			$params['img_url'] = $imgURL;
 		}
 		
@@ -311,6 +348,54 @@ $app->post('/api/superpost/add',function() {
 	}
 
 });
+
+
+//*********************************
+//**********Update Post Body**********
+//*********************************
+$app->post('/api/superpost/update_caption',function() {
+	header('Access-Control-Allow-Origin: *');
+
+	$params = Slim::getInstance()->request()->post();
+
+	_log("NEW CAPTION STARTED");
+	_log($params);
+
+	$newBody = $params['body'];
+	$post_id = $params['post_id'];
+
+
+	//Get the user info an authenticate
+	if (userIsGood($params['username'],$params['userhash'])) {
+
+		try {
+
+			$db = dbConnect();
+
+
+			$sql = "UPDATE superposts SET `body` = ? WHERE `id` = ?";
+
+			$stmt = $db->prepare($sql);
+			$stmt->execute(array($newBody,$post_id));
+		
+		
+
+			echo json_encode("GOOD");
+
+			$db = "";
+
+		} catch(PDOException $e) {
+	    	echo $e->getMessage();
+	    }
+
+	}
+
+
+
+});
+
+
+
 
 
 function setAtttachment($spid,$attachmentIDstring) {
