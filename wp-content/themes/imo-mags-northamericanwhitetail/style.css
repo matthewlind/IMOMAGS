@@ -1691,6 +1691,9 @@ a.comment-count:hover {
 .page-template-page-dod-php a.submit-yours{
 	float: left;
     margin-right: 264px;
+    background-color: #3e88e9;
+    padding: 0 8px;
+    color: #fff;
 }
 .page-template-page-dod-php .dod-feature{
 	width: 672px;

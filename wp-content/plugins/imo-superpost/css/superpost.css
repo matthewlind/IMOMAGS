@@ -209,7 +209,7 @@ ul.post-type-select {
 }
 ul.post-type-select li {
 	font-family:"ProximaNovaS-Semibold";
-	font-size: 1em;
+	font-size: 0.9em;
 	background-color: white;
     border-right:1px solid #CCCCCC;
     border-top:1px solid #CCCCCC;
@@ -219,7 +219,7 @@ ul.post-type-select li {
     cursor: pointer;
     display: inline;
     float:left;
-    padding: 13px 20px;
+    padding: 14px 20px;
 }
 ul.post-type-select li.all{
 	border-left:1px solid #fff !important;
