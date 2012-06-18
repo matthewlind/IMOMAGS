@@ -1611,10 +1611,17 @@ a.comment-count:hover {
 }
 
 /*
- * Single Pages
+ * Single Pages & Comments
  * 
  *
  */
+.single h1.entry-title{
+	font-size: 3.7em;
+}
+.single .addthis_toolbox.addthis_default_style{
+	float: right;
+	margin: 0 0 30px;
+}
 .header-title{
 	border-bottom: 4px solid #000;
 	width: 1030px;
@@ -1629,7 +1636,13 @@ a.comment-count:hover {
 .wp-caption {
     border-radius:0;
 }
-
+.single .entry-header{
+	border-bottom: solid 1px #e5e5e5;
+	padding-bottom: 10px;
+}
+#idc-container div{
+	font-size: 1em !important;
+}
 /*
  * Trophy Bucks Page
  * 
@@ -1783,6 +1796,7 @@ h1.more-header, h1.top-articles{
 h1.more-header{
 	border-bottom: 4px solid #000;
 }
+
 .naw-ad{
 	background: url('img/naw-ad.png') no-repeat;
 	height: 95px;
@@ -2359,4 +2373,22 @@ a.about-link:hover{
 	float: none;
     padding: 30px 0 70px;
     border-bottom: 1px solid #ccc;
+}
+/**
+* 
+* TV Pages
+*
+**/
+.watch-btn a{
+	background-color: #E5E5E5;
+    padding: 7px 93px 11px;
+    text-align: center;
+    line-height: 2em;
+    font-family: ProximaNovaS-Regular;
+    font-size: 1em;
+}
+h1.tv-header{
+	border-bottom: 1px dotted #999;
+    font-size: 1.5em;
+    text-align: center;
 }

@@ -44,7 +44,6 @@ $this_post_is_not_single = (!is_single(get_the_ID()));
 		</div>
 	</div>
 <?php } ?>
-	<?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
 
 	<div class="entry-content">
 		<?php
