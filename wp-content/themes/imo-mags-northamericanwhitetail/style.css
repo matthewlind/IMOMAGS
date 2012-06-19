@@ -370,10 +370,16 @@ width: 990px;
     padding: 20px 28px 20px 12px;
     vertical-align: middle;
 }
-
+#header #megaMenu ul.megaMenu > .deer-of-the-day.menu-item > a{
+	background: none;
+	padding: 20px 24px;
+}
 #header #megaMenu ul.megaMenu > .menu-item.megaHover > a {
     color: white;
     background: url("img/arrow-white-down.png") no-repeat scroll 95% 57% #000;
+}
+#header #megaMenu ul.megaMenu > .deer-of-the-day.menu-item.megaHover > a {
+    background: none #000;
 }
 #header #megaMenu ul.megaMenu > .magazine.menu-item.megaHover > a {
     color: white;
