@@ -1572,6 +1572,10 @@ select.post_type {
     margin-bottom:10px;
 }
 
+.user-login-modal-container {
+    background-color:white;
+}
+
 /*
  * Newsletter Widget
  * 

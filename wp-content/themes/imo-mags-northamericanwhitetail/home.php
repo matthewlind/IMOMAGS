@@ -36,6 +36,9 @@ get_header();
             <span id="new-post-button">
                 + POST
             </span>
+            <span id="user-login-button">
+                LOGIN
+            </span>
 
             <ul class="post-type-select">
                 <li class='selected' title='all'>ALL</li>

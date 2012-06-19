@@ -203,6 +203,9 @@ $app->post('/api/superpost/add',function() {
 		$videoExists = false;
 		if ($params['post_type'] == "youtube") {
 
+			_log("VIDEO STUFF");
+			_log($params);
+
 			$videoID = extractVideoID($params['body']);
 
 			$video = getYoutubeVideo($videoID);
@@ -236,13 +239,11 @@ $app->post('/api/superpost/add',function() {
 		if (!empty($params['attachment_id'])) {
 			$attachmentIDstring = $params['attachment_id'];
 			$attachmentIDs = explode(",", $attachmentIDstring);
-			
-
+		
 
 			$imgURL = getImgURL($attachmentIDs[0]);
 			$params['img_url'] = $imgURL;
 			
-		
 			
 		}
 

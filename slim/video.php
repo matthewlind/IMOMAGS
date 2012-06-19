@@ -2,6 +2,8 @@
 
 function extractVideoID($dataString) {
 
+	error_log($dataString);
+
 	preg_match('#(\.be/|/embed/|/v/|/watch\?v=)([A-Za-z0-9_-]{5,11})#', $dataString, $matches);
 	return $matches[2];
 }

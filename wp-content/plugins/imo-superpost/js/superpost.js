@@ -5,23 +5,23 @@
 jQuery(document).ready(function($) {
 
   function SetupPostForm() {
-    $("input#image-upload").change(function(){
-      $(this).closest('.superpost-image-form').submit();
-    });
+    // $("input#image-upload").change(function(){
+    //   $(this).closest('.superpost-image-form').submit();
+    // });
 
-    $("input#video-body").bind("input",function(){
+    // $("input#video-body").bind("input",function(){
 
-      if ($("input#video-body").val().length > 7) {
-        //Then submit the form!
-        console.log($(this).closest('.superpost-image-form'));
-        $(this).closest('.superpost-image-form').submit();
+    //   if ($("input#video-body").val().length > 7) {
+    //     //Then submit the form!
+    //     console.log($(this).closest('.superpost-image-form'));
+    //     $(this).closest('.superpost-image-form').submit();
         
-        $(".video-url-form-holder-container").fadeOut(function(){
-          $("input#video-body").val("");
-        });
-      }
+    //     $(".video-url-form-holder-container").fadeOut(function(){
+    //       $("input#video-body").val("");
+    //     });
+    //   }
       
-    });
+    // });
 
     $(".state-chzn").chosen();
 
@@ -39,6 +39,26 @@ jQuery(document).ready(function($) {
 
   }//End SetupPostFOrm
 
+  //Setup Comment form
+  $("input#image-upload").change(function(){
+    $(this).closest('.superpost-image-form').submit();
+  });
+
+  $("input#video-body").bind("input",function(){
+
+    if ($("input#video-body").val().length > 7) {
+      //Then submit the form!
+      console.log($(this).closest('.superpost-image-form'));
+      console.log($("input#video-body").val());
+      $(this).closest('.superpost-image-form').submit();
+      
+      
+      $(".video-url-form-holder-container").fadeOut(function(){
+        $("input#video-body").val("");
+      });
+    }
+    
+  });
 
 
   
@@ -48,6 +68,15 @@ jQuery(document).ready(function($) {
         overlayClose: true,
         position: Array("9%","20%"),
         onShow: SetupPostForm
+      });
+  });
+
+  $("#user-login-button").click(function(){
+      $(".user-login-modal-container").modal({
+        opacity: 50, 
+        overlayClose: true,
+        position: Array("9%","20%"),
+        onShow: activateFBlogin
       });
   });
 
@@ -112,7 +141,7 @@ jQuery(document).ready(function($) {
 
   function ShowRequest(formData, jqForm, options) {
     var queryString = $.param(formData);
-    alert('BeforeSend method: \n\nAbout to submit: \n\n' + queryString);
+    //alert('BeforeSend method: \n\nAbout to submit: \n\n' + queryString);
     return true;
   }
 
@@ -133,7 +162,7 @@ jQuery(document).ready(function($) {
   }
 
   function CaptionSubmitSuccessful(responseText, statusText) {
-    alert("Yay! caption added!");
+    //alert("Yay! caption added!");
   }
 
   function CommentSubmitSuccessful(responseText, statusText) {     
@@ -317,5 +346,52 @@ jQuery(document).ready(function($) {
     $form.find('input:radio, input:checkbox')
          .removeAttr('checked').removeAttr('selected');
 }
+
+  function activateFBlogin() {
+    jQuery(".imo-fb-login-button").click(function(){
+              
+
+              FB.getLoginStatus(function(response) {
+                if (response.status === 'connected') {
+                  FB.api('/me', function(response) {
+                     console.log('You\'re already logged in to FB and this App has previously authenticated, ' + response.name + '.');
+                   });
+
+                  jQuery.getJSON('/facebook-usercheck.json', function(data) {
+                    console.log(data);
+                  });
+                  // the user is logged in and has authenticated your
+                  // app, and response.authResponse supplies
+                  // the user's ID, a valid access token, a signed
+                  // request, and the time the access token 
+                  // and signed request each expire
+                  var uid = response.authResponse.userID;
+                  var accessToken = response.authResponse.accessToken;
+                } else if (response.status === 'not_authorized') {
+                  imo_fb_login();
+                  console.log("logged in to fb, app not authenticated");
+                  // the user is logged in to Facebook, 
+                  // but has not authenticated your app
+                } else {
+                  imo_fb_login();
+                  console.log("not logged in to fb");
+                  // the user isn't logged in to Facebook.
+                }
+               });
+
+              function imo_fb_login() {
+                FB.login(function(response) {
+                   if (response.authResponse) {
+                     console.log('Welcome!  Fetching your information.... ');
+                     FB.api('/me', function(response) {
+                       console.log('Good to see you, ' + response.name + '.');
+                     });
+                   } else {
+                     console.log('User cancelled login or did not fully authorize.');
+                   }
+                 }, {scope: 'email'});
+              }
+            });
+  }
 
 });//End document ready
