@@ -123,7 +123,8 @@ wp_footer();
                 <div class='footer-col-wrapper r-col statebystate'> 
                     <div class='section'> 
                         <ul id='more' class='footer-menu'> 
-                            <li class="first"><a class="gameandfish" href="http://www.gameandfishmag.com">Game &amp; Fish</a></li> 
+                        	<li class="first"><a class="sv" href="http://www.sportsmenvote.com">SportsmenVote</a></li> 
+                            <li><a class="gameandfish" href="http://www.gameandfishmag.com">Game &amp; Fish</a></li> 
                             <li class=""><a class="sportsmanchannel" href="http://www.thesportsmanchannel.com">The Sportsman Channel</a></li> 
                             <li class="last"><a class="imostore" href="http://store.intermediaoutdoors.com">The IMO Store</a></li> 
                         </ul> 

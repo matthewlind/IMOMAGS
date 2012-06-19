@@ -166,6 +166,19 @@ div#footer-universal-outer .region-footer {
     background-image: url(../imo-footer/images/gameandfish_logo-on.png);
 }
 
+#more.footer-menu li a.sv {
+    background-image: url(../imo-footer/images/sp-logo-sm.png);
+    background-repeat:no-repeat;
+    height:56px;
+    background-position: 0 0px;
+    text-indent: -9000em;
+    width: 100%;
+    display:block;
+}
+
+#more.footer-menu li a.sv:hover {
+    background-image: url(../imo-footer/images/sp-logo-on.png);
+}
 
 
 
