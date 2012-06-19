@@ -44,6 +44,7 @@ jQuery(document).ready(function($) {
     $(this).closest('.superpost-image-form').submit();
   });
 
+
   $("input#video-body").bind("input",function(){
 
     if ($("input#video-body").val().length > 7) {
@@ -110,13 +111,13 @@ jQuery(document).ready(function($) {
 
   $(function() {      
 
+
     $('.superpost-form').ajaxForm({                 
       beforeSubmit: ShowRequest,
       success: SubmitSuccessful,
       data:userIMO,
       error: AjaxError                               
     });    
-
 
     $('.superpost-comment-form').ajaxForm({                 
       beforeSubmit: ShowRequest,
@@ -347,6 +348,7 @@ jQuery(document).ready(function($) {
          .removeAttr('checked').removeAttr('selected');
 }
 
+
   function activateFBlogin() {
     jQuery(".imo-fb-login-button").click(function(){
               
@@ -395,3 +397,4 @@ jQuery(document).ready(function($) {
   }
 
 });//End document ready
+

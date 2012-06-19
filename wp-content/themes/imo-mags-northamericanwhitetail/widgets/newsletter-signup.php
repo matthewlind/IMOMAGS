@@ -24,6 +24,7 @@ class Signup_Widget extends WP_Widget {
         </h5>
         <?php endif; ?>
         <?php if (function_exists('gravity_form')) gravity_form(1, false, false); ?>
+        <a href="#" class="about-link">Tell me about North American Whitetail +</a>
        </div>
     </aside>
 

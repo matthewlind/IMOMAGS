@@ -177,7 +177,15 @@ if (get_the_title(null, false) == 'superpost-single') {
   })();
 
 </script>
-	
+<!-- BEGIN Tynt Script -->
+<script type="text/javascript">
+if(document.location.protocol=='http:'){
+ var Tynt=Tynt||[];Tynt.push('d0GR6eRaSr4Agcacwqm_6l');Tynt.i={"ap":"Read more:"};
+ (function(){var s=document.createElement('script');s.async="async";s.type="text/javascript";s.src='http://tcr.tynt.com/ti.js';var h=document.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})();
+}
+</script>
+<!-- END Tynt Script -->
+
 </head>
 <body <?php body_class(); ?>>
 <div id="fb-root"></div>
@@ -245,4 +253,4 @@ if (get_the_title(null, false) == 'superpost-single') {
 	</header>
 	<hr class="accessibility" />
 	<section id="main" class="str-container">
-		<div id="main-content">		
+		<div id="main-content">

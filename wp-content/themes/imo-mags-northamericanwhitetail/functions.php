@@ -1,5 +1,8 @@
 <?php 
 
+// Thumbs
+add_image_size('huge-thumb', 672, 407, true);
+
 // SHORTCODES
 /*
  * [mm-current-issue]
@@ -29,6 +32,7 @@ function mm_current_issue($atts, $content = null) {
 }
 
 add_shortcode("mm-current-issue", "mm_current_issue");
+
 
 /***
 **
@@ -72,8 +76,12 @@ function naw_imo_addons_sidebar_init() {
       'name' => __('Bottom Homepage Sidebar', 'carrington-business'),
       'description' => __('Shown on the bottom right of the homepage.', 'carrington-business')
   )));
-  
-	register_sidebar(array_merge($sidebar_defaults, array(
+  register_sidebar(array_merge($sidebar_defaults, array(
+    'id' => 'gear-home',
+    'name' => __('Homepage Gear Slider', 'carrington-business'),
+    'description' => __('Gear slider near bottom of the homepage', 'carrington-business')
+  )));
+  register_sidebar(array_merge($sidebar_defaults, array(
     'id' => 'secondary-home',
     'name' => __('Homepage Secondary', 'carrington-business'),
     'description' => __('area below main and sidebar columns on the homepage', 'carrington-business')

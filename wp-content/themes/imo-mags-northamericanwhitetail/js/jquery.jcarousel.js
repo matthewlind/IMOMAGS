@@ -21,7 +21,7 @@
         start: 0,
         offset: 1,
         size: null,
-        scroll: 1,
+        scroll: 0,
         visible: null,
         animation: "normal",
         easing: "swing",
