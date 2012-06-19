@@ -213,9 +213,10 @@ li.count-field {
 
 /* Homepage Controls */
 ul.post-type-select {
-	float: right;
+	float: left;
     position: relative;
-    width: 496px;
+    width: 701px;
+    margin: 0;
 }
 ul.post-type-select li {
 	font-family:"ProximaNovaS-Semibold";
@@ -229,7 +230,9 @@ ul.post-type-select li {
     cursor: pointer;
     display: inline;
     float:left;
-    padding: 14px 20px;
+    padding: 0 20px;
+    height: 50px;
+    line-height: 3em;
 }
 ul.post-type-select li.all{
 	border-left:1px solid #fff !important;
@@ -289,7 +292,7 @@ ul.post-type-select li.post span{
 }
 ul.post-type-select li.dd-arrow{
 	background: url("../img/post-type-select-arrow.png") no-repeat scroll 21px center transparent;
-    padding: 25px 24px;
+    width: 8px;
 }
 ul.post-type-select li.dd-arrow:hover{
     border-top:1px solid #CCCCCC;
@@ -316,30 +319,29 @@ ul.post-type-select li.dd-arrow:hover{
 }
 
 #toggle-display-button {
-	cursor: pointer;
-	background-color:#cccccc;
-	display:block;
-	width:130px;
-	text-align:center;
-	padding:6px;
-	float:left;
+    background-color: #CCCCCC;
+    cursor: pointer;
+    display: block;
+    float: left;
+    margin: 10px 43px 0 43px;
+    padding: 7px 6px;
+    text-align: center;
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-	margin-left: 140px;
 }
 #new-post-button {
-	cursor: pointer;
+	/*cursor: pointer;
 	background-color:#cccccc;
 	display:block;
 	width:130px;
 	text-align:center;
 	padding:6px;
 
-	float:right;
+	float:right;*/
 
 
 	-webkit-touch-callout: none;
@@ -349,9 +351,16 @@ ul.post-type-select li.dd-arrow:hover{
 	-ms-user-select: none;
 	user-select: none;
 }
+#user-login-button{
+	right: 0;
+    top: 30px;
+    position: absolute;
+    cursor: pointer;
+}
 
-
-
+.post-menu{
+	float: left;
+}
 
 #toggle-display-button:active {
 	background-color:#999999;
