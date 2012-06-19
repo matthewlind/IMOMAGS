@@ -671,7 +671,7 @@ top:27px;
 }
 #site-menu .stay-connected {
     float: left;
-    line-height: 57px;
+    line-height: 61px;
     width: 366px;
 }
 #site-menu .stay-connected .fb-like {
@@ -2402,6 +2402,11 @@ h1.tv-header{
     text-align: center;
 }
 
+/**
+* 
+* Gallery
+*
+**/
 #main-content .ngg-imagebrowser{
 	padding-top: 0;
 }
