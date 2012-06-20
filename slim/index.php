@@ -168,7 +168,78 @@ $app->get('/api/superpost/children/:post_type/:parent_id',function($post_type,$p
 
 });
 
+//**************************************
+//**** Get Comments with attachments ***
+//**************************************
+$app->get('/api/superpost/comment_attachments/:parent_id',function($parent_id){
 
+	header('Access-Control-Allow-Origin: *');
+
+	try {
+
+		$db = dbConnect();
+
+
+
+		$sql = "SELECT posts.ID post_id, posts.gravatar_hash gravatar_hash,
+				comments.ID comment_id, comments.post_type comment_post_type, comments.body comment_body, comments.username comment_username,
+				attachments.ID attachment_id, attachments.post_type attachment_post_type, attachments.img_url as attachment_img_url, attachments.meta as attachment_meta, attachments.body as attachment_body 
+				FROM superposts as posts
+				LEFT JOIN superposts as comments ON posts.id = comments.parent
+				LEFT JOIN superposts as attachments ON comments.id = attachments.parent
+				WHERE posts.ID = ?
+				AND comments.post_type = 'comment'";
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array($parent_id));
+
+	
+	
+		$posts = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+		$postComments = array();
+		$comment = array();
+		$comment['comment_id'] = 0;
+		foreach ($posts as $post) {
+
+			
+			if ($post->comment_id != $comment['comment_id'])
+				$comment['attachments'] = array();
+
+			
+			$attachmentID = $post->attachment_id;
+			
+			$comment['comment_id'] = $post->comment_id;
+			$comment['comment_body'] = $post->comment_body;
+			$comment['comment_username'] = $post->comment_username;
+			$comment['gravatar_hash'] = $post->gravatar_hash;
+
+			if ($post->attachment_id) {
+				$comment['attachments'][$attachmentID]['attachment_img_url'] = $post->attachment_img_url;
+				$comment['attachments'][$attachmentID]['attachment_body'] = $post->attachment_body;
+				$comment['attachments'][$attachmentID]['attachment_post_type'] = $post->attachment_post_type;
+				$comment['attachments'][$attachmentID]['attachment_meta'] = $post->attachment_meta;
+			}
+				
+
+
+
+			$postComments[$post->comment_id] = $comment;
+
+
+		}
+
+
+
+		echo json_encode($postComments);
+
+		$db = "";
+
+	} catch(PDOException $e) {
+    	echo $e->getMessage();
+    }
+
+});
 
 
 //*********************************

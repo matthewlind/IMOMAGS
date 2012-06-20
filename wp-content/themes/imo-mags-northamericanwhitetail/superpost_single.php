@@ -41,14 +41,14 @@ $attachmentData = json_decode($file3);
 
 
 //Then get comment data
-$requestURL2 = "http://www.northamericanwhitetail.deva/slim/api/superpost/children/comment/$spid";
+$requestURL2 = "http://www.northamericanwhitetail.deva/slim/api/superpost/comment_attachments/$spid";
 
 $file2 = file_get_contents($requestURL2);
 $commentData = json_decode($file2);
 
-if (empty($commentData[0])) {
+if (empty($commentData)) {
 
-    $commentData[0] = "hey";
+
     $visible = "style='display:none;'";
 }
 
@@ -207,20 +207,33 @@ $headerTitle = $data->post_type . ": " . $data->title;
 		
         <pre><?php //print_r($commentData);?></pre>
         <?php foreach ($commentData as $comment) {    
-            $displayImage = "";
-            if (empty($comment->img_url))
-                $diplayImage = "display:none;";
+
             ?>
         	<div class="superpost-comment" <?php echo $visible; ?> >
         		<div class="superclass-body">
-        			<?php echo $comment->body; ?>
+        			<?php echo $comment->comment_body; ?>
         		</div>
-                <div class="superpost-image">
-                    <!-- <img src="<?php echo $comment->img_url; ?>" class="superclass-img_url" width=200 style="<?php echo $displayImage; ?>"> -->
-                </div>
+
+                <?php
+                    foreach ($comment->attachments as $attachment) {
+                ?>
+                    <div class="superpost-image">
+                        <img src="<?php echo $attachment->attachment_img_url; ?>" class="superclass-img_url" width=400 >
+                    </div>
+                    <div class="superpost-caption">
+                        <?php echo $attachment->attachment_body; ?>
+                    </div>
+
+
+                <?php
+                    }
+                ?>
+
+
+               
         		<div class="avatar-holder">
                     <img src="http://www.gravatar.com/avatar/<?php echo $comment->gravatar_hash; ?>.jpg?s=25&d=identicon" class="superclass-gravatar_hash">
-                    <a href="userlink"><?php echo $comment->username; ?></a>
+                    <a href="userlink"><?php echo $comment->comment_username; ?></a>
                 </div>
 
         	</div>
