@@ -90,7 +90,7 @@ $args = array(
 							<li><a href="http://www.petersenshunting.com/"><img src="/wp-content/themes/imo-mags-northamericanwhitetail/img/imo_logos/new/hunting.png" alt="" /></a></li>
 							<li><a href="http://www.floridasportsman.com/"><img src="/wp-content/themes/imo-mags-northamericanwhitetail/img/imo_logos/new/florida_sportsman.png" alt="" /></a></li>
 							<li><a href="http://www.flyfisherman.com/"><img src="/wp-content/themes/imo-mags-northamericanwhitetail/img/imo_logos/new/fly_fisherman.png" alt="" /></a></li>
-							<li><a href="http://www.gunsandammo.com/"><img src="/wp-content/themes/imo-mags-northamericanwhitetail/img/imo_logos/new/northamericanwhitetail.png" alt="" /></a></li>
+							<li><a href="http://www.gunsandammo.com/"><img src="/wp-content/themes/imo-mags-northamericanwhitetail/img/imo_logos/new/gunsandammo.png" alt="" /></a></li>
 							
 							<li><a href="http://www.in-fisherman.com/"><img src="/wp-content/themes/imo-mags-northamericanwhitetail/img/imo_logos/new/in_fisherman.png" alt="" /></a></li>
 							<li><a href="http://www.gameandfishmag.com/"><img src="/wp-content/themes/imo-mags-northamericanwhitetail/img/imo_logos/new/game_and_fish.png" alt="" /></a></li>

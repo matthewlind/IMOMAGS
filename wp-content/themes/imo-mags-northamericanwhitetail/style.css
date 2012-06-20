@@ -1821,7 +1821,7 @@ h1.more-header{
 	margin: 0 0 4px !important;
 }
 .mod-gallery, .mod-topics{
-	background: url('img/mod-title-bg.png') no-repeat;
+	background: url('img/mod-title-bg.png') -7px 0 no-repeat;
 	height: 41px;
     width: 240px;
 }
