@@ -42,6 +42,9 @@ get_header();
     <div <?php post_class('entry entry-full clearfix'); ?>>
         <div class="entry-content">
             <hr class="comm-sep"><h1 class="recon">Naw+ Community</h1>
+            <div id="user-login-button">
+                LOGIN
+            </div>
             <div class='cssmenu'>
 				<ul>
 				   <li><a href='#' class="dd"><span>State Activity</span><span class="dd-arrow"></span></a>
@@ -52,24 +55,19 @@ get_header();
 				   </li>
 				</ul>
 			</div>
-            <span id="toggle-display-button">
-                Toggle Display
-            </span>
-
-            <span id="new-post-button">
-                + POST
-            </span>
-            <span id="user-login-button">
-                LOGIN
-            </span>
-
+            <div id="toggle-display-button">
+                Toggle
+			</div>
+            
             <ul class="post-type-select">
+            	<li id="new-post-button" class="post"><span>+</span> Post</li>
                 <li class='selected' title='all'>ALL</li>
                 <li title='report'>Reports</li>
                 <li title='tip'>Tips</li>
                 <li title='lifestyle'>LifeStyles</li>
                 <li title='trophy'>Trophy Bucks</li>
                 <li title='gear'>Gear</li>
+                <li class="dd-arrow"></li>
 
 
             </ul>
