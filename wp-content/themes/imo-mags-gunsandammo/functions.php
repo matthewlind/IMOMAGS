@@ -260,6 +260,50 @@ add_action("init", "imo_ga_json");
 
 function imo_ga_json() {
 
+    //manufacturer.json
+    if (preg_match("/^\/manufacturer\.json(\?(.+)?)?$/", $_SERVER['REQUEST_URI'])) {
+        header('Content-type: application/json');
+    
+        if($_GET['guntype']){
+         
+
+            $guntypeSlug = $_GET['guntype'];
+
+            $terms = array();
+
+            $guntypeTerm = get_term_by("slug",$guntypeSlug,"guntype");
+            $guntypeTermID = $guntypeTerm->term_taxonomy_id;
+
+            global $wpdb;
+
+            $sql = $wpdb->prepare("SELECT DISTINCT term_slug, term_name FROM `wp_2_term_relationships` tr
+                                            RIGHT JOIN `wp_2_manufacturer_posts` mp ON mp.post_id = tr.`object_id`
+                                            WHERE `term_taxonomy_id` = '%d' ",$guntypeTermID);
+
+            $rows = $wpdb->get_results($sql);
+
+     
+  
+            $parentTerm = get_term_by("slug",$parentSlug,"manufacturer");
+
+
+            foreach ($rows as $row) {
+                //$term = get_term_by( 'id', $child, $taxonomyName );
+                $row->name = $row->term_name;
+                $row->slug = $row->term_slug;
+                $terms[] = $row;
+            }
+
+            $json = json_encode($terms);
+            print $json;
+                
+        }
+
+
+        die();
+
+    }   
+
     //caliber.json
     if (preg_match("/^\/caliber\.json(\?(.+)?)?$/", $_SERVER['REQUEST_URI'])) {
         header('Content-type: application/json');
