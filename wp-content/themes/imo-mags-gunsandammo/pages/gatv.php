@@ -25,7 +25,7 @@ the_post();
 ?>
 
 <nav class="nav nav-secondary"><!--new TV MENU-->
-	<img src="http://www.gunsandammo.com/files/2012/05/ga-tv-landing.png" alt="Guns & Ammo TV" />
+	<img src="/wp-content/themes/imo-mags-gunsandammo/img/Ga-tv-banner-980x200.jpeg" alt="Guns & Ammo TV" />
 	<?php wp_nav_menu( array( 'theme_location' => 'tv-menu', 'fallback_cb' => '' ) ); ?>
 </nav>
 <div class="page-template-page-right-php right-sidebar-landing tv-pages">

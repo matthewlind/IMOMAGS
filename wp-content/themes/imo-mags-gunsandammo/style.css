@@ -6227,6 +6227,9 @@ nav.nav-secondary {
   padding: 0 15px;
   position: relative;
 }
+.page-template-page-gatv-php nav.nav-secondary {
+	padding: 0 !important;
+}
 /* line 4545, sass/style.scss */
 nav.nav-secondary img {
   margin-bottom: -4px;
