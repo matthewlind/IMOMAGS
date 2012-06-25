@@ -20,7 +20,7 @@ require_once(WP_CONTENT_DIR . '/plugins/bc_import/bc-config.php');
 require_once(WP_CONTENT_DIR . '/plugins/bc_import/plugin.php');
 
 
-add_action('init', 'imo_video_init');
+
 add_action("init", "imo_video_channel_init");
 
 
@@ -61,37 +61,7 @@ function imo_video_channel_init() {
     }
 }
 
-function imo_video_init() {
-	$labels = array(
-		'name' => _x('Videos', 'post type general name'),
-		'singular_name' => _x('Video', 'post type singular name'),
-		'add_new' => _x('Add New', 'video'),
-		'add_new_item' => __("Add New Video"),
-		'edit_item' => __("Edit Video"),
-		'new_item' => __("New Video"),
-		'view_item' => __("View Video"),
-		'search_items' => __("Search Video"),
-		'not_found' =>  __('No videos found'),
-		'not_found_in_trash' => __('No videos found in Trash'), 
-		'parent_item_colon' => ''
-	  );
-	  $args = array(
-		'labels' => $labels,
-		'public' => true,
-		'publicly_queryable' => true,
-		'show_ui' => true,
-    'has_archive' => true, 
-		'query_var' => true,
-		'capability_type' => 'post',
-		'hierarchical' => false,
-		'menu_position' => null,
-		'supports' => array('title','thumbnail','excerpt','editor','author','comments'),
-		'rewrite' => array('slug' => 'video', 'with_front' => FALSE),
-		'taxonomies' => array('video_channel','post_tag','activity','location','gear','species','category'),
-	  ); 
-	  register_post_type('imo_video',$args);
 
-}
 
 function imo_video_flush() {
   //imo_video_init();
