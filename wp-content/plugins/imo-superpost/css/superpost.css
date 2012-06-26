@@ -387,7 +387,7 @@ div.user-details-box {
 	overflow: visible !important;
 	z-index: 99999;
 }
-.new-superpost-modal-container{
+.simplemodal-container{
 	background: rgb(255,255,255); /* Old browsers */
 	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
 	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIxMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZWZlY2U2IiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
@@ -404,7 +404,7 @@ div.user-details-box {
     -webkit-background-clip: padding-box; /* for Safari */
     background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
 }
-.new-superpost-modal-container h1{
+simplemodal-container h1{
 	text-align: center;
 	color: #c2290b;
 }
@@ -412,14 +412,14 @@ div.user-details-box {
 	padding: 6px 10px;
 	width: 378px !important;
 }
-.superpost-form input[type=text], .superpost-form textarea, .superpost-form textarea select{
+.superpost-form input[type=text], .superpost-form textarea, .superpost-form textarea select, .superpost-comment-form textarea {
 	border-color: #e7e5e0 !important;
 	padding: 6px 10px;
 }
 #new-post-button {
     -moz-user-select: none;
 }
-.superpost-form input[type=submit] {
+.superpost-form input[type=submit], .superpost-comment-form input[type=submit]{
     background: none repeat scroll 0 0 #347FE7;
     border: 1px solid #2861B2;
     border-radius: 4px;
@@ -427,8 +427,11 @@ div.user-details-box {
     color: #FFFFFF;
     text-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 1px 2px 0 rgba(0, 0, 0, 0.4);
     font-size: 1em;
-    margin: 17px 0 0 170px;
     padding: 10px 0;
+    margin-top: 17px;
+}
+.superpost-form input[type=submit]{
+	margin-left: 170px;
 }
 select.post_type{
 	font-size: 1em;
