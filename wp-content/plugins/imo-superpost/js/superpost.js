@@ -67,7 +67,7 @@ jQuery(document).ready(function($) {
       $(".new-superpost-modal-container").modal({
         opacity: 50, 
         overlayClose: true,
-        position: Array("9%","20%"),
+        autoPosition: true,
         onShow: SetupPostForm
       });
   });
@@ -76,7 +76,7 @@ jQuery(document).ready(function($) {
       $(".user-login-modal-container").modal({
         opacity: 50, 
         overlayClose: true,
-        position: Array("9%","20%"),
+        autoPosition: true,
         onShow: activateFBlogin
       });
   });
