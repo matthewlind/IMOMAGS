@@ -68,10 +68,9 @@ $headerTitle = $data->post_type . ": " . $data->title;
 	</div>
 </div>
 <div class="col-abc super-content">
-	<div class="super-single-left">
-		 <img src="<?php echo $grav_url; ?>" class="super-single-gravatar">
-	</div>
-	<div class="super-single-right">
+		 <img src="<?php echo $grav_url; ?>" class="recon-gravatar">
+
+
 	
 	
 		<div class="username"><?php echo $data->username; ?></div>
@@ -117,7 +116,6 @@ $headerTitle = $data->post_type . ": " . $data->title;
 	     
 			</div>
 		</div><!-- .entry -->
-	</div><!-- .super-single-right -->
 </div><!-- .col-abc -->
 <div class="col-abc super-comments">
 	<div class="avatar-holder">
