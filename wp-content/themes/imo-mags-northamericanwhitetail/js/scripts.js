@@ -86,4 +86,23 @@ jQuery(document).ready(function($) {
 
 });
 
+// Questions slider
+$(document).ready(function(){
+				
+	jQuery('#slides-questions').jcarousel({
+		easing: 'easeOutBack',
+		animation:1000,scroll: 1});	
 
+});
+
+// IMO Network slider
+$(document).ready(function(){
+
+	jQuery('#slides-footer').jcarousel({
+		easing: 'easeOutBack',
+		animation:1000,scroll: 5});		
+});
+// Flash ad z-index pecking order fix
+$(document).ready(function(){
+	FlashHeed.heed();
+});

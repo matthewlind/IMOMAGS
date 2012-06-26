@@ -36,8 +36,8 @@ get_header();
 				<?php the_content(__('Continued&hellip;', 'carrington-business')); ?>
 	
 	</div><!-- .col-abc -->		
-		
-	<!-- Super post section -->
+
+<!-- Super post section -->
 <div class="col-abc super-post">
     <div <?php post_class('entry entry-full clearfix'); ?>>
         <div class="entry-content">
@@ -77,9 +77,7 @@ get_header();
 
 
             </div>
-            <span id="more-superposts-button">
-                More
-            </span>
+            <span id="more-superposts-button">Load More<span></span></span>
 
 
 
@@ -108,15 +106,6 @@ get_header();
 							</ul>
 						</div>
 					</div>
-					 <script type="text/javascript">
-				 		$(document).ready(function(){
-				
-				 			jQuery('#slides-questions').jcarousel({
-				 				easing: 'easeOutBack',
-				 				animation:1000,scroll: 1});	
-							
-				 		});
-					 </script>
 					<div class="questions-slider">
 			            <div class="otd-questions">
 			                <div class="slides-container-f">

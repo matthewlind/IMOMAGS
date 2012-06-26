@@ -69,19 +69,7 @@ $args = array(
                  
           <div style="clear:both"></div>
         
-                
-		
-     <script type="text/javascript" src="/wp-content/themes/imo-mags-northamericanwhitetail/js/jquery.jcarousel.js"></script>
-     <script type="text/javascript">
- 		$(document).ready(function(){
-
- 			jQuery('#slides-footer').jcarousel({
- 				easing: 'easeOutBack',
- 				animation:1000,scroll: 5});	
-			
- 		});
-	 </script>
-      <div class="intermedia-network">
+        <div class="intermedia-network">
             	<div class="network-title">THE INTERMEDIA OUTDOORS NETWORK</div>
                 <div class="otd-networkblock">
                 	 <div class="slides-container-f">
