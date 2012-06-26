@@ -217,7 +217,7 @@ if(document.location.protocol=='http:'){
     	    	
     	
 	<div class="centered">
-       	<a href="<?php echo home_url('/'); ?>" class="brand" title="<?php _e('Home', 'carrington-business') ?>"><img src="<?php print get_stylesheet_directory_uri(); ?>/img/NAW-logo.png" alt="<?php bloginfo('name'); ?>" /></a>
+       	<a href="<?php echo home_url('/'); ?>" class="brand" title="<?php _e('Home', 'carrington-business') ?>"><img src="<?php print get_stylesheet_directory_uri(); ?>/img/nawp-logo.png" alt="<?php bloginfo('name'); ?>" /></a>
       	<div id="header-search">
       		<?php cfct_form('search'); ?>
 		</div>

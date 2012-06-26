@@ -59,64 +59,71 @@ $grav_url = "http://www.gravatar.com/avatar/" . $data->gravatar_hash . ".jpg?s=2
 $headerTitle = $data->post_type . ": " . $data->title;
 
 ?>
-<header id="masthead">
-	<h1><?php echo $headerTitle; ?></h1>
-	<?php edit_post_link(__('Edit', 'carrington-business')); ?>
-    <?php //echo $requestURL; ?>
-</header><!-- #masthead -->
+<header class="header-title">
+<h1>Community <span>| <?php echo $data->post_type; ?></span></h1>
+</header>
 <div class="bonus-background">
 	<div class="bonus">
 		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-landing')) : else : ?><?php endif; ?>
 	</div>
 </div>
-<div class="col-abc">
-	<div <?php post_class('entry entry-full clearfix'); ?>>
-		<div class="entry-content">
-
-            <div class="description">
-                <?php echo $data->body;?>
-            </div>
-       
-            <?php
-
-                foreach ($attachmentData as $attachment) {
-              
-                    $media = "";
-
-                    if ($attachment->post_type == "youtube") {
-
-                        $videoID = $attachment->meta;
-                        $media = "<li><div class='attachment-container'>";
-                        $media .= '<iframe width="640" height="480" src="http://www.youtube.com/embed/' . $videoID . '" frameborder="0" allowfullscreen></iframe>';
-                        $media .= "</div><div class='attachment-caption'>$attachment->body</div></li>";
-
-                    } else {
-
-                        $photoURL = str_replace("thumb", "medium", $attachment->img_url);
-                        $media = "<li><div class='attachment-container'><img src='$photoURL' width=585></div><div class='attachment-caption'>$attachment->body</div></li>";
-                        
-                    }
-
-
-                    echo $media;
-
-                }
-
-
-            ?>
-
-            
-
-
-
-
-            <div class="userinfo">
-            <img src="<?php echo $grav_url; ?>"> <?php echo $data->username; ?>
-            </div>
-     
-		</div>
-	</div><!-- .entry -->
-
+<div class="col-abc super-content">
+	<div class="super-single-left">
+		 <img src="<?php echo $grav_url; ?>" class="super-single-gravatar">
+	</div>
+	<div class="super-single-right">
+	
+	
+		<div class="username"><?php echo $data->username; ?></div>
+		<div class="super-meta">Posted on <?php the_time('F j, Y'); ?> &#8226; <?php the_time('g:i a'); ?> &#8226; <span class="post-type"><?php echo $data->post_type; ?></span> &#8226; ### veiws</div>
+		<div class="clearfix"></div>
+		<div class="entry-header"><h1 class="entry-title">"<?php echo $data->title; ?>"</h1></div>
+		<?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
+		
+			<div <?php post_class('entry entry-full clearfix'); ?>>
+				<div class="entry-content">
+		
+		            <div class="description">
+		                <?php echo $data->body;?>
+		            </div>
+		       
+			        <?php
+			
+			            foreach ($attachmentData as $attachment) {
+			          
+			            $media = "";
+			
+			            if ($attachment->post_type == "youtube") {
+			
+			                $videoID = $attachment->meta;
+			                $media = "<li><div class='attachment-container'>";
+			                $media .= '<iframe width="640" height="480" src="http://www.youtube.com/embed/' . $videoID . '" frameborder="0" allowfullscreen></iframe>';
+			                $media .= "</div><div class='attachment-caption'>$attachment->body</div></li>";
+			
+			            } else {
+			
+			                $photoURL = str_replace("thumb", "medium", $attachment->img_url);
+			                $media = "<li><div class='attachment-container'><img src='$photoURL' width=585></div><div class='attachment-caption'>$attachment->body</div></li>";
+			                
+			            }
+			
+			
+			            echo $media;
+			
+			        }
+			
+			        
+			    ?>
+	     
+			</div>
+		</div><!-- .entry -->
+	</div><!-- .super-single-right -->
+</div><!-- .col-abc -->
+<div class="col-abc super-comments">
+	<div class="avatar-holder">
+		<img src="http://www.gravatar.com/avatar/<?php echo $comment->gravatar_hash; ?>.jpg?s=25&d=identicon" class="superclass-gravatar_hash">
+        <a href="userlink"><?php echo $comment->comment_username; ?></a>
+    </div>
 
     <div class="new-superpost-modal-container" style="height:500px:width:600px;background-color:white;">
     <h1>Post a Comment!</h1>
