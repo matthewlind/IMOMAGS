@@ -4082,10 +4082,12 @@ body.parent-pageid-2114 #main {
   margin-bottom: -28px;
   padding: 0;
   position: relative;
-  top: -50px;
+  top: -30px;
   width: 100%;
 }
-
+.soga{
+	top: -63px !important;
+}
 /* line 3039, sass/style.scss */
 .single .blog-header.soga-header, .blog .cfct-callout.soga-header {
   background: url("img/blogs/sonsofguns.png?1336056336") left bottom no-repeat;

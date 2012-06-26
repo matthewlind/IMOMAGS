@@ -88,7 +88,7 @@ if (empty($zn_img)) {
 ?>
 <?php if (in_category($soga_slug)) { ?>
 <h1 class="seo-h1">Sons of guns & Ammo</h1>
-<a class="blog-header" href="/blogs/<?php echo "sons-of-gunsandammo"; ?>/" title="<?php echo $current_category; ?>"><img src="<?php print $sg_img; ?>"></a>
+<a class="blog-header soga" href="/blogs/<?php echo "sons-of-gunsandammo"; ?>/" title="<?php echo $current_category; ?>"><img src="<?php print $sg_img; ?>"></a>
 <?php } else if (in_category($floc_slug)) { ?>
 <h1 class="seo-h1">For the Love of Competition</h1>
 <a class="blog-header" href="/blogs/<?php echo $floc_slug; ?>/" title="<?php echo $current_category; ?>"><img src="<?php print $lc_img; ?>"></a>
