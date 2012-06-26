@@ -4082,11 +4082,12 @@ body.parent-pageid-2114 #main {
   margin-bottom: -28px;
   padding: 0;
   position: relative;
-  top: -50px;
+  top: -30px;
   width: 100%;
 }
 .soga{
-	top: -63px !important;
+	top: -33px !important;
+    margin-bottom: -12px !important;
 }
 /* line 3039, sass/style.scss */
 .single .blog-header.soga-header, .blog .cfct-callout.soga-header {
