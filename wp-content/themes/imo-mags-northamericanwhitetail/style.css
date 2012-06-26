@@ -2385,7 +2385,7 @@ a.about-link:hover{
 * Skyscraper ad fix
 *
 **/
-#advert-widget-3{
+#advert-widget-3, #advert-widget-9{
 	background-color: #fff !important;
 	float: left;
 }
@@ -2619,6 +2619,7 @@ a.about-link:hover{
     padding: 30px 0 70px;
     border-bottom: 1px solid #ccc;
 }
+
 /**
 * 
 * TV Pages
