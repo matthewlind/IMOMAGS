@@ -382,4 +382,8 @@ div.user-details-box {
 }
 
 
-
+/* Post form */
+.simplemodal-wrap{
+	overflow: visible !important;
+	z-index: 99999;
+}
