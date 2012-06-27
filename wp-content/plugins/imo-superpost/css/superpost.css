@@ -215,7 +215,7 @@ li.count-field {
 ul.post-type-select {
 	float: left;
     position: relative;
-    width: 701px;
+    width: 702px;
     margin: 0;
 }
 ul.post-type-select li {
@@ -253,9 +253,11 @@ ul.post-type-select li:hover {
 	color: white;
 	border-bottom: 1px solid #347fe7; 
 	border-top: 1px solid #347fe7;
+	border-right: 1px solid #347fe7;
 	text-shadow:
 		0px 0px 0px rgba(000,000,000,0.2),
 		1px 2px 0px rgba(000,000,000,0.4);
+	
 
 }
 ul.post-type-select li.post{
@@ -280,6 +282,10 @@ ul.post-type-select li.post{
 	text-shadow:
 		0px 0px 0px rgba(000,000,000,0.2),
 		1px 2px 0px rgba(000,000,000,0.4);
+	margin-right: 1px;
+	-moz-box-shadow: inset 0px 0px 1px 0px #ffffff;
+	-webkit-box-shadow: inset 0px 0px 1px 0px #ffffff;
+	box-shadow: inset 0px 0px 1px 0px #ffffff;
 }
 ul.post-type-select li.post span{
 	font-family: "ProximaNovaS-Extrabld";
@@ -297,41 +303,92 @@ ul.post-type-select li.dd-arrow{
 ul.post-type-select li.dd-arrow:hover{
     border-top:1px solid #CCCCCC;
     border-bottom:1px solid #CCCCCC;
+    border-right:1px solid #CCCCCC; 
 }
 #more-superposts-button {
+	font-family: ProximaNovaA-Semibold;
+	font-size: 0.9em;
 	cursor: pointer;
-	background-color:#cccccc;
 	display:block;
-	width:80px;
-	text-align:center;
-	padding:10px;
-	margin:100px auto;
+	margin: 130px auto 70px;
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+	border: 1px solid #CCCCCC;
+    padding: 12px 24px 10px 10px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 110px;
+    -moz-transition: all 0.6s ease 0s;
+    background: rgb(255,255,255); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSI3MSUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI5NyUiIHN0b3AtY29sb3I9IiNlZmVmZWYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 71%, rgba(239,239,239,1) 97%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(71%,rgba(255,255,255,1)), color-stop(97%,rgba(239,239,239,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 71%,rgba(239,239,239,1) 97%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(255,255,255,1) 71%,rgba(239,239,239,1) 97%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(255,255,255,1) 71%,rgba(239,239,239,1) 97%); /* IE10+ */
+	background: linear-gradient(top,  rgba(255,255,255,1) 71%,rgba(239,239,239,1) 97%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#efefef',GradientType=0 ); /* IE6-8 */
+}
+span#more-superposts-button span {
+	background: url('/wp-content/themes/imo-mags-northamericanwhitetail/img/load-icon.png') no-repeat;
+	height: 16px;
+    margin: 1px 0 0 5px;
+    position: absolute;
+    width: 13px;
 }
 
-#more-superposts-button:active {
-	background-color:#999999;
+#more-superposts-button:hover {
+	color:#3e88e9;
+	 -moz-transition: all 0.6s ease 0s;
 }
-
-#toggle-display-button {
-    background-color: #CCCCCC;
-    cursor: pointer;
+.toggle {
     display: block;
     float: left;
-    margin: 10px 43px 0 43px;
-    padding: 7px 6px;
-    text-align: center;
-	-webkit-touch-callout: none;
+    margin: 14px 32px;
+    -webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+}
+#toggle-tile{
+	height: 19px;
+    float: left;
+    margin-top: 7px;
+    width: 28px;
+    cursor: pointer;
+}
+#toggle-list{
+	height: 19px;
+    float: left;
+    margin-top: 7px;
+    width: 27px;
+    cursor: pointer;
+}
+.toggle-sep{
+	background: url('/wp-content/themes/imo-mags-northamericanwhitetail/img/toggle-sep.png') no-repeat;
+	float: left;
+    height: 34px;
+    margin: 0 8px;
+    width: 1px;
+}
+.list-on, a.list-off:hover{
+	background: url('/wp-content/themes/imo-mags-northamericanwhitetail/img/list-on.png') no-repeat;
+}
+.list-off{
+	background: url('/wp-content/themes/imo-mags-northamericanwhitetail/img/list-off.png') no-repeat;
+}
+.tile-on, a.tile-off:hover{
+	background: url('/wp-content/themes/imo-mags-northamericanwhitetail/img/tile-on.png') no-repeat;
+}
+.tile-off{
+	background: url('/wp-content/themes/imo-mags-northamericanwhitetail/img/tile-off.png') no-repeat;
 }
 #new-post-button {
 	/*cursor: pointer;
@@ -382,4 +439,65 @@ div.user-details-box {
 }
 
 
+/* Post form */
+.simplemodal-overlay{
+	z-index: 9999998 !important;
+}
+
+.simplemodal-wrap{
+	overflow: visible !important;
+	z-index: 99999;
+}
+.simplemodal-container{
+	background: rgb(255,255,255); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIxMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZWZlY2U2IiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+	background: -moz-linear-gradient(top, rgba(255,255,255,1) 10%, rgba(239,236,230,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(10%,rgba(255,255,255,1)), color-stop(100%,rgba(239,236,230,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(255,255,255,1) 10%,rgba(239,236,230,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(255,255,255,1) 10%,rgba(239,236,230,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(255,255,255,1) 10%,rgba(239,236,230,1) 100%); /* IE10+ */
+	background: linear-gradient(top, rgba(255,255,255,1) 10%,rgba(239,236,230,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#efece6',GradientType=0 ); /* IE6-8 */
+	border-radius: 8px;
+	border: 12px solid rgb(255, 255, 255);
+    border: 12px solid rgba(255, 255, 255, 0.6);
+    -webkit-background-clip: padding-box; /* for Safari */
+    background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
+    z-index: 9999999 !important;
+}
+.simplemodal-container h1{
+	text-align: center;
+	color: #c2290b;
+}
+.superpost-form input[type=text], .superpost-form textarea{
+	padding: 6px 10px;
+	width: 378px !important;
+}
+.superpost-form input[type=text], .superpost-form textarea, .superpost-form textarea select, .superpost-comment-form textarea {
+	border-color: #e7e5e0 !important;
+	padding: 6px 10px;
+}
+#new-post-button {
+    -moz-user-select: none;
+}
+.superpost-form input[type=submit], .superpost-comment-form input[type=submit]{
+    background: none repeat scroll 0 0 #347FE7;
+    border: 1px solid #2861B2;
+    border-radius: 4px;
+    box-shadow: 0 1px 0 transparent, 1px 1px 0 #679FED inset;
+    color: #FFFFFF;
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 1px 2px 0 rgba(0, 0, 0, 0.4);
+    font-size: 1em;
+    padding: 10px 0;
+    margin-top: 17px;
+}
+.superpost-form input[type=submit]{
+	margin-left: 170px;
+}
+select.post_type{
+	font-size: 1em;
+	background: #fff;
+	border: 1px solid #E7E5E0;
+}
 

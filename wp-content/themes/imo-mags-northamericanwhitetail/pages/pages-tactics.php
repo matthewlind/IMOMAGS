@@ -47,16 +47,6 @@ the_post();
 				</ul>
 			</div>
 		</div>
-
-		<script type="text/javascript">
-				 		$(document).ready(function(){
-				
-				 			jQuery('#slides-questions').jcarousel({
-				 				easing: 'easeOutBack',
-				 				animation:1000,scroll: 1});	
-							
-				 		});
-					 </script>
 					<div class="questions-slider">
 			            <div class="otd-questions">
 			                <div class="slides-container-f">

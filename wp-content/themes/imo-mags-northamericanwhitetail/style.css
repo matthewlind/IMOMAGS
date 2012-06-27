@@ -1621,7 +1621,7 @@ a.comment-count:hover {
  * 
  *
  */
-.single h1.entry-title{
+.single h1.entry-title, .page-template-superpost_single-php h1.entry-title{
 	font-size: 3.7em;
 }
 .single .addthis_toolbox.addthis_default_style{
@@ -1649,6 +1649,89 @@ a.comment-count:hover {
 #idc-container div{
 	font-size: 1em !important;
 }
+
+/*
+ * Superpost single
+ * 
+ *
+ */
+.page-template-superpost_single-php .col-abc{
+	padding: 30px;
+    width: 618px;
+ }
+.page-template-superpost_single-php .header-title{
+	background: url('img/nawp-icon.png') no-repeat;
+}
+.page-template-superpost_single-php .header-title h1 {
+    text-transform: uppercase;
+    margin-left: 50px;
+    padding-top: 6px;
+}
+.page-template-superpost_single-php .header-title h1 span{
+	font-size: 0.8em;
+    margin-left: 9px;
+    word-spacing: 0.4em;
+}
+.super-content{
+	border: 1px solid #BABABA; 
+}
+.super-comments{
+	border-left: 1px solid #BABABA;
+	border-right: 1px solid #BABABA;
+	border-bottom: 1px solid #BABABA;
+}
+.super-meta{
+	float: right;
+	color: #58534f;
+	font-family: ProximaNovaS-Regular;
+	font-style: italic;
+	font-size: 0.9em;
+}
+.post-type{
+	color: #E88E00;
+}
+.username{
+	font-family: ProximaNovaA-Semibold;
+	color: #58534f;
+	float: left;
+}
+.super-single-right{
+	float: left;
+	width: 558px;
+}
+.super-single-left{
+	float: left;
+	width: 60px;
+}
+.super-single-gravatar{
+	padding: 3px;
+	border: 1px solid #BABABA;
+	-moz-box-shadow:1px 1px 3px #e5e5e5;
+	-webkit-box-shadow:1px 1px 3px #e5e5e5;
+	box-shadow:1px 1px 3px #e5e5e5;
+	margin-left: -3px;
+}
+.page-template-superpost_single-php .entry-header{
+	padding-top:22px;
+}
+.page-template-superpost_single-php h1.entry-title{
+    font-size: 2.7em;
+    line-height: 0.8em;
+}
+.super-addthis{
+	left: -20px;
+    top: 69px;
+    position: relative;
+}
+.page-template-superpost_single-php .new-superpost-modal-container {
+    padding: 20px 0px 20px 50px;
+    width: 578px;
+}
+.page-template-superpost_single-php .new-superpost-modal-container h1{
+	margin-left: 10px;
+}
+
+
 /*
  * Trophy Bucks Page
  * 
@@ -2302,7 +2385,7 @@ a.about-link:hover{
 * Skyscraper ad fix
 *
 **/
-#advert-widget-3{
+#advert-widget-3, #advert-widget-9{
 	background-color: #fff !important;
 	float: left;
 }
@@ -2536,6 +2619,7 @@ a.about-link:hover{
     padding: 30px 0 70px;
     border-bottom: 1px solid #ccc;
 }
+
 /**
 * 
 * TV Pages

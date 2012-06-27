@@ -43,41 +43,31 @@ the_post();
 	</div>
 	<div class="col-abc">
 		<!-- Questions -->
-		
-		<script type="text/javascript">
-				 		$(document).ready(function(){
-				
-				 			jQuery('#slides-questions').jcarousel({
-				 				easing: 'easeOutBack',
-				 				animation:1000,scroll: 1});	
-							
-				 		});
-					 </script>
-					<div class="questions-slider">
-			            <div class="otd-questions">
-			                <div class="slides-container-f">
-			                     <ul id="slides-questions" class="jcarousel-skin-tango">
-			                        	<li>
-			                        		<div class="user-info">
-			                        			<img alt="user photo" src="http://www.northamericanwhitetail.fox/wp-content/themes/imo-mags-northamericanwhitetail/img/user-temp.jpg">
-			                        			<span>Batman asks...</span>
-			                        		</div>
-			                        		<div class="quote-area">
-			                        			<div class="top"></div>
-			                        			<div class="mdl">
-				                        			<h4 class="quote">&#8220;I am going on a late season muzzle-loader hunt for whitetails in western PA this weekend. Any idea on how I should go about hunting them?&#8221;</h3>
-				                        		</div>
-			                        			<div class="btm"></div>
-			                        		</div>
-			                        		<div class="answers-area">
-			                        			<div class="answers-count">
-			                        				Answers <span class="count">18</span>
-			                        			</div>
-			                        			<div class="answers-link">Answer This Question</div>                   
-			                        		</div>
-			                        	</li>
+		<div class="questions-slider">
+            <div class="otd-questions">
+                <div class="slides-container-f">
+                     <ul id="slides-questions" class="jcarousel-skin-tango">
+                        	<li>
+                        		<div class="user-info">
+                        			<img alt="user photo" src="http://www.northamericanwhitetail.fox/wp-content/themes/imo-mags-northamericanwhitetail/img/user-temp.jpg">
+                        			<span>Batman asks...</span>
+                        		</div>
+                        		<div class="quote-area">
+                        			<div class="top"></div>
+                        			<div class="mdl">
+	                        			<h4 class="quote">&#8220;I am going on a late season muzzle-loader hunt for whitetails in western PA this weekend. Any idea on how I should go about hunting them?&#8221;</h3>
+	                        		</div>
+                        			<div class="btm"></div>
+                        		</div>
+                        		<div class="answers-area">
+                        			<div class="answers-count">
+                        				Answers <span class="count">18</span>
+                        			</div>
+                        			<div class="answers-link">Answer This Question</div>                   
+                        		</div>
+                        	</li>
 
-<li>
+                        	<li>
 			                        		<div class="user-info">
 			                        			<img alt="user photo" src="http://www.northamericanwhitetail.fox/wp-content/themes/imo-mags-northamericanwhitetail/img/user-temp.jpg">
 			                        			<span>Batman asks...</span>

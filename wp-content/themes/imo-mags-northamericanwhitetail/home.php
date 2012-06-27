@@ -36,8 +36,8 @@ get_header();
 				<?php the_content(__('Continued&hellip;', 'carrington-business')); ?>
 	
 	</div><!-- .col-abc -->		
-		
-	<!-- Super post section -->
+
+<!-- Super post section -->
 <div class="col-abc super-post">
     <div <?php post_class('entry entry-full clearfix'); ?>>
     	<!-- This section is commented out until we add community features-->
@@ -57,10 +57,11 @@ get_header();
 				   </li>
 				</ul>
 			</div>
-            <div id="toggle-display-button">
-                Toggle
-			</div>
-            
+            <div class="toggle">
+            	<a id="toggle-tile" class="tile-on"></a>
+            	<span class="toggle-sep"></span>
+            	<a id="toggle-list" class="list-off"></a>
+            </div>
             <ul class="post-type-select">
             	<li id="new-post-button" class="post"><span>+</span> Post</li>
                 <li class='selected' title='all'>ALL</li>
@@ -73,13 +74,12 @@ get_header();
 
 
             </ul>    
+
             <div id="recon-activity">
 
 
             </div>
-            <span id="more-superposts-button">
-                More
-            </span>
+            <span id="more-superposts-button">Load More<span></span></span>
 
 
 
@@ -108,15 +108,6 @@ get_header();
 							</ul>
 						</div>
 					</div>
-					 <script type="text/javascript">
-				 		$(document).ready(function(){
-				
-				 			jQuery('#slides-questions').jcarousel({
-				 				easing: 'easeOutBack',
-				 				animation:1000,scroll: 1});	
-							
-				 		});
-					 </script>
 					<div class="questions-slider">
 			            <div class="otd-questions">
 			                <div class="slides-container-f">
