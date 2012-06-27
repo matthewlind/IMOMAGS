@@ -13,6 +13,7 @@ include 'auth.php';
 include 'userinfo.php';
 include 'images.php';
 include 'video.php';
+include 'location.php';
 
 function get_IP() {
 	$headers = apache_request_headers(); 

@@ -1,7 +1,7 @@
 <?php
 
 //*********************************
-//*** Get Specific Post with ID ***
+//*** Get User Counts ***
 //*********************************
 $app->get('/api/superpost/user/counts/:user_id',function($user_id){
 
@@ -16,6 +16,39 @@ $app->get('/api/superpost/user/counts/:user_id',function($user_id){
 
 		$stmt = $db->prepare($sql);
 		$stmt->execute(array($user_id));
+	
+		$posts = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+		echo json_encode($posts);
+
+		$db = "";
+
+	} catch(PDOException $e) {
+    	echo $e->getMessage();
+    }
+
+});
+
+
+//*********************************
+//*** Get All Posts by a user ***
+//*********************************
+$app->get('/api/superpost/user/posts/:username',function($username){
+
+	header('Access-Control-Allow-Origin: *');  
+
+	try {
+
+		$db = dbConnect();
+
+
+		$sql = "select * from slim.allcounts as posts
+				JOIN imomags.wp_users as users on (users.`ID` = posts.user_id)
+				WHERE users.user_nicename = ?
+				";
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array($username));
 	
 		$posts = $stmt->fetchAll(PDO::FETCH_OBJ);
 

@@ -1,5 +1,8 @@
 <?php 
 
+include("functions/profile.php");
+include("plus/functions-plus.php");
+
 // Thumbs
 add_image_size('huge-thumb', 672, 407, true);
 
@@ -107,5 +110,5 @@ include_once get_stylesheet_directory().'/widgets/newsletter-signup.php';
 
 
 
-include("plus/functions-plus.php");
+
 

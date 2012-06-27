@@ -40,8 +40,10 @@ get_header();
 	<!-- Super post section -->
 <div class="col-abc super-post">
     <div <?php post_class('entry entry-full clearfix'); ?>>
-        <div class="entry-content">
-            <hr class="comm-sep"><h1 class="recon">Naw+ Community</h1>
+    	<!-- This section is commented out until we add community features-->
+<!--         <div class="entry-content">
+            <hr class="comm-sep">
+            <h1 class="recon">Naw+ Community</h1>
             <div id="user-login-button">
                 LOGIN
             </div>
@@ -70,9 +72,7 @@ get_header();
                 <li class="dd-arrow"></li>
 
 
-            </ul>
-            <!-- This div id="recon-activity" is filled with posts by the displayRecon() function
-                     inside plus.js -->    
+            </ul>    
             <div id="recon-activity">
 
 
@@ -83,7 +83,7 @@ get_header();
 
 
 
-        </div>
+        </div> -->
     </div><!-- .entry -->
 </div><!-- .col-abc -->
 	<div class="clear"></div>

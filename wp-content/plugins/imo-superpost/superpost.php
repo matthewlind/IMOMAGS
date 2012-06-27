@@ -52,6 +52,9 @@ function imo_superpost_scripts() {
 register_activation_hook(__FILE__, 'imo_superpost_flush_rules');
 function imo_superpost_flush_rules()
 {
+
+    add_rewrite_rule('profile/([^/]+)', 'index.php?pagename=user-profile&templatename=user_profile&username=$matches[1]', 'top');
+
     add_rewrite_rule('recon-photos/([^/]*)', 'index.php?pagename=recon-photos&templatename=recon_photos&username=$matches[1]', 'top');
     add_rewrite_rule('recon-photos/?$', 'index.php?pagename=recon-photos&templatename=recon_photos', 'top');
 
@@ -63,6 +66,9 @@ function imo_superpost_flush_rules()
     add_rewrite_rule('plus/trophy/([^/]+)', 'index.php?pagename=superpost-single&templatename=superpost_single&spid=$matches[1]', 'top');
     add_rewrite_rule('plus/gear/([^/]+)', 'index.php?pagename=superpost-single&templatename=superpost_single&spid=$matches[1]', 'top');
 
+
+    
+
     //add_rewrite_rule('plus/trophy-buck/([^/]+)', 'index.php?pagename=superpost&templatename=superpost_single&spid=$matches[1]', 'top');
     flush_rewrite_rules(false);
 }
@@ -70,9 +76,13 @@ function imo_superpost_flush_rules()
 add_filter('query_vars', 'imo_superpost_query_vars');
 function imo_superpost_query_vars($query_vars)
 {
+    
+
     $query_vars[] = 'username';
     $query_vars[] = 'spid';
     $query_vars[] = 'templatename';
+
+
     return $query_vars;
 }
 
