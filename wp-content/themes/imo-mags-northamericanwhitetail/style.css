@@ -129,7 +129,7 @@ width: 990px;
 
 #header {
     background: url("img/header-bg.jpg") repeat scroll center top transparent;
-    height: 338px;
+    height: 269px;
     margin: 0 !important;
 }
 .container {
@@ -515,7 +515,9 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     line-height: 2;
 }
 #header #megaMenu ul.megaMenu li.magazine {
-top:27px;
+	top:27px;
+	float: right;
+	right: 313px;
 }
 #header #megaMenu ul.megaMenu li.magazine > a {
   	-moz-border-bottom-colors: none;
@@ -1471,36 +1473,46 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
  *
  */
 
-#main .secondary, #main .gear-slider {
+#main .secondary, .gear-slider {
     display: inline;
     float: left;
     margin-right: 0;
     width: 1030px;
 }
-#main .gear-slider{
+.gear-slider{
 	margin-bottom: 80px;
 }
 * html #main .secondary,  {
     overflow-x: hidden;
 }
-#main .secondary .widget {
+.secondary .widget {
     float: left;
     margin-right: 16px;
     width: 332px;
 }
-#main .secondary .widget:last-child {
+.secondary .widget:last-child {
     margin-right: 0;
 }
-#main .gear-slider .widget_slider-widget{
+.gear-slider .widget_slider-widget{
 	margin-top: 60px;
 }
-#main .gear-slider .widget_slider-widget div.scroll_mask{
+.gear-slider .widget_slider-widget div.scroll_mask{
 	width: 940px;
 }
-#main .gear-slider .widget_slider-widget div.scroll_mask ul.scroll li {
-    margin: 0 133px 0 0 !important;
+.gear-slider .widget_slider-widget div.scroll_mask ul.scroll li {
+    margin: 0 95px 0 0 !important;
     
 }
+.gear-slider ul.scroll li {
+    height: 250px;
+}
+.gear-slider .widget_slider-widget div.scroll_mask ul.scroll li {
+    width: 250px !important;
+}
+.gear-slider .scroll_mask {
+    height: 250px;
+    width: 1030px;
+} 
 /*
  * Excerpt
  * branding, loops
@@ -1623,6 +1635,7 @@ a.comment-count:hover {
  */
 .single h1.entry-title, .page-template-superpost_single-php h1.entry-title{
 	font-size: 3.7em;
+	line-height: 1em;
 }
 .single .addthis_toolbox.addthis_default_style{
 	float: right;
@@ -1638,6 +1651,9 @@ a.comment-count:hover {
 }
 .entry .entry-content, .entry .entry-summary, .reply .reply-content, .entry .entry-footer, .reply .reply-footer{
 	padding-left: 1px;
+}
+.entry-full{
+	font-family: Helvetica,sans-serif;
 }
 .wp-caption {
     border-radius:0;
@@ -2301,7 +2317,7 @@ select.post_type {
     background-color:white;
 }
 /*
- * Newsletter Widget
+ * join Widget
  * 
  *
  */
@@ -2314,17 +2330,17 @@ a.about-link{
 a.about-link:hover{
 	color: #000033 !important;
 }
-.newsletter {
+.join {
     border: 1px solid #D5D5D5;
     padding: 17px;
     background: url('img/newsletter-bg.jpg') no-repeat center top #EDEDED;
     height: 218px;
 }
-#newsletter_signup .gform_wrapper {
+#join .gform_wrapper {
     max-width: 100% !important;
     margin: 0 0 10px;
 }
-#newsletter_signup .gform_wrapper .newsletter .top_label input.medium, #newsletter_signup .gform_wrapper .newsletter .ginput_container input {
+#join .gform_wrapper .join .top_label input.medium, #join .gform_wrapper .join .ginput_container input {
     border: medium none;
     float: left;
     font-family: ProximaNovaA-regular;
@@ -2337,13 +2353,13 @@ a.about-link:hover{
     vertical-align: middle;
     width: 283px;
 }
-#newsletter_signup .gform_wrapper .newsletter .gform_footer {
+#join .gform_wrapper .join .gform_footer {
     clear: none;
     margin: 0 0 0 -7px;
     padding: 0;
     width: 80px;
 }
-#newsletter_signup .gform_wrapper .newsletter .gform_footer input.button, #newsletter_signup .gform_wrapper .newsletter .gform_footer input[type="submit"], #sidebar .newsletter .gform_button {
+#join .gform_wrapper .join .gform_footer input.button, #join .gform_wrapper .join .gform_footer input[type="submit"], #sidebar .join .gform_button {
     background: url("img/sign-up-bg.png") no-repeat scroll 0 0 transparent;
     border: medium none;
     border-radius: 0;
@@ -2357,12 +2373,12 @@ a.about-link:hover{
     float: left;
     position: relative;
 }
-.newsletter-sep{
+.join-sep{
 	position: relative;
     top: 183px;
     z-index: 1;
 }
-.newsletter-sep span{
+.join-sep span{
 	float: left;
     font-family: ProximaNova-Regular;
     font-size: 0.8em;

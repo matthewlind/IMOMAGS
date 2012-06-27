@@ -26,7 +26,7 @@ the_post();
 <div class="page-template-page-tactics-php page-template-page slider-height">
 	<header class="header-title">
 		<h1><?php the_title(); ?></h1>
-		<h3>Part of</h3>
+		
 		<div class="naw-ad"></div>
 	</header>	
 	<div class="bonus-background">
@@ -36,7 +36,7 @@ the_post();
 	</div>
 	<div class="col-abc">
 		<?php the_content(__('Continued&hellip;', 'carrington-business')); ?>
-		<!-- Questions -->
+		<!-- Questions 
 		<div class="header-sort">
 			<h1 class="more-header">Latest Questions</h1>
 			<div class='questions-right'>
@@ -95,7 +95,7 @@ the_post();
 				                 </div>    
 				            </div>
 				  </div>
-			<div class="clear"></div>
+			<div class="clear"></div>-->
 
 		
 		

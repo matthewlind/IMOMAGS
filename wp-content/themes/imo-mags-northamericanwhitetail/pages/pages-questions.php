@@ -33,7 +33,7 @@ the_post();
 				   <li class="plus-button reg"><a href="#"><span>Register</span></a></li>
 				</ul>
 			</div>
-		<h3>Part of</h3>
+		
 		<div class="naw-ad"></div>
 	</header>	
 	<div class="bonus-background">
