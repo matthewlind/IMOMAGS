@@ -55,10 +55,14 @@ get_header();
 				   </li>
 				</ul>
 			</div>
-            <div id="toggle-display-button">
+            <!--<div id="toggle-display-button">
                 Toggle
-			</div>
-            
+			</div>-->
+            <div class="toggle">
+            	<a id="toggle-tile" class="tile-on"></a>
+            	<span class="toggle-sep"></span>
+            	<a id="toggle-list" class="list-off"></a>
+            </div>
             <ul class="post-type-select">
             	<li id="new-post-button" class="post"><span>+</span> Post</li>
                 <li class='selected' title='all'>ALL</li>
@@ -71,6 +75,7 @@ get_header();
 
 
             </ul>
+        
             <!-- This div id="recon-activity" is filled with posts by the displayRecon() function
                      inside plus.js -->    
             <div id="recon-activity">

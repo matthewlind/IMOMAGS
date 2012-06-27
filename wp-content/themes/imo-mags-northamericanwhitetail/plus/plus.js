@@ -66,11 +66,34 @@ $("#toggle-display-button").click(function(){
 		displayMode = "tile";
 	}
 	
-	
-
 });
 
+//activate Recon Network Controls - Toggle List Button
+$("#toggle-list").click(function(){
 
+	currentDisplayStart = 0;
+	$("#toggle-tile").removeClass("tile-on").addClass("tile-off");
+	$("#toggle-list").removeClass("list-off").addClass("list-on");
+	var postType = $("ul.post-type-select li.selected").attr("title");
+
+		displayReconList(postType);
+		displayMode = "list";
+	
+});
+
+//activate Recon Network Controls - Toggle Tile Button
+$("#toggle-tile").click(function(){
+
+	currentDisplayStart = 0;
+	$("#toggle-tile").removeClass("tile-off").addClass("tile-on");
+	$("#toggle-list").removeClass("list-on").addClass("list-off");
+	var postType = $("ul.post-type-select li.selected").attr("title");
+	
+		displayRecon(postType);
+		displayMode = "tile";
+	
+	
+});
 
 //Hide popup elements on click
 $(document).click(function() {

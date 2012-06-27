@@ -215,7 +215,7 @@ li.count-field {
 ul.post-type-select {
 	float: left;
     position: relative;
-    width: 701px;
+    width: 702px;
     margin: 0;
 }
 ul.post-type-select li {
@@ -253,9 +253,11 @@ ul.post-type-select li:hover {
 	color: white;
 	border-bottom: 1px solid #347fe7; 
 	border-top: 1px solid #347fe7;
+	border-right: 1px solid #347fe7;
 	text-shadow:
 		0px 0px 0px rgba(000,000,000,0.2),
 		1px 2px 0px rgba(000,000,000,0.4);
+	
 
 }
 ul.post-type-select li.post{
@@ -280,6 +282,10 @@ ul.post-type-select li.post{
 	text-shadow:
 		0px 0px 0px rgba(000,000,000,0.2),
 		1px 2px 0px rgba(000,000,000,0.4);
+	margin-right: 1px;
+	-moz-box-shadow: inset 0px 0px 1px 0px #ffffff;
+	-webkit-box-shadow: inset 0px 0px 1px 0px #ffffff;
+	box-shadow: inset 0px 0px 1px 0px #ffffff;
 }
 ul.post-type-select li.post span{
 	font-family: "ProximaNovaS-Extrabld";
@@ -297,6 +303,7 @@ ul.post-type-select li.dd-arrow{
 ul.post-type-select li.dd-arrow:hover{
     border-top:1px solid #CCCCCC;
     border-bottom:1px solid #CCCCCC;
+    border-right:1px solid #CCCCCC; 
 }
 #more-superposts-button {
 	font-family: ProximaNovaA-Semibold;
@@ -339,20 +346,49 @@ span#more-superposts-button span {
 	color:#3e88e9;
 	 -moz-transition: all 0.6s ease 0s;
 }
-#toggle-display-button {
-    background-color: #CCCCCC;
-    cursor: pointer;
+.toggle {
     display: block;
     float: left;
-    margin: 10px 43px 0 43px;
-    padding: 7px 6px;
-    text-align: center;
-	-webkit-touch-callout: none;
+    margin: 14px 32px;
+    -webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+}
+#toggle-tile{
+	height: 19px;
+    float: left;
+    margin-top: 7px;
+    width: 28px;
+    cursor: pointer;
+}
+#toggle-list{
+	height: 19px;
+    float: left;
+    margin-top: 7px;
+    width: 27px;
+    cursor: pointer;
+}
+.toggle-sep{
+	background: url('/wp-content/themes/imo-mags-northamericanwhitetail/img/toggle-sep.png') no-repeat;
+	float: left;
+    height: 34px;
+    margin: 0 8px;
+    width: 1px;
+}
+.list-on, a.list-off:hover{
+	background: url('/wp-content/themes/imo-mags-northamericanwhitetail/img/list-on.png') no-repeat;
+}
+.list-off{
+	background: url('/wp-content/themes/imo-mags-northamericanwhitetail/img/list-off.png') no-repeat;
+}
+.tile-on, a.tile-off:hover{
+	background: url('/wp-content/themes/imo-mags-northamericanwhitetail/img/tile-on.png') no-repeat;
+}
+.tile-off{
+	background: url('/wp-content/themes/imo-mags-northamericanwhitetail/img/tile-off.png') no-repeat;
 }
 #new-post-button {
 	/*cursor: pointer;
