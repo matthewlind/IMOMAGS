@@ -55,9 +55,6 @@ get_header();
 				   </li>
 				</ul>
 			</div>
-            <!--<div id="toggle-display-button">
-                Toggle
-			</div>-->
             <div class="toggle">
             	<a id="toggle-tile" class="tile-on"></a>
             	<span class="toggle-sep"></span>
