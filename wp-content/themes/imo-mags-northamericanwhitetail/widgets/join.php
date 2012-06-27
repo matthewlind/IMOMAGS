@@ -1,9 +1,9 @@
-<?php // Custom Signup Form Widget powered by Gravity Forms
+<?php // Custom Join NAW+ Widget powered by Gravity Forms
 
-class Signup_Widget extends WP_Widget {
-	function Signup_Widget() {
+class Join_Widget extends WP_Widget {
+	function Join_Widget() {
 		$widget_ops = array('classname' => 'widget_gravity_form', 'description' => 'Add a Gravity Form email signup form.' );
-		$this->WP_Widget('newsletter_signup', 'Newsletter Signup', $widget_ops);
+		$this->WP_Widget('join', 'Join NAW+', $widget_ops);
 	}
  
 	function widget($args, $instance) {
@@ -11,15 +11,21 @@ class Signup_Widget extends WP_Widget {
  
     $title = empty($instance['title']) ? '' : apply_filters('widget_title', $instance['title']); ?>
 
-    <aside id="newsletter_signup" class="box widget_gravity_form">
+    <aside id="join" class="box widget_gravity_form">
       <div class="content_wrapper">
+      	<div class="join-sep">
+        <span>or</span>
+        <input id="fb-signup" class="fb-signup" type="submit" name="fb-signup" value="Submit">
+        </div>
+
         <?php if(!empty($title)) : ?>
         <h5 class="box_title">
           <span><?php echo $title; ?></span>
         </h5>
         <?php endif; ?>
         <?php if (function_exists('gravity_form')) gravity_form(1, false, false); ?>
-      </div>
+        <a href="#" class="about-link">Tell me about North American Whitetail +</a>
+       </div>
     </aside>
 
 <?php	}
@@ -38,4 +44,4 @@ class Signup_Widget extends WP_Widget {
 <?php
 	}
 }
-register_widget('Signup_Widget');
+register_widget('Join_Widget');

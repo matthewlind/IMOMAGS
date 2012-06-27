@@ -198,7 +198,7 @@ if(document.location.protocol=='http:'){
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 <header id="header">
-	<div id="tophat">
+	<!-- <div id="tophat">
     		<div class="user-bar">
     			<ul id="tophat-left">
     				<li><a href="#">+ Post</a></li>
@@ -213,7 +213,7 @@ if(document.location.protocol=='http:'){
     				<li><a href="#">Sign Out</a></li>
     			</ul>
     		</div>
-		</div>
+		</div> -->
     <div class="container">
     	    	
     	

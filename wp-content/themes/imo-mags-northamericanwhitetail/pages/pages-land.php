@@ -26,7 +26,7 @@ the_post();
 <div class="page-template-page-land-php page-template-page slider-thumbs">
 	<header class="header-title">
 		<h1><?php the_title(); ?></h1>
-		<h3>Part of</h3>
+		
 		<div class="naw-ad"></div>
 	</header>	
 	<div class="bonus-background">
@@ -37,7 +37,7 @@ the_post();
 	<div class="col-abc">
 		<?php the_content(__('Continued&hellip;', 'carrington-business')); ?>
 		<!-- Questions -->
-		<div class="header-sort">
+		<!-- <div class="header-sort">
 			<h1 class="more-header">Latest Questions</h1>
 			<div class='questions-right'>
 				<ul>
@@ -48,16 +48,7 @@ the_post();
 			</div>
 		</div>
 
-		<script type="text/javascript">
-				 		$(document).ready(function(){
-				
-				 			jQuery('#slides-questions').jcarousel({
-				 				easing: 'easeOutBack',
-				 				animation:1000,scroll: 1});	
-							
-				 		});
-					 </script>
-					<div class="questions-slider">
+				<div class="questions-slider">
 			            <div class="otd-questions">
 			                <div class="slides-container-f">
 			                     <ul id="slides-questions" class="jcarousel-skin-tango">
@@ -104,7 +95,7 @@ the_post();
 				                 </div>    
 				            </div>
 				  </div>
-			<div class="clear"></div>		
+			<div class="clear"></div> -->	
 		
 		<!-- Loop -->
 		

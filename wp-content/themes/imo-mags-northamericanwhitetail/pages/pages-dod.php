@@ -26,10 +26,10 @@ the_post();
 <div class="page-template-page-dod-php page-template-page">
 	<header class="header-title">
 		<h1><?php the_title(); ?></h1>
-		<div class="dod-header-extras">
+		<!-- <div class="dod-header-extras">
 			<a class="submit-yours plus-button" href="#"><span class="plus">+</span><span>Submit Yours</span></a>
 			<a href="#" class="how-it-works">How it works</a>
-		</div>
+		</div> -->
 	</header>	
 	<div class="bonus-background">
 		<div class="sidebar">
@@ -57,14 +57,14 @@ the_post();
 					<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('huge-thumb'); ?></a>
 					<div class="title-area">
 						<h2 class="featured-entry-title"><a rel="bookmark" href="<?php the_permalink() ?>"><?php the_title() ?></a></h2>
-						<div class="super-post-info">
+						<!-- <div class="super-post-info">
 							<img alt="user photo" src="http://www.northamericanwhitetail.fox/wp-content/themes/imo-mags-northamericanwhitetail/img/user-temp.jpg">
 							<ul>
 								<li>Submitted by</li>
 								<li class="user-name">Batman</li>
 								<li class="points">396 Points</li>
 							</ul>
-						</div>	
+						</div> -->
 					</div>
  			 	</div>
 				<?php endwhile;
