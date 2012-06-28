@@ -1513,6 +1513,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     height: 250px;
     width: 1030px;
 } 
+.gear-slider .widget_slider-widget .prev, .widget_slider-widget .next{
+	height: 250px !important;
+}
 /*
  * Excerpt
  * branding, loops

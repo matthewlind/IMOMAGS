@@ -182,10 +182,29 @@ get_header();
 		</div><!-- .entry -->
 	</div><!-- .col-abc -->
 	<!-- Bottom Widget Area -->
-	
 	<div class="gear-slider">
 		<h1 class="more-header">Gear Reviews</h1>
-		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('gear-home')) : else : ?><?php endif; ?>
+		<aside class="widget widget_slider-widget">
+			<div class="scroll_mask">				
+				<ul id="slides-gear" class="scroll">
+				<?php
+				//Most Recent
+				$the_query = new WP_Query( array( 'category_name' => 'gear','posts_per_page' =>-1, 'orderby' => 'date', 'order' => 'DESC' ) );
+				while ( $the_query->have_posts() ) : $the_query->the_post(); 
+					if(has_post_thumbnail()){  
+						foreach($the_query as $query) ?>
+						<li><a href="<?php echo $query->guid; ?>"><?php the_post_thumbnail('gear-thumb'); ?></a></li>
+    					<?php
+						}
+				endwhile;	
+				// Reset Post Data
+				wp_reset_postdata();
+				?>
+	  			</ul>
+			</div>
+			<a class="prev">Previous</a>
+			<a class="next">Next</a>
+		</aside>
 	</div>
 	<div class="secondary">
 		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('secondary-home')) : else : ?><?php endif; ?>

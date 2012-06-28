@@ -102,6 +102,15 @@ $(document).ready(function(){
 		easing: 'easeOutBack',
 		animation:1000,scroll: 5});		
 });
+// Gear slider
+$(document).ready(function(){
+
+		$('#slides-gear').buffet({
+    		scroll_by : 3,
+   			next      : $('.next'),
+    		prev      : $('.prev')
+  		});
+});
 // Flash ad z-index pecking order fix
 $(document).ready(function(){
 	FlashHeed.heed();
