@@ -330,6 +330,21 @@ $args = array(
     </form>
   </div> <!-- End new-superpost-modal-container -->
 
+
+  <article id="excerpt-template" class="post type-post status-publish format-standard hentry entry entry-excerpt has-img" style="display:none;">
+    <a href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/"><img width="190" height="120" src="http://www.northamericanwhitetail.deva/files/2012/03/NAWdd_031312-190x120.jpg" class="entry-img wp-post-image" alt="" title="" /></a>
+
+    <div class="entry-summary">
+      <span class="entry-category"><a href="http://www.northamericanwhitetail.deva/category/deer-of-the-day/" title="View all posts in Deer of the Day" rel="category tag">Deer of the Day</a></span>
+    <h2 class="entry-title"><a rel="bookmark" href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/">Deer of the Day Buckeye Brute, Alexa Perry</a></h2>
+    <span class="author vcard">March 13, 2012 <span class="fn">by North American Whitetail Online Staff</span></span>
+    <p class="excerpt-body">13-year-old Alexa Perry shot this fantastic buck the third week in November in Ohio. The buck grossed 180 3/8 inches.<a href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/">&#8230;&raquo;</a></p>
+    </div>
+    <a class="comment-count" href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/#comments">2</a>
+  </article>
+
+
+
   <div class="user-login-modal-container" style="display:none">
     <div id="LoginWithAjax"><?php //ID must be here, and if this is a template, class name should be that of template directory ?>
               <span id="LoginWithAjax_Status"></span>
