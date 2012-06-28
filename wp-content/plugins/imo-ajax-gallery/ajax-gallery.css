@@ -1,0 +1,238 @@
+div.post {
+  overflow: visible;
+}
+
+
+.slideshow_mask {
+  position:relative;
+  overflow:hidden;
+  margin:0 auto;
+  width:620px;
+  height:500px;
+}
+
+.slideshow {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:650px;
+  height:500px;
+}
+
+.slideshow .slide {
+  position:absolute;
+  width:650px;
+  height:500px;
+}
+
+
+
+
+.slideshow_mask.text-slides {
+  position:relative;
+  overflow:hidden;
+  margin:0 auto;
+  width:300px;
+  height:300px;
+}
+
+.slideshow.text-slides {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:300px;
+  height:300px;
+}
+
+.slideshow.text-slides .slide {
+  position:absolute;
+  width:300px;
+  height:300px;
+  text-align: left;
+}
+
+
+
+
+
+#pager a.active {
+  background:orange;
+}
+    
+.gallery-slide-out {
+  height:625px;
+  width:340px;
+  left: 342px;
+  background-color:black;
+  position:absolute;
+  z-index:100;
+  color:white;
+}
+
+.gallery-slide-out a {
+  color:red;
+}
+
+.slide-out-content {
+  margin:20px 10px 10px 10px;
+}
+
+.gallery-slide-out h2 {
+  color:white;
+}
+
+div.ngg-imagebrowser {
+  z-index:200;
+}
+
+
+
+
+
+/* line 2678, sass/style.scss */
+#main .ngg-imagebrowser {
+  background: black;
+  padding: 30px 30px 60px;
+  position: relative;
+}
+/* line 2682, sass/style.scss */
+#main .ngg-imagebrowser p {
+  color: white;
+  margin: 0;
+}
+/* line 2685, sass/style.scss */
+#main .ngg-imagebrowser .pic {
+  left: 0;
+  margin: 30px 0 42px;
+  position: relative;
+  top: 0;
+}
+/* line 2690, sass/style.scss */
+#main .ngg-imagebrowser .pic img {
+  margin: 0;
+  max-width:600px;
+}
+/* line 2693, sass/style.scss */
+#main .ngg-imagebrowser h3 {
+  font-family: "StagMedium";
+  font-weight: lighter;
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  color: white;
+  line-height: 1.2;
+  margin: 4px 0 0;
+  position: relative;
+  text-align: left;
+  *display: inline;
+}
+/* line 2707, sass/style.scss */
+#main .ngg-imagebrowser .counter {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-weight: normal;
+  color: #ce181e;
+  line-height: 40px;
+  margin: 0;
+  position: absolute;
+  right: 152px;
+  top: 0;
+  width: 110px;
+  font-size:12px;
+  text-align: right;
+}
+/* line 2719, sass/style.scss */
+#main .ngg-imagebrowser .ngg-imagebrowser-desc {
+  color: white;
+  font-size: 12px;
+  position: relative;
+  top: 0;
+  width: 380px;
+}
+/* line 2725, sass/style.scss */
+#main .ngg-imagebrowser .ngg-imagebrowser-desc p {
+  color: white;
+  margin: 0;
+}
+/* line 2728, sass/style.scss */
+#main .ngg-imagebrowser .ngg-imagebrowser-nav {
+  position: relative;
+}
+/* line 2730, sass/style.scss */
+#main .ngg-imagebrowser .ngg-imagebrowser-nav .back, #main .ngg-imagebrowser .ngg-imagebrowser-nav .next {
+  border: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+}
+/* line 2735, sass/style.scss */
+#main .ngg-imagebrowser .ngg-imagebrowser-nav .back a, #main .ngg-imagebrowser .ngg-imagebrowser-nav .next a {
+  text-indent: -119988px;
+  overflow: hidden;
+  text-align: left;
+  background-color: #222;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: block;
+  height: 10px;
+  width: 10px;
+}
+/* line 2745, sass/style.scss */
+#main .ngg-imagebrowser .ngg-imagebrowser-nav .back a:hover, #main .ngg-imagebrowser .ngg-imagebrowser-nav .next a:hover {
+  background-color: #ce181e;
+}
+/* line 2747, sass/style.scss */
+#main .ngg-imagebrowser .ngg-imagebrowser-nav .back {
+  right: 46px;
+}
+/* line 2749, sass/style.scss */
+#main .ngg-imagebrowser .ngg-imagebrowser-nav .back a {
+  background-image: url("img/ui_tab_prev.png?1336056336");
+}
+/* line 2751, sass/style.scss */
+#main .ngg-imagebrowser .ngg-imagebrowser-nav .next {
+  right: 0px;
+}
+/* line 2753, sass/style.scss */
+#main .ngg-imagebrowser .ngg-imagebrowser-nav .next a {
+  background-image: url("img/ui_tab_next.png?1336056336");
+}
+
+/* line 2757, sass/style.scss */
+.single-imo_gallery #main .pagination {
+  display: none;
+}
+/* line 2759, sass/style.scss */
+.single-imo_gallery #main .ngg-imagebrowser-container {
+  overflow: hidden;
+  *zoom: 1;
+  background: black url("img/imo_gallery_sidebar_bg.png?1336056336") top right repeat-y;
+  margin: 0 0 50px 0;
+  padding: 30px 22px 30px 30px;
+}
+/* line 2765, sass/style.scss */
+.single-imo_gallery #main .ngg-imagebrowser {
+  float: left;
+  background: none;
+  margin: 0 34px 0 0;
+  padding: 0;
+  width: 594px;
+}
+/* line 2771, sass/style.scss */
+.single-imo_gallery #main .ngg-imagebrowser .pic {
+  margin: 0 0 20px;
+}
+/* line 2773, sass/style.scss */
+.single-imo_gallery #main .ngg-imagebrowser .pic img {
+  max-width: 100%;
+}
+/* line 2775, sass/style.scss */
+.single-imo_gallery #main .ngg-imagebrowser h3 {
+  width: 450px;
+}
+/* line 2777, sass/style.scss */
+.single-imo_gallery #main .ngg-imagebrowser .ngg-imagebrowser-desc {
+  margin: 40px 0;
+}

@@ -1,0 +1,147 @@
+<?php
+/*
+ * Plugin Name: IMO Ajax Gallery
+ * Plugin URI: http://github.com/imoutdoors
+ * Description: Adds a shortcode for Ajax galleries (requires NextGen Gallery)
+ * Version: 0.1
+ * Author: Aaron Baker
+ */
+
+add_shortcode( 'imo-slideshow', 'slideshow_gallery' );
+
+// [slideshow gallery=GALLERY_ID]
+function slideshow_gallery( $atts ) {
+	extract( shortcode_atts( array(
+		'gallery' => 1,
+	), $atts ) );
+
+	return displayGallery($gallery);
+
+}
+
+
+function displayGallery($gallery_id) {
+
+	$dartDomain = get_option("dart_domain", $default = false);
+
+	global $wpdb;
+	
+	$prefix = $wpdb->prefix;
+	$pictures = $wpdb->get_results($wpdb->prepare(
+		"SELECT * , CONCAT('/' , path, '/' , filename) as img_url, CONCAT('/' , path, '/thumb/' , filename) as thumbnail, meta_data
+		from {$prefix}ngg_gallery as gallery
+		JOIN `{$prefix}ngg_pictures` as pictures ON (gallery.gid = pictures.galleryid)
+		WHERE gallery.gid = %d
+		ORDER BY sortorder asc",
+		$gallery_id
+		)
+	);
+
+	$title = $pictures[0]->title;
+
+	 // echo "<pre>";
+	 // print_r($pictures);
+	 // echo "</pre>";
+	$slides = '<div class="slideshow_mask">
+	  			<div class="slideshow">';
+
+
+	$textSlides = '<div class="slideshow_mask text-slides">
+	  			<div class="slideshow text-slides">';
+
+	foreach ($pictures as $picture) {
+
+
+		$slides .=  "<div class='slide'><div class='pic'><img src='$picture->img_url'></div></div>";
+
+		$textSlides .=  "<div class='slide'><h2>{$picture->alttext}</h2>
+				<p>{$picture->description}</p></div>";
+	}
+
+	$slides .= "</div>
+				</div>";
+
+	$textSlides .= "</div>
+					</div>";
+
+	$output .= <<<EOT
+	<div class="gallery-hover-div">
+		<div class="gallery-slide-out" style="">
+			<div class="slide-out-content">
+
+				$textSlides
+				
+			</div>
+			<div class="slide-out-ad">
+				<iframe id="gallery-iframe-ad" height=270 width=330 src="/iframe-ad.php?ad_code=$dartDomain"></iframe>
+			</div>
+		</div> 
+		<div class="ngg-imagebrowser">
+		
+			<div class="ngg-imagebrowser-nav"> 
+				<div class="back">
+					<a class="ngg-browser-prev" id="ngg-prev-1473" href="">&#9668; Back</a>
+				</div>
+		        		
+				<div class="next">
+					<a class="ngg-browser-next" id="ngg-next-1476" href="">Next &#9658;</a>
+				</div>
+		        <div class="counter">Picture 1 of 8</div>
+		                <div class="ngg-imagebrowser-desc"><h3>$title</h3></div>
+			</div>	
+
+			$slides
+
+		</div>
+	</div>
+
+
+
+
+EOT;
+
+	return $output;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Since we don't want to add the scripts to every page, we check to see if we need them before adding
+add_filter('the_posts', 'conditionally_add_scripts_and_styles'); // the_posts gets triggered before wp_head
+function conditionally_add_scripts_and_styles($posts){
+	if (empty($posts)) return $posts;
+ 
+	$shortcode_found = false; // use this flag to see if styles and scripts need to be enqueued
+	foreach ($posts as $post) {
+		if (stripos($post->post_content, '[imo-slideshow') !== false) {
+			$shortcode_found = true; // bingo!
+			break;
+		}
+	}
+ 
+	if ($shortcode_found) {
+		// enqueue here
+		wp_enqueue_script('ajax-gallery-js',plugins_url('ajax-gallery.js', __FILE__));
+		wp_enqueue_script('jquery-scrollface',plugins_url('jquery.scrollface.min.js', __FILE__));
+		wp_enqueue_style('ajax-gallery-css',plugins_url('ajax-gallery.css', __FILE__));
+	}
+ 
+	return $posts;
+}
+
+
+
+
+
+
+
