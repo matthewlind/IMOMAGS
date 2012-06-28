@@ -26,7 +26,7 @@ the_post();
 <div class="page-template-page-trophy-php page-template-page slider-height">
 	<header class="header-title">
 		<h1><?php the_title(); ?></h1>
-		
+		<h3>Part of</h3>
 		<div class="naw-ad"></div>
 	</header>	
 	<div class="bonus-background">
@@ -50,7 +50,7 @@ the_post();
 			</div>
 		</div>
 	<div class="cross-site-feed" term="trophy-bucks"><!-- This term= attribute is searched for by displayCrossSiteFeed() in cross-site-feed.js -->
-
+	<div class="cross-site-feed-more-button"> MORE </div>
 				</div>
 
 
