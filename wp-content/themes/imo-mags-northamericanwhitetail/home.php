@@ -160,21 +160,41 @@ get_header();
 	<div style="height:30px;"></div>
 				<div class="header-sort">
 					<h1 class="more-header">Editor's Picks</h1>
-					<div class='cssmenu'>
-						<ul>
-						   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
-						      <ul>
-						         <li><a href='#'><span>Category 1</span></a></li>
-						         <li><a href='#'><span>Category 2</span></a></li>
-						      </ul>
-						   </li>
-						</ul>
+				</div>
+				<?php
+				$args = array(
+				'post_type' => 'post',
+				'post_status' => 'publish',
+				'orderby' => 'date',
+				'order' => 'DESC',
+				'posts_per_page' => 5,
+				);
+				// The Query
+				$the_query = new WP_Query( $args );
+
+				// The Loop
+				while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+	
+				<article id="post-excerpt-<?php the_ID(); ?>" <?php post_class('entry entry-excerpt') ?>>
+					<?php if (has_post_thumbnail()) : ?>
+					<a<?php if( get_post_type() == 'imo_video' || in_category('video') ){echo ' class="video-excerpt"';} ?> href="<?php the_permalink(); ?>"><?php the_post_thumbnail('post-thumbnail', array('class' => 'entry-img')); if( get_post_type() == 'imo_video' || in_category('video') ){echo '<span></span>';} ?></a>
+
+					<?php endif; ?>
+					<div class="entry-summary">
+	  					<span class="entry-category"><?php the_category(' &middot; '); ?></span>
+						<h2 class="entry-title"><a rel="bookmark" href="<?php the_permalink() ?>"><?php the_title() ?></a></h2>
+						<span class="author vcard"><?php the_time(get_option('date_format')); ?> <span class="fn">by <?php the_author(); ?></span></span>
+						<?php the_excerpt(); ?>
 					</div>
-				</div>
-				<div class="cross-site-feed" term=""><!-- This term= attribute is searched for by displayCrossSiteFeed() in cross-site-feed.js -->
-
-				</div>
-
+ 			 		<a class="comment-count" href="<?php comments_link(); ?>"><?php echo get_comments_number(); ?></a>
+				</article>
+				<?php endwhile;
+				next_posts_link();
+				previous_posts_link();
+				// Reset Post Data
+				wp_reset_postdata(); 
+				
+				?>
 				
 			</div>
 			<?php edit_post_link(__('Edit', 'carrington-business')); ?>
@@ -188,11 +208,11 @@ get_header();
 				<ul id="slides-gear" class="scroll">
 				<?php
 				//Most Recent
-				$the_query = new WP_Query( array( 'category_name' => 'gear','posts_per_page' =>-1, 'orderby' => 'date', 'order' => 'DESC' ) );
+				$the_query = new WP_Query( array( 'post_type' => 'post','category_name' => 'gear','posts_per_page' =>20, 'orderby' => 'date', 'order' => 'DESC' ) );
 				while ( $the_query->have_posts() ) : $the_query->the_post(); 
-					if(has_post_thumbnail()){  
-						foreach($the_query as $query) ?>
-						<li><a href="<?php echo $query->guid; ?>"><?php the_post_thumbnail('gear-thumb'); ?></a></li>
+					if(has_post_thumbnail()){  ?>
+						
+						<li><a href="<?php echo the_permalink(); ?>"><?php the_post_thumbnail('gear-thumb'); ?></a></li>
     					<?php
 						}
 				endwhile;	
