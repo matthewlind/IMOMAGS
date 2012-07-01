@@ -21,7 +21,7 @@ div.post {
 
 .slideshow .slide {
   position:absolute;
-  width:650px;
+
   height:500px;
 }
 
@@ -33,26 +33,93 @@ div.post {
   overflow:hidden;
   margin:0 auto;
   width:300px;
-  height:300px;
+  height:380px;
 }
 
 .slideshow.text-slides {
   position:absolute;
   left:0px;
   top:0px;
-  width:300px;
-  height:300px;
 }
 
 .slideshow.text-slides .slide {
   position:absolute;
   width:300px;
-  height:300px;
+  height:375px;
   text-align: left;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+#slideshow-pager {
+
+  
+}
+
+#slideshow-pager a {
+
+}
+
+#slideshow-pager a.active {
+/*  color:red;
+  border: 3px solid white;*/
+}
+
+#slideshow-pager li.active {
+  color:red;
+  border: 3px solid white;
 }
 
 
+#slideshow-pager .thumb-container {
+  height: 75px;
+  width: 75px;
+  overflow: hidden;
+  border: 3px solid gray;
+}
 
+#slideshow-pager img.slideshow-thumb {
+  width: 100px;
+  height: 75px;
+  padding: 0px;
+  border:none;
+  margin-left:-13px;
+}
+#slideshow-pager .thumb-container.active {
+  border: 3px solid white;
+}
+
+
+#slideshow-pager {
+  position:relative;
+  overflow:hidden;
+  width:620px;
+  height:100px;
+  margin:20px auto;
+}
+
+ul.thumb-pager {
+  margin:0;
+  padding:0;
+  position:absolute;
+  width:9999em;
+  height:140px;
+  list-style-type:none;
+
+}
+
+ul.thumb-pager li {
+  float:left;
+
+  margin:0 20px 0 0;
+
+}
+
+
+a.thumb-arrow {
+
+  color:red;
+}
 
 
 #pager a.active {
@@ -85,14 +152,41 @@ div.ngg-imagebrowser {
   z-index:200;
 }
 
+.thumb-arrow {
+text-indent: -119988px;
+overflow: hidden;
+text-align: left;
+background-color: black;
+background-position: center center;
+background-repeat: no-repeat;
+cursor: pointer;
+display: block;
+height: 90px;
+position: absolute;
+top: 580px;
+width: 25px;
+background-color: #888888;
+}
 
+.thumb-arrow.inactive {
+  background-color: #333333;
+}
 
+#thumb-next {
+  background-image: url("img/ui_tab_next.png");
+  right:0px;
+}
+
+#thumb-prev {
+  background-image: url("img/ui_tab_prev.png");
+  left:0px;
+}
 
 
 /* line 2678, sass/style.scss */
 #main .ngg-imagebrowser {
   background: black;
-  padding: 30px 30px 60px;
+  padding: 30px 30px 0px;
   position: relative;
 }
 /* line 2682, sass/style.scss */
@@ -103,14 +197,16 @@ div.ngg-imagebrowser {
 /* line 2685, sass/style.scss */
 #main .ngg-imagebrowser .pic {
   left: 0;
-  margin: 30px 0 42px;
+  margin: 0 0 42px;
   position: relative;
   top: 0;
 }
 /* line 2690, sass/style.scss */
 #main .ngg-imagebrowser .pic img {
   margin: 0;
-  max-width:600px;
+  /*max-width:600px;*/
+  padding:0px;
+  border:3px solid gray;
 }
 /* line 2693, sass/style.scss */
 #main .ngg-imagebrowser h3 {

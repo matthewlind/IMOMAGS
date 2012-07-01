@@ -28,7 +28,7 @@ function displayGallery($gallery_id) {
 	
 	$prefix = $wpdb->prefix;
 	$pictures = $wpdb->get_results($wpdb->prepare(
-		"SELECT * , CONCAT('/' , path, '/' , filename) as img_url, CONCAT('/' , path, '/thumb/' , filename) as thumbnail, meta_data
+		"SELECT * , CONCAT('/' , path, '/' , filename) as img_url, CONCAT('/' , path, '/thumbs/thumbs_' , filename) as thumbnail, meta_data
 		from {$prefix}ngg_gallery as gallery
 		JOIN `{$prefix}ngg_pictures` as pictures ON (gallery.gid = pictures.galleryid)
 		WHERE gallery.gid = %d
@@ -39,23 +39,33 @@ function displayGallery($gallery_id) {
 
 	$title = $pictures[0]->title;
 
-	 // echo "<pre>";
-	 // print_r($pictures);
-	 // echo "</pre>";
-	$slides = '<div class="slideshow_mask">
+
+	$slides = '<div class="slideshow_mask image_slideshow_mask">
 	  			<div class="slideshow">';
 
 
 	$textSlides = '<div class="slideshow_mask text-slides">
 	  			<div class="slideshow text-slides">';
 
+	$thumbPager = "";
+
 	foreach ($pictures as $picture) {
 
+		$picture->meta_data = unserialize($picture->meta_data);
 
-		$slides .=  "<div class='slide'><div class='pic'><img src='$picture->img_url'></div></div>";
+		 // echo "<pre>";
+		 // print_r($picture);
+		 // echo "</pre>";
+
+		 $height = $picture->meta_data["height"];
+		 $width = $picture->meta_data["width"];
+
+		$slides .=  "<div class='slide'><div class='pic'><img src='$picture->img_url' image-height=$height image-width=$width></div></div>";
 
 		$textSlides .=  "<div class='slide'><h2>{$picture->alttext}</h2>
 				<p>{$picture->description}</p></div>";
+
+		$thumbPager .= "<li><div class='thumb-container'><a><img src='{$picture->thumbnail}' class='slideshow-thumb' /></a><div></li>";
 	}
 
 	$slides .= "</div>
@@ -89,8 +99,20 @@ function displayGallery($gallery_id) {
 		        <div class="counter">Picture 1 of 8</div>
 		                <div class="ngg-imagebrowser-desc"><h3>$title</h3></div>
 			</div>	
+			<div class="slide-container">
+				$slides
+			</div>
+			<div id="slideshow-pager">
+				<ul class="thumb-pager">
+					$thumbPager
+				</ul>
+				
+			</div>
+			<div id="thumb-button-holder">
+				<a id="thumb-prev" class="thumb-arrow"></a>
+				<a id="thumb-next" class="thumb-arrow"></a>
+			</div>
 
-			$slides
 
 		</div>
 	</div>
@@ -133,6 +155,7 @@ function conditionally_add_scripts_and_styles($posts){
 		// enqueue here
 		wp_enqueue_script('ajax-gallery-js',plugins_url('ajax-gallery.js', __FILE__));
 		wp_enqueue_script('jquery-scrollface',plugins_url('jquery.scrollface.min.js', __FILE__));
+		wp_enqueue_script('jquery-buffet',plugins_url('jquery.buffet.min.js', __FILE__));
 		wp_enqueue_style('ajax-gallery-css',plugins_url('ajax-gallery.css', __FILE__));
 	}
  
