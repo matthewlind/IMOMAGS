@@ -159,23 +159,11 @@ get_header();
 			<div class="clear"></div>
 				<div class="header-sort">
 					<h1 class="more-header">Editor's Picks</h1>
-					<div class='cssmenu'>
-						<ul>
-						   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
-						      <ul>
-						         <li><a href='#'><span>Category 1</span></a></li>
-						         <li><a href='#'><span>Category 2</span></a></li>
-						      </ul>
-						   </li>
-						</ul>
-					</div>
 				</div>
+
 				<div class="cross-site-feed" term=""><!-- This term= attribute is searched for by displayCrossSiteFeed() in cross-site-feed.js -->
-
+	<div class="cross-site-feed-more-button"> MORE </div>
 				</div>
-				<div class="cross-site-feed-more-button"> MORE </div>
-				
-
 				
 			</div>
 			<?php edit_post_link(__('Edit', 'carrington-business')); ?>
@@ -189,11 +177,11 @@ get_header();
 				<ul id="slides-gear" class="scroll">
 				<?php
 				//Most Recent
-				$the_query = new WP_Query( array( 'category_name' => 'gear','posts_per_page' =>-1, 'orderby' => 'date', 'order' => 'DESC' ) );
+				$the_query = new WP_Query( array( 'post_type' => 'post','category_name' => 'gear','posts_per_page' =>20, 'orderby' => 'date', 'order' => 'DESC' ) );
 				while ( $the_query->have_posts() ) : $the_query->the_post(); 
-					if(has_post_thumbnail()){  
-						foreach($the_query as $query) ?>
-						<li><a href="<?php echo $query->guid; ?>"><?php the_post_thumbnail('gear-thumb'); ?></a></li>
+					if(has_post_thumbnail()){  ?>
+						
+						<li><a href="<?php echo the_permalink(); ?>"><?php the_post_thumbnail('gear-thumb'); ?></a></li>
     					<?php
 						}
 				endwhile;	

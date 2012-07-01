@@ -131,6 +131,7 @@ width: 990px;
     background: url("img/header-bg.jpg") repeat scroll center top transparent;
     height: 269px;
     margin: 0 !important;
+    z-index: 9999999;
 }
 .container {
     margin: 0 auto;
@@ -359,6 +360,7 @@ width: 990px;
     vertical-align: middle;
 }
 #header #megaMenu ul.megaMenu > .menu-item > a {
+ 	-moz-transition: all 0s ease 0s !important;
     -moz-box-orient: vertical;
     background: url("img/arrow-white-down.png") no-repeat scroll 95% 57% transparent;
     color: white;
@@ -367,23 +369,26 @@ width: 990px;
     font-size: 2.4em;
     font-weight: lighter;
     height: 33px;
-    padding: 20px 28px 20px 12px;
+    padding: 20px 28px 20px 22px;
     vertical-align: middle;
 }
+#header #megaMenu ul.megaMenu > .menu-item > a:hover{
+	background: url("img/arrow-black-main-down.png") no-repeat scroll 95% 57% #feffff;
+}
+
 #header #megaMenu ul.megaMenu > .deer-of-the-day.menu-item > a{
 	background: none;
 	padding: 20px 24px;
 }
 #header #megaMenu ul.megaMenu > .menu-item.megaHover > a {
-    color: white;
-    background: url("img/arrow-white-down.png") no-repeat scroll 95% 57% #000;
-}
-#header #megaMenu ul.megaMenu > .deer-of-the-day.menu-item.megaHover > a {
-    background: none #000;
+	background-color: #feffff;
+	-moz-transition: all 0s ease 0s !important;
+    color: #000;
+    
 }
 #header #megaMenu ul.megaMenu > .magazine.menu-item.megaHover > a {
-    color: white;
-    background: url("img/arrow_black_down.png") no-repeat scroll 118px 17px;
+    color: #000;
+    background: url("img/arrow_black_down.png") no-repeat scroll 118px 17px #feffff;
 }
 nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 	padding: 2px 0;
@@ -392,7 +397,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     margin: 0;
 }
 #header #megaMenu ul.sub-menu-1 {
-    background: none repeat scroll 0 0 black;
+    background: none repeat scroll 0 0 #fff;
     border: medium none;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.35);
     display: none;
@@ -453,11 +458,11 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     background: none;
     padding: 0;
     font-family: "Helvetica Nueue",Helvetica,Arial,sans-serif !important;
-	color: #aaa197;
+	color: #595959;
 	font-weight: 500;
 }
 #header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 > .menu-item a:hover {
-    color:#ffe720 !important;
+	color: #000;
 }
 #header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 > .menu-item .wpmega-link-title {
     line-height: 1;
@@ -467,7 +472,6 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     line-height: 1.2;
     margin: 12px 0 12px 54px;
     padding: 0 10px 0 32px;
-    width: 1030px;
     left: 0 !important;
 }
 #header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 .ss-nav-menu-item-depth-1 a:hover {
@@ -477,10 +481,61 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     border: medium none;
     margin-left: 0;
 }
-#header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 .ss-nav-menu-item-depth-1.ss-sidebar {
+#header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 .tactics-menu-loop.ss-nav-menu-item-depth-1.ss-sidebar {
     margin: 0;
     padding: 32px 36px;
-    width: 958px;
+    width: 300px;
+}
+.tactics-menu-loop .loop-content .hentry{
+	height: 100px;
+	padding: 10px 0 !important;
+	border-top: solid 1px #efece6 !important;
+	width: 300px;
+	background-color: #fff;
+}
+.tactics-menu-loop .loop-content .hentry .entry-utility{
+	font-size: 0.8em !important;
+	color: #839a45;
+}
+.tactics-menu-loop .loop-content .hentry .entry-utility a{
+	font-size: 1em !important;
+	color: #839a45 !important;
+}
+.tactics-menu-loop .loop-content .hentry:hover{
+	background-color: #efece6;
+}
+#header #megaMenu ul.megaMenu > .menu-item.tactics ul{
+	background-color: #efece6;
+}
+.tactics-menu-loop .loop-content .hentry:first-child{
+	border: none !important;
+}
+.tactics-menu-loop .loop-content .hentry .entry-header{
+	padding:20px 24px !important
+}
+#header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 .ss-nav-menu-item-depth-1.ss-sidebar{
+	padding: 0 !important;
+}
+#header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 .tactics-menu-cat.ss-nav-menu-item-depth-1{
+	background-color: #efece6 !important;
+	margin: 0;
+    padding: 32px 36px;
+    width: 120px;
+}
+.sub-menu{
+	left: 0 !important;
+}
+#header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 .tactics-menu-cat ul.sub-menu-2 > .menu-item .wpmega-link-title{
+	font-size: 0.7em !important;
+	line-height: 1.7em;
+	font-weight: bold !important;
+}
+#header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 .tactics-menu-cat a span{
+	font-size: 0.8em;
+	font-weight: lighter;
+}
+#header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 .ss-nav-menu-item-depth-1{
+	background-color: #feffff;
 }
 #header #megaMenu li.trophy-bucks.ss-nav-menu-mega ul.sub-menu-1 .ss-nav-menu-item-depth-1.ss-sidebar {
     margin: 0;
@@ -534,16 +589,17 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     font-size: 1.8em;
     height: 18px;
     left: -19px;
-    margin-left: 176px;
+    margin-left: 171px;
     margin-top: 0;
     padding-left: 0;
     padding-right: 0;
     position: absolute;
-    width: 159px;
+    width: 161px;
 }
 #header #megaMenu ul.megaMenu li.magazine ul.sub-menu-1 {
    	top:38px;
-   	right: -315px !important;    
+   	right: -315px !important;   
+   	width: 313px !important; 
 }
 #header #megaMenu ul.megaMenu li.magazine .wpmega-link-title{
 	line-height: 0.8em !important;
@@ -551,6 +607,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 }
 #header #megaMenu ul.megaMenu li.magazine ul.sub-menu-1 .wpmega-nonlink {
     padding: 0;
+    width: 270px;
 }
 #header #megaMenu ul.megaMenu li.magazine ul.sub-menu-1 .current-issue {
     background: url("img/mm_current_issue_shadow.png") no-repeat scroll center bottom transparent;
@@ -600,7 +657,9 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     background-color: black;
     border-color: black;
 }
-
+#megaMenu li.ss-nav-menu-mega ul.sub-menu-1 > li{
+	float: left;
+}
 /**
 * Trophy Bucks Menu
 **/
@@ -611,7 +670,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 #header #megaMenu ul.megaMenu li.trophy-bucks ul.sub-menu-1 .wpmega-nonlink {
     padding: 0;
 }
-#megaMenu .wpmega-nonlink ul{
+#megaMenu .trophy-bucks .wpmega-nonlink ul{
 	width:9999em !important;
 }
 
@@ -1513,7 +1572,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     height: 250px;
     width: 1030px;
 } 
-.gear-slider .widget_slider-widget .prev, .widget_slider-widget .next{
+.gear-slider .widget_slider-widget .prev, .gear-slider .widget_slider-widget .next{
 	height: 250px !important;
 }
 /*
