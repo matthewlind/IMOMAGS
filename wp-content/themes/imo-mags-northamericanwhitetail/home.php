@@ -35,11 +35,11 @@ get_header();
 	<div class="col-abc">
 				<?php the_content(__('Continued&hellip;', 'carrington-business')); ?>
 	
-	</div><!-- .col-abc -->		
+	<!--</div> .col-abc -->		
 
 <!-- Super post section -->
-<div class="col-abc super-post">
-    <div <?php post_class('entry entry-full clearfix'); ?>>
+<!--<div class="col-abc super-post">
+    <div <?php //post_class('entry entry-full clearfix'); ?>>-->
     	<!-- This section is commented out until we add community features-->
 <!--         <div class="entry-content">
             <hr class="comm-sep">
@@ -84,18 +84,18 @@ get_header();
 
 
         </div> -->
-    </div><!-- .entry -->
-</div><!-- .col-abc -->
-	<div class="clear"></div>
+    <!-- </div><!-- .entry -->
+ <!-- </div><!-- .col-abc -->
+	 <!-- <div class="clear"></div>
 	<!-- Editor's Picks w/ Sidebar Bottom -->		
-	<div class="bonus-background">
+	<!-- <div class="bonus-background">
 		<div class="bonus">
-			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-home-bottom')) : else : ?><?php endif; ?>
+			<?php //if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-home-bottom')) : else : ?><?php //endif; ?>
 		</div>
 	</div>
 	
 	<div class="col-abc">
-		<div <?php post_class('entry entry-full clearfix'); ?>>
+		<div <?php //post_class('entry entry-full clearfix'); ?>>
 			<div class="entry-content">
 				<div class="clear"></div>
 					<div class="header-sort home-questions">
@@ -156,14 +156,17 @@ get_header();
 				                 </div>    
 				            </div>
 				  </div>
-			<div class="clear"></div>
+			<div class="clear"></div> -->
+	<div style="height:30px;"></div>
 				<div class="header-sort">
 					<h1 class="more-header">Editor's Picks</h1>
 				</div>
 
+
 				<div class="cross-site-feed" term=""></div><!-- This term= attribute is searched for by displayCrossSiteFeed() in cross-site-feed.js -->
-	<div class="cross-site-feed-more-button"> MORE </div>
+				<div class="cross-site-feed-more-button"> MORE </div>
 				</div>
+
 				
 			</div>
 			<?php edit_post_link(__('Edit', 'carrington-business')); ?>
@@ -194,8 +197,9 @@ get_header();
 			<a class="next">Next</a>
 		</aside>
 	</div>
-	<div class="secondary">
-		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('secondary-home')) : else : ?><?php endif; ?>
-	</div>
+	<!-- <div class="secondary">
+		<?php //if (function_exists('dynamic_sidebar') && dynamic_sidebar('secondary-home')) : else : ?><?php //endif; ?>
+	</div> -->
+	<div class="clearfix"></div>
 </div>
 <?php get_footer(); ?>
