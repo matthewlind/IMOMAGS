@@ -161,7 +161,7 @@ get_header();
 					<h1 class="more-header">Editor's Picks</h1>
 				</div>
 
-				<div class="cross-site-feed" term=""><!-- This term= attribute is searched for by displayCrossSiteFeed() in cross-site-feed.js -->
+				<div class="cross-site-feed" term=""></div><!-- This term= attribute is searched for by displayCrossSiteFeed() in cross-site-feed.js -->
 	<div class="cross-site-feed-more-button"> MORE </div>
 				</div>
 				

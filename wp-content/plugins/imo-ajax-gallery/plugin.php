@@ -45,11 +45,14 @@ function displayGallery($gallery_id) {
 
 
 	$textSlides = '<div class="slideshow_mask text-slides">
-	  			<div class="slideshow text-slides">';
+	  			<div class="text-slideshow text-slides">';
 
 	$thumbPager = "";
 
+	$count = 0;
 	foreach ($pictures as $picture) {
+
+		$count++;
 
 		$picture->meta_data = unserialize($picture->meta_data);
 
@@ -57,15 +60,22 @@ function displayGallery($gallery_id) {
 		 // print_r($picture);
 		 // echo "</pre>";
 
-		 $height = $picture->meta_data["height"];
-		 $width = $picture->meta_data["width"];
+
+		$class = "";
+		if ($count == 1) {
+			$class = "active";
+		}
+
+
+		$height = $picture->meta_data["height"];
+		$width = $picture->meta_data["width"];
 
 		$slides .=  "<div class='slide'><div class='pic'><img src='$picture->img_url' image-height=$height image-width=$width></div></div>";
 
 		$textSlides .=  "<div class='slide'><h2>{$picture->alttext}</h2>
 				<p>{$picture->description}</p></div>";
 
-		$thumbPager .= "<li><div class='thumb-container'><a><img src='{$picture->thumbnail}' class='slideshow-thumb' /></a><div></li>";
+		$thumbPager .= "<li><div class='thumb-container $class'><a><img src='{$picture->thumbnail}' class='slideshow-thumb' /></a><div></li>";
 	}
 
 	$slides .= "</div>
@@ -96,7 +106,7 @@ function displayGallery($gallery_id) {
 				<div class="next">
 					<a class="ngg-browser-next" id="ngg-next-1476" href="">Next &#9658;</a>
 				</div>
-		        <div class="counter">Picture 1 of 8</div>
+		        <div class="counter">Picture <span class="current-image">1</span> of $count</div>
 		                <div class="ngg-imagebrowser-desc"><h3>$title</h3></div>
 			</div>	
 			<div class="slide-container">

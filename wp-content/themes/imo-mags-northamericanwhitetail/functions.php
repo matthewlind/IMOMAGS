@@ -1,5 +1,16 @@
 <?php 
 
+
+//Set the Google Analytics account.
+//This is used the the Ajax Slideshow gallery to track pageviews.
+define("GA_ACCOUNT", "UA-5816642-20");
+add_action("init","add_google_account");
+function add_google_account() {
+  wp_enqueue_script( 'google-analytics-account' ,get_stylesheet_directory_uri() . "/js/placeholder.js");
+  wp_localize_script( 'google-analytics-account', 'GA_ACCOUNT', GA_ACCOUNT);
+}
+
+
 include("functions/profile.php");
 include("plus/functions-plus.php");
 
