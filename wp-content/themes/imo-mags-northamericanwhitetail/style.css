@@ -2813,6 +2813,7 @@ h1.tv-header{
     text-decoration: none;
     text-transform: uppercase;
     margin-left: 10px;
+    cursor: pointer;
 }
 .widget #searchform label{
 	display:none;
@@ -2834,6 +2835,7 @@ h1.tv-header{
 .gform_wrapper .newsletter .gform_footer input[type="submit"]{
 	padding:4px 10px;
 	font-size: 0.8em;
+	cursor: pointer;
 }
 .gform_wrapper .newsletter .top_label input.medium{
 	height: 26px;
@@ -2867,7 +2869,7 @@ h1.tv-header{
 .gform_wrapper .validation_error{
 	margin-left: 9px;
 }
-.gform_wrapper li.gfield.gfield_error, .gform_wrapper li.gfield.gfield_error.gfield_contains_required.gfield_creditcard_warning{
+.gform_wrapper li.gfield.gfield_error{
 	background-color: none !important;
     border: none !important;
     padding: 0 !important;
