@@ -676,6 +676,28 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 }
 
 
+#header #megaMenu .gear-menu ul.sub-menu-1{
+	width: 300px;	
+}
+#header #megaMenu li.gear-menu.ss-nav-menu-reg ul.sub-menu-1{
+	padding:0;
+}
+#megaMenu .gear-menu .wpmega-nonlink{
+	padding: 0;
+}
+#megaMenu .gear-menu .hentry{
+	border-top: 1px solid #AAA197;
+    margin: 0;
+    padding: 10px 10px 0;
+}
+#megaMenu .gear-menu .hentry:first-child{
+	border-top: none;
+}
+
+#megaMenu .gear-menu .wpmega-nonlink h2.entry-title a{
+	color: #595959;
+}
+
 
 #site-menu {
     background-color: #f0e9e1;
@@ -1947,14 +1969,14 @@ a.comment-count:hover {
 	margin-left: 157px;
 	
 }
-.page-template-page-tactics-php h3, .page-template-page-default-php h3{
+#main .page-template-page-tactics-php h3, #main .page-template-page-default-php h3{
 	font-size: 0.9em;
     position: absolute;
     right: 220px;
     top: 10px;
     text-transform: uppercase;
 }
-.page-template-page-land-php h3{
+#main .page-template-page-land-php h3{
 	font-size: 0.9em;
     position: absolute;
     right: 220px;
@@ -2735,4 +2757,142 @@ h1.tv-header{
 
 .ngg-imagebrowser-nav .ngg-imagebrowser-desc a{
 	padding: 0 !important;
+}
+
+/**
+* 
+* Video Page
+*
+**/
+.page-template-page-video-php .col-abc{
+	width: 1020px;
+}
+.page-template-page-video-php .entry-content{
+	padding-left: 14px;
+}
+.page-template-page-video-php .header-title{
+	margin-bottom: 0;
+}
+.page-template-page-video-php .widget_advert-widget a{
+	margin-left: 140px;
+}
+
+/**
+* 
+* Search Widget
+*
+**/
+.widget_search{
+	margin-bottom: 30px;
+}
+.widget #searchform input[type=text]{
+	border: 1px solid #AAAAAA;
+    float: left;
+    font-size: 16px;
+    height: 24px;
+    line-height: 26px;
+    margin: 0;
+    padding: 0;
+    text-indent: 8px;
+    vertical-align: middle;
+    width: 170px;
+    margin-left: 16px;
+}
+.widget #searchform input[type=submit]{
+	background-color: #115FA4;
+    border: 2px solid #115FA4;
+    border-radius: 3px 3px 3px 3px;
+    color: white;
+    display: block;
+    float: left;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 0.8em;
+    font-weight: bold;
+    padding: 3px 10px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-left: 10px;
+}
+.widget #searchform label{
+	display:none;
+}
+
+/**
+* 
+* Newsletter Widget
+*
+**/
+.widget_gravity_form {
+	background: #ededed;
+	border: 1px solid #cbcbcb;
+	margin-bottom: 10px;
+}
+.widget_gravity_form .gform_wrapper{
+	margin: 0;
+}
+.gform_wrapper .newsletter .gform_footer input[type="submit"]{
+	padding:4px 10px;
+	font-size: 0.8em;
+}
+.gform_wrapper .newsletter .top_label input.medium{
+	height: 26px;
+    line-height: 26px;
+    border-color: #cbcbcb;
+    margin-left: 4px !important;
+}
+.widget_gravity_form .newsletter{
+	border: none;
+	background-color: #ededed;
+	padding:0px 20px 24px;
+}
+.widget .widget-title{
+	border-top: 4px solid #000000;
+	border-bottom: none;
+    font-size: 1.1em;
+    padding: 5px 0 2px;
+    text-align: center;text-transform: none;
+}
+.widget_gravity_form h5.box_title{
+	margin-top: 14px;
+    text-align: center;
+}
+.gform_wrapper .newsletter .gform_footer{
+	padding:4px 0 0;
+	margin-left: 190px;
+}
+.gform_validation_error{
+	height: 150px;
+}
+.gform_wrapper .validation_error{
+	margin-left: 9px;
+}
+.gform_wrapper li.gfield.gfield_error, .gform_wrapper li.gfield.gfield_error.gfield_contains_required.gfield_creditcard_warning{
+	background-color: none !important;
+    border: none !important;
+    padding: 0 !important;
+    height: 70px;
+    margin-top: -2px;
+    width: 100%;
+}
+
+
+.video-widget h2 a{
+	color: #FFFFFF;
+    margin: -100px 0 0;
+    padding: 2px 10px;
+    position: absolute;
+    text-shadow: 0 1px 1px #000000;
+}
+.video-widget-header{
+	background: url('img/video-widget-header.jpg') no-repeat top center;
+	width: 323px;
+	height: 84px;
+}
+.video-widget-footer{
+	background-color: #EFECE6;
+    height: 28px;
+    margin-top: -24px;
+    text-align: center;
+    text-transform: uppercase;
 }
