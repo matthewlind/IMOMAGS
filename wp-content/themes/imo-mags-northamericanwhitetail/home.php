@@ -35,11 +35,11 @@ get_header();
 	<div class="col-abc">
 				<?php the_content(__('Continued&hellip;', 'carrington-business')); ?>
 	
-	</div><!-- .col-abc -->		
+	<!--</div> .col-abc -->		
 
 <!-- Super post section -->
-<div class="col-abc super-post">
-    <div <?php post_class('entry entry-full clearfix'); ?>>
+<!--<div class="col-abc super-post">
+    <div <?php //post_class('entry entry-full clearfix'); ?>>-->
     	<!-- This section is commented out until we add community features-->
 <!--         <div class="entry-content">
             <hr class="comm-sep">
@@ -84,18 +84,18 @@ get_header();
 
 
         </div> -->
-    </div><!-- .entry -->
-</div><!-- .col-abc -->
-	<div class="clear"></div>
+    <!-- </div><!-- .entry -->
+ <!-- </div><!-- .col-abc -->
+	 <!-- <div class="clear"></div>
 	<!-- Editor's Picks w/ Sidebar Bottom -->		
-	<div class="bonus-background">
+	<!-- <div class="bonus-background">
 		<div class="bonus">
-			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-home-bottom')) : else : ?><?php endif; ?>
+			<?php //if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-home-bottom')) : else : ?><?php //endif; ?>
 		</div>
 	</div>
 	
 	<div class="col-abc">
-		<div <?php post_class('entry entry-full clearfix'); ?>>
+		<div <?php //post_class('entry entry-full clearfix'); ?>>
 			<div class="entry-content">
 				<div class="clear"></div>
 					<div class="header-sort home-questions">
@@ -156,14 +156,45 @@ get_header();
 				                 </div>    
 				            </div>
 				  </div>
-			<div class="clear"></div>
+			<div class="clear"></div> -->
+	<div style="height:30px;"></div>
 				<div class="header-sort">
 					<h1 class="more-header">Editor's Picks</h1>
 				</div>
+				<?php
+				$args = array(
+				'post_type' => 'post',
+				'post_status' => 'publish',
+				'orderby' => 'date',
+				'order' => 'DESC',
+				'posts_per_page' => 5,
+				);
+				// The Query
+				$the_query = new WP_Query( $args );
 
-				<div class="cross-site-feed" term=""><!-- This term= attribute is searched for by displayCrossSiteFeed() in cross-site-feed.js -->
-	<div class="cross-site-feed-more-button"> MORE </div>
-				</div>
+				// The Loop
+				while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+	
+				<article id="post-excerpt-<?php the_ID(); ?>" <?php post_class('entry entry-excerpt') ?>>
+					<?php if (has_post_thumbnail()) : ?>
+					<a<?php if( get_post_type() == 'imo_video' || in_category('video') ){echo ' class="video-excerpt"';} ?> href="<?php the_permalink(); ?>"><?php the_post_thumbnail('post-thumbnail', array('class' => 'entry-img')); if( get_post_type() == 'imo_video' || in_category('video') ){echo '<span></span>';} ?></a>
+
+					<?php endif; ?>
+					<div class="entry-summary">
+	  					<span class="entry-category"><?php the_category(' &middot; '); ?></span>
+						<h2 class="entry-title"><a rel="bookmark" href="<?php the_permalink() ?>"><?php the_title() ?></a></h2>
+						<span class="author vcard"><?php the_time(get_option('date_format')); ?> <span class="fn">by <?php the_author(); ?></span></span>
+						<?php the_excerpt(); ?>
+					</div>
+ 			 		<a class="comment-count" href="<?php comments_link(); ?>"><?php echo get_comments_number(); ?></a>
+				</article>
+				<?php endwhile;
+				next_posts_link();
+				previous_posts_link();
+				// Reset Post Data
+				wp_reset_postdata(); 
+				
+				?>
 				
 			</div>
 			<?php edit_post_link(__('Edit', 'carrington-business')); ?>
@@ -194,8 +225,9 @@ get_header();
 			<a class="next">Next</a>
 		</aside>
 	</div>
-	<div class="secondary">
-		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('secondary-home')) : else : ?><?php endif; ?>
-	</div>
+	<!-- <div class="secondary">
+		<?php //if (function_exists('dynamic_sidebar') && dynamic_sidebar('secondary-home')) : else : ?><?php //endif; ?>
+	</div> -->
+	<div class="clearfix"></div>
 </div>
 <?php get_footer(); ?>

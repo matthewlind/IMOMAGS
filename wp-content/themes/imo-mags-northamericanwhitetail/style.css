@@ -471,7 +471,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     background: none repeat scroll 0 0 transparent;
     line-height: 1.2;
     margin: 12px 0 12px 54px;
-    padding: 0 10px 0 32px;
+    padding: 0 10px;
     left: 0 !important;
 }
 #header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 .ss-nav-menu-item-depth-1 a:hover {
@@ -597,9 +597,9 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     width: 161px;
 }
 #header #megaMenu ul.megaMenu li.magazine ul.sub-menu-1 {
-   	top:38px;
-   	right: -315px !important;   
-   	width: 313px !important; 
+   	left: -27px !important;
+    top: 38px;
+    width: 340px !important;
 }
 #header #megaMenu ul.megaMenu li.magazine .wpmega-link-title{
 	line-height: 0.8em !important;
@@ -607,7 +607,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 }
 #header #megaMenu ul.megaMenu li.magazine ul.sub-menu-1 .wpmega-nonlink {
     padding: 0;
-    width: 270px;
+    width: 320px;
 }
 #header #megaMenu ul.megaMenu li.magazine ul.sub-menu-1 .current-issue {
     background: url("img/mm_current_issue_shadow.png") no-repeat scroll center bottom transparent;
@@ -644,18 +644,19 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 }
 #header #megaMenu ul.megaMenu li.magazine ul.sub-menu-1 .menu-item a:hover {
     -moz-transition: all 0s ease 0s;
-    background: url("img/icon/arrow_white.png") no-repeat scroll 95% center #CE181E;
-    border: 1px solid #AF0C10;
+    background: url("img/icon/arrow_white.png") no-repeat scroll 95% center #829b6e;
+    border: 1px solid #829b6e;
     color: white;
 }
 #header #megaMenu ul.megaMenu li.magazine ul.sub-menu-1 .subscribe a {
-    background: url("img/icon/arrow_white.png") no-repeat scroll 95% center #CE181E;
-    border-color: #CE181E;
+    background: url("img/icon/arrow_white.png") no-repeat scroll 95% center #829b6e;
+    border-color: #829b6e;
     color: white;
 }
 #header #megaMenu ul.megaMenu li.magazine ul.sub-menu-1 .subscribe a:hover {
-    background-color: black;
-    border-color: black;
+    background-color: #586852;
+    border-color: #586852;
+    color: #fff;
 }
 #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 > li{
 	float: left;
