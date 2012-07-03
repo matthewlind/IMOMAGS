@@ -18,7 +18,17 @@ jQuery(document).ready(function($) {
 		
 		currentPosition = currentPosition + showAtOnce;
 		displayCrossSiteFeed(currentPosition);
+
 	});
+
+	function resetDisplay(slug) {
+		$(".cross-site-feed").attr("term",slug);
+		$(".cross-site-feed").text("");
+
+		currentPosition = 0;
+		displayCrossSiteFeed(currentPosition);
+
+	}
 
 
 
