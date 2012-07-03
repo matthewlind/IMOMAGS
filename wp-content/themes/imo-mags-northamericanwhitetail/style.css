@@ -2848,10 +2848,10 @@ h1.tv-header{
 	background-color: #ededed;
 	padding:0px 20px 24px;
 }
-.widget .widget-title{
+.widget .widget-title, .gallery-loop-widget .widget-title{
 	border-top: 4px solid #000000;
 	border-bottom: none;
-    font-size: 1.1em;
+    font-size: 1.2em;
     padding: 5px 0 2px;
     text-align: center;text-transform: none;
 }
@@ -2883,6 +2883,9 @@ h1.tv-header{
 * Video Callout Widget
 *
 **/
+.video-widget, .gallery-loop-widget{
+	margin-bottom: 30px;
+}
 .video-widget .header{
 	background: url('img/video-widget-header.jpg') no-repeat top center;
 	width: 323px;
@@ -2925,8 +2928,7 @@ h1.tv-header{
 	background-color: #EFECE6;
     clear: both;
     height: 24px;
-    margin: 0;
-    margin-top: -8px;
+    margin:-8px 0 0 0;
     position: relative;
     text-align: center;
     text-transform: uppercase;
@@ -2940,4 +2942,58 @@ h1.tv-header{
 	margin: 3px 0 0 3px;
 	top: 7px;
 }
-	
+/**
+* 
+* Gallery Loop Widget
+*
+**/
+.gallery-loop-widget article{
+	width: 100%;
+}
+.gallery-loop-widget article div.thumb{
+	float: left;
+	margin-right: 8px;
+}
+.gallery-loop-widget article div.thumb img{
+	width: 140px;
+	height: auto;
+}
+.gallery-loop-widget .entry-excerpt a.comment-count {
+    right: 0;
+    top: 0;
+}
+.gallery-loop-widget article.entry-excerpt .entry-summary{
+	width: 160px !important;
+	padding: 0;
+}
+.gallery-loop-widget .entry-excerpt .entry-title{
+	font-size: 1em;
+	line-height: 1em;
+}
+.gallery-loop-widget .entry{
+	margin: 0;
+}
+.gallery-loop-widget .footer{
+	font-family: ProximaNova-Semibold;
+	font-size: 0.7em;
+    clear: both;
+    height: 24px;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    padding-top: 8px;
+}
+.gallery-loop-widget .footer span{
+	background: url('img/right-arrow.png') no-repeat;
+	width: 7px;
+	height: 9px;
+	position: absolute;
+	margin: 3px 0 0 3px;
+	top: 7px;
+}
+.gallery-loop-widget h3{
+	padding-bottom: 15px !important;
+}
+.gallery-loop-widget .comments{
+	color: #829b40;
+}

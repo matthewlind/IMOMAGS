@@ -1,9 +1,9 @@
-<?php // Custom Video Callout Widget
+<?php // Custom Gallery loop Widget
 
-class Video_Callout_Widget extends WP_Widget {
-	function Video_Callout_Widget() {
-		$widget_ops = array('classname' => 'widget_video_callout', 'description' => 'Video Callout Widget.' );
-		$this->WP_Widget('video_callout', 'Video Callout', $widget_ops);
+class Gallery_Loop_Widget extends WP_Widget {
+	function Gallery_Loop_Widget() {
+		$widget_ops = array('classname' => 'widget_gallery_loop', 'description' => 'Gallery Loop Widget.' );
+		$this->WP_Widget('gallery_loop', 'Gallery Loop', $widget_ops);
 	}
  
 	function widget($args, $instance) {
@@ -11,31 +11,40 @@ class Video_Callout_Widget extends WP_Widget {
  
     $title = empty($instance['title']) ? '' : apply_filters('widget_title', $instance['title']); ?>
 
-    <aside id="video-callout" class="video-widget">
-      <div class="content_wrapper">
-      	<div class="header"></div>
-      	
+    <aside id="gallery-loop" class="gallery-loop-widget">
+      	<?php if(!empty($title)) : ?>
+        <h3 class="widget-title">
+          <span><?php echo $title; ?></span>
+        </h3>
+        <?php endif; ?>
+
 	      	<?php
 				$args = array(
 				'post_type' => 'post',
-				'category_name' => 'video',
+				'category_name' => 'gallery',
 				'post_status' => 'publish',
 				'orderby' => 'date',
 				'order' => 'DESC',
-				'posts_per_page' => 1,
+				'posts_per_page' => 3,
 				);
 				// The Query
 				$the_query = new WP_Query( $args );
 
 				// The Loop
 				while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-	
-				<div class="content">		
-					<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('video-widget-thumb'); ?>
-						<div class="title"><?php the_title(); ?><p>Naw TV</p></div>
-						<span></span>
-					</a>
-				</div>
+				<article id="post-excerpt-<?php the_ID(); ?>" <?php post_class('entry entry-excerpt') ?>>
+								<?php if (has_post_thumbnail()) : ?>
+								<div class="thumb">
+									<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a>
+								</div>
+								<?php endif; ?>
+								<div class="entry-summary">
+									<h2 class="entry-title"><a rel="bookmark" href="<?php the_permalink() ?>"><?php the_title() ?></a></h2>
+									<a class="comments" href="<?php comments_link(); ?>"><?php comments_number(); ?></a>
+								</div>
+			 			 		
+							</article>
+			
 				<?php endwhile;
 				next_posts_link();
 				previous_posts_link();
@@ -45,9 +54,8 @@ class Video_Callout_Widget extends WP_Widget {
 				?>
 
       	<div class="footer">
-	      	<a href="/video/">More Video<span></span></a>
+	      	<a href="/video/">More Galleries<span></span></a>
       	</div>
-      </div>
     </aside>
 
 <?php	}
@@ -66,4 +74,4 @@ class Video_Callout_Widget extends WP_Widget {
 <?php
 	}
 }
-register_widget('Video_Callout_Widget');
+register_widget('Gallery_Loop_Widget');

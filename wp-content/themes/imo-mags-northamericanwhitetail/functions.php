@@ -6,7 +6,7 @@ include("plus/functions-plus.php");
 // Thumbs
 add_image_size('huge-thumb', 672, 407, true);
 add_image_size('gear-thumb', 250, 250, true);
-add_image_size('video-widget-thumb', 318, 'auto', true);
+add_image_size('video-widget-thumb', 318, 228, true);
 
 // SHORTCODES
 /*
@@ -112,6 +112,7 @@ add_action( 'widgets_init', 'naw_imo_addons_sidebar_init' );
 include_once get_stylesheet_directory().'/widgets/newsletter-signup.php';
 include_once get_stylesheet_directory().'/widgets/join.php';
 include_once get_stylesheet_directory().'/widgets/video-callout.php';
+include_once get_stylesheet_directory().'/widgets/gallery-loop.php';
 
 
 
