@@ -437,7 +437,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 }
 
 #header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 > .menu-item {
-    font-family: ProxyNova-semibold;
+    font-family: ProximaNova-semibold;
     font-size: 1.4em;
     font-weight: lighter;
     line-height: 1.5;
@@ -2883,9 +2883,6 @@ h1.tv-header{
 * Video Callout Widget
 *
 **/
-.video-widget{
-	font-family: Helvetica,sans-serif;
-}
 .video-widget .header{
 	background: url('img/video-widget-header.jpg') no-repeat top center;
 	width: 323px;
@@ -2896,9 +2893,10 @@ h1.tv-header{
     position: relative;
 }
 .video-widget .content div.title{
+	font-family: ProximaNova-Bold;
 	bottom: 40px;
     clear: both;
-    color: #FFFFFF;
+    color: #efece6;
     font-size: 1.2em;
     line-height: 1em;
     position: absolute;
@@ -2906,12 +2904,14 @@ h1.tv-header{
     text-shadow: 0 1px 1px #000000;
 }
 .video-widget .content div.title p{
-	color: yellow;
+	font-family: ProximaNova-Semibold;
+	color: #f4b800;
 	font-size: 0.7em;
 	margin: 0;
     padding: 0;
 }
 .video-widget .content span{
+	text-transform: none;
 	background: url('img/play-overlay.png') no-repeat;
 	height: 67px;
     margin: 0 130px;
@@ -2920,6 +2920,7 @@ h1.tv-header{
     width: 68px;
 }
 .video-widget .footer{
+	font-family: ProximaNova-Semibold;
 	font-size: 0.7em;
 	background-color: #EFECE6;
     clear: both;
@@ -2937,6 +2938,6 @@ h1.tv-header{
 	height: 9px;
 	position: absolute;
 	margin: 3px 0 0 3px;
-	top: 8px;
+	top: 7px;
 }
 	
