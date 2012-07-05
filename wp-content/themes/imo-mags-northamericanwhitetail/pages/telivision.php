@@ -23,16 +23,16 @@ get_header();
 
 the_post();
 ?>
-<div class="col-abc">
+<header class="header-title">
+</header>	
+<div class="col-abc wide">
 	<div <?php post_class('entry entry-full clearfix'); ?>>
 		<div class="entry-content">
 			<?php
 			the_content(__('Continued&hellip;', 'carrington-business'));
 			wp_link_pages();
-			
 			?>
 		</div>
-		<?php edit_post_link(__('Edit', 'carrington-business')); ?>
 	</div><!-- .entry -->
 	<?php //comments_template(); ?>
 </div><!-- .col-abc -->

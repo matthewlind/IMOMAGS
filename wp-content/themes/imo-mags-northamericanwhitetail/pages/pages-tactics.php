@@ -27,7 +27,7 @@ the_post();
 	<header class="header-title">
 		<h1><?php the_title(); ?></h1>
 		
-		<div class="naw-ad"></div>
+		<!-- <div class="naw-ad"></div> -->
 	</header>	
 	<div class="bonus-background">
 		<div class="sidebar">

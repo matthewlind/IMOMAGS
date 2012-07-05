@@ -1,6 +1,9 @@
 <?php
 
 /**
+ * Template Name: TV Page Template
+ * Description: Lists children of the current page as a navigation menu.
+ *
  * @package carrington-business
  *
  * This file is part of the Carrington Business Theme for WordPress
@@ -17,23 +20,9 @@
  */
 
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
-if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
-get_header();
+// NOTE: this file is here for compatibility reasons - active templates are in the pages/ dir 
 
-the_post();
+cfct_page('telivision');
+
 ?>
-<div class="col-abc">
-	<div <?php post_class('entry entry-full clearfix'); ?>>
-		<div class="entry-content">
-			<?php
-			the_content(__('Continued&hellip;', 'carrington-business'));
-			wp_link_pages();
-			
-			?>
-		</div>
-		<?php edit_post_link(__('Edit', 'carrington-business')); ?>
-	</div><!-- .entry -->
-	<?php //comments_template(); ?>
-</div><!-- .col-abc -->
-<?php get_footer(); ?>

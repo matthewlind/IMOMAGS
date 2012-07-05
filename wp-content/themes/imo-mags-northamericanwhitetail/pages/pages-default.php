@@ -26,7 +26,7 @@ the_post();
 <div class="page-template-page-default-php page-template-page slider-height">
 	<header class="header-title">
 		<h1><?php the_title(); ?></h1>
-		<div class="naw-ad"></div>
+		<!-- <div class="naw-ad"></div> -->
 	</header>	
 	<div class="bonus-background">
 		<div class="sidebar">

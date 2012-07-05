@@ -23,11 +23,11 @@ get_header();
 
 the_post();
 ?>
-<div class="page-template-page-land-php page-template-page slider-thumbs">
+<div class="page-template-page-land-php page-template-page slider-thumbs slider-height">
 	<header class="header-title">
 		<h1><?php the_title(); ?></h1>
 		
-		<div class="naw-ad"></div>
+		<!-- <div class="naw-ad"></div> -->
 	</header>	
 	<div class="bonus-background">
 		<div class="sidebar">
