@@ -148,7 +148,7 @@ the_post();
 							wp_reset_postdata(); 
 							
 							?>
-			
+		
 		<?php edit_post_link(__('Edit', 'carrington-business')); ?>
 
 	</div><!-- .col-abc -->
