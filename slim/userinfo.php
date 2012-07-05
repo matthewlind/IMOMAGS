@@ -61,3 +61,35 @@ $app->get('/api/superpost/user/posts/:username',function($username){
     }
 
 });
+
+//*********************************
+//*** Get User Score ***
+//*********************************
+$app->get('/api/superpost/user/score/:username',function($username){
+
+	header('Access-Control-Allow-Origin: *');  
+
+	try {
+
+		$db = dbConnect();
+
+
+		$sql = "select score from slim.userscore as userscore
+				JOIN imomags.wp_users as users on (users.`ID` = userscore.user_id)
+				WHERE users.user_nicename = ?
+				";
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array($username));
+	
+		$posts = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+		echo json_encode($posts);
+
+		$db = "";
+
+	} catch(PDOException $e) {
+    	echo $e->getMessage();
+    }
+
+});
