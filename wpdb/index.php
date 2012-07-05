@@ -573,6 +573,8 @@ EOT;
         $posts = $stmt->fetchAll(PDO::FETCH_OBJ);
 
         foreach ($posts as $key => $post) {
+
+        	//First Clean up the data
             $postContent = trim(strip_tags($post->post_content));
             $postContent = preg_replace('/\[[^\)]+\]/', "", $postContent);
             $postContent = str_replace("\n", "", $postContent);
@@ -580,7 +582,7 @@ EOT;
             $postContent = substr($postContent,0,120) . "...";
             $posts[$key]->post_content = $postContent;
 
-
+            //Generate the URL
             $timestamp =  strtotime($post->post_date);
             $datePath = date("Y/m/d",$timestamp);
             $url = "http://" . $post->domain . "/" . $datePath . "/" . $post->post_name;
@@ -593,8 +595,9 @@ EOT;
             $thumbnail = str_replace(".jpg", "-190x120.jpg", $post->img_url);
             $posts[$key]->img_url = $thumbnail;
 
+            //Check to see if we need to add terms
             if ($post->domain == "www.northamericanwhitetail.com") {
-                $posts[$key]->terms = getWhitetailPostTerms($post->ID);
+                $posts[$key]->terms = getPostTerms($post->ID);
             }
 
         }
@@ -614,23 +617,127 @@ EOT;
 
 });
 
-/**
- * Step 4: Run the Slim application
- *
- * This method should be called last. This is responsible for executing
- * the Slim application using the settings and routes defined above.
- */
 
 
-function getWhitetailPostTerms($post_id) {
+
+
+//************************************************
+//*** Just pull posts of a single term from a certain site ***
+//************************************************
+$app->get('/imomags/site_by_term/:site_id/:term/:start',function($site_id,$term,$start = 0){
+
+    header('Access-Control-Allow-Origin: *');  
 
     try {
 
         $db = dbConnect();
 
-        $sql = "SELECT DISTINCT name,slug,t.term_id,taxonomy From wp_6_terms as t
-            JOIN wp_6_term_taxonomy as tt on (t.`term_id` = tt.`term_id`)
-            JOIN `wp_6_term_relationships`as tr on (tr.`term_taxonomy_id` = tt.`term_taxonomy_id`)
+
+        $sql = <<<EOT
+		SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Guns & Ammo" as brand,
+		(SELECT count(comment_ID) from wp_{$site_id}_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count  
+		FROM wp_{$site_id}_posts as posts
+		JOIN wp_{$site_id}_term_relationships as relationships ON (posts.ID = relationships.object_id)
+		JOIN `wp_{$site_id}_term_taxonomy`as term_taxonomy ON (relationships.term_taxonomy_id = term_taxonomy.`term_taxonomy_id`)
+		JOIN wp_{$site_id}_terms as terms ON (term_taxonomy.term_id = terms.term_id)
+		JOIN wp_{$site_id}_posts as attachments ON (attachments.post_parent = posts.ID)
+		JOIN wp_{$site_id}_postmeta as meta ON (meta.meta_value = attachments.ID)
+		JOIN wp_users as users ON (users.`ID` = posts.post_author)
+		AND posts.post_status = "publish"
+		AND terms.slug = ?
+		AND meta.meta_key = "_thumbnail_id"
+		ORDER BY post_date DESC LIMIT $start,10
+
+EOT;
+
+ 
+
+        $stmt = $db->prepare($sql);
+        $stmt->execute(array($term));
+    
+        $posts = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+        foreach ($posts as $key => $post) {
+
+        	//First Clean up the data
+            $postContent = trim(strip_tags($post->post_content));
+            $postContent = preg_replace('/\[[^\)]+\]/', "", $postContent);
+            $postContent = str_replace("\n", "", $postContent);
+            $postContent = str_replace("\r", "", $postContent);
+            $postContent = substr($postContent,0,120) . "...";
+            $posts[$key]->post_content = $postContent;
+
+            //Generate the URL
+            $timestamp =  strtotime($post->post_date);
+            $datePath = date("Y/m/d",$timestamp);
+            $url = "/" . $datePath . "/" . $post->post_name;
+
+            $posts[$key]->post_url = $url;
+
+            $niceDate = date("F j, Y",$timestamp);
+            $posts[$key]->post_nicedate = $niceDate;
+
+            $thumbnail = str_replace(".jpg", "-190x120.jpg", $post->img_url);
+            $posts[$key]->img_url = $thumbnail;
+
+            $posts[$key]->terms = getWhitetailPostTerms($post->ID, $site_id);
+            
+        }
+
+        $json = json_encode($posts);
+        echo $json;
+
+        $db = "";
+
+        // $f = fopen("cache/site-$site_id-$term.json", "w");
+        // fwrite($f, $json);
+        // fclose($f); 
+
+    } catch(PDOException $e) {
+        echo $e->getMessage();
+    }
+
+});
+
+
+function getPostTerms($post_id, $site_id = 6) {
+
+    try {
+
+        $db = dbConnect();
+
+        $sql = "SELECT DISTINCT name,slug,t.term_id,taxonomy From wp_{$site_id}_terms as t
+            JOIN wp_{$site_id}_term_taxonomy as tt on (t.`term_id` = tt.`term_id`)
+            JOIN `wp_{$site_id}_term_relationships`as tr on (tr.`term_taxonomy_id` = tt.`term_taxonomy_id`)
+            WHERE tr.`object_id` = ?
+            AND taxonomy = 'category'";
+
+        
+
+        $stmt = $db->prepare($sql);
+        $stmt->execute(array($post_id));
+    
+        $terms = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+        $db = "";
+
+        return($terms);
+
+    } catch(PDOException $e) {
+        echo $e->getMessage();
+    }
+}
+
+
+function getWhitetailPostTerms($post_id, $site_id = 6) {
+
+    try {
+
+        $db = dbConnect();
+
+        $sql = "SELECT DISTINCT name,slug,t.term_id,taxonomy From wp_{$site_id}_terms as t
+            JOIN wp_{$site_id}_term_taxonomy as tt on (t.`term_id` = tt.`term_id`)
+            JOIN `wp_{$site_id}_term_relationships`as tr on (tr.`term_taxonomy_id` = tt.`term_taxonomy_id`)
             WHERE tr.`object_id` = ?
             AND taxonomy = 'category'";
 
