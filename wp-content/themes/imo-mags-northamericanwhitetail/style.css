@@ -454,12 +454,15 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 #header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 > .menu-header.menu-header a:hover {
     color: #fff !important;
 }
-#header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 > .menu-item a {
+#header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 > .menu-item a, #header #megaMenu li.gear-menu .menu-item a {
     background: none;
     padding: 0;
     font-family: "Helvetica Nueue",Helvetica,Arial,sans-serif !important;
 	color: #595959;
 	font-weight: 500;
+}
+#header #megaMenu li.ss-nav-menu-reg ul.sub-menu-1 > .menu-item a:hover{
+	 color: #000;
 }
 #header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 > .menu-item a:hover {
 	color: #000;
@@ -2884,6 +2887,9 @@ h1.tv-header{
 * Video Callout Widget
 *
 **/
+.video-widget a:hover, .gallery-loop-widget a:hover{
+	color: #aaa197;
+}
 .video-widget, .gallery-loop-widget{
 	margin-bottom: 30px;
 }
@@ -3012,9 +3018,7 @@ h1.tv-header{
 	font-size: 0.9em;
 	cursor: pointer;
 	display:block;
-	bottom: 20px;
-	position: absolute;
-	left: 280px;
+	margin: 0 auto;
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;

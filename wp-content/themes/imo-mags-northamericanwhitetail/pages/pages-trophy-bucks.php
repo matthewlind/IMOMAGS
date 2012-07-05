@@ -41,16 +41,19 @@ the_post();
 				<ul>
 				   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
 				      <ul>
-				         <li><a href='#'><span>Category 1</span></a></li>
-				         <li><a href='#'><span>Category 2</span></a></li>
+				         <li><a href='#'><span>Recent</span></a></li>
+				         <li><a href='#'><span>Commented</span></a></li>
 				      </ul>
 				   </li>
 				</ul>
 			</div>
 		</div>
-	<div class="cross-site-feed" term="trophy-bucks"><!-- This term= attribute is searched for by displayCrossSiteFeed() in cross-site-feed.js -->
-	<div class="cross-site-feed-more-button"> MORE </div>
-				</div>
+		<div class="cross-site-feed" term="trophy-bucks"><!-- This term= attribute is searched for by displayCrossSiteFeed() in cross-site-feed.js --></div>
+		<div class="cross-site-feed-more-button"> 
+			<div class="more-button">
+				<span>MORE<span></span></span>
+			</div>
+		</div>
 
 
 		<?php edit_post_link(__('Edit', 'carrington-business')); ?>

@@ -164,9 +164,9 @@ get_header();
 
 
 				<div class="cross-site-feed" term=""></div><!-- This term= attribute is searched for by displayCrossSiteFeed() in cross-site-feed.js -->
-				<div class="cross-site-feed-more-button"> <div class="more-button"><span>MORE<span></span></span></div> </div>
-				</div>
 				
+				</div>
+				<div class="cross-site-feed-more-button"> <div class="more-button"><span>MORE<span></span></span></div> </div>
 				
 			</div>
 			<div class="clearfix"></div>
