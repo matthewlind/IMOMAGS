@@ -87,4 +87,20 @@ function imo_superpost_query_vars($query_vars)
 }
 
 
+add_action("pre_get_posts","add_sp_conditional_scripts");
+
+//This adds script only to pages that use them.
+function add_sp_conditional_scripts() {
+
+    $template = get_query_var("templatename");
+    $username = get_query_var("username");
+    if ($template == "user_profile") {
+        wp_enqueue_script('superpost-profile-js',plugins_url('js/profile.js', __FILE__));
+        wp_localize_script( 'superpost-profile-js', 'username', $username);
+    }
+         
+
+}
+
+
 

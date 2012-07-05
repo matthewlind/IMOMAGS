@@ -23,30 +23,39 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 get_header();
 
+$user = get_user_by("slug",$username);
+print_r($user);
 
-//First get post data
-$username =  get_query_var("user_id");
-$requestURL = "http://www.northamericanwhitetail.deva/slim/api/superpost/user/posts/$spid";
+$avatar = get_avatar($user->ID,140);
 
-$file = file_get_contents($requestURL);
-$posts = json_decode($file);
-$posts = $posts[0];
-
-
-  
 
 ?>
 <header id="masthead">
-	<h1><?php echo $username; ?> HEY USERNAME</h1>
+	<h1><?php echo $username; ?> Community: Your Profile</h1>
 	<?php edit_post_link(__('Edit', 'carrington-business')); ?>
     <?php //echo $requestURL; ?>
 </header><!-- #masthead -->
 <div class="col-abc">
 	<div <?php post_class('entry entry-full clearfix'); ?>>
 		<div class="entry-content">
-            <div class="user-info">
-            </div>
-
+			<div class="user-header">
+	            <div class="user-info">
+	            	<div class="user-thumbnail"><?php echo $avatar; ?></div>
+	            	<div class="details">
+	            		<h3 class="first-last-name"><?php echo $user->display_name; ?></h3>
+	            		<div class="hometown"></div>
+	            		<div class="twitter"></div>
+	            		<div class="www"></div>
+	            	</div>
+	            	<div class="extras">
+	            		<div class="score-box">
+	            			<div class="user-points">
+	            				0
+	            			</div> Points
+	            		</div>
+	            	</div>
+	            </div>
+			</div>
 		</div>
 	</div><!-- .entry -->
 </div><!-- .col-abc -->

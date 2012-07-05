@@ -7,7 +7,7 @@ div.post {
   position:relative;
   overflow:hidden;
   margin:0 auto;
-  width:620px;
+  width:600px;
   height:500px;
 }
 
@@ -47,7 +47,7 @@ div.post {
   width:300px;
   height:375px;
   text-align: left;
-  overflow-y: scroll;
+  overflow-y: hidden;
   overflow-x: hidden;
 }
 
@@ -72,30 +72,34 @@ div.post {
 
 
 #slideshow-pager .thumb-container {
-  height: 75px;
-  width: 75px;
+  height: 55px;
+  width: 55px;
   overflow: hidden;
-  border: 3px solid gray;
+  border: 1px solid darkGray;
+  /*padding: 5px;*/
 }
 
 #slideshow-pager img.slideshow-thumb {
+  margin-top:0px;
   width: 100px;
   height: 75px;
   padding: 0px;
   border:none;
   margin-left:-13px;
+  cursor: pointer;
 }
 #slideshow-pager .thumb-container.active {
-  border: 3px solid white;
+  border: 1px solid white;
 }
 
 
 #slideshow-pager {
   position:relative;
   overflow:hidden;
-  width:620px;
-  height:100px;
-  margin:20px auto;
+/*  width:620px;*/
+  height:82px;
+
+  margin: 20px 30px 0px 40px;
 }
 
 ul.thumb-pager {
@@ -134,6 +138,9 @@ a.thumb-arrow {
   position:absolute;
   z-index:100;
   color:white;
+
+
+
 }
 
 .gallery-slide-out a {
@@ -146,6 +153,11 @@ a.thumb-arrow {
 
 .gallery-slide-out h2 {
   color:white;
+}
+
+#gallery-iframe-ad {
+  border:none;
+  margin-left:10px;
 }
 
 div.ngg-imagebrowser {
@@ -163,23 +175,28 @@ cursor: pointer;
 display: block;
 height: 90px;
 position: absolute;
-top: 580px;
+top: 609px;
 width: 25px;
 background-color: #888888;
 }
 
 .thumb-arrow.inactive {
   background-color: #333333;
+  display: inline;
 }
 
 #thumb-next {
   background-image: url("img/ui_tab_next.png");
   right:0px;
+  height: 58px;
+  margin-right: 18px;
 }
 
 #thumb-prev {
   background-image: url("img/ui_tab_prev.png");
   left:0px;
+  height: 58px;
+  margin-left: 30px;
 }
 
 
@@ -205,8 +222,8 @@ background-color: #888888;
 #main .ngg-imagebrowser .pic img {
   margin: 0;
   /*max-width:600px;*/
-  padding:0px;
-  border:3px solid gray;
+  padding:5px;
+  border:1px solid darkGray;
 }
 /* line 2693, sass/style.scss */
 #main .ngg-imagebrowser h3 {
@@ -234,7 +251,7 @@ background-color: #888888;
   margin: 0;
   position: absolute;
   right: 152px;
-  top: 0;
+  top: 5px;
   width: 130px;
   font-size:12px;
   text-align: right;
@@ -255,13 +272,16 @@ background-color: #888888;
 /* line 2728, sass/style.scss */
 #main .ngg-imagebrowser .ngg-imagebrowser-nav {
   position: relative;
+  margin-bottom: 20px;
 }
 /* line 2730, sass/style.scss */
-#main .ngg-imagebrowser .ngg-imagebrowser-nav .back, #main .ngg-imagebrowser .ngg-imagebrowser-nav .next {
+#main .ngg-imagebrowser .ngg-imagebrowser-nav .back, 
+#main .ngg-imagebrowser .ngg-imagebrowser-nav .next {
   border: none;
   margin: 0;
   padding: 0;
   position: absolute;
+
 }
 /* line 2735, sass/style.scss */
 #main .ngg-imagebrowser .ngg-imagebrowser-nav .back a, #main .ngg-imagebrowser .ngg-imagebrowser-nav .next a {
@@ -272,8 +292,8 @@ background-color: #888888;
   background-position: center center;
   background-repeat: no-repeat;
   display: block;
-  height: 10px;
-  width: 10px;
+  height: 40px;
+  width: 40px;
 }
 /* line 2745, sass/style.scss */
 #main .ngg-imagebrowser .ngg-imagebrowser-nav .back a:hover, #main .ngg-imagebrowser .ngg-imagebrowser-nav .next a:hover {

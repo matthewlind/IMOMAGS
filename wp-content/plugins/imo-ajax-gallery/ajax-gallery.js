@@ -131,6 +131,12 @@ jQuery(document).ready(function($) {
 	
 
 	var sliderStartPosition = $(".ngg-imagebrowser").width() + parseInt($(".ngg-imagebrowser").css('padding-left'),10) + parseInt($(".ngg-imagebrowser").css('padding-right'),10) - $(".gallery-slide-out").width();
+
+
+	//sliderStartPosition = $(".ngg-imagebrowser").outerWidth() - $(".gallery-slide-out").outerWidth();
+
+	console.log($(".ngg-imagebrowser").outerWidth(),$(".gallery-slide-out").outerWidth(),$(".ngg-imagebrowser").outerWidth() - $(".gallery-slide-out").outerWidth());
+
 	$(".gallery-slide-out").css('left',sliderStartPosition);
 
 
@@ -139,13 +145,13 @@ jQuery(document).ready(function($) {
   		event.preventDefault();
   	});
 
+
+	//Handle the slideout hover
 	var currentLeft = parseInt($(".gallery-slide-out").css('left'),10); 
   	$(".gallery-hover-div").hover(function(){
 
-
-
-  		$(".gallery-slide-out").animate({
-	      	left: $(".gallery-slide-out").outerWidth() + currentLeft
+ 		$(".gallery-slide-out").animate({
+	      	left: $(".ngg-imagebrowser").outerWidth(true) + 2
     	},300,'easeOutExpo');
 
 
@@ -157,6 +163,8 @@ jQuery(document).ready(function($) {
     	},300,'easeOutExpo');
 
   	});
+
+  	//Setup custom scrollbar
 
 
   	function adjustPager(slideID) {
