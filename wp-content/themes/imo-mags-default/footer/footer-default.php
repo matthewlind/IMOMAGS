@@ -113,7 +113,7 @@ document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dart
 		</div><!-- #footer-sub -->
 	</div><!-- .str-container -->
 </footer><!-- #footer -->
-
+HEEEEEEELp
 <?php
 if (CFCT_DEBUG) {
 ?>
