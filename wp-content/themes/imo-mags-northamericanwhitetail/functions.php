@@ -4,6 +4,7 @@ include("functions/profile.php");
 include("plus/functions-plus.php");
 
 // Thumbs
+add_image_size('medium-thumb', 420, 330, true);
 add_image_size('huge-thumb', 672, 407, true);
 add_image_size('gear-thumb', 250, 250, true);
 add_image_size('video-widget-thumb', 318, 228, true);

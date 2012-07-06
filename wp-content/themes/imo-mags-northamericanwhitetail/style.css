@@ -1151,6 +1151,25 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 	width: 570px;
 }
 
+.featured-item-image img{
+	min-height: 330px;
+}
+.featured-item-description h2 a{
+	
+
+}
+#fs-featured.naw-featured{
+    border:none !important;
+    height: 404px !important;
+    width: 420px !important;
+}
+#fs-featured .left{
+	width: 420px !important;
+}
+.featured-item-description.naw-desc{
+	height: 100px;
+	bottom: 0 !important;
+}
 
 /*
  * IMO Network Slider / Questions Slider
