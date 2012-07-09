@@ -624,7 +624,7 @@ EOT;
 //************************************************
 //*** Just pull posts of a single term from a certain site ***
 //************************************************
-$app->get('/imomags/site_by_term/:site_id/:term/:start',function($site_id,$term,$start = 0){
+$app->get('/imomags/site_by_term/:site_id/:term_slug/:start',function($site_id,$term_slug,$start = 0){
 
     header('Access-Control-Allow-Origin: *');  
 
@@ -653,7 +653,7 @@ EOT;
  
 
         $stmt = $db->prepare($sql);
-        $stmt->execute(array($term));
+        $stmt->execute(array($term_slug));
     
         $posts = $stmt->fetchAll(PDO::FETCH_OBJ);
 
