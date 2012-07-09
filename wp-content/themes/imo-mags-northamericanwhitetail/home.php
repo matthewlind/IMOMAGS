@@ -38,10 +38,10 @@ get_header();
 	<!--</div> .col-abc -->		
 
 <!-- Super post section -->
-<!--<div class="col-abc super-post">
-    <div <?php //post_class('entry entry-full clearfix'); ?>>-->
+<div class="col-abc super-post">
+    <div <?php //post_class('entry entry-full clearfix'); ?>>
     	<!-- This section is commented out until we add community features-->
-<!--         <div class="entry-content">
+        <div class="entry-content">
             <hr class="comm-sep">
             <h1 class="recon">Naw+ Community</h1>
             <div id="user-login-button">
@@ -75,7 +75,7 @@ get_header();
 
             </ul>    
 
-            <div id="recon-activity">
+            <div id="recon-activity">Hey
 
 
             </div>
@@ -83,9 +83,9 @@ get_header();
 
 
 
-        </div> -->
-    <!-- </div><!-- .entry -->
- <!-- </div><!-- .col-abc -->
+        </div>
+    </div><!-- .entry -->
+</div><!-- .col-abc -->
 	 <!-- <div class="clear"></div>
 	<!-- Editor's Picks w/ Sidebar Bottom -->		
 	<!-- <div class="bonus-background">

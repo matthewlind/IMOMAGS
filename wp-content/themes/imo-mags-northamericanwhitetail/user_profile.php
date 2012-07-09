@@ -28,6 +28,9 @@ print_r($user);
 
 $avatar = get_avatar($user->ID,140);
 
+if ($user)
+	$userString = "username='$username'";
+
 
 ?>
 <header id="masthead">
@@ -56,6 +59,23 @@ $avatar = get_avatar($user->ID,140);
 	            	</div>
 	            </div>
 			</div>
+			<ul class="post-type-select">
+            	<li id="new-post-button" class="post"><span>+</span> Post</li>
+                <li class='selected' title='all'>ALL</li>
+                <li title='report'>Reports</li>
+                <li title='tip'>Tips</li>
+                <li title='lifestyle'>LifeStyles</li>
+                <li title='trophy'>Trophy Bucks</li>
+                <li title='gear'>Gear</li>
+                <li class="dd-arrow"></li>
+
+
+            </ul>   
+			<div id="recon-activity" <?php echo $userString;?> >
+
+
+            </div>
+            <span id="more-superposts-button">Load More<span></span></span>
 		</div>
 	</div><!-- .entry -->
 </div><!-- .col-abc -->
