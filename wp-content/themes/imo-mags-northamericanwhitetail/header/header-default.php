@@ -241,7 +241,7 @@ if(document.location.protocol=='http:'){
   			
   			<div class="stay-connected">
   			 
-  			 <span class="label">FOLLOW US ON</span>
+  			 <span class="label">Stay Connected</span>
   			 <ul class="connections">
   			   <li><a class="facebook" href="http://www.facebook.com/americanwhitetail" title="Find us on Facebook">Facebook</a></li>
   			   <li><a class="twitter" href="http://twitter.com/americanwhitetail" title="Follow us on Twitter">Twitter</a></li>

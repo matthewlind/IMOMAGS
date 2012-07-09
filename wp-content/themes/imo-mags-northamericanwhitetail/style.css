@@ -1057,7 +1057,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 	width: 678px !important;
 }
 .featured-thumb-wide .cat-slide img{
-	min-width: 678px;
+	min-width: 678px !important;
 }
 .category-deer-of-the-day #pager{
 	margin-left: 606px;
@@ -1975,7 +1975,7 @@ h1.more-header{
 .mod-gallery, .mod-topics{
 	background: url('img/mod-title-bg.png') -7px 0 no-repeat;
 	height: 41px;
-    width: 240px;
+    width: 246px;
 }
 .mod-gallery h2{
 	color: white;
@@ -2575,7 +2575,7 @@ a.about-link:hover{
 	border-bottom: 4px solid #000000;
 	height: 41px;
     margin: 30px 0;
-    width: 672px;
+    width: 678px;
 }
 .header-sort h1{
 	float: left;
@@ -3101,8 +3101,8 @@ h1.tv-header{
 }
 .cat-col-right{
 	float: left;
-    width: 238px;
-    margin-left: 14px;
+    width: 244px;
+    margin-left: 18px;
 }
 
 
