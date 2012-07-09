@@ -94,6 +94,20 @@ $(document).ready(function(){
 		animation:1000,scroll: 1});	
 
 });
+// Category page sliders
+$(document).ready(function(){
+				
+	$('#slideshow').scrollface({
+  next   : $('#next'),
+  prev   : $('#prev'),
+  pager  : $('#pager'),
+  speed  : 400,
+  easing : 'easeOutExpo',
+  interval: 5000
+ 
+  });	
+
+});
 
 // IMO Network slider
 $(document).ready(function(){
@@ -101,15 +115,6 @@ $(document).ready(function(){
 	jQuery('#slides-footer').jcarousel({
 		easing: 'easeOutBack',
 		animation:1000,scroll: 5});		
-});
-// Gear slider
-$(document).ready(function(){
-
-		$('#slides-gear').buffet({
-    		scroll_by : 3,
-   			next      : $('.next'),
-    		prev      : $('.prev')
-  		});
 });
 // Flash ad z-index pecking order fix
 $(document).ready(function(){

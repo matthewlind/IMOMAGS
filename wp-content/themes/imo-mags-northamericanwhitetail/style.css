@@ -1050,108 +1050,42 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
  *
  */
 
-.cfct-module-featured-thumb-wide .featured-articles {
-    height: 390px;
-    position: relative;
-    width: 400px !important;
+.featured-thumb-wide{
+	width: 678px !important;
 }
-.cfct-module-featured-thumb-wide .featured-articles img {
-    display: block;
-    max-width: 100%;
+.featured-thumb-wide .cat-slide{
+	width: 678px !important;
 }
-.cfct-module-featured-thumb-wide .featured-articles .featured-item-pane {
-    border: medium none;
-    width: 400px;
+.featured-thumb-wide .cat-slide img{
+	min-width: 678px;
 }
-.cfct-module-featured-thumb-wide .featured-articles .featured-item-image {
-    border: 5px solid black;
-    width: 390px;
+.category-deer-of-the-day #pager{
+	margin-left: 606px;
 }
-.cfct-module-featured-thumb-wide .featured-articles .featured-item-image-wide {
-    border: 5px solid black;
-    width: 672px;
-}
-.cfct-module-featured-thumb-wide .featured-articles .featured-item-description {
-    background: none repeat scroll 0 0 black;
-    height: 95px;
-    text-align: center;
-    top: 275px;
-    width: 400px;
-}
-.cfct-module-featured-thumb-wide .featured-articles .featured-item-description h2 {
-    font-family: "StagBold";
-    font-size: 24px;
-    font-weight: lighter;
-    letter-spacing: 0.04em;
-    line-height: 26px;
-}
-.cfct-module-featured-thumb-wide .featured-articles {
-    height: 390px;
-    position: relative;
-    width: 672px !important;
-}
-.cfct-module-featured-thumb-wide .featured-articles img {
-    display: block;
-    max-width: 100%;
-}
-.cfct-module-featured-thumb-wide .featured-articles .featured-item-pane {
-    border: medium none;
-    height: 370px;
-    overflow: hidden;
-    width: 100%;
-}
-.cfct-module-featured-thumb-wide .featured-articles .featured-item-image {
-    border: medium none;
-    width: 100%;
-}
-.cfct-module-featured-thumb-wide .featured-articles .featured-item-image {
-    border: medium none;
-    width: 672px;
-}
-.cfct-module-featured-thumb-wide .featured-articles .featured-item-description {
-    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.6);
-    height: 95px;
-    text-align: center;
-    top: 275px;
-    width: 100%;
-}
-.cfct-module-featured-thumb-wide .featured-articles .featured-item-description h2 {
-    font-family: "StagBold";
-    font-size: 24px;
-    font-weight: lighter;
-    letter-spacing: 0.04em;
-    line-height: 26px;
-}
-.cfct-module-featured-thumb-wide.cfct-module{
-	overflow: visible !important;
-}
-.cfct-module-featured-thumb-wide.cfct-module #featured-articles-navigator li{
-	height: 104px;
-    width: 138px;
-}
-.cfct-module-featured-thumb-wide.cfct-module #featured-articles-navigator li a{
-	background-color: #ECEDED;
-    border-bottom: 12px solid #ECEDED;
-    border-right: 12px solid #ECEDED;
-    border-top: 12px solid #ECEDED;
-    display: block;
-    height: 104px;
-    overflow: hidden;
-    width: 132px;
-}
-.cfct-module-featured-thumb-wide.cfct-module #featured-articles-navigator li a:first-child{
-	border-left: 12px solid #ECEDED;
-}
-.cfct-module-featured-thumb-wide #featured-articles-navigator li.ui-tabs-selected a{
-	border: 12px solid #000 !important;
-	position: relative;
-}    
-.cfct-module-featured-thumb-wide .featured-articles #featured-articles-navigator{
-	margin: 0 41px;
-	width: 570px;
+.category-deer-of-the-day #pager a{
+	background-color: #000;
+    height: 14px;
+    margin: 6px 0 0 4px;
+    padding: 0;
+    text-indent: -9999px;
+    width: 14px;
+    float: left;
 }
 
-.featured-item-image img{
+.category-deer-of-the-day  #pager a.active {
+	background-color: #839A45 !important;
+  
+}
+.category-deer-of-the-day  #pager a:hover{
+	background-color: #839A45 !important;
+	cursor: pointer;
+}
+.category-deer-of-the-day #next{
+	left: 638px;
+}
+
+
+/*.featured-item-image img{
 	min-height: 330px;
 }
 .featured-item-description h2 a{
@@ -1169,7 +1103,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 .featured-item-description.naw-desc{
 	height: 100px;
 	bottom: 0 !important;
-}
+}*/
 
 /*
  * IMO Network Slider / Questions Slider
@@ -1329,8 +1263,20 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     margin: 0 4px;
 }
 
-
-
+/*.jcarousel-container.jcarousel-container-horizontal .jcarousel-prev.jcarousel-prev-horizontal, .jcarousel-container.jcarousel-container-horizontal .jcarousel-next.jcarousel-next-horizontal{
+	width: 50px;
+	height: 50px;
+	position: absolute;
+    top: 130px;
+    cursor: pointer;
+}
+.jcarousel-container.jcarousel-container-horizontal .jcarousel-prev.jcarousel-prev-horizontal{
+	background: url("img/ui_tab_prev.png") no-repeat scroll center center #000;
+}
+.jcarousel-container.jcarousel-container-horizontal .jcarousel-next.jcarousel-next-horizontal{
+	background: url("img/ui_tab_next.png") no-repeat scroll center center #000;
+	right: 0;
+}*/
 .questions-slider {
     min-height: 270px;
     margin: -30px 0 0;
@@ -1860,14 +1806,14 @@ a.comment-count:hover {
  * 
  *
  */
-.page-template-page-trophy-php .header-title{
+.category-trophy-bucks .header-title{
 	background: url("img/trophy-bucks-icon.png") no-repeat scroll 0 0 transparent;
 	width: 100%;
 }
-.page-template-page-trophy-php .header-title h1{
+.category-trophy-bucks .header-title h1{
 	margin-left: 90px;
 }
-.page-template-page-trophy-php h3{
+.category-trophy-bucks .col-abc h3{
 	font-size: 0.9em;
     position: absolute;
     right: 220px;
@@ -1880,47 +1826,47 @@ a.comment-count:hover {
  * 
  *
  */
-.page-template-page-dod-php .header-title{
+.category-deer-of-the-day .header-title{
 	background: url("img/dod-icon.png") no-repeat scroll 0 0 transparent;
 	height: 56px;
 }
-.page-template-page-dod-php .header-title h1{
+.category-deer-of-the-day .header-title h1{
 	margin-left: 120px;
     padding-top: 12px;
 }
-.page-template-page-dod-php .dod-header-extras{
+.category-deer-of-the-day .dod-header-extras{
    	position: absolute;
     right: 0;
     top: 24px;
 }
-.page-template-page-dod-php a.how-it-works{
+.category-deer-of-the-day a.how-it-works{
 	color: #006699;
     margin-top: 10px;
 }
-.page-template-page-dod-php a.how-it-works:hover{
+.category-deer-of-the-day a.how-it-works:hover{
 	color: #000033;
 }
-.page-template-page-dod-php a.submit-yours{
+.category-deer-of-the-day a.submit-yours{
 	float: left;
     margin-right: 264px;
     background-color: #3e88e9;
     padding: 0 8px;
     color: #fff;
 }
-.page-template-page-dod-php .dod-feature{
+.category-deer-of-the-day .dod-feature{
 	width: 672px;
 	height: 407px;
 	background-color: #000;
 }
-.page-template-page-dod-php h2.featured-entry-title{
+.category-deer-of-the-day h2.featured-entry-title{
 	font-size: 1.7em;
     font-weight: 100;
     padding: 10px 16px;
 }
-.page-template-page-dod-php h2.featured-entry-title a{
+.category-deer-of-the-day h2.featured-entry-title a{
 	color: #fff;
 }
-.page-template-page-dod-php .title-area{
+.category-deer-of-the-day.title-area{
 	background-color: rgba(0, 0, 0, 0.7);
     bottom: 104px;
     height: 96px;
@@ -1970,7 +1916,7 @@ a.comment-count:hover {
  * Your Land Page
  *
  */
-.page-template-page-tactics-php .header-title{
+.category-tactics .header-title{
 	background: url("img/deer-tactics-icon.png") no-repeat scroll 0 0 transparent;
 	width: 100%;
 
@@ -1978,27 +1924,27 @@ a.comment-count:hover {
 .page-template-page-default-php .header-title{
 	width: 100%;
 }
-.page-template-page-tactics-php .header-title h1{
+.category-tactics .header-title h1{
 	margin-left: 60px;
 	
 }
-.page-template-page-land-php .header-title{
+.category-land-management .header-title{
 	background: url("img/land-icon.png") no-repeat scroll 0 0 transparent;
 	width: 100%;
 
 }
-.page-template-page-land-php .header-title h1{
+.category-land-management .header-title h1{
 	margin-left: 157px;
 	
 }
-#main .page-template-page-tactics-php h3, #main .page-template-page-default-php h3{
+#main .category-tactics h3, #main .page-template-page-default-php h3{
 	font-size: 0.9em;
     position: absolute;
     right: 220px;
     top: 10px;
     text-transform: uppercase;
 }
-#main .page-template-page-land-php h3{
+#main .category-land-management h3{
 	font-size: 0.9em;
     position: absolute;
     right: 220px;
@@ -2033,7 +1979,8 @@ h1.more-header{
 }
 .mod-gallery h2{
 	color: white;
-	padding: 6px 76px;
+	padding: 6px 0;
+	text-align: center;
 	text-transform: uppercase;
 }
 .mod-topics h2{
@@ -2064,8 +2011,8 @@ ul.land-topics li a{
 	font-size: 1.2em;
 }
 .mod-gallery-loop .entry-excerpt a.comment-count{
-	right: 0;
-    top: 154px;
+	right: -30px;
+    top: -4px;
 }
 .mod-gallery-loop .entry-excerpt .entry-img{
 	height: auto;
@@ -2079,7 +2026,7 @@ ul.land-topics li a{
 }
 .blue-header{
 	color: #3e88e9;
-	padding: 0 30px;
+	text-align: center;
 	font-size: 1em;
 }
 ul.naw-loop{
@@ -2147,7 +2094,8 @@ ul.naw-loop li{
 	height: 450px;
 }
 .slider-height .featured-item-description{
-	bottom:-100px;
+	bottom:0;
+	min-height: 100px;
 	background-color: #000;
 }
 .slider-height .featured-articles #featured-articles-navigator {
@@ -2158,7 +2106,6 @@ ul.naw-loop li{
 .slider-thumbs .featured-articles #featured-articles-navigator {
     float: right;
     height: 10px;
-    margin: 8px 0 30px;
 }
 .slider-height .featured-articles #featured-articles-navigator li, .slider-thumbs .featured-articles #featured-articles-navigator li {
     margin: 0 0 0 5px;
@@ -2628,6 +2575,7 @@ a.about-link:hover{
 	border-bottom: 4px solid #000000;
 	height: 41px;
     margin: 30px 0;
+    width: 672px;
 }
 .header-sort h1{
 	float: left;
@@ -2791,13 +2739,13 @@ h1.tv-header{
 * Video Page
 *
 **/
-.page-template-page-video-php .wide{
+.category-video .wide{
 	width: 1020px;
 }
-.page-template-page-video-php .entry-content{
+.category-video .entry-content{
 	padding-left: 14px;
 }
-.page-template-page-video-php .header-title{
+.category-video .header-title{
 	margin-bottom: 0;
 }
 .divider{
@@ -2807,7 +2755,9 @@ h1.tv-header{
     width: 100%;
 	background-color: #ccc;
 }
-
+.video-padd{
+	margin-top: 30px;
+}
 /**
 * 
 * Search Widget
@@ -3052,7 +3002,7 @@ h1.tv-header{
 	width: 160px !important;
 	padding: 0;
 }
-.gallery-loop-widget .entry-excerpt .entry-title{
+.gallery-loop-widget .entry-excerpt .entry-title, .mod-gallery-loop .entry-excerpt .entry-title{
 	font-size: 1em;
 	line-height: 1em;
 }
@@ -3129,4 +3079,100 @@ h1.tv-header{
 .more-button:hover {
 	color:#cfcfcf;
 	 -moz-transition: all 0.6s ease 0s;-webkit-transition: 0.6s;
+}
+
+
+.video-excerpt span{
+	text-transform: none;
+	background: url('img/play-overlay.png') no-repeat;
+	height: 67px;
+	left: 77px;
+    position: absolute;
+    top: 40px;
+    width: 68px;
+}
+
+.cat-col-full{
+	width: 678px;
+}
+.cat-col-left{
+	float: left;
+    width: 420px;
+}
+.cat-col-right{
+	float: left;
+    width: 238px;
+    margin-left: 14px;
+}
+
+
+#slideshow_mask {
+  position:relative;
+  overflow:hidden;
+  margin:0 auto;
+  width:420px;
+  height:400px;
+}
+
+#slideshow {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:420px;
+  height:320px;
+}
+
+#slideshow .cat-slide {
+  position:absolute;
+  width:420px;
+  height:400px;
+}
+#slideshow .cat-slide img{
+	min-width: 420px;
+	min-height: 320px;
+}
+#pager{
+	margin-left: 348px;
+}
+#pager a{
+	background-color: #000;
+    height: 14px;
+    margin: 6px 0 0 4px;
+    padding: 0;
+    text-indent: -9999px;
+    width: 14px;
+    float: left;
+}
+
+.cat-col-left #pager a.active {
+	background-color: #839A45 !important;
+  
+}
+.cat-col-left #pager a:hover{
+	background-color: #839A45 !important;
+	cursor: pointer;
+}
+#prev, #next{
+	width: 50px;
+	height: 50px;
+	background-color: #000;
+	position: absolute;
+	top:190px;	
+}
+#prev{
+	background: url("img/ui_tab_prev.png") no-repeat scroll center center #000;
+	left: 10px;
+	cursor: pointer;
+}
+#next{
+	background: url("img/ui_tab_next.png") no-repeat scroll center center #000;
+	left: 380px;
+	cursor: pointer;
+}
+.topics-ul{
+	list-style: none;
+	margin-left 0 !important;
+}
+.topics-ul li{
+	text-align: center;
 }

@@ -1,9 +1,6 @@
 <?php
 
 /**
- * Template Name: Tactics Page
- * Description: A page with a right BONUS sidebar column.
- *
  * @package carrington-business
  *
  * This file is part of the Carrington Business Theme for WordPress
@@ -20,9 +17,15 @@
  */
 
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
+if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
-// NOTE: this file is here for compatibility reasons - active templates are in the pages/ dir 
-
-cfct_page('pages-tactics');
+if (have_posts()) {
+	while (have_posts()) {
+		the_post();
+		cfct_excerpt();
+	}
+} else {
+	cfct_misc('no-results');
+}
 
 ?>
