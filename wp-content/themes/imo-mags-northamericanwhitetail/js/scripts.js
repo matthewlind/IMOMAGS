@@ -94,6 +94,16 @@ $(document).ready(function(){
 		animation:1000,scroll: 1});	
 
 });
+// Related Content slider
+$(document).ready(function(){
+				
+	jQuery('#slides-related').jcarousel({
+		easing: 'easeOutBack',
+		animation:1000,scroll: 3});	
+
+});
+
+
 // Category page sliders
 $(document).ready(function(){
 				

@@ -38,9 +38,9 @@ get_header();
 	<!--</div> .col-abc -->		
 
 <!-- Super post section -->
-<div class="col-abc super-post">
+<!--<div class="col-abc super-post">
     <div <?php //post_class('entry entry-full clearfix'); ?>>
-    	<!-- This section is commented out until we add community features-->
+    	<!-- This section is commented out until we add community features
         <div class="entry-content">
             <hr class="comm-sep">
             <h1 class="recon">Naw+ Community</h1>
@@ -79,13 +79,13 @@ get_header();
 
 
             </div>
-            <span id="more-superposts-button">Load More<span></span></span>
+            <span id="more-superposts-button">Load More<span></span></span>-->
 
 
 
-        </div>
-    </div><!-- .entry -->
-</div><!-- .col-abc -->
+        <!--</div>-->
+    <!--</div><!-- .entry -->
+<!--</div><!-- .col-abc -->
 	 <!-- <div class="clear"></div>
 	<!-- Editor's Picks w/ Sidebar Bottom -->		
 	<!-- <div class="bonus-background">
@@ -174,30 +174,6 @@ get_header();
 		</div><!-- .entry -->
 	</div><!-- .col-abc -->
 	<!-- Bottom Widget Area -->
-	<div class="gear-slider">
-		<h1 class="more-header">Gear Reviews</h1>
-		<aside class="widget widget_slider-widget">
-			<div class="scroll_mask">				
-				<ul id="slides-gear" class="scroll">
-				<?php
-				//Most Recent
-				$the_query = new WP_Query( array( 'post_type' => 'post','category_name' => 'gear','posts_per_page' =>20, 'orderby' => 'date', 'order' => 'DESC' ) );
-				while ( $the_query->have_posts() ) : $the_query->the_post(); 
-					if(has_post_thumbnail()){  ?>
-						
-						<li><a href="<?php echo the_permalink(); ?>"><?php the_post_thumbnail('gear-thumb'); ?></a></li>
-    					<?php
-						}
-				endwhile;	
-				// Reset Post Data
-				wp_reset_postdata();
-				?>
-	  			</ul>
-			</div>
-			<a class="prev">Previous</a>
-			<a class="next">Next</a>
-		</aside>
-	</div>
 	<!-- <div class="secondary">
 		<?php //if (function_exists('dynamic_sidebar') && dynamic_sidebar('secondary-home')) : else : ?><?php //endif; ?>
 	</div> -->
