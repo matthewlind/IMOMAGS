@@ -23,10 +23,25 @@ if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 get_header(); 
+$cat_id = get_query_var('cat');
+
 ?>
 <div class="category-page slider-thumbs slider-height">
 	<header class="header-title">
-		<h1><?php single_cat_title(''); ?></h1>
+		<h1>
+		<?php
+		if(   is_category( array( 'tactics','trophy-bucks','land-management','deer-of-the-day','video','gear' )  )   ){
+			single_cat_title('');
+		}else{
+			$category = get_the_category();
+			$parent = get_cat_name($category[0]->category_parent);
+			
+			echo '<a href="'.get_category_link( $category[0]->cat_ID ).'">'.$category[0]->cat_name.'</a>';
+			echo ' &bull; ';
+			single_cat_title('');
+		}
+		?>
+	 	</h1>
 	</header>	
 	<?php if (!is_category('video')){ ?>
 	<div class="bonus-background">
@@ -87,12 +102,24 @@ get_header();
 				<h2>Topics</h2>
  			</div>
 	 			<ul class="land-topics">
-					<?php $cat_id = get_query_var('cat');
-						wp_list_categories('hide_empty=0&title_li=&child_of=' . $cat_id);		
-						?>
+					<?php wp_list_categories('hide_empty=0&title_li=&child_of=' . $cat_id);	?>
 	 			</ul>
  		</div>
- 		
+ 		<div class="col-abc">
+		<div class="header-sort">
+				<h1 class="more-header">More <?php single_cat_title(''); ?></h1>
+				<div class='cssmenu'>
+					<ul>
+					   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
+					      <ul>
+					         <li><a href='#'><span>Recent</span></a></li>
+					         <li><a href='#'><span>Commented</span></a></li>
+					      </ul>
+					   </li>
+					</ul>
+				</div>
+			</div>
+
 	<?php } else if (is_category('trophy-bucks')){ 
 	//TROPHY BUCKS PAGE
 	?>
@@ -145,12 +172,24 @@ get_header();
 				<h2>Topics</h2>
  			</div>
 	 			<ul class="land-topics">
-					<?php $cat_id = get_query_var('cat');
-						wp_list_categories('hide_empty=0&title_li=&child_of=' . $cat_id);		
-						?>
+					<?php wp_list_categories('hide_empty=0&title_li=&child_of=' . $cat_id);	?>
 	 			</ul>
  		</div>
- 		
+ 		<div class="col-abc">
+	 		<div class="header-sort">
+				<h1 class="more-header">More <?php single_cat_title(''); ?></h1>
+				<div class='cssmenu'>
+					<ul>
+					   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
+					      <ul>
+					         <li><a href='#'><span>Recent</span></a></li>
+					         <li><a href='#'><span>Commented</span></a></li>
+					      </ul>
+					   </li>
+					</ul>
+				</div>
+			</div>
+
 	<?php } else if (is_category('land-management')){ 
 	//LAND MANAGEMENT PAGE
 	?>
@@ -203,12 +242,24 @@ get_header();
 				<h2>Topics</h2>
  			</div>
 	 			<ul class="land-topics">
-					<?php $cat_id = get_query_var('cat');
-						wp_list_categories('hide_empty=0&title_li=&child_of=' . $cat_id);		
-						?>
+					<?php wp_list_categories('hide_empty=0&title_li=&child_of=' . $cat_id);	?>
 	 			</ul>
  		</div>
- 		
+ 		<div class="col-abc">
+		<div class="header-sort">
+			<h1 class="more-header">More <?php single_cat_title(''); ?></h1>
+			<div class='cssmenu'>
+				<ul>
+				   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
+				      <ul>
+				         <li><a href='#'><span>Recent</span></a></li>
+				         <li><a href='#'><span>Commented</span></a></li>
+				      </ul>
+				   </li>
+				</ul>
+			</div>
+		</div>
+
 	<?php } else if (is_category('deer-of-the-day')){ 
 	//DOD PAGE
 	?>
@@ -254,8 +305,22 @@ get_header();
 						<a id="prev"></a>
 						<a id="next"></a>		
 							
-		</div><!-- end left -->	
- 		
+		</div><!-- end left/no right -->	
+ 		<div class="col-abc">
+	 		<div class="header-sort">
+				<h1 class="more-header">More <?php single_cat_title(''); ?></h1>
+				<div class='cssmenu'>
+					<ul>
+					   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
+					      <ul>
+					         <li><a href='#'><span>Recent</span></a></li>
+					         <li><a href='#'><span>Commented</span></a></li>
+					      </ul>
+					   </li>
+					</ul>
+				</div>
+			</div>
+
 	<?php } else if (is_category('gear')){ 
 	//DOD PAGE
 	?>
@@ -308,12 +373,24 @@ get_header();
 				<h2>Topics</h2>
  			</div>
 	 			<ul class="land-topics">
-					<?php $cat_id = get_query_var('cat');
-						wp_list_categories('hide_empty=0&title_li=&child_of=' . $cat_id);		
-						?>
+					<?php wp_list_categories('hide_empty=0&title_li=&child_of=' . $cat_id);	?>
 	 			</ul>
  		</div>
- 		
+	 	<div class="col-abc">
+			<div class="header-sort">
+				<h1 class="more-header">More <?php single_cat_title(''); ?></h1>
+				<div class='cssmenu'>
+					<ul>
+					   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
+					      <ul>
+					         <li><a href='#'><span>Recent</span></a></li>
+					         <li><a href='#'><span>Commented</span></a></li>
+					      </ul>
+					   </li>
+					</ul>
+				</div>
+			</div>
+
  		 		
 	<?php } else if (is_category('video')){ 
 	//VIDEO PAGE
@@ -362,20 +439,6 @@ get_header();
 	</div>
 	<?php } ?>
 	<div class="col-abc">
-	<div class="header-sort">
-			<h1 class="more-header">More <?php single_cat_title(''); ?></h1>
-			<div class='cssmenu'>
-				<ul>
-				   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
-				      <ul>
-				         <li><a href='#'><span>Recent</span></a></li>
-				         <li><a href='#'><span>Commented</span></a></li>
-				      </ul>
-				   </li>
-				</ul>
-			</div>
-		</div>
-
 		<?php
 		cfct_loop();
 		cfct_misc('nav-posts'); ?>

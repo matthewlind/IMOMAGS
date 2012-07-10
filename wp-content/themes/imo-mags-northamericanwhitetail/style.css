@@ -1071,7 +1071,9 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     width: 14px;
     float: left;
 }
-
+.category-deer-of-the-day #prev, .category-deer-of-the-day #next{
+	top:210px !important;	
+}
 .category-deer-of-the-day  #pager a.active {
 	background-color: #839A45 !important;
   
@@ -3176,3 +3178,4 @@ h1.tv-header{
 .topics-ul li{
 	text-align: center;
 }
+

@@ -103,7 +103,9 @@ $(document).ready(function(){
   pager  : $('#pager'),
   speed  : 400,
   easing : 'easeOutExpo',
-  interval: 5000
+  interval: 5000,
+  direction: 'horizontal',
+  auto: true
  
   });	
 
