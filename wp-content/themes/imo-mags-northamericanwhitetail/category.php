@@ -32,21 +32,11 @@ function get_cat_slug($cat_id) {
 ?>
 <div class="category-page slider-thumbs slider-height">
 	<header class="header-title">
-		<h1>
-		<?php
-		if(   is_category( array( 'tactics','trophy-bucks','land-management','deer-of-the-day','video','gear' )  )   ){
-			single_cat_title('');
-		}else{
-			$category = get_the_category();
-			$parent = get_cat_name($category[0]->category_parent);
-			
-			echo '<a href="'.get_category_link( $category[0]->cat_ID ).'">'.$category[0]->cat_name.'</a>';
-			echo ' &bull; ';
-			single_cat_title('');
-		}
-		?>
-	 	</h1>
+		<h1><?php single_cat_title(''); ?></h1>
 	</header>	
+	<?php if(   !is_category( array( 'tactics','trophy-bucks','land-management','deer-of-the-day','video','gear' )  )   ){ ?>
+		<div class="breadcrumbs"><?php echo get_category_parents($cat, TRUE, ' &raquo; '); ?></div> 
+	<?php } ?>
 	<?php if (!is_category('video')){ ?>
 	<div class="bonus-background">
 		<div class="sidebar">
@@ -111,7 +101,7 @@ function get_cat_slug($cat_id) {
  		</div>
  		<div class="col-abc">
 		<div class="header-sort">
-				<h1 class="more-header">More <?php single_cat_title(''); ?></h1>
+				<h1 class="more-header">Load More <?php single_cat_title(''); ?></h1>
 				<div class='cssmenu'>
 					<ul>
 					   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
@@ -181,7 +171,7 @@ function get_cat_slug($cat_id) {
  		</div>
  		<div class="col-abc">
 	 		<div class="header-sort">
-				<h1 class="more-header">More <?php single_cat_title(''); ?></h1>
+				<h1 class="more-header">Load More <?php single_cat_title(''); ?></h1>
 				<div class='cssmenu'>
 					<ul>
 					   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
@@ -251,7 +241,7 @@ function get_cat_slug($cat_id) {
  		</div>
  		<div class="col-abc">
 		<div class="header-sort">
-			<h1 class="more-header">More <?php single_cat_title(''); ?></h1>
+			<h1 class="more-header">Load More <?php single_cat_title(''); ?></h1>
 			<div class='cssmenu'>
 				<ul>
 				   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
@@ -312,7 +302,7 @@ function get_cat_slug($cat_id) {
 		</div><!-- end left/no right -->	
  		<div class="col-abc">
 	 		<div class="header-sort">
-				<h1 class="more-header">More <?php single_cat_title(''); ?></h1>
+				<h1 class="more-header">Load More <?php single_cat_title(''); ?></h1>
 				<div class='cssmenu'>
 					<ul>
 					   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
@@ -382,7 +372,7 @@ function get_cat_slug($cat_id) {
  		</div>
 	 	<div class="col-abc">
 			<div class="header-sort">
-				<h1 class="more-header">More <?php single_cat_title(''); ?></h1>
+				<h1 class="more-header">Load More <?php single_cat_title(''); ?></h1>
 				<div class='cssmenu'>
 					<ul>
 					   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
@@ -445,7 +435,7 @@ function get_cat_slug($cat_id) {
 	<div class="col-abc">
 				
 		<div class="local-site-feed" term="<?php echo get_cat_slug($cat_id); ?>"></div><!-- This term= attribute is searched for by displayLocalSiteFeed() in local-site-feed.js -->
-		<div class="local-site-feed-more-button"> <div class="more-button"><span>MORE<span></span></span></div> </div>
+		<div class="local-site-feed-more-button"> <div class="more-button"><span>Load More<span></span></span></div> </div>
 
 	</div>
 
