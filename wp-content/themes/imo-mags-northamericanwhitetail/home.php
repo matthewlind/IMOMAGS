@@ -160,6 +160,16 @@ get_header();
 	<div style="height:30px;"></div>
 				<div class="header-sort">
 					<h1 class="more-header">Editor's Picks</h1>
+								<div class='cssmenu'>
+									<ul>
+									   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
+									      <ul>
+									         <li><a href='#' class="sort-link" sort="post_date"><span>Recent</span></a></li>
+									         <li><a href='#' class="sort-link" sort="comment_count"><span>Commented</span></a></li>
+									      </ul>
+									   </li>
+									</ul>
+								</div>
 				</div>
 
 
