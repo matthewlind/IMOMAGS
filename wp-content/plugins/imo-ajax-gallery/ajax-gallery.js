@@ -1,4 +1,6 @@
 jQuery(document).ready(function($) {
+
+	var lockedOpen = false;
 	
 	function trackPage(slideID) {
 
@@ -51,11 +53,12 @@ jQuery(document).ready(function($) {
 
 
 	//Setup Slideshow Scrolling
+	$(".text-slides .slide").eq(0).show();	
 	$('.slideshow').scrollface({
 		auto	: false,
 		next	: $('.next'),
 		prev	: $('.back'),
-		speed	: 600,
+		speed	: 450,
 		pager  : $('#slideshow-pager'),
 		easing	: 'easeOutExpo',
 		transition: "fade",
@@ -64,6 +67,14 @@ jQuery(document).ready(function($) {
 			slidePager(new_slide.id); //SLides the pager to the new position
 
 			$("span.current-image").text(new_slide.id + 1);
+
+
+			//Also change the text slide
+			$(".text-slides .slide").eq(old_slide.id).fadeOut(80);
+			$(".text-slides .slide").eq(new_slide.id).fadeIn(80);	
+
+		
+
 		},
 		after   : function(old_slide, new_slide) {
 
@@ -72,6 +83,8 @@ jQuery(document).ready(function($) {
 
 			//TRACK THE PAGE VIEW IN Google Analytics
 			trackPage(new_slide.id);
+
+
 
 
 			
@@ -86,43 +99,13 @@ jQuery(document).ready(function($) {
 
 	//Setup Text Changing
 
-	$('.text-slideshow').scrollface({
-		auto	: false,
-		next	: $('.next'),
-		prev	: $('.back'),
-		speed	: 0,
-		pager  : $('#slideshow-pager'),
-		before	: function(old_slide, new_slide) {
-
-
-			$(".text-slides .slide").eq(old_slide.id).fadeOut(700);
-			$(".text-slides .slide").eq(new_slide.id).hide();
-
-
- 
-		},
-		after   : function(old_slide, new_slide) {
-
-
-
-			$(".text-slides .slide").eq(old_slide.id).hide();
-			$(".text-slides .slide").eq(new_slide.id).hide();	
-			$(".text-slides .slide").eq(new_slide.id).fadeIn();	
-			
-		},
-		pager_builder : function (pager, index, slide) {
-
-		    return $('li a', pager).eq(index); // an element that already exists!
-
-		 }
-	});
 
 	//Setup Thumbnail Scrolling
 	$('ul.thumb-pager').buffet({
 		scroll_by : 6,
 		next      : $('#thumb-next'),
 		prev      : $('#thumb-prev'),
-		speed		: 400,
+		speed		: 300,
 		easing	: 'easeOutExpo'
 	});
 
@@ -145,24 +128,43 @@ jQuery(document).ready(function($) {
   		event.preventDefault();
   	});
 
+  	$(".hidden-arrows a").click(function(event) {
+  		event.preventDefault();
+  	});
+
+  	//Show the hidden arrows on hover
+  	$(".slide-container").hover(function(){
+  		$(".hidden-arrows .thumb-arrow").fadeToggle();
+  	});
+
 
 	//Handle the slideout hover
 	var currentLeft = parseInt($(".gallery-slide-out").css('left'),10); 
   	$(".gallery-hover-div").hover(function(){
 
  		$(".gallery-slide-out").animate({
-	      	left: $(".ngg-imagebrowser").outerWidth(true) + 2
+	      	left: $(".ngg-imagebrowser").outerWidth(true)
     	},300,'easeOutExpo');
 
 
 
   	},function(){
-
-  		$(".gallery-slide-out").stop().animate({
+  		if (lockedOpen == false) {
+  			$(".gallery-slide-out").stop().animate({
 	      	left: currentLeft
-    	},300,'easeOutExpo');
+    		},300,'easeOutExpo');
+  		}
+
 
   	});
+
+
+  	//Handle Background overlay 
+  	$(".gallery-hover-div").click(function(){
+  		 activateOverlay();
+  	});
+
+
 
   	//Setup custom scrollbar
 
@@ -202,6 +204,40 @@ jQuery(document).ready(function($) {
 		  });
 
   		
+  	}
+
+  	function activateOverlay() {
+
+  		if ($(".background-overlay").length < 1) {
+  			var $overlayDiv = $("<div class='background-overlay' style='z-index:50;background-image:url(\"/wp-content/themes/carrington-business/img/dark-trans-bg.png\");display:none;position: fixed;top: 0;right: 0;bottom: 0;left: 0;overflow-x: auto;overflow-y: auto;'></div>");
+  			
+  			$overlayDiv.prependTo("#main").fadeIn();
+
+
+  			lockedOpen = true;
+
+  			$(".background-overlay").click(function(){
+  				closeSlideout();
+  			});
+  		}
+  		
+  	
+  	}
+
+  	$(".x-close").click(function(){
+  		closeSlideout();
+  	});
+
+  	function closeSlideout() {
+  		lockedOpen = false;
+		$(".background-overlay").fadeOut(function(){
+			
+			$(".background-overlay").remove();
+		});
+
+		$(".gallery-slide-out").stop().animate({
+  			left: currentLeft
+    	},300,'easeOutExpo');
   	}
 
 });

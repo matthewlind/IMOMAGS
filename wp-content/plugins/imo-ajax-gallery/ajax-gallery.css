@@ -51,6 +51,15 @@ div.post {
   text-align: left;
   overflow-y: hidden;
   overflow-x: hidden;
+  font-family: "Helvetica",Arial,sans-serif;
+  font-size:13px;
+  line-height: 18px;
+}
+
+.text-slideshow.text-slides .slide p {
+  font-family: "Helvetica",Arial,sans-serif;
+  font-size:13px;
+  line-height: 18px;  
 }
 
 #slideshow-pager {
@@ -140,8 +149,24 @@ a.thumb-arrow {
   position:absolute;
   z-index:100;
   color:white;
+  border-left:1px solid black;
 
 
+
+}
+
+.x-close {
+  font: 12px Arial,"Helvetica Neue",Helvetica,sans-serif;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 18px;
+  width: 18px;
+  text-align: center;
+  line-height: 18px;
+  font-size: 20px;
+  cursor: pointer;
+  margin: 4px 6px 0px 0px;
 
 }
 
@@ -150,11 +175,12 @@ a.thumb-arrow {
 }
 
 .slide-out-content {
-  margin:20px 10px 10px 10px;
+  margin:25px 10px 10px 10px;
 }
 
 .gallery-slide-out h2 {
   color:white;
+  line-height: 24px;
 }
 
 #gallery-iframe-ad {
@@ -175,9 +201,9 @@ background-position: center center;
 background-repeat: no-repeat;
 cursor: pointer;
 display: block;
-height: 90px;
+height: 57px;
 position: absolute;
-top: 605px;
+bottom:25px;
 width: 25px;
 background-color: #888888;
 }
@@ -190,16 +216,44 @@ background-color: #888888;
 #thumb-next {
   background-image: url("img/ui_tab_next.png");
   right:0px;
-  height: 58px;
+
   margin-right: 18px;
 }
 
 #thumb-prev {
   background-image: url("img/ui_tab_prev.png");
   left:0px;
+
+  margin-left: 30px;
+}
+
+
+.hidden-arrows .thumb-arrow {
+  bottom: 345px;
+  z-index:2000;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px; 
+  -khtml-border-radius: 2px;
+  width:30px;
+  height:70px;
+
+}
+
+.hidden-arrows .back .thumb-arrow {
+  background-image: url("img/ui_tab_prev.png");
+  left:0px;
   height: 58px;
   margin-left: 30px;
 }
+
+.hidden-arrows .next .thumb-arrow {
+  background-image: url("img/ui_tab_next.png");
+  right:0px;
+  height: 58px;
+  margin-right: 18px;
+}
+
 
 
 /* line 2678, sass/style.scss */
@@ -207,6 +261,7 @@ background-color: #888888;
   background: black;
   padding: 30px 30px 0px;
   position: relative;
+  z-index:200;
 }
 /* line 2682, sass/style.scss */
 #main .ngg-imagebrowser p {
@@ -227,9 +282,22 @@ background-color: #888888;
   padding:2px;
   border:1px solid darkGray;
 }
+
+.gallery-hover-div {
+  position: relative;
+  z-index:200;
+}
+
+
+.gallery-hover-div .ngg-imagebrowser-nav {
+  padding: 0px;
+
+  
+}
+
 /* line 2693, sass/style.scss */
 #main .ngg-imagebrowser h3 {
-  font-family: ProximaNovaA-Bold;
+  
   font-weight: lighter;
   display: -moz-inline-box;
   -moz-box-orient: vertical;
@@ -243,27 +311,28 @@ background-color: #888888;
   text-align: left;
   *display: inline;
   width: 320px;
-   font-size: 2em;
+   font-size: 1.4em;
 }
+
 /* line 2707, sass/style.scss */
-#main .ngg-imagebrowser .counter {
-  font-family: 'Lora', serif;
+#main .ngg-imagebrowser .ajax-counter {
+  font-family: 'Georgia';
   font-style: italic;
   font-weight: normal;
-  color: #3e88e9;
-  line-height: 40px;
+  color: #CE181E;
+  line-height: 30px;
   margin: 0;
   position: absolute;
   right: 152px;
-  top: 5px;
+  top: 1px;
   width: 130px;
-  font-size:12px;
+  font-size: 0.9em;
   text-align: right;
 }
 /* line 2719, sass/style.scss */
 #main .ngg-imagebrowser .ngg-imagebrowser-desc {
   color: white;
-  font-size: 12px;
+  font-size: 0.9em;
   position: relative;
   top: 0;
   width: 380px;
@@ -296,16 +365,25 @@ background-color: #888888;
   background-position: center center;
   background-repeat: no-repeat;
   display: block;
-  height: 10px;
-  width: 10px;
+  height: 40px;
+  width: 40px;
+  padding: 0px;
+    -moz-border-radius: 0px;
+  -o-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  -khtml-border-radius: 0px;
+  border-radius: 0px;
+
+
+
 }
 /* line 2745, sass/style.scss */
 #main .ngg-imagebrowser .ngg-imagebrowser-nav .back a:hover, #main .ngg-imagebrowser .ngg-imagebrowser-nav .next a:hover {
-  background-color: #3e88e9;
+  background-color: #CE181E;
 }
 /* line 2747, sass/style.scss */
 #main .ngg-imagebrowser .ngg-imagebrowser-nav .back {
-  right: 76px;
+  right: 48px;
 }
 /* line 2749, sass/style.scss */
 #main .ngg-imagebrowser .ngg-imagebrowser-nav .back a {
