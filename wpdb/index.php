@@ -239,7 +239,7 @@ JOIN wp_users as users ON (users.`ID` = posts.post_author)
 AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
 AND meta.meta_key = "_thumbnail_id")
-ORDER BY $sort DESC LIMIT 400
+ORDER BY $sort DESC LIMIT 200
 EOT;
 
         $stmt = $db->prepare($sql);
@@ -584,7 +584,7 @@ AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
 AND terms2.slug IN ($inQmarks)
 AND meta.meta_key = "_thumbnail_id")
-ORDER BY $sort DESC LIMIT 400
+ORDER BY $sort DESC LIMIT 200
 
 
 EOT;
