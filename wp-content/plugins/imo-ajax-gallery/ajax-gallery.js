@@ -118,7 +118,7 @@ jQuery(document).ready(function($) {
 
 	//sliderStartPosition = $(".ngg-imagebrowser").outerWidth() - $(".gallery-slide-out").outerWidth();
 
-	console.log($(".ngg-imagebrowser").outerWidth(),$(".gallery-slide-out").outerWidth(),$(".ngg-imagebrowser").outerWidth() - $(".gallery-slide-out").outerWidth());
+	//console.log($(".ngg-imagebrowser").outerWidth(),$(".gallery-slide-out").outerWidth(),$(".ngg-imagebrowser").outerWidth() - $(".gallery-slide-out").outerWidth());
 
 	$(".gallery-slide-out").css('left',sliderStartPosition);
 

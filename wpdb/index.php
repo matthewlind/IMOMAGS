@@ -36,7 +36,7 @@ include 'mysql.php';
  */
 
 //GET route
-$app->get('/imomags/term/naw-plus', function () {
+$app->get('/imomags/term/naw-plus(/sort/:sort)', function ($sort = "post_date") {
 
     header('Access-Control-Allow-Origin: *');  
 
@@ -239,7 +239,7 @@ JOIN wp_users as users ON (users.`ID` = posts.post_author)
 AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
 AND meta.meta_key = "_thumbnail_id")
-ORDER BY post_date DESC LIMIT 400
+ORDER BY $sort DESC LIMIT 400
 EOT;
 
         $stmt = $db->prepare($sql);
@@ -277,7 +277,7 @@ EOT;
 
         $json = json_encode($posts);
 
-        $f = fopen("cache/naw-plus.json", "w");
+        $f = fopen("cache/naw-plus-$sort.json", "w");
         fwrite($f, $json);
         fclose($f); 
 
@@ -296,7 +296,7 @@ EOT;
 //************************************************
 //*** Get all posts in NAW+ AND SOMETHING ELSE ***
 //************************************************
-$app->get('/imomags/term/naw-plus/:term',function($term){
+$app->get('/imomags/term/naw-plus/:term(/sort/:sort)',function($term,$sort = "post_date"){
 
     header('Access-Control-Allow-Origin: *');  
 
@@ -584,7 +584,7 @@ AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
 AND terms2.slug IN ($inQmarks)
 AND meta.meta_key = "_thumbnail_id")
-ORDER BY post_date DESC LIMIT 400
+ORDER BY $sort DESC LIMIT 400
 
 
 EOT;
@@ -648,7 +648,7 @@ EOT;
 
         $db = "";
 
-        $f = fopen("cache/naw-plus-$term.json", "w");
+        $f = fopen("cache/naw-plus-$term-$sort.json", "w");
         fwrite($f, $json);
         fclose($f); 
 

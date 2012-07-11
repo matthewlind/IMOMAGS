@@ -32,7 +32,9 @@ jQuery(document).ready(function($) {
 
 
 
-	function displayCrossSiteFeed(start) {
+	function displayCrossSiteFeed(start,sort) {
+		sort = typeof sort !== 'undefined' ? sort : 'post_date'; //If sort is not set, set sort to post_date
+
 
 		//First get any extra term
 		var term = $(".cross-site-feed").attr("term");
@@ -40,9 +42,9 @@ jQuery(document).ready(function($) {
 	
 		
 		if (term.length > 0) {
-			var fileName = "/wpdb/cache/naw-plus-" + term + ".json";
+			var fileName = "/wpdb/cache/naw-plus-" + term + "-" + sort + ".json";
 		} else {
-			var fileName = "/wpdb/cache/naw-plus.json";
+			var fileName = "/wpdb/cache/naw-plus-" + sort + ".json";
 		}
 		
 
@@ -74,7 +76,7 @@ jQuery(document).ready(function($) {
 		        $articleTemplate.find("p.excerpt-body").text("");
 
 		        $articleTemplate.find("img.entry-img").attr("src",data[i].img_url);
-
+		        $articleTemplate.find("a.comment-count").text(data[i].comment_count);
 		      
 
 				//If data[i] is from NAW, add the categories
@@ -98,6 +100,8 @@ jQuery(document).ready(function($) {
 					});
 					
 
+				} else { //If not on whitetail
+					$articleTemplate.find("a").attr("target","_blank");
 				}
 
 		        $articleTemplate.appendTo(".cross-site-feed").fadeIn();
