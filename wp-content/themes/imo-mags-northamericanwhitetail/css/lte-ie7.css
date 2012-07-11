@@ -1,0 +1,81 @@
+/**
+ * @bugfix inline-block fix
+ * @see http://blog.mozilla.com/webdev/2009/02/20/cross-browser-inline-block/
+ * @valid no
+ */
+#header .searchform div {
+	zoom: 1;
+	*display: inline;
+}
+
+/**
+ * @bugfix hasLayout fixes
+ * @see http://www.satzansatz.de/cssd/onhavinglayout.html
+ * @valid no
+ */
+.pagination,
+.cfct-module,
+.widget,
+.notice,
+#footer-sub {
+	zoom: 1;
+}
+
+/**
+ * IE doesn't take kindly to dropdowns without fixed widths. We'll fix it for IE.
+ */
+nav.nav li ul {
+	/* Min width here fixes strange PIE bug. */
+	min-width: 100%;
+	width: 200px;
+}
+
+/**
+ * Text-indent workaround for IE
+ */
+#header .searchform .searchsubmit, 
+#cf-logo {
+	text-indent: 0;
+}
+
+/* Fixes 60px of padding on right */
+.cfct-block-abc .cfct-module-carousel {
+	width: 918px;
+}
+
+div#featured div.right { width: 230px; }
+.scroller-controller UL.scroll-dots {
+	position:relative;
+}
+.jcarousel-skin-featured {
+	position: relative;
+	z-index: 10;
+}
+.scroller-controller UL.scroll-dots LI.dot A {
+	display:block;
+	float:left;
+}
+
+/*fixes FS Featured section*/
+
+#main-content #fs-featured .right {
+	width:auto;
+}
+#main-content #fs-featured .scroller-controller {
+	position: absolute;
+	z-index:-20;
+	width: 327px;
+}
+
+nav.nav.nav-subnav-right { border-bottom: 1px solid #ccc; }
+nav.nav.nav-featured {}
+#header aside.widget { width: 260px; }
+
+/* IE 7 Fixes for bonus column */
+
+.page-template-page-right-php .col-abc {
+	
+	width:640px;
+}
+
+

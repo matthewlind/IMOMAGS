@@ -69,6 +69,7 @@ add_image_size("small-featured-thumb-x",98,76,TRUE);
 add_image_size("large-featured-thumb-x",420,300,TRUE);
 add_image_size("huge-featured-thumb-x",648,225,TRUE);
 add_image_size("imo-slider-thumb",134,90,TRUE);
+add_image_size("imo-mini-slider-thumb",70,70,TRUE);
 
 
 
@@ -331,4 +332,34 @@ function insert_image_src_rel_in_head() {
 	echo "\n";
 }
 add_action( 'wp_head', 'insert_image_src_rel_in_head', 5 );
+
+function insert_image_src_rel_in_head() {
+
+    global $post;
+
+    if ( !is_singular()) //if it is not a post or a page
+
+        return;
+    if(!has_post_thumbnail( $post->ID )) { //the post does not have featured image, use a default image
+
+        $default_image="http://example.com/image.jpg"; //replace this with a default image on your server or an image in your media library
+
+        echo '<meta property="og:image" content="' . $default_image . '"/>';
+
+    }
+
+    else{
+
+        $thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
+
+        echo '<meta property="og:image" content="' . esc_attr( $thumbnail_src[0] ) . '"/>';
+
+    }
+
+    echo "\n";
+
+}
+
+add_action( 'wp_head', 'insert_image_src_rel_in_head', 5 );
+
 
