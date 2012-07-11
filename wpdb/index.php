@@ -37,6 +37,7 @@ include 'mysql.php';
 
 //GET route
 $app->get('/imomags/term/naw-plus(/sort/:sort)', function ($sort = "post_date") {
+	$sort = mysql_real_escape_string($sort);
 
     header('Access-Control-Allow-Origin: *');  
 
@@ -260,6 +261,9 @@ EOT;
             $postContent = str_replace("\x94", "", $postContent);
             $postContent = str_replace("\\", "", $postContent);
             $postContent = str_replace("\xa6", "", $postContent);
+            $postContent = str_replace("\\", "", $postContent);
+            $postContent = str_replace("\x93", "", $postContent);
+            $postContent = str_replace("\xa8", "", $postContent);
 
             $postContent = substr($postContent,0,120) . "...";
             $posts[$key]->post_content = $postContent;
@@ -283,6 +287,7 @@ EOT;
             }
 
 
+            
 
         }
 
@@ -309,6 +314,7 @@ EOT;
 //*** Get all posts in NAW+ AND SOMETHING ELSE ***
 //************************************************
 $app->get('/imomags/term/naw-plus/:term(/sort/:sort)',function($term,$sort = "post_date"){
+	$sort = mysql_real_escape_string($sort);
 
     header('Access-Control-Allow-Origin: *');  
 
@@ -640,6 +646,10 @@ EOT;
             $postContent = str_replace("\x94", "", $postContent);
             $postContent = str_replace("\xa6", "", $postContent);
             $postContent = str_replace("\\", "", $postContent);
+            $postContent = str_replace("\x93", "", $postContent);
+            $postContent = str_replace("\xa8", "", $postContent);
+            $postContent = str_replace("\\", "", $postContent);
+            $postContent = str_replace("\\", "", $postContent);
 
             $postContent = substr($postContent,0,120) . "...";
             $posts[$key]->post_content = $postContent;
@@ -660,7 +670,12 @@ EOT;
             $posts[$key]->img_url = $thumbnail;
 
 
-            $json = json_encode($post);
+            //TESTING
+        
+            _log($post);
+            json_encode($post);
+        
+            //$json = json_encode($post);
 
 
             //Check to see if we need to add terms
@@ -670,7 +685,7 @@ EOT;
 
         }
 
-        //$json = json_encode($posts);
+        $json = json_encode($posts);
         echo $json;
 
         $db = "";
