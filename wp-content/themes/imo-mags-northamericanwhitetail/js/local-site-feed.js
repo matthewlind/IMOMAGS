@@ -4,7 +4,7 @@ jQuery(document).ready(function($) {
 	
 	var currentPosition = 0;
 	var showAtOnce = 10;
-
+	var sort = "post_date";
 	var feedData;
 
 	//Check to see if local-site-feed exists:
@@ -17,7 +17,7 @@ jQuery(document).ready(function($) {
 	$(".local-site-feed-more-button").click(function(){
 		
 		currentPosition = currentPosition + showAtOnce;
-		displayLocalSiteFeed(currentPosition);
+		displayLocalSiteFeed(currentPosition,sort);
 
 	});
 
@@ -31,7 +31,7 @@ jQuery(document).ready(function($) {
 		$(".local-site-feed").css("height",800);
 		$(".local-site-feed").html("");
 
-		var sort = $(this).attr("sort");
+		sort = $(this).attr("sort");
 		displayLocalSiteFeed(currentPosition,sort)
 
 

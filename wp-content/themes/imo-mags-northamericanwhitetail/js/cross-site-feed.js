@@ -4,6 +4,7 @@ jQuery(document).ready(function($) {
 	
 	var currentPosition = 0;
 	var showAtOnce = 10;
+	var sort = "post_date";
 
 	var feedData;
 
@@ -17,7 +18,7 @@ jQuery(document).ready(function($) {
 	$(".cross-site-feed-more-button").click(function(){
 		
 		currentPosition = currentPosition + showAtOnce;
-		displayCrossSiteFeed(currentPosition);
+		displayCrossSiteFeed(currentPosition,sort);
 
 	});
 
@@ -30,7 +31,7 @@ jQuery(document).ready(function($) {
 		$(".cross-site-feed").css("height",800);
 		$(".cross-site-feed").html("");
 
-		var sort = $(this).attr("sort");
+		sort = $(this).attr("sort");
 		displayCrossSiteFeed(currentPosition,sort)
 
 
