@@ -34,7 +34,12 @@ get_header();
 	</div>
 	<div class="col-abc">
 				<?php the_content(__('Continued&hellip;', 'carrington-business')); ?>
-	
+				<div class="clearfix"></div>
+	<div class="homepage-gear top">
+		<h1 class="more-header">Gear Reviews</h1>
+		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('gear-home')) : else : ?><?php endif; ?>
+	</div>
+
 	<!--</div> .col-abc -->		
 
 <!-- Super post section -->
@@ -174,7 +179,12 @@ get_header();
 		</div><!-- .entry -->
 	</div><!-- .col-abc -->
 	<!-- Bottom Widget Area -->
-	<!-- <div class="secondary">
+	<div class="homepage-gear">
+		<h1 class="more-header">Gear Reviews</h1>
+		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('gear-home')) : else : ?><?php endif; ?>
+	</div>
+
+		<!-- <div class="secondary">
 		<?php //if (function_exists('dynamic_sidebar') && dynamic_sidebar('secondary-home')) : else : ?><?php //endif; ?>
 	</div> -->
 	<div class="clearfix"></div>

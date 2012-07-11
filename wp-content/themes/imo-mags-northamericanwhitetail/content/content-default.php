@@ -58,7 +58,6 @@ $this_post_is_not_single = (!is_single(get_the_ID()));
 		_e('', 'carrington-business'); 
 	
 		the_category(', ');
-		the_tags(__(' <span class="spacer">&bull;</span> ', 'carrington-business'), ', ', '');
 		?>
 		</div>
 		<div class="addthis-below">

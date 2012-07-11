@@ -87,7 +87,6 @@ get_header();
 	comments_template();
 	?>
 </div>
-<div class="fb-recommendations-bar"></div>
 <?php
 get_sidebar();
 get_footer();

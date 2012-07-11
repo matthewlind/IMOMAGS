@@ -1092,7 +1092,6 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     width: 400px;
 }
 .cfct-module-featured-thumb-wide .featured-articles .featured-item-description h2 {
-    font-family: "StagBold";
     font-size: 24px;
     font-weight: lighter;
     letter-spacing: 0.04em;
@@ -1129,11 +1128,12 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     width: 100%;
 }
 .cfct-module-featured-thumb-wide .featured-articles .featured-item-description h2 {
-    font-family: "StagBold";
-    font-size: 24px;
-    font-weight: lighter;
-    letter-spacing: 0.04em;
     line-height: 26px;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 30px;
+	font-weight: bold;
+	letter-spacing: -1px;
+	line-height: 30px;
 }
 .cfct-module-featured-thumb-wide.cfct-module{
 	overflow: visible !important;
@@ -1673,7 +1673,15 @@ h4.meta{
 #megaMenu ul li.g-slider.ss-nav-menu-mega ul.sub-menu li{
 	position: relative;
 }
-
+.homepage-gear.top{
+	margin-top: 100px;	
+}
+.homepage-gear.top .widget_slider-widget .scroll_mask{
+	width: 578px !important;
+}
+.homepage-gear .widget_slider-widget{
+	margin-top: 30px;
+}
 /*
  * Secondary Sidebar & Gear Slider
  * Above footer
@@ -1843,6 +1851,9 @@ a.comment-count:hover {
  * 
  *
  */
+.aligncenter{
+	 margin-bottom: 16px;
+}
 .addthis-below .addthis_toolbox.addthis_default_style{
 	float: none !important;
     margin: 0 0 10px 160px !important;
