@@ -3257,6 +3257,12 @@ h1.tv-header{
 }
 
 /* overlays */
+.video-excerpt, .gallery-excerpt{
+	background-color: #000 !important;
+}
+.video-excerpt img, .gallery-excerpt img{
+	opacity: 0.6;
+}
 .video-excerpt span{
 	background: url('img/play-overlay.png') no-repeat;
 	text-transform: none;
