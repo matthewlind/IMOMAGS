@@ -51,16 +51,18 @@ $this_post_is_not_single = (!is_single(get_the_ID()));
 		// the_post_thumbnail('thumbnail', array('class' => 'entry-img'));
 		the_content(__('Continued&hellip;', 'carrington-business')); ?>
 	</div>
-	
 	<div class="entry-footer">
 		<div class="tags">	
 		<?php
-		
+		echo 'More in: ';
 		_e('', 'carrington-business'); 
 	
 		the_category(', ');
 		the_tags(__(' <span class="spacer">&bull;</span> ', 'carrington-business'), ', ', '');
 		?>
+		</div>
+		<div class="addthis-below">
+			<?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
 		</div>
 		<div class="divider"></div>
 		<?php

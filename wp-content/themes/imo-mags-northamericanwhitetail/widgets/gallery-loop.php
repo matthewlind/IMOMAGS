@@ -21,7 +21,7 @@ class Gallery_Loop_Widget extends WP_Widget {
 	      	<?php
 				$args = array(
 				'post_type' => 'post',
-				'category_name' => 'gallery',
+				'category_name' => 'galleries',
 				'post_status' => 'publish',
 				'orderby' => 'date',
 				'order' => 'DESC',
@@ -54,7 +54,7 @@ class Gallery_Loop_Widget extends WP_Widget {
 				?>
 
       	<div class="footer">
-	      	<a href="/gallaries/">More Galleries<span></span></a>
+	      	<a href="/category/gallaries/">More Galleries<span></span></a>
       	</div>
     </aside>
 

@@ -53,6 +53,8 @@ function naw_scripts_method() {
 
     wp_enqueue_script("jquery-simplemodal", get_stylesheet_directory_uri() . "/js/jquery.simplemodal.1.4.2.min.js");
     wp_enqueue_script("cross-site-feed", get_stylesheet_directory_uri() . "/js/cross-site-feed.js");
+    wp_enqueue_script("local-site-feed", get_stylesheet_directory_uri() . "/js/local-site-feed.js");
+
 }    
  
 add_action('wp_enqueue_scripts', 'naw_scripts_method');

@@ -30,7 +30,7 @@ get_header();
 			<span class="spacer">&bull;</span>
             <?php endif; ?>
 			<abbr class="published" title="<?php the_time('Y-m-d\TH:i'); ?>"><?php the_time('F j, Y'); ?></abbr>
-			<?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
+			
 			
 			<?php
 			//if ($this_post_is_not_single) {
@@ -38,6 +38,7 @@ get_header();
 				comments_popup_link(__('No comments', 'carrington-business'), __('1 comment', 'carrington-business'), __('% comments', 'carrington-business'));
 			//}
 			?>
+			<?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
 		</div>
 	</div>
 
@@ -48,6 +49,7 @@ get_header();
 	comments_template();
 	?>
 </div>
+<div class="fb-recommendations-bar"></div>
 <?php
 get_sidebar();
 get_footer();

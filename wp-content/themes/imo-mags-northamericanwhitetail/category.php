@@ -24,7 +24,11 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 get_header(); 
 $cat_id = get_query_var('cat');
-
+function get_cat_slug($cat_id) {
+	$cat_id = (int) $cat_id;
+	$category = &get_category($cat_id);
+	return $category->slug;
+}
 ?>
 <div class="category-page slider-thumbs slider-height">
 	<header class="header-title">
@@ -102,7 +106,7 @@ $cat_id = get_query_var('cat');
 				<h2>Topics</h2>
  			</div>
 	 			<ul class="land-topics">
-					<?php wp_list_categories('hide_empty=0&title_li=&child_of=' . $cat_id);	?>
+					<?php wp_list_categories('title_li=&child_of=' . $cat_id);	?>
 	 			</ul>
  		</div>
  		<div class="col-abc">
@@ -439,9 +443,10 @@ $cat_id = get_query_var('cat');
 	</div>
 	<?php } ?>
 	<div class="col-abc">
-		<?php
-		cfct_loop();
-		cfct_misc('nav-posts'); ?>
+				
+		<div class="local-site-feed" term="<?php echo get_cat_slug($cat_id); ?>"></div><!-- This term= attribute is searched for by displayLocalSiteFeed() in local-site-feed.js -->
+		<div class="local-site-feed-more-button"> <div class="more-button"><span>MORE<span></span></span></div> </div>
+
 	</div>
 
 <?php

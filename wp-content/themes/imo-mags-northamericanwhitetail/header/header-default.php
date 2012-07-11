@@ -246,7 +246,7 @@ if(document.location.protocol=='http:'){
   			   <li><a class="facebook" href="http://www.facebook.com/americanwhitetail" title="Find us on Facebook">Facebook</a></li>
   			   <li><a class="twitter" href="http://twitter.com/americanwhitetail" title="Follow us on Twitter">Twitter</a></li>
   			   <li><a class="feed" href="http://feeds.feedburner.com/americanwhitetail" title="Get the RSS Feed">RSS Feed</a></li>
-  			   <li><a class="like" href="#" title="Get the RSS Feed">Like</a></li>
+  			   <li><a class="like" href="#" title="Like us on Facebook">Like</a></li>
   			 </ul>
   			</div>
 		  </div>

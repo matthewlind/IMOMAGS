@@ -148,7 +148,17 @@ class IMOSliderWidget extends \WP_Widget {
 
                         $imgSrc = $imgArray[0];
 
-                        echo "<li><a href='$url'><img src='$imgSrc'></a><a href='$url'>$title</a></li>\n";
+                        echo "<li><a";
+                        if( in_category('video') ){ 
+                        echo " class='video-excerpt'";
+                        }else if( in_category('galleries') ){ 
+                        echo " class='gallery-excerpt'";
+                        }
+                        echo " href='$url'><img src='$imgSrc'>";
+                        if( in_category(array('video','galleries')) ){
+                        echo "<span></span>";
+                        }
+                        echo "</a><a href='$url'>$title</a></li>\n";
 
         endwhile;
 

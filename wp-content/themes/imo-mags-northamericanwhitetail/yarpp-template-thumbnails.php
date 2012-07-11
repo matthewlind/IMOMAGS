@@ -4,7 +4,7 @@ Author: Fox Bowden
 */
 ?>
 
-<h4 class="meta">Related Posts</h4>
+<h4 class="meta">Related Stories</h4>
 
 <?php if ($related_query->have_posts()):?>
 
@@ -22,7 +22,7 @@ Author: Fox Bowden
 	                if(has_post_thumbnail()){ ?>
                 
 				<li>
-				<p><?php the_post_thumbnail(); ?></p>
+				<p<?php if( in_category('video') ){echo ' class="video-excerpt"';}else if( in_category('galleries') ){echo ' class="gallery-excerpt"';} ?>><?php the_post_thumbnail(); ?><?php if(  in_category(  array( 'video','galleries' )  )  ){echo '<span></span>';} ?></p>
 
 				<a href="<?php the_permalink() ?>" rel="bookmark">
 		
@@ -42,6 +42,6 @@ Author: Fox Bowden
 
 <?php else: ?>
 
-	<p>No related posts found</p>
+	<p style="text-align:center;">No related posts found</p>
 
 <?php endif; ?>
