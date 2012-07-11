@@ -252,6 +252,12 @@ EOT;
             $postContent = preg_replace('/\[[^\)]+\]/', "", $postContent);
             $postContent = str_replace("\n", "", $postContent);
             $postContent = str_replace("\r", "", $postContent);
+            $postContent = str_replace("\xe2", "", $postContent);
+            $postContent = str_replace("\x80", "", $postContent);
+            $postContent = str_replace("\x9d", "", $postContent);
+            $postContent = str_replace("\x99", "", $postContent);
+            $postContent = str_replace("\x9c", "", $postContent);
+            $postContent = str_replace("\x94", "", $postContent);
             $postContent = substr($postContent,0,120) . "...";
             $posts[$key]->post_content = $postContent;
 
@@ -263,6 +269,8 @@ EOT;
 
             $niceDate = date("F j, Y",$timestamp);
             $posts[$key]->post_nicedate = $niceDate;
+
+            $posts[$key]->post_excerpt = "";
 
             $thumbnail = str_replace(".jpg", "-190x120.jpg", $post->img_url);
             $posts[$key]->img_url = $thumbnail;
@@ -620,8 +628,17 @@ EOT;
             $postContent = preg_replace('/\[[^\)]+\]/', "", $postContent);
             $postContent = str_replace("\n", "", $postContent);
             $postContent = str_replace("\r", "", $postContent);
+            $postContent = str_replace("\xe2", "", $postContent);
+            $postContent = str_replace("\x80", "", $postContent);
+            $postContent = str_replace("\x9d", "", $postContent);
+            $postContent = str_replace("\x99", "", $postContent);
+            $postContent = str_replace("\x9c", "", $postContent);
+            $postContent = str_replace("\x94", "", $postContent);
+
             $postContent = substr($postContent,0,120) . "...";
             $posts[$key]->post_content = $postContent;
+
+            $posts[$key]->post_excerpt = "";
 
             //Generate the URL
             $timestamp =  strtotime($post->post_date);
@@ -636,6 +653,10 @@ EOT;
             $thumbnail = str_replace(".jpg", "-190x120.jpg", $post->img_url);
             $posts[$key]->img_url = $thumbnail;
 
+
+            $json = json_encode($post);
+
+
             //Check to see if we need to add terms
             if ($post->domain == "www.northamericanwhitetail.com") {
                 $posts[$key]->terms = getPostTerms($post->ID);
@@ -643,7 +664,7 @@ EOT;
 
         }
 
-        $json = json_encode($posts);
+        //$json = json_encode($posts);
         echo $json;
 
         $db = "";
@@ -836,6 +857,25 @@ function getAllChildTerms($term_slug, &$results = array()) {
     } catch(PDOException $e) {
         echo $e->getMessage();
     }
+}
+
+
+
+
+
+
+/* Better Logging Function */
+if(!function_exists('_log')){
+  function _log( $message ) {
+	  if( is_array( $message ) || is_object( $message ) ){
+
+	  	$errorString = print_r( $message, true );
+
+	    error_log( "$errorString",0);
+	  } else {
+	    error_log( $message );
+	  }
+  	}
 }
 
 
