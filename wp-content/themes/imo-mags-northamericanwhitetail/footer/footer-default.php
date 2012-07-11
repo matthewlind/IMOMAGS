@@ -111,7 +111,7 @@ $args = array(
               <li class="facebook"><a href="http://www.facebook.com/NAWhitetail" title="Find us on Facebook">Facebook</a></li>
               <li class="twitter"><a href="http://twitter.com/NAWhitetail" title="Follow us on Twitter">Twitter</a></li>
               <li class="news"><a href="/newsletter/">Newsletter</a></li>
-              <li class="apps"><a href="/apps/">Apps</a></li>
+              <!--<li class="apps"><a href="/apps/">Apps</a></li>-->
               <li class="mags"><a href="https://secure.palmcoastd.com/pcd/eServ?iServ=MDE0OEQ0NDcyNCZpVHlwZT1FTlRFUg==">Get the Magazine</a></li>
             </ul>
           </div>
@@ -123,8 +123,8 @@ $args = array(
          
             <div class="utility"> 
               <a href="http://www.imoutdoorsmedia.com/IM3/" title="">About</a>
-              <a href="#">Conservation Partners</a>
               <a href="http://www.imoutdoorsmedia.com" title="">Advertise</a>
+              <a href="http://www.imoutdoorsmedia.com/IM3/privacy.php">Privacy Policy</a>
              <!-- <a href="/privacy" title="">Privacy Policy</a> &middot;-->
               <!--<a href="/terms" title="">Terms &amp; Conditions</a>-->
             </div>
@@ -332,7 +332,7 @@ $args = array(
 
 
   <article id="excerpt-template" class="post type-post status-publish format-standard hentry entry entry-excerpt has-img" style="display:none;">
-    <a href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/"><img width="190" height="120" src="http://www.northamericanwhitetail.deva/files/2012/03/NAWdd_031312-190x120.jpg" class="entry-img wp-post-image" alt="" title="" /></a>
+    <a <?php if( in_category('video') ){echo 'class="video-excerpt"';} ?> href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/"><img width="190" height="120" src="http://www.northamericanwhitetail.deva/files/2012/03/NAWdd_031312-190x120.jpg" class="entry-img wp-post-image" alt="" title="" /><?php if( in_category('video') ){echo '<span></span>';} ?></a>
 
     <div class="entry-summary">
       <span class="entry-category"><a href="http://www.northamericanwhitetail.deva/category/deer-of-the-day/" title="View all posts in Deer of the Day" rel="category tag">Deer of the Day</a></span>

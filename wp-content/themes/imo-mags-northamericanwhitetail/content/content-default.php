@@ -49,17 +49,23 @@ $this_post_is_not_single = (!is_single(get_the_ID()));
 		<?php
 		// Un-comment this if you want featured images to automatically appear on full posts
 		// the_post_thumbnail('thumbnail', array('class' => 'entry-img'));
-		the_content(__('Continued&hellip;', 'carrington-business'));
-		?>
+		the_content(__('Continued&hellip;', 'carrington-business')); ?>
 	</div>
-	<?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
+	
 	<div class="entry-footer">
-		<?php _e('In', 'carrington-business'); ?>
+		<div class="tags">	
 		<?php
+		
+		_e('', 'carrington-business'); 
+	
 		the_category(', ');
-		the_tags(__(' <span class="spacer">&bull;</span> Tagged ', 'carrington-business'), ', ', '');
-		//wp_link_pages();
+		the_tags(__(' <span class="spacer">&bull;</span> ', 'carrington-business'), ', ', '');
 		?>
+		</div>
+		<div class="divider"></div>
+		<?php
+		if (function_exists('related_posts')){related_posts();} ?>
+		<div class="divider"></div>
 	</div>
 	<?php edit_post_link(__('Edit', 'carrington-business')); ?>
 </div>
