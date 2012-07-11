@@ -21,6 +21,21 @@ jQuery(document).ready(function($) {
 
 	});
 
+	//When sort button is clicked:
+	$(".sort-link").click(function(event){
+
+		event.preventDefault();
+
+		currentPosition = 0;
+		$(".cross-site-feed").css("height",800);
+		$(".cross-site-feed").html("");
+
+		var sort = $(this).attr("sort");
+		displayCrossSiteFeed(currentPosition,sort)
+
+
+	});
+
 	function resetDisplay(slug) {
 		$(".cross-site-feed").attr("term",slug);
 		$(".cross-site-feed").text("");
