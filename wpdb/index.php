@@ -40,7 +40,6 @@ $app->get('/imomags/term/naw-plus', function () {
 
     header('Access-Control-Allow-Origin: *');  
 
-
     try {
 
         $db = dbConnect();
@@ -99,7 +98,7 @@ AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
 AND meta.meta_key = "_thumbnail_id")
 UNION
-(SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "North American Whitetail" as brand,
+(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, null as slug, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "North American Whitetail" as brand,
 (SELECT count(comment_ID) from wp_6_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.northamericanwhitetail.com" as domain
 FROM wp_6_posts as posts
 JOIN wp_6_term_relationships as relationships ON (posts.ID = relationships.object_id)
@@ -109,7 +108,6 @@ JOIN wp_6_posts as attachments ON (attachments.post_parent = posts.ID)
 JOIN wp_6_postmeta as meta ON (meta.meta_value = attachments.ID)
 JOIN wp_users as users ON (users.`ID` = posts.post_author)
 AND posts.post_status = "publish"
-AND terms.slug = "naw-plus"
 AND meta.meta_key = "_thumbnail_id")
 UNION
 (SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Petersen's Hunting" as brand,
@@ -241,7 +239,7 @@ JOIN wp_users as users ON (users.`ID` = posts.post_author)
 AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
 AND meta.meta_key = "_thumbnail_id")
-ORDER BY post_date DESC LIMIT 200
+ORDER BY post_date DESC LIMIT 400
 EOT;
 
         $stmt = $db->prepare($sql);
@@ -302,6 +300,31 @@ $app->get('/imomags/term/naw-plus/:term',function($term){
 
     header('Access-Control-Allow-Origin: *');  
 
+    $termList = getAllChildTerms($term);
+    $termList[] = $term;
+
+    $termString = "";
+    $inQuery = "";
+    $inQmarks = "";
+
+    $count = 0;
+    foreach ($termList as $term) {
+    	
+    	$termString .= "'$term'";
+    	$inQuery .= ":term" . $count;
+    	$inQmarks .= "?";
+    	$count++;
+    	if ($count != count($termList)) {
+    		$termString .= ",";
+    		$inQuery .= ",";
+    		$inQmarks .= ",";
+    	}
+    		
+    }
+
+    
+
+
     try {
 
         $db = dbConnect();
@@ -322,7 +345,7 @@ JOIN wp_2_postmeta as meta ON (meta.meta_value = attachments.ID)
 JOIN wp_users as users ON (users.`ID` = posts.post_author)
 AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
-AND terms2.slug = ?
+AND terms2.slug IN ($inQmarks)
 AND meta.meta_key = "_thumbnail_id")
 UNION
 (SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, terms2.slug as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Bowhunter" as brand,
@@ -339,7 +362,7 @@ JOIN wp_3_postmeta as meta ON (meta.meta_value = attachments.ID)
 JOIN wp_users as users ON (users.`ID` = posts.post_author)
 AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
-AND terms2.slug = ?
+AND terms2.slug IN ($inQmarks)
 AND meta.meta_key = "_thumbnail_id")
 UNION
 (SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, terms2.slug as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Petersen's Bowhunting" as brand,
@@ -356,7 +379,7 @@ JOIN wp_4_postmeta as meta ON (meta.meta_value = attachments.ID)
 JOIN wp_users as users ON (users.`ID` = posts.post_author)
 AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
-AND terms2.slug = ?
+AND terms2.slug IN ($inQmarks)
 AND meta.meta_key = "_thumbnail_id")
 UNION
 (SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, terms2.slug as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Gundog" as brand,
@@ -373,10 +396,10 @@ JOIN wp_5_postmeta as meta ON (meta.meta_value = attachments.ID)
 JOIN wp_users as users ON (users.`ID` = posts.post_author)
 AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
-AND terms2.slug = ?
+AND terms2.slug IN ($inQmarks)
 AND meta.meta_key = "_thumbnail_id")
 UNION
-(SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, terms2.slug as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "North American Whitetail" as brand,
+(SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, null as slug, null as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "North American Whitetail" as brand,
 (SELECT count(comment_ID) from wp_6_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.northamericanwhitetail.com" as domain
 FROM wp_6_term_relationships as relationships
 JOIN wp_6_term_relationships as relationships2 ON (relationships.`object_id` = relationships2.`object_id`)
@@ -389,8 +412,7 @@ JOIN wp_6_posts as attachments ON (attachments.post_parent = posts.ID)
 JOIN wp_6_postmeta as meta ON (meta.meta_value = attachments.ID)
 JOIN wp_users as users ON (users.`ID` = posts.post_author)
 AND posts.post_status = "publish"
-AND terms.slug = "naw-plus"
-AND terms2.slug = ?
+AND terms2.slug IN ($inQmarks)
 AND meta.meta_key = "_thumbnail_id")
 UNION
 (SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, terms2.slug as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Petersen's Hunting" as brand,
@@ -407,7 +429,7 @@ JOIN wp_7_postmeta as meta ON (meta.meta_value = attachments.ID)
 JOIN wp_users as users ON (users.`ID` = posts.post_author)
 AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
-AND terms2.slug = ?
+AND terms2.slug IN ($inQmarks)
 AND meta.meta_key = "_thumbnail_id")
 UNION
 (SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, terms2.slug as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Wildfowl" as brand,
@@ -424,7 +446,7 @@ JOIN wp_8_postmeta as meta ON (meta.meta_value = attachments.ID)
 JOIN wp_users as users ON (users.`ID` = posts.post_author)
 AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
-AND terms2.slug = ?
+AND terms2.slug IN ($inQmarks)
 AND meta.meta_key = "_thumbnail_id")
 UNION
 (SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, terms2.slug as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Handguns" as brand,
@@ -441,7 +463,7 @@ JOIN wp_9_postmeta as meta ON (meta.meta_value = attachments.ID)
 JOIN wp_users as users ON (users.`ID` = posts.post_author)
 AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
-AND terms2.slug = ?
+AND terms2.slug IN ($inQmarks)
 AND meta.meta_key = "_thumbnail_id")
 UNION
 (SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, terms2.slug as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Rifleshooter" as brand,
@@ -458,7 +480,7 @@ JOIN wp_10_postmeta as meta ON (meta.meta_value = attachments.ID)
 JOIN wp_users as users ON (users.`ID` = posts.post_author)
 AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
-AND terms2.slug = ?
+AND terms2.slug IN ($inQmarks)
 AND meta.meta_key = "_thumbnail_id")
 UNION
 (SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, terms2.slug as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Shooting Times" as brand,
@@ -475,7 +497,7 @@ JOIN wp_11_postmeta as meta ON (meta.meta_value = attachments.ID)
 JOIN wp_users as users ON (users.`ID` = posts.post_author)
 AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
-AND terms2.slug = ?
+AND terms2.slug IN ($inQmarks)
 AND meta.meta_key = "_thumbnail_id")
 UNION
 (SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, terms2.slug as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Shotgun News" as brand,
@@ -492,7 +514,7 @@ JOIN wp_12_postmeta as meta ON (meta.meta_value = attachments.ID)
 JOIN wp_users as users ON (users.`ID` = posts.post_author)
 AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
-AND terms2.slug = ?
+AND terms2.slug IN ($inQmarks)
 AND meta.meta_key = "_thumbnail_id")
 UNION
 (SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, terms2.slug as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Florida Sportsman" as brand,
@@ -509,7 +531,7 @@ JOIN wp_13_postmeta as meta ON (meta.meta_value = attachments.ID)
 JOIN wp_users as users ON (users.`ID` = posts.post_author)
 AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
-AND terms2.slug = ?
+AND terms2.slug IN ($inQmarks)
 AND meta.meta_key = "_thumbnail_id")
 UNION
 (SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, terms2.slug as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Game & Fish" as brand,
@@ -526,7 +548,7 @@ JOIN wp_14_postmeta as meta ON (meta.meta_value = attachments.ID)
 JOIN wp_users as users ON (users.`ID` = posts.post_author)
 AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
-AND terms2.slug = ?
+AND terms2.slug IN ($inQmarks)
 AND meta.meta_key = "_thumbnail_id")
 UNION
 (SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, terms2.slug as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "In-Fisherman" as brand,
@@ -543,7 +565,7 @@ JOIN wp_15_postmeta as meta ON (meta.meta_value = attachments.ID)
 JOIN wp_users as users ON (users.`ID` = posts.post_author)
 AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
-AND terms2.slug = ?
+AND terms2.slug IN ($inQmarks)
 AND meta.meta_key = "_thumbnail_id")
 UNION
 (SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, terms2.slug as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Flyfisherman" as brand,
@@ -560,15 +582,34 @@ JOIN wp_16_postmeta as meta ON (meta.meta_value = attachments.ID)
 JOIN wp_users as users ON (users.`ID` = posts.post_author)
 AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
-AND terms2.slug = ?
+AND terms2.slug IN ($inQmarks)
 AND meta.meta_key = "_thumbnail_id")
-ORDER BY post_date DESC LIMIT 200
+ORDER BY post_date DESC LIMIT 400
 
 
 EOT;
 
         $stmt = $db->prepare($sql);
-        $stmt->execute(array($term,$term,$term,$term,$term,$term,$term,$term,$term,$term,$term,$term,$term,$term,$term));
+
+        // print_r($termList);
+        // echo $sql;
+
+        $siteCount = 15;
+
+        $executeArray = array();
+
+        for ($i=1; $i <= 15; $i++) { 
+        	$executeArray = array_merge($executeArray,$termList);
+        }
+
+
+        foreach ($termList as $key => $term) {
+        	//$stmt->bindParam(":term" . $key, $term, PDO::PARAM_STR);
+        	// echo ":term" . $key . "--" . $term;
+        }
+
+        //print_r($stmt);
+        $stmt->execute($executeArray);
     
         $posts = $stmt->fetchAll(PDO::FETCH_OBJ);
 
@@ -751,6 +792,46 @@ function getWhitetailPostTerms($post_id, $site_id = 6) {
         $db = "";
 
         return($terms);
+
+    } catch(PDOException $e) {
+        echo $e->getMessage();
+    }
+}
+
+
+
+function getAllChildTerms($term_slug, &$results = array()) {
+
+	try {
+
+        $db = dbConnect();
+
+        $sql = "SELECT ts.slug FROM wp_6_terms as t
+				JOIN wp_6_term_taxonomy as tt ON t.term_id = tt.term_id
+				JOIN wp_6_term_taxonomy as tp ON tp.parent = tt.term_id
+				JOIN wp_6_terms ts ON ts.term_id = tp.term_id
+				WHERE tt.taxonomy = 'category'
+				AND t.slug = ?";
+
+        
+
+        $stmt = $db->prepare($sql);
+        $stmt->execute(array($term_slug));
+    
+        $terms = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+        $db = "";
+
+        foreach ($terms as $term) {
+
+        	$slug = $term->slug;
+        	$results[] = $slug;
+
+        	getAllChildTerms($slug,$results);
+
+        }
+
+        return($results);
 
     } catch(PDOException $e) {
         echo $e->getMessage();

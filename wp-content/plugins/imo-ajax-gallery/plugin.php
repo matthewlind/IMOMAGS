@@ -72,7 +72,7 @@ function displayGallery($gallery_id) {
 
 		$slides .=  "<div class='slide'><div class='pic'><img src='$picture->img_url' image-height=$height image-width=$width></div></div>";
 
-		$textSlides .=  "<div class='slide'><h2>{$picture->alttext}</h2>
+		$textSlides .=  "<div class='slide' style='display:none'><h2>{$picture->alttext}</h2>
 				<p>{$picture->description}</p></div>";
 
 		$thumbPager .= "<li><div class='thumb-container $class'><a><img src='{$picture->thumbnail}' class='slideshow-thumb' /></a><div></li>";
@@ -85,8 +85,9 @@ function displayGallery($gallery_id) {
 					</div>";
 
 	$output .= <<<EOT
-	<div class="gallery-hover-div">
+	<div class="gallery-hover-div" style="z-index:6000">
 		<div class="gallery-slide-out" style="">
+			<div class="x-close">&times;</div>
 			<div class="slide-out-content">
 
 				$textSlides
@@ -106,10 +107,18 @@ function displayGallery($gallery_id) {
 				<div class="next">
 					<a class="ngg-browser-next" id="ngg-next-1476" href="">Next &#9658;</a>
 				</div>
-		        <div class="counter">Picture <span class="current-image">1</span> of $count</div>
+		        <div class="ajax-counter">Picture <span class="current-image">1</span> of $count</div>
 		                <div class="ngg-imagebrowser-desc"><h3>$title</h3></div>
 			</div>	
 			<div class="slide-container">
+				<div class="hidden-arrows" style="z-index:99999">
+					<div class="back">
+						<a href="" class="thumb-arrow" style="display:none;z-index:99999">&#9668; Back</a>
+					</div>	
+					<div class="next">
+						<a href="" class="thumb-arrow" style="display:none;z-index:99999">Next &#9658;</a>
+					</div>
+				</div>
 				$slides
 			</div>
 			<div id="slideshow-pager">
