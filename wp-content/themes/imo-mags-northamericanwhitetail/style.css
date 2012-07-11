@@ -268,7 +268,7 @@ width: 990px;
     margin-left: 7px;
     position: absolute;
     right: -10px;
-    top: 8px;
+    top: 7px;
     width: 6px;
     z-index: 999999;
 }
@@ -2165,9 +2165,12 @@ ul.land-topics{
 	margin-left: 0;
 	text-align: center;
 }
+.category-tactics ul.land-topics li{
+	margin: -1px 0 0;
+}
 ul.land-topics li a{
 	color: #3e88e9;
-	font-size: 1.2em;
+	font-size: 1.1em;
 }
 .mod-gallery-loop{
 	height: 200px;
