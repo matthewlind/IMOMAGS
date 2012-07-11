@@ -258,6 +258,9 @@ EOT;
             $postContent = str_replace("\x99", "", $postContent);
             $postContent = str_replace("\x9c", "", $postContent);
             $postContent = str_replace("\x94", "", $postContent);
+            $postContent = str_replace("\\", "", $postContent);
+            $postContent = str_replace("\xa6", "", $postContent);
+
             $postContent = substr($postContent,0,120) . "...";
             $posts[$key]->post_content = $postContent;
 
@@ -278,7 +281,8 @@ EOT;
             if ($post->domain == "www.northamericanwhitetail.com") {
                 $posts[$key]->terms = getWhitetailPostTerms($post->ID);
             }
-            
+
+
 
         }
 
@@ -634,6 +638,8 @@ EOT;
             $postContent = str_replace("\x99", "", $postContent);
             $postContent = str_replace("\x9c", "", $postContent);
             $postContent = str_replace("\x94", "", $postContent);
+            $postContent = str_replace("\xa6", "", $postContent);
+            $postContent = str_replace("\\", "", $postContent);
 
             $postContent = substr($postContent,0,120) . "...";
             $posts[$key]->post_content = $postContent;
