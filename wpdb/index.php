@@ -830,6 +830,7 @@ function getWhitetailPostTerms($post_id, $site_id = 6) {
             JOIN wp_{$site_id}_term_taxonomy as tt on (t.`term_id` = tt.`term_id`)
             JOIN `wp_{$site_id}_term_relationships`as tr on (tr.`term_taxonomy_id` = tt.`term_taxonomy_id`)
             WHERE tr.`object_id` = ?
+            AND slug != 'naw-plus'
             AND taxonomy = 'category'";
 
         
