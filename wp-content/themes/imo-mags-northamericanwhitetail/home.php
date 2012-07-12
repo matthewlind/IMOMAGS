@@ -36,7 +36,7 @@ get_header();
 				<?php the_content(__('Continued&hellip;', 'carrington-business')); ?>
 				<div class="clearfix"></div>
 	<div class="homepage-gear top">
-		<h1 class="more-header">New Gear</h1>
+		<h1 class="more-header">Whitetail Gear</h1>
 		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('gear-home')) : else : ?><?php endif; ?>
 	</div>
 
@@ -164,7 +164,7 @@ get_header();
 			<div class="clear"></div> -->
 	<div style="height:30px;"></div>
 				<div class="header-sort">
-					<h1 class="more-header">Editor's Picks</h1>
+					<h1 class="more-header">The Latest</h1>
 								<div class='cssmenu'>
 									<ul>
 									   <li><a href='#' class="dd ignore-click"><span>Sort</span><span class="dd-arrow"></span></a>
@@ -189,10 +189,10 @@ get_header();
 		</div><!-- .entry -->
 	</div><!-- .col-abc -->
 	<!-- Bottom Widget Area -->
-	<div class="homepage-gear">
+<!-- 	<div class="homepage-gear">
 		<h1 class="more-header">New Gear</h1>
 		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('gear-home')) : else : ?><?php endif; ?>
-	</div>
+	</div> -->
 
 		<!-- <div class="secondary">
 		<?php //if (function_exists('dynamic_sidebar') && dynamic_sidebar('secondary-home')) : else : ?><?php //endif; ?>

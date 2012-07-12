@@ -245,9 +245,9 @@ if(document.location.protocol=='http:'){
   			 <span class="label">Stay Connected</span>
   			 
   			 <ul class="connections">
-  			   <li><a class="facebook" href="https://www.facebook.com/NAWhitetail" title="Find us on Facebook">Facebook</a></li>
-  			   <li><a class="twitter" href="http://twitter.com/nawhitetail" title="Follow us on Twitter">Twitter</a></li>
-  			   <li><a class="feed" href="http://www.northamericanwhitetail.com/feed/" title="Get the RSS Feed">RSS Feed</a></li>
+  			   <li><a target="_blank" class="facebook" href="https://www.facebook.com/NAWhitetail" title="Find us on Facebook">Facebook</a></li>
+  			   <li><a target="_blank" class="twitter" href="http://twitter.com/nawhitetail" title="Follow us on Twitter">Twitter</a></li>
+  			   <li><a target="_blank" class="feed" href="http://www.northamericanwhitetail.com/feed/" title="Get the RSS Feed">RSS Feed</a></li>
   			</ul>
   			</div>
 		  </div>
@@ -276,3 +276,5 @@ if(document.location.protocol=='http:'){
           <?php } ?>
           
 		</div>
+		<div id="main-content">
+
