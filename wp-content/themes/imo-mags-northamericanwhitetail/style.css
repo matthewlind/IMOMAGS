@@ -3294,6 +3294,7 @@ h1.tv-header{
 .video-excerpt, .gallery-excerpt{
 	background-color: #000 !important;
 	width: 99% !important;
+	position: relative;
 }
 .video-excerpt img, .gallery-excerpt img{
 	opacity: 0.6;
