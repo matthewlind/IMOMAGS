@@ -24,7 +24,6 @@ jQuery(document).ready(function($) {
 	//When sort button is clicked:
 	$(".local-sort-link").click(function(event){
 
-
 		event.preventDefault();
 
 		currentPosition = 0;
@@ -56,9 +55,9 @@ jQuery(document).ready(function($) {
 
 	
 		if (term.length > 0) {
-			var fileName = "/wpdb/cache/naw-plus-" + term + "-" + sort + ".json";
+			var fileName = "/wp-content/cache/superloop/naw-plus-" + term + "-" + sort + ".json";
 		} else {
-			var fileName = "/wpdb/cache/naw-plus-" + sort + ".json";
+			var fileName = "/wp-content/cache/superloop/naw-plus-" + sort + ".json";
 		}
 		
 

@@ -37,6 +37,7 @@ include 'mysql.php';
 
 //GET route
 $app->get('/imomags/term/naw-plus(/sort/:sort)', function ($sort = "post_date") {
+	$sort = mysql_real_escape_string($sort);
 
     header('Access-Control-Allow-Origin: *');  
 
@@ -260,6 +261,9 @@ EOT;
             $postContent = str_replace("\x94", "", $postContent);
             $postContent = str_replace("\\", "", $postContent);
             $postContent = str_replace("\xa6", "", $postContent);
+            $postContent = str_replace("\\", "", $postContent);
+            $postContent = str_replace("\x93", "", $postContent);
+            $postContent = str_replace("\xa8", "", $postContent);
 
             $postContent = substr($postContent,0,120) . "...";
             $posts[$key]->post_content = $postContent;
@@ -283,15 +287,20 @@ EOT;
             }
 
 
+            
 
         }
 
 
         $json = json_encode($posts);
 
-        $f = fopen("cache/naw-plus-$sort.json", "w");
-        fwrite($f, $json);
-        fclose($f); 
+        if (!empty($posts)) {
+	        $f = fopen("../wp-content/cache/superloop/naw-plus-$sort.json", "w");
+	        fwrite($f, $json);
+	        fclose($f); 
+        }
+
+        
 
         echo $json;
 
@@ -309,6 +318,7 @@ EOT;
 //*** Get all posts in NAW+ AND SOMETHING ELSE ***
 //************************************************
 $app->get('/imomags/term/naw-plus/:term(/sort/:sort)',function($term,$sort = "post_date"){
+	$sort = mysql_real_escape_string($sort);
 
     header('Access-Control-Allow-Origin: *');  
 
@@ -640,6 +650,10 @@ EOT;
             $postContent = str_replace("\x94", "", $postContent);
             $postContent = str_replace("\xa6", "", $postContent);
             $postContent = str_replace("\\", "", $postContent);
+            $postContent = str_replace("\x93", "", $postContent);
+            $postContent = str_replace("\xa8", "", $postContent);
+            $postContent = str_replace("\\", "", $postContent);
+            $postContent = str_replace("\\", "", $postContent);
 
             $postContent = substr($postContent,0,120) . "...";
             $posts[$key]->post_content = $postContent;
@@ -660,7 +674,12 @@ EOT;
             $posts[$key]->img_url = $thumbnail;
 
 
-            $json = json_encode($post);
+            //TESTING
+        
+            _log($post);
+            json_encode($post);
+        
+            //$json = json_encode($post);
 
 
             //Check to see if we need to add terms
@@ -670,14 +689,18 @@ EOT;
 
         }
 
-        //$json = json_encode($posts);
+        $json = json_encode($posts);
         echo $json;
 
         $db = "";
 
-        $f = fopen("cache/naw-plus-$term-$sort.json", "w");
-        fwrite($f, $json);
-        fclose($f); 
+        if (!empty($posts)) {
+	        $f = fopen("../wp-content/cache/superloop/naw-plus-$term-$sort.json", "w");
+	        fwrite($f, $json);
+	        fclose($f);         	
+        }
+
+
 
     } catch(PDOException $e) {
         echo $e->getMessage();
@@ -685,7 +708,7 @@ EOT;
 
 });
 
-
+//sftp://cms-dev-aaron.imoutdoors.com//data/wordpress/imomags-nfs/cache/superloop
 
 
 
@@ -807,6 +830,7 @@ function getWhitetailPostTerms($post_id, $site_id = 6) {
             JOIN wp_{$site_id}_term_taxonomy as tt on (t.`term_id` = tt.`term_id`)
             JOIN `wp_{$site_id}_term_relationships`as tr on (tr.`term_taxonomy_id` = tt.`term_taxonomy_id`)
             WHERE tr.`object_id` = ?
+            AND slug != 'naw-plus'
             AND taxonomy = 'category'";
 
         

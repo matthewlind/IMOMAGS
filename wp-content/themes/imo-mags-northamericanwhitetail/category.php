@@ -101,13 +101,13 @@ function get_cat_slug($cat_id) {
  		</div>
  		<div class="col-abc">
 		<div class="header-sort">
-				<h1 class="more-header">Load More <?php single_cat_title(''); ?></h1>
+				<h1 class="more-header">More <?php single_cat_title(''); ?></h1>
 				<div class='cssmenu'>
 					<ul>
 					   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
 					      <ul>
-					         <li><a href='#'><span>Recent</span></a></li>
-					         <li><a href='#'><span>Commented</span></a></li>
+					         <li><a href='#' class="local-sort-link" sort="post_date"><span>Recent</span></a></li>
+					         <li><a href='#' class="local-sort-link" sort="comment_count"><span>Commented</span></a></li>
 					      </ul>
 					   </li>
 					</ul>
@@ -171,13 +171,13 @@ function get_cat_slug($cat_id) {
  		</div>
  		<div class="col-abc">
 	 		<div class="header-sort">
-				<h1 class="more-header">Load More <?php single_cat_title(''); ?></h1>
+				<h1 class="more-header">More <?php single_cat_title(''); ?></h1>
 				<div class='cssmenu'>
 					<ul>
 					   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
 					      <ul>
-					         <li><a href='#'><span>Recent</span></a></li>
-					         <li><a href='#'><span>Commented</span></a></li>
+					         <li><a href='#' class="local-sort-link" sort="post_date"><span>Recent</span></a></li>
+					         <li><a href='#' class="local-sort-link" sort="comment_count"><span>Commented</span></a></li>
 					      </ul>
 					   </li>
 					</ul>
@@ -241,13 +241,13 @@ function get_cat_slug($cat_id) {
  		</div>
  		<div class="col-abc">
 		<div class="header-sort">
-			<h1 class="more-header">Load More <?php single_cat_title(''); ?></h1>
+			<h1 class="more-header">More <?php single_cat_title(''); ?></h1>
 			<div class='cssmenu'>
 				<ul>
 				   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
 				      <ul>
-				         <li><a href='#'><span>Recent</span></a></li>
-				         <li><a href='#'><span>Commented</span></a></li>
+					         <li><a href='#' class="local-sort-link" sort="post_date"><span>Recent</span></a></li>
+					         <li><a href='#' class="local-sort-link" sort="comment_count"><span>Commented</span></a></li>
 				      </ul>
 				   </li>
 				</ul>
@@ -302,13 +302,13 @@ function get_cat_slug($cat_id) {
 		</div><!-- end left/no right -->	
  		<div class="col-abc">
 	 		<div class="header-sort">
-				<h1 class="more-header">Load More <?php single_cat_title(''); ?></h1>
+				<h1 class="more-header">More <?php single_cat_title(''); ?></h1>
 				<div class='cssmenu'>
 					<ul>
 					   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
 					      <ul>
-					         <li><a href='#'><span>Recent</span></a></li>
-					         <li><a href='#'><span>Commented</span></a></li>
+					         <li><a href='#' class="local-sort-link" sort="post_date"><span>Recent</span></a></li>
+					         <li><a href='#' class="local-sort-link" sort="comment_count"><span>Commented</span></a></li>
 					      </ul>
 					   </li>
 					</ul>
