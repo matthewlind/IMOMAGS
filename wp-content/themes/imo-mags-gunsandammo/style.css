@@ -6352,3 +6352,7 @@ span.sponsored-thumb {
   background-color: white;
 }
 
+/* FEED WIDGET */
+.widget_news-widget {
+	background: none !important;
+}
