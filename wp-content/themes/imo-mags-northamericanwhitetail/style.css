@@ -1205,10 +1205,10 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 .featured-thumb-wide .cat-slide img{
 	min-width: 678px !important;
 }
-.category-deer-of-the-day #pager{
+.category-deer-of-the-day #pager, .category-trophy-bucks #pager{
 	margin-left: 606px;
 }
-.category-deer-of-the-day #pager a{
+.category-deer-of-the-day #pager a, .category-trophy-bucks #pager a{
 	background-color: #000;
     height: 14px;
     margin: 6px 0 0 4px;
@@ -1217,15 +1217,15 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     width: 14px;
     float: left;
 }
-.category-deer-of-the-day  #pager a.active {
+.category-deer-of-the-day  #pager a.active, .category-trophy-bucks  #pager a.active {
 	background-color: #839A45 !important;
   
 }
-.category-deer-of-the-day  #pager a:hover{
+.category-deer-of-the-day  #pager a:hover, .category-trophy-bucks  #pager a:hover{
 	background-color: #839A45 !important;
 	cursor: pointer;
 }
-.category-deer-of-the-day #next{
+.category-deer-of-the-day #next, .category-trophy-bucks #next{
 	left: 628px;
 }
 
