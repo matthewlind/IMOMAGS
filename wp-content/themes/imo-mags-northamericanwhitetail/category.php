@@ -101,7 +101,7 @@ function get_cat_slug($cat_id) {
  		</div>
  		<div class="col-abc">
 		<div class="header-sort">
-				<h1 class="more-header">Load More <?php single_cat_title(''); ?></h1>
+				<h1 class="more-header">More <?php single_cat_title(''); ?></h1>
 				<div class='cssmenu'>
 					<ul>
 					   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
@@ -162,7 +162,7 @@ function get_cat_slug($cat_id) {
 		</div><!-- end left/no right -->	
  		<div class="col-abc">
 	 		<div class="header-sort">
-				<h1 class="more-header">Load More <?php single_cat_title(''); ?></h1>
+				<h1 class="more-header">More <?php single_cat_title(''); ?></h1>
 				<div class='cssmenu'>
 					<ul>
 					   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
@@ -232,7 +232,7 @@ function get_cat_slug($cat_id) {
  		</div>
  		<div class="col-abc">
 		<div class="header-sort">
-			<h1 class="more-header">Load More <?php single_cat_title(''); ?></h1>
+			<h1 class="more-header">More <?php single_cat_title(''); ?></h1>
 			<div class='cssmenu'>
 				<ul>
 				   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
@@ -293,7 +293,7 @@ function get_cat_slug($cat_id) {
 		</div><!-- end left/no right -->	
  		<div class="col-abc">
 	 		<div class="header-sort">
-				<h1 class="more-header">Load More <?php single_cat_title(''); ?></h1>
+				<h1 class="more-header">More <?php single_cat_title(''); ?></h1>
 				<div class='cssmenu'>
 					<ul>
 					   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
