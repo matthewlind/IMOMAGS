@@ -37,7 +37,7 @@ include 'mysql.php';
 
 //GET route
 $app->get('/imomags/term/naw-plus(/sort/:sort)', function ($sort = "post_date") {
-	$sort = mysql_real_escape_string($sort);
+	//$sort = mysql_real_escape_string($sort);
 
     header('Access-Control-Allow-Origin: *');  
 
@@ -318,7 +318,7 @@ EOT;
 //*** Get all posts in NAW+ AND SOMETHING ELSE ***
 //************************************************
 $app->get('/imomags/term/naw-plus/:term(/sort/:sort)',function($term,$sort = "post_date"){
-	$sort = mysql_real_escape_string($sort);
+	//$sort = mysql_real_escape_string($sort);
 
     header('Access-Control-Allow-Origin: *');  
 
