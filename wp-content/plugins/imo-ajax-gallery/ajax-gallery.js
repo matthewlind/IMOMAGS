@@ -124,7 +124,7 @@ jQuery(document).ready(function($) {
 
 
 
-	$(".ngg-imagebrowser-nav a").click(function(event) {
+	$(".gallery-hover-div .ngg-imagebrowser-nav a").click(function(event) {
   		event.preventDefault();
   	});
 
