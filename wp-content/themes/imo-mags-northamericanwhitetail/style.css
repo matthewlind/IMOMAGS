@@ -732,7 +732,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     -moz-box-orient: vertical;
     display: inline-block;
     vertical-align: middle;
-    margin-right:20px;
+    margin-right:10px;
 }
 
 #site-menu .menu li a {
