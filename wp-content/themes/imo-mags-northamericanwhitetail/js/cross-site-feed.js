@@ -45,7 +45,10 @@ jQuery(document).ready(function($) {
 
 	}
 
-
+	//Ignore Dropdown Click
+	$(".ignore-click").click(function(event){
+		event.preventDefault();
+	});
 
 	function displayCrossSiteFeed(start,sort) {
 		sort = typeof sort !== 'undefined' ? sort : 'post_date'; //If sort is not set, set sort to post_date
