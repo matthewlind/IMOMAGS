@@ -167,7 +167,7 @@ get_header();
 					<h1 class="more-header">Editor's Picks</h1>
 								<div class='cssmenu'>
 									<ul>
-									   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
+									   <li><a href='#' class="dd ignore-click"><span>Sort</span><span class="dd-arrow"></span></a>
 									      <ul>
 									         <li><a href='#' class="sort-link" sort="post_date"><span>Recent</span></a></li>
 									         <li><a href='#' class="sort-link" sort="comment_count"><span>Commented</span></a></li>
