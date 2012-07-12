@@ -294,9 +294,13 @@ EOT;
 
         $json = json_encode($posts);
 
-        $f = fopen("cache/naw-plus-$sort.json", "w");
-        fwrite($f, $json);
-        fclose($f); 
+        if (!empty($posts)) {
+	        $f = fopen("../wp-content/cache/superloop/naw-plus-$sort.json", "w");
+	        fwrite($f, $json);
+	        fclose($f); 
+        }
+
+        
 
         echo $json;
 
@@ -690,9 +694,13 @@ EOT;
 
         $db = "";
 
-        $f = fopen("cache/naw-plus-$term-$sort.json", "w");
-        fwrite($f, $json);
-        fclose($f); 
+        if (!empty($posts)) {
+	        $f = fopen("../wp-content/cache/superloop/naw-plus-$term-$sort.json", "w");
+	        fwrite($f, $json);
+	        fclose($f);         	
+        }
+
+
 
     } catch(PDOException $e) {
         echo $e->getMessage();
@@ -700,7 +708,7 @@ EOT;
 
 });
 
-
+//sftp://cms-dev-aaron.imoutdoors.com//data/wordpress/imomags-nfs/cache/superloop
 
 
 
