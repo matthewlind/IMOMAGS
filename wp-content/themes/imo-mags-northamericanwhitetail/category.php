@@ -106,8 +106,8 @@ function get_cat_slug($cat_id) {
 					<ul>
 					   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
 					      <ul>
-					         <li><a href='#' class="sort-link" sort="post_date"><span>Recent</span></a></li>
-					         <li><a href='#' class="sort-link" sort="comment_count"><span>Commented</span></a></li>
+					         <li><a href='#' class="local-sort-link" sort="post_date"><span>Recent</span></a></li>
+					         <li><a href='#' class="local-sort-link" sort="comment_count"><span>Commented</span></a></li>
 					      </ul>
 					   </li>
 					</ul>
@@ -176,8 +176,8 @@ function get_cat_slug($cat_id) {
 					<ul>
 					   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
 					      <ul>
-					         <li><a href='#' class="sort-link" sort="post_date"><span>Recent</span></a></li>
-					         <li><a href='#' class="sort-link" sort="comment_count"><span>Commented</span></a></li>
+					         <li><a href='#' class="local-sort-link" sort="post_date"><span>Recent</span></a></li>
+					         <li><a href='#' class="local-sort-link" sort="comment_count"><span>Commented</span></a></li>
 					      </ul>
 					   </li>
 					</ul>
@@ -246,8 +246,8 @@ function get_cat_slug($cat_id) {
 				<ul>
 				   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
 				      <ul>
-					         <li><a href='#' class="sort-link" sort="post_date"><span>Recent</span></a></li>
-					         <li><a href='#' class="sort-link" sort="comment_count"><span>Commented</span></a></li>
+					         <li><a href='#' class="local-sort-link" sort="post_date"><span>Recent</span></a></li>
+					         <li><a href='#' class="local-sort-link" sort="comment_count"><span>Commented</span></a></li>
 				      </ul>
 				   </li>
 				</ul>
@@ -307,8 +307,8 @@ function get_cat_slug($cat_id) {
 					<ul>
 					   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
 					      <ul>
-					         <li><a href='#' class="sort-link" sort="post_date"><span>Recent</span></a></li>
-					         <li><a href='#' class="sort-link" sort="comment_count"><span>Commented</span></a></li>
+					         <li><a href='#' class="local-sort-link" sort="post_date"><span>Recent</span></a></li>
+					         <li><a href='#' class="local-sort-link" sort="comment_count"><span>Commented</span></a></li>
 					      </ul>
 					   </li>
 					</ul>
