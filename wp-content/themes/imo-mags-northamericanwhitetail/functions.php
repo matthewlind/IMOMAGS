@@ -32,9 +32,9 @@ function mm_current_issue($atts, $content = null) {
 	        <img src="'.$magazine_img.'" alt />
 	        </div>
 	        <ul class="subscriber-links">
-	        <li class="subscribe"><a href="'.SUBS_LINK.'">Subscribe</a></li>
-	        <li><a href="'.SUBS_LINK.'">Give a Gift</a></li>
-          <li><a href="'.SERVICE_LINK.'">Subscriber Services</a></li>
+	        <li class="subscribe"><a href="'."http://subs.northamericanwhitetail.com/".'">Subscribe</a></li>
+	        <li><a href="'."http://subs.northamericanwhitetail.com/gift".'">Give a Gift</a></li>
+          <li><a href="'."http://subs.northamericanwhitetail.com/service".'">Subscriber Services</a></li>
 	        </ul>';
 }
 
