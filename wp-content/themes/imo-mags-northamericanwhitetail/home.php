@@ -36,7 +36,7 @@ get_header();
 				<?php the_content(__('Continued&hellip;', 'carrington-business')); ?>
 				<div class="clearfix"></div>
 	<div class="homepage-gear top">
-		<h1 class="more-header">Gear Reviews</h1>
+		<h1 class="more-header">New Gear</h1>
 		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('gear-home')) : else : ?><?php endif; ?>
 	</div>
 
@@ -190,7 +190,7 @@ get_header();
 	</div><!-- .col-abc -->
 	<!-- Bottom Widget Area -->
 	<div class="homepage-gear">
-		<h1 class="more-header">Gear Reviews</h1>
+		<h1 class="more-header">New Gear</h1>
 		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('gear-home')) : else : ?><?php endif; ?>
 	</div>
 

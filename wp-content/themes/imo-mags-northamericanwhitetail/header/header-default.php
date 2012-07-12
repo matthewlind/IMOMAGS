@@ -197,19 +197,20 @@ if(document.location.protocol=='http:'){
   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
+
 <header id="header">
 	<!-- <div id="tophat">
     		<div class="user-bar">
     			<ul id="tophat-left">
     				<li><a href="#">+ Post</a></li>
     				<li><a href="#">People</a></li>
-    				<li><a href="#">Messages (<?php echo '3'; //some sort of fun code for Aaron. :) ?>)</a></li>
+    				<li><a href="#">Messages</a></li>
     				<li><a href="#">Saved Articles</a></li>
     				<li><a href="#">Your Profile</a></li>
     			</ul>
     			<ul id="tophat-right">
     				<li><img src="<?php bloginfo('url'); ?>/wp-content/themes/imo-mags-northamericanwhitetail/img/user-temp.jpg" alt="user photo" /></li>
-    				<li>Hello, <a href="#"><?php echo 'Batman'; //OMG, it's BATMAN!!!! ?><span></span></a></li>
+    				<li>Hello, <a href="#">Batman<span></span></a></li>
     				<li><a href="#">Sign Out</a></li>
     			</ul>
     		</div>
@@ -218,7 +219,7 @@ if(document.location.protocol=='http:'){
     	    	
     	
 	<div class="centered">
-       	<a href="<?php echo home_url('/'); ?>" class="brand" title="<?php _e('Home', 'carrington-business') ?>"><img src="<?php print get_stylesheet_directory_uri(); ?>/img/nawp-logo.png" alt="<?php bloginfo('name'); ?>" /></a>
+       	<a href="<?php echo home_url('/'); ?>" class="brand" title="<?php _e('Home', 'carrington-business') ?>"><img src="<?php print get_stylesheet_directory_uri(); ?>/img/NAW-logo.png" alt="<?php bloginfo('name'); ?>" /></a>
       	<div id="header-search">
       		<?php cfct_form('search'); ?>
 		</div>
@@ -240,14 +241,14 @@ if(document.location.protocol=='http:'){
   			)); ?>
   			
   			<div class="stay-connected">
-  			 
+  			 <div class="fb-like" data-href="http://www.facebook.com/NAWhitetail" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true"></div>
   			 <span class="label">Stay Connected</span>
+  			 
   			 <ul class="connections">
   			   <li><a class="facebook" href="http://www.facebook.com/americanwhitetail" title="Find us on Facebook">Facebook</a></li>
   			   <li><a class="twitter" href="http://twitter.com/americanwhitetail" title="Follow us on Twitter">Twitter</a></li>
   			   <li><a class="feed" href="http://feeds.feedburner.com/americanwhitetail" title="Get the RSS Feed">RSS Feed</a></li>
-  			   <li><a class="like" href="#" title="Like us on Facebook">Like</a></li>
-  			 </ul>
+  			</ul>
   			</div>
 		  </div>
 		</div>

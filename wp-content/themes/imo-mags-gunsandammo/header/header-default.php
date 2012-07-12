@@ -98,7 +98,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
   			)); ?>
   			
   			<div class="stay-connected">
-  			 <div class="fb-like" data-href="http://www.facebook.com/pages/Guns-and-Ammo/110008639020864" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>
+  			 <div class="fb-like" data-href="http://www.facebook.com/GunsAndAmmoMag" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true"></div>
   			 <span class="label">Stay Connected</span>
   			 <ul class="connections">
   			   <li><a class="facebook" href="http://www.facebook.com/GunsAndAmmoMag" title="Find us on Facebook">Facebook</a></li>
