@@ -3249,6 +3249,7 @@ h1.tv-header{
 	clear: both;
 }
 .more-button{
+	position: relative;
 	font-family: ProximaNovaA-Semibold;
 	font-size: 0.9em;
 	cursor: pointer;
