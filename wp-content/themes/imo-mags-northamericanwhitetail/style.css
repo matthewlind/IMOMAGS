@@ -564,6 +564,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     font-family: "Helvetica Nueue",Helvetica,Arial,sans-serif;
     font-size: 1.2em;
     font-weight: bold;
+    width: 150px;
 }
 #header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 ul.sub-menu-2 > .menu-item a {
     color: #515151;
