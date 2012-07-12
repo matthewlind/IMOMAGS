@@ -37,7 +37,8 @@ function displayGallery($gallery_id) {
 		)
 	);
 
-	$title = $pictures[0]->title;
+	$title = stripcslashes($pictures[0]->title);
+
 
 
 	$slides = '<div class="slideshow_mask image_slideshow_mask">
@@ -55,6 +56,9 @@ function displayGallery($gallery_id) {
 		$count++;
 
 		$picture->meta_data = unserialize($picture->meta_data);
+
+		$picture->description = stripcslashes($picture->description);
+		$picture->alttext = stripcslashes($picture->alttext);
 
 		 // echo "<pre>";
 		 // print_r($picture);
