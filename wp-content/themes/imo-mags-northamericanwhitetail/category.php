@@ -101,13 +101,13 @@ function get_cat_slug($cat_id) {
  		</div>
  		<div class="col-abc">
 		<div class="header-sort">
-				<h1 class="more-header">More <?php single_cat_title(''); ?></h1>
+				<h1 class="more-header">Load More <?php single_cat_title(''); ?></h1>
 				<div class='cssmenu'>
 					<ul>
-					   <li><a href='#' class="dd ignore-click"><span>Sort</span><span class="dd-arrow"></span></a>
+					   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
 					      <ul>
-					         <li><a href='#' class="local-sort-link" sort="post_date"><span>Recent</span></a></li>
-					         <li><a href='#' class="local-sort-link" sort="comment_count"><span>Commented</span></a></li>
+					         <li><a href='#'><span>Recent</span></a></li>
+					         <li><a href='#'><span>Commented</span></a></li>
 					      </ul>
 					   </li>
 					</ul>
@@ -117,7 +117,7 @@ function get_cat_slug($cat_id) {
 	<?php } else if (is_category('trophy-bucks')){ 
 	//TROPHY BUCKS PAGE
 	?>
-		<div class="cat-col-left">
+		<div class="cat-col-full">
 				<?php
 					$count = 0;
 					$args = array(
@@ -131,7 +131,7 @@ function get_cat_slug($cat_id) {
 					// The Query
 					$the_query = new WP_Query( $args ); ?>
 			
-			<div id="slideshow_mask">
+			<div id="slideshow_mask" class="featured-thumb-wide">
 				<div id="slideshow">
 					
 	
@@ -141,7 +141,7 @@ function get_cat_slug($cat_id) {
 					
 						<div class='featured-item-pane cat-slide'>
 							<div class='featured-item-image'>
-								<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('large-featured-thumb-x'); ?></a>
+								<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('huge-thumbs'); ?></a>
 							</div>
 							<div class='featured-item-description'>
 								<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
@@ -159,25 +159,16 @@ function get_cat_slug($cat_id) {
 						<a id="prev"></a>
 						<a id="next"></a>		
 							
-		</div><!-- end left -->	
- 		
- 		<div class="cat-col-right">
-	 		<div class="cfct-module cfct-html mod-gallery">	
-				<h2>Topics</h2>
- 			</div>
-	 			<ul class="land-topics">
-					<?php wp_list_categories('hide_empty=0&title_li=&child_of=' . $cat_id);	?>
-	 			</ul>
- 		</div>
+		</div><!-- end left/no right -->	
  		<div class="col-abc">
 	 		<div class="header-sort">
-				<h1 class="more-header">More <?php single_cat_title(''); ?></h1>
+				<h1 class="more-header">Load More <?php single_cat_title(''); ?></h1>
 				<div class='cssmenu'>
 					<ul>
-					   <li><a href='#' class="dd ignore-click"><span>Sort</span><span class="dd-arrow"></span></a>
+					   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
 					      <ul>
-					         <li><a href='#' class="local-sort-link" sort="post_date"><span>Recent</span></a></li>
-					         <li><a href='#' class="local-sort-link" sort="comment_count"><span>Commented</span></a></li>
+					         <li><a href='#'><span>Recent</span></a></li>
+					         <li><a href='#'><span>Commented</span></a></li>
 					      </ul>
 					   </li>
 					</ul>
@@ -241,13 +232,13 @@ function get_cat_slug($cat_id) {
  		</div>
  		<div class="col-abc">
 		<div class="header-sort">
-			<h1 class="more-header">More <?php single_cat_title(''); ?></h1>
+			<h1 class="more-header">Load More <?php single_cat_title(''); ?></h1>
 			<div class='cssmenu'>
 				<ul>
-				   <li><a href='#' class="dd ignore-click"><span>Sort</span><span class="dd-arrow"></span></a>
+				   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
 				      <ul>
-					         <li><a href='#' class="local-sort-link" sort="post_date"><span>Recent</span></a></li>
-					         <li><a href='#' class="local-sort-link" sort="comment_count"><span>Commented</span></a></li>
+				         <li><a href='#'><span>Recent</span></a></li>
+				         <li><a href='#'><span>Commented</span></a></li>
 				      </ul>
 				   </li>
 				</ul>
@@ -302,13 +293,13 @@ function get_cat_slug($cat_id) {
 		</div><!-- end left/no right -->	
  		<div class="col-abc">
 	 		<div class="header-sort">
-				<h1 class="more-header">More <?php single_cat_title(''); ?></h1>
+				<h1 class="more-header">Load More <?php single_cat_title(''); ?></h1>
 				<div class='cssmenu'>
 					<ul>
-					   <li><a href='#' class="dd ignore-click"><span>Sort</span><span class="dd-arrow"></span></a>
+					   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
 					      <ul>
-					         <li><a href='#' class="local-sort-link" sort="post_date"><span>Recent</span></a></li>
-					         <li><a href='#' class="local-sort-link" sort="comment_count"><span>Commented</span></a></li>
+					         <li><a href='#'><span>Recent</span></a></li>
+					         <li><a href='#'><span>Commented</span></a></li>
 					      </ul>
 					   </li>
 					</ul>

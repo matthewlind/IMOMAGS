@@ -52,7 +52,7 @@ class Gallery_Loop_Widget extends WP_Widget {
 				?>
 
       	<div class="footer">
-	      	<a href="/category/gallaries/">More Galleries<span></span></a>
+	      	<a href="/category/galleries/">More Galleries<span></span></a>
       	</div>
     </aside>
 
