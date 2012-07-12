@@ -245,9 +245,9 @@ if(document.location.protocol=='http:'){
   			 <span class="label">Stay Connected</span>
   			 
   			 <ul class="connections">
-  			   <li><a class="facebook" href="https://www.facebook.com/NAWhitetail" title="Find us on Facebook">Facebook</a></li>
-  			   <li><a class="twitter" href="http://twitter.com/nawhitetail" title="Follow us on Twitter">Twitter</a></li>
-  			   <li><a class="feed" href="http://www.northamericanwhitetail.com/feed/" title="Get the RSS Feed">RSS Feed</a></li>
+  			   <li><a target="_blank" class="facebook" href="https://www.facebook.com/NAWhitetail" title="Find us on Facebook">Facebook</a></li>
+  			   <li><a target="_blank" class="twitter" href="http://twitter.com/nawhitetail" title="Follow us on Twitter">Twitter</a></li>
+  			   <li><a target="_blank" class="feed" href="http://www.northamericanwhitetail.com/feed/" title="Get the RSS Feed">RSS Feed</a></li>
   			</ul>
   			</div>
 		  </div>
@@ -256,22 +256,3 @@ if(document.location.protocol=='http:'){
 	<hr class="accessibility" />
 	<section id="main" class="str-container">
 		<div id="main-content">
-		<div class="centerad">
-		 <?php if (function_exists("imo_dart_tag")) {
-            imo_dart_tag("728x90");
-          } else { ?>
-  	        <!-- 728x90 Ad: -->
-            <script type="text/javascript">
-              document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dartadsgen_site+'/;sect=;page=index;subs=;sz=728x90;dcopt=;tile='+pr_tile+';ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
-            </script>
-            <script type="text/javascript">
-              ++pr_tile;
-            </script>
-            <noscript>
-              <a href="http://ad.doubleclick.net/adj/imo.outdoorsbest/;sect=;page=index;subs=;sz=728x90;dcopt=;tile=1;ord=7391727509?">
-                <img src="http://ad.doubleclick.net/ad/imo.outdoorsbest/home;sect=;page=index;subs=;sz=728x90;dcopt=;tile=1;ord=7391727509?" border="0" />
-              </a>
-            </noscript>
-            <!-- END 728x90 Ad: -->
-          <?php } ?>
-		</div>
