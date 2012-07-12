@@ -1217,9 +1217,6 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     width: 14px;
     float: left;
 }
-.category-deer-of-the-day #prev, .category-deer-of-the-day #next{
-	top:210px !important;	
-}
 .category-deer-of-the-day  #pager a.active {
 	background-color: #839A45 !important;
   
@@ -1229,7 +1226,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 	cursor: pointer;
 }
 .category-deer-of-the-day #next{
-	left: 638px;
+	left: 628px;
 }
 
 
@@ -2123,9 +2120,9 @@ a.comment-count:hover {
  *
  */
 .category-tactics .header-title{
-	background: url("img/deer-tactics-icon.png") no-repeat scroll 0 0 transparent;
+	background: url("img/deer-tactics-icon.png") no-repeat scroll 0 1px transparent;
 	width: 100%;
-
+	padding-top: 15px;
 }
 .page-template-page-default-php .header-title{
 	width: 100%;
@@ -2664,7 +2661,7 @@ a.about-link:hover{
 * Skyscraper ad fix
 *
 **/
-#advert-widget-3, #advert-widget-9{
+#advert-widget-3, #advert-widget-9, #advert-widget-12{
 	background-color: #fff !important;
 	float: left;
 }
@@ -3318,30 +3315,43 @@ h1.tv-header{
     top: 46px;
     width: 52px;
 }
+.archive.category-galleries .gallery-excerpt span{
+	left: -155px;
+}
+.related-slider .video-excerpt, .related-slider .gallery-excerpt{
+	background-color:#fff !important;
+	position: relative;
+}
+.related-slider .video-excerpt img, .related-slider .gallery-excerpt img{
+	opacity: 1;
+}
 .related-slider .video-excerpt span{
-	top: 26px;
-	left: 76px;
+	left: 62px;
+    top: -86px;
 }
 .related-slider .gallery-excerpt span{
-	top: 34px;
+	left: 80px;
+    top: -66px;
 }
 .widget_slider-widget .video-excerpt span{
 	top: 12px;
 	left: 34px;
 }
 .widget_slider-widget .gallery-excerpt span{
-	left: 43px;
-    top: 16px;
+	left: 50px;
+    top: 22px;
 }
 
 /* category pages */
 
 .cat-col-full{
 	width: 678px;
+	position: relative;
 }
 .cat-col-left{
 	float: left;
     width: 420px;
+    position: relative;
 }
 .cat-col-right{
 	float: left;
@@ -3402,16 +3412,16 @@ h1.tv-header{
 	height: 50px;
 	background-color: #000;
 	position: absolute;
-	top:190px;	
+	top:130px;	
 }
 #prev{
 	background: url("img/ui_tab_prev.png") no-repeat scroll center center #000;
-	left: 10px;
+	left: 0px;
 	cursor: pointer;
 }
 #next{
 	background: url("img/ui_tab_next.png") no-repeat scroll center center #000;
-	left: 380px;
+	left: 370px;
 	cursor: pointer;
 }
 .topics-ul{
@@ -3424,4 +3434,10 @@ h1.tv-header{
 .breadcrumbs{
 	margin-top: -15px;
 	padding-bottom: 18px;
+}
+/* 728 ad */
+.centerad{
+	margin: 0 auto;
+	width: 728px;
+    margin-bottom: 12px;
 }
