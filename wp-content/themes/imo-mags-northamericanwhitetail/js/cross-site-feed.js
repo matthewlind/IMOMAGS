@@ -109,7 +109,7 @@ jQuery(document).ready(function($) {
 					$(data[i].terms).each(function(index) {
 						var parentString = "";
 
-						if (this.parent.length > 0) {
+						if (this.parent != null) {
 							parentString = this.parent + "/";
 						}
 

@@ -109,7 +109,6 @@ jQuery(document).ready(function($) {
 
 						if (this.parent != null) {
 							parentString = this.parent + "/";
-							console.log(this.parent);
 						}
 
 
