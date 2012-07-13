@@ -6353,6 +6353,33 @@ span.sponsored-thumb {
 }
 
 /* FEED WIDGET */
-.widget_news-widget {
-	background: none !important;
+.widget_news-widget {background: none !important;border-top:none !important;}
+.widget_news-widget  ul{
+font-size: 13px;
+    list-style: none outside none;
+    padding: 0;
+    text-align: center;
+}
+.widget_news-widget li{
+-moz-binding: url("xml/ellipsis.xml#ellipsis");
+    display: block;
+    line-height: 1.2;
+    overflow: hidden;
+    padding: 7px 4px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.widget_news-widget ul li a{color: #313131;font-weight: normal;}
+.widget_news-widget ul li a:hover{
+color:#CE181E;
+}
+.widget_news-widget ul li:nth-child(2n + 1) {
+  background: #F3F3F3;
+}
+.rss-img{
+margin: 0 auto;
+}
+.rss-img img{
+margin: 12px auto 0 !important;
+    display: block !important;
 }
