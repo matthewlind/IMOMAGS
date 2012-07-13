@@ -164,10 +164,15 @@ if (get_the_title(null, false) == 'superpost-single') {
 	<link rel="stylesheet" type="text/css" href="<?php bloginfo('url'); ?>/wp-content/themes/imo-mags-northamericanwhitetail/MyFontsWebfontsKit.css">
 	 <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/scripts.js"></script>
 	<!-- IMO MODS -->
-	<script type="text/javascript">
+  <script type="text/javascript">
 
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-5816642-20']);
+  _gaq.push(['_setDomainName', 'none']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+  _gaq.push(['_setAccount', 'UA-2409437-15']);
+  _gaq.push(['_setDomainName', '.northamericanwhitetail.com']);
   _gaq.push(['_trackPageview']);
 
   (function() {
