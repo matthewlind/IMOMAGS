@@ -103,9 +103,17 @@ jQuery(document).ready(function($) {
 					var $termsArray = $(data[i].terms);
 
 					$(data[i].terms).each(function(index) {
-						$categoryLinks.append($("<a href='/category/" + this.slug + "'>" + this.name + "</a>"));
+						var parentString = "";
 
-			
+						console.log(this);
+
+						if (this.parent != null) {
+							parentString = this.parent + "/";
+							console.log(this.parent);
+						}
+
+
+						$categoryLinks.append($("<a href='/category/" + parentString + this.slug + "'>" + this.name + "</a>"));
 
 						if ($termsArray.length != index + 1) {
 							$categoryLinks.append(" • ");
