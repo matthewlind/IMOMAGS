@@ -59,6 +59,7 @@ if (get_the_title(null, false) == 'superpost-single') {
 	wp_head();
 	?>
 	<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
+
 	<!--
 /* @license
  * MyFonts Webfont Build ID 2288984, 2012-05-09T13:35:45-0400
@@ -162,6 +163,8 @@ if (get_the_title(null, false) == 'superpost-single') {
 
 -->
 	<link rel="stylesheet" type="text/css" href="<?php bloginfo('url'); ?>/wp-content/themes/imo-mags-northamericanwhitetail/MyFontsWebfontsKit.css">
+	<link rel="stylesheet" type="text/css" href="<?php bloginfo('url'); ?>/wp-content/themes/imo-mags-northamericanwhitetail/css/jquery.mCustomScrollbar.css">
+
 	 <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/scripts.js"></script>
 	<!-- IMO MODS -->
   <script type="text/javascript">

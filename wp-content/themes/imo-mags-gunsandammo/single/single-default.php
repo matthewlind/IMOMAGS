@@ -123,10 +123,25 @@ if (empty($zn_img)) {
 	<?php cfct_loop(); ?>
 	<?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
 	<div class="post-content-area">
-		<div class="yarpp-content">
-			<?php related_posts(); ?>
+		<div class="related-products">
+			<p>Related Products</p>
+			<div id="leiki1demo"></div>
+			<script>
+			(function() {
+			//*** Note! If URL is not the ID of the page, uncomment
+			//*** the line below and replace CONTENT_ID with the page ID.
+			//var leiki_cid = 'CONTENT_ID';
+			var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;
+			s.src = 'http://kiwi12.leiki.com/focus/mwidget?wname=sb1' +((typeof leiki_cid !== 'undefined' && leiki_cid!='')? '&cid='+encodeURIComponent(leiki_cid) : '')+ '&first=' + top.leiki_first + '&ts='+new Date().getTime();
+			var x = document.getElementsByTagName('script')[0];
+			x.parentNode.insertBefore(s, x);
+			top.leiki_first="no";
+			})();
+			</script>		
 		</div>
 		<div class="fb-recommendations recommendations" data-site="www.gunsandammo.com" data-width="300" data-height="250" data-header="true"></div>
+		<div class="divider"></div>
+		<?php if (function_exists('related_posts')){related_posts();} ?>
 	</div>
 	<?php comments_template(); ?>
 </div>

@@ -18,7 +18,9 @@ jQuery(document).ready(function($) {
 		
 		currentPosition = currentPosition + showAtOnce;
 		displayLocalSiteFeed(currentPosition,sort);
-
+		//$('#sticky').height($('#main-content').height() + 500);
+		//$('#sticky-cat').height($('.col-abc').height() + 634);
+		//$('#sticky-sub-cat').height($('.col-abc').height() + 200);
 	});
 
 	//When sort button is clicked:

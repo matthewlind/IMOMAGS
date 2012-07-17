@@ -97,9 +97,7 @@ $(document).ready(function(){
 // Related Content slider
 $(document).ready(function(){
 				
-	jQuery('#slides-related').jcarousel({
-		easing: 'easeOutBack',
-		animation:1000,scroll: 3});	
+	jQuery('#slides-related').jcarousel({scroll: 3});	
 
 });
 
@@ -132,3 +130,16 @@ $(document).ready(function(){
 $(document).ready(function(){
 	FlashHeed.heed();
 });
+
+
+// jFollow
+$(function(){
+	
+	$('.advert').jfollow('#responderfollow');
+});
+	
+	
+	
+	
+	
+	

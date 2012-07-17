@@ -37,7 +37,7 @@ $args = array(
           <div id="mag-gf" class="mag">
             <a class="site-link" href="http://www.gameandfishmag.com/" title="Visit www.gameandfishmag.com">
               <img class="cover" src="<?php print get_stylesheet_directory_uri(); ?>/img/mags_gf.jpg" alt />
-              <h5>Game & Fish Illinois</h5>
+              <h5>Game & Fish</h5>
             </a>
             <?php switch_to_blog(14);
             $blog = new WP_Query($args);
@@ -471,6 +471,24 @@ $args = array(
 
 
   </div><!-- End user login modal container -->
+  	<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery.jfollow.js"></script>
+	<!-- mousewheel plugin -->
+	<!--<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery.mousewheel.min.js"></script> -->
+	<!-- custom scrollbars plugin -->
+	<!--<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery.mCustomScrollbar.js"></script>
+	<script type="text/javascript">
+		(function($){
+			$(window).load(function(){
+				/* custom scrollbar fn call */
+								$(".slide-out-content").mCustomScrollbar({
+					scrollInertia:0
+				});
+								
+				
+				
+			});
+		})(jQuery);
+	</script> -->
 
 
 

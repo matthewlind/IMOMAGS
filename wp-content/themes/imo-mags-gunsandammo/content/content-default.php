@@ -32,6 +32,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 		// Un-comment this if you want featured images to automatically appear on full posts
 		// the_post_thumbnail('thumbnail', array('class' => 'entry-img'));
 		the_content(__('Continued&hellip;', 'carrington-business'));
+		
 		?>
 	</div>
   <!-- <div class="entry-footer">

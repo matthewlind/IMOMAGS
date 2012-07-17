@@ -820,15 +820,151 @@ ol.fancy li span, .fancy ol li span, .widget_rss ol li span, .yarpp-content ol l
   padding: 0 7px;
   position: relative;
 }
-
-/* line 611, sass/style.scss */
-.yarpp-content {
+.related-products {
   float: left;
   height: 234px;
   margin-right: 10px;
   padding: 7px;
   text-align: left;
   width: 322px;
+}
+.related-products p {
+  font-family: 'StagBold';
+}
+
+/*
+ * Related Posts slider
+ *
+ */
+ .questions-slider {
+    min-height: 270px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 650px;
+}
+
+.questions-slider .otd-questions  {
+    float: left;
+    text-align: center;
+    width: 650px;
+}
+.questions-slider .otd-questions img, .questions-slider .otd-questions a {
+    margin: 0 auto;
+}
+.questions-slider .slides-container-f {
+    min-height: 270px;
+    margin: 0 auto;
+    width: 650px;
+}
+.questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-next-horizontal {
+    background: url("img/next-rounded.png") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    height: 27px;
+    position: absolute;
+    right:310px;
+    top: -34px;
+    width: 27px;
+    list-style: none;
+}
+.questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-direction-rtl .jcarousel-next-horizontal {
+    background-image: url("img/prev-rounded.png");
+    left: 5px;
+    right: auto;
+}
+.questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-prev-horizontal {
+    background: url("img/prev-rounded.png") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    height: 27px;
+    left:310px;
+    position: absolute;
+    top: -34px;
+    width: 27px;
+}
+.questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-container-horizontal {
+    padding: 0;
+    width: 650px;
+}
+.questions-slider .slides-container-f .jcarousel-skin-tango {
+    margin: 0 auto;
+    width: 650px;
+}
+.questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-item {
+    background: none repeat scroll 0 0 transparent;
+    min-height: 270px;
+    padding: 0;
+    position: relative;
+    width: 650px;
+}
+.questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-clip-horizontal {
+    cursor: pointer;
+    min-height: 270px;
+    width: 600px;
+    margin: 10px auto 0;
+}
+.questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-direction-rtl .jcarousel-prev-horizontal {
+    background-image: url("img/next-rounded.png");
+    left: auto;
+    right: 5px;
+}
+.questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-item-horizontal {
+    margin: 0 4px;
+}
+.questions-slider .jcarousel-list .jcarousel-list-horizontal{
+	width: 650px !important;
+}
+
+.pagination{
+	border-bottom: 1px solid #ccc !important;
+}
+h4.meta{
+	text-align: center;
+}
+.related-slider .slides-container-f .jcarousel-skin-tango .jcarousel-item img{
+	min-width: 190px;
+	min-height: 120px;
+	display: block;
+	margin-bottom: 10px;
+}
+.related-slider .slides-container-f .jcarousel-skin-tango .jcarousel-item{
+	width: 192px !important;
+}
+.related-slider .slides-container-f .jcarousel-skin-tango .jcarousel-next-horizontal{
+	background: url("img/icon/arrow_white.png") no-repeat scroll center center #000;
+    height: 120px;
+    right: 0;
+    top: 0;
+}
+.related-slider .slides-container-f .jcarousel-skin-tango .jcarousel-prev-horizontal{
+	background: url("img/icon/arrow_white_left.png") no-repeat scroll center center #000;
+    height: 120px;
+    left: 0;
+    top: 0;
+	
+	
+}
+.entry-footer .tags{
+	text-align: center;
+	padding-bottom: 14px;
+}
+.divider{
+	border-top: 1px solid #CCCCCC !important;
+	clear: both;
+	height: 30px;
+}
+.related-slider a.video-excerpt span{
+	background: url("img/play_button_03.png?1336056336") no-repeat scroll center center rgba(0, 0, 0, 0.35);
+    top: 0;
+    height: 120px;
+    left: 1px;
+    position: absolute;
+    width: 190px;
+ }
+/* line 611, sass/style.scss */
+.yarpp-content {
+  height: 234px;
+  padding: 7px;
+  text-align: left;
 }
 /* line 612, sass/style.scss */
 .yarpp-content h4 span {
@@ -5907,13 +6043,14 @@ select.caliber {
 .recommendations {
   float: left;
   width: 300px;
-  height: 280px;
+  height: 290px;
+  margin-top: 50px;
 }
 
 /* line 4317, sass/style.scss */
 .post-content-area {
   width: 648px;
-  height: 330px;
+  height: 647px;
   float: left;
 }
 
@@ -6382,4 +6519,8 @@ margin: 0 auto;
 .rss-img img{
 margin: 12px auto 0 !important;
     display: block !important;
+}
+
+.leiki_products{
+	box-shadow: none !important;
 }
