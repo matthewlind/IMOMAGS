@@ -106,7 +106,7 @@ get_header();
   					</div>
   					<h3 class="imo-gallery-title"><?php echo $picture->alttext ?></h3>
   					<div class="counter"><?php echo $picture->number ?> <?php _e('of', 'nggallery')?> <?php echo $picture->total ?></div>
-  					<div class="ngg-imagebrowser-desc"><p><?php echo $picture->description ?></p></div>
+  					<div class="ngg-imagebrowser-desc"><p>Hello<?php echo $picture->description ?></p></div>
   				</div>
 				</div>
 			

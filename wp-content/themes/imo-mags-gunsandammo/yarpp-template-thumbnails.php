@@ -5,7 +5,6 @@ Author: Fox Bowden
 ?>
 
 
-
 <?php if ($related_query->have_posts()):?>
 <h4 class="meta">Related Stories</h4>
 <div class="questions-slider related-slider">

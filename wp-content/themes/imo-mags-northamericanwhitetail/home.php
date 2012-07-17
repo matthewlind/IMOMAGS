@@ -31,8 +31,13 @@ get_header();
 		<div class="bonus">
 			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-home-top')) : else : ?><?php endif; ?>
 		</div>
+		<div id="responderfollow"></div>
+		<div class="sidebar advert">
+			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('scroll-sidebar')) : else : ?><?php endif; ?>
+		</div>
+		
 	</div>
-	<div class="col-abc">
+	<div class="col-abc sticky-height">
 				<?php the_content(__('Continued&hellip;', 'carrington-business')); ?>
 				<div class="clearfix"></div>
 	<div class="homepage-gear top">
