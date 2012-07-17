@@ -65,7 +65,7 @@ jQuery(document).ready(function($) {
     
 	    //$(".animal-container").html("");
 
-	    	
+	    console.log(data);
 	    
 		    var count = 0;
 
@@ -105,7 +105,7 @@ jQuery(document).ready(function($) {
 					$(data[i].terms).each(function(index) {
 						var parentString = "";
 
-						console.log(this);
+				
 
 						if (this.parent != null) {
 							parentString = this.parent + "/";
