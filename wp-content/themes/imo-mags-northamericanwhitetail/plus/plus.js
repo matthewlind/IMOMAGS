@@ -221,6 +221,83 @@ function displayRecon(type) {
 
 
 
+function afterImageLoaded() {
+	
+	//Add relative time
+	jQuery("abbr.timeago").timeago();
+
+	var masonryColumnWidth = 338;
+	var masonryGutterWidth = 3;
+	var masonryItemSelector = ".recon-box";
+
+	if (displayMode == "list") {
+		masonryColumnWidth = 1000;
+		masonryGutterWidth = 0;
+		masonryItemSelector = ".recon-row";
+	}
+
+    //reset masonry
+    if ($('#recon-activity').hasClass("masonry")) {
+    	$('#recon-activity').masonry( 'option', { columnWidth: masonryColumnWidth, gutterWidth: masonryGutterWidth, itemSelector:masonryItemSelector } )
+    	$('#recon-activity').masonry('reload');
+    } else {
+    	$('#recon-activity').masonry({
+        	columnWidth: masonryColumnWidth,
+        	gutterWidth: masonryGutterWidth,
+            itemSelector: masonryItemSelector,
+            isAnimated: true,
+    	});
+    }
+
+
+	//Show user info on avatar hover
+	$("img.recon-gravatar").click(function(e){
+		e.stopPropagation();
+		
+		var UnderBox = $(this).closest(".under-box");
+
+		UnderBox.find(".user-details-box").toggle(300);
+		UnderBox.find(".stats-box").html("");
+
+		var user_id = $(this).data("user_id");
+		var username = $(this).data("username");
+
+		var dataURL = "/slim/api/superpost/user/counts/" + user_id;  	
+	    var getdata = $.getJSON(dataURL, function(data) {
+	    	
+	    	var countData = new Array();
+
+	    	$(data).each(function(){
+	    		countData[this.post_type] = this.count;
+	    	});
+
+
+	    	types = new Array("photo","report","tip","video","comment","discussion","question","answer");
+
+	    	$(types).each(function(){
+	    		var type = this;
+
+	    		var typeCount = countData[type];
+	    		if (typeCount === undefined) {
+	    			typeCount = 0;
+	    		}
+
+	    		var statBox = $("<div class='stat-box'></div>").text(typeCount + " " + type + "s");
+	    		UnderBox.find(".stats-box").append(statBox);
+
+	    	});
+		
+	    });
+
+		//userDetailsBox.append(nameBox);
+
+
+	});
+
+}
+
+
+
 
 function displayReconList(type) {
 
@@ -316,81 +393,6 @@ function displayReconList(type) {
 } //End function displayRecon()
 
 
-
-function afterImageLoaded() {
-	
-	//Add relative time
-	jQuery("abbr.timeago").timeago();
-
-	var masonryColumnWidth = 338;
-	var masonryGutterWidth = 3;
-	var masonryItemSelector = ".recon-box";
-
-	if (displayMode == "list") {
-		masonryColumnWidth = 1000;
-		masonryGutterWidth = 0;
-		masonryItemSelector = ".recon-row";
-	}
-
-    //reset masonry
-    if ($('#recon-activity').hasClass("masonry")) {
-    	$('#recon-activity').masonry( 'option', { columnWidth: masonryColumnWidth, gutterWidth: masonryGutterWidth, itemSelector:masonryItemSelector } )
-    	$('#recon-activity').masonry('reload');
-    } else {
-    	$('#recon-activity').masonry({
-        	columnWidth: masonryColumnWidth,
-        	gutterWidth: masonryGutterWidth,
-            itemSelector: masonryItemSelector,
-            isAnimated: true,
-    	});
-    }
-
-
-	//Show user info on avatar hover
-	$("img.recon-gravatar").click(function(e){
-		e.stopPropagation();
-		
-		var UnderBox = $(this).closest(".under-box");
-
-		UnderBox.find(".user-details-box").toggle(300);
-		UnderBox.find(".stats-box").html("");
-
-		var user_id = $(this).data("user_id");
-		var username = $(this).data("username");
-
-		var dataURL = "/slim/api/superpost/user/counts/" + user_id;  	
-	    var getdata = $.getJSON(dataURL, function(data) {
-	    	
-	    	var countData = new Array();
-
-	    	$(data).each(function(){
-	    		countData[this.post_type] = this.count;
-	    	});
-
-
-	    	types = new Array("photo","report","tip","video","comment","discussion","question","answer");
-
-	    	$(types).each(function(){
-	    		var type = this;
-
-	    		var typeCount = countData[type];
-	    		if (typeCount === undefined) {
-	    			typeCount = 0;
-	    		}
-
-	    		var statBox = $("<div class='stat-box'></div>").text(typeCount + " " + type + "s");
-	    		UnderBox.find(".stats-box").append(statBox);
-
-	    	});
-		
-	    });
-
-		//userDetailsBox.append(nameBox);
-
-
-	});
-
-}
 
 
 
