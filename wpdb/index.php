@@ -689,6 +689,14 @@ EOT;
             $posts[$key]->img_url = $thumbnail;
 
 
+
+
+            //Check to see if we need to add terms
+            if ($post->domain == "www.northamericanwhitetail.com") {
+                $posts[$key]->terms = getPostTerms($post->ID);
+            }
+
+
             //TESTING
         
             // _log($post);
@@ -700,12 +708,6 @@ EOT;
             // echo "</pre>";
         
             //$json = json_encode($post);
-
-
-            //Check to see if we need to add terms
-            if ($post->domain == "www.northamericanwhitetail.com") {
-                $posts[$key]->terms = getPostTerms($post->ID);
-            }
 
         }
 
@@ -832,6 +834,11 @@ function getPostTerms($post_id, $site_id = 6) {
 
         $db = "";
 
+        foreach ($terms as $key => $term) {
+	    	$parent = getParentTerm($term);
+	    	$terms[$key]->parent = $parent;
+        }
+
         return($terms);
 
     } catch(PDOException $e) {
@@ -862,11 +869,60 @@ function getWhitetailPostTerms($post_id, $site_id = 6) {
 
         $db = "";
 
+        foreach ($terms as $key => $term) {
+        	$parent = getParentTerm($term);
+        	$terms[$key]->parent = $parent;
+        }
+
         return($terms);
 
     } catch(PDOException $e) {
         echo $e->getMessage();
     }
+}
+
+function getParentTerm($term) {
+
+	try {
+
+
+        $db = dbConnect();
+
+        $sql = "SELECT t.slug FROM wp_6_terms as t
+				JOIN wp_6_term_taxonomy as tt ON t.term_id = tt.term_id
+				JOIN wp_6_term_taxonomy as tp ON tp.parent = tt.term_id
+				JOIN wp_6_terms ts ON ts.term_id = tp.term_id
+				WHERE tt.taxonomy = 'category'
+				AND ts.slug = ?";
+
+        
+
+        $stmt = $db->prepare($sql);
+        $stmt->execute(array($term->slug));
+    
+        $terms = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+        $db = "";
+
+        foreach ($terms as $term) {
+
+        	$slug = $term->slug;
+        	$results[] = $slug;
+
+
+
+        }
+
+        $slug = null;
+        if (!empty($terms))
+        	$slug = $terms[0]->slug;
+
+        return($slug);
+
+    } catch(PDOException $e) {
+        echo $e->getMessage();
+    }
+
 }
 
 
