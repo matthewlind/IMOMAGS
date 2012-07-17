@@ -32,7 +32,7 @@ get_header();
 			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-home-top')) : else : ?><?php endif; ?>
 		</div>
 		<div id="responderfollow"></div>
-		<div class="advert">
+		<div class="sidebar advert">
 			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('scroll-sidebar')) : else : ?><?php endif; ?>
 		</div>
 		
