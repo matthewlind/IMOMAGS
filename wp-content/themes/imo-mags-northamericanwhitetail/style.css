@@ -1604,9 +1604,13 @@ h4.meta{
 }
 .related-slider{
 	padding-top: 10px;
+	margin: 0 auto;
 }
-.related-slider .slides-container-f .jcarousel-skin-tango .jcarousel-clip-horizontal{
-	width: 682px;
+.related-slider .slides-container-f{
+	margin: 0;
+}
+.related-slider .slides-container-f .jcarousel-skin-tango .jcarousel-clip-horizontal, .related-slider .slides-container-f .jcarousel-skin-tango .jcarousel-container-horizontal, .related-slider .slides-container-f, .related-slider .slides-container-f .jcarousel-skin-tango{
+	width: 682px !important;
 }
 .related-slider, .related-slider .slides-container-f, .related-slider .slides-container-f .jcarousel-skin-tango .jcarousel-clip-horizontal, .related-slider .slides-container-f .jcarousel-skin-tango .jcarousel-item{min-height: 220px;}
 .related-slider .slides-container-f .jcarousel-skin-tango .jcarousel-item img{
@@ -1634,14 +1638,14 @@ h4.meta{
 .related-slider .slides-container-f .jcarousel-skin-tango .jcarousel-next-horizontal, .related-slider .slides-container-f .jcarousel-skin-tango .jcarousel-prev-horizontal{
 	top: -41px;
 	cursor: pointer;
-	 height: 27px;
+	height: 27px;
     position: absolute;
     width: 27px;
     list-style: none;
 } 
 .related-slider .slides-container-f .jcarousel-skin-tango .jcarousel-next-horizontal {
     background: url("img/next-rounded.png") no-repeat scroll 0 0 transparent;
-    right:346px;
+    right:247px;
 }
 .related-slider .slides-container-f .jcarousel-skin-tango .jcarousel-prev-horizontal {
     background: url("img/prev-rounded.png") no-repeat scroll 0 0 transparent;
