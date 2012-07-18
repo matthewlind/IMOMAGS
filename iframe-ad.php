@@ -4,8 +4,6 @@ $code = $_GET['ad_code'];
 ?>
 <html>
 <head>
-
-<meta http-equiv="refresh" content="45">
 <script language="javascript">
 <!--
 var randomdate=new Date();
