@@ -1602,15 +1602,23 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 h4.meta{
 	text-align: center;
 }
+.related-slider{
+	padding-top: 10px;
+}
+.related-slider .slides-container-f .jcarousel-skin-tango .jcarousel-clip-horizontal{
+	width: 682px;
+}
 .related-slider, .related-slider .slides-container-f, .related-slider .slides-container-f .jcarousel-skin-tango .jcarousel-clip-horizontal, .related-slider .slides-container-f .jcarousel-skin-tango .jcarousel-item{min-height: 220px;}
 .related-slider .slides-container-f .jcarousel-skin-tango .jcarousel-item img{
-	min-width: 190px;
+	min-width: 192px;
 	min-height: 120px;
 	display: block;
-	margin-bottom: 10px;
+	margin: 0 auto 10px;
 }
 .related-slider .slides-container-f .jcarousel-skin-tango .jcarousel-item{
-	width: 218px !important;
+	width: 227px;
+	text-align: center;
+	margin: 0;
 }
 .related-slider .slides-container-f .jcarousel-skin-tango .jcarousel-next-horizontal{
 	top: -58px;
@@ -1619,6 +1627,25 @@ h4.meta{
 .related-slider .slides-container-f .jcarousel-skin-tango .jcarousel-prev-horizontal{
 	top: -58px;
 	left: 250px;
+}
+.related-slider .otd-questions a{
+	margin: 0 !important;
+}
+.related-slider .slides-container-f .jcarousel-skin-tango .jcarousel-next-horizontal, .related-slider .slides-container-f .jcarousel-skin-tango .jcarousel-prev-horizontal{
+	top: -41px;
+	cursor: pointer;
+	 height: 27px;
+    position: absolute;
+    width: 27px;
+    list-style: none;
+} 
+.related-slider .slides-container-f .jcarousel-skin-tango .jcarousel-next-horizontal {
+    background: url("img/next-rounded.png") no-repeat scroll 0 0 transparent;
+    right:346px;
+}
+.related-slider .slides-container-f .jcarousel-skin-tango .jcarousel-prev-horizontal {
+    background: url("img/prev-rounded.png") no-repeat scroll 0 0 transparent;
+    left:246px;
 }
 .entry-footer .tags{
 	text-align: center;
@@ -3248,16 +3275,10 @@ h1.tv-header{
 	color: #829b40;
 }
 
-/*.home .cross-site-feed-more-button{
-	clear: both;
-	position: absolute;
-	bottom: 40px;
-	left: 240px;
-	margin-bottom: 0;
-}*/
 .cross-site-feed-more-button, .local-site-feed-more-button{
 	margin-bottom: 60px;
 	clear: both;
+	width: 682px;
 }
 .more-button{
 	position: relative;
@@ -3340,8 +3361,7 @@ h1.tv-header{
 	opacity: 1;
 }
 .related-slider .video-excerpt span{
-	left: 62px;
-    top: -86px;
+    top: -105px;
 }
 /*.related-slider .gallery-excerpt span{
 	left: 80px;
