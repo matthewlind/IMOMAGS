@@ -59,6 +59,7 @@ if (get_the_title(null, false) == 'superpost-single') {
 	wp_head();
 	?>
 	<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
+
 	<!--
 /* @license
  * MyFonts Webfont Build ID 2288984, 2012-05-09T13:35:45-0400
@@ -162,12 +163,19 @@ if (get_the_title(null, false) == 'superpost-single') {
 
 -->
 	<link rel="stylesheet" type="text/css" href="<?php bloginfo('url'); ?>/wp-content/themes/imo-mags-northamericanwhitetail/MyFontsWebfontsKit.css">
+	<link rel="stylesheet" type="text/css" href="<?php bloginfo('url'); ?>/wp-content/themes/imo-mags-northamericanwhitetail/css/jquery.mCustomScrollbar.css">
+
 	 <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/scripts.js"></script>
 	<!-- IMO MODS -->
-	<script type="text/javascript">
+  <script type="text/javascript">
 
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-5816642-20']);
+  _gaq.push(['_setDomainName', 'none']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+  _gaq.push(['_setAccount', 'UA-2409437-15']);
+  _gaq.push(['_setDomainName', '.northamericanwhitetail.com']);
   _gaq.push(['_trackPageview']);
 
   (function() {
@@ -197,19 +205,20 @@ if(document.location.protocol=='http:'){
   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
+
 <header id="header">
 	<!-- <div id="tophat">
     		<div class="user-bar">
     			<ul id="tophat-left">
     				<li><a href="#">+ Post</a></li>
     				<li><a href="#">People</a></li>
-    				<li><a href="#">Messages (<?php echo '3'; //some sort of fun code for Aaron. :) ?>)</a></li>
+    				<li><a href="#">Messages</a></li>
     				<li><a href="#">Saved Articles</a></li>
     				<li><a href="#">Your Profile</a></li>
     			</ul>
     			<ul id="tophat-right">
     				<li><img src="<?php bloginfo('url'); ?>/wp-content/themes/imo-mags-northamericanwhitetail/img/user-temp.jpg" alt="user photo" /></li>
-    				<li>Hello, <a href="#"><?php echo 'Batman'; //OMG, it's BATMAN!!!! ?><span></span></a></li>
+    				<li>Hello, <a href="#">Batman<span></span></a></li>
     				<li><a href="#">Sign Out</a></li>
     			</ul>
     		</div>
@@ -218,7 +227,7 @@ if(document.location.protocol=='http:'){
     	    	
     	
 	<div class="centered">
-       	<a href="<?php echo home_url('/'); ?>" class="brand" title="<?php _e('Home', 'carrington-business') ?>"><img src="<?php print get_stylesheet_directory_uri(); ?>/img/nawp-logo.png" alt="<?php bloginfo('name'); ?>" /></a>
+       	<a href="<?php echo home_url('/'); ?>" class="brand" title="<?php _e('Home', 'carrington-business') ?>"><img src="<?php print get_stylesheet_directory_uri(); ?>/img/NAW-logo.png" alt="<?php bloginfo('name'); ?>" /></a>
       	<div id="header-search">
       		<?php cfct_form('search'); ?>
 		</div>
@@ -240,14 +249,14 @@ if(document.location.protocol=='http:'){
   			)); ?>
   			
   			<div class="stay-connected">
-  			 
+  			 <div class="fb-like" data-href="http://www.facebook.com/NAWhitetail" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true"></div>
   			 <span class="label">Stay Connected</span>
+  			 
   			 <ul class="connections">
-  			   <li><a class="facebook" href="http://www.facebook.com/americanwhitetail" title="Find us on Facebook">Facebook</a></li>
-  			   <li><a class="twitter" href="http://twitter.com/americanwhitetail" title="Follow us on Twitter">Twitter</a></li>
-  			   <li><a class="feed" href="http://feeds.feedburner.com/americanwhitetail" title="Get the RSS Feed">RSS Feed</a></li>
-  			   <li><a class="like" href="#" title="Like us on Facebook">Like</a></li>
-  			 </ul>
+  			   <li><a target="_blank" class="facebook" href="https://www.facebook.com/NAWhitetail" title="Find us on Facebook">Facebook</a></li>
+  			   <li><a target="_blank" class="twitter" href="http://twitter.com/nawhitetail" title="Follow us on Twitter">Twitter</a></li>
+  			   <li><a target="_blank" class="feed" href="http://www.northamericanwhitetail.com/feed/" title="Get the RSS Feed">RSS Feed</a></li>
+  			</ul>
   			</div>
 		  </div>
 		</div>
@@ -255,3 +264,25 @@ if(document.location.protocol=='http:'){
 	<hr class="accessibility" />
 	<section id="main" class="str-container">
 		<div id="main-content">
+		<div class="centerad">
+		 <?php if (function_exists("imo_dart_tag")) {
+            imo_dart_tag("728x90");
+          } else { ?>
+  	        <!-- 728x90 Ad: -->
+            <script type="text/javascript">
+              document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dartadsgen_site+'/;sect=;page=index;subs=;sz=728x90;dcopt=;tile='+pr_tile+';ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
+            </script>
+            <script type="text/javascript">
+              ++pr_tile;
+            </script>
+            <noscript>
+              <a href="http://ad.doubleclick.net/adj/imo.outdoorsbest/;sect=;page=index;subs=;sz=728x90;dcopt=;tile=1;ord=7391727509?">
+                <img src="http://ad.doubleclick.net/ad/imo.outdoorsbest/home;sect=;page=index;subs=;sz=728x90;dcopt=;tile=1;ord=7391727509?" border="0" />
+              </a>
+            </noscript>
+            <!-- END 728x90 Ad: -->
+          <?php } ?>
+          
+		</div>
+		<div id="main-content">
+

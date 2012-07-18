@@ -37,6 +37,7 @@ include 'mysql.php';
 
 //GET route
 $app->get('/imomags/term/naw-plus(/sort/:sort)', function ($sort = "post_date") {
+	//$sort = mysql_real_escape_string($sort);
 
     header('Access-Control-Allow-Origin: *');  
 
@@ -46,7 +47,7 @@ $app->get('/imomags/term/naw-plus(/sort/:sort)', function ($sort = "post_date") 
 
 
         $sql = <<<EOT
-(SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Guns & Ammo" as brand,
+(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Guns & Ammo" as brand,
 (SELECT count(comment_ID) from wp_2_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.gunsandammo.com" as domain  
 FROM wp_2_posts as posts
 JOIN wp_2_term_relationships as relationships ON (posts.ID = relationships.object_id)
@@ -59,7 +60,7 @@ AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
 AND meta.meta_key = "_thumbnail_id")
 UNION
-(SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Bowhunter" as brand,
+(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Bowhunter" as brand,
 (SELECT count(comment_ID) from wp_3_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.bowhunter.com" as domain
 FROM wp_3_posts as posts
 JOIN wp_3_term_relationships as relationships ON (posts.ID = relationships.object_id)
@@ -72,8 +73,8 @@ AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
 AND meta.meta_key = "_thumbnail_id")
 UNION
-(SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Petersen's Bowhunting" as brand,
-(SELECT count(comment_ID) from wp_4_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.petersenshunting.com" as domain  
+(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Petersen's Bowhunting" as brand,
+(SELECT count(comment_ID) from wp_4_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.bowhuntingmag.com" as domain  
 FROM wp_4_posts as posts
 JOIN wp_4_term_relationships as relationships ON (posts.ID = relationships.object_id)
 JOIN `wp_4_term_taxonomy`as term_taxonomy ON (relationships.term_taxonomy_id = term_taxonomy.`term_taxonomy_id`)
@@ -85,7 +86,7 @@ AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
 AND meta.meta_key = "_thumbnail_id")
 UNION
-(SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Gundog" as brand,
+(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Gundog" as brand,
 (SELECT count(comment_ID) from wp_5_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.gundogmag.com" as domain
 FROM wp_5_posts as posts
 JOIN wp_5_term_relationships as relationships ON (posts.ID = relationships.object_id)
@@ -110,7 +111,7 @@ JOIN wp_users as users ON (users.`ID` = posts.post_author)
 AND posts.post_status = "publish"
 AND meta.meta_key = "_thumbnail_id")
 UNION
-(SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Petersen's Hunting" as brand,
+(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Petersen's Hunting" as brand,
 (SELECT count(comment_ID) from wp_7_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.petersenshunting.com" as domain  
 FROM wp_7_posts as posts
 JOIN wp_7_term_relationships as relationships ON (posts.ID = relationships.object_id)
@@ -123,7 +124,7 @@ AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
 AND meta.meta_key = "_thumbnail_id")
 UNION
-(SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Wildfowl" as brand,
+(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Wildfowl" as brand,
 (SELECT count(comment_ID) from wp_8_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.wildfowlmag.com" as domain
 FROM wp_8_posts as posts
 JOIN wp_8_term_relationships as relationships ON (posts.ID = relationships.object_id)
@@ -136,7 +137,7 @@ AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
 AND meta.meta_key = "_thumbnail_id")
 UNION
-(SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Handguns" as brand,
+(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Handguns" as brand,
 (SELECT count(comment_ID) from wp_9_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.handgunsmag.com" as domain  
 FROM wp_9_posts as posts
 JOIN wp_9_term_relationships as relationships ON (posts.ID = relationships.object_id)
@@ -149,7 +150,7 @@ AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
 AND meta.meta_key = "_thumbnail_id")
 UNION
-(SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Rifleshooter" as brand,
+(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Rifleshooter" as brand,
 (SELECT count(comment_ID) from wp_10_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.rifleshootermag.com" as domain  
 FROM wp_10_posts as posts
 JOIN wp_10_term_relationships as relationships ON (posts.ID = relationships.object_id)
@@ -162,7 +163,7 @@ AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
 AND meta.meta_key = "_thumbnail_id")
 UNION
-(SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Shooting Times" as brand,
+(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Shooting Times" as brand,
 (SELECT count(comment_ID) from wp_11_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.shootingtimes.com" as domain
 FROM wp_11_posts as posts
 JOIN wp_11_term_relationships as relationships ON (posts.ID = relationships.object_id)
@@ -175,7 +176,7 @@ AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
 AND meta.meta_key = "_thumbnail_id")
 UNION
-(SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Shotgun News" as brand,
+(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Shotgun News" as brand,
 (SELECT count(comment_ID) from wp_12_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_coun, "www.shotgunnews.com" as domain
 FROM wp_12_posts as posts
 JOIN wp_12_term_relationships as relationships ON (posts.ID = relationships.object_id)
@@ -188,7 +189,7 @@ AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
 AND meta.meta_key = "_thumbnail_id")
 UNION
-(SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Florida Sportsman" as brand,
+(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Florida Sportsman" as brand,
 (SELECT count(comment_ID) from wp_13_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.floridasportsman.com" as domain
 FROM wp_13_posts as posts
 JOIN wp_13_term_relationships as relationships ON (posts.ID = relationships.object_id)
@@ -201,7 +202,7 @@ AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
 AND meta.meta_key = "_thumbnail_id")
 UNION
-(SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Game & Fish" as brand,
+(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Game & Fish" as brand,
 (SELECT count(comment_ID) from wp_14_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.gameandfishmag.com" as domain
 FROM wp_14_posts as posts
 JOIN wp_14_term_relationships as relationships ON (posts.ID = relationships.object_id)
@@ -214,7 +215,7 @@ AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
 AND meta.meta_key = "_thumbnail_id")
 UNION
-(SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "In-Fisherman" as brand,
+(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "In-Fisherman" as brand,
 (SELECT count(comment_ID) from wp_15_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.in-fisherman.com" as domain
 FROM wp_15_posts as posts
 JOIN wp_15_term_relationships as relationships ON (posts.ID = relationships.object_id)
@@ -227,7 +228,7 @@ AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
 AND meta.meta_key = "_thumbnail_id")
 UNION
-(SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Flyfisherman" as brand,
+(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Flyfisherman" as brand,
 (SELECT count(comment_ID) from wp_16_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.flyfisherman.com" as domain
 FROM wp_16_posts as posts
 JOIN wp_16_term_relationships as relationships ON (posts.ID = relationships.object_id)
@@ -239,7 +240,7 @@ JOIN wp_users as users ON (users.`ID` = posts.post_author)
 AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
 AND meta.meta_key = "_thumbnail_id")
-ORDER BY $sort DESC LIMIT 400
+ORDER BY $sort DESC LIMIT 200
 EOT;
 
         $stmt = $db->prepare($sql);
@@ -252,6 +253,18 @@ EOT;
             $postContent = preg_replace('/\[[^\)]+\]/', "", $postContent);
             $postContent = str_replace("\n", "", $postContent);
             $postContent = str_replace("\r", "", $postContent);
+            $postContent = str_replace("\xe2", "", $postContent);
+            $postContent = str_replace("\x80", "", $postContent);
+            $postContent = str_replace("\x9d", "", $postContent);
+            $postContent = str_replace("\x99", "", $postContent);
+            $postContent = str_replace("\x9c", "", $postContent);
+            $postContent = str_replace("\x94", "", $postContent);
+            $postContent = str_replace("\\", "", $postContent);
+            $postContent = str_replace("\xa6", "", $postContent);
+            $postContent = str_replace("\\", "", $postContent);
+            $postContent = str_replace("\x93", "", $postContent);
+            $postContent = str_replace("\xa8", "", $postContent);
+
             $postContent = substr($postContent,0,120) . "...";
             $posts[$key]->post_content = $postContent;
 
@@ -264,12 +277,16 @@ EOT;
             $niceDate = date("F j, Y",$timestamp);
             $posts[$key]->post_nicedate = $niceDate;
 
+            $posts[$key]->post_excerpt = "";
+
             $thumbnail = str_replace(".jpg", "-190x120.jpg", $post->img_url);
             $posts[$key]->img_url = $thumbnail;
 
             if ($post->domain == "www.northamericanwhitetail.com") {
                 $posts[$key]->terms = getWhitetailPostTerms($post->ID);
             }
+
+
             
 
         }
@@ -277,9 +294,13 @@ EOT;
 
         $json = json_encode($posts);
 
-        $f = fopen("cache/naw-plus-$sort.json", "w");
-        fwrite($f, $json);
-        fclose($f); 
+        if (!empty($posts)) {
+	        $f = fopen("../wp-content/cache/superloop/naw-plus-$sort.json", "w");
+	        fwrite($f, $json);
+	        fclose($f); 
+        }
+
+        
 
         echo $json;
 
@@ -297,6 +318,7 @@ EOT;
 //*** Get all posts in NAW+ AND SOMETHING ELSE ***
 //************************************************
 $app->get('/imomags/term/naw-plus/:term(/sort/:sort)',function($term,$sort = "post_date"){
+	//$sort = mysql_real_escape_string($sort);
 
     header('Access-Control-Allow-Origin: *');  
 
@@ -331,7 +353,7 @@ $app->get('/imomags/term/naw-plus/:term(/sort/:sort)',function($term,$sort = "po
 
 
         $sql = <<<EOT
-(SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, terms2.slug as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Guns & Ammo" as brand,
+(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, null as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Guns & Ammo" as brand,
 (SELECT count(comment_ID) from wp_2_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.gunsandammo.com" as domain
 FROM wp_2_term_relationships as relationships
 JOIN wp_2_term_relationships as relationships2 ON (relationships.`object_id` = relationships2.`object_id`)
@@ -346,9 +368,10 @@ JOIN wp_users as users ON (users.`ID` = posts.post_author)
 AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
 AND terms2.slug IN ($inQmarks)
+AND term_taxonomy2.taxonomy = "category"
 AND meta.meta_key = "_thumbnail_id")
 UNION
-(SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, terms2.slug as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Bowhunter" as brand,
+(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, null as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Bowhunter" as brand,
 (SELECT count(comment_ID) from wp_3_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.bowhunter.com" as domain
 FROM wp_3_term_relationships as relationships
 JOIN wp_3_term_relationships as relationships2 ON (relationships.`object_id` = relationships2.`object_id`)
@@ -363,10 +386,11 @@ JOIN wp_users as users ON (users.`ID` = posts.post_author)
 AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
 AND terms2.slug IN ($inQmarks)
+AND term_taxonomy2.taxonomy = "category"
 AND meta.meta_key = "_thumbnail_id")
 UNION
-(SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, terms2.slug as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Petersen's Bowhunting" as brand,
-(SELECT count(comment_ID) from wp_4_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.petersensbowhunting.com" as domain
+(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, null as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Petersen's Bowhunting" as brand,
+(SELECT count(comment_ID) from wp_4_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.bowhuntingmag.com" as domain
 FROM wp_4_term_relationships as relationships
 JOIN wp_4_term_relationships as relationships2 ON (relationships.`object_id` = relationships2.`object_id`)
 JOIN wp_4_term_taxonomy as term_taxonomy2 ON (relationships2.term_taxonomy_id = term_taxonomy2.term_taxonomy_id)
@@ -380,9 +404,10 @@ JOIN wp_users as users ON (users.`ID` = posts.post_author)
 AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
 AND terms2.slug IN ($inQmarks)
+AND term_taxonomy2.taxonomy = "category"
 AND meta.meta_key = "_thumbnail_id")
 UNION
-(SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, terms2.slug as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Gundog" as brand,
+(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, null as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Gundog" as brand,
 (SELECT count(comment_ID) from wp_5_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.gundogmag.com" as domain
 FROM wp_5_term_relationships as relationships
 JOIN wp_5_term_relationships as relationships2 ON (relationships.`object_id` = relationships2.`object_id`)
@@ -397,9 +422,10 @@ JOIN wp_users as users ON (users.`ID` = posts.post_author)
 AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
 AND terms2.slug IN ($inQmarks)
+AND term_taxonomy2.taxonomy = "category"
 AND meta.meta_key = "_thumbnail_id")
 UNION
-(SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, null as slug, null as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "North American Whitetail" as brand,
+(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, null as slug, null as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "North American Whitetail" as brand,
 (SELECT count(comment_ID) from wp_6_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.northamericanwhitetail.com" as domain
 FROM wp_6_term_relationships as relationships
 JOIN wp_6_term_relationships as relationships2 ON (relationships.`object_id` = relationships2.`object_id`)
@@ -413,9 +439,10 @@ JOIN wp_6_postmeta as meta ON (meta.meta_value = attachments.ID)
 JOIN wp_users as users ON (users.`ID` = posts.post_author)
 AND posts.post_status = "publish"
 AND terms2.slug IN ($inQmarks)
+AND term_taxonomy2.taxonomy = "category"
 AND meta.meta_key = "_thumbnail_id")
 UNION
-(SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, terms2.slug as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Petersen's Hunting" as brand,
+(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, null as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Petersen's Hunting" as brand,
 (SELECT count(comment_ID) from wp_7_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.petersenshunting.com" as domain
 FROM wp_7_term_relationships as relationships
 JOIN wp_7_term_relationships as relationships2 ON (relationships.`object_id` = relationships2.`object_id`)
@@ -430,9 +457,10 @@ JOIN wp_users as users ON (users.`ID` = posts.post_author)
 AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
 AND terms2.slug IN ($inQmarks)
+AND term_taxonomy2.taxonomy = "category"
 AND meta.meta_key = "_thumbnail_id")
 UNION
-(SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, terms2.slug as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Wildfowl" as brand,
+(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, null as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Wildfowl" as brand,
 (SELECT count(comment_ID) from wp_8_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.wildfowlmag.com" as domain
 FROM wp_8_term_relationships as relationships
 JOIN wp_8_term_relationships as relationships2 ON (relationships.`object_id` = relationships2.`object_id`)
@@ -447,9 +475,10 @@ JOIN wp_users as users ON (users.`ID` = posts.post_author)
 AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
 AND terms2.slug IN ($inQmarks)
+AND term_taxonomy2.taxonomy = "category"
 AND meta.meta_key = "_thumbnail_id")
 UNION
-(SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, terms2.slug as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Handguns" as brand,
+(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, null as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Handguns" as brand,
 (SELECT count(comment_ID) from wp_9_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.handgunsmag.com" as domain
 FROM wp_9_term_relationships as relationships
 JOIN wp_9_term_relationships as relationships2 ON (relationships.`object_id` = relationships2.`object_id`)
@@ -464,9 +493,10 @@ JOIN wp_users as users ON (users.`ID` = posts.post_author)
 AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
 AND terms2.slug IN ($inQmarks)
+AND term_taxonomy2.taxonomy = "category"
 AND meta.meta_key = "_thumbnail_id")
 UNION
-(SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, terms2.slug as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Rifleshooter" as brand,
+(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, null as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Rifleshooter" as brand,
 (SELECT count(comment_ID) from wp_10_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.rifleshootermag.com" as domain
 FROM wp_10_term_relationships as relationships
 JOIN wp_10_term_relationships as relationships2 ON (relationships.`object_id` = relationships2.`object_id`)
@@ -481,9 +511,10 @@ JOIN wp_users as users ON (users.`ID` = posts.post_author)
 AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
 AND terms2.slug IN ($inQmarks)
+AND term_taxonomy2.taxonomy = "category"
 AND meta.meta_key = "_thumbnail_id")
 UNION
-(SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, terms2.slug as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Shooting Times" as brand,
+(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, null as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Shooting Times" as brand,
 (SELECT count(comment_ID) from wp_11_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.shootingtimes.com" as domain
 FROM wp_11_term_relationships as relationships
 JOIN wp_11_term_relationships as relationships2 ON (relationships.`object_id` = relationships2.`object_id`)
@@ -498,9 +529,10 @@ JOIN wp_users as users ON (users.`ID` = posts.post_author)
 AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
 AND terms2.slug IN ($inQmarks)
+AND term_taxonomy2.taxonomy = "category"
 AND meta.meta_key = "_thumbnail_id")
 UNION
-(SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, terms2.slug as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Shotgun News" as brand,
+(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, null as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Shotgun News" as brand,
 (SELECT count(comment_ID) from wp_12_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.shotgunnews.com" as domain
 FROM wp_12_term_relationships as relationships
 JOIN wp_12_term_relationships as relationships2 ON (relationships.`object_id` = relationships2.`object_id`)
@@ -515,9 +547,10 @@ JOIN wp_users as users ON (users.`ID` = posts.post_author)
 AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
 AND terms2.slug IN ($inQmarks)
+AND term_taxonomy2.taxonomy = "category"
 AND meta.meta_key = "_thumbnail_id")
 UNION
-(SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, terms2.slug as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Florida Sportsman" as brand,
+(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, null as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Florida Sportsman" as brand,
 (SELECT count(comment_ID) from wp_13_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.floridasportsman.com" as domain
 FROM wp_13_term_relationships as relationships
 JOIN wp_13_term_relationships as relationships2 ON (relationships.`object_id` = relationships2.`object_id`)
@@ -532,9 +565,10 @@ JOIN wp_users as users ON (users.`ID` = posts.post_author)
 AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
 AND terms2.slug IN ($inQmarks)
+AND term_taxonomy2.taxonomy = "category"
 AND meta.meta_key = "_thumbnail_id")
 UNION
-(SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, terms2.slug as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Game & Fish" as brand,
+(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, null as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Game & Fish" as brand,
 (SELECT count(comment_ID) from wp_14_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.gameandfishmag.com" as domain
 FROM wp_14_term_relationships as relationships
 JOIN wp_14_term_relationships as relationships2 ON (relationships.`object_id` = relationships2.`object_id`)
@@ -549,9 +583,10 @@ JOIN wp_users as users ON (users.`ID` = posts.post_author)
 AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
 AND terms2.slug IN ($inQmarks)
+AND term_taxonomy2.taxonomy = "category"
 AND meta.meta_key = "_thumbnail_id")
 UNION
-(SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, terms2.slug as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "In-Fisherman" as brand,
+(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, null as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "In-Fisherman" as brand,
 (SELECT count(comment_ID) from wp_15_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.in-fisherman.com" as domain
 FROM wp_15_term_relationships as relationships
 JOIN wp_15_term_relationships as relationships2 ON (relationships.`object_id` = relationships2.`object_id`)
@@ -566,9 +601,10 @@ JOIN wp_users as users ON (users.`ID` = posts.post_author)
 AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
 AND terms2.slug IN ($inQmarks)
+AND term_taxonomy2.taxonomy = "category"
 AND meta.meta_key = "_thumbnail_id")
 UNION
-(SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, terms2.slug as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Flyfisherman" as brand,
+(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, null as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Flyfisherman" as brand,
 (SELECT count(comment_ID) from wp_16_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.flyfisherman.com" as domain
 FROM wp_16_term_relationships as relationships
 JOIN wp_16_term_relationships as relationships2 ON (relationships.`object_id` = relationships2.`object_id`)
@@ -583,8 +619,9 @@ JOIN wp_users as users ON (users.`ID` = posts.post_author)
 AND posts.post_status = "publish"
 AND terms.slug = "naw-plus"
 AND terms2.slug IN ($inQmarks)
+AND term_taxonomy2.taxonomy = "category"
 AND meta.meta_key = "_thumbnail_id")
-ORDER BY $sort DESC LIMIT 400
+ORDER BY $sort DESC LIMIT 200
 
 
 EOT;
@@ -620,8 +657,23 @@ EOT;
             $postContent = preg_replace('/\[[^\)]+\]/', "", $postContent);
             $postContent = str_replace("\n", "", $postContent);
             $postContent = str_replace("\r", "", $postContent);
+            $postContent = str_replace("\xe2", "", $postContent);
+            $postContent = str_replace("\x80", "", $postContent);
+            $postContent = str_replace("\x9d", "", $postContent);
+            $postContent = str_replace("\x99", "", $postContent);
+            $postContent = str_replace("\x9c", "", $postContent);
+            $postContent = str_replace("\x94", "", $postContent);
+            $postContent = str_replace("\xa6", "", $postContent);
+            $postContent = str_replace("\\", "", $postContent);
+            $postContent = str_replace("\x93", "", $postContent);
+            $postContent = str_replace("\xa8", "", $postContent);
+            $postContent = str_replace("\\", "", $postContent);
+            $postContent = str_replace("\\", "", $postContent);
+
             $postContent = substr($postContent,0,120) . "...";
             $posts[$key]->post_content = $postContent;
+
+            $posts[$key]->post_excerpt = "";
 
             //Generate the URL
             $timestamp =  strtotime($post->post_date);
@@ -636,10 +688,26 @@ EOT;
             $thumbnail = str_replace(".jpg", "-190x120.jpg", $post->img_url);
             $posts[$key]->img_url = $thumbnail;
 
+
+
+
             //Check to see if we need to add terms
             if ($post->domain == "www.northamericanwhitetail.com") {
                 $posts[$key]->terms = getPostTerms($post->ID);
             }
+
+
+            //TESTING
+        
+            // _log($post);
+            // json_encode($post);
+
+            // echo "<pre>";
+            // print_r($post);
+            // echo $termString;
+            // echo "</pre>";
+        
+            //$json = json_encode($post);
 
         }
 
@@ -648,9 +716,13 @@ EOT;
 
         $db = "";
 
-        $f = fopen("cache/naw-plus-$term-$sort.json", "w");
-        fwrite($f, $json);
-        fclose($f); 
+        if (!empty($posts)) {
+	        $f = fopen("../wp-content/cache/superloop/naw-plus-$term-$sort.json", "w");
+	        fwrite($f, $json);
+	        fclose($f);         	
+        }
+
+
 
     } catch(PDOException $e) {
         echo $e->getMessage();
@@ -658,7 +730,7 @@ EOT;
 
 });
 
-
+//sftp://cms-dev-aaron.imoutdoors.com//data/wordpress/imomags-nfs/cache/superloop
 
 
 
@@ -675,7 +747,7 @@ $app->get('/imomags/site_by_term/:site_id/:term_slug/:start',function($site_id,$
 
 
         $sql = <<<EOT
-		SELECT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Guns & Ammo" as brand,
+		SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Guns & Ammo" as brand,
 		(SELECT count(comment_ID) from wp_{$site_id}_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count  
 		FROM wp_{$site_id}_posts as posts
 		JOIN wp_{$site_id}_term_relationships as relationships ON (posts.ID = relationships.object_id)
@@ -740,6 +812,15 @@ EOT;
 
 });
 
+//************************************************
+//*** TEST ***
+//************************************************
+$app->get('/test',function(){
+
+	$json = json_encode("LOREM IPSUM.");
+    echo $json;
+});
+
 
 function getPostTerms($post_id, $site_id = 6) {
 
@@ -762,6 +843,11 @@ function getPostTerms($post_id, $site_id = 6) {
 
         $db = "";
 
+        foreach ($terms as $key => $term) {
+	    	$parent = getParentTerm($term);
+	    	$terms[$key]->parent = $parent;
+        }
+
         return($terms);
 
     } catch(PDOException $e) {
@@ -780,6 +866,7 @@ function getWhitetailPostTerms($post_id, $site_id = 6) {
             JOIN wp_{$site_id}_term_taxonomy as tt on (t.`term_id` = tt.`term_id`)
             JOIN `wp_{$site_id}_term_relationships`as tr on (tr.`term_taxonomy_id` = tt.`term_taxonomy_id`)
             WHERE tr.`object_id` = ?
+            AND slug != 'naw-plus'
             AND taxonomy = 'category'";
 
         
@@ -791,11 +878,60 @@ function getWhitetailPostTerms($post_id, $site_id = 6) {
 
         $db = "";
 
+        foreach ($terms as $key => $term) {
+        	$parent = getParentTerm($term);
+        	$terms[$key]->parent = $parent;
+        }
+
         return($terms);
 
     } catch(PDOException $e) {
         echo $e->getMessage();
     }
+}
+
+function getParentTerm($term) {
+
+	try {
+
+
+        $db = dbConnect();
+
+        $sql = "SELECT t.slug FROM wp_6_terms as t
+				JOIN wp_6_term_taxonomy as tt ON t.term_id = tt.term_id
+				JOIN wp_6_term_taxonomy as tp ON tp.parent = tt.term_id
+				JOIN wp_6_terms ts ON ts.term_id = tp.term_id
+				WHERE tt.taxonomy = 'category'
+				AND ts.slug = ?";
+
+        
+
+        $stmt = $db->prepare($sql);
+        $stmt->execute(array($term->slug));
+    
+        $terms = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+        $db = "";
+
+        foreach ($terms as $term) {
+
+        	$slug = $term->slug;
+        	$results[] = $slug;
+
+
+
+        }
+
+        $slug = null;
+        if (!empty($terms))
+        	$slug = $terms[0]->slug;
+
+        return($slug);
+
+    } catch(PDOException $e) {
+        echo $e->getMessage();
+    }
+
 }
 
 
@@ -836,6 +972,25 @@ function getAllChildTerms($term_slug, &$results = array()) {
     } catch(PDOException $e) {
         echo $e->getMessage();
     }
+}
+
+
+
+
+
+
+/* Better Logging Function */
+if(!function_exists('_log')){
+  function _log( $message ) {
+	  if( is_array( $message ) || is_object( $message ) ){
+
+	  	$errorString = print_r( $message, true );
+
+	    error_log( "$errorString",0);
+	  } else {
+	    error_log( $message );
+	  }
+  	}
 }
 
 

@@ -34,13 +34,17 @@ function get_cat_slug($cat_id) {
 	<header class="header-title">
 		<h1><?php single_cat_title(''); ?></h1>
 	</header>	
-	<?php if(   !is_category( array( 'tactics','trophy-bucks','land-management','deer-of-the-day','video','gear' )  )   ){ ?>
+	<?php if(   !is_category( array( 'tactics','trophy-bucks','land-management','deer-of-the-day','video','gear','galleries' )  )   ){ ?>
 		<div class="breadcrumbs"><?php echo get_category_parents($cat, TRUE, ' &raquo; '); ?></div> 
 	<?php } ?>
 	<?php if (!is_category('video')){ ?>
 	<div class="bonus-background">
 		<div class="sidebar">
 			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-default')) : else : ?><?php endif; ?>
+		</div>
+		<div id="responderfollow"></div>
+		<div class="sidebar advert">
+			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('scroll-sidebar')) : else : ?><?php endif; ?>
 		</div>
 	</div>
 	<?php } ?>
@@ -101,13 +105,13 @@ function get_cat_slug($cat_id) {
  		</div>
  		<div class="col-abc">
 		<div class="header-sort">
-				<h1 class="more-header">Load More <?php single_cat_title(''); ?></h1>
+				<h1 class="more-header">More <?php single_cat_title(''); ?></h1>
 				<div class='cssmenu'>
 					<ul>
 					   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
 					      <ul>
-					         <li><a href='#'><span>Recent</span></a></li>
-					         <li><a href='#'><span>Commented</span></a></li>
+					         <li><a href='#' class="local-sort-link" sort="post_date"><span>Recent</span></a></li>
+					         <li><a href='#' class="local-sort-link" sort="comment_count"><span>Commented</span></a></li>
 					      </ul>
 					   </li>
 					</ul>
@@ -117,7 +121,7 @@ function get_cat_slug($cat_id) {
 	<?php } else if (is_category('trophy-bucks')){ 
 	//TROPHY BUCKS PAGE
 	?>
-		<div class="cat-col-left">
+		<div class="cat-col-full">
 				<?php
 					$count = 0;
 					$args = array(
@@ -131,7 +135,7 @@ function get_cat_slug($cat_id) {
 					// The Query
 					$the_query = new WP_Query( $args ); ?>
 			
-			<div id="slideshow_mask">
+			<div id="slideshow_mask" class="featured-thumb-wide">
 				<div id="slideshow">
 					
 	
@@ -141,7 +145,7 @@ function get_cat_slug($cat_id) {
 					
 						<div class='featured-item-pane cat-slide'>
 							<div class='featured-item-image'>
-								<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('large-featured-thumb-x'); ?></a>
+								<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('huge-thumbs'); ?></a>
 							</div>
 							<div class='featured-item-description'>
 								<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
@@ -159,25 +163,16 @@ function get_cat_slug($cat_id) {
 						<a id="prev"></a>
 						<a id="next"></a>		
 							
-		</div><!-- end left -->	
- 		
- 		<div class="cat-col-right">
-	 		<div class="cfct-module cfct-html mod-gallery">	
-				<h2>Topics</h2>
- 			</div>
-	 			<ul class="land-topics">
-					<?php wp_list_categories('hide_empty=0&title_li=&child_of=' . $cat_id);	?>
-	 			</ul>
- 		</div>
+		</div><!-- end left/no right -->	
  		<div class="col-abc">
 	 		<div class="header-sort">
-				<h1 class="more-header">Load More <?php single_cat_title(''); ?></h1>
+				<h1 class="more-header">More <?php single_cat_title(''); ?></h1>
 				<div class='cssmenu'>
 					<ul>
 					   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
 					      <ul>
-					         <li><a href='#'><span>Recent</span></a></li>
-					         <li><a href='#'><span>Commented</span></a></li>
+					         <li><a href='#' class="local-sort-link" sort="post_date"><span>Recent</span></a></li>
+					         <li><a href='#' class="local-sort-link" sort="comment_count"><span>Commented</span></a></li>
 					      </ul>
 					   </li>
 					</ul>
@@ -241,13 +236,13 @@ function get_cat_slug($cat_id) {
  		</div>
  		<div class="col-abc">
 		<div class="header-sort">
-			<h1 class="more-header">Load More <?php single_cat_title(''); ?></h1>
+			<h1 class="more-header">More <?php single_cat_title(''); ?></h1>
 			<div class='cssmenu'>
 				<ul>
 				   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
 				      <ul>
-				         <li><a href='#'><span>Recent</span></a></li>
-				         <li><a href='#'><span>Commented</span></a></li>
+					         <li><a href='#' class="local-sort-link" sort="post_date"><span>Recent</span></a></li>
+					         <li><a href='#' class="local-sort-link" sort="comment_count"><span>Commented</span></a></li>
 				      </ul>
 				   </li>
 				</ul>
@@ -302,90 +297,19 @@ function get_cat_slug($cat_id) {
 		</div><!-- end left/no right -->	
  		<div class="col-abc">
 	 		<div class="header-sort">
-				<h1 class="more-header">Load More <?php single_cat_title(''); ?></h1>
+				<h1 class="more-header">More <?php single_cat_title(''); ?></h1>
 				<div class='cssmenu'>
 					<ul>
 					   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
 					      <ul>
-					         <li><a href='#'><span>Recent</span></a></li>
-					         <li><a href='#'><span>Commented</span></a></li>
+					         <li><a href='#' class="local-sort-link" sort="post_date"><span>Recent</span></a></li>
+					         <li><a href='#' class="local-sort-link" sort="comment_count"><span>Commented</span></a></li>
 					      </ul>
 					   </li>
 					</ul>
 				</div>
 			</div>
 
-	<?php } else if (is_category('gear')){ 
-	//DOD PAGE
-	?>
-		<div class="cat-col-left">
-				<?php
-					$count = 0;
-					$args = array(
-					'post_type' => 'post',
-					'post_status' => 'publish',
-					'category_name' => 'gear',
-					'orderby' => 'date',
-					'order' => 'DESC',
-					'posts_per_page' => 4,
-					);
-					// The Query
-					$the_query = new WP_Query( $args ); ?>
-			
-			<div id="slideshow_mask">
-				<div id="slideshow">
-					
-	
-					<?php // The Loop
-					while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-					
-					
-						<div class='featured-item-pane cat-slide'>
-							<div class='featured-item-image'>
-								<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('large-featured-thumb-x'); ?></a>
-							</div>
-							<div class='featured-item-description'>
-								<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-							</div>
-						</div>
-						
-						
-						<?php endwhile;
-						// Reset Post Data
-						wp_reset_postdata(); ?>
-				</div>
-			</div>
-				
-				<div id="pager" class=""></div>
-						<a id="prev"></a>
-						<a id="next"></a>		
-							
-		</div><!-- end left -->	
- 		
- 		<div class="cat-col-right">
-	 		<div class="cfct-module cfct-html mod-gallery">	
-				<h2>Topics</h2>
- 			</div>
-	 			<ul class="land-topics">
-					<?php wp_list_categories('hide_empty=0&title_li=&child_of=' . $cat_id);	?>
-	 			</ul>
- 		</div>
-	 	<div class="col-abc">
-			<div class="header-sort">
-				<h1 class="more-header">Load More <?php single_cat_title(''); ?></h1>
-				<div class='cssmenu'>
-					<ul>
-					   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
-					      <ul>
-					         <li><a href='#'><span>Recent</span></a></li>
-					         <li><a href='#'><span>Commented</span></a></li>
-					      </ul>
-					   </li>
-					</ul>
-				</div>
-			</div>
-
- 		 		
 	<?php } else if (is_category('video')){ 
 	//VIDEO PAGE
 	?>
@@ -430,6 +354,28 @@ function get_cat_slug($cat_id) {
 		<div class="sidebar">
 			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-default')) : else : ?><?php endif; ?>
 		</div>
+		<div id="sticky-cat" class="advert">
+			<div class="advert-widget widget widget_advert-widget">
+				 <?php if (function_exists("imo_dart_tag")) {
+	            imo_dart_tag("300x250");
+	          } else { ?>
+	  	        <!-- 300x250 Ad: -->
+	            <script type="text/javascript">
+	              document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dartadsgen_site+'/;sect=;page=index;subs=;sz=300x250;dcopt=;tile='+pr_tile+';ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
+	            </script>
+	            <script type="text/javascript">
+	              ++pr_tile;
+	            </script>
+	            <noscript>
+	              <a href="http://ad.doubleclick.net/adj/imo.outdoorsbest/;sect=;page=index;subs=;sz=300x250;dcopt=;tile=1;ord=7391727509?">
+	                <img src="http://ad.doubleclick.net/ad/imo.outdoorsbest/home;sect=;page=index;subs=;sz=300x250;dcopt=;tile=1;ord=7391727509?" border="0" />
+	              </a>
+	            </noscript>
+	            <!-- END 300x250 Ad: -->
+	          <?php } ?>
+			</div>
+		</div>
+
 	</div>
 	<?php } ?>
 	<div class="col-abc">

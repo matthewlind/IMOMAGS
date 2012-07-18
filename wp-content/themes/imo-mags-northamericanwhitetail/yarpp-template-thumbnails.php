@@ -4,10 +4,10 @@ Author: Fox Bowden
 */
 ?>
 
-<h4 class="meta">Related Stories</h4>
+
 
 <?php if ($related_query->have_posts()):?>
-
+<h4 class="meta">Related Stories</h4>
 <div class="questions-slider related-slider">
     <div class="otd-questions">
         <div class="slides-container-f">
@@ -22,7 +22,7 @@ Author: Fox Bowden
 	                if(has_post_thumbnail()){ ?>
                 
 				<li>
-				<p<?php if( in_category('video') ){echo ' class="video-excerpt"';}else if( in_category('galleries') ){echo ' class="gallery-excerpt"';} ?>><?php the_post_thumbnail(); ?><?php if(  in_category(  array( 'video','galleries' )  )  ){echo '<span></span>';} ?></p>
+				<a href="<?php the_permalink(); ?>"<?php if( in_category('video') ){echo ' class="video-excerpt"';}else if( in_category('galleries') ){echo ' class="gallery-excerpt"';} ?>><?php the_post_thumbnail(); ?><?php if(  in_category(  array( 'video','galleries' )  )  ){echo '<span></span>';} ?></a>
 
 				<a href="<?php the_permalink() ?>" rel="bookmark">
 		

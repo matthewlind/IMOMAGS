@@ -46,15 +46,13 @@ class Gallery_Loop_Widget extends WP_Widget {
 							</article>
 			
 				<?php endwhile;
-				next_posts_link();
-				previous_posts_link();
 				// Reset Post Data
 				wp_reset_postdata(); 
 				
 				?>
 
       	<div class="footer">
-	      	<a href="/category/gallaries/">More Galleries<span></span></a>
+	      	<a href="/category/galleries/">More Galleries<span></span></a>
       	</div>
     </aside>
 

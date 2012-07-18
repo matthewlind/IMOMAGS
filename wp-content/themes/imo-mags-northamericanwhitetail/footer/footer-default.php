@@ -37,7 +37,7 @@ $args = array(
           <div id="mag-gf" class="mag">
             <a class="site-link" href="http://www.gameandfishmag.com/" title="Visit www.gameandfishmag.com">
               <img class="cover" src="<?php print get_stylesheet_directory_uri(); ?>/img/mags_gf.jpg" alt />
-              <h5>Game & Fish Illinois</h5>
+              <h5>Game & Fish</h5>
             </a>
             <?php switch_to_blog(14);
             $blog = new WP_Query($args);
@@ -332,7 +332,7 @@ $args = array(
 
 
   <article id="excerpt-template" class="post type-post status-publish format-standard hentry entry entry-excerpt has-img" style="display:none;">
-    <a <?php if( is_category('video') ){echo 'class="video-excerpt"';}else if( is_category('galleries') ){echo ' class="gallery-excerpt"';} ?> href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/"><img width="190" height="120" src="http://www.northamericanwhitetail.deva/files/2012/03/NAWdd_031312-190x120.jpg" class="entry-img wp-post-image" alt="" title="" /><?php if( is_category(array('video','galleries')) ){echo '<span></span>';} ?></a>
+    <a href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/"><img width="190" height="120" src="http://www.northamericanwhitetail.deva/files/2012/03/NAWdd_031312-190x120.jpg" class="entry-img wp-post-image" alt="" title="" /></a>
 
     <div class="entry-summary">
       <span class="entry-category"><a href="http://www.northamericanwhitetail.deva/category/deer-of-the-day/" title="View all posts in Deer of the Day" rel="category tag">Deer of the Day</a></span>
@@ -471,6 +471,24 @@ $args = array(
 
 
   </div><!-- End user login modal container -->
+  	<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery.jfollow.js"></script>
+	<!-- mousewheel plugin -->
+	<!--<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery.mousewheel.min.js"></script> -->
+	<!-- custom scrollbars plugin -->
+	<!--<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery.mCustomScrollbar.js"></script>
+	<script type="text/javascript">
+		(function($){
+			$(window).load(function(){
+				/* custom scrollbar fn call */
+								$(".slide-out-content").mCustomScrollbar({
+					scrollInertia:0
+				});
+								
+				
+				
+			});
+		})(jQuery);
+	</script> -->
 
 
 

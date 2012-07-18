@@ -32,7 +32,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
   <?php if (is_page_template("page-cabelas.php")) : ?>
 	<link rel="stylesheet" type="text/css" media="screen" href="<?php bloginfo('template_url'); ?>/css/contest.css?ver=<?php echo CFCT_URL_VERSION; ?>" />
   <?php  endif; ?>     	
-
+  <script src="//cdn.optimizely.com/js/60055218.js"></script>
   <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/scripts.js"></script>
   
   <?php if (defined('JETPACK_SITE')): ?>
@@ -98,7 +98,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
   			)); ?>
   			
   			<div class="stay-connected">
-  			 <div class="fb-like" data-href="http://www.facebook.com/pages/Guns-and-Ammo/110008639020864" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>
+  			 <div class="fb-like" data-href="http://www.facebook.com/GunsAndAmmoMag" data-send="false" data-layout="button_count" data-width="100" data-show-faces="true"></div>
   			 <span class="label">Stay Connected</span>
   			 <ul class="connections">
   			   <li><a class="facebook" href="http://www.facebook.com/GunsAndAmmoMag" title="Find us on Facebook">Facebook</a></li>

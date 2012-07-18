@@ -83,4 +83,9 @@ jQuery(document).ready(function($) {
 
 });
 
+// Related Content slider
+$(document).ready(function(){
+				
+	jQuery('#slides-related').jcarousel({scroll: 3});	
 
+});

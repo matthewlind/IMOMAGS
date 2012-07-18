@@ -38,6 +38,9 @@
 	<?php
 		
 		
+
+		
+
 		if (!empty($items)) {
 			$count = 0;
 			foreach ($items as $key => $item) {
@@ -74,3 +77,4 @@
 </div>
  <!-- end feature -->  
 <?php echo $js_init; ?>
+

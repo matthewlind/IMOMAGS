@@ -62,7 +62,6 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 		?>
 	</div>
 	<?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
-	<a href="<?php echo home_url('/'); ?>/crownroyal/">&laquo; Back to the contest page</a>
 	<div class="entry-footer">
 		<?php _e('In', 'carrington-business'); ?>
 		<?php

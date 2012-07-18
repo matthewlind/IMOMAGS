@@ -35,7 +35,9 @@ class IMOSliderWidget extends \WP_Widget {
 
 
 	<!-- Widget Header: Text Input -->
+
 	<p style="height:420px;">
+
 
         <label for="<?php echo $this->get_field_id( 'header' ); ?>">Title:</label>
         <input id="<?php echo $this->get_field_id( 'header' ); ?>" name="<?php echo $this->get_field_name( 'header' ); ?>" value="<?php echo $instance['header']; ?>" style="width:100%;" />
@@ -46,8 +48,10 @@ class IMOSliderWidget extends \WP_Widget {
         <?php $this->the_post_type_select($instance); ?>
         <label for="<?php echo $this->get_field_id( 'limit' ); ?>" style="display:block;padding-top:10px;" >Post Count Limit:</label>
         <?php $this->the_limit_input($instance); ?>
+
         <label for="<?php echo $this->get_field_id( 'width' ); ?>">Width:</label>
         <input id="<?php echo $this->get_field_id( 'width' ); ?>" name="<?php echo $this->get_field_name( 'width' ); ?>" value="<?php echo $instance['width']; ?>" style="display:block;padding-top:10px;" />
+
 
 
 	</p>
@@ -72,11 +76,13 @@ class IMOSliderWidget extends \WP_Widget {
 		$instance['taxonomy'] = $new_instance['taxonomy'];
         $instance['limit'] = $new_instance['limit'];
         $instance['header'] = $new_instance['header'];
+
         $instance['width'] = $new_instance['width'];
 	
 		return $instance;
     }
 	
+
     /**
      * Outputs the widget contet.
      * @see WP_Widget::widget
@@ -129,9 +135,11 @@ class IMOSliderWidget extends \WP_Widget {
             echo $instance['header'];
             echo "</div>";
         }
+
        
 		$width = $instance['width'];
         echo "<div id='scroll_mask-$imoSliderCount' class='scroll_mask' style='width:$width;'>\n";
+
         echo "<ul id='scroll-$imoSliderCount' class='scroll'>\n";
 
         // The Loop
@@ -148,6 +156,7 @@ class IMOSliderWidget extends \WP_Widget {
 
                         $imgSrc = $imgArray[0];
 
+
                         echo "<li><a";
                         if( in_category('video') ){ 
                         echo " class='video-excerpt'";
@@ -159,6 +168,7 @@ class IMOSliderWidget extends \WP_Widget {
                         echo "<span></span>";
                         }
                         echo "</a><a href='$url'>$title</a></li>\n";
+
 
         endwhile;
 
@@ -234,6 +244,7 @@ class IMOSliderWidget extends \WP_Widget {
         echo "<input type='text' name='$name' id='$id' value='$value' style='width:30px;'>";
      
     }
+
     
     function the_width_input($width) {
         $id = $this->get_field_id( 'width' ); 
@@ -243,6 +254,7 @@ class IMOSliderWidget extends \WP_Widget {
         echo "<input type='text' name='$name' id='$id' value='$value' style='width:30px;'>";
      
     }
+
 
     function the_post_type_select($instance) {
 

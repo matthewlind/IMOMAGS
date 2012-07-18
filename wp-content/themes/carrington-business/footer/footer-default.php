@@ -123,7 +123,8 @@ wp_footer();
                 <div class='footer-col-wrapper r-col statebystate'> 
                     <div class='section'> 
                         <ul id='more' class='footer-menu'> 
-                            <li class="first"><a class="gameandfish" href="http://www.gameandfishmag.com">Game &amp; Fish</a></li> 
+                        	<li class="first"><a class="sv" href="http://www.sportsmenvote.com">SportsmenVote</a></li> 
+                            <li><a class="gameandfish" href="http://www.gameandfishmag.com">Game &amp; Fish</a></li> 
                             <li class=""><a class="sportsmanchannel" href="http://www.thesportsmanchannel.com">The Sportsman Channel</a></li> 
                             <li class="last"><a class="imostore" href="http://store.intermediaoutdoors.com">The IMO Store</a></li> 
                         </ul> 
@@ -189,7 +190,9 @@ wp_footer();
 </div> 
     <div id='footer-imo' class='footer-row'> 
             <div id='clearfix' class='section clearfix'> 
+
                 <div id='footer-copyright'><img src='/imologo.png'/>&copy; <?php the_date('Y'); ?> InterMedia Outdoors</div> 
+
                 <div id='footer-partners'><img src='/footer-partners.jpg'></div> 
             </div> 
     </div> 

@@ -24,7 +24,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 get_header();
 
 $user = get_user_by("slug",$username);
-print_r($user);
+// print_r($user);
 
 $avatar = get_avatar($user->ID,140);
 
@@ -71,10 +71,10 @@ if ($user)
 
 
             </ul>   
-			<div id="recon-activity" <?php echo $userString;?> >
+<!-- 			<div id="recon-activity" <?php echo $userString;?> >
 
 
-            </div>
+            </div> -->
             <span id="more-superposts-button">Load More<span></span></span>
 		</div>
 	</div><!-- .entry -->

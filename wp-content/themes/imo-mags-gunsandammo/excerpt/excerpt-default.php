@@ -12,13 +12,14 @@ if (!(has_term('news-brief','blog_tax')))
 	$showAvatar = has_term(null,'blog_tax');
 
 //COMMENT THIS OUT LATER TO BRING BACK AVATARS
-	$showAvatar = TRUE;	
+	$showAvatar = FALSE;	
 ?>
 
 <article id="post-excerpt-<?php the_ID(); ?>" <?php post_class('entry entry-excerpt') ?>>
 
 	<?php if (has_post_thumbnail()) : ?>
-		<a<?php if( get_post_type() == 'imo_video' || in_category('video') ){echo ' class="video-excerpt"';} ?> href="<?php the_permalink(); ?>"><?php the_post_thumbnail('post-thumbnail', array('class' => 'entry-img')); if( get_post_type() == 'imo_video' || in_category('video') ){echo '<span></span>';} ?></a>
+		<?php if( in_category('sponsored') ){echo ' <span class="sponsored-thumb">Sponsored</span>';} ?>
+		<a<?php if( get_post_type() == 'imo_video' || in_category('video') ){echo ' class="video-excerpt"';} ?> href="<?php the_permalink(); ?>"><?php the_post_thumbnail('post-thumb', array('class' => 'entry-img')); if( get_post_type() == 'imo_video' || in_category('video') ){echo '<span></span>';}?></a>
 
 	  <?php if ($showAvatar): ?>
 	  	<div class="author-photo"><?php	echo userphoto_the_author_thumbnail(); ?></div>

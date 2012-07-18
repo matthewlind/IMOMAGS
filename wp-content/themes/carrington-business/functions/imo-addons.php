@@ -145,6 +145,12 @@ function register_imo_subscribe_settings () {
     register_setting( 'imo-subs-settings-group', 'gift_link' );
     register_setting( 'imo-subs-settings-group', 'service_link' );
     register_setting( 'imo-subs-settings-group', 'magazine_cover_uri' );
+    register_setting( 'imo-subs-settings-group', 'sons_header_uri' );
+    register_setting( 'imo-subs-settings-group', 'defend_header_uri' );
+    register_setting( 'imo-subs-settings-group', 'history_header_uri' );
+    register_setting( 'imo-subs-settings-group', 'competition_header_uri' );
+    register_setting( 'imo-subs-settings-group', 'news_header_uri' );
+    register_setting( 'imo-subs-settings-group', 'zombie_header_uri' );
     register_setting( 'imo-subs-settings-group', 'subs_form_link' );
     register_setting( 'imo-subs-settings-group', 'i4ky' );
 }
@@ -179,6 +185,31 @@ function imo_addons_subscription_page() {
         <th scope="row">Magazine Cover URL</th>
         <td><input type="text" name="magazine_cover_uri" value="<?php echo get_option('magazine_cover_uri'); ?>" /></td>
         </tr>
+        <tr valign="top">
+        <th scope="row">Sons of Guns & Ammo Header URL</th>
+        <td><input type="text" name="sons_header_uri" value="<?php echo get_option('sons_header_uri'); ?>" /></td>
+        </tr>
+        <tr valign="top">
+        <th scope="row">News Brief Header URL</th>
+        <td><input type="text" name="news_header_uri" value="<?php echo get_option('news_header_uri'); ?>" /></td>
+        </tr>
+        <tr valign="top">
+        <th scope="row">Defend Thyself Header URL</th>
+        <td><input type="text" name="defend_header_uri" value="<?php echo get_option('defend_header_uri'); ?>" /></td>
+        </tr>
+        <tr valign="top">
+        <th scope="row">From the History Books Header URL</th>
+        <td><input type="text" name="history_header_uri" value="<?php echo get_option('history_header_uri'); ?>" /></td>
+        </tr>
+        <tr valign="top">
+        <th scope="row">For the Love of Competition Header URL</th>
+        <td><input type="text" name="competition_header_uri" value="<?php echo get_option('competition_header_uri'); ?>" /></td>
+        </tr>
+        <tr valign="top">
+        <th scope="row">Zombie Nation Header URL</th>
+        <td><input type="text" name="zombie_header_uri" value="<?php echo get_option('zombie_header_uri'); ?>" /></td>
+        </tr>
+
         <tr valign="top">
         <th scope="row">Subscription Form Action</th>
         <td><input type="text" name="subs_form_link" value="<?php echo get_option('subs_form_link'); ?>" /><p>(No slash at the end: 'http://www.example.com'.)</p></td>
