@@ -26,10 +26,16 @@ function get_IP() {
 
 }
 
+$response = $app->response();
+$response['Content-Type'] = 'application/json';
+
+
 
 $app->get('/',function(){
 	echo "<h1>Hello Berry!</h1>";
 });
+
+
 
 
 
