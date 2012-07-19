@@ -49,8 +49,8 @@ add_shortcode("mm-current-issue", "mm_current_issue");
 function naw_scripts_method() {
     wp_deregister_script( 'jquery' );
     wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js');
+    
     wp_enqueue_script( 'jquery' );
-
     wp_enqueue_script("jquery-simplemodal", get_stylesheet_directory_uri() . "/js/jquery.simplemodal.1.4.2.min.js");
     wp_enqueue_script("cross-site-feed", get_stylesheet_directory_uri() . "/js/cross-site-feed.js");
     wp_enqueue_script("local-site-feed", get_stylesheet_directory_uri() . "/js/local-site-feed.js");

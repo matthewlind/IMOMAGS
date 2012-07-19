@@ -171,7 +171,6 @@ $args = array(
   <?php if (CFCT_DEBUG) : ?>
   <div style="border: 1px solid #ccc; background: #ffc; padding: 20px;">The <code>CFCT_DEBUG</code> setting is currently enabled, which shows the filepath of each included template file. To hide the file paths, edit this setting in the <?php echo CFCT_PATH; ?>functions.php file.</div>
   <?php endif; ?>
-
   <?php wp_footer(); ?>
 
 </body>

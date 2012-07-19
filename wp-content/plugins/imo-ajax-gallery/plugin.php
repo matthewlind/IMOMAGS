@@ -77,7 +77,7 @@ function displayGallery($gallery_id) {
 		$slides .=  "<div class='slide'><div class='pic'><img src='$picture->img_url' image-height=$height image-width=$width></div></div>";
 
 		$textSlides .=  "<div class='slide' style='display:none'><h2>{$picture->alttext}</h2>
-				<p>{$picture->description}</p></div>";
+				<div class='scroll-content'><p>{$picture->description}</p></div></div>";
 
 		$thumbPager .= "<li><div class='thumb-container $class'><a><img src='{$picture->thumbnail}' class='slideshow-thumb' /></a><div></li>";
 	}
@@ -139,9 +139,7 @@ function displayGallery($gallery_id) {
 
 		</div>
 	</div>
-
-
-
+	
 
 EOT;
 
@@ -179,15 +177,15 @@ function conditionally_add_scripts_and_styles($posts){
 		wp_enqueue_script('ajax-gallery-js',plugins_url('ajax-gallery.js', __FILE__));
 		wp_enqueue_script('jquery-scrollface',plugins_url('jquery.scrollface.min.js', __FILE__));
 		wp_enqueue_script('jquery-buffet',plugins_url('jquery.buffet.min.js', __FILE__));
+		wp_enqueue_script('jquery-ui-draggable');
+		wp_enqueue_script('jquery-mousewheel',plugins_url('jquery.mousewheel.min.js', __FILE__));
+		wp_enqueue_script('jquery-mCustomScrollbar',plugins_url('jquery.mCustomScrollbar.js', __FILE__));
 		wp_enqueue_style('ajax-gallery-css',plugins_url('ajax-gallery.css', __FILE__));
+		wp_enqueue_style('ajax-mCustomScrollbar-css',plugins_url('jquery.mCustomScrollbar.css', __FILE__));
 	}
  
 	return $posts;
 }
+?>
 
-
-
-
-
-
-
+	

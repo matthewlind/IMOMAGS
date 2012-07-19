@@ -471,26 +471,6 @@ $args = array(
 
 
   </div><!-- End user login modal container -->
-  	<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery.jfollow.js"></script>
-	<!-- mousewheel plugin -->
-	<!--<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery.mousewheel.min.js"></script> -->
-	<!-- custom scrollbars plugin -->
-	<!--<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery.mCustomScrollbar.js"></script>
-	<script type="text/javascript">
-		(function($){
-			$(window).load(function(){
-				/* custom scrollbar fn call */
-								$(".slide-out-content").mCustomScrollbar({
-					scrollInertia:0
-				});
-								
-				
-				
-			});
-		})(jQuery);
-	</script> -->
-
-
-
+  <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery.jfollow.js"></script>
 </body>
 </html>

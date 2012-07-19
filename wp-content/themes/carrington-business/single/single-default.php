@@ -29,7 +29,7 @@ get_header();
 	cfct_loop();
 	comments_template();
 	?>
-</div>
+</div><!-- col-ab -->
 <?php
 get_sidebar();
 get_footer();

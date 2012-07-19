@@ -243,6 +243,11 @@ add_shortcode("mm-current-issue", "mm_current_issue");
 
 
 
+/***
+**
+** Enqueue Scripts
+**
+***/
 function my_scripts_method() {
     wp_deregister_script( 'jquery' );
     wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js');

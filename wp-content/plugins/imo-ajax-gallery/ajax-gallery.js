@@ -1,5 +1,16 @@
 jQuery(document).ready(function($) {
+	
+	//Description Scrollbar
 
+	(function($){
+		$(window).load(function(){
+			/* custom scrollbar fn call */
+							$(".scroll-content").mCustomScrollbar({
+				scrollInertia:0
+			});
+		});
+	})(jQuery);
+	
 	var lockedOpen = false;
 	
 	function trackPage(slideID) {
@@ -188,7 +199,8 @@ jQuery(document).ready(function($) {
 
   	//Setup custom scrollbar
 
-
+  	
+	
   	function adjustPager(slideID) {
   		$("div.thumb-container").removeClass("active").eq(slideID).addClass("active");
 

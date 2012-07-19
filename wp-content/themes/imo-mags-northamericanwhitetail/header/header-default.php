@@ -163,8 +163,6 @@ if (get_the_title(null, false) == 'superpost-single') {
 
 -->
 	<link rel="stylesheet" type="text/css" href="<?php bloginfo('url'); ?>/wp-content/themes/imo-mags-northamericanwhitetail/MyFontsWebfontsKit.css">
-	<link rel="stylesheet" type="text/css" href="<?php bloginfo('url'); ?>/wp-content/themes/imo-mags-northamericanwhitetail/css/jquery.mCustomScrollbar.css">
-
 	 <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/scripts.js"></script>
 	<!-- IMO MODS -->
   <script type="text/javascript">
