@@ -59,6 +59,7 @@ if(has_term('sportsman-hd','column', $post->ID )) { ?>
 			</script>		
 		</div>
 		<div class="fb-recommendations recommendations" data-site="www.floridasportsman.com" data-width="300" data-height="250" data-header="true"></div>
+	</div>
 	<?php comments_template();
 	?>
 </div>

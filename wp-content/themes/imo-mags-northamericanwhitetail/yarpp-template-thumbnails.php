@@ -8,8 +8,8 @@ Author: Fox Bowden
 
 <?php if ($related_query->have_posts()):?>
 <h4 class="meta">Related Stories</h4>
-<div class="questions-slider related-slider">
-    <div class="otd-questions">
+<div class="related-slider">
+   
         <div class="slides-container-f">
              <ul id="slides-related" class="jcarousel-skin-tango">
              	<?php
@@ -34,7 +34,7 @@ Author: Fox Bowden
 	
                 </ul>
            </div>    
-      </div>
+
 </div>
 <div class="clear"></div> 
 

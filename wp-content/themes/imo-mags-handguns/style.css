@@ -342,20 +342,17 @@ h2.entry-title a {
 
 .recommendations {
   float: left;
-  width: 300px;
+  width: 270px;
   height: 290px;
   margin-top: 40px;
 }
 .post-content-area {
-  width: 648px;
-  height: 647px;
+  width: 620px;
   float: left;
 }
 .related-products {
   float: left;
   height: 234px;
-  margin-right: 10px;
-  padding: 7px;
   text-align: left;
   width: 322px;
 }
