@@ -812,6 +812,15 @@ EOT;
 
 });
 
+//************************************************
+//*** TEST ***
+//************************************************
+$app->get('/test',function(){
+
+	$json = json_encode("LOREM IPSUM.");
+    echo $json;
+});
+
 
 function getPostTerms($post_id, $site_id = 6) {
 
