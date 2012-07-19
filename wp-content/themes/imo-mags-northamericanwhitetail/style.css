@@ -128,7 +128,7 @@ width: 990px;
 
 #header {
     background: url("img/header-bg.jpg") repeat scroll center top transparent;
-    height: 269px;
+    height: 338px;
     margin: 0 !important;
     z-index: 9999999;
 }
@@ -370,7 +370,7 @@ width: 990px;
     font-size: 2.4em;
     font-weight: lighter;
     height: 33px;
-    padding: 20px 28px 20px 22px;
+    padding: 20px 28px 20px 10px;
     vertical-align: middle;
 }
 #header #megaMenu ul.megaMenu > .menu-item > a:hover{
@@ -1424,24 +1424,15 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 }*/
 .questions-slider {
     min-height: 270px;
-    margin: -30px 0 0;
+    margin: 0;
     padding: 16px 0;
     position: relative;
-    width: 680px;
-}
-
-.questions-slider .otd-questions  {
-    float: left;
-    text-align: center;
-    width: 680px;
-}
-.questions-slider .otd-questions img, .questions-slider .otd-questions a {
-    margin: 0 auto;
+    width: 678px;
 }
 .questions-slider .slides-container-f {
     min-height: 270px;
     margin: 0 auto;
-    width: 680px;
+    width: 678px;
 }
 .questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-next-horizontal {
     background: url("img/next-rounded.png") no-repeat scroll 0 0 transparent;
@@ -1469,23 +1460,24 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 }
 .questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-container-horizontal {
     padding: 0;
-    width: 680px;
+    width: 678px;
 }
 .questions-slider .slides-container-f .jcarousel-skin-tango {
     margin: 0 auto;
-    width: 680px;
+    width: 678px;
 }
 .questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-item {
     background: none repeat scroll 0 0 transparent;
     min-height: 270px;
     padding: 0;
+    margin:0;
     position: relative;
-    width: 680px;
+    width: 678px;
 }
 .questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-clip-horizontal {
     cursor: pointer;
     min-height: 270px;
-    width: 680px;
+    width: 678px;
     margin-top: 40px;
 }
 .questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-direction-rtl .jcarousel-prev-horizontal {
@@ -1494,13 +1486,13 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     right: 5px;
 }
 .questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-item-horizontal {
-    margin: 0 4px;
+    margin: 0;
 }
 .questions-slider .jcarousel-list .jcarousel-list-horizontal{
-	width: 680px !important;
+	width: 678px !important;
 }
 .questions-slider .quote-area{
-	width: 680px;
+	width: 678px;
 }
 .questions-slider .quote-area .top{
 	background: url("img/top-arrow.jpg") no-repeat scroll 25px top transparent;
@@ -1513,16 +1505,17 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 .questions-slider .quote-area .mdl{
 	background: #f6f4eb;
 	border: 1px solid #dbd4cc;
-	width: 674px;	
+	width: 670px;	
 }
 .questions-slider .quote-area .btm{
-	background: url('img/shadow.jpg') no-repeat top center;
+	background: url('img/shadow.jpg') no-repeat top right;
 	height: 11px;
-    width: 685px;
+    width: 670px;
 }
 .questions-slider .user-info{
 	font-family: ProximaNova-Regular;
 	text-align: left;
+	padding-left: 11px;
 }
 .questions-slider .user-info span{
 	position: relative;
@@ -1553,7 +1546,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 .questions-slider .answers-area .answers-count{
 	float: left;
 	width: 140px;
-	
+	margin-left: 2px;
 }
 questions-slider .answers-area div.answers{
 	float: left;
@@ -1572,7 +1565,7 @@ questions-slider .answers-area div.answers{
     margin-top: -8px;
     padding: 6px 10px;
     width: 180px;
-    
+	text-align: center;    
     background: rgb(255,255,255); /* Old browsers */
 /* IE9 SVG, needs conditional override of 'filter' to 'none' */
 background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSI3MSUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI5NyUiIHN0b3AtY29sb3I9IiNlZmVmZWYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
@@ -1738,6 +1731,9 @@ h4.meta{
 .homepage-gear .widget_slider-widget{
 	margin-top: 30px;
 }
+.homepage-gear .scroll_mask{
+	width: 880px !important;
+}
 /*
  * Secondary Sidebar & Gear Slider
  * Above footer
@@ -1897,7 +1893,7 @@ a.comment-count:hover {
  * 
  *
  */
-.super-post{clear: both;width:1030px !important;padding-top:8px;}
+.super-post{clear: both;width:1030px !important;padding-top:68px;}
 .home .page-template-page-right-php .cfct-block-c{
 	padding-left: 40px;
 }
@@ -1940,7 +1936,7 @@ a.comment-count:hover {
 .entry .entry-content, .entry .entry-summary, .reply .reply-content, .entry .entry-footer, .reply .reply-footer{
 	padding-left: 1px;
 }
-.entry-full{
+.single-post .entry-full{
 	font-family: Helvetica,sans-serif;
 }
 .wp-caption {
@@ -2370,6 +2366,9 @@ ul.naw-loop li{
     background: none repeat scroll 0 0 #809b40;
     cursor: default;
 }
+#featured-articles-navigator li.ui-tabs-selected {
+    background-position: 64px top !important;
+}
 
 /*
  * Sidebars
@@ -2620,81 +2619,61 @@ select.post_type {
  * 
  *
  */
-a.about-link{
+#join a.about-link{
 	color: #006699 !important;
-    left: 30px;
-    position: relative;
-    top: -44px; 
+	display: block;
+    margin-top: 6px;
+    text-align: center;
 }
-a.about-link:hover{
+#join a.about-link:hover{
 	color: #000033 !important;
 }
-.join {
+#join {
     border: 1px solid #D5D5D5;
     padding: 17px;
     background: url('img/newsletter-bg.jpg') no-repeat center top #EDEDED;
     height: 218px;
 }
-#join .gform_wrapper {
-    max-width: 100% !important;
-    margin: 0 0 10px;
+#join .content_wrapper{
+	margin-top: 100px;
 }
-#join .gform_wrapper .join .top_label input.medium, #join .gform_wrapper .join .ginput_container input {
+#join input {
     border: medium none;
     float: left;
     font-family: ProximaNovaA-regular;
     font-size: 1em;
     height: 35px;
     line-height: 26px;
-    margin: 81px -7px 0 -1px;
     padding: 0;
     text-indent: 8px;
     vertical-align: middle;
-    width: 283px;
-}
-#join .gform_wrapper .join .gform_footer {
-    clear: none;
-    margin: 0 0 0 -7px;
-    padding: 0;
-    width: 80px;
-}
-#join .gform_wrapper .join .gform_footer input.button, #join .gform_wrapper .join .gform_footer input[type="submit"], #sidebar .join .gform_button {
-    background: url("img/sign-up-bg.png") no-repeat scroll 0 0 transparent;
-    border: medium none;
+    width: 282px;
     border-radius: 0;
-    display: block;
+}
+#join .email-signup, #join .fb-signup{
+	cursor: pointer;
+    margin-top: 18px;
     height: 45px;
-    top: 18px;
-    left: 6px;
     text-indent: -9999px;
+}
+#join .email-signup {
+    background: url("img/sign-up-bg.png") no-repeat scroll 0 0 transparent;
     width: 104px;
-    cursor: pointer;
     float: left;
-    position: relative;
 }
-.join-sep{
-	position: relative;
-    top: 183px;
-    z-index: 1;
+#join .fb-signup{
+	background: url("img/fb-signup-bg.png") no-repeat scroll 0 0 transparent;
+    float: right;
+    width: 142px;
+    
 }
-.join-sep span{
+#join span{
 	float: left;
     font-family: ProximaNova-Regular;
     font-size: 0.8em;
-    left: 135px;
-    position: relative;
-    top: -9px;
+    margin:30px 12px 0;
 }
-.fb-signup{
-	background: url("img/fb-signup-bg.png") no-repeat scroll 0 0 transparent;
-    border: none;
-    float: left;
-    height: 45px;
-    margin: -21px 0 0 148px;
-    text-indent: -9999px;
-    width: 142px;
-    cursor: pointer;
-}
+
 
 /**
 * Skyscraper ad fix
@@ -2898,7 +2877,7 @@ a.about-link:hover{
 .plus-button span.plus{
 	font-family: "ProximaNovaS-Extrabld";
     font-size: 1.5em;
-    line-height: 0.8em;
+    line-height: 0.7em;
     margin-right: 4px;
     position: relative;
     top: 0;

@@ -13,7 +13,7 @@ $args = array(
 		</div><!-- #main -->
 	</section><!-- .container -->
 
-  <footer id="footer">
+  <footer id="footer" class="end-scroll">
     
       <section id="imo-network">
         <div class="container">

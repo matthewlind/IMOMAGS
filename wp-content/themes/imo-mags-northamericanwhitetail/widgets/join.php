@@ -13,17 +13,14 @@ class Join_Widget extends WP_Widget {
 
     <aside id="join" class="box widget_gravity_form">
       <div class="content_wrapper">
-      	<div class="join-sep">
-        <span>or</span>
-        <input id="fb-signup" class="fb-signup" type="submit" name="fb-signup" value="Submit">
-        </div>
-
-        <?php if(!empty($title)) : ?>
-        <h5 class="box_title">
-          <span><?php echo $title; ?></span>
-        </h5>
-        <?php endif; ?>
-        <?php if (function_exists('gravity_form')) gravity_form(1, false, false); ?>
+      	
+        <form id="community-signup" class="community-signup" action="">
+	        <input id="email" class="email" type="text" name="email" value="" placeholder="Your Email">
+	        <input id="email-signup" class="email-signup" type="submit" name="email-signup" value="Submit">
+	        <span>or</span>
+	        <input id="fb-signup" class="fb-signup" type="submit" name="fb-signup" value="Submit">
+        </form>
+        <div class="clear"></div>
         <a href="#" class="about-link">Tell me about North American Whitetail +</a>
        </div>
     </aside>

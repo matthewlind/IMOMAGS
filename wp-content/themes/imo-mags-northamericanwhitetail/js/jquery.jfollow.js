@@ -9,7 +9,7 @@
 			followHeight = $('.advert').height();
 			
 				var followfn = function(){
-					if($(window).scrollTop() >= followme.offset().top && $(window).scrollTop() < $('#footer').offset().top - followHeight){
+					if($(window).scrollTop() >= followme.offset().top && $(window).scrollTop() < $('.end-scroll').offset().top - followHeight){
 						that.css({
 							position: 'fixed',
 							top: 10,
