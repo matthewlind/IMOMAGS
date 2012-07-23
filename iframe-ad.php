@@ -5,6 +5,10 @@ $code = $_GET['ad_code'];
 <html>
 <head>
 <script language="javascript">
+// Flash ad z-index pecking order fix
+$(document).ready(function(){
+	FlashHeed.heed();
+});
 <!--
 var randomdate=new Date();
 var randomtime=randomdate.getTime();
