@@ -57,14 +57,15 @@ div.post {
 }
 .scroll-content{
 	height: 348px;
-  width: 270px;
 }
 .text-slideshow.text-slides .slide p {
   font-family: "Helvetica",Arial,sans-serif;
   font-size:13px;
   line-height: 18px;  
 }
-
+.mCSB_container{
+	width: 280px;
+}
 #slideshow-pager {
 
   
