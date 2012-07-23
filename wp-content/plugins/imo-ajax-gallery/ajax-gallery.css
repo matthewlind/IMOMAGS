@@ -50,6 +50,7 @@ div.post {
   width:300px;
   text-align: left;
   overflow-x: hidden;
+  overflow-y: auto;
   font-family: "Helvetica",Arial,sans-serif;
   font-size:13px;
   line-height: 18px;
