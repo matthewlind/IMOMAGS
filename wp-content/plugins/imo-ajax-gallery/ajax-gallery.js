@@ -2,15 +2,24 @@ jQuery(document).ready(function($) {
 	
 	//Description Scrollbar
 
-	(function($){
-		$(window).load(function(){
-			/* custom scrollbar fn call */
-							$(".scroll-content").mCustomScrollbar({
-				scrollInertia:0
-			});
-		});
-	})(jQuery);
-	
+
+	$(window).load(function(){
+		/* custom scrollbar fn call */
+
+			var $thisScrollContent = $(".text-slides .slide").eq(0).find(".scroll-content");
+
+			//$thisScrollContent.css("overflow","scroll");
+			$thisScrollContent.css("width","280");
+			
+			if (!$thisScrollContent.hasClass("mCustomScrollbar")) {
+				$thisScrollContent.mCustomScrollbar({
+					scrollInertia:0
+				});
+			}
+
+
+	});	
+
 	var lockedOpen = false;
 	
 	function trackPage(slideID) {
@@ -79,6 +88,8 @@ jQuery(document).ready(function($) {
 
 			$("span.current-image").text(new_slide.id + 1);
 
+			$(".text-slides .slide").eq(new_slide.id).find(".scroll-content").css("overflow","hidden");
+
 
 			//Also change the text slide
 			$(".text-slides .slide").eq(old_slide.id).fadeOut(80);
@@ -95,10 +106,35 @@ jQuery(document).ready(function($) {
 			//TRACK THE PAGE VIEW IN Google Analytics
 			trackPage(new_slide.id);
 
+			//Scrolling content function call
 
+			var $thisScrollContent = $(".text-slides .slide").eq(new_slide.id).find(".scroll-content");
+
+			//$thisScrollContent.css("overflow","scroll");
+
+			
+			
+
+
+	
+			
+
+
+			if (!$thisScrollContent.hasClass("mCustomScrollbar")) {
+				if ($thisScrollContent.hasScrollBar()) {
+					$thisScrollContent.css("width","300");
+				}
+			
+
+				$thisScrollContent.mCustomScrollbar({
+					scrollInertia:0
+				});
+			}
 
 
 			
+
+				
 		},
 		pager_builder : function (pager, index, slide) {
 
@@ -271,6 +307,13 @@ jQuery(document).ready(function($) {
   			left: currentLeft
     	},300,'easeOutExpo');
   	}
+
+
+  	(function($) {
+    $.fn.hasScrollBar = function() {
+        return this.get(0).scrollHeight > this.height();
+    }
+	})(jQuery);
 
 });
 
