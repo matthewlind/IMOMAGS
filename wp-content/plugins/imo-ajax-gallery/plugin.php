@@ -76,8 +76,8 @@ function displayGallery($gallery_id) {
 
 		$slides .=  "<div class='slide'><div class='pic'><img src='$picture->img_url' image-height=$height image-width=$width></div></div>";
 
-		$textSlides .=  "<div class='slide' style='display:none'><div class='scroll-content'><h2>{$picture->alttext}</h2>
-				<p>{$picture->description}</p></div></div>";
+		$textSlides .=  "<div class='slide scroll-content' style='display:none'><h2>{$picture->alttext}</h2>
+				<p>{$picture->description}</p></div>";
 
 		$thumbPager .= "<li><div class='thumb-container $class'><a><img src='{$picture->thumbnail}' class='slideshow-thumb' /></a><div></li>";
 	}

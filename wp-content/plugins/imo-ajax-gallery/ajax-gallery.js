@@ -1,16 +1,19 @@
 jQuery(document).ready(function($) {
-	
 	//Description Scrollbar
 
 	(function($){
 		$(window).load(function(){
 			/* custom scrollbar fn call */
-							$(".scroll-content").mCustomScrollbar({
+			$(".scroll-content").mCustomScrollbar({
 				scrollInertia:0
 			});
 		});
 	})(jQuery);
 	
+	
+
+	//$(".scroll-content").mCustomScrollbar("update");
+		
 	var lockedOpen = false;
 	
 	function trackPage(slideID) {
@@ -78,33 +81,35 @@ jQuery(document).ready(function($) {
 			slidePager(new_slide.id); //SLides the pager to the new position
 
 			$("span.current-image").text(new_slide.id + 1);
+			
 
-
+			
 			//Also change the text slide
 			$(".text-slides .slide").eq(old_slide.id).fadeOut(80);
 			$(".text-slides .slide").eq(new_slide.id).fadeIn(80);	
-
-		
+			
+						
 
 		},
 		after   : function(old_slide, new_slide) {
 
 			
 			document.getElementById('gallery-iframe-ad').contentWindow.location.reload();
-
+			
 			//TRACK THE PAGE VIEW IN Google Analytics
 			trackPage(new_slide.id);
-
-
-
-
+			
+			$(".scroll-content").mCustomScrollbar("update");
 			
 		},
 		pager_builder : function (pager, index, slide) {
 
 		    return $('li a', pager).eq(index); // an element that already exists!
+		    
 
 		 }
+		 
+		 
 	});
 
 	//Move the video iframes to the correct place
@@ -122,8 +127,6 @@ jQuery(document).ready(function($) {
 			$iframe.appendTo($photobox).css("margin-top","50px");
 
 		}
-
-
 
 	});
 
@@ -274,3 +277,7 @@ jQuery(document).ready(function($) {
 
 });
 
+
+
+			
+	
