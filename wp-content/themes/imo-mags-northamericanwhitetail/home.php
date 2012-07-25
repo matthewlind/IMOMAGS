@@ -80,7 +80,7 @@ get_header();
 
             </ul>    
 
-            <div id="recon-activity">Hey
+            <div id="recon-activity">
 
 
             </div>
@@ -109,10 +109,10 @@ get_header();
 			<div class="entry-content">
 				<div class="clear"></div>
 					<div class="header-sort home-questions">
-						<h1 class="more-header">Latest Questions</h1>
+						<h1 class="more-header">Ask An Expert</h1>
 						<div class='questions-right'>
 							<ul>
-							   <li class="plus-button"><a href="#"><span class="plus">+</span><span>Ask A Question</span></a></li>
+							   <li class="plus-button"><a href="#"><span class="plus">+</span><span>Ask Your Question</span></a></li>
 							   <li class="plus-button"><a href="#"><span>Sign In</span></a></li>
 							   <li class="plus-button reg"><a href="#"><span>Register</span></a></li>
 							</ul>
@@ -121,46 +121,29 @@ get_header();
 					<div class="questions-slider">
 		                <div class="slides-container-f">
 		                	<div class="see-all home-see-all">See All Questions</div>
-		                     	<ul id="slides-questions" class="jcarousel-skin-tango">
-		                        	<li>
-		                        		<div class="user-info">
-		                        			<img alt="user photo" src="http://www.northamericanwhitetail.fox/wp-content/themes/imo-mags-northamericanwhitetail/img/user-temp.jpg">
-		                        			<span>Batman asks...</span>
-		                        		</div>
-		                        		<div class="quote-area">
-		                        			<div class="top"></div>
-		                        			<div class="mdl">
-			                        			<h4 class="quote">&#8220;I am going on a late season muzzle-loader hunt for whitetails in western PA this weekend. Any idea on how I should go about hunting them?&#8221;</h3>
-			                        		</div>
-		                        			<div class="btm"></div>
-		                        		</div>
-		                        		<div class="answers-area">
-		                        			<div class="answers-count">
-		                        				Answers <span class="count">18</span>
-		                        			</div>
-		                        			<div class="answers-link">Answer This Question</div>                   
-		                        		</div>
-		                        	</li>
-
-		                        	<li>
-		                        		<div class="user-info">
-		                        			<img alt="user photo" src="http://www.northamericanwhitetail.fox/wp-content/themes/imo-mags-northamericanwhitetail/img/user-temp.jpg">
-		                        			<span>Batman asks...</span>
-		                        		</div>
-		                        		<div class="quote-area">
-		                        			<div class="top"></div>
-		                        			<div class="mdl">
-			                        			<h4 class="quote">&#8220;Can anyone suggest a good camo bat-suit for hunting in the forest? I am having trouble hunting in the day time.&#8221;</h3>
-			                        		</div>
-		                        			<div class="btm"></div>
-		                        		</div>
-		                        		<div class="answers-area">
-		                        			<div class="answers-count">
-		                        				Answers <span class="count">18</span>
-		                        			</div>
-		                        			<div class="answers-link">Answer This Question</div>                   
-		                        		</div>
-		                        	</li>
+		                     	<ul id="slides-questions" class="jcarousel-skin-tango questions-feed">
+		                        	<?php 
+		                     		for ($i = 1; $i <= 4; $i++) {
+			                     		echo '<li>';
+										echo '<div class="user-info">';
+											echo '<img alt="user photo" src="http://www.northamericanwhitetail.fox/wp-content/themes/imo-mags-northamericanwhitetail/img/user-temp.jpg">';
+											echo '<span>Batman asks...</span>';
+										echo '</div>';
+										echo '<div class="quote-area">';
+											echo '<div class="top"></div>';
+											echo '<div class="mdl">';
+												echo '<h4 class="quote">&#8220;Can anyone suggest a good camo bat-suit for hunting in the forest? I am having trouble hunting in the day time.&#8221;</h4>';
+											echo '</div>';
+											echo '<div class="btm"></div>';
+										echo '</div>';
+										echo '<div class="answers-area">';
+											echo '<div class="answers-count">';
+												echo 'Answers <span class="count">18</span>';
+											echo '</div>';
+											echo '<a href="#" class="answers-link">Answer This Question</a> ';              
+										echo '</div>';
+									echo '</li>';
+									} ?>
 		                        </ul>
 		                    </div>    
 		                </div>

@@ -130,28 +130,35 @@ input.submit {
 
 
 .row-post-type {
-	color:white;
 	display: inline-block;
 	text-transform:uppercase;
 	padding:3px 5px 3px 5px;
 	font-size:10px;
 }
-
 .post-type-tip {
 	background-color:#c65517;
+	color: white;
+}
+
+.post-type-question {
+	background-color:#3E88E9;
+	color: white;
 }
 
 .post-type-report {
 	background-color:#c3290a;
+	color: white;
 }
 
 .post-type-photo {
 	background-color:#58534f;
+	color: white;
 
 }
 
 .post-type-video {
 	background-color:#121212;
+	color: white;
 }
 
 
@@ -175,7 +182,6 @@ input.submit {
 .recon-row.odd {
 	background-color:#efece6;
 }
-
 
 .recon-row ul {
 	margin-left:0;

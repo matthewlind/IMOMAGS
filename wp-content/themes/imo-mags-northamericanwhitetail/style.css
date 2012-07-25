@@ -1495,11 +1495,11 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 	width: 678px;
 }
 .questions-slider .quote-area .top{
-	background: url("img/top-arrow.jpg") no-repeat scroll 25px top transparent;
+	background: url("img/top-arrow.jpg") no-repeat scroll 30px top transparent;
     height: 6px;
     position: relative;
     top: 1px;
-    width: 37px;
+    width: 41px;
     z-index: 9999;
 }
 .questions-slider .quote-area .mdl{
@@ -1519,7 +1519,8 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 }
 .questions-slider .user-info span{
 	position: relative;
-    top: -15px;
+    top: -20px;
+    left: 8px;
 }
 .questions-slider h4.quote{
 	color: #C65517;
@@ -1530,12 +1531,17 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 	
 }
 .questions-slider .see-all{
-	background: url("img/right-arrow.png") no-repeat scroll right 7px transparent;
+	background: url("img/right-arrow.png") no-repeat scroll right 6px transparent;
     padding-right: 12px;
     position: absolute;
     right: 0;
     text-transform: uppercase;
     top: 10px;
+    color: black;
+    cursor: pointer;
+}
+.questions-slider .see-all:hover{
+	color:#006699;
 }
 .questions-slider .answers-area{
 	font-family: ProximaNova-Regular;

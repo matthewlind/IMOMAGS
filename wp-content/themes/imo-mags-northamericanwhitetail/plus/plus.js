@@ -171,7 +171,10 @@ function displayRecon(type) {
 	        underBox.append(userDetailsBox);
 	        underBox.append(gravatar);
 	        underBox.append(authorInfo);
-	        underBox.append(underTitle);
+	        if(this.post_type != "question"){
+		        underBox.append(underTitle);
+	        }
+	        
 	        underBox.append(date);
 
 	        detectorBox.hover(function(){
@@ -394,16 +397,42 @@ function displayReconList(type) {
 
 
 
-
-
 function capitaliseFirstLetter(string)
 {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+// Questions display
+$(document).ready(function(){
+	var type = "question";
+	showAtOnce = 10;
+	var dataURL = "/slim/api/superpost/type/" + type +"/" + showAtOnce + "/0";  	
+	var getdata = $.getJSON(dataURL, function(data) {
+		var count = 0;
+		
+		var $questionTemplate;
+				
+		$.each(data, function(index, question) { 
+			console.log(index,question); 
+			//count++;
+			$questionTemplate = $("ul#slides-questions li").eq(index);
+			var url = "/plus/question/" + question.id;
+			var gravatar = $questionTemplate.find(".user-info img").attr("src","http://www.gravatar.com/avatar/" + this.gravatar_hash + ".jpg?s=50&d=identicon");
 
+			$questionTemplate.find(".user-info span").text(question.username + " asks..."); 
+			
+			
+			$questionTemplate.find("h4.quote").text(question.title);
+			$questionTemplate.find("a.answers-link").attr("href",url);
+			$questionTemplate.find("span.count").text(question.comment_count);
+
+		});	
+					
+	$questionTemplate.appendTo(".questions-feed").fadeIn();
+	});
+
+}); //End display questions
 	
-
 
 	
 
