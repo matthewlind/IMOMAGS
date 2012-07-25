@@ -6483,8 +6483,9 @@ margin: 12px auto 0 !important;
 .cfct-module-featured-thumb-wide .featured-articles .featured-item-image{
 	border: none !important;
 }
-
-
+.cfct-module-featured-thumb-wide .ui-tabs .prev-tab, .cfct-module-featured-thumb-wide .ui-tabs .next-tab{
+	top: -9999px !important;
+}
 
 
 
