@@ -9,7 +9,7 @@ jQuery(document).ready(function($) {
 			var $thisScrollContent = $(".text-slides .slide").eq(0).find(".scroll-content");
 
 			//$thisScrollContent.css("overflow","scroll");
-			$thisScrollContent.css("width","280");
+			$thisScrollContent.css("width","300");
 			
 			if (!$thisScrollContent.hasClass("mCustomScrollbar")) {
 				$thisScrollContent.mCustomScrollbar({

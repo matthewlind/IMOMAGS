@@ -34,6 +34,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
 
   <?php  endif; ?>    	
   <script src="//cdn.optimizely.com/js/60055218.js"></script>
+  <script type="text/javascript" src="/wp-content/themes/imo-mags-gunsandammo/js/flash_heed.js"></script>
   <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/scripts.js"></script>
   
   <?php if (defined('JETPACK_SITE')): ?>

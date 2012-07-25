@@ -3644,6 +3644,9 @@ a.comment-count:hover {
   padding: 30px 30px 60px;
   position: relative;
 }
+.ngg-imagebrowser{
+	z-index: 9999999 !important;
+}
 /* line 2682, sass/style.scss */
 #main .ngg-imagebrowser p {
   color: white;
