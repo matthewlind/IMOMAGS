@@ -6468,3 +6468,25 @@ margin: 12px auto 0 !important;
 .leiki_products{
 	box-shadow: none !important;
 }
+
+.cfct-module-featured-thumb-wide .featured-articles{
+	width: 643px !important;
+}
+
+.cfct-module-featured-thumb-wide .featured-articles .featured-item-description{
+	width: 643px;
+}
+.cfct-module-featured-thumb-wide .featured-articles .featured-item-image{
+	
+	width: 643px;
+}
+.cfct-module-featured-thumb-wide .featured-articles .featured-item-image{
+	border: none !important;
+}
+
+
+
+
+
+
+
