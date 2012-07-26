@@ -93,7 +93,8 @@ jQuery(document).ready(function($) {
     beforeSubmit: ShowRequest,
     success: SubmitSuccessful,
     data:userIMO,
-    error: AjaxError                               
+    error: AjaxError,
+    dataType: 'json'                               
   });    
 
   //This is called before the new post form is sent.
@@ -113,7 +114,7 @@ jQuery(document).ready(function($) {
   function SubmitSuccessful(responseText, statusText) {     
     //alert("SuccesMethod:\n\n" + responseText);
 
-    var response = jQuery.parseJSON(responseText);
+    var response = responseText;
 
     var url = "/plus/" + response.post_type + "/" + response.id;
 
@@ -129,6 +130,7 @@ jQuery(document).ready(function($) {
     beforeSubmit: BeforeImageSubmit,
     success: ImageSubmitSuccessful,
     data:userIMO,
+    dataType: 'json',
     error: AjaxError                               
   });
 
@@ -152,7 +154,7 @@ jQuery(document).ready(function($) {
 
   function ImageSubmitSuccessful(responseText, statusText) {
 
-    var response = jQuery.parseJSON(responseText);
+    var response = responseText;
 
     //Make the new post post wider
     $(".new-superpost-modal-container").animate({
@@ -200,6 +202,7 @@ jQuery(document).ready(function($) {
       beforeSubmit: ShowRequest,
       success: CaptionSubmitSuccessful,
       data:userIMO,
+      dataType: 'json',
       error: AjaxError                               
     });    
 
@@ -228,6 +231,7 @@ jQuery(document).ready(function($) {
     beforeSubmit: ShowRequest,
     success: CommentSubmitSuccessful,
     data:userIMO,
+    dataType: 'json',
     error: AjaxError                               
   });    
   //This is run after a comment is succesfully submitted
@@ -235,7 +239,7 @@ jQuery(document).ready(function($) {
   function CommentSubmitSuccessful(responseText, statusText) {     
     //alert("SuccesMethod:\n\n" + responseText);
 
-    var response = jQuery.parseJSON(responseText);
+    var response = responseText;
 
 
     addNewBox(response);
