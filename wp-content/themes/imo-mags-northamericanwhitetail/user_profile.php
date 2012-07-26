@@ -33,32 +33,36 @@ if ($user)
 
 
 ?>
-<header id="masthead">
-	<h1><?php echo $username; ?> Community: Your Profile</h1>
+<header class="header-title">
+	<h1>Community / Your Profile</h1>
 	<?php edit_post_link(__('Edit', 'carrington-business')); ?>
     <?php //echo $requestURL; ?>
-</header><!-- #masthead -->
+</header>
 <div class="col-abc">
 	<div <?php post_class('entry entry-full clearfix'); ?>>
 		<div class="entry-content">
 			<div class="user-header">
+	           
 	            <div class="user-info">
 	            	<div class="user-thumbnail"><?php echo $avatar; ?></div>
-	            	<div class="details">
-	            		<h3 class="first-last-name"><?php echo $user->display_name; ?></h3>
-	            		<div class="hometown"></div>
-	            		<div class="twitter"></div>
-	            		<div class="www"></div>
-	            	</div>
-	            	<div class="extras">
-	            		<div class="score-box">
-	            			<div class="user-points">
-	            				0
-	            			</div> Points
-	            		</div>
-	            	</div>
+	            	<ul class="details">
+	            		<li><h3><?php echo $user->display_name; ?></h3></li>
+	            		<li class="hometown"><a href="#">Gotham City</a></li>
+	            		<li class="twitter"><a href="#">@batman</a></li>
+	            		<li class="www"><a href="#">dccomics.com/batman</a></li>
+	            	</ul>
 	            </div>
-			</div>
+	            
+	            <div class="extras">
+		    		<div class="score-box">
+		    			<h2 class="user-points">392</h2> 
+		    			<p>Points</p>
+		    		</div>
+		    	</div>
+		    	
+	    	</div>
+	        <h3 class="first-last-name"><?php echo $user->display_name; ?>'s Activity</h3>
+	        
 			<ul class="post-type-select">
             	<li id="new-post-button" class="post"><span>+</span> Post</li>
                 <li class='selected' title='all'>ALL</li>
@@ -75,7 +79,7 @@ if ($user)
 
 
             </div> -->
-            <span id="more-superposts-button">Load More<span></span></span>
+            <div class="cross-site-feed-more-button"> <div class="more-button"><span>LOAD MORE<span></span></span></div> </div>
 		</div>
 	</div><!-- .entry -->
 </div><!-- .col-abc -->

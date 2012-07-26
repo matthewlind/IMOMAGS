@@ -32,12 +32,7 @@ get_header();
 
 	<h1 class="entry-title"><?php the_title() ?></h1>
 	<div class="entry-info">
-            <?php if (! in_category("What's Biting Now")): ?>
-			<span class="author vcard"><span class="fn">by <?php the_author(); ?></span></span>
-			<span class="spacer">&bull;</span>
-            <?php endif; ?>
-			<abbr class="published" title="<?php the_time('Y-m-d\TH:i'); ?>"><?php the_time('F j, Y'); ?></abbr>
-			
+     	<abbr class="published" title="<?php the_time('Y-m-d\TH:i'); ?>"><?php the_time('F j, Y'); ?></abbr>
 			
 			<?php
 			//if ($this_post_is_not_single) {

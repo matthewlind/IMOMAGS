@@ -414,13 +414,12 @@ $(document).ready(function(){
 				
 		$.each(data, function(index, question) { 
 			console.log(index,question); 
-			//count++;
 			$questionTemplate = $("ul#slides-questions li").eq(index);
 			var url = "/plus/question/" + question.id;
 			var gravatar = $questionTemplate.find(".user-info img").attr("src","http://www.gravatar.com/avatar/" + this.gravatar_hash + ".jpg?s=50&d=identicon");
 
 			$questionTemplate.find(".user-info span").text(question.username + " asks..."); 
-			
+			$questionTemplate.find(".user-info a").attr("href","/profile/" + question.username);
 			
 			$questionTemplate.find("h4.quote").text(question.title);
 			$questionTemplate.find("a.answers-link").attr("href",url);

@@ -26,7 +26,7 @@ get_header();
 
 //First get post data
 $spid =  get_query_var("spid");
-$requestURL = "http://www.northamericanwhitetail.deva/slim/api/superpost/post/$spid";
+$requestURL = "http://www.northamericanwhitetail.fox/slim/api/superpost/post/$spid";
 
 $file = file_get_contents($requestURL);
 $data = json_decode($file);
@@ -34,14 +34,14 @@ $data = $data[0];
 
 
 //Then get attachment data
-$requestURL3 = "http://www.northamericanwhitetail.deva/slim/api/superpost/children/not_comment/$spid";
+$requestURL3 = "http://www.northamericanwhitetail.fox/slim/api/superpost/children/not_comment/$spid";
 
 $file3 = file_get_contents($requestURL3);
 $attachmentData = json_decode($file3);
 
 
 //Then get comment data
-$requestURL2 = "http://www.northamericanwhitetail.deva/slim/api/superpost/comment_attachments/$spid";
+$requestURL2 = "http://www.northamericanwhitetail.fox/slim/api/superpost/comment_attachments/$spid";
 
 $file2 = file_get_contents($requestURL2);
 $commentData = json_decode($file2);
@@ -60,7 +60,7 @@ $headerTitle = $data->post_type . ": " . $data->title;
 
 ?>
 <header class="header-title">
-<h1>Community <span>| <?php echo $data->post_type; ?></span></h1>
+<h1><a href="/community/">Community</a> <span>| <?php echo $data->post_type; ?></span></h1>
 </header>
 <div class="bonus-background">
 	<div class="bonus">
@@ -68,13 +68,13 @@ $headerTitle = $data->post_type . ": " . $data->title;
 	</div>
 </div>
 <div class="col-abc super-content">
-		 <img src="<?php echo $grav_url; ?>" class="recon-gravatar">
+		 <a href="/profile/<?php echo $data->username ?>"><img src="<?php echo $grav_url; ?>" class="recon-gravatar"></a>
 
 
 	
 	
-		<div class="username"><?php echo $data->username; ?></div>
-		<div class="super-meta">Posted on <?php the_time('F j, Y'); ?> &#8226; <?php the_time('g:i a'); ?> &#8226; <span class="post-type"><?php echo $data->post_type; ?></span> &#8226; ### veiws</div>
+		<a class="username" href="/profile/<?php echo $data->username ?>"><?php echo $data->username; ?></a>
+		<div class="super-meta">Posted on <?php the_time('F j, Y'); ?> &#8226; <?php the_time('g:i a'); ?> &#8226; <a href="/plus/<?php echo $data->post_type; ?>" class="post-type"><?php echo $data->post_type; ?></a> &#8226; ### veiws</div>
 		<div class="clearfix"></div>
 		<div class="entry-header"><h1 class="entry-title">"<?php echo $data->title; ?>"</h1></div>
 		<?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
@@ -124,7 +124,12 @@ $headerTitle = $data->post_type . ": " . $data->title;
     </div>
 
     <div class="new-superpost-modal-container" style="height:500px:width:600px;background-color:white;">
-    <h1>Post a Comment!</h1>
+    <?php if($data->post_type == "question"){
+	    echo '<h1>Answer this question</h1> ';
+    }else{
+	    echo '<h1>Post a Comment!</h1> ';
+    } ?>
+  
 
     <div class="media-section">
 

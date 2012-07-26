@@ -1422,6 +1422,14 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 	background: url("img/ui_tab_next.png") no-repeat scroll center center #000;
 	right: 0;
 }*/
+.questions-slider .user-info img{
+	
+	border: 3px solid white;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.58);
+    -moz-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.58);
+    -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.58);
+    }
+
 .questions-slider {
     min-height: 270px;
     margin: 0;
@@ -1475,10 +1483,10 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     width: 678px;
 }
 .questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-clip-horizontal {
-    cursor: pointer;
     min-height: 270px;
     width: 678px;
     margin-top: 40px;
+    
 }
 .questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-direction-rtl .jcarousel-prev-horizontal {
     background-image: url("img/next-rounded.png");
@@ -1487,6 +1495,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 }
 .questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-item-horizontal {
     margin: 0;
+    padding-top: 4px;
 }
 .questions-slider .jcarousel-list .jcarousel-list-horizontal{
 	width: 678px !important;
@@ -1495,11 +1504,11 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 	width: 678px;
 }
 .questions-slider .quote-area .top{
-	background: url("img/top-arrow.jpg") no-repeat scroll 30px top transparent;
+	background: url("img/top-arrow.jpg") no-repeat scroll 33px top transparent;
     height: 6px;
     position: relative;
     top: 1px;
-    width: 41px;
+    width: 44px;
     z-index: 9999;
 }
 .questions-slider .quote-area .mdl{
@@ -1965,15 +1974,15 @@ a.comment-count:hover {
 	padding: 30px;
     width: 618px;
  }
-.page-template-superpost_single-php .header-title{
+.page-template-superpost_single-php .header-title, .page-template-user_profile-php .header-title{
 	background: url('img/nawp-icon.png') no-repeat;
 }
-.page-template-superpost_single-php .header-title h1 {
+.page-template-superpost_single-php .header-title h1, .page-template-user_profile-php .header-title h1{
     text-transform: uppercase;
     margin-left: 50px;
     padding-top: 6px;
 }
-.page-template-superpost_single-php .header-title h1 span{
+.page-template-superpost_single-php .header-title h1 span, .page-template-user_profile-php .header-title h1 span{
 	font-size: 0.8em;
     margin-left: 9px;
     word-spacing: 0.4em;
@@ -2000,6 +2009,7 @@ a.comment-count:hover {
 	font-family: ProximaNovaA-Semibold;
 	color: #58534f;
 	float: left;
+	text-transform: capitalize;
 }
 .super-single-right{
 	float: left;
@@ -3467,3 +3477,83 @@ h1.tv-header{
 .social-scroll{
 	padding: 0 !important;
 }
+
+/* USER PROFILE */
+
+.page-template-user_profile-php .user-header h3{
+	font-family: ProximaNova-Regular;
+	font-size: 2.3em;
+    font-weight: lighter;
+    text-transform: capitalize;
+    color: #58534f;
+}
+.page-template-user_profile-php .user-header{
+	width: 682px;
+}
+.page-template-user_profile-php .user-info{
+	float: left;
+	width: 66%;
+	background: url("img/user-sep.png") no-repeat right center;
+}
+.page-template-user_profile-php .user-info img{
+	float: left;
+	border: 8px solid #f0e9e1;
+}
+.page-template-user_profile-php .extras{
+	float: left;
+	padding: 0 12px;
+    width: 30%;
+}
+.page-template-user_profile-php .extras .score-box{
+	width: 80px;
+}
+.page-template-user_profile-php .extras h2{
+	font-family: ProximaNovaA-Bold;
+	font-size: 2.3em;
+	color: #171412;
+	text-align: center;
+	margin-bottom: -7px;
+}
+.page-template-user_profile-php .extras p{
+	font-family: ProximaNovaA-Bold;
+	color: #aaa197;
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 0.9em;
+}
+
+ul.details{
+	float: left;
+	list-style: none;
+}
+ul.details li a{
+	padding-left: 32px;
+}
+ul.details li.hometown a, ul.details li.twitter a, ul.details li.www a{
+	font-family: 'rokkitt',serif;
+	color: #aaa197;
+	font-size: 1.1em;
+}
+ul.details li.hometown a{
+	background: url("img/map-marker.png") no-repeat 5px top;
+}
+ul.details li.twitter a{
+	background: url("img/twitter-handle.png") no-repeat top left;
+
+}
+ul.details li.www a{
+	background: url("img/website-icon.png") no-repeat 3px top;
+
+}
+
+h3.first-last-name{
+	clear: both;
+    font-family: 'rokkitt',serif;
+    font-size: 1.9em;
+    height: 40px;
+    margin: 0;
+    padding-top: 20px;
+    text-transform: uppercase;
+}
+
+
