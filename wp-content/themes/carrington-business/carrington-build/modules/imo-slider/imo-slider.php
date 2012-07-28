@@ -490,7 +490,7 @@ if (!class_exists('cfct_module_imo_slider') && class_exists('cfct_build_module')
 					<div class="image">
 						<a href="<?php the_permalink(); ?>">
 				
-							<?php echo get_the_post_thumbnail(get_the_ID(),"small-featured-thumb"); ?>	
+							<?php echo get_the_post_thumbnail(get_the_ID(),"small-featured-thumb"); ?>
 						</a>
 					</div>
 					<h3>
