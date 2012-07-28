@@ -71,7 +71,7 @@ function imo_auth_user($args){
 // Parse the arguments, assuming they're in the correct order
 	$username	= $args[0];
 	$password	= $args[1];
-	$data = $args[2];
+	//$data = $args[2];
 
 
 	global $wp_xmlrpc_server;
@@ -102,8 +102,7 @@ function imo_auth_user($args){
 		//print_r($user['data']['user_login']);
 		//$userHashes = imo_get_user($user['data']['user_login'],$user['data']['ID'],$user['data']['user_email']);
 	
-		
-		
+		header ("Content-Type:text/xml");  
 		
 		return $userData;
 	}
