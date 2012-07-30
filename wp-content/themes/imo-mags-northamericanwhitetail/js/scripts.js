@@ -118,6 +118,15 @@ $(document).ready(function(){
   });	
 
 });
+// Superpost widget slider
+$(document).ready(function(){
+				
+		$('#scroll-widget').buffet({
+    		scroll_by : 1,
+   			next      : $('.next'),
+    		prev      : $('.prev')
+  		});
+});
 
 // IMO Network slider
 $(document).ready(function(){

@@ -121,10 +121,9 @@ input.submit {
 }
 
 .superpost-comment {
-
 	margin:10px;
 	padding:10px;
-	width:620px;
+	width:580px;
 	background-color:#eeeeee;
 }
 
@@ -219,7 +218,7 @@ li.count-field {
 
 /* Homepage Controls */
 ul.post-type-select {
-	float: left;
+	float: right;
     position: relative;
     width: 702px;
     margin: 0;
@@ -497,6 +496,7 @@ div.user-details-box {
     font-size: 1em;
     padding: 10px 0;
     margin-top: 17px;
+    cursor: pointer;
 }
 .superpost-form input[type=submit]{
 	margin-left: 170px;

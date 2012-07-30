@@ -62,11 +62,11 @@ get_header();
 				   </li>
 				</ul>
 			</div>
-            <div class="toggle">
+            <!--<div class="toggle">
             	<a id="toggle-tile" class="tile-on"></a>
             	<span class="toggle-sep"></span>
             	<a id="toggle-list" class="list-off"></a>
-            </div>
+            </div>-->
             <ul class="post-type-select">
             	<li id="new-post-button" class="post"><span>+</span> Post</li>
                 <li class='selected' title='all'>ALL</li>
@@ -80,7 +80,7 @@ get_header();
 
             </ul>    
 
-            <div id="recon-activity">
+            <div id="recon-activity" term="all" display="tile">
 
 
             </div>
@@ -120,7 +120,7 @@ get_header();
 					</div>
 					<div class="questions-slider">
 		                <div class="slides-container-f">
-		                	<div class="see-all home-see-all">See All Questions</div>
+		                	<a href="/question" class="see-all home-see-all">See All Questions</a>
 		                     	<ul id="slides-questions" class="jcarousel-skin-tango questions-feed">
 		                        	<?php 
 		                     		for ($i = 1; $i <= 4; $i++) {

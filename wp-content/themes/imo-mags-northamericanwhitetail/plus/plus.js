@@ -11,11 +11,15 @@ var bgcolors = new Array("#403b35","#c65517","#829b40");
 //Make sure we should run all of this stuff
 if ($("#recon-activity").length > 0){
 
+	//First get any extra term and display type
+	var term = $("#recon-activity").attr("term");
+	var displayMode = $("#recon-activity").attr("display");
+	
 	if (displayMode == "tile") { //then show some tiles
-		displayRecon("all");
+		displayRecon(term);
 
 	} else { //then show the list
-		displayReconList("all");
+		displayReconList(term);
 	}
 }
 
@@ -108,7 +112,7 @@ function displayRecon(type) {
 		$("#recon-activity").html("");
 	}
 		
-
+	
 	var dataURL = "/slim/api/superpost/type/" + type;  	
 	dataURL += "/" + displayAtOnce;
 	dataURL += "/" + currentDisplayStart;
@@ -408,7 +412,6 @@ $(document).ready(function(){
 	showAtOnce = 10;
 	var dataURL = "/slim/api/superpost/type/" + type +"/" + showAtOnce + "/0";  	
 	var getdata = $.getJSON(dataURL, function(data) {
-		var count = 0;
 		
 		var $questionTemplate;
 				
@@ -432,8 +435,30 @@ $(document).ready(function(){
 
 }); //End display questions
 	
+// Sidebar slider display
+$(document).ready(function(){
+	var type = "photo";
+	showAtOnce = 36;
+	var dataURL = "/slim/api/superpost/type/" + type +"/" + showAtOnce + "/0";  	
+	var getdata = $.getJSON(dataURL, function(data) {
+		
+		var $questionTemplate;
 
-	
+		$.each(data, function(index, photo) { 
+			console.log(index,photo); 
+			
+			$questionTemplate = $("ul#scroll-widget li").eq(index);
+			var url = "/plus/" + photo.post_type + "/" + photo.id;
+			$questionTemplate.find("a").attr("href",photo.url);
+			$questionTemplate.find("img").attr("src",photo.img_url);
+		});							
+	$questionTemplate.appendTo("ul#scroll-widget.scroll").fadeIn();	
+	});
+
+}); //End 
+
+
+
 
 
 });//End doc Ready

@@ -526,9 +526,6 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     padding: 32px 36px;
     width: 120px;
 }
-.sub-menu{
-	left: 0 !important;
-}
 #header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 .tactics-menu-cat ul.sub-menu-2 > .menu-item .wpmega-link-title{
 	font-size: 0.7em !important;
 	line-height: 1.7em;
@@ -538,6 +535,29 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 	font-size: 0.8em;
 	font-weight: lighter;
 }
+
+#header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 .community-menu-cat ul.sub-menu-2 > .menu-item .wpmega-link-title{
+	font-size: 0.7em !important;
+	line-height: 1.7em;
+	font-weight: bold !important;
+}
+#header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 .community-menu-cat a span{
+	font-size: 0.8em;
+	font-weight: lighter;
+}
+#header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 .community .community-menu-cat.ss-nav-menu-item-depth-1{
+	margin: 0;
+    padding: 32px 36px;
+	width: 100px !important;
+}
+#header #megaMenu ul.megaMenu > .menu-item.community ul{
+	width: 172px !important;
+}
+
+.sub-menu{
+	left: 0 !important;
+}
+
 #header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 .ss-nav-menu-item-depth-1{
 	background-color: #feffff;
 }
@@ -1696,7 +1716,7 @@ h4.meta{
 .widget_slider-widget div.scroll_mask ul.scroll li a:hover {
     color: #3676cb !important;
 }
-.widget_slider-widget .prev, .widget_slider-widget .next {
+.widget_slider-widget .prev, .widget_slider-widget .next{
     background-color: transparent !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
@@ -1708,6 +1728,20 @@ h4.meta{
     text-align: left !important;
     text-indent: -119988px !important;
     top: 0 !important;
+    width: 25px !important;
+}
+.superpost-thumbs-widget .prev, .superpost-thumbs-widget .next{
+    background-color: transparent !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    cursor: pointer !important;
+    display: block !important;
+    height: 90px !important;
+    overflow: hidden !important;
+    position: absolute !important;
+    text-align: left !important;
+    text-indent: -119988px !important;
+    top: 102px !important;
     width: 25px !important;
 }
 .widget_slider-widget .prev.inactive, .widget_slider-widget .next.inactive {
@@ -1722,11 +1756,17 @@ h4.meta{
     background-image: url("img/ui_tab_next-green.png") !important;
     right: 0 !important;
 }
-#header #megaMenu .widget_slider-widget .prev {
+.superpost-thumbs-widget h2{
+	text-align: center;
+}
+#header #megaMenu .widget_slider-widget .prev{
     background-image: url("img/ui_tab_prev_blue.png") !important;
     left: 0;
 }
-#header #megaMenu .widget_slider-widget .next {
+.superpost-thumbs-widget .prev{
+    background-image: url("img/ui_tab_prev_blue.png") !important;
+}
+#header #megaMenu .widget_slider-widget .next, .superpost-thumbs-widget .next{
     background-image: url("img/ui_tab_next_blue.png") !important;
     right: 0 !important;
 }
@@ -1908,7 +1948,8 @@ a.comment-count:hover {
  * 
  *
  */
-.super-post{clear: both;width:1030px !important;padding-top:68px;}
+home .super-post{padding-top:68px;}
+.super-post{clear: both;width:1030px !important;}
 .home .page-template-page-right-php .cfct-block-c{
 	padding-left: 40px;
 }
@@ -3375,6 +3416,21 @@ h1.tv-header{
     top: 22px;
 }*/
 
+
+/* Superpost Slider Widget */
+.superpost-thumbs-widget .scroll_mask{
+	width: 256px;
+	height: 120px;
+}
+.superpost-thumbs-widget img{
+	width: 80px;
+	height: 80px;
+}
+.superpost-thumbs-widget ul.scroll li{
+	width: 86px;
+	height:84px;
+	margin: 0 1px 1px;
+}
 /* category pages */
 
 .cat-col-full{
@@ -3557,3 +3613,46 @@ h3.first-last-name{
 }
 
 
+/*****
+**Community Page
+**
+*****/
+.page-community ul.post-type-select{
+	margin: 0 10px 0;
+}
+ul.community-cats{
+	margin: 0 0 4px 0;
+	padding: 27px 10px 50px;
+	background-color: #f7f7f7;
+	list-style: none;
+}
+ul.community-cats li{
+	float: left;
+	margin: 0;
+}
+ul.community-cats h2{
+	padding-left: 35px;
+}
+ul.community-cats span{
+	width: 30px;
+	height: 30px;
+	position: absolute;
+}
+li#rut {
+	background: url('img/rut-icon.png') no-repeat left center;
+}
+li#tips-tactics {
+	background: url('img/tip-icon.png') no-repeat left center;
+}
+li#lifestyle {
+	background: url('img/truck-icon.png') no-repeat left center;
+}
+li#tbucks {
+	background: url('img/buck-icon.png') no-repeat left center;
+}
+li#general {
+	background: url('img/chat-icon.png') no-repeat left center;
+}
+li#experts, li#gear {
+	background: url('img/expert-icon.png') no-repeat left center;
+}

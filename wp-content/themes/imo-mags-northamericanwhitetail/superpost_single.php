@@ -60,21 +60,21 @@ $headerTitle = $data->post_type . ": " . $data->title;
 
 ?>
 <header class="header-title">
-<h1><a href="/community/">Community</a> <span>| <?php echo $data->post_type; ?></span></h1>
+	<h1><a href="/community/">Community</a> <span>| <a href="/<?php echo $data->post_type; ?>"><?php echo $data->post_type; ?></a></span></h1>
 </header>
 <div class="bonus-background">
 	<div class="bonus">
-		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-landing')) : else : ?><?php endif; ?>
+		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('superpost-sidebar')) : else : ?><?php endif; ?>
 	</div>
 </div>
 <div class="col-abc super-content">
-		 <a href="/profile/<?php echo $data->username ?>"><img src="<?php echo $grav_url; ?>" class="recon-gravatar"></a>
+	<a href="/profile/<?php echo $data->username ?>"><img src="<?php echo $grav_url; ?>" class="recon-gravatar"></a>
 
 
 	
 	
 		<a class="username" href="/profile/<?php echo $data->username ?>"><?php echo $data->username; ?></a>
-		<div class="super-meta">Posted on <?php the_time('F j, Y'); ?> &#8226; <?php the_time('g:i a'); ?> &#8226; <a href="/plus/<?php echo $data->post_type; ?>" class="post-type"><?php echo $data->post_type; ?></a> &#8226; ### veiws</div>
+		<div class="super-meta">Posted on <?php the_time('F j, Y'); ?> &#8226; <?php the_time('g:i a'); ?> &#8226; <a href="/<?php echo $data->post_type; ?>" class="post-type"><?php echo $data->post_type; ?></a> &#8226; ### veiws</div>
 		<div class="clearfix"></div>
 		<div class="entry-header"><h1 class="entry-title">"<?php echo $data->title; ?>"</h1></div>
 		<?php if (function_exists('imo_add_this')) {imo_add_this();} ?>

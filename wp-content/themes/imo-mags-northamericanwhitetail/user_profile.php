@@ -34,7 +34,7 @@ if ($user)
 
 ?>
 <header class="header-title">
-	<h1>Community / Your Profile</h1>
+	<h1><a href="/community/">Community</a> / Your Profile</h1>
 	<?php edit_post_link(__('Edit', 'carrington-business')); ?>
     <?php //echo $requestURL; ?>
 </header>

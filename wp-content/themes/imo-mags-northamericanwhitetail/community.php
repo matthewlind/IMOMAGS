@@ -26,11 +26,61 @@ get_header();
 the_post();
 ?>
 <div class="page-community">
+
+<!-- Carrington Section w/ Sidebar Top -->	
+	<div class="bonus-background">
+		<div class="bonus">
+			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-home-top')) : else : ?><?php endif; ?>
+		</div>		
+	</div>
+	<div class="col-abc">
+			<ul class="community-cats">
+				<li id="rut"><h2>Rut Reports</h2></li>
+				<li>Members</li>
+				<li>345 Posts</li>
+			</ul>
+			
+			<ul class="community-cats">
+				<li id="tips-tactics"><h2>Tips & Tactics</h2></li>
+				<li>Members</li>
+				<li>345 Posts</li>
+			</ul>
+			
+			<ul class="community-cats">
+				<li id="lifestyle"><h2>Lifestyle</h2></li>
+				<li>Members</li>
+				<li>345 Posts</li>
+			</ul>
+			
+			<ul class="community-cats">
+				<li id="tbucks"><h2>Trophy Bucks</h2></li>
+				<li>Members</li>
+				<li>345 Posts</li>
+			</ul>
+			
+			<ul class="community-cats">
+				<li id="gear"><h2>Gear</h2></li>
+				<li>Members</li>
+				<li>345 Posts</li>
+			</ul>
+			
+			<ul class="community-cats">
+				<li id="general"><h2>General Discussion</h2></li>
+				<li>Members</li>
+				<li>345 Posts</li>
+			</ul>
+			
+			<ul class="community-cats">
+				<li id="experts"><h2>Ask The Experts</h2></li>
+				<li>Members</li>
+				<li>345 Posts</li>
+			</ul>
+		
+	</div><!-- .col-abc -->	
+
 <div class="col-abc super-post">
-    <div>
         <div class="entry-content">
-            <hr class="comm-sep">
-            <h1 class="recon">Naw+ Community</h1>
+            
             <div id="user-login-button">
                 LOGIN
             </div>
@@ -44,11 +94,11 @@ the_post();
 				   </li>
 				</ul>
 			</div>
-            <div class="toggle">
+            <!--<div class="toggle">
             	<a id="toggle-tile" class="tile-on"></a>
             	<span class="toggle-sep"></span>
             	<a id="toggle-list" class="list-off"></a>
-            </div>
+            </div>-->
             <ul class="post-type-select">
             	<li id="new-post-button" class="post"><span>+</span> Post</li>
                 <li class='selected' title='all'>ALL</li>
@@ -62,7 +112,7 @@ the_post();
 
             </ul>    
 
-            <div id="recon-activity">
+            <div id="recon-activity" term="all" display="tile">
 
 
             </div>
