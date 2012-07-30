@@ -44,5 +44,3 @@ if (!class_exists('cfct_row_abc_mod1')) {
 	}
 	cfct_build_register_row('cfct_row_abc_mod1');
 }
-
-?> 

@@ -371,9 +371,7 @@ if (!class_exists('cfct_module_fs_featured') && class_exists('cfct_build_module'
 								
 								<?php
 								//wp_nav_menu('menu=Reports');
-								?>
-								
-								<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('fs_featured_area')) : else : ?><?php endif; ?>
+								?><?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('fs_featured_area')) : else : ?><?php endif; ?>
 						
 						</div><!--/endrightcontent-->
 						</div><!--/endright-->
@@ -748,11 +746,7 @@ EOD;
 					if (has_post_thumbnail()) {
 						echo '<a href="', the_permalink(),'">', the_post_thumbnail('post-thumbnail', array('class' => 'entry-img')), '</a>';
 					}
-				
-				?>
-				
-				
-				<?php echo get_the_post_thumbnail(get_the_ID(),"large-featured-thumb"); ?>
+						echo get_the_post_thumbnail(get_the_ID(),"large-featured-thumb"); ?>
 				<?php echo get_the_post_thumbnail(get_the_ID(),"small-featured-thumb"); ?>
 				</div>
 				

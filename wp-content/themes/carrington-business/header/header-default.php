@@ -46,8 +46,8 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 	
 	wp_head();
 	include_once get_stylesheet_directory() . "/head-includes.php"; 
-	?>
-<?php if (defined('GOOGLE_FONT')): ?>
+	
+	if (defined('GOOGLE_FONT')): ?>
 	<link href='<?php print GOOGLE_FONT; ?>' rel='stylesheet' type='text/css'>
 <?php endif; ?>
 <link href='http://fonts.googleapis.com/css?family=Glegoo|Lato:300,400|Gudea|Share' rel='stylesheet' type='text/css'>
