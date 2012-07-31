@@ -26,32 +26,26 @@ get_header();
 the_post();
 ?>
 <div class="page-community">
-<div class="col-abc super-post">
-    <div>
-        <div class="entry-content">
-            <hr class="comm-sep">
-            <h1 class="recon">Naw+ Community</h1>
-            <div id="user-login-button">
-                LOGIN
-            </div>
-            <div class='cssmenu'>
-				<ul>
-				   <li><a href='#' class="dd"><span>State Activity</span><span class="dd-arrow"></span></a>
-				      <ul>
-				         <li><a href='#'><span>Product 1</span></a></li>
-				         <li><a href='#'><span>Product 2</span></a></li>
-				      </ul>
-				   </li>
-				</ul>
-			</div>
-           
-            <div id="recon-activity" term="lifestyle" display="tile">
-
-
-            </div>
-            <span id="more-superposts-button">Load More<span></span></span>
-        </div>
-    </div>
+	<header class="header-title">
+		<h1><a href="/community/">Community</a> <span>| Lifestyle</span></h1>
+	</header>
+	<div class="col-abc super-post">
+		<ul class="post-type-select">
+			<li id="new-post-button" class="post"><span>+</span> Post</li>
+		    <li title='all'>ALL</li>
+		    <li title='general'>General</li>
+		    <li title='report'>Reports</li>
+		    <li title='tip'>Tips</li>
+		    <li class='selected' title='lifestyle'>Lifestyle</li>
+		    <li title='trophy'>Trophy Bucks</li>
+		    <!--<li class="dd-arrow"></li>-->
+	    </ul>    
+	    <div id="recon-activity" term="lifestyle" display="tile">
+		
+		
+		</div>
+	<span id="more-superposts-button">Load More<span></span></span>
+	</div>
 </div>
 <?php get_footer(); ?>
 

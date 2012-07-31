@@ -9,14 +9,15 @@
 }
 h1.recon{
 	background-color: #FFFFFF;
-    color: #aaa197;
+    color: #AAA197;
     font-size: 1.2em;
+    height: 34px;
     left: 432px;
     padding: 0 14px;
     position: absolute;
+    text-align: center;
     text-transform: uppercase;
-    top: 5px;
-    height: 34px;
+    top: -10px;
 }
 .recon-box {
 
@@ -74,6 +75,7 @@ img.superpost-thumb {
 
 .under-box {
 	margin-top:20px;
+	padding-left: 4px;
 }
 
 .under-title {
@@ -220,8 +222,8 @@ li.count-field {
 ul.post-type-select {
 	float: right;
     position: relative;
-    width: 702px;
-    margin: 0;
+    width: 668px;
+    margin: 0 10px;
 }
 ul.post-type-select li {
 	font-family:"ProximaNovaS-Semibold";
@@ -414,9 +416,8 @@ span#more-superposts-button span {
 	user-select: none;
 }
 #user-login-button{
-	right: 0;
-    top: 30px;
-    position: absolute;
+	margin-top: 16px;
+	float: left;
     cursor: pointer;
 }
 
@@ -450,6 +451,7 @@ div.user-details-box {
 }
 
 .simplemodal-wrap{
+	background: #fff;
 	overflow: visible !important;
 	z-index: 99999;
 }

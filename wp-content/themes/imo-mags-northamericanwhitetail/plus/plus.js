@@ -337,7 +337,7 @@ function displayReconList(type) {
 	        var date = $("<abbr class='recon-date timeago' title=''></abbr>").attr("title",this.created);
 
 	        var image = $("<img class='superpost-list-thumb'>").attr("src",this.img_url);
-
+	        var url = "/plus/" + this.post_type + "/" + this.id;
 
 
 	        //Userpopup stuff
@@ -353,7 +353,7 @@ function displayReconList(type) {
 						<li>\
 							<div class='row-info'>\
 								<div class='row-post-type post-type-" + this.post_type + "'>" + this.post_type + "</div>\
-								<div class='row-title'>" + this.title + "</div>\
+								<div class='row-title'><a href='" + url + "'>" + this.title + "</a></div>\
 							</div>\
 						</li>\
 						<li class='count-field' >" + points + " Points</li>\
@@ -425,6 +425,7 @@ $(document).ready(function(){
 			$questionTemplate.find(".user-info a").attr("href","/profile/" + question.username);
 			
 			$questionTemplate.find("h4.quote").text(question.title);
+			$questionTemplate.find(".answers-count a").attr("href",url + "/#comments");
 			$questionTemplate.find("a.answers-link").attr("href",url);
 			$questionTemplate.find("span.count").text(question.comment_count);
 

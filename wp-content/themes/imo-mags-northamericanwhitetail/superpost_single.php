@@ -123,7 +123,7 @@ $headerTitle = $data->post_type . ": " . $data->title;
         <a href="userlink"><?php echo $comment->comment_username; ?></a>
     </div>
 
-    <div class="new-superpost-modal-container" style="height:500px:width:600px;background-color:white;">
+    <div id="comments" class="new-superpost-modal-container" style="height:500px:width:600px;background-color:white;">
     <?php if($data->post_type == "question"){
 	    echo '<h1>Answer this question</h1> ';
     }else{

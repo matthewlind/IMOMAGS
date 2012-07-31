@@ -90,7 +90,7 @@ position: relative;
 border: none !important;
 border-radius: 0 !important;
 padding-left: 0;
-width: 1030px !important;
+width: 1020px !important;
 }
 
 #main-content .str-content {
@@ -1581,6 +1581,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 .questions-slider .answers-area .answers-count{
 	float: left;
 	width: 140px;
+	cursor: default;
 	margin-left: 2px;
 }
 questions-slider .answers-area div.answers{
@@ -1949,6 +1950,7 @@ a.comment-count:hover {
  *
  */
 home .super-post{padding-top:68px;}
+.super-header{width: 1020px;position: relative;}
 .super-post{clear: both;width:1030px !important;}
 .home .page-template-page-right-php .cfct-block-c{
 	padding-left: 40px;
@@ -2015,10 +2017,10 @@ home .super-post{padding-top:68px;}
 	padding: 30px;
     width: 618px;
  }
-.page-template-superpost_single-php .header-title, .page-template-user_profile-php .header-title{
+.page-template-superpost_single-php .header-title, .page-template-user_profile-php .header-title, .page-community .header-title{
 	background: url('img/nawp-icon.png') no-repeat;
 }
-.page-template-superpost_single-php .header-title h1, .page-template-user_profile-php .header-title h1{
+.page-template-superpost_single-php .header-title h1, .page-template-user_profile-php .header-title h1, .page-community .header-title h1{
     text-transform: uppercase;
     margin-left: 50px;
     padding-top: 6px;
@@ -2917,19 +2919,29 @@ select.post_type {
 	font-family: "ProximaNovaS-Regular";
 	text-transform: uppercase;
 }
-.plus-button a{
+.plus-button a, a.plus-button{
 	background: #3e88e9;
 	color: #fff;
+}
+.plus-button a{
 	padding: 3px 6px;
 }
-.plus-button a:hover{
-	background: #9bc4fb;
+a.plus-button{
+	padding:6px;
+}
+.plus-button a:hover, a.plus-button:hover{
+	background: #aaa197;
 	color: #fff;
 }
 .plus-button span{
 	position: relative;
     top: -3px;
     font-size: 0.9em;
+}
+
+.answers-area .plus-button span{
+	top: -2px;
+    font-size: 1em;
 }
 .plus-button span.plus{
 	font-family: "ProximaNovaS-Extrabld";
@@ -2946,6 +2958,7 @@ select.post_type {
 **/
 .questions-right{
 	float: right;
+	margin: -8px 7px 0;
 }
 .questions-page-nav{
 	float: left;
@@ -3617,9 +3630,7 @@ h3.first-last-name{
 **Community Page
 **
 *****/
-.page-community ul.post-type-select{
-	margin: 0 10px 0;
-}
+
 ul.community-cats{
 	margin: 0 0 4px 0;
 	padding: 27px 10px 50px;
@@ -3627,32 +3638,118 @@ ul.community-cats{
 	list-style: none;
 }
 ul.community-cats li{
-	float: left;
 	margin: 0;
 }
+ul.community-cats li.title{
+	float: left;
+	width: 300px;
+}
+ul.community-cats li.desc{
+	float: left;
+	width: 140px;
+}
+ul.community-cats li.desc{
+	font-family: Helvetica,sans-serif;
+	font-size: 0.8em;
+	margin-top: -6px;
+}
+ul.community-cats li.points{
+	font-family: Helvetica,sans-serif;
+	font-size: 0.9em;
+	font-weight: bold;
+	float: right;
+}
+ul.community-cats li div{
+	float: left;
+	width: 32px; /* centering icons */
+}
 ul.community-cats h2{
-	padding-left: 35px;
+	float: left;
+    margin: 0;
+    padding-left: 8px;
 }
-ul.community-cats span{
-	width: 30px;
-	height: 30px;
-	position: absolute;
+ul.community-cats h2 a{
+	color: #161412;
 }
-li#rut {
-	background: url('img/rut-icon.png') no-repeat left center;
+ul.community-cats h2 a.curr, ul.community-cats h2 a:hover{ 
+	color: #c2290b;
 }
-li#tips-tactics {
-	background: url('img/tip-icon.png') no-repeat left center;
+li#rut div {
+	background: url('img/rut-icon.png') no-repeat center center;
+	height: 26px;
 }
-li#lifestyle {
-	background: url('img/truck-icon.png') no-repeat left center;
+li#tips-tactics div {
+	background: url('img/tip-icon.png') no-repeat center center;
+	height: 29px;
 }
-li#tbucks {
-	background: url('img/buck-icon.png') no-repeat left center;
+li#lifestyle div {
+	background: url('img/truck-icon.png') no-repeat center center;
+	height: 15px;
 }
-li#general {
-	background: url('img/chat-icon.png') no-repeat left center;
+li#tbucks div {
+	background: url('img/buck-icon.png') no-repeat center center;
+	width: 32px;
+	height: 28px;
 }
-li#experts, li#gear {
-	background: url('img/expert-icon.png') no-repeat left center;
+li#general div {
+	background: url('img/chat-icon.png') no-repeat center center;
+	height: 23px;
 }
+li#experts div, li#gear div {
+	background: url('img/expert-icon.png') no-repeat center center;
+	height: 26px;
+}
+ul.community-cats li.post {
+    background: none repeat scroll 0 0 #aaa197;
+    border: 1px solid #999;
+    border-radius: 0 0 0 0;
+    box-shadow: 0 0 1px 0 #FFFFFF inset;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline;
+    font-family: "ProximaNovaS-Semibold";
+    font-size: 0.9em;
+    height: 40px;
+    line-height: 2.6em;
+    margin-top: -9px;
+    margin-right: 8px;
+    padding: 0 20px;
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 1px 2px 0 rgba(0, 0, 0, 0.4);
+    -moz-transition: all 0.6s ease 0s;-webkit-transition: 0.6s;
+}
+ul.community-cats li.post:hover {
+    background: none repeat scroll 0 0 #347FE7;
+    border: 1px solid #2861B2;
+    border-radius: 0 0 0 0;
+    -moz-transition: all 0.6s ease 0s;-webkit-transition: 0.6s;
+}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

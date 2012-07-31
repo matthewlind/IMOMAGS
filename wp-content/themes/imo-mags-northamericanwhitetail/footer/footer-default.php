@@ -197,16 +197,15 @@ $args = array(
 
         <input type="text" name="title" id="title" placeholder="Headline"/>
         <textarea name="body" id="body" placeholder="Tell Us Your Story."></textarea>
-        
-        <div class="post_type_styled_select">
-          <select class="post_type" name="post_type">
-            <option value="general">General Discussion</option>
-            <option value="question">Ask An Expert</option>
-            <option value="report">Rut Reports</option>
-            <option value="tip">Tips & Tactics</option>
-            <option value="lifestyle">Lifestyle</option>
-            <option value="trophy">Trophy Bucks</option>
-            <option value="gear">Gear</option>
+         <div class="post_type_styled_select">
+         <select class="post_type" name="post_type">
+            <option value="general" class="general">General Discussion</option>
+            <option value="question" class="question">Ask An Expert</option>
+            <option value="report" class="report">Rut Reports</option>
+            <option value="tip" class="tip">Tips & Tactics</option>
+            <option value="lifestyle" class="lifestyle">Lifestyle</option>
+            <option value="trophy" class="trophy">Trophy Bucks</option>
+            <!--<option value="gear" class="gear">Gear</option>-->
           </select>
         </div>
 

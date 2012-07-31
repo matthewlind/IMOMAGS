@@ -26,8 +26,9 @@ get_header();
 the_post();
 ?>
 <div class="page-community">
-
-<!-- Carrington Section w/ Sidebar Top -->	
+	<header class="header-title">
+		<h1>Community</h1>
+	</header>
 	<div class="bonus-background">
 		<div class="bonus">
 			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-home-top')) : else : ?><?php endif; ?>
@@ -35,56 +36,60 @@ the_post();
 	</div>
 	<div class="col-abc">
 			<ul class="community-cats">
-				<li id="rut"><h2>Rut Reports</h2></li>
-				<li>Members</li>
-				<li>345 Posts</li>
+				<li id="rut" class="title"><div></div><h2><a href="/report/">Rut Reports</a></h2></li>
+				<li class="desc">Members report from the field</li>
+				<li class="new-post post selected points report">+ POST</li>
 			</ul>
 			
 			<ul class="community-cats">
-				<li id="tips-tactics"><h2>Tips & Tactics</h2></li>
-				<li>Members</li>
-				<li>345 Posts</li>
+				<li id="tips-tactics" class="title"><div></div><h2><a href="/tip/">Tips & Tactics</a></h2></li>
+				<li class="desc">Members report from the field</li>
+				<li class="new-post post selected points tip">+ POST</li>
 			</ul>
 			
 			<ul class="community-cats">
-				<li id="lifestyle"><h2>Lifestyle</h2></li>
-				<li>Members</li>
-				<li>345 Posts</li>
+				<li id="lifestyle" class="title"><div></div><h2><a href="/lifestyle/">Lifestyle</a></h2></li>
+				<li class="desc">Members report from the field</li>
+				<li class="new-post post selected points lifestyle">+ POST</li>
 			</ul>
 			
 			<ul class="community-cats">
-				<li id="tbucks"><h2>Trophy Bucks</h2></li>
-				<li>Members</li>
-				<li>345 Posts</li>
+				<li id="tbucks" class="title"><div></div><h2><a href="/trophy/">Trophy Bucks</a></h2></li>
+				<li class="desc">Members report from the field</li>
+				<li class="new-post post selected points trophy">+ POST</li>
+			</ul>
+			
+			<!-- <ul class="community-cats">
+				<li id="gear" class="title"><div></div><h2><a href="/gear/">Gear</a></h2></li>
+				<li class="desc">Members report from the field</li>
+				<li class="new-post post selected points">+ POST</li>
+			</ul> -->
+			
+			<ul class="community-cats">
+				<li id="general" class="title"><div></div><h2><a href="/general/"">General Discussion</a></h2></li>
+				<li class="desc">Members report from the field</li>
+				<li class="new-post post selected points general">+ POST</li>
 			</ul>
 			
 			<ul class="community-cats">
-				<li id="gear"><h2>Gear</h2></li>
-				<li>Members</li>
-				<li>345 Posts</li>
-			</ul>
-			
-			<ul class="community-cats">
-				<li id="general"><h2>General Discussion</h2></li>
-				<li>Members</li>
-				<li>345 Posts</li>
-			</ul>
-			
-			<ul class="community-cats">
-				<li id="experts"><h2>Ask The Experts</h2></li>
-				<li>Members</li>
-				<li>345 Posts</li>
+				<li id="experts" class="title"><div></div><h2><a href="/question/">Ask The Experts</a></h2></li>
+				<li class="desc">Members report from the field</li>
+				<li class="new-post post selected points question">+ POST</li>
 			</ul>
 		
 	</div><!-- .col-abc -->	
-
+<div class="clear"></div>
 <div class="col-abc super-post">
         <div class="entry-content">
-            
+            <div class="super-header">
+	            <hr class="comm-sep">
+	            <h1 class="recon">Naw+ Community</h1>
+	        </div>
+
             <div id="user-login-button">
                 LOGIN
             </div>
-            <div class='cssmenu'>
+            <!--<div class='cssmenu'>
 				<ul>
 				   <li><a href='#' class="dd"><span>State Activity</span><span class="dd-arrow"></span></a>
 				      <ul>
@@ -94,7 +99,7 @@ the_post();
 				   </li>
 				</ul>
 			</div>
-            <!--<div class="toggle">
+            <div class="toggle">
             	<a id="toggle-tile" class="tile-on"></a>
             	<span class="toggle-sep"></span>
             	<a id="toggle-list" class="list-off"></a>
@@ -102,12 +107,12 @@ the_post();
             <ul class="post-type-select">
             	<li id="new-post-button" class="post"><span>+</span> Post</li>
                 <li class='selected' title='all'>ALL</li>
+                <li title='general'>General</li>
                 <li title='report'>Reports</li>
                 <li title='tip'>Tips</li>
-                <li title='lifestyle'>LifeStyles</li>
+                <li title='lifestyle'>Lifestyle</li>
                 <li title='trophy'>Trophy Bucks</li>
-                <li title='gear'>Gear</li>
-                <li class="dd-arrow"></li>
+                <!--<li class="dd-arrow"></li>-->
 
 
             </ul>    
