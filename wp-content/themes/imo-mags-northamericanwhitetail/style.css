@@ -2488,11 +2488,10 @@ ul.naw-loop li{
 
 
 
-.fileupload-buttonbar input
-{
+.fileupload-buttonbar input{
     position: absolute;
     top: 0;
-    right: 0;
+    right: -430px;
     margin: 0 0 20px 0;
     border: solid transparent;
     /*border-width: 0 0 100px 200px;*/
@@ -2503,7 +2502,6 @@ ul.naw-loop li{
     direction: ltr;
     cursor: pointer;
     width:90px;
-
 }
 
 .fileupload-buttonbar span {

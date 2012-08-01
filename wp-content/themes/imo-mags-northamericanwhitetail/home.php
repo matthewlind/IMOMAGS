@@ -51,9 +51,6 @@ get_header();
 	            <hr class="comm-sep">
 	            <h1 class="recon">Naw+ Community</h1>
 	        </div>
-            <div id="user-login-button">
-                LOGIN
-            </div>
             <!--<div class='cssmenu'>
 				<ul>
 				   <li><a href='#' class="dd"><span>State Activity</span><span class="dd-arrow"></span></a>
@@ -78,7 +75,9 @@ get_header();
                 <li title='lifestyle'>Lifestyle</li>
                 <li title='trophy'>Trophy Bucks</li>
             </ul>    
-
+            <div id="user-login-button">
+                LOGIN
+            </div>
             <div id="recon-activity" term="all" display="tile">
 
 

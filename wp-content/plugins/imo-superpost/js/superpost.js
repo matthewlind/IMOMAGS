@@ -24,7 +24,6 @@ jQuery(document).ready(function($) {
 		$("#title").attr("placeholder","Your Question");
 		$("select.post_type .question").attr("selected","selected");
 	});
-	
 	$('.new-post.trophy').click(function(){
 		$(".new-superpost-modal-container").modal({
 		opacity: 50, 
@@ -36,6 +35,7 @@ jQuery(document).ready(function($) {
 		$("select.post_type .trophy").attr("selected","selected");
 		$(".chzn-container span").text("Oh! Where are you reporting from?");
 		$(".state-dropdown-container").slideDown();
+		$(".simplemodal-container").animate({height: "630px"});
 	});
 	
 	$('.new-post.report').click(function(){
@@ -49,6 +49,7 @@ jQuery(document).ready(function($) {
 		$("select.post_type .report").attr("selected","selected");
 		$(".chzn-container span").text("Oh! Where are you reporting from?");
 		$(".state-dropdown-container").slideDown();
+		$(".simplemodal-container").animate({height: "630px"});
 	});
 	
 	$('.new-post.lifestyle').click(function(){
@@ -117,6 +118,12 @@ jQuery(document).ready(function($) {
 
    
   }//End SetupPostFOrm
+
+
+  
+	
+	
+	
 
   //When image is selected, immediately upload it.
   $("input#image-upload").change(function(){

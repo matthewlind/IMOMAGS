@@ -27,16 +27,16 @@ the_post();
 ?>
 <div class="page-community">
 	<header class="header-title">
-		<h1>Community</h1>
+		<h1>Community <span style="display:none;">| General Discussion</span></h1>
 	</header>
 	<div class="bonus-background">
 		<div class="bonus">
 			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-home-top')) : else : ?><?php endif; ?>
 		</div>		
 	</div>
-	<div class="col-abc">
+	<div class="col-abc community">
 			<ul class="community-cats">
-				<li id="rut" class="title"><div></div><h2><a href="/report/">Rut Reports</a></h2></li>
+				<li id="rut" class="title"><div></div><h2><a href="/report/" term="report" display="list">Rut Reports</a></h2></li>
 				<li class="desc">Members report from the field</li>
 				<li class="new-post post selected points report">+ POST</li>
 			</ul>
@@ -85,10 +85,7 @@ the_post();
 	            <hr class="comm-sep">
 	            <h1 class="recon">Naw+ Community</h1>
 	        </div>
-
-            <div id="user-login-button">
-                LOGIN
-            </div>
+	        <a class="back-to-community" href="#" term="all" display="tile" style="display:none;">Back to Community</a>
             <!--<div class='cssmenu'>
 				<ul>
 				   <li><a href='#' class="dd"><span>State Activity</span><span class="dd-arrow"></span></a>
@@ -106,17 +103,17 @@ the_post();
             </div>-->
             <ul class="post-type-select">
             	<li id="new-post-button" class="post"><span>+</span> Post</li>
-                <li class='selected' title='all'>ALL</li>
-                <li title='general'>General</li>
-                <li title='report'>Reports</li>
-                <li title='tip'>Tips</li>
-                <li title='lifestyle'>Lifestyle</li>
-                <li title='trophy'>Trophy Bucks</li>
+                <li class='all-nav selected' title='all'>ALL</li>
+                <li class='general-nav' title='general'>General</li>
+                <li class='report-nav' title='report'>Reports</li>
+                <li class='tip-nav' title='tip'>Tips</li>
+                <li class='lifestyle-nav' title='lifestyle'>Lifestyle</li>
+                <li class='trophy-nav' title='trophy'>Trophy Bucks</li>
                 <!--<li class="dd-arrow"></li>-->
-
-
             </ul>    
-
+            <div id="user-login-button">
+                LOGIN
+            </div>
             <div id="recon-activity" term="all" display="tile">
 
 

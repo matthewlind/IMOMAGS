@@ -23,6 +23,63 @@ if ($("#recon-activity").length > 0){
 	}
 }
 
+/* ON ICE
+//**************************
+//COMMUNITY PAGE ACTIONS
+//************************** 
+  
+  //Show the community posts and hide the list and sidebar
+	$('#rut.title a').click(function(){
+		$(".community").fadeOut();
+		$(".bonus-background").fadeOut();
+		$(".super-header").fadeOut();
+		$(".back-to-community").fadeIn();
+		$("#recon-activity").attr("term","report");
+		$("#recon-activity").attr("display","list");
+		term = $(this).attr("term");
+		displayMode = $(this).attr("display");
+
+		displayAtOnce = 6;
+		
+		currentDisplayStart = 0;
+		
+
+		if (displayMode == "tile") { //then show some tiles
+			displayRecon(term);
+	
+		} else { //then show the list
+			displayReconList(term);
+		}
+		$("ul.post-type-select li.selected").removeClass("selected");
+		$("ul.post-type-select li").hasClass("report-nav").addClass("selected");		
+
+	});
+	// Show the list and sidebar again and hide the back button
+	$('.back-to-community').click(function(){
+		$(".community").fadeIn();
+		$(".bonus-background").fadeIn();
+		$(".super-header").fadeIn();
+		$(".back-to-community").fadeOut();
+		
+		$("#recon-activity").attr("term","all");
+		$("#recon-activity").attr("display","tile");
+		term = $(this).attr("term");
+		displayMode = $(this).attr("display");
+
+		displayAtOnce = 6;
+		
+		currentDisplayStart = 0;
+		
+
+		if (displayMode == "tile") { //then show some tiles
+			displayRecon(term);
+	
+		} else { //then show the list
+			displayReconList(term);
+		}
+
+	});
+*/
 //activate Recon Network Controls - tabs
 $("ul.post-type-select li").click(function(){
 	
@@ -457,6 +514,8 @@ $(document).ready(function(){
 	});
 
 }); //End 
+
+
 
 
 

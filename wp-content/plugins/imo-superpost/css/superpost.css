@@ -220,10 +220,10 @@ li.count-field {
 
 /* Homepage Controls */
 ul.post-type-select {
-	float: right;
+	float: left;
     position: relative;
-    width: 668px;
-    margin: 0 10px;
+    /*width: 668px;*/
+    margin: 0 10px 0 0;
 }
 ul.post-type-select li {
 	font-family:"ProximaNovaS-Semibold";
@@ -416,9 +416,20 @@ span#more-superposts-button span {
 	user-select: none;
 }
 #user-login-button{
-	margin-top: 16px;
-	float: left;
+	margin: 0 10px;
+	float: right;
     cursor: pointer;
+    background: none repeat scroll 0 0 #829B40;
+    border: 1px solid #2861B2;
+    border-radius: 0 0 0 0;
+    box-shadow: 0 0 1px 0 #FFFFFF inset;
+    color: #FFFFFF;
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 1px 2px 0 rgba(0, 0, 0, 0.4);
+    font-family: "ProximaNovaS-Semibold";
+    font-size: 0.9em;
+    height: 50px;
+    line-height: 3.2em;
+    padding: 0 20px;
 }
 
 .post-menu{
