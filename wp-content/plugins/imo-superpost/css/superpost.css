@@ -416,10 +416,15 @@ span#more-superposts-button span {
 	user-select: none;
 }
 #user-login-button{
-	margin: 4px 10px 0;
+	margin: 8px 10px 0;
 	float: right;
     cursor: pointer;
-    background: none repeat scroll 0 0 #829B40;
+    background: url("/wp-content/themes/imo-mags-northamericanwhitetail/img/fb-login-sm.png") no-repeat center top;
+    height: 42px;
+    margin: 4px 10px 0;
+    text-indent: -9999px;
+    width: 157px;
+   /* background: none repeat scroll 0 0 #829B40;
     border: 1px solid #2861B2;
     border-radius: 0 0 0 0;
     box-shadow: 0 0 1px 0 #FFFFFF inset;
@@ -429,7 +434,7 @@ span#more-superposts-button span {
     font-size: 0.9em;
     height: 50px;
     line-height: 3.2em;
-    padding: 0 20px;
+    padding: 0 20px;*/
 }
 
 .post-menu{
