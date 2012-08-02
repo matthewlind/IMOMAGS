@@ -11,14 +11,75 @@ var bgcolors = new Array("#403b35","#c65517","#829b40");
 //Make sure we should run all of this stuff
 if ($("#recon-activity").length > 0){
 
+	//First get any extra term and display type
+	var term = $("#recon-activity").attr("term");
+	var displayMode = $("#recon-activity").attr("display");
+	
 	if (displayMode == "tile") { //then show some tiles
-		displayRecon("all");
+		displayRecon(term);
 
 	} else { //then show the list
-		displayReconList("all");
+		displayReconList(term);
 	}
 }
 
+/* ON ICE
+//**************************
+//COMMUNITY PAGE ACTIONS
+//************************** 
+  
+  //Show the community posts and hide the list and sidebar
+	$('#rut.title a').click(function(){
+		$(".community").fadeOut();
+		$(".bonus-background").fadeOut();
+		$(".super-header").fadeOut();
+		$(".back-to-community").fadeIn();
+		$("#recon-activity").attr("term","report");
+		$("#recon-activity").attr("display","list");
+		term = $(this).attr("term");
+		displayMode = $(this).attr("display");
+
+		displayAtOnce = 6;
+		
+		currentDisplayStart = 0;
+		
+
+		if (displayMode == "tile") { //then show some tiles
+			displayRecon(term);
+	
+		} else { //then show the list
+			displayReconList(term);
+		}
+		$("ul.post-type-select li.selected").removeClass("selected");
+		$("ul.post-type-select li").hasClass("report-nav").addClass("selected");		
+
+	});
+	// Show the list and sidebar again and hide the back button
+	$('.back-to-community').click(function(){
+		$(".community").fadeIn();
+		$(".bonus-background").fadeIn();
+		$(".super-header").fadeIn();
+		$(".back-to-community").fadeOut();
+		
+		$("#recon-activity").attr("term","all");
+		$("#recon-activity").attr("display","tile");
+		term = $(this).attr("term");
+		displayMode = $(this).attr("display");
+
+		displayAtOnce = 6;
+		
+		currentDisplayStart = 0;
+		
+
+		if (displayMode == "tile") { //then show some tiles
+			displayRecon(term);
+	
+		} else { //then show the list
+			displayReconList(term);
+		}
+
+	});
+*/
 //activate Recon Network Controls - tabs
 $("ul.post-type-select li").click(function(){
 	
@@ -108,7 +169,7 @@ function displayRecon(type) {
 		$("#recon-activity").html("");
 	}
 		
-
+	
 	var dataURL = "/slim/api/superpost/type/" + type;  	
 	dataURL += "/" + displayAtOnce;
 	dataURL += "/" + currentDisplayStart;
@@ -333,7 +394,7 @@ function displayReconList(type) {
 	        var date = $("<abbr class='recon-date timeago' title=''></abbr>").attr("title",this.created);
 
 	        var image = $("<img class='superpost-list-thumb'>").attr("src",this.img_url);
-
+	        var url = "/plus/" + this.post_type + "/" + this.id;
 
 
 	        //Userpopup stuff
@@ -349,7 +410,7 @@ function displayReconList(type) {
 						<li>\
 							<div class='row-info'>\
 								<div class='row-post-type post-type-" + this.post_type + "'>" + this.post_type + "</div>\
-								<div class='row-title'>" + this.title + "</div>\
+								<div class='row-title'><a href='" + url + "'>" + this.title + "</a></div>\
 							</div>\
 						</li>\
 						<li class='count-field' >" + points + " Points</li>\
@@ -408,7 +469,6 @@ $(document).ready(function(){
 	showAtOnce = 10;
 	var dataURL = "/slim/api/superpost/type/" + type +"/" + showAtOnce + "/0";  	
 	var getdata = $.getJSON(dataURL, function(data) {
-		var count = 0;
 		
 		var $questionTemplate;
 				
@@ -422,6 +482,7 @@ $(document).ready(function(){
 			$questionTemplate.find(".user-info a").attr("href","/profile/" + question.username);
 			
 			$questionTemplate.find("h4.quote").text(question.title);
+			$questionTemplate.find(".answers-count a").attr("href",url + "/#comments");
 			$questionTemplate.find("a.answers-link").attr("href",url);
 			$questionTemplate.find("span.count").text(question.comment_count);
 
@@ -432,8 +493,32 @@ $(document).ready(function(){
 
 }); //End display questions
 	
+// Sidebar slider display
+$(document).ready(function(){
+	var type = "photo";
+	showAtOnce = 36;
+	var dataURL = "/slim/api/superpost/type/" + type +"/" + showAtOnce + "/0";  	
+	var getdata = $.getJSON(dataURL, function(data) {
+		
+		var $questionTemplate;
 
-	
+		$.each(data, function(index, photo) { 
+			console.log(index,photo); 
+			
+			$questionTemplate = $("ul#scroll-widget li").eq(index);
+			var url = "/plus/" + photo.post_type + "/" + photo.id;
+			$questionTemplate.find("a").attr("href",photo.url);
+			$questionTemplate.find("img").attr("src",photo.img_url);
+		});							
+	$questionTemplate.appendTo("ul#scroll-widget.scroll").fadeIn();	
+	});
+
+}); //End 
+
+
+
+
+
 
 
 });//End doc Ready

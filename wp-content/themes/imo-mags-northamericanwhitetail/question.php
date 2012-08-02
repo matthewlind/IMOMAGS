@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Template Name: Questions Page
- * Description: A page for the Questions Section.
+ * Template Name: Question
+ * Description: The NAW+ Community - Question Category
  *
  * @package carrington-business
  *
@@ -18,11 +18,28 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
  * **********************************************************************
  */
-
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
+if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
-// NOTE: this file is here for compatibility reasons - active templates are in the pages/ dir 
+get_header();
 
-cfct_page('pages-questions');
-
+the_post();
 ?>
+<div class="page-community">
+<div class="col-abc super-post">
+    <header class="header-title">
+		<h1><a href="/community/">Community</a> <span>| Questions</span></h1>
+	</header>
+	<div class="col-abc super-post">
+		<div id="user-login-button">
+                LOGIN
+        </div>    
+        <div id="recon-activity" term="question" display="list">
+
+
+       </div>
+       <span id="more-superposts-button">Load More<span></span></span>
+   </div>
+</div>
+<?php get_footer(); ?>
+

@@ -108,6 +108,11 @@ function naw_imo_addons_sidebar_init() {
       'name' => __('Gallery Sidebar', 'carrington-business'),
       'description' => __('Sidebar for Gallery posts.', 'carrington-business')
   )));
+  register_sidebar(array_merge($sidebar_defaults, array(
+      'id' => 'superpost-sidebar',
+      'name' => __('Superpost Single Sidebar', 'carrington-business'),
+      'description' => __('Sidebar for Superposts.', 'carrington-business')
+  )));
     
 }
 add_action( 'widgets_init', 'naw_imo_addons_sidebar_init' );
@@ -117,6 +122,8 @@ include_once get_stylesheet_directory().'/widgets/newsletter-signup.php';
 include_once get_stylesheet_directory().'/widgets/join.php';
 include_once get_stylesheet_directory().'/widgets/video-callout.php';
 include_once get_stylesheet_directory().'/widgets/gallery-loop.php';
+include_once get_stylesheet_directory().'/widgets/superpost-thumbs.php';
+include_once get_stylesheet_directory().'/widgets/community-topics.php';
 
 
 

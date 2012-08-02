@@ -35,10 +35,10 @@ get_header();
 	<div class="col-abc sticky-height">
 				<?php the_content(__('Continued&hellip;', 'carrington-business')); ?>
 				<div class="clearfix"></div>
-		<!--<div class="homepage-gear top">
+		<div class="homepage-gear top">
 			<h1 class="more-header">Whitetail Gear</h1>
-			<?php //if (function_exists('dynamic_sidebar') && dynamic_sidebar('gear-home')) : else : ?><?php //endif; ?>
-		</div>-->
+			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('gear-home')) : else : ?><?php endif; ?>
+		</div>
 
 	</div><!-- .col-abc -->		
 
@@ -47,12 +47,12 @@ get_header();
     <div <?php post_class('entry entry-full clearfix'); ?>>
     	<!-- This section is commented out until we add community features -->
         <div class="entry-content">
-            <hr class="comm-sep">
-            <h1 class="recon">Naw+ Community</h1>
-            <div id="user-login-button">
-                LOGIN
-            </div>
-            <div class='cssmenu'>
+	        <div class="super-header">
+	            <hr class="comm-sep">
+	            <h1 class="recon">Naw+ Community</h1>
+	            <div class="remington"></div>
+	        </div>
+            <!--<div class='cssmenu'>
 				<ul>
 				   <li><a href='#' class="dd"><span>State Activity</span><span class="dd-arrow"></span></a>
 				      <ul>
@@ -62,25 +62,24 @@ get_header();
 				   </li>
 				</ul>
 			</div>
-            <div class="toggle">
+           <div class="toggle">
             	<a id="toggle-tile" class="tile-on"></a>
             	<span class="toggle-sep"></span>
             	<a id="toggle-list" class="list-off"></a>
-            </div>
+            </div>-->
             <ul class="post-type-select">
             	<li id="new-post-button" class="post"><span>+</span> Post</li>
                 <li class='selected' title='all'>ALL</li>
+                <li title='general'>General</li>
                 <li title='report'>Reports</li>
                 <li title='tip'>Tips</li>
-                <li title='lifestyle'>LifeStyles</li>
+                <li title='lifestyle'>Lifestyle</li>
                 <li title='trophy'>Trophy Bucks</li>
-                <li title='gear'>Gear</li>
-                <li class="dd-arrow"></li>
-
-
             </ul>    
-
-            <div id="recon-activity">
+            <div id="user-login-button">
+                LOGIN
+            </div>
+            <div id="recon-activity" term="all" display="tile">
 
 
             </div>
@@ -110,17 +109,10 @@ get_header();
 				<div class="clear"></div>
 					<div class="header-sort home-questions">
 						<h1 class="more-header">Ask An Expert</h1>
-						<div class='questions-right'>
-							<ul>
-							   <li class="plus-button"><a href="#"><span class="plus">+</span><span>Ask Your Question</span></a></li>
-							   <li class="plus-button"><a href="#"><span>Sign In</span></a></li>
-							   <li class="plus-button reg"><a href="#"><span>Register</span></a></li>
-							</ul>
-						</div>
 					</div>
 					<div class="questions-slider">
 		                <div class="slides-container-f">
-		                	<div class="see-all home-see-all">See All Questions</div>
+		                	<a href="/question" class="see-all home-see-all">See All Questions</a>
 		                     	<ul id="slides-questions" class="jcarousel-skin-tango questions-feed">
 		                        	<?php 
 		                     		for ($i = 1; $i <= 4; $i++) {
@@ -138,9 +130,10 @@ get_header();
 										echo '</div>';
 										echo '<div class="answers-area">';
 											echo '<div class="answers-count">';
-												echo 'Answers <span class="count">18</span>';
+												echo 'Answers <a href="#"><span class="count">18</span></a>';
 											echo '</div>';
-											echo '<a href="#" class="answers-link">Answer This Question</a> ';              
+											echo '<a href="#" class="answers-link">Answer This Question</a> '; 
+											echo '<a class="plus-button new-post question questions-right"><span class="plus">+</span><span>Ask Your Question</span></a>';             
 										echo '</div>';
 									echo '</li>';
 									} ?>

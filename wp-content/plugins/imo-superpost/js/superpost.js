@@ -11,27 +11,119 @@ jQuery(document).ready(function($) {
         onShow: SetupPostForm
       });
   });
-
+	// set default option when clicking on a specific post type.
+	$('.new-post.question').click(function(){
+		$(".new-superpost-modal-container").modal({
+	    opacity: 50, 
+	    overlayClose: true,
+	    autoPosition: true,
+	    onShow: SetupPostForm
+	    });
+	
+		$("#body").css("display","none");
+		$("#title").attr("placeholder","Your Question");
+		$("select.post_type .question").attr("selected","selected");
+	});
+	$('.new-post.trophy').click(function(){
+		$(".new-superpost-modal-container").modal({
+		opacity: 50, 
+		overlayClose: true,
+		autoPosition: true,
+		onShow: SetupPostForm
+		});
+	
+		$("select.post_type .trophy").attr("selected","selected");
+		$(".chzn-container span").text("Oh! Where are you reporting from?");
+		$(".state-dropdown-container").slideDown();
+		$(".simplemodal-container").animate({height: "630px"});
+	});
+	
+	$('.new-post.report').click(function(){
+		$(".new-superpost-modal-container").modal({
+		opacity: 50, 
+		overlayClose: true,
+		autoPosition: true,
+		onShow: SetupPostForm
+		});
+	
+		$("select.post_type .report").attr("selected","selected");
+		$(".chzn-container span").text("Oh! Where are you reporting from?");
+		$(".state-dropdown-container").slideDown();
+		$(".simplemodal-container").animate({height: "630px"});
+	});
+	
+	$('.new-post.lifestyle').click(function(){
+		$(".new-superpost-modal-container").modal({
+		opacity: 50, 
+		overlayClose: true,
+		autoPosition: true,
+		onShow: SetupPostForm
+		});
+	
+		$("select.post_type .lifestyle").attr("selected","selected");
+	});
+	
+	$('.new-post.tip').click(function(){
+		$(".new-superpost-modal-container").modal({
+		opacity: 50, 
+		overlayClose: true,
+		autoPosition: true,
+		onShow: SetupPostForm
+		});
+	
+		$("select.post_type .tip").attr("selected","selected");
+	});
+	
+	$('.new-post.general').click(function(){
+		$(".new-superpost-modal-container").modal({
+		opacity: 50, 
+		overlayClose: true,
+		autoPosition: true,
+		onShow: SetupPostForm
+		});
+	
+		$("select.post_type .general").attr("selected","selected");
+	});
   //You can't add jQuery events to elements that don't exist.
   //As such, this function runs after the New Post modal appears
-  function SetupPostForm() {
+  function SetupPostForm() {	
+	
     //Setup State Dropdown with chosen
    $(".state-chzn").chosen();
 
     //Setup post type dropdown to show location when certain options are selected
     $("select.post_type").change(function(){
+    	//if post is a question, hide the textarea
+  	if ($("select.post_type").val() == "question") {
+	    	$("#body").css("display","none");
+	    	$("#title").attr("placeholder","Your Question");
+	}else{
+			$("#body").css("display","block");
+			$("#title").attr("placeholder","Headline");
+	}
+    
       if ($("select.post_type").val() == "report" || $("select.post_type").val() == "trophy") {
 
         if (($("select.post_type").val() == "report")) {
           $(".chzn-container span").text("Oh! Where are you reporting from?");
         }
 
-        $(".state-dropdown-container").slideDown();
+        	$(".state-dropdown-container").slideDown();
+        	$(".simplemodal-container").animate({height: "630px"});
+      }else{
+      //hide when not neccesary
+	      $(".state-dropdown-container").slideUp();
       }
     });
 
-
+   
   }//End SetupPostFOrm
+
+
+  
+	
+	
+	
 
   //When image is selected, immediately upload it.
   $("input#image-upload").change(function(){
@@ -160,11 +252,14 @@ jQuery(document).ready(function($) {
     $(".new-superpost-modal-container").animate({
       width: "760px"
     }, 500 );
-
+    $(".simplemodal-container").animate({
+      width: "800px"
+    }, 500 );
     //Also change width of media section so that it fits in the wider new post box
     $(".media-section").animate({
       width: "320px"
     }, 500 );
+    
 
 
     //first, get the image element and the caption form

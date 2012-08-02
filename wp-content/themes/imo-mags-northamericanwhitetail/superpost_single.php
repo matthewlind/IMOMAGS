@@ -28,6 +28,7 @@ get_header();
 $spid =  get_query_var("spid");
 $requestURL = "http://www.northamericanwhitetail.fox/slim/api/superpost/post/$spid";
 
+
 $file = file_get_contents($requestURL);
 $data = json_decode($file);
 $data = $data[0];
@@ -60,21 +61,21 @@ $headerTitle = $data->post_type . ": " . $data->title;
 
 ?>
 <header class="header-title">
-<h1><a href="/community/">Community</a> <span>| <?php echo $data->post_type; ?></span></h1>
+	<h1><a href="/community/">Community</a> <span>| <a href="/<?php echo $data->post_type; ?>"><?php echo $data->post_type; ?></a></span></h1>
 </header>
 <div class="bonus-background">
 	<div class="bonus">
-		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-landing')) : else : ?><?php endif; ?>
+		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('superpost-sidebar')) : else : ?><?php endif; ?>
 	</div>
 </div>
 <div class="col-abc super-content">
-		 <a href="/profile/<?php echo $data->username ?>"><img src="<?php echo $grav_url; ?>" class="recon-gravatar"></a>
+	<a href="/profile/<?php echo $data->username ?>"><img src="<?php echo $grav_url; ?>" class="recon-gravatar"></a>
 
 
 	
 	
 		<a class="username" href="/profile/<?php echo $data->username ?>"><?php echo $data->username; ?></a>
-		<div class="super-meta">Posted on <?php the_time('F j, Y'); ?> &#8226; <?php the_time('g:i a'); ?> &#8226; <a href="/plus/<?php echo $data->post_type; ?>" class="post-type"><?php echo $data->post_type; ?></a> &#8226; ### veiws</div>
+		<div class="super-meta">Posted on <?php the_time('F j, Y'); ?> &#8226; <?php the_time('g:i a'); ?> &#8226; <a href="/<?php echo $data->post_type; ?>" class="post-type"><?php echo $data->post_type; ?></a> &#8226; ### veiws</div>
 		<div class="clearfix"></div>
 		<div class="entry-header"><h1 class="entry-title">"<?php echo $data->title; ?>"</h1></div>
 		<?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
@@ -108,11 +109,14 @@ $headerTitle = $data->post_type . ": " . $data->title;
 			
 			
 			            echo $media;
-			
-			        }
-			
-			        
-			    ?>
+			            
+			            
+			       }
+			       echo '<div class="reply-btn"><a href="#comments">REPLY</a></div>';
+			       echo '<div class="count"><a href="#comments">2</a></div>';
+			       echo '<a class="flag">Flag</a>';
+			       
+			?>
 	     
 			</div>
 		</div><!-- .entry -->
@@ -123,7 +127,7 @@ $headerTitle = $data->post_type . ": " . $data->title;
         <a href="userlink"><?php echo $comment->comment_username; ?></a>
     </div>
 
-    <div class="new-superpost-modal-container" style="height:500px:width:600px;background-color:white;">
+    <div id="comments" class="new-superpost-modal-container" style="height:500px:width:600px;background-color:white;">
     <?php if($data->post_type == "question"){
 	    echo '<h1>Answer this question</h1> ';
     }else{
@@ -252,8 +256,13 @@ $headerTitle = $data->post_type . ": " . $data->title;
         <?php } ?>
 
 
-
-    </div>
-
+            </div>
+    
 </div><!-- .col-abc -->
+<div class="pagi">
+	<?php 
+    echo '<a class="prev-post" href="/plus/'.$data->post_type.'/'.$prev_post.'">Previous '.$data->post_type.'</a>'; 
+    echo '<a class="next-post" href="/plus/'.$data->post_type.'/'.$next_post.'">Next '.$data->post_type.'</a>';  
+    ?>
+</div><!-- .pagi -->
 <?php get_footer(); ?>

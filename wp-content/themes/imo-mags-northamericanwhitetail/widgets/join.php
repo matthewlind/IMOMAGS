@@ -13,15 +13,15 @@ class Join_Widget extends WP_Widget {
 
     <aside id="join" class="box widget_gravity_form">
       <div class="content_wrapper">
-      	
-        <form id="community-signup" class="community-signup" action="">
-	        <input id="email" class="email" type="text" name="email" value="" placeholder="Your Email">
-	        <input id="email-signup" class="email-signup" type="submit" name="email-signup" value="Submit">
-	        <span>or</span>
-	        <input id="fb-signup" class="fb-signup" type="submit" name="fb-signup" value="Submit">
-        </form>
-        <div class="clear"></div>
-        <a href="#" class="about-link">Tell me about North American Whitetail +</a>
+      	  <div id="user-login-button" class="fb-login">Fast Facebook Login</div>
+	      <small>*we do not post anything to your wall unless you say so!</small>
+	      <div class="temp"></div>
+	      <a class="email-signup">or use your email address</a>
+	      <a class="prize-title">Sign Up Now & Win This Bolt Action Model 700!</a>
+	      <div class="prize"></div>
+	      <div class="prize-logo"></div>
+	      <div class="clear"></div>
+        <a href="#" class="about-link">What is North American Whitetail +?</a>
        </div>
     </aside>
 

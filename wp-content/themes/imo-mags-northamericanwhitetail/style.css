@@ -49,8 +49,10 @@ a:hover{
 	clear: both;
 }
 hr.comm-sep{
-	border-top: 3px solid #EFECE7;
-    height: 34px;
+	background-color: #EFECE7;
+    border: medium none;
+    height: 4px;
+    margin-top: 21px;
 }
 /*PAGE LAYOUT MODS*/
  
@@ -90,7 +92,7 @@ position: relative;
 border: none !important;
 border-radius: 0 !important;
 padding-left: 0;
-width: 1030px !important;
+width: 1020px !important;
 }
 
 #main-content .str-content {
@@ -526,9 +528,6 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     padding: 32px 36px;
     width: 120px;
 }
-.sub-menu{
-	left: 0 !important;
-}
 #header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 .tactics-menu-cat ul.sub-menu-2 > .menu-item .wpmega-link-title{
 	font-size: 0.7em !important;
 	line-height: 1.7em;
@@ -538,6 +537,29 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 	font-size: 0.8em;
 	font-weight: lighter;
 }
+
+#header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 .community-menu-cat ul.sub-menu-2 > .menu-item .wpmega-link-title{
+	font-size: 0.7em !important;
+	line-height: 1.7em;
+	font-weight: bold !important;
+}
+#header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 .community-menu-cat a span{
+	font-size: 0.8em;
+	font-weight: lighter;
+}
+#header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 .community .community-menu-cat.ss-nav-menu-item-depth-1{
+	margin: 0;
+    padding: 32px 36px;
+	width: 100px !important;
+}
+#header #megaMenu ul.megaMenu > .menu-item.community ul{
+	width: 172px !important;
+}
+
+.sub-menu{
+	left: 0 !important;
+}
+
 #header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 .ss-nav-menu-item-depth-1{
 	background-color: #feffff;
 }
@@ -1561,6 +1583,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 .questions-slider .answers-area .answers-count{
 	float: left;
 	width: 140px;
+	cursor: default;
 	margin-left: 2px;
 }
 questions-slider .answers-area div.answers{
@@ -1696,7 +1719,7 @@ h4.meta{
 .widget_slider-widget div.scroll_mask ul.scroll li a:hover {
     color: #3676cb !important;
 }
-.widget_slider-widget .prev, .widget_slider-widget .next {
+.widget_slider-widget .prev, .widget_slider-widget .next{
     background-color: transparent !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
@@ -1708,6 +1731,20 @@ h4.meta{
     text-align: left !important;
     text-indent: -119988px !important;
     top: 0 !important;
+    width: 25px !important;
+}
+.superpost-thumbs-widget .prev, .superpost-thumbs-widget .next{
+    background-color: transparent !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    cursor: pointer !important;
+    display: block !important;
+    height: 90px !important;
+    overflow: hidden !important;
+    position: absolute !important;
+    text-align: left !important;
+    text-indent: -119988px !important;
+    top: 102px !important;
     width: 25px !important;
 }
 .widget_slider-widget .prev.inactive, .widget_slider-widget .next.inactive {
@@ -1722,11 +1759,17 @@ h4.meta{
     background-image: url("img/ui_tab_next-green.png") !important;
     right: 0 !important;
 }
-#header #megaMenu .widget_slider-widget .prev {
+.superpost-thumbs-widget h2{
+	text-align: center;
+}
+#header #megaMenu .widget_slider-widget .prev{
     background-image: url("img/ui_tab_prev_blue.png") !important;
     left: 0;
 }
-#header #megaMenu .widget_slider-widget .next {
+.superpost-thumbs-widget .prev{
+    background-image: url("img/ui_tab_prev_blue.png") !important;
+}
+#header #megaMenu .widget_slider-widget .next, .superpost-thumbs-widget .next{
     background-image: url("img/ui_tab_next_blue.png") !important;
     right: 0 !important;
 }
@@ -1738,7 +1781,7 @@ h4.meta{
 	position: relative;
 }
 .homepage-gear.top{
-	margin-top: 100px;	
+	margin: 60px 0 50px;	
 }
 .homepage-gear.top .widget_slider-widget .scroll_mask{
 	width: 578px !important;
@@ -1908,11 +1951,21 @@ a.comment-count:hover {
  * 
  *
  */
-.super-post{clear: both;width:1030px !important;padding-top:68px;}
+home .super-post{padding-top:68px;}
+.super-header{width: 1020px;height:50px;position: relative;}
+.super-post{clear: both;width:1030px !important;}
 .home .page-template-page-right-php .cfct-block-c{
 	padding-left: 40px;
 }
-
+.remington{
+	background: url("img/remington-logo.jpg") no-repeat center center #fff;
+	height: 36px;
+    left: 505px;
+    padding: 0 14px;
+    position: absolute;
+    top: -22px;
+    width: 234px;
+}
 /*
  * Single Pages & Comments
  * 
@@ -1965,6 +2018,7 @@ a.comment-count:hover {
 	font-size: 1em !important;
 }
 
+	
 /*
  * Superpost single
  * 
@@ -1974,10 +2028,10 @@ a.comment-count:hover {
 	padding: 30px;
     width: 618px;
  }
-.page-template-superpost_single-php .header-title, .page-template-user_profile-php .header-title{
+.page-template-superpost_single-php .header-title, .page-template-user_profile-php .header-title, .page-community .header-title{
 	background: url('img/nawp-icon.png') no-repeat;
 }
-.page-template-superpost_single-php .header-title h1, .page-template-user_profile-php .header-title h1{
+.page-template-superpost_single-php .header-title h1, .page-template-user_profile-php .header-title h1, .page-community .header-title h1{
     text-transform: uppercase;
     margin-left: 50px;
     padding-top: 6px;
@@ -2046,8 +2100,31 @@ a.comment-count:hover {
 .page-template-superpost_single-php .new-superpost-modal-container h1{
 	margin-left: 10px;
 }
-
-
+.flag{
+	float: right;
+	font-family: "ProximaNovaS-Regular";
+	margin-top: 18px;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+.page-template-superpost_single-php .count{
+	background: url('img/questions-count-bg.png') no-repeat top left #829b40;
+    float: left;
+    height: 21px;
+    width: 42px;
+    color: white;
+    cursor: pointer;
+    font-family: "ProximaNovaA-Semibold";
+    font-size: 1em;
+    margin: 10px 0 0 8px;
+    overflow: hidden;
+    padding: 6px 0;
+    position: relative;
+    text-align: center;
+}
+.page-template-superpost_single-php .count a{
+	color: #fff;
+}
 /*
  * Trophy Bucks Page
  * 
@@ -2445,11 +2522,10 @@ ul.naw-loop li{
 
 
 
-.fileupload-buttonbar input
-{
+.fileupload-buttonbar input{
     position: absolute;
     top: 0;
-    right: 0;
+    right: -430px;
     margin: 0 0 20px 0;
     border: solid transparent;
     /*border-width: 0 0 100px 200px;*/
@@ -2460,7 +2536,6 @@ ul.naw-loop li{
     direction: ltr;
     cursor: pointer;
     width:90px;
-
 }
 
 .fileupload-buttonbar span {
@@ -2648,62 +2723,89 @@ select.post_type {
  * 
  *
  */
-#join a.about-link{
-	color: #006699 !important;
-	display: block;
-    margin-top: 6px;
-    text-align: center;
-}
-#join a.about-link:hover{
-	color: #000033 !important;
-}
 #join {
     border: 1px solid #D5D5D5;
     padding: 17px;
-    background: url('img/newsletter-bg.jpg') no-repeat center top #EDEDED;
-    height: 218px;
+    background:url("img/join-bg.png") no-repeat scroll center 10px #EDEDED;
+    height: 498px;
+}
+#join a.about-link{
+	font-family: ProximaNova-Bold;
+	font-size: 0.8em;
+	color: #a9a9a9 !important;
+	display: block;
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: underline;
+}
+#join a.about-link:hover{
+	color: #a9a9a9 !important;
+	text-decoration: none;
 }
 #join .content_wrapper{
-	margin-top: 100px;
+	margin-top: 70px;
 }
-#join input {
-    border: medium none;
-    float: left;
-    font-family: ProximaNovaA-regular;
-    font-size: 1em;
-    height: 35px;
-    line-height: 26px;
-    padding: 0;
-    text-indent: 8px;
-    vertical-align: middle;
-    width: 282px;
-    border-radius: 0;
-}
-#join .email-signup, #join .fb-signup{
+#join .fb-login {
+	background: url("img/fb-login.png") no-repeat scroll center top transparent;
+ 	padding: 0;
+ 	margin: 0 auto;
 	cursor: pointer;
-    margin-top: 18px;
-    height: 45px;
+    height: 41px;
     text-indent: -9999px;
+    width: 100%;
+    border: none;
 }
-#join .email-signup {
-    background: url("img/sign-up-bg.png") no-repeat scroll 0 0 transparent;
-    width: 104px;
-    float: left;
+a.email-signup{
+	color: #2C2C2C !important;
+    font-family: ProximaNova-Bold;
+    text-transform: capitalize;
+    text-align: center;
+    display: block;
+    font-size: 0.8em;
+    text-decoration: underline;
+    cursor: pointer;
 }
-#join .fb-signup{
-	background: url("img/fb-signup-bg.png") no-repeat scroll 0 0 transparent;
-    float: right;
-    width: 142px;
-    
+a.email-signup:hover{
+	text-decoration: none;
+}
+a.prize-title {
+	font-family: ProximaNova-Bold;
+	color: #387b2b;
+	text-align: center;
+    display: block;
+    margin-top: 30px;
+    font-size: 1.1em;
+    line-height: 1.1em;
+}
+.prize{
+	background: url("img/rifle.jpg") no-repeat scroll center top transparent;
+	width: 288px;
+    height: 69px;
+    margin: 30px auto;
+}
+.prize-logo{
+	background: url("img/remington-logo-sm.jpg") no-repeat scroll center top transparent;
+	height: 26px;
+    margin: 30px auto 0;
+    width: 167px;
 }
 #join span{
 	float: left;
-    font-family: ProximaNova-Regular;
+    font-family: "ProximaNova-Regular";
     font-size: 0.8em;
     margin:30px 12px 0;
 }
-
-
+#join small{
+	font-family: Helvetica,sans-serif;
+	font-size: 0.7em;
+	color: #636363;
+}
+.temp{
+	background: url("img/temp.png") no-repeat scroll center top transparent;
+	height: 48px;
+    width: 100%;
+    margin: 14px auto;
+}
 /**
 * Skyscraper ad fix
 *
@@ -2889,19 +2991,46 @@ select.post_type {
 	font-family: "ProximaNovaS-Regular";
 	text-transform: uppercase;
 }
-.plus-button a{
+.plus-button a, a.plus-button{
 	background: #3e88e9;
 	color: #fff;
+}
+.plus-button a{
 	padding: 3px 6px;
 }
-.plus-button a:hover{
-	background: #9bc4fb;
+a.plus-button{
+	padding:6px;
+}
+.plus-button a:hover, a.plus-button:hover{
+	background: #aaa197;
 	color: #fff;
 }
 .plus-button span{
 	position: relative;
     top: -3px;
     font-size: 0.9em;
+}
+.reply-btn{
+	background-color: #3E88E9;
+    float: left;
+    color: white;
+    cursor: pointer;
+    font-family: "ProximaNovaA-Semibold";
+    font-size: 1em;
+    margin: 10px 0 0;
+    overflow: hidden;
+    padding: 6px 0;
+    position: relative;
+    text-align: center;
+    width: 89px;
+    height: 21px;
+}
+.reply-btn a{
+	color: #fff;
+}
+.answers-area .plus-button span{
+	top: -2px;
+    font-size: 1em;
 }
 .plus-button span.plus{
 	font-family: "ProximaNovaS-Extrabld";
@@ -2911,13 +3040,34 @@ select.post_type {
     position: relative;
     top: 0;
 }
+a.prev-post, a.next-post, a.prev-post:visited, a.next-post:visited{
+	font-family: "Helvetica Neue",sans-serif;
+	font-style: italic;
+	text-transform: uppercase; 
+	font-size: 0.8em;
+	color: #aaa197;
+	padding-top: 30px;
+}
+.prev-post{float: left;}
+.next-post{float: right;}
+.pagi{width: 682px;}
+
 /**
 * 
 * Questions Module & Page
 *
 **/
+.home-questions{
+	height: 50px;
+}
+.home-questions .more-header{
+	background: url("img/remington-logo.jpg") no-repeat right top;
+    width: 100%;
+    padding-top: 4px;
+}
 .questions-right{
 	float: right;
+	margin: -8px 7px 0;
 }
 .questions-page-nav{
 	float: left;
@@ -3388,6 +3538,21 @@ h1.tv-header{
     top: 22px;
 }*/
 
+
+/* Superpost Slider Widget */
+.superpost-thumbs-widget .scroll_mask{
+	width: 256px;
+	height: 120px;
+}
+.superpost-thumbs-widget img{
+	width: 80px;
+	height: 80px;
+}
+.superpost-thumbs-widget ul.scroll li{
+	width: 86px;
+	height:84px;
+	margin: 0 1px 1px;
+}
 /* category pages */
 
 .cat-col-full{
@@ -3570,3 +3735,139 @@ h3.first-last-name{
 }
 
 
+/*****
+**Community Page
+**
+*****/
+
+ul.community-cats{
+	margin: 0 0 4px 0;
+	padding: 27px 10px 50px;
+	background-color: #f7f7f7;
+	list-style: none;
+}
+ul.community-cats li{
+	margin: 0;
+}
+ul.community-cats li.title{
+	float: left;
+	width: 300px;
+}
+ul.community-cats li.desc{
+	float: left;
+	width: 140px;
+}
+ul.community-cats li.desc{
+	font-family: Helvetica,sans-serif;
+	font-size: 0.8em;
+	margin-top: -6px;
+}
+ul.community-cats li.points{
+	font-family: Helvetica,sans-serif;
+	font-size: 0.9em;
+	font-weight: bold;
+	float: right;
+}
+ul.community-cats li div{
+	float: left;
+	width: 32px; /* centering icons */
+	height: 26px;
+}
+ul.community-cats h2{
+	float: left;
+    margin: 0;
+    padding-left: 8px;
+}
+ul.community-cats h2 a{
+	color: #161412;
+}
+ul.community-cats h2 a.curr, ul.community-cats h2 a:hover{ 
+	color: #c2290b;
+}
+li#rut div {
+	background: url('img/rut-icon.png') no-repeat center center;
+}
+li#tips-tactics div {
+	background: url('img/tip-icon.png') no-repeat center center;
+}
+li#lifestyle div {
+	background: url('img/truck-icon.png') no-repeat center center;
+}
+li#tbucks div {
+	background: url('img/buck-icon.png') no-repeat center center;
+	width: 32px;
+}
+li#general div {
+	background: url('img/chat-icon.png') no-repeat center center;
+}
+li#experts div, li#gear div {
+	background: url('img/expert-icon.png') no-repeat center center;
+}
+ul.community-cats li.post {
+    background: none repeat scroll 0 0 #aaa197;
+    border: 1px solid #999;
+    border-radius: 0 0 0 0;
+    box-shadow: 0 0 1px 0 #FFFFFF inset;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline;
+    font-family: "ProximaNovaS-Semibold";
+    font-size: 0.9em;
+    height: 40px;
+    line-height: 2.6em;
+    margin-top: -10px;
+    margin-right: 8px;
+    padding: 0 20px;
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 1px 2px 0 rgba(0, 0, 0, 0.4);
+    -moz-transition: all 0.6s ease 0s;-webkit-transition: 0.6s;
+}
+ul.community-cats li.post:hover {
+    background: none repeat scroll 0 0 #347FE7;
+    border: 1px solid #2861B2;
+    border-radius: 0 0 0 0;
+    -moz-transition: all 0.6s ease 0s;-webkit-transition: 0.6s;
+}
+    
+/* Widget Version */
+
+.community-topics-widget ul.community-cats{
+	padding: 17px 0 40px 8px;
+}
+.community-topics-widget ul.community-cats h2{
+	font-weight: lighter;
+}
+.community-topics-widget ul.community-cats li.post {
+    font-size: 0.8em;
+    height: 30px;
+    line-height: 2.1em;
+    margin-top: -32px;
+    padding: 0 10px;
+}
+    
+    
+    
+    
+    
+#text-19 {padding: 0;}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
