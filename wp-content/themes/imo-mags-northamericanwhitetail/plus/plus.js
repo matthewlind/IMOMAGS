@@ -488,27 +488,28 @@ $(document).ready(function(){
 
 		});	
 					
-	//$questionTemplate.appendTo(".questions-feed").fadeIn();
+	$questionTemplate.appendTo(".questions-feed").fadeIn();
 	});
 
 }); //End display questions
 	
 // Sidebar slider display
 $(document).ready(function(){
-	var type = "photo";
+	var type = "all";
 	showAtOnce = 36;
 	var dataURL = "/slim/api/superpost/type/" + type +"/" + showAtOnce + "/0";  	
 	var getdata = $.getJSON(dataURL, function(data) {
 		
 		var $questionTemplate;
 
-		$.each(data, function(index, photo) { 
-			console.log(index,photo); 
-			
-			$questionTemplate = $("ul#scroll-widget li").eq(index);
-			var url = "/plus/" + photo.post_type + "/" + photo.id;
-			$questionTemplate.find("a").attr("href",photo.url);
-			$questionTemplate.find("img").attr("src",photo.img_url);
+		$.each(data, function(index, all) { 
+			console.log(index,all); 
+			if (all.img_url.length > 0){
+				$questionTemplate = $("ul#scroll-widget li").eq(index);
+				var url = "/plus/" + all.post_type + "/" + all.id;
+				$questionTemplate.find("a").attr("href",all.url);
+				$questionTemplate.find("img").attr("src",all.img_url);
+			}
 		});							
 	$questionTemplate.appendTo("ul#scroll-widget.scroll").fadeIn();	
 	});

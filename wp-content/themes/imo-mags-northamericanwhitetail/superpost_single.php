@@ -55,7 +55,7 @@ if (empty($commentData)) {
 
 
 
-$grav_url = "http://www.gravatar.com/avatar/" . $data->gravatar_hash . ".jpg?s=25&d=identicon";
+$grav_url = "http://www.gravatar.com/avatar/" . $data->gravatar_hash . ".jpg?s=50&d=identicon";
 
 $headerTitle = $data->post_type . ": " . $data->title;
 
@@ -71,9 +71,6 @@ $headerTitle = $data->post_type . ": " . $data->title;
 <div class="col-abc super-content">
 	<a href="/profile/<?php echo $data->username ?>"><img src="<?php echo $grav_url; ?>" class="recon-gravatar"></a>
 
-
-	
-	
 		<a class="username" href="/profile/<?php echo $data->username ?>"><?php echo $data->username; ?></a>
 		<div class="super-meta">Posted on <?php the_time('F j, Y'); ?> &#8226; <?php the_time('g:i a'); ?> &#8226; <a href="/<?php echo $data->post_type; ?>" class="post-type"><?php echo $data->post_type; ?></a> &#8226; ### veiws</div>
 		<div class="clearfix"></div>
@@ -113,6 +110,7 @@ $headerTitle = $data->post_type . ": " . $data->title;
 			            
 			       }
 			       echo '<div class="reply-btn"><a href="#comments">REPLY</a></div>';
+			       echo '<div class="like-btn"><a href="#"></a></div>';
 			       echo '<div class="count"><a href="#comments">2</a></div>';
 			       echo '<a class="flag">Flag</a>';
 			       
@@ -123,7 +121,7 @@ $headerTitle = $data->post_type . ": " . $data->title;
 </div><!-- .col-abc -->
 <div class="col-abc super-comments">
 	<div class="avatar-holder">
-		<img src="http://www.gravatar.com/avatar/<?php echo $comment->gravatar_hash; ?>.jpg?s=25&d=identicon" class="superclass-gravatar_hash recon-gravatar">
+		<img src="http://www.gravatar.com/avatar/<?php echo $comment->gravatar_hash; ?>.jpg?s=50&d=identicon" class="superclass-gravatar_hash recon-gravatar">
         <a href="userlink"><?php echo $comment->comment_username; ?></a>
     </div>
 
@@ -215,50 +213,36 @@ $headerTitle = $data->post_type . ": " . $data->title;
         <p class="login-note">
         </p>
     </form>
-  </div>
+  </div>    
+</div><!-- .col-abc -->
+
+
+<?php foreach ($commentData as $comment) {   ?>
+<div class="col-abc super-comments">
+	<div class="avatar-holder">
+        <img src="http://www.gravatar.com/avatar/<?php echo $comment->gravatar_hash; ?>.jpg?s=50&d=identicon" class="superclass-gravatar_hash recon-gravatar">
+    </div>
 
 	<div class="superpost-comments">
-		
-        <pre><?php //print_r($commentData);?></pre>
-        <?php foreach ($commentData as $comment) {    
-
-            ?>
-        	<div class="superpost-comment" <?php echo $visible; ?> >
+			<div class="superpost-comment" <?php echo $visible; ?> >
         		<div class="superclass-body">
-        			<?php echo $comment->comment_body; ?>
+        		 	<a href="userlink" class="username"><?php echo $comment->comment_username; ?></a>
+        			<p><?php echo $comment->comment_body; ?></p>
         		</div>
 
-                <?php
-                    foreach ($comment->attachments as $attachment) {
-                ?>
-                    <div class="superpost-image">
-                        <img src="<?php echo $attachment->attachment_img_url; ?>" class="superclass-img_url" width=400 >
-                    </div>
-                    <div class="superpost-caption">
-                        <?php echo $attachment->attachment_body; ?>
-                    </div>
-
-
-                <?php
-                    }
-                ?>
-
-
-               
-        		<div class="avatar-holder">
-                    <img src="http://www.gravatar.com/avatar/<?php echo $comment->gravatar_hash; ?>.jpg?s=25&d=identicon" class="superclass-gravatar_hash">
-                    <a href="userlink"><?php echo $comment->comment_username; ?></a>
+                <?php foreach ($comment->attachments as $attachment) { ?>
+                <div class="superpost-image">
+                	<img src="<?php echo $attachment->attachment_img_url; ?>" class="superclass-img_url" width=400 >
+                </div>
+                <div class="superpost-caption">
+                    <?php echo $attachment->attachment_body; ?>
                 </div>
 
-        	</div>
-
-
-        <?php } ?>
-
-
-            </div>
-    
+                <?php } ?>
+           </div>
+    </div>
 </div><!-- .col-abc -->
+<?php } ?>
 <div class="pagi">
 	<?php 
     echo '<a class="prev-post" href="/plus/'.$data->post_type.'/'.$prev_post.'">Previous '.$data->post_type.'</a>'; 
@@ -266,3 +250,4 @@ $headerTitle = $data->post_type . ": " . $data->title;
     ?>
 </div><!-- .pagi -->
 <?php get_footer(); ?>
+<pre><?php //print_r($commentData);?></pre>

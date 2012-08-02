@@ -2044,11 +2044,6 @@ home .super-post{padding-top:68px;}
 .super-content{
 	border: 1px solid #BABABA; 
 }
-.super-comments{
-	border-left: 1px solid #BABABA;
-	border-right: 1px solid #BABABA;
-	border-bottom: 1px solid #BABABA;
-}
 .super-meta{
 	float: right;
 	color: #58534f;
@@ -2100,30 +2095,50 @@ home .super-post{padding-top:68px;}
 .page-template-superpost_single-php .new-superpost-modal-container h1{
 	margin-left: 10px;
 }
+.like-btn{
+	background: url("img/like-btn.jpg") no-repeat scroll left top transparent;
+    height: 34px;
+    width: 34px;
+    float: left;
+    margin: 30px 4px;
+    cursor: pointer;
+}
+.like-btn:hover{
+	background: url("img/like-btn-over.jpg") no-repeat scroll left top transparent;
+}
 .flag{
 	float: right;
 	font-family: "ProximaNovaS-Regular";
-	margin-top: 18px;
+	margin-top: 38px;
     text-transform: uppercase;
     font-size: 0.9em;
+    cursor: pointer;
 }
 .page-template-superpost_single-php .count{
-	background: url('img/questions-count-bg.png') no-repeat top left #829b40;
-    float: left;
-    height: 21px;
-    width: 42px;
-    color: white;
+	background: url('img/super-count-bg.jpg') no-repeat top left #aaa197;
+	color: #fff;
     cursor: pointer;
+    float: left;
     font-family: "ProximaNovaA-Semibold";
     font-size: 1em;
-    margin: 10px 0 0 8px;
+    height: 34px;
+    margin: 30px 0 0;
     overflow: hidden;
-    padding: 6px 0;
+    padding: 0;
     position: relative;
-    text-align: center;
+    width: 46px;
 }
 .page-template-superpost_single-php .count a{
-	color: #fff;
+	color: #FFFFFF;
+    font-size: 0.9em;
+    text-align: center;
+    display: block;
+    width: 100%;
+    margin-left: 3px;
+    padding: 7px 0 0;
+}
+.page-template-superpost_single-php .entry{
+	margin-bottom: 0;
 }
 /*
  * Trophy Bucks Page
@@ -2705,19 +2720,6 @@ select.post_type {
 .user-login-modal-container {
     background-color:white;
 }
-
-#user-login-button {
-	font-weight: bold;
-	font-size: 18px;
-	background-color: green;
-	color: white;
-	padding: 10px;
-}
-#LoginWithAjax {
-	width: 300px;
-	margin: 20px;
-}
-
 /*
  * join Widget
  * 
@@ -2750,7 +2752,7 @@ select.post_type {
  	padding: 0;
  	margin: 0 auto;
 	cursor: pointer;
-    height: 41px;
+    height: 42px;
     text-indent: -9999px;
     width: 100%;
     border: none;
@@ -3017,16 +3019,23 @@ a.plus-button{
     cursor: pointer;
     font-family: "ProximaNovaA-Semibold";
     font-size: 1em;
-    margin: 10px 0 0;
+    margin: 30px 0 0;
     overflow: hidden;
-    padding: 6px 0;
+    padding: 0;
     position: relative;
-    text-align: center;
     width: 89px;
-    height: 21px;
+    height: 34px;
+}
+.reply-btn:hover{
+	background-color: #aaa197;
 }
 .reply-btn a{
-	color: #fff;
+	color: #FFFFFF;
+    font-size: 0.9em;
+    text-align: center;
+    display: block;
+    width: 100%;
+    padding: 7px 0 0;
 }
 .answers-area .plus-button span{
 	top: -2px;
