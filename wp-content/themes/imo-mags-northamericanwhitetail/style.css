@@ -2761,6 +2761,8 @@ a.prize-title {
 	text-align: center;
     display: block;
     margin-top: 30px;
+    font-size: 1.1em;
+    line-height: 1.1em;
 }
 .prize{
 	background: url("img/rifle.jpg") no-repeat scroll center top transparent;
@@ -3042,6 +3044,14 @@ a.prev-post, a.next-post, a.prev-post:visited, a.next-post:visited{
 * Questions Module & Page
 *
 **/
+.home-questions{
+	height: 50px;
+}
+.home-questions .more-header{
+	background: url("img/remington-logo.jpg") no-repeat right top;
+    width: 100%;
+    padding-top: 4px;
+}
 .questions-right{
 	float: right;
 	margin: -8px 7px 0;
