@@ -208,6 +208,8 @@ $args = array(
             <!--<option value="gear" class="gear">Gear</option>-->
           </select>
         </div>
+        
+       
 
         <div class="state-dropdown-container" style="display:none;">
           <select name="state" class="state-chzn" style="width:400px;padding:5px;" data-placeholder="Nice. Where did you find it?">
@@ -311,7 +313,11 @@ $args = array(
             <option value="ZT">Zacatecas</option>
 
           </select>
+          
+          
         </div>
+        
+        
 
         <input id="file" type="file" name="photo-upload" id="photo-upload" style="display:none"/>
 <!--    
@@ -349,7 +355,7 @@ $args = array(
               
                 
 
-            <div class="imo-fb-login-button">Login with Facebook</div>
+            <div class="fb-login-button" scope="email">Fast Login with Facebook</div>
                   <table width='100%' cellspacing="0" cellpadding="0">
                       <tr id="LoginWithAjax_Username">
                           <td class="username_label">
@@ -375,7 +381,7 @@ $args = array(
                               <input type="hidden" name="lwa_profile_link" value="<?php echo $lwa_data['profile_link'] ?>" />
                           </td>
                           <td id="LoginWithAjax_Links">
-                              <input name="rememberme" type="checkbox" id="lwa_rememberme" value="forever" /> <label><?php _e( 'Remember Me' ) ?></label>
+                              <input name="rememberme" type="hidden" id="lwa_rememberme" value="forever" /> <label><?php _e( 'Remember Me' ) ?></label>
                               <br />
                               <a id="LoginWithAjax_Links_Remember" href="<?php echo site_url('wp-login.php?action=lostpassword', 'login') ?>" title="<?php _e('Password Lost and Found') ?>"><?php _e('Lost your password?') ?></a>
                               <?php

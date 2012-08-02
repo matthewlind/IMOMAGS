@@ -196,16 +196,27 @@ if(document.location.protocol=='http:'){
 </head>
 <body <?php body_class(); ?>>
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+
+
 
 <header id="header">
-	<div id="tophat">
+<?php
+$displayStyle = "display:none";
+
+if ( is_user_logged_in() ) {
+
+	$displayStyle = "";
+	
+	wp_get_current_user();
+	
+	$current_user = wp_get_current_user();
+    if ( !($current_user instanceof WP_User) )
+         return;
+	
+}
+	
+?>
+	<div id="tophat" style="<?php echo $displayStyle; ?>">
 		<div class="user-bar">
 			<ul id="tophat-left">
 				<li><a href="#">+ Post</a></li>
@@ -215,12 +226,14 @@ if(document.location.protocol=='http:'){
 				<li><a href="#">Your Profile</a></li>
 			</ul>
 			<ul id="tophat-right">
-				<li><img src="<?php bloginfo('url'); ?>/wp-content/themes/imo-mags-northamericanwhitetail/img/user-temp.jpg" alt="user photo" /></li>
-				<li>Hello, <a href="#">Batman<span></span></a></li>
-				<li><a href="#">Sign Out</a></li>
+				<li><?php echo get_avatar($current_user->user_email,35); ?></li>
+				<li>Hello, <a href="#"><span id="current-user-name"><?php echo $current_user->display_name; ?></span></a></li>
+				<li><a href="<?php echo wp_logout_url( get_permalink() ); ?>" title="Logout">Logout</a></li>
 			</ul>
 		</div>
 	</div>
+	
+	
     <div class="container">
     	    	
     	
