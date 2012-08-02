@@ -11,7 +11,8 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
 <!--[if gt IE 8]><!--> <html class="no-js" <?php language_attributes() ?>> <!--<![endif]-->
 <head>
 	<meta http-equiv="content-type" content="<?php bloginfo('html_type') ?>; charset=<?php bloginfo('charset') ?>" />
-
+	<!-- Google site verification -->
+	<meta name="google-site-verification" content="cnHnjptzREIHHHGb3zfXZkdDp2VV-Ffigic-8-zqoHU" />
 	<title><?php wp_title(''); ?></title>
 
 	<meta http-equiv="X-UA-Compatible" content="chrome=1" />
