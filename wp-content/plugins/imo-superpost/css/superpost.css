@@ -416,7 +416,7 @@ span#more-superposts-button span {
 	user-select: none;
 }
 #user-login-button{
-	margin: 0 10px;
+	margin: 4px 10px 0;
 	float: right;
     cursor: pointer;
     background: none repeat scroll 0 0 #829B40;
@@ -492,7 +492,7 @@ div.user-details-box {
 	padding: 6px 10px;
 	width: 378px !important;
 }
-.superpost-form input[type=text], .superpost-form textarea, .superpost-form textarea select, .superpost-comment-form textarea {
+.superpost-form input[type=text], .superpost-form textarea, .superpost-form textarea select, .superpost-comment-form textarea, .superpost-comment-form-single textarea {
 	border-color: #e7e5e0 !important;
 	padding: 6px 10px;
 }

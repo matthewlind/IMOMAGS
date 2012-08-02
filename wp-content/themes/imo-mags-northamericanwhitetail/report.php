@@ -31,16 +31,9 @@ the_post();
 		<h1><a href="/community/">Community</a> <span>| Rut Report</span></h1>
 	</header>
 	<div class="col-abc super-post">
-		<ul class="post-type-select">
-			<li id="new-post-button" class="post"><span>+</span> Post</li>
-		    <li title='all'>ALL</li>
-		    <li title='general'>General</li>
-		    <li class='selected' title='report'>Reports</li>
-		    <li title='tip'>Tips</li>
-		    <li title='lifestyle'>Lifestyle</li>
-		    <li title='trophy'>Trophy Bucks</li>
-		    <!--<li class="dd-arrow"></li>-->
-	    </ul>    
+		<div id="user-login-button">
+                LOGIN
+        </div>   
         <div id="recon-activity" term="report" display="list">
 
 

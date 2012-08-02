@@ -28,6 +28,7 @@ get_header();
 $spid =  get_query_var("spid");
 $requestURL = "http://www.northamericanwhitetail.fox/slim/api/superpost/post/$spid";
 
+
 $file = file_get_contents($requestURL);
 $data = json_decode($file);
 $data = $data[0];
@@ -108,11 +109,14 @@ $headerTitle = $data->post_type . ": " . $data->title;
 			
 			
 			            echo $media;
-			
-			        }
-			
-			        
-			    ?>
+			            
+			            
+			       }
+			       echo '<div class="reply-btn"><a href="#comments">REPLY</a></div>';
+			       echo '<span class="count">2</span>';
+			       echo '<a class="flag">Flag</a>';
+			       
+			?>
 	     
 			</div>
 		</div><!-- .entry -->
@@ -252,8 +256,13 @@ $headerTitle = $data->post_type . ": " . $data->title;
         <?php } ?>
 
 
-
-    </div>
-
+            </div>
+    
 </div><!-- .col-abc -->
+<div class="pagi">
+	<?php 
+    echo '<a class="prev-post" href="/plus/'.$data->post_type.'/'.$prev_post.'">Previous '.$data->post_type.'</a>'; 
+    echo '<a class="next-post" href="/plus/'.$data->post_type.'/'.$next_post.'">Next '.$data->post_type.'</a>';  
+    ?>
+</div><!-- .pagi -->
 <?php get_footer(); ?>

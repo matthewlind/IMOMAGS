@@ -30,16 +30,9 @@ the_post();
 		<h1><a href="/community/">Community</a> <span>| Lifestyle</span></h1>
 	</header>
 	<div class="col-abc super-post">
-		<ul class="post-type-select">
-			<li id="new-post-button" class="post"><span>+</span> Post</li>
-		    <li title='all'>ALL</li>
-		    <li title='general'>General</li>
-		    <li title='report'>Reports</li>
-		    <li title='tip'>Tips</li>
-		    <li class='selected' title='lifestyle'>Lifestyle</li>
-		    <li title='trophy'>Trophy Bucks</li>
-		    <!--<li class="dd-arrow"></li>-->
-	    </ul>    
+		<div id="user-login-button">
+                LOGIN
+        </div>   
 	    <div id="recon-activity" term="lifestyle" display="tile">
 		
 		

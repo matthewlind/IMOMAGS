@@ -123,6 +123,7 @@ include_once get_stylesheet_directory().'/widgets/join.php';
 include_once get_stylesheet_directory().'/widgets/video-callout.php';
 include_once get_stylesheet_directory().'/widgets/gallery-loop.php';
 include_once get_stylesheet_directory().'/widgets/superpost-thumbs.php';
+include_once get_stylesheet_directory().'/widgets/community-topics.php';
 
 
 
