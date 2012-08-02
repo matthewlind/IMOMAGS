@@ -49,8 +49,10 @@ a:hover{
 	clear: both;
 }
 hr.comm-sep{
-	border-top: 3px solid #EFECE7;
-    height: 34px;
+	background-color: #EFECE7;
+    border: medium none;
+    height: 4px;
+    margin-top: 21px;
 }
 /*PAGE LAYOUT MODS*/
  
@@ -1779,7 +1781,7 @@ h4.meta{
 	position: relative;
 }
 .homepage-gear.top{
-	margin-top: 100px;	
+	margin: 60px 0 50px;	
 }
 .homepage-gear.top .widget_slider-widget .scroll_mask{
 	width: 578px !important;
@@ -1950,12 +1952,20 @@ a.comment-count:hover {
  *
  */
 home .super-post{padding-top:68px;}
-.super-header{width: 1020px;position: relative;}
+.super-header{width: 1020px;height:50px;position: relative;}
 .super-post{clear: both;width:1030px !important;}
 .home .page-template-page-right-php .cfct-block-c{
 	padding-left: 40px;
 }
-
+.remington{
+	background: url("img/remington-logo.jpg") no-repeat center center #fff;
+	height: 36px;
+    left: 505px;
+    padding: 0 14px;
+    position: absolute;
+    top: -22px;
+    width: 234px;
+}
 /*
  * Single Pages & Comments
  * 
@@ -2700,62 +2710,87 @@ select.post_type {
  * 
  *
  */
-#join a.about-link{
-	color: #006699 !important;
-	display: block;
-    margin-top: 6px;
-    text-align: center;
-}
-#join a.about-link:hover{
-	color: #000033 !important;
-}
 #join {
     border: 1px solid #D5D5D5;
     padding: 17px;
-    background: url('img/newsletter-bg.jpg') no-repeat center top #EDEDED;
-    height: 218px;
+    background:url("img/join-bg.png") no-repeat scroll center 10px #EDEDED;
+    height: 498px;
+}
+#join a.about-link{
+	font-family: ProximaNova-Bold;
+	font-size: 0.8em;
+	color: #a9a9a9 !important;
+	display: block;
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: underline;
+}
+#join a.about-link:hover{
+	color: #a9a9a9 !important;
+	text-decoration: none;
 }
 #join .content_wrapper{
-	margin-top: 100px;
+	margin-top: 70px;
 }
-#join input {
-    border: medium none;
-    float: left;
-    font-family: ProximaNovaA-regular;
-    font-size: 1em;
-    height: 35px;
-    line-height: 26px;
-    padding: 0;
-    text-indent: 8px;
-    vertical-align: middle;
-    width: 282px;
-    border-radius: 0;
-}
-#join .email-signup, #join .fb-signup{
+#join .fb-login {
+	background: url("img/fb-login.png") no-repeat scroll center top transparent;
+ 	padding: 0;
+ 	margin: 0 auto;
 	cursor: pointer;
-    margin-top: 18px;
-    height: 45px;
+    height: 41px;
     text-indent: -9999px;
+    width: 100%;
+    border: none;
 }
-#join .email-signup {
-    background: url("img/sign-up-bg.png") no-repeat scroll 0 0 transparent;
-    width: 104px;
-    float: left;
+a.email-signup{
+	color: #2C2C2C !important;
+    font-family: ProximaNova-Bold;
+    text-transform: capitalize;
+    text-align: center;
+    display: block;
+    font-size: 0.8em;
+    text-decoration: underline;
+    cursor: pointer;
 }
-#join .fb-signup{
-	background: url("img/fb-signup-bg.png") no-repeat scroll 0 0 transparent;
-    float: right;
-    width: 142px;
-    
+a.email-signup:hover{
+	text-decoration: none;
+}
+a.prize-title {
+	font-family: ProximaNova-Bold;
+	color: #387b2b;
+	text-align: center;
+    display: block;
+    margin-top: 30px;
+}
+.prize{
+	background: url("img/rifle.jpg") no-repeat scroll center top transparent;
+	width: 288px;
+    height: 69px;
+    margin: 30px auto;
+}
+.prize-logo{
+	background: url("img/remington-logo-sm.jpg") no-repeat scroll center top transparent;
+	height: 26px;
+    margin: 30px auto 0;
+    width: 167px;
 }
 #join span{
 	float: left;
-    font-family: ProximaNova-Regular;
+    font-family: "ProximaNova-Regular";
     font-size: 0.8em;
     margin:30px 12px 0;
 }
-
-
+#join small{
+	font-family: Helvetica,sans-serif;
+	font-size: 0.7em;
+	color: #636363;
+}
+.temp{
+	background: url("img/temp.png") no-repeat scroll center top transparent;
+	height: 48px;
+    width: 100%;
+    margin: 14px auto;
+}
 /**
 * Skyscraper ad fix
 *
@@ -3790,7 +3825,7 @@ ul.community-cats li.post:hover {
     
     
     
-    
+#text-19 {padding: 0;}
     
     
     

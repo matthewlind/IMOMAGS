@@ -35,10 +35,10 @@ get_header();
 	<div class="col-abc sticky-height">
 				<?php the_content(__('Continued&hellip;', 'carrington-business')); ?>
 				<div class="clearfix"></div>
-		<!--<div class="homepage-gear top">
+		<div class="homepage-gear top">
 			<h1 class="more-header">Whitetail Gear</h1>
-			<?php //if (function_exists('dynamic_sidebar') && dynamic_sidebar('gear-home')) : else : ?><?php //endif; ?>
-		</div>-->
+			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('gear-home')) : else : ?><?php endif; ?>
+		</div>
 
 	</div><!-- .col-abc -->		
 
@@ -50,6 +50,7 @@ get_header();
 	        <div class="super-header">
 	            <hr class="comm-sep">
 	            <h1 class="recon">Naw+ Community</h1>
+	            <div class="remington"></div>
 	        </div>
             <!--<div class='cssmenu'>
 				<ul>
