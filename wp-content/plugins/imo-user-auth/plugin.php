@@ -23,7 +23,8 @@ function imo_user_hash($id,$username){
 
 function imo_user_display() {
 
-	$user = imo_get_user();
+	global $user_ID;
+	$user = imo_get_user($user_ID);
 
 	// send the user variables to the javascript
 	wp_enqueue_script( 'imo-user-auth', plugin_dir_url( __FILE__ ) . 'imo-user-auth.js', array( 'jquery' ) );
@@ -32,26 +33,36 @@ function imo_user_display() {
 
 }
 
-function imo_get_user() {
+function imo_get_user($userID = -1) {
 
 	$salt = "jYSe38xE3:lfsbEV2u.nUB^?80AXr3<%_VA4!)cfX.z";
 	
 	$timecode = time();
 	
-	global $user_email;
-	global $user_login;
-	global $user_ID;
+	if ($userID < 1) {
+		global $user_email;
+		global $user_login;
+	} else {
+		$WPuser = get_user_by("id",$userID);
+		$user_email = $WPuser->user_email;
+		$user_login = $WPuser->user_login;	
+	}
+	
+	
+	$facebookID = get_user_meta($userID,"facebook_ID",true);
 
 	$userhash = md5($user_login . $salt);
 	$timecode_hash = md5($timecode . $salt);
 
 	$user = array(
 		"username" => $user_login,
-		"user_id" => $user_ID,
+		"user_id" => $userID,
 		"userhash" => $userhash,
 		"gravatar_hash" => md5($user_email),
 		"timecode" => $timecode,
-		"timecode_hash" => $timecode_hash
+		"timecode_hash" => $timecode_hash,
+		"display_name" => $WPuser->display_name,
+		"facebook_id" => $facebookID
 	);
 	
 	return $user;
@@ -80,25 +91,8 @@ function imo_auth_user($args){
 	if ( !$user = $wp_xmlrpc_server->login($username, $password) ) {
 		return $wp_xmlrpc_server->error;
 	} else {
-		$salt = "jYSe38xE3:lfsbEV2u.nUB^?80AXr3<%_VA4!)cfX.z";
-		
-		$timecode = time();
-	
-		$userhash = md5($user->data->user_login . $salt);
-		$timecode_hash = md5($timecode . $salt);
-		
-		$user_email = $user->data->user_email;
-	
-		$userData = array(
-			"userhash" => $userhash,
-			"gravatar_hash" => md5($user_email),
-			"timecode" => $timecode,
-			"timecode_hash" => $timecode_hash,
-			"user_nicename" => $user->data->user_nicename,
-			"user_login" => $user->data->user_login,
-			"user_ID" => $user->data->ID,
-		);
-	
+
+		$userData = imo_get_user($user->ID);	
 		//print_r($user['data']['user_login']);
 		//$userHashes = imo_get_user($user['data']['user_login'],$user['data']['ID'],$user['data']['user_email']);
 	

@@ -427,7 +427,7 @@ $(document).ready(function(){
 
 		});	
 					
-	$questionTemplate.appendTo(".questions-feed").fadeIn();
+	//$questionTemplate.appendTo(".questions-feed").fadeIn();
 	});
 
 }); //End display questions

@@ -10,3 +10,9 @@
 .page-template-home-php .str-content {
 	padding:0px;
 }
+
+
+.imo-fb-login-button {
+	cursor: pointer;
+	background-color:#7fa8f4;
+}

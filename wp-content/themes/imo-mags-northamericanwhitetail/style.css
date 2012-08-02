@@ -2630,6 +2630,19 @@ select.post_type {
 .user-login-modal-container {
     background-color:white;
 }
+
+#user-login-button {
+	font-weight: bold;
+	font-size: 18px;
+	background-color: green;
+	color: white;
+	padding: 10px;
+}
+#LoginWithAjax {
+	width: 300px;
+	margin: 20px;
+}
+
 /*
  * join Widget
  * 
