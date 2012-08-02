@@ -2092,16 +2092,29 @@ home .super-post{padding-top:68px;}
 }
 .flag{
 	float: right;
+	font-family: "ProximaNovaS-Regular";
+	margin-top: 18px;
+    text-transform: uppercase;
+    font-size: 0.9em;
 }
 .page-template-superpost_single-php .count{
 	background: url('img/questions-count-bg.png') no-repeat top left #829b40;
-	color: #FFFFFF;
+    float: left;
     height: 21px;
-    padding: 8px 12px 7px 15px;
+    width: 42px;
+    color: white;
+    cursor: pointer;
+    font-family: "ProximaNovaA-Semibold";
+    font-size: 1em;
+    margin: 10px 0 0 8px;
+    overflow: hidden;
+    padding: 6px 0;
+    position: relative;
     text-align: center;
-    margin-left: 8px;
 }
-
+.page-template-superpost_single-php .count a{
+	color: #fff;
+}
 /*
  * Trophy Bucks Page
  * 
@@ -2950,14 +2963,23 @@ a.plus-button{
 .reply-btn{
 	background-color: #3E88E9;
     float: left;
-    height: 27px;
-    padding: 1px 14px;
+    color: white;
+    cursor: pointer;
+    font-family: "ProximaNovaA-Semibold";
+    font-size: 1em;
+    margin: 10px 0 0;
+    overflow: hidden;
+    padding: 6px 0;
+    position: relative;
     text-align: center;
-    width: 40px;
+    width: 89px;
+    height: 21px;
+}
+.reply-btn:hover{
+	color: #466913;
 }
 .reply-btn a{
 	color: #fff;
-	font-family: "ProximaNovaS-Regular";
 }
 .answers-area .plus-button span{
 	top: -2px;

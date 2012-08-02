@@ -113,7 +113,7 @@ $headerTitle = $data->post_type . ": " . $data->title;
 			            
 			       }
 			       echo '<div class="reply-btn"><a href="#comments">REPLY</a></div>';
-			       echo '<span class="count">2</span>';
+			       echo '<div class="count"><a href="#comments">2</a></div>';
 			       echo '<a class="flag">Flag</a>';
 			       
 			?>

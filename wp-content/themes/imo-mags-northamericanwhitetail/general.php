@@ -41,5 +41,50 @@ the_post();
         <span id="more-superposts-button">Load More<span></span></span>
     </div>
 </div>
+<div class="clear"></div>
+	<!-- Editor's Picks w/ Sidebar Bottom -->		
+	<div class="bonus-background">
+		<div class="bonus">
+			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-home-top')) : else : ?><?php endif; ?>
+		</div>		
+	</div>
+	
+	<div class="col-abc">
+				<div class="clear"></div>
+					<div class="header-sort home-questions">
+						<h1 class="more-header">Ask An Expert</h1>
+					</div>
+					<div class="questions-slider">
+		                <div class="slides-container-f">
+		                	<a href="/question" class="see-all home-see-all">See All Questions</a>
+		                     	<ul id="slides-questions" class="jcarousel-skin-tango questions-feed">
+		                        	<?php 
+		                     		for ($i = 1; $i <= 4; $i++) {
+			                     		echo '<li>';
+										echo '<div class="user-info">';
+											echo '<a href="/profile/username"><img alt="user photo" src="http://www.northamericanwhitetail.fox/wp-content/themes/imo-mags-northamericanwhitetail/img/user-temp.jpg"></a>';
+											echo '<span>Batman asks...</span>';
+										echo '</div>';
+										echo '<div class="quote-area">';
+											echo '<div class="top"></div>';
+											echo '<div class="mdl">';
+												echo '<h4 class="quote">&#8220;Can anyone suggest a good camo bat-suit for hunting in the forest? I am having trouble hunting in the day time.&#8221;</h4>';
+											echo '</div>';
+											echo '<div class="btm"></div>';
+										echo '</div>';
+										echo '<div class="answers-area">';
+											echo '<div class="answers-count">';
+												echo 'Answers <a href="#"><span class="count">18</span></a>';
+											echo '</div>';
+											echo '<a href="#" class="answers-link">Answer This Question</a> '; 
+											echo '<a class="plus-button new-post question questions-right"><span class="plus">+</span><span>Ask Your Question</span></a>';             
+										echo '</div>';
+									echo '</li>';
+									} ?>
+		                        </ul>
+		                    </div>    
+		                </div>
+		            <div class="clear"></div>
+	</div>
 <?php get_footer(); ?>
 
