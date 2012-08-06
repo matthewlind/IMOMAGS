@@ -584,6 +584,10 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     font-weight: bold;
     width: 150px;
 }
+#header #megaMenu li.community li ul li{
+	padding-left: 20px;
+	width: 132px !important;
+}
 #header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 ul.sub-menu-2 > .menu-item a {
     color: #515151;
 }
@@ -1451,7 +1455,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 
 .questions-slider {
     min-height: 270px;
-    margin: 0;
+    margin: 0 auto;
     padding: 16px 0;
     position: relative;
     width: 678px;
@@ -1515,6 +1519,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 .questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-item-horizontal {
     margin: 0;
     padding-top: 4px;
+    height: 100%;
 }
 .questions-slider .jcarousel-list .jcarousel-list-horizontal{
 	width: 678px !important;
@@ -1545,10 +1550,15 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 	text-align: left;
 	padding-left: 11px;
 }
+.questions-slider .user-info a.username{
+	position: relative;
+    top: -20px;
+    padding-left: 8px;
+    float: none;
+}
 .questions-slider .user-info span{
 	position: relative;
     top: -20px;
-    left: 8px;
 }
 .questions-slider h4.quote{
 	color: #C65517;
@@ -1619,6 +1629,73 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 .home-see-all{
 	top:40px !important;
 }
+
+.single-question-area{
+	padding: 0 !important;
+	width: 682px !important;
+}
+.question-module{float: left;border-top: solid 3px #000;}
+.question-module-ad{
+	float: right;
+    padding: 10px 10px 2px;
+    background: #F0E9E1;
+}
+.question-module-ad, .question-module, .question-module .questions-slider .quote-area, .question-module .questions-slider, .question-module .questions-slider .slides-container-f, .question-module .questions-slider .slides-container-f .jcarousel-skin-tango, .question-module .questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-container-horizontal, .question-module .questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-clip-horizontal, .question-module .questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-item{
+	width: 300px;
+	height: 100%;
+}
+.question-module .questions-slider .quote-area .btm, .question-module .questions-slider .quote-area .mdl{
+	width: 290px;
+}
+.question-module .questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-next-horizontal{
+	right: 7px;
+}
+.question-module .questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-prev-horizontal{
+	left: 233px;
+}
+.question-module .questions-slider .answers-area .count {
+    background: url("img/questions-count-bg.png") no-repeat scroll left top #829B40;
+    height: 33px;
+    margin: 0 0 0 6px;
+    font-size: 1em;
+    padding: 0;
+}
+.question-module .questions-slider .answers-area .count a{
+	font-size: 1em !important;
+}
+.question-module .questions-slider .answers-area .answers{
+	float: left;
+	margin-top: 8px;
+}
+.question-module .questions-slider .answers-area .answers-link {
+    margin-top: 0px;
+    padding: 6px;
+	width: 154px;
+}
+.question-module .questions-slider .answers-area .answers-count{
+	width: 122px;	
+}
+.question-module .questions-slider .see-all{
+	font-family: ProximaNova-Semibold;
+	position: static;
+	background-position: right 1px;
+}
+.question-module .see-all-area{
+	padding: 50px 0 0 2px;
+}
+.question-module h2{
+	position: absolute;
+	top: 23px;
+    left: 10px;
+}
+.widget_questions{
+	float: none;
+	border-bottom: solid 3px #000;
+	margin: 0 auto 10px;
+    width: 318px;
+}
+
+
 
 /*
  * Related Posts slider
@@ -2111,7 +2188,7 @@ home .super-post{padding-top:68px;}
     font-size: 0.9em;
     cursor: pointer;
 }
-.page-template-superpost_single-php .count{
+.page-template-superpost_single-php .count, #questions-widget .count{
 	background: url('img/super-count-bg.jpg') no-repeat top left #aaa197;
 	color: #fff;
     cursor: pointer;
@@ -2125,7 +2202,10 @@ home .super-post{padding-top:68px;}
     position: relative;
     width: 46px;
 }
-.page-template-superpost_single-php .count a{
+#questions-widget .count{
+	margin: 0 !important;
+}
+.page-template-superpost_single-php .count a, #questions-widget .count a{
 	color: #FFFFFF;
     font-size: 0.9em;
     text-align: center;
@@ -2137,6 +2217,11 @@ home .super-post{padding-top:68px;}
 .page-template-superpost_single-php .entry{
 	margin-bottom: 0;
 }
+.page-template-superpost_single-php .new-superpost-modal-container textarea {
+    height:100px !important;
+}
+
+
 /*
  * Trophy Bucks Page
  * 
@@ -2528,9 +2613,10 @@ ul.naw-loop li{
 
  }
 
- .media-section {
+.media-section {
     float:right;
- }
+    margin-top: 22px;
+}
 
 
 
@@ -3056,7 +3142,7 @@ a.prev-post, a.next-post, a.prev-post:visited, a.next-post:visited{
 }
 .prev-post{float: left;}
 .next-post{float: right;}
-.pagi{width: 682px;}
+.pagi{width: 682px !important;padding: 30px 0 !important;}
 
 /**
 * 
