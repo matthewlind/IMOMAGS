@@ -24,7 +24,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 get_header();
 
 $user = get_user_by("slug",$username);
-// print_r($user);
+ print_r($user);
 
 //$avatar = get_avatar($user->ID,140);
 
@@ -32,7 +32,8 @@ if ($user)
 	$userString = "username='$username'";
 
 $avatar = "http://www.northamericanwhitetail.fox/avatar?uid=".$user->ID;
-
+$userPosts = 'http://www.northamericanwhitetail.fox/api/superpost/user/posts/'.$user->ID;
+var_dump($userPosts);
 ?>
 <header class="header-title">
 	<h1><a href="/community/">Community</a> / Your Profile</h1>
