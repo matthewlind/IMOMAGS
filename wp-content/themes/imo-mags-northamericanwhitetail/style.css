@@ -177,11 +177,12 @@ width: 990px;
 	text-decoration: none;
 }
 #header #tophat .user-bar ul#tophat-right{
-	width: 320px;
 	margin: 0;
 	list-style: none;
 	float: right;
-	margin-right: -86px;
+    overflow-x: hidden;
+    overflow-y: visible;
+    max-width: 330px;
 }
 #header #tophat .user-bar ul#tophat-right img{
 	margin-top: -22px;
@@ -198,11 +199,7 @@ width: 990px;
 	text-decoration: none;
 }
 #header #tophat .user-bar ul#tophat-right li a span{
-	background: url("img/user-arrow.png") no-repeat scroll 0 0 transparent;
-    height: 7px;
-    margin: -2px 5px 0;
-    position: absolute;
-    width: 7px;
+	/*background: url("img/user-arrow.png") no-repeat scroll 0 0 transparent;*/
 }
 
 #header #tophat .user-bar ul#tophat-right li a:hover{
