@@ -26,11 +26,12 @@ get_header();
 $user = get_user_by("slug",$username);
 // print_r($user);
 
-$avatar = get_avatar($user->ID,140);
+//$avatar = get_avatar($user->ID,140);
 
 if ($user)
 	$userString = "username='$username'";
 
+$avatar = "http://www.northamericanwhitetail.fox/avatar?uid=".$user->ID;
 
 ?>
 <header class="header-title">
@@ -44,12 +45,12 @@ if ($user)
 			<div class="user-header">
 	           
 	            <div class="user-info">
-	            	<div class="user-thumbnail"><?php echo $avatar; ?></div>
+	            	<div class="user-thumbnail"><?php echo '<img src="'.$avatar.'" alt="User Avatar" />'; ?></div>
 	            	<ul class="details">
 	            		<li><h3><?php echo $user->display_name; ?></h3></li>
 	            		<li class="hometown"><a href="#">Gotham City</a></li>
 	            		<li class="twitter"><a href="#">@batman</a></li>
-	            		<li class="www"><a href="#">dccomics.com/batman</a></li>
+	            		<!--<li class="www"><a href="#">dccomics.com/batman</a></li>-->
 	            	</ul>
 	            </div>
 	            

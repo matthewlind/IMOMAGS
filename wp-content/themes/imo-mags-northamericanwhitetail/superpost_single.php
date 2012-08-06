@@ -227,6 +227,7 @@ $headerTitle = $data->post_type . ": " . $data->title;
 			<div class="superpost-comment" <?php echo $visible; ?> >
         		<div class="superclass-body">
         		 	<a href="userlink" class="username"><?php echo $comment->comment_username; ?></a>
+        
         			<p><?php echo $comment->comment_body; ?></p>
         		</div>
 
@@ -243,11 +244,66 @@ $headerTitle = $data->post_type . ": " . $data->title;
     </div>
 </div><!-- .col-abc -->
 <?php } ?>
-<div class="pagi">
+<div class="pagi col-abc">
 	<?php 
     echo '<a class="prev-post" href="/plus/'.$data->post_type.'/'.$prev_post.'">Previous '.$data->post_type.'</a>'; 
     echo '<a class="next-post" href="/plus/'.$data->post_type.'/'.$next_post.'">Next '.$data->post_type.'</a>';  
     ?>
 </div><!-- .pagi -->
+<div class="col-abc single-question-area">
+	<div class="question-module">
+		<div class="questions-slider">
+		    <div class="slides-container-f">
+		    	<h2>Recent Questions</h2>
+		         	<ul id="slides-questions" class="jcarousel-skin-tango questions-feed">
+		            	<?php 
+		         		for ($i = 1; $i <= 4; $i++) {
+		             		echo '<li>';
+							echo '<div class="user-info">';
+								echo '<a href="/profile/username"><img alt="user photo" src="http://www.northamericanwhitetail.fox/wp-content/themes/imo-mags-northamericanwhitetail/img/user-temp.jpg"></a>';
+								echo '<a class="username">Batman</a><span> asks...</span>';
+							echo '</div>';
+							echo '<div class="quote-area">';
+								echo '<div class="top"></div>';
+								echo '<div class="mdl">';
+									echo '<h4 class="quote">&#8220;Can anyone suggest a good camo bat-suit for hunting in the forest? I am having trouble hunting in the day time.&#8221;</h4>';
+								echo '</div>';
+								echo '<div class="btm"></div>';
+							echo '</div>';
+							echo '<div class="answers-area">';
+								echo '<div class="answers-count">';
+									echo '<div class="answers">Answers</div><div class="count"><a href="#">18</a></div>';
+								echo '</div>';
+								echo '<a href="#" class="answers-link">Answer This Question</a>'; 
+								echo '<div class="see-all-area"><a href="/question" class="see-all home-see-all">See All Questions</a></div>';
+							echo '</div>';
+						echo '</li>';
+						} ?>
+		            </ul>
+		        </div>    
+		    </div>
+	</div>
+	<div class="question-module-ad">
+		 <?php if (function_exists("imo_dart_tag")) {
+            imo_dart_tag("300x250");
+          } else { ?>
+  	        <!-- 300x250 Ad: -->
+            <script type="text/javascript">
+              document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dartadsgen_site+'/;sect=;page=index;subs=;sz=300x250;dcopt=;tile='+pr_tile+';ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
+            </script>
+            <script type="text/javascript">
+              ++pr_tile;
+            </script>
+            <noscript>
+              <a href="http://ad.doubleclick.net/adj/imo.outdoorsbest/;sect=;page=index;subs=;sz=300x250
+              ;dcopt=;tile=1;ord=7391727509?">
+                <img src="http://ad.doubleclick.net/ad/imo.outdoorsbest/home;sect=;page=index;subs=;sz=300x250;dcopt=;tile=1;ord=7391727509?" border="0" />
+              </a>
+            </noscript>
+            <!-- END 300x250 Ad: -->
+          <?php } ?>
+
+	</div>
+</div><!-- .col-abc -->
 <?php get_footer(); ?>
 <pre><?php //print_r($commentData);?></pre>
