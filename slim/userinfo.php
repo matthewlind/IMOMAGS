@@ -33,7 +33,7 @@ $app->get('/api/superpost/user/counts/:user_id',function($user_id){
 //*********************************
 //*** Get All Posts by a user ***
 //*********************************
-$app->get('/api/superpost/user/posts/:username',function($username){
+$app->get('/api/superpost/user/posts/:userid',function($userid){
 
 	header('Access-Control-Allow-Origin: *');  
 
@@ -44,11 +44,11 @@ $app->get('/api/superpost/user/posts/:username',function($username){
 
 		$sql = "select * from slim.allcounts as posts
 				JOIN imomags.wp_users as users on (users.`ID` = posts.user_id)
-				WHERE users.user_nicename = ?
+				WHERE users.ID = ?
 				";
 
 		$stmt = $db->prepare($sql);
-		$stmt->execute(array($username));
+		$stmt->execute(array($userid));
 	
 		$posts = $stmt->fetchAll(PDO::FETCH_OBJ);
 
@@ -65,7 +65,7 @@ $app->get('/api/superpost/user/posts/:username',function($username){
 //*********************************
 //*** Get User Score ***
 //*********************************
-$app->get('/api/superpost/user/score/:username',function($username){
+$app->get('/api/superpost/user/score/:userid',function($userid){
 
 	header('Access-Control-Allow-Origin: *');  
 
@@ -76,11 +76,11 @@ $app->get('/api/superpost/user/score/:username',function($username){
 
 		$sql = "select score from slim.userscore as userscore
 				JOIN imomags.wp_users as users on (users.`ID` = userscore.user_id)
-				WHERE users.user_nicename = ?
+				WHERE users.ID = ?
 				";
 
 		$stmt = $db->prepare($sql);
-		$stmt->execute(array($username));
+		$stmt->execute(array($userid));
 	
 		$posts = $stmt->fetchAll(PDO::FETCH_OBJ);
 
