@@ -29,10 +29,6 @@ if ($("#user-activity").length > 0){
 	var userID = $("#user-activity").attr("user");
 	
 	displayUserPosts(userID);
-}else{
-	
-	$("#no-activity").css("display","block");
-	$(".cross-site-feed-more-button").css("display","none");
 }
 
 /* ON ICE
@@ -109,6 +105,24 @@ $("ul.post-type-select li").click(function(){
 	$("ul.post-type-select li.selected").removeClass("selected");
 	$(this).addClass("selected");	
 });
+// recent posts tab on user profile page
+$("ul.post-type-select li.user-profile").click(function(){
+	
+	var userID = $(this).attr('user');
+	var display = $(this).attr('display');
+	
+	currentDisplayStart = 0;
+	if (display == "recent") { 
+		displayUserPosts(userID);
+	}else{ 
+		displayUserComments(userID);
+	}
+
+	$("ul.post-type-select li.selected").removeClass("selected");
+	$(this).addClass("selected");	
+});
+
+
 
 //activate Recon Network Controls - more button
 $("#more-superposts-button").click(function(){
@@ -309,10 +323,14 @@ function displayUserPosts(userID) {
     var getdata = $.getJSON(dataURL, function(data) {
     
 	    //$(".animal-container").html("");
-	    
+	    if(data.length < 1){
+	    	$("#no-activity").show();
+	    }
 	    var count = 0;
+	    
 	    $(data).each(function(index) {
 	        count++;
+	        
 	        var url = "/plus/" + this.post_type + "/" + this.id;
 	        var link = $("<a href='" + url + "'>");
 
@@ -401,6 +419,7 @@ function displayUserPosts(userID) {
 	        $("#user-activity").append(reconBox);
 
 	        if ($(data).length == count) {
+	        
 	            $("#user-activity").imagesLoaded( function(){
 
 	            	afterImageLoaded();
@@ -439,7 +458,21 @@ function afterImageLoaded() {
         	gutterWidth: masonryGutterWidth,
             itemSelector: masonryItemSelector,
             isAnimated: true,
-    	});
+    });
+    	
+    }
+    //reset masonry for user profile
+    if ($('#user-activity').hasClass("masonry")) {
+    	$('#user-activity').masonry( 'option', { columnWidth: masonryColumnWidth, gutterWidth: masonryGutterWidth, itemSelector:masonryItemSelector } )
+    	$('#user-activity').masonry('reload');
+    } else {
+    	$('#user-activity').masonry({
+        	columnWidth: masonryColumnWidth,
+        	gutterWidth: masonryGutterWidth,
+            itemSelector: masonryItemSelector,
+            isAnimated: true,
+    });
+    	
     }
 
 
@@ -583,7 +616,111 @@ function displayReconList(type) {
 
 	});
 
-} //End function displayRecon()
+} //End function displayReconList()
+
+
+function displayUserComments(userID) {
+
+	if (currentDisplayStart == 0) {
+		$("#user-activity").html("");
+	}
+		
+
+	var dataURL = "/slim/api/superpost/user/comments/" + userID;  	
+
+    var getdata = $.getJSON(dataURL, function(data) {
+    
+	    //$(".animal-container").html("");
+	    if(data.length < 1){
+	    	$("#no-activity").show();
+	    }
+	    var count = 0;
+	    $(data).each(function(index) {
+	    console.log(data);
+	        count++;
+
+	        //usables: posts.id, comment_body, rent_type 
+
+	        var gravatar = $("<img class='recon-gravatar'>").attr("src","http://www.gravatar.com/avatar/" + this.gravatar_hash + ".jpg?s=50&d=identicon");
+	        var authorInfo = $("<div class='recon-author-info'><span class='author-name'></span><span class='author-action'></span></div>");
+	        authorInfo.find(".author-name").text(this.username);
+	        authorInfo.find(".author-action").text(" posted a " + capitaliseFirstLetter(this.rent_type));
+
+	        var date = $("<abbr class='recon-date timeago' title=''></abbr>").attr("title",this.created);
+
+	        var image = $("<img class='superpost-list-thumb'>").attr("src",this.img_url);
+	        var url = "/plus/" + this.rent_type + "/" + this.id;
+
+
+	        //Userpopup stuff
+	        var userDetailsBox = $("<div class='user-details-box' style='display:none'></div>");
+			var nameBox = $("<div class='name-box'></div>").text(this.username);
+			var statsBox = $("<div class='stats-box'></div>");
+
+			var points = parseInt(this.comment_count) + parseInt(this.shares);
+			if (this.comment_body.length > 160){
+				encoded = this.comment_body.substring(0, 160);
+				encoded += "...";
+			}else{
+				encoded = this.comment_body;
+			}
+			
+		//	var d1 = Date.parse('2010-10-18, 10:06 AM');
+		//	var d1 = Date.parse('2012-03-29 14:42:09');
+			var create_date = Date.parse(this.date);
+					
+			var reconRow = $("\
+				<div class='recon-row masonry-box'>\
+					<ul>\
+						<li>\
+							<div class='row-info'>\
+								<div class='row-post-type post-type-" + this.rent_type + "'>" + this.rent_type + "</div>\
+								<div class='row-title'><a href='" + url + "'>" + encoded + "</a></div>\
+							</div>\
+						</li>\
+						<li class='count-field' >Posted on: " + create_date + "</li>\
+					</ul>\
+				</div>");
+
+
+			$("#user-activity").append(reconRow);
+
+			userDetailsBox.append(nameBox);
+			userDetailsBox.append(statsBox);
+
+
+	        //Store some user data so that we can retrieve it later on hover
+	        gravatar.data('user_id',this.user_id);
+	        gravatar.data('username',this.username);
+
+	 
+	        if (this.img_url) {
+	        	//imageBox.append(image);
+	        	reconRow.find("ul").prepend($("<li class='row-image'>").append(image.width(90)));
+	        	
+	        } else {
+	        	reconRow.find("div.row-info").addClass("no-image");
+	        }
+
+	        // Quick fix to make sure it gets displayed correctly on tab click
+	        displayMode = "list";
+	        if ($(data).length == count) {
+	            $("#user-activity").imagesLoaded( function(){
+
+	            	$(".recon-row:odd").addClass("odd");
+	            	afterImageLoaded();
+	            	//set back to tile for future tab click
+	            	displayMode = "tile";
+	                
+	            });
+	        }
+	        
+	    });
+
+	});
+
+} //End function displayUserComments()
+
 
 
 

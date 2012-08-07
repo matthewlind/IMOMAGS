@@ -3749,7 +3749,10 @@ h1.tv-header{
 }
 
 /* USER PROFILE */
-
+.profile-right{
+	float: left;
+	width: 300px;
+}
 .page-template-user_profile-php .user-header h3{
 	font-family: ProximaNova-Regular;
 	font-size: 2.3em;
@@ -3757,12 +3760,9 @@ h1.tv-header{
     text-transform: capitalize;
     color: #58534f;
 }
-.page-template-user_profile-php .user-header{
-	width: 682px;
-}
 .page-template-user_profile-php .user-info{
 	float: left;
-	width: 66%;
+	width: 420px;
 	background: url("img/user-sep.png") no-repeat right center;
 }
 .page-template-user_profile-php .user-info img{
@@ -3772,7 +3772,7 @@ h1.tv-header{
 .page-template-user_profile-php .extras{
 	float: left;
 	padding: 0 12px;
-    width: 30%;
+    width: 275px;
 }
 .page-template-user_profile-php .extras .score-box{
 	width: 80px;
@@ -3822,10 +3822,20 @@ h3.first-last-name{
     font-size: 1.9em;
     height: 40px;
     margin: 0;
-    padding-top: 20px;
     text-transform: uppercase;
 }
-
+#no-activity p{
+	text-align: center;
+	font-size: 1.2em;
+    padding: 100px 0;
+}
+#user-activity{
+	margin-top: 70px;
+}
+.page-template-user_profile-php .post-type-select .recent{
+	border-left: solid 1px #ccc !important;
+	
+}
 
 /*****
 **Community Page

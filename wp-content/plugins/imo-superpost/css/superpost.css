@@ -185,6 +185,22 @@ input.submit {
 	color: white;
 }
 
+.post-type-general {
+	background-color:#829b40;
+	color: white;
+}
+
+.post-type-lifestyle {
+	background-color:#aaa197;
+	color: white;
+}
+
+.post-type-trophy {
+	background-color:#8411fa;
+	color: white;
+}
+
+
 
 /*HOMEPAGE LIST LAYOUT*/
 
