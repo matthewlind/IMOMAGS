@@ -475,5 +475,6 @@ $args = array(
 
   </div><!-- End user login modal container -->
   <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery.jfollow.js"></script>
+
 </body>
 </html>

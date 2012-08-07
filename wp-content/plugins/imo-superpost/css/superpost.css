@@ -438,7 +438,7 @@ span#more-superposts-button span {
 	-ms-user-select: none;
 	user-select: none;
 }
-#user-login-button{
+.imo-fb-login-button{
 	margin: 8px 0;
 	float: right;
     cursor: pointer;

@@ -111,7 +111,7 @@ the_post();
                 <li class='trophy-nav' title='trophy'>Trophy Bucks</li>
                 <!--<li class="dd-arrow"></li>-->
             </ul>    
-            <div id="user-login-button">
+            <div class="imo-fb-login-button">
                 LOGIN
             </div>
             <div id="recon-activity" term="all" display="tile">
