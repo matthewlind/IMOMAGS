@@ -72,6 +72,52 @@ $app->get('/api/superpost/user/posts/:userid',function($userid){
 
 });
 
+
+//*********************************
+//*** Get All Comments by a user ***
+//*********************************
+$app->get('/api/superpost/user/comments/:userid',function($userid){
+
+	header('Access-Control-Allow-Origin: *');  
+
+	try {
+
+		$db = dbConnect();
+		
+		if (is_numeric($userid)) {
+			$whereClause = "WHERE users.ID = ?";
+		} else {
+			$whereClause = "WHERE users.user_nicename = ?";
+
+		}
+
+		$sql = "select posts.id, posts.body as comment_body, posts.share_count as shares, posts.created as date, parent.post_type as rent_type from slim.allcounts as posts
+		
+				JOIN imomags.wp_users as users on (users.`ID` = posts.user_id)
+				
+				JOIN slim.allcounts as parent on (posts.parent = parent.id)
+				
+				$whereClause
+				
+				AND posts.post_type = 'comment'
+		
+				";
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array($userid));
+	
+		$posts = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+		echo json_encode($posts);
+
+		$db = "";
+
+	} catch(PDOException $e) {
+    	echo $e->getMessage();
+    }
+
+});
+
 //*********************************
 //*** Get User Score ***
 //*********************************

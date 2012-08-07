@@ -59,25 +59,49 @@ $avatar = "http://www.northamericanwhitetail.fox/avatar?uid=".$user->ID;
 		    			<h2 class="user-points">392</h2> 
 		    			<p>Points</p>
 		    		</div>
-		    	
-			    	<ul class="post-type-select">
+		    		<ul class="post-type-select">
 	            		<li id="new-post-button" class="post"><span>+</span> Create New Post</li>
 			    	</ul>
 		    	</div>
+		    	
+		    	<div class="profile-right">
+		    	<?php if (function_exists("imo_dart_tag")) {
+			            imo_dart_tag("300x250");
+			          } else { ?>
+			  	        <!-- 300x250 Ad: -->
+			            <script type="text/javascript">
+			              document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dartadsgen_site+'/;sect=;page=index;subs=;sz=300x250;dcopt=;tile='+pr_tile+';ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
+			            </script>
+			            <script type="text/javascript">
+			              ++pr_tile;
+			            </script>
+			            <noscript>
+			              <a href="http://ad.doubleclick.net/adj/imo.outdoorsbest/;sect=;page=index;subs=;sz=300x250
+			              ;dcopt=;tile=1;ord=7391727509?">
+			                <img src="http://ad.doubleclick.net/ad/imo.outdoorsbest/home;sect=;page=index;subs=;sz=300x250;dcopt=;tile=1;ord=7391727509?" border="0" />
+			              </a>
+			            </noscript>
+			            <!-- END 300x250 Ad: -->
+			          <?php } ?>
+			          </div>
+
 	    	</div>
 	        <h3 class="first-last-name"><?php echo $user->display_name; ?>'s Activity</h3>
-	        
-	        <div id="no-activity" style="display:none;">
+	                
+	        <ul class="post-type-select">
+                <li class="user-profile recent selected" display="recent" user="<?php echo $user->ID;?>">Recent Activity</li>
+                <li class="user-profile" display="comments" user="<?php echo $user->ID;?>">Comments</li>
+            </ul>    
+            
+            <div id="no-activity" style="display:none;">
 	        	<p>No Activity.</p>
-	        	<ul class="post-type-select">
-	            		<li id="new-post-button" class="post"><span>+</span> Create New Post</li>
-			    	</ul>
 	        </div>
+	        
 	        <div id="user-activity" user="<?php echo $user->ID;?>">
 
 
             </div>
-            <div class="cross-site-feed-more-button"> <div class="more-button"><span>LOAD MORE<span></span></span></div> </div>
+            <!--<div class="cross-site-feed-more-button"> <div class="more-button"><span>LOAD MORE<span></span></span></div> </div>-->
 		</div>
 	</div><!-- .entry -->
 </div><!-- .col-abc -->
