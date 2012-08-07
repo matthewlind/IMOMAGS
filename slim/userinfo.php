@@ -40,13 +40,20 @@ $app->get('/api/superpost/user/posts/:userid',function($userid){
 	try {
 
 		$db = dbConnect();
+		
+		if (is_numeric($userid)) {
+			$whereClause = "WHERE users.ID = ?";
+		} else {
+			$whereClause = "WHERE users.user_nicename = ?";
+
+		}
 
 
 		$andClause = "AND post_type != 'comment' AND post_type != 'answer' AND post_type != 'photo' AND post_type != 'youtube'";
 
 		$sql = "select * from slim.allcounts as posts
 				JOIN imomags.wp_users as users on (users.`ID` = posts.user_id)
-				WHERE users.ID = ?
+				$whereClause
 				$andClause
 				";
 
@@ -75,11 +82,19 @@ $app->get('/api/superpost/user/score/:userid',function($userid){
 	try {
 
 		$db = dbConnect();
+		
+		
+		if (is_numeric($userid)) {
+			$whereClause = "WHERE users.ID = ?";
+		} else {
+			$whereClause = "WHERE users.user_nicename = ?";
+
+		}
 
 
 		$sql = "select score from slim.userscore as userscore
 				JOIN imomags.wp_users as users on (users.`ID` = userscore.user_id)
-				WHERE users.ID = ?
+				$whereClause
 				";
 
 		$stmt = $db->prepare($sql);
