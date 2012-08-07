@@ -67,7 +67,7 @@ $avatar = "http://www.northamericanwhitetail.fox/avatar?uid=".$user->ID;
 	    	</div>
 	        <h3 class="first-last-name"><?php echo $user->display_name; ?>'s Activity</h3>
 	        
-	        <div class="no-activity" style="display:none;">
+	        <div id="no-activity" style="display:none;">
 	        	<p>No Activity.</p>
 	        	<ul class="post-type-select">
 	            		<li id="new-post-button" class="post"><span>+</span> Create New Post</li>

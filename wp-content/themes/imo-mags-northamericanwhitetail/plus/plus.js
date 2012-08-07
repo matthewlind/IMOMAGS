@@ -25,12 +25,14 @@ if ($("#recon-activity").length > 0){
 
 //Display the user posts
 if ($("#user-activity").length > 0){
-
+	
 	var userID = $("#user-activity").attr("user");
 	
 	displayUserPosts(userID);
 }else{
-	$(".no-activity").css("display","block");
+	
+	$("#no-activity").css("display","block");
+	$(".cross-site-feed-more-button").css("display","none");
 }
 
 /* ON ICE
@@ -310,102 +312,100 @@ function displayUserPosts(userID) {
 	    
 	    var count = 0;
 	    $(data).each(function(index) {
-	    	if (this.post_type != "photo"){
-		        count++;
-		        var url = "/plus/" + this.post_type + "/" + this.id;
-		        var link = $("<a href='" + url + "'>");
-	
-		        var randomnumber=Math.floor(Math.random()*3); //Get randomColor
-		        var reconBox = $("<div class='recon-box masonry-box' id='recon-box-" + this.id +  "'></div>");
-		        var imageBox = $("<div class='recon-image-box'></div>").css("background-color",bgcolors[randomnumber]);;
-		        var image = $("<img class='superpost-thumb'>").attr("src",this.img_url);
-		        var titleBox = $("<div class='recon-title-box'></div>")
-		        var detectorBox = $("<div class='detector-box'></div>")
-		        var titleDetailBox = $("<span class='recon-title-detail'></span>").text(this.username + "'s " + this.post_type);
-		        var title = $("<h3></h3>").text(this.title);
-		        var underBox = $("<div class='under-box'></div>");
-		        var gravatar = $("<img class='recon-gravatar'>").attr("src","http://www.gravatar.com/avatar/" + this.gravatar_hash + ".jpg?s=50&d=identicon");
-		        var authorInfo = $("<div class='recon-author-info'><span class='author-name'></span><span class='author-action'></span></div>");
-		        authorInfo.find(".author-name").text(this.username);
-		        authorInfo.find(".author-action").text(" posted a " + capitaliseFirstLetter(this.post_type));
-		        var underTitle = $("<div class='under-title'></div>").html("<a href='" + url + "'>" + this.title + "</a>");
-		        var date = $("<abbr class='recon-date timeago' title=''></abbr>").attr("title",this.created);
-		        var imgUrl =  this.img_url;
-	
-		        //Userpopup stuff
-		        var userDetailsBox = $("<div class='user-details-box' style='display:none'></div>");
-				var nameBox = $("<div class='name-box'></div>").text(this.username);
-				var statsBox = $("<div class='stats-box'></div>");
-				userDetailsBox.append(nameBox);
-				userDetailsBox.append(statsBox);
-	
-				//Store some user data so that we can retrieve it later on hover
-		        gravatar.data('user_id',this.user_id);
-		        gravatar.data('username',this.username);
-	
-		        titleBox.append(titleDetailBox);
-		        titleBox.append(title);
-	
-	
-	
-	
-	
-		        if (this.img_url) {
-		   			
-		   			link.append(image);
-		        	imageBox.append(link);
-		        	
-		        
-		        }
-	
-		        
-		        underBox.append(userDetailsBox);
-		        underBox.append(gravatar);
-		        underBox.append(authorInfo);
-		        if(this.post_type != "question"){
-			        underBox.append(underTitle);
-		        }
-		        
-		        underBox.append(date);
-	
-		        detectorBox.hover(function(){
-		        	if (imgUrl) {
-		        		$(this).parent().parent().find(".recon-title-box").stop().fadeToggle();
-		        	}
-		        	
-	
-		        });
-	
-	
-		        if (this.post_type != "photo" && this.post_type != "video") {
-		        	link = $("<a href='" + url + "'>");
-		        	reconBox.append(link)
-		        	link.append(titleBox);
-	
-		        	link = $("<a href='" + url + "'>");
-	
-		        	reconBox.append(link);
-		        	link.append(detectorBox);
-		        }
-	
-		        if (this.img_url != null && this.title != null) {
-		        	titleBox.addClass("cover-pic");
-		        }
-	
-		      	
-	
-		        reconBox.append(imageBox);
-		        reconBox.append(underBox);
-	
-		        $("#user-activity").append(reconBox);
-	
-		        if ($(data).length == count) {
-		            $("#user-activity").imagesLoaded( function(){
-	
-		            	afterImageLoaded();
-		                
-		            });
-		        }
+	        count++;
+	        var url = "/plus/" + this.post_type + "/" + this.id;
+	        var link = $("<a href='" + url + "'>");
+
+	        var randomnumber=Math.floor(Math.random()*3); //Get randomColor
+	        var reconBox = $("<div class='recon-box masonry-box' id='recon-box-" + this.id +  "'></div>");
+	        var imageBox = $("<div class='recon-image-box'></div>").css("background-color",bgcolors[randomnumber]);;
+	        var image = $("<img class='superpost-thumb'>").attr("src",this.img_url);
+	        var titleBox = $("<div class='recon-title-box'></div>")
+	        var detectorBox = $("<div class='detector-box'></div>")
+	        var titleDetailBox = $("<span class='recon-title-detail'></span>").text(this.username + "'s " + this.post_type);
+	        var title = $("<h3></h3>").text(this.title);
+	        var underBox = $("<div class='under-box'></div>");
+	        var gravatar = $("<img class='recon-gravatar'>").attr("src","http://www.gravatar.com/avatar/" + this.gravatar_hash + ".jpg?s=50&d=identicon");
+	        var authorInfo = $("<div class='recon-author-info'><span class='author-name'></span><span class='author-action'></span></div>");
+	        authorInfo.find(".author-name").text(this.username);
+	        authorInfo.find(".author-action").text(" posted a " + capitaliseFirstLetter(this.post_type));
+	        var underTitle = $("<div class='under-title'></div>").html("<a href='" + url + "'>" + this.title + "</a>");
+	        var date = $("<abbr class='recon-date timeago' title=''></abbr>").attr("title",this.created);
+	        var imgUrl =  this.img_url;
+
+	        //Userpopup stuff
+	        var userDetailsBox = $("<div class='user-details-box' style='display:none'></div>");
+			var nameBox = $("<div class='name-box'></div>").text(this.username);
+			var statsBox = $("<div class='stats-box'></div>");
+			userDetailsBox.append(nameBox);
+			userDetailsBox.append(statsBox);
+
+			//Store some user data so that we can retrieve it later on hover
+	        gravatar.data('user_id',this.user_id);
+	        gravatar.data('username',this.username);
+
+	        titleBox.append(titleDetailBox);
+	        titleBox.append(title);
+
+
+
+
+
+	        if (this.img_url) {
+	   			
+	   			link.append(image);
+	        	imageBox.append(link);
+	        	
+	        
+	        }
+
+	        
+	        underBox.append(userDetailsBox);
+	        underBox.append(gravatar);
+	        underBox.append(authorInfo);
+	        if(this.post_type != "question"){
+		        underBox.append(underTitle);
+	        }
+	        
+	        underBox.append(date);
+
+	        detectorBox.hover(function(){
+	        	if (imgUrl) {
+	        		$(this).parent().parent().find(".recon-title-box").stop().fadeToggle();
+	        	}
+	        	
+
+	        });
+
+
+	        if (this.post_type != "photo" && this.post_type != "video") {
+	        	link = $("<a href='" + url + "'>");
+	        	reconBox.append(link)
+	        	link.append(titleBox);
+
+	        	link = $("<a href='" + url + "'>");
+
+	        	reconBox.append(link);
+	        	link.append(detectorBox);
+	        }
+
+	        if (this.img_url != null && this.title != null) {
+	        	titleBox.addClass("cover-pic");
+	        }
+
+	      	
+
+	        reconBox.append(imageBox);
+	        reconBox.append(underBox);
+
+	        $("#user-activity").append(reconBox);
+
+	        if ($(data).length == count) {
+	            $("#user-activity").imagesLoaded( function(){
+
+	            	afterImageLoaded();
+	                
+	            });
 	        }
 	    });
 
@@ -602,7 +602,7 @@ $(document).ready(function(){
 		var $questionTemplate;
 				
 		$.each(data, function(index, question) { 
-			console.log(index,question); 
+			//console.log(index,question); 
 			$questionTemplate = $("ul#slides-questions li").eq(index);
 			var url = "/plus/question/" + question.id;
 			var gravatar = $questionTemplate.find(".user-info img").attr("src","http://www.gravatar.com/avatar/" + this.gravatar_hash + ".jpg?s=50&d=identicon");
@@ -633,12 +633,12 @@ $(document).ready(function(){
 
 		$.each(data, function(index, all) { 
 		//	console.log(index,all); 
-			if (all.img_url.length > 0){
+			//if (all.img_url.length > 0){
 				$questionTemplate = $("ul#scroll-widget li").eq(index);
 				var url = "/plus/" + all.post_type + "/" + all.id;
 				$questionTemplate.find("a").attr("href",all.url);
 				$questionTemplate.find("img").attr("src",all.img_url);
-			}
+			//}
 		});							
 	$questionTemplate.appendTo("ul#scroll-widget.scroll").fadeIn();	
 	});
