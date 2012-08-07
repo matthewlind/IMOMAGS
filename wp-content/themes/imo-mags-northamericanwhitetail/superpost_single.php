@@ -220,13 +220,13 @@ $headerTitle = $data->post_type . ": " . $data->title;
 <?php foreach ($commentData as $comment) {   ?>
 <div class="col-abc super-comments">
 	<div class="avatar-holder">
-        <img src="http://www.gravatar.com/avatar/<?php echo $comment->gravatar_hash; ?>.jpg?s=50&d=identicon" class="superclass-gravatar_hash recon-gravatar">
+         <a href="/profile/<?php echo $comment->comment_username; ?>"><img src="http://www.gravatar.com/avatar/<?php echo $comment->gravatar_hash; ?>.jpg?s=50&d=identicon" class="superclass-gravatar_hash recon-gravatar"></a>
     </div>
 
 	<div class="superpost-comments">
 			<div class="superpost-comment" <?php echo $visible; ?> >
         		<div class="superclass-body">
-        		 	<a href="userlink" class="username"><?php echo $comment->comment_username; ?></a>
+        			<a href="/profile/<?php echo $comment->comment_username; ?>" class="username"><?php echo $comment->comment_username; ?></a>
         
         			<p><?php echo $comment->comment_body; ?></p>
         		</div>
