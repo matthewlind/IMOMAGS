@@ -1,5 +1,5 @@
 <?php // Custom Join NAW+ Widget powered by Gravity Forms
-
+    
 class Join_Widget extends WP_Widget {
 	function Join_Widget() {
 		$widget_ops = array('classname' => 'widget_gravity_form', 'description' => 'Add a Gravity Form email signup form.' );
@@ -9,9 +9,25 @@ class Join_Widget extends WP_Widget {
 	function widget($args, $instance) {
 		extract($args, EXTR_SKIP);
  
-    $title = empty($instance['title']) ? '' : apply_filters('widget_title', $instance['title']); ?>
+    $title = empty($instance['title']) ? '' : apply_filters('widget_title', $instance['title']); 
+    
+    $displayStyle = "display:none";
+	$loginStyle = "";
+	
+	if ( is_user_logged_in() ) {
+	
+		$displayStyle = "";
+		$loginStyle = "display:none";
+		
+		wp_get_current_user();
+		
+		$current_user = wp_get_current_user();
+	    if ( !($current_user instanceof WP_User) )
+	         return;
+	    }
+    ?>
 
-    <aside id="join" class="box widget_gravity_form">
+    <aside id="join" class="box widget_gravity_form" style="<?php if($current_user->user_nicename != "admin"){echo $loginStyle;} ?>">
       <div class="content_wrapper">
       	  <div id="user-login-button" class="fb-login">Fast Facebook Login</div>
 	      <small>*we do not post anything to your wall unless you say so!</small>

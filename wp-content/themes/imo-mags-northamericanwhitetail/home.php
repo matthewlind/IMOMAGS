@@ -23,18 +23,35 @@ if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 get_header();
+$displayStyle = "display:none;";
+$loginStyle = "";
+
+if ( is_user_logged_in() ) {
+
+	$displayStyle = "";
+	$loginStyle = "display:none;";
+	
+	wp_get_current_user();
+	
+	$current_user = wp_get_current_user();
+    if ( !($current_user instanceof WP_User) )
+         return;
+    }
 ?>
 <div class="page-template-page-right-php">	
 
 	<!-- Carrington Section w/ Sidebar Top -->	
 	<div class="bonus-background">
-		<div class="bonus">
+		<div class="bonus" style="<?php echo $displayStyle; ?>">
 			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-home-top')) : else : ?><?php endif; ?>
 		</div>		
+		<div class="bonus" style="<?php echo $loginStyle; ?>">
+			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-home-top-logged')) : else : ?><?php endif; ?>
+		</div>			
 	</div>
 	<div class="col-abc sticky-height">
-				<?php the_content(__('Continued&hellip;', 'carrington-business')); ?>
-				<div class="clearfix"></div>
+		<?php the_content(__('Continued&hellip;', 'carrington-business')); ?>
+		<div class="clearfix"></div>
 		<div class="homepage-gear top">
 			<h1 class="more-header">Whitetail Gear</h1>
 			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('gear-home')) : else : ?><?php endif; ?>
@@ -69,14 +86,19 @@ get_header();
             </div>-->
             <ul class="post-type-select">
             	<li id="new-post-button" class="post"><span>+</span> Post</li>
-                <li class='selected' title='all'>ALL</li>
-                <li title='general'>General</li>
-                <li title='report'>Reports</li>
-                <li title='tip'>Tips</li>
-                <li title='lifestyle'>Lifestyle</li>
-                <li title='trophy'>Trophy Bucks</li>
-            </ul>    
-            <div class="imo-fb-login-button">
+                <li class='change selected' title='all'>ALL</li>
+                <li class='change' title='general'>General</li>
+                <li class='change' title='report'>Reports</li>
+                <li class='change' title='tip'>Tips</li>
+                <li class='change' title='lifestyle'>Lifestyle</li>
+                <li class='change' title='trophy'>Trophy Bucks</li>
+            </ul>   
+       
+			<ul id="user-bar" style="<?php echo $displayStyle; ?>">	          
+				<li class="user-name">Hello, <a href="/profile/<?php echo $current_user->user_nicename; ?>"><span id="current-user-name"><?php echo $current_user->display_name; ?></span></a></li>
+				<li><a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" alt="User Avatar" class="recon-gravatar" /></a></li>                      
+	       </ul> 
+            <div class="imo-fb-login-button" style="<?php echo $loginStyle; ?>">
                 LOGIN
             </div>           
             <div id="recon-activity" term="all" display="tile">
@@ -108,7 +130,7 @@ get_header();
 			<div class="entry-content">
 				<div class="clear"></div>
 					<div class="header-sort home-questions">
-						<h1 class="more-header">Ask An Expert</h1>
+						<h1 class="more-header">Q&A</h1>
 					</div>
 					<div class="questions-slider">
 		                <div class="slides-container-f">

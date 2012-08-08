@@ -7,6 +7,7 @@
 	height:500px;
 	top:70px;
 }
+
 h1.recon{
 	background-color: #FFFFFF;
     color: #AAA197;
@@ -38,7 +39,6 @@ img.superpost-thumb {
 
 }
 
-
 .detector-box {
 	height:278px;
 	width:278px;
@@ -62,6 +62,7 @@ img.superpost-thumb {
 	color:white;
 	width:auto;
 	display:inline-block;
+	text-transform: capitalize;
 }
 
 .recon-image-box {
@@ -93,6 +94,8 @@ img.recon-gravatar{
     margin-right:20px;
     float:left;
     cursor: pointer;
+    width: 50px;
+    height: auto;
 
 }
 
@@ -106,6 +109,7 @@ img.recon-gravatar:hover {
 }
 
 .author-name {
+	text-transform: capitalize;
 	font-weight:bold;
 }
 
@@ -262,7 +266,11 @@ ul.post-type-select {
 	float: left;
     position: relative;
     /*width: 668px;*/
-    margin: 0 10px 0 0;
+    margin: -14px 0 0 0;
+}
+ul.post-type-select.add-post{
+	float: right !important;
+	margin-top: -2px;
 }
 ul.post-type-select li {
 	font-family:"ProximaNovaS-Semibold";
@@ -455,12 +463,11 @@ span#more-superposts-button span {
 	user-select: none;
 }
 .imo-fb-login-button{
-	margin: 8px 0;
 	float: right;
     cursor: pointer;
     background: url("/wp-content/themes/imo-mags-northamericanwhitetail/img/fb-login-sm.png") no-repeat center top;
     height: 42px;
-    margin: 4px 10px 0;
+    margin: -5px 10px 0;
     text-indent: -9999px;
     width: 157px;
    /* background: none repeat scroll 0 0 #829B40;

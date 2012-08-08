@@ -31,14 +31,30 @@ if ($user)
 	$userString = "username='$username'";
 
 
-$avatar = "http://www.northamericanwhitetail.fox/avatar?uid=".$user->ID;
+$avatar = "/avatar?uid=".$user->ID;
 //$userPosts = 'http://www.northamericanwhitetail.fox/slim/api/superpost/user/posts/'.$user->ID;
+		
+$displayStyle = "display:none;";
+$loginStyle = "";
+
+if ( is_user_logged_in() ) {
+
+	$displayStyle = "";
+	$loginStyle = "display:none;";
+	
+	wp_get_current_user();
+	
+	$current_user = wp_get_current_user();
+    if ( !($current_user instanceof WP_User) )
+         return;
+}
 
 ?>
 <header class="header-title">
+	<div id="user-bar" class="edit">
+		<a href="/login/?action=profile">Edit Profile</a> <span>|</span> <a href="<?php echo wp_logout_url( get_permalink() ); ?>" title="Logout">Logout</a>
+	</div>
 	<h1><a href="/community/">Community</a> / Your Profile</h1>
-	<?php edit_post_link(__('Edit', 'carrington-business')); ?>
-    <?php //echo $requestURL; ?>
 </header>
 <div class="col-abc super-post">
 	<div <?php post_class('entry entry-full clearfix'); ?>>
@@ -46,20 +62,19 @@ $avatar = "http://www.northamericanwhitetail.fox/avatar?uid=".$user->ID;
 			<div class="user-header">
 	           
 	            <div class="user-info">
-	            	<div class="user-thumbnail"><?php echo '<img src="'.$avatar.'" alt="User Avatar" />'; ?></div>
+	            	<div class="user-thumbnail"><?php echo '<img src="'.$avatar.'" alt="User Avatar" class="recon-gravatar" />'; ?></div>
 	            	
 	            	<ul class="details">
 	            		<li><h3><?php echo $user->display_name; ?></h3></li>
 	            		<li class="hometown"><a href="#">Gotham City</a></li>
 	            		<li class="twitter"><a href="#">@batman</a></li>
 	            	</ul>
-	            	<a class="edit" href="/login/?action=profile">edit profile</a>
 	            </div>
 	            
 	            <div class="extras">
 		    		<div class="score-box">
 		    			<h2 class="user-points">0</h2> 
-		    			<p>Points</p>
+		    			<p>Points</p>		    		
 		    		</div>
 		    		<ul class="post-type-select">
 	            		<li id="new-post-button" class="post"><span>+</span> Create New Post</li>

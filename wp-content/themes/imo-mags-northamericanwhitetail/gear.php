@@ -27,19 +27,35 @@ the_post();
 ?>
 <div class="page-community">
 	<header class="header-title">
+		<?php
+		$displayStyle = "display:none;";
+		$loginStyle = "";
+		
+		if ( is_user_logged_in() ) {
+		
+			$displayStyle = "";
+			$loginStyle = "display:none;";
+			
+			wp_get_current_user();
+			
+			$current_user = wp_get_current_user();
+		    if ( !($current_user instanceof WP_User) )
+		         return;		
+		    }
+		?>
+		<ul id="user-bar" style="<?php echo $displayStyle; ?>">	          
+			<li class="user-name">Hello, <a href="/profile/<?php echo $current_user->user_nicename; ?>"><span id="current-user-name"><?php echo $current_user->display_name; ?></span></a></li>
+			<li><a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" alt="User Avatar" class="recon-gravatar" /></a></li>                      
+       </ul>
 		<h1><a href="/community/">Community</a> <span>| Gear</span></h1>
 	</header>
 	<div class="col-abc super-post">
-		<ul class="post-type-select">
-			<li id="new-post-button" class="post"><span>+</span> Post</li>
-		    <li title='all'>ALL</li>
-		    <li title='report'>Reports</li>
-		    <li title='tip'>Tips</li>
-		    <li title='lifestyle'>LifeStyles</li>
-		    <li title='trophy'>Trophy Bucks</li>
-		    <li class='selected' title='gear'>Gear</li>
-		    <!--<li class="dd-arrow"></li>-->
-	    </ul>  
+		<div class="imo-fb-login-button" style="<?php echo $loginStyle; ?>">
+	    	LOGIN
+	    </div>
+	    <ul class="post-type-select add-post" style="<?php echo $displayStyle; ?>">
+	    	<li id="new-post-button" class="post">+ POST IN GENERAL DISCUSSION</li>
+		</ul>
 	    <div id="recon-activity" term="gear" display="tile">
 	
 	

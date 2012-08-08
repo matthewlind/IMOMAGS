@@ -24,16 +24,37 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 get_header();
 
 the_post();
+$displayStyle = "display:none;";
+$loginStyle = "";
+
+if ( is_user_logged_in() ) {
+
+	$displayStyle = "";
+	$loginStyle = "display:none;";
+	
+	wp_get_current_user();
+	
+	$current_user = wp_get_current_user();
+    if ( !($current_user instanceof WP_User) )
+         return;
+    }
 ?>
 <div class="page-community">
 <div class="col-abc super-post">
     <header class="header-title">
+    	<ul id="user-bar" style="<?php echo $displayStyle; ?>">	          
+			<li class="user-name">Hello, <a href="/profile/<?php echo $current_user->user_nicename; ?>"><span id="current-user-name"><?php echo $current_user->display_name; ?></span></a></li>
+			<li><a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" alt="User Avatar" class="recon-gravatar" /></a></li>                      
+       </ul>
 		<h1><a href="/community/">Community</a> <span>| Rut Report</span></h1>
 	</header>
 	<div class="col-abc super-post">
-		<div id="user-login-button">
-                LOGIN
-        </div>   
+		<div class="imo-fb-login-button" style="<?php echo $loginStyle; ?>">
+	    	LOGIN
+	    </div>
+	    <ul class="post-type-select add-post" style="<?php echo $displayStyle; ?>">
+	    	<li id="new-post-button" class="new-post post report">+ POST IN RUT REPORTS</li>
+		</ul>
         <div id="recon-activity" term="report" display="list">
 
 
