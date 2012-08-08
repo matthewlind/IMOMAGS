@@ -32,7 +32,8 @@ div.post {
 
 .slideshow_mask.text-slides {
   position:relative;
-  overflow:hidden;
+  overflow-x:hidden;
+  overflow-y:hidden;
   margin:0 auto;
   width:300px;
   height:380px;
@@ -47,15 +48,15 @@ div.post {
 .text-slideshow.text-slides .slide {
   position:absolute;
   width:300px;
-  height:375px;
   text-align: left;
-  overflow-y: hidden;
   overflow-x: hidden;
   font-family: "Helvetica",Arial,sans-serif;
   font-size:13px;
   line-height: 18px;
 }
-
+.scroll-content{
+	height: 348px;
+}
 .text-slideshow.text-slides .slide p {
   font-family: "Helvetica",Arial,sans-serif;
   font-size:13px;

@@ -19,7 +19,7 @@ add_action('init', 'imo_facebook_auth_setup');
 function imo_facebook_auth_setup() {
 
     require 'src/facebook.php';
-    wp_enqueue_script('jquery-timeago',plugins_url('js/facebook-auth.js', __FILE__));
+    wp_enqueue_script('imo-facebook-auth',plugins_url('js/facebook-auth.js', __FILE__));
 
 }
 
@@ -31,15 +31,26 @@ function imo_facebook_usercheck() {
 
     if (preg_match("/^\/facebook-usercheck\.json(\?(.+)?)?$/", $_SERVER['REQUEST_URI'])) {
         header('Content-type: application/json');
+        
+        $accessToken =  $_GET['accessToken'];
+        
 
+        
 
         $facebook = new Facebook(array(
 		  'appId'  => '127971893974432',
 		  'secret' => '998a58347d730b52dd2bac877180bedd',
 		));
+		
+		if (!empty($accessToken)) {
+	        $facebook->setAccessToken($accessToken);
+        }
 
 		// Get FB User ID
 		$user = $facebook->getUser();
+		
+		
+				
 
 		if ($user) {
 		  try {
@@ -55,29 +66,47 @@ function imo_facebook_usercheck() {
 
 		_log($user_profile);
 
-		$json = json_encode("NO USER EXISTS");
+		//$json = json_encode("NO USER EXISTS");
 
 
 		//Check if user already exists
         if ($user = get_user_by("email",$email)) {//if yes, log them in
         	wp_authenticate("facebook","dgrsvgqt4523facebook");
+        		
+        	$user = imo_get_user($user->ID);
+        	
         	$json = json_encode($user);
         } else { //if not, register the user
+        
+        	if (!empty($email)) {
+		        $userdata = array();
+	        	$userdata['user_email'] = $email;
+	        	$userdata['first_name'] = $user_profile['first_name'];
+	        	$userdata['last_name'] = $user_profile['last_name'];
+	        	$userdata['display_name'] = $user_profile['first_name'] . " " . $user_profile['last_name'];
+	        	$userdata['user_login'] = strtolower($user_profile['first_name']) . strtolower($user_profile['last_name']) . rand(100,999);
+	        	$userdata['user_pass'] = imo_facebook_generate_password();
+	
+	        	_log("User Inserted?");
+	        	
+	        	$facebookUsername = $user_profile['username'];
+	        	$facebookProfilePicURL = "http://graph.facebook.com/".$facebookUsername."/picture";
+	
+	        	
+	       		$userID = wp_insert_user($userdata);
+	       		wp_set_auth_cookie($userID,true);
+	       		
+	       		add_user_meta($userID,"facebook_ID",$user_profile['id']);
+	       		add_user_meta($userID,"facebook_profile_image_URL",$facebookProfilePicURL);
+	
+	       		//$userdata['user_pass'] = "";
+	       		
+	       		$user = imo_get_user($userID);
+	
+	       		$json = json_encode($user);
 
-        	$userdata = array();
-        	$userdata['user_email'] = $email;
-        	$userdata['first_name'] = $user_profile['first_name'];
-        	$userdata['last_name'] = $user_profile['last_name'];
-        	$userdata['display_name'] = $user_profile['first_name'] . " " . $user_profile['last_name'];
-        	$userdata['user_login'] = strtolower($user_profile['first_name']) . strtolower($user_profile['last_name']) . rand(100,999);
-        	$userdata['user_pass'] = imo_facebook_generate_password();
+        	}
 
-        	_log("User Inserted?");
-
-       		$userID = wp_insert_user($userdata);
-       		wp_set_auth_cookie($userID,true);
-
-       		$json = json_encode($userdata);
 
         }
 
@@ -87,6 +116,23 @@ function imo_facebook_usercheck() {
         //print_r($user_profile);
         die();
     } 
+    
+    if (preg_match("/^\/logout\.json(\?(.+)?)?$/", $_SERVER['REQUEST_URI'])) {
+        header('Content-type: application/json');
+        wp_logout();
+        die();
+        
+    }
+    
+   if (preg_match("/^\/usercheck\.json(\?(.+)?)?$/", $_SERVER['REQUEST_URI'])) {
+        header('Content-type: application/json');
+        $user = imo_get_user();
+       	$json = json_encode($user);
+       	print $json;
+       	
+        die();
+        
+    }
 
 
 }

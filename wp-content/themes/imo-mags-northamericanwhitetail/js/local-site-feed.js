@@ -4,7 +4,7 @@ jQuery(document).ready(function($) {
 	
 	var currentPosition = 0;
 	var showAtOnce = 10;
-
+	var sort = "post_date";
 	var feedData;
 
 	//Check to see if local-site-feed exists:
@@ -17,7 +17,21 @@ jQuery(document).ready(function($) {
 	$(".local-site-feed-more-button").click(function(){
 		
 		currentPosition = currentPosition + showAtOnce;
-		displayLocalSiteFeed(currentPosition);
+		displayLocalSiteFeed(currentPosition,sort);
+	});
+
+	//When sort button is clicked:
+	$(".local-sort-link").click(function(event){
+
+		event.preventDefault();
+
+		currentPosition = 0;
+		$(".local-site-feed").css("height",800);
+		$(".local-site-feed").html("");
+
+		sort = $(this).attr("sort");
+		displayLocalSiteFeed(currentPosition,sort)
+
 
 	});
 
@@ -40,9 +54,9 @@ jQuery(document).ready(function($) {
 
 	
 		if (term.length > 0) {
-			var fileName = "/wpdb/cache/naw-plus-" + term + "-" + sort + ".json";
+			var fileName = "/wp-content/cache/superloop/naw-plus-" + term + "-" + sort + ".json";
 		} else {
-			var fileName = "/wpdb/cache/naw-plus-" + sort + ".json";
+			var fileName = "/wp-content/cache/superloop/naw-plus-" + sort + ".json";
 		}
 		
 
@@ -50,7 +64,7 @@ jQuery(document).ready(function($) {
     
 	    //$(".animal-container").html("");
 
-	    	
+	    console.log(data);
 	    
 		    var count = 0;
 
@@ -88,9 +102,16 @@ jQuery(document).ready(function($) {
 					var $termsArray = $(data[i].terms);
 
 					$(data[i].terms).each(function(index) {
-						$categoryLinks.append($("<a href='/category/" + this.slug + "'>" + this.name + "</a>"));
+						var parentString = "";
 
-			
+				
+
+						if (this.parent != null) {
+							parentString = this.parent + "/";
+						}
+
+
+						$categoryLinks.append($("<a href='/category/" + parentString + this.slug + "'>" + this.name + "</a>"));
 
 						if ($termsArray.length != index + 1) {
 							$categoryLinks.append(" • ");

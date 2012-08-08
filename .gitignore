@@ -31,3 +31,4 @@ imgs
 robots.txt
 .sass-cache
 slim/images
+wpdb/mysql.php

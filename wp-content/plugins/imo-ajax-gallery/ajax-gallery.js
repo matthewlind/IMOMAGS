@@ -1,5 +1,16 @@
 jQuery(document).ready(function($) {
+	
+	//Description Scrollbar
 
+	(function($){
+		$(window).load(function(){
+			/* custom scrollbar fn call */
+							$(".scroll-content").mCustomScrollbar({
+				scrollInertia:0
+			});
+		});
+	})(jQuery);
+	
 	var lockedOpen = false;
 	
 	function trackPage(slideID) {
@@ -96,6 +107,26 @@ jQuery(document).ready(function($) {
 		 }
 	});
 
+	//Move the video iframes to the correct place
+	$(".text-slides .slide").each(function(index){
+
+
+
+		var $photobox = $(".slideshow_mask .slideshow .slide").eq(index);
+
+		var $iframe = $(this).find("iframe");
+
+
+		if ($iframe.length > 0) {
+			$photobox.html("");
+			$iframe.appendTo($photobox).css("margin-top","50px");
+
+		}
+
+
+
+	});
+
 
 	//Setup Text Changing
 
@@ -124,7 +155,7 @@ jQuery(document).ready(function($) {
 
 
 
-	$(".ngg-imagebrowser-nav a").click(function(event) {
+	$(".gallery-hover-div .ngg-imagebrowser-nav a").click(function(event) {
   		event.preventDefault();
   	});
 
@@ -168,7 +199,8 @@ jQuery(document).ready(function($) {
 
   	//Setup custom scrollbar
 
-
+  	
+	
   	function adjustPager(slideID) {
   		$("div.thumb-container").removeClass("active").eq(slideID).addClass("active");
 

@@ -13,7 +13,7 @@ $args = array(
 		</div><!-- #main -->
 	</section><!-- .container -->
 
-  <footer id="footer">
+  <footer id="footer" class="end-scroll">
     
       <section id="imo-network">
         <div class="container">
@@ -37,7 +37,7 @@ $args = array(
           <div id="mag-gf" class="mag">
             <a class="site-link" href="http://www.gameandfishmag.com/" title="Visit www.gameandfishmag.com">
               <img class="cover" src="<?php print get_stylesheet_directory_uri(); ?>/img/mags_gf.jpg" alt />
-              <h5>Game & Fish Illinois</h5>
+              <h5>Game & Fish</h5>
             </a>
             <?php switch_to_blog(14);
             $blog = new WP_Query($args);
@@ -197,18 +197,19 @@ $args = array(
 
         <input type="text" name="title" id="title" placeholder="Headline"/>
         <textarea name="body" id="body" placeholder="Tell Us Your Story."></textarea>
-        
-        <div class="post_type_styled_select">
-          <select class="post_type" name="post_type">
-            <option value="general">General Discussion</option>
-            <option value="report">Rut Reports</option>
-            <option value="tip">Tips & Tactics</option>
-            <option value="lifestyle">Lifestyle</option>
-            <option value="trophy">Trophy Bucks</option>
-            <option value="gear">Gear</option>
-
+         <div class="post_type_styled_select">
+         <select class="post_type" name="post_type">
+            <option value="general" class="general">General Discussion</option>
+            <option value="question" class="question">Ask An Expert</option>
+            <option value="report" class="report">Rut Reports</option>
+            <option value="tip" class="tip">Tips & Tactics</option>
+            <option value="lifestyle" class="lifestyle">Lifestyle</option>
+            <option value="trophy" class="trophy">Trophy Bucks</option>
+            <!--<option value="gear" class="gear">Gear</option>-->
           </select>
         </div>
+        
+       
 
         <div class="state-dropdown-container" style="display:none;">
           <select name="state" class="state-chzn" style="width:400px;padding:5px;" data-placeholder="Nice. Where did you find it?">
@@ -312,7 +313,11 @@ $args = array(
             <option value="ZT">Zacatecas</option>
 
           </select>
+          
+          
         </div>
+        
+        
 
         <input id="file" type="file" name="photo-upload" id="photo-upload" style="display:none"/>
 <!--    
@@ -327,24 +332,22 @@ $args = array(
         <input type="submit" value="Submit" class="submit" />
         <p class="login-note">
         </p>
-    </form>
-  </div> <!-- End new-superpost-modal-container -->
+        </form>
+    </div> <!-- End new-superpost-modal-container -->
 
 
-  <article id="excerpt-template" class="post type-post status-publish format-standard hentry entry entry-excerpt has-img" style="display:none;">
-    <a <?php if( is_category('video') ){echo 'class="video-excerpt"';}else if( is_category('galleries') ){echo ' class="gallery-excerpt"';} ?> href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/"><img width="190" height="120" src="http://www.northamericanwhitetail.deva/files/2012/03/NAWdd_031312-190x120.jpg" class="entry-img wp-post-image" alt="" title="" /><?php if( is_category(array('video','galleries')) ){echo '<span></span>';} ?></a>
-
-    <div class="entry-summary">
-      <span class="entry-category"><a href="http://www.northamericanwhitetail.deva/category/deer-of-the-day/" title="View all posts in Deer of the Day" rel="category tag">Deer of the Day</a></span>
-    <h2 class="entry-title"><a rel="bookmark" href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/">Deer of the Day Buckeye Brute, Alexa Perry</a></h2>
-    <span class="author vcard">March 13, 2012 <span class="fn">by North American Whitetail Online Staff</span></span>
-    <p class="excerpt-body">13-year-old Alexa Perry shot this fantastic buck the third week in November in Ohio. The buck grossed 180 3/8 inches.<a href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/">&#8230;&raquo;</a></p>
-    </div>
-    <a class="comment-count" href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/#comments">2</a>
-  </article>
-
-
-
+	<article id="excerpt-template" class="post type-post status-publish format-standard hentry entry entry-excerpt has-img" style="display:none;">
+	<a href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/"><img width="190" height="120" src="http://www.northamericanwhitetail.deva/files/2012/03/NAWdd_031312-190x120.jpg" class="entry-img wp-post-image" alt="" title="" /></a>
+	
+	<div class="entry-summary">
+	  <span class="entry-category"><a href="http://www.northamericanwhitetail.deva/category/deer-of-the-day/" title="View all posts in Deer of the Day" rel="category tag">Deer of the Day</a></span>
+	<h2 class="entry-title"><a rel="bookmark" href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/">Deer of the Day Buckeye Brute, Alexa Perry</a></h2>
+	<span class="author vcard">March 13, 2012 <span class="fn">by North American Whitetail Online Staff</span></span>
+	<p class="excerpt-body">13-year-old Alexa Perry shot this fantastic buck the third week in November in Ohio. The buck grossed 180 3/8 inches.<a href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/">&#8230;&raquo;</a></p>
+	</div>
+	<a class="comment-count" href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/#comments">2</a>
+	</article>
+	
   <div class="user-login-modal-container" style="display:none">
     <div id="LoginWithAjax"><?php //ID must be here, and if this is a template, class name should be that of template directory ?>
               <span id="LoginWithAjax_Status"></span>
@@ -352,7 +355,7 @@ $args = array(
               
                 
 
-            <div class="imo-fb-login-button">Login with Facebook</div>
+            <div class="fb-login-button" scope="email">Fast Login with Facebook</div>
                   <table width='100%' cellspacing="0" cellpadding="0">
                       <tr id="LoginWithAjax_Username">
                           <td class="username_label">
@@ -378,7 +381,7 @@ $args = array(
                               <input type="hidden" name="lwa_profile_link" value="<?php echo $lwa_data['profile_link'] ?>" />
                           </td>
                           <td id="LoginWithAjax_Links">
-                              <input name="rememberme" type="checkbox" id="lwa_rememberme" value="forever" /> <label><?php _e( 'Remember Me' ) ?></label>
+                              <input name="rememberme" type="hidden" id="lwa_rememberme" value="forever" /> <label><?php _e( 'Remember Me' ) ?></label>
                               <br />
                               <a id="LoginWithAjax_Links_Remember" href="<?php echo site_url('wp-login.php?action=lostpassword', 'login') ?>" title="<?php _e('Password Lost and Found') ?>"><?php _e('Lost your password?') ?></a>
                               <?php
@@ -471,8 +474,7 @@ $args = array(
 
 
   </div><!-- End user login modal container -->
-
-
+  <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery.jfollow.js"></script>
 
 </body>
 </html>

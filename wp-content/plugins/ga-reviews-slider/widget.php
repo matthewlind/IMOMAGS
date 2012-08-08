@@ -106,7 +106,7 @@ class GAReviewSliderWidget extends \WP_Widget {
         <div class="review-select3">
         <select class="caliber slider-reviews-select slider-reviews-caliber">
             <option selected="selected" name="caliber" value="">Caliber</option>
-            <option name="null" value="">Choose a Manufacturer</option>
+            <option name="null" value="">Choose Manufacturer First...</option>
         </select></div>
     </form>
 </div>

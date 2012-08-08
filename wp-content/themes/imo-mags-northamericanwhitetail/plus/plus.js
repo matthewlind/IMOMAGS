@@ -11,14 +11,83 @@ var bgcolors = new Array("#403b35","#c65517","#829b40");
 //Make sure we should run all of this stuff
 if ($("#recon-activity").length > 0){
 
+	//First get any extra term and display type
+	var term = $("#recon-activity").attr("term");
+	var displayMode = $("#recon-activity").attr("display");
+	
 	if (displayMode == "tile") { //then show some tiles
-		displayRecon("all");
+		displayRecon(term);
 
 	} else { //then show the list
-		displayReconList("all");
+		displayReconList(term);
 	}
 }
 
+//Display the user posts
+if ($("#user-activity").length > 0){
+	
+	var userID = $("#user-activity").attr("user");
+	
+	displayUserPosts(userID);
+}
+
+/* ON ICE
+//**************************
+//COMMUNITY PAGE ACTIONS
+//************************** 
+  
+  //Show the community posts and hide the list and sidebar
+	$('#rut.title a').click(function(){
+		$(".community").fadeOut();
+		$(".bonus-background").fadeOut();
+		$(".super-header").fadeOut();
+		$(".back-to-community").fadeIn();
+		$("#recon-activity").attr("term","report");
+		$("#recon-activity").attr("display","list");
+		term = $(this).attr("term");
+		displayMode = $(this).attr("display");
+
+		displayAtOnce = 6;
+		
+		currentDisplayStart = 0;
+		
+
+		if (displayMode == "tile") { //then show some tiles
+			displayRecon(term);
+	
+		} else { //then show the list
+			displayReconList(term);
+		}
+		$("ul.post-type-select li.selected").removeClass("selected");
+		$("ul.post-type-select li").hasClass("report-nav").addClass("selected");		
+
+	});
+	// Show the list and sidebar again and hide the back button
+	$('.back-to-community').click(function(){
+		$(".community").fadeIn();
+		$(".bonus-background").fadeIn();
+		$(".super-header").fadeIn();
+		$(".back-to-community").fadeOut();
+		
+		$("#recon-activity").attr("term","all");
+		$("#recon-activity").attr("display","tile");
+		term = $(this).attr("term");
+		displayMode = $(this).attr("display");
+
+		displayAtOnce = 6;
+		
+		currentDisplayStart = 0;
+		
+
+		if (displayMode == "tile") { //then show some tiles
+			displayRecon(term);
+	
+		} else { //then show the list
+			displayReconList(term);
+		}
+
+	});
+*/
 //activate Recon Network Controls - tabs
 $("ul.post-type-select li").click(function(){
 	
@@ -36,6 +105,24 @@ $("ul.post-type-select li").click(function(){
 	$("ul.post-type-select li.selected").removeClass("selected");
 	$(this).addClass("selected");	
 });
+// recent posts tab on user profile page
+$("ul.post-type-select li.user-profile").click(function(){
+	
+	var userID = $(this).attr('user');
+	var display = $(this).attr('display');
+	
+	currentDisplayStart = 0;
+	if (display == "recent") { 
+		displayUserPosts(userID);
+	}else{ 
+		displayUserComments(userID);
+	}
+
+	$("ul.post-type-select li.selected").removeClass("selected");
+	$(this).addClass("selected");	
+});
+
+
 
 //activate Recon Network Controls - more button
 $("#more-superposts-button").click(function(){
@@ -108,7 +195,7 @@ function displayRecon(type) {
 		$("#recon-activity").html("");
 	}
 		
-
+	
 	var dataURL = "/slim/api/superpost/type/" + type;  	
 	dataURL += "/" + displayAtOnce;
 	dataURL += "/" + currentDisplayStart;
@@ -120,7 +207,8 @@ function displayRecon(type) {
 	    var count = 0;
 	    $(data).each(function(index) {
 	        count++;
-
+	        console.log(data);
+	        //var $avatar $("<img class='recon-gravatar'>").attr("src","http://www.northamericanwhitetail.fox/avatar?uid=" + this.$user_id);
 	        var url = "/plus/" + this.post_type + "/" + this.id;
 	        var link = $("<a href='" + url + "'>");
 
@@ -171,7 +259,10 @@ function displayRecon(type) {
 	        underBox.append(userDetailsBox);
 	        underBox.append(gravatar);
 	        underBox.append(authorInfo);
-	        underBox.append(underTitle);
+	        if(this.post_type != "question"){
+		        underBox.append(underTitle);
+	        }
+	        
 	        underBox.append(date);
 
 	        detectorBox.hover(function(){
@@ -220,101 +311,127 @@ function displayRecon(type) {
 } //End function displayRecon()
 
 
-
-
-function displayReconList(type) {
+//Display the User Posts!
+function displayUserPosts(userID) {
 
 	if (currentDisplayStart == 0) {
-		$("#recon-activity").html("");
+		$("#user-activity").html("");
 	}
 		
-
-	var dataURL = "/slim/api/superpost/type/" + type;  	
-	dataURL += "/" + displayAtOnce;
-	dataURL += "/" + currentDisplayStart;
-
-
+	
+	var dataURL = "/slim/api/superpost/user/posts/" + userID;  	
 
     var getdata = $.getJSON(dataURL, function(data) {
     
 	    //$(".animal-container").html("");
-	    
+	    if(data.length < 1){
+	    	$("#no-activity").show();
+	    }
 	    var count = 0;
+	    
 	    $(data).each(function(index) {
 	        count++;
+	        
+	        var url = "/plus/" + this.post_type + "/" + this.id;
+	        var link = $("<a href='" + url + "'>");
 
-	        //usables: this.id, this.username, this.img_url, this.post_type,
-
+	        var randomnumber=Math.floor(Math.random()*3); //Get randomColor
+	        var reconBox = $("<div class='recon-box masonry-box' id='recon-box-" + this.id +  "'></div>");
+	        var imageBox = $("<div class='recon-image-box'></div>").css("background-color",bgcolors[randomnumber]);;
+	        var image = $("<img class='superpost-thumb'>").attr("src",this.img_url);
+	        var titleBox = $("<div class='recon-title-box'></div>")
+	        var detectorBox = $("<div class='detector-box'></div>")
+	        var titleDetailBox = $("<span class='recon-title-detail'></span>").text(this.username + "'s " + this.post_type);
+	        var title = $("<h3></h3>").text(this.title);
+	        var underBox = $("<div class='under-box'></div>");
 	        var gravatar = $("<img class='recon-gravatar'>").attr("src","http://www.gravatar.com/avatar/" + this.gravatar_hash + ".jpg?s=50&d=identicon");
 	        var authorInfo = $("<div class='recon-author-info'><span class='author-name'></span><span class='author-action'></span></div>");
 	        authorInfo.find(".author-name").text(this.username);
 	        authorInfo.find(".author-action").text(" posted a " + capitaliseFirstLetter(this.post_type));
-
+	        var underTitle = $("<div class='under-title'></div>").html("<a href='" + url + "'>" + this.title + "</a>");
 	        var date = $("<abbr class='recon-date timeago' title=''></abbr>").attr("title",this.created);
-
-	        var image = $("<img class='superpost-list-thumb'>").attr("src",this.img_url);
-
-
+	        var imgUrl =  this.img_url;
 
 	        //Userpopup stuff
 	        var userDetailsBox = $("<div class='user-details-box' style='display:none'></div>");
 			var nameBox = $("<div class='name-box'></div>").text(this.username);
 			var statsBox = $("<div class='stats-box'></div>");
-
-			var points = parseInt(this.comment_count) + parseInt(this.share_count);
-
-			var reconRow = $("\
-				<div class='recon-row masonry-box'>\
-					<ul>\
-						<li>\
-							<div class='row-info'>\
-								<div class='row-post-type post-type-" + this.post_type + "'>" + this.post_type + "</div>\
-								<div class='row-title'>" + this.title + "</div>\
-							</div>\
-						</li>\
-						<li class='count-field' >" + points + " Points</li>\
-						<li class='count-field' >" + this.comment_count + " Comments</li>\
-						<li class='count-field' >" + this.share_count + " Shares</li>\
-					</ul>\
-				</div>");
-
-
-			$("#recon-activity").append(reconRow);
-
 			userDetailsBox.append(nameBox);
 			userDetailsBox.append(statsBox);
 
-
-	        //Store some user data so that we can retrieve it later on hover
+			//Store some user data so that we can retrieve it later on hover
 	        gravatar.data('user_id',this.user_id);
 	        gravatar.data('username',this.username);
 
-	 
+	        titleBox.append(titleDetailBox);
+	        titleBox.append(title);
+
+
+
+
+
 	        if (this.img_url) {
-	        	//imageBox.append(image);
-	        	reconRow.find("ul").prepend($("<li class='row-image'>").append(image.width(90)));
+	   			
+	   			link.append(image);
+	        	imageBox.append(link);
 	        	
-	        } else {
-	        	reconRow.find("div.row-info").addClass("no-image");
+	        
 	        }
 
+	        
+	        underBox.append(userDetailsBox);
+	        underBox.append(gravatar);
+	        underBox.append(authorInfo);
+	        if(this.post_type != "question"){
+		        underBox.append(underTitle);
+	        }
+	        
+	        underBox.append(date);
 
+	        detectorBox.hover(function(){
+	        	if (imgUrl) {
+	        		$(this).parent().parent().find(".recon-title-box").stop().fadeToggle();
+	        	}
+	        	
+
+	        });
+
+
+	        if (this.post_type != "photo" && this.post_type != "video") {
+	        	link = $("<a href='" + url + "'>");
+	        	reconBox.append(link)
+	        	link.append(titleBox);
+
+	        	link = $("<a href='" + url + "'>");
+
+	        	reconBox.append(link);
+	        	link.append(detectorBox);
+	        }
+
+	        if (this.img_url != null && this.title != null) {
+	        	titleBox.addClass("cover-pic");
+	        }
+
+	      	
+
+	        reconBox.append(imageBox);
+	        reconBox.append(underBox);
+
+	        $("#user-activity").append(reconBox);
 
 	        if ($(data).length == count) {
-	            $("#recon-activity").imagesLoaded( function(){
+	        
+	            $("#user-activity").imagesLoaded( function(){
 
-	            	$(".recon-row:odd").addClass("odd");
 	            	afterImageLoaded();
 	                
 	            });
 	        }
-	        
 	    });
 
 	});
 
-} //End function displayRecon()
-
+} //End function displayUserPosts()
 
 
 function afterImageLoaded() {
@@ -342,7 +459,21 @@ function afterImageLoaded() {
         	gutterWidth: masonryGutterWidth,
             itemSelector: masonryItemSelector,
             isAnimated: true,
-    	});
+    });
+    	
+    }
+    //reset masonry for user profile
+    if ($('#user-activity').hasClass("masonry")) {
+    	$('#user-activity').masonry( 'option', { columnWidth: masonryColumnWidth, gutterWidth: masonryGutterWidth, itemSelector:masonryItemSelector } )
+    	$('#user-activity').masonry('reload');
+    } else {
+    	$('#user-activity').masonry({
+        	columnWidth: masonryColumnWidth,
+        	gutterWidth: masonryGutterWidth,
+            itemSelector: masonryItemSelector,
+            isAnimated: true,
+    });
+    	
     }
 
 
@@ -394,16 +525,266 @@ function afterImageLoaded() {
 
 
 
+
+function displayReconList(type) {
+
+	if (currentDisplayStart == 0) {
+		$("#recon-activity").html("");
+	}
+		
+
+	var dataURL = "/slim/api/superpost/type/" + type;  	
+	dataURL += "/" + displayAtOnce;
+	dataURL += "/" + currentDisplayStart;
+
+
+
+    var getdata = $.getJSON(dataURL, function(data) {
+    
+	    //$(".animal-container").html("");
+	    
+	    var count = 0;
+	    $(data).each(function(index) {
+	        count++;
+
+	        //usables: this.id, this.username, this.img_url, this.post_type,
+
+	        var gravatar = $("<img class='recon-gravatar'>").attr("src","http://www.gravatar.com/avatar/" + this.gravatar_hash + ".jpg?s=50&d=identicon");
+	        var authorInfo = $("<div class='recon-author-info'><span class='author-name'></span><span class='author-action'></span></div>");
+	        authorInfo.find(".author-name").text(this.username);
+	        authorInfo.find(".author-action").text(" posted a " + capitaliseFirstLetter(this.post_type));
+
+	        var date = $("<abbr class='recon-date timeago' title=''></abbr>").attr("title",this.created);
+
+	        var image = $("<img class='superpost-list-thumb'>").attr("src",this.img_url);
+	        var url = "/plus/" + this.post_type + "/" + this.id;
+
+
+	        //Userpopup stuff
+	        var userDetailsBox = $("<div class='user-details-box' style='display:none'></div>");
+			var nameBox = $("<div class='name-box'></div>").text(this.username);
+			var statsBox = $("<div class='stats-box'></div>");
+
+			var points = parseInt(this.comment_count) + parseInt(this.share_count);
+
+			var reconRow = $("\
+				<div class='recon-row masonry-box'>\
+					<ul>\
+						<li>\
+							<div class='row-info'>\
+								<div class='row-post-type post-type-" + this.post_type + "'>" + this.post_type + "</div>\
+								<div class='row-title'><a href='" + url + "'>" + this.title + "</a></div>\
+							</div>\
+						</li>\
+						<li class='count-field' >" + points + " Points</li>\
+						<li class='count-field' >" + this.comment_count + " Comments</li>\
+						<li class='count-field' >" + this.share_count + " Shares</li>\
+					</ul>\
+				</div>");
+
+
+			$("#recon-activity").append(reconRow);
+
+			userDetailsBox.append(nameBox);
+			userDetailsBox.append(statsBox);
+
+
+	        //Store some user data so that we can retrieve it later on hover
+	        gravatar.data('user_id',this.user_id);
+	        gravatar.data('username',this.username);
+
+	 
+	        if (this.img_url) {
+	        	//imageBox.append(image);
+	        	reconRow.find("ul").prepend($("<li class='row-image'>").append(image.width(90)));
+	        	
+	        } else {
+	        	reconRow.find("div.row-info").addClass("no-image");
+	        }
+
+
+
+	        if ($(data).length == count) {
+	            $("#recon-activity").imagesLoaded( function(){
+
+	            	$(".recon-row:odd").addClass("odd");
+	            	afterImageLoaded();
+	                
+	            });
+	        }
+	        
+	    });
+
+	});
+
+} //End function displayReconList()
+
+
+function displayUserComments(userID) {
+
+	if (currentDisplayStart == 0) {
+		$("#user-activity").html("");
+	}
+		
+
+	var dataURL = "/slim/api/superpost/user/comments/" + userID;  	
+
+    var getdata = $.getJSON(dataURL, function(data) {
+    
+	    //$(".animal-container").html("");
+	    if(data.length < 1){
+	    	$("#no-activity").show();
+	    }
+	    var count = 0;
+	    $(data).each(function(index) {
+	        count++;
+
+	        //usables: posts.id, comment_body, rent_type, date, shares
+	        
+	        var gravatar = $("<img class='recon-gravatar'>").attr("src","http://www.gravatar.com/avatar/" + this.gravatar_hash + ".jpg?s=50&d=identicon");
+	        var authorInfo = $("<div class='recon-author-info'><span class='author-name'></span><span class='author-action'></span></div>");
+	        authorInfo.find(".author-name").text(this.username);
+	        authorInfo.find(".author-action").text(" posted a " + capitaliseFirstLetter(this.rent_type));
+
+	        var date = $("<abbr class='recon-date timeago' title=''></abbr>").attr("title",this.created);
+
+	        var image = $("<img class='superpost-list-thumb'>").attr("src",this.img_url);
+	        var url = "/plus/" + this.rent_type + "/" + this.id;
+
+
+	        //Userpopup stuff
+	        var userDetailsBox = $("<div class='user-details-box' style='display:none'></div>");
+			var nameBox = $("<div class='name-box'></div>").text(this.username);
+			var statsBox = $("<div class='stats-box'></div>");
+
+			var points = parseInt(this.comment_count) + parseInt(this.shares);
+			if (this.comment_body.length > 160){
+				encoded = this.comment_body.substring(0, 160);
+				encoded += "...";
+			}else{
+				encoded = this.comment_body;
+			}
+			
+			//var d1 = Date.parse('2012-03-29 14:42:09');
+			var create_date = Date.parse(this.date);
+					
+			var reconRow = $("\
+				<div class='recon-row masonry-box'>\
+					<ul>\
+						<li>\
+							<div class='row-info'>\
+								<div class='row-post-type post-type-" + this.rent_type + "'>" + this.rent_type + "</div>\
+								<div class='row-title'><a href='" + url + "'>" + encoded + "</a></div>\
+							</div>\
+						</li>\
+						<li class='count-field' >Posted on: " + create_date + "</li>\
+					</ul>\
+				</div>");
+
+
+			$("#user-activity").append(reconRow);
+
+			userDetailsBox.append(nameBox);
+			userDetailsBox.append(statsBox);
+
+
+	        //Store some user data so that we can retrieve it later on hover
+	        gravatar.data('user_id',this.user_id);
+	        gravatar.data('username',this.username);
+
+	 
+	        if (this.img_url) {
+	        	//imageBox.append(image);
+	        	reconRow.find("ul").prepend($("<li class='row-image'>").append(image.width(90)));
+	        	
+	        } else {
+	        	reconRow.find("div.row-info").addClass("no-image");
+	        }
+
+	        // Quick fix to make sure it gets displayed correctly on tab click
+	        displayMode = "list";
+	        if ($(data).length == count) {
+	            $("#user-activity").imagesLoaded( function(){
+
+	            	$(".recon-row:odd").addClass("odd");
+	            	afterImageLoaded();
+	            	//set back to tile for future tab click
+	            	displayMode = "tile";
+	                
+	            });
+	        }
+	        
+	    });
+
+	});
+
+} //End function displayUserComments()
+
+
+
+
 function capitaliseFirstLetter(string)
 {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+// Questions display
+$(document).ready(function(){
+	var type = "question";
+	showAtOnce = 10;
+	var dataURL = "/slim/api/superpost/type/" + type +"/" + showAtOnce + "/0";  	
+	var getdata = $.getJSON(dataURL, function(data) {
+		
+		var $questionTemplate;
+				
+		$.each(data, function(index, question) { 
+			//console.log(index,question); 
+			$questionTemplate = $("ul#slides-questions li").eq(index);
+			var url = "/plus/question/" + question.id;
+			var gravatar = $questionTemplate.find(".user-info img").attr("src","http://www.gravatar.com/avatar/" + this.gravatar_hash + ".jpg?s=50&d=identicon");
 
+			$questionTemplate.find(".user-info a.username").text(question.username); 
+			$questionTemplate.find(".user-info a").attr("href","/profile/" + question.username);
+			
+			$questionTemplate.find("h4.quote").text(question.title);
+			$questionTemplate.find(".answers-count a").attr("href",url + "/#comments");
+			$questionTemplate.find("a.answers-link").attr("href",url);
+			$questionTemplate.find("span.count").text(question.comment_count);
+
+		});	
+					
+	$questionTemplate.appendTo(".questions-feed").fadeIn();
+	});
+
+}); //End display questions
 	
+// Sidebar slider display
+$(document).ready(function(){
+	var type = "all";
+	showAtOnce = 36;
+	var dataURL = "/slim/api/superpost/type/" + type +"/" + showAtOnce + "/0";  	
+	var getdata = $.getJSON(dataURL, function(data) {
+		
+		var $questionTemplate;
+
+		$.each(data, function(index, all) { 
+		//	console.log(index,all); 
+			//if (all.img_url.length > 0){
+				$questionTemplate = $("ul#scroll-widget li").eq(index);
+				var url = "/plus/" + all.post_type + "/" + all.id;
+				$questionTemplate.find("a").attr("href",all.url);
+				$questionTemplate.find("img").attr("src",all.img_url);
+			//}
+		});							
+	$questionTemplate.appendTo("ul#scroll-widget.scroll").fadeIn();	
+	});
+
+}); //End 
 
 
-	
+
+
+
 
 
 });//End doc Ready

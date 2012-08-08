@@ -65,6 +65,7 @@ function imo_superpost_flush_rules()
     add_rewrite_rule('plus/lifestyle/([^/]+)', 'index.php?pagename=superpost-single&templatename=superpost_single&spid=$matches[1]', 'top');
     add_rewrite_rule('plus/trophy/([^/]+)', 'index.php?pagename=superpost-single&templatename=superpost_single&spid=$matches[1]', 'top');
     add_rewrite_rule('plus/gear/([^/]+)', 'index.php?pagename=superpost-single&templatename=superpost_single&spid=$matches[1]', 'top');
+    add_rewrite_rule('plus/question/([^/]+)', 'index.php?pagename=superpost-single&templatename=superpost_single&spid=$matches[1]', 'top');
 
 
     

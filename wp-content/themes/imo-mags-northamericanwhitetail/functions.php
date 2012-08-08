@@ -28,13 +28,13 @@ function mm_current_issue($atts, $content = null) {
   }
 	
 	return '<div class="current-issue">
-	        <h3 class="month">May 2012</h3>
+	        <h3 class="month">August 2012</h3>
 	        <img src="'.$magazine_img.'" alt />
 	        </div>
 	        <ul class="subscriber-links">
-	        <li class="subscribe"><a href="'.SUBS_LINK.'">Subscribe</a></li>
-	        <li><a href="'.SUBS_LINK.'">Give a Gift</a></li>
-          <li><a href="'.SERVICE_LINK.'">Subscriber Services</a></li>
+	        <li class="subscribe"><a href="'."http://subs.northamericanwhitetail.com/".'">Subscribe</a></li>
+	        <li><a href="'."http://subs.northamericanwhitetail.com/gift".'">Give a Gift</a></li>
+          <li><a href="'."https://secure.palmcoastd.com/pcd/eServ?iServ=MDE0OEQ0NDcyNCZpVHlwZT1FTlRFUg==".'">Subscriber Services</a></li>
 	        </ul>';
 }
 
@@ -49,11 +49,12 @@ add_shortcode("mm-current-issue", "mm_current_issue");
 function naw_scripts_method() {
     wp_deregister_script( 'jquery' );
     wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js');
+    
     wp_enqueue_script( 'jquery' );
-
     wp_enqueue_script("jquery-simplemodal", get_stylesheet_directory_uri() . "/js/jquery.simplemodal.1.4.2.min.js");
     wp_enqueue_script("cross-site-feed", get_stylesheet_directory_uri() . "/js/cross-site-feed.js");
     wp_enqueue_script("local-site-feed", get_stylesheet_directory_uri() . "/js/local-site-feed.js");
+    wp_enqueue_script("date", get_stylesheet_directory_uri() . "/js/date.js");
 
 }    
  
@@ -108,6 +109,11 @@ function naw_imo_addons_sidebar_init() {
       'name' => __('Gallery Sidebar', 'carrington-business'),
       'description' => __('Sidebar for Gallery posts.', 'carrington-business')
   )));
+  register_sidebar(array_merge($sidebar_defaults, array(
+      'id' => 'superpost-sidebar',
+      'name' => __('Superpost Single Sidebar', 'carrington-business'),
+      'description' => __('Sidebar for Superposts.', 'carrington-business')
+  )));
     
 }
 add_action( 'widgets_init', 'naw_imo_addons_sidebar_init' );
@@ -117,6 +123,9 @@ include_once get_stylesheet_directory().'/widgets/newsletter-signup.php';
 include_once get_stylesheet_directory().'/widgets/join.php';
 include_once get_stylesheet_directory().'/widgets/video-callout.php';
 include_once get_stylesheet_directory().'/widgets/gallery-loop.php';
+include_once get_stylesheet_directory().'/widgets/superpost-thumbs.php';
+include_once get_stylesheet_directory().'/widgets/community-topics.php';
+include_once get_stylesheet_directory().'/widgets/questions-widget.php';
 
 
 

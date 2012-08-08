@@ -27,10 +27,16 @@ function get_IP() {
 
 }
 
+$response = $app->response();
+$response['Content-Type'] = 'application/json';
+
+
 
 $app->get('/',function(){
 	echo "<h1>Hello Berry!!</h1>";
 });
+
+
 
 
 
@@ -252,11 +258,14 @@ $app->post('/api/superpost/add',function() {
 
 	$params = Slim::getInstance()->request()->post();
 
-	_log("NEW POST STARTED");
+	_log("NEW POST STARTED!");
+	_log( $params);
 
 
 	//Get the user info an authenticate
 	if (userIsGood($params['username'],$params['userhash'])) {
+	
+	_log("USER IS GOOD");
 
 		//Set additional parameters
 		$params['ip'] = ip2long(get_IP());
@@ -320,7 +329,7 @@ $app->post('/api/superpost/add',function() {
 			
 		}
 
-
+		
 	
 		$paramList = array(
 			"parent",
@@ -412,14 +421,15 @@ $app->post('/api/superpost/add',function() {
 		$response = $params;
 
 		
-
 		echo json_encode($response);
 
 	
-
 	} else { //if user is not good
+		_log("USER IS BAD");
 		json_encode("nope");
 	}
+	
+
 
 });
 

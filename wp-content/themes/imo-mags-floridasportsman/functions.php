@@ -121,6 +121,15 @@ register_sidebar(array(
         'after_title'   => '</h2>'
     ));
 }
+if (function_exists('register_sidebar')) {
+register_sidebar(array(
+        'id' => 'sidebar-picofday',
+        'name' => 'Daily Photo Sponsor',
+        'description' => 'Sponsor Logo and Link for Daily Photo Gallery',
+        'before_widget' => '<div id="picofday-sidebar">',
+        'after_widget'  => '</div>',
+    ));
+}
 
 /*New Menu for REEL TIME*/
 

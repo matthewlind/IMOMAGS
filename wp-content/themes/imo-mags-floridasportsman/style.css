@@ -178,15 +178,15 @@ body {
 /* Replace Site Title with Logo */
 
 #header .site-title a {
-	background: url(img/floridasportsman-logo.png) 0 0 no-repeat;
+	background: url(img/bw-header_03.png) 0 0 no-repeat;
 
 
 /*enter the proper file name for you logo graphic*/
 	display: block;
-	height: 93px;
+	height: 109px;
 
 /*enter the height of your logo graphic*/
-	width: 345px
+	width: 366px
 
 ;
 	/*enter the width of your logo graphic*/
@@ -471,9 +471,13 @@ div.pagination {
 }
 
 #header aside.widget {
-	overflow: visible;
-	margin-bottom: 0;
+	overflow: hidden;
 	float: right;
+	background: url(img/bw-header_05.png) no-repeat right top;
+	width: 204px;
+	height: 28px;
+	padding: 15px 0 15px 35px;
+	margin: 0;
 }
 
 /** Basic Widget Styling. **/
@@ -882,13 +886,12 @@ body.page-template-page-right-php { width: 100% !important; }
 }
 
 #header #searchform {
-	width: 175px;
 }
 #header #searchform .screen-reader-text {
 	display: none;
 }
 #header #searchform #s {
-	width: 100px;
+	width: 120px;
 	height: 20px;
 }
 
@@ -896,15 +899,19 @@ img.header-feature-nav {
 	display: block;
 	float: left;
 }
-
-a.header-webxtra {
-	margin-left: 90px;
-	height: 50px;
+a.header-gallery {
 	padding-bottom: 0;
 	padding-left: 0;
 	padding-right: 0;
 	float: left;
-	margin-top: 15px;
+	margin: 0;
+	width: 120px;
+	height: 51px;
+}
+a.header-webxtra {
+	float: left;
+	width: 119px;
+	height: 51px;
 }
 
 nav.nav-subnav.nav {
@@ -1085,7 +1092,7 @@ div.forecast {
 	width: 200px;
 	float: left;
 	border-style: none !important;
-	min-height: 320px;
+	height: 320px !important;
 	margin: 0px !important;
 	padding: 0px !important;
 	background-color: black;
@@ -1262,9 +1269,44 @@ h2.album-breadcrumb {
 .bw-fullwidth .entry {
 	width: 630px;
 }
+.bw-fullwidth.picofday {
+	background-color: black !important;
+	margin-top: -15px;
+	padding-top: 15px;
+}
+.picofday h1, .picofday h2, .picofday h3, .picofday p {
+	color: white;
+}
+.picofday a:hover {
+	color: white;
+}
+.bw-fullwidth.picofday .entry {
+	width: 960px !important;
+}
+.picofday .ngg-gallery-thumbnail img {
+	width: 144px;
+	height: 120px;
+}
+div#picofday-sidebar {
+	background-color:white;width:350px;height:100px;margin-right:30px;
+	position: absolute;
+	right: 0;
+	z-index: 1;
+}
+a.sportsmanhdsponsor img {
+	margin: 0;
+	padding: 0;
+	width: 175px;
+	float: right;
+	background-color: transparent;
+}
 
-#idc-container-parent {
-	
+.page-template-page-right-gallery-php #main-content .str-content, .page-template-page-right-gallery-php .bonus, .page-template-page-right-gallery-php .cfct-row {
+	background-color: black !important;
+}
+
+div#idc-container-parent {
+	max-width: 960px;
 }
 
 #imoprodgallery {
@@ -1728,4 +1770,47 @@ li.author-description {
 	padding-left: 8px;
 	border-left: 8px solid #0089ca;
 	margin: 0 0 8px;
+}
+.widget_store-widget h3.widget-title {
+	display: none;
+}
+aside .textwidget img {
+	margin-bottom: 10px;
+}
+.ngg-singlepic {
+	padding: 0 !important;
+	margin: 0;
+}
+#TB_window {
+	background-color: black !important;
+	color: silver !important;
+	border: none !important;
+}
+#TB_window img {
+	border: none !important;
+}
+.cfct-block-abc {
+	margin: 0px !important;
+}
+
+/* Post Content */
+
+.recommendations {
+  float: left;
+  width: 270px;
+  height: 290px;
+  margin-top: 40px;
+}
+.post-content-area {
+  width: 620px;
+  float: left;
+}
+.related-products {
+  float: left;
+  height: 234px;
+  text-align: left;
+  width: 322px;
+}
+.leiki_products{
+	box-shadow: none !important;
 }

@@ -79,6 +79,30 @@ googletag.pubads().enableSingleRequest();
 googletag.enableServices();
 });
 </script>
+
+
+<script type='text/javascript'>
+var googletag = googletag || {};
+googletag.cmd = googletag.cmd || [];
+(function() {
+var gads = document.createElement('script');
+gads.async = true;
+gads.type = 'text/javascript';
+var useSSL = 'https:' == document.location.protocol;
+gads.src = (useSSL ? 'https:' : 'http:') + 
+'//www.googletagservices.com/tag/js/gpt.js';
+var node = document.getElementsByTagName('script')[0];
+node.parentNode.insertBefore(gads, node);
+})();
+</script>
+
+<script type='text/javascript'>
+googletag.cmd.push(function() {
+googletag.defineSlot('/4930/imo.floridasportsman/regions/tropics', [[728, 90]], 'div-gpt-ad-1340122297419-0').addService(googletag.pubads());
+googletag.pubads().enableSingleRequest();
+googletag.enableServices();
+});
+</script>
 <!-- end that custom REGGIE UNIT STUFF -->
 
 </head>
@@ -86,10 +110,16 @@ googletag.enableServices();
 <div id="bottom-wrap">
 <div class='str-container'>
         <div class='aligncenter centerad'>
-<?php if (function_exists("imo_dart_tag")) {
+<?php if (function_exists("imo_dart_tag") && !is_page('tropics')) {
     imo_dart_tag("728x90");
-}
-else { ?>
+}else if(is_page('tropics')){ ?>
+<!-- Site - Florida Sportsman/regions/tropics -->
+<div id='div-gpt-ad-1340122297419-0'>
+<script type='text/javascript'>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1340122297419-0'); });
+</script>
+</div>
+<?php }else{ ?>
 	<!-- 728x90 Ad: -->
 <script type="text/javascript">
 document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dartadsgen_site+'/;sect=;page=index;subs=;sz=728x90;dcopt=;tile='+pr_tile+';ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
@@ -118,13 +148,9 @@ else {
 }
 ?>
 	     <h1 class="site-title"><a href="<?php echo home_url('/'); ?>" title="<?php _e('Home', 'carrington-business') ?>"><?php bloginfo('name'); ?></a></h1>
-         <img class="header-feature-nav" src="/wp-content/themes/imo-mags-floridasportsman/img/header-feature-nav.png" width="483" height="93" border="0" usemap="#featureheader" />
-  <map name="featureheader" id="featureheader">
-    <area shape="rect" coords="1,2,161,90" href="/rtfs/" alt="Reel Time with Florida Sportsman" />
-    <area shape="rect" coords="162,2,305,88" href="/galleries/" alt="Florida Sportsman Member Photos" />
-    <area shape="rect" coords="309,4,459,87" href="/imafs/" alt="Are you a Florida Sportsman?" />
-  </map>
-<a class="header-webxtra" href="/xtra/"><img  src="/wp-content/themes/imo-mags-floridasportsman/img/header-webxtra.png"></a>
+         <a href="/rtfs/"><img class="header-feature-nav" src="/wp-content/themes/imo-mags-floridasportsman/img/bw-header_04.png" border="0" /></a>
+<a class="header-gallery" href="/galleries/"><img  src="/wp-content/themes/imo-mags-floridasportsman/img/bw-header_07.png"></a>
+<a class="header-webxtra" href="https://store.intermediaoutdoors.com/brands.php?brand=FLORIDASPORTSMAN" rel="nofollow"><img  src="/wp-content/themes/imo-mags-floridasportsman/img/bw-header_08.png"></a>
 					     
 			 
 		

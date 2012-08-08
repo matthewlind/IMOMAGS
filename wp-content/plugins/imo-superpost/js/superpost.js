@@ -1,50 +1,137 @@
-
-
-
-
 jQuery(document).ready(function($) {
 
-  function SetupPostForm() {
-    // $("input#image-upload").change(function(){
-    //   $(this).closest('.superpost-image-form').submit();
-    // });
+  //**************************
+  //SHOW NEW POST MODAL
+  //**************************
+  $("#new-post-button").click(function(){
+      $(".new-superpost-modal-container").modal({
+        opacity: 50, 
+        overlayClose: true,
+        autoPosition: true,
+        onShow: SetupPostForm
+      });
+  });
+	// set default option when clicking on a specific post type.
+	$('.new-post.question').click(function(){
+		$(".new-superpost-modal-container").modal({
+	    opacity: 50, 
+	    overlayClose: true,
+	    autoPosition: true,
+	    onShow: SetupPostForm
+	    });
+	
+		$("#body").css("display","none");
+		$("#title").attr("placeholder","Your Question");
+		$("select.post_type .question").attr("selected","selected");
+	});
+	$('.new-post.trophy').click(function(){
+		$(".new-superpost-modal-container").modal({
+		opacity: 50, 
+		overlayClose: true,
+		autoPosition: true,
+		onShow: SetupPostForm
+		});
+	
+		$("select.post_type .trophy").attr("selected","selected");
+		$(".chzn-container span").text("Oh! Where are you reporting from?");
+		$(".state-dropdown-container").slideDown();
+		$(".simplemodal-container").animate({height: "630px"});
+	});
+	
+	$('.new-post.report').click(function(){
+		$(".new-superpost-modal-container").modal({
+		opacity: 50, 
+		overlayClose: true,
+		autoPosition: true,
+		onShow: SetupPostForm
+		});
+	
+		$("select.post_type .report").attr("selected","selected");
+		$(".chzn-container span").text("Oh! Where are you reporting from?");
+		$(".state-dropdown-container").slideDown();
+		$(".simplemodal-container").animate({height: "630px"});
+	});
+	
+	$('.new-post.lifestyle').click(function(){
+		$(".new-superpost-modal-container").modal({
+		opacity: 50, 
+		overlayClose: true,
+		autoPosition: true,
+		onShow: SetupPostForm
+		});
+	
+		$("select.post_type .lifestyle").attr("selected","selected");
+	});
+	
+	$('.new-post.tip').click(function(){
+		$(".new-superpost-modal-container").modal({
+		opacity: 50, 
+		overlayClose: true,
+		autoPosition: true,
+		onShow: SetupPostForm
+		});
+	
+		$("select.post_type .tip").attr("selected","selected");
+	});
+	
+	$('.new-post.general').click(function(){
+		$(".new-superpost-modal-container").modal({
+		opacity: 50, 
+		overlayClose: true,
+		autoPosition: true,
+		onShow: SetupPostForm
+		});
+	
+		$("select.post_type .general").attr("selected","selected");
+	});
+  //You can't add jQuery events to elements that don't exist.
+  //As such, this function runs after the New Post modal appears
+  function SetupPostForm() {	
+	
+    //Setup State Dropdown with chosen
+   $(".state-chzn").chosen();
 
-    // $("input#video-body").bind("input",function(){
-
-    //   if ($("input#video-body").val().length > 7) {
-    //     //Then submit the form!
-    //     console.log($(this).closest('.superpost-image-form'));
-    //     $(this).closest('.superpost-image-form').submit();
-        
-    //     $(".video-url-form-holder-container").fadeOut(function(){
-    //       $("input#video-body").val("");
-    //     });
-    //   }
-      
-    // });
-
-    $(".state-chzn").chosen();
-
+    //Setup post type dropdown to show location when certain options are selected
     $("select.post_type").change(function(){
+    	//if post is a question, hide the textarea
+  	if ($("select.post_type").val() == "question") {
+	    	$("#body").css("display","none");
+	    	$("#title").attr("placeholder","Your Question");
+	}else{
+			$("#body").css("display","block");
+			$("#title").attr("placeholder","Headline");
+	}
+    
       if ($("select.post_type").val() == "report" || $("select.post_type").val() == "trophy") {
 
         if (($("select.post_type").val() == "report")) {
           $(".chzn-container span").text("Oh! Where are you reporting from?");
         }
 
-        $(".state-dropdown-container").slideDown();
+        	$(".state-dropdown-container").slideDown();
+        	$(".simplemodal-container").animate({height: "630px"});
+      }else{
+      //hide when not neccesary
+	      $(".state-dropdown-container").slideUp();
       }
     });
 
-
+   
   }//End SetupPostFOrm
 
-  //Setup Comment form
+
+  
+	
+	
+	
+
+  //When image is selected, immediately upload it.
   $("input#image-upload").change(function(){
     $(this).closest('.superpost-image-form').submit();
   });
 
 
+  //When a URL is pasted into video box, immediately submit
   $("input#video-body").bind("input",function(){
 
     if ($("input#video-body").val().length > 7) {
@@ -62,24 +149,6 @@ jQuery(document).ready(function($) {
   });
 
 
-  
-  $("#new-post-button").click(function(){
-      $(".new-superpost-modal-container").modal({
-        opacity: 50, 
-        overlayClose: true,
-        autoPosition: true,
-        onShow: SetupPostForm
-      });
-  });
-
-  $("#user-login-button").click(function(){
-      $(".user-login-modal-container").modal({
-        opacity: 50, 
-        overlayClose: true,
-        autoPosition: true,
-        onShow: activateFBlogin
-      });
-  });
 
       // $(".new-superpost-modal-container").modal({
       //   opacity: 50, 
@@ -87,7 +156,7 @@ jQuery(document).ready(function($) {
       //   onShow: SetupPostForm
       // });
 
-
+  //Activate masonry on container that holds superposts
   $('.masonry-container').masonry({
       itemSelector: '.superpost-box',
       isAnimated: true,
@@ -101,7 +170,7 @@ jQuery(document).ready(function($) {
   $(".video-button").click(function(){
     $(".video-url-form-holder-container").fadeIn();
   });
-
+  //Hide Video Form
   $(".video-close-button").click(function(){
     $(".video-url-form-holder-container").fadeOut();
   });
@@ -109,51 +178,35 @@ jQuery(document).ready(function($) {
 
 
 
-  $(function() {      
+  //**************************
+  //NEW POST FORM AJAX REQUEST
+  //**************************
+  $('.superpost-form').ajaxForm({                 
+    beforeSubmit: ShowRequest,
+    success: SubmitSuccessful,
+    data:userIMO,
+    error: AjaxError,
+    dataType: 'json'                               
+  });    
 
-
-    $('.superpost-form').ajaxForm({                 
-      beforeSubmit: ShowRequest,
-      success: SubmitSuccessful,
-      data:userIMO,
-      error: AjaxError                               
-    });    
-
-    $('.superpost-comment-form').ajaxForm({                 
-      beforeSubmit: ShowRequest,
-      success: CommentSubmitSuccessful,
-      data:userIMO,
-      error: AjaxError                               
-    });    
-
-    $('.superpost-image-form').ajaxForm({                 
-      beforeSubmit: BeforeImageSubmit,
-      success: ImageSubmitSuccessful,
-      data:userIMO,
-      error: AjaxError                               
-    });
-
-
-    
-
-  });            
-
-  
-
+  //This is called before the new post form is sent.
+  //It doesn't actually do anything but it's useful for debugging
   function ShowRequest(formData, jqForm, options) {
     var queryString = $.param(formData);
     //alert('BeforeSend method: \n\nAbout to submit: \n\n' + queryString);
     return true;
   }
 
+  //Called when ajax fails. 
   function AjaxError() {
     alert("An AJAX error occured.");
   }
 
+  //Called after form submission is successful
   function SubmitSuccessful(responseText, statusText) {     
     //alert("SuccesMethod:\n\n" + responseText);
 
-    var response = jQuery.parseJSON(responseText);
+    var response = responseText;
 
     var url = "/plus/" + response.post_type + "/" + response.id;
 
@@ -162,18 +215,16 @@ jQuery(document).ready(function($) {
     //addNewBox(response);
   }
 
-  function CaptionSubmitSuccessful(responseText, statusText) {
-    //alert("Yay! caption added!");
-  }
-
-  function CommentSubmitSuccessful(responseText, statusText) {     
-    //alert("SuccesMethod:\n\n" + responseText);
-
-    var response = jQuery.parseJSON(responseText);
-
-
-    addNewBox(response);
-  }
+  //******************************
+  //IMAGE ATTACHMENT AJAX REQUEST
+  //******************************
+  $('.superpost-image-form').ajaxForm({                 
+    beforeSubmit: BeforeImageSubmit,
+    success: ImageSubmitSuccessful,
+    data:userIMO,
+    dataType: 'json',
+    error: AjaxError                               
+  });
 
   function BeforeImageSubmit(formData, jqForm, options) {
 
@@ -195,18 +246,23 @@ jQuery(document).ready(function($) {
 
   function ImageSubmitSuccessful(responseText, statusText) {
 
-    var response = jQuery.parseJSON(responseText);
+    var response = responseText;
 
+    //Make the new post post wider
     $(".new-superpost-modal-container").animate({
       width: "760px"
     }, 500 );
-
+    $(".simplemodal-container").animate({
+      width: "800px"
+    }, 500 );
+    //Also change width of media section so that it fits in the wider new post box
     $(".media-section").animate({
       width: "320px"
     }, 500 );
+    
 
 
-    //first, get the image.
+    //first, get the image element and the caption form
     var $imageTag = $("<div><img src='" + response.img_url + "' height=75 width=75 style='' class='image-thumb'>\
                       <form method='POST' action='/slim/api/superpost/update_caption' enctype='multipart/form-data' class='superpost-caption-form thumb-caption'>\
                       <input class='caption-field' name='body' type='text' placeholder='Caption (optional)'>\
@@ -215,9 +271,8 @@ jQuery(document).ready(function($) {
                       </form>\
                       </a></div>");
 
-    //Then Append the image
+    //Then Append the image & caption form
     $(".loading-box").fadeOut(function(){
-      //$(".attached-photos").append($imageTag.fadeIn());
       $(this).remove();
       $imageTag.hide().appendTo(".attached-photos").fadeIn();
 
@@ -225,6 +280,7 @@ jQuery(document).ready(function($) {
     
 
     //Then, add the image IDs to the new post form
+    //Without this step, the images will not be attached to the post
     var attachmentIDs = $("input.attachment_id").val();
      if (attachmentIDs) {
       attachmentIDs = attachmentIDs + "," + response.id;
@@ -241,6 +297,7 @@ jQuery(document).ready(function($) {
       beforeSubmit: ShowRequest,
       success: CaptionSubmitSuccessful,
       data:userIMO,
+      dataType: 'json',
       error: AjaxError                               
     });    
 
@@ -255,6 +312,34 @@ jQuery(document).ready(function($) {
     console.log(response);
 
   }
+
+
+  function CaptionSubmitSuccessful(responseText, statusText) {
+    //alert("Yay! caption added!");
+  }
+
+
+  //**************************
+  //COMMENT FORM AJAX REQUEST
+  //**************************
+  $('.superpost-comment-form').ajaxForm({                 
+    beforeSubmit: ShowRequest,
+    success: CommentSubmitSuccessful,
+    data:userIMO,
+    dataType: 'json',
+    error: AjaxError                               
+  });    
+  //This is run after a comment is succesfully submitted
+  //It can add a new box to the page
+  function CommentSubmitSuccessful(responseText, statusText) {     
+    //alert("SuccesMethod:\n\n" + responseText);
+
+    var response = responseText;
+
+
+    addNewBox(response);
+  }
+
 
   function addNewBox(response) {
 
@@ -337,64 +422,16 @@ jQuery(document).ready(function($) {
 
 
 
-
-
-
-
   //Clear the forms.
-  function resetForm($form) {
+function resetForm($form) {
     $form.find('input:text, input:password, input:file, select').val('');
     $form.find('input:radio, input:checkbox')
          .removeAttr('checked').removeAttr('selected');
 }
 
 
-  function activateFBlogin() {
-    jQuery(".imo-fb-login-button").click(function(){
-              
 
-              FB.getLoginStatus(function(response) {
-                if (response.status === 'connected') {
-                  FB.api('/me', function(response) {
-                     console.log('You\'re already logged in to FB and this App has previously authenticated, ' + response.name + '.');
-                   });
 
-                  jQuery.getJSON('/facebook-usercheck.json', function(data) {
-                    console.log(data);
-                  });
-                  // the user is logged in and has authenticated your
-                  // app, and response.authResponse supplies
-                  // the user's ID, a valid access token, a signed
-                  // request, and the time the access token 
-                  // and signed request each expire
-                  var uid = response.authResponse.userID;
-                  var accessToken = response.authResponse.accessToken;
-                } else if (response.status === 'not_authorized') {
-                  imo_fb_login();
-                  console.log("logged in to fb, app not authenticated");
-                  // the user is logged in to Facebook, 
-                  // but has not authenticated your app
-                } else {
-                  imo_fb_login();
-                  console.log("not logged in to fb");
-                  // the user isn't logged in to Facebook.
-                }
-               });
-
-              function imo_fb_login() {
-                FB.login(function(response) {
-                   if (response.authResponse) {
-                     console.log('Welcome!  Fetching your information.... ');
-                     FB.api('/me', function(response) {
-                       console.log('Good to see you, ' + response.name + '.');
-                     });
-                   } else {
-                     console.log('User cancelled login or did not fully authorize.');
-                   }
-                 }, {scope: 'email'});
-              }
-            });
-  }
 
 });//End document ready
 

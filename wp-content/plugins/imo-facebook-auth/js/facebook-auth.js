@@ -6,22 +6,93 @@ window.fbAsyncInit = function() {
     xfbml      : true,
     oauth      : true,
   });
-  FB.Event.subscribe('auth.login', function (response) {
-      console.log("HEY THERE!");
-      console.log(response);
-      jQuery.getJSON('/facebook-usercheck.json', function(data) {
-	   		console.log(data);
+  
+	FB.Event.subscribe('auth.statusChange', function(response) {
+	  console.log('STATUS CHANGE: The status of the session is: ' + response.status);
+	  
+	  if (response.status == "not_authorized") {
+	  
+		  if (userIMO.username.length > 0 && userIMO.facebook_id.length > 0) {//If user is logged in and not a FB user
+	
+	  	  	jQuery.getJSON('/logout.json', function(data) {
+	            $("#tophat").hide();
+	            console.log("FB: LOG OUT");
+	        });
+	        	  
+		  }
+	  
+	  }
+	  
+	  if (response.status == "connected") {
+	  
+		  if (userIMO.username.length > 0) {//If user is logged in 
+	
+		  
+		  } else { //if user is not logged in
+		  
+		  	  //$(".user-login-modal-container").modal.close();
+		  	  
+		  	  $.modal.close();
+		  	  
+		  	 
+		  	  
+			  
+			  jQuery.getJSON('/facebook-usercheck.json', function(data) {
+	            console.log(data);
+	            
+	            $("#current-user-name").text(data.display_name);
+	            $("#tophat img.avatar").attr("src","http://0.gravatar.com/avatar/" + data.gravatar_hash + "?s=35");
+	            
+	            $("#tophat").slideDown();
+	            
+	            
+	            
+	          });
+			  
+		  }
+		  
+	  }//End if response.status == connected
+	  
+	  
+	});//End facebook event subscribe
 
-        window.location = "/naw-home";
 
-	   });
-  });
-};
+
+  
+};//END window.fbAsyncInit
+
+
+jQuery(document).ready(function($) {
+
+	jQuery(".imo-fb-login-button").click(function(){
+						
+		imo_fb_login();
+
+	
+		function imo_fb_login() {
+			FB.login(function(response) {
+			   if (response.authResponse) {
+			     console.log('Welcome!  Fetching your information.... ');
+			     FB.api('/me', function(response) {
+			       console.log('Good to see you, ' + response.name + '.');
+			     });
+			   } else {
+			     console.log('User cancelled login or did not fully authorize.');
+			   }
+			 }, {scope: 'email,user_hometown'});
+		}//END imo_fb_login
+	});
+
+});
+
+  
+
+
+
 (function(d){
    var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
    js = d.createElement('script'); js.id = id; js.async = true;
    js.src = "//connect.facebook.net/en_US/all.js";
    d.getElementsByTagName('head')[0].appendChild(js);
  }(document));
-
 

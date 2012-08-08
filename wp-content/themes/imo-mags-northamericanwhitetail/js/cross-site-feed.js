@@ -4,7 +4,7 @@ jQuery(document).ready(function($) {
 	
 	var currentPosition = 0;
 	var showAtOnce = 10;
-
+	var sort = "post_date";
 	var feedData;
 
 	//Check to see if cross-site-feed exists:
@@ -17,7 +17,21 @@ jQuery(document).ready(function($) {
 	$(".cross-site-feed-more-button").click(function(){
 		
 		currentPosition = currentPosition + showAtOnce;
-		displayCrossSiteFeed(currentPosition);
+		displayCrossSiteFeed(currentPosition,sort);
+	});
+
+	//When sort button is clicked:
+	$(".sort-link").click(function(event){
+
+		event.preventDefault();
+
+		currentPosition = 0;
+		$(".cross-site-feed").css("height",800);
+		$(".cross-site-feed").html("");
+
+		sort = $(this).attr("sort");
+		displayCrossSiteFeed(currentPosition,sort)
+
 
 	});
 
@@ -30,7 +44,10 @@ jQuery(document).ready(function($) {
 
 	}
 
-
+	//Ignore Dropdown Click
+	$(".ignore-click").click(function(event){
+		event.preventDefault();
+	});
 
 	function displayCrossSiteFeed(start,sort) {
 		sort = typeof sort !== 'undefined' ? sort : 'post_date'; //If sort is not set, set sort to post_date
@@ -42,9 +59,9 @@ jQuery(document).ready(function($) {
 	
 		
 		if (term.length > 0) {
-			var fileName = "/wpdb/cache/naw-plus-" + term + "-" + sort + ".json";
+			var fileName = "/wp-content/cache/superloop/naw-plus-" + term + "-" + sort + ".json";
 		} else {
-			var fileName = "/wpdb/cache/naw-plus-" + sort + ".json";
+			var fileName = "/wp-content/cache/superloop/naw-plus-" + sort + ".json";
 		}
 		
 
@@ -89,7 +106,14 @@ jQuery(document).ready(function($) {
 					var $termsArray = $(data[i].terms);
 
 					$(data[i].terms).each(function(index) {
-						$categoryLinks.append($("<a href='/category/" + this.slug + "'>" + this.name + "</a>"));
+						var parentString = "";
+
+						if (this.parent != null) {
+							parentString = this.parent + "/";
+						}
+
+
+						$categoryLinks.append($("<a href='/category/" + parentString + this.slug + "'>" + this.name + "</a>"));
 
 			
 
