@@ -14,6 +14,7 @@ include 'userinfo.php';
 include 'images.php';
 include 'video.php';
 include 'location.php';
+include 'clsFlagger.php';
 
 function get_IP() {
 	$headers = apache_request_headers(); 
@@ -32,7 +33,7 @@ $response['Content-Type'] = 'application/json';
 
 
 $app->get('/',function(){
-	echo "<h1>Hello Berry!</h1>";
+	echo "<h1>Hello Berry!!</h1>";
 });
 
 
@@ -477,7 +478,48 @@ $app->post('/api/superpost/update_caption',function() {
 
 });
 
+//handle post flagging - rating - etc
 
+$app->post('/api/post/flag',function() {
+	
+	header('Access-Control-Allow-Origin: *');
+
+	$params = Slim::getInstance()->request()->post();
+
+	_log("FLAGGING STARTED");
+	_log($params);
+
+	if (!(isset($params['post_id']) && isset($params['etype']) && isset($params['user_id']))) {
+		$rtn["error"] = "Invalid Request";
+
+	}
+	elseif (!($params['post_id']!="" && $params['etype']!="" && $params['user_id']!="")) {
+		$rtn["error"] = "Invalid Parameters";
+	
+	}
+	else {
+	
+		$post_id = $params['post_id'];
+		$etype = isset($params['etype'])? $params['etype']:"flag";
+		$user_id = isset($params['user_id'])? $params['user_id']:"1";
+	
+		//if (userIsGood($params['username'],$params['userhash'])) {
+		
+			$oFlagger = new postFlagger();
+		
+			$rtn = $oFlagger->insertEvent($post_id, $etype, $user_id);
+
+		
+		//}
+		//else {
+			//what if user is not good?
+		//}
+	}
+	
+	print json_encode($rtn);
+	return true;
+
+});
 
 
 
