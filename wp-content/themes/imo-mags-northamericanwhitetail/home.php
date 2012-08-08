@@ -76,9 +76,9 @@ get_header();
                 <li title='lifestyle'>Lifestyle</li>
                 <li title='trophy'>Trophy Bucks</li>
             </ul>    
-            <div id="user-login-button">
+            <div class="imo-fb-login-button">
                 LOGIN
-            </div>
+            </div>           
             <div id="recon-activity" term="all" display="tile">
 
 

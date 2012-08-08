@@ -47,16 +47,18 @@ $avatar = "http://www.northamericanwhitetail.fox/avatar?uid=".$user->ID;
 	           
 	            <div class="user-info">
 	            	<div class="user-thumbnail"><?php echo '<img src="'.$avatar.'" alt="User Avatar" />'; ?></div>
+	            	
 	            	<ul class="details">
 	            		<li><h3><?php echo $user->display_name; ?></h3></li>
 	            		<li class="hometown"><a href="#">Gotham City</a></li>
 	            		<li class="twitter"><a href="#">@batman</a></li>
 	            	</ul>
+	            	<a class="edit" href="/login/?action=profile">edit profile</a>
 	            </div>
 	            
 	            <div class="extras">
 		    		<div class="score-box">
-		    			<h2 class="user-points">392</h2> 
+		    			<h2 class="user-points">0</h2> 
 		    			<p>Points</p>
 		    		</div>
 		    		<ul class="post-type-select">

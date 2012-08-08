@@ -3795,6 +3795,7 @@ h1.tv-header{
 ul.details{
 	float: left;
 	list-style: none;
+	width: 250px;
 }
 ul.details li a{
 	padding-left: 32px;
@@ -3815,7 +3816,11 @@ ul.details li.www a{
 	background: url("img/website-icon.png") no-repeat 3px top;
 
 }
-
+.edit{
+	position: absolute;
+	top: 122px;
+	left: 20px;
+}
 h3.first-last-name{
 	clear: both;
     font-family: 'rokkitt',serif;

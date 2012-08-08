@@ -207,7 +207,8 @@ function displayRecon(type) {
 	    var count = 0;
 	    $(data).each(function(index) {
 	        count++;
-
+	        console.log(data);
+	        //var $avatar $("<img class='recon-gravatar'>").attr("src","http://www.northamericanwhitetail.fox/avatar?uid=" + this.$user_id);
 	        var url = "/plus/" + this.post_type + "/" + this.id;
 	        var link = $("<a href='" + url + "'>");
 
@@ -636,11 +637,10 @@ function displayUserComments(userID) {
 	    }
 	    var count = 0;
 	    $(data).each(function(index) {
-	    console.log(data);
 	        count++;
 
-	        //usables: posts.id, comment_body, rent_type 
-
+	        //usables: posts.id, comment_body, rent_type, date, shares
+	        
 	        var gravatar = $("<img class='recon-gravatar'>").attr("src","http://www.gravatar.com/avatar/" + this.gravatar_hash + ".jpg?s=50&d=identicon");
 	        var authorInfo = $("<div class='recon-author-info'><span class='author-name'></span><span class='author-action'></span></div>");
 	        authorInfo.find(".author-name").text(this.username);
@@ -665,8 +665,7 @@ function displayUserComments(userID) {
 				encoded = this.comment_body;
 			}
 			
-		//	var d1 = Date.parse('2010-10-18, 10:06 AM');
-		//	var d1 = Date.parse('2012-03-29 14:42:09');
+			//var d1 = Date.parse('2012-03-29 14:42:09');
 			var create_date = Date.parse(this.date);
 					
 			var reconRow = $("\
