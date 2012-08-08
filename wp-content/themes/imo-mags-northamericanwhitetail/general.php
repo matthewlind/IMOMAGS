@@ -24,16 +24,38 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 get_header();
 
 the_post();
+$displayStyle = "display:none;";
+$loginStyle = "";
+
+if ( is_user_logged_in() ) {
+
+	$displayStyle = "";
+	$loginStyle = "display:none;";
+	
+	wp_get_current_user();
+	
+	$current_user = wp_get_current_user();
+    if ( !($current_user instanceof WP_User) )
+         return;
+    }
+
 ?>
 <div class="page-community">
 <div class="col-abc super-post">
     <header class="header-title">
-		<h1><a href="/community/">Community</a> <span>| General Discussion</span></h1>
+   		<ul id="user-bar" style="<?php echo $displayStyle; ?>">	          
+			<li class="user-name">Hello, <a href="/profile/<?php echo $current_user->user_nicename; ?>"><span id="current-user-name"><?php echo $current_user->display_name; ?></span></a></li>
+			<li><a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" alt="User Avatar" class="recon-gravatar" /></a></li>                      
+       </ul>
+       <h1><a href="/community/">Community</a> <span>| General Discussion</span></h1>
 	</header>
 	<div class="col-abc super-post">
-		<div id="user-login-button">
-                LOGIN
-        </div>
+		<div class="imo-fb-login-button" style="<?php echo $loginStyle; ?>">
+	    	LOGIN
+	    </div>
+	    <ul class="post-type-select add-post" style="<?php echo $displayStyle; ?>">
+	    	<li id="new-post-button" class="new-post post general">+ POST IN GENERAL DISCUSSION</li>
+		</ul>
 		<div id="recon-activity" term="general" display="tile">
 
 
@@ -52,7 +74,7 @@ the_post();
 	<div class="col-abc">
 				<div class="clear"></div>
 					<div class="header-sort home-questions">
-						<h1 class="more-header">Ask An Expert</h1>
+						<h1 class="more-header">Q&A</h1>
 					</div>
 					<div class="questions-slider">
 		                <div class="slides-container-f">

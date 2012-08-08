@@ -200,7 +200,7 @@ $args = array(
          <div class="post_type_styled_select">
          <select class="post_type" name="post_type">
             <option value="general" class="general">General Discussion</option>
-            <option value="question" class="question">Ask An Expert</option>
+            <option value="question" class="question">Q&A</option>
             <option value="report" class="report">Rut Reports</option>
             <option value="tip" class="tip">Tips & Tactics</option>
             <option value="lifestyle" class="lifestyle">Lifestyle</option>

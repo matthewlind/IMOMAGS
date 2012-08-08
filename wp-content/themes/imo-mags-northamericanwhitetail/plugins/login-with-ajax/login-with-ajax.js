@@ -28,9 +28,10 @@ jQuery(document).ready( function($) {
 			            console.log(data);
 			            
 			            $("#current-user-name").text(data.display_name);
-			            $("#tophat img.avatar").attr("src","http://0.gravatar.com/avatar/" + data.gravatar_hash + "?s=35");
+			            //$("#user-bar img.avatar").attr("src","http://0.gravatar.com/avatar/" + data.gravatar_hash + "?s=35");
+			            $("#user-bar img.avatar").attr("src","http://www.northamericanwhitetail.fox/avatar?uid=" + userID);
 			            
-			            $("#tophat").slideDown();
+			            $("#user-bar").slideDown();
 	            
             
             

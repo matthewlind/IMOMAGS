@@ -130,7 +130,7 @@ width: 990px;
 
 #header {
     background: url("img/header-bg.jpg") repeat scroll center top transparent;
-    height: 338px;
+    height: 269px;
     margin: 0 !important;
     z-index: 9999999;
 }
@@ -2109,6 +2109,7 @@ home .super-post{padding-top:68px;}
     text-transform: uppercase;
     margin-left: 50px;
     padding-top: 6px;
+    margin-top: 16px;
 }
 .page-template-superpost_single-php .header-title h1 span, .page-template-user_profile-php .header-title h1 span{
 	font-size: 0.8em;
@@ -3767,7 +3768,7 @@ h1.tv-header{
 }
 .page-template-user_profile-php .user-info img{
 	float: left;
-	border: 8px solid #f0e9e1;
+	margin: 3px 0 0 2px;
 }
 .page-template-user_profile-php .extras{
 	float: left;
@@ -3776,6 +3777,7 @@ h1.tv-header{
 }
 .page-template-user_profile-php .extras .score-box{
 	width: 80px;
+	margin-bottom: 20px;
 }
 .page-template-user_profile-php .extras h2{
 	font-family: ProximaNovaA-Bold;
@@ -3795,6 +3797,8 @@ h1.tv-header{
 ul.details{
 	float: left;
 	list-style: none;
+	width: 250px;
+	margin: -8px 0 0 16px;
 }
 ul.details li a{
 	padding-left: 32px;
@@ -3815,13 +3819,23 @@ ul.details li.www a{
 	background: url("img/website-icon.png") no-repeat 3px top;
 
 }
-
+.edit{
+	float: right;
+	margin: 14px 6px 0 0;
+}
+.edit span{
+	float: left;
+}
+.edit a{
+	float: left;
+	padding: 0 4px;
+}
 h3.first-last-name{
 	clear: both;
     font-family: 'rokkitt',serif;
     font-size: 1.9em;
     height: 40px;
-    margin: 0;
+    margin: 0 0 16px;;
     text-transform: uppercase;
 }
 #no-activity p{
@@ -3834,14 +3848,25 @@ h3.first-last-name{
 }
 .page-template-user_profile-php .post-type-select .recent{
 	border-left: solid 1px #ccc !important;
-	
 }
 
 /*****
 **Community Page
 **
 *****/
-
+ul#user-bar{
+	list-style: none;
+	float: right;
+	margin: -16px -8px 0 0;
+}
+ul#user-bar li{
+	float: left;
+	padding: 0 6px;
+}
+ul#user-bar li.user-name{
+	padding-top: 18px;
+	text-transform: capitalize;
+}
 ul.community-cats{
 	margin: 0 0 4px 0;
 	padding: 27px 10px 50px;
@@ -3869,6 +3894,13 @@ ul.community-cats li.points{
 	font-size: 0.9em;
 	font-weight: bold;
 	float: right;
+	margin-top: 2px;
+}
+ul.community-cats li.points a{
+	text-decoration: underline;
+}
+ul.community-cats li.points a:hover{
+	text-decoration: none;
 }
 ul.community-cats li div{
 	float: left;

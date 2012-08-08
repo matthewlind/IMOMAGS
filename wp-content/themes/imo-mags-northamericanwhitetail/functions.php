@@ -78,8 +78,14 @@ function naw_imo_addons_sidebar_init() {
 
   register_sidebar(array_merge($sidebar_defaults, array(
       'id' => 'sidebar-home-top',
-      'name' => __('Top Homepage Sidebar', 'carrington-business'),
-      'description' => __('Shown on the top right of the homepage.', 'carrington-business')
+      'name' => __('Top Homepage User Logged Out', 'carrington-business'),
+      'description' => __('Shown on the top right of the homepage when a user is NOT logged in.', 'carrington-business')
+  )));
+  
+  register_sidebar(array_merge($sidebar_defaults, array(
+      'id' => 'sidebar-home-top-logged',
+      'name' => __('Top Homepage User Logged In', 'carrington-business'),
+      'description' => __('Shown on the top right of the homepage when a user is logged in.', 'carrington-business')
   )));
   
   register_sidebar(array_merge($sidebar_defaults, array(

@@ -89,7 +89,7 @@ if ($("#user-activity").length > 0){
 	});
 */
 //activate Recon Network Controls - tabs
-$("ul.post-type-select li").click(function(){
+$("ul.post-type-select li.change").click(function(){
 	
 	var postType = $(this).attr('title');
 
@@ -207,7 +207,8 @@ function displayRecon(type) {
 	    var count = 0;
 	    $(data).each(function(index) {
 	        count++;
-
+	        console.log(data);
+	        //var $avatar $("<img class='recon-gravatar'>").attr("src","http://www.northamericanwhitetail.fox/avatar?uid=" + this.$user_id);
 	        var url = "/plus/" + this.post_type + "/" + this.id;
 	        var link = $("<a href='" + url + "'>");
 
@@ -220,7 +221,7 @@ function displayRecon(type) {
 	        var titleDetailBox = $("<span class='recon-title-detail'></span>").text(this.username + "'s " + this.post_type);
 	        var title = $("<h3></h3>").text(this.title);
 	        var underBox = $("<div class='under-box'></div>");
-	        var gravatar = $("<img class='recon-gravatar'>").attr("src","http://www.gravatar.com/avatar/" + this.gravatar_hash + ".jpg?s=50&d=identicon");
+	        var gravatar = $("<img class='recon-gravatar'>").attr("src","/avatar?uid=" + this.user_id);
 	        var authorInfo = $("<div class='recon-author-info'><span class='author-name'></span><span class='author-action'></span></div>");
 	        authorInfo.find(".author-name").text(this.username);
 	        authorInfo.find(".author-action").text(" posted a " + capitaliseFirstLetter(this.post_type));
@@ -325,6 +326,8 @@ function displayUserPosts(userID) {
 	    //$(".animal-container").html("");
 	    if(data.length < 1){
 	    	$("#no-activity").show();
+	    }else{
+		    $("#no-activity").fadeOut();
 	    }
 	    var count = 0;
 	    
@@ -633,14 +636,15 @@ function displayUserComments(userID) {
 	    //$(".animal-container").html("");
 	    if(data.length < 1){
 	    	$("#no-activity").show();
+	    }else{
+		    $("#no-activity").fadeOut();
 	    }
 	    var count = 0;
 	    $(data).each(function(index) {
-	    console.log(data);
 	        count++;
 
-	        //usables: posts.id, comment_body, rent_type 
-
+	        //usables: posts.id, comment_body, rent_type, date, shares
+	        
 	        var gravatar = $("<img class='recon-gravatar'>").attr("src","http://www.gravatar.com/avatar/" + this.gravatar_hash + ".jpg?s=50&d=identicon");
 	        var authorInfo = $("<div class='recon-author-info'><span class='author-name'></span><span class='author-action'></span></div>");
 	        authorInfo.find(".author-name").text(this.username);
@@ -665,8 +669,7 @@ function displayUserComments(userID) {
 				encoded = this.comment_body;
 			}
 			
-		//	var d1 = Date.parse('2010-10-18, 10:06 AM');
-		//	var d1 = Date.parse('2012-03-29 14:42:09');
+			//var d1 = Date.parse('2012-03-29 14:42:09');
 			var create_date = Date.parse(this.date);
 					
 			var reconRow = $("\
