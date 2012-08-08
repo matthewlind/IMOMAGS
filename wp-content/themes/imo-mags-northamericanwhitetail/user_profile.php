@@ -62,10 +62,9 @@ if ( is_user_logged_in() ) {
 			<div class="user-header">
 	           
 	            <div class="user-info">
+	            	<h3><?php echo $user->display_name; ?></h3>
 	            	<div class="user-thumbnail"><?php echo '<img src="'.$avatar.'" alt="User Avatar" class="recon-gravatar" />'; ?></div>
-	            	
 	            	<ul class="details">
-	            		<li><h3><?php echo $user->display_name; ?></h3></li>
 	            		<li class="hometown"><a href="#">Gotham City</a></li>
 	            		<li class="twitter"><a href="#">@batman</a></li>
 	            	</ul>

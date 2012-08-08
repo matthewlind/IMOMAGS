@@ -14,7 +14,6 @@ include 'userinfo.php';
 include 'images.php';
 include 'video.php';
 include 'location.php';
-include 'clsFlagger.php';
 
 function get_IP() {
 	$headers = apache_request_headers(); 
@@ -33,7 +32,7 @@ $response['Content-Type'] = 'application/json';
 
 
 $app->get('/',function(){
-	echo "<h1>Hello Berry!!</h1>";
+	echo "<h1>Hello Berry!</h1>";
 });
 
 
@@ -67,6 +66,91 @@ $app->get('/api/superpost/all(/:count(/:start))',function($count = 20,$start = 0
     }
 
 });
+
+
+//******************************************************
+//********* Get Posts by type with only images *********
+//******************************************************
+//Note, this does not fetch comments or answers
+$app->get('/api/superpost/photos/:post_type(/:count(/:start))',function($post_type,$count = 20,$start = 0){
+
+
+
+
+	header('Access-Control-Allow-Origin: *');
+
+	try {
+
+		$db = dbConnect();
+
+		$whereClause = "WHERE post_type = ?";
+		
+		if ($post_type == "all")
+			$whereClause = "WHERE post_type != 'comment' AND post_type != 'answer' AND post_type != 'photo' AND post_type != 'youtube' AND img_url IS NOT NULL";
+
+		$limitClause = "LIMIT $start,$count";
+		
+
+		$sql = "SELECT * FROM allcounts $whereClause ORDER BY id DESC $limitClause";
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array($post_type));
+	
+		$posts = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+		echo json_encode($posts);
+
+		$db = "";
+
+	} catch(PDOException $e) {
+    	echo $e->getMessage();
+    }
+
+});
+
+
+
+//****************************************************************
+//********* Get Posts by type with only images by points *********
+//****************************************************************
+//Note, this does not fetch comments or answers
+$app->get('/api/superpost/comment_count/:post_type(/:count(/:start))',function($post_type,$count = 20,$start = 0){
+
+
+
+
+	header('Access-Control-Allow-Origin: *');
+
+	try {
+
+		$db = dbConnect();
+
+		$whereClause = "WHERE post_type = ?";
+		
+		if ($post_type == "all")
+			$whereClause = "WHERE post_type != 'comment' AND post_type != 'answer' AND post_type != 'photo' AND post_type != 'youtube' AND img_url IS NOT NULL";
+
+		$limitClause = "LIMIT $start,$count";
+		
+
+		$sql = "SELECT * FROM allcounts $whereClause ORDER BY comment_count DESC $limitClause";
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array($post_type));
+	
+		$posts = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+		echo json_encode($posts);
+
+		$db = "";
+
+	} catch(PDOException $e) {
+    	echo $e->getMessage();
+    }
+
+});
+
+
 
 //*********************************
 //**** Get all Posts of a Type ****
@@ -478,48 +562,7 @@ $app->post('/api/superpost/update_caption',function() {
 
 });
 
-//handle post flagging - rating - etc
 
-$app->post('/api/post/flag',function() {
-	
-	header('Access-Control-Allow-Origin: *');
-
-	$params = Slim::getInstance()->request()->post();
-
-	_log("FLAGGING STARTED");
-	_log($params);
-
-	if (!(isset($params['post_id']) && isset($params['etype']) && isset($params['user_id']))) {
-		$rtn["error"] = "Invalid Request";
-
-	}
-	elseif (!($params['post_id']!="" && $params['etype']!="" && $params['user_id']!="")) {
-		$rtn["error"] = "Invalid Parameters";
-	
-	}
-	else {
-	
-		$post_id = $params['post_id'];
-		$etype = isset($params['etype'])? $params['etype']:"flag";
-		$user_id = isset($params['user_id'])? $params['user_id']:"1";
-	
-		//if (userIsGood($params['username'],$params['userhash'])) {
-		
-			$oFlagger = new postFlagger();
-		
-			$rtn = $oFlagger->insertEvent($post_id, $etype, $user_id);
-
-		
-		//}
-		//else {
-			//what if user is not good?
-		//}
-	}
-	
-	print json_encode($rtn);
-	return true;
-
-});
 
 
 

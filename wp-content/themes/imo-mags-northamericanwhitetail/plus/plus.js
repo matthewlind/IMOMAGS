@@ -766,19 +766,16 @@ $(document).ready(function(){
 $(document).ready(function(){
 	var type = "all";
 	showAtOnce = 36;
-	var dataURL = "/slim/api/superpost/type/" + type +"/" + showAtOnce + "/0";  	
+	var dataURL = "/slim/api/superpost/photos/" + type +"/" + showAtOnce + "/0";  	
 	var getdata = $.getJSON(dataURL, function(data) {
 		
 		var $questionTemplate;
 
 		$.each(data, function(index, all) { 
-		//	console.log(index,all); 
-			//if (all.img_url.length > 0){
+		console.log(data);
 				$questionTemplate = $("ul#scroll-widget li").eq(index);
-				var url = "/plus/" + all.post_type + "/" + all.id;
-				$questionTemplate.find("a").attr("href",all.url);
+				$questionTemplate.find("a").attr("href","/plus/" + all.post_type + "/" + all.id);
 				$questionTemplate.find("img").attr("src",all.img_url);
-			//}
 		});							
 	$questionTemplate.appendTo("ul#scroll-widget.scroll").fadeIn();	
 	});
@@ -787,7 +784,24 @@ $(document).ready(function(){
 
 
 
+// Sidebar grid display
+$(document).ready(function(){
+	var type = "all";
+	showAtOnce = 9;
+	var dataURL = "/slim/api/superpost/comment_count/" + type +"/" + showAtOnce + "/0";  	
+	var getdata = $.getJSON(dataURL, function(data) {
+		
+		var $questionTemplate;
 
+		$.each(data, function(index, all) { 
+				$questionTemplate = $("ul.thumbs-grid li").eq(index);
+				$questionTemplate.find("a").attr("href","/plus/" + all.post_type + "/" + all.id);
+				$questionTemplate.find("img").attr("src",all.img_url);
+		});							
+	$questionTemplate.appendTo("ul#scroll-widget.scroll").fadeIn();	
+	});
+
+}); //End 
 
 
 
