@@ -2605,14 +2605,13 @@ ul.naw-loop li{
 .fileupload-buttonbar input{
     position: absolute;
     top: 0;
-    right: -430px;
     margin: 0 0 20px 0;
     border: solid transparent;
     /*border-width: 0 0 100px 200px;*/
     opacity: 0.0;
     filter: alpha(opacity=0);
     -o-transform: translate(250px, -50px) scale(1);
-    -moz-transform: translate(-300px, 0) scale(4);
+    -moz-transform: translate(-470px, 0) scale(4);
     direction: ltr;
     cursor: pointer;
     width:90px;
@@ -3967,12 +3966,111 @@ ul.community-cats li.post:hover {
     padding: 0 10px;
 }
     
-    
-    
-    
-    
-#text-19 {padding: 0;}
-    
+/**** Individual community pages ****/
+.page-community .community-superpost-modal-container {
+	width: 636px;
+	border: solid 3px #efece6;
+	position: relative;
+	
+}
+.page-community #fileUploadForm{
+	margin: 0;
+}
+.page-community .superpost-form input[type="submit"]   {
+	 margin-left: 430px;
+} 
+.page-community .superpost-form input[type="text"], .superpost-form textarea{
+	width: 618px !important;
+	border: 1px solid #aaa197 !important;
+}
+.page-community .media-section{
+	float: left;
+	margin: -50px 0 0;
+}
+.page-community #fileUploadForm-image, .page-community .video-button{
+	float: left;
+	margin: 0;
+}
+.page-community .community-superpost-modal-container .superpost-image-form{
+	width: 98px;
+}
+.page-community h4.photo-attachement-header{
+	top: 8px;
+    width: 100px;
+    position: relative;
+}
+.page-community input.submit{
+    background: none repeat scroll 0 0 #347FE7;
+    border: 1px solid #2861B2;
+    border-radius: 4px;
+    box-shadow: 0 1px 0 transparent, 1px 1px 0 #679FED inset;
+    color: #FFFFFF;
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 1px 2px 0 rgba(0, 0, 0, 0.4);
+    font-size: 1em;
+    padding: 10px 0;
+    margin-top: 17px;
+    cursor: pointer;
+}
+.page-community .recon-row{
+	width: 660px;
+}
+.page-community .recon-row ul li div.row-info{
+	width: 360px !important;
+}
+.page-community .comm-header{
+	font-family: ProximaNovaA-Light;
+}
+.page-community .stream-header{
+	margin-top:70px;
+}
+.page-community #recon-activity{top:0;}
+
+.page-community .loading-box {
+    float: left;
+    margin: 1px;
+}
+.page-community .new-superpost-modal-container .superpost-image-form  {
+	width: 152px;
+}
+.page-community .video-button{
+	background-color: #aaa197;
+	width: 189px;
+	height: 28px;
+}
+.page-community .white-plus-sign{
+	line-height: 23px;	
+} 
+.page-community .video-body-holder{
+	left: 172px;
+    position: absolute;
+    top: 235px;
+    width: 250px;
+    background-color: none;
+    border: none;
+    box-shadow: none;
+}  
+.page-community #video-body{
+	background-color: white;
+    border: 1px solid #CCCCCC;
+    padding: 6px;
+    width: 175px;   
+}
+.page-community input.caption-field{
+	background-color: white;
+    border: 1px solid #CCCCCC;
+    padding: 6px;
+    width: 150px;   
+	
+}
+.page-community .video-close-button{
+	display: none;
+}
+.page-community .row-post-type{
+	display: none;
+}
+
+
+
 /******
 ***
 ** sUpErPoStS sIdeBaR gRid AnD sCrOlLeR !*&$%&#&!!
@@ -4033,6 +4131,17 @@ ul.thumbs-grid li img{
 }
     
     
+/******
+*** App callout widget
+***
+******/   
+#get-app{
+	height: 500px;
+	text-align: center;
+	width: 318px;
+	background-color: #ccc;
+	margin-bottom: 10px;
+}   
     
     
     
@@ -4045,6 +4154,5 @@ ul.thumbs-grid li img{
     
     
     
-    
-    
-    
+#text-19 {padding: 0;}
+       

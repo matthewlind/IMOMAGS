@@ -1,9 +1,9 @@
-<?php // Custom Join NAW+ Widget
+<?php // Custom Get the App widget when user is logged in Widget
     
-class Join_Widget extends WP_Widget {
-	function Join_Widget() {
-		$widget_ops = array('classname' => 'widget_gravity_form', 'description' => 'Custom Join NAW+ Widget.' );
-		$this->WP_Widget('join', 'Join NAW+', $widget_ops);
+class App_Logged_Widget extends WP_Widget {
+	function App_Logged_Widget() {
+		$widget_ops = array('classname' => 'widget_app_logged', 'description' => 'Get the App widget when user is logged in.' );
+		$this->WP_Widget('app-logged', 'Get the App (Logged In)', $widget_ops);
 	}
  
 	function widget($args, $instance) {
@@ -27,17 +27,8 @@ class Join_Widget extends WP_Widget {
 	    }
     ?>
 
-    <aside id="join" class="box widget_gravity_form" style="<?php echo $loginStyle; ?>">
-      <div class="content_wrapper">
-      	  <div id="user-login-button" class="fb-login">Fast Facebook Login</div>
-	      <small>*we do not post anything to your wall unless you say so!</small>
-	      <a class="email-signup">or use your email address</a>
-	      <a class="prize-title">Sign Up Now & Win This Bolt Action Model 700!</a>
-	      <div class="prize"></div>
-	      <div class="prize-logo"></div>
-	      <div class="clear"></div>
-        <a href="#" class="about-link">What is North American Whitetail +?</a>
-       </div>
+    <aside id="get-app" class="box widget_get-app" style="<?php echo $displayStyle; ?>">
+    	<p>This will display a callout to the app when a user is logged in.</p>
     </aside>
 
 <?php	}
@@ -56,4 +47,4 @@ class Join_Widget extends WP_Widget {
 <?php
 	}
 }
-register_widget('Join_Widget');
+register_widget('App_Logged_Widget');

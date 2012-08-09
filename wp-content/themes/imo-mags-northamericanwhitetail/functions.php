@@ -78,14 +78,8 @@ function naw_imo_addons_sidebar_init() {
 
   register_sidebar(array_merge($sidebar_defaults, array(
       'id' => 'sidebar-home-top',
-      'name' => __('Top Homepage User Logged Out', 'carrington-business'),
-      'description' => __('Shown on the top right of the homepage when a user is NOT logged in.', 'carrington-business')
-  )));
-  
-  register_sidebar(array_merge($sidebar_defaults, array(
-      'id' => 'sidebar-home-top-logged',
-      'name' => __('Top Homepage User Logged In', 'carrington-business'),
-      'description' => __('Shown on the top right of the homepage when a user is logged in.', 'carrington-business')
+      'name' => __('Top Homepage Sidebar', 'carrington-business'),
+      'description' => __('Shown on the top right of the homepage.', 'carrington-business')
   )));
   
   register_sidebar(array_merge($sidebar_defaults, array(
@@ -127,6 +121,8 @@ add_action( 'widgets_init', 'naw_imo_addons_sidebar_init' );
 
 include_once get_stylesheet_directory().'/widgets/newsletter-signup.php';
 include_once get_stylesheet_directory().'/widgets/join.php';
+include_once get_stylesheet_directory().'/widgets/app-logged.php';
+include_once get_stylesheet_directory().'/widgets/app-logged-out.php';
 include_once get_stylesheet_directory().'/widgets/video-callout.php';
 include_once get_stylesheet_directory().'/widgets/gallery-loop.php';
 include_once get_stylesheet_directory().'/widgets/superpost-thumbs-grid.php';

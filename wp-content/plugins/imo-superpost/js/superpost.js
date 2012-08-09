@@ -239,8 +239,17 @@ jQuery(document).ready(function($) {
     //$(".attached-photos").append($loadingTag);
 
     $loadingTag.hide().appendTo(".attached-photos").slideDown(1000);
-
-
+    
+    //create more height on community page forms for additions
+    
+   var newHeight = '';
+   // $('.page-community .superpost-form input[type="submit"]').css("margin-top","154px");
+    //$('.page-community .new-superpost-modal-container').css("height","136px" + 80);
+    
+    // all pages
+    //$('.page-community .superpost-form input[type="submit"]').css("margin-top","154px");
+    //$('.page-community .superpost-form input[type="submit"]').css("margin-top","154px");
+   
     return true;
   }
 
@@ -256,10 +265,12 @@ jQuery(document).ready(function($) {
       width: "800px"
     }, 500 );
     //Also change width of media section so that it fits in the wider new post box
-    $(".media-section").animate({
+    $(".new-superpost-modal-container .media-section").animate({
       width: "320px"
     }, 500 );
-    
+    $(".page-community .media-section").animate({
+      width: "380px"
+    }, 500 );
 
 
     //first, get the image element and the caption form

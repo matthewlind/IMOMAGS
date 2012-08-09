@@ -14,6 +14,7 @@ if ($("#recon-activity").length > 0){
 	//First get any extra term and display type
 	var term = $("#recon-activity").attr("term");
 	var displayMode = $("#recon-activity").attr("display");
+	var widthMode = $("#recon-activity").attr("widthMode");
 	
 	if (displayMode == "tile") { //then show some tiles
 		displayRecon(term);
@@ -446,11 +447,15 @@ function afterImageLoaded() {
 	var masonryItemSelector = ".recon-box";
 
 	if (displayMode == "list") {
-		masonryColumnWidth = 1000;
+		if (widthMode="short"){
+			masonryColumnWidth = 636;
+		}else{
+			masonryColumnWidth = 1000;
+		}
 		masonryGutterWidth = 0;
 		masonryItemSelector = ".recon-row";
-	}
 
+	}
     //reset masonry
     if ($('#recon-activity').hasClass("masonry")) {
     	$('#recon-activity').masonry( 'option', { columnWidth: masonryColumnWidth, gutterWidth: masonryGutterWidth, itemSelector:masonryItemSelector } )

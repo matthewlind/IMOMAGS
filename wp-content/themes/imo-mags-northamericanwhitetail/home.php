@@ -42,12 +42,9 @@ if ( is_user_logged_in() ) {
 
 	<!-- Carrington Section w/ Sidebar Top -->	
 	<div class="bonus-background">
-		<div class="bonus" style="<?php echo $loginStyle; ?>">
+		<div class="bonus">
 			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-home-top')) : else : ?><?php endif; ?>
 		</div>		
-		<div class="bonus" style="<?php echo $displayStyle; ?>">
-			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-home-top-logged')) : else : ?><?php endif; ?>
-		</div>			
 	</div>
 	<div class="col-abc sticky-height">
 		<?php the_content(__('Continued&hellip;', 'carrington-business')); ?>
