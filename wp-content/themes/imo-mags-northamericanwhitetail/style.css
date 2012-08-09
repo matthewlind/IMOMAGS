@@ -1807,20 +1807,7 @@ h4.meta{
     top: 0 !important;
     width: 25px !important;
 }
-.superpost-thumbs-widget .prev, .superpost-thumbs-widget .next{
-    background-color: transparent !important;
-    background-position: center center !important;
-    background-repeat: no-repeat !important;
-    cursor: pointer !important;
-    display: block !important;
-    height: 90px !important;
-    overflow: hidden !important;
-    position: absolute !important;
-    text-align: left !important;
-    text-indent: -119988px !important;
-    top: 102px !important;
-    width: 25px !important;
-}
+
 .widget_slider-widget .prev.inactive, .widget_slider-widget .next.inactive {
     background-color: transparent !important;
     cursor: pointer !important;
@@ -1833,15 +1820,9 @@ h4.meta{
     background-image: url("img/ui_tab_next-green.png") !important;
     right: 0 !important;
 }
-.superpost-thumbs-widget h2{
-	text-align: center;
-}
 #header #megaMenu .widget_slider-widget .prev{
     background-image: url("img/ui_tab_prev_blue.png") !important;
     left: 0;
-}
-.superpost-thumbs-widget .prev{
-    background-image: url("img/ui_tab_prev_blue.png") !important;
 }
 #header #megaMenu .widget_slider-widget .next, .superpost-thumbs-widget .next{
     background-image: url("img/ui_tab_next_blue.png") !important;
@@ -3633,6 +3614,9 @@ h1.tv-header{
 
 
 /* Superpost Slider Widget */
+.superpost-thumbs-widget{
+	position: relative;
+}
 .superpost-thumbs-widget .scroll_mask{
 	width: 256px;
 	height: 120px;
@@ -3798,7 +3782,7 @@ ul.details{
 	float: left;
 	list-style: none;
 	width: 250px;
-	margin: -8px 0 0 16px;
+	margin-left: 12px;
 }
 ul.details li a{
 	padding-left: 32px;
@@ -3819,6 +3803,10 @@ ul.details li.www a{
 	background: url("img/website-icon.png") no-repeat 3px top;
 
 }
+.page-template-user_profile-php .recon-gravatar:hover{
+	border-color: white;
+	cursor: default;
+}
 .edit{
 	float: right;
 	margin: 14px 6px 0 0;
@@ -3835,7 +3823,8 @@ h3.first-last-name{
     font-family: 'rokkitt',serif;
     font-size: 1.9em;
     height: 40px;
-    margin: 0 0 16px;;
+     border-bottom: 4px solid #000000;
+    margin: 0 0 22px;
     text-transform: uppercase;
 }
 #no-activity p{
@@ -3984,10 +3973,64 @@ ul.community-cats li.post:hover {
     
 #text-19 {padding: 0;}
     
+/******
+***
+** sUpErPoStS sIdeBaR gRid AnD sCrOlLeR !*&$%&#&!!
+** LOLOLOLOLOLOLZZZ
+***
+******/    
     
-    
-    
-    
+ul.thumbs-grid{
+	width: 318px;
+	list-style: none;
+	margin: 0;
+}
+ul.thumbs-grid li{
+	float: left;
+	padding: 1px;
+	margin: 0;
+	width: 104px;
+	height: 104px;
+}
+ul.thumbs-grid li a{
+	margin: 0;
+	padding: 0;
+}
+ul.thumbs-grid li a:hover{
+	-moz-transition: all 0.6s ease 0s;-webkit-transition: 0.6s;
+}
+ul.thumbs-grid li a:hover img{
+	opacity: 0.6;
+	
+}
+ul.thumbs-grid li img{
+	margin: 0;
+    padding: 0;
+    width: 104px;
+	height: 104px;
+}   
+.superpost-thumbs-grid-widget h2, .superpost-thumbs-widget h2{
+	text-align: center;
+	border-top: 3px solid #000;
+	padding-top: 8px;
+}
+.superpost-thumbs-widget .prev, .superpost-thumbs-widget .next{
+    background-color: transparent !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    cursor: pointer !important;
+    display: block !important;
+    height: 90px !important;
+    overflow: hidden !important;
+    position: absolute !important;
+    text-align: left !important;
+    text-indent: -119988px !important;
+    top: 40px !important;
+    width: 25px !important;
+}
+.superpost-thumbs-widget .prev{
+    background-image: url("img/ui_tab_prev_blue.png") !important;
+}
     
     
     
