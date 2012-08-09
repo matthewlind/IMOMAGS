@@ -138,6 +138,10 @@ function imo_facebook_usercheck() {
     
     if (preg_match("/^\/logout\.json(\?(.+)?)?$/", $_SERVER['REQUEST_URI'])) {
         header('Content-type: application/json');
+       $current_user = wp_get_current_user();        
+        
+        update_user_meta($current_user->ID,"imo_fb_login_status",false);
+        
         wp_logout();
         die();
         

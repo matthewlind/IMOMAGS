@@ -6,6 +6,16 @@ window.fbAsyncInit = function() {
     xfbml      : true,
     oauth      : true,
   });
+
+
+  FB.Event.subscribe('auth.authResponseChange', function(response) {
+    console.log('authResponseChange: The status of the session is: ' + response.status);
+  });
+  
+    FB.Event.subscribe('auth.prompt', function(response) {
+    console.log('auth.prompt: The status of the session is: ' + response.status);
+  });
+
   
 	FB.Event.subscribe('auth.statusChange', function(response) {
 	  console.log('STATUS CHANGE: The status of the session is: ' + response.status);
@@ -25,31 +35,7 @@ window.fbAsyncInit = function() {
 	  
 	  if (response.status == "connected") {
 	  
-		  if (userIMO.username.length > 0) {//If user is logged in 
-	
-		  
-		  } else { //if user is not logged in
-		  
-		  	  //$(".user-login-modal-container").modal.close();
-		  	  
-		  	  $.modal.close();
-		  	  
-		  	 
-		  	  
-			  
-			  jQuery.getJSON('/facebook-usercheck.json', function(data) {
-	            console.log(data);
-	            
-	            $("#current-user-name").text(data.display_name);
-	            $("#tophat img.avatar").attr("src","http://0.gravatar.com/avatar/" + data.gravatar_hash + "?s=35");
-	            
-	            $("#tophat").slideDown();
-	            
-	            
-	            
-	          });
-			  
-		  }
+		  //This section moved to imo-fb-login
 		  
 	  }//End if response.status == connected
 	  
@@ -75,6 +61,40 @@ jQuery(document).ready(function($) {
 			     console.log('Welcome!  Fetching your information.... ');
 			     FB.api('/me', function(response) {
 			       console.log('Good to see you, ' + response.name + '.');
+			       
+			       
+			       
+			       	if (userIMO.username.length > 0) {//If user is logged in 
+	
+		  
+					  } else { //if user is not logged in
+					  
+					  	  //$(".user-login-modal-container").modal.close();
+					  	  
+					  	  //$.modal.close();
+					  	  
+					  	 
+					  	  
+						  
+						  jQuery.getJSON('/facebook-usercheck.json', function(data) {
+				            console.log(data);
+				            
+				            userIMO = data;
+				            
+				            $("#current-user-name").text(data.display_name);
+				            $("#tophat img.avatar").attr("src","http://0.gravatar.com/avatar/" + data.gravatar_hash + "?s=35");
+				            
+				            $("#tophat").slideDown();
+				            
+				            
+				            
+				          });
+						  
+					  }//End if user is logged in
+						       
+			       
+			       
+			         
 			     });
 			   } else {
 			     console.log('User cancelled login or did not fully authorize.');
