@@ -129,7 +129,6 @@ $("ul.post-type-select li.user-profile").click(function(){
 $("#more-superposts-button").click(function(){
 	
 	var postType = $("ul.post-type-select li.selected").attr("title");
-
 	currentDisplayStart += displayAtOnce;
 	if (displayMode == "tile") { //then show some tiles
 		displayRecon(postType);
@@ -139,6 +138,19 @@ $("#more-superposts-button").click(function(){
 	}
 
 });
+
+//activate Recon Network Controls - more button for community pages
+$("#more-community-button").click(function(){
+	
+	var postType = $(".page-community #recon-activity").attr("term");
+	currentDisplayStart += displayAtOnce;
+	
+	displayReconList(postType);
+
+
+});
+
+	
 
 //activate Recon Network Controls - Toggle Display Button
 $("#toggle-display-button").click(function(){
@@ -747,7 +759,6 @@ $(document).ready(function(){
 		var $questionTemplate;
 				
 		$.each(data, function(index, question) { 
-			//console.log(index,question); 
 			$questionTemplate = $("ul#slides-questions li").eq(index);
 			var url = "/plus/question/" + question.id;
 			var gravatar = $questionTemplate.find(".user-info img").attr("src","http://www.gravatar.com/avatar/" + this.gravatar_hash + ".jpg?s=50&d=identicon");
@@ -777,7 +788,6 @@ $(document).ready(function(){
 		var $questionTemplate;
 
 		$.each(data, function(index, all) { 
-		console.log(data);
 				$questionTemplate = $("ul#scroll-widget li").eq(index);
 				$questionTemplate.find("a").attr("href","/plus/" + all.post_type + "/" + all.id);
 				$questionTemplate.find("img").attr("src",all.img_url);

@@ -22,7 +22,7 @@ jQuery(document).ready(function($) {
 	
 		$("#body").css("display","none");
 		$("#title").attr("placeholder","Your Question");
-		$("select.post_type .question").attr("selected","selected");
+		$(".post_type .question").attr("selected","selected");
 	});
 	$('.new-post.trophy').click(function(){
 		$(".new-superpost-modal-container").modal({
@@ -32,7 +32,7 @@ jQuery(document).ready(function($) {
 		onShow: SetupPostForm
 		});
 	
-		$("select.post_type .trophy").attr("selected","selected");
+		$(".post_type .trophy").attr("selected","selected");
 		$(".chzn-container span").text("Oh! Where are you reporting from?");
 		$(".state-dropdown-container").slideDown();
 		$(".simplemodal-container").animate({height: "630px"});
@@ -46,7 +46,7 @@ jQuery(document).ready(function($) {
 		onShow: SetupPostForm
 		});
 	
-		$("select.post_type .report").attr("selected","selected");
+		$(".post_type .report").attr("selected","selected");
 		$(".chzn-container span").text("Oh! Where are you reporting from?");
 		$(".state-dropdown-container").slideDown();
 		$(".simplemodal-container").animate({height: "630px"});
@@ -60,7 +60,7 @@ jQuery(document).ready(function($) {
 		onShow: SetupPostForm
 		});
 	
-		$("select.post_type .lifestyle").attr("selected","selected");
+		$(".post_type .lifestyle").attr("selected","selected");
 	});
 	
 	$('.new-post.tip').click(function(){
@@ -71,7 +71,7 @@ jQuery(document).ready(function($) {
 		onShow: SetupPostForm
 		});
 	
-		$("select.post_type .tip").attr("selected","selected");
+		$(".post_type .tip").attr("selected","selected");
 	});
 	
 	$('.new-post.general').click(function(){
@@ -82,7 +82,7 @@ jQuery(document).ready(function($) {
 		onShow: SetupPostForm
 		});
 	
-		$("select.post_type .general").attr("selected","selected");
+		$(".post_type .general").attr("selected","selected");
 	});
   //You can't add jQuery events to elements that don't exist.
   //As such, this function runs after the New Post modal appears
@@ -92,9 +92,9 @@ jQuery(document).ready(function($) {
    $(".state-chzn").chosen();
 
     //Setup post type dropdown to show location when certain options are selected
-    $("select.post_type").change(function(){
+    $(".post_type").change(function(){
     	//if post is a question, hide the textarea
-  	if ($("select.post_type").val() == "question") {
+  	if ($(".post_type").val() == "question") {
 	    	$("#body").css("display","none");
 	    	$("#title").attr("placeholder","Your Question");
 	}else{
@@ -102,9 +102,9 @@ jQuery(document).ready(function($) {
 			$("#title").attr("placeholder","Headline");
 	}
     
-      if ($("select.post_type").val() == "report" || $("select.post_type").val() == "trophy") {
+      if ($(".post_type").val() == "report" || $(".post_type").val() == "trophy") {
 
-        if (($("select.post_type").val() == "report")) {
+        if (($(".post_type").val() == "report")) {
           $(".chzn-container span").text("Oh! Where are you reporting from?");
         }
 
@@ -114,15 +114,6 @@ jQuery(document).ready(function($) {
       //hide when not neccesary
 	      $(".state-dropdown-container").slideUp();
       }
-      
-      if ($("select.post_type").val() == "question") {
-	      $(".question-dropdown-container").slideDown();
-      } else {
-	      $(".question-dropdown-container").slideUp();
-
-      }
-      
-      
     });
 
    
@@ -242,7 +233,7 @@ jQuery(document).ready(function($) {
     }
     
     $(".photo-attachement-header").fadeIn(1000);
-
+    $('.page-community .superpost-form input[type="submit"]').css('top','+=90');
 
     var $loadingTag = $("<div class='loading-box' style=''><img src='/wp-content/themes/imo-mags-northamericanwhitetail/img/loader.gif'></div>");
     //$(".attached-photos").append($loadingTag);
@@ -252,12 +243,6 @@ jQuery(document).ready(function($) {
     //create more height on community page forms for additions
     
    var newHeight = '';
-   // $('.page-community .superpost-form input[type="submit"]').css("margin-top","154px");
-    //$('.page-community .new-superpost-modal-container').css("height","136px" + 80);
-    
-    // all pages
-    //$('.page-community .superpost-form input[type="submit"]').css("margin-top","154px");
-    //$('.page-community .superpost-form input[type="submit"]').css("margin-top","154px");
    
     return true;
   }

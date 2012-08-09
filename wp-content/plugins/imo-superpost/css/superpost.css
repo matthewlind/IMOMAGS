@@ -359,7 +359,7 @@ ul.post-type-select li.dd-arrow:hover{
     border-bottom:1px solid #CCCCCC;
     border-right:1px solid #CCCCCC; 
 }
-#more-superposts-button {
+#more-superposts-button, #more-community-button {
 	font-family: ProximaNovaA-Semibold;
 	font-size: 0.9em;
 	cursor: pointer;
@@ -388,7 +388,7 @@ ul.post-type-select li.dd-arrow:hover{
 	background: linear-gradient(top,  rgba(255,255,255,1) 71%,rgba(239,239,239,1) 97%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#efefef',GradientType=0 ); /* IE6-8 */
 }
-span#more-superposts-button span {
+span#more-superposts-button span, span#more-community-button span {
 	background: url('/wp-content/themes/imo-mags-northamericanwhitetail/img/load-icon.png') no-repeat;
 	height: 16px;
     margin: 1px 0 0 5px;
@@ -396,7 +396,7 @@ span#more-superposts-button span {
     width: 13px;
 }
 
-#more-superposts-button:hover {
+#more-superposts-button:hover, #more-community-button:hover {
 	color:#3e88e9;
 	 -moz-transition: all 0.6s ease 0s;
 }

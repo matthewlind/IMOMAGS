@@ -61,9 +61,19 @@ if ( is_user_logged_in() ) {
 		<div class="new-superpost-modal-container">
 		
 		<form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-form">
-	
+			<div class="question-dropdown-container" >
+		          <select class="post_type" name="secondary_post_type">
+			            <option value="general">Question Topic</option>
+			            <option value="general">General</option>
+			            <option value="tips">Tips & Tactics</option>
+			            <option value="land">Land Management</option>
+			            <option value="trophy">Trophy Bucks</option>
+			            <option value="gear">Gear</option>
+			            <option value="cooking">Cooking</option>
+		          </select>
+	        </div>
 	        <input type="text" name="title" id="title" placeholder="Write Your Question"/>
-	        <input type="text" name="title" id="title" value="question" style="display:none;"/>
+	        <input type="text" name="post_type" id="post_type" value="question" style="display:none;"/>
 	        	           
 
 	        <!-- <textarea name="body" id="body" placeholder="Tell Us Your Story."></textarea></div>-->
@@ -76,12 +86,12 @@ if ( is_user_logged_in() ) {
 	        <input type="hidden" name="masonry" value="true"> 
 	-->
 	        <input type="hidden" name="form_id" value="fileUploadForm">
-	        <input type="hidden" name="attachment_id" class="attachment_id" value="">
-	
+	        <input type="hidden" name="attachment_id" class="attachment_id" value="">	   
 	        <input type="submit" value="Submit" class="submit" />
 	        <p class="login-note">
 	        </p>
 	        </form>
+	        
 	        <div class="media-section">
 	
 		     		
@@ -100,7 +110,7 @@ if ( is_user_logged_in() ) {
 		
 		
 		      </form>
-		
+		      
 		      <div class="video-button">
 		        <span><span class="white-plus-sign"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/youtube.png" alt="YouTube" /></span>ADD YOUTUBE VIDEO</span>
 		      </div>
@@ -139,7 +149,7 @@ if ( is_user_logged_in() ) {
 
 
        </div>
-       <span id="more-superposts-button">Load More<span></span></span>
+       <span id="more-community-button">Load More<span></span></span>
    </div>
 </div>
 <?php get_footer(); ?>
