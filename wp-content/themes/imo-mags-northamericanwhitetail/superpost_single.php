@@ -81,7 +81,19 @@ $headerTitle = $data->post_type . ": " . $data->title;
 		<div class="super-meta">Posted on <?php the_time('F j, Y'); ?> &#8226; <?php the_time('g:i a'); ?> &#8226; <a href="/<?php echo $data->post_type; ?>" class="post-type"><?php echo $data->post_type; ?></a> &#8226; <?php echo $data->view_count; ?> views</div>
 		<div class="clearfix"></div>
 		<div class="entry-header"><h1 class="entry-title">"<?php echo $data->title; ?>"</h1></div>
-		<?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
+		<?php 
+		if($data->post_type == "question"){
+			$questionTopics = array("general"=>"General",
+						            "tips"=>"Tips & Tactics",
+						            "land"=>"Land Management",
+						            "trophy"=>"Trophy Bucks",
+						            "gear"=>"Gear",
+						            "cooking"=>"Cooking");
+		
+	    	echo '<h3>in ' . $questionTopics[$data->secondary_post_type] . '</h3> ';
+	    }
+	    
+	    if (function_exists('imo_add_this')) {imo_add_this();} ?>
 		
 			<div <?php post_class('entry entry-full clearfix'); ?>>
 				<div class="entry-content">

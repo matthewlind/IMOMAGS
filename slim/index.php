@@ -431,6 +431,7 @@ $app->post('/api/superpost/add',function() {
 		$paramList = array(
 			"parent",
 			"post_type",
+			"secondary_post_type",
 			"title",
 			"body",
 			"user_id",
