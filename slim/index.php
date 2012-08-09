@@ -195,6 +195,7 @@ $app->get('/api/superpost/type/:post_type(/:count(/:start))',function($post_type
 
 //*********************************
 //*** Get Specific Post with ID ***
+//*** THIS INCREMENTS VIEW COUNT ***
 //*********************************
 $app->get('/api/superpost/post/:id',function($id){
 
@@ -213,6 +214,18 @@ $app->get('/api/superpost/post/:id',function($id){
 		$posts = $stmt->fetchAll(PDO::FETCH_OBJ);
 
 		echo json_encode($posts);
+		
+		//Also update the view count
+		$sql = "UPDATE superposts SET view_count = view_count + 1 WHERE id = ?";
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array($id));
+		
+		
+		
+		
+		
+		
 
 		$db = "";
 
@@ -418,6 +431,7 @@ $app->post('/api/superpost/add',function() {
 		$paramList = array(
 			"parent",
 			"post_type",
+			"secondary_post_type",
 			"title",
 			"body",
 			"user_id",
@@ -562,7 +576,50 @@ $app->post('/api/superpost/update_caption',function() {
 
 });
 
+//*********************************
+//handle post flagging - rating - etc
+//*********************************
 
+$app->post('/api/post/flag',function() {
+	
+	header('Access-Control-Allow-Origin: *');
+
+	$params = Slim::getInstance()->request()->post();
+
+	_log("FLAGGING STARTED");
+	_log($params);
+
+	if (!(isset($params['post_id']) && isset($params['etype']) && isset($params['user_id']))) {
+		$rtn["error"] = "Invalid Request";
+
+	}
+	elseif (!($params['post_id']!="" && $params['etype']!="" && $params['user_id']!="")) {
+		$rtn["error"] = "Invalid Parameters";
+	
+	}
+	else {
+	
+		$post_id = $params['post_id'];
+		$etype = isset($params['etype'])? $params['etype']:"flag";
+		$user_id = isset($params['user_id'])? $params['user_id']:"1";
+	
+		//if (userIsGood($params['username'],$params['userhash'])) {
+		
+			$oFlagger = new postFlagger();
+		
+			$rtn = $oFlagger->insertEvent($post_id, $etype, $user_id);
+
+		
+		//}
+		//else {
+			//what if user is not good?
+		//}
+	}
+	
+	print json_encode($rtn);
+	return true;
+
+});
 
 
 

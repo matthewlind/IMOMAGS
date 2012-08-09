@@ -317,6 +317,19 @@ $args = array(
           
         </div>
         
+        <div class="question-dropdown-container" style="display:none;">
+          <select class="post_type" name="secondary_post_type">
+            <option value="general">Question Topic</option>
+            <option value="general">General</option>
+            <option value="tips">Tips & Tactics</option>
+            <option value="land">Land Management</option>
+            <option value="trophy">Trophy Bucks</option>
+            <option value="gear">Gear</option>
+            <option value="cooking">Cooking</option>
+          </select>
+        </div>
+            
+        
         
 
         <input id="file" type="file" name="photo-upload" id="photo-upload" style="display:none"/>

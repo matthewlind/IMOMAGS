@@ -114,6 +114,15 @@ jQuery(document).ready(function($) {
       //hide when not neccesary
 	      $(".state-dropdown-container").slideUp();
       }
+      
+      if ($("select.post_type").val() == "question") {
+	      $(".question-dropdown-container").slideDown();
+      } else {
+	      $(".question-dropdown-container").slideUp();
+
+      }
+      
+      
     });
 
    
