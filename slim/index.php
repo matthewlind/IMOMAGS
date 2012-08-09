@@ -111,6 +111,7 @@ $app->get('/api/superpost/type/:post_type(/:count(/:start))',function($post_type
 
 //*********************************
 //*** Get Specific Post with ID ***
+//*** THIS INCREMENTS VIEW COUNT ***
 //*********************************
 $app->get('/api/superpost/post/:id',function($id){
 
@@ -129,6 +130,18 @@ $app->get('/api/superpost/post/:id',function($id){
 		$posts = $stmt->fetchAll(PDO::FETCH_OBJ);
 
 		echo json_encode($posts);
+		
+		//Also update the view count
+		$sql = "UPDATE superposts SET view_count = view_count + 1 WHERE id = ?";
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array($id));
+		
+		
+		
+		
+		
+		
 
 		$db = "";
 
@@ -477,9 +490,9 @@ $app->post('/api/superpost/update_caption',function() {
 
 
 });
-
+//*********************************
 //handle post flagging - rating - etc
-
+//*********************************
 $app->post('/api/post/flag',function() {
 	
 	header('Access-Control-Allow-Origin: *');
