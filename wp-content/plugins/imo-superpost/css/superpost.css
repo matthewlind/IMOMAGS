@@ -213,14 +213,13 @@ input.submit {
 	padding:20px 20px 20px 0px;
 	border-top:1px dashed gray;
 	height:90px;
-	width:100%;
+	width:660px !important;
 
 }
 
 .recon-row ul li {
-	display: table-cell;
-	vertical-align: middle;
-	height:90px;
+	list-style-type: none;
+	
 }
 
 .recon-row.odd {
@@ -229,16 +228,16 @@ input.submit {
 
 .recon-row ul {
 	margin-left:0;
+	font-family: ProximaNova-Regular;
 }
 
 .recon-row ul li div.row-info {
 	display:inline-block;
-	width:400px;
 	margin-left:20px;
 }
 
 .recon-row ul li div.row-info.no-image {
-	width:510px;
+	
 }
 
 .recon-row ul li.row-image {
@@ -248,6 +247,7 @@ input.submit {
 img.superpost-list-thumb {
 	width:90px;
 	height:90px;
+	float: left;
 }
 
 .row-title {
@@ -256,9 +256,64 @@ img.superpost-list-thumb {
 }
 
 li.count-field {
-	padding-left:20px;
-	padding-right:20px;
-	text-transform:uppercase;
+	padding: 0 4px;
+	float: left;
+	font-size: 0.8em;
+}
+
+li.user-avatar{
+	margin-left: 20px;
+	float: left;
+	padding-right: 4px;
+	font-size: 0.8em;
+}
+li.user-avatar img{
+	height: 20px;
+	width: 20px;
+	vertical-align: middle;
+	padding-right: 4px;
+}
+.list-footer{
+	clear:both;
+	position: absolute;
+	font-family: ProximaNova-Semibold;
+    text-transform: uppercase;
+    right: 0;
+    bottom: 4px;
+    font-size: 0.9em;
+}
+.list-footer div{margin: 0 10px;}
+.list-footer .list-flag, .list-footer .list-answer{
+	float: left;
+}
+
+.list-footer .list-flag a{
+	background: url("/wp-content/themes/imo-mags-northamericanwhitetail/img/flag.png") no-repeat scroll center 4px transparent;
+    float: left;
+    height: 18px;
+    text-indent: -99999px;
+    width: 10px;
+}
+.list-footer .list-answer{
+	background: url("/wp-content/themes/imo-mags-northamericanwhitetail/img/reply.png") no-repeat scroll center left transparent;
+    padding-left: 18px;
+
+}
+.list-footer .list-answer a, .list-footer .list-answer a:visited{
+	color: #aaa197;
+	-moz-transition: none !important;-webkit-transition: none !important;
+
+}
+.list-footer .list-answer:hover a{
+	color: #000033;
+	-moz-transition: none !important;-webkit-transition: none !important;
+}
+.list-footer .list-flag a:hover{
+	background: url("/wp-content/themes/imo-mags-northamericanwhitetail/img/glyphicons_halflings_033_flag.png") no-repeat scroll center 4px transparent;
+
+}
+.list-footer .list-answer:hover{
+	background: url("/wp-content/themes/imo-mags-northamericanwhitetail/img/glyphicons_halflings_094_share.png") no-repeat scroll center left;
 }
 
 /* Homepage Controls */

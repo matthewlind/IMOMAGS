@@ -23,7 +23,23 @@ if ( is_multisite() && empty( $user_role ) ) {
 
 $user_can_edit = false;
 foreach ( array( 'posts', 'pages' ) as $post_cap )
-	$user_can_edit |= current_user_can( "edit_$post_cap" );
+	
+$user_can_edit |= current_user_can( "edit_$post_cap" );
+$displayStyle = "display:none;";
+$loginStyle = "";
+
+if ( is_user_logged_in() ) {
+
+	$displayStyle = "";
+	$loginStyle = "display:none;";
+	
+	wp_get_current_user();
+	
+	$current_user = wp_get_current_user();
+    if ( !($current_user instanceof WP_User) )
+         return;
+    }
+
 ?>
 
 <div class="login profile" id="theme-my-login<?php $template->the_instance(); ?>">

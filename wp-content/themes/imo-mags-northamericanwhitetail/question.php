@@ -54,6 +54,11 @@ if ( is_user_logged_in() ) {
 		<div class="bonus">
 			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('superpost-sidebar')) : else : ?><?php endif; ?>
 		</div>
+		<div id="responderfollow"></div>
+		<div class="sidebar advert">
+			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('scroll-sidebar')) : else : ?><?php endif; ?>
+		</div>
+
 	</div>
 
 	<div class="col-abc">
@@ -135,16 +140,11 @@ if ( is_user_logged_in() ) {
 		       <h4 style="display:none" class="photo-attachement-header">Photos</h4>
 		      <div class="attached-photos">
 		      </div>
-
-		    </div>
-	        
-
-	        
 	    </div> <!-- End new-superpost-modal-container -->
-	    </div>
+	    </div> <!-- end .col-abc -->
 	    <div class="col-abc">
 		
-	    <h2 class="comm-header stream-header">Latest Questions</h2>
+	    <h2 class="comm-header stream-header">Latest <?php the_title(); ?></h2>
         <div id="recon-activity" term="question" display="list" widthMode="short">
 
 

@@ -220,7 +220,6 @@ function displayRecon(type) {
 	    var count = 0;
 	    $(data).each(function(index) {
 	        count++;
-	        console.log(data);
 	        //var $avatar $("<img class='recon-gravatar'>").attr("src","http://www.northamericanwhitetail.fox/avatar?uid=" + this.$user_id);
 	        var url = "/plus/" + this.post_type + "/" + this.id;
 	        var link = $("<a href='" + url + "'>");
@@ -565,14 +564,14 @@ function displayReconList(type) {
 	    var count = 0;
 	    $(data).each(function(index) {
 	        count++;
-
+	        console.log(data);
 	        //usables: this.id, this.username, this.img_url, this.post_type,
 
 	        var gravatar = $("<img class='recon-gravatar'>").attr("src","http://www.gravatar.com/avatar/" + this.gravatar_hash + ".jpg?s=50&d=identicon");
 	        var authorInfo = $("<div class='recon-author-info'><span class='author-name'></span><span class='author-action'></span></div>");
 	        authorInfo.find(".author-name").text(this.username);
 	        authorInfo.find(".author-action").text(" posted a " + capitaliseFirstLetter(this.post_type));
-
+	        var underBox = $("<div class='under-box'></div>");
 	        var date = $("<abbr class='recon-date timeago' title=''></abbr>").attr("title",this.created);
 
 	        var image = $("<img class='superpost-list-thumb'>").attr("src",this.img_url);
@@ -585,7 +584,10 @@ function displayReconList(type) {
 			var statsBox = $("<div class='stats-box'></div>");
 
 			var points = parseInt(this.comment_count) + parseInt(this.share_count);
-
+			
+			//underBox.append(date);	
+			//var $avatar $("<img class='recon-gravatar'>").attr("src","http://www.northamericanwhitetail.fox/avatar?uid=" + this.$user_id);
+			var category_type = " in <a href=/question/'>" + this.secondary_post_type + "</a>";
 			var reconRow = $("\
 				<div class='recon-row masonry-box'>\
 					<ul>\
@@ -595,13 +597,19 @@ function displayReconList(type) {
 								<div class='row-title'><a href='" + url + "'>" + this.title + "</a></div>\
 							</div>\
 						</li>\
-						<li class='count-field' >" + points + " Points</li>\
-						<li class='count-field' >" + this.comment_count + " Comments</li>\
-						<li class='count-field' >" + this.share_count + " Shares</li>\
-					</ul>\
+												<li class='user-avatar'><a href='/profile/" + this.username + "'><img src='http://www.northamericanwhitetail.fox/avatar?uid='" + this.user_id + "' alt='User Avatar' /></a> by <a href='/profile/" + this.username + "'>" + this.username + "</a></li>\
+												<li class='count-field'><a href='" + url + "/#comments'>" + this.comment_count + " Comments</a></li>\
+						<li class='count-field'><abbr class='timeago'>" + this.created + "</abbr></li>\
+						<li class='count-field'>" + this.view_count + " Views</li>\
+												<li class='count-field'>" + points + " Points</li>\
+												</ul>\
+						<div class='list-footer'>\
+							<div class='list-answer'><a href='" + url + "'>Reply</a></div>\
+							<div class='list-flag'><a href='#'>Flag</a></div>\
+						</div>\
 				</div>");
-
-
+			
+			
 			$("#recon-activity").append(reconRow);
 
 			userDetailsBox.append(nameBox);
@@ -686,9 +694,7 @@ function displayUserComments(userID) {
 				encoded = this.comment_body;
 			}
 			
-			//var d1 = Date.parse('2012-03-29 14:42:09');
-			var create_date = Date.parse(this.date);
-					
+
 			var reconRow = $("\
 				<div class='recon-row masonry-box'>\
 					<ul>\
@@ -698,7 +704,7 @@ function displayUserComments(userID) {
 								<div class='row-title'><a href='" + url + "'>" + encoded + "</a></div>\
 							</div>\
 						</li>\
-						<li class='count-field' >Posted on: " + create_date + "</li>\
+						<li class='count-field' >Posted on: <abbr class='timeago' title='" + this.created + "'>" + this.created + "</abbr></li>\
 					</ul>\
 				</div>");
 

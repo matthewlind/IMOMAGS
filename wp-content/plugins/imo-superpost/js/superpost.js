@@ -233,7 +233,7 @@ jQuery(document).ready(function($) {
     }
     
     $(".photo-attachement-header").fadeIn(1000);
-    $('.page-community .superpost-form input[type="submit"]').css('top','+=90');
+    $('.page-community input.submit').css('top','+=90');
 
     var $loadingTag = $("<div class='loading-box' style=''><img src='/wp-content/themes/imo-mags-northamericanwhitetail/img/loader.gif'></div>");
     //$(".attached-photos").append($loadingTag);
@@ -263,7 +263,7 @@ jQuery(document).ready(function($) {
       width: "320px"
     }, 500 );
     $(".page-community .media-section").animate({
-      width: "380px"
+      width: "640px"
     }, 500 );
 
 

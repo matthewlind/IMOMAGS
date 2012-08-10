@@ -54,6 +54,9 @@ hr.comm-sep{
     height: 4px;
     margin-top: 21px;
 }
+textarea {
+    resize: none;
+}
 /*PAGE LAYOUT MODS*/
  
 .str-container {
@@ -3842,6 +3845,9 @@ h3.first-last-name{
 **Community Page
 **
 *****/
+.page-community ul.post-type-select li:first-child{
+	border-left: 1px solid #ccc;
+}
 ul#user-bar{
 	list-style: none;
 	float: right;
@@ -3883,13 +3889,9 @@ ul.community-cats li.points{
 	font-weight: bold;
 	float: right;
 	margin-top: 2px;
+	margin-right: 30px;
 }
-ul.community-cats li.points a{
-	text-decoration: underline;
-}
-ul.community-cats li.points a:hover{
-	text-decoration: none;
-}
+
 ul.community-cats li div{
 	float: left;
 	width: 32px; /* centering icons */
@@ -3966,7 +3968,7 @@ ul.community-cats li.post:hover {
     padding: 0 10px;
 }
 .page-template-community-php #recon-activity{top:70px !important;}
-
+.page-community{padding-left: 1px;}
 /**** Individual community pages ****/
 .page-community .new-superpost-modal-container {
 	width: 636px;
@@ -3983,18 +3985,29 @@ ul.community-cats li.post:hover {
     top: 170px;
     width: 190px;
 } 
-.page-community .new-superpost-modal-container input#title, .page-community .superpost-form textarea{
+.page-community .new-superpost-modal-container input#title, .page-community .new-superpost-modal-container textarea{
 	width: 618px !important;
 	border: 1px solid #aaa197 !important;
+	padding: 4px 8px;
+}
+.page-community .new-superpost-modal-container textarea{
+	height: 100px;
 }
 .page-community .media-section{
 	float: left;
-	margin: 0;
+	margin: -14px 0 0;
 }
+.page-template-question-php .page-community .media-section{
+	margin: 7px 0 0;
+}
+
 .page-community #fileUploadForm-image, .page-community .video-button{
 	float: left;
 	margin: 0;
 }
+.page-community .video-button span{margin-top:-1px;}
+
+.page-community .video-button img{vertical-align: middle;}
 .page-community .new-superpost-modal-container .superpost-image-form{
 	width: 98px;
 }
@@ -4014,16 +4027,29 @@ ul.community-cats li.post:hover {
     padding: 10px 0;
     margin-top: 17px;
     cursor: pointer;
+    left: 431px;
+    position: absolute;
+    top: 380px;
+    width: 190px;
 }
-.page-community .recon-row{
-	width: 660px;
+
+.page-template-question-php .page-community input.submit{
+   	background: none repeat scroll 0 0 #347FE7;
+    border: 1px solid #2861B2;
+    border-radius: 4px;
+    box-shadow: 0 1px 0 transparent, 1px 1px 0 #679FED inset;
+    color: #FFFFFF;
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 1px 2px 0 rgba(0, 0, 0, 0.4);
+    font-size: 1em;
+    padding: 10px 0;
+    margin-top: 17px;
+    cursor: pointer;
+    left: 280px;
+    position: absolute;
+    top: 170px;
+    width: 190px;
 }
-.page-community .recon-row ul li div.row-info{
-	width: 360px !important;
-}
-.page-community .recon-row ul li div.row-info .row-image{
-	width: 300px !important;
-}
+
 .page-community .comm-header{
 	font-family: ProximaNovaA-Light;
 }
@@ -4037,29 +4063,32 @@ ul.community-cats li.post:hover {
     margin: 1px;
 }
 .page-community .new-superpost-modal-container .superpost-image-form  {
-	width: 152px;
+	width: 152px !important;
 }
+.masonry-form{width: 152px !important;}
 .page-community .video-button{
 	background-color: #aaa197;
 	width: 189px;
-	height: 28px;
+	height: 26px;
 }
+.page-community .upload-button{padding: 8px 10px 4px;}
 .page-community .white-plus-sign{
 	line-height: 23px;	
 } 
 .page-community .video-body-holder{
 	border: medium none;
     box-shadow: none;
-    left: 341px;
-    position: absolute;
-    top: 130px;
     width: 250px;
 }  
+.page-community .video-url-form-holder-container{
+	float: left;
+}
 .page-community #video-body{
 	background-color: white;
     border: 1px solid #CCCCCC;
-    padding: 6px 30px;
-    width: 175px; 
+    padding: 2px 30px 1px;
+    width: 175px;
+    height: 21px;
 }
 .page-community input.caption-field{
 	background-color: white;
@@ -4079,7 +4108,6 @@ ul.community-cats li.post:hover {
     line-height: 1.2;
     margin-bottom: 0;
     margin-top: 0;
-    width: 95%;
     font-family: ProximaNovaA-Regular;
 }
 .page-community .row-title a{
@@ -4179,12 +4207,90 @@ ul.thumbs-grid li img{
     
     
     
-    
-    
-    
-    
-    
-    
+/********
+****
+*** User Forms
+****
+********/   
+.login #loginform{
+	margin-top: 40px;
+}
+ 
+.login input{
+	border: 1px solid #CCCCCC;
+    color: #666666;
+    font-family: "Helvetica Nueue",Helvetica,Arial,sans-serif;
+    font-size: 0.9em;
+    height: 30px;
+    padding: 2px 8px;
+    -moz-box-shadow: inset 0 2px 1px #ccc;
+    -webkit-box-shadow: inset 0 2px 1px #ccc;
+    box-shadow: inset 0 1px 1px #ccc;
+} 
+.login label{
+	font-family: ProximaNova-Light;
+}  
+.login #wp-submit, #theme-my-login .submit input{
+	background: none repeat scroll 0 0 #347FE7;
+    border: 1px solid #2861B2;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 0 transparent, 1px 1px 0 #679FED inset;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 1em;
+    height: 40px;
+    margin-top: 17px;
+    padding: 10px 0;
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 1px 2px 0 rgba(0, 0, 0, 0.4);
+    text-transform: uppercase;
+    width: 178px;
+}
+#theme-my-login .submit input{
+	margin: 40px 0 0 240px;
+}
+.forgetmenot input{ 
+ 	height: 16px;
+    margin-right: 4px !important;
+}
+.tml-action-links{
+	list-style: none;
+	margin: 14px 0;
+	font-family: ProximaNovaA-Regular;
+	font-size: 0.9em;
+}
+.tml-action-links li{padding: 2px 0;}
+.login p.message {
+    background-color: #F6F4EB !important;
+    border: 1px solid #DBD4CC !important;
+    color: #C65517 !important;
+    padding: 5px !important;
+    text-align: center;
+}
+/***edit profile ***/
+#theme-my-login input{
+	font-size: 1.3em;
+}
+#theme-my-login .description{
+	font-family: ProximaNovaA-Regular;
+	display: block;
+}
+#theme-my-login #pass-strength-result{
+	float: none;
+	font-family: ProximaNovaA-Regular;
+}
+#theme-my-login .editform{display: none!important;}
+#your-profile h3{
+	display: none;
+}
+   
+   
+   
+   
+   
+   
+   
+   
+/*** Local edits ***/   
     
 #text-19 {padding: 0;}
        
