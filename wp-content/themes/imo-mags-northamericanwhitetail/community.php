@@ -24,6 +24,60 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 get_header();
 
 the_post();
+
+$hostname = $_SERVER['SERVER_NAME'];
+
+
+//Get Post Count Data
+$requestURL = "http://$hostname/slim/api/superpost/count/general";
+
+$file = file_get_contents($requestURL);
+$generalCount = json_decode($file);
+$generalCount = $generalCount[0];
+
+$requestURL2 = "http://$hostname/slim/api/superpost/count/report";
+
+$file2 = file_get_contents($requestURL2);
+$reportCount = json_decode($file2);
+$reportCount = $reportCount[0];
+
+$requestURL3 = "http://$hostname/slim/api/superpost/count/question";
+
+$file3 = file_get_contents($requestURL3);
+$questionCount = json_decode($file3);
+$questionCount = $questionCount[0];
+
+$requestURL4 = "http://$hostname/slim/api/superpost/count/trophy";
+
+$file4 = file_get_contents($requestURL4);
+$trophyCount = json_decode($file4);
+$trophyCount = $trophyCount[0];
+
+$requestURL5 = "http://$hostname/slim/api/superpost/count/tip";
+
+$file5 = file_get_contents($requestURL5);
+$tipCount = json_decode($file);
+$$tipCount = $tipCount[0];
+
+$requestURL6 = "http://$hostname/slim/api/superpost/count/lifestyle";
+
+$file6 = file_get_contents($requestURL6);
+$lifestyleCount = json_decode($file6);
+$lifestyleCount = $lifestyleCount[0];
+
+$requestURL7 = "http://$hostname/slim/api/superpost/count/gear";
+
+$file7 = file_get_contents($requestURL7);
+$gearCount = json_decode($file7);
+$gearCount = $gearCount[0];
+
+$requestURL8 = "http://$hostname/slim/api/superpost/count/tip";
+
+$file8 = file_get_contents($requestURL8);
+$tipCount = json_decode($file8);
+$tipCount = $tipCount[0];
+
+
 $displayStyle = "display:none;";
 $loginStyle = "";
 
@@ -41,7 +95,10 @@ if ( is_user_logged_in() ) {
 ?>
 <div class="page-community">
 	<header class="header-title">
-		<ul id="user-bar" style="<?php echo $displayStyle; ?>">	          
+		<div class="imo-fb-login-button" style="<?php echo $loginStyle; ?>">
+	    	LOGIN
+	    </div>
+    	<ul id="user-bar" style="<?php echo $displayStyle; ?>">	          
 			<li class="user-name">Hello, <a href="/profile/<?php echo $current_user->user_nicename; ?>"><span id="current-user-name"><?php echo $current_user->display_name; ?></span></a></li>
 			<li><a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" alt="User Avatar" class="recon-gravatar" /></a></li>                      
        </ul>
@@ -59,33 +116,34 @@ if ( is_user_logged_in() ) {
 	<div class="col-abc community">
 			<ul class="community-cats">
 				<li id="rut" class="title"><div></div><h2><a href="/report/" term="report" display="list">Rut Reports</a></h2></li>
-				<li class="new-post selected points report"><a href="#">Post in Rut Reports</a></li>
+				<li class="selected points"><a href="/report/"><?php echo $reportCount->post_count.' Posts'; ?></a></li>
 			</ul>
 			
 			<ul class="community-cats">
 				<li id="tips-tactics" class="title"><div></div><h2><a href="/tip/">Tips & Tactics</a></h2></li>
-				<li class="new-post selected points tip"><a href="#">Post in Tips & Tactics</a></li>
+				<li class="selected points"><a href="/tip/"><?php echo $tipCount->post_count.' Posts'; ?></a></li>
 			</ul>
 			
 			<ul class="community-cats">
 				<li id="lifestyle" class="title"><div></div><h2><a href="/lifestyle/">Lifestyle</a></h2></li>
-				<li class="new-post selected points lifestyle"><a href="#">Post in Lifestyle</a></li>
+				<li class="selected points"><a href="/lifestyle/"><?php echo $lifestyleCount->post_count.' Posts'; ?></a></li>
 			</ul>
 			
 			<ul class="community-cats">
 				<li id="tbucks" class="title"><div></div><h2><a href="/trophy/">Trophy Bucks</a></h2></li>
-				<li class="new-post selected points trophy"><a href="#">Post in Trophy Buck</a></li>
+				<li class="selected points"><a href="/trophy/"><?php echo $trophyCount->post_count.' Posts'; ?></a></li>
 			</ul>
 			
 			<ul class="community-cats">
 				<li id="general" class="title"><div></div><h2><a href="/general/"">General Discussion</a></h2></li>
-				<li class="new-post selected points general"><a href="#">Post in Discussion</a></li>
+				<li class="selected points"><a href="/general/"><?php echo $generalCount->post_count.' Posts'; ?></a></li>
 			</ul>
 			
 			<ul class="community-cats">
 				<li id="experts" class="title"><div></div><h2><a href="/question/">Q&A</a></h2></li>
-				<li class="new-post selected points question"><a href="#">Post in Questions</a></li>
+				<li class="selected points"><a href="/question/"><?php echo $questionCount->post_count.' Posts'; ?></a></li>
 			</ul>
+			
 		
 	</div><!-- .col-abc -->	
 <div class="clear"></div>
@@ -112,7 +170,7 @@ if ( is_user_logged_in() ) {
             	<a id="toggle-list" class="list-off"></a>
             </div>-->
             <ul class="post-type-select">
-            	<li id="new-post-button" class="post"><span>+</span> Post</li>
+            	
                 <li class='change all-nav selected' title='all'>ALL</li>
                 <li class='change general-nav' title='general'>General</li>
                 <li class='change report-nav' title='report'>Reports</li>
@@ -120,14 +178,16 @@ if ( is_user_logged_in() ) {
                 <li class='change lifestyle-nav' title='lifestyle'>Lifestyle</li>
                 <li class='change trophy-nav' title='trophy'>Trophy Bucks</li>
                 <!--<li class="dd-arrow"></li>-->
-            </ul>
-	        <ul id="user-bar" style="<?php echo $displayStyle; ?>">	          
-				<li class="user-name">Hello, <a href="/profile/<?php echo $current_user->user_nicename; ?>"><span id="current-user-name"><?php echo $current_user->display_name; ?></span></a></li>
-				<li><a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" alt="User Avatar" class="recon-gravatar" /></a></li>                      
-			</ul>    
-            <div class="imo-fb-login-button" style="<?php echo $loginStyle; ?>">
-                LOGIN
-            </div>  
+
+            </ul>    
+           <div class="imo-fb-login-button" style="<?php echo $loginStyle; ?>">
+	    	LOGIN
+	    </div>
+    	<ul id="user-bar" style="<?php echo $displayStyle; ?>">	          
+			<li class="user-name">Hello, <a href="/profile/<?php echo $current_user->user_nicename; ?>"><span id="current-user-name"><?php echo $current_user->display_name; ?></span></a></li>
+			<li><a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" alt="User Avatar" class="recon-gravatar" /></a></li>                      
+       </ul>
+
             <div id="recon-activity" term="all" display="tile">
 
 

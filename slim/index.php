@@ -192,6 +192,39 @@ $app->get('/api/superpost/type/:post_type(/:count(/:start))',function($post_type
 
 });
 
+//*********************************
+//**** Count all Posts of a Type ****
+//*********************************
+$app->get('/api/superpost/count/:post_type',function($post_type){
+
+
+
+
+	header('Access-Control-Allow-Origin: *');
+
+	try {
+
+		$db = dbConnect();
+
+		$whereClause = "WHERE post_type = ?";
+
+		
+		$sql = "SELECT COUNT(post_type) AS post_count FROM allcounts $whereClause";
+		
+   		$stmt = $db->prepare($sql);
+		$stmt->execute(array($post_type));
+	
+		$posts = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+		echo json_encode($posts);
+
+		$db = "";
+
+	} catch(PDOException $e) {
+    	echo $e->getMessage();
+    }
+
+});
 
 
 //*********************************

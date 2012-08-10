@@ -41,72 +41,103 @@ if ( is_user_logged_in() ) {
 
 ?>
 <div class="page-community">
-<div class="col-abc super-post">
     <header class="header-title">
-   		<ul id="user-bar" style="<?php echo $displayStyle; ?>">	          
+    	<div class="imo-fb-login-button" style="<?php echo $loginStyle; ?>">
+	    	LOGIN
+	    </div>
+    	<ul id="user-bar" style="<?php echo $displayStyle; ?>">	          
 			<li class="user-name">Hello, <a href="/profile/<?php echo $current_user->user_nicename; ?>"><span id="current-user-name"><?php echo $current_user->display_name; ?></span></a></li>
 			<li><a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" alt="User Avatar" class="recon-gravatar" /></a></li>                      
        </ul>
-       <h1><a href="/community/">Community</a> <span>| General Discussion</span></h1>
-	</header>
-	<div class="col-abc super-post">
-		<div class="imo-fb-login-button" style="<?php echo $loginStyle; ?>">
-	    	LOGIN
-	    </div>
-	    <ul class="post-type-select add-post" style="<?php echo $displayStyle; ?>">
-	    	<li id="new-post-button" class="new-post post general">+ POST IN GENERAL DISCUSSION</li>
-		</ul>
-		<div id="recon-activity" term="general" display="tile">
-
-
-        </div>
-        <span id="more-superposts-button">Load More<span></span></span>
-    </div>
-</div>
-<div class="clear"></div>
-	<!-- Editor's Picks w/ Sidebar Bottom -->		
+	       <h1><a href="/community/">Community</a> <span>| General Discussion</span></h1>
+		</header>
 	<div class="bonus-background">
 		<div class="bonus">
-			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-home-top')) : else : ?><?php endif; ?>
-		</div>		
-	</div>
-	
-	<div class="col-abc">
-				<div class="clear"></div>
-					<div class="header-sort home-questions">
-						<h1 class="more-header">Q&A</h1>
-					</div>
-					<div class="questions-slider">
-		                <div class="slides-container-f">
-		                	<a href="/question" class="see-all home-see-all">See All Questions</a>
-		                     	<ul id="slides-questions" class="jcarousel-skin-tango questions-feed">
-		                        	<?php 
-		                     		for ($i = 1; $i <= 4; $i++) {
-			                     		echo '<li>';
-										echo '<div class="user-info">';
-											echo '<a href="/profile/username"><img alt="user photo" src="http://www.northamericanwhitetail.fox/wp-content/themes/imo-mags-northamericanwhitetail/img/user-temp.jpg"></a>';
-											echo '<span>Batman asks...</span>';
-										echo '</div>';
-										echo '<div class="quote-area">';
-											echo '<div class="top"></div>';
-											echo '<div class="mdl">';
-												echo '<h4 class="quote">&#8220;Can anyone suggest a good camo bat-suit for hunting in the forest? I am having trouble hunting in the day time.&#8221;</h4>';
-											echo '</div>';
-											echo '<div class="btm"></div>';
-										echo '</div>';
-										echo '<div class="answers-area">';
-											echo '<div class="answers-count">';
-												echo 'Answers <a href="#"><span class="count">18</span></a>';
-											echo '</div>';
-											echo '<a href="#" class="answers-link">Answer This Question</a> '; 
-											echo '<a class="plus-button new-post question questions-right"><span class="plus">+</span><span>Ask Your Question</span></a>';             
-										echo '</div>';
-									echo '</li>';
-									} ?>
-		                        </ul>
-		                    </div>    
-		                </div>
-		            <div class="clear"></div>
-	</div>
-<?php get_footer(); ?>
+			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('superpost-sidebar')) : else : ?><?php endif; ?>
+		</div>
+		<div id="responderfollow"></div>
+		<div class="sidebar advert">
+			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('scroll-sidebar')) : else : ?><?php endif; ?>
+		</div>
 
+	</div>
+
+	<div class="col-abc">
+		<h2 class="comm-header">Post in General Discussion!</h2>
+		<div class="new-superpost-modal-container">
+		
+	        <input type="text" name="title" id="title" placeholder="Your Headline"/>
+	        <input type="text" name="post_type" id="post_type" value="general" style="display:none;"/>
+	        <textarea name="body" id="body" placeholder="Tell Us Your Story."></textarea></div>
+	        
+	        <input id="file" type="file" name="photo-upload" id="photo-upload" style="display:none"/>
+	<!--    
+	        <input type="hidden" name="clone_target" value="superpost-box">
+	        <input type="hidden" name="attach_target" value="post-container">
+	        <input type="hidden" name="attachment_point" value="prepend">
+	        <input type="hidden" name="masonry" value="true"> 
+	-->
+	        <input type="hidden" name="form_id" value="fileUploadForm">
+	        <input type="hidden" name="attachment_id" class="attachment_id" value="">	   
+	        <input type="submit" value="Submit" class="submit" />
+	        <p class="login-note">
+	        </p>
+	        </form>
+	        
+	        <div class="media-section">
+	
+		     		
+		      <form id="fileUploadForm-image" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-image-form">
+		        <div id="fileupload" >
+		          <div class="fileupload-buttonbar ">
+		              <label class="upload-button">
+		                  <span><span class="white-plus-sign">+</span><span class="button-text">ATTACH PHOTO</span></span>
+		                  <input id="image-upload" type="file" name="photo-upload" id="photo-upload" />
+		
+		              </label>
+		          </div>
+		        </div>
+		        <input type="hidden" name="post_type" value="photo">
+		        <input type="hidden" name="form_id" value="fileUploadForm">
+		
+		
+		      </form>
+		      
+		      <div class="video-button">
+		        <span><span class="white-plus-sign"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/youtube.png" alt="YouTube" /></span>ADD YOUTUBE VIDEO</span>
+		      </div>
+		      <div class="video-url-form-holder-container" style="display:none;">
+		
+		        <div class="video-url-form-holder" style="">
+		          <form id="video-url-form" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-image-form">
+		            
+		            <div class="video-body-holder">
+		            <input type="text" name="body" id="video-body" placeholder="Paste YouTube URL or code here"/>
+		            </div>
+		            <input type="hidden" name="post_type" value="youtube">
+		            <input type="hidden" name="form_id" value="fileUploadForm">
+		
+		
+		          </form>
+		
+		        </div>
+		        <div class="video-close-button">
+		        </div>
+		      </div>
+		       <h4 style="display:none" class="photo-attachement-header">Photos</h4>
+		      <div class="attached-photos">
+		      </div>
+
+	    </div> <!-- End new-superpost-modal-container -->
+	    </div> <!-- end .col-abc -->
+	    <div class="col-abc">
+		
+	    <h2 class="comm-header stream-header">Latest in <?php the_title(); ?> Discussion</h2>
+        <div id="recon-activity" term="general" display="tile" widthMode="short">
+
+
+       </div>
+       <span id="more-community-button">Load More<span></span></span>
+   </div>
+</div>
+<?php get_footer(); ?>
