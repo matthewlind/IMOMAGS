@@ -122,7 +122,7 @@ $(document).ready(function(){
 $(document).ready(function(){
 				
 		$('#scroll-widget').buffet({
-    		scroll_by : 1,
+    		scroll_by : 3,
    			next      : $('.next'),
     		prev      : $('.prev')
   		});
