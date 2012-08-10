@@ -178,6 +178,7 @@ if ( is_user_logged_in() ) {
                 <li class='change lifestyle-nav' title='lifestyle'>Lifestyle</li>
                 <li class='change trophy-nav' title='trophy'>Trophy Bucks</li>
                 <!--<li class="dd-arrow"></li>-->
+
             </ul>    
            <div class="imo-fb-login-button" style="<?php echo $loginStyle; ?>">
 	    	LOGIN
@@ -186,6 +187,7 @@ if ( is_user_logged_in() ) {
 			<li class="user-name">Hello, <a href="/profile/<?php echo $current_user->user_nicename; ?>"><span id="current-user-name"><?php echo $current_user->display_name; ?></span></a></li>
 			<li><a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" alt="User Avatar" class="recon-gravatar" /></a></li>                      
        </ul>
+
             <div id="recon-activity" term="all" display="tile">
 
 

@@ -14,6 +14,7 @@ include 'userinfo.php';
 include 'images.php';
 include 'video.php';
 include 'location.php';
+include 'clsFlagger.php';
 
 function get_IP() {
 	$headers = apache_request_headers(); 

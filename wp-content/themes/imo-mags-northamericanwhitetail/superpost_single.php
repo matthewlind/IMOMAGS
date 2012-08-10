@@ -36,10 +36,6 @@ $data = json_decode($file);
 $data = $data[0];
 
 
-_log("SUPER POST SINGLE");
-_log($data);
-
-
 //Then get attachment data
 $requestURL3 = "http://$hostname/slim/api/superpost/children/not_comment/$spid";
 
@@ -66,6 +62,10 @@ $grav_url = "http://www.gravatar.com/avatar/" . $data->gravatar_hash . ".jpg?s=5
 $headerTitle = $data->post_type . ": " . $data->title;
 
 ?>
+<!-- Don't delete this. It's part of imo-add-this -->
+<div id="imo-add-this-spid" style="display:none;"><?php echo $spid; ?></div>
+
+
 <header class="header-title">
 	<h1><a href="/community/">Community</a> <span>| <a href="/<?php echo $data->post_type; ?>"><?php echo $data->post_type; ?></a></span></h1>
 </header>

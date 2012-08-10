@@ -56,6 +56,9 @@ jQuery(document).ready(function($) {
 
 	
 		function imo_fb_login() {
+		
+		$(".imo-fb-login-button").css({ opacity: 0.5 });
+		
 			FB.login(function(response) {
 			   if (response.authResponse) {
 			     console.log('Welcome!  Fetching your information.... ');
@@ -81,11 +84,20 @@ jQuery(document).ready(function($) {
 				            
 				            userIMO = data;
 				            
-				            $("#current-user-name").text(data.display_name);
-				            $("#tophat img.avatar").attr("src","http://0.gravatar.com/avatar/" + data.gravatar_hash + "?s=35");
 				            
-				            $("#tophat").slideDown();
+				            var $userBar = $("ul#user-bar");
 				            
+				            $userBar.find("a").attr("href","/profile/" + data.username);
+				            $userBar.find("#current-user-name").text(data.display_name);
+				            $userBar.find("img.recon-gravatar").attr("src","/avatar?uid=" + data.user_id);
+				            
+				            $(".imo-fb-login-button").fadeOut(500,function(){
+					            
+					            $userBar.fadeIn();
+				            });
+				            
+
+				       			            
 				            
 				            
 				          });

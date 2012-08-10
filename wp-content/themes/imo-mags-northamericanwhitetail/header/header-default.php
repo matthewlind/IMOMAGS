@@ -22,12 +22,7 @@ if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 
-//If the post is a Superpost, get the title
-if (get_the_title(null, false) == 'superpost-single') {
-  $postTitle = "Superpost! - ";
-} else {
-  $postTitle = wp_title( '-', false, 'right' ); 
-}
+$postTitle = wp_title( '-', false, 'right' ); 
 
 ?>
 <!DOCTYPE html>
