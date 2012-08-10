@@ -16,8 +16,6 @@ License: IMO
 
 
 
-
-
 function imo_add_this() {
 
 
@@ -29,6 +27,27 @@ function imo_add_this() {
 	<a class="addthis_counter addthis_pill_style"></a>
 </div>
 <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4de0e5f24e016c81"></script>
+<script type="text/javascript">
+addthis.addEventListener("addthis.menu.share", postShared);
+
+function postShared(event) {
+
+
+	if ($("#imo-add-this-spid").length > 0) {
+		var postID = $("#imo-add-this-spid").text();
+	
+	$.post("/slim/api/post/flag", { post_id: postID, etype: "share", user_id: "0" },
+   function(data) {
+
+   });
+	}
+
+
+	
+	
+}
+
+</script>
 <!-- IMO AddThis Button END -->
 ';
 }

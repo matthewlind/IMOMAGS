@@ -30,7 +30,7 @@ class postFlagger {
 		$sql = "SELECT * FROM events WHERE uid = ? AND event_type = ? AND spid = ?";
 		$stmt = $this->db->prepare($sql);
 		$stmt->execute(array($userid, $etype, $post_id));
-		if($stmt->rowCount() > 0) {
+		if($stmt->rowCount() > 0 && $etype != "share") {//Aaron modified this line to check the event type so that points from ANON users count
 			$rtn["newcount"] = "dup";
 			return $rtn;
 		}
