@@ -184,7 +184,6 @@ jQuery(document).ready(function($) {
   $('.superpost-form').ajaxForm({                 
     beforeSubmit: ShowRequest,
     success: SubmitSuccessful,
-    data:userIMO,
     error: AjaxError,
     dataType: 'json'                               
   });    
@@ -192,8 +191,30 @@ jQuery(document).ready(function($) {
   //This is called before the new post form is sent.
   //It doesn't actually do anything but it's useful for debugging
   function ShowRequest(formData, jqForm, options) {
+	
+	//console.log(  $(userIMO) );
+  
+/*
+   $.each(userIMO, function(index,value){
+   
+   		
+	    
+	    console.log(index,value);
+	    formData.push({ name: index, value: value});   
+	    
+    });
+*/
+  
+  	//Add the userdata so that we can authenticate
+  	options.extraData = $.extend(true, {}, options.extraData, userIMO);
+  
+  
     var queryString = $.param(formData);
     //alert('BeforeSend method: \n\nAbout to submit: \n\n' + queryString);
+    
+    
+
+      
     return true;
   }
 
@@ -221,7 +242,6 @@ jQuery(document).ready(function($) {
   $('.superpost-image-form').ajaxForm({                 
     beforeSubmit: BeforeImageSubmit,
     success: ImageSubmitSuccessful,
-    data:userIMO,
     dataType: 'json',
     error: AjaxError                               
   });
@@ -243,6 +263,9 @@ jQuery(document).ready(function($) {
     //create more height on community page forms for additions
     
    var newHeight = '';
+   
+    //Add the userdata so that we can authenticate
+  	options.extraData = $.extend(true, {}, options.extraData, userIMO);
    
     return true;
   }
@@ -301,7 +324,6 @@ jQuery(document).ready(function($) {
     $imageTag.find('.superpost-caption-form').ajaxForm({                 
       beforeSubmit: ShowRequest,
       success: CaptionSubmitSuccessful,
-      data:userIMO,
       dataType: 'json',
       error: AjaxError                               
     });    
@@ -330,7 +352,6 @@ jQuery(document).ready(function($) {
   $('.superpost-comment-form').ajaxForm({                 
     beforeSubmit: ShowRequest,
     success: CommentSubmitSuccessful,
-    data:userIMO,
     dataType: 'json',
     error: AjaxError                               
   });    
