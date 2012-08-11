@@ -62,12 +62,14 @@ if ( is_user_logged_in() ) {
 	</div>
 
 	<div class="col-abc">
-		<h2 class="comm-header">Post a Tip!</h2>
+		<h2 class="comm-header">Ask The Community!</h2>
 		<div class="new-superpost-modal-container">
 		
-	        <input type="text" name="title" id="title" placeholder="Your Headline"/>
-	        <input type="text" name="post_type" id="post_type" value="question" style="display:none;"/>
-	        <textarea name="body" id="body" placeholder="Tell Us Your Story."></textarea></div>
+		<form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-form">		        <input type="text" name="title" id="title" placeholder="Write Your Question"/>
+	        <input type="text" name="post_type" id="post_type" value="tip" style="display:none;"/>
+	        	           
+
+	        <!-- <textarea name="body" id="body" placeholder="Tell Us Your Story."></textarea></div>-->
 	        
 	        <input id="file" type="file" name="photo-upload" id="photo-upload" style="display:none"/>
 	<!--    
@@ -126,12 +128,11 @@ if ( is_user_logged_in() ) {
 		       <h4 style="display:none" class="photo-attachement-header">Photos</h4>
 		      <div class="attached-photos">
 		      </div>
-
 	    </div> <!-- End new-superpost-modal-container -->
 	    </div> <!-- end .col-abc -->
 	    <div class="col-abc">
 		
-	    <h2 class="comm-header stream-header">Latest <?php the_title(); ?> & Tactics</h2>
+	    <h2 class="comm-header stream-header">Latest <?php the_title(); ?></h2>
         <div id="recon-activity" term="tip" display="list" widthMode="short">
 
 
@@ -140,3 +141,4 @@ if ( is_user_logged_in() ) {
    </div>
 </div>
 <?php get_footer(); ?>
+

@@ -62,13 +62,15 @@ if ( is_user_logged_in() ) {
 	</div>
 
 	<div class="col-abc">
-		<h2 class="comm-header">Post Your Trophy Buck!</h2>
+		<h2 class="comm-header">Post a Report!</h2>
 		<div class="new-superpost-modal-container">
 		
-	        <input type="text" name="title" id="title" placeholder="Your Headline"/>
+		<form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-form">
+	        <input type="text" name="title" id="title" placeholder="Write Your Question"/>
 	        <input type="text" name="post_type" id="post_type" value="trophy" style="display:none;"/>
+	        	           
+
 	        <textarea name="body" id="body" placeholder="Tell Us Your Story."></textarea></div>
-	        
 	        <div class="state-dropdown-container">
 		          <select name="state" class="state-chzn" style="width:400px;padding:5px;" data-placeholder="Nice. Where did you find it?">
 			            <option value=""></option>
@@ -171,8 +173,8 @@ if ( is_user_logged_in() ) {
 			            <option value="ZT">Zacatecas</option>
 			      </select>
 			</div>
-
-	        <input id="file" type="file" name="photo-upload" id="photo-upload" style="display:none"/>
+	        
+	       <input id="file" type="file" name="photo-upload" id="photo-upload" style="display:none"/>
 	<!--    
 	        <input type="hidden" name="clone_target" value="superpost-box">
 	        <input type="hidden" name="attach_target" value="post-container">
@@ -189,7 +191,7 @@ if ( is_user_logged_in() ) {
 	        <div class="media-section">
 	
 		     		
-		      <form id="fileUploadForm-image" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-image-form">
+		       <form id="fileUploadForm-image" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-image-form">
 		        <div id="fileupload" >
 		          <div class="fileupload-buttonbar ">
 		              <label class="upload-button">
@@ -229,13 +231,12 @@ if ( is_user_logged_in() ) {
 		       <h4 style="display:none" class="photo-attachement-header">Photos</h4>
 		      <div class="attached-photos">
 		      </div>
-
 	    </div> <!-- End new-superpost-modal-container -->
 	    </div> <!-- end .col-abc -->
 	    <div class="col-abc">
 		
-	    <h2 class="comm-header stream-header">Latest <?php the_title(); ?> Bucks</h2>
-        <div id="recon-activity" term="trophy" display="tile" widthMode="short">
+	    <h2 class="comm-header stream-header">Latest <?php the_title(); ?></h2>
+        <div id="recon-activity" term="trophy" display="list" widthMode="short">
 
 
        </div>
