@@ -3845,6 +3845,9 @@ h3.first-last-name{
 **Community Page
 **
 *****/
+.page-community .state-dropdown-container{
+	margin: -8px 0 30px;
+}
 .page-community ul.post-type-select li:first-child{
 	border-left: 1px solid #ccc;
 }
