@@ -36,6 +36,7 @@ function imo_superpost_scripts() {
     wp_enqueue_script('jquery-input',plugins_url('js/jquery.input.js', __FILE__));
     wp_enqueue_script('jquery-timeago-superpost',plugins_url('js/jquery.timeago.js', __FILE__));
     wp_enqueue_script('jquery-chosen',plugins_url('js/chosen.jquery.min.js', __FILE__));
+    wp_enqueue_script('jquery-laconic',plugins_url('js/laconic.js', __FILE__));
 
 	wp_enqueue_style('superpost-css',plugins_url('css/superpost.css', __FILE__));
     wp_enqueue_style('chosen-css',plugins_url('css/chosen.css', __FILE__));
