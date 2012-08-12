@@ -7,6 +7,16 @@ var displayMode = "tile"; //either "list" or "tile"
 
 var bgcolors = new Array("#403b35","#c65517","#829b40");
 
+var topicKey = new Object;
+topicKey.gear = "Gear";
+topicKey.report = "Rut Report";
+topicKey.trophy = "Trophy Buck";
+topicKey.lifestyle = "Lifestyle";
+topicKey.general = "Discussion";
+topicKey.report = "Rut Report";
+topicKey.question = "Question";
+topicKey.tip = "Tip & Tactic";
+
 
 //Make sure we should run all of this stuff
 if ($("#recon-activity").length > 0){
@@ -231,8 +241,18 @@ function displayRecon(type) {
 	        
 	        if (post.display_name)
 	        	var firstName = post.display_name.split(" ")[0];
-	        else
-	        	var firstName = post.username;
+	        else {
+		        var firstName = post.username;
+		        post.display_name = post.username;
+	        }
+	        	
+	        	
+	        var nicePostType = "General Discussion";
+	        if (topicKey[post.post_type]) {
+		        nicePostType = topicKey[post.post_type];
+	        } else {
+		        nicePostType = post.post_type;
+	        }
 	    	
 	    	//*********************START LACONIC $reconBox********************
 	    	
@@ -243,7 +263,8 @@ $.el.div({'class':'recon-box masonry-box masonry-brick','id':'recon-box-' + post
 	),
 	$.el.a({'href':url},
 		$.el.div({'class':'recon-title-box cover-pic'},
-			$.el.span({'class':'recon-title-detail'},firstName + "'s " + post.post_type),
+			$.el.span({'class':'recon-title-detail'},firstName + "'s " + nicePostType),
+			$.el.div({'class':'arrow_box'}),
 			$.el.h3(post.title)
 		)
 	),
@@ -257,16 +278,19 @@ $.el.div({'class':'recon-box masonry-box masonry-brick','id':'recon-box-' + post
 	),
 	$.el.div({'class':'under-box'},
 		$.el.a({'href':'/profile/' + post.username},
-			$.el.img({'src':'/avatar?uid=' + post.id,'class':'recon-gravatar'}),
+			$.el.img({'src':'/avatar?uid=' + post.user_id,'class':'recon-gravatar'}),
 			$.el.div({'class':'recon-author-info'},
 				$.el.span({'class':'author-name'},post.display_name),
 				" posted a ",
-				$.el.span({'class':'author-action'},post.post_type)
-			),
-			$.el.div({'class':'user-title'},
-				$.el.a({'href':url},post.title)
-			),
-			$.el.abbr({'class':'recon-date timeago','title':post.created})
+				$.el.span({'class':'author-action'},nicePostType)
+			)
+		),
+		
+		$.el.abbr({'class':'recon-date timeago','title':post.created}),
+		$.el.a({'href':url},
+			$.el.span({'class':'comment-count'}, post.comment_count + " Comments"),
+			" • ",
+			$.el.span({'class':'point-count'},post.score + " Points")
 		)
 	)		
 );
