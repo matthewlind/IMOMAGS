@@ -80,7 +80,7 @@ $headerTitle = $data->post_type . ": " . $data->title;
 		<a class="username" href="/profile/<?php echo $data->username ?>"><?php echo $data->username; ?></a>
 		<div class="super-meta">Posted on <?php the_time('F j, Y'); ?> &#8226; <?php the_time('g:i a'); ?> &#8226; <a href="/<?php echo $data->post_type; ?>" class="post-type"><?php echo $data->post_type; ?></a> &#8226; <?php echo $data->view_count; ?> views</div>
 		<div class="clearfix"></div>
-		<div class="entry-header"><h1 class="entry-title">"<?php echo $data->title; ?>"</h1></div>
+		<div class="entry-header"><h1 class="entry-title"><?php echo $data->title; ?></h1></div>
 		<?php 
 		if($data->post_type == "question"){
 			$questionTopics = array("general"=>"General",
@@ -111,14 +111,14 @@ $headerTitle = $data->post_type . ": " . $data->title;
 			            if ($attachment->post_type == "youtube") {
 			
 			                $videoID = $attachment->meta;
-			                $media = "<li><div class='attachment-container'>";
+			                $media = "<div class='attachment-container'>";
 			                $media .= '<iframe width="640" height="480" src="http://www.youtube.com/embed/' . $videoID . '" frameborder="0" allowfullscreen></iframe>';
-			                $media .= "</div><div class='attachment-caption'>$attachment->body</div></li>";
+			                $media .= "</div><div class='attachment-caption'>$attachment->body</div>";
 			
 			            } else {
 			
 			                $photoURL = str_replace("thumb", "medium", $attachment->img_url);
-			                $media = "<li><div class='attachment-container'><img src='$photoURL' width=585></div><div class='attachment-caption'>$attachment->body</div></li>";
+			                $media = "<div class='attachment-container'><img src='$photoURL' width=585></div><div class='attachment-caption'>$attachment->body</div>";
 			                
 			            }
 			
@@ -236,7 +236,7 @@ $headerTitle = $data->post_type . ": " . $data->title;
 
 
 <?php foreach ($commentData as $comment) {   ?>
-<div class="col-abc super-comments">
+<div class="col-abc super-comments zebra">
 	<div class="avatar-holder">
          <a href="/profile/<?php echo $comment->comment_username; ?>"><img src="http://www.gravatar.com/avatar/<?php echo $comment->gravatar_hash; ?>.jpg?s=50&d=identicon" class="superclass-gravatar_hash recon-gravatar"></a>
     </div>
