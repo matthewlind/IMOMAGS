@@ -197,12 +197,15 @@ $("#toggle-tile").click(function(){
 
 //Hide popup elements on click
 $(document).click(function() {
-    $(".user-details-box").fadeOut();
+    $(".user-details-box").fadeOut(10);
 });
 
 
 //Display the recon!
 function displayRecon(type) {
+
+	//Hide posts before the AJAX Request
+	$('#recon-activity').fadeOut(100);
 
 	if (currentDisplayStart == 0) {
 		$("#recon-activity").html("");
@@ -309,9 +312,15 @@ function displayRecon(type) {
 	        $("#recon-activity").append(reconBox);
 
 	        if ($(data).length == count) {
+	        
+	        	$('#recon-activity').fadeIn();
+	        
+	        	beforeImageLoaded();
+	        	
+	        
 	            $("#recon-activity").imagesLoaded( function(){
 
-	            	afterImageLoaded();
+	            	//afterImageLoaded();
 	                
 	            });
 	        }
@@ -447,9 +456,17 @@ function displayUserPosts(userID) {
 
 } //End function displayUserPosts()
 
-
-function afterImageLoaded() {
+function beforeImageLoaded() {
 	
+	afterImageLoaded(false);
+}
+
+
+function afterImageLoaded(animated) {
+
+	 if(typeof animated === 'undefined'){//If animated is not specified
+		 var animated = true;
+   	};
 	//Add relative time
 	jQuery("abbr.timeago").timeago();
 
@@ -476,7 +493,7 @@ function afterImageLoaded() {
         	columnWidth: masonryColumnWidth,
         	gutterWidth: masonryGutterWidth,
             itemSelector: masonryItemSelector,
-            isAnimated: true,
+            isAnimated: animated,
     });
     	
     }
@@ -489,13 +506,15 @@ function afterImageLoaded() {
         	columnWidth: masonryColumnWidth,
         	gutterWidth: masonryGutterWidth,
             itemSelector: masonryItemSelector,
-            isAnimated: true,
+            isAnimated: animated,
     });
     	
     }
 
 
 	//Show user info on avatar hover
+	//not going to make launch
+/*
 	$("img.recon-gravatar").click(function(e){
 		e.stopPropagation();
 		
@@ -538,6 +557,7 @@ function afterImageLoaded() {
 
 
 	});
+*/
 
 }
 
