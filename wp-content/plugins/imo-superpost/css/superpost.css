@@ -143,7 +143,7 @@ input.submit {
 	float: left;
 	width: 500px;
 }
-.super-comments:nth-child(2n+1){
+.zebra:nth-child(2n+1){
     background-color: #efece6;
 }
 .super-comments{
