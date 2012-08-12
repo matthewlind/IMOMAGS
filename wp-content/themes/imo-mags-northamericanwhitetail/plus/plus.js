@@ -218,98 +218,104 @@ function displayRecon(type) {
 
     var getdata = $.getJSON(dataURL, function(data) {
     
-	    //$(".animal-container").html("");
-	    
 	    var count = 0;
-	    $(data).each(function(index) {
-	        count++;
-	        //var $avatar $("<img class='recon-gravatar'>").attr("src","http://www.northamericanwhitetail.fox/avatar?uid=" + this.$user_id);
-	        var url = "/plus/" + this.post_type + "/" + this.id;
+	    $(data).each(function(index,post) {
+	    	count++;
+	    
+	    	console.log(post);
+	    	
+	    	var url = "/plus/" + post.post_type + "/" + post.id;
 	        var link = $("<a href='" + url + "'>");
 
 	        var randomnumber=Math.floor(Math.random()*3); //Get randomColor
-	        var reconBox = $("<div class='recon-box masonry-box' id='recon-box-" + this.id +  "'></div>");
-	        var imageBox = $("<div class='recon-image-box'></div>").css("background-color",bgcolors[randomnumber]);;
-	        var image = $("<img class='superpost-thumb'>").attr("src",this.img_url);
-	        var titleBox = $("<div class='recon-title-box'></div>")
-	        var detectorBox = $("<div class='detector-box'></div>")
-	        var titleDetailBox = $("<span class='recon-title-detail'></span>").text(this.username + "'s " + this.post_type);
-	        var title = $("<h3></h3>").text(this.title);
-	        var underBox = $("<div class='under-box'></div>");
-	        var gravatar = $("<img class='recon-gravatar'>").attr("src","/avatar?uid=" + this.user_id);
-	        var authorInfo = $("<div class='recon-author-info'><span class='author-name'></span><span class='author-action'></span></div>");
-	        authorInfo.find(".author-name").text(this.username);
-	        authorInfo.find(".author-action").text(" posted a " + capitaliseFirstLetter(this.post_type));
-	        var underTitle = $("<div class='under-title'></div>").html("<a href='" + url + "'>" + this.title + "</a>");
-	        var date = $("<abbr class='recon-date timeago' title=''></abbr>").attr("title",this.created);
-	        var imgUrl =  this.img_url;
-
-	        //Userpopup stuff
-	        var userDetailsBox = $("<div class='user-details-box' style='display:none'></div>");
-			var nameBox = $("<div class='name-box'></div>").text(this.username);
-			var statsBox = $("<div class='stats-box'></div>");
-			userDetailsBox.append(nameBox);
-			userDetailsBox.append(statsBox);
-
-			//Store some user data so that we can retrieve it later on hover
-	        gravatar.data('user_id',this.user_id);
-	        gravatar.data('username',this.username);
-
-	        titleBox.append(titleDetailBox);
-	        titleBox.append(title);
-
-
-
-
-
-	        if (this.img_url) {
-	   			
-	   			link.append(image);
-	        	imageBox.append(link);
-	        	
 	        
-	        }
+	        if (post.display_name)
+	        	var firstName = post.display_name.split(" ")[0];
+	        else
+	        	var firstName = post.username;
+	    	
+	    	//*********************START LACONIC $reconBox********************
+	    	
+var reconBox = 	    	
+$.el.div({'class':'recon-box masonry-box masonry-brick','id':'recon-box-' + post.id},
+	$.el.a({'class':'flag-button'},
+		$.el.img({'src':'/wp-content/themes/imo-mags-northamericanwhitetail/img/flag-button-gray.png'})
+	),
+	$.el.a({'href':url},
+		$.el.div({'class':'recon-title-box cover-pic'},
+			$.el.span({'class':'recon-title-detail'},firstName + "'s " + post.post_type),
+			$.el.h3(post.title)
+		)
+	),
+	$.el.a({'href':url},
+		$.el.div({'class':'detector-box'})
+	),
+	$.el.div({'class':'recon-image-box','style':'background-color:' + bgcolors[randomnumber]},
+		$.el.a({'href':url},
+			$.el.img({'src':post.img_url,'class':'superpost-thumb'})
+		)
+	),
+	$.el.div({'class':'under-box'},
+		$.el.a({'href':'/profile/' + post.username},
+			$.el.img({'src':'/avatar?uid=' + post.id,'class':'recon-gravatar'}),
+			$.el.div({'class':'recon-author-info'},
+				$.el.span({'class':'author-name'},post.display_name),
+				" posted a ",
+				$.el.span({'class':'author-action'},post.post_type)
+			),
+			$.el.div({'class':'user-title'},
+				$.el.a({'href':url},post.title)
+			),
+			$.el.abbr({'class':'recon-date timeago','title':post.created})
+		)
+	)		
+);
 
-	        
-	        underBox.append(userDetailsBox);
-	        underBox.append(gravatar);
-	        underBox.append(authorInfo);
-	        if(this.post_type != "question"){
-		        underBox.append(underTitle);
-	        }
-	        
-	        underBox.append(date);
 
-	        detectorBox.hover(function(){
-	        	if (imgUrl) {
+console.log(reconBox);
+
+
+			//*********************END LACONIC $reconBox********************
+			//*********************ADD jQuery EVENTS to $reconBox********************
+			var $reconBox = $(reconBox);
+			
+			//Add data so that we can flag later
+			$reconBox.data("post_id",post.id);
+			
+			//If there is no picture, remove the <img>
+			if (!post.img_url)
+				$reconBox.find("img.superpost-thumb").remove();
+			
+			
+			//Add hover effects
+			$reconBox.find("div.detector-box").hover(function(){
+	        	if (post.img_url) {
 	        		$(this).parent().parent().find(".recon-title-box").stop().fadeToggle();
 	        	}
-	        	
+
 
 	        });
+	        
+	        //Add Flag Reporting
+	        //isset($params['post_id']) && isset($params['etype']) && isset($params['user_id']
+	        $reconBox.find(".flag-button").click(function(){
+		    	if (confirm("Are you sure you want to flag this post as inappropriate?")) { 
+			    	$reconBox = $(this).closest(".recon-box");
+			    	$.post("/slim//api/post/flag", { post_id: $reconBox.data("post_id"), etype: "flag", user_id: userIMO.user_id } );  	
+			    	$reconBox.fadeOut();
+			}
+		        
+	        });
+	        
+	        
 
+			
+			
+			//gravatar.data('user_id',post.user_id);
 
-	        if (this.post_type != "photo" && this.post_type != "video") {
-	        	link = $("<a href='" + url + "'>");
-	        	reconBox.append(link)
-	        	link.append(titleBox);
-
-	        	link = $("<a href='" + url + "'>");
-
-	        	reconBox.append(link);
-	        	link.append(detectorBox);
-	        }
-
-	        if (this.img_url != null && this.title != null) {
-	        	titleBox.addClass("cover-pic");
-	        }
-
-	      	
-
-	        reconBox.append(imageBox);
-	        reconBox.append(underBox);
-
-	        $("#recon-activity").append(reconBox);
+			
+			//Append the Laconic reconBox
+	        $("#recon-activity").append($reconBox);
 
 	        if ($(data).length == count) {
 	        
@@ -835,8 +841,8 @@ $(document).ready(function(){
 		var $questionTemplate;
 		
 		$.each(data, function(index, all) { 
-			console.log(index);
-			console.log(all);
+			//console.log(index);
+			//console.log(all);
 				$questionTemplate = $("ul.thumbs-grid li").eq(index);
 				$questionTemplate.find("a").attr("href","/plus/" + all.post_type + "/" + all.id);
 				$questionTemplate.find("img").attr("src",all.img_url);

@@ -27,6 +27,14 @@ h1.recon{
 	height:420px;
 }
 
+.flag-button {
+	z-index: 2000;
+	right: 0px;
+	top: 298px;
+	position: absolute;
+	cursor: pointer;
+}
+
 img.superpost-thumb {
 	width:338px;
 }
