@@ -809,17 +809,21 @@ $(document).ready(function(){
 $(document).ready(function(){
 	var type = "all";
 	showAtOnce = 9;
-	var dataURL = "/slim/api/superpost/comment_count/" + type +"/" + showAtOnce + "/0";  	
+	var dataURL = "/slim/api/superpost/views/" + type +"/" + showAtOnce + "/0";  	
 	var getdata = $.getJSON(dataURL, function(data) {
 		
 		var $questionTemplate;
-
+		
 		$.each(data, function(index, all) { 
+			console.log(index);
+			console.log(all);
 				$questionTemplate = $("ul.thumbs-grid li").eq(index);
 				$questionTemplate.find("a").attr("href","/plus/" + all.post_type + "/" + all.id);
 				$questionTemplate.find("img").attr("src",all.img_url);
+				$questionTemplate.find("span").text(all.view_count + " Views");
+		
 		});							
-	$questionTemplate.appendTo("ul#scroll-widget.scroll").fadeIn();	
+	$questionTemplate.appendTo("ul.thumbs-grid").fadeIn();	
 	});
 
 }); //End 

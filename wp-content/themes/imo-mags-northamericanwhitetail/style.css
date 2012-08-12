@@ -4032,7 +4032,7 @@ ul.community-cats li.post:hover {
     cursor: pointer;
     left: 431px;
     position: absolute;
-    top: 380px;
+    top: 400px;
     width: 190px;
 }
 
@@ -4160,17 +4160,31 @@ ul.thumbs-grid li a{
 ul.thumbs-grid li a:hover{
 	-moz-transition: all 0.6s ease 0s;-webkit-transition: 0.6s;
 }
-ul.thumbs-grid li a:hover img{
-	opacity: 0.6;
-	
-}
 ul.thumbs-grid li img{
 	margin: 0;
     padding: 0;
     width: 104px;
 	height: 104px;
 }   
-.superpost-thumbs-grid-widget h2, .superpost-thumbs-widget h2{
+.superpost-thumbs-grid-widget h2{
+	text-align: center;
+}
+ul.thumbs-grid li a span{
+	color: #FFFFFF;
+    display: none;
+    font-size: 1.3em;
+    font-style: italic;
+    height: 32px;
+    padding: 36px 2px;
+    position: absolute;
+    text-align: center;
+    width: 100px;
+}
+ul.thumbs-grid li a:hover span{
+	display: block;
+	background: rgba(0,0,0,0.4);
+}
+.superpost-thumbs-widget h2{
 	text-align: center;
 	border-top: 3px solid #000;
 	padding-top: 8px;

@@ -16,14 +16,14 @@ class Superpost_Thumbs_Grid_Widget extends WP_Widget {
 	     <?php if(!empty($title)) : ?>
 	     <h2><?php echo $title; ?></h2>
 	     <?php endif; ?>
- 		<ul class="thumbs-grid">	
+ 		<ul class="thumbs-grid" term="all">	
  			<?php 
             for ($i = 1; $i <= 9; $i++) {
-                echo '<li><a href=""><img src="#"></a></li>';
+                echo '<li><a href=""><span>Score</span><img src="#"></a></li>';
 			} ?>
         </ul>
     </aside>
-
+    <div class="clearfix" style="margin-bottom: 10px;"></div>
 <?php	}
  
 	function update($new_instance, $old_instance) {
