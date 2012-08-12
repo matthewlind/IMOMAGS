@@ -177,7 +177,8 @@ input.submit {
 	float: left;
 	width: 500px;
 }
-.super-comments:nth-child(2n+1){
+/* important for comments zebra stripes */
+.zebra:nth-child(2n+1){
     background-color: #efece6;
 }
 .super-comments{
