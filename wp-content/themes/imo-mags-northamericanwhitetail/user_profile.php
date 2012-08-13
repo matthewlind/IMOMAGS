@@ -92,17 +92,17 @@ $state = $user_meta['state'][0];
 	            	<?php
 	            	//if logged in and no user meta
 	            	if ($current_user->display_name == $user->display_name){
-		            	if ($twitter == ""){ 
-		            		echo '<li class="twitter"><a href="/login/?action=profile" class="update">Update Your Twitter</a></li>';
-		            	} 
+		            	//if ($twitter == ""){ 
+		            		//echo '<li class="twitter"><a href="/login/?action=profile" class="update">Update Your Twitter</a></li>';
+		            	//} 
 		            	if ($city == "" && $state == ""){ 
 		            		echo '<li class="hometown"><a href="/login/?action=profile" class="update">Update Your Hometown</a></li>';
 		            	}
 		            	
 		            	 //if looking at your own profile and meta exists
-	            		if ($twitter != ""){
-	            			echo '<li class="twitter"><a href="http://twitter.com/'.$twitter.'" class="twitter">'.$twitter.'</a></li>';
-	            		}
+	            		//if ($twitter != ""){
+	            			//echo '<li class="twitter"><a href="http://twitter.com/'.$twitter.'" class="twitter">'.$twitter.'</a></li>';
+	            		//}
 	            		if ($city != "" || $state != ""){ 
 	            			echo '<li class="hometown"><span>'.$city;
 	            				if ($state != ""){ echo '<span>, '.$state.'</span></span></li>'; }

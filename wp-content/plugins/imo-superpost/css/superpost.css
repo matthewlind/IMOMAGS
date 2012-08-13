@@ -298,7 +298,9 @@ img.superpost-list-thumb {
 	font-size:18px;
 	font-weight:bold;
 }
-
+.page-template-user_profile-php li.first{
+	margin-left: 20px;
+}
 li.count-field {
 	padding: 0 4px;
 	float: left;

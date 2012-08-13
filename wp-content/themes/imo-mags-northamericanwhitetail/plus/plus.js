@@ -725,7 +725,7 @@ function displayUserComments(userID) {
 	        authorInfo.find(".author-name").text(this.username);
 	        authorInfo.find(".author-action").text(" posted a " + capitaliseFirstLetter(this.rent_type));
 
-	        var date = $("<abbr class='recon-date timeago' title=''></abbr>").attr("title",this.created);
+	        var reply_date = $("<abbr class='recon-date timeago' title=''></abbr>").attr("title",this.date);
 
 	        var image = $("<img class='superpost-list-thumb'>").attr("src",this.img_url);
 	        var url = "/plus/" + this.rent_type + "/" + this.parent_id;
@@ -750,14 +750,13 @@ function displayUserComments(userID) {
 					<ul>\
 						<li>\
 							<div class='row-info'>\
-								<div class='row-post-type post-type-" + this.rent_type + "'>" + this.rent_type + "</div>\
 								<div class='row-title'><a href='" + url + "'>" + encoded + "</a></div>\
 							</div>\
 						</li>\
-						<li class='count-field' >Posted on: <abbr class='timeago' title='" + this.created + "'>" + this.created + "</abbr></li>\
+						<li class='first count-field'><a href='/" + this.rent_type + "'>" + this.rent_type + "</a></li>\
+						<li class='count-field'><abbr class='timeago'>" + reply_date + "</abbr></li>\
 					</ul>\
 				</div>");
-
 
 			$("#user-activity").append(reconRow);
 
