@@ -134,7 +134,7 @@ if ( is_user_logged_in() ) {
 	    </div> <!-- end .col-abc -->
 	    <div class="col-abc">
 		
-	    <h2 class="comm-header stream-header">Latest <?php the_title(); ?></h2>
+	    <h2 class="comm-header stream-header">Latest in <?php the_title(); ?> Discussion</h2>
         <div id="recon-activity" term="general" display="list" widthMode="short">
 
 

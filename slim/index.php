@@ -359,7 +359,7 @@ $app->get('/api/superpost/comment_attachments/:parent_id',function($parent_id){
 
 
 		$sql = "SELECT posts.ID post_id, posts.gravatar_hash gravatar_hash,
-				comments.ID comment_id, comments.post_type comment_post_type, comments.body comment_body, comments.username comment_username,
+				comments.ID comment_id, comments.post_type comment_post_type, comments.body comment_body, comments.username comment_username, comments.user_id comment_user_id,
 				attachments.ID attachment_id, attachments.post_type attachment_post_type, attachments.img_url as attachment_img_url, attachments.meta as attachment_meta, attachments.body as attachment_body 
 				FROM superposts as posts
 				LEFT JOIN superposts as comments ON posts.id = comments.parent
@@ -389,6 +389,7 @@ $app->get('/api/superpost/comment_attachments/:parent_id',function($parent_id){
 			$comment['comment_id'] = $post->comment_id;
 			$comment['comment_body'] = $post->comment_body;
 			$comment['comment_username'] = $post->comment_username;
+			$comment['comment_user_id'] = $post->comment_user_id;
 			$comment['gravatar_hash'] = $post->gravatar_hash;
 
 			if ($post->attachment_id) {
