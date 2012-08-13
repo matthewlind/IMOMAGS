@@ -50,7 +50,7 @@ window.fbAsyncInit = function() {
 
 jQuery(document).ready(function($) {
 
-	jQuery(".imo-fb-login-button").click(function(){
+	jQuery(".imo-fb-login-button, .fast-login-then-post-button").click(function(){
 						
 		imo_fb_login();
 
@@ -58,6 +58,8 @@ jQuery(document).ready(function($) {
 		function imo_fb_login() {
 		
 		$(".imo-fb-login-button").css({ opacity: 0.5 });
+		$(".fast-login-then-post-button").css({ opacity: 0.5 });
+
 		
 			FB.login(function(response) {
 			   if (response.authResponse) {
@@ -94,6 +96,12 @@ jQuery(document).ready(function($) {
 				            $(".imo-fb-login-button").fadeOut(500,function(){
 					            
 					            $userBar.fadeIn();
+				            });
+				            
+				            $(".fast-login-then-post-button").fadeOut(500,function(){
+					            
+					            $(".submit").fadeIn();
+					            
 				            });
 				            
 

@@ -432,8 +432,15 @@ $app->post('/api/superpost/add',function() {
 	_log( $params);
 
 
-	//Get the user info an authenticate
-	if (userIsGood($params['username'],$params['userhash'])) {
+	//Get the user info and authenticate
+	$userIsGood = userIsGood($params['username'],$params['userhash']);
+
+	
+	if ($params['post_type'] == "youtube" || $params['post_type'] == "photo") {
+		$userIsGood = TRUE;
+	}
+	
+	if ($userIsGood) {
 	
 	_log("USER IS GOOD");
 
@@ -628,14 +635,15 @@ $app->post('/api/superpost/update_caption',function() {
 
 
 	//Get the user info an authenticate
-	if (userIsGood($params['username'],$params['userhash'])) {
+	//REMOVED: userIsGood($params['username'],$params['userhash'])
+	if (TRUE) {
 
 		try {
 
 			$db = dbConnect();
 
 
-			$sql = "UPDATE superposts SET `body` = ? WHERE `id` = ?";
+			$sql = "UPDATE superposts SET `body` = ? WHERE `id` = ? AND post_type IN ('youtube','photo')";
 
 			$stmt = $db->prepare($sql);
 			$stmt->execute(array($newBody,$post_id));

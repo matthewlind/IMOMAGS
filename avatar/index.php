@@ -31,7 +31,9 @@ try {
 	
 		$email = $stmt->fetchColumn();
 		
-		$profilePicURL = "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?d=identicon&s=100";
+		$default = urlencode("http://" . $_SERVER['SERVER_NAME'] . '/wp-content/themes/imo-mags-northamericanwhitetail/img/naw_default_avatar.png');
+		
+		$profilePicURL = "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?d=$default&s=100";
 		
 	}
 	
