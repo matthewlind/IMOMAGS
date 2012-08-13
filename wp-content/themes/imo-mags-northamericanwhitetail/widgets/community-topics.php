@@ -11,41 +11,25 @@ class community_topics_Widget extends WP_Widget {
 ?>
 
     <aside id="community-topics" class="community-topics-widget">
-    	<ul class="community-cats">
-				<li id="rut" class="title"><div></div><h2><a href="/report/">Rut Reports</a></h2></li>
-				<!--<li class="new-post post selected points report">+ POST</li>-->
-			</ul>
-			
-			<ul class="community-cats">
-				<li id="tips-tactics" class="title"><div></div><h2><a href="/tip/">Tips & Tactics</a></h2></li>
-				<!--<li class="new-post post selected points tip">+ POST</li>-->
-			</ul>
-			
-			<ul class="community-cats">
-				<li id="lifestyle" class="title"><div></div><h2><a href="/lifestyle/">Lifestyle</a></h2></li>
-				<!--<li class="new-post post selected points lifestyle">+ POST</li>-->
-			</ul>
-			
-			<ul class="community-cats">
-				<li id="tbucks" class="title"><div></div><h2><a href="/trophy/">Trophy Bucks</a></h2></li>
-				<!--<li class="new-post post selected points trophy">+ POST</li>-->
-			</ul>
-			
-			<!-- <ul class="community-cats">
-				<li id="gear" class="title"><div></div><h2><a href="/gear/">Gear</a></h2></li>
-				<li class="new-post post selected points">+ POST</li>
-			</ul> -->
-			
-			<ul class="community-cats">
-				<li id="general" class="title"><div></div><h2><a href="/general/"">General Discussion</a></h2></li>
-				<!--<li class="new-post post selected points general">+ POST</li>-->
-			</ul>
-			
-			<ul class="community-cats">
-				<li id="experts" class="title"><div></div><h2><a href="/question/">Ask The Experts</a></h2></li>
-				<!--<li class="new-post post selected points question">+ POST</li>-->
-			</ul>
-    </aside>
+     	<div class="sidebar-header">
+		    <h2>Browse the Community</h2>
+		</div>
+		 <div class="post_type_styled_select">
+         <select class="post_type" name="post_type">
+            <option value="general" class="general">General Discussion</option>
+            <option value="question" class="question">Q&A</option>
+            <option value="report" class="report">Rut Reports</option>
+            <option value="tip" class="tip">Tips & Tactics</option>
+            <option value="lifestyle" class="lifestyle">Lifestyle</option>
+            <option value="trophy" class="trophy">Trophy Bucks</option>
+            <!--<option value="gear" class="gear">Gear</option>-->
+          </select>
+        </div>
+        <div class="buttons">
+	     	<a href="#" class="ask-question">Ask a Question</a>
+	     	<a href="#" class="share-photo">Share a Photo</a>        
+        </div>
+        </aside>
 
 <?php	}
  

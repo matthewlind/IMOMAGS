@@ -25,7 +25,10 @@
  * **********************************************************************
  *
  */
- 
+html {
+	background: #fff;
+	height: 100%;
+} 
 body{
 	font-family: 'rokkitt',serif;
 	border:none;
@@ -2808,7 +2811,6 @@ select.post_type {
     border: 1px solid #D5D5D5;
     padding: 17px;
     background:url("img/join-bg.png") no-repeat scroll center 10px #EDEDED;
-    height: 498px;
 }
 #join a.about-link{
 	font-family: ProximaNova-Bold;
@@ -2862,12 +2864,12 @@ a.prize-title {
 	background: url("img/rifle.jpg") no-repeat scroll center top transparent;
 	width: 288px;
     height: 69px;
-    margin: 30px auto;
+    margin: 0 auto;
 }
 .prize-logo{
 	background: url("img/remington-logo-sm.jpg") no-repeat scroll center top transparent;
 	height: 26px;
-    margin: 30px auto 0;
+    margin: 0 auto;
     width: 167px;
 }
 #join span{
@@ -3974,22 +3976,48 @@ ul.community-cats li.post:hover {
 }
     
 /* Widget Version */
-
-.community-topics-widget ul.community-cats{
-	padding: 17px 0 40px 8px;
+#community-topics{
+	width: 318px;
+	background: #ededed;
+	margin-bottom: 40px;
 }
-.community-topics-widget ul.community-cats h2{
-	font-weight: lighter;
+#community-topics select.post_type, #community-topics .post_type_styled_select{
+	width: 290px;
 }
-.community-topics-widget ul.community-cats li.post {
+#community-topics select.post_type{
+	font-size: 0.9em;
+	height: 26px;
+    padding: 2px;
+    margin-top: 2px;
+    font-weight: normal;
+}
+#community-topics .post_type_styled_select{     
+	margin: 0;
+	padding: 10px 14px !important;
+}
+#community-topics a.ask-question, #community-topics a.share-photo{
+	background-color: #307DEA;
+    color: #FFFFFF;
+    font-family: ProximaNova-Semibold;
     font-size: 0.8em;
-    height: 30px;
-    line-height: 2.1em;
-    margin-top: -32px;
-    padding: 0 10px;
+    margin: 0;
+    padding: 6px 0;
+    text-transform: uppercase;
+    text-align: center;
+    
+    float: left;
 }
-.page-template-community-php #recon-activity{top:70px !important;}
-.page-community{padding-left: 1px;}
+#community-topics .ask-question{
+	margin-right: 1px !important;
+    width: 159px;
+}
+ #community-topics a.share-photo{
+	width: 158px;
+}
+
+
+
+
 /**** Individual community pages ****/
 .page-community .new-superpost-modal-container {
 	width: 636px;
@@ -4095,7 +4123,9 @@ ul.community-cats li.post:hover {
 	font-family: ProximaNovaA-Light;
 }
 .page-community .stream-header{
-	margin-top:120px;
+	margin-top: 140px;
+    border-top: 2px solid;
+    padding-top: 40px;
 }
 .page-community #recon-activity{top:0;}
 
@@ -4179,11 +4209,32 @@ ul.community-cats li.post:hover {
 ** LOLOLOLOLOLOLZZZ
 ***
 ******/    
-    
+#superpost-thumbs-grid{
+  	background-color: #ededed;
+}
+#superpost-thumbs-grid h2{
+  	color: #C2290D;
+    font-size: 1.4em;
+    text-align: center;
+    margin: 0 auto;
+    padding: 6px 30px;
+}
+#superpost-thumbs-grid .footer{
+	text-align: center;
+	padding: 4px 0;
+}  
+#superpost-thumbs-grid .footer a{
+	text-decoration: underline;
+	font-family: "ProximaNova-Regular";
+}
+#superpost-thumbs-grid .footer a:hover{
+	text-decoration: none;
+}
 ul.thumbs-grid{
 	width: 318px;
 	list-style: none;
 	margin: 0;
+	background-color: #ededed;
 }
 ul.thumbs-grid li{
 	float: left;
@@ -4209,7 +4260,7 @@ ul.thumbs-grid li img{
 	text-align: center;
 }
 ul.thumbs-grid li a span{
-	color: #FFFFFF;
+	color: #fff;
     display: none;
     font-size: 1.3em;
     font-style: italic;
@@ -4252,16 +4303,107 @@ ul.thumbs-grid li a:hover span{
 ***
 ******/   
 #get-app{
-	height: 500px;
-	text-align: center;
 	width: 318px;
-	background-color: #ccc;
+	background-color: #ededed;
 	margin-bottom: 10px;
+	clear: both;
 }   
+.sidebar-header{
+	background: url('img/sidebar-header.png') no-repeat center top;
+	height: 41px;
+	width: 318px;
+}   
+.sidebar-header h2{
+	font-weight: lighter;
+	color: #fff;
+    text-align: center;
+    padding: 6px 0;
+    text-transform: uppercase;
+}
+#get-app p {
+	color: #AAA197;
+    font-family: ProximaNova-Semibold;
+    font-size: 0.9em;
+    padding: 10px 0 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+#get-app .left{
+	float: left;
+    padding: 0 20px;
+    width: 150px;
+}
+#get-app .app-icon{
+	background: url("img/nawp-app-icon.jpg") no-repeat scroll center top transparent;
+    display: block;
+    height: 44px;
+    width: 48px;
+}
+#get-app .app-icon span{
+	color: #59524B;
+    font-family: ProximaNova-Bold;
+    font-size: 1.4em;
+    padding-left: 54px;
+    position: relative;
+    top: 8px;
+}
+#get-app .copy{
+	color: #C2290D;
+    font-family: "rokkitt",serif;
+    font-size: 1.4em;
+    line-height: 1em;
+    padding: 18px 0 14px;
+    text-align: center;	
+}
+
+#get-app .app-store-icon{
+	background: url("img/app-store-icon.png") no-repeat scroll center top transparent;
+    height: 41px;
+    padding: 10px 0;
+    text-indent: -9999px;
+    width: 140px;
+}
+
+#get-app .right{
+	float: right;
+    width: 112px;
+}
+
+#get-app .iphone-screen{
+	background: url("img/iphone-screen.png") no-repeat scroll center top transparent;
+    display: block;
+    height: 188px;
+    text-indent: -99999px;
+    width: 89px;
+}
+
+#get-app .footer{
+	clear: both;
+	padding: 0 0 20px;
+}
+
+#get-app .download{
+    background: none repeat scroll 0 0 #347FE7;
+    border: 1px solid #2861B2;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 0 transparent, 1px 1px 0 #679FED inset;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 1.3em;
+    margin: 0 auto;
+    padding: 7px 0;
+    text-align: center;
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 1px 2px 0 rgba(0, 0, 0, 0.4);
+    width: 270px;
+}  
     
-    
-    
-    
+  /** logged out version **/ 
+#get-app.logged-out .content{
+	margin-top: 10px;
+}
+
+
+
     
 /********
 ****
@@ -4302,7 +4444,7 @@ ul.thumbs-grid li a:hover span{
     width: 178px;
 }
 #theme-my-login .submit input{
-	margin: 40px 0 0 240px;
+	margin: 40px 0 0;
 }
 .forgetmenot input{ 
  	height: 16px;
@@ -4337,9 +4479,10 @@ ul.thumbs-grid li a:hover span{
 #theme-my-login .editform{display: none!important;}
 #your-profile h3{
 	display: none;
-}
-   
-   
+}  
+#theme-my-login .button-primary{
+	 margin-left: 180px !important;
+}  
    
    
    

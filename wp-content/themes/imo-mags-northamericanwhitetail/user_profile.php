@@ -65,7 +65,14 @@ $state = $user_meta['state'][0];
 		<a href="/login/?action=profile">Edit Profile</a> <span>|</span> <a href="<?php echo wp_logout_url( get_permalink() ); ?>" title="Logout">Logout</a>
 	</div>
 	<?php }else{ ?>
-	
+	<div class="imo-fb-login-button" style="<?php echo $loginStyle; ?>">
+	    	LOGIN
+	    </div>
+    	<ul id="user-bar" style="<?php echo $displayStyle; ?>">	          
+			<li class="user-name">Hello, <a href="/profile/<?php echo $current_user->user_nicename; ?>"><span id="current-user-name"><?php echo $current_user->display_name; ?></span></a></li>
+			<li><a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" alt="User Avatar" class="recon-gravatar" /></a></li>                      
+       </ul>
+
 	<?php } ?>
 	<h1><a href="/community/">Community</a><?php if($current_user->display_name == $user->display_name){ ?> / Your Profile <?php } ?></h1>
 </header>
