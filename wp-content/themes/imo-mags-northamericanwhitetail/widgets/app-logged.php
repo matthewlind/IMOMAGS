@@ -8,9 +8,7 @@ class App_Logged_Widget extends WP_Widget {
  
 	function widget($args, $instance) {
 		extract($args, EXTR_SKIP);
- 
-    $title = empty($instance['title']) ? '' : apply_filters('widget_title', $instance['title']); 
-    
+     
     $displayStyle = "display:none";
 	$loginStyle = "";
 	
@@ -28,23 +26,26 @@ class App_Logged_Widget extends WP_Widget {
     ?>
 
     <aside id="get-app" class="box widget_get-app" style="<?php echo $displayStyle; ?>">
-    	<p>This will display a callout to the app when a user is logged in.</p>
+	    <div class="sidebar-header">
+		    <h2>Login Successful</h2>
+		</div>
+		<div class="content">
+			<p>Did you get the app?</p>
+			<div class="left">
+				<div class="app-icon"><span>Whitetail+</span></div>
+				<div class="copy">Share Photos of your Trophy Bucks!</div>
+				<div class="app-store-icon">Available on the app store</div>
+			</div>
+			<div class="right">
+				<div class="iphone-screen">Whitetail+ App</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="download">Download Whitetail+</div>
+		</div>
     </aside>
 
 <?php	}
  
-	function update($new_instance, $old_instance) {
-		$instance = $old_instance;
-		$instance['title'] = strip_tags($new_instance['title']);
-		return $instance;
-	}
- 
-	function form($instance) {
-		$instance = wp_parse_args((array) $instance, array('title' => ''));
-		$title = strip_tags($instance['title']);
-?>
-			<p><label for="<?php echo $this->get_field_id('title'); ?>">Title: <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo attribute_escape($title); ?>" /></label></p>
-<?php
-	}
 }
 register_widget('App_Logged_Widget');
