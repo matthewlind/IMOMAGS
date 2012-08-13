@@ -259,12 +259,12 @@ function displayRecon(type) {
 var reconBox = 	    	
 $.el.div({'class':'recon-box masonry-box masonry-brick','id':'recon-box-' + post.id},
 	$.el.a({'class':'flag-button'},
-		$.el.img({'src':'/wp-content/themes/imo-mags-northamericanwhitetail/img/flag-button-gray.png'})
+		$.el.img({'src':'/wp-content/themes/imo-mags-northamericanwhitetail/img/flag-button-gray.png','class':'flag-image'})
 	),
 	$.el.a({'href':url},
 		$.el.div({'class':'recon-title-box cover-pic'},
-			$.el.span({'class':'recon-title-detail'},firstName + "'s " + nicePostType),
-			$.el.div({'class':'arrow_box'}),
+			//$.el.span({'class':'recon-title-detail'},firstName + "'s " + nicePostType),
+			//$.el.div({'class':'arrow_box'}),
 			$.el.h3(post.title)
 		)
 	),
@@ -326,7 +326,8 @@ console.log(reconBox);
 		    	if (confirm("Are you sure you want to flag this post as inappropriate?")) { 
 			    	$reconBox = $(this).closest(".recon-box");
 			    	$.post("/slim//api/post/flag", { post_id: $reconBox.data("post_id"), etype: "flag", user_id: userIMO.user_id } );  	
-			    	$reconBox.fadeOut();
+			    	//$reconBox.fadeOut();
+			    	$reconBox.find(".flag-image").attr("src","/wp-content/themes/imo-mags-northamericanwhitetail/img/flag-button-red.png");
 			}
 		        
 	        });
