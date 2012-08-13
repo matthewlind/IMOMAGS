@@ -160,6 +160,74 @@ if ( is_user_logged_in() ) {
 			</div>
 		</div><!-- .entry -->
 </div><!-- .col-abc -->
+
+
+
+<div class="superpost-comment-container">
+	<?php foreach ($commentData as $comment) {   ?>
+	<div class="col-abc super-comments zebra superpost-comment-single">
+		<div class="avatar-holder">
+	         <a href="/profile/<?php echo $comment->comment_username; ?>"><img src="http://www.gravatar.com/avatar/<?php echo $comment->gravatar_hash; ?>.jpg?s=50&d=identicon" class="superclass-gravatar_hash recon-gravatar"></a>
+	    </div>
+	
+		<div class="superpost-comments">
+				<div class="superpost-comment" <?php echo $visible; ?> >
+	        		<div class="superclass-body">
+	        			<a href="/profile/<?php echo $comment->comment_username; ?>" class="username"><?php echo $comment->comment_username; ?></a>
+	        
+	        			<p><?php echo $comment->comment_body; ?></p>
+	        		</div>
+	        			<?php
+			            foreach ($comment->attachments as $attachment) {
+				          
+				            $media = "";
+				
+				            if ($attachment->attachment_post_type == "youtube") {
+				
+				                $videoID = $attachment->attachment_meta;
+				                $media = "<div class='attachment-container'>";
+				                $media .= '<iframe width="515" height="290" src="http://www.youtube.com/embed/' . $videoID . '" frameborder="0" allowfullscreen></iframe>';
+				                $media .= "</div><div class='attachment-caption'>$attachment->attachment_body</div>";
+				
+				            } else {
+				
+				                $photoURL = str_replace("thumb", "medium", $attachment->attachment_img_url);
+				                $media = "<div class='attachment-container'><img src='$photoURL' width=515></div><div class='attachment-caption'>$attachment->attachment_body</div>";
+				                
+				            }
+				            echo $media;
+			            }
+			            
+			            ?>
+	           </div>
+	    </div>
+	</div><!-- end superpost-comment-single -->
+	<?php } ?>
+
+<!-- INVISIBLE COMMENT FOR CLONING -->
+
+	<div class="col-abc super-comments zebra superpost-comment-template" style="display:none">
+		<div class="avatar-holder">
+		     <a href="/profile/admin"><img src="http://www.gravatar.com/avatar/f2034326b1ee13e62aa42044d4df93eb.jpg?s=50&d=identicon" class="superclass-gravatar_hash recon-gravatar"></a>
+		</div>
+		
+		<div class="superpost-comments">
+				<div class="superpost-comment"  >
+		    		<div class="superclass-body">
+		    			<a href="/profile/admin" class="username">NOBODY</a>
+		    
+		    			<p>NICE.</p>
+		    		</div>
+		
+		         </div>
+		</div>
+	</div><!-- end superpost-comment-single --><!-- end superpost-comment-single -->
+	
+
+
+</div>
+
+
 <div class="col-abc super-comments">
 	<div class="avatar-holder">
 		<img src="/avatar?uid=<?php echo $current_user->ID; ?>" class="superclass-gravatar_hash recon-gravatar">
@@ -191,6 +259,7 @@ if ( is_user_logged_in() ) {
           </div>
         </div>
         <input type="hidden" name="post_type" value="photo">
+        <input type="hidden" name="source_form" value="comment">
         <input type="hidden" name="form_id" value="fileUploadForm">
 
 
@@ -208,7 +277,8 @@ if ( is_user_logged_in() ) {
             <input type="text" name="body" id="video-body" placeholder="Paste YouTube URL or code here"/>
             </div>
             <input type="hidden" name="post_type" value="youtube">
-            <input type="hidden" name="form_type" value="video_comment  ">
+            <input type="hidden" name="form_type" value="video_comment">
+            <input type="hidden" name="source_form" value="comment">
             <input type="hidden" name="form_id" value="fileUploadForm">
 
 
@@ -239,9 +309,9 @@ if ( is_user_logged_in() ) {
 -->
 
         <input type="hidden" name="post_type" value="comment">
-        <input type="hidden" name="clone_target" value="superpost-comment">
-        <input type="hidden" name="attach_target" value="superpost-comments">
-        <input type="hidden" name="attachment_point" value="prepend">
+        <input type="hidden" name="clone_target" value="superpost-comment-template">
+        <input type="hidden" name="attach_target" value="superpost-comment-container">
+        <input type="hidden" name="attachment_point" value="append">
         
 
         <input type="hidden" name="form_id" value="fileUploadForm">
@@ -255,36 +325,12 @@ if ( is_user_logged_in() ) {
         </p>
     </form>
   </div>    
-</div><!-- .col-abc -->
+</div><!-- end superpost comment form -->
 
 
-<?php foreach ($commentData as $comment) {   ?>
-<div class="col-abc super-comments zebra">
-	<div class="avatar-holder">
-         <a href="/profile/<?php echo $comment->comment_username; ?>"><img src="/avatar?uid=<?php echo $comment->comment_user_id; ?>" class="superclass-gravatar_hash recon-gravatar"></a>
-    </div>
 
-	<div class="superpost-comments">
-			<div class="superpost-comment" <?php echo $visible; ?> >
-        		<div class="superclass-body">
-        			<a href="/profile/<?php echo $comment->comment_username; ?>" class="username"><?php echo $comment->comment_username; ?></a>
-        
-        			<p><?php echo $comment->comment_body; ?></p>
-        		</div>
 
-                <?php foreach ($comment->attachments as $attachment) { ?>
-                <div class="superpost-image">
-                	<img src="<?php echo $attachment->attachment_img_url; ?>" class="superclass-img_url" width=400 >
-                </div>
-                <div class="superpost-caption">
-                    <?php echo $attachment->attachment_body; ?>
-                </div>
 
-                <?php } ?>
-           </div>
-    </div>
-</div><!-- .col-abc -->
-<?php } ?>
 <div class="pagi col-abc">
 	<?php 
     echo '<a class="prev-post" href="/plus/'.$data->post_type.'/'.$prev_post.'">Previous '.$data->post_type.'</a>'; 

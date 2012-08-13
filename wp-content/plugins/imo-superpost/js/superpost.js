@@ -271,23 +271,9 @@ jQuery(document).ready(function($) {
   function ImageSubmitSuccessful(responseText, statusText) {
 
     var response = responseText;
-
-    //Make the new post post wider
-    $(".new-superpost-modal-container").animate({
-      width: "760px"
-    }, 500 );
-    $(".simplemodal-container").animate({
-      width: "800px"
-    }, 500 );
-    //Also change width of media section so that it fits in the wider new post box
-    $(".new-superpost-modal-container .media-section").animate({
-      width: "320px"
-    }, 500 );
-    $(".page-community .media-section").animate({
-      width: "640px"
-    }, 500 );
-
-
+    
+    console.log(response);
+    
     //first, get the image element and the caption form
     var $imageTag = $("<div><img src='" + response.img_url + "' height=75 width=75 style='' class='image-thumb'>\
                       <form method='POST' action='/slim/api/superpost/update_caption' enctype='multipart/form-data' class='superpost-caption-form thumb-caption'>\
@@ -296,7 +282,36 @@ jQuery(document).ready(function($) {
                       <input type='hidden' name='post_id' class='post_id' value='321'>\
                       </form>\
                       </a></div>");
+                      
+    //If this is a comment, don't show the caption form
+    //and don't show the animations
+    if (response.source_form == "comment") {
+	    $imageTag.find("form.thumb-caption").remove();
+    } else {
+	    //Make the new post post wider
+	    $(".new-superpost-modal-container").animate({
+	      width: "760px"
+	    }, 500 );
+	    $(".simplemodal-container").animate({
+	      width: "800px"
+	    }, 500 );
+	    //Also change width of media section so that it fits in the wider new post box
+	    $(".new-superpost-modal-container .media-section").animate({
+	      width: "320px"
+	    }, 500 );
+	    $(".page-community .media-section").animate({
+	      width: "640px"
+	    }, 500 );
+    }                 
+                      
 
+
+
+
+
+
+
+    
     //Then Append the image & caption form
     $(".loading-box").fadeOut(function(){
       $(this).remove();
@@ -359,7 +374,8 @@ jQuery(document).ready(function($) {
     //alert("SuccesMethod:\n\n" + responseText);
 
     var response = responseText;
-
+    
+    $('.superpost-comment-form').clearForm();
 
     addNewBox(response);
   }
@@ -373,7 +389,11 @@ jQuery(document).ready(function($) {
 
     response.gravatar_hash = "http://www.gravatar.com/avatar/" + response.gravatar_hash + ".jpg?s=25&d=identicon";
     
-
+    
+    if (response.img_url) {
+	    response.body = response.body + "<p>[Reload page to see your images]</p>"
+    }
+    
 
     var cloneTarget = $("." + response.clone_target).last();
     var attachTarget = $("." + response.attach_target);
@@ -425,12 +445,12 @@ jQuery(document).ready(function($) {
 
     //Attach the clone!
     if (response.masonry == true || response.masonry == "true") {
-      attachTarget.prepend(clone).imagesLoaded( function(){
+      attachTarget.append(clone).imagesLoaded( function(){
           $(attachTarget).masonry("reload");
 
       });
     } else {
-       attachTarget.prepend(clone);
+       attachTarget.append(clone);
     }
     
     //Clean up the form
