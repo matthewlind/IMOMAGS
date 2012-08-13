@@ -61,12 +61,35 @@ $grav_url = "http://www.gravatar.com/avatar/" . $data->gravatar_hash . ".jpg?s=5
 
 $headerTitle = $data->post_type . ": " . $data->title;
 
+$displayStyle = "display:none;";
+$loginStyle = "";
+
+if ( is_user_logged_in() ) {
+
+	$displayStyle = "";
+	$loginStyle = "display:none;";
+	
+	wp_get_current_user();
+	
+	$current_user = wp_get_current_user();
+    if ( !($current_user instanceof WP_User) )
+         return;
+    }
+
 ?>
 <!-- Don't delete this. It's part of imo-add-this -->
 <div id="imo-add-this-spid" style="display:none;"><?php echo $spid; ?></div>
 
 
 <header class="header-title">
+	<div class="imo-fb-login-button" style="<?php echo $loginStyle; ?>">
+	    	LOGIN
+	    </div>
+    	<ul id="user-bar" style="<?php echo $displayStyle; ?>">	          
+			<li class="user-name">Hello, <a href="/profile/<?php echo $current_user->user_nicename; ?>"><span id="current-user-name"><?php echo $current_user->display_name; ?></span></a></li>
+			<li><a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" alt="User Avatar" class="recon-gravatar" /></a></li>                      
+       </ul>
+
 	<h1><a href="/community/">Community</a> <span>| <a href="/<?php echo $data->post_type; ?>"><?php echo $data->post_type; ?></a></span></h1>
 </header>
 <div class="bonus-background">
@@ -75,7 +98,7 @@ $headerTitle = $data->post_type . ": " . $data->title;
 	</div>
 </div>
 <div class="col-abc super-content">
-	<a href="/profile/<?php echo $data->username ?>"><img src="<?php echo $grav_url; ?>" class="recon-gravatar"></a>
+	<a href="/profile/<?php echo $data->username ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" class="recon-gravatar"></a>
 
 		<a class="username" href="/profile/<?php echo $data->username ?>"><?php echo $data->username; ?></a>
 		<div class="super-meta">Posted on <?php the_time('F j, Y'); ?> &#8226; <?php the_time('g:i a'); ?> &#8226; <a href="/<?php echo $data->post_type; ?>" class="post-type"><?php echo $data->post_type; ?></a> &#8226; <?php echo $data->view_count; ?> views</div>
@@ -139,7 +162,7 @@ $headerTitle = $data->post_type . ": " . $data->title;
 </div><!-- .col-abc -->
 <div class="col-abc super-comments">
 	<div class="avatar-holder">
-		<img src="http://www.gravatar.com/avatar/<?php echo $comment->gravatar_hash; ?>.jpg?s=50&d=identicon" class="superclass-gravatar_hash recon-gravatar">
+		<img src="/avatar?uid=<?php echo $current_user->ID; ?>" class="superclass-gravatar_hash recon-gravatar">
         <a href="userlink"><?php echo $comment->comment_username; ?></a>
     </div>
 

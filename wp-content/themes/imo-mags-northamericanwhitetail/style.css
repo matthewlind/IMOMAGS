@@ -2606,7 +2606,9 @@ ul.naw-loop li{
     float:right;
     margin-top: 22px;
 }
-
+.page-template-superpost_single-php .media-section{
+	margin-right: -20px;
+}
 
 
 .fileupload-buttonbar input{
