@@ -458,7 +458,14 @@ $app->post('/api/superpost/add',function() {
 			_log("VIDEO STUFF");
 			_log($params);
 
-			$videoID = extractVideoID($params['body']);
+			
+			
+			if (!empty($params['video_url']))
+				$videoID = extractVideoID($params['video_url']);
+			else
+				$videoID = extractVideoID($params['body']);
+			
+			
 
 			$video = getYoutubeVideo($videoID);
 

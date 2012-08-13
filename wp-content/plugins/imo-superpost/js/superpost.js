@@ -133,6 +133,8 @@ jQuery(document).ready(function($) {
 
   //When a URL is pasted into video box, immediately submit
   $("input#video-body").bind("input",function(){
+  
+  	var $videoBody = this;
 
     if ($("input#video-body").val().length > 7) {
       //Then submit the form!
@@ -194,16 +196,6 @@ jQuery(document).ready(function($) {
 	
 	//console.log(  $(userIMO) );
   
-/*
-   $.each(userIMO, function(index,value){
-   
-   		
-	    
-	    console.log(index,value);
-	    formData.push({ name: index, value: value});   
-	    
-    });
-*/
   
   	//Add the userdata so that we can authenticate
   	options.extraData = $.extend(true, {}, options.extraData, userIMO);
@@ -243,13 +235,19 @@ jQuery(document).ready(function($) {
     beforeSubmit: BeforeImageSubmit,
     success: ImageSubmitSuccessful,
     dataType: 'json',
-    error: AjaxError                               
+    error: AjaxError,
+    beforeSerialize: function($form, options) { 
+    	console.log("BEFORE SERIALIZE:",$form,options);                 
+    }                               
   });
 
   function BeforeImageSubmit(formData, jqForm, options) {
+  
+  console.log("MEDIA SUBMIT DATA: ",formData,jqForm);
 
     if (formData[1].value == "youtube") {
       $(".photo-attachement-header").text("Media");
+      options.extraData = $.extend(true, {}, options.extraData, {"video_url":formData[0].value});
     }
     
     $(".photo-attachement-header").fadeIn(1000);
