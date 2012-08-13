@@ -1,4 +1,4 @@
-q<?php
+<?php
 
 /**
  * Template Name: Tips
@@ -65,11 +65,11 @@ if ( is_user_logged_in() ) {
 		<h2 class="comm-header">Ask The Community!</h2>
 		<div class="new-superpost-modal-container">
 		
-		<form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-form">		        <input type="text" name="title" id="title" placeholder="Write Your Question"/>
+		<form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-form">		        <input type="text" name="title" id="title" placeholder="Headline"/>
 	        <input type="text" name="post_type" id="post_type" value="tip" style="display:none;"/>
 	        	           
 
-	        <!-- <textarea name="body" id="body" placeholder="Tell Us Your Story."></textarea></div>-->
+	        <textarea name="body" id="body" placeholder="Tell Us Your Story."></textarea></div>
 	        
 	        <input id="file" type="file" name="photo-upload" id="photo-upload" style="display:none"/>
 	<!--    
@@ -132,7 +132,7 @@ if ( is_user_logged_in() ) {
 	    </div> <!-- end .col-abc -->
 	    <div class="col-abc">
 		
-	    <h2 class="comm-header stream-header">Latest <?php the_title(); ?></h2>
+	    <h2 class="comm-header stream-header">Latest in <?php the_title(); ?> & Tactics</h2>
         <div id="recon-activity" term="tip" display="list" widthMode="short">
 
 

@@ -67,7 +67,7 @@ if ( is_user_logged_in() ) {
 		
 		<form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-form">
 	
-	        <input type="text" name="title" id="title" placeholder="Write Your Question"/>
+	        <input type="text" name="title" id="title" placeholder="Headline"/>
 	        <input type="text" name="post_type" id="post_type" value="lifestyle" style="display:none;"/>
 	        	           
 
@@ -134,7 +134,7 @@ if ( is_user_logged_in() ) {
 	    </div> <!-- end .col-abc -->
 	    <div class="col-abc">
 		
-	    <h2 class="comm-header stream-header">Latest <?php the_title(); ?></h2>
+	    <h2 class="comm-header stream-header">Latest in <?php the_title(); ?></h2>
         <div id="recon-activity" term="lifestyle" display="tile" widthMode="short">
 
 

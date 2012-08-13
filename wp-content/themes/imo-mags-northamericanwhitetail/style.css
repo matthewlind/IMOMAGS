@@ -1283,7 +1283,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
  * IMO Network Slider / Questions Slider
  *
  */
- 
+
 .intermedia-network {
     border-top: 1px solid #3E3E3E;
     height: 45px;
@@ -1701,7 +1701,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	margin: 0 auto 10px;
     width: 318px;
 }
-
+.questions-slider img.recon-gravatar{
+	float: none;
+}
 
 
 /*
@@ -2141,10 +2143,14 @@ home .super-post{padding-top:68px;}
 }
 .page-template-superpost_single-php .entry-header{
 	padding-top:22px;
+	width: 600px;
+	word-wrap: break-word;
 }
 .page-template-superpost_single-php h1.entry-title{
     font-size: 2.7em;
     line-height: 0.8em;
+    width: 600px;
+	word-wrap: break-word;
 }
 .super-addthis{
 	left: -20px;
@@ -3755,7 +3761,7 @@ h1.tv-header{
 }
 .page-template-user_profile-php .user-info{
 	float: left;
-	width: 420px;
+	width: 360px;
 	background: url("img/user-sep.png") no-repeat right center;
 }
 .page-template-user_profile-php .user-info img{
@@ -3765,7 +3771,7 @@ h1.tv-header{
 .page-template-user_profile-php .extras{
 	float: left;
 	padding: 0 12px;
-    width: 275px;
+    width: 235px;
 }
 .page-template-user_profile-php .extras .score-box{
 	width: 80px;
@@ -3792,15 +3798,21 @@ ul.details{
 	width: 250px;
 	margin-left: 12px;
 }
-ul.details li a{
+ul.details li a, ul.details li span{
 	padding-left: 32px;
 }
-ul.details li.hometown a, ul.details li.twitter a, ul.details li.www a{
+ul.details li span span{
+	padding-left: 0;
+	background: none !important;
+	text-transform: uppercase !important;
+}
+ul.details li.hometown span, ul.details li.twitter a.twitter, ul.details li.www a{
 	font-family: 'rokkitt',serif;
 	color: #aaa197;
 	font-size: 1.1em;
+	text-transform: capitalize;
 }
-ul.details li.hometown a{
+ul.details li.hometown span, ul.details li.hometown a{
 	background: url("img/map-marker.png") no-repeat 5px top;
 }
 ul.details li.twitter a{
@@ -4118,6 +4130,7 @@ ul.community-cats li.post:hover {
     margin-bottom: 0;
     margin-top: 0;
     font-family: ProximaNovaA-Regular;
+    width: 520px;
 }
 .page-community .row-title a{
 	color: #333333;

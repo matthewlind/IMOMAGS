@@ -98,7 +98,7 @@ if ( is_user_logged_in() ) {
 	</div>
 </div>
 <div class="col-abc super-content">
-	<a href="/profile/<?php echo $data->username ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" class="recon-gravatar"></a>
+	<a href="/profile/<?php echo $data->username ?>"><img src="/avatar?uid=<?php echo $data->user_id; ?>" class="recon-gravatar"></a>
 
 		<a class="username" href="/profile/<?php echo $data->username ?>"><?php echo $data->username; ?></a>
 		<div class="super-meta">Posted on <?php the_time('F j, Y'); ?> &#8226; <?php the_time('g:i a'); ?> &#8226; <a href="/<?php echo $data->post_type; ?>" class="post-type"><?php echo $data->post_type; ?></a> &#8226; <?php echo $data->view_count; ?> views</div>
@@ -238,7 +238,7 @@ if ( is_user_logged_in() ) {
     <?php if($data->post_type == "question"){
 	    echo '<h1>Answer this question</h1> ';
     }else{
-	    echo '<h1>Post a Comment!</h1> ';
+	    echo '<h1>Post a Reply</h1> ';
     } ?>
   
 
@@ -330,6 +330,7 @@ if ( is_user_logged_in() ) {
 
 
 
+
 <div class="pagi col-abc">
 	<?php 
     echo '<a class="prev-post" href="/plus/'.$data->post_type.'/'.$prev_post.'">Previous '.$data->post_type.'</a>'; 
@@ -346,7 +347,7 @@ if ( is_user_logged_in() ) {
 		         		for ($i = 1; $i <= 4; $i++) {
 		             		echo '<li>';
 							echo '<div class="user-info">';
-								echo '<a href="/profile/username"><img alt="user photo" src="http://www.northamericanwhitetail.fox/wp-content/themes/imo-mags-northamericanwhitetail/img/user-temp.jpg"></a>';
+								echo '<a href="/profile/username"><img class="superclass-gravatar_hash recon-gravatar" alt="user avatar" src="http://www.northamericanwhitetail.fox/wp-content/themes/imo-mags-northamericanwhitetail/img/user-temp.jpg"></a>';
 								echo '<a class="username">Batman</a><span> asks...</span>';
 							echo '</div>';
 							echo '<div class="quote-area">';

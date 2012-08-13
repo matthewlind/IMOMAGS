@@ -137,7 +137,7 @@ if ( is_user_logged_in() ) {
 		                     		for ($i = 1; $i <= 4; $i++) {
 			                     		echo '<li>';
 										echo '<div class="user-info">';
-											echo '<a href="/profile/username"><img alt="user photo" src="http://www.northamericanwhitetail.fox/wp-content/themes/imo-mags-northamericanwhitetail/img/user-temp.jpg"></a>';
+											echo '<a href="/profile/username"><img class="superclass-gravatar_hash recon-gravatar" alt="user avatar" src="http://www.northamericanwhitetail.fox/wp-content/themes/imo-mags-northamericanwhitetail/img/user-temp.jpg"></a>';
 											echo '<a class="username">Batman</a><span> asks...</span>';
 										echo '</div>';
 										echo '<div class="quote-area">';

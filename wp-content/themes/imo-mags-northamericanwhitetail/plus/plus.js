@@ -288,7 +288,7 @@ $.el.div({'class':'recon-box masonry-box masonry-brick','id':'recon-box-' + post
 		
 		$.el.abbr({'class':'recon-date timeago','title':post.created}),
 		$.el.a({'href':url},
-			$.el.span({'class':'comment-count'}, post.comment_count + " Comments"),
+			$.el.span({'class':'comment-count'}, post.comment_count + " Replies"),
 			" • ",
 			$.el.span({'class':'point-count'},post.score + " Points")
 		)
@@ -648,7 +648,7 @@ function displayReconList(type) {
 							</div>\
 						</li>\
 												<li class='user-avatar'><a href='/profile/" + this.username + "'><img src='http://www.northamericanwhitetail.fox/avatar?uid='" + this.user_id + "' alt='User Avatar' /></a> by <a href='/profile/" + this.username + "'>" + this.username + "</a></li>\
-												<li class='count-field'><a href='" + url + "/#comments'>" + this.comment_count + " Comments</a></li>\
+												<li class='count-field'><a href='" + url + "/#comments'>" + this.comment_count + " Replies</a></li>\
 						<li class='count-field'><abbr class='timeago'>" + this.created + "</abbr></li>\
 						<li class='count-field'>" + this.view_count + " Views</li>\
 												<li class='count-field'>" + points + " Points</li>\
@@ -718,8 +718,8 @@ function displayUserComments(userID) {
 	    $(data).each(function(index) {
 	        count++;
 
-	        //usables: posts.id, comment_body, rent_type, date, shares
-	        
+	        //usables: posts.id, comment_body, rent_type, date, shares, parent.post_type, parent_id
+	        console.log(data);
 	        var gravatar = $("<img class='recon-gravatar'>").attr("src","http://www.gravatar.com/avatar/" + this.gravatar_hash + ".jpg?s=50&d=identicon");
 	        var authorInfo = $("<div class='recon-author-info'><span class='author-name'></span><span class='author-action'></span></div>");
 	        authorInfo.find(".author-name").text(this.username);
@@ -728,7 +728,7 @@ function displayUserComments(userID) {
 	        var date = $("<abbr class='recon-date timeago' title=''></abbr>").attr("title",this.created);
 
 	        var image = $("<img class='superpost-list-thumb'>").attr("src",this.img_url);
-	        var url = "/plus/" + this.rent_type + "/" + this.id;
+	        var url = "/plus/" + this.rent_type + "/" + this.parent_id;
 
 
 	        //Userpopup stuff
@@ -817,7 +817,7 @@ $(document).ready(function(){
 		$.each(data, function(index, question) { 
 			$questionTemplate = $("ul#slides-questions li").eq(index);
 			var url = "/plus/question/" + question.id;
-			var gravatar = $questionTemplate.find(".user-info img").attr("src","http://www.gravatar.com/avatar/" + this.gravatar_hash + ".jpg?s=50&d=identicon");
+			var gravatar = $questionTemplate.find(".user-info img").attr("src","/avatar?uid=" + question.user_id);
 
 			$questionTemplate.find(".user-info a.username").text(question.username); 
 			$questionTemplate.find(".user-info a").attr("href","/profile/" + question.username);
