@@ -50,6 +50,7 @@ function imo_get_user($userID = -1) {
 	
 	
 	$facebookID = get_user_meta($userID,"facebook_ID",true);
+	$state = get_user_meta($userID,"state",true);
 
 	$userhash = md5($user_login . $salt);
 	$timecode_hash = md5($timecode . $salt);
@@ -62,7 +63,8 @@ function imo_get_user($userID = -1) {
 		"timecode" => $timecode,
 		"timecode_hash" => $timecode_hash,
 		"display_name" => $WPuser->display_name,
-		"facebook_id" => $facebookID
+		"facebook_id" => $facebookID,
+		"state" => $state
 	);
 	
 	return $user;
