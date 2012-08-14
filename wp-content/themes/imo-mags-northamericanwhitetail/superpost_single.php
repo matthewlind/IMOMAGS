@@ -99,7 +99,10 @@ if (empty($data->display_name)) {
 	    	LOGIN
 	    </div>
     	<ul id="user-bar" style="<?php echo $displayStyle; ?>">	          
-			<li class="user-name">Hello, <a href="/profile/<?php echo $current_user->user_nicename; ?>"><span id="current-user-name"><?php echo $current_user->display_name; ?></span></a></li>
+			<li class="user-name">
+				Hello, <a href="/profile/<?php echo $current_user->user_nicename; ?>"><span id="current-user-name"><?php echo $current_user->display_name; ?></span></a>
+				<div class="header-post-btn"><a href="#" class="new-post general">+ POST</a></div>
+			</li>
 			<li><a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" alt="User Avatar" class="recon-gravatar" /></a></li>                      
        </ul>
 

@@ -8,13 +8,13 @@ var displayMode = "tile"; //either "list" or "tile"
 var bgcolors = new Array("#403b35","#c65517","#829b40");
 
 var topicKey = new Object;
-topicKey.gear = "Gearz";
-topicKey.trophy = "Trophy Bucking";
-topicKey.lifestyle = "Lifestyles of the Horned & Hairy";
-topicKey.general = "General Concussions";
-topicKey.report = "Nut Reports";
-topicKey.question = "Questions & Bad Advise";
-topicKey.tip = "Tricks & Tactless";
+topicKey.gear = "Gear";
+topicKey.trophy = "Trophy Bucks";
+topicKey.lifestyle = "Lifestyle";
+topicKey.general = "General Discussion";
+topicKey.report = "Rut Reports";
+topicKey.question = "Questions & Answers";
+topicKey.tip = "Tips & Tactics";
 
 
 //Make sure we should run all of this stuff
@@ -814,11 +814,16 @@ $(document).ready(function(){
 		var $questionTemplate;
 				
 		$.each(data, function(index, question) { 
+		console.log(question);
 			$questionTemplate = $("ul#slides-questions li").eq(index);
 			var url = "/plus/question/" + question.id;
 			var gravatar = $questionTemplate.find(".user-info img").attr("src","/avatar?uid=" + question.user_id);
-
-			$questionTemplate.find(".user-info a.username").text(question.username); 
+			if(question.display_name){
+				$questionTemplate.find(".user-info a.username").text(question.display_name); 
+			}else{
+				$questionTemplate.find(".user-info a.username").text(question.username); 
+			}
+			$questionTemplate.find(".user-info a.username").text(question.display_name); 
 			$questionTemplate.find(".user-info a").attr("href","/profile/" + question.username);
 			
 			$questionTemplate.find("h4.quote").text(question.title);
@@ -873,7 +878,7 @@ $(document).ready(function(){
 	var getdata = $.getJSON(dataURL, function(data) {
 		
 		var $questionTemplate;
-
+		
 		$.each(data, function(index, all) { 
 				$questionTemplate = $("ul#scroll-widget li").eq(index);
 				$questionTemplate.find("a").attr("href","/plus/" + all.post_type + "/" + all.id);
