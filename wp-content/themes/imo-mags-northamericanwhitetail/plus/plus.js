@@ -8,18 +8,14 @@ var displayMode = "tile"; //either "list" or "tile"
 var bgcolors = new Array("#403b35","#c65517","#829b40");
 
 var topicKey = new Object;
-topicKey.gear = "Gear";
-topicKey.report = "Rut Report";
-topicKey.trophy = "Trophy Buck";
-topicKey.lifestyle = "Lifestyle";
-topicKey.general = "Discussion";
-topicKey.report = "Rut Report";
-topicKey.question = "Question";
-topicKey.tip = "Tip & Tactic";
+topicKey.gear = "Gearz";
+topicKey.trophy = "Trophy Bucking";
+topicKey.lifestyle = "Lifestyles of the Horned & Hairy";
+topicKey.general = "General Concussions";
+topicKey.report = "Nut Reports";
+topicKey.question = "Questions & Bad Advise";
+topicKey.tip = "Tricks & Tactless";
 
-
-//Activate timeago on single post pages and other static pages
-jQuery("abbr.timeago").timeago();
 
 //Make sure we should run all of this stuff
 if ($("#recon-activity").length > 0){
@@ -45,19 +41,6 @@ if ($("#user-activity").length > 0){
 	displayUserPosts(userID);
 }
 
-//Setup flagging on single post view:
-$(".single-flag-button").click(function(){
-
-	$thisFlagButton = $(this);
-
-	if (confirm("Are you sure you want to flag this post as inappropriate?")) { 
-    	var spid = $thisFlagButton.attr("spid");
-       	$.post("/slim//api/post/flag", { post_id: spid, etype: "flag", user_id: userIMO.user_id } );  	
-    	//$reconBox.fadeOut();
-    	$thisFlagButton.find('img').attr("src","/wp-content/themes/imo-mags-northamericanwhitetail/img/flag-button-red.png");
-    }
-		        
-});
 /* ON ICE
 //**************************
 //COMMUNITY PAGE ACTIONS
@@ -297,7 +280,7 @@ $.el.div({'class':'recon-box masonry-box masonry-brick','id':'recon-box-' + post
 			$.el.img({'src':'/avatar?uid=' + post.user_id,'class':'recon-gravatar'}),
 			$.el.div({'class':'recon-author-info'},
 				$.el.span({'class':'author-name'},post.display_name),
-				" posted a ",
+				" posted in ",
 				$.el.span({'class':'author-action'},nicePostType)
 			)
 		),
@@ -344,7 +327,7 @@ console.log(reconBox);
 			    	$.post("/slim//api/post/flag", { post_id: $reconBox.data("post_id"), etype: "flag", user_id: userIMO.user_id } );  	
 			    	//$reconBox.fadeOut();
 			    	$reconBox.find(".flag-image").attr("src","/wp-content/themes/imo-mags-northamericanwhitetail/img/flag-button-red.png");
-			    }
+			}
 		        
 	        });
 	        
@@ -417,7 +400,7 @@ function displayUserPosts(userID) {
 	        var gravatar = $("<img class='recon-gravatar'>").attr("src","http://www.gravatar.com/avatar/" + this.gravatar_hash + ".jpg?s=50&d=identicon");
 	        var authorInfo = $("<div class='recon-author-info'><span class='author-name'></span><span class='author-action'></span></div>");
 	        authorInfo.find(".author-name").text(this.username);
-	        authorInfo.find(".author-action").text(" posted a " + capitaliseFirstLetter(this.post_type));
+	        authorInfo.find(".author-action").text(" posted in " + capitaliseFirstLetter(this.post_type));
 	        var underTitle = $("<div class='under-title'></div>").html("<a href='" + url + "'>" + this.title + "</a>");
 	        var date = $("<abbr class='recon-date timeago' title=''></abbr>").attr("title",this.created);
 	        var imgUrl =  this.img_url;
@@ -637,7 +620,7 @@ function displayReconList(type) {
 	        var gravatar = $("<img class='recon-gravatar'>").attr("src","http://www.gravatar.com/avatar/" + this.gravatar_hash + ".jpg?s=50&d=identicon");
 	        var authorInfo = $("<div class='recon-author-info'><span class='author-name'></span><span class='author-action'></span></div>");
 	        authorInfo.find(".author-name").text(this.username);
-	        authorInfo.find(".author-action").text(" posted a " + capitaliseFirstLetter(this.post_type));
+	        authorInfo.find(".author-action").text(" posted in " + capitaliseFirstLetter(this.post_type));
 	        var underBox = $("<div class='under-box'></div>");
 	        var date = $("<abbr class='recon-date timeago' title=''></abbr>").attr("title",this.created);
 
@@ -652,9 +635,6 @@ function displayReconList(type) {
 
 			var points = parseInt(this.comment_count) + parseInt(this.share_count);
 			
-			if (!this.display_name)
-				this.display_name = this.username;
-			
 			//underBox.append(date);	
 			//var $avatar $("<img class='recon-gravatar'>").attr("src","http://www.northamericanwhitetail.fox/avatar?uid=" + this.$user_id);
 			var category_type = " in <a href=/question/'>" + this.secondary_post_type + "</a>";
@@ -667,35 +647,17 @@ function displayReconList(type) {
 								<div class='row-title'><a href='" + url + "'>" + this.title + "</a></div>\
 							</div>\
 						</li>\
-												<li class='user-avatar'><a href='/profile/" + this.username + "'><img src='/avatar?uid=" + this.user_id + "' alt='User Avatar' /></a> by <a href='/profile/" + this.username + "'>" + this.display_name + "</a></li>\
+												<li class='user-avatar'><a href='/profile/" + this.username + "'><img src='http://www.northamericanwhitetail.fox/avatar?uid='" + this.user_id + "' alt='User Avatar' /></a> by <a href='/profile/" + this.username + "'>" + this.username + "</a></li>\
 												<li class='count-field'><a href='" + url + "/#comments'>" + this.comment_count + " Replies</a></li>\
-						<li class='count-field'><abbr class='timeago' title='" + this.created + "'>" + this.created + "</abbr></li>\
+						<li class='count-field'><abbr class='timeago'>" + this.created + "</abbr></li>\
 						<li class='count-field'>" + this.view_count + " Views</li>\
 												<li class='count-field'>" + points + " Points</li>\
 												</ul>\
 						<div class='list-footer'>\
 							<div class='list-answer'><a href='" + url + "'>Reply</a></div>\
-							<div class='list-flag'><a href='#' class='list-flag-button'>Flag</a></div>\
+							<div class='list-flag'><a href='#'>Flag</a></div>\
 						</div>\
 				</div>");
-			
-			
-			//Add Flag Reporting
-	        //isset($params['post_id']) && isset($params['etype']) && isset($params['user_id']
-	        
-	        reconRow.data("post_id",this.id);
-	        reconRow.find(".list-flag-button").click(function(event){
-	        
-	        	event.preventDefault();
-		    	if (confirm("Are you sure you want to flag this post as inappropriate?")) { 
-			    	reconRow = $(this).closest(".recon-row");
-			    	$(this).css("background-image","url('/wp-content/themes/imo-mags-northamericanwhitetail/img/red-flag.png')");
-			    	$.post("/slim//api/post/flag", { post_id: reconRow.data("post_id"), etype: "flag", user_id: userIMO.user_id } );  	
-			    
-			    	
-			    }
-		        
-	        });
 			
 			
 			$("#recon-activity").append(reconRow);
@@ -761,7 +723,7 @@ function displayUserComments(userID) {
 	        var gravatar = $("<img class='recon-gravatar'>").attr("src","http://www.gravatar.com/avatar/" + this.gravatar_hash + ".jpg?s=50&d=identicon");
 	        var authorInfo = $("<div class='recon-author-info'><span class='author-name'></span><span class='author-action'></span></div>");
 	        authorInfo.find(".author-name").text(this.username);
-	        authorInfo.find(".author-action").text(" posted a " + capitaliseFirstLetter(this.rent_type));
+	        authorInfo.find(".author-action").text(" posted in " + capitaliseFirstLetter(this.rent_type));
 
 	        var reply_date = $("<abbr class='recon-date timeago' title=''></abbr>").attr("title",this.date);
 
@@ -871,6 +833,38 @@ $(document).ready(function(){
 
 }); //End display questions
 	
+// Questions List Widget	
+$(document).ready(function(){
+	var type = "question";
+	showAtOnce = 4;
+	var dataURL = "/slim/api/superpost/type/" + type +"/" + showAtOnce + "/0";  	
+	var getdata = $.getJSON(dataURL, function(data) {
+		
+		var $questionTemplate;
+				
+		$.each(data, function(index, question) { 
+			$questionTemplate = $("#questions-list-widget .loop").eq(index);
+			
+			var url = "/plus/question/" + question.id;
+			if (question.img_url) {
+				$questionTemplate.find("li.img img").attr("src",question.img_url);
+			}else{
+				$questionTemplate.find("li.img img").hide();
+			}
+			$questionTemplate.find("li.title").text(question.title);
+			$questionTemplate.find("li.replies").text(question.comment_count + " Replies");
+			
+			
+		});	
+					
+	$questionTemplate.appendTo("#questions-list-widget");
+	$("#questions-list-widget").fadeIn();
+	
+	});
+
+}); //End list questions
+
+
 // Sidebar slider display
 $(document).ready(function(){
 	var type = "all";

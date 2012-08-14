@@ -4543,10 +4543,77 @@ ul.thumbs-grid li a:hover span{
 }  
    
    
-   
-   
-   
-   
+/**********
+***
+** Questions List Widget
+***
+**********/  
+#questions-list-widget{
+	border: 1px solid #000;
+	margin-bottom: 10px;
+}
+#questions-list-widget ul{
+	list-style: none;
+	border-bottom: dotted 1px #000;
+	margin: 0;
+	padding: 10px;
+	clear: both;
+}
+#questions-list-widget li{
+	display: block;
+}   
+#questions-list-widget li.img{
+	float: left;
+} 
+#questions-list-widget li.img img{
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+}   
+#questions-list-widget li.title, 
+#questions-list-widget li.replies{
+	margin: 0;
+}   
+#questions-list-widget li.title{
+	font-family: ProximaNovaA-Semibold;
+	text-transform: capitalize;
+}
+#questions-list-widget li.title a{
+	color: #58534f;
+}
+#questions-list-widget li.replies{
+	font-family: ProximaNovaA-Regular;
+	color: #829b40;
+	text-transform: uppercase;
+	font-size: 0.8em;
+}
+#questions-list-widget li.ask{
+	display: block;
+}   
+#questions-list-widget li.more{
+	display: block;
+}   
+#questions-list-widget .footer{
+	height: 30px;
+	padding: 6px 10px 0;
+	text-transform: uppercase;
+}
+#questions-list-widget .footer a.ask{
+	background: url("img/right-arrow.png") no-repeat scroll left 6px transparent;
+    float: left;
+    font-family: ProximaNova-Semibold;
+    font-size: 0.8em;
+    padding: 3px 12px 0;
+}
+#questions-list-widget .footer a.more{
+	background: url("img/right-arrow.png") no-repeat scroll right 6px transparent;
+    float: right;
+    font-family: ProximaNova-Semibold;
+    font-size: 0.8em;
+    padding: 3px 12px 0;
+}
+
+
 /*** Local edits ***/   
     
 #text-19 {padding: 0;}
