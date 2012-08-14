@@ -153,7 +153,8 @@ if ( is_user_logged_in() ) {
 			       echo '<div class="reply-btn"><a href="#comments">REPLY</a></div>';
 			       echo '<div class="like-btn"><a href="#"></a></div>';
 			       echo '<div class="count"><a href="#comments">2</a></div>';
-			       echo '<a class="flag">Flag</a>';
+
+			       echo '<a class="single-flag-button" spid="' . $spid . '"><img src="http://www.northamericanwhitetail.deva/wp-content/themes/imo-mags-northamericanwhitetail/img/flag-button-gray.png" class="flag-image"></a>';
 			       
 			?>
 	     
@@ -200,7 +201,10 @@ if ( is_user_logged_in() ) {
 			            
 			            ?>
 	           </div>
+	           
 	    </div>
+	    
+	    <a class="single-flag-button" spid="<?php echo $comment->comment_id; ?>"><img src="http://www.northamericanwhitetail.deva/wp-content/themes/imo-mags-northamericanwhitetail/img/flag-button-gray.png" class="flag-image"></a>
 	</div><!-- end superpost-comment-single -->
 	<?php } ?>
 
