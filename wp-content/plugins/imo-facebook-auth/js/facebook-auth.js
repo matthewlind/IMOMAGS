@@ -53,16 +53,22 @@ jQuery(document).ready(function($) {
 	jQuery(".imo-fb-login-button, .fast-login-then-post-button").click(function(){
 						
 		imo_fb_login();
+		
+		var $clickedButton = $(this);
 
 	
 		function imo_fb_login() {
 		
 		$(".imo-fb-login-button").css({ opacity: 0.5 });
-		$(".fast-login-then-post-button").css({ opacity: 0.5 });
+		//$(".fast-login-then-post-button").css({ opacity: 0.5 });
+		
 
 		
 			FB.login(function(response) {
 			   if (response.authResponse) {
+			   
+			   	$("img.submit-icon").attr("src","/wp-content/themes/imo-mags-northamericanwhitetail/img/submit-throbber.gif");
+			   
 			     console.log('Welcome!  Fetching your information.... ');
 			     FB.api('/me', function(response) {
 			       console.log('Good to see you, ' + response.name + '.');
@@ -100,7 +106,19 @@ jQuery(document).ready(function($) {
 				            
 				            $(".fast-login-then-post-button").fadeOut(500,function(){
 					            
-					            $(".submit").fadeIn();
+					            $(".submit").css({ opacity: 0.5 });
+					            
+					            
+					            if ($clickedButton.hasClass("fast-login-then-post-button")) {
+					            	//alert("fast login used!");
+					            	
+					            	console.log("clicked button:",$clickedButton );
+					            	
+					            	$("#fileUploadForm").first().submit();
+						            
+					            }
+					            
+					            
 					            
 				            });
 				            
