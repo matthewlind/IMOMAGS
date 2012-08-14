@@ -75,11 +75,17 @@ if ( is_user_logged_in() ) {
     if ( !($current_user instanceof WP_User) )
          return;
     }
+    
+    
+// get the score of the post's author    
+$requestURL4 = "http://$hostname/slim/api/superpost/user/score/".$data->user_id;
+$file4 = file_get_contents($requestURL4);
+$post_user_score = json_decode($file4);
+$post_user_score = $post_user_score[0];
 
 ?>
 <!-- Don't delete this. It's part of imo-add-this -->
 <div id="imo-add-this-spid" style="display:none;"><?php echo $spid; ?></div>
-
 
 <header class="header-title">
 	<div class="imo-fb-login-button" style="<?php echo $loginStyle; ?>">
@@ -98,9 +104,11 @@ if ( is_user_logged_in() ) {
 	</div>
 </div>
 <div class="col-abc super-content">
-	<a href="/profile/<?php echo $data->username ?>"><img src="/avatar?uid=<?php echo $data->user_id; ?>" class="recon-gravatar"></a>
-
-		<a class="username" href="/profile/<?php echo $data->username ?>"><?php echo $data->username; ?></a>
+	<a href="/profile/<?php echo $data->username; ?>"><img src="/avatar?uid=<?php echo $data->user_id; ?>" class="recon-gravatar"></a>
+		<div class="user-meta">
+			<a class="username" href="/profile/<?php echo $data->username; ?>"><?php echo $data->display_name; ?></a>
+			<p class="points"><?php echo $post_user_score->score. " points"; ?></p>
+		</div>
 		<div class="super-meta">Posted on <?php the_time('F j, Y'); ?> &#8226; <?php the_time('g:i a'); ?> &#8226; <a href="/<?php echo $data->post_type; ?>" class="post-type"><?php echo $data->post_type; ?></a> &#8226; <?php echo $data->view_count; ?> views</div>
 		<div class="clearfix"></div>
 		<div class="entry-header"><h1 class="entry-title"><?php echo $data->title; ?></h1></div>
@@ -141,7 +149,7 @@ if ( is_user_logged_in() ) {
 			            } else {
 			
 			                $photoURL = str_replace("thumb", "medium", $attachment->img_url);
-			                $media = "<div class='attachment-container'><img src='$photoURL' width=615></div><div class='attachment-caption'>$attachment->body</div>";
+			                $media = "<div class='attachment-container'><img src='$photoURL' width=585></div><div class='attachment-caption'>$attachment->body</div>";
 			                
 			            }
 			
@@ -164,16 +172,26 @@ if ( is_user_logged_in() ) {
 
 
 <div class="superpost-comment-container">
-	<?php foreach ($commentData as $comment) {   ?>
+	<?php foreach ($commentData as $comment) {   
+	
+	// get the score of the users in the replies    
+$requestURL5 = "http://$hostname/slim/api/superpost/user/score/".$comment->comment_user_id;
+$file5 = file_get_contents($requestURL5);
+$comment_user_score = json_decode($file5);
+$comment_user_score = $comment_user_score[0];
+?>
 	<div class="col-abc super-comments zebra superpost-comment-single">
 		<div class="avatar-holder">
-	         <a href="/profile/<?php echo $comment->comment_username; ?>"><img src="http://www.gravatar.com/avatar/<?php echo $comment->gravatar_hash; ?>.jpg?s=50&d=identicon" class="superclass-gravatar_hash recon-gravatar"></a>
+	         <a href="/profile/<?php echo $comment->comment_username; ?>"><img src="/avatar?uid=<?php echo $comment->comment_user_id; ?>" class="superclass-gravatar_hash recon-gravatar"></a>
+	         <p class="comment-points"><?php echo $comment_user_score->score. " points"; ?></p>
 	    </div>
 	
 		<div class="superpost-comments">
 				<div class="superpost-comment" <?php echo $visible; ?> >
 	        		<div class="superclass-body">
-	        			<a href="/profile/<?php echo $comment->comment_username; ?>" class="username"><?php echo $comment->comment_username; ?></a>
+	        			<a href="/profile/<?php echo $comment->comment_username; ?>" class="username"><?php echo $comment->comment_display_name; ?></a>
+	        			
+	        			
 	        
 	        			<p><?php echo $comment->comment_body; ?></p>
 	        		</div>
@@ -208,7 +226,7 @@ if ( is_user_logged_in() ) {
 
 	<div class="col-abc super-comments zebra superpost-comment-template" style="display:none">
 		<div class="avatar-holder">
-		     <a href="/profile/admin"><img src="http://www.gravatar.com/avatar/f2034326b1ee13e62aa42044d4df93eb.jpg?s=50&d=identicon" class="superclass-gravatar_hash recon-gravatar"></a>
+		     <a href="/profile/admin"><img src="/avatar?uid=1" class="superclass-gravatar_hash recon-gravatar"></a>
 		</div>
 		
 		<div class="superpost-comments">
@@ -231,7 +249,7 @@ if ( is_user_logged_in() ) {
 <div class="col-abc super-comments">
 	<div class="avatar-holder">
 		<img src="/avatar?uid=<?php echo $current_user->ID; ?>" class="superclass-gravatar_hash recon-gravatar">
-        <a href="userlink"><?php echo $comment->comment_username; ?></a>
+        <a href="/profile/<?php echo $comment->comment_username; ?>"><?php echo $comment->comment_display_name; ?></a>
     </div>
 
     <div id="comments" class="new-superpost-modal-container" style="height:500px:width:600px;background-color:white;">

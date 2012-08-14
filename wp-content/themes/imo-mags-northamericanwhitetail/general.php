@@ -71,7 +71,7 @@ if ( is_user_logged_in() ) {
 	        <input type="text" name="post_type" id="post_type" value="general" style="display:none;"/>
 	        	           
 
-	        <textarea name="body" id="body" placeholder="Tell Us Your Story."></textarea></div>
+	        <textarea name="body" id="body" placeholder="Tell Us Your Story."></textarea>
 	        
 	        <input id="file" type="file" name="photo-upload" id="photo-upload" style="display:none"/>
 	<!--    
@@ -130,6 +130,7 @@ if ( is_user_logged_in() ) {
 		       <h4 style="display:none" class="photo-attachement-header">Photos</h4>
 		      <div class="attached-photos">
 		      </div>
+		    </div>
 	    </div> <!-- End new-superpost-modal-container -->
 	    </div> <!-- end .col-abc -->
 	    <div class="col-abc">
