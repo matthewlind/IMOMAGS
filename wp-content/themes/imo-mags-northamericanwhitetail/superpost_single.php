@@ -109,6 +109,10 @@ if (empty($data->display_name)) {
 	<div class="bonus">
 		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('superpost-sidebar')) : else : ?><?php endif; ?>
 	</div>
+	<div id="responderfollow"></div>
+		<div class="sidebar advert">
+			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('scroll-sidebar')) : else : ?><?php endif; ?>
+		</div>
 </div>
 <div class="col-abc super-content">
 
