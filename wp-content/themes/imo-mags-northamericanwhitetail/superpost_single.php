@@ -74,7 +74,13 @@ if ( is_user_logged_in() ) {
 	$current_user = wp_get_current_user();
     if ( !($current_user instanceof WP_User) )
          return;
-    }
+}
+
+if (empty($data->display_name)) {
+	$data->display_name = $data->username;
+}
+
+
 
 ?>
 <!-- Don't delete this. It's part of imo-add-this -->
@@ -100,8 +106,8 @@ if ( is_user_logged_in() ) {
 <div class="col-abc super-content">
 	<a href="/profile/<?php echo $data->username ?>"><img src="/avatar?uid=<?php echo $data->user_id; ?>" class="recon-gravatar"></a>
 
-		<a class="username" href="/profile/<?php echo $data->username ?>"><?php echo $data->username; ?></a>
-		<div class="super-meta">Posted on <?php the_time('F j, Y'); ?> &#8226; <?php the_time('g:i a'); ?> &#8226; <a href="/<?php echo $data->post_type; ?>" class="post-type"><?php echo $data->post_type; ?></a> &#8226; <?php echo $data->view_count; ?> views</div>
+		<a class="username" href="/profile/<?php echo $data->username ?>"><?php echo $data->display_name; ?></a>
+		<div class="super-meta">Posted <abbr style="display:inline" class='recon-date timeago' title='<?php echo $data->created; ?>'><?php echo $data->created; ?></abbr> &#8226; <a href="/<?php echo $data->post_type; ?>" class="post-type"><?php echo $data->post_type; ?></a> &#8226; <?php echo $data->view_count; ?> views</div>
 		<div class="clearfix"></div>
 		<div class="entry-header"><h1 class="entry-title"><?php echo $data->title; ?></h1></div>
 		<?php 

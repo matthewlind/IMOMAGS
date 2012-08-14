@@ -18,6 +18,9 @@ topicKey.question = "Question";
 topicKey.tip = "Tip & Tactic";
 
 
+//Activate timeago on single post pages and other static pages
+jQuery("abbr.timeago").timeago();
+
 //Make sure we should run all of this stuff
 if ($("#recon-activity").length > 0){
 
