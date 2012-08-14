@@ -83,4 +83,13 @@ jQuery(document).ready(function($) {
 
 });
 
+// Related Content slider
+$(document).ready(function(){
+				
+	jQuery('#slides-related').jcarousel({scroll: 3});	
 
+});
+// Flash ad z-index pecking order fix
+$(document).ready(function(){
+	FlashHeed.heed(document.getElementById('gallery-iframe-ad'));
+});

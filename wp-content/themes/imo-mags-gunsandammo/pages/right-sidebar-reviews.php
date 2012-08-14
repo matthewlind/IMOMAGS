@@ -71,7 +71,7 @@ the_post();
 						<div class="review-select3">
 						<select class="caliber reviews-select reviews-select-caliber">
 							<option selected="selected" name="caliber" value="">Caliber</option>
-							<option name="null" value="">Choose Manufacturer</option>
+							<option name="null" value="">Choose Manufacturer First...</option>
 						</select></div>
 						</form>
 					</div>

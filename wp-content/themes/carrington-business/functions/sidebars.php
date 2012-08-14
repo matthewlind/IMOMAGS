@@ -61,6 +61,11 @@ function cfct_widgets_init() {
 		'name' => __('Footer (right)', 'carrington-business'),
 		'description' => __('Customizable footer area on the right.', 'carrington-business')
 	)));
+	register_sidebar(array_merge($footer_defaults, array(
+		'id' => 'scroll-sidebar',
+		'name' => __('Scrolling Content', 'carrington-business'),
+		'description' => __('For scrolling content in a sidebar.', 'carrington-business')
+	)));
 }
 add_action( 'widgets_init', 'cfct_widgets_init' );
 ?>

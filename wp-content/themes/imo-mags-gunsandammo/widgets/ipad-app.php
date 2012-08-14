@@ -11,8 +11,8 @@ class iPadApp_Widget extends WP_Widget {
 		extract($args); ?>
 		<aside id="get_ipad_app" class="widget widget_ipad_app">
       <h3 class="title">G&amp;A Now on the iPad</h3>
-      <a class="cta" href="http://itunes.apple.com/us/app/guns-ammo-magazine/id386234086?mt=8">Get The App</a>
-      <div class="ipad"></div>
+      <a class="cta" href="http://itunes.apple.com/us/app/guns-ammo-magazine/id386234086?mt=8">Get The App<div class="ipad"></div></a>
+      
     </aside>
 
 <?php echo $after_widget;

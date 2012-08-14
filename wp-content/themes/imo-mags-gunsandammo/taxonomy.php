@@ -47,6 +47,7 @@ if (!is_admin()) {
 				</div>
 
 <?php
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
 
 
@@ -54,6 +55,7 @@ $term = get_queried_object();
 $term_id = $term->term_id;
 $term_slug = $term->slug;
 $taxonomy = $term->taxonomy;
+
 
 
  $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
@@ -67,17 +69,17 @@ $taxonomy = $term->taxonomy;
 $args = array(
 	$taxonomy => $term_slug,
 	'paged' => get_query_var('paged'),
-	'posts_per_page' => 300,
+	'posts_per_page' => -1,
 
 );
 
 query_posts($args);
 
-$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $count = 0;
 
 $items = array();
 $item = array();
+
 
 
 ?> 
@@ -195,7 +197,15 @@ $item = array();
 ?> 
 
 <?php endwhile;?>
-
+<div style="clear:both;"></div>
+		<div class="navigation">
+			<div class="alignleft">
+				<?php next_posts_link('&laquo; Older Entries'); ?>
+			</div>
+			<div class="alignright">
+				<?php previous_posts_link('Newer Entries &raquo;'); ?>
+			</div>
+		</div> <!-- end navigation -->
 <?php cfct_misc('nav-posts'); ?>
 </div> <!-- end div col-abc-->
 </div> <!-- end class="page-template-page-right-php" -->

@@ -71,7 +71,7 @@ if (!class_exists('cfct_module_featured_thumb_wide') && class_exists('cfct_build
 					$_img_id = get_post_meta($item['id'], '_thumbnail_id', true);
 					if (!empty($_img_id) && $_img = wp_get_attachment_image_src($_img_id, "huge-thumb", false)) {
 						$item['img_src'] = $_img;
-						$item['img_src_thumb'] = wp_get_attachment_image_src($_img_id, "huge-thumb", false);
+						$item['img_src_thumb'] = wp_get_attachment_image_src($_img_id, "thumbnail", false);
 					}
 				}
 				

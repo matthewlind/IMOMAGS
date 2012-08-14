@@ -1,4 +1,4 @@
-.htaccess
+/.htaccess
 .DS_Store
 .sass-cache
 debug.log
@@ -30,3 +30,5 @@ wp-content/object-cache.php
 imgs
 robots.txt
 .sass-cache
+slim/images
+wpdb/mysql.php

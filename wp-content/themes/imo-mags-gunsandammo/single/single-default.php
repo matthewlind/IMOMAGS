@@ -27,7 +27,7 @@ $dt_slug = "defend-thyself";
 $nb_slug = "news-brief";
 $tfl_slug = "the-front-lines";
 $tgg_slug = "the-gun-guys";
-$tgr_slug = "the-gun-room";
+$tgr_slug = "history-books";
 $zn_slug = "zombie-nation";
 
 get_header();
@@ -56,23 +56,50 @@ get_header();
 	}
 	
 	?>
-	</div>
+</div>
+<div id="content" class="col-ab">
 <!-- Set the blog header on single blog entry pages -->
+<?php
+$sg_img = get_option("sons_header_uri", get_stylesheet_directory_uri(). "/img/blogs/sonsofguns.png" );
+if (empty($sg_img)) {
+    $sg_img = get_stylesheet_directory_uri(). "/img/blogs/sonsofguns.png";
+}
+$dts_img = get_option("defend_header_uri", get_stylesheet_directory_uri(). "/img/blogs/defend-thyself.jpg" );
+if (empty($dts_img)) {
+    $dts_img = get_stylesheet_directory_uri(). "/img/blogs/defend-thyself.jpg";
+}
+$nb_img = get_option("news_header_uri", get_stylesheet_directory_uri(). "/img/blogs/news-brief.jpg" );
+if (empty($nb_img)) {
+    $nb_img = get_stylesheet_directory_uri(). "/img/blogs/news-brief.jpg";
+}
+$hb_img = get_option("history_header_uri", get_stylesheet_directory_uri(). "/img/blogs/history-books.jpg" );
+if (empty($hb_img)) {
+    $hb_img = get_stylesheet_directory_uri(). "/img/blogs/history-books.jpg";
+}
+$lc_img = get_option("competition_header_uri", get_stylesheet_directory_uri(). "/img/blogs/love-competition.jpg" );
+if (empty($lc_img)) {
+    $lc_img = get_stylesheet_directory_uri(). "/img/blogs/love-competition.jpg";
+}
+$zn_img = get_option("zombie_header_uri", get_stylesheet_directory_uri(). "/img/blogs/zombie-nation.jpg" );
+if (empty($zn_img)) {
+    $zn_img = get_stylesheet_directory_uri(). "/img/blogs/zombie-nation.jpg";
+}
+
+?>
 <?php if (in_category($soga_slug)) { ?>
 <h1 class="seo-h1">Sons of guns & Ammo</h1>
-<a class="blog-header soga-header" href="/blogs/<?php echo "sons-of-gunsandammo"; ?>/" title="<?php echo $current_category; ?>"></a>
-
+<a class="blog-header soga" href="/blogs/<?php echo "sons-of-gunsandammo"; ?>/" title="<?php echo $current_category; ?>"><img src="<?php print $sg_img; ?>"></a>
 <?php } else if (in_category($floc_slug)) { ?>
 <h1 class="seo-h1">For the Love of Competition</h1>
-<a class="blog-header floc-header" href="/blogs/<?php echo $floc_slug; ?>/" title="<?php echo $current_category; ?>"></a>
+<a class="blog-header" href="/blogs/<?php echo $floc_slug; ?>/" title="<?php echo $current_category; ?>"><img src="<?php print $lc_img; ?>"></a>
 
 <?php } else if (in_category($dt_slug)) { ?>
 <h1 class="seo-h1">Defend Thyself</h1>
-<a class="blog-header dt-header" href="/blogs/<?php echo $dt_slug; ?>/" title="<?php echo $current_category; ?>"></a>
+<a class="blog-header" href="/blogs/<?php echo $dt_slug; ?>/" title="<?php echo $current_category; ?>"><img src="<?php print $dts_img; ?>"></a>
 
 <?php } else if (in_category($nb_slug)) { ?>
 <h1 class="seo-h1">Guns & Ammo News Brief</h1>
-<a class="blog-header nb-header" href="/blogs/<?php echo $nb_slug; ?>/" title="<?php echo $current_category; ?>"></a>
+<a class="blog-header" href="/blogs/<?php echo $nb_slug; ?>/" title="<?php echo $current_category; ?>"><img src="<?php print $nb_img; ?>"></a>
 
 <?php } else if (in_category($tfl_slug)) { ?>
 <h1 class="seo-h1">The Front Lines</h1>
@@ -84,22 +111,21 @@ get_header();
 
 <?php } else if (in_category($tgr_slug)) { ?>
 <h1 class="seo-h1">From the History Books</h1>
-<a class="blog-header tgr-header" href="/blogs/<?php echo $tgr_slug; ?>/" title="<?php echo $current_category; ?>"></a>
+<a class="blog-header" href="/blogs/<?php echo $tgr_slug; ?>/" title="<?php echo $current_category; ?>"><img src="<?php print $hb_img; ?>"></a>
 
 <?php } else if (in_category($zn_slug)) { ?>
 <h1 class="seo-h1">Zombie Nation</h1>
-<a class="blog-header zn-header" href="/blogs/<?php echo $zn_slug; ?>/" title="<?php echo $current_category; ?>"></a>
+<a class="blog-header" href="/blogs/<?php echo $zn_slug; ?>/" title="<?php echo $current_category; ?>"><img src="<?php print $zn_img; ?>"></a>
 
 <?php } ?>
 
-<div id="content" class="col-ab">
+
 	<?php cfct_loop(); ?>
 	<?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
 	<div class="post-content-area">
-		<div class="yarpp-content">
-			<?php related_posts(); ?>
-		</div>
-		<div class="fb-recommendations recommendations" data-site="www.gunsandammo.com" data-width="300" data-height="250" data-header="true"></div>
+				<div class="fb-recommendations recommendations" data-site="www.gunsandammo.com" data-width="300" data-height="250" data-header="true"></div>
+		<div class="divider"></div>
+		<?php if (function_exists('related_posts')){related_posts();} ?>
 	</div>
 	<?php comments_template(); ?>
 </div>

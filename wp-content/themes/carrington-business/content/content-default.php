@@ -48,8 +48,8 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 				comments_popup_link(__('No comments', 'carrington-business'), __('1 comment', 'carrington-business'), __('% comments', 'carrington-business'));
 			//}
 			?>
-		</div>
-	</div>
+		</div><!-- entry info -->
+	</div><!--entry header-->
 
 	<?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
 
@@ -59,7 +59,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 		// the_post_thumbnail('thumbnail', array('class' => 'entry-img'));
 		the_content(__('Continued&hellip;', 'carrington-business'));
 		?>
-	</div>
+	</div><!-- entry content -->
 	<?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
 	<div class="entry-footer">
 		<?php _e('In', 'carrington-business'); ?>
@@ -68,6 +68,6 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 		the_tags(__(' <span class="spacer">&bull;</span> Tagged ', 'carrington-business'), ', ', '');
 		wp_link_pages();
 		?>
-	</div>
+	</div><!-- footer -->
 	<?php edit_post_link(__('Edit', 'carrington-business')); ?>
-</div>
+</div><!-- post -->

@@ -337,3 +337,25 @@ body {
 h2.entry-title a {
 	color: #000000;
 }
+
+/* Post Content */
+
+.recommendations {
+  float: left;
+  width: 270px;
+  height: 290px;
+  margin-top: 40px;
+}
+.post-content-area {
+  width: 620px;
+  float: left;
+}
+.related-products {
+  float: left;
+  height: 234px;
+  text-align: left;
+  width: 322px;
+}
+.leiki_products{
+	box-shadow: none !important;
+}
