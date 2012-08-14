@@ -8,8 +8,7 @@ class Questions_Widget extends WP_Widget {
  
 	function widget($args, $instance) {
 		extract($args, EXTR_SKIP);
- 
-    $title = empty($instance['title']) ? '' : apply_filters('widget_title', $instance['title']); ?>
+?>
 
     <aside id="questions-widget" class="box question-module widget_questions">
 		<div class="questions-slider">
@@ -19,17 +18,19 @@ class Questions_Widget extends WP_Widget {
 		            	<?php 
 		         		for ($i = 1; $i <= 4; $i++) {
 		             		echo '<li>';
-							echo '<div class="user-info">';
-								echo '<a href="/profile/username"><img class="superclass-gravatar_hash recon-gravatar" alt="user avatar" src="http://www.northamericanwhitetail.fox/wp-content/themes/imo-mags-northamericanwhitetail/img/user-temp.jpg"></a>';
-								echo '<a class="username">Batman</a><span> asks...</span>';
-							echo '</div>';
-							echo '<div class="quote-area">';
+		             		echo '<div class="quote-area">';
 								echo '<div class="top"></div>';
 								echo '<div class="mdl">';
 									echo '<h4 class="quote">&#8220;Can anyone suggest a good camo bat-suit for hunting in the forest? I am having trouble hunting in the day time.&#8221;</h4>';
 								echo '</div>';
 								echo '<div class="btm"></div>';
+								echo '<div class="pointer"></div>';
+								echo '</div>';
+							echo '<div class="user-info">';
+								echo '<a href="/profile/username"><img class="superclass-gravatar_hash recon-gravatar" alt="user avatar" src="http://www.northamericanwhitetail.fox/wp-content/themes/imo-mags-northamericanwhitetail/img/user-temp.jpg"></a>';
+								echo '<a class="username">Batman</a><span> asks...</span>';
 							echo '</div>';
+							
 							echo '<div class="answers-area">';
 								echo '<div class="answers-count">';
 									echo '<div class="answers">Answers</div><div class="count"><a href="#">18</a></div>';
@@ -45,19 +46,5 @@ class Questions_Widget extends WP_Widget {
         </aside>
 
 <?php	}
- 
-	function update($new_instance, $old_instance) {
-		$instance = $old_instance;
-		$instance['title'] = strip_tags($new_instance['title']);
-		return $instance;
-	}
- 
-	function form($instance) {
-		$instance = wp_parse_args((array) $instance, array('title' => ''));
-		$title = strip_tags($instance['title']);
-?>
-			<p><label for="<?php echo $this->get_field_id('title'); ?>">Title: <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo attribute_escape($title); ?>" /></label></p>
-<?php
-	}
 }
 register_widget('Questions_Widget');
