@@ -129,7 +129,7 @@ include_once get_stylesheet_directory().'/widgets/superpost-thumbs-grid.php';
 include_once get_stylesheet_directory().'/widgets/superpost-thumbs-scroller.php';
 include_once get_stylesheet_directory().'/widgets/community-topics.php';
 include_once get_stylesheet_directory().'/widgets/questions-widget.php';
-
+include_once get_stylesheet_directory().'/widgets/questions-list-widget.php';
 
 
 
