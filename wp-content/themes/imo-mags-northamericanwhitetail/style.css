@@ -3159,9 +3159,11 @@ a.plus-button{
     position: relative;
     width: 89px;
     height: 34px;
+    -moz-transition: all 0.6s ease 0s;-webkit-transition: 0.6s;
 }
 .reply-btn:hover{
 	background-color: #aaa197;
+	-moz-transition: all 0.6s ease 0s;-webkit-transition: 0.6s;
 }
 .reply-btn a{
 	color: #FFFFFF;
@@ -3934,8 +3936,30 @@ ul#user-bar li{
 	padding: 0 6px;
 }
 ul#user-bar li.user-name{
-	padding-top: 18px;
+	padding-top: 4px;
 	text-transform: capitalize;
+}
+ul#user-bar li.user-name .header-post-btn{
+	background-color: #3E88E9;
+    clear: both;
+    cursor: pointer;
+    font-family: "ProximaNovaA-Semibold";
+    font-size: 0.9em;
+    height: 21px;
+    margin: 0 0 0 6px;
+    overflow: hidden;
+    padding: 0 3px 0;
+    position: relative;
+    text-align: center;
+    width: 70px;
+}
+ul#user-bar li.user-name .header-post-btn a{
+	color: white;
+	-moz-transition: all 0.6s ease 0s;-webkit-transition: 0.6s;
+}
+ul#user-bar li.user-name .header-post-btn:hover{
+	background-color: #aaa197;
+	-moz-transition: all 0.6s ease 0s;-webkit-transition: 0.6s;
 }
 ul.community-cats{
 	margin: 0 0 4px 0;
