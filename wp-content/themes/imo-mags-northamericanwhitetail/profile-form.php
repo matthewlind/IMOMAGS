@@ -41,7 +41,6 @@ if ( is_user_logged_in() ) {
     }
 
 ?>
-
 <div class="login profile" id="theme-my-login<?php $template->the_instance(); ?>">
 	<?php $template->the_action_template_message( 'profile' ); ?>
 	<?php $template->the_errors(); ?>
@@ -229,4 +228,5 @@ if ( is_user_logged_in() ) {
 			<input type="submit" class="button-primary" value="<?php esc_attr_e( 'Update Profile', 'theme-my-login' ); ?>" name="submit" />
 		</p>
 	</form>
+<a href="<?php echo wp_logout_url( get_permalink() ); ?>" title="Logout">Logout</a>
 </div>
