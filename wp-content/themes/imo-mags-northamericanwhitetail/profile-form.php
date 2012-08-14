@@ -62,9 +62,19 @@ if ( is_user_logged_in() ) {
 		<h3><?php _e( 'Name', 'theme-my-login' ) ?></h3>
 
 		<table class="form-table">
+<!--
 		<tr>
 			<th><label for="user_login"><?php _e( 'Username', 'theme-my-login' ); ?></label></th>
 			<td><input type="text" name="user_login" id="user_login" value="<?php echo esc_attr( $profileuser->user_login ); ?>" disabled="disabled" class="regular-text" /> <span class="description"><?php _e( 'Your username cannot be changed.', 'theme-my-login' ); ?></span></td>
+		</tr>
+			
+-->
+
+		<tr>
+			<th><label for="display_name"><?php _e( 'Display name publicly as', 'theme-my-login' ) ?></label></th>
+			<td>
+				<input type="text" name="display_name" id="display_name" value="<?php echo esc_attr( $profileuser->display_name ) ?>" class="regular-text" />
+			</td>
 		</tr>
 
 		<tr>
