@@ -8,9 +8,7 @@ class Join_Widget extends WP_Widget {
  
 	function widget($args, $instance) {
 		extract($args, EXTR_SKIP);
- 
-    $title = empty($instance['title']) ? '' : apply_filters('widget_title', $instance['title']); 
-    
+     
     $displayStyle = "display:none";
 	$loginStyle = "";
 	
@@ -29,7 +27,7 @@ class Join_Widget extends WP_Widget {
 
     <aside id="join" class="box widget_gravity_form" style="<?php echo $loginStyle; ?>">
       <div class="content_wrapper">
-      	  <div id="user-login-button" class="fb-login">Fast Facebook Login</div>
+      	  <div id="imo-fb-login-button" class="fb-login">Fast Facebook Login</div>
 	      <small>*we do not post anything to your wall unless you say so!</small>
 	      <a class="email-signup">or use your email address</a>
 	      <a class="prize-title">Sign Up Now & Win This Bolt Action Model 700!</a>
@@ -42,18 +40,5 @@ class Join_Widget extends WP_Widget {
 
 <?php	}
  
-	function update($new_instance, $old_instance) {
-		$instance = $old_instance;
-		$instance['title'] = strip_tags($new_instance['title']);
-		return $instance;
-	}
- 
-	function form($instance) {
-		$instance = wp_parse_args((array) $instance, array('title' => ''));
-		$title = strip_tags($instance['title']);
-?>
-			<p><label for="<?php echo $this->get_field_id('title'); ?>">Title: <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo attribute_escape($title); ?>" /></label></p>
-<?php
-	}
 }
 register_widget('Join_Widget');

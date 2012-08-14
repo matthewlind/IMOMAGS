@@ -65,13 +65,70 @@ if ( is_user_logged_in() ) {
 		<h2 class="comm-header">Post Your Trophy Buck!</h2>
 		<div class="new-superpost-modal-container">
 		
-		<form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-form">
-	        <input type="text" name="title" id="title" placeholder="Headline"/>
-	        <input type="text" name="post_type" id="post_type" value="trophy" style="display:none;"/>
-	        	           
-
-	        <textarea name="body" id="body" placeholder="Tell Us Your Story."></textarea></div>
-	        <div class="state-dropdown-container">
+			<form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-form">
+		        <input type="text" name="title" id="title" placeholder="Headline"/>
+		        <input type="text" name="post_type" id="post_type" value="trophy" style="display:none;"/>
+		        	           
+	
+		        <textarea name="body" id="body" placeholder="Tell Us Your Story."></textarea>
+			    <input id="file" type="file" name="photo-upload" id="photo-upload" style="display:none"/>
+		<!--    
+		        <input type="hidden" name="clone_target" value="superpost-box">
+		        <input type="hidden" name="attach_target" value="post-container">
+		        <input type="hidden" name="attachment_point" value="prepend">
+		        <input type="hidden" name="masonry" value="true"> 
+		-->
+		        <input type="hidden" name="form_id" value="fileUploadForm">
+		        <input type="hidden" name="attachment_id" class="attachment_id" value="">	   
+		        <input type="submit" value="Submit" class="submit" style="<?php echo $displayStyle; ?>"/>
+		        <div class="fast-login-then-post-button" style="<?php echo $loginStyle; ?>">Submit & Login <img class="submit-icon" src="/wp-content/themes/imo-mags-northamericanwhitetail/img/fb.png" height=20 width=20></div>
+	     
+		        <p class="login-note">
+		        </p>
+	        </form><!-- end form -->
+	        
+	        <div class="media-section">
+	        
+	        	<form id="fileUploadForm-image" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-image-form">
+			    	<div id="fileupload" >
+			        	<div class="fileupload-buttonbar ">
+			            	<label class="upload-button">
+				                <span><span class="white-plus-sign">+</span><span class="button-text">ATTACH PHOTO</span></span>
+				                <input id="image-upload" type="file" name="photo-upload" id="photo-upload" />
+			                </label>
+			           </div>
+			       </div>
+			       <input type="hidden" name="post_type" value="photo">
+			       <input type="hidden" name="form_id" value="fileUploadForm">
+		       </form><!-- end form -->
+		      
+			   <div class="video-button">
+			        <span><span class="white-plus-sign"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/youtube.png" alt="YouTube" /></span>ADD YOUTUBE VIDEO</span>
+			   </div>
+			   <div class="video-url-form-holder-container" style="display:none;">
+			   		<div class="video-url-form-holder" style="">
+			        	<form id="video-url-form" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-image-form">		            
+				            <div class="video-body-holder">
+				            	<input type="text" name="body" id="video-body" placeholder="Paste YouTube URL or code here"/>
+				            </div>
+				            <input type="hidden" name="post_type" value="youtube">
+				            <input type="hidden" name="form_id" value="fileUploadForm">
+				       </form>
+				   </div>
+			       <div class="video-close-button">
+			       </div>
+			  </div><!-- /.video-url-form-holder-container-->
+			  
+			  <h4 style="display:none" class="photo-attachement-header">Photos</h4>
+			  <div class="attached-photos">
+			  </div>
+		</div><!-- /.media-section-->
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$(".state-chzn").chosen();
+			});
+		</script>
+		<div class="state-dropdown-container">
 		          <select name="state" class="state-chzn" style="width:400px;padding:5px;" data-placeholder="Nice. Where did you find it?">
 			            <option value=""></option>
 			            <option value="AL">Alabama</option>
@@ -172,75 +229,20 @@ if ( is_user_logged_in() ) {
 			            <option value="YC">Yucatan</option>
 			            <option value="ZT">Zacatecas</option>
 			      </select>
-			</div>
+
+			</div>    
+
 	        
-	       <input id="file" type="file" name="photo-upload" id="photo-upload" style="display:none"/>
-	<!--    
-	        <input type="hidden" name="clone_target" value="superpost-box">
-	        <input type="hidden" name="attach_target" value="post-container">
-	        <input type="hidden" name="attachment_point" value="prepend">
-	        <input type="hidden" name="masonry" value="true"> 
-	-->
-	        <input type="hidden" name="form_id" value="fileUploadForm">
-	        <input type="hidden" name="attachment_id" class="attachment_id" value="">	   
-	        <input type="submit" value="Submit" class="submit" style="<?php echo $displayStyle; ?>"/>
-	        <div class="fast-login-then-post-button" style="<?php echo $loginStyle; ?>">Submit & Login <img class="submit-icon" src="/wp-content/themes/imo-mags-northamericanwhitetail/img/fb.png" height=20 width=20></div>
-	        <p class="login-note">
-	        </p>
-	        </form>
-	        
-	        <div class="media-section">
-	
-		     		
-		       <form id="fileUploadForm-image" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-image-form">
-		        <div id="fileupload" >
-		          <div class="fileupload-buttonbar ">
-		              <label class="upload-button">
-		                  <span><span class="white-plus-sign">+</span><span class="button-text">ATTACH PHOTO</span></span>
-		                  <input id="image-upload" type="file" name="photo-upload" id="photo-upload" />
-		
-		              </label>
-		          </div>
-		        </div>
-		        <input type="hidden" name="post_type" value="photo">
-		        <input type="hidden" name="form_id" value="fileUploadForm">
-		
-		
-		      </form>
-		      
-		      <div class="video-button">
-		        <span><span class="white-plus-sign"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/youtube.png" alt="YouTube" /></span>ADD YOUTUBE VIDEO</span>
-		      </div>
-		      <div class="video-url-form-holder-container" style="display:none;">
-		
-		        <div class="video-url-form-holder" style="">
-		          <form id="video-url-form" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-image-form">
-		            
-		            <div class="video-body-holder">
-		            <input type="text" name="body" id="video-body" placeholder="Paste YouTube URL or code here"/>
-		            </div>
-		            <input type="hidden" name="post_type" value="youtube">
-		            <input type="hidden" name="form_id" value="fileUploadForm">
-		
-		
-		          </form>
-		
-		        </div>
-		        <div class="video-close-button">
-		        </div>
-		      </div>
-		       <h4 style="display:none" class="photo-attachement-header">Photos</h4>
-		      <div class="attached-photos">
-		      </div>
+			
 	    </div> <!-- End new-superpost-modal-container -->
-	    </div> <!-- end .col-abc -->
-	    <div class="col-abc">
+	</div> <!-- end .col-abc -->
+	<div class="col-abc">
 		
 	    <h2 class="comm-header stream-header">Latest <?php the_title(); ?> Bucks</h2>
         <div id="recon-activity" term="trophy" display="tile" widthMode="short">
 
 
-       </div>
+    </div>
        <span id="more-community-button">Load More<span></span></span>
    </div>
 </div>

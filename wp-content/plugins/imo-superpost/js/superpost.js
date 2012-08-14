@@ -84,15 +84,6 @@ jQuery(document).ready(function($) {
 	
 		$(".post_type .general").attr("selected","selected");
 	});
-
-  //**************************
-  //Set the state on new post forms.
-  
-  
-  if (userIMO.state)
-  	$('option[value="' + userIMO.state + '"]').attr("selected","selected");;
-  //**************************
-	
   //You can't add jQuery events to elements that don't exist.
   //As such, this function runs after the New Post modal appears
   function SetupPostForm() {	
@@ -261,7 +252,6 @@ jQuery(document).ready(function($) {
     
     $(".photo-attachement-header").fadeIn(1000);
     $('.page-community input.submit').css('top','+=90');
-    $('.page-community .fast-login-then-post-button').css('top','+=90');
 
     var $loadingTag = $("<div class='loading-box' style=''><img src='/wp-content/themes/imo-mags-northamericanwhitetail/img/loader.gif'></div>");
     //$(".attached-photos").append($loadingTag);
@@ -392,12 +382,11 @@ jQuery(document).ready(function($) {
 
 
   function addNewBox(response) {
-
     if (response == null) {
       alert("You may not be logged in.");
     }
 
-    response.gravatar_hash = "http://www.gravatar.com/avatar/" + response.gravatar_hash + ".jpg?s=25&d=identicon";
+    response.gravatar_hash = "/avatar?uid=" + response.id;
     
     
     if (response.img_url) {

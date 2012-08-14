@@ -65,11 +65,12 @@ if ( is_user_logged_in() ) {
 		<h2 class="comm-header">Ask The Community!</h2>
 		<div class="new-superpost-modal-container">
 		
-		<form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-form">		        <input type="text" name="title" id="title" placeholder="Headline"/>
+		<form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-form">		        
+			<input type="text" name="title" id="title" placeholder="Headline"/>
 	        <input type="text" name="post_type" id="post_type" value="tip" style="display:none;"/>
 	        	           
 
-	        <textarea name="body" id="body" placeholder="Tell Us Your Story."></textarea></div>
+	        <textarea name="body" id="body" placeholder="Tell Us Your Story."></textarea>
 	        
 	        <input id="file" type="file" name="photo-upload" id="photo-upload" style="display:none"/>
 	<!--    
@@ -127,6 +128,7 @@ if ( is_user_logged_in() ) {
 		      </div>
 		       <h4 style="display:none" class="photo-attachement-header">Photos</h4>
 		      <div class="attached-photos">
+		      </div>
 		      </div>
 	    </div> <!-- End new-superpost-modal-container -->
 	    </div> <!-- end .col-abc -->

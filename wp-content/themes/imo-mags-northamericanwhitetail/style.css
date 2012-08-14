@@ -2251,6 +2251,19 @@ home .super-post{padding-top:68px;}
     top: 10px;
     text-transform: uppercase;
 }
+.page-template-superpost_single-php .points{
+	color: #AAA197;
+	line-height: 0.7;
+ }
+.page-template-superpost_single-php .comment-points{
+	color: #AAA197;
+}
+.page-template-superpost_single-php .username{
+	float: none;
+}
+.page-template-superpost_single-php .user-meta{
+	float: left;
+}
 
 /*
  * Deer of the Day Page
@@ -3891,7 +3904,7 @@ h3.first-last-name{
 **
 *****/
 .page-community .state-dropdown-container{
-	margin: -8px 0 30px;
+	margin:0;
 }
 .page-community ul.post-type-select li:first-child{
 	border-left: 1px solid #ccc;
@@ -3911,8 +3924,8 @@ ul#user-bar li.user-name{
 }
 ul.community-cats{
 	margin: 0 0 4px 0;
-	padding: 27px 10px 50px;
-	background-color: #f7f7f7;
+	padding: 28px 10px 50px;
+	background-color: #ededed;
 	list-style: none;
 }
 ul.community-cats li{
@@ -4053,11 +4066,14 @@ ul.community-cats li.post:hover {
 .page-community #fileUploadForm{
 	margin: 0;
 }
-.page-community .superpost-form input[type="submit"]   {
+.page-community .superpost-form input[type="submit"]{
 	left: 280px;
     position: absolute;
-    top: 170px;
+    top: 240px;
     width: 190px;
+} 
+.page-template-trophy-php .superpost-form input[type="submit"], .page-template-report-php .superpost-form input[type="submit"]{
+	top: 290px;
 } 
 .page-community .new-superpost-modal-container input#title, .page-community .new-superpost-modal-container textarea{
 	width: 618px !important;
@@ -4069,7 +4085,7 @@ ul.community-cats li.post:hover {
 }
 .page-community .media-section{
 	float: left;
-	margin: -14px 0 0;
+	margin: 0 0 10px;
 }
 .page-template-question-php .page-community .media-section{
 	margin: 7px 0 0;
@@ -4107,8 +4123,14 @@ ul.community-cats li.post:hover {
     width: 190px;
 }
 
+
 .page-community .fast-login-then-post-button {
 	left:436px; 
+}
+
+.page-template-trophy-php .superpost-form .fast-login-then-post-button,
+.page-template-report-php .superpost-form .fast-login-then-post-button {
+	top:290px;
 }
 
 .fast-login-then-post-button {
@@ -4125,7 +4147,7 @@ ul.community-cats li.post:hover {
     cursor: pointer;
     left: 431px;
     position: absolute;
-    top: 400px;
+    top:235px;
     width: 172px;
     font-family: 'Lucida Grande';
     font-size: 16px;
@@ -4135,6 +4157,7 @@ ul.community-cats li.post:hover {
 	vertical-align: text-bottom;
 	margin-left:3px;
 }
+
 
 .page-template-question-php .page-community input.submit{
    	background: none repeat scroll 0 0 #347FE7;
@@ -4149,7 +4172,7 @@ ul.community-cats li.post:hover {
     cursor: pointer;
     left: 280px;
     position: absolute;
-    top: 170px;
+    top: 160px;
     width: 190px;
 }
 
@@ -4157,11 +4180,12 @@ ul.community-cats li.post:hover {
 	font-family: ProximaNovaA-Light;
 }
 .page-community .stream-header{
-	margin-top: 140px;
+	margin-top: 100px;
     border-top: 2px solid;
     padding-top: 40px;
 }
 .page-community #recon-activity{top:0;}
+.page-template-community-php #recon-activity{top:70px;}
 
 .page-community .loading-box {
     float: left;
