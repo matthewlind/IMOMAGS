@@ -81,7 +81,8 @@ if ( is_user_logged_in() ) {
 		        <input type="hidden" name="form_id" value="fileUploadForm">
 		        <input type="hidden" name="attachment_id" class="attachment_id" value="">	   
 		        <input type="submit" value="Submit" class="submit" style="<?php echo $displayStyle; ?>"/>
-		        <div class="fast-login-then-post-button" style="<?php echo $loginStyle; ?>">FAST LOGIN THEN POST</div>
+		        <div class="fast-login-then-post-button" style="<?php echo $loginStyle; ?>">Submit & Login <img class="submit-icon" src="/wp-content/themes/imo-mags-northamericanwhitetail/img/fb.png" height=20 width=20></div>
+	     
 		        <p class="login-note">
 		        </p>
 	        </form><!-- end form -->
@@ -228,7 +229,9 @@ if ( is_user_logged_in() ) {
 			            <option value="YC">Yucatan</option>
 			            <option value="ZT">Zacatecas</option>
 			      </select>
+
 			</div>    
+
 	        
 			
 	    </div> <!-- End new-superpost-modal-container -->

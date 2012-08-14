@@ -4117,11 +4117,47 @@ ul.community-cats li.post:hover {
     padding: 10px 0;
     margin-top: 17px;
     cursor: pointer;
-    left: 431px;
+    left: 444px;
     position: absolute;
     top: 400px;
     width: 190px;
 }
+
+
+.page-community .fast-login-then-post-button {
+	left:436px; 
+}
+
+.page-template-trophy-php .superpost-form .fast-login-then-post-button,
+.page-template-report-php .superpost-form .fast-login-then-post-button {
+	top:290px;
+}
+
+.fast-login-then-post-button {
+	
+    background: none repeat scroll 0 0 #347FE7;
+    border: 1px solid #2861B2;
+    border-radius: 4px;
+    box-shadow: 0 1px 0 transparent, 1px 1px 0 #679FED inset;
+    color: #FFFFFF;
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 1px 2px 0 rgba(0, 0, 0, 0.4);
+    font-size: 1em;
+    padding: 10px 0 10px 25px;
+    margin-top: 17px;
+    cursor: pointer;
+    left: 431px;
+    position: absolute;
+    top:235px;
+    width: 172px;
+    font-family: 'Lucida Grande';
+    font-size: 16px;
+}
+
+.fast-login-then-post-button img {
+	vertical-align: text-bottom;
+	margin-left:3px;
+}
+
 
 .page-template-question-php .page-community input.submit{
    	background: none repeat scroll 0 0 #347FE7;
