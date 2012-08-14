@@ -2186,6 +2186,18 @@ home .super-post{padding-top:68px;}
     font-size: 0.9em;
     cursor: pointer;
 }
+
+.single-flag-button {
+	margin-right: 3px;
+	cursor: pointer;
+	margin-top: 24px;
+	float: right;
+}
+
+.superpost-comments .single-flag-button{
+	margin-top: 0;
+}
+
 .page-template-superpost_single-php .count, #questions-widget .count{
 	background: url('img/super-count-bg.jpg') no-repeat top left #aaa197;
 	color: #fff;
@@ -2646,6 +2658,19 @@ ul.naw-loop li{
     direction: ltr;
     cursor: pointer;
     width:90px;
+    
+    
+}
+
+.super-comments .fileupload-buttonbar input, 
+.simplemodal-container .fileupload-buttonbar input{
+	left:580px;
+}
+
+.page-community .fileupload-buttonbar input{
+	top:20px;
+	height:10px;
+	width:120px;
 }
 
 .fileupload-buttonbar span {

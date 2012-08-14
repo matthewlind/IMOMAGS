@@ -83,6 +83,13 @@ $file4 = file_get_contents($requestURL4);
 $post_user_score = json_decode($file4);
 $post_user_score = $post_user_score[0];
 
+ //  <--- This?
+
+if (empty($data->display_name)) {
+	$data->display_name = $data->username;
+}
+
+
 ?>
 <!-- Don't delete this. It's part of imo-add-this -->
 <div id="imo-add-this-spid" style="display:none;"><?php echo $spid; ?></div>
@@ -104,12 +111,21 @@ $post_user_score = $post_user_score[0];
 	</div>
 </div>
 <div class="col-abc super-content">
+
 	<a href="/profile/<?php echo $data->username; ?>"><img src="/avatar?uid=<?php echo $data->user_id; ?>" class="recon-gravatar"></a>
 		<div class="user-meta">
 			<a class="username" href="/profile/<?php echo $data->username; ?>"><?php echo $data->display_name; ?></a>
 			<p class="points"><?php echo $post_user_score->score. " points"; ?></p>
 		</div>
-		<div class="super-meta">Posted on <?php the_time('F j, Y'); ?> &#8226; <?php the_time('g:i a'); ?> &#8226; <a href="/<?php echo $data->post_type; ?>" class="post-type"><?php echo $data->post_type; ?></a> &#8226; <?php echo $data->view_count; ?> views</div>
+		<div class="super-meta">Posted on <abbr style="display:inline" class='recon-date'><?php the_time('F j, Y'); ?> &#8226; <?php the_time('g:i a'); ?></abbr> &#8226; <a href="/<?php echo $data->post_type; ?>" class="post-type"><?php echo $data->post_type; ?></a> &#8226; <?php echo $data->view_count; ?> views</div>
+
+<!--
+	<a href="/profile/<?php echo $data->username ?>"><img src="/avatar?uid=<?php echo $data->user_id; ?>" class="recon-gravatar"></a>
+
+		<a class="username" href="/profile/<?php echo $data->username ?>"><?php echo $data->display_name; ?></a>
+		<div class="super-meta">Posted <abbr style="display:inline" class='recon-date timeago' title='<?php echo $data->created; ?>'><?php echo $data->created; ?></abbr> &#8226; <a href="/<?php echo $data->post_type; ?>" class="post-type"><?php echo $data->post_type; ?></a> &#8226; <?php echo $data->view_count; ?> views</div>
+-->
+
 		<div class="clearfix"></div>
 		<div class="entry-header"><h1 class="entry-title"><?php echo $data->title; ?></h1></div>
 		<?php 
@@ -161,7 +177,8 @@ $post_user_score = $post_user_score[0];
 			       echo '<div class="reply-btn"><a href="#comments">REPLY</a></div>';
 			       echo '<div class="like-btn"><a href="#"></a></div>';
 			       echo '<div class="count"><a href="#comments">2</a></div>';
-			       echo '<a class="flag">Flag</a>';
+
+			       echo '<a class="single-flag-button" spid="' . $spid . '"><img src="http://www.northamericanwhitetail.deva/wp-content/themes/imo-mags-northamericanwhitetail/img/flag-button-gray.png" class="flag-image"></a>';
 			       
 			?>
 	     
@@ -218,7 +235,10 @@ $comment_user_score = $comment_user_score[0];
 			            
 			            ?>
 	           </div>
+	           
 	    </div>
+	    
+	    <a class="single-flag-button" spid="<?php echo $comment->comment_id; ?>"><img src="http://www.northamericanwhitetail.deva/wp-content/themes/imo-mags-northamericanwhitetail/img/flag-button-gray.png" class="flag-image"></a>
 	</div><!-- end superpost-comment-single -->
 	<?php } ?>
 
