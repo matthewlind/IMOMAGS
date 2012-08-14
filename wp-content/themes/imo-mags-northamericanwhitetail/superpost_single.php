@@ -141,7 +141,7 @@ if ( is_user_logged_in() ) {
 			            } else {
 			
 			                $photoURL = str_replace("thumb", "medium", $attachment->img_url);
-			                $media = "<div class='attachment-container'><img src='$photoURL' width=585></div><div class='attachment-caption'>$attachment->body</div>";
+			                $media = "<div class='attachment-container'><img src='$photoURL' width=615></div><div class='attachment-caption'>$attachment->body</div>";
 			                
 			            }
 			

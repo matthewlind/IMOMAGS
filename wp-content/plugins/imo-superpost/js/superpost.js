@@ -84,6 +84,15 @@ jQuery(document).ready(function($) {
 	
 		$(".post_type .general").attr("selected","selected");
 	});
+
+  //**************************
+  //Set the state on new post forms.
+  
+  
+  if (userIMO.state)
+  	$('option[value="' + userIMO.state + '"]').attr("selected","selected");;
+  //**************************
+	
   //You can't add jQuery events to elements that don't exist.
   //As such, this function runs after the New Post modal appears
   function SetupPostForm() {	
@@ -252,6 +261,7 @@ jQuery(document).ready(function($) {
     
     $(".photo-attachement-header").fadeIn(1000);
     $('.page-community input.submit').css('top','+=90');
+    $('.page-community .fast-login-then-post-button').css('top','+=90');
 
     var $loadingTag = $("<div class='loading-box' style=''><img src='/wp-content/themes/imo-mags-northamericanwhitetail/img/loader.gif'></div>");
     //$(".attached-photos").append($loadingTag);
