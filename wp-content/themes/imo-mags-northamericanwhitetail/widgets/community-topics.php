@@ -15,33 +15,24 @@ class community_topics_Widget extends WP_Widget {
 		    <h2>Browse the Community</h2>
 		</div>
 		 <div class="post_type_styled_select">
-         <select class="post_type" name="post_type">
-            <option value="general" class="general">General Discussion</option>
-            <option value="question" class="question">Q&A</option>
-            <option value="report" class="report">Rut Reports</option>
-            <option value="tip" class="tip">Tips & Tactics</option>
-            <option value="lifestyle" class="lifestyle">Lifestyle</option>
-            <option value="trophy" class="trophy">Trophy Bucks</option>
-            <!--<option value="gear" class="gear">Gear</option>-->
+         <select id="dynamic_select" class="post_type" name="post_type">
+         	<option value="" selected>Choose a Topic</option>        
+         	<option value="/general">General Discussion</option>
+            <option value="/question">Q&A</option>
+            <option value="/report">Rut Reports</option>
+            <option value="/tip"">Tips & Tactics</option>
+            <option value="/lifestyle">Lifestyle</option>
+            <option value="/trophy">Trophy Bucks</option>
+            <!--<option value="/gear" class="gear">Gear</option>-->
           </select>
         </div>
         <div class="buttons">
-	     	<a href="#" class="ask-question">Ask a Question</a>
-	     	<a href="#" class="share-photo">Share a Photo</a>        
+	     	<a href="#" id="new-post-button" class="ask-question post new-post question">Ask a Question</a>
+	     	<a href="#" id="new-post-button" class="share-photo post new-post general">Share a Photo</a>        
         </div>
         </aside>
 
 <?php	}
  
-	function update($new_instance, $old_instance) {
-		$instance = $old_instance;
-		$instance['title'] = strip_tags($new_instance['title']);
-		return $instance;
-	}
- 
-	function form($instance) {
-		$instance = wp_parse_args((array) $instance, array('title' => ''));
-		$title = strip_tags($instance['title']);
-	}
 }
 register_widget('community_topics_Widget');
