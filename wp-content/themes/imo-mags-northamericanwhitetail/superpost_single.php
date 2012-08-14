@@ -276,7 +276,7 @@ $comment_user_score = $comment_user_score[0];
         <a href="/profile/<?php echo $comment->comment_username; ?>"><?php echo $comment->comment_display_name; ?></a>
     </div>
 
-    <div id="comments" class="new-superpost-modal-container" style="height:500px:width:600px;background-color:white;">
+    <div id="comments" class="" style="height:500px:width:600px;background-color:white;">
     <?php if($data->post_type == "question"){
 	    echo '<h1>Answer this question</h1> ';
     }else{
