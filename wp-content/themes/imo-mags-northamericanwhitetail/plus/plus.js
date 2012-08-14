@@ -8,13 +8,13 @@ var displayMode = "tile"; //either "list" or "tile"
 var bgcolors = new Array("#403b35","#c65517","#829b40");
 
 var topicKey = new Object;
-topicKey.gear = "Gearz";
-topicKey.trophy = "Trophy Bucking";
-topicKey.lifestyle = "Lifestyles of the Horned & Hairy";
-topicKey.general = "General Concussions";
-topicKey.report = "Nut Reports";
-topicKey.question = "Questions & Bad Advise";
-topicKey.tip = "Tricks & Tactless";
+topicKey.gear = "Gear";
+topicKey.trophy = "Trophy Bucks";
+topicKey.lifestyle = "Lifestyle";
+topicKey.general = "General Discussion";
+topicKey.report = "Rut Reports";
+topicKey.question = "Questions & Answers";
+topicKey.tip = "Tips & Tactics";
 
 
 //Make sure we should run all of this stuff
