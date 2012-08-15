@@ -219,7 +219,7 @@ width: 990px;
     overflow: hidden;
     padding: 30px 0 0;
     position: relative;
-    width: 1030px;
+    width: 1020px;
     height: 182px;
 }
 #header .title {
@@ -607,7 +607,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 #header #megaMenu ul.megaMenu li.magazine {
 	top:27px;
 	float: right;
-	right: 313px;
+	right: 317px;
 }
 #header #megaMenu ul.megaMenu li.magazine > a {
   	-moz-border-bottom-colors: none;
@@ -2867,7 +2867,7 @@ select.post_type {
 #join {
     border: 1px solid #D5D5D5;
     padding: 18px 18px 6px;
-    background:url("img/join-bg.png") no-repeat scroll center 10px #EDEDED;
+    background:url("img/join-crosshair-bg.png") no-repeat scroll center 15px #EDEDED;
 }
 #join a.about-link{
 	font-family: ProximaNova-Bold;
@@ -4055,6 +4055,7 @@ ul.community-cats li.post:hover {
 	height: 70px;
 }
 #community-topics a.ask-question, #community-topics a.share-photo{
+	-moz-transition: all 0.6s ease 0s;-webkit-transition: 0.6s;
 	background-color: #307DEA;
     color: #FFFFFF;
     font-family: ProximaNova-Semibold;
@@ -4064,6 +4065,10 @@ ul.community-cats li.post:hover {
     text-transform: uppercase;
     text-align: center;
     float: left;
+}
+#community-topics a.ask-question:hover, #community-topics a.share-photo:hover{
+	-moz-transition: all 0.6s ease 0s;-webkit-transition: 0.6s;
+    background-color: #AAA197;
 }
 #community-topics .ask-question{
 	margin-right: 1px !important;
@@ -4488,7 +4493,7 @@ ul.thumbs-grid li a:hover span{
 .superpost-thumbs-widget h2{
 	text-align: center;
 	border-top: 3px solid #000;
-	padding-top: 8px;
+	padding-top: 14px;
 }
 .superpost-thumbs-widget .prev, .superpost-thumbs-widget .next{
     background-color: transparent !important;
@@ -4501,11 +4506,28 @@ ul.thumbs-grid li a:hover span{
     position: absolute !important;
     text-align: left !important;
     text-indent: -119988px !important;
-    top: 40px !important;
+    top: 44px !important;
     width: 25px !important;
 }
 .superpost-thumbs-widget .prev{
     background-image: url("img/ui_tab_prev_blue.png") !important;
+}
+ul#scroll-widget li a span{
+	color: #FFFFFF;
+    display: none;
+    font-size: 1.4em;
+    font-style: italic;
+    height: 48px;
+    padding: 22px 2px 10px;
+    position: absolute;
+    text-align: center;
+    width: 76px;
+    line-height: 0.9;
+    text-shadow:  0 0 0 rgba(0, 0, 0, 0.2), 1px 2px 0 rgba(0, 0, 0, 0.4);
+}
+ul#scroll-widget li a:hover span{
+	display: block;
+	background: rgba(0,0,0,0.4);
 }
     
     

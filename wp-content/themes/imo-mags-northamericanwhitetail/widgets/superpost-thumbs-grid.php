@@ -15,7 +15,7 @@ class Superpost_Thumbs_Grid_Widget extends WP_Widget {
  		<ul class="thumbs-grid" term="all">	
  			<?php 
             for ($i = 1; $i <= 9; $i++) {
-                echo '<li><a href=""><span>Score</span><img src="#"></a></li>';
+                echo '<li><a href=""><span>Views</span><img src="#"></a></li>';
 			} ?>
         </ul>
         <div class="footer">

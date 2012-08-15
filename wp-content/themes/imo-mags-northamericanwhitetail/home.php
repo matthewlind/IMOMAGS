@@ -64,7 +64,6 @@ if ( is_user_logged_in() ) {
 	        <div class="super-header">
 	            <hr class="comm-sep">
 	            <h1 class="recon">Naw+ Community</h1>
-	            <div class="remington"></div>
 	        </div>
             <!--<div class='cssmenu'>
 				<ul>

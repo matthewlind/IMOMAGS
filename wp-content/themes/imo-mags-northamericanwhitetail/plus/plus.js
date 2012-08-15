@@ -873,8 +873,8 @@ $(document).ready(function(){
 // Sidebar slider display
 $(document).ready(function(){
 	var type = "all";
-	showAtOnce = 36;
-	var dataURL = "/slim/api/superpost/photos/" + type +"/" + showAtOnce + "/0";  	
+	showAtOnce = 12;
+	var dataURL = "/slim/api/superpost/views/" + type +"/" + showAtOnce + "/0";  	
 	var getdata = $.getJSON(dataURL, function(data) {
 		
 		var $questionTemplate;
@@ -883,6 +883,7 @@ $(document).ready(function(){
 				$questionTemplate = $("ul#scroll-widget li").eq(index);
 				$questionTemplate.find("a").attr("href","/plus/" + all.post_type + "/" + all.id);
 				$questionTemplate.find("img").attr("src",all.img_url);
+				$questionTemplate.find("span").text(all.view_count + " Views");
 		});							
 	$questionTemplate.appendTo("ul#scroll-widget.scroll").fadeIn();	
 	});

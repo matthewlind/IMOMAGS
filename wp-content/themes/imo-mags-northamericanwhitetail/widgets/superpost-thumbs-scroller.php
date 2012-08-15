@@ -18,8 +18,8 @@ class Superpost_Thumbs_Scroller_Widget extends WP_Widget {
  			<ul id="scroll-widget" class="scroll">
  				
  				<?php 
-                 for ($i = 1; $i <= 36; $i++) {
-                    echo '<li><a href=""><img src="#"></a></li>';
+                 for ($i = 1; $i <= 12; $i++) {
+                    echo '<li><a href=""><span>Views</span><img src="#"></a></li>';
 				} ?>
             </ul>
         </div>   
