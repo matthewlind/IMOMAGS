@@ -914,6 +914,11 @@ $(document).ready(function(){
 
 }); //End 
 
+// join widget email slide down
+$("#join .email-signup").click(function(){
+	$("#join form.join-form").slideDown();
+});
+
 
 
 });//End doc Ready

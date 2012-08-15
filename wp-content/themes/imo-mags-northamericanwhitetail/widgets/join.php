@@ -30,9 +30,10 @@ class Join_Widget extends WP_Widget {
       	  <div id="imo-fb-login-button" class="fb-login">Fast Facebook Login</div>
 	      <small>*we do not post anything to your wall unless you say so!</small>
 	      <a class="email-signup">or use your email address</a>
-	      <a class="prize-title">Sign Up Now & Win This Bolt Action Model 700!</a>
-	      <div class="prize"></div>
-	      <div class="prize-logo"></div>
+	      <form style="display:none;" class="join-form">
+		  	<input type="email" name="email" class="join-email" placeholder="Your Email">
+		  	<input type="submit" name="submit" class="join-submit" value="Join">
+	      </form>
 	      <div class="clear"></div>
         <a href="#" class="about-link">What is North American Whitetail +?</a>
        </div>

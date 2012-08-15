@@ -116,9 +116,6 @@ if($data->post_type == "tip"){
 </div>
 <div class="col-abc single-header">
 	<header class="header-title">
-		<div class="imo-fb-login-button" style="<?php echo $loginStyle; ?>">
-		    	LOGIN
-		    </div>
 	    	<ul id="user-bar" style="<?php echo $displayStyle; ?>">	          
 				<li class="user-name">
 					Hello, <a href="/profile/<?php echo $current_user->user_nicename; ?>"><span id="current-user-name"><?php echo $current_user->display_name; ?></span></a>

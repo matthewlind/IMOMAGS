@@ -2866,7 +2866,7 @@ select.post_type {
  */
 #join {
     border: 1px solid #D5D5D5;
-    padding: 17px;
+    padding: 18px 18px 6px;
     background:url("img/join-bg.png") no-repeat scroll center 10px #EDEDED;
 }
 #join a.about-link{
@@ -2940,11 +2940,25 @@ a.prize-title {
 	font-size: 0.7em;
 	color: #636363;
 }
-.temp{
-	background: url("img/temp.png") no-repeat scroll center top transparent;
-	height: 48px;
-    width: 100%;
-    margin: 14px auto;
+input.join-email{
+	border: 1px solid #AAA197 !important;
+    padding: 8px;
+    margin-top: 14px;
+    width: 210px;
+    float: left;
+}
+input.join-submit{
+	background-color: #307DEA;
+    border: medium none;
+    color: #FFFFFF;
+    float: left;
+    font-family: ProximaNova-Semibold;
+    font-size: 0.8em;
+    margin: 14px 0 0 3px;
+    padding: 8px;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
 }
 /**
 * Skyscraper ad fix
@@ -4020,9 +4034,10 @@ ul.community-cats li.post:hover {
     
 /* Widget Version */
 #community-topics{
-	width: 318px;
 	background: #ededed;
-	margin-bottom: 40px;
+	height: 162px;
+    margin-bottom: 10px;
+    width: 318px;
 }
 #community-topics select.post_type, #community-topics .post_type_styled_select{
 	width: 290px;
@@ -4037,6 +4052,7 @@ ul.community-cats li.post:hover {
 #community-topics .post_type_styled_select{     
 	margin: 0;
 	padding: 10px 14px !important;
+	height: 70px;
 }
 #community-topics a.ask-question, #community-topics a.share-photo{
 	background-color: #307DEA;
@@ -4047,7 +4063,6 @@ ul.community-cats li.post:hover {
     padding: 6px 0;
     text-transform: uppercase;
     text-align: center;
-    
     float: left;
 }
 #community-topics .ask-question{
@@ -4057,8 +4072,30 @@ ul.community-cats li.post:hover {
  #community-topics a.share-photo{
 	width: 158px;
 }
-
-
+#community-topics .state-dropdown-container {
+    float: right;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+#community-topics .state-dropdown-container .post_type{
+	clear: both;
+    float: right;
+    margin: 0 0 10px;
+    padding: 2px 0 4px;
+    width: 230px;
+}
+#community-topics .or{
+	float: left;
+    margin: 15px 10px;
+    font-family: ProximaNovaA-Regular;
+    font-size: 0.7em;
+}
+#community-topics .sponsor{
+ 	background: url("img/browse-sponsor.png") no-repeat scroll center center;
+    height: 36px;
+    margin: 20px auto;
+    width: 318px;
+}
 
 .page-community .fast-login-then-post-button {
 	left:436px; 
@@ -4068,9 +4105,11 @@ ul.community-cats li.post:hover {
 .page-template-report-php .superpost-form .fast-login-then-post-button {
 	top:290px;
 }
-
+.page-template-question-php .fast-login-then-post-button {
+	top: 145px;
+}
 .fast-login-then-post-button {
-
+	 -moz-transition: all 0.6s ease 0s;-webkit-transition: 0.6s;
     background: none repeat scroll 0 0 #347FE7;
     border: 1px solid #2861B2;
     border-radius: 4px;
@@ -4087,6 +4126,11 @@ ul.community-cats li.post:hover {
     width: 172px;
     font-family: 'Lucida Grande';
     font-size: 16px;
+}
+
+.fast-login-then-post-button:hover {
+ 	-moz-transition: all 0.6s ease 0s;-webkit-transition: 0.6s;
+    background: #3b5b99;
 }
 
 .fast-login-then-post-button img {
@@ -4362,7 +4406,10 @@ ul#user-bar li.user-name .header-post-btn:hover{
 .page-community select.post_type{
 	border: 1px solid #aaa197;
 }
-
+.page-community .imo-fb-login-button,
+.page-template-superpost_single-php .imo-fb-login-button{
+	margin-top: 4px;
+}
 
 
 
