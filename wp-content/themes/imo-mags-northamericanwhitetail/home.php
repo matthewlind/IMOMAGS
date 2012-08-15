@@ -131,7 +131,7 @@ if ( is_user_logged_in() ) {
 					</div>
 					<div class="questions-slider">
 		                <div class="slides-container-f">
-		                	<a href="/question" class="see-all home-see-all">See All Questions</a>
+		                	<a href="/community/question" class="see-all home-see-all">See All Questions</a>
 		                     	<ul id="slides-questions" class="jcarousel-skin-tango questions-feed">
 		                        	<?php 
 		                     		for ($i = 1; $i <= 4; $i++) {

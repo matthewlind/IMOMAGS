@@ -89,25 +89,22 @@ if (empty($data->display_name)) {
 	$data->display_name = $data->username;
 }
 
+// Topic nice names
+if($data->post_type == "tip"){
+	$topicName = 'Tips & Tactics';
+}else if($data->post_type == "trophy"){
+	$topicName = 'Trophy Bucks';
+}else if($data->post_type == "general"){
+	$topicName = 'General Discussion';
+}else if($data->post_type == "report"){
+	$topicName = 'Rut Reports';
+}else{
+	$topicName = $data->post_type;
+}
 
 ?>
 <!-- Don't delete this. It's part of imo-add-this -->
 <div id="imo-add-this-spid" style="display:none;"><?php echo $spid; ?></div>
-
-<header class="header-title">
-	<div class="imo-fb-login-button" style="<?php echo $loginStyle; ?>">
-	    	LOGIN
-	    </div>
-    	<ul id="user-bar" style="<?php echo $displayStyle; ?>">	          
-			<li class="user-name">
-				Hello, <a href="/profile/<?php echo $current_user->user_nicename; ?>"><span id="current-user-name"><?php echo $current_user->display_name; ?></span></a>
-				<div class="header-post-btn"><a href="#" class="new-post general">+ POST</a></div>
-			</li>
-			<li><a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" alt="User Avatar" class="recon-gravatar" /></a></li>                      
-       </ul>
-
-	<h1><a href="/community/">Community</a> <span>| <a href="/<?php echo $data->post_type; ?>"><?php echo $data->post_type; ?></a></span></h1>
-</header>
 <div class="bonus-background">
 	<div class="bonus">
 		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('superpost-sidebar')) : else : ?><?php endif; ?>
@@ -117,14 +114,34 @@ if (empty($data->display_name)) {
 			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('scroll-sidebar')) : else : ?><?php endif; ?>
 		</div>
 </div>
-<div class="col-abc super-content">
+<div class="col-abc single-header">
+	<header class="header-title">
+		<div class="imo-fb-login-button" style="<?php echo $loginStyle; ?>">
+		    	LOGIN
+		    </div>
+	    	<ul id="user-bar" style="<?php echo $displayStyle; ?>">	          
+				<li class="user-name">
+					Hello, <a href="/profile/<?php echo $current_user->user_nicename; ?>"><span id="current-user-name"><?php echo $current_user->display_name; ?></span></a>
+					<a class="new-post general start" href="#">Start New Post</a>
+				</li>
+				<li><a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" alt="User Avatar" class="recon-gravatar" /></a></li>                      
+	       </ul>
+	       <h1>Community General Discussion</h1>
+	       <div class="community-crumbs">
+	       		<a href="/community">Community Home</a> &raquo; <a href="/community/<?php echo $data->post_type; ?>"><?php echo $topicName; ?></a>
+			</div>
 
+	</header>
+</div>
+
+<div class="col-abc super-content">
+	
 	<a href="/profile/<?php echo $data->username; ?>"><img src="/avatar?uid=<?php echo $data->user_id; ?>" class="recon-gravatar"></a>
 		<div class="user-meta">
 			<a class="username" href="/profile/<?php echo $data->username; ?>"><?php echo $data->display_name; ?></a>
 			<p class="points"><?php echo $post_user_score->score. " points"; ?></p>
 		</div>
-		<div class="super-meta">Posted on <abbr style="display:inline" class='recon-date'><?php the_time('F j, Y'); ?> &#8226; <?php the_time('g:i a'); ?></abbr> &#8226; <a href="/<?php echo $data->post_type; ?>" class="post-type"><?php echo $data->post_type; ?></a> &#8226; <?php echo $data->view_count; ?> views</div>
+		<div class="super-meta">Posted on <abbr style="display:inline" class='recon-date'><?php the_time('F j, Y'); ?> &#8226; <?php the_time('g:i a'); ?></abbr> &#8226; <a href="/<?php echo $data->post_type; ?>" class="post-type"><?php echo $topicName; ?></a> &#8226; <?php echo $data->view_count; ?> views</div>
 
 <!--
 	<a href="/profile/<?php echo $data->username ?>"><img src="/avatar?uid=<?php echo $data->user_id; ?>" class="recon-gravatar"></a>
@@ -407,7 +424,7 @@ $comment_user_score = $comment_user_score[0];
 									echo '<div class="answers">Answers</div><div class="count"><a href="#">18</a></div>';
 								echo '</div>';
 								echo '<a href="#" class="answers-link">Answer This Question</a>'; 
-								echo '<div class="see-all-area"><a href="/question" class="see-all home-see-all">See All Questions</a></div>';
+								echo '<div class="see-all-area"><a href="/community/question" class="see-all home-see-all">See All Questions</a></div>';
 							echo '</div>';
 						echo '</li>';
 						} ?>

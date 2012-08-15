@@ -41,17 +41,7 @@ if ( is_user_logged_in() ) {
 
 ?>
 <div class="page-community">
-    <header class="header-title">
-    	<div class="imo-fb-login-button" style="<?php echo $loginStyle; ?>">
-	    	LOGIN
-	    </div>
-    	<ul id="user-bar" style="<?php echo $displayStyle; ?>">	          
-			<li class="user-name">Hello, <a href="/profile/<?php echo $current_user->user_nicename; ?>"><span id="current-user-name"><?php echo $current_user->display_name; ?></span></a></li>
-			<li><a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" alt="User Avatar" class="recon-gravatar" /></a></li>                      
-       </ul>
-	       <h1><a href="/community/">Community</a> <span>| General Discussion</span></h1>
-		</header>
-	<div class="bonus-background">
+    	<div class="bonus-background">
 		<div class="bonus">
 			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('superpost-sidebar')) : else : ?><?php endif; ?>
 		</div>
@@ -63,7 +53,24 @@ if ( is_user_logged_in() ) {
 	</div>
 
 	<div class="col-abc">
-		<h2 class="comm-header">Post in General Discussion!</h2>
+		<header class="header-title">
+    	<div class="imo-fb-login-button" style="<?php echo $loginStyle; ?>">
+	    	LOGIN
+	    </div>
+    	<ul id="user-bar" style="<?php echo $displayStyle; ?>">	          
+			<li class="user-name">
+				Hello, <a href="/profile/<?php echo $current_user->user_nicename; ?>"><span id="current-user-name"><?php echo $current_user->display_name; ?></span></a>
+			</li>
+			<li><a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" alt="User Avatar" class="recon-gravatar" /></a></li>                      
+       </ul>
+	       <h1>Community General Discussion</h1>
+	       <div class="community-crumbs">
+	       		<a href="/community">Community Home</a> &raquo; General Discussion
+			</div>
+		</header>
+
+	
+		<h2 class="comm-header">Post in General Discussion</h2>
 		<div class="new-superpost-modal-container">
 		
 		<form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-form">

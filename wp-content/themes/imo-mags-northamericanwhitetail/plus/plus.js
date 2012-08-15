@@ -13,7 +13,7 @@ topicKey.trophy = "Trophy Bucks";
 topicKey.lifestyle = "Lifestyle";
 topicKey.general = "General Discussion";
 topicKey.report = "Rut Reports";
-topicKey.question = "Questions & Answers";
+topicKey.question = "Q&A";
 topicKey.tip = "Tips & Tactics";
 
 
@@ -841,22 +841,22 @@ $(document).ready(function(){
 // Questions List Widget	
 $(document).ready(function(){
 	var type = "question";
-	showAtOnce = 4;
+	showAtOnce = 5;
 	var dataURL = "/slim/api/superpost/type/" + type +"/" + showAtOnce + "/0";  	
 	var getdata = $.getJSON(dataURL, function(data) {
 		
 		var $questionTemplate;
 				
 		$.each(data, function(index, question) { 
-			$questionTemplate = $("#questions-list-widget .loop").eq(index);
+		console.log(question);
+			$questionTemplate = $("#questions-list-widget .loop ul").eq(index);
 			
-			var url = "/plus/question/" + question.id;
 			if (question.img_url) {
 				$questionTemplate.find("li.img img").attr("src",question.img_url);
 			}else{
 				$questionTemplate.find("li.img img").hide();
 			}
-			$questionTemplate.find("li.title").text(question.title);
+			$questionTemplate.find("li.title a").text(question.title).attr("href",type + "/" + question.id);
 			$questionTemplate.find("li.replies").text(question.comment_count + " Replies");
 			
 			

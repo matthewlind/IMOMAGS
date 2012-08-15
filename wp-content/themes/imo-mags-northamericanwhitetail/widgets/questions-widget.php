@@ -36,7 +36,7 @@ class Questions_Widget extends WP_Widget {
 									echo '<div class="answers">Answers</div><div class="count"><a href="#">18</a></div>';
 								echo '</div>';
 								echo '<a href="#" class="answers-link">Answer This Question</a>'; 
-								echo '<div class="see-all-area"><a href="/question" class="see-all home-see-all">See All Questions</a></div>';
+								echo '<div class="see-all-area"><a href="/community/question" class="see-all home-see-all">See All Questions</a></div>';
 							echo '</div>';
 						echo '</li>';
 						} ?>

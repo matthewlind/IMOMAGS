@@ -205,7 +205,7 @@ $args = array(
             <option value="tip" class="tip">Tips & Tactics</option>
             <option value="lifestyle" class="lifestyle">Lifestyle</option>
             <option value="trophy" class="trophy">Trophy Bucks</option>
-            <!--<option value="gear" class="gear">Gear</option>-->
+            <option value="gear" class="gear">Gear</option>
           </select>
         </div>
         

@@ -113,7 +113,8 @@ if ( is_user_logged_in() ) {
 		<tr>
 	
 			<th><label for="city<?php $template->the_instance(); ?>">City</label></th>
-			<td><input type="text" name="city" id="city<?php $template->the_instance(); ?>" class="input" value="<?php echo $city; ?>" size="20" tabindex="20" /></td>
+			<td><input type="text" name="city" id="city<?php $template->the_instance(); ?>" class="input" value="<?php echo $city; ?>" size="20" tabindex="20" />
+			<span class="description">Only your city and state will be shown as your hometown.</span></td>
 		
 		</tr>
 		

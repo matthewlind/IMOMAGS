@@ -28,12 +28,14 @@ class Questions_List_Widget extends WP_Widget {
 				<li class="title"><a href="#">The title</a></li>
 				<li class="replies">13 Replies</li>
 			</ul>
+    	</div>
+    	<div class="loop">
 			<ul>
 				<li class="img"><img src="#" /></li>
 				<li class="title"><a href="#">The title</a></li>
 				<li class="replies">13 Replies</li>
 			</ul>
-		</div>
+    	</div>
     	<div class="loop">
 			<ul>
 				<li class="img"><img src="#" /></li>
@@ -43,7 +45,7 @@ class Questions_List_Widget extends WP_Widget {
     	</div>
 		<div class="footer">
 			<a class="ask post new-post question" href="#">Ask a Question</a>
-			<a class="more" href="/question">More Questions</a>
+			<a class="more" href="/community/question">More Questions</a>
 		</div>
 	</aside>
 
