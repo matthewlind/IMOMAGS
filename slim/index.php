@@ -192,6 +192,48 @@ $app->get('/api/superpost/type/:post_type(/:count(/:start))',function($post_type
 
 });
 
+
+//*********************************
+//**** Get all Posts of a Type from a state ****
+//*********************************
+$app->get('/api/superpost/state/:state/type/:post_type(/:count(/:start))',function($state,$post_type,$count = 20,$start = 0){
+
+
+
+
+	header('Access-Control-Allow-Origin: *');
+
+	try {
+
+		$db = dbConnect();
+
+		$whereClause = "WHERE post_type = ?";
+
+		if ($post_type == "all")
+			$whereClause = "WHERE post_type != 'comment' AND post_type != 'answer' AND post_type != 'photo' AND post_type != 'youtube'";
+
+		$limitClause = "LIMIT $start,$count";
+		
+		$andClause = "AND state = ?";
+
+
+		$sql = "SELECT * FROM allcounts $whereClause $andClause ORDER BY id DESC $limitClause";
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array($post_type,$state));
+	
+		$posts = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+		echo json_encode($posts);
+
+		$db = "";
+
+	} catch(PDOException $e) {
+    	echo $e->getMessage();
+    }
+
+});
+
 //*********************************
 //**** Get all Posts of a Type with only images by view count ****
 //*********************************
