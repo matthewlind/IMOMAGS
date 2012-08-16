@@ -41,6 +41,21 @@ if ($("#user-activity").length > 0){
 	displayUserPosts(userID);
 }
 
+//Setup flagging on single post view:
+$(".single-flag-button").click(function(){
+
+	$thisFlagButton = $(this);
+
+	if (confirm("Are you sure you want to flag this post as inappropriate?")) { 
+    	var spid = $thisFlagButton.attr("spid");
+       	$.post("/slim//api/post/flag", { post_id: spid, etype: "flag", user_id: userIMO.user_id } );  	
+    	//$reconBox.fadeOut();
+    	$thisFlagButton.find('img').attr("src","/wp-content/themes/imo-mags-northamericanwhitetail/img/flag-button-red.png");
+    }
+
+});
+
+
 /* ON ICE
 //**************************
 //COMMUNITY PAGE ACTIONS
@@ -624,8 +639,10 @@ function displayReconList(type) {
 	        var underBox = $("<div class='under-box'></div>");
 	        var date = $("<abbr class='recon-date timeago' title=''></abbr>").attr("title",this.created);
 
-	        var image = $("<img class='superpost-list-thumb'>").attr("src",this.img_url);
 	        var url = "/plus/" + this.post_type + "/" + this.id;
+
+	        
+	        var image = $("<a href='" + url + "'><img class='superpost-list-thumb' src='" + this.img_url + "'></a>")
 
 
 	        //Userpopup stuff
@@ -634,6 +651,10 @@ function displayReconList(type) {
 			var statsBox = $("<div class='stats-box'></div>");
 
 			var points = parseInt(this.comment_count) + parseInt(this.share_count);
+			
+			if (!this.display_name) {
+			this.display_name = this.username;
+			}
 			
 			//underBox.append(date);	
 			//var $avatar $("<img class='recon-gravatar'>").attr("src","http://www.northamericanwhitetail.fox/avatar?uid=" + this.$user_id);
@@ -647,18 +668,36 @@ function displayReconList(type) {
 								<div class='row-title'><a href='" + url + "'>" + this.title + "</a></div>\
 							</div>\
 						</li>\
-												<li class='user-avatar'><a href='/profile/" + this.username + "'><img src='http://www.northamericanwhitetail.fox/avatar?uid='" + this.user_id + "' alt='User Avatar' /></a> by <a href='/profile/" + this.username + "'>" + this.username + "</a></li>\
+												<li class='user-avatar'><a href='/profile/" + this.username + "'><img src='/avatar?uid=" + this.user_id + "' alt='User Avatar' /></a> by <a href='/profile/" + this.username + "'>" + this.username + "</a></li>\
 												<li class='count-field'><a href='" + url + "/#comments'>" + this.comment_count + " Replies</a></li>\
-						<li class='count-field'><abbr class='timeago'>" + this.created + "</abbr></li>\
+						<li class='count-field'><abbr class='timeago' title='" + this.created + "'>" + this.created + "</abbr></li>\
 						<li class='count-field'>" + this.view_count + " Views</li>\
 												<li class='count-field'>" + points + " Points</li>\
 												</ul>\
 						<div class='list-footer'>\
 							<div class='list-answer'><a href='" + url + "'>Reply</a></div>\
-							<div class='list-flag'><a href='#'>Flag</a></div>\
+							<div class='list-flag'><a href='#' class='list-flag-button'>Flag</a></div>\
 						</div>\
 				</div>");
-			
+				
+				
+				
+			//Add Flag Reporting
+	        //isset($params['post_id']) && isset($params['etype']) && isset($params['user_id']
+
+	        reconRow.data("post_id",this.id);
+	        reconRow.find(".list-flag-button").click(function(event){
+
+	        	event.preventDefault();
+		    	if (confirm("Are you sure you want to flag this post as inappropriate?")) { 
+			    	reconRow = $(this).closest(".recon-row");
+			    	$(this).css("background-image","url('/wp-content/themes/imo-mags-northamericanwhitetail/img/red-flag.png')");
+			    	$.post("/slim//api/post/flag", { post_id: reconRow.data("post_id"), etype: "flag", user_id: userIMO.user_id } );  	
+
+
+			    }
+
+	        });
 			
 			$("#recon-activity").append(reconRow);
 
