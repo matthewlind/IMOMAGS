@@ -64,7 +64,7 @@ function imo_get_user($userID = -1) {
 		"timecode_hash" => $timecode_hash,
 		"display_name" => $WPuser->display_name,
 		"facebook_id" => $facebookID,
-		"state" => $state
+		"default_state" => $state
 	);
 	
 	return $user;
