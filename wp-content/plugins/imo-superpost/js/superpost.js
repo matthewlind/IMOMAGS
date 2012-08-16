@@ -84,6 +84,16 @@ jQuery(document).ready(function($) {
 	
 		$(".post_type .general").attr("selected","selected");
 	});
+	
+	
+ //**************************
+  //Set the state on new post forms.
+  
+  
+  if (userIMO.default_state)
+  	$('option[value="' + userIMO.default_state + '"]').attr("selected","selected");;
+  //**************************
+
   //You can't add jQuery events to elements that don't exist.
   //As such, this function runs after the New Post modal appears
   function SetupPostForm() {	

@@ -2972,6 +2972,12 @@ input.join-submit{
     text-transform: uppercase;
     cursor: pointer;
 }
+
+.fb-join-widget-box {
+	
+	height:339px;
+}
+
 /**
 * Skyscraper ad fix
 *

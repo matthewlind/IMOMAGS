@@ -50,7 +50,7 @@ window.fbAsyncInit = function() {
 
 jQuery(document).ready(function($) {
 
-	jQuery(".imo-fb-login-button, .fast-login-then-post-button").click(function(){
+	jQuery(".imo-fb-login-button, .fast-login-then-post-button, .join-widget-fb-login").click(function(){
 						
 		imo_fb_login();
 		
@@ -60,6 +60,7 @@ jQuery(document).ready(function($) {
 		function imo_fb_login() {
 		
 		$(".imo-fb-login-button").css({ opacity: 0.5 });
+		$(".join-widget-fb-login").css({ opacity: 0.5 });
 		//$(".fast-login-then-post-button").css({ opacity: 0.5 });
 		
 
@@ -67,7 +68,9 @@ jQuery(document).ready(function($) {
 			FB.login(function(response) {
 			   if (response.authResponse) {
 			   
-			   	$("img.submit-icon").attr("src","/wp-content/themes/imo-mags-northamericanwhitetail/img/submit-throbber.gif");
+			   	if ($clickedButton.hasClass("fast-login-then-post-button")) {
+			   		$("img.submit-icon").attr("src","/wp-content/themes/imo-mags-northamericanwhitetail/img/submit-throbber.gif");
+			   	}
 			   
 			     console.log('Welcome!  Fetching your information.... ');
 			     FB.api('/me', function(response) {
@@ -103,6 +106,16 @@ jQuery(document).ready(function($) {
 					            
 					            $userBar.fadeIn();
 				            });
+				            
+				            $(".fb-join-widget-box .widget_gravity_form").fadeOut(500,function(){
+					            
+					            $.get('/static-widgets/get-the-app.html', function(data) {
+								  
+								  $(data).prependTo(".fb-join-widget-box").fadeIn();
+		
+								});
+				            });
+				            
 				            
 				            $(".fast-login-then-post-button").fadeOut(500,function(){
 					            
