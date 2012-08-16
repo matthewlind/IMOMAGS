@@ -9,13 +9,7 @@
  */
 
 
-/**
- * Define Region Custom Taxonomy
- */
- 
 
-
-//hook into the init action and call create_book_taxonomies when it fires
 add_action( 'init', 'imo_state_tax_init', 0 );
 register_activation_hook(__FILE__, 'imo_insert_state_tax');
  
