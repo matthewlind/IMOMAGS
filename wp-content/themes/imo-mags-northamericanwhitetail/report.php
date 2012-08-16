@@ -89,54 +89,8 @@ if ( is_user_logged_in() ) {
 
 	        <p class="login-note">
 	        </p>
-	        </form>
 	        
-	        <div class="media-section">
-	
-		     		
-		       <form id="fileUploadForm-image" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-image-form">
-		        <div id="fileupload" >
-		          <div class="fileupload-buttonbar ">
-		              <label class="upload-button">
-		                  <span><span class="white-plus-sign">+</span><span class="button-text">ATTACH PHOTO</span></span>
-		                  <input id="image-upload" type="file" name="photo-upload" id="photo-upload" />
-		
-		              </label>
-		          </div>
-		        </div>
-		        <input type="hidden" name="post_type" value="photo">
-		        <input type="hidden" name="form_id" value="fileUploadForm">
-		
-		
-		      </form>
-		      
-		      <div class="video-button">
-		        <span><span class="white-plus-sign"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/youtube.png" alt="YouTube" /></span>ADD YOUTUBE VIDEO</span>
-		      </div>
-		      <div class="video-url-form-holder-container" style="display:none;">
-		
-		        <div class="video-url-form-holder" style="">
-		          <form id="video-url-form" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-image-form">
-		            
-		            <div class="video-body-holder">
-		            <input type="text" name="body" id="video-body" placeholder="Paste YouTube URL or code here"/>
-		            </div>
-		            <input type="hidden" name="post_type" value="youtube">
-		            <input type="hidden" name="form_id" value="fileUploadForm">
-		
-		
-		          </form>
-		
-		        </div>
-		        <div class="video-close-button">
-		        </div>
-		      </div>
-		       <h4 style="display:none" class="photo-attachement-header">Photos</h4>
-		      <div class="attached-photos">
-		      </div>
-		      
-		      </div><!-- /.media-section-->
-		      <script type="text/javascript">
+	        <script type="text/javascript">
 			      $(document).ready(function(){
 				      $(".state-chzn").chosen();
 				   });
@@ -243,6 +197,54 @@ if ( is_user_logged_in() ) {
 			            <option value="ZT">Zacatecas</option>
 			      </select>
 			</div> 
+	        </form>
+	        
+	        <div class="media-section">
+	
+		     		
+		       <form id="fileUploadForm-image" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-image-form">
+		        <div id="fileupload" >
+		          <div class="fileupload-buttonbar ">
+		              <label class="upload-button">
+		                  <span><span class="white-plus-sign">+</span><span class="button-text">ATTACH PHOTO</span></span>
+		                  <input id="image-upload" type="file" name="photo-upload" id="photo-upload" />
+		
+		              </label>
+		          </div>
+		        </div>
+		        <input type="hidden" name="post_type" value="photo">
+		        <input type="hidden" name="form_id" value="fileUploadForm">
+		
+		
+		      </form>
+		      
+		      <div class="video-button">
+		        <span><span class="white-plus-sign"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/youtube.png" alt="YouTube" /></span>ADD YOUTUBE VIDEO</span>
+		      </div>
+		      <div class="video-url-form-holder-container" style="display:none;">
+		
+		        <div class="video-url-form-holder" style="">
+		          <form id="video-url-form" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-image-form">
+		            
+		            <div class="video-body-holder">
+		            <input type="text" name="body" id="video-body" placeholder="Paste YouTube URL or code here"/>
+		            </div>
+		            <input type="hidden" name="post_type" value="youtube">
+		            <input type="hidden" name="form_id" value="fileUploadForm">
+		
+		
+		          </form>
+		
+		        </div>
+		        <div class="video-close-button">
+		        </div>
+		      </div>
+		       <h4 style="display:none" class="photo-attachement-header">Photos</h4>
+		      <div class="attached-photos">
+		      </div>
+		      
+		      </div><!-- /.media-section-->
+		      
 	    </div> <!-- End new-superpost-modal-container -->
 	    </div> <!-- end .col-abc -->
 	    <div class="col-abc">

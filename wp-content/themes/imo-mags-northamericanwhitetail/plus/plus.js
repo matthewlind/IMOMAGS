@@ -409,12 +409,12 @@ function displayUserPosts(userID) {
 	        var image = $("<img class='superpost-thumb'>").attr("src",this.img_url);
 	        var titleBox = $("<div class='recon-title-box'></div>")
 	        var detectorBox = $("<div class='detector-box'></div>")
-	        var titleDetailBox = $("<span class='recon-title-detail'></span>").text(this.username + "'s " + this.post_type);
+	        var titleDetailBox = $("<span class='recon-title-detail'></span>").text(this.display_name + "'s " + this.post_type);
 	        var title = $("<h3></h3>").text(this.title);
 	        var underBox = $("<div class='under-box'></div>");
 	        var gravatar = $("<img class='recon-gravatar'>").attr("src","http://www.gravatar.com/avatar/" + this.gravatar_hash + ".jpg?s=50&d=identicon");
 	        var authorInfo = $("<div class='recon-author-info'><span class='author-name'></span><span class='author-action'></span></div>");
-	        authorInfo.find(".author-name").text(this.username);
+	        authorInfo.find(".author-name").text(this.display_name);
 	        authorInfo.find(".author-action").text(" posted in " + capitaliseFirstLetter(this.post_type));
 	        var underTitle = $("<div class='under-title'></div>").html("<a href='" + url + "'>" + this.title + "</a>");
 	        var date = $("<abbr class='recon-date timeago' title=''></abbr>").attr("title",this.created);
@@ -431,7 +431,7 @@ function displayUserPosts(userID) {
 	        gravatar.data('user_id',this.user_id);
 	        gravatar.data('username',this.username);
 
-	        titleBox.append(titleDetailBox);
+	        //titleBox.append(titleDetailBox);
 	        titleBox.append(title);
 
 
@@ -668,7 +668,7 @@ function displayReconList(type) {
 								<div class='row-title'><a href='" + url + "'>" + this.title + "</a></div>\
 							</div>\
 						</li>\
-												<li class='user-avatar'><a href='/profile/" + this.username + "'><img src='/avatar?uid=" + this.user_id + "' alt='User Avatar' /></a> by <a href='/profile/" + this.username + "'>" + this.username + "</a></li>\
+												<li class='user-avatar'><a href='/profile/" + this.username + "'><img src='/avatar?uid=" + this.user_id + "' alt='User Avatar' /></a> by <a href='/profile/" + this.username + "'>" + this.display_name + "</a></li>\
 												<li class='count-field'><a href='" + url + "/#comments'>" + this.comment_count + " Replies</a></li>\
 						<li class='count-field'><abbr class='timeago' title='" + this.created + "'>" + this.created + "</abbr></li>\
 						<li class='count-field'>" + this.view_count + " Views</li>\
@@ -676,10 +676,9 @@ function displayReconList(type) {
 												</ul>\
 						<div class='list-footer'>\
 							<div class='list-answer'><a href='" + url + "'>Reply</a></div>\
-							<div class='list-flag'><a href='#' class='list-flag-button'>Flag</a></div>\
+							<div class='list-flag'><a href='#' class='list-flag-button'><img class='flag-image' src='http://www.northamericanwhitetail.fox/wp-content/themes/imo-mags-northamericanwhitetail/img/flag-button-gray.png'></a></div>\
 						</div>\
 				</div>");
-				
 				
 				
 			//Add Flag Reporting
@@ -792,8 +791,8 @@ function displayUserComments(userID) {
 								<div class='row-title'><a href='" + url + "'>" + encoded + "</a></div>\
 							</div>\
 						</li>\
-						<li class='first count-field'><a href='/" + this.rent_type + "'>" + this.rent_type + "</a></li>\
-						<li class='count-field'><abbr class='timeago'>" + reply_date + "</abbr></li>\
+						<li class='first count-field'><a href='/community/" + this.rent_type + "'>" + this.rent_type + "</a></li>\
+						<!--<li class='count-field'><abbr class='timeago'>" + reply_date + "</abbr></li>-->\
 					</ul>\
 				</div>");
 
