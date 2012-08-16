@@ -2113,15 +2113,24 @@ home .super-post{padding-top:68px;}
 	padding: 30px;
     width: 618px;
  }
-.page-template-superpost_single-php .header-title, .page-template-user_profile-php .header-title, .page-community .header-title{
+.page-template-superpost_single-php .header-title, 
+.page-template-user_profile-php .header-title,
+.page-template-user_profile-php .header-title,
+.page-community .header-title{
 	background: url('img/nawp-crosshair-icon.png') no-repeat left 7px;
 }
-.page-template-superpost_single-php .header-title h1, .page-template-user_profile-php .header-title h1, .page-community .header-title h1{
+.page-template-superpost_single-php .header-title h1,  
+.page-template-user_profile-php .header-title h1,
+.page-community .header-title h1{
     text-transform: none;
     margin-left: 50px;
     padding-top: 6px;
     margin-top: 16px;
     font-size: 1.8em;
+}
+.page-template-user_profile-php .header-title h1{
+	margin-left: 70px;
+	margin-bottom: -5px !important;
 }
 .page-template-superpost_single-php .header-title h1 span, .page-template-user_profile-php .header-title h1 span{
 	font-size: 0.8em;
@@ -2658,6 +2667,9 @@ ul.naw-loop li{
 .media-section {
     float:right;
     margin-top: 22px;
+}
+#comments .media-section{
+	margin-top: 3px;
 }
 .page-template-superpost_single-php .media-section{
 	margin-right: -20px;
@@ -3881,6 +3893,9 @@ ul.details li span span{
 	background: none !important;
 	text-transform: uppercase !important;
 }
+ul.details li.hometown{
+	height: 30px;
+}
 ul.details li.hometown span, ul.details li.twitter a.twitter, ul.details li.www a{
 	font-family: 'rokkitt',serif;
 	color: #aaa197;
@@ -4176,7 +4191,8 @@ Individual community pages
     text-transform: none;
     margin-bottom: -4px;
 }
-.page-community .community .header-title h1{
+.page-community .community .header-title h1,
+.page-template-user_profile-php .header-title h1{
 	margin-bottom: 12px;
     padding-top: 18px;
 }
@@ -4245,7 +4261,8 @@ ul#user-bar li.user-name .header-post-btn:hover{
 .page-template-superpost_single-php .header-title{
 	width: 680px;
 }
-.page-community .header-title{
+.page-community .header-title,
+.page-template-user_profile-php .header-title{
 	width: 682px;
 }
 .page-community .new-superpost-modal-container {
@@ -4256,6 +4273,10 @@ ul#user-bar li.user-name .header-post-btn:hover{
 }
 .page-community #fileUploadForm{
 	margin: 0;
+}
+.page-template-trophy-php .page-community #fileUploadForm,
+.page-template-report-php .page-community #fileUploadForm{
+	margin: 0 0 3px;
 }
 .page-community .superpost-form input[type="submit"]{
 	left: 280px;

@@ -59,7 +59,17 @@ $city = $user_meta['city'][0];
 $state = $user_meta['state'][0];
 
 ?>
-<header class="header-title">
+<div class="bonus-background">
+	<div class="bonus">
+		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('superpost-sidebar')) : else : ?><?php endif; ?>
+	</div>
+	<div id="responderfollow"></div>
+	<div class="sidebar advert">
+		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('scroll-sidebar')) : else : ?><?php endif; ?>
+	</div>
+</div>
+<div class="col-abc">
+	<header class="header-title">
 	<?php if($current_user->display_name == $user->display_name){ ?>
 	<div id="user-bar" class="edit">
 		<a href="/login/?action=profile">Edit Profile</a> <span>|</span> <a href="<?php echo wp_logout_url( get_permalink() ); ?>" title="Logout">Logout</a>
@@ -74,18 +84,13 @@ $state = $user_meta['state'][0];
        </ul>
 
 	<?php } ?>
-	<h1><a href="/community/">Community</a><?php if($current_user->display_name == $user->display_name){ ?> / Your Profile <?php } ?></h1>
-</header>
-<div class="bonus-background">
-	<div class="bonus">
-		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('superpost-sidebar')) : else : ?><?php endif; ?>
-	</div>
-	<div id="responderfollow"></div>
-	<div class="sidebar advert">
-		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('scroll-sidebar')) : else : ?><?php endif; ?>
-	</div>
-</div>
-<div class="col-abc">
+	<h1>Community Profile</h1>
+	 <div class="community-crumbs">
+	       		<a href="/community">Community Home</a> &raquo; <?php if($current_user->display_name == $user->display_name){ echo 'Your Profile'; }else{ echo $user->display_name;} ?>
+			</div>
+
+	</header>
+
 	<div <?php post_class('entry entry-full clearfix'); ?>>
 		<div class="entry-content">
 			<div class="user-header">
@@ -118,9 +123,9 @@ $state = $user_meta['state'][0];
 		            	
 		            }else{ 
 			            //if looking at another user and no meta
-	            		if ($twitter != ""){
-	            			echo '<li class="twitter"><a href="http://twitter.com/'.$twitter.'" class="twitter">'.$twitter.'</a></li>';
-	            		}
+	            		//if ($twitter != ""){
+	            			//echo '<li class="twitter"><a href="http://twitter.com/'.$twitter.'" class="twitter">'.$twitter.'</a></li>';
+	            		//}
 	            		if ($city != "" || $state != ""){ 
 	            			echo '<li class="hometown"><span>'.$city.', '.$state.'</span></li>';
 	            		} 

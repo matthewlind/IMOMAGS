@@ -386,7 +386,7 @@ jQuery(document).ready(function($) {
       alert("You may not be logged in.");
     }
 
-    response.gravatar_hash = "/avatar?uid=" + response.id;
+    response.gravatar_hash = "/avatar?uid=" + response.user_id;
     
     
     if (response.img_url) {
