@@ -24,6 +24,7 @@ if ($("#recon-activity").length > 0){
 	var term = $("#recon-activity").attr("term");
 	var displayMode = $("#recon-activity").attr("display");
 	var widthMode = $("#recon-activity").attr("widthMode");
+	var state = $("#recon-activity").attr("state");
 	
 	if (displayMode == "tile") { //then show some tiles
 		displayRecon(term);
@@ -615,8 +616,12 @@ function displayReconList(type) {
 		$("#recon-activity").html("");
 	}
 		
-
-	var dataURL = "/slim/api/superpost/type/" + type;  	
+	if ($("#recon-activity").attr("state") !== undefined){
+		var dataURL = "/slim/api/superpost/state/" + state + "/type/" + type;  	
+	}else{
+		var dataURL = "/slim/api/superpost/type/" + type;  	
+	}
+	
 	dataURL += "/" + displayAtOnce;
 	dataURL += "/" + currentDisplayStart;
 

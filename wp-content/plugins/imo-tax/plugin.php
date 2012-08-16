@@ -12,29 +12,8 @@
 /**
  * Define Region Custom Taxonomy
  */
- 
-
-
-//hook into the init action and call create_book_taxonomies when it fires
-add_action( 'init', 'create_book_taxonomies', 0 );
-
- 
 function imo_tax_init() {
     $labels = array();
-    
-    $labels['state'] = array(
-        'name' => _x( 'States', 'taxonomy general name' ),
-        'singular_name' => _x( 'State', 'taxonomy singular name' ),
-        'search_items' =>  __( 'Search States' ),
-        'all_items' => __( 'All States' ),
-        'parent_item' => __( 'Parent State' ),
-        'parent_item_colon' => __( 'Parent State:' ),
-        'edit_item' => __( 'Edit State' ), 
-        'update_item' => __( 'Update State' ),
-        'add_new_item' => __( 'Add New State' ),
-        'new_item_name' => __( 'New State Name' ),
-        'menu_name' => __( 'State' ),
-    ); 
 
     $labels['activity'] = array(
         'name' => _x( 'Activities', 'taxonomy general name' ),
@@ -93,13 +72,6 @@ function imo_tax_init() {
     );    
 
     $taxonomies = array(
-        "state" => array(
-            "labels" => $labels['state'],
-            "hierarchical" => True,
-            "show_ui" => True,
-            "query_var" => True,
-            "rewrite" => array("slug"=>"state"),
-        ),
         "activity" => array(
             "labels" => $labels['activity'],
             "hierarchical" => True,
@@ -130,7 +102,7 @@ function imo_tax_init() {
         ),
     );
 
-    $types = array("post","page","imo_video","imo_gallery","reviews","states");
+    $types = array("post","page","imo_video","imo_gallery","reviews");
 
     foreach ($taxonomies as $target_taxonomy => $taxonomy) {
         register_taxonomy(
@@ -238,10 +210,6 @@ function imo_tax_menu() {
  */
 function imo_tax_options() {
     $taxonomy_list = array(
-    	"state"=> array(
-           array("New York","NY"),
-           array("Virginia","VA"),
-         ),
         "activity"=> array(
             "Hunting" => array(
                 "Rifle Hunting",
@@ -402,7 +370,7 @@ function imo_tax_options() {
         wp_die( __('You do not have sufficient permissions to access this page.') );
     }
 
-    $taxonomies = array("activity", "gear", "species", "location","state");
+    $taxonomies = array("activity", "gear", "species", "location");
     $target_taxonomy = strtolower($_POST['taxonomy']);
 
 

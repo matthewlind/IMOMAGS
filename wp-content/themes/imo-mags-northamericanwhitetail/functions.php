@@ -41,20 +41,6 @@ function mm_current_issue($atts, $content = null) {
 add_shortcode("mm-current-issue", "mm_current_issue");
 
 
-//taxonomy
-
-$parent_term = term_exists( 'state' ); // array is returned if taxonomy is given
-$parent_term_id = $parent_term['term_id']; // get numeric term id
-wp_insert_term(
-  'New York', // the term 
-  'state', // the taxonomy
-  array(
-    'description'=> 'a state',
-    'slug' => 'new-york',
-    'parent'=> $parent_term_id
-  )
-);
-
 /***
 **
 ** Enqueue Scripts
@@ -127,6 +113,12 @@ function naw_imo_addons_sidebar_init() {
       'id' => 'superpost-sidebar',
       'name' => __('Superpost Single Sidebar', 'carrington-business'),
       'description' => __('Sidebar for Superposts.', 'carrington-business')
+  )));
+  
+  register_sidebar(array_merge($sidebar_defaults, array(
+      'id' => 'state-sidebar',
+      'name' => __('State Page Sidebar', 'carrington-business'),
+      'description' => __('Sidebar for State Pages.', 'carrington-business')
   )));
     
 }

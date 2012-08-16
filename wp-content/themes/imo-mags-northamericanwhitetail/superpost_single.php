@@ -83,7 +83,6 @@ $file4 = file_get_contents($requestURL4);
 $post_user_score = json_decode($file4);
 $post_user_score = $post_user_score[0];
 
- //  <--- This?
 
 if (empty($data->display_name)) {
 	$data->display_name = $data->username;
