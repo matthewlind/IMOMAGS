@@ -41,6 +41,20 @@ function mm_current_issue($atts, $content = null) {
 add_shortcode("mm-current-issue", "mm_current_issue");
 
 
+//taxonomy
+
+$parent_term = term_exists( 'state' ); // array is returned if taxonomy is given
+$parent_term_id = $parent_term['term_id']; // get numeric term id
+wp_insert_term(
+  'New York', // the term 
+  'state', // the taxonomy
+  array(
+    'description'=> 'a state',
+    'slug' => 'new-york',
+    'parent'=> $parent_term_id
+  )
+);
+
 /***
 **
 ** Enqueue Scripts

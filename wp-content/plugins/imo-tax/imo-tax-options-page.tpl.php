@@ -19,6 +19,7 @@
 <?php 
 $opts = array(
     "all",
+    "state",
     "activity",
     "gear",
     "location",
