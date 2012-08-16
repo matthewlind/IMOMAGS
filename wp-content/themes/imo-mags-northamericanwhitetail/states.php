@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Generic Template for Taxonomy Archive
- * 
+ * Template Name: States
+ * Description: Displays a specific superpost
  *
  * @package carrington-business
  *
@@ -22,6 +22,16 @@
 get_header();  
 
 the_post();
+
+
+$term_slug = get_query_var("state");
+$post_type = "report";
+
+if (strstr($_SERVER["REQUEST_URI"], "trophy"))
+	$post_type = "trophy";
+
+print_r($post_type);
+
 $displayStyle = "display:none;";
 $loginStyle = "";
 
@@ -49,10 +59,16 @@ $stateSlugToAbbv['new-york'];
 //First get post data
 $spid =  get_query_var("spid");
 
+/*
 $term = get_queried_object();
 $term_id = $term->term_id;
 $term_slug = $term->slug;
 $taxonomy = $term->taxonomy;
+*/
+
+
+
+
 $state = $stateSlugToAbbv[$term_slug];
 $post_type = '';
 
