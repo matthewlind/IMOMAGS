@@ -60,12 +60,12 @@ if ( is_user_logged_in() ) {
 			</li>
 			<li><a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" alt="User Avatar" class="recon-gravatar" /></a></li>                      
        </ul>
-	       <h1>Community Rut Reports</h1>
+	       <h1>State Rut Reports</h1>
 	       <div class="community-crumbs">
 	       		<a href="/community">Community Home</a> &raquo; Rut Reports
 			</div>
 		</header>
-		<h2 class="comm-header">Post a Report!</h2>
+		<h2 class="comm-header">Post a Rut Report</h2>
 		<div class="new-superpost-modal-container">
 		
 		<form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-form">
@@ -249,7 +249,7 @@ if ( is_user_logged_in() ) {
 	    </div> <!-- end .col-abc -->
 	    <div class="col-abc">
 		
-	    <h2 class="comm-header stream-header">Latest <?php the_title(); ?>s</h2>
+	    <h2 class="comm-header stream-header">Latest Rut <?php the_title(); ?>s</h2>
         <div id="recon-activity" term="report" display="tile" widthMode="short">
 
 

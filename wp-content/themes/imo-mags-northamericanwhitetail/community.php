@@ -116,7 +116,7 @@ if ( is_user_logged_in() ) {
 	       <h1>Community</h1>
 		</header>
 			<ul class="community-cats">
-				<li id="rut" class="title"><div></div><h2><a href="/community/report/" term="report" display="list">Rut Reports</a></h2></li>
+				<li id="rut" class="title"><div></div><h2><a href="/community/report/" term="report" display="list">State Rut Reports</a></h2></li>
 				<li class="selected points"><a href="/community/report/"><?php echo $reportCount->post_count.' Posts'; ?></a></li>
 			</ul>
 			

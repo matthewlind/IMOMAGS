@@ -27,10 +27,21 @@ the_post();
 $term_slug = get_query_var("state");
 $post_type = "report";
 
+
 if (strstr($_SERVER["REQUEST_URI"], "trophy"))
 	$post_type = "trophy";
+	
+	
+// Create the titles	
+if ($post_type == "report"){
+	$title = "Rut Reports";
+	$singulartitle = "Rut Report";
+}else{
+	$title = "Trophy Bucks";
+	$singulartitle = "Trophy Buck";
+}	
 
-print_r($post_type);
+//print_r($post_type);
 
 $displayStyle = "display:none;";
 $loginStyle = "";
@@ -53,24 +64,34 @@ $hostname = $_SERVER['SERVER_NAME'];
 $stateSlugToAbbv = array("alabama"=>"AL",
 "alaska"=>"AK","arizona"=>"AZ","arkansas"=>"AR","california"=>"CA","colorado"=>"CO","connecticut"=>"CT","delaware"=>"DE","district-of-columbia"=>"DC","florida"=>"FL","georgia"=>"GA","hawaii"=>"HI","idaho"=>"ID","illinois"=>"IL","indiana"=>"IN","iowa"=>"IA","kansas"=>"KS","kentucky"=>"KY","louisiana"=>"LA","maine"=>"ME","maryland"=>"MD","massachusetts"=>"MA","michigan"=>"MI","minnesota"=>"MN","mississippi"=>"MS","missouri"=>"MO","montana"=>"MT","nebraska"=>"NE","nevada"=>"NV","new-hampshire"=>"NH","new-jersey"=>"NJ","new-mexico"=>"NM","new-york"=>"NY","north-carolina"=>"NC","north-dakota"=>"ND","ohio"=>"OH","oklahoma"=>"OK","oregon"=>"OR","pennsylvania"=>"PA","rhode-island"=>"RI","south-carolina"=>"SC","south-dakota"=>"SD","tennessee"=>"TN","texas"=>"TX","utah"=>"UT","vermont"=>"VT","virginia"=>"VA","washington"=>"WA","west-virginia"=>"WV","wisconsin"=>"WI","wyoming"=>"WY","canada"=>"CN");    
  
-$stateSlugToAbbv['new-york'];
 
 
 //First get post data
 $spid =  get_query_var("spid");
 
-/*
-$term = get_queried_object();
-$term_id = $term->term_id;
-$term_slug = $term->slug;
-$taxonomy = $term->taxonomy;
-*/
-
-
-
 
 $state = $stateSlugToAbbv[$term_slug];
-$post_type = '';
+if ($term_slug == 'new-york'){
+	$stateTitle = 'New York';
+}else if ($term_slug == 'rhode-island'){
+	$stateTitle = 'Rhode-Island';
+}else if ($term_slug == 'south-carolina'){
+	$stateTitle = 'South Carolina';
+}else if ($term_slug == 'south-dakota'){
+	$stateTitle = 'South Dakota';
+}else if ($term_slug == 'new-hampshire'){
+	$stateTitle = 'New Hampshire';
+}else if ($term_slug == 'new-jersey'){
+	$stateTitle = 'New Jersey';
+}else if ($term_slug == 'new-mexico'){
+	$stateTitle = 'New Mexico';
+}else if ($term_slug == 'north-carolina'){
+	$stateTitle = 'North Carolina';
+}else if ($term_slug == 'north-dakota'){
+	$stateTitle = 'North Dakota';
+}else{
+	$stateTitle = $term_slug;
+}
 
 $requestURL = "http://$hostname/slim/api/superpost/state/$state/type/$post_type/10/0";
 
@@ -79,11 +100,89 @@ $file = file_get_contents($requestURL);
 $data = json_decode($file);
 $data = $data[0];
     
-
 ?>
 <div class="page-community">
    	<div class="bonus-background">
 		<div class="bonus">
+			<!-- state nav -->
+			  <aside id="community-topics" class="community-topics-widget state-nav">
+     	<div class="sidebar-header">
+		    <h2>Browse by State</h2>
+		</div>
+		 <div class="post_type_styled_select">
+	        <!-- <select id="dynamic_select" class="post_type" name="post_type">
+	         	<option value="" selected>Choose a Topic</option>        
+	         	<option value="/community/general">General Discussion</option>
+	            <option value="/community/question">Q&A</option>
+	            <option value="/community/report">Rut Reports</option>
+	            <option value="/community/tip"">Tips & Tactics</option>
+	            <option value="/community/lifestyle">Lifestyle</option>
+	            <option value="/community/trophy">Trophy Bucks</option>
+	            <option value="/community/gear">Gear</option>
+	          </select>
+	          
+	          <div class="or">- OR -</div> -->
+	    <div class="state-dropdown-container">
+	    	<select id="state" name="state" class="post_type state">
+	    		<option value="">State <?php echo $title; ?></option>
+	    		<option value="/community/<?php echo $post_type; ?>/alabama">Alabama</option>
+	            <option value="/community/<?php echo $post_type; ?>/arizona">Arizona</option>
+	            <option value="/community/<?php echo $post_type; ?>/arkansas">Arkansas</option>
+	            <option value="/community/<?php echo $post_type; ?>/california">California</option>
+	            <option value="/community/<?php echo $post_type; ?>/colorado">Colorado</option>
+	            <option value="/community/<?php echo $post_type; ?>/connecticut">Connecticut</option>
+	            <option value="/community/<?php echo $post_type; ?>/delaware">Delaware</option>
+	            <option value="/community/<?php echo $post_type; ?>/florida">Florida</option>
+	            <option value="/community/<?php echo $post_type; ?>/georgia">Georgia</option>
+	            <option value="/community/<?php echo $post_type; ?>/idaho">Idaho</option>
+	            <option value="/community/<?php echo $post_type; ?>/illinois">Illinois</option>
+	            <option value="/community/<?php echo $post_type; ?>/indiana">Indiana</option>
+	            <option value="/community/<?php echo $post_type; ?>/iowa">Iowa</option>
+	            <option value="/community/<?php echo $post_type; ?>/kansas">Kansas</option>
+	            <option value="/community/<?php echo $post_type; ?>/kentucky">Kentucky</option>
+	            <option value="/community/<?php echo $post_type; ?>/louisiana">Louisiana</option>
+	            <option value="/community/<?php echo $post_type; ?>/maine">Maine</option>
+	            <option value="/community/<?php echo $post_type; ?>/maryland">Maryland</option>
+	            <option value="/community/<?php echo $post_type; ?>/massachusetts">Massachusetts</option>
+	            <option value="/community/<?php echo $post_type; ?>/michigan">Michigan</option>
+	            <option value="/community/<?php echo $post_type; ?>/minnesota">Minnesota</option>
+	            <option value="/community/<?php echo $post_type; ?>/mississippi">Mississippi</option>
+	            <option value="/community/<?php echo $post_type; ?>/missouri">Missouri</option>
+	            <option value="/community/<?php echo $post_type; ?>/montana">Montana</option>
+	            <option value="/community/<?php echo $post_type; ?>/nebraska">Nebraska</option>
+	            <option value="/community/<?php echo $post_type; ?>/nevada">Nevada</option>
+	            <option value="/community/<?php echo $post_type; ?>/new-hampshire">New Hampshire</option>
+	            <option value="/community/<?php echo $post_type; ?>/new-jersey">New Jersey</option>
+	            <option value="/community/<?php echo $post_type; ?>/new-mexico">New Mexico</option>
+	            <option value="/community/<?php echo $post_type; ?>/new-york">New York</option>
+	            <option value="/community/<?php echo $post_type; ?>/north-carolina">North Carolina</option>
+	            <option value="/community/<?php echo $post_type; ?>/north-dakota">North Dakota</option>
+	            <option value="/community/<?php echo $post_type; ?>/ohio">Ohio</option>
+	            <option value="/community/<?php echo $post_type; ?>/oklahoma">Oklahoma</option>
+	            <option value="/community/<?php echo $post_type; ?>/oregon">Oregon</option>
+	            <option value="/community/<?php echo $post_type; ?>/pennsylvania">Pennsylvania</option>
+	            <option value="/community/<?php echo $post_type; ?>/rhode-island">Rhode Island</option>
+	            <option value="/community/<?php echo $post_type; ?>/south-carolina">South Carolina</option>
+	            <option value="/community/<?php echo $post_type; ?>/south-dakota">South Dakota</option>
+	            <option value="/community/<?php echo $post_type; ?>/tennessee">Tennessee</option>
+	            <option value="/community/<?php echo $post_type; ?>/texas">Texas</option>
+	            <option value="/community/<?php echo $post_type; ?>/utah">Utah</option>
+	            <option value="/community/<?php echo $post_type; ?>/vermont">Vermont</option>
+	            <option value="/community/<?php echo $post_type; ?>/virginia">Virginia</option>
+	            <option value="/community/<?php echo $post_type; ?>/washington">Washington</option>
+	            <option value="/community/<?php echo $post_type; ?>/west-virginia">West Virginia</option>
+	            <option value="/community/<?php echo $post_type; ?>/wisconsin">Wisconsin</option>
+	            <option value="/community/<?php echo $post_type; ?>/wyoming">Wyoming</option>		
+		</select>	
+	    </div>	         
+        </div>
+       <!-- <div class="buttons">
+	     	<a href="#" class="ask-question post new-post question">Ask a Question</a>
+	     	<a href="#" class="share-photo post new-post general">Share a Photo</a>        
+        </div> -->
+        </aside>
+            
+    <div class="clearfix" style="margin-bottom: 10px;"></div>
 			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('state-page-sidebar')) : else : ?><?php endif; ?>
 		</div>
 		<div id="responderfollow"></div>
@@ -102,17 +201,30 @@ $data = $data[0];
 			</li>
 			<li><a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" alt="User Avatar" class="recon-gravatar" /></a></li>                      
        </ul>
-	       <h1 style="text-transform:capitalize;"><?php echo $term_slug; ?> Rut Reports</h1>
+	       <h1 style="text-transform:capitalize;">
+	       <?php 
+	       if($post_type == 'report'){
+		      	echo $stateTitle.' '.$title;  
+	       }else{
+		       	echo 'Community: '.$title; 
+	       }
+	       
+	       ?>
+	       </h1>
 	       <div class="community-crumbs">
-	       		<a href="/community">Community Home</a> &raquo; <a href="/<?php echo $post_type; ?>"><?php echo $post_type; ?></a> &raquo; <?php echo $term_slug; ?> 
+	       		<a href="/community">Community Home</a> &raquo; <a href="/<?php echo $post_type; ?>"><?php echo $title; ?></a> &raquo; <?php echo $stateTitle; ?> 
 			</div>
 		</header>
-		<h2 class="comm-header">Start a New Report</h2>
+		<?php if($post_type == "report"){ ?>
+			<h2 class="comm-header" style="text-transform:capitalize;">Start a New <?php echo $stateTitle." ".$singulartitle; ?></h2>
+		<?php }else{ ?>
+			<h2 class="comm-header" style="text-transform:capitalize;">Post Your <?php echo $stateTitle." ".$singulartitle; ?></h2>
+		<?php } ?>
 		<div class="new-superpost-modal-container">
 		
 		<form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-form">
 	        <input type="text" name="title" id="title" placeholder="Headline"/>
-	        <input type="text" name="post_type" id="post_type" value="report" style="display:none;"/>
+	        <input type="text" name="post_type" id="post_type" value="<?php echo $post_type; ?>" style="display:none;"/>
 	        	           
 
 	        <textarea name="body" id="body" placeholder="Tell Us Your Story."></textarea>
@@ -131,114 +243,13 @@ $data = $data[0];
 
 	        <p class="login-note">
 	        </p>
-	        
-	        <script type="text/javascript">
-			      $(document).ready(function(){
-				      $(".state-chzn").chosen();
-				   });
-			 </script>
-			 <div class="state-dropdown-container">
-		          <select name="state" class="state-chzn" style="width:400px;padding:5px;" data-placeholder="Nice. Where did you find it?">
-			            <option value=""></option>
-			            <option value="AL">Alabama</option>
-			            <option value="AK">Alaska</option>
-			            <option value="AZ">Arizona</option>
-			            <option value="AR">Arkansas</option>
-			            <option value="CA">California</option>
-			            <option value="CO">Colorado</option>
-			            <option value="CT">Connecticut</option>
-			            <option value="DE">Delaware</option>
-			            <option value="DC">District of Columbia</option>
-			            <option value="FL">Florida</option>
-			            <option value="GA">Georgia</option>
-			            <option value="HI">Hawaii</option>
-			            <option value="ID">Idaho</option>
-			            <option value="IL">Illinois</option>
-			            <option value="IN">Indiana</option>
-			            <option value="IA">Iowa</option>
-			            <option value="KS">Kansas</option>
-			            <option value="KY">Kentucky</option>
-			            <option value="LA">Louisiana</option>
-			            <option value="ME">Maine</option>
-			            <option value="MD">Maryland</option>
-			            <option value="MA">Massachusetts</option>
-			            <option value="MI">Michigan</option>
-			            <option value="MN">Minnesota</option>
-			            <option value="MS">Mississippi</option>
-			            <option value="MO">Missouri</option>
-			            <option value="MT">Montana</option>
-			            <option value="NE">Nebraska</option>
-			            <option value="NV">Nevada</option>
-			            <option value="NH">New Hampshire</option>
-			            <option value="NJ">New Jersey</option>
-			            <option value="NM">New Mexico</option>
-			            <option value="NY">New York</option>
-			            <option value="NC">North Carolina</option>
-			            <option value="ND">North Dakota</option>
-			            <option value="OH">Ohio</option>
-			            <option value="OK">Oklahoma</option>
-			            <option value="OR">Oregon</option>
-			            <option value="PA">Pennsylvania</option>
-			            <option value="RI">Rhode Island</option>
-			            <option value="SC">South Carolina</option>
-			            <option value="SD">South Dakota</option>
-			            <option value="TN">Tennessee</option>
-			            <option value="TX">Texas</option>
-			            <option value="UT">Utah</option>
-			            <option value="VT">Vermont</option>
-			            <option value="VA">Virginia</option>
-			            <option value="WA">Washington</option>
-			            <option value="WV">West Virginia</option>
-			            <option value="WI">Wisconsin</option>
-			            <option value="WY">Wyoming</option>
-			            <option value="CN">Canada</option>
-			            <option value="AB">Alberta</option>
-			            <option value="BC">British Columbia</option>
-			            <option value="MB">Manitoba</option>
-			            <option value="NB">New Brunswick</option>
-			            <option value="NL">Newfoundland and Labrador</option>
-			            <option value="NT">Northwest Territories</option>
-			            <option value="NS">Nova Scotia</option>
-			            <option value="NU">Nunavut</option>
-			            <option value="ON">Ontario</option>
-			            <option value="PE">Prince Edward Island</option>
-			            <option value="QC">Quebec</option>
-			            <option value="SK">Saskatchewan</option>
-			            <option value="YT">Yukon</option>
-			            <option value="AG">Aguascalientes</option>
-			            <option value="BJ">Baja California</option>
-			            <option value="BS">Baja California Sur</option>
-			            <option value="CP">Campeche</option>
-			            <option value="CH">Chiapas</option>
-			            <option value="CI">Chihuahua</option>
-			            <option value="CU">Coahuila</option>
-			            <option value="CL">Colima</option>
-			            <option value="DF">Distrito Federal</option>
-			            <option value="DG">Durango</option>
-			            <option value="GJ">Guanajuato</option>
-			            <option value="GR">Guerrero</option>
-			            <option value="HG">Hidalgo</option>
-			            <option value="JA">Jalisco</option>
-			            <option value="EM">Mexico</option>
-			            <option value="MH">Michoacán</option>
-			            <option value="MR">Morelos</option>
-			            <option value="NA">Nayarit</option>
-			            <option value="NL">Nuevo León</option>
-			            <option value="OA">Oaxaca</option>
-			            <option value="PU">Puebla</option>
-			            <option value="QA">Querétaro</option>
-			            <option value="QR">Quintana Roo</option>
-			            <option value="SL">San Luis Potosi</option>
-			            <option value="SI">Sinaloa</option>
-			            <option value="SO">Sonora</option>
-			            <option value="TA">Tabasco</option>
-			            <option value="TM">Tamaulipas</option>
-			            <option value="TL">Tlaxcala</option>
-			            <option value="VZ">Veracruz</option>
-			            <option value="YC">Yucatan</option>
-			            <option value="ZT">Zacatecas</option>
-			      </select>
-			</div> 
+			  <div class="state-dropdown-container" style="display:none;">
+		          <select id="state" name="state" class="post_type">
+		          	<option value="<?php echo $state; ?>"></option>
+		        </select>
+		      </div>    
+
+
 	        </form>
 	        
 	        <div class="media-section">
@@ -291,12 +302,16 @@ $data = $data[0];
 	    </div> <!-- end .col-abc -->
 	    <div class="col-abc">
 		
-	    <h2 class="comm-header stream-header">Latest <?php the_title(); ?>s</h2>
+	    <h2 class="comm-header stream-header" style="text-transform:capitalize;">Latest <?php if($post_type == 'report'){ echo $stateTitle.' Rut '.$post_type.'s';  }else{ echo $stateTitle.' '.$post_type.' Bucks'; } ?></h2>
+	    <div id="no-activity">
+    		<p>No Activity.</p>
+    	</div>
+
         <div id="recon-activity" term="<?php echo $post_type; ?>" display="tile" widthMode="short" state="<?php echo $state; ?>">
 
 
        </div>
-       <span id="more-community-button">Load More<span></span></span>
+       <span id="more-community-button" style="display:none;">Load More<span></span></span>
    </div>
 </div>
 <?php get_footer(); ?>

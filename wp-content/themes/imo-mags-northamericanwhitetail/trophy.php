@@ -60,7 +60,7 @@ if ( is_user_logged_in() ) {
 			</li>
 			<li><a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" alt="User Avatar" class="recon-gravatar" /></a></li>                      
        </ul>
-	       <h1>Community Trophy Bucks</h1>
+	       <h1>Community: Trophy Bucks</h1>
 	       <div class="community-crumbs">
 	       		<a href="/community">Community Home</a> &raquo; Trophy Bucks
 			</div>
@@ -92,12 +92,12 @@ if ( is_user_logged_in() ) {
 		        
 		        
 		    <script type="text/javascript">
-			//$(document).ready(function(){
-				//$(".state-chzn2").chosen();
-			//});
-		</script>
+			$(document).ready(function(){
+				$(".state-chzn").chosen();
+			});
+			</script>
 		<div class="state-dropdown-container">
-		          <select name="state" class="state-chzn2" style="width:400px;padding:5px;" data-placeholder="Nice. Where did you find it?">
+		          <select name="state" class="state-chzn" style="width:400px;padding:5px;" data-placeholder="Choose the state for this post:">
 			            <option value=""></option>
 			            <option value="AL">Alabama</option>
 			            <option value="AK">Alaska</option>

@@ -61,18 +61,29 @@ if ( is_user_logged_in() ) {
 			</li>
 			<li><a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" alt="User Avatar" class="recon-gravatar" /></a></li>                      
        </ul>
-	       <h1>Community General Discussion</h1>
+	       <h1>Community: Discussion</h1>
 	       <div class="community-crumbs">
 	       		<a href="/community">Community Home</a> &raquo; General Discussion
 			</div>
 		</header>
 
 	
-		<h2 class="comm-header">Post in General Discussion</h2>
+		<h2 class="comm-header">Post in Discussion</h2>
 		<div class="new-superpost-modal-container">
 		
 		<form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-form">
-			<input type="text" name="title" id="title" placeholder="Headline"/>
+			<div class="question-dropdown-container" >
+		          <select class="post_type" name="secondary_post_type">
+			            <option value="general">Question Topic</option>
+			            <option value="general">General</option>
+			            <option value="tips">Tips & Tactics</option>
+			            <option value="land">Land Management</option>
+			            <option value="trophy">Trophy Bucks</option>
+			            <option value="gear">Gear</option>
+			            <option value="cooking">Cooking</option>
+		          </select>
+	        </div>
+	        <input type="text" name="title" id="title" placeholder="Headline"/>
 	        <input type="text" name="post_type" id="post_type" value="general" style="display:none;"/>
 	        	           
 
