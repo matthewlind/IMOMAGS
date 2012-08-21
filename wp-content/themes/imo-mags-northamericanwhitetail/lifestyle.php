@@ -69,19 +69,7 @@ if ( is_user_logged_in() ) {
 		<div class="new-superpost-modal-container">
 		
 		<form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-form">
-			<div class="question-dropdown-container" >
-	          <select class="post_type" name="secondary_post_type">
-		            <option value="">Choose a Topic</option>
-		            <option value="general">General</option>
-		            <option value="tips">Tips & Tactics</option>
-		            <option value="land">Land Management</option>
-		            <option value="trophy">Trophy Bucks</option>
-		            <option value="gear">Gear</option>
-		            <option value="cooking">Cooking</option>
-	          </select>
-	        </div>
-
-	        <input type="text" name="title" id="title" placeholder="Headline"/>
+			<input type="text" name="title" id="title" placeholder="Headline"/>
 	        <input type="text" name="post_type" id="post_type" value="lifestyle" style="display:none;"/>
 	        	           
 
