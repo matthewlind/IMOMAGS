@@ -13,6 +13,7 @@ include 'auth.php';
 include 'userinfo.php';
 include 'images.php';
 include 'video.php';
+include 'state.php';
 include 'location.php';
 include 'clsFlagger.php';
 
@@ -193,46 +194,6 @@ $app->get('/api/superpost/type/:post_type(/:count(/:start))',function($post_type
 });
 
 
-//*********************************
-//**** Get all Posts of a Type from a state ****
-//*********************************
-$app->get('/api/superpost/state/:state/type/:post_type(/:count(/:start))',function($state,$post_type,$count = 20,$start = 0){
-
-
-
-
-	header('Access-Control-Allow-Origin: *');
-
-	try {
-
-		$db = dbConnect();
-
-		$whereClause = "WHERE post_type = ?";
-
-		if ($post_type == "all")
-			$whereClause = "WHERE post_type != 'comment' AND post_type != 'answer' AND post_type != 'photo' AND post_type != 'youtube'";
-
-		$limitClause = "LIMIT $start,$count";
-		
-		$andClause = "AND state = ?";
-
-
-		$sql = "SELECT * FROM allcounts $whereClause $andClause ORDER BY id DESC $limitClause";
-
-		$stmt = $db->prepare($sql);
-		$stmt->execute(array($post_type,$state));
-	
-		$posts = $stmt->fetchAll(PDO::FETCH_OBJ);
-
-		echo json_encode($posts);
-
-		$db = "";
-
-	} catch(PDOException $e) {
-    	echo $e->getMessage();
-    }
-
-});
 
 //*********************************
 //**** Get all Posts of a Type with only images by view count ****
@@ -477,6 +438,9 @@ $app->post('/api/superpost/add',function() {
 
 	//Get the user info and authenticate
 	$userIsGood = userIsGood($params['username'],$params['userhash']);
+	
+	$requestIsGood = TRUE;
+	
 
 	
 	if ($params['post_type'] == "youtube" || $params['post_type'] == "photo") {
@@ -610,46 +574,43 @@ $app->post('/api/superpost/add',function() {
 				$stmt->bindParam($parameter,$params[$parameter]);
 			}
 		}
-
-
-		//THIS IS THE END RESULT OF THE ABOVE LOOP MADNESS:
-		//$sql = "INSERT INTO superposts (parent, post_type, title, body, img_url, author_id, author, gravatar_hash) 
-		//                       VALUES (:parent,:post_type,:title,:body,:img_url,:author_id,:author,:gravatar_hash)";
-
-		// $stmt->bindParam("parent",$params['parent']);
-		// $stmt->bindParam("post_type",$params['post_type']);
-		// $stmt->bindParam("title",$params['title']);
-		// $stmt->bindParam("body",$params['body']);
 		
-		// $stmt->bindParam("user_id",$params['user_id']);
-		// $stmt->bindParam("username",$params['username']);
-		// $stmt->bindParam("gravatar_hash",$params['gravatar_hash']);
 
 
 			
-
-        $stmt->execute();
-        $superpostID = $db->lastInsertId();
-        
-        
-        //If there are attachments, set the parent of the attachemnts
-     	if (!empty($params['attachment_id'])) {
-			$attachmentIDstring = $params['attachment_id'];
-			setAtttachment($superpostID, $attachmentIDstring);
+		if (empty($params['title']) && empty($params['body']) && empty($params['img_url']))
+			$requestIsGood = FALSE;	
 			
+			
+		if ($requestIsGood) {
+			
+			$stmt->execute();
+	        $superpostID = $db->lastInsertId();
+	        
+	        
+	        //If there are attachments, set the parent of the attachemnts
+	     	if (!empty($params['attachment_id'])) {
+				$attachmentIDstring = $params['attachment_id'];
+				setAtttachment($superpostID, $attachmentIDstring);
+				
+			}
+	        
+	
+			$db = "";
+	
+			$params['id'] = $superpostID;
+			$params['ip'] = long2ip($params['ip']);
+	
+	
+			$response = $params;
+	
+			
+			echo json_encode($response);
+			
+		} else {
+			json_encode("nope");
 		}
-        
 
-		$db = "";
-
-		$params['id'] = $superpostID;
-		$params['ip'] = long2ip($params['ip']);
-
-
-		$response = $params;
-
-		
-		echo json_encode($response);
 
 	
 	} else { //if user is not good

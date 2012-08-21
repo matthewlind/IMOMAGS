@@ -393,7 +393,7 @@ jQuery(document).ready(function($) {
 
   function addNewBox(response) {
     if (response == null) {
-      alert("You may not be logged in.");
+      //alert("You may not be logged in.");
     }
 
     response.gravatar_hash = "/avatar?uid=" + response.user_id;
