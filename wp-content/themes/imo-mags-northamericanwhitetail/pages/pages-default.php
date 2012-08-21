@@ -23,12 +23,20 @@ get_header();
 
 the_post();
 
-wp_get_current_user();
+$displayStyle = "display:none;";
+$loginStyle = "";
+
+if ( is_user_logged_in() ) {
+
+	$displayStyle = "";
+	$loginStyle = "display:none;";
+	
+	wp_get_current_user();
 	
 	$current_user = wp_get_current_user();
     if ( !($current_user instanceof WP_User) )
          return;
-
+}
 ?>
 <div class="bonus-background">
 	<div class="bonus">
@@ -37,18 +45,18 @@ wp_get_current_user();
 </div>
 <div class="col-abc">
 	<header class="header-title">
-	
-	<div id="user-bar" class="edit">
-		
-	</div>
 	  	<ul id="user-bar" style="<?php echo $displayStyle; ?>">	          
 			<li class="user-name">Hello, <a href="/profile/<?php echo $current_user->user_nicename; ?>"><span id="current-user-name"><?php echo $current_user->display_name; ?></span></a><br /><a href="<?php echo wp_logout_url( get_permalink() ); ?>" title="Logout">Logout</a></li>
 			<li><a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" alt="User Avatar" class="recon-gravatar" /></a></li>                      
        </ul>
 
 	<h1>Community Profile</h1>
-	 <div class="community-crumbs">
+	 <div class="community-crumbs" style="<?php echo $displayStyle; ?>">
        		<a href="/community">Community Home</a> &raquo; Edit Profile
+		</div>
+		
+	<div class="community-crumbs" style="<?php echo $loginStyle; ?>">
+       		<a href="/community">Community Home</a> &raquo; Login
 		</div>
 
 	</header>

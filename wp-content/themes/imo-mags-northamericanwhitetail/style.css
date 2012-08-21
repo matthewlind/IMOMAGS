@@ -551,12 +551,12 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 	font-size: 0.8em;
 	font-weight: lighter;
 }
-#header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 .community .community-menu-cat.ss-nav-menu-item-depth-1{
+#header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 .community-menu .community-menu-cat.ss-nav-menu-item-depth-1{
 	margin: 0;
     padding: 32px 36px;
 	width: 100px !important;
 }
-#header #megaMenu ul.megaMenu > .menu-item.community ul{
+#header #megaMenu ul.megaMenu > .menu-item.community-menu ul{
 	width: 172px !important;
 }
 
@@ -591,7 +591,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     font-weight: bold;
     width: 150px;
 }
-#header #megaMenu li.community li ul li{
+#header #megaMenu li.community-menu li ul li{
 	padding-left: 20px;
 	width: 132px !important;
 }
@@ -2209,7 +2209,6 @@ home .super-post{padding-top:68px;}
     position: relative;
 }
 .page-template-superpost_single-php .new-superpost-modal-container {
-    padding: 20px 0px 20px 50px;
     width: 578px;
 }
 .page-template-superpost_single-php .new-superpost-modal-container h1{
@@ -2692,6 +2691,11 @@ width:580px;
 
 #comments .media-section{
 	margin-top: 3px;
+	width: 540px;
+	margin-bottom: 20px;
+}
+#comments textarea{
+	width:540px;
 }
 .page-template-superpost_single-php .media-section{
 	margin-right: -20px;
@@ -4222,7 +4226,6 @@ Individual community pages
 	color: #77A139;
 	text-decoration: none;
 }
-
 .page-community .state-dropdown-container{
 	margin:0;
 }
@@ -4454,7 +4457,7 @@ input.caption-field{
     width: 230px;   	
 }
 .page-community .video-close-button{
-	left:228px;
+	left:208px;
 	top:-36px;
 }
 .page-community .row-post-type{
@@ -4721,7 +4724,9 @@ ul#scroll-widget li a:hover span{
 .login #loginform{
 	margin-top: 40px;
 }
- 
+.login p.message{
+	width: 338px;
+}
 .login input{
 	border: 1px solid #CCCCCC;
     color: #666666;
