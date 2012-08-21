@@ -100,7 +100,62 @@ if($data->post_type == "tip"){
 }else{
 	$topicName = $data->post_type;
 }
+$state_slug = $data->state;
 
+// convert some slugs
+$stateSlugToAbbv = array("AL"=>"Alabama",
+"AK"=>"Alaska",
+"AZ"=>"Arizona",
+"AR"=>"Arkansas",
+"CA"=>"California",
+"CO"=>"Colorado",
+"CT"=>"Connecticut",
+"DE"=>"Delaware",
+"DC"=>"District Of Columbia",
+"FL"=>"Florida",
+"GA"=>"Georgia",
+"HI"=>"Hawaii",
+"ID"=>"Idaho",
+"IL"=>"Illinois",
+"IN"=>"Indiana",
+"IA"=>"Iowa",
+"KS"=>"Kansas",
+"KY"=>"Kentucky",
+"LA"=>"Louisiana",
+"ME"=>"Maine",
+"MD"=>"Maryland",
+"MA"=>"Massachusetts",
+"MI"=>"Michigan",
+"MN"=>"Minnesota",
+"MS"=>"Mississippi",
+"MO"=>"Missouri",
+"MT"=>"Montana",
+"NE"=>"Nebraska",
+"NV"=>"Nevada",
+"NH"=>"New Hampshire",
+"NJ"=>"New Jersey",
+"NM"=>"New Mexico",
+"NY"=>"New York",
+"NC"=>"North Carolina",
+"ND"=>"North Dakota",
+"OH"=>"Ohio",
+"OK"=>"Oklahoma",
+"OR"=>"Oregon",
+"PA"=>"Pennsylvania",
+"RI"=>"Rhode Island",
+"SC"=>"South Carolina",
+"SD"=>"South Dakota",
+"TN"=>"Tennessee",
+"TX"=>"Texas",
+"UT"=>"Utah",
+"VT"=>"Vermont",
+"VA"=>"Virginia",
+"WA"=>"Washington",
+"WV"=>"West Virginia",
+"WI"=>"Wisconsin",
+"WY"=>"Wyoming");   
+
+$state = $stateSlugToAbbv[$state_slug];
 ?>
 <!-- Don't delete this. It's part of imo-add-this -->
 <div id="imo-add-this-spid" style="display:none;"><?php echo $spid; ?></div>
@@ -122,9 +177,9 @@ if($data->post_type == "tip"){
 				</li>
 				<li><a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" alt="User Avatar" class="recon-gravatar" /></a></li>                      
 	       </ul>
-	       <h1>Community General Discussion</h1>
+	       <h1><?php if($data->state != '' && $data->post_type == 'report'){ echo $state; }else{ echo 'Community:'; } ?> <?php echo $topicName; ?></h1>
 	       <div class="community-crumbs">
-	       		<a href="/community">Community Home</a> &raquo; <a href="/community/<?php echo $data->post_type; ?>"><?php echo $topicName; ?></a>
+	       		<a href="/community/">Community Home</a> &raquo; <a href="/community/<?php echo $data->post_type; ?>"><?php echo $topicName; ?></a><?php if($data->state != '' && $data->post_type == 'report'){ echo ' &raquo; <a href="/community/'.$data->post_type.'/'.strtolower($state).'">'.$state.'</a>'; } ?>
 			</div>
 
 	</header>
@@ -137,7 +192,9 @@ if($data->post_type == "tip"){
 			<a class="username" href="/profile/<?php echo $data->username; ?>"><?php echo $data->display_name; ?></a>
 			<p class="points"><?php echo $post_user_score->score. " points"; ?></p>
 		</div>
-		<div class="super-meta">Posted on <abbr style="display:inline" class='recon-date'><?php the_time('F j, Y'); ?> &#8226; <?php the_time('g:i a'); ?></abbr> &#8226; <a href="/<?php echo $data->post_type; ?>" class="post-type"><?php echo $topicName; ?></a> &#8226; <?php echo $data->view_count; ?> views</div>
+		<div class="super-meta">
+			<abbr style="display:inline" class='recon-date'><?php the_time('F j, Y'); ?> &#8226; <?php the_time('g:i a'); ?></abbr> 		
+		</div>
 
 <!--
 	<a href="/profile/<?php echo $data->username ?>"><img src="/avatar?uid=<?php echo $data->user_id; ?>" class="recon-gravatar"></a>
@@ -147,7 +204,14 @@ if($data->post_type == "tip"){
 -->
 
 		<div class="clearfix"></div>
-		<div class="entry-header"><h1 class="entry-title"><?php echo $data->title; ?></h1></div>
+		<div class="entry-header"><h1 class="entry-title"><?php echo $data->title; ?></h1>
+		<div class="title-meta">
+			<?php 
+			echo '<a href="/community/'.$data->post_type.'/'; 
+			if($data->state != '' && $data->post_type == 'report'){ 
+					echo strtolower($state);
+				} ?>"" class="post-type"><?php echo $state.' '.$topicName; ?></a> &#8226; <?php echo $data->view_count; ?> views</div>
+		</div>
 		<?php 
 		if($data->post_type == "question"){
 			$questionTopics = array("general"=>"General",

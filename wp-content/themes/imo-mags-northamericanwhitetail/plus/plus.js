@@ -32,6 +32,9 @@ if ($("#recon-activity").length > 0){
 	} else { //then show the list
 		displayReconList(term);
 	}
+}else{
+	$("#no-activity").fadeIn();
+	$("#more-community-button").hide();
 }
 
 //Display the user posts
@@ -235,14 +238,25 @@ function displayRecon(type) {
 	if (currentDisplayStart == 0) {
 		$("#recon-activity").html("");
 	}
-		
 	
-	var dataURL = "/slim/api/superpost/type/" + type;  	
+	
+	if ($("#recon-activity").attr("state") !== undefined){
+		var dataURL = "/slim/api/superpost/state/" + state + "/type/" + type;  	
+	}else{
+		var dataURL = "/slim/api/superpost/type/" + type;   	
+	}
+		
 	dataURL += "/" + displayAtOnce;
 	dataURL += "/" + currentDisplayStart;
 
     var getdata = $.getJSON(dataURL, function(data) {
     
+    	if(data.length > 0){
+	    	$("#no-activity").hide();
+	    }else if(data.length > displayAtOnce){
+	    	$("#more-community-button").show();
+	    }
+	    console.log(data.length);
 	    var count = 0;
 	    $(data).each(function(index,post) {
 	    	count++;
@@ -268,7 +282,7 @@ function displayRecon(type) {
 	        } else {
 		        nicePostType = post.post_type;
 	        }
-	    	
+	    					
 	    	//*********************START LACONIC $reconBox********************
 	    	
 var reconBox = 	    	
@@ -298,6 +312,7 @@ $.el.div({'class':'recon-box masonry-box masonry-brick','id':'recon-box-' + post
 				$.el.span({'class':'author-name'},post.display_name),
 				" posted in ",
 				$.el.span({'class':'author-action'},nicePostType)
+				
 			)
 		),
 		
@@ -621,7 +636,6 @@ function displayReconList(type) {
 	}else{
 		var dataURL = "/slim/api/superpost/type/" + type;  	
 	}
-	
 	dataURL += "/" + displayAtOnce;
 	dataURL += "/" + currentDisplayStart;
 

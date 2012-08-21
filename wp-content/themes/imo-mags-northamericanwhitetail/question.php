@@ -60,18 +60,18 @@ if ( is_user_logged_in() ) {
 			</li>
 			<li><a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" alt="User Avatar" class="recon-gravatar" /></a></li>                      
        </ul>
-	       <h1>Community Questions & Answers</h1>
+	       <h1>Whitetail Experts Q&A</h1>
 	       <div class="community-crumbs">
 	       		<a href="/community">Community Home</a> &raquo; Questions & Answers
 			</div>
 		</header>
-		<h2 class="comm-header">Ask The Community!</h2>
+		<h2 class="comm-header">Ask The Community</h2>
 		<div class="new-superpost-modal-container">
 		
 		<form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-form">
 			<div class="question-dropdown-container" >
 		          <select class="post_type" name="secondary_post_type">
-			            <option value="general">Question Topic</option>
+			            <option value="">Choose a Topic</option>
 			            <option value="general">General</option>
 			            <option value="tips">Tips & Tactics</option>
 			            <option value="land">Land Management</option>
@@ -82,10 +82,8 @@ if ( is_user_logged_in() ) {
 	        </div>
 	        <input type="text" name="title" id="title" placeholder="Write Your Question"/>
 	        <input type="text" name="post_type" id="post_type" value="question" style="display:none;"/>
-	        	           
-
-	        <!-- <textarea name="body" id="body" placeholder="Tell Us Your Story."></textarea></div>-->
-	        
+	        <textarea name="body" id="body" placeholder="More Details (optional)"></textarea>
+	        	        
 	        <input id="file" type="file" name="photo-upload" id="photo-upload" style="display:none"/>
 	<!--    
 	        <input type="hidden" name="clone_target" value="superpost-box">

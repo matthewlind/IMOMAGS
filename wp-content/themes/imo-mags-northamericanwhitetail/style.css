@@ -2106,6 +2106,12 @@ home .super-post{padding-top:68px;}
  * 
  *
  */
+ .title-meta{
+ 	color: #58534F;
+    font-family: ProximaNovaS-Regular;
+    font-size: 0.9em;
+    font-style: italic;
+    }
 .page-template-superpost_single-php .single-header{
 	 padding: 0 !important;
  }
@@ -2172,9 +2178,8 @@ home .super-post{padding-top:68px;}
 	box-shadow:1px 1px 3px #e5e5e5;
 	margin-left: -3px;
 }
-.page-template-superpost_single-php .entry-header{
+.page-template-superpost_single-php .entry-header .entry-title{
 	padding-top:22px;
-	width: 600px;
 	word-wrap: break-word;
 }
 .page-template-superpost_single-php h1.entry-title{
@@ -3855,6 +3860,7 @@ h1.tv-header{
 .page-template-user_profile-php .user-info{
 	float: left;
 	width: 360px;
+	min-height: 120px;
 	background: url("img/user-sep.png") no-repeat right center;
 }
 .page-template-user_profile-php .user-info img{
@@ -4287,12 +4293,9 @@ ul#user-bar li.user-name .header-post-btn:hover{
 .page-community .superpost-form input[type="submit"]{
 	left: 280px;
     position: absolute;
-    top: 240px;
+    top: 290px;
     width: 190px;
-} 
-.page-template-trophy-php .superpost-form input[type="submit"], .page-template-report-php .superpost-form input[type="submit"]{
-	top: 290px;
-} 
+}  
 .page-community .new-superpost-modal-container input#title, .page-community .new-superpost-modal-container textarea{
 	width: 618px !important;
 	border: 1px solid #aaa197 !important;
@@ -4337,11 +4340,11 @@ ul#user-bar li.user-name .header-post-btn:hover{
     cursor: pointer;
     left: 431px;
     position: absolute;
-    top: 400px;
+    top: 440px;
     width: 190px;
 }
 
-.page-template-question-php .page-community input.submit{
+/*.page-template-question-php .page-community input.submit{
    	background: none repeat scroll 0 0 #347FE7;
     border: 1px solid #2861B2;
     border-radius: 4px;
@@ -4356,7 +4359,7 @@ ul#user-bar li.user-name .header-post-btn:hover{
     position: absolute;
     top: 160px;
     width: 190px;
-}
+}*/
 
 .page-community .comm-header{
 	font-family: ProximaNovaA-Light;
@@ -4814,6 +4817,23 @@ ul#scroll-widget li a:hover span{
     font-size: 0.8em;
     padding: 3px 12px 0;
 }
+
+
+
+/************
+****
+** State Pages
+****
+*************/
+#community-topics.state-nav {
+    height: 112px;
+}
+#community-topics.state-nav .state-dropdown-container .post_type{
+    width: 290px;
+}
+
+
+
 
 
 /*** Local edits ***/   

@@ -24,6 +24,7 @@ class Join_Widget extends WP_Widget {
 	         return;
 	    }
     ?>
+
     <div class="fb-join-widget-box"style="<?php echo $loginStyle; ?>">
 	    <aside id="join" class="box widget_gravity_form " style="<?php echo $loginStyle; ?>">
 	      <div class="content_wrapper">
