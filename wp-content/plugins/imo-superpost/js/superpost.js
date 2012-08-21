@@ -231,7 +231,7 @@ jQuery(document).ready(function($) {
 
     var response = responseText;
 
-    var url = "/plus/" + response.post_type + "/" + response.id;
+    var url = "/plus/" + response.post_type + "/" + response.id + "#share";
 
 
     window.location = url;

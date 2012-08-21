@@ -17,6 +17,24 @@ topicKey.question = "Q&A";
 topicKey.tip = "Tips & Tactics";
 
 
+//Check for new post sharing popup
+
+if (window.location.hash == '#share') {
+
+	$(".new-post-share-box").modal({
+		opacity: 50, 
+		overlayClose: true,
+		autoPosition: true,
+	});
+}
+
+$(".share-not-now").click(function(event){
+	event.preventDefault();
+
+	$.modal.close();
+});
+
+
 //Make sure we should run all of this stuff
 if ($("#recon-activity").length > 0){
 
