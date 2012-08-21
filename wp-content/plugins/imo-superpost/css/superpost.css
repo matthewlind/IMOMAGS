@@ -578,6 +578,10 @@ span#more-superposts-button span, span#more-community-button span {
     padding: 0 20px;*/
 }
 
+.superpost-comment-form .fast-login-then-post-button {
+	position:static;
+}
+
 .post-menu{
 	float: left;
 }
@@ -646,7 +650,8 @@ div.user-details-box {
 #new-post-button {
     -moz-user-select: none;
 }
-.superpost-form input[type=submit], .superpost-comment-form input[type=submit]{
+.superpost-form input[type=submit], 
+.superpost-comment-form input[type=submit]{
     background: none repeat scroll 0 0 #347FE7;
     border: 1px solid #2861B2;
     border-radius: 4px;
@@ -658,8 +663,17 @@ div.user-details-box {
     margin-top: 17px;
     cursor: pointer;
 }
+
+.new-superpost-modal-container .fast-login-then-post-button {
+	
+	position:relative;
+	left:auto;
+	top:auto;
+	left:180px;
+}	
+
 .superpost-form input[type=submit]{
-	margin-left: 170px;
+	margin-left: 190px;
 }
 select.post_type{
 	font-size: 1em;

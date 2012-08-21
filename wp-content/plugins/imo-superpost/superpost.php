@@ -40,6 +40,8 @@ function imo_superpost_scripts() {
 
 	wp_enqueue_style('superpost-css',plugins_url('css/superpost.css', __FILE__));
     wp_enqueue_style('chosen-css',plugins_url('css/chosen.css', __FILE__));
+    
+    //wp_localize_script( 'imo-user-auth', 'userIMO', $user);
 	
 }
 
