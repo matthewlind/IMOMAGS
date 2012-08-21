@@ -161,6 +161,16 @@ if ( is_user_logged_in() ) {
   <?php endif; ?>
 
   <?php wp_footer(); ?>
+  
+  <div class="new-post-share-box" style="display:none;">
+  <h2><img src="/wp-content/themes/imo-mags-northamericanwhitetail/img/nawp-crosshair-icon.png" class="share-box-icon">Share this post to get more points!</h2>
+  <div class="big-addthis">
+  	<?php imo_add_this_big(); ?>
+  </div>
+  <p>The more activity your post has, the higher your score!</p>
+  <p><a href="" class="share-not-now">(not this time)</a></p>
+  </div>
+  
 
   <div class="new-superpost-modal-container" style="display:none;height:425px:width:600px;background-color:white;">
     <h1>Post Something!</h1>

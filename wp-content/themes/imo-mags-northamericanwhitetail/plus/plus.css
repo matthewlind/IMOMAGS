@@ -16,3 +16,31 @@
 	cursor: pointer;
 	background-color:#7fa8f4;
 }
+
+
+.new-post-share-box {
+	
+	height:280px;
+	text-align: center;
+	padding:15px;
+	width: 395px;
+
+}
+
+.new-post-share-box .big-addthis {
+	margin:auto;
+	width: 320px;
+}
+
+.new-post-share-box .big-addthis a.addthis_button_twitter {
+	margin-left:10px;
+}
+
+.new-post-share-box h2 {
+	line-height: 20px;
+}
+
+.share-box-icon {
+	vertical-align: middle;
+	margin-right:10px;
+}
