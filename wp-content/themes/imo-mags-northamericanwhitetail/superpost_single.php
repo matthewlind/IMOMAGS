@@ -192,10 +192,7 @@ $state = $stateSlugToAbbv[$state_slug];
 			<a class="username" href="/profile/<?php echo $data->username; ?>"><?php echo $data->display_name; ?></a>
 			<p class="points"><?php echo $post_user_score->score. " points"; ?></p>
 		</div>
-		<div class="super-meta">
-			<abbr style="display:inline" class='recon-date'><?php the_time('F j, Y'); ?> &#8226; <?php the_time('g:i a'); ?></abbr> 		
-		</div>
-
+		
 <!--
 	<a href="/profile/<?php echo $data->username ?>"><img src="/avatar?uid=<?php echo $data->user_id; ?>" class="recon-gravatar"></a>
 
@@ -206,25 +203,9 @@ $state = $stateSlugToAbbv[$state_slug];
 		<div class="clearfix"></div>
 		<div class="entry-header"><h1 class="entry-title"><?php echo $data->title; ?></h1>
 		<div class="title-meta">
-			<?php 
-			echo '<a href="/community/'.$data->post_type.'/'; 
-			if($data->state != '' && $data->post_type == 'report'){ 
-					echo strtolower($state);
-				} ?>"" class="post-type"><?php echo $state.' '.$topicName; ?></a> &#8226; <?php echo $data->view_count; ?> views</div>
+		<abbr style="display:inline" class='recon-date'><?php the_time('F j, Y'); ?> &#8226; <?php the_time('g:i a'); ?></abbr> &#8226; <?php echo $data->view_count; ?> views</div>
 		</div>
-		<?php 
-		if($data->post_type == "question"){
-			$questionTopics = array("general"=>"General",
-						            "tips"=>"Tips & Tactics",
-						            "land"=>"Land Management",
-						            "trophy"=>"Trophy Bucks",
-						            "gear"=>"Gear",
-						            "cooking"=>"Cooking");
-		
-	    	echo '<h3>in ' . $questionTopics[$data->secondary_post_type] . '</h3> ';
-	    }
-	    
-	    if (function_exists('imo_add_this')) {imo_add_this();} ?>
+		<?php	    if (function_exists('imo_add_this')) {imo_add_this();} ?>
 		
 			<div <?php post_class('entry entry-full clearfix'); ?>>
 				<div class="entry-content">
@@ -469,17 +450,18 @@ $comment_user_score = $comment_user_score[0];
 		            	<?php 
 		         		for ($i = 1; $i <= 4; $i++) {
 		             		echo '<li>';
+		             		echo '<div class="quote-area">';
+								echo '<div class="mdl">';
+								echo '<h4 class="quote">&#8220;Can anyone suggest a good camo bat-suit for hunting in the forest? I am having trouble hunting in the day time.&#8221;</h4>';
+								echo '</div>';
+								echo '<div class="btm"></div>';
+								echo '<div class="pointer"></div>';
+								echo '</div>';
 							echo '<div class="user-info">';
 								echo '<a href="/profile/username"><img class="superclass-gravatar_hash recon-gravatar" alt="user avatar" src="http://www.northamericanwhitetail.fox/wp-content/themes/imo-mags-northamericanwhitetail/img/user-temp.jpg"></a>';
 								echo '<a class="username">Batman</a><span> asks...</span>';
 							echo '</div>';
-							echo '<div class="quote-area">';
-								echo '<div class="top"></div>';
-								echo '<div class="mdl">';
-									echo '<h4 class="quote">&#8220;Can anyone suggest a good camo bat-suit for hunting in the forest? I am having trouble hunting in the day time.&#8221;</h4>';
-								echo '</div>';
-								echo '<div class="btm"></div>';
-							echo '</div>';
+							
 							echo '<div class="answers-area">';
 								echo '<div class="answers-count">';
 									echo '<div class="answers">Answers</div><div class="count"><a href="#">18</a></div>';

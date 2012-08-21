@@ -69,11 +69,11 @@ if ( is_user_logged_in() ) {
 		<div class="new-superpost-modal-container">
 		
 			<form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-form">
-		        <input type="text" name="title" id="title" placeholder="Headline"/>
+		        <input type="text" name="title" id="title" placeholder="Title"/>
 		        <input type="text" name="post_type" id="post_type" value="trophy" style="display:none;"/>
 		        	           
 	
-		        <textarea name="body" id="body" placeholder="Tell Us Your Story."></textarea>
+		        <textarea name="body" id="body" placeholder="Description"></textarea>
 		        
 			    <input id="file" type="file" name="photo-upload" id="photo-upload" style="display:none"/>
 		<!--    

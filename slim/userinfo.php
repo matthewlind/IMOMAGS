@@ -55,7 +55,7 @@ $app->get('/api/superpost/user/posts/:userid',function($userid){
 				JOIN imomags.wp_users as users on (users.`ID` = posts.user_id)
 				$whereClause
 				$andClause
-				";
+				ORDER BY posts.id DESC";
 
 		$stmt = $db->prepare($sql);
 		$stmt->execute(array($userid));
@@ -99,7 +99,7 @@ $app->get('/api/superpost/user/comments/:userid',function($userid){
 				
 				$whereClause
 				
-				AND posts.post_type = 'comment'
+				AND posts.post_type = 'comment' ORDER BY id DESC
 		
 				";
 

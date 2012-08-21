@@ -695,7 +695,7 @@ function displayReconList(type) {
 												</ul>\
 						<div class='list-footer'>\
 							<div class='list-answer'><a href='" + url + "'>Reply</a></div>\
-							<div class='list-flag'><a href='#' class='list-flag-button'><img class='flag-image' src='http://www.northamericanwhitetail.fox/wp-content/themes/imo-mags-northamericanwhitetail/img/flag-button-gray.png'></a></div>\
+							<div class='list-flag'><a href='#' class='list-flag-button'></a></div>\
 						</div>\
 				</div>");
 				
@@ -871,7 +871,6 @@ $(document).ready(function(){
 		var $questionTemplate;
 				
 		$.each(data, function(index, question) { 
-		console.log(question);
 			$questionTemplate = $("ul#slides-questions li").eq(index);
 			var url = "/plus/question/" + question.id;
 			var gravatar = $questionTemplate.find(".user-info img").attr("src","/avatar?uid=" + question.user_id);
@@ -906,14 +905,15 @@ $(document).ready(function(){
 				
 		$.each(data, function(index, question) { 
 		console.log(question);
+			var url = "/plus/question/" + question.id;
 			$questionTemplate = $("#questions-list-widget .loop ul").eq(index);
-			
+			$questionTemplate.find("a").attr("href",url);
 			if (question.img_url) {
 				$questionTemplate.find("li.img img").attr("src",question.img_url);
 			}else{
 				$questionTemplate.find("li.img img").hide();
 			}
-			$questionTemplate.find("li.title a").text(question.title).attr("href",type + "/" + question.id);
+			$questionTemplate.find("li.title a").text(question.title);
 			$questionTemplate.find("li.replies").text(question.comment_count + " Replies");
 			
 			

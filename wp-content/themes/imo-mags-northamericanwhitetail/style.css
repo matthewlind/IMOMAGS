@@ -1529,6 +1529,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     margin: 0;
     padding-top: 4px;
     height: 100%;
+    cursor: default;
 }
 .questions-slider .jcarousel-list .jcarousel-list-horizontal{
 	width: 678px !important;
@@ -1654,13 +1655,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	width: 300px;
 	height: 100%;
 }
-#questions-widget .questions-slider .user-info{
+#questions-widget .questions-slider .user-info,
+.question-module .questions-slider .user-info{
 	margin-top: 10px;
 }
-#questions-widget .questions-slider .quote-area .top{
-	background: none;
+#questions-widget .questions-slider .quote-area .top,
+.question-module .questions-slider .quote-area .top{
+	background: none !important;
 }
-#questions-widget .questions-slider .pointer{
+#questions-widget .questions-slider .pointer,
+.question-module .pointer{
 	background: url("img/btm-arrow.jpg") no-repeat scroll 33px top transparent;
     width: 80px;
     height: 6px;
@@ -2106,12 +2110,18 @@ home .super-post{padding-top:68px;}
  * 
  *
  */
- .title-meta{
- 	color: #58534F;
-    font-family: ProximaNovaS-Regular;
-    font-size: 0.9em;
-    font-style: italic;
-    }
+.attachment-caption{
+	background: none repeat scroll 0 0 #EDEDED;
+    font-family: ProximaNova-Regular;
+    margin-bottom: 8px;
+    padding: 8px 10px;
+}
+.title-meta{
+	color: #58534F;
+	font-family: ProximaNovaS-Regular;
+	font-size: 0.9em;
+	font-style: italic;
+}
 .page-template-superpost_single-php .single-header{
 	 padding: 0 !important;
  }
@@ -2120,13 +2130,14 @@ home .super-post{padding-top:68px;}
     width: 618px;
  }
 .page-template-superpost_single-php .header-title, 
-.page-template-user_profile-php .header-title,
+.page-template-user_profile_edit-php .header-title,
 .page-template-user_profile-php .header-title,
 .page-community .header-title{
 	background: url('img/nawp-crosshair-icon.png') no-repeat left 7px;
 }
 .page-template-superpost_single-php .header-title h1,  
 .page-template-user_profile-php .header-title h1,
+.page-template-user_profile_edit-php .header-title h1,
 .page-community .header-title h1{
     text-transform: none;
     margin-left: 50px;
@@ -2134,11 +2145,15 @@ home .super-post{padding-top:68px;}
     margin-top: 16px;
     font-size: 1.8em;
 }
-.page-template-user_profile-php .header-title h1{
+.page-template-user_profile-php .header-title h1,
+.page-template-user_profile_edit-php .header-title h1{
 	margin-left: 70px;
 	margin-bottom: -5px !important;
 }
-.page-template-superpost_single-php .header-title h1 span, .page-template-user_profile-php .header-title h1 span{
+.page-template-superpost_single-php .header-title h1 span,
+.page-template-user_profile-php .header-title h1 span,
+.page-template-user_profile_edit-php .header-title h1 span
+{
 	font-size: 0.8em;
     margin-left: 9px;
     word-spacing: 0.4em;
@@ -2210,6 +2225,12 @@ home .super-post{padding-top:68px;}
 }
 .like-btn:hover{
 	background: url("img/like-btn-over.jpg") no-repeat scroll left top transparent;
+}
+.list-flag-button{
+	background: url("img/flag.png") no-repeat scroll 0 0 transparent;
+    height: 11px;
+    margin-top: 16px;
+    width: 10px;
 }
 .flag{
 	float: right;
@@ -3850,14 +3871,16 @@ h1.tv-header{
 	float: left;
 	width: 300px;
 }
-.page-template-user_profile-php .user-header h3{
+.page-template-user_profile-php .user-header h3,
+.page-template-user_profile_edit-php .user-header h3{
 	font-family: ProximaNova-Regular;
 	font-size: 2.3em;
     font-weight: lighter;
     text-transform: capitalize;
     color: #58534f;
 }
-.page-template-user_profile-php .user-info{
+.page-template-user_profile-php .user-info,
+.page-template-user_profile_edit-php .user-info{
 	float: left;
 	width: 360px;
 	min-height: 120px;
@@ -4244,6 +4267,9 @@ header ul#user-bar li.user-name{
 	text-transform: uppercase;
 	text-align: right;
 }
+.page-template-user_profile_edit-php header ul#user-bar li.user-name{
+	padding-top: 0;
+}
 .page-template-superpost_single-php ul#user-bar li.user-name{
 	line-height: 1.1;
 	padding-top: 5px;
@@ -4274,7 +4300,8 @@ ul#user-bar li.user-name .header-post-btn:hover{
 	width: 680px;
 }
 .page-community .header-title,
-.page-template-user_profile-php .header-title{
+.page-template-user_profile-php .header-title,
+.page-template-user_profile_edit-php .header-title{
 	width: 682px;
 }
 .page-community .new-superpost-modal-container {

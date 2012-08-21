@@ -170,4 +170,4 @@ $state = $user_meta['state'][0];
 </div><!-- .col-abc -->
 <div class="clearfix"></div>
 <?php get_footer(); ?>
-<?php print_r($user_meta); ?>)
+<?php //print_r($user_meta); ?>)
