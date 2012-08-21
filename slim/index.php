@@ -441,7 +441,8 @@ $app->post('/api/superpost/add',function() {
 	
 	$requestIsGood = TRUE;
 	
-
+	if (!empty($params['body']))
+		$params['body'] = nl2br($params['body']);
 	
 	if ($params['post_type'] == "youtube" || $params['post_type'] == "photo") {
 		$userIsGood = TRUE;
