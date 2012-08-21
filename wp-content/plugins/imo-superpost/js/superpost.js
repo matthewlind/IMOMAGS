@@ -100,23 +100,19 @@ jQuery(document).ready(function($) {
 	
     //Setup State Dropdown with chosen
    $(".state-chzn").chosen();
-
+   $(".simplemodal-container").css({width:"590px",height: "420px"});
     //Setup post type dropdown to show location when certain options are selected
     $(".post_type").change(function(){
     	//if post is a question, hide the textarea
   	if ($(".post_type").val() == "question") {
 	    	$("#body").css("display","none");
-	    	$("#title").attr("placeholder","Your Question");
+	    	$("#title").attr("placeholder","Ask the Community");
 	}else{
 			$("#body").css("display","block");
-			$("#title").attr("placeholder","Headline");
+			$("#title").attr("placeholder","Title");
 	}
     
       if ($(".post_type").val() == "report" || $(".post_type").val() == "trophy") {
-
-        if (($(".post_type").val() == "report")) {
-          $(".chzn-container span").text("Oh! Where are you reporting from?");
-        }
 
         	$(".state-dropdown-container").slideDown();
         	$(".simplemodal-container").animate({height: "630px"});
@@ -261,7 +257,7 @@ jQuery(document).ready(function($) {
     }
     
     $(".photo-attachement-header").fadeIn(1000);
-    $('.page-community input.submit').css('top','+=90');
+    $('input.submit').css('top','+=90');
 
     var $loadingTag = $("<div class='loading-box' style=''><img src='/wp-content/themes/imo-mags-northamericanwhitetail/img/loader.gif'></div>");
     //$(".attached-photos").append($loadingTag);
@@ -298,21 +294,8 @@ jQuery(document).ready(function($) {
     if (response.source_form == "comment") {
 	    $imageTag.find("form.thumb-caption").remove();
     } else {
-	    //Make the new post post wider
-	    $(".new-superpost-modal-container").animate({
-	      width: "760px"
-	    }, 500 );
-	    $(".simplemodal-container").animate({
-	      width: "800px"
-	    }, 500 );
-	    //Also change width of media section so that it fits in the wider new post box
-	    $(".new-superpost-modal-container .media-section").animate({
-	      width: "320px"
-	    }, 500 );
-	    $(".page-community .media-section").animate({
-	      width: "640px"
-	    }, 500 );
-    }                 
+	    $('.simplemodal-container').css('height','+=90');
+	}                 
                       
 
 
