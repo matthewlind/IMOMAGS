@@ -22,17 +22,37 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 get_header();
 
 the_post();
+
+wp_get_current_user();
+	
+	$current_user = wp_get_current_user();
+    if ( !($current_user instanceof WP_User) )
+         return;
+
 ?>
-<div class="page-template-page-default-php page-template-page slider-height">
-	<header class="header-title">
-		<h1><?php the_title(); ?></h1>
-		<!-- <div class="naw-ad"></div> -->
-	</header>	
-	<div class="bonus-background">
-		<div class="sidebar">
-			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-default')) : else : ?><?php endif; ?>
-		</div>
+<div class="bonus-background">
+	<div class="bonus">
+		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('superpost-sidebar')) : else : ?><?php endif; ?>
 	</div>
+</div>
+<div class="col-abc">
+	<header class="header-title">
+	
+	<div id="user-bar" class="edit">
+		
+	</div>
+	  	<ul id="user-bar" style="<?php echo $displayStyle; ?>">	          
+			<li class="user-name">Hello, <a href="/profile/<?php echo $current_user->user_nicename; ?>"><span id="current-user-name"><?php echo $current_user->display_name; ?></span></a><br /><a href="<?php echo wp_logout_url( get_permalink() ); ?>" title="Logout">Logout</a></li>
+			<li><a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" alt="User Avatar" class="recon-gravatar" /></a></li>                      
+       </ul>
+
+	<h1>Community Profile</h1>
+	 <div class="community-crumbs">
+       		<a href="/community">Community Home</a> &raquo; Edit Profile
+		</div>
+
+	</header>
+
 	<div class="col-abc">
 		<?php the_content(__('Continued&hellip;', 'carrington-business')); ?>
 	</div><!-- .col-abc -->		

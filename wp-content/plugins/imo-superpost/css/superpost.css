@@ -640,12 +640,11 @@ div.user-details-box {
 }
 .superpost-form input[type=text], .superpost-form textarea{
 	padding: 6px 10px;
-	width: 378px !important;
 }
 .superpost-form input[type=text], .superpost-form textarea, .superpost-form textarea select, .superpost-comment-form textarea, .superpost-comment-form-single textarea {
 	border-color: solid 1px #e7e5e0 !important;
 	padding: 6px 10px;
-	width: 440px;
+	
 }
 #new-post-button {
     -moz-user-select: none;
@@ -673,7 +672,9 @@ div.user-details-box {
 }	
 
 .superpost-form input[type=submit]{
-	margin-left: 190px;
+	margin-left: 172px;
+	margin-top: -31px;
+	
 }
 select.post_type{
 	font-size: 1em;
