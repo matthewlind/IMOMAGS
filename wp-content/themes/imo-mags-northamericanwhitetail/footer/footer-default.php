@@ -194,7 +194,7 @@ if ( is_user_logged_in() ) {
        
 
         <div class="state-dropdown-container" style="display:none;">
-          <select name="state" class="" style="width:400px;padding:5px;" data-placeholder="Choose the state for this post:">
+          <select name="state" class="state-chzn" style="width:400px;padding:5px;" data-placeholder="Choose the state for this post:">
             <option value=""></option>
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
