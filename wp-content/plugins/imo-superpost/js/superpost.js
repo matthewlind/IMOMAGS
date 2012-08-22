@@ -22,7 +22,7 @@ jQuery(document).ready(function($) {
 	
 		$("#body").css("display","none");
 		$("#title").attr("placeholder","Your Question");
-		$(".post_type .question").attr("selected","selected");
+		$(".modal_post_type .question").attr("selected","selected");
 	});
 	$('.new-post.trophy').click(function(){
 		$(".new-superpost-modal-container").modal({
@@ -32,7 +32,7 @@ jQuery(document).ready(function($) {
 		onShow: SetupPostForm
 		});
 	
-		$(".post_type .trophy").attr("selected","selected");
+		$(".modal_post_type .trophy").attr("selected","selected");
 		$(".chzn-container span").text("Oh! Where are you reporting from?");
 		$(".state-dropdown-container").slideDown();
 		$(".simplemodal-container").animate({height: "630px"});
@@ -46,7 +46,7 @@ jQuery(document).ready(function($) {
 		onShow: SetupPostForm
 		});
 	
-		$(".post_type .report").attr("selected","selected");
+		$(".modal_post_type .report").attr("selected","selected");
 		$(".chzn-container span").text("Oh! Where are you reporting from?");
 		$(".state-dropdown-container").slideDown();
 		$(".simplemodal-container").animate({height: "630px"});
@@ -60,7 +60,7 @@ jQuery(document).ready(function($) {
 		onShow: SetupPostForm
 		});
 	
-		$(".post_type .lifestyle").attr("selected","selected");
+		$(".modal_post_type .lifestyle").attr("selected","selected");
 	});
 	
 	$('.new-post.tip').click(function(){
@@ -71,7 +71,7 @@ jQuery(document).ready(function($) {
 		onShow: SetupPostForm
 		});
 	
-		$(".post_type .tip").attr("selected","selected");
+		$(".modal_post_type .tip").attr("selected","selected");
 	});
 	
 	$('.new-post.general').click(function(){
@@ -82,7 +82,7 @@ jQuery(document).ready(function($) {
 		onShow: SetupPostForm
 		});
 	
-		$(".post_type .general").attr("selected","selected");
+		$(".modal_post_type .general").attr("selected","selected");
 	});
 	
 	
@@ -102,26 +102,31 @@ jQuery(document).ready(function($) {
    $(".state-chzn").chosen();
    $(".simplemodal-container").css({width:"590px",height: "420px"});
     //Setup post type dropdown to show location when certain options are selected
-    $(".post_type").change(function(){
+    $(".modal_post_type").change(function(){
     	//if post is a question, hide the textarea
-  	if ($(".post_type").val() == "question") {
+  	if ($(".modal_post_type").val() == "question") {
 	    	$("#body").css("display","none");
 	    	$("#title").attr("placeholder","Ask the Community");
+	    	$(".simplemodal-container").animate({height: "300px"});
+        	$('input.submit').css("margin-top","-160px");
 	}else{
 			$("#body").css("display","block");
 			$("#title").attr("placeholder","Title");
+			$(".simplemodal-container").animate({height: "420px"});
+			$('input.submit').css('margin-top','-31px');
 	}
     
-      if ($(".post_type").val() == "report" || $(".post_type").val() == "trophy") {
+      if ($(".modal_post_type").val() == "report" || $(".modal_post_type").val() == "trophy") {
 
         	$(".state-dropdown-container").slideDown();
         	$(".simplemodal-container").animate({height: "470px"});
-        	$('input.submit').css('top','+=50');
-      }else{
+        	$('input.submit').css("margin-top","11px");
+     }else{
       //hide when not neccesary
-	      $(".state-dropdown-container").slideUp();
+	      $(".simplemodal-container .state-dropdown-container").slideUp();
+	      //$(".simplemodal-container").animate({height: "420px"});
       }
-      console.log($(".post_type").val());
+      console.log($(".modal_post_type").val());
     });
 
    

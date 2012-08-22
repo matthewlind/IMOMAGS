@@ -180,7 +180,7 @@ if ( is_user_logged_in() ) {
         <input type="text" name="title" id="title" placeholder="Title"/>
         <textarea name="body" id="body" placeholder="Description"></textarea>
          <div class="post_type_styled_select">
-         <select class="post_type" name="post_type">
+         <select class="modal_post_type" name="post_type">
             <option value="general" class="general">General Discussion</option>
             <option value="question" class="question">Q&A</option>
             <option value="report" class="report">Rut Reports</option>
@@ -300,7 +300,7 @@ if ( is_user_logged_in() ) {
         </div>
         
         <div class="question-dropdown-container" style="display:none;">
-          <select class="post_type" name="secondary_post_type">
+          <select class="modal_post_type" name="secondary_post_type">
             <option value="general">Question Topic</option>
             <option value="general">General</option>
             <option value="tips">Tips & Tactics</option>

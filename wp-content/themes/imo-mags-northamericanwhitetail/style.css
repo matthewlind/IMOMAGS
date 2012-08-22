@@ -2893,7 +2893,7 @@ page community .new-superpost-modal-container textarea {
   
 }
 
-select.post_type {
+select.modal_post_type {
 
    background: transparent;
    width: 400px;
@@ -4143,12 +4143,12 @@ ul.community-cats li.post:hover {
  #community-topics a.share-photo{
 	width: 158px;
 }
-#community-topics .state-dropdown-container {
+#community-topics .state-dropdown-container-sidebar {
     float: right;
     margin-bottom: 10px;
     margin-top: 10px;
 }
-#community-topics .state-dropdown-container .post_type{
+#community-topics .state-dropdown-container-sidebar .post_type{
 	clear: both;
     float: right;
     margin: 0 0 10px;
@@ -4899,7 +4899,7 @@ ul#scroll-widget li a:hover span{
 #community-topics.state-nav {
     height: 112px;
 }
-#community-topics.state-nav .state-dropdown-container .post_type{
+#community-topics.state-nav .state-dropdown-container-sidebar .post_type{
     width: 290px;
 }
 

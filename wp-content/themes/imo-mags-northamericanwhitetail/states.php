@@ -128,7 +128,7 @@ $data = $data[0];
 	          </select>
 	          
 	          <div class="or">- OR -</div> -->
-	    <div class="state-dropdown-container">
+	    <div class="state-dropdown-container-sidebar">
 	    	<select id="state" name="state" class="post_type state">
 	    		<option value="">State <?php echo $title; ?></option>
 	    		<option value="/community/<?php echo $post_type; ?>/alabama">Alabama</option>
