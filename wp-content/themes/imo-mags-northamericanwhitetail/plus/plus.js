@@ -446,7 +446,7 @@ function displayUserPosts(userID) {
 	        var titleDetailBox = $("<span class='recon-title-detail'></span>").text(this.display_name + "'s " + this.post_type);
 	        var title = $("<h3></h3>").text(this.title);
 	        var underBox = $("<div class='under-box'></div>");
-	        var gravatar = $("<img class='recon-gravatar'>").attr("src","http://www.gravatar.com/avatar/" + this.gravatar_hash + ".jpg?s=50&d=identicon");
+	        var gravatar = $("<img class='recon-gravatar'>").attr("src","/avatar?uid=" + this.user_id);
 	        var authorInfo = $("<div class='recon-author-info'><span class='author-name'></span><span class='author-action'></span></div>");
 	        authorInfo.find(".author-name").text(this.display_name);
 	        authorInfo.find(".author-action").text(" posted in " + capitaliseFirstLetter(this.post_type));
@@ -694,7 +694,7 @@ function displayReconList(type) {
 			}
 			
 			//underBox.append(date);	
-			//var $avatar $("<img class='recon-gravatar'>").attr("src","http://www.northamericanwhitetail.fox/avatar?uid=" + this.$user_id);
+			//var $avatar $("<img class='recon-gravatar'>").attr("src","avatar?uid=" + this.user_id);
 			var category_type = " in <a href=/question/'>" + this.secondary_post_type + "</a>";
 			var reconRow = $("\
 				<div class='recon-row masonry-box'>\

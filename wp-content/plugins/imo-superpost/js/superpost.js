@@ -120,14 +120,13 @@ jQuery(document).ready(function($) {
       //hide when not neccesary
 	      $(".state-dropdown-container").slideUp();
       }
+      console.log($(".post_type").val());
     });
 
    
   }//End SetupPostFOrm
 
 
-  
-	
 	
 	
 

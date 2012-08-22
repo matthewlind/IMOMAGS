@@ -315,7 +315,7 @@ $comment_user_score = $comment_user_score[0];
 		</div>
 		
 		<div class="superpost-comments">
-				<div class="superpost-comment"  >
+				<div class="superpost-comment">
 		    		<div class="superclass-body">
 		    			<a href="/profile/admin" class="username">NOBODY</a>
 		    
@@ -334,7 +334,7 @@ $comment_user_score = $comment_user_score[0];
 <div class="col-abc super-comments">
 	<div class="avatar-holder">
 		<img src="/avatar?uid=<?php echo $current_user->ID; ?>" class="superclass-gravatar_hash recon-gravatar">
-        <a href="/profile/<?php echo $current_user->username; ?>"><?php echo $current_user->user_nicename; ?></a>
+        <a href="/profile/<?php echo $current_user->username; ?>"><?php echo $current_user->display_name; ?></a>
     </div>
 
     <div id="comments" class="" style="height:500px:width:600px;background-color:white;">
