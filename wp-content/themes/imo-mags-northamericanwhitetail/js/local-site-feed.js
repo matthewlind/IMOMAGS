@@ -64,7 +64,7 @@ jQuery(document).ready(function($) {
     
 	    //$(".animal-container").html("");
 
-	    console.log(data);
+	    //console.log(data);
 	    
 		    var count = 0;
 

@@ -413,7 +413,7 @@ $comment_user_score = $comment_user_score[0];
 
 
         <input type="submit" value="Submit" class="submit" style="<?php echo $displayStyle; ?>"/>
-		<div class="fast-login-then-post-button modal-popup-button" style="<?php echo $loginStyle; ?>">Submit & Login <img class="submit-icon" src="/wp-content/themes/imo-mags-northamericanwhitetail/img/fb.png" height=20 width=20></div>
+		<div class="fast-login-then-post-button modal-popup-button" style="<?php echo $loginStyle; ?>">Submit & Login</div>
         <p class="login-note">
         </p>
     </form>

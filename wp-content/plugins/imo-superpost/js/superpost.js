@@ -115,12 +115,13 @@ jQuery(document).ready(function($) {
       if ($(".post_type").val() == "report" || $(".post_type").val() == "trophy") {
 
         	$(".state-dropdown-container").slideDown();
-        	$(".simplemodal-container").animate({height: "630px"});
+        	$(".simplemodal-container").animate({height: "470px"});
+        	$('input.submit').css('top','+=50');
       }else{
       //hide when not neccesary
 	      $(".state-dropdown-container").slideUp();
       }
-      console.log($(".post_type").val());
+      ////console.log($(".post_type").val());
     });
 
    
@@ -143,8 +144,8 @@ jQuery(document).ready(function($) {
 
     if ($("input#video-body").val().length > 7) {
       //Then submit the form!
-      console.log($(this).closest('.superpost-image-form'));
-      console.log($("input#video-body").val());
+      ////console.log($(this).closest('.superpost-image-form'));
+      ////console.log($("input#video-body").val());
       $(this).closest('.superpost-image-form').submit();
       
       
@@ -199,7 +200,7 @@ jQuery(document).ready(function($) {
   //It doesn't actually do anything but it's useful for debugging
   function ShowRequest(formData, jqForm, options) {
 	
-	//console.log(  $(userIMO) );
+	//////console.log(  $(userIMO) );
   
   
   	//Add the userdata so that we can authenticate
@@ -242,13 +243,13 @@ jQuery(document).ready(function($) {
     dataType: 'json',
     error: AjaxError,
     beforeSerialize: function($form, options) { 
-    	console.log("BEFORE SERIALIZE:",$form,options);                 
+    	////console.log("BEFORE SERIALIZE:",$form,options);                 
     }                               
   });
 
   function BeforeImageSubmit(formData, jqForm, options) {
   
-  console.log("MEDIA SUBMIT DATA: ",formData,jqForm);
+  ////console.log("MEDIA SUBMIT DATA: ",formData,jqForm);
 
     if (formData[1].value == "youtube") {
       $(".photo-attachement-header").text("Media");
@@ -277,7 +278,7 @@ jQuery(document).ready(function($) {
 
     var response = responseText;
     
-    console.log(response);
+    ////console.log(response);
     
     //first, get the image element and the caption form
     var $imageTag = $("<div><img src='" + response.img_url + "' height=75 width=75 style='' class='image-thumb'>\
@@ -340,8 +341,8 @@ jQuery(document).ready(function($) {
 
 
 
-    console.log("response Image YO!");
-    console.log(response);
+    ////console.log("response Image YO!");
+    ////console.log(response);
 
   }
 
@@ -395,7 +396,7 @@ jQuery(document).ready(function($) {
 
     //This loop should handle updating the clone in most situations
     $.each(response, function(index,value){
-      //console.log(index + ":" + value);
+      //////console.log(index + ":" + value);
 
       var targetElement = $(clone).find(".superclass-" + index);
 
