@@ -28,50 +28,7 @@
 
 				<div class="imo-fb-login-button">Login with Facebook</div>
 				<script>
-				jQuery(".imo-fb-login-button").click(function(){
-					
 
-					FB.getLoginStatus(function(response) {
-					  if (response.status === 'connected') {
-					  	FB.api('/me', function(response) {
-					       console.log('You\'re already logged in to FB and this App has previously authenticated, ' + response.name + '.');
-					     });
-
-					    jQuery.getJSON('/facebook-usercheck.json', function(data) {
-	   						console.log(data);
-	   					});
-					    // the user is logged in and has authenticated your
-					    // app, and response.authResponse supplies
-					    // the user's ID, a valid access token, a signed
-					    // request, and the time the access token 
-					    // and signed request each expire
-					    var uid = response.authResponse.userID;
-					    var accessToken = response.authResponse.accessToken;
-					  } else if (response.status === 'not_authorized') {
-					  	imo_fb_login();
-					  	console.log("logged in to fb, app not authenticated");
-					    // the user is logged in to Facebook, 
-					    // but has not authenticated your app
-					  } else {
-					  	imo_fb_login();
-					  	console.log("not logged in to fb");
-					    // the user isn't logged in to Facebook.
-					  }
-					 });
-
-					function imo_fb_login() {
-						FB.login(function(response) {
-						   if (response.authResponse) {
-						     console.log('Welcome!  Fetching your information.... ');
-						     FB.api('/me', function(response) {
-						       console.log('Good to see you, ' + response.name + '.');
-						     });
-						   } else {
-						     console.log('User cancelled login or did not fully authorize.');
-						   }
-						 }, {scope: 'email'});
-					}
-				});
 				</script>
 	            <table width='100%' cellspacing="0" cellpadding="0">
 	                <tr id="LoginWithAjax_Username">

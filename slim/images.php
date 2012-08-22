@@ -50,7 +50,19 @@ function resizeImages($localImage, $isVideo = false){
 
 	//Create the new image
 	$canvas = imagecreatetruecolor($crop_width, $crop_height);
-	$current_image = imagecreatefromjpeg($filename);
+	
+	//get the file extension
+	$file_extension = pathinfo($filename, PATHINFO_EXTENSION);
+	$file_extension = strtolower($file_extension);
+	
+	if ($file_extension == "jpg" || $file_extension == "jpeg")
+		$current_image = imagecreatefromjpeg($filename);
+	
+	if ($file_extension == "png")
+		$current_image = imagecreatefrompng($filename);
+		
+	if ($file_extension == "gif")
+		$current_image = imagecreatefromgif($filename);
 
 	//Before Crop, Save Full Size Image
 	//resize image but keep aspect ratio

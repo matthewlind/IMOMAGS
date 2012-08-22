@@ -1,47 +1,49 @@
-<?php // Custom Join NAW+ Widget powered by Gravity Forms
-
+<?php // Custom Join NAW+ Widget
+    
 class Join_Widget extends WP_Widget {
 	function Join_Widget() {
-		$widget_ops = array('classname' => 'widget_gravity_form', 'description' => 'Add a Gravity Form email signup form.' );
+		$widget_ops = array('classname' => 'widget_gravity_form', 'description' => 'Custom Join NAW+ Widget.' );
 		$this->WP_Widget('join', 'Join NAW+', $widget_ops);
 	}
  
 	function widget($args, $instance) {
 		extract($args, EXTR_SKIP);
- 
-    $title = empty($instance['title']) ? '' : apply_filters('widget_title', $instance['title']); ?>
+     
+    $displayStyle = "display:none";
+	$loginStyle = "";
+	
+	if ( is_user_logged_in() ) {
+	
+		$displayStyle = "";
+		$loginStyle = "display:none";
+		
+		wp_get_current_user();
+		
+		$current_user = wp_get_current_user();
+	    if ( !($current_user instanceof WP_User) )
+	         return;
+	    }
+    ?>
 
-    <aside id="join" class="box widget_gravity_form">
-      <div class="content_wrapper">
-      	<div class="join-sep">
-        <span>or</span>
-        <input id="fb-signup" class="fb-signup" type="submit" name="fb-signup" value="Submit">
-        </div>
-
-        <?php if(!empty($title)) : ?>
-        <h5 class="box_title">
-          <span><?php echo $title; ?></span>
-        </h5>
-        <?php endif; ?>
-        <?php if (function_exists('gravity_form')) gravity_form(1, false, false); ?>
-        <a href="#" class="about-link">Tell me about North American Whitetail +</a>
-       </div>
-    </aside>
+    <div class="fb-join-widget-box"style="<?php echo $loginStyle; ?>">
+	    <aside id="join" class="box widget_gravity_form " style="<?php echo $loginStyle; ?>">
+	      <div class="content_wrapper">
+	      	  <div id="imo-fb-login-button" class="fb-login join-widget-fb-login">Fast Facebook Login</div>
+		      <small>*we do not post anything to your wall unless you say so!</small>
+		      <!--<a class="email-signup">or use your email address</a>
+		      <form style="display:none;" class="join-form">
+			  	<input type="email" name="email" class="join-email" placeholder="Your Email">
+			  	<input type="submit" name="submit" class="join-submit" value="Join">
+		      </form>-->
+		      <a class="prize-title">Sign Up Now & Win This Bolt Action Model 700!</a>
+		      <div class="prize"></div>
+		      <div class="clear"></div>
+	        <a href="#" class="about-link">What is North American Whitetail +?</a>
+	       </div>
+	    </aside>
+    </div>
 
 <?php	}
  
-	function update($new_instance, $old_instance) {
-		$instance = $old_instance;
-		$instance['title'] = strip_tags($new_instance['title']);
-		return $instance;
-	}
- 
-	function form($instance) {
-		$instance = wp_parse_args((array) $instance, array('title' => ''));
-		$title = strip_tags($instance['title']);
-?>
-			<p><label for="<?php echo $this->get_field_id('title'); ?>">Title: <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo attribute_escape($title); ?>" /></label></p>
-<?php
-	}
 }
 register_widget('Join_Widget');

@@ -118,6 +118,15 @@ $(document).ready(function(){
   });	
 
 });
+// Superpost widget slider
+$(document).ready(function(){
+				
+		$('#scroll-widget').buffet({
+    		scroll_by : 3,
+   			next      : $('.next'),
+    		prev      : $('.prev')
+  		});
+});
 
 // IMO Network slider
 $(document).ready(function(){
@@ -139,6 +148,27 @@ $(function(){
 });
 	
 	
+// on change for community topics widget select
+ $(function(){
+      // bind change event to select
+      $('#dynamic_select').bind('change', function () {
+          var url = $(this).val(); // get selected value
+          if (url) { // require a URL
+              window.location = url; // redirect
+          }
+          return false;
+      });
+    });	
 	
-	
+// on change for state drop downs
+ $(function(){
+      // bind change event to select
+      $('#state').bind('change', function () {
+          var url = $(this).val(); // get selected value
+          if (url) { // require a URL
+              window.location = url; // redirect
+          }
+          return false;
+      });
+    });	
 	

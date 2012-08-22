@@ -6,22 +6,164 @@ window.fbAsyncInit = function() {
     xfbml      : true,
     oauth      : true,
   });
-  FB.Event.subscribe('auth.login', function (response) {
-      console.log("HEY THERE!");
-      console.log(response);
-      jQuery.getJSON('/facebook-usercheck.json', function(data) {
-	   		console.log(data);
 
-        window.location = "/naw-home";
 
-	   });
+  FB.Event.subscribe('auth.authResponseChange', function(response) {
+    //console.log('authResponseChange: The status of the session is: ' + response.status);
   });
-};
+  
+    FB.Event.subscribe('auth.prompt', function(response) {
+    //console.log('auth.prompt: The status of the session is: ' + response.status);
+  });
+
+  
+	FB.Event.subscribe('auth.statusChange', function(response) {
+	  //console.log('STATUS CHANGE: The status of the session is: ' + response.status);
+	  
+	  if (response.status == "not_authorized") {
+	  
+		  if (userIMO.username.length > 0 && userIMO.facebook_id.length > 0) {//If user is logged in and not a FB user
+	
+	  	  	jQuery.getJSON('/logout.json', function(data) {
+	            $("#tophat").hide();
+	            //console.log("FB: LOG OUT");
+	        });
+	        	  
+		  }
+	  
+	  }
+	  
+	  if (response.status == "connected") {
+	  
+		  //This section moved to imo-fb-login
+		  
+	  }//End if response.status == connected
+	  
+	  
+	});//End facebook event subscribe
+
+
+
+  
+};//END window.fbAsyncInit
+
+
+jQuery(document).ready(function($) {
+
+	jQuery(".imo-fb-login-button, .fast-login-then-post-button, .join-widget-fb-login").click(function(){
+						
+		imo_fb_login();
+		
+		var $clickedButton = $(this);
+
+	
+		function imo_fb_login() {
+		
+		$(".imo-fb-login-button").css({ opacity: 0.5 });
+		$(".join-widget-fb-login").css({ opacity: 0.5 });
+		//$(".fast-login-then-post-button").css({ opacity: 0.5 });
+		
+
+		
+			FB.login(function(response) {
+			   if (response.authResponse) {
+			   
+			   	if ($clickedButton.hasClass("fast-login-then-post-button")) {
+			   		$("img.submit-icon").attr("src","/wp-content/themes/imo-mags-northamericanwhitetail/img/submit-throbber.gif");
+			   	}
+			   
+			     //console.log('Welcome!  Fetching your information.... ');
+			     FB.api('/me', function(response) {
+			       //console.log('Good to see you, ' + response.name + '.');
+			       
+			       
+			       
+			       	if (userIMO.username.length > 0) {//If user is logged in 
+	
+		  
+					  } else { //if user is not logged in
+					  
+					  	  //$(".user-login-modal-container").modal.close();
+					  	  
+					  	  //$.modal.close();
+					  	  
+					  	 
+					  	  
+						  
+						  jQuery.getJSON('/facebook-usercheck.json', function(data) {
+				            //console.log(data);
+				            
+				            userIMO = data;
+				            
+				            
+				            var $userBar = $("ul#user-bar");
+				            
+				            $userBar.find("a").attr("href","/profile/" + data.username);
+				            $userBar.find("#current-user-name").text(data.display_name);
+				            $userBar.find("img.recon-gravatar").attr("src","/avatar?uid=" + data.user_id);
+				            
+				            $(".imo-fb-login-button").fadeOut(500,function(){
+					            
+					            $userBar.fadeIn();
+				            });
+				            
+				            $(".fb-join-widget-box .widget_gravity_form").fadeOut(500,function(){
+					            
+					            $.get('/static-widgets/get-the-app.html', function(data) {
+								  
+								  $(data).prependTo(".fb-join-widget-box").fadeIn();
+		
+								});
+				            });
+				            
+				            
+				            $(".fast-login-then-post-button").fadeOut(500,function(){
+					            
+					            $(".submit").css({ opacity: 0.5 });
+					            
+					            
+					            if ($clickedButton.hasClass("fast-login-then-post-button")) {
+					            	//alert("fast login used!");
+					            	
+					            	//console.log("clicked button:",$clickedButton );
+					            	
+					            	$("#fileUploadForm").first().submit();
+						            
+					            }
+					            
+					            
+					            
+				            });
+				            
+
+				       			            
+				            
+				            
+				          });
+						  
+					  }//End if user is logged in
+						       
+			       
+			       
+			         
+			     });
+			   } else {
+			     //console.log('User cancelled login or did not fully authorize.');
+			   }
+			 }, {scope: 'email,user_hometown'});
+		}//END imo_fb_login
+	});
+
+});
+
+  
+
+
+
 (function(d){
    var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
    js = d.createElement('script'); js.id = id; js.async = true;
    js.src = "//connect.facebook.net/en_US/all.js";
    d.getElementsByTagName('head')[0].appendChild(js);
  }(document));
-
 

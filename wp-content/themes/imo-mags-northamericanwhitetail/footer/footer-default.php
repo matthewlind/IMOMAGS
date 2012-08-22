@@ -9,11 +9,29 @@ $args = array(
 	'posts_per_page'	=>	3,
 	'orderby'			    =>	'date',
 	'order'				    =>	'DESC'
-); ?>
+); 
+
+
+$displayStyle = "display:none;";
+$loginStyle = "";
+
+if ( is_user_logged_in() ) {
+
+	$displayStyle = "";
+	$loginStyle = "display:none;";
+	
+	wp_get_current_user();
+	
+	$current_user = wp_get_current_user();
+    if ( !($current_user instanceof WP_User) )
+         return;
+    }
+
+?>
 		</div><!-- #main -->
 	</section><!-- .container -->
 
-  <footer id="footer">
+  <footer id="footer" class="end-scroll">
     
       <section id="imo-network">
         <div class="container">
@@ -143,75 +161,40 @@ $args = array(
   <?php endif; ?>
 
   <?php wp_footer(); ?>
+  
+  <div class="new-post-share-box" style="display:none;">
+  <h2><img src="/wp-content/themes/imo-mags-northamericanwhitetail/img/nawp-crosshair-icon.png" class="share-box-icon">Share this post to get more points!</h2>
+  <div class="big-addthis">
+  	<?php imo_add_this_big(); ?>
+  </div>
+  <p>The more activity your post has, the higher your score!</p>
+  <p><a href="" class="share-not-now">(not this time)</a></p>
+  </div>
+  
 
-  <div class="new-superpost-modal-container" style="display:none;height:500px:width:600px;background-color:white;">
+  <div class="new-superpost-modal-container new-superpost-box" style="display:none;height:425px:width:600px;background-color:white;">
     <h1>Post Something!</h1>
-
-    <div class="media-section">
-
-      <h4 style="display:none" class="photo-attachement-header">Photos</h4>
-      <div class="attached-photos">
-      </div>
-
-      <form id="fileUploadForm-image" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-image-form">
-        <div id="fileupload" >
-          <div class="fileupload-buttonbar ">
-              <label class="upload-button">
-                  <span><span class="white-plus-sign">+</span><span class="button-text">PHOTO</span></span>
-                  <input id="image-upload" type="file" name="photo-upload" id="photo-upload" />
-
-              </label>
-          </div>
-        </div>
-        <input type="hidden" name="post_type" value="photo">
-        <input type="hidden" name="form_id" value="fileUploadForm">
-
-
-      </form>
-
-      <div class="video-button">
-        <span><span class="white-plus-sign">+</span>VIDEO</span>
-      </div>
-      <div class="video-url-form-holder-container" style="display:none;">
-
-        <div class="video-url-form-holder" style="">
-          <form id="video-url-form" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-image-form">
-            
-            <div class="video-body-holder">
-            <input type="text" name="body" id="video-body" placeholder="Paste YouTube URL or code here"/>
-            </div>
-            <input type="hidden" name="post_type" value="youtube">
-            <input type="hidden" name="form_id" value="fileUploadForm">
-
-
-          </form>
-
-        </div>
-        <div class="video-close-button">
-        </div>
-      </div>
-
-    </div>
 
     <form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-form">
 
-        <input type="text" name="title" id="title" placeholder="Headline"/>
-        <textarea name="body" id="body" placeholder="Tell Us Your Story."></textarea>
-        
-        <div class="post_type_styled_select">
-          <select class="post_type" name="post_type">
-            <option value="general">General Discussion</option>
-            <option value="report">Rut Reports</option>
-            <option value="tip">Tips & Tactics</option>
-            <option value="lifestyle">Lifestyle</option>
-            <option value="trophy">Trophy Bucks</option>
-            <option value="gear">Gear</option>
-
+        <input type="text" name="title" id="title" placeholder="Title"/>
+        <textarea name="body" id="body" placeholder="Description"></textarea>
+         <div class="post_type_styled_select">
+         <select class="modal_post_type" name="post_type">
+        	<option value="report" class="report">Rut Reports</option>
+         	<option value="trophy" class="trophy">Trophy Bucks</option>
+            <option value="question" class="question">Q&A</option>
+            <option value="general" class="general">General Discussion</option>
+            <option value="gear" class="gear">Gear</option>
+            <option value="lifestyle" class="lifestyle">Lifestyle</option>
+            <option value="tip" class="tip">Tips & Tactics</option>
           </select>
         </div>
+        
+       
 
         <div class="state-dropdown-container" style="display:none;">
-          <select name="state" class="state-chzn" style="width:400px;padding:5px;" data-placeholder="Nice. Where did you find it?">
+          <select name="state" class="state-chzn" style="width:400px;padding:5px;" data-placeholder="Choose the state for this post:">
             <option value=""></option>
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
@@ -312,7 +295,24 @@ $args = array(
             <option value="ZT">Zacatecas</option>
 
           </select>
+          
+          
         </div>
+        
+        <div class="question-dropdown-container" style="display:none;">
+          <select class="modal_post_type" name="secondary_post_type">
+            <option value="general">Question Topic</option>
+            <option value="general">General</option>
+            <option value="tips">Tips & Tactics</option>
+            <option value="land">Land Management</option>
+            <option value="trophy">Trophy Bucks</option>
+            <option value="gear">Gear</option>
+            <option value="cooking">Cooking</option>
+          </select>
+        </div>
+            
+        
+        
 
         <input id="file" type="file" name="photo-upload" id="photo-upload" style="display:none"/>
 <!--    
@@ -324,27 +324,64 @@ $args = array(
         <input type="hidden" name="form_id" value="fileUploadForm">
         <input type="hidden" name="attachment_id" class="attachment_id" value="">
 
-        <input type="submit" value="Submit" class="submit" />
+        <input type="submit" value="Submit" class="submit" style="<?php echo $displayStyle; ?>"/>
+		<div class="fast-login-then-post-button modal-popup-button" style="<?php echo $loginStyle; ?>">Submit & Login <img class="submit-icon" src="/wp-content/themes/imo-mags-northamericanwhitetail/img/fb.png" height=20 width=20></div>
+
         <p class="login-note">
         </p>
-    </form>
-  </div> <!-- End new-superpost-modal-container -->
+        </form>
+        
+        <div class="media-section">
+	        
+	        	<form id="fileUploadForm-image" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-image-form">
+			    	<div id="fileupload" >
+			        	<div class="fileupload-buttonbar ">
+			            	<label class="upload-button">
+				                <span><span class="white-plus-sign">+</span><span class="button-text">ATTACH PHOTO</span></span>
+				                <input id="image-upload" type="file" name="photo-upload" id="photo-upload" />
+			                </label>
+			           </div>
+			       </div>
+			       <input type="hidden" name="post_type" value="photo">
+			       <input type="hidden" name="form_id" value="fileUploadForm">
+		       </form><!-- end form -->
+		      
+			   <div class="video-button">
+			        <span><span class="white-plus-sign"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/youtube.png" alt="YouTube" /></span>ADD YOUTUBE VIDEO</span>
+			   </div>
+			   <div class="video-url-form-holder-container" style="display:none;">
+			   		<div class="video-url-form-holder" style="">
+			        	<form id="video-url-form" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-image-form">		            
+				            <div class="video-body-holder">
+				            	<input type="text" name="body" id="video-body" placeholder="Paste YouTube URL or code here"/>
+				            </div>
+				            <input type="hidden" name="post_type" value="youtube">
+				            <input type="hidden" name="form_id" value="fileUploadForm">
+				       </form>
+				   </div>
+			       <div class="video-close-button">
+			       </div>
+			  </div><!-- /.video-url-form-holder-container-->
+			  
+			  <h4 style="display:none" class="photo-attachement-header">Photos</h4>
+			  <div class="attached-photos">
+			  </div>
+		</div><!-- /.media-section-->
+    </div> <!-- End new-superpost-modal-container -->
 
 
-  <article id="excerpt-template" class="post type-post status-publish format-standard hentry entry entry-excerpt has-img" style="display:none;">
-    <a href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/"><img width="190" height="120" src="http://www.northamericanwhitetail.deva/files/2012/03/NAWdd_031312-190x120.jpg" class="entry-img wp-post-image" alt="" title="" /></a>
-
-    <div class="entry-summary">
-      <span class="entry-category"><a href="http://www.northamericanwhitetail.deva/category/deer-of-the-day/" title="View all posts in Deer of the Day" rel="category tag">Deer of the Day</a></span>
-    <h2 class="entry-title"><a rel="bookmark" href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/">Deer of the Day Buckeye Brute, Alexa Perry</a></h2>
-    <span class="author vcard">March 13, 2012 <span class="fn">by North American Whitetail Online Staff</span></span>
-    <p class="excerpt-body">13-year-old Alexa Perry shot this fantastic buck the third week in November in Ohio. The buck grossed 180 3/8 inches.<a href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/">&#8230;&raquo;</a></p>
-    </div>
-    <a class="comment-count" href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/#comments">2</a>
-  </article>
-
-
-
+	<article id="excerpt-template" class="post type-post status-publish format-standard hentry entry entry-excerpt has-img" style="display:none;">
+	<a href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/"><img width="190" height="120" src="http://www.northamericanwhitetail.deva/files/2012/03/NAWdd_031312-190x120.jpg" class="entry-img wp-post-image" alt="" title="" /></a>
+	
+	<div class="entry-summary">
+	  <span class="entry-category"><a href="http://www.northamericanwhitetail.deva/category/deer-of-the-day/" title="View all posts in Deer of the Day" rel="category tag">Deer of the Day</a></span>
+	<h2 class="entry-title"><a rel="bookmark" href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/">Deer of the Day Buckeye Brute, Alexa Perry</a></h2>
+	<span class="author vcard">March 13, 2012 <span class="fn">by North American Whitetail Online Staff</span></span>
+	<p class="excerpt-body">13-year-old Alexa Perry shot this fantastic buck the third week in November in Ohio. The buck grossed 180 3/8 inches.<a href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/">&#8230;&raquo;</a></p>
+	</div>
+	<a class="comment-count" href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/#comments">2</a>
+	</article>
+	
   <div class="user-login-modal-container" style="display:none">
     <div id="LoginWithAjax"><?php //ID must be here, and if this is a template, class name should be that of template directory ?>
               <span id="LoginWithAjax_Status"></span>
@@ -352,7 +389,7 @@ $args = array(
               
                 
 
-            <div class="imo-fb-login-button">Login with Facebook</div>
+            <div class="fb-login-button" scope="email">Fast Login with Facebook</div>
                   <table width='100%' cellspacing="0" cellpadding="0">
                       <tr id="LoginWithAjax_Username">
                           <td class="username_label">
@@ -378,7 +415,7 @@ $args = array(
                               <input type="hidden" name="lwa_profile_link" value="<?php echo $lwa_data['profile_link'] ?>" />
                           </td>
                           <td id="LoginWithAjax_Links">
-                              <input name="rememberme" type="checkbox" id="lwa_rememberme" value="forever" /> <label><?php _e( 'Remember Me' ) ?></label>
+                              <input name="rememberme" type="hidden" id="lwa_rememberme" value="forever" /> <label><?php _e( 'Remember Me' ) ?></label>
                               <br />
                               <a id="LoginWithAjax_Links_Remember" href="<?php echo site_url('wp-login.php?action=lostpassword', 'login') ?>" title="<?php _e('Password Lost and Found') ?>"><?php _e('Lost your password?') ?></a>
                               <?php
@@ -472,5 +509,6 @@ $args = array(
 
   </div><!-- End user login modal container -->
   <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery.jfollow.js"></script>
+
 </body>
 </html>

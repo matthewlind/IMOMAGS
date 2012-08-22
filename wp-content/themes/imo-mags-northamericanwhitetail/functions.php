@@ -54,6 +54,7 @@ function naw_scripts_method() {
     wp_enqueue_script("jquery-simplemodal", get_stylesheet_directory_uri() . "/js/jquery.simplemodal.1.4.2.min.js");
     wp_enqueue_script("cross-site-feed", get_stylesheet_directory_uri() . "/js/cross-site-feed.js");
     wp_enqueue_script("local-site-feed", get_stylesheet_directory_uri() . "/js/local-site-feed.js");
+    wp_enqueue_script("date", get_stylesheet_directory_uri() . "/js/date.js");
 
 }    
  
@@ -108,6 +109,17 @@ function naw_imo_addons_sidebar_init() {
       'name' => __('Gallery Sidebar', 'carrington-business'),
       'description' => __('Sidebar for Gallery posts.', 'carrington-business')
   )));
+  register_sidebar(array_merge($sidebar_defaults, array(
+      'id' => 'superpost-sidebar',
+      'name' => __('Superpost Single Sidebar', 'carrington-business'),
+      'description' => __('Sidebar for Superposts.', 'carrington-business')
+  )));
+  
+  register_sidebar(array_merge($sidebar_defaults, array(
+      'id' => 'state-sidebar',
+      'name' => __('State Page Sidebar', 'carrington-business'),
+      'description' => __('Sidebar for State Pages.', 'carrington-business')
+  )));
     
 }
 add_action( 'widgets_init', 'naw_imo_addons_sidebar_init' );
@@ -115,9 +127,16 @@ add_action( 'widgets_init', 'naw_imo_addons_sidebar_init' );
 
 include_once get_stylesheet_directory().'/widgets/newsletter-signup.php';
 include_once get_stylesheet_directory().'/widgets/join.php';
+include_once get_stylesheet_directory().'/widgets/app-logged.php';
+include_once get_stylesheet_directory().'/widgets/app-logged-out.php';
 include_once get_stylesheet_directory().'/widgets/video-callout.php';
 include_once get_stylesheet_directory().'/widgets/gallery-loop.php';
-
+include_once get_stylesheet_directory().'/widgets/superpost-thumbs-grid.php';
+include_once get_stylesheet_directory().'/widgets/superpost-thumbs-scroller.php';
+include_once get_stylesheet_directory().'/widgets/community-topics.php';
+include_once get_stylesheet_directory().'/widgets/questions-widget.php';
+include_once get_stylesheet_directory().'/widgets/questions-list-widget.php';
+include_once get_stylesheet_directory().'/widgets/us-map.php';
 
 
 

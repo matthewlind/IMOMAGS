@@ -13,7 +13,9 @@ include 'auth.php';
 include 'userinfo.php';
 include 'images.php';
 include 'video.php';
+include 'state.php';
 include 'location.php';
+include 'clsFlagger.php';
 
 function get_IP() {
 	$headers = apache_request_headers(); 
@@ -26,10 +28,16 @@ function get_IP() {
 
 }
 
+$response = $app->response();
+$response['Content-Type'] = 'application/json';
+
+
 
 $app->get('/',function(){
 	echo "<h1>Hello Berry!</h1>";
 });
+
+
 
 
 
@@ -60,6 +68,91 @@ $app->get('/api/superpost/all(/:count(/:start))',function($count = 20,$start = 0
     }
 
 });
+
+
+//******************************************************
+//********* Get Posts by type with only images *********
+//******************************************************
+//Note, this does not fetch comments or answers
+$app->get('/api/superpost/photos/:post_type(/:count(/:start))',function($post_type,$count = 20,$start = 0){
+
+
+
+
+	header('Access-Control-Allow-Origin: *');
+
+	try {
+
+		$db = dbConnect();
+
+		$whereClause = "WHERE post_type = ?";
+		
+		if ($post_type == "all")
+			$whereClause = "WHERE post_type != 'comment' AND post_type != 'answer' AND post_type != 'photo' AND post_type != 'youtube' AND img_url IS NOT NULL";
+
+		$limitClause = "LIMIT $start,$count";
+		
+
+		$sql = "SELECT * FROM allcounts $whereClause ORDER BY id DESC $limitClause";
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array($post_type));
+	
+		$posts = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+		echo json_encode($posts);
+
+		$db = "";
+
+	} catch(PDOException $e) {
+    	echo $e->getMessage();
+    }
+
+});
+
+
+
+//****************************************************************
+//********* Get Posts by type with only images by points *********
+//****************************************************************
+//Note, this does not fetch comments or answers
+$app->get('/api/superpost/comment_count/:post_type(/:count(/:start))',function($post_type,$count = 20,$start = 0){
+
+
+
+
+	header('Access-Control-Allow-Origin: *');
+
+	try {
+
+		$db = dbConnect();
+
+		$whereClause = "WHERE post_type = ?";
+		
+		if ($post_type == "all")
+			$whereClause = "WHERE post_type != 'comment' AND post_type != 'answer' AND post_type != 'photo' AND post_type != 'youtube' AND img_url IS NOT NULL";
+
+		$limitClause = "LIMIT $start,$count";
+		
+
+		$sql = "SELECT * FROM allcounts $whereClause ORDER BY comment_count DESC $limitClause";
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array($post_type));
+	
+		$posts = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+		echo json_encode($posts);
+
+		$db = "";
+
+	} catch(PDOException $e) {
+    	echo $e->getMessage();
+    }
+
+});
+
+
 
 //*********************************
 //**** Get all Posts of a Type ****
@@ -103,7 +196,81 @@ $app->get('/api/superpost/type/:post_type(/:count(/:start))',function($post_type
 
 
 //*********************************
+//**** Get all Posts of a Type with only images by view count ****
+//*********************************
+$app->get('/api/superpost/views/:post_type(/:count(/:start))',function($post_type,$count = 20,$start = 0){
+
+
+
+
+	header('Access-Control-Allow-Origin: *');
+
+	try {
+
+		$db = dbConnect();
+
+		$whereClause = "WHERE post_type = ?";
+
+		if ($post_type == "all")
+			$whereClause = "WHERE post_type != 'comment' AND post_type != 'answer' AND post_type != 'photo' AND post_type != 'youtube' AND img_url IS NOT NULL";
+
+		$limitClause = "LIMIT $start,$count";
+		
+		$sql = "SELECT * FROM allcounts $whereClause ORDER BY view_count DESC $limitClause";
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array($post_type));
+	
+		$posts = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+		echo json_encode($posts);
+
+		$db = "";
+
+	} catch(PDOException $e) {
+    	echo $e->getMessage();
+    }
+
+});
+
+//*********************************
+//**** Count all Posts of a Type ****
+//*********************************
+$app->get('/api/superpost/count/:post_type',function($post_type){
+
+
+
+
+	header('Access-Control-Allow-Origin: *');
+
+	try {
+
+		$db = dbConnect();
+
+		$whereClause = "WHERE post_type = ?";
+
+		
+		$sql = "SELECT COUNT(post_type) AS post_count FROM allcounts $whereClause";
+		
+   		$stmt = $db->prepare($sql);
+		$stmt->execute(array($post_type));
+	
+		$posts = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+		echo json_encode($posts);
+
+		$db = "";
+
+	} catch(PDOException $e) {
+    	echo $e->getMessage();
+    }
+
+});
+
+
+//*********************************
 //*** Get Specific Post with ID ***
+//*** THIS INCREMENTS VIEW COUNT ***
 //*********************************
 $app->get('/api/superpost/post/:id',function($id){
 
@@ -122,6 +289,18 @@ $app->get('/api/superpost/post/:id',function($id){
 		$posts = $stmt->fetchAll(PDO::FETCH_OBJ);
 
 		echo json_encode($posts);
+		
+		//Also update the view count
+		$sql = "UPDATE superposts SET view_count = view_count + 1 WHERE id = ?";
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array($id));
+		
+		
+		
+		
+		
+		
 
 		$db = "";
 
@@ -183,10 +362,10 @@ $app->get('/api/superpost/comment_attachments/:parent_id',function($parent_id){
 
 
 		$sql = "SELECT posts.ID post_id, posts.gravatar_hash gravatar_hash,
-				comments.ID comment_id, comments.post_type comment_post_type, comments.body comment_body, comments.username comment_username,
+				comments.ID comment_id, comments.post_type comment_post_type, comments.body comment_body, comments.username comment_username, comments.user_id comment_user_id,comments.display_name comment_display_name,
 				attachments.ID attachment_id, attachments.post_type attachment_post_type, attachments.img_url as attachment_img_url, attachments.meta as attachment_meta, attachments.body as attachment_body 
 				FROM superposts as posts
-				LEFT JOIN superposts as comments ON posts.id = comments.parent
+				LEFT JOIN allcounts as comments ON posts.id = comments.parent
 				LEFT JOIN superposts as attachments ON comments.id = attachments.parent
 				WHERE posts.ID = ?
 				AND comments.post_type = 'comment'";
@@ -213,6 +392,8 @@ $app->get('/api/superpost/comment_attachments/:parent_id',function($parent_id){
 			$comment['comment_id'] = $post->comment_id;
 			$comment['comment_body'] = $post->comment_body;
 			$comment['comment_username'] = $post->comment_username;
+			$comment['comment_display_name'] = $post->comment_display_name;
+			$comment['comment_user_id'] = $post->comment_user_id;
 			$comment['gravatar_hash'] = $post->gravatar_hash;
 
 			if ($post->attachment_id) {
@@ -251,11 +432,25 @@ $app->post('/api/superpost/add',function() {
 
 	$params = Slim::getInstance()->request()->post();
 
-	_log("NEW POST STARTED");
+	_log("NEW POST STARTED!");
+	_log( $params);
 
 
-	//Get the user info an authenticate
-	if (userIsGood($params['username'],$params['userhash'])) {
+	//Get the user info and authenticate
+	$userIsGood = userIsGood($params['username'],$params['userhash']);
+	
+	$requestIsGood = TRUE;
+	
+	if (!empty($params['body']))
+		$params['body'] = nl2br($params['body']);
+	
+	if ($params['post_type'] == "youtube" || $params['post_type'] == "photo") {
+		$userIsGood = TRUE;
+	}
+	
+	if ($userIsGood) {
+	
+	_log("USER IS GOOD");
 
 		//Set additional parameters
 		$params['ip'] = ip2long(get_IP());
@@ -278,7 +473,14 @@ $app->post('/api/superpost/add',function() {
 			_log("VIDEO STUFF");
 			_log($params);
 
-			$videoID = extractVideoID($params['body']);
+			
+			
+			if (!empty($params['video_url']))
+				$videoID = extractVideoID($params['video_url']);
+			else
+				$videoID = extractVideoID($params['body']);
+			
+			
 
 			$video = getYoutubeVideo($videoID);
 
@@ -319,11 +521,12 @@ $app->post('/api/superpost/add',function() {
 			
 		}
 
-
+		
 	
 		$paramList = array(
 			"parent",
 			"post_type",
+			"secondary_post_type",
 			"title",
 			"body",
 			"user_id",
@@ -372,53 +575,51 @@ $app->post('/api/superpost/add',function() {
 				$stmt->bindParam($parameter,$params[$parameter]);
 			}
 		}
-
-
-		//THIS IS THE END RESULT OF THE ABOVE LOOP MADNESS:
-		//$sql = "INSERT INTO superposts (parent, post_type, title, body, img_url, author_id, author, gravatar_hash) 
-		//                       VALUES (:parent,:post_type,:title,:body,:img_url,:author_id,:author,:gravatar_hash)";
-
-		// $stmt->bindParam("parent",$params['parent']);
-		// $stmt->bindParam("post_type",$params['post_type']);
-		// $stmt->bindParam("title",$params['title']);
-		// $stmt->bindParam("body",$params['body']);
 		
-		// $stmt->bindParam("user_id",$params['user_id']);
-		// $stmt->bindParam("username",$params['username']);
-		// $stmt->bindParam("gravatar_hash",$params['gravatar_hash']);
 
 
 			
-
-        $stmt->execute();
-        $superpostID = $db->lastInsertId();
-        
-        
-        //If there are attachments, set the parent of the attachemnts
-     	if (!empty($params['attachment_id'])) {
-			$attachmentIDstring = $params['attachment_id'];
-			setAtttachment($superpostID, $attachmentIDstring);
+		if (empty($params['title']) && empty($params['body']) && empty($params['img_url']))
+			$requestIsGood = FALSE;	
 			
+			
+		if ($requestIsGood) {
+			
+			$stmt->execute();
+	        $superpostID = $db->lastInsertId();
+	        
+	        
+	        //If there are attachments, set the parent of the attachemnts
+	     	if (!empty($params['attachment_id'])) {
+				$attachmentIDstring = $params['attachment_id'];
+				setAtttachment($superpostID, $attachmentIDstring);
+				
+			}
+	        
+	
+			$db = "";
+	
+			$params['id'] = $superpostID;
+			$params['ip'] = long2ip($params['ip']);
+	
+	
+			$response = $params;
+	
+			
+			echo json_encode($response);
+			
+		} else {
+			json_encode("nope");
 		}
-        
 
-		$db = "";
-
-		$params['id'] = $superpostID;
-		$params['ip'] = long2ip($params['ip']);
-
-
-		$response = $params;
-
-		
-
-		echo json_encode($response);
 
 	
-
 	} else { //if user is not good
+		_log("USER IS BAD");
 		json_encode("nope");
 	}
+	
+
 
 });
 
@@ -439,14 +640,15 @@ $app->post('/api/superpost/update_caption',function() {
 
 
 	//Get the user info an authenticate
-	if (userIsGood($params['username'],$params['userhash'])) {
+	//REMOVED: userIsGood($params['username'],$params['userhash'])
+	if (TRUE) {
 
 		try {
 
 			$db = dbConnect();
 
 
-			$sql = "UPDATE superposts SET `body` = ? WHERE `id` = ?";
+			$sql = "UPDATE superposts SET `body` = ? WHERE `id` = ? AND post_type IN ('youtube','photo')";
 
 			$stmt = $db->prepare($sql);
 			$stmt->execute(array($newBody,$post_id));
@@ -467,7 +669,50 @@ $app->post('/api/superpost/update_caption',function() {
 
 });
 
+//*********************************
+//handle post flagging - rating - etc
+//*********************************
 
+$app->post('/api/post/flag',function() {
+	
+	header('Access-Control-Allow-Origin: *');
+
+	$params = Slim::getInstance()->request()->post();
+
+	_log("FLAGGING STARTED");
+	_log($params);
+
+	if (!(isset($params['post_id']) && isset($params['etype']) && isset($params['user_id']))) {
+		$rtn["error"] = "Invalid Request";
+
+	}
+	elseif (!($params['post_id']!="" && $params['etype']!="" && $params['user_id']!="")) {
+		$rtn["error"] = "Invalid Parameters";
+	
+	}
+	else {
+	
+		$post_id = $params['post_id'];
+		$etype = isset($params['etype'])? $params['etype']:"flag";
+		$user_id = isset($params['user_id'])? $params['user_id']:"1";
+	
+		//if (userIsGood($params['username'],$params['userhash'])) {
+		
+			$oFlagger = new postFlagger();
+		
+			$rtn = $oFlagger->insertEvent($post_id, $etype, $user_id);
+
+		
+		//}
+		//else {
+			//what if user is not good?
+		//}
+	}
+	
+	print json_encode($rtn);
+	return true;
+
+});
 
 
 

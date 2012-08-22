@@ -16,8 +16,6 @@ License: IMO
 
 
 
-
-
 function imo_add_this() {
 
 
@@ -29,6 +27,64 @@ function imo_add_this() {
 	<a class="addthis_counter addthis_pill_style"></a>
 </div>
 <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4de0e5f24e016c81"></script>
+<script type="text/javascript">
+addthis.addEventListener("addthis.menu.share", postShared);
+
+function postShared(event) {
+
+
+	if ($("#imo-add-this-spid").length > 0) {
+		var postID = $("#imo-add-this-spid").text();
+	
+	$.post("/slim/api/post/flag", { post_id: postID, etype: "share", user_id: "0" },
+   function(data) {
+
+   });
+	}
+
+
+	
+	
+}
+
+</script>
+<!-- IMO AddThis Button END -->
+';
+}
+
+
+
+function imo_add_this_big() {
+
+
+	print '<!-- IMO BIG AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+	<a class="addthis_button_facebook"><img src="/wp-content/themes/imo-mags-northamericanwhitetail/img/big-facebook.png" width="150" height="150" border="0" alt="Share on Facebook" /></a>
+	<a class="addthis_button_twitter"><img src="/wp-content/themes/imo-mags-northamericanwhitetail/img/big-twitter.png" width="150" height="150" border="0" alt="Share on Twitter" /></a>
+
+</div>
+<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4de0e5f24e016c81"></script>
+<script type="text/javascript">
+addthis.addEventListener("addthis.menu.share", postShared);
+
+function postShared(event) {
+
+
+	if ($("#imo-add-this-spid").length > 0) {
+		var postID = $("#imo-add-this-spid").text();
+	
+	$.post("/slim/api/post/flag", { post_id: postID, etype: "share", user_id: "0" },
+   function(data) {
+
+   });
+	}
+
+
+	
+	
+}
+
+</script>
 <!-- IMO AddThis Button END -->
 ';
 }

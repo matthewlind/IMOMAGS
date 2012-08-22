@@ -2,7 +2,19 @@
 /*
 If you would like to edit this file, copy it to your current theme's directory and edit it there.
 Theme My Login will always look in your theme's directory first, before using this default template.
+
+
+Be sure to check out functions/profile.php for more stuff related to this template. --Aaron
+
 */
+
+$age = get_user_meta($profileuser->ID,"age",true);
+$address1 = get_user_meta($profileuser->ID,"address1",true);
+$address2 = get_user_meta($profileuser->ID,"address2",true);
+$city = get_user_meta($profileuser->ID,"city",true);
+$state = get_user_meta($profileuser->ID,"state",true);
+$zip = get_user_meta($profileuser->ID,"zip",true);
+
 
 $user_role = reset( $profileuser->roles );
 if ( is_multisite() && empty( $user_role ) ) {
@@ -11,9 +23,24 @@ if ( is_multisite() && empty( $user_role ) ) {
 
 $user_can_edit = false;
 foreach ( array( 'posts', 'pages' ) as $post_cap )
-	$user_can_edit |= current_user_can( "edit_$post_cap" );
-?>
+	
+$user_can_edit |= current_user_can( "edit_$post_cap" );
+$displayStyle = "display:none;";
+$loginStyle = "";
 
+if ( is_user_logged_in() ) {
+
+	$displayStyle = "";
+	$loginStyle = "display:none;";
+	
+	wp_get_current_user();
+	
+	$current_user = wp_get_current_user();
+    if ( !($current_user instanceof WP_User) )
+         return;
+    }
+
+?>
 <div class="login profile" id="theme-my-login<?php $template->the_instance(); ?>">
 	<?php $template->the_action_template_message( 'profile' ); ?>
 	<?php $template->the_errors(); ?>
@@ -34,9 +61,19 @@ foreach ( array( 'posts', 'pages' ) as $post_cap )
 		<h3><?php _e( 'Name', 'theme-my-login' ) ?></h3>
 
 		<table class="form-table">
+<!--
 		<tr>
 			<th><label for="user_login"><?php _e( 'Username', 'theme-my-login' ); ?></label></th>
 			<td><input type="text" name="user_login" id="user_login" value="<?php echo esc_attr( $profileuser->user_login ); ?>" disabled="disabled" class="regular-text" /> <span class="description"><?php _e( 'Your username cannot be changed.', 'theme-my-login' ); ?></span></td>
+		</tr>
+			
+-->
+
+		<tr>
+			<th><label for="display_name"><?php _e( 'Display name publicly as', 'theme-my-login' ) ?></label></th>
+			<td>
+				<input type="text" name="display_name" id="display_name" value="<?php echo esc_attr( $profileuser->display_name ) ?>" class="regular-text" />
+			</td>
 		</tr>
 
 		<tr>
@@ -49,38 +86,55 @@ foreach ( array( 'posts', 'pages' ) as $post_cap )
 			<td><input type="text" name="last_name" id="last_name" value="<?php echo esc_attr( $profileuser->last_name ) ?>" class="regular-text" /></td>
 		</tr>
 
-		<tr>
-			<th><label for="nickname"><?php _e( 'Nickname', 'theme-my-login' ); ?> <span class="description"><?php _e( '(required)', 'theme-my-login' ); ?></span></label></th>
-			<td><input type="text" name="nickname" id="nickname" value="<?php echo esc_attr( $profileuser->nickname ) ?>" class="regular-text" /></td>
-		</tr>
+<!-- Deleted section that allowed users to set nickname. Real names are required on site. -->
+
 
 		<tr>
-			<th><label for="display_name"><?php _e( 'Display name publicly as', 'theme-my-login' ) ?></label></th>
-			<td>
-				<select name="display_name" id="display_name">
-				<?php
-					$public_display = array();
-					$public_display['display_nickname']  = $profileuser->nickname;
-					$public_display['display_username']  = $profileuser->user_login;
-					if ( !empty( $profileuser->first_name ) )
-						$public_display['display_firstname'] = $profileuser->first_name;
-					if ( !empty( $profileuser->last_name ) )
-						$public_display['display_lastname'] = $profileuser->last_name;
-					if ( !empty( $profileuser->first_name ) && !empty( $profileuser->last_name ) ) {
-						$public_display['display_firstlast'] = $profileuser->first_name . ' ' . $profileuser->last_name;
-						$public_display['display_lastfirst'] = $profileuser->last_name . ' ' . $profileuser->first_name;
-					}
-					if ( !in_array( $profileuser->display_name, $public_display ) )// Only add this if it isn't duplicated elsewhere
-						$public_display = array( 'display_displayname' => $profileuser->display_name ) + $public_display;
-					$public_display = array_map( 'trim', $public_display );
-					foreach ( $public_display as $id => $item ) {
-						$selected = ( $profileuser->display_name == $item ) ? ' selected="selected"' : '';
-				?>
-						<option id="<?php echo $id; ?>" value="<?php echo esc_attr( $item ); ?>"<?php echo $selected; ?>><?php echo $item; ?></option>
-				<?php } ?>
-				</select>
-			</td>
+	
+			<th><label for="age<?php $template->the_instance(); ?>">Age</label></th>
+			<td><input type="text" name="age" id="age<?php $template->the_instance(); ?>" class="input" value="<?php echo $age; ?>" size="2" tabindex="20" /></td>
+		
 		</tr>
+		
+		<tr>
+	
+			<th><label for="address1<?php $template->the_instance(); ?>">Address 1</label></th>
+			<td><input type="text" name="address1" id="address1<?php $template->the_instance(); ?>" class="input" value="<?php echo $address1; ?>" size="35" tabindex="20" /></td>
+		
+		</tr>
+		
+		<tr>
+	
+			<th><label for="address2<?php $template->the_instance(); ?>">Address 2</label></th>
+			<td><input type="text" name="address2" id="address2<?php $template->the_instance(); ?>" class="input" value="<?php echo $address2; ?>" size="35" tabindex="20" /></td>
+		
+		</tr>
+		
+		<tr>
+	
+			<th><label for="city<?php $template->the_instance(); ?>">City</label></th>
+			<td><input type="text" name="city" id="city<?php $template->the_instance(); ?>" class="input" value="<?php echo $city; ?>" size="20" tabindex="20" />
+			<span class="description">Only your city and state will be shown as your hometown.</span></td>
+		
+		</tr>
+		
+		<tr>
+	
+			<th><label for="state<?php $template->the_instance(); ?>">State</label></th>
+			<td><input type="text" name="state" id="state<?php $template->the_instance(); ?>" class="input" value="<?php echo $state; ?>" size="2" tabindex="20" /></td>
+		
+		</tr>
+		
+		<tr>
+	
+			<th><label for="zip<?php $template->the_instance(); ?>">Zip</label></th>
+			<td><input type="text" name="zip" id="zip<?php $template->the_instance(); ?>" class="input" value="<?php echo $zip; ?>" size="5" tabindex="20" /></td>
+		
+		</tr>
+
+
+<!--	Deleted section that allowed users to change display name -->
+
 		</table>
 
 		<h3><?php _e( 'Contact Info', 'theme-my-login' ) ?></h3>
@@ -91,18 +145,27 @@ foreach ( array( 'posts', 'pages' ) as $post_cap )
 			<td><input type="text" name="email" id="email" value="<?php echo esc_attr( $profileuser->user_email ) ?>" class="regular-text" /></td>
 		</tr>
 
+<!--  This section is temporarily commented out. We don't want users to be able to link to websites because that can encourage spam comments. 
+	  However, we will want outfitters to do this later.
 		<tr>
 			<th><label for="url"><?php _e( 'Website', 'theme-my-login' ) ?></label></th>
 			<td><input type="text" name="url" id="url" value="<?php echo esc_attr( $profileuser->user_url ) ?>" class="regular-text code" /></td>
 		</tr>
+-->
 
 		<?php if ( function_exists( '_wp_get_user_contactmethods' ) ) :
 			foreach ( _wp_get_user_contactmethods() as $name => $desc ) {
+				//This section displays the twitter name
+				//Check functions/profile.php for other things this section could show
 		?>
+		
 		<tr>
 			<th><label for="<?php echo $name; ?>"><?php echo apply_filters( 'user_'.$name.'_label', $desc ); ?></label></th>
 			<td><input type="text" name="<?php echo $name; ?>" id="<?php echo $name; ?>" value="<?php echo esc_attr( $profileuser->$name ) ?>" class="regular-text" /></td>
 		</tr>
+		
+		
+		
 		<?php
 			}
 			endif;
@@ -112,11 +175,14 @@ foreach ( array( 'posts', 'pages' ) as $post_cap )
 		<h3><?php _e( 'About Yourself', 'theme-my-login' ); ?></h3>
 
 		<table class="form-table">
+		
+<!--	Commented out this section because we currently do not display user biographies.
 		<tr>
 			<th><label for="description"><?php _e( 'Biographical Info', 'theme-my-login' ); ?></label></th>
 			<td><textarea name="description" id="description" rows="5" cols="30"><?php echo esc_html( $profileuser->description ); ?></textarea><br />
 			<span class="description"><?php _e( 'Share a little biographical information to fill out your profile. This may be shown publicly.', 'theme-my-login' ); ?></span></td>
 		</tr>
+-->
 
 		<?php
 		$show_password_fields = apply_filters( 'show_password_fields', true, $profileuser );

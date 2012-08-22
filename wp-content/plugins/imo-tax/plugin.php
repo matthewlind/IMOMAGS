@@ -166,8 +166,17 @@ function imo_tax_simulate_values($terms, $taxonomy, $parent_id=NULL, $string='')
         $string .= "<ul class='imo-preview'>";
     }
     foreach ($terms as $term_key=>$term_value) {
-        $term_name = (is_array($term_value))? $term_key : $term_value;
-        $slug = preg_replace( '/[^a-z0-9_-]+/', '-', strtolower( $taxonomy . "-" . $term_name ) );
+
+        
+        
+        if ($taxonomy == 'state') {
+	        $term_name = $term_value[0];
+	        $slug = $term_value[1];
+        } else {
+	        $term_name = (is_array($term_value))? $term_key : $term_value;
+	        $slug = preg_replace( '/[^a-z0-9_-]+/', '-', strtolower( $taxonomy . "-" . $term_name ) );
+        }
+        
         $string .= "<li><strong>name: </strong>$term_name<br /><strong>slug: </strong>$slug<br />"; 
         if ($parent_id !== NULL) {
             $string .= "<strong>parent:</strong> $parent_id";

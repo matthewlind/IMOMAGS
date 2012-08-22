@@ -36,9 +36,12 @@ function imo_superpost_scripts() {
     wp_enqueue_script('jquery-input',plugins_url('js/jquery.input.js', __FILE__));
     wp_enqueue_script('jquery-timeago-superpost',plugins_url('js/jquery.timeago.js', __FILE__));
     wp_enqueue_script('jquery-chosen',plugins_url('js/chosen.jquery.min.js', __FILE__));
+    wp_enqueue_script('jquery-laconic',plugins_url('js/laconic.js', __FILE__));
 
 	wp_enqueue_style('superpost-css',plugins_url('css/superpost.css', __FILE__));
     wp_enqueue_style('chosen-css',plugins_url('css/chosen.css', __FILE__));
+    
+    //wp_localize_script( 'imo-user-auth', 'userIMO', $user);
 	
 }
 
@@ -65,9 +68,11 @@ function imo_superpost_flush_rules()
     add_rewrite_rule('plus/lifestyle/([^/]+)', 'index.php?pagename=superpost-single&templatename=superpost_single&spid=$matches[1]', 'top');
     add_rewrite_rule('plus/trophy/([^/]+)', 'index.php?pagename=superpost-single&templatename=superpost_single&spid=$matches[1]', 'top');
     add_rewrite_rule('plus/gear/([^/]+)', 'index.php?pagename=superpost-single&templatename=superpost_single&spid=$matches[1]', 'top');
+    add_rewrite_rule('plus/question/([^/]+)', 'index.php?pagename=superpost-single&templatename=superpost_single&spid=$matches[1]', 'top');
 
 
-    
+    add_rewrite_rule('community/trophy/([^/]+)', 'index.php?pagename=superpost-state&templatename=state&post_type=trophy&state=$matches[1]', 'top');
+    add_rewrite_rule('community/report/([^/]+)', 'index.php?pagename=superpost-state&templatename=state&post_type=report&state=$matches[1]', 'top');
 
     //add_rewrite_rule('plus/trophy-buck/([^/]+)', 'index.php?pagename=superpost&templatename=superpost_single&spid=$matches[1]', 'top');
     flush_rewrite_rules(false);
@@ -81,7 +86,8 @@ function imo_superpost_query_vars($query_vars)
     $query_vars[] = 'username';
     $query_vars[] = 'spid';
     $query_vars[] = 'templatename';
-
+    $query_vars[] = 'state';
+    $query_vars[] = 'post_type';
 
     return $query_vars;
 }

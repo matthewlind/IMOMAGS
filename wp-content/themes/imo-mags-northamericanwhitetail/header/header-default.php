@@ -22,12 +22,7 @@ if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 
-//If the post is a Superpost, get the title
-if (get_the_title(null, false) == 'superpost-single') {
-  $postTitle = "Superpost! - ";
-} else {
-  $postTitle = wp_title( '-', false, 'right' ); 
-}
+$postTitle = wp_title( '-', false, 'right' ); 
 
 ?>
 <!DOCTYPE html>
@@ -196,36 +191,33 @@ if(document.location.protocol=='http:'){
 </head>
 <body <?php body_class(); ?>>
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+
+
 
 <header id="header">
-	<!-- <div id="tophat">
-    		<div class="user-bar">
-    			<ul id="tophat-left">
-    				<li><a href="#">+ Post</a></li>
-    				<li><a href="#">People</a></li>
-    				<li><a href="#">Messages</a></li>
-    				<li><a href="#">Saved Articles</a></li>
-    				<li><a href="#">Your Profile</a></li>
-    			</ul>
-    			<ul id="tophat-right">
-    				<li><img src="<?php bloginfo('url'); ?>/wp-content/themes/imo-mags-northamericanwhitetail/img/user-temp.jpg" alt="user photo" /></li>
-    				<li>Hello, <a href="#">Batman<span></span></a></li>
-    				<li><a href="#">Sign Out</a></li>
-    			</ul>
-    		</div>
-		</div> -->
+	<!--<div id="tophat" style="<?php //echo $displayStyle; ?>">
+		<div class="user-bar">
+			<ul id="tophat-left">
+				<li><a href="#">+ Post</a></li>
+				<li><a href="#">People</a></li>
+				<li><a href="#">Messages</a></li>
+				<li><a href="#">Saved Articles</a></li>
+				<li><a href="#">Your Profile</a></li>
+			</ul>
+			<ul id="tophat-right">
+				<li><?php //echo get_avatar($current_user->user_email,35); ?></li>
+				<li>Hello, <a href="#"><span id="current-user-name"><?php //echo $current_user->display_name; ?></span></a></li>
+				<li><a href="<?php //echo wp_logout_url( get_permalink() ); ?>" title="Logout">Logout</a></li>
+			</ul>
+		</div>
+	</div>-->
+	
+	
     <div class="container">
     	    	
     	
 	<div class="centered">
-       	<a href="<?php echo home_url('/'); ?>" class="brand" title="<?php _e('Home', 'carrington-business') ?>"><img src="<?php print get_stylesheet_directory_uri(); ?>/img/NAW-logo.png" alt="<?php bloginfo('name'); ?>" /></a>
+       	<a href="<?php echo home_url('/'); ?>" class="brand" title="<?php _e('Home', 'carrington-business') ?>"><img src="<?php print get_stylesheet_directory_uri(); ?>/img/nawp-logo.png" alt="<?php bloginfo('name'); ?>" /></a>
       	<div id="header-search">
       		<?php cfct_form('search'); ?>
 		</div>

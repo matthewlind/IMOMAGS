@@ -19,7 +19,7 @@ add_action('init', 'imo_facebook_auth_setup');
 function imo_facebook_auth_setup() {
 
     require 'src/facebook.php';
-    wp_enqueue_script('jquery-timeago',plugins_url('js/facebook-auth.js', __FILE__));
+    wp_enqueue_script('imo-facebook-auth',plugins_url('js/facebook-auth.js', __FILE__));
 
 }
 
@@ -31,15 +31,26 @@ function imo_facebook_usercheck() {
 
     if (preg_match("/^\/facebook-usercheck\.json(\?(.+)?)?$/", $_SERVER['REQUEST_URI'])) {
         header('Content-type: application/json');
+        
+        $accessToken =  $_GET['accessToken'];
+        
 
+        
 
         $facebook = new Facebook(array(
 		  'appId'  => '127971893974432',
 		  'secret' => '998a58347d730b52dd2bac877180bedd',
 		));
+		
+		if (!empty($accessToken)) {
+	        $facebook->setAccessToken($accessToken);
+        }
 
 		// Get FB User ID
 		$user = $facebook->getUser();
+		
+		
+		
 
 		if ($user) {
 		  try {
@@ -50,34 +61,73 @@ function imo_facebook_usercheck() {
 		    $user = null;
 		  }
 		}
+		
+		_log("*********************FB PROFILE********************");
+		_log($user_profile);
+
 
 		$email = $user_profile['email'];
 
-		_log($user_profile);
 
-		$json = json_encode("NO USER EXISTS");
+
+		//$json = json_encode("NO USER EXISTS");
 
 
 		//Check if user already exists
         if ($user = get_user_by("email",$email)) {//if yes, log them in
         	wp_authenticate("facebook","dgrsvgqt4523facebook");
+        		
+        	$user = imo_get_user($user->ID);
+        	
         	$json = json_encode($user);
         } else { //if not, register the user
+        
+        	if (!empty($email)) {
+		        $userdata = array();
+	        	$userdata['user_email'] = $email;
+	        	$userdata['first_name'] = $user_profile['first_name'];
+	        	$userdata['last_name'] = $user_profile['last_name'];
+	        	$userdata['display_name'] = $user_profile['first_name'] . " " . $user_profile['last_name'];
+	        	$userdata['user_login'] = strtolower($user_profile['first_name']) . strtolower($user_profile['last_name']) . rand(100,999);
+	        	$userdata['user_pass'] = imo_facebook_generate_password();
+	
+	        	_log("User Inserted?");
+	        	
+	        	$facebookUsername = $user_profile['username'];
+	        	$facebookProfilePicURL = "http://graph.facebook.com/".$facebookUsername."/picture";
+	        	
+	         	
 
-        	$userdata = array();
-        	$userdata['user_email'] = $email;
-        	$userdata['first_name'] = $user_profile['first_name'];
-        	$userdata['last_name'] = $user_profile['last_name'];
-        	$userdata['display_name'] = $user_profile['first_name'] . " " . $user_profile['last_name'];
-        	$userdata['user_login'] = strtolower($user_profile['first_name']) . strtolower($user_profile['last_name']) . rand(100,999);
-        	$userdata['user_pass'] = imo_facebook_generate_password();
+	        	
+	
+	        	
+	       		$userID = wp_insert_user($userdata);
+	       		wp_set_auth_cookie($userID,true);
+	       		
+	       		add_user_meta($userID,"facebook_ID",$user_profile['id']);
+	       		add_user_meta($userID,"facebook_profile_image_URL",$facebookProfilePicURL);
+	       		
+	       		$locations = explode(",", $user_profile['hometown']['name']);
+	        
+	        	
+	        	if ($stateAbbrev = locationIsState(ltrim($locations[1]))) {
+	        	
+	        		add_user_meta($userID,"city",ltrim($locations[0]));
+	        		add_user_meta($userID,"state",$stateAbbrev);
+		        	
+	        	}
+	       		
+	       		
+	       		
+	
+	       		//$userdata['user_pass'] = "";
+	       		
+	       		$user = imo_get_user($userID);
+	
+	       		$json = json_encode($user);
 
-        	_log("User Inserted?");
+        	}
 
-       		$userID = wp_insert_user($userdata);
-       		wp_set_auth_cookie($userID,true);
-
-       		$json = json_encode($userdata);
 
         }
 
@@ -87,6 +137,27 @@ function imo_facebook_usercheck() {
         //print_r($user_profile);
         die();
     } 
+    
+    if (preg_match("/^\/logout\.json(\?(.+)?)?$/", $_SERVER['REQUEST_URI'])) {
+        header('Content-type: application/json');
+       $current_user = wp_get_current_user();        
+        
+        update_user_meta($current_user->ID,"imo_fb_login_status",false);
+        
+        wp_logout();
+        die();
+        
+    }
+    
+   if (preg_match("/^\/usercheck\.json(\?(.+)?)?$/", $_SERVER['REQUEST_URI'])) {
+        header('Content-type: application/json');
+        $user = imo_get_user();
+       	$json = json_encode($user);
+       	print $json;
+       	
+        die();
+        
+    }
 
 
 }
@@ -112,6 +183,125 @@ function imo_facebook_generate_password($length=9, $strength=0) {
 	return $password;
 }
  
+
+
+
+function locationIsState($state) {
+	
+	$stateList = array(
+	"alabama"=>"AL",
+	"alaska"=>"AK",
+	"arizona"=>"AZ",
+	"arkansas"=>"AR",
+	"california"=>"CA",
+	"colorado"=>"CO",
+	"connecticut"=>"CT",
+	"delaware"=>"DE",
+	"district of columbia"=>"DC",
+	"florida"=>"FL",
+	"georgia"=>"GA",
+	"hawaii"=>"HI",
+	"idaho"=>"ID",
+	"illinois"=>"IL",
+	"indiana"=>"IN",
+	"iowa"=>"IA",
+	"kansas"=>"KS",
+	"kentucky"=>"KY",
+	"louisiana"=>"LA",
+	"maine"=>"ME",
+	"maryland"=>"MD",
+	"massachusetts"=>"MA",
+	"michigan"=>"MI",
+	"minnesota"=>"MN",
+	"mississippi"=>"MS",
+	"missouri"=>"MO",
+	"montana"=>"MT",
+	"nebraska"=>"NE",
+	"nevada"=>"NV",
+	"new hampshire"=>"NH",
+	"new jersey"=>"NJ",
+	"new mexico"=>"NM",
+	"new york"=>"NY",
+	"north carolina"=>"NC",
+	"north dakota"=>"ND",
+	"ohio"=>"OH",
+	"oklahoma"=>"OK",
+	"oregon"=>"OR",
+	"pennsylvania"=>"PA",
+	"rhode island"=>"RI",
+	"south carolina"=>"SC",
+	"south dakota"=>"SD",
+	"tennessee"=>"TN",
+	"texas"=>"TX",
+	"utah"=>"UT",
+	"vermont"=>"VT",
+	"virginia"=>"VA",
+	"washington"=>"WA",
+	"west virginia"=>"WV",
+	"wisconsin"=>"WI",
+	"wyoming"=>"WY",
+	"canada"=>"CN",
+	"alberta"=>"AB",
+	"british columbia"=>"BC",
+	"manitoba"=>"MB",
+	"new brunswick"=>"NB",
+	"newfoundland and labrador"=>"NL",
+	"northwest territories"=>"NT",
+	"nova scotia"=>"NS",
+	"nunavut"=>"NU",
+	"ontario"=>"ON",
+	"prince edward island"=>"PE",
+	"quebec"=>"QC",
+	"saskatchewan"=>"SK",
+	"yukon"=>"YT",
+	"aguascalientes"=>"AG",
+	"baja california"=>"BJ",
+	"baja california sur"=>"BS",
+	"campeche"=>"CP",
+	"chiapas"=>"CH",
+	"chihuahua"=>"CI",
+	"coahuila"=>"CU",
+	"colima"=>"CL",
+	"distrito federal"=>"DF",
+	"durango"=>"DG",
+	"guanajuato"=>"GJ",
+	"guerrero"=>"GR",
+	"hidalgo"=>"HG",
+	"jalisco"=>"JA",
+	"mexico"=>"EM",
+	"michoacán"=>"MH",
+	"morelos"=>"MR",
+	"nayarit"=>"NA",
+	"nuevo león"=>"NL",
+	"oaxaca"=>"OA",
+	"puebla"=>"PU",
+	"querétaro"=>"QA",
+	"queretaro"=>"QA",
+	"quintana roo"=>"QR",
+	"san luis potosi"=>"SL",
+	"sinaloa"=>"SI",
+	"sonora"=>"SO",
+	"tabasco"=>"TA",
+	"tamaulipas"=>"TM",
+	"tlaxcala"=>"TL",
+	"veracruz"=>"VZ",
+	"yucatan"=>"YC",
+	"zacatecas"=>"ZT");
+	
+	
+	$state = strtolower($state);
+	
+	if (array_key_exists($state,$stateList)) {
+		return $stateList[$state];
+	} else {
+		return false;
+	}
+	
+	return array_key_exists($state,$stateList);
+		
+	
+}
+
 
 
 /********************************
