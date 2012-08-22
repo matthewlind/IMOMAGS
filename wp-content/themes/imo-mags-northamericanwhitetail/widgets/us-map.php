@@ -11,7 +11,7 @@ class us_map_Widget extends WP_Widget {
 ?>
 
     <aside id="us-map-nav" class="us-map-widget">
-     	<div id="us-map-container" post_type="report" style="width:680px;height:420px;"></div>
+     	<div id="us-map-ubermenu-container" post_type="report" style="width:600px;height:420px;"></div>
     </aside>
 
 <?php	}
