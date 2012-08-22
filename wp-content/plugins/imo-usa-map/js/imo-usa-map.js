@@ -130,7 +130,7 @@ if ($("#us-map-container").length > 0) {
 		var R = Raphael("us-map-container"),
 		  attr = {
 		  "fill": "#d3d3d3",
-		  "stroke": "#fff",
+		  "stroke": "#111",
 		  "stroke-opacity": "1",
 		  "stroke-linejoin": "round",
 		  "stroke-miterlimit": "4",
