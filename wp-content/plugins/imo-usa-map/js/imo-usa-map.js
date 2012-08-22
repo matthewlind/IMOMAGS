@@ -117,7 +117,7 @@ String.prototype.capitalize = function(){
  };
 
 
-if ($("#us-map-container").length > 0) {
+if (jQuery("#us-map-container").length > 0) {
 
 	var post_type = $("#us-map-container").attr("post_type");
 	
