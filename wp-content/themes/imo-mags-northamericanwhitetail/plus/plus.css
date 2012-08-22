@@ -44,3 +44,16 @@
 	vertical-align: middle;
 	margin-right:10px;
 }
+
+.qtip-wrapper h2 {color:white;}
+
+.qtip-wrapper li {
+	list-style-type: none;
+	line-height: 12px;
+
+}
+
+.qtip-wrapper ul {
+		margin:0px;
+	padding:0px;
+}

@@ -65,6 +65,9 @@ if ( is_user_logged_in() ) {
 	       		<a href="/community">Community Home</a> &raquo; Rut Reports
 			</div>
 		</header>
+		
+		<div id="us-map-container" style="width:680px;height:420px;" post_type="report"></div>
+		
 		<h2 class="comm-header">Post a Rut Report</h2>
 		<div class="new-superpost-modal-container">
 		

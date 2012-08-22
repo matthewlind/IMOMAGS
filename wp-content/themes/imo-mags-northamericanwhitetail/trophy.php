@@ -65,7 +65,13 @@ if ( is_user_logged_in() ) {
 	       		<a href="/community">Community Home</a> &raquo; Trophy Bucks
 			</div>
 		</header>
-		<h2 class="comm-header">Post Your Trophy Buck</h2>
+
+		<div id="us-map-container" style="width:680px;height:420px;" post_type="trophy"></div>
+		
+		
+		
+		<h2 class="comm-header">Post Your Trophy Buck!</h2>
+
 		<div class="new-superpost-modal-container">
 		
 			<form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-form">
