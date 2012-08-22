@@ -115,7 +115,8 @@ jQuery(document).ready(function($) {
       if ($(".post_type").val() == "report" || $(".post_type").val() == "trophy") {
 
         	$(".state-dropdown-container").slideDown();
-        	$(".simplemodal-container").animate({height: "630px"});
+        	$(".simplemodal-container").animate({height: "470px"});
+        	$('input.submit').css('top','+=50');
       }else{
       //hide when not neccesary
 	      $(".state-dropdown-container").slideUp();
