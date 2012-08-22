@@ -274,12 +274,12 @@ function displayRecon(type) {
 	    }else if(data.length > displayAtOnce){
 	    	$("#more-community-button").show();
 	    }
-	    console.log(data.length);
+	    //console.log(data.length);
 	    var count = 0;
 	    $(data).each(function(index,post) {
 	    	count++;
 	    
-	    	console.log(post);
+	    	//console.log(post);
 	    	
 	    	var url = "/plus/" + post.post_type + "/" + post.id;
 	        var link = $("<a href='" + url + "'>");
@@ -344,7 +344,7 @@ $.el.div({'class':'recon-box masonry-box masonry-brick','id':'recon-box-' + post
 );
 
 
-console.log(reconBox);
+//console.log(reconBox);
 
 
 			//*********************END LACONIC $reconBox********************
@@ -666,7 +666,7 @@ function displayReconList(type) {
 	    var count = 0;
 	    $(data).each(function(index) {
 	        count++;
-	        console.log(data);
+	        //console.log(data);
 	        //usables: this.id, this.username, this.img_url, this.post_type,
 
 	        var gravatar = $("<img class='recon-gravatar'>").attr("src","http://www.gravatar.com/avatar/" + this.gravatar_hash + ".jpg?s=50&d=identicon");
@@ -794,7 +794,7 @@ function displayUserComments(userID) {
 	        count++;
 
 	        //usables: posts.id, comment_body, rent_type, date, shares, parent.post_type, parent_id
-	        console.log(data);
+	        //console.log(data);
 	        var gravatar = $("<img class='recon-gravatar'>").attr("src","http://www.gravatar.com/avatar/" + this.gravatar_hash + ".jpg?s=50&d=identicon");
 	        var authorInfo = $("<div class='recon-author-info'><span class='author-name'></span><span class='author-action'></span></div>");
 	        authorInfo.find(".author-name").text(this.username);
@@ -922,7 +922,7 @@ $(document).ready(function(){
 		var $questionTemplate;
 				
 		$.each(data, function(index, question) { 
-		console.log(question);
+		//console.log(question);
 			var url = "/plus/question/" + question.id;
 			$questionTemplate = $("#questions-list-widget .loop ul").eq(index);
 			$questionTemplate.find("a").attr("href",url);
@@ -977,8 +977,8 @@ $(document).ready(function(){
 		var $questionTemplate;
 		
 		$.each(data, function(index, all) { 
-			//console.log(index);
-			//console.log(all);
+			////console.log(index);
+			////console.log(all);
 				$questionTemplate = $("ul.thumbs-grid li").eq(index);
 				$questionTemplate.find("a").attr("href","/plus/" + all.post_type + "/" + all.id);
 				$questionTemplate.find("img").attr("src",all.img_url);
