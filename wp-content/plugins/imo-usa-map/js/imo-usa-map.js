@@ -116,165 +116,177 @@ String.prototype.capitalize = function(){
 	return this.replace( /(^|\s)([a-z])/g , function(m,p1,p2){ return p1+p2.toUpperCase(); } );
  };
 
-   
-$.getJSON('http://www.northamericanwhitetail.deva/slim/api/superpost/state/counts/', function(stateData) {
-	
-	//console.log("Asdfasdfsa");
-	//console.log(stateAbbrev);
-	
-	var R = Raphael("us-map-container"),
-	  attr = {
-	  "fill": "#d3d3d3",
-	  "stroke": "#fff",
-	  "stroke-opacity": "1",
-	  "stroke-linejoin": "round",
-	  "stroke-miterlimit": "4",
-	  "stroke-width": "0.75",
-	  "stroke-dasharray": "none"
-	},
-	usRaphael = {};
-	
-	R.setViewBox(0,0,580,580,false);
-	
-	//R.setSize(680,430);
-	
-	//console.log(stateData);
-	
-	//Draw Map and store Raphael paths
-	for (var state in usMap) {
 
-	  attr.fill = colors[1];	
-	
-	  if (stateData[state.toUpperCase()]) {
-		  
-			currentStateData = stateData[state.toUpperCase()];	
-			if (currentStateData.colorcode)
-				colorcode = currentStateData.colorcode;
-			else
-				colorcode = 1;
+if ($("#us-map-container").length > 0) {
 
-			attr.fill = colors[colorcode];
-			
-			
-			console.log("COLOR ",state,attr.fill,colorcode);  
-			
-	  }
+	var post_type = $("#us-map-container").attr("post_type");
 	
-	  usRaphael[state] = R.path(usMap[state]).attr(attr);
-	}
 	
-
-
-	
-	//Do Work on Map
-	for (var state in usRaphael) {
-	  usRaphael[state].color = "#333333";
-	  
-	  (function (st, state) {
-	
-	    st[0].style.cursor = "pointer";
-	
-	    st[0].onmouseover = function () {
-	      st.animate({fill: st.color}, 50);
-	      st.toFront();
-	      R.safari();
-	      ////console.log(state);
-	    };
-
-	    var targetPosition = 'topMiddle';
-	    var tooltipPosition = 'bottomMiddle';
-
-	    if (state == 'tx') {
-	    	targetPosition = 'center';
-	    	tooltipPosition = 'center';
-	    }
-	    	
-	    
-	    $(st[0]).qtip({
-		   content: getStateData(state),
-		   show: 'mouseover',
-		   hide: 'mouseout',
-		   delay: 0,
-		   position: {
-		      corner: {
-		         target: targetPosition,
-		         tooltip: tooltipPosition
-		      }
-		   },
-		   style: { 
-		      name: 'dark' // Inherit from preset style
-		   }
-		})
+	$.getJSON('http://www.northamericanwhitetail.deva/slim/api/superpost/state/counts/', function(stateData) {
 		
-		$(st[0]).click(function(){
-			//alert(state + '!');
-
-			window.location = 'http://www.northamericanwhitetail.deva/community/report/' + stateAbbrev[state.toUpperCase()].replace(" ","-");
-
-		});
-	    
+		//console.log("Asdfasdfsa");
+		//console.log(stateAbbrev);
+		
+		var R = Raphael("us-map-container"),
+		  attr = {
+		  "fill": "#d3d3d3",
+		  "stroke": "#fff",
+		  "stroke-opacity": "1",
+		  "stroke-linejoin": "round",
+		  "stroke-miterlimit": "4",
+		  "stroke-width": "0.75",
+		  "stroke-dasharray": "none"
+		},
+		usRaphael = {};
+		
+		R.setViewBox(0,0,580,580,false);
+		
+		//R.setSize(680,430);
+		
+		//console.log(stateData);
+		
+		//Draw Map and store Raphael paths
+		for (var state in usMap) {
 	
-	    st[0].onmouseout = function () {
-
-	    	colorcode = 1;
-
-	    	if (stateData[state.toUpperCase()]) {
-
-				currentStateData = stateData[state.toUpperCase()];
-
-				//console.log(currentStateData);
+		  attr.fill = colors[1];	
+		
+		  if (stateData[state.toUpperCase()]) {
+			  
+				currentStateData = stateData[state.toUpperCase()];	
 				if (currentStateData.colorcode)
 					colorcode = currentStateData.colorcode;
 				else
 					colorcode = 1;
-			}
-
-			st.animate({fill: colors[colorcode]}, 500);
-			st.toFront();
-			R.safari();
-	    };
-	               
-	  })(usRaphael[state], state);
-	}
 	
-
-	function getStateData(state) {
-
-		var $output = $("<div class='popup-state-data'><ul></ul></div>");
-
-		var trophy;
-		var report;
-
-		trophy = 0;
-		report = 0;
-  
-		if (stateData[state.toUpperCase()]) {
-			currentStateData = stateData[state.toUpperCase()];
-
-			if (currentStateData.trophy)
-				trophy = currentStateData.trophy;
-			else
-				trophy = 0;
-			if (currentStateData.report)
-				report = currentStateData.report;
-			else
-				report = 0;
-		} else {
+				attr.fill = colors[colorcode];
+				
+				
+				console.log("COLOR ",state,attr.fill,colorcode);  
+				
+		  }
+		
+		  usRaphael[state] = R.path(usMap[state]).attr(attr);
+		}
+		
+	
+	
+		
+		//Do Work on Map
+		for (var state in usRaphael) {
+		  usRaphael[state].color = "#333333";
+		  
+		  (function (st, state) {
+		
+		    st[0].style.cursor = "pointer";
+		
+		    st[0].onmouseover = function () {
+		      st.animate({fill: st.color}, 50);
+		      st.toFront();
+		      R.safari();
+		      ////console.log(state);
+		    };
+	
+		    var targetPosition = 'topMiddle';
+		    var tooltipPosition = 'bottomMiddle';
+	
+		    if (state == 'tx') {
+		    	targetPosition = 'center';
+		    	tooltipPosition = 'center';
+		    }
+		    	
+		    
+		    $(st[0]).qtip({
+			   content: getStateData(state),
+			   show: 'mouseover',
+			   hide: 'mouseout',
+			   delay: 0,
+			   position: {
+			      corner: {
+			         target: targetPosition,
+			         tooltip: tooltipPosition
+			      }
+			   },
+			   style: { 
+			      name: 'dark' // Inherit from preset style
+			   }
+			})
+			
+			$(st[0]).click(function(){
+				//alert(state + '!');
+				
+				//alert('http://www.northamericanwhitetail.deva/community/' + post_type + '/' + stateAbbrev[state.toUpperCase()].replace(" ","-"));
+	
+				window.location = 'http://www.northamericanwhitetail.deva/community/' + post_type + '/' + stateAbbrev[state.toUpperCase()].replace(" ","-");
+	
+			});
+		    
+		
+		    st[0].onmouseout = function () {
+	
+		    	colorcode = 1;
+	
+		    	if (stateData[state.toUpperCase()]) {
+	
+					currentStateData = stateData[state.toUpperCase()];
+	
+					//console.log(currentStateData);
+					if (currentStateData.colorcode)
+						colorcode = currentStateData.colorcode;
+					else
+						colorcode = 1;
+				}
+	
+				st.animate({fill: colors[colorcode]}, 500);
+				st.toFront();
+				R.safari();
+		    };
+		               
+		  })(usRaphael[state], state);
+		}
+		
+	
+		function getStateData(state) {
+	
+			var $output = $("<div class='popup-state-data'><ul></ul></div>");
+	
+			var trophy;
+			var report;
+	
 			trophy = 0;
 			report = 0;
+	  
+			if (stateData[state.toUpperCase()]) {
+				currentStateData = stateData[state.toUpperCase()];
+	
+				if (currentStateData.trophy)
+					trophy = currentStateData.trophy;
+				else
+					trophy = 0;
+				if (currentStateData.report)
+					report = currentStateData.report;
+				else
+					report = 0;
+			} else {
+				trophy = 0;
+				report = 0;
+			}
+	
+			$output.find("ul").append("<li>" + trophy + " Trophy Bucks</li>");
+			$output.find("ul").append("<li>" + report + " Rut Reports</li>");
+			//console.log("$output");
+			//console.log($output);
+	
+			$output.prepend("<h2>" + stateAbbrev[state.toUpperCase()].capitalize() + "</h2>");
+	
+			return $output;
 		}
-
-		$output.find("ul").append("<li>" + trophy + " Trophy Bucks</li>");
-		$output.find("ul").append("<li>" + report + " Rut Reports</li>");
-		//console.log("$output");
-		//console.log($output);
-
-		$output.prepend("<h2>" + stateAbbrev[state.toUpperCase()].capitalize() + "</h2>");
-
-		return $output;
-	}
-
-});
+	
+	});
+	
+		
+		
+	
+}
 
 
   

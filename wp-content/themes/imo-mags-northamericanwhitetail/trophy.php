@@ -67,7 +67,7 @@ if ( is_user_logged_in() ) {
 		</header>
 		
 		
-		<div id="us-map-container" style="width:680px;height:420px;"></div>
+		<div id="us-map-container" style="width:680px;height:420px;" post_type="trophy"></div>
 		
 		
 		
