@@ -65,6 +65,12 @@ if ( is_user_logged_in() ) {
 	       		<a href="/community">Community Home</a> &raquo; Trophy Bucks
 			</div>
 		</header>
+		
+		
+		<div id="us-map-container" style="width:680px;height:420px;"></div>
+		
+		
+		
 		<h2 class="comm-header">Post Your Trophy Buck!</h2>
 		<div class="new-superpost-modal-container">
 		
