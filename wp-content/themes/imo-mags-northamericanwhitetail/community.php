@@ -121,23 +121,8 @@ if ( is_user_logged_in() ) {
 			</ul>
 			
 			<ul class="community-cats">
-				<li id="tips-tactics" class="title"><div></div><h2><a href="/community/tip/">Tips & Tactics</a></h2></li>
-				<li class="selected points"><a href="/community/tip/"><?php echo $tipCount->post_count.' Posts'; ?></a></li>
-			</ul>
-			
-			<ul class="community-cats">
-				<li id="lifestyle" class="title"><div></div><h2><a href="/community/lifestyle/">Lifestyle</a></h2></li>
-				<li class="selected points"><a href="/community/lifestyle/"><?php echo $lifestyleCount->post_count.' Posts'; ?></a></li>
-			</ul>
-			
-			<ul class="community-cats">
 				<li id="tbucks" class="title"><div></div><h2><a href="/community/trophy/">Trophy Bucks</a></h2></li>
 				<li class="selected points"><a href="/community/trophy/"><?php echo $trophyCount->post_count.' Posts'; ?></a></li>
-			</ul>
-			
-			<ul class="community-cats">
-				<li id="general" class="title"><div></div><h2><a href="/community/general/"">General Discussion</a></h2></li>
-				<li class="selected points"><a href="/community/general/"><?php echo $generalCount->post_count.' Posts'; ?></a></li>
 			</ul>
 			
 			<ul class="community-cats">
@@ -150,6 +135,21 @@ if ( is_user_logged_in() ) {
 				<li class="selected points"><a href="/community/gear/"><?php echo $gearCount->post_count.' Posts'; ?></a></li>
 			</ul>
 			
+			<ul class="community-cats">
+				<li id="lifestyle" class="title"><div></div><h2><a href="/community/lifestyle/">Lifestyle</a></h2></li>
+				<li class="selected points"><a href="/community/lifestyle/"><?php echo $lifestyleCount->post_count.' Posts'; ?></a></li>
+			</ul>
+			
+			<ul class="community-cats">
+				<li id="tips-tactics" class="title"><div></div><h2><a href="/community/tip/">Tips & Tactics</a></h2></li>
+				<li class="selected points"><a href="/community/tip/"><?php echo $tipCount->post_count.' Posts'; ?></a></li>
+			</ul>
+			
+			<ul class="community-cats">
+				<li id="general" class="title"><div></div><h2><a href="/community/general/"">General Discussion</a></h2></li>
+				<li class="selected points"><a href="/community/general/"><?php echo $generalCount->post_count.' Posts'; ?></a></li>
+			</ul>
+		
 		
 	</div><!-- .col-abc -->	
 <div class="clear"></div>
@@ -178,11 +178,11 @@ if ( is_user_logged_in() ) {
             <ul class="post-type-select">
             	
                 <li class='change all-nav selected' title='all'>ALL</li>
-                <li class='change general-nav' title='general'>General</li>
                 <li class='change report-nav' title='report'>Reports</li>
-                <li class='change tip-nav' title='tip'>Tips</li>
+                 <li class='change trophy-nav' title='trophy'>Trophy Bucks</li>
                 <li class='change lifestyle-nav' title='lifestyle'>Lifestyle</li>
-                <li class='change trophy-nav' title='trophy'>Trophy Bucks</li>
+                <li class='change tip-nav' title='tip'>Tips</li>
+                <li class='change general-nav' title='general'>General</li>
                 <!--<li class="dd-arrow"></li>-->
 
             </ul>    

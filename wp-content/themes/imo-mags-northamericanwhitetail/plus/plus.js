@@ -139,14 +139,21 @@ $(".single-flag-button").click(function(){
 $("ul.post-type-select li.change").click(function(){
 	
 	var postType = $(this).attr('title');
-
+	
 	currentDisplayStart = 0;
-
+	if (postType == "report" || postType == "general" || postType == "tip" || postType == "lifestyle"){
+		displayMode = "list";
+	}else{
+		displayMode = "tile";
+	}
+	
+	
 	if (displayMode == "tile") { //then show some tiles
 		displayRecon(postType);
 
 	} else { //then show the list
 		displayReconList(postType);
+		
 	}
 
 	$("ul.post-type-select li.selected").removeClass("selected");

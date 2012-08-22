@@ -254,15 +254,16 @@ input.submit {
 
 /*HOMEPAGE LIST LAYOUT*/
 
-.recon-row {
-
+.recon-row, .page-template-community-php .page-community .recon-row{
 	padding:20px 20px 20px 0px;
 	border-top:1px dashed gray;
 	height:90px;
-	width:660px !important;
-
+	width:1000px !important;
 }
-
+.page-community .recon-row, 
+.page-template-user_profile-php .recon-row{
+	width:660px !important;
+}
 .recon-row ul li {
 	list-style-type: none;
 	

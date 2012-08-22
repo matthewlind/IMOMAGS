@@ -83,11 +83,12 @@ if ( is_user_logged_in() ) {
             <ul class="post-type-select">
             	<li id="new-post-button" class="post"><span>+</span> Post</li>
                 <li class='change selected' title='all'>ALL</li>
-                <li class='change' title='general'>General</li>
                 <li class='change' title='report'>Reports</li>
-                <li class='change' title='tip'>Tips</li>
-                <li class='change' title='lifestyle'>Lifestyle</li>
                 <li class='change' title='trophy'>Trophy Bucks</li>
+                <li class='change' title='lifestyle'>Lifestyle</li>
+                <li class='change' title='tip'>Tips</li>
+                <li class='change' title='general'>General</li>
+                
             </ul>   
        
 			<ul id="user-bar" style="<?php echo $displayStyle; ?>">	          
@@ -97,7 +98,7 @@ if ( is_user_logged_in() ) {
             <div class="imo-fb-login-button" style="<?php echo $loginStyle; ?>">
                 LOGIN
             </div>           
-            <div id="recon-activity" term="all" display="tile">
+            <div id="recon-activity" term="all" display="tile" widthMode="wide">
 
 
             </div>

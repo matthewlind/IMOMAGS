@@ -16,14 +16,14 @@ class community_topics_Widget extends WP_Widget {
 		</div>
 		 <div class="post_type_styled_select">
 	         <select id="dynamic_select" class="post_type" name="post_type">
-	         	<option value="" selected="selected">Choose a Topic</option>        
-	         	<option value="/community/general">General Discussion</option>
-	            <option value="/community/question">Q&A</option>
-	            <option value="/community/report">Rut Reports</option>
-	            <option value="/community/tip"">Tips & Tactics</option>
+	         	<option value="" selected="selected">Choose a Topic</option> 
+	         	<option value="/community/report">Rut Reports</option> 
+	         	<option value="/community/trophy">Trophy Bucks</option>
+	         	<option value="/community/question">Q&A</option>      
+	         	<option value="/community/gear">Gear</option>
 	            <option value="/community/lifestyle">Lifestyle</option>
-	            <option value="/community/trophy">Trophy Bucks</option>
-	            <option value="/community/gear">Gear</option>
+	            <option value="/community/tip"">Tips & Tactics</option>
+	            <option value="/community/general">General Discussion</option>
 	          </select>
 	          
 	          <div class="or">- OR -</div>
