@@ -9,16 +9,16 @@ window.fbAsyncInit = function() {
 
 
   FB.Event.subscribe('auth.authResponseChange', function(response) {
-    console.log('authResponseChange: The status of the session is: ' + response.status);
+    //console.log('authResponseChange: The status of the session is: ' + response.status);
   });
   
     FB.Event.subscribe('auth.prompt', function(response) {
-    console.log('auth.prompt: The status of the session is: ' + response.status);
+    //console.log('auth.prompt: The status of the session is: ' + response.status);
   });
 
   
 	FB.Event.subscribe('auth.statusChange', function(response) {
-	  console.log('STATUS CHANGE: The status of the session is: ' + response.status);
+	  //console.log('STATUS CHANGE: The status of the session is: ' + response.status);
 	  
 	  if (response.status == "not_authorized") {
 	  
@@ -26,7 +26,7 @@ window.fbAsyncInit = function() {
 	
 	  	  	jQuery.getJSON('/logout.json', function(data) {
 	            $("#tophat").hide();
-	            console.log("FB: LOG OUT");
+	            //console.log("FB: LOG OUT");
 	        });
 	        	  
 		  }
@@ -72,9 +72,9 @@ jQuery(document).ready(function($) {
 			   		$("img.submit-icon").attr("src","/wp-content/themes/imo-mags-northamericanwhitetail/img/submit-throbber.gif");
 			   	}
 			   
-			     console.log('Welcome!  Fetching your information.... ');
+			     //console.log('Welcome!  Fetching your information.... ');
 			     FB.api('/me', function(response) {
-			       console.log('Good to see you, ' + response.name + '.');
+			       //console.log('Good to see you, ' + response.name + '.');
 			       
 			       
 			       
@@ -91,7 +91,7 @@ jQuery(document).ready(function($) {
 					  	  
 						  
 						  jQuery.getJSON('/facebook-usercheck.json', function(data) {
-				            console.log(data);
+				            //console.log(data);
 				            
 				            userIMO = data;
 				            
@@ -125,7 +125,7 @@ jQuery(document).ready(function($) {
 					            if ($clickedButton.hasClass("fast-login-then-post-button")) {
 					            	//alert("fast login used!");
 					            	
-					            	console.log("clicked button:",$clickedButton );
+					            	//console.log("clicked button:",$clickedButton );
 					            	
 					            	$("#fileUploadForm").first().submit();
 						            
@@ -148,7 +148,7 @@ jQuery(document).ready(function($) {
 			         
 			     });
 			   } else {
-			     console.log('User cancelled login or did not fully authorize.');
+			     //console.log('User cancelled login or did not fully authorize.');
 			   }
 			 }, {scope: 'email,user_hometown'});
 		}//END imo_fb_login

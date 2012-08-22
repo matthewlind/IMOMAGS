@@ -117,9 +117,11 @@ String.prototype.capitalize = function(){
  };
 
 
-if (jQuery("#us-map-container").length > 0) {
 
-	var post_type = $("#us-map-container").attr("post_type");
+
+function getMapForContainer(containerNameString) {
+
+	var post_type = $("#" + containerNameString).attr("post_type");
 	
 	
 	$.getJSON('/slim/api/superpost/state/counts/', function(stateData) {
@@ -127,7 +129,7 @@ if (jQuery("#us-map-container").length > 0) {
 		//console.log("Asdfasdfsa");
 		//console.log(stateAbbrev);
 		
-		var R = Raphael("us-map-container"),
+		var R = Raphael(containerNameString),
 		  attr = {
 		  "fill": "#d3d3d3",
 		  "stroke": "#555",
@@ -282,8 +284,28 @@ if (jQuery("#us-map-container").length > 0) {
 		}
 	
 	});
+
 	
+	
+	
+}
+
+
+
+
+
+if (jQuery("#us-map-container").length > 0) {
+
 		
+	getMapForContainer("us-map-container");
+		
+	
+}
+
+if (jQuery("#us-map-ubermenu-container").length > 0) {
+
+		
+	getMapForContainer("us-map-ubermenu-container");
 		
 	
 }
