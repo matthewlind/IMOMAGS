@@ -27,7 +27,7 @@ class App_Logged_Widget extends WP_Widget {
 
     <aside id="get-app" class="box widget_get-app" style="<?php echo $displayStyle; ?>">
 	    <div class="sidebar-header">
-		    <h2>Login Successful</h2>
+		    <h2>You Are Logged In</h2>
 		</div>
 		<div class="content">
 			<p>Did you get the app?</p>
