@@ -426,8 +426,8 @@ $comment_user_score = $comment_user_score[0];
 
 <div class="pagi col-abc">
 	<?php 
-    echo '<a class="prev-post" href="/plus/'.$data->post_type.'/'.$prev_post.'">Previous '.$data->post_type.'</a>'; 
-    echo '<a class="next-post" href="/plus/'.$data->post_type.'/'.$next_post.'">Next '.$data->post_type.'</a>';  
+    //echo '<a class="prev-post" href="/plus/'.$data->post_type.'/'.$prev_post.'">Previous '.$data->post_type.'</a>'; 
+    //echo '<a class="next-post" href="/plus/'.$data->post_type.'/'.$next_post.'">Next '.$data->post_type.'</a>';  
     ?>
 </div><!-- .pagi -->
 <div class="col-abc single-question-area">
