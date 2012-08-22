@@ -25,7 +25,7 @@ jQuery(document).ready( function($) {
 					$.modal.close();
 					
 					jQuery.getJSON('/usercheck.json', function(data) {
-			            console.log(data);
+			            //console.log(data);
 			            
 			            $("#current-user-name").text(data.display_name);
 			            //$("#user-bar img.avatar").attr("src","http://0.gravatar.com/avatar/" + data.gravatar_hash + "?s=35");

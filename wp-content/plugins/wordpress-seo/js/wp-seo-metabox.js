@@ -215,7 +215,7 @@ jQuery(document).ready(function(){
 			lastXhr = jQuery.getJSON( ajaxurl, request, function( data, status, xhr ) {
 				cache[ term ] = data;
 				if ( xhr === lastXhr ) {
-					console.log(data);
+					//console.log(data);
 					response( data );
 				}
 			});

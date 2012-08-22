@@ -195,7 +195,7 @@ class SVAdWidget extends WP_Widget {
     if (issueType == 0) {
 
         var randomIssueTypeID = Math.floor(Math.random()*4) + 1;
-        console.log(randomIssueTypeID);
+        ////console.log(randomIssueTypeID);
 
         issueType = randomIssueTypeID;
 
