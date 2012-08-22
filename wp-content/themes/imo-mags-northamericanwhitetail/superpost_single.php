@@ -177,7 +177,7 @@ $state = $stateSlugToAbbv[$state_slug];
 				</li>
 				<li><a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" alt="User Avatar" class="recon-gravatar" /></a></li>                      
 	       </ul>
-	       <h1><?php if($data->state != '' && $data->post_type == 'report'){ echo $state; }else{ echo 'Community:'; } ?> <?php echo $topicName; ?></h1>
+	       <h1 style="text-transform: capitalize;"><?php if($data->state != '' && $data->post_type == 'report'){ echo $state; }else{ echo 'Community:'; } ?> <?php echo $topicName; ?></h1>
 	       <div class="community-crumbs">
 	       		<a href="/community/">Community Home</a> &raquo; <a href="/community/<?php echo $data->post_type; ?>"><?php echo $topicName; ?></a><?php if($data->state != '' && $data->post_type == 'report'){ echo ' &raquo; <a href="/community/'.$data->post_type.'/'.strtolower($state).'">'.$state.'</a>'; } ?>
 			</div>
@@ -334,7 +334,7 @@ $comment_user_score = $comment_user_score[0];
 <div class="col-abc super-comments">
 	<div class="avatar-holder">
 		<img src="/avatar?uid=<?php echo $current_user->ID; ?>" class="superclass-gravatar_hash recon-gravatar">
-        <a href="/profile/<?php echo $comment->comment_username; ?>"><?php echo $comment->comment_display_name; ?></a>
+        <a href="/profile/<?php echo $current_user->username; ?>"><?php echo $current_user->user_nicename; ?></a>
     </div>
 
     <div id="comments" class="" style="height:500px:width:600px;background-color:white;">
@@ -346,53 +346,42 @@ $comment_user_score = $comment_user_score[0];
   
 
     <div class="media-section">
+	        
+	        	<form id="fileUploadForm-image" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-image-form">
+			    	<div id="fileupload" >
+			        	<div class="fileupload-buttonbar ">
+			            	<label class="upload-button">
+				                <span><span class="white-plus-sign">+</span><span class="button-text">ATTACH PHOTO</span></span>
+				                <input id="image-upload" type="file" name="photo-upload" id="photo-upload" />
+			                </label>
+			           </div>
+			       </div>
+			       <input type="hidden" name="post_type" value="photo">
+			       <input type="hidden" name="form_id" value="fileUploadForm">
+		       </form><!-- end form -->
+		      
+			   <div class="video-button">
+			        <span><span class="white-plus-sign"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/youtube.png" alt="YouTube" /></span>ADD YOUTUBE VIDEO</span>
+			   </div>
+			   <div class="video-url-form-holder-container" style="display:none;">
+			   		<div class="video-url-form-holder" style="">
+			        	<form id="video-url-form" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-image-form">		            
+				            <div class="video-body-holder">
+				            	<input type="text" name="body" id="video-body" placeholder="Paste YouTube URL or code here"/>
+				            </div>
+				            <input type="hidden" name="post_type" value="youtube">
+				            <input type="hidden" name="form_id" value="fileUploadForm">
+				       </form>
+				   </div>
+			       <div class="video-close-button">
+			       </div>
+			  </div><!-- /.video-url-form-holder-container-->
+			  
+			  <h4 style="display:none" class="photo-attachement-header">Photos</h4>
+			  <div class="attached-photos">
+			  </div>
+		</div><!-- /.media-section-->
 
-      <h4 style="display:none" class="photo-attachement-header">Photos</h4>
-      <div class="attached-photos">
-      </div>
-
-      <form id="fileUploadForm-image" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-image-form">
-        <div id="fileupload" >
-          <div class="fileupload-buttonbar ">
-              <label class="upload-button">
-                  <span><span class="white-plus-sign">+</span><span class="button-text">PHOTO</span></span>
-                  <input id="image-upload" type="file" name="photo-upload" id="photo-upload" />
-
-              </label>
-          </div>
-        </div>
-        <input type="hidden" name="post_type" value="photo">
-        <input type="hidden" name="source_form" value="comment">
-        <input type="hidden" name="form_id" value="fileUploadForm">
-
-
-      </form>
-
-      <div class="video-button">
-        <span><span class="white-plus-sign">+</span>VIDEO</span>
-      </div>
-      <div class="video-url-form-holder-container" style="display:none;">
-
-        <div class="video-url-form-holder" style="">
-          <form id="video-url-form" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-image-form">
-            
-            <div class="video-body-holder">
-            <input type="text" name="body" id="video-body" placeholder="Paste YouTube URL or code here"/>
-            </div>
-            <input type="hidden" name="post_type" value="youtube">
-            <input type="hidden" name="form_type" value="video_comment">
-            <input type="hidden" name="source_form" value="comment">
-            <input type="hidden" name="form_id" value="fileUploadForm">
-
-
-          </form>
-
-        </div>
-        <div class="video-close-button">
-        </div>
-      </div>
-
-    </div>
 
     <form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-comment-form">
 

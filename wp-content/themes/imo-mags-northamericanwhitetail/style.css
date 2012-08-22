@@ -551,12 +551,12 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 	font-size: 0.8em;
 	font-weight: lighter;
 }
-#header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 .community .community-menu-cat.ss-nav-menu-item-depth-1{
+#header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 .community-menu .community-menu-cat.ss-nav-menu-item-depth-1{
 	margin: 0;
     padding: 32px 36px;
 	width: 100px !important;
 }
-#header #megaMenu ul.megaMenu > .menu-item.community ul{
+#header #megaMenu ul.megaMenu > .menu-item.community-menu ul{
 	width: 172px !important;
 }
 
@@ -591,7 +591,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     font-weight: bold;
     width: 150px;
 }
-#header #megaMenu li.community li ul li{
+#header #megaMenu li.community-menu li ul li{
 	padding-left: 20px;
 	width: 132px !important;
 }
@@ -2130,14 +2130,14 @@ home .super-post{padding-top:68px;}
     width: 618px;
  }
 .page-template-superpost_single-php .header-title, 
-.page-template-user_profile_edit-php .header-title,
+.page-template-default .header-title,
 .page-template-user_profile-php .header-title,
 .page-community .header-title{
 	background: url('img/nawp-crosshair-icon.png') no-repeat left 7px;
 }
 .page-template-superpost_single-php .header-title h1,  
 .page-template-user_profile-php .header-title h1,
-.page-template-user_profile_edit-php .header-title h1,
+.page-template-default .header-title h1,
 .page-community .header-title h1{
     text-transform: none;
     margin-left: 50px;
@@ -2146,13 +2146,13 @@ home .super-post{padding-top:68px;}
     font-size: 1.8em;
 }
 .page-template-user_profile-php .header-title h1,
-.page-template-user_profile_edit-php .header-title h1{
+.page-template-default .header-title h1{
 	margin-left: 70px;
 	margin-bottom: -5px !important;
 }
 .page-template-superpost_single-php .header-title h1 span,
 .page-template-user_profile-php .header-title h1 span,
-.page-template-user_profile_edit-php .header-title h1 span
+.page-template-default .header-title h1 span
 {
 	font-size: 0.8em;
     margin-left: 9px;
@@ -2209,7 +2209,6 @@ home .super-post{padding-top:68px;}
     position: relative;
 }
 .page-template-superpost_single-php .new-superpost-modal-container {
-    padding: 20px 0px 20px 50px;
     width: 578px;
 }
 .page-template-superpost_single-php .new-superpost-modal-container h1{
@@ -2281,7 +2280,7 @@ home .super-post{padding-top:68px;}
 .page-template-superpost_single-php .entry{
 	margin-bottom: 0;
 }
-.page-template-superpost_single-php .new-superpost-modal-container textarea {
+.new-superpost-modal-container textarea {
     height:100px !important;
 }
 
@@ -2683,19 +2682,20 @@ ul.naw-loop li{
     background-color: #000000;
 }
 
- .new-superpost-modal-container {
+.new-superpost-modal-container {
 
-    padding:20px;
-    width:580px;
+padding:20px;
+width:580px;
 
- }
-
-.media-section {
-    float:right;
-    margin-top: 22px;
 }
+
 #comments .media-section{
 	margin-top: 3px;
+	width: 540px;
+	margin-bottom: 20px;
+}
+#comments textarea{
+	width:540px;
 }
 .page-template-superpost_single-php .media-section{
 	margin-right: -20px;
@@ -2769,7 +2769,7 @@ ul.naw-loop li{
     overflow: hidden;
     color:white;
     font-size:14px;
-    width: 89px;
+    width: 184px;
 }
 
 .video-button:hover {
@@ -2778,8 +2778,8 @@ ul.naw-loop li{
 
 .video-close-button {
     position: relative;
-    left: 248px;
-    top: -55px;
+    left: 205px;
+    top: -35px;
     z-index: 100;
     height:20px;
     width:20px;
@@ -2789,21 +2789,19 @@ ul.naw-loop li{
 }
 .video-body-holder {
 
-    background-color:white;
-    border: 5px solid white;
+   	border: medium none;
+    box-shadow: none;
     width: 250px;
     position:relative;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.68);
-    -moz-box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.68);
-    -webkit-box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.68);
+
 }
 
 #video-body {
 
     background-color: white;
     border: 1px solid #CCC;
-    width: 227px;
-    padding: 10px;
+    width: 205px;
+    padding: 5px;
     
 }
 
@@ -2811,6 +2809,13 @@ img.image-thumb {
     vertical-align:middle;
     margin-right:20px;
     padding-bottom:10px;
+    margin-left: 12px;
+}
+.page-community img.image-thumb {
+    vertical-align:middle;
+    margin-right:20px;
+    padding-bottom:10px;
+    margin-left: 0;
 }
 
 form.thumb-caption {
@@ -2849,9 +2854,10 @@ input.caption-field {
 
 .new-superpost-modal-container input#title {
 
-    width:400px;
-    height:30px;
-    border:1px solid #cccccc;
+   	width: 618px !important;
+	border: 1px solid #aaa197 !important;
+	padding: 4px 8px;    
+	height:30px;
     color: #333333;
     font-size:14px;
 }
@@ -2859,15 +2865,21 @@ input.caption-field {
 .new-superpost-modal-container .superpost-image-form {
     width:120px;
 }
-
+page community .new-superpost-modal-container textarea {
+   	width: 618px;
+   	}
 .new-superpost-modal-container textarea {
-    width:400px;
+	width: 548px !important;
     margin:20px 0 0 0;
     height:300px;
-    border:1px solid #cccccc;
-    color: #000000;
+    border: 1px solid #aaa197 !important;
+    color: #333333;
     font-size:14px;
 }
+
+.new-superpost-modal-container input#title {
+   	width: 552px !important;
+   }
 
 .post_type_styled_select {
    width: 400px;
@@ -3872,7 +3884,7 @@ h1.tv-header{
 	width: 300px;
 }
 .page-template-user_profile-php .user-header h3,
-.page-template-user_profile_edit-php .user-header h3{
+.page-template-default .user-header h3{
 	font-family: ProximaNova-Regular;
 	font-size: 2.3em;
     font-weight: lighter;
@@ -3880,7 +3892,7 @@ h1.tv-header{
     color: #58534f;
 }
 .page-template-user_profile-php .user-info,
-.page-template-user_profile_edit-php .user-info{
+.page-template-default .user-info{
 	float: left;
 	width: 360px;
 	min-height: 120px;
@@ -4214,7 +4226,6 @@ Individual community pages
 	color: #77A139;
 	text-decoration: none;
 }
-
 .page-community .state-dropdown-container{
 	margin:0;
 }
@@ -4267,7 +4278,7 @@ header ul#user-bar li.user-name{
 	text-transform: uppercase;
 	text-align: right;
 }
-.page-template-user_profile_edit-php header ul#user-bar li.user-name{
+.page-template-default header ul#user-bar li.user-name{
 	padding-top: 0;
 }
 .page-template-superpost_single-php ul#user-bar li.user-name{
@@ -4301,7 +4312,7 @@ ul#user-bar li.user-name .header-post-btn:hover{
 }
 .page-community .header-title,
 .page-template-user_profile-php .header-title,
-.page-template-user_profile_edit-php .header-title{
+.page-template-default .header-title{
 	width: 682px;
 }
 .page-community .new-superpost-modal-container {
@@ -4310,6 +4321,12 @@ ul#user-bar li.user-name .header-post-btn:hover{
 	padding: 20px 0;
 	
 }
+
+.new-superpost-modal-container {
+	width: 590px;
+	position: relative;
+	padding: 20px 0;
+}
 .page-community #fileUploadForm{
 	margin: 0;
 }
@@ -4317,12 +4334,22 @@ ul#user-bar li.user-name .header-post-btn:hover{
 .page-template-report-php .page-community #fileUploadForm{
 	margin: 0 0 3px;
 }
+.superpost-form input[type="submit"]{
+	left: 200px;
+    position: absolute;
+    top: 390px;
+    width: 190px;
+}  
 .page-community .superpost-form input[type="submit"]{
 	left: 280px;
     position: absolute;
-    top: 290px;
+    top: 300px;
     width: 190px;
 }  
+.page-template-question-php .superpost-form input[type="submit"]{
+	top: 350px;
+}  
+
 .page-community .new-superpost-modal-container input#title, .page-community .new-superpost-modal-container textarea{
 	width: 618px !important;
 	border: 1px solid #aaa197 !important;
@@ -4332,16 +4359,19 @@ ul#user-bar li.user-name .header-post-btn:hover{
 	height: 100px;
 }
 .page-community .media-section{
-	float: left;
 	margin: 0 0 10px;
 }
-.page-template-question-php .page-community .media-section{
+.media-section{
+	float: left;
 	margin: 7px 0 0;
 }
-
-.page-community #fileUploadForm-image, .page-community .video-button{
+.page-community #fileUploadForm-image, .video-button{
 	float: left;
 	margin: 0;
+}
+#fileUploadForm-image, .video-button{
+	float: left;
+	margin: 0 0 0 11px;
 }
 .page-community .video-button span{margin-top:-1px;}
 
@@ -4367,7 +4397,7 @@ ul#user-bar li.user-name .header-post-btn:hover{
     cursor: pointer;
     left: 431px;
     position: absolute;
-    top: 440px;
+    top: 400px;
     width: 190px;
 }
 
@@ -4399,46 +4429,36 @@ ul#user-bar li.user-name .header-post-btn:hover{
 .page-community #recon-activity{top:0;}
 .page-template-community-php #recon-activity{top:70px;}
 
-.page-community .loading-box {
+.loading-box {
     float: left;
     margin: 1px;
 }
-.page-community .new-superpost-modal-container .superpost-image-form  {
+.new-superpost-modal-container .superpost-image-form  {
 	width: 152px !important;
 }
 .masonry-form{width: 152px !important;}
-.page-community .video-button{
+.video-button{
 	background-color: #aaa197;
 	width: 189px;
 	height: 26px;
 }
-.page-community .upload-button{padding: 8px 10px 4px;}
-.page-community .white-plus-sign{
+.upload-button{padding: 8px 10px 4px;}
+.white-plus-sign{
 	line-height: 23px;	
-} 
-.page-community .video-body-holder{
-	border: medium none;
-    box-shadow: none;
-    width: 250px;
 }  
-.page-community .video-url-form-holder-container{
+.video-url-form-holder-container{
 	float: left;
 }
-.page-community #video-body{
-	background-color: white;
-    border: 1px solid #CCCCCC;
-    padding: 2px 30px 1px;
-    width: 175px;
-    height: 21px;
-}
-.page-community input.caption-field{
+
+input.caption-field{
 	background-color: white;
     border: 1px solid #CCCCCC;
     padding: 6px;
     width: 230px;   	
 }
 .page-community .video-close-button{
-	display: none;
+	left:208px;
+	top:-36px;
 }
 .page-community .row-post-type{
 	display: none;
@@ -4452,6 +4472,7 @@ ul#user-bar li.user-name .header-post-btn:hover{
     font-family: ProximaNovaA-Regular;
     width: 520px;
 }
+.media-section h4{padding-left: 12px;}
 .page-community .row-title a{
 	color: #333333;
 }
@@ -4703,7 +4724,9 @@ ul#scroll-widget li a:hover span{
 .login #loginform{
 	margin-top: 40px;
 }
- 
+.login p.message{
+	width: 338px;
+}
 .login input{
 	border: 1px solid #CCCCCC;
     color: #666666;
