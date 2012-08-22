@@ -122,7 +122,7 @@ if ($("#us-map-container").length > 0) {
 	var post_type = $("#us-map-container").attr("post_type");
 	
 	
-	$.getJSON('http://www.northamericanwhitetail.deva/slim/api/superpost/state/counts/', function(stateData) {
+	$.getJSON('/slim/api/superpost/state/counts/', function(stateData) {
 		
 		//console.log("Asdfasdfsa");
 		//console.log(stateAbbrev);
@@ -216,7 +216,7 @@ if ($("#us-map-container").length > 0) {
 				
 				//alert('http://www.northamericanwhitetail.deva/community/' + post_type + '/' + stateAbbrev[state.toUpperCase()].replace(" ","-"));
 	
-				window.location = 'http://www.northamericanwhitetail.deva/community/' + post_type + '/' + stateAbbrev[state.toUpperCase()].replace(" ","-");
+				window.location = '/community/' + post_type + '/' + stateAbbrev[state.toUpperCase()].replace(" ","-");
 	
 			});
 		    
