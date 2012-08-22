@@ -172,7 +172,7 @@ if ( is_user_logged_in() ) {
   </div>
   
 
-  <div class="new-superpost-modal-container" style="display:none;height:425px:width:600px;background-color:white;">
+  <div class="new-superpost-modal-container new-superpost-box" style="display:none;height:425px:width:600px;background-color:white;">
     <h1>Post Something!</h1>
 
     <form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-form">

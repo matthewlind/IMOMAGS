@@ -4,7 +4,7 @@ jQuery(document).ready(function($) {
   //SHOW NEW POST MODAL
   //**************************
   $("#new-post-button").click(function(){
-      $(".new-superpost-modal-container").modal({
+      $(".new-superpost-box").modal({
         opacity: 50, 
         overlayClose: true,
         autoPosition: true,
@@ -13,7 +13,7 @@ jQuery(document).ready(function($) {
   });
 	// set default option when clicking on a specific post type.
 	$('.new-post.question').click(function(){
-		$(".new-superpost-modal-container").modal({
+		$(".new-superpost-box").modal({
 	    opacity: 50, 
 	    overlayClose: true,
 	    autoPosition: true,
@@ -25,7 +25,7 @@ jQuery(document).ready(function($) {
 		$(".post_type .question").attr("selected","selected");
 	});
 	$('.new-post.trophy').click(function(){
-		$(".new-superpost-modal-container").modal({
+		$(".new-superpost-box").modal({
 		opacity: 50, 
 		overlayClose: true,
 		autoPosition: true,
@@ -39,7 +39,7 @@ jQuery(document).ready(function($) {
 	});
 	
 	$('.new-post.report').click(function(){
-		$(".new-superpost-modal-container").modal({
+		$(".new-superpost-box").modal({
 		opacity: 50, 
 		overlayClose: true,
 		autoPosition: true,
@@ -53,7 +53,7 @@ jQuery(document).ready(function($) {
 	});
 	
 	$('.new-post.lifestyle').click(function(){
-		$(".new-superpost-modal-container").modal({
+		$(".new-superpost-box").modal({
 		opacity: 50, 
 		overlayClose: true,
 		autoPosition: true,
@@ -64,7 +64,7 @@ jQuery(document).ready(function($) {
 	});
 	
 	$('.new-post.tip').click(function(){
-		$(".new-superpost-modal-container").modal({
+		$(".new-superpost-box").modal({
 		opacity: 50, 
 		overlayClose: true,
 		autoPosition: true,
@@ -75,7 +75,7 @@ jQuery(document).ready(function($) {
 	});
 	
 	$('.new-post.general').click(function(){
-		$(".new-superpost-modal-container").modal({
+		$(".new-superpost-box").modal({
 		opacity: 50, 
 		overlayClose: true,
 		autoPosition: true,
