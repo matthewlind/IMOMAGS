@@ -23,20 +23,6 @@ if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 get_header();
-$displayStyle = "display:none;";
-$loginStyle = "";
-
-if ( is_user_logged_in() ) {
-
-	$displayStyle = "";
-	$loginStyle = "display:none;";
-	
-	wp_get_current_user();
-	
-	$current_user = wp_get_current_user();
-    if ( !($current_user instanceof WP_User) )
-         return;
-    }
 ?>
 <div class="page-template-page-right-php">	
 
@@ -44,28 +30,34 @@ if ( is_user_logged_in() ) {
 	<div class="bonus-background">
 		<div class="bonus">
 			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-home-top')) : else : ?><?php endif; ?>
-		</div>		
+		</div>
+		<div id="responderfollow"></div>
+		<div class="sidebar advert">
+			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('scroll-sidebar')) : else : ?><?php endif; ?>
+		</div>
+		
 	</div>
 	<div class="col-abc sticky-height">
-		<?php the_content(__('Continued&hellip;', 'carrington-business')); ?>
-		<div class="clearfix"></div>
-		<div class="homepage-gear top">
-			<h1 class="more-header">Whitetail Gear</h1>
-			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('gear-home')) : else : ?><?php endif; ?>
-		</div>
+				<?php the_content(__('Continued&hellip;', 'carrington-business')); ?>
+				<div class="clearfix"></div>
+	<div class="homepage-gear top">
+		<h1 class="more-header">Whitetail Gear</h1>
+		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('gear-home')) : else : ?><?php endif; ?>
+	</div>
 
-	</div><!-- .col-abc -->		
+	<!--</div> .col-abc -->		
 
 <!-- Super post section -->
-<div class="col-abc super-post">
-    <div <?php post_class('entry entry-full clearfix'); ?>>
-    	<!-- This section is commented out until we add community features -->
+<!--<div class="col-abc super-post">
+    <div <?php //post_class('entry entry-full clearfix'); ?>>
+    	<!-- This section is commented out until we add community features
         <div class="entry-content">
-	        <div class="super-header">
-	            <hr class="comm-sep">
-	            <h1 class="recon">Naw+ Community</h1>
-	        </div>
-            <!--<div class='cssmenu'>
+            <hr class="comm-sep">
+            <h1 class="recon">Naw+ Community</h1>
+            <div id="user-login-button">
+                LOGIN
+            </div>
+            <div class='cssmenu'>
 				<ul>
 				   <li><a href='#' class="dd"><span>State Activity</span><span class="dd-arrow"></span></a>
 				      <ul>
@@ -75,91 +67,106 @@ if ( is_user_logged_in() ) {
 				   </li>
 				</ul>
 			</div>
-           <div class="toggle">
+            <div class="toggle">
             	<a id="toggle-tile" class="tile-on"></a>
             	<span class="toggle-sep"></span>
             	<a id="toggle-list" class="list-off"></a>
-            </div>-->
+            </div>
             <ul class="post-type-select">
             	<li id="new-post-button" class="post"><span>+</span> Post</li>
-                <li class='change selected' title='all'>ALL</li>
-                <li class='change' title='report'>Reports</li>
-                <li class='change' title='trophy'>Trophy Bucks</li>
-                <li class='change' title='lifestyle'>Lifestyle</li>
-                <li class='change' title='tip'>Tips</li>
-                <li class='change' title='general'>General</li>
-                
-            </ul>   
-       
-			<ul id="user-bar" style="<?php echo $displayStyle; ?>">	          
-				<li class="user-name">Hello, <a href="/profile/<?php echo $current_user->user_nicename; ?>"><span id="current-user-name"><?php echo $current_user->display_name; ?></span></a></li>
-				<li><a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" alt="User Avatar" class="recon-gravatar" /></a></li>                      
-	       </ul> 
-            <div class="imo-fb-login-button" style="<?php echo $loginStyle; ?>">
-                LOGIN
-            </div>           
-            <div id="recon-activity" term="all" display="tile" widthMode="wide">
+                <li class='selected' title='all'>ALL</li>
+                <li title='report'>Reports</li>
+                <li title='tip'>Tips</li>
+                <li title='lifestyle'>LifeStyles</li>
+                <li title='trophy'>Trophy Bucks</li>
+                <li title='gear'>Gear</li>
+                <li class="dd-arrow"></li>
+
+
+            </ul>    
+
+            <div id="recon-activity">Hey
 
 
             </div>
-            <span id="more-superposts-button">Load More<span></span></span>
+            <span id="more-superposts-button">Load More<span></span></span>-->
 
 
 
-            </div>
-    </div><!-- .entry -->
-</div><!-- .col-abc -->
-	<div class="clear"></div>
+        <!--</div>-->
+    <!--</div><!-- .entry -->
+<!--</div><!-- .col-abc -->
+	 <!-- <div class="clear"></div>
 	<!-- Editor's Picks w/ Sidebar Bottom -->		
-	<div class="bonus-background">
+	<!-- <div class="bonus-background">
 		<div class="bonus">
-			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-home-bottom')) : else : ?><?php endif; ?>
+			<?php //if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-home-bottom')) : else : ?><?php //endif; ?>
 		</div>
-		<div id="responderfollow"></div>
-		<div class="sidebar advert">
-			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('scroll-sidebar')) : else : ?><?php endif; ?>
-		</div>
-
 	</div>
 	
 	<div class="col-abc">
-		<div <?php post_class('entry entry-full clearfix'); ?>>
+		<div <?php //post_class('entry entry-full clearfix'); ?>>
 			<div class="entry-content">
 				<div class="clear"></div>
 					<div class="header-sort home-questions">
-						<h1 class="more-header">Q&A</h1>
+						<h1 class="more-header">Latest Questions</h1>
+						<div class='questions-right'>
+							<ul>
+							   <li class="plus-button"><a href="#"><span class="plus">+</span><span>Ask A Question</span></a></li>
+							   <li class="plus-button"><a href="#"><span>Sign In</span></a></li>
+							   <li class="plus-button reg"><a href="#"><span>Register</span></a></li>
+							</ul>
+						</div>
 					</div>
 					<div class="questions-slider">
-		                <div class="slides-container-f">
-		                	<a href="/community/question" class="see-all home-see-all">See All Questions</a>
-		                     	<ul id="slides-questions" class="jcarousel-skin-tango questions-feed">
-		                        	<?php 
-		                     		for ($i = 1; $i <= 4; $i++) {
-			                     		echo '<li>';
-										echo '<div class="user-info">';
-											echo '<a href="/profile/username"><img class="superclass-gravatar_hash recon-gravatar" alt="user avatar" src="http://www.northamericanwhitetail.fox/wp-content/themes/imo-mags-northamericanwhitetail/img/user-temp.jpg"></a>';
-											echo '<a class="username">Batman</a><span> asks...</span>';
-										echo '</div>';
-										echo '<div class="quote-area">';
-											echo '<div class="top"></div>';
-											echo '<div class="mdl">';
-												echo '<h4 class="quote">&#8220;Can anyone suggest a good camo bat-suit for hunting in the forest? I am having trouble hunting in the day time.&#8221;</h4>';
-											echo '</div>';
-											echo '<div class="btm"></div>';
-										echo '</div>';
-										echo '<div class="answers-area">';
-											echo '<div class="answers-count">';
-												echo 'Answers <a href="#"><span class="count">18</span></a>';
-											echo '</div>';
-											echo '<a href="#" class="answers-link">Answer This Question</a> '; 
-											echo '<a class="plus-button new-post question questions-right"><span class="plus">+</span><span>Ask Your Question</span></a>';             
-										echo '</div>';
-									echo '</li>';
-									} ?>
-		                        </ul>
-		                    </div>    
-		                </div>
-		            <div class="clear"></div>
+			            <div class="otd-questions">
+			                <div class="slides-container-f">
+			                	<div class="see-all home-see-all">See All Questions</div>
+			                     <ul id="slides-questions" class="jcarousel-skin-tango">
+			                        	<li>
+			                        		<div class="user-info">
+			                        			<img alt="user photo" src="http://www.northamericanwhitetail.fox/wp-content/themes/imo-mags-northamericanwhitetail/img/user-temp.jpg">
+			                        			<span>Batman asks...</span>
+			                        		</div>
+			                        		<div class="quote-area">
+			                        			<div class="top"></div>
+			                        			<div class="mdl">
+				                        			<h4 class="quote">&#8220;I am going on a late season muzzle-loader hunt for whitetails in western PA this weekend. Any idea on how I should go about hunting them?&#8221;</h3>
+				                        		</div>
+			                        			<div class="btm"></div>
+			                        		</div>
+			                        		<div class="answers-area">
+			                        			<div class="answers-count">
+			                        				Answers <span class="count">18</span>
+			                        			</div>
+			                        			<div class="answers-link">Answer This Question</div>                   
+			                        		</div>
+			                        	</li>
+
+<li>
+			                        		<div class="user-info">
+			                        			<img alt="user photo" src="http://www.northamericanwhitetail.fox/wp-content/themes/imo-mags-northamericanwhitetail/img/user-temp.jpg">
+			                        			<span>Batman asks...</span>
+			                        		</div>
+			                        		<div class="quote-area">
+			                        			<div class="top"></div>
+			                        			<div class="mdl">
+				                        			<h4 class="quote">&#8220;Can anyone suggest a good camo bat-suit for hunting in the forest? I am having trouble hunting in the day time.&#8221;</h3>
+				                        		</div>
+			                        			<div class="btm"></div>
+			                        		</div>
+			                        		<div class="answers-area">
+			                        			<div class="answers-count">
+			                        				Answers <span class="count">18</span>
+			                        			</div>
+			                        			<div class="answers-link">Answer This Question</div>                   
+			                        		</div>
+			                        	</li>
+			                        </ul>
+				                 </div>    
+				            </div>
+				  </div>
+			<div class="clear"></div> -->
 	<div style="height:30px;"></div>
 				<div class="header-sort">
 					<h1 class="more-header">The Latest</h1>
@@ -187,15 +194,14 @@ if ( is_user_logged_in() ) {
 		</div><!-- .entry -->
 	</div><!-- .col-abc -->
 	<!-- Bottom Widget Area -->
-	<div class="clear"></div>
-	<div class="homepage-gear end-scroll">
+<!-- 	<div class="homepage-gear">
 		<h1 class="more-header">New Gear</h1>
 		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('gear-home')) : else : ?><?php endif; ?>
-	</div>
+	</div> -->
 
-	<div class="secondary">
-		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('secondary-home')) : else : ?><?php endif; ?>
-	</div>
+		<!-- <div class="secondary">
+		<?php //if (function_exists('dynamic_sidebar') && dynamic_sidebar('secondary-home')) : else : ?><?php //endif; ?>
+	</div> -->
 	<div class="clearfix"></div>
 </div>
 <?php get_footer(); ?>
