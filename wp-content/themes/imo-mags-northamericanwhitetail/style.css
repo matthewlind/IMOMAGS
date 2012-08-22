@@ -4904,9 +4904,23 @@ ul#scroll-widget li a:hover span{
 }
 
 
-
-
-
+/************
+****
+** Map Widget
+****
+*************/
+#us-map-nav{
+	
+}
+#header #megaMenu li.community-menu ul.sub-menu{
+	width: 1030px;
+}
+#header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 .ss-nav-menu-item-depth-1{
+	float: left;
+}
+#header #megaMenu ul.megaMenu > .menu-item.community-menu ul{
+	width: 1030px;
+}
 /*** Local edits ***/   
     
 #text-19 {padding: 0;}
