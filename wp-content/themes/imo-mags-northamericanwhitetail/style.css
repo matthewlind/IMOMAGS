@@ -139,7 +139,7 @@ width: 990px;
     background: url("img/header-bg.jpg") repeat scroll center top transparent;
     height: 269px;
     margin: 0 !important;
-    z-index: 9999999;
+   /* z-index: 9999999;*/
 }
 .container {
     margin: 0 auto;
@@ -346,7 +346,7 @@ width: 990px;
 #header #megaMenu {
     margin: 0 auto;
     width: 1030px;
-    z-index: 9999;
+    /*z-index: 9999;*/
     top: -65px;
 }
 
@@ -4928,7 +4928,9 @@ ul#scroll-widget li a:hover span{
 #header #megaMenu ul.megaMenu li.community-menu ul.sub-menu-1{
 	left:-569px !important;
 }
-
+#header #megaMenu li.community-menu .community-menu-cat{
+	width: 300px;
+}
 
 
 
