@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: TV Page Template
+ * Template Name: Default Page Original Template
  * Description: Lists children of the current page as a navigation menu.
  *
  * @package carrington-business
