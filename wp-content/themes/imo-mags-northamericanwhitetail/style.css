@@ -4176,10 +4176,10 @@ ul.community-cats li.post:hover {
     position: relative;
     top: 110px;
 }
-.page-template-trophy-php .superpost-form .fast-login-then-post-button,
+/*.page-template-trophy-php .superpost-form .fast-login-then-post-button,
 .page-template-report-php .superpost-form .fast-login-then-post-button {
 	top:290px;
-}
+}*/
 .page-template-question-php .fast-login-then-post-button {
 	top: 145px;
 }
