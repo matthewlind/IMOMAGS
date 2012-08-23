@@ -28,6 +28,7 @@ imgs/
 wp-content/db.php
 wp-content/object-cache.php
 imgs
+slim/images
 robots.txt
 .sass-cache
 wpdb/mysql.php
