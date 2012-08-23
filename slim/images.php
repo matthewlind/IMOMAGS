@@ -131,12 +131,12 @@ function resizeImages($localImage, $isVideo = false){
 		if ($isVideo) {
 
 			if ($dir == "retina_thumb") {
-				$videoMark = imagecreatefrompng("images/resources/play_button_retina.png");
+				$videoMark = imagecreatefrompng("resources/play_button_retina.png");
 				imagecopy($canvasResized, $videoMark, 0, 0, 0, 0, $new_size, $new_size);
 			}
 
 			if ($dir == "thumb") {
-				$videoMark = imagecreatefrompng("images/resources/play_button.png");
+				$videoMark = imagecreatefrompng("resources/play_button.png");
 				imagecopy($canvasResized, $videoMark, 0, 0, 0, 0, $new_size, $new_size);
 			}
 

@@ -28,8 +28,8 @@ imgs/
 wp-content/db.php
 wp-content/object-cache.php
 imgs
+slim/images
 robots.txt
 .sass-cache
-slim/images
 wpdb/mysql.php
 slim/mysql.php
