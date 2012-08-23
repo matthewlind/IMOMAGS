@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: Community
+ * Template Name: Community Post Page
  * Description: The NAW+ Community Homepage
  *
  * @package carrington-business

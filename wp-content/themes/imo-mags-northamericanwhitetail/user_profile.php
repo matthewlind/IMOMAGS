@@ -142,7 +142,7 @@ $state = $user_meta['state'][0];
 		    		</div>
 		    		<?php if($current_user->display_name == $user->display_name){ ?>
 		    		<ul class="post-type-select">
-	            		<li id="new-post-button" class="post"><span>+</span> Create New Post</li>
+	            		<li class="post new-post-button"><a href="/community-post"><span>+</span> Create New Post</a></li>
 			    	</ul>
 			    	<?php } ?>
 		    	</div>
