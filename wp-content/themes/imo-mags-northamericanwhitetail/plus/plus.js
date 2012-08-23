@@ -913,14 +913,17 @@ $(document).ready(function(){
 			$questionTemplate.find("span.count").text(question.comment_count);
 
 		});	
-					
-	$questionTemplate.appendTo(".questions-feed").fadeIn();
+		if ($questionTemplate.length > 0) 				
+			$questionTemplate.appendTo(".questions-feed").fadeIn();
 	});
 
 }); //End display questions
 	
 // Questions List Widget	
 $(document).ready(function(){
+
+	
+
 	var type = "question";
 	showAtOnce = 5;
 	var dataURL = "/slim/api/superpost/type/" + type +"/" + showAtOnce + "/0";  	
@@ -943,11 +946,14 @@ $(document).ready(function(){
 			
 			
 		});	
-					
-	$questionTemplate.appendTo("#questions-list-widget");
-	$("#questions-list-widget").fadeIn();
+		
+		if ($questionTemplate.length > 0) 			
+			$questionTemplate.appendTo("#questions-list-widget");
+		$("#questions-list-widget").fadeIn();
 	
 	});
+	
+	
 
 }); //End list questions
 
