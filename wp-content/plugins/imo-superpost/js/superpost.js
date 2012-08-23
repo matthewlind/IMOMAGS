@@ -100,30 +100,45 @@ jQuery(document).ready(function($) {
 	
     //Setup State Dropdown with chosen
    $(".state-chzn").chosen();
-   $(".simplemodal-container").css({width:"590px",height: "420px"});
+   $(".simplemodal-container").css({width:"590px",height: "410px"});
     //Setup post type dropdown to show location when certain options are selected
     $(".modal_post_type").change(function(){
     	//if post is a question, hide the textarea
   	if ($(".modal_post_type").val() == "question") {
-	    	$("#body").css("display","none");
-	    	$("#title").attr("placeholder","Ask the Community");
-	    	$(".simplemodal-container").animate({height: "300px"});
-        	$('input.submit').css("margin-top","-160px");
+	    	$("#simplemodal-container #fileUploadForm textarea#body").css("display","none");
+	    	$("#simplemodal-container #title").attr("placeholder","Ask the Community");
+	    	$("#simplemodal-container").animate({height: "290px"});
+	    	$('#simplemodal-container #fileUploadForm').css("height","78px");
+	    	$('#simplemodal-container #simplemodal-container .media-section').css("padding-top","0px");
+        	$('#simplemodal-container input.submit').css("margin-top","-160px");
+        	$('#simplemodal-container .fast-login-then-post-button').css("top","60px");
+        	$('#simplemodal-container .new-superpost-modal-container').css("padding-bottom","6px");
 	}else{
-			$("#body").css("display","block");
-			$("#title").attr("placeholder","Title");
-			$(".simplemodal-container").animate({height: "420px"});
-			$('input.submit').css('margin-top','-31px');
+			$("#simplemodal-container #fileUploadForm textarea#body").css("display","block");
+			$("#simplemodal-container #title").attr("placeholder","Title");
+			$("#simplemodal-container").animate({height: "410px"});
+			$('#simplemodal-container #fileUploadForm').css("height","178px");
+			$('#simplemodal-container .media-section').css("padding-top","30px");
+			$('#simplemodal-container input.submit').css('margin-top','-31px');
+			$('#simplemodal-container .fast-login-then-post-button').css("top","50px");
+			$('#simplemodal-container .new-superpost-modal-container').css("padding-bottom","20px");
 	}
     
       if ($(".modal_post_type").val() == "report" || $(".modal_post_type").val() == "trophy") {
 
-        	$(".state-dropdown-container").slideDown();
-        	$(".simplemodal-container").animate({height: "470px"});
-        	$('input.submit').css("margin-top","11px");
+        	$("#simplemodal-container .state-dropdown-container").slideDown();
+        	$("#simplemodal-container").animate({height: "450px"});
+        	$('#simplemodal-container .media-section').css("padding-top","70px");
+        	$('#simplemodal-container .fast-login-then-post-button').css("top","50px");
+        	$('#simplemodal-container input.submit').css("margin-top","11px");
      }else{
       //hide when not neccesary
-	      $(".simplemodal-container .state-dropdown-container").slideUp();
+	      $("#simplemodal-container .state-dropdown-container").slideUp();
+	      $('#simplemodal-container .media-section').css("padding-top","30px");
+	      $('#simplemodal-container input.submit').css("margin-top","37px");
+	      //$('#simplemodal-container .fast-login-then-post-button').css("top","60px");
+	      //$('#simplemodal-container .fast-login-then-post-button').css("top","26px");
+	     // $('.media-section').css("margin-top","7px");
 	      //$(".simplemodal-container").animate({height: "420px"});
       }
 

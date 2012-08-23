@@ -81,7 +81,7 @@ if ( is_user_logged_in() ) {
             	<a id="toggle-list" class="list-off"></a>
             </div>-->
             <ul class="post-type-select">
-            	<li id="new-post-button" class="post"><span>+</span> Post</li>
+            	<li class="post new-post-button"><a href="/community-post"><span>+</span> Post</a></li>
                 <li class='change selected' title='all'>ALL</li>
                 <li class='change' title='report'>Reports</li>
                 <li class='change' title='trophy'>Trophy Bucks</li>
@@ -152,7 +152,7 @@ if ( is_user_logged_in() ) {
 												echo 'Answers <a href="#"><span class="count">18</span></a>';
 											echo '</div>';
 											echo '<a href="#" class="answers-link">Answer This Question</a> '; 
-											echo '<a class="plus-button new-post question questions-right"><span class="plus">+</span><span>Ask Your Question</span></a>';             
+											echo '<a href="/community/question" sclass="plus-button questions-right"><span class="plus">+</span><span>Ask Your Question</span></a>';             
 										echo '</div>';
 									echo '</li>';
 									} ?>
