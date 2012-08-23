@@ -243,7 +243,7 @@ $state = $stateSlugToAbbv[$state_slug];
 			       echo '<div class="like-btn"><a href="#"></a></div>';
 			       echo '<div class="count"><a href="#comments">2</a></div>';
 
-			       echo '<a class="single-flag-button" spid="' . $spid . '"><img src="http://www.northamericanwhitetail.deva/wp-content/themes/imo-mags-northamericanwhitetail/img/flag-button-gray.png" class="flag-image"></a>';
+			       echo '<a class="single-flag-button" spid="' . $spid . '"><img src="/wp-content/themes/imo-mags-northamericanwhitetail/img/flag-button-gray.png" class="flag-image"></a>';
 			       
 			?>
 	     
@@ -303,7 +303,7 @@ $comment_user_score = $comment_user_score[0];
 	           
 	    </div>
 	    
-	    <a class="single-flag-button" spid="<?php echo $comment->comment_id; ?>"><img src="http://www.northamericanwhitetail.deva/wp-content/themes/imo-mags-northamericanwhitetail/img/flag-button-gray.png" class="flag-image"></a>
+	    <a class="single-flag-button" spid="<?php echo $comment->comment_id; ?>"><img src="/wp-content/themes/imo-mags-northamericanwhitetail/img/flag-button-gray.png" class="flag-image"></a>
 	</div><!-- end superpost-comment-single -->
 	<?php } ?>
 
