@@ -117,10 +117,10 @@ jQuery(document).ready(function($) {
 				            });
 				            
 				            
-				            $(".fast-login-then-post-button").fadeOut(500,function(){
+				            $(".fast-login-then-post-button").fadeOut(400,function(){
 					            
-					            $(".submit").css({ opacity: 0.5 });
-					            
+					            //$(".submit").css({ opacity: 0.5 });
+					            $(".submit").fadeIn();
 					            
 					            if ($clickedButton.hasClass("fast-login-then-post-button")) {
 					            	//alert("fast login used!");
