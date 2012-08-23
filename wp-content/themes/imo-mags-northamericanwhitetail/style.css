@@ -1572,11 +1572,12 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 }
 .questions-slider h4.quote{
 	color: #C65517;
-    font-size: 1.6em;
-	padding: 10px 42px 0;
-    text-align: left;
+    font-family: ProximaNova-Regular;
+    font-size: 1.23em;
     font-weight: lighter;
-	
+    line-height: 1em;
+    padding: 10px 12px 0;
+    text-align: left;
 }
 .questions-slider .see-all{
 	background: url("img/right-arrow.png") no-repeat scroll right 6px transparent;
