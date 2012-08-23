@@ -30,6 +30,5 @@ wp-content/object-cache.php
 imgs
 robots.txt
 .sass-cache
-slim/images
 wpdb/mysql.php
 slim/mysql.php
