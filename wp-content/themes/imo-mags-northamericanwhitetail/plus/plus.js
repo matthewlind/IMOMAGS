@@ -913,7 +913,7 @@ $(document).ready(function(){
 			$questionTemplate.find("span.count").text(question.comment_count);
 
 		});	
-		if ($questionTemplate.length > 0) 				
+		if (typeof $questionTemplate != "undefined") 				
 			$questionTemplate.appendTo(".questions-feed").fadeIn();
 	});
 
@@ -947,7 +947,7 @@ $(document).ready(function(){
 			
 		});	
 		
-		if ($questionTemplate.length > 0) 			
+		if (typeof $questionTemplate != "undefined") 		
 			$questionTemplate.appendTo("#questions-list-widget");
 		$("#questions-list-widget").fadeIn();
 	
