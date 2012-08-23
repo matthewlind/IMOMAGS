@@ -44,7 +44,7 @@ class Questions_List_Widget extends WP_Widget {
 			</ul>
     	</div>
 		<div class="footer">
-			<a class="ask post new-post question" href="#">Ask a Question</a>
+			<a class="ask" href="/community/question">Ask a Question</a>
 			<a class="more" href="/community/question">More Questions</a>
 		</div>
 	</aside>

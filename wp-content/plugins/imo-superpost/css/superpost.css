@@ -161,7 +161,7 @@ img.recon-gravatar:hover {
 }
 
 #fileUploadForm {
-
+	height:180px;
 	width:210px;
 	margin:10px;
 }
@@ -540,7 +540,7 @@ span#more-superposts-button span, span#more-community-button span {
 .tile-off{
 	background: url('/wp-content/themes/imo-mags-northamericanwhitetail/img/tile-off.png') no-repeat;
 }
-#new-post-button {
+#new-post-button, .new-post-button {
 	/*cursor: pointer;
 	background-color:#cccccc;
 	display:block;
@@ -550,13 +550,15 @@ span#more-superposts-button span, span#more-community-button span {
 
 	float:right;*/
 
-
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+}
+.new-post-button a{
+	color: #fff;
 }
 .imo-fb-login-button{
 	float: right;
@@ -647,7 +649,7 @@ div.user-details-box {
 	padding: 6px 10px;
 	
 }
-#new-post-button {
+.new-post-button {
     -moz-user-select: none;
 }
 .superpost-form input[type=submit], 
@@ -665,11 +667,10 @@ div.user-details-box {
 }
 
 .new-superpost-modal-container .fast-login-then-post-button {
-	
 	position:relative;
 	left:auto;
-	top:auto;
-	left:180px;
+	top:46px;
+	left:374px;
 }	
 
 .superpost-form input[type=submit]{

@@ -4174,12 +4174,9 @@ ul.community-cats li.post:hover {
 .page-community .new-superpost-modal-container .fast-login-then-post-button {
     left: 436px;
     position: relative;
-    top: 110px;
+    top: 60px;
 }
-.page-template-trophy-php .superpost-form .fast-login-then-post-button,
-.page-template-report-php .superpost-form .fast-login-then-post-button {
-	top:290px;
-}
+
 .page-template-question-php .fast-login-then-post-button {
 	top: 145px;
 }
@@ -4248,7 +4245,7 @@ Individual community pages
 	text-decoration: none;
 }
 .page-community .state-dropdown-container{
-	margin:0;
+	margin:-18px 0 0;
 }
 .page-community .header-title, .page-template-superpost_single-php .header-title{
 	margin-top: -10px;
@@ -4339,7 +4336,7 @@ ul#user-bar li.user-name .header-post-btn:hover{
 .page-community .new-superpost-modal-container {
 	width: 636px;
 	position: relative;
-	padding: 20px 0;
+	padding: 20px 0 0;
 	
 }
 
@@ -4382,6 +4379,10 @@ ul#user-bar li.user-name .header-post-btn:hover{
 .page-community .media-section{
 	margin: 0 0 10px;
 }
+.page-template-question-php .media-section{
+	margin: 50px 0 10px;
+}
+.page-template-question-php .new-superpost-modal-container .fast-login-then-post-button
 .media-section{
 	float: left;
 	margin: 7px 0 0;

@@ -138,8 +138,8 @@ class community_topics_Widget extends WP_Widget {
 	          </div>
         </div>
         <div class="buttons">
-	     	<a href="#" class="ask-question post new-post question">Ask a Question</a>
-	     	<a href="#" class="share-photo post new-post general">Share a Photo</a>        
+	     	<a href="/community/question" class="ask-question">Ask a Question</a>
+	     	<a href="/community-post" class="share-photo">Share a Photo</a>        
         </div>
         </aside>
 
