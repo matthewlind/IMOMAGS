@@ -2,7 +2,7 @@ jQuery(document).ready(function($) {
 
 
 
-	var postsURL = "http://www.northamericanwhitetail.deva/slim/api/superpost/user/posts/" + username;
+	var postsURL = "/slim/api/superpost/user/posts/" + username;
 
 	//First, get the user score
 	var dataURL = "/slim/api/superpost/user/score/" + username;  	
