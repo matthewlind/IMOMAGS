@@ -2701,6 +2701,7 @@ width:580px;
 }
 #comments textarea{
 	width:540px;
+	margin-top: 20px;
 }
 .page-template-superpost_single-php .media-section{
 	margin-right: -20px;

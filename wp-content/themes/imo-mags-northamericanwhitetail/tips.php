@@ -139,7 +139,7 @@ if ( is_user_logged_in() ) {
 	    </div> <!-- end .col-abc -->
 	    <div class="col-abc">
 		
-	    <h2 class="comm-header stream-header">Latest in <?php the_title(); ?> & Tactics</h2>
+	    <h2 class="comm-header stream-header">Latest in <?php the_title(); ?></h2>
         <div id="recon-activity" term="tip" display="list" widthMode="short">
 
 

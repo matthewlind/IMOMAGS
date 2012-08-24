@@ -557,7 +557,9 @@ span#more-superposts-button span, span#more-community-button span {
 	-ms-user-select: none;
 	user-select: none;
 }
-.new-post-button a{
+.new-post-button a,
+.new-post-button a:hover,
+.new-post-button a:visited{
 	color: #fff;
 }
 .imo-fb-login-button{
