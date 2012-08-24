@@ -2697,7 +2697,7 @@ width:580px;
 #comments .media-section{
 	margin-top: 3px;
 	width: 540px;
-	margin-bottom: 20px;
+	margin-bottom: 50px;
 }
 #comments textarea{
 	width:540px;
@@ -2909,6 +2909,10 @@ select.modal_post_type {
 .state-dropdown-container {
     margin-top:10px;
     margin-bottom:10px;
+}
+.page-template-report-php .media-section,
+.page-template-trophy-php .media-section{
+    margin-top: 40px !important;
 }
 
 .user-login-modal-container {
@@ -4002,7 +4006,7 @@ h3.first-last-name{
 }
 
 /*****
-**Community Page
+**Community Page & Community post page
 **
 *****/
 
@@ -4141,7 +4145,7 @@ ul.community-cats li.post:hover {
 	margin-right: 1px !important;
     width: 159px;
 }
- #community-topics a.share-photo{
+#community-topics a.share-photo{
 	width: 158px;
 }
 #community-topics .state-dropdown-container-sidebar {
@@ -4245,9 +4249,9 @@ Individual community pages
 	color: #77A139;
 	text-decoration: none;
 }
-.page-community .state-dropdown-container{
+/*.page-community .state-dropdown-container{
 	margin:-18px 0 0;
-}
+}*/
 .page-community .header-title, .page-template-superpost_single-php .header-title{
 	margin-top: -10px;
 }
@@ -4365,6 +4369,10 @@ ul#user-bar li.user-name .header-post-btn:hover{
     top: 300px;
     width: 190px;
 }  
+.page-template-community-post-php .page-community .superpost-form input[type="submit"]{
+    top: 340px;
+}  
+
 .page-template-question-php .superpost-form input[type="submit"]{
 	top: 350px;
 }  
@@ -4516,8 +4524,6 @@ input.caption-field{
 .page-template-superpost_single-php .imo-fb-login-button{
 	margin-top: 4px;
 }
-
-
 
 
 /******
