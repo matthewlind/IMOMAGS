@@ -714,6 +714,57 @@ $app->post('/api/post/flag',function() {
 
 });
 
+$app->post('/api/post/flagadmin',function() {
+	
+	header('Access-Control-Allow-Origin: *');
+
+	$params = Slim::getInstance()->request()->post();
+
+	_log("FLAGGING STARTED");
+	_log($params);
+
+	if (!(isset($params['post_id']) && isset($params['etype']) && isset($params['user_id']))) {
+		$rtn["error"] = "Invalid Request";
+
+	}
+	elseif (!($params['post_id']!="" && $params['etype']!="" && $params['user_id']!="")) {
+		$rtn["error"] = "Invalid Parameters";
+	
+	}
+	else {
+	
+		$post_id = $params['post_id'];
+		$etype = isset($params['etype'])? $params['etype']:"flag";
+		$user_id = isset($params['user_id'])? $params['user_id']:"1";
+	
+		//if (userIsGood($params['username'],$params['userhash'])) {
+			$oFlagger = new postFlagger();
+			
+			
+			if($params['etype']=="reset")
+				$rtn = $oFlagger->resetFlags($post_id);
+		
+			elseif($params['etype']=="teflon") 
+				$rtn = $oFlagger->insulateFlags($post_id);
+
+			elseif($params['etype']=="unapprove") 
+				$rtn = $oFlagger->maxFlags($post_id);
+		//}
+		//else {
+			//what if user is not good?
+		//}
+	}
+	
+	print json_encode($rtn);
+	return true;
+
+});
+
+
+
+
+
+
 
 
 function setAtttachment($spid,$attachmentIDstring) {

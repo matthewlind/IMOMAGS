@@ -81,6 +81,13 @@
 	  		<div id="addupratealert"    style="padding:3px 0 5px 0;"></div>
 	  		<button class="btn postit" id="btnAdd_downrate">Add Down Rating</button>
 	  		<div id="adddownratealert"    style="padding:3px 0 5px 0;"></div>
+	  		
+	  		<button class="btn postit" id="btnAdd_reset">Reset Flags</button>
+	  		<div id="addresetalert"    style="padding:3px 0 5px 0;"></div>
+	  		<button class="btn postit" id="btnAdd_teflon">Disable Flags</button>
+	  		<div id="addteflonalert"    style="padding:3px 0 5px 0;"></div>
+	  		<button class="btn postit" id="btnAdd_unapprove">Censor</button>
+	  		<div id="addunapprovealert"    style="padding:3px 0 5px 0;"></div>
 	  	</form>
 	      
       </div>
@@ -100,10 +107,11 @@ jQuery(document).ready(function($){
 		var postid = $("#postid").val();
 		var userid = $("#userid").val();
 		var etype = $(this).attr('id').replace('btnAdd_','');
+		var urlend = (etype=="reset" || etype=="teflon" || etype=="unapprove")? "admin":"";
 				
 		$.ajax({
 			type: "POST",
-            url: "../slim/api/post/flag",
+            url: "../slim/api/post/flag"+urlend,
             data: {post_id: postid, user_id: userid, etype: etype},
             success: function(resp){
                 var srp = prettyPrint(resp, {styles: {'default': {table: {width: '350px'}}}});
