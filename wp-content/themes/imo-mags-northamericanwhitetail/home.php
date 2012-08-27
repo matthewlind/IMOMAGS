@@ -145,19 +145,19 @@ get_header();
 
 <li>
 			                        		<div class="user-info">
-			                        			<img alt="user photo" src="http://www.northamericanwhitetail.fox/wp-content/themes/imo-mags-northamericanwhitetail/img/user-temp.jpg">
-			                        			<span>Batman asks...</span>
+			                        			<img alt="user photo" src="#">
+			                        			<span>Username asks...</span>
 			                        		</div>
 			                        		<div class="quote-area">
 			                        			<div class="top"></div>
 			                        			<div class="mdl">
-				                        			<h4 class="quote">&#8220;Can anyone suggest a good camo bat-suit for hunting in the forest? I am having trouble hunting in the day time.&#8221;</h3>
+				                        			<h4 class="quote"></h3>
 				                        		</div>
 			                        			<div class="btm"></div>
 			                        		</div>
 			                        		<div class="answers-area">
 			                        			<div class="answers-count">
-			                        				Answers <span class="count">18</span>
+			                        				Answers <span class="count">0</span>
 			                        			</div>
 			                        			<div class="answers-link">Answer This Question</div>                   
 			                        		</div>

@@ -917,6 +917,7 @@ $(document).ready(function(){
 			$questionTemplate.find("h4.quote").text(question.title);
 			$questionTemplate.find(".answers-count a").attr("href",url + "/#comments");
 			$questionTemplate.find("a.answers-link").attr("href",url);
+			$questionTemplate.find(".count a").text(question.comment_count);
 			$questionTemplate.find("span.count").text(question.comment_count);
 
 		});	

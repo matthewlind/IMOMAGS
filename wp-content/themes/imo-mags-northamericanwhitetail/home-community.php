@@ -137,22 +137,22 @@ if ( is_user_logged_in() ) {
 		                     		for ($i = 1; $i <= 4; $i++) {
 			                     		echo '<li>';
 										echo '<div class="user-info">';
-											echo '<a href="/profile/username"><img class="superclass-gravatar_hash recon-gravatar" alt="user avatar" src="http://www.northamericanwhitetail.fox/wp-content/themes/imo-mags-northamericanwhitetail/img/user-temp.jpg"></a>';
-											echo '<a class="username">Batman</a><span> asks...</span>';
+											echo '<a href="/profile/username"><img class="superclass-gravatar_hash recon-gravatar" alt="user avatar" src="#"></a>';
+											echo '<a class="username"></a><span> asks...</span>';
 										echo '</div>';
 										echo '<div class="quote-area">';
 											echo '<div class="top"></div>';
 											echo '<div class="mdl">';
-												echo '<h4 class="quote">&#8220;Can anyone suggest a good camo bat-suit for hunting in the forest? I am having trouble hunting in the day time.&#8221;</h4>';
+												echo '<h4 class="quote"></h4>';
 											echo '</div>';
 											echo '<div class="btm"></div>';
 										echo '</div>';
 										echo '<div class="answers-area">';
 											echo '<div class="answers-count">';
-												echo 'Answers <a href="#"><span class="count">18</span></a>';
+												echo 'Answers <a href="#"><span class="count">0</span></a>';
 											echo '</div>';
 											echo '<a href="#" class="answers-link">Answer This Question</a> '; 
-											echo '<a href="/community/question" sclass="plus-button questions-right"><span class="plus">+</span><span>Ask Your Question</span></a>';             
+											echo '<a href="/community/question" class="plus-button questions-right"><span class="plus">+</span><span>Ask Your Question</span></a>';             
 										echo '</div>';
 									echo '</li>';
 									} ?>
