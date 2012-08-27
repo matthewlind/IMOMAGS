@@ -11,7 +11,7 @@ class Superpost_Thumbs_Grid_Widget extends WP_Widget {
  
 ?>
 	<aside id="superpost-thumbs-grid" class="superpost-thumbs-grid-widget">
-	     <h2>Most Viewed Photos</h2>
+	     <h2>Most Viewed</h2>
  		<ul class="thumbs-grid" term="all">	
  			<?php 
             for ($i = 1; $i <= 9; $i++) {

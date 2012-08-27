@@ -297,7 +297,6 @@ if ( is_user_logged_in() ) {
 	    
 	   		
 	</div><!-- .col-abc -->	
-<div class="clear"></div>
 <div class="col-abc super-post">
         <div class="entry-content">
             <div class="super-header">

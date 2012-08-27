@@ -4010,7 +4010,9 @@ h3.first-last-name{
 **Community Page & Community post page
 **
 *****/
-
+.page-template-community-post-php .col-abc.super-post .entry-content{
+	margin-top: 100px;
+}
 ul.community-cats{
 	margin: 0 0 4px 0;
 	height: 78px;
@@ -4107,9 +4109,22 @@ ul.community-cats li.post:hover {
 /* Widget Version */
 #community-topics{
 	background: #ededed;
-	height: 162px;
+	height: 262px;
     margin-bottom: 10px;
     width: 318px;
+}
+#community-topics ul{
+	float: left;
+    font-family: proximanovaa-semibold;
+    list-style: none outside none;
+    margin-left: 0.7em;
+}
+
+#community-topics .bullet{
+	list-style: disc outside none;
+}
+#community-topics ul.menu{
+	margin-left: 2em;
 }
 #community-topics select.post_type, #community-topics .post_type_styled_select{
 	width: 290px;
@@ -4124,7 +4139,7 @@ ul.community-cats li.post:hover {
 #community-topics .post_type_styled_select{     
 	margin: 0;
 	padding: 10px 14px !important;
-	height: 70px;
+	height: 170px;
 }
 #community-topics a.ask-question, #community-topics a.share-photo{
 	-moz-transition: all 0.6s ease 0s;-webkit-transition: 0.6s;
@@ -4162,10 +4177,12 @@ ul.community-cats li.post:hover {
     width: 230px;
 }
 #community-topics .or{
-	float: left;
-    margin: 15px 10px;
+	clear: both;
+    float: left;
     font-family: ProximaNovaA-Regular;
     font-size: 0.7em;
+    margin: 16px 10px 0;
+    text-align: center;
 }
 #community-topics .sponsor{
  	background: url("img/browse-sponsor.png") no-repeat scroll center center;

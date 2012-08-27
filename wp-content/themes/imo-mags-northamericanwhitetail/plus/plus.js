@@ -256,7 +256,7 @@ $(document).click(function() {
 
 //Display the recon!
 function displayRecon(type) {
-
+	//var photo = $("#recon-activity").attr("photo");
 	//Hide posts before the AJAX Request
 	$('#recon-activity').fadeOut(100);
 
