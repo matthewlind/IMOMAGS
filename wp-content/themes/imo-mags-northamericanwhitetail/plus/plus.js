@@ -268,7 +268,7 @@ function displayRecon(type) {
 	if ($("#recon-activity").attr("state") !== undefined){
 		var dataURL = "/slim/api/superpost/state/" + state + "/type/" + type;  	
 	}else{
-		var dataURL = "/slim/api/superpost/type/" + type;   	
+		var dataURL = "/slim/api/superpost/photos/" + type;   	
 	}
 		
 	dataURL += "/" + displayAtOnce;
@@ -310,46 +310,46 @@ function displayRecon(type) {
 	    					
 	    	//*********************START LACONIC $reconBox********************
 	    	
-var reconBox = 	    	
-$.el.div({'class':'recon-box masonry-box masonry-brick','id':'recon-box-' + post.id},
-	$.el.a({'class':'flag-button'},
-		$.el.img({'src':'/wp-content/themes/imo-mags-northamericanwhitetail/img/flag-button-gray.png','class':'flag-image'})
-	),
-	$.el.a({'href':url},
-		$.el.div({'class':'recon-title-box cover-pic'},
-			//$.el.span({'class':'recon-title-detail'},firstName + "'s " + nicePostType),
-			//$.el.div({'class':'arrow_box'}),
-			$.el.h3(post.title)
-		)
-	),
-	$.el.a({'href':url},
-		$.el.div({'class':'detector-box'})
-	),
-	$.el.div({'class':'recon-image-box','style':'background-color:' + bgcolors[randomnumber]},
-		$.el.a({'href':url},
-			$.el.img({'src':post.img_url,'class':'superpost-thumb'})
-		)
-	),
-	$.el.div({'class':'under-box'},
-		$.el.a({'href':'/profile/' + post.username},
-			$.el.img({'src':'/avatar?uid=' + post.user_id,'class':'recon-gravatar'}),
-			$.el.div({'class':'recon-author-info'},
-				$.el.span({'class':'author-name'},post.display_name),
-				" posted in ",
-				$.el.span({'class':'author-action'},nicePostType)
-				
-			)
-		),
-		
-		$.el.abbr({'class':'recon-date timeago','title':post.created}),
-		$.el.a({'href':url},
-			$.el.span({'class':'comment-count'}, post.comment_count + " Replies"),
-			" • ",
-			$.el.span({'class':'point-count'},post.score + " Points")
-		)
-	)		
-);
-
+				var reconBox = 	    	
+				$.el.div({'class':'recon-box masonry-box masonry-brick','id':'recon-box-' + post.id},
+					$.el.a({'class':'flag-button'},
+						$.el.img({'src':'/wp-content/themes/imo-mags-northamericanwhitetail/img/flag-button-gray.png','class':'flag-image'})
+					),
+					$.el.a({'href':url},
+						$.el.div({'class':'recon-title-box cover-pic'},
+							//$.el.span({'class':'recon-title-detail'},firstName + "'s " + nicePostType),
+							//$.el.div({'class':'arrow_box'}),
+							$.el.h3(post.title)
+						)
+					),
+					$.el.a({'href':url},
+						$.el.div({'class':'detector-box'})
+					),
+					$.el.div({'class':'recon-image-box','style':'background-color:' + bgcolors[randomnumber]},
+						$.el.a({'href':url},
+							$.el.img({'src':post.img_url,'class':'superpost-thumb'})
+						)
+					),
+					$.el.div({'class':'under-box'},
+						$.el.a({'href':'/profile/' + post.username},
+							$.el.img({'src':'/avatar?uid=' + post.user_id,'class':'recon-gravatar'}),
+							$.el.div({'class':'recon-author-info'},
+								$.el.span({'class':'author-name'},post.display_name),
+								" posted in ",
+								$.el.span({'class':'author-action'},nicePostType)
+								
+							)
+						),
+						
+						$.el.abbr({'class':'recon-date timeago','title':post.created}),
+						$.el.a({'href':url},
+							$.el.span({'class':'comment-count'}, post.comment_count + " Replies"),
+							" • ",
+							$.el.span({'class':'point-count'},post.score + " Points")
+						)
+					)		
+				);
+	
 
 //console.log(reconBox);
 
@@ -826,7 +826,14 @@ function displayUserComments(userID) {
 				encoded = this.comment_body;
 			}
 			
+			var nicePostType = "General Discussion";
+	        if (topicKey[this.rent_type]) {
+		        nicePostType = topicKey[this.rent_type];
+	        } else {
+		        nicePostType = this.rent_type;
+	        }
 
+			
 			var reconRow = $("\
 				<div class='recon-row masonry-box'>\
 					<ul>\
@@ -835,8 +842,8 @@ function displayUserComments(userID) {
 								<div class='row-title'><a href='" + url + "'>" + encoded + "</a></div>\
 							</div>\
 						</li>\
-						<li class='first count-field'><a href='/community/" + this.rent_type + "'>" + this.rent_type + "</a></li>\
-						<!--<li class='count-field'><abbr class='timeago'>" + reply_date + "</abbr></li>-->\
+						<li class='first count-field'>Replied to <a href='/plus/" + this.rent_type + "/" + this.parent_id + "'>" + this.post_title + "</a> in <a href='/community/" + this.rent_type + "'>" + nicePostType + "</a></li>\
+						<li class='count-field'><abbr class='timeago' title='" + this.date + "'></abbr></li>\
 					</ul>\
 				</div>");
 

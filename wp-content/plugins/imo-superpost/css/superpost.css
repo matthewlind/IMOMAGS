@@ -191,7 +191,8 @@ input.submit {
 .super-comments .avatar-holder{
 	margin-bottom: 14px;
     float: left;
-    width: 100%;
+    text-transform: capitalize;
+    font-family: ProximaNovaA-Semibold;
 }
 .super-comments .avatar-holder img{
 	
@@ -308,6 +309,7 @@ li.count-field {
 	padding: 0 4px;
 	float: left;
 	font-size: 0.8em;
+	text-transform: capitalize;
 }
 
 li.user-avatar{

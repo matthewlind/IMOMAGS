@@ -316,9 +316,10 @@ $comment_user_score = $comment_user_score[0];
 		
 		<div class="superpost-comments">
 				<div class="superpost-comment">
+				<a href="/profile/admin" class="superclass-display_name">NOBODY</a>
+
 		    		<div class="superclass-body">
-		    			<a href="/profile/admin" class="username">NOBODY</a>
-		    
+		    					    
 		    			<p>NICE.</p>
 		    		</div>
 		

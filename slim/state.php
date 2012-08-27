@@ -42,6 +42,7 @@ $app->get('/api/superpost/state/:state/type/:post_type(/:count(/:start))',functi
 });
 
 
+
 //*********************************
 //*** Get State Counts for a specific state***
 //*********************************

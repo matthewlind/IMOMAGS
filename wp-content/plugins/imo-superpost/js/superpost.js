@@ -403,7 +403,6 @@ jQuery(document).ready(function($) {
 
     response.gravatar_hash = "/avatar?uid=" + response.user_id;
     
-    
     if (response.img_url) {
 	    response.body = response.body + "<p>[Reload page to see your images]</p>"
     }

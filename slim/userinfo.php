@@ -91,7 +91,7 @@ $app->get('/api/superpost/user/comments/:userid',function($userid){
 
 		}
 
-		$sql = "select posts.id, posts.body as comment_body, posts.share_count as shares, posts.created as date, parent.post_type as rent_type, posts.parent as parent_id from slim.allcounts as posts
+		$sql = "select posts.id, posts.body as comment_body, posts.share_count as shares, posts.created as date, parent.post_type as rent_type, parent.title as post_title, posts.parent as parent_id from slim.allcounts as posts
 		
 				JOIN imomags.wp_users as users on (users.`ID` = posts.user_id)
 				

@@ -88,7 +88,7 @@ $app->get('/api/superpost/photos/:post_type(/:count(/:start))',function($post_ty
 		$whereClause = "WHERE post_type = ?";
 		
 		if ($post_type == "all")
-			$whereClause = "WHERE post_type != 'comment' AND post_type != 'answer' AND post_type != 'photo' AND post_type != 'youtube' AND img_url IS NOT NULL";
+			$whereClause = "WHERE post_type != 'comment' AND post_type != 'answer' AND post_type != 'photo' AND img_url IS NOT NULL";
 
 		$limitClause = "LIMIT $start,$count";
 		
