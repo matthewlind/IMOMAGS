@@ -4127,6 +4127,7 @@ ul.community-cats li.post:hover {
     padding: 2px;
     margin-top: 2px;
     font-weight: normal;
+    text-transform: capitalize;
 }
 #community-topics .post_type_styled_select{     
 	margin: 0;
@@ -4467,7 +4468,8 @@ ul#user-bar li.user-name .header-post-btn:hover{
     padding-top: 40px;
 }
 .page-community #recon-activity{top:0;}
-.page-template-community-php #recon-activity{top:70px;}
+.page-template-community-php #recon-activity,
+.page-template-community-post-php #recon-activity{top:70px;}
 
 .loading-box {
     float: left;
