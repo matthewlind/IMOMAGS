@@ -70,12 +70,41 @@ class postFlagger {
 	
 	//set flags teflon
 	function insulateFlags($post_id) {
-		$sql = "UPDATE superposts SET flag = 2 WHERE id = ?";
+		$rtn = get_defined_vars();
+		
+		$sql = "UPDATE superposts SET approved = 2 WHERE id = ?";
+
+		$stmt = $this->db->prepare($sql);
+		$stmt->execute(array($post_id));
+		
+		$rtn["action"] = "SP Insulated";
+		return $rtn;
+	}
+	
+	function resetFlags($post_id) {
+		$rtn = get_defined_vars();
+		
+		$sql = "UPDATE superposts SET approved = 1 WHERE id = ?";
 
 		$stmt = $this->db->prepare($sql);
 		$stmt->execute(array($post_id));
 
+		$rtn["action"] = "SP Reset to 1";
+		return $rtn;
 	}
+	
+	function maxFlags($post_id) {
+		$rtn = get_defined_vars();
+		
+		$sql = "UPDATE superposts SET approved = 0 WHERE id = ?";
+
+		$stmt = $this->db->prepare($sql);
+		$stmt->execute(array($post_id));
+
+		$rtn["action"] = "SP Censored! (Flag to 0)";
+		return $rtn;
+	}	
+	
 	
 	
 	function prettyjson($json, $html = false) {
