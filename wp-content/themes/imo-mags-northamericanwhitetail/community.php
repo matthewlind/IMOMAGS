@@ -146,7 +146,7 @@ if ( is_user_logged_in() ) {
 			</ul>
 			
 			<ul class="community-cats">
-				<li id="general" class="title"><div></div><h2><a href="/community/general/"">General Discussion</a></h2></li>
+				<li id="general" class="title"><div></div><h2><a href="/community/general/">General Discussion</a></h2></li>
 				<li class="selected points"><a href="/community/general/"><?php echo $generalCount->post_count.' Posts'; ?></a></li>
 			</ul>
 		

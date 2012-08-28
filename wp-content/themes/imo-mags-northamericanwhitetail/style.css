@@ -4110,18 +4110,68 @@ ul.community-cats li.post:hover {
     border-radius: 0 0 0 0;
     -moz-transition: all 0.6s ease 0s;-webkit-transition: 0.6s;
 }
-    
-/* Widget Version */
+
+/* Community Topics Widget */
 #community-topics{
+	margin-bottom: 10px;
+}
+#community-topics ul.community-cats h2 {
+    font-size: 1em;
+    margin: 15px 0 0;
+    padding-left: 0;
+}
+#community-topics ul.community-cats {
+    height: 48px;
+}
+#community-topics ul.community-cats li div {
+    height: 47px;
+    width: 70px;
+}
+#community-topics .sidebar-header {
+    margin: 0 0 -5px;
+    position: relative;
+    z-index: 999px;
+}
+#community-topics ul.community-cats li.points {
+    font-size: 0.7em;
+    margin-top: -26px;  
+    margin-right: 10px;
+}  
+#community-topics li#rut div {
+	background: url('img/rut-reports-icon-sm.png') no-repeat 16px center;
+}
+#community-topics li#tips-tactics div {
+	background: url('img/tips-tactics-icon-sm.png') no-repeat 16px center;
+}
+#community-topics li#lifestyle div {
+	background: url('img/lifestyle-icon-sm.png') no-repeat 15px center;
+}
+#community-topics li#tbucks div {
+	background: url('img/trophy-icon-sm.png') no-repeat center center;
+}
+#community-topics li#general div {
+	background: url('img/discussion-icon-sm.png') no-repeat 16px center;
+}
+#community-topics li#experts div{
+	background: url('img/qa-icon-sm.png') no-repeat center center;
+}
+#community-topics li#gear div {
+	background: url('img/gear-icon-sm.png') no-repeat center center;
+}  
+  
+  
+    
+/* Browse Community Widget */
+#browse-community{
 	background: #ededed;
 	height: 162px;
     margin-bottom: 10px;
     width: 318px;
 }
-#community-topics select.post_type, #community-topics .post_type_styled_select{
+#browse-community select.post_type, #browse-community .post_type_styled_select{
 	width: 290px;
 }
-#community-topics select.post_type{
+#browse-community select.post_type{
 	font-size: 0.9em;
 	height: 26px;
     padding: 2px;
@@ -4129,12 +4179,12 @@ ul.community-cats li.post:hover {
     font-weight: normal;
     text-transform: capitalize;
 }
-#community-topics .post_type_styled_select{     
+#browse-community .post_type_styled_select{     
 	margin: 0;
 	padding: 10px 14px !important;
 	height: 70px;
 }
-#community-topics a.ask-question, #community-topics a.share-photo{
+#browse-community a.ask-question, #browse-community a.share-photo{
 	-moz-transition: all 0.6s ease 0s;-webkit-transition: 0.6s;
 	background-color: #307DEA;
     color: #FFFFFF;
@@ -4146,36 +4196,36 @@ ul.community-cats li.post:hover {
     text-align: center;
     float: left;
 }
-#community-topics a.ask-question:hover, #community-topics a.share-photo:hover{
+#browse-community a.ask-question:hover, #browse-community a.share-photo:hover{
 	-moz-transition: all 0.6s ease 0s;-webkit-transition: 0.6s;
     background-color: #AAA197;
 }
-#community-topics .ask-question{
+#browse-community .ask-question{
 	margin-right: 1px !important;
     width: 159px;
 }
-#community-topics a.share-photo{
+#browse-community a.share-photo{
 	width: 158px;
 }
-#community-topics .state-dropdown-container-sidebar {
+#browse-community .state-dropdown-container-sidebar {
     float: right;
     margin-bottom: 10px;
     margin-top: 10px;
 }
-#community-topics .state-dropdown-container-sidebar .post_type{
+#browse-community .state-dropdown-container-sidebar .post_type{
 	clear: both;
     float: right;
     margin: 0 0 10px;
     padding: 2px 0 4px;
     width: 230px;
 }
-#community-topics .or{
+#browse-community .or{
 	float: left;
     margin: 15px 10px;
     font-family: ProximaNovaA-Regular;
     font-size: 0.7em;
 }
-#community-topics .sponsor{
+#browse-community .sponsor{
  	background: url("img/browse-sponsor.png") no-repeat scroll center center;
     height: 36px;
     margin: 20px auto;
@@ -4915,10 +4965,10 @@ ul#scroll-widget li a:hover span{
 ** State Pages
 ****
 *************/
-#community-topics.state-nav {
+#browse-community.state-nav {
     height: 112px;
 }
-#community-topics.state-nav .state-dropdown-container-sidebar .post_type{
+#browse-community.state-nav .state-dropdown-container-sidebar .post_type{
     width: 290px;
 }
 

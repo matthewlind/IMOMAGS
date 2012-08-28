@@ -111,7 +111,7 @@ $data = $data[0];
    	<div class="bonus-background">
 		<div class="bonus">
 			<!-- state nav -->
-			  <aside id="community-topics" class="community-topics-widget state-nav">
+			  <aside id="browse-community" class="browse-community-widget state-nav">
      	<div class="sidebar-header">
 		    <h2>Browse by State</h2>
 		</div>

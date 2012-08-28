@@ -1,5 +1,7 @@
 <?php // Custom Community Topics Widget
 
+
+
 class community_topics_Widget extends WP_Widget {
 	function community_topics_Widget() {
 		$widget_ops = array('classname' => 'widget_community_topics', 'description' => 'Community Topics Widget.' );
@@ -8,140 +10,108 @@ class community_topics_Widget extends WP_Widget {
  
 	function widget($args, $instance) {
 		extract($args, EXTR_SKIP);
+		
+		
+		
+		$hostname = $_SERVER['SERVER_NAME'];
+
+
+//Get Post Count Data
+$requestURL = "http://$hostname/slim/api/superpost/count/general";
+
+$file = file_get_contents($requestURL);
+$generalCount = json_decode($file);
+$generalCount = $generalCount[0];
+
+$requestURL2 = "http://$hostname/slim/api/superpost/count/report";
+
+$file2 = file_get_contents($requestURL2);
+$reportCount = json_decode($file2);
+$reportCount = $reportCount[0];
+
+$requestURL3 = "http://$hostname/slim/api/superpost/count/question";
+
+$file3 = file_get_contents($requestURL3);
+$questionCount = json_decode($file3);
+$questionCount = $questionCount[0];
+
+$requestURL4 = "http://$hostname/slim/api/superpost/count/trophy";
+
+$file4 = file_get_contents($requestURL4);
+$trophyCount = json_decode($file4);
+$trophyCount = $trophyCount[0];
+
+$requestURL5 = "http://$hostname/slim/api/superpost/count/tip";
+
+$file5 = file_get_contents($requestURL5);
+$tipCount = json_decode($file);
+$$tipCount = $tipCount[0];
+
+$requestURL6 = "http://$hostname/slim/api/superpost/count/lifestyle";
+
+$file6 = file_get_contents($requestURL6);
+$lifestyleCount = json_decode($file6);
+$lifestyleCount = $lifestyleCount[0];
+
+$requestURL7 = "http://$hostname/slim/api/superpost/count/gear";
+
+$file7 = file_get_contents($requestURL7);
+$gearCount = json_decode($file7);
+$gearCount = $gearCount[0];
+
+$requestURL8 = "http://$hostname/slim/api/superpost/count/tip";
+
+$file8 = file_get_contents($requestURL8);
+$tipCount = json_decode($file8);
+$tipCount = $tipCount[0];
+
+$requestURL9 = "http://$hostname/slim/api/superpost/count/gear";
+
+$file9 = file_get_contents($requestURL9);
+$gearCount = json_decode($file9);
+$gearCount = $gearCount[0];
 ?>
 
     <aside id="community-topics" class="community-topics-widget">
      	<div class="sidebar-header">
 		    <h2>Browse the Community</h2>
 		</div>
-		 <div class="post_type_styled_select">
-	         <select id="dynamic_select" class="post_type" name="post_type">
-	         	<option value="" selected="selected">Choose a Topic</option> 
-	         	<option value="/community/report">Rut Reports</option> 
-	         	<option value="/community/trophy">Trophy Bucks</option>
-	         	<option value="/community/question">Q&A</option>      
-	         	<option value="/community/gear">Gear</option>
-	            <option value="/community/lifestyle">Lifestyle</option>
-	            <option value="/community/tip"">Tips & Tactics</option>
-	            <option value="/community/general">General Discussion</option>
-	          </select>
-	          
-	          <div class="or">- OR -</div>
-	          
-	          <div class="state-dropdown-container-sidebar">
-	    	<select id="state" name="state" class="post_type state">
-		            <?php
-		            $hostname = 'http://'.$_SERVER['SERVER_NAME'];	
-		            if (is_page('trophy')){
-			            echo '<option value="">State Trophy Bucks</option>';
-			            echo strtolower('<option value="'.$hostname.'/community/trophy/alabama">Alabama</option>
-			            <option value="'.$hostname.'/community/trophy/Arizona">Arizona</option>
-			            <option value="'.$hostname.'/community/trophy/Arkansas">Arkansas</option>
-			            <option value="'.$hostname.'/community/trophy/California">California</option>
-			            <option value="'.$hostname.'/community/trophy/Colorado">Colorado</option>
-			            <option value="'.$hostname.'/community/trophy/Connecticut">Connecticut</option>
-			            <option value="'.$hostname.'/community/trophy/Delaware">Delaware</option>
-			            <option value="'.$hostname.'/community/trophy/Florida">Florida</option>
-			            <option value="'.$hostname.'/community/trophy/Georgia">Georgia</option>
-			            <option value="'.$hostname.'/community/trophy/Idaho">Idaho</option>
-			            <option value="'.$hostname.'/community/trophy/Illinois">Illinois</option>
-			            <option value="'.$hostname.'/community/trophy/Indiana">Indiana</option>
-			            <option value="'.$hostname.'/community/trophy/Iowa">Iowa</option>
-			            <option value="'.$hostname.'/community/trophy/Kansas">Kansas</option>
-			            <option value="'.$hostname.'/community/trophy/Kentucky">Kentucky</option>
-			            <option value="'.$hostname.'/community/trophy/Louisiana">Louisiana</option>
-			            <option value="'.$hostname.'/community/trophy/Maine">Maine</option>
-			            <option value="'.$hostname.'/community/trophy/Maryland">Maryland</option>
-			            <option value="'.$hostname.'/community/trophy/Massachusetts">Massachusetts</option>
-			            <option value="'.$hostname.'/community/trophy/Michigan">Michigan</option>
-			            <option value="'.$hostname.'/community/trophy/Minnesota">Minnesota</option>
-			            <option value="'.$hostname.'/community/trophy/Mississippi">Mississippi</option>
-			            <option value="'.$hostname.'/community/trophy/Missouri">Missouri</option>
-			            <option value="'.$hostname.'/community/trophy/Montana">Montana</option>
-			            <option value="'.$hostname.'/community/trophy/Nebraska">Nebraska</option>
-			            <option value="'.$hostname.'/community/trophy/Nevada">Nevada</option>
-			            <option value="'.$hostname.'/community/trophy/new-hampshire">New Hampshire</option>
-			            <option value="'.$hostname.'/community/trophy/new-jersey">New Jersey</option>
-			            <option value="'.$hostname.'/community/trophy/new-mexico">New Mexico</option>
-			            <option value="'.$hostname.'/community/trophy/new-york">New York</option>
-			            <option value="'.$hostname.'/community/trophy/north-carolina">North Carolina</option>
-			            <option value="'.$hostname.'/community/trophy/north-dakota">North Dakota</option>
-			            <option value="'.$hostname.'/community/trophy/Ohio">Ohio</option>
-			            <option value="'.$hostname.'/community/trophy/Oklahoma">Oklahoma</option>
-			            <option value="'.$hostname.'/community/trophy/Oregon">Oregon</option>
-			            <option value="'.$hostname.'/community/trophy/Pennsylvania">Pennsylvania</option>
-			            <option value="'.$hostname.'/community/trophy/rhode-island">Rhode Island</option>
-			            <option value="'.$hostname.'/community/trophy/south-carolina">South Carolina</option>
-			            <option value="'.$hostname.'/community/trophy/south-dakota">South Dakota</option>
-			            <option value="'.$hostname.'/community/trophy/Tennessee">Tennessee</option>
-			            <option value="'.$hostname.'/community/trophy/Texas">Texas</option>
-			            <option value="'.$hostname.'/community/trophy/Utah">Utah</option>
-			            <option value="'.$hostname.'/community/trophy/Vermont">Vermont</option>
-			            <option value="'.$hostname.'/community/trophy/Virginia">Virginia</option>
-			            <option value="'.$hostname.'/community/trophy/Washington">Washington</option>
-			            <option value="'.$hostname.'/community/trophy/west-virginia">West Virginia</option>
-			            <option value="'.$hostname.'/community/trophy/Wisconsin">Wisconsin</option>
-			            <option value="'.$hostname.'/community/trophy/Wyoming">Wyoming</option>');
-			        }else{
-			            echo '<option value="">State Rut Reports</option>';
-			            echo strtolower('<option value="'.$hostname.'/community/report/alabama">Alabama</option>
-			            <option value="'.$hostname.'/community/report/Arizona">Arizona</option>
-			            <option value="'.$hostname.'/community/report/Arkansas">Arkansas</option>
-			            <option value="'.$hostname.'/community/report/California">California</option>
-			            <option value="'.$hostname.'/community/report/Colorado">Colorado</option>
-			            <option value="'.$hostname.'/community/report/Connecticut">Connecticut</option>
-			            <option value="'.$hostname.'/community/report/Delaware">Delaware</option>
-			            <option value="'.$hostname.'/community/report/Florida">Florida</option>
-			            <option value="'.$hostname.'/community/report/Georgia">Georgia</option>
-			            <option value="'.$hostname.'/community/report/Idaho">Idaho</option>
-			            <option value="'.$hostname.'/community/report/Illinois">Illinois</option>
-			            <option value="'.$hostname.'/community/report/Indiana">Indiana</option>
-			            <option value="'.$hostname.'/community/report/Iowa">Iowa</option>
-			            <option value="'.$hostname.'/community/report/Kansas">Kansas</option>
-			            <option value="'.$hostname.'/community/report/Kentucky">Kentucky</option>
-			            <option value="'.$hostname.'/community/report/Louisiana">Louisiana</option>
-			            <option value="'.$hostname.'/community/report/Maine">Maine</option>
-			            <option value="'.$hostname.'/community/report/Maryland">Maryland</option>
-			            <option value="'.$hostname.'/community/report/Massachusetts">Massachusetts</option>
-			            <option value="'.$hostname.'/community/report/Michigan">Michigan</option>
-			            <option value="'.$hostname.'/community/report/Minnesota">Minnesota</option>
-			            <option value="'.$hostname.'/community/report/Mississippi">Mississippi</option>
-			            <option value="'.$hostname.'/community/report/Missouri">Missouri</option>
-			            <option value="'.$hostname.'/community/report/Montana">Montana</option>
-			            <option value="'.$hostname.'/community/report/Nebraska">Nebraska</option>
-			            <option value="'.$hostname.'/community/report/Nevada">Nevada</option>
-			            <option value="'.$hostname.'/community/report/new-hampshire">New Hampshire</option>
-			            <option value="'.$hostname.'/community/report/new-jersey">New Jersey</option>
-			            <option value="'.$hostname.'/community/report/new-mexico">New Mexico</option>
-			            <option value="'.$hostname.'/community/report/new-york">New York</option>
-			            <option value="'.$hostname.'/community/report/north-carolina">North Carolina</option>
-			            <option value="'.$hostname.'/community/report/north-dakota">North Dakota</option>
-			            <option value="'.$hostname.'/community/report/Ohio">Ohio</option>
-			            <option value="'.$hostname.'/community/report/Oklahoma">Oklahoma</option>
-			            <option value="'.$hostname.'/community/report/Oregon">Oregon</option>
-			            <option value="'.$hostname.'/community/report/Pennsylvania">Pennsylvania</option>
-			            <option value="'.$hostname.'/community/report/rhode-island">Rhode Island</option>
-			            <option value="'.$hostname.'/community/report/south-carolina">South Carolina</option>
-			            <option value="'.$hostname.'/community/report/south-dakota">South Dakota</option>
-			            <option value="'.$hostname.'/community/report/Tennessee">Tennessee</option>
-			            <option value="'.$hostname.'/community/report/Texas">Texas</option>
-			            <option value="'.$hostname.'/community/report/Utah">Utah</option>
-			            <option value="'.$hostname.'/community/report/Vermont">Vermont</option>
-			            <option value="'.$hostname.'/community/report/Virginia">Virginia</option>
-			            <option value="'.$hostname.'/community/report/Washington">Washington</option>
-			            <option value="'.$hostname.'/community/report/west-virginia">West Virginia</option>
-			            <option value="'.$hostname.'/community/report/Wisconsin">Wisconsin</option>
-			            <option value="'.$hostname.'/community/report/Wyoming">Wyoming</option>');
-		            } ?>
-		           		
-		          </select>	
-	          </div>
-        </div>
-        <div class="buttons">
-	     	<a href="/community/question" class="ask-question">Ask a Question</a>
-	     	<a href="/community-post" class="share-photo">Share a Photo</a>        
-        </div>
-        </aside>
+
+	         	<ul class="community-cats">
+				<li id="rut" class="title"><div></div><h2><a href="/community/report/" term="report" display="list">State Rut Reports</a></h2></li>
+				<li class="selected points"><a href="/community/report/"><?php echo $reportCount->post_count.' Posts'; ?></a></li>
+			</ul>
+			
+			<ul class="community-cats">
+				<li id="tbucks" class="title"><div></div><h2><a href="/community/trophy/">Trophy Bucks</a></h2></li>
+				<li class="selected points"><a href="/community/trophy/"><?php echo $trophyCount->post_count.' Posts'; ?></a></li>
+			</ul>
+			
+			<ul class="community-cats">
+				<li id="experts" class="title"><div></div><h2><a href="/community/question/">Q&A</a></h2></li>
+				<li class="selected points"><a href="/community/question/"><?php echo $questionCount->post_count.' Posts'; ?></a></li>
+			</ul>
+			
+			<ul class="community-cats">
+				<li id="gear" class="title"><div></div><h2><a href="/community/gear/">Gear</a></h2></li>
+				<li class="selected points"><a href="/community/gear/"><?php echo $gearCount->post_count.' Posts'; ?></a></li>
+			</ul>
+			
+			<ul class="community-cats">
+				<li id="lifestyle" class="title"><div></div><h2><a href="/community/lifestyle/">Lifestyle</a></h2></li>
+				<li class="selected points"><a href="/community/lifestyle/"><?php echo $lifestyleCount->post_count.' Posts'; ?></a></li>
+			</ul>
+			
+			<ul class="community-cats">
+				<li id="tips-tactics" class="title"><div></div><h2><a href="/community/tip/">Tips & Tactics</a></h2></li>
+				<li class="selected points"><a href="/community/tip/"><?php echo $tipCount->post_count.' Posts'; ?></a></li>
+			</ul>
+			
+			<ul class="community-cats">
+				<li id="general" class="title"><div></div><h2><a href="/community/general/">General Discussion</a></h2></li>
+				<li class="selected points"><a href="/community/general/"><?php echo $generalCount->post_count.' Posts'; ?></a></li>
+			</ul>	          
+	   </aside>
 
 <?php	}
  
