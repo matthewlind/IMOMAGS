@@ -313,7 +313,7 @@ $data = $data[0];
     		<p>No Activity.</p>
     	</div>
 
-        <div id="recon-activity" term="<?php echo $post_type; ?>" display="tile" widthMode="short" state="<?php echo $state; ?>">
+        <div id="recon-activity" term="<?php echo $post_type; ?>" display="list" widthMode="short" state="<?php echo $state; ?>">
 
 
        </div>

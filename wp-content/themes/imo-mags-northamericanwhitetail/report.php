@@ -253,7 +253,7 @@ if ( is_user_logged_in() ) {
 	    <div class="col-abc">
 		
 	    <h2 class="comm-header stream-header">Latest Rut <?php the_title(); ?>s</h2>
-        <div id="recon-activity" term="report" display="tile" widthMode="short">
+        <div id="recon-activity" term="report" display="list" widthMode="short">
 
 
        </div>

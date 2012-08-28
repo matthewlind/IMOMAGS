@@ -184,6 +184,7 @@ $("#more-superposts-button").click(function(){
 	var postType = $("ul.post-type-select li.selected").attr("title");
 	currentDisplayStart += displayAtOnce;
 	if (displayMode == "tile") { //then show some tiles
+		postType = "all";
 		displayRecon(postType);
 
 	} else { //then show the list
@@ -667,7 +668,12 @@ function displayReconList(type) {
 
 
     var getdata = $.getJSON(dataURL, function(data) {
-    
+    	if(data.length > 0){
+	    	$("#no-activity").hide();
+	    }else if(data.length > displayAtOnce){
+	    	$("#more-community-button").show();
+	    }
+
 	    //$(".animal-container").html("");
 	    
 	    var count = 0;
