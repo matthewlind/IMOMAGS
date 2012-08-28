@@ -344,3 +344,10 @@ h2.entry-title a {
 #header-sub img {
     width: 71px;
 }
+
+.dl-header-mini{
+	background: url('http://www.petersenshunting.com/files/2012/08/DirtyLens.jpg') no-repeat top center;
+	width: 100%;
+	height: 221px;
+	margin-bottom: 20px;
+}
