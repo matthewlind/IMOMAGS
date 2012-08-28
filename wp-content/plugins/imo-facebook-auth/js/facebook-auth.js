@@ -107,14 +107,18 @@ jQuery(document).ready(function($) {
 					            $userBar.fadeIn();
 				            });
 				            
-				            $(".fb-join-widget-box .widget_gravity_form").fadeOut(500,function(){
+				            
+				            //replace when App is live
+				             $(".fb-join-widget-box").fadeOut(500);
+				            //$(".fb-join-widget-box .widget_gravity_form").fadeOut(500,function(){
+					    
 					            
-					            $.get('/static-widgets/get-the-app.html', function(data) {
+					          //  $.get('/static-widgets/get-the-app.html', function(data) {
 								  
-								  $(data).prependTo(".fb-join-widget-box").fadeIn();
+								//  $(data).prependTo(".fb-join-widget-box").fadeIn();
 		
-								});
-				            });
+								//});
+				           // });
 				            
 				            
 				            $(".fast-login-then-post-button").fadeOut(400,function(){

@@ -25,7 +25,7 @@ class Join_Widget extends WP_Widget {
 	    }
     ?>
 
-    <div class="fb-join-widget-box"style="<?php echo $loginStyle; ?>">
+    <div class="fb-join-widget-box" style="<?php echo $loginStyle; ?>">
 	    <aside id="join" class="box widget_gravity_form " style="<?php echo $loginStyle; ?>">
 	      <div class="content_wrapper">
 	      	  <div id="imo-fb-login-button" class="fb-login join-widget-fb-login">Fast Facebook Login</div>
