@@ -4016,7 +4016,7 @@ h3.first-last-name{
 **
 *****/
 .page-template-community-post-php .col-abc.super-post .entry-content{
-	margin-top: 100px;
+	/*margin-top: 100px;*/
 }
 ul.community-cats{
 	margin: 0 0 4px 0;
@@ -4517,9 +4517,9 @@ ul#user-bar li.user-name .header-post-btn:hover{
     border-top: 2px solid;
     padding-top: 40px;
 }
-.page-community #recon-activity{top:0;}
+.page-community #recon-activity,
 .page-template-community-php #recon-activity,
-.page-template-community-post-php #recon-activity{top:70px;}
+.page-template-community-post-php #recon-activity{top:0;}
 
 .loading-box {
     float: left;

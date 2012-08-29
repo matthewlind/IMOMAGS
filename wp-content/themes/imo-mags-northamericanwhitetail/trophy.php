@@ -250,7 +250,7 @@ if ( is_user_logged_in() ) {
 <div class="col-abc">
 		
     <h2 class="comm-header stream-header">Latest <?php the_title(); ?> Bucks</h2>
-    <div id="recon-activity" term="trophy" display="tile" widthMode="short">
+    <div id="recon-activity" term="trophy" display="list" widthMode="short">
 
 
 	</div>

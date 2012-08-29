@@ -79,7 +79,7 @@ if ( is_user_logged_in() ) {
             	<a id="toggle-tile" class="tile-on"></a>
             	<span class="toggle-sep"></span>
             	<a id="toggle-list" class="list-off"></a>
-            </div>-->
+            </div>
             <ul class="post-type-select">
             	<li class="post new-post-button"><a href="/community-post"><span>+</span> Post</a></li>
                 <li class='change selected' title='all'>ALL</li>
@@ -89,7 +89,7 @@ if ( is_user_logged_in() ) {
                 <li class='change' title='tip'>Tips</li>
                 <li class='change' title='general'>General</li>
                 
-            </ul>   
+            </ul>  --> 
        
 			<ul id="user-bar" style="<?php echo $displayStyle; ?>">	          
 				<li class="user-name">Hello, <a href="/profile/<?php echo $current_user->user_nicename; ?>"><span id="current-user-name"><?php echo $current_user->display_name; ?></span></a></li>

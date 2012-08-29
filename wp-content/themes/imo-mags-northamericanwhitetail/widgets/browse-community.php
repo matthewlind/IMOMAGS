@@ -29,7 +29,7 @@ class browse_community_Widget extends WP_Widget {
 	          <div class="or">- OR -</div>
 	          
 	          <div class="state-dropdown-container-sidebar">
-	    	<select id="state" name="state" class="post_type state">
+		          <select id="state" name="state" class="post_type state">
 		            <?php
 		            $hostname = 'http://'.$_SERVER['SERVER_NAME'];	
 		            if (is_page('trophy')){
