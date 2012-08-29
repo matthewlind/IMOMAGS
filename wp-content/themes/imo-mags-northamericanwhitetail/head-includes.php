@@ -11,9 +11,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 	<!-- FONTS -->
 	<link href='http://fonts.googleapis.com/css?family=Anton&v1' rel='stylesheet' type='text/css'>
-	<!-- jetpack -->
-	<script type='text/javascript' src='http://ads.jetpackdigital.com/sites/nawhitetail/jpd.js'></script>
-	
+
 	<script type="text/javascript">
 
   var _gaq = _gaq || [];

@@ -47,6 +47,10 @@ $postTitle = wp_title( '-', false, 'right' );
 		<link rel="stylesheet" type="text/css" media="screen" href="<?php bloginfo('template_url'); ?>/css/lte-ie7.css?ver=<?php echo CFCT_URL_VERSION; ?>" />
 	<![endif]-->
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
+	
+	<!-- jetpack -->
+	<script type='text/javascript' src='http://ads.jetpackdigital.com/sites/nawhitetail/jpd.js'></script>
+	
 	<?php
 	// Include javascript for threaded comments if needed
 	if ( is_singular() && get_option('thread_comments') ) { wp_enqueue_script( 'comment-reply' ); }
