@@ -57,3 +57,28 @@
 		margin:0px;
 	padding:0px;
 }
+
+
+.recon-box .editor-functions {
+	right: 0px;
+	top: 270px;
+	position: absolute;
+}
+
+.recon-row .editor-functions {
+	right: 0px;
+	top: 10px;
+	position: absolute;
+}
+
+.superpost-comment-container .editor-functions {
+	right: 350px;
+
+	position: absolute;
+}
+
+.entry-content .editor-functions {
+	right: 0px;
+
+	position: absolute;
+}

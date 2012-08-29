@@ -681,6 +681,8 @@ $app->post('/api/post/flag',function() {
 
 	_log("FLAGGING STARTED");
 	_log($params);
+	
+
 
 	if (!(isset($params['post_id']) && isset($params['etype']) && isset($params['user_id']))) {
 		$rtn["error"] = "Invalid Request";
@@ -722,6 +724,13 @@ $app->post('/api/post/flagadmin',function() {
 
 	_log("FLAGGING STARTED");
 	_log($params);
+	
+		
+	//Get the user info and authenticate
+	$userIsGood = userIsGood($params['username'],$params['userhash']);
+	$userIsEditor = userIsEditor($params['username'],$params['timecode'],$params['editor_hash']);
+	
+	
 
 	if (!(isset($params['post_id']) && isset($params['etype']) && isset($params['user_id']))) {
 		$rtn["error"] = "Invalid Request";
@@ -730,6 +739,12 @@ $app->post('/api/post/flagadmin',function() {
 	elseif (!($params['post_id']!="" && $params['etype']!="" && $params['user_id']!="")) {
 		$rtn["error"] = "Invalid Parameters";
 	
+	}
+	elseif (!$userIsGood) {
+		$rtn["error"] = "Bad User Account.";
+	}
+	elseif (!$userIsEditor) {
+		$rtn["error"] = "Expired Token. Reload the page to get a new token.";
 	}
 	else {
 	

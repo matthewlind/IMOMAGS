@@ -245,7 +245,17 @@ $state = $stateSlugToAbbv[$state_slug];
 
 			       echo '<a class="single-flag-button" spid="' . $spid . '"><img src="/wp-content/themes/imo-mags-northamericanwhitetail/img/flag-button-gray.png" class="flag-image"></a>';
 			       
+			       
 			?>
+			
+			<?php if (current_user_can('delete_others_posts')) { ?>    
+			    <select class="editor-functions" spid="<?php echo $spid; ?>">
+			    	<option>EDITOR OPTIONS</option>
+			    	<option value="unapprove">Unapprove</option>
+			    	<option value="teflon">Teflon</option>
+			    </select>
+			    
+		    <?php } //ENDIF current_user_can('delete_others_posts')?>
 	     
 			</div>
 		</div><!-- .entry -->
@@ -302,6 +312,14 @@ $comment_user_score = $comment_user_score[0];
 	           </div>
 	           
 	    </div>
+	    <?php if (current_user_can('delete_others_posts')) { ?>    
+		    <select class="editor-functions" spid="<?php echo $comment->comment_id; ?>">
+		    	<option>EDITOR OPTIONS</option>
+		    	<option value="unapprove">Unapprove</option>
+		    	<option value="teflon">Teflon</option>
+		    </select>
+		    
+	    <?php } //ENDIF urrent_user_can('delete_others_posts')?>
 	    
 	    <a class="single-flag-button" spid="<?php echo $comment->comment_id; ?>"><img src="/wp-content/themes/imo-mags-northamericanwhitetail/img/flag-button-gray.png" class="flag-image"></a>
 	</div><!-- end superpost-comment-single -->

@@ -36,6 +36,7 @@ function imo_user_display() {
 function imo_get_user($userID = -1) {
 
 	$salt = "jYSe38xE3:lfsbEV2u.nUB^?80AXr3<%_VA4!)cfX.z";
+	$editorSalt = "AspenMichiganS252yysSl2*252sgcv222@#@!xx";
 	
 	$timecode = time();
 	
@@ -49,11 +50,20 @@ function imo_get_user($userID = -1) {
 	}
 	
 	
+	
 	$facebookID = get_user_meta($userID,"facebook_ID",true);
 	$state = get_user_meta($userID,"state",true);
 
 	$userhash = md5($user_login . $salt);
 	$timecode_hash = md5($timecode . $salt);
+	$user_timecode_hash = md5($user_login .$timecode . $salt);
+	
+	
+	$perms = "user";
+	if (in_array("administrator",$WPuser->roles) || in_array("editor",$WPuser->roles)) {
+		$perms = "editor";
+		$editor_hash = md5($user_login .$timecode . $editorSalt);
+	}
 
 	$user = array(
 		"username" => $user_login,
@@ -64,7 +74,10 @@ function imo_get_user($userID = -1) {
 		"timecode_hash" => $timecode_hash,
 		"display_name" => $WPuser->display_name,
 		"facebook_id" => $facebookID,
-		"default_state" => $state
+		"default_state" => $state,
+		"perms" => $perms,
+		"editor_hash" => $editor_hash,
+		"user_timecode_hash" => $user_timecode_hash,
 	);
 	
 	return $user;
