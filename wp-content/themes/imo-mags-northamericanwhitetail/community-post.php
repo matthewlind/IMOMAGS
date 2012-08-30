@@ -289,14 +289,17 @@ if ( is_user_logged_in() ) {
 		        <div class="video-close-button">
 		        </div>
 		      </div>
-		       <h4 style="display:none" class="photo-attachement-header">Photos</h4>
+		       
+		      
+		      
+		      </div><!-- /.media-section-->
+		      <h4 style="display:none" class="photo-attachement-header">Photos</h4>
 		      <div class="attached-photos">
 		      </div>
-		    </div>
+		      
 	    </div> <!-- End new-superpost-modal-container -->
-	    
-	   		
-	</div><!-- .col-abc -->	
+	    </div> <!-- end .col-abc -->
+
 <div class="col-abc super-post">
         <div class="entry-content">
             <div class="super-header">

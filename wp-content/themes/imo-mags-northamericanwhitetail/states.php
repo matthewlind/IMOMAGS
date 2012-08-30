@@ -298,14 +298,17 @@ $data = $data[0];
 		        <div class="video-close-button">
 		        </div>
 		      </div>
-		       <h4 style="display:none" class="photo-attachement-header">Photos</h4>
+		       
+		      
+		      
+		      </div><!-- /.media-section-->
+		      <h4 style="display:none" class="photo-attachement-header">Photos</h4>
 		      <div class="attached-photos">
 		      </div>
 		      
-		      </div><!-- /.media-section-->
-		      
 	    </div> <!-- End new-superpost-modal-container -->
 	    </div> <!-- end .col-abc -->
+
 	    <div class="col-abc">
 		
 	    <h2 class="comm-header stream-header" style="text-transform:capitalize;">Latest <?php if($post_type == 'report'){ echo $stateTitle.' Rut '.$post_type.'s';  }else{ echo $stateTitle.' '.$post_type.' Bucks'; } ?></h2>

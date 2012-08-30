@@ -91,7 +91,9 @@ if ( is_user_logged_in() ) {
 		        <input type="hidden" name="form_id" value="fileUploadForm">
 		        <input type="hidden" name="attachment_id" class="attachment_id" value="">	   
 		        <input type="submit" value="Submit" class="submit" style="<?php echo $displayStyle; ?>"/>
-		        <div class="fast-login-then-post-button" style="<?php echo $loginStyle; ?>">Submit & Login</div>
+		        
+		        <div class="fast-login-then-post-button" style="<?php echo $loginStyle; ?>">Submit & Login <img class="submit-icon" src="/wp-content/themes/imo-mags-northamericanwhitetail/img/fb.png" height=20 width=20></div>
+		
 	     
 		        <p class="login-note">
 		        </p>
@@ -235,18 +237,20 @@ if ( is_user_logged_in() ) {
 				            <input type="hidden" name="form_id" value="fileUploadForm">
 				       </form>
 				   </div>
-			       <div class="video-close-button">
-			       </div>
-			  </div><!-- /.video-url-form-holder-container-->
-			  
-			  <h4 style="display:none" class="photo-attachement-header">Photos</h4>
-			  <div class="attached-photos">
-			  </div>
-		</div><!-- /.media-section-->
-	        
-			
-	</div> <!-- End new-superpost-modal-container -->
-</div> <!-- end .col-abc -->
+		        <div class="video-close-button">
+		        </div>
+		      </div>
+		       
+		      
+		      
+		      </div><!-- /.media-section-->
+		      <h4 style="display:none" class="photo-attachement-header">Photos</h4>
+		      <div class="attached-photos">
+		      </div>
+		      
+	    </div> <!-- End new-superpost-modal-container -->
+	    </div> <!-- end .col-abc -->
+
 <div class="col-abc">
 		
     <h2 class="comm-header stream-header">Latest <?php the_title(); ?> Bucks</h2>

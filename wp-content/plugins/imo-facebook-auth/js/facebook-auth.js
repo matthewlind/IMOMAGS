@@ -52,12 +52,9 @@ jQuery(document).ready(function($) {
 
 	jQuery(".imo-fb-login-button, .fast-login-then-post-button, .join-widget-fb-login").click(function(){
 						
-		imo_fb_login();
+
 		
 		var $clickedButton = $(this);
-
-	
-		function imo_fb_login() {
 		
 		$(".imo-fb-login-button").css({ opacity: 0.5 });
 		$(".join-widget-fb-login").css({ opacity: 0.5 });
@@ -74,7 +71,7 @@ jQuery(document).ready(function($) {
 			   
 			     //console.log('Welcome!  Fetching your information.... ');
 			     FB.api('/me', function(response) {
-			       //console.log('Good to see you, ' + response.name + '.');
+			       //console.log('FB FETCH INFO RESPONSE: ' + response.name + '.');
 			       
 			       
 			       
@@ -106,8 +103,7 @@ jQuery(document).ready(function($) {
 					            
 					            $userBar.fadeIn();
 				            });
-				            
-				            
+				                     
 				            //replace when App is live
 				             $(".fb-join-widget-box").fadeOut(500);
 				            //$(".fb-join-widget-box .widget_gravity_form").fadeOut(500,function(){
@@ -119,21 +115,25 @@ jQuery(document).ready(function($) {
 		
 								//});
 				           // });
-				            
+				           
+			           		//If this was a login&post button, submit the form
+			           		if ($clickedButton.hasClass("fast-login-then-post-button")) {
+				            	//alert("fast login used!");
+				            	
+				            	//console.log("clicked button:",$clickedButton );
+				            	
+				            	//console.log("Submitted Forms:",$("#fileUploadForm"));
+				            	
+				            	$("#fileUploadForm").first().submit();
+					            
+				            }
 				            
 				            $(".fast-login-then-post-button").fadeOut(400,function(){
 					            
 					            //$(".submit").css({ opacity: 0.5 });
 					            $(".submit").fadeIn();
 					            
-					            if ($clickedButton.hasClass("fast-login-then-post-button")) {
-					            	//alert("fast login used!");
-					            	
-					            	//console.log("clicked button:",$clickedButton );
-					            	
-					            	$("#fileUploadForm").first().submit();
-						            
-					            }
+
 					            
 					            
 					            
@@ -155,7 +155,7 @@ jQuery(document).ready(function($) {
 			     //console.log('User cancelled login or did not fully authorize.');
 			   }
 			 }, {scope: 'email,user_hometown'});
-		}//END imo_fb_login
+
 	});
 
 });

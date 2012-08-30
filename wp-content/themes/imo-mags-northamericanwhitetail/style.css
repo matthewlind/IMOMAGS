@@ -2041,6 +2041,9 @@ a.comment-count:hover {
 home .super-post{padding-top:68px;}
 .super-header{width: 1020px;height:50px;position: relative;}
 .super-post{clear: both;width:1030px !important;}
+
+
+
 .home .page-template-page-right-php .cfct-block-c{
 	padding-left: 40px;
 }
@@ -2716,28 +2719,32 @@ width:580px;
 .fileupload-buttonbar input{
     position: absolute;
     top: 0;
-    margin: 0 0 20px 0;
+/*     margin: 0 0 20px 0; */
     border: solid transparent;
     /*border-width: 0 0 100px 200px;*/
     opacity: 0.0;
     filter: alpha(opacity=0);
+/*
     -o-transform: translate(250px, -50px) scale(1);
     -moz-transform: translate(-470px, 0) scale(3);
+*/
     direction: ltr;
+    height:26px;
     cursor: pointer;
-    width:90px;
+    width:120px;
     
     
 }
 
 .super-comments .fileupload-buttonbar input, 
 .simplemodal-container .fileupload-buttonbar input{
-	left:580px;
+	left:0px;
 }
 
 .page-community .fileupload-buttonbar input{
-	top:20px;
-	height:10px;
+	top:0px;
+	left:0px;
+	height:26px;
 	width:120px;
 }
 
@@ -2913,7 +2920,7 @@ select.modal_post_type {
 }
 
 .state-dropdown-container {
-    margin-top:10px;
+/*     margin-top:10px; */
     margin-bottom:10px;
 }
 .page-template-report-php .media-section,
@@ -4016,7 +4023,7 @@ h3.first-last-name{
 **
 *****/
 .page-template-community-post-php .col-abc.super-post .entry-content{
-	/*margin-top: 100px;*/
+	padding-top: 100px;
 }
 ul.community-cats{
 	margin: 0 0 4px 0;
@@ -4237,9 +4244,10 @@ ul.community-cats li.post:hover {
 	left:436px; 
 }
 .page-community .new-superpost-modal-container .fast-login-then-post-button {
-    left: 436px;
-    position: relative;
-    top: 60px;
+
+	left: 438px;
+	position: absolute;
+	top: 252px;
 }
 
 .page-template-question-php .fast-login-then-post-button {
@@ -4260,11 +4268,12 @@ ul.community-cats li.post:hover {
     left: 431px;
     position: absolute;
     top:235px;
-    width: 142px;
+    width: 171px;
     font-family: 'Lucida Grande';
     font-size: 16px;
 }
 
+/*
 .fast-login-then-post-button:hover {
     -moz-transition: all 0.6s ease 0s;
     background: url('img/fb-btn-logo.jpg') no-repeat scroll 0px 0px #3a5a9b !important;
@@ -4283,6 +4292,7 @@ ul.community-cats li.post:hover {
     top: 235px;
     width: 142px;
 }
+*/
 .fast-login-then-post-button img {
 	vertical-align: text-bottom;
 	margin-left:3px;
@@ -4424,7 +4434,7 @@ ul#user-bar li.user-name .header-post-btn:hover{
     width: 190px;
 }  
 .page-community .superpost-form input[type="submit"]{
-	left: 280px;
+	left: 274px;
     position: absolute;
     top: 300px;
     width: 190px;
@@ -4447,6 +4457,7 @@ ul#user-bar li.user-name .header-post-btn:hover{
 }
 .page-community .media-section{
 	margin: 0 0 10px;
+	padding-bottom: 5px;
 }
 .page-template-question-php .media-section{
 	margin: 50px 0 10px;
@@ -4564,7 +4575,7 @@ input.caption-field{
     font-family: ProximaNovaA-Regular;
     width: 520px;
 }
-.media-section h4{padding-left: 12px;}
+.media-section h4{padding-left: 12px; width:200px;}
 .page-community .row-title a{
 	color: #333333;
 }

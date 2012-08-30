@@ -252,6 +252,8 @@ jQuery(document).ready(function($) {
 
 
     window.location = url;
+    
+    $('.superpost-form').clearForm();
     //addNewBox(response);
   }
 
@@ -319,18 +321,13 @@ jQuery(document).ready(function($) {
 	    $('.simplemodal-container').css('height','+=90');
 	}                 
                       
-
-
-
-
-
-
-
     
     //Then Append the image & caption form
     $(".loading-box").fadeOut(function(){
-      $(this).remove();
-      $imageTag.hide().appendTo(".attached-photos").fadeIn();
+      $(this).hide(1,function(){
+	      $imageTag.hide().delay(530).appendTo(".attached-photos").fadeIn();
+      });
+      
 
     });
     
