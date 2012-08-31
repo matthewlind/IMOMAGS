@@ -240,8 +240,8 @@ $state = $stateSlugToAbbv[$state_slug];
 			            
 			       }
 			       echo '<div class="reply-btn"><a href="#comments">REPLY</a></div>';
-			       echo '<div class="like-btn"><a href="#"></a></div>';
-			       echo '<div class="count"><a href="#comments">2</a></div>';
+			       //echo '<div class="like-btn"><a href="#"></a></div>';
+			       //echo '<div class="count"><a href="#comments">2</a></div>';
 
 			       echo '<a class="single-flag-button" spid="' . $spid . '"><img src="/wp-content/themes/imo-mags-northamericanwhitetail/img/flag-button-gray.png" class="flag-image"></a>';
 			       
