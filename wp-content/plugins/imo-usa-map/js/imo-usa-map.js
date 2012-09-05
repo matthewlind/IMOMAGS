@@ -196,22 +196,24 @@ function getMapForContainer(containerNameString) {
 		    	tooltipPosition = 'center';
 		    }
 		    	
-		    
-		    $(st[0]).qtip({
-			   content: getStateData(state),
-			   show: 'mouseover',
-			   hide: 'mouseout',
-			   delay: 0,
-			   position: {
-			      corner: {
-			         target: targetPosition,
-			         tooltip: tooltipPosition
-			      }
-			   },
-			   style: { 
-			      name: 'dark' // Inherit from preset style
-			   }
-			})
+		   	// Only use tool tip when not in ubermenu 	
+		    if(containerNameString == "us-map-container"){
+			    $(st[0]).qtip({
+				   content: getStateData(state),
+				   show: 'mouseover',
+				   hide: 'mouseout',
+				   delay: 0,
+				   position: {
+				      corner: {
+				         target: targetPosition,
+				         tooltip: tooltipPosition
+				      }
+				   },
+				   style: { 
+				      name: 'dark' // Inherit from preset style
+				   }
+				})
+			}
 			
 			$(st[0]).click(function(){
 				//alert(state + '!');
@@ -246,7 +248,6 @@ function getMapForContainer(containerNameString) {
 		  })(usRaphael[state], state);
 		}
 		
-	
 		function getStateData(state) {
 	
 			var $output = $("<div class='popup-state-data'><ul></ul></div>");

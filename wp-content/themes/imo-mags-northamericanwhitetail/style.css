@@ -4998,6 +4998,10 @@ ul#scroll-widget li a:hover span{
 #us-map-ubermenu-container path{
 	z-index: 999999999;
 }
+#header #megaMenu li.community-menu-right,
+#header #megaMenu li.community-menu-left{
+	float: left !important;
+}
 #header #megaMenu li.community-menu ul.sub-menu{
 	width: 1030px !important;
 }
