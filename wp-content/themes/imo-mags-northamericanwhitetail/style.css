@@ -4120,50 +4120,67 @@ ul.community-cats li.post:hover {
 
 /* Community Topics Widget */
 #community-topics{
-	margin-bottom: 10px;
+	clear: both;
+    display: inline-block;
+    margin-bottom: 8px;
 }
-#community-topics ul.community-cats h2 {
+#community-topics a{
+    background-color: #EDEDED !important;
+    float: left;
+    padding: 20px 0 16px 70px;
+    width: 248px;
+    margin-bottom: 4px;
+    color: #161412;
+    font-size: 1.1em;
+}
+#community-topics a:hover{
+	background-color: #d1d1d1 !important;
+}
+#community-topics ul h2 {
     font-size: 1em;
     margin: 15px 0 0;
     padding-left: 0;
 }
-#community-topics ul.community-cats {
-    height: 48px;
+#community-topics ul {
+	list-style: none outside none;
+    margin: 0;
+    clear: both;
 }
-#community-topics ul.community-cats li div {
-    height: 47px;
-    width: 70px;
+#community-topics ul li{
+	
 }
 #community-topics .sidebar-header {
-    margin: 0 0 -5px;
+    margin: 0 0 -20px;
     position: relative;
     z-index: 999px;
 }
-#community-topics ul.community-cats li.points {
-    font-size: 0.7em;
-    margin-top: -26px;  
+#community-topics span.points {
+   	float: right;
+    font-family: ProximaNovaA-Semibold;
+    font-size: 0.8em;
     margin-right: 10px;
+    margin-top: -40px;
 }  
-#community-topics li#rut div {
-	background: url('img/rut-reports-icon-sm.png') no-repeat 16px center;
+#community-topics li#rut a {
+	background: url('img/rut-reports-icon-sm.png') no-repeat 14px center;
 }
-#community-topics li#tips-tactics div {
-	background: url('img/tips-tactics-icon-sm.png') no-repeat 16px center;
+#community-topics li#tips-tactics a {
+	background: url('img/tips-tactics-icon-sm.png') no-repeat 14px center;
 }
-#community-topics li#lifestyle div {
-	background: url('img/lifestyle-icon-sm.png') no-repeat 15px center;
+#community-topics li#lifestyle a {
+	background: url('img/lifestyle-icon-sm.png') no-repeat 12px center;
 }
-#community-topics li#tbucks div {
-	background: url('img/trophy-icon-sm.png') no-repeat center center;
+#community-topics li#tbucks a {
+	background: url('img/trophy-icon-sm.png') no-repeat 16px center;
 }
-#community-topics li#general div {
-	background: url('img/discussion-icon-sm.png') no-repeat 16px center;
+#community-topics li#general a {
+	background: url('img/discussion-icon-sm.png') no-repeat 14px center;
 }
-#community-topics li#experts div{
-	background: url('img/qa-icon-sm.png') no-repeat center center;
+#community-topics li#experts a{
+	background: url('img/qa-icon-sm.png') no-repeat 8px center;
 }
-#community-topics li#gear div {
-	background: url('img/gear-icon-sm.png') no-repeat center center;
+#community-topics li#gear a {
+	background: url('img/gear-icon-sm.png') no-repeat 18px center;
 }  
   
   
@@ -4374,7 +4391,8 @@ header ul#user-bar li.user-name{
 .page-template-default header ul#user-bar li.user-name{
 	padding-top: 0;
 }
-.page-template-superpost_single-php ul#user-bar li.user-name{
+.page-template-superpost_single-php ul#user-bar li.user-name,
+.page-template-community-php ul#user-bar li.user-name{
 	line-height: 1.1;
 	padding-top: 5px;
 }
