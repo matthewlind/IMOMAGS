@@ -2957,7 +2957,7 @@ select.modal_post_type {
 #join .content_wrapper{
 	margin-top: 70px;
 }
-#join .fb-login {
+.fb-login {
 	background: url("img/fb-login.png") no-repeat scroll center top transparent;
  	padding: 0;
  	margin: 0 auto;
@@ -3007,7 +3007,7 @@ a.prize-title {
     font-size: 0.8em;
     margin:30px 12px 0;
 }
-#join small{
+small{
 	font-family: Helvetica,sans-serif;
 	font-size: 0.7em;
 	color: #636363;
@@ -4986,11 +4986,11 @@ ul#scroll-widget li a:hover span{
 
 /************
 ****
-** Map Widget
+** Map Widget & Community Uber Menu
 ****
 *************/
 #us-map-nav{
-	
+	margin-top: 40px;
 }
 #us-map-ubermenu-container svg{
 	width: 552px !important;
@@ -5008,15 +5008,54 @@ ul#scroll-widget li a:hover span{
 #header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 .ss-nav-menu-item-depth-1{
 	float: left;
 }
-
 #header #megaMenu ul.megaMenu li.community-menu ul.sub-menu-1{
 	left:-569px !important;
 }
 #header #megaMenu li.community-menu .community-menu-cat{
 	width: 300px;
 }
-
-
+#header #megaMenu li.community-menu.ss-nav-menu-mega ul.sub-menu-1 .community-menu-left.ss-nav-menu-item-depth-1.ss-sidebar {
+    width: 374px;
+}
+#community-menu-nav{
+	padding: 30px;
+}
+#community-menu-nav .header h2{
+	font-family: "rokkitt",serif;
+    font-size: 1.8em;
+    text-transform: uppercase;
+}
+#community-menu-nav .header h3{
+	color: #E88E00;
+    font-family: ProximaNova-Semibold;
+    font-size: 0.9em;
+    margin-top: -12px;
+    text-transform: uppercase;
+}
+#community-menu-nav small{
+	margin-left: 10px;
+}
+#community-menu-nav .nav{
+	border-bottom: 1px solid #ddd4cb;
+    border-top: 1px solid #ddd4cb;
+    margin: 10px 0 30px;
+    padding: 15px 0;
+}
+#community-menu-nav a,
+#community-menu-nav ul li a:visited{
+	background: none repeat scroll 0 0 transparent;
+    color: #595959;
+    font-family: "Helvetica Nueue",Helvetica,Arial,sans-serif !important;
+    font-size: 1.1em;
+    font-weight: 500;
+    padding: 1px 0;
+}
+#community-menu-nav a:hover{
+	color: #000;
+}
+#megaMenu .community-menu-right .wpmega-nonlink{
+	width: 350px;
+}
 
 /*** Local edits ***/   
     
