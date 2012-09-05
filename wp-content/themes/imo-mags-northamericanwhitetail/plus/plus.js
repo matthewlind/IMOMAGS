@@ -1150,7 +1150,7 @@ $(document).ready(function(){
 	showAtOnce = 9;
 	var dataURL = "/slim/api/superpost/views/" + type +"/" + showAtOnce + "/0";  	
 	var getdata = $.getJSON(dataURL, function(data) {
-		
+
 		var $questionTemplate;
 		
 		$.each(data, function(index, all) { 
