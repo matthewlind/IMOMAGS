@@ -2501,9 +2501,13 @@ ul.land-topics{
 .category-tactics ul.land-topics li{
 	margin: -1px 0 0;
 }
-ul.land-topics li a{
+ul.land-topics li a,
+ul.land-topics li a:visited{
 	color: #3e88e9;
 	font-size: 1.1em;
+}
+ul.land-topics li a:hover{
+	color: #000033;
 }
 .mod-gallery-loop{
 	height: 200px;
@@ -4952,8 +4956,12 @@ ul#scroll-widget li a:hover span{
 	font-family: ProximaNovaA-Semibold;
 	text-transform: capitalize;
 }
-#questions-list-widget li.title a{
+#questions-list-widget li.title a,
+#questions-list-widget li.title a:visited{
 	color: #58534f;
+}
+#questions-list-widget li.title a:hover{
+	color: #000033;
 }
 #questions-list-widget li.replies{
 	font-family: ProximaNovaA-Regular;
