@@ -2501,9 +2501,13 @@ ul.land-topics{
 .category-tactics ul.land-topics li{
 	margin: -1px 0 0;
 }
-ul.land-topics li a{
+ul.land-topics li a,
+ul.land-topics li a:visited{
 	color: #3e88e9;
 	font-size: 1.1em;
+}
+ul.land-topics li a:hover{
+	color: #000033;
 }
 .mod-gallery-loop{
 	height: 200px;
@@ -2957,7 +2961,7 @@ select.modal_post_type {
 #join .content_wrapper{
 	margin-top: 70px;
 }
-#join .fb-login {
+.fb-login {
 	background: url("img/fb-login.png") no-repeat scroll center top transparent;
  	padding: 0;
  	margin: 0 auto;
@@ -3007,7 +3011,7 @@ a.prize-title {
     font-size: 0.8em;
     margin:30px 12px 0;
 }
-#join small{
+small{
 	font-family: Helvetica,sans-serif;
 	font-size: 0.7em;
 	color: #636363;
@@ -4120,50 +4124,67 @@ ul.community-cats li.post:hover {
 
 /* Community Topics Widget */
 #community-topics{
-	margin-bottom: 10px;
+	clear: both;
+    display: inline-block;
+    margin-bottom: 8px;
 }
-#community-topics ul.community-cats h2 {
+#community-topics a{
+    background-color: #EDEDED !important;
+    float: left;
+    padding: 20px 0 16px 70px;
+    width: 248px;
+    margin-bottom: 4px;
+    color: #161412;
+    font-size: 1.1em;
+}
+#community-topics a:hover{
+	background-color: #d1d1d1 !important;
+}
+#community-topics ul h2 {
     font-size: 1em;
     margin: 15px 0 0;
     padding-left: 0;
 }
-#community-topics ul.community-cats {
-    height: 48px;
+#community-topics ul {
+	list-style: none outside none;
+    margin: 0;
+    clear: both;
 }
-#community-topics ul.community-cats li div {
-    height: 47px;
-    width: 70px;
+#community-topics ul li{
+	
 }
 #community-topics .sidebar-header {
-    margin: 0 0 -5px;
+    margin: 0 0 -20px;
     position: relative;
     z-index: 999px;
 }
-#community-topics ul.community-cats li.points {
-    font-size: 0.7em;
-    margin-top: -26px;  
+#community-topics span.points {
+   	float: right;
+    font-family: ProximaNovaA-Semibold;
+    font-size: 0.8em;
     margin-right: 10px;
+    margin-top: -40px;
 }  
-#community-topics li#rut div {
-	background: url('img/rut-reports-icon-sm.png') no-repeat 16px center;
+#community-topics li#rut a {
+	background: url('img/rut-reports-icon-sm.png') no-repeat 14px center;
 }
-#community-topics li#tips-tactics div {
-	background: url('img/tips-tactics-icon-sm.png') no-repeat 16px center;
+#community-topics li#tips-tactics a {
+	background: url('img/tips-tactics-icon-sm.png') no-repeat 14px center;
 }
-#community-topics li#lifestyle div {
-	background: url('img/lifestyle-icon-sm.png') no-repeat 15px center;
+#community-topics li#lifestyle a {
+	background: url('img/lifestyle-icon-sm.png') no-repeat 12px center;
 }
-#community-topics li#tbucks div {
-	background: url('img/trophy-icon-sm.png') no-repeat center center;
+#community-topics li#tbucks a {
+	background: url('img/trophy-icon-sm.png') no-repeat 16px center;
 }
-#community-topics li#general div {
-	background: url('img/discussion-icon-sm.png') no-repeat 16px center;
+#community-topics li#general a {
+	background: url('img/discussion-icon-sm.png') no-repeat 14px center;
 }
-#community-topics li#experts div{
-	background: url('img/qa-icon-sm.png') no-repeat center center;
+#community-topics li#experts a{
+	background: url('img/qa-icon-sm.png') no-repeat 8px center;
 }
-#community-topics li#gear div {
-	background: url('img/gear-icon-sm.png') no-repeat center center;
+#community-topics li#gear a {
+	background: url('img/gear-icon-sm.png') no-repeat 18px center;
 }  
   
   
@@ -4374,7 +4395,8 @@ header ul#user-bar li.user-name{
 .page-template-default header ul#user-bar li.user-name{
 	padding-top: 0;
 }
-.page-template-superpost_single-php ul#user-bar li.user-name{
+.page-template-superpost_single-php ul#user-bar li.user-name,
+.page-template-community-php ul#user-bar li.user-name{
 	line-height: 1.1;
 	padding-top: 5px;
 }
@@ -4934,8 +4956,12 @@ ul#scroll-widget li a:hover span{
 	font-family: ProximaNovaA-Semibold;
 	text-transform: capitalize;
 }
-#questions-list-widget li.title a{
+#questions-list-widget li.title a,
+#questions-list-widget li.title a:visited{
 	color: #58534f;
+}
+#questions-list-widget li.title a:hover{
+	color: #000033;
 }
 #questions-list-widget li.replies{
 	font-family: ProximaNovaA-Regular;
@@ -4986,11 +5012,11 @@ ul#scroll-widget li a:hover span{
 
 /************
 ****
-** Map Widget
+** Map Widget & Community Uber Menu
 ****
 *************/
 #us-map-nav{
-	
+	margin-top: 40px;
 }
 #us-map-ubermenu-container svg{
 	width: 552px !important;
@@ -4998,21 +5024,64 @@ ul#scroll-widget li a:hover span{
 #us-map-ubermenu-container path{
 	z-index: 999999999;
 }
+#header #megaMenu li.community-menu-right,
+#header #megaMenu li.community-menu-left{
+	float: left !important;
+}
 #header #megaMenu li.community-menu ul.sub-menu{
 	width: 1030px !important;
 }
 #header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 .ss-nav-menu-item-depth-1{
 	float: left;
 }
-
 #header #megaMenu ul.megaMenu li.community-menu ul.sub-menu-1{
 	left:-569px !important;
 }
 #header #megaMenu li.community-menu .community-menu-cat{
 	width: 300px;
 }
-
-
+#header #megaMenu li.community-menu.ss-nav-menu-mega ul.sub-menu-1 .community-menu-left.ss-nav-menu-item-depth-1.ss-sidebar {
+    width: 374px;
+}
+#community-menu-nav{
+	padding: 30px;
+}
+#community-menu-nav .header h2{
+	font-family: "rokkitt",serif;
+    font-size: 1.8em;
+    text-transform: uppercase;
+}
+#community-menu-nav .header h3{
+	color: #E88E00;
+    font-family: ProximaNova-Semibold;
+    font-size: 0.9em;
+    margin-top: -12px;
+    text-transform: uppercase;
+}
+#community-menu-nav small{
+	margin-left: 10px;
+}
+#community-menu-nav .nav{
+	border-bottom: 1px solid #ddd4cb;
+    border-top: 1px solid #ddd4cb;
+    margin: 10px 0 30px;
+    padding: 15px 0;
+}
+#community-menu-nav a,
+#community-menu-nav ul li a:visited{
+	background: none repeat scroll 0 0 transparent;
+    color: #595959;
+    font-family: "Helvetica Nueue",Helvetica,Arial,sans-serif !important;
+    font-size: 1.1em;
+    font-weight: 500;
+    padding: 1px 0;
+}
+#community-menu-nav a:hover{
+	color: #000;
+}
+#megaMenu .community-menu-right .wpmega-nonlink{
+	width: 350px;
+}
 
 /*** Local edits ***/   
     

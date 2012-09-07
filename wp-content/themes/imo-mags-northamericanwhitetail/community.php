@@ -110,6 +110,7 @@ if ( is_user_logged_in() ) {
     	<ul id="user-bar" style="<?php echo $displayStyle; ?>">	          
 			<li class="user-name">
 				Hello, <a href="/profile/<?php echo $current_user->user_nicename; ?>"><span id="current-user-name"><?php echo $current_user->display_name; ?></span></a>
+				<a class="start" href="/community-post">+ Start New Post</a>
 			</li>
 			<li><a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" alt="User Avatar" class="recon-gravatar" /></a></li>                      
        </ul>
@@ -183,13 +184,13 @@ if ( is_user_logged_in() ) {
                 <li class='change lifestyle-nav' title='lifestyle'>Lifestyle</li>
                 <li class='change tip-nav' title='tip'>Tips</li>
                 <li class='change general-nav' title='general'>General</li>
-                <li class="dd-arrow"></li>-->
+                <li class="dd-arrow"></li>
 
             </ul>    
            <div class="imo-fb-login-button" style="<?php echo $loginStyle; ?>">
 	    	LOGIN
 	    </div>
-    	<!--<ul id="user-bar" style="<?php echo $displayStyle; ?>">	          
+    	<ul id="user-bar" style="<?php echo $displayStyle; ?>">	          
 			<li class="user-name">Hello, <a href="/profile/<?php echo $current_user->user_nicename; ?>"><span id="current-user-name"><?php echo $current_user->display_name; ?></span></a></li>
 			<li><a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" alt="User Avatar" class="recon-gravatar" /></a></li>                      
        </ul>-->

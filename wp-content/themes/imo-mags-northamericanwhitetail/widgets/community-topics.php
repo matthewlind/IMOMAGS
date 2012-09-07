@@ -45,7 +45,7 @@ $requestURL5 = "http://$hostname/slim/api/superpost/count/tip";
 
 $file5 = file_get_contents($requestURL5);
 $tipCount = json_decode($file);
-$$tipCount = $tipCount[0];
+$tipCount = $tipCount[0];
 
 $requestURL6 = "http://$hostname/slim/api/superpost/count/lifestyle";
 
@@ -59,17 +59,11 @@ $file7 = file_get_contents($requestURL7);
 $gearCount = json_decode($file7);
 $gearCount = $gearCount[0];
 
-$requestURL8 = "http://$hostname/slim/api/superpost/count/tip";
 
-$file8 = file_get_contents($requestURL8);
-$tipCount = json_decode($file8);
-$tipCount = $tipCount[0];
 
-$requestURL9 = "http://$hostname/slim/api/superpost/count/gear";
 
-$file9 = file_get_contents($requestURL9);
-$gearCount = json_decode($file9);
-$gearCount = $gearCount[0];
+
+
 ?>
 
     <aside id="community-topics" class="community-topics-widget">
@@ -77,39 +71,14 @@ $gearCount = $gearCount[0];
 		    <h2>Browse the Community</h2>
 		</div>
 
-	         	<ul class="community-cats">
-				<li id="rut" class="title"><div></div><h2><a href="/community/report/" term="report" display="list">State Rut Reports</a></h2></li>
-				<li class="selected points"><a href="/community/report/"><?php echo $reportCount->post_count.' Posts'; ?></a></li>
-			</ul>
-			
-			<ul class="community-cats">
-				<li id="tbucks" class="title"><div></div><h2><a href="/community/trophy/">Trophy Bucks</a></h2></li>
-				<li class="selected points"><a href="/community/trophy/"><?php echo $trophyCount->post_count.' Posts'; ?></a></li>
-			</ul>
-			
-			<ul class="community-cats">
-				<li id="experts" class="title"><div></div><h2><a href="/community/question/">Q&A</a></h2></li>
-				<li class="selected points"><a href="/community/question/"><?php echo $questionCount->post_count.' Posts'; ?></a></li>
-			</ul>
-			
-			<ul class="community-cats">
-				<li id="gear" class="title"><div></div><h2><a href="/community/gear/">Gear</a></h2></li>
-				<li class="selected points"><a href="/community/gear/"><?php echo $gearCount->post_count.' Posts'; ?></a></li>
-			</ul>
-			
-			<ul class="community-cats">
-				<li id="lifestyle" class="title"><div></div><h2><a href="/community/lifestyle/">Lifestyle</a></h2></li>
-				<li class="selected points"><a href="/community/lifestyle/"><?php echo $lifestyleCount->post_count.' Posts'; ?></a></li>
-			</ul>
-			
-			<ul class="community-cats">
-				<li id="tips-tactics" class="title"><div></div><h2><a href="/community/tip/">Tips & Tactics</a></h2></li>
-				<li class="selected points"><a href="/community/tip/"><?php echo $tipCount->post_count.' Posts'; ?></a></li>
-			</ul>
-			
-			<ul class="community-cats">
-				<li id="general" class="title"><div></div><h2><a href="/community/general/">General Discussion</a></h2></li>
-				<li class="selected points"><a href="/community/general/"><?php echo $generalCount->post_count.' Posts'; ?></a></li>
+	        <ul>
+				<li id="rut" class="title"><h2><a href="/community/report/">State Rut Reports</a></h2><span class="points"><?php echo $reportCount->post_count.' Posts'; ?></li>
+				<li id="tbucks" class="title"><h2><a href="/community/trophy/">Trophy Bucks</a></h2><span class="points"><?php echo $trophyCount->post_count.' Posts'; ?></li>
+				<li id="experts" class="title"><h2><a href="/community/question/">Q&A</a></h2><span class="points"><?php echo $questionCount->post_count.' Posts'; ?></li>	
+				<li id="gear" class="title"><h2><a href="/community/gear/">Gear</a></h2><span class="points"><?php echo $gearCount->post_count.' Posts'; ?></li>
+				<li id="lifestyle" class="title"><h2><a href="/community/lifestyle/">Lifestyle</a></h2><span class="points"><?php echo $lifestyleCount->post_count.' Posts'; ?></li>
+				<li id="tips-tactics" class="title"><h2><a href="/community/tip/">Tips & Tactics</a></h2><span class="points"><?php echo $tipCount->post_count.' Posts'; ?></li>
+				<li id="general" class="title"><h2><a href="/community/general/">General Discussion</a></h2><span class="points"><?php echo $generalCount->post_count.' Posts'; ?></li>
 			</ul>	          
 	   </aside>
 
