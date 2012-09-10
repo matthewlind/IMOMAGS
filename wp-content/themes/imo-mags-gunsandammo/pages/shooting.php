@@ -599,7 +599,7 @@ the_post(); ?>
 						</div>
 					</div>
 				<?php endif; ?>
-				</div>
+				
 				<?php 
 				// Reset Post Data
 				wp_reset_postdata(); ?>
