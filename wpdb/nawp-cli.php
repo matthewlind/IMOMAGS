@@ -138,7 +138,7 @@ EOT;
 
     if (!empty($posts)) {
     
-    	$filename = "../wp-content/cache/superloop/naw-plus-$sort.json";
+    	$filename = "/data/wordpress/imomags/wp-content/cache/superloop/naw-plus-$sort.json";
         $f = fopen($filename, "w");
         
         
