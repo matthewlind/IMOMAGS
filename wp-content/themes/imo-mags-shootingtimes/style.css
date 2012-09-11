@@ -133,6 +133,7 @@ position: relative;
 	border-bottom: none;
 	margin: 0 auto;
 	width: 1020px;
+	padding-top:80px;
 }
 
 #header .site-title {

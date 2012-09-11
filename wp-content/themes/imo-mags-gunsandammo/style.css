@@ -6573,8 +6573,33 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 
 
 
+.leiki_products {
+    box-shadow: none !important;
+}
 
 
+/* thumbs wide */
+.cfct-module-featured-thumb-wide .featured-articles {
+    width: 643px !important;
+}
+.cfct-module-featured-thumb-wide .featured-articles .featured-item-description {
+    width: 643px;
+}
+.cfct-module-featured-thumb-wide .featured-articles .featured-item-image {
+    width: 643px;
+    height: 370px;
+    overflow: hidden;
+}
+.cfct-module-featured-thumb-wide .featured-articles .featured-item-image {
+    border: medium none !important;
+}
+.cfct-module-featured-thumb-wide .ui-tabs .prev-tab, .cfct-module-featured-thumb-wide .ui-tabs .next-tab {
+    top: -9999px !important;
+}
+.cfct-module-featured-thumb-wide .featured-articles img{
+	height: auto;
+	min-width: 643px;
+}
 
 
 
