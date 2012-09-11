@@ -3,7 +3,32 @@
  *
  * supports all custom css in carrington build.
  */
- 
+body{border-top: none !important;}
+
+@font-face {
+  font-family: "StagMedium";
+  src: url("../fonts/stag-medium-webfont.eot");
+  src: url("../fonts/stag-medium-webfont.eot?iefix") format("eot"), url("../fonts/stag-medium-webfont.woff") format("woff"), url("../fonts/stag-medium-webfont.ttf") format("truetype"), url("../fonts/stag-medium-webfont.svg") format("svg");
+}
+
+@font-face {
+  font-family: "StagMediumItalic";
+  src: url("../fonts/stag-mediumitalic-webfont.eot");
+  src: url("../fonts/stag-mediumitalic-webfont.eot?iefix") format("eot"), url("../fonts/stag-mediumitalic-webfont.woff") format("woff"), url("../fonts/stag-mediumitalic-webfont.ttf") format("truetype"), url("../fonts/stag-mediumitalic-webfont.svg") format("svg");
+}
+
+@font-face {
+  font-family: "StagBold";
+  src: url("../fonts/stag-bold-webfont.eot");
+  src: url("../fonts/stag-bold-webfont.eot?iefix") format("eot"), url("../fonts/stag-bold-webfont.woff") format("woff"), url("../fonts/stag-bold-webfont.ttf") format("truetype"), url("../fonts/stag-bold-webfont.svg") format("svg");
+}
+
+@font-face {
+  font-family: "StagBoldItalic";
+  src: url("../fonts/stag-bolditalic-webfont.eot");
+  src: url("../fonts/stag-bolditalic-webfont.eot?iefix") format("eot"), url("../fonts/stag-bolditalic-webfont.woff") format("woff"), url("../fonts/stag-bolditalic-webfont.ttf") format("truetype"), url("../fonts/stag-bolditalic-webfont.svg") format("svg");
+}
+
 #sidebar {
 	float: right;
 }
@@ -547,4 +572,158 @@ h2.entry-title a:hover {
 /*Newsletter Form Edits*/
 .gform_wrapper ul li.gfield {
 	margin-top: 4px;
+}
+
+
+/************************
+*****
+***** IMO NETWORK TOPHAT
+*****
+************************/
+
+#imo-tophat{
+	margin: 0 auto;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999999999;
+}
+.ga-network{
+	
+}
+.top-bar{
+	background-color: #333;
+	text-align: center;
+	height: 30px;
+	position: relative;
+	z-index: 2;
+}
+.top-bar h2{
+	background-color: #333333;
+    color: #858585;
+    font-size:1em;
+    margin: 0 auto;
+    padding: 7px 10px 0;
+    position: relative;
+    text-align: center;
+    width: 216px;
+	font-weight: lighter;
+	font-family: "StagMedium",serif;
+}
+.top-bar hr{
+	border-color: #858585;
+    margin: -8px auto 0;
+    width: 330px;
+}
+.network-nav{
+	background: #171717; /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIxJSIgc3RvcC1jb2xvcj0iIzE3MTcxNyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjMxJSIgc3RvcC1jb2xvcj0iIzFjMWMxYyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM0NzQ3NDciIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #171717 1%, #1c1c1c 31%, #474747 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#171717), color-stop(31%,#1c1c1c), color-stop(100%,#474747)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #171717 1%,#1c1c1c 31%,#474747 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #171717 1%,#1c1c1c 31%,#474747 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #171717 1%,#1c1c1c 31%,#474747 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #171717 1%,#1c1c1c 31%,#474747 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#171717', endColorstr='#474747',GradientType=0 ); /* IE6-8 */
+	
+	display: block;
+	height: 40px;
+    position: absolute;
+    width: 100%;
+    border-bottom: #262626 1px solid;
+    z-index: 0;
+}
+.network-nav ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	margin: 0 auto;
+	width: 960px;
+}
+.network-nav li{
+	float: left;
+	height: 40px;
+	width: 160px;
+	margin: 0;
+}
+.network-nav li.active{
+	background: #333333; /* Old browsers */
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIzOCUiIHN0b3AtY29sb3I9IiMzMzMzMzMiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMjIyMjIyIiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+background: -moz-linear-gradient(top,  #333333 38%, #222222 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(38%,#333333), color-stop(100%,#222222)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #333333 38%,#222222 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #333333 38%,#222222 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #333333 38%,#222222 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #333333 38%,#222222 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', endColorstr='#222222',GradientType=0 ); /* IE6-8 */
+
+}
+.network-nav li a{
+	height: 40px;
+	width: 160px
+}
+.network-nav li div{
+	width: 160px;
+	height: 40px;
+}
+.network-nav li.ga div{
+	background: url("../img/tophat/tophat-ga.png") no-repeat center center;
+}
+.network-nav li.hg div{
+	background: url("../img/tophat/tophat-hg.png") no-repeat center center;
+}
+.network-nav li.st div{
+	background: url("../img/tophat/tophat-st.png") no-repeat center center;
+}
+.network-nav li.rs div{
+	background: url("../img/tophat/tophat-rs.png") no-repeat center center;
+}
+.network-nav li.sn div{
+	background: url("../img/tophat/tophat-sn.png") no-repeat center center;
+}
+.network-nav li.sv div{
+	background: url("../img/tophat/tophat-sv.png") no-repeat center center;
+}
+
+/* current states */
+.network-nav li.hg-active div{
+	background: url("../img/tophat/tophat-active-hg.png") no-repeat center center;
+}
+.network-nav li.st-active div{
+	background: url("../img/tophat/tophat-active-st.png") no-repeat center center;
+}
+.network-nav li.rs-active div{
+	background: url("../img/tophat/tophat-active-rs.png") no-repeat center center;
+}
+.network-nav li.sn-active div{
+	background: url("../img/tophat/tophat-active-sn.png") no-repeat center center;
+}
+.network-nav li.sv-active div{
+	background: url("../img/tophat/tophat-active-sv.png") no-repeat center center;
+}
+
+/* Hover States */
+.network-nav li.ga a:hover div{
+	background: url("../img/tophat/tophat-active-ga.png") no-repeat center center;
+}
+.network-nav li.hg a:hover div{
+	background: url("../img/tophat/tophat-active-hg.png") no-repeat center center;
+}
+.network-nav li.st a:hover div{
+	background: url("../img/tophat/tophat-active-st.png") no-repeat center center;
+}
+.network-nav li.rs a:hover div{
+	background: url("../img/tophat/tophat-active-rs.png") no-repeat center center;
+}
+.network-nav li.sn a:hover div{
+	background: url("../img/tophat/tophat-active-sn.png") no-repeat center center;
+}
+.network-nav li.sv a:hover div{
+	background: url("../img/tophat/tophat-active-sv.png") no-repeat center center;
+}
+/*ad interference*/
+#jpsuperheader{
+	top: 80px;
 }

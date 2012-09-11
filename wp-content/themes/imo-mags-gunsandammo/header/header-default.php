@@ -51,10 +51,66 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
+	<div id="imo-tophat">
+		<div class="top-bar">
+		
+			<h2>The Guns & Ammo Network</h2>
+			<hr>
+		</div>
+		
+		<div class="network-nav">
+			<ul>
+				<li class="ga active"><div></div></li>
+				<li class="hg"><a href="http://handgunsmag.com"><div></div></a></li>
+				<li class="st"><a href="http://shootingtimes.com"><div></div></a></li>
+				<li class="rs"><a href="http://rifleshootermag.com"><div></div></a></li>
+				<li class="sn"><a href="http://shotgunnews.com"><div></div></a></li>
+				<li class="sv"><a href="http://sportsmenvote.com"><div></div></a></li>
+			</ul>
+		</div>
+	
+	</div>
 	<header id="header">
     <div class="container">
-
-      <div class="centerad">
+	
+      <a href="<?php echo home_url('/'); ?>" class="brand" title="<?php _e('Home', 'carrington-business') ?>"><img src="<?php print get_stylesheet_directory_uri(); ?>/img/logo.png" alt="<?php bloginfo('name'); ?>" /></a>
+      
+      <?php cfct_form('search'); ?>
+			
+			<?php get_template_part('head', 'subscribe') ?>
+			
+		</div>
+		
+		<div class="uber-nav">
+	    <?php wp_nav_menu(array( 'theme_location' => 'featured' )); ?>
+	  </div>
+		
+		<div id="site-menu">
+		
+		  <div class="container">
+		    <?php wp_nav_menu(array( 
+  				'theme_location' => 'main',
+  				'container' => 'nav',
+  				'container_class' => 'nav-main nav',
+  				'depth' => 2,
+  			)); ?>
+  			
+  			<div class="stay-connected">
+  			 <div class="fb-like" data-href="http://www.facebook.com/GunsAndAmmoMag" data-send="false" data-layout="button_count" data-width="100" data-show-faces="true"></div>
+  			 <span class="label">Stay Connected</span>
+  			 <ul class="connections">
+  			   <li><a class="facebook" href="http://www.facebook.com/GunsAndAmmoMag" title="Find us on Facebook">Facebook</a></li>
+  			   <li><a class="twitter" href="http://twitter.com/gunsandammomag" title="Follow us on Twitter">Twitter</a></li>
+  			   <li><a class="feed" href="http://feeds.feedburner.com/GunsAndAmmoMag" title="Get the RSS Feed">RSS Feed</a></li>
+  			 </ul>
+  			</div>
+		  </div>
+		</div>
+	</header>
+	
+	<section id="main" class="container">
+	
+	 <div class="centerad">
         <div class="ad-left">
           <?php if (function_exists("imo_dart_tag")) {
             imo_dart_tag("728x90");
@@ -78,42 +134,4 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
           <a href="http://www.nssf.org/FirstShots/" target="_blank"><img src='<?php print bloginfo('stylesheet_directory') . "/img/nssf.png"?>' alt="Visit the National Shooting Sports Foundation"/></a>
         </div>
       </div>
-			
-      <a href="<?php echo home_url('/'); ?>" class="brand" title="<?php _e('Home', 'carrington-business') ?>"><img src="<?php print get_stylesheet_directory_uri(); ?>/img/logo.png" alt="<?php bloginfo('name'); ?>" /></a>
-      
-      <?php cfct_form('search'); ?>
-			
-			<?php get_template_part('head', 'subscribe') ?>
-			
-		</div>
-		
-		<div class="uber-nav">
-	    <?php wp_nav_menu(array( 'theme_location' => 'featured' )); ?>
-	  </div>
-		
-		<div id="site-menu">
-		  <div class="container">
-		    <?php wp_nav_menu(array( 
-  				'theme_location' => 'main',
-  				'container' => 'nav',
-  				'container_class' => 'nav-main nav',
-  				'depth' => 2,
-  			)); ?>
-  			
-  			<div class="stay-connected">
-  			 <div class="fb-like" data-href="http://www.facebook.com/GunsAndAmmoMag" data-send="false" data-layout="button_count" data-width="100" data-show-faces="true"></div>
-  			 <span class="label">Stay Connected</span>
-  			 <ul class="connections">
-  			   <li><a class="facebook" href="http://www.facebook.com/GunsAndAmmoMag" title="Find us on Facebook">Facebook</a></li>
-  			   <li><a class="twitter" href="http://twitter.com/gunsandammomag" title="Follow us on Twitter">Twitter</a></li>
-  			   <li><a class="feed" href="http://feeds.feedburner.com/GunsAndAmmoMag" title="Get the RSS Feed">RSS Feed</a></li>
-  			 </ul>
-  			</div>
-		  </div>
-		</div>
-	</header>
-	
-	<section id="main" class="container">
-	  <?php // Yoast Breadcrumbs
-  	// if (!is_front_page() && function_exists('yoast_breadcrumb'))
-  	//  yoast_breadcrumb('<div id="breadcrumbs">','</div>'); ?>
+      <div id="hide"></div>

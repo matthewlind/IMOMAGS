@@ -93,3 +93,46 @@ $(document).ready(function(){
 $(document).ready(function(){
 	FlashHeed.heed(document.getElementById('gallery-iframe-ad'));
 });
+
+
+/*****
+**
+** IMO NETWORK TOPHAT
+**
+*****/
+$(document).ready(function(){
+				
+	var $window = $(window);
+    var $networkNav = $(".network-nav");
+    var $tophat = $("#imo-tophat");
+   
+    // show network nav at top on load
+    if ($window.scrollTop() != 0) {             
+        $networkNav.slideDown(1000,function(){
+	        $(this).css("top", "30px");
+	    });    
+    }   
+    setTimeout(function() {
+          // Moves status bar to top of browser window on scroll
+    $window.scroll(function () { 
+        $networkNav.stop().animate({
+            top: -100
+            }, 500, function() {
+                if ($window.scrollTop() == 0) {
+                    $(this).animate({ display: 'block',top: 30 },500); // return to default position                             
+                }
+        });
+    });
+    }, 1000);
+      
+    //hover over to reveal
+	$tophat.hover(function(){
+    	$networkNav.slideDown(100,function(){
+    		$(this).stop().animate({top: 30});
+    	});
+   
+    });
+     	
+});
+
+

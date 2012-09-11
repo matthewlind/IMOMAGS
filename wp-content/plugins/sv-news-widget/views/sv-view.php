@@ -26,6 +26,7 @@
 	border-bottom: dashed 1px #c8c8c8;
 	padding: 8px;
 	line-height: 1.2;
+	margin: 0;
 }
 .widget_sv-news-widget li a{
 	color: #3a3a3a;
@@ -57,7 +58,7 @@
 <?php endforeach; ?>
 </ul>
 <div class="footer">
-	<a href="http://sportsmenvote.com">Sign Up For Weekly Alerts!</a>
+	<a href="http://sportsmenvote.com/newsletter-signup">Sign Up For Weekly Alerts!</a>
 </div>
 <!-- Widget Content end -->
 
