@@ -58,7 +58,7 @@
 <?php endforeach; ?>
 </ul>
 <div class="footer">
-	<a href="http://sportsmenvote.com">Sign Up For Weekly Alerts!</a>
+	<a href="http://sportsmenvote.com/newsletter-signup">Sign Up For Weekly Alerts!</a>
 </div>
 <!-- Widget Content end -->
 
