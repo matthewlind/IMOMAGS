@@ -5083,6 +5083,10 @@ ul#scroll-widget li a:hover span{
 	width: 350px;
 }
 
+#jpsuperheader{
+	top:0 !important;
+}
+
 /*** Local edits ***/   
     
 #text-19 {padding: 0;}
