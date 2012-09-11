@@ -245,7 +245,7 @@ EOT;
 	        }
 	
 	    } else {
-	    	echo "FAILURE - NO POSTS FROM QUERY \n";
+	    	echo "FAILURE - NO POSTS FROM QUERY: $term WITH SORT: $sort \n";
 	    }
 
 

@@ -151,7 +151,7 @@ EOT;
         }
 
     } else {
-    	echo "FAILURE - NO POSTS FROM QUERY \n";
+    	echo "FAILURE - NO POSTS FROM QUERY: ALL TERMS \n";
     }
 
     
