@@ -1478,7 +1478,7 @@ a.comment-count:hover {
 /* line 1039, sass/style.scss */
 .centerad {
   margin-top: 0;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   text-align: center;
   min-height: 90px;
   width: 100%;
@@ -4220,10 +4220,6 @@ body.parent-pageid-2114 #main {
   background: url("img/blogs/history-books.jpg?1336056336") left bottom no-repeat;
 }
 
-/* line 3070, sass/style.scss */
-.single #main {
-  margin-top: 35px;
-}
 /* line 3072, sass/style.scss */
 .single .entry-header {
   border-bottom: 4px solid black;
@@ -5008,6 +5004,7 @@ body.parent-pageid-2114 #main {
 #footer {
   background: #313131 url("img/footer_network_bg.gif?1336056336");
   margin-top: 40px;
+  clear:both;
 }
 /* line 3628, sass/style.scss */
 #footer #imo-network .container {
@@ -6499,12 +6496,12 @@ span.sponsored-thumb {
 	margin: 0;
 	padding: 0;
 	margin: 0 auto;
-	width: 960px;
+	width: 50%;
 }
 .network-nav li{
 	float: left;
 	height: 40px;
-	width: 160px;
+	padding: 0 20px;
 }
 .network-nav li.active{
 	background: #333333; /* Old browsers */
@@ -6521,31 +6518,36 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 }
 .network-nav li a{
 	height: 40px;
-	width: 160px
+	
 }
 .network-nav li div{
-	width: 160px;
+
 	height: 40px;
 }
 .network-nav li.ga div{
 	background: url("img/tophat/tophat-active-ga.png") no-repeat center center;
+	width: 109px;
 }
 .network-nav li.hg div{
 	background: url("img/tophat/tophat-hg.png") no-repeat center center;
+	width: 84px;
 }
 .network-nav li.st div{
 	background: url("img/tophat/tophat-st.png") no-repeat center center;
+	width: 82px;
 }
 .network-nav li.rs div{
 	background: url("img/tophat/tophat-rs.png") no-repeat center center;
+	width: 116px;
 }
 .network-nav li.sn div{
 	background: url("img/tophat/tophat-sn.png") no-repeat center center;
+	width: 135px;
 }
 .network-nav li.sv div{
 	background: url("img/tophat/tophat-sv.png") no-repeat center center;
+	width: 84px;
 }
-
 /* Hover States */
 .network-nav li.hg a:hover div{
 	background: url("img/tophat/tophat-active-hg.png") no-repeat center center;
@@ -6602,7 +6604,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 }
 
 
-
+#main{padding-top: 0px;}
 
 
 
