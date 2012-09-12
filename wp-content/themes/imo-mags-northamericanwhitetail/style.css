@@ -137,7 +137,7 @@ width: 990px;
 
 #header {
     background: url("img/header-bg.jpg") repeat scroll center top transparent;
-    height: 269px;
+    height: auto;
     margin: 0 !important;
    /* z-index: 9999999;*/
 }
@@ -5082,6 +5082,8 @@ ul#scroll-widget li a:hover span{
 #megaMenu .community-menu-right .wpmega-nonlink{
 	width: 350px;
 }
+
+
 
 /*** Local edits ***/   
     

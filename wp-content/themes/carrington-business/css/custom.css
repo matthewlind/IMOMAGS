@@ -639,12 +639,12 @@ h2.entry-title a:hover {
 	margin: 0;
 	padding: 0;
 	margin: 0 auto;
-	width: 960px;
+	width: 850px;
 }
 .network-nav li{
 	float: left;
 	height: 40px;
-	width: 160px;
+	padding: 0 20px;
 	margin: 0;
 }
 .network-nav li.active{
@@ -662,46 +662,57 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 }
 .network-nav li a{
 	height: 40px;
-	width: 160px
+
 }
 .network-nav li div{
-	width: 160px;
 	height: 40px;
 }
 .network-nav li.ga div{
 	background: url("../img/tophat/tophat-ga.png") no-repeat center center;
+	width: 109px;
 }
 .network-nav li.hg div{
 	background: url("../img/tophat/tophat-hg.png") no-repeat center center;
+	width: 84px;
 }
 .network-nav li.st div{
 	background: url("../img/tophat/tophat-st.png") no-repeat center center;
+	width: 82px;
 }
 .network-nav li.rs div{
 	background: url("../img/tophat/tophat-rs.png") no-repeat center center;
+	width: 116px;
 }
 .network-nav li.sn div{
 	background: url("../img/tophat/tophat-sn.png") no-repeat center center;
+	width: 135px;
 }
 .network-nav li.sv div{
 	background: url("../img/tophat/tophat-sv.png") no-repeat center center;
+	width: 84px;
 }
+
 
 /* current states */
 .network-nav li.hg-active div{
 	background: url("../img/tophat/tophat-active-hg.png") no-repeat center center;
+	width: 84px;
 }
 .network-nav li.st-active div{
 	background: url("../img/tophat/tophat-active-st.png") no-repeat center center;
+	width: 82px;
 }
 .network-nav li.rs-active div{
 	background: url("../img/tophat/tophat-active-rs.png") no-repeat center center;
+	width: 116px;
 }
 .network-nav li.sn-active div{
 	background: url("../img/tophat/tophat-active-sn.png") no-repeat center center;
+	width: 135px;
 }
 .network-nav li.sv-active div{
 	background: url("../img/tophat/tophat-active-sv.png") no-repeat center center;
+	width: 84px;
 }
 
 /* Hover States */

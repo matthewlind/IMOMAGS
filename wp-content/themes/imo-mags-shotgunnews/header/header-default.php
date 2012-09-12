@@ -76,7 +76,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 				<li class="st"><a href="http://shootingtimes.com"><div></div></a></li>
 				<li class="rs"><a href="http://rifleshootermag.com"><div></div></a></li>
 				<li class="sn-active active"><div></div></li>
-				<li class="sv"><a href="http://sportsmenvote.com"><div></div></a></li>
+				<li class="sv"><a href="http://sportsmenvote.com" target="_blank"><div></div></a></li>
 			</ul>
 		</div>
 	
