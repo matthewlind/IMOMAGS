@@ -401,6 +401,7 @@ $app->get('/api/superpost/comment_attachments/:parent_id',function($parent_id){
 				$comment['attachments'][$attachmentID]['attachment_body'] = $post->attachment_body;
 				$comment['attachments'][$attachmentID]['attachment_post_type'] = $post->attachment_post_type;
 				$comment['attachments'][$attachmentID]['attachment_meta'] = $post->attachment_meta;
+				$comment['attachments'][$attachmentID]['attachment_id'] = $post->attachment_id;
 			}
 				
 
@@ -410,10 +411,22 @@ $app->get('/api/superpost/comment_attachments/:parent_id',function($parent_id){
 
 
 		}
+		
+		//Improve json formatting for picky parsers
+		$postCommentsArray = array();
+		
+		foreach ($postComments as $key => $comment) {
+		
+			$commentAttachmentArray = array();
+		
+			foreach($comment['attachments'] as $key => $attachment) {
+				$commentAttachmentArray[] = $attachment;
+			}
+			$comment['attachments'] = $commentAttachmentArray;
+			$postCommentsArray[] = $comment;
+		}
 
-
-
-		echo json_encode($postComments);
+		echo json_encode($postCommentsArray);
 
 		$db = "";
 
