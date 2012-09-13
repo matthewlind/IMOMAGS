@@ -130,7 +130,7 @@ if (empty($zn_img)) {
 					(function() {
 					//*** Note! If URL is not the ID of the page, uncomment
 					//*** the line below and replace CONTENT_ID with the page ID.
-					var leiki_cid = 'http://www.gunsandammo.com/2012/08/15/gun-accessories-you-didnt-know-you-needed/';
+					//var leiki_cid = 'CONTENT_ID';
 					var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;
 					s.src = 'http://kiwi12.leiki.com/focus/mwidget?wname=sb1' +((typeof leiki_cid !== 'undefined' && leiki_cid!='')? '&cid='+encodeURIComponent(leiki_cid) : '')+ '&first=' + top.leiki_first + '&ts='+new Date().getTime();
 					var x = document.getElementsByTagName('script')[0];
