@@ -5983,10 +5983,10 @@ select.caliber {
 
 /* line 4312, sass/style.scss */
 .recommendations {
-  float: left;
-  width: 300px;
-  height: 290px;
-  margin-top: 50px;
+  	float: right;
+    height: 290px;
+    margin-top: 4px;
+    width: 300px;
 }
 
 /* line 4317, sass/style.scss */
@@ -6578,7 +6578,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 .leiki_products {
     box-shadow: none !important;
 }
-
+#leiki1demo{float: left;}
 
 /* thumbs wide */
 .cfct-module-featured-thumb-wide .featured-articles {
