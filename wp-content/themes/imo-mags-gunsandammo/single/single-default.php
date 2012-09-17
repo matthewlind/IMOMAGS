@@ -56,7 +56,12 @@ get_header();
 	}
 	
 	?>
+<div id="responderfollow"></div>
+	<div class="sidebar advert">
+		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('scroll-sidebar')) : else : ?><?php endif; ?>
+	</div>
 </div>
+
 <div id="content" class="col-ab">
 <!-- Set the blog header on single blog entry pages -->
 <?php

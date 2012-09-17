@@ -135,4 +135,9 @@ $(document).ready(function(){
      	
 });
 
+// jFollow
+$(function(){
+	
+	$('.advert').jfollow('#responderfollow');
+});
 
