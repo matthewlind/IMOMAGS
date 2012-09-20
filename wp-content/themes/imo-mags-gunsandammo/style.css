@@ -1313,10 +1313,12 @@ a.comment-count:hover {
 
 /* line 919, sass/style.scss */
 #main #secondary {
-  display: inline;
-  float: left;
-  margin-right: 0;
-  width: 980px;
+	background-color: #FFFFFF;
+	display: block;
+	margin: 0 0 -40px;
+	overflow: auto;
+	padding-bottom: 80px;
+	width: 980px;
 }
 
 /* line 925, sass/style.scss */
@@ -2261,7 +2263,7 @@ a.comment-count:hover {
 
 /* line 1581, sass/style.scss */
 .home #main, .page-template-page-right-reviews-php #main, .page-template-page-shooting-php #main, .tax-guntype #main, .category #main, .tax-video_channel #main, .page-template-page-galleries-php #main, .page-template-page-right-tv-php #main, .page-template-page-caption-contest-php #main, .page-template-page-videos-php #main, .post-type-archive-imo_video #main, .page-template-page-1911-php #main {
-  margin-top: 35px;
+  margin-top: 0;
   padding-top: 0;
 }
 
@@ -4160,10 +4162,9 @@ body.parent-pageid-2114 #main {
 .single .blog-header, .blog .cfct-callout {
   display: block;
   height: 232px;
-  margin-bottom: -28px;
+  margin-bottom: 0;
   padding: 0;
   position: relative;
-  top: -30px;
   width: 100%;
 }
 .soga{
@@ -5003,8 +5004,10 @@ body.parent-pageid-2114 #main {
 /* line 3624, sass/style.scss */
 #footer {
   background: #313131 url("img/footer_network_bg.gif?1336056336");
-  margin-top: 40px;
-  clear:both;
+  clear: both;
+    margin-top: 40px;
+    position: relative;
+    z-index: 5;
 }
 /* line 3628, sass/style.scss */
 #footer #imo-network .container {
@@ -6253,7 +6256,7 @@ h1.seo-h1 {
 
 /* line 4500, sass/style.scss */
 .blog-sidebar {
-  margin-top: 204px;
+  margin-top: 232px;
 }
 
 /* line 4503, sass/style.scss */
@@ -6308,6 +6311,7 @@ nav.nav-secondary {
   margin: 0;
   padding: 0 15px;
   position: relative;
+  overflow: hidden;
 }
 .page-template-page-gatv-php nav.nav-secondary {
 	padding: 0 !important;
@@ -6564,10 +6568,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 .network-nav li.sv a:hover div{
 	background: url("img/tophat/tophat-active-sv.png") no-repeat center center;
 }
-/*ad interference*/
-#jpsuperheader{
-	top: 80px;
-}
+
 
 
 
@@ -6607,15 +6608,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 }
 
 
-#main{padding-top: 0px;}
 
 
 
 
 
+/*jetpack fixes*/
+#main{padding-top: 0px;margin-top: 0;overflow: visible;}
 
-
-
-
-
+.page-flow, .page .page-template-page-right-php, .archive .page-template-page-right-php, #carrington-modules.col-abc{
+	overflow: hidden;
+}
+#footer{
+	margin-top: 0;
+}
+.page-template #main, .single #main, .archive #main{
+	padding-bottom: 80px;
+}
 

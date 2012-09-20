@@ -92,7 +92,6 @@ position: relative;
 border: none !important;
 border-radius: 0 !important;
 padding-left: 0;
-overflow: visible !important;
 }
 .home #main-content {
 position: relative;
@@ -5082,6 +5081,26 @@ ul#scroll-widget li a:hover span{
 #megaMenu .community-menu-right .wpmega-nonlink{
 	width: 350px;
 }
+
+
+/**** jetpack fixes ****/
+.str-container {
+    margin: 0 auto;
+    padding: 0 0 10px 10px;
+    background-color: #fff;
+}
+#footer{
+margin-top:0;
+}
+
+#main-content{
+	overflow: hidden;
+}
+
+
+
+
+
 
 
 

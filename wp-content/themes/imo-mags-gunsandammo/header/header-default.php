@@ -107,7 +107,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
 		</div>
 	</header>
 	
-	<section id="main" class="container">
+	<section id="main" class="container" style="background-color:#fff;">
 	
 	 <div class="centerad">
         <div class="ad-left">
