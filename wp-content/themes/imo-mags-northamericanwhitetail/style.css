@@ -135,10 +135,10 @@ width: 990px;
  */
 
 #header {
-    background: url("img/header-bg.jpg") repeat scroll center top transparent;
-    height: auto;
-    margin: 0 !important;
-   /* z-index: 9999999;*/
+	background: url("img/header-bg.jpg") repeat scroll center top transparent;
+	height: auto;
+	margin: 0 !important;
+	width: 100%;
 }
 .container {
     margin: 0 auto;
@@ -5084,6 +5084,7 @@ ul#scroll-widget li a:hover span{
 
 
 /**** jetpack fixes ****/
+
 .str-container {
     margin: 0 auto;
     padding: 0 0 10px 10px;

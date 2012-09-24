@@ -198,24 +198,7 @@ if(document.location.protocol=='http:'){
 
 
 
-<header id="header">
-	<!--<div id="tophat" style="<?php //echo $displayStyle; ?>">
-		<div class="user-bar">
-			<ul id="tophat-left">
-				<li><a href="#">+ Post</a></li>
-				<li><a href="#">People</a></li>
-				<li><a href="#">Messages</a></li>
-				<li><a href="#">Saved Articles</a></li>
-				<li><a href="#">Your Profile</a></li>
-			</ul>
-			<ul id="tophat-right">
-				<li><?php //echo get_avatar($current_user->user_email,35); ?></li>
-				<li>Hello, <a href="#"><span id="current-user-name"><?php //echo $current_user->display_name; ?></span></a></li>
-				<li><a href="<?php //echo wp_logout_url( get_permalink() ); ?>" title="Logout">Logout</a></li>
-			</ul>
-		</div>
-	</div>-->
-	
+<header id="header">	
 	
     <div class="container">
     	    	
