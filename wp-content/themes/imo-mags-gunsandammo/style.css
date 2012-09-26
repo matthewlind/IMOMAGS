@@ -1261,6 +1261,7 @@ a.comment-count:hover {
   padding: 60px 10px 0;
   position: relative;
   z-index: 5;
+  clear: both;
 }
 /* line 880, sass/style.scss */
 #main #masthead {
@@ -1479,13 +1480,13 @@ a.comment-count:hover {
 
 /* line 1039, sass/style.scss */
 .centerad {
-  margin-top: 0;
-  margin-bottom: 40px;
-  text-align: center;
-  min-height: 90px;
-  width: 100%;
-  position: relative;
-  clear: both;
+	margin: 0 auto;
+	text-align: center;
+	min-height: 90px;
+	width: 980px;
+	position: relative;
+	clear: both;
+	top:80px;
 }
 /* line 1047, sass/style.scss */
 .centerad .ad-left {
@@ -1502,13 +1503,13 @@ a.comment-count:hover {
 
 /* line 1056, sass/style.scss */
 #header {
-  background: #161616 url("img/header_bg.jpg?1336056336") center top no-repeat;
-  height: 380px;
+  background: #161616 url("img/header_bg.jpg?1336056336") center 41px no-repeat;
+  height: auto;
 }
 /* line 1059, sass/style.scss */
 #header .container {
   background: url("img/header_primary_bg.png?1336056336") bottom left repeat-x;
-  height: 323px;
+  height: 292px;
 }
 /* line 1062, sass/style.scss */
 #header .title {
@@ -1529,7 +1530,7 @@ a.comment-count:hover {
   height: 152px;
   position: absolute;
   right: 0;
-  top: 173px;
+  top: 143px;
   width: 316px;
   z-index: 20;
 }
@@ -1594,13 +1595,13 @@ a.comment-count:hover {
   vertical-align: middle;
   *vertical-align: auto;
   *display: inline;
-  margin-top: 145px;
+  margin-top: 105px;
 }
 /* line 1127, sass/style.scss */
 #header #searchform {
   left: 350px;
   position: absolute;
-  top: 158px;
+  top: 118px;
 }
 /* line 1132, sass/style.scss */
 #header #searchform input[type="search"], #header #searchform input.searchfield {
@@ -1638,7 +1639,7 @@ a.comment-count:hover {
 }
 /* line 1161, sass/style.scss */
 #header #megaMenu {
-  height: 78px;
+  height: 57px;
   margin: 0 auto;
   padding-right: 300px;
   position: relative;

@@ -45,6 +45,7 @@ a:hover {
 .str-container {
 	margin: 0 auto;
 	width: 1020px;
+	background-color: #000;
 }
 .col-abc {
 	display: block;
