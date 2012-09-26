@@ -733,3 +733,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 .network-nav li.sv a:hover div{
 	background: url("../img/tophat/tophat-active-sv.png") no-repeat center center;
 }
+
+
+.widget_advert-widget{
+	z-index: 1;
+}

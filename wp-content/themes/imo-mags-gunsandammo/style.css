@@ -6627,3 +6627,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 	padding-bottom: 80px;
 }
 
+.widget_advert-widget{
+	z-index: 1;
+}

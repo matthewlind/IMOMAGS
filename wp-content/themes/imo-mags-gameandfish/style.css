@@ -613,3 +613,6 @@ transition: all 0.35s ease-in 0s;
 .leiki_products{
 	box-shadow: none !important;
 }
+.widget_advert-widget{
+	z-index: 1;
+}

@@ -1165,7 +1165,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     max-width: 100%;
 }
 .cfct-module-featured-thumb-wide .featured-articles .featured-item-pane {
-    border: medium none;
+    border: 9px solid #EFECE6;
     height: 370px;
     overflow: hidden;
     width: 100%;
@@ -1201,17 +1201,17 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     width: 138px;
 }
 .cfct-module-featured-thumb-wide.cfct-module #featured-articles-navigator li a{
-	background-color: #ECEDED;
-    border-bottom: 12px solid #ECEDED;
-    border-right: 12px solid #ECEDED;
-    border-top: 12px solid #ECEDED;
+	background-color: #EFECE6;
+    border-bottom: 12px solid #EFECE6;
+    border-right: 12px solid #EFECE6;
+    border-top: 12px solid #EFECE6;
     display: block;
     height: 104px;
     overflow: hidden;
     width: 132px;
 }
 .cfct-module-featured-thumb-wide.cfct-module #featured-articles-navigator li a:first-child{
-	border-left: 12px solid #ECEDED;
+	border-left: 12px solid #EFECE6;
 }
 .cfct-module-featured-thumb-wide #featured-articles-navigator li.ui-tabs-selected a{
 	border: 12px solid #000 !important;
@@ -2577,7 +2577,7 @@ ul.naw-loop li{
 }
 .ui-tabs .next-tab {
     background: url("img/ui_tab_next.png") no-repeat scroll center center #000000;
-    right: 0;
+    right:-19px;
 }
 .ui-tabs .prev-tab {
 	 background: url("img/ui_tab_prev.png") no-repeat scroll center center #000000;
@@ -2590,7 +2590,7 @@ ul.naw-loop li{
     position: absolute;
     text-align: left;
     text-indent: -119988px;
-    top: 120px;
+    top: 150px;
     width: 60px;
     z-index: 30;
 }
@@ -5100,7 +5100,9 @@ margin-top:0;
 
 
 
-
+.widget_advert-widget{
+	z-index: 1;
+}
 
 
 
