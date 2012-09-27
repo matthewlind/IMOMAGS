@@ -72,7 +72,7 @@ $grav_url = "http://www.gravatar.com/avatar/" . $data->gravatar_hash . ".jpg?s=2
 	<div class="superpost-comment-form">
         <form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="superpost-form">
             <h3>Post a Comment!</h3>
-           <textarea name="body" id="body" placeholder="What do you want to say?"></textarea>
+           <textarea name="body" placeholder="What do you want to say?"></textarea>
             <input type="file" id="photo-upload" name="photo-upload"  /><br/>
             <input type="hidden" name="parent" value="<?php echo $spid;?>">
             <input type="hidden" name="post_type" value="comment">

@@ -73,7 +73,7 @@ if ( is_user_logged_in() ) {
 	        <input type="text" name="post_type" id="post_type" value="lifestyle" style="display:none;"/>
 	        	           
 
-	        <textarea name="body" id="body" placeholder="Tell Us Your Story."></textarea>
+	        <textarea name="body" placeholder="Tell Us Your Story."></textarea>
 	        
 	        <input id="file" type="file" name="photo-upload" id="photo-upload" style="display:none"/>
 	<!--    
