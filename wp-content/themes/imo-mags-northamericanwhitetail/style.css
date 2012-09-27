@@ -2942,7 +2942,18 @@ select.modal_post_type {
 #join {
     border: 1px solid #D5D5D5;
     padding: 18px 18px 6px;
-    background:url("img/join-crosshair-bg.png") no-repeat scroll center 15px #EDEDED;
+    background:url("img/join-crosshair-bg.png") no-repeat scroll 50px 15px #EDEDED;
+}
+#join h1{
+	font-family: "Rokkitt",serif;
+	text-align: center;
+	position: absolute;
+	top: 28px;
+	font-size: 1.6em;
+	width: 220px;
+	right: 0;
+	line-height: 0.8;
+	letter-spacing: 1.2px;
 }
 #join a.about-link{
 	font-family: ProximaNova-Bold;
