@@ -143,6 +143,7 @@ position: relative;
 	border-bottom: none;
 	margin: 0 auto;
 	width: 1020px;
+	z-index: 9999;
 }
 
 #header .site-title {
