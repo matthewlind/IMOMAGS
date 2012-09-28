@@ -734,7 +734,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 	background: url("../img/tophat/tophat-active-sv.png") no-repeat center center;
 }
 
-
+/* flash heed for flash ads */
 .widget_advert-widget{
 	z-index: 1;
+}
+.centerad{
+    z-index: 1;
+    position: relative;
 }
