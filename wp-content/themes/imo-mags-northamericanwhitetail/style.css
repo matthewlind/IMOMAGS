@@ -2079,8 +2079,7 @@ home .super-post{padding-top:68px;}
 	line-height: 1em;
 }
 .single .addthis_toolbox.addthis_default_style{
-	float: right;
-	margin: 0 0 30px;
+	margin-top: 10px;
 }
 .header-title{
 	border-bottom: 4px solid #000;
