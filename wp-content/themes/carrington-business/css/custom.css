@@ -584,7 +584,6 @@ h2.entry-title a:hover {
 #imo-tophat{
 	margin: 0 auto;
     position: fixed;
-    top: 0;
     width: 100%;
     z-index: 999999999;
 }
@@ -639,7 +638,7 @@ h2.entry-title a:hover {
 	margin: 0;
 	padding: 0;
 	margin: 0 auto;
-	width: 850px;
+	width: 730px;
 }
 .network-nav li{
 	float: left;
@@ -734,7 +733,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 .network-nav li.sv a:hover div{
 	background: url("../img/tophat/tophat-active-sv.png") no-repeat center center;
 }
-/*ad interference*/
-#jpsuperheader{
-	top: 80px;
+
+/* flash heed for flash ads */
+.widget_advert-widget{
+	z-index: 1;
+}
+.centerad{
+    z-index: 1;
+    position: relative;
 }

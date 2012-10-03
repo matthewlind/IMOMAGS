@@ -124,7 +124,7 @@ if ( is_user_logged_in() ) {
 	        <input type="text" name="post_type" id="post_type" value="general" style="display:none;"/>
 	        	           
 
-	        <textarea name="body" id="body" placeholder="Description"></textarea>
+	        <textarea name="body" placeholder="Description"></textarea>
 	        
 	        <input id="file" type="file" name="photo-upload" id="photo-upload" style="display:none"/>
 	<!--    

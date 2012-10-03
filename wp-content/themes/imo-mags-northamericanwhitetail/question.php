@@ -82,7 +82,7 @@ if ( is_user_logged_in() ) {
 	        </div>
 	        <input type="text" name="title" id="title" placeholder="Write Your Question"/>
 	        <input type="text" name="post_type" id="post_type" value="question" style="display:none;"/>
-	        <textarea name="body" id="body" placeholder="More Details (optional)"></textarea>
+	        <textarea name="body" placeholder="More Details (optional)"></textarea>
 	        	        
 	        <input id="file" type="file" name="photo-upload" id="photo-upload" style="display:none"/>
 	<!--    

@@ -99,7 +99,14 @@ var dartadsgen_rand = Math.floor((Math.random()) * 100000000), pr_tile = 1, dart
 		});
 
 	});
-	    
+
+
+// Flash ad z-index pecking order fix
+$(document).ready(function(){
+	FlashHeed.heed();
+});
+
+
 	//scroll to top				
 	$(document).ready(function(){
 		// hide #back-top first

@@ -404,7 +404,7 @@ $comment_user_score = $comment_user_score[0];
 
     <form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-comment-form">
 
-        <textarea name="body" id="body" placeholder="What's up?"></textarea>
+        <textarea name="body" placeholder="What's up?"></textarea>
         
         <input type="hidden" name="parent" value="<?php echo $spid;?>">
         <input type="hidden" name="post_type" value="comment">

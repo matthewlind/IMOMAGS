@@ -45,6 +45,7 @@ a:hover {
 .str-container {
 	margin: 0 auto;
 	width: 1020px;
+	background-color: #000;
 }
 .col-abc {
 	display: block;
@@ -134,13 +135,15 @@ position: relative;
 	text-indent: -9999em;
 }
 #header {
-	
+	overflow: visible;
+	height: auto;
 	border-color: #CCC;
 	border-width: 0px;
 	border-style: solid;
 	border-bottom: none;
 	margin: 0 auto;
 	width: 1020px;
+	z-index: 9999;
 }
 
 #header .site-title {
@@ -367,6 +370,7 @@ nav.nav a {
 }
 #megaMenu.megaMenuHorizontal ul.megaMenu {
 	width: 1000px !important;
+	background-color: #000;
 }
 #megaMenu.megaMenuHorizontal ul.megaMenu {
 padding: 0 0px 0 20px;
@@ -609,4 +613,7 @@ transition: all 0.35s ease-in 0s;
 }
 .leiki_products{
 	box-shadow: none !important;
+}
+.widget_advert-widget{
+	z-index: 1;
 }

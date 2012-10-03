@@ -66,7 +66,7 @@ $data = json_decode($file);
                     <form id="post-report-form" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="superpost-form">
                                 <h3>Post a Report!</h3>
                                 <input type="text" name="title">
-                                <textarea name="body" id="body" placeholder="What do you want to say?"></textarea>
+                                <textarea name="body" placeholder="What do you want to say?"></textarea>
                                 <select name="state">
                                     <option value="AL">Alabama</option>
                                     <option value="AK">Alaska</option>
