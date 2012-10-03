@@ -40,11 +40,6 @@
         });
         
         
-// Flash ad z-index pecking order fix
-$(document).ready(function(){
-	FlashHeed.heed();
-});
-        
         
 /*****
 **
