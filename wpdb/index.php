@@ -36,6 +36,31 @@ include 'mysql.php';
  */
 
 //GET route
+
+$app->get('/imomags/user/hometown(/:userid)', function ($userid) {
+	//$sort = mysql_real_escape_string($sort);
+	date_default_timezone_set('America/New_York'); 
+    header('Access-Control-Allow-Origin: *');  
+
+    try {
+
+        $db = dbConnect();
+        
+        $sql = "(SELECT meta_key,meta_value FROM wp_usermeta WHERE meta_key = 'city' AND user_id = ?)UNION(SELECT meta_key,meta_value FROM wp_usermeta WHERE meta_key = 'state' AND user_id = ?)";
+        
+        $stmt = $db->prepare($sql);
+		$stmt->execute(array($userid,$userid));
+	
+		$data = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+		echo json_encode($data);
+	
+    } catch(PDOException $e) {
+        echo $e->getMessage();
+    }
+});
+
+
 $app->get('/imomags/term/naw-plus(/sort/:sort)', function ($sort = "post_date") {
 	//$sort = mysql_real_escape_string($sort);
 	date_default_timezone_set('America/New_York'); 
