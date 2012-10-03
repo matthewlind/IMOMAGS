@@ -157,3 +157,42 @@ $app->get('/api/superpost/user/score/:userid',function($userid){
     }
 
 });
+//*********************************
+//*** Get User Post Count ***
+//*********************************
+$app->get('/api/superpost/user/postcount/:userid',function($userid){
+
+	header('Access-Control-Allow-Origin: *');  
+
+	try {
+
+		$db = dbConnect();
+		
+		
+		if (is_numeric($userid)) {
+			$whereClause = "WHERE users.ID = ?";
+		} else {
+			$whereClause = "WHERE users.user_nicename = ?";
+
+		}
+
+
+		$sql = "select count from slim.userpostcount as userpostcount
+				JOIN imomags.wp_users as users on (users.`ID` = userpostcount.user_id)
+				$whereClause
+				";
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array($userid));
+	
+		$posts = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+		echo json_encode($posts);
+
+		$db = "";
+
+	} catch(PDOException $e) {
+    	echo $e->getMessage();
+    }
+
+});
