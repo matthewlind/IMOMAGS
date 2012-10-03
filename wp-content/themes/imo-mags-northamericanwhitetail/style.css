@@ -5117,6 +5117,54 @@ margin-top:0;
 }
 
 
+.qtip-content{
+	font-family: "ProximaNova-Regular";
+}
+
+.qtip-content h2{
+	color: white;
+	text-transform: uppercase;
+	font-size: 1em;
+	background: url("img/qtip-line.jpg") 0 0 no-repeat;
+	padding-bottom: 7px;
+	padding-left: 8px;
+}
+.qtip{
+	background: url("img/qtip-arrow.png") center 87px no-repeat transparent;
+	height: 104px;
+}
+.qtip-content li{
+	color: #ffe720;
+	font-size: 0.8em;
+	text-transform: uppercase;
+	padding-left: 8px;
+}
+
+.qtip-contentWrapper{
+	width: 188px;
+	padding: 3px 0 6px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*** Local edits ***/   
