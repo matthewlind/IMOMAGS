@@ -461,7 +461,7 @@ $comment_user_score = $comment_user_score[0];
 		             		echo '<li>';
 		             		echo '<div class="quote-area">';
 								echo '<div class="mdl">';
-								echo '<h4 class="quote"></h4>';
+								echo '<h4 class="quote"><a href="#"></a></h4>';
 								echo '</div>';
 								echo '<div class="btm"></div>';
 								echo '<div class="pointer"></div>';

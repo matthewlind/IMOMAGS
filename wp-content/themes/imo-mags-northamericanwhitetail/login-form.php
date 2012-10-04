@@ -6,9 +6,7 @@ Theme My Login will always look in your theme's directory first, before using th
 ?>
 
 
-<div class="imo-fb-login-button" style="">
-                LOGIN
-            </div>
+
 <div class="login" id="theme-my-login<?php $template->the_instance(); ?>">
 	<?php $template->the_action_template_message( 'login' ); ?>
 	<?php $template->the_errors(); ?>

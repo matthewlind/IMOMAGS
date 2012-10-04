@@ -688,3 +688,11 @@ select.post_type{
 	border: 1px solid #E7E5E0;
 }
 
+/* State callout in recon list */
+.state-type a{
+	background-color: #3e88e9;
+	color: white;
+	padding: 0 10px;
+	float: left;
+	margin-right: 10px;
+}
