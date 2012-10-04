@@ -99,10 +99,11 @@ jQuery(document).ready(function($) {
 				            $userBar.find("#current-user-name").text(data.display_name);
 				            $userBar.find("img.recon-gravatar").attr("src","/avatar?uid=" + data.user_id);
 				            
-				            $(".imo-fb-login-button").fadeOut(500,function(){
+				            $("#imo-fb-login-button").fadeOut(500,function(){
 					            
 					            $userBar.fadeIn();
 				            });
+				            
 				                     
 				            //replace when App is live
 				             $(".fb-join-widget-box").fadeOut(500);

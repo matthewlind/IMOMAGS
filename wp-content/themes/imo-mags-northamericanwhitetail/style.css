@@ -1462,14 +1462,14 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     }
 
 .questions-slider {
-    min-height: 270px;
+    min-height: 180px;
     margin: 0 auto;
     padding: 16px 0;
     position: relative;
     width: 678px;
 }
 .questions-slider .slides-container-f {
-    min-height: 270px;
+
     margin: 0 auto;
     width: 678px;
 }
@@ -1507,14 +1507,13 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 }
 .questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-item {
     background: none repeat scroll 0 0 transparent;
-    min-height: 270px;
     padding: 0;
     margin:0;
     position: relative;
     width: 678px;
 }
 .questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-clip-horizontal {
-    min-height: 270px;
+    min-height: 180px;
     width: 678px;
     margin-top: 40px;
     
@@ -1535,6 +1534,10 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 }
 .questions-slider .quote-area{
 	width: 678px;
+	margin-top: 40px;
+}
+#questions-widget .questions-slider .quote-area, .question-module .questions-slider .quote-area{
+	margin-top: 0;
 }
 .questions-slider .quote-area .top{
 	background: url("img/top-arrow.jpg") no-repeat scroll 33px top transparent;
@@ -1560,14 +1563,10 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 	padding-left: 11px;
 }
 .questions-slider .user-info a.username{
-	position: relative;
-    top: -20px;
-    padding-left: 8px;
-    float: none;
+	overflow: hidden;
 }
 .questions-slider .user-info span{
-	position: relative;
-    top: -20px;
+	overflow: hidden;
 }
 .questions-slider h4.quote{
     font-family: ProximaNova-Regular;
@@ -1595,9 +1594,13 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 }
 .questions-slider .answers-area{
 	font-family: ProximaNova-Regular;
-	margin-top: 30px;
+	margin-top: 18px;
 	text-transform: uppercase;
 	font-size: 0.8em;
+	clear: both;
+}
+#questions-widget .questions-slider .answers-area, .question-module .answers-area{
+	margin-top: 48px;
 }
 .questions-slider .answers-area .answers-count{
 	float: left;
@@ -1726,7 +1729,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     width: 318px;
 }
 .questions-slider img.recon-gravatar{
-	float: none;
+	float: left;
 }
 
 
