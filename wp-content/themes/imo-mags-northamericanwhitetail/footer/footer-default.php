@@ -509,6 +509,7 @@ if ( is_user_logged_in() ) {
 
   </div><!-- End user login modal container -->
   <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery.jfollow.js"></script>
+  <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/cross-site-feed-widget.js"></script>
 
 </body>
 </html>
