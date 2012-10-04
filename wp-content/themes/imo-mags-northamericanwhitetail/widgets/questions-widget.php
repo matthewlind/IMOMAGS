@@ -21,7 +21,7 @@ class Questions_Widget extends WP_Widget {
 		             		echo '<div class="quote-area">';
 								echo '<div class="top"></div>';
 								echo '<div class="mdl">';
-									echo '<h4 class="quote"></h4>';
+									echo '<h4 class="quote"><a href="#"></a></h4>';
 								echo '</div>';
 								echo '<div class="btm"></div>';
 								echo '<div class="pointer"></div>';

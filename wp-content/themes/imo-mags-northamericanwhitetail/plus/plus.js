@@ -17,6 +17,60 @@ topicKey.question = "Q&A";
 topicKey.tip = "Tips & Tactics";
 
 
+var stateKey = new Object;
+stateKey.AR = "Arizona";
+stateKey.AL = "Alabama";
+stateKey.AK = "Alaska";
+stateKey.AZ = "Arizona";
+stateKey.AR = "Arkansas";
+stateKey.CA = "California";
+stateKey.CO = "Colorado";
+stateKey.CT = "Connecticut";
+stateKey.DE = "Delaware";
+stateKey.DC = "District Of Columbia";
+stateKey.FL = "Florida";
+stateKey.GA = "Georgia";
+stateKey.HI = "Hawaii";
+stateKey.ID = "Idaho";
+stateKey.IL = "Illinois";
+stateKey.IN = "Indiana";
+stateKey.IA = "Iowa";
+stateKey.KS = "Kansas";
+stateKey.KY = "Kentucky";
+stateKey.LA = "Louisiana";
+stateKey.ME = "Maine";
+stateKey.MD = "Maryland";
+stateKey.MA = "Massachusetts";
+stateKey.MI = "Michigan";
+stateKey.MN = "Minnesota";
+stateKey.MS = "Mississippi";
+stateKey.MO = "Missouri";
+stateKey.MT = "Montana";
+stateKey.NE = "Nebraska";
+stateKey.NV = "Nevada";
+stateKey.NH = "New Hampshire";
+stateKey.NJ = "New Jersey";
+stateKey.NM = "New Mexico";
+stateKey.NY = "New York";
+stateKey.NC = "North Carolina";
+stateKey.ND = "North Dakota";
+stateKey.OH = "Ohio";
+stateKey.OK = "Oklahoma";
+stateKey.OR = "Oregon";
+stateKey.PA = "Pennsylvania";
+stateKey.RI = "Rhode Island";
+stateKey.SC = "South Carolina";
+stateKey.SD = "South Dakota";
+stateKey.TN = "Tennessee";
+stateKey.TX = "Texas";
+stateKey.UT = "Utah";
+stateKey.VT = "Vermont";
+stateKey.VA = "Virginia";
+stateKey.WA = "Washington";
+stateKey.WV = "West Virginia";
+stateKey.WI = "Wisconsin";
+stateKey.WY = "Wyoming";
+
 //Check for new post sharing popup
 
 if (window.location.hash == '#share') {
@@ -811,8 +865,15 @@ function displayReconList(type) {
 			var points = parseInt(this.comment_count) + parseInt(this.share_count);
 			
 			if (!this.display_name) {
-			this.display_name = this.username;
+				this.display_name = this.username;
 			}
+			if(this.state){
+		    	niceState = stateKey[this.state];
+		    	state_url = "<div class='state-type'><a href='/community/report/" + niceState.toLowerCase() + "'>" + niceState + "</a></div>"
+		    
+		    }else{
+			    state_url = "";
+		    }
 			
 			//underBox.append(date);	
 			//var $avatar $("<img class='recon-gravatar'>").attr("src","avatar?uid=" + this.user_id);
@@ -822,7 +883,7 @@ function displayReconList(type) {
 					<ul>\
 						<li>\
 							<div class='row-info'>\
-								<div class='row-post-type post-type-" + this.post_type + "'>" + this.post_type + "</div>\
+								" + state_url + "\
 								<div class='row-title'><a href='" + url + "'>" + this.title + "</a></div>\
 							</div>\
 						</li>\
@@ -1070,7 +1131,7 @@ $(document).ready(function(){
 			$questionTemplate.find(".user-info a.username").text(question.display_name); 
 			$questionTemplate.find(".user-info a").attr("href","/profile/" + question.username);
 			
-			$questionTemplate.find("h4.quote").text(question.title);
+			$questionTemplate.find("h4.quote a").text(question.title).attr("href",url);
 			$questionTemplate.find(".answers-count a").attr("href",url + "/#comments");
 			$questionTemplate.find("a.answers-link").attr("href",url);
 			$questionTemplate.find(".count a").text(question.comment_count);

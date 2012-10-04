@@ -1570,12 +1570,14 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     top: -20px;
 }
 .questions-slider h4.quote{
-	color: #C65517;
     font-family: ProximaNova-Regular;
+    padding: 10px 12px 0;
+}
+.questions-slider h4.quote a{
+	color: #C65517;
     font-size: 1.23em;
     font-weight: lighter;
     line-height: 1em;
-    padding: 10px 12px 0;
     text-align: left;
 }
 .questions-slider .see-all{
@@ -5117,6 +5119,8 @@ margin-top:0;
 }
 
 
+
+/* Map Tool Tip */
 .qtip-content{
 	font-family: "ProximaNova-Regular";
 }
@@ -5144,7 +5148,6 @@ margin-top:0;
 	width: 188px;
 	padding: 3px 0 6px;
 }
-
 
 
 
