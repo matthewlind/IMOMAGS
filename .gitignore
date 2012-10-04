@@ -33,4 +33,5 @@ robots.txt
 .sass-cache
 wpdb/mysql.php
 slim/mysql.php
+userinfo/mysql.php
 avatar/mysql.php
