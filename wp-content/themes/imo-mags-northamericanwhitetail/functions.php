@@ -139,7 +139,6 @@ include_once get_stylesheet_directory().'/widgets/questions-widget.php';
 include_once get_stylesheet_directory().'/widgets/questions-list-widget.php';
 include_once get_stylesheet_directory().'/widgets/us-map.php';
 include_once get_stylesheet_directory().'/widgets/community-menu.php';
-include_once get_stylesheet_directory().'/widgets/cross-site-feed-widget.php';
 
 
 
