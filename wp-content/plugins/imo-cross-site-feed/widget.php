@@ -1,9 +1,6 @@
 <?php
 
-
 namespace imo;
-
-
 
 /**
  * IMOcsfWidget
@@ -16,10 +13,6 @@ class IMOcsfWidget extends \WP_Widget {
     {
         parent::__construct("csf-widget", "IMO Cross Site Feed Widget");
     }
-
-  
-
-	
 
     /**
      * Outputs the widget contet.
@@ -34,12 +27,12 @@ class IMOcsfWidget extends \WP_Widget {
 	    </aside>
 	    
 	    <article id="excerpt-widget-template" class="post type-post status-publish format-standard hentry entry entry-excerpt has-img" style="display:none;">
-			<a href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/"><img width="130" height="auto" src="http://www.northamericanwhitetail.deva/files/2012/03/NAWdd_031312-190x120.jpg" class="entry-img wp-post-image" alt="" title="" /></a>
+			<a href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/" target="_blank"><img width="130" height="auto" src="http://www.northamericanwhitetail.deva/files/2012/03/NAWdd_031312-190x120.jpg" class="entry-img wp-post-image" alt="" title="" /></a>
 			
 			<div class="entry-summary">
 				
-				<h2 class="entry-title"><a rel="bookmark" href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/">Deer of the Day Buckeye Brute, Alexa Perry</a></h2>
-				<span class="entry-category"><a href="http://www.northamericanwhitetail.deva/category/deer-of-the-day/" title="View all posts in Deer of the Day" rel="category tag">Deer of the Day</a></span>
+				<h2 class="entry-title"><a rel="bookmark" href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/" target="_blank">Deer of the Day Buckeye Brute, Alexa Perry</a></h2>
+				<span class="entry-category"><a href="http://www.northamericanwhitetail.deva/category/deer-of-the-day/" title="View all posts in Deer of the Day" rel="category tag" target="_blank">Deer of the Day</a></span>
 			</div>
 		</article>
 		
@@ -50,8 +43,6 @@ class IMOcsfWidget extends \WP_Widget {
     }
 
  }       
-
-
 
 add_action("widgets_init", function() {
     return register_widget("imo\IMOcsfWidget");

@@ -510,13 +510,8 @@ function displayRecon(type) {
 			}
 		        
 	        });
-	        
-	        
 
-			
-			
 			//gravatar.data('user_id',post.user_id);
-
 			
 			//Append the Laconic reconBox
 	        $("#recon-activity").append($reconBox);
@@ -526,8 +521,7 @@ function displayRecon(type) {
 	        	$('#recon-activity').fadeIn();
 	        
 	        	beforeImageLoaded();
-	        	
-	        
+	        		        
 	            $("#recon-activity").imagesLoaded( function(){
 
 	            	//afterImageLoaded();
@@ -867,7 +861,7 @@ function displayReconList(type) {
 			if (!this.display_name) {
 				this.display_name = this.username;
 			}
-			if(this.state){
+			if(this.post_type == "report"){
 		    	niceState = stateKey[this.state];
 		    	state_url = "<div class='state-type'><a href='/community/report/" + niceState.toLowerCase() + "'>" + niceState + "</a></div>"
 		    
@@ -1101,7 +1095,6 @@ function displayUserComments(userID) {
 	});
 
 } //End function displayUserComments()
-
 
 
 
