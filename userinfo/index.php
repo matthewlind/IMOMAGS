@@ -29,6 +29,9 @@ include 'mysql.php';
  * argument for `Slim::get`, `Slim::post`, `Slim::put`, and `Slim::delete`
  * is an anonymous function.
  */
+ 
+$response = $app->response();
+$response['Content-Type'] = 'application/json';
 
 $app->get('/hometown(/:userid)', function ($userid) {
 	//$sort = mysql_real_escape_string($sort);
