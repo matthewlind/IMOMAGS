@@ -2937,6 +2937,9 @@ select.modal_post_type {
 /*     margin-top:10px; */
     margin-bottom:10px;
 }
+.post-page.state-dropdown-container {
+	margin-top:60px;
+}
 .page-template-report-php .media-section,
 .page-template-trophy-php .media-section{
     margin-top: 40px !important;
@@ -4485,7 +4488,7 @@ ul#user-bar li.user-name .header-post-btn:hover{
     width: 190px;
 }  
 .page-template-community-post-php .page-community .superpost-form input[type="submit"]{
-    top: 340px;
+    top: 400px;
 }  
 
 .page-template-question-php .superpost-form input[type="submit"]{

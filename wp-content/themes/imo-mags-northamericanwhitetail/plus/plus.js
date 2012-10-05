@@ -388,7 +388,14 @@ function displayRecon(type) {
 	        } else {
 		        nicePostType = post.post_type;
 	        }
-	    					
+	    	
+	    	if(this.post_type == "report"){
+		    	niceState = stateKey[post.state] + " ";
+		    
+		    }else{
+			    niceState = "";
+		    }
+				
 	    	//*********************START LACONIC $reconBox********************
 	    	
 				var reconBox = 	    	
@@ -419,7 +426,7 @@ function displayRecon(type) {
 							$.el.div({'class':'recon-author-info'},
 								$.el.span({'class':'author-name'},post.display_name),
 								" posted in ",
-								$.el.span({'class':'author-action'},nicePostType)
+								$.el.span({'class':'author-action'},niceState + nicePostType)
 								
 							)
 						),
