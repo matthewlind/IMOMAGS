@@ -100,11 +100,11 @@ jQuery(document).ready(function($) {
 				            $userBar.find("img.recon-gravatar").attr("src","/avatar?uid=" + data.user_id);
 				            
 				            $("#imo-fb-login-button").fadeOut(500,function(){
-					            
+					            $(".imo-fb-login-button").fadeOut(400);
 					            $userBar.fadeIn();
 				            });
 				            
-				                     
+				                    
 				            //replace when App is live
 				             $(".fb-join-widget-box").fadeOut(500);
 				            //$(".fb-join-widget-box .widget_gravity_form").fadeOut(500,function(){

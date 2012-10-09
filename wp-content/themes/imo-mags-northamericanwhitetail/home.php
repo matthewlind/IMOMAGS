@@ -110,6 +110,7 @@ get_header();
 				<div class="clear"></div>
 					<div class="header-sort home-questions">
 						<h1 class="more-header">Latest Questions</h1>
+						<div class="qa-promo"></div>
 						<div class='questions-right'>
 							<ul>
 							   <li class="plus-button"><a href="#"><span class="plus">+</span><span>Ask A Question</span></a></li>
@@ -170,16 +171,6 @@ get_header();
 	<div style="height:30px;"></div>
 				<div class="header-sort">
 					<h1 class="more-header">The Latest</h1>
-								<div class='cssmenu'>
-									<ul>
-									   <li><a href='#' class="dd ignore-click"><span>Sort</span><span class="dd-arrow"></span></a>
-									      <ul>
-									         <li><a href='#' class="sort-link" sort="post_date"><span>Recent</span></a></li>
-									         <li><a href='#' class="sort-link" sort="comment_count"><span>Commented</span></a></li>
-									      </ul>
-									   </li>
-									</ul>
-								</div>
 				</div>
 
 

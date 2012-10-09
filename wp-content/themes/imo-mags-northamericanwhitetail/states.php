@@ -80,7 +80,7 @@ $state = $stateSlugToAbbv[$term_slug];
 if ($term_slug == 'new-york'){
 	$stateTitle = 'New York';
 }else if ($term_slug == 'rhode-island'){
-	$stateTitle = 'Rhode-Island';
+	$stateTitle = 'Rhode Island';
 }else if ($term_slug == 'south-carolina'){
 	$stateTitle = 'South Carolina';
 }else if ($term_slug == 'south-dakota'){

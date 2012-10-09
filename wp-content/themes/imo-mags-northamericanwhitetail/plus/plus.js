@@ -71,6 +71,9 @@ stateKey.WV = "West Virginia";
 stateKey.WI = "Wisconsin";
 stateKey.WY = "Wyoming";
 
+
+
+
 //Check for new post sharing popup
 
 if (window.location.hash == '#share') {
@@ -868,9 +871,35 @@ function displayReconList(type) {
 			if (!this.display_name) {
 				this.display_name = this.username;
 			}
+			
+			
+			
 			if(this.post_type == "report"){
-		    	niceState = stateKey[this.state];
-		    	state_url = "<div class='state-type'><a href='/community/report/" + niceState.toLowerCase() + "'>" + niceState + "</a></div>"
+			niceState = stateKey[this.state];
+			
+				if (niceState == 'New York'){
+					state_slug = 'new-york';
+				}else if (niceState == 'Rhode Island'){
+					state_slug = 'rhode-island';
+				}else if (niceState == 'South Carolina'){
+					state_slug = 'south-carolina';
+				}else if (niceState == 'South Dakota'){
+					state_slug = 'south-dakota';
+				}else if (niceState == 'New Hampshire'){
+					state_slug = 'new-hampshire';
+				}else if (niceState == 'New Jersey'){
+					state_slug = 'new-jersey';
+				}else if (niceState == 'New Mexico'){
+					state_slug = 'new-mexico';
+				}else if (niceState == 'North Carolina'){
+					state_slug = 'north-carolina';
+				}else if (niceState == 'North Dakota'){
+					niceState = 'north-dakota';
+				}else{
+					state_slug = stateKey[this.state];
+				}
+		    	
+		    state_url = "<div class='state-type'><a href='/community/report/" + state_slug.toLowerCase() + "'>" + niceState + "</a></div>"
 		    
 		    }else{
 			    state_url = "";
