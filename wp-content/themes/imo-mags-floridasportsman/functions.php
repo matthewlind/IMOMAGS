@@ -470,22 +470,24 @@ function eg_add_rewrite_rules(){
 
 
 
-    add_rewrite_rule( '(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/?$','index.php?$matches[1]=$matches[2]&$matches[3]=$matches[4]&$matches[5]=$matches[6]&$matches[7]=$matches[8]&$matches[9]=$matches[10]&$matches[11]=$matches[12]&$matches[13]=$matches[14])', 'top');
-    add_rewrite_rule('(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]&$matches[3]=$matches[4]&$matches[5]=$matches[6]&$matches[7]=$matches[8]&$matches[9]=$matches[10]&$matches[11]=$matches[12]', 'top');
-    add_rewrite_rule('(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]&$matches[3]=$matches[4]&$matches[5]=$matches[6]&$matches[7]=$matches[8]&$matches[9]=$matches[10]', 'top');
+    add_rewrite_rule( '(show|region|species|marketplace|activity|gear|column|page|blog)/(.+)/(show|region|species|marketplace|activity|gear|column|page|blog)/(.+)/(show|region|species|marketplace|activity|gear|column|page|blog)/(.+)/(show|region|species|marketplace|activity|gear|column|page|blog)/(.+)/(show|region|species|marketplace|activity|gear|column|page|blog)/(.+)/(show|region|species|marketplace|activity|gear|column|page|blog)/(.+)/(show|region|species|marketplace|activity|gear|column|page|blog)/(.+)/?$','index.php?$matches[1]=$matches[2]&$matches[3]=$matches[4]&$matches[5]=$matches[6]&$matches[7]=$matches[8]&$matches[9]=$matches[10]&$matches[11]=$matches[12]&$matches[13]=$matches[14])', 'top');
+    add_rewrite_rule('(show|region|species|marketplace|activity|gear|column|page|blog)/(.+)/(show|region|species|marketplace|activity|gear|column|page|blog)/(.+)/(show|region|species|marketplace|activity|gear|column|page|blog)/(.+)/(show|region|species|marketplace|activity|gear|column|page|blog)/(.+)/(show|region|species|marketplace|activity|gear|column|page|blog)/(.+)/(show|region|species|marketplace|activity|gear|column|page|blog)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]&$matches[3]=$matches[4]&$matches[5]=$matches[6]&$matches[7]=$matches[8]&$matches[9]=$matches[10]&$matches[11]=$matches[12]', 'top');
+    add_rewrite_rule('(show|region|species|marketplace|activity|gear|column|page|blog)/(.+)/(show|region|species|marketplace|activity|gear|column|page|blog)/(.+)/(show|region|species|marketplace|activity|gear|column|page|blog)/(.+)/(show|region|species|marketplace|activity|gear|column|page|blog)/(.+)/(show|region|species|marketplace|activity|gear|column|page|blog)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]&$matches[3]=$matches[4]&$matches[5]=$matches[6]&$matches[7]=$matches[8]&$matches[9]=$matches[10]', 'top');
     
-    add_rewrite_rule('(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]&$matches[3]=$matches[4]&$matches[5]=$matches[6]&$matches[7]=$matches[8]', 'top');
+    add_rewrite_rule('(show|region|species|marketplace|activity|gear|column|page|blog)/(.+)/(show|region|species|marketplace|activity|gear|column|page|blog)/(.+)/(show|region|species|marketplace|activity|gear|column|page|blog)/(.+)/(show|region|species|marketplace|activity|gear|column|page|blog)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]&$matches[3]=$matches[4]&$matches[5]=$matches[6]&$matches[7]=$matches[8]', 'top');
     
-    add_rewrite_rule('(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]&$matches[3]=$matches[4]&$matches[5]=$matches[6]', 'top');
-    //add_rewrite_rule('(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]&$matches[3]=$matches[4]', 'top'); 
-    add_rewrite_rule('(show|region|species|marketplace|activity|gear|column|page)/(.+)/(show|region|species|marketplace|activity|gear|column|page)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]&$matches[3]=$matches[4]', 'top');
-   // add_rewrite_rule('(show|region|species|marketplace|activity|gear|column|page)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]', 'top');
+    add_rewrite_rule('(show|region|species|marketplace|activity|gear|column|page|blog)/(.+)/(show|region|species|marketplace|activity|gear|column|page|blog)/(.+)/(show|region|species|marketplace|activity|gear|column|page|blog)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]&$matches[3]=$matches[4]&$matches[5]=$matches[6]', 'top');
+    //add_rewrite_rule('(show|region|species|marketplace|activity|gear|column|page|blog)/(.+)/(show|region|species|marketplace|activity|gear|column|page|blog)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]&$matches[3]=$matches[4]', 'top'); 
+    add_rewrite_rule('(show|region|species|marketplace|activity|gear|column|page|blog)/(.+)/(show|region|species|marketplace|activity|gear|column|page|blog)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]&$matches[3]=$matches[4]', 'top');
+   // add_rewrite_rule('(show|region|species|marketplace|activity|gear|column|page|blog)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]', 'top');
     
 
      add_rewrite_tag('%gallery%','([^/]+)');
      add_rewrite_tag('%album%','([^/]+)');
      add_rewrite_tag('%tags%','([^/]+)');
-
+     add_rewrite_tag('%channel_taxonomy%','([^&]+)');
+     add_rewrite_tag('%channel_term%','([^&]+)');
+     add_rewrite_tag('%channel%','([^&]+)');
 
 
 
@@ -499,6 +501,8 @@ function eg_add_rewrite_rules(){
      //add_rewrite_rule('^galleries/tag/([^/]+)/?$', 'index.php?pagename=galleries&gallerytag=$matches[1]','top');
     // add_rewrite_tag('%gallery%','([^/]+)');
      //add_rewrite_tag('%album%','([^/]+)');
+      add_rewrite_rule('^videos/([^/-]+)-([^/]+)/?$','index.php?pagename=videos&channel_taxonomy=$matches[1]&channel_term=$matches[2]', 'top');
+      add_rewrite_rule('^videos/([^/-]+)/?$','index.php?pagename=videos&channel=$matches[1]', 'top');
        
 
 } 

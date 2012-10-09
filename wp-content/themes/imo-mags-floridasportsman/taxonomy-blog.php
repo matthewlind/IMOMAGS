@@ -88,11 +88,13 @@ $campaign = $qs['campaign'];
 $show = $qs['show'];
 $marketplace = $qs['marketplace'];
 $blog = $qs['blog'];
+$page = $qs['paged'];
+
 
 
 
 $args = array(	
-	'paged' => get_query_var('paged'),
+	'paged' => $page ? $page : get_query_var('page'),
 	'posts_per_page' => 20,
 	'column' => $column,
 	'region' => $region,
