@@ -49,11 +49,13 @@ if ( is_user_logged_in() ) {
 	<div class="col-abc sticky-height">
 		<?php the_content(__('Continued&hellip;', 'carrington-business')); ?>
 		<div class="clearfix"></div>
-		<!--<div class="homepage-gear top">
+		<div class="homepage-gear top">
+		<div class="header-sort">
 			<h1 class="more-header">Whitetail Gear</h1>
+		</div>
 			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('gear-home')) : else : ?><?php endif; ?>
-		</div>-->
-
+		</div>
+		
 	</div><!-- .col-abc -->		
 
 <!-- Super post section -->
@@ -182,7 +184,7 @@ if ( is_user_logged_in() ) {
 	</div><!-- .col-abc -->
 	<!-- Bottom Widget Area -->
 	<div class="clear"></div>
-	<div class="homepage-gear end-scroll">
+	<div class="homepage-gear bottom end-scroll">
 		<div class="header-sort">
 			<h1 class="more-header">New Gear</h1>
 		</div>

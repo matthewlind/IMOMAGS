@@ -1136,7 +1136,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     height: 390px;
     position: relative;
     width: 400px !important;
-    min-height: 629px;
+   /* min-height: 629px;*/
 }
 .cfct-module-featured-thumb-wide .featured-articles img {
     display: block;
@@ -1895,10 +1895,10 @@ h4.meta{
 .homepage-gear .scroll_mask{
 	width: 880px !important;
 }
-.homepage-gear .header-sort{
+.homepage-gear.bottom .header-sort{
 	width: 1030px;
 }
-.homepage-gear .header-sort .more-header {
+.homepage-gear.bottom .header-sort .more-header {
 	margin: 30px 0 0 430px;
 	padding: 0 10px 0;
 }
