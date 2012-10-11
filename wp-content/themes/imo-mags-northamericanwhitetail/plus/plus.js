@@ -1,7 +1,7 @@
 jQuery(document).ready(function($) {
 
 
-var displayAtOnce = 6;
+var displayAtOnce = 12;
 var currentDisplayStart = 0;
 var displayMode = "tile"; //either "list" or "tile"
 

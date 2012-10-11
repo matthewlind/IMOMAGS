@@ -22,6 +22,11 @@ function get_imo_dart_tag($size, $tile=1, $iframe=False, $override_params=array(
         $params['campaign-key-value-pair'] = "camp=" . imo_dart_clean_tag($params['camp']) . ";";
         $params['campaign'] = imo_dart_clean_tag($params['camp']);
     }
+    if (!empty($params['manf'])) {
+        
+        $params['manufacturer-key-value-pair'] = "manf=" . imo_dart_clean_tag($params['manf']) . ";";
+        $params['manufacturer'] = imo_dart_clean_tag($params['manf']);
+    }
 
     $tag = _imo_dart_get_tag($iframe);
     return _imo_dart_sprint_tag($params, $tag); 
@@ -48,6 +53,26 @@ function _imo_dart_get_params($size, $tile) {
 
                 $adCampaignTerm = $adCampaignTerms[0];
                 $adCampaignSlug = $adCampaignTerm->slug;
+
+            }
+        }
+        if ($manfTerms = wp_get_object_terms($postID,"manufacturer")) {
+
+            if (!is_object($manfTerms)) {
+
+/*
+                $manfTerm = $manfTerms[0];
+                $manfSlug = $manfTerm->slug;
+*/
+                
+                
+                $count = 0;
+                foreach ($manfTerms as $term) {
+	        	$count++; 
+		        $manfSlug .= $term->name;
+		        if ($count != count($manfTerms))
+		        	$manfSlug .= ",";
+		        }
 
             }
         }
@@ -91,10 +116,57 @@ function _imo_dart_get_params($size, $tile) {
     }
     elseif (is_single()) {
         global $the_ID;
-        $cat = array_shift(get_the_category($the_ID));
+        
+        $post = get_queried_object();
+ 
+        $categories = get_the_category($the_ID);
+        
+        $names = "";
+        
+        $count = 0;
+        foreach ($categories as $cat) {
+        	$count++; 
+	        $names .= $cat->name;
+	        if ($count != count($categories))
+	        	$names .= ",";
+        }
+        
+        
+        
+        if ($post->post_type == "imo_caption_contest") {
+	        if ($names != "")
+	        	$names .= ",";
+	        $names .= "caption_contest";
+
+        }
+        
+        if ($post->post_type == "imo_video") {
+	        if ($names != "")
+	        	$names .= ",";
+	        $names .= "video";
+
+        }
+        	        	
+        if ($post->post_type == "reviews"){
+        	$terms = wp_get_post_terms( $post->ID, "guntype");
+        	
+        	$count = 0;
+        	foreach ($terms as $term) {
+	        	$count++; 
+		        $names .= $term->name;
+		        if ($count != count($terms))
+		        	$names .= ",";
+	        }
+        
+	        if ($names != "")
+	        	$names .= ",";
+	        $names .= "post_type_review";
+
+        }
+        
         $params = array(
-            "zone" => $cat->name,
-            "sect" => $cat->name,
+            "zone" => "",
+            "sect" => $names,
             "subs" => "",
             "page" => the_title("","", false),
         );
@@ -145,7 +217,11 @@ function _imo_dart_get_params($size, $tile) {
         $mergedParams['campaign'] = $adCampaignSlug;
 
     }
+    if (!empty($manfSlug)) {
+        $mergedParams['manufacturer-key-value-pair'] = "manf=" . imo_dart_clean_tag($manfSlug) . ";";
+        $mergedParams['manufacturer'] = imo_dart_clean_tag($manfSlug);
 
+    }
 
         return $mergedParams;
 } 
@@ -165,11 +241,11 @@ function _imo_dart_get_tag($iframe) {
     {
         $tag = '<!-- %1$s Ad: -->
             <script type="text/javascript">
-document.write(unescape(\'%%3Cscript src="http://ad.doubleclick.net/adj/%2$s/%3$s;%11$ssect=%4$s;page=%6$s;subs=%5$s;sz=%1$s;dcopt=;tile=%7$s;ord=\'+dartadsgen_rand+\'?"%%3E%%3C/script%%3E\'));
+document.write(unescape(\'%%3Cscript src="http://ad.doubleclick.net/adj/%2$s/%3$s;%11$ssect=%4$s;manf=%14$s;page=%6$s;subs=%5$s;sz=%1$s;dcopt=;tile=%7$s;ord=\'+dartadsgen_rand+\'?"%%3E%%3C/script%%3E\'));
     </script>
     <noscript>
-        <a href="http://ad.doubleclick.net/adj/%2$s/%3$s;%11$ssect=%4$s;page=%6$s;subs=%5$s;sz=%1$s;dcopt=;tile=%7$s;ord=6545512368?">
-            <img src="http://ad.doubleclick.net/ad/%2$s/%3$s;%11$ssect=%4$s;page=%6$s;subs=%5$s;sz=%1$s;dcopt=;tile=%7$s;ord=6545512368?" border="0" />
+        <a href="http://ad.doubleclick.net/adj/%2$s/%3$s;%11$ssect=%4$s;manf=%14$s;page=%6$s;subs=%5$s;sz=%1$s;dcopt=;tile=%7$s;ord=6545512368?">
+            <img src="http://ad.doubleclick.net/ad/%2$s/%3$s;%11$ssect=%4$s;manf=%14$s;page=%6$s;subs=%5$s;sz=%1$s;dcopt=;tile=%7$s;ord=6545512368?" border="0" />
         </a>
     </noscript>
 <!-- END %1$s Ad: -->';
@@ -179,7 +255,7 @@ document.write(unescape(\'%%3Cscript src="http://ad.doubleclick.net/adj/%2$s/%3$
 
 
 function _imo_dart_sprint_tag($params, $tag) {
-    return sprintf($tag, $params['size'], $params['domain'], $params['zone'], $params['sect'], $params['subs'],$params['page'], $params['tile'], $params['width'], $params['height'], $params['refresh'],$params['campaign-key-value-pair'],$params['campaign']);
+    return sprintf($tag, $params['size'], $params['domain'], $params['zone'], $params['sect'], $params['subs'],$params['page'], $params['tile'], $params['width'], $params['height'], $params['refresh'],$params['campaign-key-value-pair'],$params['campaign'],$params['manufacturer-key-value-pair'],$params['manufacturer']);
 }
 /**
  * Attempt to formulate a domain based on the currentiste domain.
@@ -283,7 +359,7 @@ function iframe_maker () {
 
 /* The only valid characters are alphanumeric characters, numbers and underscores. */
 function imo_dart_clean_tag($string) {
-    return preg_replace("/\s+/", '_', preg_replace("/[^a-z0-9 ]/", '', strtolower($string)));
+    return preg_replace("/\s+/", '_', preg_replace("/[^a-z0-9,_ ]/", '', strtolower($string)));
 }
 
 add_action("init", "iframe_maker");
