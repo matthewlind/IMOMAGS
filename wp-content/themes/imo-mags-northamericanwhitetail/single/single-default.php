@@ -40,13 +40,13 @@ get_header();
 				comments_popup_link(__('No comments', 'carrington-business'), __('1 comment', 'carrington-business'), __('% comments', 'carrington-business'));
 			//}
 			?>
-			<?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
 		</div>
 	</div>
 
 
 <div class="col-ab">
-	<?php
+<?php if (function_exists('imo_add_this')) {imo_add_this();} 
+	
 
 	
 

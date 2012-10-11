@@ -9,6 +9,7 @@ add_image_size('huge-thumb', 672, 407, true);
 add_image_size('gear-thumb', 250, 250, true);
 add_image_size('video-widget-thumb', 318, 228, true);
 add_image_size('gallery-thumb', 'auto', 169, true);
+add_image_size('gallery-grid', 158, 158, true);
 
 // SHORTCODES
 /*
@@ -139,6 +140,8 @@ include_once get_stylesheet_directory().'/widgets/questions-widget.php';
 include_once get_stylesheet_directory().'/widgets/questions-list-widget.php';
 include_once get_stylesheet_directory().'/widgets/us-map.php';
 include_once get_stylesheet_directory().'/widgets/community-menu.php';
+include_once get_stylesheet_directory().'/widgets/naw-lists.php';
+include_once get_stylesheet_directory().'/widgets/buck-contest.php';
 
 
 

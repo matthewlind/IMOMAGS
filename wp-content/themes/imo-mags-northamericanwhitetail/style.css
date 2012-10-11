@@ -1491,7 +1491,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     height: 27px;
     position: absolute;
     right:310px;
-    top: 0;
+    top: -35px;
     width: 27px;
     list-style: none;
 }
@@ -1506,7 +1506,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     height: 27px;
     left:310px;
     position: absolute;
-    top: 0;
+    top: -35px;
     width: 27px;
 }
 .questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-container-horizontal {
@@ -1537,7 +1537,6 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 }
 .questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-item-horizontal {
     margin: 0;
-    padding-top: 44px;
     height: 100%;
     cursor: default;
 }
@@ -1600,6 +1599,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     top: 10px;
     color: black;
     cursor: pointer;
+    margin-top: -15px;
 }
 .questions-slider .see-all:hover{
 	color:#006699;
@@ -2083,6 +2083,10 @@ a.comment-count:hover {
  * 
  *
  */
+ #idc-container div div div{
+	 font-family: Helvetica,sans-serif;
+	 font-size: 98% !important;
+ }
 .imagecaption{
 	font-size: 0.9em !important;
 	padding: 0 4px 0 22px !important;
@@ -2202,7 +2206,7 @@ a.comment-count:hover {
 }
 .username{
 	font-family: ProximaNovaA-Semibold;
-	color: #58534f;
+	/*color: #58534f;*/
 	text-transform: capitalize;
 }
 .super-single-right{
@@ -2680,6 +2684,10 @@ ul.naw-loop li{
 	width: 318px;
 	margin:0;
 }
+.single #sidebar, .single .sidebar, .single .bonus-background, .single .bonus{
+	padding-top: 10px;
+}
+
 #sticky{
 	z-index: 99999;
 	
@@ -3030,7 +3038,7 @@ a.prize-title {
     font-size: 1.1em;
     line-height: 1.1em;
 }
-.prize{
+#join .prize{
 	background: url("img/rifle.jpg") no-repeat scroll center top transparent;
 	width: 288px;
     height: 69px;
@@ -3213,12 +3221,10 @@ input.join-submit{
 }
 .header-sort .more-header{
 	border: none;
-	margin-top: 30px;
+	margin-top: 27px;
 	position: relative;
 	background: white;
 	padding: 0 10px 0 0;
-	font-family: "ProximaNovaA-Regular";
-	font-size: 1.6em;
 }
 .header-sort .cssmenu li li{
 	width: 124px;
@@ -3771,23 +3777,15 @@ h1.tv-header{
 }
 
 /* overlays */
-.video-excerpt{
-	background-color: #000 !important;
-	width: 99% !important;
-	position: relative;
-}
-.video-excerpt img{
-	opacity: 0.6;
-}
 .video-excerpt span{
-	background: url('img/play-overlay.png') no-repeat;
-	text-transform: none;
-	height: 67px;
-	left: 77px;
+	bottom: 10px;
+    height: 22px;
+    left: 196px;
     position: absolute;
-    top: 40px;
-    width: 68px;
+    text-transform: none;
+    width: 22px;
 }
+
 /*.gallery-excerpt span{
 	background: url('img/gallery-overlay.png') no-repeat;
 	text-transform: none;
@@ -3804,7 +3802,7 @@ h1.tv-header{
 	background-color:#fff !important;
 	position: relative;
 }
-.related-slider .video-excerpt img{
+.widget_slider-widget .video-excerpt img{
 	opacity: 1;
 }
 .related-slider .video-excerpt span{
@@ -3815,8 +3813,13 @@ h1.tv-header{
     top: -66px;
 }*/
 .widget_slider-widget .video-excerpt span{
-	top: 12px;
-	left: 34px;
+	bottom: 4px !important;
+	right: 4px !important;
+	background: url('img/play-overlay-sm.png') no-repeat;
+	width: 20px;
+	height: 20px;
+	top: auto;
+	left: auto;
 }
 /*.widget_slider-widget .gallery-excerpt span{
 	left: 50px;
@@ -5224,6 +5227,147 @@ margin-top:0;
 
 
 
+
+/* NAW LISTS WIDGET */
+#naw-list-nav{
+	margin-bottom: 10px;
+}
+#naw-list-nav .sidebar-header{
+	background: url('img/sidebar-header-lists.png') no-repeat center top;
+	height: 42px;
+	z-index: 2;
+	position: relative;
+	width: 316px;
+	margin: 0 auto;
+}
+#naw-list-nav ul.naw-grid{
+	margin: -6px 0 0;
+	z-index: 1;
+	position: relative;
+	height: 320px;
+	background: white;
+	width: 318px;
+	list-style: none;
+}
+ul.naw-grid li{
+	float: left;
+	padding: 1px;
+	margin: 0;
+	width: 157px;
+	height: 158px;
+}
+ul.naw-grid li a{
+	margin: 0;
+	padding: 0;
+}
+ul.naw-grid li a:hover{
+	-moz-transition: all 0.6s ease 0s;-webkit-transition: 0.6s;
+}
+ul.naw-grid li a span{
+	color: white;
+	display: none;
+	font-size: 1.5em;
+	height: 148px;
+	padding: 5px 10px;
+	position: absolute;
+	text-align: left;
+	width: 137px;
+	line-height: 1;
+}
+ul.naw-grid li a:hover span{
+	display: block;
+	background: rgba(0,0,0,0.4);
+}
+
+ul.naw-grid li img{
+	margin: 0;
+    padding: 0;
+    width: 157px;
+	height: 158px;
+}   
+
+#naw-list-nav .footer{
+	text-align: center;
+	background: #000;
+	width: 316px;
+	margin: 0 auto;
+	padding-top: 3px;
+}
+#naw-list-nav .footer a{
+	font-family: "ProximaNova-Regular";
+	color: #fff;
+}
+#naw-list-nav .footer a span{
+	background: url("img/subscribe-arrow.png") no-repeat scroll 0 0 transparent;
+	height: 8px;
+	width: 6px;
+	position: absolute;
+	margin-top: 8px;
+	margin-left: 6px;
+}
+#naw-list-nav .footer a:hover span{
+	background: url("img/subscribe-arrow.png") no-repeat scroll 0 -8px transparent;
+	height: 8px;
+	width: 8px;
+	position: absolute;
+	margin-top: 8px;
+	margin-left: 5px;
+}
+
+
+/* Score This Buck Widget */
+
+#buck_contest_promo{
+	background: url("img/contest-bg.jpg") no-repeat scroll center top #290600;
+    border: 9px solid #290600;
+    height: 100%;
+    width: 300px;
+    text-align: center;
+}
+#buck_contest_promo h4{
+	color: white;
+    font-size: 2.1em;
+    margin-top: 6px;
+    text-align: center;
+    text-shadow: 0px 3px 1px #444;
+    margin-bottom: 0;
+}
+ #buck_contest_promo p{
+	margin-top: -5px;
+    text-shadow: 0 2px 1px #444;
+}
+#buck_contest_promo h4, #buck_contest_promo p{
+	color: white;
+    text-align: center;
+}
+#buck_contest_promo .contest-img img{
+	border: 6px solid #eee;
+}
+#buck_contest_promo .prize h6{
+	color: white;
+    font-family: "ProximaNova-Semibold";
+    margin-top: 6px;
+    font-size: 1em;
+}
+#caption_contest_promo a.button {
+background: white;
+border: none;
+color: black;
+margin-bottom: 32px;
+padding: 0 28px 0 12px;
+}
+#buck_contest_promo a, #buck_contest_promo a:visited{
+	color: white;
+    font-family: ProximaNovaA-Regular;
+    text-transform: uppercase;
+    font-size: 0.8em;
+}
+#buck_contest_promo a:hover{
+	color: #006699;
+}
+#buck_contest_promo .view-all-p{
+	
+}
 
 
 

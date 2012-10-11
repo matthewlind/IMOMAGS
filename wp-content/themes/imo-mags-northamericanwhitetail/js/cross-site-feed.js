@@ -77,8 +77,7 @@ jQuery(document).ready(function($) {
 
 		    for (i = start; i < end; i++) {
 		        count++;
-		
-
+		       console.log(data[i]);
 		        var $articleTemplate = $("article#excerpt-template").clone();
 
 		        $articleTemplate.attr("id","excerpt-" + data[i].post_name + count);
@@ -94,8 +93,8 @@ jQuery(document).ready(function($) {
 
 		        $articleTemplate.find("img.entry-img").attr("src",data[i].img_url);
 		        $articleTemplate.find("a.comment-count").text(data[i].comment_count);
-		      
-
+		        
+		       
 				//If data[i] is from NAW, add the categories
 				if (data[i].domain == "www.northamericanwhitetail.com") {
 			
@@ -111,10 +110,9 @@ jQuery(document).ready(function($) {
 						if (this.parent != null) {
 							parentString = this.parent + "/";
 						}
-
-
+												
 						$categoryLinks.append($("<a href='/category/" + parentString + this.slug + "'>" + this.name + "</a>"));
-
+						 
 			
 
 						if ($termsArray.length != index + 1) {
@@ -127,8 +125,22 @@ jQuery(document).ready(function($) {
 				} else { //If not on whitetail
 					$articleTemplate.find("a").attr("target","_blank");
 				}
-
+				
+			
 		        $articleTemplate.appendTo(".cross-site-feed").fadeIn();
+		        	
+		        	//Hide featured posts
+		        	$(data[i].terms).each(function(index) {
+		        		//Hide featured posts
+			        	console.log(this.slug);
+				        if(this.slug == 'home-featured'){
+							$articleTemplate.hide();		
+							}
+						// Place video button on videos
+						if(this.slug == 'video'){
+							$articleTemplate.find("a.no-olay").addClass("video-excerpt");
+						}
+					});
 
 		    }
 
