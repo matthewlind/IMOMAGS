@@ -414,7 +414,7 @@ jQuery(document).ready(function($) {
 
     //This loop should handle updating the clone in most situations
     $.each(response, function(index,value){
-      //////console.log(index + ":" + value);
+     // console.log(index + ":" + value);
 
       var targetElement = $(clone).find(".superclass-" + index);
 
@@ -423,7 +423,6 @@ jQuery(document).ready(function($) {
       } else {
         targetElement.html(value);
       }
-
 
 
 

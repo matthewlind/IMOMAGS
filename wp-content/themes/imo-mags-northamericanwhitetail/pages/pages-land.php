@@ -101,17 +101,7 @@ the_post();
 		
 		<div class="header-sort">
 			<h1 class="more-header">More Land Topics</h1>
-			<div class='cssmenu'>
-				<ul>
-				   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
-				      <ul>
-				         <li><a href='#'><span>Category 1</span></a></li>
-				         <li><a href='#'><span>Category 2</span></a></li>
-				      </ul>
-				   </li>
-				</ul>
-			</div>
-		</div>
+					</div>
 			<?php
 							$args = array(
 							'post_type' => 'post',

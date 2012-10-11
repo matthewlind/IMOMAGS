@@ -105,18 +105,8 @@ function get_cat_slug($cat_id) {
  		</div>
  		<div class="col-abc">
 		<div class="header-sort">
-				<h1 class="more-header">More <?php single_cat_title(''); ?></h1>
-				<div class='cssmenu'>
-					<ul>
-					   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
-					      <ul>
-					         <li><a href='#' class="local-sort-link" sort="post_date"><span>Recent</span></a></li>
-					         <li><a href='#' class="local-sort-link" sort="comment_count"><span>Commented</span></a></li>
-					      </ul>
-					   </li>
-					</ul>
-				</div>
-			</div>
+			<h1 class="more-header">More <?php single_cat_title(''); ?></h1>
+		</div>
 
 	<?php } else if (is_category('trophy-bucks')){ 
 	//TROPHY BUCKS PAGE
@@ -167,16 +157,6 @@ function get_cat_slug($cat_id) {
  		<div class="col-abc">
 	 		<div class="header-sort">
 				<h1 class="more-header">More <?php single_cat_title(''); ?></h1>
-				<div class='cssmenu'>
-					<ul>
-					   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
-					      <ul>
-					         <li><a href='#' class="local-sort-link" sort="post_date"><span>Recent</span></a></li>
-					         <li><a href='#' class="local-sort-link" sort="comment_count"><span>Commented</span></a></li>
-					      </ul>
-					   </li>
-					</ul>
-				</div>
 			</div>
 
 	<?php } else if (is_category('land-management')){ 
@@ -237,17 +217,7 @@ function get_cat_slug($cat_id) {
  		<div class="col-abc">
 		<div class="header-sort">
 			<h1 class="more-header">More <?php single_cat_title(''); ?></h1>
-			<div class='cssmenu'>
-				<ul>
-				   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
-				      <ul>
-					         <li><a href='#' class="local-sort-link" sort="post_date"><span>Recent</span></a></li>
-					         <li><a href='#' class="local-sort-link" sort="comment_count"><span>Commented</span></a></li>
-				      </ul>
-				   </li>
-				</ul>
-			</div>
-		</div>
+					</div>
 
 	<?php } else if (is_category('deer-of-the-day')){ 
 	//DOD PAGE
@@ -298,16 +268,6 @@ function get_cat_slug($cat_id) {
  		<div class="col-abc">
 	 		<div class="header-sort">
 				<h1 class="more-header">More <?php single_cat_title(''); ?></h1>
-				<div class='cssmenu'>
-					<ul>
-					   <li><a href='#' class="dd"><span>Sort</span><span class="dd-arrow"></span></a>
-					      <ul>
-					         <li><a href='#' class="local-sort-link" sort="post_date"><span>Recent</span></a></li>
-					         <li><a href='#' class="local-sort-link" sort="comment_count"><span>Commented</span></a></li>
-					      </ul>
-					   </li>
-					</ul>
-				</div>
 			</div>
 
 	<?php } else if (is_category('video')){ 

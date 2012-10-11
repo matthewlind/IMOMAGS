@@ -25,15 +25,15 @@ the_post();
 ?>
 
 <nav class="nav nav-secondary"><!--new TV MENU-->
-	<img src="/wp-content/themes/imo-mags-gunsandammo/img/Ga-tv-banner-980x200.jpeg" alt="Guns & Ammo TV" />
-	<?php wp_nav_menu( array( 'theme_location' => 'tv-menu', 'fallback_cb' => '' ) ); ?>
+	<img src="/wp-content/themes/imo-mags-gunsandammo/img/PD-banner.jpeg" alt="Guns & Ammo TV" />
+	<?php wp_nav_menu( array( 'theme_location' => 'pdtv-menu', 'fallback_cb' => '' ) ); ?>
 </nav>
 <div class="page-template-page-right-php right-sidebar-landing tv-pages">
 	<div id="sidebar">
 		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-tv')) : else : ?><?php endif; ?>
 	</div>
 	<div id="content" class="tv-pages">
-		<h1 class="seo-h1">Guns & Ammo TV</h1>
+		<h1 class="seo-h1">Personal Defense TV</h1>
 		<div <?php post_class('entry entry-full'); ?>>
 			<div class="entry-content">
 		

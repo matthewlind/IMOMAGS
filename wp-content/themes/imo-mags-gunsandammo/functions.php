@@ -32,6 +32,12 @@ function register_rt_menu() {
 	register_nav_menu( 'tv-menu', __( 'TV Menu' ) );
 }
 
+add_action( 'init', 'register_pd_menu' );
+
+function register_pd_menu() {
+	register_nav_menu( 'pdtv-menu', __( 'PD Menu' ) );
+}
+
 /*Remove Pages From Search*/
 function ga_remove_pages_from_search() {
     global $wp_post_types;

@@ -50,10 +50,12 @@ if ( is_user_logged_in() ) {
 		<?php the_content(__('Continued&hellip;', 'carrington-business')); ?>
 		<div class="clearfix"></div>
 		<div class="homepage-gear top">
+		<div class="header-sort">
 			<h1 class="more-header">Whitetail Gear</h1>
+		</div>
 			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('gear-home')) : else : ?><?php endif; ?>
 		</div>
-
+		
 	</div><!-- .col-abc -->		
 
 <!-- Super post section -->
@@ -92,7 +94,10 @@ if ( is_user_logged_in() ) {
             </ul>  --> 
        
 			<ul id="user-bar" style="<?php echo $displayStyle; ?>">	          
-				<li class="user-name">Hello, <a href="/profile/<?php echo $current_user->user_nicename; ?>"><span id="current-user-name"><?php echo $current_user->display_name; ?></span></a></li>
+				<li class="user-name">
+					Hello, <a href="/profile/<?php echo $current_user->user_nicename; ?>"><span id="current-user-name"><?php echo $current_user->display_name; ?></span></a>
+					<a class="start" href="/community-post">+ Start New Post</a>
+				</li>
 				<li><a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" alt="User Avatar" class="recon-gravatar" /></a></li>                      
 	       </ul> 
             <div class="imo-fb-login-button" style="<?php echo $loginStyle; ?>">
@@ -128,6 +133,7 @@ if ( is_user_logged_in() ) {
 				<div class="clear"></div>
 					<div class="header-sort home-questions">
 						<h1 class="more-header">Q&A</h1>
+						<div class="qa-promo"></div>
 					</div>
 					<div class="questions-slider">
 		                <div class="slides-container-f">
@@ -163,16 +169,6 @@ if ( is_user_logged_in() ) {
 	<div style="height:30px;"></div>
 				<div class="header-sort">
 					<h1 class="more-header">The Latest</h1>
-								<div class='cssmenu'>
-									<ul>
-									   <li><a href='#' class="dd ignore-click"><span>Sort</span><span class="dd-arrow"></span></a>
-									      <ul>
-									         <li><a href='#' class="sort-link" sort="post_date"><span>Recent</span></a></li>
-									         <li><a href='#' class="sort-link" sort="comment_count"><span>Commented</span></a></li>
-									      </ul>
-									   </li>
-									</ul>
-								</div>
 				</div>
 
 
@@ -188,8 +184,10 @@ if ( is_user_logged_in() ) {
 	</div><!-- .col-abc -->
 	<!-- Bottom Widget Area -->
 	<div class="clear"></div>
-	<div class="homepage-gear end-scroll">
-		<h1 class="more-header">New Gear</h1>
+	<div class="homepage-gear bottom end-scroll">
+		<div class="header-sort">
+			<h1 class="more-header">New Gear</h1>
+		</div>
 		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('gear-home')) : else : ?><?php endif; ?>
 	</div>
 

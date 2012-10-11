@@ -71,6 +71,9 @@ stateKey.WV = "West Virginia";
 stateKey.WI = "Wisconsin";
 stateKey.WY = "Wyoming";
 
+
+
+
 //Check for new post sharing popup
 
 if (window.location.hash == '#share') {
@@ -388,7 +391,14 @@ function displayRecon(type) {
 	        } else {
 		        nicePostType = post.post_type;
 	        }
-	    					
+	    	
+	    	if(this.post_type == "report"){
+		    	niceState = stateKey[post.state] + " ";
+		    
+		    }else{
+			    niceState = "";
+		    }
+				
 	    	//*********************START LACONIC $reconBox********************
 	    	
 				var reconBox = 	    	
@@ -419,7 +429,7 @@ function displayRecon(type) {
 							$.el.div({'class':'recon-author-info'},
 								$.el.span({'class':'author-name'},post.display_name),
 								" posted in ",
-								$.el.span({'class':'author-action'},nicePostType)
+								$.el.span({'class':'author-action'},niceState + nicePostType)
 								
 							)
 						),
@@ -510,13 +520,8 @@ function displayRecon(type) {
 			}
 		        
 	        });
-	        
-	        
 
-			
-			
 			//gravatar.data('user_id',post.user_id);
-
 			
 			//Append the Laconic reconBox
 	        $("#recon-activity").append($reconBox);
@@ -526,8 +531,7 @@ function displayRecon(type) {
 	        	$('#recon-activity').fadeIn();
 	        
 	        	beforeImageLoaded();
-	        	
-	        
+	        		        
 	            $("#recon-activity").imagesLoaded( function(){
 
 	            	//afterImageLoaded();
@@ -867,9 +871,35 @@ function displayReconList(type) {
 			if (!this.display_name) {
 				this.display_name = this.username;
 			}
-			if(this.state){
-		    	niceState = stateKey[this.state];
-		    	state_url = "<div class='state-type'><a href='/community/report/" + niceState.toLowerCase() + "'>" + niceState + "</a></div>"
+			
+			
+			
+			if(this.post_type == "report"){
+			niceState = stateKey[this.state];
+			
+				if (niceState == 'New York'){
+					state_slug = 'new-york';
+				}else if (niceState == 'Rhode Island'){
+					state_slug = 'rhode-island';
+				}else if (niceState == 'South Carolina'){
+					state_slug = 'south-carolina';
+				}else if (niceState == 'South Dakota'){
+					state_slug = 'south-dakota';
+				}else if (niceState == 'New Hampshire'){
+					state_slug = 'new-hampshire';
+				}else if (niceState == 'New Jersey'){
+					state_slug = 'new-jersey';
+				}else if (niceState == 'New Mexico'){
+					state_slug = 'new-mexico';
+				}else if (niceState == 'North Carolina'){
+					state_slug = 'north-carolina';
+				}else if (niceState == 'North Dakota'){
+					niceState = 'north-dakota';
+				}else{
+					state_slug = stateKey[this.state];
+				}
+		    	
+		    state_url = "<div class='state-type'><a href='/community/report/" + state_slug.toLowerCase() + "'>" + niceState + "</a></div>"
 		    
 		    }else{
 			    state_url = "";
@@ -1101,7 +1131,6 @@ function displayUserComments(userID) {
 	});
 
 } //End function displayUserComments()
-
 
 
 

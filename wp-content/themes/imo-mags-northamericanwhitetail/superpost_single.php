@@ -156,6 +156,30 @@ $stateSlugToAbbv = array("AL"=>"Alabama",
 "WY"=>"Wyoming");   
 
 $state = $stateSlugToAbbv[$state_slug];
+
+if ($state == 'New York'){
+	$state_slug = 'new-york';
+}else if ($state == 'Rhode Island'){
+	$state_slug = 'rhode-island';
+}else if ($state == 'South Carolina'){
+	$state_slug = 'south-carolina';
+}else if ($state == 'South Dakota'){
+	$state_slug = 'south-dakota';
+}else if ($state == 'New Hampshire'){
+	$state_slug = 'new-hampshire';
+}else if ($state == 'New Jersey'){
+	$state_slug = 'new-jersey';
+}else if ($state == 'New Mexico'){
+	$state_slug = 'new-mexico';
+}else if ($state == 'North Carolina'){
+	$state_slug = 'north-carolina';
+}else if ($state == 'North Dakota'){
+	$state_slug = 'north-dakota';
+}else{
+	$state_slug = $state;
+}
+
+
 ?>
 <!-- Don't delete this. It's part of imo-add-this -->
 <div id="imo-add-this-spid" style="display:none;"><?php echo $spid; ?></div>
@@ -179,7 +203,7 @@ $state = $stateSlugToAbbv[$state_slug];
 	       </ul>
 	       <h1 style="text-transform: capitalize;"><?php if($data->state != '' && $data->post_type == 'report'){ echo $state; }else{ echo 'Community:'; } ?> <?php echo $topicName; ?></h1>
 	       <div class="community-crumbs">
-	       		<a href="/community/">Community Home</a> &raquo; <a href="/community/<?php echo $data->post_type; ?>"><?php echo $topicName; ?></a><?php if($data->state != '' && $data->post_type == 'report'){ echo ' &raquo; <a href="/community/'.$data->post_type.'/'.strtolower($state).'">'.$state.'</a>'; } ?>
+	       		<a href="/community/">Community Home</a> &raquo; <a href="/community/<?php echo $data->post_type; ?>"><?php echo $topicName; ?></a><?php if($data->state != '' && $data->post_type == 'report'){ echo ' &raquo; <a href="/community/'.$data->post_type.'/'.strtolower($state_slug).'">'.$state.'</a>'; } ?>
 			</div>
 
 	</header>
@@ -219,18 +243,20 @@ $state = $stateSlugToAbbv[$state_slug];
 			            foreach ($attachmentData as $attachment) {
 			          
 			            $media = "";
-			
+			            if($attachment->body){
+			            	$caption = "<div class='attachment-caption'>$attachment->body</div>";
+			            }
 			            if ($attachment->post_type == "youtube") {
 			
 			                $videoID = $attachment->meta;
 			                $media = "<div class='attachment-container'>";
 			                $media .= '<iframe width="640" height="480" src="http://www.youtube.com/embed/' . $videoID . '" frameborder="0" allowfullscreen></iframe>';
-			                $media .= "</div><div class='attachment-caption'>$attachment->body</div>";
+			                $media .= "</div>$caption";
 			
 			            } else {
 			
 			                $photoURL = str_replace("thumb", "medium", $attachment->img_url);
-			                $media = "<div class='attachment-container'><img src='$photoURL' width=615></div><div class='attachment-caption'>$attachment->body</div>";
+			                $media = "<div class='attachment-container'><img src='$photoURL' width=615></div>$caption";
 			                
 			            }
 			
@@ -329,12 +355,12 @@ $comment_user_score = $comment_user_score[0];
 
 	<div class="col-abc super-comments zebra superpost-comment-template" style="display:none">
 		<div class="avatar-holder">
-		     <a href="/profile/admin"><img src="/avatar?uid=1" class="superclass-gravatar_hash recon-gravatar"></a>
+		     <img src="/avatar?uid=1" class="superclass-gravatar_hash recon-gravatar">
 		</div>
 		
 		<div class="superpost-comments">
 				<div class="superpost-comment">
-				<a href="/profile/admin" class="superclass-display_name">NOBODY</a>
+				<span class="superclass-display_name">NOBODY</span>
 
 		    		<div class="superclass-body">
 		    					    
@@ -351,9 +377,9 @@ $comment_user_score = $comment_user_score[0];
 
 
 <div class="col-abc super-comments">
-	<div class="avatar-holder">
-		<img src="/avatar?uid=<?php echo $current_user->ID; ?>" class="superclass-gravatar_hash recon-gravatar">
-        <a href="/profile/<?php echo $current_user->username; ?>"><?php echo $current_user->display_name; ?></a>
+	<div class="avatar-holder" style="<?php echo $displayStyle; ?>">
+		<a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" class="superclass-gravatar_hash recon-gravatar"></a>
+        <a href="/profile/<?php echo $current_user->user_nicename; ?>"><?php echo $current_user->display_name; ?></a>  
     </div>
 
     <div id="comments" class="" style="height:500px:width:600px;background-color:white;">

@@ -1,0 +1,64 @@
+/* Cross site feed widget */
+
+#cross-site-feed-widget{
+	height: 100%;
+	display: inline-block;
+	border-top: 4px solid black;
+	border-bottom: 4px solid black;
+	margin-bottom: 10px !important;
+	text-align: left !important;
+	background: none !important;
+	padding: 0 !important;
+	margin-top: 23px; /* fix for floating logo over border */
+}
+#cross-site-feed-widget .logo{
+	background: url("../img/cross-site-bg.jpg") center top no-repeat;
+	height: 50px;
+	position: relative;
+	top: -23px; /* fix for floating logo over border */
+}
+.cross-site-feed-widget img{
+	width: 130px !important;
+	height: auto !important;
+	float: left !important;
+}
+.cross-site-feed-widget .comment-count{
+	display: none;
+}
+.cross-site-feed-widget .entry-summary{
+	overflow: hidden;
+	width: auto !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	line-height: 1.1 !important;
+	float: none !important;
+}
+.cross-site-feed-widget .entry-excerpt .entry-title{
+	font-family: "Rokkitt",sans-serif;
+	font-size: 20px;
+	line-height: 0.9;
+	margin: 0 0 4px;
+	font-weight: lighter;
+}
+.cross-site-feed-widget .entry-excerpt .entry-img{
+	margin: 0 10px 0 0 !important;
+}
+.cross-site-feed-widget .entry-category{
+	line-height: 1 !important;
+}
+.cross-site-feed-widget .entry-category a{
+	color: #3E88E9;
+	text-transform: uppercase;
+	font-size: 12px;
+	font-family: sans-serif;
+	line-height: 1 !important;
+	font-style: normal !important;
+	font-weight: 600;
+}
+.cross-site-feed-widget .entry{
+	border: none !important;
+	margin: 0 !important;
+}
+.cross-site-feed-widget .entry-excerpt{
+	float: none !important;
+}

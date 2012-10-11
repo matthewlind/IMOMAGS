@@ -137,7 +137,18 @@ if ( is_user_logged_in() ) {
 	        <input type="hidden" name="attachment_id" class="attachment_id" value="">	   
 	        <input type="submit" value="Submit" class="submit" style="<?php echo $displayStyle; ?>"/>
 	        <div class="fast-login-then-post-button" style="<?php echo $loginStyle; ?>">Submit & Login</div>
-	        
+	        <div class="post_type_styled_select">
+		         <select class="modal_post_type" name="post_type">
+		        	<option value="report" class="report">Rut Reports</option>
+		         	<option value="trophy" class="trophy">Trophy Bucks</option>
+		            <option value="question" class="question">Q&A</option>
+		            <option value="general" class="general">General Discussion</option>
+		            <option value="gear" class="gear">Gear</option>
+		            <option value="lifestyle" class="lifestyle">Lifestyle</option>
+		            <option value="tip" class="tip">Tips & Tactics</option>
+		          </select>
+		     </div>
+
 	        <p class="login-note">
 	        </p>
 	        </form>
@@ -146,7 +157,7 @@ if ( is_user_logged_in() ) {
 				      $(".state-chzn").chosen();
 				   });
 			 </script>
-			 <div class="state-dropdown-container">
+			 			 <div class="post-page state-dropdown-container">
 		          <select name="state" class="state-chzn" style="width:400px;padding:5px;" data-placeholder="Choose the state for this post:">
 			            <option value=""></option>
 			            <option value="AL">Alabama</option>

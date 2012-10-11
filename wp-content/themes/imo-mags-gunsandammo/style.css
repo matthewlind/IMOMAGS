@@ -6315,8 +6315,9 @@ nav.nav-secondary {
   position: relative;
   overflow: hidden;
 }
-.page-template-page-gatv-php nav.nav-secondary {
+.page-template-page-gatv-php nav.nav-secondary, .page-template-page-pdtv-php nav.nav-secondary {
 	padding: 0 !important;
+	width: 980px;
 }
 /* line 4545, sass/style.scss */
 nav.nav-secondary img {
