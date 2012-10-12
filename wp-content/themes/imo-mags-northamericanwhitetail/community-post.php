@@ -136,7 +136,7 @@ if ( is_user_logged_in() ) {
 	        <input type="hidden" name="form_id" value="fileUploadForm">
 	        <input type="hidden" name="attachment_id" class="attachment_id" value="">	   
 	        <input type="submit" value="Submit" class="submit" style="<?php echo $displayStyle; ?>"/>
-	        <div class="fast-login-then-post-button" style="<?php echo $loginStyle; ?>">Submit & Login</div>
+	        <div class="fast-login-then-post-button" style="<?php echo $loginStyle; ?>">Fast Login & Post</div>
 	        <div class="post_type_styled_select">
 		         <select class="modal_post_type" name="post_type">
 		        	<option value="report" class="report">Rut Reports</option>

@@ -77,7 +77,6 @@ jQuery(document).ready(function($) {
 
 		    for (i = start; i < end; i++) {
 		        count++;
-		       console.log(data[i]);
 		        var $articleTemplate = $("article#excerpt-template").clone();
 
 		        $articleTemplate.attr("id","excerpt-" + data[i].post_name + count);
@@ -128,19 +127,17 @@ jQuery(document).ready(function($) {
 				
 			
 		        $articleTemplate.appendTo(".cross-site-feed").fadeIn();
-		        	
-		        	//Hide featured posts
-		        	$(data[i].terms).each(function(index) {
-		        		//Hide featured posts
-			        	console.log(this.slug);
-				        if(this.slug == 'home-featured'){
-							$articleTemplate.hide();		
-							}
-						// Place video button on videos
-						if(this.slug == 'video'){
-							$articleTemplate.find("a.no-olay").addClass("video-excerpt");
+		        
+		        $(data[i].terms).each(function(index) {
+	        		//Hide featured posts
+			        if(this.slug == 'home-featured'){
+						$articleTemplate.hide();		
 						}
-					});
+					// Place video button on videos
+					if(this.slug == 'video'){
+						$articleTemplate.find("a.no-olay").addClass("video-excerpt");
+					}
+				});
 
 		    }
 
