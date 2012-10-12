@@ -33,7 +33,7 @@ get_header();
 	<h1 class="entry-title"><?php the_title() ?></h1>
 	<div class="entry-info">
      	<abbr class="published" title="<?php the_time('Y-m-d\TH:i'); ?>"><?php the_time('F j, Y'); ?></abbr>
-			
+		<span class="author vcard"><span class="fn">by <?php the_author_link(); ?></span></span>
 			<?php
 			//if ($this_post_is_not_single) {
 				echo ' <span class="spacer">&bull;</span> ';
