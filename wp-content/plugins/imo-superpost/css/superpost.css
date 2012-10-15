@@ -117,6 +117,7 @@ img.superpost-thumb {
 .under-box {
 	margin-top:20px;
 	padding-left: 4px;
+	overflow: hidden;
 }
 
 .under-title {
@@ -137,6 +138,9 @@ img.recon-gravatar{
     width: 50px;
     height: auto;
 
+}
+#recon-activity img.recon-gravatar{
+	margin-top:20px;
 }
 
 img.recon-gravatar:hover {

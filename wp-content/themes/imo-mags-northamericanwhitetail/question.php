@@ -60,7 +60,7 @@ if ( is_user_logged_in() ) {
 			</li>
 			<li><a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" alt="User Avatar" class="recon-gravatar" /></a></li>                      
        </ul>
-	       <h1>Whitetail Experts Q&A</h1>
+	       <h1>Community Q&A</h1>
 	       <div class="community-crumbs">
 	       		<a href="/community">Community Home</a> &raquo; Questions & Answers
 			</div>

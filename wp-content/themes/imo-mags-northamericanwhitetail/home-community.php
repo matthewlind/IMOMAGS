@@ -51,7 +51,7 @@ if ( is_user_logged_in() ) {
 		<div class="clearfix"></div>
 		<div class="homepage-gear top">
 		<div class="header-sort">
-			<h1 class="more-header">Whitetail Gear</h1>
+			<h1 class="more-header">Gear Reviews</h1>
 		</div>
 			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('gear-home')) : else : ?><?php endif; ?>
 		</div>
@@ -63,35 +63,10 @@ if ( is_user_logged_in() ) {
     <div <?php post_class('entry entry-full clearfix'); ?>>
     	<!-- This section is commented out until we add community features -->
         <div class="entry-content">
-	        <div class="super-header">
+	        <!--<div class="super-header">
 	            <hr class="comm-sep">
 	            <h1 class="recon">Naw+ Community</h1>
 	        </div>
-            <!--<div class='cssmenu'>
-				<ul>
-				   <li><a href='#' class="dd"><span>State Activity</span><span class="dd-arrow"></span></a>
-				      <ul>
-				         <li><a href='#'><span>Product 1</span></a></li>
-				         <li><a href='#'><span>Product 2</span></a></li>
-				      </ul>
-				   </li>
-				</ul>
-			</div>
-           <div class="toggle">
-            	<a id="toggle-tile" class="tile-on"></a>
-            	<span class="toggle-sep"></span>
-            	<a id="toggle-list" class="list-off"></a>
-            </div>
-            <ul class="post-type-select">
-            	<li class="post new-post-button"><a href="/community-post"><span>+</span> Post</a></li>
-                <li class='change selected' title='all'>ALL</li>
-                <li class='change' title='report'>Reports</li>
-                <li class='change' title='trophy'>Trophy Bucks</li>
-                <li class='change' title='lifestyle'>Lifestyle</li>
-                <li class='change' title='tip'>Tips</li>
-                <li class='change' title='general'>General</li>
-                
-            </ul>  --> 
        
 			<ul id="user-bar" style="<?php echo $displayStyle; ?>">	          
 				<li class="user-name">
@@ -132,7 +107,7 @@ if ( is_user_logged_in() ) {
 			<div class="entry-content">
 				<div class="clear"></div>
 					<div class="header-sort home-questions">
-						<h1 class="more-header">Q&A</h1>
+						<h1 class="more-header">Community Q&A</h1>
 						<div class="qa-promo"></div>
 					</div>
 					<div class="questions-slider">
@@ -142,14 +117,15 @@ if ( is_user_logged_in() ) {
 		                        	<?php 
 		                     		for ($i = 1; $i <= 4; $i++) {
 			                     		echo '<li>';
-										echo '<div class="user-info">';
-											echo '<a href="/profile/username"><img class="superclass-gravatar_hash recon-gravatar" alt="user avatar" src="#"></a>';
-											echo '<a class="username"></a><span> asks...</span>';
-										echo '</div>';
-										echo '<div class="quote-area">';
+											echo '<div class="quote-area">';
 											echo '<div class="top"></div>';
 											echo '<div class="mdl">';
+												echo '<a href="#"><img class="q-img" alt="" src="#"></a>';
 												echo '<h4 class="quote"><a href="#"></a></h4>';
+												echo '<div class="user-info">';
+											echo '<a href="/profile/username"><img class="user" alt="Post Image" src="#"></a>';
+											echo '<span>by </span><a class="username"></a>';
+										echo '</div>';						
 											echo '</div>';
 											echo '<div class="btm"></div>';
 										echo '</div>';
@@ -184,12 +160,12 @@ if ( is_user_logged_in() ) {
 	</div><!-- .col-abc -->
 	<!-- Bottom Widget Area -->
 	<div class="clear"></div>
-	<div class="homepage-gear bottom end-scroll">
+	<!--<div class="homepage-gear bottom end-scroll">
 		<div class="header-sort">
 			<h1 class="more-header">New Gear</h1>
 		</div>
 		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('gear-home')) : else : ?><?php endif; ?>
-	</div>
+	</div>-->
 
 	<div class="secondary">
 		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('secondary-home')) : else : ?><?php endif; ?>

@@ -13,7 +13,7 @@ class Questions_Widget extends WP_Widget {
     <aside id="questions-widget" class="box question-module widget_questions">
 		<div class="questions-slider">
 		    <div class="slides-container-f">
-		    	<h2>Recent Questions</h2>
+		    	<h2>Recent Community Q&A</h2>
 		         	<ul id="slides-questions" class="jcarousel-skin-tango questions-feed">
 		            	<?php 
 		         		for ($i = 1; $i <= 4; $i++) {
@@ -28,7 +28,7 @@ class Questions_Widget extends WP_Widget {
 								echo '</div>';
 							echo '<div class="user-info">';
 								echo '<a href="/profile/username"><img class="superclass-gravatar_hash recon-gravatar" alt="user avatar" src="#"></a>';
-								echo '<a class="username"></a><span> asks...</span>';
+								echo '<span>by </span><a class="username"></a>';
 							echo '</div>';
 							
 							echo '<div class="answers-area">';

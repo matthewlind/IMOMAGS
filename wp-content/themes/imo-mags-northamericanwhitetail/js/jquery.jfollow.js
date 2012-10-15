@@ -6,7 +6,7 @@
 			
 			var that = $(this);
 			followme = $(follow);	
-			followHeight = $('.advert').height();
+			followHeight = $('.advert').height() + 100;
 			
 				var followfn = function(){
 					
