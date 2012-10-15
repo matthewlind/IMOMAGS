@@ -1261,7 +1261,6 @@ a.comment-count:hover {
   padding: 60px 10px 0;
   position: relative;
   z-index: 5;
-  clear: both;
 }
 /* line 880, sass/style.scss */
 #main #masthead {
@@ -1485,8 +1484,7 @@ a.comment-count:hover {
 	min-height: 90px;
 	width: 980px;
 	position: relative;
-	clear: both;
-	top:80px;
+	padding: 10px 0;
 }
 /* line 1047, sass/style.scss */
 .centerad .ad-left {
@@ -1503,12 +1501,12 @@ a.comment-count:hover {
 
 /* line 1056, sass/style.scss */
 #header {
-  background: #161616 url("img/header_bg.jpg?1336056336") center 41px no-repeat;
+  background: #161616 url("img/header_bg.jpg") center 30px no-repeat;
   height: auto;
 }
 /* line 1059, sass/style.scss */
 #header .container {
-  background: url("img/header_primary_bg.png?1336056336") bottom left repeat-x;
+  background: url("img/header_primary_bg.png") bottom left repeat-x;
   height: 292px;
 }
 /* line 1062, sass/style.scss */
@@ -1516,7 +1514,7 @@ a.comment-count:hover {
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
-  background: url("img/subscribe_save_badge.png?1336056336") 0 0 no-repeat;
+  background: url("img/subscribe_save_badge.png") 0 0 no-repeat;
   display: block;
   height: 74px;
   right: 132px;

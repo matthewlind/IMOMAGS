@@ -742,3 +742,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
     z-index: 1;
     position: relative;
 }
+
+/* Digimag sidebar fix */
+.single-digmag_article .col-ab {
+width: 648px;
+float: left;
+margin-right: 32px;
+)
+.single-digmag_article .widget{
+float: right;
+width: 300px;
+}
+

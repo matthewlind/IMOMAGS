@@ -39,7 +39,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
   <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/scripts.js"></script>
   
   <?php if (defined('JETPACK_SITE')): ?>
-  <!-- // <script type='text/javascript' src='http://ads.jetpackdigital.com/sites/<?php print JETPACK_SITE; ?>/jpd.js'></script> -->
+  <script type='text/javascript' src='http://ads.jetpackdigital.com/sites/<?php print JETPACK_SITE; ?>/jpd.js'></script>
   <?php endif; ?> 
 </head>
 <body <?php body_class(); ?>>
@@ -70,30 +70,6 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
 	
 	</div>
 	<header id="header">
-	<div class="centerad">
-        <div class="ad-left">
-          <?php if (function_exists("imo_dart_tag")) {
-            imo_dart_tag("728x90");
-          } else { ?>
-  	        <!-- 728x90 Ad: -->
-            <script type="text/javascript">
-              document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dartadsgen_site+'/;sect=;page=index;subs=;sz=728x90;dcopt=;tile='+pr_tile+';ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
-            </script>
-            <script type="text/javascript">
-              ++pr_tile;
-            </script>
-            <noscript>
-              <a href="http://ad.doubleclick.net/adj/imo.outdoorsbest/;sect=;page=index;subs=;sz=728x90;dcopt=;tile=1;ord=7391727509?">
-                <img src="http://ad.doubleclick.net/ad/imo.outdoorsbest/home;sect=;page=index;subs=;sz=728x90;dcopt=;tile=1;ord=7391727509?" border="0" />
-              </a>
-            </noscript>
-            <!-- END 728x90 Ad: -->
-          <?php } ?>
-        </div>
-        <div class="ad-right">
-          <a href="http://www.nssf.org/FirstShots/" target="_blank"><img src='<?php print bloginfo('stylesheet_directory') . "/img/nssf.png"?>' alt="Visit the National Shooting Sports Foundation"/></a>
-        </div>
-      </div>
 
     <div class="container">
 	
@@ -133,5 +109,28 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
 	</header>
 	
 	<section id="main" class="container" style="background-color:#fff;">
-	
+		<div class="centerad">
+        <div class="ad-left">
+          <?php if (function_exists("imo_dart_tag")) {
+            imo_dart_tag("728x90");
+          } else { ?>
+  	        <!-- 728x90 Ad: -->
+            <script type="text/javascript">
+              document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dartadsgen_site+'/;sect=;page=index;subs=;sz=728x90;dcopt=;tile='+pr_tile+';ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
+            </script>
+            <script type="text/javascript">
+              ++pr_tile;
+            </script>
+            <noscript>
+              <a href="http://ad.doubleclick.net/adj/imo.outdoorsbest/;sect=;page=index;subs=;sz=728x90;dcopt=;tile=1;ord=7391727509?">
+                <img src="http://ad.doubleclick.net/ad/imo.outdoorsbest/home;sect=;page=index;subs=;sz=728x90;dcopt=;tile=1;ord=7391727509?" border="0" />
+              </a>
+            </noscript>
+            <!-- END 728x90 Ad: -->
+          <?php } ?>
+        </div>
+        <div class="ad-right">
+          <a href="http://www.nssf.org/FirstShots/" target="_blank"><img src='<?php print bloginfo('stylesheet_directory') . "/img/nssf.png"?>' alt="Visit the National Shooting Sports Foundation"/></a>
+        </div>
+      </div>
 	       <div id="hide"></div>

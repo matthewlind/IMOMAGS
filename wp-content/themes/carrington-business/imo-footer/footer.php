@@ -172,7 +172,7 @@ $(
     
     <div id='footer-imo' class='footer-row'>
             <div id='clearfix' class='section clearfix'>
-                <div id='footer-copyright'><img src='images/imologo.png'/>&copy; <?php the_date('Y'); ?> InterMedia Outdoors</div>
+                <div id='footer-copyright'><img src='images/imologo.png'/>&copy; <?php echo date('Y'); ?> InterMedia Outdoors</div>
                 <div id='footer-partners'><img src='images/partners.png'></div>
             </div>
     </div>

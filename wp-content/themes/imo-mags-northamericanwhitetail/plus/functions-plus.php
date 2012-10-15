@@ -66,8 +66,6 @@ function superpost_set_meta() {
 		$spid =  get_query_var("spid");
 		$title = $wpdb->get_var( $wpdb->prepare( "SELECT slim.superposts.title from slim.superposts WHERE id = %d;" , $spid ) );
 		
-		_log($post);
-		_log("THAT WAS POST");
 		
 		$post->post_title = $title;
 	}

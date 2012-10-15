@@ -245,7 +245,7 @@ $data = $data[0];
 	        <input type="hidden" name="form_id" value="fileUploadForm">
 	        <input type="hidden" name="attachment_id" class="attachment_id" value="">	   
 	        <input type="submit" value="Submit" class="submit" style="<?php echo $displayStyle; ?>"/>
-	        <div class="fast-login-then-post-button" style="<?php echo $loginStyle; ?>">Submit & Login</div>
+	        <div class="fast-login-then-post-button" style="<?php echo $loginStyle; ?>">Fast Login & Post</div>
 
 	        <p class="login-note">
 	        </p>

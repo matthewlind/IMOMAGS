@@ -17,28 +17,28 @@ class Questions_List_Widget extends WP_Widget {
     	</div>
     	<div class="loop">
 			<ul>
-				<li class="img"><img src="#" /></li>
+				<li class="img"><img src="" /></li>
 				<li class="title"><a href="#">The title</a></li>
 				<li class="replies">13 Replies</li>
 			</ul>
     	</div>
     	<div class="loop">
 			<ul>
-				<li class="img"><img src="#" /></li>
+				<li class="img"><img src="" /></li>
 				<li class="title"><a href="#">The title</a></li>
 				<li class="replies">13 Replies</li>
 			</ul>
     	</div>
     	<div class="loop">
 			<ul>
-				<li class="img"><img src="#" /></li>
+				<li class="img"><img src="" /></li>
 				<li class="title"><a href="#">The title</a></li>
 				<li class="replies">13 Replies</li>
 			</ul>
     	</div>
     	<div class="loop">
 			<ul>
-				<li class="img"><img src="#" /></li>
+				<li class="img"><img src="" /></li>
 				<li class="title"><a href="#">The title</a></li>
 				<li class="replies">13 Replies</li>
 			</ul>
