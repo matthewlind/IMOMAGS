@@ -482,7 +482,7 @@ $comment_user_score = $comment_user_score[0];
 		    <div class="slides-container-f">
 		    	<h2>Recent Questions</h2>
 		         	<ul id="slides-questions" class="jcarousel-skin-tango questions-feed">
-		            <?php 
+		            	<?php 
 		                     		for ($i = 1; $i <= 4; $i++) {
 			                     		echo '<li>';
 											echo '<div class="quote-area">';
@@ -493,13 +493,12 @@ $comment_user_score = $comment_user_score[0];
 												echo '<div class="user-info">';
 											echo '<a href="/profile/username"><img class="user" alt="Post Image" src="#"></a>';
 											echo '<span>by </span><a class="username"></a>';
-											echo '<a class="username count" href="#"></a>';
+											echo '<a href="#" class="count">0</a>';
 										echo '</div>';						
 											echo '</div>';
 											echo '<div class="btm"></div>';
 										echo '</div>';
 										echo '<div class="answers-area">';
-								
 											echo '<a href="#" class="answers-link">Answer</a> '; 
 											echo '<a href="/community/question" class="plus-button questions-right"><span class="plus">+</span><span>Ask Your Question</span></a>';             
 										echo '</div>';

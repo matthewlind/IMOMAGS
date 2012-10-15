@@ -118,7 +118,22 @@ function imo_facebook_usercheck() {
 	        	}
 	       		
 	       		
+	       		//Send the welcome email
+	       		$headers = 'From: Whitetail+ Community <community@northamericanwhitetail.com>' . "\r\n";
 	       		
+	       		$emailTitle = 'Welcome to Whitetail+ Community';
+	       		$emailMesssage = "JOIN US\nWe are fun! And cool.";
+	       		
+	       		remove_filter ('the_content', 'wpautop');
+	       		
+	       		if ($postID = get_option("email_post_id")) {
+		       		$emailPost = get_post($postID);
+		       		
+		       		$emailTitle = $emailPost->post_title;
+		       		$emailMesssage = $emailPost->post_content;
+	       		}
+	       		add_filter('wp_mail_content_type',create_function('', 'return "text/html";'));
+	       		wp_mail($email, $emailTitle, $emailMesssage, $headers);
 	
 	       		//$userdata['user_pass'] = "";
 	       		
@@ -302,6 +317,26 @@ function locationIsState($state) {
 	
 }
 
+
+/********************************
+******ADMIN MENU SETTINGS******
+*********************************/
+/* add_settings_field callback */
+function email_post_id_domain_settings_option() {
+    echo "<input type='text' name='email_post_id' id='email_post_id' value='".get_option("email_post_id", "" )."' />";
+}
+
+function email_post_id_settings_section() {
+    echo "";
+}
+
+/* admin_menu callback. */
+function email_post_id_settings_init() {
+    add_settings_section("email_post_id_settings", __("New User Email"), "email_post_id_settings_section", "general");
+    add_settings_field("email_post_id_domain", __("Post ID for Welcome Email"), "email_post_id_domain_settings_option", "general", "email_post_id_settings");
+    register_setting("general", "email_post_id");
+}
+add_action("admin_menu", "email_post_id_settings_init");
 
 
 /********************************

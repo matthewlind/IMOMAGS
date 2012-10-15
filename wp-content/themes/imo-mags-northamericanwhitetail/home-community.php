@@ -117,7 +117,6 @@ if ( is_user_logged_in() ) {
 		                        	<?php 
 		                     		for ($i = 1; $i <= 4; $i++) {
 			                     		echo '<li>';
-											echo '<div class="quote-area">';
 											echo '<div class="top"></div>';
 											echo '<div class="mdl">';
 												echo '<a href="#"><img class="q-img" alt="" src="#"></a>';
