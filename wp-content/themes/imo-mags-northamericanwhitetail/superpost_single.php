@@ -493,7 +493,7 @@ $comment_user_score = $comment_user_score[0];
 								echo '<div class="pointer"></div>';
 								echo '</div>';
 							echo '<div class="user-info">';
-								echo '<a href="/profile/username"><img class="superclass-gravatar_hash recon-gravatar" alt="user avatar" src="#"></a>';
+								echo '<a href="/profile/username"><img class="superclass-gravatar_hash recon-gravatar" alt="user avatar" src=""></a>';
 								echo '<a class="username"></a><span> asks...</span>';
 							echo '</div>';
 							

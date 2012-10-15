@@ -143,7 +143,7 @@ if ( is_user_logged_in() ) {
 		                     		for ($i = 1; $i <= 4; $i++) {
 			                     		echo '<li>';
 										echo '<div class="user-info">';
-											echo '<a href="/profile/username"><img class="superclass-gravatar_hash recon-gravatar" alt="user avatar" src="#"></a>';
+											echo '<a href="/profile/username"><img class="superclass-gravatar_hash recon-gravatar" alt="user avatar" src=""></a>';
 											echo '<a class="username"></a><span> asks...</span>';
 										echo '</div>';
 										echo '<div class="quote-area">';
