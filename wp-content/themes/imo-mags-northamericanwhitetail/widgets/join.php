@@ -39,7 +39,7 @@ class Join_Widget extends WP_Widget {
 		      <a class="prize-title">Sign Up Now & Win This Bolt Action Model 700!</a>
 		      <div class="prize"></div>
 		      <div class="clear"></div>
-	        <a href="#" class="about-link">What is North American Whitetail +?</a>
+	        <a href="/community/help/" class="about-link">What is North American Whitetail +?</a>
 	       </div>
 	    </aside>
     </div>

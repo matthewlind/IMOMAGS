@@ -1165,7 +1165,11 @@ $(document).ready(function(){
 			
 			$questionTemplate.find("h4.quote a").attr("href",url).text(question.title);;
 			$questionTemplate.find(".mdl a").attr("href",url);
-			$questionTemplate.find("img.q-img").attr("src",question.img_url);
+			if(question.img_url){
+				$questionTemplate.find("img.q-img").attr("src",question.img_url);
+			}else{
+				$questionTemplate.find("img.q-img").hide();
+			}
 			$questionTemplate.find(".answers-count a").attr("href",url + "/#comments");
 			$questionTemplate.find("a.answers-link").attr("href",url);
 			$questionTemplate.find("a.count").text(" • " + question.comment_count + " Anwsers");
@@ -1191,7 +1195,6 @@ $(document).ready(function(){
 		var $questionTemplate;
 				
 		$.each(data, function(index, question) { 
-		//console.log(question);
 			var url = "/plus/question/" + question.id;
 			$questionTemplate = $("#questions-list-widget .loop ul").eq(index);
 			$questionTemplate.find("a").attr("href",url);
@@ -1237,7 +1240,26 @@ $(document).ready(function(){
 
 }); //End 
 
+// Honepage grid display
+$(document).ready(function(){
+	var type = "all";
+	showAtOnce = 12;
+	var dataURL = "/slim/api/superpost/photos/" + type + "/" + showAtOnce + "/0";  	
+	var getdata = $.getJSON(dataURL, function(data) {
 
+		var $questionTemplate;
+		
+		$.each(data, function(index, all) { 
+				$questionTemplate = $("ul#homepage-grid li").eq(index);
+				$questionTemplate.find("a").attr("href","/plus/" + all.post_type + "/" + all.id);
+				$questionTemplate.find("img").attr("src",all.img_url);
+				$questionTemplate.find("span").text(all.view_count + " Views");
+		
+		});							
+	$questionTemplate.appendTo("ul#homepage-grid").fadeIn();	
+	});
+
+}); //End 
 
 // Sidebar grid display
 $(document).ready(function(){
@@ -1249,18 +1271,39 @@ $(document).ready(function(){
 		var $questionTemplate;
 		
 		$.each(data, function(index, all) { 
-			//console.log(index);
-			//console.log(all);
-				$questionTemplate = $("ul.thumbs-grid li").eq(index);
+				$questionTemplate = $("ul#sidebar-grid li").eq(index);
 				$questionTemplate.find("a").attr("href","/plus/" + all.post_type + "/" + all.id);
 				$questionTemplate.find("img").attr("src",all.img_url);
 				$questionTemplate.find("span").text(all.view_count + " Views");
 		
 		});							
-	$questionTemplate.appendTo("ul.thumbs-grid").fadeIn();	
+	$questionTemplate.appendTo("ul#sidebar-grid").fadeIn();	
 	});
 
 }); //End 
+
+// Top Users by Score
+$(document).ready(function(){
+	showAtOnce = 10;
+	var dataURL = "/slim/api/superpost/top_users/all/" + showAtOnce + "/0";  	
+	var getdata = $.getJSON(dataURL, function(data) {
+
+		var $topUserTemplate;
+		
+		$.each(data, function(index, topScore) { 
+				$topUserTemplate = $(".top-users ul").eq(index);
+				$topUserTemplate.find("a").attr("href","/profile/" + topScore.username);
+				$topUserTemplate.find(".name a").attr("href","/profile/" + topScore.username);
+				$topUserTemplate.find("img").attr("src","/avatar?uid=" + topScore.user_id);
+				$topUserTemplate.find(".name").text(topScore.display_name);
+				$topUserTemplate.find(".score").text(topScore.score);
+		
+		});							
+	$topUserTemplate.appendTo(".top-users").fadeIn();	
+	});
+
+}); //End 
+
 
 // join widget email slide down
 $("#join .email-signup").click(function(){

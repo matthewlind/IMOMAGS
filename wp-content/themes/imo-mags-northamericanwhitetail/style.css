@@ -1298,6 +1298,15 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
  * IMO Network Slider / Questions Slider
  *
  */
+.questions-slider .user-info .count{
+	font-size: 0.7em;
+}
+.questions-slider .user-info img{
+	float: left;
+}
+.questions-slider .user-info span, .questions-slider .user-info .username, .questions-slider .user-info .count{
+	overflow: hidden;
+}
 .q-img{
 	width: 75px;
 	height: 75px;
@@ -1564,7 +1573,8 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 	background: #f6f4eb;
 	border: 1px solid #dbd4cc;
 	width: 670px;
-	height: 95px;	
+	height: 100%;
+	padding-bottom: 8px;	
 }
 .questions-slider .quote-area .btm{
 	background: url('img/shadow.jpg') no-repeat top right;
@@ -1574,8 +1584,8 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 .questions-slider .user-info{
 	font-family: "ProximaNova-Regular";
 	text-align: left;
-	padding-left: 11px;
 	padding-top: 0;
+	margin-top: 10px;
 }
 .questions-slider .user-info a.username{
 	overflow: hidden;
@@ -1678,9 +1688,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 .question-module-ad, .question-module, .question-module .questions-slider .quote-area, .question-module .questions-slider, .question-module .questions-slider .slides-container-f, .question-module .questions-slider .slides-container-f .jcarousel-skin-tango, .question-module .questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-container-horizontal, .question-module .questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-clip-horizontal, .question-module .questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-item{
 	width: 300px;
 	height: 100%;
-}
-.questions-slider .user-info{
-	margin-top: 10px;
 }
 #questions-widget .questions-slider .quote-area .top,
 .question-module .questions-slider .quote-area .top{
@@ -1889,7 +1896,7 @@ h4.meta{
 	position: relative;
 }
 .homepage-gear.top{
-	margin: 60px 0 50px;	
+	margin: 60px 0 0;	
 }
 .homepage-gear.top .widget_slider-widget .scroll_mask{
 	width: 578px !important;
@@ -3044,7 +3051,7 @@ a.prize-title {
     line-height: 1.1em;
 }
 #join .prize{
-	background: url("img/rifle.jpg") no-repeat scroll center top transparent;
+	background: url("img/rifle.png") no-repeat scroll center top transparent;
 	width: 288px;
     height: 69px;
     margin: 0 auto;
@@ -3214,7 +3221,7 @@ input.join-submit{
 .header-sort{
 	border-bottom: 4px solid #000000;
 	height: 41px;
-    margin: 30px 0;
+    margin: 0;
     width: 678px;
 }
 .header-sort h1{
@@ -3947,9 +3954,9 @@ h1.tv-header{
 .centerad{
 	margin: 0 auto;
 	width: 728px;
-    margin-bottom: 12px;
     z-index: 1;
     position: relative;
+    height: 102px;
 }
 .social-scroll{
 	padding: 0 !important;
@@ -4783,7 +4790,40 @@ ul#scroll-widget li a:hover span{
 	display: block;
 	background: rgba(0,0,0,0.4);
 }
-    
+/* Homepage version */
+.homepage-thumbs-grid{
+	background: none !important;
+    border-top: 3px solid;
+    float: right;
+    height: 200px;
+    margin: 0 !important;
+    width: 364px;
+}
+.homepage-thumbs-grid h2{
+	color: black !important;
+} 
+.homepage-thumbs-grid ul.thumbs-grid {
+    background-color: #fff !important;
+    margin: 0;
+    width: 364px;
+}
+.homepage-thumbs-grid ul.thumbs-grid li {
+    float: left;
+    height: 89px;
+    margin: 0;
+    padding: 1px;
+    width: 89px;
+}
+.homepage-thumbs-grid ul.thumbs-grid li a span {
+    height: 18px;
+    width: 86px;
+} 
+.homepage-thumbs-grid img {
+	height: 90px !important;
+    margin: 0;
+    padding: 0;
+    width: 90px !important;
+} 
     
 /******
 *** App callout widget
@@ -5234,11 +5274,11 @@ margin-top:0;
 
 
 
-/* NAW LISTS WIDGET */
-#naw-list-nav{
+/* GEAR GRID WIDGET */
+#gear-grid-nav{
 	margin-bottom: 20px;
 }
-#naw-list-nav .sidebar-header{
+#gear-grid-nav .sidebar-header{
 	background: url('img/sidebar-header-lists.png') no-repeat center top;
 	height: 42px;
 	z-index: 2;
@@ -5246,7 +5286,7 @@ margin-top:0;
 	width: 316px;
 	margin: 0 auto;
 }
-#naw-list-nav ul.naw-grid{
+#gear-grid-nav ul.gear-grid{
 	margin: -6px 0 0;
 	z-index: 1;
 	position: relative;
@@ -5255,21 +5295,21 @@ margin-top:0;
 	width: 318px;
 	list-style: none;
 }
-ul.naw-grid li{
+ul.gear-grid li{
 	float: left;
 	padding: 1px;
 	margin: 0;
 	width: 157px;
 	height: 158px;
 }
-ul.naw-grid li a{
+ul.gear-grid li a{
 	margin: 0;
 	padding: 0;
 }
-ul.naw-grid li a:hover{
+ul.gear-grid li a:hover{
 	-moz-transition: all 0.6s ease 0s;-webkit-transition: 0.6s;
 }
-ul.naw-grid li a span{
+ul.gear-grid li a span{
 	color: white;
 	display: none;
 	font-size: 1.5em;
@@ -5280,30 +5320,30 @@ ul.naw-grid li a span{
 	width: 137px;
 	line-height: 1;
 }
-ul.naw-grid li a:hover span{
+ul.gear-grid li a:hover span{
 	display: block;
 	background: rgba(0,0,0,0.4);
 }
 
-ul.naw-grid li img{
+ul.gear-grid li img{
 	margin: 0;
     padding: 0;
     width: 157px;
 	height: 158px;
 }   
 
-#naw-list-nav .footer{
+#gear-grid-nav .footer{
 	text-align: center;
 	background: #000;
 	width: 316px;
 	margin: 0 auto;
 	padding-top: 3px;
 }
-#naw-list-nav .footer a{
+#gear-grid-nav .footer a{
 	font-family: "ProximaNova-Regular";
 	color: #fff;
 }
-#naw-list-nav .footer a span{
+#gear-grid-nav .footer a span{
 	background: url("img/subscribe-arrow.png") no-repeat scroll 0 0 transparent;
 	height: 8px;
 	width: 6px;
@@ -5311,7 +5351,7 @@ ul.naw-grid li img{
 	margin-top: 8px;
 	margin-left: 6px;
 }
-#naw-list-nav .footer a:hover span{
+#gear-grid-nav .footer a:hover span{
 	background: url("img/subscribe-arrow.png") no-repeat scroll 0 -8px transparent;
 	height: 8px;
 	width: 8px;
@@ -5470,8 +5510,37 @@ ul.naw-grid li img{
 }
 
 
-
-
+/***** Top Users *****/
+.top-users{
+	float: right;
+    background: #F0E9E1;
+    width: 318px;
+    font-family: "ProxiNova-Regular";
+    font-size: 1em;
+}
+.top-users ul{
+	 list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    width: 318px;
+    display: inline-block;
+}
+.top-users li{
+	float: left;
+	padding: 4px;
+}
+.top-users .avatar img{
+	width: 20px;
+	height: 20px;
+}
+.top-users li.name{width: 200px;}
+.top-users li.score{
+	float: right;
+    padding-right: 14px;
+}
+.top-users li.rank{
+	width: 16px;
+}
 
 
 

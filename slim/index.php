@@ -267,7 +267,35 @@ $app->get('/api/superpost/count/:post_type',function($post_type){
 
 });
 
+//*********************************
+//********* Get Users by Score *********
+//*********************************
+/*$app->get('/api/superpost/top_users/all(/:count(/:start))',function($count = 10,$start = 0){
 
+	header('Access-Control-Allow-Origin: *');  
+
+	try {
+
+		$db = dbConnect();
+
+		$limitClause = "LIMIT $start,$count";
+
+		$sql = "SELECT username, display_name, user_id as ids, score FROM allcounts as posts 
+		LEFT JOIN userscore as topUser ON posts.ids = topUser.ids
+		ORDER BY score DESC$limitClause";
+		$stmt = $db->query($sql);
+		$posts = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+		echo json_encode($posts);
+
+		$db = "";
+
+	} catch(PDOException $e) {
+    	echo $e->getMessage();
+    }
+
+});
+*/
 //*********************************
 //*** Get Specific Post with ID ***
 //*** THIS INCREMENTS VIEW COUNT ***
