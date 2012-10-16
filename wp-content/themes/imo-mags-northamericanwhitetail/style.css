@@ -2991,14 +2991,15 @@ select.modal_post_type {
 }
 #join h1{
 	font-family: "Rokkitt",serif;
-	text-align: center;
-	position: absolute;
-	top: 28px;
-	font-size: 1.6em;
-	width: 220px;
-	right: 0;
-	line-height: 0.8;
-	letter-spacing: 1.2px;
+text-align: center;
+position: relative;
+top: -60px;
+font-size: 1.6em;
+width: 220px;
+left: 20px;
+line-height: 0.8;
+letter-spacing: 1.2px;
+float: right;
 }
 #join a.about-link{
 	font-family: ProximaNova-Bold;
@@ -3069,6 +3070,9 @@ small{
 	font-family: Helvetica,sans-serif;
 	font-size: 0.7em;
 	color: #636363;
+}
+#join small{
+	display: inline-block;
 }
 input.join-email{
 	border: 1px solid #AAA197 !important;
@@ -5363,7 +5367,6 @@ ul.gear-grid li img{
 #buck_contest_promo{
 	background: url("img/contest-bg.jpg") no-repeat scroll center top #290600;
     border: 9px solid #290600;
-    height: 100%;
     width: 300px;
     text-align: center;
     margin-bottom: 20px;
