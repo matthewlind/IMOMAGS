@@ -99,6 +99,10 @@ if (window.location.hash == '#share') {
 		opacity: 50, 
 		overlayClose: true,
 		autoPosition: true,
+		onShow: function(dialog){
+			console.log(dialog);
+			$(dialog.container).addClass("new-post-sharing-box");
+		},
 	});
 }
 

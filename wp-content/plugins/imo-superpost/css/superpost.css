@@ -631,6 +631,19 @@ div.user-details-box {
 	height: 420px;
 
 }
+
+.new-post-sharing-box .simplemodal-wrap{
+	background: #fff;
+	overflow: visible !important;
+	z-index: 99999;
+	background: none;
+	width: 475px;
+	height: 340px;
+
+}
+
+
+
 .simplemodal-container{
 	background: rgb(255,255,255); /* Old browsers */
 	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
