@@ -1189,7 +1189,13 @@ $(document).ready(function(){
 			}
 			$questionTemplate.find(".answers-count a").attr("href",url + "/#comments");
 			$questionTemplate.find("a.answers-link").attr("href",url);
-			$questionTemplate.find("a.count").text(" • " + question.comment_count + " Anwsers");
+			if(question.comment_count == 1){
+				$questionTemplate.find("a.count").text(" • " + question.comment_count + " Anwser");
+
+			}else{
+				$questionTemplate.find("a.count").text(" • " + question.comment_count + " Anwsers");
+
+			}
 			$questionTemplate.find("span.count").text(question.comment_count);
 
 		});	
