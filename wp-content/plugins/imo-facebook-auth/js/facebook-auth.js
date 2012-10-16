@@ -117,6 +117,7 @@ jQuery(document).ready(function($) {
 								//});
 				           // });
 				           
+				           
 			           		//If this was a login&post button, submit the form
 			           		if ($clickedButton.hasClass("fast-login-then-post-button")) {
 				            	//alert("fast login used!");
@@ -128,6 +129,10 @@ jQuery(document).ready(function($) {
 				            	$("#fileUploadForm").first().submit();
 					            
 				            }
+				            
+				            //
+				            if ($clickedButton.hasClass("fb-login-community-modal")) {
+				            	window.location="http://www.northamericanwhitetail.com/community/";				            }
 				            
 				            $(".fast-login-then-post-button").fadeOut(400,function(){
 					            

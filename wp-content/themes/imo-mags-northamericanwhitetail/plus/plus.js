@@ -1,11 +1,19 @@
 jQuery(document).ready(function($) {
 
 //Modal Pop-up
-if ($("#community-modal").length > 0){
+//Make sure DIV exists and user is not logged in and make sure cookie isn't in place
+if ($("#community-modal").length > 0 && userIMO.username.length == 0 && $.cookie('hide_alert') == null){	
+	
 	$("#community-modal").modal({
         opacity: 50, 
         overlayClose: true,
         autoPosition: true,
+        onShow: function(dialog) {
+	        $("#community-modal a.hide-this").click(function(){
+		        $.cookie('hide_alert', true);
+		        $.modal.close();
+	        });
+        },
       });
 }
 
