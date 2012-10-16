@@ -36,7 +36,7 @@ class Join_Widget extends WP_Widget {
 			  	<input type="email" name="email" class="join-email" placeholder="Your Email">
 			  	<input type="submit" name="submit" class="join-submit" value="Join">
 		      </form>-->
-		      <a class="prize-title">Sign Up Now & Win This REMINGTON MODEL 700 BDL 50TH ANNIVERSARY EDITION!</a>
+		      <a class="prize-title">Sign Up Now & You're Automatically Entered to Win a REMINGTON MODEL 700 BDL 50TH ANNIVERSARY EDITION!</a>
 		      <div class="prize"></div>
 		      <div class="clear"></div>
 	        <a href="/community/help/" class="about-link">What is North American Whitetail +?</a>
