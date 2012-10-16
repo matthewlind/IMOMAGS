@@ -342,7 +342,7 @@ $(document).click(function() {
 function displayRecon(type) {
 	//var photo = $("#recon-activity").attr("photo");
 	//Hide posts before the AJAX Request
-	$('#recon-activity').fadeOut(100);
+	//$('#recon-activity').fadeOut(100);
 
 	if (currentDisplayStart == 0) {
 		$("#recon-activity").html("");
@@ -365,6 +365,12 @@ function displayRecon(type) {
 	    }else if(data.length > displayAtOnce){
 	    	$("#more-community-button").show();
 	    }
+	    
+	    
+	    //if no posts are returned, hide the more button
+	    if (data.length == 0)
+	    	$("#more-superposts-button").fadeOut();
+	    
 	    //console.log(data.length);
 	    var count = 0;
 	    $(data).each(function(index,post) {
@@ -524,11 +530,12 @@ function displayRecon(type) {
 			//gravatar.data('user_id',post.user_id);
 			
 			//Append the Laconic reconBox
-	        $("#recon-activity").append($reconBox);
+	        //$("#recon-activity").append($reconBox);
+	        $reconBox.hide().appendTo("#recon-activity").fadeIn();
 
 	        if ($(data).length == count) {
 	        
-	        	$('#recon-activity').fadeIn();
+	        	//$('#recon-activity').fadeIn();
 	        
 	        	beforeImageLoaded();
 	        		        
@@ -839,6 +846,11 @@ function displayReconList(type) {
 	    }else if(data.length > displayAtOnce){
 	    	$("#more-community-button").show();
 	    }
+	    
+	    //if no posts are returned, hide the more button
+	    if (data.length == 0)
+	    	$("#more-community-button").fadeOut();
+	    
 
 	    //$(".animal-container").html("");
 	    

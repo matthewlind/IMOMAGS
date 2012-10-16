@@ -55,13 +55,13 @@ function resizeImages($localImage, $isVideo = false){
 	$file_extension = pathinfo($filename, PATHINFO_EXTENSION);
 	$file_extension = strtolower($file_extension);
 	
-	if ($file_extension == "jpg" || $file_extension == "jpeg")
+	if ($file_extension == "jpg" || $file_extension == "jpeg" || $file_extension == "JPEG" || $file_extension == "JPG")
 		$current_image = imagecreatefromjpeg($filename);
 	
-	if ($file_extension == "png")
+	if ($file_extension == "png" || $file_extension == "PNG")
 		$current_image = imagecreatefrompng($filename);
 		
-	if ($file_extension == "gif")
+	if ($file_extension == "gif" || $file_extension == "GIF")
 		$current_image = imagecreatefromgif($filename);
 
 	//Before Crop, Save Full Size Image
