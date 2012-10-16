@@ -1492,6 +1492,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     padding: 16px 0;
     position: relative;
     width: 678px;
+    background: url("img/remington.jpg") no-repeat right 14px;
 }
 .questions-slider .slides-container-f {
 
@@ -1504,7 +1505,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     height: 27px;
     position: absolute;
     right:310px;
-    top: -35px;
+    top: 160px;
     width: 27px;
     list-style: none;
 }
@@ -1519,7 +1520,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     height: 27px;
     left:310px;
     position: absolute;
-    top: -35px;
+    top: 160px;
     width: 27px;
 }
 .questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-container-horizontal {
@@ -1623,7 +1624,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 }
 .questions-slider .answers-area{
 	font-family: ProximaNova-Regular;
-	margin-top: 8px;
+	margin-top: 10px;
 	text-transform: uppercase;
 	font-size: 0.8em;
 	clear: both;
@@ -1706,10 +1707,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	width: 290px;
 }
 .question-module .questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-next-horizontal{
-	right: 7px;
+	right: 132px;
 }
 .question-module .questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-prev-horizontal{
-	left: 233px;
+	left: 106px;
 }
 .question-module .questions-slider .answers-area .count {
     background: url("img/questions-count-bg.png") no-repeat scroll left top #829B40;
@@ -5185,7 +5186,7 @@ margin-top:0;
 }
 
 #main-content{
-	overflow: hidden;
+	overflow: hidden; 
 }
 
 
