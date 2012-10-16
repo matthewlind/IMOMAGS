@@ -121,6 +121,12 @@ function naw_imo_addons_sidebar_init() {
       'name' => __('State Page Sidebar', 'carrington-business'),
       'description' => __('Sidebar for State Pages.', 'carrington-business')
   )));
+  
+  register_sidebar(array_merge($sidebar_defaults, array(
+      'id' => 'sidebar-community',
+      'name' => __('Community Page Sidebar', 'carrington-business'),
+      'description' => __('Sidebar for Community Page and Community Post Page.', 'carrington-business')
+  )));
     
 }
 add_action( 'widgets_init', 'naw_imo_addons_sidebar_init' );

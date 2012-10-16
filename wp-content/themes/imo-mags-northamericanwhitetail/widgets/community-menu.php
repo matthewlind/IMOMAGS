@@ -29,7 +29,7 @@ class Community_Menu_Widget extends WP_Widget {
     <aside id="community-menu-nav" class="community-menu-widget">
     	<div class="header">
     		<h2>The NAW Community</h2>
-    		<h3>Bringing Whitetailers together</h3>
+    		<h3>Bringing Whitetail Hunters Together</h3>
     	</div>
     	<div class="nav">
 	     	<a href="/community/report">State Rut Reports</a>

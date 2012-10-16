@@ -98,12 +98,12 @@ get_header();
 	     <h2>NAW+ Community</h2>
  		<ul id="homepage-grid" class="thumbs-grid" term="all">	
  			<?php 
-            for ($i = 1; $i <= 9; $i++) {
+            for ($i = 1; $i <= 12; $i++) {
                 echo '<li><a href=""><span>Views</span><img src=""></a></li>';
 			} ?>
         </ul>
         <div class="footer">
-        	<!--<a href="#">Download Whitetail+ from the app store</a>-->
+        	<a href="/community">Browse The Community</a>
         </div>
     </div>
 

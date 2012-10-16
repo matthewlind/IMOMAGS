@@ -102,7 +102,7 @@ if ( is_user_logged_in() ) {
 <div class="page-community page-community-home">
 	<div class="bonus-background">
 		<div class="bonus">
-			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-home-top')) : else : ?><?php endif; ?>
+			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-community')) : else : ?><?php endif; ?>
 		</div>		
 	</div>
 	<div class="col-abc community">

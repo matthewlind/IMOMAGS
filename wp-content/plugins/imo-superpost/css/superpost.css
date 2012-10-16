@@ -626,6 +626,10 @@ div.user-details-box {
 	background: #fff;
 	overflow: visible !important;
 	z-index: 99999;
+	background: url("/wp-content/themes/imo-mags-northamericanwhitetail/img/community-modal-bg.jpg") no-repeat center center;
+	width: 600px;
+	height: 420px;
+
 }
 .simplemodal-container{
 	background: rgb(255,255,255); /* Old browsers */
@@ -644,6 +648,8 @@ div.user-details-box {
     -webkit-background-clip: padding-box; /* for Safari */
     background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
     z-index: 9999999 !important;
+    width: 600px;
+	height: 420px;
 }
 .simplemodal-container h1{
 	text-align: center;
@@ -673,7 +679,20 @@ div.user-details-box {
     margin-top: 17px;
     cursor: pointer;
 }
-
+.new-superpost-modal-container{
+	background: none !important;
+}
+.new-superpost-modal-container .fb-login{
+	top: 320px;
+	position: relative;
+}
+.new-superpost-modal-container small{
+	color: white;
+	top: 320px;
+	text-align: center;
+	position: relative;
+	left: 156px;
+}
 .new-superpost-modal-container .fast-login-then-post-button {
 	position:relative;
 	left:auto;
