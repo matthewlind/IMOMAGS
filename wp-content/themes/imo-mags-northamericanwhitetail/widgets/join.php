@@ -38,7 +38,6 @@ class Join_Widget extends WP_Widget {
 		      </form>-->
 		      <a class="prize-title">Sign Up Now & You're Automatically Entered to Win a REMINGTON MODEL 700 BDL 50TH ANNIVERSARY EDITION!</a>
 		      <div class="prize"></div>
-		      <div class="clear"></div>
 		    <a href="/community/sweeps-rules/" class="about-link">Official Rules</a>
 	        <a href="/community/help/" class="about-link">What is North American Whitetail +?</a>
 	       </div>

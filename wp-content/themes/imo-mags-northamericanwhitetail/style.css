@@ -1846,12 +1846,9 @@ h4.meta{
     margin-bottom: 15px !important;
 }
 .widget_slider-widget div.scroll_mask ul.scroll li a {
-    color: #5B6373 !important;
     display: block !important;
     line-height: 1.2 !important;
-}
-.widget_slider-widget div.scroll_mask ul.scroll li a:hover {
-    color: #3676cb !important;
+    font-family: Arial,Sans-serif;
 }
 .widget_slider-widget .prev, .widget_slider-widget .next{
     background-color: transparent !important;
@@ -3094,8 +3091,7 @@ input.join-submit{
 }
 
 .fb-join-widget-box {
-	margin-bottom:20px;
-	height:339px;
+	margin-bottom:10px;
 }
 
 /**
