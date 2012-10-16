@@ -43,7 +43,6 @@ class Community_Menu_Widget extends WP_Widget {
      	<div id="imo-fb-login-button" class="fb-login join-widget-fb-login" style="<?php echo $loginStyle; ?>">Fast Facebook Login</div>
 		<small style="<?php echo $loginStyle; ?>">*we do not post anything to your wall unless you say so!</small>
     </aside>
-
 <?php	}
  
 }
