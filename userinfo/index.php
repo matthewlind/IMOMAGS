@@ -50,6 +50,8 @@ $app->get('/hometown(/:userid)', function ($userid) {
 		$data = $stmt->fetchAll(PDO::FETCH_OBJ);
 
 		echo json_encode($data);
+		
+		$db = "";
 	
     } catch(PDOException $e) {
         echo $e->getMessage();
