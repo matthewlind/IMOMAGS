@@ -119,7 +119,7 @@ function imo_facebook_usercheck() {
 	       		
 	       		
 	       		//Send the welcome email
-	       		$headers = 'From: Whitetail+ Community <community@northamericanwhitetail.com>' . "\r\n";
+	       		$headers = 'From: Whitetail+ Community <community@intermediaoutdoors.com>' . "\r\n";
 	       		
 	       		$emailTitle = 'Welcome to Whitetail+ Community';
 	       		$emailMesssage = "JOIN US\nWe are fun! And cool.";
