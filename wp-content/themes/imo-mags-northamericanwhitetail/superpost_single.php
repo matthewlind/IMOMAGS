@@ -483,29 +483,27 @@ $comment_user_score = $comment_user_score[0];
 		    	<h2>Recent Questions</h2>
 		         	<ul id="slides-questions" class="jcarousel-skin-tango questions-feed">
 		            	<?php 
-		         		for ($i = 1; $i <= 4; $i++) {
-		             		echo '<li>';
-		             		echo '<div class="quote-area">';
-								echo '<div class="mdl">';
-								echo '<h4 class="quote"><a href="#"></a></h4>';
-								echo '</div>';
-								echo '<div class="btm"></div>';
-								echo '<div class="pointer"></div>';
-								echo '</div>';
-							echo '<div class="user-info">';
-								echo '<a href="/profile/username"><img class="superclass-gravatar_hash recon-gravatar" alt="user avatar" src=""></a>';
-								echo '<a class="username"></a><span> asks...</span>';
-							echo '</div>';
-							
-							echo '<div class="answers-area">';
-								echo '<div class="answers-count">';
-									echo '<div class="answers">Answers</div><div class="count"><a href="#">0</a></div>';
-								echo '</div>';
-								echo '<a href="#" class="answers-link">Answer This Question</a>'; 
-								echo '<div class="see-all-area"><a href="/community/question" class="see-all home-see-all">See All Questions</a></div>';
-							echo '</div>';
-						echo '</li>';
-						} ?>
+		                     		for ($i = 1; $i <= 4; $i++) {
+			                     		echo '<li>';
+											echo '<div class="quote-area">';
+											echo '<div class="top"></div>';
+											echo '<div class="mdl">';
+												echo '<a href="#"><img class="q-img" alt="" src="#"></a>';
+												echo '<h4 class="quote"><a href="#"></a></h4>';
+												echo '<div class="user-info">';
+											echo '<a href="/profile/username"><img class="user" alt="Post Image" src="#"></a>';
+											echo '<span>by </span><a class="username"></a>';
+											echo '<a href="#" class="count">0</a>';
+										echo '</div>';						
+											echo '</div>';
+											echo '<div class="btm"></div>';
+										echo '</div>';
+										echo '<div class="answers-area">';
+											echo '<a href="#" class="answers-link">Answer</a> '; 
+											echo '<a href="/community/question" class="plus-button questions-right"><span class="plus">+</span><span>Ask Your Question</span></a>';             
+										echo '</div>';
+									echo '</li>';
+									} ?>
 		            </ul>
 		        </div>    
 		    </div>

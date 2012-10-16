@@ -429,12 +429,15 @@ function displayRecon(type) {
 							$.el.img({'src':post.img_url,'class':'superpost-thumb'})
 						)
 					),
+					$.el.a({'href':'/profile/' + post.username},
+					$.el.img({'src':'/avatar?uid=' + post.user_id,'class':'recon-gravatar'})
+					
+						),
 					$.el.div({'class':'under-box'},
 						$.el.a({'href':'/profile/' + post.username},
-							$.el.img({'src':'/avatar?uid=' + post.user_id,'class':'recon-gravatar'}),
 							$.el.div({'class':'recon-author-info'},
 								$.el.span({'class':'author-name'},post.display_name),
-								" posted in ",
+								" in ",
 								$.el.span({'class':'author-action'},niceState + nicePostType)
 								
 							)
@@ -1172,10 +1175,12 @@ $(document).ready(function(){
 			$questionTemplate.find(".user-info a.username").text(question.display_name); 
 			$questionTemplate.find(".user-info a").attr("href","/profile/" + question.username);
 			
-			$questionTemplate.find("h4.quote a").text(question.title).attr("href",url);
+			$questionTemplate.find("h4.quote a").attr("href",url).text(question.title);;
+			$questionTemplate.find(".mdl a").attr("href",url);
+			$questionTemplate.find("img.q-img").attr("src",question.img_url);
 			$questionTemplate.find(".answers-count a").attr("href",url + "/#comments");
 			$questionTemplate.find("a.answers-link").attr("href",url);
-			$questionTemplate.find(".count a").text(question.comment_count);
+			$questionTemplate.find("a.count").text(" • " + question.comment_count + " Anwsers");
 			$questionTemplate.find("span.count").text(question.comment_count);
 
 		});	
@@ -1250,14 +1255,14 @@ $(document).ready(function(){
 $(document).ready(function(){
 	var type = "all";
 	showAtOnce = 9;
-	var dataURL = "/slim/api/superpost/views/" + type +"/" + showAtOnce + "/0";  	
+	var dataURL = "/slim/api/superpost/photos/" + type + "/" + showAtOnce + "/0";  	
 	var getdata = $.getJSON(dataURL, function(data) {
 
 		var $questionTemplate;
 		
 		$.each(data, function(index, all) { 
-			////console.log(index);
-			////console.log(all);
+			//console.log(index);
+			//console.log(all);
 				$questionTemplate = $("ul.thumbs-grid li").eq(index);
 				$questionTemplate.find("a").attr("href","/plus/" + all.post_type + "/" + all.id);
 				$questionTemplate.find("img").attr("src",all.img_url);

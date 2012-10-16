@@ -13,7 +13,7 @@ class Questions_List_Widget extends WP_Widget {
 
     <aside id="questions-list-widget" class="box" style="display:none;">
     	<div class="sidebar-header">
-			<h2>Latest Questions</h2>
+			<h2>Latest Community Q&A</h2>
     	</div>
     	<div class="loop">
 			<ul>

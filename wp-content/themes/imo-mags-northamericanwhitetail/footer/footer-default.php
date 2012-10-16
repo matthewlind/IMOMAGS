@@ -130,7 +130,7 @@ if ( is_user_logged_in() ) {
               <li class="twitter"><a href="http://twitter.com/NAWhitetail" title="Follow us on Twitter">Twitter</a></li>
               <li class="news"><a href="/newsletter/">Newsletter</a></li>
               <!--<li class="apps"><a href="/apps/">Apps</a></li>-->
-              <li class="mags"><a href="https://secure.palmcoastd.com/pcd/eServ?iServ=MDE0OEQ0NDcyNCZpVHlwZT1FTlRFUg==">Get the Magazine</a></li>
+              <li class="mags"><a href="https://securesubs.intermediaoutdoors.com/orderpage_ex.php?m=northamericanwhitetail">Get the Magazine</a></li>
             </ul>
           </div>
         

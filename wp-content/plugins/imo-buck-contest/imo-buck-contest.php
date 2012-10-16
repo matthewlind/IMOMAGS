@@ -251,7 +251,7 @@ function imo_buck_contest_inner_custom_box( $post ) {
 
 
   
-  //$args = array('post_id' => 6009);
+  //$args = array('post_id' => 64226009);
   //UNCOMMENT THIS LINE BEFORE LAUNCH!!!! (Also delete above line.)
   $args = array('post_id' => $postID);
 
