@@ -1300,7 +1300,7 @@ $(document).ready(function(){
 }); //End 
 
 // Top Users by Score
-$(document).ready(function(){
+/*$(document).ready(function(){
 	showAtOnce = 10;
 	var dataURL = "/slim/api/superpost/top_users/all/" + showAtOnce + "/0";  	
 	var getdata = $.getJSON(dataURL, function(data) {
@@ -1320,7 +1320,7 @@ $(document).ready(function(){
 	});
 
 }); //End 
-
+*/
 
 // join widget email slide down
 $("#join .email-signup").click(function(){
