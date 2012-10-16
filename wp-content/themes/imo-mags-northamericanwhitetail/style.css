@@ -3046,7 +3046,7 @@ a.prize-title {
 	color: #387b2b;
 	text-align: center;
     display: block;
-    margin-top: 30px;
+    margin: 10px 0;
     font-size: 1.1em;
     line-height: 1.1em;
 }

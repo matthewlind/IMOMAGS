@@ -683,12 +683,12 @@ div.user-details-box {
 	background: none !important;
 }
 .new-superpost-modal-container .fb-login{
-	top: 320px;
+	top: 310px;
 	position: relative;
 }
 .new-superpost-modal-container small{
 	color: white;
-	top: 320px;
+	top: 310px;
 	text-align: center;
 	position: relative;
 	left: 156px;
@@ -699,7 +699,14 @@ div.user-details-box {
 	top:46px;
 	left:374px;
 }	
-
+.new-superpost-modal-container a.hide-this{
+	color: white;
+    font-size: 0.9em;
+    left: 5px;
+    position: absolute;
+    text-align: left;
+    top: 400px;
+}
 .superpost-form input[type=submit]{
 	margin-left: 172px;
 	margin-top: -31px;

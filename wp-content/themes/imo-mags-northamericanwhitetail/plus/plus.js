@@ -1,12 +1,13 @@
 jQuery(document).ready(function($) {
 
 //Modal Pop-up
-$("#community-modal").modal({
+if ($("#community-modal").length > 0){
+	$("#community-modal").modal({
         opacity: 50, 
         overlayClose: true,
         autoPosition: true,
       });
-
+}
 
 
 var displayAtOnce = 12;
