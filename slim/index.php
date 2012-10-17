@@ -19,9 +19,10 @@ include 'clsFlagger.php';
 
 function get_IP() {
 	$headers = apache_request_headers(); 
-	$XFFip = $headers["X-Forwarded-For"];
+	if (!empty($headers["X-Forwarded-For"]))
+		$XFFip = $headers["X-Forwarded-For"];
 
-	if ($_SERVER['REMOTE_ADDR'] == "127.0.0.1")
+	if ($_SERVER['REMOTE_ADDR'] == "127.0.0.1" && !empty($headers["X-Forwarded-For"]))
 		return $XFFip;
 	else
 		return $_SERVER['REMOTE_ADDR'];
