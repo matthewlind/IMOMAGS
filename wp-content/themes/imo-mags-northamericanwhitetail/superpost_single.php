@@ -180,6 +180,19 @@ if ($state == 'New York'){
 }
 
 
+if($post_user_score->score == 1){
+	$nicePoint = $post_user_score->score.' Point';
+}else{
+	$nicePoint = $post_user_score->score.' Points';
+}
+
+if($data->view_count == 1){
+	$niceView = $data->view_count.' View';
+}else{
+	$niceView = $data->view_count.' Views';
+}
+
+
 ?>
 <!-- Don't delete this. It's part of imo-add-this -->
 <div id="imo-add-this-spid" style="display:none;"><?php echo $spid; ?></div>
@@ -214,7 +227,7 @@ if ($state == 'New York'){
 	<a href="/profile/<?php echo $data->username; ?>"><img src="/avatar?uid=<?php echo $data->user_id; ?>" class="recon-gravatar"></a>
 		<div class="user-meta">
 			<a class="username" href="/profile/<?php echo $data->username; ?>"><?php echo $data->display_name; ?></a>
-			<p class="points"><?php echo $post_user_score->score. " points"; ?></p>
+			<p class="points"><?php echo $nicePoint; ?></p>
 		</div>
 		
 <!--
@@ -227,7 +240,7 @@ if ($state == 'New York'){
 		<div class="clearfix"></div>
 		<div class="entry-header"><h1 class="entry-title"><?php echo $data->title; ?></h1>
 		<div class="title-meta">
-		<abbr style="display:inline" class='recon-date'><?php the_time('F j, Y'); ?> &#8226; <?php the_time('g:i a'); ?></abbr> &#8226; <?php echo $data->view_count; ?> views</div>
+		<abbr style="display:inline" class='recon-date'><?php the_time('F j, Y'); ?> &#8226; <?php the_time('g:i a'); ?></abbr> &#8226; <?php echo $niceView; ?></div>
 		</div>
 		<?php	    if (function_exists('imo_add_this')) {imo_add_this();} ?>
 		

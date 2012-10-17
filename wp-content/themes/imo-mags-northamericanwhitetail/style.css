@@ -1707,7 +1707,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	width: 290px;
 }
 .question-module .questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-next-horizontal{
-	right: 132px;
+	right: 134px;
 }
 .question-module .questions-slider .slides-container-f .jcarousel-skin-tango .jcarousel-prev-horizontal{
 	left: 106px;
@@ -2706,7 +2706,7 @@ ul.naw-loop li{
 	clear: both;
 }
 .advert{
-	padding-top: 10px;
+	padding-top: 0;
 }
 #sidebar .widget_advert-widget, .sidebar .widget_advert-widget, .bonus .widget_advert-widget, .advert-widget{
 	background-color: #EFECE6;
@@ -2991,15 +2991,15 @@ select.modal_post_type {
 }
 #join h1{
 	font-family: "Rokkitt",serif;
-text-align: center;
-position: relative;
-top: -60px;
-font-size: 1.6em;
-width: 220px;
-left: 20px;
-line-height: 0.8;
-letter-spacing: 1.2px;
-float: right;
+	text-align: center;
+	position: relative;
+	top: -60px;
+	font-size: 1.6em;
+	width: 220px;
+	left: 20px;
+	line-height: 0.8;
+	letter-spacing: 1.2px;
+	float: right;
 }
 #join a.about-link{
 	font-family: ProximaNova-Bold;
