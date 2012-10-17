@@ -627,8 +627,10 @@ div.user-details-box {
 	overflow: visible !important;
 	z-index: 99999;
 	background: url("/wp-content/themes/imo-mags-northamericanwhitetail/img/community-modal-bg.jpg") no-repeat center center;
+/*
 	width: 600px;
 	height: 420px;
+*/
 
 }
 
@@ -661,9 +663,18 @@ div.user-details-box {
     -webkit-background-clip: padding-box; /* for Safari */
     background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
     z-index: 9999999 !important;
+/*
     width: 600px;
 	height: 420px;
+*/
 }
+
+
+.simplemodal-container.new-post-sharing-box {
+	width: 475px;
+	height: 340px;
+}
+
 .simplemodal-container h1{
 	text-align: center;
 	color: #c2290b;

@@ -8,6 +8,7 @@ if ($("#community-modal").length > 0 && userIMO.username.length == 0 && $.cookie
         opacity: 50, 
         overlayClose: true,
         autoPosition: true,
+        minHeight: 420,
         onShow: function(dialog) {
 	        $("#community-modal a.hide-this").click(function(){
 		        $.cookie('hide_alert', true);
@@ -99,6 +100,7 @@ if (window.location.hash == '#share') {
 		opacity: 50, 
 		overlayClose: true,
 		autoPosition: true,
+		maxWidth:475,
 		onShow: function(dialog){
 			console.log(dialog);
 			$(dialog.container).addClass("new-post-sharing-box");
