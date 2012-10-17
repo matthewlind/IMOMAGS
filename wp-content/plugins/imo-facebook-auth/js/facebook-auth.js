@@ -92,16 +92,61 @@ jQuery(document).ready(function($) {
 				            
 				            userIMO = data;
 				            
-				            
+				            var $userWidget = $("#user-info-widget");
 				            var $userBar = $("ul#user-bar");
-				            
+				         				            
+				         	$userWidget.find(".user-info-area a").attr("href","/profile/" + data.username);
+				         	$userWidget.find(".name").attr("href","/profile/" + data.username);
+				            $userWidget.find(".name").text(data.display_name);
+				            $userWidget.find("img.recon-gravatar").attr("src","/avatar?uid=" + data.user_id);
+				         	$userWidget.find(".user-points").text(data.score);		
+				         	            
 				            $userBar.find("a").attr("href","/profile/" + data.username);
 				            $userBar.find("#current-user-name").text(data.display_name);
 				            $userBar.find("img.recon-gravatar").attr("src","/avatar?uid=" + data.user_id);
-				            
+				            			            
 				            $("#imo-fb-login-button").fadeOut(500,function(){
 					            $(".imo-fb-login-button").fadeOut(400);
-					            $userBar.fadeIn();
+					            //$userBar.fadeIn();
+					            $userWidget.fadeIn(500,function(){
+
+					            	var postsURL = "/slim/api/superpost/user/posts/" + data.username;
+
+									//First, get the user score
+									var dataURL = "/slim/api/superpost/user/score/" + data.username;  	
+								
+								    var getdata = $.getJSON(dataURL, function(data){
+								    	
+								    	var score = data[0].score;
+								
+								    	var duration = 1000;
+								    	if (score > 50) {
+								    		duration = 2000;
+								    	}
+								    	if (score > 200) {
+								    		duration = 3000;
+								    	}
+								    		
+								
+								
+								    	$({animatedScore: 0}).animate({animatedScore: score}, {
+											duration: duration,
+											easing:'jswing', // can be anything
+											step: function() { // called on every step
+												// Update the element's text with rounded-up value:
+												$(".user-points").text(Math.ceil(this.animatedScore));
+											}
+										});
+								
+								    });
+								
+													            
+													            
+								    }  
+													            
+								);
+					            
+					            
 				            });
 				            
 				                    

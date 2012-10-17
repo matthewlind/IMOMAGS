@@ -148,6 +148,7 @@ include_once get_stylesheet_directory().'/widgets/us-map.php';
 include_once get_stylesheet_directory().'/widgets/community-menu.php';
 include_once get_stylesheet_directory().'/widgets/gear-grid.php';
 include_once get_stylesheet_directory().'/widgets/buck-contest.php';
+include_once get_stylesheet_directory().'/widgets/user-info.php';
 
 
 

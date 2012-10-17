@@ -25,14 +25,11 @@ get_header();
 
 $user = get_user_by("slug",$username);
 
-//$avatar = get_avatar($user->ID,140);
-
 if ($user)
 	$userString = "username='$username'";
 
 
 $avatar = "/avatar?uid=".$user->ID;
-//$userPosts = 'http://www.northamericanwhitetail.fox/slim/api/superpost/user/posts/'.$user->ID;
 		
 $displayStyle = "display:none;";
 $loginStyle = "";

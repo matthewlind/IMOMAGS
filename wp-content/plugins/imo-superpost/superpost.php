@@ -42,6 +42,12 @@ function imo_superpost_scripts() {
     wp_enqueue_style('chosen-css',plugins_url('css/chosen.css', __FILE__));
     
     //wp_localize_script( 'imo-user-auth', 'userIMO', $user);
+    
+    global $user_login;
+    $username = $user_login;
+    wp_enqueue_script('superpost-profile-js',plugins_url('js/profile.js', __FILE__));
+    wp_localize_script( 'superpost-profile-js', 'username', $username);
+
 	
 }
 
@@ -105,10 +111,9 @@ add_action("pre_get_posts","add_sp_conditional_scripts");
 function add_sp_conditional_scripts() {
 
     $template = get_query_var("templatename");
-    $username = get_query_var("username");
+   // $username = get_query_var("username");
     if ($template == "user_profile") {
-        wp_enqueue_script('superpost-profile-js',plugins_url('js/profile.js', __FILE__));
-        wp_localize_script( 'superpost-profile-js', 'username', $username);
+        
     }
          
 

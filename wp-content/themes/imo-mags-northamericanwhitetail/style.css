@@ -140,6 +140,7 @@ width: 990px;
 	height: auto;
 	margin: 0 !important;
 	width: 100%;
+	z-index:3;
 }
 .container {
     margin: 0 auto;
@@ -3956,7 +3957,8 @@ h1.tv-header{
 	width: 728px;
     z-index: 1;
     position: relative;
-    height: 102px;
+    height:auto;
+    max-height:102px;
 }
 .social-scroll{
 	padding: 0 !important;
@@ -5103,14 +5105,13 @@ ul#scroll-widget li a:hover span{
     width: 290px;
 }
 
-
 /************
 ****
 ** Map Widget & Community Uber Menu
 ****
 *************/
 #us-map-nav{
-	margin: 40px 0 0 -20px;
+	margin: 40px 0 0 -40px;
 }
 #us-map-ubermenu-container svg{
 	width: 686px !important;
@@ -5509,6 +5510,73 @@ ul.gear-grid li img{
   background-image: url("img/section_title_captions.gif");
 }
 
+
+/**** User Info Widget ****/
+
+#user-info-widget{
+	margin-bottom: 10px;
+	background: #EDEDED;
+}
+#user-info-widget .wrapper{
+	margin: 0 auto;
+}
+#user-info-widget .user-avatar{
+	float: left;
+}
+#user-info-widget .user-info-area{
+	margin: 16px auto 36px;
+	font-family:ProximaNova-Regular;
+	line-height: 1;
+	width: intrinsic;
+}
+#user-info-widget .user-info-area.name, #user-info-widget .user-info-area.score-box{
+	overflow: hidden;
+}	
+#user-info-widget .admin-area{
+	text-align: center;
+	padding: 2px 0;
+}
+#user-info-widget .post-btn{
+	background: #347FE7;
+	background: -webkit-gradient( linear, left top, left bottom, from(#3E88E9), to(#3E88E9));
+	border-radius: 0px;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	border: 1px;
+	border-style: solid;
+	border-color: #2861B2;
+	-moz-box-shadow: 0px 1px 0px rgba(000,000,000,0), inset 1px 1px 0px rgba(103,159,237,1);
+	-webkit-box-shadow: 0px 1px 0px rgba(000, 000, 000, 0), inset 1px 1px 0px rgba(103, 159, 237, 1);
+	text-shadow: 0px 0px 0px rgba(000, 000, 000, 0.2), 1px 2px 0px rgba(000, 000, 000, 0.4);
+	margin-right: 1px;
+	-moz-box-shadow: inset 0px 0px 1px 0px #ffffff;
+	-webkit-box-shadow: inset 0px 0px 1px 0px white;
+	box-shadow: inset 0px 0px 1px 0px white;
+	text-align: center;
+	padding: 6px;
+	width: 120px;
+	margin: 16px auto;
+}
+#user-info-widget img{
+	width: 50px;
+	height: 50px;
+}
+#user-info-widget .post-btn a{
+	color: white;
+	font-family: ProximaNova-Semibold;
+text-transform: uppercase;
+font-size: 0.8em;
+}
+#user-info-widget .score-box h2{
+	float: left;
+	padding-right: 6px;
+}
+#user-info-widget .score-box span{
+	overflow: hidden;
+	font-family: ProximaNova-Semibold;
+	font-size: 0.9em;
+	line-height: 1.8;
+}
 
 /***** Top Users *****/
 .top-users{
