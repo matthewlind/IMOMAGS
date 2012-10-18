@@ -73,7 +73,6 @@ if ( is_user_logged_in() ) {
 		
 			// +1 for Firefox bug, silly.
 			jQuery('#user-info-widget .user-info-area').width(containerWidth + 1);
-			console.log(containerWidth);
 		});
 		// Run User Points script
 		

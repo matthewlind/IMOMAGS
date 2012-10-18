@@ -963,7 +963,7 @@ function displayReconList(type) {
 					state_slug = stateKey[this.state];
 				}
 		    	
-		    state_url = "<div class='state-type'><a href='/community/report/" + state_slug.toLowerCase() + "'>" + niceState + "</a></div>";
+		    //state_url = "<div class='state-type'><a href='/community/report/" + state_slug.toLowerCase() + "'>" + niceState + "</a></div>";
 		    
 		    }else{
 			    state_url = "";
@@ -971,13 +971,14 @@ function displayReconList(type) {
 			
 			//underBox.append(date);	
 			//var $avatar $("<img class='recon-gravatar'>").attr("src","avatar?uid=" + this.user_id);
+			
+			//" + state_url + "\
 			var category_type = " in <a href=/question/'>" + this.secondary_post_type + "</a>";
 			var reconRow = $("\
 				<div class='recon-row masonry-box'>\
 					<ul>\
 						<li>\
 							<div class='row-info'>\
-								" + state_url + "\
 								<div class='row-title'><a href='" + url + "'>" + this.title + "</a></div>\
 							</div>\
 						</li>\
