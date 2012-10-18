@@ -70,11 +70,6 @@ $state = $user_meta['state'][0];
 	<div id="user-bar" class="edit">
 		
 	</div>
-	  	<ul id="user-bar" style="<?php echo $displayStyle; ?>">	          
-			<li class="user-name">Hello, <a href="/profile/<?php echo $current_user->user_nicename; ?>"><span id="current-user-name"><?php echo $current_user->display_name; ?></span></a><br /><a href="<?php echo wp_logout_url( get_permalink() ); ?>" title="Logout">Logout</a></li>
-			<li><a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" alt="User Avatar" class="recon-gravatar" /></a></li>                      
-       </ul>
-
 	<h1>Community Profile</h1>
 	 <div class="community-crumbs">
        		<a href="/community">Community Home</a> &raquo; Edit Profile

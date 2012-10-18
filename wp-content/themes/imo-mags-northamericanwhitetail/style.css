@@ -5539,6 +5539,7 @@ ul.gear-grid li img{
 	font-family:ProximaNova-Regular;
 	line-height: 1;
 	width: intrinsic;
+	min-width: 136px;
 }
 #user-info-widget .user-info-area.name, #user-info-widget .user-info-area.score-box{
 	overflow: hidden;
