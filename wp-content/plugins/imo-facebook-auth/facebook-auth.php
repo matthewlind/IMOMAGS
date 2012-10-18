@@ -90,6 +90,7 @@ function imo_facebook_usercheck() {
 	        	$userdata['display_name'] = $user_profile['first_name'] . " " . $user_profile['last_name'];
 	        	$userdata['user_login'] = strtolower($user_profile['first_name']) . strtolower($user_profile['last_name']) . rand(100,999);
 	        	$userdata['user_pass'] = imo_facebook_generate_password();
+	        	$userdata['role'] = "naw_community";
 	
 	        	_log("User Inserted?");
 	        	
