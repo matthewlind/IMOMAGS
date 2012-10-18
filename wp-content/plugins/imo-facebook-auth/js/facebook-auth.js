@@ -107,7 +107,7 @@ jQuery(document).ready(function($) {
 				            			            
 				            $("#imo-fb-login-button").fadeOut(500,function(){
 					            $(".imo-fb-login-button").fadeOut(400);
-					            //$userBar.fadeIn();
+					            $userBar.fadeIn();
 					            $userWidget.fadeIn(500,function(){
 
 					            	var postsURL = "/slim/api/superpost/user/posts/" + data.username;
