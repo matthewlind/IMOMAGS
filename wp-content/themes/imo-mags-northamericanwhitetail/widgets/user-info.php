@@ -56,7 +56,7 @@ if ( is_user_logged_in() ) {
 				<a class="start" href="/community-post">+ Start New Post</a>
 			</div>
 			<div class="admin-area">
-			<a href="/login/?action=profile">Edit Profile</a> <span> | </span> <a href="<?php echo wp_logout_url( get_permalink() ); ?>" title="Logout">Logout</a>
+			<a href="/login/?action=profile">Edit Profile</a> <!--<span> | </span> <a href="<?php echo wp_logout_url( get_permalink() ); ?>" title="Logout">Logout</a>-->
 		</div>
 
 		
