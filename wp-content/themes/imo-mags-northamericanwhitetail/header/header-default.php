@@ -33,7 +33,7 @@ $postTitle = wp_title( '-', false, 'right' );
 	
 	<meta http-equiv="content-type" content="<?php bloginfo('html_type') ?>; charset=<?php bloginfo('charset') ?>" />
 
-	<title><?php echo $postTitle; esc_attr_e(get_bloginfo('name')); ?></title>
+	<title><?php echo $postTitle; //esc_attr_e(get_bloginfo('name')); ?></title>
 
 	<meta http-equiv="X-UA-Compatible" content="chrome=1" />
 	<link rel="pingback" href="<?php bloginfo('pingback_url') ?>" />

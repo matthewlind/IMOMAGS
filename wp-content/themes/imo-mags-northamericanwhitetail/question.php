@@ -66,6 +66,7 @@ if ( is_user_logged_in() ) {
 			</div>
 		</header>
 		<h2 class="comm-header">Ask The Community</h2>
+		<div class="sponsor-logo"></div>
 		<div class="new-superpost-modal-container">
 		
 		<form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-form">

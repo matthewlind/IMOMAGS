@@ -1,7 +1,7 @@
 jQuery(document).ready(function($) {
 
 
-
+if(username.length > 0){
 	var postsURL = "/slim/api/superpost/user/posts/" + username;
 
 	//First, get the user score
@@ -31,7 +31,6 @@ jQuery(document).ready(function($) {
 		});
 
     });
-
-
+}
 
 });//End doc Ready

@@ -425,7 +425,19 @@ function displayRecon(type) {
 		    }else{
 			    niceState = "";
 		    }
-				
+		    
+		    if(post.comment_count == 1){
+			    niceReply = post.comment_count + " Reply";
+		    }else{
+			    niceReply = post.comment_count + " Replies";
+		    }
+		    
+		     if(post.comment_count == 1){
+			    nicePoint = post.score + " Point";
+		    }else{
+			    nicePoint = post.score + " Points";
+		    }
+		    
 	    	//*********************START LACONIC $reconBox********************
 	    	
 				var reconBox = 	    	
@@ -466,9 +478,9 @@ function displayRecon(type) {
 						
 						$.el.abbr({'class':'recon-date timeago','title':post.created}),
 						$.el.a({'href':url},
-							$.el.span({'class':'comment-count'}, post.comment_count + " Replies"),
+							$.el.span({'class':'comment-count'}, niceReply),
 							" • ",
-							$.el.span({'class':'point-count'},post.score + " Points")
+							$.el.span({'class':'point-count'},nicePoint)
 						)
 					)		
 				);
@@ -908,7 +920,23 @@ function displayReconList(type) {
 				this.display_name = this.username;
 			}
 			
-			
+			if(this.comment_count == 1){
+			    niceReply = this.comment_count + " Reply";
+		    }else{
+			    niceReply = this.comment_count + " Replies";
+		    }
+		    
+		    if(this.view_count == 1){
+			    niceView = this.view_count + " View";
+		    }else{
+			    niceView = this.view_count + " Views";
+		    }
+		    
+		    if(this.score == 1){
+			    nicePoint = points + " Point";
+		    }else{
+			    nicePoint = points + " Points";
+		    }
 			
 			if(this.post_type == "report"){
 			niceState = stateKey[this.state];
@@ -935,7 +963,7 @@ function displayReconList(type) {
 					state_slug = stateKey[this.state];
 				}
 		    	
-		    state_url = "<div class='state-type'><a href='/community/report/" + state_slug.toLowerCase() + "'>" + niceState + "</a></div>"
+		    state_url = "<div class='state-type'><a href='/community/report/" + state_slug.toLowerCase() + "'>" + niceState + "</a></div>";
 		    
 		    }else{
 			    state_url = "";
@@ -954,10 +982,10 @@ function displayReconList(type) {
 							</div>\
 						</li>\
 												<li class='user-avatar'><a href='/profile/" + this.username + "'><img src='/avatar?uid=" + this.user_id + "' alt='User Avatar' /></a> by <a href='/profile/" + this.username + "'>" + this.display_name + "</a></li>\
-												<li class='count-field'><a href='" + url + "/#comments'>" + this.comment_count + " Replies</a></li>\
+												<li class='count-field'><a href='" + url + "/#comments'>" + niceReply + "</a></li>\
 						<li class='count-field'><abbr class='timeago' title='" + this.created + "'>" + this.created + "</abbr></li>\
-						<li class='count-field'>" + this.view_count + " Views</li>\
-												<li class='count-field'>" + points + " Points</li>\
+						<li class='count-field'>" + niceView + "</li>\
+												<li class='count-field'>" + nicePoint + "</li>\
 												</ul>\
 						<div class='list-footer'>\
 							<div class='list-answer'><a href='" + url + "'>Reply</a></div>\
@@ -1243,8 +1271,11 @@ $(document).ready(function(){
 				$questionTemplate.find("li.img img").hide();
 			}
 			$questionTemplate.find("li.title a").text(question.title);
-			$questionTemplate.find("li.replies").text(question.comment_count + " Replies");
-			
+			if(question.comment_count == 1){
+				$questionTemplate.find("li.replies").text(question.comment_count + " Reply");
+			}else{
+				$questionTemplate.find("li.replies").text(question.comment_count + " Replies");
+			}
 			
 		});	
 		
