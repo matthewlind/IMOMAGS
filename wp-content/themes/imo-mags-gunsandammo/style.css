@@ -1479,9 +1479,9 @@ a.comment-count:hover {
 
 /* line 1039, sass/style.scss */
 .centerad {
-	margin: 0 auto;
+	margin: 0 auto 10px;
 	text-align: center;
-	min-height: 70px;
+	height: 90px;
 	padding: 10px 0 0;	
 	width: 980px;
 	position: relative;
@@ -1737,7 +1737,7 @@ a.comment-count:hover {
   left: 0 !important;
   padding: 0;
   top: 92px;
-  width: 980px !important;
+  width: 980px;
 }
 /* line 1236, sass/style.scss */
 #header #megaMenu li.ss-nav-menu-mega ul.sub-menu-1 > .menu-item {
@@ -1946,9 +1946,12 @@ a.comment-count:hover {
   background-position: -258px top !important;
   text-indent: -9999px;
 }
-/* line 1365, sass/style.scss */
+/* line 1365, sass/style.scss 
 #header #megaMenu #header #megaMenu li.video ul.sub-menu-1 {
   width: 290px !important;
+}*/
+#header #megaMenu li.video ul.sub-menu-1{
+	width: 322px !important;
 }
 /* line 1367, sass/style.scss */
 #header #megaMenu ul.megaMenu li.magazine {

@@ -1302,7 +1302,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 	width: 234px;
 	height: 36px;
 	position: relative;
-    top: -43px;
+    top: 5px;
 }
 
 /*
@@ -3963,13 +3963,14 @@ h1.tv-header{
 }
 /* 728 ad */
 .centerad{
-	margin: 0 auto;
+	margin: 0 auto 10px;
 	width: 728px;
+	/*height: auto;*/
     z-index: 1;
     position: relative;
-    height:auto;
-    max-height:102px;
+    height: 90px;
 }
+
 .social-scroll{
 	padding: 0 !important;
 }

@@ -107,49 +107,42 @@ if ( is_user_logged_in() ) {
 	</div>
 	<div class="col-abc community">
 	<header class="header-title">
-    	<ul id="user-bar" style="<?php echo $displayStyle; ?>">	          
-			<li class="user-name">
-				Hello, <a href="/profile/<?php echo $current_user->user_nicename; ?>"><span id="current-user-name"><?php echo $current_user->display_name; ?></span></a>
-				<a class="start" href="/community-post">+ Start New Post</a>
-			</li>
-			<li><a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" alt="User Avatar" class="recon-gravatar" /></a></li>                      
-       </ul>
-	       <h1>Community</h1>
-		</header>
-			<ul class="community-cats">
-				<li id="rut" class="title"><div></div><h2><a href="/community/report/" term="report" display="list">State Rut Reports</a></h2></li>
-				<li class="selected points"><a href="/community/report/"><?php echo $reportCount->post_count.' Posts'; ?></a></li>
-			</ul>
-			
-			<ul class="community-cats">
-				<li id="tbucks" class="title"><div></div><h2><a href="/community/trophy/">Trophy Bucks</a></h2></li>
-				<li class="selected points"><a href="/community/trophy/"><?php echo $trophyCount->post_count.' Posts'; ?></a></li>
-			</ul>
-			
-			<ul class="community-cats">
-				<li id="experts" class="title"><div></div><h2><a href="/community/question/">Q&A</a></h2></li>
-				<li class="selected points"><a href="/community/question/"><?php echo $questionCount->post_count.' Posts'; ?></a></li>
-			</ul>
-			
-			<ul class="community-cats">
-				<li id="gear" class="title"><div></div><h2><a href="/community/gear/">Gear</a></h2></li>
-				<li class="selected points"><a href="/community/gear/"><?php echo $gearCount->post_count.' Posts'; ?></a></li>
-			</ul>
-			
-			<ul class="community-cats">
-				<li id="lifestyle" class="title"><div></div><h2><a href="/community/lifestyle/">Lifestyle</a></h2></li>
-				<li class="selected points"><a href="/community/lifestyle/"><?php echo $lifestyleCount->post_count.' Posts'; ?></a></li>
-			</ul>
-			
-			<ul class="community-cats">
-				<li id="tips-tactics" class="title"><div></div><h2><a href="/community/tip/">Tips & Tactics</a></h2></li>
-				<li class="selected points"><a href="/community/tip/"><?php echo $tipCount->post_count.' Posts'; ?></a></li>
-			</ul>
-			
-			<ul class="community-cats">
-				<li id="general" class="title"><div></div><h2><a href="/community/general/">General Discussion</a></h2></li>
-				<li class="selected points"><a href="/community/general/"><?php echo $generalCount->post_count.' Posts'; ?></a></li>
-			</ul>
+    	<h1>Community</h1>
+	</header>
+		<ul class="community-cats">
+			<li id="rut" class="title"><div></div><h2><a href="/community/report/" term="report" display="list">State Rut Reports</a></h2></li>
+			<li class="selected points"><a href="/community/report/"><?php echo $reportCount->post_count.' Posts'; ?></a></li>
+		</ul>
+		
+		<ul class="community-cats">
+			<li id="tbucks" class="title"><div></div><h2><a href="/community/trophy/">Trophy Bucks</a></h2></li>
+			<li class="selected points"><a href="/community/trophy/"><?php echo $trophyCount->post_count.' Posts'; ?></a></li>
+		</ul>
+		
+		<ul class="community-cats">
+			<li id="experts" class="title"><div></div><h2><a href="/community/question/">Q&A</a></h2></li>
+			<li class="selected points"><a href="/community/question/"><?php echo $questionCount->post_count.' Posts'; ?></a></li>
+		</ul>
+		
+		<ul class="community-cats">
+			<li id="gear" class="title"><div></div><h2><a href="/community/gear/">Gear</a></h2></li>
+			<li class="selected points"><a href="/community/gear/"><?php echo $gearCount->post_count.' Posts'; ?></a></li>
+		</ul>
+		
+		<ul class="community-cats">
+			<li id="lifestyle" class="title"><div></div><h2><a href="/community/lifestyle/">Lifestyle</a></h2></li>
+			<li class="selected points"><a href="/community/lifestyle/"><?php echo $lifestyleCount->post_count.' Posts'; ?></a></li>
+		</ul>
+		
+		<ul class="community-cats">
+			<li id="tips-tactics" class="title"><div></div><h2><a href="/community/tip/">Tips & Tactics</a></h2></li>
+			<li class="selected points"><a href="/community/tip/"><?php echo $tipCount->post_count.' Posts'; ?></a></li>
+		</ul>
+		
+		<ul class="community-cats">
+			<li id="general" class="title"><div></div><h2><a href="/community/general/">General Discussion</a></h2></li>
+			<li class="selected points"><a href="/community/general/"><?php echo $generalCount->post_count.' Posts'; ?></a></li>
+		</ul>
 		
 		
 	</div><!-- .col-abc -->	

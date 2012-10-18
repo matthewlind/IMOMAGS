@@ -67,11 +67,13 @@ if ( is_user_logged_in() ) {
     <script type="text/javascript">
 	    // Auto Center user info and avatar based on width of the user name
 	    jQuery(document).ready(function(){
-		var	totalWidth = jQuery('#user-info-widget .user-info-area').outerWidth(),
-			totalChildren = jQuery('#user-info-widget .center-content').size();
-			containerWidth = totalWidth * totalChildren;
-	
-			jQuery('.wrapper').width(containerWidth);
+		var	imageWidth = jQuery('#user-info-widget .user-avatar').outerWidth();
+		var	usernameWidth = jQuery('#user-info-widget .name').outerWidth();
+		var containerWidth = imageWidth + usernameWidth;
+		
+			// +1 for Firefox bug, silly.
+			jQuery('#user-info-widget .user-info-area').width(containerWidth + 1);
+			console.log(containerWidth);
 		});
 		// Run User Points script
 		

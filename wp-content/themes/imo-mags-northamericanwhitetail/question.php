@@ -53,20 +53,13 @@ if ( is_user_logged_in() ) {
 
 	<div class="col-abc">
 	<header class="header-title">
-    	
-    	<ul id="user-bar" style="<?php echo $displayStyle; ?>">	          
-			<li class="user-name">
-				Hello, <a href="/profile/<?php echo $current_user->user_nicename; ?>"><span id="current-user-name"><?php echo $current_user->display_name; ?></span></a>
-			</li>
-			<li><a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" alt="User Avatar" class="recon-gravatar" /></a></li>                      
-       </ul>
-	       <h1>Community Q&A</h1>
-	       <div class="community-crumbs">
-	       		<a href="/community">Community Home</a> &raquo; Questions & Answers
-			</div>
-		</header>
+       <h1>Community Q&A</h1>
+       <div class="sponsor-logo"></div>
+       <div class="community-crumbs">
+       		<a href="/community">Community Home</a> &raquo; Questions & Answers
+		</div>
+	</header>
 		<h2 class="comm-header">Ask The Community</h2>
-		<div class="sponsor-logo"></div>
 		<div class="new-superpost-modal-container">
 		
 		<form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-form">

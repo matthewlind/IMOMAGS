@@ -67,17 +67,10 @@ $state = $user_meta['state'][0];
 </div>
 <div class="col-abc">
 	<header class="header-title">
-	<?php if($current_user->display_name == $user->display_name){ ?>
-	<div id="user-bar" class="edit">
-		<a href="/login/?action=profile">Edit Profile</a> <span>|</span> <a href="<?php echo wp_logout_url( get_permalink() ); ?>" title="Logout">Logout</a>
-	</div>
-	<?php } ?>
-
-	<h1>Community Profile</h1>
-	 <div class="community-crumbs">
-	       		<a href="/community">Community Home</a> &raquo; <?php if($current_user->display_name == $user->display_name){ echo 'Your Profile'; }else{ echo $user->display_name;} ?>
-			</div>
-
+		<h1>Community Profile</h1>
+		 <div class="community-crumbs">
+       		<a href="/community">Community Home</a> &raquo; <?php if($current_user->display_name == $user->display_name){ echo 'Your Profile'; }else{ echo $user->display_name;} ?>
+		</div>
 	</header>
 
 	<div <?php post_class('entry entry-full clearfix'); ?>>
