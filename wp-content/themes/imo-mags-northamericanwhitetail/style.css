@@ -1295,6 +1295,16 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 	bottom: 0 !important;
 }*/
 
+/* Question Page */
+.sponsor-logo{
+	background: url("img/remington-logo.jpg") no-repeat left top;
+	float: right;
+	width: 234px;
+	height: 36px;
+	position: relative;
+    top: -43px;
+}
+
 /*
  * IMO Network Slider / Questions Slider
  *
