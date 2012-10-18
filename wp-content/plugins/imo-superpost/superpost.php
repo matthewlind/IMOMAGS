@@ -44,14 +44,29 @@ function imo_superpost_scripts() {
     //wp_localize_script( 'imo-user-auth', 'userIMO', $user);
     
     global $user_login;
-    $username = $user_login;
+    $username['authUser'] = $user_login;
+    
+
+    $profileUsername = getLastPathSegment($_SERVER["REQUEST_URI"]);
+    $username['profileUser'] = $profileUsername;
+
+    
     wp_enqueue_script('superpost-profile-js',plugins_url('js/profile.js', __FILE__));
     wp_localize_script( 'superpost-profile-js', 'username', $username);
 
 	
 }
 
+function getLastPathSegment($url) {
+        $path = parse_url($url, PHP_URL_PATH); // to get the path from a whole URL
+        $pathTrimmed = trim($path, '/'); // normalise with no leading or trailing slash
+        $pathTokens = explode('/', $pathTrimmed); // get segments delimited by a slash
 
+        if (substr($path, -1) !== '/') {
+            array_pop($pathTokens);
+        }
+        return end($pathTokens); // get the last segment
+   }
 
 
 /********************************
@@ -110,11 +125,7 @@ add_action("pre_get_posts","add_sp_conditional_scripts");
 //This adds script only to pages that use them.
 function add_sp_conditional_scripts() {
 
-    $template = get_query_var("templatename");
-   // $username = get_query_var("username");
-    if ($template == "user_profile") {
-        
-    }
+
          
 
 }
