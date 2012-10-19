@@ -806,6 +806,8 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
     width: 80px;
     float: left;
     margin-right: 14px;
+    overflow: hidden;
+    max-height: 40px;
 }
 #site-menu .stay-connected .label {
     color: #58534f;
@@ -2261,6 +2263,13 @@ a.comment-count:hover {
     top: 69px;
     position: relative;
 }
+.addthis-area{
+	
+}
+.at300b:hover{
+	opacity: 1 !important;
+}
+
 .page-template-superpost_single-php .new-superpost-modal-container {
     width: 578px;
 }

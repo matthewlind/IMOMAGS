@@ -177,7 +177,7 @@ jQuery(document).ready(function($) {
 				            
 				            //
 				            if ($clickedButton.hasClass("fb-login-community-modal")) {
-				            	window.location="http://www.northamericanwhitetail.com/community/";				            }
+				            	window.location="http://www.northamericanwhitetail.com/community-post/";				            }
 				            
 				            $(".fast-login-then-post-button").fadeOut(400,function(){
 					            

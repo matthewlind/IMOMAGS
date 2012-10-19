@@ -115,23 +115,8 @@ if ( is_user_logged_in() ) {
 		</ul>
 		
 		<ul class="community-cats">
-			<li id="tbucks" class="title"><div></div><h2><a href="/community/trophy/">Trophy Bucks</a></h2></li>
-			<li class="selected points"><a href="/community/trophy/"><?php echo $trophyCount->post_count.' Posts'; ?></a></li>
-		</ul>
-		
-		<ul class="community-cats">
 			<li id="experts" class="title"><div></div><h2><a href="/community/question/">Q&A</a></h2></li>
 			<li class="selected points"><a href="/community/question/"><?php echo $questionCount->post_count.' Posts'; ?></a></li>
-		</ul>
-		
-		<ul class="community-cats">
-			<li id="gear" class="title"><div></div><h2><a href="/community/gear/">Gear</a></h2></li>
-			<li class="selected points"><a href="/community/gear/"><?php echo $gearCount->post_count.' Posts'; ?></a></li>
-		</ul>
-		
-		<ul class="community-cats">
-			<li id="lifestyle" class="title"><div></div><h2><a href="/community/lifestyle/">Lifestyle</a></h2></li>
-			<li class="selected points"><a href="/community/lifestyle/"><?php echo $lifestyleCount->post_count.' Posts'; ?></a></li>
 		</ul>
 		
 		<ul class="community-cats">
@@ -144,7 +129,10 @@ if ( is_user_logged_in() ) {
 			<li class="selected points"><a href="/community/general/"><?php echo $generalCount->post_count.' Posts'; ?></a></li>
 		</ul>
 		
-		
+		<!--<ul class="community-cats">
+			<li id="experts" class="title"><div></div><h2><a href="/community/contest/">Contest</a></h2></li>
+			<li class="selected points"><a href="/community/contest/"><?php echo $contestCount->post_count.' Posts'; ?></a></li>
+		</ul>-->
 	</div><!-- .col-abc -->	
 <div class="clear"></div>
 <div class="col-abc super-post">
