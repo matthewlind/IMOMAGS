@@ -1235,10 +1235,10 @@ $(document).ready(function(){
 			$questionTemplate.find(".answers-count a").attr("href",url + "/#comments");
 			$questionTemplate.find("a.answers-link").attr("href",url);
 			if(question.comment_count == 1){
-				$questionTemplate.find("a.count").text(" • " + question.comment_count + " Anwser");
+				$questionTemplate.find("a.count").text(" • " + question.comment_count + " Answer");
 
 			}else{
-				$questionTemplate.find("a.count").text(" • " + question.comment_count + " Anwsers");
+				$questionTemplate.find("a.count").text(" • " + question.comment_count + " Answers");
 
 			}
 			$questionTemplate.find("span.count").text(question.comment_count);
