@@ -207,17 +207,10 @@ if($data->view_count == 1){
 </div>
 <div class="col-abc single-header">
 	<header class="header-title">
-	    	<ul id="user-bar" style="<?php echo $displayStyle; ?>">	          
-				<li class="user-name">
-					Hello, <a href="/profile/<?php echo $current_user->user_nicename; ?>"><span id="current-user-name"><?php echo $current_user->display_name; ?></span></a>
-					<a class="start" href="/community-post">+ Start New Post</a>
-				</li>
-				<li><a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" alt="User Avatar" class="recon-gravatar" /></a></li>                      
-	       </ul>
-	       <h1 style="text-transform: capitalize;"><?php if($data->state != '' && $data->post_type == 'report'){ echo $state; }else{ echo 'Community:'; } ?> <?php echo $topicName; ?></h1>
-	       <div class="community-crumbs">
-	       		<a href="/community/">Community Home</a> &raquo; <a href="/community/<?php echo $data->post_type; ?>"><?php echo $topicName; ?></a><?php if($data->state != '' && $data->post_type == 'report'){ echo ' &raquo; <a href="/community/'.$data->post_type.'/'.strtolower($state_slug).'">'.$state.'</a>'; } ?>
-			</div>
+	    <h1 style="text-transform: capitalize;"><?php if($data->state != '' && $data->post_type == 'report'){ echo $state; }else{ echo 'Community:'; } ?> <?php echo $topicName; ?></h1>
+	    <div class="community-crumbs">
+	       	<a href="/community/">Community Home</a> &raquo; <a href="/community/<?php echo $data->post_type; ?>"><?php echo $topicName; ?></a><?php if($data->state != '' && $data->post_type == 'report'){ echo ' &raquo; <a href="/community/'.$data->post_type.'/'.strtolower($state_slug).'">'.$state.'</a>'; } ?>
+		</div>
 
 	</header>
 </div>
@@ -240,9 +233,18 @@ if($data->view_count == 1){
 		<div class="clearfix"></div>
 		<div class="entry-header"><h1 class="entry-title"><?php echo $data->title; ?></h1>
 		<div class="title-meta">
-		<abbr style="display:inline" class='recon-date'><?php the_time('F j, Y'); ?> &#8226; <?php the_time('g:i a'); ?></abbr> &#8226; <?php echo $niceView; ?></div>
+		<?php
+		// Get the timestamp
+		$timestamp = $data->created;
+		
+		// Convert the timestamp
+		$date = date("F j, Y", strtotime($timestamp));
+		$time = date("g:i A", strtotime($timestamp));
+		?>
+
+		<abbr style="display:inline" class="recon-date"><?php echo $date; ?> at <?php echo $time; ?> &#8226; <?php echo $niceView; ?></div>
 		</div>
-		<?php	    if (function_exists('imo_add_this')) {imo_add_this();} ?>
+		<?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
 		
 			<div <?php post_class('entry entry-full clearfix'); ?>>
 				<div class="entry-content">

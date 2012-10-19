@@ -66,9 +66,8 @@ $state = $user_meta['state'][0];
 </div>
 <div class="col-abc">
 	<header class="header-title">
-	
 	<div id="user-bar" class="edit">
-		
+		<a href="<?php echo wp_logout_url( get_permalink() ); ?>" title="Logout">Logout</a>
 	</div>
 	<h1>Community Profile</h1>
 	 <div class="community-crumbs">

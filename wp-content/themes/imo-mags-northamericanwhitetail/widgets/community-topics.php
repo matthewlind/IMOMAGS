@@ -73,12 +73,10 @@ $gearCount = $gearCount[0];
 
 	        <ul>
 				<li id="rut" class="title"><h2><a href="/community/report/">State Rut Reports</a></h2><span class="points"><?php echo $reportCount->post_count.' Posts'; ?></li>
-				<li id="tbucks" class="title"><h2><a href="/community/trophy/">Trophy Bucks</a></h2><span class="points"><?php echo $trophyCount->post_count.' Posts'; ?></li>
 				<li id="experts" class="title"><h2><a href="/community/question/">Q&A</a></h2><span class="points"><?php echo $questionCount->post_count.' Posts'; ?></li>	
-				<li id="gear" class="title"><h2><a href="/community/gear/">Gear</a></h2><span class="points"><?php echo $gearCount->post_count.' Posts'; ?></li>
-				<li id="lifestyle" class="title"><h2><a href="/community/lifestyle/">Lifestyle</a></h2><span class="points"><?php echo $lifestyleCount->post_count.' Posts'; ?></li>
 				<li id="tips-tactics" class="title"><h2><a href="/community/tip/">Tips & Tactics</a></h2><span class="points"><?php echo $tipCount->post_count.' Posts'; ?></li>
 				<li id="general" class="title"><h2><a href="/community/general/">General Discussion</a></h2><span class="points"><?php echo $generalCount->post_count.' Posts'; ?></li>
+				<!--<li id="" class="title"><h2><a href="/community/contest/">Contest</a></h2><span class="points"><?php echo $contestCount->post_count.' Posts'; ?></li>-->
 			</ul>	          
 	   </aside>
 
