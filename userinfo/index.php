@@ -59,6 +59,36 @@ $app->get('/hometown(/:userid)', function ($userid) {
 });
 
 
+$app->get('/hometownmysqli(/:userid)', function ($userid) {
+	//$sort = mysql_real_escape_string($sort);
+	date_default_timezone_set('America/New_York'); 
+    header('Access-Control-Allow-Origin: *');  
+    
+    $mysqli = getMysqliConnection();
+    $userid = mysqli_real_escape_string($mysqli,$userid);
+    
+    $sql = "(SELECT meta_key,meta_value FROM wp_usermeta WHERE meta_key = 'city' AND user_id = $userid)UNION(SELECT meta_key,meta_value FROM wp_usermeta WHERE meta_key = 'state' AND user_id = $userid)";
+
+
+	
+	
+	$result = $mysqli->query($sql);
+
+	$row = $result->fetch_assoc();
+		
+	echo json_encode($row);
+	
+		$row = $result->fetch_assoc();
+		
+	echo json_encode($row);
+	
+	$mysqli->close();
+
+
+            
+
+});
+
 
 
 

@@ -16,6 +16,38 @@ function userIsGood($user_login,$givenHash) {
 
 }
 
+function postIsRepeat($postHash) {
+		try {
+
+		$db = dbConnect();
+
+		
+		
+		$sql = "SELECT id FROM superposts WHERE posthash = ?";
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array($postHash));
+	
+		$posts = $stmt->fetchAll(PDO::FETCH_OBJ);
+		
+	
+
+		$db = "";
+		
+		if (count($posts) == 1) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+
+	} catch(PDOException $e) {
+    	return FALSE;
+    }
+	
+}
+
+
+
 
 function userIsEditor($user_login,$timecode,$givenHash) {
 
