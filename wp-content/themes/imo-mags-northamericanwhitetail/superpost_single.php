@@ -233,7 +233,16 @@ if($data->view_count == 1){
 		<div class="clearfix"></div>
 		<div class="entry-header"><h1 class="entry-title"><?php echo $data->title; ?></h1>
 		<div class="title-meta">
-		<abbr style="display:inline" class="recon-date timeago" title="<?php echo $data->created; ?>"></abbr> &#8226; <?php echo $niceView; ?></div>
+		<?php
+		// Get the timestamp
+		$timestamp = $data->created;
+		
+		// Convert the timestamp
+		$date = date("F j, Y", strtotime($timestamp));
+		$time = date("g:i A", strtotime($timestamp));
+		?>
+
+		<abbr style="display:inline" class="recon-date"><?php echo $date; ?> at <?php echo $time; ?> &#8226; <?php echo $niceView; ?></div>
 		</div>
 		<?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
 		
@@ -536,8 +545,5 @@ $comment_user_score = $comment_user_score[0];
 
 	</div>
 </div><!-- .col-abc -->
-<script type="text/javascript">
-	jQuery("abbr.timeago").timeago();
-</script>
 <?php get_footer(); ?>
 <pre><?php //print_r($commentData);?></pre>

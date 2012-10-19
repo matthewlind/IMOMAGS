@@ -252,29 +252,21 @@ function getMapForContainer(containerNameString) {
 	
 			var $output = $("<div class='popup-state-data'><ul></ul></div>");
 	
-			var trophy;
 			var report;
 	
-			trophy = 0;
 			report = 0;
 	  
 			if (stateData[state.toUpperCase()]) {
 				currentStateData = stateData[state.toUpperCase()];
 	
-				if (currentStateData.trophy)
-					trophy = currentStateData.trophy;
-				else
-					trophy = 0;
-				if (currentStateData.report)
+					if (currentStateData.report)
 					report = currentStateData.report;
 				else
 					report = 0;
 			} else {
-				trophy = 0;
 				report = 0;
 			}
 	
-			$output.find("ul").append("<li>" + trophy + " Trophy Bucks</li>");
 			$output.find("ul").append("<li>" + report + " Rut Reports</li>");
 			//console.log("$output");
 			//console.log($output);
