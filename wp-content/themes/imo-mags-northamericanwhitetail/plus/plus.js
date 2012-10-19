@@ -1273,9 +1273,9 @@ $(document).ready(function(){
 			}
 			$questionTemplate.find("li.title a").text(question.title);
 			if(question.comment_count == 1){
-				$questionTemplate.find("li.replies").text(question.comment_count + " Reply");
+				$questionTemplate.find("li.replies").text(question.comment_count + " Answer");
 			}else{
-				$questionTemplate.find("li.replies").text(question.comment_count + " Replies");
+				$questionTemplate.find("li.replies").text(question.comment_count + " Answers");
 			}
 			
 		});	

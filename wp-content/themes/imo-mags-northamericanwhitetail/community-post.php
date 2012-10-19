@@ -134,11 +134,8 @@ if ( is_user_logged_in() ) {
 	        <div class="post_type_styled_select">
 		         <select class="modal_post_type" name="post_type">
 		        	<option value="report" class="report">Rut Reports</option>
-		         	<option value="trophy" class="trophy">Trophy Bucks</option>
 		            <option value="question" class="question">Q&A</option>
 		            <option value="general" class="general">General Discussion</option>
-		            <option value="gear" class="gear">Gear</option>
-		            <option value="lifestyle" class="lifestyle">Lifestyle</option>
 		            <option value="tip" class="tip">Tips & Tactics</option>
 		          </select>
 		     </div>
