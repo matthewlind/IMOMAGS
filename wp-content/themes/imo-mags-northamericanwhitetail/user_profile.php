@@ -122,7 +122,7 @@ $state = $user_meta['state'][0];
 	            
 	            <div class="extras">
 		    		<div class="score-box">
-		    			<h2 class="user-points">0</h2> 
+		    			<h2 class="user-points-profile">0</h2> 
 		    			<p>Points</p>		    		
 		    		</div>
 		    		<?php if($current_user->display_name == $user->display_name){ ?>
