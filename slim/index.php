@@ -477,11 +477,32 @@ $app->post('/api/superpost/add',function() {
 	_log("NEW POST STARTED!");
 	_log( $params);
 
+	
+
 
 	//Get the user info and authenticate
 	$userIsGood = userIsGood($params['username'],$params['userhash']);
 	
+	
 	$requestIsGood = TRUE;
+	
+	$postHash = "";
+
+	
+	
+	$params['useragent'] = $_SERVER['HTTP_USER_AGENT'];
+	$params['domain'] = $_SERVER['HTTP_HOST'];
+	$params['posthash'] = "";
+	
+	if ($params['post_type'] != "youtube" && $params['post_type'] != "photo" && $params['post_type'] != "comment") {
+			$postDate = date("dmy");
+			$postHash = md5("HELLOTHERE232bb" . $params['username'] . $postDate . $params['title']);
+			$params['posthash'] = $postHash;
+			
+			if (postIsRepeat($postHash))
+				$requestIsGood = FALSE;
+	}
+	
 	
 	if (!empty($params['body']))
 		$params['body'] = nl2br($params['body']);
@@ -578,7 +599,10 @@ $app->post('/api/superpost/add',function() {
 			"ip",
 			"meta",
 			"state",
-			"video_url"
+			"video_url",
+			"domain",
+			"useragent",
+			"posthash"
 		);
 
 		if (!empty($fileName) || $videoExists) {
