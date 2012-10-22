@@ -421,7 +421,7 @@ function displayRecon(type) {
 	    	if(stateKey[post.state]){
 
 		    	if(this.post_type == "report"){
-		    		niceState = stateKey[post.state] + " ";
+		    		var niceState = stateKey[post.state] + " ";
 			    	
 			    }else{
 				    niceState = "";
@@ -1399,11 +1399,6 @@ $(document).ready(function(){
 
 }); //End 
 */
-
-// join widget email slide down
-$("#join .email-signup").click(function(){
-	$("#join form.join-form").slideDown();
-});
 
 // Hide/Display Post Form
 $(".post-form-btn-container").click(function(){
