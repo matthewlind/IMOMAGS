@@ -47,6 +47,18 @@ function add_superpost_link($permalink,$pageID) {
 }
 
 
+add_filter('wpseo_opengraph_image',"set_imageurl_meta");
+
+function set_imageurl_meta() {
+	global $wpdb;
+	$spid =  get_query_var("spid");	
+	
+	$imgURL = $wpdb->get_var( $wpdb->prepare( "SELECT slim.superposts.img_url from slim.superposts WHERE id = %d;" , $spid ) );
+	return "http://www.imomags.com$imgURL";
+	
+}
+
+
 
 function superpost_set_meta() {
 	
@@ -65,8 +77,7 @@ function superpost_set_meta() {
 	if ($post->post_name == "superpost-single"){
 		global $wpdb;
 		$spid =  get_query_var("spid");
-		$title = $wpdb->get_var( $wpdb->prepare( "SELECT slim.superposts.title from slim.superposts WHERE id = %d;" , $spid ) );
-		
+		$title = $wpdb->get_var( $wpdb->prepare( "SELECT slim.superposts.title from slim.superposts WHERE id = %d;" , $spid ) );	
 		
 		$post->post_title = $title;
 	}
