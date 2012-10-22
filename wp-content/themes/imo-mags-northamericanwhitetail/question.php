@@ -59,7 +59,11 @@ if ( is_user_logged_in() ) {
        		<a href="/community">Community Home</a> &raquo; Questions & Answers
 		</div>
 	</header>
-		<h2 class="comm-header">Ask The Community</h2>
+		<div class="post-form-btn-container">
+			<a class="post-form-btn">Ask The Community</a>
+		</div>
+		
+		<h2 class="comm-header post-header">Ask The Community</h2>
 		<div class="new-superpost-modal-container">
 		
 		<form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-form">

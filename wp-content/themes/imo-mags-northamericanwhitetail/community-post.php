@@ -111,7 +111,7 @@ if ( is_user_logged_in() ) {
 	</header>
 		<h2 class="comm-header">Create a Post</h2>
 		
-			<div class="new-superpost-modal-container">
+			<div class="new-superpost-modal-container" style="display:block !important;">
 		
 		<form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-form">
 			<input type="text" name="title" id="title" placeholder="Title"/>
@@ -148,7 +148,7 @@ if ( is_user_logged_in() ) {
 				      $(".state-chzn").chosen();
 				   });
 			 </script>
-			 			 <div class="post-page state-dropdown-container">
+			 	<div class="post-page state-dropdown-container">
 		          <select name="state" class="state-chzn" style="width:400px;padding:5px;" data-placeholder="Choose the state for this post:">
 			            <option value=""></option>
 			            <option value="AL">Alabama</option>

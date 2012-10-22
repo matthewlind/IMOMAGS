@@ -418,14 +418,15 @@ function displayRecon(type) {
 	        } else {
 		        nicePostType = post.post_type;
 	        }
-	    	
-	    	if(this.post_type == "report"){
-		    	niceState = stateKey[post.state] + " ";
-		    
-		    }else{
-			    niceState = "";
+	    	if(stateKey[post.state]){
+
+		    	if(this.post_type == "report"){
+		    		niceState = stateKey[post.state] + " ";
+			    	
+			    }else{
+				    niceState = "";
+			    }
 		    }
-		    
 		    if(post.comment_count == 1){
 			    niceReply = post.comment_count + " Reply";
 		    }else{
@@ -938,37 +939,59 @@ function displayReconList(type) {
 			    nicePoint = points + " Points";
 		    }
 			
-			if(this.post_type == "report"){
-			niceState = stateKey[this.state];
-			
-				if (niceState == 'New York'){
-					state_slug = 'new-york';
-				}else if (niceState == 'Rhode Island'){
-					state_slug = 'rhode-island';
-				}else if (niceState == 'South Carolina'){
-					state_slug = 'south-carolina';
-				}else if (niceState == 'South Dakota'){
-					state_slug = 'south-dakota';
-				}else if (niceState == 'New Hampshire'){
-					state_slug = 'new-hampshire';
-				}else if (niceState == 'New Jersey'){
-					state_slug = 'new-jersey';
-				}else if (niceState == 'New Mexico'){
-					state_slug = 'new-mexico';
-				}else if (niceState == 'North Carolina'){
-					state_slug = 'north-carolina';
-				}else if (niceState == 'North Dakota'){
-					niceState = 'north-dakota';
-				}else{
-					state_slug = stateKey[this.state];
-				}
-		    	
-		    //state_url = "<div class='state-type'><a href='/community/report/" + state_slug.toLowerCase() + "'>" + niceState + "</a></div>";
-		    
-		    }else{
-			    state_url = "";
-		    }
-			
+				if(this.post_type == "report"  && this.state !== undefined && this.state !== "" && this.state !== null){
+					console.log(this.state);
+					
+					niceState = stateKey[this.state];
+				
+				
+				
+					if (niceState == 'New York'){
+						state_slug = 'new-york';
+					}else if (niceState == 'Rhode Island'){
+						state_slug = 'rhode-island';
+					}else if (niceState == 'South Carolina'){
+						state_slug = 'south-carolina';
+					}else if (niceState == 'South Dakota'){
+						state_slug = 'south-dakota';
+					}else if (niceState == 'New Hampshire'){
+						state_slug = 'new-hampshire';
+					}else if (niceState == 'New Jersey'){
+						state_slug = 'new-jersey';
+					}else if (niceState == 'New Mexico'){
+						state_slug = 'new-mexico';
+					}else if (niceState == 'North Carolina'){
+						state_slug = 'north-carolina';
+					}else if (niceState == 'North Dakota'){
+						state_slug = 'north-dakota';
+					}else{
+						state_slug = stateKey[this.state];
+					}
+					
+					var state_url = "<div class='state-type'><a href='/community/report/" + state_slug.toLowerCase() + "'>" + niceState + "</a></div>";
+					
+			    }else{
+				    state_url = "";
+			    }
+			    
+			    
+			    
+			    //Handle blank titles
+			   	if(this.post_type == "report"){
+				   	var defaultTitle = "My Rut Report";
+			   	}else if(this.post_type == "general"){
+			   		defaultTitle = "My General Discussion"
+			   	}else if(this.post_type == "question"){	
+			   		defaultTitle = "My Question"
+			   	}else if(this.post_type == "tip"){
+			   		defaultTitle = "My Tip & Tactic"
+			   	}
+			   		   
+			    if(this.title){
+				    var postTitle = "<div class='row-title'><a href='" + url + "'>" + this.title + "</a></div>"
+			    }else{
+				    postTitle = "<div class='row-title'><a href='" + url + "'>" + defaultTitle + "</a>"
+			    }
 			//underBox.append(date);	
 			//var $avatar $("<img class='recon-gravatar'>").attr("src","avatar?uid=" + this.user_id);
 			
@@ -979,11 +1002,12 @@ function displayReconList(type) {
 					<ul>\
 						<li>\
 							<div class='row-info'>\
-								<div class='row-title'><a href='" + url + "'>" + this.title + "</a></div>\
+							" + state_url + "\
+								" + postTitle + "\
 							</div>\
 						</li>\
-												<li class='user-avatar'><a href='/profile/" + this.username + "'><img src='/avatar?uid=" + this.user_id + "' alt='User Avatar' /></a> by <a href='/profile/" + this.username + "'>" + this.display_name + "</a></li>\
-												<li class='count-field'><a href='" + url + "/#comments'>" + niceReply + "</a></li>\
+						<li class='reply-field'><a href='" + url + "/#comments'>" + niceReply + "</a></li>\
+						<li class='user-avatar'><a href='/profile/" + this.username + "'><img src='/avatar?uid=" + this.user_id + "' alt='User Avatar' /></a> by <a href='/profile/" + this.username + "'>" + this.display_name + "</a></li>\
 						<li class='count-field'><abbr class='timeago' title='" + this.created + "'>" + this.created + "</abbr></li>\
 						<li class='count-field'>" + niceView + "</li>\
 												<li class='count-field'>" + nicePoint + "</li>\
@@ -1379,6 +1403,14 @@ $(document).ready(function(){
 // join widget email slide down
 $("#join .email-signup").click(function(){
 	$("#join form.join-form").slideDown();
+});
+
+// Hide/Display Post Form
+$(".post-form-btn-container").click(function(){
+	$(".post-form-btn-container").fadeOut();
+	$("h2.post-header").show();
+	$(".new-superpost-modal-container").slideDown();
+	$(".page-community .stream-header").css("margin-top","100px");
 });
 
 

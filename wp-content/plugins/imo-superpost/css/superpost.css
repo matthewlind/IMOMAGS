@@ -286,6 +286,7 @@ input.submit {
 .recon-row ul li div.row-info {
 	display:inline-block;
 	margin-left:20px;
+	float: left;
 }
 
 .recon-row ul li div.row-info.no-image {
@@ -315,7 +316,9 @@ li.count-field {
 	font-size: 0.8em;
 	text-transform: capitalize;
 }
-
+li.reply-field{
+	float: right;
+}
 li.user-avatar{
 	margin-left: 20px;
 	float: left;

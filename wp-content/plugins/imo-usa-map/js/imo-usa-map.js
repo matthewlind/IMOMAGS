@@ -160,7 +160,7 @@ function getMapForContainer(containerNameString) {
 				else
 					colorcode = 1;
 	
-				attr.fill = colors[colorcode];
+				//attr.fill = colors[colorcode];
 				
 				
 				//console.log("COLOR ",state,attr.fill,colorcode);  
