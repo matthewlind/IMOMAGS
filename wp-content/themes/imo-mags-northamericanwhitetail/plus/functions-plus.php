@@ -24,6 +24,11 @@ function superpost_set_title($title,$sep,$seplocation) {
 		$title = $wpdb->get_var( $wpdb->prepare( "SELECT slim.superposts.title from slim.superposts WHERE id = %d;" , $spid ) );	
 	}
 	
+	if ($post->post_name == "superpost-state"){
+		$state =  get_query_var("state");
+		$title = ucfirst($state) . " Rut Reports";	
+	}
+	
 	return $title;
 }
 
