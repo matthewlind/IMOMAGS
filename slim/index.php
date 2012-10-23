@@ -30,8 +30,19 @@ function get_IP() {
 }
 
 $response = $app->response();
-$response['Content-Type'] = 'application/json';
 
+//If this is coming from the app, change the Content Type for JSON   
+$userAgentString = $_SERVER['HTTP_USER_AGENT'];
+$userAgentHasNAW = strpos($userAgentString,"NAW/");
+$userAgentHascomimoNAW = strpos($userAgentString,"com.imo.NAW");
+if ($userAgentHasNAW === false && $userAgentHascomimoNAW === false) {
+	$response['Content-Type'] = "text/plain";
+       
+} else {
+	$response['Content-Type'] = 'text/json';
+
+
+}
 
 
 $app->get('/',function(){
