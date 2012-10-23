@@ -30,11 +30,9 @@ $hostname = $_SERVER['SERVER_NAME'];
 $spid =  get_query_var("spid");
 $requestURL = "http://$hostname/slim/api/superpost/post/$spid";
 
-
 $file = file_get_contents($requestURL);
 $data = json_decode($file);
 $data = $data[0];
-
 
 //Then get attachment data
 $requestURL3 = "http://$hostname/slim/api/superpost/children/not_comment/$spid";

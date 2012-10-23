@@ -109,9 +109,9 @@ if ( is_user_logged_in() ) {
 	<header class="header-title">
 		<h1>Community</h1>
 	</header>
-		<h2 class="comm-header">Create a Post</h2>
+	<h2 class="comm-header">Create a Post</h2>
 		
-			<div class="new-superpost-modal-container" style="display:block !important;">
+	<div class="new-superpost-modal-container" style="display:block !important;">
 		
 		<form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-form">
 			<input type="text" name="title" id="title" placeholder="Title"/>
@@ -309,41 +309,7 @@ if ( is_user_logged_in() ) {
 	            <h1 class="recon">Naw+ Community</h1>
 	        </div>
 	        <a class="back-to-community" href="#" term="all" display="tile" style="display:none;">Back to Community</a>
-            <!--<div class='cssmenu'>
-				<ul>
-				   <li><a href='#' class="dd"><span>State Activity</span><span class="dd-arrow"></span></a>
-				      <ul>
-				         <li><a href='#'><span>Product 1</span></a></li>
-				         <li><a href='#'><span>Product 2</span></a></li>
-				      </ul>
-				   </li>
-				</ul>
-			</div>
-            <div class="toggle">
-            	<a id="toggle-tile" class="tile-on"></a>
-            	<span class="toggle-sep"></span>
-            	<a id="toggle-list" class="list-off"></a>
-            </div>            
-            <ul class="post-type-select">
-            	
-                <li class='change all-nav selected' title='all'>ALL</li>
-                <li class='change report-nav' title='report'>Reports</li>
-                 <li class='change trophy-nav' title='trophy'>Trophy Bucks</li>
-                <li class='change lifestyle-nav' title='lifestyle'>Lifestyle</li>
-                <li class='change tip-nav' title='tip'>Tips</li>
-                <li class='change general-nav' title='general'>General</li>
-                <li class="dd-arrow"></li>
-
-            </ul>    
-           <div class="imo-fb-login-button" style="<?php echo $loginStyle; ?>">
-	    	LOGIN
-	    </div>
-    	<ul id="user-bar" style="<?php echo $displayStyle; ?>">	          
-			<li class="user-name">Hello, <a href="/profile/<?php echo $current_user->user_nicename; ?>"><span id="current-user-name"><?php echo $current_user->display_name; ?></span></a></li>
-			<li><a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" alt="User Avatar" class="recon-gravatar" /></a></li>                      
-       </ul>-->
-
-            <div id="recon-activity" term="all" display="tile">
+                       <div id="recon-activity" term="all" display="tile">
 
 
             </div>

@@ -170,11 +170,6 @@ if ( is_user_logged_in() ) {
   <p>The more activity your post has, the higher your score!</p>
   <p><a href="" class="share-not-now">(not this time)</a></p>
   </div>
-  		<div id="community-modal" class="new-superpost-modal-container new-superpost-box" style="display:none;height:425px:width:600px;background-color:white;">
-	  		<div id="imo-fb-login-button" class="fb-login join-widget-fb-login fb-login-community-modal">Join Now With Facebook</div>
-	  		<small>*we do not post anything to your wall unless you say so!</small>
-	  		<a class="hide-this" href="#">Don't show this again</a>
-		</div>
 	
   <div class="new-superpost-modal-container new-superpost-box" style="display:none;height:425px:width:600px;background-color:white;">
   	

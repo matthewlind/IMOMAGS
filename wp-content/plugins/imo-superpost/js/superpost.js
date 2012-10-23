@@ -232,9 +232,15 @@ jQuery(document).ready(function($) {
     //alert('BeforeSend method: \n\nAbout to submit: \n\n' + queryString);
     
     
+    if($("#fileUploadForm #title").length > 1){
+    	alert("Please Enter a Title");
 
+	    return false;
+    }else{
+	   return true; 
+    }
       
-    return true;
+    
   }
 
   //Called when ajax fails. 
@@ -487,4 +493,3 @@ function resetForm($form) {
 
 
 });//End document ready
-
