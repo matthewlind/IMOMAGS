@@ -418,15 +418,14 @@ function displayRecon(type) {
 	        } else {
 		        nicePostType = post.post_type;
 	        }
-	    	if(stateKey[post.state]){
-
-		    	if(this.post_type == "report"){
-		    		var niceState = stateKey[post.state] + " ";
-			    	
-			    }else{
-				    niceState = "";
-			    }
+	    	 
+	    	if(this.post_type == "report" && this.state !== undefined && this.state !== "" && this.state !== null){
+	    		var niceState = stateKey[post.state] + " ";
+		    	
+		    }else{
+			    niceState = "";			  
 		    }
+		    
 		    if(post.comment_count == 1){
 			    niceReply = post.comment_count + " Reply";
 		    }else{
@@ -940,7 +939,7 @@ function displayReconList(type) {
 		    }
 			
 				if(this.post_type == "report"  && this.state !== undefined && this.state !== "" && this.state !== null){
-					console.log(this.state);
+					//console.log(this.state);
 					
 					niceState = stateKey[this.state];
 				
