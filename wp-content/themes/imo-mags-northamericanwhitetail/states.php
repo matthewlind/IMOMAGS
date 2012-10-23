@@ -215,11 +215,12 @@ $data = $data[0];
 	       		<a href="/community">Community Home</a> &raquo; <a href="/<?php echo $post_type; ?>"><?php echo $title; ?></a> &raquo; <?php echo $stateTitle; ?> 
 			</div>
 		</header>
-		<?php if($post_type == "report"){ ?>
-			<h2 class="comm-header" style="text-transform:capitalize;">Start a New <?php echo $stateTitle." ".$singulartitle; ?></h2>
-		<?php }else{ ?>
-			<h2 class="comm-header" style="text-transform:capitalize;">Post Your <?php echo $stateTitle." ".$singulartitle; ?></h2>
-		<?php } ?>
+		<div class="post-form-btn-container">
+			<a class="post-form-btn" style="text-transform:capitalize;">+ Start a New Post in <?php echo $stateTitle; ?> Rut Report</a>
+		</div>
+		
+		<h2 class="comm-header post-header" style="text-transform:capitalize;">Start a New <?php echo $stateTitle." ".$singulartitle; ?></h2>
+					
 		<div class="new-superpost-modal-container">
 		
 		<form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-form">

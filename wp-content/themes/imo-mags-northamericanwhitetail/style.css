@@ -4521,6 +4521,7 @@ ul#user-bar li.user-name .header-post-btn:hover{
 	width: 590px;
 	position: relative;
 	padding: 20px 0;
+	display: none;
 }
 .page-community #fileUploadForm{
 	margin: 0;
@@ -4621,12 +4622,14 @@ ul#user-bar li.user-name .header-post-btn:hover{
     top: 160px;
     width: 190px;
 }*/
-
+.post-header{
+	display: none;
+}
 .page-community .comm-header{
 	font-family: ProximaNovaA-Light;
 }
 .page-community .stream-header{
-	margin-top: 100px;
+	margin-top: 0;
     border-top: 2px solid;
     padding-top: 40px;
 }
@@ -4675,7 +4678,7 @@ input.caption-field{
     margin-bottom: 0;
     margin-top: 0;
     font-family: ProximaNovaA-Regular;
-    width: 520px;
+    width: 466px;
 }
 .media-section h4{padding-left: 12px; width:200px;}
 #comments .media-section h4{padding-left: 18px; width:180px;}
@@ -5557,7 +5560,7 @@ ul.gear-grid li img{
 	text-align: center;
 	padding: 2px 0;
 }
-#user-info-widget .post-btn{
+#user-info-widget .post-btn, .post-form-btn-container{
 	background: #347FE7;
 	background: -webkit-gradient( linear, left top, left bottom, from(#3E88E9), to(#3E88E9));
 	border-radius: 0px;
@@ -5577,7 +5580,10 @@ ul.gear-grid li img{
 	padding: 6px;
 	width: 120px;
 	margin: 16px auto;
+	cursor: pointer;
 }
+.post-form-btn-container{width: 290px;}
+.post-form-btn-container a {color: white;font-family:ProximaNova-Regular;}
 #user-info-widget img{
 	width: 50px;
 	height: 50px;

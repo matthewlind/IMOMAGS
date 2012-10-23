@@ -54,7 +54,7 @@ if ( is_user_logged_in() ) {
 	<div class="col-abc">
 	<header class="header-title">
     	
-    		       <h1>State Rut Reports</h1>
+    	<h1>State Rut Reports</h1>
 	       <div class="community-crumbs">
 	       		<a href="/community">Community Home</a> &raquo; Rut Reports
 			</div>
@@ -62,7 +62,11 @@ if ( is_user_logged_in() ) {
 		
 		<div id="us-map-container" style="width:680px;height:420px;" post_type="report"></div>
 		
-		<h2 class="comm-header">Post a Rut Report</h2>
+		<div class="post-form-btn-container">
+			<a class="post-form-btn">+ Start a New Post in State Rut Reports</a>
+		</div>
+		
+		<h2 class="comm-header post-header">Post a Rut Report</h2>
 		<div class="new-superpost-modal-container">
 		
 		<form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-form">

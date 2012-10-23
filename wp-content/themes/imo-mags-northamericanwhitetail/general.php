@@ -55,14 +55,15 @@ if ( is_user_logged_in() ) {
 	<div class="col-abc">
 		<header class="header-title">
     	
-    		       <h1>Community: Discussion</h1>
+    		       <h1>Community: General Discussion</h1>
 	       <div class="community-crumbs">
 	       		<a href="/community">Community Home</a> &raquo; General Discussion
 			</div>
 		</header>
-
-	
-		<h2 class="comm-header">Post in Discussion</h2>
+		<div class="post-form-btn-container">
+			<a class="post-form-btn">+ Start a New Post in General Discussion</a>
+		</div>
+		<h2 class="comm-header post-header">Post in General Discussion</h2>
 		<div class="new-superpost-modal-container">
 		
 		<form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-form">
@@ -141,7 +142,7 @@ if ( is_user_logged_in() ) {
 
 	    <div class="col-abc">
 		
-	    <h2 class="comm-header stream-header">Latest in <?php the_title(); ?> Discussion</h2>
+	    <h2 class="comm-header stream-header">Latest in General Discussion</h2>
         <div id="recon-activity" term="general" display="list" widthMode="short">
 
 
