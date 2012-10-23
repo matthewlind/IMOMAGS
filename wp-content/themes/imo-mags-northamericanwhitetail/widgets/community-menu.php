@@ -36,7 +36,7 @@ class Community_Menu_Widget extends WP_Widget {
 	     	<a href="/community/question">Questions</a>
 	     	<a href="/community/tip">Tips & Tactics</a>
 			<a href="/community/general">General Discussion</a>
-			<!--<a href=""></a>-->
+			<!--<a href="/community/contests">Contests</a>-->
     	</div>
      	<div id="imo-fb-login-button" class="fb-login join-widget-fb-login" style="<?php echo $loginStyle; ?>">Fast Facebook Login</div>
 		<small style="<?php echo $loginStyle; ?>">*we do not post anything to your wall unless you say so!</small>

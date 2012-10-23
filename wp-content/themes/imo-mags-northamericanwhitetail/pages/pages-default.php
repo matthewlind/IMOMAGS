@@ -46,7 +46,7 @@ if ( is_user_logged_in() ) {
 <div class="col-abc">
 	<header class="header-title">
 		<div id="user-bar" class="edit">
-			<a href="<?php echo wp_logout_url( get_permalink() ); ?>" title="Logout">Logout</a>
+			<a href="<?php echo wp_logout_url( get_permalink() ); ?>" title="Logout" style="<?php echo $displayStyle ?>">Logout</a>
 		</div>
 		<h1>Community Profile</h1>
 		<div class="community-crumbs" style="<?php echo $displayStyle; ?>">
