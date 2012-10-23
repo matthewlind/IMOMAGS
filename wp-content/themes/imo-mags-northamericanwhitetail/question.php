@@ -60,7 +60,7 @@ if ( is_user_logged_in() ) {
 		</div>
 	</header>
 		<div class="post-form-btn-container">
-			<a class="post-form-btn">Ask The Community</a>
+			<a class="post-form-btn">+ Ask The Community</a>
 		</div>
 		
 		<h2 class="comm-header post-header">Ask The Community</h2>

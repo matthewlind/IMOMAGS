@@ -407,6 +407,7 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 }
 #header #megaMenu .sub-menu li a {
     margin: 0;
+    padding-bottom: 4px;
 }
 #header #megaMenu ul.sub-menu-1 {
     background: none repeat scroll 0 0 #fff;
@@ -2085,7 +2086,7 @@ a.comment-count:hover {
  *
  */
 .home ul#user-bar li.user-name{padding-top: 10px;}
-.super-header{width: 1020px;margin-bottom: 44px;position: relative;}
+.super-header{width: 1020px;margin-bottom: 44px;position: relative;top:20px;}
 .super-post{clear: both;width:1030px !important;}
 .home #recon-activity{top:30px;}
 .home  ul#user-bar{margin-top:  -36px;}
@@ -2129,7 +2130,8 @@ a.comment-count:hover {
 	line-height: 1em;
 }
 .single .addthis_toolbox.addthis_default_style{
-	margin-top: 10px;
+	float: none !important;
+	margin: 10px 0 0px !important;
 }
 .header-title{
 	border-bottom: 4px solid #000;
@@ -2144,6 +2146,10 @@ a.comment-count:hover {
 }
 .single-post .entry-full{
 	font-family: Helvetica,sans-serif;
+	margin-top: 4px;
+}
+.single-post .entry-full p{
+	font-family: Georgia,serif;
 }
 .wp-caption {
     border-radius:0;
@@ -4539,7 +4545,7 @@ ul#user-bar li.user-name .header-post-btn:hover{
 .page-community .superpost-form input[type="submit"]{
 	left: 274px;
     position: absolute;
-    top: 300px;
+    top: 320px;
     width: 190px;
 }  
 .page-template-community-post-php .page-community .superpost-form input[type="submit"]{
@@ -4933,6 +4939,7 @@ ul#scroll-widget li a:hover span{
 #get-app .footer{
 	clear: both;
 	padding: 0 0 20px;
+	text-align: center;
 }
 
 #get-app .download{
@@ -4944,10 +4951,11 @@ ul#scroll-widget li a:hover span{
     cursor: pointer;
     font-size: 1.3em;
     margin: 0 auto;
-    padding: 7px 0;
+    padding: 6px 12px;
     text-align: center;
     text-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 1px 2px 0 rgba(0, 0, 0, 0.4);
     width: 270px;
+
 }  
     
   /** logged out version **/ 
@@ -4963,11 +4971,12 @@ ul#scroll-widget li a:hover span{
 *** User Forms
 ****
 ********/   
-.login #loginform{
-	margin-top: 40px;
+.login{
+	float: left;
+	padding: 0 !important;
 }
-.login p.message{
-	width: 338px;
+.register{
+	float: right;
 }
 .login input{
 	border: 1px solid #CCCCCC;
@@ -5038,8 +5047,15 @@ ul#scroll-widget li a:hover span{
 #theme-my-login .button-primary{
 	 margin-left: 180px !important;
 }  
-   
-   
+.register-or{
+	float: left;
+}  
+.error{
+  color: red;
+}
+
+
+
 /**********
 ***
 ** Questions List Widget
@@ -5177,7 +5193,7 @@ ul#scroll-widget li a:hover span{
     text-transform: uppercase;
 }
 #community-menu-nav small{
-	margin-left: 10px;
+	margin-left: 20px;
 }
 #community-menu-nav .nav{
 	border-bottom: 1px solid #ddd4cb;
@@ -5413,9 +5429,11 @@ ul.gear-grid li img{
 }
 #buck_contest_promo .contest-img img{
 	border: 6px solid #eee;
+	max-width: 280px;
 }
 #buck_contest_promo .prize {
 	margin-bottom: 20px;
+	color: white;
 }
 #buck_contest_promo .prize h6{
 	color: white;
@@ -5560,7 +5578,7 @@ ul.gear-grid li img{
 	text-align: center;
 	padding: 2px 0;
 }
-#user-info-widget .post-btn, .post-form-btn-container{
+#user-info-widget .post-btn{
 	background: #347FE7;
 	background: -webkit-gradient( linear, left top, left bottom, from(#3E88E9), to(#3E88E9));
 	border-radius: 0px;
@@ -5582,8 +5600,33 @@ ul.gear-grid li img{
 	margin: 16px auto;
 	cursor: pointer;
 }
-.post-form-btn-container{width: 290px;}
-.post-form-btn-container a {color: white;font-family:ProximaNova-Regular;}
+.post-form-btn-container{
+	text-align: center;
+	margin: 0px 0 20px;
+}
+.post-form-btn-container a {
+
+	color: white;font-family:ProximaNova-Regular;
+	background: #347FE7;
+	background: -webkit-gradient( linear, left top, left bottom, from(#3E88E9), to(#3E88E9));
+	border-radius: 0px;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	border: 1px;
+	border-style: solid;
+	border-color: #2861B2;
+	-moz-box-shadow: 0px 1px 0px rgba(000,000,000,0), inset 1px 1px 0px rgba(103,159,237,1);
+	-webkit-box-shadow: 0px 1px 0px rgba(000, 000, 000, 0), inset 1px 1px 0px rgba(103, 159, 237, 1);
+	text-shadow: 0px 0px 0px rgba(000, 000, 000, 0.2), 1px 2px 0px rgba(000, 000, 000, 0.4);
+	margin-right: 1px;
+	-moz-box-shadow: inset 0px 0px 1px 0px #ffffff;
+	-webkit-box-shadow: inset 0px 0px 1px 0px white;
+	box-shadow: inset 0px 0px 1px 0px white;
+	text-align: center;
+	padding: 8px 12px;
+	margin: 16px auto;
+	cursor: pointer;
+}
 #user-info-widget img{
 	width: 50px;
 	height: 50px;
@@ -5636,6 +5679,20 @@ font-size: 0.8em;
 .top-users li.rank{
 	width: 16px;
 }
+
+
+/***** Contest Page *****/
+.contest-banner{
+	background: url(img/contest-banner.png) no-repeat center top;
+	width: 682px;
+	height: 150px;
+}
+.page-template-contest-php h1.recon{
+	left: 344px;	
+}
+
+
+
 
 
 /*** Local edits ***/   

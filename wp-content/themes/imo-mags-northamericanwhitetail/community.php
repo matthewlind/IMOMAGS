@@ -57,7 +57,7 @@ $requestURL5 = "http://$hostname/slim/api/superpost/count/tip";
 
 $file5 = file_get_contents($requestURL5);
 $tipCount = json_decode($file);
-$$tipCount = $tipCount[0];
+$tipCount = $tipCount[0];
 
 $requestURL6 = "http://$hostname/slim/api/superpost/count/lifestyle";
 
@@ -128,11 +128,7 @@ if ( is_user_logged_in() ) {
 			<li id="general" class="title"><div></div><h2><a href="/community/general/">General Discussion</a></h2></li>
 			<li class="selected points"><a href="/community/general/"><?php echo $generalCount->post_count.' Posts'; ?></a></li>
 		</ul>
-		
-		<!--<ul class="community-cats">
-			<li id="experts" class="title"><div></div><h2><a href="/community/contest/">Contest</a></h2></li>
-			<li class="selected points"><a href="/community/contest/"><?php echo $contestCount->post_count.' Posts'; ?></a></li>
-		</ul>-->
+		<img src="<?php bloginfo('url'); ?>/wp-content/themes/imo-mags-northamericanwhitetail/img/contest-banner.png" alt="Enter To Win" />
 	</div><!-- .col-abc -->	
 <div class="clear"></div>
 <div class="col-abc super-post">
@@ -142,40 +138,7 @@ if ( is_user_logged_in() ) {
 	            <h1 class="recon">Naw+ Community</h1>
 	        </div>
 	        <a class="back-to-community" href="#" term="all" display="tile" style="display:none;">Back to Community</a>
-            <!--<div class='cssmenu'>
-				<ul>
-				   <li><a href='#' class="dd"><span>State Activity</span><span class="dd-arrow"></span></a>
-				      <ul>
-				         <li><a href='#'><span>Product 1</span></a></li>
-				         <li><a href='#'><span>Product 2</span></a></li>
-				      </ul>
-				   </li>
-				</ul>
-			</div>
-            <div class="toggle">
-            	<a id="toggle-tile" class="tile-on"></a>
-            	<span class="toggle-sep"></span>
-            	<a id="toggle-list" class="list-off"></a>
-            </div>
-            <ul class="post-type-select">
-            	
-                <li class='change all-nav selected' title='all'>ALL</li>
-                <li class='change report-nav' title='report'>Reports</li>
-                 <li class='change trophy-nav' title='trophy'>Trophy Bucks</li>
-                <li class='change lifestyle-nav' title='lifestyle'>Lifestyle</li>
-                <li class='change tip-nav' title='tip'>Tips</li>
-                <li class='change general-nav' title='general'>General</li>
-                <li class="dd-arrow"></li>
-
-            </ul>    
-           <div class="imo-fb-login-button" style="<?php echo $loginStyle; ?>">
-	    	LOGIN
-	    </div>
-    	<ul id="user-bar" style="<?php echo $displayStyle; ?>">	          
-			<li class="user-name">Hello, <a href="/profile/<?php echo $current_user->user_nicename; ?>"><span id="current-user-name"><?php echo $current_user->display_name; ?></span></a></li>
-			<li><a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" alt="User Avatar" class="recon-gravatar" /></a></li>                      
-       </ul>-->
-
+            
             <div id="recon-activity" term="all" display="tile">
 
 
