@@ -210,6 +210,48 @@ $app->get('/api/superpost/type/:post_type(/:count(/:start))',function($post_type
 
 
 //*********************************
+//**** Get all Posts Sorted by Most Active ****
+//*********************************
+$app->get('/api/superpost/active/type/:post_type(/:count(/:start))',function($post_type,$count = 20,$start = 0){
+
+
+
+
+	header('Access-Control-Allow-Origin: *');
+
+	try {
+
+		$db = dbConnect();
+
+		$whereClause = "WHERE post_type = ?";
+
+		if ($post_type == "all")
+			$whereClause = "WHERE post_type != 'comment' AND post_type != 'answer' AND post_type != 'photo' AND post_type != 'youtube'";
+
+		$limitClause = "LIMIT $start,$count";
+
+
+		$sql = "SELECT * FROM allcounts $whereClause ORDER BY score DESC $limitClause";
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array($post_type));
+	
+		$posts = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+		echo json_encode($posts);
+
+		$db = "";
+
+	} catch(PDOException $e) {
+    	echo $e->getMessage();
+    }
+
+});
+
+
+
+
+//*********************************
 //**** Get all Posts of a Type with only images by view count ****
 //*********************************
 $app->get('/api/superpost/views/:post_type(/:count(/:start))',function($post_type,$count = 20,$start = 0){
