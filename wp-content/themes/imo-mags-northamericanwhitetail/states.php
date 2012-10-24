@@ -20,7 +20,7 @@
  */
 // convert some slugs
 $stateSlugToAbbv = array("alabama"=>"AL",
-"alaska"=>"AK","arizona"=>"AZ","arkansas"=>"AR","california"=>"CA","colorado"=>"CO","connecticut"=>"CT","delaware"=>"DE","district-of-columbia"=>"DC","florida"=>"FL","georgia"=>"GA","hawaii"=>"HI","idaho"=>"ID","illinois"=>"IL","indiana"=>"IN","iowa"=>"IA","kansas"=>"KS","kentucky"=>"KY","louisiana"=>"LA","maine"=>"ME","maryland"=>"MD","massachusetts"=>"MA","michigan"=>"MI","minnesota"=>"MN","mississippi"=>"MS","missouri"=>"MO","montana"=>"MT","nebraska"=>"NE","nevada"=>"NV","new-hampshire"=>"NH","new-jersey"=>"NJ","new-mexico"=>"NM","new-york"=>"NY","north-carolina"=>"NC","north-dakota"=>"ND","ohio"=>"OH","oklahoma"=>"OK","oregon"=>"OR","pennsylvania"=>"PA","rhode-island"=>"RI","south-carolina"=>"SC","south-dakota"=>"SD","tennessee"=>"TN","texas"=>"TX","utah"=>"UT","vermont"=>"VT","virginia"=>"VA","washington"=>"WA","west-virginia"=>"WV","wisconsin"=>"WI","wyoming"=>"WY","canada"=>"CN");    
+"alaska"=>"AK","arizona"=>"AZ","arkansas"=>"AR","california"=>"CA","colorado"=>"CO","connecticut"=>"CT","delaware"=>"DE","district-of-columbia"=>"DC","florida"=>"FL","georgia"=>"GA","hawaii"=>"HI","idaho"=>"ID","illinois"=>"IL","indiana"=>"IN","iowa"=>"IA","kansas"=>"KS","kentucky"=>"KY","louisiana"=>"LA","maine"=>"ME","maryland"=>"MD","massachusetts"=>"MA","michigan"=>"MI","minnesota"=>"MN","mississippi"=>"MS","missouri"=>"MO","montana"=>"MT","nebraska"=>"NE","nevada"=>"NV","new-hampshire"=>"NH","new-jersey"=>"NJ","new-mexico"=>"NM","new-york"=>"NY","north-carolina"=>"NC","north-dakota"=>"ND","ohio"=>"OH","oklahoma"=>"OK","oregon"=>"OR","pennsylvania"=>"PA","rhode-island"=>"RI","south-carolina"=>"SC","south-dakota"=>"SD","tennessee"=>"TN","texas"=>"TX","utah"=>"UT","vermont"=>"VT","virginia"=>"VA","washington"=>"WA","west-virginia"=>"WV","wisconsin"=>"WI","wyoming"=>"WY","alberta"=>"AB","british-columbia"=>"BC","manitoba"=>"MB","new-brunswick"=>"NB","newfoundland-and-labrador"=>"NL","northwest-territories"=>"NT","nova-scotia"=>"NS","nunavut"=>"NU","ontario"=>"ON","prince-edward-island"=>"PE","quebec"=>"QC","saskatchewan"=>"SK","yukon"=>"YT");    
  
 $term_slug = get_query_var("state");
 
@@ -95,6 +95,16 @@ if ($term_slug == 'new-york'){
 	$stateTitle = 'North Carolina';
 }else if ($term_slug == 'north-dakota'){
 	$stateTitle = 'North Dakota';
+}else if ($term_slug == 'new-brunswick'){
+	$stateTitle = 'New Brunswick';
+}else if ($term_slug == 'newfoundland-and-labrador'){
+	$stateTitle = 'Newfoundland and Labrador';
+}else if ($term_slug == 'northwest-territories'){
+	$stateTitle = 'Northwest Territories';
+}else if ($term_slug == 'nova-scotia'){
+	$stateTitle = 'Nova Scotia';
+}else if ($term_slug == 'prince-edward-island'){
+	$stateTitle = 'Prince Edward Island';	
 }else{
 	$stateTitle = $term_slug;
 }
@@ -116,77 +126,74 @@ $data = $data[0];
 		    <h2>Browse by State</h2>
 		</div>
 		 <div class="post_type_styled_select">
-	        <!-- <select id="dynamic_select" class="post_type" name="post_type">
-	         	<option value="" selected>Choose a Topic</option>        
-	         	<option value="/community/general">General Discussion</option>
-	            <option value="/community/question">Q&A</option>
-	            <option value="/community/report">Rut Reports</option>
-	            <option value="/community/tip"">Tips & Tactics</option>
-	            <option value="/community/lifestyle">Lifestyle</option>
-	            <option value="/community/trophy">Trophy Bucks</option>
-	            <option value="/community/gear">Gear</option>
-	          </select>
-	          
-	          <div class="or">- OR -</div> -->
-	    <div class="state-dropdown-container-sidebar">
-	    	<select id="state" name="state" class="post_type state">
-	    		<option value="">State <?php echo $title; ?></option>
-	    		<option value="/community/<?php echo $post_type; ?>/alabama">Alabama</option>
-	            <option value="/community/<?php echo $post_type; ?>/arizona">Arizona</option>
-	            <option value="/community/<?php echo $post_type; ?>/arkansas">Arkansas</option>
-	            <option value="/community/<?php echo $post_type; ?>/california">California</option>
-	            <option value="/community/<?php echo $post_type; ?>/colorado">Colorado</option>
-	            <option value="/community/<?php echo $post_type; ?>/connecticut">Connecticut</option>
-	            <option value="/community/<?php echo $post_type; ?>/delaware">Delaware</option>
-	            <option value="/community/<?php echo $post_type; ?>/florida">Florida</option>
-	            <option value="/community/<?php echo $post_type; ?>/georgia">Georgia</option>
-	            <option value="/community/<?php echo $post_type; ?>/idaho">Idaho</option>
-	            <option value="/community/<?php echo $post_type; ?>/illinois">Illinois</option>
-	            <option value="/community/<?php echo $post_type; ?>/indiana">Indiana</option>
-	            <option value="/community/<?php echo $post_type; ?>/iowa">Iowa</option>
-	            <option value="/community/<?php echo $post_type; ?>/kansas">Kansas</option>
-	            <option value="/community/<?php echo $post_type; ?>/kentucky">Kentucky</option>
-	            <option value="/community/<?php echo $post_type; ?>/louisiana">Louisiana</option>
-	            <option value="/community/<?php echo $post_type; ?>/maine">Maine</option>
-	            <option value="/community/<?php echo $post_type; ?>/maryland">Maryland</option>
-	            <option value="/community/<?php echo $post_type; ?>/massachusetts">Massachusetts</option>
-	            <option value="/community/<?php echo $post_type; ?>/michigan">Michigan</option>
-	            <option value="/community/<?php echo $post_type; ?>/minnesota">Minnesota</option>
-	            <option value="/community/<?php echo $post_type; ?>/mississippi">Mississippi</option>
-	            <option value="/community/<?php echo $post_type; ?>/missouri">Missouri</option>
-	            <option value="/community/<?php echo $post_type; ?>/montana">Montana</option>
-	            <option value="/community/<?php echo $post_type; ?>/nebraska">Nebraska</option>
-	            <option value="/community/<?php echo $post_type; ?>/nevada">Nevada</option>
-	            <option value="/community/<?php echo $post_type; ?>/new-hampshire">New Hampshire</option>
-	            <option value="/community/<?php echo $post_type; ?>/new-jersey">New Jersey</option>
-	            <option value="/community/<?php echo $post_type; ?>/new-mexico">New Mexico</option>
-	            <option value="/community/<?php echo $post_type; ?>/new-york">New York</option>
-	            <option value="/community/<?php echo $post_type; ?>/north-carolina">North Carolina</option>
-	            <option value="/community/<?php echo $post_type; ?>/north-dakota">North Dakota</option>
-	            <option value="/community/<?php echo $post_type; ?>/ohio">Ohio</option>
-	            <option value="/community/<?php echo $post_type; ?>/oklahoma">Oklahoma</option>
-	            <option value="/community/<?php echo $post_type; ?>/oregon">Oregon</option>
-	            <option value="/community/<?php echo $post_type; ?>/pennsylvania">Pennsylvania</option>
-	            <option value="/community/<?php echo $post_type; ?>/rhode-island">Rhode Island</option>
-	            <option value="/community/<?php echo $post_type; ?>/south-carolina">South Carolina</option>
-	            <option value="/community/<?php echo $post_type; ?>/south-dakota">South Dakota</option>
-	            <option value="/community/<?php echo $post_type; ?>/tennessee">Tennessee</option>
-	            <option value="/community/<?php echo $post_type; ?>/texas">Texas</option>
-	            <option value="/community/<?php echo $post_type; ?>/utah">Utah</option>
-	            <option value="/community/<?php echo $post_type; ?>/vermont">Vermont</option>
-	            <option value="/community/<?php echo $post_type; ?>/virginia">Virginia</option>
-	            <option value="/community/<?php echo $post_type; ?>/washington">Washington</option>
-	            <option value="/community/<?php echo $post_type; ?>/west-virginia">West Virginia</option>
-	            <option value="/community/<?php echo $post_type; ?>/wisconsin">Wisconsin</option>
-	            <option value="/community/<?php echo $post_type; ?>/wyoming">Wyoming</option>		
-		</select>	
-	    </div>	         
+	     	<div class="state-dropdown-container-sidebar">
+		    	<select id="state" name="state" class="post_type state">
+		    		<option value="">State <?php echo $title; ?></option>
+		    		<option value="/community/<?php echo $post_type; ?>/alabama">Alabama</option>
+		            <option value="/community/<?php echo $post_type; ?>/arizona">Arizona</option>
+		            <option value="/community/<?php echo $post_type; ?>/arkansas">Arkansas</option>
+		            <option value="/community/<?php echo $post_type; ?>/california">California</option>
+		            <option value="/community/<?php echo $post_type; ?>/colorado">Colorado</option>
+		            <option value="/community/<?php echo $post_type; ?>/connecticut">Connecticut</option>
+		            <option value="/community/<?php echo $post_type; ?>/delaware">Delaware</option>
+		            <option value="/community/<?php echo $post_type; ?>/florida">Florida</option>
+		            <option value="/community/<?php echo $post_type; ?>/georgia">Georgia</option>
+		            <option value="/community/<?php echo $post_type; ?>/idaho">Idaho</option>
+		            <option value="/community/<?php echo $post_type; ?>/illinois">Illinois</option>
+		            <option value="/community/<?php echo $post_type; ?>/indiana">Indiana</option>
+		            <option value="/community/<?php echo $post_type; ?>/iowa">Iowa</option>
+		            <option value="/community/<?php echo $post_type; ?>/kansas">Kansas</option>
+		            <option value="/community/<?php echo $post_type; ?>/kentucky">Kentucky</option>
+		            <option value="/community/<?php echo $post_type; ?>/louisiana">Louisiana</option>
+		            <option value="/community/<?php echo $post_type; ?>/maine">Maine</option>
+		            <option value="/community/<?php echo $post_type; ?>/maryland">Maryland</option>
+		            <option value="/community/<?php echo $post_type; ?>/massachusetts">Massachusetts</option>
+		            <option value="/community/<?php echo $post_type; ?>/michigan">Michigan</option>
+		            <option value="/community/<?php echo $post_type; ?>/minnesota">Minnesota</option>
+		            <option value="/community/<?php echo $post_type; ?>/mississippi">Mississippi</option>
+		            <option value="/community/<?php echo $post_type; ?>/missouri">Missouri</option>
+		            <option value="/community/<?php echo $post_type; ?>/montana">Montana</option>
+		            <option value="/community/<?php echo $post_type; ?>/nebraska">Nebraska</option>
+		            <option value="/community/<?php echo $post_type; ?>/nevada">Nevada</option>
+		            <option value="/community/<?php echo $post_type; ?>/new-hampshire">New Hampshire</option>
+		            <option value="/community/<?php echo $post_type; ?>/new-jersey">New Jersey</option>
+		            <option value="/community/<?php echo $post_type; ?>/new-mexico">New Mexico</option>
+		            <option value="/community/<?php echo $post_type; ?>/new-york">New York</option>
+		            <option value="/community/<?php echo $post_type; ?>/north-carolina">North Carolina</option>
+		            <option value="/community/<?php echo $post_type; ?>/north-dakota">North Dakota</option>
+		            <option value="/community/<?php echo $post_type; ?>/ohio">Ohio</option>
+		            <option value="/community/<?php echo $post_type; ?>/oklahoma">Oklahoma</option>
+		            <option value="/community/<?php echo $post_type; ?>/oregon">Oregon</option>
+		            <option value="/community/<?php echo $post_type; ?>/pennsylvania">Pennsylvania</option>
+		            <option value="/community/<?php echo $post_type; ?>/rhode-island">Rhode Island</option>
+		            <option value="/community/<?php echo $post_type; ?>/south-carolina">South Carolina</option>
+		            <option value="/community/<?php echo $post_type; ?>/south-dakota">South Dakota</option>
+		            <option value="/community/<?php echo $post_type; ?>/tennessee">Tennessee</option>
+		            <option value="/community/<?php echo $post_type; ?>/texas">Texas</option>
+		            <option value="/community/<?php echo $post_type; ?>/utah">Utah</option>
+		            <option value="/community/<?php echo $post_type; ?>/vermont">Vermont</option>
+		            <option value="/community/<?php echo $post_type; ?>/virginia">Virginia</option>
+		            <option value="/community/<?php echo $post_type; ?>/washington">Washington</option>
+		            <option value="/community/<?php echo $post_type; ?>/west-virginia">West Virginia</option>
+		            <option value="/community/<?php echo $post_type; ?>/wisconsin">Wisconsin</option>
+		            <option value="/community/<?php echo $post_type; ?>/wyoming">Wyoming</option>
+		            <option value="/community/<?php echo $post_type; ?>/alberta">Alberta, Canada</option>
+		            <option value="/community/<?php echo $post_type; ?>/british-columbia">British Columbia, Canada</option>
+		            <option value="/community/<?php echo $post_type; ?>/manitoba">Manitoba, Canada</option>
+		            <option value="/community/<?php echo $post_type; ?>/new-brunswick">New Brunswick, Canada</option>
+		            <option value="/community/<?php echo $post_type; ?>/newfoundland-and-labrador">Newfoundland and Labrador, Canada</option>
+		            <option value="/community/<?php echo $post_type; ?>/northwest-territories">Northwest Territories, Canada</option>
+		            <option value="/community/<?php echo $post_type; ?>/nova-scotia">Nova Scotia, Canada</option>
+		            <option value="/community/<?php echo $post_type; ?>/nunavut">Nunavut, Canada</option>
+		            <option value="/community/<?php echo $post_type; ?>/ontario">Ontario, Canada</option>
+		            <option value="/community/<?php echo $post_type; ?>/prince-edward-island">Prince Edward Island, Canada</option>
+		            <option value="/community/<?php echo $post_type; ?>/quebec">Quebec, Canada</option>
+		            <option value="/community/<?php echo $post_type; ?>/saskatchewan">Saskatchewan, Canada</option>
+		            <option value="/community/<?php echo $post_type; ?>/yukon">Yukon, Canada</option>		            		
+		        </select>	
+			</div>	         
         </div>
-       <!-- <div class="buttons">
-	     	<a href="#" class="ask-question post new-post question">Ask a Question</a>
-	     	<a href="#" class="share-photo post new-post general">Share a Photo</a>        
-        </div> -->
-        </aside>
+    </aside>
             
     <div class="clearfix" style="margin-bottom: 10px;"></div>
 			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('state-page-sidebar')) : else : ?><?php endif; ?>

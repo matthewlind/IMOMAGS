@@ -263,5 +263,4 @@ if(document.location.protocol=='http:'){
 	          
 			</div>
 		<?php } ?>
-		<div id="main-content">
 

@@ -204,6 +204,7 @@ input.submit {
 .superclass-body{
 	font-family: Helvetica,sans-serif;
 	font-size: 0.9em;
+	word-wrap: break-word;
 }
 .superclass-body .username{
 	float:none !important;
@@ -324,6 +325,9 @@ li.user-avatar{
 	float: left;
 	padding-right: 4px;
 	font-size: 0.8em;
+}
+.no-image-clear{
+	clear: both;
 }
 li.user-avatar img{
 	height: 20px;

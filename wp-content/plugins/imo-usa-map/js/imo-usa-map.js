@@ -234,9 +234,9 @@ function getMapForContainer(containerNameString) {
 					currentStateData = stateData[state.toUpperCase()];
 	
 					//console.log(currentStateData);
-					if (currentStateData.colorcode)
-						colorcode = currentStateData.colorcode;
-					else
+					//if (currentStateData.colorcode)
+						//colorcode = currentStateData.colorcode;
+					//else
 						colorcode = 1;
 				}
 	

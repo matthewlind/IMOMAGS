@@ -30,11 +30,9 @@ $hostname = $_SERVER['SERVER_NAME'];
 $spid =  get_query_var("spid");
 $requestURL = "http://$hostname/slim/api/superpost/post/$spid";
 
-
 $file = file_get_contents($requestURL);
 $data = json_decode($file);
 $data = $data[0];
-
 
 //Then get attachment data
 $requestURL3 = "http://$hostname/slim/api/superpost/children/not_comment/$spid";
@@ -153,7 +151,20 @@ $stateSlugToAbbv = array("AL"=>"Alabama",
 "WA"=>"Washington",
 "WV"=>"West Virginia",
 "WI"=>"Wisconsin",
-"WY"=>"Wyoming");   
+"WY"=>"Wyoming",
+"AB"=>"Alberta",
+"BC"=>"British Columbia",
+"MB"=>"Manitoba",
+"NB"=>"New Brunswick",
+"NL"=>"Newfoundland and Labrador",
+"NT"=>"Northwest Territories",
+"NS"=>"Nova Scotia",
+"NU"=>"Nunavut",
+"ON"=>"Ontario",
+"PE"=>"Prince Edward Island",
+"QC"=>"Quebec",
+"SK"=>"Saskatchewan",
+"YT"=>"Yukon");   
 
 $state = $stateSlugToAbbv[$state_slug];
 
@@ -175,6 +186,16 @@ if ($state == 'New York'){
 	$state_slug = 'north-carolina';
 }else if ($state == 'North Dakota'){
 	$state_slug = 'north-dakota';
+}else if ($state == 'New Brunswick'){
+	$state_slug = 'new-brunswick';
+}else if ($state == 'Newfoundland and Labrador'){
+	$state_slug = 'newfoundland-and-labrador';
+}else if ($state == 'Northwest Territories'){
+	$state_slug = 'northwest-territories';
+}else if ($state == 'Nova Scotia'){
+	$state_slug = 'nova-scotia';
+}else if ($state == 'Prince Edward Island'){
+	$state_slug = 'prince-edward-island';	
 }else{
 	$state_slug = $state;
 }
@@ -444,7 +465,7 @@ $comment_user_score = $comment_user_score[0];
 
 
     <form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-comment-form">
-
+	    <input type="text" name="title" id="title" value="Title" style="display:none;"/>
         <textarea name="body" placeholder="What's up?"></textarea>
         
         <input type="hidden" name="parent" value="<?php echo $spid;?>">

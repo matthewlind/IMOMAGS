@@ -88,7 +88,19 @@ stateKey.WA = "Washington";
 stateKey.WV = "West Virginia";
 stateKey.WI = "Wisconsin";
 stateKey.WY = "Wyoming";
-
+stateKey.AB = "Alberta";
+stateKey.BC = "British Columbia";
+stateKey.MB = "Manitoba";
+stateKey.NB = "New Brunswick";
+stateKey.NL = "Newfoundland and Labrador";
+stateKey.NT = "Northwest Territories";
+stateKey.NS = "Nova Scotia";
+stateKey.NU = "Nunavut";
+stateKey.ON = "Ontario";
+stateKey.PE = "Prince Edward Island";
+stateKey.QC = "Quebec";
+stateKey.SK = "Saskatchewan";
+stateKey.YT = "Yukon";
 
 
 
@@ -963,6 +975,16 @@ function displayReconList(type) {
 						state_slug = 'north-carolina';
 					}else if (niceState == 'North Dakota'){
 						state_slug = 'north-dakota';
+					}else if (niceState == 'New Brunswick'){
+						state_slug = 'new-brunswick';
+					}else if (niceState == 'Newfoundland and Labrador'){
+						state_slug = 'newfoundland-and-labrador';
+					}else if (niceState == 'Northwest Territories'){
+						state_slug = 'northwest-territories';
+					}else if (niceState == 'Nova Scotia'){
+						state_slug = 'nova-scotia';
+					}else if (niceState == 'Prince Edward Island'){
+						state_slug = 'prince-edward-island';
 					}else{
 						state_slug = stateKey[this.state];
 					}
@@ -1094,6 +1116,7 @@ function displayReconList(type) {
 	        	
 	        } else {
 	        	reconRow.find("div.row-info").addClass("no-image");
+	        	reconRow.find("li.user-avatar").addClass("no-image-clear");
 	        }
 
 
@@ -1237,7 +1260,13 @@ $(document).ready(function(){
 		var $questionTemplate;
 				
 		$.each(data, function(index, question) { 
+		
 			$questionTemplate = $("ul#slides-questions li").eq(index);
+			if(question.title.length > 61){
+				var qTitle = question.title.substring(0,60) + "...";
+			}else{
+				qTitle = question.title;
+			}
 			var url = "/plus/question/" + question.id;
 			var gravatar = $questionTemplate.find(".user-info img").attr("src","/avatar?uid=" + question.user_id);
 			if(question.display_name){
@@ -1248,7 +1277,7 @@ $(document).ready(function(){
 			$questionTemplate.find(".user-info a.username").text(question.display_name); 
 			$questionTemplate.find(".user-info a").attr("href","/profile/" + question.username);
 			
-			$questionTemplate.find("h4.quote a").attr("href",url).text(question.title);;
+			$questionTemplate.find("h4.quote a").attr("href",url).text(qTitle);
 			$questionTemplate.find(".mdl a").attr("href",url);
 			if(question.img_url){
 				$questionTemplate.find("img.q-img").attr("src",question.img_url);
