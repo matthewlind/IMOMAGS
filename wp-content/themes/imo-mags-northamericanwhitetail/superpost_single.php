@@ -151,7 +151,20 @@ $stateSlugToAbbv = array("AL"=>"Alabama",
 "WA"=>"Washington",
 "WV"=>"West Virginia",
 "WI"=>"Wisconsin",
-"WY"=>"Wyoming");   
+"WY"=>"Wyoming",
+"AB"=>"Alberta",
+"BC"=>"British Columbia",
+"MB"=>"Manitoba",
+"NB"=>"New Brunswick",
+"NL"=>"Newfoundland and Labrador",
+"NT"=>"Northwest Territories",
+"NS"=>"Nova Scotia",
+"NU"=>"Nunavut",
+"ON"=>"Ontario",
+"PE"=>"Prince Edward Island",
+"QC"=>"Quebec",
+"SK"=>"Saskatchewan",
+"YT"=>"Yukon");   
 
 $state = $stateSlugToAbbv[$state_slug];
 
@@ -173,6 +186,16 @@ if ($state == 'New York'){
 	$state_slug = 'north-carolina';
 }else if ($state == 'North Dakota'){
 	$state_slug = 'north-dakota';
+}else if ($state == 'New Brunswick'){
+	$state_slug = 'new-brunswick';
+}else if ($state == 'Newfoundland and Labrador'){
+	$state_slug = 'newfoundland-and-labrador';
+}else if ($state == 'Northwest Territories'){
+	$state_slug = 'northwest-territories';
+}else if ($state == 'Nova Scotia'){
+	$state_slug = 'nova-scotia';
+}else if ($state == 'Prince Edward Island'){
+	$state_slug = 'prince-edward-island';	
 }else{
 	$state_slug = $state;
 }

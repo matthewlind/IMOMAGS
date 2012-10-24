@@ -88,7 +88,19 @@ stateKey.WA = "Washington";
 stateKey.WV = "West Virginia";
 stateKey.WI = "Wisconsin";
 stateKey.WY = "Wyoming";
-
+stateKey.AB = "Alberta";
+stateKey.BC = "British Columbia";
+stateKey.MB = "Manitoba";
+stateKey.NB = "New Brunswick";
+stateKey.NL = "Newfoundland and Labrador";
+stateKey.NT = "Northwest Territories";
+stateKey.NS = "Nova Scotia";
+stateKey.NU = "Nunavut";
+stateKey.ON = "Ontario";
+stateKey.PE = "Prince Edward Island";
+stateKey.QC = "Quebec";
+stateKey.SK = "Saskatchewan";
+stateKey.YT = "Yukon";
 
 
 
@@ -963,6 +975,16 @@ function displayReconList(type) {
 						state_slug = 'north-carolina';
 					}else if (niceState == 'North Dakota'){
 						state_slug = 'north-dakota';
+					}else if (niceState == 'New Brunswick'){
+						state_slug = 'new-brunswick';
+					}else if (niceState == 'Newfoundland and Labrador'){
+						state_slug = 'newfoundland-and-labrador';
+					}else if (niceState == 'Northwest Territories'){
+						state_slug = 'northwest-territories';
+					}else if (niceState == 'Nova Scotia'){
+						state_slug = 'nova-scotia';
+					}else if (niceState == 'Prince Edward Island'){
+						state_slug = 'prince-edward-island';
 					}else{
 						state_slug = stateKey[this.state];
 					}
@@ -1094,6 +1116,7 @@ function displayReconList(type) {
 	        	
 	        } else {
 	        	reconRow.find("div.row-info").addClass("no-image");
+	        	reconRow.find("li.user-avatar").addClass("no-image-clear");
 	        }
 
 

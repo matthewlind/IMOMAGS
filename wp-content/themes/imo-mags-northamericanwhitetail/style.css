@@ -386,6 +386,7 @@ width: 990px;
 }
 #header #megaMenu ul.megaMenu > .menu-item > a:hover{
 	background: url("img/arrow-black-main-down.png") no-repeat scroll 95% 57% #feffff;
+	
 }
 
 #header #megaMenu ul.megaMenu > .deer-of-the-day.menu-item > a{
@@ -2125,6 +2126,9 @@ a.comment-count:hover {
 	float: none !important;
     margin: 0 0 10px 160px !important;
 }
+.single h1.entry-title{
+	font-weight: 500;
+}
 .single h1.entry-title, .page-template-superpost_single-php h1.entry-title{
 	font-size: 3.7em;
 	line-height: 1em;
@@ -2977,7 +2981,10 @@ page community .new-superpost-modal-container textarea {
    margin:10px 0 10px 0;
   
 }
-
+.page-template-report-php .post_type_styled_select{
+	float: right;
+	width: auto;
+}
 select.modal_post_type {
 
    background: transparent;
@@ -4545,11 +4552,11 @@ ul#user-bar li.user-name .header-post-btn:hover{
 .page-community .superpost-form input[type="submit"]{
 	left: 274px;
     position: absolute;
-    top: 320px;
+    top: 300px;
     width: 190px;
 }  
 .page-template-community-post-php .page-community .superpost-form input[type="submit"]{
-    top: 400px;
+    top: 380px;
 }  
 
 .page-template-question-php .superpost-form input[type="submit"]{
@@ -5627,6 +5634,10 @@ ul.gear-grid li img{
 	margin: 16px auto;
 	cursor: pointer;
 }
+.page-template-report-php .post-form-btn-container a{
+	float: left;
+	margin-top: 22px;
+}
 #user-info-widget img{
 	width: 50px;
 	height: 50px;
@@ -5640,6 +5651,7 @@ font-size: 0.8em;
 #user-info-widget .score-box h2{
 	float: left;
 	padding-right: 6px;
+	margin-bottom: 0;
 }
 #user-info-widget .score-box span{
 	overflow: hidden;

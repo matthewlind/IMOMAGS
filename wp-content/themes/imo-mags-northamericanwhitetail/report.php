@@ -55,7 +55,7 @@ if ( is_user_logged_in() ) {
 	<header class="header-title">
     	
     	<h1>State Rut Reports</h1>
-	       <div class="community-crumbs">
+    	<div class="community-crumbs">
 	       		<a href="/community">Community Home</a> &raquo; Rut Reports
 			</div>
 		</header>
@@ -65,12 +65,32 @@ if ( is_user_logged_in() ) {
 		<div class="post-form-btn-container">
 			<a class="post-form-btn">+ Start a New Post in State Rut Reports</a>
 		</div>
-		
+		<div class="post_type_styled_select">
+	     	<div class="state-dropdown-container-sidebar">
+		    	<select id="state" name="state" class="post_type state">
+		    		<option value="">Browse Canada</option>
+		            <option value="/community/report/alberta">Alberta</option>
+		            <option value="/community/report/british-columbia">British Columbia</option>
+		            <option value="/community/report/manitoba">Manitoba</option>
+		            <option value="/community/report/new-brunswick">New Brunswick</option>
+		            <option value="/community/report/newfoundland-and-labrador">Newfoundland and Labrador</option>
+		            <option value="/community/report/northwest-territories">Northwest Territories</option>
+		            <option value="/community/report/nova-scotia">Nova Scotia</option>
+		            <option value="/community/report/nunavut">Nunavut</option>
+		            <option value="/community/report/ontario">Ontario</option>
+		            <option value="/community/report/prince-edward-island">Prince Edward Island</option>
+		            <option value="/community/report/quebec">Quebec</option>
+		            <option value="/community/report/saskatchewan">Saskatchewan</option>
+		            <option value="/community/report/yukon">Yukon</option>		            		
+		        </select>	
+			</div>	         
+        </div>
+
 		<h2 class="comm-header post-header">Post a Rut Report</h2>
 		<div class="new-superpost-modal-container">
 		
 		<form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-form">
-	        <input type="text" name="title" id="title" placeholder="Title"/>
+	        <input type="text" name="title" id="title" class="required-title" placeholder="Title"/>
 	        <input type="text" name="post_type" id="post_type" value="report" style="display:none;"/>
 	        	           
 
@@ -151,21 +171,20 @@ if ( is_user_logged_in() ) {
 			            <option value="WV">West Virginia</option>
 			            <option value="WI">Wisconsin</option>
 			            <option value="WY">Wyoming</option>
-			            <option value="CN">Canada</option>
-			            <option value="AB">Alberta</option>
-			            <option value="BC">British Columbia</option>
-			            <option value="MB">Manitoba</option>
-			            <option value="NB">New Brunswick</option>
-			            <option value="NL">Newfoundland and Labrador</option>
-			            <option value="NT">Northwest Territories</option>
-			            <option value="NS">Nova Scotia</option>
-			            <option value="NU">Nunavut</option>
-			            <option value="ON">Ontario</option>
-			            <option value="PE">Prince Edward Island</option>
-			            <option value="QC">Quebec</option>
-			            <option value="SK">Saskatchewan</option>
-			            <option value="YT">Yukon</option>
-			            <option value="AG">Aguascalientes</option>
+			            <option value="AB">Alberta, Canada</option>
+			            <option value="BC">British Columbia, Canada</option>
+			            <option value="MB">Manitoba, Canada</option>
+			            <option value="NB">New Brunswick, Canada</option>
+			            <option value="NL">Newfoundland and Labrador, Canada</option>
+			            <option value="NT">Northwest Territories, Canada</option>
+			            <option value="NS">Nova Scotia, Canada</option>
+			            <option value="NU">Nunavut, Canada</option>
+			            <option value="ON">Ontario, Canada</option>
+			            <option value="PE">Prince Edward Island, Canada</option>
+			            <option value="QC">Quebec, Canada</option>
+			            <option value="SK">Saskatchewan, Canada</option>
+			            <option value="YT">Yukon, Canada</option>
+			            <!--<option value="AG">Aguascalientes</option>
 			            <option value="BJ">Baja California</option>
 			            <option value="BS">Baja California Sur</option>
 			            <option value="CP">Campeche</option>
@@ -196,7 +215,7 @@ if ( is_user_logged_in() ) {
 			            <option value="TL">Tlaxcala</option>
 			            <option value="VZ">Veracruz</option>
 			            <option value="YC">Yucatan</option>
-			            <option value="ZT">Zacatecas</option>
+			            <option value="ZT">Zacatecas</option>-->
 			      </select>
 			</div> 
 	        </form>
@@ -251,7 +270,7 @@ if ( is_user_logged_in() ) {
 		      
 	    </div> <!-- End new-superpost-modal-container -->
 	    </div> <!-- end .col-abc -->
-	    <div class="col-abc">
+	<div class="col-abc">
 		
 	    <h2 class="comm-header stream-header">Latest Rut <?php the_title(); ?>s</h2>
         <div id="recon-activity" term="report" display="list" widthMode="short">

@@ -202,21 +202,20 @@ if ( is_user_logged_in() ) {
 			            <option value="WV">West Virginia</option>
 			            <option value="WI">Wisconsin</option>
 			            <option value="WY">Wyoming</option>
-			            <option value="CN">Canada</option>
-			            <option value="AB">Alberta</option>
-			            <option value="BC">British Columbia</option>
-			            <option value="MB">Manitoba</option>
-			            <option value="NB">New Brunswick</option>
-			            <option value="NL">Newfoundland and Labrador</option>
-			            <option value="NT">Northwest Territories</option>
-			            <option value="NS">Nova Scotia</option>
-			            <option value="NU">Nunavut</option>
-			            <option value="ON">Ontario</option>
-			            <option value="PE">Prince Edward Island</option>
-			            <option value="QC">Quebec</option>
-			            <option value="SK">Saskatchewan</option>
-			            <option value="YT">Yukon</option>
-			            <option value="AG">Aguascalientes</option>
+			            <option value="AB">Alberta, Canada</option>
+			            <option value="BC">British Columbia, Canada</option>
+			            <option value="MB">Manitoba, Canada</option>
+			            <option value="NB">New Brunswick, Canada</option>
+			            <option value="NL">Newfoundland and Labrador, Canada</option>
+			            <option value="NT">Northwest Territories, Canada</option>
+			            <option value="NS">Nova Scotia, Canada</option>
+			            <option value="NU">Nunavut, Canada</option>
+			            <option value="ON">Ontario, Canada</option>
+			            <option value="PE">Prince Edward Island, Canada</option>
+			            <option value="QC">Quebec, Canada</option>
+			            <option value="SK">Saskatchewan, Canada</option>
+			            <option value="YT">Yukon, Canada</option>
+			            <!--<option value="AG">Aguascalientes</option>
 			            <option value="BJ">Baja California</option>
 			            <option value="BS">Baja California Sur</option>
 			            <option value="CP">Campeche</option>
@@ -247,7 +246,7 @@ if ( is_user_logged_in() ) {
 			            <option value="TL">Tlaxcala</option>
 			            <option value="VZ">Veracruz</option>
 			            <option value="YC">Yucatan</option>
-			            <option value="ZT">Zacatecas</option>
+			            <option value="ZT">Zacatecas</option>-->
 			      </select>
 			</div> 
 	        </form>

@@ -179,7 +179,7 @@ if ( is_user_logged_in() ) {
 
     <h1>Post Something!</h1>
 
-    <form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-form">
+    <form method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-form">
 
         <input type="text" name="title" id="title" placeholder="Title"/>
         <textarea name="body" id="body" placeholder="Description"></textarea>

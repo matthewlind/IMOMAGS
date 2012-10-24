@@ -230,11 +230,9 @@ jQuery(document).ready(function($) {
   
     var queryString = $.param(formData);
     //alert('BeforeSend method: \n\nAbout to submit: \n\n' + queryString);
-    
-    
-    if($("#fileUploadForm #title").length > 1){
+      
+    if($("#fileUploadForm #title").val().length == 0){
     	alert("Please Enter a Title");
-
 	    return false;
     }else{
 	   return true; 
