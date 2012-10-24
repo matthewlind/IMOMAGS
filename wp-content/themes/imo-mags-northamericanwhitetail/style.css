@@ -4928,6 +4928,7 @@ ul#scroll-widget li a:hover span{
     padding: 10px 0;
     text-indent: -9999px;
     width: 140px;
+    margin-left: 10px;
 }
 
 #get-app .right{

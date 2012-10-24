@@ -1262,7 +1262,11 @@ $(document).ready(function(){
 		$.each(data, function(index, question) { 
 		
 			$questionTemplate = $("ul#slides-questions li").eq(index);
-			var qTitle = question.title.substring(0,56) + "...";
+			if(question.title.length > 61){
+				var qTitle = question.title.substring(0,60) + "...";
+			}else{
+				qTitle = question.title;
+			}
 			var url = "/plus/question/" + question.id;
 			var gravatar = $questionTemplate.find(".user-info img").attr("src","/avatar?uid=" + question.user_id);
 			if(question.display_name){
