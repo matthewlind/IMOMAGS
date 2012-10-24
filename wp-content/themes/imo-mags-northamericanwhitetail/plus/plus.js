@@ -1260,7 +1260,9 @@ $(document).ready(function(){
 		var $questionTemplate;
 				
 		$.each(data, function(index, question) { 
+		
 			$questionTemplate = $("ul#slides-questions li").eq(index);
+			var qTitle = question.title.substring(0,56) + "...";
 			var url = "/plus/question/" + question.id;
 			var gravatar = $questionTemplate.find(".user-info img").attr("src","/avatar?uid=" + question.user_id);
 			if(question.display_name){
@@ -1271,7 +1273,7 @@ $(document).ready(function(){
 			$questionTemplate.find(".user-info a.username").text(question.display_name); 
 			$questionTemplate.find(".user-info a").attr("href","/profile/" + question.username);
 			
-			$questionTemplate.find("h4.quote a").attr("href",url).text(question.title);;
+			$questionTemplate.find("h4.quote a").attr("href",url).text(qTitle);
 			$questionTemplate.find(".mdl a").attr("href",url);
 			if(question.img_url){
 				$questionTemplate.find("img.q-img").attr("src",question.img_url);
