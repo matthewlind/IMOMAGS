@@ -536,7 +536,11 @@ $app->post('/api/superpost/add',function() {
 
 
 	//Get the user info and authenticate
-	$userIsGood = userIsGood($params['username'],$params['userhash']);
+	if (!empty($params['username']) && !empty($params['userhash'])) {
+		$userIsGood = userIsGood($params['username'],$params['userhash']);
+	} else {
+		$userIsGood = FALSE;
+	}
 	
 	
 	$requestIsGood = TRUE;
