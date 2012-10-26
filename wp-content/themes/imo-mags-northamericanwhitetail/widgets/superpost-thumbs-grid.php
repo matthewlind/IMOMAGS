@@ -19,7 +19,7 @@ class Superpost_Thumbs_Grid_Widget extends WP_Widget {
 			} ?>
         </ul>
         <div class="footer">
-        	<!--<a href="#">Download Whitetail+ from the app store</a>-->
+        	<a href="/community">Browse The Community</a>
         </div>
     </aside>
     <div class="clearfix" style="margin-bottom: 10px;"></div>

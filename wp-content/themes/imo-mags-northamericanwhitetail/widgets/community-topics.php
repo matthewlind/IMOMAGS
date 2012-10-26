@@ -44,7 +44,7 @@ $trophyCount = $trophyCount[0];
 $requestURL5 = "http://$hostname/slim/api/superpost/count/tip";
 
 $file5 = file_get_contents($requestURL5);
-$tipCount = json_decode($file);
+$tipCount = json_decode($file5);
 $tipCount = $tipCount[0];
 
 $requestURL6 = "http://$hostname/slim/api/superpost/count/lifestyle";
