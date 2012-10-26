@@ -106,7 +106,7 @@ if ( is_user_logged_in() ) {
 	        <input type="hidden" name="form_id" value="fileUploadForm">
 	        <input type="hidden" name="attachment_id" class="attachment_id" value="">	   
 	        <input type="submit" value="Submit" class="submit" style="<?php echo $displayStyle; ?>"/>
-	        <div class="fast-login-then-post-button" style="<?php echo $loginStyle; ?>">Fast Login & Post <img class="submit-icon" src="/wp-content/themes/imo-mags-northamericanwhitetail/img/fb.png" height=20 width=20></div>
+	        <div id="imo-fb-login-button" class="fb-login join-widget-fb-login choose-fb" style="<?php echo $loginStyle; ?>">Fast Facebook Login</div>
 
 
 	        <p class="login-note">
@@ -269,6 +269,7 @@ if ( is_user_logged_in() ) {
 		      </div>
 		      
 	    </div> <!-- End new-superpost-modal-container -->
+	    <div class="email-login" style="display:none;<?php echo $loginStyle; ?>"><a>or use your email</a></div>
 	    </div> <!-- end .col-abc -->
 	<div class="col-abc">
 		

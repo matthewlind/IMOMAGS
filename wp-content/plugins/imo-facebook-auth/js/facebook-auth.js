@@ -91,7 +91,7 @@ jQuery(document).ready(function($) {
 				            //console.log(data);
 				            
 				            userIMO = data;
-				            
+				            $submit = $('.superpost-form input[type="submit"]');
 				            var $userWidget = $("#user-info-widget");
 				            //var $userBar = $("ul#user-bar");
 				         				            
@@ -107,7 +107,11 @@ jQuery(document).ready(function($) {
 				            			            
 				            $("#imo-fb-login-button").fadeOut(500,function(){
 					            $(".imo-fb-login-button").fadeOut(400);
+					            $(".join-widget-fb-login").fadeOut(400);
+					            $(".choose-fb").fadeOut(400);
+					            $(".email-login").fadeOut(400);
 					            //$userBar.fadeIn();
+					            $submit.fadeIn();
 					            $userWidget.fadeIn(500,function(){
 
 					            	var postsURL = "/slim/api/superpost/user/posts/" + data.username;

@@ -285,6 +285,8 @@ jQuery(document).ready(function($) {
     
     $(".photo-attachement-header").fadeIn(1000);
     $('input.submit').css('top','+=90');
+    $('.email-login').css('top','+=90');
+    $('.choose-fb').css('top','+=90');
     $('.col-abc.super-post .entry-content').css('margin-top','+=90');
 
     var $loadingTag = $("<div class='loading-box' style=''><img src='/wp-content/themes/imo-mags-northamericanwhitetail/img/loader.gif'></div>");
