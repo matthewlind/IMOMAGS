@@ -48,13 +48,140 @@ window.fbAsyncInit = function() {
 };//END window.fbAsyncInit
 
 
+var $clickedButton;
+
+function authSuccess(data){
+    //console.log(data);
+    
+    userIMO = data;
+    
+    var $userWidget = $("#user-info-widget");
+    //var $userBar = $("ul#user-bar");
+ 				            
+ 	$userWidget.find(".user-info-area a").attr("href","/profile/" + data.username);
+ 	$userWidget.find(".name").attr("href","/profile/" + data.username);
+    $userWidget.find(".name").text(data.display_name);
+    $userWidget.find("img.recon-gravatar").attr("src","/avatar?uid=" + data.user_id);
+ 	$userWidget.find(".user-points").text(data.score);		
+ 	            
+    /*$userBar.find("a").attr("href","/profile/" + data.username);
+    $userBar.find("#current-user-name").text(data.display_name);
+    $userBar.find("img.recon-gravatar").attr("src","/avatar?uid=" + data.user_id);*/
+    			            
+    $("#imo-fb-login-button").fadeOut(500,function(){
+        $(".imo-fb-login-button").fadeOut(400);
+        //$userBar.fadeIn();
+        $userWidget.fadeIn(500,function(){
+
+        	var postsURL = "/slim/api/superpost/user/posts/" + data.username;
+
+			//First, get the user score
+			var dataURL = "/slim/api/superpost/user/score/" + data.username;  	
+		
+		    var getdata = $.getJSON(dataURL, function(data){
+		    	
+		    	var score = data[0].score;
+		
+		    	var duration = 1000;
+		    	if (score > 50) {
+		    		duration = 2000;
+		    	}
+		    	if (score > 200) {
+		    		duration = 3000;
+		    	}
+		    		
+		
+		
+		    	$({animatedScore: 0}).animate({animatedScore: score}, {
+					duration: duration,
+					easing:'jswing', // can be anything
+					step: function() { // called on every step
+						// Update the element's text with rounded-up value:
+						$(".user-points").text(Math.ceil(this.animatedScore));
+					}
+				});
+		
+		    });
+		
+							            
+							            
+		    }  
+							            
+		);
+        
+        
+    });
+    
+            
+    //replace when App is live
+     $(".fb-join-widget-box").fadeOut(500);
+    //$(".fb-join-widget-box .widget_gravity_form").fadeOut(500,function(){
+
+        
+      //  $.get('/static-widgets/get-the-app.html', function(data) {
+		  
+		//  $(data).prependTo(".fb-join-widget-box").fadeIn();
+
+		//});
+   // });
+   
+   
+		//If this was a login&post button, submit the form
+		if ($clickedButton.hasClass("fast-login-then-post-button")) {
+    	//alert("fast login used!");
+    	
+    	//console.log("clicked button:",$clickedButton );
+    	
+    	//console.log("Submitted Forms:",$("#fileUploadForm"));
+    	
+    	$("#fileUploadForm").first().submit();
+        
+    }
+    
+    //
+    if ($clickedButton.hasClass("fb-login-community-modal")) {
+    	window.location="http://www.northamericanwhitetail.com/community-post/";		
+    	}
+    
+    $(".fast-login-then-post-button").fadeOut(400,function(){
+        
+        //$(".submit").css({ opacity: 0.5 });
+        $(".submit").fadeIn();
+        
+
+        
+        
+        
+    });
+    
+
+			            
+    
+}
+
 jQuery(document).ready(function($) {
+
+
+	//TESTING TO SEE IF THINGS WORK.
+/*
+	$("a").click(function(event){
+		//alert("hey");
+		
+		$.getJSON("/imo-email-login.json",function(data){
+			alert("login?");
+			console.log(data);
+		});
+		
+		event.preventDefault();
+	});
+*/
+
 
 	jQuery(".imo-fb-login-button, .fast-login-then-post-button, .join-widget-fb-login").click(function(){
 						
 
 		
-		var $clickedButton = $(this);
+		$clickedButton = $(this);
 		
 		$(".imo-fb-login-button").css({ opacity: 0.5 });
 		$(".join-widget-fb-login").css({ opacity: 0.5 });
@@ -87,114 +214,8 @@ jQuery(document).ready(function($) {
 					  	 
 					  	  
 						  
-						  jQuery.getJSON('/facebook-usercheck.json', function(data) {
-				            //console.log(data);
-				            
-				            userIMO = data;
-				            
-				            var $userWidget = $("#user-info-widget");
-				            //var $userBar = $("ul#user-bar");
-				         				            
-				         	$userWidget.find(".user-info-area a").attr("href","/profile/" + data.username);
-				         	$userWidget.find(".name").attr("href","/profile/" + data.username);
-				            $userWidget.find(".name").text(data.display_name);
-				            $userWidget.find("img.recon-gravatar").attr("src","/avatar?uid=" + data.user_id);
-				         	$userWidget.find(".user-points").text(data.score);		
-				         	            
-				            /*$userBar.find("a").attr("href","/profile/" + data.username);
-				            $userBar.find("#current-user-name").text(data.display_name);
-				            $userBar.find("img.recon-gravatar").attr("src","/avatar?uid=" + data.user_id);*/
-				            			            
-				            $("#imo-fb-login-button").fadeOut(500,function(){
-					            $(".imo-fb-login-button").fadeOut(400);
-					            //$userBar.fadeIn();
-					            $userWidget.fadeIn(500,function(){
-
-					            	var postsURL = "/slim/api/superpost/user/posts/" + data.username;
-
-									//First, get the user score
-									var dataURL = "/slim/api/superpost/user/score/" + data.username;  	
-								
-								    var getdata = $.getJSON(dataURL, function(data){
-								    	
-								    	var score = data[0].score;
-								
-								    	var duration = 1000;
-								    	if (score > 50) {
-								    		duration = 2000;
-								    	}
-								    	if (score > 200) {
-								    		duration = 3000;
-								    	}
-								    		
-								
-								
-								    	$({animatedScore: 0}).animate({animatedScore: score}, {
-											duration: duration,
-											easing:'jswing', // can be anything
-											step: function() { // called on every step
-												// Update the element's text with rounded-up value:
-												$(".user-points").text(Math.ceil(this.animatedScore));
-											}
-										});
-								
-								    });
-								
-													            
-													            
-								    }  
-													            
-								);
-					            
-					            
-				            });
-				            
-				                    
-				            //replace when App is live
-				             $(".fb-join-widget-box").fadeOut(500);
-				            //$(".fb-join-widget-box .widget_gravity_form").fadeOut(500,function(){
-					    
-					            
-					          //  $.get('/static-widgets/get-the-app.html', function(data) {
-								  
-								//  $(data).prependTo(".fb-join-widget-box").fadeIn();
-		
-								//});
-				           // });
-				           
-				           
-			           		//If this was a login&post button, submit the form
-			           		if ($clickedButton.hasClass("fast-login-then-post-button")) {
-				            	//alert("fast login used!");
-				            	
-				            	//console.log("clicked button:",$clickedButton );
-				            	
-				            	//console.log("Submitted Forms:",$("#fileUploadForm"));
-				            	
-				            	$("#fileUploadForm").first().submit();
-					            
-				            }
-				            
-				            //
-				            if ($clickedButton.hasClass("fb-login-community-modal")) {
-				            	window.location="http://www.northamericanwhitetail.com/community-post/";				            }
-				            
-				            $(".fast-login-then-post-button").fadeOut(400,function(){
-					            
-					            //$(".submit").css({ opacity: 0.5 });
-					            $(".submit").fadeIn();
-					            
-
-					            
-					            
-					            
-				            });
-				            
-
-				       			            
-				            
-				            
-				          });
+						  jQuery.getJSON('/facebook-usercheck.json', authSuccess);
+						  
 						  
 					  }//End if user is logged in
 						       

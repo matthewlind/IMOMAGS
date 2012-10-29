@@ -27,6 +27,75 @@ function imo_facebook_auth_setup() {
 **********JSON RESPONSES*********
 *********************************/
 
+
+add_action("init", "imo_email_login");
+function imo_email_login() {
+	
+    if (preg_match("/^\/imo-email-login\.json(\?(.+)?)?$/", $_SERVER['REQUEST_URI'])) {
+        header('Content-type: application/json');	
+        
+        $errorMessage = "";
+        $email = "baker.aaron@gmail.com";
+        $password = "1234";
+        
+        $user = get_user_by("email",$email);
+        
+        
+
+        
+        $username = $user->user_login;
+        
+        $user = wp_authenticate($username,$password);
+        
+        wp_set_auth_cookie($user->ID,true);
+
+        
+        $imouser = imo_get_user($user->ID);
+        
+        if ($imouser['username'] == "") {
+	        $imouser['error'] = "Invalid Email or Password";
+        }
+        
+        
+        $json = json_encode($imouser);
+
+	    print $json;
+        //print_r($user_profile);
+        die();
+    } 
+	
+}
+
+add_action("init", "imo_email_register");
+function imo_email_register() {
+	
+    if (preg_match("/^\/imo-email-register\.json(\?(.+)?)?$/", $_SERVER['REQUEST_URI'])) {
+        header('Content-type: application/json');	
+        
+        $email = "baker.aaron@gmail.com";
+        $password = "1234";
+        
+        $user = get_user_by("email",$email);
+        
+        $username = $user->user_login;
+        
+        $user = wp_authenticate($username,$password);
+        
+        wp_set_auth_cookie($user->ID,true);
+
+        
+        $imouser = imo_get_user($user->ID);
+        $json = json_encode($imouser);
+
+	    print $json;
+        //print_r($user_profile);
+        die();
+    } 
+	
+}
+
+
+
 function imo_facebook_usercheck() {
 
     if (preg_match("/^\/facebook-usercheck\.json(\?(.+)?)?$/", $_SERVER['REQUEST_URI'])) {
@@ -402,7 +471,6 @@ function wp_authenticate($username, $password) {
 	if (is_wp_error($user) && !in_array($user->get_error_code(), $ignore_codes) ) {
 		do_action('wp_login_failed', $username);
 	}
-
 
 	return $user;
 }
