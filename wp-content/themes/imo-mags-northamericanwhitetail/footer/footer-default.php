@@ -171,207 +171,7 @@ if ( is_user_logged_in() ) {
   <p><a href="" class="share-not-now">(not this time)</a></p>
   </div>
 	
-  <div class="new-superpost-modal-container new-superpost-box" style="display:none;height:425px:width:600px;background-color:white;">
-  	
-  	<div id="imo-fb-login-button" class="fb-login join-widget-fb-login">Fast Facebook Login</div>
-	<small>*we do not post anything to your wall unless you say so!</small>
 
-
-    <h1>Post Something!</h1>
-
-    <form method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-form">
-
-        <input type="text" name="title" id="title" placeholder="Title"/>
-        <textarea name="body" id="body" placeholder="Description"></textarea>
-         <div class="post_type_styled_select">
-         <select class="modal_post_type" name="post_type">
-        	<option value="report" class="report">Rut Reports</option>
-         	<option value="trophy" class="trophy">Trophy Bucks</option>
-            <option value="question" class="question">Q&A</option>
-            <option value="general" class="general">General Discussion</option>
-            <option value="gear" class="gear">Gear</option>
-            <option value="lifestyle" class="lifestyle">Lifestyle</option>
-            <option value="tip" class="tip">Tips & Tactics</option>
-          </select>
-        </div>
-        
-       
-
-        <div class="state-dropdown-container" style="display:none;">
-          <select name="state" class="state-chzn" style="width:400px;padding:5px;" data-placeholder="Choose the state for this post:">
-            <option value=""></option>
-            <option value="AL">Alabama</option>
-            <option value="AK">Alaska</option>
-            <option value="AZ">Arizona</option>
-            <option value="AR">Arkansas</option>
-            <option value="CA">California</option>
-            <option value="CO">Colorado</option>
-            <option value="CT">Connecticut</option>
-            <option value="DE">Delaware</option>
-            <option value="DC">District of Columbia</option>
-            <option value="FL">Florida</option>
-            <option value="GA">Georgia</option>
-            <option value="HI">Hawaii</option>
-            <option value="ID">Idaho</option>
-            <option value="IL">Illinois</option>
-            <option value="IN">Indiana</option>
-            <option value="IA">Iowa</option>
-            <option value="KS">Kansas</option>
-            <option value="KY">Kentucky</option>
-            <option value="LA">Louisiana</option>
-            <option value="ME">Maine</option>
-            <option value="MD">Maryland</option>
-            <option value="MA">Massachusetts</option>
-            <option value="MI">Michigan</option>
-            <option value="MN">Minnesota</option>
-            <option value="MS">Mississippi</option>
-            <option value="MO">Missouri</option>
-            <option value="MT">Montana</option>
-            <option value="NE">Nebraska</option>
-            <option value="NV">Nevada</option>
-            <option value="NH">New Hampshire</option>
-            <option value="NJ">New Jersey</option>
-            <option value="NM">New Mexico</option>
-            <option value="NY">New York</option>
-            <option value="NC">North Carolina</option>
-            <option value="ND">North Dakota</option>
-            <option value="OH">Ohio</option>
-            <option value="OK">Oklahoma</option>
-            <option value="OR">Oregon</option>
-            <option value="PA">Pennsylvania</option>
-            <option value="RI">Rhode Island</option>
-            <option value="SC">South Carolina</option>
-            <option value="SD">South Dakota</option>
-            <option value="TN">Tennessee</option>
-            <option value="TX">Texas</option>
-            <option value="UT">Utah</option>
-            <option value="VT">Vermont</option>
-            <option value="VA">Virginia</option>
-            <option value="WA">Washington</option>
-            <option value="WV">West Virginia</option>
-            <option value="WI">Wisconsin</option>
-            <option value="WY">Wyoming</option>
-            <option value="CN">Canada</option>
-            <option value="AB">Alberta</option>
-            <option value="BC">British Columbia</option>
-            <option value="MB">Manitoba</option>
-            <option value="NB">New Brunswick</option>
-            <option value="NL">Newfoundland and Labrador</option>
-            <option value="NT">Northwest Territories</option>
-            <option value="NS">Nova Scotia</option>
-            <option value="NU">Nunavut</option>
-            <option value="ON">Ontario</option>
-            <option value="PE">Prince Edward Island</option>
-            <option value="QC">Quebec</option>
-            <option value="SK">Saskatchewan</option>
-            <option value="YT">Yukon</option>
-            <option value="AG">Aguascalientes</option>
-            <option value="BJ">Baja California</option>
-            <option value="BS">Baja California Sur</option>
-            <option value="CP">Campeche</option>
-            <option value="CH">Chiapas</option>
-            <option value="CI">Chihuahua</option>
-            <option value="CU">Coahuila</option>
-            <option value="CL">Colima</option>
-            <option value="DF">Distrito Federal</option>
-            <option value="DG">Durango</option>
-            <option value="GJ">Guanajuato</option>
-            <option value="GR">Guerrero</option>
-            <option value="HG">Hidalgo</option>
-            <option value="JA">Jalisco</option>
-            <option value="EM">Mexico</option>
-            <option value="MH">Michoacán</option>
-            <option value="MR">Morelos</option>
-            <option value="NA">Nayarit</option>
-            <option value="NL">Nuevo León</option>
-            <option value="OA">Oaxaca</option>
-            <option value="PU">Puebla</option>
-            <option value="QA">Querétaro</option>
-            <option value="QR">Quintana Roo</option>
-            <option value="SL">San Luis Potosi</option>
-            <option value="SI">Sinaloa</option>
-            <option value="SO">Sonora</option>
-            <option value="TA">Tabasco</option>
-            <option value="TM">Tamaulipas</option>
-            <option value="TL">Tlaxcala</option>
-            <option value="VZ">Veracruz</option>
-            <option value="YC">Yucatan</option>
-            <option value="ZT">Zacatecas</option>
-
-          </select>
-          
-          
-        </div>
-        
-        <div class="question-dropdown-container" style="display:none;">
-          <select class="modal_post_type" name="secondary_post_type">
-            <option value="general">Question Topic</option>
-            <option value="general">General</option>
-            <option value="tips">Tips & Tactics</option>
-            <option value="land">Land Management</option>
-            <option value="trophy">Trophy Bucks</option>
-            <option value="gear">Gear</option>
-            <option value="cooking">Cooking</option>
-          </select>
-        </div>
-            
-        
-        
-
-        <input id="file" type="file" name="photo-upload" id="photo-upload" style="display:none"/>
-<!--    
-        <input type="hidden" name="clone_target" value="superpost-box">
-        <input type="hidden" name="attach_target" value="post-container">
-        <input type="hidden" name="attachment_point" value="prepend">
-        <input type="hidden" name="masonry" value="true"> 
--->
-        <input type="hidden" name="form_id" value="fileUploadForm">
-        <input type="hidden" name="attachment_id" class="attachment_id" value="">
-
-        <input type="submit" value="Submit" class="submit" style="<?php echo $displayStyle; ?>"/>
-		<div class="fast-login-then-post-button modal-popup-button" style="<?php echo $loginStyle; ?>">Submit & Login <!--<img class="submit-icon" src="/wp-content/themes/imo-mags-northamericanwhitetail/img/fb.png" height=20 width=20>--></div>
-
-        <p class="login-note">
-        </p>
-        </form>
-        
-        <div class="media-section">
-	        
-	        	<form id="fileUploadForm-image" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-image-form">
-			    	<div id="fileupload" >
-			        	<div class="fileupload-buttonbar ">
-			            	<label class="upload-button">
-				                <span><span class="white-plus-sign">+</span><span class="button-text">ATTACH PHOTO</span></span>
-				                <input id="image-upload" type="file" name="photo-upload" id="photo-upload" />
-			                </label>
-			           </div>
-			       </div>
-			       <input type="hidden" name="post_type" value="photo">
-			       <input type="hidden" name="form_id" value="fileUploadForm">
-		       </form><!-- end form -->
-		      
-			   <div class="video-button">
-			        <span><span class="white-plus-sign"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/youtube.png" alt="YouTube" /></span>ADD YOUTUBE VIDEO</span>
-			   </div>
-			   <div class="video-url-form-holder-container" style="display:none;">
-			   		<div class="video-url-form-holder" style="">
-			        	<form id="video-url-form" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-image-form">		            
-				            <div class="video-body-holder">
-				            	<input type="text" name="body" id="video-body" placeholder="Paste YouTube URL or code here"/>
-				            </div>
-				            <input type="hidden" name="post_type" value="youtube">
-				            <input type="hidden" name="form_id" value="fileUploadForm">
-				       </form>
-				   </div>
-			       <div class="video-close-button">
-			       </div>
-			  </div><!-- /.video-url-form-holder-container-->
-			  
-			  <h4 style="display:none" class="photo-attachement-header">Photos</h4>
-			  <div class="attached-photos">
-			  </div>
-		</div><!-- /.media-section-->
-    </div> <!-- End new-superpost-modal-container -->
 
 
 	<article id="excerpt-template" class="post type-post status-publish format-standard hentry entry entry-excerpt has-img" style="display:none;">
@@ -388,27 +188,18 @@ if ( is_user_logged_in() ) {
 	
   <div class="user-login-modal-container" style="display:none">
     <div id="LoginWithAjax"><?php //ID must be here, and if this is a template, class name should be that of template directory ?>
-              <span id="LoginWithAjax_Status"></span>
-              <form name="LoginWithAjax_Form" id="LoginWithAjax_Form" action="/login/?callback=?&template=" method="post">
-              
-                
-
-            <div class="fb-login-button" scope="email">Fast Login with Facebook</div>
-                  <table width='100%' cellspacing="0" cellpadding="0">
-                      <tr id="LoginWithAjax_Username">
-                          <td class="username_label">
-                              <label><?php _e( 'Username' ) ?></label>
-                          </td>
-                          <td class="username_input">
-                              <input type="text" name="log" id="lwa_user_login" class="input" value="<?php echo attribute_escape(stripslashes($user_login)); ?>" />
+	    <h2>Login</h2>
+	      <span id="LoginWithAjax_Status"></span>
+	      <form name="LoginWithAjax_Form" id="LoginWithAjax_Form" action="/login/?callback=?&template=" method="post">
+                 <table width='100%' cellspacing="0" cellpadding="0" align="center">
+                      <tr id="LoginWithAjax_Email">
+                          <td class="email_input">
+                              <input type="text" name="log" id="lwa_user_login" class="input" placeholder="Password" value="<?php echo attribute_escape(stripslashes($user_login)); ?>" />
                           </td>
                       </tr>
                       <tr id="LoginWithAjax_Password">
-                          <td class="password_label">
-                              <label><?php _e( 'Password' ) ?></label>
-                          </td>
                           <td class="password_input">
-                              <input type="password" name="pwd" id="lwa_user_pass" class="input" value="" />
+                              <input type="password" name="pwd" id="lwa_user_pass" class="input" placeholder="Password" value="" />
                           </td>
                       </tr>
                       <tr id="LoginWithAjax_Submit">
@@ -418,7 +209,9 @@ if ( is_user_logged_in() ) {
                               <input type="hidden" name="testcookie" value="1" />
                               <input type="hidden" name="lwa_profile_link" value="<?php echo $lwa_data['profile_link'] ?>" />
                           </td>
-                          <td id="LoginWithAjax_Links">
+                     </tr>
+                     <tr>
+                     	<td id="LoginWithAjax_Links">
                               <input name="rememberme" type="hidden" id="lwa_rememberme" value="forever" /> <label><?php _e( 'Remember Me' ) ?></label>
                               <br />
                               <a id="LoginWithAjax_Links_Remember" href="<?php echo site_url('wp-login.php?action=lostpassword', 'login') ?>" title="<?php _e('Password Lost and Found') ?>"><?php _e('Lost your password?') ?></a>
@@ -439,9 +232,10 @@ if ( is_user_logged_in() ) {
                                   }
                               ?>
                           </td>
-                      </tr>
+                     </tr>
                   </table>
               </form>
+          
               <form name="LoginWithAjax_Remember" id="LoginWithAjax_Remember" action="/login/?action=lostpassword&callback=?&template=" method="post" style="display:none;">
                   <table width='100%' cellspacing="0" cellpadding="0">
                       <tr>
@@ -467,18 +261,17 @@ if ( is_user_logged_in() ) {
               <?php 
           //Taken from wp-login.php
           ?>
-              <?php if ( get_option('users_can_register') && $lwa_data['registration'] == true ) : ?>
-          <div id="LoginWithAjax_Register">
-            <form name="registerform" id="registerform" action="<?php echo $this->url_register ?>" method="post">
+                     <div>
+            <form name="registerform" id="registerform" action="" method="post">
             <table width='100%' cellspacing="0" cellpadding="0">
                       <tr>
                           <td>
-                              <strong><?php _e('Register For This Site') ?></strong>         
+                              <a class="open-register">Register For This Site</a>         
                           </td>
                       </tr>
                       <tr>
                           <td>  
-                              <?php $msg = __('Username') ?>
+                              <?php $msg = __('Display Name') ?>
                               <input type="text" name="user_login" id="user_login"  value="<?php echo $msg ?>" onfocus="if(this.value == '<?php echo $msg ?>'){this.value = '';}" onblur="if(this.value == ''){this.value = '<?php echo $msg ?>'}" /></label>   
                           </td>
                       </tr>
@@ -488,6 +281,25 @@ if ( is_user_logged_in() ) {
                               <input type="text" name="user_email" id="user_email"  value="<?php echo $msg ?>" onfocus="if(this.value == '<?php echo $msg ?>'){this.value = '';}" onblur="if(this.value == ''){this.value = '<?php echo $msg ?>'}"/></label>   
                           </td>
                       </tr>
+                      
+                       <tr>
+                          <td>  
+                              <?php $msg = __('Address') ?>
+                              <input type="text" name="user_addy" id="user_addy"  value="<?php echo $msg ?>" onfocus="if(this.value == '<?php echo $msg ?>'){this.value = '';}" onblur="if(this.value == ''){this.value = '<?php echo $msg ?>'}"/></label>   
+                          </td>
+                      </tr>
+                      <tr>
+                          <td> 
+	                          <input type="submit" name="register" id="register" value="<?php _e('Submit'); ?>" tabindex="100" />
+					 	  </td>
+                      </tr>
+                                           <!--<tr>
+                          <td>  
+                              <?php $msg = __('Password') ?>
+                              <input type="text" name="user_pass" id="user_pass"  value="<?php echo $msg ?>" onfocus="if(this.value == '<?php echo $msg ?>'){this.value = '';}" onblur="if(this.value == ''){this.value = '<?php echo $msg ?>'}"/></label>   
+                          </td>
+                      </tr>
+
                       <tr>
                           <td>
                   <?php
@@ -503,14 +315,11 @@ if ( is_user_logged_in() ) {
                   <a href="#" id="LoginWithAjax_Links_Register_Cancel"><?php _e("Cancel"); ?></a>
                   <input type="hidden" name="lwa" value="1" />
                           </td>
-                      </tr>
+                      </tr>-->
                   </table>
             </form>
           </div>
-          <?php endif; ?> 
         </div>
-
-
   </div><!-- End user login modal container -->
   <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery.jfollow.js"></script>
 

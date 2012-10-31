@@ -247,7 +247,7 @@ $data = $data[0];
 	        <input type="hidden" name="form_id" value="fileUploadForm">
 	        <input type="hidden" name="attachment_id" class="attachment_id" value="">	   
 	        <input type="submit" value="Submit" class="submit" style="<?php echo $displayStyle; ?>"/>
-	        <div class="fast-login-then-post-button" style="<?php echo $loginStyle; ?>">Fast Login & Post</div>
+	        <div id="imo-fb-login-button" class="fb-login join-widget-fb-login" style="<?php echo $loginStyle; ?>">Fast Facebook Login</div>
 
 	        <p class="login-note">
 	        </p>
@@ -309,6 +309,7 @@ $data = $data[0];
 		      </div>
 		      
 	    </div> <!-- End new-superpost-modal-container -->
+	    <div class="email-login" style="<?php echo $loginStyle; ?>"><a>or use your email</a></div>
 	    </div> <!-- end .col-abc -->
 
 	    <div class="col-abc">

@@ -10,6 +10,7 @@ if ($("#community-modal").length > 0 && userIMO.username.length == 0 && $.cookie
         autoPosition: true,
         minHeight: 420,
         onShow: function(dialog) {
+        	$("#community-modal .simplemodal-wrap").addClass("contest-bg");
 	        $("#community-modal a.hide-this").click(function(){
 		        $.cookie('hide_alert', true);
 		        $.modal.close();
@@ -18,6 +19,28 @@ if ($("#community-modal").length > 0 && userIMO.username.length == 0 && $.cookie
       });
 }
 
+//email login modal
+if ($(".user-login-modal-container").length > 0){	
+	
+	$(".email-login a").click(function(event){
+    	$(".user-login-modal-container").modal({
+	        opacity: 50, 
+	        overlayClose: true,
+	        autoPosition: true,
+	        height: 'auto',
+	        width: 376,
+	        onShow: function(dialog) {
+	        	$("#simplemodal-container").css({
+		        	 height: 'auto',
+		        	 width: 376,
+	        	});
+		        $(".user-login-modal-container a.hide-this").click(function(){
+			        $.modal.close();
+		        });
+	        },
+	     });
+     });
+}
 
 var displayAtOnce = 12;
 var currentDisplayStart = 0;
@@ -1432,6 +1455,7 @@ $(document).ready(function(){
 $(".post-form-btn-container").click(function(){
 	$(".post-form-btn-container").fadeOut();
 	$("h2.post-header").show();
+	$(".email-login").show();
 	$(".new-superpost-modal-container").slideDown();
 	$(".page-community .stream-header").css("margin-top","100px");
 });

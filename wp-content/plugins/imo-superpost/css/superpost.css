@@ -633,7 +633,7 @@ div.user-details-box {
 	background: #fff;
 	overflow: visible !important;
 	z-index: 99999;
-	background: url("/wp-content/themes/imo-mags-northamericanwhitetail/img/community-modal-bg.jpg") no-repeat center center;
+	
 /*
 	width: 600px;
 	height: 420px;
@@ -651,7 +651,9 @@ div.user-details-box {
 
 }
 
-
+.contest-bg{
+	background: url("/wp-content/themes/imo-mags-northamericanwhitetail/img/community-modal-bg.jpg") no-repeat center center;
+}
 
 .simplemodal-container{
 	background: rgb(255,255,255); /* Old browsers */
@@ -766,4 +768,87 @@ select.post_type{
 	padding: 0 10px;
 	float: left;
 	margin-right: 10px;
+}
+
+
+/* email & facebook login modals */
+.email-login{
+	top: 518px;
+	left: 446px;
+	position: absolute;
+}
+.page-community.page-community-home .email-login{
+	top: 518px;
+	left: 446px;
+}
+.email-login a, .open-register{
+	text-decoration: underline;
+	cursor: pointer;
+}
+.page-template-report-php .email-login{
+	top: 892px;
+	
+}
+.page-template-report-php .new-superpost-modal-container .fb-login{
+	top: 282px;
+	
+}
+.page-community .new-superpost-modal-container .fb-login{
+	top: 240px;
+	
+}
+.page-community .email-login{
+	top: 414px;
+}
+
+.page-community-home .new-superpost-modal-container .fb-login{
+	top: 346px;
+	position: absolute;
+	left: 362px;
+	width: 274px;
+	background: url("/wp-content/themes/imo-mags-northamericanwhitetail/img/fb-login.png") no-repeat scroll center top;
+}
+#email-modal{
+	width: 350px;
+}
+.fb-modal{
+	width: 350px;
+}
+.user-login-modal-container input{
+	border: 1px solid #AAA197 !important;
+    padding: 8px;
+    margin-top: 14px;
+    width: 150px;
+}
+.user-login-modal-container #lwa_wp-submit, .user-login-modal-container #register{
+	background: none repeat scroll 0 0 #347FE7;
+    border: 1px solid #2861B2;
+    border-radius: 4px;
+    box-shadow: 0 1px 0 transparent, 1px 1px 0 #679FED inset;
+    color: #FFFFFF;
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 1px 2px 0 rgba(0, 0, 0, 0.4);
+    font-size: 1em;
+    padding: 10px 0;
+    cursor: pointer;
+    width: 130px;
+
+}
+.user-login-modal-container .email_label, .user-login-modal-container .password_label, .user-login-modal-container label{
+	padding-right: 10px;	
+	text-align: right;
+}
+
+.user-login-modal-container{
+	text-align: center;
+}
+
+.user-login-modal-container table{
+	padding: 14px 100px 0;
+}
+.user-login-modal-container h2{
+	text-align: center;
+	margin: 10px 0 -16px;
+}
+#registerform{
+	margin-bottom: 14px;
 }

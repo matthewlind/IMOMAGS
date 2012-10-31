@@ -2198,13 +2198,15 @@ a.comment-count:hover {
 .page-template-superpost_single-php .header-title, 
 .page-template-default .header-title,
 .page-template-user_profile-php .header-title,
-.page-community .header-title{
+.page-community .header-title,
+.page-template-page-login-php .header-title{
 	background: url('img/nawp-crosshair-icon.png') no-repeat left 7px;
 }
 .page-template-superpost_single-php .header-title h1,  
 .page-template-user_profile-php .header-title h1,
 .page-template-default .header-title h1,
-.page-community .header-title h1{
+.page-community .header-title h1,
+.page-template-page-login-php .header-title h1{
     text-transform: none;
     margin-left: 50px;
     padding-top: 6px;
@@ -2212,14 +2214,15 @@ a.comment-count:hover {
     font-size: 1.8em;
 }
 .page-template-user_profile-php .header-title h1,
-.page-template-default .header-title h1{
+.page-template-default .header-title h1,
+.page-template-page-login-php .header-title h1{
 	margin-left: 70px;
 	margin-bottom: -5px !important;
 }
 .page-template-superpost_single-php .header-title h1 span,
 .page-template-user_profile-php .header-title h1 span,
-.page-template-default .header-title h1 span
-{
+.page-template-default .header-title h1 span,
+.page-template-page-login-php .header-title h1 span{
 	font-size: 0.8em;
     margin-left: 9px;
     word-spacing: 0.4em;
@@ -4520,7 +4523,8 @@ ul#user-bar li.user-name .header-post-btn:hover{
 }
 .page-community .header-title,
 .page-template-user_profile-php .header-title,
-.page-template-default .header-title{
+.page-template-default .header-title,
+.page-template-page-login-php .header-title{
 	width: 682px;
 }
 .page-community .new-superpost-modal-container {
@@ -4741,6 +4745,8 @@ input.caption-field{
 #superpost-thumbs-grid .footer a{
 	text-decoration: underline;
 	font-family: "ProximaNova-Regular";
+	position: relative;
+	top: 4px;
 }
 #superpost-thumbs-grid .footer a:hover{
 	text-decoration: none;
