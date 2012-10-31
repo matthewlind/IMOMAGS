@@ -194,7 +194,7 @@ if ( is_user_logged_in() ) {
                  <table width='100%' cellspacing="0" cellpadding="0" align="center">
                       <tr id="LoginWithAjax_Email">
                           <td class="email_input">
-                              <input type="text" name="log" id="lwa_user_login" class="input" placeholder="Password" value="<?php echo attribute_escape(stripslashes($user_login)); ?>" />
+                              <input type="text" name="log" id="lwa_user_login" class="input" placeholder="Email Address" value="<?php echo attribute_escape(stripslashes($user_login)); ?>" />
                           </td>
                       </tr>
                       <tr id="LoginWithAjax_Password">
