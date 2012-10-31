@@ -307,9 +307,8 @@ $data = $data[0];
 		      <h4 style="display:none" class="photo-attachement-header">Photos</h4>
 		      <div class="attached-photos">
 		      </div>
-		      
+		      <div class="email-login" style="<?php echo $loginStyle; ?>"><a>or use your email</a></div>
 	    </div> <!-- End new-superpost-modal-container -->
-	    <div class="email-login" style="<?php echo $loginStyle; ?>"><a>or use your email</a></div>
 	    </div> <!-- end .col-abc -->
 
 	    <div class="col-abc">

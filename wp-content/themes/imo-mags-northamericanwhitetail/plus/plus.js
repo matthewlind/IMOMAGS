@@ -1455,7 +1455,6 @@ $(document).ready(function(){
 $(".post-form-btn-container").click(function(){
 	$(".post-form-btn-container").fadeOut();
 	$("h2.post-header").show();
-	$(".email-login").show();
 	$(".new-superpost-modal-container").slideDown();
 	$(".page-community .stream-header").css("margin-top","100px");
 });

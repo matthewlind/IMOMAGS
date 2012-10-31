@@ -785,20 +785,27 @@ select.post_type{
 	text-decoration: underline;
 	cursor: pointer;
 }
-.page-template-report-php .email-login{
-	top: 892px;
-	
-}
 .page-template-report-php .new-superpost-modal-container .fb-login{
 	top: 282px;
+	left: 181px;
+	position: absolute;
 	
 }
-.page-community .new-superpost-modal-container .fb-login{
-	top: 240px;
-	
+.page-template-question-php .new-superpost-modal-container .fb-login{
+	position: absolute;
+	top: 280px;
+	left: 181px;
+}
+.page-template-general-php .new-superpost-modal-container .fb-login, .page-template-tips-php .new-superpost-modal-container .fb-login, .page-template-states-php .new-superpost-modal-container .fb-login{
+	position: absolute;
+	top: 250px;
+	left: 181px;
 }
 .page-community .email-login{
-	top: 414px;
+	top: 324px;
+}
+.page-template-general-php .page-community .email-login, .page-template-tips-php .page-community .email-login, .page-template-states-php .page-community .email-login{
+	top: 294px;
 }
 
 .page-community-home .new-superpost-modal-container .fb-login{
