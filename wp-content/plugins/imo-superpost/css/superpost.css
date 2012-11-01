@@ -847,6 +847,7 @@ select.post_type{
 
 .user-login-modal-container{
 	text-align: center;
+	padding-bottom: 14px;
 }
 
 .user-login-modal-container table{

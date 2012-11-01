@@ -3064,16 +3064,16 @@ select.modal_post_type {
 }
 a.email-signup{
 	color: #2C2C2C !important;
-    font-family: ProximaNova-Bold;
+    font-family: ProximaNova-Bold !important;
     text-transform: capitalize;
     text-align: center;
     display: block;
-    font-size: 0.8em;
-    text-decoration: underline;
+    font-size: 0.8em !important;
+    text-decoration: underline !important;
     cursor: pointer;
 }
 a.email-signup:hover{
-	text-decoration: none;
+	text-decoration: none !important;
 }
 a.prize-title {
 	font-family: ProximaNova-Bold;
