@@ -35,8 +35,8 @@ function imo_email_login() {
         header('Content-type: application/json');	
         
         $errorMessage = "";
-        $email = "baker.aaron@gmail.com";
-        $password = "1234";
+        $email = $_POST['email'];
+        $password = $_POST['password'];
         
         $user = get_user_by("email",$email);
         
@@ -72,24 +72,40 @@ function imo_email_register() {
     if (preg_match("/^\/imo-email-register\.json(\?(.+)?)?$/", $_SERVER['REQUEST_URI'])) {
         header('Content-type: application/json');	
         
+        //echo "hey";
+        
+        $displayName = "AaronBakerHere";
         $email = "baker.aaron@gmail.com";
         $password = "1234";
+        $stateAbbrev = "GA";
         
         $user = get_user_by("email",$email);
         
-        $username = $user->user_login;
-        
-        $user = wp_authenticate($username,$password);
-        
-        wp_set_auth_cookie($user->ID,true);
+        if ($user) {
+	        $json = json_encode(array("errorcode"=>"user_exists","error_text"=>"A user with this email address already has an account."));
+    	    print $json;
+	        //print_r($user_profile);
+	        die();
+        } else {
+        	$userdata = array();
+        	$userdata['user_email'] = $email;
+        	$userdata['display_name'] = $displayName;
+        	$userdata['user_login'] = strtolower($displayName) . rand(1000,9999);
+        	$userdata['user_pass'] = $password;
+        	$userdata['role'] = "naw_community";
+        	
+        	$userID = wp_insert_user($userdata);
+       		wp_set_auth_cookie($userID,true);
+       		add_user_meta($userID,"state",$stateAbbrev);
+       		
+       		$user = imo_get_user($userID);
+       		$json = json_encode($user);
+       		
+       		print $json;        
+       		die();
+       	}
+    
 
-        
-        $imouser = imo_get_user($user->ID);
-        $json = json_encode($imouser);
-
-	    print $json;
-        //print_r($user_profile);
-        die();
     } 
 	
 }
@@ -164,7 +180,7 @@ function imo_facebook_usercheck() {
 	        	_log("User Inserted?");
 	        	
 	        	$facebookUsername = $user_profile['username'];
-	        	$facebookProfilePicURL = "http://graph.facebook.com/".$facebookUsername."/picture";
+	        	$facebookProfilePicURL = "http://graph.facebook.com/".$user_profile['id']."/picture";
 	        	
 	         	
 

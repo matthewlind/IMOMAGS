@@ -7,7 +7,9 @@ wp_enqueue_script("jquery-cookie",get_stylesheet_directory_uri() . "/plus/jquery
 wp_enqueue_script("imo-profile-js",get_stylesheet_directory_uri() . "/plus/profile.js");
 wp_enqueue_style("naw-plus-css",get_stylesheet_directory_uri() . "/plus/plus.css");
 
-
+//Thickbox allows the user avatar editing box to appear as a modal
+	wp_enqueue_script("thickbox");
+	wp_enqueue_style("thickbox");
 
 add_action ("wp_head","superpost_set_meta",0);
 add_filter("page_link","add_superpost_link",0,2);

@@ -30,13 +30,18 @@ div.post {
 	font-size: 0.9em;
 }
 
-.slideshow_mask.text-slides {
+.gallery-hover-div .slideshow_mask {
+width: 550px;
+}
+
+
+.gallery-hover-div .slideshow_mask.text-slides {
   position:relative;
   overflow-x:hidden;
   overflow-y:hidden;
   margin:0 auto;
   width:300px;
-  height:380px;
+  height:370px;
 }
 
 .text-slideshow.text-slides {

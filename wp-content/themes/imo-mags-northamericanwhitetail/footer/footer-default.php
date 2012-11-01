@@ -190,16 +190,16 @@ if ( is_user_logged_in() ) {
     <div id="LoginWithAjax"><?php //ID must be here, and if this is a template, class name should be that of template directory ?>
 	    <h2>Login</h2>
 	      <span id="LoginWithAjax_Status"></span>
-	      <form name="LoginWithAjax_Form" id="LoginWithAjax_Form" action="/login/?callback=?&template=" method="post">
+	      <form name="LoginWithAjax_Form" id="LoginWithAjax_Form" action="/imo-email-login.json" method="post">
                  <table width='100%' cellspacing="0" cellpadding="0" align="center">
                       <tr id="LoginWithAjax_Email">
                           <td class="email_input">
-                              <input type="text" name="log" id="lwa_user_login" class="input" placeholder="Email Address" value="<?php echo attribute_escape(stripslashes($user_login)); ?>" />
+                              <input type="text" name="email" id="lwa_user_login" class="input" placeholder="Email Address" value="<?php echo attribute_escape(stripslashes($user_login)); ?>" />
                           </td>
                       </tr>
                       <tr id="LoginWithAjax_Password">
                           <td class="password_input">
-                              <input type="password" name="pwd" id="lwa_user_pass" class="input" placeholder="Password" value="" />
+                              <input type="password" name="password" id="lwa_user_pass" class="input" placeholder="Password" value="" />
                           </td>
                       </tr>
                       <tr id="LoginWithAjax_Submit">

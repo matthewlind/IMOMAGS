@@ -98,7 +98,7 @@ function displayGallery($gallery_id) {
 				
 			</div>
 			<div class="slide-out-ad">
-				<iframe id="gallery-iframe-ad" height=270 width=330 src="/iframe-ad.php?ad_code=$dartDomain"></iframe>
+				<iframe id="gallery-iframe-ad" height=280 width=330 src="/iframe-ad.php?ad_code=$dartDomain"></iframe>
 			</div>
 		</div> 
 		<div class="ngg-imagebrowser">
