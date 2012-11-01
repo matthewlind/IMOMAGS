@@ -190,7 +190,7 @@ if ( is_user_logged_in() ) {
     <div id="LoginWithAjax"><?php //ID must be here, and if this is a template, class name should be that of template directory ?>
 	    <h2>Login</h2>
 	      <span id="LoginWithAjax_Status"></span>
-	      <form name="LoginWithAjax_Form" id="LoginWithAjax_Form" action="/imo-email-login.json" method="post">
+	      <form name="LoginWithAjax_Form" id="imo-ajax-login-form" action="/imo-email-login.json" method="post">
                  <table width='100%' cellspacing="0" cellpadding="0" align="center">
                       <tr id="LoginWithAjax_Email">
                           <td class="email_input">
@@ -262,30 +262,29 @@ if ( is_user_logged_in() ) {
           //Taken from wp-login.php
           ?>
                      <div>
-            <form name="registerform" id="registerform" action="" method="post">
+            <form name="registerform" id="imo-ajax-register-form" action="/imo-email-register.json" method="post">
             <table width='100%' cellspacing="0" cellpadding="0">
                       <tr>
                           <td>
-                              <a class="open-register">Register For This Site</a>         
+                              <h2>Register for NAW+</h2>         
                           </td>
                       </tr>
                       <tr>
                           <td>  
                               <?php $msg = __('Display Name') ?>
-                              <input type="text" name="user_login" id="user_login"  value="<?php echo $msg ?>" onfocus="if(this.value == '<?php echo $msg ?>'){this.value = '';}" onblur="if(this.value == ''){this.value = '<?php echo $msg ?>'}" /></label>   
+                              <input type="text" name="displayname" id="imo-login-displayname" class="input" placeholder="Display Name" />  
                           </td>
                       </tr>
                       <tr>
                           <td>  
-                              <?php $msg = __('E-mail') ?>
-                              <input type="text" name="user_email" id="user_email"  value="<?php echo $msg ?>" onfocus="if(this.value == '<?php echo $msg ?>'){this.value = '';}" onblur="if(this.value == ''){this.value = '<?php echo $msg ?>'}"/></label>   
+                              <input type="text" name="email" id="lwa_user_login" class="input" placeholder="Email Address" />
                           </td>
                       </tr>
                       
                        <tr>
                           <td>  
-                              <?php $msg = __('Address') ?>
-                              <input type="text" name="user_addy" id="user_addy"  value="<?php echo $msg ?>" onfocus="if(this.value == '<?php echo $msg ?>'){this.value = '';}" onblur="if(this.value == ''){this.value = '<?php echo $msg ?>'}"/></label>   
+                              <?php $msg = __('Password') ?>
+                             <input type="password" name="password" id="lwa_user_pass" class="input" placeholder="Password" value="" />
                           </td>
                       </tr>
                       <tr>

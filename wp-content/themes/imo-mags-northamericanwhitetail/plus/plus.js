@@ -37,6 +37,75 @@ if ($(".user-login-modal-container").length > 0){
 		        $(".user-login-modal-container a.hide-this").click(function(){
 			        $.modal.close();
 		        });
+		        
+		        
+		        //alert("BOB");
+		        
+			  //**************************
+			  //LOGIN FORM AJAX REQUEST
+			  //**************************
+			  $('#imo-ajax-login-form').ajaxForm({
+			  	beforeSubmit: AjaxLoginShowRequest,
+			    success: AjaxLoginSuccessful,
+			    error: AjaxLoginError,
+			    dataType: 'json'                               
+			  });    
+			  
+			  function AjaxLoginShowRequest(formData, jqForm, options) {
+			      var queryString = $.param(formData);
+			      //alert('BeforeSend method: \n\nAbout to submit: \n\n' + queryString);
+			  }
+			  
+			  function AjaxLoginSuccessful(responseText, statusText) {
+			  
+			  	
+				  if (responseText.error != undefined && responseText.error.length > 0)
+				  	alert(responseText.error);
+				  else {
+					  $.modal.close();
+					  authSuccess(responseText);
+				  }
+				  	
+			  }
+			  
+			  function AjaxLoginError() {
+				  //alert("error");
+			  }
+			
+	
+			  //**************************
+			  //Register FORM AJAX REQUEST
+			  //**************************
+			  $('#imo-ajax-register-form').ajaxForm({
+			  	beforeSubmit: AjaxRegisterShowRequest,
+			    success: AjaxRegisterSuccessful,
+			    error: AjaxRegisterError,
+			    dataType: 'json'                               
+			  });    
+			  
+			  function AjaxRegisterShowRequest(formData, jqForm, options) {
+			      var queryString = $.param(formData);
+			      //alert('Register BeforeSend method: \n\nAbout to submit: \n\n' + queryString);
+			  }
+			  
+			  function AjaxRegisterSuccessful(responseText, statusText) {
+			  
+			  	
+				  if (responseText.error != undefined && responseText.error.length > 0)
+				  	alert(responseText.error);
+				  else {
+					  $.modal.close();
+					  authSuccess(responseText);
+				  }
+				  	
+			  }
+			  
+			  function AjaxRegisterError() {
+				  //alert("error");
+			  }
+					        
+		        
+		        
 	        },
 	     });
      });

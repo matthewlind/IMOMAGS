@@ -74,15 +74,22 @@ function imo_email_register() {
         
         //echo "hey";
         
-        $displayName = "AaronBakerHere";
-        $email = "baker.aaron@gmail.com";
-        $password = "1234";
-        $stateAbbrev = "GA";
+        $displayName = $_POST['displayname'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        //$stateAbbrev = "GA";
         
         $user = get_user_by("email",$email);
         
+        
+        if (empty($_POST['displayname']) || empty($_POST['email']) || empty($_POST['password'])) {
+	        $json = json_encode(array("errorcode"=>"incomplete_form","error"=>"Please fill enter a Display Name, Email and Password."));
+    	    print $json;
+	        die();
+        }
+        
         if ($user) {
-	        $json = json_encode(array("errorcode"=>"user_exists","error_text"=>"A user with this email address already has an account."));
+	        $json = json_encode(array("errorcode"=>"user_exists","error"=>"A user with this email address already has an account."));
     	    print $json;
 	        //print_r($user_profile);
 	        die();
@@ -96,7 +103,7 @@ function imo_email_register() {
         	
         	$userID = wp_insert_user($userdata);
        		wp_set_auth_cookie($userID,true);
-       		add_user_meta($userID,"state",$stateAbbrev);
+       		//add_user_meta($userID,"state",$stateAbbrev);
        		
        		$user = imo_get_user($userID);
        		$json = json_encode($user);
