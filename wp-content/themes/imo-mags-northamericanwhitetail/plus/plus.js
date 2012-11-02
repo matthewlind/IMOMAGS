@@ -22,7 +22,7 @@ if ($("#community-modal").length > 0 && userIMO.username.length == 0 && $.cookie
 //email login modal
 if ($(".user-login-modal-container").length > 0){	
 	
-	$(".email-login a").click(function(event){
+	$(".email-login a, .email-signup").click(function(event){
     	$(".user-login-modal-container").modal({
 	        opacity: 50, 
 	        overlayClose: true,

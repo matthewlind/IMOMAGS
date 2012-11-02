@@ -31,7 +31,7 @@ class Join_Widget extends WP_Widget {
 	      <h1>Join the NAW Community!</h1>
 	      	  <div id="imo-fb-login-button" class="fb-login join-widget-fb-login">Fast Facebook Login</div>
 		      <small>*we do not post anything to your wall unless you say so!</small>
-		      <!--<a class="email-signup" href="/login">or use your email address</a>-->
+		      <a class="email-signup">or use your email address</a>
 		      <a class="prize-title">Sign Up Now & You're Automatically Entered to Win a REMINGTON MODEL 700 BDL 50TH ANNIVERSARY EDITION!</a>
 		      <div class="prize"></div>
 		    <a href="/community/sweeps-rules/" class="about-link">Official Rules</a>

@@ -212,9 +212,9 @@ if ( is_user_logged_in() ) {
                      </tr>
                      <tr>
                      	<td id="LoginWithAjax_Links">
-                              <input name="rememberme" type="hidden" id="lwa_rememberme" value="forever" /> <label><?php _e( 'Remember Me' ) ?></label>
+                              <!--<input name="rememberme" type="hidden" id="lwa_rememberme" value="forever" /> <label><?php _e( 'Remember Me' ) ?></label>
                               <br />
-                              <a id="LoginWithAjax_Links_Remember" href="<?php echo site_url('wp-login.php?action=lostpassword', 'login') ?>" title="<?php _e('Password Lost and Found') ?>"><?php _e('Lost your password?') ?></a>
+                              <a id="LoginWithAjax_Links_Remember" href="<?php echo site_url('wp-login.php?action=lostpassword', 'login') ?>" title="<?php _e('Password Lost and Found') ?>"><?php _e('Lost your password?') ?></a>-->
                               <?php
                                   //Signup Links
                                   if ( get_option('users_can_register') ) {
@@ -262,6 +262,7 @@ if ( is_user_logged_in() ) {
           //Taken from wp-login.php
           ?>
                      <div>
+                     <h2>- or -</h2>
             <form name="registerform" id="imo-ajax-register-form" action="/imo-email-register.json" method="post">
             <table width='100%' cellspacing="0" cellpadding="0">
                       <tr>
