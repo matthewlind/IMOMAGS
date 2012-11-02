@@ -82,3 +82,7 @@
 
 	position: absolute;
 }
+
+#user-avatar-remove {
+	display:none;
+}
