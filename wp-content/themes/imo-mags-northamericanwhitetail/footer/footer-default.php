@@ -205,7 +205,7 @@ if ( is_user_logged_in() ) {
                       <tr id="LoginWithAjax_Submit">
                           <td id="LoginWithAjax_SubmitButton">
                               <input type="submit" name="wp-submit" id="lwa_wp-submit" value="<?php _e('Log In'); ?>" tabindex="100" />
-                              <input type="hidden" name="redirect_to" value="http://<?php echo $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'] ?>" />
+                              <input id="hidden-redirect" type="hidden" name="redirect_to" value="http://<?php echo $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'] ?>" />
                               <input type="hidden" name="testcookie" value="1" />
                               <input type="hidden" name="lwa_profile_link" value="<?php echo $lwa_data['profile_link'] ?>" />
                           </td>

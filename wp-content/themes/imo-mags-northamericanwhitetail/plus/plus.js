@@ -63,7 +63,8 @@ if ($(".user-login-modal-container").length > 0){
 				  	alert(responseText.error);
 				  else {
 					  $.modal.close();
-					  authSuccess(responseText);
+					  $clickedButton = $('#imo-ajax-login-form #lwa_wp-submit');
+					  authSuccess(responseText,$clickedButton);
 				  }
 				  	
 			  }

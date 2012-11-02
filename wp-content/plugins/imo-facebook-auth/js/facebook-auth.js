@@ -48,9 +48,8 @@ window.fbAsyncInit = function() {
 };//END window.fbAsyncInit
 
 
-var $clickedButton;
 
-function authSuccess(data){
+function authSuccess(data,$clickedButton){
     //console.log(data);
     
     userIMO = data;
@@ -74,6 +73,8 @@ function authSuccess(data){
         $(".join-widget-fb-login").fadeOut(400);
         $(".choose-fb").fadeOut(400);
         $(".email-login").fadeOut(400);
+        $(".email-signup").fadeOut(400);
+        $("#community-menu-nav small").fadeOut(400);
         //$userBar.fadeIn();
         $submit.fadeIn();
 
@@ -146,7 +147,9 @@ function authSuccess(data){
     }
     
     //
-    if ($clickedButton.hasClass("fb-login-community-modal")) {
+    
+   	    	
+    if ($clickedButton.hasClass("fb-login-community-modal") || $clickedButton.hasClass("email-redirect")) {
     	window.location="http://www.northamericanwhitetail.com/community-post/";		
     	}
     
@@ -168,9 +171,21 @@ function authSuccess(data){
 
 jQuery(document).ready(function($) {
 
+	$(".email-signup-redirect").click(function(event){
+		$("input#lwa_wp-submit").addClass("email-redirect");
+	    $("input#hidden-redirect").addClass("hidden-redirect");
+	    $(".hidden-redirect").val("http://www.northamericanwhitetail.com/community-post");
+	    
+	    
 
+	});
 
-	//TESTING TO SEE IF THINGS WORK.
+    $("input.email-redirect").submit(function(){
+	    window.location="http://www.northamericanwhitetail.com/community-post";			
+    });	
+	    
+	    
+ 	//TESTING TO SEE IF THINGS WORK.
 /*
 	$("a").click(function(event){
 		//alert("hey");
@@ -189,7 +204,7 @@ jQuery(document).ready(function($) {
 						
 
 		
-		$clickedButton = $(this);
+		var $clickedButton = $(this);
 		
 		$(".imo-fb-login-button").css({ opacity: 0.5 });
 		$(".join-widget-fb-login").css({ opacity: 0.5 });
@@ -223,7 +238,9 @@ jQuery(document).ready(function($) {
 					  	  
 						  
 
-						  jQuery.getJSON('/facebook-usercheck.json', authSuccess);
+						  jQuery.getJSON('/facebook-usercheck.json', function(data){
+							  authSuccess(data,$clickedButton);
+						  });
 						  						  
 					  }//End if user is logged in
 						       
