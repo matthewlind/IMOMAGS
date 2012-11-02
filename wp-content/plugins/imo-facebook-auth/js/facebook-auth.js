@@ -173,6 +173,7 @@ jQuery(document).ready(function($) {
 
 	$(".email-signup-redirect").click(function(event){
 		$("input#lwa_wp-submit").addClass("email-redirect");
+		$('#imo-ajax-login-form').addClass("email-redirect");
 	    $("input#hidden-redirect").addClass("hidden-redirect");
 	    $(".hidden-redirect").val("http://www.northamericanwhitetail.com/community-post");
 	    

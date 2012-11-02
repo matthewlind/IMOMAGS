@@ -51,8 +51,12 @@ if ($(".user-login-modal-container").length > 0){
 			    dataType: 'json'                               
 			  });    
 			  
+			  var jqueryForm;
+			  
 			  function AjaxLoginShowRequest(formData, jqForm, options) {
 			      var queryString = $.param(formData);
+			      
+			      jqueryForm = jqForm;
 			      //alert('BeforeSend method: \n\nAbout to submit: \n\n' + queryString);
 			  }
 			  
@@ -64,7 +68,9 @@ if ($(".user-login-modal-container").length > 0){
 				  else {
 					  $.modal.close();
 					  $clickedButton = $('#imo-ajax-login-form #lwa_wp-submit');
-					  authSuccess(responseText,$clickedButton);
+					  
+					  console.log($clickedButton);
+					  authSuccess(responseText,jqueryForm);
 				  }
 				  	
 			  }
