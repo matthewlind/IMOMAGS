@@ -213,8 +213,8 @@ if ( is_user_logged_in() ) {
                      <tr>
                      	<td id="LoginWithAjax_Links">
                               <!--<input name="rememberme" type="hidden" id="lwa_rememberme" value="forever" /> <label><?php _e( 'Remember Me' ) ?></label>
-                              <br />
-                              <a id="LoginWithAjax_Links_Remember" href="<?php echo site_url('wp-login.php?action=lostpassword', 'login') ?>" title="<?php _e('Password Lost and Found') ?>"><?php _e('Lost your password?') ?></a>-->
+                              <br />-->
+                              <a id="LoginWithAjax_Links_Remember" href="<?php echo site_url('wp-login.php?action=lostpassword', 'login') ?>" title="<?php _e('Password Lost and Found') ?>"><?php _e('Lost your password?') ?></a>
                               <?php
                                   //Signup Links
                                   if ( get_option('users_can_register') ) {
