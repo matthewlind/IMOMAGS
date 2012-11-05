@@ -2,7 +2,7 @@ jQuery(document).ready(function($) {
 
 //Modal Pop-up
 //Make sure DIV exists and user is not logged in and make sure cookie isn't in place
-if ($("#community-modal").length > 0 && userIMO.username.length == 0 && $.cookie('hide_alert') == null){	
+/*if ($("#community-modal").length > 0 && userIMO.username.length == 0 && $.cookie('hide_alert') == null){	
 	
 	$("#community-modal").modal({
         opacity: 50, 
@@ -17,7 +17,7 @@ if ($("#community-modal").length > 0 && userIMO.username.length == 0 && $.cookie
 	        });
         },
       });
-}
+}*/
 
 //email login modal
 if ($(".user-login-modal-container").length > 0){	
