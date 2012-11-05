@@ -142,7 +142,7 @@ if ( is_user_logged_in() ) {
 
 	        <p class="login-note">
 	        </p>
-	        </form>
+	        
 	        <script type="text/javascript">
 			      $(document).ready(function(){
 				      $(".state-chzn").chosen();
