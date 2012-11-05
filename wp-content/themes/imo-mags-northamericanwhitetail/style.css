@@ -2981,7 +2981,7 @@ page community .new-superpost-modal-container textarea {
    width: 400px;
    height: 34px;
    overflow: hidden;
-   margin:10px 0 10px 0;
+   margin:40px 0 10px 0;
   
 }
 .page-template-report-php .post_type_styled_select{
@@ -3005,7 +3005,7 @@ select.modal_post_type {
     margin-bottom:10px;
 }
 .post-page.state-dropdown-container {
-	margin-top:60px;
+	/* margin-top:60px; */
 }
 .page-template-report-php .media-section,
 .page-template-trophy-php .media-section{
@@ -4560,7 +4560,7 @@ ul#user-bar li.user-name .header-post-btn:hover{
     width: 190px;
 }  
 .page-template-community-post-php .page-community .superpost-form input[type="submit"]{
-    top: 380px;
+    top: 355px;
 }  
 
 .page-template-question-php .superpost-form input[type="submit"]{
