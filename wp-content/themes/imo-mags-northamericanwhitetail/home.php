@@ -140,9 +140,24 @@ get_header();
 	<div class="clearfix"></div>
 </div>
 <div id="community-modal" class="new-superpost-modal-container new-superpost-box" style="display:none;height:425px:width:600px;background-color:white;">
-	<div id="imo-fb-login-button" class="fb-login join-widget-fb-login fb-login-community-modal">Join Now With Facebook</div>
-	<small>*we do not post anything to your wall unless you say so!</small>
-	<a class="hide-this" href="#">Don't show this again</a>
+	<h1>Introducing the NAW Community and Whitetail+ App</h1>
+	<div class="modal-login-area">
+		<p>The all new whitetail resource for the hardcore hunter.</p>
+		<div id="imo-fb-login-button" class="fb-login join-widget-fb-login fb-login-community-modal">Join Now With Facebook</div>
+		<small>*we do not post anything to your wall unless you say so!</small>
+		<a class="email-signup">or use your email address</a>
+	</div>
+	<div class="app-callout">
+		<div class="left">
+			<div class="iphone-screen">Whitetail+ App</div>
+		</div>
+		<div class="right">
+			<div class="app-icon"><span>Whitetail+</span></div>
+			<p class="copy">Stay connected on your hunt! Post photos and questions anytime!</p>
+			<div class="app-store-icon">Available on the app store</div>
+		</div>
+	</div>
+	s<a class="hide-this" href="#">Don't show this again</a>
 </div>
 
 <?php get_footer(); ?>

@@ -715,17 +715,72 @@ div.user-details-box {
 .new-superpost-modal-container{
 	background: none !important;
 }
-.new-superpost-modal-container .fb-login{
-	top: 310px;
-	position: relative;
+#community-modal .modal-login-area{
+	float: left;
+	text-align: center;
+	height: 210px;
+    padding-right: 6px;
+    border-right: 1px solid #6d6560;
+}
+#community-modal .app-callout{
+	float: right;
+	width: 265px;
+}
+#community-modal h1{
+	color: white;
+    font-size: 2.5em;
+    line-height: 1;
+    margin: 0 auto 45px;
+    text-align: center;
+    width: 530px;
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 1px 2px 0 rgba(0, 0, 0, 0.4);
+}
+#community-modal .modal-login-area{
+	float: left;
+	 width: 304px;
+}
+#community-modal a{
+	color: white !important;
+}
+#community-modal p{
+	color: #ecc077;
+	font-family: "ProximaNova-Regular";
+	font-size: 1.1em;
+    line-height: 1;
+    margin: 20px 0 16px;
+	padding: 0;
+}
+#community-modal p.copy{
+	font-size: 1em;
+    line-height: 1.2;
+    margin: 10px 0;
+    width: 160px;
+}
+#community-modal .app-store-icon{
+	margin-left: 0;
+    width: 121px;
+}
+#community-modal .fb-login{
+
 	background: url("/wp-content/themes/imo-mags-northamericanwhitetail/img/fb-join.png") no-repeat scroll center top;
 }
-.new-superpost-modal-container small{
+#community-modal .app-callout{
+	cursor: pointer;
+}
+#community-modal .app-callout .left{
+	float: left;
+}
+#community-modal .app-callout .right{
+	width: 167px;
+	float: right;
+}
+#community-modal .app-icon span{
+	padding-left: 50px;
 	color: white;
-	top: 310px;
+}
+#community-modal small{
+	color: white;
 	text-align: center;
-	position: relative;
-	left: 156px;
 }
 .new-superpost-modal-container .fast-login-then-post-button {
 	position:relative;
