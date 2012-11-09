@@ -61,7 +61,7 @@ function userIsEditor($user_login,$timecode,$givenHash) {
 
 	$currentTime = time();
 	
-	if ($currentTime < $timecode + 90)
+	if ($currentTime < $timecode + 600)
 		$timeCodeIsValid = TRUE;
 
 	if ($generatedhash == $givenHash && !empty($user_login) && !empty($timecode) && $timeCodeIsValid)

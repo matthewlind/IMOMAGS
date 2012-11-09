@@ -1,5 +1,92 @@
 jQuery(document).ready(function($) {
 
+ //**************************
+  //Set the state on new post forms.
+  
+  
+  if (userIMO.default_state)
+  	$('option[value="' + userIMO.default_state + '"]').attr("selected","selected");;
+  //**************************
+
+
+  //**************************
+  //EDIT POSTS for community-post-edit.php
+  //**************************
+  
+  //Populate form:
+  
+  //First get post id
+  if ($('.superpost-edit-form').length > 0) {//Do stuff only if the edit for is on the page.
+	  var postID = $(".superpost-edit-form .post_id").val();
+  
+	 	  
+	  $.getJSON('/slim/api/superpost/post_only/' + postID, function(data) {
+	  
+	  	  var postData = data[0];
+	  	  
+	  	  $('#superpostEditForm #edit-state option').removeAttr("selected");
+	  	  $('#superpostEditForm option[value="' + postData.state + '"]').attr("selected","selected");
+	  	  $('#superpostEditForm #edit-state').trigger("liszt:updated");
+	  
+		  
+		  $.each(postData,function(index,value){
+		
+			  
+			  var selector = '#superpostEditForm [name="' + index + '"]';
+			  
+	
+			  
+			  $(selector).val(value);
+			  
+			  
+		  });
+		 		  
+	  });
+	  
+	  
+	  //Ajax Form Submission
+	  $('.superpost-edit-form').ajaxForm({                 
+	    beforeSubmit: EditShowRequest,
+	    success: EditSubmitSuccessful,
+	    error: AjaxError,
+	    dataType: 'json'                               
+	  });    
+  }
+  
+
+  
+  
+//Called after form submission is successful
+function EditSubmitSuccessful(responseText, statusText) {     
+		
+	var response = responseText;
+
+    var url = "/plus/" + response.post_type + "/" + response.post_id;
+
+
+    alert("EDIT SUCCESSFUL! Keep in mind that it may take 10 minutes before the change is live on the site.");
+
+    //window.location = url;
+
+
+}
+
+function EditShowRequest(formData, jqForm, options) {
+	
+	//////console.log(  $(userIMO) );
+  
+  
+  	//Add the userdata so that we can authenticate
+  	options.extraData = $.extend(true, {}, options.extraData, userIMO);
+  
+  
+    var queryString = $.param(formData);
+    //alert('BeforeSend method: \n\nAbout to submit: \n\n' + queryString);
+     
+      
+    
+}
+
   //**************************
   //SHOW NEW POST MODAL
   //**************************
@@ -86,13 +173,7 @@ jQuery(document).ready(function($) {
 	});
 	
 	
- //**************************
-  //Set the state on new post forms.
-  
-  
-  if (userIMO.default_state)
-  	$('option[value="' + userIMO.default_state + '"]').attr("selected","selected");;
-  //**************************
+
 
   //You can't add jQuery events to elements that don't exist.
   //As such, this function runs after the New Post modal appears
@@ -311,7 +392,7 @@ jQuery(document).ready(function($) {
     ////console.log(response);
     
     //first, get the image element and the caption form
-    var $imageTag = $("<div><img src='" + response.img_url + "' height=75 width=75 style='' class='image-thumb'>\
+    var $imageTag = $("<div><a href='" + response.img_url + "' class='thickbox'><img src='" + response.img_url + "' height=75 width=75 style='' class='image-thumb'></a>\
                       <form method='POST' action='/slim/api/superpost/update_caption' enctype='multipart/form-data' class='superpost-caption-form thumb-caption'>\
                       <input class='caption-field' name='body' type='text' placeholder='Caption (optional)'>\
                       <input type='hidden' name='form_id' value='fileUploadForm'>\
@@ -395,7 +476,7 @@ jQuery(document).ready(function($) {
     
     $('.superpost-comment-form').clearForm();
 
-    addNewBox(response);
+	    addNewBox(response);
   }
 
 

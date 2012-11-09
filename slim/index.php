@@ -394,6 +394,42 @@ $app->get('/api/superpost/post/:id',function($id){
 
 });
 
+
+//***********************************************
+//*** Get Specific post WITHOUT UPDATING COUNT
+//***********************************************
+$app->get('/api/superpost/post_only/:id',function($id){
+
+	header('Access-Control-Allow-Origin: *');  
+
+	try {
+
+		$db = dbConnect();
+
+
+		$sql = "SELECT * FROM allcounts WHERE id = ? ORDER BY id DESC";
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array($id));
+	
+		$posts = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+		echo json_encode($posts);
+		
+		
+		
+		
+
+		$db = "";
+
+	} catch(PDOException $e) {
+    	echo $e->getMessage();
+    }
+
+});
+
+
+
 //**************************************
 //**** Get all Child Posts of a Type ***
 //**************************************
@@ -748,6 +784,182 @@ $app->post('/api/superpost/add',function() {
 
 });
 
+//*********************************
+//**********Update Any Field**********
+//*********************************
+$app->post('/api/superpost/update_field',function() {
+	header('Access-Control-Allow-Origin: *');
+
+	$params = Slim::getInstance()->request()->post();
+
+	_log("Update field started");
+	_log($params);
+
+	$fieldName = $params['field_name'];
+	$fieldValue = $params['field_value'];
+	$post_id = $params['post_id'];
+	$user_id = $params['user_id'];
+	
+	$userIsGood = userIsGood($params['username'],$params['userhash']);
+	$userIsEditor = userIsEditor($params['username'],$params['timecode'],$params['editor_hash']);
+	
+	$userHasGoodPerms = FALSE; 
+	
+	if ($userIsEditor) {
+		$userHasGoodPerms = TRUE;
+	} else {
+			try {
+
+				$db = dbConnect();
+		
+		
+				$sql = "SELECT * FROM superposts WHERE id = ? LIMIT 1";
+		
+				$stmt = $db->prepare($sql);
+				$stmt->execute(array($post_id));
+				$post = $stmt->fetchObject();
+				
+				if ($post->user_id == $user_id)
+					$userHasGoodPerms = TRUE; 
+				
+			
+				$db = "";
+		
+			} catch(PDOException $e) {
+		    	echo $e->getMessage();
+		    }
+	}
+		
+	
+
+	//Get the user info an authenticate
+	//REMOVED: userIsGood($params['username'],$params['userhash'])
+	if ($userHasGoodPerms && $userIsGood) {
+
+		try {
+
+			$db = dbConnect();
+
+
+			$sql = "UPDATE superposts SET `?` = ? WHERE `id` = ? LIMIT 1";
+
+			$stmt = $db->prepare($sql);
+			$stmt->execute(array($fieldName,$fieldValue,$post_id));
+		
+		
+
+			echo json_encode($params);
+
+			$db = "";
+
+		} catch(PDOException $e) {
+	    	echo $e->getMessage();
+	    }
+
+	}
+
+});
+
+//*********************************
+//**********Update Multiple Fields**********
+//*********************************
+$app->post('/api/superpost/update_post',function() {
+	header('Access-Control-Allow-Origin: *');
+
+	$params = Slim::getInstance()->request()->post();
+
+	_log("Update field started");
+	_log($params);
+
+	$post_id = $params['post_id'];
+	$user_id = $params['user_id'];
+	
+	$userIsGood = userIsGood($params['username'],$params['userhash']);
+	$userIsEditor = userIsEditor($params['username'],$params['timecode'],$params['editor_hash']);
+	
+	$userHasGoodPerms = FALSE; 
+	
+	if ($userIsEditor) {
+		$userHasGoodPerms = TRUE;
+	} else {
+			try {
+
+				$db = dbConnect();
+		
+		
+				$sql = "SELECT * FROM superposts WHERE id = ? LIMIT 1";
+		
+				$stmt = $db->prepare($sql);
+				$stmt->execute(array($post_id));
+				$post = $stmt->fetchObject();
+				
+				if ($post->user_id == $user_id)
+					$userHasGoodPerms = TRUE; 
+				
+			
+				$db = "";
+		
+			} catch(PDOException $e) {
+		    	echo $e->getMessage();
+		    }
+	}
+		
+	
+
+	//Get the user info an authenticate
+	//REMOVED: userIsGood($params['username'],$params['userhash'])
+	if ($userHasGoodPerms && $userIsGood) {
+		_log("GOOD PERMS");
+		try {
+
+			$db = dbConnect();
+			
+			$paramList = array(
+				"parent",
+				"post_type",
+				"secondary_post_type",
+				"title",
+				"body",
+				"img_url",
+				"meta",
+				"state",
+				"video_url",
+				"domain",
+			);
+
+			$sql = "UPDATE superposts SET";
+			
+			foreach ($params as $paramName => $paramValue) {
+				if (in_array($paramName, $paramList)) {
+				
+					$sql = "UPDATE superposts SET";
+					$sql .= " `$paramName` = ? ";
+					$sql .= " WHERE `id` = ? LIMIT 1";
+					_log("$paramName: $paramValue");
+					_log($sql);
+					
+					$stmt = $db->prepare($sql);
+					$stmt->execute(array($paramValue,$post_id));
+
+				}
+			}
+
+		
+
+			echo json_encode($params);
+
+			$db = "";
+
+		} catch(PDOException $e) {
+	    	echo $e->getMessage();
+	    }
+
+	}
+
+});
+
+
+
 
 //*********************************
 //**********Update Post Body**********
@@ -764,9 +976,36 @@ $app->post('/api/superpost/update_caption',function() {
 	$post_id = $params['post_id'];
 
 
+	//First, check to see if attachment has parent
+	//If it does, don't change it.
+
+	$postHasParent = FALSE;
+
+	try {
+
+		$db = dbConnect();
+
+
+		$sql = "SELECT * FROM superposts WHERE id = ?";
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array($post_id));
+		$post = $stmt->fetchObject();
+		
+		if (!empty($post->parent))
+			$postHasParent = TRUE;
+		
+	
+		$db = "";
+
+	} catch(PDOException $e) {
+    	echo $e->getMessage();
+    }
+
+
 	//Get the user info an authenticate
 	//REMOVED: userIsGood($params['username'],$params['userhash'])
-	if (TRUE) {
+	if (!$postHasParent) {
 
 		try {
 

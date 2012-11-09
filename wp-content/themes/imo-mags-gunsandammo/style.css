@@ -6621,9 +6621,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 /*jetpack fixes*/
 #main{padding-top: 0px;margin-top: 0;overflow: visible;}
 
-.page-flow, .page .page-template-page-right-php, .archive .page-template-page-right-php, #carrington-modules.col-abc{
-	overflow: hidden !important;
-}
+
 #footer{
 	margin-top: 0;
 }

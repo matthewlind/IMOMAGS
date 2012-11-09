@@ -143,7 +143,7 @@ position: relative;
 	border-bottom: none;
 	margin: 0 auto;
 	width: 1020px;
-	z-index: 9999;
+	z-index: 999;
 }
 
 #header .site-title {
@@ -616,4 +616,38 @@ transition: all 0.35s ease-in 0s;
 }
 .widget_advert-widget{
 	z-index: 1;
+}
+
+/* US MAP WIDGET */
+.state-info{
+	float: left;
+	width: 360px;
+}
+p.state-name{
+	text-transform: uppercase;
+	font-size: 1.6em;
+	font-weight: bold;
+}
+.us-map-widget svg{
+	width: 686px;
+}
+.state-list{
+	position: absolute;
+	top: 60px;
+	width: 440px;
+}
+.state-list ul{
+	width: 140px !important;
+} 
+.state-list ul li{
+	font-weight: bold;
+	color: black;
+	line-height: 1.7;
+}
+.state-list ul li a{
+	text-transform: capitalize;
+	font-weight: normal;
+}
+.state-list ul li a:hover{
+	color: black !important;
 }

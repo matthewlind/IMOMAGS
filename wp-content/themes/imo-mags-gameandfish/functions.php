@@ -63,4 +63,5 @@ function gf_widgets_init() {
 }
 add_action( 'widgets_init', 'gf_widgets_init' );
 
+include_once get_stylesheet_directory().'/widgets/us-map.php';
 
