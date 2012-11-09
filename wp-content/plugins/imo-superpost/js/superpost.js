@@ -64,9 +64,9 @@ function EditSubmitSuccessful(responseText, statusText) {
     var url = "/plus/" + response.post_type + "/" + response.post_id;
 
 
- 
+    alert("EDIT SUCCESSFUL! Keep in mind that it may take 10 minutes before the change is live on the site.");
 
-    window.location = url;
+    //window.location = url;
 
 
 }
