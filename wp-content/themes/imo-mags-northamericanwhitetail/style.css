@@ -4605,6 +4605,12 @@ ul#user-bar li.user-name .header-post-btn:hover{
 	top: 8px;
     width: 100px;
     position: relative;
+
+}
+
+.page-template-community-post-php h4.photo-attachement-header{
+
+    margin-top: 110px;
 }
 .page-community input.submit{
     background: none repeat scroll 0 0 #347FE7;

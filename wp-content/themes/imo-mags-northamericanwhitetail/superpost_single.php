@@ -313,6 +313,7 @@ if($data->view_count == 1){
 			<?php if (current_user_can('delete_others_posts')) { ?>    
 			    <select class="editor-functions" spid="<?php echo $spid; ?>">
 			    	<option>EDITOR OPTIONS</option>
+			    	<option value="edit">Edit</option>
 			    	<option value="unapprove">Unapprove</option>
 			    	<option value="teflon">Teflon</option>
 			    </select>
