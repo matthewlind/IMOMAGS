@@ -140,7 +140,7 @@ while ( $query->have_posts() ) : $query->the_post();
 $source = "";
  
 // brightcove
-if (1 == preg_match('~\[brightcove id="(\d+)"\]~',$post->post_content, $video_id)) {
+if (1 == preg_match('~http://brightcove=(\d+)~',$post->post_content, $video_id)) {
 
   $video_id = $video_id[1];
   $source = "brightcove";
@@ -185,8 +185,10 @@ else
 }
 if ($source == "brightcove"){
     
-    $api_string = "http://api.brightcove.com/services/library?command=find_video_by_id&video_id=".$video_id."&video_fields=thumbnailURL&media_delivery=http&token=". BC_READ_WITH_URL_ACCESS_TOKEN;
+    $api_string = "http://api.brightcove.com/services/library?command=find_video_by_id&video_id=".$video_id."&video_fields=thumbnailURL&media_delivery=http&token=". BC_READ_TOKEN;
     
+
+
     $thumbnail_json = get_data($api_string);
     if ($thumbnail_json){
     $obj = json_decode($thumbnail_json);
@@ -224,6 +226,9 @@ if ($container != "gridContainer"){
     $grid_html .= get_title_link($source, $video_id, $container);
   
 
+}
+if ($source <> "brightcove" && $source <> "youtube" && $source <> "vimeo"){
+   $grid_html .= get_title_link($source, $video_id, $container);
 }
 
 if ($container == 'gridContainer'){
@@ -394,7 +399,7 @@ function scrollToVideo(id){
 }
 
 function loadVideo(id, source){
-  
+
    var htm = '';
 
   if (source == "youtube"){
@@ -408,12 +413,16 @@ function loadVideo(id, source){
   }
   else if (source == "brightcove"){
     
+
+
+
+
     htm = '<object id="myExperience" class="BrightcoveExperience">'
     +  '<param name="bgcolor" value="#FFFFFF" />'
     +  '<param name="width" value="620" />'
     +  '<param name="height" value="350" />'
-    +  '<param name="playerID" value="1303927212001" />'
-    +  '<param name="playerKey" value="AQ~~,AAAA-01d-uE~,FiwRPPEEyN5Ul9VdpuUBJrfHQ9_peuY-" />'
+    +  '<param name="playerID" value="973698996001" />'
+    +  '<param name="playerKey" value="AQ~~%2CAAAAAETeEfI~%2Ci-5J2ubuAMtrBswh0PvpouAMH3Ey66kE" />'
     +  '<param name="isVid" value="true" />'
     +  '<param name="isUI" value="true" />'
     +  '<param name="@videoPlayer" value="' + id + '" /></object>';
@@ -1017,7 +1026,7 @@ add_action('parse_request',  array($ajaxExample, 'flsp_video_gallery_check_reque
 function brightcove_tag($content) {
   
 
-  $match = preg_match('~\[brightcove id="(\d+)"\]~',$content, $video_id);
+  $match = preg_match('~http://brightcove=(\d+)~',$content, $video_id);
   $video_id = $video_id[1];
 
 
@@ -1033,7 +1042,7 @@ function brightcove_tag($content) {
     <script type="text/javascript">brightcove.createExperiences();</script>';
 
 
-$content = preg_replace("~\[brightcove id=\"(\d+)\"\]~", $htm, $content);
+$content = preg_replace("~http://brightcove=(\d+)~", $htm, $content);
 return $content;
 
 }

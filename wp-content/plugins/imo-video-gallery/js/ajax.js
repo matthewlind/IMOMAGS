@@ -1,7 +1,7 @@
 jQuery.getJSON(
-    TestPlugin.ajaxurl,
+    IMOVideoGallery.ajaxurl,
     {
-        action: 'test-plugin',
+        action: 'imo-video-gallery',
       //  nonce: TestPlugin.nonce
     },
     function( response ) {
