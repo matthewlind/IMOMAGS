@@ -60,7 +60,7 @@ function imo_get_user($userID = -1) {
 	
 	
 	$perms = "user";
-	if (in_array("administrator",$WPuser->roles) || in_array("editor",$WPuser->roles)) {
+	if (in_array("administrator",$WPuser->roles) || in_array("editor",$WPuser->roles) || in_array("community_moderator",$WPuser->roles)) {
 		$perms = "editor";
 		$editor_hash = md5($user_login .$timecode . $editorSalt);
 	}

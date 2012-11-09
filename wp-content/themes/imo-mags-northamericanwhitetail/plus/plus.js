@@ -289,14 +289,21 @@ $(".editor-functions").change(function(){
 	postData.post_id = $(this).attr("spid");
 	postData.etype = etype;
 	
+	if (etype == "edit") {
 	
-	
-	$.post("/slim/api/post/flagadmin", postData, function(data){
+		var url = "/edit-your-post/?post_id=" + postData.post_id;
+		window.location = url;
 		
-		if (data.error) {
-			alert(data.error);
-		}				
-	});  
+	} else {
+		$.post("/slim/api/post/flagadmin", postData, function(data){
+			
+			if (data.error) {
+				alert(data.error);
+			}				
+		});  
+	}
+	
+
 
 });
 
@@ -618,6 +625,7 @@ function displayRecon(type) {
 				var $editorTools = $(
 					$.el.select({'class':'editor-functions'},
 						$.el.option("EDITOR OPTIONS"),
+						$.el.option({'value':'edit'},"Edit"),
 						$.el.option({'value':'unapprove'},"Unapprove"),
 						$.el.option({'value':'teflon'},"Teflon")
 					)
@@ -637,12 +645,21 @@ function displayRecon(type) {
 						$reconBox.find(".flag-image").attr("src","/wp-content/themes/imo-mags-northamericanwhitetail/img/flag-button-red.png");
 					
 					
-					$.post("/slim/api/post/flagadmin", postData, function(data){
+					if (etype == "edit") {
+	
+						var url = "/edit-your-post/?post_id=" + postData.post_id;
+						window.location = url;
 						
-						if (data.error) {
-							alert(data.error);
-						}				
-					});  
+					} else {
+					
+						$.post("/slim/api/post/flagadmin", postData, function(data){
+							
+							if (data.error) {
+								alert(data.error);
+							}				
+						});  
+						
+					}
 				});	
 				$reconBox.find(".detector-box").prepend($editorTools);
 				//End editor tools
@@ -823,6 +840,7 @@ function displayUserPosts(userID) {
 				var $editorTools = $(
 					$.el.select({'class':'editor-functions'},
 						$.el.option("EDITOR OPTIONS"),
+						$.el.option({'value':'edit'},"Edit"),
 						$.el.option({'value':'unapprove'},"Unapprove"),
 						$.el.option({'value':'teflon'},"Teflon")
 					)
@@ -841,13 +859,19 @@ function displayUserPosts(userID) {
 					if (etype == "unapprove")
 						$reconBox.find(".flag-image").attr("src","/wp-content/themes/imo-mags-northamericanwhitetail/img/flag-button-red.png");
 					
+					if (etype == "edit") {
 					
-					$.post("/slim/api/post/flagadmin", postData, function(data){
+						var url = "/edit-your-post/?post_id=" + postData.post_id;
+						window.location = url;
 						
-						if (data.error) {
-							alert(data.error);
-						}				
-					});  
+					} else {
+						$.post("/slim/api/post/flagadmin", postData, function(data){
+							
+							if (data.error) {
+								alert(data.error);
+							}				
+						});  
+					}
 				});	
 				
 				reconBox.find(".detector-box").prepend($editorTools);
@@ -1173,6 +1197,7 @@ function displayReconList(type) {
 				var $editorTools = $(
 					$.el.select({'class':'editor-functions'},
 						$.el.option("EDITOR OPTIONS"),
+						$.el.option({'value':'edit'},"Edit"),
 						$.el.option({'value':'unapprove'},"Unapprove"),
 						$.el.option({'value':'teflon'},"Teflon")
 					)
@@ -1191,12 +1216,20 @@ function displayReconList(type) {
 					if (etype == "unapprove")
 						$reconRow.find(".list-flag-button").css("background-image","url('/wp-content/themes/imo-mags-northamericanwhitetail/img/red-flag.png')");				
 					
-					$.post("/slim/api/post/flagadmin", postData, function(data){
+					
+					if (etype == "edit") {
+					
+						var url = "/edit-your-post/?post_id=" + postData.post_id;
+						window.location = url;
 						
-						if (data.error) {
-							alert(data.error);
-						}				
-					});  
+					} else {
+						$.post("/slim/api/post/flagadmin", postData, function(data){
+							
+							if (data.error) {
+								alert(data.error);
+							}				
+						});  
+					}
 				});	
 				
 				reconRow.prepend($editorTools);
