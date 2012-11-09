@@ -12,7 +12,7 @@ var dartadsgen_rand = Math.floor((Math.random()) * 100000000), pr_tile = 1, dart
 	$('#tabs').tabs();		
 		
 	//age modal screen
-	$('body').ageBlock({
+	/*$('body').ageBlock({
 			title: 'Please verify your age',
 			subtitle: 'You must be at least 21 years old',
 			showError: false,
@@ -20,7 +20,7 @@ var dartadsgen_rand = Math.floor((Math.random()) * 100000000), pr_tile = 1, dart
 			age: '21',
 			process: 'process.php',
 			opacity: 0.9
-	});
+	});*/
 
 	//scroll to registration area
 	$('.upload').click(function(){
