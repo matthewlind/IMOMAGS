@@ -4911,19 +4911,20 @@ ul#scroll-widget li a:hover span{
     padding: 0 20px;
     width: 150px;
 }
-#get-app .app-icon{
-	background: url("img/nawp-app-icon.jpg") no-repeat scroll center top transparent;
+.app-icon{
+	background: url("img/nawp-app-icon.png") no-repeat scroll center top transparent;
     display: block;
-    height: 44px;
-    width: 48px;
+    height: 39px;
+    width: 39px;
+    margin-top: 5px;
 }
-#get-app .app-icon span{
+.app-icon span{
 	color: #59524B;
     font-family: ProximaNova-Bold;
     font-size: 1.4em;
     padding-left: 54px;
     position: relative;
-    top: 8px;
+    top: 5px;
 }
 #get-app .copy{
 	color: #C2290D;
@@ -4934,7 +4935,7 @@ ul#scroll-widget li a:hover span{
     text-align: center;	
 }
 
-#get-app .app-store-icon{
+.app-store-icon{
 	background: url("img/app-store-icon.png") no-repeat scroll center top transparent;
     height: 41px;
     padding: 10px 0;
@@ -4948,7 +4949,7 @@ ul#scroll-widget li a:hover span{
     width: 112px;
 }
 
-#get-app .iphone-screen{
+.iphone-screen{
 	background: url("img/iphone-screen.png") no-repeat scroll center top transparent;
     display: block;
     height: 188px;

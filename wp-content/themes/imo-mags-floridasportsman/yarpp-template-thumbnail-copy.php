@@ -11,7 +11,7 @@ Modified by cbforrester
 <div id="related_videos">
   <h3 class="related_videos_header">Related</h3>
   <div class="related_videos_arrow" id="related_videos_goleft">
-    <?php  echo '<img src="'.plugins_url() . '/test-plugin/images/arrowbar-prev.png">'; ?>
+    <?php  echo '<img src="'.plugins_url() . '/imo-video-gallery/images/arrowbar-prev.png">'; ?>
   </div>
   <div id="related_videos_video_wrapper">
 <div id="related_videos_video_grid">
@@ -29,11 +29,11 @@ Modified by cbforrester
 </div>
 </div>
 <div class="related_videos_arrow" id="related_videos_goright">
-  <?php  echo '<img src="'.plugins_url() . '/test-plugin/images/arrowbar-next.png">'; ?>
+  <?php  echo '<img src="'.plugins_url() . '/imo-video-gallery/images/arrowbar-next.png">'; ?>
 </div>
 </div>
 <?php else: ?>
-<p>No related videos.</p>
+<p><b>No related items found.</b></p>
 <?php endif; ?>
 
 
