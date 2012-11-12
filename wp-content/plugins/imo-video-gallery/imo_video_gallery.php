@@ -334,7 +334,7 @@ function getContent(page, document_load, channel_tax, channel_term, container){
 
 
       jQuery("#"+container).html(data['grid_html']);
-
+      remove_loading_cursor();
 
 
       if (jQuery('#'+container).height() < 133)
@@ -375,6 +375,7 @@ function getContent(page, document_load, channel_tax, channel_term, container){
         
       }      
       jQuery("#"+container).html(data['grid_html']);
+      remove_loading_cursor();
       
     }
 
@@ -471,10 +472,12 @@ jQuery("#upnext_video_grid").css("width", "1200px");
  var position = 0;
 
 
-jQuery("#flsp_videogallery_grid_next").click(function(){
+jQuery("#flsp_videogallery_grid_next").click(function(e){
 
-
-   var page = jQuery("#flsp_videogallery_grid_page").val();
+ //var loading_image_url = '<?php echo plugin_dir_url( __FILE__ ) . 'images/ajax-loader.gif'; ?>';
+ 
+  show_loading_cursor(e);
+  var page = jQuery("#flsp_videogallery_grid_page").val();
   var tax = jQuery("#flsp_videogallery_channel_tax").val();
   var term = jQuery("#flsp_videogallery_channel_term").val();
   page++;
@@ -482,8 +485,9 @@ jQuery("#flsp_videogallery_grid_next").click(function(){
 
 });
 
-jQuery("#flsp_videogallery_grid_prev").click(function(){
+jQuery("#flsp_videogallery_grid_prev").click(function(e){
 
+  show_loading_cursor(e);
   var page = jQuery("#flsp_videogallery_grid_page").val();
   var tax = jQuery("#flsp_videogallery_channel_tax").val();
   var term = jQuery("#flsp_videogallery_channel_term").val();  
@@ -534,7 +538,15 @@ jQuery('#upnext_goright').on("click", function(){
 });  
 
 
+jQuery('.flsp_vg_left_sidebar_channel').click(function(e){
+  show_loading_cursor(e);
+})
 
+jQuery('#sidebar_channels_select').change(function(e){
+  if (jQuery('#sidebar_channels_select option:selected').val() != '0' ){
+    show_loading_cursor(e);
+  }
+})
 
 
 
@@ -543,6 +555,37 @@ jQuery('#upnext_goright').on("click", function(){
 
 
 }
+
+var loadingImage;
+var loading_image_url = '<?php echo plugin_dir_url( __FILE__ ) . 'images/imovg-ajax-loader.gif'; ?>';
+function show_loading_cursor(obj) {
+
+  loadingImage = jQuery(document.createElement("img")).attr("src", loading_image_url).attr("alt", "Loading...");
+
+  jQuery("body").append(loadingImage);
+
+  jQuery(loadingImage).css({
+    position: "absolute",
+    background: "none",
+    top: (obj.pageY + 15) + "px",
+    left: (obj.pageX + 15) + "px"
+  });
+   
+  jQuery(document).mousemove(function(e) {
+    loadingImage.css({
+      top: (e.pageY + 15) + "px",
+      left: (e.pageX + 15) + "px"
+    });
+  });
+}
+
+function remove_loading_cursor() {
+  jQuery(document).unbind("mousemove");
+  
+  jQuery(loadingImage).remove();
+}
+
+
 
 jQuery(document).ready(function() {
 
@@ -626,13 +669,16 @@ jQuery(document).ready(function() {
 <div id="gridContainer">
 </div>
 <div id="flsp_paging">
-    <div class="flsp_videogallery_grid_prev">
-      <a id="flsp_videogallery_grid_prev">&#9668; Back</a>
-    </div>
-
+  <a id="flsp_videogallery_grid_prev">
+  <div class="flsp_videogallery_grid_prev">
+       <span class="flsp_grid_button_text">&#9668; Back</span>
+  </div>
+  </a>
+  <a id="flsp_videogallery_grid_next">
     <div class="flsp_videogallery_grid_next">
-      <a id="flsp_videogallery_grid_next">Next &#9658;</a>
+      <span class="flsp_grid_button_text">Next &#9658;</span>
     </div>
+  </a>
 </div>
 <input type="hidden" id="flsp_videogallery_grid_page" value="1">
 <input type="hidden" id="flsp_videogallery_channel_tax" value="">
@@ -651,10 +697,11 @@ jQuery(document).ready(function() {
 <h4 class="nav_header">FS Channels</h4>
 
    <?php 
-echo '<a href="javascript:getContent(1,false,\'\',\'\', \'gridContainer\');">All Videos</a>';   
+echo '<a class="flsp_vg_left_sidebar_channel" href="javascript:getContent(1,false,\'\',\'\', \'gridContainer\');">All Videos</a>';   
 $channels = explode ( ',' , get_option('flsp_video_gallery_channels') );
 $channel_name = "";
 $channel_label = "";
+$channel_tax = "";
 foreach($channels as $channel){
    
    $i = false;
@@ -677,7 +724,7 @@ foreach($channels as $channel){
         }
       
 
-      if (taxonomy_exists($ca_segment)){
+      if (taxonomy_exists($ca_segment) && strlen($channel_tax) == 0 ){
          $channel_tax = $ca_segment;
          $i = true;
       }
@@ -690,8 +737,9 @@ foreach($channels as $channel){
     $channel_name = str_replace('\"', '', $channel_label);
     $channel_label = "";
   }
-   echo '<br><a href="javascript:getContent(1,false,\''.$channel_tax.'\',\''.$channel_term.'\', \'gridContainer\');">'.$channel_name.'</a>';
+   echo '<br><a class="flsp_vg_left_sidebar_channel" href="javascript:getContent(1,false,\''.$channel_tax.'\',\''.$channel_term.'\', \'gridContainer\');">'.$channel_name.'</a>';
    $channel_name = "";
+   $channel_tax = "";
  }
 }
       $microsites[0]['link'] = get_option('flsp_video_gallery_microsite_1');
@@ -872,7 +920,7 @@ foreach($channels as $channel){
         }
       
 
-      if (taxonomy_exists($ca_segment)){
+      if (taxonomy_exists($ca_segment) && strlen($channel_tax) == 0 ){
          $channel_tax = $ca_segment;
          $i = true;
       }
@@ -887,6 +935,7 @@ foreach($channels as $channel){
   }
    $sidebar_content .= '<option value="'.$channel_tax.','.$channel_term.'">'.$channel_name.'</option>';
    $channel_name = "";
+   $channel_tax = "";
  }
 }
 
