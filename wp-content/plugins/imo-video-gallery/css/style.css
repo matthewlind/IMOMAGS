@@ -160,7 +160,26 @@
   color: white;
 }
 
-.flsp_videogallery_grid_next, .flsp_videogallery_grid_prev {
+.flsp_videogallery_grid_prev {
+  background-color: #dd540a;
+  float:left;
+  width:100px;
+  padding-top: 10px;
+  text-align: center;
+  vertical-align: middle;
+  display: none;
+  margin-right: 20px;
+	padding-bottom: 10px;
+	margin-top: 10px;
+  margin-left: 550px;
+  cursor: pointer;
+  color:white;
+  font-weight: bold;
+  font-family: Arvo,Georgia,serif;  
+}
+
+
+.flsp_videogallery_grid_next  {
   background-color: #dd540a;
   float:right;
   width:100px;
@@ -169,17 +188,20 @@
   vertical-align: middle;
   display: none;
   margin-right: 30px;
-	padding-bottom: 10px;
-	margin-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 10px;
   cursor: pointer;
-}
-.flsp_videogallery_grid_next a, .flsp_videogallery_grid_prev a {
   color:white;
   font-weight: bold;
-  font-family: Arvo,Georgia,serif;
+  font-family: Arvo,Georgia,serif;  
 }
+
 .flsp_videogallery_grid_next:hover, .flsp_videogallery_grid_prev:hover {
 	background-color: #196c8d;
+}
+
+.flsp_grid_button_text {
+  color:white;
 }
 
 .prev {
