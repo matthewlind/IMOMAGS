@@ -1081,7 +1081,7 @@ function displayReconList(type) {
 		    }
 			
 				if(this.post_type == "report"  && this.state !== undefined && this.state !== "" && this.state !== null){
-					//console.log(this.state);
+					console.log(this.state);
 					
 					niceState = stateKey[this.state];
 				
@@ -1116,10 +1116,10 @@ function displayReconList(type) {
 					}else if (niceState == 'Prince Edward Island'){
 						state_slug = 'prince-edward-island';
 					}else{
-						state_slug = stateKey[this.state.toLowerCase()];
+						state_slug = stateKey[this.state];
 					}
 					
-					var state_url = "<div class='state-type'><a href='/community/report/" + state_slug + "'>" + niceState + "</a></div>";
+					var state_url = "<div class='state-type'><a href='/community/report/" + state_slug.toLowerCase() + "'>" + niceState + "</a></div>";
 					
 			    }else{
 				    state_url = "";
