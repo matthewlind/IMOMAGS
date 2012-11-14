@@ -157,7 +157,7 @@ get_header();
 			<div class="app-store-icon">Available on the app store</div>
 		</div>
 	</div>
-	s<a class="hide-this" href="#">Don't show this again</a>
+	<a class="hide-this" href="#">Don't show this again</a>
 </div>
 
 <?php get_footer(); ?>
