@@ -5276,8 +5276,8 @@ margin-top:0;
 	padding-left: 8px;
 }
 .qtip{
-	background: url("img/qtip-arrow.png") center 87px no-repeat transparent;
-	height: 104px;
+	background: url("img/qtip-arrow.png") center 71px no-repeat transparent;
+	height: 80px;
 }
 .qtip-content li{
 	color: #ffe720;

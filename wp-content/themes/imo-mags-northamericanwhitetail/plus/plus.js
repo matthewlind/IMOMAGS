@@ -1116,10 +1116,10 @@ function displayReconList(type) {
 					}else if (niceState == 'Prince Edward Island'){
 						state_slug = 'prince-edward-island';
 					}else{
-						state_slug = stateKey[this.state];
+						state_slug = stateKey[this.state.toLowerCase()];
 					}
 					
-					var state_url = "<div class='state-type'><a href='/community/report/" + state_slug.toLowerCase() + "'>" + niceState + "</a></div>";
+					var state_url = "<div class='state-type'><a href='/community/report/" + state_slug + "'>" + niceState + "</a></div>";
 					
 			    }else{
 				    state_url = "";
