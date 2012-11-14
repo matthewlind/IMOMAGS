@@ -4,11 +4,12 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 get_header(); ?>
 
-<header id="masthead">
-	<h1><?php _e('', 'carrington-business'); wp_title('&rsaquo;'); ?></h1>
-</header>
+
 
 <div id="content" class="col-ab">
+	<header>
+		<h1><?php _e('', 'carrington-business'); wp_title('&rsaquo;'); ?></h1>
+	</header>
 	<?php
 	cfct_loop();
 	cfct_misc('nav-posts'); ?>
