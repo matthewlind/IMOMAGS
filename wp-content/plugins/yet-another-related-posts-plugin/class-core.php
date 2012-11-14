@@ -32,16 +32,15 @@ class YARPP {
 
 		register_activation_hook( __FILE__, array($this, 'activate') );
 		
-		// update cache on save
-		add_action( 'save_post', array($this->cache, 'save_post') );
 		// new in 3.2: update cache on delete
-		add_action( 'delete_post', array($this->cache, 'delete_post') );
+		add_action( 'delete_post', array($this->cache, 'delete_post'), 10, 1 );
 		// new in 3.2.1: handle post_status transitions
+		// new in 3.5.3: use transition_post_status instead of save_post hook
 		add_action( 'transition_post_status', array($this->cache, 'transition_post_status'), 10, 3);
 
 		// automatic display hooks:
 		add_filter( 'the_content', array( $this, 'the_content' ), 1200 );
-		add_filter( 'the_content_rss', array( $this, 'the_content_rss' ), 600 );
+		add_filter( 'the_content_feed', array( $this, 'the_content_feed' ), 600 );
 		add_filter( 'the_excerpt_rss', array( $this, 'the_excerpt_rss' ), 600 );
 
 		if ( isset($_REQUEST['yarpp_debug']) )
@@ -82,7 +81,7 @@ class YARPP {
 			'rss_after_related' => '</ol>',
 			'rss_no_results' => '<p>'.__('No related posts.','yarpp').'</p>',
 			'rss_order' => 'score DESC',
-			'past_only' => true,
+			'past_only' => false,
 			'show_excerpt' => false,
 			'rss_show_excerpt' => false,
 			'template' => false, // new in 3.5
@@ -120,18 +119,20 @@ class YARPP {
 		}
 	
 		$new_options = array_merge( $current_options, $options );
+		update_option( 'yarpp', $new_options );
 	
 		// new in 3.1: clear cache when updating certain settings.
-		$clear_cache_options = array( 'show_pass_post', 'recent', 'threshold' );
-		$new_options_which_require_flush = array_intersect( array_keys( array_diff_assoc($options, $current_options) ), $clear_cache_options );
+		$clear_cache_options = array( 'show_pass_post' => 1, 'recent' => 1, 'threshold' => 1 );
+
+		$relevant_options = array_intersect_key( $options, $clear_cache_options );
+		$relevant_current_options = array_intersect_key( $current_options, $clear_cache_options );
+		$new_options_which_require_flush = array_diff_assoc($relevant_options, $relevant_current_options);
 		if ( count($new_options_which_require_flush) ||
 			( $new_options['limit'] > $current_options['limit'] ) ||
 			( $new_options['weight'] != $current_options['weight'] ) ||
 			( $new_options['exclude'] != $current_options['exclude'] ) ||
 			( $new_options['require_tax'] != $current_options['require_tax'] ) )
 			$this->cache->flush();
-	
-		update_option( 'yarpp', $new_options );
 	}
 	
 	// 3.4b8: $option can be a path, of the query_str variety, i.e. "option[suboption][subsuboption]"
@@ -183,6 +184,15 @@ class YARPP {
 		return false;
 	}
 	
+	// @since 3.5.2: function to enforce YARPP setup
+	// if new install, activate; else upgrade
+	function enforce() {
+		if ( !get_option('yarpp_version') )
+			$this->activate();
+		else
+			$this->upgrade();
+	}
+	
 	function activate() {
 		global $wpdb;
 	
@@ -203,10 +213,12 @@ class YARPP {
 		}
 		
 		if ( !get_option('yarpp_version') ) {
+			// new install
 			add_option( 'yarpp_version', YARPP_VERSION );
 			$this->version_info(true);
 		} else {
-			$this->upgrade_check();
+			// upgrade
+			$this->upgrade();
 		}
 	
 		return 1;
@@ -222,7 +234,7 @@ class YARPP {
 		return 'UNKNOWN';
 	}
 	
-	function upgrade_check() {
+	function upgrade() {
 		$last_version = get_option( 'yarpp_version' );
 		if (version_compare(YARPP_VERSION, $last_version) === 0)
 			return;
@@ -239,7 +251,9 @@ class YARPP {
 			$this->upgrade_3_4_4b3();
 		if ( $last_version && version_compare('3.4.4b4', $last_version) > 0 )
 			$this->upgrade_3_4_4b4();
-			
+		if ( $last_version && version_compare('3.5.2b2', $last_version) > 0 )
+			$this->upgrade_3_5_2b2();
+		
 		$this->cache->upgrade($last_version);
 		// flush cache in 3.4.1b5 as 3.4 messed up calculations.
 		if ( $last_version && version_compare('3.4.1b5', $last_version) > 0 )
@@ -285,7 +299,7 @@ class YARPP {
 			'tags' => '2',
 			'distags' => '',
 			'discats' => '',
-			'past_only' => true,
+			'past_only' => false,
 			'show_excerpt' => false,
 			'recent_only' => false, // new in 3.0
 			'use_template' => false, // new in 2.2
@@ -403,9 +417,11 @@ class YARPP {
 
 		// consolidate excludes, using tt_ids.
 		$exclude_tt_ids = array();
-		foreach ($options['exclude'] as $tax => $term_ids) {
-			if ( !empty($term_ids) )
-				$exclude_tt_ids = array_merge( wp_list_pluck(get_terms( $tax, array('include' => $term_ids) ), 'term_taxonomy_id'), $exclude_tt_ids );
+		if ( isset($options['exclude']) && is_array($options['exclude']) ) {
+			foreach ($options['exclude'] as $tax => $term_ids) {
+				if ( !empty($term_ids) )
+					$exclude_tt_ids = array_merge( wp_list_pluck(get_terms( $tax, array('include' => $term_ids) ), 'term_taxonomy_id'), $exclude_tt_ids );
+			}
 		}
 		$options['exclude'] = join(',', $exclude_tt_ids);
 
@@ -431,6 +447,33 @@ class YARPP {
 		unset( $options['recent_number'] );
 		unset( $options['recent_units'] );
 		update_option( 'yarpp', $options );
+	}
+	
+	function upgrade_3_5_2b2() {
+		// fixing the effects of a previous bug affecting non-MyISAM users
+		if ( is_null( yarpp_get_option('weight') ) ||
+			!is_array( yarpp_get_option('weight') ) ) {
+			$weight = $this->default_options['weight'];
+			// if we're still not using MyISAM
+			if ( !yarpp_get_option('myisam_override') && 
+				$this->myisam_check() !== true ) {
+				unset( $weight['title'] );
+				unset( $weight['body'] );
+			}
+			yarpp_set_option(array('weight' => $weight));
+		}
+	}
+	
+	function is_happy() {
+		$stats = $this->cache->stats();
+
+		if ( !(array_sum( $stats ) > 0) )
+			return false;
+		
+		$sum = array_sum(array_map('array_product', array_map(null, array_values($stats), array_keys($stats))));
+		$avg = $sum / array_sum( $stats );
+
+		return $this->cache->cache_status() > 0.1 && $avg > 2;
 	}
 	
 	private $post_types = null;
@@ -489,14 +532,18 @@ class YARPP {
 	function display_related($reference_ID = null, $args = array(), $echo = true) {
 		global $wp_query, $pagenow;
 	
-		$this->upgrade_check();
-
-		$reference_ID = ( null === $reference_ID || false === $reference_ID ) ?
-			get_the_ID() : absint($reference_ID);
+		$this->enforce();
 
 		// if we're already in a YARPP loop, stop now.
 		if ( $this->cache->is_yarpp_time() || $this->cache_bypass->is_yarpp_time() )
 			return false;
+
+		$reference_ID = ( null === $reference_ID || false === $reference_ID ) ?
+			get_the_ID() : absint($reference_ID);
+
+		// @since 3.5.3: don't compute on revisions
+		if ( $the_post = wp_is_post_revision($reference_ID) )
+			$reference_ID = $the_post;
 		
 		$this->setup_active_cache( $args );
 
@@ -574,9 +621,12 @@ class YARPP {
 	 * @param (array) $args
 	 */
 	function get_related($reference_ID = null, $args = array()) {
-		$this->upgrade_check();
+		$this->enforce();
 
 		$reference_ID = ( null === $reference_ID ) ? get_the_ID() : absint($reference_ID);
+		// @since 3.5.3: don't compute on revisions
+		if ( $the_post = wp_is_post_revision($reference_ID) )
+			$reference_ID = $the_post;
 	
 		// if we're already in a YARPP loop, stop now.
 		if ( $this->cache->is_yarpp_time() || $this->cache_bypass->is_yarpp_time() )
@@ -613,14 +663,17 @@ class YARPP {
 	 * @param (array) $args
 	 */
 	function related_exist($reference_ID = null, $args = array()) {
-		$this->upgrade_check();
+		$this->enforce();
 	
-		$reference_ID = ( null === $reference_ID ) ? get_the_ID() : absint($reference_ID);
-			
 		// if we're already in a YARPP loop, stop now.
 		if ( $this->cache->is_yarpp_time() || $this->cache_bypass->is_yarpp_time() )
 			return false;
 	
+		$reference_ID = ( null === $reference_ID ) ? get_the_ID() : absint($reference_ID);
+		// @since 3.5.3: don't compute on revisions
+		if ( $the_post = wp_is_post_revision($reference_ID) )
+			$reference_ID = $the_post;
+				
 		$this->setup_active_cache( $args );
 	
 		$cache_status = $this->active_cache->enforce($reference_ID);
@@ -685,7 +738,7 @@ class YARPP {
 	}
 	
 	public function parse_args( $args, $options ) {
-		$options_with_rss_variants = array( 'limit', 'template', 'excerpt_length', 'before_title', 'after_title', 'before_post', 'after_post', 'before_related', 'after_related', 'no_results', 'order' );
+		$options_with_rss_variants = array( 'limit', 'template', 'excerpt_length', 'before_title', 'after_title', 'before_post', 'after_post', 'before_related', 'after_related', 'no_results', 'order', 'promote_yarpp' );
 
 		$r = array();
 		foreach ( $options as $option ) {
@@ -741,8 +794,10 @@ class YARPP {
 	 */
 	 
 	function the_content($content) {
-		if (is_feed())
-			return $this->the_content_rss($content);
+		if ( is_feed() ||
+		     !$this->get_option('auto_display') || 
+		     !is_singular(array('post')) )
+			return $content;			
 	
 		if ( $this->get_option('cross_relate') )
 			$type = $this->get_post_types();
@@ -751,13 +806,13 @@ class YARPP {
 		else
 			$type = array( 'post' );
 	
-		if ( $this->get_option('auto_display') && is_single() )
-			return $content . $this->display_related(null, array('post_type' => $type, 'domain' => 'website'), false);
-		else
-			return $content;
+		return $content . $this->display_related(null, array('post_type' => $type, 'domain' => 'website'), false);
 	}
 	
-	function the_content_rss($content) {
+	function the_content_feed($content) {
+		if ( !$this->get_option('rss_display') )
+			return $content;
+
 		if ( $this->get_option('cross_relate') )
 			$type = $this->get_post_types();
 		else if ( 'page' == get_post_type() )
@@ -765,13 +820,14 @@ class YARPP {
 		else
 			$type = array( 'post' );
 	
-		if ( $this->get_option('rss_display') )
-			return $content . $this->display_related(null, array('post_type' => $type, 'domain' => 'rss'), false);
-		else
-			return $content;
+		return $content . $this->display_related(null, array('post_type' => $type, 'domain' => 'rss'), false);
 	}
 	
 	function the_excerpt_rss($content) {
+		if ( !$this->get_option('rss_excerpt_display') || 
+		     !$this->get_option('rss_display') )
+			return $content;
+
 		if ( $this->get_option('cross_relate') )
 			$type = $this->get_post_types();
 		else if ( 'page' == get_post_type() )
@@ -779,10 +835,7 @@ class YARPP {
 		else
 			$type = array( 'post' );
 	
-		if ( $this->get_option('rss_excerpt_display') && $this->get_option('rss_display') )
-			return $content . clean_pre($this->display_related(null, array('post_type' => $type, 'domain' => 'rss'), false));
-		else
-			return $content;
+		return $content . $this->clean_pre($this->display_related(null, array('post_type' => $type, 'domain' => 'rss'), false));
 	}
 	
 	/*
@@ -798,9 +851,17 @@ class YARPP {
 			if (is_wp_error($remote))
 				return false;
 			
-			$result = unserialize($remote['body']);
-			set_transient('yarpp_version_info', $result, 60*60*12);
+			if ( $result = @unserialize($remote['body']) )
+				set_transient('yarpp_version_info', $result, 60*60*12);
 		}
 		return $result;
+	}
+	
+	// 3.5.2: clean_pre is deprecated in WP 3.4, so implement here.
+	function clean_pre( $text ) {
+		$text = str_replace(array('<br />', '<br/>', '<br>'), array('', '', ''), $text);
+		$text = str_replace('<p>', "\n", $text);
+		$text = str_replace('</p>', '', $text);
+		return $text;
 	}
 }

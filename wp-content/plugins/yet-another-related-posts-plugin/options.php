@@ -1,11 +1,8 @@
 <?php
 global $wpdb, $wp_version, $yarpp;
 
-// Reenforce YARPP setup:
-if ( !get_option('yarpp_version') )
-	$yarpp->activate();
-else
-	$yarpp->upgrade_check();
+// Enforce YARPP setup:
+$yarpp->enforce();
 
 // check to see that templates are in the right place
 if ( !count($yarpp->admin->get_templates()) ) {
@@ -62,7 +59,7 @@ if ( !yarpp_get_option('myisam_override') ) {
 		."'></input></form>"
 		."</div>";
 
-		$weight = yarpp_set_option('weight');
+		$weight = yarpp_get_option('weight');
 		unset($weight['title']);
 		unset($weight['body']);
 		yarpp_set_option(array('weight' => $weight));

@@ -610,6 +610,8 @@ jQuery(document).ready(function() {
 
 
 
+$excluded_taxonomies = array("sportsman-hd");
+
 
   if ($post->post_name == $video_page_slug){
 ?>
@@ -815,7 +817,7 @@ document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.florid
       }
 
 //if ($is_video_post){
-
+if (!in_array($terms_slugs[0], $excluded_taxonomies)){
   $content .= yarpp_related(array(
     // Pool options: these determine the "pool" of entities which are considered
     'post_type' => array('post'),
@@ -851,8 +853,9 @@ document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.florid
 
   //$content .= flsp_video_sidebar_channels();
 
-  // }
+   }
  }
+
    return $content;
 }
 
