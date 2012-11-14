@@ -271,7 +271,8 @@ abstract class YARPP_Cache {
 		$post = get_post( $ID );
 		if ( empty($post) )
 			return '';
-		$content = $this->apply_filters_if_white( 'the_content', $post->post_content );
+		//$content = $this->apply_filters_if_white( 'the_content', $post->post_content );
+		$content = $post->post_content;
 		return apply_filters( 'yarpp_body_keywords',
 			$this->extract_keywords( $content, $max, $ID ), $max, $ID );
 
