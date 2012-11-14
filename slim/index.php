@@ -753,7 +753,7 @@ $app->post('/api/superpost/add',function() {
 	        //If there are attachments, set the parent of the attachemnts
 	     	if (!empty($params['attachment_id'])) {
 				$attachmentIDstring = $params['attachment_id'];
-				setAtttachment($superpostID, $attachmentIDstring);
+				setAttachment($superpostID, $attachmentIDstring);
 				
 			}
 	        
@@ -805,29 +805,35 @@ $app->post('/api/superpost/update_field',function() {
 	
 	$userHasGoodPerms = FALSE; 
 	
+	//Load the post
+	try {
+    	
+    	$db = dbConnect();
+    
+    
+    	$sql = "SELECT * FROM superposts WHERE id = ? LIMIT 1";
+    
+    	$stmt = $db->prepare($sql);
+    	$stmt->execute(array($post_id));
+    	$post = $stmt->fetchObject();
+    	
+    
+    	
+    
+    	$db = "";
+		
+	} catch(PDOException $e) {
+    	echo $e->getMessage();
+    }	
+    
+    
+    
+	//Check for good perms
 	if ($userIsEditor) {
 		$userHasGoodPerms = TRUE;
 	} else {
-			try {
-
-				$db = dbConnect();
-		
-		
-				$sql = "SELECT * FROM superposts WHERE id = ? LIMIT 1";
-		
-				$stmt = $db->prepare($sql);
-				$stmt->execute(array($post_id));
-				$post = $stmt->fetchObject();
-				
-				if ($post->user_id == $user_id)
-					$userHasGoodPerms = TRUE; 
-				
-			
-				$db = "";
-		
-			} catch(PDOException $e) {
-		    	echo $e->getMessage();
-		    }
+       if ($post->user_id == $user_id)
+    	  $userHasGoodPerms = TRUE; 
 	}
 		
 	
@@ -851,6 +857,8 @@ $app->post('/api/superpost/update_field',function() {
 			echo json_encode($params);
 
 			$db = "";
+			
+
 
 		} catch(PDOException $e) {
 	    	echo $e->getMessage();
@@ -873,35 +881,39 @@ $app->post('/api/superpost/update_post',function() {
 
 	$post_id = $params['post_id'];
 	$user_id = $params['user_id'];
+	$post_type = "";
 	
 	$userIsGood = userIsGood($params['username'],$params['userhash']);
 	$userIsEditor = userIsEditor($params['username'],$params['timecode'],$params['editor_hash']);
 	
 	$userHasGoodPerms = FALSE; 
 	
+	
+	//Grab the post
+	try {
+
+		$db = dbConnect();
+
+
+		$sql = "SELECT * FROM superposts WHERE id = ? LIMIT 1";
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array($post_id));
+		$post = $stmt->fetchObject();
+		
+
+		$db = "";
+
+	} catch(PDOException $e) {
+    	echo $e->getMessage();
+    }
+	
+	//Check if user has good perms
 	if ($userIsEditor) {
 		$userHasGoodPerms = TRUE;
 	} else {
-			try {
-
-				$db = dbConnect();
-		
-		
-				$sql = "SELECT * FROM superposts WHERE id = ? LIMIT 1";
-		
-				$stmt = $db->prepare($sql);
-				$stmt->execute(array($post_id));
-				$post = $stmt->fetchObject();
-				
-				if ($post->user_id == $user_id)
-					$userHasGoodPerms = TRUE; 
-				
-			
-				$db = "";
-		
-			} catch(PDOException $e) {
-		    	echo $e->getMessage();
-		    }
+		if ($post->user_id == $user_id)
+			$userHasGoodPerms = TRUE; 
 	}
 		
 	
@@ -943,7 +955,25 @@ $app->post('/api/superpost/update_post',function() {
 
 				}
 			}
+			
+			
 
+	        
+	        
+	        //If there are attachments, set the parent of the attachemnts
+	     	if (!empty($params['attachment_id'])) {
+				$attachmentIDstring = $params['attachment_id'];
+				setAttachment($post_id, $attachmentIDstring);
+				
+			}
+			
+			//CLEAR THE VARNISH CACHE!
+			$postURL = "http://" . $post->domain . "/plus/" . $post->post_type . "/" . $post->id;
+			$curl = curl_init($postURL);
+            curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PURGE");
+            curl_exec($curl);
+            _log($postURL);
+            $params['post_url'] = $postURL;
 		
 
 			echo json_encode($params);
@@ -974,6 +1004,13 @@ $app->post('/api/superpost/update_caption',function() {
 
 	$newBody = $params['body'];
 	$post_id = $params['post_id'];
+	$user_id = $params['user_id'];
+	
+	$userIsGood = userIsGood($params['username'],$params['userhash']);
+	$userIsEditor = userIsEditor($params['username'],$params['timecode'],$params['editor_hash']);
+	$userHasGoodPerms = FALSE;
+	
+	
 
 
 	//First, check to see if attachment has parent
@@ -981,6 +1018,8 @@ $app->post('/api/superpost/update_caption',function() {
 
 	$postHasParent = FALSE;
 
+
+	$post = "";
 	try {
 
 		$db = dbConnect();
@@ -997,15 +1036,22 @@ $app->post('/api/superpost/update_caption',function() {
 		
 	
 		$db = "";
+		
+		_log($post);
 
 	} catch(PDOException $e) {
     	echo $e->getMessage();
     }
 
+	if ($post->user_id == $user_id)
+	   $userHasGoodPerms = TRUE; 
+    
+    
 
+    //If the attachment isn't yet part of a post, it can still be edited
 	//Get the user info an authenticate
 	//REMOVED: userIsGood($params['username'],$params['userhash'])
-	if (!$postHasParent) {
+	if (!$postHasParent || $userHasGoodPerms || $userIsEditor) {
 
 		try {
 
@@ -1016,6 +1062,8 @@ $app->post('/api/superpost/update_caption',function() {
 
 			$stmt = $db->prepare($sql);
 			$stmt->execute(array($newBody,$post_id));
+			
+			_log($sql);
 		
 		
 
@@ -1146,14 +1194,22 @@ $app->post('/api/post/flagadmin',function() {
 
 
 
-function setAtttachment($spid,$attachmentIDstring) {
+function setAttachment($spid,$attachmentIDstring) {
 	try {
 
 		$attachIDs = explode(",", $attachmentIDstring);
 
 		$db = dbConnect();
+		
+		//First Clear out any attachments
+		$sql = "UPDATE superposts SET parent = null WHERE parent = ?";
 
+        $stmt = $db->prepare($sql);
+        
+        $stmt->execute(array($spid));
+		
 
+		//Then, Add them All back
 		foreach ($attachIDs as $attachmentID) {
 			$sql = "UPDATE superposts SET parent = ? WHERE id IN(?)";
 

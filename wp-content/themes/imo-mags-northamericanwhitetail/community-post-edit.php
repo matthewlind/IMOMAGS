@@ -197,8 +197,8 @@ if ( is_user_logged_in() ) {
 			      </select>
 			</div> 
 	        </form>
-	        <h2>Attachment Editing Coming Soon!</h2>
-	        <!--
+
+	     
 <div class="media-section">
 	
 		     		
@@ -239,11 +239,9 @@ if ( is_user_logged_in() ) {
 		        <div class="video-close-button">
 		        </div>
 		      </div>
-		       
-		      
-		      
-		      </div>
---><!-- /.media-section-->
+		           
+</div>
+<!-- /.media-section-->
 		      <h4 style="display:none" class="photo-attachement-header">Photos</h4>
 		      <div class="attached-photos">
 		      </div>

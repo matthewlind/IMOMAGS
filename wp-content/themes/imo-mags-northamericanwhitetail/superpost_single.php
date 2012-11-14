@@ -279,6 +279,7 @@ if($data->view_count == 1){
 			            foreach ($attachmentData as $attachment) {
 			          
 			            $media = "";
+			            $caption = "";
 			            if($attachment->body){
 			            	$caption = "<div class='attachment-caption'>$attachment->body</div>";
 			            }
