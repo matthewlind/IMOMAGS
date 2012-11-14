@@ -19,7 +19,7 @@ jQuery(document).ready(function($) {
   if ($('.superpost-edit-form').length > 0) {//Do stuff only if the edit for is on the page.
 	  var postID = $(".superpost-edit-form .post_id").val();
   
-	 	  
+	  //First get the post data,
 	  $.getJSON('/slim/api/superpost/post_only/' + postID, function(data) {
 	  
 	  	  var postData = data[0];
@@ -43,6 +43,95 @@ jQuery(document).ready(function($) {
 		 		  
 	  });
 	  
+	  //Then get the attachment data
+	  //http://$hostname/slim/api/superpost/children/not_comment/$spid
+	  
+	  $.getJSON('/slim/api/superpost/children/not_comment/' + postID, function(data) {
+	  
+
+    	  var attachmentData = data;
+    	  var attachmentIDs;
+    	  
+    	  
+    	  $.each(attachmentData,function(index,attachment){	  
+    	  
+            
+    	  
+            //Then, add the image IDs to the new post form
+            //Without this step, the images will not be attached to the post
+            
+             if (attachmentIDs) {
+              attachmentIDs = attachmentIDs + "," + attachment.id;
+             } else {
+              attachmentIDs = attachment.id;
+             }
+            $("input.attachment_id").val(attachmentIDs);
+            
+            
+             
+            var $imageTag = $("<div><a href='" + attachment.img_url + "' class='thickbox'><img src='" + attachment.img_url + "' height=75 width=75 style='' class='image-thumb'></a>\
+                              <a href='#' class='image-delete-button'>&nbsp;asfg</a>\
+                              <form method='POST' action='/slim/api/superpost/update_caption' enctype='multipart/form-data' class='superpost-caption-form thumb-caption'>\
+                              <input class='caption-field' name='body' type='text' placeholder='Caption (optional)'>\
+                              <input type='hidden' name='form_id' value='fileUploadForm'>\
+                              <input type='hidden' name='post_id' class='post_id' value='321'>\
+                              </form>\
+                              </a></div>");
+                    
+                    	  
+            $imageTag.hide().delay(20).appendTo(".attached-photos").fadeIn();
+            
+             //Then change the value of the caption's post_id hidden field
+            $imageTag.find('.post_id').val(attachment.id);
+            
+            //set the caption field value
+            $imageTag.find('.caption-field').val(attachment.body);
+        
+            //Add the ajax form event to the caption form
+            $imageTag.find('.superpost-caption-form').ajaxForm({
+              beforeSubmit: ShowEditBody,
+              success: CaptionSubmitSuccessful,
+              dataType: 'json',
+              error: AjaxError                               
+            });    
+            
+            //Add the remove image event
+            $imageTag.find('.image-delete-button').click(function(event){
+                 event.preventDefault();
+                $(this).closest("div").fadeOut().remove();
+                
+                var attachmentIDstring = $("input.attachment_id").val();
+                var attachmentIDarray = attachmentIDstring.split(",");
+                
+                remove(attachmentIDarray,$(this).closest("div").find('.post_id').val());
+                
+
+                
+                var newAttachmentIDstring;
+                
+                $.each(attachmentIDarray,function(index,attachmentID){
+                    if (newAttachmentIDstring) {
+                          newAttachmentIDstring = newAttachmentIDstring + "," + attachmentID;
+                         } else {
+                          newAttachmentIDstring = attachmentID;
+                         }
+                });
+                
+                $("input.attachment_id").val(newAttachmentIDstring);
+                
+             });
+            
+        
+            //Then, add the change event to the caption field
+            $imageTag.find('.caption-field').change(function(){
+              $(this).closest('.superpost-caption-form').submit();
+            });
+            
+            
+		  });
+    	  
+	  });
+	  
 	  
 	  //Ajax Form Submission
 	  $('.superpost-edit-form').ajaxForm({                 
@@ -53,8 +142,26 @@ jQuery(document).ready(function($) {
 	  });    
   }
   
-
   
+function remove(arr, what) {
+    var found = arr.indexOf(what);
+
+    while (found !== -1) {
+        arr.splice(found, 1);
+        found = arr.indexOf(what);
+    }
+}
+
+function ShowEditBody(formData, jqForm, options){
+
+
+
+      	//Add the userdata so that we can authenticate
+  	options.extraData = $.extend(true, {}, options.extraData, userIMO);
+  	
+  	
+    
+}  
   
 //Called after form submission is successful
 function EditSubmitSuccessful(responseText, statusText) {     
@@ -64,9 +171,11 @@ function EditSubmitSuccessful(responseText, statusText) {
     var url = "/plus/" + response.post_type + "/" + response.post_id;
 
 
-    alert("EDIT SUCCESSFUL! Keep in mind that it may take 10 minutes before the change is live on the site.");
+    //alert("EDIT SUCCESSFUL! Keep in mind that it may take 10 minutes before the change is live on the site.");
 
-    //window.location = url;
+    
+    
+    window.location = url;
 
 
 }
@@ -434,7 +543,7 @@ function EditShowRequest(formData, jqForm, options) {
 
     //Add the ajax form event to the caption form
     $imageTag.find('.superpost-caption-form').ajaxForm({                 
-      beforeSubmit: ShowRequest,
+      beforeSubmit: CaptionShowRequest,
       success: CaptionSubmitSuccessful,
       dataType: 'json',
       error: AjaxError                               
@@ -444,12 +553,30 @@ function EditShowRequest(formData, jqForm, options) {
     $imageTag.find('.caption-field').change(function(){
       $(this).closest('.superpost-caption-form').submit();
     });
+    
+    
 
 
 
     ////console.log("response Image YO!");
     ////console.log(response);
 
+  }
+  
+    function CaptionShowRequest(formData, jqForm, options) {
+	
+	//////console.log(  $(userIMO) );
+  
+  
+  	//Add the userdata so that we can authenticate
+  	options.extraData = $.extend(true, {}, options.extraData, userIMO);
+  
+  
+    var queryString = $.param(formData);
+    //alert('BeforeSend method: \n\nAbout to submit: \n\n' + queryString);
+     
+
+    
   }
 
 
@@ -462,7 +589,7 @@ function EditShowRequest(formData, jqForm, options) {
   //COMMENT FORM AJAX REQUEST
   //**************************
   $('.superpost-comment-form').ajaxForm({                 
-    beforeSubmit: ShowRequest,
+    beforeSubmit: CommentShowRequest,
     success: CommentSubmitSuccessful,
     dataType: 'json',
     error: AjaxError                               
@@ -560,6 +687,24 @@ function EditShowRequest(formData, jqForm, options) {
 
   }
 
+
+
+  function CommentShowRequest(formData, jqForm, options) {
+	
+	//////console.log(  $(userIMO) );
+  
+  
+  	//Add the userdata so that we can authenticate
+  	options.extraData = $.extend(true, {}, options.extraData, userIMO);
+  
+  
+    var queryString = $.param(formData);
+    //alert('BeforeSend method: \n\nAbout to submit: \n\n' + queryString);
+     
+
+      
+    
+  }
 
 
   //Clear the forms.

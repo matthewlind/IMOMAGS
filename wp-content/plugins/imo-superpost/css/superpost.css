@@ -915,3 +915,7 @@ select.post_type{
 #registerform{
 	margin-bottom: 14px;
 }
+
+.page-template-community-post-edit-php .attached-photos {
+    padding-top:30px;
+}
