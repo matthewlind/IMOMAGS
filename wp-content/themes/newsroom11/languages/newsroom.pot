@@ -1,0 +1,209 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Newsroom\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-11-04 10:42-0500\n"
+"PO-Revision-Date: 2012-11-04 10:42-0500\n"
+"Last-Translator: WP Bandit <email@address>\n"
+"Language-Team: WPBandit\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-Basepath: .\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../404.php:11
+msgid "Error 404. <span>Oops!</span>"
+msgstr ""
+
+#: ../404.php:17
+msgid "Something went wrong."
+msgstr ""
+
+#: ../404.php:18
+msgid "The page you are looking for could not be found."
+msgstr ""
+
+#: ../_featured.php:79 ../_loop-alt.php:60 ../_loop.php:45
+#: ../single-full-top.php:40 ../single-full.php:39 ../single.php:34
+msgid "at"
+msgstr ""
+
+#: ../_featured.php:89 ../_loop-alt.php:77 ../_loop-alt.php:91 ../_loop.php:62
+msgid "(more...)"
+msgstr ""
+
+#: ../_featured.php:100 ../_subheader.php:120
+msgid "Most Recent"
+msgstr ""
+
+#: ../_loop-alt.php:11
+msgid "More"
+msgstr ""
+
+#: ../_nav-posts.php:9
+msgid "&larr; Previous"
+msgstr ""
+
+#: ../_nav-posts.php:10
+msgid "Next &rarr;"
+msgstr ""
+
+#: ../_subheader.php:49 ../widgets/wpbandit-widget-tabs.php:91
+#: ../widgets/wpbandit-widget-tabs.php:139
+msgid "Most Popular"
+msgstr ""
+
+#: ../_subheader.php:51
+msgid "All time"
+msgstr ""
+
+#: ../_subheader.php:52
+msgid "This month"
+msgstr ""
+
+#: ../_subheader.php:53
+msgid "This week"
+msgstr ""
+
+#: ../_subheader.php:54
+msgid "Last 24 hours"
+msgstr ""
+
+#: ../_subheader.php:81
+msgid "Latest Stories"
+msgstr ""
+
+#: ../_subheader.php:82
+msgid "What is new?"
+msgstr ""
+
+#: ../_subheader.php:119 ../widgets/wpbandit-widget-tabs.php:144
+msgid "Comments"
+msgstr ""
+
+#: ../comment-form.php:9
+msgid "Leave a comment"
+msgstr ""
+
+#: ../comment-form.php:21
+msgid "Name"
+msgstr ""
+
+#: ../comment-form.php:29
+msgid "Email"
+msgstr ""
+
+#: ../comment-form.php:37
+msgid "Website"
+msgstr ""
+
+#: ../comment-form.php:50
+msgid "Submit"
+msgstr ""
+
+#: ../search.php:11
+msgid "Search results for"
+msgstr ""
+
+#: ../search.php:18
+msgid "No search results"
+msgstr ""
+
+#: ../search.php:19
+msgid "The good news is you can try again."
+msgstr ""
+
+#: ../search.php:23
+msgid "Search"
+msgstr ""
+
+#: ../searchform.php:3
+msgid "Enter your search..."
+msgstr ""
+
+#: ../single-full-top.php:31 ../single-full.php:31 ../single.php:26
+msgid "by"
+msgstr ""
+
+#: ../single-full-top.php:63 ../single-full.php:62 ../single.php:52
+msgid "Pages:"
+msgstr ""
+
+#: ../single-full-top.php:68 ../single-full.php:67 ../single.php:57
+msgid "Tags:"
+msgstr ""
+
+#: ../single-full-top.php:84 ../single-full-top.php:96 ../single-full.php:83
+#: ../single.php:73 ../single.php:85
+msgid "Previous story"
+msgstr ""
+
+#: ../single-full-top.php:85 ../single-full-top.php:97 ../single-full.php:84
+#: ../single.php:74 ../single.php:86
+msgid "Next story"
+msgstr ""
+
+#: ../template-sitemap.php:28
+msgid "Pages"
+msgstr ""
+
+#: ../template-sitemap.php:32
+msgid "All Articles:"
+msgstr ""
+
+#: ../template-sitemap.php:42
+msgid "Feeds"
+msgstr ""
+
+#: ../template-sitemap.php:44
+msgid "Main RSS"
+msgstr ""
+
+#: ../template-sitemap.php:45
+msgid "Comment Feed"
+msgstr ""
+
+#: ../template-sitemap.php:47
+msgid "Categories"
+msgstr ""
+
+#: ../template-sitemap.php:49
+msgid "Archives"
+msgstr ""
+
+#: ../air/theme/theme.php:142
+msgid "Navigate to ..."
+msgstr ""
+
+#: ../air/theme/theme.php:181
+msgid ""
+"Cannot write to style-advanced.css. Please check permissions and try saving "
+"settings again."
+msgstr ""
+
+#: ../air/theme/theme.php:413
+msgid "Author:"
+msgstr ""
+
+#: ../air/theme/theme.php:418 ../widgets/wpbandit-widget-tabs.php:83
+msgid "Category:"
+msgstr ""
+
+#: ../air/theme/theme.php:423
+msgid "Tagged:"
+msgstr ""
+
+#: ../air/theme/theme.php:428
+msgid "Daily Archive:"
+msgstr ""
+
+#: ../air/theme/theme.php:433
+msgid "Monthly Archive:"
+msgstr ""
+
+#: ../air/theme/theme.php:438
+msgid "Yearly Archive:"
+msgstr ""
