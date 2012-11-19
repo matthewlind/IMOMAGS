@@ -1080,8 +1080,7 @@ function displayReconList(type) {
 			    nicePoint = points + " Points";
 		    }
 			
-				if(this.post_type == "report"  && this.state !== undefined && this.state !== "" && this.state !== null){
-					//console.log(this.state);
+				//if(this.post_type == "report"  && this.state !== undefined && this.state !== "" && this.state !== null){
 					
 					niceState = stateKey[this.state];
 				
@@ -1116,16 +1115,16 @@ function displayReconList(type) {
 					}else if (niceState == 'Prince Edward Island'){
 						state_slug = 'prince-edward-island';
 					}else{
-						state_slug = stateKey[this.state.toLowerCase()];
+						state_slug = stateKey[this.state];
 					}
 					
-					var state_url = "<div class='state-type'><a href='/community/report/" + state_slug + "'>" + niceState + "</a></div>";
+					//var state_url = "<div class='state-type'><a href='/community/report/" + state_slug.toLowerCase() + "'>" + niceState + "</a></div>";
 					
-			    }else{
-				    state_url = "";
-			    }
+			   // }else{
+				   // state_url = "";
+			   // }
 			    
-			    
+			    //" + state_url + "\
 			    
 			    //Handle blank titles
 			   	if(this.post_type == "report"){
@@ -1153,8 +1152,7 @@ function displayReconList(type) {
 					<ul>\
 						<li>\
 							<div class='row-info'>\
-							" + state_url + "\
-								" + postTitle + "\
+							" + postTitle + "\
 							</div>\
 						</li>\
 						<li class='reply-field'><a href='" + url + "/#comments'>" + niceReply + "</a></li>\
