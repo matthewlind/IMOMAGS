@@ -79,9 +79,11 @@
 
 .entry-content .editor-functions {
 	right: 0px;
-
+	z-index:999999;
 	position: absolute;
 }
+
+
 
 #user-avatar-remove {
 	display:none;

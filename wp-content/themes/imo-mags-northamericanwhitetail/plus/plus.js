@@ -661,7 +661,7 @@ function displayRecon(type) {
 						
 					}
 				});	
-				$reconBox.find(".detector-box").prepend($editorTools);
+				$reconBox.prepend($editorTools);
 				//End editor tools
 				
 				
