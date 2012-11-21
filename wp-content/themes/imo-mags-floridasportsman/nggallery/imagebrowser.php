@@ -16,7 +16,7 @@ Follow variables are useable :
 ?>
 <?php if (!defined ('ABSPATH')) die ('No direct access allowed'); ?><?php if (!empty ($image)) : ?>
 <?php $album = nggdb::find_album( get_query_var('album') ); ?>
-<?php $gallery = nggdb::find_gallery( get_query_var('gallery') ); 
+	<?php $gallery = nggdb::find_gallery( get_query_var('gallery') ); 
 
 ?>
 <?php if (empty($_GET['callback'])) { 
@@ -70,14 +70,26 @@ the_widget('Taxonomy_Drill_Down_Widget', array(
 <?php
 $description = !empty($image->alttext)  ? trim( preg_replace( '/\s+/', ' ', $image->alttext ) ) : trim( preg_replace( '/\s+/', ' ', $image->description ) );
 $description = show_tag_for_header($description);
-echo '<script type="text/javascript">';
-	echo 'jQuery(document).ready(function() {
+
+$theme_url = get_bloginfo( "template_url", $filter );
+
+
+ 
+echo '
+<script type="text/javascript">';
+	echo 'jQuery(document).ready(function(e) {
 	url = document.URL;
 	title = document.title;
 	document.title = title.replace( new RegExp("[^-]+ - "), "'.$description.' - ");
 	txt = url.replace( new RegExp( "pid=[0-9]+" ), "pid='.$image->pid.'" ); 
-	
-	history.pushState({}, "html5", txt)
+
+if (window.history.pushState) {
+
+    history.pushState(null,null,txt);
+
+} 
+
+
 	
 	} );';
 	
