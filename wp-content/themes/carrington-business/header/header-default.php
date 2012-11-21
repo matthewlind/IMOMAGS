@@ -68,8 +68,6 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 	<?php 
 	if(	$_SERVER['SERVER_NAME'] == array("www.bowhunter.fox","www.bowhuntingmag.fox","www.gundogmag.com","www.wildfowlmag.fox","www.petersenshunting.fox","www.gamandfishmag.com")){ ?>
 		
-		<iframe src="http://bs.serving-sys.com/BurstingPipe/adServer.bs?cn=rsb&c=28&pli=5555148&PluID=0&w=980&h=80&ord=[timestamp]&ifrm=2&ucm=true&ifl=$$http://www.imoutdoorsmedia.com/eyeblaster/addineyeV2.html$$" width=980 height=80 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0  scrolling=no bordercolor="#000000">
-		</iframe>
     		<div class="str-container">
 		<?php } ?>
 		<iframe src="http://bs.serving-sys.com/BurstingPipe/adServer.bs?cn=rsb&c=28&pli=5555148&PluID=0&w=980&h=80&ord=[timestamp]&ifrm=2&ucm=true&ifl=$$http://www.imoutdoorsmedia.com/eyeblaster/addineyeV2.html$$" width=980 height=80 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0  scrolling=no bordercolor="#000000">
