@@ -185,6 +185,11 @@ function ga_imo_addons_sidebar_init() {
 		'id' => 'cc-sidebar',
 		'description' => 'Appears on pages that are Caption Contests',
 )));
+  register_sidebar(array_merge($sidebar_defaults, array(
+  		'name' => 'Affiliate Sidebar',
+		'id' => 'affiliate-sidebar',
+		'description' => 'Appears on Affiliate Page',
+)));
 
 }
 add_action( 'widgets_init', 'ga_imo_addons_sidebar_init' );

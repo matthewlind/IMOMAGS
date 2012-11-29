@@ -6576,8 +6576,35 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 
 
 
-
-
+/********
+****
+**** Affiliate Pages
+****
+********/
+.affiliate-header{
+	background: url("img/affiliates-badge.png") no-repeat left top;
+	height: 120px;
+	width: 550px;
+	margin-bottom: 20px;
+}
+.affiliate-header h1, .affiliate-header .desc{
+	position: relative;
+	left: 110px;
+}
+.affiliate-header h1{
+	font-size: 1.7em;
+	background: white;
+	width: 192px;
+}
+.affiliate-header .desc{
+	line-height: 1.2;
+}
+.affiliate-header .bar{
+	border-bottom: 4px solid black;
+	position: relative;
+	left: 110px;
+	top: 23px;
+}
 
 
 
