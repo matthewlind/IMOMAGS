@@ -209,6 +209,10 @@ function imo_addons_subscription_page() {
         <th scope="row">Zombie Nation Header URL</th>
         <td><input type="text" name="zombie_header_uri" value="<?php echo get_option('zombie_header_uri'); ?>" /></td>
         </tr>
+        <tr valign="top">
+        <th scope="row">Affiliates Header URL</th>
+        <td><input type="text" name="affiliate_header_uri" value="<?php echo get_option('affiliate_header_uri'); ?>" /></td>
+        </tr>
 
         <tr valign="top">
         <th scope="row">Subscription Form Action</th>

@@ -29,6 +29,7 @@ $tfl_slug = "the-front-lines";
 $tgg_slug = "the-gun-guys";
 $tgr_slug = "history-books";
 $zn_slug = "zombie-nation";
+$aff_slug = "affiliates";
 
 get_header();
 ?>
@@ -52,6 +53,8 @@ get_header();
 		}
 		else if( in_category($soga_slug) || in_category($floc_slug) || in_category($dt_slug) || in_category($nb_slug) || in_category($zn_slug) || in_category($tgr_slug) ) {
 			if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-default')) : else :  endif; 
+		}else if( in_category($aff_slug) ){
+			if (function_exists('dynamic_sidebar') && dynamic_sidebar('affiliate-sidebar')) : else : endif;
 		}else{
 			if (function_exists('dynamic_sidebar') && dynamic_sidebar('homepage-sidebar')) : else :  endif; 
 		}
@@ -91,6 +94,7 @@ get_header();
 	    $zn_img = get_stylesheet_directory_uri(). "/img/blogs/zombie-nation.jpg";
 	}
 	
+	
 	?>
 	<?php if (in_category($soga_slug)) { ?>
 	<h1 class="seo-h1">Sons of guns & Ammo</h1>
@@ -123,6 +127,13 @@ get_header();
 	<h1 class="seo-h1">Zombie Nation</h1>
 	<a class="blog-header" href="/blogs/<?php echo $zn_slug; ?>/" title="<?php echo $current_category; ?>"><img src="<?php print $zn_img; ?>"></a>
 	
+	<?php } else if ( in_category($aff_slug) || in_category("military-arms") ) { ?>
+	<div class="affiliate-header">
+	<div class="bar"></div>
+	<h1>G&A Affiliates</h1>
+	<?php if( in_category("military-arms") ){ echo " <h4>Military Arms</h4>"; }?>
+	<div class="desc">YouTube's underground is full of gun-loving videographers with cult-like followings. Guns & Ammo has joined forces with some of the top personalities to create a new community for the best of the best.</div>
+	</div>
 	<?php } ?>
 	
 	

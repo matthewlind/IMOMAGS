@@ -26,12 +26,20 @@ if (!is_admin()) {
 	wp_enqueue_script('featured-thumbs-js',NULL,array('jquery','jquery-ui-core','jquery-ui-tabs'));
 				
 }
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
+
+
+$term = get_queried_object();
+$term_id = $term->term_id;
+$term_slug = $term->slug;
+$taxonomy = $term->taxonomy;
 
 ?>
 <?php get_header(); ?>
 
 <div class="page-template-page-right-php taxonomy-page">
-	<h1 class="seo-h1"><?php single_cat_title('');?></h1>
+	<h1 class="seo-h1"><?php echo $term->name; ?></h1>
 	<div id="sidebar">
 		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('reviews-sidebar')) : else : ?><?php endif; ?>
 	</div>
@@ -41,20 +49,14 @@ if (!is_admin()) {
 					<div class="cfct-mod-content">
 						<h4>
  							<div class="icon"></div>
-  								<span><?php single_cat_title('');?></span>
+  								<span>
+  								<?php echo $term->name;	?></span>
 						</h4>
 					</div>
 				</div>
 
 <?php
-$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
-
-
-$term = get_queried_object();
-$term_id = $term->term_id;
-$term_slug = $term->slug;
-$taxonomy = $term->taxonomy;
 
 
 
