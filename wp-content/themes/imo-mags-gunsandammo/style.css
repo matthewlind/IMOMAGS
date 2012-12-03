@@ -6605,8 +6605,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 	left: 110px;
 	top: 23px;
 }
-
-
+.affiliate-header h4{
+	position: relative;
+	left: 320px;
+	top: -30px;
+	background: white;
+	width: 146px;
+	padding-left: 8px;
+	margin-bottom: -30px;
+}
 
 .leiki_products {
     box-shadow: none !important;

@@ -99,10 +99,11 @@ if (empty($zn_img)) {
 <a class="blog-header" href="/blogs/<?php echo $zn_slug; ?>/" title="<?php echo $current_category; ?>"><img src="<?php print $zn_img; ?>"></a>
 <div style="height:20px;"></div>
 
-<?php } else if (is_category("affiliates")) { ?>
+<?php } else if (is_category("affiliates") || is_category("military-arms") ) { ?>
 <div class="affiliate-header">
 	<div class="bar"></div>
 	<h1>G&A Affiliates</h1>
+	<?php if( is_category("military-arms") ){ echo " <h4>Military Arms</h4>"; }?>
 	<div class="desc">YouTube's underground is full of gun-loving videographers with cult-like followings. Guns & Ammo has joined forces with some of the top personalities to create a new community for the best of the best.</div>
 </div>
 <?php } else { ?>
