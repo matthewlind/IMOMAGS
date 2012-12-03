@@ -1,0 +1,71 @@
+
+/**
+ * Featured Widget
+ */
+
+.featured-articles {
+  
+  width:420px;
+  
+}
+
+
+#block-gunsandammo_blocks-front_page_featured_widget {
+  width: 420px; height: 365px; position:relative; margin-left:20px;float:left;overflow:hidden;
+}
+.featured-item-pane {
+  position: relative; height:300px;width: 420px;
+}
+.ui-tabs-hide {
+display: none;
+}
+.featured-item-image {
+  position:absolute;
+  z-index:0;
+  top:0;
+  left:0;
+  padding:0;margin:0;
+  overflow:hidden;
+}
+
+.featured-item-description {
+  position: absolute;
+  z-index:1;
+  width:100%;
+  left:0;bottom:0;
+  padding:0px;margin:0; background-color: black;
+  background: url(../img/black80.png);
+}
+.featured-item-description h2 {
+  margin:0;color:white;  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 30px;opacity:1;padding:20px;
+  font-weight: bold;letter-spacing: -1px;line-height:30px;
+}
+.featured-item-description h2 a {color:white;}
+#featured-articles-navigator {list-style:none;margin:0;padding:0;display:block;
+  height: 90px;
+  bottom: 0;
+}
+#featured-articles-navigator li.first {margin-left:0;} 
+
+#featured-articles-navigator li {
+  list-style:none;
+  padding-top: 8px;
+  margin-top:4px;
+  float:left;
+  display:block;
+  width: 100px;
+  margin-left:6px;
+}
+#featured-articles-navigator li.ui-tabs-selected {
+  background-image: url(../img/tab-selected-arrow-up.png);
+  background-position: center top;
+  background-repeat: no-repeat;
+  } 
+#featured-articles-navigator li a {background-color: #231F20; display:block;height: 76px;width:98px;border:2px solid #231F20;}
+
+#featured-articles-navigator ul {
+  height: 92px;
+}
+
+.featured-articles .featured-item-pane { cursor: pointer; }

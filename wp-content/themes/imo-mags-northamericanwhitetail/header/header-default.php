@@ -24,6 +24,10 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 $postTitle = wp_title( '-', false, 'right' ); 
 
+
+$appArgument = "whitetailplus://www.northamericanwhitetail.com" . $_SERVER['REQUEST_URI']
+
+
 ?>
 <!DOCTYPE html>
 <!-- bid: <?php global $blog_id; print $blog_id ?>; env: <?php if(defined("WEB_ENV")) { print WEB_ENV; } else { print "production"; } ?> -->
@@ -36,6 +40,7 @@ $postTitle = wp_title( '-', false, 'right' );
 	<title><?php echo $postTitle; //esc_attr_e(get_bloginfo('name')); ?></title>
 
 	<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+	<meta name="apple-itunes-app" content="app-id=568488512, app-argument=<?php echo $appArgument; ?>">
 	<link rel="pingback" href="<?php bloginfo('pingback_url') ?>" />
 	<?php wp_get_archives(array('type' => 'monthly', 'format' => 'link')); ?>
 	
@@ -157,7 +162,7 @@ $postTitle = wp_title( '-', false, 'right' );
  * License: http://www.myfonts.com/viewlicense?type=web&buildid=2288984
  * Webfonts copyright: Copyright (c) Mark Simonson, 2005. All rights reserved.
  * 
- * © 2012 Bitstream Inc
+ * ï¿½ 2012 Bitstream Inc
 */
 
 -->
