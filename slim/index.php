@@ -1249,7 +1249,26 @@ function setAttachment($spid,$attachmentIDstring) {
 			$row = $stmt->fetch(PDO::FETCH_OBJ);			
 		}
 
+		if (!empty($attachIDs[0])) {
+			$sql = "SELECT * from superposts WHERE id = ?";
+			
+			$stmt = $db->prepare($sql);
+			$stmt->execute(array($attachIDs[0]));
+			
+			$row = $stmt->fetch(PDO::FETCH_OBJ);
+			
+			$imgURL = $row->img_url;
+			
+			$sql = "UPDATE superposts SET img_url = ? WHERE id = ?";
 
+			$stmt = $db->prepare($sql);
+
+			$stmt->execute(array($imgURL,$spid));
+		
+			$row = $stmt->fetch(PDO::FETCH_OBJ);	
+			
+			
+		}
 
 
 
