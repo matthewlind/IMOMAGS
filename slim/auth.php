@@ -34,7 +34,38 @@ function postIsRepeat($postHash) {
 
 		$db = "";
 		
-		if (count($posts) == 1) {
+		if (count($posts) >= 1) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+
+	} catch(PDOException $e) {
+    	return FALSE;
+    }
+	
+}
+
+
+function eventIsRepeat($eventHash) {
+		try {
+
+		$db = dbConnect();
+
+		
+		
+		$sql = "SELECT id FROM events WHERE eventhash = ?";
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array($eventHash));
+	
+		$events = $stmt->fetchAll(PDO::FETCH_OBJ);
+		
+	
+
+		$db = "";
+		
+		if (count($events) >= 1) {
 			return TRUE;
 		} else {
 			return FALSE;
