@@ -34,7 +34,6 @@ class Community_Menu_Widget extends WP_Widget {
     	<div class="nav">
 	     	<a href="/community/report">State Rut Reports</a>
 	     	<a href="/community/question">Questions</a>
-	     	<a href="/community/tip">Tips & Tactics</a>
 			<a href="/community/general">General Discussion</a>
 			<!--<a href="/community/contests">Contests</a>-->
     	</div>

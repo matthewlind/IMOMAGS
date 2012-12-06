@@ -77,36 +77,36 @@ if (empty($zn_img)) {
 	</div>
 	<div id="content" class="col-abc category-col-abc">
 	<?php if (is_category($soga_slug)) { ?>
-<a class="blog-header" href="/blogs/<?php echo "sons-of-gunsandammo"; ?>/" title="<?php echo $current_category; ?>"><img src="<?php print $sg_img; ?>"></a>
-<div style="height:20px;"></div>
-<?php } else if (is_category($floc_slug)) { ?>
-<a class="blog-header" href="/blogs/<?php echo $floc_slug; ?>/" title="<?php echo $current_category; ?>"><img src="<?php print $lc_img; ?>"></a>
-<div style="height:20px;"></div>
-
-<?php } else if (is_category($dt_slug)) { ?>
-<a class="blog-header" href="/blogs/<?php echo $dt_slug; ?>/" title="<?php echo $current_category; ?>"><img src="<?php print $dts_img; ?>"></a>
-<div style="height:20px;"></div>
-
-<?php } else if (is_category($nb_slug)) { ?>
-<a class="blog-header" href="/blogs/<?php echo $nb_slug; ?>/" title="<?php echo $current_category; ?>"><img src="<?php print $nb_img; ?>"></a>
-<div style="height:20px;"></div>
-
-<?php } else if (is_category($tgr_slug)) { ?>
-<a class="blog-header" href="/blogs/<?php echo $tgr_slug; ?>/" title="<?php echo $current_category; ?>"><img src="<?php print $hb_img; ?>"></a>
-<div style="height:20px;"></div>
-
-<?php } else if (is_category($zn_slug)) { ?>
-<a class="blog-header" href="/blogs/<?php echo $zn_slug; ?>/" title="<?php echo $current_category; ?>"><img src="<?php print $zn_img; ?>"></a>
-<div style="height:20px;"></div>
-
-<?php } else if (is_category("affiliates") || is_category("military-arms") ) { ?>
-<div class="affiliate-header">
-	<div class="bar"></div>
-	<h1>G&A Affiliates</h1>
-	<?php if( is_category("military-arms") ){ echo " <h4>Military Arms</h4>"; }?>
-	<div class="desc">YouTube's underground is full of gun-loving videographers with cult-like followings. Guns & Ammo has joined forces with some of the top personalities to create a new community for the best of the best.</div>
-</div>
-<?php } else { ?>
+	<a class="blog-header" href="/blogs/<?php echo "sons-of-gunsandammo"; ?>/" title="<?php echo $current_category; ?>"><img src="<?php print $sg_img; ?>"></a>
+	<div style="height:20px;"></div>
+	<?php } else if (is_category($floc_slug)) { ?>
+	<a class="blog-header" href="/blogs/<?php echo $floc_slug; ?>/" title="<?php echo $current_category; ?>"><img src="<?php print $lc_img; ?>"></a>
+	<div style="height:20px;"></div>
+	
+	<?php } else if (is_category($dt_slug)) { ?>
+	<a class="blog-header" href="/blogs/<?php echo $dt_slug; ?>/" title="<?php echo $current_category; ?>"><img src="<?php print $dts_img; ?>"></a>
+	<div style="height:20px;"></div>
+	
+	<?php } else if (is_category($nb_slug)) { ?>
+	<a class="blog-header" href="/blogs/<?php echo $nb_slug; ?>/" title="<?php echo $current_category; ?>"><img src="<?php print $nb_img; ?>"></a>
+	<div style="height:20px;"></div>
+	
+	<?php } else if (is_category($tgr_slug)) { ?>
+	<a class="blog-header" href="/blogs/<?php echo $tgr_slug; ?>/" title="<?php echo $current_category; ?>"><img src="<?php print $hb_img; ?>"></a>
+	<div style="height:20px;"></div>
+	
+	<?php } else if (is_category($zn_slug)) { ?>
+	<a class="blog-header" href="/blogs/<?php echo $zn_slug; ?>/" title="<?php echo $current_category; ?>"><img src="<?php print $zn_img; ?>"></a>
+	<div style="height:20px;"></div>
+	
+	<?php } else if (is_category("affiliates") || is_category("military-arms") ) { ?>
+	<div class="affiliate-header">
+		<div class="bar"></div>
+		<h1>G&A Affiliates</h1>
+		<?php if( is_category("military-arms") ){ echo " <h4>Military Arms</h4>"; }?>
+		<div class="desc">YouTube's underground is full of gun-loving videographers with cult-like followings. Guns & Ammo has joined forces with some of the top personalities to create a new community for the best of the best.</div>
+	</div>
+	<?php } else { ?>
 
 		<div class="section-title posts" style="width:648px;">
 					<div class="cfct-mod-content">

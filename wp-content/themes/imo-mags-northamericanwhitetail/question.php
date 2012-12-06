@@ -71,7 +71,6 @@ if ( is_user_logged_in() ) {
 		          <select class="post_type" name="secondary_post_type">
 			            <option value="">Choose a Topic</option>
 			            <option value="general">General</option>
-			            <option value="tips">Tips & Tactics</option>
 			            <option value="land">Land Management</option>
 			            <option value="trophy">Trophy Bucks</option>
 			            <option value="gear">Gear</option>
