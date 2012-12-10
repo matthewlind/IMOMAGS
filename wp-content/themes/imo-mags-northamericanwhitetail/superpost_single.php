@@ -87,9 +87,7 @@ if (empty($data->display_name)) {
 }
 
 // Topic nice names
-if($data->post_type == "tip"){
-	$topicName = 'Tips & Tactics';
-}else if($data->post_type == "trophy"){
+if($data->post_type == "trophy"){
 	$topicName = 'Trophy Bucks';
 }else if($data->post_type == "general"){
 	$topicName = 'General Discussion';

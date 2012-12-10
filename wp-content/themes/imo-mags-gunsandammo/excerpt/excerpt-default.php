@@ -24,6 +24,10 @@ if (!(has_term('news-brief','blog_tax')))
 	  <?php if ($showAvatar): ?>
 	  	<div class="author-photo"><?php	echo userphoto_the_author_thumbnail(); ?></div>
 	  <?php endif; ?>
+	  <?php if(in_category("military-arms")){ ?>
+	  	<div class="author-photo"><?php	echo get_avatar("3342"); ?></div>
+	  <?php } ?>
+
   <?php	endif; ?>
 	
 	<div class="entry-summary">

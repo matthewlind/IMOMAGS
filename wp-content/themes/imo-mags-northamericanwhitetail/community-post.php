@@ -136,8 +136,7 @@ if ( is_user_logged_in() ) {
 		        	<option value="report" class="report">Rut Reports</option>
 		            <option value="question" class="question">Q&A</option>
 		            <option value="general" class="general">General Discussion</option>
-		            <option value="tip" class="tip">Tips & Tactics</option>
-		          </select>
+	          </select>
 		     </div>
 
 	        <p class="login-note">

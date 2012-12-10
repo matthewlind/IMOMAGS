@@ -6276,14 +6276,22 @@ a.video-excerpt span {
   left: 5px;
   background: url("img/play_button_03.png?1336056336") no-repeat 80px center rgba(0, 0, 0, 0.35);
 }
-/* line 4514, sass/style.scss */
-a.video-excerpt-slider-wide span {
-  background: url("img/play_button_03.png?1336056336") no-repeat scroll 300px center rgba(0, 0, 0, 0.35);
-  height: 370px;
-  left: 0;
+a.video-excerpt span {
+  width: 226px;
+  height: 147px;
   position: absolute;
-  width: 648px;
-  margin-top: -400px;
+  background-color: rgba(0, 0, 0, 0.35);
+  left: 5px;
+  background: url("img/play_button_03.png?1336056336") no-repeat 80px center rgba(0, 0, 0, 0.35);
+}
+/* line 4514, sass/style.scss */
+.post-type-archive-imo_video a.video-excerpt span {
+  background: none !important;
+  height: 0 !important;
+  left: 0 !important;
+  position: absolute !important;
+  width: 0 !important;
+  margin-top: 0 !important;
 }
 /* line 4521, sass/style.scss */
 a.video-excerpt-tile span {
@@ -6584,7 +6592,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 .affiliate-header{
 	background: url("img/affiliates-badge.png") no-repeat left top;
 	height: 120px;
-	width: 550px;
+	width: 650px;
 	margin-bottom: 20px;
 }
 .affiliate-header h1, .affiliate-header .desc{
@@ -6598,12 +6606,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 }
 .affiliate-header .desc{
 	line-height: 1.2;
+	float: left;
+	width: 84%;
 }
 .affiliate-header .bar{
 	border-bottom: 4px solid black;
 	position: relative;
 	left: 110px;
 	top: 23px;
+	width: 540px;
 }
 .affiliate-header h4{
 	position: relative;
@@ -6614,6 +6625,17 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 	padding-left: 8px;
 	margin-bottom: -30px;
 }
+.affiliate-header .avatar{
+	float: right;
+	width: 75px;
+	height: auto;
+}
+
+
+
+
+
+
 
 .leiki_products {
     box-shadow: none !important;

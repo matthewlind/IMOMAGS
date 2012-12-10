@@ -151,6 +151,8 @@ function register_imo_subscribe_settings () {
     register_setting( 'imo-subs-settings-group', 'competition_header_uri' );
     register_setting( 'imo-subs-settings-group', 'news_header_uri' );
     register_setting( 'imo-subs-settings-group', 'zombie_header_uri' );
+    register_setting( 'imo-subs-settings-group', 'affiliates_desc_uri' );
+    register_setting( 'imo-subs-settings-group', 'ma_desc_uri' );
     register_setting( 'imo-subs-settings-group', 'subs_form_link' );
     register_setting( 'imo-subs-settings-group', 'i4ky' );
 }
@@ -165,11 +167,13 @@ function imo_addons_subscription_page() {
 <form method="post" action="options.php">
 <?php settings_fields( 'imo-subs-settings-group' ); ?>
 <table class="form-table">
+		<tr valign="top">
+        <td><strong>Magazine Section</strong></td>
+        </tr>
         <tr valign="top">
         <th scope="row">Deal Copy</th>
         <td><input type="text" name="deal_copy" value="<?php echo get_option('deal_copy'); ?>" /></td>
         </tr>
-
         <tr valign="top">
         <th scope="row">Subscription Link</th>
         <td><input type="text" name="subs_link" value="<?php echo get_option('subs_link'); ?>" /></td>
@@ -184,6 +188,9 @@ function imo_addons_subscription_page() {
         </tr><tr valign="top">
         <th scope="row">Magazine Cover URL</th>
         <td><input type="text" name="magazine_cover_uri" value="<?php echo get_option('magazine_cover_uri'); ?>" /></td>
+        </tr>
+        <tr valign="top">
+        <td><strong>Blog Headers</strong></td>
         </tr>
         <tr valign="top">
         <th scope="row">Sons of Guns & Ammo Header URL</th>
@@ -210,10 +217,19 @@ function imo_addons_subscription_page() {
         <td><input type="text" name="zombie_header_uri" value="<?php echo get_option('zombie_header_uri'); ?>" /></td>
         </tr>
         <tr valign="top">
-        <th scope="row">Affiliates Header URL</th>
-        <td><input type="text" name="affiliate_header_uri" value="<?php echo get_option('affiliate_header_uri'); ?>" /></td>
+        <td><strong>Affiliates Descriptions</strong></td>
         </tr>
-
+        <tr valign="top">
+        <th scope="row">Affiliates Description</th>
+        <td><input type="text" name="affiliates_desc_uri" value="<?php echo get_option('affiliates_desc_uri'); ?>" /></td>
+        </tr>
+        <tr valign="top">
+        <th scope="row">Military Arms Description</th>
+        <td><input type="text" name="ma_desc_uri" value="<?php echo get_option('ma_desc_uri'); ?>" /></td>
+        </tr>
+        <tr valign="top">
+        <td><strong>Subscribe</strong></td>
+        </tr>
         <tr valign="top">
         <th scope="row">Subscription Form Action</th>
         <td><input type="text" name="subs_form_link" value="<?php echo get_option('subs_form_link'); ?>" /><p>(No slash at the end: 'http://www.example.com'.)</p></td>

@@ -18,11 +18,7 @@ class browse_community_Widget extends WP_Widget {
 	         <select id="dynamic_select" class="post_type" name="post_type">
 	         	<option value="" selected="selected">Choose a Topic</option> 
 	         	<option value="/community/report">Rut Reports</option> 
-	         	<option value="/community/trophy">Trophy Bucks</option>
 	         	<option value="/community/question">Q&A</option>      
-	         	<option value="/community/gear">Gear</option>
-	            <option value="/community/lifestyle">Lifestyle</option>
-	            <option value="/community/tip">Tips & Tactics</option>
 	            <option value="/community/general">General Discussion</option>
 	          </select>
 	          

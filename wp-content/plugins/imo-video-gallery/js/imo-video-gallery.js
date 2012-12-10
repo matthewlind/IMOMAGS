@@ -3,8 +3,8 @@ var player;
 
 
 function getContent(page, document_load, channel_tax, channel_term, container){
-
-  jQuery.post(window.home_url + '/' + 'index.php?callback=flsp_videogallery-grid_content&paged=' + page + '&channel_tax='+channel_tax+'&channel_term='+channel_term+'&container='+container, function(data) {
+  
+  jQuery.get(window.home_url + '/' + 'index.php?callback=flsp_videogallery-grid_content&paged=' + page + '&channel_tax='+channel_tax+'&channel_term='+channel_term+'&container='+container, function(data) {
     
 
     if (container == 'gridContainer'){
@@ -83,7 +83,7 @@ function getContent(page, document_load, channel_tax, channel_term, container){
 
 function getVideoInfo(id){
   
-   jQuery.post(window.home_url + '/' + 'index.php?callback=flsp_videogallery-ajax&post_id=' + id, function(data) {
+   jQuery.get(window.home_url + '/' + 'index.php?callback=flsp_videogallery-ajax&post_id=' + id, function(data) {
    post_title = '<a href="'+data['permalink']+'">'+data['post_title']+'</a>';
    comments = '<a href="'+data['permalink']+'">'+data['comments']+'</a>';
    jQuery('#video_player_info_title').html(post_title);
@@ -258,7 +258,9 @@ jQuery('#sidebar_channels_select').change(function(e){
 var loadingImage;
 var loading_image_url = window.plugin_dir_url + '/images/imovg-ajax-loader.gif';
 function show_loading_cursor(obj) {
-
+  // if a loading image is already active from a previous call, get rid of it
+  if (jQuery(loadingImage))
+    jQuery(loadingImage).remove();
   loadingImage = jQuery(document.createElement("img")).attr("src", loading_image_url).attr("alt", "Loading...");
 
   jQuery("body").append(loadingImage);

@@ -132,7 +132,26 @@ get_header();
 	<div class="bar"></div>
 	<h1>G&A Affiliates</h1>
 	<?php if( in_category("military-arms") ){ echo " <h4>Military Arms</h4>"; }?>
-	<div class="desc">YouTube's underground is full of gun-loving videographers with cult-like followings. Guns & Ammo has joined forces with some of the top personalities to create a new community for the best of the best.</div>
+	<div class="desc"<?php if(in_category("military-arms")){ echo ' style="width:68%"'; } ?>>
+	<?php 
+
+		$aff_desc = get_option("affiliates_desc_uri", "YouTube's underground is full of gun-loving videographers with cult-like followings. Guns & Ammo has joined forces with some of the top personalities to create a new community for the best of the best." );
+		if (empty($aff_desc)) {
+		    $aff_desc = "YouTube's underground is full of gun-loving videographers with cult-like followings. Guns & Ammo has joined forces with some of the top personalities to create a new community for the best of the best.";
+		    }
+		$ma_desc = get_option("ma_desc_uri", "The Military Arms Channel is a YouTube channel dedicated to the shooting community and to bringing our viewers current information about firearms, self defense, gear, and more." );
+			if (empty($ma_desc)) {
+		    	$ma_desc = "The Military Arms Channel is a YouTube channel dedicated to the shooting community and to bringing our viewers current information about firearms, self defense, gear, and more.";
+		    }
+
+		if(in_category("affiliates") && !in_category("military-arms")){ echo $aff_desc; }
+		else if(in_category("affiliates") || in_category("military-arms")){ echo $ma_desc; }
+
+	?>
+	</div>
+	<?php if(in_category("military-arms")){ ?>
+	<div class="avatar"><?php echo get_avatar("3342"); ?></div>
+	<?php } ?>
 	</div>
 	<?php } ?>
 	
