@@ -131,7 +131,7 @@ get_header();
 	<div class="affiliate-header">
 	<div class="bar"></div>
 	<h1>G&A Affiliates</h1>
-	<?php if( in_category("military-arms") ){ echo " <h4>Military Arms</h4>"; }?>
+	<?php if( in_category("military-arms") ){ echo " <h4>Military Arms Channel</h4>"; }?>
 	<div class="desc"<?php if(in_category("military-arms")){ echo ' style="width:68%"'; } ?>>
 	<?php 
 
