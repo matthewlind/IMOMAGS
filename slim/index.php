@@ -758,15 +758,30 @@ $app->post('/api/superpost/add',function() {
 			}
 	        
 	
-			$db = "";
+			
 	
 			$params['id'] = $superpostID;
 			$params['ip'] = long2ip($params['ip']);
 	
 	
 			$response = $params;
-	
 			
+			
+			if ($params['post_type'] == "comment") {//If this is a comment, add an event!	
+				
+				
+				$post_id = $params['parent'];
+				$etype = "comment";
+				$user_id = $params['user_id'];
+
+				$eventHash = getEventHash($post_id, $etype, $user_id);
+			
+			
+				$oFlagger = new postFlagger();
+				$rtn = $oFlagger->insertEvent($params['parent'], "comment", $params['user_id'],$eventHash);		
+			}
+	
+			$db = "";
 			echo json_encode($response);
 			
 		} else {
@@ -1094,27 +1109,41 @@ $app->post('/api/post/flag',function() {
 	_log("FLAGGING STARTED");
 	_log($params);
 	
-
+/*
+			$postDate = date("dmy");
+			$postHash = md5("HELLOTHERE232bb" . $params['username'] . $postDate . $params['title']);
+			$params['posthash'] = $postHash;
+			
+			if (postIsRepeat($postHash))
+				$requestIsGood = FALSE;
+*/
 
 	if (!(isset($params['post_id']) && isset($params['etype']) && isset($params['user_id']))) {
 		$rtn["error"] = "Invalid Request";
-
 	}
 	elseif (!($params['post_id']!="" && $params['etype']!="" && $params['user_id']!="")) {
 		$rtn["error"] = "Invalid Parameters";
 	
 	}
+	
 	else {
 	
 		$post_id = $params['post_id'];
 		$etype = isset($params['etype'])? $params['etype']:"flag";
 		$user_id = isset($params['user_id'])? $params['user_id']:"1";
+		$eventHash = getEventHash($post_id, $etype, $user_id);
 	
 		//if (userIsGood($params['username'],$params['userhash'])) {
 		
+		if (eventIsRepeat($eventHash)) {
+			$rtn["error"] = "Repeat Event";
+		} else {
 			$oFlagger = new postFlagger();
+			$rtn = $oFlagger->insertEvent($post_id, $etype, $user_id,$eventHash);
+		}
 		
-			$rtn = $oFlagger->insertEvent($post_id, $etype, $user_id);
+		
+
 
 		
 		//}
@@ -1220,7 +1249,26 @@ function setAttachment($spid,$attachmentIDstring) {
 			$row = $stmt->fetch(PDO::FETCH_OBJ);			
 		}
 
+		if (!empty($attachIDs[0])) {
+			$sql = "SELECT * from superposts WHERE id = ?";
+			
+			$stmt = $db->prepare($sql);
+			$stmt->execute(array($attachIDs[0]));
+			
+			$row = $stmt->fetch(PDO::FETCH_OBJ);
+			
+			$imgURL = $row->img_url;
+			
+			$sql = "UPDATE superposts SET img_url = ? WHERE id = ?";
 
+			$stmt = $db->prepare($sql);
+
+			$stmt->execute(array($imgURL,$spid));
+		
+			$row = $stmt->fetch(PDO::FETCH_OBJ);	
+			
+			
+		}
 
 
 
@@ -1263,7 +1311,14 @@ function getImgURL($spid) {
 }
 
 
-
+function getEventHash($post_id, $etype, $user_id) {
+	$eventDate = date("dmy");
+	$eventMinute = floor(((int)date("i"))/60);
+	
+	$eventHash = md5("STRINGTHINGSgfid25s" . $post_id . $etype . $user_id . $eventDate . $eventMinute);
+	
+	return $eventHash;
+}
 
 
 

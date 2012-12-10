@@ -23,21 +23,21 @@ class postFlagger {
 	}
 	
 	//increment flags on a post, either plus or minus 1
-	function insertEvent($post_id, $etype, $userid) {
+	function insertEvent($post_id, $etype, $userid,$eventHash) {
 
 		$rtn = get_defined_vars();
 		
-		$sql = "SELECT * FROM events WHERE uid = ? AND event_type = ? AND spid = ?";
+		$sql = "SELECT * FROM events WHERE uid = ? AND event_type = ? AND spid = ? AND eventhash = ?";
 		$stmt = $this->db->prepare($sql);
-		$stmt->execute(array($userid, $etype, $post_id));
-		if($stmt->rowCount() > 0 && $etype != "share") {//Aaron modified this line to check the event type so that points from ANON users count
+		$stmt->execute(array($userid, $etype, $post_id,$eventHash));
+		if($stmt->rowCount() > 0) {
 			$rtn["newcount"] = "dup";
 			return $rtn;
 		}
 		
-		$sql = "INSERT INTO events SET uid = ?, event_type = ?, spid = ?";
+		$sql = "INSERT INTO events SET uid = ?, event_type = ?, spid = ?, eventhash = ?";
 		$stmt = $this->db->prepare($sql);
-		$stmt->execute(array($userid, $etype, $post_id));
+		$stmt->execute(array($userid, $etype, $post_id,$eventHash));
 		
 		$sql = "SELECT COUNT(id) AS count FROM events WHERE event_type = ? AND spid = ?";
 		$stmt = $this->db->prepare($sql);

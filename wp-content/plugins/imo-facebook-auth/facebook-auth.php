@@ -82,6 +82,14 @@ function imo_email_register() {
         $user = get_user_by("email",$email);
         
         
+        //check for ban hammer
+        $banString = get_option("blacklist_keys");
+        
+        if (strpos($banString, $email)) {
+	        die();
+        }
+        
+        
         if (empty($_POST['displayname']) || empty($_POST['email']) || empty($_POST['password'])) {
 	        $json = json_encode(array("errorcode"=>"incomplete_form","error"=>"Please fill enter a Display Name, Email and Password."));
     	    print $json;
@@ -175,6 +183,15 @@ function imo_facebook_usercheck() {
         } else { //if not, register the user
         
         	if (!empty($email)) {
+        	
+        	    //check for ban hammer
+		        $banString = get_option("blacklist_keys");
+		        
+		        if (strpos($banString, $email)) {
+			        die();
+		        }
+        	
+        	
 		        $userdata = array();
 	        	$userdata['user_email'] = $email;
 	        	$userdata['first_name'] = $user_profile['first_name'];

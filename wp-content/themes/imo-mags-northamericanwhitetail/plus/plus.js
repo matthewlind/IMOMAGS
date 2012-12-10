@@ -2,7 +2,14 @@ jQuery(document).ready(function($) {
 
 //Modal Pop-up
 //Make sure DIV exists and user is not logged in and make sure cookie isn't in place
-if ($("#community-modal").length > 0 && userIMO.username.length == 0 && $.cookie('hide_alert') == null){	
+//Also do not display the modal on the iphone because it hides the App Store popup
+var isNotIPhone = true;
+
+if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {//Check to see if we are on an iphone
+   isNotIPhone = false;
+}
+
+if ($("#community-modal").length > 0 && userIMO.username.length == 0 && $.cookie('hide_alert') == null && isNotIPhone){	
 	
 	$("#community-modal").modal({
         opacity: 50, 
