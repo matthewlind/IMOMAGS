@@ -551,7 +551,7 @@ function displayRecon(type) {
 		        nicePostType = post.post_type;
 	        }
 	    	 
-	    	if(this.post_type == "report" && this.state !== undefined && this.state !== "" && this.state !== null){
+	    	if(this.post_type == "report" && this.state !== undefined && this.state !== "" && this.state !== null && this.state !== "NA"){
 	    		var niceState = stateKey[post.state] + " ";
 		    	
 		    }else{

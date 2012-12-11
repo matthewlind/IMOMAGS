@@ -478,7 +478,7 @@ function EditShowRequest(formData, jqForm, options) {
     $('.email-login').css('top','+=90');
     $('.choose-fb').css('top','+=90');
     $('.col-abc.super-post .entry-content').css('margin-top','+=90');
-
+    
     var $loadingTag = $("<div class='loading-box' style=''><img src='/wp-content/themes/imo-mags-northamericanwhitetail/img/loader.gif'></div>");
     //$(".attached-photos").append($loadingTag);
 
