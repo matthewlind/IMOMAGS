@@ -103,7 +103,11 @@ if ( is_user_logged_in() ) {
 	<div class="bonus-background">
 		<div class="bonus">
 			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-community')) : else : ?><?php endif; ?>
-		</div>		
+		</div>	
+		<div id="responderfollow"></div>
+		<div class="sidebar advert">
+			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('scroll-sidebar')) : else : ?><?php endif; ?>
+		</div>			
 	</div>
 	<div class="col-abc community">
 	<header class="header-title">
@@ -299,21 +303,18 @@ if ( is_user_logged_in() ) {
 		      
 	    </div> <!-- End new-superpost-modal-container -->
 	    <div class="email-login" style="<?php echo $loginStyle; ?>"><a>or use your email</a></div>
-	    </div> <!-- end .col-abc -->
-
-<div class="col-abc super-post">
-        <div class="entry-content">
-            <div class="super-header">
-	            <hr class="comm-sep">
-	            <h1 class="recon">Naw+ Community</h1>
-	        </div>
-	        <a class="back-to-community" href="#" term="all" display="tile" style="display:none;">Back to Community</a>
-                       <div id="recon-activity" term="all" display="tile">
+    </div> <!-- end .col-abc -->
+    <div class="col-abc community community-post">
+	    <div class="super-header">
+	        <hr class="comm-sep">
+	        <h1 class="recon">Latest From Naw+ Community</h1>
+	    </div>
+        <a class="back-to-community" href="#" term="all" display="tile" style="display:none;">Back to Community</a>
+                   <div id="recon-activity" term="all" display="tile">
 
 
-            </div>
-            <span id="more-superposts-button">Load More<span></span></span>
         </div>
+        <span id="more-superposts-button">Load More<span></span></span>
     </div>
 </div>
 <?php get_footer(); ?>

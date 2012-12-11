@@ -2087,7 +2087,7 @@ a.comment-count:hover {
  *
  */
 .home ul#user-bar li.user-name{padding-top: 10px;}
-.super-header{width: 1020px;margin-bottom: 44px;position: relative;top:20px;}
+.super-header{width: 679px;margin-bottom: 44px;position: relative;top:20px;}
 .super-post{clear: both;width:1030px !important;}
 .home #recon-activity{top:30px;}
 .home  ul#user-bar{margin-top:  -36px;}
@@ -4114,6 +4114,9 @@ h3.first-last-name{
 #user-activity{
 	margin-top: 70px;
 }
+#recon-activity{
+	width: 679px;
+}
 .page-template-user_profile-php .post-type-select .recent{
 	border-left: solid 1px #ccc !important;
 }
@@ -4122,6 +4125,10 @@ h3.first-last-name{
 **Community Page & Community post page
 **
 *****/
+.community-post{
+	top: 140px;
+	position: relative;
+}
 .page-template-community-post-php .col-abc.super-post .entry-content{
 	padding-top: 100px;
 }

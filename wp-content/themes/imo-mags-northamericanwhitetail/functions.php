@@ -29,13 +29,14 @@ function mm_current_issue($atts, $content = null) {
   }
 	
 	return '<div class="current-issue">
-	        <h3 class="month">August 2012</h3>
+	        <h3 class="month">'.date("F, Y").'</h3>
 	        <img src="'.$magazine_img.'" alt />
 	        </div>
 	        <ul class="subscriber-links">
-	        <li class="subscribe"><a href="'."http://subs.northamericanwhitetail.com/".'">Subscribe</a></li>
-	        <li><a href="'."http://subs.northamericanwhitetail.com/gift".'">Give a Gift</a></li>
-          <li><a href="'."https://secure.palmcoastd.com/pcd/eServ?iServ=MDE0OEQ0NDcyNCZpVHlwZT1FTlRFUg==".'">Subscriber Services</a></li>
+	        <li class="subscribe"><a href="http://subs.northamericanwhitetail.com/">Subscribe</a></li>
+	        <li><a href="http://subs.northamericanwhitetail.com/gift">Give a Gift</a></li>
+            <li><a href="https://secure.palmcoastd.com/pcd/eServ?iServ=MDE0OEQ0NDcyNCZpVHlwZT1FTlRFUg==">Subscriber Services</a></li>
+            <li><a href="/contact/">Contact the Editors</a></li>
 	        </ul>';
 }
 
