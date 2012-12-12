@@ -175,8 +175,8 @@ function imo_facebook_usercheck() {
 
 		//Check if user already exists
         if ($user = get_user_by("email",$email)) {//if yes, log them in
-        	wp_authenticate("facebook","dgrsvgqt4523facebook");
-        		
+        	//wp_authenticate("facebook","dgrsvgqt4523facebook");
+        	wp_set_auth_cookie($user->ID,true);
         	$user = imo_get_user($user->ID);
         	
         	$json = json_encode($user);
@@ -452,16 +452,9 @@ add_action("admin_menu", "email_post_id_settings_init");
 /********************************
 ******AUTHENTICATION PLUGGABLE******
 *********************************/
+/*
 if ( !function_exists('wp_authenticate') ) :
-/**
- * Checks a user's login information and logs them in if it checks out.
- *
- * @since 2.5.0
- *
- * @param string $username User's username
- * @param string $password User's password
- * @return WP_Error|WP_User WP_User object if login successful, otherwise WP_Error object.
- */
+
 function wp_authenticate($username, $password) {
 	$username = sanitize_user($username);
 	$password = trim($password);
@@ -515,3 +508,4 @@ function wp_authenticate($username, $password) {
 	return $user;
 }
 endif;
+*/
