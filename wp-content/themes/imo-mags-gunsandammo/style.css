@@ -4169,12 +4169,12 @@ body.parent-pageid-2114 #main {
   position: relative;
   width: 100%;
 }
-.soga{
+/*.soga{
 	top: -33px !important;
     margin-bottom: -12px !important;
     margin-top: 32px;
 }
-/* line 3039, sass/style.scss */
+*/
 .single .blog-header.soga-header, .blog .cfct-callout.soga-header {
   background: url("img/blogs/sonsofguns.png?1336056336") left bottom no-repeat;
 }
@@ -4327,15 +4327,14 @@ body.parent-pageid-2114 #main {
   position: relative;
 }
 
-/* line 3138, sass/style.scss */
+/*
 .category-zombie-nation #sidebar, .category-for-the-love-of-competition #sidebar, .category-defend-thyself #sidebar, .category-news-brief #sidebar, .category-history-books #sidebar {
   margin-top: 228px;
 }
 
-/* line 3141, sass/style.scss */
 .category-sons-of-guns-and-ammo #sidebar {
   margin-top: 238px;
-}
+}*/
 
 /* line 3144, sass/style.scss */
 #sidebar .widget, .cfct-sidebar .widget, #carrington-modules .cfct-row-ab-c .cfct-block-c .widget {
@@ -6257,11 +6256,6 @@ h1.seo-h1 {
   width: 648px !important;
 }
 
-/* line 4500, sass/style.scss */
-.blog-sidebar {
-  margin-top: 232px;
-}
-
 /* line 4503, sass/style.scss */
 #site-menu .menu li a {
   margin-right: 25px !important;
@@ -6632,6 +6626,102 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 }
 
 
+/* New Blog Headers */
+.blog-headers{
+	margin: 1px 0 10px;
+	height: 120px;
+}
+.blog-border{
+	background: black;
+	position: relative;
+	left: 160px;
+	width: 490px;
+	height: 4px;
+	float: left;
+	top: 8px;
+}
+.blog-headers h1{
+	position: relative;
+	margin-top: -14px;
+	background: white;
+	padding: 0 4px;
+	float: left;
+	left: 160px;
+	font-size: 1.7em;
+}
+.blog-headers p{
+	margin-left: 164px;
+	float: left;
+	margin-top: 0;
+	width:410px;
+	line-height: 1.1;
+}
+.blog-headers .presented-by{
+	font-family: "StagMedium",serif !important;
+	position: relative;
+	top: -28px;
+	left: 552px;
+	padding: 0 4px;
+	background: white;
+	width: 104px;
+}
+/* Header Images */
+.blog-headers.ganb{
+	background: url("img/blog-header-bg.jpg") left bottom no-repeat;
+	height: 84px;
+}
+.blog-headers.soga{
+	background: url("img/soga-header.png") left -11px no-repeat;
+}
+.blog-headers.soga .sponsor-logo{
+	background: url("img/dsa-logo.jpg") left top no-repeat;
+	float: right;
+	height: 59px;
+	width: 155px;
+	margin-right: -50px;
+	margin-top: -70px;
+}
+.blog-headers.soga p{
+	float: none;
+	width: 370px;
+	margin-top: -23px;
+}
+.blog-headers.dt{
+	background: url("img/dt-header.png") left -11px no-repeat;
+}
+.blog-headers.dt .sponsor-logo{
+	background: url("img/wardog-logo.jpg") left top no-repeat;
+	float: right;
+	height: 74px;
+	width: 186px;
+	margin-right: -10px;
+	margin-top: -70px;
+}
+.blog-headers.dt p{
+	float: none;
+	width: 330px;
+	margin-top: -23px;
+}
+.blog-headers.ftloc{
+	background: url("img/ftloc-header.png") left top no-repeat;
+}
+.blog-headers.fthb{
+	background: url("img/fthb-header.png") left top no-repeat;
+}
+.blog-headers.zn{
+	background: url("img/zn-header.png") left top no-repeat;
+}
+
+.blog-headers.ganb h1{
+	left: 0;
+}
+.blog-headers.ganb p{
+	margin-left: 4px;
+	width: auto;
+}
+.blog-headers.soga .blog-border{
+	width: 390px;
+}
 
 
 

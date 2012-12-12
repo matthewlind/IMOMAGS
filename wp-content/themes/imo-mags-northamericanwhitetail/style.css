@@ -3085,10 +3085,15 @@ a.prize-title {
     line-height: 1.1em;
 }
 #join .prize{
-	background: url("img/rifle.png") no-repeat scroll center top transparent;
-	width: 288px;
-    height: 69px;
+	background: url("img/contest-prize.png") no-repeat scroll center top transparent;
+	width: 318px;
+    height: 83px;
     margin: 0 auto;
+}
+#join small.prize-desc{
+	width: 100px;
+	text-align: center;
+	margin-top: -12px;
 }
 .prize-logo{
 	background: url("img/remington-logo-sm.jpg") no-repeat scroll center top transparent;
@@ -5737,6 +5742,52 @@ top: -34px;
 
 }
 
+
+/***** Contest Modals *****/
+.contest-bg{
+	background: url("img/contest-modal-bg.jpg") left top no-repeat !important;
+}
+.new-superpost-modal-container.contest-modal{
+	margin: 0;
+}
+#community-modal.contest-modal p{
+	text-align: center;
+}
+#community-modal.contest-modal .modal-login-area {
+	float: none;
+	width: auto;
+	}
+#community-modal.contest-modal .modal-login-area {
+	float: none;
+	text-align: center;
+	height: 210px;
+	padding-right: 0;
+	border-right: none;
+	position: relative;
+	top: 158px;
+}
+#community-modal.contest-modal h1{
+	font-size: 3em;
+	font-weight: bold;
+	margin: -4px auto 0;
+}
+#community-modal.contest-modal p{
+	font-size: 1.4em;
+	font-weight: bold;
+}
+#community-modal.contest-modal p.top-text{
+	margin: 0;
+}
+#community-modal.contest-modal p.bottom-text{
+	position: relative;
+	top: -16px;
+}
+#community-modal.contest-modal small.contest-model {
+	text-align: left;
+	position: absolute;
+	top: -34px;
+	left: 170px;
+}
 
 
 /*** Local edits ***/   

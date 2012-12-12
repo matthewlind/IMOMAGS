@@ -139,6 +139,22 @@ get_header();
 	</div> -->
 	<div class="clearfix"></div>
 </div>
+<?php 
+//true to show changing contest modals, false to revert to default modal.
+$contest = true;
+if($contest == true){ ?>
+<div id="community-modal" class="new-superpost-modal-container new-superpost-box contest-modal" style="display:none;height:420px:width:600px;background-color:white;">
+	<p class="top-text">Join the NAW Community and you could</p>
+	<h1>Win this Crossbow!</h1>
+	<p class="bottom-text">Post a photo and you're automatically entered!</p>
+	<div class="modal-login-area">
+		<small class="contest-model">*Model - Stealth XLT w/ ACUdraw 50</small>
+		<small>*we do not post anything to your wall unless you say so!</small>
+		<div id="imo-fb-login-button" class="fb-login join-widget-fb-login fb-login-community-modal">Join Now With Facebook</div>
+		<a class="email-signup">or use your email address</a>	
+	</div>
+	<a class="hide-this" href="#">Don't show this again</a>
+<?php }else{ ?>
 <div id="community-modal" class="new-superpost-modal-container new-superpost-box" style="display:none;height:425px:width:600px;background-color:white;">
 	<h1>Introducing the NAW Community and Whitetail+ App</h1>
 	<div class="modal-login-area">
@@ -159,5 +175,5 @@ get_header();
 	</div>
 	<a class="hide-this" href="#">Don't show this again</a>
 </div>
-
+<?php } ?>
 <?php get_footer(); ?>

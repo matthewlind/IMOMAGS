@@ -97,36 +97,54 @@ get_header();
 	
 	?>
 	<?php if (in_category($soga_slug)) { ?>
-	<h1 class="seo-h1">Sons of guns & Ammo</h1>
-	<a class="blog-header soga" href="/blogs/<?php echo "sons-of-gunsandammo"; ?>/" title="<?php echo $current_category; ?>"><img src="<?php print $sg_img; ?>"></a>
+	<div class="blog-headers soga">
+		<div class="blog-border"></div>
+		<h1>Sons of Guns & Ammo</h1>
+		<div class="presented-by">Presented By</div>
+		<p>Will Hayden and the Red Jacket Crew bring you everything you love about Sons of Guns in a blog with all the firepower and none of the drama.</p>
+		<div class="sponsor-logo"></div>
+	</div>
 	<?php } else if (in_category($floc_slug)) { ?>
-	<h1 class="seo-h1">For the Love of Competition</h1>
-	<a class="blog-header" href="/blogs/<?php echo $floc_slug; ?>/" title="<?php echo $current_category; ?>"><img src="<?php print $lc_img; ?>"></a>
-	
+	<div class="blog-headers ftloc">
+		<div class="blog-border"></div>
+		<h1>For the Love of Competition</h1>
+		<!--<div class="presented-by">Presented By</div>-->
+		<p>News, notes, jackassery and the occasional explosion from the world of competitive shooting with Top Shot champion and aspiring 3-gunner 
+Iain Harrison.</p>
+		<!--<div class="sponsor-logo"></div>-->
+	</div>
 	<?php } else if (in_category($dt_slug)) { ?>
-	<h1 class="seo-h1">Defend Thyself</h1>
-	<a class="blog-header" href="/blogs/<?php echo $dt_slug; ?>/" title="<?php echo $current_category; ?>"><img src="<?php print $dts_img; ?>"></a>
-	
+	<div class="blog-headers dt">
+		<div class="blog-border"></div>
+		<h1>Defend Thyself</h1>
+		<div class="presented-by">Presented By</div>
+		<p>Tips and tactics for defending your home, your family and your life from Personal Defense expert Richard Nance.</p>
+		<div class="sponsor-logo"></div>
+	</div>
 	<?php } else if (in_category($nb_slug)) { ?>
-	<h1 class="seo-h1">Guns & Ammo News Brief</h1>
-	<a class="blog-header" href="/blogs/<?php echo $nb_slug; ?>/" title="<?php echo $current_category; ?>"><img src="<?php print $nb_img; ?>"></a>
-	
-	<?php } else if (in_category($tfl_slug)) { ?>
-	<h1 class="seo-h1">The Front Lines</h1>
-	<a class="blog-header tfl-header" href="/blogs/<?php echo $tfl_slug; ?>/" title="<?php echo $current_category; ?>"></a>
-	
-	<?php } else if (in_category($tgg_slug)) { ?>
-	<h1 class="seo-h1">The Gun Guys</h1>
-	<a class="blog-header tgg-header" href="/blogs/<?php echo $tgg_slug; ?>/" title="<?php echo $current_category; ?>"></a>
-	
+	<div class="blog-headers ganb">
+		<div class="blog-border"></div>
+		<h1>Guns & Ammo News Brief</h1>
+		<!--<div class="presented-by">Presented By</div>-->
+		<p>All the news you'll ever need from the world of guns, shooting and weird web stuff. Brought to you by the scribes at GunsandAmmo.com.</p>
+		<!--<div class="sponsor-logo"></div>-->
+	</div>		
 	<?php } else if (in_category($tgr_slug)) { ?>
-	<h1 class="seo-h1">From the History Books</h1>
-	<a class="blog-header" href="/blogs/<?php echo $tgr_slug; ?>/" title="<?php echo $current_category; ?>"><img src="<?php print $hb_img; ?>"></a>
-	
+	<div class="blog-headers fthb">
+		<div class="blog-border"></div>
+		<h1>From the History Books</h1>
+		<!--<div class="presented-by">Presented By</div>-->
+		<p>A look back in time at the history of the guns we love with Senior Editor Garry James and S.P. Fjestad, author and publisher of the Blue Book of Gun Values.</p>
+		<!--<div class="sponsor-logo"></div>-->
+	</div>
 	<?php } else if (in_category($zn_slug)) { ?>
-	<h1 class="seo-h1">Zombie Nation</h1>
-	<a class="blog-header" href="/blogs/<?php echo $zn_slug; ?>/" title="<?php echo $current_category; ?>"><img src="<?php print $zn_img; ?>"></a>
-	
+	<div class="blog-headers zn">
+		<div class="blog-border"></div>
+		<h1>Zombie Nation</h1>
+		<!--<div class="presented-by">Presented By</div>-->
+		<p>When you're helpless against the zombie horde and their blood lust, don't say we didn't warn you. Get your tips, tactics and gear for zombie defense here.</p>
+		<!--<div class="sponsor-logo"></div>-->
+	</div>	
 	<?php } else if ( in_category($aff_slug) || in_category("military-arms") ) { ?>
 	<div class="affiliate-header">
 	<div class="bar"></div>
