@@ -122,6 +122,10 @@ if ( is_user_logged_in() ) {
 			<li id="experts" class="title"><div></div><h2><a href="/community/question/">Q&A</a></h2></li>
 			<li class="selected points"><a href="/community/question/"><?php echo $questionCount->post_count.' Posts'; ?></a></li>
 		</ul>
+		<ul class="community-cats">
+			<li id="general" class="title"><div></div><h2><a href="/community/general/">General Discussion</a></h2></li>
+			<li class="selected points"><a href="/community/general/"><?php echo $generalCount->post_count.' Posts'; ?></a></li>
+		</ul>
 		<!--<img src="<?php bloginfo('url'); ?>/wp-content/themes/imo-mags-northamericanwhitetail/img/contest-banner.png" alt="Enter To Win" />-->
 	</div><!-- .col-abc -->	
 	<div class="col-abc community">
