@@ -3085,10 +3085,15 @@ a.prize-title {
     line-height: 1.1em;
 }
 #join .prize{
-	background: url("img/rifle.png") no-repeat scroll center top transparent;
-	width: 288px;
-    height: 69px;
+	background: url("img/contest-prize.png") no-repeat scroll center top transparent;
+	width: 318px;
+    height: 83px;
     margin: 0 auto;
+}
+#join small.prize-desc{
+	width: 100px;
+	text-align: center;
+	margin-top: -12px;
 }
 .prize-logo{
 	background: url("img/remington-logo-sm.jpg") no-repeat scroll center top transparent;
