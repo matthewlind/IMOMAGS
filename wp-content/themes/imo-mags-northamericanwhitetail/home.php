@@ -144,11 +144,14 @@ get_header();
 $contest = true;
 if($contest == true){ ?>
 <div id="community-modal" class="new-superpost-modal-container new-superpost-box contest-modal" style="display:none;height:420px:width:600px;background-color:white;">
-	<p>Join the NAW Community and you could</p>
+	<p class="top-text">Join the NAW Community and you could</p>
 	<h1>Win this Crossbow!</h1>
+	<p class="bottom-text">Post a photo and you're automatically entered!</p>
 	<div class="modal-login-area">
-		<small>*Model - Stealth XLT w/ ACUdraw 50</small>
-		<p class="bottom-text">Post a photo and you're automatically entered!</p>
+		<small class="contest-model">*Model - Stealth XLT w/ ACUdraw 50</small>
+		<small>*we do not post anything to your wall unless you say so!</small>
+		<div id="imo-fb-login-button" class="fb-login join-widget-fb-login fb-login-community-modal">Join Now With Facebook</div>
+		<a class="email-signup">or use your email address</a>	
 	</div>
 	<a class="hide-this" href="#">Don't show this again</a>
 <?php }else{ ?>
