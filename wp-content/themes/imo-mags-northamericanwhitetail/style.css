@@ -5738,6 +5738,44 @@ top: -34px;
 }
 
 
+/***** Contest Modals *****/
+.contest-bg{
+	background: url("img/contest-modal-bg.jpg") left top no-repeat !important;
+}
+#community-modal.contest-modal p{
+	text-align: center;
+}
+#community-modal.contest-modal .modal-login-area {
+	float: none;
+	width: auto;
+	}
+#community-modal.contest-modal .modal-login-area {
+	float: none;
+	text-align: center;
+	height: 210px;
+	padding-right: 0;
+	border-right: none;
+}
+#community-modal.contest-modal h1{
+	font-size: 3em;
+	font-weight: bold;
+	margin: -12px auto 54px;
+}
+#community-modal.contest-modal p{
+	font-size: 1.4em;
+	font-weight: bold;
+}
+#community-modal.contest-modal p.bottom-text{
+	position: relative;
+	top: 110px;
+}
+#community-modal.contest-modal small {
+	text-align: left;
+	position: relative;
+	top: 90px;
+	left: -40px;
+}
+
 
 /*** Local edits ***/   
     

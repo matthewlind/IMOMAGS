@@ -17,6 +17,8 @@ if ($("#community-modal").length > 0 && userIMO.username.length == 0 && $.cookie
         autoPosition: true,
         minHeight: 420,
         onShow: function(dialog) {
+        	//default bg, comment out contest and uncomment this for changes.
+        	//$(".simplemodal-wrap").addClass("default-bg");
         	$(".simplemodal-wrap").addClass("contest-bg");
 	        $("#community-modal a.hide-this").click(function(){
 		        $.cookie('hide_alert', true);
