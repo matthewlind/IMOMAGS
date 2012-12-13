@@ -52,6 +52,7 @@ $appArgument = "whitetailplus://www.northamericanwhitetail.com" . $_SERVER['REQU
 		<link rel="stylesheet" type="text/css" media="screen" href="<?php bloginfo('template_url'); ?>/css/lte-ie7.css?ver=<?php echo CFCT_URL_VERSION; ?>" />
 	<![endif]-->
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
+	<script src="//cdn.optimizely.com/js/60055218.js"></script>
 	
 	<!-- jetpack -->
 	<script type='text/javascript' src='http://ads.jetpackdigital.com/sites/nawhitetail/jpd.js'></script>
