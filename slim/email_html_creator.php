@@ -3,18 +3,20 @@
 function generateEmailSubject($emailData){
 	$subject = "Whitetail Community Update";
 	$commentCount = $emailData['highest_comment_count'];
+	
+	$featuredEventCommentCount = $emailData['featured_event_comment_count'];
 
 	
 	if ($commentCount > 0) {
 		
-		$otherCount = $commentCount - 1;
+		$otherCount = $featuredEventCommentCount - 1;
 		
 		$subject = $emailData['featured_event']->event_display_name . " and $otherCount Others Commented On " . $emailData['featured_event']->post_title;
 		
-		if ($commentCount == 1) {
+		if ($featuredEventCommentCount == 1) {
 			$subject = $emailData['featured_event']->event_display_name . " Commented On " . $emailData['featured_event']->post_title;
 		}
-		if ($commentCount == 2) {
+		if ($featuredEventCommentCount == 2) {
 			$subject = $emailData['featured_event']->event_display_name . " and Another Commented On " . $emailData['featured_event']->post_title;
 		}		
 		
@@ -374,6 +376,18 @@ $post_comment_string = ($post_comment_count == 1? "has $post_comment_count comme
 
 
 
+$post_image_tag = "";
+
+if (!empty($post_img_url)) {
+
+$post_image_tag = <<<EOFEOFEOFGG
+
+<img src="$post_img_url" style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; max-width: 75px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+
+
+EOFEOFEOFGG;
+}
+
 $templateContentTop = <<<EOFEOFEOFGG
 
 
@@ -381,7 +395,7 @@ $templateContentTop = <<<EOFEOFEOFGG
 			<div class="content" style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; max-width: 600px; display: block; margin-top: 0; margin-right: auto; margin-bottom: 0; margin-left: auto; padding-top: 15px; padding-right: 15px; padding-bottom: 15px; padding-left: 15px;">&#13;
 				&#13;
 				<table bgcolor="#ffffff" style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; width: 100%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;"><tr style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;"><td class="small" width="20%" style="vertical-align: top; text-align: center; font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 10px; padding-bottom: 0; padding-left: 0;" align="center" valign="top">&#13;
-							<a href="$post_url"><img src="$post_img_url" style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; max-width: 75px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" /></a><p class="light-gray" style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-weight: normal; font-size: 14px; line-height: 1.6; color: #aaaaaa; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;"><small style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;">$post_score_string</small></p>&#13;
+							<a href="$post_url">$post_image_tag</a><p class="light-gray" style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-weight: normal; font-size: 14px; line-height: 1.6; color: #aaaaaa; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;"><small style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;">$post_score_string</small></p>&#13;
 						</td>&#13;
 						<td style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;">&#13;
 							<h4 style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; line-height: 1.1; color: #000; font-weight: 500; font-size: 23px; margin-top: 0; margin-right: 0; margin-bottom: 0px; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;"><a href="$post_url" style="color:#000000;text-decoration:none;font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; line-height: 1.1; margin-bottom:15px; color:#000;">$post_title</a><small style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 60%; color: #6f6f6f; line-height: 0; text-transform: none; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;"></small></h4><p style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-weight: normal; font-size: 14px; line-height: 1.6; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;">$post_comment_string</p>&#13;
@@ -394,7 +408,7 @@ $templateContentMiddle = "";
 foreach ($post['events'] as $event) {
 
 	
-	$profileURL = "http://www.northamericanwhitetail.deva/profile/" . $event->event_username;
+	$profileURL = "http://www.northamericanwhitetail.com/profile/" . $event->event_username;
 	if ($event->event_type == 'share')
 		$shareCount++;
 	
@@ -406,7 +420,7 @@ foreach ($post['events'] as $event) {
 		
 <p class="" style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-weight: normal; font-size: 14px; line-height: 1.6; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;"> &#13;
 								&#13;
-								<a href="$profileURL"><img src="http://www.northamericanwhitetail.deva/avatar?uid=$event->uid" class="avatar" style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; max-width: 100%; vertical-align: middle; float: left; margin-top: 0; margin-right: 5px; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" align="left" height=25 width=25 /></a><b style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;"><a href="$profileURL" style="text-decoration:none;color:#000000;">$event->event_display_name</a></b><br style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" /><small style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;">commented $event->time_ago_string</small>&#13;
+								<a href="$profileURL"><img src="http://www.northamericanwhitetail.com/avatar?uid=$event->uid" class="avatar" style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; max-width: 100%; vertical-align: middle; float: left; margin-top: 0; margin-right: 5px; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" align="left" height=25 width=25 /></a><b style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;"><a href="$profileURL" style="text-decoration:none;color:#000000;">$event->event_display_name</a></b><br style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" /><small style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;">commented $event->time_ago_string</small>&#13;
 							</p>&#13;
 							
 EOFEOFEOFSS;
@@ -417,17 +431,17 @@ EOFEOFEOFSS;
 }
 
 
+if ($commentCount > 0) {
+	$shareMargin = "30px";
+	$goButtonText = "Join the Conversation";
+}
+else {
+	$shareMargin = "0px";	
+	$goButtonText = "Check it Out";
+}
+
 if ($shareCount>0) {
 
-	if ($commentCount > 0) {
-		$shareMargin = "30px";
-		$goButtonText = "Join the Conversation";
-	}
-	else {
-		$shareMargin = "0px";	
-		$goButtonText = "Check it Out";
-	}
-	
 	if ($shareCount == 1)
 		$shareCountText = "1 Person";
 	else
