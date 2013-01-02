@@ -61,7 +61,7 @@ if (empty($zn_img)) {
 ?>
 <div class="page-template-page-right-php category-page">
 	<h1 class="seo-h1"><?php single_cat_title('');?></h1>
-	<div id="sidebar">
+	<div id="sidebar"<?php if (in_category("shot-show-2013") ) { echo ' class="shot-show-sidebar"';} ?>>
 		<?php 
 		if( in_category($soga_slug) || in_category($floc_slug) || in_category($dt_slug) || in_category($nb_slug) || in_category($zn_slug) || in_category($tgr_slug) ) {
 			if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-default')) : else : endif;
@@ -82,7 +82,7 @@ if (empty($zn_img)) {
 		<h1>Sons of Guns & Ammo</h1>
 		<div class="presented-by">Presented By</div>
 		<p>Will Hayden and the Red Jacket Crew bring you everything you love about Sons of Guns in a blog with all the firepower and none of the drama.</p>
-		<div class="sponsor-logo"></div>
+		<div class="sponsor-logo"><a href="http://www.armalite.com/Categories.aspx?Category=d4543129-c82e-4fc9-bb4d-213664c7b055"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/armalite.jpg" alt="Armalite Logo" title="Armalite Logo" /></a></div>
 	</div>
 	<?php } else if (is_category($floc_slug)) { ?>
 	<div class="blog-headers ftloc">
@@ -131,6 +131,15 @@ Iain Harrison.</p>
 		<h1>G&A Affiliates</h1>
 		<?php if( is_category("military-arms") ){ echo " <h4>Military Arms</h4>"; }?>
 		<div class="desc">YouTube's underground is full of gun-loving videographers with cult-like followings. Guns & Ammo has joined forces with some of the top personalities to create a new community for the best of the best.</div>
+	</div>
+	<?php } else if (is_category("shot-show-2013") ) { ?>
+	<div class="blog-headers shot-show">
+		<div class="blog-border"></div>
+		<h1>Daily SHOT SHOW 2013 Coverage</h1>
+		<div class="presented-by">Presented By</div>
+		<?php //if( is_category("military-arms") ){ echo " <h4>Military Arms</h4>"; }?>
+		<div class="desc">Your destination for the newest guns and gear coming out of the industry's biggest event of the year!</div>
+		<div class="sponsor-logo"></div>
 	</div>
 	<?php } else { ?>
 
