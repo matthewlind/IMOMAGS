@@ -107,7 +107,7 @@ googletag.enableServices();
 
 </head>
 <body <?php body_class(); ?>>
-<div id="bottom-wrap">
+<div id="bottom-wrap"></div>
 <div class='str-container'>
         <div class='aligncenter centerad'>
 <?php if (function_exists("imo_dart_tag") && !is_page('tropics')) {
