@@ -228,6 +228,8 @@ wp_footer();
             </div> 
     </div> 
 </div> 
-
+<?php if(!is_front_page()){ ?>
+</div>
+<?php } ?>
 </body>
 </html>

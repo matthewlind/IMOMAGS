@@ -107,7 +107,14 @@ googletag.enableServices();
 
 </head>
 <body <?php body_class(); ?>>
-<div id="bottom-wrap"></div>
+<?php if(is_front_page()){ ?>
+	<!--Takeover skin styles for homepage-->
+	<style type="text/css">#homepage-takeover{background: url("<?php bloginfo('stylesheet_directory'); ?>/img/RTFSwebSkin.jpg") no-repeat scroll center top;position: absolute;height: 1200px;width: 100%;cursor: pointer;}body{background: none #0a1a19;}</style>
+	<div id="homepage-takeover"></div>
+<?php }else{ ?>
+	<div id="bottom-wrap">
+<?php } ?>
+
 <div class='str-container'>
         <div class='aligncenter centerad'>
 <?php if (function_exists("imo_dart_tag") && !is_page('tropics')) {

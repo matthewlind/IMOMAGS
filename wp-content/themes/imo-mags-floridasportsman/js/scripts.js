@@ -6,7 +6,7 @@ var dartadsgen_rand = Math.floor((Math.random()) * 100000000), pr_tile = 1, dart
 
 jQuery(document).ready(function($) {
 
-	$("#bottom-wrap").click(function() {
+	$("#homepage-takeover").click(function() {
 	  window.location = "http://www.floridasportsman.com/rtfs";
 	});
 
