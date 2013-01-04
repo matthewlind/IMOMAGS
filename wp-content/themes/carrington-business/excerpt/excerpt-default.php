@@ -23,6 +23,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 <div id="post-excerpt-<?php the_ID(); ?>" <?php post_class('entry entry-excerpt clearfix') ?>>
 	
 	<div class="entry-summary">
+		<?php if (in_category("ata-show-2013") ){ echo '<div class="ata-show-sticker"></div>';} ?>
 		<?php
 		if (has_post_thumbnail()) {
 			echo '<a href="', the_permalink(),'">', the_post_thumbnail('post-thumbnail', array('class' => 'entry-img')), '</a>';
