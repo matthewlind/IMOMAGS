@@ -128,9 +128,16 @@ jQuery(document).ready(function($) {
 		        
 		        $(data[i].terms).each(function(index) {
 	        		//Hide featured posts
+	        		
+	        		console.log(this);
+	        		
 			        if(this.slug == 'home-featured'){
 						$articleTemplate.hide();		
 						}
+						
+					if(this.slug == 'ata-featured'){
+						$articleTemplate.hide();		
+					}
 					// Place video button on videos
 					if(this.slug == 'video'){
 						$articleTemplate.find("a.no-olay").addClass("video-excerpt");

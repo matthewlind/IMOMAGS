@@ -16,7 +16,7 @@ License: IMO
 
 
 
-add_action('init', 'imo_usa_map_init');
+add_action('wp_enqueue_scripts', 'imo_usa_map_init');
 
 
 

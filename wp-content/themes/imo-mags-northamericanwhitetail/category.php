@@ -269,6 +269,107 @@ function get_cat_slug($cat_id) {
 	 		<div class="header-sort">
 				<h1 class="more-header">More <?php single_cat_title(''); ?></h1>
 			</div>
+			
+			
+			
+			
+			
+			
+
+	<?php } else if (is_category('ata-show-2013')){ 
+	//ATA PAGE!
+	?>
+		<div class="cat-col-full">
+				<?php
+				
+				
+				
+
+					
+		//Then get attachment data
+		$requestURL = "http://www.northamericanwhitetail.com/wp-content/cache/superloop/naw-plus-ata-show-2013-post_date.json";
+		
+		$file = file_get_contents($requestURL);
+		$postData = json_decode($file);		
+		
+	
+					
+					
+					?>
+			
+			<div id="slideshow_mask" class="featured-thumb-wide">
+				<div id="slideshow">
+					
+					
+	
+					<?php // The Loop
+					
+					$itemCount = 0;
+					foreach($postData as $post) {
+					
+						$isATAFeatured = FALSE;
+						//Check for ata-featured term
+						
+						foreach ($post->terms as $term) {
+							if ($term->slug == "ata-featured")
+								$isATAFeatured = TRUE;
+						}
+						
+						
+						if ($isATAFeatured) {
+						
+							$imageURL = str_replace("-190x120", "", $post->img_url);
+							
+
+							?>
+
+								<div class='featured-item-pane cat-slide'>
+									<div class='featured-item-image'>
+										<a href="<?php echo $post->post_url; ?>"><img src="<?php echo $imageURL; ?>"/></a>
+									</div>
+									<div class='featured-item-description'>
+										<h2><a href="<?php echo $post->post_url; ?>"><?php echo $post->post_title; ?></a></h2>
+									</div>
+								</div>
+							
+							
+							<?php 
+							$itemCount++;
+						
+						}//end if $isATAFeatured
+					
+						if ($itemCount >= 4)
+							break;
+					
+						}//End Foreach
+						?>
+				</div>
+			</div>
+				
+				<div id="pager" class=""></div>
+						<a id="prev"></a>
+						<a id="next"></a>		
+							
+		</div><!-- end left/no right -->	
+ 		<div class="col-abc">
+	 		<div class="header-sort">
+				<h1 class="more-header">More <?php single_cat_title(''); ?></h1>
+			</div>
+
+
+
+
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 
 	<?php } else if (is_category('video')){ 
 	//VIDEO PAGE

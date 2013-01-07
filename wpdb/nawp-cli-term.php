@@ -37,6 +37,12 @@ date_default_timezone_set('America/New_York');
     	}
     		
     }
+    
+    $siteID["www.bowhunter.com"] = 3;
+    $siteID["www.bowhuntingmag.com"] = 4;
+    $siteID["www.northamericanwhitetail.com"] = 6;
+    $siteID["www.petersenshunting.com"] = 7;
+    $siteID["www.gameandfishmag.com"] = 14;
 
     
 
@@ -206,9 +212,9 @@ EOT;
 
 
             //Check to see if we need to add terms
-            if ($post->domain == "www.northamericanwhitetail.com") {
-                $posts[$key]->terms = getPostTerms($post->ID);
-            }
+            //if ($post->domain == "www.northamericanwhitetail.com") {
+                $posts[$key]->terms = getPostTerms($post->ID,$siteID[$post->domain]);
+            //}
 
 
             //TESTING
