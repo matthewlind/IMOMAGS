@@ -357,3 +357,133 @@ h2.entry-title a {
 	height: 221px;
 	margin-bottom: 20px;
 }
+
+/********
+****
+**** Shot Show
+****
+********/
+.shot-show-sidebar{
+	margin-top: 130px;
+}
+.shot-show{
+	background: url("img/shot-show-lg-bg.jpg") left top no-repeat;
+	width: 980px;
+	margin-bottom: 20px;
+}
+.shot-show .blog-border{
+	width: 820px;
+	top: 23px;
+	background: black;
+	position: relative;
+	left: 160px;
+	height: 4px;
+	float: left;
+}
+.shot-show h1 {
+	margin-top: 5px;
+	position: relative;
+	background: white;
+	padding: 0 4px;
+	float: left;
+	left: 160px;
+	font-weight: bold;
+	font-size: 1.9em;
+}
+.shot-show .desc{
+	left: 162px;
+	position: relative;
+	top: -28px;
+	width: 420px;
+}
+.shot-show .presented-by{
+	left: 882px;
+	padding: 0 0px 0 4px;
+	position: relative;
+	top: -32px;
+	background: white;
+	width: 104px;
+	font-weight: bold;
+	font-size: 1.1em;
+}
+.shot-show-sticker{
+	background: url("img/shot-show-logo.png") no-repeat left top;
+	width: 60px;
+	height: 59px;
+	position: absolute;
+	left: -4px;
+	top: -1px;
+}
+.shot-show .sponsor-logo{
+	background: url("img/wardog-logo.jpg") left top no-repeat;
+	float: right;
+	height: 74px;
+	width: 186px;
+	margin-right: -10px;
+	margin-top: -70px;
+}
+.cross-site-feed-more-button, .local-site-feed-more-button{
+	margin-bottom: 60px;
+	clear: both;
+	width: 682px;
+}
+.more-button{
+	position: relative;
+	font-weight: bold;
+	color: #666;
+	font-size: 0.9em;
+	cursor: pointer;
+	display:block;
+	margin: 0 auto;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	border: 1px solid #CCCCCC;
+    padding: 12px 24px 10px 10px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 196px;
+    -moz-transition: all 0.6s ease 0s;-webkit-transition: 0.6s;
+    background: rgb(255,255,255); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSI3MSUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI5NyUiIHN0b3AtY29sb3I9IiNlZmVmZWYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 71%, rgba(239,239,239,1) 97%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(71%,rgba(255,255,255,1)), color-stop(97%,rgba(239,239,239,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 71%,rgba(239,239,239,1) 97%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(255,255,255,1) 71%,rgba(239,239,239,1) 97%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(255,255,255,1) 71%,rgba(239,239,239,1) 97%); /* IE10+ */
+	background: linear-gradient(top,  rgba(255,255,255,1) 71%,rgba(239,239,239,1) 97%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#efefef',GradientType=0 ); /* IE6-8 */
+}
+.more-button span span {
+	background: url('img/load-icon.png') no-repeat;
+	height: 16px;
+    margin: 1px 0 0 5px;
+    position: absolute;
+    width: 13px;
+}
+
+.more-button:hover {
+	color:#cfcfcf;
+	 -moz-transition: all 0.6s ease 0s;-webkit-transition: 0.6s;
+}
+.page-template-shot-show-php #article{
+	margin: 0 0 30px 0;
+	border-bottom: 1px dotted #999;
+	padding: 0 0 20px 0;
+}
+.page-template-shot-show-php h2.entry-title{
+	margin: 0 0 0 0 !important;
+}
+
+.ata-show-sticker{
+	background: url("img/ata-sticker.png") no-repeat left top;
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}

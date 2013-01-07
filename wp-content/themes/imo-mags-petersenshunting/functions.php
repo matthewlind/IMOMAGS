@@ -24,4 +24,16 @@ function my_connection_types() {
 	) );
 }
 add_action( 'wp_loaded', 'my_connection_types' );
+
+/***
+**
+** Enqueue Scripts
+**
+***/
+function my_scripts_method() {
+      wp_enqueue_script("cross-site-feed", get_stylesheet_directory_uri() . "/js/cross-site-feed.js");
+}    
+ 
+add_action('wp_enqueue_scripts', 'my_scripts_method');
+
 ?>

@@ -773,7 +773,6 @@ border-style: none;}
 #bottom-wrap {
 	background: url(img/bg-lighthouse-top.jpg) no-repeat scroll center top;
 }
-
 body.page-template-page-right-php { width: 100% !important; }
 
 .page-template-page-right-php {
@@ -1538,24 +1537,26 @@ nav.nav-secondary li.current-menu-item a {
 
 }
 
-#masthead.reeltime-header {
-	background: url(img/reeltime-header.jpg) 15px 0 no-repeat;
-	border-bottom: 0px dotted #999;
-	bottom: 0px;
-	left: 0px;
-	padding: 0;
-	height: 200px;
-	margin: 0px;
+#main-content #masthead.reeltime-header {
+background: url(img/rtfs-minisite-headerbg.jpg) 15px 0 no-repeat;
+border-bottom: 0px dotted
+#999;
+bottom: 0px;
+left: 0px;
+padding: 0;
+height: 200px;
+margin: 0px;
 }
 
 #masthead.reeltime-header .reeltime-title {
-	background: url(img/reeltime-logo.png) 0 0 no-repeat;
+	background: url(img/rtfs-minisite-logo.png) 0 0 no-repeat;
 	display: block;
-	height: 141px;
-	width: 330px;
+	height: 162px;
+	width: 265px;
 	overflow: hidden;
 	text-indent: -9999em;
-	margin: 12px 0 0 30px;
+	margin: 4px 0 0 30px;
+	padding: 0;
 }
 #bonus-area {
 	padding-bottom: 30px;

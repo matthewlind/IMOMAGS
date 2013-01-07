@@ -3,6 +3,7 @@ if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 ?>
 <article id="post-excerpt-<?php the_ID(); ?>" <?php post_class('entry entry-excerpt') ?>>
+	<?php if (in_category("ata-show-2013") ){ echo '<div class="ata-show-sticker"></div>';} ?>
 	<?php if (has_post_thumbnail()) : ?>
 		<a href="<?php the_permalink(); ?>"<?php if( in_category('video') ){echo ' class="video-excerpt"';}else if( in_category('galleries') ){echo ' class="gallery-excerpt"';} ?>><?php the_post_thumbnail('post-thumbnail', array('class' => 'entry-img')); if( in_category(array('video','galleries')) ){echo '<span></span>';} ?></a>
 

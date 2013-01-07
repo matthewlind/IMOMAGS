@@ -364,3 +364,4 @@ add_action( 'wp_head', 'insert_image_src_rel_in_head', 5 );
 
 
 include_once (CFCT_PATH.'/widgets/related-products.php');
+include_once (CFCT_PATH.'/widgets/shot-show.php');
