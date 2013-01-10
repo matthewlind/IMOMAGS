@@ -61,7 +61,11 @@ jQuery(document).ready(function($) {
 		        $articleTemplate.find("a").attr("href",data[i].post_url);
 
 		        $articleTemplate.find("a").text(data[i].post_title);
-
+		        
+		         if (data[i].domain == "www.gunsandammo.com") {
+		        	$articleTemplate.find("a").attr("target","_blank");
+		        }
+		        
 		        $articleTemplate.appendTo(".shot-show-widget").fadeIn();
 
 		    }

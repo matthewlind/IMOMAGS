@@ -100,7 +100,7 @@ jQuery(document).ready(function($) {
 		        
 		       
 				//If data[i] is from NAW, add the categories
-				if (data[i].domain == "www.northamericanwhitetail.com") {
+				if (data[i].domain == "www.petersenshunting.com") {
 			
 					$articleTemplate.find(".entry-category").html("");
 
