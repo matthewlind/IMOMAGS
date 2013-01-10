@@ -985,11 +985,19 @@ $app->post('/api/superpost/update_post',function() {
 			//CLEAR THE VARNISH CACHE!
 			$postURL = "http://" . $post->domain . "/plus/" . $post->post_type . "/" . $post->id . "/";
 
-			
 			$curl = curl_init($postURL);
             curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PURGE");
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
             $curlResult = curl_exec($curl);
+            
+			$postURL = "http://" . $post->domain . "/slim/api/superpost/post/" . $post->id;
+
+			$curl = curl_init($postURL);
+            curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PURGE");
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
+            $curlResult = curl_exec($curl);            
+            
+            
             _log($postURL);
             $params['post_url'] = $postURL;
 		
