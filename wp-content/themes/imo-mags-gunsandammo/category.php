@@ -137,9 +137,8 @@ Iain Harrison.</p>
 		<div class="blog-border"></div>
 		<h1>Daily SHOT SHOW 2013 Coverage</h1>
 		<div class="presented-by">Presented By</div>
-		<?php //if( is_category("military-arms") ){ echo " <h4>Military Arms</h4>"; }?>
 		<div class="desc">Your destination for the newest guns and gear coming out of the industry's biggest event of the year!</div>
-		<div class="sponsor-logo"></div>
+		<div class="sponsor-logo"><a href="http://www.realtree.com/huntallseason/index.html" target="_blank"><img src="/wp-content/themes/imo-mags-gunsandammo/img/realtree-logo.png" align="Realtree Xtra" title="Realtree Xtra" /></a></div>
 	</div>
 	<?php } else { ?>
 
@@ -153,8 +152,15 @@ Iain Harrison.</p>
 				</div>
 
 	<?php }
-	cfct_loop();
-	cfct_misc('nav-posts'); ?>
+	if( is_category("shot-show-2013") ){ ?>
+		<div class="cross-site-feed" term=""></div><!-- This term= attribute is searched for by displayCrossSiteFeed() in cross-site-feed.js -->
+				
+		</div>
+		<div class="cross-site-feed-more-button"> <div class="more-button"><span>LOAD MORE<span></span></span></div> </div>
+	<?php }else{
+		cfct_loop();
+		cfct_misc('nav-posts');
+	} ?>
 </div>
 
 <?php

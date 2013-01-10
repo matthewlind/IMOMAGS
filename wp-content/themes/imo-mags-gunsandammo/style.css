@@ -6665,86 +6665,59 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 	top: -9px;
 }
 .blog-headers.shot-show .sponsor-logo{
-	background: url("img/wardog-logo.jpg") left top no-repeat;
 	float: right;
-	height: 74px;
-	width: 186px;
-	margin-right: -10px;
-	margin-top: -70px;
+	height: 80px;
+	width: 281px;
+	margin-right: -4px;
+	margin-top: -78px;
 }
-
-
-/**** Shot Show Widget *****/
-#shot-show-widget{
-	background: url("img/box_bg.png");
-	padding: 4px;
-	margin-bottom: 20px;
+.cross-site-feed-more-button, .local-site-feed-more-button{
+	margin-bottom: 60px;
+	clear: both;
+	width: 682px;
 }
-.widget-header{
-	background: url("img/shot-show-widget-logo.jpg") no-repeat 8px 4px white;	
-	width: 292px;
-	height: 120px;
-}
-#shot-show-widget h4{
-	padding: 17px 0 11px 115px;
-	font-size: 1.1em;
-	text-align: left;
-}
-#shot-show-widget .widget-border{
-	background: #ccc;
-	height: 3px;
-	margin: 10px auto 0;
-	width: 282px;
-}
-#shot-show-widget .presented-by{
-	text-align: center;
-	font-family: "StagMedium",serif !important;
-	float: left;
-	margin: 12px 0 0 36px;
-}
-#shot-show-widget .sponsor-logo{
-	background: url("img/wardog-logo-sm.jpg") center top no-repeat;
-	height: 48px;
-	width: 120px;
-	float: right;
-	margin-right: 34px;
-}
-#shot-show-widget ul{
-	background: white;
-	padding: 2px 10px;
-	list-style: none;
-}
-#shot-show-widget li{
-	border-bottom: 1px dotted #ccc;
-	padding: 4px 0;	
-}
-#shot-show-widget li a{
-	color: #5B6373;
-	font-weight: bold;
-	font-size: 0.9em;
-}
-#shot-show-widget .see-all{
-	background: white;
-	text-align: center;
-	font-size: 0.9em;
-}
-#shot-show-widget span{
-	background: url("img/icon-sb6ca565883.png") no-repeat;
-	display: inline-block;
-	vertical-align: middle;
-	background-position: 0 -34px;
-	height: 9px;
-	width: 7px;
-	margin-left: 5px;
+.more-button{
 	position: relative;
-	top: -1px;
+	font-weight: bold;
+	color: #666;
+	font-size: 0.9em;
+	cursor: pointer;
+	display:block;
+	margin: 0 auto;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	border: 1px solid #CCCCCC;
+    padding: 12px 24px 10px 10px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 196px;
+    -moz-transition: all 0.6s ease 0s;-webkit-transition: 0.6s;
+    background: rgb(255,255,255); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSI3MSUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI5NyUiIHN0b3AtY29sb3I9IiNlZmVmZWYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 71%, rgba(239,239,239,1) 97%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(71%,rgba(255,255,255,1)), color-stop(97%,rgba(239,239,239,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 71%,rgba(239,239,239,1) 97%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(255,255,255,1) 71%,rgba(239,239,239,1) 97%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(255,255,255,1) 71%,rgba(239,239,239,1) 97%); /* IE10+ */
+	background: linear-gradient(top,  rgba(255,255,255,1) 71%,rgba(239,239,239,1) 97%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#efefef',GradientType=0 ); /* IE6-8 */
 }
-#shot-show-widget .sub-header{
-	color: #CCC;
-	font-family: "Stag",serif;
-	font-size: 0.8em;
-	margin: -17px 0 0 78px;
-	text-align: center;
+.more-button span span {
+	background: url('img/load-icon.png') no-repeat;
+	height: 16px;
+    margin: 1px 0 0 5px;
+    position: absolute;
+    width: 13px;
+}
+
+.more-button:hover {
+	color:#cfcfcf;
+	 -moz-transition: all 0.6s ease 0s;-webkit-transition: 0.6s;
 }
 
 
@@ -6878,7 +6851,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 }
 
 
-
+/*** Primary Category ***/
+.primary-cat{
+	font-weight: bold;
+	text-transform: uppercase;
+}
 
 
 

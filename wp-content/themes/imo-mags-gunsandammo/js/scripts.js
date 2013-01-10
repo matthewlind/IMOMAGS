@@ -134,10 +134,10 @@ $(document).ready(function(){
     });
      	
 });
-
+if ($(".advert").length > 0) {
 // jFollow
 $(function(){
 	
 	$('.advert').jfollow('#responderfollow');
 });
-
+}

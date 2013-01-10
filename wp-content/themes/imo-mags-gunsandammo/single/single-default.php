@@ -67,85 +67,7 @@ get_header();
 	</div>
 	
 	<div id="content" class="col-ab">
-	<!-- Set the blog header on single blog entry pages -->
-	<?php
-	$sg_img = get_option("sons_header_uri", get_stylesheet_directory_uri(). "/img/blogs/sonsofguns.png" );
-	if (empty($sg_img)) {
-	    $sg_img = get_stylesheet_directory_uri(). "/img/blogs/sonsofguns.png";
-	}
-	$dts_img = get_option("defend_header_uri", get_stylesheet_directory_uri(). "/img/blogs/defend-thyself.jpg" );
-	if (empty($dts_img)) {
-	    $dts_img = get_stylesheet_directory_uri(). "/img/blogs/defend-thyself.jpg";
-	}
-	$nb_img = get_option("news_header_uri", get_stylesheet_directory_uri(). "/img/blogs/news-brief.jpg" );
-	if (empty($nb_img)) {
-	    $nb_img = get_stylesheet_directory_uri(). "/img/blogs/news-brief.jpg";
-	}
-	$hb_img = get_option("history_header_uri", get_stylesheet_directory_uri(). "/img/blogs/history-books.jpg" );
-	if (empty($hb_img)) {
-	    $hb_img = get_stylesheet_directory_uri(). "/img/blogs/history-books.jpg";
-	}
-	$lc_img = get_option("competition_header_uri", get_stylesheet_directory_uri(). "/img/blogs/love-competition.jpg" );
-	if (empty($lc_img)) {
-	    $lc_img = get_stylesheet_directory_uri(). "/img/blogs/love-competition.jpg";
-	}
-	$zn_img = get_option("zombie_header_uri", get_stylesheet_directory_uri(). "/img/blogs/zombie-nation.jpg" );
-	if (empty($zn_img)) {
-	    $zn_img = get_stylesheet_directory_uri(). "/img/blogs/zombie-nation.jpg";
-	}
-	
-	
-	?>
-	<?php if (in_category($soga_slug)) { ?>
-	<div class="blog-headers soga">
-		<div class="blog-border"></div>
-		<h1>Sons of Guns & Ammo</h1>
-		<div class="presented-by">Presented By</div>
-		<p>Will Hayden and the Red Jacket Crew bring you everything you love about Sons of Guns in a blog with all the firepower and none of the drama.</p>
-		<div class="sponsor-logo"><a href="http://www.armalite.com/Categories.aspx?Category=d4543129-c82e-4fc9-bb4d-213664c7b055"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/armalite.jpg" alt="Armalite Logo" title="Armalite Logo" /></a></div>
-	</div>
-	<?php } else if (in_category($floc_slug)) { ?>
-	<div class="blog-headers ftloc">
-		<div class="blog-border"></div>
-		<h1>For the Love of Competition</h1>
-		<!--<div class="presented-by">Presented By</div>-->
-		<p>News, notes, jackassery and the occasional explosion from the world of competitive shooting with Top Shot champion and aspiring 3-gunner 
-Iain Harrison.</p>
-		<!--<div class="sponsor-logo"></div>-->
-	</div>
-	<?php } else if (in_category($dt_slug)) { ?>
-	<div class="blog-headers dt">
-		<div class="blog-border"></div>
-		<h1>Defend Thyself</h1>
-		<div class="presented-by">Presented By</div>
-		<p>Tips and tactics for defending your home, your family and your life from Personal Defense expert Richard Nance.</p>
-		<div class="sponsor-logo"></div>
-	</div>
-	<?php } else if (in_category($nb_slug)) { ?>
-	<div class="blog-headers ganb">
-		<div class="blog-border"></div>
-		<h1>Guns & Ammo News Brief</h1>
-		<!--<div class="presented-by">Presented By</div>-->
-		<p>All the news you'll ever need from the world of guns, shooting and weird web stuff. Brought to you by the scribes at GunsandAmmo.com.</p>
-		<!--<div class="sponsor-logo"></div>-->
-	</div>		
-	<?php } else if (in_category($tgr_slug)) { ?>
-	<div class="blog-headers fthb">
-		<div class="blog-border"></div>
-		<h1>From the History Books</h1>
-		<!--<div class="presented-by">Presented By</div>-->
-		<p>A look back in time at the history of the guns we love with Senior Editor Garry James and S.P. Fjestad, author and publisher of the Blue Book of Gun Values.</p>
-		<!--<div class="sponsor-logo"></div>-->
-	</div>
-	<?php } else if (in_category($zn_slug)) { ?>
-	<div class="blog-headers zn">
-		<div class="blog-border"></div>
-		<h1>Zombie Nation</h1>
-		<!--<div class="presented-by">Presented By</div>-->
-		<p>When you're helpless against the zombie horde and their blood lust, don't say we didn't warn you. Get your tips, tactics and gear for zombie defense here.</p>
-		<!--<div class="sponsor-logo"></div>-->
-	</div>	
-	<?php } else if ( in_category($aff_slug) || in_category("military-arms") ) { ?>
+	<?php if ( in_category($aff_slug) || in_category("military-arms") ) { ?>
 	<div class="affiliate-header">
 	<div class="bar"></div>
 	<h1>G&A Affiliates</h1>
@@ -172,8 +94,6 @@ Iain Harrison.</p>
 	<?php } ?>
 	</div>
 	<?php } ?>
-	
-	
 		<?php cfct_loop(); ?>
 		<?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
 		<div class="divider"></div>

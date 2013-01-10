@@ -31,7 +31,7 @@ the_post();
 		<div class="presented-by">Presented By</div>
 		<?php //if( is_category("military-arms") ){ echo " <h4>Military Arms</h4>"; }?>
 		<div class="desc">Your destination for the newest guns and gear coming out of the industry's biggest event of the year!</div>
-		<div class="sponsor-logo"></div>
+		<div class="sponsor-logo"><a href="http://www.realtree.com/huntallseason/index.html" target="_blank"><img src="/wp-content/themes/imo-mags-petersenshunting/img/realtree-logo.png" align="Realtree Xtra" title="Realtree Xtra" /></a></div>	
 	</div>
 
 	<div class="bonus-background">
@@ -40,7 +40,17 @@ the_post();
 		</div>
 	</div>
 	<div class="col-abc">
-		
+		<!-- Site - Hunting -->
+		<script type="text/javascript">
+		  var ord = window.ord || Math.floor(Math.random() * 1e16);
+		  document.write('<a href="http://ad.doubleclick.net/N4930/jump/imo.hunting;sz=1x1;ord=' + ord + '?"><img src="http://ad.doubleclick.net/N4930/ad/imo.hunting;sz=1x1;ord=' + ord + '?" width="1" height="1" /></a>');
+		</script>
+		<noscript>
+		<a href="http://ad.doubleclick.net/N4930/jump/imo.hunting;sz=1x1;ord=[timestamp]?">
+		<img src="http://ad.doubleclick.net/N4930/ad/imo.hunting;sz=1x1;ord=[timestamp]?" width="1" height="1" />
+		</a>
+		</noscript>
+
 		<div <?php post_class('entry entry-full clearfix'); ?>>
 			<div class="entry-content">
 				<?php

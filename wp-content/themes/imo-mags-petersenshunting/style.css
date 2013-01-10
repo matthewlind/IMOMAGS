@@ -370,6 +370,7 @@ h2.entry-title a {
 	background: url("img/shot-show-lg-bg.jpg") left top no-repeat;
 	width: 980px;
 	margin-bottom: 20px;
+	height: 120px;
 }
 .shot-show .blog-border{
 	width: 820px;
@@ -391,10 +392,12 @@ h2.entry-title a {
 	font-size: 1.9em;
 }
 .shot-show .desc{
-	left: 162px;
+	left: 164px;
 	position: relative;
 	top: -28px;
 	width: 420px;
+	font-size: 1.2em;
+	line-height: 1.2;
 }
 .shot-show .presented-by{
 	left: 882px;
@@ -415,12 +418,12 @@ h2.entry-title a {
 	top: -1px;
 }
 .shot-show .sponsor-logo{
-	background: url("img/wardog-logo.jpg") left top no-repeat;
 	float: right;
-	height: 74px;
-	width: 186px;
-	margin-right: -10px;
-	margin-top: -70px;
+	height: 80px;
+	width: 281px;
+	margin-right: -2px;
+	margin-top: -74px;
+
 }
 .cross-site-feed-more-button, .local-site-feed-more-button{
 	margin-bottom: 60px;

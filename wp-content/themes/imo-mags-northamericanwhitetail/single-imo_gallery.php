@@ -14,6 +14,9 @@ get_header();
 			<span class="spacer">&bull;</span>
             <?php endif; ?>
 			<abbr class="published" title="<?php the_time('Y-m-d\TH:i'); ?>"><?php the_time('F j, Y'); ?></abbr>
+			<?php if(function_exists('wp_print')) { ?>
+			<span class="spacer">|</span>
+			<?php print_link(); } ?>
 			<?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
 			
 			<?php

@@ -754,3 +754,13 @@ float: right;
 width: 300px;
 }
 
+
+/**** Shot Show Widget *****/
+#shot-show-widget{
+	
+}
+.widget-header{
+	background: url("../img/shot-show-widget-logo.jpg") no-repeat center top;	
+	height: 40px;
+}
+

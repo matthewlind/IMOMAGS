@@ -1,6 +1,7 @@
 <?php
 
 namespace imo;
+$should_print_my_script = true;
 
 /**
  * IMOcsfWidget

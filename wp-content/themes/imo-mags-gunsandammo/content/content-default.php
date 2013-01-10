@@ -1,19 +1,35 @@
 <?php
+
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
+
+// Let's get the Primary Category (Hikari Plugin)
+$postID = get_the_ID();
+$categoryID = get_post_meta($postID);
+$catID = $categoryID["_category_permalink"];
+$categoryName = get_term_by('id', $catID[0], 'category'); 
+
+//set the primary category urls
+$url="/shooting/".$categoryName->slug;
 
 ?>
 <div <?php post_class('entry entry-full clearfix') ?>>
 	<div class="entry-header">
-		<?php
+		<?php 
+		//if('reviews' == get_post_type()){
+			//echo '<a class="primary-cat" href="/'.get_post_type().'">'.get_post_type().'</a>';
+		//}else{
+		echo '<a class="primary-cat" href="'.$url.'">'.$categoryName->name.'</a>'; 
+		//} 
+		
 		// If we're not showing this particular single post page, link the title
 		$this_post_is_not_single = (!is_single(get_the_ID()));
 		if ($this_post_is_not_single) { ?>
-			<h2 class="entry-title"><a rel="bookmark" href="<?php the_permalink(); ?>"><?php the_title() ?></a></h2>
+			<h2 class="entry-title"><a rel="bookmark" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 		<?php
 		} else {
 		?>
-			<h1 class="entry-title"><?php the_title() ?></h1>
+			<h1 class="entry-title"><?php the_title(); ?></h1>
 		<?php
 		}
 		?>
@@ -23,17 +39,15 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 			<span class="spacer">|</span>
             <?php endif; ?>
 			<time class="published" datetime="<?php the_time('Y-m-d\TH:i'); ?>"><?php the_time('F j, Y'); ?></time>
+			<?php if(function_exists('wp_print')) { ?>
+			<span class="spacer">|</span>
+			<?php print_link(); } ?>
 		</div>
 		<a class="comment-count" href="#idc-container"><?php echo get_comments_number(); ?></a>
 	</div>
 	<?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
 	<div class="entry-content">
-		<?php
-		// Un-comment this if you want featured images to automatically appear on full posts
-		// the_post_thumbnail('thumbnail', array('class' => 'entry-img'));
-		the_content(__('Continued&hellip;', 'carrington-business'));
-		
-		?>
+		<?php the_content(__('Continued&hellip;', 'carrington-business')); ?>
 	</div>
   <!-- <div class="entry-footer">
     <?php _e('In', 'carrington-business'); ?>

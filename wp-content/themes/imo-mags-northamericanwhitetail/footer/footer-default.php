@@ -175,7 +175,7 @@ if ( is_user_logged_in() ) {
 
 
 	<article id="excerpt-template" class="post type-post status-publish format-standard hentry entry entry-excerpt has-img" style="display:none;">
-	<?php if (in_category("ata-show-2013") || is_category("ata-show-2013") ){ echo '<div class="ata-show-sticker"></div>';} ?>
+	<?php if ( in_category("ata-show-2013") || is_category("ata-show-2013") ){ echo '<div class="ata-show-sticker"></div>';} ?>
 	<a href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/" class="no-olay"><img width="190" height="120" src="http://www.northamericanwhitetail.deva/files/2012/03/NAWdd_031312-190x120.jpg" class="entry-img wp-post-image" alt="" title="" /><span></span></a>
 	
 	<div class="entry-summary">

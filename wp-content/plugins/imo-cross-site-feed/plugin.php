@@ -16,11 +16,17 @@ include('widget.php');
 
 
 
-add_action('init', 'imo_csf_scripts');
-function imo_csf_scripts() {
-	wp_enqueue_script('csf-js',plugins_url('cross-site-feed-widget.js', __FILE__));
-	wp_enqueue_style('csf-css',plugins_url('/css/style.css', __FILE__));	
+add_action('init', 'register_imo_script');
+add_action('wp_footer', 'print_imo_script');
 
-	
+function register_imo_script() {
+	wp_register_script('csf-js',plugins_url('cross-site-feed-widget.js', __FILE__), null, false, true);
+	wp_enqueue_style('csf-css',plugins_url('/css/style.css', __FILE__));	
+}
+
+function print_imo_script() {
+    global $should_print_my_script; // Set this to true in your widget's 'widget' method
+    if (!$should_print_my_script) return;
+    wp_print_scripts('csf-js');
 }
 

@@ -59,9 +59,9 @@ jQuery(document).ready(function($) {
 	
 		
 		if (term.length > 0) {
-			var fileName = "/wpdb/shotshow-hunt-json.php?t=" + term;
+			var fileName = "/wpdb/shotshow-shoot-json.php?t=" + term;
 		} else {
-			var fileName = "/wpdb/shotshow-hunt-json.php";
+			var fileName = "/wpdb/shotshow-shoot-json.php";
 		}
 		
 
@@ -69,19 +69,14 @@ jQuery(document).ready(function($) {
     
 	    //$(".animal-container").html("");
 
-	    	var commentPlural;
-	    		    
+	    	
+	    
 		    var count = 0;
 
 		    var end = start + showAtOnce;
 
 		    for (i = start; i < end; i++) {
 		        count++;
-		        if(data[i].comment_count == 1){
-		    		commentPlural = " Comment";
-		    	}else{
-			    	commentPlural = " Comments";
-		    	}
 		        var $articleTemplate = $("article#excerpt-template").clone();
 
 		        $articleTemplate.attr("id","excerpt-" + data[i].post_name + count);
@@ -96,7 +91,7 @@ jQuery(document).ready(function($) {
 		        $articleTemplate.find("p.excerpt-body").text("");
 		        $articleTemplate.find(".shot-show-sticker").hide();
 		        $articleTemplate.find("img.entry-img").attr("src",data[i].img_url);
-		        $articleTemplate.find("a.comment-count").text(data[i].comment_count + commentPlural);
+		        $articleTemplate.find("a.comment-count").text(data[i].comment_count);
 		        
 		       
 				//If data[i] is from NAW, add the categories

@@ -1,6 +1,9 @@
 <?php
 
 /**
+ * Template Name: Shot Show Page
+ * Description: A page for Shot Show content.
+ *
  * @package carrington-business
  *
  * This file is part of the Carrington Business Theme for WordPress
@@ -17,14 +20,9 @@
  */
 
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
-if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
-if (have_posts()) {
-	while (have_posts()) {
-		if(function_exists('wp_print')) { print_link(); } 
-		the_post();
-		cfct_content();
-	}
-}
+// NOTE: this file is here for compatibility reasons - active templates are in the pages/ dir 
+
+cfct_page('shot-show');
 
 ?>
