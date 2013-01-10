@@ -38,7 +38,7 @@ class SScsfWidget extends \WP_Widget {
 				  document.write('<a href="http://ad.doubleclick.net/N4930/jump/imo.hunting;sz=88x50;ord=' + ord + '?"><img src="http://ad.doubleclick.net/N4930/ad/imo.hunting;sz=88x50;ord=' + ord + '?" width="88" height="50" /></a>');
 				</script>
 				<noscript>
-				<a href="http://ad.doubleclick.net/N4930/jump/imo.hunting;sz=88x50;ord=[timestamp]?">
+				<a href="http://ad.doubleclick.net/N4930/jump/imo.hunting;sz=88x50;ord=[timestamp]?" target="_blank">
 				<img src="http://ad.doubleclick.net/N4930/ad/imo.hunting;sz=88x50;ord=[timestamp]?" width="88" height="50" />
 				</a>
 				</noscript>	    
