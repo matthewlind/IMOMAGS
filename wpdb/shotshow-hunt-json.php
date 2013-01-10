@@ -20,6 +20,7 @@ if (!empty($arguments['s']))
 $term = $arguments['t'];
 
 
+header('Access-Control-Allow-Origin: *');  
 
 
 
