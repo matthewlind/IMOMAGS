@@ -490,3 +490,30 @@ h2.entry-title a {
 	left: 0;
 	top: 0;
 }
+
+
+/*** SHOT SHOW ***/
+.primary-shot-show{
+	overflow: hidden;
+	width: 648px;
+	margin-bottom: 5px;
+}
+.primary-shot-show .primary-cat{
+	float: left;
+	margin-top: 6px;
+	text-transform: uppercase;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+.primary-shot-show .presented-by{
+	float: left;
+	margin: 9px 8px 0 8px;
+	font-size: 0.82em;
+}
+.primary-shot-show .sponsor-logo{
+	float: left;
+}
+.primary-shot-show .sponsor-logo img{
+	height: 30px;
+}
+

@@ -36,7 +36,7 @@ the_post();
 
 	<div class="bonus-background">
 		<div class="bonus">
-			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('bonus_sidebar')) : else : ?><?php endif; ?>
+			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('shot-show-sidebar')) : else : ?><?php endif; ?>
 		</div>
 	</div>
 	<div class="col-abc">

@@ -61,18 +61,23 @@ if (empty($zn_img)) {
 ?>
 <div class="page-template-page-right-php category-page">
 	<h1 class="seo-h1"><?php single_cat_title('');?></h1>
-	<div id="sidebar"<?php if (in_category("shot-show-2013") ) { echo ' class="shot-show-sidebar"';} ?>>
-		<?php 
+	<div id="sidebar"<?php if (in_category("shot-show-2013") ) { echo '<div id="sidebar" class="shot-show-sidebar">';
+	if (function_exists('dynamic_sidebar') && dynamic_sidebar('shot-show-sidebar')) : else : endif;
+	}else{
+
+		echo '<div id="sidebar">';
 		if( in_category($soga_slug) || in_category($floc_slug) || in_category($dt_slug) || in_category($nb_slug) || in_category($zn_slug) || in_category($tgr_slug) ) {
 			if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-default')) : else : endif;
 		
+		}else if( in_category("shot-show-2013") ){
+					
 		}else if( in_category("affiliates") ){
 			if (function_exists('dynamic_sidebar') && dynamic_sidebar('affiliate-sidebar')) : else : endif;
 		
 		}else{
 			if (function_exists('dynamic_sidebar') && dynamic_sidebar('homepage-sidebar')) : else : endif;
 		}
-		
+	}
 		 ?>
 	</div>
 	<div id="content" class="col-abc category-col-abc">

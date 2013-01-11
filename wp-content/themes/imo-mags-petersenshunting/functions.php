@@ -36,4 +36,19 @@ function my_scripts_method() {
  
 add_action('wp_enqueue_scripts', 'my_scripts_method');
 
+function ph_imo_addons_sidebar_init() {
+	$sidebar_defaults = array(
+	    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+	    'after_widget' => '</aside>',
+	    'before_title' => '<h3 class="widget-title"><span>',
+	    'after_title' => '</span></h3>'
+    );
+
+	register_sidebar(array_merge($sidebar_defaults, array(
+		'name' => 'Shot Show Sidebar',
+		'id' => 'shot-show-sidebar',
+		'description' => 'Shot Show Sidebar',
+	)));
+}
+add_action( 'widgets_init', 'ph_imo_addons_sidebar_init' );
 ?>
