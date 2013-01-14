@@ -110,7 +110,7 @@ jQuery(document).ready(function($) {
 							parentString = this.parent + "/";
 						}
 												
-						$categoryLinks.append($("<a href='/category/" + parentString + this.slug + "'>" + this.name + "</a>"));
+						$categoryLinks.append($("<a href='/shooting/" + parentString + this.slug + "'>" + this.name + "</a>"));
 						 
 			
 

@@ -53,8 +53,78 @@ the_post();
 
 		<div <?php post_class('entry entry-full clearfix'); ?>>
 			<div class="entry-content">
+					<div class="cat-col-full">
+					<script type='text/javascript' src='/wp-content/themes/imo-mags-petersenshunting/js/jquery.scrollface.min.js?ver=3.3.1'></script>
 				<?php
-				the_content(__('Continued&hellip;', 'carrington-business')); ?>
+
+					
+		//Then get attachment data
+		$requestURL = "http://www.gunsandammo.fox/wpdb/shotshow-hunt-json.php";
+		
+		$file = file_get_contents($requestURL);
+		
+		
+
+		$postData = json_decode($file);		
+					
+		?>
+			
+			<div id="slideshow_mask" class="featured-thumb-wide">
+				<div id="slideshow">
+
+					<?php // The Loop
+					
+					$itemCount = 0;
+					foreach($postData as $post) {
+					
+						$isATAFeatured = FALSE;
+						//Check for ata-featured term
+						
+						foreach ($post->terms as $term) {
+						
+	
+						
+							if ($term->slug == "shot-show-featured")
+								$isATAFeatured = TRUE;
+						}
+						
+						
+						if ($isATAFeatured) {
+						
+							$imageURL = str_replace("-190x120", "", $post->img_url);
+							
+
+							?>
+
+								<div class='featured-item-pane cat-slide'>
+									<div class='featured-item-image'>
+										<a href="<?php echo $post->post_url; ?>"><img src="<?php echo $imageURL; ?>"/></a>
+									</div>
+									<div class='featured-item-description'>
+										<h2><a href="<?php echo $post->post_url; ?>"><?php echo $post->post_title; ?></a></h2>
+									</div>
+								</div>
+							
+							
+							<?php 
+							$itemCount++;
+						
+						}//end if $isATAFeatured
+					
+						if ($itemCount >= 4)
+							break;
+					
+						}//End Foreach
+						?>
+				</div>
+			</div>
+				
+				<div id="pager" class=""></div>
+						<a id="prev"></a>
+						<a id="next"></a>	
+						
+			<div style="clear:both;"></div>
+
 				<div class="cross-site-feed" term=""></div><!-- This term= attribute is searched for by displayCrossSiteFeed() in cross-site-feed.js -->
 				
 				</div>

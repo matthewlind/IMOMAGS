@@ -143,7 +143,7 @@ Iain Harrison.</p>
 		<h1>Daily SHOT SHOW 2013 Coverage</h1>
 		<div class="presented-by">Presented By</div>
 		<div class="desc">Your destination for the newest guns and gear coming out of the industry's biggest event of the year!</div>
-		<div class="sponsor-logo"><a href="http://www.realtree.com/huntallseason/index.html" target="_blank"><img src="/wp-content/themes/imo-mags-gunsandammo/img/realtree-logo.png" align="Realtree Xtra" title="Realtree Xtra" /></a></div>
+		<div class="sponsor-logo"><a href="http://resources.springfield-armory.com/" target="_blank"><img src="/wp-content/themes/imo-mags-gunsandammo/img/sausa.png" alt="Springfield Amory USA" title="Springfield Amory USA" /></a></div>
 	</div>
 	<?php } else { ?>
 
@@ -158,6 +158,72 @@ Iain Harrison.</p>
 
 	<?php }
 	if( is_category("shot-show-2013") ){ ?>
+		<div class="cat-col-full">
+				<?php
+
+					
+		//Then get attachment data
+		$requestURL = "http://gunsandammo.com/wpdb/shotshow-shoot-json.php";
+		
+		$file = file_get_contents($requestURL);
+		$postData = json_decode($file);		
+					
+		?>
+			
+			<div id="slideshow_mask" class="featured-thumb-wide">
+				<div id="slideshow">
+					
+					
+	
+					<?php // The Loop
+					
+					$itemCount = 0;
+					foreach($postData as $post) {
+					
+						$isATAFeatured = FALSE;
+						//Check for ata-featured term
+						
+						foreach ($post->terms as $term) {
+							if ($term->slug == "shot-show-featured")
+								$isATAFeatured = TRUE;
+						}
+						
+						
+						if ($isATAFeatured) {
+						
+							$imageURL = str_replace("-190x120", "", $post->img_url);
+							
+
+							?>
+
+								<div class='featured-item-pane cat-slide'>
+									<div class='featured-item-image'>
+										<a href="<?php echo $post->post_url; ?>"><img src="<?php echo $imageURL; ?>"/></a>
+									</div>
+									<div class='featured-item-description'>
+										<h2><a href="<?php echo $post->post_url; ?>"><?php echo $post->post_title; ?></a></h2>
+									</div>
+								</div>
+							
+							
+							<?php 
+							$itemCount++;
+						
+						}//end if $isATAFeatured
+					
+						if ($itemCount >= 4)
+							break;
+					
+						}//End Foreach
+						?>
+				</div>
+			</div>
+				
+				<div id="pager" class=""></div>
+						<a id="prev"></a>
+						<a id="next"></a>	
+						
+			<div style="clear:both;"></div>
 		<div class="cross-site-feed" term=""></div><!-- This term= attribute is searched for by displayCrossSiteFeed() in cross-site-feed.js -->
 				
 		</div>
