@@ -138,6 +138,10 @@ jQuery(document).ready(function($) {
 			        if(this.slug == 'home-featured'){
 						$articleTemplate.hide();		
 						}
+					//Hide Shot Show featured posts
+			        if(this.slug == 'shot-show-featured'){
+						$articleTemplate.hide();		
+						}
 					// Place video button on videos
 					if(this.slug == 'video'){
 						$articleTemplate.find("a.no-olay").addClass("video-excerpt");

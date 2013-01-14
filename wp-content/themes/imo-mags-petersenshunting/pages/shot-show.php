@@ -58,7 +58,7 @@ the_post();
 
 					
 		//Then get attachment data
-		$requestURL = "http://www.gunsandammo.com/wpdb/shotshow-hunt-json.php";
+		$requestURL = "http://www.petersenshunting.com/wpdb/shotshow-hunt-json.php";
 		
 		$file = file_get_contents($requestURL);
 		
