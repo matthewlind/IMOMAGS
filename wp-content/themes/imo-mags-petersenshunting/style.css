@@ -426,7 +426,7 @@ h2.entry-title a {
 
 }
 .cross-site-feed{
-	margin-top: 60px;
+	margin-top: 40px;
 }
 .cross-site-feed-more-button, .local-site-feed-more-button{
 	margin-bottom: 60px;
@@ -548,8 +548,9 @@ h2.entry-title a {
 	min-height: 320px;
 }
 #pager{
-	margin-left: 348px;
 	float: right;
+	right: 9px;
+	position: relative;
 }
 #pager a{
 	background-color: #000;
@@ -594,5 +595,8 @@ h2.entry-title a {
 }
 .featured-thumb-wide .cat-slide img{
 	min-width: 646px !important;
+}
+.page-template-shot-show-php .bonus-background{
+	margin-top: 14px;
 }
 

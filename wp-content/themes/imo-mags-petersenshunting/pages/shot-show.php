@@ -54,12 +54,11 @@ the_post();
 		<div <?php post_class('entry entry-full clearfix'); ?>>
 			<div class="entry-content">
 					<div class="cat-col-full">
-					<script type='text/javascript' src='/wp-content/themes/imo-mags-petersenshunting/js/jquery.scrollface.min.js?ver=3.3.1'></script>
 				<?php
 
 					
 		//Then get attachment data
-		$requestURL = "http://www.gunsandammo.fox/wpdb/shotshow-hunt-json.php";
+		$requestURL = "http://www.gunsandammo.com/wpdb/shotshow-hunt-json.php";
 		
 		$file = file_get_contents($requestURL);
 		

@@ -32,7 +32,7 @@ $url="/category/".$categoryName->slug;
 <div <?php post_class('entry entry-full clearfix') ?>>
 	<div class="entry-header">
 		<?php 
-		if(in_category("shot-show-2013") && $_SERVER["SERVER_NAME"] == "www.petersenshunting.com"){
+		if(in_category("shot-show-2013") && $_SERVER["SERVER_NAME"] == "www.petersenshunting.fox"){
 			echo '<div class="primary-shot-show">'; 
 				echo '<a class="primary-cat" href="/shot-show-2013">'.$categoryName->name.'</a>'; 
 				echo '<div class="presented-by">Presented By</div>'; 
