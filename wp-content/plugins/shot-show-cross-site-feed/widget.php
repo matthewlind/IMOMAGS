@@ -31,7 +31,7 @@ class SScsfWidget extends \WP_Widget {
 			<?php //if( is_category("military-arms") ){ echo " <h4>Military Arms</h4>"; }?>
 			<!--<div class="desc">Your destination for the newest guns and gear coming out of the industry's biggest event of the year!</div>-->
 			<div class="sponsor-logo"> 
-				<?php if( $_SERVER['SERVER_NAME'] == "www.petersenshunting.com" || $_SERVER['SERVER_NAME'] == "www.northamericanwhitetail.com" || $_SERVER['SERVER_NAME'] == "www.bowhuntingmag.com/" || $_SERVER['SERVER_NAME'] == "www.gundogmag.com/" || $_SERVER['SERVER_NAME'] == "www.wildfowlmag.com/" || $_SERVER['SERVER_NAME'] =="www.bowhunter.com/" || $_SERVER['SERVER_NAME'] == "www.gameandfishmag.com/" ){ ?>
+				<?php if( $_SERVER['SERVER_NAME'] == "www.petersenshunting.fox" || $_SERVER['SERVER_NAME'] == "www.northamericanwhitetail.fox" || $_SERVER['SERVER_NAME'] == "www.bowhuntingmag.fox/" || $_SERVER['SERVER_NAME'] == "www.gundogmag.fox/" || $_SERVER['SERVER_NAME'] == "www.wildfowlmag.fox/" || $_SERVER['SERVER_NAME'] =="www.bowhunter.fox/" || $_SERVER['SERVER_NAME'] == "www.gameandfishmag.fox/" ){ ?>
 			    <!-- Site - Hunting -->
 				<script type="text/javascript">
 				  var ord = window.ord || Math.floor(Math.random() * 1e16);
@@ -42,6 +42,7 @@ class SScsfWidget extends \WP_Widget {
 				<img src="http://ad.doubleclick.net/N4930/ad/imo.hunting;sz=88x50;ord=[timestamp]?" width="88" height="50" />
 				</a>
 				</noscript>	    
+				
 				<?php }else{ ?>
 				
 				<!-- Site - Guns and Ammo -->
@@ -57,7 +58,7 @@ class SScsfWidget extends \WP_Widget {
 				<style type="text/css">
 				#shot-show-widget .sponsor-logo{
 					margin-right: 54px;
-					margin-top: 3px;
+					margin-top: -36px;
 					float: right;
 				}
 				.widget-header {
@@ -70,14 +71,14 @@ class SScsfWidget extends \WP_Widget {
 		<ul class="shot-show-widget" term=""><!-- This term= attribute is searched for by displayCrossSiteFeed() in cross-site-feed.js -->
 		    
 		</ul>
-			<div class="see-all"><a href="<?php if( $_SERVER['SERVER_NAME'] == "www.petersenshunting.com" || $_SERVER['SERVER_NAME'] == "www.northamericanwhitetail.com" || $_SERVER['SERVER_NAME'] == "www.bowhuntingmag.com/" || $_SERVER['SERVER_NAME'] == "www.gundogmag.com/" || $_SERVER['SERVER_NAME'] == "www.wildfowlmag.com/" || $_SERVER['SERVER_NAME'] =="www.bowhunter.com/" || $_SERVER['SERVER_NAME'] == "www.gameandfishmag.com/" ){ echo "http://www.northamericanwhitetail.com/shot-show-2013"; }else{ echo "http://gunsandammo.com/shooting/shot-show-2013/";} ?>">See All 2013 SHOT Show Coverage</a><span></span></div>
+			<div class="see-all"><a href="<?php if( $_SERVER['SERVER_NAME'] == "www.petersenshunting.fox" || $_SERVER['SERVER_NAME'] == "www.northamericanwhitetail.fox" || $_SERVER['SERVER_NAME'] == "www.bowhuntingmag.fox/" || $_SERVER['SERVER_NAME'] == "www.gundogmag.fox/" || $_SERVER['SERVER_NAME'] == "www.wildfowlmag.fox/" || $_SERVER['SERVER_NAME'] =="www.bowhunter.fox/" || $_SERVER['SERVER_NAME'] == "www.gameandfishmag.fox/" ){ echo "http://www.petersenshunting.fox/shot-show-2013"; }else{ echo "http://gunsandammo.fox/shooting/shot-show-2013/";} ?>">See All 2013 SHOT Show Coverage</a><span></span></div>
 		</aside>
 		<div style="clear:both;"></div>
 
 	    <!-- clone -->
 		<li id="ss-widget-template" style="display:none;">
-							
-				<a rel="bookmark" href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/" target="_blank">Deer of the Day Buckeye Brute, Alexa Perry</a>							
+				<div class="site"><a href="http://gunsandammo.fox">www.gunsandammo.fox</a></div>				
+				<a class="title" rel="bookmark" href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/">Deer of the Day Buckeye Brute, Alexa Perry</a>							
 		</li>
 		
 		

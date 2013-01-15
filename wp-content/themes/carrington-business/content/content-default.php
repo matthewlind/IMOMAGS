@@ -32,12 +32,16 @@ $url="/category/".$categoryName->slug;
 <div <?php post_class('entry entry-full clearfix') ?>>
 	<div class="entry-header">
 		<?php 
-		if(in_category("shot-show-2013") && $_SERVER["SERVER_NAME"] == "www.petersenshunting.fox"){
+		if(in_category("shot-show-2013")){
 			echo '<div class="primary-shot-show">'; 
 				echo '<a class="primary-cat" href="/shot-show-2013">'.$categoryName->name.'</a>'; 
 				echo '<div class="presented-by">Presented By</div>'; 
 					echo '<div class="sponsor-logo">'; 
-						echo '<a href="http://www.realtree.com/huntallseason/index.html" target="_blank"><img src="/wp-content/themes/imo-mags-gunsandammo/img/realtree-logo.png" alt="Realtree Xtra" title="Realtree Xtra" /></a>'; 
+						if($_SERVER['SERVER_NAME'] == "www.petersenshunting.com" || $_SERVER['SERVER_NAME'] == "www.northamericanwhitetail.com" || $_SERVER['SERVER_NAME'] == "www.bowhuntingmag.com/" || $_SERVER['SERVER_NAME'] == "www.gundogmag.com/" || $_SERVER['SERVER_NAME'] == "www.wildfowlmag.com/" || $_SERVER['SERVER_NAME'] =="www.bowhunter.com/" || $_SERVER['SERVER_NAME'] == "www.gameandfishmag.com/" ){
+							echo '<a href="http://www.realtree.com/huntallseason/index.html" target="_blank"><img src="/wp-content/themes/imo-mags-gunsandammo/img/realtree-logo.png" alt="Realtree Xtra" title="Realtree Xtra" /></a>'; 
+							}else{
+								echo '<a href="http://resources.springfield-armory.com/" target="_blank"><img src="/wp-content/themes/imo-mags-gunsandammo/img/sausa.png" alt="Springfield Amory USA" title="Springfield Amory USA" /></a>';  
+							}
 					echo '</div>'; 
 				echo '</div>'; 
 		}

@@ -5798,7 +5798,34 @@ top: -34px;
 	left: 0;
 	top: 0;
 }
+.primary-shot-show .sponsor-logo{
+	float: left;
+	background: none;
+}
+#shot-show-widget .widget-header {
+width: 310px !important;
+margin: 0 auto !important;
+}
+#shot-show-widget .sponsor-logo {
+margin-top: -5px !important;
+}
+#shot-show-widget ul {
+margin-top: 8px !important;
+}
+#shot-show-widget .site a{
+	font-size: 0.9em !important;
+}
+#shot-show-widget li a {
+font-size: 1.1em !important;
+}
+#shot-show-widget h4 {
+padding: 17px 0 11px 118px !important;
+font-size: 1.3em !important;
+}
+#shot-show-widget .sub-header {
+font-size: 0.8em !important;
 
+}
 /*** Local edits ***/   
     
 #text-19 {padding: 0;}
