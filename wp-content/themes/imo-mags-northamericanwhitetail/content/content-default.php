@@ -25,6 +25,19 @@ $this_post_is_not_single = (!is_single(get_the_ID()));
 		// If we're not showing this particular single post page, link the title
 		if ($this_post_is_not_single) { ?>
 	<div class="entry-header">
+	<?php 
+	if(in_category("shot-show-2013")){
+			echo '<div class="primary-shot-show">'; 
+				echo '<a class="primary-cat" href="'.$url.'">'.$categoryName->name.'</a>'; 
+				echo '<div class="presented-by">Presented By</div>'; 
+					echo '<div class="sponsor-logo">'; 
+						echo '<a href="http://resources.springfield-armory.com/" target="_blank"><img src="/wp-content/themes/imo-mags-gunsandammo/img/sausa.png" alt="Springfield Amory USA" title="Springfield Amory USA" /></a>'; 
+					echo '</div>'; 
+				echo '</div>'; 
+		}else{
+			echo '<a class="primary-cat" href="'.$url.'">'.$categoryName->name.'</a>'; 
+		} 
+		?>
 		<h2 class="entry-title"><a rel="bookmark" href="<?php the_permalink(); ?>"><?php the_title() ?></a></h2>
 		
 		<div class="entry-info">
