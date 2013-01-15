@@ -7,11 +7,11 @@
 .widget-header{
 	background: url("../img/shot-show-widget-logo.jpg") no-repeat 8px 4px white;	
 	width: 292px;
-	height: 120px;
+	height: 130px;
 }
 #shot-show-widget h4{
-	padding: 17px 0 11px 115px;
-	font-size: 1.1em;
+	padding: 17px 0 11px 109px;
+	font-size: 18px;
 	text-align: left;
 }
 #shot-show-widget .widget-border{
@@ -24,29 +24,37 @@
 	text-align: center;
 	font-family: "StagMedium",serif !important;
 	float: left;
-	margin: 12px 0 0 52px;
+	margin: 15px 0 0 42px;
+	left: 0 !important;
+	top: 0 !important;
+	font-size: 16px;
+	width: 110px;
 }
 #shot-show-widget .sponsor-logo{
-	margin-right: 54px;
+	margin-right: -140px;
+	margin-top: -38px;
 }
 #shot-show-widget ul{
 	background: white;
 	padding: 2px 10px;
 	list-style: none;
+	margin-left: 0 !important;
 }
 #shot-show-widget li{
 	border-bottom: 1px dotted #ccc;
 	padding: 4px 0;	
+	margin: 0 !important;
+	line-height: 1.2;
 }
 #shot-show-widget li a{
 	color: #5B6373;
 	font-weight: bold;
-	font-size: 0.9em;
+	font-size: 15px;
 }
 #shot-show-widget .see-all{
 	background: white;
 	text-align: center;
-	font-size: 0.9em;
+	font-size: 14px;
 }
 #shot-show-widget span{
 	background: url("../img/icon-sb6ca565883.png") no-repeat;
@@ -62,8 +70,40 @@
 #shot-show-widget .sub-header{
 	color: #CCC;
 	font-family: "Stag",serif;
-	font-size: 0.8em;
+	font-size: 14px;
 	margin: -17px 0 0 78px;
 	text-align: center;
 }
+#shot-show-widget .site{
+	clear: both;
+}
+#shot-show-widget .site a{
+	color: #ce181e;
+	font-weight: normal;
+	font-size: 12px;;
+	clear: both;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

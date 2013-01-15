@@ -22,6 +22,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
   _gaq.push(['_setAccount', 'UA-2409437-15']);
   _gaq.push(['_setDomainName', '.northamericanwhitetail.com']);
   _gaq.push(['_trackPageview']);
+  _gaq.push('_trackAuthor', 4, 'author','NAME', 3);
 
   (function() {
     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;

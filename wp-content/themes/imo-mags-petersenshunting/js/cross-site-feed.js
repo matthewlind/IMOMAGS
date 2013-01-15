@@ -100,7 +100,7 @@ jQuery(document).ready(function($) {
 		        
 		       
 				//If data[i] is from NAW, add the categories
-				if (data[i].domain == "www.northamericanwhitetail.com") {
+				if (data[i].domain == "www.petersenshunting.com") {
 			
 					$articleTemplate.find(".entry-category").html("");
 
@@ -138,6 +138,10 @@ jQuery(document).ready(function($) {
 			        if(this.slug == 'home-featured'){
 						$articleTemplate.hide();		
 						}
+					//Hide Shot Show featured posts
+			        if(this.slug == 'shot-show-featured'){
+						$articleTemplate.hide();		
+						}
 					// Place video button on videos
 					if(this.slug == 'video'){
 						$articleTemplate.find("a.no-olay").addClass("video-excerpt");
@@ -153,6 +157,19 @@ jQuery(document).ready(function($) {
 	}
 
 
+	if ($("#slideshow").length > 0) {			
+		$('#slideshow').scrollface({
+		  next   : $('#next'),
+		  prev   : $('#prev'),
+		  pager  : $('#pager'),
+		  speed  : 400,
+		  easing : 'easeOutExpo',
+		  interval: 5000,
+		  direction: 'horizontal',
+		  auto: true
+	 
+	  });	
+   }
 
 
 

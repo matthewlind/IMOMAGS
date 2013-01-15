@@ -16,11 +16,17 @@ $url="/shooting/".$categoryName->slug;
 <div <?php post_class('entry entry-full clearfix') ?>>
 	<div class="entry-header">
 		<?php 
-		//if('reviews' == get_post_type()){
-			//echo '<a class="primary-cat" href="/'.get_post_type().'">'.get_post_type().'</a>';
-		//}else{
-		echo '<a class="primary-cat" href="'.$url.'">'.$categoryName->name.'</a>'; 
-		//} 
+		if(in_category("shot-show-2013")){
+			echo '<div class="primary-shot-show">'; 
+				echo '<a class="primary-cat" href="'.$url.'">'.$categoryName->name.'</a>'; 
+				echo '<div class="presented-by">Presented By</div>'; 
+					echo '<div class="sponsor-logo">'; 
+						echo '<a href="http://resources.springfield-armory.com/" target="_blank"><img src="/wp-content/themes/imo-mags-gunsandammo/img/sausa.png" alt="Springfield Amory USA" title="Springfield Amory USA" /></a>'; 
+					echo '</div>'; 
+				echo '</div>'; 
+		}else{
+			echo '<a class="primary-cat" href="'.$url.'">'.$categoryName->name.'</a>'; 
+		} 
 		
 		// If we're not showing this particular single post page, link the title
 		$this_post_is_not_single = (!is_single(get_the_ID()));

@@ -58,9 +58,17 @@ jQuery(document).ready(function($) {
 		        var $articleTemplate = $("li#ss-widget-template").clone();
 
 		        $articleTemplate.attr("id","ss-" + data[i].post_name + count);
-		        $articleTemplate.find("a").attr("href",data[i].post_url);
-
-		        $articleTemplate.find("a").text(data[i].post_title);
+		        $articleTemplate.find("a.title").attr("href",data[i].post_url);
+		        
+		        $articleTemplate.find(".site a").text("From " + data[i].brand + " Magazine");
+		        $articleTemplate.find(".site a").attr("href","http://" + data[i].domain);
+		        
+		        $articleTemplate.find("a.title").text(data[i].post_title);
+		        
+		        if (data[i].domain != document.domain) {
+					$articleTemplate.find("a").attr("target","_blank");
+				}
+				
 
 		        $articleTemplate.appendTo(".shot-show-widget").fadeIn();
 

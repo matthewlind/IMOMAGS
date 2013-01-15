@@ -190,6 +190,11 @@ function ga_imo_addons_sidebar_init() {
 		'id' => 'affiliate-sidebar',
 		'description' => 'Appears on Affiliate Page',
 )));
+ register_sidebar(array_merge($sidebar_defaults, array(
+		'name' => 'Shot Show Sidebar',
+		'id' => 'shot-show-sidebar',
+		'description' => 'Shot Show Sidebar',
+)));
 
 }
 add_action( 'widgets_init', 'ga_imo_addons_sidebar_init' );

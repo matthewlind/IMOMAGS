@@ -95,7 +95,7 @@ jQuery(document).ready(function($) {
 		        
 		       
 				//If data[i] is from NAW, add the categories
-				if (data[i].domain == "www.northamericanwhitetail.com") {
+				if (data[i].domain == "www.gunsandammo.com") {
 			
 					$articleTemplate.find(".entry-category").html("");
 
@@ -110,7 +110,7 @@ jQuery(document).ready(function($) {
 							parentString = this.parent + "/";
 						}
 												
-						$categoryLinks.append($("<a href='/category/" + parentString + this.slug + "'>" + this.name + "</a>"));
+						$categoryLinks.append($("<a href='/shooting/" + parentString + this.slug + "'>" + this.name + "</a>"));
 						 
 			
 
@@ -131,6 +131,10 @@ jQuery(document).ready(function($) {
 		        $(data[i].terms).each(function(index) {
 	        		//Hide featured posts
 			        if(this.slug == 'home-featured'){
+						$articleTemplate.hide();		
+						}
+					//Hide Shot Show featured posts
+			        if(this.slug == 'shot-show-featured'){
 						$articleTemplate.hide();		
 						}
 					// Place video button on videos

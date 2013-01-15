@@ -6666,11 +6666,34 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 }
 .blog-headers.shot-show .sponsor-logo{
 	float: right;
-	height: 80px;
 	width: 281px;
-	margin-right: -4px;
-	margin-top: -78px;
+	margin-right: -134px;
+	margin-top: -74px;
 }
+.blog-headers.shot-show .sponsor-logo img{
+	height: 70px;
+}
+.primary-shot-show{
+	overflow: hidden;
+	width: 648px;
+	margin-bottom: 5px;
+}
+.primary-shot-show .primary-cat{
+	float: left;
+	margin-top: 6px;
+}
+.primary-shot-show .presented-by{
+	float: left;
+	margin: 9px 8px 0 8px;
+font-size: 0.72em;
+}
+.primary-shot-show .sponsor-logo{
+	float: left;
+}
+.primary-shot-show .sponsor-logo img{
+	height: 30px;
+}
+.cross-site-feed{margin-top: 40px;}
 .cross-site-feed-more-button, .local-site-feed-more-button{
 	margin-bottom: 60px;
 	clear: both;
@@ -6719,7 +6742,82 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 	color:#cfcfcf;
 	 -moz-transition: all 0.6s ease 0s;-webkit-transition: 0.6s;
 }
+/* slideshows */
 
+#slideshow_mask {
+  position:relative;
+  overflow:hidden;
+  margin:0 auto;
+  width:414px;
+  height:400px;
+  border: 3px solid #000;
+}
+
+#slideshow {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:414px;
+  height:320px;
+}
+
+#slideshow .cat-slide {
+  position:absolute;
+  width:414px;
+  height:400px;
+}
+#slideshow .cat-slide img{
+	min-width: 414px;
+	min-height: 320px;
+}
+#pager{
+	margin-left: 348px;
+	float: right;
+}
+#pager a{
+	background-color: #000;
+    height: 14px;
+    margin: 6px 0 0 4px;
+    padding: 0;
+    text-indent: -9999px;
+    width: 14px;
+    float: left;
+}
+
+.cat-col-left #pager a.active {
+	background-color: #839A45 !important;
+  
+}
+.cat-col-left #pager a:hover{
+	background-color: #839A45 !important;
+	cursor: pointer;
+}
+#prev, #next{
+	width: 50px;
+	height: 50px;
+	background-color: #000;
+	position: absolute;
+	top:420px;	
+}
+#prev{
+	background: url("img/ui_tab_prev.png") no-repeat scroll center center #000;
+	left: 13px;
+	cursor: pointer;
+}
+#next{
+	background: url("img/ui_tab_next.png") no-repeat scroll center center #000;
+	left: 609px;
+	cursor: pointer;
+}
+.featured-thumb-wide{
+	width: 646px !important;
+}
+.featured-thumb-wide .cat-slide{
+	width: 646px !important;
+}
+.featured-thumb-wide .cat-slide img{
+	min-width: 646px !important;
+}
 
 /* New Blog Headers */
 .blog-headers{

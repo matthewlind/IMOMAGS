@@ -29,6 +29,19 @@ $video_link = !empty($the_ID) ? get_permalink($the_ID) :  site_url() . $_SERVER[
 get_header();
 ?>
 <div class="entry-header">
+	<?php 
+	if(in_category("shot-show-2013")){
+			echo '<div class="primary-shot-show">'; 
+				echo '<a class="primary-cat" href="'.$url.'">'.$categoryName->name.'</a>'; 
+				echo '<div class="presented-by">Presented By</div>'; 
+					echo '<div class="sponsor-logo">'; 
+						echo '<a href="http://resources.springfield-armory.com/" target="_blank"><img src="/wp-content/themes/imo-mags-gunsandammo/img/sausa.png" alt="Springfield Amory USA" title="Springfield Amory USA" /></a>'; 
+					echo '</div>'; 
+				echo '</div>'; 
+		}else{
+			echo '<a class="primary-cat" href="'.$url.'">'.$categoryName->name.'</a>'; 
+		} 
+		?>
 
 	<h1 class="entry-title"><?php the_title() ?></h1>
 	<div class="entry-info">

@@ -748,7 +748,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 width: 648px;
 float: left;
 margin-right: 32px;
-)
+}
 .single-digmag_article .widget{
 float: right;
 width: 300px;
@@ -762,5 +762,29 @@ width: 300px;
 .widget-header{
 	background: url("../img/shot-show-widget-logo.jpg") no-repeat center top;	
 	height: 40px;
+}
+.primary-shot-show{
+	overflow: hidden;
+	width: 648px;
+	margin-bottom: 5px;
+}
+.primary-shot-show .primary-cat{
+	float: left;
+	margin-top: 6px;
+}
+.primary-shot-show .presented-by{
+	float: left;
+	margin: 9px 8px 0 8px;
+font-size: 0.72em;
+}
+#shot-show-widget{
+margin-top: 8px;
+}
+#shot-show-widget .sponsor-logo{
+	float: right;
+	background: none;
+}
+.primary-shot-show .sponsor-logo img{
+	height: 30px;
 }
 
