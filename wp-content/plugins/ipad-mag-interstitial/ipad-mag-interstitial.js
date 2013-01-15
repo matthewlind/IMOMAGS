@@ -10,7 +10,7 @@ if (isiPad && $.cookie('hide_ipad_interstitial') == null) {
 	
 	var $popUpHolder = $("<div class='popupHolder'></div>");
 
-$popUpHolder.load("http://www.petersenshunting.deva/wp-content/plugins/ipad-mag-interstitial/petersenshunting.html",function() {
+$popUpHolder.load("/wp-content/plugins/ipad-mag-interstitial/petersenshunting.html",function() {
 	$popUpHolder.find(".hide-interstitial").click(function(event){
 
 		
