@@ -68,6 +68,8 @@ jQuery(document).ready(function($) {
 		        	$articleTemplate.find(".site a").attr("href","http://" + data[i].domain);
 
 					$articleTemplate.find("a").attr("target","_blank");
+				}else{
+					$articleTemplate.find(".site a").hide();
 				}
 				
 
