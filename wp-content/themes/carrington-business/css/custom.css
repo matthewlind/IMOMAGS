@@ -568,7 +568,10 @@ h2.entry-title a:hover {
 	margin-top: 15px;
 }
 
-
+.featured-item-description h2 {
+	padding: 10px !important;
+	font-size: 20px !important;
+}
 /*Newsletter Form Edits*/
 .gform_wrapper ul li.gfield {
 	margin-top: 4px;
