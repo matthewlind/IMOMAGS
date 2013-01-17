@@ -4,7 +4,9 @@
  * supports all custom css in carrington build.
  */
 body{border-top: none !important;}
-
+#wpadminbar{
+	z-index: 999999999;
+}
 @font-face {
   font-family: "StagMedium";
   src: url("../fonts/stag-medium-webfont.eot");
