@@ -40,6 +40,14 @@ jQuery(document).ready(function($) {
 			  
 			  
 		  });
+		  
+		  console.log(postData);
+		  
+		  if (postData.post_type == "comment") {
+		  	  $("#superpostEditForm #title").remove();
+			  $("#superpostEditForm .modal_post_type").remove();
+			  $("#superpostEditForm .state-dropdown-container").remove();
+		  }
 		 		  
 	  });
 	  
@@ -168,15 +176,22 @@ function EditSubmitSuccessful(responseText, statusText) {
 		
 	var response = responseText;
 
-    var url = "/plus/" + response.post_type + "/" + response.post_id;
+    
+    if (response.post_type == "comment") {
+	    alert("COMMENT EDIT SUCCESSFUL! Keep in mind that it may take 10 minutes before the change is live on the site.");
 
+    } else {
+	    var url = "/plus/" + response.post_type + "/" + response.post_id;
+	    window.location = url;
 
-    //alert("EDIT SUCCESSFUL! Keep in mind that it may take 10 minutes before the change is live on the site.");
+    }
+    
+
 
     
     
-    window.location = url;
-
+    
+    
 
 }
 
