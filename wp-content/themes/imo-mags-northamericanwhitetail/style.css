@@ -5808,6 +5808,7 @@ margin: 0 auto !important;
 }
 #shot-show-widget .sponsor-logo {
 margin-top: -5px !important;
+margin-right: -80px;
 }
 #shot-show-widget ul {
 margin-top: 8px !important;
@@ -5826,6 +5827,7 @@ font-size: 1.3em !important;
 font-size: 0.8em !important;
 
 }
+
 /*** Local edits ***/   
     
 #text-19 {padding: 0;}
