@@ -3,7 +3,7 @@
  * functions.php 
  */
  
- 
+add_image_size('huge-thumb', 646, 400, true); 
 
 define("JETPACK_SITE", "phunting");
 define("SUBS_LINK", "https://secure.palmcoastd.com/pcd/eSv?iMagId=0144V&i4Ky=IBZN");

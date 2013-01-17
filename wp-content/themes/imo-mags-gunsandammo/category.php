@@ -142,7 +142,7 @@ Iain Harrison.</p>
 		<div class="blog-border"></div>
 		<h1>Daily SHOT SHOW 2013 Coverage</h1>
 		<div class="presented-by">Presented By</div>
-		<div class="desc">Your destination for the newest guns and gear coming out of the industry's biggest event of the year!</div>
+		<div class="desc">Your destination for the the latest guns and gear of 2013. See what's new, right now.</div>
 		<div class="sponsor-logo"><a href="http://resources.springfield-armory.com/" target="_blank"><img src="/wp-content/themes/imo-mags-gunsandammo/img/sausa.png" alt="Springfield Amory USA" title="Springfield Amory USA" /></a></div>
 	</div>
 	<?php } else { ?>
