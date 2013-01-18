@@ -11,8 +11,8 @@ class iPadApp_Widget_reloaded extends WP_Widget {
 		extract($args); ?>
 		<aside id="get_ipad_app" class="widget widget_ipad_app">
       <h3 class="title">Test your skills</h3>
-      <a class="cta" href="http://itunes.apple.com/us/app/guns-ammo-point-of-impact/id385547941?mt=8">Get The App<div class="ipad-reloaded"></div></a>
-      
+      <a class="cta" href="/apps/point-of-impact-reloaded/">Get The App<div class="ipad-reloaded"></div></a>
+      <a class="cta play" href="http://pointofimpact.upandatom.com/">Play Now</a>
     </aside>
 
 <?php echo $after_widget;
