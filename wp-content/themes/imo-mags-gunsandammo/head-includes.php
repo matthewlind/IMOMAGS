@@ -28,7 +28,14 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
   _gaq.push(['_trackPageview']);
   _gaq.push(['_setAccount', 'UA-2409437-1']);
   _gaq.push(['_setDomainName', '.gunsandammo.com']);
-  _gaq.push(['_setCustomVar', 1, 'author', '<?php echo get_the_author(); ?>',3]);
+  
+  <?php
+	  if (is_single()) {
+		  $author = get_the_author();
+		  echo " _gaq.push(['_setCustomVar', 1,'author','". $author . "', 3]);";
+	  }
+  ?>
+
   _gaq.push(['_trackPageview']);
 
   (function() {
