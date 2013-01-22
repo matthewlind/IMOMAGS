@@ -21,7 +21,7 @@ $url="/shooting/".$categoryName->slug;
 				echo '<a class="primary-cat" href="'.$url.'">'.$categoryName->name.'</a>'; 
 				echo '<div class="presented-by">Presented By</div>'; 
 					echo '<div class="sponsor-logo">'; 
-						echo '<a href="http://resources.springfield-armory.com/" target="_blank"><img src="/wp-content/themes/imo-mags-gunsandammo/img/sausa.png" alt="Springfield Amory USA" title="Springfield Amory USA" /></a>'; 
+						echo '<a href="http://springfield-armory.com/" target="_blank"><img src="/wp-content/themes/imo-mags-gunsandammo/img/sausa.png" alt="Springfield Amory USA" title="Springfield Amory USA" /></a>'; 
 					echo '</div>'; 
 				echo '</div>'; 
 		}else{
