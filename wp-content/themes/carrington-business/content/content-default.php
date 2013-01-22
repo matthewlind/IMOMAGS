@@ -40,7 +40,7 @@ $url="/category/".$categoryName->slug;
 						if($_SERVER['SERVER_NAME'] == "www.petersenshunting.com" || $_SERVER['SERVER_NAME'] == "www.northamericanwhitetail.com" || $_SERVER['SERVER_NAME'] == "www.bowhuntingmag.com/" || $_SERVER['SERVER_NAME'] == "www.gundogmag.com/" || $_SERVER['SERVER_NAME'] == "www.wildfowlmag.com/" || $_SERVER['SERVER_NAME'] =="www.bowhunter.com/" || $_SERVER['SERVER_NAME'] == "www.gameandfishmag.com/" ){
 							echo '<a href="http://www.realtree.com/huntallseason/index.html" target="_blank"><img src="/wp-content/themes/imo-mags-gunsandammo/img/realtree-logo.png" alt="Realtree Xtra" title="Realtree Xtra" /></a>'; 
 							}else{
-								echo '<a href="http://resources.springfield-armory.com/" target="_blank"><img src="/wp-content/themes/imo-mags-gunsandammo/img/sausa.png" alt="Springfield Amory USA" title="Springfield Amory USA" /></a>';  
+								echo '<a href="http://springfield-armory.com/" target="_blank"><img src="/wp-content/themes/imo-mags-gunsandammo/img/sausa.png" alt="Springfield Amory USA" title="Springfield Amory USA" /></a>';  
 							}
 					echo '</div>'; 
 				echo '</div>'; 

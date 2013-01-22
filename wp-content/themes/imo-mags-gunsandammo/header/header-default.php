@@ -109,7 +109,6 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
 	
 	<section id="main" class="container" style="background-color:#fff;">
 		<div class="centerad">
-        <div class="ad-left">
           <?php if (function_exists("imo_dart_tag")) {
             imo_dart_tag("728x90");
           } else { ?>
@@ -127,9 +126,6 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
             </noscript>
             <!-- END 728x90 Ad: -->
           <?php } ?>
+
         </div>
-        <div class="ad-right">
-          <a href="http://www.nssf.org/FirstShots/" target="_blank"><img src='<?php print bloginfo('stylesheet_directory') . "/img/nssf.png"?>' alt="Visit the National Shooting Sports Foundation"/></a>
-        </div>
-      </div>
 	       <div id="hide"></div>

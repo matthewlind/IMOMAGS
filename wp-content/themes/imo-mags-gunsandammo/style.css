@@ -1479,7 +1479,7 @@ a.comment-count:hover {
 
 /* line 1039, sass/style.scss */
 .centerad {
-	margin: 0 auto 10px;
+	margin: 0 auto 40px;
 	text-align: center;
 	height: 90px;
 	padding: 10px 0 0;	
@@ -4817,7 +4817,7 @@ body.parent-pageid-2114 #main {
   background-position: 0 bottom;
   background-repeat: repeat-x;
   border-bottom: 1px solid #CCC;
-  padding: 32px 0 0 0;
+  padding: 12px 0 0 0;
   text-align: center;
 }
 /* line 3490, sass/style.scss */
@@ -4836,6 +4836,9 @@ body.parent-pageid-2114 #main {
 /* line 3499, sass/style.scss */
 #sidebar #get_ipad_app .cta:hover {
   color: black;
+}
+#sidebar #get_ipad_app .play{
+	top:-188px;
 }
 /* line 3501, sass/style.scss */
 #sidebar #get_ipad_app .ipad {
