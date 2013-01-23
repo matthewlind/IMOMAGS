@@ -35,14 +35,19 @@ class Join_Widget extends WP_Widget {
 			    <small>*we do not post anything to your wall unless you say so!</small>
 			    <a class="email-signup">or use your email address</a>
 
-		<?php if($contest == true){ ?>
+		<?php 
+		$contest = true;
+		//Contest expiration date - uses 01-12 for month
+		if(date("Ymd") > "20130111"){
+			$contest = false;	
+		}
+		if($contest == true){ 	
+		?>
 		    <a class="prize-title">Post a photo and you're automatically entered to win this TenPoint Crossbow!</a>
 		      <div class="prize"></div>
 		      <small class="prize-desc">*Model Stealth XLT w/ ACUdraw 50</small>
-		    <a href="/community/sweeps-rules/" class="about-link">Official Rules</a>
-		    
+		    <a href="/community/sweeps-rules/" class="about-link">Official Rules</a>    
 	    <?php } ?>
-    
    	    	<a href="/community/help/" class="about-link">What is North American Whitetail +?</a>
 	       </div>
 	    </aside>

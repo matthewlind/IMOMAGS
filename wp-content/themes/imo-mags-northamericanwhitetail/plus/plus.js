@@ -11,15 +11,25 @@ if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)
 
 if ($("#community-modal").length > 0 && userIMO.username.length == 0 && $.cookie('hide_alert') == null && isNotIPhone){	
 	
+	//Contest expiration date
+	var currentTime = new Date();
+	var month = currentTime.getMonth() + 1;
+	var day = currentTime.getDate();
+	var year = currentTime.getFullYear();
+	var expDate = month + "/" + day + "/" + year;
+	
 	$("#community-modal").modal({
         opacity: 50, 
         overlayClose: true,
         autoPosition: true,
         minHeight: 420,
         onShow: function(dialog) {
-        	//default bg, comment out contest and uncomment this for changes.
-        	//$(".simplemodal-wrap").addClass("default-bg");
-        	$(".simplemodal-wrap").addClass("contest-bg");
+        	//enter contest expiration date - uses 1-12 for month
+        	if(expDate > "1/11/2013"){
+        		$(".simplemodal-wrap").addClass("contest-default");
+        	}else{
+        		$(".simplemodal-wrap").addClass("contest-bg");
+        	}
 	        $("#community-modal a.hide-this").click(function(){
 		        $.cookie('hide_alert', true);
 		        $.modal.close();
