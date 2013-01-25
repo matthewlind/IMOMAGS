@@ -20,10 +20,18 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
   _gaq.push(['_setDomainName', 'none']);
   _gaq.push(['_setAllowLinker', true]);
   _gaq.push(['_trackPageview']);
-_gaq.push(['_setAccount', 'UA-2409437-2']);
+  _gaq.push(['_setAccount', 'UA-2409437-2']);
   _gaq.push(['_setDomainName', '.floridasportsman.com']);
+  <?php
+  	if (is_single()) {
+		$author = get_the_author();
+		echo " _gaq.push(['_setCustomVar', 1,'author','". $author . "', 3]);";
+		
+		//$category = get_the_category();
+		//echo " _gaq.push(['_setCustomVar', 2,'category','". $category[0]->cat_name . "', 3]);";
+	}
+  ?>
   _gaq.push(['_trackPageview']);
-  _gaq.push('_trackAuthor', 4, 'author','NAME', 3);
 
   (function() {
     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
