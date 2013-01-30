@@ -5754,10 +5754,7 @@ top: -34px;
 	text-align: center;
 }
 #community-modal.contest-modal .modal-login-area {
-	float: none;
 	width: auto;
-	}
-#community-modal.contest-modal .modal-login-area {
 	float: none;
 	text-align: center;
 	height: 210px;

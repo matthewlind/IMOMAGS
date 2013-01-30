@@ -19,7 +19,7 @@ class Gear_Grid_Widget extends WP_Widget {
  			<?php
 			
 				$args = array(
-					'category_name' => 'gear',
+					'category_name' => 'gear-accessories',
 					'post_status'  => 'publish',
 					'posts_per_page' => 4,
 					'orderby' => 'date',
@@ -46,7 +46,7 @@ class Gear_Grid_Widget extends WP_Widget {
 				?>
         </ul>
         <div class="footer">
-        	<a href="/gear">Show More Gear<span></span></a>
+        	<a href="/gear-accessories">Show More Gear<span></span></a>
         </div>
 
     </aside>

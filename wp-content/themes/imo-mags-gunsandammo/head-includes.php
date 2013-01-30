@@ -30,10 +30,13 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
   _gaq.push(['_setDomainName', '.gunsandammo.com']);
   
   <?php
-	  if (is_single()) {
-		  $author = get_the_author();
-		  echo " _gaq.push(['_setCustomVar', 1,'author','". $author . "', 3]);";
-	  }
+  	if (is_single()) {
+		$author = get_the_author();
+		echo " _gaq.push(['_setCustomVar', 1,'author','". $author . "', 3]);";
+		
+		//$category = get_the_category();
+		//echo " _gaq.push(['_setCustomVar', 2,'category','". $category[0]->cat_name . "', 3]);";
+	}
   ?>
 
   _gaq.push(['_trackPageview']);

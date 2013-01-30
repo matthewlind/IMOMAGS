@@ -142,6 +142,10 @@ get_header();
 <?php 
 //true to show changing contest modals, false to revert to default modal.
 $contest = true;
+//Contest expiration date - uses 01-12 for month
+if(date("Ymd") > "20130111"){
+	$contest = false;	
+}
 if($contest == true){ ?>
 <div id="community-modal" class="new-superpost-modal-container new-superpost-box contest-modal" style="display:none;height:420px:width:600px;background-color:white;">
 	<p class="top-text">Join the NAW Community and you could</p>
