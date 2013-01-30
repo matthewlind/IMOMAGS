@@ -1,4 +1,7 @@
-	
+//*****************************************************************
+//****************    UTILITY FUNCIONS    *************************
+//*****************************************************************
+
 	//Set the base url for the AJAX requests
 	$.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
 		options.url = 'http://www.northamericanwhitetail.deva/community-api' + options.url;
@@ -28,6 +31,9 @@
 	  return o;
 	};
 	
+//*****************************************************************
+//******************     DATA MODELS    ***************************
+//*****************************************************************
 	var PostsClass = Backbone.Collection.extend({
 		url:"/posts"
 	});
@@ -35,7 +41,10 @@
 	var PostModel = Backbone.Model.extend({
 		urlRoot:"/posts"
 	}); 
-		
+//*****************************************************************
+//******************      VIEWS         ***************************
+//********** (this is where the magic happens) ********************
+//*****************************************************************		
 	var PostListClass = Backbone.View.extend({
 		el: '#app',
 		render: function(){
@@ -97,7 +106,9 @@
 		
 		
 	});
-	
+//*****************************************************************
+//******************       ROUTER       ***************************
+//*****************************************************************	
 	var AppRouter = Backbone.Router.extend({
 		routes: {
 			'':'home',
