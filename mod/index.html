@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Community Moderation</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/css/bootstrap.css">
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/css/bootstrap-responsive.css">
+</head>
+<body>
+
+	
+	<div class="container">
+		<h1>Community Moderation</h1>
+				
+		<div id="app">
+			<!-- EVERYTHING GOES HERE! -->
+		</div>
+		
+	</div>
+	<!-- *********************************************************** -->
+	<!-- ******************     TEMPLATES      ********************* -->
+	<!-- *********************************************************** -->
+	<script type="text/template" id="post-list-template">
+		<a href="#!new" class="btn btn-primary">New Post</a>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Body</th>
+					<th>Date</th>
+					<th>Post Type</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% _.each(posts, function(post) { %>
+					<tr>
+						<td><%= post && post.get('title') %></td>
+						<td><%= post && post.get('body') %></td>
+						<td><%= post && post.get('created') %></td>
+						<td><%= post && post.get('post_type') %></td>
+						<td><a href="#!edit/<%= post.id %>" class="btn">edit</td>
+					</tr>
+				<% }); %>
+
+			</tbody>
+		</table>
+	</script>	
+	
+	<!-- *********************************************************** -->
+	<!-- *********************************************************** -->
+	
+	<script type="text/template" id="new-post-template">
+	<h3><%= post ? 'Edit' : 'Create' %> Post</h3>
+		<form id="new-post-form">
+			<input placeholder="title" type="text" name="title" value="<%= post ? post.get('title') : "" %>"><br>
+
+			<textarea placeholder="body" name="body"><%= post ? post.get('body') : "" %></textarea><br>
+			
+			
+			<select id="dynamic_select" class="post_type" name="post_type">
+	         	<option value="">CATEGORY</option> 
+	         	<option value="report" <%= post && post.get('post_type') == "report" ? "SELECTED" : "" %> >Rut Reports</option> 
+	         	<option value="question" <%= post && post.get('post_type') == "question" ? "SELECTED" : "" %> >Q&A</option>      
+	        </select><br>
+	        
+	        <select name="state" placeholder="Choose the state for this post:">
+	            <option value="" >STATE</option>
+	            <option value="AL" <%= post && post.get('state') == "AL" ? "SELECTED" : "" %> >Alabama</option>
+	            <option value="AK" <%= post && post.get('state') == "AK" ? "SELECTED" : "" %> >Alaska</option>
+	            <option value="AZ" <%= post && post.get('state') == "AZ" ? "SELECTED" : "" %> >Arizona</option>
+	            <option value="AR" <%= post && post.get('state') == "AR" ? "SELECTED" : "" %> >Arkansas</option>
+	            <option value="CA" <%= post && post.get('state') == "CA" ? "SELECTED" : "" %> >California</option>
+	            <option value="CO" <%= post && post.get('state') == "CO" ? "SELECTED" : "" %> >Colorado</option>
+	            <option value="CT" <%= post && post.get('state') == "CT" ? "SELECTED" : "" %> >Connecticut</option>
+	            <option value="DE" <%= post && post.get('state') == "DE" ? "SELECTED" : "" %> >Delaware</option>
+	            <option value="DC" <%= post && post.get('state') == "DC" ? "SELECTED" : "" %> >District of Columbia</option>
+	            <option value="FL" <%= post && post.get('state') == "FL" ? "SELECTED" : "" %> >Florida</option>
+	            <option value="GA" <%= post && post.get('state') == "GA" ? "SELECTED" : "" %> >Georgia</option>
+	            <option value="HI" <%= post && post.get('state') == "HI" ? "SELECTED" : "" %> >Hawaii</option>
+	            <option value="ID" <%= post && post.get('state') == "ID" ? "SELECTED" : "" %> >Idaho</option>
+	            <option value="IL" <%= post && post.get('state') == "IL" ? "SELECTED" : "" %> >Illinois</option>
+	            <option value="IN" <%= post && post.get('state') == "IN" ? "SELECTED" : "" %> >Indiana</option>
+	            <option value="IA" <%= post && post.get('state') == "IA" ? "SELECTED" : "" %> >Iowa</option>
+	            <option value="KS" <%= post && post.get('state') == "KS" ? "SELECTED" : "" %> >Kansas</option>
+	            <option value="KY" <%= post && post.get('state') == "KY" ? "SELECTED" : "" %> >Kentucky</option>
+	            <option value="LA" <%= post && post.get('state') == "LA" ? "SELECTED" : "" %> >Louisiana</option>
+	            <option value="ME" <%= post && post.get('state') == "ME" ? "SELECTED" : "" %> >Maine</option>
+	            <option value="MD" <%= post && post.get('state') == "MD" ? "SELECTED" : "" %> >Maryland</option>
+	            <option value="MA" <%= post && post.get('state') == "MA" ? "SELECTED" : "" %> >Massachusetts</option>
+	            <option value="MI" <%= post && post.get('state') == "MI" ? "SELECTED" : "" %> >Michigan</option>
+	            <option value="MN" <%= post && post.get('state') == "MN" ? "SELECTED" : "" %> >Minnesota</option>
+	            <option value="MS" <%= post && post.get('state') == "MS" ? "SELECTED" : "" %> >Mississippi</option>
+	            <option value="MO" <%= post && post.get('state') == "MO" ? "SELECTED" : "" %> >Missouri</option>
+	            <option value="MT" <%= post && post.get('state') == "MT" ? "SELECTED" : "" %> >Montana</option>
+	            <option value="NE" <%= post && post.get('state') == "NE" ? "SELECTED" : "" %> >Nebraska</option>
+	            <option value="NV" <%= post && post.get('state') == "NV" ? "SELECTED" : "" %> >Nevada</option>
+	            <option value="NH" <%= post && post.get('state') == "NH" ? "SELECTED" : "" %> >New Hampshire</option>
+	            <option value="NJ" <%= post && post.get('state') == "NJ" ? "SELECTED" : "" %> >New Jersey</option>
+	            <option value="NM" <%= post && post.get('state') == "NM" ? "SELECTED" : "" %> >New Mexico</option>
+	            <option value="NY" <%= post && post.get('state') == "NY" ? "SELECTED" : "" %> >New York</option>
+	            <option value="NC" <%= post && post.get('state') == "NC" ? "SELECTED" : "" %> >North Carolina</option>
+	            <option value="ND" <%= post && post.get('state') == "ND" ? "SELECTED" : "" %> >North Dakota</option>
+	            <option value="OH" <%= post && post.get('state') == "OH" ? "SELECTED" : "" %> >Ohio</option>
+	            <option value="OK" <%= post && post.get('state') == "OK" ? "SELECTED" : "" %> >Oklahoma</option>
+	            <option value="OR" <%= post && post.get('state') == "OR" ? "SELECTED" : "" %> >Oregon</option>
+	            <option value="PA" <%= post && post.get('state') == "PA" ? "SELECTED" : "" %> >Pennsylvania</option>
+	            <option value="RI" <%= post && post.get('state') == "RI" ? "SELECTED" : "" %> >Rhode Island</option>
+	            <option value="SC" <%= post && post.get('state') == "SC" ? "SELECTED" : "" %> >South Carolina</option>
+	            <option value="SD" <%= post && post.get('state') == "SD" ? "SELECTED" : "" %> >South Dakota</option>
+	            <option value="TN" <%= post && post.get('state') == "TN" ? "SELECTED" : "" %> >Tennessee</option>
+	            <option value="TX" <%= post && post.get('state') == "TX" ? "SELECTED" : "" %> >Texas</option>
+	            <option value="UT" <%= post && post.get('state') == "UT" ? "SELECTED" : "" %> >Utah</option>
+	            <option value="VT" <%= post && post.get('state') == "VT" ? "SELECTED" : "" %> >Vermont</option>
+	            <option value="VA" <%= post && post.get('state') == "VA" ? "SELECTED" : "" %> >Virginia</option>
+	            <option value="WA" <%= post && post.get('state') == "WA" ? "SELECTED" : "" %> >Washington</option>
+	            <option value="WV" <%= post && post.get('state') == "WV" ? "SELECTED" : "" %> >West Virginia</option>
+	            <option value="WI" <%= post && post.get('state') == "WI" ? "SELECTED" : "" %> >Wisconsin</option>
+	            <option value="WY" <%= post && post.get('state') == "WY" ? "SELECTED" : "" %> >Wyoming</option>
+	            <option value="AB" <%= post && post.get('state') == "AB" ? "SELECTED" : "" %> >Alberta, Canada</option>
+	            <option value="BC" <%= post && post.get('state') == "BC" ? "SELECTED" : "" %> >British Columbia, Canada</option>
+	            <option value="MB" <%= post && post.get('state') == "MB" ? "SELECTED" : "" %> >Manitoba, Canada</option>
+	            <option value="NB" <%= post && post.get('state') == "NB" ? "SELECTED" : "" %> >New Brunswick, Canada</option>
+	            <option value="NL" <%= post && post.get('state') == "NL" ? "SELECTED" : "" %> >Newfoundland and Labrador, Canada</option>
+	            <option value="NT" <%= post && post.get('state') == "NT" ? "SELECTED" : "" %> >Northwest Territories, Canada</option>
+	            <option value="NS" <%= post && post.get('state') == "NS" ? "SELECTED" : "" %> >Nova Scotia, Canada</option>
+	            <option value="NU" <%= post && post.get('state') == "NU" ? "SELECTED" : "" %> >Nunavut, Canada</option>
+	            <option value="ON" <%= post && post.get('state') == "ON" ? "SELECTED" : "" %> >Ontario, Canada</option>
+	            <option value="PE" <%= post && post.get('state') == "PE" ? "SELECTED" : "" %> >Prince Edward Island, Canada</option>
+	            <option value="QC" <%= post && post.get('state') == "QC" ? "SELECTED" : "" %> >Quebec, Canada</option>
+	            <option value="SK" <%= post && post.get('state') == "SK" ? "SELECTED" : "" %> >Saskatchewan, Canada</option>
+	            <option value="YT" <%= post && post.get('state') == "YT" ? "SELECTED" : "" %> >Yukon, Canada</option>
+		      </select>
+		      <br>
+		      
+		      <% if (post) { %>
+		      		<input type="hidden" name="id" value="<%= post.id %>" >
+		      <% } %>
+		      
+			<input type="submit">
+	</script>
+	
+	<!-- *********************************************************** -->
+	<!-- ***************     REQUIRED SCRIPTS    ******************* -->
+	<!-- *********************************************************** -->	
+
+	<script type='text/javascript'>
+		/* <![CDATA[ */
+		var userIMO = {"username":"admin","user_id":"1","userhash":"78f42fd46b354a2324ab3bde7d2dc13f","gravatar_hash":"f2034326b1ee13e62aa42044d4df93eb","timecode":"1359058253","timecode_hash":"ae7f5c7245fcdf50cd3592b3db0e9e10","display_name":"admin","facebook_id":"100000788820722","default_state":"VA","perms":"editor","editor_hash":"0e99aaaae9aeb2e5c78caf9a7d4295bc","user_timecode_hash":"5515c34d2ca646fc386646cc6817943a"};
+		/* ]]> */
+	</script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script src="http://ajax.cdnjs.com/ajax/libs/underscore.js/1.4.2/underscore-min.js"></script>
+	<script src="http://ajax.cdnjs.com/ajax/libs/backbone.js/0.9.2/backbone-min.js"></script>	
+	<script src="js/formParams.min.js"></script>
+	<script src="js/backbone.paginator.min.js"></script>
+	<script src="js/app.js"></script>
+	
+
+</body>
+</html>
