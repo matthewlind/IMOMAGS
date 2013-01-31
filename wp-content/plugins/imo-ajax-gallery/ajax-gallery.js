@@ -147,19 +147,28 @@ jQuery(document).ready(function($) {
 	$(".text-slides .slide").each(function(index){
 
 
-
+		
 		var $photobox = $(".slideshow_mask .slideshow .slide").eq(index);
-
+		
+		//First, move the youtube videos
 		var $iframe = $(this).find("iframe");
-
-
 		if ($iframe.length > 0) {
 			$photobox.html("");
 			$iframe.appendTo($photobox).css("margin-top","50px");
-
 		}
-
-
+		
+		//Then, move the brightcove videos
+		var $object = $(this).find("object");
+		if ($object.length > 0) {
+			$photobox.html("");
+			$object.appendTo($photobox).css("margin-top","50px");
+		}
+		
+		//Check to see if there is a link that we need to add to the picture
+		var $link = $(this).find(".suggested-next-gallery").text("");
+		if ($link.length > 0) {
+			$photobox.find("img").wrap($link);
+		}
 
 	});
 
