@@ -179,6 +179,16 @@ $appArgument = "whitetailplus://www.northamericanwhitetail.com" . $_SERVER['REQU
   _gaq.push(['_trackPageview']);
   _gaq.push(['_setAccount', 'UA-2409437-15']);
   _gaq.push(['_setDomainName', '.northamericanwhitetail.com']);
+  <?php
+  	if (is_single()) {
+		$author = get_the_author();
+		echo " _gaq.push(['_setCustomVar', 1,'author','". $author . "', 3]);";
+		
+		//$category = get_the_category();
+		//echo " _gaq.push(['_setCustomVar', 2,'category','". $category[0]->cat_name . "', 3]);";
+	}
+  ?>
+
   _gaq.push(['_trackPageview']);
 
   (function() {
