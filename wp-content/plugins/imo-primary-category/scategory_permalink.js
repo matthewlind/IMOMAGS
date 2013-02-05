@@ -1,14 +1,14 @@
-/* Hikari Category Permalink */
+/* imo-primary-category */
 (function($) {
   $.fn.sCategoryPermalink = function(options) {
     $(this).append('<input type="hidden" name="scategory_permalink" id="scategory_permalink" />');
     var obj = this;
 
     return this.each(function() {
-      $(this).find('.tabs-panel label input[type=checkbox]').each(function() {
+      $(this).find('.tabs-panel label input[type=checkbox], .rwmb-field label input[type=checkbox]').each(function() {
         var label = $(this).parent('label');
         var li = $(label).parent('li');
-        
+        console.log(this.value);
         var link = '&nbsp;<a class="scategory_link">Make Primary</a>';
         
         label.after(link);
@@ -23,11 +23,11 @@
       });
     });
     
+
     function onClick(event) {
       deselectAll();
-      
+
       var current = $(this).prev('label').find('input').val();
-      
       $('#in-popular-category-' + current + ',#in-category-' + current).each(function() {
         $(this).parent('label').css('fontWeight', 'bold');
         $(this).attr('checked', true);

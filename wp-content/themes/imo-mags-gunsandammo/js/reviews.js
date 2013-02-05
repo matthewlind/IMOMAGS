@@ -224,5 +224,4 @@ jQuery(document).ready(function($) {
 	}
 
 
-
 });
