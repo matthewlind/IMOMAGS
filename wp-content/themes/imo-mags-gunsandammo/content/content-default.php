@@ -3,7 +3,7 @@
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
-// Let's get the Primary Category (Hikari Plugin)
+// Let's get the Primary Category
 $postID = get_the_ID();
 $categoryID = get_post_meta($postID);
 $catID = $categoryID["_category_permalink"];

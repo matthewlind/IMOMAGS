@@ -35,8 +35,8 @@ Author URI: http://imomags.com/
 * SPECIAL THANKS to all contributors and translators of this script !
 *****************************************************************************/
 
-define('HkPermaCat_basename',plugin_basename(__FILE__));
-define('HkPermaCat_pluginfile',__FILE__);
+define('IMOprimaryCat_basename',plugin_basename(__FILE__));
+define('IMOprimaryCat_pluginfile',__FILE__);
 
 require_once 'imo-primary-category-tools.php';
 require_once 'imo-primary-category-core.php';

@@ -13,7 +13,7 @@
 
 
 
-class HkPermaCat_HkTools{
+class IMOprimaryCat_HkTools{
 
 	public $debug = false;
 	protected $startup = false;
@@ -223,7 +223,7 @@ It returns true if the string is really a null string, and false otherwise.
 
 
 
-class HkPermaCat_HkToolsOptions extends HkPermaCat_HkTools{
+class IMOprimaryCat_HkToolsOptions extends IMOprimaryCat_HkTools{
 
 
 

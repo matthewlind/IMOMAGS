@@ -1,6 +1,6 @@
 <?php
 
-class HkPermaCat extends HkPermaCat_HkTools{
+class IMOprimaryCat extends IMOprimaryCat_HkTools{
 
 	public $isScategoryActivated=false;
 	protected $startup = true;
@@ -227,4 +227,4 @@ class HkPermaCat extends HkPermaCat_HkTools{
 
 }
 
-$hkPermaCat = new HkPermaCat();
+$hkPermaCat = new IMOprimaryCat();
