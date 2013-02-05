@@ -495,16 +495,16 @@ add_action('posts_where','wpse_5057_match_multiple_taxonomy_terms',10,2); // Hoo
 
 // remove the old CATEGORY box
 function remove_default_categories_box() {
-    remove_meta_box('categorydiv', 'post', 'side');
+    //remove_meta_box('categorydiv', 'post', 'side');
 }
-add_action( 'admin_head', 'remove_default_categories_box' );
+//add_action( 'admin_head', 'remove_default_categories_box' );
 
 
 // add a Post Placement meta box
 function add_custom_categories_box() {
-    add_meta_box('customcategorydiv', 'Post Placement', 'custom_post_categories_meta_box', 'post', 'side', 'high', array( 'taxonomy' => 'category' ));
+    //add_meta_box('customcategorydiv', 'Post Placement', 'custom_post_categories_meta_box', 'post', 'side', 'high', array( 'taxonomy' => 'category' ));
 }
-add_action('admin_menu', 'add_custom_categories_box');
+//add_action('admin_menu', 'add_custom_categories_box');
 
 /**
  *
@@ -636,9 +636,9 @@ function custom_post_categories_meta_box( $post, $box ) {
 
 // add a Gun terminology meta box
 function add_custom_gun_terminology_box() {
-    add_meta_box('customguntermdiv', 'Gun Terminology', 'custom_post_gun_terminology_meta_box', 'post', 'side', 'high', array( 'taxonomy' => 'category' ));
+ //   add_meta_box('customguntermdiv', 'Gun Terminology', 'custom_post_gun_terminology_meta_box', 'post', 'side', 'high', array( 'taxonomy' => 'category' ));
 }
-add_action('admin_menu', 'add_custom_gun_terminology_box');
+//add_action('admin_menu', 'add_custom_gun_terminology_box');
 
 /**
  *
@@ -770,9 +770,9 @@ function custom_post_gun_terminology_meta_box( $post, $box ) {
 
 // add Topics box
 function add_custom_topics_box() {
-    add_meta_box('customtopicsdiv', 'Topics', 'custom_post_topics_meta_box', 'post', 'side', 'high', array( 'taxonomy' => 'category' ));
+  //  add_meta_box('customtopicsdiv', 'Topics', 'custom_post_topics_meta_box', 'post', 'side', 'high', array( 'taxonomy' => 'category' ));
 }
-add_action('admin_menu', 'add_custom_topics_box');
+//add_action('admin_menu', 'add_custom_topics_box');
 
 /**
  *
@@ -890,9 +890,9 @@ function custom_post_topics_meta_box( $post, $box ) {
 
 // add G&A Network box
 function add_custom_ga_network_box() {
-    add_meta_box('customganetworkdiv', 'G&A Network', 'custom_post_ga_network_meta_box', 'post', 'side', 'high', array( 'taxonomy' => 'category' ));
+  //  add_meta_box('customganetworkdiv', 'G&A Network', 'custom_post_ga_network_meta_box', 'post', 'side', 'high', array( 'taxonomy' => 'category' ));
 }
-add_action('admin_menu', 'add_custom_ga_network_box');
+//add_action('admin_menu', 'add_custom_ga_network_box');
 
 /**
  *
