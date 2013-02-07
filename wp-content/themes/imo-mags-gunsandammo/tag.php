@@ -26,7 +26,7 @@ get_header();
 ?>
 
 <header id="masthead">
-	<h1><?php single_cat_title('');?>hi</h1>
+	<h1><?php single_cat_title('');?></h1>
 </header>
 
 <div id="content" class="col-ab">

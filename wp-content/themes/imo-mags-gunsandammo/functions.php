@@ -413,6 +413,41 @@ function imo_ga_json() {
 
 }
 
+// Add to admin_init function
+add_action('save_post', 'save_category_data', 50 );
+ 
+function save_category_data($post_id) {  
+    // verify this came from the our screen and with proper authorization.
+    if ( !wp_verify_nonce( array($_POST['post_category[]']), $post_id )) {
+        return $post_id;
+    }
+
+    // verify if this is an auto save routine. If it is our form has not been submitted, so we dont want to do anything
+    if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) 
+        return $post_id;
+     
+    // Check permissions
+    if ( !current_user_can( 'edit_post', $post_id ) )
+        return $post_id;
+   
+       
+  
+    // OK, we're authenticated: we need to find and save the data   
+    $post = get_post($post_id);
+
+    //if ($post->post_type == 'post') { 
+        //update_post_meta($post_id, '_gallery_type', esc_attr($_POST['gallery_type']) );
+                //return(esc_attr($_POST['gallery_type']));
+     $terms = array($_POST['post_category[]']); 
+     wp_set_post_categories($post_id, $terms);
+    return(esc_attr($terms));
+        	
+   // }
+
+    return $post_id;
+   
+}
+
 
 /*
 ** QUERY MULTIPLE TAXONOMIES WITH POST TYPE
@@ -450,3 +485,515 @@ function wpse_5057_match_multiple_taxonomy_terms($where_clause, $wp_query) {
 
 }
 add_action('posts_where','wpse_5057_match_multiple_taxonomy_terms',10,2); // Hook this to posts_where
+
+
+/**************************************************************************************************************************************
+******
+*****  Custom Meta Boxes for admin area
+******
+**************************************************************************************************************************************/
+
+// remove the old CATEGORY box
+function remove_default_categories_box() {
+    //remove_meta_box('categorydiv', 'post', 'side');
+}
+//add_action( 'admin_head', 'remove_default_categories_box' );
+
+
+// add a Post Placement meta box
+function add_custom_categories_box() {
+    //add_meta_box('customcategorydiv', 'Post Placement', 'custom_post_categories_meta_box', 'post', 'side', 'high', array( 'taxonomy' => 'category' ));
+}
+//add_action('admin_menu', 'add_custom_categories_box');
+
+/**
+ *
+ * Post Placement custom list.
+ *
+*/
+function custom_terms_checklist($post_id = 0, $args = array()) {
+	        $defaults = array(
+	                'descendants_and_self' => 0,
+	                'selected_cats' => false,
+	                'popular_cats' => false,
+	                'walker' => null,
+	                'taxonomy' => 'category',
+	                'checked_ontop' => true
+	        );
+	        $args = apply_filters( 'custom_terms_checklist_args', $args, $post_id );
+	        
+	        //Convert the slugs to ids for the list
+	        $featured = get_term_by( 'slug', 'featured', 'category' );
+	        $galleries = get_term_by( 'slug', 'galleries', 'category' );
+	        $ga_lists = get_term_by( 'slug', 'ga-lists', 'category' );
+	        $blogs = get_term_by( 'slug', 'blogs', 'category' );
+	        $defend_thyself = get_term_by( 'slug', 'defend-thyself', 'category' );
+	        $competition = get_term_by( 'slug', 'for-the-love-of-competition', 'category' );
+	        $history = get_term_by( 'slug', 'history-books', 'category' );
+	        $news_brief = get_term_by( 'slug', 'news-brief', 'category' );
+	        $soga = get_term_by( 'slug', 'sons-of-guns-and-ammo', 'category' );
+	        $front_lines = get_term_by( 'slug', 'the-front-lines', 'category' );
+	        $zombie = get_term_by( 'slug', 'zombie-nation', 'category' );
+	        $video = get_term_by( 'slug', 'video', 'category' );
+	        $gatv = get_term_by( 'slug', 'gatv', 'category' );
+	        $pdtv = get_term_by( 'slug', 'pdtv', 'category' );
+	        $affiliates = get_term_by( 'slug', 'affiliates', 'category' );
+	        $perspectives = get_term_by( 'slug', 'ga-perspectives', 'category' );
+	        $mots = get_term_by( 'slug', 'man-on-the-street', 'category' );
+		        
+		    // Create the ID array
+		    $include = array(
+		    	$featured->term_id,$galleries->term_id,$ga_lists->term_id,$blogs->term_id,
+		        $defend_thyself->term_id,$competition->term_id,$history->term_id,$news_brief->term_id,
+		        $soga->term_id,$front_lines->term_id,$zombie->term_id,$video->term_id,$gatv->term_id,
+		        $pdtv->term_id,$affiliates->term_id,$perspectives->term_id,$mots->term_id
+		    );
+		    
+	        extract( wp_parse_args($args, $defaults), EXTR_SKIP );
+	
+	        if ( empty($walker) || !is_a($walker, 'Walker') )
+	                $walker = new Walker_Category_Checklist;
+	
+	        $descendants_and_self = (int) $descendants_and_self;
+	
+	        $args = array('taxonomy' => $taxonomy);
+	
+	        $tax = get_taxonomy($taxonomy);
+	        $args['disabled'] = !current_user_can($tax->cap->assign_terms);
+	        
+	        if ( is_array( $selected_cats ) )
+	                $args['selected_cats'] = $selected_cats;
+	        elseif ( $post_id )
+	                $args['selected_cats'] = wp_get_object_terms($post_id, $taxonomy, array_merge($args, array('fields' => 'ids')));
+	        else
+	                $args['selected_cats'] = array();
+	
+	        if ( $descendants_and_self ) {
+	                $categories = (array) get_terms($taxonomy, array( 'child_of' => $descendants_and_self, 'hierarchical' => 0, 'hide_empty' => 0 ) );
+	                $self = get_term( $descendants_and_self, $taxonomy );
+	                array_unshift( $categories, $self );
+	        } else {
+	        	
+	        	    $categories = (array) get_terms($taxonomy, array( 'child_of' => $descendants_and_self, 'include' => $include, 'hide_empty' => 0 ));
+	        }
+	
+	        if ( $checked_ontop ) {
+	                // Post process $categories rather than adding an exclude to the get_terms() query to keep the query the same across all posts (for any query cache)
+	                $checked_categories = array();
+	                $keys = array_keys( $categories );
+	
+	                foreach( $keys as $k ) {
+	                        if ( in_array( $categories[$k]->term_id, $args['selected_cats'] ) ) {
+	                                $checked_categories[] = $categories[$k];
+	                                unset( $categories[$k] );
+	                        }
+	                }
+	
+	                // Put checked cats on top
+	                echo call_user_func_array(array(&$walker, 'walk'), array($checked_categories, 0, $args));
+	        }
+	        // Then the rest of them
+	        echo call_user_func_array(array(&$walker, 'walk'), array($categories, 0, $args));
+}
+
+/**
+ * Display CUSTOM post categories form fields.
+ *
+ * @since 2.6.0
+ *
+ * @param object $post
+*/
+function custom_post_categories_meta_box( $post, $box ) {
+    $defaults = array('taxonomy' => 'category');
+    if ( !isset($box['args']) || !is_array($box['args']) )
+        $args = array();
+    else
+        $args = $box['args'];
+    extract( wp_parse_args($args, $defaults), EXTR_SKIP );
+    $tax = get_taxonomy($taxonomy);
+
+    ?>
+    <div id="taxonomy-<?php echo $taxonomy; ?>" class="categorydiv">
+       <div id="<?php echo $taxonomy; ?>-all" class="tabs-panel">
+            <?php
+            $name = ( $taxonomy == 'category' ) ? 'post_category' : 'tax_input[' . $taxonomy . ']';
+            echo "<input type='hidden' name='{$name}' value='0' />"; // Allows for an empty term set to be sent. 0 is an invalid Term ID and will be ignored by empty() checks.
+            ?>
+            <ul id="<?php echo $taxonomy; ?>checklist" class="list:<?php echo $taxonomy?> categorychecklist form-no-clear">
+                <?php custom_terms_checklist($post->ID, array( 'taxonomy' => $taxonomy, 'popular_cats' => $popular_ids ) ) ?>
+            </ul>
+        </div>
+         
+    </div>
+    <?php 
+}
+
+
+
+
+
+
+
+// add a Gun terminology meta box
+function add_custom_gun_terminology_box() {
+ //   add_meta_box('customguntermdiv', 'Gun Terminology', 'custom_post_gun_terminology_meta_box', 'post', 'side', 'high', array( 'taxonomy' => 'category' ));
+}
+//add_action('admin_menu', 'add_custom_gun_terminology_box');
+
+/**
+ *
+ * Gun Terminology custom list.
+ *
+*/
+function custom_gun_terminology_checklist($post_id = 0, $args = array()) {
+	        $defaults = array(
+	                'descendants_and_self' => 0,
+	                'selected_cats' => false,
+	                'popular_cats' => false,
+	                'walker' => null,
+	                'taxonomy' => 'category',
+	                'checked_ontop' => true
+	        );
+	        $args = apply_filters( 'custom_gun_terminology_checklist_args', $args, $post_id );
+	        
+	        //Convert the slugs to ids for the list
+	        $handguns = get_term_by( 'slug', 'handguns', 'category' );
+	        $nineteen_elevens = get_term_by( 'slug', '1911s', 'category' );
+	        $compacts = get_term_by( 'slug', 'compacts', 'category' );
+	        $rim_revolvers = get_term_by( 'slug', 'revolvers', 'category' );
+	        $rim_hand = get_term_by( 'slug', 'rim-fire-handguns', 'category' );
+	        $semi_hand = get_term_by( 'slug', 'semi-auto-handguns', 'category' );
+	        $ar15 = get_term_by( 'slug', 'ar-15', 'category' );
+	        $rifles = get_term_by( 'slug', 'rifles', 'category' );
+	        $bolt = get_term_by( 'slug', 'bolt-action', 'category' );
+	        $rim_rifle = get_term_by( 'slug', 'rim-fire-rifle', 'category' );
+	        $semi_rifle = get_term_by( 'slug', 'semi-auto-rifle', 'category' );
+	        $shotguns = get_term_by( 'slug', 'shotguns', 'category' );
+	        $double = get_term_by( 'slug', 'double-barrel', 'category' );
+	        $pump_shot = get_term_by( 'slug', 'pump-action', 'category' );
+	        $semi_shot = get_term_by( 'slug', 'semi-auto-shotguns', 'category' );
+	        $ammo = get_term_by( 'slug', 'ammo', 'category' );
+	        $airguns = get_term_by( 'slug', 'airguns', 'category' );
+	        $gear = get_term_by( 'slug', 'gear-accessories', 'category' );
+	        $optics = get_term_by( 'slug', 'optics', 'category' );
+	        $riflescopes = get_term_by( 'slug', 'riflescopes', 'category' );
+		        
+		    // Create the ID array
+		    $include = array(
+		    	$handguns->term_id,$nineteen_elevens->term_id,$compacts->term_id,$rim_revolvers->term_id,
+		        $rim_hand->term_id,$semi_hand->term_id,$ar15->term_id,$rifles->term_id,
+		        $bolt->term_id,$rim_rifle->term_id,$semi_rifle->term_id,$shotguns->term_id,$double->term_id,
+		        $pump_shot->term_id,$semi_shot->term_id,$ammo->term_id,$airguns->term_id,$gear->term_id,
+		        $optics->term_id,$riflescopes->term_id
+		    );
+
+	        extract( wp_parse_args($args, $defaults), EXTR_SKIP );
+	
+	        if ( empty($walker) || !is_a($walker, 'Walker') )
+	                $walker = new Walker_Category_Checklist;
+	
+	        $descendants_and_self = (int) $descendants_and_self;
+	
+	        $args = array('taxonomy' => $taxonomy);
+	
+	        $tax = get_taxonomy($taxonomy);
+	        $args['disabled'] = !current_user_can($tax->cap->assign_terms);
+	
+	        if ( is_array( $selected_cats ) )
+	                $args['selected_cats'] = $selected_cats;
+	        elseif ( $post_id )
+	                $args['selected_cats'] = wp_get_object_terms($post_id, $taxonomy, array_merge($args, array('fields' => 'ids')));
+	        else
+	                $args['selected_cats'] = array();
+
+	        if ( $descendants_and_self ) {
+	                $categories = (array) get_terms($taxonomy, array( 'child_of' => $descendants_and_self, 'hierarchical' => 0, 'hide_empty' => 0 ) );
+	                $self = get_term( $descendants_and_self, $taxonomy );
+	                array_unshift( $categories, $self );
+	        } else {
+	                $categories = (array) get_terms($taxonomy, array( 'child_of' => $descendants_and_self, 'include' => $include, 'hide_empty' => 0 ));
+	        }
+	
+	        if ( $checked_ontop ) {
+	                // Post process $categories rather than adding an exclude to the get_terms() query to keep the query the same across all posts (for any query cache)
+	                $checked_categories = array();
+	                $keys = array_keys( $categories );
+	
+	                foreach( $keys as $k ) {
+	                        if ( in_array( $categories[$k]->term_id, $args['selected_cats'] ) ) {
+	                                $checked_categories[] = $categories[$k];
+	                                unset( $categories[$k] );
+	                        }
+	                }
+	
+	                // Put checked cats on top
+	                echo call_user_func_array(array(&$walker, 'walk'), array($checked_categories, 0, $args));
+	        }
+	        // Then the rest of them
+	        echo call_user_func_array(array(&$walker, 'walk'), array($categories, 0, $args));
+}
+
+/**
+ * Display CUSTOM Gun Terminology form fields.
+ *
+ * @since 2.6.0
+ *
+ * @param object $post
+*/
+function custom_post_gun_terminology_meta_box( $post, $box ) {
+    $defaults = array('taxonomy' => 'category');
+    if ( !isset($box['args']) || !is_array($box['args']) )
+        $args = array();
+    else
+        $args = $box['args'];
+    extract( wp_parse_args($args, $defaults), EXTR_SKIP );
+    $tax = get_taxonomy($taxonomy);
+
+    ?>
+    <div id="taxonomy-<?php echo $taxonomy; ?>" class="categorydiv">
+       <div id="<?php echo $taxonomy; ?>-all" class="tabs-panel">
+            <?php
+            $name = ( $taxonomy == 'category' ) ? 'post_cat' : 'tax_input[' . $taxonomy . ']';
+            echo "<input type='hidden' name='{$name}' value='0' />"; // Allows for an empty term set to be sent. 0 is an invalid Term ID and will be ignored by empty() checks.
+            ?>
+            <ul id="<?php echo $taxonomy; ?>checklist" class="list:<?php echo $taxonomy?> categorychecklist form-no-clear">
+                <?php custom_gun_terminology_checklist($post->ID, array( 'taxonomy' => $taxonomy, 'popular_cats' => $popular_ids ) ) ?>
+            </ul>
+        </div>
+         
+    </div>
+    <?php 
+}
+
+
+
+
+// add Topics box
+function add_custom_topics_box() {
+  //  add_meta_box('customtopicsdiv', 'Topics', 'custom_post_topics_meta_box', 'post', 'side', 'high', array( 'taxonomy' => 'category' ));
+}
+//add_action('admin_menu', 'add_custom_topics_box');
+
+/**
+ *
+ * Topics custom list.
+ *
+*/
+function custom_topics_checklist($post_id = 0, $args = array()) {
+	        $defaults = array(
+	                'descendants_and_self' => 0,
+	                'selected_cats' => false,
+	                'popular_cats' => false,
+	                'walker' => null,
+	                'taxonomy' => 'category',
+	                'checked_ontop' => true
+	        );
+	        $args = apply_filters( 'custom_topics_checklist_args', $args, $post_id );
+	        
+	        //Convert the slugs to ids for the list
+	        $reloading = get_term_by( 'slug', 'reloading', 'category' );
+	        $military = get_term_by( 'slug', 'military-law-enforcement', 'category' );
+	        $historical = get_term_by( 'slug', 'historical', 'category' );
+	        $tactical = get_term_by( 'slug', 'tactical', 'category' );
+	        $personal = get_term_by( 'slug', 'personal-defense', 'category' );
+	        $culture = get_term_by( 'slug', 'gun-culture', 'category' );
+	        $survival = get_term_by( 'slug', 'survival', 'category' );
+	        $gunsmithing = get_term_by( 'slug', 'gunsmithing', 'category' );
+	        $zombies = get_term_by( 'slug', 'zombies', 'category' );
+	        $competition = get_term_by( 'slug', 'competition', 'category' );
+		        
+		    // Create the ID array
+		    $include = array(
+		    	$reloading->term_id,$military->term_id,$historical->term_id,$tactical->term_id,
+		        $personal->term_id,$culture->term_id,$survival->term_id,$gunsmithing->term_id,
+		        $zombies->term_id,$competition->term_id
+		    );
+
+	        extract( wp_parse_args($args, $defaults), EXTR_SKIP );
+	
+	        if ( empty($walker) || !is_a($walker, 'Walker') )
+	                $walker = new Walker_Category_Checklist;
+	
+	        $descendants_and_self = (int) $descendants_and_self;
+	
+	        $args = array('taxonomy' => $taxonomy);
+	
+	        $tax = get_taxonomy($taxonomy);
+	        $args['disabled'] = !current_user_can($tax->cap->assign_terms);
+	
+	        if ( is_array( $selected_cats ) )
+	                $args['selected_cats'] = $selected_cats;
+	        elseif ( $post_id )
+	                $args['selected_cats'] = wp_get_object_terms($post_id, $taxonomy, array_merge($args, array('fields' => 'ids')));
+	        else
+	                $args['selected_cats'] = array();
+
+	        if ( $descendants_and_self ) {
+	                $categories = (array) get_terms($taxonomy, array( 'child_of' => $descendants_and_self, 'hierarchical' => 0, 'hide_empty' => 0 ) );
+	                $self = get_term( $descendants_and_self, $taxonomy );
+	                array_unshift( $categories, $self );
+	        } else {
+	                $categories = (array) get_terms($taxonomy, array( 'child_of' => $descendants_and_self, 'include' => $include, 'hide_empty' => 0 ));
+	        }
+	
+	        if ( $checked_ontop ) {
+	                // Post process $categories rather than adding an exclude to the get_terms() query to keep the query the same across all posts (for any query cache)
+	                $checked_categories = array();
+	                $keys = array_keys( $categories );
+	
+	                foreach( $keys as $k ) {
+	                        if ( in_array( $categories[$k]->term_id, $args['selected_cats'] ) ) {
+	                                $checked_categories[] = $categories[$k];
+	                                unset( $categories[$k] );
+	                        }
+	                }
+	
+	                // Put checked cats on top
+	                echo call_user_func_array(array(&$walker, 'walk'), array($checked_categories, 0, $args));
+	        }
+	        // Then the rest of them
+	        echo call_user_func_array(array(&$walker, 'walk'), array($categories, 0, $args));
+}
+
+/**
+ * Display CUSTOM Topics form fields.
+ *
+ * @since 2.6.0
+ *
+ * @param object $post
+*/
+function custom_post_topics_meta_box( $post, $box ) {
+    $defaults = array('taxonomy' => 'category');
+    if ( !isset($box['args']) || !is_array($box['args']) )
+        $args = array();
+    else
+        $args = $box['args'];
+    extract( wp_parse_args($args, $defaults), EXTR_SKIP );
+    $tax = get_taxonomy($taxonomy);
+
+    ?>
+    <div id="taxonomy-<?php echo $taxonomy; ?>" class="categorydiv">
+       <div id="<?php echo $taxonomy; ?>-all" class="tabs-panel">
+            <?php
+            $name = ( $taxonomy == 'category' ) ? 'post_cat' : 'tax_input[' . $taxonomy . ']';
+            echo "<input type='hidden' name='{$name}' value='0' />"; // Allows for an empty term set to be sent. 0 is an invalid Term ID and will be ignored by empty() checks.
+            ?>
+            <ul id="<?php echo $taxonomy; ?>checklist" class="list:<?php echo $taxonomy?> categorychecklist form-no-clear">
+                <?php custom_topics_checklist($post->ID, array( 'taxonomy' => $taxonomy, 'popular_cats' => $popular_ids ) ) ?>
+            </ul>
+        </div>
+         
+    </div>
+    <?php 
+}
+
+
+// add G&A Network box
+function add_custom_ga_network_box() {
+  //  add_meta_box('customganetworkdiv', 'G&A Network', 'custom_post_ga_network_meta_box', 'post', 'side', 'high', array( 'taxonomy' => 'category' ));
+}
+//add_action('admin_menu', 'add_custom_ga_network_box');
+
+/**
+ *
+ * Gun Terminology custom list.
+ *
+*/
+function custom_ga_network_checklist($post_id = 0, $args = array()) {
+	        $defaults = array(
+	                'descendants_and_self' => 0,
+	                'selected_cats' => false,
+	                'popular_cats' => false,
+	                'walker' => null,
+	                'taxonomy' => 'category',
+	                'checked_ontop' => true
+	        );
+	        $args = apply_filters( 'custom_ga_network_checklist_args', $args, $post_id );
+	        
+	        //Convert the slugs to ids for the list
+	        $guns= get_term_by( 'slug', 'the-guns-network', 'category' );
+	        $gear = get_term_by( 'slug', 'the-gear-network', 'category' );
+	        $survival = get_term_by( 'slug', 'survival-network', 'category' );
+	        $culture = get_term_by( 'slug', 'culture-politics-network', 'category' );
+	        $personal = get_term_by( 'slug', 'personal-defense-network', 'category' );
+		        
+		    // Create the ID array
+		    $include = array($guns->term_id,$gear->term_id,$survival->term_id,$culture->term_id,$personal->term_id);
+
+	        extract( wp_parse_args($args, $defaults), EXTR_SKIP );
+	
+	        if ( empty($walker) || !is_a($walker, 'Walker') )
+	                $walker = new Walker_Category_Checklist;
+	
+	        $descendants_and_self = (int) $descendants_and_self;
+	
+	        $args = array('taxonomy' => $taxonomy);
+	
+	        $tax = get_taxonomy($taxonomy);
+	        $args['disabled'] = !current_user_can($tax->cap->assign_terms);
+	
+	        if ( is_array( $selected_cats ) )
+	                $args['selected_cats'] = $selected_cats;
+	        elseif ( $post_id )
+	                $args['selected_cats'] = wp_get_object_terms($post_id, $taxonomy, array_merge($args, array('fields' => 'ids')));
+	        else
+	                $args['selected_cats'] = array();
+
+	        if ( $descendants_and_self ) {
+	                $categories = (array) get_terms($taxonomy, array( 'child_of' => $descendants_and_self, 'hierarchical' => 0, 'hide_empty' => 0 ) );
+	                $self = get_term( $descendants_and_self, $taxonomy );
+	                array_unshift( $categories, $self );
+	        } else {
+	                $categories = (array) get_terms($taxonomy, array( 'child_of' => $descendants_and_self, 'include' => $include, 'hide_empty' => 0 ));
+	        }
+	
+	        if ( $checked_ontop ) {
+	                // Post process $categories rather than adding an exclude to the get_terms() query to keep the query the same across all posts (for any query cache)
+	                $checked_categories = array();
+	                $keys = array_keys( $categories );
+	
+	                foreach( $keys as $k ) {
+	                        if ( in_array( $categories[$k]->term_id, $args['selected_cats'] ) ) {
+	                                $checked_categories[] = $categories[$k];
+	                                unset( $categories[$k] );
+	                        }
+	                }
+	
+	                // Put checked cats on top
+	                echo call_user_func_array(array(&$walker, 'walk'), array($checked_categories, 0, $args));
+	        }
+	        // Then the rest of them
+	        echo call_user_func_array(array(&$walker, 'walk'), array($categories, 0, $args));
+}
+
+/**
+ * Display CUSTOM G&A Network form fields.
+ *
+ * @since 2.6.0
+ *
+ * @param object $post
+*/
+function custom_post_ga_network_meta_box( $post, $box ) {
+    $defaults = array('taxonomy' => 'category');
+    if ( !isset($box['args']) || !is_array($box['args']) )
+        $args = array();
+    else
+        $args = $box['args'];
+    extract( wp_parse_args($args, $defaults), EXTR_SKIP );
+    $tax = get_taxonomy($taxonomy);
+
+    ?>
+    <div id="taxonomy-<?php echo $taxonomy; ?>" class="categorydiv">
+       <div id="<?php echo $taxonomy; ?>-all" class="tabs-panel" style="height:auto;">
+            <?php
+            $name = ( $taxonomy == 'category' ) ? 'post_cat' : 'tax_input[' . $taxonomy . ']';
+            echo "<input type='hidden' name='{$name}' value='0' />"; // Allows for an empty term set to be sent. 0 is an invalid Term ID and will be ignored by empty() checks.
+            ?>
+            <ul id="<?php echo $taxonomy; ?>checklist" class="list:<?php echo $taxonomy?> categorychecklist form-no-clear">
+                <?php custom_ga_network_checklist($post->ID, array( 'taxonomy' => $taxonomy, 'popular_cats' => $popular_ids ) ) ?>
+            </ul>
+        </div>
+         
+    </div>
+    <?php 
+}
