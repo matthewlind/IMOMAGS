@@ -374,7 +374,7 @@ $comment_user_score = $comment_user_score[0];
 	           </div>
 	           
 	    </div>
-	    <?php if (current_user_can('delete_others_posts')) { ?>    
+	    <?php if (current_user_can('edit_superposts')) { ?>    
 		    <select class="editor-functions" spid="<?php echo $comment->comment_id; ?>">
 		    	<option>EDITOR OPTIONS</option>
 		    	<option value="edit">Edit</option>

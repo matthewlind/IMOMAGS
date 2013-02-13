@@ -1,9 +1,7 @@
 <?php
 
 require 'Slim/Slim.php';
-
 include 'mysql.php';
-
 include 'auth.php';
 include 'images.php';
 include 'video.php';
@@ -21,7 +19,7 @@ $app->get('/posts', function () {
 	$state = NULL; // e.g. "GA","NY"
 	$skip = 0; //Start Number
 	$per_page = 20;
-	$require_images = FALSE; //Only return posts with images
+	$require_images = FALSE; //Only return posts with images, use 1 or 0 in query string
 	$order_by = "id"; //e.g. "created","view_count"
 	$sort = "DESC";
 	
@@ -120,9 +118,9 @@ $app->get('/posts', function () {
 $app->get('/posts/:id', function ($id) {
 
 	//Default Settings
-	$update_viewcount = TRUE;
-	$get_attachments = TRUE;
-	$get_comments = FALSE;
+	$update_viewcount = TRUE; // use 1 or 0 in query string
+	$get_attachments = TRUE; // use 1 or 0 in query string
+	$get_comments = FALSE; // use 1 or 0 in query string
 
 	header('Access-Control-Allow-Origin: *');  
 	
@@ -133,7 +131,7 @@ $app->get('/posts/:id', function ($id) {
 	//Overwrite the default settings with the new ones
 	extract($params,EXTR_OVERWRITE);
 
-	$posts = "";
+	$posts = '';
 	
 	
 	//Get the post
@@ -151,7 +149,7 @@ $app->get('/posts/:id', function ($id) {
 
 		
 		
-		$db = "";
+		$db = '';
 
 	} catch(PDOException $e) {
     	echo $e->getMessage();
@@ -174,7 +172,7 @@ $app->get('/posts/:id', function ($id) {
 			//Set the attachments to the post
 			$posts[0]->attachments = $attachments;
 			
-			$db = "";
+			$db = '';
 	
 		} catch(PDOException $e) {
 	    	echo $e->getMessage();
@@ -256,7 +254,7 @@ $app->get('/posts/:id', function ($id) {
 			$posts[0]->comments = $postCommentsArray;
 
 	
-			$db = "";
+			$db = '';
 	
 		} catch(PDOException $e) {
 	    	echo $e->getMessage();
@@ -277,7 +275,7 @@ $app->get('/posts/:id', function ($id) {
 			$stmt = $db->prepare($sql);
 			$stmt->execute(array($id));
 			
-			$db = "";
+			$db = '';
 	
 		} catch(PDOException $e) {
 	    	echo $e->getMessage();
@@ -302,6 +300,9 @@ $app->post('/posts',function() {
 	$requestJSON = Slim\Slim::getInstance()->request()->getBody();
 	
 	$params = json_decode($requestJSON,true);
+	
+	
+	_log( $params);
 
 	//Get the user info and authenticate
 	if (!empty($params['username']) && !empty($params['userhash'])) {
@@ -313,13 +314,13 @@ $app->post('/posts',function() {
 	
 	$requestIsGood = TRUE;
 	
-	$postHash = "";
+	$postHash = '';
 
 	
 	
 	$params['useragent'] = $_SERVER['HTTP_USER_AGENT'];
 	$params['domain'] = $_SERVER['HTTP_HOST'];
-	$params['posthash'] = "";
+	$params['posthash'] = '';
 	
 	if ($params['post_type'] != "youtube" && $params['post_type'] != "photo" && $params['post_type'] != "comment") {
 			date_default_timezone_set('America/New_York');
@@ -375,7 +376,7 @@ $app->post('/posts',function() {
 
 			$video = getYoutubeVideo($videoID);
 
-			$params['body'] = "";
+			$params['body'] = '';
 			$params['meta'] = $videoID;
 
 			$target_path = $video['temp_image_path'];
@@ -451,8 +452,8 @@ $app->post('/posts',function() {
 			}
 		}
 
-		$sql = substr_replace($sql ,"",-1);
-		$sql2 = substr_replace($sql2 ,"",-1);
+		$sql = substr_replace($sql ,'',-1);
+		$sql2 = substr_replace($sql2 ,'',-1);
 
 		$sql .= ") ";
 		$sql2 .= ")";
@@ -481,18 +482,16 @@ $app->post('/posts',function() {
 			
 			$stmt->execute();
 	        $superpostID = $db->lastInsertId();
-	        
-	        
+	     
 	        //If there are attachments, set the parent of the attachemnts
+/*
 	     	if (!empty($params['attachment_id'])) {
 				$attachmentIDstring = $params['attachment_id'];
 				setAttachment($superpostID, $attachmentIDstring);
 				
 			}
-	        
-	
-			
-	
+*/
+	        		
 			$params['id'] = $superpostID;
 			$params['ip'] = long2ip($params['ip']);
 	
@@ -513,8 +512,12 @@ $app->post('/posts',function() {
 				$oFlagger = new postFlagger();
 				$rtn = $oFlagger->insertEvent($params['parent'], "comment", $params['user_id'],$eventHash);		
 			}
+			
+			
+			process_attachments($params['attachments'], $superpostID);
+			
 	
-			$db = "";
+			$db = '';
 			echo json_encode($response);
 			
 		} else {
@@ -547,7 +550,7 @@ $app->put('/posts/:id',function($id) {
 
 	$post_id = $id;
 	$user_id = $params['user_id'];
-	$post_type = "";
+	$post_type = '';
 	
 	$userIsGood = userIsGood($params['username'],$params['userhash']);
 	$userIsEditor = userIsEditor($params['username'],$params['timecode'],$params['editor_hash']);
@@ -568,7 +571,7 @@ $app->put('/posts/:id',function($id) {
 		$post = $stmt->fetchObject();
 		
 
-		$db = "";
+		$db = '';
 
 	} catch(PDOException $e) {
     	echo $e->getMessage();
@@ -655,7 +658,7 @@ $app->put('/posts/:id',function($id) {
 
 			echo json_encode($params);
 
-			$db = "";
+			$db = '';
 
 		} catch(PDOException $e) {
 	    	echo $e->getMessage();
@@ -672,6 +675,62 @@ $app->delete('/posts', function () {
 });
 
 
+
+
+function process_attachments($attachmentArray, $parentID) {
+
+	_log("ATTCHMENTED");
+	$db2 = dbConnect();
+	
+	if (!empty($attachmentArray[0])) {//If there is an single attachment, give the post a thumbnail
+	
+		_log("UPDATIN POST WITH NEW URL");
+	
+		
+		
+		$sql = "UPDATE superposts SET img_url = ? WHERE id = ?";
+
+		$stmt = $db2->prepare($sql);
+	
+		$stmt->execute(array($attachmentArray[0]['img_url'],$parentID));
+	
+		$row = $stmt->fetch(PDO::FETCH_OBJ);	
+		
+		
+		
+	}
+	
+
+
+	foreach ($attachmentArray as $attachment) {
+		
+		if (empty($attachment['id'])) { //If this attachment has no id, it's not in the database yet. Create a new post for it.
+		
+			_log("MAKING NEW POST FOR ATTACH");
+	
+			extract($attachment);
+			
+			if (empty($body))
+				$body = '';
+
+		
+			$sql = "INSERT INTO superposts (parent,post_type,body,img_url) values ('$parentID','$post_type','$body','$img_url')";
+			
+			$stmt = $db2->prepare($sql);
+	
+			$stmt->execute();
+		
+			$row = $stmt->fetch(PDO::FETCH_OBJ);	
+			
+		} else { //If it does have an id, just update it
+			
+		}
+		
+		
+	}
+	
+	$db2 = "";
+}
 
 
 /* Better Logging Function */

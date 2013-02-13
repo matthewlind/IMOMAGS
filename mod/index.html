@@ -21,11 +21,12 @@
 	<!-- *********************************************************** -->
 	<!-- ******************     TEMPLATES      ********************* -->
 	<!-- *********************************************************** -->
-	<script type="text/template" id="post-list-template">
+	<script type="text/template" id="post-list-table">
 		<a href="#!new" class="btn btn-primary">New Post</a>
 		<table class="table table-striped">
 			<thead>
 				<tr>
+					<th>Thumb</th>
 					<th>Title</th>
 					<th>Body</th>
 					<th>Date</th>
@@ -33,24 +34,39 @@
 					<th></th>
 				</tr>
 			</thead>
-			<tbody>
-				<% _.each(posts, function(post) { %>
-					<tr>
-						<td><%= post && post.get('title') %></td>
-						<td><%= post && post.get('body') %></td>
-						<td><%= post && post.get('created') %></td>
-						<td><%= post && post.get('post_type') %></td>
-						<td><a href="#!edit/<%= post.id %>" class="btn">edit</td>
-					</tr>
-				<% }); %>
+			<tbody id="post-list-table-body">
+
 
 			</tbody>
 		</table>
+		<div id="post-list-pager-div"></div>
 	</script>	
+	<!-- *********************************************************** -->
+	<!-- *********************************************************** -->
+	<!-- *********************************************************** -->
+	<script type="text/template" id="post-list-rows">
+		<% _.each(posts, function(post) { %>
+			<tr>
+				<td><img src="<%= post && post.get('img_url') %>" width=50></td>
+				<td><%= post && post.get('title') %></td>
+				<td><%= post && post.get('body') %></td>
+				<td><%= post && post.get('created') %></td>
+				<td><%= post && post.get('post_type') %></td>
+				<td><a href="#!edit/<%= post.id %>" class="btn">edit</td>
+			</tr>
+		<% }); %>
+	</script>
 	
 	<!-- *********************************************************** -->
 	<!-- *********************************************************** -->
+	<!-- *********************************************************** -->
+	<script type="text/template" id="post-list-pager-template">
+		<a href="#" class="prev-list btn">Prev</a><a href="#" class="next-list btn">Next</a>
+	</script>
 	
+	<!-- *********************************************************** -->
+	<!-- *********************************************************** -->
+	<!-- *********************************************************** -->
 	<script type="text/template" id="new-post-template">
 	<h3><%= post ? 'Edit' : 'Create' %> Post</h3>
 		<form id="new-post-form">
@@ -134,12 +150,68 @@
 		      </select>
 		      <br>
 		      
-		      <% if (post) { %>
+		      <% if (post.id) { %>
 		      		<input type="hidden" name="id" value="<%= post.id %>" >
 		      <% } %>
 		      
+		      
+				<div id="fileupload">
+				  <div class="fileupload-buttonbar ">
+				      <label class="upload-button">
+				          <span><span class="white-plus-sign">+</span><span class="button-text">ATTACH PHOTO</span></span>
+				          <input id="image-upload" type="file" name="photo-upload">
+				
+				      </label>
+				  </div>
+				</div>
+		
+		      <div class="video-button">
+		        <span><span class="white-plus-sign"><img src="http://www.northamericanwhitetail.deva/wp-content/themes/imo-mags-northamericanwhitetail/img/youtube.png" alt="YouTube"></span>ADD YOUTUBE VIDEO</span>
+		      </div>
+		      
+		      <div id="attachments">
+		      </div>
+		      
 			<input type="submit">
+			
+		  </form>
 	</script>
+
+	<!-- *********************************************************** -->
+	<!-- *********************************************************** -->
+	<!-- *********************************************************** -->
+	<script type="text/template" id="edit-post-attachments-template">
+		<div class="single-attachment-container">
+
+
+
+		      
+		      
+		 </div>
+	</script>
+	
+	
+	<!-- *********************************************************** -->
+	<!-- *********************************************************** -->
+	<!-- *********************************************************** -->
+	<script type="text/template" id="single-attachment-template">
+	
+
+
+		
+			      <div style="margin-top:20px">
+				      	<a href="<%= attachment.img_url %>" class="thickbox">
+				      		<img src="<%= attachment.img_url %>" width=75>
+				      	</a>                      
+                   							
+				      	<input class="caption-field" name="caption-body" type="text" placeholder="Caption (optional)" value="<%= attachment.body %>">
+
+				   </div>
+	
+		      
+		 
+	</script>
+	
 	
 	<!-- *********************************************************** -->
 	<!-- ***************     REQUIRED SCRIPTS    ******************* -->
@@ -154,7 +226,12 @@
 	<script src="http://ajax.cdnjs.com/ajax/libs/underscore.js/1.4.2/underscore-min.js"></script>
 	<script src="http://ajax.cdnjs.com/ajax/libs/backbone.js/0.9.2/backbone-min.js"></script>	
 	<script src="js/formParams.min.js"></script>
-	<script src="js/backbone.paginator.min.js"></script>
+
+<!-- Filepicker Script -->
+<script type="text/javascript">
+(function(a){if(window.filepicker){return}var b=a.createElement("script");b.type="text/javascript";b.async=!0;b.src=("https:"===a.location.protocol?"https:":"http:")+"//api.filepicker.io/v1/filepicker.js";var c=a.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c);var d={};d._queue=[];var e="pick,pickMultiple,pickAndStore,read,write,writeUrl,export,convert,store,storeUrl,remove,stat,setKey,constructWidget,makeDropPane".split(",");var f=function(a,b){return function(){b.push([a,arguments])}};for(var g=0;g<e.length;g++){d[e[g]]=f(e[g],d._queue)}window.filepicker=d})(document); 
+</script>
+	
 	<script src="js/app.js"></script>
 	
 
