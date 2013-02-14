@@ -103,7 +103,7 @@ Iain Harrison.</p>
 		<div class="blog-border"></div>
 		<h1>Defend Thyself</h1>
 		<div class="presented-by">Presented By</div>
-		<p>Tips and tactics for defending your home, your family and your life from Personal Defense expert Richard Nance.</p>
+		<p>Tips and tactics for defending your home, your family and your life from Personal Defense expert James Tarr.</p>
 		<div class="sponsor-logo"></div>
 	</div>
 	<?php } else if (is_category($nb_slug)) { ?>
