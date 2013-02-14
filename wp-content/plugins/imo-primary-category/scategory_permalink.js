@@ -5,10 +5,9 @@
     var obj = this;
 
     return this.each(function() {
-      $(this).find('.tabs-panel label input[type=checkbox], .rwmb-field label input[type=checkbox]').each(function() {
+      $(this).find('.primary-box .tabs-panel label input[type=checkbox]').each(function() {
         var label = $(this).parent('label');
         var li = $(label).parent('li');
-        console.log(this.value);
         var link = '&nbsp;<a class="scategory_link">Make Primary</a>';
         
         label.after(link);

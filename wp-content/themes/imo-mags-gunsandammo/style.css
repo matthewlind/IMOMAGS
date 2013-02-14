@@ -6824,7 +6824,7 @@ font-size: 0.72em;
 
 /* New Blog Headers */
 .blog-headers{
-	margin: 1px 0 10px;
+	margin: 14px 0 10px;
 	height: 120px;
 }
 .blog-border{
@@ -6880,7 +6880,7 @@ font-size: 0.72em;
 	margin-top: -23px;
 }
 .blog-headers.dt{
-	background: url("img/dt-header.png") left -11px no-repeat;
+	background: url("img/dt-header.png") left -1px no-repeat;
 }
 .blog-headers.dt .sponsor-logo{
 	background: url("img/wardog-logo.jpg") left top no-repeat;
