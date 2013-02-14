@@ -96,7 +96,9 @@ $app->get('/posts', function () {
 		$db = dbConnect();
 
 				
-		$sql = "SELECT * FROM allcounts WHERE $postTypeClause $stateClause $requireImagesClause $orderByClause $sortClause $limitClause";
+		$sql = "SELECT *,CONCAT(allcounts.post_type,'/',allcounts.id) as url FROM allcounts WHERE $postTypeClause $stateClause $requireImagesClause $orderByClause $sortClause $limitClause";
+
+		
 
 		$stmt = $db->prepare($sql);
 		$stmt->execute(array());
@@ -162,7 +164,7 @@ $app->get('/posts/:id', function ($id) {
 			$db = dbConnect();
 	
 	
-			$sql = "SELECT * FROM superposts WHERE parent = ? AND post_type IN ('photo','youtube') ORDER BY id ASC";
+			$sql = "SELECT *,CONCAT(allcounts.post_type,'/',allcounts.id) as url FROM superposts WHERE parent = ? AND post_type IN ('photo','youtube') ORDER BY id ASC";
 	
 			$stmt = $db->prepare($sql);
 			$stmt->execute(array($id));
@@ -552,11 +554,13 @@ $app->put('/posts/:id',function($id) {
 	$user_id = $params['user_id'];
 	$post_type = '';
 	
+	$userHasGoodPerms = FALSE; 
+
+	
 	$userIsGood = userIsGood($params['username'],$params['userhash']);
 	$userIsEditor = userIsEditor($params['username'],$params['timecode'],$params['editor_hash']);
 	
-	$userHasGoodPerms = FALSE; 
-	
+		
 	
 	//Grab the post
 	try {
@@ -630,11 +634,17 @@ $app->put('/posts/:id',function($id) {
 	        
 	        
 	        //If there are attachments, set the parent of the attachemnts
+	        
+	        process_attachments($params['attachments'], $post_id);
+	        
+	        
+/*
 	     	if (!empty($params['attachment_id'])) {
 				$attachmentIDstring = $params['attachment_id'];
 				setAttachment($post_id, $attachmentIDstring);
 				
 			}
+*/
 			
 			//CLEAR THE VARNISH CACHE!
 			$postURL = "http://" . $post->domain . "/plus/" . $post->post_type . "/" . $post->id . "/";
@@ -670,8 +680,32 @@ $app->put('/posts/:id',function($id) {
 
 
 // DELETE request to delete a post
-$app->delete('/posts', function () {
-    echo 'This is a DELETE route';
+$app->delete('/posts/:id', function ($id) {
+	header('Access-Control-Allow-Origin: *');
+
+	$pparams = Slim\Slim::getInstance()->request()->post();
+	
+	$requestJSON = Slim\Slim::getInstance()->request()->getBody();
+	
+	$params = json_decode($requestJSON,true);
+
+	_log("Update field started");
+	print_r($id);
+	print_r($pparams);
+	print_r($params);
+
+/*
+	$post_id = $id;
+	$user_id = $params['user_id'];
+	$post_type = '';
+	
+	$userHasGoodPerms = FALSE; 
+
+	
+	$userIsGood = userIsGood($params['username'],$params['userhash']);
+	$userIsEditor = userIsEditor($params['username'],$params['timecode'],$params['editor_hash']);
+*/
+	
 });
 
 
@@ -679,15 +713,13 @@ $app->delete('/posts', function () {
 
 function process_attachments($attachmentArray, $parentID) {
 
-	_log("ATTCHMENTED");
+
 	$db2 = dbConnect();
 	
 	if (!empty($attachmentArray[0])) {//If there is an single attachment, give the post a thumbnail
 	
-		_log("UPDATIN POST WITH NEW URL");
-	
-		
-		
+
+			
 		$sql = "UPDATE superposts SET img_url = ? WHERE id = ?";
 
 		$stmt = $db2->prepare($sql);
@@ -695,34 +727,41 @@ function process_attachments($attachmentArray, $parentID) {
 		$stmt->execute(array($attachmentArray[0]['img_url'],$parentID));
 	
 		$row = $stmt->fetch(PDO::FETCH_OBJ);	
-		
-		
-		
+			
 	}
 	
-
-
 	foreach ($attachmentArray as $attachment) {
+	
+		extract($attachment);
+		
+		_log("ATTACHMENT DATA:");
+		_log($attachment);
 		
 		if (empty($attachment['id'])) { //If this attachment has no id, it's not in the database yet. Create a new post for it.
-		
-			_log("MAKING NEW POST FOR ATTACH");
-	
-			extract($attachment);
-			
+					
 			if (empty($body))
 				$body = '';
-
 		
-			$sql = "INSERT INTO superposts (parent,post_type,body,img_url) values ('$parentID','$post_type','$body','$img_url')";
+			$sql = "INSERT INTO superposts (parent,post_type,body,img_url) values (? , ? , ? , ?)";
+			
 			
 			$stmt = $db2->prepare($sql);
 	
-			$stmt->execute();
+			$stmt->execute(array($parentID,$post_type,$body,$img_url));
 		
 			$row = $stmt->fetch(PDO::FETCH_OBJ);	
 			
 		} else { //If it does have an id, just update it
+			
+			$sql = "UPDATE superposts SET body = ? , img_url = ? WHERE id = ?";
+			
+			$stmt = $db2->prepare($sql);
+			
+			_log($sql);
+	
+			$stmt->execute(array($body,$img_url,$id));
+		
+			$row = $stmt->fetch(PDO::FETCH_OBJ);				
 			
 		}
 		

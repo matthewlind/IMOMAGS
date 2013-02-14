@@ -1,43 +1,11 @@
-//*****************************************************************
-//****************    UTILITY FUNCIONS    *************************
-//*****************************************************************
 
-	//Set the base url for the AJAX requests
-	$.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
-		options.url = 'http://www.northamericanwhitetail.deva/community-api' + options.url;
-		
-		if (options.type == "GET" || originalOptions.type == "GET") {
-			options.data = $.param($.extend(originalOptions.data, userIMO));
-		}
-	
-	});
-	
-//*****************************************************************
-//******************     DATA MODELS    ***************************
-//*****************************************************************	
-	var PostModel = Backbone.Model.extend({
-		urlRoot:"/posts"
-	}); 
-	
-	var PostsClass = Backbone.Collection.extend({
-		url:"/posts",
-		model: PostModel
-	});
 //*****************************************************************
 //******************      VIEWS         ***************************
 //********** (this is where the magic happens) ********************
 //*****************************************************************		
 
 
-	var postListParams = {
-		post_type : "all", // e.g. "report","question"
-		state : null, // e.g. "GA","NY"
-		skip : 0, //Start Number
-		per_page : 20,
-		require_images : 0, //Only return posts with images, use 1 or 0
-		order_by : "id", //e.g. "created","view_count"
-		sort : "DESC"
-	};
+
 	
 	//**************************
 	//Moderator Table View
@@ -326,31 +294,3 @@
 		}
 		
 	});
-
-	
-//*****************************************************************
-//******************       ROUTER       ***************************
-//*****************************************************************	
-	var AppRouter = Backbone.Router.extend({
-		routes: {
-			'':'home',
-			'!':'home',
-			'!new':"editPost",
-			'!edit/:id':"editPost"
-		}
-	});
-	
-	var router = new AppRouter();
-	
-	var postList = new PostListTable();
-	var editPostView = new EditPostViewClass();
-	
-	router.on('route:home',function() {
-		postList.init();
-	});
-	
-	router.on('route:editPost',function(id) {
-		editPostView.render({id:id});
-	});
-	
-	Backbone.history.start();
