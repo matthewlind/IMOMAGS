@@ -1,7 +1,7 @@
 
 	//Set the base url for the AJAX requests
 	$.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
-		options.url = 'http://www.northamericanwhitetail.deva/community-api' + options.url;
+		options.url = '/community-api' + options.url;
 		
 		if (options.type == "GET" || originalOptions.type == "GET") {
 			options.data = $.param($.extend(originalOptions.data, userIMO));
