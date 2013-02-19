@@ -663,17 +663,18 @@ function custom_gun_terminology_checklist($post_id = 0, $args = array()) {
         $nineteen_elevens = get_term_by( 'slug', '1911s', 'category' );
         $compacts = get_term_by( 'slug', 'compacts', 'category' );
         $rim_revolvers = get_term_by( 'slug', 'revolvers', 'category' );
-        $rim_hand = get_term_by( 'slug', 'rim-fire-handguns', 'category' );
-        $semi_hand = get_term_by( 'slug', 'semi-auto-handguns', 'category' );
+        $rim_hand = get_term_by( 'slug', 'rim-fire-handgun', 'category' );
+        $semi_hand = get_term_by( 'slug', 'semi-auto-handgun', 'category' );
         $ar15 = get_term_by( 'slug', 'ar-15', 'category' );
         $rifles = get_term_by( 'slug', 'rifles', 'category' );
         $bolt = get_term_by( 'slug', 'bolt-action', 'category' );
+        $lever = get_term_by( 'slug', 'lever-action', 'category' );
         $rim_rifle = get_term_by( 'slug', 'rim-fire-rifle', 'category' );
         $semi_rifle = get_term_by( 'slug', 'semi-auto-rifle', 'category' );
         $shotguns = get_term_by( 'slug', 'shotguns', 'category' );
         $double = get_term_by( 'slug', 'double-barrel', 'category' );
         $pump_shot = get_term_by( 'slug', 'pump-action', 'category' );
-        $semi_shot = get_term_by( 'slug', 'semi-auto-shotguns', 'category' );
+        $semi_shot = get_term_by( 'slug', 'semi-auto-shotgun', 'category' );
         $ammo = get_term_by( 'slug', 'ammo', 'category' );
         $airguns = get_term_by( 'slug', 'airguns', 'category' );
         $gear = get_term_by( 'slug', 'gear-accessories', 'category' );
@@ -684,7 +685,7 @@ function custom_gun_terminology_checklist($post_id = 0, $args = array()) {
 	    $include = array(
 	    	$handguns->term_id,$nineteen_elevens->term_id,$compacts->term_id,$rim_revolvers->term_id,
 	        $rim_hand->term_id,$semi_hand->term_id,$ar15->term_id,$rifles->term_id,
-	        $bolt->term_id,$rim_rifle->term_id,$semi_rifle->term_id,$shotguns->term_id,$double->term_id,
+	        $bolt->term_id,$lever->term_id,$rim_rifle->term_id,$semi_rifle->term_id,$shotguns->term_id,$double->term_id,
 	        $pump_shot->term_id,$semi_shot->term_id,$ammo->term_id,$airguns->term_id,$gear->term_id,
 	        $optics->term_id,$riflescopes->term_id
 	    );
