@@ -20,8 +20,7 @@
 			this.$el.html("SINGLE POST VIEW EYAH");
 			
 			var postParams = {get_comments:1};
-			
-			
+					
 			post.fetch({
 				success: function(postModel) {
 					
@@ -45,10 +44,17 @@
 		template: null,
 		
 		initialize: function() {
+		
+		
 
+			this.listenTo(settings, 'change',function(){
+				$(".community-title").text(settings.get("title"));
+			});
 		},
 		
 		render: function(){
+		
+			settings.set("title",IMO_COMMUNITY_CONFIG.page_title);
 		
 			var that = this;
 		

@@ -41,7 +41,7 @@ if ( is_user_logged_in() ) {
 ?>
 <div class="page-community">
 	<div class="container">
-		<h1>Community</h1>
+		<h1 class="community-title">Community</h1>
 				
 		<ul id="app">
 

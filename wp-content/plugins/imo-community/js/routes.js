@@ -22,12 +22,16 @@
 	
 	var router = new AppRouter();
 	
+	var settings = new Settings();
+	
 	var postList = new PostListTable();
 	var editPostView = new EditPostViewClass();
 	
 	var communityView = new CommunityViewClass();
 	
 	var singlePostView = new SinglePostViewClass();
+	
+	
 	
 	
 	router.on('route:redirect',function(){

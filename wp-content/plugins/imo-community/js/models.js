@@ -9,3 +9,9 @@
 		url:"/community-api/posts",
 		model: PostModel
 	});
+	
+	var Settings = Backbone.Model.extend({
+        defaults: {
+	        page_title: null
+        }
+    });

@@ -3,7 +3,7 @@
 /*
 Plugin Name: IMO Facebook Auth
 Plugin URI: http://imomags.com
-Description: Adds facebook PHP & Javascript SDKs and another tools for facebook authentication
+Description: Adds facebook PHP & Javascript SDKs and another tools for facebook authentication. Also includes services that allows users to Register & Login via ajax using their email address. <b>IMO User Auth</b> is required to use this plugin
 Author: aaron
 Author URI:
 Version: 0.1
@@ -226,27 +226,7 @@ function imo_facebook_usercheck() {
 	        		add_user_meta($userID,"state",$stateAbbrev);
 		        	
 	        	}
-	       		
-	       		
-	       		//Send the welcome email
-	       		$headers = 'From: Whitetail+ Community <community@intermediaoutdoors.com>' . "\r\n";
-	       		
-	       		$emailTitle = 'Welcome to Whitetail+ Community';
-	       		$emailMesssage = "JOIN US\nWe are fun! And cool.";
-	       		
-	       		remove_filter ('the_content', 'wpautop');
-	       		
-	       		if ($postID = get_option("email_post_id")) {
-		       		$emailPost = get_post($postID);
-		       		
-		       		$emailTitle = $emailPost->post_title;
-		       		$emailMesssage = $emailPost->post_content;
-	       		}
-	       		add_filter('wp_mail_content_type',create_function('', 'return "text/html";'));
-	       		wp_mail($email, $emailTitle, $emailMesssage, $headers);
-	
-	       		//$userdata['user_pass'] = "";
-	       		
+	       				
 	       		$user = imo_get_user($userID);
 	
 	       		$json = json_encode($user);
@@ -449,63 +429,4 @@ function email_post_id_settings_init() {
 add_action("admin_menu", "email_post_id_settings_init");
 
 
-/********************************
-******AUTHENTICATION PLUGGABLE******
-*********************************/
-/*
-if ( !function_exists('wp_authenticate') ) :
 
-function wp_authenticate($username, $password) {
-	$username = sanitize_user($username);
-	$password = trim($password);
-
-	$user = apply_filters('authenticate', null, $username, $password);
-
-
-
-	$ignore_codes = array('empty_username', 'empty_password');
-
-
-	//Check if facebook!
-	if ($username == "facebook" && $password == "dgrsvgqt4523facebook") {
-
-		$facebook = new Facebook(array(
-		  'appId'  => '127971893974432',
-		  'secret' => '998a58347d730b52dd2bac877180bedd',
-		));
-
-		// Get FB User ID
-		$user = $facebook->getUser();
-
-		if ($user) {
-		  try {
-		    // Proceed knowing you have a logged in user who's authenticated.
-		    $user_profile = $facebook->api('/me');
-		  } catch (FacebookApiException $e) {
-		    error_log($e);
-		    $user = null;
-		  }
-		}
-
-		$email = $user_profile['email'];	
-		$user = get_user_by("email",$email);
-
-		wp_set_auth_cookie($user->ID,true);
-
-
-	}
-
-	if ( $user == null ) {
-		// TODO what should the error message be? (Or would these even happen?)
-		// Only needed if all authentication handlers fail to return anything.
-		$user = new WP_Error('authentication_failed', __('<strong>ERROR</strong>: Invalid username or incorrect password.'));
-	}
-
-	if (is_wp_error($user) && !in_array($user->get_error_code(), $ignore_codes) ) {
-		do_action('wp_login_failed', $username);
-	}
-
-	return $user;
-}
-endif;
-*/

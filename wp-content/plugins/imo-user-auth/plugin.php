@@ -3,7 +3,7 @@
 /*
 Plugin Name: IMO User Auth
 Plugin URI: http://imomags.com
-Description: Adds network-wide authentication services to IMOMags.
+Description: Adds authentication hashes that are used by Community API to authenticate. Also, creates an XMLRPC method that allows the Whitetail+ iphone app to authenticate.
 Author: aaron
 Author URI:
 Version: 0.1
