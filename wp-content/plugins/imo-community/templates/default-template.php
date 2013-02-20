@@ -41,9 +41,14 @@ if ( is_user_logged_in() ) {
 ?>
 <div class="page-community">
 
+<!-- Uncomment This to add wordpress sidebar -->
+<!--
   	<div id="sidebar">
 		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-landing')) : else : ?><?php endif; ?>
 	</div>
+-->
+	
+	
 	<div class="container">
 		<h1 class="community-title">Community</h1>
 				
