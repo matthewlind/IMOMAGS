@@ -164,7 +164,8 @@ $app->get('/posts/:id', function ($id) {
 			$db = dbConnect();
 	
 	
-			$sql = "SELECT *,CONCAT(allcounts.post_type,'/',allcounts.id) as url FROM superposts WHERE parent = ? AND post_type IN ('photo','youtube') ORDER BY id ASC";
+			//$sql = "SELECT *,CONCAT(allcounts.post_type,'/',allcounts.id) as url FROM superposts WHERE parent = ? AND post_type IN ('photo','youtube') ORDER BY id ASC";
+			$sql = "SELECT * FROM superposts WHERE parent = ? AND post_type IN ('photo','youtube') ORDER BY id ASC";
 	
 			$stmt = $db->prepare($sql);
 			$stmt->execute(array($id));
@@ -515,8 +516,8 @@ $app->post('/posts',function() {
 				$rtn = $oFlagger->insertEvent($params['parent'], "comment", $params['user_id'],$eventHash);		
 			}
 			
-			
-			process_attachments($params['attachments'], $superpostID);
+			if (!empty($params['attachments']))
+				process_attachments($params['attachments'], $superpostID);
 			
 	
 			$db = '';
@@ -634,8 +635,8 @@ $app->put('/posts/:id',function($id) {
 	        
 	        
 	        //If there are attachments, set the parent of the attachemnts
-	        
-	        process_attachments($params['attachments'], $post_id);
+	        if (!empty($params['attachments']))
+	        	process_attachments($params['attachments'], $post_id);
 	        
 	        
 /*
@@ -718,13 +719,12 @@ function process_attachments($attachmentArray, $parentID) {
 	
 	if (!empty($attachmentArray[0])) {//If there is an single attachment, give the post a thumbnail
 	
-
 			
 		$sql = "UPDATE superposts SET img_url = ? WHERE id = ?";
 
 		$stmt = $db2->prepare($sql);
 	
-		$stmt->execute(array($attachmentArray[0]['img_url'],$parentID));
+		$stmt->execute(array($attachmentArray[0]['img_url'] . "/convert?w=300&h=300&fit=crop",$parentID));
 	
 		$row = $stmt->fetch(PDO::FETCH_OBJ);	
 			

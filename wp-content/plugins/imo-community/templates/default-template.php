@@ -40,6 +40,10 @@ if ( is_user_logged_in() ) {
     }
 ?>
 <div class="page-community">
+
+  	<div id="sidebar">
+		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-landing')) : else : ?><?php endif; ?>
+	</div>
 	<div class="container">
 		<h1 class="community-title">Community</h1>
 				
@@ -48,6 +52,8 @@ if ( is_user_logged_in() ) {
 		</ul>
 		
 	</div>
+	
+
 	
 	<!-- *********************************************************** -->
 	<!-- *****************  COMMUNITY TEMPLATES   ****************** -->
@@ -60,7 +66,7 @@ if ( is_user_logged_in() ) {
 				<h3><%= post.get('title') %></h3>
 			</div>
 			<div class="recon-image-box" style="background-color:#c65517;width:300px;">
-				<a href="<%= post.get('url') %>">
+				<a href="#!<%= post.get('url') %>">
 					<img src="<%= post.get('img_url') %>" class="superpost-thumb">
 				</a>
 			</div>
@@ -80,9 +86,64 @@ if ( is_user_logged_in() ) {
 		</li>
 	
 	</script>
+	<!-- *********************************************************** -->
+	<!-- *********************************************************** -->
+	<!-- *********************************************************** -->
+	<script type="text/template" id="single-post-view">
 	
+		<div id="community-single-post">
+			<div id="body">
+				<%= post.get("body") %>
+			</div>
+			<div id="attachments">
+				<% _.each(post.get("attachments"),function(attachment){ %>
+					
+				<div class="attachment-photo">
+					<img src="<%= attachment.img_url.replace('thumb','medium') %>">
+				</div>
+				<div class="attachment-caption">
+					<%= attachment.body %>
+				</div>
+				
+				
+				<% }); %>
+			
+			</div>
+			
+			<div id="comments">
+				<% _.each(post.get("comments"),function(comment){ %>
+					<div class="comment">
+					
+						<div class="comment-user">
+							<b><%= comment.display_name %></b>
+						</div>
+					
+						<div class="comment-body">
+							<%= comment.body %>
+						</div>
+						<% _.each(comment.attachments, function(attachment){ %>
+						
+								<div class="attachment-photo">
+									<img src="<%= attachment.img_url.replace('thumb','medium') %>">
+								</div>
+								<div class="attachment-caption">
+									<%= attachment.body %>
+								</div>
+					
+							<% }); %>
+					
+				
+					</div>
+				<% }); %>
+			
+			</div>
+		
+		
+		
+		</div>	
+		
 	
-	
+	</script>
 	<!-- *********************************************************** -->
 	<!-- **************     MODERATOR TEMPLATES      *************** -->
 	<!-- *********************************************************** -->
@@ -232,9 +293,7 @@ if ( is_user_logged_in() ) {
 				  </div>
 				</div>
 		
-		      <div class="video-button">
-		        <span><span class="white-plus-sign"><img src="http://www.northamericanwhitetail.deva/wp-content/themes/imo-mags-northamericanwhitetail/img/youtube.png" alt="YouTube"></span>ADD YOUTUBE VIDEO</span>
-		      </div>
+
 		      
 		      <div id="attachments">
 		      </div>
@@ -279,8 +338,6 @@ if ( is_user_logged_in() ) {
 		      
 		 
 	</script>
-   	<div class="bonus-background">
 
-   </div>
 </div>
 <?php get_footer(); ?>

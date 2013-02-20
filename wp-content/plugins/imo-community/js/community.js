@@ -12,6 +12,9 @@
 			
 		},
 		
+		
+		template: _.template( $("#single-post-view").html() ),
+		
 		render: function(options) {
 			var that = this;
 			
@@ -23,6 +26,10 @@
 					
 			post.fetch({
 				success: function(postModel) {
+				
+					that.$el.html(that.template({post:postModel}));
+					
+					settings.set("title",postModel.get("title"));
 					
 					console.log(postModel);
 					
@@ -34,6 +41,7 @@
 		}
 		
 	});
+	
 	
 	//**************************
 	//Main App View
@@ -70,6 +78,8 @@
 				
 				
 					var postcount = 0;
+					
+					that.$el.html("");
 				
 					_.each(returnedPosts.models,function(post){
 					
