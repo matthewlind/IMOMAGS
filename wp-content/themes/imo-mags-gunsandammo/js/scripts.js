@@ -134,13 +134,14 @@ $(document).ready(function(){
     });
      	
 });
-if ($(".advert").length > 0) {
+
 // jFollow
 $(function(){
-	
-	$('.advert').jfollow('#responderfollow');
+	if ($(".advert").length > 0) {
+		$('.advert').jfollow('#responderfollow');
+	}
 });
-}
+
 
 
 // Category page sliders

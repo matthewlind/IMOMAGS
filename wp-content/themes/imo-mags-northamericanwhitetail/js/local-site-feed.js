@@ -129,7 +129,7 @@ jQuery(document).ready(function($) {
 		        $(data[i].terms).each(function(index) {
 	        		//Hide featured posts
 	        		
-	        		console.log(this);
+	        		//console.log(this);
 	        		
 			        if(this.slug == 'home-featured'){
 						$articleTemplate.hide();		
