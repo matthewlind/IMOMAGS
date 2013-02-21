@@ -28,6 +28,10 @@ the_post();
 		<div class="bonus">
 			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-home')) : else : ?><?php endif; ?>
 		</div>
+		<div id="responderfollow"></div>
+		<div class="sidebar advert">
+			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('scroll-sidebar')) : else : ?><?php endif; ?>
+		</div>
 	</div>
 	<div class="col-abc">
 		<div <?php post_class('entry entry-full clearfix'); ?>>
