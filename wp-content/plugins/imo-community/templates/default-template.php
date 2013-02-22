@@ -41,12 +41,13 @@ if ( is_user_logged_in() ) {
 ?>
 <div class="page-community">
 
-<!-- Uncomment This to add wordpress sidebar -->
-<!--
+
+	<!-- Uncomment This to add wordpress sidebar -->
   	<div id="sidebar">
-		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-landing')) : else : ?><?php endif; ?>
+		<?php //if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-landing')) : else : ?>
+		<?php // endif; ?>
 	</div>
--->
+
 	
 	
 	<div class="container">
@@ -62,6 +63,39 @@ if ( is_user_logged_in() ) {
 	
 	<!-- *********************************************************** -->
 	<!-- *****************  COMMUNITY TEMPLATES   ****************** -->
+	<!-- *********************************************************** -->
+	<script type="text/template" id="post-list-template">
+	
+		<li style="display:inline-block;padding:15px;">
+		
+
+			<div class="recon-image-box" style="width:75px;float:left">
+				<a href="#!<%= post.get('url') %>">
+					<img src="<%= post.get('img_url') %>" class="superpost-thumb">
+				</a>
+			</div>
+			
+			<div style="width:900px">
+				<h3><%= post.get('title') %></h3>
+			</div>
+			<a href="/profile/<%= post.get('username') %>">
+				<img src="/avatar?uid=<%= post.get('user_id') %>" class="recon-gravatar" style="width:25px;">
+			</a>
+			<span class="under-box">
+				<a href="/profile/<%= post.get('username') %>">
+					<div class="recon-author-info">
+						<span class="author-name"><%= post.get('display_name') %></span> in <span class="author-action"><%= settings.get("post_types")[post.get("post_type")].display_name %></span>
+					</div>
+				</a>
+				<abbr class="recon-date timeago" title="2013-02-07 14:52:26">a day ago</abbr>
+					<a href="<%= post.get('url') %>"><span class="comment-count">0 Replies</span> • <span class="point-count">0 Points</span></a>
+			</span>
+		
+		</li>
+	
+	</script>
+	<!-- *********************************************************** -->
+	<!-- *********************************************************** -->
 	<!-- *********************************************************** -->
 	<script type="text/template" id="post-tile-template">
 	
@@ -81,7 +115,7 @@ if ( is_user_logged_in() ) {
 			<div class="under-box">
 				<a href="/profile/<%= post.get('username') %>">
 					<div class="recon-author-info">
-						<span class="author-name"><%= post.get('display_name') %></span> in <span class="author-action">Q&amp;A</span>
+						<span class="author-name"><%= post.get('display_name') %></span> in <span class="author-action"><%= settings.get("post_types")[post.get("post_type")].display_name %></span>
 					</div>
 				</a>
 				<abbr class="recon-date timeago" title="2013-02-07 14:52:26">a day ago</abbr>

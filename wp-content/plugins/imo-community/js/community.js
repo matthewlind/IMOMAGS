@@ -29,7 +29,7 @@
 				
 					that.$el.html(that.template({post:postModel}));
 					
-					settings.set("title",postModel.get("title"));
+					settings.set("page_title",postModel.get("title"));
 					
 					console.log(postModel);
 					
@@ -53,20 +53,33 @@
 		
 		initialize: function() {
 		
-		
+			$(".community-title").text(settings.get("page_title"));
 
-			this.listenTo(settings, 'change',function(){
-				$(".community-title").text(settings.get("title"));
+			this.listenTo(settings, 'change:page_title',function(){
+				$(".community-title").text(settings.get("page_title"));
 			});
 		},
 		
-		render: function(){
-		
-			settings.set("title",IMO_COMMUNITY_CONFIG.page_title);
+		render: function(options){
+
+			
+			var postView = new PostTileViewClass();
+			
+			//If there is a post_type, change the title.			
+			if (options.params.post_type) {
+				settings.set("page_title",settings.get("post_types")[options.params.post_type].display_name);
+				
+				if (settings.get("post_types")[options.params.post_type].post_display_style == "list")
+					var postView = new PostListViewClass();
+				
+			} else {
+				settings.set("page_title",settings.get("default_page_title"));
+			}
+								
 		
 			var that = this;
 		
-			var postTileView = new PostTileViewClass();
+			
 			
 			var posts = new PostsClass();
 			
@@ -83,15 +96,14 @@
 				
 					_.each(returnedPosts.models,function(post){
 					
-						
-
-						var postRender = postTileView.render({post:post}).$el.html();
+						var postRender = postView.render({post:post}).$el.html();
 						that.$el.append(postRender);
 						
 					});
 				
 					
-				}
+				},
+				data: options.params
 			});
 		
 			
@@ -121,3 +133,24 @@
 		}
 	});
 	
+	var PostListViewClass = Backbone.View.extend({
+
+		tagName: "li",
+		className: "list-view",
+	
+		template: _.template( $("#post-list-template").html() ),
+		
+		initialize: function() {
+
+		},
+		
+		render: function(options){
+		
+		
+			console.log(options.post);
+		
+			this.$el.html(this.template({post:options.post}));
+			return this;
+				
+		}
+	});

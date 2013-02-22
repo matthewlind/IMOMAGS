@@ -16,7 +16,19 @@ $IMO_COMMUNITY_CONFIG['stylesheet_custom'] = NULL;
 $IMO_COMMUNITY_CONFIG['app_js'] = 'js/community.js';
 $IMO_COMMUNITY_CONFIG['admin_js'] = 'js/mod.js';
 $IMO_COMMUNITY_CONFIG['routes_js'] = 'js/routes.js';
+$IMO_COMMUNITY_CONFIG['post_types'] = array(
 
+	"report" => array(
+		"display_name" => "Rut Reports",
+		"post_display_style" => "tile"
+	),
+	
+	"question" => array(
+		"display_name" => "Q&A",
+		"post_display_style" => "list"
+	)
+
+);
 
 $IMO_COMMUNITY['royalcrown'] = $IMO_COMMUNITY_CONFIG;
 
@@ -29,6 +41,19 @@ $IMO_COMMUNITY_CONFIG['stylesheet_custom'] = NULL;
 $IMO_COMMUNITY_CONFIG['app_js'] = 'js/community.js';
 $IMO_COMMUNITY_CONFIG['admin_js'] = 'js/mod.js';
 $IMO_COMMUNITY_CONFIG['routes_js'] = 'js/routes.js';
+$IMO_COMMUNITY_CONFIG['post_types'] = array(
+
+	"report" => array(
+		"display_name" => "Rut Reports",
+		"post_list_style" => "tile"
+	),
+	
+	"question" => array(
+		"display_name" => "Q&A",
+		"post_list_style" => "list"
+	)
+
+);
 
 
 $IMO_COMMUNITY['gameandfish'] = $IMO_COMMUNITY_CONFIG;

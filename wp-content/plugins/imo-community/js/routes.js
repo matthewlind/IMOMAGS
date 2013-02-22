@@ -1,9 +1,12 @@
 //*****************************************************************
 //******************       ROUTER       ***************************
 //*****************************************************************	
-	var AppRouter = Backbone.Router.extend({
-		routes: {
-		
+	
+	var settings = new Settings();
+	
+	var post_types = Object.keys(settings.get("post_types"));
+	
+	var routes = {	
 			'!mod':'mod',
 			'!new':"editPost",
 			'!edit/:id':"editPost",		
@@ -14,15 +17,18 @@
 			
 			'!:post_type':'home',
 			'!:post_type/:id':'single'
-			
+		};
 
-
-		}
+	
+	
+	
+	var AppRouter = Backbone.Router.extend({
+		routes: routes
 	});
 	
 	var router = new AppRouter();
 	
-	var settings = new Settings();
+	
 	
 	var postList = new PostListTable();
 	var editPostView = new EditPostViewClass();
@@ -31,8 +37,7 @@
 	
 	var singlePostView = new SinglePostViewClass();
 	
-	
-	
+
 	
 	router.on('route:redirect',function(){
 		router.navigate("!", {trigger: true});
@@ -49,7 +54,11 @@
 	router.on('route:home',function(post_type,id,page){
 		//SHOW POSTLIST VIEW
 		
-		communityView.render();
+
+		if ($.inArray(post_type,post_types) == -1)
+			post_type = undefined;
+	
+		communityView.render({ params : { post_type:post_type, id:id, page:page }});
 		
 		console.log("HOME ROUTE WITH ID and SLUG and PAGE",post_type,id,page);
 	});
