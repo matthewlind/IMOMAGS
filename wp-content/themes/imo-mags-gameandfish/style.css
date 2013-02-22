@@ -599,7 +599,7 @@ transition: all 0.35s ease-in 0s;
   float: left;
   width: 270px;
   height: 290px;
-  margin-top: 40px;
+  margin-left: 20px;
 }
 .post-content-area {
   width: 620px;

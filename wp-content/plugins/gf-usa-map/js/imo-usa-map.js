@@ -151,7 +151,6 @@ function getMapForContainer(containerNameString) {
 		      jQuery("p.state-name").text(stateAbbrev[state.toUpperCase()]);
 		    };
 		    var $test = "/" + stateAbbrev[state.toUpperCase()].replace(" ","") + "/";
-		    console.log($test);
 
 			jQuery(st[0]).click(function(){
 				window.location = $test;	

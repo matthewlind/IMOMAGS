@@ -39,7 +39,13 @@
                     });
         });
         
-        
+// jFollow
+$(function(){
+	if ($(".advert").length > 0) {
+		$('.advert').jfollow('#responderfollow');
+	}
+});
+	 
         
 /*****
 **

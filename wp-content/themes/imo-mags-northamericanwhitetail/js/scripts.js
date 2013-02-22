@@ -143,8 +143,9 @@ $(document).ready(function(){
 
 // jFollow
 $(function(){
-	
-	$('.advert').jfollow('#responderfollow');
+	if ($(".advert").length > 0) {
+		$('.advert').jfollow('#responderfollow');
+	}
 });
 	
 	

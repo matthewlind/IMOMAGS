@@ -27,7 +27,11 @@ get_header();
 	comments_template();
 	?>
 </div>
-<?php
-get_sidebar();
-get_footer();
-?>
+<div id="sidebar" class="col-c">
+	<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-default')) : else : ?><?php endif; ?>
+	<div id="responderfollow"></div>
+	<div class="sidebar advert">
+		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('scroll-sidebar')) : else : ?><?php endif; ?>
+	</div>
+</div>
+<?php get_footer(); ?>

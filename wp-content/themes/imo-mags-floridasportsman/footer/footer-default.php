@@ -231,5 +231,7 @@ wp_footer();
 <?php if(!is_front_page()){ ?>
 </div>
 <?php } ?>
+<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/custom.js"/></script>
+<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.jfollow.js"/></script>
 </body>
 </html>

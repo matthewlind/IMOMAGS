@@ -87,7 +87,7 @@ if (empty($zn_img)) {
 		<h1>Sons of Guns & Ammo</h1>
 		<div class="presented-by">Presented By</div>
 		<p>Will Hayden and the Red Jacket Crew bring you everything you love about Sons of Guns in a blog with all the firepower and none of the drama.</p>
-		<div class="sponsor-logo"><a href="http://www.armalite.com/Categories.aspx?Category=d4543129-c82e-4fc9-bb4d-213664c7b055"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/armalite.jpg" alt="Armalite Logo" title="Armalite Logo" /></a></div>
+		<div class="sponsor-logo"><a href="http://www.armalite.com/Categories.aspx?Category=d4543129-c82e-4fc9-bb4d-213664c7b055" target="_blank"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/armalite.jpg" alt="Armalite Logo" title="Armalite Logo" /></a></div>
 	</div>
 	<?php } else if (is_category($floc_slug)) { ?>
 	<div class="blog-headers ftloc">
