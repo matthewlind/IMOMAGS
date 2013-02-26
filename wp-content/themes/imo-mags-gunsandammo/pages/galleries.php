@@ -11,11 +11,8 @@ the_post(); ?>
 		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-gallery')) : else : ?><?php endif; ?>
 		<div id="responderfollow"></div>
 		<div class="sidebar advert">
-			<?php if (function_exists("imo_dart_tag")) {
-	            imo_dart_tag("300x250");
-	          } else { ?>
-	            <script type="text/javascript">
-	              document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dartadsgen_site+'/;sect=;page=index;pos=btf;subs=;sz=728x90;dcopt=;tile='+pr_tile+';ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
+			<script type="text/javascript">
+	              document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dartadsgen_site+'/;sect=;page=index;pos=btf;subs=;sz=300x250;dcopt=;tile='+pr_tile+';ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
 	            </script>
 	            <script type="text/javascript">
 	              ++pr_tile;
@@ -25,7 +22,6 @@ the_post(); ?>
 	                <img src="http://ad.doubleclick.net/ad/imo.outdoorsbest/home;sect=;page=index;pos=btf;subs=;sz=300x250;dcopt=;tile=1;ord=7391727509?" border="0" />
 	              </a>
 	            </noscript>
-	          <?php } ?>
 
 			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('scroll-sidebar')) : else : endif; ?>
 		</div>
