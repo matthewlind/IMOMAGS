@@ -107,6 +107,13 @@ googletag.enableServices();
 
 </head>
 <body <?php body_class(); ?>>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 <?php if(is_front_page()){ ?>
 	<!--Takeover skin styles for homepage-->
 	<style type="text/css">#homepage-takeover{background: url("<?php bloginfo('stylesheet_directory'); ?>/img/RTFSwebSkin.jpg") no-repeat scroll center top;position: absolute;height: 1200px;width: 100%;cursor: pointer;}body{background: none #0a1a19;}</style>
