@@ -87,7 +87,7 @@ cfct_loop();
 	
 			<div class="fb-recommendations recommendations" data-site="www.northamericanwhitetail.com" data-width="300" data-height="250" data-header="true"></div>
 			<div class="divider"></div>	
-
+</div>
 
 
 <?php 
