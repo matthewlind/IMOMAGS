@@ -37,11 +37,10 @@ Author: Fox Bowden
 
 </div>
 <div class="clear"></div> 
-
+<div class="divider"></div>
 
 
 <?php else: ?>
 
-	<p style="text-align:center;">No related posts found</p>
 
 <?php endif; ?>

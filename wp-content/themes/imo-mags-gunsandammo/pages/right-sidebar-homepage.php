@@ -11,6 +11,7 @@ the_post(); ?>
 	<div id="sidebar">
 		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('homepage-sidebar')) : else : ?><?php endif; ?>
 	</div>
+
 	<div id="content">
 		<div <?php post_class('entry entry-full'); ?>>
 			<div class="entry-content">

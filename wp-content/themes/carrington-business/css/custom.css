@@ -793,3 +793,16 @@ margin-top: 8px;
 	height: 30px;
 }
 
+
+
+/*** FB recomendations and single 300 ad ***/
+.recommendations {
+  	float: right;
+    height: 290px;
+    width: 300px;
+}
+.post-content-area {
+  width: 620px;
+  float: left;
+}
+

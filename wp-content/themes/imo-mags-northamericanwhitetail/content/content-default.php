@@ -82,7 +82,7 @@ $this_post_is_not_single = (!is_single(get_the_ID()));
 
 		<?php
 		if (function_exists('related_posts')){related_posts();} ?>
-		<div class="divider"></div>
+
 	</div>
 	<?php edit_post_link(__('Edit', 'carrington-business')); ?>
 </div>

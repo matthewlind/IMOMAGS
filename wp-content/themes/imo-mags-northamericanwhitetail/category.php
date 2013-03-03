@@ -44,6 +44,18 @@ function get_cat_slug($cat_id) {
 		</div>
 		<div id="responderfollow"></div>
 		<div class="sidebar advert">
+			<script type="text/javascript">
+	              document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dartadsgen_site+'/;sect=;page=index;pos=btf;subs=;sz=300x250;dcopt=;tile='+pr_tile+';ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
+	            </script>
+	            <script type="text/javascript">
+	              ++pr_tile;
+	            </script>
+	            <noscript>
+	              <a href="http://ad.doubleclick.net/adj/imo.outdoorsbest/;sect=;page=index;pos=btf;subs=;sz=300x250;dcopt=;tile=1;ord=7391727509?">
+	                <img src="http://ad.doubleclick.net/ad/imo.outdoorsbest/home;sect=;page=index;pos=btf;subs=;sz=300x250;dcopt=;tile=1;ord=7391727509?" border="0" />
+	              </a>
+	            </noscript>
+
 			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('scroll-sidebar')) : else : ?><?php endif; ?>
 		</div>
 	</div>
@@ -417,23 +429,19 @@ function get_cat_slug($cat_id) {
 		</div>
 		<div id="sticky-cat" class="advert">
 			<div class="advert-widget widget widget_advert-widget">
-				 <?php if (function_exists("imo_dart_tag")) {
-	            imo_dart_tag("300x250");
-	          } else { ?>
 	  	        <!-- 300x250 Ad: -->
 	            <script type="text/javascript">
-	              document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dartadsgen_site+'/;sect=;page=index;subs=;sz=300x250;dcopt=;tile='+pr_tile+';ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
+	              document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dartadsgen_site+'/;sect=;page=index;pos=btf;subs=;sz=300x250;dcopt=;tile='+pr_tile+';ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
 	            </script>
 	            <script type="text/javascript">
 	              ++pr_tile;
 	            </script>
 	            <noscript>
-	              <a href="http://ad.doubleclick.net/adj/imo.outdoorsbest/;sect=;page=index;subs=;sz=300x250;dcopt=;tile=1;ord=7391727509?">
-	                <img src="http://ad.doubleclick.net/ad/imo.outdoorsbest/home;sect=;page=index;subs=;sz=300x250;dcopt=;tile=1;ord=7391727509?" border="0" />
+	              <a href="http://ad.doubleclick.net/adj/imo.outdoorsbest/;sect=;page=index;pos=btf;subs=;sz=300x250;dcopt=;tile=1;ord=7391727509?">
+	                <img src="http://ad.doubleclick.net/ad/imo.outdoorsbest/home;sect=;page=index;pos=btf;subs=;sz=300x250;dcopt=;tile=1;ord=7391727509?" border="0" />
 	              </a>
 	            </noscript>
 	            <!-- END 300x250 Ad: -->
-	          <?php } ?>
 			</div>
 		</div>
 
