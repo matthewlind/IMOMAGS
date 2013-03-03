@@ -13,8 +13,10 @@ $IMO_COMMUNITY_CONFIG['page_title'] = 'Crown Royal Registration';
 $IMO_COMMUNITY_CONFIG['template'] = '/templates/default-template.php';
 $IMO_COMMUNITY_CONFIG['stylesheet_main'] = 'css/bootstrap.min.css';
 $IMO_COMMUNITY_CONFIG['stylesheet_custom'] = NULL;
+$IMO_COMMUNITY_CONFIG['grid_js'] = 'js/backgrid.js';
+$IMO_COMMUNITY_CONFIG['grid_css'] = 'css/backgrid.min.css';
 $IMO_COMMUNITY_CONFIG['app_js'] = 'js/community.js';
-$IMO_COMMUNITY_CONFIG['admin_js'] = 'js/mod.js';
+$IMO_COMMUNITY_CONFIG['admin_js'] = 'js/mod2.js';
 $IMO_COMMUNITY_CONFIG['routes_js'] = 'js/routes.js';
 $IMO_COMMUNITY_CONFIG['post_types'] = array(
 
@@ -22,7 +24,7 @@ $IMO_COMMUNITY_CONFIG['post_types'] = array(
 		"display_name" => "Rut Reports",
 		"post_display_style" => "tile"
 	),
-	
+
 	"question" => array(
 		"display_name" => "Q&A",
 		"post_display_style" => "list"
@@ -38,8 +40,10 @@ $IMO_COMMUNITY_CONFIG['page_title'] = 'G&F Community';
 $IMO_COMMUNITY_CONFIG['template'] = '/templates/default-template.php';
 $IMO_COMMUNITY_CONFIG['stylesheet_main'] = 'css/bootstrap.min.css';
 $IMO_COMMUNITY_CONFIG['stylesheet_custom'] = NULL;
+$IMO_COMMUNITY_CONFIG['grid_js'] = 'js/backgrid.min.js';
+$IMO_COMMUNITY_CONFIG['grid_css'] = 'css/backgrid.min.css';
 $IMO_COMMUNITY_CONFIG['app_js'] = 'js/community.js';
-$IMO_COMMUNITY_CONFIG['admin_js'] = 'js/mod.js';
+$IMO_COMMUNITY_CONFIG['admin_js'] = 'js/mod2.js';
 $IMO_COMMUNITY_CONFIG['routes_js'] = 'js/routes.js';
 $IMO_COMMUNITY_CONFIG['post_types'] = array(
 
@@ -47,7 +51,7 @@ $IMO_COMMUNITY_CONFIG['post_types'] = array(
 		"display_name" => "Rut Reports",
 		"post_list_style" => "tile"
 	),
-	
+
 	"question" => array(
 		"display_name" => "Q&A",
 		"post_list_style" => "list"
@@ -66,12 +70,12 @@ function imo_community_template() {
 
 
 	global $IMO_COMMUNITY;
-	
-	
+
+
 	foreach ($IMO_COMMUNITY as $IMO_COMMUNITY_CONFIG) {
-	
+
 		$matchString = "/^\/" . $IMO_COMMUNITY_CONFIG['community_home_slug'] . "(\?(.+)?)?$/";
-		
+
 		if (preg_match($matchString, $_SERVER['REQUEST_URI'])) {
 
 			//Third Party libraries
@@ -79,7 +83,8 @@ function imo_community_template() {
 			wp_enqueue_script('backbone-js', plugins_url('js/backbone-min.js', __FILE__), array('jquery','underscore-js'), '1.0','true');
 			wp_enqueue_script('form-params-js', plugins_url('js/formParams.min.js', __FILE__), array('jquery'), '1.0','true');
 			wp_enqueue_script('filepicker-io-js', plugins_url('js/filepicker.js', __FILE__), array('jquery'), '1.0','true');
-			
+      wp_enqueue_script('imo-community-grid-js', plugins_url( $IMO_COMMUNITY_CONFIG['grid_js'] , __FILE__), array('jquery','backbone-js','underscore-js'), '1.0','true');
+
 			//Organized Backbone Scripts
 			wp_enqueue_script('imo-community-common', plugins_url('js/common.js', __FILE__), array('jquery','backbone-js','underscore-js'), '1.0','true');
 			wp_enqueue_script('imo-community-models', plugins_url('js/models.js', __FILE__), array('jquery','backbone-js','underscore-js','imo-community-common'), '1.0','true');
@@ -87,51 +92,52 @@ function imo_community_template() {
 			//This is the one with most of the logic:
 			wp_enqueue_script('imo-community-community', plugins_url( $IMO_COMMUNITY_CONFIG['app_js'] , __FILE__), array('jquery','backbone-js','underscore-js','imo-community-models','imo-community-common','imo-community-mod'), '1.0','true');
 			wp_enqueue_script('imo-community-routes', plugins_url( $IMO_COMMUNITY_CONFIG['routes_js'] , __FILE__), array('jquery','backbone-js','underscore-js','imo-community-community','imo-community-mod'), '1.0','true');
-			
+
 			//And the CSS
 			wp_enqueue_style('imo-community-stylesheet-main',plugins_url( $IMO_COMMUNITY_CONFIG['stylesheet_main'] , __FILE__));
-			
+      wp_enqueue_style('imo-community-grid-css',plugins_url( $IMO_COMMUNITY_CONFIG['grid_css'] , __FILE__));
+
 			if ($IMO_COMMUNITY_CONFIG['stylesheet_custom']) {
 				wp_enqueue_style('imo-community-stylesheet-custom',plugins_url( $IMO_COMMUNITY_CONFIG['stylesheet_custom'] , __FILE__));
 			}
-			
-			
+
+
 			wp_localize_script( 'imo-community-common', 'IMO_COMMUNITY_CONFIG', $IMO_COMMUNITY_CONFIG);
-			
-			
+
+
 			imo_include_wordpress_template(dirname( __FILE__ ) . $IMO_COMMUNITY_CONFIG['template'] );
 			exit;
-		}		
+		}
 	}
 
 
-     
-  
+
+
 }
 
 function imo_community_set_title($title,$sep,$seplocation) {
 
 	global $IMO_COMMUNITY;
-	
+
 	foreach ($IMO_COMMUNITY as $IMO_COMMUNITY_CONFIG) {
-		
-		
+
+
 
 		$matchString = "/^\/" . $IMO_COMMUNITY_CONFIG['community_home_slug'] . "(\?(.+)?)?$/";
-	
+
 		if (preg_match($matchString, $_SERVER['REQUEST_URI'])) {
-	     
+
 	     	$title = $IMO_COMMUNITY_CONFIG['page_title'];
 	     	return $title;
 	     }
-		
-		
-	
+
+
+
 	}
-	
+
 	return $title;
-	
-	
+
+
 }
 
 
