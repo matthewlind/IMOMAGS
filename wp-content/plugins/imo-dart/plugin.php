@@ -2,9 +2,9 @@
 /*
  * Plugin Name: IMO Dart Tags
  * Plugin URI: http://github.com/imoutdoors
- * Description: Basic doubleclick library for generating tags. 
+ * Description: Basic doubleclick library for generating tags.
  * Version: 0.1
- * Author: jacob angel 
+ * Author: jacob angel
  * Author URI: http://imomags.com
  */
 include_once("AdvertWidget.php");
@@ -18,18 +18,18 @@ function get_imo_dart_tag($size, $tile=1, $iframe=False, $override_params=array(
     $params = array_merge(_imo_dart_get_params($size, $tile), $override_params);
 
     if (!empty($params['camp'])) {
-        
+
         $params['campaign-key-value-pair'] = "camp=" . imo_dart_clean_tag($params['camp']) . ";";
         $params['campaign'] = imo_dart_clean_tag($params['camp']);
     }
     if (!empty($params['manf'])) {
-        
+
         $params['manufacturer-key-value-pair'] = "manf=" . imo_dart_clean_tag($params['manf']) . ";";
         $params['manufacturer'] = imo_dart_clean_tag($params['manf']);
     }
 
     $tag = _imo_dart_get_tag($iframe);
-    return _imo_dart_sprint_tag($params, $tag); 
+    return _imo_dart_sprint_tag($params, $tag);
 }
 
 
@@ -64,11 +64,11 @@ function _imo_dart_get_params($size, $tile) {
                 $manfTerm = $manfTerms[0];
                 $manfSlug = $manfTerm->slug;
 */
-                
-                
+
+
                 $count = 0;
                 foreach ($manfTerms as $term) {
-	        	$count++; 
+	        	$count++;
 		        $manfSlug .= $term->name;
 		        if ($count != count($manfTerms))
 		        	$manfSlug .= ",";
@@ -116,54 +116,66 @@ function _imo_dart_get_params($size, $tile) {
     }
     elseif (is_single()) {
         global $the_ID;
-        
+
         $post = get_queried_object();
- 
+
         $categories = get_the_category($the_ID);
-        
+
         $names = "";
-        
+
         $count = 0;
         foreach ($categories as $cat) {
-        	$count++; 
+        	$count++;
 	        $names .= $cat->name;
 	        if ($count != count($categories))
 	        	$names .= ",";
         }
-        
-        
-        
+
+
+
         if ($post->post_type == "imo_caption_contest") {
 	        if ($names != "")
 	        	$names .= ",";
 	        $names .= "caption_contest";
 
         }
-        
+
         if ($post->post_type == "imo_video") {
 	        if ($names != "")
 	        	$names .= ",";
 	        $names .= "video";
 
         }
-        	        	
+
         if ($post->post_type == "reviews"){
         	$terms = wp_get_post_terms( $post->ID, "guntype");
-        	
+
         	$count = 0;
         	foreach ($terms as $term) {
-	        	$count++; 
+	        	$count++;
 		        $names .= $term->name;
 		        if ($count != count($terms))
 		        	$names .= ",";
 	        }
-        
+
 	        if ($names != "")
 	        	$names .= ",";
 	        $names .= "post_type_review";
 
         }
-        
+
+        if (get_option("dart_domain") == "imo.floridasportsman") {
+
+          $names_array = wp_get_post_terms($post->ID, "activity" );
+          $names = $names_array[0]->slug;
+
+          if ($names_array[0]->parent == 308 || $names_array[0]->term_id == 308)
+            $names = "fishing";
+          if ($names_array[0]->parent == 292 || $names_array[0]->term_id == 292)
+            $names = "hunting";
+
+        }
+
         $params = array(
             "zone" => "",
             "sect" => $names,
@@ -193,7 +205,7 @@ function _imo_dart_get_params($size, $tile) {
             "zone" => $tax_title,
             "sect" => $tax_title,
             "subs" => "",
-            "page" => $tax_title . " Archive", 
+            "page" => $tax_title . " Archive",
         ); }
         else {
             $params = array(
@@ -201,13 +213,13 @@ function _imo_dart_get_params($size, $tile) {
                 "sect" => "misc",
                 "subs" => "",
                 "page" => "index",
-            );  
+            );
         }
 
             //If there is an ad campaign, add a key/value pair
 
 
-    
+
 
     $mergedParams = array_merge(array_map("imo_dart_clean_tag", $params), $defaults);
 
@@ -224,14 +236,14 @@ function _imo_dart_get_params($size, $tile) {
     }
 
         return $mergedParams;
-} 
+}
 
 
 /**
  * Return the correct tag structure.
  */
 function _imo_dart_get_tag($iframe) {
-    if ($iframe) 
+    if ($iframe)
     {
         $tag = '<iframe src="/iframe-advert.php?size=%1$s&zone=%3$s&sect=%4$s&page=%6$s&rr=%10$s&subs=%5$s&camp=%12$s" frameBorder="0" width="%8$s" height="%9$s" scrolling="no" allowTransparency="true">';
         $tag .= _imo_dart_get_tag(false);
@@ -266,7 +278,7 @@ function _imo_dart_guess_domain() {
     }
     elseif ($site = get_site_url()) {
         $domain = explode(".", substr($site, 7));
-        $domain = "imo." . $domain[1];        
+        $domain = "imo." . $domain[1];
         if (substr($domain, -3)=="mag") {
             $domain = substr($domain, 0, -3);
         }
@@ -286,7 +298,7 @@ function _imo_dart_guess_domain() {
  *
  */
 function imo_dart_tag($size, $iframe=False, $override_params=array()) {
-    static $tile = 0; 
+    static $tile = 0;
     $tile++;
     print get_imo_dart_tag($size, $tile, $iframe, $override_params);
 }
@@ -309,18 +321,18 @@ function imo_dart_run_tests() {
     echo _imo_dart_sprint_tag($params, _imo_dart_get_tag(True) );
 }
 
-if (__FILE__ == $_SERVER['PWD'] . '/'. $_SERVER['SCRIPT_FILENAME']) { 
+if (__FILE__ == $_SERVER['PWD'] . '/'. $_SERVER['SCRIPT_FILENAME']) {
     if (! function_exists("get_option")) {
         function get_option($a, $b) {
             return $b;
         }
     }
-    imo_dart_run_tests(); 
+    imo_dart_run_tests();
 }
 
 
 function iframe_maker () {
-    if (preg_match("/^\/iframe-advert\.php(\?(.+)?)?$/", $_SERVER['REQUEST_URI'])) 
+    if (preg_match("/^\/iframe-advert\.php(\?(.+)?)?$/", $_SERVER['REQUEST_URI']))
     {
         $refresh_rate = ( intval($_GET['rr']) < 45 || empty($_GET['rr']) ) ? 45 : intval($_GET['rr']);
          $sizes = array(
@@ -346,7 +358,7 @@ function iframe_maker () {
     </head>
     <body style="margin:0px;border:0px;">
         <script type="text/javascript">
-        var dartadsgen_rand = Math.floor((Math.random()) * 100000000), pr_tile = 1; 
+        var dartadsgen_rand = Math.floor((Math.random()) * 100000000), pr_tile = 1;
         </script>
 <?php imo_dart_tag($size, False, $params); ?>
     </body>
@@ -367,7 +379,7 @@ add_action("init", "iframe_maker");
 
 /******************************************************************************************
  * Administration Menus
- * Adds a dart_domain setting to the General Options page in the admin_menu, allowing for 
+ * Adds a dart_domain setting to the General Options page in the admin_menu, allowing for
  * overriding the inferred domain tag.
  ******************************************************************************************/
 
@@ -404,12 +416,12 @@ function imo_add_campaign_init() {
         'all_items' => __( 'All Ad Campaigns' ),
         'parent_item' => __( 'Parent Campaign' ),
         'parent_item_colon' => __( 'Parent Campaign:' ),
-        'edit_item' => __( 'Edit Campaign' ), 
+        'edit_item' => __( 'Edit Campaign' ),
         'update_item' => __( 'Update Campaign' ),
         'add_new_item' => __( 'Add New Campaign' ),
         'new_item_name' => __( 'New Ad Campaign Name' ),
         'menu_name' => __( 'Ad Campaigns' ),
-    ); 
+    );
 
     $taxonomies = array(
         "campaign" => array(
