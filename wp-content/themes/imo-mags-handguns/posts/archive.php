@@ -316,7 +316,7 @@ get_header();
 	</div>
 
 			</div></div></div>
-</div>
+</div> 
 			
 			<?php }else{ ?>
 	<header id="masthead">

@@ -12,13 +12,9 @@ $IMO_COMMUNITY_CONFIG['community_home_slug'] = "crown-royal-contest";//This slug
 $IMO_COMMUNITY_CONFIG['page_title'] = 'Crown Royal Registration';
 $IMO_COMMUNITY_CONFIG['template'] = '/templates/default-template.php';
 $IMO_COMMUNITY_CONFIG['stylesheet_main'] = 'css/bootstrap.min.css';
-<<<<<<< HEAD
-$IMO_COMMUNITY_CONFIG['stylesheet_custom'] = 'css/bootstrap-responsive.css';
-=======
 $IMO_COMMUNITY_CONFIG['stylesheet_custom'] = NULL;
 $IMO_COMMUNITY_CONFIG['grid_js'] = 'js/backgrid.js';
 $IMO_COMMUNITY_CONFIG['grid_css'] = 'css/backgrid.min.css';
->>>>>>> c91c0b5e33a95de8bc2a6b62bc363a1ebcba83ea
 $IMO_COMMUNITY_CONFIG['app_js'] = 'js/community.js';
 $IMO_COMMUNITY_CONFIG['admin_js'] = 'js/mod2.js';
 $IMO_COMMUNITY_CONFIG['routes_js'] = 'js/routes.js';
@@ -159,4 +155,3 @@ function imo_include_wordpress_template($t) {
 
 
 
-
