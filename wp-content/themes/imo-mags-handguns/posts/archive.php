@@ -24,7 +24,7 @@ get_header();
 
 <?php if(is_category("blogs")){ ?>
 <div class="col-ab">
-	<a href="http://www.handgunsmag.com/blogs/carry-on/">
+	<a href="http://www.handgunsmag.com/carry-on/">
 		<img src="http://www.handgunsmag.com/files/2013/03/carry-on.jpeg" class="cfct-mod-image " alt="Carry On Header" title="Carry On Header">
 	</a>
 	<div class="cfct-module cfct-heading">
@@ -92,10 +92,10 @@ get_header();
 	?>
 		
 	<div class="pagination">
-		<span class="next"><a href="/blogs/carry-on" title="Next Page">More Carry On</a></span>
+		<span class="next"><a href="/carry-on" title="Next Page">More Carry On</a></span>
 	</div>
 	
-	<a href="http://www.handgunsmag.com/blogs/sixguns-sagebrush/">
+	<a href="http://www.handgunsmag.com/sixguns-sagebrush/">
 		<img src="http://www.handgunsmag.com/files/2013/03/sixguns-sagebrush.jpeg" class="cfct-mod-image " alt="SixgunsandSageBrush-613" title="SixgunsandSageBrush-613">
 	</a>
 	<div class="cfct-module cfct-heading sixguns-blog-page">
@@ -164,10 +164,10 @@ get_header();
 	
 	
 	<div class="pagination">
-		<span class="next"><a href="/blogs/sixguns-sagebrush/" title="Next Page">More Sixguns &amp; Sagebrush</a></span>
+		<span class="next"><a href="/sixguns-sagebrush/" title="Next Page">More Sixguns &amp; Sagebrush</a></span>
 	</div>
 				
-	<a href="http://www.handgunsmag.com/blogs/firing-line/">
+	<a href="http://www.handgunsmag.com/firing-line/">
 		<img src="http://www.handgunsmag.com/files/2013/03/firing-line.jpeg" class="cfct-mod-image " alt="Firing Line" title="Firing Line">
 	</a>			
 	<div class="cfct-module cfct-heading">
@@ -236,7 +236,7 @@ get_header();
 			
 			
 	<div class="pagination">
-		<span class="next"><a href="/blogs/firing-line" title="Next Page">More Firing Line</a></span>
+		<span class="next"><a href="/firing-line" title="Next Page">More Firing Line</a></span>
 	</div>
 
 
@@ -336,7 +336,7 @@ get_header();
 				<h1 class="cfct-mod-title">Scott Rupp</h1>
 			</div>
 		<div class="cfct-module cfct-callout">
-				<img width="150" height="150" src="http://www.handgunsmag.fox/files/2012/02/scott-about-photo-150x150.jpg" class="cfct-mod-image  cfct-image-left" alt="scott-about-photo" title="scott-about-photo"><div class="cfct-mod-content cfct-content-medium">
+				<img width="150" height="150" src="http://www.handgunsmag.com/files/2012/02/scott-about-photo-150x150.jpg" class="cfct-mod-image  cfct-image-left" alt="scott-about-photo" title="scott-about-photo"><div class="cfct-mod-content cfct-content-medium">
 					<p>The editor's blog for Handguns, J. Scott Rupp keeps us current on the hottest trends and happenings from the world of sidearms. </p>
 					</div>
 
@@ -348,7 +348,7 @@ get_header();
 			<h1 class="cfct-mod-title">James Tarr</h1>
 		</div>
 		<div class="cfct-module cfct-callout">
-					<img width="150" height="150" src="http://www.handgunsmag.fox/files/2010/09/hg_james-tarr-champion_a-150x150.jpg" class="cfct-mod-image  cfct-image-left" alt="hg_james-tarr-champion_a" title="hg_james-tarr-champion_a"><div class="cfct-mod-content cfct-content-medium">
+					<img width="150" height="150" src="http://www.handgunsmag.com/files/2010/09/hg_james-tarr-champion_a-150x150.jpg" class="cfct-mod-image  cfct-image-left" alt="hg_james-tarr-champion_a" title="hg_james-tarr-champion_a"><div class="cfct-mod-content cfct-content-medium">
 		<p>James Tarr has worked as a plainclothes and uniformed police officer, and has been a private investigator for the last 15 years, but the most dangerous thing he ever did was drive an armored car around Detroit for $6.49/hour. He carries a gun every day for the same reason he wears a seat belt while driving?the world is full of dangerous people.  </p>
 		</div>
 		</div>
@@ -358,7 +358,7 @@ get_header();
 				<h1 class="cfct-mod-title">Bart Skelton</h1>
 			</div>
 			<div class="cfct-module cfct-callout">
-				<img width="150" height="150" src="http://www.handgunsmag.fox/files/2012/02/bart-about-photo-150x150.jpg" class="cfct-mod-image  cfct-image-left" alt="bart-about-photo" title="bart-about-photo"><div class="cfct-mod-content cfct-content-medium">
+				<img width="150" height="150" src="http://www.handgunsmag.com/files/2012/02/bart-about-photo-150x150.jpg" class="cfct-mod-image  cfct-image-left" alt="bart-about-photo" title="bart-about-photo"><div class="cfct-mod-content cfct-content-medium">
 					<p>Drawing on decades of experience, Bart Skelton brings us a southwestern point shooter's journal about sidearms loved and lost, whiskey spilt, and cigars smoked. He occasionally might talk about lawmen and outlaws too.  </p>
 			</div></div>
 
