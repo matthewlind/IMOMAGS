@@ -28,6 +28,7 @@ get_header();
 	?>
 </div>
 <div id="sidebar" class="col-c">
+	<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-default')) : else : ?><?php endif; ?>
 	<div id="responderfollow"></div>
 	<div class="sidebar advert">
 		<script type="text/javascript">
