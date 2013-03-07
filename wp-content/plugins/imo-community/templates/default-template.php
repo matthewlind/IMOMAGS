@@ -15,7 +15,7 @@
  * **********************************************************************
  * This program is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * **********************************************************************
  */
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
@@ -31,9 +31,9 @@ if ( is_user_logged_in() ) {
 
 	$displayStyle = "";
 	$loginStyle = "display:none;";
-	
+
 	wp_get_current_user();
-	
+
 	$current_user = wp_get_current_user();
     if ( !($current_user instanceof WP_User) )
          return;
@@ -48,33 +48,36 @@ if ( is_user_logged_in() ) {
 		<?php // endif; ?>
 	</div>
 
-	
-	
+
+
 	<div class="container">
 		<h1 class="community-title">Community</h1>
-				
+    <div id="app-header">
+
+    </div>
+
 		<ul id="app">
 
 		</ul>
-		
-	</div>
-	
 
-	
+	</div>
+
+
+
 	<!-- *********************************************************** -->
 	<!-- *****************  COMMUNITY TEMPLATES   ****************** -->
 	<!-- *********************************************************** -->
 	<script type="text/template" id="post-list-template">
-	
+
 		<li style="display:inline-block;padding:15px;">
-		
+
 
 			<div class="recon-image-box" style="width:75px;float:left">
 				<a href="#!<%= post.get('url') %>">
 					<img src="<%= post.get('img_url') %>" class="superpost-thumb">
 				</a>
 			</div>
-			
+
 			<div style="width:900px">
 				<h3><%= post.get('title') %></h3>
 			</div>
@@ -90,17 +93,17 @@ if ( is_user_logged_in() ) {
 				<abbr class="recon-date timeago" title="2013-02-07 14:52:26">a day ago</abbr>
 					<a href="<%= post.get('url') %>"><span class="comment-count">0 Replies</span> • <span class="point-count">0 Points</span></a>
 			</span>
-		
+
 		</li>
-	
+
 	</script>
 	<!-- *********************************************************** -->
 	<!-- *********************************************************** -->
 	<!-- *********************************************************** -->
 	<script type="text/template" id="post-tile-template">
-	
+
 		<li style="display:inline-block;">
-		
+
 			<div style="width:300px">
 				<h3><%= post.get('title') %></h3>
 			</div>
@@ -121,67 +124,67 @@ if ( is_user_logged_in() ) {
 				<abbr class="recon-date timeago" title="2013-02-07 14:52:26">a day ago</abbr>
 					<a href="<%= post.get('url') %>"><span class="comment-count">0 Replies</span> • <span class="point-count">0 Points</span></a>
 			</div>
-		
+
 		</li>
-	
+
 	</script>
 	<!-- *********************************************************** -->
 	<!-- *********************************************************** -->
 	<!-- *********************************************************** -->
 	<script type="text/template" id="single-post-view">
-	
+
 		<div id="community-single-post">
 			<div id="body">
 				<%= post.get("body") %>
 			</div>
 			<div id="attachments">
 				<% _.each(post.get("attachments"),function(attachment){ %>
-					
+
 				<div class="attachment-photo">
 					<img src="<%= attachment.img_url.replace('thumb','medium') %>">
 				</div>
 				<div class="attachment-caption">
 					<%= attachment.body %>
 				</div>
-				
-				
+
+
 				<% }); %>
-			
+
 			</div>
-			
+
 			<div id="comments">
 				<% _.each(post.get("comments"),function(comment){ %>
 					<div class="comment">
-					
+
 						<div class="comment-user">
 							<b><%= comment.display_name %></b>
 						</div>
-					
+
 						<div class="comment-body">
 							<%= comment.body %>
 						</div>
 						<% _.each(comment.attachments, function(attachment){ %>
-						
+
 								<div class="attachment-photo">
 									<img src="<%= attachment.img_url.replace('thumb','medium') %>">
 								</div>
 								<div class="attachment-caption">
 									<%= attachment.body %>
 								</div>
-					
+
 							<% }); %>
-					
-				
+
+
 					</div>
 				<% }); %>
-			
+
 			</div>
-		
-		
-		
-		</div>	
-		
-	
+
+
+
+		</div>
+
+
 	</script>
 	<!-- *********************************************************** -->
 	<!-- **************     MODERATOR TEMPLATES      *************** -->
@@ -206,7 +209,7 @@ if ( is_user_logged_in() ) {
 			</tbody>
 		</table>
 		<div id="post-list-pager-div"></div>
-	</script>	
+	</script>
 	<!-- *********************************************************** -->
 	<!-- *********************************************************** -->
 	<!-- *********************************************************** -->
@@ -223,14 +226,14 @@ if ( is_user_logged_in() ) {
 			</tr>
 		<% }); %>
 	</script>
-	
+
 	<!-- *********************************************************** -->
 	<!-- *********************************************************** -->
 	<!-- *********************************************************** -->
 	<script type="text/template" id="post-list-pager-template">
 		<a href="#" class="prev-list btn">Prev</a><a href="#" class="next-list btn">Next</a>
 	</script>
-	
+
 	<!-- *********************************************************** -->
 	<!-- *********************************************************** -->
 	<!-- *********************************************************** -->
@@ -240,14 +243,14 @@ if ( is_user_logged_in() ) {
 			<input placeholder="title" type="text" name="title" value="<%= post ? post.get('title') : "" %>"><br>
 
 			<textarea placeholder="body" name="body"><%= post ? post.get('body') : "" %></textarea><br>
-			
-			
+
+
 			<select id="dynamic_select" class="post_type" name="post_type">
-	         	<option value="">CATEGORY</option> 
-	         	<option value="report" <%= post && post.get('post_type') == "report" ? "SELECTED" : "" %> >Rut Reports</option> 
-	         	<option value="question" <%= post && post.get('post_type') == "question" ? "SELECTED" : "" %> >Q&A</option>      
+	         	<option value="">CATEGORY</option>
+	         	<option value="report" <%= post && post.get('post_type') == "report" ? "SELECTED" : "" %> >Rut Reports</option>
+	         	<option value="question" <%= post && post.get('post_type') == "question" ? "SELECTED" : "" %> >Q&A</option>
 	        </select><br>
-	        
+
 	        <select name="state" placeholder="Choose the state for this post:">
 	            <option value="" >STATE</option>
 	            <option value="AL" <%= post && post.get('state') == "AL" ? "SELECTED" : "" %> >Alabama</option>
@@ -316,29 +319,29 @@ if ( is_user_logged_in() ) {
 	            <option value="YT" <%= post && post.get('state') == "YT" ? "SELECTED" : "" %> >Yukon, Canada</option>
 		      </select>
 		      <br>
-		      
+
 		      <% if (post.id) { %>
 		      		<input type="hidden" name="id" value="<%= post.id %>" >
 		      <% } %>
-		      
-		      
+
+
 				<div id="fileupload">
 				  <div class="fileupload-buttonbar ">
 				      <label class="upload-button">
 				          <span><span class="white-plus-sign">+</span><span class="button-text">ATTACH PHOTO</span></span>
 				          <input id="image-upload" type="file" name="photo-upload">
-				
+
 				      </label>
 				  </div>
 				</div>
-		
 
-		      
+
+
 		      <div id="attachments">
 		      </div>
-		      
+
 			<input type="submit">
-			
+
 		  </form>
 	</script>
 
@@ -350,32 +353,32 @@ if ( is_user_logged_in() ) {
 
 
 
-		      
-		      
+
+
 		 </div>
 	</script>
 
-		
-	
+
+
 	<!-- *********************************************************** -->
 	<!-- *********************************************************** -->
 	<!-- *********************************************************** -->
 	<script type="text/template" id="single-attachment-template">
-	
 
 
-		
+
+
 			      <div style="margin-top:20px">
 				      	<a href="<%= attachment.img_url %>" class="thickbox">
 				      		<img src="<%= attachment.img_url %>" width=75>
-				      	</a>                      
-                   							
+				      	</a>
+
 				      	<input class="caption-field" name="caption-body" type="text" placeholder="Caption (optional)" value="<%= attachment.body %>">
 
 				   </div>
-	
-		      
-		 
+
+
+
 	</script>
 
 </div>
