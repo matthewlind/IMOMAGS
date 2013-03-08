@@ -81,11 +81,33 @@
 
       //this.render();
 
+      //Monitor the Toolbar for changes so that the datamodel can be updated
+      var toolbar = $("#user-toolbar").html();
 
+      this.$toolbar = $(toolbar);
+
+      this.$toolbar.on("change",function(ev){
+        that.users.params.order_by = $(this).find('#order_by').val();
+        that.users.trigger("change");
+        console.log(that.users.params);
+      });
+
+
+
+      //Monitor the datamodel for changes so that it can be re-rendered
+
+      this.users.on("change",function(){
+        that.render();
+      });
+
+      $("#app-header").html(this.$toolbar);
 
 		},
 		template: null,
 		render: function(){
+
+
+
 
 
       this.$el.html(this.grid.render().$el);
@@ -150,6 +172,9 @@
         post.save();
 
       });
+
+
+      $("#app-header").html("");
 
 		},
 		template: null,

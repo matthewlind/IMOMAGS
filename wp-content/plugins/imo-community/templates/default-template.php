@@ -210,7 +210,26 @@ if ( is_user_logged_in() ) {
 		</table>
 		<div id="post-list-pager-div"></div>
 	</script>
+
 	<!-- *********************************************************** -->
+	<!-- *********************************************************** -->
+	<!-- *********************************************************** -->
+	<script type="text/template" id="user-toolbar">
+
+    <div class="toolbar">
+      <select id="order_by">
+        <option value="username">Username</option>
+        <option value="score">All Time Score</option>
+        <option value="score_today">Top Score Today</option>
+        <option value="score_week">Top Score over last Week</option>
+        <option value="score_month">Top Score over last Month</option>
+        <option value="comment_count">Comment Count</option>
+        <option value="post_count">Post Count</option>
+      </select>
+    </div>
+	</script>
+
+  <!-- *********************************************************** -->
 	<!-- *********************************************************** -->
 	<!-- *********************************************************** -->
 	<script type="text/template" id="post-list-rows">
