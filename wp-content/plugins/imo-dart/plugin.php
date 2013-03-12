@@ -173,7 +173,16 @@ function _imo_dart_get_params($size, $tile) {
             $names = "fishing";
           if ($names_array[0]->parent == 292 || $names_array[0]->term_id == 292)
             $names = "hunting";
-
+          if ($names_array[0]->parent == 635 || $names_array[0]->term_id == 635)
+            $names = "boating";
+          if ($names_array[0]->parent == 637 || $names_array[0]->term_id == 637)
+            $names = "conservation";
+          if ($names_array[0]->parent == 636 || $names_array[0]->term_id == 636)
+            $names = "cooking";
+          if ($names_array[0]->parent == 634 || $names_array[0]->term_id == 634)
+            $names = "diving";
+          if ($names_array[0]->parent == 705 || $names_array[0]->term_id == 705)
+            $names = "paddling";
         }
 
         $params = array(
