@@ -11,31 +11,59 @@ add_shortcode( 'imo-slideshow', 'slideshow_gallery' );
 
 // [slideshow gallery=GALLERY_ID]
 function slideshow_gallery( $atts ) {
-	extract( shortcode_atts( array(
-		'gallery' => 1,
-	), $atts ) );
 
-	return displayGallery($gallery);
+
+	extract(
+    shortcode_atts(
+      array(
+        'gallery' => 1,
+        'tag' => null,
+      ),
+      $atts
+    )
+  );
+
+	return displayGallery($gallery,$tag);
 
 }
 
 
-function displayGallery($gallery_id) {
+function displayGallery($gallery_id,$tag) {
 
 	$dartDomain = get_option("dart_domain", $default = false);
 
 	global $wpdb;
-	
+
 	$prefix = $wpdb->prefix;
-	$pictures = $wpdb->get_results($wpdb->prepare(
-		"SELECT * , CONCAT('/' , path, '/' , filename) as img_url, CONCAT('/' , path, '/thumbs/thumbs_' , filename) as thumbnail, meta_data
+
+  if (!$tag) {
+  	$pictures = $wpdb->get_results($wpdb->prepare(
+      "SELECT * , CONCAT('/' , path, '/' , filename) as img_url, CONCAT('/' , path, '/thumbs/thumbs_' , filename) as thumbnail, meta_data
+      from {$prefix}ngg_gallery as gallery
+      JOIN `{$prefix}ngg_pictures` as pictures ON (gallery.gid = pictures.galleryid)
+      WHERE gallery.gid = %d
+      ORDER BY sortorder asc",
+      $gallery_id
+      )
+    );
+  } else {
+  	$pictures = $wpdb->get_results($wpdb->prepare(
+      "SELECT * , CONCAT('/' , path, '/' , filename) as img_url, CONCAT('/' , path, '/thumbs/thumbs_' , filename) as thumbnail, meta_data
 		from {$prefix}ngg_gallery as gallery
 		JOIN `{$prefix}ngg_pictures` as pictures ON (gallery.gid = pictures.galleryid)
+		JOIN {$prefix}term_relationships as relationships ON (pictures.pid = relationships.object_id)
+		JOIN {$prefix}term_taxonomy as term_taxonomy ON (relationships.term_taxonomy_id = term_taxonomy.term_taxonomy_id)
+		JOIN {$prefix}terms as terms ON (terms.term_id = term_taxonomy.term_id)
 		WHERE gallery.gid = %d
+		AND terms.slug = %s
 		ORDER BY sortorder asc",
-		$gallery_id
-		)
-	);
+      $gallery_id,
+      $tag
+      )
+    );
+
+  }
+
 
 	$title = stripcslashes($pictures[0]->title);
 
@@ -54,6 +82,8 @@ function displayGallery($gallery_id) {
 	foreach ($pictures as $picture) {
 
 		$count++;
+
+    _log($picture);
 
 		$picture->meta_data = unserialize($picture->meta_data);
 
@@ -95,30 +125,30 @@ function displayGallery($gallery_id) {
 			<div class="slide-out-content">
 
 				$textSlides
-				
+
 			</div>
 			<div class="slide-out-ad">
 				<iframe id="gallery-iframe-ad" height=280 width=330 src="/iframe-ad.php?ad_code=$dartDomain"></iframe>
 			</div>
-		</div> 
+		</div>
 		<div class="ngg-imagebrowser">
-		
-			<div class="ngg-imagebrowser-nav"> 
+
+			<div class="ngg-imagebrowser-nav">
 				<div class="back">
 					<a class="ngg-browser-prev" id="ngg-prev-1473" href="">&#9668; Back</a>
 				</div>
-		        		
+
 				<div class="next">
 					<a class="ngg-browser-next" id="ngg-next-1476" href="">Next &#9658;</a>
 				</div>
 		        <div class="ajax-counter">Picture <span class="current-image">1</span> of $count</div>
 		                <div class="ngg-imagebrowser-desc"><h3>$title</h3></div>
-			</div>	
+			</div>
 			<div class="slide-container">
 				<div class="hidden-arrows" style="z-index:99999">
 					<div class="back">
 						<a href="" class="thumb-arrow" style="display:none;z-index:99999">&#9668; Back</a>
-					</div>	
+					</div>
 					<div class="next">
 						<a href="" class="thumb-arrow" style="display:none;z-index:99999">Next &#9658;</a>
 					</div>
@@ -129,7 +159,7 @@ function displayGallery($gallery_id) {
 				<ul class="thumb-pager">
 					$thumbPager
 				</ul>
-				
+
 			</div>
 			<div id="thumb-button-holder">
 				<a id="thumb-prev" class="thumb-arrow"></a>
@@ -139,7 +169,7 @@ function displayGallery($gallery_id) {
 
 		</div>
 	</div>
-	
+
 
 EOT;
 
@@ -163,7 +193,7 @@ EOT;
 add_filter('the_posts', 'conditionally_add_scripts_and_styles'); // the_posts gets triggered before wp_head
 function conditionally_add_scripts_and_styles($posts){
 	if (empty($posts)) return $posts;
- 
+
 	$shortcode_found = false; // use this flag to see if styles and scripts need to be enqueued
 	foreach ($posts as $post) {
 		if (stripos($post->post_content, '[imo-slideshow') !== false) {
@@ -171,7 +201,7 @@ function conditionally_add_scripts_and_styles($posts){
 			break;
 		}
 	}
- 
+
 	if ($shortcode_found) {
 		// enqueue here
 		wp_enqueue_script('ajax-gallery-js',plugins_url('ajax-gallery.js', __FILE__));
@@ -183,9 +213,8 @@ function conditionally_add_scripts_and_styles($posts){
 		wp_enqueue_style('ajax-gallery-css',plugins_url('ajax-gallery.css', __FILE__));
 		wp_enqueue_style('ajax-mCustomScrollbar-css',plugins_url('jquery.mCustomScrollbar.css', __FILE__));
 	}
- 
+
 	return $posts;
 }
 ?>
 
-	
