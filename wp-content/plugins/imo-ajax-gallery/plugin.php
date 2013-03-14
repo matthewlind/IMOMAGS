@@ -38,7 +38,7 @@ function displayGallery($gallery_id,$tag) {
 
   if (!$tag) {
   	$pictures = $wpdb->get_results($wpdb->prepare(
-      "SELECT * , CONCAT('/' , path, '/' , filename) as img_url, CONCAT('/' , path, '/thumbs/thumbs_' , filename) as thumbnail, meta_data
+      "SELECT * , CONCAT('/' , path, '/' , filename) as img_url, CONCAT('/' , path, '/thumbs/thumbs_' , filename) as thumbnail, meta_data, pictures.description as photo_desc
       from {$prefix}ngg_gallery as gallery
       JOIN `{$prefix}ngg_pictures` as pictures ON (gallery.gid = pictures.galleryid)
       WHERE gallery.gid = %d
@@ -48,7 +48,7 @@ function displayGallery($gallery_id,$tag) {
     );
   } else {
   	$pictures = $wpdb->get_results($wpdb->prepare(
-      "SELECT * , CONCAT('/' , path, '/' , filename) as img_url, CONCAT('/' , path, '/thumbs/thumbs_' , filename) as thumbnail, meta_data
+      "SELECT * , CONCAT('/' , path, '/' , filename) as img_url, CONCAT('/' , path, '/thumbs/thumbs_' , filename) as thumbnail, meta_data, pictures.description as photo_desc
 		from {$prefix}ngg_gallery as gallery
 		JOIN `{$prefix}ngg_pictures` as pictures ON (gallery.gid = pictures.galleryid)
 		JOIN {$prefix}term_relationships as relationships ON (pictures.pid = relationships.object_id)
@@ -63,6 +63,10 @@ function displayGallery($gallery_id,$tag) {
     );
 
   }
+
+
+  _log($pictures);
+
 
 
 	$title = stripcslashes($pictures[0]->title);
@@ -83,11 +87,12 @@ function displayGallery($gallery_id,$tag) {
 
 		$count++;
 
-    _log($picture);
+
+
 
 		$picture->meta_data = unserialize($picture->meta_data);
 
-		$picture->description = stripcslashes($picture->description);
+		$picture->photo_desc = stripcslashes($picture->photo_desc);
 		$picture->alttext = stripcslashes($picture->alttext);
 
 		 // echo "<pre>";
@@ -107,7 +112,7 @@ function displayGallery($gallery_id,$tag) {
 		$slides .=  "<div class='slide'><div class='pic'><img src='$picture->img_url' image-height=$height image-width=$width></div></div>";
 
 		$textSlides .=  "<div class='slide' style='display:none'><div class='scroll-content'><h2>{$picture->alttext}</h2>
-				<p>{$picture->description}</p></div></div>";
+				<p>{$picture->photo_desc}</p></div></div>";
 
 		$thumbPager .= "<li><div class='thumb-container $class'><a><img src='{$picture->thumbnail}' class='slideshow-thumb' /></a><div></li>";
 	}
