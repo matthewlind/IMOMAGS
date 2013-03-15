@@ -869,7 +869,7 @@ the_post();
 		<div class="vs">vs.</div>
 	
 		<div class="vote-ad">
-		<iframe id="poll-ad-iframe" src="http://www.gunsandammo.deva/iframe-ad.php?ad_code=imo.gunsandammo&size=728x90" width=728 height=90></iframe>
+		<iframe id="poll-ad-iframe" src="http://<?php echo $_SERVER['SERVER_NAME']; ?>/iframe-ad.php?ad_code=imo.gunsandammo&size=728x90" width=728 height=90></iframe>
 		</div>
 	</div>
 </div>
