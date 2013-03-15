@@ -18,24 +18,32 @@
 
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
-	
+
 get_header();
 
 the_post();
 ?>
 <header>
+	<ul id="ga-madness-nav">
+		<li><a href="/ga-madness">Gun Bracket</a></li>
+		<li><a href="/ga-madness/enter">Enter Now</a></li>
+		<li style="width:270px;"></li>
+		<li><a href="/ga-madness/prizes">Prizes</a></li>
+		<li><a href="/ga-madness/rules">Rules</a></li>
+	</ul>
+	<div class="ga-madness-nav-logo"></div>
 	<h1><?php the_title(); ?></h1>
 	<?php edit_post_link(__('Edit', 'carrington-business')); ?>
-</header><!-- #masthead -->
+</header>
 <div class="col-abc">
 	<div <?php post_class('entry entry-full clearfix'); ?>>
 		<div class="entry-content">
-			
-		
-			<div class="divider"></div>
-			
-					
+			<?php
+			the_content(__('Continued&hellip;', 'carrington-business'));
+			wp_link_pages();
+			?>
 		</div>
 	</div><!-- .entry -->
+	<?php //comments_template(); ?>
 </div><!-- .col-abc -->
 <?php get_footer(); ?>

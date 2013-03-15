@@ -31,6 +31,8 @@ $id = get_the_ID();
 			</ul>
 		</div>
 		<div class="maddness-contest-enter"><h3>6 Rounds, 6 Chances to Win!</h3></div>
+		<div class="vote-ad">
+			<iframe id="poll-ad-iframe" src="http://<?php echo $_SERVER['SERVER_NAME']; ?>/iframe-ad.php?ad_code=imo.gunsandammo&size=728x90" width=728 height=90></iframe>
+		</div>	
 	</div>
-
 </div>

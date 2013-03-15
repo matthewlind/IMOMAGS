@@ -867,10 +867,6 @@ the_post();
 	<div class="extra-poll-content" style="display:none;">
 		<div class="vote-thumb" style="display:none;"></div>
 		<div class="vs">vs.</div>
-	
-		<div class="vote-ad">
-		<iframe id="poll-ad-iframe" src="http://<?php echo $_SERVER['SERVER_NAME']; ?>/iframe-ad.php?ad_code=imo.gunsandammo&size=728x90" width=728 height=90></iframe>
-		</div>
 	</div>
 </div>
 
