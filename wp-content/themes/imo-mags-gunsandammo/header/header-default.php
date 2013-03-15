@@ -1,3 +1,4 @@
+
 <?php
 
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
@@ -37,6 +38,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
   <script src="//cdn.optimizely.com/js/60055218.js"></script>
   <script type="text/javascript" src="/wp-content/themes/imo-mags-gunsandammo/js/flash_heed.js"></script>
   <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/scripts.js"></script>
+ 
   
   <?php if (defined('JETPACK_SITE')): ?>
   <script type='text/javascript' src='http://ads.jetpackdigital.com/sites/<?php print JETPACK_SITE; ?>/jpd.js'></script>

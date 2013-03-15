@@ -38,7 +38,11 @@ jQuery(document).ready(function($) {
 		});
 
 	}
-	
+  
+  
+  
+ 
+ 
   // Video Slideshow
   $("#video-slideshow").tabs();
   

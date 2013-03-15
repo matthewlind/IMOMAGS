@@ -6,7 +6,23 @@
  * Defines additions to Carrington Build's theme. 
  */
  
-  
+
+/***
+**
+** Enqueue Scripts
+**
+***/
+function sitewide_scripts_method() {
+    wp_deregister_script( 'jquery' );
+
+    
+    wp_enqueue_script( 'jquery' );
+    wp_enqueue_script("jquery-simplemodal", get_stylesheet_directory_uri() . "/js/jquery.simplemodal.1.4.2.min.js");
+
+
+
+}    
+ 
 /** tweak excerpts **/
  function new_excerpt_length($length) {
 	return 20;

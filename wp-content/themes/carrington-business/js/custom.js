@@ -45,7 +45,8 @@ $(function(){
 		$('.advert').jfollow('#responderfollow');
 	}
 });
-	 
+
+
         
 /*****
 **

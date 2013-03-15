@@ -269,6 +269,7 @@ function my_scripts_method() {
     wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js');
     wp_enqueue_script( 'jquery' );
     wp_enqueue_script("cross-site-feed", get_stylesheet_directory_uri() . "/js/cross-site-feed.js");
+    wp_enqueue_script("jquery-simplemodal", get_stylesheet_directory_uri() . "/js/jquery.simplemodal.1.4.2.min.js");
 }    
  
 add_action('wp_enqueue_scripts', 'my_scripts_method');
@@ -1230,6 +1231,7 @@ function shiba_save_bulk_edit() {
     }
   
 }
+
 
 
 
