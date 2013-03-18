@@ -628,9 +628,6 @@ $app->post('/api/superpost/add',function() {
 		$videoExists = false;
 		if ($params['post_type'] == "youtube") {
 
-			_log("VIDEO STUFF");
-			_log($params);
-
 
 
 			if (!empty($params['video_url']))
@@ -665,6 +662,9 @@ $app->post('/api/superpost/add',function() {
 			    error_log("There was an error uploading the file, please try again!");
 			}
 		}
+		
+		
+			_log( "THIS THIS");
 
 		/////////////////////////////////////
 		//If there are attachments, get the $imgURL
@@ -700,10 +700,13 @@ $app->post('/api/superpost/add',function() {
 			"posthash"
 		);
 
-    if (stristr($params['title'],"Nayarit")){
+    if (!empty($params['title']) && stristr($params['title'],"Nayarit")){
+       
       $params['title'] = "Photo from App";
     }
-
+    		
+    	_log($params);	
+    		_log( "THIS THIS3");
 
 		if (!empty($fileName) || $videoExists) {
 			$params['img_url'] = $imgURL;
@@ -743,13 +746,14 @@ $app->post('/api/superpost/add',function() {
 		}
 
 
-
+		_log("before exec");
 
 		if (empty($params['title']) && empty($params['body']) && empty($params['img_url']))
 			$requestIsGood = FALSE;
 
 
 		if ($requestIsGood) {
+			
 
 			$stmt->execute();
 	        $superpostID = $db->lastInsertId();
