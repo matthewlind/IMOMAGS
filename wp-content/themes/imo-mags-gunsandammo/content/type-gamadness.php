@@ -3,7 +3,12 @@
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 $id = get_the_ID();
-
+$campaigns = wp_get_post_terms($id,"campaign");
+foreach ($campaigns as $campaign){ $camp = $campaign->name; }
+$url = get_post_meta($id, 'ecpt_poll-related-url', true);
+$title = get_post_meta($id, 'ecpt_poll-related-title', true);
+$url2 = get_post_meta($id, 'ecpt_poll-related-url-2', true);
+$title2 = get_post_meta($id, 'ecpt_poll-related-title-2', true);
 ?>
 <div <?php post_class('entry entry-full clearfix') ?>>
 	<div class="entry-header">
@@ -25,14 +30,16 @@ $id = get_the_ID();
 		<div class="divider"></div>
 		<div class="poll-related">
 			<h4>Related Articles</h2>
+			<?php var_dump() ?>
 			<ul>
-				<li><a href="<?php echo get_post_meta($id, 'ecpt_poll-related-url', true); ?>" target="_blank"><?php echo get_post_meta($id, 'ecpt_poll-related-title', true); ?></a></li>
-				<li><a href="<?php echo get_post_meta($id, 'ecpt_poll-related-url-2', true); ?>" target="_blank"><?php echo get_post_meta($id, 'ecpt_poll-related-title-2', true); ?></a></li>
+				<?php if($title != ""){ ?><li><a href="<?php echo $url; ?>" target="_blank"><?php echo $title; ?></a></li><?php } ?>
+				<?php if($title2 != ""){ ?><li><a href="<?php echo $url2; ?>" target="_blank"><?php echo $title2; ?></a></li><?php } ?>
+				<?php if($title == "" && $title2 == ""){ echo "<p>There are no related articles.</p>"; } ?>
 			</ul>
 		</div>
 		<div class="maddness-contest-enter"><h3>6 Rounds, 6 Chances to Win!</h3></div>
 		<div class="vote-ad">
-			<iframe id="poll-ad-iframe" src="http://<?php echo $_SERVER['SERVER_NAME']; ?>/iframe-ad.php?ad_code=imo.gunsandammo&size=728x90" width=728 height=90></iframe>
+			<iframe id="poll-ad-iframe" src="http://<?php echo $_SERVER['SERVER_NAME']; ?>/iframe-ad.php?ad_code=imo.gunsandammo&size=728x90&camp=<?php echo $camp; ?>" width=728 height=90></iframe>
 		</div>	
 	</div>
 </div>

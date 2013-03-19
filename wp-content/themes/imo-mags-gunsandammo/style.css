@@ -7059,6 +7059,10 @@ font-size: 0.72em;
 /* =================== */
 #bracket p{
   font-family: 'Helvetica Neue', Helvetica, Arial, FreeSans, sans-serif;
+  font-size: 0.9em;
+	font-weight: bold;
+	color: #333;
+	line-height: 0.9;
 }
 #content-wrapper {
   width: 970px;
@@ -7082,12 +7086,17 @@ table.gridtable {
   border-width: 1px;
   border-color: #fff;
   border-collapse: collapse;
+  margin: 0 auto;
 }
 table.gridtable th {
-  background-color: #b3d4ef;
-  padding: 8px;
-  width: 69.4px;
-  border: 1px solid #fff;
+	background-color: #c42627;
+	padding: 9px 8px 8px;
+	width: 70px;
+	border: 1px solid #fff;
+	color: white;
+	font-weight: bold;
+	font-size: 1em;
+	font-family: "Stag";
 }
 table.gridtable td {
   border-width: 1px;
@@ -7105,6 +7114,8 @@ table.gridtable td.title {
   margin-top: 15px;
   height: 1000px;
   position: relative;
+  width: 952px;
+  margin: 0 auto;
 }
 #bracket .round {
   position: absolute;
@@ -7141,7 +7152,7 @@ table.gridtable td.title {
   right: 0px;
 }
 #bracket .match {
-  border: 1px solid #444;
+  border: 1px solid #999;
   padding: 0;
   width: 114px;
   position: absolute;
@@ -7314,7 +7325,7 @@ table.gridtable td.title {
   position: absolute;
   left: 0;
   right: 0;
-  padding: 0 4px;
+  padding: 0px 4px;
 }
 #bracket .match .slot1 {
   top: 0px;
@@ -7330,6 +7341,7 @@ table.gridtable td.title {
 #bracket .match .seed {
   color: #777;
   font-size: 10px;
+  padding-right: 2px;
 }
 #bracket .match .winner, #bracket .match .winner em {
   font-weight: bold;
@@ -7359,6 +7371,7 @@ table.gridtable td.title {
 	font-size: 1.2em;
 	font-weight: bold;
 	text-transform: uppercase;
+	color: white;
 }
 #bracket a{
 	cursor: pointer;
@@ -7389,17 +7402,17 @@ a.simplemodal-close {
 	top: -20px;
 	width: 40px;
 }
-.page-template-page-bracket-php header h1{
+.page-template-page-bracket-php header h1, .page-template-page-bracket-sub-php header h1{
 	margin-top:-40px;
 }
 
 /*** Nav ***/
 
 .ga-madness-nav-logo{
-	background: url("img/ga-madness-modal.png") no-repeat left top;
+	background: url("img/ga-madness-logo-sponsor.png") no-repeat left top;
 	top: -66px;
 	width: 250px;
-	height: 124px;
+	height: 133px;
 	position: relative;
 	margin: 0 auto;
 	
@@ -7423,10 +7436,18 @@ ul#ga-madness-nav li a{
 	color: white;
 	font-family: "StagBold",serif;
 }
-
+ul#ga-madness-nav li a:hover{
+	color: #ce181e;
+}
 
 
 /** polls ***/
+.open-poll{
+	cursor: pointer;
+}
+.open-poll:hover{
+	border: 1px solid #ce181e !important;
+}
 .page-template-page-bracket-php .divider{
 	height: 10px;
 }
@@ -7457,6 +7478,11 @@ ul#ga-madness-nav li a{
 .wp-polls-ul li label{
 	text-align: center;
 }
+.wp-polls-ul li label h1, .vote-check h1, .no-vote h1{
+	font-size: 18px;
+	text-align: center;
+}
+
 .vs{
 	position: absolute;
 	top: 136px;
@@ -7519,6 +7545,14 @@ li.no-vote:hover img{
 	border: 4px solid white;
 	cursor: default;
 }
+.voted{
+	text-align: center;
+	position: relative;
+	top: -320px;
+	background: white;
+	width: 460px;
+	margin: 0 auto;
+}
 .button-area{
 	margin: 0 auto;
 	position: absolute;
@@ -7539,12 +7573,12 @@ li.no-vote:hover img{
 	margin: 0 auto;
 }
 .ga-madness-logo{
-	background: url("img/ga-madness-modal.png") no-repeat left top;
+	background: url("img/ga-madness-logo-sponsor.png") no-repeat left top;
 	position: absolute;
 	top: -85px;
 	left: 260px;
 	width: 250px;
-	height: 124px;
+	height: 133px;
 }
 .poll-related{
 	width: 370px;
@@ -7580,8 +7614,15 @@ li.no-vote:hover img{
 	margin-top: 28px;
 }
 
+.super-ad{
+	background: black;
+	width: 100%;
+	height: auto;
+}
 
-
-
-
-
+.super-ad div{
+	margin: 0 auto;
+	position: relative;
+	width: 980px;
+	height: auto;
+}
