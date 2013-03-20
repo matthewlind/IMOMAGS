@@ -32,6 +32,7 @@ the_post();
 		<li><a class="how-works">How it Works</a></li>
 	</ul>
 	<div class="ga-madness-nav-logo"></div>
+	<!--<div class="bracket-header"></div>-->
 	<h1 style="margin-left:-99999px;height:0;"><?php the_title(); ?></h1>
 </header><!-- #masthead -->
 <div class="col-abc">

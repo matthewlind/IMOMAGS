@@ -70,4 +70,29 @@ the_post();
 		<?php //comments_template(); ?>
 	</div><!-- .col-abc -->
 </div><!-- .page-template-page-right-php -->
+<div id="bracket-modal" class="new-superpost-modal-container new-superpost-box" style="display:none;width:740px;height:558px;background-color:white;">
+	<div class="ga-madness-logo"></div>
+	<div class="poll-area"></div>
+	<div class="extra-poll-content" style="display:none;">
+		<div class="vote-thumb" style="display:none;"></div>
+		<div class="vs">vs.</div>
+	</div>
+	<div class="poll-pagination" style="display:none;">
+			<a class="prev-poll">Previous Matchup</a>
+			<a class="next-poll">Next Matchup</a>
+		</div>
+	<div id="Gen" class="marginLeft">
+		<div class="block" id="rotate_01"></div>
+		<div class="block" id="rotate_02"></div>
+		<div class="block" id="rotate_03"></div>
+		<div class="block" id="rotate_04"></div>
+		<div class="block" id="rotate_05"></div>
+		<div class="block" id="rotate_06"></div>
+		<div class="block" id="rotate_07"></div>
+		<div class="block" id="rotate_08"></div>
+		<div class="clearfix"></div>
+		<p>Loading...</p>
+	</div>
+	
+</div>
 <?php get_footer(); ?>
