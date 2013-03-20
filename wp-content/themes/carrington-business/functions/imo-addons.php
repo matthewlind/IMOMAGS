@@ -12,6 +12,74 @@
 ** Enqueue Scripts
 **
 ***/
+
+
+add_action("init","grab_bracket_polling_data");
+
+function grab_bracket_polling_data() {
+	
+	global $wpdb;
+	
+	$pollPosts = $wpdb->get_results("SELECT post_name,post_content from {$wpdb->prefix}posts WHERE post_status = 'publish' AND post_type = 'gamadness'");
+	
+	$pollDataOutput = array();
+	
+	foreach ($pollPosts as $key => $post) {
+		$slug = $post->post_name;
+		
+		$postContent = $post->post_content;
+		
+		$pollID = filter_var($postContent, FILTER_SANITIZE_NUMBER_INT);
+		
+		$pollPosts[$key]->poll_id = $pollID;
+		
+		
+		$pollDataOutput[$pollID]['slug'] = $slug;
+		
+	}
+	
+	$pollAnswers = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}pollsa");
+	
+	
+
+	
+	$pollQuestions = array();
+	
+	foreach ($pollAnswers as $answer) {
+		
+		$qid = $answer->polla_qid;
+			
+		$pollQuestions[$qid][] = $answer->polla_votes;
+		
+		
+		
+	}
+	
+	foreach ($pollQuestions as $key => $question) {
+		
+		if ($question[0] > $question[1]) {
+			$pollDataOutput[$key]['winner'] = "first";
+		} else if ($question[0] < $question[1]){
+			$pollDataOutput[$key]['winner'] = "second";
+		} else {
+			$pollDataOutput[$key]['winner'] = null;
+		}
+			
+		
+	}
+	
+	
+	_log($pollDataOutput);
+	_log($pollQuestions);
+
+	
+	wp_localize_script( 'carrington-business-custom', 'madness_poll_data', $pollDataOutput);
+	
+	
+	
+}
+
+
 function sitewide_scripts_method() {
     wp_deregister_script( 'jquery' );
 

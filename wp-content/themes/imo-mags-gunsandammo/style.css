@@ -7348,6 +7348,7 @@ table.gridtable td.title {
 }
 #bracket .match .winner, #bracket .match .winner em {
   font-weight: bold;
+  color:#006800;
 }
 #bracket .region1 .match, #bracket .region2 .match {
   border-left: 0px;
