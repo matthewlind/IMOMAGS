@@ -28,42 +28,46 @@ the_post();
 		<li><a href="/ga-madness">Gun Bracket</a></li>
 		<li><a href="/ga-madness/enter">Enter Now</a></li>
 		<li style="width:270px;"></li>
-		<li><a href="/ga-madness/prizes">Prizes</a></li>
-		<li><a href="/ga-madness/rules">Rules</a></li>
+		<li><a href="/ga-madness/prizes">Prizes & Rules</a></li>
+		<li><a class="how-works">How it Works</a></li>
 	</ul>
 	<div class="ga-madness-nav-logo"></div>
-	<h1><?php the_title(); ?></h1>
-	<?php edit_post_link(__('Edit', 'carrington-business')); ?>
+	<?php if( is_page("enter") ){ echo '<div class="bracket-sub-header"></div>'; } ?>
+	<?php if( !is_page("how-it-works") ){ ?><h1><?php the_title(); ?></h1><?php } ?>
 </header>
-<div id="sidebar">
-		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('reviews-sidebar')) : else : ?><?php endif; ?>
-		<div id="responderfollow"></div>
-		<div class="sidebar advert">
-			<script type="text/javascript">
-	              document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dartadsgen_site+'/;sect=;page=index;pos=btf;subs=;sz=300x250;dcopt=;tile='+pr_tile+';ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
-	            </script>
-	            <script type="text/javascript">
-	              ++pr_tile;
-	            </script>
-	            <noscript>
-	              <a href="http://ad.doubleclick.net/adj/imo.outdoorsbest/;sect=;page=index;pos=btf;subs=;sz=300x250;dcopt=;tile=1;ord=7391727509?">
-	                <img src="http://ad.doubleclick.net/ad/imo.outdoorsbest/home;sect=;page=index;pos=btf;subs=;sz=300x250;dcopt=;tile=1;ord=7391727509?" border="0" />
-	              </a>
-	            </noscript>
-
-			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('scroll-sidebar')) : else : endif; ?>
+<div class="page-template-page-right-php<?php if( is_page("enter") ){ echo ' bracket-sub'; } ?>">
+	<div id="sidebar">
+			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-default')) : else : ?><?php endif; ?>
+			<div id="responderfollow"></div>
+			<div class="sidebar advert">
+				<script type="text/javascript">
+		              document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dartadsgen_site+'/;sect=;page=index;pos=btf;subs=;sz=300x250;dcopt=;tile='+pr_tile+';ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
+		            </script>
+		            <script type="text/javascript">
+		              ++pr_tile;
+		            </script>
+		            <noscript>
+		              <a href="http://ad.doubleclick.net/adj/imo.outdoorsbest/;sect=;page=index;pos=btf;subs=;sz=300x250;dcopt=;tile=1;ord=7391727509?">
+		                <img src="http://ad.doubleclick.net/ad/imo.outdoorsbest/home;sect=;page=index;pos=btf;subs=;sz=300x250;dcopt=;tile=1;ord=7391727509?" border="0" />
+		              </a>
+		            </noscript>
+	
+				<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('scroll-sidebar')) : else : endif; ?>
+			</div>
 		</div>
-	</div>
-
-<div class="col-abc">
-	<div <?php post_class('entry entry-full clearfix'); ?>>
-		<div class="entry-content">
-			<?php
-			the_content(__('Continued&hellip;', 'carrington-business'));
-			wp_link_pages();
-			?>
-		</div>
-	</div><!-- .entry -->
-	<?php //comments_template(); ?>
-</div><!-- .col-abc -->
+	
+	<div class="col-abc">
+		<div <?php post_class('entry entry-full clearfix'); ?>>
+			<div class="entry-content how-content">
+				<?php if( is_page("how-it-works") ){ ?>
+					<h1><?php the_title(); ?></h1>
+				<?php } 
+				the_content(__('Continued&hellip;', 'carrington-business'));
+				wp_link_pages();
+				?>
+			</div>
+		</div><!-- .entry -->
+		<?php //comments_template(); ?>
+	</div><!-- .col-abc -->
+</div><!-- .page-template-page-right-php -->
 <?php get_footer(); ?>

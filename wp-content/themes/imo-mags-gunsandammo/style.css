@@ -6914,9 +6914,12 @@ font-size: 0.72em;
 .blog-headers.soga .blog-border{
 	width: 390px;
 }
-
-
-
+.dt-sponsor{
+	float: right;
+	margin-top: -40px;
+	width: 86px;
+	height: 86px;
+}
 
 
 .leiki_products {
@@ -7366,19 +7369,25 @@ table.gridtable td.title {
 }
 .vote{
 	position: absolute;
-	top: 10px;
+	top: 12px;
 	left: 36px;
-	font-size: 1.2em;
+	font-size: 1em;
 	font-weight: bold;
 	text-transform: uppercase;
-	color: white;
+	color: #ce181e;
 }
 #bracket a{
 	cursor: pointer;
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 .vote-ad{
+	margin-left: -2px;
+	margin-bottom: -20px;
+}
 
+.vote-ad iframe{
+	overflow: hidden;
+	margin-top: 6px;
 }
 .single-gamadness .pagination, .page-template-page-bracket-php  .pagination{
 	display: none;
@@ -7439,14 +7448,15 @@ ul#ga-madness-nav li a{
 ul#ga-madness-nav li a:hover{
 	color: #ce181e;
 }
-
-
+.how-works{
+	cursor: pointer;
+}
+.how-content{
+	padding: 40px;
+}
 /** polls ***/
 .open-poll{
 	cursor: pointer;
-}
-.open-poll:hover{
-	border: 1px solid #ce181e !important;
 }
 .page-template-page-bracket-php .divider{
 	height: 10px;
@@ -7479,10 +7489,24 @@ ul#ga-madness-nav li a:hover{
 	text-align: center;
 }
 .wp-polls-ul li label h1, .vote-check h1, .no-vote h1{
-	font-size: 18px;
+	font-size: 15px;
 	text-align: center;
 }
-
+.bracket-header{
+	background: url("img/ga-madness-sweeps-short.jpg") no-repeat center top;
+	width: 980px;
+	height: 276px;
+}
+.bracket-sub-header{
+	background: url("img/ga-madness-sweeps-short.jpg") no-repeat center top;
+	width: 980px;
+	height: 276px;
+	margin-top: -40px;
+	margin-bottom: 50px;
+}
+.bracket-sub #sidebar{
+	margin-top: -40px;
+}
 .vs{
 	position: absolute;
 	top: 136px;
@@ -7540,6 +7564,7 @@ ul#ga-madness-nav li a:hover{
 }
 .no-vote{
 	opacity: 0.5;
+	min-height: 303px;
 }
 li.no-vote:hover img{
 	border: 4px solid white;
@@ -7548,7 +7573,7 @@ li.no-vote:hover img{
 .voted{
 	text-align: center;
 	position: relative;
-	top: -320px;
+	top: -384px;
 	background: white;
 	width: 460px;
 	margin: 0 auto;
@@ -7568,6 +7593,9 @@ li.no-vote:hover img{
 #poll-ad-iframe{
 	border: none;
 }
+#poll-ad-iframe body{
+	margin: 0;
+}
 .page-template-page-bracket-php .divider {
 	width: 728px;
 	margin: 0 auto;
@@ -7576,13 +7604,15 @@ li.no-vote:hover img{
 	background: url("img/ga-madness-logo-sponsor.png") no-repeat left top;
 	position: absolute;
 	top: -85px;
-	left: 260px;
+	left: 248px;
 	width: 250px;
 	height: 133px;
 }
 .poll-related{
-	width: 370px;
+	width: 376px;
 	float: left;
+	font-style: normal;
+	font-weight: normal;
 }
 .poll-related h4{
 	font-family: "Stag";
@@ -7613,16 +7643,234 @@ li.no-vote:hover img{
 .maddness-contest-enter h3{
 	margin-top: 28px;
 }
+/*** Poll Pagination ***/
+.poll-pagination{
+	width: 628px;
+	margin: 0 auto;
+	position: relative;
+	top: -228px;
+	font-style: italic;
+}
+.poll-pagination .prev-poll{
+	float: left;
+	color: black;
+	cursor: pointer;
+	padding-left: 2px
+}
+.poll-pagination .next-poll{
+	float: right;
+	color: black;
+	cursor: pointer;
+	padding-right: 2px;
 
+}
+.poll-pagination .next-poll:hover, .poll-pagination .prev-poll:hover{
+	color: #ce181e;
+}
 .super-ad{
 	background: black;
 	width: 100%;
 	height: auto;
 }
-
 .super-ad div{
 	margin: 0 auto;
 	position: relative;
 	width: 980px;
 	height: auto;
 }
+.super-ad div img{
+	padding-top: 70px;
+	margin-bottom: -7px;
+}
+.ga-madness-comments{
+	width: 646px;
+}
+
+/*** Sponsor logos ***/
+.bracket-sponsor{
+	position: absolute;
+	z-index: 99999;
+}
+
+.galco{
+	width: 120px;
+	height: auto;
+	top: 176px;
+	left: 310px;
+	font-size: 0.7em;
+	text-align: right;
+	font-weight: bold;
+}
+.galco img{
+	width: 120px;
+	height: auto;
+}
+.ffl123{
+	top: 327px;
+	left: -42px;
+	font-size: 0.7em;
+	text-align: right;
+	line-height: 1;
+	font-weight: bold;
+}
+.wardog{
+	left: 510px;
+	top: 176px;
+	font-size: 0.7em;
+	text-align: right;
+	font-weight: bold;
+}
+.wardog img{
+	width: 120px;
+	height: auto;
+}
+.slidefire{
+	left: 510px;
+	top: 718px;
+	font-size: 0.7em;
+	text-align: right;
+	font-weight: bold;
+}
+.slidefire img{
+	width: 120px;
+	height: auto;
+}
+/*** Loading symbol ***/
+.marginLeft{
+	margin-right:30px;
+}
+#warning{
+	font-size:16px;
+}
+#Gen{
+	width:100px;
+	height:100px;
+	float:left;
+	margin-left:250px;
+	-webkit-transform:scale(0.6);
+	position: absolute;
+	top: 120px;
+	left: 64px;
+	padding: 10px;
+	background: white;
+}
+#Gen p{
+	font-family: "StagMedium";
+	font-size: 1.2em;
+	text-align: center;
+	color: #ce181e;
+}
+.block{
+	-moz-border-radius:8px 8px 0px 0px;
+	-webkit-border-radius:8px 8px 0px 0px;
+	background-color:#efefef;
+	height:36px;
+	width:15px;
+	float:left;
+	-webkit-transform:scale(0.4);
+	-webkit-animation-name: fade;
+ 	-webkit-animation-duration: 0.7s;
+ 	-webkit-animation-iteration-count: infinite;
+ 	-webkit-animation-direction: linear;
+	}
+#rotate_01{
+	-webkit-transform:rotate(-90deg);
+	-moz-transform:rotate(-90deg);
+	margin-left:1px;
+	margin-top:30px;
+ 	-webkit-animation-delay: .3s;
+}	
+#rotate_02{
+	-webkit-transform:rotate(-45deg);
+	-moz-transform:rotate(-45deg);
+	margin-left:-5px;
+	margin-top:3px;
+ 	-webkit-animation-delay: 0.4s;
+}
+#rotate_03{
+	-webkit-transform:rotate(0deg);
+	-moz-transform:rotate(0deg);
+	margin-left:12px;
+	margin-top:-8px;
+ 	-webkit-animation-delay: 0.5s;
+}
+#rotate_04{
+	-webkit-transform:rotate(45deg);
+	-moz-transform:rotate(45deg);
+	margin-left:14px;
+	margin-top:3px;
+ 	-webkit-animation-delay: 0.6s;
+}
+#rotate_05{
+	-webkit-transform:rotate(90deg);
+	-moz-transform:rotate(90deg);
+	margin-left:-4px;
+	margin-top:30px;
+ 	-webkit-animation-delay: 0.7s;
+}
+#rotate_06{
+	-webkit-transform:rotate(135deg);
+	-moz-transform:rotate(135deg);
+	margin-left:68px;
+	margin-top:-8px;
+ 	-webkit-animation-delay: 0.8s;
+}
+#rotate_07{
+	-webkit-transform:rotate(180deg);
+	-moz-transform:rotate(180deg);
+	margin-left:-43px;
+	margin-top:2px;
+ 	-webkit-animation-delay: 0.9s;
+}
+#rotate_08{
+	-webkit-transform:rotate(-135deg);
+	-moz-transform:rotate(-135deg);
+	margin-left:-72px;
+	margin-top:-8px;
+ 	-webkit-animation-delay: 1s;
+}
+
+@-webkit-keyframes fade{
+	0%{background-color:#333;}
+	100%{background-color:#efefef;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

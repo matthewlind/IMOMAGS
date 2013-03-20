@@ -37,9 +37,9 @@ $title2 = get_post_meta($id, 'ecpt_poll-related-title-2', true);
 				<?php if($title == "" && $title2 == ""){ echo "<p>There are no related articles.</p>"; } ?>
 			</ul>
 		</div>
-		<div class="maddness-contest-enter"><h3>6 Rounds, 6 Chances to Win!</h3></div>
+		<div class="maddness-contest-enter"><a href="/ga-madness/enter"><img src="/wp-content/themes/imo-mags-gunsandammo/img/ga-madness-358x90.jpg" alt="Enter G&A Madness" /></a></div>
 		<div class="vote-ad">
-			<iframe id="poll-ad-iframe" src="http://<?php echo $_SERVER['SERVER_NAME']; ?>/iframe-ad.php?ad_code=imo.gunsandammo&size=728x90&camp=<?php echo $camp; ?>" width=728 height=90></iframe>
+			<iframe id="poll-ad-iframe" src="http://<?php echo $_SERVER['SERVER_NAME']; ?>/iframe-ad.php?ad_code=imo.gunsandammo&size=728x90&camp=<?php echo $camp; ?>" width=736 height=106></iframe>
 		</div>	
 	</div>
 </div>

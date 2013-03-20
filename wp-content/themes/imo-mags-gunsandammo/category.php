@@ -120,7 +120,18 @@ Iain Harrison.</p>
 		<h1>Defend Thyself</h1>
 		<div class="presented-by">Presented By</div>
 		<p>Tips and tactics for defending your home, your family and your life from Personal Defense expert James Tarr.</p>
-		<div class="sponsor-logo"></div>
+		<!-- Site - Guns and Ammo/defend_thyself -->
+		<div class="dt-sponsor">
+			<script type="text/javascript">
+			  var ord = window.ord || Math.floor(Math.random() * 1e16);
+			  document.write('<a href="http://ad.doubleclick.net/N4930/jump/imo.gunsandammo/defend_thyself;sz=86x86;ord=' + ord + '?"><img src="http://ad.doubleclick.net/N4930/ad/imo.gunsandammo/defend_thyself;sz=86x86;ord=' + ord + '?" width="86" height="86" /></a>');
+			</script>
+			<noscript>
+			<a href="http://ad.doubleclick.net/N4930/jump/imo.gunsandammo/defend_thyself;sz=86x86;ord=[timestamp]?">
+			<img src="http://ad.doubleclick.net/N4930/ad/imo.gunsandammo/defend_thyself;sz=86x86;ord=[timestamp]?" width="86" height="86" />
+			</a>
+			</noscript>
+		</div>
 	</div>
 	<?php } else if (is_category($nb_slug)) { ?>
 	<div class="blog-headers ganb">

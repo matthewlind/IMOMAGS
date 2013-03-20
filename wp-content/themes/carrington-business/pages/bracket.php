@@ -29,12 +29,10 @@ the_post();
 		<li><a href="/ga-madness/enter">Enter Now</a></li>
 		<li style="width:270px;"></li>
 		<li><a href="/ga-madness/prizes">Prizes & Rules</a></li>
-		<li><a href="/ga-madness/how-it-works">How it Works</a></li>
+		<li><a class="how-works">How it Works</a></li>
 	</ul>
 	<div class="ga-madness-nav-logo"></div>
-	
-	<h1><?php the_title(); ?></h1>
-	<?php edit_post_link(__('Edit', 'carrington-business')); ?>
+	<h1 style="margin-left:-99999px;height:0;"><?php the_title(); ?></h1>
 </header><!-- #masthead -->
 <div class="col-abc">
 	<div <?php post_class('entry entry-full clearfix'); ?>>
@@ -59,17 +57,17 @@ the_post();
 				        <th class="round_1 current"> 1st ROUND </th>
 				      </tr>
 				      <tr>
-				        <td class="current"> March 18-19 </td>
-				        <td> March 20-21 </td>
-				        <td> March 25-26 </td>
-				        <td> March 27-28 </td>
-				        <td> April 3 </td>
-				        <td> April 5 </td>
-				        <td> April 3 </td>
-				        <td> March 27-28 </td>
-				        <td> March 25-26 </td>
-				        <td> March 20-21 </td>
-				        <td class="current"> March 18-19 </td>
+				        <td class="current"> March 21-24 </td>
+				        <td> March 25-27 </td>
+				        <td> March 28-31 </td>
+				        <td> April 1-3 </td>
+				        <td> April 4-7 </td>
+				        <td> April 8-9 </td>
+				        <td> April 4-7 </td>
+				        <td> April 1-3 </td>
+				        <td> March 28-31 </td>
+				        <td> March 25-27 </td>
+				        <td class="current"> March 21-24 </td>
 				      </tr>
 				    </table>
 				  </div>
@@ -86,57 +84,58 @@ the_post();
 				        <h4 class="region1 first_region">
 				         Handguns
 				        </h4>
-				        <div id="match18" class="open-poll match m1" poll="smith-wesson-mp-shield-vs-beretta-nano">
+				        <div class="bracket-sponsor galco">Presented by:<br /><a href="http://www.usgalco.com/default.asp" target="_blank"><img src="/wp-content/themes/imo-mags-gunsandammo/img/galco-bracket-logo.png" alt="Galco" /></a></div>
+				        <div id="match18" class="open-poll match m1" poll="smith-wesson-mp-shield-vs-beretta-nano" pollNum="1">
 				          <p class="slot slot1"><!--<strike>--><span class="seed">1</span>S&W M&P Shield<!--</strike>--></p>
 				          <p class="slot slot2"><!--<strong>--><span class="seed">16</span>Beretta Nano<!--</strong>--></p>
-				          <a class="vote" style="display:none;">Vote</a>
+				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!-- /#match18 -->
-				        <div id="match19" class="open-poll match m2" poll="kimber-solo-9mm-vs-kahr-p380">
+				        <div id="match19" class="open-poll match m2" poll="kimber-solo-9mm-vs-kahr-p380" pollNum="2">
 				          <p class="slot slot1"><span class="seed">8</span>Kimber Solo 9mm </p>
 				          <p class="slot slot2"><span class="seed">9</span>Kahr P380</p>
-				          <a class="vote" style="display:none;">Vote</a>
+				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!-- /#match19 -->
-				        <div id="match20" class="open-poll match m3" poll="sw-performance-center-1911-vs-taurus-raging-judge-magnum">
-				          <p class="slot slot1"><span class="seed">5</span>S&W Performance Center 1911</p>
-				          <p class="slot slot2"><span class="seed">12</span>Taurus Raging Judge Magnum</p>
-				          <a class="vote" style="display:none;">Vote</a>
+				        <div id="match20" class="open-poll match m3" poll="sw-performance-center-1911-vs-taurus-raging-judge-magnum" pollNum="3">
+				          <p class="slot slot1"><span class="seed">5</span>S&W Perform...</p>
+				          <p class="slot slot2"><span class="seed">12</span>Taurus Raging...</p>
+				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!-- /#match20 -->
-				        <div id="match21" class="open-poll match m4" poll="springfield-xds-vs-colt-mustang-pocketlite">
+				        <div id="match21" class="open-poll match m4" poll="springfield-xds-vs-colt-mustang-pocketlite" pollNum="4">
 				          <p class="slot slot1"><span class="seed">4</span>Springfield XDs</p>
-				          <p class="slot slot2"><span class="seed">13</span>Colt Mustang Pocketlite</p>
-				          <a class="vote" style="display:none;">Vote</a>
+				          <p class="slot slot2"><span class="seed">13</span>Colt Mustang...</p>
+				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!-- /#match21 -->
-				        <div id="match22" class="open-poll match m5" poll="ruger-sr22-vs-remington-r1-carry">
+				        <div id="match22" class="open-poll match m5" poll="ruger-sr22-vs-remington-r1-carry" pollNum="5">
 				          <p class="slot slot1"><span class="seed">6</span>Ruger SR22</p>
-				          <p class="slot slot2"><span class="seed">11</span>Remington R1 Carry</p>
-				          <a class="vote" style="display:none;">Vote</a>
+				          <p class="slot slot2"><span class="seed">11</span>Remington R1...</p>
+				          <a class="vote">Vote</a>
 				        </div>
-				        <div id="match23" class="open-poll match m6" poll="cz-p-09-duty-vs-taurus-millenium-g2">
+				        <div id="match23" class="open-poll match m6" poll="cz-p-09-duty-vs-taurus-millenium-g2" pollNum="6">
 				          <p class="slot slot1"><span class="seed">3</span>CZ P-09 Duty</p>
-				          <p class="slot slot2"><span class="seed">14</span>Taurus Millenium G2 </p>
-				          <a class="vote" style="display:none;">Vote</a>
+				          <p class="slot slot2"><span class="seed">14</span>Taurus Millen... </p>
+				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!-- /#match23 -->
-				        <div id="match24" class="open-poll match m7" poll="walther-ppq-vs-sig-p938">
+				        <div id="match24" class="open-poll match m7" poll="walther-ppq-vs-sig-p938" pollNum="7">
 				          <p class="slot slot1"><span class="seed">7</span>Walther PPQ</p>
 				          <p class="slot slot2"><span class="seed">10</span>Sig P938</p>
-				          <a class="vote" style="display:none;">Vote</a>
+				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!-- /#match24 -->
-				        <div id="match25" class="open-poll match m8" poll="glock-17-gen4-vs-ruger-single-nine">
+				        <div id="match25" class="match m8 open-poll" poll="glock-17-gen4-vs-ruger-single-nine" pollNum="8">
 				          <p class="slot slot1"><span class="seed">2</span>Glock 17 Gen4</p>
-				          <p class="slot slot2"><span class="seed">15</span>Ruger Single-Nine</p>
-				          <a class="vote" style="display:none;">Vote</a>
+				          <p class="slot slot2"><span class="seed">15</span>Ruger Single-9</p>
+				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!-- /#match25 -->
@@ -147,83 +146,90 @@ the_post();
 				        <h4 class="region2 first_region">
 				          Rifles
 				        </h4>
-				        <div id="match26" class="match m1">
+				        <div id="match26" class="match m1 open-poll" poll="ruger-gunsite-scout-rifle-vs-savage-hog-hunter" pollNum="9">
 				          <p class="slot slot1">
-				            <span class="seed">1</span> UConn  
+				            <span class="seed">1</span>Ruger Gunsite...
 				          </p>
 				          <p class="slot slot2">
-				            <span class="seed">16</span> Chatt.  
+				            <span class="seed">16</span>Savage Hog...
 				          </p>
+				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!-- /#match26 -->
-				        <div id="match27" class="match m2">
+				        <div id="match27" class="match m2 open-poll" poll="sako-trg-m10-vs-weatherby-vanguard-series-2" pollNum="10">
 				          <p class="slot slot1">
-				            <span class="seed">8</span> BYU  
+				            <span class="seed">8</span> Sako TRG M10 
 				          </p>
 				          <p class="slot slot2">
-				            <span class="seed">9</span> Texas A&amp;M  
+				            <span class="seed">9</span>  Weatherby Van...
 				          </p>
+				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!-- #/match27 -->
-				        <div id="match28" class="match m3">
+				        <div id="match28" class="match m3 open-poll" poll="nosler-model-48-trophy-grade-vs-remington-model-783" pollNum="11">
 				          <p class="slot slot1">
-				            <span class="seed">5</span> Purdue  
+				            <span class="seed">5</span> Nosler Model...
 				          </p>
 				          <p class="slot slot2">
-				            <span class="seed">12</span> N. Iowa  
+				            <span class="seed">12</span> Remington M...
 				          </p>
+				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!-- #/match28 -->
-				        <div id="match29" class="match m4">
+				        <div id="match29" class="match m4 open-poll" poll="kimber-84m-mountain-ascent-vs-475-turnbull-lever-gun" pollNum="12">
 				          <p class="slot slot1">
-				            <span class="seed">4</span> Washington  
+				            <span class="seed">4</span> Kimber 84M...
 				          </p>
 				          <p class="slot slot2">
-				            <span class="seed">13</span> Miss. St.  
+				            <span class="seed">13</span> .475 Turnbull...
 				          </p>
+				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!-- #/match29 -->
-				        <div id="match30" class="match m5">
+				        <div id="match30" class="match m5 open-poll" poll="browning-x-bolt-composite-stalker-vs-mossberg-mvp-7-62" pollNum="13">
 				          <p class="slot slot1">
-				            <span class="seed">6</span> Marquette  
+				            <span class="seed">6</span> Browning X-Bol...
 				          </p>
 				          <p class="slot slot2">
-				            <span class="seed">11</span> Utah St.  
+				            <span class="seed">11</span> Mossberg MVP... 
 				          </p>
+				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!-- /#match30 -->
-				        <div id="match31" class="match m6">
+				        <div id="match31" class="match m6 open-poll" poll="cz-455-varmint-evolution-vs-magnum-research-mlr22-review" pollNum="14">
 				          <p class="slot slot1">
-				            <span class="seed">3</span> Missouri  
+				            <span class="seed">3</span> CZ 455 Varm...
 				          </p>
 				          <p class="slot slot2">
-				            <span class="seed">14</span> Cornell  
+				            <span class="seed">14</span> Magnum Resea... 
 				          </p>
+				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!--/#match31-->
-				        <div id="match32" class="match m7">
+				        <div id="match32" class="match m7 open-poll" poll="ruger-1022-takedown-vs-apa-zombie-sniper" pollNum="15">
 				          <p class="slot slot1">
-				            <span class="seed">7</span> Cal  
+				            <span class="seed">7</span> Ruger 10/22...
 				          </p>
 				          <p class="slot slot2">
-				            <span class="seed">10</span> Maryland  
+				            <span class="seed">10</span> APA Zombie...   
 				          </p>
+				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!--/#match32-->
-				        <div id="match33" class="match m8">
+				        <div id="match33" class="match m8 open-poll" poll="daniel-defense-ddm4-300-sbr-vs-rock-river-arms-lar-47" pollNum="16">
 				          <p class="slot slot1">
-				            <span class="seed">2</span> Memphis  
-				          </p>
+				            <span class="seed">2</span> Daniel Defense...</p>
 				          <p class="slot slot2">
-				            <span class="seed">15</span> CS North  
+				            <span class="seed">15</span> Rock River...
 				          </p>
+				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!-- /#match33 -->
@@ -234,83 +240,95 @@ the_post();
 				        <h4 class="region3 first_region">
 				          Shotguns
 				        </h4>
-				        <div id="match65" class="match m1">
+				        <div class="bracket-sponsor wardog">Presented by:<br /><a href="http://www.wardogsafe.com/" target="_blank"><img src="/wp-content/themes/imo-mags-gunsandammo/img/wardog-logo.jpg" alt="Wardog" /></a></div>
+				       <div id="match26" class="match m1 open-poll" poll="benelli-m4-vs-wilson-combat-scattergun" pollNum="17">
 				          <p class="slot slot1">
-				            <span class="seed">1</span> Pitt  
+				            <span class="seed">1</span>Benelli M4
+
+
 				          </p>
 				          <p class="slot slot2">
-				            <span class="seed">16</span> E. Tenn. St. 
+				            <span class="seed">16</span>Wilson Comb... 
 				          </p>
+				          <a class="vote">Vote</a>
 				        </div>
 				
-				<!--#/match65-->
-				        <div id="match66" class="match m2">
+				<!-- /#match26 -->
+				        <div id="match27" class="match m2 open-poll" poll="kel-tec-ksg-vs-cz-coach-gun" pollNum="18">
 				          <p class="slot slot1">
-				            <span class="seed">8</span> Okla. St.  
+				            <span class="seed">8</span> Kel-Tec KSG  
 				          </p>
 				          <p class="slot slot2">
-				            <span class="seed">9</span> Tennessee  
+				            <span class="seed">9</span> CZ Coach Gun 
 				          </p>
+				          <a class="vote">Vote</a>
 				        </div>
 				
-				<!-- #/match66 -->
-				        <div id="match4" class="match m3">
+				<!-- #/match27 -->
+				        <div id="match28" class="match m3 open-poll" poll="saiga-12-vs-weatherby-pa-08-tr" pollNum="19">
 				          <p class="slot slot1">
-				            <span class="seed">5</span> FSU  
+				            <span class="seed">5</span> Saiga 12
+  
 				          </p>
 				          <p class="slot slot2">
-				            <span class="seed">12</span> Wisconsin  
+				            <span class="seed">12</span> Weatherby PA...
 				          </p>
+				          <a class="vote">Vote</a>
 				        </div>
 				
-				<!--/#match4 -->
-				        <div id="match5" class="match m4">
+				<!-- #/match28 -->
+				        <div id="match29" class="match m4 open-poll" poll="remington-m887-nitromag-vs-beretta-tx4-storm" pollNum="20">
 				          <p class="slot slot1">
-				            <span class="seed">4</span> Xavier  
+				            <span class="seed">4</span> Remington...
 				          </p>
 				          <p class="slot slot2">
-				            <span class="seed">13</span> Portland St.  
+				            <span class="seed">13</span> Beretta TX4...   
 				          </p>
+				          <a class="vote">Vote</a>
 				        </div>
 				
-				<!-- /#match5 -->
-				        <div id="match6" class="match m5">
+				<!-- #/match29 -->
+				        <div id="match30" class="match m5 open-poll" poll="browning-a5-vs-mossberg-flex" pollNum="21">
 				          <p class="slot slot1">
-				            <span class="seed">6</span> UCLA  
+				            <span class="seed">6</span> Browning A5 
 				          </p>
 				          <p class="slot slot2">
-				            <span class="seed">11</span> VCU  
+				            <span class="seed">11</span> Mossberg Flex  
 				          </p>
+				          <a class="vote">Vote</a>
 				        </div>
 				
-				<!-- /#match6 -->
-				        <div id="match7" class="match m6">
+				<!-- /#match30 -->
+				        <div id="match31" class="match m6 open-poll" poll="franchi-affinity-vs-ruger-red-label-20" pollNum="22">
 				          <p class="slot slot1">
-				            <span class="seed">3</span> Villanova  
+				            <span class="seed">3</span> Franchi Affinity  
 				          </p>
 				          <p class="slot slot2">
-				            <span class="seed">14</span> American  
+				            <span class="seed">14</span> Ruger Red... 
 				          </p>
+				          <a class="vote">Vote</a>
 				        </div>
 				
-				<!-- /#match7 -->
-				        <div id="match8" class="match m7">
+				<!--/#match31-->
+				        <div id="match32" class="match m7 open-poll" poll="beretta-dt-11-vs-mossberg-maverick" pollNum="23">
 				          <p class="slot slot1">
-				            <span class="seed">7</span> Texas  
+				            <span class="seed">7</span> Beretta DT-11
 				          </p>
 				          <p class="slot slot2">
-				            <span class="seed">10</span> Minnesota  
+				            <span class="seed">10</span> Mossberg Mav...    
 				          </p>
+				          <a class="vote">Vote</a>
 				        </div>
 				
-				<!-- /#match8 -->
-				        <div id="match9" class="match m8">
+				<!--/#match32-->
+				        <div id="match33" class="match m8 open-poll" poll="fnh-slp-mark-i-vs-remington-versa-max-sportsman" pollNum="24">
 				          <p class="slot slot1">
-				            <span class="seed">2</span> Duke  
+				            <span class="seed">2</span> FNH SLP Mark I
 				          </p>
 				          <p class="slot slot2">
-				            <span class="seed">15</span> Binghamton  
+				            <span class="seed">15</span> Remington Ver... 
 				          </p>
+				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!-- /#match9 -->
@@ -319,86 +337,96 @@ the_post();
 				<!-- start region4 -->
 				      <div class="region region4">
 				        <h4 class="region4 first_region">
-				          AR-15 
+				          AR-15s 
 				        </h4>
-				        <div id="match10" class="match m1">
+				        <div class="bracket-sponsor slidefire">Presented by:<br /><a href="http://www.slidefire.com/" target="_blank"><img src="/wp-content/themes/imo-mags-gunsandammo/img/slidefire-logo.jpg" alt="Slide Fire" /></a></div>
+				        
+				         <div id="match17" class="match m8 open-poll" poll="tc-dimension-vs-savage-model-25" pollNum="25">
 				          <p class="slot slot1">
-				            <span class="seed">1</span> UNC  
+				            <span class="seed">2</span> T/C Dimension
 				          </p>
 				          <p class="slot slot2">
-				            <span class="seed">16</span> Radford  
+				            <span class="seed">15</span> Savage Model 25    
 				          </p>
+				          <a class="vote">Vote</a>
+				        </div>
+				        
+				        <div id="match10" class="match m1 open-poll" poll="spikes-tactical-compressor-sbr-300-blk-vs-mossberg-mmr" pollNum="26">
+				          <p class="slot slot1">
+				            <span class="seed">1</span> Spike's Tact...
+				          </p>
+				          <p class="slot slot2">
+				            <span class="seed">16</span> Mossberg MMR  
+				          </p>
+				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!-- /#match10 -->
-				        <div id="match11" class="match m2">
+				        <div id="match11" class="match m2 open-poll" poll="wilson-combat-recon-tactical-vs-dpms-300-aac-blackout" pollNum="27">
 				          <p class="slot slot1">
-				            <span class="seed">8</span> LSU  
+				            <span class="seed">8</span> Wilson Combat...
 				          </p>
 				          <p class="slot slot2">
-				            <span class="seed">9</span> Butler  
+				            <span class="seed">9</span> DPMS 300-AAC... 
 				          </p>
+				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!-- /#match11 -->
-				        <div id="match12" class="match m3">
+				        <div id="match12" class="match m3 open-poll" poll="smith-wesson-mp15-300-whisper-vs-remington-r-25" pollNum="28">
 				          <p class="slot slot1">
-				            <span class="seed">5</span> Illinois  
+				            <span class="seed">5</span> S&W M&P15...
 				          </p>
 				          <p class="slot slot2">
-				            <span class="seed">12</span> Kentucky  
+				            <span class="seed">12</span> Remington R-25  
 				          </p>
+				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!-- /#match12 -->
-				        <div id="match13" class="match m4">
+				        <div id="match13" class="match m4 open-poll" poll="larue-tactical-costa-edition-hybrid-vs-stag-arms-3g" pollNum="29">
 				          <p class="slot slot1">
-				            <span class="seed">4</span> Gonzaga  
+				            <span class="seed">4</span> LaRue Tactical... 
 				          </p>
 				          <p class="slot slot2">
-				            <span class="seed">13</span> Akron  
+				            <span class="seed">13</span> Stag Arms 3G  
 				          </p>
+				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!-- /#match13 -->
-				        <div id="match14" class="match m5">
+				        <div id="match14" class="match m5 open-poll" poll="lwrci-repr-vs-bravo-company-eag-tactical" pollNum="30">
 				          <p class="slot slot1">
-				            <span class="seed">6</span> Arizona St.  
+				            <span class="seed">6</span> LWRCI REPR  
 				          </p>
 				          <p class="slot slot2">
-				            <span class="seed">11</span> Temple  
+				            <span class="seed">11</span> Bravo Comp...  
 				          </p>
+				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!-- /#match14 -->
-				        <div id="match15" class="match m6">
+				        <div id="match15" class="match m6 open-poll" poll="alexander-arms-gsr-vs-sig-sauer-m400" pollNum="31">
 				          <p class="slot slot1">
-				            <span class="seed">3</span> Syracuse  
+				            <span class="seed">3</span> Alexander Arms...  
 				          </p>
 				          <p class="slot slot2">
-				            <span class="seed">14</span> S.F. Austin  
+				            <span class="seed">14</span> SIG Sauer M400 
 				          </p>
+				          <a class="vote">Vote</a>
 				        </div>
-				        <div id="match16" class="match m7">
+			   <!-- /#match15 -->
+				        <div id="match16" class="match m7 open-poll" poll="colt-le901-16s-vs-nosler-varmageddon-ar" pollNum="32">
 				          <p class="slot slot1">
-				            <span class="seed">7</span> Clemson  
+				            <span class="seed">7</span> Colt LE901-16S 
 				          </p>
 				          <p class="slot slot2">
-				            <span class="seed">10</span> Michigan  
+				            <span class="seed">10</span> Nosler Varmag...  
 				          </p>
+				          <a class="vote">Vote</a>
 				        </div>
-				
-				<!-- /#match16 -->
-				        <div id="match17" class="match m8">
-				          <p class="slot slot1">
-				            <span class="seed">2</span> Oklahoma  
-				          </p>
-				          <p class="slot slot2">
-				            <span class="seed">15</span> State  
-				          </p>
-				        </div>
-				
-				<!-- /#match17 -->
+
+
 				      </div>
 				<!-- /.region4 -->
 				    </div>
@@ -413,10 +441,10 @@ the_post();
 				        </h4>
 				        <div id="match41" class="match m1">
 				          <p rel="match18" class="slot slot1">
-				            <span class="seed">1</span> TEAM 
+				          
 				          </p>
 				          <p rel="match19" class="slot slot2">
-				            <span class="seed">9</span> TEAM 
+				           
 				          </p>
 				        </div>
 				
@@ -716,14 +744,15 @@ the_post();
 				      <h3>
 				        Round Six (2010 NCAA Men's Basketball Tournament) 
 				      </h3>
+				      <div class="bracket-sponsor ffl123">Final Four Presented by:<img src="/wp-content/themes/imo-mags-gunsandammo/img/ffl123-logo.jpg" alt="FFL123" /></div>
 				      <div class="region">
 				        <div id="match64" class="match m1">
 				          <p class="slot slot1" id="slot127">
-				            <strong><span class="seed">0</span> Winner <em class="score">65</em></strong>
+				            <strong><!--<span class="seed">0</span>--> Winner <!--<em class="score">65</em></strong>-->
 				<!-- winner -->
 				          </p>
 				          <p class="slot slot2" id="slot128">
-				            <strike><span class="seed">4</span> Loser <em class="score">60</em></strike>
+				            <!--<strike><span class="seed">4</span>--> Loser <!--<em class="score">60</em></strike>-->
 				<!-- loser -->
 				          </p>
 				        </div>
@@ -740,14 +769,56 @@ the_post();
 	</div><!-- .entry -->
 </div><!-- .col-abc -->
 
-<div id="bracket-modal" class="new-superpost-modal-container new-superpost-box" style="display:none;width:740px;background-color:white;">
+<div class="page-template-page-right-php">
+	<div id="sidebar">
+		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-default')) : else : ?><?php endif; ?>
+		<div id="responderfollow"></div>
+		<div class="sidebar advert">
+			<script type="text/javascript">
+	              document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dartadsgen_site+'/;sect=;page=index;pos=btf;subs=;sz=300x250;dcopt=;tile='+pr_tile+';ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
+	            </script>
+	            <script type="text/javascript">
+	              ++pr_tile;
+	            </script>
+	            <noscript>
+	              <a href="http://ad.doubleclick.net/adj/imo.outdoorsbest/;sect=;page=index;pos=btf;subs=;sz=300x250;dcopt=;tile=1;ord=7391727509?">
+	                <img src="http://ad.doubleclick.net/ad/imo.outdoorsbest/home;sect=;page=index;pos=btf;subs=;sz=300x250;dcopt=;tile=1;ord=7391727509?" border="0" />
+	              </a>
+	            </noscript>
+
+			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('scroll-sidebar')) : else : endif; ?>
+		</div>
+	</div>
+
+	<div class="col-abc ga-madness-comments">
+		<?php comments_template(); ?>
+	</div><!-- .col-abc -->
+</div><!-- .page-template-page-right-php-->
+
+<div id="bracket-modal" class="new-superpost-modal-container new-superpost-box" style="display:none;width:740px;height:558px;background-color:white;">
 	<div class="ga-madness-logo"></div>
 	<div class="poll-area"></div>
 	<div class="extra-poll-content" style="display:none;">
 		<div class="vote-thumb" style="display:none;"></div>
 		<div class="vs">vs.</div>
 	</div>
-	<div class="voted" style="display:none;"><h4>You have already voted for this poll.</h4></div>
+	<div class="poll-pagination" style="display:none;">
+			<a class="prev-poll">Previous Matchup</a>
+			<a class="next-poll">Next Matchup</a>
+		</div>
+	<div id="Gen" class="marginLeft">
+		<div class="block" id="rotate_01"></div>
+		<div class="block" id="rotate_02"></div>
+		<div class="block" id="rotate_03"></div>
+		<div class="block" id="rotate_04"></div>
+		<div class="block" id="rotate_05"></div>
+		<div class="block" id="rotate_06"></div>
+		<div class="block" id="rotate_07"></div>
+		<div class="block" id="rotate_08"></div>
+		<div class="clearfix"></div>
+		<p>Loading...</p>
+	</div>
+	
 </div>
 
 <?php get_footer(); ?>

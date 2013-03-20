@@ -146,7 +146,195 @@ $(function(){
 	}
 });
 
-
+/*****
+**
+** IMO G&A Madness
+**
+*****/
+if(document.domain +"/ga-madness"){
+	$(document).ready(function(){
+	
+		/*** How it Works Modal ***/
+		$(".how-works").click(function(event){	
+			
+			$("#bracket-modal").modal({
+				opacity:50,
+				minHeight: 540,
+		        overlayClose: true,
+		        autoPosition: true,
+		       
+		        onShow: function(dialog) {
+		        	// load the how it works page div
+		        	$('#Gen').fadeIn();
+			        $('.poll-area').load( '/ga-madness/how-it-works .entry-content', function(){
+				    	$('#Gen').hide();
+				    	$("#bracket-modal").css("overflow","scroll");
+				    	
+				    });
+	
+			     },
+	
+			});
+		
+		});	
+		
+		/*** Modal Bracket ***/	 
+		$(".open-poll").click(function(event){	
+			//grab the slug for the poll
+			var $slug = $(this).attr('poll');
+			var $pollNum = $(this).attr('pollNum');
+			
+			//Poll content
+			function loadPoll(){
+			//if( $(".wp-polls-form").length > 0 ){
+		     	$li1 = $('.wp-polls-ans ul').find("li").eq(0);
+		     	$li2 = $('.wp-polls-ans ul').find("li").eq(1);
+	    		$inputImg1 = $('.wp-polls-ans ul').find("li:eq(0) .poll-image img");
+	    		$inputImg2 = $('.wp-polls-ans ul').find("li:eq(1) .poll-image img");
+	    		
+	    		//reveal the ad and choose buttons after poll has loaded
+	    		$('.extra-poll-content').fadeIn();
+	    		
+	    		
+	    		//choose the gun
+	    		$li1.click(function(event){
+					$($inputImg1).css("border","4px solid #ce181e");
+					$($inputImg2).css("border","4px solid white");	
+					$('.vote-thumb').css("left", "165px");
+					$('.vote-thumb').css("display","block");
+	    		});
+	    		
+	    		$li2.click(function(event){
+					$($inputImg1).css("border","4px solid white");
+					$($inputImg2).css("border","4px solid #ce181e");
+					$('.vote-thumb').css("left", "525px");
+					$('.vote-thumb').css("display","block");
+						
+	    		});
+	    		
+	    		$li1.mouseover(function() {		
+	    			$($inputImg1).css("border","4px solid #ce181e");
+					$($inputImg2).css("border","4px solid white");	
+	    		});	
+			
+				
+				$li2.mouseover(function() {		
+					$($inputImg1).css("border","4px solid white");
+					$($inputImg2).css("border","4px solid #ce181e");
+	    		});	
+	    		
+	    		$li1.mouseout(function() {		
+					$($inputImg1).css("border","4px solid white");	
+	    		});	
+			
+				
+				$li2.mouseout(function() {		
+					$($inputImg2).css("border","4px solid white");
+	    		});	
+	
+	    		$(".wp-polls .Buttons").mouseover(function() {	
+	    			$(".wp-polls .Buttons").css("background","black");
+	    		});
+	    		
+	    		
+			
+			//}else{
+	    		//$(".voted").show();
+	    		//$(".poll-image img").css("opacity",0.5);
+			//}
+		}
+			
+		//Voting Modal
+		$("#bracket-modal").modal({
+			opacity:50,
+			minHeight: 540,
+	        overlayClose: true,
+	        autoPosition: true,
+	        
+	        onShow: function(dialog) {
+	        	// load the poll page div
+	        	$('#Gen').fadeIn();
+		        $('.poll-area').load( '/ga_madness/' + $slug + ' .entry-content', function(){
+		        	$('#Gen').hide();
+		        	loadPoll();
+        			$(".poll-pagination").fadeIn();
+        			
+        		
+        			//close current poll and open next poll
+	        		$(".next-poll").click(function(event){
+		
+	        			//Get the next poll for pagination
+	        			var $pollString = $pollNum;
+	        			var $pollInteger;
+	
+	        			$pollInteger = parseInt($pollString);
+	        			var $pollNumNext = $pollInteger + 1;
+	        			
+	        			if($pollNumNext == 33){
+		        			$pollNumNext = 1;
+	        			}
+	        			
+	        				        			
+	        			var $nextPoll = $("#bracket").find(".open-poll[pollNum=" + $pollNumNext + "]");
+	        			var $nextSlug =  $nextPoll.attr("poll");
+		        		
+		        		$('#Gen').fadeIn();		        		
+	        			$('.poll-area').load( '/ga_madness/' + $nextSlug + ' .entry-content', function(){
+	        				$('#Gen').hide();
+	        				//Update the poll number
+	        				$pollNum = $pollNumNext;
+	        				$(".vote-thumb").hide();
+	        				loadPoll();	
+	        				
+	        				//fix for not reading the length when paginating
+	        				//if( $(".wp-polls-form").length > 0 ){
+		        			//	$(".voted").hide();
+	        				//}
+	                	});
+        		
+			        });
+			        
+			        //close current poll and open next poll
+	        		$(".prev-poll").click(function(event){
+	        			
+	        			//Get the next poll for pagination
+	        			var $pollString = $pollNum;
+	        			var $pollInteger;
+	
+	        			$pollInteger = parseInt($pollString);
+	        			var $pollNumPrev = $pollInteger - 1;
+	        			
+	        			//reset poll number for loop
+	        			if($pollNumPrev == 0){
+		        			$pollNumPrev = 32;
+	        			}
+	        			
+	        			var $prevPoll = $("#bracket").find(".open-poll[pollNum=" + $pollNumPrev + "]");
+	        			var $prevSlug =  $prevPoll.attr("poll");
+		        		
+		        		//clear the html from the current poll
+		        		$('#Gen').fadeIn();		        		
+	        			$('.poll-area').load( '/ga_madness/' + $prevSlug + ' .entry-content', function(){
+	        				$('#Gen').hide();
+	        				//Update the poll number
+	        				$pollNum = $pollNumPrev;
+	        				$(".vote-thumb").hide();
+	        				loadPoll();	
+			        	});
+        		
+			        });
+			 });			
+			    		
+				     // close the modal						
+				     $("#bracket-modal a.hide-this").click(function(){
+				        $.modal.close();
+			        });
+		        },
+			 });
+		 });
+	
+	}); 				
+}
 
 // Category page sliders
 $(document).ready(function(){
