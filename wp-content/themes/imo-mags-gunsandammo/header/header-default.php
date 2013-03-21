@@ -72,7 +72,8 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
 	
 	</div>
 	<header id="header">
-	<div class="container">
+
+    <div class="container">
 	
       <a href="<?php echo home_url('/'); ?>" class="brand" title="<?php _e('Home', 'carrington-business') ?>"><img src="<?php print get_stylesheet_directory_uri(); ?>/img/logo.png" alt="<?php bloginfo('name'); ?>" /></a>
       

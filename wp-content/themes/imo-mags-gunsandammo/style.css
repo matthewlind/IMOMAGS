@@ -7635,14 +7635,18 @@ li.no-vote:hover img{
 .poll-related li a:hover{
 	color: #ce181e;
 }
-.maddness-contest-enter{
+.madness-contest-enter{
 	width: 358px;
 	height: 90px;
 	background: #999;
 	float: left;
 	text-align: center;
 }
-.maddness-contest-enter h3{
+.madness-contest-enter img{
+	padding-top: 2px;
+	background: white;
+}
+.madness-contest-enter h3{
 	margin-top: 28px;
 }
 /*** Poll Pagination ***/

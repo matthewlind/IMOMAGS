@@ -151,9 +151,9 @@ $(function(){
 ** IMO G&A Madness
 **
 *****/
-if(document.domain +"/ga-madness"){
+if(document.domain +"/bracket"){
 	$(document).ready(function(){
-	
+		
 		/*** How it Works Modal ***/
 		$(".how-works").click(function(event){	
 			
@@ -166,7 +166,7 @@ if(document.domain +"/ga-madness"){
 		        onShow: function(dialog) {
 		        	// load the how it works page div
 		        	$('#Gen').fadeIn();
-			        $('.poll-area').load( '/ga-madness/how-it-works .entry-content', function(){
+			        $('.poll-area').load( '/bracket/how-it-works .entry-content', function(){
 				    	$('#Gen').hide();
 				    	$("#bracket-modal").css("overflow","scroll");
 				    	
@@ -259,7 +259,6 @@ if(document.domain +"/ga-madness"){
 		        	loadPoll();
         			$(".poll-pagination").fadeIn();
         			
-        		
         			//close current poll and open next poll
 	        		$(".next-poll").click(function(event){
 		
@@ -273,7 +272,6 @@ if(document.domain +"/ga-madness"){
 	        			if($pollNumNext == 33){
 		        			$pollNumNext = 1;
 	        			}
-	        			
 	        				        			
 	        			var $nextPoll = $("#bracket").find(".open-poll[pollNum=" + $pollNumNext + "]");
 	        			var $nextSlug =  $nextPoll.attr("poll");
