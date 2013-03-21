@@ -29,15 +29,15 @@ $title2 = get_post_meta($id, 'ecpt_poll-related-title-2', true);
 		<?php the_content(__('Continued&hellip;', 'carrington-business')); ?>
 		<div class="divider"></div>
 		<div class="poll-related">
-			<h4>Related Articles</h2>
+			<h4>The Matchups</h2>
 			<?php var_dump() ?>
 			<ul>
 				<?php if($title != ""){ ?><li><a href="<?php echo $url; ?>" target="_blank"><?php echo $title; ?></a></li><?php } ?>
 				<?php if($title2 != ""){ ?><li><a href="<?php echo $url2; ?>" target="_blank"><?php echo $title2; ?></a></li><?php } ?>
-				<?php if($title == "" && $title2 == ""){ echo "<p>There are no related articles.</p>"; } ?>
+				<?php if($title == "" && $title2 == ""){ echo "<p>There are no matchups.</p>"; } ?>
 			</ul>
 		</div>
-		<div class="maddness-contest-enter"><a href="/ga-madness/enter"><img src="/wp-content/themes/imo-mags-gunsandammo/img/ga-madness-358x90.jpg" alt="Enter G&A Madness" /></a></div>
+		<div class="madness-contest-enter"><a href="/bracket/enter" target="_blank"><img src="/wp-content/themes/imo-mags-gunsandammo/img/ga-madness-358x90.jpg" alt="Enter G&A Madness" /></a></div>
 		<div class="vote-ad">
 			<iframe id="poll-ad-iframe" src="http://<?php echo $_SERVER['SERVER_NAME']; ?>/iframe-ad.php?ad_code=imo.gunsandammo&size=728x90&camp=<?php echo $camp; ?>" width=736 height=106></iframe>
 		</div>	

@@ -151,9 +151,9 @@ $(function(){
 ** IMO G&A Madness
 **
 *****/
-if(document.domain +"/ga-madness"){
+if(document.domain +"/bracket"){
 	$(document).ready(function(){
-	
+		
 		/*** How it Works Modal ***/
 		$(".how-works").click(function(event){	
 			
@@ -166,7 +166,7 @@ if(document.domain +"/ga-madness"){
 		        onShow: function(dialog) {
 		        	// load the how it works page div
 		        	$('#Gen').fadeIn();
-			        $('.poll-area').load( '/ga-madness/how-it-works .entry-content', function(){
+			        $('.poll-area').load( '/bracket/how-it-works .entry-content', function(){
 				    	$('#Gen').hide();
 				    	$("#bracket-modal").css("overflow","scroll");
 				    	
@@ -186,7 +186,7 @@ if(document.domain +"/ga-madness"){
 			
 			//Poll content
 			function loadPoll(){
-			//if( $(".wp-polls-form").length > 0 ){
+			if( $(".wp-polls-form").length > 0 ){
 		     	$li1 = $('.wp-polls-ans ul').find("li").eq(0);
 		     	$li2 = $('.wp-polls-ans ul').find("li").eq(1);
 	    		$inputImg1 = $('.wp-polls-ans ul').find("li:eq(0) .poll-image img");
@@ -236,12 +236,12 @@ if(document.domain +"/ga-madness"){
 	    			$(".wp-polls .Buttons").css("background","black");
 	    		});
 	    		
-	    		
-			
-			//}else{
-	    		//$(".voted").show();
-	    		//$(".poll-image img").css("opacity",0.5);
-			//}
+
+			}else{
+	    		$(".voted").show();
+	    		$(".poll-image img").css("opacity",0.5);
+	    		$(".poll-pagination").css("top","-254px");
+			}
 		}
 			
 		//Voting Modal
@@ -259,7 +259,6 @@ if(document.domain +"/ga-madness"){
 		        	loadPoll();
         			$(".poll-pagination").fadeIn();
         			
-        		
         			//close current poll and open next poll
 	        		$(".next-poll").click(function(event){
 		
@@ -273,7 +272,6 @@ if(document.domain +"/ga-madness"){
 	        			if($pollNumNext == 33){
 		        			$pollNumNext = 1;
 	        			}
-	        			
 	        				        			
 	        			var $nextPoll = $("#bracket").find(".open-poll[pollNum=" + $pollNumNext + "]");
 	        			var $nextSlug =  $nextPoll.attr("poll");
@@ -287,9 +285,10 @@ if(document.domain +"/ga-madness"){
 	        				loadPoll();	
 	        				
 	        				//fix for not reading the length when paginating
-	        				//if( $(".wp-polls-form").length > 0 ){
-		        			//	$(".voted").hide();
-	        				//}
+	        				if( $(".wp-polls-form").length > 0 ){
+		        				$(".voted").hide();
+		        				$(".poll-pagination").css("top","-228px");
+	        				}
 	                	});
         		
 			        });
@@ -319,7 +318,13 @@ if(document.domain +"/ga-madness"){
 	        				//Update the poll number
 	        				$pollNum = $pollNumPrev;
 	        				$(".vote-thumb").hide();
-	        				loadPoll();	
+	        				loadPoll();
+	        				
+	        				//fix for not reading the length when paginating
+	        				if( $(".wp-polls-form").length > 0 ){
+		        				$(".voted").hide();
+		        				$(".poll-pagination").css("top","-228px");
+	        				}	
 			        	});
         		
 			        });

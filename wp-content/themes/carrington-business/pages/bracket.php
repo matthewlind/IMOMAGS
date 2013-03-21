@@ -22,23 +22,26 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 get_header();
 
 the_post();
+$pollNum = 1;
 ?>
 <header>
 	<ul id="ga-madness-nav">
-		<li><a href="/ga-madness">Gun Bracket</a></li>
-		<li><a href="/ga-madness/enter">Enter Now</a></li>
+		<li><a href="/bracket">Gun Bracket</a></li>
+		<li><a href="/bracket/enter">Enter Now</a></li>
 		<li style="width:270px;"></li>
-		<li><a href="/ga-madness/prizes">Prizes & Rules</a></li>
+		<li><a href="/bracket/prizes">Prizes & Rules</a></li>
 		<li><a class="how-works">How it Works</a></li>
 	</ul>
 	<div class="ga-madness-nav-logo"></div>
-	<!--<div class="bracket-header"></div>-->
 	<h1 style="margin-left:-99999px;height:0;"><?php the_title(); ?></h1>
 </header><!-- #masthead -->
 <div class="col-abc">
 	<div <?php post_class('entry entry-full clearfix'); ?>>
 		<div class="entry-content">
-			
+			<?php			
+			the_content(__('Continued&hellip;', 'carrington-business'));
+			wp_link_pages();
+			?>
 			<div id="content-wrapper">
 				  <div id="table">
 				
@@ -86,54 +89,54 @@ the_post();
 				         Handguns
 				        </h4>
 				        <div class="bracket-sponsor galco">Presented by:<br /><a href="http://www.usgalco.com/default.asp" target="_blank"><img src="/wp-content/themes/imo-mags-gunsandammo/img/galco-bracket-logo.png" alt="Galco" /></a></div>
-				        <div id="match18" class="open-poll match m1" poll="smith-wesson-mp-shield-vs-beretta-nano" pollNum="1">
+				        <div id="match18" class="open-poll match m1" poll="smith-wesson-mp-shield-vs-beretta-nano" pollNum="<?php echo $pollNum; ?>">
 				          <p class="slot slot1"><!--<strike>--><span class="seed">1</span>S&W M&P Shield<!--</strike>--></p>
 				          <p class="slot slot2"><!--<strong>--><span class="seed">16</span>Beretta Nano<!--</strong>--></p>
 				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!-- /#match18 -->
-				        <div id="match19" class="open-poll match m2" poll="kimber-solo-9mm-vs-kahr-p380" pollNum="2">
+				        <div id="match19" class="open-poll match m2" poll="kimber-solo-9mm-vs-kahr-p380" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
 				          <p class="slot slot1"><span class="seed">8</span>Kimber Solo 9mm </p>
 				          <p class="slot slot2"><span class="seed">9</span>Kahr P380</p>
 				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!-- /#match19 -->
-				        <div id="match20" class="open-poll match m3" poll="sw-performance-center-1911-vs-taurus-raging-judge-magnum" pollNum="3">
+				        <div id="match20" class="open-poll match m3" poll="sw-performance-center-1911-vs-taurus-raging-judge-magnum" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
 				          <p class="slot slot1"><span class="seed">5</span>S&W Perform...</p>
 				          <p class="slot slot2"><span class="seed">12</span>Taurus Raging...</p>
 				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!-- /#match20 -->
-				        <div id="match21" class="open-poll match m4" poll="springfield-xds-vs-colt-mustang-pocketlite" pollNum="4">
+				        <div id="match21" class="open-poll match m4" poll="springfield-xds-vs-colt-mustang-pocketlite" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
 				          <p class="slot slot1"><span class="seed">4</span>Springfield XDs</p>
 				          <p class="slot slot2"><span class="seed">13</span>Colt Mustang...</p>
 				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!-- /#match21 -->
-				        <div id="match22" class="open-poll match m5" poll="ruger-sr22-vs-remington-r1-carry" pollNum="5">
+				        <div id="match22" class="open-poll match m5" poll="ruger-sr22-vs-remington-r1-carry" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
 				          <p class="slot slot1"><span class="seed">6</span>Ruger SR22</p>
 				          <p class="slot slot2"><span class="seed">11</span>Remington R1...</p>
 				          <a class="vote">Vote</a>
 				        </div>
-				        <div id="match23" class="open-poll match m6" poll="cz-p-09-duty-vs-taurus-millenium-g2" pollNum="6">
+				        <div id="match23" class="open-poll match m6" poll="cz-p-09-duty-vs-taurus-millenium-g2" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
 				          <p class="slot slot1"><span class="seed">3</span>CZ P-09 Duty</p>
 				          <p class="slot slot2"><span class="seed">14</span>Taurus Millen... </p>
 				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!-- /#match23 -->
-				        <div id="match24" class="open-poll match m7" poll="walther-ppq-vs-sig-p938" pollNum="7">
+				        <div id="match24" class="open-poll match m7" poll="walther-ppq-vs-sig-p938" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
 				          <p class="slot slot1"><span class="seed">7</span>Walther PPQ</p>
 				          <p class="slot slot2"><span class="seed">10</span>Sig P938</p>
 				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!-- /#match24 -->
-				        <div id="match25" class="match m8 open-poll" poll="glock-17-gen4-vs-ruger-single-nine" pollNum="8">
+				        <div id="match25" class="match m8 open-poll" poll="glock-17-gen4-vs-ruger-single-nine" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
 				          <p class="slot slot1"><span class="seed">2</span>Glock 17 Gen4</p>
 				          <p class="slot slot2"><span class="seed">15</span>Ruger Single-9</p>
 				          <a class="vote">Vote</a>
@@ -147,7 +150,7 @@ the_post();
 				        <h4 class="region2 first_region">
 				          Rifles
 				        </h4>
-				        <div id="match26" class="match m1 open-poll" poll="ruger-gunsite-scout-rifle-vs-savage-hog-hunter" pollNum="9">
+				        <div id="match26" class="match m1 open-poll" poll="ruger-gunsite-scout-rifle-vs-savage-hog-hunter-2" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
 				          <p class="slot slot1">
 				            <span class="seed">1</span>Ruger Gunsite...
 				          </p>
@@ -158,29 +161,29 @@ the_post();
 				        </div>
 				
 				<!-- /#match26 -->
-				        <div id="match27" class="match m2 open-poll" poll="sako-trg-m10-vs-weatherby-vanguard-series-2" pollNum="10">
+				        <div id="match27" class="match m2 open-poll" poll="tc-dimension-vs-savage-model-25-2" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
 				          <p class="slot slot1">
-				            <span class="seed">8</span> Sako TRG M10 
+				            <span class="seed">8</span> T/C Dimension 
 				          </p>
 				          <p class="slot slot2">
-				            <span class="seed">9</span>  Weatherby Van...
+				            <span class="seed">9</span>  Savage Model...
 				          </p>
 				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!-- #/match27 -->
-				        <div id="match28" class="match m3 open-poll" poll="nosler-model-48-trophy-grade-vs-remington-model-783" pollNum="11">
+				        <div id="match28" class="match m3 open-poll" poll="browning-x-bolt-composite-stalker-vs-mossberg-mvp-7-62-2" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
 				          <p class="slot slot1">
-				            <span class="seed">5</span> Nosler Model...
+				            <span class="seed">5</span> Browning X-Bo...
 				          </p>
 				          <p class="slot slot2">
-				            <span class="seed">12</span> Remington M...
+				            <span class="seed">12</span> Mossberg MVP...
 				          </p>
 				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!-- #/match28 -->
-				        <div id="match29" class="match m4 open-poll" poll="kimber-84m-mountain-ascent-vs-475-turnbull-lever-gun" pollNum="12">
+				        <div id="match29" class="match m4 open-poll" poll="kimber-84m-mountain-ascent-vs-475-turnbull-lever-gun-2" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
 				          <p class="slot slot1">
 				            <span class="seed">4</span> Kimber 84M...
 				          </p>
@@ -191,29 +194,29 @@ the_post();
 				        </div>
 				
 				<!-- #/match29 -->
-				        <div id="match30" class="match m5 open-poll" poll="browning-x-bolt-composite-stalker-vs-mossberg-mvp-7-62" pollNum="13">
+				        <div id="match30" class="match m5 open-poll" poll="cz-455-varmint-evolution-vs-magnum-research-mlr22" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
 				          <p class="slot slot1">
-				            <span class="seed">6</span> Browning X-Bol...
+				            <span class="seed">6</span> CZ 455 Varm...
 				          </p>
 				          <p class="slot slot2">
-				            <span class="seed">11</span> Mossberg MVP... 
+				            <span class="seed">11</span> Magnum Re... 
 				          </p>
 				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!-- /#match30 -->
-				        <div id="match31" class="match m6 open-poll" poll="cz-455-varmint-evolution-vs-magnum-research-mlr22-review" pollNum="14">
+				        <div id="match31" class="match m6 open-poll" poll="nosler-model-48-trophy-grade-vs-remington-model-783-2" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
 				          <p class="slot slot1">
-				            <span class="seed">3</span> CZ 455 Varm...
+				            <span class="seed">3</span> Nosler Model...
 				          </p>
 				          <p class="slot slot2">
-				            <span class="seed">14</span> Magnum Resea... 
+				            <span class="seed">14</span> Remington M... 
 				          </p>
 				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!--/#match31-->
-				        <div id="match32" class="match m7 open-poll" poll="ruger-1022-takedown-vs-apa-zombie-sniper" pollNum="15">
+				        <div id="match32" class="match m7 open-poll" poll="ruger-1022-takedown-vs-apa-zombie-sniper-2" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
 				          <p class="slot slot1">
 				            <span class="seed">7</span> Ruger 10/22...
 				          </p>
@@ -224,11 +227,11 @@ the_post();
 				        </div>
 				
 				<!--/#match32-->
-				        <div id="match33" class="match m8 open-poll" poll="daniel-defense-ddm4-300-sbr-vs-rock-river-arms-lar-47" pollNum="16">
+				        <div id="match33" class="match m8 open-poll" poll="sako-trg-m10-vs-weatherby-vanguard-series-2-synthetic" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
 				          <p class="slot slot1">
-				            <span class="seed">2</span> Daniel Defense...</p>
+				            <span class="seed">2</span> Sako TRG M10 </p>
 				          <p class="slot slot2">
-				            <span class="seed">15</span> Rock River...
+				            <span class="seed">15</span> Weatherby Va...
 				          </p>
 				          <a class="vote">Vote</a>
 				        </div>
@@ -242,11 +245,9 @@ the_post();
 				          Shotguns
 				        </h4>
 				        <div class="bracket-sponsor wardog">Presented by:<br /><a href="http://www.wardogsafe.com/" target="_blank"><img src="/wp-content/themes/imo-mags-gunsandammo/img/wardog-logo.jpg" alt="Wardog" /></a></div>
-				       <div id="match26" class="match m1 open-poll" poll="benelli-m4-vs-wilson-combat-scattergun" pollNum="17">
+				       <div id="match26" class="match m1 open-poll" poll="kel-tec-ksg-vs-wilson-combat-scattergun-2" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
 				          <p class="slot slot1">
-				            <span class="seed">1</span>Benelli M4
-
-
+				            <span class="seed">1</span>Kel-Tec KSG
 				          </p>
 				          <p class="slot slot2">
 				            <span class="seed">16</span>Wilson Comb... 
@@ -255,32 +256,31 @@ the_post();
 				        </div>
 				
 				<!-- /#match26 -->
-				        <div id="match27" class="match m2 open-poll" poll="kel-tec-ksg-vs-cz-coach-gun" pollNum="18">
+				        <div id="match27" class="match m2 open-poll" poll="fnh-slp-mark-i-vs-remington-versa-max-sportsman-2" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
 				          <p class="slot slot1">
-				            <span class="seed">8</span> Kel-Tec KSG  
+				            <span class="seed">8</span> FNH SLP Mark I
 				          </p>
 				          <p class="slot slot2">
-				            <span class="seed">9</span> CZ Coach Gun 
+				            <span class="seed">9</span> Remington Ver...
 				          </p>
 				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!-- #/match27 -->
-				        <div id="match28" class="match m3 open-poll" poll="saiga-12-vs-weatherby-pa-08-tr" pollNum="19">
+				        <div id="match28" class="match m3 open-poll" poll="browning-a5-vs-mossberg-flex-2" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
 				          <p class="slot slot1">
-				            <span class="seed">5</span> Saiga 12
-  
+				            <span class="seed">5</span> Browning A5 
 				          </p>
 				          <p class="slot slot2">
-				            <span class="seed">12</span> Weatherby PA...
+				            <span class="seed">12</span> Mossberg Flex 
 				          </p>
 				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!-- #/match28 -->
-				        <div id="match29" class="match m4 open-poll" poll="remington-m887-nitromag-vs-beretta-tx4-storm" pollNum="20">
+				        <div id="match29" class="match m4 open-poll" poll="benelli-legacy-28-vs-beretta-tx4-storm" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
 				          <p class="slot slot1">
-				            <span class="seed">4</span> Remington...
+				            <span class="seed">4</span> Benelli Legacy...
 				          </p>
 				          <p class="slot slot2">
 				            <span class="seed">13</span> Beretta TX4...   
@@ -289,29 +289,29 @@ the_post();
 				        </div>
 				
 				<!-- #/match29 -->
-				        <div id="match30" class="match m5 open-poll" poll="browning-a5-vs-mossberg-flex" pollNum="21">
+				        <div id="match30" class="match m5 open-poll" poll="franchi-affinity-vs-ruger-red-label-20-2" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
 				          <p class="slot slot1">
-				            <span class="seed">6</span> Browning A5 
+				            <span class="seed">6</span> Franchi Affinity 
 				          </p>
 				          <p class="slot slot2">
-				            <span class="seed">11</span> Mossberg Flex  
+				            <span class="seed">11</span> Ruger Red...  
 				          </p>
 				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!-- /#match30 -->
-				        <div id="match31" class="match m6 open-poll" poll="franchi-affinity-vs-ruger-red-label-20" pollNum="22">
+				        <div id="match31" class="match m6 open-poll" poll="saiga-12-vs-weatherby-pa-08-tr-2" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
 				          <p class="slot slot1">
-				            <span class="seed">3</span> Franchi Affinity  
+				            <span class="seed">3</span> Saiga 12  
 				          </p>
 				          <p class="slot slot2">
-				            <span class="seed">14</span> Ruger Red... 
+				            <span class="seed">14</span> Weatherby... 
 				          </p>
 				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!--/#match31-->
-				        <div id="match32" class="match m7 open-poll" poll="beretta-dt-11-vs-mossberg-maverick" pollNum="23">
+				        <div id="match32" class="match m7 open-poll" poll="beretta-dt-11-vs-mossberg-maverick-2" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
 				          <p class="slot slot1">
 				            <span class="seed">7</span> Beretta DT-11
 				          </p>
@@ -322,12 +322,12 @@ the_post();
 				        </div>
 				
 				<!--/#match32-->
-				        <div id="match33" class="match m8 open-poll" poll="fnh-slp-mark-i-vs-remington-versa-max-sportsman" pollNum="24">
+				        <div id="match33" class="match m8 open-poll" poll="remington-m887-nitromag-vs-cz-coach-gun" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
 				          <p class="slot slot1">
-				            <span class="seed">2</span> FNH SLP Mark I
+				            <span class="seed">2</span> Remington M8...
 				          </p>
 				          <p class="slot slot2">
-				            <span class="seed">15</span> Remington Ver... 
+				            <span class="seed">15</span> CZ Coach Gun 
 				          </p>
 				          <a class="vote">Vote</a>
 				        </div>
@@ -338,21 +338,21 @@ the_post();
 				<!-- start region4 -->
 				      <div class="region region4">
 				        <h4 class="region4 first_region">
-				          AR-15s 
+				          AR-15 
 				        </h4>
 				        <div class="bracket-sponsor slidefire">Presented by:<br /><a href="http://www.slidefire.com/" target="_blank"><img src="/wp-content/themes/imo-mags-gunsandammo/img/slidefire-logo.jpg" alt="Slide Fire" /></a></div>
 				        
-				         <div id="match17" class="match m8 open-poll" poll="tc-dimension-vs-savage-model-25" pollNum="25">
+				         <div id="match17" class="match m8 open-poll" poll="wilson-combat-recon-tactical-vs-dpms-300-aac-blackout-2" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
 				          <p class="slot slot1">
-				            <span class="seed">2</span> T/C Dimension
+				            <span class="seed">2</span> Wilson Combat...
 				          </p>
 				          <p class="slot slot2">
-				            <span class="seed">15</span> Savage Model 25    
+				            <span class="seed">15</span> DPMS 300-A...   
 				          </p>
 				          <a class="vote">Vote</a>
 				        </div>
 				        
-				        <div id="match10" class="match m1 open-poll" poll="spikes-tactical-compressor-sbr-300-blk-vs-mossberg-mmr" pollNum="26">
+				        <div id="match10" class="match m1 open-poll" poll="spikes-tactical-compressor-sbr-300-blk-vs-mossberg-mmr-2" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
 				          <p class="slot slot1">
 				            <span class="seed">1</span> Spike's Tact...
 				          </p>
@@ -363,29 +363,29 @@ the_post();
 				        </div>
 				
 				<!-- /#match10 -->
-				        <div id="match11" class="match m2 open-poll" poll="wilson-combat-recon-tactical-vs-dpms-300-aac-blackout" pollNum="27">
+				        <div id="match11" class="match m2 open-poll" poll="colt-le901-16s-vs-nosler-varmageddon-ar-2" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
 				          <p class="slot slot1">
-				            <span class="seed">8</span> Wilson Combat...
+				            <span class="seed">8</span> Colt LE901...
 				          </p>
 				          <p class="slot slot2">
-				            <span class="seed">9</span> DPMS 300-AAC... 
+				            <span class="seed">9</span> Nosler Varma... 
 				          </p>
 				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!-- /#match11 -->
-				        <div id="match12" class="match m3 open-poll" poll="smith-wesson-mp15-300-whisper-vs-remington-r-25" pollNum="28">
+				        <div id="match12" class="match m3 open-poll" poll="lwrci-repr-vs-bravo-company-m4a1-eag-tactical" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
 				          <p class="slot slot1">
-				            <span class="seed">5</span> S&W M&P15...
+				            <span class="seed">5</span> LWRCI REPR 
 				          </p>
 				          <p class="slot slot2">
-				            <span class="seed">12</span> Remington R-25  
+				            <span class="seed">12</span> Bravo Comp...  
 				          </p>
 				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!-- /#match12 -->
-				        <div id="match13" class="match m4 open-poll" poll="larue-tactical-costa-edition-hybrid-vs-stag-arms-3g" pollNum="29">
+				        <div id="match13" class="match m4 open-poll" poll="larue-tactical-costa-edition-hybrid-vs-stag-arms-3g-2" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
 				          <p class="slot slot1">
 				            <span class="seed">4</span> LaRue Tactical... 
 				          </p>
@@ -396,33 +396,33 @@ the_post();
 				        </div>
 				
 				<!-- /#match13 -->
-				        <div id="match14" class="match m5 open-poll" poll="lwrci-repr-vs-bravo-company-eag-tactical" pollNum="30">
+				        <div id="match14" class="match m5 open-poll" poll="daniel-defense-ddm4-300-sbr-vs-rock-river-arms-lar-47-2" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
 				          <p class="slot slot1">
-				            <span class="seed">6</span> LWRCI REPR  
+				            <span class="seed">6</span> Daniel Defense...  
 				          </p>
 				          <p class="slot slot2">
-				            <span class="seed">11</span> Bravo Comp...  
+				            <span class="seed">11</span> Rock River...  
 				          </p>
 				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!-- /#match14 -->
-				        <div id="match15" class="match m6 open-poll" poll="alexander-arms-gsr-vs-sig-sauer-m400" pollNum="31">
+				        <div id="match15" class="match m6 open-poll" poll="smith-wesson-mp15-300-whisper-vs-remington-r-25-2" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
 				          <p class="slot slot1">
-				            <span class="seed">3</span> Alexander Arms...  
+				            <span class="seed">3</span> S&W M&P15...  
 				          </p>
 				          <p class="slot slot2">
-				            <span class="seed">14</span> SIG Sauer M400 
+				            <span class="seed">14</span> Remington R-25 
 				          </p>
 				          <a class="vote">Vote</a>
 				        </div>
 			   <!-- /#match15 -->
-				        <div id="match16" class="match m7 open-poll" poll="colt-le901-16s-vs-nosler-varmageddon-ar" pollNum="32">
+				        <div id="match16" class="match m7 open-poll" poll="alexander-arms-gsr-vs-sig-sauer-m400-2" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
 				          <p class="slot slot1">
-				            <span class="seed">7</span> Colt LE901-16S 
+				            <span class="seed">7</span> Alexander Arms...  
 				          </p>
 				          <p class="slot slot2">
-				            <span class="seed">10</span> Nosler Varmag...  
+				            <span class="seed">10</span> SIG Sauer M4...  
 				          </p>
 				          <a class="vote">Vote</a>
 				        </div>
@@ -745,7 +745,7 @@ the_post();
 				      <h3>
 				        Round Six (2010 NCAA Men's Basketball Tournament) 
 				      </h3>
-				      <div class="bracket-sponsor ffl123">Final Four Presented by:<img src="/wp-content/themes/imo-mags-gunsandammo/img/ffl123-logo.jpg" alt="FFL123" /></div>
+				      <div class="bracket-sponsor ffl123">Final Four Presented by:<a href="http://ffl123.com" target="_blank"><img src="/wp-content/themes/imo-mags-gunsandammo/img/ffl123-logo.jpg" alt="FFL123" /></a></div>
 				      <div class="region">
 				        <div id="match64" class="match m1">
 				          <p class="slot slot1" id="slot127">
@@ -761,12 +761,88 @@ the_post();
 				    </div>
 				  </div>
 				</div>
+	
+			<div style="float:left">		
+				<h2>Handguns</h2>
+				<ol>
+					<li><a href="http://www.gunsandammo.com/reviews/palm-size-power-the-smith-wesson-mp9-shield-review/" target="_blank">Smith &amp; Wesson M&amp;P Shield</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/glock-17-gen4-review/" target="_blank">Glock 17 Gen4</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/cz-p-09-duty-review/" target="_blank">CZ P-09 Duty</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/carrying-it-off-the-springfield-xds-review/" target="_blank">Springfield XD-S</a></li>
+					<li><a href="http://www.handgunsmag.com/2013/02/14/smith-wesson-performance-center-1911-review/" target="_blank">Smith &amp; Wesson Performance Center 1911</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/all-rimfired-up-ruger-sr22-review/" target="_blank">Ruger SR22</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/new-wave-walther-walther-ppq-review/" target="_blank">Walther PPQ</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/solo-act-kimber-solo-9mm-review/" target="_blank">Kimber Solo 9mm</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/meet-the-mini-kahr-kahr-p380-review/" target="_blank">Kahr P380</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/pocket-parabellum-the-sig-p938-review/" target="_blank">Sig P938</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/remington-r1-carry-review/" target="_blank">Remington R1 Carry</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/taurus-raging-judge-magnum-review/" target="_blank">Taurus Raging Judge Magnum</a></li>
+					<li><a href="http://www.handgunsmag.com/2012/11/02/pretty-little-pony-colt-mustang-pocketlite-review/" target="_blank">Colt Mustang Pocketlite</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/taurus-247-g2-review/" target="_blank">Taurus Millenium G2</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/ruger-single-nine-review/" target="_blank">Ruger Single-Nine</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/nines-are-the-hot-hand-the-beretta-nano-review/" target="_blank">Beretta Nano</a></li>
+				</ol>
+				<h2>Shotguns</h2>
+				<ol>
+					<li><a href="http://www.gunsandammo.com/reviews/bull-pump-kel-tech-ksg-review/" target="_blank">Kel-Tec KSG</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/all-pumped-up-the-remington-m887-nitromag-review/" target="_blank">Remington M887 NitroMag</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/saiga-12-review/" target="_blank">Saiga-12</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/benelli-legacy-28-review/" target="_blank">Benelli Legacy 28</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/a-classic-updated-browning-a5-review/" target="_blank">Browning A5</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/shotgun-safari-franchi-affinity-franchi-instinct-reviews/" target="_blank">Franchi Affinity</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/beretta-dt-11-review/" target="_blank">Beretta DT-11</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/fnh-slp-mark-i-review/" target="_blank">FNH SLP Mark I</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/remington-versa-max-sportsman-review/" target="_blank">Remington Versa Max Sportsman</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/mossberg-maverick-hs12-review/" target="_blank">Mossberg Maverick</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/ruger-red-label-20-review/" target="_blank">Ruger Red Label 20</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/a-pump-for-every-purpose-mossberg-flex-review/" target="_blank">Mossberg Flex</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/beretta-tx4-storm-review/" target="_blank">Beretta TX4 Storm</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/riot-guns-weatherby-pa-08-tr-and-weatherby-pa-459-tr-review/" target="_blank">Weatherby PA-08 TR</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/cz-coach-gun-review/" target="_blank">CZ Coach Gun</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/wilson-combat-scattergun-standard-model-review/" target="_blank">Wilson Combat Scattergun</a></li>
+				</ol>
+			</div>
+			<div style="float:right">	
+				<h2>Rifles</h2>
+				<ol>
+					<li><a href="http://www.gunsandammo.com/reviews/ruger-gunsite-scout-rifle-review/" target="_blank">Ruger Gunsite Scout Rifle</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/contract-contender-sako-trg-m10-review/" target="_blank">Sako TRG M10</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/a-hunters-rifle-nosler-model-48-trophy-grade-review/" target="_blank">Nosler Model 48 Trophy Grade</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/well-worth-the-weight-kimber-84m-mountain-ascent-review/" target="_blank">Kimber 84M Mountain Ascent</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/browning-x-bolt-composite-stalker-review/" target="_blank">Browning X-Bolt Composite Stalker</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/cz-455-varmint-evolution-review/" target="_blank">CZ 455 Varmint Evolution</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/ruger-1022-takedown-review/" target="_blank">Ruger 10/22 Takedown</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/a-new-dimension-the-tc-dimension-review/" target="_blank">T/C Dimension</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/a-hotter-hornet-the-savage-model-25-review/" target="_blank">Savage Model 25</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/apocalypse-sniper-apa-zombie-sniper-review/" target="_blank">APA Zombie Sniper</a></li>
+					<li><a href="http://www.rifleshootermag.com/2013/02/14/magnum-research-mlr22-review/" target="_blank">Magnum Research MLR22 Review</a></li>
+					<li><a href="http://www.rifleshootermag.com/2013/01/29/everyman-rifle-mossberg-mvp-in-7-62-review/" target="_blank">Mossberg MVP 7.62</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/475-turnbull-review/" target="_blank">.475 Turnbull Lever Gun</a></li>
+					<li><a href="http://www.rifleshootermag.com/2013/01/11/natural-selection-remington-model-783-review/" target="_blank">Remington Model 783</a></li>
+					<li><a href="http://www.shootingtimes.com/2013/03/19/weatherby-vanguard-series-2-synthetic-review/" target="_blank">Weatherby Vanguard Series 2 Synthetic Review</a></li>
+					<li><a href="http://www.shootingtimes.com/2012/09/19/purpose-built-for-pork-savage-hog-hunter-review/" target="_blank">Savage Hog Hunter</a></li>
+				</ol>
+				<h2>AR-15s</h2>
+				<ol>
+					<li><a href="http://www.gunsandammo.com/reviews/spikes-tactical-compressor-sbr-300-blk-review/" target="_blank">Spike's Tactical Compressor SBR-300 BLK</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/wilson-combat-recon-tactical-review/" target="_blank">Wilson Combat Recon Tactical</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/just-enough-gun-sw-mp15-300-whisper-review/" target="_blank">Smith &amp; Wesson M&amp;P15 .300 Whisper</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/larue-tactical-costa-edition-hybrid-review/" target="_blank">LaRue Tactical Costa Edition Hybrid</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/most-refined-battle-rifle-the-lwrci-repr-review/" target="_blank">LWRCI REPR</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/fade-to-black-daniel-defense-ddm4-300-sbr-review/" target="_blank">Daniel Defense DDM4 300 SBR</a></li>
+					<li><a href="http://www.shootingtimes.com/2012/07/02/tactical-rugged-the-alexander-arms-gsr-review/" target="_blank">Alexander Arms GSR</a></li>
+					<li><a href="http://www.rifleshootermag.com/2012/12/04/switcheroo-colt-le901-16s-review/" target="_blank">Colt LE901-16S</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/perfect-predator-package-nosler-varmageddon-ar-review/" target="_blank">Nosler Varmageddon AR</a></li>
+					<li><a href="http://www.rifleshootermag.com/2012/11/02/sig-sauer-m400-review/" target="_blank">SIG Sauer M400</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/rock-river-arms-lar-47-review/" target="_blank">Rock River Arms LAR-47 </a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/bravo-company-m4a1-eag-tactical-review/" target="_blank">Bravo Company EAG Tactical</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/game-gun-the-stag-3g/" target="_blank">Stag Arms 3G</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/remington-r-25-review/" target="_blank">Remington R-25</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/dpms-300-aac-blackout-review/" target="_blank">DPMS 300-AAC Blackout</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/mossberg-mmr-hunter-review/" target="_blank">Mossberg MMR</a></li>
+				</ol>
+			</div>
 
-			<?php			
-			the_content(__('Continued&hellip;', 'carrington-business'));
-			wp_link_pages();
-			?>
-		</div>
 	</div><!-- .entry -->
 </div><!-- .col-abc -->
 
@@ -796,13 +872,14 @@ the_post();
 	</div><!-- .col-abc -->
 </div><!-- .page-template-page-right-php-->
 
-<div id="bracket-modal" class="new-superpost-modal-container new-superpost-box" style="display:none;width:740px;height:558px;background-color:white;">
+<div id="bracket-modal" class="new-superpost-modal-container new-superpost-box" style="display:none;width:740px;height:557px;background-color:white;">
 	<div class="ga-madness-logo"></div>
 	<div class="poll-area"></div>
 	<div class="extra-poll-content" style="display:none;">
 		<div class="vote-thumb" style="display:none;"></div>
 		<div class="vs">vs.</div>
 	</div>
+	<div class="voted" style="display:none;"><h4>You've already voted for this matchup.</h4></div>
 	<div class="poll-pagination" style="display:none;">
 			<a class="prev-poll">Previous Matchup</a>
 			<a class="next-poll">Next Matchup</a>
