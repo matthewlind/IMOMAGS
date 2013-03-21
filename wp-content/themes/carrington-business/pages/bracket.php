@@ -43,6 +43,7 @@ $pollNum = 1;
 			wp_link_pages();
 			?>
 			<div id="content-wrapper">
+				<?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
 				  <div id="table">
 				
 				<!-- Table Dates -->
@@ -111,7 +112,7 @@ $pollNum = 1;
 				
 				<!-- /#match20 -->
 				        <div id="match21" class="open-poll match m4" poll="springfield-xds-vs-colt-mustang-pocketlite" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
-				          <p class="slot slot1"><span class="seed">4</span>Springfield XDs</p>
+				          <p class="slot slot1"><span class="seed">4</span>Springfield XD-S</p>
 				          <p class="slot slot2"><span class="seed">13</span>Colt Mustang...</p>
 				          <a class="vote">Vote</a>
 				        </div>
@@ -131,7 +132,7 @@ $pollNum = 1;
 				<!-- /#match23 -->
 				        <div id="match24" class="open-poll match m7" poll="walther-ppq-vs-sig-p938" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
 				          <p class="slot slot1"><span class="seed">7</span>Walther PPQ</p>
-				          <p class="slot slot2"><span class="seed">10</span>Sig P938</p>
+				          <p class="slot slot2"><span class="seed">10</span>SIG P938</p>
 				          <a class="vote">Vote</a>
 				        </div>
 				
@@ -302,7 +303,7 @@ $pollNum = 1;
 				<!-- /#match30 -->
 				        <div id="match31" class="match m6 open-poll" poll="saiga-12-vs-weatherby-pa-08-tr-2" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
 				          <p class="slot slot1">
-				            <span class="seed">3</span> Saiga 12  
+				            <span class="seed">3</span> Saiga-12  
 				          </p>
 				          <p class="slot slot2">
 				            <span class="seed">14</span> Weatherby... 
@@ -342,16 +343,7 @@ $pollNum = 1;
 				        </h4>
 				        <div class="bracket-sponsor slidefire">Presented by:<br /><a href="http://www.slidefire.com/" target="_blank"><img src="/wp-content/themes/imo-mags-gunsandammo/img/slidefire-logo.jpg" alt="Slide Fire" /></a></div>
 				        
-				         <div id="match17" class="match m8 open-poll" poll="wilson-combat-recon-tactical-vs-dpms-300-aac-blackout-2" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
-				          <p class="slot slot1">
-				            <span class="seed">2</span> Wilson Combat...
-				          </p>
-				          <p class="slot slot2">
-				            <span class="seed">15</span> DPMS 300-A...   
-				          </p>
-				          <a class="vote">Vote</a>
-				        </div>
-				        
+				        				        
 				        <div id="match10" class="match m1 open-poll" poll="spikes-tactical-compressor-sbr-300-blk-vs-mossberg-mmr-2" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
 				          <p class="slot slot1">
 				            <span class="seed">1</span> Spike's Tact...
@@ -361,6 +353,8 @@ $pollNum = 1;
 				          </p>
 				          <a class="vote">Vote</a>
 				        </div>
+				        
+				         
 				
 				<!-- /#match10 -->
 				        <div id="match11" class="match m2 open-poll" poll="colt-le901-16s-vs-nosler-varmageddon-ar-2" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
@@ -426,6 +420,17 @@ $pollNum = 1;
 				          </p>
 				          <a class="vote">Vote</a>
 				        </div>
+				        
+				        <div id="match17" class="match m8 open-poll" poll="wilson-combat-recon-tactical-vs-dpms-300-aac-blackout-2" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
+				          <p class="slot slot1">
+				            <span class="seed">2</span> Wilson Combat...
+				          </p>
+				          <p class="slot slot2">
+				            <span class="seed">15</span> DPMS 300-A...   
+				          </p>
+				          <a class="vote">Vote</a>
+				        </div>
+
 
 
 				      </div>
@@ -760,8 +765,9 @@ $pollNum = 1;
 				      </div>
 				    </div>
 				  </div>
+				  <?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
 				</div>
-	
+				
 			<div style="float:left">		
 				<h2>Handguns</h2>
 				<ol>
@@ -778,7 +784,7 @@ $pollNum = 1;
 					<li><a href="http://www.gunsandammo.com/reviews/remington-r1-carry-review/" target="_blank">Remington R1 Carry</a></li>
 					<li><a href="http://www.gunsandammo.com/reviews/taurus-raging-judge-magnum-review/" target="_blank">Taurus Raging Judge Magnum</a></li>
 					<li><a href="http://www.handgunsmag.com/2012/11/02/pretty-little-pony-colt-mustang-pocketlite-review/" target="_blank">Colt Mustang Pocketlite</a></li>
-					<li><a href="http://www.gunsandammo.com/reviews/taurus-247-g2-review/" target="_blank">Taurus Millenium G2</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/taurus-247-g2-review/" target="_blank">Taurus Millennium G2</a></li>
 					<li><a href="http://www.gunsandammo.com/reviews/ruger-single-nine-review/" target="_blank">Ruger Single-Nine</a></li>
 					<li><a href="http://www.gunsandammo.com/reviews/nines-are-the-hot-hand-the-beretta-nano-review/" target="_blank">Beretta Nano</a></li>
 				</ol>
@@ -793,7 +799,7 @@ $pollNum = 1;
 					<li><a href="http://www.gunsandammo.com/reviews/beretta-dt-11-review/" target="_blank">Beretta DT-11</a></li>
 					<li><a href="http://www.gunsandammo.com/reviews/fnh-slp-mark-i-review/" target="_blank">FNH SLP Mark I</a></li>
 					<li><a href="http://www.gunsandammo.com/reviews/remington-versa-max-sportsman-review/" target="_blank">Remington Versa Max Sportsman</a></li>
-					<li><a href="http://www.gunsandammo.com/reviews/mossberg-maverick-hs12-review/" target="_blank">Mossberg Maverick</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/mossberg-maverick-hs12-review/" target="_blank">Mossberg Maverick HS12</a></li>
 					<li><a href="http://www.gunsandammo.com/reviews/ruger-red-label-20-review/" target="_blank">Ruger Red Label 20</a></li>
 					<li><a href="http://www.gunsandammo.com/reviews/a-pump-for-every-purpose-mossberg-flex-review/" target="_blank">Mossberg Flex</a></li>
 					<li><a href="http://www.gunsandammo.com/reviews/beretta-tx4-storm-review/" target="_blank">Beretta TX4 Storm</a></li>
@@ -842,11 +848,12 @@ $pollNum = 1;
 					<li><a href="http://www.gunsandammo.com/reviews/mossberg-mmr-hunter-review/" target="_blank">Mossberg MMR</a></li>
 				</ol>
 			</div>
-
+			
 	</div><!-- .entry -->
+	
 </div><!-- .col-abc -->
 
-<div class="page-template-page-right-php">
+<div class="page-template-page-right-php bracket-footer">
 	<div id="sidebar">
 		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-default')) : else : ?><?php endif; ?>
 		<div id="responderfollow"></div>

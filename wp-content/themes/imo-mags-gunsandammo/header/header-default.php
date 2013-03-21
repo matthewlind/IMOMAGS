@@ -72,7 +72,23 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
 	
 	</div>
 	<header id="header">
+	<?php if(is_page("G&amp;A Home")){ ?>
 	
+	<div class="super-ad">
+		<div>
+			<!-- Site - Guns and Ammo -->
+			<script type="text/javascript">
+			  var ord = window.ord || Math.floor(Math.random() * 1e16);
+			  document.write('<script type="text/javascript" src="http://ad.doubleclick.net/N4930/adj/imo.gunsandammo;sz=980x276;ord=' + ord + '?"><\/script>');
+			</script>
+			<noscript>
+			<a href="http://ad.doubleclick.net/N4930/jump/imo.gunsandammo;sz=980x276;ord=[timestamp]?">
+			<img src="http://ad.doubleclick.net/N4930/ad/imo.gunsandammo;sz=980x276;ord=[timestamp]?" width="980" height="276" />	
+			</noscript>
+		</div>
+	</div>
+	
+	<?php } ?>
     <div class="container">
 	
       <a href="<?php echo home_url('/'); ?>" class="brand" title="<?php _e('Home', 'carrington-business') ?>"><img src="<?php print get_stylesheet_directory_uri(); ?>/img/logo.png" alt="<?php bloginfo('name'); ?>" /></a>

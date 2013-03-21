@@ -7490,7 +7490,7 @@ ul#ga-madness-nav li a:hover{
 	text-align: center;
 }
 .wp-polls-ul li label h1, .vote-check h1, .no-vote h1{
-	font-size: 15px;
+	font-size: 14px;
 	text-align: center;
 }
 .bracket-header{
@@ -7691,7 +7691,15 @@ li.no-vote:hover img{
 .ga-madness-comments{
 	width: 646px;
 }
-
+.ga-madness-comments #disqus_thread{
+	padding-top: 40px;
+}
+.bracket-footer{
+	clear: both !important;
+}
+.bracket-footer #sidebar{
+	margin-top: 40px;
+}
 /*** Sponsor logos ***/
 .bracket-sponsor{
 	position: absolute;
