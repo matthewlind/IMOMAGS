@@ -33,7 +33,6 @@ $pollNum = 1;
 		<li><a class="how-works">How it Works</a></li>
 	</ul>
 	<div class="ga-madness-nav-logo"></div>
-	<!--<div class="bracket-header"></div>-->
 	<h1 style="margin-left:-99999px;height:0;"><?php the_title(); ?></h1>
 </header><!-- #masthead -->
 <div class="col-abc">
@@ -339,7 +338,7 @@ $pollNum = 1;
 				<!-- start region4 -->
 				      <div class="region region4">
 				        <h4 class="region4 first_region">
-				          AR-15s 
+				          AR-15 
 				        </h4>
 				        <div class="bracket-sponsor slidefire">Presented by:<br /><a href="http://www.slidefire.com/" target="_blank"><img src="/wp-content/themes/imo-mags-gunsandammo/img/slidefire-logo.jpg" alt="Slide Fire" /></a></div>
 				        
@@ -762,7 +761,88 @@ $pollNum = 1;
 				    </div>
 				  </div>
 				</div>
-		</div>
+	
+			<div style="float:left">		
+				<h2>Handguns</h2>
+				<ol>
+					<li><a href="http://www.gunsandammo.com/reviews/palm-size-power-the-smith-wesson-mp9-shield-review/" target="_blank">Smith &amp; Wesson M&amp;P Shield</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/glock-17-gen4-review/" target="_blank">Glock 17 Gen4</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/cz-p-09-duty-review/" target="_blank">CZ P-09 Duty</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/carrying-it-off-the-springfield-xds-review/" target="_blank">Springfield XD-S</a></li>
+					<li><a href="http://www.handgunsmag.com/2013/02/14/smith-wesson-performance-center-1911-review/" target="_blank">Smith &amp; Wesson Performance Center 1911</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/all-rimfired-up-ruger-sr22-review/" target="_blank">Ruger SR22</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/new-wave-walther-walther-ppq-review/" target="_blank">Walther PPQ</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/solo-act-kimber-solo-9mm-review/" target="_blank">Kimber Solo 9mm</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/meet-the-mini-kahr-kahr-p380-review/" target="_blank">Kahr P380</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/pocket-parabellum-the-sig-p938-review/" target="_blank">Sig P938</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/remington-r1-carry-review/" target="_blank">Remington R1 Carry</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/taurus-raging-judge-magnum-review/" target="_blank">Taurus Raging Judge Magnum</a></li>
+					<li><a href="http://www.handgunsmag.com/2012/11/02/pretty-little-pony-colt-mustang-pocketlite-review/" target="_blank">Colt Mustang Pocketlite</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/taurus-247-g2-review/" target="_blank">Taurus Millenium G2</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/ruger-single-nine-review/" target="_blank">Ruger Single-Nine</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/nines-are-the-hot-hand-the-beretta-nano-review/" target="_blank">Beretta Nano</a></li>
+				</ol>
+				<h2>Shotguns</h2>
+				<ol>
+					<li><a href="http://www.gunsandammo.com/reviews/bull-pump-kel-tech-ksg-review/" target="_blank">Kel-Tec KSG</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/all-pumped-up-the-remington-m887-nitromag-review/" target="_blank">Remington M887 NitroMag</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/saiga-12-review/" target="_blank">Saiga-12</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/benelli-legacy-28-review/" target="_blank">Benelli Legacy 28</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/a-classic-updated-browning-a5-review/" target="_blank">Browning A5</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/shotgun-safari-franchi-affinity-franchi-instinct-reviews/" target="_blank">Franchi Affinity</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/beretta-dt-11-review/" target="_blank">Beretta DT-11</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/fnh-slp-mark-i-review/" target="_blank">FNH SLP Mark I</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/remington-versa-max-sportsman-review/" target="_blank">Remington Versa Max Sportsman</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/mossberg-maverick-hs12-review/" target="_blank">Mossberg Maverick</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/ruger-red-label-20-review/" target="_blank">Ruger Red Label 20</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/a-pump-for-every-purpose-mossberg-flex-review/" target="_blank">Mossberg Flex</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/beretta-tx4-storm-review/" target="_blank">Beretta TX4 Storm</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/riot-guns-weatherby-pa-08-tr-and-weatherby-pa-459-tr-review/" target="_blank">Weatherby PA-08 TR</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/cz-coach-gun-review/" target="_blank">CZ Coach Gun</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/wilson-combat-scattergun-standard-model-review/" target="_blank">Wilson Combat Scattergun</a></li>
+				</ol>
+			</div>
+			<div style="float:right">	
+				<h2>Rifles</h2>
+				<ol>
+					<li><a href="http://www.gunsandammo.com/reviews/ruger-gunsite-scout-rifle-review/" target="_blank">Ruger Gunsite Scout Rifle</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/contract-contender-sako-trg-m10-review/" target="_blank">Sako TRG M10</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/a-hunters-rifle-nosler-model-48-trophy-grade-review/" target="_blank">Nosler Model 48 Trophy Grade</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/well-worth-the-weight-kimber-84m-mountain-ascent-review/" target="_blank">Kimber 84M Mountain Ascent</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/browning-x-bolt-composite-stalker-review/" target="_blank">Browning X-Bolt Composite Stalker</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/cz-455-varmint-evolution-review/" target="_blank">CZ 455 Varmint Evolution</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/ruger-1022-takedown-review/" target="_blank">Ruger 10/22 Takedown</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/a-new-dimension-the-tc-dimension-review/" target="_blank">T/C Dimension</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/a-hotter-hornet-the-savage-model-25-review/" target="_blank">Savage Model 25</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/apocalypse-sniper-apa-zombie-sniper-review/" target="_blank">APA Zombie Sniper</a></li>
+					<li><a href="http://www.rifleshootermag.com/2013/02/14/magnum-research-mlr22-review/" target="_blank">Magnum Research MLR22 Review</a></li>
+					<li><a href="http://www.rifleshootermag.com/2013/01/29/everyman-rifle-mossberg-mvp-in-7-62-review/" target="_blank">Mossberg MVP 7.62</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/475-turnbull-review/" target="_blank">.475 Turnbull Lever Gun</a></li>
+					<li><a href="http://www.rifleshootermag.com/2013/01/11/natural-selection-remington-model-783-review/" target="_blank">Remington Model 783</a></li>
+					<li><a href="http://www.shootingtimes.com/2013/03/19/weatherby-vanguard-series-2-synthetic-review/" target="_blank">Weatherby Vanguard Series 2 Synthetic Review</a></li>
+					<li><a href="http://www.shootingtimes.com/2012/09/19/purpose-built-for-pork-savage-hog-hunter-review/" target="_blank">Savage Hog Hunter</a></li>
+				</ol>
+				<h2>AR-15s</h2>
+				<ol>
+					<li><a href="http://www.gunsandammo.com/reviews/spikes-tactical-compressor-sbr-300-blk-review/" target="_blank">Spike's Tactical Compressor SBR-300 BLK</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/wilson-combat-recon-tactical-review/" target="_blank">Wilson Combat Recon Tactical</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/just-enough-gun-sw-mp15-300-whisper-review/" target="_blank">Smith &amp; Wesson M&amp;P15 .300 Whisper</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/larue-tactical-costa-edition-hybrid-review/" target="_blank">LaRue Tactical Costa Edition Hybrid</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/most-refined-battle-rifle-the-lwrci-repr-review/" target="_blank">LWRCI REPR</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/fade-to-black-daniel-defense-ddm4-300-sbr-review/" target="_blank">Daniel Defense DDM4 300 SBR</a></li>
+					<li><a href="http://www.shootingtimes.com/2012/07/02/tactical-rugged-the-alexander-arms-gsr-review/" target="_blank">Alexander Arms GSR</a></li>
+					<li><a href="http://www.rifleshootermag.com/2012/12/04/switcheroo-colt-le901-16s-review/" target="_blank">Colt LE901-16S</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/perfect-predator-package-nosler-varmageddon-ar-review/" target="_blank">Nosler Varmageddon AR</a></li>
+					<li><a href="http://www.rifleshootermag.com/2012/11/02/sig-sauer-m400-review/" target="_blank">SIG Sauer M400</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/rock-river-arms-lar-47-review/" target="_blank">Rock River Arms LAR-47 </a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/bravo-company-m4a1-eag-tactical-review/" target="_blank">Bravo Company EAG Tactical</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/game-gun-the-stag-3g/" target="_blank">Stag Arms 3G</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/remington-r-25-review/" target="_blank">Remington R-25</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/dpms-300-aac-blackout-review/" target="_blank">DPMS 300-AAC Blackout</a></li>
+					<li><a href="http://www.gunsandammo.com/reviews/mossberg-mmr-hunter-review/" target="_blank">Mossberg MMR</a></li>
+				</ol>
+			</div>
+
 	</div><!-- .entry -->
 </div><!-- .col-abc -->
 

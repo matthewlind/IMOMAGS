@@ -442,7 +442,7 @@ function imo_add_campaign_init() {
         )
     );
 
-    $types = array("post","page","imo_video","imo_gallery","imo_blog","gamadness");
+    $types = array("post","page","imo_video","imo_gallery","imo_blog","gamadness","reviews");
 
     foreach ($taxonomies as $target_taxonomy => $taxonomy) {
         register_taxonomy(
