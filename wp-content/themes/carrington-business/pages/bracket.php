@@ -768,7 +768,7 @@ $pollNum = 1;
 				  <?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
 				</div>
 				
-			<div style="float:left">		
+			<!--<div style="float:left">		
 				<h2>Handguns</h2>
 				<ol>
 					<li><a href="http://www.gunsandammo.com/reviews/palm-size-power-the-smith-wesson-mp9-shield-review/" target="_blank">Smith &amp; Wesson M&amp;P Shield</a></li>
@@ -847,7 +847,7 @@ $pollNum = 1;
 					<li><a href="http://www.gunsandammo.com/reviews/dpms-300-aac-blackout-review/" target="_blank">DPMS 300-AAC Blackout</a></li>
 					<li><a href="http://www.gunsandammo.com/reviews/mossberg-mmr-hunter-review/" target="_blank">Mossberg MMR</a></li>
 				</ol>
-			</div>
+			</div>-->
 			
 	</div><!-- .entry -->
 	
