@@ -343,6 +343,64 @@ if(document.domain +"/bracket"){
 
 
 
+// Use cookies to color the polls that have already been taken
+var getCookies = function(){
+  var pairs = document.cookie.split(";");
+  var cookies = new Array();
+  for (var i=0; i<pairs.length; i++){
+    var pair = pairs[i].split("=");
+    cookies[pair[0]] = unescape(pair[1]);
+  }
+  return cookies;
+}
+
+function getTakenPolls(){
+	
+	var takenPolls = new Array();
+	
+	var pairs = document.cookie.split(";");
+	
+	for (var i=0; i<pairs.length; i++){
+	
+	    var pair = pairs[i].split("=");
+	    
+
+	    
+	    if (pair[0].substring(0, 7) == " voted_") {
+		    takenPolls.push(pair[0].substring(7,9));
+		    
+		}
+	    
+	    
+    }
+	
+	return takenPolls;
+	
+}
+
+
+$(document).ready(function(){
+
+	var thePolls = getTakenPolls();
+	
+
+	
+	$.each(thePolls,function(key,pollString){
+		
+	
+		
+		if (madness_poll_data[pollString]) {
+			
+			var selector = "[poll='" + madness_poll_data[pollString].slug + "']";
+						
+			$(selector).addClass("poll-taken")
+			
+		}
+	});
+
+
+
+});
 
 // Category page sliders
 $(document).ready(function(){
