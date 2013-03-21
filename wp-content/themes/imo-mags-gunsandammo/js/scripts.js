@@ -192,6 +192,7 @@ if(document.domain +"/ga-madness"){
 	    		$inputImg1 = $('.wp-polls-ans ul').find("li:eq(0) .poll-image img");
 	    		$inputImg2 = $('.wp-polls-ans ul').find("li:eq(1) .poll-image img");
 	    		
+	    		
 	    		//reveal the ad and choose buttons after poll has loaded
 	    		$('.extra-poll-content').fadeIn();
 	    		
@@ -213,6 +214,9 @@ if(document.domain +"/ga-madness"){
 					$($inputImg2).css("border","4px solid white");	
 					$('.vote-thumb').css("left", "165px");
 					$('.vote-thumb').css("display","block");
+					
+					$li1.find("input[type='radio']").attr('checked', true);
+					
 	    		});
 	    		
 	    		$li2.click(function(event){
@@ -220,6 +224,8 @@ if(document.domain +"/ga-madness"){
 					$($inputImg2).css("border","4px solid #ce181e");
 					$('.vote-thumb').css("left", "525px");
 					$('.vote-thumb').css("display","block");
+					
+					$li2.find("input[type='radio']").attr('checked', true);
 						
 	    		});
 	    		
