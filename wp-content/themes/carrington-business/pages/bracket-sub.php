@@ -59,6 +59,11 @@ the_post();
 	<div class="col-abc">
 		<div <?php post_class('entry entry-full clearfix'); ?>>
 			<div class="entry-content how-content">
+				<?php 
+				if( is_page("enter") ){ 
+					if (function_exists('imo_add_this')) {imo_add_this();} 
+				}
+				?>
 				<?php if( is_page("how-it-works") ){ ?>
 					<h1><?php the_title(); ?></h1>
 				<?php } 
