@@ -7719,7 +7719,7 @@ li.no-vote:hover img{
 .galco{
 	width: 120px;
 	height: auto;
-	top: 176px;
+	top: 164px;
 	left: 310px;
 	font-size: 0.7em;
 	text-align: right;
@@ -7739,7 +7739,7 @@ li.no-vote:hover img{
 }
 .wardog{
 	left: 510px;
-	top: 176px;
+	top: 164px;
 	font-size: 0.7em;
 	text-align: right;
 	font-weight: bold;

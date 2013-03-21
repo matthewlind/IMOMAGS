@@ -37,7 +37,19 @@ $title2 = get_post_meta($id, 'ecpt_poll-related-title-2', true);
 				<?php if($title == "" && $title2 == ""){ echo "<p>There are no matchups.</p>"; } ?>
 			</ul>
 		</div>
-		<div class="madness-contest-enter"><a href="/bracket/enter" target="_blank"><img src="/wp-content/themes/imo-mags-gunsandammo/img/ga-madness-358x90.jpg" alt="Enter G&A Madness" /></a></div>
+		<div class="madness-contest-enter"><a href="/bracket/enter" target="_blank">
+		<?php
+			if($camp == "handguns-madness"){
+				echo '<img src="/wp-content/themes/imo-mags-gunsandammo/img/ga-madness-popup-galco-358x90.jpg" alt="Enter G&A Madness" />';
+			}else if($camp == "shotguns-madness"){
+				echo '<img src="/wp-content/themes/imo-mags-gunsandammo/img/ga-madness-popup-wardog-358x90.jpg" alt="Enter G&A Madness" />';
+			}else if($camp == "rifles-madness"){
+				echo '<img src="/wp-content/themes/imo-mags-gunsandammo/img/ga-madness-popup-FFL-358x90.jpg" alt="Enter G&A Madness" />';
+			}else if($camp == "ars-madness"){
+				echo '<img src="/wp-content/themes/imo-mags-gunsandammo/img/ga-madness-358x90.jpg" alt="Enter G&A Madness" />';
+			}		
+		?>
+		</a></div>
 		<div class="vote-ad">
 			<iframe id="poll-ad-iframe" src="http://<?php echo $_SERVER['SERVER_NAME']; ?>/iframe-ad.php?ad_code=imo.gunsandammo&size=728x90&camp=<?php echo $camp; ?>" width=736 height=106></iframe>
 		</div>	
