@@ -7381,6 +7381,16 @@ table.gridtable td.title {
 	cursor: pointer;
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+
+#bracket .poll-taken p.slot {
+	color:#b2b2b2;
+}
+
+#bracket .poll-taken a.vote {
+	color:white;
+}
+
+
 .vote-ad{
 	margin-left: -2px;
 	margin-bottom: -20px;
