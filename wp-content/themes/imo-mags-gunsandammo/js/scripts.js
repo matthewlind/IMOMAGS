@@ -335,30 +335,6 @@ if(document.domain +"/bracket"){
 }
 
 
-// Color the ga madness winners
-$(document).ready(function(){
-
-	$.each(madness_poll_data,function(pollID,data){
-		
-		var slug = data.slug;
-		var winner = data.winner;
-		
-		if (winner == "first") {
-		
-			var selector = "div.match[poll='" + slug + "'] .slot1";
-			$(selector).addClass("winner")						
-		}
-		
-		if (winner == "second") {
-			
-			var selector = "div.match[poll='" + slug + "'] .slot2";
-			$(selector).addClass("winner")
-				
-		}
-		
-	});
-});
-
 
 
 // Category page sliders
