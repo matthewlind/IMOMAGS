@@ -252,7 +252,7 @@ if(document.domain +"/ga-madness"){
 			}else{
 	    		$(".voted").show();
 	    		$(".poll-image img").css("opacity",0.5);
-	    		$(".poll-pagination").css("top","-254px");
+	    		$(".poll-pagination").css("top","-258px");
 			}
 		}
 			
@@ -301,7 +301,7 @@ if(document.domain +"/ga-madness"){
 	        				//fix for not reading the length when paginating
 	        				if( $(".wp-polls-form").length > 0 ){
 		        				$(".voted").hide();
-		        				$(".poll-pagination").css("top","-228px");
+		        				$(".poll-pagination").css("top","-252px");
 	        				}
 	                	});
         		
@@ -336,7 +336,7 @@ if(document.domain +"/ga-madness"){
 	        				//fix for not reading the length when paginating
 	        				if( $(".wp-polls-form").length > 0 ){
 		        				$(".voted").hide();
-		        				$(".poll-pagination").css("top","-228px");
+		        				$(".poll-pagination").css("top","-252px");
 	        				}
 			        	});
         		

@@ -25,10 +25,10 @@ the_post();
 ?>
 <header>
 	<ul id="ga-madness-nav">
-		<li><a href="/ga-madness">Gun Bracket</a></li>
-		<li><a href="/ga-madness/enter">Enter Now</a></li>
+		<li><a href="/bracket">Gun Bracket</a></li>
+		<li><a href="/bracket/enter">Enter Now</a></li>
 		<li style="width:270px;"></li>
-		<li><a href="/ga-madness/prizes">Prizes & Rules</a></li>
+		<li><a href="/bracket/prizes">Prizes & Rules</a></li>
 		<li><a class="how-works">How it Works</a></li>
 	</ul>
 	<div class="ga-madness-nav-logo"></div>

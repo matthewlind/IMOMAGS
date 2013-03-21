@@ -7664,20 +7664,24 @@ li.no-vote:hover img{
 	width: 628px;
 	margin: 0 auto;
 	position: relative;
-	top: -228px;
+	top: -252px;
 	font-style: italic;
 }
+
 .poll-pagination .prev-poll{
 	float: left;
-	color: black;
+	color: white;
 	cursor: pointer;
-	padding-left: 2px
+	background: #ce181e;
+	padding: 6px 10px;
 }
 .poll-pagination .next-poll{
 	float: right;
-	color: black;
+	color: white;
 	cursor: pointer;
-	padding-right: 2px;
+	background: #ce181e;
+	padding: 6px 10px;
+}
 
 }
 .poll-pagination .next-poll:hover, .poll-pagination .prev-poll:hover{
