@@ -186,7 +186,7 @@ if(document.domain +"/bracket"){
 			
 			//Poll content
 			function loadPoll(){
-			//if( $(".wp-polls-form").length > 0 ){
+			if( $(".wp-polls-form").length > 0 ){
 		     	$li1 = $('.wp-polls-ans ul').find("li").eq(0);
 		     	$li2 = $('.wp-polls-ans ul').find("li").eq(1);
 	    		$inputImg1 = $('.wp-polls-ans ul').find("li:eq(0) .poll-image img");
@@ -236,12 +236,12 @@ if(document.domain +"/bracket"){
 	    			$(".wp-polls .Buttons").css("background","black");
 	    		});
 	    		
-	    		
-			
-			//}else{
-	    		//$(".voted").show();
-	    		//$(".poll-image img").css("opacity",0.5);
-			//}
+
+			}else{
+	    		$(".voted").show();
+	    		$(".poll-image img").css("opacity",0.5);
+	    		$(".poll-pagination").css("top","-254px");
+			}
 		}
 			
 		//Voting Modal
@@ -285,9 +285,10 @@ if(document.domain +"/bracket"){
 	        				loadPoll();	
 	        				
 	        				//fix for not reading the length when paginating
-	        				//if( $(".wp-polls-form").length > 0 ){
-		        			//	$(".voted").hide();
-	        				//}
+	        				if( $(".wp-polls-form").length > 0 ){
+		        				$(".voted").hide();
+		        				$(".poll-pagination").css("top","-228px");
+	        				}
 	                	});
         		
 			        });
@@ -317,7 +318,13 @@ if(document.domain +"/bracket"){
 	        				//Update the poll number
 	        				$pollNum = $pollNumPrev;
 	        				$(".vote-thumb").hide();
-	        				loadPoll();	
+	        				loadPoll();
+	        				
+	        				//fix for not reading the length when paginating
+	        				if( $(".wp-polls-form").length > 0 ){
+		        				$(".voted").hide();
+		        				$(".poll-pagination").css("top","-228px");
+	        				}	
 			        	});
         		
 			        });

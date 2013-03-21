@@ -799,6 +799,7 @@ $pollNum = 1;
 		<div class="vote-thumb" style="display:none;"></div>
 		<div class="vs">vs.</div>
 	</div>
+	<div class="voted" style="display:none;"><h4>You've already voted for this matchup.</h4></div>
 	<div class="poll-pagination" style="display:none;">
 			<a class="prev-poll">Previous Matchup</a>
 			<a class="next-poll">Next Matchup</a>
