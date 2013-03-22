@@ -76,15 +76,23 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
 	
 	<div class="super-ad">
 		<div>
+			<a class="super-ad-close" style="display:none;">Close</a>
+			<a class="super-ad-exp">Expand</a>
 			<!-- Site - Guns and Ammo -->
-			<script type="text/javascript">
-			  var ord = window.ord || Math.floor(Math.random() * 1e16);
-			  document.write('<script type="text/javascript" src="http://ad.doubleclick.net/N4930/adj/imo.gunsandammo;sz=980x276;ord=' + ord + '?"><\/script>');
-			</script>
-			<noscript>
-			<a href="http://ad.doubleclick.net/N4930/jump/imo.gunsandammo;sz=980x276;ord=[timestamp]?">
-			<img src="http://ad.doubleclick.net/N4930/ad/imo.gunsandammo;sz=980x276;ord=[timestamp]?" width="980" height="276" />	
-			</noscript>
+			<div class="collapsed">
+				<a href="/bracket/enter"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/ga-madness-super-header-collapsed.jpg" width="980" height="70" /></a>
+			</div>
+
+			<div class="expanded" style="display:none;">
+				<script type="text/javascript">
+				  var ord = window.ord || Math.floor(Math.random() * 1e16);
+				  document.write('<script type="text/javascript" src="http://ad.doubleclick.net/N4930/adj/imo.gunsandammo;sz=980x276;ord=' + ord + '?"><\/script>');
+				</script>
+				<noscript>
+				<a href="http://ad.doubleclick.net/N4930/jump/imo.gunsandammo;sz=980x276;ord=[timestamp]?"><img src="http://ad.doubleclick.net/N4930/ad/imo.gunsandammo;sz=980x276;ord=[timestamp]?" width="980" height="276" /></a>
+				</noscript>
+			</div>
+
 		</div>
 	</div>
 	

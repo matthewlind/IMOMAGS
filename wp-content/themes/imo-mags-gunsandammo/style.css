@@ -7665,28 +7665,71 @@ li.no-vote:hover img{
 	margin: 0 auto;
 	position: relative;
 	top: -228px;
-	font-style: italic;
 }
 .poll-pagination .prev-poll{
 	float: left;
-	color: black;
+	color: white;
 	cursor: pointer;
-	padding-left: 2px
+	padding: 0px 8px 0 18px;
+	background: #ce181e;
+	font-weight: bold;
 }
 .poll-pagination .next-poll{
 	float: right;
-	color: black;
+	color: white;
 	cursor: pointer;
-	padding-right: 2px;
-
+	padding: 0px 18px 0 8px;
+	background: #ce181e;
+	font-weight: bold;
 }
 .poll-pagination .next-poll:hover, .poll-pagination .prev-poll:hover{
-	color: #ce181e;
+	background: black;
 }
+.poll-pagination .next-poll span{
+	background: url("img/icon-sb6ca565883.png") no-repeat 0 -50px;
+	right: 0;
+	top: 7px;
+	width: 10px;
+	height: 9px;
+	position: absolute;
+}
+.poll-pagination .prev-poll span{
+	background: url("img/icon-sb6ca565883.png") no-repeat 0 -66px;
+	left: 3px;
+	top: 7px;
+	width: 10px;
+	height: 9px;
+	position: absolute;
+}
+
 .super-ad{
 	background: black;
 	width: 100%;
 	height: auto;
+	margin-bottom: -71px;
+	position: relative;
+	z-index: 9;
+}
+.super-ad-exp, .super-ad-close{
+	width: 48px;
+	height: 25px;
+	position: absolute;
+	top: 74px;
+	right: 4px;
+	z-index: 10;
+	padding-right: 32px;
+	color: white;
+	font-size: 0.9em;
+	font-weight: bold;
+	text-align: right;
+	cursor: pointer;
+}
+
+.super-ad-close{
+	background: url("img/collapse.jpg") no-repeat right top;
+}
+.super-ad-exp{
+	background: url("img/expand.jpg") no-repeat right top;
 }
 .super-ad div{
 	margin: 0 auto;
@@ -7694,9 +7737,12 @@ li.no-vote:hover img{
 	width: 980px;
 	height: auto;
 }
-.super-ad div img{
+.super-ad .expanded img, .super-ad .collapsed img{
 	padding-top: 70px;
 	margin-bottom: -7px;
+}
+.super-ad .collapsed img{
+	padding-top: 74px;
 }
 .ga-madness-comments{
 	width: 646px;
@@ -7727,6 +7773,19 @@ li.no-vote:hover img{
 }
 .galco img{
 	width: 120px;
+	height: auto;
+}
+.zeiss{
+	width: 120px;
+	height: auto;
+	top: 700px;
+	left: 330px;
+	font-size: 0.7em;
+	text-align: center;
+	font-weight: bold;
+}
+.zeiss img{
+	width: 78px;
 	height: auto;
 }
 .ffl123{

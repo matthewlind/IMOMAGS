@@ -152,8 +152,9 @@ $(function(){
 **
 *****/
 if(document.domain +"/ga-madness"){
+
 	$(document).ready(function(){
-	
+			
 		/*** How it Works Modal ***/
 		$(".how-works").click(function(event){	
 			
@@ -261,7 +262,10 @@ if(document.domain +"/ga-madness"){
 	    		$(".poll-pagination").css("top","-254px");
 			}
 		}
-			
+		
+		
+		
+				
 		//Voting Modal
 		$("#bracket-modal").modal({
 			opacity:50,
@@ -273,7 +277,9 @@ if(document.domain +"/ga-madness"){
 	        	// load the poll page div
 	        	$('#Gen').fadeIn();
 		        $('.poll-area').load( '/ga_madness/' + $slug + ' .entry-content', function(){
+		        	$("#imo-tophat").hide();
 		        	$('#Gen').hide();
+		        	_gaq.push(['_trackPageview',"/" + window.location.pathname + $slug]);
 		        	loadPoll();
         			$(".poll-pagination").fadeIn();
         			
@@ -299,6 +305,7 @@ if(document.domain +"/ga-madness"){
 		        		$('#Gen').fadeIn();		        		
 	        			$('.poll-area').load( '/ga_madness/' + $nextSlug + ' .entry-content', function(){
 	        				$('#Gen').hide();
+	        				_gaq.push(['_trackPageview',"/" + window.location.pathname + $nextSlug]);
 	        				//Update the poll number
 	        				$pollNum = $pollNumNext;
 	        				$(".vote-thumb").hide();
@@ -313,7 +320,7 @@ if(document.domain +"/ga-madness"){
         		
 			        });
 			        
-			        //close current poll and open next poll
+			        //close current poll and open previous poll
 	        		$(".prev-poll").click(function(event){
 	        			
 	        			//Get the next poll for pagination
@@ -334,7 +341,9 @@ if(document.domain +"/ga-madness"){
 		        		//clear the html from the current poll
 		        		$('#Gen').fadeIn();		        		
 	        			$('.poll-area').load( '/ga_madness/' + $prevSlug + ' .entry-content', function(){
+	        			
 	        				$('#Gen').hide();
+	        				_gaq.push(['_trackPageview',"/" + window.location.pathname + $prevSlug]);
 	        				//Update the poll number
 	        				$pollNum = $pollNumPrev;
 	        				$(".vote-thumb").hide();
@@ -350,8 +359,10 @@ if(document.domain +"/ga-madness"){
 			 });			
 			    		
 				     // close the modal						
-				     $("#bracket-modal a.hide-this").click(function(){
+				     $("#bracket-modal a.hide-this, #simplemodal-overlay").click(function(){
+				     	$("#imo-tophat").fadeIn();
 				        $.modal.close();
+				        
 			        });
 		        },
 			 });
@@ -360,7 +371,50 @@ if(document.domain +"/ga-madness"){
 	}); 				
 }
 
+$(document).ready(function(){
 
+	if( $.cookie("test") ){
+
+		$(".super-ad .expanded").hide();
+		$(".super-ad .collapsed").show();
+		$(".super-ad .super-ad-exp").show();
+	}else{
+		$(".super-ad .collapsed").hide();
+		$(".super-ad .super-ad-exp").hide();
+		$(".super-ad .expanded").show();
+		$(".super-ad .super-ad-close").show();
+	}
+		
+		$(".super-ad .super-ad-close").click(function(){
+			$.cookie("test", 1);
+			$(".super-ad div img").slideUp('fast', function() {
+				$(".super-ad .super-ad-close").hide();
+				$(".super-ad .super-ad-exp").show();
+				
+				$(this).css("height","90px");
+				$(".super-ad .expanded").hide();
+				$(".super-ad .collapsed").fadeIn();
+				
+			});
+			
+		});
+		
+		$(".super-ad .super-ad-exp").click(function(){
+			//$.removeCookie("test");
+			$(".super-ad .super-ad-close").show();
+			
+			$(".super-ad div img").slideDown('fast', function() {
+				$(".super-ad .super-ad-exp").hide();
+				
+				$(this).css("height","276px");
+				$(".super-ad .expanded").fadeIn();
+				$(".super-ad .collapsed").hide();
+				
+				});
+		});
+	
+
+});
 
 // Use cookies to color the polls that have already been taken
 var getCookies = function(){
