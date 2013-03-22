@@ -39,64 +39,19 @@ $title2 = get_post_meta($id, 'ecpt_poll-related-title-2', true);
 				<?php if($title == "" && $title2 == ""){ echo "<p>There are no matchups.</p>"; } ?>
 			</ul>
 		</div>
-		<div class="madness-contest-enter">
-			
+		<div class="madness-contest-enter"><a href="/bracket/enter" target="_blank">
 		<?php
-			if($camp == "handgunsmadness"){ ?>
-				
-				<!-- Site - Guns and Ammo/Brackets -->
-				<script type="text/javascript">
-				  var ord = window.ord || Math.floor(Math.random() * 1e16);
-				  document.write('<iframe src="http://ad.doubleclick.net/N4930/adi/imo.gunsandammo/Brackets;sect=bracket;manf=;page=ga_madness;camp=handgunsmadness;sz=358x90;ord=' + ord + '?" width="358" height="90" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no"></iframe>');
-				</script>
-				<noscript>
-				<a href="http://ad.doubleclick.net/N4930/jump/imo.gunsandammo/Brackets;sect=bracket;manf=;page=ga_madness;camp=handgunsmadness;sz=358x90;ord=[timestamp]?">
-				<img src="http://ad.doubleclick.net/N4930/ad/imo.gunsandammo/Brackets;sect=bracket;manf=;page=ga_madness;camp=handgunsmadness;sz=358x90;ord=[timestamp]?" width="358" height="90" />
-				</a>
-				</noscript>
-				
-			<?php }else if($camp == "shotgunsmadness"){ ?>
-
-			<!-- Site - Guns and Ammo/Brackets -->
-			<script type="text/javascript">
-			  var ord = window.ord || Math.floor(Math.random() * 1e16);
-			  document.write('<iframe src="http://ad.doubleclick.net/N4930/adi/imo.gunsandammo/Brackets;sect=bracket;manf=;page=ga_madness;camp=shotgunsmadness;sz=358x90;ord=' + ord + '?" width="358" height="90" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no"></iframe>');
-			</script>
-			<noscript>
-			<a href="http://ad.doubleclick.net/N4930/jump/imo.gunsandammo/Brackets;sect=bracket;manf=;page=ga_madness;camp=shotgunsmadness;sz=358x90;ord=[timestamp]?">
-			<img src="http://ad.doubleclick.net/N4930/ad/imo.gunsandammo/Brackets;sect=bracket;manf=;page=ga_madness;camp=shotgunsmadness;sz=358x90;ord=[timestamp]?" width="358" height="90" />
-			</a>
-			</noscript>
-			
-			<?php }else if($camp == "riflesmadness"){ ?>
-				
-				<!-- Site - Guns and Ammo/Brackets -->
-				<script type="text/javascript">
-				  var ord = window.ord || Math.floor(Math.random() * 1e16);
-				  document.write('<iframe src="http://ad.doubleclick.net/N4930/adi/imo.gunsandammo/Brackets;sect=bracket;manf=;page=ga_madness;camp=riflesmadness;sz=358x90;ord=' + ord + '?" width="358" height="90" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no"></iframe>');
-				</script>
-				<noscript>
-				<a href="http://ad.doubleclick.net/N4930/jump/imo.gunsandammo/Brackets;sect=bracket;manf=;page=ga_madness;camp=riflesmadness;sz=358x90;ord=[timestamp]?">
-				<img src="http://ad.doubleclick.net/N4930/ad/imo.gunsandammo/Brackets;sect=bracket;manf=;page=ga_madness;camp=riflesmadness;sz=358x90;ord=[timestamp]?" width="358" height="90" />
-				</a>
-				</noscript>
-
-			<?php }else if($camp == "arsmadness"){ ?>
-			
-				<!-- Site - Guns and Ammo/Brackets -->
-				<script type="text/javascript">
-				  var ord = window.ord || Math.floor(Math.random() * 1e16);
-				  document.write('<iframe src="http://ad.doubleclick.net/N4930/adi/imo.gunsandammo/Brackets;sect=bracket;manf=;page=ga_madness;camp=arsmadness;sz=358x90;ord=' + ord + '?" width="358" height="90" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no"></iframe>');
-				</script>
-				<noscript>
-				<a href="http://ad.doubleclick.net/N4930/jump/imo.gunsandammo/Brackets;sect=bracket;manf=;page=ga_madness;camp=arsmadness;sz=358x90;ord=[timestamp]?">
-				<img src="http://ad.doubleclick.net/N4930/ad/imo.gunsandammo/Brackets;sect=bracket;manf=;page=ga_madness;camp=arsmadness;sz=358x90;ord=[timestamp]?" width="358" height="90" />
-				</a>
-				</noscript>
-
-			<?php }	?>
-		</div>
-		<div class="vote-ad">
+			if($camp == "handguns-madness"){
+				echo '<img src="/wp-content/themes/imo-mags-gunsandammo/img/ga-madness-popup-galco-358x90.jpg" alt="Enter G&A Madness" />';
+			}else if($camp == "shotguns-madness"){
+				echo '<img src="/wp-content/themes/imo-mags-gunsandammo/img/ga-madness-popup-wardog-358x90.jpg" alt="Enter G&A Madness" />';
+			}else if($camp == "rifles-madness"){
+				echo '<img src="/wp-content/themes/imo-mags-gunsandammo/img/ga-madness-popup-FFL-358x90.jpg" alt="Enter G&A Madness" />';
+			}else if($camp == "ars-madness"){
+				echo '<img src="/wp-content/themes/imo-mags-gunsandammo/img/ga-madness-358x90.jpg" alt="Enter G&A Madness" />';
+			}		
+		?>
+		</a></div>		<div class="vote-ad">
 			<iframe id="poll-ad-iframe" src="http://<?php echo $_SERVER['SERVER_NAME']; ?>/iframe-bracket-ad.php?ad_code=imo.gunsandammo&size=728x90&camp=<?php echo $camp; ?>" width=736 height=106></iframe>
 		</div>	
 	</div>

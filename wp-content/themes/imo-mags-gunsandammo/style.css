@@ -7670,20 +7670,24 @@ li.no-vote:hover img{
 	float: left;
 	color: white;
 	cursor: pointer;
-	padding: 0px 8px 0 18px;
-	background: #ce181e;
+	padding: 0px 8px;
+	background: black;
 	font-weight: bold;
+	width: 154px;
+	text-align: center;
 }
 .poll-pagination .next-poll{
 	float: right;
 	color: white;
 	cursor: pointer;
-	padding: 0px 18px 0 8px;
-	background: #ce181e;
+	padding: 0px 8px;
+	background: black;
 	font-weight: bold;
+	width: 154px;
+	text-align: center;
 }
 .poll-pagination .next-poll:hover, .poll-pagination .prev-poll:hover{
-	background: black;
+	background: #ce181e;
 }
 .poll-pagination .next-poll span{
 	background: url("img/icon-sb6ca565883.png") no-repeat 0 -50px;
