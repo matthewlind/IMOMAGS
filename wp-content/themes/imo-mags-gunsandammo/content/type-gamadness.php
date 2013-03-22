@@ -51,8 +51,7 @@ $title2 = get_post_meta($id, 'ecpt_poll-related-title-2', true);
 				echo '<img src="/wp-content/themes/imo-mags-gunsandammo/img/ga-madness-358x90.jpg" alt="Enter G&A Madness" />';
 			}		
 		?>
-		</a></div>
-		<div class="vote-ad">
+		</a></div>		<div class="vote-ad">
 			<iframe id="poll-ad-iframe" src="http://<?php echo $_SERVER['SERVER_NAME']; ?>/iframe-bracket-ad.php?ad_code=imo.gunsandammo&size=728x90&camp=<?php echo $camp; ?>" width=736 height=106></iframe>
 		</div>	
 	</div>
