@@ -12,6 +12,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
 <!--[if gt IE 8]><!--> <html class="no-js" <?php language_attributes() ?>> <!--<![endif]-->
 <head>
 	<meta http-equiv="content-type" content="<?php bloginfo('html_type') ?>; charset=<?php bloginfo('charset') ?>" />
+	
 	<!-- Google site verification -->
 	<meta name="google-site-verification" content="cnHnjptzREIHHHGb3zfXZkdDp2VV-Ffigic-8-zqoHU" />
 	<title><?php wp_title(''); ?></title>
@@ -20,7 +21,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
 	<link rel="pingback" href="<?php bloginfo('pingback_url') ?>" />
 	<?php wp_get_archives(array('type' => 'monthly', 'format' => 'link')); ?>
   
-  <meta name="viewport" content="width=device-width">
+  
  	<?php wp_enqueue_script('my_scripts_method'); ?>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
 	
