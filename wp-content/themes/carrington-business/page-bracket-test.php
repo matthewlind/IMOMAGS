@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: Bracket Page
+ * Template Name: Bracket Test Page
  * Description: Full-width template for March Brackets
  *
  * @package carrington-business

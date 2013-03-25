@@ -169,6 +169,7 @@ if(document.domain +"/ga-madness"){
 		        	$('#Gen').fadeIn();
 			        $('.poll-area').load( '/ga-madness/how-it-works .entry-content', function(){
 				    	$('#Gen').hide();
+				    	$("#imo-tophat").hide();
 				    	$("#bracket-modal").css("overflow","scroll");
 				    	
 				    });
@@ -294,7 +295,7 @@ if(document.domain +"/ga-madness"){
 	        			$pollInteger = parseInt($pollString);
 	        			var $pollNumNext = $pollInteger + 1;
 	        			
-	        			if($pollNumNext == 33){
+	        			if($pollNumNext == 17){
 		        			$pollNumNext = 1;
 	        			}
 	        			
@@ -332,7 +333,7 @@ if(document.domain +"/ga-madness"){
 	        			
 	        			//reset poll number for loop
 	        			if($pollNumPrev == 0){
-		        			$pollNumPrev = 32;
+		        			$pollNumPrev = 16;
 	        			}
 	        			
 	        			var $prevPoll = $("#bracket").find(".open-poll[pollNum=" + $pollNumPrev + "]");
@@ -391,7 +392,7 @@ $(document).ready(function(){
 				$(".super-ad .super-ad-close").hide();
 				$(".super-ad .super-ad-exp").show();
 				
-				$(this).css("height","90px");
+				$(this).css("height","70px");
 				$(".super-ad .expanded").hide();
 				$(".super-ad .collapsed").fadeIn();
 				
