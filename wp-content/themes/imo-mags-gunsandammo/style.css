@@ -7400,7 +7400,7 @@ table.gridtable td.title {
 	overflow: hidden;
 	margin-top: 6px;
 }
-.single-gamadness .pagination, .page-template-page-bracket-php  .pagination{
+.single-gamadness .pagination, .page-template-page-bracket-php  .pagination, .page-template-page-bracket-test-php  .pagination{
 	display: none;
 }
 .new-superpost-box{
