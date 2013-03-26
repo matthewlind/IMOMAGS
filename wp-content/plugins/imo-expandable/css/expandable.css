@@ -1,0 +1,50 @@
+/*** GA MADNESS BRACKET SUPER AD ***/
+
+.super-ad{
+	background: black;
+	width: 100%;
+	height: auto;
+	margin-bottom: -71px;
+	position: relative;
+	z-index: 9;
+}
+.super-ad-exp, .super-ad-close{
+	width: 48px;
+	height: 25px;
+	position: absolute;
+	top: 74px;
+	right: 4px;
+	z-index: 10;
+	padding-right: 32px;
+	color: white;
+	font-size: 0.9em;
+	font-weight: bold;
+	text-align: right;
+	cursor: pointer;
+}
+.super-ad .collapsed img{
+	cursor: pointer;
+}
+.super-ad-close{
+	background: url("http://gunsandammo.com/wp-content/themes/imo-mags-gunsandammo/img/collapse.jpg") no-repeat right top;
+}
+.super-ad-exp{
+	background: url("http://gunsandammo.com/wp-content/themes/imo-mags-gunsandammo/img/expand.jpg") no-repeat right top;
+}
+.super-ad-exp:hover, .super-ad-close:hover{
+	color: white;
+	text-decoration: none;
+}
+.super-ad div{
+	margin: 0 auto;
+	position: relative;
+	width: 980px;
+	height: auto;
+}
+.super-ad .expanded img, .super-ad .collapsed img{
+	padding-top: 70px;
+	margin-bottom: -5px;
+}
+.super-ad .collapsed img{
+	padding-top: 74px;
+}

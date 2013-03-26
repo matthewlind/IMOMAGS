@@ -72,16 +72,15 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
 		</div>
 	
 	</div>
-	<header id="header">
-	<?php if(is_page("G&amp;A Home")){ ?>
-	
+	<header id="header">	
+<?php if (function_exists('imo_expandable_scripts')) { ?>
 	<div class="super-ad">
 		<div>
 			<a class="super-ad-close" style="display:none;">Close</a>
 			<a class="super-ad-exp">Expand</a>
 			<!-- Site - Guns and Ammo -->
 			<div class="collapsed">
-				<a href="/bracket/enter"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/ga-madness-super-header-collapsed.jpg" width="980" height="70" /></a>
+				<img src="<?php bloginfo('stylesheet_directory'); ?>/img/ga-madness-super-header-collapsed.jpg" width="980" height="70" />
 			</div>
 
 			<div class="expanded" style="display:none;">
@@ -96,9 +95,8 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
 
 		</div>
 	</div>
-	
-	<?php } ?>
-    <div class="container">
+<?php } ?>
+	<div class="container">
 	
       <a href="<?php echo home_url('/'); ?>" class="brand" title="<?php _e('Home', 'carrington-business') ?>"><img src="<?php print get_stylesheet_directory_uri(); ?>/img/logo.png" alt="<?php bloginfo('name'); ?>" /></a>
       

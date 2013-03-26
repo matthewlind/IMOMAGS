@@ -372,50 +372,6 @@ if(document.domain +"/ga-madness"){
 	}); 				
 }
 
-$(document).ready(function(){
-
-	if( $.cookie("test") ){
-
-		$(".super-ad .expanded").hide();
-		$(".super-ad .collapsed").show();
-		$(".super-ad .super-ad-exp").show();
-	}else{
-		$(".super-ad .collapsed").hide();
-		$(".super-ad .super-ad-exp").hide();
-		$(".super-ad .expanded").show();
-		$(".super-ad .super-ad-close").show();
-	}
-		
-		$(".super-ad .super-ad-close").click(function(){
-			$.cookie("test", 1);
-			$(".super-ad div img").slideUp('fast', function() {
-				$(".super-ad .super-ad-close").hide();
-				$(".super-ad .super-ad-exp").show();
-				
-				$(this).css("height","70px");
-				$(".super-ad .expanded").hide();
-				$(".super-ad .collapsed").fadeIn();
-				
-			});
-			
-		});
-		
-		$(".super-ad .super-ad-exp").click(function(){
-			//$.removeCookie("test");
-			$(".super-ad .super-ad-close").show();
-			
-			$(".super-ad div img").slideDown('fast', function() {
-				$(".super-ad .super-ad-exp").hide();
-				
-				$(this).css("height","276px");
-				$(".super-ad .expanded").fadeIn();
-				$(".super-ad .collapsed").hide();
-				
-				});
-		});
-	
-
-});
 
 // Use cookies to color the polls that have already been taken
 var getCookies = function(){

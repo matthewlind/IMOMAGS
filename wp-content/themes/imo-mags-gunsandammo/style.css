@@ -7706,48 +7706,6 @@ li.no-vote:hover img{
 	position: absolute;
 }
 
-.super-ad{
-	background: black;
-	width: 100%;
-	height: auto;
-	margin-bottom: -71px;
-	position: relative;
-	z-index: 9;
-}
-.super-ad-exp, .super-ad-close{
-	width: 48px;
-	height: 25px;
-	position: absolute;
-	top: 74px;
-	right: 4px;
-	z-index: 10;
-	padding-right: 32px;
-	color: white;
-	font-size: 0.9em;
-	font-weight: bold;
-	text-align: right;
-	cursor: pointer;
-}
-
-.super-ad-close{
-	background: url("img/collapse.jpg") no-repeat right top;
-}
-.super-ad-exp{
-	background: url("img/expand.jpg") no-repeat right top;
-}
-.super-ad div{
-	margin: 0 auto;
-	position: relative;
-	width: 980px;
-	height: auto;
-}
-.super-ad .expanded img, .super-ad .collapsed img{
-	padding-top: 70px;
-	margin-bottom: -7px;
-}
-.super-ad .collapsed img{
-	padding-top: 74px;
-}
 .ga-madness-comments{
 	width: 646px;
 }
@@ -7924,7 +7882,10 @@ li.no-vote:hover img{
 
 
 
-
+/*** SUPER HEADER AD ***/
+.super-ad .expanded img, .super-ad .collapsed img {
+	margin-bottom: -7px !important;
+}
 
 
 
