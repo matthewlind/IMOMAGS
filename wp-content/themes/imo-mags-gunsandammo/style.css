@@ -206,7 +206,6 @@ button, input, select, textarea {
   vertical-align: baseline;
   *vertical-align: middle;
 }
-
 /* line 152, sass/style.scss */
 button, input {
   line-height: normal;
@@ -4584,6 +4583,7 @@ body.parent-pageid-2114 #main {
 /* line 3319, sass/style.scss */
 .widget_subscribe-form .subscribe-row select {
   margin-bottom: 6px;
+  font-size: 70%;
 }
 /* line 3321, sass/style.scss */
 .widget_subscribe-form .subscribeButton {
@@ -7847,7 +7847,7 @@ li.no-vote:hover img{
 	text-align: center;
 	color: #ce181e;
 }
-.block{
+.block-rotate{
 	-moz-border-radius:8px 8px 0px 0px;
 	-webkit-border-radius:8px 8px 0px 0px;
 	background-color:#efefef;
