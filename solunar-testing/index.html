@@ -1,0 +1,316 @@
+<!doctype html>
+<!--[if IE 7 ]><html class="ie ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"><![endif]-->
+<!--[if IE 9 ]><html class="ie ie9" lang="en"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+    <title></title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow"><!--  Replace with content="index, follow"> when site goes live -->
+
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="css/css-php.css" />
+    <link rel="stylesheet" href="css/styles.css?v=2" />
+
+</head>
+<body>
+
+
+
+
+	<!-- *********************************************************** -->
+	<!-- *****************  COMMUNITY TEMPLATES   ****************** -->
+	<!-- *********************************************************** -->
+	<script type="text/template" id="td-template">
+	
+
+        <div class="fishday fishday-level<%= data.peakcode %>">
+            <div class="a-event">
+                <em class="c-date"><%= data.day %></em>
+                <span class="ico-solunar"><img src="images/ico2/moon_<%= data.mooncode %>.png" width="24" height="24" alt="" /></span>
+                <ul class="day-data">
+                    <li class="best-p"><%= data.times[0].start %> - <%= data.times[0].end %></li>
+                    <li class="major-p"><%= data.times[1].start %> - <%= data.times[1].end %></li>
+                    <li class="minor-p"><%= data.times[2].start %> - <%= data.times[2].end %></li>
+                </ul>
+                
+            </div>
+            <div class="cal-popup">
+                <div class="cal-popup-inner">
+                    <h3><%= data.weekday %> <span><%= data.monthname %> <%= data.day %></span></h3>
+                    <div class="cal-row clearfix">
+                        <ul class="sun-data">
+                            <li><%= data.sunrise %></li>
+                            <li><%= data.sunset %></li>
+                        </ul>
+                        <ul class="moon-data">
+                            <li><%= data.moonrise %></li>
+                            <li><%= data.moonset %></li>
+                        </ul>
+                    </div>
+                    <div class="cal-row clearfix">
+                        <ul class="times-list">
+                            <li>Best Time:</li>
+                            <li>Major Period:</li>
+                            <li>Minor Period:</li>
+                        </ul>
+                        <ul class="day-data">
+		                    <li class="best-p"><%= data.times[0].start %> - <%= data.times[0].end %></li>
+		                    <li class="major-p"><%= data.times[1].start %> - <%= data.times[1].end %></li>
+		                    <li class="minor-p"><%= data.times[2].start %> - <%= data.times[2].end %></li>
+                        </ul>
+                    </div>
+                    <div class="cal-row presented-by">
+                        <span>presented by</span>
+                        <a href="#"><img src="images/banner/dick-s.png" width="92" height="42" alt="dick's sport goods" /></a>
+                    </div>
+                </div>
+                <a class="close-popup" href="javascript:"></a>
+            </div>
+        </div>
+                 
+
+	
+	</script>
+	
+	
+	
+	
+	
+	<!-- *********************************************************** -->
+	<!-- *********************************************************** -->
+
+    <div class="frame">
+        <div class="wide-banner">
+            <a href="#"><img src="images/banner/banner-solunar.jpg" width="1020" height="140" alt="" /></a>
+        </div>
+        <div class="location-box jq-custom-form">
+            <form action="#">
+                <fieldset>
+                    <span class="form-text">I’ll be going</span>
+                    <select id="sel1" class="sel">
+                        <option value="1">Bass</option>
+                        <option value="2">Walleye</option>
+                        <option value="3">Catfish</option>
+                        <option value="4">Panfish</option>
+                        <option value="5">Pike & Muskie</option>
+                        <option selected="selected" value="6">Trout & Salmon</option>
+                        <option value="7">Other Fish</option>
+                        <option value="8">Ice Fishing</option>
+                    </select>
+                    <span class="form-text">fishing in or near</span>
+                    <input type="text" id="solunar-location" placeholder="enter location" />
+                    <input class="submit-small solunar-submit" type="submit" value="GO!" />
+                </fieldset>
+            </form>
+        </div>
+        <div class="main-calendar">
+            <div class="cal-title jq-custom-form">
+                <select id="month" class="sel">
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+            </div>
+            
+  
+            
+            <div class="calendar-holder" style="display:none;">
+                <table class="calendar-data">
+                <thead>
+                    <tr>
+                        <th class="th-pros-1"><span>Sun</span></th>
+                        <th class="th-pros-2"><span>Mon</span></th>
+                        <th class="th-pros-3"><span>Tue</span></th>
+                        <th class="th-pros-4"><span>Wed</span></th>
+                        <th class="th-pros-4"><span>Thu</span></th>
+                        <th class="th-pros-4"><span>Fri</span></th>
+                        <th class="th-pros-4"><span>Sat</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="far-right"></td>
+                        <td class="far-right"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="far-right"></td>
+                        <td class="far-right"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="far-right"></td>
+                        <td class="far-right"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="far-right"></td>
+                        <td class="far-right"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="far-right"></td>
+                        <td class="far-right"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="far-right"></td>
+                        <td class="far-right"></td>
+                    </tr>
+                                                      
+  
+                </tbody>
+
+                </table>
+            </div>
+        </div>
+        <div class="sub-widgets">
+            <div class="w-col">
+                <h3>Legend</h3>
+                <ul class="day-data">
+                    <li class="best-p"> - Best overall time to fish this day</li>
+                    <li class="major-p"> - Major Period (Moon overhead or underfoot)</li>
+                    <li class="minor-p"> - Minor Period (Moon between Major Periods)</li>
+                </ul>
+                <div class="chart">
+                    <img src="images/fishing-chart.png" width="294" height="16" alt="" />
+                    <div class="clearfix">
+                        <span>Could be better...</span>
+                        <strong>Great day to fish!</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="w-col">
+                <h3>Weekly Fishing Reminders</h3>
+                <p>Get the best fishing times for Seattle, WA. <br />every week.</p>
+                <div class="custom-form">
+                    <form action="#">
+                        <fieldset>
+                            <div class="f-row">
+                                <input type="text" placeholder="name" />
+                            </div>
+                            <div class="f-row">
+                                <input type="text" placeholder="email address" />
+                                <input class="submit-small" type="submit" value="GO!" />
+                                
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <div class="w-col w-col3">
+                <a href="#"><img src="images/banner/trout-salmon.jpg" width="326" height="201" alt="" /></a>
+            </div>
+        </div>
+        <div class="gallery-block">
+            <h2><span>Trout &amp; Salmon Fishing Tips</span></h2>
+            <div class="list_carousel">
+                <ul id="foo2">
+                    <li>
+                        <a class="slide-thumb" href="#"><img src="images/photo/tactics-for-tailwater-trout.jpg" width="216" height="124" /></a>
+                        <h3><a href="#">Tactics for Tailwater Trout</a></h3>
+                        <em>January 13, 2012</em>
+                    </li>
+                    <li>
+                        <a class="slide-thumb" href="#"><img src="images/photo/nightfishing-king-salmon.jpg" width="216" height="124" /></a>
+                        <h3><a href="#">Nightfishing King Salmon</a></h3>
+                        <em>December 20, 2011</em>
+                    </li>
+                    <li>
+                        <a class="slide-thumb" href="#"><img src="images/photo/stealth-and-steel.jpg" width="216" height="124" /></a>
+                        <h3><a href="#">Stealth and Steel</a></h3>
+                        <em>December 9, 2011</em>
+                    </li>
+                    <li>
+                        <a class="slide-thumb" href="#"><img src="images/photo/targeting-tyee.jpg" width="216" height="124" /></a>
+                        <h3><a href="#">Targeting Tyee</a></h3>
+                        <em>December 9, 2011</em>
+                    </li>
+                    <li>
+                        <a class="slide-thumb" href="#"><img src="images/photo/tactics-for-tailwater-trout.jpg" width="216" height="124" /></a>
+                        <h3><a href="#">Tactics for Tailwater Trout</a></h3>
+                        <em>January 13, 2012</em>
+                    </li>
+                    <li>
+                        <a class="slide-thumb" href="#"><img src="images/photo/nightfishing-king-salmon.jpg" width="216" height="124" /></a>
+                        <h3><a href="#">Nightfishing King Salmon</a></h3>
+                        <em>December 20, 2011</em>
+                    </li>
+                    <li>
+                        <a class="slide-thumb" href="#"><img src="images/photo/stealth-and-steel.jpg" width="216" height="124" /></a>
+                        <h3><a href="#">Stealth and Steel</a></h3>
+                        <em>December 9, 2011</em>
+                    </li>
+                    <li>
+                        <a class="slide-thumb" href="#"><img src="images/photo/targeting-tyee.jpg" width="216" height="124" /></a>
+                        <h3><a href="#">Targeting Tyee</a></h3>
+                        <em>December 9, 2011</em>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+                <a id="prev2" class="gal-prev" href="#">&lt;</a>
+                <a id="next2" class="gal-next" href="#">&gt;</a>
+            </div>
+            
+        </div>
+    </div>
+
+<script src="js/libs/jquery-1.8.2.min.js"></script>
+<script src="js/plugins/zfselect/js/jquery.mousewheel.js"></script>
+<script src="js/plugins/zfselect/js/jquery.zfselect.min.js"></script>
+<script src="js/plugins/carouFredSel/jquery.carouFredSel-6.2.0-packed.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/1.0.1/lodash.min.js"></script>
+<link rel="stylesheet" href="js/plugins/zfselect/css/zfselect.css">
+<link rel="stylesheet" href="js/plugins/flexslider/flexslider.css">
+<!--[if lt IE 10]>
+    <script type="text/javascript" src="js/plugins/jquery.placeholder.min.js"></script>
+    <script type="text/javascript" >
+        $(function(){
+            $('input[placeholder], textarea[placeholder]').placeholder();
+        })
+    </script>
+<![endif]-->
+<script src="js/script.js"></script>
+
+</body>
+</html>
