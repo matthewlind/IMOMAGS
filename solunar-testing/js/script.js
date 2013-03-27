@@ -30,15 +30,16 @@ jQuery(document).ready(function($) {
 	
 	function updateCalendar(month,year,location) {
 	
-		if(!$(".calendar-holder").is(":visible")) {
-			$(".calendar-holder").fadeIn();
-		}
+		$(".calendar-holder").fadeTo("normal",0.20);
+		
 		
 		var url = "/wpdb/solunar.php?month=" + month +  "&year=" + year +  "&location=" + location ;
 		
+		
+		
 		$.getJSON(url,function(solunarDays){
 		
-			console.log(solunarDays);
+			$(".calendar-holder").fadeTo("normal",1.0);
 		
 			var monthNames = [ "nothing","Jan.", "Feb.", "Mar.", "Apr.", "May", "June",
 		    "July", "Aug.", "Sept.", "Oct.", "Nov.", "Dec." ];
