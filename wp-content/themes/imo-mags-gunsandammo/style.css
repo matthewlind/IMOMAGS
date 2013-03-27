@@ -206,7 +206,6 @@ button, input, select, textarea {
   vertical-align: baseline;
   *vertical-align: middle;
 }
-
 /* line 152, sass/style.scss */
 button, input {
   line-height: normal;
@@ -4584,6 +4583,7 @@ body.parent-pageid-2114 #main {
 /* line 3319, sass/style.scss */
 .widget_subscribe-form .subscribe-row select {
   margin-bottom: 6px;
+  font-size: 70%;
 }
 /* line 3321, sass/style.scss */
 .widget_subscribe-form .subscribeButton {
@@ -7400,7 +7400,7 @@ table.gridtable td.title {
 	overflow: hidden;
 	margin-top: 6px;
 }
-.single-gamadness .pagination, .page-template-page-bracket-php  .pagination{
+.single-gamadness .pagination, .page-template-page-bracket-php  .pagination, .page-template-page-bracket-test-php  .pagination{
 	display: none;
 }
 .new-superpost-box{
@@ -7665,39 +7665,47 @@ li.no-vote:hover img{
 	margin: 0 auto;
 	position: relative;
 	top: -228px;
-	font-style: italic;
 }
 .poll-pagination .prev-poll{
 	float: left;
-	color: black;
+	color: white;
 	cursor: pointer;
-	padding-left: 2px
+	padding: 0px 8px;
+	background: black;
+	font-weight: bold;
+	width: 154px;
+	text-align: center;
 }
 .poll-pagination .next-poll{
 	float: right;
-	color: black;
+	color: white;
 	cursor: pointer;
-	padding-right: 2px;
-
+	padding: 0px 8px;
+	background: black;
+	font-weight: bold;
+	width: 154px;
+	text-align: center;
 }
 .poll-pagination .next-poll:hover, .poll-pagination .prev-poll:hover{
-	color: #ce181e;
+	background: #ce181e;
 }
-.super-ad{
-	background: black;
-	width: 100%;
-	height: auto;
+.poll-pagination .next-poll span{
+	background: url("img/icon-sb6ca565883.png") no-repeat 0 -50px;
+	right: 0;
+	top: 7px;
+	width: 10px;
+	height: 9px;
+	position: absolute;
 }
-.super-ad div{
-	margin: 0 auto;
-	position: relative;
-	width: 980px;
-	height: auto;
+.poll-pagination .prev-poll span{
+	background: url("img/icon-sb6ca565883.png") no-repeat 0 -66px;
+	left: 3px;
+	top: 7px;
+	width: 10px;
+	height: 9px;
+	position: absolute;
 }
-.super-ad div img{
-	padding-top: 70px;
-	margin-bottom: -7px;
-}
+
 .ga-madness-comments{
 	width: 646px;
 }
@@ -7727,6 +7735,19 @@ li.no-vote:hover img{
 }
 .galco img{
 	width: 120px;
+	height: auto;
+}
+.zeiss{
+	width: 120px;
+	height: auto;
+	top: 700px;
+	left: 330px;
+	font-size: 0.7em;
+	text-align: center;
+	font-weight: bold;
+}
+.zeiss img{
+	width: 78px;
 	height: auto;
 }
 .ffl123{
@@ -7784,7 +7805,7 @@ li.no-vote:hover img{
 	text-align: center;
 	color: #ce181e;
 }
-.block{
+.block-rotate{
 	-moz-border-radius:8px 8px 0px 0px;
 	-webkit-border-radius:8px 8px 0px 0px;
 	background-color:#efefef;
@@ -7861,7 +7882,10 @@ li.no-vote:hover img{
 
 
 
-
+/*** SUPER HEADER AD ***/
+.super-ad .expanded img, .super-ad .collapsed img {
+	margin-bottom: -7px !important;
+}
 
 
 

@@ -90,8 +90,31 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 	</div>
 
 <div id="fb-root"></div>
+<?php if (function_exists('imo_expandable_scripts')) { ?>
+	<div class="super-ad">
+		<div>
+			<a class="super-ad-close" style="display:none;">Close</a>
+			<a class="super-ad-exp">Expand</a>
+			<div class="collapsed">
+				<img src="http://gunsandammo.com/wp-content/themes/imo-mags-gunsandammo/img/ga-madness-super-header-collapsed.jpg" width="980" height="70" />
+			</div>
 
+			<div class="expanded" style="display:none;">
+			<!-- Site - Shotgun News -->
+			<script type="text/javascript">
+			  var ord = window.ord || Math.floor(Math.random() * 1e16);
+			  document.write('<script type="text/javascript" src="http://ad.doubleclick.net/N4930/adj/imo.shotgunnews;sz=980x276;ord=' + ord + '?"><\/script>');
+			</script>
+			<noscript>
+			<a href="http://ad.doubleclick.net/N4930/jump/imo.shotgunnews;sz=980x276;ord=[timestamp]?">
+			<img src="http://ad.doubleclick.net/N4930/ad/imo.shotgunnews;sz=980x276;ord=[timestamp]?" width="980" height="276" />
+			</a>
+			</noscript>			
+		</div>
 
+		</div>
+	</div>
+<?php } ?>
 	<header id="header">
     		<div class="str-container">
 		

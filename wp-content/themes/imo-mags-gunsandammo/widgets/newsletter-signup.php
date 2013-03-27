@@ -18,7 +18,7 @@ class Signup_Widget extends WP_Widget {
           <span><?php echo $title; ?></span>
         </h5>
         <?php endif; ?>
-        <?php if (function_exists('gravity_form')) gravity_form(2, false, false); ?>
+        <?php if (function_exists('gravity_form')) gravity_form(2, false, false, false, '', true, 200); ?>
       </div>
     </aside>
 
