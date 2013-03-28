@@ -295,7 +295,7 @@ if(document.domain +"/ga-madness"){
 	        			$pollInteger = parseInt($pollString);
 	        			var $pollNumNext = $pollInteger + 1;
 	        			
-	        			if($pollNumNext == 17){
+	        			if($pollNumNext == 9){
 		        			$pollNumNext = 1;
 	        			}
 	        			
@@ -333,7 +333,7 @@ if(document.domain +"/ga-madness"){
 	        			
 	        			//reset poll number for loop
 	        			if($pollNumPrev == 0){
-		        			$pollNumPrev = 16;
+		        			$pollNumPrev = 8;
 	        			}
 	        			
 	        			var $prevPoll = $("#bracket").find(".open-poll[pollNum=" + $pollNumPrev + "]");

@@ -7370,7 +7370,8 @@ table.gridtable td.title {
 }
 .vote{
 	position: absolute;
-	top: 12px;
+	/*top: 12px;*** Round 1-2 ***/
+	top: 37px;/*** Round 3 ***/
 	left: 36px;
 	font-size: 1em;
 	font-weight: bold;
