@@ -445,40 +445,40 @@ $pollNum = 1;
 				        <h4 class="region1">
 				          MIDWEST 
 				        </h4>
-				        <div id="match41" class="match m1 open-poll" poll="smith-wesson-mp-shield-vs-kimber-solo-9mm" pollNum="<?php echo $pollNum; ?>">
+				        <div id="match41" class="match m1">
 				          <p rel="match18" class="slot slot1">
-				          	<span class="seed">1</span>S&W M&P Shield
+				          	<strong><span class="seed">1</span>S&W M&P Shield</strong>
 				          </p>
 				          <p rel="match19" class="slot slot2">
-				           <span class="seed">8</span>Kimber Solo 9mm
+				           <strike><span class="seed">8</span>Kimber Solo 9mm</strike>
 				          </p>
-				          <a class="vote">Vote</a>
+				          
 				        </div>
 				
 				<!-- /#match41 -->
-				        <div id="match42" class="match m2 open-poll" poll="springfield-xd-s-vs-sw-performance-center-1911" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
+				        <div id="match42" class="match m2">
 				          <p rel="match20" class="slot slot1">
-				         <span class="seed">5</span>S&W Perform...</p>
+				          <strong><span class="seed">5</span>S&W Perform...</strong></p>
 				          <p rel="match21" class="slot slot2">
-				           <span class="seed">4</span>Springfield XD-S</p>
+				           <strike><span class="seed">4</span>Springfield XD-S</strike></p>
 				          
-				          <a class="vote">Vote</a>
+				          
 				        </div>
 				<!-- /#match42 -->
-				        <div id="match43" class="match m3 open-poll" poll="cz-p-09-duty-vs-remington-r1-carry" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
+				        <div id="match43" class="match m3">
 				          <p class="slot slot1">
-				           <span class="seed">11</span>Remington R1...</p>
+				           <strong><span class="seed">11</span>Remington R1...</strong></p>
 				          <p class="slot slot2">
-				         <span class="seed">3</span>CZ P-09 Duty</p>
-				          <a class="vote">Vote</a>
+				         <strike><span class="seed">3</span>CZ P-09 Duty</strike></p>
+				          
 				        </div>
 				<!-- /#match43 -->
-				        <div id="match44" class="match m4 open-poll" poll="glock-17-gen4-vs-sig-p938" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
+				        <div id="match44" class="match m4">
 				          <p class="slot slot1">
-				          <span class="seed">10</span>SIG P938</p>
+				          <strike><span class="seed">10</span>SIG P938</strike></p>
 				          <p class="slot slot2">
-				          <span class="seed">2</span>Glock 17 Gen4</p>
-				          <a class="vote">Vote</a>
+				          <strong><span class="seed">2</span>Glock 17 Gen4</strong></p>
+				          
 				        </div>
 				<!-- /#match44 -->
 				      </div>
@@ -487,35 +487,35 @@ $pollNum = 1;
 				        <h4 class="region2">
 				          WEST 
 				        </h4>
-				        <div id="match45" class="match m1 open-poll" poll="ruger-gunsite-scout-rifle-vs-tc-dimension" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
+				        <div id="match45" class="match m1">
 				          <p class="slot slot1">
-				          <span class="seed">1</span>Ruger Gunsite...</p>
+				          <strong><span class="seed">1</span>Ruger Gunsite...</strong></p>
 				          <p class="slot slot2">
-				          <span class="seed">8</span> T/C Dimension</p>
-				          <a class="vote">Vote</a>
+				          <strike><span class="seed">8</span> T/C Dimension</strike></p>
+				          
 				        </div>
-				        <div id="match46" class="match m2 open-poll" poll="browning-x-bolt-composite-stalker-vs-475-turnbull-lever-gun" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
+				        <div id="match46" class="match m2">
 				          <p class="slot slot1">
-				           <span class="seed">5</span> Browning X-Bo...</p>
+				           <strike><span class="seed">5</span> Browning X-Bo...</strike></p>
 				          <p class="slot slot2">
-				         <span class="seed">4</span> Kimber 84M...</p>
-				          <a class="vote">Vote</a>
+				          <strong><span class="seed">4</span> Kimber 84M...</strong></p>
+				          
 				        </div>
 				
 				<!-- /#match46 -->
-				        <div id="match47" class="match m3 open-poll" poll="cz-455-varmint-evolution-vs-nosler-model-48-trophy-grade" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
+				        <div id="match47" class="match m3">
 				          <p class="slot slot1">
-				          <span class="seed">6</span> CZ 455 Varm...</p>
+				         <strike><span class="seed">6</span> CZ 455 Varm...</strike></p>
 				          <p class="slot slot2">
-				          <span class="seed">3</span> Nosler Model...</p>
-				          <a class="vote">Vote</a>
+				          <strong><span class="seed">3</span> Nosler Model...</strong></p>
+				          
 				        </div>
-				        <div id="match48" class="match m4 open-poll" poll="ruger-1022-takedown-vs-sako-trg-m10" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
+				        <div id="match48" class="match m4">
 				          <p class="slot slot1">
-				          <span class="seed">7</span> Ruger 10/22...</p>
+				          <strike><span class="seed">7</span> Ruger 10/22...</strike></p>
 				          <p class="slot slot2">
-				          <span class="seed">2</span> Sako TRG M10</p>
-				          <a class="vote">Vote</a>
+				          <strong><span class="seed">2</span> Sako TRG M10</strong></p>
+				          
 				        </div>
 				<!-- /#match48 -->
 				      </div>
@@ -523,37 +523,37 @@ $pollNum = 1;
 				        <h4 class="region3">
 				          East 
 				        </h4>
-				        <div id="match3" class="match m1 open-poll" poll="kel-tec-ksg-vs-remington-versa-max-sportsman" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
+				        <div id="match3" class="match m1">
 				          <p class="slot slot1">
-				          <span class="seed">1</span>Kel-Tec KSG</p>
+				          <strong><span class="seed">1</span>Kel-Tec KSG</strong></p>
 				          <p class="slot slot2">
-				          <span class="seed">9</span> Remington Ver...</p>
-				          <a class="vote">Vote</a>
+				          <strike><span class="seed">9</span> Remington Ver...</strike></p>
+				          
 				        </div>
 				
 				<!--/match3-->
-				        <div id="match34" class="match m2 open-poll" poll="browning-a5-vs-benelli-legacy-28" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
+				        <div id="match34" class="match m2">
 				          <p class="slot slot1">
-				          <span class="seed">5</span> Browning A5</p>
+				          <strike><span class="seed">5</span> Browning A5</strike></p>
 				          <p class="slot slot2">
-				          <span class="seed">4</span> Benelli Legacy...</p>
-				          <a class="vote">Vote</a>
+				          <strong><span class="seed">4</span> Benelli Legacy...</strong></p>
+				          
 				        </div>
 				<!-- #/match34 -->
-				        <div id="match35" class="match m3 open-poll" poll="ruger-red-label-20-vs-saiga-12" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
+				        <div id="match35" class="match m3">
 				          <p class="slot slot1">
-				          <span class="seed">11</span> Ruger Red...</p>
+				          <strike><span class="seed">11</span> Ruger Red...</strike></p>
 				          <p class="slot slot2">
-				          <span class="seed">3</span> Saiga-12</p>
-				          <a class="vote">Vote</a>
+				          <strong><span class="seed">3</span> Saiga-12</strong></p>
+				          
 				        </div>
 				<!-- #/match35 -->
-				        <div id="match36" class="match m4 open-poll" poll="beretta-dt-11-vs-remington-m887-nitromag" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
+				        <div id="match36" class="match m4">
 				          <p class="slot slot1">
-				          <span class="seed">7</span> Beretta DT-11</p>
+				          <strong><span class="seed">7</span> Beretta DT-11</strong></p>
 				          <p class="slot slot2">
-				          <span class="seed">2</span> Remington M8...</p>
-				          <a class="vote">Vote</a>
+				          <strike><span class="seed">2</span> Remington M8...</strike></p>
+				          
 				        </div>
 				<!-- #/match36 -->
 				      </div>
@@ -562,37 +562,37 @@ $pollNum = 1;
 				        <h4 class="region4">
 				          South 
 				        </h4>
-				        <div id="match37" class="match m1 open-poll" poll="spikes-tactical-compressor-sbr-300-blk-vs-colt-le901-16s" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
+				        <div id="match37" class="match m1">
 				          <p class="slot slot1">
-				          <span class="seed">1</span> Spike's Tact...</p>
+				          <strike><span class="seed">1</span> Spike's Tact...</strike></p>
 				          <p class="slot slot2">
-				          <span class="seed">8</span> Colt LE901...</p>
-				          <a class="vote">Vote</a>
+				          <strong><span class="seed">8</span> Colt LE901...</strong></p>
+				          
 				        </div>
 				
 				<!--/#match37-->
-				        <div id="match38" class="match m2 open-poll" poll="lwrci-repr-vs-larue-tactical-costa-edition-hybrid" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
+				        <div id="match38" class="match m2">
 				          <p class="slot slot1">
-				          <span class="seed">5</span> LWRCI REPR</p>
+				          <strike><span class="seed">5</span> LWRCI REPR</strike></p>
 				          <p class="slot slot2">
-				          <span class="seed">4</span> LaRue Tactical...</p>
-				          <a class="vote">Vote</a>
+				          <strong><span class="seed">4</span> LaRue Tactical...</strong></p>
+				          
 				        </div>
 				<!--/#match38-->
-				        <div id="match39" class="match m3 open-poll" poll="daniel-defense-ddm4-300-sbr-vs-smith-wesson-mp15-300-whisper" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
+				        <div id="match39" class="match m3">
 				          <p class="slot slot1">
-				          <span class="seed">6</span> Daniel Defense...</p>
+				          <strong><span class="seed">6</span> Daniel Defense...</strong></p>
 				          <p class="slot slot2">
-				          <span class="seed">3</span> S&W M&P15...</p>
-				          <a class="vote">Vote</a>
+				          <strike><span class="seed">3</span> S&W M&P15...</strike></p>
+				          
 				        </div>
 				<!--/#match39-->
-				        <div id="match40" class="match m4 open-poll" poll="sig-sauer-m400-vs-wilson-combat-recon-tactical" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
+				        <div id="match40" class="match m4">
 				          <p class="slot slot1">
-				          <span class="seed">10</span> SIG Sauer M4...</p>
+				          <strike><span class="seed">10</span> SIG Sauer M4...</strike></p>
 				          <p class="slot slot2">
-				          <span class="seed">2</span> Wilson Combat...</p>
-				          <a class="vote">Vote</a>
+				          <strong><span class="seed">2</span> Wilson Combat...</strong></p>
+				          
 				        </div>
 				<!--/#match40-->
 				      </div>
@@ -606,17 +606,19 @@ $pollNum = 1;
 				        <h4 class="region1">
 				          Midwest 
 				        </h4>
-				        <div id="match53" class="match m1">
-				          <p class="slot slot1">
+				        <div id="match53" class="match m1 open-poll" poll="smith-wesson-mp-shield-vs-sw-performance-center-1911" pollNum="<?php echo $pollNum; ?>">
+				          <p class="slot slot1"><span class="seed">1</span>S&W M&P Shield
 				          </p>
-				          <p class="slot slot2">
+				          <p class="slot slot2"><span class="seed">5</span>S&W Perform...
 				          </p>
+				          <a class="vote">Vote</a>
 				        </div>
-				        <div id="match54" class="match m2">
-				          <p class="slot slot1">
+				        <div id="match54" class="match m2 open-poll" poll="remington-r1-carry-vs-glock-17-gen4" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
+				          <p class="slot slot1"><span class="seed">11</span>Remington R1...
 				          </p>
-				          <p class="slot slot2">
+				          <p class="slot slot2"><span class="seed">2</span>Glock 17 Gen4
 				          </p>
+				          <a class="vote">Vote</a>
 				        </div>
 				      </div>
 				
@@ -625,17 +627,19 @@ $pollNum = 1;
 				        <h4 class="region2">
 				          West 
 				        </h4>
-				        <div id="match55" class="match m1">
-				          <p class="slot slot1">
+				        <div id="match55" class="match m1 open-poll" poll="ruger-gunsite-scout-rifle-vs-kimber-84m-mountain-ascent" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
+				          <p class="slot slot1"><span class="seed">1</span>Ruger Gunsite...
 				          </p>
-				          <p class="slot slot2">
+				          <p class="slot slot2"><span class="seed">4</span> Kimber 84M...
 				          </p>
+				          <a class="vote">Vote</a>
 				        </div>
-				        <div id="match56" class="match m2">
-				          <p class="slot slot1">
+				        <div id="match56" class="match m2 open-poll" poll="nosler-model-48-trophy-grade-vs-sako-trg-m10" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
+				          <p class="slot slot1"><span class="seed">3</span> Nosler Model...
 				          </p>
-				          <p class="slot slot2">
+				          <p class="slot slot2"><span class="seed">2</span> Sako TRG M10
 				          </p>
+				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!--/#match56-->
@@ -644,19 +648,21 @@ $pollNum = 1;
 				        <h4 class="region3">
 				          East 
 				        </h4>
-				        <div id="match49" class="match m1">
-				          <p class="slot slot1">
+				        <div id="match49" class="match m1 open-poll" poll="kel-tec-ksg-vs-benelli-legacy-28" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
+				          <p class="slot slot1"><span class="seed">1</span>Kel-Tec KSG
 				          </p>
-				          <p class="slot slot2">
+				          <p class="slot slot2"><span class="seed">4</span> Benelli Legacy...
 				          </p>
+				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!--/#match49-->
-				        <div id="match50" class="match m2">
-				          <p class="slot slot1">
+				        <div id="match50" class="match m2 open-poll" poll="saiga-12-vs-beretta-dt-11" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
+				          <p class="slot slot1"><span class="seed">3</span> Saiga-12
 				          </p>
-				          <p class="slot slot2">
+				          <p class="slot slot2"><span class="seed">7</span> Beretta DT-11
 				          </p>
+				          <a class="vote">Vote</a>
 				        </div>
 				<!--/#match50-->
 				      </div>
@@ -665,19 +671,21 @@ $pollNum = 1;
 				        <h4 class="region4">
 				          South 
 				        </h4>
-				        <div id="match51" class="match m1">
-				          <p class="slot slot1">
+				        <div id="match51" class="match m1 open-poll" poll="colt-le901-16s-vs-larue-tactical-costa-edition-hybrid" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
+				          <p class="slot slot1"><span class="seed">8</span> Colt LE901...
 				          </p>
-				          <p class="slot slot2">
+				          <p class="slot slot2"><span class="seed">4</span> LaRue Tactical...
 				          </p>
+				          <a class="vote">Vote</a>
 				        </div>
 				
 				<!--/#match51-->
-				        <div id="match52" class="match m2">
-				          <p class="slot slot1">
+				        <div id="match52" class="match m2 open-poll" poll="daniel-defense-ddm4-300-sbr-vs-wilson-combat-recon-tactical" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
+				          <p class="slot slot1"><span class="seed">6</span> Daniel Defense...
 				          </p>
-				          <p class="slot slot2">
+				          <p class="slot slot2"><span class="seed">2</span> Wilson Combat...
 				          </p>
+				          <a class="vote">Vote</a>
 				        </div>
 				<!--/#match52-->
 				      </div>
@@ -771,11 +779,11 @@ $pollNum = 1;
 				      <div class="region">
 				        <div id="match64" class="match m1">
 				          <p class="slot slot1" id="slot127">
-				            <strong><!--<span class="seed">0</span>--> Winner <!--<em class="score">65</em></strong>-->
+				            <strong><!--<span class="seed">0</span> Winner <em class="score">65</em></strong>-->
 				<!-- winner -->
 				          </p>
 				          <p class="slot slot2" id="slot128">
-				            <!--<strike><span class="seed">4</span>--> Loser <!--<em class="score">60</em></strike>-->
+				            <!--<strike><span class="seed">4</span> Loser <em class="score">60</em></strike>-->
 				<!-- loser -->
 				          </p>
 				        </div>
@@ -910,13 +918,13 @@ $pollNum = 1;
 		</div>
 	<div id="Gen" class="marginLeft">
 		<div class="block" id="rotate_01"></div>
-		<div class="block-rotate" id="rotate_02"></div>
-		<div class="block-rotate" id="rotate_03"></div>
-		<div class="block-rotate" id="rotate_04"></div>
-		<div class="block-rotate" id="rotate_05"></div>
-		<div class="block-rotate" id="rotate_06"></div>
-		<div class="block-rotate" id="rotate_07"></div>
-		<div class="block-rotate" id="rotate_08"></div>
+		<div class="block" id="rotate_02"></div>
+		<div class="block" id="rotate_03"></div>
+		<div class="block" id="rotate_04"></div>
+		<div class="block" id="rotate_05"></div>
+		<div class="block" id="rotate_06"></div>
+		<div class="block" id="rotate_07"></div>
+		<div class="block" id="rotate_08"></div>
 		<div class="clearfix"></div>
 		<p>Loading...</p>
 	</div>
