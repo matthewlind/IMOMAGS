@@ -7371,12 +7371,18 @@ table.gridtable td.title {
 .vote{
 	position: absolute;
 	/*top: 12px;*** Round 1-2 ***/
-	top: 37px;/*** Round 3 ***/
+	/***top: 37px; Round 3 ***/
 	left: 36px;
 	font-size: 1em;
 	font-weight: bold;
 	text-transform: uppercase;
 	color: #ce181e;
+}
+.vote-top{
+	top: 197px;/*** Round 4 ***/
+}
+.vote-btm{
+	top: -23px;/*** Round 4 ***/
 }
 #bracket a{
 	cursor: pointer;
