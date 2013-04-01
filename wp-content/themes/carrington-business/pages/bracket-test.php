@@ -921,14 +921,14 @@ $pollNum = 1;
 			<a class="next-poll">Next Matchup<span></span></a>
 		</div>
 	<div id="Gen" class="marginLeft">
-		<div class="block" id="rotate_01"></div>
-		<div class="block" id="rotate_02"></div>
-		<div class="block" id="rotate_03"></div>
-		<div class="block" id="rotate_04"></div>
-		<div class="block" id="rotate_05"></div>
-		<div class="block" id="rotate_06"></div>
-		<div class="block" id="rotate_07"></div>
-		<div class="block" id="rotate_08"></div>
+		<div class="block-rotate" id="rotate_01"></div>
+		<div class="block-rotate" id="rotate_02"></div>
+		<div class="block-rotate" id="rotate_03"></div>
+		<div class="block-rotate" id="rotate_04"></div>
+		<div class="block-rotate" id="rotate_05"></div>
+		<div class="block-rotate" id="rotate_06"></div>
+		<div class="block-rotate" id="rotate_07"></div>
+		<div class="block-rotate" id="rotate_08"></div>
 		<div class="clearfix"></div>
 		<p>Loading...</p>
 	</div>
