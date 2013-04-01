@@ -63,6 +63,16 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 <?php endif; ?> 
 </head>
 <body <?php body_class(); ?>>
+
+	<?php 
+	if($_SERVER['SERVER_NAME'] == "www.petersenshunting.fox" && is_page("Petersen's Hunting Homepage 2")){
+		$clickable = true;
+		//Clickable expiration date - uses 01-12 for month
+		if(date("Ymd") > "20130408"){	$clickable = false;	}
+		if($clickable == true){	echo '<div class="clickable-bg"></div>'; } 
+	}
+	?>
+	
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
