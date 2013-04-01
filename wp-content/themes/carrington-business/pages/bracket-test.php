@@ -719,7 +719,7 @@ $pollNum = 1;
 				          </p>
 				          <p class="slot slot2"><span class="seed">2</span> Sako TRG M10
 				          </p>
-				          <a class="vote vote-btm open-poll" poll="ruger-gunsite-scout-rifle-vs-sako-trg-m10" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">Vote</a>
+				          <a class="vote vote-top open-poll" poll="ruger-gunsite-scout-rifle-vs-sako-trg-m10" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">Vote</a>
 				        </div>
 				
 				<!-- /#match61 -->
@@ -749,7 +749,7 @@ $pollNum = 1;
 				          </p>
 				          <p class="slot slot2"><span class="seed">6</span> Daniel Defense...
 				          </p>
-				          <a class="vote vote-btm open-poll" poll="larue-tactical-costa-edition-hybrid-vs-daniel-defense-ddm4-300-sbr" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">Vote</a>
+				          <a class="vote vote-top open-poll" poll="larue-tactical-costa-edition-hybrid-vs-daniel-defense-ddm4-300-sbr" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">Vote</a>
 				        </div>
 				
 				<!--/#match59-->
