@@ -24,7 +24,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 get_header(); ?>
 <div class="category-page">
-	<header class="header-title">
+	<header id="masthead">
 		<h1><?php single_cat_title(''); ?></h1>
 	</header>	
 	<div class="bonus-background">
