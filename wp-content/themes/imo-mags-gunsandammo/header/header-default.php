@@ -73,29 +73,26 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
 	
 	</div>
 	<header id="header">	
-<?php if (function_exists('imo_expandable_scripts')) { ?>
-	<div class="super-ad">
-		<div>
-			<a class="super-ad-close" style="display:none;">Close</a>
-			<a class="super-ad-exp">Expand</a>
-			<!-- Site - Guns and Ammo -->
-			<div class="collapsed">
-				<img src="<?php bloginfo('stylesheet_directory'); ?>/img/ga-madness-super-header-collapsed.jpg" width="980" height="70" />
+	<?php if (function_exists('imo_expandable_scripts')) { 
+		//ad run dates
+		if(date("Ymd") >= $GLOBALS['startDate'] && date("Ymd") <= $GLOBALS['expDate']){	?>
+			
+			<div class="super-ad">
+				<div>
+					<a class="super-ad-close" style="display:none;">Close</a>
+					<a class="super-ad-exp">Expand</a>
+					<!-- Site - Guns and Ammo -->
+					<div class="collapsed">
+						<img src="<?php echo get_option('expandable_collapsed_image'); ?>" width="980" height="70" />
+					</div>
+					<div class="expanded" style="display:none;">
+						<iframe id="super-header-iframe" src="<?php echo get_option('expandable_expanded_image'); ?>sz=980x276;ord=' + ord + '?" width="980" height="276" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no"></iframe>
+					</div>
+		
+				</div>
 			</div>
-
-			<div class="expanded" style="display:none;">
-				<script type="text/javascript">
-				  var ord = window.ord || Math.floor(Math.random() * 1e16);
-				  document.write('<script type="text/javascript" src="http://ad.doubleclick.net/N4930/adj/imo.gunsandammo;sz=980x276;ord=' + ord + '?"><\/script>');
-				</script>
-				<noscript>
-				<a href="http://ad.doubleclick.net/N4930/jump/imo.gunsandammo;sz=980x276;ord=[timestamp]?"><img src="http://ad.doubleclick.net/N4930/ad/imo.gunsandammo;sz=980x276;ord=[timestamp]?" width="980" height="276" /></a>
-				</noscript>
-			</div>
-
-		</div>
-	</div>
-<?php } ?>
+		<?php } 
+	} ?>
 	<div class="container">
 	
       <a href="<?php echo home_url('/'); ?>" class="brand" title="<?php _e('Home', 'carrington-business') ?>"><img src="<?php print get_stylesheet_directory_uri(); ?>/img/logo.png" alt="<?php bloginfo('name'); ?>" /></a>

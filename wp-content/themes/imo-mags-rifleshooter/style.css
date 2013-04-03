@@ -27,6 +27,7 @@
  */
 
 
+
 a {
 	color: #990000;
 	text-decoration: none;
@@ -298,7 +299,7 @@ body {
 	font-family: 'Cantarell', arial, serif;
 	font-size: 40px;
 	margin-bottom: 4px;
-	letter-spacing: -2px
+	letter-spacing: -2px;
 }
 
 .cfct-module-loop .cfct-mod-content .entry .entry-title, .cfct-module-loop-subpages .cfct-mod-content .entry .entry-title {
@@ -347,3 +348,61 @@ h2.entry-title a {
 #header-sub {
     padding-top: 20px;
 }
+
+.stay-connected {
+	position: absolute;
+    width: 246px;
+	right: 279px;
+	top: -4px;
+}
+.stay-connected .fb-like {
+    width: 80px;
+    float: left;
+    margin-right: 14px;
+    overflow: hidden;
+    max-height: 40px;
+}
+.stay-connected .label {
+    color: white;
+	font-weight: bold;
+	line-height: 4.3;
+	float: left;
+}
+.stay-connected .connections {
+    float: right;
+    margin: 0;
+    padding: 0;
+    width: 138px;
+}
+.stay-connected .connections li {
+    float: left;
+    list-style: none outside none;
+    margin: -14px 0 0;
+    height: 32px;
+    float: left;
+}
+.stay-connected .connections li a{
+	text-indent: -9999px;
+	position: absolute;
+	top:12px;
+}
+.stay-connected .connections li .facebook{
+	background: url('img/facebook_32.png') no-repeat;
+	width: 32px;
+	right: 108px;
+	height: 32px;
+	text-indent: -9999px;
+}
+.stay-connected .connections li .twitter{
+	background: url('img/twitter_32.png') no-repeat;
+	width: 32px;
+	right: 62px;
+	height: 32px;
+}
+.stay-connected .connections li .feed{
+	background: url('img/rss_32.png') no-repeat;
+	width: 32px;
+	right: 14px;
+	height: 32px;
+}
+

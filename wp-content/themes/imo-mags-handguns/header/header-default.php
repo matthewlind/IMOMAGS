@@ -89,35 +89,38 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 	</div>
 
 <div id="fb-root"></div>
-<?php if (function_exists('imo_expandable_scripts')) { ?>
-	<div class="super-ad">
-		<div>
-			<a class="super-ad-close" style="display:none;">Close</a>
-			<a class="super-ad-exp">Expand</a>
-			<!-- Site - Guns and Ammo -->
-			<div class="collapsed">
-				<img src="http://gunsandammo.com/wp-content/themes/imo-mags-gunsandammo/img/ga-madness-super-header-collapsed.jpg" width="980" height="70" />
-			</div>
-
-			<div class="expanded" style="display:none;">
-				<!-- Site - Handguns -->
-				<script type="text/javascript">
-				  var ord = window.ord || Math.floor(Math.random() * 1e16);
-				  document.write('<script type="text/javascript" src="http://ad.doubleclick.net/N4930/adj/imo.handguns;sz=980x276;ord=' + ord + '?"><\/script>');
-				</script>
-				<noscript>
-				<a href="http://ad.doubleclick.net/N4930/jump/imo.handguns;sz=980x276;ord=[timestamp]?">
-				<img src="http://ad.doubleclick.net/N4930/ad/imo.handguns;sz=980x276;ord=[timestamp]?" width="980" height="276" />
-				</a>
-				</noscript>		
-			</div>
-
-		</div>
-	</div>
-<?php } ?>
-	<header id="header">
-    		<div class="str-container">
+<?php if (function_exists('imo_expandable_scripts')) { 
+		//ad run dates
+		if(date("Ymd") >= $GLOBALS['startDate'] && date("Ymd") <= $GLOBALS['expDate']){	?>
+			
+			<div class="super-ad">
+				<div>
+					<a class="super-ad-close" style="display:none;">Close</a>
+					<a class="super-ad-exp">Expand</a>
+					<!-- Site - Guns and Ammo -->
+					<div class="collapsed">
+						<img src="<?php echo get_option('expandable_collapsed_image'); ?>" width="980" height="70" />
+					</div>
+					<div class="expanded" style="display:none;">
+						<iframe id="super-header-iframe" src="<?php echo get_option('expandable_expanded_image'); ?>sz=980x276;ord=' + ord + '?" width="980" height="276" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no"></iframe>
+					</div>
 		
+				</div>
+			</div>
+		<?php } 
+	} ?>
+	<header id="header">
+		<div class="str-container">
+			<div class="stay-connected">
+	  			 <p class="label">Stay Connected</p>
+	  			 
+	  			 <ul class="connections">
+	  			   <li><a target="_blank" class="facebook" href="https://www.facebook.com/HandgunsMag" title="Find us on Facebook">Facebook</a></li>
+	  			   <li><a target="_blank" class="twitter" href="http://twitter.com/handgunsmag" title="Follow us on Twitter">Twitter</a></li>
+	  			   <li><a target="_blank" class="feed" href="http://www.handgunsmag.com/feed/" title="Get the RSS Feed">RSS Feed</a></li>
+	  			</ul>
+	  		</div>
+
 			
 <?php if (!is_active_sidebar("header-slot")) { 
     include_once get_template_directory() . "/head-subscribe.php"; 
@@ -129,9 +132,7 @@ else {
 			
 			
 			     <h1 class="site-title"><a href="<?php echo home_url('/'); ?>" title="<?php _e('Home', 'carrington-business') ?>"><?php bloginfo('name'); ?></a></h1>
-			     
-			 
-		
+
 			<?php
             wp_nav_menu(array( 
 				'theme_location' => 'featured',
@@ -162,6 +163,7 @@ else {
 			));
 //			cfct_form('search');
 			?>
+
 		</div>
 	</header><!-- #header -->
 	
