@@ -82,9 +82,9 @@
       //this.render();
 
       //Monitor the Toolbar for changes so that the datamodel can be updated
-      var toolbar = $("#user-toolbar").html();
+      var toolbar = jQuery("#user-toolbar").html();
 
-      this.$toolbar = $(toolbar);
+      this.$toolbar = jQuery(toolbar);
 
       this.$toolbar.on("change",function(ev){
         that.users.params.order_by = $(this).find('#order_by').val();
@@ -100,7 +100,7 @@
         that.render();
       });
 
-      $("#app-header").html(this.$toolbar);
+      jQuery("#app-header").html(this.$toolbar);
 
 		},
 		template: null,

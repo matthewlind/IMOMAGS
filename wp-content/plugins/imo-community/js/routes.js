@@ -60,7 +60,7 @@
 		//SHOW POSTLIST VIEW
 
 
-		if ($.inArray(post_type,post_types) == -1)
+		if (jQuery.inArray(post_type,post_types) == -1)
 			post_type = undefined;
 
 		communityView.render({ params : { post_type:post_type, id:id, page:page }});

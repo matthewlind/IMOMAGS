@@ -13,7 +13,7 @@
 		},
 		
 		
-		template: _.template( $("#single-post-view").html() ),
+		template: _.template( jQuery("#single-post-view").html() ),
 		
 		render: function(options) {
 			var that = this;
@@ -53,10 +53,10 @@
 		
 		initialize: function() {
 		
-			$(".community-title").text(settings.get("page_title"));
+			jQuery(".community-title").text(settings.get("page_title"));
 
 			this.listenTo(settings, 'change:page_title',function(){
-				$(".community-title").text(settings.get("page_title"));
+				jQuery(".community-title").text(settings.get("page_title"));
 			});
 		},
 		
@@ -116,7 +116,7 @@
 		tagName: "li",
 		className: "tile-view",
 	
-		template: _.template( $("#post-tile-template").html() ),
+		template: _.template( jQuery("#post-tile-template").html() ),
 		
 		initialize: function() {
 
@@ -138,7 +138,7 @@
 		tagName: "li",
 		className: "list-view",
 	
-		template: _.template( $("#post-list-template").html() ),
+		template: _.template( jQuery("#post-list-template").html() ),
 		
 		initialize: function() {
 

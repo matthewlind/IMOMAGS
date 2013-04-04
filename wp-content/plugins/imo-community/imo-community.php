@@ -7,6 +7,35 @@
  * Author: aaron baker
  * Author URI: http://imomags.com
  */
+ 
+$IMO_COMMUNITY_CONFIG = NULL;
+$IMO_COMMUNITY_CONFIG['community_home_slug'] = "community";//This slug will override ANY setting in wordpress.
+$IMO_COMMUNITY_CONFIG['page_title'] = 'In-Fisherman Community';
+$IMO_COMMUNITY_CONFIG['template'] = '/templates/default-template.php';
+$IMO_COMMUNITY_CONFIG['stylesheet_main'] = 'css/bootstrap.min.css';
+$IMO_COMMUNITY_CONFIG['stylesheet_custom'] = NULL;
+$IMO_COMMUNITY_CONFIG['grid_js'] = 'js/backgrid.min.js';
+$IMO_COMMUNITY_CONFIG['grid_css'] = 'css/backgrid.min.css';
+$IMO_COMMUNITY_CONFIG['app_js'] = 'js/community.js';
+$IMO_COMMUNITY_CONFIG['admin_js'] = 'js/mod2.js';
+$IMO_COMMUNITY_CONFIG['routes_js'] = 'js/routes.js';
+$IMO_COMMUNITY_CONFIG['post_types'] = array(
+
+	"report" => array(
+		"display_name" => "Rut Reports",
+		"post_list_style" => "tile"
+	),
+
+	"question" => array(
+		"display_name" => "Q&A",
+		"post_list_style" => "list"
+	)
+
+);
+
+
+$IMO_COMMUNITY['in-fisherman'] = $IMO_COMMUNITY_CONFIG;
+
 $IMO_COMMUNITY_CONFIG = NULL;
 $IMO_COMMUNITY_CONFIG['community_home_slug'] = "crown-royal-contest";//This slug will override ANY setting in wordpress.
 $IMO_COMMUNITY_CONFIG['page_title'] = 'Crown Royal Registration';
