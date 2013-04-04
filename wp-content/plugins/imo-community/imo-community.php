@@ -61,11 +61,11 @@ $IMO_COMMUNITY_CONFIG['post_types'] = array(
 
 );
 
-$IMO_COMMUNITY['royalcrown'] = $IMO_COMMUNITY_CONFIG;
+$IMO_COMMUNITY['crown-royal'] = $IMO_COMMUNITY_CONFIG;
 
 $IMO_COMMUNITY_CONFIG = NULL;
-$IMO_COMMUNITY_CONFIG['community_home_slug'] = "gf-community";//This slug will override ANY setting in wordpress.
-$IMO_COMMUNITY_CONFIG['page_title'] = 'G&F Community';
+$IMO_COMMUNITY_CONFIG['community_home_slug'] = "beta-community";//This slug will override ANY setting in wordpress.
+$IMO_COMMUNITY_CONFIG['page_title'] = 'Beta Community Admin';
 $IMO_COMMUNITY_CONFIG['template'] = '/templates/default-template.php';
 $IMO_COMMUNITY_CONFIG['stylesheet_main'] = 'css/bootstrap.min.css';
 $IMO_COMMUNITY_CONFIG['stylesheet_custom'] = NULL;
@@ -84,12 +84,25 @@ $IMO_COMMUNITY_CONFIG['post_types'] = array(
 	"question" => array(
 		"display_name" => "Q&A",
 		"post_list_style" => "list"
+	),
+
+	"general" => array(
+		"display_name" => "general",
+		"post_list_style" => "list"
 	)
 
 );
 
+$IMO_COMMUNITY_CONFIG['additional_scripts'] = array(
+	array(
+		"script-name" => "backgrid-select-all",
+		"script-path" => "js/backgrid-select-all.js",
+		"script-dependencies" => array('jquery','backbone-js','underscore-js','imo-community-grid-js')	
+	)	
+);
 
-$IMO_COMMUNITY['gameandfish'] = $IMO_COMMUNITY_CONFIG;
+
+$IMO_COMMUNITY['beta-community'] = $IMO_COMMUNITY_CONFIG;
 
 add_action('template_redirect', 'imo_community_template');
 add_filter( 'wp_title', 'imo_community_set_title', 0, 3 );
@@ -128,6 +141,11 @@ function imo_community_template() {
 
 			if ($IMO_COMMUNITY_CONFIG['stylesheet_custom']) {
 				wp_enqueue_style('imo-community-stylesheet-custom',plugins_url( $IMO_COMMUNITY_CONFIG['stylesheet_custom'] , __FILE__));
+			}
+			
+			foreach($IMO_COMMUNITY_CONFIG['additional_scripts'] as $script) {
+				wp_enqueue_script($script['script-name'], plugins_url( $script['script-path'] , __FILE__), $script['script-dependencies'], '1.0','true');
+
 			}
 
 

@@ -742,9 +742,9 @@ $pollNum = 1;
 				          South 
 				        </h4>
 				        <div id="match59" class="match m1">
-				          <p class="slot slot1"><strike><span class="seed">4</span> LaRue Tactical...</strike>
+				          <p class="slot slot1"><strong><span class="seed">4</span> LaRue Tactical...</strong>
 				          </p>
-				          <p class="slot slot2"><strong><span class="seed">6</span> Daniel Defense...</strong>
+				          <p class="slot slot2"><strike><span class="seed">6</span> Daniel Defense...</strike>
 				          </p>
 				        </div>
 				
@@ -764,10 +764,10 @@ $pollNum = 1;
 				          </p>
 				          <a class="vote">Vote</a>
 				        </div>
-				        <div id="match62" class="match m2 open-poll" poll="saiga-12-vs-daniel-defense-ddm4-300-sbr" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
+				        <div id="match62" class="match m2 open-poll" poll="saiga-12-vs-larue-tactical-costa-edition-hybrid" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
 				          <p class="slot slot1"><span class="seed">3</span> Saiga-12
 				          </p>
-				          <p class="slot slot2"><span class="seed">6</span> Daniel Defense...
+				          <p class="slot slot2"><span class="seed">4</span> LaRue Tactical...
 				          </p>
 				          <a class="vote">Vote</a>
 				        </div>

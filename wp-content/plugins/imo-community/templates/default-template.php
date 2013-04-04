@@ -56,9 +56,9 @@ if ( is_user_logged_in() ) {
 
     </div>
 
-		<ul id="app">
+	<ul id="app">
 
-		</ul>
+	</ul>
 
 	</div>
 
@@ -228,7 +228,28 @@ if ( is_user_logged_in() ) {
       </select>
     </div>
 	</script>
+	<!-- *********************************************************** -->
+	<!-- *********************************************************** -->
+	<!-- *********************************************************** -->
+	<script type="text/template" id="post-toolbar">
 
+    <div class="toolbar">
+      <select id="order_by">
+        
+        <option value="created">Newest First</option>
+        <option value="score_today">Top Score Today</option>
+        <option value="score_week">Top Score this Week</option>
+        <option value="score_month">Top Score this Month</option>
+        <option value="score">Top Score All Time</option>
+        <option value="comment_count_today">Comment Count Today</option>
+        <option value="comment_count_week">Comment Count Week</option>
+        <option value="comment_count_month">Comment Count Month</option>
+        <option value="comment_count">Comment Count All Time</option>
+        <option value="view_count">View Count All Time</option>
+        
+      </select>
+    </div>
+	</script>
   <!-- *********************************************************** -->
 	<!-- *********************************************************** -->
 	<!-- *********************************************************** -->
