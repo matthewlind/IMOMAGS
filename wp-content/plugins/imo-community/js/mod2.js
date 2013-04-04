@@ -7,114 +7,123 @@
 	//**************************
 	//User Table View
 	//**************************
+	
+	var DeleteButtonCell = Backgrid.StringCell.extend({
+	  
+	  // Cell default class names are the lower-cased and dasherized
+	  // form of the the cell class names by convention.
+	  className: "delete-button-cell",
+	  
+	
+	  
+	  formatter: Backgrid.StringFormatter
+	  
+	});
+	
+	
 	var UserListTable = Backbone.View.extend({
 		el: '#app',
 		pager: null,
 		initialize: function() {
 			var that = this;
 
-      var columns = [{
-        name: "ID", // The key of the model attribute
-        label: "ID", // The name to display in the header
-        editable: false, // By default every cell in a column is editable, but *ID* shouldn't be
-        // Defines a cell type, and ID is displayed as an integer without the ',' separating 1000s.
-        cell: "string"
-
-      }, {
-        name: "user_login",
-        label: "Username",
-        editable: false,
-        // The cell type can be a reference of a Backgrid.Cell subclass, any Backgrid.Cell subclass instances like *id* above, or a string
-        cell: "string" // This is converted to "StringCell" and a corresponding class in the Backgrid package namespace is looked up,
-
-      }, {
-        name: "display_name",
-        label: "Display Name",
-        editable: false,
-        cell: "string"
-      }, {
-        name: "score_today",
-        label: "ScoreToday",
-        editable: false,
-        cell: "integer"
-      }, {
-        name: "score_week",
-        label: "ScoreWeek",
-        editable: false,
-        cell: "integer",
-        className: "thin-column"
-      }, {
-        name: "score_month",
-        label: "ScoreMonth",
-        editable: false,
-        cell: "integer"
-      }, {
-        name: "score",
-        label: "Score",
-        editable: false,
-        cell: "integer"
-      }, {
-        name: "comment_count",
-        label: "CommentCount",
-        editable: false,
-        cell: "integer"
-      }, {
-        name: "post_count",
-        label: "PostCount",
-        editable: false,
-        cell: "integer"
-      }/*,
-      {
-        name: "user_registered",
-        label: "Created",
-        cell: "datetime",
-      }*/
-      ];
-
-
-      this.users = new UsersCollection();
-
-      this.grid = new Backgrid.Grid({
-        columns: columns,
-        collection: this.users
-      });
-
-      //this.render();
-
-      //Monitor the Toolbar for changes so that the datamodel can be updated
-      var toolbar = $("#user-toolbar").html();
-
-      this.$toolbar = $(toolbar);
-
-      this.$toolbar.on("change",function(ev){
-        that.users.params.order_by = $(this).find('#order_by').val();
-        that.users.trigger("change");
-        console.log(that.users.params);
-      });
+		  var columns = [{
+		    name: "ID", // The key of the model attribute
+		    label: "ID", // The name to display in the header
+		    editable: false, // By default every cell in a column is editable, but *ID* shouldn't be
+		    // Defines a cell type, and ID is displayed as an integer without the ',' separating 1000s.
+		    cell: "string"
+		
+		  }, {
+		    name: "user_login",
+		    label: "Username",
+		    editable: false,
+		    // The cell type can be a reference of a Backgrid.Cell subclass, any Backgrid.Cell subclass instances like *id* above, or a string
+		    cell: "string" // This is converted to "StringCell" and a corresponding class in the Backgrid package namespace is looked up,
+		
+		  }, {
+		    name: "display_name",
+		    label: "Display Name",
+		    editable: false,
+		    cell: "string"
+		  }, {
+		    name: "score_today",
+		    label: "ScoreToday",
+		    editable: false,
+		    cell: "integer"
+		  }, {
+		    name: "score_week",
+		    label: "ScoreWeek",
+		    editable: false,
+		    cell: "integer",
+		    className: "thin-column"
+		  }, {
+		    name: "score_month",
+		    label: "ScoreMonth",
+		    editable: false,
+		    cell: "integer"
+		  }, {
+		    name: "score",
+		    label: "Score",
+		    editable: false,
+		    cell: "integer"
+		  }, {
+		    name: "comment_count",
+		    label: "CommentCount",
+		    editable: false,
+		    cell: "integer"
+		  }, {
+		    name: "post_count",
+		    label: "PostCount",
+		    editable: false,
+		    cell: "integer"
+		  }/*,
+		  {
+		    name: "user_registered",
+		    label: "Created",
+		    cell: "datetime",
+		  }*/
+		  ];
 
 
+	      this.users = new UsersCollection();
+	
+	      this.grid = new Backgrid.Grid({
+	        columns: columns,
+	        collection: this.users
+	      });
+	
+	
 
-      //Monitor the datamodel for changes so that it can be re-rendered
-
-      this.users.on("change",function(){
-        that.render();
-      });
-
-      $("#app-header").html(this.$toolbar);
+	
+	      //Monitor the datamodel for changes so that it can be re-rendered
+	
+	      this.users.on("change",function(){
+	        that.render();
+	      });
+	
+	      
 
 		},
 		template: null,
 		render: function(){
-
-
-
-
-
-      this.$el.html(this.grid.render().$el);
-
-      console.log(this.users.params);
-
-      this.users.fetch({data:this.users.params});
+		
+		  var that = this;
+		  //Monitor the Toolbar for changes so that the datamodel can be updated
+	      var toolbar = $("#user-toolbar").html();
+	
+	      this.$toolbar = $(toolbar);
+	
+	      this.$toolbar.on("change",function(ev){
+	        that.users.params.order_by = $(this).find('#order_by').val();
+	        that.users.trigger("change");
+	        console.log(that.users.params);
+	      });
+	
+	      $("#app-header").html(this.$toolbar);
+	
+	      this.$el.html(this.grid.render().$el);	
+	      this.users.fetch({data:this.users.params});
 
 		}
 	});
@@ -126,65 +135,112 @@
 	var PostListTable = Backbone.View.extend({
 		el: '#app',
 		pager: null,
-		init: function() {
+		initialize: function() {
 			var that = this;
 
-      var columns = [{
-        name: "id", // The key of the model attribute
-        label: "ID", // The name to display in the header
-        editable: false, // By default every cell in a column is editable, but *ID* shouldn't be
-        // Defines a cell type, and ID is displayed as an integer without the ',' separating 1000s.
-        cell: "string"
+			var columns = [{
+				name: "id", // The key of the model attribute
+				label: "ID", // The name to display in the header
+				editable: false, // By default every cell in a column is editable, but *ID* shouldn't be
+				// Defines a cell type, and ID is displayed as an integer without the ',' separating 1000s.
+				cell: "string"
+			
+			}, {
+				name: "title",
+				label: "Title",
+				editable: false,
+				// The cell type can be a reference of a Backgrid.Cell subclass, any Backgrid.Cell subclass instances like *id* above, or a string
+				cell: "string" // This is converted to "StringCell" and a corresponding class in the Backgrid package namespace is looked up,
+			
+			},{
+				name: "post_type",
+				label: "Post Type",
+				editable: false,
+				cell: "string"
+			}, {
+				name: "created",
+				label: "Created",
+				editable: false,
+				cell: "date",
+			}, {
+				name: "delete",
+				label: "Delete",
+				cell: Backgrid.BooleanCell.extend({
+					editor: _.template("<a href='' class='btn'>Delete</a>"),
+					events: {
+					    "click": "deleteRow",
+					    },
+					deleteRow: function(ev) {
+			
+						ev.preventDefault();
+						
+						if (confirm("Really?")) {
+							this.model.destroy({
+								data: JSON.stringify(userIMO),
+								wait: true,
+								error: function() {
+									alert("Delete failed! Try reloading the page to get a new permissions token.")
+								}
+								
+							});
 
-      }, {
-        name: "title",
-        label: "Title",
-        // The cell type can be a reference of a Backgrid.Cell subclass, any Backgrid.Cell subclass instances like *id* above, or a string
-        cell: "string" // This is converted to "StringCell" and a corresponding class in the Backgrid package namespace is looked up,
-
-      }, {
-        name: "body",
-        label: "Body",
-        cell: "string"
-      }, {
-        name: "post_type",
-        label: "Post Type",
-        cell: "string"
-      }, {
-        name: "created",
-        label: "Created",
-        cell: "date",
-      }];
-
-
-
-      this.posts = new PostsClass();
-
-      this.grid = new Backgrid.Grid({
-        columns: columns,
-        collection: this.posts
-      });
-
-      this.render();
-
-      this.listenTo(this.posts,"change",function(post){
-        console.log(post);
-        post.save();
-
-      });
-
-
-      $("#app-header").html("");
+						}
+						
+												
+					}
+				}),	
+		
+			}
+			];
+	
+			this.posts = new PostsClass();
+					
+			//Monitor the datamodel for changes so that it can be re-rendered
+			this.posts.on("change",function(){
+				that.render();
+			});
+			
+			this.grid = new Backgrid.Grid({
+				columns: columns,
+				collection: this.posts
+			});
+			
+			
+			
+			
+/*
+			this.listenTo(this.posts,"change",function(post){
+				console.log(post);
+				post.save();
+			});
+*/
+			
+			
+			$("#app-header").html("");
 
 		},
 		template: null,
 		render: function(){
+		
+		  var that = this;
 
-
-
-      this.$el.html(this.grid.render().$el);
-
-      this.posts.fetch();
+		  //Monitor the Toolbar for changes so that the datamodel can be updated
+	      var toolbar = $("#post-toolbar").html();
+	
+	      this.$toolbar = $(toolbar);
+	
+	      this.$toolbar.find("option[value='" + that.posts.params.order_by + "']").attr("selected","selected");
+	
+	      this.$toolbar.on("change",function(ev){
+	        that.posts.params.order_by = $(this).find('#order_by').val();
+	        that.posts.trigger("change");
+	      });
+	
+	      $("#app-header").html(this.$toolbar);
+		  
+	      this.$el.html(this.grid.render().$el);
+	      this.posts.fetch({data:this.posts.params});
+	      
 
 		}
 	});

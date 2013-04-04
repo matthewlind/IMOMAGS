@@ -99,7 +99,7 @@ $app->get('/posts', function () {
 		$db = dbConnect();
 
 
-		$sql = "SELECT *,CONCAT(allcounts.post_type,'/',allcounts.id) as url FROM allcounts WHERE $postTypeClause $stateClause $requireImagesClause $orderByClause $sortClause $limitClause";
+		$sql = "SELECT *,CONCAT(allcounts2.post_type,'/',allcounts2.id) as url FROM allcounts2 WHERE $postTypeClause $stateClause $requireImagesClause $orderByClause $sortClause $limitClause";
 
 
 
@@ -145,7 +145,7 @@ $app->get('/posts/:id', function ($id) {
 		$db = dbConnect();
 
 
-		$sql = "SELECT * FROM allcounts WHERE id = ? ORDER BY id DESC";
+		$sql = "SELECT * FROM allcounts2 WHERE id = ? ORDER BY id DESC";
 
 		$stmt = $db->prepare($sql);
 		$stmt->execute(array($id));
@@ -167,7 +167,7 @@ $app->get('/posts/:id', function ($id) {
 			$db = dbConnect();
 
 
-			//$sql = "SELECT *,CONCAT(allcounts.post_type,'/',allcounts.id) as url FROM superposts WHERE parent = ? AND post_type IN ('photo','youtube') ORDER BY id ASC";
+			//$sql = "SELECT *,CONCAT(allcounts2.post_type,'/',allcounts2.id) as url FROM superposts WHERE parent = ? AND post_type IN ('photo','youtube') ORDER BY id ASC";
 			$sql = "SELECT * FROM superposts WHERE parent = ? AND post_type IN ('photo','youtube') ORDER BY id ASC";
 
 			$stmt = $db->prepare($sql);
@@ -196,7 +196,7 @@ $app->get('/posts/:id', function ($id) {
 					comments.ID comment_id, comments.post_type comment_post_type, comments.body comment_body, comments.username comment_username, comments.user_id comment_user_id,comments.display_name comment_display_name,
 					attachments.ID attachment_id, attachments.post_type, attachments.img_url , attachments.meta, attachments.body
 					FROM superposts as posts
-					LEFT JOIN allcounts as comments ON posts.id = comments.parent
+					LEFT JOIN allcounts2 as comments ON posts.id = comments.parent
 					LEFT JOIN superposts as attachments ON comments.id = attachments.parent
 					WHERE posts.ID = ?
 					AND comments.post_type = 'comment'";
@@ -687,28 +687,32 @@ $app->put('/posts/:id',function($id) {
 $app->delete('/posts/:id', function ($id) {
 	header('Access-Control-Allow-Origin: *');
 
-	$pparams = Slim\Slim::getInstance()->request()->post();
-
 	$requestJSON = Slim\Slim::getInstance()->request()->getBody();
 
 	$params = json_decode($requestJSON,true);
-
-	_log("Update field started");
-	print_r($id);
-	print_r($pparams);
-	print_r($params);
-
-/*
-	$post_id = $id;
-	$user_id = $params['user_id'];
-	$post_type = '';
-
-	$userHasGoodPerms = FALSE;
-
-
-	$userIsGood = userIsGood($params['username'],$params['userhash']);
+	
 	$userIsEditor = userIsEditor($params['username'],$params['timecode'],$params['editor_hash']);
-*/
+	
+	
+	if ($userIsEditor) {
+	
+		$db = dbConnect();
+	
+		$sql = "DELETE FROM superposts WHERE id = ? LIMIT 1";
+		
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array($id));	
+		
+		
+		$db = "";
+		
+		//echo $sql;		
+	} else {
+		echo "NOT EDITOR";
+	}
+	
+
+
 
 });
 

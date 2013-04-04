@@ -45,7 +45,8 @@
 	});
 
 	router.on('route:mod',function() {
-		postList.init();
+		history.pushState(null,null,"http://www.northamericanwhitetail.deva/beta-community/mod");
+		postList.render();
 	});
 
   router.on('route:userList',function() {
