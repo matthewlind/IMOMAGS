@@ -600,3 +600,13 @@ h2.entry-title a {
 	margin-top: 14px;
 }
 
+.clickable-bg{
+	background: url("http://www.petersenshunting.com/files/2013/03/nlt-2091-36-Salmon-2.jpg") repeat fixed 0 0 #000 !important;
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	cursor: pointer;
+}
+#block-menu-menu-footer-links, #footer-imo{
+	position: relative !important;
+}

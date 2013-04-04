@@ -7370,12 +7370,16 @@ table.gridtable td.title {
 }
 .vote{
 	position: absolute;
-	top: 12px;
+	/*top: 12px;*** Round 1-2 ***/
+	top: 37px;/*** Round 3 & 5 ***/
 	left: 36px;
 	font-size: 1em;
 	font-weight: bold;
 	text-transform: uppercase;
 	color: #ce181e;
+}
+.vote-top{
+	top: -23px;/*** Round 4 ***/
 }
 #bracket a{
 	cursor: pointer;
@@ -7887,7 +7891,9 @@ li.no-vote:hover img{
 	margin-bottom: -7px !important;
 }
 
-
+#super-header-iframe{
+	margin-bottom: -7px !important;
+}
 
 
 

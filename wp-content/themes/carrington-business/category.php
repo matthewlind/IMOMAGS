@@ -17,14 +17,17 @@
  */
 
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
+
+// NOTE: this file is here for compatibility reasons - active templates are in the posts/ dir 
+
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
-get_header();
-?>
-<header id="masthead">
-	<h1><?php single_cat_title(''); ?></h1>
-</header><!-- #masthead -->
-<div class="bonus-background">
+get_header(); ?>
+<div class="category-page">
+	<header id="masthead">
+		<h1><?php single_cat_title(''); ?></h1>
+	</header>	
+	<div class="bonus-background">
 		<div class="sidebar">
 			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-default')) : else : ?><?php endif; ?>
 		</div>
@@ -45,10 +48,15 @@ get_header();
 			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('scroll-sidebar')) : else : ?><?php endif; ?>
 		</div>
 	</div>
-<div class="col-ab">
+
+	
+	<div class="col-ab">
 	<?php
 	cfct_loop();
 	cfct_misc('nav-posts');
 	?>
-</div>
+		
+	
+	</div>
+
 <?php get_footer(); ?>

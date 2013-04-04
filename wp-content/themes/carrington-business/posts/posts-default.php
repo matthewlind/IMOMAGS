@@ -30,7 +30,8 @@ get_header();
 	cfct_misc('nav-posts');
 	?>
 </div>
-<?php
+
+
+<?php 
 get_sidebar();
-get_footer();
-?>
+get_footer(); ?>

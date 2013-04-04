@@ -360,3 +360,61 @@ h2.entry-title a {
 .leiki_products{
 	box-shadow: none !important;
 }
+
+
+.stay-connected {
+    position: absolute;
+	width: 156px;
+	right: 330px;
+	top: 50px;
+}
+.stay-connected .fb-like {
+    width: 80px;
+    float: left;
+    margin-right: 14px;
+    overflow: hidden;
+    max-height: 40px;
+}
+.stay-connected .label {
+    text-align: center;
+	color: white;
+	font-weight: bold;
+	line-height: 0;
+}
+.stay-connected .connections {
+    float: right;
+    margin: 0;
+    padding: 0;
+    width: 138px;
+}
+.stay-connected .connections li {
+    float: left;
+    list-style: none outside none;
+    margin: -14px 0 0;
+    height: 32px;
+    float: left;
+}
+.stay-connected .connections li a{
+	text-indent: -9999px;
+	position: absolute;
+	top:12px;
+}
+.stay-connected .connections li .facebook{
+	background: url('img/facebook_32.png') no-repeat;
+	width: 32px;
+	right: 108px;
+	height: 32px;
+	text-indent: -9999px;
+}
+.stay-connected .connections li .twitter{
+	background: url('img/twitter_32.png') no-repeat;
+	width: 32px;
+	right: 62px;
+	height: 32px;
+}
+.stay-connected .connections li .feed{
+	background: url('img/rss_32.png') no-repeat;
+	width: 32px;
+	right: 14px;
+	height: 32px;
+}
