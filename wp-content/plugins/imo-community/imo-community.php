@@ -127,6 +127,11 @@ function imo_community_template() {
 		$matchString = "/^\/" . $IMO_COMMUNITY_CONFIG['community_home_slug'] . "(\?(.+)?)?$/";
 
 		if (preg_match($matchString, $_SERVER['REQUEST_URI'])) {
+		
+		
+		    wp_deregister_script( 'jquery' );
+		    wp_register_script( 'jquery', '/wp-content/plugins/imo-community/js/jquery-1.7.1.min.js');
+		    wp_enqueue_script( 'jquery' );
 
 			//Third Party libraries
 			wp_enqueue_script('underscore-js', plugins_url('js/underscore-min.js', __FILE__), array('jquery'), '1.0','true');
