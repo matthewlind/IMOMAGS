@@ -7,7 +7,8 @@
 .widget-header{
 	background: url("../img/shot-show-widget-logo.jpg") no-repeat 8px 4px white;	
 	width: 292px;
-	height: 130px;
+	/*height: 130px;** w/ sponsor ***/
+	height: 66px;/*** w/o sponsor ***/
 }
 #shot-show-widget h4{
 	padding: 17px 0 11px 109px;
@@ -17,7 +18,7 @@
 #shot-show-widget .widget-border{
 	background: #ccc;
 	height: 3px;
-	margin: 10px auto 0;
+	margin: 16px auto 0 !important;
 	width: 282px;
 }
 #shot-show-widget .presented-by{

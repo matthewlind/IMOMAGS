@@ -10,6 +10,23 @@ define("SERVICE_LINK", "https://secure.palmcoastd.com/pcd/eServ?iServ=MDE0Njk0ND
 define("SUBS_DEAL_STRING", "Save Over 70% off<br/> the Cover Price");
 define("DRUPAL_SITE", TRUE);
 
+function if_addons_sidebar_init() {
+
+$sidebar_defaults = array(
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    'after_widget' => '</aside>',
+    'before_title' => '<h3 class="widget-title"><span>',
+    'after_title' => '</span></h3>'
+  );
+  
+register_sidebar(array_merge($sidebar_defaults, array(
+    'id' => 'sidebar-community',
+    'name' => 'Community Sidebar',
+    'Shown on community pages.'
+  )));
+}
+add_action( 'widgets_init', 'if_addons_sidebar_init' );
+
 //Uses WordPress filter for image_downsize
 function my_image_downsize($value = false,$id = 0, $size = "medium") {
 	if ( !wp_attachment_is_image($id) )
@@ -43,3 +60,5 @@ function my_image_downsize($value = false,$id = 0, $size = "medium") {
 	return false;
 }
 add_filter('image_downsize', 'my_image_downsize',1,3);
+
+

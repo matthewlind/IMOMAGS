@@ -394,7 +394,7 @@ h2.entry-title a {
 .shot-show .desc{
 	left: 164px;
 	position: relative;
-	top: -28px;
+	top: 0;
 	width: 420px;
 	font-size: 1.2em;
 	line-height: 1.2;

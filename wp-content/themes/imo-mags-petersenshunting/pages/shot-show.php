@@ -28,10 +28,10 @@ the_post();
 	<div class="shot-show">
 		<div class="blog-border"></div>
 		<h1>Daily SHOT SHOW 2013 Coverage</h1>
-		<div class="presented-by">Presented By</div>
+		<!--<div class="presented-by">Presented By</div>-->
 		<?php //if( is_category("military-arms") ){ echo " <h4>Military Arms</h4>"; }?>
 		<div class="desc">Your destination for the the latest guns and gear of 2013. See what's new, right now.</div>
-		<div class="sponsor-logo"><a href="http://www.realtree.com/huntallseason/index.html" target="_blank"><img src="/wp-content/themes/imo-mags-petersenshunting/img/realtree-logo.png" align="Realtree Xtra" title="Realtree Xtra" /></a></div>	
+		<!--<div class="sponsor-logo"><a href="http://www.realtree.com/huntallseason/index.html" target="_blank"><img src="/wp-content/themes/imo-mags-petersenshunting/img/realtree-logo.png" align="Realtree Xtra" title="Realtree Xtra" /></a></div>-->
 	</div>
 
 	<div class="bonus-background">

@@ -418,3 +418,7 @@ h2.entry-title a {
 	right: 14px;
 	height: 32px;
 }
+
+#shot-show-widget .widget-border {
+	margin: 16px auto 0 !important;
+}

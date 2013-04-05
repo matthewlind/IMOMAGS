@@ -127,16 +127,16 @@ if ( is_user_logged_in() ) {
 	</header>
 		<ul class="community-cats">
 			<li id="rut" class="title"><div></div><h2><a href="/community/report/" term="report" display="list">State Rut Reports</a></h2></li>
-			<li class="selected points"><a href="/community/report/"><?php echo $reportCount->post_count.' Posts'; ?></a></li>
+			<li class="selected points"><a href="/community/report/"><?php echo $reportCount->post_count.' Reports'; ?></a></li>
 		</ul>
 		
 		<ul class="community-cats">
 			<li id="experts" class="title"><div></div><h2><a href="/community/question/">Q&A</a></h2></li>
-			<li class="selected points"><a href="/community/question/"><?php echo $questionCount->post_count.' Posts'; ?></a></li>
+			<li class="selected points"><a href="/community/question/"><?php echo $questionCount->post_count.' Questions'; ?></a></li>
 		</ul>
 		<ul class="community-cats">
 			<li id="general" class="title"><div></div><h2><a href="/community/general/">General Discussion</a></h2></li>
-			<li class="selected points"><a href="/community/general/"><?php echo $generalCount->post_count.' Posts'; ?></a></li>
+			<li class="selected points"><a href="/community/general/"><?php echo $generalCount->post_count.' Discussions'; ?></a></li>
 		</ul>
 		<!--<img src="<?php bloginfo('url'); ?>/wp-content/themes/imo-mags-northamericanwhitetail/img/contest-banner.png" alt="Enter To Win" />-->
 	</div><!-- .col-abc -->	
