@@ -6651,7 +6651,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 .blog-headers.shot-show .desc{
 	left: 162px;
 	position: relative;
-	top: -28px;
+	top: 0;
 	width: 420px;
 }
 .blog-headers.shot-show .presented-by{
