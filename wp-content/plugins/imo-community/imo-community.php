@@ -13,7 +13,8 @@ $IMO_COMMUNITY_CONFIG['community_home_slug'] = "community";//This slug will over
 $IMO_COMMUNITY_CONFIG['page_title'] = 'In-Fisherman Community';
 $IMO_COMMUNITY_CONFIG['template'] = '/templates/default-template.php';
 $IMO_COMMUNITY_CONFIG['stylesheet_main'] = 'css/bootstrap.min.css';
-$IMO_COMMUNITY_CONFIG['stylesheet_custom'] = NULL;
+$IMO_COMMUNITY_CONFIG['stylesheet_responsive'] = 'css/bootstrap-responsive.css';
+$IMO_COMMUNITY_CONFIG['stylesheet_custom'] = 'css/custom.css';
 $IMO_COMMUNITY_CONFIG['grid_js'] = 'js/backgrid.min.js';
 $IMO_COMMUNITY_CONFIG['grid_css'] = 'css/backgrid.min.css';
 $IMO_COMMUNITY_CONFIG['app_js'] = 'js/community.js';
@@ -97,10 +98,17 @@ $IMO_COMMUNITY_CONFIG['additional_scripts'] = array(
 	array(
 		"script-name" => "backgrid-select-all",
 		"script-path" => "js/backgrid-select-all.js",
-		"script-dependencies" => array('jquery','backbone-js','underscore-js','imo-community-grid-js')	
+		"script-dependencies" => array('jquery','backbone-js','underscore-js','imo-community-grid-js','jquery.timeago.js')	
 	)	
 );
 
+$IMO_COMMUNITY_CONFIG['additional_styles'] = array(
+	array(
+		"style-name" => "styles-select-all",
+		"style-path" => "css/styles-select-all.css",
+		"style-dependencies" => array('custom.css')	
+	)	
+);
 
 $IMO_COMMUNITY['beta-community'] = $IMO_COMMUNITY_CONFIG;
 
@@ -148,12 +156,20 @@ function imo_community_template() {
 				wp_enqueue_style('imo-community-stylesheet-custom',plugins_url( $IMO_COMMUNITY_CONFIG['stylesheet_custom'] , __FILE__));
 			}
 			
+			if ($IMO_COMMUNITY_CONFIG['stylesheet_responsive']) {
+				wp_enqueue_style('imo-community-stylesheet-responsive',plugins_url( $IMO_COMMUNITY_CONFIG['stylesheet_responsive'] , __FILE__));
+			}
+			
 			foreach($IMO_COMMUNITY_CONFIG['additional_scripts'] as $script) {
 				wp_enqueue_script($script['script-name'], plugins_url( $script['script-path'] , __FILE__), $script['script-dependencies'], '1.0','true');
 
 			}
 
+			foreach($IMO_COMMUNITY_CONFIG['additional_styles'] as $style) {
+				wp_enqueue_style($style['style-name'], plugins_url( $style['style-path'], __FILE__), $style['style-dependencies'] );
 
+			}
+			
 			wp_localize_script( 'imo-community-common', 'IMO_COMMUNITY_CONFIG', $IMO_COMMUNITY_CONFIG);
 
 

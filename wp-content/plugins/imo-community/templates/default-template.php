@@ -44,8 +44,8 @@ if ( is_user_logged_in() ) {
 
 	<!-- Uncomment This to add wordpress sidebar -->
   	<div id="sidebar">
-		<?php //if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-landing')) : else : ?>
-		<?php // endif; ?>
+		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-community')) : else : ?>
+		<?php  endif; ?>
 	</div>
 
 
@@ -81,10 +81,11 @@ if ( is_user_logged_in() ) {
 			<div style="width:900px">
 				<h3><%= post.get('title') %></h3>
 			</div>
-			<a href="/profile/<%= post.get('username') %>">
-				<img src="/avatar?uid=<%= post.get('user_id') %>" class="recon-gravatar" style="width:25px;">
-			</a>
+			
 			<span class="under-box">
+				<a href="/profile/<%= post.get('username') %>">
+					<img src="/avatar?uid=<%= post.get('user_id') %>" class="recon-gravatar" style="width:25px;">
+				</a>
 				<a href="/profile/<%= post.get('username') %>">
 					<div class="recon-author-info">
 						<span class="author-name"><%= post.get('display_name') %></span> in <span class="author-action"><%= settings.get("post_types")[post.get("post_type")].display_name %></span>
@@ -112,10 +113,11 @@ if ( is_user_logged_in() ) {
 					<img src="<%= post.get('img_url') %>" class="superpost-thumb">
 				</a>
 			</div>
-			<a href="/profile/<%= post.get('username') %>">
-				<img src="/avatar?uid=<%= post.get('user_id') %>" class="recon-gravatar">
-			</a>
+			
 			<div class="under-box">
+				<a href="/profile/<%= post.get('username') %>">
+					<img src="/avatar?uid=<%= post.get('user_id') %>" class="recon-gravatar">
+				</a>
 				<a href="/profile/<%= post.get('username') %>">
 					<div class="recon-author-info">
 						<span class="author-name"><%= post.get('display_name') %></span> in <span class="author-action"><%= settings.get("post_types")[post.get("post_type")].display_name %></span>
