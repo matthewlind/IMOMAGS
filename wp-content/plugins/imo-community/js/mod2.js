@@ -2,24 +2,34 @@
 //*****************************************************************
 //******************      VIEWS         ***************************
 //*****************************************************************
+	var deleteCell = Backgrid.BooleanCell.extend({
+					editor: _.template("<a href='' class='btn'>Delete</a>"),
+					events: {
+					    "click": "deleteRow",
+					    },
+					deleteRow: function(ev) {
+			
+						ev.preventDefault();
+						
+						if (confirm("Really?")) {
+							this.model.destroy({
+								data: JSON.stringify(userIMO),
+								wait: true,
+								error: function() {
+									alert("Delete failed! Try reloading the page to get a new permissions token.")
+								}
+								
+							});
 
+						}
+						
+												
+					}
+				});
 
 	//**************************
 	//User Table View
 	//**************************
-	
-	var DeleteButtonCell = Backgrid.StringCell.extend({
-	  
-	  // Cell default class names are the lower-cased and dasherized
-	  // form of the the cell class names by convention.
-	  className: "delete-button-cell",
-	  
-	
-	  
-	  formatter: Backgrid.StringFormatter
-	  
-	});
-	
 	
 	var UserListTable = Backbone.View.extend({
 		el: '#app',
@@ -92,6 +102,8 @@
 	        columns: columns,
 	        collection: this.users
 	      });
+	      
+
 	
 	
 
@@ -149,6 +161,7 @@
 				name: "title",
 				label: "Title",
 				editable: false,
+				sortable:true,
 				// The cell type can be a reference of a Backgrid.Cell subclass, any Backgrid.Cell subclass instances like *id* above, or a string
 				cell: "string" // This is converted to "StringCell" and a corresponding class in the Backgrid package namespace is looked up,
 			
@@ -165,30 +178,7 @@
 			}, {
 				name: "delete",
 				label: "Delete",
-				cell: Backgrid.BooleanCell.extend({
-					editor: _.template("<a href='' class='btn'>Delete</a>"),
-					events: {
-					    "click": "deleteRow",
-					    },
-					deleteRow: function(ev) {
-			
-						ev.preventDefault();
-						
-						if (confirm("Really?")) {
-							this.model.destroy({
-								data: JSON.stringify(userIMO),
-								wait: true,
-								error: function() {
-									alert("Delete failed! Try reloading the page to get a new permissions token.")
-								}
-								
-							});
-
-						}
-						
-												
-					}
-				}),	
+				cell: deleteCell,	
 		
 			}
 			];
@@ -198,6 +188,8 @@
 			//Monitor the datamodel for changes so that it can be re-rendered
 			this.posts.on("change",function(){
 				that.render();
+				
+				console.log(that.posts);
 			});
 			
 			this.grid = new Backgrid.Grid({
@@ -234,6 +226,25 @@
 	      this.$toolbar.on("change",function(ev){
 	        that.posts.params.order_by = $(this).find('#order_by').val();
 	        that.posts.trigger("change");
+	        
+	        that.grid.removeColumn(that.grid.columns.where({ added: true }));
+	        that.grid.removeColumn(that.grid.columns.where({ name: "delete" }));
+	        
+	        that.grid.insertColumn([{
+				name: that.posts.params.order_by,
+				label: that.posts.params.order_by,
+			    editable: false,
+			    cell: "string",
+			    added:true
+			}]);
+			
+			that.grid.insertColumn([{
+				name: "delete",
+				label: "Delete",
+				cell: deleteCell,	
+			}]);
+	        
+	        
 	      });
 	
 	      jQuery("#app-header").html(this.$toolbar);

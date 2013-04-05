@@ -219,7 +219,8 @@ if ( is_user_logged_in() ) {
 	<script type="text/template" id="user-toolbar">
 
     <div class="toolbar">
-      <select id="order_by">
+      Sort By: 
+     <select id="order_by">
         <option value="username">Username</option>
         <option value="score">All Time Score</option>
         <option value="score_today">Top Score Today</option>
@@ -236,6 +237,7 @@ if ( is_user_logged_in() ) {
 	<script type="text/template" id="post-toolbar">
 
     <div class="toolbar">
+    Sort By: 
       <select id="order_by">
         
         <option value="created">Newest First</option>
