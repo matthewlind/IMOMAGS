@@ -757,19 +757,17 @@ $pollNum = 1;
 				        Round Five (2010 NCAA Men's Basketball Tournament) 
 				      </h3>
 				      <div class="region">
-				        <div id="match63" class="match m1 open-poll" poll="sw-performance-center-1911-vs-ruger-gunsite-scout-rifle" pollNum="<?php echo $pollNum; ?>">
-				          <p class="slot slot1"><span class="seed">5</span>S&W Perform...
+				        <div id="match63" class="match m1">
+				          <p class="slot slot1"><strong><span class="seed">5</span>S&W Perform...</strong>
 				          </p>
-				          <p class="slot slot2"><span class="seed">1</span>Ruger Gunsite...
-				          </p>
-				          <a class="vote">Vote</a>
+				          <p class="slot slot2"><strike><span class="seed">1</span>Ruger Gunsite...</strike>
+				          </p>    
 				        </div>
-				        <div id="match62" class="match m2 open-poll" poll="saiga-12-vs-larue-tactical-costa-edition-hybrid" pollNum="<?php echo $pollNum = $pollNum + 1; ?>">
-				          <p class="slot slot1"><span class="seed">3</span> Saiga-12
+				        <div id="match62" class="match m2">
+				          <p class="slot slot1"><strike><span class="seed">3</span> Saiga-12</strike>
 				          </p>
-				          <p class="slot slot2"><span class="seed">4</span> LaRue Tactical...
+				          <p class="slot slot2"><strong><span class="seed">4</span> LaRue Tactical...</strong>
 				          </p>
-				          <a class="vote">Vote</a>
 				        </div>
 				      </div>
 				    </div>
@@ -779,15 +777,16 @@ $pollNum = 1;
 				      </h3>
 				      <div class="bracket-sponsor ffl123">Final Four Presented by:<a href="http://ffl123.com" target="_blank"><img src="/wp-content/themes/imo-mags-gunsandammo/img/ffl123-logo.jpg" alt="FFL123" /></a></div>
 				      <div class="region">
-				        <div id="match64" class="match m1">
-				          <p class="slot slot1" id="slot127">
+				        <div id="match64" class="match m1 open-poll" poll="sw-performance-center-1911-vs-larue-tactical-costa-edition-hybrid">
+				          <p class="slot slot1" id="slot127"><span class="seed">5</span>S&W Perform...
 				            <strong><!--<span class="seed">0</span> Winner <em class="score">65</em></strong>-->
 				<!-- winner -->
 				          </p>
-				          <p class="slot slot2" id="slot128">
+				          <p class="slot slot2" id="slot128"><span class="seed">4</span> LaRue Tactical...
 				            <!--<strike><span class="seed">4</span> Loser <em class="score">60</em></strike>-->
 				<!-- loser -->
 				          </p>
+				          <a class="vote">Vote</a>
 				        </div>
 				      </div>
 				    </div>
@@ -914,10 +913,10 @@ $pollNum = 1;
 		<div class="vs">vs.</div>
 	</div>
 	<div class="voted" style="display:none;"><h4>You've already voted for this matchup.</h4></div>
-	<div class="poll-pagination" style="display:none;">
-			<a class="prev-poll">Previous Matchup<span></span></a>
-			<a class="next-poll">Next Matchup<span></span></a>
-		</div>
+	<!--<div class="poll-pagination" style="display:none;">
+		<a class="prev-poll">Previous Matchup<span></span></a>
+		<a class="next-poll">Next Matchup<span></span></a>
+	</div>-->
 	<div id="Gen" class="marginLeft">
 		<div class="block-rotate" id="rotate_01"></div>
 		<div class="block-rotate" id="rotate_02"></div>
