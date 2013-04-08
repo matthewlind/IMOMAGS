@@ -134,6 +134,7 @@ body {
     color:#3c3c3c;
     display:inline-block;
     vertical-align:top;
+    padding-right:4px;
 }
 .location-box select {
     width:240px;
@@ -147,8 +148,13 @@ body {
     background:none;
     vertical-align:top;
     padding:2px 8px 4px;
-    width:182px;
+    width:205px;
     margin:0 15px 0 0;
+    
+    border-right: 1px solid #bababa;
+	border-top: 1px solid #bababa;
+	border-left: 1px solid #bababa;
+	background-color: white;
 }
 .submit-small {
     width:74px;
@@ -244,9 +250,16 @@ body {
     box-sizing: border-box;
     cursor:pointer;
     position:relative;
+
 }
 
-.calendar-data div.fishday.active {border:3px solid #3c3c3c;}
+.calendar-data div.fishday.active {
+	border:3px solid #3c3c3c;
+}
+
+.calendar-data div.fishday.active .a-event {
+    padding:46px 0px 0 13px;	
+}
 
 .calendar-data .a-event {
     position:relative;
@@ -325,6 +338,9 @@ body {
     color:#a2a2a2;
     font-weight:bold;
 }
+
+
+
 .cal-popup {
     position:absolute;
     top:2px;
@@ -339,9 +355,14 @@ body {
     box-sizing: border-box;
     z-index:999;
     cursor:default;
-    -webkit-box-shadow: 4px 4px 0px 0px #cccccc;
-    box-shadow: 4px 4px 0px 0px #cccccc;
+    -webkit-box-shadow: 4px 4px 20px 2px #393939;
+    box-shadow: 4px 4px 20px 2px #393939;
     display:none;
+}
+
+div.fishday.active .cal-popup {
+	left:52px;
+	top:-1px;
 }
 
 .far-right .cal-popup {
@@ -822,3 +843,26 @@ a.change-location:before {
     text-decoration:none;
     color:#94040b;
 }
+
+
+.location-box .zf-select .select-text {
+	
+	border-right: 1px solid #bababa;
+	border-top: 1px solid #bababa;
+	border-left: 1px solid #bababa;
+	background-color: white;
+	height: 33px;
+	
+}
+
+.zf-select .select-btn {
+padding-right: 4px;
+
+}
+
+.location-box .zf-select {
+	
+
+}
+
+

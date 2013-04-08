@@ -2,30 +2,54 @@ jQuery(document).ready(function($) {
 	//Initialize the page
 	var d = new Date();
 	var currentMonth = d.getMonth() + 1;
+	var year = 2013; //This needs to be changed later if we extend our contract
+	
+	
 	
 	//set the selected month to the current month
 	$("select#month option[value=" +currentMonth+ "]").attr("selected","selected");
 	
-	
+	//Update calendar on Form Submit
 	$(".solunar-submit").on("click",function(ev){
 		ev.preventDefault();
 		
 		var selectedMonth = $('div#zf-select-month .scrollable li.selected').attr("val");
 		var location = $("#solunar-location").val();
-		var year = 2013; //This needs to be changed later if we extend our contract
+
 		
 		updateCalendar(selectedMonth,year,location); 
 	});
 	
+	
+	//Update calendar on month change
 	$('div#zf-select-month').on("change",function(ev){
 		var selectedMonth = $('div#zf-select-month .scrollable li.selected').attr("val");
 		var location = $("#solunar-location").val();
-		var year = 2013; //This needs to be changed later if we extend our contract
-		
 		
 		if (location)
 			updateCalendar(selectedMonth,year,location); 
 	});
+	
+	//Use HTML5 Geolocation to detect location and update calendar
+	if (navigator.geolocation)
+    {
+    	navigator.geolocation.getCurrentPosition(function(position){
+	    	console.log(position);
+	    	var lat = position.coords.latitude;
+	    	var url = "/wpdb/gps-to-zip.php?lat=" + position.coords.latitude +  "&lon=" + position.coords.longitude ;
+	    	
+	    	$.getJSON(url,function(closestLocation){
+	    	
+	    		var selectedMonth = $('div#zf-select-month .scrollable li.selected').attr("val");
+	    		
+		    	$("#solunar-location").val(closestLocation.zip)
+		    	updateCalendar(selectedMonth,year,closestLocation.zip); 
+	    	});
+    	});
+    }
+
+	
+	
 	
 	
 	function updateCalendar(month,year,location) {
@@ -134,11 +158,19 @@ jQuery(document).ready(function($) {
 			
 				//First, hide the other popups
 				$(".cal-popup").hide();
-			    $(".a-event").parent("div").removeClass("active");
+			    //$(".a-event").parent("div").removeClass("active");
 			    
 			    //then show the popup
 			   $(this).siblings(".cal-popup").show();
-			   $(this).parent("div").toggleClass("active");
+			   //$(this).parent("div").addClass("active");
+			});
+			
+			
+			$(".a-event").parent("div").on("hover",function(ev){
+				$(this).toggleClass("active");
+				
+			},function(ev){
+				$(this).toggleClass("active");
 			});
 		
 			//also hide popup on close button click
@@ -149,6 +181,8 @@ jQuery(document).ready(function($) {
 		
 			
 			
+		}).fail(function(){
+			alert("Location not found. Please try again.")
 		});
 		
 		

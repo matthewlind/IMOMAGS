@@ -3,6 +3,7 @@
 //include mysql account info
 include 'mysql.php';
 include 'moon-phase.php';
+include 'statelist.php';
 
 //Set headers for json output
 header('Access-Control-Allow-Origin: *');  
@@ -20,24 +21,34 @@ $params = $_GET;
 extract($params,EXTR_OVERWRITE);
 
 
-
 if (is_numeric($location)) { //if location is zip
 
-	$zip = $location;
-	importSolunarData($month,$year,$zip);
-	querySolunarData($month,$year,$zip);
+	importSolunarData($month,$year,$location);
+	querySolunarData($month,$year,$location);	
 	
+} else {//if it's not a zip code, parse the location.
+
+	$locationParts = explode(",",$location);
 	
+	$city = $locationParts[0];
+	$state = strtolower(trim($locationParts[1]));
+	
+	if (!empty($statelist[$state])) {//convert state name to 2 character state
+		$state = $statelist[$state];
+	}
+
+	$location = $city . $state;
+	
+	importSolunarData($month,$year,$location);
+	querySolunarData($month,$year,$location);
 }
 
 //Overwrite the default settings with the new ones
 extract($params,EXTR_OVERWRITE);
 
-
 $hash = md5("h4m9az01" . $dateString);
 
 function querySolunarData($month,$year,$zip) {
-
 	
 	
 	$sql = "SELECT * FROM solunar WHERE postalcode = $zip AND month = $month and year = $year";
@@ -51,20 +62,16 @@ function querySolunarData($month,$year,$zip) {
 	
 	$db = "";
 	
-	print_r(json_encode($solunarData));
-	
-	
-		
-	
+	if (count($solunarData)>0)
+		print_r(json_encode($solunarData));
+	else
+		header("HTTP/1.0 404 Not Found");
 	
 	
 }
 
-
-
-
 /////////////////////////////
-function importSolunarData($month,$year,$zip) {
+function importSolunarData($month,$year,$location) {
 
 
 
@@ -72,9 +79,11 @@ function importSolunarData($month,$year,$zip) {
 	$dateString = gmdate("Y-m-d");
 	$hash = md5("h4m9az01" . $dateString);
 	
-	
-	$url = "http://www.solunar.com/solunarwebservice.asmx/ComputeForPostalCode?_Token=$hash&_PostalCode=$zip&_Month=$month&_Year=$year&_UseCache=false";
-	
+	if (is_numeric($location))
+		$url = "http://www.solunar.com/solunarwebservice.asmx/ComputeForPostalCode?_Token=$hash&_PostalCode=$location&_Month=$month&_Year=$year&_UseCache=false";
+	else
+		$url = "http://www.solunar.com/solunarwebservice.asmx/ComputeForCityState?_Token=$hash&_CityState=$location&_Month=$month&_Year=$year&_UseCache=false";
+		
 	//echo $url;
 	//echo "<br>";
 		
@@ -87,6 +96,13 @@ function importSolunarData($month,$year,$zip) {
 	$solunarData = $parsedXML->SolunarData;
 	
 	//print_r($xml);
+	
+	
+	//Set the location to the found zipcode so that we can query the db by zipcode
+	global $location;
+	$location = $solunarData->PostalCode;
+	
+	
 	
 	//Parse and insert the XML feed results
 	foreach ($solunarData as $key => $dayData) {
@@ -105,8 +121,6 @@ function importSolunarData($month,$year,$zip) {
 		$dayOfWeekNumber = date("w",$timestamp);
 		$dayData->weekday = $dayOfWeek;
 		$dayData->weekdaycode = intval($dayOfWeekNumber);
-		
-		
 		
 		$dayData->mooncode = get_moon_code($timestamp);
 				
@@ -193,6 +207,8 @@ function importSolunarData($month,$year,$zip) {
 		$sqlValues .= ")";
 		
 		$sql .= $sqlColumns . " VALUES " . $sqlValues;
+		
+		//echo $sql;	
 		
 		$db = dbConnect();
 		$stmt = $db->prepare($sql);
