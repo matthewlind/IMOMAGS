@@ -178,7 +178,7 @@ body {
 .cal-title {
     width:368px;
     padding:14px 32px 0 47px;
-    margin:-30px auto 32px;
+    margin:-30px auto 16px;
     background:#fff;
     border-top:1px solid #eaeaea;
 }
@@ -282,10 +282,10 @@ body {
 .calendar-data .fishday-orangelight .a-event {border-color:#eab204;}
 .calendar-data .fishday-yellow .a-event {border-color:#edd96b;}
 
-.calendar-data .fishday-level3 .a-event {border-color:#c9242c;}
-.calendar-data .fishday-level2 .a-event {border-color:#e3730f;}
-.calendar-data .fishday-level1 .a-event {border-color:#eab204;}
-.calendar-data .fishday-yellow .a-event {border-color:#edd96b;}
+.calendar-data .fishday-level4 .a-event {border-color:#c9242c;}
+.calendar-data .fishday-level3 .a-event {border-color:#e3730f;}
+.calendar-data .fishday-level2 .a-event {border-color:#eab204;}
+.calendar-data .fishday-level1 .a-event {border-color:#edd96b;}
 
 
 .calendar-data .other-month .a-event {border-top:0;}
@@ -863,6 +863,12 @@ padding-right: 4px;
 .location-box .zf-select {
 	
 
+}
+
+
+h1.location-header {
+    font: 52px "stagbold", serif;
+    text-align: center;
 }
 
 
