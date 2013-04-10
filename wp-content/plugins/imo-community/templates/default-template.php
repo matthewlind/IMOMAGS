@@ -44,8 +44,26 @@ if ( is_user_logged_in() ) {
 
 	<!-- Uncomment This to add wordpress sidebar -->
   	<div id="sidebar">
+  		<div class="bonus">
 		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-community')) : else : ?>
 		<?php  endif; ?>
+		<div id="responderfollow"></div>
+		<div class="sidebar advert">
+		<script type="text/javascript">
+	              document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dartadsgen_site+'/;sect=;page=index;pos=btf;subs=;sz=300x250;dcopt=;tile='+pr_tile+';ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
+	            </script>
+	            <script type="text/javascript">
+	              ++pr_tile;
+	            </script>
+	            <noscript>
+	              <a href="http://ad.doubleclick.net/adj/imo.outdoorsbest/;sect=;page=index;pos=btf;subs=;sz=300x250;dcopt=;tile=1;ord=7391727509?">
+	                <img src="http://ad.doubleclick.net/ad/imo.outdoorsbest/home;sect=;page=index;pos=btf;subs=;sz=300x250;dcopt=;tile=1;ord=7391727509?" border="0" />
+	              </a>
+	            </noscript>
+
+			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('scroll-sidebar')) : else : ?><?php endif; ?>
+		</div>		
+  		</div>
 	</div>
 
 
@@ -105,11 +123,12 @@ if ( is_user_logged_in() ) {
 
 		<li style="display:inline-block;">
 
-			<div style="width:300px">
-				<h3><%= post.get('title') %></h3>
-			</div>
+			
 			<div class="recon-image-box" style="background-color:#c65517;width:300px;">
 				<a href="#!<%= post.get('url') %>">
+				<div style="width:300px">
+					<h3><%= post.get('title') %></h3>
+				</div>
 					<img src="<%= post.get('img_url') %>" class="superpost-thumb">
 				</a>
 			</div>
@@ -137,7 +156,7 @@ if ( is_user_logged_in() ) {
 
 		<div id="community-single-post">
 			<div id="body">
-				<%= post.get("body") %>
+				<blockquote><%= post.get("body") %></blockquote>
 			</div>
 			<div id="attachments">
 				<% _.each(post.get("attachments"),function(attachment){ %>

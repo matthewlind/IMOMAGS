@@ -17,9 +17,8 @@ the_post(); ?>
 			<div class="entry-content">
 				<?php
 				the_content(__('Continued&hellip;', 'carrington-business')); ?>
-	
-	
-	<!-- advertisement (edit widget area: homepage trending ad) -->
+				<?php if (!function_exists('imo_nt_scripts')) { ?>
+				<!-- advertisement (edit widget area: homepage trending ad) -->
 	<div class="row-c6-12-3456 row cfct-row-a-bc cfct-row cfct-inrow-widget-advert-widget cfct-inrow-heading cfct-inrow-not-loop">
 		<div class="c6-12 cfct-block-a cfct-block block-0">
 			<div class="cfct-module cfct-widget-module-advert-widget">
@@ -81,12 +80,72 @@ the_post(); ?>
 		</div>
 	</div>
 </div>
+				<?php } ?>
+	 
 	<?php wp_link_pages(); ?>
 			</div>
 		</div>
 	</div>
-	<div id="secondary">
-	 	<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('homepage-secondary')) : else : ?><?php endif; ?>
+<?php if (function_exists('imo_nt_scripts')) { ?>
+</div>
+
+<div id="network-topics-3-col">
+
+	<div class="network-topics-widget">
+		<h3 class="widget-title"><span>The Guns & Ammo Network</span></h3>
+	
+		<div class="network-page-feed">
+			<h2>The Guns</h2>
+			<ul id="guns-network" class="network-topics" term="the-guns-network">
+		    
+			</ul>
+		</div>
+		<div class="network-page-feed">
+			<h2>The Gear</h2>
+			<ul id="gear-network" class="network-topics" term="the-gear-network">
+		    
+			</ul>
+		</div>
+		<div class="network-page-feed feed-ad">
+			<script type="text/javascript">
+	          document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dartadsgen_site+'/;sect=;page=index;pos=mid;subs=;sz=300x250;dcopt=;tile='+pr_tile+';ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
+	        </script>
+	        <script type="text/javascript">
+	          ++pr_tile;
+	        </script>
+	        <noscript>
+	          <a href="http://ad.doubleclick.net/adj/imo.outdoorsbest/;sect=;page=index;pos=mid;subs=;sz=300x250;dcopt=;tile=1;ord=7391727509?">
+	            <img src="http://ad.doubleclick.net/ad/imo.outdoorsbest/home;sect=;page=index;pos=mid;subs=;sz=300x250;dcopt=;tile=1;ord=7391727509?" border="0" />
+	          </a>
+	        </noscript>
+		</div>
+
+		<div class="network-page-feed row-2">	
+			<h2>Personal Defense</h2>
+			<ul id="personal-defense-network" class="network-topics" term="personal-defense-network">
+		    
+			</ul>
+		</div>
+		<div class="network-page-feed">	
+			<h2>Culture & Politics</h2>
+			<ul id="culture-politics-network" class="network-topics" term="culture-politics-network">
+			
+			</ul>
+		</div>
+		<!--<div class="network-page-feed">	
+			<h2>Survival</h2>
+			<ul id="survival-network" class="network-topics last" term="survival-network">
+		    
+			</ul>-->
+		</div>
+		
+		
 	</div>
 </div>
+<div class="feed-clear"></div>
+<?php } ?>
+<div id="secondary">
+ 	<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('homepage-secondary')) : else : ?><?php endif; ?>
+</div>
+
 <?php get_footer(); ?>
