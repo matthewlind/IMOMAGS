@@ -130,26 +130,43 @@ function importSolunarData($month,$year,$location) {
 		$dayData->peakcode = 0;
 		
 		if ($peakDayFlag == "Q") {
-			$dayData->peakcode = 2;
+			$dayData->peakcode = 3;
 		}
 		if ($peakDayFlag == "N") {
-			$dayData->peakcode = 3;
+			$dayData->peakcode = 4;
 			$dayData->mooncode = 1;
 		}
 		if ($peakDayFlag == "F") {
-			$dayData->peakcode = 3;
+			$dayData->peakcode = 4;
 			$dayData->mooncode = 12;
 		}					
 		if ($peakDayFlag == ">") {
 			$dayData->peakcode = 1;
 		}
+
+		//print_r((int)$dayData->mooncode);echo"<br>";
+
+		if ($dayData->mooncode == 1 || $dayData->mooncode == 12)
+			$dayData->peakcode = 4;
 		
 		if ($dayData->mooncode == 13 || $dayData->mooncode == 11)
-			$dayData->peakcode = 2;
+			$dayData->peakcode = 3;
 					
 		if ($dayData->mooncode == 2 || $dayData->mooncode == 24)
-			$dayData->peakcode = 2;		
-		
+			$dayData->peakcode = 3;		
+
+		if ($dayData->mooncode == 3 || $dayData->mooncode == 23)
+			$dayData->peakcode = 2;	
+
+		if ($dayData->mooncode == 14 || $dayData->mooncode == 10)
+			$dayData->peakcode = 2;	
+
+		if ($dayData->mooncode == 4 || $dayData->mooncode == 22)
+			$dayData->peakcode = 1;	
+
+		if ($dayData->mooncode == 15 || $dayData->mooncode == 9)
+			$dayData->peakcode = 1;	
+
 		if ($dayData->mooncode < 1)
 			$dayData->mooncode = 1;
 			

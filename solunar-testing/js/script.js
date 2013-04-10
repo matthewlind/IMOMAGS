@@ -69,12 +69,16 @@ jQuery(document).ready(function($) {
 		    "July", "Aug.", "Sept.", "Oct.", "Nov.", "Dec." ];
 			
 			var dayOffset = solunarDays[0].weekdaycode;
+			var locationName = solunarDays[0].city + ", " + solunarDays[0].state;
+
+			$("h1.location-header").html(locationName);
 			
 			var currentDay = 0;
 			var currentCell = 0;
 			
 			$(".calendar-data td").html("").addClass("other-month");
-			
+
+
 			
 			$(".calendar-data td").each(function(key,dataCell){
 				currentCell++;
@@ -166,11 +170,11 @@ jQuery(document).ready(function($) {
 			});
 			
 			
-			$(".a-event").parent("div").on("hover",function(ev){
-				$(this).toggleClass("active");
+			$(".a-event").parent("div").hover(function(ev){
+				$(this).addClass("active");
 				
 			},function(ev){
-				$(this).toggleClass("active");
+				$(this).removeClass("active");
 			});
 		
 			//also hide popup on close button click
@@ -178,6 +182,12 @@ jQuery(document).ready(function($) {
 			    $(".cal-popup").hide();
 			    $(".a-event").parent("div").removeClass("active");
 			});
+
+			//Hide the last row if it is empty
+			$("tr.last-row").show();
+
+			if ($("tr.last-row td").first().hasClass("other-month"))
+				$("tr.last-row").hide();
 		
 			
 			

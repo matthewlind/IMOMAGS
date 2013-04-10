@@ -150,7 +150,7 @@ body {
     padding:2px 8px 4px;
     width:205px;
     margin:0 15px 0 0;
-    
+
     border-right: 1px solid #bababa;
 	border-top: 1px solid #bababa;
 	border-left: 1px solid #bababa;
@@ -178,7 +178,7 @@ body {
 .cal-title {
     width:368px;
     padding:14px 32px 0 47px;
-    margin:-30px auto 32px;
+    margin:-30px auto 16px;
     background:#fff;
     border-top:1px solid #eaeaea;
 }
@@ -258,7 +258,7 @@ body {
 }
 
 .calendar-data div.fishday.active .a-event {
-    padding:46px 0px 0 13px;	
+    padding:46px 0px 0 13px;
 }
 
 .calendar-data .a-event {
@@ -282,10 +282,10 @@ body {
 .calendar-data .fishday-orangelight .a-event {border-color:#eab204;}
 .calendar-data .fishday-yellow .a-event {border-color:#edd96b;}
 
-.calendar-data .fishday-level3 .a-event {border-color:#c9242c;}
-.calendar-data .fishday-level2 .a-event {border-color:#e3730f;}
-.calendar-data .fishday-level1 .a-event {border-color:#eab204;}
-.calendar-data .fishday-yellow .a-event {border-color:#edd96b;}
+.calendar-data .fishday-level4 .a-event {border-color:#c9242c;}
+.calendar-data .fishday-level3 .a-event {border-color:#e3730f;}
+.calendar-data .fishday-level2 .a-event {border-color:#eab204;}
+.calendar-data .fishday-level1 .a-event {border-color:#edd96b;}
 
 
 .calendar-data .other-month .a-event {border-top:0;}
@@ -386,7 +386,7 @@ div.fishday.active .cal-popup {
     border-right-color: #ffffff;
     border-width: 12px;
     top: 12px;
-    
+
 }
 .cal-popup:before {
     border-color: rgba(194, 194, 194, 0);
@@ -411,7 +411,7 @@ div.fishday.active .cal-popup {
     border-left-color: #ffffff;
     border-width: 12px;
     top: 12px;
-    
+
 }
 .far-right .cal-popup:before {
     border-color: rgba(194, 194, 194, 0);
@@ -503,7 +503,7 @@ div.fishday.active .cal-popup {
 .moon-data li,
 .sun-data li {
     margin:2px 0 0;
-} 
+}
 .times-list {
     list-style:none;
     display:inline-block;
@@ -691,7 +691,7 @@ div.fishday.active .cal-popup {
 }
 .presented-by {
     text-align:center;
-    margin:0 0 31px;
+    margin:0 0 11px;
 }
 .presented-by span,
 .presented-by img {
@@ -700,7 +700,7 @@ div.fishday.active .cal-popup {
 }
 .presented-by span {
     font:15px "proxima_nova_rgregular", sans-serif;
-    color:#fff;
+    color:#000;
     padding:0 6px 0 0;
 }
 .single-calendar {
@@ -846,13 +846,13 @@ a.change-location:before {
 
 
 .location-box .zf-select .select-text {
-	
+
 	border-right: 1px solid #bababa;
 	border-top: 1px solid #bababa;
 	border-left: 1px solid #bababa;
 	background-color: white;
 	height: 33px;
-	
+
 }
 
 .zf-select .select-btn {
@@ -861,8 +861,14 @@ padding-right: 4px;
 }
 
 .location-box .zf-select {
-	
 
+
+}
+
+
+h1.location-header {
+    font: 52px "stagbold", serif;
+    text-align: center;
 }
 
 
