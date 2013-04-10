@@ -777,16 +777,15 @@ $pollNum = 1;
 				      </h3>
 				      <div class="bracket-sponsor ffl123">Final Four Presented by:<a href="http://ffl123.com" target="_blank"><img src="/wp-content/themes/imo-mags-gunsandammo/img/ffl123-logo.jpg" alt="FFL123" /></a></div>
 				      <div class="region">
-				        <div id="match64" class="match m1 open-poll" poll="sw-performance-center-1911-vs-larue-tactical-costa-edition-hybrid">
-				          <p class="slot slot1" id="slot127"><span class="seed">5</span>S&W Perform...
+				        <div id="match64" class="match m1">
+				          <p class="slot slot1" id="slot127"><strike><span class="seed">5</span>S&W Perform...</strike>
 				            <strong><!--<span class="seed">0</span> Winner <em class="score">65</em></strong>-->
 				<!-- winner -->
 				          </p>
-				          <p class="slot slot2" id="slot128"><span class="seed">4</span> LaRue Tactical...
+				          <p class="slot slot2" id="slot128"><strong><span class="seed">4</span> LaRue Tactical...</strong>
 				            <!--<strike><span class="seed">4</span> Loser <em class="score">60</em></strike>-->
 				<!-- loser -->
 				          </p>
-				          <a class="vote">Vote</a>
 				        </div>
 				      </div>
 				    </div>

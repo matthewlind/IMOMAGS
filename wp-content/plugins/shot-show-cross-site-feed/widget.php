@@ -33,15 +33,15 @@ class SScsfWidget extends \WP_Widget {
 				</div>
 			<ul class="shot-show-widget" term=""><!-- This term= attribute is searched for by displayCrossSiteFeed() in cross-site-feed.js -->
 		    
-		</ul>
+			</ul>
 			<div class="see-all"><a href="<?php if( $_SERVER['SERVER_NAME'] == "www.petersenshunting.com" || $_SERVER['SERVER_NAME'] == "www.northamericanwhitetail.com" || $_SERVER['SERVER_NAME'] == "www.bowhuntingmag.com" || $_SERVER['SERVER_NAME'] == "www.gundogmag.com" || $_SERVER['SERVER_NAME'] == "www.wildfowlmag.com" || $_SERVER['SERVER_NAME'] == "www.bowhunter.com" || $_SERVER['SERVER_NAME'] == "www.gameandfishmag.com" ){ echo "http://www.petersenshunting.com/shot-show-2013"; }else{ echo "http://gunsandammo.com/shooting/shot-show-2013/";} ?>">See All 2013 SHOT Show Coverage</a><span></span></div>
 		</aside>
 		<div style="clear:both;"></div>
 
 	    <!-- clone -->
 		<li id="ss-widget-template" style="display:none;">
-				<div class="site"><a href="http://gunsandammo.com">www.gunsandammo.com</a></div>				
-				<a class="title" rel="bookmark" href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/">Deer of the Day Buckeye Brute, Alexa Perry</a>							
+			<div class="site"><a href="http://gunsandammo.com">www.gunsandammo.com</a></div>				
+			<a class="title" rel="bookmark" href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/">Deer of the Day Buckeye Brute, Alexa Perry</a>							
 		</li>
 		
 		

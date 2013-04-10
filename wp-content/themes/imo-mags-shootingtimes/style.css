@@ -26,6 +26,29 @@
  *
  */
 
+@font-face {
+  font-family: "StagMedium";
+  src: url("fonts/stag-medium-webfont.eot");
+  src: url("fonts/stag-medium-webfont.eot?iefix") format("eot"), url("fonts/stag-medium-webfont.woff") format("woff"), url("fonts/stag-medium-webfont.ttf") format("truetype"), url("fonts/stag-medium-webfont.svg") format("svg");
+}
+
+@font-face {
+  font-family: "StagMediumItalic";
+  src: url("fonts/stag-mediumitalic-webfont.eot");
+  src: url("fonts/stag-mediumitalic-webfont.eot?iefix") format("eot"), url("fonts/stag-mediumitalic-webfont.woff") format("woff"), url("fonts/stag-mediumitalic-webfont.ttf") format("truetype"), url("fonts/stag-mediumitalic-webfont.svg") format("svg");
+}
+
+@font-face {
+  font-family: "StagBold";
+  src: url("fonts/stag-bold-webfont.eot");
+  src: url("fonts/stag-bold-webfont.eot?iefix") format("eot"), url("fonts/stag-bold-webfont.woff") format("woff"), url("fonts/stag-bold-webfont.ttf") format("truetype"), url("fonts/stag-bold-webfont.svg") format("svg");
+}
+
+@font-face {
+  font-family: "StagBoldItalic";
+  src: url("fonts/stag-bolditalic-webfont.eot");
+  src: url("fonts/stag-bolditalic-webfont.eot?iefix") format("eot"), url("fonts/stag-bolditalic-webfont.woff") format("woff"), url("fonts/stag-bolditalic-webfont.ttf") format("truetype"), url("fonts/stag-bolditalic-webfont.svg") format("svg");
+}
 
 a {
 	color: #0066cc;

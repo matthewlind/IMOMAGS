@@ -1,16 +1,22 @@
 /*** superpost.css ***/
 
 #app {
-	width: 679px;
+	width: 646px;
 }
 
+#app{
+	margin: 0;
+}
 #app h3 {
-	color:white;
+	color: white;
 	text-shadow: black 0.1em 0.1em 0.2em;
 	word-wrap: break-word;
 	font-size: 1em;
 	position: absolute;
 	margin-left: 20px;
+	width: 280px;
+	line-height: 1.5;
+	margin-top: 10px;
 }
 
 

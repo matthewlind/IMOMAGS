@@ -1048,7 +1048,7 @@ a.comment-count:hover {
 
 /* line 725, sass/style.scss */
 #sidebar .widget, #secondary .widget, .cfct-sidebar .widget, #carrington-modules .cfct-row-ab-c .cfct-block-c .widget {
-  background: url("img/widget_stripe_bg_38.png?1336056336") 4px 0 repeat-x;
+  background: url("img/widget_stripe_bg_38.png") 4px 0 repeat-x;
   border-top: 4px solid black;
 }
 
@@ -1315,9 +1315,10 @@ a.comment-count:hover {
 	background-color: #FFFFFF;
 	display: block;
 	margin: 0 0 -40px;
-	overflow: auto;
+	overflow: hidden;
 	padding-bottom: 80px;
 	width: 980px;
+	clear: both;
 }
 
 /* line 925, sass/style.scss */

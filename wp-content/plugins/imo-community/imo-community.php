@@ -98,7 +98,7 @@ $IMO_COMMUNITY_CONFIG['additional_scripts'] = array(
 	array(
 		"script-name" => "backgrid-select-all",
 		"script-path" => "js/backgrid-select-all.js",
-		"script-dependencies" => array('jquery','backbone-js','underscore-js','imo-community-grid-js','jquery.timeago.js')	
+		"script-dependencies" => array('jquery','backbone-js','underscore-js','imo-community-grid-js','custom.js','jquery.timeago.js')	
 	)	
 );
 

@@ -28,6 +28,66 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 <hr class="accessibility" />
 <footer id="footer">
     <div class="str-container">
+    	<?php if (function_exists('imo_nt_scripts')) { ?>
+	    <div id="network-topics-3-col" style="top:0;border-left:none;border-right:none;padding: 10px 30px;">
+			<div class="network-topics-widget">
+				<h3 class="widget-title"><span>The Guns & Ammo Network</span></h3>
+			
+				<div class="network-page-feed">
+					<h2>The Guns</h2>
+					<ul id="guns-network" class="network-topics" term="the-guns-network">
+				    
+					</ul>
+				</div>
+				<div class="network-page-feed">
+					<h2>The Gear</h2>
+					<ul id="gear-network" class="network-topics" term="the-gear-network">
+				    
+					</ul>
+				</div>
+				<div class="network-page-feed feed-ad">
+					<script type="text/javascript">
+			          document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dartadsgen_site+'/;sect=;page=index;pos=mid;subs=;sz=300x250;dcopt=;tile='+pr_tile+';ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
+			        </script>
+			        <script type="text/javascript">
+			          ++pr_tile;
+			        </script>
+			        <noscript>
+			          <a href="http://ad.doubleclick.net/adj/imo.outdoorsbest/;sect=;page=index;pos=mid;subs=;sz=300x250;dcopt=;tile=1;ord=7391727509?">
+			            <img src="http://ad.doubleclick.net/ad/imo.outdoorsbest/home;sect=;page=index;pos=mid;subs=;sz=300x250;dcopt=;tile=1;ord=7391727509?" border="0" />
+			          </a>
+			        </noscript>
+				</div>
+		
+				<div class="network-page-feed row-2">	
+					<h2>Personal Defense</h2>
+					<ul id="personal-defense-network" class="network-topics" term="personal-defense-network">
+				    
+					</ul>
+				</div>
+				<div class="network-page-feed">	
+					<h2>Culture & Politics</h2>
+					<ul id="culture-politics-network" class="network-topics" term="culture-politics-network">
+					
+					</ul>
+				</div>
+				<!--<div class="network-page-feed">	
+					<h2>Survival</h2>
+					<ul id="survival-network" class="network-topics last" term="survival-network">
+				    
+					</ul>-->
+				</div>
+				
+				
+			</div>
+			 <!-- clone -->
+			<li id="nt-widget-template" style="display:none;">
+				<a class="network-thumb" href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/"><img src="http://www.handgunsmag.com/files/2013/04/Picking-duty-pistols-190x120.jpg" alt="title" /></a>
+				<div class="site"><a href="http://gunsandammo.com">www.gunsandammo.com</a></div>				
+				<a class="title" rel="bookmark" href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/">Deer of the Day Buckeye Brute, Alexa Perry</a>				
+			</li>
+		</div>
+		<?php } ?>
         <div id="footer-content">
             
         </div><!-- #footer-content -->
