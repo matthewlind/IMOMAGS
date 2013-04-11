@@ -51,7 +51,7 @@ jQuery(document).ready(function($) {
 		        $articleTemplate.find("a.title").text(data[i].post_title);
 		        
 		        if (data[i].domain != document.domain) {
-		        	$articleTemplate.find(".site a").text("From " + data[i].brand + " Magazine");
+		        	$articleTemplate.find(".site a").text(data[i].brand + " Magazine");
 		        	$articleTemplate.find(".site a").attr("href","http://" + data[i].domain);
 
 					$articleTemplate.find("a").attr("target","_blank");
@@ -90,7 +90,7 @@ jQuery(document).ready(function($) {
 		        $articleTemplate.find("a.title").text(data[i].post_title);
 		        
 		        if (data[i].domain != document.domain) {
-		        	$articleTemplate.find(".site a").text("From " + data[i].brand + " Magazine");
+		        	$articleTemplate.find(".site a").text(data[i].brand + " Magazine");
 		        	$articleTemplate.find(".site a").attr("href","http://" + data[i].domain);
 
 					$articleTemplate.find("a").attr("target","_blank");
@@ -130,7 +130,7 @@ jQuery(document).ready(function($) {
 		        $articleTemplate.find("a.title").text(data[i].post_title);
 		        
 		        if (data[i].domain != document.domain) {
-		        	$articleTemplate.find(".site a").text("From " + data[i].brand + " Magazine");
+		        	$articleTemplate.find(".site a").text(data[i].brand + " Magazine");
 		        	$articleTemplate.find(".site a").attr("href","http://" + data[i].domain);
 
 					$articleTemplate.find("a").attr("target","_blank");
@@ -170,7 +170,7 @@ jQuery(document).ready(function($) {
 		        $articleTemplate.find("a.title").text(data[i].post_title);
 		        
 		        if (data[i].domain != document.domain) {
-		        	$articleTemplate.find(".site a").text("From " + data[i].brand + " Magazine");
+		        	$articleTemplate.find(".site a").text(data[i].brand + " Magazine");
 		        	$articleTemplate.find(".site a").attr("href","http://" + data[i].domain);
 
 					$articleTemplate.find("a").attr("target","_blank");
@@ -210,7 +210,7 @@ jQuery(document).ready(function($) {
 		        $articleTemplate.find("a.title").text(data[i].post_title);
 		        
 		        if (data[i].domain != document.domain) {
-		        	$articleTemplate.find(".site a").text("From " + data[i].brand + " Magazine");
+		        	$articleTemplate.find(".site a").text(data[i].brand + " Magazine");
 		        	$articleTemplate.find(".site a").attr("href","http://" + data[i].domain);
 
 					$articleTemplate.find("a").attr("target","_blank");

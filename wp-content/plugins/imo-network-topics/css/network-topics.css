@@ -69,7 +69,7 @@ ul.network-topics li{
 	margin-top:10px; 
 }
 #network-topics .site a, #network-topics-3-col .site a{
-	font-size: 12px;
+	font-size: 11px;
 	color: gray;
 	font-weight: 600;
 }
@@ -87,20 +87,24 @@ ul.network-topics li{
 	color: #ce181e;
 }
 #network-topics img, #network-topics-3-col .network-topics img{
-	width: 70px;
+	width: 112px;
 	height: auto;
 	float: left;
-	padding: 8px 10px 20px 0;
 }
-
+#network-topics img{
+	padding: 8px 10px 10px 0;
+}
+#network-topics-3-col .network-topics img{
+	padding: 8px 10px 0 0;
+}
 #network-topics-3-col{
 	background: url("../img/widget_stripe_bg_29.png") 4px 0 repeat-x #fff;
 	clear: both;
 	border: 4px solid #ccc;
 	top: 20px;
 	position: relative;
-	height: 600px;
-	padding: 10px 10px 30px;
+	height: 100%;
+	padding: 10px 10px;
 	overflow: hidden;
 }
 
@@ -124,6 +128,7 @@ ul.network-topics li{
 }
 #network-topics-3-col .network-page-feed.feed-ad{
 	float:right;
+	margin-top: 40px;
 }
 
 #network-topics-3-col .network-page-feed.row-2{
