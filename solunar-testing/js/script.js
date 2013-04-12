@@ -1,4 +1,8 @@
 jQuery(document).ready(function($) {
+
+
+	renderSpeciesInfo($(".jq-custom-form select").val());
+
 	//Initialize the page
 	var d = new Date();
 	var currentMonth = d.getMonth() + 1;
@@ -34,7 +38,7 @@ jQuery(document).ready(function($) {
 	if (navigator.geolocation)
     {
     	navigator.geolocation.getCurrentPosition(function(position){
-	    	console.log(position);
+	    	//console.log(position);
 	    	var lat = position.coords.latitude;
 	    	var url = "/wpdb/gps-to-zip.php?lat=" + position.coords.latitude +  "&lon=" + position.coords.longitude ;
 
@@ -202,7 +206,45 @@ jQuery(document).ready(function($) {
 
 });
 
+var renderSpeciesInfo = function(slug) {
 
+
+	var url = "/wpdb/simple-infish-json.php?t=" + slug;
+
+
+	googletag.pubads().refresh([dynamicAdSlot1]);
+
+	//console.log(url);
+	$.getJSON(url,function(posts){
+
+
+
+		$('#related-fishing-posts').html("");
+
+		$.each(posts,function(index,post){
+
+			//console.log(post);
+			var template = _.template($("#slider-template").html(),{data:post});
+			$('#related-fishing-posts').append(template);
+		});
+
+		$('#related-fishing-posts').carouFredSel({
+		    auto: false,
+		    prev: '#prev2',
+		    next: '#next2',
+		    mousewheel: true,
+		    swipe: {
+		        onMouse: true,
+		        onTouch: true
+		    }
+		});
+
+	}).fail(function( jqxhr, textStatus, error ) {
+  var err = textStatus + ', ' + error;
+  console.log( "Request Failed: " + err);
+});
+
+}
 
 
 $(".jq-custom-form select").zfselect({
@@ -210,24 +252,10 @@ $(".jq-custom-form select").zfselect({
     width:250
 });
 
+$(".jq-custom-form select").on("change",function(){
+	renderSpeciesInfo($(this).val());
+});
 
-$('#foo2').carouFredSel({
-    auto: false,
-    prev: '#prev2',
-    next: '#next2',
-    mousewheel: true,
-    swipe: {
-        onMouse: true,
-        onTouch: true
-    }
-});
-$('#foo3').carouFredSel({
-    auto: false,
-    prev: '#prev3',
-    next: '#next3',
-    mousewheel: true,
-    swipe: {
-        onMouse: true,
-        onTouch: true
-    }
-});
+
+
+
