@@ -99,12 +99,22 @@ function importSolunarData($month,$year,$location) {
 
 	//print_r($xml);
 
+	$solunarDataArray = array();
+
+	foreach ($solunarData as $key => $dayData) {
+		$solunarDataArray[] = json_decode(json_encode($dayData));
+	}
+
+	//print_r($solunarDataArray);
 
 	//Set the location to the found zipcode so that we can query the db by zipcode
 	global $location;
 	$location = $solunarData->PostalCode;
 
 
+	$daysToFix = array();
+
+	$i = 0;
 
 	//Parse and insert the XML feed results
 	foreach ($solunarData as $key => $dayData) {
@@ -126,10 +136,17 @@ function importSolunarData($month,$year,$location) {
 
 		$dayData->mooncode = get_moon_code($timestamp);
 
+		$dayInSeconds = 60*60*24;
+		$TwoDaysInSeconds = $dayInSeconds * 2;
+		$ThreeDaysInSeconds = $dayInSeconds * 3;
+		$FourDaysInSeconds = $dayInSeconds * 4;
 
 		//Generate color code and correct the moon codes
 		$peakDayFlag = $dayData->PeakDayFlag;
 		$dayData->peakcode = 0;
+
+		$nextDayFlag = $solunarDataArray[$i+1]->PeakDayFlag;
+		$prevDayFlag = $solunarDataArray[$i-1]->PeakDayFlag;
 
 		if ($peakDayFlag == "Q") {
 			$dayData->peakcode = 3;
@@ -137,10 +154,34 @@ function importSolunarData($month,$year,$location) {
 		if ($peakDayFlag == "N") {
 			$dayData->peakcode = 4;
 			$dayData->mooncode = 1;
+
+			if ($nextDayFlag != "N") {
+				$daysToFix[$timestamp + $dayInSeconds] = 3;
+				$daysToFix[$timestamp + $TwoDaysInSeconds] = 2;
+				$daysToFix[$timestamp + $ThreeDaysInSeconds] = 1;
+			}
+
+			if ($prevDayFlag != "N") {
+				$daysToFix[$timestamp - $dayInSeconds] = 3;
+				$daysToFix[$timestamp - $TwoDaysInSeconds] = 2;
+				$daysToFix[$timestamp - $ThreeDaysInSeconds] = 1;
+			}
+
 		}
 		if ($peakDayFlag == "F") {
 			$dayData->peakcode = 4;
 			$dayData->mooncode = 12;
+			if ($nextDayFlag != "F") {
+				$daysToFix[$timestamp + $dayInSeconds] = 3;
+				$daysToFix[$timestamp + $TwoDaysInSeconds] = 2;
+				$daysToFix[$timestamp + $ThreeDaysInSeconds] = 1;
+			}
+
+			if ($prevDayFlag != "F") {
+				$daysToFix[$timestamp - $dayInSeconds] = 3;
+				$daysToFix[$timestamp - $TwoDaysInSeconds] = 2;
+				$daysToFix[$timestamp - $ThreeDaysInSeconds] = 1;
+			}
 		}
 		if ($peakDayFlag == ">") {
 			$dayData->peakcode = 1;
@@ -148,32 +189,32 @@ function importSolunarData($month,$year,$location) {
 
 		//print_r((int)$dayData->mooncode);echo"<br>";
 
-		if ($dayData->mooncode == 1 || $dayData->mooncode == 12)
-			$dayData->peakcode = 4;
+		// if ($dayData->mooncode == 1 || $dayData->mooncode == 12)
+		// 	$dayData->peakcode = 4;
 
-		if ($dayData->mooncode == 13 || $dayData->mooncode == 11)
-			$dayData->peakcode = 3;
+		// if ($dayData->mooncode == 13 || $dayData->mooncode == 11)
+		// 	$dayData->peakcode = 3;
 
-		if ($dayData->mooncode == 2 || $dayData->mooncode == 24)
-			$dayData->peakcode = 3;
+		// if ($dayData->mooncode == 2 || $dayData->mooncode == 24)
+		// 	$dayData->peakcode = 3;
 
-		if ($dayData->mooncode == 3 || $dayData->mooncode == 23)
-			$dayData->peakcode = 2;
+		// if ($dayData->mooncode == 3 || $dayData->mooncode == 23)
+		// 	$dayData->peakcode = 2;
 
-		if ($dayData->mooncode == 14 || $dayData->mooncode == 10)
-			$dayData->peakcode = 2;
+		// if ($dayData->mooncode == 14 || $dayData->mooncode == 10)
+		// 	$dayData->peakcode = 2;
 
-		if ($dayData->mooncode == 4 || $dayData->mooncode == 22)
-			$dayData->peakcode = 1;
+		// if ($dayData->mooncode == 4 || $dayData->mooncode == 22)
+		// 	$dayData->peakcode = 1;
 
-		if ($dayData->mooncode == 15 || $dayData->mooncode == 9)
-			$dayData->peakcode = 1;
+		// if ($dayData->mooncode == 15 || $dayData->mooncode == 9)
+		// 	$dayData->peakcode = 1;
 
-		if ($dayData->mooncode < 1)
-			$dayData->mooncode = 1;
+		// if ($dayData->mooncode < 1)
+		// 	$dayData->mooncode = 1;
 
-		if ($dayData->mooncode > 24)
-			$dayData->mooncode = 24;
+		// if ($dayData->mooncode > 24)
+		// 	$dayData->mooncode = 24;
 
 
 		//print_r($dayData);
@@ -234,7 +275,29 @@ function importSolunarData($month,$year,$location) {
 		$stmt->execute(array());
 		$db = "";
 
+		$i++;
+
 	}
+
+
+	$db = dbConnect();
+
+
+	foreach ($daysToFix as $timestamp => $peakcode) {
+
+		$day = date("j",$timestamp);
+		$month = date("n",$timestamp);
+		$year = date("Y",$timestamp);
+
+		$sql = "UPDATE solunar SET peakcode = $peakcode WHERE postalcode = $location AND month = $month AND day = $day AND year = $year;";
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array());
+
+	}
+
+	$db = "";
+
 
 }//End function download solunar data
 
