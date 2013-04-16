@@ -297,7 +297,7 @@ $app->get('/posts/:id', function ($id) {
 
 });
 
-// POST request to add a new post
+// POST request to ADD a new post
 $app->post('/posts',function() {
 	header('Access-Control-Allow-Origin: *');
 
@@ -690,27 +690,27 @@ $app->delete('/posts/:id', function ($id) {
 	$requestJSON = Slim\Slim::getInstance()->request()->getBody();
 
 	$params = json_decode($requestJSON,true);
-	
+
 	$userIsEditor = userIsEditor($params['username'],$params['timecode'],$params['editor_hash']);
-	
-	
+
+
 	if ($userIsEditor) {
-	
+
 		$db = dbConnect();
-	
+
 		$sql = "DELETE FROM superposts WHERE id = ? LIMIT 1";
-		
+
 		$stmt = $db->prepare($sql);
-		$stmt->execute(array($id));	
-		
-		
+		$stmt->execute(array($id));
+
+
 		$db = "";
-		
-		//echo $sql;		
+
+		//echo $sql;
 	} else {
 		echo "NOT EDITOR";
 	}
-	
+
 
 
 

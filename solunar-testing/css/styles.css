@@ -126,7 +126,7 @@ body {
 }
 .location-box {
     border-bottom:1px solid #eaeaea;
-    padding:34px 22px 67px 57px;
+    padding:30px 40px 37px 40px;
     background:url(../images/bg/light-hue.jpg) repeat;
 }
 .form-text {
@@ -148,8 +148,8 @@ body {
     background:none;
     vertical-align:top;
     padding:2px 8px 4px;
-    width:205px;
-    margin:0 15px 0 0;
+    width:215px;
+    margin:0 10px 0 0;
 
     border-right: 1px solid #bababa;
 	border-top: 1px solid #bababa;
@@ -178,7 +178,7 @@ body {
 .cal-title {
     width:368px;
     padding:14px 32px 0 47px;
-    margin:-30px auto 16px;
+    margin:-30px auto 7px;
     background:#fff;
     border-top:1px solid #eaeaea;
 }
@@ -368,6 +368,11 @@ div.fishday.active .cal-popup {
 .far-right .cal-popup {
 	left:auto;
 	right:137px;
+}
+
+.far-right div.fishday.active .cal-popup {
+    left:auto;
+    right:134px;
 }
 
 
@@ -861,14 +866,16 @@ padding-right: 4px;
 }
 
 .location-box .zf-select {
-
+    width:270px !important;
 
 }
 
 
 h1.location-header {
-    font: 52px "stagbold", serif;
+    font: 18px "stagitalic", serif;
     text-align: center;
+    color:#b2b2b2;
+    margin-top:10px;
 }
 
 
