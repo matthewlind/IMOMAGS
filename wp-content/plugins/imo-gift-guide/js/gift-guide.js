@@ -27,7 +27,7 @@ jQuery(document).ready(function($) {
 		
 		
 	
-		var shootFileName = "/wpdb/shooting-network-json.php?t=" + shootTerm;
+		var shootFileName = "/wpdb/shooting-network-taxonomy-json.php?term=" + shootTerm + "&taxonomy=campaign";
 		var huntFileName = "/wpdb/shooting-network-json.php?t=" + huntTerm;
 		var fishFileName = "/wpdb/shooting-network-json.php?t=" + fishTerm;
 		
@@ -35,7 +35,7 @@ jQuery(document).ready(function($) {
 		//Gun Network
 		var getdata = $.getJSON(shootFileName, function(data) {
 		    var count = 0;
-
+		    console.log(data);
 		    var end = start + showAtOnce;
 
 		    for (i = start; i < end; i++) {
@@ -61,7 +61,7 @@ jQuery(document).ready(function($) {
 					$articleTemplate.find(".site a").hide();
 				}
 				
-				$articleTemplate.appendTo("#guns-network").fadeIn();
+				$articleTemplate.appendTo("#tabs-1").fadeIn();
 
 		    }
 
@@ -100,7 +100,7 @@ jQuery(document).ready(function($) {
 					$articleTemplate.find(".site a").hide();
 				}
 				
-				$articleTemplate.appendTo("#gear-network").fadeIn();
+				$articleTemplate.appendTo("#tabs-2").fadeIn();
 
 		    }
 
@@ -140,7 +140,7 @@ jQuery(document).ready(function($) {
 					$articleTemplate.find(".site a").hide();
 				}
 				
-				$articleTemplate.appendTo("#personal-defense-network").fadeIn();
+				$articleTemplate.appendTo("#tabs-3").fadeIn();
 
 		    }
 

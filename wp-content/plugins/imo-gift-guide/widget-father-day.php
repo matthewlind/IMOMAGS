@@ -32,7 +32,7 @@ class FathersDayGiftGuideWidget extends \WP_Widget {
 					</ul>
 										
 						<div class="network-feed">
-							<ul id="tabs-1" class="gift-guide" term="fathers-day-gift-guide">
+							<ul id="tabs-1" class="gift-guide" term="springfield2012">
 						    	<li>tab1</li>
 						    	<li class="gg-presented">Presented by</li>
 						    	<li class="gg-sponsor-logo">
