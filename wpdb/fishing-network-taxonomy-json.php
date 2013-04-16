@@ -3,21 +3,44 @@
 include 'mysql.php';
 include 'cli-helper-functions.php';
 $sort = "post_date";
+$taxonomy = 'category';
 
-$arguments = getopt("s:t:");
+
+$arguments = getopt("sort:term:taxonomy:");
 
 
 if (empty($arguments)) {
 
-	$arguments['s'] = $_REQUEST['s'];
-	$arguments['t'] = $_REQUEST['t'];
+	$arguments['sort'] = $_REQUEST['sort'];
+	$arguments['term'] = $_REQUEST['term'];
+    $arguments['taxonomy'] = $_REQUEST['taxonomy'];
 
 }
 
-if (!empty($arguments['s']))
-	$sort = $arguments['s'];
+if (!empty($arguments['sort']))
+	$sort = $arguments['sort'];
 
-$term = $arguments['t'];
+if (!empty($arguments['taxonomy']))
+    $taxonomy = $arguments['taxonomy'];
+
+$term = $arguments['term'];
+
+
+
+
+//sanitize inputs
+if (preg_match("/^[0-9a-z-]{1,42}$/", $term) && $term != "") {
+} else {
+    header('HTTP 1.1/400 Bad Request', true, 400);
+    exit();
+}
+
+if (preg_match("/^[a-z-]{1,42}$/", $taxonomy)) {
+} else {
+    header('HTTP 1.1/400 Bad Request', true, 400);
+    exit();
+}
+
 
 
 header('Access-Control-Allow-Origin: *');
@@ -36,12 +59,6 @@ date_default_timezone_set('America/New_York');
     $count = 0;
     foreach ($termList as $term) {
 
-    if (preg_match("/^[0-9a-z-]{1,42}$/", $term)) {
-    } else {
-        header('HTTP 1.1/400 Bad Request', true, 400);
-        exit();
-    }
-
     	$termString .= "'$term'";
     	$inQuery .= ":term" . $count;
     	$inQmarks .= "'$term'";
@@ -54,27 +71,15 @@ date_default_timezone_set('America/New_York');
 
     }
 
-    $siteID["www.gunsandammo.com"] = 2;
-    $siteID["www.handgunsmag.com"] = 9;
-    $siteID["www.shootingtimes.com"] = 11;
-    $siteID["www.rifleshootermag.com"] = 10;
-    $siteID["www.shotgunnews.com"] = 12;
+    $siteID["www.floridasportsman.com"] = 13;
+    $siteID["www.gameandfishmag.com"] = 14;
     $siteID["www.in-fisherman.com"] = 15;
+    $siteID["www.flyfisherman.com"] = 16;
 
     if (!empty($term))
     	$termQuery = "AND terms.slug IN ($inQmarks)";
     else
     	$termQuery = "";
-
-
-
-    if (preg_match("/^[a-z_]{1,22}$/", $sort)) {
-
-        $orderByClause = "ORDER BY $sort";
-    } else {
-        header('HTTP 1.1/400 Bad Request', true, 400);
-        exit();
-    }
 
     try {
 
@@ -82,7 +87,24 @@ date_default_timezone_set('America/New_York');
 
 
         $sql = <<<EOT
-SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, null as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "In-Fisherman" as brand,
+(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, null as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Florida Sportsman" as brand,
+(SELECT count(comment_ID) from wp_13_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.floridasportsman.com" as domain
+FROM wp_13_term_relationships as relationships
+JOIN wp_13_term_relationships as relationships2 ON (relationships.`object_id` = relationships2.`object_id`)
+JOIN wp_13_term_taxonomy as term_taxonomy2 ON (relationships2.term_taxonomy_id = term_taxonomy2.term_taxonomy_id)
+JOIN wp_13_terms as terms2 ON (term_taxonomy2.term_id = terms2.term_id)
+JOIN wp_13_posts as posts ON (posts.ID = relationships.object_id)
+JOIN wp_13_term_taxonomy as term_taxonomy ON (relationships.term_taxonomy_id = term_taxonomy.term_taxonomy_id)
+JOIN wp_13_terms as terms ON (term_taxonomy.term_id = terms.term_id)
+JOIN wp_13_posts as attachments ON (attachments.post_parent = posts.ID)
+JOIN wp_13_postmeta as meta ON (meta.meta_value = attachments.ID)
+JOIN wp_users as users ON (users.`ID` = posts.post_author)
+AND posts.post_status = "publish"
+$termQuery
+AND term_taxonomy.taxonomy = "$taxonomy"
+AND meta.meta_key = "_thumbnail_id")
+UNION
+(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, null as slug, null as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "In-Fisherman" as brand,
 (SELECT count(comment_ID) from wp_15_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.in-fisherman.com" as domain
 FROM wp_15_term_relationships as relationships
 JOIN wp_15_term_relationships as relationships2 ON (relationships.`object_id` = relationships2.`object_id`)
@@ -96,19 +118,57 @@ JOIN wp_15_postmeta as meta ON (meta.meta_value = attachments.ID)
 JOIN wp_users as users ON (users.`ID` = posts.post_author)
 AND posts.post_status = "publish"
 $termQuery
-AND term_taxonomy.taxonomy = "category"
-AND meta.meta_key = "_thumbnail_id"
-$orderByClause DESC LIMIT 16
+AND term_taxonomy.taxonomy = "$taxonomy"
+AND meta.meta_key = "_thumbnail_id")
+UNION
+(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, null as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Flyfisherman" as brand,
+(SELECT count(comment_ID) from wp_16_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.flyfisherman.com" as domain
+FROM wp_16_term_relationships as relationships
+JOIN wp_16_term_relationships as relationships2 ON (relationships.`object_id` = relationships2.`object_id`)
+JOIN wp_16_term_taxonomy as term_taxonomy2 ON (relationships2.term_taxonomy_id = term_taxonomy2.term_taxonomy_id)
+JOIN wp_16_terms as terms2 ON (term_taxonomy2.term_id = terms2.term_id)
+JOIN wp_16_posts as posts ON (posts.ID = relationships.object_id)
+JOIN wp_16_term_taxonomy as term_taxonomy ON (relationships.term_taxonomy_id = term_taxonomy.term_taxonomy_id)
+JOIN wp_16_terms as terms ON (term_taxonomy.term_id = terms.term_id)
+JOIN wp_16_posts as attachments ON (attachments.post_parent = posts.ID)
+JOIN wp_16_postmeta as meta ON (meta.meta_value = attachments.ID)
+JOIN wp_users as users ON (users.`ID` = posts.post_author)
+AND posts.post_status = "publish"
+$termQuery
+AND term_taxonomy.taxonomy = "$taxonomy"
+AND meta.meta_key = "_thumbnail_id")
+
+
+UNION
+(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, null as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Game & Fish" as brand,
+(SELECT count(comment_ID) from wp_14_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.gameandfishmag.com" as domain
+FROM wp_14_term_relationships as relationships
+JOIN wp_14_term_relationships as relationships2 ON (relationships.`object_id` = relationships2.`object_id`)
+JOIN wp_14_term_taxonomy as term_taxonomy2 ON (relationships2.term_taxonomy_id = term_taxonomy2.term_taxonomy_id)
+JOIN wp_14_terms as terms2 ON (term_taxonomy2.term_id = terms2.term_id)
+JOIN wp_14_posts as posts ON (posts.ID = relationships.object_id)
+JOIN wp_14_term_taxonomy as term_taxonomy ON (relationships.term_taxonomy_id = term_taxonomy.term_taxonomy_id)
+JOIN wp_14_terms as terms ON (term_taxonomy.term_id = terms.term_id)
+JOIN wp_14_posts as attachments ON (attachments.post_parent = posts.ID)
+JOIN wp_14_postmeta as meta ON (meta.meta_value = attachments.ID)
+JOIN wp_users as users ON (users.`ID` = posts.post_author)
+AND posts.post_status = "publish"
+$termQuery
+AND term_taxonomy.taxonomy = "$taxonomy"
+AND meta.meta_key = "_thumbnail_id")
+
+
+ORDER BY $sort DESC LIMIT 200
 
 
 EOT;
 
-//  echo $sql;
+//echo $sql;
 
         $stmt = $db->prepare($sql);
 
         // print_r($termList);
-        // echo $sql;
+        //echo $sql;
 
         $siteCount = 5;
 
@@ -165,7 +225,6 @@ EOT;
             $posts[$key]->post_nicedate = $niceDate;
 
             $thumbnail = str_replace(".jpg", "-190x120.jpg", $post->img_url);
-            $thumbnail = str_replace(".gif", "-190x120.gif", $thumbnail);
             $posts[$key]->img_url = $thumbnail;
 
 
