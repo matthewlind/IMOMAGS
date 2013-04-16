@@ -28,14 +28,13 @@ jQuery(document).ready(function($) {
 		
 	
 		var shootFileName = "/wpdb/shooting-network-taxonomy-json.php?term=" + shootTerm + "&taxonomy=campaign";
-		var huntFileName = "/wpdb/shooting-network-json.php?t=" + huntTerm;
-		var fishFileName = "/wpdb/shooting-network-json.php?t=" + fishTerm;
+		var huntFileName = "/wpdb/hunting-network-taxonomy-json.php?term=" + huntTerm + "&taxonomy=campaign";;
+		var fishFileName = "/wpdb/fishing-network-taxonomy-json.php?term=" + fishTerm + "&taxonomy=campaign";;
 		
 		
 		//Gun Network
 		var getdata = $.getJSON(shootFileName, function(data) {
 		    var count = 0;
-		    console.log(data);
 		    var end = start + showAtOnce;
 
 		    for (i = start; i < end; i++) {
@@ -53,15 +52,15 @@ jQuery(document).ready(function($) {
 		        $articleTemplate.find("a.title").text(data[i].post_title);
 		        
 		        if (data[i].domain != document.domain) {
-		        	$articleTemplate.find(".site a").text(data[i].brand + " Magazine");
-		        	$articleTemplate.find(".site a").attr("href","http://" + data[i].domain);
+		        	$articleTemplate.find("a.site").text(data[i].brand + " Magazine");
+		        	$articleTemplate.find("a.site").attr("href","http://" + data[i].domain);
 
 					$articleTemplate.find("a").attr("target","_blank");
 				}else{
-					$articleTemplate.find(".site a").hide();
+					$articleTemplate.find("a.site").hide();
 				}
 				
-				$articleTemplate.appendTo("#tabs-1").fadeIn();
+				$articleTemplate.prependTo("#tabs-1").fadeIn();
 
 		    }
 
@@ -92,15 +91,15 @@ jQuery(document).ready(function($) {
 		        $articleTemplate.find("a.title").text(data[i].post_title);
 		        
 		        if (data[i].domain != document.domain) {
-		        	$articleTemplate.find(".site a").text(data[i].brand + " Magazine");
-		        	$articleTemplate.find(".site a").attr("href","http://" + data[i].domain);
+		        	$articleTemplate.find("a.site").text(data[i].brand + " Magazine");
+		        	$articleTemplate.find("a.site").attr("href","http://" + data[i].domain);
 
 					$articleTemplate.find("a").attr("target","_blank");
 				}else{
-					$articleTemplate.find(".site a").hide();
+					$articleTemplate.find("a.site").hide();
 				}
 				
-				$articleTemplate.appendTo("#tabs-2").fadeIn();
+				$articleTemplate.prependTo("#tabs-2").fadeIn();
 
 		    }
 
@@ -132,15 +131,15 @@ jQuery(document).ready(function($) {
 		        $articleTemplate.find("a.title").text(data[i].post_title);
 		        
 		        if (data[i].domain != document.domain) {
-		        	$articleTemplate.find(".site a").text(data[i].brand + " Magazine");
-		        	$articleTemplate.find(".site a").attr("href","http://" + data[i].domain);
+		        	$articleTemplate.find("a.site").text(data[i].brand + " Magazine");
+		        	$articleTemplate.find("a.site").attr("href","http://" + data[i].domain);
 
 					$articleTemplate.find("a").attr("target","_blank");
 				}else{
-					$articleTemplate.find(".site a").hide();
+					$articleTemplate.find("a.site").hide();
 				}
 				
-				$articleTemplate.appendTo("#tabs-3").fadeIn();
+				$articleTemplate.prependTo("#tabs-3").fadeIn();
 
 		    }
 
