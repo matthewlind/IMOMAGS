@@ -55,11 +55,9 @@ jQuery(document).ready(function($) {
 		        	$articleTemplate.find(".site a").attr("href","http://" + data[i].domain);
 		        	
 		        	if($("#network-topics-3-col").length > 0){
-		        		$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics Homepage Outbound','Click','" + data[i].brand + "']);");
-		        		$articleTemplate.find(".site a").attr("onclick","_gaq.push(['_trackEvent','Network Topics Homepage Domain Outbound','Click','" + data[i].brand + "']);");
+		        		$articleTemplate.find("a").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Homepage Click Outbound','" + data[i].brand + "']);");
 		        	}else{
-			        	$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics Widget Outbound','Click','" + data[i].brand + "']);");
-			        	$articleTemplate.find(".site a").attr("onclick","_gaq.push(['_trackEvent','Network Topics Widget Domain Outbound','Click','" + data[i].brand + "']);");
+			        	$articleTemplate.find("a").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Widget Click Outbound','" + data[i].brand + "']);");
 		        	}
 		        	
 					$articleTemplate.find("a").attr("target","_blank");
@@ -69,11 +67,9 @@ jQuery(document).ready(function($) {
 					$articleTemplate.find(".site a").hide();
 					
 					if($("#network-topics-3-col").length > 0){
-						$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics Homepage Local','Click','" + data[i].brand + "']);");
-						$articleTemplate.find(".site a").attr("onclick","_gaq.push(['_trackEvent','Network Topics Homepage Domain Local','Click','" + data[i].brand + "']);");
+						$articleTemplate.find("a").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Homepage Click Local','" + data[i].brand + "']);");
 					}else{
-						$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics Widget Local','Click','" + data[i].brand + "']);");
-						$articleTemplate.find(".site a").attr("onclick","_gaq.push(['_trackEvent','Network Topics Widget Domain Local','Click','" + data[i].brand + "']);");
+						$articleTemplate.find("a").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Widget Click Local','" + data[i].brand + "']);");
 					}
 					
 				}
@@ -114,11 +110,9 @@ jQuery(document).ready(function($) {
 		        	$articleTemplate.find(".site a").attr("href","http://" + data[i].domain);
 		        	
 		        	if($("#network-topics-3-col").length > 0){
-		        		$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics Homepage Outbound','Click','" + data[i].brand + "']);");
-		        		$articleTemplate.find(".site a").attr("onclick","_gaq.push(['_trackEvent','Network Topics Homepage Domain Outbound','Click','" + data[i].brand + "']);");
+		        		$articleTemplate.find("a").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Homepage Click Outbound','" + data[i].brand + "']);");
 		        	}else{
-			        	$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics Widget Outbound','Click','" + data[i].brand + "']);");
-			        	$articleTemplate.find(".site a").attr("onclick","_gaq.push(['_trackEvent','Network Topics Widget Domain Outbound','Click','" + data[i].brand + "']);");
+			        	$articleTemplate.find("a").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Widget Click Outbound','" + data[i].brand + "']);");
 		        	}
 		        	
 					$articleTemplate.find("a").attr("target","_blank");
@@ -128,11 +122,9 @@ jQuery(document).ready(function($) {
 					$articleTemplate.find(".site a").hide();
 					
 					if($("#network-topics-3-col").length > 0){
-						$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics Homepage Local','Click','" + data[i].brand + "']);");
-						$articleTemplate.find(".site a").attr("onclick","_gaq.push(['_trackEvent','Network Topics Homepage Domain Local','Click','" + data[i].brand + "']);");
+						$articleTemplate.find("a").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Homepage Click Local','" + data[i].brand + "']);");
 					}else{
-						$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics Widget Local','Click','" + data[i].brand + "']);");
-						$articleTemplate.find(".site a").attr("onclick","_gaq.push(['_trackEvent','Network Topics Widget Domain Local','Click','" + data[i].brand + "']);");
+						$articleTemplate.find("a").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Widget Click Local','" + data[i].brand + "']);");
 					}
 					
 				}
@@ -173,11 +165,9 @@ jQuery(document).ready(function($) {
 		        	$articleTemplate.find(".site a").attr("href","http://" + data[i].domain);
 		        	
 		        	if($("#network-topics-3-col").length > 0){
-		        		$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics Homepage Outbound','Click','" + data[i].brand + "']);");
-		        		$articleTemplate.find(".site a").attr("onclick","_gaq.push(['_trackEvent','Network Topics Homepage Domain Outbound','Click','" + data[i].brand + "']);");
+		        		$articleTemplate.find("a").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Homepage Click Outbound','" + data[i].brand + "']);");
 		        	}else{
-			        	$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics Widget Outbound','Click','" + data[i].brand + "']);");
-			        	$articleTemplate.find(".site a").attr("onclick","_gaq.push(['_trackEvent','Network Topics Widget Domain Outbound','Click','" + data[i].brand + "']);");
+			        	$articleTemplate.find("a").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Widget Click Outbound','" + data[i].brand + "']);");
 		        	}
 		        	
 					$articleTemplate.find("a").attr("target","_blank");
@@ -187,11 +177,9 @@ jQuery(document).ready(function($) {
 					$articleTemplate.find(".site a").hide();
 					
 					if($("#network-topics-3-col").length > 0){
-						$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics Homepage Local','Click','" + data[i].brand + "']);");
-						$articleTemplate.find(".site a").attr("onclick","_gaq.push(['_trackEvent','Network Topics Homepage Domain Local','Click','" + data[i].brand + "']);");
+						$articleTemplate.find("a").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Homepage Click Local','" + data[i].brand + "']);");
 					}else{
-						$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics Widget Local','Click','" + data[i].brand + "']);");
-						$articleTemplate.find(".site a").attr("onclick","_gaq.push(['_trackEvent','Network Topics Widget Domain Local','Click','" + data[i].brand + "']);");
+						$articleTemplate.find("a").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Widget Click Local','" + data[i].brand + "']);");
 					}
 					
 				}
@@ -233,12 +221,9 @@ jQuery(document).ready(function($) {
 		        	$articleTemplate.find(".site a").attr("href","http://" + data[i].domain);
 		        	
 		        	if($("#network-topics-3-col").length > 0){
-		        		$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics Homepage Outbound','Click','" + data[i].brand + "']);");
-		        		$articleTemplate.find(".site a").attr("onclick","_gaq.push(['_trackEvent','Network Topics Homepage Domain Outbound','Click','" + data[i].brand + "']);");
+		        		$articleTemplate.find("a").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Homepage Click Outbound','" + data[i].brand + "']);");
 		        	}else{
-			        	$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics Widget Outbound','Click','" + data[i].brand + "']);");
-			        	$articleTemplate.find(".site a").attr("onclick","_gaq.push(['_trackEvent','Network Topics Widget Domain Outbound','Click','" + data[i].brand + "']);");
-		        	}
+			        	$articleTemplate.find("a").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Widget Click Outbound','" + data[i].brand + "']);");
 		        	
 					$articleTemplate.find("a").attr("target","_blank");
 					
@@ -247,11 +232,9 @@ jQuery(document).ready(function($) {
 					$articleTemplate.find(".site a").hide();
 					
 					if($("#network-topics-3-col").length > 0){
-						$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics Homepage Local','Click','" + data[i].brand + "']);");
-						$articleTemplate.find(".site a").attr("onclick","_gaq.push(['_trackEvent','Network Topics Homepage Domain Local','Click','" + data[i].brand + "']);");
+						$articleTemplate.find("a").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Homepage Click Local','" + data[i].brand + "']);");
 					}else{
-						$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics Widget Local','Click','" + data[i].brand + "']);");
-						$articleTemplate.find(".site a").attr("onclick","_gaq.push(['_trackEvent','Network Topics Widget Domain Local','Click','" + data[i].brand + "']);");
+						$articleTemplate.find("a").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Widget Click Local','" + data[i].brand + "']);");
 					}
 					
 				}
@@ -293,11 +276,9 @@ jQuery(document).ready(function($) {
 		        	$articleTemplate.find(".site a").attr("href","http://" + data[i].domain);
 		        	
 		        	if($("#network-topics-3-col").length > 0){
-		        		$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics Homepage Outbound','Click','" + data[i].brand + "']);");
-		        		$articleTemplate.find(".site a").attr("onclick","_gaq.push(['_trackEvent','Network Topics Homepage Domain Outbound','Click','" + data[i].brand + "']);");
+		        		$articleTemplate.find("a").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Homepage Click Outbound','" + data[i].brand + "']);");
 		        	}else{
-			        	$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics Widget Outbound','Click','" + data[i].brand + "']);");
-			        	$articleTemplate.find(".site a").attr("onclick","_gaq.push(['_trackEvent','Network Topics Widget Domain Outbound','Click','" + data[i].brand + "']);");
+			        	$articleTemplate.find("a").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Widget Click Outbound','" + data[i].brand + "']);");
 		        	}
 		        	
 					$articleTemplate.find("a").attr("target","_blank");
@@ -307,11 +288,9 @@ jQuery(document).ready(function($) {
 					$articleTemplate.find(".site a").hide();
 					
 					if($("#network-topics-3-col").length > 0){
-						$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics Homepage Local','Click','" + data[i].brand + "']);");
-						$articleTemplate.find(".site a").attr("onclick","_gaq.push(['_trackEvent','Network Topics Homepage Domain Local','Click','" + data[i].brand + "']);");
+						$articleTemplate.find("a").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Homepage Click Local','" + data[i].brand + "']);");
 					}else{
-						$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics Widget Local','Click','" + data[i].brand + "']);");
-						$articleTemplate.find(".site a").attr("onclick","_gaq.push(['_trackEvent','Network Topics Widget Domain Local','Click','" + data[i].brand + "']);");
+						$articleTemplate.find("a").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Widget Click Local','" + data[i].brand + "']);");
 					}
 					
 				}
