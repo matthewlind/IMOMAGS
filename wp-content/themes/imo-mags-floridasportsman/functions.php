@@ -112,6 +112,17 @@ register_sidebar(array(
 }
 if (function_exists('register_sidebar')) {
 register_sidebar(array(
+        'id' => 'sidebar-fs-sportfish',
+        'name' => 'FS Sportfish Sidebar',
+        'description' => 'Shown on FS Sportfish Pages.',
+        'before_widget' => '<div id="bonus-area">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h2>',
+        'after_title'   => '</h2>'
+    ));
+}
+if (function_exists('register_sidebar')) {
+register_sidebar(array(
         'id' => 'sidebar-imafs',
         'name' => 'Im A Florida Sportsman Sidebar',
         'description' => 'Shown on Im A Florida Sportsman Pages.',
@@ -151,6 +162,14 @@ add_action( 'init', 'register_fs_challenge_menu' );
 
 function register_fs_challenge_menu() {
 	register_nav_menu( 'fs-challenge-menu', __( 'FS Challenge Menu' ) );
+}
+
+/*New Menu for FS Sportfish*/
+
+add_action( 'init', 'register_fs_sportfish_menu' );
+
+function register_fs_sportfish_menu() {
+	register_nav_menu( 'fs-sportfish-menu', __( 'FS Sportfish Menu' ) );
 }
 
 /* New Menu for I'm A Florida Sportsman*/
