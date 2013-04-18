@@ -28,7 +28,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 <hr class="accessibility" />
 <footer id="footer">
     <div class="str-container">
-    	<?php if (function_exists('imo_nt_scripts')) { ?>
+    	<?php if (function_exists('imo_nt_scripts') && is_front_page()) { ?>
 	    <div id="network-topics-3-col" style="top:0;border-left:none;border-right:none;padding: 10px 30px;">
 			<div class="network-topics-widget">
 				<h3 class="widget-title"><span>The Guns & Ammo Network</span></h3>
@@ -80,11 +80,13 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 				
 				
 			</div>
+			<?php } 
+			if (function_exists('imo_nt_scripts')) { ?>
 			 <!-- clone -->
 			<li id="nt-widget-template" style="display:none;">
-				<a class="network-thumb" href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/"><img src="http://www.handgunsmag.com/files/2013/04/Picking-duty-pistols-190x120.jpg" alt="title" /></a>
-				<div class="site"><a href="http://gunsandammo.com">www.gunsandammo.com</a></div>				
-				<a class="title" rel="bookmark" href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/">Deer of the Day Buckeye Brute, Alexa Perry</a>				
+				<a class="network-thumb" href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/" onclick=""><img src="http://www.handgunsmag.com/files/2013/04/Picking-duty-pistols-190x120.jpg" alt="title" /></a>
+				<div class="site"><a href="http://gunsandammo.com" onclick="">www.gunsandammo.com</a></div>				
+				<a class="title" rel="bookmark" href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/" onclick="">Deer of the Day Buckeye Brute, Alexa Perry</a>				
 			</li>
 		</div>
 		<?php } ?>

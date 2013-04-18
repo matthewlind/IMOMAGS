@@ -167,9 +167,10 @@ $args = array(
       
 		<!-- clone -->
 		<li id="nt-widget-template" style="display:none;">
-			<a class="network-thumb" href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/"><img src="http://www.handgunsmag.com/files/2013/04/Picking-duty-pistols-190x120.jpg" alt="title" /></a>
-			<div class="site"><a href="http://gunsandammo.com">www.gunsandammo.com</a></div>				
-			<a class="title" rel="bookmark" href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/">Deer of the Day Buckeye Brute, Alexa Perry</a>				
+			<a class="network-thumb" href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/" onclick=""><img src="http://www.handgunsmag.com/files/2013/04/Picking-duty-pistols-190x120.jpg" alt="title" /></a>
+			<div class="site"><a href="http://gunsandammo.com" onclick="">www.gunsandammo.com</a></div>				
+			<a class="title" rel="bookmark" href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/" onclick="">Deer of the Day Buckeye Brute, Alexa Perry</a>		
+			<!-- undefined = magazine/site going to -->		
 		</li>
 
     
