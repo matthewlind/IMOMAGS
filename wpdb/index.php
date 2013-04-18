@@ -18,6 +18,11 @@ require 'Slim/Slim.php';
  */
 $app = new Slim();
 include 'mysql.php';
+
+include 'cabelas-products.php';
+
+
+
 /**
  * Step 3: Define the Slim application routes
  *
@@ -39,24 +44,24 @@ include 'mysql.php';
 
 $app->get('/imomags/user/hometown(/:userid)', function ($userid) {
 	//$sort = mysql_real_escape_string($sort);
-	date_default_timezone_set('America/New_York'); 
-    header('Access-Control-Allow-Origin: *');  
+	date_default_timezone_set('America/New_York');
+    header('Access-Control-Allow-Origin: *');
 
     try {
 
         $db = dbConnect();
-        
+
         $sql = "(SELECT meta_key,meta_value FROM wp_usermeta WHERE meta_key = 'city' AND user_id = ?)UNION(SELECT meta_key,meta_value FROM wp_usermeta WHERE meta_key = 'state' AND user_id = ?)";
-        
+
         $stmt = $db->prepare($sql);
 		$stmt->execute(array($userid,$userid));
-	
+
 		$data = $stmt->fetchAll(PDO::FETCH_OBJ);
 
 		echo json_encode($data);
-		
+
 		$db = "";
-	
+
     } catch(PDOException $e) {
         echo $e->getMessage();
     }
@@ -65,8 +70,8 @@ $app->get('/imomags/user/hometown(/:userid)', function ($userid) {
 
 $app->get('/imomags/term/naw-plus(/sort/:sort)', function ($sort = "post_date") {
 	//$sort = mysql_real_escape_string($sort);
-	date_default_timezone_set('America/New_York'); 
-    header('Access-Control-Allow-Origin: *');  
+	date_default_timezone_set('America/New_York');
+    header('Access-Control-Allow-Origin: *');
 
     try {
 
@@ -88,7 +93,7 @@ AND terms.slug = "naw-plus"
 AND meta.meta_key = "_thumbnail_id")
 UNION
 (SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Petersen's Bowhunting" as brand,
-(SELECT count(comment_ID) from wp_4_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.bowhuntingmag.com" as domain  
+(SELECT count(comment_ID) from wp_4_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.bowhuntingmag.com" as domain
 FROM wp_4_posts as posts
 JOIN wp_4_term_relationships as relationships ON (posts.ID = relationships.object_id)
 JOIN `wp_4_term_taxonomy`as term_taxonomy ON (relationships.term_taxonomy_id = term_taxonomy.`term_taxonomy_id`)
@@ -113,7 +118,7 @@ AND posts.post_status = "publish"
 AND meta.meta_key = "_thumbnail_id")
 UNION
 (SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Petersen's Hunting" as brand,
-(SELECT count(comment_ID) from wp_7_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.petersenshunting.com" as domain  
+(SELECT count(comment_ID) from wp_7_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "www.petersenshunting.com" as domain
 FROM wp_7_posts as posts
 JOIN wp_7_term_relationships as relationships ON (posts.ID = relationships.object_id)
 JOIN `wp_7_term_taxonomy`as term_taxonomy ON (relationships.term_taxonomy_id = term_taxonomy.`term_taxonomy_id`)
@@ -184,7 +189,7 @@ EOT;
             }
 
 
-            
+
 
         }
 
@@ -194,10 +199,10 @@ EOT;
         if (!empty($posts)) {
 	        $f = fopen("../wp-content/cache/superloop/naw-plus-$sort.json", "w");
 	        fwrite($f, $json);
-	        fclose($f); 
+	        fclose($f);
         }
 
-        
+
 
         echo $json;
 
@@ -206,7 +211,7 @@ EOT;
     } catch(PDOException $e) {
         echo $e->getMessage();
     }
-  
+
 });
 
 
@@ -217,8 +222,8 @@ EOT;
 $app->get('/imomags/term/naw-plus/:term(/sort/:sort)',function($term,$sort = "post_date"){
 	//$sort = mysql_real_escape_string($sort);
 
-	date_default_timezone_set('America/New_York'); 
-    header('Access-Control-Allow-Origin: *');  
+	date_default_timezone_set('America/New_York');
+    header('Access-Control-Allow-Origin: *');
 
     $termList = getAllChildTerms($term);
     $termList[] = $term;
@@ -229,7 +234,7 @@ $app->get('/imomags/term/naw-plus/:term(/sort/:sort)',function($term,$sort = "po
 
     $count = 0;
     foreach ($termList as $term) {
-    	
+
     	$termString .= "'$term'";
     	$inQuery .= ":term" . $count;
     	$inQmarks .= "?";
@@ -239,10 +244,10 @@ $app->get('/imomags/term/naw-plus/:term(/sort/:sort)',function($term,$sort = "po
     		$inQuery .= ",";
     		$inQmarks .= ",";
     	}
-    		
+
     }
 
-    
+
 
 
     try {
@@ -353,7 +358,7 @@ EOT;
 
         $executeArray = array();
 
-        for ($i=1; $i <= $siteCount; $i++) { 
+        for ($i=1; $i <= $siteCount; $i++) {
         	$executeArray = array_merge($executeArray,$termList);
         }
 
@@ -365,7 +370,7 @@ EOT;
 
         //print_r($stmt);
         $stmt->execute($executeArray);
-    
+
         $posts = $stmt->fetchAll(PDO::FETCH_OBJ);
 
         foreach ($posts as $key => $post) {
@@ -416,7 +421,7 @@ EOT;
 
 
             //TESTING
-        
+
             // _log($post);
             // json_encode($post);
 
@@ -424,7 +429,7 @@ EOT;
             // print_r($post);
             // echo $termString;
             // echo "</pre>";
-        
+
             //$json = json_encode($post);
 
         }
@@ -437,7 +442,7 @@ EOT;
         if (!empty($posts)) {
 	        $f = fopen("../wp-content/cache/superloop/naw-plus-$term-$sort.json", "w");
 	        fwrite($f, $json);
-	        fclose($f);         	
+	        fclose($f);
         }
 
 
@@ -457,7 +462,7 @@ EOT;
 //************************************************
 $app->get('/imomags/site_by_term/:site_id/:term_slug/:start',function($site_id,$term_slug,$start = 0){
 
-    header('Access-Control-Allow-Origin: *');  
+    header('Access-Control-Allow-Origin: *');
 
     try {
 
@@ -466,7 +471,7 @@ $app->get('/imomags/site_by_term/:site_id/:term_slug/:start',function($site_id,$
 
         $sql = <<<EOT
 		SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "Guns & Ammo" as brand,
-		(SELECT count(comment_ID) from wp_{$site_id}_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count  
+		(SELECT count(comment_ID) from wp_{$site_id}_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count
 		FROM wp_{$site_id}_posts as posts
 		JOIN wp_{$site_id}_term_relationships as relationships ON (posts.ID = relationships.object_id)
 		JOIN `wp_{$site_id}_term_taxonomy`as term_taxonomy ON (relationships.term_taxonomy_id = term_taxonomy.`term_taxonomy_id`)
@@ -481,11 +486,11 @@ $app->get('/imomags/site_by_term/:site_id/:term_slug/:start',function($site_id,$
 
 EOT;
 
- 
+
 
         $stmt = $db->prepare($sql);
         $stmt->execute(array($term_slug));
-    
+
         $posts = $stmt->fetchAll(PDO::FETCH_OBJ);
 
         foreach ($posts as $key => $post) {
@@ -512,7 +517,7 @@ EOT;
             $posts[$key]->img_url = $thumbnail;
 
             $posts[$key]->terms = getWhitetailPostTerms($post->ID, $site_id);
-            
+
         }
 
         $json = json_encode($posts);
@@ -522,7 +527,7 @@ EOT;
 
         // $f = fopen("cache/site-$site_id-$term.json", "w");
         // fwrite($f, $json);
-        // fclose($f); 
+        // fclose($f);
 
     } catch(PDOException $e) {
         echo $e->getMessage();
@@ -554,11 +559,11 @@ function getPostTerms($post_id, $site_id = 6) {
             WHERE tr.`object_id` = ?
             AND taxonomy = 'category'";
 
-        
+
 
         $stmt = $db->prepare($sql);
         $stmt->execute(array($post_id));
-    
+
         $terms = $stmt->fetchAll(PDO::FETCH_OBJ);
 
         $db = "";
@@ -589,11 +594,11 @@ function getWhitetailPostTerms($post_id, $site_id = 6) {
             AND slug != 'naw-plus'
             AND taxonomy = 'category'";
 
-        
+
 
         $stmt = $db->prepare($sql);
         $stmt->execute(array($post_id));
-    
+
         $terms = $stmt->fetchAll(PDO::FETCH_OBJ);
 
         $db = "";
@@ -624,11 +629,11 @@ function getParentTerm($term) {
 				WHERE tt.taxonomy = 'category'
 				AND ts.slug = ?";
 
-        
+
 
         $stmt = $db->prepare($sql);
         $stmt->execute(array($term->slug));
-    
+
         $terms = $stmt->fetchAll(PDO::FETCH_OBJ);
 
         $db = "";
@@ -669,11 +674,11 @@ function getAllChildTerms($term_slug, &$results = array()) {
 				WHERE tt.taxonomy = 'category'
 				AND t.slug = ?";
 
-        
+
 
         $stmt = $db->prepare($sql);
         $stmt->execute(array($term_slug));
-    
+
         $terms = $stmt->fetchAll(PDO::FETCH_OBJ);
 
         $db = "";
