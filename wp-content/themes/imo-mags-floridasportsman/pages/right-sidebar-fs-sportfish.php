@@ -26,13 +26,13 @@ the_post();
 <div id="reeltime-wrapper">
 
 
-<header id="masthead" class="fs-challenge-header">
+<header id="masthead" class="fs-sportfish-header">
 
 	<a href="/challenge/" title="Florida Sportsman Challenge"><h1 class="fs-challenge-title"><?php the_title(); ?></h1></a>
 	
 </header><!-- #masthead -->
 
-<nav class="nav nav-secondary"><!--new REEL TIME MENU-->
+<nav class="nav nav-secondary sportfish-page"><!--new REEL TIME MENU-->
 	
 	<?php wp_nav_menu( array( 'theme_location' => 'fs-sportfish-menu', 'fallback_cb' => '' ) ); ?>
 	

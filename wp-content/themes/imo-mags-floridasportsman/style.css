@@ -1531,6 +1531,60 @@ nav.nav-secondary li.current-menu-item a {
 	
 }
 
+
+/* SPORTFISH */
+nav.nav-secondary.sportfish-page {
+	background-color: transparent;
+	bottom: 40px;
+	font-size: 13px;
+	line-height: 1;
+	margin: 0;
+	padding: 0 15px;
+	position: relative;
+	border-bottom: 1px solid #00aeed
+}
+
+nav.nav-secondary.sportfish-page a {
+	color: #fff !important;
+	background: #00aeed;
+	font-style: normal;
+	font-weight: bold;
+	letter-spacing: 0px;
+	font-family: helvetica, arial, serif, sans-serif;
+	text-transform: uppercase;
+	font-size: 12px;
+	display: block;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	text-decoration: none;
+	padding: 10px 14px 8px 14px;
+	border-top: 2px solid #00aeed;
+	border-right: 1px solid #00aeed;
+	border-left: 1px solid #00aeed;
+	border-bottom: 2px solid #00aeed;
+}
+nav.nav-secondary.sportfish-page a:hover,
+nav.nav-secondary.sportfish-page li:hover a {
+	border-top: 2px solid #00aeed;
+	padding: 10px 14px 8px 14px;
+	color: #23408e !important;
+}
+nav.nav-secondary.sportfish-page li.current-menu-item a {
+	color: #00aeed !important;
+	background: #fff;
+	border-bottom: 3px solid #fff;
+	
+	
+}
+nav.nav-secondary.sportfish-page ul.sub-menu{
+	background-color: #23408e !important;
+}
+nav.nav-secondary.sportfish-page ul.sub-menu li a:hover{
+	background-color: #23408e !important;
+	color: white !important;
+}
 /*REEL TIME*/
 
 #rt-wrapper {
@@ -1702,6 +1756,15 @@ height: 141px;
 	margin: 0px;
 	}
 
+#masthead.fs-sportfish-header {
+	background: url("img/FloridaFavoriteHeader.jpg") no-repeat center top;
+	border-bottom: 0px dotted #999;
+	padding: 0;
+	height: 200px;
+	margin: 0 auto;
+	overflow: hidden;
+	text-indent: -9999em;
+}
 
 
 
