@@ -33,7 +33,6 @@ jQuery(document).ready(function($) {
 		//Gun Network
 		var getdata = $.getJSON(gunFileName, function(data) {
 		    var count = 0;
-		    console.log(data);
 		    var end = start + showAtOnce;
 
 		    for (i = start; i < end; i++) {
@@ -62,9 +61,9 @@ jQuery(document).ready(function($) {
 				}
 
 				if($("#network-topics-3-col").length > 0){
-		        		$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Homepage','" + data[i].post_url + "']);");
+		        		$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Homepage: "+ data[i].slug +"','" + data[i].post_url + "']);");
 		        	}else{
-			        	$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Widget','" + data[i].post_url + "']);");
+			        	$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Widget: "+ data[i].slug +"','" + data[i].post_url + "']);");
 		        	}
 
 				$articleTemplate.appendTo("#guns-network").fadeIn();
@@ -110,9 +109,9 @@ jQuery(document).ready(function($) {
 				}
 				
 				if($("#network-topics-3-col").length > 0){
-	        		$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Homepage','" + data[i].post_url + "']);");
+	        		$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Homepage: "+ data[i].slug +"','" + data[i].post_url + "']);");
 	        	}else{
-		        	$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Widget','" + data[i].post_url + "']);");
+		        	$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Widget: "+ data[i].slug +"','" + data[i].post_url + "']);");
 	        	}
 				$articleTemplate.appendTo("#gear-network").fadeIn();
 
@@ -158,9 +157,9 @@ jQuery(document).ready(function($) {
 				}
 
 				if($("#network-topics-3-col").length > 0){
-	        		$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Homepage','" + data[i].post_url + "']);");
+	        		$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Homepage: "+ data[i].slug +"','" + data[i].post_url + "']);");
 	        	}else{
-		        	$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Widget','" + data[i].post_url + "']);");
+		        	$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Widget: "+ data[i].slug +"','" + data[i].post_url + "']);");
 	        	}
 				$articleTemplate.appendTo("#personal-defense-network").fadeIn();
 
@@ -206,9 +205,9 @@ jQuery(document).ready(function($) {
 				}
 
 				if($("#network-topics-3-col").length > 0){
-	        		$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Homepage','" + data[i].post_url + "']);");
+	        		$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Homepage: "+ data[i].slug +"','" + data[i].post_url + "']);");
 	        	}else{
-		        	$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Widget','" + data[i].post_url + "']);");
+		        	$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Widget: "+ data[i].slug +"','" + data[i].post_url + "']);");
 	        	}
 				$articleTemplate.appendTo("#culture-politics-network").fadeIn();
 
@@ -254,9 +253,9 @@ jQuery(document).ready(function($) {
 				}
 
 				if($("#network-topics-3-col").length > 0){
-	        		$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Homepage','" + data[i].post_url + "']);");
+	        		$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Homepage: "+ data[i].slug +"','" + data[i].post_url + "']);");
 	        	}else{
-		        	$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Widget','" + data[i].post_url + "']);");
+		        	$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Widget: "+ data[i].slug +"','" + data[i].post_url + "']);");
 	        	}
 				$articleTemplate.appendTo("#survival-network").fadeIn();
 
