@@ -25,7 +25,82 @@
  * **********************************************************************
  *
  */
+#cabelas-essentials { 
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 30px; 
+}
+#cabelas-essentials .cabelas-header{
+	border-bottom: 1px #ccc solid;
+	height: 40px;
+	margin-bottom: 6px;
+	text-transform: uppercase;
+}
+#cabelas-essentials .cabelas-header h2{
+	line-height: 0.9;
+}
+#cabelas-essentials .cabelas-header h2, #cabelas-essentials .cabelas-header .cabelas-logo{
+	float: left;
+}
+#cabelas-essentials .cabelas-more{
+	float: right;
+	margin-top: 20px;
+	cursor: pointer;
+}
+#cabelas-essentials .scroll_mask {
+  position:relative;
+  overflow:hidden;
+  width:564px;
+  height:252px;
+  margin: 0 auto;
+}
 
+#cabelas-essentials ul.scroll {
+  margin:0;
+  padding:0;
+  position:absolute;
+  width:9999em;
+  list-style-type:none;
+}
+
+#cabelas-essentials ul.scroll li {
+  float:left;
+  margin: 0;
+  width: 188px;
+}
+#cabelas-essentials ul.scroll li{
+	text-align: center;
+}
+
+#cabelas-essentials .next{float: right;background: url("img/button_next.png") left center no-repeat;right: 0px;}
+#cabelas-essentials .prev{float: left;background: url("img/button_prev.png") left center no-repeat;left:0;}
+
+
+#cabelas-essentials a.prev,
+#cabelas-essentials a.next {
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  text-indent: -999em;
+  cursor: pointer;
+  margin: -156px 0 0 0;
+  position: absolute;
+}
+#cabelas-essentials a.prev:hover,
+#cabelas-essentials a.next:hover {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+  opacity: 0.9;
+}
+#cabelas-essentials a.prev:active,
+#cabelas-essentials a.next:active {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+  opacity: 0.6;
+}
+#cabelas-essentials a.prev.inactive,
+#cabelas-essentials a.next.inactive {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=10);
+  opacity: 0.1;
+  cursor: arrow;
+}
 
 a {
 	color: #907E61;
@@ -387,3 +462,20 @@ h2.entry-title a:hover {
 #header-sub {
     padding-top: 20px;
 }
+.clickable-bg{
+	background: url("http://www.petersenshunting.com/files/2013/03/nlt-2091-36-Salmon-2.jpg") repeat fixed 0 0 #000 !important;
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	cursor: pointer;
+	left: 0;
+	top:0;
+}
+#block-menu-menu-footer-links, #footer-imo{
+	position: relative !important;
+}
+
+
+
+
+
