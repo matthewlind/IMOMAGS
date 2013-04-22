@@ -221,19 +221,8 @@ if($data->view_count == 1){
 	</div>
 	<div id="responderfollow"></div>
 		<div class="sidebar advert">
-		<script type="text/javascript">
-	              document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dartadsgen_site+'/;sect=;page=index;pos=btf;subs=;sz=300x250;dcopt=;tile='+pr_tile+';ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
-	            </script>
-	            <script type="text/javascript">
-	              ++pr_tile;
-	            </script>
-	            <noscript>
-	              <a href="http://ad.doubleclick.net/adj/imo.northamericanwhitetail/;sect=;page=index;pos=btf;subs=;sz=300x250;dcopt=;tile=1;ord=7391727509?">
-	                <img src="http://ad.doubleclick.net/ad/imo.northamericanwhitetail/home;sect=;page=index;pos=btf;subs=;sz=300x250;dcopt=;tile=1;ord=7391727509?" border="0" />
-	              </a>
-	            </noscript>
-
-			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('scroll-sidebar')) : else : ?><?php endif; ?>
+		<?php imo_dart_tag("300x250",false,array("pos"=>"btf")); ?>
+		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('scroll-sidebar')) : else : ?><?php endif; ?>
 		</div>
 </div>
 <div class="col-abc single-header">
@@ -558,25 +547,7 @@ $comment_user_score = $comment_user_score[0];
 		    </div>
 	</div>
 	<div class="question-module-ad">
-		 <?php if (function_exists("imo_dart_tag")) {
-            imo_dart_tag("300x250");
-          } else { ?>
-  	        <!-- 300x250 Ad: -->
-            <script type="text/javascript">
-              document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dartadsgen_site+'/;sect=;page=index;subs=;sz=300x250;dcopt=;tile='+pr_tile+';ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
-            </script>
-            <script type="text/javascript">
-              ++pr_tile;
-            </script>
-            <noscript>
-              <a href="http://ad.doubleclick.net/adj/imo.northamericanwhitetail/;sect=;page=index;subs=;sz=300x250
-              ;dcopt=;tile=1;ord=7391727509?">
-                <img src="http://ad.doubleclick.net/ad/imo.northamericanwhitetail/home;sect=;page=index;subs=;sz=300x250;dcopt=;tile=1;ord=7391727509?" border="0" />
-              </a>
-            </noscript>
-            <!-- END 300x250 Ad: -->
-          <?php } ?>
-
+		<?php imo_dart_tag("300x250",false,array("pos"=>"mid")); ?>		
 	</div>
 </div><!-- .col-abc -->
 <?php get_footer(); ?>
