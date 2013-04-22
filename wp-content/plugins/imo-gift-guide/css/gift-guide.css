@@ -2,25 +2,25 @@
 
 #gift-guide{
   border: 4px solid #929292;
-  margin: 65px 0 30px;
+  margin: 82px 0 30px;
 }
 #gift-guide .network-feed{
 	width: 274px;
 	margin: 0 auto;
 }
 #gift-guide .widget-title{
-	font-size: 18px;
-	line-height: 4;
+	font-size: 24px;
+	line-height: 4.4;
 	position: relative;
-	text-align: center;
-	margin: -45px auto 0;
-	font-family: "StagBold";
+	margin: -67px auto 0 3px;
+	font-family: "StagBold" !important;
 	font-weight: lighter;
 	color: #252525;
 	letter-spacing: 0.04em;
-	background: url("../img/ribbon.png") no-repeat center top;
-	width: 237px;
-	height: 84px;
+	background: url("../img/gift-guide-banner-2.png") no-repeat center top;
+	width: 253px;
+	height: 100px;
+	padding-left: 37px;
 }
 #gift-guide .widget-title span{
 	color: white;
@@ -30,30 +30,36 @@
 #gift-guide h2{
 	font-size: 27px;
 	clear: both;
-	font-family: "StagBold";
+	font-family: "StagBold" !important;
 	font-weight: lighter;
 	color: #252525;
 	letter-spacing: 0.04em;
 }
-.network-page-feed h2{
+#gift-guide .network-page-feed h2{
 	font-size: 27px;
 	clear: both;
-	font-family: "StagBold";
+	font-family: "StagBold" !important;
 	font-weight: lighter;
 	color: #252525;
 	letter-spacing: 0.04em;
 }
-ul.gift-guide{
+#gift-guide .ui-tabs .ui-tabs-nav li {
+	display: -moz-inline-box;
+	-moz-box-orient: vertical;
+	display: inline-block;
+	vertical-align: middle;
+}
+#gift-guide ul.gift-guide{
 	margin: 0;
 	list-style: none;
 	padding-left: 0;
 	padding-top: 8px;
 	padding-bottom: 0px;
 }
-ul.gift-guide.last{
+#gift-guide ul.gift-guide.last{
 	border-bottom: none;
 }
-ul.gift-guide li{
+#gift-guide ul.gift-guide li{
 	margin: 10px 0;
 	clear: both;
 	border-top: 1px dashed #ccc;
@@ -61,8 +67,6 @@ ul.gift-guide li{
 }
 #gift-guide .btm-bg{
 	border-bottom: 2px solid gray;
-	height: 28px;
-	margin-top: 24px;
 }
 #gift-guide a.site, #gift-guide-3-col a.site {
 	font-size: 11px;
@@ -101,6 +105,15 @@ ul.gift-guide li{
 }
 
 /*** TABS ***/
+#gift-guide .ui-tabs {
+	text-align: center;
+}
+#gift-guide .ui-tabs .ui-tabs-nav {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
 #gift-guide .ui-tabs > div {
 	background: none;
 	border: none;
@@ -112,7 +125,8 @@ ul.gift-guide li{
 	border: 1px solid #ce181e;
 }
 #gift-guide .ui-tabs .ui-tabs-nav li a {
-	font-family: "StagMedium";
+	font-family: "StagMedium" !important;
+	font-size: 16px;
 	font-weight: lighter;
 	letter-spacing: 0.04em;
 	display: block;
@@ -129,7 +143,6 @@ ul.gift-guide li{
 	transition: 0;
 }
 #gift-guide .ui-tabs .ui-tabs-nav li.ui-state-default.ui-corner-top.ui-tabs-selected a{
-	font-family: "StagBold";
 	background: #bb161b;
 	background: -webkit-linear-gradient(top,#bb161b 0,#ce181e 100%);
 	background: -moz-linear-gradient(top,#bb161b 0,#ce181e 100%);
@@ -178,18 +191,25 @@ ul.gift-guide li{
 ul.gg-sponsor{
 	list-style: none;
 	margin: -16px auto 0;
-	padding: 0 0 2px;
+	padding: 2px 0 0 ;
 	width: 200px;
 	clear: both;
+	display: inline-block;
 }
 li.gg-presented{
-	font-size: 12px;
 	float: left;
-	margin: 16px 0 0 !important;
+	margin: 0 !important;
 	border-top: none !important;
 	padding-top: 0 !important;
+	display: table-cell;
+    vertical-align: middle
 }
+li.gg-presented p{
+	font-size: 12px;
+	margin-top: 24px;
+	font-family: "Helvetica",sans-serif;
 
+}
 li.gg-sponsor-logo{	
 	float: right;
 	clear: right !important;
