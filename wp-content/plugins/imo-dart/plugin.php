@@ -16,6 +16,8 @@ include_once("AdvertWidget.php");
 function get_imo_dart_tag($size, $tile=1, $iframe=False, $override_params=array()) {
 
     $params = array_merge(_imo_dart_get_params($size, $tile), $override_params);
+    
+    
 
     if (!empty($params['camp'])) {
 
@@ -29,6 +31,8 @@ function get_imo_dart_tag($size, $tile=1, $iframe=False, $override_params=array(
     }
 
     $tag = _imo_dart_get_tag($iframe);
+    
+
     return _imo_dart_sprint_tag($params, $tag);
 }
 
@@ -227,7 +231,7 @@ function _imo_dart_get_params($size, $tile) {
 
             //If there is an ad campaign, add a key/value pair
 
-
+    
 
 
     $mergedParams = array_merge(array_map("imo_dart_clean_tag", $params), $defaults);
@@ -243,6 +247,8 @@ function _imo_dart_get_params($size, $tile) {
         $mergedParams['manufacturer'] = imo_dart_clean_tag($manfSlug);
 
     }
+    
+    $mergedParams['pos'] = "";
 
         return $mergedParams;
 }
@@ -254,7 +260,7 @@ function _imo_dart_get_params($size, $tile) {
 function _imo_dart_get_tag($iframe) {
     if ($iframe)
     {
-        $tag = '<iframe src="/iframe-advert.php?size=%1$s&zone=%3$s&sect=%4$s&page=%6$s&rr=%10$s&subs=%5$s&camp=%12$s" frameBorder="0" width="%8$s" height="%9$s" scrolling="no" allowTransparency="true">';
+        $tag = '<iframe src="/iframe-advert.php?size=%1$s&zone=%3$s&sect=%4$s&page=%6$s&rr=%10$s&subs=%5$s&camp=%12$&spos=%15$s" frameBorder="0" width="%8$s" height="%9$s" scrolling="no" allowTransparency="true">';
         $tag .= _imo_dart_get_tag(false);
         $tag .="</iframe>";
     }
@@ -262,11 +268,11 @@ function _imo_dart_get_tag($iframe) {
     {
         $tag = '<!-- %1$s Ad: -->
             <script type="text/javascript">
-document.write(unescape(\'%%3Cscript src="http://ad.doubleclick.net/adj/%2$s/%3$s;%11$ssect=%4$s;manf=%14$s;page=%6$s;subs=%5$s;sz=%1$s;dcopt=;tile=%7$s;ord=\'+dartadsgen_rand+\'?"%%3E%%3C/script%%3E\'));
+document.write(unescape(\'%%3Cscript src="http://ad.doubleclick.net/adj/%2$s/%3$s;%11$ssect=%4$s;manf=%14$s;pos=%15$s;page=%6$s;subs=%5$s;sz=%1$s;dcopt=;tile=%7$s;ord=\'+dartadsgen_rand+\'?"%%3E%%3C/script%%3E\'));
     </script>
     <noscript>
-        <a href="http://ad.doubleclick.net/adj/%2$s/%3$s;%11$ssect=%4$s;manf=%14$s;page=%6$s;subs=%5$s;sz=%1$s;dcopt=;tile=%7$s;ord=6545512368?">
-            <img src="http://ad.doubleclick.net/ad/%2$s/%3$s;%11$ssect=%4$s;manf=%14$s;page=%6$s;subs=%5$s;sz=%1$s;dcopt=;tile=%7$s;ord=6545512368?" border="0" />
+        <a href="http://ad.doubleclick.net/adj/%2$s/%3$s;%11$ssect=%4$s;manf=%14$s;pos=%15$s;page=%6$s;subs=%5$s;sz=%1$s;dcopt=;tile=%7$s;ord=6545512368?">
+            <img src="http://ad.doubleclick.net/ad/%2$s/%3$s;%11$ssect=%4$s;manf=%14$s;pos=%15$s;page=%6$s;subs=%5$s;sz=%1$s;dcopt=;tile=%7$s;ord=6545512368?" border="0" />
         </a>
     </noscript>
 <!-- END %1$s Ad: -->';
@@ -276,7 +282,8 @@ document.write(unescape(\'%%3Cscript src="http://ad.doubleclick.net/adj/%2$s/%3$
 
 
 function _imo_dart_sprint_tag($params, $tag) {
-    return sprintf($tag, $params['size'], $params['domain'], $params['zone'], $params['sect'], $params['subs'],$params['page'], $params['tile'], $params['width'], $params['height'], $params['refresh'],$params['campaign-key-value-pair'],$params['campaign'],$params['manufacturer-key-value-pair'],$params['manufacturer']);
+
+    return sprintf($tag, $params['size'], $params['domain'], $params['zone'], $params['sect'], $params['subs'],$params['page'], $params['tile'], $params['width'], $params['height'], $params['refresh'],$params['campaign-key-value-pair'],$params['campaign'],$params['manufacturer-key-value-pair'],$params['manufacturer'],$params['pos']);
 }
 /**
  * Attempt to formulate a domain based on the currentiste domain.
