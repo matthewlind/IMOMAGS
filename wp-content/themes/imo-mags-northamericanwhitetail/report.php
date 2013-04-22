@@ -53,8 +53,8 @@ if ( is_user_logged_in() ) {
 	              ++pr_tile;
 	            </script>
 	            <noscript>
-	              <a href="http://ad.doubleclick.net/adj/imo.outdoorsbest/;sect=;page=index;pos=btf;subs=;sz=300x250;dcopt=;tile=1;ord=7391727509?">
-	                <img src="http://ad.doubleclick.net/ad/imo.outdoorsbest/home;sect=;page=index;pos=btf;subs=;sz=300x250;dcopt=;tile=1;ord=7391727509?" border="0" />
+	              <a href="http://ad.doubleclick.net/adj/imo.northamericanwhitetail/;sect=;page=index;pos=btf;subs=;sz=300x250;dcopt=;tile=1;ord=7391727509?">
+	                <img src="http://ad.doubleclick.net/ad/imo.northamericanwhitetail/home;sect=;page=index;pos=btf;subs=;sz=300x250;dcopt=;tile=1;ord=7391727509?" border="0" />
 	              </a>
 	            </noscript>
 

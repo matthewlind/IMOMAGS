@@ -33,7 +33,6 @@ jQuery(document).ready(function($) {
 		//Gun Network
 		var getdata = $.getJSON(gunFileName, function(data) {
 		    var count = 0;
-
 		    var end = start + showAtOnce;
 
 		    for (i = start; i < end; i++) {
@@ -50,15 +49,23 @@ jQuery(document).ready(function($) {
 		        }	        
 		        $articleTemplate.find("a.title").text(data[i].post_title);
 		        
-		        if (data[i].domain != document.domain) {
+		         if (data[i].domain != document.domain) {
 		        	$articleTemplate.find(".site a").text(data[i].brand + " Magazine");
 		        	$articleTemplate.find(".site a").attr("href","http://" + data[i].domain);
-
+        	
 					$articleTemplate.find("a").attr("target","_blank");
+					
 				}else{
+				
 					$articleTemplate.find(".site a").hide();
 				}
-				
+
+				if($("#network-topics-3-col").length > 0){
+		        		$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Homepage: "+ data[i].slug +"','" + data[i].post_url + "']);");
+		        	}else{
+			        	$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Widget: "+ data[i].slug +"','" + data[i].post_url + "']);");
+		        	}
+
 				$articleTemplate.appendTo("#guns-network").fadeIn();
 
 		    }
@@ -92,12 +99,20 @@ jQuery(document).ready(function($) {
 		        if (data[i].domain != document.domain) {
 		        	$articleTemplate.find(".site a").text(data[i].brand + " Magazine");
 		        	$articleTemplate.find(".site a").attr("href","http://" + data[i].domain);
-
-					$articleTemplate.find("a").attr("target","_blank");
+		        	
+		        	$articleTemplate.find("a").attr("target","_blank");
+					
 				}else{
+				
 					$articleTemplate.find(".site a").hide();
+
 				}
 				
+				if($("#network-topics-3-col").length > 0){
+	        		$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Homepage: "+ data[i].slug +"','" + data[i].post_url + "']);");
+	        	}else{
+		        	$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Widget: "+ data[i].slug +"','" + data[i].post_url + "']);");
+	        	}
 				$articleTemplate.appendTo("#gear-network").fadeIn();
 
 		    }
@@ -129,15 +144,23 @@ jQuery(document).ready(function($) {
 		        		        
 		        $articleTemplate.find("a.title").text(data[i].post_title);
 		        
-		        if (data[i].domain != document.domain) {
+		         if (data[i].domain != document.domain) {
 		        	$articleTemplate.find(".site a").text(data[i].brand + " Magazine");
 		        	$articleTemplate.find(".site a").attr("href","http://" + data[i].domain);
-
+		        	
 					$articleTemplate.find("a").attr("target","_blank");
+					
 				}else{
-					$articleTemplate.find(".site a").hide();
-				}
 				
+					$articleTemplate.find(".site a").hide();
+						
+				}
+
+				if($("#network-topics-3-col").length > 0){
+	        		$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Homepage: "+ data[i].slug +"','" + data[i].post_url + "']);");
+	        	}else{
+		        	$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Widget: "+ data[i].slug +"','" + data[i].post_url + "']);");
+	        	}
 				$articleTemplate.appendTo("#personal-defense-network").fadeIn();
 
 		    }
@@ -169,15 +192,23 @@ jQuery(document).ready(function($) {
 		        		        
 		        $articleTemplate.find("a.title").text(data[i].post_title);
 		        
-		        if (data[i].domain != document.domain) {
+		         if (data[i].domain != document.domain) {
 		        	$articleTemplate.find(".site a").text(data[i].brand + " Magazine");
 		        	$articleTemplate.find(".site a").attr("href","http://" + data[i].domain);
 
 					$articleTemplate.find("a").attr("target","_blank");
+					
 				}else{
-					$articleTemplate.find(".site a").hide();
-				}
 				
+					$articleTemplate.find(".site a").hide();
+					
+				}
+
+				if($("#network-topics-3-col").length > 0){
+	        		$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Homepage: "+ data[i].slug +"','" + data[i].post_url + "']);");
+	        	}else{
+		        	$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Widget: "+ data[i].slug +"','" + data[i].post_url + "']);");
+	        	}
 				$articleTemplate.appendTo("#culture-politics-network").fadeIn();
 
 		    }
@@ -209,15 +240,23 @@ jQuery(document).ready(function($) {
 		        		        
 		        $articleTemplate.find("a.title").text(data[i].post_title);
 		        
-		        if (data[i].domain != document.domain) {
+		         if (data[i].domain != document.domain) {
 		        	$articleTemplate.find(".site a").text(data[i].brand + " Magazine");
 		        	$articleTemplate.find(".site a").attr("href","http://" + data[i].domain);
-
+		        	
 					$articleTemplate.find("a").attr("target","_blank");
+					
 				}else{
-					$articleTemplate.find(".site a").hide();
-				}
 				
+					$articleTemplate.find(".site a").hide();
+					
+				}
+
+				if($("#network-topics-3-col").length > 0){
+	        		$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Homepage: "+ data[i].slug +"','" + data[i].post_url + "']);");
+	        	}else{
+		        	$articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','Network Topics','Widget: "+ data[i].slug +"','" + data[i].post_url + "']);");
+	        	}
 				$articleTemplate.appendTo("#survival-network").fadeIn();
 
 		    }
