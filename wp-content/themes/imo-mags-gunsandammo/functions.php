@@ -672,6 +672,7 @@ function custom_gun_terminology_checklist($post_id = 0, $args = array()) {
         $lever = get_term_by( 'slug', 'lever-action', 'category' );
         $rim_rifle = get_term_by( 'slug', 'rim-fire-rifle', 'category' );
         $semi_rifle = get_term_by( 'slug', 'semi-auto-rifle', 'category' );
+        $muzzleloaders = get_term_by( 'slug', 'muzzleloaders', 'category' );
         $shotguns = get_term_by( 'slug', 'shotguns', 'category' );
         $double = get_term_by( 'slug', 'double-barrel', 'category' );
         $pump_shot = get_term_by( 'slug', 'pump-action', 'category' );
@@ -688,7 +689,7 @@ function custom_gun_terminology_checklist($post_id = 0, $args = array()) {
 	        $rim_hand->term_id,$semi_hand->term_id,$ar15->term_id,$rifles->term_id,
 	        $bolt->term_id,$lever->term_id,$rim_rifle->term_id,$semi_rifle->term_id,$shotguns->term_id,$double->term_id,
 	        $pump_shot->term_id,$semi_shot->term_id,$ammo->term_id,$airguns->term_id,$gear->term_id,
-	        $optics->term_id,$riflescopes->term_id
+	        $optics->term_id,$riflescopes->term_id,$muzzleloaders->term_id
 	    );
 
         extract( wp_parse_args($args, $defaults), EXTR_SKIP );

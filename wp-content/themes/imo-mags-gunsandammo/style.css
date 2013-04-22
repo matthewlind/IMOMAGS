@@ -7903,8 +7903,15 @@ li.no-vote:hover img{
 
 
 
+/*** poll daddy fix ***/
 
-
+#text-17 .widget-title{
+	background-color: white;
+	width: 120px;
+	text-align: center;
+	margin: 14px auto -14px  !important;
+	padding: 6px 6px 0;
+}
 
 
 
