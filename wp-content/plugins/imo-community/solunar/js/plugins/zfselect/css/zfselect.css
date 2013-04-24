@@ -1,0 +1,150 @@
+body, form, select, ul, div{
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+.zf-select {
+    outline: none;
+    position: relative;
+    cursor: pointer;
+    font:16px "stagregular", sans-serif;
+}
+
+.zf-select select{border: 0;}
+.zf-select div, .zf-select ul {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border:  0;
+}
+.zf-select .select-text {
+    padding: 0 22px 0 5px;
+    height:37px;
+    overflow: hidden;
+    font:30px/31px "stagregular", sans-serif;
+    color:#c9242c;
+}
+.zf-select .select-btn {
+    background:url(../images/zf-arrow.png) no-repeat 5px 6px;
+    width: 20px;
+    height: 35px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right:0;
+}
+.zf-select .select-drop {
+    display: none;
+    position: absolute;
+    top: 27px;
+    left: 0;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;  
+}
+.zf-multi-select .select-drop{
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block !important;
+}
+.zf-select ul{
+    list-style: none;
+    padding: 0 10px 0 0;
+}
+.zf-select li{
+    padding: 0 5px;
+    margin:0;
+    line-height: 30px;
+}
+.zf-select li.selected{
+    background: #d7d6d5;
+    color:#c9242c;
+}
+.zf-select li.disabled{
+    background: #ebebeb !important;
+    color: #7a7a7a;
+    cursor: default;
+}
+.zf-select li.optgroup{
+    font-weight: bold;
+    text-transform: capitalize;
+    font-style: italic;
+}
+.zf-select li.optitem{
+    padding-left: 20px;
+}
+.zf-select .select-mid{
+    background: #fff;
+}
+.zf-select .mid-right{
+    border:1px solid #ccc;
+    -moz-border-radius:2px;
+    -webkit-border-radius:2px;
+    border-radius:2px;
+}
+.zf-focus-select .mid-right{border-color: #f8c7a7;}
+.zf-select .scrollable{
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+}
+
+.zf-select .zf-scroll-track{
+    width: 15px;
+    position: absolute;
+    top: 1px;
+    right: 2px;
+    background: #efefef;
+}
+.zf-select .zf-scroll-drag{
+    background:url(../images/bg_scroll.gif) no-repeat -39px 0;
+    cursor: pointer;
+    height: 22px;
+    position: absolute;
+    right: 0;
+    top: 15px;
+    width: 15px;
+}
+.zf-select .zf-scroll-drag-btm,
+.zf-select .zf-scroll-drag-top{
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 15px;
+}
+.zf-select .zf-scroll-drag-btm{
+    bottom: 0;
+    top: auto;
+}
+.zf-select .zf-scroll-arrow-btm,
+.zf-select .zf-scroll-arrow-top{
+    background:url(../images/bg_scroll.gif) no-repeat;
+    cursor: pointer;
+    height: 15px;
+    overflow: hidden;
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    width: 15px;
+}
+.zf-select .zf-scroll-arrow-top-press{
+    background-position: 0 -48px;
+}
+.zf-select .zf-scroll-arrow-top-dis{
+    background-position: 0 -24px;
+    cursor: default;
+}
+.zf-select .zf-scroll-arrow-btm{
+    bottom: 2px;
+    top: auto;
+    background-position: -19px 0;
+}
+.zf-select .zf-scroll-arrow-btm-press{
+    background-position: -19px -48px;
+}
+.zf-select .zf-scroll-arrow-btm-dis{
+    background-position: -19px -24px;
+    cursor: default;
+}

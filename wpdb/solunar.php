@@ -12,13 +12,24 @@ date_default_timezone_set('America/New_York');
 //Default Settings
 $month = 3;
 $year = 2013;
-$location = 30309;
+//$location = 56425;
 
 //Grab the parameters
 $params = $_GET;
 
+
+
+if (empty($location)) {
+
+	$location = getLocationFromIP();
+
+} else {
+	$location = 56425;
+}
+
 //Overwrite the default settings with the new ones
 extract($params,EXTR_OVERWRITE);
+
 
 
 if (is_numeric($location)) { //if location is zip
@@ -228,10 +239,13 @@ function importSolunarData($month,$year,$location) {
 		//Generate the start times and end times by adding and subtracting an hour
 		$dayData->ammajorstart = date("g:iA",$dayData->ammajortimestamp - 3600);
 		$dayData->ammajorend =   date("g:iA",$dayData->ammajortimestamp + 3600);
+		
 		$dayData->pmmajorstart = date("g:iA",$dayData->pmmajortimestamp - 3600);
 		$dayData->pmmajorend =   date("g:iA",$dayData->pmmajortimestamp + 3600);
+		
 		$dayData->amminorstart = date("g:iA",$dayData->amminortimestamp - 3600);
 		$dayData->amminorend =   date("g:iA",$dayData->amminortimestamp + 3600);
+		
 		$dayData->pmminorstart = date("g:iA",$dayData->pmminortimestamp - 3600);
 		$dayData->pmminorend =   date("g:iA",$dayData->pmminortimestamp + 3600);
 
@@ -328,7 +342,7 @@ function get_timestamp($timestring,$period,$month,$day,$year) {
 
 	//print_r($timeparts);
 
-	if ($period = "PM")
+	if ($period == "PM")
 		$hours = $hours + 12;
 
 	$time = mktime($hours,$minutes,0,$month,$day,$year);
@@ -337,6 +351,39 @@ function get_timestamp($timestring,$period,$month,$day,$year) {
 
 
 
+
+}
+
+function getLocationFromIP() {
+
+	$ip = ip2long($_SERVER['REMOTE_ADDR']);
+
+
+	//echo $_SERVER['REMOTE_ADDR'];
+
+	$ip = ip2long("75.150.12.113");
+
+
+	$sql = "SELECT * FROM geolitecity_blocks blocks LEFT JOIN geolitecity_location as location on blocks.location_id = location.location_id WHERE startipnum < $ip AND endipnum > $ip LIMIT 1;";
+
+
+
+	$db = dbConnect();
+
+	$stmt = $db->prepare($sql);
+	$stmt->execute();
+	$locationData = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+	$db = "";
+
+
+	$location = $locationData[0]->postalcode;
+	
+
+	if (!empty($location))
+		return $location;
+	else
+		return false;
 
 }
 
