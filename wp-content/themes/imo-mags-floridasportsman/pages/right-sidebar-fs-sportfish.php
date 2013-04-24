@@ -26,11 +26,11 @@ the_post();
 <div id="reeltime-wrapper">
 
 
-<header id="masthead" class="fs-sportfish-header">
+<a href="/sportfish/" title="Florida Sportfish"><header id="masthead" class="fs-sportfish-header">
 
-	<a href="/challenge/" title="Florida Sportsman Challenge"><h1 class="fs-challenge-title"><?php the_title(); ?></h1></a>
+	<h1 class="fs-challenge-title"><?php the_title(); ?></h1>
 	
-</header><!-- #masthead -->
+</header></a><!-- #masthead -->
 
 <nav class="nav nav-secondary sportfish-page"><!--new REEL TIME MENU-->
 	

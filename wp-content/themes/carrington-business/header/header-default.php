@@ -65,10 +65,10 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 <body <?php body_class(); ?>>
 
 	<?php 
-	if($_SERVER['SERVER_NAME'] == "www.petersenshunting.com" && is_page("Petersen's Hunting Homepage 2")){
+	if($_SERVER['SERVER_NAME'] == "www.flyfisherman.com" && is_page("destinations")){
 		$clickable = true;
 		//Clickable expiration date - uses 01-12 for month
-		if(date("Ymd") > "20130408"){	$clickable = false;	}
+		if(date("Ymd") > "20130430"){	$clickable = false;	}
 		if($clickable == true){	echo '<div class="clickable-bg"></div>'; } 
 	}
 	?>

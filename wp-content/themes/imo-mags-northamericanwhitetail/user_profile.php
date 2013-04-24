@@ -62,6 +62,7 @@ $state = $user_meta['state'][0];
 	</div>
 	<div id="responderfollow"></div>
 	<div class="sidebar advert">
+		<?php imo_dart_tag("300x250",false,array("pos"=>"btf")); ?>
 		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('scroll-sidebar')) : else : ?><?php endif; ?>
 	</div>
 </div>

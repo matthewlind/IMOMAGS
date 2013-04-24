@@ -10,8 +10,7 @@ Version: 0.1
 Stable tag: 0.1
 License: IMO
 */
-include('widget-father-day.php');
-include('page-widget.php');
+include('widget.php');
 
 /********************************
 *******LOAD SCRIPTS & STYLE******
