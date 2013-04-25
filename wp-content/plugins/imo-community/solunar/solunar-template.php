@@ -125,17 +125,17 @@ if ( is_user_logged_in() ) {
                 <fieldset>
                     <span class="form-text">I’ll be going</span>
                     <select id="sel1" class="sel">
-                        <option value="bass">Bass</option>
+                        <option selected="selected" value="bass">Bass</option>
                         <option value="walleye">Walleye</option>
                         <option value="catfish">Catfish</option>
                         <option value="panfish">Panfish</option>
                         <option value="pike-muskie">Pike & Muskie</option>
-                        <option selected="selected" value="trout-salmon">Trout & Salmon</option>
+                        <option value="trout-salmon">Trout & Salmon</option>
                         <option value="other-fish">Other Fish</option>
                         <option value="ice-fishing">Ice</option>
                     </select>
                     <span class="form-text">fishing near</span>
-                    <input type="text" id="solunar-location" placeholder="ZIP Code or City" />
+                    <input type="text" id="solunar-location" placeholder="City or ZIP Code" />
                     <input class="submit-small solunar-submit" type="submit" value="GO!" />
                 </fieldset>
             </form>

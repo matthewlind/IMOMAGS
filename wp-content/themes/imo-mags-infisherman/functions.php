@@ -191,7 +191,7 @@ function infish_community_init() {
 	//Solunar Calendar config
 	//////////////////////////////////
 	$IMO_COMMUNITY_CONFIG = NULL;
-	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "solunar-calendar-test";//This slug will override ANY setting in wordpress.
+	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "solunar-calendar";//This slug will override ANY setting in wordpress.
 	$IMO_COMMUNITY_CONFIG['page_title'] = 'Solunar Calendar';
 	$IMO_COMMUNITY_CONFIG['template'] = '/solunar/solunar-template.php';
 	$IMO_COMMUNITY_CONFIG['post_types'] = null;
