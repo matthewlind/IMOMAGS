@@ -17,7 +17,7 @@ function imo_community_template() {
 
 	foreach ($IMO_COMMUNITY as $IMO_COMMUNITY_CONFIG) {
 
-		$matchString = "/^\/" . $IMO_COMMUNITY_CONFIG['community_home_slug'] . "(\?(.+)?)?$/";
+		$matchString = "/^\/" . $IMO_COMMUNITY_CONFIG['community_home_slug'] . "(\/)?(\?(.+)?)?$/";
 
 		if (preg_match($matchString, $_SERVER['REQUEST_URI'])) {
 
@@ -63,7 +63,7 @@ function imo_community_set_title($title,$sep,$seplocation) {
 
 
 
-		$matchString = "/^\/" . $IMO_COMMUNITY_CONFIG['community_home_slug'] . "(\?(.+)?)?$/";
+		$matchString = "/^\/" . $IMO_COMMUNITY_CONFIG['community_home_slug'] . "(\/)?(\?(.+)?)?$/";
 
 		if (preg_match($matchString, $_SERVER['REQUEST_URI'])) {
 
