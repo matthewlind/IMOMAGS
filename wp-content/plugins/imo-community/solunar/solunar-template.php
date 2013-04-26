@@ -91,7 +91,12 @@ if ( is_user_logged_in() ) {
                     </div>
                     <div class="cal-row presented-by">
                         <span>presented by</span>
-                        <a href="http://lazertrokar.com/"><img src="wp-content/plugins/imo-community/solunar/images/banner/lazer_120.png" alt="Lazer Trokar" /></a>
+<!-- Site - In-Fisherman/solunar_calendar -->
+
+    <a href="http://ad.doubleclick.net/N4930/jump/imo.in-fisherman/solunar_calendar;sz=125x125;ord=[timestamp]?">
+    <img src="http://ad.doubleclick.net/N4930/ad/imo.in-fisherman/solunar_calendar;sz=125x125;ord=[timestamp]?" width="125" height="125" />
+    </a>
+
                     </div>
                 </div>
                 <a class="close-popup" href="javascript:"></a>
