@@ -1,4 +1,4 @@
-<?php
+    <?php
 /**
  * Step 1: Require the Slim PHP 5 Framework
  *
@@ -18,7 +18,8 @@ require 'Slim/Slim.php';
  */
 $app = new Slim();
 include 'mysql.php';
-
+include 'users.php';
+include 'auth.php';
 include 'cabelas-products.php';
 
 
