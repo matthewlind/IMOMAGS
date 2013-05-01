@@ -36,10 +36,7 @@ get_header();
 <div class="page-flow">
 	<div id="sidebar"<?php if( in_category($soga_slug) || in_category($floc_slug) || in_category($dt_slug) || in_category($nb_slug) || in_category($zn_slug) || in_category($tgr_slug) ){echo ' class="blog-sidebar"';} ?>>
 	<?php 
-		if(is_home()){
-			if (function_exists('dynamic_sidebar') && dynamic_sidebar('homepage-sidebar')) : else :  endif; 
-		} 
-		else if('reviews' == get_post_type()){
+		if('reviews' == get_post_type()){
 			if (function_exists('dynamic_sidebar') && dynamic_sidebar('reviews-sidebar')) : else :  endif; 
 		}
 		else if('shooting' == get_post_type()){
@@ -51,12 +48,10 @@ get_header();
 		else if('imo-video' == get_post_type()){
 			if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-video')) : else :  endif; 
 		}
-		else if( in_category($soga_slug) || in_category($floc_slug) || in_category($dt_slug) || in_category($nb_slug) || in_category($zn_slug) || in_category($tgr_slug) ) {
-			if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-default')) : else :  endif; 
-		}else if( in_category($aff_slug) ){
+		else if( in_category($aff_slug) ){
 			if (function_exists('dynamic_sidebar') && dynamic_sidebar('affiliate-sidebar')) : else : endif;
 		}else{
-			if (function_exists('dynamic_sidebar') && dynamic_sidebar('homepage-sidebar')) : else :  endif; 
+			if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-default')) : else :  endif; 
 		}
 		
 		?>

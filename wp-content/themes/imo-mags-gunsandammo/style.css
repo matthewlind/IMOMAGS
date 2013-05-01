@@ -6628,8 +6628,52 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 	width: 75px;
 	height: auto;
 }
+/********
+****
+**** NRA Show
+****
+********/
 
-
+.tag-nra-show #sidebar{
+	margin-top: 150px;
+}
+.blog-headers.shot-show.nra-show{
+	background: url("img/nra-show-lg-bg.jpg") left top no-repeat;
+	width: 980px;
+	margin-bottom: 20px;
+}
+.blog-headers.shot-show.nra-show .desc p{
+	margin-left: 0;
+	margin-top: -20px;
+	float: none;
+}
+.blog-headers.shot-show.nra-show .sponsor-logo {
+	float: right;
+	width: 281px;
+	margin-right: -134px;
+	margin-top: -38px;
+}
+.blog-headers.shot-show.nra-show .sponsor-logo{
+	float: right;
+	width: 281px;
+	margin-right: -82px;
+	margin-top: -34px;
+}
+.blog-headers.shot-show.nra-show .sponsor-logo img{
+	height: 48px;
+}
+.nra-show-sticker{
+	background: url("img/nra-show-sticker.png") no-repeat left top;
+	width: 60px;
+	height: 55px;
+	position: absolute;
+	left: -9px;
+	top: -9px;
+}
+.primary-shot-show.nra-show .sponsor-logo img {
+	height: auto;
+	width: 120px;
+}
 /********
 ****
 **** Shot Show
