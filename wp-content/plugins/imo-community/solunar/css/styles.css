@@ -907,4 +907,8 @@ h1.location-header {
     border:0px;
 }
 
+body #header {
+    margin-top:0px;
+}
+
 
