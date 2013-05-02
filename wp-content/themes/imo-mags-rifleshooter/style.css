@@ -145,8 +145,8 @@ position: relative;
 #header .site-title a {
 	background: url(img/my-logo.png) 0 0 no-repeat; /*enter the proper file name for you logo graphic*/
 	display: block;
-	height: 117px; /*enter the height of your logo graphic*/
-	width: 577px; /*enter the width of your logo graphic*/
+	height: 116px; /*enter the height of your logo graphic*/
+	width: 524px; /*enter the width of your logo graphic*/
 	overflow: hidden;
 	text-indent: -9999em;
 }
@@ -373,9 +373,9 @@ h2.entry-title a {
 
 .stay-connected {
 	position: absolute;
-    width: 246px;
-	right: 279px;
-	top: -4px;
+    width: 158px;
+	right: 291px;
+	top: 40px;
 }
 .stay-connected .fb-like {
     width: 80px;
@@ -387,11 +387,10 @@ h2.entry-title a {
 .stay-connected .label {
     color: white;
 	font-weight: bold;
-	line-height: 4.3;
-	float: left;
+	line-height: 0.3;
+	text-align: center;
 }
 .stay-connected .connections {
-    float: right;
     margin: 0;
     padding: 0;
     width: 138px;

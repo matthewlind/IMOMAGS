@@ -543,6 +543,7 @@ function custom_terms_checklist($post_id = 0, $args = array()) {
 	        $affiliates = get_term_by( 'slug', 'affiliates', 'category' );
 	        $perspectives = get_term_by( 'slug', 'ga-perspectives', 'category' );
 	        $mots = get_term_by( 'slug', 'man-on-the-street', 'category' );
+	        //$shot_show = get_term_by( 'slug', 'shot-show-2013', 'category' );
 		        
 		    // Create the ID array
 		    $include = array(

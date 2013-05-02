@@ -24,7 +24,24 @@ $url="/shooting/".$categoryName->slug;
 						echo '<a href="http://springfield-armory.com/" target="_blank"><img src="/wp-content/themes/imo-mags-gunsandammo/img/sausa.png" alt="Springfield Amory USA" title="Springfield Amory USA" /></a>'; 
 					echo '</div>'; 
 				echo '</div>'; 
-		}else{
+		}else if(has_tag("nra-show")){ ?>
+			<div class="primary-shot-show nra-show">
+				<a class="primary-cat" href="/tag/nra-show">NRA Show</a>
+				<div class="presented-by">Presented By</div>
+				<div class="sponsor-logo">
+					<!-- Site - Guns and Ammo -->
+					<script type="text/javascript">
+					  var ord = window.ord || Math.floor(Math.random() * 1e16);
+					  document.write('<a href="http://ad.doubleclick.net/N4930/jump/imo.gunsandammo;sz=200x48;ord=' + ord + '?"><img src="http://ad.doubleclick.net/N4930/ad/imo.gunsandammo;sz=200x48;ord=' + ord + '?" width="200" height="48" /></a>');
+					</script>
+					<noscript>
+					<a href="http://ad.doubleclick.net/N4930/jump/imo.gunsandammo;sz=200x48;ord=[timestamp]?">
+					<img src="http://ad.doubleclick.net/N4930/ad/imo.gunsandammo;sz=200x48;ord=[timestamp]?" width="200" height="48" />
+					</a>
+					</noscript>
+				</div>
+			</div>
+		<?php }else{
 			echo '<a class="primary-cat" href="'.$url.'">'.$categoryName->name.'</a>'; 
 		} 
 		
