@@ -21,24 +21,54 @@
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
-get_header();
-
-the_post();
-$displayStyle = "display:none;";
-$loginStyle = "";
-
-if ( is_user_logged_in() ) {
-
-	$displayStyle = "";
-	$loginStyle = "display:none;";
-
-	wp_get_current_user();
-
-	$current_user = wp_get_current_user();
-    if ( !($current_user instanceof WP_User) )
-         return;
-    }
 ?>
+
+
+<!DOCTYPE html>
+<!-- bid: <?php global $blog_id; print $blog_id ?>; env: <?php if(defined("WEB_ENV")) { print WEB_ENV; } else { print "production"; } ?> -->
+<!--[if IE 6]><![endif]-->
+<html <?php language_attributes() ?>>
+<head>
+    <meta http-equiv="content-type" content="<?php bloginfo('html_type') ?>; charset=<?php bloginfo('charset') ?>" />
+
+    <title><?php wp_title(''); ?></title>
+
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <link rel="pingback" href="<?php bloginfo('pingback_url') ?>" />
+    <?php wp_get_archives(array('type' => 'monthly', 'format' => 'link')); ?>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="<?php bloginfo('template_url'); ?>/css/css.php?ver=<?php echo CFCT_URL_VERSION; ?>" />
+    <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lte IE 7]>
+        <link rel="stylesheet" type="text/css" media="screen" href="<?php bloginfo('template_url'); ?>/css/lte-ie7.css?ver=<?php echo CFCT_URL_VERSION; ?>" />
+    <![endif]-->
+
+    <?php
+    // Include javascript for threaded comments if needed
+    if ( is_singular() && get_option('thread_comments') ) { wp_enqueue_script( 'comment-reply' ); }
+
+    wp_head();
+    include_once get_stylesheet_directory() . "/head-includes.php";
+
+    if (defined('GOOGLE_FONT')): ?>
+    <link href='<?php print GOOGLE_FONT; ?>' rel='stylesheet' type='text/css'>
+<?php endif; ?>
+<link href='http://fonts.googleapis.com/css?family=Glegoo|Lato:300,400|Gudea|Share' rel='stylesheet' type='text/css'>
+<?php if (is_page_template("page-cabelas.php")) : ?>
+    <link rel="stylesheet" type="text/css" media="screen" href="<?php bloginfo('template_url'); ?>/css/contest.css?ver=<?php echo CFCT_URL_VERSION; ?>" />
+<?php  endif; ?>
+<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.jfollow.js"></script>
+<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/scripts.js"/></script>
+  <script type="text/javascript" src="/wp-content/themes/imo-mags-gunsandammo/js/flash_heed.js"></script>
+
+<?php if (defined('JETPACK_SITE')): ?>
+
+<?php endif; ?>
+</head>
+<body <?php body_class(); ?>>
+
 <div class="page-community">
 
 
@@ -122,7 +152,7 @@ if ( is_user_logged_in() ) {
 
     <div class="frame">
         <div class="wide-banner">
-            <a href="#"><img src="wp-content/plugins/imo-community/solunar/images/banner/trokar-back.png" width="1020" height="176" alt="" /></a>
+            <a href="#"><img src="wp-content/plugins/imo-community/solunar/images/banner/trokar-back.png" width="1005" alt="" /></a>
         </div>
         <div class="location-box jq-custom-form">
             <form action="#">

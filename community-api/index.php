@@ -703,6 +703,10 @@ $app->delete('/posts/:id', function ($id) {
 		$stmt = $db->prepare($sql);
 		$stmt->execute(array($id));
 
+		$sql = "DELETE FROM superposts WHERE parent = ?";
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array($id));
 
 		$db = "";
 

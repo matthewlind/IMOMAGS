@@ -241,7 +241,8 @@ var renderSpeciesInfo = function(slug) {
 
 	$(".fishing-tips-title").html( fishName + " Fishing Tips");
 
-	googletag.pubads().refresh([dynamicAdSlot1]);
+	//if (typeof googletag.pubads === 'function')
+		googletag.pubads().refresh([dynamicAdSlot1]);
 
 	//console.log(url);
 	$.getJSON(url,function(posts){

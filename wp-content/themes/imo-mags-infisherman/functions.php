@@ -188,6 +188,80 @@ function infish_community_init() {
 
 
 	//////////////////////////////////
+	//Solunar Calendar iPad Embed config
+	//////////////////////////////////
+	$IMO_COMMUNITY_CONFIG = NULL;
+	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "solunar-calendar-ipad";//This slug will override ANY setting in wordpress.
+	$IMO_COMMUNITY_CONFIG['page_title'] = 'Solunar Calendar';
+	$IMO_COMMUNITY_CONFIG['template'] = '/solunar/solunar-template-minimal.php';
+	$IMO_COMMUNITY_CONFIG['post_types'] = null;
+	$IMO_COMMUNITY_CONFIG['additional_scripts'] = array(
+		array(
+			"script-name" => "jquery-mousewheel-zf",
+			"script-path" => "solunar/js/plugins/zfselect/js/jquery.mousewheel.js",
+			"script-dependencies" => array('jquery')
+		),
+		array(
+			"script-name" => "jquery-zfselect",
+			"script-path" => "solunar/js/plugins/zfselect/js/jquery.zfselect.min.js",
+			"script-dependencies" => array('jquery')
+		),
+		array(
+			"script-name" => "jquery-carousel-fred",
+			"script-path" => "solunar/js/plugins/carouFredSel/jquery.carouFredSel-6.2.0-packed.js",
+			"script-dependencies" => array('jquery')
+		),
+		array(
+			"script-name" => "lodash",
+			"script-path" => "solunar/js/lodash.min.js",
+			"script-dependencies" => array('jquery')
+		),
+		array(
+			"script-name" => "solunar-googletag",
+			"script-path" => "solunar/js/googletag.js",
+			"script-dependencies" => null,
+			"show-in-header" => true
+		),
+		array(
+			"script-name" => "solunar-app",
+			"script-path" => "solunar/js/script.js",
+			"script-dependencies" => array('jquery','lodash','jquery-carousel-fred','jquery-zfselect','jquery-mousewheel-zf')
+		),
+
+
+
+	);
+
+	$IMO_COMMUNITY_CONFIG['additional_styles'] = array(
+		array(
+			"style-name" => "solunar-base-css",
+			"style-path" => "solunar/css/css-php.css",
+			"style-dependencies" => null
+		),
+		array(
+			"style-name" => "solunar-style-css",
+			"style-path" => "solunar/css/styles.css?v=2",
+			"style-dependencies" => null
+		),
+		array(
+			"style-name" => "zfselect-css",
+			"style-path" => "solunar/js/plugins/zfselect/css/zfselect.css",
+			"style-dependencies" => null
+		),
+		array(
+			"style-name" => "flexslider-css",
+			"style-path" => "solunar/js/plugins/flexslider/flexslider.css",
+			"style-dependencies" => null
+		),
+	);
+	global $IMO_COMMUNITY;
+	$IMO_COMMUNITY['solunar-calendar-ipad'] = $IMO_COMMUNITY_CONFIG;
+	/////////////////////////////////////////////////
+	/////////////////////////////////////////////////
+
+
+
+	//////////////////////////////////
 	//Solunar Calendar config
 	//////////////////////////////////
 	$IMO_COMMUNITY_CONFIG = NULL;
