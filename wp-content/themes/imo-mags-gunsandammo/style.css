@@ -22,7 +22,7 @@
  * **********************************************************************
  * This program is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * **********************************************************************
  *
  */
@@ -1483,7 +1483,7 @@ a.comment-count:hover {
 	margin: 0 auto 40px;
 	text-align: center;
 	height: 90px;
-	padding: 10px 0 0;	
+	padding: 10px 0 0;
 	width: 980px;
 	position: relative;
 }
@@ -1947,7 +1947,7 @@ a.comment-count:hover {
   background-position: -258px top !important;
   text-indent: -9999px;
 }
-/* line 1365, sass/style.scss 
+/* line 1365, sass/style.scss
 #header #megaMenu #header #megaMenu li.video ul.sub-menu-1 {
   width: 290px !important;
 }*/
@@ -6461,7 +6461,7 @@ span.sponsored-thumb {
     z-index: 9999;
 }
 .ga-network{
-	
+
 }
 .top-bar{
 	background-color: #333;
@@ -6498,7 +6498,7 @@ span.sponsored-thumb {
 	background: -ms-linear-gradient(top,  #171717 1%,#1c1c1c 31%,#474747 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  #171717 1%,#1c1c1c 31%,#474747 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#171717', endColorstr='#474747',GradientType=0 ); /* IE6-8 */
-	
+
 	display: block;
 	height: 40px;
     position: absolute;
@@ -6533,7 +6533,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 }
 .network-nav li a{
 	height: 40px;
-	
+
 }
 .network-nav li div{
 
@@ -6639,7 +6639,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 }
 .blog-headers.shot-show.nra-show{
 	background: url("img/nra-show-lg-bg.jpg") left top no-repeat;
-	width: 980px;
+	width: 644px;
 	margin-bottom: 20px;
 }
 .blog-headers.shot-show.nra-show .desc p{
@@ -6657,7 +6657,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 	float: right;
 	width: 281px;
 	margin-right: -82px;
-	margin-top: -34px;
+	margin-top: -53px;
 }
 .blog-headers.shot-show.nra-show .sponsor-logo img{
 	height: 48px;
@@ -6674,6 +6674,30 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 	height: auto;
 	width: 120px;
 }
+
+.blog-headers.shot-show.nra-show .blog-border{
+  width: 484px;
+  top: 23px;
+}
+
+.blog-headers.shot-show.nra-show .presented-by{
+  left: 536px;
+  padding: 0 0px 0 4px;
+}
+.tag-nra-show .comment-count {
+  margin-top:144px;
+}
+
+.blog-headers.shot-show.nra-show .desc {
+  margin-top:-20px;
+left: 162px;
+position: relative;
+top: -20;
+width: 287px;
+font-size:12px;
+}
+
+
 /********
 ****
 **** Shot Show
@@ -6834,7 +6858,7 @@ font-size: 0.72em;
 
 .cat-col-left #pager a.active {
 	background-color: #839A45 !important;
-  
+
 }
 .cat-col-left #pager a:hover{
 	background-color: #839A45 !important;
@@ -6845,7 +6869,7 @@ font-size: 0.72em;
 	height: 50px;
 	background-color: #000;
 	position: absolute;
-	top:420px;	
+	top:420px;
 }
 #prev{
 	background: url("img/ui_tab_prev.png") no-repeat scroll center center #000;
@@ -6973,7 +6997,7 @@ font-size: 0.72em;
 }
 #leiki1demo{float: left;}
 #related-products-widget{
-	margin-top: -22px;	
+	margin-top: -22px;
 }
 
 /* thumbs wide */
@@ -7043,7 +7067,7 @@ font-size: 0.72em;
        -moz-perspective-origin: 50% 50%;
        -ms-perspective-origin: 50% 50%;
        perspective-origin: 50% 50%;
-       
+
 }
 
 .roll-link:hover {text-decoration:none;}
@@ -7057,12 +7081,12 @@ font-size: 0.72em;
        -moz-transition: all 400ms ease;
        -ms-transition: all 400ms ease;
        transition: all 400ms ease;
-    
+
     -webkit-transform-origin: 50% 0%;
        -moz-transform-origin: 50% 0%;
        -ms-transform-origin: 50% 0%;
        transform-origin: 50% 0%;
-    
+
     -webkit-transform-style: preserve-3d;
        -moz-transform-style: preserve-3d;
        -ms-transform-style: preserve-3d;
@@ -7070,7 +7094,7 @@ font-size: 0.72em;
 }
 .roll-link:hover span {
         background: #DD4D42;
-         
+
 
         -webkit-transform: translate3d( 0px, 0px, -30px ) rotateX( 90deg );
            -moz-transform: translate3d( 0px, 0px, -30px ) rotateX( 90deg );
@@ -7454,10 +7478,10 @@ table.gridtable td.title {
 	display: none;
 }
 .new-superpost-box{
-	width: 740px;   
+	width: 740px;
 }
 .simplemodal-wrap{
-	width: 740px; 
+	width: 740px;
 	background: white;
 }
 #simplemodal-overlay {
@@ -7485,7 +7509,7 @@ a.simplemodal-close {
 	height: 133px;
 	position: relative;
 	margin: 0 auto;
-	
+
 }
 ul#ga-madness-nav{
 	background: black;
@@ -7621,7 +7645,7 @@ ul#ga-madness-nav li a:hover{
 	left: 165px;
 }
 .vote-check img, .vote-check .wp-polls-ul li:hover img{
-	border: 4px solid #ce181e !important;	
+	border: 4px solid #ce181e !important;
 	cursor: default !important;
 }
 .no-vote{
@@ -7874,7 +7898,7 @@ li.no-vote:hover img{
 	margin-left:1px;
 	margin-top:30px;
  	-webkit-animation-delay: .3s;
-}	
+}
 #rotate_02{
 	-webkit-transform:rotate(-45deg);
 	-moz-transform:rotate(-45deg);

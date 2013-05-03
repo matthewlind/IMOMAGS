@@ -3,6 +3,9 @@
 /**
  * @package carrington-business
  *
+ * Template Name: Authors Page
+ * Description: Full-width template for March Brackets
+ *
  * This file is part of the Carrington Business Theme for WordPress
  * http://crowdfavorite.com/wordpress/themes/carrington-business/
  *
@@ -19,11 +22,25 @@
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
-if (have_posts()) {
-	while (have_posts()) {
-		the_post();
-		cfct_excerpt();
-	}
-}
+get_header();
 
+the_post();
 ?>
+<header id="masthead">
+	<h1><?php the_title(); ?></h1>
+	<?php edit_post_link(__('Edit', 'carrington-business')); ?>
+</header><!-- #masthead -->
+<div class="col-abc">
+	<div <?php post_class('entry entry-full clearfix'); ?>>
+		<div class="entry-content">
+
+			<?php
+
+			wp_list_authors();
+			wp_link_pages();
+			?>
+		</div>
+	</div><!-- .entry -->
+	<?php //comments_template(); ?>
+</div><!-- .col-abc -->
+<?php get_footer(); ?>

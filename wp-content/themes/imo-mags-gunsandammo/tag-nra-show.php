@@ -12,17 +12,17 @@
  * **********************************************************************
  * This program is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * **********************************************************************
  */
 
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 
-// NOTE: this file is here for compatibility reasons - active templates are in the posts/ dir 
+// NOTE: this file is here for compatibility reasons - active templates are in the posts/ dir
 
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
-get_header(); 
+get_header();
 
 $current_category = single_cat_title("", false);
 
@@ -32,7 +32,7 @@ $current_category = single_cat_title("", false);
 
 
 	<div id="sidebar">
-		<?php 
+		<?php
 			if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-default')) : else : endif;
 		?>
 		<div id="responderfollow"></div>
@@ -42,7 +42,7 @@ $current_category = single_cat_title("", false);
 		</div>
 	</div>
 		<div id="content" class="col-abc category-col-abc">
-		
+
 		<div class="blog-headers shot-show nra-show">
 			<div class="blog-border"></div>
 			<h1>NRA SHOW 2013</h1>
@@ -62,6 +62,14 @@ $current_category = single_cat_title("", false);
 		</div>
 		<div class="cat-col-full">
 			<?php
+			global $wp_query;
+			//
+			$args=array(
+			      'post_type' => 'reviews',
+			    );
+			//print_r($wp_query);
+
+			$my_query = new WP_Query($args);
 			cfct_loop();
 			cfct_misc('nav-posts');
 			?>

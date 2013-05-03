@@ -7,7 +7,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 $postID = get_the_ID();
 $categoryID = get_post_meta($postID);
 $catID = $categoryID["_category_permalink"];
-$categoryName = get_term_by('id', $catID[0], 'category'); 
+$categoryName = get_term_by('id', $catID[0], 'category');
 
 //set the primary category urls
 $url="/shooting/".$categoryName->slug;
@@ -15,36 +15,38 @@ $url="/shooting/".$categoryName->slug;
 ?>
 <div <?php post_class('entry entry-full clearfix') ?>>
 	<div class="entry-header">
-		<?php 
+		<?php
 		if(in_category("shot-show-2013")){
-			echo '<div class="primary-shot-show">'; 
-				echo '<a class="primary-cat" href="'.$url.'">'.$categoryName->name.'</a>'; 
-				echo '<div class="presented-by">Presented By</div>'; 
-					echo '<div class="sponsor-logo">'; 
-						echo '<a href="http://springfield-armory.com/" target="_blank"><img src="/wp-content/themes/imo-mags-gunsandammo/img/sausa.png" alt="Springfield Amory USA" title="Springfield Amory USA" /></a>'; 
-					echo '</div>'; 
-				echo '</div>'; 
+			echo '<div class="primary-shot-show">';
+				echo '<a class="primary-cat" href="'.$url.'">'.$categoryName->name.'</a>';
+				echo '<div class="presented-by">Presented By</div>';
+					echo '<div class="sponsor-logo">';
+						echo '<a href="http://springfield-armory.com/" target="_blank"><img src="/wp-content/themes/imo-mags-gunsandammo/img/sausa.png" alt="Springfield Amory USA" title="Springfield Amory USA" /></a>';
+					echo '</div>';
+				echo '</div>';
 		}else if(has_tag("nra-show")){ ?>
-			<div class="primary-shot-show nra-show">
-				<a class="primary-cat" href="/tag/nra-show">NRA Show</a>
-				<div class="presented-by">Presented By</div>
-				<div class="sponsor-logo">
-					<!-- Site - Guns and Ammo -->
-					<script type="text/javascript">
-					  var ord = window.ord || Math.floor(Math.random() * 1e16);
-					  document.write('<a href="http://ad.doubleclick.net/N4930/jump/imo.gunsandammo;sz=200x48;ord=' + ord + '?"><img src="http://ad.doubleclick.net/N4930/ad/imo.gunsandammo;sz=200x48;ord=' + ord + '?" width="200" height="48" /></a>');
-					</script>
-					<noscript>
-					<a href="http://ad.doubleclick.net/N4930/jump/imo.gunsandammo;sz=200x48;ord=[timestamp]?">
-					<img src="http://ad.doubleclick.net/N4930/ad/imo.gunsandammo;sz=200x48;ord=[timestamp]?" width="200" height="48" />
-					</a>
-					</noscript>
-				</div>
-			</div>
+		<div class="blog-headers shot-show nra-show">
+			<div class="blog-border"></div>
+			<h1>NRA SHOW 2013</h1>
+
+			<div class="presented-by">Presented By</div>
+			<div class="desc">G&A brings you all the guns, gear and politics from the floor of the 2013 NRA Annual Meetings in Houston, Texas.  </div>
+			<div class="sponsor-logo" style="">
+				<!-- Site - Guns and Ammo -->
+				<script type="text/javascript">
+				  var ord = window.ord || Math.floor(Math.random() * 1e16);
+				  document.write('<a href="http://ad.doubleclick.net/N4930/jump/imo.gunsandammo;sz=200x48;ord=' + ord + '?"><img src="http://ad.doubleclick.net/N4930/ad/imo.gunsandammo;sz=200x48;ord=' + ord + '?" width="200" height="48" /></a>');
+				</script>
+				<noscript>
+				<a href="http://ad.doubleclick.net/N4930/jump/imo.gunsandammo;sz=200x48;ord=[timestamp]?">
+				<img src="http://ad.doubleclick.net/N4930/ad/imo.gunsandammo;sz=200x48;ord=[timestamp]?" width="200" height="48" />
+				</a>
+				</noscript></div>
+		</div>
 		<?php }else{
-			echo '<a class="primary-cat" href="'.$url.'">'.$categoryName->name.'</a>'; 
-		} 
-		
+			echo '<a class="primary-cat" href="'.$url.'">'.$categoryName->name.'</a>';
+		}
+
 		// If we're not showing this particular single post page, link the title
 		$this_post_is_not_single = (!is_single(get_the_ID()));
 		if ($this_post_is_not_single) { ?>

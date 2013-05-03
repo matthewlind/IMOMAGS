@@ -1,6 +1,6 @@
 <?php
 /**
- * functions.php 
+ * functions.php
  */
 
 define("JETPACK_SITE", "gunsammo");
@@ -97,19 +97,19 @@ function get_id_by_slug($page_slug) {
 
 // Widget structure
 function ga_imo_addons_sidebar_init() {
-  
+
   register_nav_menus(array(
       'subnav' => __( 'Sub Navigation', 'carrington-business' ),
       'subnav-right' => __( 'Sub Navigation - Right', 'carrington-business' ),
   ));
-  
+
   $sidebar_defaults = array(
     'before_widget' => '<aside id="%1$s" class="widget %2$s">',
     'after_widget' => '</aside>',
     'before_title' => '<h3 class="widget-title"><span>',
     'after_title' => '</span></h3>'
   );
-  
+
   register_sidebar(array_merge($sidebar_defaults, array(
     'id' => 'sidebar-default',
     'name' => 'Blog Sidebar',
@@ -121,7 +121,7 @@ function ga_imo_addons_sidebar_init() {
       'name' => 'Homepage Trending Ad',
       'description' => 'Shown on the left of the trending section on the Homepage.',
   )));
-  
+
   register_sidebar(array_merge($sidebar_defaults, array(
       'id' => 'header-slot',
       'name' => 'Header Slot',
@@ -133,7 +133,7 @@ function ga_imo_addons_sidebar_init() {
       'name' => __('Homepage Sidebar', 'carrington-business'),
       'description' => __('Shown on the homepage.', 'carrington-business')
   )));
-  
+
   register_sidebar(array_merge($sidebar_defaults, array(
     'id' => 'secondary-home',
     'name' => __('Homepage Secondary', 'carrington-business'),
@@ -145,19 +145,19 @@ function ga_imo_addons_sidebar_init() {
       'name' => __('Video Sidebar', 'carrington-business'),
       'description' => __('Shown on video posts.', 'carrington-business')
   )));
-  
+
   register_sidebar(array_merge($sidebar_defaults, array(
       'id' => 'sidebar-gallery',
       'name' => __('Gallery Sidebar', 'carrington-business'),
       'description' => __('Sidebar for Gallery posts.', 'carrington-business')
   )));
-  
+
   register_sidebar(array_merge($sidebar_defaults, array(
       'id' => 'sidebar-articles',
       'name' => __('Article Sidebar', 'carrington-business'),
       'description' => __('Shown on article posts.', 'carrington-business')
   )));
-      
+
    register_sidebar(array_merge($sidebar_defaults, array(
       'id' => 'sidebar-digmag-article',
       'name' => __('DIGMAG Article Sidebar', 'carrington-business'),
@@ -169,7 +169,7 @@ function ga_imo_addons_sidebar_init() {
       'id'   => 'bonus_sidebar',
       'description'   => 'Appears on pages that use the Right Sidebar template',
   )));
-  
+
   register_sidebar(array_merge($sidebar_defaults, array(
   		'name' => 'Reviews Sidebar',
 		'id' => 'reviews-sidebar',
@@ -216,7 +216,7 @@ function ga_cfct_widgets_init() {
 		'id' => 'sidebar-news',
 		'name' => __('News Sidebar', 'carrington-business'),
 		'description' => __('Shown on news pages and archives.', 'carrington-business')
-	)));	
+	)));
 }
 add_action( 'widgets_init', 'ga_cfct_widgets_init' );
 
@@ -238,12 +238,12 @@ function mm_current_issue($atts, $content = null) {
 	extract(shortcode_atts(array(
     "" => ""
 	), $atts));
-	
+
 	$magazine_img = get_option("magazine_cover_uri", get_stylesheet_directory_uri(). "/img/magazine.png" );
   if (empty($magazine_img)) {
       $magazine_img = get_stylesheet_directory_uri(). "/img/magazine.png";
   }
-	
+
 	return '<div class="current-issue">
 	        <h3 class="month">'.date("F, Y").'</h3>
 	        <img src="'.$magazine_img.'" alt />
@@ -270,8 +270,8 @@ function my_scripts_method() {
     wp_enqueue_script( 'jquery' );
     wp_enqueue_script("cross-site-feed", get_stylesheet_directory_uri() . "/js/cross-site-feed.js");
     wp_enqueue_script("jquery-simplemodal", get_stylesheet_directory_uri() . "/js/jquery.simplemodal.1.4.2.min.js");
-}    
- 
+}
+
 add_action('wp_enqueue_scripts', 'my_scripts_method');
 
 
@@ -286,9 +286,9 @@ function imo_ga_json() {
     //manufacturer.json
     if (preg_match("/^\/manufacturer\.json(\?(.+)?)?$/", $_SERVER['REQUEST_URI'])) {
         header('Content-type: application/json');
-    
+
         if($_GET['guntype']){
-         
+
 
             $guntypeSlug = $_GET['guntype'];
 
@@ -305,8 +305,8 @@ function imo_ga_json() {
 
             $rows = $wpdb->get_results($sql);
 
-     
-  
+
+
             $parentTerm = get_term_by("slug",$parentSlug,"manufacturer");
 
 
@@ -319,25 +319,25 @@ function imo_ga_json() {
 
             $json = json_encode($terms);
             print $json;
-                
+
         }
 
 
         die();
 
-    }   
+    }
 
     //caliber.json
     if (preg_match("/^\/caliber\.json(\?(.+)?)?$/", $_SERVER['REQUEST_URI'])) {
         header('Content-type: application/json');
-    
+
         if($_GET['manufacturer']){
-         
+
 
             $parentSlug = $_GET['manufacturer'];
 
             $terms = array();
-  
+
             $parentTerm = get_term_by("slug",$parentSlug,"manufacturer");
 
             $id = $parentTerm->term_id;
@@ -350,13 +350,13 @@ function imo_ga_json() {
 
             $json = json_encode($terms);
             print $json;
-                
+
         }
 
 
         die();
 
-    }   
+    }
 
 
     //reviews.json
@@ -371,7 +371,7 @@ function imo_ga_json() {
 
         if($_GET['guntype']) {
             $args['guntype'] = $_GET['guntype'];
-        }        
+        }
 
         $query = new WP_Query( $args );
 
@@ -382,7 +382,7 @@ function imo_ga_json() {
 
 
             $review = array();
-            
+
             $review['title'] = get_the_title();
             $review['id'] = get_the_ID();
             $review['date'] = get_the_time('F jS, Y');
@@ -392,7 +392,7 @@ function imo_ga_json() {
             $review['imo_slider_thumb'] = get_the_post_thumbnail(null,"imo-slider-thumb", array('class' => 'entry-img'));
 
             $review['excerpt'] = get_the_excerpt();
-            
+
 
             $dataArray[] = $review;
         endwhile;
@@ -409,7 +409,7 @@ function imo_ga_json() {
 
          print $json;
         die();
-    } 
+    }
 
 
 }
@@ -462,37 +462,37 @@ add_action('posts_where','wpse_5057_match_multiple_taxonomy_terms',10,2); // Hoo
 
 // Add to admin_init function
 add_action('save_post', 'save_category_data', 50 );
- 
-function save_category_data($post_id) {  
+
+function save_category_data($post_id) {
     // verify this came from the our screen and with proper authorization.
     if ( !wp_verify_nonce( array($_POST['post_category[]']), $post_id )) {
         return $post_id;
     }
 
     // verify if this is an auto save routine. If it is our form has not been submitted, so we dont want to do anything
-    if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) 
+    if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE )
         return $post_id;
-     
+
     // Check permissions
     if ( !current_user_can( 'edit_post', $post_id ) )
         return $post_id;
-   
-       
-  
-    // OK, we're authenticated: we need to find and save the data   
+
+
+
+    // OK, we're authenticated: we need to find and save the data
     $post = get_post($post_id);
 
-    //if ($post->post_type == 'post') { 
+    //if ($post->post_type == 'post') {
         //update_post_meta($post_id, '_gallery_type', esc_attr($_POST['gallery_type']) );
                 //return(esc_attr($_POST['gallery_type']));
-     $terms = array($_POST['post_category[]']); 
+     $terms = array($_POST['post_category[]']);
      wp_set_post_categories($post_id, $terms);
     return(esc_attr($terms));
-        	
+
    // }
 
     return $post_id;
-   
+
 }
 
 
@@ -524,7 +524,7 @@ function custom_terms_checklist($post_id = 0, $args = array()) {
 	                'checked_ontop' => true
 	        );
 	        $args = apply_filters( 'custom_terms_checklist_args', $args, $post_id );
-	        
+
 	        //Convert the slugs to ids for the list
 	        $featured = get_term_by( 'slug', 'featured', 'category' );
 	        $galleries = get_term_by( 'slug', 'galleries', 'category' );
@@ -544,7 +544,7 @@ function custom_terms_checklist($post_id = 0, $args = array()) {
 	        $perspectives = get_term_by( 'slug', 'ga-perspectives', 'category' );
 	        $mots = get_term_by( 'slug', 'man-on-the-street', 'category' );
 	        //$shot_show = get_term_by( 'slug', 'shot-show-2013', 'category' );
-		        
+
 		    // Create the ID array
 		    $include = array(
 		    	$featured->term_id,$galleries->term_id,$ga_lists->term_id,$blogs->term_id,
@@ -552,47 +552,47 @@ function custom_terms_checklist($post_id = 0, $args = array()) {
 		        $soga->term_id,$front_lines->term_id,$zombie->term_id,$video->term_id,$gatv->term_id,
 		        $pdtv->term_id,$affiliates->term_id,$perspectives->term_id,$mots->term_id
 		    );
-		    
+
 	        extract( wp_parse_args($args, $defaults), EXTR_SKIP );
-	
+
 	        if ( empty($walker) || !is_a($walker, 'Walker') )
 	                $walker = new Walker_Category_Checklist;
-	
+
 	        $descendants_and_self = (int) $descendants_and_self;
-	
+
 	        $args = array('taxonomy' => $taxonomy);
-	
+
 	        $tax = get_taxonomy($taxonomy);
 	        $args['disabled'] = !current_user_can($tax->cap->assign_terms);
-	        
+
 	        if ( is_array( $selected_cats ) )
 	                $args['selected_cats'] = $selected_cats;
 	        elseif ( $post_id )
 	                $args['selected_cats'] = wp_get_object_terms($post_id, $taxonomy, array_merge($args, array('fields' => 'ids')));
 	        else
 	                $args['selected_cats'] = array();
-	
+
 	        if ( $descendants_and_self ) {
 	                $categories = (array) get_terms($taxonomy, array( 'child_of' => $descendants_and_self, 'hierarchical' => 0, 'hide_empty' => 0 ) );
 	                $self = get_term( $descendants_and_self, $taxonomy );
 	                array_unshift( $categories, $self );
 	        } else {
-	        	
+
 	        	    $categories = (array) get_terms($taxonomy, array( 'child_of' => $descendants_and_self, 'include' => $include, 'hide_empty' => 0 ));
 	        }
-	
+
 	        if ( $checked_ontop ) {
 	                // Post process $categories rather than adding an exclude to the get_terms() query to keep the query the same across all posts (for any query cache)
 	                $checked_categories = array();
 	                $keys = array_keys( $categories );
-	
+
 	                foreach( $keys as $k ) {
 	                        if ( in_array( $categories[$k]->term_id, $args['selected_cats'] ) ) {
 	                                $checked_categories[] = $categories[$k];
 	                                unset( $categories[$k] );
 	                        }
 	                }
-	
+
 	                // Put checked cats on top
 	                echo call_user_func_array(array(&$walker, 'walk'), array($checked_categories, 0, $args));
 	        }
@@ -627,9 +627,9 @@ function custom_post_categories_meta_box( $post, $box ) {
                 <?php custom_terms_checklist($post->ID, array( 'taxonomy' => $taxonomy, 'popular_cats' => $popular_ids ) ) ?>
             </ul>
         </div>
-         
+
     </div>
-    <?php 
+    <?php
 }
 
 
@@ -659,7 +659,7 @@ function custom_gun_terminology_checklist($post_id = 0, $args = array()) {
                 'checked_ontop' => true
         );
         $args = apply_filters( 'custom_gun_terminology_checklist_args', $args, $post_id );
-        
+
         //Convert the slugs to ids for the list
         $handguns = get_term_by( 'slug', 'handguns', 'category' );
         $nineteen_elevens = get_term_by( 'slug', '1911s', 'category' );
@@ -766,9 +766,9 @@ function custom_post_gun_terminology_meta_box( $post, $box ) {
                 <?php custom_gun_terminology_checklist($post->ID, array( 'taxonomy' => $taxonomy, 'popular_cats' => $popular_ids ) ) ?>
             </ul>
         </div>
-         
+
     </div>
-    <?php 
+    <?php
 }
 
 
@@ -795,7 +795,7 @@ function custom_topics_checklist($post_id = 0, $args = array()) {
 	                'checked_ontop' => true
 	        );
 	        $args = apply_filters( 'custom_topics_checklist_args', $args, $post_id );
-	        
+
 	        //Convert the slugs to ids for the list
 	        $reloading = get_term_by( 'slug', 'reloading', 'category' );
 	        $military = get_term_by( 'slug', 'military-law-enforcement', 'category' );
@@ -808,7 +808,7 @@ function custom_topics_checklist($post_id = 0, $args = array()) {
 	        $zombies = get_term_by( 'slug', 'zombies', 'category' );
 	        $competition = get_term_by( 'slug', 'competition', 'category' );
 		    $politics = get_term_by( 'slug', 'politics', 'category' );
-		        
+
 		    // Create the ID array
 		    $include = array(
 		    	$reloading->term_id,$military->term_id,$historical->term_id,$tactical->term_id,
@@ -817,17 +817,17 @@ function custom_topics_checklist($post_id = 0, $args = array()) {
 		    );
 
 	        extract( wp_parse_args($args, $defaults), EXTR_SKIP );
-	
+
 	        if ( empty($walker) || !is_a($walker, 'Walker') )
 	                $walker = new Walker_Category_Checklist;
-	
+
 	        $descendants_and_self = (int) $descendants_and_self;
-	
+
 	        $args = array('taxonomy' => $taxonomy);
-	
+
 	        $tax = get_taxonomy($taxonomy);
 	        $args['disabled'] = !current_user_can($tax->cap->assign_terms);
-	
+
 	        if ( is_array( $selected_cats ) )
 	                $args['selected_cats'] = $selected_cats;
 	        elseif ( $post_id )
@@ -842,19 +842,19 @@ function custom_topics_checklist($post_id = 0, $args = array()) {
 	        } else {
 	                $categories = (array) get_terms($taxonomy, array( 'child_of' => $descendants_and_self, 'include' => $include, 'hide_empty' => 0 ));
 	        }
-	
+
 	        if ( $checked_ontop ) {
 	                // Post process $categories rather than adding an exclude to the get_terms() query to keep the query the same across all posts (for any query cache)
 	                $checked_categories = array();
 	                $keys = array_keys( $categories );
-	
+
 	                foreach( $keys as $k ) {
 	                        if ( in_array( $categories[$k]->term_id, $args['selected_cats'] ) ) {
 	                                $checked_categories[] = $categories[$k];
 	                                unset( $categories[$k] );
 	                        }
 	                }
-	
+
 	                // Put checked cats on top
 	                echo call_user_func_array(array(&$walker, 'walk'), array($checked_categories, 0, $args));
 	        }
@@ -889,9 +889,9 @@ function custom_post_topics_meta_box( $post, $box ) {
                 <?php custom_topics_checklist($post->ID, array( 'taxonomy' => $taxonomy, 'popular_cats' => $popular_ids ) ) ?>
             </ul>
         </div>
-         
+
     </div>
-    <?php 
+    <?php
 }
 
 
@@ -916,29 +916,29 @@ function custom_ga_network_checklist($post_id = 0, $args = array()) {
 	                'checked_ontop' => true
 	        );
 	        $args = apply_filters( 'custom_ga_network_checklist_args', $args, $post_id );
-	        
+
 	        //Convert the slugs to ids for the list
 	        $guns= get_term_by( 'slug', 'the-guns-network', 'category' );
 	        $gear = get_term_by( 'slug', 'the-gear-network', 'category' );
 	        $survival = get_term_by( 'slug', 'survival-network', 'category' );
 	        $culture = get_term_by( 'slug', 'culture-politics-network', 'category' );
 	        $personal = get_term_by( 'slug', 'personal-defense-network', 'category' );
-		        
+
 		    // Create the ID array
 		    $include = array($guns->term_id,$gear->term_id,$survival->term_id,$culture->term_id,$personal->term_id);
 
 	        extract( wp_parse_args($args, $defaults), EXTR_SKIP );
-	
+
 	        if ( empty($walker) || !is_a($walker, 'Walker') )
 	                $walker = new Walker_Category_Checklist;
-	
+
 	        $descendants_and_self = (int) $descendants_and_self;
-	
+
 	        $args = array('taxonomy' => $taxonomy);
-	
+
 	        $tax = get_taxonomy($taxonomy);
 	        $args['disabled'] = !current_user_can($tax->cap->assign_terms);
-	
+
 	        if ( is_array( $selected_cats ) )
 	                $args['selected_cats'] = $selected_cats;
 	        elseif ( $post_id )
@@ -953,19 +953,19 @@ function custom_ga_network_checklist($post_id = 0, $args = array()) {
 	        } else {
 	                $categories = (array) get_terms($taxonomy, array( 'child_of' => $descendants_and_self, 'include' => $include, 'hide_empty' => 0 ));
 	        }
-	
+
 	        if ( $checked_ontop ) {
 	                // Post process $categories rather than adding an exclude to the get_terms() query to keep the query the same across all posts (for any query cache)
 	                $checked_categories = array();
 	                $keys = array_keys( $categories );
-	
+
 	                foreach( $keys as $k ) {
 	                        if ( in_array( $categories[$k]->term_id, $args['selected_cats'] ) ) {
 	                                $checked_categories[] = $categories[$k];
 	                                unset( $categories[$k] );
 	                        }
 	                }
-	
+
 	                // Put checked cats on top
 	                echo call_user_func_array(array(&$walker, 'walk'), array($checked_categories, 0, $args));
 	        }
@@ -1000,44 +1000,44 @@ function custom_post_ga_network_meta_box( $post, $box ) {
                 <?php custom_ga_network_checklist($post->ID, array( 'taxonomy' => $taxonomy, 'popular_cats' => $popular_ids ) ) ?>
             </ul>
         </div>
-         
+
     </div>
-    <?php 
+    <?php
 }
 
 // Primary Category Quick & Bulk edit functions
 // Add the Column to our admin_init function
 add_filter('manage_post_posts_columns', 'shiba_add_post_columns');
- 
+
 function shiba_add_post_columns($columns) {
     $columns['primary_set'] = 'Primary Category';
     return $columns;
 }
 // Add to our admin_init function
 add_action('manage_posts_custom_column', 'shiba_render_post_columns', 10, 2);
- 
+
 function shiba_render_post_columns($column_name, $id) {
     switch ($column_name) {
     case 'primary_set':
         $primary_id = get_post_meta( $id, '_category_permalink', TRUE);
-       
+
         $post_id = get_post_meta( 'post_id', '_category_permalink', TRUE);
         $primary = (array) get_term_by('id', $primary_id, 'category');
         $primary_name = $primary['name'];
 
         $primary_set = NULL;
-        
-        if ($primary_id) 
-            $primary_set = get_post($primary_id);        
-        if (!NULL) echo $primary_name; 
-        else echo 'None';             
+
+        if ($primary_id)
+            $primary_set = get_post($primary_id);
+        if (!NULL) echo $primary_name;
+        else echo 'None';
         break;
     }
 }
 /*
 // Add Quick edit to our admin_init function
 add_action('quick_edit_custom_box',  'shiba_add_quick_edit', 10, 2);
- 
+
 function shiba_add_quick_edit($column_name, $post_type) {
     if ($column_name != 'primary_set') return;
     ?>
@@ -1050,7 +1050,7 @@ function shiba_add_quick_edit($column_name, $post_type) {
         ?>
         <select name='post_primary_set' id='post_primary_set'>
             <option class='primary-option' value='0'>None</option>
-            <?php 
+            <?php
             foreach ($categories as $category) {
                 echo "<option class='primary-option' value='{$category->cat_ID}'>{$category->name}</option>\n";
             }
@@ -1058,17 +1058,17 @@ function shiba_add_quick_edit($column_name, $post_type) {
         </select>
     </div>
     </fieldset>
-    <?php   
+    <?php
 }
 
 // Add Save Quick edit to our admin_init function
 add_action('save_post', 'shiba_save_quick_edit_data');
- 
+
 function shiba_save_quick_edit_data($post_id) {
     // verify if this is an auto save routine. If it is our form has not been submitted, so we dont want
     // to do anything
-    if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) 
-        return $post_id;    
+    if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE )
+        return $post_id;
     // Check permissions
     if ( 'page' == $_POST['post_type'] ) {
         if ( !current_user_can( 'edit_page', $post_id ) )
@@ -1076,26 +1076,26 @@ function shiba_save_quick_edit_data($post_id) {
     } else {
         if ( !current_user_can( 'edit_post', $post_id ) )
         return $post_id;
-    }   
+    }
     // OK, we're authenticated: we need to find and save the data
     $post = get_post($post_id);
     if (isset($_POST['post_primary_set']) && ($post->post_type != 'revision')) {
         $post_primary_set = esc_attr($_POST['post_primary_set']);
        if($post_primary_set != 0){
-      		update_post_meta( $post_id, '_category_permalink', $post_primary_set ); 		      	
+      		update_post_meta( $post_id, '_category_permalink', $post_primary_set );
       	}else{
-      		delete_post_meta( $post_id, '_category_permalink' );     
+      		delete_post_meta( $post_id, '_category_permalink' );
       	}
-    }       
-    return $post_primary_set;  
+    }
+    return $post_primary_set;
 }
 // Add Javascript update / Quick edit to our admin_init function
 add_action('admin_footer', 'shiba_quick_edit_javascript');
- 
+
 function shiba_quick_edit_javascript() {
     global $current_screen;
-    if (($current_screen->id != 'edit-post') || ($current_screen->post_type != 'post')) return; 
-     
+    if (($current_screen->id != 'edit-post') || ($current_screen->post_type != 'post')) return;
+
     ?>
     <script type="text/javascript">
     <!--
@@ -1107,11 +1107,11 @@ function shiba_quick_edit_javascript() {
         nonceInput.value = nonce;
         // check option manually
         for (i = 0; i < primaryInput.options.length; i++) {
-            if (primaryInput.options[i].value == primarySet) { 
+            if (primaryInput.options[i].value == primarySet) {
                 primaryInput.options[i].setAttribute("selected", "selected");
             } else { primaryInput.options[i].removeAttribute("selected"); }
         }
-    
+
     }
     //-->
     </script>
@@ -1119,24 +1119,24 @@ function shiba_quick_edit_javascript() {
 }
 // Add to our admin_init function
 add_filter('post_row_actions', 'shiba_expand_quick_edit_link', 10, 50);
- 
+
 function shiba_expand_quick_edit_link($actions, $post) {
     global $current_screen;
-    if (($current_screen->id != 'edit-post') || ($current_screen->post_type != 'post')) return $actions; 
- 
+    if (($current_screen->id != 'edit-post') || ($current_screen->post_type != 'post')) return $actions;
+
     $nonce = wp_create_nonce( 'shiba_primary_set'.$post->ID);
-    $primary_id = get_post_meta( $post->ID, '_category_permalink', TRUE); 
+    $primary_id = get_post_meta( $post->ID, '_category_permalink', TRUE);
     $actions['inline hide-if-no-js'] = '<a href="#" class="editinline" title="';
     $actions['inline hide-if-no-js'] .= esc_attr( __( 'Edit this item inline' ) ) . '" ';
-    $actions['inline hide-if-no-js'] .= " onclick=\"set_inline_primary_set('{$primary_id}', '{$nonce}')\">"; 
+    $actions['inline hide-if-no-js'] .= " onclick=\"set_inline_primary_set('{$primary_id}', '{$nonce}')\">";
     $actions['inline hide-if-no-js'] .= __( 'Quick&nbsp;Edit' );
     $actions['inline hide-if-no-js'] .= '</a>';
-    return $actions;    
+    return $actions;
 }
 */
 // Add Bulk edit to our admin_init function
 add_action('bulk_edit_custom_box',  'shiba_add_bulk_edit', 10, 2);
- 
+
 function shiba_add_bulk_edit($column_name, $post_type) {
     if ($column_name != 'primary_set') return;
     ?>
@@ -1149,7 +1149,7 @@ function shiba_add_bulk_edit($column_name, $post_type) {
         ?>
         <select name='post_primary_set' id='post_primary_set'>
             <option class='primary-option' value='0'>None</option>
-            <?php 
+            <?php
             foreach ($categories as $category) {
                 echo "<option class='primary-option' value='{$category->cat_ID}'>{$category->name}</option>\n";
             }
@@ -1157,36 +1157,36 @@ function shiba_add_bulk_edit($column_name, $post_type) {
         </select>
     </div>
     </fieldset>
-    <?php   
+    <?php
 }
 
 // Add save Bulk edit to our admin_init function
 add_action('admin_footer', 'shiba_bulk_edit_javascript');
- 
+
 function shiba_bulk_edit_javascript() {
     global $current_screen;
-    if (($current_screen->id != 'edit-post') || ($current_screen->post_type != 'post')) return; 
-     
+    if (($current_screen->id != 'edit-post') || ($current_screen->post_type != 'post')) return;
+
     ?>
     <script type="text/javascript">
     jQuery(document).ready(function ($){
-    	
-    	
-    	
+
+
+
 		$( '#bulk_edit' ).live( 'click', function() {
-		
+
 		// define the bulk edit row
 		var $bulk_row = $( '#bulk-edit' );
-		
+
 		// get the selected post ids that are being edited
 		var $post_ids = new Array();
 		$bulk_row.find( '#bulk-titles' ).children().each( function() {
 		  $post_ids.push( $( this ).attr( 'id' ).replace( /^(ttle)/i, '' ) );
 		});
-		
+
 		// get the release date
 		var $post_primary_set = $bulk_row.find( '#post_primary_set' ).val();
-		
+
 		//Set the category to save along with it (fail safe for if the primary isn't already assigned to the post as a category
 		var $catVal = $(".category-checklist input#in-category-" + $post_primary_set).val();
 		if($catVal == $post_primary_set)	{
@@ -1203,11 +1203,11 @@ function shiba_bulk_edit_javascript() {
 		     action: 'shiba_save_bulk_edit', // this is the name of our WP AJAX function that we'll set up next
 		     post_ids: $post_ids, // and these are the 2 parameters we're passing to our function
 		 post_primary_set: $post_primary_set
-		 
+
 		  }
 		});
-		});	
-		
+		});
+
 });
     </script>
     <?php
@@ -1219,21 +1219,32 @@ function shiba_save_bulk_edit() {
    // get our variables
    $post_ids = ( isset( $_POST[ 'post_ids' ] ) && !empty( $_POST[ 'post_ids' ] ) ) ? $_POST[ 'post_ids' ] : array();
    $post_primary_set = ( isset( $_POST[ 'post_primary_set' ] )  ) ? $_POST[ 'post_primary_set' ] : NULL;
-   
+
    // if everything is in order
    if ( !empty( $post_ids ) && is_array( $post_ids )  ) {
       foreach( $post_ids as $post_id ) {
       	if($post_primary_set != 0){
-      		update_post_meta( $post_id, '_category_permalink', $post_primary_set ); 		      	
+      		update_post_meta( $post_id, '_category_permalink', $post_primary_set );
       	}else{
-      		delete_post_meta( $post_id, '_category_permalink' ); 		      	
+      		delete_post_meta( $post_id, '_category_permalink' );
       	}
-      }       
-    
+      }
+
     }
-  
+
 }
 
+
+
+//******************Modify query on NRA Show pages so that reviews are included***************************
+function nra_show_modify_main_query( $query ) {
+  if ( $query->query_vars['tag'] == "nra-show" ) { // Run only on the homepage
+  $query->query_vars['post_type'] = array("post","reviews");
+
+  }
+}
+// Hook my above function to the pre_get_posts action
+add_action( 'pre_get_posts', 'nra_show_modify_main_query' );
 
 
 
