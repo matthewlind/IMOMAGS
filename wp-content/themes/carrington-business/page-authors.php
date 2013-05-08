@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Template Name: Mobile Page
- * Description: An extremely simple page for mobile devices
+ * Template Name: Author Pages
+ * Description: A List of authors
  *
  * @package carrington-business
  *

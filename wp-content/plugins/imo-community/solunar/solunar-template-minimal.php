@@ -67,7 +67,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 <?php endif; ?>
 </head>
-<body <?php body_class(); ?>>
+<body class="ipad-solunar">
 
 <div class="page-community">
 
