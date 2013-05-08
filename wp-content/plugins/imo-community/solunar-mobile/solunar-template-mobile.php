@@ -20,7 +20,7 @@
 
     <link rel="stylesheet" href="wp-content/plugins/imo-community/solunar-mobile/css/styles.css">
 
-    <script type='text/javascript' src='http://www.in-fisherman.deva/wp-content/plugins/imo-community/solunar/js/googletag.js?ver=1.0'></script>
+    <script type='text/javascript' src='/wp-content/plugins/imo-community/solunar/js/googletag.js?ver=1.0'></script>
 </head>
 
 <body>
@@ -510,7 +510,7 @@
 <script src="wp-content/plugins/imo-community/solunar-mobile/js/plugins/ezMark/js/jquery.ezmark.min.js"></script>
 <link rel="stylesheet" href="wp-content/plugins/imo-community/solunar-mobile/js/plugins/zfselect/css/zfselect.css">
 <link rel="stylesheet" href="wp-content/plugins/imo-community/solunar-mobile/js/plugins/ezMark/css/ezmark.css">
-<script type='text/javascript' src='http://www.in-fisherman.deva/wp-content/plugins/imo-community/solunar/js/lodash.min.js?ver=1.0'></script>
+<script type='text/javascript' src='/wp-content/plugins/imo-community/solunar/js/lodash.min.js?ver=1.0'></script>
 <script src="wp-content/plugins/imo-community/solunar-mobile/js/helper.js"></script>
 <script src="wp-content/plugins/imo-community/solunar-mobile/js/script.js"></script>
 <script src="wp-content/plugins/imo-community/solunar-mobile/js/app.js"></script>
