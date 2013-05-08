@@ -333,7 +333,18 @@ function infish_community_init() {
 	/////////////////////////////////////////////////
 	/////////////////////////////////////////////////
 
+	//////////////////////////////////
+	//Mobile Solunar Calendar config
+	//////////////////////////////////
+	$IMO_COMMUNITY_CONFIG = NULL;
+	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "solunar-calendar-mobile";//This slug will override ANY setting in wordpress.
+	$IMO_COMMUNITY_CONFIG['page_title'] = 'Solunar Calendar';
+	$IMO_COMMUNITY_CONFIG['template'] = '/solunar-mobile/solunar-template-mobile.php';
+	$IMO_COMMUNITY_CONFIG['post_types'] = null;
 
+	global $IMO_COMMUNITY;
+	$IMO_COMMUNITY['solunar-calendar-mobile'] = $IMO_COMMUNITY_CONFIG;
+	/////////////////////////////////////////////////
 }
 
 

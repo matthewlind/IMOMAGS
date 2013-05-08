@@ -31,6 +31,8 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 <head>
     <meta http-equiv="content-type" content="<?php bloginfo('html_type') ?>; charset=<?php bloginfo('charset') ?>" />
 
+    <meta name="viewport" content="width=1005">
+
     <title><?php wp_title(''); ?></title>
 
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
