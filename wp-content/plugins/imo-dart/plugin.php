@@ -15,9 +15,10 @@ include_once("AdvertWidget.php");
  */
 function get_imo_dart_tag($size, $tile=1, $iframe=False, $override_params=array()) {
 
+
     $params = array_merge(_imo_dart_get_params($size, $tile), $override_params);
-    
-    
+
+
 
     if (!empty($params['camp'])) {
 
@@ -31,7 +32,7 @@ function get_imo_dart_tag($size, $tile=1, $iframe=False, $override_params=array(
     }
 
     $tag = _imo_dart_get_tag($iframe);
-    
+
 
     return _imo_dart_sprint_tag($params, $tag);
 }
@@ -231,8 +232,14 @@ function _imo_dart_get_params($size, $tile) {
 
             //If there is an ad campaign, add a key/value pair
 
-    
+    global $communityDartSect;
+    global $communityDartPage;
 
+
+    if (defined('COMMUNITY_DART_SECT'))
+        $params["sect"] = COMMUNITY_DART_SECT;
+    if (defined('COMMUNITY_DART_PAGE'))
+        $params["page"] = COMMUNITY_DART_PAGE;
 
     $mergedParams = array_merge(array_map("imo_dart_clean_tag", $params), $defaults);
 
@@ -247,7 +254,7 @@ function _imo_dart_get_params($size, $tile) {
         $mergedParams['manufacturer'] = imo_dart_clean_tag($manfSlug);
 
     }
-    
+
     $mergedParams['pos'] = "";
 
         return $mergedParams;

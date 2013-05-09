@@ -75,6 +75,8 @@ function infish_community_init() {
 	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "community";//This slug will override ANY setting in wordpress.
 	$IMO_COMMUNITY_CONFIG['page_title'] = 'In-Fisherman Community';
 	$IMO_COMMUNITY_CONFIG['template'] = '/templates/blank-template.php';
+	$IMO_COMMUNITY_CONFIG['dart_page'] = 'infish_community';
+	$IMO_COMMUNITY_CONFIG['dart_sect'] = 'infishcommunity';
 	$IMO_COMMUNITY_CONFIG['post_types'] = array(
 
 		"report" => array(
@@ -194,6 +196,8 @@ function infish_community_init() {
 	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "solunar-calendar-ipad";//This slug will override ANY setting in wordpress.
 	$IMO_COMMUNITY_CONFIG['page_title'] = 'Solunar Calendar';
 	$IMO_COMMUNITY_CONFIG['template'] = '/solunar/solunar-template-minimal.php';
+	$IMO_COMMUNITY_CONFIG['dart_page'] = 'solunar_calendar';
+	$IMO_COMMUNITY_CONFIG['dart_sect'] = 'solunarcalendar';
 	$IMO_COMMUNITY_CONFIG['post_types'] = null;
 	$IMO_COMMUNITY_CONFIG['additional_scripts'] = array(
 		array(
@@ -269,6 +273,8 @@ function infish_community_init() {
 	$IMO_COMMUNITY_CONFIG['page_title'] = 'Solunar Calendar';
 	$IMO_COMMUNITY_CONFIG['template'] = '/solunar/solunar-template.php';
 	$IMO_COMMUNITY_CONFIG['post_types'] = null;
+	$IMO_COMMUNITY_CONFIG['dart_page'] = 'solunar_calendar';
+	$IMO_COMMUNITY_CONFIG['dart_sect'] = 'solunarcalendar';
 	$IMO_COMMUNITY_CONFIG['additional_scripts'] = array(
 		array(
 			"script-name" => "jquery-mousewheel-zf",
@@ -301,8 +307,6 @@ function infish_community_init() {
 			"script-path" => "solunar/js/script.js",
 			"script-dependencies" => array('jquery','lodash','jquery-carousel-fred','jquery-zfselect','jquery-mousewheel-zf')
 		),
-
-
 
 	);
 
@@ -340,6 +344,8 @@ function infish_community_init() {
 	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "solunar-calendar-mobile";//This slug will override ANY setting in wordpress.
 	$IMO_COMMUNITY_CONFIG['page_title'] = 'Solunar Calendar';
 	$IMO_COMMUNITY_CONFIG['template'] = '/solunar-mobile/solunar-template-mobile.php';
+	$IMO_COMMUNITY_CONFIG['dart_page'] = 'solunar_calendar';
+	$IMO_COMMUNITY_CONFIG['dart_sect'] = 'solunarcalendar';
 	$IMO_COMMUNITY_CONFIG['post_types'] = null;
 
 	global $IMO_COMMUNITY;

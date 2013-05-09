@@ -11,6 +11,8 @@
 add_action('template_redirect', 'imo_community_template');
 add_filter( 'wp_title', 'imo_community_set_title', 0, 3 );
 
+
+
 function imo_community_template() {
 
 	global $IMO_COMMUNITY;
@@ -41,6 +43,11 @@ function imo_community_template() {
 				wp_enqueue_style($style['style-name'], plugins_url( $style['style-path'], __FILE__), $style['style-dependencies'] );
 
 			}
+
+
+			//Make Certain variables available to dart.
+			define("COMMUNITY_DART_SECT",$IMO_COMMUNITY_CONFIG['dart_sect']);
+			define("COMMUNITY_DART_PAGE",$IMO_COMMUNITY_CONFIG['dart_page']);
 
 			//Use wp_localize_script to make these settings available to Javascript
 			//Erase some of the settings so that there isn't too much stuff
