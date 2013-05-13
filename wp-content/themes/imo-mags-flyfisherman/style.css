@@ -1,4 +1,4 @@
-/** 
+/**
  * Theme Name: IMO Mags - Fly Fisherman
  * Theme URI: http://imomags.com/flyfisherman
  * Description: A FlyFisherman theme for the IMO Mags site.
@@ -21,86 +21,11 @@
  * **********************************************************************
  * This program is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * **********************************************************************
  *
  */
-#cabelas-essentials { 
-	border-bottom: 1px solid #ccc;
-	margin-bottom: 30px; 
-}
-#cabelas-essentials .cabelas-header{
-	border-bottom: 1px #ccc solid;
-	height: 40px;
-	margin-bottom: 6px;
-	text-transform: uppercase;
-}
-#cabelas-essentials .cabelas-header h2{
-	line-height: 0.9;
-}
-#cabelas-essentials .cabelas-header h2, #cabelas-essentials .cabelas-header .cabelas-logo{
-	float: left;
-}
-#cabelas-essentials .cabelas-more{
-	float: right;
-	margin-top: 20px;
-	cursor: pointer;
-}
-#cabelas-essentials .scroll_mask {
-  position:relative;
-  overflow:hidden;
-  width:564px;
-  height:252px;
-  margin: 0 auto;
-}
 
-#cabelas-essentials ul.scroll {
-  margin:0;
-  padding:0;
-  position:absolute;
-  width:9999em;
-  list-style-type:none;
-}
-
-#cabelas-essentials ul.scroll li {
-  float:left;
-  margin: 0;
-  width: 188px;
-}
-#cabelas-essentials ul.scroll li{
-	text-align: center;
-}
-
-#cabelas-essentials .next{float: right;background: url("img/button_next.png") left center no-repeat;right: 0px;}
-#cabelas-essentials .prev{float: left;background: url("img/button_prev.png") left center no-repeat;left:0;}
-
-
-#cabelas-essentials a.prev,
-#cabelas-essentials a.next {
-  width: 40px;
-  height: 40px;
-  overflow: hidden;
-  text-indent: -999em;
-  cursor: pointer;
-  margin: -156px 0 0 0;
-  position: absolute;
-}
-#cabelas-essentials a.prev:hover,
-#cabelas-essentials a.next:hover {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
-  opacity: 0.9;
-}
-#cabelas-essentials a.prev:active,
-#cabelas-essentials a.next:active {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
-  opacity: 0.6;
-}
-#cabelas-essentials a.prev.inactive,
-#cabelas-essentials a.next.inactive {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=10);
-  opacity: 0.1;
-  cursor: arrow;
-}
 
 a {
 	color: #907E61;
@@ -110,8 +35,8 @@ html {
 	background: #DCE9EB;
 }
 
-/*PAGE LAYOUT MODS*/
- 
+
+
 .str-container {
 	margin: 0 auto;
 	width: 1020px;
@@ -204,7 +129,7 @@ position: relative;
 	text-indent: -9999em;
 }
 #header {
-	
+
 	border-color: #CCC;
 	border-width: 0px;
 	border-style: solid;
@@ -215,7 +140,7 @@ position: relative;
 
 #header .site-title {
 	margin: 0 0 12px 0px;
-	padding-top: 20px; 
+	padding-top: 20px;
 }
 
 nav.nav-main, nav.nav-featured {
@@ -342,12 +267,12 @@ body {
 	font-size: 20px;
 	font-family: 'Arvo', arial, serif;
 	text-transform: uppercase;
-	
+
 }
 
 .cfct-module .cfct-mod-title a, .widget .widget-title a {
 	color: #72171B;
-	
+
 }
 
 .car-pagination .cfct-carousel-prev, .car-pagination .cfct-carousel-next {
@@ -387,7 +312,7 @@ body {
 
 .car-pagination ol li a {
 	background: url(img/carousel-sprite.png) 0 0 no-repeat;
-	
+
 }
 
 
