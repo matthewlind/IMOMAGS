@@ -12,7 +12,7 @@
  * **********************************************************************
  * This program is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * **********************************************************************
  */
 
@@ -40,8 +40,8 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 			<span class="spacer">&bull;</span>
             <?php endif; ?>
 			<abbr class="published" title="<?php the_time('Y-m-d\TH:i'); ?>"><?php the_time('F j, Y'); ?></abbr>
-			
-			
+
+
 			<?php
 			//if ($this_post_is_not_single) {
 				echo ' <span class="spacer">&bull;</span> ';
@@ -60,7 +60,24 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 		the_content(__('Continued&hellip;', 'carrington-business'));
 		?>
 	</div>
+
+
+
+
 	<?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
+
+<!-- Fishing -->
+<script type="text/javascript">
+  var ord = window.ord || Math.floor(Math.random() * 1e16);
+  document.write('<script type="text/javascript" src="http://ad.doubleclick.net/N4930/adj/Fishing;sz=564x252;ord=' + ord + '?"><\/script>');
+</script>
+<noscript>
+<a href="http://ad.doubleclick.net/N4930/jump/Fishing;sz=564x252;ord=[timestamp]?">
+<img src="http://ad.doubleclick.net/N4930/ad/Fishing;sz=564x252;ord=[timestamp]?" width="564" height="252" />
+</a>
+</noscript>
+
+
 	<div class="entry-footer">
 		<?php _e('In', 'carrington-business'); ?>
 		<?php

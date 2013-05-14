@@ -88,13 +88,14 @@ $url="/category/".$categoryName->slug;
 
 
 	<?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
+<!-- Fishing -->
 <script type="text/javascript">
   var ord = window.ord || Math.floor(Math.random() * 1e16);
-  document.write('<script type="text/javascript" src="http://ad.doubleclick.net/N4930/adj/imo.in-fisherman;sz=564x252;ord=' + ord + '?"><\/script>');
+  document.write('<script type="text/javascript" src="http://ad.doubleclick.net/N4930/adj/Fishing;sz=564x252;ord=' + ord + '?"><\/script>');
 </script>
 <noscript>
-<a href="http://ad.doubleclick.net/N4930/jump/imo.in-fisherman;sz=564x252;ord=[timestamp]?">
-<img src="http://ad.doubleclick.net/N4930/ad/imo.in-fisherman;sz=564x252;ord=[timestamp]?" width="630" height="320" />
+<a href="http://ad.doubleclick.net/N4930/jump/Fishing;sz=564x252;ord=[timestamp]?">
+<img src="http://ad.doubleclick.net/N4930/ad/Fishing;sz=564x252;ord=[timestamp]?" width="564" height="252" />
 </a>
 </noscript>
 

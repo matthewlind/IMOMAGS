@@ -24,25 +24,22 @@ function wp_embed_handler_brightcove ( $matches, $attr, $url, $rawattr ) {
     $width = 620;
     $height = 349;
 
-    // videoid should be alpha numeric. remove all and any non numbers from the string. 
+    // videoid should be alpha numeric. remove all and any non numbers from the string.
     // we don't want to use an int conversion, becuase ids are very large and will overflow.
     $videoid = preg_replace('/[^0-9]/', '', esc_attr($matches[1]));
     global $the_ID;
     $video_link = !empty($the_ID) ? get_permalink($the_ID) :  site_url() . $_SERVER['REQUEST_URI'];
-    
-    
+
+
     $adServerURL = "http://ad.doubleclick.net/pfadx/" .  get_option("dart_domain", _imo_dart_guess_domain())  ."/video";
-	
-	
+
+
     $output = '<!-- Start of Brightcove Player -->
 
-<div style="display:none">
-Plays videos on our IMO Mags website 
-</div>
 
 <!--
-By use of this code snippet, I agree to the Brightcove Publisher T and C 
-found at https://accounts.brightcove.com/en/terms-and-conditions/. 
+By use of this code snippet, I agree to the Brightcove Publisher T and C
+found at https://accounts.brightcove.com/en/terms-and-conditions/.
 -->
 
 <script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
@@ -60,10 +57,10 @@ found at https://accounts.brightcove.com/en/terms-and-conditions/.
   <param name="@videoPlayer" value="%3$s" />
   <param name="media_delivery" value="http" />
   <param name="adServerURL" value="%8$s" />
-  
+
 </object>
 
-<!-- 
+<!--
 This script tag will cause the Brightcove Players defined above it to be created as soon
 as the line is read by the browser. If you wish to have the player instantiated only after
 the rest of the HTML is processed and the page load is complete, remove the line.
@@ -72,8 +69,8 @@ the rest of the HTML is processed and the page load is complete, remove the line
 
 <!-- End of Brightcove Player -->';
 
-	
-	
+
+
 
     $embed = sprintf( $output,
          get_option("bc_player_id", _BC_DEFAULT_PLAYER_ID ),
@@ -82,7 +79,7 @@ the rest of the HTML is processed and the page load is complete, remove the line
         $width,
         $height,
         get_option("bc_player_key", _BC_DEFAULT_PLAYER_KEY),
-        
+
         $video_link,
 	$adServerURL
     );
@@ -98,25 +95,25 @@ function wp_embed_handler_brightcove_mobile ( $matches, $attr, $url, $rawattr ) 
     $width = 300;
     $height = 169;
 
-    // videoid should be alpha numeric. remove all and any non numbers from the string. 
+    // videoid should be alpha numeric. remove all and any non numbers from the string.
     // we don't want to use an int conversion, becuase ids are very large and will overflow.
     $videoid = preg_replace('/[^0-9]/', '', esc_attr($matches[1]));
     global $the_ID;
     $video_link = !empty($the_ID) ? get_permalink($the_ID) :  site_url() . $_SERVER['REQUEST_URI'];
-    
-    
+
+
     $adServerURL = "http://ad.doubleclick.net/pfadx/" .  get_option("dart_domain", _imo_dart_guess_domain())  ."/video";
-	
-	
+
+
     $output = '<!-- Start of Brightcove Player -->
 
 <div style="display:none">
-Plays videos on our IMO Mags website 
+Plays videos on our IMO Mags website
 </div>
 
 <!--
-By use of this code snippet, I agree to the Brightcove Publisher T and C 
-found at https://accounts.brightcove.com/en/terms-and-conditions/. 
+By use of this code snippet, I agree to the Brightcove Publisher T and C
+found at https://accounts.brightcove.com/en/terms-and-conditions/.
 -->
 
 <script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
@@ -134,10 +131,10 @@ found at https://accounts.brightcove.com/en/terms-and-conditions/.
   <param name="@videoPlayer" value="%3$s" />
   <param name="media_delivery" value="http" />
   <param name="adServerURL" value="%8$s" />
-  
+
 </object>
 
-<!-- 
+<!--
 This script tag will cause the Brightcove Players defined above it to be created as soon
 as the line is read by the browser. If you wish to have the player instantiated only after
 the rest of the HTML is processed and the page load is complete, remove the line.
@@ -146,8 +143,8 @@ the rest of the HTML is processed and the page load is complete, remove the line
 
 <!-- End of Brightcove Player -->';
 
-	
-	
+
+
 
     $embed = sprintf( $output,
          get_option("bc_player_id", _BC_DEFAULT_PLAYER_ID ),
@@ -156,7 +153,7 @@ the rest of the HTML is processed and the page load is complete, remove the line
         $width,
         $height,
         get_option("bc_player_key", _BC_DEFAULT_PLAYER_KEY),
-        
+
         $video_link,
 	$adServerURL
     );
@@ -192,7 +189,7 @@ wp_embed_register_handler( "brightcovemobile", '#http://brightcovemobile=([^]]*)
 
 /******************************************************************************************
  * Administration Menus
- * Adds a bc_player_id setting to the General Options page in the admin_menu, allowing for 
+ * Adds a bc_player_id setting to the General Options page in the admin_menu, allowing for
  * overriding the inferred domain tag.
  ******************************************************************************************/
 

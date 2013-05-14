@@ -14,9 +14,28 @@ $app->get('/products', function () {
 	//Overwrite the default settings with the new ones
 	extract($params,EXTR_OVERWRITE);
 
+	$site = $_SERVER['SERVER_NAME'];
+
+	if (strstr($site,"in-fisherman")) {
+
+	}
+
 
 	//sanitize inputs
 	if (!empty($slug) && preg_match("/^[0-9a-z-,]{1,42}$/", $slug)) {
+
+
+		//Set default inputs for certain sites:
+		if (strstr($site,"in-fisherman") && !strstr($slug,"bass")) {
+			$slug = "fresh-water,freshwater";
+		}
+		if (strstr($site,"flyfisherman")) {
+			$slug = "flyfishing";
+		}
+		if (strstr($site,"floridasportsman")) {
+			$slug = "saltwater";
+		}
+
 
 		$slugParts = explode(",",$slug);
 		$slugArrayString = "";
@@ -32,6 +51,9 @@ $app->get('/products', function () {
 
 
 	}
+
+
+
 
 
 	$db = dbConnect();
@@ -131,7 +153,9 @@ $app->post('/products',function() {
 	    exit();
 	}
 
-	$sql = "INSERT into cabelas_products (product_name,product_url,product_img,slug,weight) VALUES ('$product_name','$product_url','$product_img','$slug','$weight')";
+
+
+	$sql = "INSERT into cabelas_products (product_name,product_url,product_img,slug,weight) VALUES (\"$product_name\",'$product_url','$product_img','$slug','$weight')";
 		echo $sql;
 	$db = dbConnect();
 	$stmt = $db->prepare($sql);
@@ -171,7 +195,9 @@ $app->put('/products/:id', function ($id) {
 	    exit();
 	}
 
-	$sql = "REPLACE into cabelas_products (id,product_name,product_url,product_img,slug,weight) VALUES ('$id','$product_name','$product_url','$product_img','$slug','$weight')";
+
+
+	$sql = "REPLACE into cabelas_products (id,product_name,product_url,product_img,slug,weight) VALUES ('$id',\"$product_name\",'$product_url','$product_img','$slug','$weight')";
 		echo $sql;
 	$db = dbConnect();
 	$stmt = $db->prepare($sql);
