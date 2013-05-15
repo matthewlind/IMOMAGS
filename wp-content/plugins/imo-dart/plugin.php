@@ -87,7 +87,7 @@ function _imo_dart_get_params($size, $tile) {
     // for referecee
     $sizes = array(
         "box-ad" => "300x250", "skyscraper" => "160x600", "leaderboard" => "728x90",
-        "rectangle" => "180x150", "wide-skyscraper" => "300x600", "button2" => "120x60",
+        "rectangle" => "180x150", "wide-skyscraper" => "300x600", "button2" => "120x60","product-widget" => "564x252"
     );
     if ( !in_array($size, $sizes)) {
         $size = "300x250";

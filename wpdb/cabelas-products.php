@@ -22,7 +22,9 @@ $app->get('/products', function () {
 
 
 	//sanitize inputs
-	if (!empty($slug) && preg_match("/^[0-9a-z-,]{1,42}$/", $slug)) {
+	if (!empty($slug) && preg_match("/^[0-9a-z-,]{1,152}$/", $slug)) {
+
+
 
 
 		//Set default inputs for certain sites:
@@ -35,6 +37,15 @@ $app->get('/products', function () {
 		if (strstr($site,"floridasportsman")) {
 			$slug = "saltwater";
 		}
+
+		if (strstr($slug,"bass")) {
+			$slug = "bass";
+		}
+
+		if (strstr($site,"gameandfish") && !strstr($slug,"bass") && !strstr($slug,"flyfishing") && !strstr($slug,"saltwater")){
+			$slug = "fresh-water,freshwater";
+		}
+
 
 
 		$slugParts = explode(",",$slug);
