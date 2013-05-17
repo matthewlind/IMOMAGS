@@ -651,3 +651,53 @@ p.state-name{
 .state-list ul li a:hover{
 	color: black !important;
 }
+
+
+/*** Cabela's IIYN ***/
+.category-thanks-dad-iiyn #masthead{
+	background: url("img/iiyn-thanks.jpg") no-repeat center top;
+	width: 1022px;
+	height: 488px;
+	padding: 0;
+	border: none;
+}
+.category-thanks-dad-iiyn h2{
+	font-family: 'Arvo', arial, serif;
+	font-weight: normal;
+}
+.iiyn-entry-page #masthead{
+	background: url("img/iiyn-entry.jpg") no-repeat center top;
+	width: 1022px;
+	height: 488px;
+	padding: 0;
+	border: none;
+}
+
+.category-thanks-dad-iiyn #masthead h1, .iiyn-entry-page #masthead h1{
+	position: absolute;
+	left: -9999px;
+	height: 0px;
+}
+.iiyn{
+	width: 100%;
+	border-bottom: solid 1px #999;
+	overflow: hidden;
+	padding: 10px 0;
+}
+.iiyn-title{
+	font-size: 18px;
+}
+.iiyn-name{
+	font-weight: 600;
+	font-size: 14px;
+	margin: 0;
+}
+.iiyn-thumb{
+	float: left;
+}
+.iiyn-thumb img{
+	padding: 10px 20px 0 0;
+}
+.iiyn p{
+	font-size: 14px;
+}

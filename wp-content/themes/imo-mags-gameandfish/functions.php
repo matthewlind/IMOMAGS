@@ -39,6 +39,11 @@ function gf_widgets_init() {
 		'name' => __('News Sidebar', 'carrington-business'),
 		'description' => __('Shown on news pages and archives.', 'carrington-business')
 	)));
+	register_sidebar(array_merge($sidebar_defaults, array(
+		'id' => 'sidebar-iiyn',
+		'name' => __('IIYN Sidebar', 'carrington-business'),
+		'description' => __('Shown on Its in your Nature contests', 'carrington-business')
+	)));
 	
 	// Modify args for footer
 	$footer_defaults = array_merge($sidebar_defaults, array(

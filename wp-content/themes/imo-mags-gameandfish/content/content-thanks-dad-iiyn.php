@@ -35,18 +35,13 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 		}
 		?>
 		<div class="entry-info">
-            <?php if (! in_category("What's Biting Now")): ?>
-			<span class="author vcard"><span class="fn">by <?php the_author(); ?></span></span>
-			<span class="spacer">&bull;</span>
-            <?php endif; ?>
+
 			<abbr class="published" title="<?php the_time('Y-m-d\TH:i'); ?>"><?php the_time('F j, Y'); ?></abbr>
 
 
 			<?php
-			//if ($this_post_is_not_single) {
 				echo ' <span class="spacer">&bull;</span> ';
 				comments_popup_link(__('No comments', 'carrington-business'), __('1 comment', 'carrington-business'), __('% comments', 'carrington-business'));
-			//}
 			?>
 		</div>
 	</div>
