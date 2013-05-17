@@ -1,4 +1,4 @@
-/** 
+/**
  * Theme Name: IMO Mags - Game & Fish
  * Theme URI: http://imomags.com/gameandfish
  * Description: A skin for Game & Fish' imomags.com page
@@ -21,7 +21,7 @@
  * **********************************************************************
  * This program is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * **********************************************************************
  *
  */
@@ -41,7 +41,7 @@ a:hover {
 
 
 /*PAGE LAYOUT MODS*/
- 
+
 .str-container {
 	margin: 0 auto;
 	width: 1020px;
@@ -148,7 +148,7 @@ position: relative;
 
 #header .site-title {
 	margin: 0 0 12px 30px;
-	padding-top: 20px; 
+	padding-top: 20px;
 }
 
 nav.nav-main, nav.nav-featured {
@@ -281,7 +281,7 @@ body {
 
 .car-pagination ol li a {
 	background: url(img/carousel-sprite.png) 0 0 no-repeat;
-	
+
 }
 
 
@@ -301,7 +301,7 @@ body {
 
 .cfct-module-loop .cfct-mod-content .entry .entry-title, .cfct-module-loop-subpages .cfct-mod-content .entry .entry-title {
 	font-size: 28px;
-	
+
 }
 
 .entry .entry-footer {
@@ -336,7 +336,7 @@ body {
 	margin: 0 0 4px 0;
 	color: #F78100;
 }
-#header-sub p.title { 
+#header-sub p.title {
     color: #cccccc;
 }
 
@@ -360,13 +360,13 @@ nav.nav li ul {
 	box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
 }
 nav.nav a {
-	
+
 }
 
 #megaMenu ul.megaMenu {
 	background: url(img/my-nav-bg.png) repeat-x;
 	border:0px solid #222;
-	
+
 }
 #megaMenu.megaMenuHorizontal ul.megaMenu {
 	width: 1000px !important;
@@ -394,11 +394,11 @@ padding: 0 0px 0 20px;
 #megaMenu ul.megaMenu > li:hover > a, #megaMenu ul.megaMenu > li > a:hover, #megaMenu ul.megaMenu > li.megaHover > a{
 	color:#fcc206;
 }
-#megaMenu ul.megaMenu > li:hover > a, 
+#megaMenu ul.megaMenu > li:hover > a,
 #megaMenu ul.megaMenu > li.megaHover > a{
 	border-color:transparent;
 }
-#megaMenu ul.megaMenu > li.ss-nav-menu-mega > ul.sub-menu-1, 
+#megaMenu ul.megaMenu > li.ss-nav-menu-mega > ul.sub-menu-1,
 #megaMenu ul.megaMenu li.ss-nav-menu-reg ul.sub-menu{
 	border-color:#000;
 	color:#777;
@@ -426,8 +426,8 @@ padding: 0 0px 0 20px;
 	font-size:14px;
 	text-shadow:0px 1px 1px #fff;
 }
-#megaMenu ul li.ss-nav-menu-mega ul.sub-menu-1 > li > a, 
-#megaMenu ul li.ss-nav-menu-mega ul.sub-menu-1 > li:hover > a, 
+#megaMenu ul li.ss-nav-menu-mega ul.sub-menu-1 > li > a,
+#megaMenu ul li.ss-nav-menu-mega ul.sub-menu-1 > li:hover > a,
 #megaMenu ul li.ss-nav-menu-mega ul ul.sub-menu .ss-nav-menu-header > a,
 .wpmega-widgetarea h2.widgettitle{
 	color:#222;
@@ -491,7 +491,7 @@ padding: 0 0px 0 20px;
 
 
 ul li.uber-query {
-	
+
 }
 
 /**Featured Module mods**/
@@ -511,7 +511,7 @@ ul.linklist li {
 
 #featured_slideshow_mask h2.title a, ul.withpic li h3 a, ul.linklist li a {
 	color: #000;
-	
+
 }
 
 
@@ -525,7 +525,7 @@ ul.linklist li {
 		#6b6b6b 0%,
 		#000000);
 	background: -webkit-gradient(
-		linear, left top, left bottom, 
+		linear, left top, left bottom,
 		from(#6b6b6b),
 		to(#000000));
 	border-radius: 5px;
@@ -543,7 +543,7 @@ ul.linklist li {
 		0px 1px 0px rgba(255,255,255,0.3);
 		font-size: 1em;
   		cursor: pointer;
-  		
+
 }
 h2.share{
 	font-family: 'Gudea', sans-serif;
@@ -638,7 +638,7 @@ p.state-name{
 }
 .state-list ul{
 	width: 140px !important;
-} 
+}
 .state-list ul li{
 	font-weight: bold;
 	color: black;
@@ -701,3 +701,8 @@ p.state-name{
 .iiyn p{
 	font-size: 14px;
 }
+
+.page-template-iiyn-page-php div.page {
+	width:670px;
+}
+

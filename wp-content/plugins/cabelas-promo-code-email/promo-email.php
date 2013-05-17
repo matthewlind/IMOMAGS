@@ -30,11 +30,9 @@ include 'Barcode39.php';
 	 	$entryName = $entry["1.3"];
 
 	 	$entryFullName = $entry["1.3"] . " " . $entry["1.6"];
-	 	$firstLastInitial = $entry["1.3"]. " " .substr($entry["1.6"], 0,1);
-	 	
 	 	$postID = $entry['post_id'];
 
-	 	add_post_meta($postID,"cabelas_entry_full_name",$firstLastInitial);
+	 	add_post_meta($postID,"cabelas_entry_full_name",$entryFullName);
 
 	 	$subject = "Your Cabela's $20 Off Coupon";
 
@@ -48,7 +46,7 @@ include 'Barcode39.php';
 
 
 
-	 	$postmark = new Postmark("2338c32a-e4b3-4a36-a6a6-6ff501f4f614","community@intermediaoutdoors.com");
+	 	$postmark = new Postmark("2338c32a-e4b3-4a36-a6a6-6ff501f4f614","no-reply@gameandfishmag.com");
 
 	 	$result = $postmark->to($entryEmail)
 			->subject($subject)
@@ -92,7 +90,7 @@ function generateBarCodeAndGetURL($code) {
 	// save barcode GIF file
 	$bc->draw($filepath);
 
-	$url = "http://www.gunsandammo.deva/wp-content/cache/barcode/" . $code . ".gif";
+	$url = "http://www.gameandfishmag.com/wp-content/cache/barcode/" . $code . ".gif";
 
 
 
