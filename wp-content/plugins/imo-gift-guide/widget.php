@@ -131,7 +131,7 @@ class GiftGuideWidget extends \WP_Widget {
 			<p><label for="<?php echo $this->get_field_id('title'); ?>">Holiday Title: <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo attribute_escape($title); ?>" /></label></p>
 			
 			<p>Ad Campaign:
-			<?php $terms = get_terms( 'campaign', 'orderby=count' ); ?>
+			<?php $terms = get_terms( 'campaign', 'orderby=count&hide_empty=0' ); ?>
 				<select id="<?php echo $this->get_field_id('camp'); ?>" name="<?php echo $this->get_field_name('camp'); ?>" class="widefat" style="width:100%;">
 				    <?php 
 
