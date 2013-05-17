@@ -151,7 +151,7 @@ $HTML = <<< EEE87fhhiuasdf
 <!-- Callout Panel -->
 
 <p class="callout" align="center" style="margin: 0;padding: 15px;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;margin-bottom: 15px;font-weight: normal;font-size: 14px;line-height: 1.6;background-color: #f3f3f3;">
-			Please enjoy this coupon for $20 off your next $150 purchase! <a href="http://www.cabelas.com" style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;color: #52a2bc;font-weight: bold;">Shop Now! &raquo;</a>
+			Please enjoy this coupon for $20 off your next $150 purchase! <br><a href="http://www.cabelas.com" style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;color: #52a2bc;font-weight: bold;">Shop Now! &raquo;</a>
 						</p>
 <!-- /Callout Panel -->
 						<p class="lead" style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 17px;line-height: 1.6;"></p>
