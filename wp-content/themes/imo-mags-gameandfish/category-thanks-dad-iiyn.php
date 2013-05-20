@@ -60,7 +60,7 @@ get_header(); ?>
 				echo '<div class="iiyn-thumb">' . get_the_post_thumbnail() . '</div>';
 			}
 			echo '<h4 class="iiyn-title">' . get_the_title() . '</h4>';
-			echo '<h6 class="iiyn-name">' . get_post_meta($postID,"cabelas_entry_full_name",true) . '</h6>';
+			echo '<h6 class="iiyn-name">' . get_post_meta($postID,"cabelas_entry_full_name",true) . ' &#8226; <span>' . get_post_meta($postID,"cabelas_entry_location",true) . '</span></h6>';
 			echo '<p>' . the_content() . '</p>';
 		echo '</div>';
 	endwhile;
