@@ -40,9 +40,9 @@ function gf_widgets_init() {
 		'description' => __('Shown on news pages and archives.', 'carrington-business')
 	)));
 	register_sidebar(array_merge($sidebar_defaults, array(
-		'id' => 'sidebar-iiyn',
-		'name' => __('IIYN Sidebar', 'carrington-business'),
-		'description' => __('Shown on Its in your Nature contests', 'carrington-business')
+		'id' => 'sidebar-sweeps',
+		'name' => __('Sweeps Sidebar', 'carrington-business'),
+		'description' => __('Shown on sweeps pages', 'carrington-business')
 	)));
 	
 	// Modify args for footer
