@@ -165,7 +165,7 @@ $HTML = <<< EEE87fhhiuasdf
 						<p style="margin: 0;padding: 0;font-family: &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 14px;line-height: 1.6;">
 
 
-							<table border=0 style="width:100%"><tr><td style="font-size: 22px;text-align:left;padding-left:20px">  Cabela's # $cabbuck<td><td style="text-align:right;font-size: 22px;font-weight:bold">$20 of $150</td><tr></table>
+							<table border=0 style="width:100%"><tr><td style="font-size: 22px;text-align:left;padding-left:20px">  Cabela's Buck Rebate #$cabbuck<td><td style="text-align:right;font-size: 22px;font-weight:bold">$20 of $150</td><tr></table>
 
 							<img src="$barcodeURL" style="padding-top:10px;">
 							<p style="font-size: 22px;text-align:left;padding-left:20px;margin-top:10px;">Cabela's Buck Code: $seccode</p>
