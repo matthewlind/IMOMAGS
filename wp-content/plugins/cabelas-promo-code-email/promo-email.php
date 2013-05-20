@@ -30,20 +30,20 @@ include 'Barcode39.php';
 	 	$entryName = $entry["1.3"];
 
 	 	$entryFullName = $entry["1.3"] . " " . $entry["1.6"];
+	 	$firstLastInitial = $entry["1.3"]. " " .substr($entry["1.6"], 0,1);
+
 	 	$postID = $entry['post_id'];
+
 
 
 	 	$entryLocation = $entry["12.3"] . ", " . $entry["12.4"];
 
-	 	add_post_meta($postID,"cabelas_entry_full_name",$entryFullName);
+	 	//add_post_meta($postID,"cabelas_entry_full_name",$entryFullName);
 	 	add_post_meta($postID,"cabelas_entry_location",$entryLocation);
+	 	add_post_meta($postID,"cabelas_entry_full_name",$firstLastInitial);
 
 
 	 	$subject = "Your Cabela's $20 Off Coupon";
-
-
-
-
 
 
 	 	$html = generateEmailHTML($subject, $entryName, $entryEmail);

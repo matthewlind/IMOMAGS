@@ -29,7 +29,7 @@ get_header(); ?>
 	</header>
 	<div class="bonus-background">
 		<div class="bonus">
-			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('bonus_sidebar')) : else : ?><?php endif; ?>
+			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-sweeps')) : else : ?><?php endif; ?>
 		</div>
 		<div id="responderfollow"></div>
 		<div class="sidebar advert">
