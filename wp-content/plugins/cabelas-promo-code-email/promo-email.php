@@ -32,7 +32,12 @@ include 'Barcode39.php';
 	 	$entryFullName = $entry["1.3"] . " " . $entry["1.6"];
 	 	$postID = $entry['post_id'];
 
+
+	 	$entryLocation = $entry["12.3"] . ", " . $entry["12.4"];
+
 	 	add_post_meta($postID,"cabelas_entry_full_name",$entryFullName);
+	 	add_post_meta($postID,"cabelas_entry_location",$entryLocation);
+
 
 	 	$subject = "Your Cabela's $20 Off Coupon";
 
