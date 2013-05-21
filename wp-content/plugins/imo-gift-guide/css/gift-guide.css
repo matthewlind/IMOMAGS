@@ -211,7 +211,7 @@ li.gg-presented p{
 
 }
 li.gg-sponsor-logo{	
-	float: right;
+	float: none;
 	clear: right !important;
 	border-top: none !important;
 	padding-top: 0 !important;

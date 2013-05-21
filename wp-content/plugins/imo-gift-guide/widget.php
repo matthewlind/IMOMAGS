@@ -47,8 +47,7 @@ class GiftGuideWidget extends \WP_Widget {
 						<div class="network-feed">
 							<ul id="tabs-1" class="gift-guide" term="<?php echo $camp; ?>">
 								<li></li>
-								<ul class="gg-sponsor">
-							    	<li class="gg-presented"><p>Presented by</p></li>
+								<ul class="gg-sponsor">							    	
 							    	<li class="gg-sponsor-logo">
 								    	<!-- Site - Guns and Ammo -->
 										<script type="text/javascript">
@@ -66,8 +65,7 @@ class GiftGuideWidget extends \WP_Widget {
 							</ul>
 							<ul id="tabs-2" class="gift-guide" term="<?php echo $camp; ?>">
 						    	<li></li>
-						    	<ul class="gg-sponsor">
-							    	<li class="gg-presented"><p>Presented by</p></li>
+						    	<ul class="gg-sponsor">							
 							    	<li class="gg-sponsor-logo">
 								    	<!-- Site - Hunting -->
 										<script type="text/javascript">
@@ -85,8 +83,7 @@ class GiftGuideWidget extends \WP_Widget {
 							
 							<ul id="tabs-3" class="gift-guide" term="<?php echo $camp; ?>">
 						    	<li></li>
-						    	<ul class="gg-sponsor">
-							    	<li class="gg-presented"><p>Presented by</p></li>
+						    	<ul class="gg-sponsor">							    	
 							    	<li class="gg-sponsor-logo">
 								    	<!-- Site - Hunting -->
 										<script type="text/javascript">
