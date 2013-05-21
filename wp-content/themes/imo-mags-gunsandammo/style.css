@@ -1188,7 +1188,7 @@ a.comment-count:hover {
   font-family: 'Lora', serif;
   font-style: italic;
   font-weight: normal;
-  font-size: 14px;
+  font-size: 13px;
 }
 /* line 829, sass/style.scss */
 .entry-excerpt .entry-category a:hover {
@@ -1230,6 +1230,7 @@ a.comment-count:hover {
 .entry-excerpt p {
   font-size: 13px;
   line-height: 1.5;
+  margin: 0;
 }
 
 /* line 858, sass/style.scss */
