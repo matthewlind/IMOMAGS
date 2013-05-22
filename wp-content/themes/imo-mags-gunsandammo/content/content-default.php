@@ -18,12 +18,7 @@ $url="/shooting/".$categoryName->slug;
 		<?php
 		if(in_category("shot-show-2013")){
 			echo '<div class="primary-shot-show">';
-				echo the_primary_category("/shooting");	
-				echo '<div class="presented-by">Presented By</div>';
-					echo '<div class="sponsor-logo">';
-						echo '<a href="http://springfield-armory.com/" target="_blank"><img src="/wp-content/themes/imo-mags-gunsandammo/img/sausa.png" alt="Springfield Amory USA" title="Springfield Amory USA" /></a>';
-					echo '</div>';
-				echo '</div>';
+				echo '<a class="primary-cat" href="'.$url.'">'.$categoryName->name.'</a>';
 		}else if(has_tag("nra-show")){ ?>
 		<div class="blog-headers shot-show nra-show">
 			<div class="blog-border"></div>

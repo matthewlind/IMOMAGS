@@ -4235,6 +4235,7 @@ body.parent-pageid-2114 #main {
 /* line 3076, sass/style.scss */
 .single .entry-title {
   width: 92%;
+  clear: both;
 }
 /* line 3078, sass/style.scss */
 .single .entry-info {
