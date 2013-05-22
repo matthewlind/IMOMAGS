@@ -7031,14 +7031,12 @@ font-size: 0.72em;
 	text-transform: uppercase;
 	font-style: normal;
 	font-family: sans-serif;
-	background-color: #5b6373;
-	color: white !important;
+
+
 	padding: 2px 4px;
 	font-size: 12px;
 }
-.primary-cat:hover{
-	background-color: black;
-}
+
 
 
 
