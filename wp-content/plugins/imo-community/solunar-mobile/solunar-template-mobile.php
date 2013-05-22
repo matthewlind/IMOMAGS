@@ -74,14 +74,14 @@
 </div>
 </script>
 
-
+    <!-- *********************************************************** -->
     <script type="text/template" id="mini-day-template">
 
 
         <div class="fishday jq-expand-day fishday-level<%= data.peakcode %> <%= data.today %>">
             <a href="#" class="a-event jq-expand-link">
                 <em class="c-date"><%= data.day %></em>
-                <span class="ico-solunar"><img src="wp-content/plugins/imo-community/solunar-mobile/images/ico/moon-small.png" width="16" height="16" alt="" /></span>
+                <span class="ico-solunar"><img src="wp-content/plugins/imo-community/solunar-mobile/images/ico/cal<%= data.mooncode %>.png" width="16" height="16" alt="" /></span>
 
             </a>
         </div>
@@ -127,7 +127,7 @@
                             </ul> -->
                         </div>
                     </div>
-                    <img class="moon-ico" src="wp-content/plugins/imo-community/solunar-mobile/images/ico/moon.png" width="36" height="35" alt="" />
+                    <img class="moon-ico" src="wp-content/plugins/imo-community/solunar-mobile/images/ico/moon<%= data.mooncode %>.png" width="36" height="35" alt="" />
                     <span class="indicator fishday-level<%= data.peakcode %>"></span>
                 </li>
 </script>

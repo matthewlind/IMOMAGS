@@ -163,11 +163,30 @@ jQuery(document).ready(function($) {
 
 						currentDayData.times = times;
 
-						console.log(currentDayData);
+
+
+
+						//convert Mooncode to mobile
+
+						var desktopMooncode = currentDayData.mooncode;
+
+						var mobileMooncode = Math.round((desktopMooncode/24) * 20);
+
+
+
+
+						currentDayData.mooncode = mobileMooncode;
+
+						if (currentDayData.peakdayflag == 'N')
+							currentDayData.mooncode = 1;
+						if (currentDayData.peakdayflag == 'F')
+							currentDayData.mooncode = 11;
 
 						var miniDayTemplate = _.template($("#mini-day-template").html(),{data:currentDayData});
 
 						var fullDayTemplate = _.template($("#full-day-template").html(),{data:currentDayData});
+
+						console.log(currentDayData);
 
 						$dataCell.append(miniDayTemplate);
 						$calList.append(fullDayTemplate);
@@ -215,6 +234,10 @@ jQuery(document).ready(function($) {
 
 
 });
+
+
+
+
 
 var renderSpeciesInfo = function(slug) {
 
