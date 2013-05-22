@@ -1541,7 +1541,8 @@ nav.nav-secondary.sportfish-page {
 	margin: 0;
 	padding: 0 15px;
 	position: relative;
-	border-bottom: 1px solid #00aeed
+	border-bottom: 1px solid #00aeed;
+	z-index: 1;
 }
 
 nav.nav-secondary.sportfish-page a {
@@ -1877,4 +1878,16 @@ aside .textwidget img {
 }
 .leiki_products{
 	box-shadow: none !important;
+}
+
+
+/*** slideshow overflow fix***/
+.cfct-can-haz-build{
+	overflow:visible;
+}
+.entry .cfct-row{
+	overflow: hidden;
+}
+.cfct-slideshow-html, .cfct-inrow-slideshow-html{
+	overflow: visible !important;
 }
