@@ -1882,9 +1882,6 @@ aside .textwidget img {
 
 
 /*** slideshow overflow fix***/
-.cfct-can-haz-build{
-	overflow:visible;
-}
 .entry .cfct-row{
 	overflow: hidden;
 }
