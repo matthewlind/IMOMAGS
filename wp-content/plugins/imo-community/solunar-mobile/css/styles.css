@@ -173,6 +173,7 @@ body {
     font:12px/1.3 "proxima_nova_rgregular", sans-serif;
     color:#fff;
     background:url(../images/bg/white-hue.png) repeat;
+    height:600px;
 }
 .wrapper {position:relative;}
 .signup-page {
@@ -182,6 +183,12 @@ body {
 .wood-bg {
     background:url(../images/bg/body.jpg) repeat-y 50% 0;
     background-size: 100%;
+}
+.form-bg {
+    width: 100%;
+    position: fixed;
+    z-index: 10000;
+    height:600px;
 }
 .header {
     padding:6px 8px;
@@ -276,7 +283,8 @@ body {
     height:49px;
     overflow:hidden;
     text-indent:-9999px;
-    background:url(../images/logo-infisherman.png) no-repeat;
+    background:url(../images/insc-logo.png) no-repeat;
+    background-size: 234px 49px;
 }
 .presented-by {
     text-align:center;
@@ -293,14 +301,14 @@ body {
     padding:0 6px 0 0;
 }
 .solunar-cal {
-    padding:45px 0 20px;
+    padding:35px 0 20px;
     position:relative;
 }
 .single-calendar {
     width:305px;
     height:197px;
-    padding:25px 20px 12px;
-    margin:0 auto 12px;
+    padding:25px 20px 15px;
+    margin:0 auto 17px;
     text-align:center;
     color:#2f2b2b;
     background:url(../images/bg/single-calendar.png) no-repeat;
@@ -325,7 +333,7 @@ body {
     border:0;
     font:25px "stagregular", serif;
     color:#c9252c;
-    width:120px;
+    width:150px;
     border-radius:0;
     text-align:center;
     -webkit-appearance: none;
@@ -780,6 +788,10 @@ body {
 
 /* footer */
 .footer {
+    width: 100%;
+    bottom: 0px;
+    z-index: 10000;
+    position: fixed;
     padding:6px 6px 6px 20px;
     background:url(../images/bg/body.jpg) repeat-y 50% -30px;
     background-size: 100%;
