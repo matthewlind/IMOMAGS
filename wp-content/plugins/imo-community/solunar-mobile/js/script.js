@@ -42,5 +42,5 @@ $(".jq-custom-form select").zfselect({
 $('.jq-custom-form input[type="checkbox"]').ezMark();
 
 // iphone scale fix
-MBP.scaleFix();
+//MBP.scaleFix();
 MBP.hideUrlBar();

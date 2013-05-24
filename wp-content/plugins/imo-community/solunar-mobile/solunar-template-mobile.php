@@ -10,7 +10,9 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="format-detection" content="telephone=no">
-<meta name="viewport" content="initial-scale=1.0">
+<meta name="viewport" content="width=320.1, initial-scale=1, user-scalable=no">
+
+
 
     <meta http-equiv="cleartype" content="on">
 
@@ -18,11 +20,12 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="wp-content/plugins/imo-community/solunar-mobile/images/m/apple-touch-icon.png">
     <link rel="apple-touch-icon-precomposed" href="wp-content/plugins/imo-community/solunar-mobile/images/l/apple-touch-icon-precomposed.png">
 
-<!-- iPhone (Retina) -->
-<link href="http://www.in-fisherman.deva/wp-content/plugins/imo-community/solunar-mobile/images/startup_iphone4.jpg" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
 
-<!-- iPhone 5 -->
-<link href="http://www.in-fisherman.deva/wp-content/plugins/imo-community/solunar-mobile/images/startup_iphone5.jpg"  media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+
+    <link rel="apple-touch-startup-image" href="wp-content/plugins/imo-community/solunar-mobile/images/startup_iphone5.jpg" media="screen and (device-height: 568px)">
+    <link rel="apple-touch-startup-image" href="wp-content/plugins/imo-community/solunar-mobile/images/startup_iphone4.jpg" media="screen and (device-height: 480px) and (min-device-pixel-ratio: 2)">
+    <link rel="apple-touch-startup-image" href="wp-content/plugins/imo-community/solunar-mobile/images/startup_iphone4.jpg" media="screen and (device-height: 480px)">
+
 
 
     <link rel="shortcut icon" href="wp-content/plugins/imo-community/solunar-mobile/images/l/apple-touch-icon.png">
