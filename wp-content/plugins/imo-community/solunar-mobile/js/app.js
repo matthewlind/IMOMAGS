@@ -1,6 +1,8 @@
 jQuery(document).ready(function($) {
 
 
+
+
 	//Initialize the page
 	var d = new Date();
 	var currentMonth = d.getMonth() + 1;
@@ -48,12 +50,21 @@ jQuery(document).ready(function($) {
 
 	    });
 
+	    if (!window.navigator.standalone) {
+			$(".install-popup").fadeIn();
+		}
+
 	    $(".fish-select").on("change",function(){
 
 
 	    	var fishName = $(this).find()
 			renderSpeciesInfo($(this).val());
 		});
+
+
+		$(".close-popup").on('click', function () {
+        	$(".popup, .fadeout").hide();
+    	});
 
 	}
 

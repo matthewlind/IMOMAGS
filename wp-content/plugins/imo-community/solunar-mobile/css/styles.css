@@ -453,6 +453,7 @@ body {
     background:#f5f5f5;
     -webkit-box-shadow: 0px 0px 9px 0px #818080;
     box-shadow: 0px 0px 9px 0px #818080;
+    position:fixed;
 }
 .install-popup:after, .popup:before {
     top: 100%;

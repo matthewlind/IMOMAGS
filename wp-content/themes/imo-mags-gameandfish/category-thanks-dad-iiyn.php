@@ -40,6 +40,18 @@ get_header(); ?>
 
 
 	<div class="col-ab">
+		<p>To celebrate our dads and all they've done for us, the editors of Intermedia Outdoors have joined forces to pay tribute to the men that made us sportsmen.</p>
+
+
+		<?php
+
+
+
+
+			echo do_shortcode('[imo-slideshow gallery=92]');
+		?>
+
+
 	<h2>Recent Entries</h2>
 	<?php
 

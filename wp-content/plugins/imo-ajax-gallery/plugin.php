@@ -197,27 +197,54 @@ EOT;
 //Since we don't want to add the scripts to every page, we check to see if we need them before adding
 add_filter('the_posts', 'conditionally_add_scripts_and_styles'); // the_posts gets triggered before wp_head
 function conditionally_add_scripts_and_styles($posts){
-	if (empty($posts)) return $posts;
 
-	$shortcode_found = false; // use this flag to see if styles and scripts need to be enqueued
-	foreach ($posts as $post) {
-		if (stripos($post->post_content, '[imo-slideshow') !== false) {
-			$shortcode_found = true; // bingo!
-			break;
+
+
+	if (!empty($posts)) {
+
+		$shortcode_found = false; // use this flag to see if styles and scripts need to be enqueued
+		foreach ($posts as $post) {
+			if (stripos($post->post_content, '[imo-slideshow') !== false) {
+				$shortcode_found = true; // bingo!
+				break;
+			}
 		}
+
+		if ($shortcode_found) {
+			// enqueue here
+			wp_enqueue_script('ajax-gallery-js',plugins_url('ajax-gallery.js', __FILE__));
+			wp_enqueue_script('jquery-scrollface',plugins_url('jquery.scrollface.min.js', __FILE__));
+			wp_enqueue_script('jquery-buffet',plugins_url('jquery.buffet.min.js', __FILE__));
+			wp_enqueue_script('jquery-ui-draggable');
+			wp_enqueue_script('jquery-mousewheel',plugins_url('jquery.mousewheel.min.js', __FILE__));
+			wp_enqueue_script('jquery-mCustomScrollbar',plugins_url('jquery.mCustomScrollbar.js', __FILE__));
+			wp_enqueue_style('ajax-gallery-css',plugins_url('ajax-gallery.css', __FILE__));
+			wp_enqueue_style('ajax-mCustomScrollbar-css',plugins_url('jquery.mCustomScrollbar.css', __FILE__));
+		}
+
+	} else {//If there are no posts, such as a category page
+
+
+			$cat = get_category( get_query_var( 'cat' ) );
+			$categorySlug = $cat->slug;
+
+			$slugArray = array("thanks-dad-iiyn","more-category-slugs-here");
+
+			if (in_array($categorySlug, $slugArray)) {
+				wp_enqueue_script('ajax-gallery-js',plugins_url('ajax-gallery.js', __FILE__));
+				wp_enqueue_script('jquery-scrollface',plugins_url('jquery.scrollface.min.js', __FILE__));
+				wp_enqueue_script('jquery-buffet',plugins_url('jquery.buffet.min.js', __FILE__));
+				wp_enqueue_script('jquery-ui-draggable');
+				wp_enqueue_script('jquery-mousewheel',plugins_url('jquery.mousewheel.min.js', __FILE__));
+				wp_enqueue_script('jquery-mCustomScrollbar',plugins_url('jquery.mCustomScrollbar.js', __FILE__));
+				wp_enqueue_style('ajax-gallery-css',plugins_url('ajax-gallery.css', __FILE__));
+				wp_enqueue_style('ajax-mCustomScrollbar-css',plugins_url('jquery.mCustomScrollbar.css', __FILE__));
+			}
+
+
 	}
 
-	if ($shortcode_found) {
-		// enqueue here
-		wp_enqueue_script('ajax-gallery-js',plugins_url('ajax-gallery.js', __FILE__));
-		wp_enqueue_script('jquery-scrollface',plugins_url('jquery.scrollface.min.js', __FILE__));
-		wp_enqueue_script('jquery-buffet',plugins_url('jquery.buffet.min.js', __FILE__));
-		wp_enqueue_script('jquery-ui-draggable');
-		wp_enqueue_script('jquery-mousewheel',plugins_url('jquery.mousewheel.min.js', __FILE__));
-		wp_enqueue_script('jquery-mCustomScrollbar',plugins_url('jquery.mCustomScrollbar.js', __FILE__));
-		wp_enqueue_style('ajax-gallery-css',plugins_url('ajax-gallery.css', __FILE__));
-		wp_enqueue_style('ajax-mCustomScrollbar-css',plugins_url('jquery.mCustomScrollbar.css', __FILE__));
-	}
+
 
 	return $posts;
 }

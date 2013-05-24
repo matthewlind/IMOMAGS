@@ -4,19 +4,27 @@
 <head>
     <meta charset="utf-8">
 
-    <title>In-Fisherman</title>
+    <title>Solunar</title>
     <meta name="description" content="">
 
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="format-detection" content="telephone=no">
-<meta name="viewport" content="width=320.1, initial-scale=1, user-scalable=no">
+<meta name="viewport" content="initial-scale=1.0">
 
     <meta http-equiv="cleartype" content="on">
 
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="wp-content/plugins/imo-community/solunar-mobile/images/h/apple-touch-icon.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="wp-content/plugins/imo-community/solunar-mobile/images/m/apple-touch-icon.png">
     <link rel="apple-touch-icon-precomposed" href="wp-content/plugins/imo-community/solunar-mobile/images/l/apple-touch-icon-precomposed.png">
+
+<!-- iPhone (Retina) -->
+<link href="http://www.in-fisherman.deva/wp-content/plugins/imo-community/solunar-mobile/images/startup_iphone4.jpg" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+
+<!-- iPhone 5 -->
+<link href="http://www.in-fisherman.deva/wp-content/plugins/imo-community/solunar-mobile/images/startup_iphone5.jpg"  media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+
+
     <link rel="shortcut icon" href="wp-content/plugins/imo-community/solunar-mobile/images/l/apple-touch-icon.png">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
@@ -72,6 +80,12 @@
         <div class="btm-section">
             <p>Visit <a href="http://www.in-fisherman.com">In-Fisherman.com</a>, the World’s <br />Foremost Authority on Freshwater Fishing</p>
         </div>
+    </div>
+
+    <div class="popup install-popup" style="display:none;">
+        <img class="popup-icon" src="/wp-content/plugins/imo-community/solunar-mobile/images/h/apple-touch-icon.png" width="70" height="65" alt="" />
+        <p class="p-descript">Install this web app on your phone. Tap on the arrow and then <b>'Add to Home Screen'.</b></p>
+        <a href="#" class="close-popup">x</a>
     </div>
 
 </div>
@@ -187,6 +201,7 @@
                         </div>
                     </li>
                 </ul>
+
                 <!-- <a href="#" class="btn-base btn-load">Load More...</a> -->
                 <p class="btm-list-txt">Visit <a href="http://www.in-fisherman.com">In-Fisherman.com</a> for more <br />great fishing tips, tricks and articles</p>
             </div>
