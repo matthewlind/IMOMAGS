@@ -1181,7 +1181,6 @@ a.comment-count:hover {
 /* line 820, sass/style.scss */
 .entry-excerpt .entry-summary {
   float: left;
-  line-height: 1;
   width: 358px;
 }
 /* line 824, sass/style.scss */
@@ -1189,7 +1188,7 @@ a.comment-count:hover {
   font-family: 'Lora', serif;
   font-style: italic;
   font-weight: normal;
-  font-size: 14px;
+  font-size: 13px;
 }
 /* line 829, sass/style.scss */
 .entry-excerpt .entry-category a:hover {
@@ -1204,6 +1203,7 @@ a.comment-count:hover {
   line-height: 1.2;
   margin-top: 5px;
   width: 95%;
+  
 }
 /* line 839, sass/style.scss */
 .entry-excerpt .entry-title a {
@@ -1224,12 +1224,13 @@ a.comment-count:hover {
 .entry-excerpt a.comment-count {
   position: absolute;
   right: 15px;
-  top: 15px;
+  top: 0;
 }
 /* line 854, sass/style.scss */
 .entry-excerpt p {
   font-size: 13px;
   line-height: 1.5;
+  margin: 0;
 }
 
 /* line 858, sass/style.scss */
@@ -4234,6 +4235,7 @@ body.parent-pageid-2114 #main {
 /* line 3076, sass/style.scss */
 .single .entry-title {
   width: 92%;
+  clear: both;
 }
 /* line 3078, sass/style.scss */
 .single .entry-info {
@@ -6915,7 +6917,6 @@ font-size: 0.72em;
 	font-size: 1.7em;
 }
 .blog-headers p{
-	margin-left: 164px;
 	float: left;
 	margin-top: 0;
 	width:410px;
@@ -7028,6 +7029,12 @@ font-size: 0.72em;
 .primary-cat{
 	font-weight: bold;
 	text-transform: uppercase;
+	font-style: normal;
+	font-family: sans-serif;
+
+
+	padding: 2px 4px;
+	font-size: 12px;
 }
 
 

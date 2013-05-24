@@ -35,26 +35,9 @@ if (!(has_term('news-brief','blog_tax')))
   <?php	endif; ?>
 	
 	<div class="entry-summary">
-	  
-	  <span class="entry-category">
-	    <?php 
-
-
-	    // if (has_term('', 'blogs')) {
-	    //   the_terms($post->ID, 'blogs', '', ', ');
-	    // } else {
-	    //   the_category(', ');
-	    // }	
-
-	    //the_time(get_option('date_format'));
-	    ?>
-
-	    <span style="color:#CE181E;"><?php the_time(get_option('date_format')); ?></span>
-
-
-
-	  </span>
+	    <?php //echo the_primary_category("/shooting"); ?>
 		<h2 class="entry-title"><a rel="bookmark" href="<?php the_permalink() ?>"><?php the_title() ?></a></h2>
+		<span class="entry-category"><span style="color:#CE181E;"><?php the_time(get_option('date_format')); ?></span></span>
 		<?php the_excerpt(); ?>
 	</div>
   

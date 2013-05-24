@@ -217,21 +217,26 @@ jQuery(document).ready(function($) {
 	//Handle the slideout hover
 	var currentLeft = parseInt($(".gallery-slide-out").css('left'),10); 
   	$(".gallery-hover-div").hover(function(){
-
+	  	
+	  	if(document.domain == "www.floridasportsman.com"){
+  			$(".cfct-can-haz-build").css("overflow","visible"); 
+  		}
  		$(".gallery-slide-out").animate({
 	      	left: $(".ngg-imagebrowser").outerWidth(true)
     	},300,'easeOutExpo');
-
+		
 
 
   	},function(){
+  		
   		if (lockedOpen == false) {
   			$(".gallery-slide-out").stop().animate({
 	      	left: currentLeft
     		},300,'easeOutExpo');
   		}
-
-
+  		if(document.domain == "www.floridasportsman.com"){
+  			$(".cfct-can-haz-build").css("overflow","hidden"); 
+  		}
   	});
 
 

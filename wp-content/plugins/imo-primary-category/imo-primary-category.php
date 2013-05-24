@@ -41,3 +41,75 @@ define('IMOprimaryCat_pluginfile',__FILE__);
 require_once 'imo-primary-category-tools.php';
 require_once 'imo-primary-category-core.php';
 
+/***
+**
+** Display functions
+**
+***/
+
+add_action('init', 'the_primary_category');
+function the_primary_category($cat_base) {
+	
+	// Let's get the Primary Category
+	$id = get_the_ID();
+	$categoryID = get_post_meta($id);
+	$catID = $categoryID["_category_permalink"];
+	
+	// Show the primary category if one is assigned
+	if($catID){
+		$categoryName = get_term_by('id', $catID[0], 'category');
+	
+		// Set the primary category urls
+		$url = $categoryName->slug;
+		
+		return '<a class="primary-cat" href="'.$cat_base.'/'.$url.'">'.$categoryName->name.'</a>';
+
+	}else{
+		$category = get_the_category(); 
+		// Make sure not to display featured categories
+		if(in_category("home-featured") || in_category("featured") || in_category("blogs")){
+			return '<a class="primary-cat" href="'.$cat_base.'/'.$category[1]->cat_name.'">'.$category[1]->cat_name.'</a>';
+		}else{
+			return '<a class="primary-cat" href="'.$cat_base.'/'.$category[0]->cat_name.'">'.$category[0]->cat_name.'</a>';
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

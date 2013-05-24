@@ -91,7 +91,7 @@
 #gift-guide a.site:hover, #gift-guide-3-col a.site:hover{
 	color: #000 !important;
 }
-#gift-guide img, #gift-guide-3-col .gift-guide img{
+#gift-guide .network-thumb img, #gift-guide-3-col .network-thumb .gift-guide img{
 	width: 112px;
 	height: auto;
 	float: left;
@@ -192,7 +192,7 @@ ul.gg-sponsor{
 	list-style: none;
 	margin: -16px auto 0;
 	padding: 2px 0 0 ;
-	width: 200px;
+	width: 240px;
 	clear: both;
 	display: inline-block;
 }
@@ -211,13 +211,11 @@ li.gg-presented p{
 
 }
 li.gg-sponsor-logo{	
-	float: right;
-	clear: right !important;
 	border-top: none !important;
-	padding-top: 0 !important;
 }
 li.gg-sponsor-logo img{
 	padding: 0 !important;
+	width: 240px;
 }
 
 

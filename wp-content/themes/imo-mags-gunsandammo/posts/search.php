@@ -25,16 +25,16 @@ $s = esc_html(get_search_query());
 ?>
 
 
-
-<div id="content" class="col-ab">
-	<header>
-		<h1><?php _e('', 'carrington-business'); wp_title('&rsaquo;'); ?></h1>
-	</header>
-	<?php
-	cfct_loop();
-	cfct_misc('nav-posts'); ?>
+<div class="page-flow">
+	<div id="content" class="col-ab">
+		<header>
+			<h1><?php _e('', 'carrington-business'); wp_title('&rsaquo;'); ?></h1>
+		</header>
+		<?php
+		cfct_loop();
+		cfct_misc('nav-posts'); ?>
+	</div>
 </div>
-
 <?php
 get_sidebar();
 get_footer(); ?>

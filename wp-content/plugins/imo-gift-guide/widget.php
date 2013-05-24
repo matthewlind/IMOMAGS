@@ -47,36 +47,34 @@ class GiftGuideWidget extends \WP_Widget {
 						<div class="network-feed">
 							<ul id="tabs-1" class="gift-guide" term="<?php echo $camp; ?>">
 								<li></li>
-								<ul class="gg-sponsor">
-							    	<li class="gg-presented"><p>Presented by</p></li>
+								<ul class="gg-sponsor">							    	
 							    	<li class="gg-sponsor-logo">
-								    	<!-- Site - Guns and Ammo -->
-										<script type="text/javascript">
-										  var ord = window.ord || Math.floor(Math.random() * 1e16);
-										  document.write('<a href="http://ad.doubleclick.net/N4930/jump/<?php echo $dartSite; ?>;sz=1x1;camp=shoot;ord=' + ord + '?"><img src="http://ad.doubleclick.net/N4930/ad/<?php echo $dartSite; ?>;sz=1x1;camp=shoot;ord=' + ord + '?" width="1" height="1" /></a>');
-										</script>
-										<noscript>
-										<a href="http://ad.doubleclick.net/N4930/jump/<?php echo $dartSite; ?>;sz=1x1;camp=shoot;ord=[timestamp]?">
-										<img src="http://ad.doubleclick.net/N4930/ad/<?php echo $dartSite; ?>;sz=1x1;camp=shoot;ord=[timestamp]?" width="1" height="1" />
-										</a>
-										</noscript>
-								    </li>
+							    	<!-- Site - Guns and Ammo -->
+									<script type="text/javascript">
+									  var ord = window.ord || Math.floor(Math.random() * 1e16);
+									  document.write('<a href="http://ad.doubleclick.net/N4930/jump/<?php echo $dartSite; ?>;sz=240x60;camp=shoot;ord=' + ord + '?"><img src="http://ad.doubleclick.net/N4930/ad/<?php echo $dartSite; ?>;sz=240x60;camp=shoot;ord=' + ord + '?" width="240" height="60" /></a>');
+									</script>
+									<noscript>
+									<a href="http://ad.doubleclick.net/N4930/jump/<?php echo $dartSite; ?>;sz=240x60;camp=shoot;ord=[timestamp]?">
+									<img src="http://ad.doubleclick.net/N4930/ad/<?php echo $dartSite; ?>;sz=240x60;camp=shoot;ord=[timestamp]?" width="240" height="60" />
+									</a>
+									</noscript>
+									</li>
 							    </ul>
 							    
 							</ul>
 							<ul id="tabs-2" class="gift-guide" term="<?php echo $camp; ?>">
 						    	<li></li>
-						    	<ul class="gg-sponsor">
-							    	<li class="gg-presented"><p>Presented by</p></li>
+						    	<ul class="gg-sponsor">							
 							    	<li class="gg-sponsor-logo">
 								    	<!-- Site - Hunting -->
 										<script type="text/javascript">
 										  var ord = window.ord || Math.floor(Math.random() * 1e16);
-										  document.write('<a href="http://ad.doubleclick.net/N4930/jump/<?php echo $dartSite; ?>;sz=1x1;camp=hunt;ord=' + ord + '?"><img src="http://ad.doubleclick.net/N4930/ad/<?php echo $dartSite; ?>;sz=1x1;camp=hunt;ord=' + ord + '?" width="1" height="1" /></a>');
+										  document.write('<a href="http://ad.doubleclick.net/N4930/jump/<?php echo $dartSite; ?>;sz=240x60;camp=hunt;ord=' + ord + '?"><img src="http://ad.doubleclick.net/N4930/ad/<?php echo $dartSite; ?>;sz=240x60;camp=hunt;ord=' + ord + '?" width="240" height="60" /></a>');
 										</script>
 										<noscript>
-										<a href="http://ad.doubleclick.net/N4930/jump/<?php echo $dartSite; ?>;sz=1x1;camp=hunt;ord=[timestamp]?">
-										<img src="http://ad.doubleclick.net/N4930/ad/<?php echo $dartSite; ?>;sz=1x1;camp=hunt;ord=[timestamp]?" width="1" height="1" />
+										<a href="http://ad.doubleclick.net/N4930/jump/<?php echo $dartSite; ?>;sz=240x60;camp=hunt;ord=[timestamp]?">
+										<img src="http://ad.doubleclick.net/N4930/ad/<?php echo $dartSite; ?>;sz=240x60;camp=hunt;ord=[timestamp]?" width="240" height="60" />
 										</a>
 										</noscript>
 								    </li>
@@ -85,17 +83,16 @@ class GiftGuideWidget extends \WP_Widget {
 							
 							<ul id="tabs-3" class="gift-guide" term="<?php echo $camp; ?>">
 						    	<li></li>
-						    	<ul class="gg-sponsor">
-							    	<li class="gg-presented"><p>Presented by</p></li>
+						    	<ul class="gg-sponsor">							    	
 							    	<li class="gg-sponsor-logo">
-								    	<!-- Site - Hunting -->
+								    	<!-- Site - Fishing -->
 										<script type="text/javascript">
 										  var ord = window.ord || Math.floor(Math.random() * 1e16);
-										  document.write('<a href="http://ad.doubleclick.net/N4930/jump/<?php echo $dartSite; ?>;sz=1x1;camp=fish;ord=' + ord + '?"><img src="http://ad.doubleclick.net/N4930/ad/<?php echo $dartSite; ?>;sz=1x1;camp=fish;ord=' + ord + '?" width="1" height="1" /></a>');
+										  document.write('<a href="http://ad.doubleclick.net/N4930/jump/<?php echo $dartSite; ?>;sz=240x60;camp=fish;ord=' + ord + '?"><img src="http://ad.doubleclick.net/N4930/ad/<?php echo $dartSite; ?>;sz=240x60;camp=fish;ord=' + ord + '?" width="240" height="60" /></a>');
 										</script>
 										<noscript>
-										<a href="http://ad.doubleclick.net/N4930/jump/<?php echo $dartSite; ?>;sz=1x1;camp=fish;ord=[timestamp]?">
-										<img src="http://ad.doubleclick.net/N4930/ad/<?php echo $dartSite; ?>;sz=1x1;camp=fish;ord=[timestamp]?" width="1" height="1" />
+										<a href="http://ad.doubleclick.net/N4930/jump/<?php echo $dartSite; ?>;sz=240x60;camp=fish;ord=[timestamp]?">
+										<img src="http://ad.doubleclick.net/N4930/ad/<?php echo $dartSite; ?>;sz=240x60;camp=fish;ord=[timestamp]?" width="240" height="60" />
 										</a>
 										</noscript>
 									</li>

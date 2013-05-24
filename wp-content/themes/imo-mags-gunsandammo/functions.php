@@ -543,14 +543,14 @@ function custom_terms_checklist($post_id = 0, $args = array()) {
 	        $affiliates = get_term_by( 'slug', 'affiliates', 'category' );
 	        $perspectives = get_term_by( 'slug', 'ga-perspectives', 'category' );
 	        $mots = get_term_by( 'slug', 'man-on-the-street', 'category' );
-	        //$shot_show = get_term_by( 'slug', 'shot-show-2013', 'category' );
+	        $shot_show = get_term_by( 'slug', 'shot-show-2013', 'category' );
 
 		    // Create the ID array
 		    $include = array(
 		    	$featured->term_id,$galleries->term_id,$ga_lists->term_id,$blogs->term_id,
 		        $defend_thyself->term_id,$competition->term_id,$history->term_id,$news_brief->term_id,
 		        $soga->term_id,$front_lines->term_id,$zombie->term_id,$video->term_id,$gatv->term_id,
-		        $pdtv->term_id,$affiliates->term_id,$perspectives->term_id,$mots->term_id
+		        $pdtv->term_id,$affiliates->term_id,$perspectives->term_id,$mots->term_id,$shot_show->term_id
 		    );
 
 	        extract( wp_parse_args($args, $defaults), EXTR_SKIP );
