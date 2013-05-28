@@ -33,6 +33,7 @@ if ( ! function_exists( 'cfct_setup' ) ) {
 		add_image_size('post-image-large', 584, 370, true);
 		add_image_size('post-image-medium', 426, 270, true);
 		add_image_size('post-image-small', 268, 170, true);
+		add_image_size('post-image-cached', 190, 120, true);
 
 		register_nav_menus(array(
 			'main' => __( 'Main Navigation', 'carrington-business' ),
