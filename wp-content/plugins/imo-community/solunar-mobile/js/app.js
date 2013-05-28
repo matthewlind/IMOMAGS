@@ -15,6 +15,9 @@ jQuery(document).ready(function($) {
 
 	var reallySubmit = false;
 
+	var firstRun = true;
+	var currentDaySelector = "#cal-item-" + d.getUTCDate();
+
 	//set the selected month to the current month
 	var selectedMonth = currentMonth;
 
@@ -43,6 +46,15 @@ jQuery(document).ready(function($) {
 	    	$(".form-bg").remove();
 	    	$(".main-wrapper").show();
 
+	    	if (firstRun) {
+
+	    		//alert(currentDaySelector);
+	    		//alert($(currentDaySelector).offset().top);
+				window.scrollTo(0, $(currentDaySelector).offset().top - 100);
+	    		firstRun = false;
+	    	}
+
+
 	    	if (reallySubmit) {
 	    		updateCalendar(selectedMonth,year,searchLocation);
 	    		window.scrollTo(0, 0);
@@ -50,7 +62,10 @@ jQuery(document).ready(function($) {
 
 	    });
 
-	    if (!window.navigator.standalone) {
+	    if (!window.navigator.standalone &&
+	    	navigator.userAgent.match(/iPhone/i) &&
+	    	navigator.userAgent.match(/Safari/i) &&
+	    	!navigator.userAgent.match(/CriOS/i)) {
 			$(".install-popup").fadeIn();
 		}
 
@@ -314,14 +329,26 @@ jQuery(document).ready(function($) {
 
 			}); //end each
 
+
+	    	if (firstRun) {
+	    		//alert(currentDaySelector);
+
+
+	    		//alert($(currentDaySelector).offset().top);
+				window.scrollTo(0, $(currentDaySelector).offset().top - 100);
+	    		//firstRun = false;
+	    	}
+
+
+
 			//Attach the events
 		   $(".jq-expand-day").click(function() {
 
-		   		console.log($(this));
+
 
 		        var activeTab = $(this).find("a.jq-expand-link").attr("href");
 
-		        console.log(activeTab);
+
 
 		        $(activeTab).slideToggle("slow");
 		        return false;
@@ -329,11 +356,11 @@ jQuery(document).ready(function($) {
 
 		   $("a.date-scroll-link").click(function(ev) {
 
-		   		console.log($(this));
+
 
 		        var activeDay = $(this).attr("href");
 
-		        console.log(activeDay);
+
 
 		        //$(activeTab).slideToggle("slow");
 
@@ -389,7 +416,6 @@ var renderSpeciesInfo = function(slug) {
 		$('#related-fishing-posts').html("");
 		$.each(posts,function(index,post){
 
-			console.log(post);
 			var template = _.template($("#post-exerpt-template").html(),{data:post});
 			$('#related-fishing-posts').append(template);
 		});

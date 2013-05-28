@@ -122,7 +122,7 @@
                             <ul class="day-data">
                                 <li class="best-p" ><%= data.times[0].start %> - <%= data.times[0].end %></li>
                                 <li class="major-p"><%= data.times[1].start %> - <%= data.times[1].end %></li>
-                                <li class="minor-p"><%= data.times[2].start %> - <%= data.times[2].end %></li>
+                                <li class="major-p"><%= data.times[2].start %> - <%= data.times[2].end %></li>
                             </ul>
                         </div>
                     </a>
@@ -218,6 +218,7 @@
                     <a href="#" class="arrow next">next</a>
                     <h2><a href="#" class="jq-view-month"><span class="month-name">September</span> <img height=20 width=20 src="wp-content/plugins/imo-community/solunar-mobile/images/ico/arrow_down.png"></a></h2>
                 </div>
+                <div class="padding-div"></div>
                 <div class="calendar-holder">
                     <table class="calendar-data">
                     <tbody>
@@ -535,20 +536,27 @@
         <div class="popup">
             <h2 class="popup-title">Legend</h2>
             <ul class="day-data">
-                <li class="best-p">=  Best Overal Time to Fish</li>
-                <li class="major-p">=  Major Period</li>
-                <li class="minor-p">=  Minor Period</li>
+                <li class="best-p">=  Best  Time to Fish</li>
+                <li class="major-p">=  Good Time to Fish</li>
+<!--                 <li class="minor-p">=  Good Time to Fish</li> -->
             </ul>
+            <div class="chart">
+                    <img src="wp-content/plugins/imo-community/solunar/images/fishing-chart.png" width="206" height="16" alt="">
+                    <div class="clearfix">
+                        <span style="padding-right:76px">Good Day...</span>
+                        <strong>Great Day!</strong>
+                    </div>
+                </div>
             <a href="#" class="close-popup">x</a>
         </div>
     </div>
-    <div class="footer clearfix">
+    <div class="footer clearfix jq-open-posts">
         <strong class="f-title">Trout &amp; Salmon Tips</strong>
-        <a href="#" class="view-month jq-open-posts">view</a>
+        <a href="#" class="view-month ">view</a>
     </div>
 </div>
 
-<script src="wp-content/plugins/imo-community/solunar-mobile/js/libs/jquery-1.8.2.min.js"></script>
+<script src="wp-content/plugins/imo-community/solunar-mobile/js/libs/jquery-2.0.1.min.js"></script>
 <script src="wp-content/plugins/imo-community/solunar-mobile/js/plugins/zfselect/js/jquery.mousewheel.js"></script>
 <script src="wp-content/plugins/imo-community/solunar-mobile/js/plugins/zfselect/js/jquery.zfselect.min.js"></script>
 <script src="wp-content/plugins/imo-community/solunar-mobile/js/plugins/ezMark/js/jquery.ezmark.min.js"></script>
