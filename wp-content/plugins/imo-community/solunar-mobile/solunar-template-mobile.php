@@ -121,7 +121,7 @@
                         <div class="day-descript">
                             <ul class="day-data">
                                 <li class="best-p" ><%= data.times[0].start %> - <%= data.times[0].end %></li>
-                                <li class="major-p"><%= data.times[1].start %> - <%= data.times[1].end %></li>
+                                <li class="best-p"><%= data.times[1].start %> - <%= data.times[1].end %></li>
                                 <li class="major-p"><%= data.times[2].start %> - <%= data.times[2].end %></li>
                             </ul>
                         </div>

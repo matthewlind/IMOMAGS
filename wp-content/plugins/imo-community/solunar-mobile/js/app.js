@@ -16,6 +16,9 @@ jQuery(document).ready(function($) {
 	var reallySubmit = false;
 
 	var firstRun = true;
+	var calendarNotDisplayed = true;
+
+
 	var currentDaySelector = "#cal-item-" + d.getUTCDate();
 
 	//set the selected month to the current month
@@ -48,10 +51,15 @@ jQuery(document).ready(function($) {
 
 	    	if (firstRun) {
 
+
+
+	    		$(currentDaySelector).css("background-color","#fef2e8");
+
 	    		//alert(currentDaySelector);
 	    		//alert($(currentDaySelector).offset().top);
 				window.scrollTo(0, $(currentDaySelector).offset().top - 100);
 	    		firstRun = false;
+	    		calendarNotDisplayed = true;
 	    	}
 
 
@@ -330,14 +338,16 @@ jQuery(document).ready(function($) {
 			}); //end each
 
 
-	    	if (firstRun) {
+	    	if (calendarNotDisplayed && firstRun) {
 	    		//alert(currentDaySelector);
 
 
-	    		$(currentDaySelector).css("background-color","#fef2e8");
+				$(currentDaySelector).css("background-color","#fef2e8");
+
 	    		//alert($(currentDaySelector).offset().top);
 				window.scrollTo(0, $(currentDaySelector).offset().top - 100);
 	    		//firstRun = false;
+	    		calendarNotDisplayed = false;
 	    	}
 
 
@@ -368,9 +378,6 @@ jQuery(document).ready(function($) {
 		        var scrollBack = function(){
 
 
-			  //       $('html, body').animate({
-					// 	scrollTop: "500px"
-					// }, 2000);
 		        };
 
 
@@ -380,6 +387,8 @@ jQuery(document).ready(function($) {
 		        $('html, body').animate({
 					scrollTop: $(activeDay).offset().top
 				}, 2000);
+
+				$(".calendar-holder").hide();
 		        ev.preventDefault();
 		        return false;
 		    });
