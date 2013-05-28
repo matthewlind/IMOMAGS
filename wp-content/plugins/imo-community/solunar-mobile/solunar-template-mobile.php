@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Solunar</title>
+    <title>Best Times</title>
     <meta name="description" content="">
 
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -34,6 +34,45 @@
 
     <link rel="stylesheet" href="wp-content/plugins/imo-community/solunar-mobile/css/styles.css">
 
+<!-- Begin comScore Tag -->
+<script>
+document.write(unescape("%3Cscript src='" + (document.location.protocol == "https:" ? "https://sb" : "http://b")
++ ".scorecardresearch.com/beacon.js' %3E%3C/script%3E"));
+</script>
+<script>
+COMSCORE.beacon({
+c1:2,
+c2:"8031814",
+c3:"",
+c4:"",
+c5:"",
+c6:"",
+c15:""
+});
+</script>
+<noscript>
+<img src="http://b.scorecardresearch.com/p?c1=2&c2=8031814&c3=&c4=&c5=&c6=&c15=&cj=1" />
+</noscript>
+<!-- End comScore Tag -->
+        <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-5816642-20']);
+      _gaq.push(['_setDomainName', 'none']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+      _gaq.push(['_setAccount', 'UA-2409437-12']);
+      _gaq.push(['_setDomainName', '.in-fisherman.com']);
+        _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+
     <script type='text/javascript' src='/wp-content/plugins/imo-community/solunar/js/googletag.js?ver=1.0'></script>
 </head>
 
@@ -47,7 +86,7 @@
         <div class="solunar-cal">
             <h1 class="fisher-logo">In-Fisherman Solunar Calendar</h1>
             <div class="presented-by">
-                <span>brought to you by</span><a href="http://www.cabelas.com"><img width="58" height="16" alt="cabelas" src="wp-content/plugins/imo-community/solunar-mobile/images/cabelas.png"></a>
+                <span>brought to you by</span><a href="http://www.lazertrokar.com"><img height="30" alt="cabelas" src="wp-content/plugins/imo-community/solunar-mobile/images/trokar.png"></a>
             </div>
             <div class="cal-form jq-custom-form">
                 <div class="single-calendar">
