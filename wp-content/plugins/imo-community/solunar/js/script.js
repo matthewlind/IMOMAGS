@@ -17,6 +17,7 @@ if (mobilecheck()) {
 		var d = new Date();
 		var currentMonth = d.getMonth() + 1;
 		var year = 2013; //This needs to be changed later if we extend our contract
+		var searchLocation = "";
 
 
 		//Update calendar with default data a location via IP address
@@ -40,10 +41,10 @@ if (mobilecheck()) {
 		//Update calendar on month change
 		$('div#zf-select-month').on("change",function(ev){
 			var selectedMonth = $('div#zf-select-month .scrollable li.selected').attr("val");
-			var location = $("#solunar-location").val();
+
 
 			if (location)
-				updateCalendar(selectedMonth,year,location);
+				updateCalendar(selectedMonth,year,searchLocation);
 		});
 
 		//Use HTML5 Geolocation to detect location and update calendar
@@ -58,8 +59,11 @@ if (mobilecheck()) {
 
 		    		var selectedMonth = $('div#zf-select-month .scrollable li.selected').attr("val");
 
-			    	$("#solunar-location").val(closestLocation.zip)
-			    	updateCalendar(selectedMonth,year,closestLocation.zip);
+			    	//$("#solunar-location").val(closestLocation.zip);
+
+			    	searchLocation = closestLocation.zip;
+
+			    	updateCalendar(selectedMonth,year,searchLocation);
 		    	});
 	    	});
 	    }

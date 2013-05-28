@@ -434,7 +434,7 @@ body {
 }
 .mdl-section .fadeout {position:absolute;}
 .popup {
-    position:absolute;
+    position:fixed;
     width:250px;
     padding:16px 16px 20px;
     border:4px solid #fff;
