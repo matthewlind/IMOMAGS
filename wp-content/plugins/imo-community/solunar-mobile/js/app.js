@@ -1,7 +1,7 @@
 jQuery(document).ready(function($) {
 
 
-	//renderSpeciesInfo($(".jq-custom-form select").val());
+
 
 	//Initialize the page
 	var d = new Date();
@@ -9,36 +9,137 @@ jQuery(document).ready(function($) {
 	var year = 2013; //This needs to be changed later if we extend our contract
 
 	var months = {1:"January", 2:"February", 3:"March", 4:"April", 5:"May", 6:"June", 7:"July", 8:"August", 9:"September", 10:"October", 11:"November", 12:"December"};
+	var searchLocation = "";
 
+	var geolocated = false;
 
-
-
-
+	var reallySubmit = false;
 
 	//set the selected month to the current month
 	var selectedMonth = currentMonth;
-	$(".jq-view-month").text(months[currentMonth]);
-
-
-	//Use HTML5 Geolocation to detect location and update calendar
-	if (navigator.geolocation)
-    {
-    	navigator.geolocation.getCurrentPosition(function(position){
-	    	//console.log(position);
-	    	var lat = position.coords.latitude;
-	    	var url = "/wpdb/gps-to-zip.php?lat=" + position.coords.latitude +  "&lon=" + position.coords.longitude ;
-
-	    	$.getJSON(url,function(closestLocation){
 
 
 
-		    	$("#solunar-location").val(closestLocation.zip)
-		    	updateCalendar(selectedMonth,year,closestLocation.zip);
-	    	});
+	var displayForm = function() {
+
+		$(".main-wrapper").hide();
+
+		var miniDayTemplate = _.template($("#form-template").html());
+
+		$("body").prepend(miniDayTemplate);
+
+		if (searchLocation.length > 0) {
+			$(".zip-text").val(searchLocation);
+		}
+
+
+		$(".zip-text").change(function(ev){
+			reallySubmit = true;
+			searchLocation = $(this).val();
+			//alert("HEY");
+		});
+
+		$(".fish-submit").on("click",function(){
+	    	$(".form-bg").remove();
+	    	$(".main-wrapper").show();
+
+	    	if (reallySubmit) {
+	    		updateCalendar(selectedMonth,year,searchLocation);
+	    		window.scrollTo(0, 0);
+	    	}
+
+	    });
+
+	    if (!window.navigator.standalone) {
+			$(".install-popup").fadeIn();
+		}
+
+	    $(".fish-select").on("change",function(){
+
+
+	    	var fishName = $(this).find()
+			renderSpeciesInfo($(this).val());
+		});
+
+
+		$(".close-popup").on('click', function () {
+        	$(".popup, .fadeout").hide();
     	});
-    } else {
-    	//IF NO LOCATION, SHOW THE FORM
-    }
+
+	}
+
+
+	displayForm(false);
+	renderSpeciesInfo($(".fish-select").val());
+
+	$(".head-location").on("click",function(){
+		reallySubmit = true;
+		displayForm();
+	});
+
+
+
+
+	//renderSpeciesInfo($(".jq-custom-form select").val());
+
+
+
+
+
+
+	$(".jq-view-month .month-name").text(months[currentMonth]);
+
+	geolocateAndUpdateCalendar();
+
+
+
+	function geolocateAndUpdateCalendar() {
+		//Use HTML5 Geolocation to detect location and update calendar
+		if (navigator.geolocation)
+	    {
+	    	navigator.geolocation.getCurrentPosition(function(position){
+		    	//console.log(position);
+		    	var lat = position.coords.latitude;
+		    	var url = "/wpdb/gps-to-zip.php?lat=" + position.coords.latitude +  "&lon=" + position.coords.longitude ;
+
+		    	$.getJSON(url,function(closestLocation){
+
+		    		geolocated = true;
+
+
+		    		searchLocation = closestLocation.zip;
+			    	$(".zip-text").val(searchLocation)
+			    	updateCalendar(selectedMonth,year,searchLocation);
+		    	});
+	    	});
+	    } else {
+	    	//IF NO LOCATION, SHOW THE FORM
+	    }
+
+	}
+
+
+
+
+
+
+    $(".month-heading .arrow").on("click",function(ev){
+
+    	if ($(this).hasClass("prev") && selectedMonth > 1) {
+    		selectedMonth--;
+    		$(".jq-view-month .month-name").text(months[selectedMonth]);
+    		updateCalendar(selectedMonth,year,searchLocation);
+
+    	}
+
+    	if ($(this).hasClass("next") && selectedMonth < 12) {
+    		selectedMonth++;
+    		$(".jq-view-month .month-name").text(months[selectedMonth]);
+    		updateCalendar(selectedMonth,year,searchLocation);
+
+    	}
+
+    });
 
 
 
@@ -163,11 +264,35 @@ jQuery(document).ready(function($) {
 
 						currentDayData.times = times;
 
-						console.log(currentDayData);
+
+
+
+						//convert Mooncode to mobile
+
+						var desktopMooncode = currentDayData.mooncode;
+
+						var mobileMooncode = Math.round((desktopMooncode/24) * 20);
+
+
+
+
+						currentDayData.mooncode = mobileMooncode;
+
+						if (currentDayData.peakdayflag == 'N')
+							currentDayData.mooncode = 1;
+						if (currentDayData.peakdayflag == 'F')
+							currentDayData.mooncode = 11;
 
 						var miniDayTemplate = _.template($("#mini-day-template").html(),{data:currentDayData});
 
+
+
+
 						var fullDayTemplate = _.template($("#full-day-template").html(),{data:currentDayData});
+
+
+
+						//console.log(currentDayData);
 
 						$dataCell.append(miniDayTemplate);
 						$calList.append(fullDayTemplate);
@@ -202,7 +327,34 @@ jQuery(document).ready(function($) {
 		        return false;
 		    });
 
+		   $("a.date-scroll-link").click(function(ev) {
 
+		   		console.log($(this));
+
+		        var activeDay = $(this).attr("href");
+
+		        console.log(activeDay);
+
+		        //$(activeTab).slideToggle("slow");
+
+		        var scrollBack = function(){
+
+
+			  //       $('html, body').animate({
+					// 	scrollTop: "500px"
+					// }, 2000);
+		        };
+
+
+		        history.pushState("scrollBack","Solunar Calendar");
+
+
+		        $('html, body').animate({
+					scrollTop: $(activeDay).offset().top
+				}, 2000);
+		        ev.preventDefault();
+		        return false;
+		    });
 
 
 		}).fail(function(){
@@ -213,17 +365,20 @@ jQuery(document).ready(function($) {
 	}
 
 
-
 });
+
+
+
+
 
 var renderSpeciesInfo = function(slug) {
 
 
 	var url = "/wpdb/simple-infish-json.php?t=" + slug;
 
-	var fishName = $("#sel1 option[selected=selected]").html();
+	var fishName = $(".fish-select option:selected").html();
 
-	$(".fishing-tips-title").html( fishName + " Fishing Tips");
+	$(".f-title").html( fishName + " Fishing Tips");
 
 	if (typeof googletag.pubads === 'function')
 		googletag.pubads().refresh([dynamicAdSlot1]);
@@ -234,27 +389,16 @@ var renderSpeciesInfo = function(slug) {
 		$('#related-fishing-posts').html("");
 		$.each(posts,function(index,post){
 
-			//console.log(post);
-			var template = _.template($("#slider-template").html(),{data:post});
+			console.log(post);
+			var template = _.template($("#post-exerpt-template").html(),{data:post});
 			$('#related-fishing-posts').append(template);
 		});
 
-		$('#related-fishing-posts').carouFredSel({
-		    auto: false,
-		    prev: '#prev2',
-		    next: '#next2',
-		    mousewheel: true,
-		    swipe: {
-		        onMouse: true,
-		        onTouch: true
-		    }
-		});
-
 	}).fail(function( jqxhr, textStatus, error ) {
-  var err = textStatus + ', ' + error;
-  console.log( "Request Failed: " + err);
-  console.log(jqxhr);
-});
+	  var err = textStatus + ', ' + error;
+	  console.log( "Request Failed: " + err);
+	  console.log(jqxhr);
+	});
 
 }
 
@@ -264,9 +408,7 @@ $(".jq-custom-form select").zfselect({
     width:250
 });
 
-$(".jq-custom-form select").on("change",function(){
-	renderSpeciesInfo($(this).val());
-});
+
 
 
 
