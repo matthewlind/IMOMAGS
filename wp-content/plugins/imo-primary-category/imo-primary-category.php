@@ -47,44 +47,103 @@ require_once 'imo-primary-category-core.php';
 **
 ***/
 
+
+//Show only the primary category
 add_action('init', 'the_primary_category');
 function the_primary_category($cat_base) {
-	
-	// Let's get the Primary Category
+
 	$id = get_the_ID();
+	$allCats = get_the_category( $id );
+	
+	
 	$categoryID = get_post_meta($id);
 	$catID = $categoryID["_category_permalink"];
 	
-	// Show the primary category if one is assigned
-	if($catID){
-		$categoryName = get_term_by('id', $catID[0], 'category');
+	$categoryName = get_term_by('id', $catID[0], 'category');
+	$primary = $categoryName->name;
+	$url = $categoryName->slug;
 	
-		// Set the primary category urls
-		$url = $categoryName->slug;
-		
-		return '<a class="primary-cat" href="'.$cat_base.'/'.$url.'">'.$categoryName->name.'</a>';
-
+	if($catID){
+		$categories = '<div class="list-cats"><a class="primary-cat" href="'.$cat_base.'/'.$url.'">'.$primary.'</a> ';
 	}else{
-		$category = get_the_category(); 
-		// Make sure not to display featured categories
-		if(in_category("home-featured") || in_category("featured") || in_category("blogs")){
-			return '<a class="primary-cat" href="'.$cat_base.'/'.$category[1]->cat_name.'">'.$category[1]->cat_name.'</a>';
-		}else{
-			return '<a class="primary-cat" href="'.$cat_base.'/'.$category[0]->cat_name.'">'.$category[0]->cat_name.'</a>';
-		}
+		$categories = '<div class="list-cats">';
 	}
+    
+    
+    
+	$categories .= '</div>';
+	
+	return $categories;
+	
 }
 
+//Show the primary category followed by the other categories
+add_action('init', 'primary_and_secondary_categories');
+function primary_and_secondary_categories($cat_base) {
 
-
-
-
-
-
-
-
-
-
+	$id = get_the_ID();
+	$allCats = get_the_category( $id );
+	
+	
+	$categoryID = get_post_meta($id);
+	$catID = $categoryID["_category_permalink"];
+	
+	$categoryName = get_term_by('id', $catID[0], 'category');
+	$primary = $categoryName->name;
+	$url = $categoryName->slug;
+	
+	if($catID){
+		$categories = '<div class="list-cats"><a class="primary-cat" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;Primary Category&#39;,&#39;'.$categoryName->name.'&#39;]);" href="'.$cat_base.'/'.$url.'">'.$primary.'</a> ';
+	}else{
+		$categories = '<div class="list-cats">';
+	}
+    
+    
+    $slugArray = array(   
+    	"", 	
+    	"defend-thyself",
+        "for-the-love of-competition",
+		"history-books",
+		"news-brief",
+		"sons-of-guns-and-ammo",
+		"the-front-lines",
+		"zombie-nation", 
+		"blogs",
+		"featured",
+		"home-featured",
+		"affiliates",
+		"man-on-the-street",
+		"ga-perspectives",
+		"galleries",
+		"ga-Lists ",
+		"video",
+		"ga-tv",
+		"shot-show-featured",
+		"sponsored",
+		"uncategorized",
+		"network-topics",
+		"culture-politics-network",
+		"personal-defense-network",
+		"survival-network",
+		"the-gear-network",
+		"the-guns-network"
+    );
+	
+    foreach($allCats as $cat){
+    	
+	    $slug = $cat->slug;
+	    $name = $cat->name;
+		
+	    if(!array_search($slug,$slugArray) && $slug != $url){
+		    $categories .= '<a onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;Category&#39;,&#39;'.$cat->name.'&#39;]);" href="'.$cat_base.'/'.$slug.'">'.$name.'</a> ';
+	    }
+    }
+    
+	$categories .= '</div>';
+	
+	return $categories;
+	
+}
 
 
 

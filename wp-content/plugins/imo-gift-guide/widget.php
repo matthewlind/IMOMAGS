@@ -106,9 +106,9 @@ class GiftGuideWidget extends \WP_Widget {
 		<div style="clear:both;"></div>
 		<!-- clone -->
 		<li id="gg-widget-template" style="display:none;">
-			<a class="network-thumb" href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/"><img src="http://www.handgunsmag.com/files/2013/04/Picking-duty-pistols-190x120.jpg" alt="title" /></a>
-			<a href="http://gunsandammo.com" class="site">www.gunsandammo.com</a>			
-			<a class="title" rel="bookmark" href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/">Deer of the Day Buckeye Brute, Alexa Perry</a>				
+			<a class="network-thumb" href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/" onclick=""><img src="http://www.handgunsmag.com/files/2013/04/Picking-duty-pistols-190x120.jpg" alt="title" /></a>
+			<a href="http://gunsandammo.com" class="site" onclick="">www.gunsandammo.com</a>			
+			<a class="title" rel="bookmark" href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/" onclick="">Deer of the Day Buckeye Brute, Alexa Perry</a>				
 		</li>
 
     <?php	}

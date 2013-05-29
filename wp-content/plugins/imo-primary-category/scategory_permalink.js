@@ -1,6 +1,7 @@
 /* imo-primary-category */
 (function($) {
-  $.fn.sCategoryPermalink = function(options) {
+
+   $.fn.sCategoryPermalink = function(options) {
     $(this).append('<input type="hidden" name="scategory_permalink" id="scategory_permalink" />');
     var obj = this;
 
