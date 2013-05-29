@@ -193,9 +193,11 @@ body {
 .header {
     padding:6px 8px;
     border-bottom:1px solid #000;
-    position:relative;
     background:url(../images/bg/body.jpg) repeat-y 50% -20px;
     background-size: 100%;
+    z-index: 1000;
+    width: 100%;
+    position: fixed;
 }
 .open-btn {
     position:absolute;
@@ -432,7 +434,7 @@ body {
 }
 .mdl-section .fadeout {position:absolute;}
 .popup {
-    position:absolute;
+    position:fixed;
     width:250px;
     padding:16px 16px 20px;
     border:4px solid #fff;
@@ -447,6 +449,10 @@ body {
     z-index:999999;
     display:none;
 }
+.popup .chart {
+    margin-top:20px;
+}
+
 .install-popup {
     top: auto;
     bottom:30px;
@@ -509,8 +515,13 @@ body {
     position:relative;
     z-index:1;
 }
+
+.padding-div {
+    height:106px;
+    width:100px;
+}
+
 .month-heading {
-    position:relative;
     text-align:center;
     padding:10px 32px;
     border-top:1px solid #1f1b1c;
@@ -518,6 +529,11 @@ body {
     background:url(../images/bg/white-hue.png) repeat;
     -webkit-box-shadow: 0px 1px 1px 1px #e1e1e1;
     box-shadow: 0px 1px 1px 1px #e1e1e1;
+    z-index: 1000;
+    top: 45px;
+    background-color: #ffffff;
+    width: 100%;
+    position: fixed;
 }
 .month-heading h2 {
     font:35px/1.1 "stagbold", serif;
@@ -546,6 +562,7 @@ body {
 }
 .month-heading .next:hover {background-position:-258px -26px;}
 .cal-list {
+    padding-bottom: 45px;
     color:#3c3c3c;
     background:url(../images/bg/white-hue.png) repeat;
 }
@@ -912,7 +929,7 @@ body {
     top:0;
     left:0;
     z-index:99999;
-    padding:0 0 44px;
+    padding:45px 0 44px;
     background:url(../images/bg/white-hue.png) repeat;
     display:none;
 }
