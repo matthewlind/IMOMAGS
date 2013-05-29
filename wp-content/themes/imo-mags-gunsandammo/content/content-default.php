@@ -18,12 +18,12 @@ $url="/shooting/".$categoryName->slug;
 		<?php
 		if(in_category("shot-show-2013")){
 			echo '<div class="primary-shot-show">';
-				echo '<a class="primary-cat" href="'.$url.'">'.$categoryName->name.'</a>';
+				echo primary_and_secondary_categories("/shooting");	
 		}else if(has_tag("nra-show")){ ?>
 		<div class="blog-headers shot-show nra-show">
 			<div class="blog-border"></div>
 			<h1>NRA SHOW 2013</h1>
-
+			
 			<div class="presented-by">Presented By</div>
 			<div class="desc">G&A brings you all the guns, gear and politics from the floor of the 2013 NRA Annual Meetings in Houston, Texas.  </div>
 			<div class="sponsor-logo" style="">
@@ -37,9 +37,11 @@ $url="/shooting/".$categoryName->slug;
 				<img src="http://ad.doubleclick.net/N4930/ad/imo.gunsandammo;sz=200x48;ord=[timestamp]?" width="200" height="48" />
 				</a>
 				</noscript></div>
+				
 		</div>
+		<?php echo primary_and_secondary_categories("/shooting"); ?>
 		<?php }else{
-			echo '<a class="primary-cat" href="'.$url.'">'.$categoryName->name.'</a>';
+			echo primary_and_secondary_categories("/shooting");	
 		}
 
 		// If we're not showing this particular single post page, link the title

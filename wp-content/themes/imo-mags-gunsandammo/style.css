@@ -1181,7 +1181,7 @@ a.comment-count:hover {
 /* line 820, sass/style.scss */
 .entry-excerpt .entry-summary {
   float: left;
-  width: 358px;
+  width: 352px;
 }
 /* line 824, sass/style.scss */
 .entry-excerpt .entry-category {
@@ -4235,7 +4235,6 @@ body.parent-pageid-2114 #main {
 /* line 3076, sass/style.scss */
 .single .entry-title {
   width: 92%;
-  clear: both;
 }
 /* line 3078, sass/style.scss */
 .single .entry-info {
@@ -6921,6 +6920,7 @@ font-size: 0.72em;
 	margin-top: 0;
 	width:410px;
 	line-height: 1.1;
+	margin-left: 160px;
 }
 .blog-headers .presented-by{
 	font-family: "StagMedium",serif !important;
@@ -7026,19 +7026,26 @@ font-size: 0.72em;
 
 
 /*** Primary Category ***/
-.primary-cat{
+.list-cats a{
 	font-weight: bold;
 	text-transform: uppercase;
 	font-style: normal;
 	font-family: sans-serif;
-
-
+	color: white !important;
 	padding: 2px 4px;
-	font-size: 12px;
+	font-size: 11px;
+	white-space: nowrap;
+	line-height: 0.9;
 }
-
-
-
+.list-cats a:hover, .list-cats a.primary-cat:hover{
+	background-color: black;
+}
+.list-cats a.primary-cat{
+	background-color: #ce181e;
+}
+.list-cats a{
+	background-color: #bbb;
+}
 
 /*jetpack fixes*/
 #main{padding-top: 0px;margin-top: 0;overflow: visible;}

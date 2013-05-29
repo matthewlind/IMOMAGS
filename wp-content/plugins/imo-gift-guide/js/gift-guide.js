@@ -57,13 +57,13 @@ jQuery(document).ready(function($) {
 		
 		        
 		        var $articleTemplate = $("li#gg-widget-template").clone();
-
 		        $articleTemplate.attr("id","gg-" + data[i].post_name + count);
 		        $articleTemplate.find("a.title").attr("href",data[i].post_url);
 		        if(data[i].img_url){
 		        	$articleTemplate.find("a.network-thumb").attr("href",data[i].post_url);
 		        	$articleTemplate.find("img").attr("src",data[i].img_url).attr("alt",data[i].post_title);
 		        }	        
+		        $articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','" + data[i].slug + "','" + data[i].post_url + "']);");
 		        $articleTemplate.find("a.title").text(data[i].post_title);
 		        
 		        if (data[i].domain != document.domain) {
@@ -102,7 +102,8 @@ jQuery(document).ready(function($) {
 		        	$articleTemplate.find("a.network-thumb").attr("href",data[i].post_url);
 		        	$articleTemplate.find("img").attr("src",data[i].img_url).attr("alt",data[i].post_title);
 		        }	    
-		        		        
+		        $articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','" + data[i].slug + "','" + data[i].post_url + "']);");
+		        
 		        $articleTemplate.find("a.title").text(data[i].post_title);
 		        
 		        if (data[i].domain != document.domain) {
@@ -141,7 +142,8 @@ jQuery(document).ready(function($) {
 		        	$articleTemplate.find("a.network-thumb").attr("href",data[i].post_url);
 		        	$articleTemplate.find("img").attr("src",data[i].img_url).attr("alt",data[i].post_title);
 		        }	    
-		        		        
+		        $articleTemplate.find("a.title,a.network-thumb").attr("onclick","_gaq.push(['_trackEvent','" + data[i].slug + "','" + data[i].post_url + "']);");
+		        
 		        $articleTemplate.find("a.title").text(data[i].post_title);
 		        
 		        if (data[i].domain != document.domain) {
