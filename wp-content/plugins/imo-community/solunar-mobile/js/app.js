@@ -367,7 +367,7 @@ jQuery(document).ready(function($) {
 
 		   $("a.date-scroll-link").click(function(ev) {
 
-
+		   		$(".calendar-holder").hide();
 
 		        var activeDay = $(this).attr("href");
 
@@ -385,10 +385,10 @@ jQuery(document).ready(function($) {
 
 
 		        $('html, body').animate({
-					scrollTop: $(activeDay).offset().top
+					scrollTop: $(activeDay).offset().top - 100
 				}, 2000);
 
-				$(".calendar-holder").hide();
+
 		        ev.preventDefault();
 		        return false;
 		    });

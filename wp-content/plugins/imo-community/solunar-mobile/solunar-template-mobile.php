@@ -168,8 +168,8 @@ c15:""
                     <div id="day<%= data.day %>" class="day-expandable">
                         <div class="expandable-frame">
                             <ul class="phase-data sunrise-data">
-                                <li><%= data.sunrise %></li>
-                                <li><%= data.sunset %></li>
+                                <li><%= data.sunrise %><span>A</span></li>
+                                <li><%= data.sunset %><span>P</span></li>
                             </ul>
                             <ul class="phase-data moonrise-data">
                                 <li><%= data.moonrise %></li>
