@@ -26,32 +26,39 @@ class NetworkTopicsWidget extends \WP_Widget {
 				<h3 class="widget-title"><span>The G&A Network</span></h3>
 
 				<div class="network-feed">
+				
 					<h2>The Guns</h2>
-					<ul id="guns-network" class="network-topics" term="the-guns-network">
-				    
-					</ul>
+					<div class="flexslider">
+						<ul id="guns-network" class="network-topics slides" term="the-guns-network">	
+						</ul>
+					</div>
 					
 					<h2>The Gear</h2>
-					<ul id="gear-network" class="network-topics" term="the-gear-network">
-				    
-					</ul>
+					<div class="flexslider">						
+						<ul id="gear-network" class="network-topics slides" term="the-gear-network">
+						</ul>
+					</div>
 					
 					<h2>Personal Defense</h2>
-					<ul id="personal-defense-network" class="network-topics" term="personal-defense-network">
-				    
-					</ul>
+					<div class="flexslider">						
+						<ul id="personal-defense-network" class="network-topics slides" term="personal-defense-network">
+					    </ul>
+					</div>
 					
 					<h2>Culture & Politics</h2>
-					<ul id="culture-politics-network" class="network-topics" term="culture-politics-network">
+					<div class="flexslider">
+						<ul id="culture-politics-network" class="network-topics slides" term="culture-politics-network">
+						</ul>
+					</div>
 					
-					</ul>
+					<h2>Survival</h2>
+					<div class="flexslider">
+						<ul id="survival-network" class="network-topics last slides" term="survival-network">
+						</ul>
+					</div>
 					
-					<!--<h2>Survival</h2>
-					<ul id="survival-network" class="network-topics last" term="survival-network">
-				    
-					</ul>-->
-				</div>
-			</div>
+				</div><!-- network-feed -->
+			</div><!-- network-topics-widget -->
 			<div class="btm-bg"></div>
 		</aside>
 		<div style="clear:both;"></div>

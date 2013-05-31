@@ -451,3 +451,18 @@ $(document).ready(function(){
 
 
 
+
+$(window).load(function() {
+	$('.flexslider').flexslider({
+		animation: "slide",
+		easing: "swing",
+        animationSpeed: 200,
+        slideshow: false,
+        itemWidth: 140,
+        itemMargin: 0,
+        minItems: 2,
+        maxItems: 2
+		
+	});
+});
+

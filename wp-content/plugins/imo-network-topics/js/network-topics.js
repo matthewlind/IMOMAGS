@@ -1,7 +1,7 @@
 jQuery(document).ready(function($) {
 	
 	var currentPosition = 0;
-	var showAtOnce = 3;
+	var showAtOnce = 10;
 	var sort = "post_date";
 	var feedData;
 
@@ -30,6 +30,9 @@ jQuery(document).ready(function($) {
 		var cpFileName = "/wpdb/shooting-network-json.php?t=" + cpTerm;
 		var survFileName = "/wpdb/shooting-network-json.php?t=" + survTerm;
 		
+		//Truncate
+		
+    
 		//Gun Network
 		var getdata = $.getJSON(gunFileName, function(data) {
 		    var count = 0;
@@ -37,7 +40,7 @@ jQuery(document).ready(function($) {
 
 		    for (i = start; i < end; i++) {
 		        count++;
-		
+				var title = jQuery.trim(data[i].post_title).substring(0, 40).split(" ").slice(0, -1).join(" ") + "...";
 		        
 		        var $articleTemplate = $("li#nt-widget-template").clone();
 
@@ -45,12 +48,12 @@ jQuery(document).ready(function($) {
 		        $articleTemplate.find("a.title").attr("href",data[i].post_url);
 		        if(data[i].img_url){
 		        	$articleTemplate.find("a.network-thumb").attr("href",data[i].post_url);
-		        	$articleTemplate.find("img").attr("src",data[i].img_url).attr("alt",data[i].post_title);
+		        	$articleTemplate.find("img").attr("src",data[i].img_url).attr("alt",title);
 		        }	        
-		        $articleTemplate.find("a.title").text(data[i].post_title);
+		        $articleTemplate.find("a.title").text(title);
 		        
 		         if (data[i].domain != document.domain) {
-		        	$articleTemplate.find(".site a").text(data[i].brand + " Magazine");
+		        	$articleTemplate.find(".site a").text(data[i].brand + " Mag");
 		        	$articleTemplate.find(".site a").attr("href","http://" + data[i].domain);
         	
 					$articleTemplate.find("a").attr("target","_blank");
@@ -83,7 +86,7 @@ jQuery(document).ready(function($) {
 
 		    for (i = start; i < end; i++) {
 		        count++;
-		
+				var title = jQuery.trim(data[i].post_title).substring(0, 40).split(" ").slice(0, -1).join(" ") + "...";
 		        
 		        var $articleTemplate = $("li#nt-widget-template").clone();
 
@@ -91,13 +94,13 @@ jQuery(document).ready(function($) {
 		        $articleTemplate.find("a.title").attr("href",data[i].post_url);
 		        if(data[i].img_url){
 		        	$articleTemplate.find("a.network-thumb").attr("href",data[i].post_url);
-		        	$articleTemplate.find("img").attr("src",data[i].img_url).attr("alt",data[i].post_title);
+		        	$articleTemplate.find("img").attr("src",data[i].img_url).attr("alt",title);
 		        }	    
 		        		        
-		        $articleTemplate.find("a.title").text(data[i].post_title);
+		        $articleTemplate.find("a.title").text(title);
 		        
 		        if (data[i].domain != document.domain) {
-		        	$articleTemplate.find(".site a").text(data[i].brand + " Magazine");
+		        	$articleTemplate.find(".site a").text(data[i].brand + " Mag");
 		        	$articleTemplate.find(".site a").attr("href","http://" + data[i].domain);
 		        	
 		        	$articleTemplate.find("a").attr("target","_blank");
@@ -131,7 +134,7 @@ jQuery(document).ready(function($) {
 
 		    for (i = start; i < end; i++) {
 		        count++;
-		
+				var title = jQuery.trim(data[i].post_title).substring(0, 40).split(" ").slice(0, -1).join(" ") + "...";
 		        
 		        var $articleTemplate = $("li#nt-widget-template").clone();
 
@@ -139,13 +142,13 @@ jQuery(document).ready(function($) {
 		        $articleTemplate.find("a.title").attr("href",data[i].post_url);
 		        if(data[i].img_url){
 		        	$articleTemplate.find("a.network-thumb").attr("href",data[i].post_url);
-		        	$articleTemplate.find("img").attr("src",data[i].img_url).attr("alt",data[i].post_title);
+		        	$articleTemplate.find("img").attr("src",data[i].img_url).attr("alt",title);
 		        }	    
 		        		        
-		        $articleTemplate.find("a.title").text(data[i].post_title);
+		        $articleTemplate.find("a.title").text(title);
 		        
 		         if (data[i].domain != document.domain) {
-		        	$articleTemplate.find(".site a").text(data[i].brand + " Magazine");
+		        	$articleTemplate.find(".site a").text(data[i].brand + " Mag");
 		        	$articleTemplate.find(".site a").attr("href","http://" + data[i].domain);
 		        	
 					$articleTemplate.find("a").attr("target","_blank");
@@ -179,7 +182,7 @@ jQuery(document).ready(function($) {
 
 		    for (i = start; i < end; i++) {
 		        count++;
-		
+				var title = jQuery.trim(data[i].post_title).substring(0, 40).split(" ").slice(0, -1).join(" ") + "...";
 		        
 		        var $articleTemplate = $("li#nt-widget-template").clone();
 
@@ -187,13 +190,13 @@ jQuery(document).ready(function($) {
 		        $articleTemplate.find("a.title").attr("href",data[i].post_url);
 		        if(data[i].img_url){
 		        	$articleTemplate.find("a.network-thumb").attr("href",data[i].post_url);
-		        	$articleTemplate.find("img").attr("src",data[i].img_url).attr("alt",data[i].post_title);
+		        	$articleTemplate.find("img").attr("src",data[i].img_url).attr("alt",title);
 		        }	    
 		        		        
-		        $articleTemplate.find("a.title").text(data[i].post_title);
+		        $articleTemplate.find("a.title").text(title);
 		        
 		         if (data[i].domain != document.domain) {
-		        	$articleTemplate.find(".site a").text(data[i].brand + " Magazine");
+		        	$articleTemplate.find(".site a").text(data[i].brand + " Mag");
 		        	$articleTemplate.find(".site a").attr("href","http://" + data[i].domain);
 
 					$articleTemplate.find("a").attr("target","_blank");
@@ -227,7 +230,7 @@ jQuery(document).ready(function($) {
 
 		    for (i = start; i < end; i++) {
 		        count++;
-		
+				var title = jQuery.trim(data[i].post_title).substring(0, 40).split(" ").slice(0, -1).join(" ") + "...";
 		        
 		        var $articleTemplate = $("li#nt-widget-template").clone();
 
@@ -235,13 +238,13 @@ jQuery(document).ready(function($) {
 		        $articleTemplate.find("a.title").attr("href",data[i].post_url);
 		        if(data[i].img_url){
 		        	$articleTemplate.find("a.network-thumb").attr("href",data[i].post_url);
-		        	$articleTemplate.find("img").attr("src",data[i].img_url).attr("alt",data[i].post_title);		        	
+		        	$articleTemplate.find("img").attr("src",data[i].img_url).attr("alt",title);		        	
 		        }	    
 		        		        
-		        $articleTemplate.find("a.title").text(data[i].post_title);
+		        $articleTemplate.find("a.title").text(title);
 		        
 		         if (data[i].domain != document.domain) {
-		        	$articleTemplate.find(".site a").text(data[i].brand + " Magazine");
+		        	$articleTemplate.find(".site a").text(data[i].brand + " Mag");
 		        	$articleTemplate.find(".site a").attr("href","http://" + data[i].domain);
 		        	
 					$articleTemplate.find("a").attr("target","_blank");

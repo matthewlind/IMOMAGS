@@ -746,6 +746,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 .centerad{
     z-index: 1;
     position: relative;
+    width: 728px;
 }
 
 /* Digimag sidebar fix */
