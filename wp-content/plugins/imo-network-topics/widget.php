@@ -51,11 +51,11 @@ class NetworkTopicsWidget extends \WP_Widget {
 						</ul>
 					</div>
 					
-					<h2>Survival</h2>
+					<!--<h2>Survival</h2>
 					<div class="flexslider">
 						<ul id="survival-network" class="network-topics last slides" term="survival-network">
 						</ul>
-					</div>
+					</div>-->
 					
 				</div><!-- network-feed -->
 			</div><!-- network-topics-widget -->

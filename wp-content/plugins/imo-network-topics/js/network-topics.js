@@ -1,7 +1,12 @@
 jQuery(document).ready(function($) {
 	
 	var currentPosition = 0;
-	var showAtOnce = 10;
+	if($("#network-topics-3-col").length > 0){
+		var showAtOnce = 3;
+	}else{
+		var showAtOnce = 10;
+	}
+	
 	var sort = "post_date";
 	var feedData;
 
