@@ -62,7 +62,7 @@ class NetworkTopicsWidget extends \WP_Widget {
 			<div class="btm-bg"></div>
 		</aside>
 		<div style="clear:both;"></div>
-
+		
 <?php
                     
       

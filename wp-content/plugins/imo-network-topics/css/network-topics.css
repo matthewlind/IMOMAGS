@@ -152,7 +152,10 @@ ul.network-topics li{
 	line-height: 1.2;
 }
 
-
+#network-topics-3-col ul.network-topics{
+	clear: both;
+	float: none;
+}
 
 
 /*

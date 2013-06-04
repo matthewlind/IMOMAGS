@@ -1,5 +1,7 @@
 jQuery(document).ready(function($) {
 	
+	
+
 	var currentPosition = 0;
 	if($("#network-topics-3-col").length > 0){
 		var showAtOnce = 3;
@@ -19,7 +21,7 @@ jQuery(document).ready(function($) {
 	
 	function displayCrossSiteFeed(start,sort) {
 		sort = typeof sort !== 'undefined' ? sort : 'post_date'; //If sort is not set, set sort to post_date		
-		 	
+		 		
 		
 		//First get any extra term
 		var gunTerm = $("#guns-network").attr("term");
@@ -36,7 +38,7 @@ jQuery(document).ready(function($) {
 		var survFileName = "/wpdb/shooting-network-json.php?t=" + survTerm;
 		
 		//Truncate
-		
+		var title;
     
 		//Gun Network
 		var getdata = $.getJSON(gunFileName, function(data) {
@@ -45,7 +47,11 @@ jQuery(document).ready(function($) {
 
 		    for (i = start; i < end; i++) {
 		        count++;
-				var title = jQuery.trim(data[i].post_title).substring(0, 40).split(" ").slice(0, -1).join(" ") + "...";
+				if(data[i].post_title.length > 41){
+			        title = jQuery.trim(data[i].post_title).substring(0, 40).split(" ").slice(0, -1).join(" ") + "...";
+		        }else{
+			        title = data[i].post_title;
+		        }
 		        
 		        var $articleTemplate = $("li#nt-widget-template").clone();
 
@@ -91,8 +97,12 @@ jQuery(document).ready(function($) {
 
 		    for (i = start; i < end; i++) {
 		        count++;
-				var title = jQuery.trim(data[i].post_title).substring(0, 40).split(" ").slice(0, -1).join(" ") + "...";
-		        
+				if(data[i].post_title.length > 41){
+			        title = jQuery.trim(data[i].post_title).substring(0, 40).split(" ").slice(0, -1).join(" ") + "...";
+		        }else{
+			        title = data[i].post_title;
+		        }
+		        		        
 		        var $articleTemplate = $("li#nt-widget-template").clone();
 
 		        $articleTemplate.attr("id","nt-" + data[i].post_name + count);
@@ -139,7 +149,11 @@ jQuery(document).ready(function($) {
 
 		    for (i = start; i < end; i++) {
 		        count++;
-				var title = jQuery.trim(data[i].post_title).substring(0, 40).split(" ").slice(0, -1).join(" ") + "...";
+				if(data[i].post_title.length > 41){
+			        title = jQuery.trim(data[i].post_title).substring(0, 40).split(" ").slice(0, -1).join(" ") + "...";
+		        }else{
+			        title = data[i].post_title;
+		        }
 		        
 		        var $articleTemplate = $("li#nt-widget-template").clone();
 
@@ -187,7 +201,11 @@ jQuery(document).ready(function($) {
 
 		    for (i = start; i < end; i++) {
 		        count++;
-				var title = jQuery.trim(data[i].post_title).substring(0, 40).split(" ").slice(0, -1).join(" ") + "...";
+				if(data[i].post_title.length > 41){
+			        title = jQuery.trim(data[i].post_title).substring(0, 40).split(" ").slice(0, -1).join(" ") + "...";
+		        }else{
+			        title = data[i].post_title;
+		        }
 		        
 		        var $articleTemplate = $("li#nt-widget-template").clone();
 
@@ -235,7 +253,12 @@ jQuery(document).ready(function($) {
 
 		    for (i = start; i < end; i++) {
 		        count++;
-				var title = jQuery.trim(data[i].post_title).substring(0, 40).split(" ").slice(0, -1).join(" ") + "...";
+		        if(post_title.length > 41){
+			        title = jQuery.trim(data[i].post_title).substring(0, 40).split(" ").slice(0, -1).join(" ") + "...";
+		        }else{
+			        title = post_title;
+		        }
+				
 		        
 		        var $articleTemplate = $("li#nt-widget-template").clone();
 
@@ -279,5 +302,6 @@ jQuery(document).ready(function($) {
 
 
 
-
 });
+
+
