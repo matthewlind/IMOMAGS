@@ -121,7 +121,6 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
                         </ul>
                     </div>
                     <div class="cal-row presented-by">
-                        <span>presented by</span>
 <!-- Site - In-Fisherman/solunar_calendar -->
 
     <a href="http://ad.doubleclick.net/N4930/jump/imo.in-fisherman/solunar_calendar;sz=125x125;ord=[timestamp]?">
