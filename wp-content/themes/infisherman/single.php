@@ -11,12 +11,10 @@ get_header(); ?>
     <div class="inner-main">
     	<div class="sidebar-area">
 		    <?php get_sidebar();?>
-		    <div class="sidebar-sticky">
-		          <div data-position="6" class="sticky-ads js-responsive-section">
-			        <div class="banner">
-			            <?php imo_dart_tag("300x250",false,array("pos"=>"btf")); ?>
-			        </div>
-			    </div>
+		    <div id="responderfollow"></div>
+			<div class="sidebar advert">
+				<?php imo_dart_tag("300x250",false,array("pos"=>"btf")); ?>
+				<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('scroll-sidebar')) : else : endif; ?>
 			</div>
 		</div>        
 		<div id="primary" class="general">

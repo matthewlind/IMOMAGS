@@ -2,12 +2,10 @@
 get_header(); ?>
         <div class="sidebar-area">
 		    <?php get_sidebar();?>
-		    <div class="sidebar-sticky">
-		          <div data-position="6" class="sticky-ads js-responsive-section">
-			        <div class="banner">
-			            <?php imo_dart_tag("300x250",false,array("pos"=>"btf")); ?>
-			        </div>
-			    </div>
+		    <div id="responderfollow"></div>
+			<div class="sidebar advert">
+				<?php imo_dart_tag("300x250",false,array("pos"=>"btf")); ?>
+				<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('scroll-sidebar')) : else : endif; ?>
 			</div>
 		</div>
         <div id="primary" class="general">
@@ -59,7 +57,7 @@ get_header(); ?>
 
                         <?php if ( ($i%6) == 0 ): ?>
                         <div class="image-banner posts-image-banner">
-                            <a href="#"><img src="/wp-content/themes/infisherman/images/pic/banner-evinrude.jpg" alt=""></a>
+                            <?php imo_dart_tag("300x250",false,array("pos"=>"mob")); ?> 
                         </div>
                         <?php endif;?>
         

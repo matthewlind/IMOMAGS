@@ -166,24 +166,10 @@
 								
 								</div>
 							</div>
-                         <?php //if ( is_active_sidebar( 'sidebar-header-2' ) ) : ?>
-                            <?php //dynamic_sidebar( 'sidebar-header-2' ); ?>
-                        <?php //endif; ?>
-                        
-                        <div class="h-mdl-widget">
-                            <div class="socials-hold">
-                            	<div class="socials">
-									<a class="facebook" href="#">Facebook</a>
-									<a class="twitter" href="#">Twitter</a>
-									<a class="youtube" href="#">YouTube</a>
-									<a class="rss" href="#">RSS</a>
-								</div>
-                            
-                            
-                                <?php //if ( is_active_sidebar( 'sidebar-header-1' ) ) : ?>
-                                    <?php //dynamic_sidebar( 'sidebar-header-1' ); ?>
-                                <?php //endif; ?>
-                            </div>
+                      
+	                        <div class="h-mdl-widget">
+	                            <div class="socials-hold">
+	                        </div>
                             
                             <div class="h-search-form">
                                 <?php infisherman_get_search_form(); ?>

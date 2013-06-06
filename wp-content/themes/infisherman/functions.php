@@ -551,12 +551,12 @@ class Recipes_Widget extends WP_Widget
 }        
 
 function social_networks(){
-	echo ' <div class="socials"><a href="#" class="facebook">Facebook</a>
-                            <a href="#" class="twitter">Twitter</a>
-                            <a href="#" class="youtube">YouTube</a>
-                            <a href="#" class="rss">RSS</a>
-                        </div>
-';
+	echo ' <div class="socials">
+				<a href="#" class="facebook">Facebook</a>
+		        <a href="#" class="twitter">Twitter</a>
+		        <a href="#" class="youtube">YouTube</a>
+		        <a href="#" class="rss">RSS</a>
+		    </div>';
 }
 function infisherman_setup()
 {

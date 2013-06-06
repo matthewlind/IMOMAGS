@@ -107,12 +107,13 @@ var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
     classie.toggle( menuLeft, 'cbp-spmenu-open' );
 };
 
-jQuery(window).swipe( {
+//causing error for selecting text
+/*jQuery(window).swipe( {
     swipeLeft:function() {
       jQuery(body).removeClass('cbp-spmenu-push-toright');
       jQuery(menuLeft).removeClass('cbp-spmenu-open');
     }
-  });
+  });*/
 
 jQuery('.cbp-spmenu-vertical').on("click", ".menu-main-menu-container .has-drop", function(){
     jQuery(this).parent("li").toggleClass('drop-open');

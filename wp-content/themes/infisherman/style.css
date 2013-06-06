@@ -592,6 +592,7 @@ a:hover { color: #040503; }
 }
 .menu-main-menu-container > ul > li:last-child .drop-down{
 	right: 0;
+	left: auto;
 }
 .menu-main-menu-container > ul > li:last-child:hover .drop-down{
 	top:42px;
@@ -1577,6 +1578,11 @@ a.category-name-link:hover{
     width:100%;
     height: auto;
 }
+.sidebar-area .advert{
+	position: relative;
+	display: block;
+}
+
 /* solunar widget */
 .solunar-widget {
     padding:20px 9px 34px;
@@ -1766,14 +1772,14 @@ a.change-location:before {
     color:#94040b;
 }
 /* calendar carousel end */
-/* sticky-ads */
-.sticky-ads {
+/* advert */
+.advert {
     width:310px;
     position:relative;
     z-index:999;
     clear:both;
 }
-.sticky-ads img {
+.advert img {
     width:100%;
     height: auto;
 }
@@ -2259,7 +2265,7 @@ a.change-location:before {
     }
     /* sidebar */
     .sidebar-area { padding-top:0; }
-    .cbp-spmenu-push-toright .sticky-ads {
+    .cbp-spmenu-push-toright .sticky-ads{
         position:static !important;
         margin:0 !important;
     }
@@ -2495,7 +2501,7 @@ a.change-location:before {
         font-size:14px;
         line-height:49px;
     }
-    .sidebar-area .sticky-ads {
+    .sidebar-area .advert {
         width:224px;
         margin:0 auto;
         padding:1px;
@@ -2889,8 +2895,8 @@ a.change-location:before {
         max-width:300px;
     }
     .cbp-spmenu-push-toright .sticky-ads,
-    .sticky-ads,
-    .sidebar-area .sticky-ads {
+    .advert,
+    .sidebar-area .advert {
         width:300px;
         position:static !important;
         margin:0 auto 26px !important;
