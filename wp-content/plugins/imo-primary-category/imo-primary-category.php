@@ -64,14 +64,12 @@ function the_primary_category($cat_base) {
 	$url = $categoryName->slug;
 	
 	if($catID){
-		$categories = '<div class="list-cats"><a class="primary-cat" href="'.$cat_base.'/'.$url.'">'.$primary.'</a> ';
-	}else{
-		$categories = '<div class="list-cats">';
+		$categories = '<span class="cat-label"><a class="category-name-link" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;Primary Category&#39;,&#39;'.$categoryName->name.'&#39;]);" href="'.$cat_base.'/'.$url.'">'.$primary.'</a>';
 	}
     
     
     
-	$categories .= '</div>';
+	$categories .= '</span></span>';
 	
 	return $categories;
 	
@@ -92,10 +90,10 @@ function primary_and_secondary_categories($cat_base) {
 	$primary = $categoryName->name;
 	$url = $categoryName->slug;
 	
+	$categories = '<span class="cat-feat-label">';
+	
 	if($catID){
-		$categories = '<div class="list-cats"><a class="primary-cat" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;Primary Category&#39;,&#39;'.$categoryName->name.'&#39;]);" href="'.$cat_base.'/'.$url.'">'.$primary.'</a> ';
-	}else{
-		$categories = '<div class="list-cats">';
+		$categories .= '<a class="category-name-link primary-cat" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;Primary Category&#39;,&#39;'.$categoryName->name.'&#39;]);" href="'.$cat_base.'/'.$url.'">'.$primary.'</a> ';
 	}
     
     
@@ -135,11 +133,11 @@ function primary_and_secondary_categories($cat_base) {
 	    $name = $cat->name;
 		
 	    if(!array_search($slug,$slugArray) && $slug != $url){
-		    $categories .= '<a onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;Category&#39;,&#39;'.$cat->name.'&#39;]);" href="'.$cat_base.'/'.$slug.'">'.$name.'</a> ';
+		    $categories .= '<a class="category-name-link" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;Category&#39;,&#39;'.$cat->name.'&#39;]);" href="'.$cat_base.'/'.$slug.'">'.$name.'</a> ';
 	    }
     }
     
-	$categories .= '</div>';
+	$categories .= '</span>';
 	
 	return $categories;
 	

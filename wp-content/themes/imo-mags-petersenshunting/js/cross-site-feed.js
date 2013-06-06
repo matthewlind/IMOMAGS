@@ -111,17 +111,17 @@ jQuery(document).ready(function($) {
 					$(data[i].terms).each(function(index) {
 						var parentString = "";
 
-						if (this.parent != null) {
-							parentString = this.parent + "/";
-						}
+						//if (this.parent != null) {
+						//	parentString = this.parent + "/";
+						//}
 												
-						$categoryLinks.append($("<a href='/category/" + parentString + this.slug + "'>" + this.name + "</a>"));
+						//$categoryLinks.append($("<a href='/category/" + parentString + this.slug + "'>" + this.name + "</a>"));
 						 
 			
 
-						if ($termsArray.length != index + 1) {
-							$categoryLinks.append(" • ");
-						}
+						//if ($termsArray.length != index + 1) {
+						//	$categoryLinks.append(" • ");
+						//}
 
 					});
 					

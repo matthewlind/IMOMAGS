@@ -1,12 +1,11 @@
 /* imo-primary-category */
 (function($) {
-
    $.fn.sCategoryPermalink = function(options) {
     $(this).append('<input type="hidden" name="scategory_permalink" id="scategory_permalink" />');
     var obj = this;
 
     return this.each(function() {
-      $(this).find('.primary-box .tabs-panel label input[type=checkbox]').each(function() {
+      $(this).find('.primary-box .tabs-panel label input[type=checkbox], #categorydiv .tabs-panel label input[type=checkbox]').each(function() {
         var label = $(this).parent('label');
         var li = $(label).parent('li');
         var link = '&nbsp;<a class="scategory_link">Make Primary</a>';

@@ -7026,7 +7026,11 @@ font-size: 0.72em;
 
 
 /*** Primary Category ***/
-.list-cats a{
+
+
+
+
+a.category-name-link{
 	font-weight: bold;
 	text-transform: uppercase;
 	font-style: normal;
@@ -7037,13 +7041,13 @@ font-size: 0.72em;
 	white-space: nowrap;
 	line-height: 0.9;
 }
-.list-cats a:hover, .list-cats a.primary-cat:hover{
+a.category-name-link:hover, a.category-name-link.primary-cat:hover{
 	background-color: black;
 }
-.list-cats a.primary-cat{
+a.category-name-link.primary-cat{
 	background-color: #ce181e;
 }
-.list-cats a{
+a.category-name-link{
 	background-color: #bbb;
 }
 
