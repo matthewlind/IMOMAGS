@@ -67,8 +67,8 @@ get_header(); ?>
                     </div>
     
                     <div data-position="5" class="pager-holder js-responsive-section">
-                        <!-- <a href="#" class="btn-base">Load More</a> -->
-                        <?php wp_pagenavi(array("before" => '<a href="#" class="btn-base">Load More</a>')); ?>
+                        <a href="#" class="btn-base">Load More</a>
+                        <div class="next" style="display:none;"><?php next_posts_link(); ?></div>
                         <a href="#" class="go-top jq-go-top">go top</a>
 
                         <img src="/wp-content/themes/infisherman/images/ajax-loader.gif" id="ajax-loader" style="display:none;"/>
@@ -117,7 +117,7 @@ get_header(); ?>
         $(".pager-holder a.btn-base").click(function(e){
             $("#ajax-loader").show();
             e.preventDefault()
-            if ($("a.next-link").length) {
+            if ($(".next a").length) {
                 $.ajax({
                     url: $("a.next-link").attr('href'),
                     dataType: 'html',
