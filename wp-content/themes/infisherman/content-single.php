@@ -49,7 +49,7 @@
     <div class="hr mobile-element"></div>
     <div class="sub-boxes">
             <div class="sub-box banner-box">
-                <img src="<?php bloginfo('template_directory'); ?>/images/pic/sounds-vibration.jpg" alt="" />
+                <?php imo_dart_tag("300x250",array("pos"=>"mid")); ?> 
             </div>
             <div class="sub-box fb-box">
                <div class="fb-recommendations" data-site="in-fisherman.com" data-width="309" data-height="252" data-header="true" data-font="arial"></div>

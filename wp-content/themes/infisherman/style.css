@@ -263,7 +263,7 @@ a:hover { color: #040503; }
     border-width:0 1px;
     position:relative;
     z-index:1;
-    background:url(images/bg/layout-frame.png) repeat;
+    background:url(images/bg/layout-frame.jpg) repeat #f7f7f5;
     overflow:hidden;
 }
 .onload-hidden {
@@ -572,6 +572,9 @@ a:hover { color: #040503; }
     position: absolute;
     width: 0;
 }
+.menu-main-menu-container li:last-child a.has-drop:after {
+    top: 18px;
+}
 .header .menu-main-menu-container > ul > li.current-menu-item > a,
 .menu-main-menu-container > ul > li:hover > a,
 .menu-main-menu-container > ul > li > a:hover {
@@ -586,7 +589,7 @@ a:hover { color: #040503; }
     left:0;
     width:240px;
     background:#fff;
-    border:4px solid #bd242b;
+    border:2px solid #bd242b;
     border-top:0;
     overflow:hidden;
 }
@@ -613,18 +616,18 @@ a:hover { color: #040503; }
     border:0;
 }
 .sub-menu a {
-    font:17px/1.1 "open_sanssemibold", sans-serif;
+    font:16px/1.1 "open_sanssemibold", sans-serif;
     color:#6f6e6e;
     display:block;
-    padding:15px 10px 13px 36px;
+    padding:15px 10px 13px; /*left w/ arrows: 36px;*/
     position:relative;
 }
-.sub-menu a:before {
+/*.sub-menu a:before {
     position:absolute;
     top:15px;
     left:18px;
     content:"»";
-}
+}*/
 .sub-menu a:hover {color:#c6262d;}
 .drop-feat-post {
     float:right;
@@ -655,6 +658,10 @@ a:hover { color: #040503; }
 .drop-feat-post h5 a:hover {color:#c9242c;}
 /* Main Section
  ******************************************************************************/
+.mdl-banner{
+	width: 728px;
+	margin: 0 auto;
+}
 .content-banner-section {
     padding:6px 30px;
     text-align:center;
@@ -679,8 +686,7 @@ a:hover { color: #040503; }
 }
 .general-frame {
     width:648px;
-}
-.post-slider {
+}.post-slider {
     width:100%;
     border:1px solid #fff;
     position:relative;
@@ -1000,9 +1006,6 @@ a.category-name-link:hover{
     width:235px;
     height:auto;
 }
-.comment-count:hover{
-	background: black;
-}
 .full-post .comment-count,
 .article-brief .comment-count {
     position:absolute;
@@ -1065,7 +1068,7 @@ a.category-name-link:hover{
 .sub-boxes {
     max-width:648px;
     padding:0 0 20px;
-    margin:0 auto 20px;
+    margin:10px auto 20px;
     border-bottom:1px solid #dbdad9;
     position:relative;
 }
@@ -1219,6 +1222,7 @@ a.category-name-link:hover{
     float:left;
     margin-top:4px;
     margin-right:15px;
+    display: none;
 }
 .wp-pagenavi {
     float:left;
@@ -1301,7 +1305,7 @@ a.category-name-link:hover{
     margin:0 auto 26px;
 }
 .subscribe-banner:hover {opacity:0.7;}
-.subscribe-banner img {display:block; width:100%;}
+.subscribe-banner img {display:block; width:100%;margin: 0 auto;position: relative;}
 /* Single Post Page
  ******************************************************************************/
 .post-header {
@@ -1571,10 +1575,17 @@ a.category-name-link:hover{
     width:310px;
     padding:30px 0 0;
 }
+.widget_advert-widget{
+	margin: 0 auto;
+	width: 310px;
+	text-align: center;
+	padding-left: 0;
+	padding-right: 0;
+}
 .sidebar-area .widget {
     margin:0 0 20px;
 }
-.widget_advert-widget img, #facebook {
+.widget_advert-widget img, #facebook, .sidebar.advert img {
     width:100%;
     height: auto;
 }
@@ -2264,7 +2275,9 @@ a.change-location:before {
         font-size:40px;
     }
     /* sidebar */
-    .sidebar-area { padding-top:0; }
+    .sidebar-area { 
+    	padding-top: 0;
+    }
     .cbp-spmenu-push-toright .sticky-ads{
         position:static !important;
         margin:0 !important;
@@ -2641,6 +2654,10 @@ a.change-location:before {
         height:48px;
         background-position:0 100%;
     }
+     .logo {
+       margin:9px 0 0;
+   }
+
     .open-menu {
         width:46px;
         height:44px;

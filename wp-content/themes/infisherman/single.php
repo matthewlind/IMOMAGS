@@ -1,3 +1,4 @@
+
 <?php
 get_header(); ?>
 
@@ -9,14 +10,7 @@ get_header(); ?>
 </div>
 <?php endif; ?>
     <div class="inner-main">
-    	<div class="sidebar-area">
-		    <?php get_sidebar();?>
-		    <div id="responderfollow"></div>
-			<div class="sidebar advert">
-				<?php imo_dart_tag("300x250",false,array("pos"=>"btf")); ?>
-				<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('scroll-sidebar')) : else : endif; ?>
-			</div>
-		</div>        
+    	<?php imo_sidebar();?>
 		<div id="primary" class="general">
             <div id="content" class="general-frame" role="main">
 
@@ -37,7 +31,7 @@ get_header(); ?>
                     
                     <a href="#" class="get-newsletter">Get the In-Fisherman <br />Newsletter</a>
                     <a href="#" class="subscribe-banner">
-                        <img src="<?php bloginfo('template_directory'); ?>/images/pic/subscribe-banner.jpg" alt="" />
+                        <?php imo_dart_tag("300x250",false,array("pos"=>"mob")); ?> 
                     </a>
                     <a href="#" class="back-top jq-go-top">back to top</a>
                     

@@ -6,18 +6,9 @@ var addthis_config = {"data_track_clickback":false,"data_track_addressbar":false
 var addthis_product = 'wpp-3.1';
 </script>
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=horechek"></script>
-	<div class="sidebar-area">
-	    <?php get_sidebar('home');?>
-	    <div id="responderfollow"></div>
-		<div class="sidebar advert">
-			<?php imo_dart_tag("300x250",false,array("pos"=>"btf")); ?>
-			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('scroll-sidebar')) : else : endif; ?>
-		</div>
-	   
-	</div>
-        <div id="primary" class="general">
+	<?php imo_sidebar('home');?>
+	<div id="primary" class="general">
         <div class="general-frame">
-            <?php //imo_dart_tag("300x250"); ?>
             <div id="content" role="main">
             <?php if ( is_home() ) : ?>
                 <!-- start home page content-->
@@ -221,7 +212,7 @@ var addthis_product = 'wpp-3.1';
     
                 <!-- start footer posts -->
                 <div class="links-holder">
-                    <div class="image-banner"><img alt="" src="<?php bloginfo('template_directory'); ?>/images/pic/imitates-injured.jpg"></div>
+                    <div class="image-banner"><?php imo_dart_tag("300x250",array("pos"=>"mob")); ?> </div>
                     <div>
                         <div class="links-section">
                             <div class="links-column">
@@ -299,7 +290,7 @@ var addthis_product = 'wpp-3.1';
                 
                 <div class="sub-boxes">
                     <div class="sub-box banner-box">
-                        <?php imo_dart_tag("300x250",false,array("pos"=>"mid")); ?>
+                        <?php imo_dart_tag("300x250",array("pos"=>"mid")); ?>
                     </div>
                     <div class="sub-box fb-box">
                        <div class="fb-recommendations" data-site="in-fisherman.com" data-width="309" data-height="252" data-header="true" data-font="arial"></div>

@@ -6,9 +6,32 @@
 			
 			var that = $(this);
 			followme = $(follow);	
-			followHeight = $('.advert').height() + 500; //for infish, fishing dude needs more height. that damn fishing dude.
-			
+			followHeight = $('.advert').height() + 280;
+				
 				var followfn = function(){
+					// hide sidebar until scrolling
+					//that.css({display: 'none'});
+					if($(window).scrollTop() >= followme.offset().top && $(window).scrollTop() < $('#footer').offset().top - followHeight){
+							that.css({
+							display: 'block',
+							position: 'fixed',
+							top: 10,
+							left: followme.offset().left
+												
+						});
+					}else{
+					that.css({
+							position: '',
+							top: '',
+							left: ''
+						});
+
+					};
+				};
+				
+				//use for other sites w/ that dumb fishing dude.
+				
+				/*var followfn = function(){
 					// hide sidebar until scrolling
 					//that.css({display: 'none'});
 					
@@ -32,7 +55,7 @@
 					//snap back to top 
 					}else if($(window).scrollTop() < $('#responderfollow').offset().top){
 						that.css({
-							display: 'block',
+							display: '',
 							position: '',
 							top: '',
 							bottom: '',
@@ -41,7 +64,7 @@
 						});
 
 					};
-				};
+				};*/
 			
 			
 			$(window).bind('resize scroll', followfn);

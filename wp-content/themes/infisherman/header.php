@@ -169,7 +169,8 @@
                       
 	                        <div class="h-mdl-widget">
 	                            <div class="socials-hold">
-	                        </div>
+	                            	<?php social_networks(); ?>
+								</div>
                             
                             <div class="h-search-form">
                                 <?php infisherman_get_search_form(); ?>
@@ -177,8 +178,6 @@
                         </div>
                     <?php endif; ?>
                 </div>
-                
-               
                 
                     <?php wp_nav_menu(array(
                         'menu_class'=>'menu',  
@@ -197,7 +196,7 @@
     
         <div class="content-banner-section">
             <div class="mdl-banner">
-             <?php if (function_exists("imo_dart_tag")) { imo_dart_tag("728x90"); } ?>
+             <?php imo_dart_tag("728x90"); ?>
             </div>
         </div>
     

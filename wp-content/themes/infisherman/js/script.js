@@ -1,7 +1,40 @@
-var dartadsgen_rand = Math.floor((Math.random()) * 100000000), pr_tile = 1, dartadsgen_site="in-fisherman";
-
 jQuery(function(){
     
+    // Load more 
+    jQuery(document).ready(function () {
+
+		if(jQuery(".next-link a").length > 0){
+		    jQuery(".btn-base").show();
+	    }
+    });	
+   	
+   	jQuery(function(){
+        jQuery(".pager-holder a.btn-base").click(function(e){
+            jQuery("#ajax-loader").show();
+            e.preventDefault()
+            if (jQuery(".next-link a").length) {
+                jQuery.ajax({
+                    url: jQuery(".next-link a").attr('href'),
+                    dataType: 'html',
+                    success: function(data) {
+                        jQuery('.main-content-preppend').append(
+                            jQuery(data).find('.js-responsive-section').find('div.post').hide()
+                        );
+                        jQuery('.main-content-preppend').find('div.post').show('slow')
+                        if (jQuery(data).find('.next-link a').length) {
+                            jQuery(".next-link a").attr({'href': jQuery(data).find('.next-link a').attr('href')})
+                        } else {
+                            jQuery(".pager-holder a.btn-base").hide();
+                        }
+                        jQuery("#ajax-loader").hide();
+                    },
+                    error: function () {jQuery("#ajax-loader").hide();}
+                });
+            }
+        });
+    });
+
+ 
     // jFollow
 	jQuery(function(){
 		if (jQuery(".advert").length > 0) {
@@ -114,6 +147,13 @@ var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
       jQuery(menuLeft).removeClass('cbp-spmenu-open');
     }
   });*/
+  
+jQuery(".swipe-out, .header").swipe( {
+	swipeLeft:function() {
+	  	jQuery(body).removeClass('cbp-spmenu-push-toright');
+	  	jQuery(menuLeft).removeClass('cbp-spmenu-open');
+	}
+});
 
 jQuery('.cbp-spmenu-vertical').on("click", ".menu-main-menu-container .has-drop", function(){
     jQuery(this).parent("li").toggleClass('drop-open');
