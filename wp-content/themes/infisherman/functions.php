@@ -550,14 +550,27 @@ class Recipes_Widget extends WP_Widget
 
 }        
 
-function social_networks(){
-	echo ' <div class="socials">
-				<a href="#" class="facebook">Facebook</a>
-		        <a href="#" class="twitter">Twitter</a>
-		        <a href="#" class="youtube">YouTube</a>
-		        <a href="#" class="rss">RSS</a>
-		    </div>';
+function imo_sidebar($type){
+	echo '<div class="sidebar-area">';
+	    get_sidebar($type);
+	    echo '<div id="responderfollow"></div>';
+		echo '<div class="sidebar advert">';
+			echo '<div class="widget_advert-widget">';
+				imo_dart_tag("300x250",false,array("pos"=>"btf"));
+			echo '</div>';
+			if (function_exists('dynamic_sidebar') && dynamic_sidebar('scroll-sidebar')) : else : endif; 
+		echo '</div>';
+	echo '</div>';
 }
+function social_networks(){
+	echo '<div class="socials">';
+		echo '<a href="#" class="facebook">Facebook</a>';
+	    echo '<a href="#" class="twitter">Twitter</a>';
+	    echo '<a href="#" class="youtube">YouTube</a>';
+	    echo '<a href="#" class="rss">RSS</a>';
+	echo '</div>';
+}
+
 function infisherman_setup()
 {
     // This theme uses a custom image size for featured images, displayed on "standard" posts.

@@ -8,15 +8,15 @@ get_header(); ?>
     
                     <div data-position="1" class="page-header clearfix js-responsive-section">
                         <h1 class="page-title"><?php
-                            printf('<span>' . single_cat_title( '', false ) . '</span>' );
+                            printf('<span>' . single_tag_title( '', false ) . '</span>' );
                             ?>
                         </h1>
                         <img src="<?php bloginfo('template_directory'); ?>/images/logos/livingston.png" alt="" class="tite-logo" />
     
                         <?php
-                            $category_description = category_description();
-                            if ( ! empty( $category_description ) )
-                                echo apply_filters( 'category_archive_meta', '<div class="category-archive-meta">' . $category_description . '</div>' );
+                            $tag_description = tag_description();
+                            if ( ! empty( $tag_description ) )
+                                echo apply_filters( 'tag_archive_meta', '<div class="tag-archive-meta">' . $tag_description . '</div>' );
                         ?>
                     </div>
                     <div data-position="2" class="sub-titile-banner js-responsive-section">
@@ -61,7 +61,7 @@ get_header(); ?>
     
                     <div data-position="5" class="pager-holder js-responsive-section">
                         <a href="#" class="btn-base">Load More</a>
-                        <div class="next-link" style="display:none;"><?php next_posts_link(); ?></div>
+                        <div class="next" style="display:none;"><?php next_posts_link(); ?></div>
                         <a href="#" class="go-top jq-go-top">go top</a>
 
                         <img src="/wp-content/themes/infisherman/images/ajax-loader.gif" id="ajax-loader" style="display:none;"/>

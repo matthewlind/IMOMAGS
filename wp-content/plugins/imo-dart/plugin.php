@@ -267,7 +267,7 @@ function _imo_dart_get_params($size, $tile) {
 function _imo_dart_get_tag($iframe) {
     if ($iframe)
     {
-        $tag = '<iframe src="/iframe-advert.php?size=%1$s&zone=%3$s&sect=%4$s&page=%6$s&rr=%10$s&subs=%5$s&camp=%12$&spos=%15$s" frameBorder="0" width="%8$s" height="%9$s" scrolling="no" allowTransparency="true">';
+        $tag = '<iframe src="/iframe-advert.php?size=%1$s&zone=%3$s&sect=%4$s&page=%6$s&rr=%10$s&subs=%5$s&camp=%12$&spos=%15$s" frameBorder="0" width="%8$s" height="%9$s" scrolling="no" marginwidth="0" marginheight="0" allowTransparency="true">';
         $tag .= _imo_dart_get_tag(false);
         $tag .="</iframe>";
     }
