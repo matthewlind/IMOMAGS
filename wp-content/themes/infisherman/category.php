@@ -13,28 +13,31 @@ get_header(); ?>
                         </h1>
                         <img src="<?php bloginfo('template_directory'); ?>/images/logos/livingston.png" alt="" class="tite-logo" />
     
-                        <?php
-                            $category_description = category_description();
-                            if ( ! empty( $category_description ) )
-                                echo apply_filters( 'category_archive_meta', '<div class="category-archive-meta">' . $category_description . '</div>' );
-                        ?>
-                    </div>
+					</div>
                     <div data-position="2" class="sub-titile-banner js-responsive-section">
                         <a href="#">
                             <img src="<?php bloginfo('template_directory'); ?>/images/pic/revo-sx-family.jpg" alt="" />
                         </a>
-                    </div>
-                    <div data-position="3" class="filter-by jq-filter-by js-responsive-section">
+                    </div> 
+                             
+                    <?php if (z_taxonomy_image_url()) echo '<div class="category-img"><img src="'.z_taxonomy_image_url().'" alt="'.single_cat_title( '', false ).'" title="'.single_cat_title( '', false ).'" /></div>'; ?>                    
+                    <?php
+                    	$category_description = category_description();
+                            if ( ! empty( $category_description ) )
+                                echo apply_filters( 'category_archive_meta', '<div data-position="3" class="category-archive-meta taxdescription js-responsive-section">' . $category_description . '</div>' );
+                        ?>
+                        
+                    <div data-position="4" class="filter-by jq-filter-by js-responsive-section">               
                         <strong>filter by:</strong>
                         <ul class="filter-links">
                             <li><a href="#">Latest</a></li>
-                            <li><a href="#">Most Viewed</a></li>
+                            <!--<li><a href="#">Most Viewed</a></li>-->
                             <li><a href="#">Most Commented</a></li>
-                            <li><a href="#">Most Shared</a></li>
+                            <!--<li><a href="#">Most Shared</a></li>-->
                         </ul>
                     </div>
                     
-                    <div data-position="4" class="js-responsive-section main-content-preppend">
+                    <div data-position="5" class="js-responsive-section main-content-preppend">
                         <?php //twentyeleven_content_nav( 'nav-above' ); ?>
     
                         <?php /* Start the Loop */ ?>
@@ -59,7 +62,7 @@ get_header(); ?>
                         <?php //twentyeleven_content_nav( 'nav-below' ); ?>
                     </div>
     
-                    <div data-position="5" class="pager-holder js-responsive-section">
+                    <div data-position="7" class="pager-holder js-responsive-section">
                         <a href="#" class="btn-base">Load More</a>
                         <div class="next-link" style="display:none;"><?php next_posts_link(); ?></div>
                         <a href="#" class="go-top jq-go-top">go top</a>

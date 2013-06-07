@@ -564,10 +564,10 @@ function imo_sidebar($type){
 }
 function social_networks(){
 	echo '<div class="socials">';
-		echo '<a href="#" class="facebook">Facebook</a>';
-	    echo '<a href="#" class="twitter">Twitter</a>';
-	    echo '<a href="#" class="youtube">YouTube</a>';
-	    echo '<a href="#" class="rss">RSS</a>';
+		echo '<a href="https://www.facebook.com/InFisherman" class="facebook">Facebook</a>';
+	    echo '<a href="https://www.twitter.com/@InFishermanTV" class="twitter">Twitter</a>';
+	    echo '<a href="http://www.youtube.com/user/InFishermanTV" class="youtube">YouTube</a>';
+	    echo '<a href="http://www.in-fisherman.com/feed/" class="rss">RSS</a>';
 	echo '</div>';
 }
 

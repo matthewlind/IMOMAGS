@@ -1333,7 +1333,7 @@ a.category-name-link:hover{
 }
 .entry-content-holder {
     position:relative;
-    padding:38px 0 80px;
+    padding:16px 0 0;
     margin:0 0 20px;
     border-bottom:1px solid #fff;
 }
@@ -1370,7 +1370,7 @@ a.category-name-link:hover{
     padding:32px 27px;
     margin:0 0 40px;
 }
-/* pageing posts */
+/* paging posts */
 .paging-posts {
     position:relative;
     margin:0 11px;
@@ -1421,6 +1421,28 @@ a.category-name-link:hover{
     left:-999999px;
     width:0;
 }
+
+/* addthis */
+.addthis-below{
+	padding: 12px 140px 8px;
+}
+
+/* = General styles for Category / Tag / etc. pages
+---------------------------------------------------------------------- */
+.taxdescription{
+	background: white;
+	padding: 8px 17px 0;
+}
+.taxdescription p{
+	overflow: hidden;
+}
+.category-img img{
+	width: 80px;
+	height: auto;
+	float: left;
+	margin: 0px 9px 0 8px;
+}
+
 /* = General styles for mobile menu 
 ---------------------------------------------------------------------- */
 .cbp-spmenu-vertical {
@@ -2579,6 +2601,10 @@ a.change-location:before {
     .entry-content-holder {
         padding:52px 0 90px;
     }
+    .taxdescription{
+	    padding: 8px 17px;
+		margin-bottom: 10px;
+    }
     .filter-by {
         width:100%;
         border:1px solid #d8d8d8;
@@ -3004,6 +3030,9 @@ a.change-location:before {
     .menu-subscribe a img {
         width:50px;
     }
+	.category-img{
+		display: none;
+	}
 }
 @media only screen and (max-width: 510px) {
     .entry-content-holder {
