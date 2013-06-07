@@ -22,7 +22,7 @@
     		<a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>
     		<?php if ( is_search() ) : // Only display Excerpts for Search ?>
     		<div class="entry-summary">
-    			<?php the_excerpt(); ?>
+    			<?php the_content(); ?>
     		</div><!-- .entry-summary -->
     		<?php else : ?>
     		<div class="entry-content">

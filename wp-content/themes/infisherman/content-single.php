@@ -25,7 +25,9 @@
         </h1>
         <?php endif; // is_single() ?>
         <em class="meta-date-author">by <span class="author-item"><?php the_author() ?></span>&nbsp;&nbsp;|&nbsp;&nbsp;<?php the_time('F jS, Y') ?></em>
+        
     </div>
+    <?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
     <!-- .entry-header -->
     <div class="entry-content-holder">
         <?php if ( is_search() ) : // Only display Excerpts for Search ?>
@@ -38,28 +40,12 @@
             <?php wp_link_pages( array( 'before' => '<div class="page-links">' . 'Pages:', 'after' => '</div>' ) ); ?>
         </div><!-- .entry-content -->
         <?php endif; ?>
-    </div>
-    <?php if (isset_related_posts()): ?>
-    <div class="paging-posts paging-single-post">
-        <div class="jq-single-paging-slider">
-        <?php related_posts(); ?>
-        </div>
-    </div>
-    <?php endif; ?>
-    <div class="hr mobile-element"></div>
-    <div class="sub-boxes">
-            <div class="sub-box banner-box">
-                <?php imo_dart_tag("300x250",array("pos"=>"mid")); ?> 
-            </div>
-            <div class="sub-box fb-box">
-               <div class="fb-recommendations" data-site="in-fisherman.com" data-width="309" data-height="252" data-header="true" data-font="arial"></div>
-            </div>
-        </div>
+        
+         <div class="article-brief addthis-below">
+			 <?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
+	    </div>
 
-    <div class="entry-meta">
-        <?php edit_post_link( __( 'Edit', 'twentytwelve' ), '<span class="edit-link">', '</span>' ); ?>
-        <?php if ( is_singular() && get_the_author_meta( 'description' ) && is_multi_author() ) : // If a user has filled out their description and this is a multi-author blog, show a bio on their entries. ?>
-            <div class="author-info article-brief">
+        <div class="author-info article-brief">
                 <div class="author-avatar">
                     <?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'twentytwelve_author_bio_avatar_size', 68 ) ); ?>
                 </div><!-- .author-avatar -->
@@ -75,6 +61,27 @@
                    
                 </div><!-- .author-description -->
             </div><!-- .author-info -->
-        <?php endif; ?>
-    </div><!-- .entry-meta -->
+    </div>
+    <?php if (isset_related_posts()): ?>
+    <div class="paging-posts paging-single-post">
+        <div class="jq-single-paging-slider">
+        <?php related_posts(); ?>
+        </div>
+    </div>
+    <?php endif; ?>
+
+    <div class="sub-boxes">
+            <div class="sub-box banner-box">
+                <?php imo_dart_tag("300x250",array("pos"=>"mid")); ?> 
+            </div>
+            <div class="sub-box fb-box">
+               <div class="fb-recommendations" data-site="in-fisherman.com" data-width="309" data-height="252" data-header="true" data-font="arial"></div>
+            </div>
+        </div>
+        
+		<div class="hr mobile-element"></div>
+    <div class="entry-meta">
+        <?php edit_post_link( __( 'Edit', 'twentytwelve' ), '<span class="edit-link">', '</span>' ); ?>
+       
+               </div><!-- .entry-meta -->
 </div><!-- #post -->
