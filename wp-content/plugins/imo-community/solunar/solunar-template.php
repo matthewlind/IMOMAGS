@@ -19,7 +19,7 @@
  * **********************************************************************
  */
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
-if (CFCT_DEBUG) { cfct_banner(__FILE__); }
+
 
 get_header();
 
@@ -89,7 +89,7 @@ if ( is_user_logged_in() ) {
                         </ul>
                     </div>
                     <div class="cal-row presented-by">
-                       
+
 <!-- Site - In-Fisherman/solunar_calendar -->
 
     <a href="http://ad.doubleclick.net/N4930/jump/imo.in-fisherman/solunar_calendar;sz=125x125;sect=solunarcalendar;page=solunar_calendar;ord=[timestamp]?">

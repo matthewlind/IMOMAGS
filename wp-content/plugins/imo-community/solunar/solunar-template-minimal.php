@@ -18,8 +18,8 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * **********************************************************************
  */
-if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
-if (CFCT_DEBUG) { cfct_banner(__FILE__); }
+// if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
+
 
 ?>
 
@@ -52,15 +52,13 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
     if ( is_singular() && get_option('thread_comments') ) { wp_enqueue_script( 'comment-reply' ); }
 
     wp_head();
-    include_once get_stylesheet_directory() . "/head-includes.php";
+    //include_once get_stylesheet_directory() . "/head-includes.php";
 
     if (defined('GOOGLE_FONT')): ?>
     <link href='<?php print GOOGLE_FONT; ?>' rel='stylesheet' type='text/css'>
 <?php endif; ?>
 <link href='http://fonts.googleapis.com/css?family=Glegoo|Lato:300,400|Gudea|Share' rel='stylesheet' type='text/css'>
-<?php if (is_page_template("page-cabelas.php")) : ?>
-    <link rel="stylesheet" type="text/css" media="screen" href="<?php bloginfo('template_url'); ?>/css/contest.css?ver=<?php echo CFCT_URL_VERSION; ?>" />
-<?php  endif; ?>
+
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.jfollow.js"></script>
 <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/scripts.js"/></script>
   <script type="text/javascript" src="/wp-content/themes/imo-mags-gunsandammo/js/flash_heed.js"></script>
