@@ -138,6 +138,7 @@ var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
     classie.toggle( this, 'active' );
     classie.toggle( body, 'cbp-spmenu-push-toright' );
     classie.toggle( menuLeft, 'cbp-spmenu-open' );
+    jQuery(".header").css("position","");
 };
 
 //causing error for selecting text

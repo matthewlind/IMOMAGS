@@ -76,7 +76,7 @@
     <!-- mobile menu start (copy of main menu, displays only in mobile orientation) -->
 <div class="cbp-spmenu-vertical" id="cbp-spmenu-s1">
     <div class="mobile-menu-banner">
-        <a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/pic/mobile-menu-banner.jpg" alt="" /></a>
+       <?php imo_dart_tag("300x50",array("pos"=>"mob")); ?>
     </div>
     <div class="menu-main-menu-container">
         <ul>
@@ -156,12 +156,12 @@
 								    </div>
 								    <div class="subscribe-now">
 								        <p><span class="stag-bold">SUBSCRIBE </span><span class="stag-reg">&amp;  SAVE 70% OFF</span> <b>the Cover Price</b></p>
-								        <a href="#" class="btn-base">Subscribe <span>Now!</span></a>
+								        <a href="<?php print SUBS_LINK;?>" class="btn-base">Subscribe <span>Now!</span></a>
 								    </div>
 								    </div>
 								    <ul class="subscribe-links">
-								        <li><a href="#">Give a Gift <span>&raquo;</span></a></li>
-								        <li><a href="#">Subscriber Services <span>&raquo;</span></a></li>
+								        <li><a href="<?php print GIFT_LINK;?>">Give a Gift <span>&raquo;</span></a></li>
+								        <li><a href="<?php print SERVICE_LINK; ?>">Subscriber Services <span>&raquo;</span></a></li>
 								    </ul>
 								
 								</div>

@@ -200,8 +200,7 @@ var addthis_product = 'wpp-3.1';
                             <!-- .entry-header -->
                             <a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>
                             <div class="entry-content">
-                                <?php echo substr(strip_tags($post->post_content), 0, 200); ?>
-                                <a href="<?php the_permalink(); ?>" >more <span class="meta-nav">&raquo;</span></a>
+                                <?php the_excerpt(); ?>                              
                                 <?php //the_content( __( 'more <span class="meta-nav">&raquo;</span>', 'twentytwelve' ) ); ?>
                                 <?php wp_link_pages( array( 'before' => '<div class="page-links">' . 'Pages:', 'after' => '</div>' ) ); ?>
                             </div><!-- .entry-content -->
@@ -212,7 +211,19 @@ var addthis_product = 'wpp-3.1';
     
                 <!-- start footer posts -->
                 <div class="links-holder">
-                    <div class="image-banner"><?php imo_dart_tag("300x250",array("pos"=>"mob")); ?> </div>
+                    <div class="image-banner">
+	                    <!-- IF_Mobile_Banner -->
+<script type="text/javascript">
+  var ord = window.ord || Math.floor(Math.random() * 1e16);
+  document.write('<a href="http://ad.doubleclick.net/N4930/jump/IF_Mobile_Banner;sz=300x50;ord=' + ord + '?"><img src="http://ad.doubleclick.net/N4930/ad/IF_Mobile_Banner;sz=300x50;ord=' + ord + '?" width="300" height="50" /></a>');
+</script>
+<noscript>
+<a href="http://ad.doubleclick.net/N4930/jump/IF_Mobile_Banner;sz=300x50;ord=[timestamp]?">
+<img src="http://ad.doubleclick.net/N4930/ad/IF_Mobile_Banner;sz=300x50;ord=[timestamp]?" width="300" height="50" />
+</a>
+</noscript>
+	                    
+                    </div>
                     <div>
                         <div class="links-section">
                             <div class="links-column">
