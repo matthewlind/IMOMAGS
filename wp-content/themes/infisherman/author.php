@@ -12,17 +12,6 @@ get_header(); ?>
 		<div id="primary" class="general">
             <div id="content" role="main" class="general-frame">
 	            <div data-position="1" class="page-header clearfix js-responsive-section">
-                    <h1 class="page-title">
-                    	<?php printf( '<span class="vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( "ID" ) ) ) . '" title="' . esc_attr( get_the_author() ) . '" rel="me">' . get_the_author() . '</a></span>' ); ?>
-                    </h1>
-                    <img src="<?php bloginfo('template_directory'); ?>/images/logos/livingston.png" alt="" class="tite-logo" />
-
-				</div>
-                <div data-position="2" class="sub-titile-banner js-responsive-section">
-                    <a href="#">
-                        <img src="<?php bloginfo('template_directory'); ?>/images/pic/revo-sx-family.jpg" alt="" />
-                    </a>
-                </div> 
 
 				<?php if ( have_posts() ) : ?>
 	
@@ -36,9 +25,14 @@ get_header(); ?>
 						the_post();
 					?>
 	
-					<header class="page-header">
+
 						<h1 class="page-title author"><?php printf( '<span class="vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( "ID" ) ) ) . '" title="' . esc_attr( get_the_author() ) . '" rel="me">' . get_the_author() . '</a></span>' ); ?></h1>
-					</header>
+					</div>
+                <div data-position="2" class="sub-titile-banner js-responsive-section">
+                    <a href="#">
+                        <img src="<?php bloginfo('template_directory'); ?>/images/pic/revo-sx-family.jpg" alt="" />
+                    </a>
+                </div> 
 	
 					<?php
 						/* Since we called the_post() above, we need to
@@ -52,34 +46,38 @@ get_header(); ?>
 					<?php
 					// If a user has filled out their description, show a bio on their entries.
 					if ( get_the_author_meta( 'description' ) ) : ?>
-					<div id="author-info">
+					<div id="author-info" class="article-brief">
 						<div id="author-avatar">
 							<?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'twentyeleven_author_bio_avatar_size', 60 ) ); ?>
 						</div><!-- #author-avatar -->
 						<div id="author-description">
-							<h2><?php printf( __( 'About %s', 'twentyeleven' ), get_the_author() ); ?></h2>
 							<?php the_author_meta( 'description' ); ?>
 						</div><!-- #author-description	-->
 					</div><!-- #entry-author-info -->
 					<?php endif; ?>
-	
-					<?php /* Start the Loop */ ?>
-					<?php while ( have_posts() ) : the_post(); ?>
-	
-						<?php
-							/* Include the Post-Format-specific template for the content.
-							 * If you want to overload this in a child theme then include a file
-							 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-							 */
-							get_template_part( 'content', get_post_format() );
-						?>
-	
-					<?php endwhile; ?>
-	
-					<?php twentyeleven_content_nav( 'nav-below' ); ?>
-	
+					<div class="js-responsive-section main-content-preppend">
+						<?php /* Start the Loop */ ?>
+						<?php while ( have_posts() ) : the_post(); ?>
+		
+							<?php
+								/* Include the Post-Format-specific template for the content.
+								 * If you want to overload this in a child theme then include a file
+								 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+								 */
+								get_template_part( 'content/content', get_post_format() );
+							?>
+							
+						<?php endwhile; ?>
+					</div>
+					<div data-position="7" class="pager-holder js-responsive-section">
+                        <a href="#" class="btn-base">Load More</a>
+                        <div class="next-link" style="display:none;"><?php next_posts_link(); ?></div>
+                        <a href="#" class="go-top jq-go-top">go top</a>
+
+                        <img src="/wp-content/themes/infisherman/images/ajax-loader.gif" id="ajax-loader" style="display:none;"/>
+                    </div>
 				<?php else : ?>
-	
+				
 					<article id="post-0" class="post no-results not-found">
 						<header class="entry-header">
 							<h1 class="entry-title"><?php _e( 'Nothing Found', 'twentyeleven' ); ?></h1>

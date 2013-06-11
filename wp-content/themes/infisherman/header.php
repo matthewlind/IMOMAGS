@@ -76,7 +76,16 @@
     <!-- mobile menu start (copy of main menu, displays only in mobile orientation) -->
 <div class="cbp-spmenu-vertical" id="cbp-spmenu-s1">
     <div class="mobile-menu-banner">
-        <a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/pic/mobile-menu-banner.jpg" alt="" /></a>
+       <!-- IF_Mobile_Banner -->
+		<script type="text/javascript">
+		  var ord = window.ord || Math.floor(Math.random() * 1e16);
+		  document.write('<a href="http://ad.doubleclick.net/N4930/jump/IF_Mobile_Banner;sz=300x50;ord=' + ord + '?"><img src="http://ad.doubleclick.net/N4930/ad/IF_Mobile_Banner;sz=300x50;ord=' + ord + '?" width="300" height="50" /></a>');
+		</script>
+		<noscript>
+		<a href="http://ad.doubleclick.net/N4930/jump/IF_Mobile_Banner;sz=300x50;ord=[timestamp]?">
+		<img src="http://ad.doubleclick.net/N4930/ad/IF_Mobile_Banner;sz=300x50;ord=[timestamp]?" width="300" height="50" />
+		</a>
+		</noscript>	  
     </div>
     <div class="menu-main-menu-container">
         <ul>
@@ -156,12 +165,12 @@
 								    </div>
 								    <div class="subscribe-now">
 								        <p><span class="stag-bold">SUBSCRIBE </span><span class="stag-reg">&amp;  SAVE 70% OFF</span> <b>the Cover Price</b></p>
-								        <a href="#" class="btn-base">Subscribe <span>Now!</span></a>
+								        <a href="<?php print SUBS_LINK;?>" class="btn-base">Subscribe <span>Now!</span></a>
 								    </div>
 								    </div>
 								    <ul class="subscribe-links">
-								        <li><a href="#">Give a Gift <span>&raquo;</span></a></li>
-								        <li><a href="#">Subscriber Services <span>&raquo;</span></a></li>
+								        <li><a href="<?php print GIFT_LINK;?>">Give a Gift <span>&raquo;</span></a></li>
+								        <li><a href="<?php print SERVICE_LINK; ?>">Subscriber Services <span>&raquo;</span></a></li>
 								    </ul>
 								
 								</div>
@@ -195,9 +204,25 @@
         </div><!-- #branding -->
     
         <div class="content-banner-section">
-            <div class="mdl-banner">
-             <?php imo_dart_tag("728x90"); ?>
-            </div>
+            
+            <?php if (is_mobile()) { ?>
+					<!-- IF_Mobile_Banner -->
+					<script type="text/javascript">
+					  var ord = window.ord || Math.floor(Math.random() * 1e16);
+					  document.write('<a href="http://ad.doubleclick.net/N4930/jump/IF_Mobile_Banner;sz=300x50;ord=' + ord + '?"><img src="http://ad.doubleclick.net/N4930/ad/IF_Mobile_Banner;sz=300x50;ord=' + ord + '?" width="300" height="50" /></a>');
+					</script>
+					<noscript>
+					<a href="http://ad.doubleclick.net/N4930/jump/IF_Mobile_Banner;sz=300x50;ord=[timestamp]?">
+					<img src="http://ad.doubleclick.net/N4930/ad/IF_Mobile_Banner;sz=300x50;ord=[timestamp]?" width="300" height="50" />
+					</a>
+					</noscript>	  
+
+				<?php }else{ 
+					echo '<div class="mdl-banner">';
+					imo_dart_tag("728x90");
+					echo '</div>';
+				} ?>
+            
         </div>
     
         <div id="main" class="main clearfix js-responsive-layout">

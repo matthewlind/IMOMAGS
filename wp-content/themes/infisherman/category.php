@@ -48,7 +48,7 @@ get_header(); ?>
                                  * If you want to overload this in a child theme then include a file
                                  * called content-___.php (where ___ is the Post Format name) and that will be used instead.
                                  */
-                                get_template_part( 'content', get_post_format() );
+                                get_template_part( 'content/content', get_post_format() );
                             ?>
 
                         <?php if ( ($i%6) == 0 ): ?>
@@ -59,7 +59,6 @@ get_header(); ?>
         
                         <?php $i++; endwhile; ?>
         
-                        <?php //twentyeleven_content_nav( 'nav-below' ); ?>
                     </div>
     
                     <div data-position="7" class="pager-holder js-responsive-section">

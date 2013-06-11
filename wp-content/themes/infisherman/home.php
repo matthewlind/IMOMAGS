@@ -200,8 +200,7 @@ var addthis_product = 'wpp-3.1';
                             <!-- .entry-header -->
                             <a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>
                             <div class="entry-content">
-                                <?php echo substr(strip_tags($post->post_content), 0, 200); ?>
-                                <a href="<?php the_permalink(); ?>" >more <span class="meta-nav">&raquo;</span></a>
+                                <?php the_excerpt(); ?>                              
                                 <?php //the_content( __( 'more <span class="meta-nav">&raquo;</span>', 'twentytwelve' ) ); ?>
                                 <?php wp_link_pages( array( 'before' => '<div class="page-links">' . 'Pages:', 'after' => '</div>' ) ); ?>
                             </div><!-- .entry-content -->
@@ -212,7 +211,9 @@ var addthis_product = 'wpp-3.1';
     
                 <!-- start footer posts -->
                 <div class="links-holder">
-                    <div class="image-banner"><?php imo_dart_tag("300x250",array("pos"=>"mob")); ?> </div>
+                    <div class="image-banner">
+	                    <?php imo_dart_tag("300x250",array("pos"=>"mob")); ?>               
+                    </div>
                     <div>
                         <div class="links-section">
                             <div class="links-column">

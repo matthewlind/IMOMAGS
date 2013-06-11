@@ -11,7 +11,7 @@ jQuery(function(){
    	jQuery(function(){
         jQuery(".pager-holder a.btn-base").click(function(e){
             jQuery("#ajax-loader").show();
-            e.preventDefault()
+            e.preventDefault();
             if (jQuery(".next-link a").length) {
                 jQuery.ajax({
                     url: jQuery(".next-link a").attr('href'),
@@ -138,6 +138,7 @@ var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
     classie.toggle( this, 'active' );
     classie.toggle( body, 'cbp-spmenu-push-toright' );
     classie.toggle( menuLeft, 'cbp-spmenu-open' );
+    jQuery(".header").css("position","");
 };
 
 //causing error for selecting text

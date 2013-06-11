@@ -10,6 +10,12 @@ define("SERVICE_LINK", "https://secure.palmcoastd.com/pcd/eServ?iServ=MDE0Njk0ND
 define("SUBS_DEAL_STRING", "Save Over 70% off<br/> the Cover Price");
 define("DRUPAL_SITE", TRUE);
 
+add_image_size( 'index-thumb', 200, 150, true );
+add_image_size( 'post-thumb', 700, 450, true );
+add_image_size( 'post-home-thumb', 695, 460, true );
+add_image_size( 'post-home-small-thumb', 335, 225, true );
+
+
 function if_addons_sidebar_init() {
 
 $sidebar_defaults = array(
