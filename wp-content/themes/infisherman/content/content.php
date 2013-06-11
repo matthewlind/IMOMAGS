@@ -20,18 +20,11 @@
     		<!-- .entry-header -->
     		
     		<a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>
-    		<?php if ( is_search() ) : // Only display Excerpts for Search ?>
-    		<div class="entry-summary">
-    			<?php the_content(); ?>
-    		</div><!-- .entry-summary -->
-    		<?php else : ?>
-    		<div class="entry-content">
+    		    		<div class="entry-content">
     			<?php //the_content( __( 'more <span class="meta-nav">&raquo;</span>', 'twentytwelve' ) ); ?>
-    			<?php echo substr(strip_tags($post->post_content), 0, 200); ?>
-    			<a href="<?php the_permalink(); ?>" >more <span class="meta-nav">&raquo;</span></a>
+    			<?php the_excerpt(); ?>
     			<?php //wp_link_pages( array( 'before' => '<div class="page-links">' . 'Pages:', 'after' => '</div>' ) ); ?>
     		</div><!-- .entry-content -->
-    		<?php endif; ?>
       		<div class="entry-meta">
     			<?php edit_post_link( __( 'Edit', 'twentytwelve' ), '<span class="edit-link">', '</span>' ); ?>
     			<?php if ( is_singular() && get_the_author_meta( 'description' ) && is_multi_author() ) : // If a user has filled out their description and this is a multi-author blog, show a bio on their entries. ?>

@@ -1,4 +1,14 @@
 <?php
+$cat = get_category( get_query_var( 'cat' ) );
+$cat_slug = $cat->slug;
+if($cat_slug == "pike-muskie"){
+	$cat_slug = "pike_amp_muskie";
+}
+if($cat_slug == "trout-salmon"){
+	$cat_slug = "trout_amp_salmon";
+}
+$dataPos = 0;
+
 get_header(); ?>
         <?php imo_sidebar();?>
         <div id="primary" class="general">
@@ -6,28 +16,31 @@ get_header(); ?>
                 
                 <?php if ( have_posts() ) : ?>
     
-                    <div data-position="1" class="page-header clearfix js-responsive-section">
+                    <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header clearfix js-responsive-section">
                         <h1 class="page-title"><?php
                             printf('<span>' . single_cat_title( '', false ) . '</span>' );
                             ?>
                         </h1>
-                        <img src="<?php bloginfo('template_directory'); ?>/images/logos/livingston.png" alt="" class="tite-logo" />
-    
+                        <!-- Site - In-Fisherman
+						<script type="text/javascript">
+						  var ord = window.ord || Math.floor(Math.random() * 1e16);
+						  document.write('<a href="http://ad.doubleclick.net/N4930/jump/imo.in-fisherman;sz=260x35;camp=<?php echo $cat_slug; ?>;ord=' + ord + '?"><img src="http://ad.doubleclick.net/N4930/ad/imo.in-fisherman;sz=260x35;camp=<?php echo $cat_slug; ?>;ord=' + ord + '?" width="260" height="35" /></a>');
+						</script>
+						<noscript>
+						<a href="http://ad.doubleclick.net/N4930/jump/imo.in-fisherman;sz=260x35;camp=<?php echo $cat_slug; ?>;ord=[timestamp]?">
+						<img src="http://ad.doubleclick.net/N4930/ad/imo.in-fisherman;sz=260x35;camp=<?php echo $cat_slug; ?>;ord=[timestamp]?" width="260" height="35" />
+						</a>
+						</noscript> -->
 					</div>
-                    <div data-position="2" class="sub-titile-banner js-responsive-section">
-                        <a href="#">
-                            <img src="<?php bloginfo('template_directory'); ?>/images/pic/revo-sx-family.jpg" alt="" />
-                        </a>
-                    </div> 
-                             
+                                                
                     <?php if (z_taxonomy_image_url()) echo '<div class="category-img"><img src="'.z_taxonomy_image_url().'" alt="'.single_cat_title( '', false ).'" title="'.single_cat_title( '', false ).'" /></div>'; ?>                    
                     <?php
                     	$category_description = category_description();
                             if ( ! empty( $category_description ) )
-                                echo apply_filters( 'category_archive_meta', '<div data-position="3" class="category-archive-meta taxdescription js-responsive-section">' . $category_description . '</div>' );
+                                echo apply_filters( 'category_archive_meta', '<div data-position="' . $dataPos = $dataPos + 1 . '" class="category-archive-meta taxdescription js-responsive-section">' . $category_description . '</div>' );
                         ?>
                         
-                    <div data-position="4" class="filter-by jq-filter-by js-responsive-section">               
+                    <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="filter-by jq-filter-by js-responsive-section">               
                         <strong>filter by:</strong>
                         <ul class="filter-links">
                             <li><a href="#">Latest</a></li>
@@ -37,7 +50,7 @@ get_header(); ?>
                         </ul>
                     </div>
                     
-                    <div data-position="5" class="js-responsive-section main-content-preppend">
+                    <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="js-responsive-section main-content-preppend">
                         <?php //twentyeleven_content_nav( 'nav-above' ); ?>
     
                         <?php /* Start the Loop */ ?>
@@ -61,7 +74,7 @@ get_header(); ?>
         
                     </div>
     
-                    <div data-position="7" class="pager-holder js-responsive-section">
+                    <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="pager-holder js-responsive-section">
                         <a href="#" class="btn-base">Load More</a>
                         <div class="next-link" style="display:none;"><?php next_posts_link(); ?></div>
                         <a href="#" class="go-top jq-go-top">go top</a>

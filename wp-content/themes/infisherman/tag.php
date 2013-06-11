@@ -11,19 +11,13 @@ get_header(); ?>
                             printf('<span>' . single_tag_title( '', false ) . '</span>' );
                             ?>
                         </h1>
-                        <img src="<?php bloginfo('template_directory'); ?>/images/logos/livingston.png" alt="" class="tite-logo" />
                     </div>
-                    <div data-position="2" class="sub-titile-banner js-responsive-section">
-                        <a href="#">
-                            <img src="<?php bloginfo('template_directory'); ?>/images/pic/revo-sx-family.jpg" alt="" />
-                        </a>
-                    </div>
-                    
+                                        
                     <?php //echo '<div class="category-img"><img src="'.z_taxonomy_image_url().'" alt="'.single_tag_title( '', false ).'" title="'.single_tag_title( '', false ).'" /></div>'; ?>   
                         <?php
                             $tag_description = tag_description();
                             if ( ! empty( $tag_description ) )
-                                echo apply_filters( 'tag_archive_meta', '<div data-position="3" class="tag-archive-meta taxdescription js-responsive-section">' . $tag_description . '</div>' ); ?>
+                                echo apply_filters( 'tag_archive_meta', '<div data-position="'.$dataPos + 1.'" class="tag-archive-meta taxdescription js-responsive-section">' . $tag_description . '</div>' ); ?>
                                 
                     <div data-position="4" class="filter-by jq-filter-by js-responsive-section">
                         <strong>filter by:</strong>

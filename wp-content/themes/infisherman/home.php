@@ -1,4 +1,5 @@
 <?php
+$dataPos = 0;
 get_header(); ?>
 <script type="text/javascript">
 var addthis_options = "facebook_like,twitter,google";
@@ -12,11 +13,11 @@ var addthis_product = 'wpp-3.1';
             <div id="content" role="main">
             <?php if ( is_home() ) : ?>
                 <!-- start home page content-->
-                <a data-position="1" class="subscribe-banner subscribe-banner-top js-responsive-section" href="#">
+                <a data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="subscribe-banner subscribe-banner-top js-responsive-section" href="#">
                     <img alt="" src="<?php bloginfo('template_directory'); ?>/images/pic/subscribe-banner.jpg">
                 </a>
                 <?php $fetured_slider_query = new WP_Query( 'category_name=featured&posts_per_page=5' ); ?>
-                <div data-position="2" class="post-slider onload-hidden js-responsive-section">
+                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="post-slider onload-hidden js-responsive-section">
                     <div class="jq-slider">
                         <ul class="slides-inner slides">
                             <?php while ($fetured_slider_query->have_posts()) : $fetured_slider_query->the_post(); ?>
@@ -25,9 +26,9 @@ var addthis_product = 'wpp-3.1';
                                 <div class="nl-txt">
                                     <?php echo the_primary_category(); ?>
                                     <h2 class="entry-title home-entry-title"><a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a></h2>
-                                    <div class="shares-count">
+                                    <!--<div class="shares-count">
                                         <?php render_shares_count(get_permalink(), $post->ID) ?> <span>SHARES</span>
-                                    </div>
+                                    </div>-->
                                     <a class="view-post" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">view post</a>
                                 </div>
                             </li>
@@ -36,10 +37,20 @@ var addthis_product = 'wpp-3.1';
                     </div>
                 </div>
     
-                <div data-position="4" class="video-box js-responsive-section">
+                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="video-box js-responsive-section">
                     <div class="general-title clearfix">
                         <h2>In-Fisherman <span>TV</span></h2>
-                        <img src="<?php bloginfo('template_directory'); ?>/images/logos/phoenix.png" alt="" class="tite-logo" />
+                        <!-- Site - In-Fisherman
+						<script type="text/javascript">
+						  var ord = window.ord || Math.floor(Math.random() * 1e16);
+						  document.write('<a href="http://ad.doubleclick.net/N4930/jump/imo.in-fisherman;sz=260x35;camp=iftv;ord=' + ord + '?"><img src="http://ad.doubleclick.net/N4930/ad/imo.in-fisherman;sz=260x35;camp=iftv;ord=' + ord + '?" width="260" height="35" /></a>');
+						</script>
+						<noscript>
+						<a href="http://ad.doubleclick.net/N4930/jump/imo.in-fisherman;sz=260x35;camp=iftv;ord=[timestamp]?">
+						<img src="http://ad.doubleclick.net/N4930/ad/imo.in-fisherman;sz=260x35;camp=iftv;ord=[timestamp]?" width="260" height="35" />
+						</a>
+						</noscript> -->
+
                     </div>
                     <div class="video-inner">
                         <div id="BCLcontainingBlock">
@@ -52,8 +63,8 @@ var addthis_product = 'wpp-3.1';
                                  <param name="bgcolor" value="#FFFFFF" />
                                  <param name="width" value="100%" />
                                  <param name="height" value="100%" />
-                                 <param name="playerID" value="1655292658001" />
-                                 <param name="playerKey" value="AQ~~,AAAADXdqFgE~,aEKmio9UXai4AfuyXjS4fpJNnDLOcLqh" />
+                                 <param name="playerID" value="2305729440001" />
+								 <param name="playerKey" value="AQ~~,AAAA-01d-uE~,FiwRPPEEyN6__gDpGaKio54MyKID0JwZ" />
                                  <param name="isVid" value="true" />
                                  <param name="isUI" value="true" />
                                  <param name="dynamicStreaming" value="true" />
@@ -72,12 +83,12 @@ var addthis_product = 'wpp-3.1';
                         
                     </div>
                     <div class="video-panel clearfix">
-                        <a href="#" class="see-all">See All Video</a>
+                        <a href="/tv/" class="see-all">See All Video</a>
                     </div>
                 </div>
                 
                 <?php $fetured_slider_query = new WP_Query( 'category_name='.FEATURED.'&posts_per_page=10' ); ?>
-                <div data-position="5" class="double-posts double-post-slider js-responsive-section">
+                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="double-posts double-post-slider js-responsive-section">
                     <div class="general-title clearfix">
                         <h2><span>Featured</span></h2>
                     </div>
@@ -97,9 +108,9 @@ var addthis_product = 'wpp-3.1';
                                     	<?php echo primary_and_secondary_categories(); ?>
                                     </div>
                                     <h3><a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a></h3>
-                                    <div class="shares-count">
-                                        <?php render_shares_count(get_permalink(), $post->ID) ?> <span>Shares</span>
-                                    </div>
+                                    <!--<div class="shares-count">
+                                        <?php //render_shares_count(get_permalink(), $post->ID) ?> <span>Shares</span>
+                                    </div>-->
                                     <a class="view-post" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">&nbsp;</a>
                                 </div>
                             </div>
@@ -115,7 +126,7 @@ var addthis_product = 'wpp-3.1';
                 </div>
                 
                 <?php $fetured_slider_query = new WP_Query( 'category_name='.TIMELY_FEATURES.'&posts_per_page=2' ); ?>
-                <div data-position="7" class="double-posts clearfix js-responsive-section">
+                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="double-posts clearfix js-responsive-section">
                     <div class="general-title clearfix">
                         <h2>Timely <span>Features</span></h2>
                     </div>
@@ -127,9 +138,9 @@ var addthis_product = 'wpp-3.1';
                                 <div class="clearfix">
                                    <?php echo primary_and_secondary_categories(); ?>                                </div>
                                 <h3><a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a></h3>
-                                <div class="shares-count">
+                                <!--<div class="shares-count">
                                     <?php render_shares_count(get_permalink(), $post->ID) ?> <span>Shares</span>
-                                </div>
+                                </div>-->
                                 <a class="view-post" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">&nbsp;</a>
                             </div>
                         </div>
@@ -139,16 +150,25 @@ var addthis_product = 'wpp-3.1';
     
                 
     
-                <div data-position="8" class="ma-section clearfix js-responsive-section">
+                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="ma-section clearfix js-responsive-section">
                     <div class="general-title clearfix">
                         <h2>Master <span>Anglers</span></h2>
-                        <img src="<?php bloginfo('template_directory'); ?>/images/logos/havoc.png" alt="" class="tite-logo" />
+                        <!-- Site - In-Fisherman
+						<script type="text/javascript">
+						  var ord = window.ord || Math.floor(Math.random() * 1e16);
+						  document.write('<a href="http://ad.doubleclick.net/N4930/jump/imo.in-fisherman;sz=260x35;camp=master_angler;ord=' + ord + '?"><img src="http://ad.doubleclick.net/N4930/ad/imo.in-fisherman;sz=260x35;camp=master_angler;ord=' + ord + '?" width="260" height="35" /></a>');
+						</script>
+						<noscript>
+						<a href="http://ad.doubleclick.net/N4930/jump/imo.in-fisherman;sz=260x35;camp=master_angler;ord=[timestamp]?">
+						<img src="http://ad.doubleclick.net/N4930/ad/imo.in-fisherman;sz=260x35;camp=master_angler;ord=[timestamp]?" width="260" height="35" />
+						</a>
+						</noscript> -->
                     </div>
                     <div class="clearfix">
                         <div class="master-angler-banner">
                             <h2>Master <br />Angler <br /><span class="tite-year">2013</span></h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            <a href="#" class="btn-base btn-base-middle">Enter Now!</a>
+                            <a href="/master-angler/" class="btn-base btn-base-middle">Enter Now!</a>
                         </div>
                         <?php $fetured_slider_query = new WP_Query( 'category_name='.MASTER_ANGLERS.'&posts_per_page=3' ); ?>
                         <div class="single-post-slider ">
@@ -161,9 +181,9 @@ var addthis_product = 'wpp-3.1';
                                             <div class="feat-text">
                                                 <h3><a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a></h3>
                                                 
-                                                <div class="shares-count">
+                                                <!--<div class="shares-count">
                                                     <?php render_shares_count(get_permalink(), $post->ID) ?> <span>Shares</span>
-                                                </div>
+                                                </div>-->
                                                 <a class="view-post" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">&nbsp;</a>
                                             </div>
                                         </div>
@@ -172,7 +192,7 @@ var addthis_product = 'wpp-3.1';
                                 </ul>
                             </div>
                             <div class="post-panel clearfix">
-                                <a class="see-all" href="#">See All</a>
+                                <a class="see-all" href="/master-angler/">See All</a>
                             </div>
                         </div>
                         
@@ -180,10 +200,9 @@ var addthis_product = 'wpp-3.1';
                 </div>
                 
                 
-                <div data-position="9" class="posts-list js-responsive-section">
+                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section">
                     <div class="general-title clearfix">
                         <h2><span>More</span></h2>
-                        <img src="<?php bloginfo('template_directory'); ?>/images/logos/livingston.png" alt="" class="tite-logo" />
                     </div>
                     <?php $more_query = get_more_posts_query(); ?>
                     <?php while ($more_query->have_posts()) : $more_query->the_post(); ?>
@@ -212,7 +231,9 @@ var addthis_product = 'wpp-3.1';
                 <!-- start footer posts -->
                 <div class="links-holder">
                     <div class="image-banner">
-	                    <?php imo_dart_tag("300x250",array("pos"=>"mob")); ?>               
+                     <?php if (is_mobile()) { 
+	                 	imo_dart_tag("300x250",array("pos"=>"mob"));
+	                 } ?>              
                     </div>
                     <div>
                         <div class="links-section">

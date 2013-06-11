@@ -23,8 +23,9 @@
         <h1 class="entry-title">
             <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
         </h1>
-        <?php endif; // is_single() ?>
-        <em class="meta-date-author">by <span class="author-item"><?php the_author_link(); ?></span>&nbsp;&nbsp;|&nbsp;&nbsp;<?php the_time('F jS, Y'); ?></em>
+        <?php endif; // is_single()
+        if(get_the_author() != "admin"){ ?>
+        <em class="meta-date-author">by <span class="author-item"><?php the_author_link(); ?></span>&nbsp;&nbsp;|&nbsp;&nbsp;<?php } the_time('F jS, Y'); ?></em>
         
     </div>
     <?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
@@ -44,7 +45,8 @@
          <div class="article-brief addthis-below">
 			 <?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
 	    </div>
-
+		<?php 
+		if(get_the_author() != "admin"){ ?>
         <div class="author-info article-brief">
                 <div class="author-avatar">
                     <?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'twentytwelve_author_bio_avatar_size', 68 ) ); ?>
@@ -61,27 +63,28 @@
                    
                 </div><!-- .author-description -->
             </div><!-- .author-info -->
-    </div>
-    <?php if (isset_related_posts()): ?>
-    <div class="paging-posts paging-single-post">
-        <div class="jq-single-paging-slider">
-        <?php related_posts(); ?>
-        </div>
-    </div>
-    <?php endif; ?>
-
-    <div class="sub-boxes">
-            <div class="sub-box banner-box">
-                <?php imo_dart_tag("300x250",array("pos"=>"mid")); ?> 
-            </div>
-            <div class="sub-box fb-box">
-               <div class="fb-recommendations" data-site="in-fisherman.com" data-width="309" data-height="252" data-header="true" data-font="arial"></div>
-            </div>
-        </div>
-        
-		<div class="hr mobile-element"></div>
-    <div class="entry-meta">
-        <?php edit_post_link( __( 'Edit', 'twentytwelve' ), '<span class="edit-link">', '</span>' ); ?>
-       
-               </div><!-- .entry-meta -->
-</div><!-- #post -->
+	    </div>
+	    <?php } ?>
+	    <?php if (isset_related_posts()): ?>
+	    <div class="paging-posts paging-single-post">
+	        <div class="jq-single-paging-slider">
+	        <?php related_posts(); ?>
+	        </div>
+	    </div>
+	    <?php endif; ?>
+	
+	    <div class="sub-boxes">
+	            <div class="sub-box banner-box">
+	                <?php imo_dart_tag("300x250",array("pos"=>"mid")); ?> 
+	            </div>
+	            <div class="sub-box fb-box">
+	               <div class="fb-recommendations" data-site="in-fisherman.com" data-width="309" data-height="252" data-header="true" data-font="arial"></div>
+	            </div>
+	        </div>
+	        
+			<div class="hr mobile-element"></div>
+	    <div class="entry-meta">
+	        <?php edit_post_link( __( 'Edit', 'twentytwelve' ), '<span class="edit-link">', '</span>' ); ?>
+	       
+	               </div><!-- .entry-meta -->
+	</div><!-- #post -->

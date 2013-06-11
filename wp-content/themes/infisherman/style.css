@@ -212,6 +212,8 @@ a:hover { color: #040503; }
 :-moz-placeholder           { color: #3c3c3c; }
 :focus::-webkit-input-placeholder { color: transparent; }
 :focus::-moz-placeholder { color: transparent; }
+img{max-width: 100%;}
+#primary{overflow:hidden !important;}
 /* =Useful classes
 *******************************************************************************/
 
@@ -809,7 +811,7 @@ a:hover { color: #040503; }
     position: relative;
     padding-top: 1px;
     padding-bottom: 56.25%;
-    height: 0;
+    /*height: 650px;*/
 }
 
 * html .BCLvideoWrapper {
@@ -1321,6 +1323,40 @@ a.category-name-link:hover{
 }
 .subscribe-banner:hover {opacity:0.7;}
 .subscribe-banner img {display:block; width:100%;margin: 0 auto;position: relative;}
+
+/* Master Angler
+ ******************************************************************************/
+.category-master-angler .page-header img{
+	width: 241px;
+	height: auto;
+	margin-top: 10px;
+}
+.ma-enter{
+	text-align: center;
+	padding: 0 0 20px;
+	margin-bottom: 20px;
+	border-bottom: 1px dashed #ccc;
+}
+.ma-enter div{
+	padding-top: 10px;
+}
+.ma-info{
+	padding: 30px;
+}
+.ma-info img{
+	margin: 0 auto;
+	display: block;
+	padding: 20px 0;
+	max-width: 100%;
+}
+.ma-enter a.btn-base{
+	padding: 0 60px;
+}
+.category-master-angler ol{
+	list-style:decimal;
+	margin-left: 40px;
+}
+
 /* Single Post Page
  ******************************************************************************/
 .post-header {
