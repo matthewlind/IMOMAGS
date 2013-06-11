@@ -65,9 +65,6 @@ function displayGallery($gallery_id,$tag) {
   }
 
 
-  _log($pictures);
-
-
 
 	$title = stripcslashes($pictures[0]->title);
 
