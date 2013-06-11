@@ -11,7 +11,7 @@ jQuery(function(){
    	jQuery(function(){
         jQuery(".pager-holder a.btn-base").click(function(e){
             jQuery("#ajax-loader").show();
-            e.preventDefault()
+            e.preventDefault();
             if (jQuery(".next-link a").length) {
                 jQuery.ajax({
                     url: jQuery(".next-link a").attr('href'),

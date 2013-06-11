@@ -999,6 +999,9 @@ a.category-name-link:hover{
     padding:1px;
     position:relative;
 }
+.archive.author .article-brief{
+	margin-bottom: 20px;
+}
 .article-brief:first-child {
     margin-top:0;
 }
@@ -2086,6 +2089,9 @@ a.change-location:before {
 	line-height: 5.3 !important;
 }
 #gift-guide .ui-tabs .ui-tabs-nav li a, #gift-guide .ui-state-default a{
+	padding-top: 6px;
+}
+#gift-guide .ui-tabs .ui-tabs-nav li a{
 	padding-top: 6px;
 }
 

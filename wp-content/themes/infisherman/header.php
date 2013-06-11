@@ -76,7 +76,16 @@
     <!-- mobile menu start (copy of main menu, displays only in mobile orientation) -->
 <div class="cbp-spmenu-vertical" id="cbp-spmenu-s1">
     <div class="mobile-menu-banner">
-       <?php imo_dart_tag("300x50",array("pos"=>"mob")); ?>
+       <!-- IF_Mobile_Banner -->
+		<script type="text/javascript">
+		  var ord = window.ord || Math.floor(Math.random() * 1e16);
+		  document.write('<a href="http://ad.doubleclick.net/N4930/jump/IF_Mobile_Banner;sz=300x50;ord=' + ord + '?"><img src="http://ad.doubleclick.net/N4930/ad/IF_Mobile_Banner;sz=300x50;ord=' + ord + '?" width="300" height="50" /></a>');
+		</script>
+		<noscript>
+		<a href="http://ad.doubleclick.net/N4930/jump/IF_Mobile_Banner;sz=300x50;ord=[timestamp]?">
+		<img src="http://ad.doubleclick.net/N4930/ad/IF_Mobile_Banner;sz=300x50;ord=[timestamp]?" width="300" height="50" />
+		</a>
+		</noscript>	  
     </div>
     <div class="menu-main-menu-container">
         <ul>
@@ -195,9 +204,25 @@
         </div><!-- #branding -->
     
         <div class="content-banner-section">
-            <div class="mdl-banner">
-             <?php imo_dart_tag("728x90"); ?>
-            </div>
+            
+            <?php if (is_mobile()) { ?>
+					<!-- IF_Mobile_Banner -->
+					<script type="text/javascript">
+					  var ord = window.ord || Math.floor(Math.random() * 1e16);
+					  document.write('<a href="http://ad.doubleclick.net/N4930/jump/IF_Mobile_Banner;sz=300x50;ord=' + ord + '?"><img src="http://ad.doubleclick.net/N4930/ad/IF_Mobile_Banner;sz=300x50;ord=' + ord + '?" width="300" height="50" /></a>');
+					</script>
+					<noscript>
+					<a href="http://ad.doubleclick.net/N4930/jump/IF_Mobile_Banner;sz=300x50;ord=[timestamp]?">
+					<img src="http://ad.doubleclick.net/N4930/ad/IF_Mobile_Banner;sz=300x50;ord=[timestamp]?" width="300" height="50" />
+					</a>
+					</noscript>	  
+
+				<?php }else{ 
+					echo '<div class="mdl-banner">';
+					imo_dart_tag("728x90");
+					echo '</div>';
+				} ?>
+            
         </div>
     
         <div id="main" class="main clearfix js-responsive-layout">

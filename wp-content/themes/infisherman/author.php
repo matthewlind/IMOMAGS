@@ -12,10 +12,6 @@ get_header(); ?>
 		<div id="primary" class="general">
             <div id="content" role="main" class="general-frame">
 	            <div data-position="1" class="page-header clearfix js-responsive-section">
-       
-                    
-
-				
 
 				<?php if ( have_posts() ) : ?>
 	
@@ -59,20 +55,20 @@ get_header(); ?>
 						</div><!-- #author-description	-->
 					</div><!-- #entry-author-info -->
 					<?php endif; ?>
-	
-					<?php /* Start the Loop */ ?>
-					<?php while ( have_posts() ) : the_post(); ?>
-	
-						<?php
-							/* Include the Post-Format-specific template for the content.
-							 * If you want to overload this in a child theme then include a file
-							 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-							 */
-							get_template_part( 'content/content', get_post_format() );
-						?>
-						
-					<?php endwhile; ?>
-	
+					<div class="js-responsive-section main-content-preppend">
+						<?php /* Start the Loop */ ?>
+						<?php while ( have_posts() ) : the_post(); ?>
+		
+							<?php
+								/* Include the Post-Format-specific template for the content.
+								 * If you want to overload this in a child theme then include a file
+								 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+								 */
+								get_template_part( 'content/content', get_post_format() );
+							?>
+							
+						<?php endwhile; ?>
+					</div>
 					<div data-position="7" class="pager-holder js-responsive-section">
                         <a href="#" class="btn-base">Load More</a>
                         <div class="next-link" style="display:none;"><?php next_posts_link(); ?></div>
