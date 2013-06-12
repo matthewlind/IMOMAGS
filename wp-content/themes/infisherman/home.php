@@ -12,7 +12,7 @@ var addthis_product = 'wpp-3.1';
         <div class="general-frame">
             <div id="content" role="main">
             <?php if ( is_home() ) : ?>
-                <!-- start home page content-->
+               <!-- start home page content-->
                <!-- <a data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="subscribe-banner subscribe-banner-top js-responsive-section" href="#">
                     <img alt="" src="<?php bloginfo('template_directory'); ?>/images/pic/subscribe-banner.jpg">
                 </a>-->

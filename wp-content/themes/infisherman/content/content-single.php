@@ -24,7 +24,7 @@
             <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
         </h1>
         <?php endif; // is_single()
-        if(get_the_author() != "admin"){ ?>
+        if(get_the_author() != "admin" && get_the_author() != "infisherman"){ ?>
         <em class="meta-date-author">by <span class="author-item"><?php the_author_link(); ?></span>&nbsp;&nbsp;|&nbsp;&nbsp;<?php } the_time('F jS, Y'); ?></em>
         
     </div>
@@ -46,7 +46,7 @@
 			 <?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
 	    </div>
 		<?php 
-		if(get_the_author() != "admin"){ ?>
+		if(get_the_author() != "admin" && get_the_author() != "infisherman"){ ?>
         <div class="author-info article-brief">
                 <div class="author-avatar">
                     <?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'twentytwelve_author_bio_avatar_size', 68 ) ); ?>

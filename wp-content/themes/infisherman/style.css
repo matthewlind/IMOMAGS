@@ -1475,6 +1475,33 @@ a.category-name-link:hover{
     left:-999999px;
     width:0;
 }
+.gallery-slider {
+    position:relative;
+}
+.gallery-slider .flex-control-nav {
+    top:-999999px;
+    left:-999999px;
+}
+.gallery-slider img {
+    display:block;
+    width:100%;
+}
+.slide-count {
+    display:block;
+    padding:5px;
+    border:1px solid #D8D7D6;
+    background:url(images/bg/grey-transparence.png) repeat;
+    color:#000;
+    font-size:14px;
+}
+.gallery-slider .feat-text {
+    height: auto;
+    min-height: 90px;
+    padding-bottom: 14px;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
 
 /* addthis */
 .addthis-below{

@@ -219,7 +219,7 @@ jQuery(document).ready(function($) {
   	$(".gallery-hover-div").hover(function(){
 	  	
 	  	if(document.domain == "www.floridasportsman.com"){
-  			$(".cfct-can-haz-build").css("overflow","visible"); 
+  			$(".cfct-can-haz-build, .general").css("overflow","visible"); 
   		}
  		$(".gallery-slide-out").animate({
 	      	left: $(".ngg-imagebrowser").outerWidth(true)

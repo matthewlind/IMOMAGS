@@ -12,42 +12,42 @@ class Signup_Widget extends WP_Widget {
     $title = empty($instance['title']) ? '' : apply_filters('widget_title', $instance['title']); ?>
 	
 	
-	
+<div class="widget">	
 	<script type="text/javascript">
-/***********************************************
-* Textarea Maxlength script- © Dynamic Drive (www.dynamicdrive.com)
-* This notice must stay intact for legal use.
-* Visit http://www.dynamicdrive.com/ for full source code
-***********************************************/
-function ismaxlength(obj, mlength)
-{
-  if (obj.value.length > mlength)
-    obj.value = obj.value.substring(0, mlength)
-}
-</script>
-
-
-
-<form method="post" name="profileform" action="https://intermediaoutdoors.informz.net/clk/remote_post.asp">
-      
-	<SCRIPT LANGUAGE="JavaScript">
-	function moveCaret(event, objThisField, objNextField, objPrevField, nSize)
+	/***********************************************
+	* Textarea Maxlength script- © Dynamic Drive (www.dynamicdrive.com)
+	* This notice must stay intact for legal use.
+	* Visit http://www.dynamicdrive.com/ for full source code
+	***********************************************/
+	function ismaxlength(obj, mlength)
 	{
-		var keynum;
-		if(window.event) // IE	
-			keynum = event.keyCode;	
-		else if(event.which) // Netscape/Firefox/Opera	
-			keynum = event.which;				
-		if (keynum == 37 || keynum == 39 || keynum == 38 || keynum == 40 || keynum == 8) //left, right, up, down arrows, backspace
-		{		
-			var nCaretPosition = getCaretPosition(objThisField);		
-			if (keynum == 39 && nCaretPosition == nSize)
-				moveToNextField(objNextField);		   
-			if ((keynum == 37 || keynum == 8) && nCaretPosition == 0)			
-				moveToPrevField(objPrevField);		   
-			return;
-		}
-		if (keynum == 9) //Tab
+	  if (obj.value.length > mlength)
+	    obj.value = obj.value.substring(0, mlength)
+	}
+	</script>
+	
+	
+	
+	<form method="post" name="profileform" action="https://intermediaoutdoors.informz.net/clk/remote_post.asp">
+	      
+		<SCRIPT LANGUAGE="JavaScript">
+		function moveCaret(event, objThisField, objNextField, objPrevField, nSize)
+		{
+			var keynum;
+			if(window.event) // IE	
+				keynum = event.keyCode;	
+			else if(event.which) // Netscape/Firefox/Opera	
+				keynum = event.which;				
+			if (keynum == 37 || keynum == 39 || keynum == 38 || keynum == 40 || keynum == 8) //left, right, up, down arrows, backspace
+			{		
+				var nCaretPosition = getCaretPosition(objThisField);		
+				if (keynum == 39 && nCaretPosition == nSize)
+					moveToNextField(objNextField);		   
+				if ((keynum == 37 || keynum == 8) && nCaretPosition == 0)			
+					moveToPrevField(objPrevField);		   
+				return;
+			}
+			if (keynum == 9) //Tab
 			return;
 		if (objThisField.value.length >= nSize && objNextField != null)
 			moveToNextField(objNextField);
@@ -135,8 +135,8 @@ function ismaxlength(obj, mlength)
 	            
 			</fieldset>
 	    
-	</div>
-</form>
+		</div>
+	</form>
 	<script language='javascript'>
 	fullURL = document.URL
 	sAlertStr = ''
@@ -163,6 +163,7 @@ function ismaxlength(obj, mlength)
 	if (sAlertStr.length > 0)
 		alert(sAlertStr)
 	</script>
+</div>
 <?php	}
  
 	function update($new_instance, $old_instance) {

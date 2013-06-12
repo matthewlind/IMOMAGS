@@ -913,4 +913,65 @@ body #header {
     margin-top:0px;
 }
 
+@media only screen and (max-width: 800px) {
+	.frame, .calendar-data td, .calendar-data div.fishday, .gallery-block{
+		height: 100%;
+		width: auto;
+	}
+	.location-box{
+		padding: 30px 0 35px 4px;
+	}
+	.list_carousel{
+		width: 600px;
+	}
+	.list_carousel li{
+		width: 210px;
+	}
+	.gal-next{
+		right: 140px;
+	}
+	.form-text, .zf-select .select-text, .location-box input[type="text"]{
+		font: 16px/2.2 "stagregular", serif;
+	}
+	.location-box input[type="text"]{width: 157px;}
+	.cal-title .zf-select .select-text {
+		font: 52px/43px "stagbold", serif;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
