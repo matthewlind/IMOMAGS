@@ -1,7 +1,6 @@
 jQuery(document).ready(function($) {
 	
-	$(function() {
-    	
+	if($("#tabs").length){
     	//$( "#tabs" ).tabs();
     	//Set default tabs based on domain
     	if(document.domain == "www.petersenshunting.fox" || document.domain == "www.bowhuntingmag.fox" || document.domain == "www.bowhunter.fox" || document.domain == "www.northamericanwhitetail.fox" || document.domain == "www.wildfowlmag.fox" || document.domain == "www.gundogmag.fox" || document.domain == "www.petersenshunting.com" || document.domain == "www.bowhuntingmag.com" || document.domain == "www.bowhunter.com" || document.domain == "www.northamericanwhitetail.com" || document.domain == "www.wildfowlmag.com" || document.domain == "www.gundogmag.com" ){
@@ -9,7 +8,7 @@ jQuery(document).ready(function($) {
 			$( "#tabs" ).tabs({ selected: 1 });
 			
 		}else if(document.domain == "www.gameandfishmag.fox" || document.domain == "www.in-fisherman.fox" || document.domain == "www.flyfisherman.fox" || document.domain == "www.floridasportsman.fox" || document.domain == "www.gameandfishmag.com" || document.domain == "www.in-fisherman.com" || document.domain == "www.flyfisherman.com" || document.domain == "www.floridasportsman.com"){
-		
+				
 			$( "#tabs" ).tabs({ selected: 2 });
 			
 		}
@@ -17,7 +16,7 @@ jQuery(document).ready(function($) {
 			$( "#tabs" ).tabs({ selected: 0 });
 			
 		}
-    });
+	}
 
 	var currentPosition = 0;
 	var showAtOnce = 3;

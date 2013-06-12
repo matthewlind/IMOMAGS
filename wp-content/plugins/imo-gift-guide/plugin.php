@@ -18,8 +18,7 @@ include('widget.php');
 
 add_action('init', 'imo_gift_guide_scripts');
 function imo_gift_guide_scripts() {
-    wp_enqueue_script('gift-guide-js',plugins_url('js/gift-guide.js', __FILE__));
-    wp_enqueue_script('jquery-ui-tabs',plugins_url('jquery-ui-tabs', __FILE__));
+    wp_enqueue_script('gift-guide-js',plugins_url('js/gift-guide.js', __FILE__),array( 'jquery' ,'jquery-ui-tabs'));
     wp_enqueue_style('gift-guide-css',plugins_url('css/gift-guide.css', __FILE__));	
 }
 

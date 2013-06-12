@@ -23,7 +23,7 @@ get_header(); ?>
                         <strong>filter by:</strong>
                         <ul class="filter-links">
                             <li><a href="#">Latest</a></li>
-                            <li><a href="#">Most Commented</a></li>
+                            <li><a href="#">Most Discussed</a></li>
                         </ul>
                     </div>
                     
@@ -41,10 +41,12 @@ get_header(); ?>
                                 get_template_part( 'content', get_post_format() );
                             ?>
 
-                        <?php if ( ($i%6) == 0 ): ?>
-                        <div class="image-banner posts-image-banner">
-                            <?php imo_dart_tag("300x250",array("pos"=>"mob")); ?> 
-                        </div>
+                        <?php if ( (($i - (($paged -1) * 2 ))%6) == 0 ): ?>
+	                        <?php if ( is_mobile() ){ ?>
+	                        <div class="image-banner posts-image-banner">
+	                            <?php imo_dart_tag("300x250",array("pos"=>"mob")); ?> 
+	                        </div>
+	                        <?php } ?>
                         <?php endif;?>
         
                         <?php $i++; endwhile; ?>

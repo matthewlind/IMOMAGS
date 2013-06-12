@@ -80,7 +80,7 @@ get_header(); ?>
 						<h2>ACHIEVEMENT AWARDS</h2>
 						<p>Anglers who enter qualifying fish receive a Master Angler patch (one per year) and species chevron.<img style="float:right" src="http://dev.imomags.com/infisherman/files/2011/07/sharvestlogo.jpg" /></p>
 						<h2>SELECTIVE HARVEST</h2>
-						<p>Selective Harvest is wise conservation of our natural resources. It main- tains a tradition of harvesting some fish to eat, as they?re nutritious, deli- cious, and renewable when harvested wisely. Large predators and large panfish must be released to sustain good fishing. Only numerous and smaller fish should be kept.</p>
+						<p>Selective Harvest is wise conservation of our natural resources. It maintains a tradition of harvesting some fish to eat, as they're nutritious, delicious, and renewable when harvested wisely. Large predators and large panfish must be released to sustain good fishing. Only numerous and smaller fish should be kept.</p>
 						<h2>RECOGNITION PIN AND CERTIFICATE</h2>
 						<p>In each region, anglers who enter the largest kept or largest released fish of a species receive a Master Angler lapel pin and a parchment certificate suitable for framing.</p>
 						<h2>RECOGNITION PLAQUE</h2>
@@ -93,10 +93,10 @@ get_header(); ?>
 						<ol>
 							<li>In-Fisherman readers and television viewers are eligible to apply for Master Angler awards.</li>
 							<li>Fish must be taken by angling and in accordance with regulations of the state or province where the fish was caught.</li>
-							<li>Each official qualifying fish entry form (or photocopy) must be submitted individually in its own envelope within 30 days of the catch (no exceptions). If fishing alone, the witness verifica- tion section may be omitted for released fish. Otherwise, all sections (including a witness) must be completed.</li>
-							<li>Each entry must be accompanied by one clear, standard-size, sideview photograph (no videos) of the fish, preferably of the angler with the fish. Photographs of released fish must be taken at the catch site (no exceptions). No driveway or baitshop shots for catch &amp; release fish are acceptable. Do not write on the back of photos. Do not use paper clips, tape or staples, since they ruin photos. Entries with- out photos, and illegible or incomplete entries, will be disqualified and not returned.</li>
+							<li>Each official qualifying fish entry form (or photocopy) must be submitted individually in its own envelope within 30 days of the catch (no exceptions). If fishing alone, the witness verification section may be omitted for released fish. Otherwise, all sections (including a witness) must be completed.</li>
+							<li>Each entry must be accompanied by one clear, standard-size, side view photograph (no videos) of the fish, preferably of the angler with the fish. Photographs of released fish must be taken at the catch site (no exceptions). No driveway or baitshop shots for catch &amp; release fish are acceptable. Do not write on the back of photos. Do not use paper clips, tape or staples, since they ruin photos. Entries without photos, and illegible or incomplete entries, will be disqualified and not returned.</li>
 							<li>Kept fish must be witnessed, and weighed on a certified scale.</li>
-							<li>Measure released fish from the tip of the nose (with mouth closed) to the tip of the tail. Quickly photograph and release the fish. Don?t hang fish to be released on a scale; impale them on a gaff, or place them on a stringer. Fish showing signs of improper handling will be disqualified.</li>
+							<li>Measure released fish from the tip of the nose (with mouth closed) to the tip of the tail. Quickly photograph and release the fish. Don't hang fish to be released on a scale; impale them on a gaff, or place them on a stringer. Fish showing signs of improper handling will be disqualified.</li>
 							<li>Include a brief description of how the fish was caught.</li>
 							<li>Entry and photograph become the property of In-Fisherman with publication and television rights. We are not responsible for lost or mis- placed entries. Photos cannot be returned.</li>
 							<li>The awards program runs from Jan. 1 to Dec. 31, 2013. Entries must be received by Jan. 15, 2014, to qualify for the 2013 program.</li>
@@ -119,14 +119,14 @@ get_header(); ?>
                         <ul class="filter-links">
                             <li><a href="#">Latest</a></li>
                             <!--<li><a href="#">Most Viewed</a></li>-->
-                            <li><a href="#">Most Commented</a></li>
+                            <li><a href="#">Most Discussed</a></li>
                             <!--<li><a href="#">Most Shared</a></li>-->
                         </ul>
                     </div>
                     <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="js-responsive-section main-content-preppend">
 						
                         <?php /* Start the Loop */ 
-                        query_posts('category_name=master-angler&offset=6');
+                        //query_posts('category_name=master-angler&offset=6');
                         $i = 1; while ( have_posts() ) : the_post(); ?>
         
                             <?php
@@ -137,14 +137,15 @@ get_header(); ?>
                                 get_template_part( 'content/content', get_post_format() );
                             ?>
 
-                        <?php if ( ($i%6) == 0 ): ?>
-                        <div class="image-banner posts-image-banner">
-                            <?php imo_dart_tag("300x250",array("pos"=>"mob")); ?> 
-                        </div>
+                       <?php if ( (($i - (($paged -1) * 2 ))%6) == 0 ): ?>
+	                        <?php if ( is_mobile() ){ ?>
+	                        <div class="image-banner posts-image-banner">
+	                            <?php imo_dart_tag("300x250",array("pos"=>"mob")); ?> 
+	                        </div>
+	                        <?php } ?>
                         <?php endif;?>
         
-                        <?php $i++; endwhile; ?>
-        
+                        <?php $i++; endwhile; ?>        
                     </div>
     
                     <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="pager-holder js-responsive-section">

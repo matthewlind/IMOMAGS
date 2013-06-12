@@ -13,9 +13,9 @@ var addthis_product = 'wpp-3.1';
             <div id="content" role="main">
             <?php if ( is_home() ) : ?>
                 <!-- start home page content-->
-                <a data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="subscribe-banner subscribe-banner-top js-responsive-section" href="#">
+               <!-- <a data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="subscribe-banner subscribe-banner-top js-responsive-section" href="#">
                     <img alt="" src="<?php bloginfo('template_directory'); ?>/images/pic/subscribe-banner.jpg">
-                </a>
+                </a>-->
                 <?php $fetured_slider_query = new WP_Query( 'category_name=featured&posts_per_page=5' ); ?>
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="post-slider onload-hidden js-responsive-section">
                     <div class="jq-slider">
@@ -28,8 +28,8 @@ var addthis_product = 'wpp-3.1';
                                     <h2 class="entry-title home-entry-title"><a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a></h2>
                                     <!--<div class="shares-count">
                                         <?php render_shares_count(get_permalink(), $post->ID) ?> <span>SHARES</span>
-                                    </div>-->
-                                    <a class="view-post" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">view post</a>
+                                    </div>
+                                    <a class="view-post" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">view post</a>-->
                                 </div>
                             </li>
                             <?php endwhile; ?>
@@ -110,8 +110,8 @@ var addthis_product = 'wpp-3.1';
                                     <h3><a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a></h3>
                                     <!--<div class="shares-count">
                                         <?php //render_shares_count(get_permalink(), $post->ID) ?> <span>Shares</span>
-                                    </div>-->
-                                    <a class="view-post" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">&nbsp;</a>
+                                    </div>
+                                    <a class="view-post" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">&nbsp;</a>-->
                                 </div>
                             </div>
                             
@@ -140,8 +140,8 @@ var addthis_product = 'wpp-3.1';
                                 <h3><a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a></h3>
                                 <!--<div class="shares-count">
                                     <?php render_shares_count(get_permalink(), $post->ID) ?> <span>Shares</span>
-                                </div>-->
-                                <a class="view-post" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">&nbsp;</a>
+                                </div>
+                                <a class="view-post" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">&nbsp;</a>-->
                             </div>
                         </div>
                         <?php endwhile; ?>
@@ -183,8 +183,8 @@ var addthis_product = 'wpp-3.1';
                                                 
                                                 <!--<div class="shares-count">
                                                     <?php render_shares_count(get_permalink(), $post->ID) ?> <span>Shares</span>
-                                                </div>-->
-                                                <a class="view-post" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">&nbsp;</a>
+                                                </div>
+                                                <a class="view-post" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">&nbsp;</a>-->
                                             </div>
                                         </div>
                                     </li>

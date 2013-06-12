@@ -3,32 +3,41 @@ jQuery(function(){
     // Load more 
     jQuery(document).ready(function () {
 
-		if(jQuery(".next-link a").length > 0){
-		    jQuery(".btn-base").show();
+		if(jQuery(".next-link a").length){
+		    jQuery("a.btn-base").show();
 	    }
     });	
    	
    	jQuery(function(){
         jQuery(".pager-holder a.btn-base").click(function(e){
             jQuery("#ajax-loader").show();
+            if (jQuery(window).width() <  610 ) {
+                var findId = 'div.post, div.posts-image-banner';
+            } else {
+                var findId = 'div.post';
+            }
+
             e.preventDefault();
             if (jQuery(".next-link a").length) {
                 jQuery.ajax({
                     url: jQuery(".next-link a").attr('href'),
                     dataType: 'html',
                     success: function(data) {
+                    	
                         jQuery('.main-content-preppend').append(
-                            jQuery(data).find('.js-responsive-section').find('div.post').hide()
+                            jQuery(data).find('.js-responsive-section').find(findId).hide()
                         );
-                        jQuery('.main-content-preppend').find('div.post').show('slow')
+                        jQuery('.main-content-preppend').find(findId).show('slow');
                         if (jQuery(data).find('.next-link a').length) {
-                            jQuery(".next-link a").attr({'href': jQuery(data).find('.next-link a').attr('href')})
+                            jQuery(".next-link a").attr({'href': jQuery(data).find('.next-link a').attr('href')});
                         } else {
                             jQuery(".pager-holder a.btn-base").hide();
                         }
                         jQuery("#ajax-loader").hide();
-                    },
-                    error: function () {jQuery("#ajax-loader").hide();}
+                        if(jQuery(".next-link a").length){
+						    jQuery("a.btn-base").show();
+					    }
+					}
                 });
             }
         });
@@ -150,10 +159,10 @@ var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
   });*/
   
 jQuery(".swipe-out, .header").swipe( {
-	swipeLeft:function() {
-	  	jQuery(body).removeClass('cbp-spmenu-push-toright');
-	  	jQuery(menuLeft).removeClass('cbp-spmenu-open');
-	}
+    swipeLeft:function() {
+      jQuery(body).removeClass('cbp-spmenu-push-toright');
+      jQuery(menuLeft).removeClass('cbp-spmenu-open');
+    }
 });
 
 jQuery('.cbp-spmenu-vertical').on("click", ".menu-main-menu-container .has-drop", function(){
@@ -175,3 +184,7 @@ jQuery('input[placeholder], textarea[placeholder]').placeholder();
 
 // iphone scale fix
 MBP.scaleFix();
+
+function updateSliderCounter(slider){
+    jQuery(slider).find('.slide-count').html((slider.currentSlide + 1) + '/' + slider.count);
+}

@@ -124,7 +124,25 @@ function primary_and_secondary_categories($cat_base) {
 		"personal-defense-network",
 		"survival-network",
 		"the-gear-network",
-		"the-guns-network"
+		"the-guns-network",
+		"other-fish",
+		"kehdes-blog",
+		"quinns-blog",
+		"pyzers-blog",
+		"schmidts-blog",
+		"simpsons-blog",
+		"south",
+		"stanges-blog",
+		"straws-blog",
+		"canada",
+		"west",
+		"international",
+		"midwest",
+		"new-england",
+		"northeast",
+		"timely-features",
+		"in-fisherman-blogs",
+		"midwest-finesse"
     );
 	
     foreach($allCats as $cat){

@@ -141,7 +141,7 @@ body {
 }
 .location-box input[type="text"] {
     display:inline-block;
-    font:30px/33px "stagitalic", serif;
+    font:28px/33px "stagitalic", serif;
     color:#b2b2b2;
     border:1px dotted #9a9a9a;
     border-width:0 0 1px;
@@ -176,7 +176,7 @@ body {
     margin:0 7px 0 2px;
 }
 .cal-title {
-    width:368px;
+    width:428px;
     padding:14px 32px 0 47px;
     margin:-30px auto 7px;
     background:#fff;
@@ -186,12 +186,12 @@ body {
     width:350px;
 }
 .cal-title .zf-select .select-text {
-    font:52px/62px "stagbold", serif;
+    font:52px/43px "stagbold", serif;
     height:62px;
     padding-right:46px;
 }
 .cal-title .zf-select .select-btn {
-    background-position:0 -29px;
+    background-position:0 -37px;
     width:39px;
     height:62px;
 }
@@ -868,7 +868,9 @@ a.change-location:before {
 	height: 33px;
 
 }
-
+#zf-select-sel1 .select-btn{
+	right: 10px;
+}
 .zf-select .select-btn {
 padding-right: 4px;
 
