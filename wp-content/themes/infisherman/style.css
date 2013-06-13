@@ -1505,7 +1505,9 @@ a.category-name-link:hover{
 
 /* addthis */
 .addthis-below{
-	padding: 12px 140px 8px;
+	padding: 12px 0 8px;
+	margin: 0 auto;
+	width: 340px;
 }
 
 /* = General styles for Category / Tag / etc. pages
@@ -2530,7 +2532,6 @@ a.change-location:before {
         float:none;
         text-align:left;
     }
-    
     
 }
 

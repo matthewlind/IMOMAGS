@@ -42,8 +42,8 @@
         </div><!-- .entry-content -->
         <?php endif; ?>
         
-         <div class="article-brief addthis-below">
-			 <?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
+         <div class="article-brief">
+         	<div class="addthis-below"><?php if (function_exists('imo_add_this')) {imo_add_this();} ?></div>
 	    </div>
 		<?php 
 		if(get_the_author() != "admin" && get_the_author() != "infisherman"){ ?>
