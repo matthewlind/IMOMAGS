@@ -182,18 +182,25 @@ EOT;
 		    <h2><span>$title</span></h2>
 		</div>
 		<div class="jq-gallery-slider gallery-slider" id="gallery-$gallery_id">
+			<iframe id="gallery-iframe-ad" width=300 height=50 marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?ad_code=$dartDomain"></iframe>
 		    <span class="slide-count">$count</span>
 		    <ul class="slides">
 EOT;
 	foreach ($pictures as $picture) {
+		$picture->meta_data = unserialize($picture->meta_data);
+
+		$picture->photo_desc = stripcslashes($picture->photo_desc);
+		$picture->alttext = stripcslashes($picture->alttext);
+		$picture->description = stripcslashes($picture->description);
+		$description = substr($picture->description, 0, 200); 
+		
 
 $mobile .= <<<EOT2
 		        <li>
 		            <img src="$picture->img_url" alt="$picture->alttext">
 		            <div class="feat-text">
 		                <h3>$picture->alttext</h3>
-		                $picture->description
-		                
+						$description ...		                
 		            </div>
 		        </li>
 EOT2;
@@ -208,6 +215,7 @@ $mobile .= <<<EOT3
 		            animation: "slide",
 		            animationSpeed: 200,
 		            slideshow: false,
+		            directionNav: false, 
 		            start: function (slider) {
 		            
 EOT3;
@@ -222,8 +230,11 @@ EOT3;
 $mobile .= <<<EOFasdf
 		                
 		            },
-		            after: function (slider) {
-		                updateSliderCounter(slider);        
+		            after: function (slider) {  	   
+		                updateSliderCounter(slider);    
+		                _gaq.push(['_trackPageview',"/" + window.location.pathname + "#" + slider.currentSlide]);  
+		                document.getElementById('gallery-iframe-ad').contentWindow.location.reload();
+		                
 		            }
 		        });
 		    })
@@ -269,7 +280,7 @@ function conditionally_add_scripts_and_styles($posts){
 
 		if ($shortcode_found) {
 		
-			if (!is_mobile()){
+			if (!is_mobile() || !is_tablet()){
 			// enqueue here
 			wp_enqueue_script('ajax-gallery-js',plugins_url('ajax-gallery.js', __FILE__));
 			wp_enqueue_script('jquery-scrollface',plugins_url('jquery.scrollface.min.js', __FILE__));

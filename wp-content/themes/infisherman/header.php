@@ -56,7 +56,7 @@
      */
     wp_enqueue_script("jquery"); 
     wp_head();
-    include_once get_stylesheet_directory() . "head-includes.php";  
+    include_once get_stylesheet_directory() . "/head-includes.php";  
 ?>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/dart.js" type="text/javascript"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.jfollow.js" type="text/javascript"></script>
