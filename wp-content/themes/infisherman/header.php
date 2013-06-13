@@ -56,11 +56,11 @@
      */
     wp_enqueue_script("jquery"); 
     wp_head();
-    include_once get_stylesheet_directory() . "head-includes.php";  
+    include_once get_stylesheet_directory() . "/head-includes.php";  
 ?>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/dart.js" type="text/javascript"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.jfollow.js" type="text/javascript"></script>
-	
+	<script src="<?php echo get_template_directory_uri(); ?>/js/flash_heed.js" type="text/javascript"></script>
 </head>
 
 <body <?php body_class('cbp-spmenu-push'); ?>>
@@ -154,7 +154,7 @@
                     <?php
                         else :
                     ?>
-                    <a href="#" class="user-btn">user</a>
+                    <!--<a href="#" class="user-btn">user</a>-->
                     <a href="#" class="open-search jq-open-search">search</a>
                     	<div id="subscribe-area" class="widget widget_text header-elements">			
 	
@@ -204,7 +204,7 @@
         </div><!-- #branding -->
     
         <div class="content-banner-section">
-            
+            <div class="swipe-out"></div>
             <?php if (is_mobile()) { ?>
 					<!-- IF_Mobile_Banner -->
 					<script type="text/javascript">
@@ -219,10 +219,11 @@
 
 				<?php }else{ 
 					echo '<div class="mdl-banner">';
-					imo_dart_tag("728x90");
+						imo_dart_tag("728x90");
 					echo '</div>';
 				} ?>
             
         </div>
     
         <div id="main" class="main clearfix js-responsive-layout">
+        	<div class="swipe-out"></div>

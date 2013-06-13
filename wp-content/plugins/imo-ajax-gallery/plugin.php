@@ -11,8 +11,7 @@ add_shortcode( 'imo-slideshow', 'slideshow_gallery' );
 
 // [slideshow gallery=GALLERY_ID]
 function slideshow_gallery( $atts ) {
-
-
+	
 	extract(
     shortcode_atts(
       array(
@@ -65,7 +64,7 @@ function displayGallery($gallery_id,$tag) {
   }
 
 
-
+  	
 	$title = stripcslashes($pictures[0]->title);
 
 
@@ -174,8 +173,80 @@ function displayGallery($gallery_id,$tag) {
 
 
 EOT;
+	
+	
+	
+	$mobile = <<<EOT
 
-	return $output;
+		<div class="general-title clearfix">
+		    <h2><span>$title</span></h2>
+		</div>
+		<div class="jq-gallery-slider gallery-slider" id="gallery-$gallery_id">
+			<iframe id="gallery-iframe-ad" width=300 height=50 marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?ad_code=$dartDomain"></iframe>
+		    <span class="slide-count">$count</span>
+		    <ul class="slides">
+EOT;
+	foreach ($pictures as $picture) {
+		$picture->meta_data = unserialize($picture->meta_data);
+
+		$picture->photo_desc = stripcslashes($picture->photo_desc);
+		$picture->alttext = stripcslashes($picture->alttext);
+		$picture->description = stripcslashes($picture->description);
+		$description = substr($picture->description, 0, 200); 
+		
+
+$mobile .= <<<EOT2
+		        <li>
+		            <img src="$picture->img_url" alt="$picture->alttext">
+		            <div class="feat-text">
+		                <h3>$picture->alttext</h3>
+						$description ...		                
+		            </div>
+		        </li>
+EOT2;
+	}
+$mobile .= <<<EOT3
+		    </ul>
+		</div>
+			
+		<script type="text/javascript">
+		    jQuery(function(){
+		        var fslider = jQuery('#gallery-$gallery_id').flexslider({
+		            animation: "slide",
+		            animationSpeed: 200,
+		            slideshow: false,
+		            directionNav: false, 
+		            start: function (slider) {
+		            
+EOT3;
+		                if (count($pictures) > 1) {
+			                $mobile .= " updateSliderCounter(slider); ";
+		                }
+		                	
+		                
+		
+
+            
+$mobile .= <<<EOFasdf
+		                
+		            },
+		            after: function (slider) {  	   
+		                updateSliderCounter(slider);    
+		                _gaq.push(['_trackPageview',"/" + window.location.pathname + "#" + slider.currentSlide]);  
+		                document.getElementById('gallery-iframe-ad').contentWindow.location.reload();
+		                
+		            }
+		        });
+		    })
+		</script>
+
+EOFasdf;
+	
+	if (is_mobile() || is_tablet()){
+		return $mobile;
+	}else{
+		return $output;
+	}
 }
 
 
@@ -208,6 +279,8 @@ function conditionally_add_scripts_and_styles($posts){
 		}
 
 		if ($shortcode_found) {
+		
+			if (!is_mobile() || !is_tablet()){
 			// enqueue here
 			wp_enqueue_script('ajax-gallery-js',plugins_url('ajax-gallery.js', __FILE__));
 			wp_enqueue_script('jquery-scrollface',plugins_url('jquery.scrollface.min.js', __FILE__));
@@ -216,7 +289,16 @@ function conditionally_add_scripts_and_styles($posts){
 			wp_enqueue_script('jquery-mousewheel',plugins_url('jquery.mousewheel.min.js', __FILE__));
 			wp_enqueue_script('jquery-mCustomScrollbar',plugins_url('jquery.mCustomScrollbar.js', __FILE__));
 			wp_enqueue_style('ajax-gallery-css',plugins_url('ajax-gallery.css', __FILE__));
-			wp_enqueue_style('ajax-mCustomScrollbar-css',plugins_url('jquery.mCustomScrollbar.css', __FILE__));
+			wp_enqueue_style('ajax-mCustomScrollbar-css',plugins_url('jquery.mCustomScrollbar.css', __FILE__));				
+				
+				
+				
+			} else {
+				
+				
+				
+			}
+
 		}
 
 	} else {//If there are no posts, such as a category page
@@ -245,5 +327,6 @@ function conditionally_add_scripts_and_styles($posts){
 
 	return $posts;
 }
+
 ?>
 
