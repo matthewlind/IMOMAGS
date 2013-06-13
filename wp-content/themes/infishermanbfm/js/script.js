@@ -133,3 +133,8 @@ MBP.scaleFix();
 function updateSliderCounter(slider){
     jQuery(slider).find('.slide-count').html((slider.currentSlide + 1) + '/' + slider.count);
 }
+
+jQuery( "#idofpanel" ).panel( "open" , optionsHash );
+var swipeClose = jQuery( "#page" ).panel( "option", "swipeClose" );
+// setter
+jQuery( "#page" ).panel( "option", "swipeClose", true );

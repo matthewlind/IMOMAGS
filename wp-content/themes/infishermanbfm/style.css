@@ -3019,3 +3019,5 @@ a.change-location:before {
     p, h2, h3 { orphans: 3; widows: 3; }
     h2, h3 { page-break-after: avoid; }
 }
+/* jq mobile fixes */
+.ui-loader {display:none !important;}

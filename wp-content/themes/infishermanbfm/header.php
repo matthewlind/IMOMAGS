@@ -38,6 +38,7 @@
     ?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
+<link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/js/plugins/jquery.mobile/jquery.mobile.structure-1.3.1.css" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 <!--[if lt IE 9]>
 <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
@@ -59,54 +60,32 @@
 ?>
 </head>
 
-<body <?php body_class('cbp-spmenu-push'); ?>>
-    <!-- mobile menu start (copy of main menu, displays only in mobile orientation) -->
-<div class="cbp-spmenu-vertical" id="cbp-spmenu-s1">
-    <a class="open-menu jq-open-menu"  href="#">open menu</a>
-    <div class="mobile-menu-banner">
-        <a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/pic/mobile-menu-banner.jpg" alt="" /></a>
-    </div>
-    <div class="menu-main-menu-container">
-        <ul>
-            <li><a href="/">Home</a></li>
-        </ul>
-    </div>
-    <?php 
-        wp_nav_menu(array(
-            'menu_class'=>'menu',  
-            'theme_location'=>'bottom',
-            'walker'=> new AddParentClass_Walker()
-        ));   ?>
-    
-    <div class="menu-subscribe">
-        <a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/pic/journals.png" alt="" /><span>Subscribe Now!</span></a>
-    </div>
-    
-    <?php wp_nav_menu(array(
-            'menu_class'=>'menu',  
-            'theme_location'=>'top', 
-        ));   ?>
-    
-    <div class="aside-socials">
-        <strong>Connect</strong>
-        <div class="socials">
-            <a class="facebook" href="#">Facebook</a>
-            <a class="twitter" href="#">Twitter</a>
-            <a class="youtube" href="#">YouTube</a>
-            <a class="rss" href="#">RSS</a>
-        </div>
-    </div>
-    
-</div>
-<!-- mobile menu end -->
-<div id="page" class="hfeed wrapper">
+<body <?php body_class(); ?>  data-role="page">
+<div data-role="panel" id="mypanel" data-position="left" data-display="push">
+        <p>hjhjhjhj <br />jkjkjkjkj</p>
+        <p>hjhjhjhj <br />jkjkjkjkj</p>
+        <p>hjhjhjhj <br />jkjkjkjkj</p>
+        <p>hjhjhjhj <br />jkjkjkjkj</p>
+        <p>hjhjhjhj <br />jkjkjkjkj</p>
+        <p>hjhjhjhj <br />jkjkjkjkj</p>
+        <p>hjhjhjhj <br />jkjkjkjkj</p>
+        <p>hjhjhjhj <br />jkjkjkjkj</p>
+        <p>hjhjhjhj <br />jkjkjkjkj</p>
+        <p>hjhjhjhj <br />jkjkjkjkj</p>
+        <p>hjhjhjhj <br />jkjkjkjkj</p>
+        <p>hjhjhjhj <br />jkjkjkjkj</p>
+        <p>hjhjhjhj <br />jkjkjkjkj</p>
+        <p>hjhjhjhj <br />jkjkjkjkj</p>
+        <p>hjhjhjhj <br />jkjkjkjkj</p>
+</div><!-- /panel -->
+<div id="page" class="hfeed wrapper" data-role="content" role="main">
     <div class="layout-frame">
         <div id="branding" class="header clearfix" role="banner">
                 
                 <div class="clearfix">
                     <a href="#" id="showLeftPush" class="open-menu">open menu</a>
                     <strong class="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo('template_directory'); ?>/images/logo.png" alt="<?php bloginfo( 'name' ); ?>" /></a></strong>
-                    
+                    <a href="#mypanel">Open panel</a>
                     <?php
                         // Check to see if the header image has been removed
                         $header_image = get_header_image();
