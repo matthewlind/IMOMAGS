@@ -56,7 +56,7 @@
                     <p><?php the_author_meta( 'description' ); ?>
 	                    <div class="author-link">
 	                        <a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author">
-	                            <?php printf( __( 'View all posts by %s <span class="meta-nav">&rarr;</span>', 'twentytwelve' ), get_the_author() ); ?>
+	                            <?php printf( __( 'View all stories by %s <span class="meta-nav">&rarr;</span>', 'twentytwelve' ), get_the_author() ); ?>
 	                        </a>
 	                    </div><!-- .author-link -->
                     </p>

@@ -87,7 +87,7 @@ var addthis_product = 'wpp-3.1';
                     </div>
                 </div>
                 
-                <?php $fetured_slider_query = new WP_Query( 'category_name='.FEATURED.'&posts_per_page=10' ); ?>
+                <?php $fetured_slider_query = new WP_Query( 'category_name='.FEATURED.'&posts_per_page=8' ); ?>
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="double-posts double-post-slider js-responsive-section">
                     <div class="general-title clearfix">
                         <h2><span>Featured</span></h2>
@@ -125,7 +125,7 @@ var addthis_product = 'wpp-3.1';
                     </div>
                 </div>
                 
-                <?php $fetured_slider_query = new WP_Query( 'category_name='.TIMELY_FEATURES.'&posts_per_page=2' ); ?>
+                <?php $fetured_slider_query = new WP_Query( 'category_name='.TIMELY_FEATURES.'&posts_per_page=16' ); ?>
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="double-posts clearfix js-responsive-section">
                     <div class="general-title clearfix">
                         <h2>Timely <span>Features</span></h2>
@@ -170,7 +170,7 @@ var addthis_product = 'wpp-3.1';
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                             <a href="/master-angler/" class="btn-base btn-base-middle">Enter Now!</a>
                         </div>
-                        <?php $fetured_slider_query = new WP_Query( 'category_name='.MASTER_ANGLERS.'&posts_per_page=3' ); ?>
+                        <?php $fetured_slider_query = new WP_Query( 'category_name='.MASTER_ANGLERS.'&posts_per_page=8' ); ?>
                         <div class="single-post-slider ">
                             <div class="jq-slider">
                                 <ul class="slides-inner slides">

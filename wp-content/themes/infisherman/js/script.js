@@ -52,7 +52,11 @@ jQuery(function(){
         });
     });
 
- 
+	// Flash ad z-index pecking order fix
+	jQuery(function(){
+		FlashHeed.heed();
+	});
+	
     // jFollow
 	jQuery(function(){
 		if (jQuery(".advert").length > 0) {
