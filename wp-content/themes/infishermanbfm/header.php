@@ -62,6 +62,7 @@
 <body <?php body_class('cbp-spmenu-push'); ?>>
     <!-- mobile menu start (copy of main menu, displays only in mobile orientation) -->
 <div class="cbp-spmenu-vertical" id="cbp-spmenu-s1">
+    <a class="open-menu jq-open-menu"  href="#">open menu</a>
     <div class="mobile-menu-banner">
         <a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/pic/mobile-menu-banner.jpg" alt="" /></a>
     </div>

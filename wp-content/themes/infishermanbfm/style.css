@@ -313,6 +313,14 @@ a:hover { color: #040503; }
 .open-menu:hover {
     background-position:-65px -72px;
 }
+.cbp-spmenu-vertical .open-menu {
+    position:absolute;
+    top:0;
+    left:244px;
+    margin:0;
+    display:none;
+}
+.category-trout-salmon .cbp-spmenu-vertical.cbp-spmenu-open .open-menu {display:block;}
 .user-btn {
     float:right;
     width:60px;
@@ -1428,7 +1436,7 @@ a:hover { color: #040503; }
     top: 0;
     z-index: 1100;
     left: -244px;
-    background:url(images/bg/mobile-menu-shadow.png) repeat-y 100% 0;
+    background:#fff url(images/bg/mobile-menu-shadow.png) repeat-y 100% 0;
 }
 .cbp-spmenu-vertical .menu-top-menu-container,
 .cbp-spmenu-vertical .menu-main-menu-container {
@@ -2108,6 +2116,9 @@ a.change-location:before {
     .mobile-orientation.cbp-spmenu-push-toright .wrapper {
         left: 244px;
     }
+    .category-trout-salmon.cbp-spmenu-push-toright .wrapper {
+        left: 0 !important;
+    }
     .mobile-orientation.cbp-spmenu-push-toright .swipe-out {
         display:block;
     }
@@ -2599,6 +2610,10 @@ a.change-location:before {
     .open-menu:hover {
         background-position:-352px -131px;
     }
+    .cbp-spmenu-vertical .open-menu {
+        margin:0;
+        left:228px;
+    }
     .logo {
         width:134px;
         height:32px;
@@ -2923,6 +2938,9 @@ a.change-location:before {
     }
     .mobile-orientation.cbp-spmenu-push-toright .wrapper {
         left: 228px;
+    }
+    .category-trout-salmon.cbp-spmenu-push-toright .wrapper {
+        left: 0 !important;
     }
    .mobile-menu-banner img {
         margin-top:-6px;

@@ -46,9 +46,10 @@ get_header(); ?>
                                  * called content-___.php (where ___ is the Post Format name) and that will be used instead.
                                  */
                                 get_template_part( 'content', get_post_format() );
+                                $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                             ?>
 
-                        <?php if ( ($i%6) == 0 ): ?>
+                        <?php if ( (($i - (($paged -1) * 2 ))%6) == 0 ): ?>
                         <div class="image-banner posts-image-banner">
                             <a href="#"><img src="/wp-content/themes/infisherman/images/pic/banner-evinrude.jpg" alt=""></a>
                         </div>
@@ -114,6 +115,12 @@ get_header(); ?>
     $(function(){
         $(".pager-holder a.btn-base").click(function(e){
             $("#ajax-loader").show();
+
+            if ($(window).width() <  610 ) {
+                var findId = 'div.post, div.posts-image-banner';
+            } else {
+                var findId = 'div.post';
+            }
             e.preventDefault()
             if ($("a.next-link").length) {
                 $.ajax({
@@ -121,9 +128,9 @@ get_header(); ?>
                     dataType: 'html',
                     success: function(data) {
                         $('.main-content-preppend').append(
-                            $(data).find('.js-responsive-section').find('div.post').hide()
+                            $(data).find('.js-responsive-section').find(findId).hide()
                         );
-                        $('.main-content-preppend').find('div.post').show('slow')
+                        $('.main-content-preppend').find(findId).show('slow')
                         if ($(data).find('a.next-link').length) {
                             $("a.next-link").attr({'href': $(data).find('a.next-link').attr('href')})
                         } else {

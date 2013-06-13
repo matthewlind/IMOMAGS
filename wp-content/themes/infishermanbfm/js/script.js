@@ -104,6 +104,10 @@ jQuery(".swipe-out, .header").swipe( {
       jQuery(menuLeft).removeClass('cbp-spmenu-open');
     }
   });
+jQuery('.cbp-spmenu-vertical').on("click", ".jq-open-menu", function(){
+    jQuery(body).removeClass('cbp-spmenu-push-toright');
+    jQuery(menuLeft).removeClass('cbp-spmenu-open');
+});
 
 jQuery('.cbp-spmenu-vertical').on("click", ".menu-main-menu-container .has-drop", function(){
     jQuery(this).parent("li").toggleClass('drop-open');
