@@ -2038,11 +2038,7 @@ a.change-location:before {
 /* =Responsive Breakpoints
 *******************************************************************************/
 @media only screen and (max-width: 1096px) {
-    .mobile-orientation .header .menu-main-menu-container,
-    .mobile-orientation .header .menu-top-menu-container {
-        position:relative;
-        left:-99999px;
-    }
+    
     /* header */
    #text-3 {
         width:auto;

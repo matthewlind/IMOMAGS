@@ -96,7 +96,7 @@ jQuery('.aside-menu').on("click", ".menu-main-menu-container .has-drop", functio
 });
 
 jQuery(window).load(function() {
-   jQuery('.onload-hidden, .mobile-orientation .menu-main-menu-container, .mobile-orientation .menu-top-menu-container').show().css('left','0');
+   jQuery('.onload-hidden').show().css('left','0');
    jQuery('.onload-hidden-abs').removeClass('onload-hidden-abs');
    
     
