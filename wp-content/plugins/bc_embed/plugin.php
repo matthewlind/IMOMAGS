@@ -34,7 +34,11 @@ function wp_embed_handler_brightcove ( $matches, $attr, $url, $rawattr ) {
     $adServerURL = "http://ad.doubleclick.net/pfadx/" .  get_option("dart_domain", _imo_dart_guess_domain())  ."/video";
 
 
-    $output = '<!-- Start of Brightcove Player -->
+    $output = '
+                            <div id="BCLcontainingBlock">
+                             <div class="BCLvideoWrapper">
+
+    <!-- Start of Brightcove Player -->
 
 
 <!--
@@ -67,7 +71,11 @@ the rest of the HTML is processed and the page load is complete, remove the line
 -->
 <script type="text/javascript">brightcove.createExperiences();</script>
 
-<!-- End of Brightcove Player -->';
+<!-- End of Brightcove Player -->
+
+
+</div>
+</div>';
 
 
 

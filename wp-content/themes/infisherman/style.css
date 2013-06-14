@@ -273,7 +273,7 @@ img{max-width: 100%;}
 }
 .cal-title{
 	width: 428px;
-	
+
 }
 /* Header
  ******************************************************************************/
@@ -721,7 +721,7 @@ img{max-width: 100%;}
     width:92%;
     margin:0 0 0 -46%;
     padding:26px 25px 33px;
-} 
+}
 .slides-inner li {
     padding:0 0 129px;
     position:relative;
@@ -815,6 +815,10 @@ img{max-width: 100%;}
     padding-top: 1px;
     padding-bottom: 56.25%;
     /*height: 650px;*/
+}
+
+.single #BCLcontainingBlock {
+    margin-bottom:10px;
 }
 
 * html .BCLvideoWrapper {
@@ -1559,7 +1563,7 @@ a.category-name-link:hover{
 	margin: 0px 9px 0 8px;
 }
 
-/* = General styles for mobile menu 
+/* = General styles for mobile menu
 ---------------------------------------------------------------------- */
 .cbp-spmenu-vertical {
     position: absolute;
@@ -1697,7 +1701,7 @@ a.category-name-link:hover{
     float:none;
     margin:0 0 0 7px;
 }
-/* = styles for mobile menu end 
+/* = styles for mobile menu end
 ---------------------------------------------------------------------- */
 .message-not-found {
     display:block;
@@ -1706,7 +1710,7 @@ a.category-name-link:hover{
     text-align:center;
     padding:20px 0;
 }
-/* Sidebar 
+/* Sidebar
  ******************************************************************************/
 .sidebar-area {
     float:right;
@@ -2158,7 +2162,7 @@ a.change-location:before {
      -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
        -o-transition: border linear 0.2s, box-shadow linear 0.2s;
           transition: border linear 0.2s, box-shadow linear 0.2s;
-          
+
   display: inline-block;
   height: 20px;
   padding: 4px 6px;
@@ -2385,7 +2389,7 @@ a.change-location:before {
        padding:20px;
        width:258px;
    }
-   
+
    .mobile-orientation .cbp-spmenu-vertical.cbp-spmenu-open {
     left: 0px;
     }
@@ -2497,20 +2501,21 @@ a.change-location:before {
         font-size:40px;
     }
     /* sidebar */
-    .sidebar-area { 
+    .sidebar-area {
     	padding-top: 0;
     }
     .cbp-spmenu-push-toright .sticky-ads{
         position:static !important;
         margin:0 !important;
     }
+
     /*.gallery-hover-div{
 		width: 618px;
 	}
 	.gallery-slide-out{
 		width: 317px;
 	}*/
-	
+
     /* footer */
    .copyright-section,
    .f-nav-section {
@@ -2538,7 +2543,25 @@ a.change-location:before {
         width:100%;
         text-align:center;
     }
-    
+
+    /* article - tablet - Aaron*/
+
+    #content .wp-caption {
+        width:100% !important;
+    }
+
+    #content img.alignleft,
+    #content img.alignright {
+        width:50%;
+        height:auto;
+    }
+
+    #content img.size-full {
+        height:auto;
+        width:100%;
+    }
+
+
 }
 
 @media only screen and (max-width: 936px) {
@@ -2571,11 +2594,11 @@ a.change-location:before {
         float:none;
         text-align:left;
     }
-    
+
 }
 
 @media only screen and (max-width: 880px) {
-    
+
    /* header end */
     .post-slider .flex-direction-nav .flex-next,
     .post-slider .flex-direction-nav .flex-prev {
@@ -2656,7 +2679,7 @@ a.change-location:before {
     }
 }
 @media only screen and (max-width: 820px) {
-    
+
    /* sidebar */
     .sidebar-area {
         padding:0;
@@ -2792,7 +2815,7 @@ a.change-location:before {
     }
 }
 @media only screen and (max-width: 700px) {
-	
+
     .double-posts .feat-img {
         width:168px;
     }
@@ -3042,7 +3065,7 @@ a.change-location:before {
     .full-post .cat-feat-label {
         display:block;
         font-size:11px;
-        float:left;  
+        float:left;
         max-width: 90%;
     }
     .post-header h1 {
@@ -3085,7 +3108,7 @@ a.change-location:before {
     .foot-social .socials a.youtube:hover {background-position:-278px -222px;}
     .foot-social .socials a.rss {background-position:-186px -222px;}
     .foot-social .socials a.rss:hover {background-position:-324px -222px;}
-    
+
     .image-banner {
         padding-top:10px;
         padding-bottom:10px;
@@ -3230,7 +3253,7 @@ a.change-location:before {
    .mobile-menu-banner img {
         margin-top:-6px;
     }
-    
+
     .menu-subscribe a {
         font-size:15px;
         padding:10px 5px 10px 70px;
@@ -3273,7 +3296,21 @@ a.change-location:before {
         margin-right:-10px;
         border-width:1px 0;
     }
-    
+
+
+    /* article - mobile - Aaron*/
+
+    #content img.alignleft,
+    #content img.alignright {
+        width:100%;
+        height:auto;
+    }
+
+    #content img {
+        margin-bottom:10px;
+    }
+
+
 }
 
 
