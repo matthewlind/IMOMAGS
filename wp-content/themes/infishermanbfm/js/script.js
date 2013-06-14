@@ -87,38 +87,17 @@ jQuery('.jq-filter-by').toggle(function(){
         jQuery('.filter-by').removeClass('filter-open');
     });
     
-// mobile menu
-var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-    showLeftPush = document.getElementById( 'showLeftPush' ),
-    body = document.body;
 
-    showLeftPush.onclick = function() {
-    classie.toggle( this, 'active' );
-    classie.toggle( body, 'cbp-spmenu-push-toright' );
-    classie.toggle( menuLeft, 'cbp-spmenu-open' );
-};
-
-jQuery(".swipe-out, .header").swipe( {
-    swipeLeft:function() {
-      jQuery(body).removeClass('cbp-spmenu-push-toright');
-      jQuery(menuLeft).removeClass('cbp-spmenu-open');
-    }
-  });
-jQuery('.cbp-spmenu-vertical').on("click", ".jq-open-menu", function(){
-    jQuery(body).removeClass('cbp-spmenu-push-toright');
-    jQuery(menuLeft).removeClass('cbp-spmenu-open');
-});
-
-jQuery('.cbp-spmenu-vertical').on("click", ".menu-main-menu-container .has-drop", function(){
+jQuery('.aside-menu').on("click", ".menu-main-menu-container .has-drop", function(){
     jQuery(this).parent("li").toggleClass('drop-open');
 });
-jQuery('.cbp-spmenu-vertical').on("click", ".menu-main-menu-container .has-drop", function(e){
+jQuery('.aside-menu').on("click", ".menu-main-menu-container .has-drop", function(e){
     e.preventDefault();
 });
 
 jQuery(window).load(function() {
    jQuery('.onload-hidden, .mobile-orientation .menu-main-menu-container, .mobile-orientation .menu-top-menu-container').show().css('left','0');
-   
+   jQuery('.onload-hidden-abs').removeClass('onload-hidden-abs');
    
     
 });
@@ -135,6 +114,4 @@ function updateSliderCounter(slider){
 }
 
 jQuery( "#idofpanel" ).panel( "open" , optionsHash );
-var swipeClose = jQuery( "#page" ).panel( "option", "swipeClose" );
-// setter
-jQuery( "#page" ).panel( "option", "swipeClose", true );
+    

@@ -10,7 +10,13 @@
 */
 
 
-
+.ui-mobile, .ui-mobile body { height: 99.9%; }
+.ui-mobile fieldset, .ui-page { padding: 0; margin: 0; }
+/* responsive page widths */
+.ui-mobile-viewport { margin: 0; overflow-x: visible; -webkit-text-size-adjust: 100%; -ms-text-size-adjust:none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+/* Issue #2066 */
+body.ui-mobile-viewport,
+div.ui-mobile-viewport { overflow-x: hidden; }
 /* "page" containers - full-screen views, one should always be in view post-pageload */
 .ui-mobile [data-role=page], .ui-mobile [data-role=dialog], .ui-page { top: 0; left: 0; width: 100%; min-height: 100%; position: absolute; display: none; border: 0; }
 .ui-mobile .ui-page-active { display: block; overflow: visible; }
@@ -25,7 +31,15 @@
 	position: absolute;
 	top: 0;
 	display: block;
-    background:#fff;
+}
+.ui-panel-inner {
+    width:244px;
+    min-height:2000px;
+    padding-right:900px;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    margin-top:58px;
 }
 .ui-panel-closed {
 	width: 0;
@@ -45,10 +59,7 @@
 	z-index: 0;
 }
 .ui-panel-display-push {
-	z-index: 999;
-}
-.ui-panel-inner {
-	padding: 15px;
+	z-index: 99999;
 }
 /* content-wrap */
 .ui-panel-content-wrap {
@@ -83,14 +94,14 @@
 	transition: transform 350ms ease;
 }
 /* hardware acceleration for smoother transitions on WebKit browsers */
-.ui-panel-animate.ui-panel:not(.ui-panel-display-reveal),
+/*.ui-panel-animate.ui-panel:not(.ui-panel-display-reveal),
 .ui-panel-animate.ui-panel:not(.ui-panel-display-reveal) > div,
 .ui-panel-animate.ui-panel-closed.ui-panel-display-reveal > div,
 .ui-panel-animate.ui-panel-content-wrap,
 .ui-panel-animate.ui-panel-content-fixed-toolbar {
 	-webkit-backface-visibility: hidden;
 	-webkit-transform: translate3d(0,0,0);
-}
+}*/
 /* positioning: panel */
 /* panel left  */
 .ui-panel-position-left {
@@ -142,4 +153,36 @@
 /* always disable overflow-x to prevent zoom issue on Android */
 .ui-page-active.ui-page-panel {
 	overflow-x: hidden;
+}
+@media only screen and (max-width: 610px) {
+    .ui-panel {
+        width:228px;
+    }
+    .ui-panel-position-left {
+        left: -228px;
+    }
+    .ui-panel-animate.ui-panel-position-left.ui-panel-display-overlay,
+    .ui-panel-animate.ui-panel-position-left.ui-panel-display-push {
+        -webkit-transform: translate3d(-228px,0,0);
+        -moz-transform: translate3d(-228px,0,0);
+        transform: translate3d(-228px,0,0);
+    }
+    .ui-panel-content-fixed-toolbar-position-left.ui-panel-content-fixed-toolbar-open,
+    .ui-panel-content-wrap-position-left.ui-panel-content-wrap-open,
+    .ui-panel-dismiss-position-left.ui-panel-dismiss-open {
+        left: 228px;
+        right: -228px;
+    }
+    .ui-panel-animate.ui-panel-content-fixed-toolbar-position-left.ui-panel-content-fixed-toolbar-open.ui-panel-content-fixed-toolbar-display-reveal,
+    .ui-panel-animate.ui-panel-content-fixed-toolbar-position-left.ui-panel-content-fixed-toolbar-open.ui-panel-content-fixed-toolbar-display-push,
+    .ui-panel-animate.ui-panel-content-wrap-position-left.ui-panel-content-wrap-open.ui-panel-content-wrap-display-reveal,
+    .ui-panel-animate.ui-panel-content-wrap-position-left.ui-panel-content-wrap-open.ui-panel-content-wrap-display-push {
+        -webkit-transform: translate3d(228px,0,0);
+        -moz-transform: translate3d(228px,0,0);
+        transform: translate3d(228px,0,0);
+    }
+    .ui-panel-inner {
+        margin-top:45px;
+        width:228px;
+    }
 }

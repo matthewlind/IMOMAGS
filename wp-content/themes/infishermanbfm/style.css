@@ -38,7 +38,6 @@ svg:not(:root)  { overflow: hidden; }
 *******************************************************************************/
 html {
     font-size: 100%;
-    overflow-y: scroll;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
 }
@@ -276,6 +275,11 @@ a:hover { color: #040503; }
     position:relative;
     left:-99999px;
 }
+.onload-hidden-abs {
+    top:-99999px !important;
+    left:-99999px !important;
+    position:absolute !important;
+}
 /* Header
  ******************************************************************************/
 .header {
@@ -313,14 +317,6 @@ a:hover { color: #040503; }
 .open-menu:hover {
     background-position:-65px -72px;
 }
-.cbp-spmenu-vertical .open-menu {
-    position:absolute;
-    top:0;
-    left:244px;
-    margin:0;
-    display:none;
-}
-.category-trout-salmon .cbp-spmenu-vertical.cbp-spmenu-open .open-menu {display:block;}
 .user-btn {
     float:right;
     width:60px;
@@ -501,6 +497,16 @@ a:hover { color: #040503; }
     background:url(images/sprite.png) no-repeat -41px 0;
 }
 .search-field input[type="submit"]:hover {background-position:-73px 0;}
+.search-field .ui-input-text {
+    float:left;
+}
+.search-field .ui-submit {
+    float:right;
+}
+.btn-base .ui-btn-inner,
+.search-field .ui-btn-inner {
+    display:none;
+}
 .socials-hold {
     float:right;
 }
@@ -1429,38 +1435,32 @@ a:hover { color: #040503; }
 }
 /* = General styles for mobile menu 
 ---------------------------------------------------------------------- */
-.cbp-spmenu-vertical {
-    position: absolute;
-    width: 244px;
-    height: 100%;
-    top: 0;
-    z-index: 1100;
-    left: -244px;
-    background:#fff url(images/bg/mobile-menu-shadow.png) repeat-y 100% 0;
+
+.ui-panel {
+    background: url(images/bg/mobile-menu-shadow.png) repeat-y 100% 0;
 }
-.cbp-spmenu-vertical .menu-top-menu-container,
-.cbp-spmenu-vertical .menu-main-menu-container {
+.ui-panel .menu-top-menu-container,
+.ui-panel .menu-main-menu-container {
     background:#fff;
     margin:0;
     float:none;
-    /*background:url(images/bg/grey-transparence.png) repeat;*/
 }
-.cbp-spmenu-vertical .menu-top-menu-container li,
-.cbp-spmenu-vertical .menu-main-menu-container li {
+.ui-panel .menu-top-menu-container li,
+.ui-panel .menu-main-menu-container li {
     float:none;
     display:block;
     border:1px solid #d5d5d5;
     border-width:0 0 1px;
     padding:0;
 }
-.cbp-spmenu-vertical .menu-main-menu-container > ul > li:last-child {
+.ui-panel .menu-main-menu-container > ul > li:last-child {
     float:none;
 }
-.cbp-spmenu-vertical .menu-top-menu-container li:before {
+.ui-panel .menu-top-menu-container li:before {
     display:none;
 }
-.cbp-spmenu-vertical .menu-top-menu-container a,
-.cbp-spmenu-vertical .menu-main-menu-container  > ul > li > a {
+.ui-panel .menu-top-menu-container a,
+.ui-panel .menu-main-menu-container  > ul > li > a {
     font:17px "open_sansbold", sans-serif;
     color:#3c3c3c;
     text-transform:uppercase;
@@ -1468,23 +1468,23 @@ a:hover { color: #040503; }
     height:auto;
     background:url(images/bg/mobile-menu-shadow.png) repeat-y 100% 0;
 }
-.cbp-spmenu-vertical .menu-top-menu-container a {
+.ui-panel .menu-top-menu-container a {
     display:block;
     text-transform:none;
 }
-.cbp-spmenu-vertical .menu-top-menu-container a:hover,
-.cbp-spmenu-vertical .menu-main-menu-container  > ul > li > a:hover {
+.ui-panel .menu-top-menu-container a:hover,
+.ui-panel .menu-main-menu-container  > ul > li > a:hover {
     color:#c9242c;
 }
-.cbp-spmenu-vertical .menu-main-menu-container  > ul > li > a.has-drop:after {
+.ui-panel .menu-main-menu-container  > ul > li > a.has-drop:after {
     top:24px;
     right:11px;
 }
-.cbp-spmenu-vertical .menu-main-menu-container  > ul > li:hover > a.has-drop:after,
-.cbp-spmenu-vertical .menu-main-menu-container  > ul > li > a.has-drop:hover:after {
+.ui-panel .menu-main-menu-container  > ul > li:hover > a.has-drop:after,
+.ui-panel .menu-main-menu-container  > ul > li > a.has-drop:hover:after {
     border-top-color:#c1232a;
 }
-.cbp-spmenu-vertical .drop-down {
+.ui-panel .drop-down {
     display:none;
     position:static;
     top:0;
@@ -1493,38 +1493,36 @@ a:hover { color: #040503; }
     width:100%;
     clear:both;
 }
-.cbp-spmenu-vertical .drop-open .drop-down {
+.ui-panel .drop-open .drop-down {
     display:block;
 }
-.cbp-spmenu-vertical .drop-down .sub-menu {
+.ui-panel .drop-down .sub-menu {
     width:100%;
 }
-.cbp-spmenu-vertical .drop-down li {
+.ui-panel .drop-down li {
     border-width:1px 0 0;
 }
-.cbp-spmenu-vertical .drop-down a {
+.ui-panel .drop-down a {
     font-size:15px;
     background:url(images/bg/mobile-menu-shadow.png) repeat-y 100% 0;
 }
-.cbp-spmenu-vertical .sub-menu a:before {
+.ui-panel .sub-menu a:before {
     font-size:14px;
 }
-.cbp-spmenu-vertical .drop-feat-post {display:none;}
+.ui-panel .drop-feat-post {display:none;}
 /* Push classes applied to the body */
 .cbp-spmenu-push {
     overflow-x: hidden;
     position: relative;
 }
-
-/* Transitions */
-.cbp-spmenu-vertical,
-.cbp-spmenu-push .wrapper,
-.cbp-spmenu-push .footer {
-    -webkit-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    transition: all 0.3s ease;
+.mobile-menu-banner {
+    overflow:hidden;
+    clear: both;
+    float: left;
+    margin-top: -58px;
+    overflow: hidden;
+    position: relative;
 }
-.mobile-menu-banner {overflow:hidden;}
 .mobile-menu-banner img {
     display:block;
     width:100%;
@@ -2106,22 +2104,6 @@ a.change-location:before {
        width:258px;
    }
    
-   .mobile-orientation .cbp-spmenu-vertical.cbp-spmenu-open {
-    left: 0px;
-    }
-    .mobile-orientation.cbp-spmenu-push .wrapper{
-        position:relative;
-        left:0;
-    }
-    .mobile-orientation.cbp-spmenu-push-toright .wrapper {
-        left: 244px;
-    }
-    .category-trout-salmon.cbp-spmenu-push-toright .wrapper {
-        left: 0 !important;
-    }
-    .mobile-orientation.cbp-spmenu-push-toright .swipe-out {
-        display:block;
-    }
     /* general */
     .frame,
     .layout-frame {
@@ -2224,7 +2206,7 @@ a.change-location:before {
     }
     /* sidebar */
     .sidebar { padding-top:0; }
-    .cbp-spmenu-push-toright .sticky-ads {
+    .ui-page-panel-open .sticky-ads {
         position:static !important;
         margin:0 !important;
     }
@@ -2610,10 +2592,7 @@ a.change-location:before {
     .open-menu:hover {
         background-position:-352px -131px;
     }
-    .cbp-spmenu-vertical .open-menu {
-        margin:0;
-        left:228px;
-    }
+    
     .logo {
         width:134px;
         height:32px;
@@ -2933,17 +2912,8 @@ a.change-location:before {
         text-align:center;
         padding:0 0 10px;
     }
-    .cbp-spmenu-vertical {
-         width:228px;
-    }
-    .mobile-orientation.cbp-spmenu-push-toright .wrapper {
-        left: 228px;
-    }
-    .category-trout-salmon.cbp-spmenu-push-toright .wrapper {
-        left: 0 !important;
-    }
-   .mobile-menu-banner img {
-        margin-top:-6px;
+    .mobile-menu-banner img {
+        margin-top:5px;
     }
     
     .menu-subscribe a {
@@ -3019,5 +2989,4 @@ a.change-location:before {
     p, h2, h3 { orphans: 3; widows: 3; }
     h2, h3 { page-break-after: avoid; }
 }
-/* jq mobile fixes */
-.ui-loader {display:none !important;}
+

@@ -60,32 +60,52 @@
 ?>
 </head>
 
-<body <?php body_class(); ?>  data-role="page">
-<div data-role="panel" id="mypanel" data-position="left" data-display="push">
-        <p>hjhjhjhj <br />jkjkjkjkj</p>
-        <p>hjhjhjhj <br />jkjkjkjkj</p>
-        <p>hjhjhjhj <br />jkjkjkjkj</p>
-        <p>hjhjhjhj <br />jkjkjkjkj</p>
-        <p>hjhjhjhj <br />jkjkjkjkj</p>
-        <p>hjhjhjhj <br />jkjkjkjkj</p>
-        <p>hjhjhjhj <br />jkjkjkjkj</p>
-        <p>hjhjhjhj <br />jkjkjkjkj</p>
-        <p>hjhjhjhj <br />jkjkjkjkj</p>
-        <p>hjhjhjhj <br />jkjkjkjkj</p>
-        <p>hjhjhjhj <br />jkjkjkjkj</p>
-        <p>hjhjhjhj <br />jkjkjkjkj</p>
-        <p>hjhjhjhj <br />jkjkjkjkj</p>
-        <p>hjhjhjhj <br />jkjkjkjkj</p>
-        <p>hjhjhjhj <br />jkjkjkjkj</p>
+<body <?php body_class(); ?>  >
+<div data-role="page">
+<div data-role="panel" id="mypanel" class="aside-menu onload-hidden-abs" data-position="left" data-display="push">
+        
+            <div class="mobile-menu-banner ">
+                <a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/pic/mobile-menu-banner.jpg" alt="" /></a>
+            </div>
+            <div class="menu-main-menu-container">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                </ul>
+            </div>
+            <?php 
+                wp_nav_menu(array(
+                    'menu_class'=>'menu',  
+                    'theme_location'=>'bottom',
+                    'walker'=> new AddParentClass_Walker()
+                ));   ?>
+            
+            <div class="menu-subscribe">
+                <a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/pic/journals.png" alt="" /><span>Subscribe Now!</span></a>
+            </div>
+            
+            <?php wp_nav_menu(array(
+                    'menu_class'=>'menu',  
+                    'theme_location'=>'top', 
+                ));   ?>
+            
+            <div class="aside-socials">
+                <strong>Connect</strong>
+                <div class="socials">
+                    <a class="facebook" href="#">Facebook</a>
+                    <a class="twitter" href="#">Twitter</a>
+                    <a class="youtube" href="#">YouTube</a>
+                    <a class="rss" href="#">RSS</a>
+                </div>
+            </div>
+        
 </div><!-- /panel -->
 <div id="page" class="hfeed wrapper" data-role="content" role="main">
     <div class="layout-frame">
         <div id="branding" class="header clearfix" role="banner">
                 
                 <div class="clearfix">
-                    <a href="#" id="showLeftPush" class="open-menu">open menu</a>
+                    <a href="#mypanel" class="open-menu">open menu</a>
                     <strong class="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo('template_directory'); ?>/images/logo.png" alt="<?php bloginfo( 'name' ); ?>" /></a></strong>
-                    <a href="#mypanel">Open panel</a>
                     <?php
                         // Check to see if the header image has been removed
                         $header_image = get_header_image();

@@ -410,7 +410,7 @@ function infisherman_get_search_form($echo = true) {
     }
 
     $form = '<form role="search" method="get" id="searchform" action="' . esc_url( home_url( '/' ) ) . '" >
-    <div class="search-field"><!-- label class="screen-reader-text" for="s">' . __('Search for:') . '</label -->
+    <div class="search-field"  data-role="fieldcontain"><!-- label class="screen-reader-text" for="s">' . __('Search for:') . '</label -->
     <input type="text" placeholder="Search" name="s" id="s" />
     <input type="submit" id="searchsubmit" value="'. esc_attr__('Search') .'" />
     </div>
