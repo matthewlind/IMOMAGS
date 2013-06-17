@@ -1549,9 +1549,13 @@ a.category-name-link:hover{
 
 /* = General styles for Category / Tag / etc. pages
 ---------------------------------------------------------------------- */
+.category .feat-text{
+	height: auto;
+}
 .taxdescription{
 	background: white;
-	padding: 8px 17px 0;
+	padding: 8px 17px;
+	margin-bottom: 20px;
 }
 .taxdescription p{
 	overflow: hidden;
@@ -2199,6 +2203,15 @@ a.change-location:before {
 }
 #gift-guide .ui-tabs .ui-tabs-nav li a{
 	padding-top: 6px;
+}
+
+/*** JETPACK OVERRIDES ***/
+#jpsuperheader{
+	width: 1080px !important;
+	background-color: black !important;
+}
+#jpsuperheader .jpstage{
+	margin: 0 auto !important;
 }
 
 /* = Footer
