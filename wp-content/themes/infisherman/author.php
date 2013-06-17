@@ -104,8 +104,8 @@ get_header(); ?>
                   fjs.parentNode.insertBefore(js, fjs);
                 }(document, 'script', 'facebook-jssdk'));</script>
                 
-                <a href="#" class="get-newsletter">Get the In-Fisherman <br />Newsletter</a>
-                <a href="#" class="subscribe-banner">
+                <a href="/newsletter-signup" class="get-newsletter">Get the In-Fisherman <br />Newsletter</a>
+                <a href="<?php print SUBS_LINK;?>" class="subscribe-banner">                    
                     <img src="<?php bloginfo('template_directory'); ?>/images/pic/subscribe-banner.jpg" alt="" />
                 </a>
                 <a href="#" class="back-top jq-go-top">back to top</a>

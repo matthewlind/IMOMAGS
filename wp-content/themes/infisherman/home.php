@@ -324,7 +324,8 @@ var addthis_product = 'wpp-3.1';
                     <div class="fb-like" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>
                      <?php social_networks(); ?>
                 </div>
-                <a href="#" class="get-newsletter">Get the In-Fisherman <br />Newsletter</a>
+                <a href="/newsletter-signup" class="get-newsletter">Get the In-Fisherman <br />Newsletter</a>
+                <a href="<?php print SUBS_LINK;?>" class="subscribe-banner">
                 <a href="#" class="back-top jq-go-top">back to top</a>
                 <!-- end home page content-->
             <?php endif; // end have_posts() check ?>

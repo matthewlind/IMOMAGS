@@ -63,7 +63,7 @@
 	<script src="<?php echo get_template_directory_uri(); ?>/js/flash_heed.js" type="text/javascript"></script>
 	
 	<?php if (defined('JETPACK_SITE') && !is_mobile()): ?>
-		<script type='text/javascript' src='http://ads.jetpackdigital.com/sites/<?php print JETPACK_SITE; ?>/jpd.js'></script>
+		<!--<script type='text/javascript' src='http://ads.jetpackdigital.com/sites/<?php print JETPACK_SITE; ?>/jpd.js'></script>-->
 	<?php endif; ?> 
 </head>
 
@@ -104,7 +104,7 @@
         ));   ?>
     
     <div class="menu-subscribe">
-        <a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/pic/journals.png" alt="" /><span>Subscribe Now!</span></a>
+        <a href="<?php print SUBS_LINK;?>"><img src="<?php bloginfo('template_directory'); ?>/images/pic/journals.png" alt="" /><span>Subscribe Now!</span></a>
     </div>
     
     <?php wp_nav_menu(array(
@@ -210,7 +210,7 @@
         <div class="content-banner-section">
             <div class="swipe-out"></div>
             <?php if (is_mobile()) { ?>
-					<!-- IF_Mobile_Banner -->
+					<!-- IF_Mobile_Banner 
 					<script type="text/javascript">
 					  var ord = window.ord || Math.floor(Math.random() * 1e16);
 					  document.write('<a href="http://ad.doubleclick.net/N4930/jump/IF_Mobile_Banner;sz=300x50;ord=' + ord + '?"><img src="http://ad.doubleclick.net/N4930/ad/IF_Mobile_Banner;sz=300x50;ord=' + ord + '?" width="300" height="50" /></a>');
@@ -219,7 +219,7 @@
 					<a href="http://ad.doubleclick.net/N4930/jump/IF_Mobile_Banner;sz=300x50;ord=[timestamp]?">
 					<img src="http://ad.doubleclick.net/N4930/ad/IF_Mobile_Banner;sz=300x50;ord=[timestamp]?" width="300" height="50" />
 					</a>
-					</noscript>	  
+					</noscript>	  -->
 
 				<?php }else{ 
 					echo '<div class="mdl-banner">';

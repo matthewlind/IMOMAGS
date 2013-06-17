@@ -11,10 +11,8 @@
 	<h1 class="page-title">
 		<span><?php the_title(); ?></span>
     </h1>
-	<img src="<?php bloginfo('template_directory'); ?>/images/logos/livingston.png" alt="" class="tite-logo" />
 </div>
 <div data-position="2" class="sub-titile-banner js-responsive-section">
-	<a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/pic/revo-sx-family.jpg" alt="" /></a>
 </div> 
 <div data-position="3"  id="post-<?php the_ID(); ?>" <?php post_class('article-brief clearfix js-responsive-section'); ?>>
 	<div class="article-holder">
@@ -39,6 +37,7 @@
     <div class="fb-like" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>
      <?php social_networks(); ?>
 </div>
-<a href="#" class="get-newsletter">Get the In-Fisherman <br />Newsletter</a>
+<a href="/newsletter-signup" class="get-newsletter">Get the In-Fisherman <br />Newsletter</a>
+<a href="<?php print SUBS_LINK;?>" class="subscribe-banner">
 <a href="#" class="back-top jq-go-top">back to top</a>
 

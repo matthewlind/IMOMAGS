@@ -1972,7 +1972,7 @@ a.change-location:before {
     color:#fff;
 }
 .signup-box h3 {
-    background:url(images/bg/menu-hover.png) no-repeat 100% 0;
+    background:url(images/bg/menu-hover.png) repeat 100% 0;
     padding:0 5px;
     height:60px;
     text-align:center;
