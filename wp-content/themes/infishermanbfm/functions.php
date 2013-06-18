@@ -303,8 +303,9 @@ function infisherman_widgets_init()
 
     register_nav_menus(array(  
         'top' => 'Top Menu',  
-        'bottom' => 'Bottom Menu'
-    )); 
+        'bottom' => 'Main Menu',
+        'mobile' => 'Mobile Menu'
+    ));
 }
 
 function infisherman_get_categories($categories_list, $show_featured = true)

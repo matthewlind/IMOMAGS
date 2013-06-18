@@ -1440,48 +1440,60 @@ a:hover { color: #040503; }
     background: url(images/bg/mobile-menu-shadow.png) repeat-y 100% 0;
 }
 .ui-panel .menu-top-menu-container,
-.ui-panel .menu-main-menu-container {
-    background:#fff;
+.ui-panel .mob-aside-menu {
+    background:none;
     margin:0;
     float:none;
 }
 .ui-panel .menu-top-menu-container li,
-.ui-panel .menu-main-menu-container li {
+.ui-panel .mob-aside-menu li {
     float:none;
     display:block;
     border:1px solid #d5d5d5;
     border-width:0 0 1px;
     padding:0;
-}
-.ui-panel .menu-main-menu-container > ul > li:last-child {
-    float:none;
+    display:block;
 }
 .ui-panel .menu-top-menu-container li:before {
     display:none;
 }
 .ui-panel .menu-top-menu-container a,
-.ui-panel .menu-main-menu-container  > ul > li > a {
+.ui-panel .mob-aside-menu > div > ul > li > a {
     font:17px "open_sansbold", sans-serif;
     color:#3c3c3c;
     text-transform:uppercase;
     padding:16px 24px 16px 16px;
     height:auto;
-    background:url(images/bg/mobile-menu-shadow.png) repeat-y 100% 0;
+    display:block;
+    position:relative;
+    background:#fff url(images/bg/mobile-menu-shadow.png) repeat-y 100% 0;
 }
 .ui-panel .menu-top-menu-container a {
     display:block;
     text-transform:none;
 }
 .ui-panel .menu-top-menu-container a:hover,
-.ui-panel .menu-main-menu-container  > ul > li > a:hover {
+.ui-panel .mob-aside-menu li.drop-open > a,
+.ui-panel .mob-aside-menu > div > ul > li > a:hover {
     color:#c9242c;
 }
-.ui-panel .menu-main-menu-container  > ul > li > a.has-drop:after {
+.ui-panel .mob-aside-menu li.drop-open > a {
+    background-color: transparent;
+}
+.ui-panel .mob-aside-menu > div > ul > li > a.has-drop:after {
     top:24px;
     right:11px;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 7px solid #c9242c;
+    content: "";
+    height: 0;
+    margin-left: -10px;
+    position: absolute;
+    width: 0;
 }
-.ui-panel .menu-main-menu-container  > ul > li:hover > a.has-drop:after,
-.ui-panel .menu-main-menu-container  > ul > li > a.has-drop:hover:after {
+.ui-panel .mob-aside-menu > div > ul > li:hover > a.has-drop:after,
+.ui-panel .mob-aside-menu > div > ul > li > a.has-drop:hover:after {
     border-top-color:#c1232a;
 }
 .ui-panel .drop-down {
@@ -1510,11 +1522,6 @@ a:hover { color: #040503; }
     font-size:14px;
 }
 .ui-panel .drop-feat-post {display:none;}
-/* Push classes applied to the body */
-.cbp-spmenu-push {
-    overflow-x: hidden;
-    position: relative;
-}
 .mobile-menu-banner {
     overflow:hidden;
     clear: both;

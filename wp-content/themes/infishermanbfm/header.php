@@ -67,27 +67,25 @@
             <div class="mobile-menu-banner ">
                 <a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/pic/mobile-menu-banner.jpg" alt="" /></a>
             </div>
-            <div class="menu-main-menu-container">
-                <ul>
-                    <li><a href="/">Home</a></li>
-                </ul>
-            </div>
-            <?php 
-                wp_nav_menu(array(
-                    'menu_class'=>'menu',  
-                    'theme_location'=>'bottom',
-                    'walker'=> new AddParentClass_Walker()
-                ));   ?>
             
+            
+            <div class="mob-aside-menu">
+                <?php 
+                    wp_nav_menu(array(
+                        'menu_class'=>'menu',  
+                        'theme_location'=>'mobile', 
+                        'walker'=> new AddParentClass_Walker()
+                    ));
+                ?>
+            </div>
+
             <div class="menu-subscribe">
                 <a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/pic/journals.png" alt="" /><span>Subscribe Now!</span></a>
             </div>
-            
             <?php wp_nav_menu(array(
-                    'menu_class'=>'menu',  
-                    'theme_location'=>'top', 
-                ));   ?>
-            
+                'menu_class'=>'menu',  
+                'theme_location'=>'top', 
+            ));   ?>
             <div class="aside-socials">
                 <strong>Connect</strong>
                 <div class="socials">

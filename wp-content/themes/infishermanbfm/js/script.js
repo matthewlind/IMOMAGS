@@ -88,10 +88,10 @@ jQuery('.jq-filter-by').toggle(function(){
     });
     
 
-jQuery('.aside-menu').on("click", ".menu-main-menu-container .has-drop", function(){
+jQuery('.aside-menu').on("click", ".mob-aside-menu .has-drop", function(){
     jQuery(this).parent("li").toggleClass('drop-open');
 });
-jQuery('.aside-menu').on("click", ".menu-main-menu-container .has-drop", function(e){
+jQuery('.aside-menu').on("click", ".mob-aside-menu .has-drop", function(e){
     e.preventDefault();
 });
 
