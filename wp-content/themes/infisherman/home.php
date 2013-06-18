@@ -25,7 +25,7 @@ var addthis_product = 'wpp-3.1';
                                 <a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('post-home-thumb');?></a>
                                 <div class="nl-txt">
                                     <?php echo the_primary_category(); ?>
-                                    <h2 class="entry-title home-entry-title"><a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a></h2>
+                                    <h2 class="entry-title home-entry-title"><a href="<?php the_permalink(); ?>" ><?php $title = the_title('','',FALSE); echo substr($title, 0, 70); if (strlen($title) > 70) echo "..."; ?></a></h2>
                                     <!--<div class="shares-count">
                                         <?php render_shares_count(get_permalink(), $post->ID) ?> <span>SHARES</span>
                                     </div>
@@ -107,7 +107,7 @@ var addthis_product = 'wpp-3.1';
                                     <div class="clearfix">
                                     	<?php echo primary_and_secondary_categories(); ?>
                                     </div>
-                                    <h3><a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a></h3>
+                                    <h3><a href="<?php the_permalink(); ?>" ><?php $title = the_title('','',FALSE); echo substr($title, 0, 54); if (strlen($title) > 54) echo "..."; ?></a></h3>
                                     <!--<div class="shares-count">
                                         <?php //render_shares_count(get_permalink(), $post->ID) ?> <span>Shares</span>
                                     </div>
@@ -125,7 +125,7 @@ var addthis_product = 'wpp-3.1';
                     </div>
                 </div>
                 
-                <?php $fetured_slider_query = new WP_Query( 'category_name='.TIMELY_FEATURES.'&posts_per_page=16' ); ?>
+                <?php $fetured_slider_query = new WP_Query( 'category_name='.TIMELY_FEATURES.'&posts_per_page=2' ); ?>
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="double-posts clearfix js-responsive-section">
                     <div class="general-title clearfix">
                         <h2>Timely <span>Features</span></h2>
@@ -136,7 +136,8 @@ var addthis_product = 'wpp-3.1';
                             <div class="feat-img"><a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('post-home-small-thumb');?></a></div>
                             <div class="feat-text">
                                 <div class="clearfix">
-                                   <?php echo primary_and_secondary_categories(); ?>                                </div>
+                                   <?php echo primary_and_secondary_categories(); ?>                                
+                                   </div>
                                 <h3><a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a></h3>
                                 <!--<div class="shares-count">
                                     <?php render_shares_count(get_permalink(), $post->ID) ?> <span>Shares</span>
@@ -147,9 +148,7 @@ var addthis_product = 'wpp-3.1';
                         <?php endwhile; ?>
                     </div>
                 </div>
-    
-                
-    
+        
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="ma-section clearfix js-responsive-section">
                     <div class="general-title clearfix">
                         <h2>Master <span>Anglers</span></h2>

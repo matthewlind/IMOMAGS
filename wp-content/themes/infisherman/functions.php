@@ -10,6 +10,7 @@ define("DRUPAL_SITE", TRUE);
 // Widgets
 include_once('widgets/subscribe.php');
 include_once('widgets/newsletter-signup.php');
+include_once('widgets/ford-widget.php');
 
 
 function new_excerpt_more( $more ) {

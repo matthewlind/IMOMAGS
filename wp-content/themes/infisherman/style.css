@@ -1443,6 +1443,7 @@ a.category-name-link:hover{
 }
 .full-post .entry-content p {
     padding:0 0 24px;
+    word-wrap: break-word;
 }
 .post-comments-area {
     background:#fff;
