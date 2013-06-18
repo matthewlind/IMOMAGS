@@ -27,7 +27,7 @@ imo_sidebar();?>
 					<p><?php the_content(); ?></p>
             	</div>
 
-				<div class="clearfix">
+				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="clearfix">
 	                <div class="single-post-slider left">
 	                    <div class="jq-slider">
 	                        <ul class="slides-inner slides">

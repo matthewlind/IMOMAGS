@@ -36,7 +36,7 @@ var addthis_product = 'wpp-3.1';
                         </ul>
                     </div>
                 </div>
-    
+				<?php if(!is_mobile()){ ?>
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="video-box js-responsive-section">
                     <div class="general-title clearfix">
                         <h2>In-Fisherman <span>TV</span></h2>
@@ -52,6 +52,7 @@ var addthis_product = 'wpp-3.1';
 						</noscript> -->
 
                     </div>
+
                     <div class="video-inner">
                         <div id="BCLcontainingBlock">
                              <div class="BCLvideoWrapper">
@@ -79,18 +80,41 @@ var addthis_product = 'wpp-3.1';
                                <!-- End of Brightcove Player -->
                              </div>
                           </div>
-                        
-                        
                     </div>
                     <div class="video-panel clearfix">
-                        <a href="/tv/" class="see-all">See All Video</a>
+                        <a href="/in-fisherman-tv/" class="see-all">See All Video </a>
                     </div>
                 </div>
+                <?php } ?>
                 
-                <?php $fetured_slider_query = new WP_Query( 'category_name='.FEATURED.'&posts_per_page=8' ); ?>
+                <?php $fetured_slider_query = new WP_Query( 'category_name='.TIMELY_FEATURES.'&posts_per_page=2' ); ?>
+                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="double-posts clearfix js-responsive-section">
+                    <div class="general-title clearfix">
+                        <h2>Timely <span>Features</span></h2>
+                    </div>
+                    <div class="clearfix">
+                        <?php while ($fetured_slider_query->have_posts()) : $fetured_slider_query->the_post(); ?>
+                        <div class="feat-post">
+                            <div class="feat-img"><a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('post-home-small-thumb');?></a></div>
+                            <div class="feat-text">
+                                <div class="clearfix">
+                                   <?php echo primary_and_secondary_categories(); ?>                                
+                                   </div>
+                                <h3><a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a></h3>
+                                <!--<div class="shares-count">
+                                    <?php render_shares_count(get_permalink(), $post->ID) ?> <span>Shares</span>
+                                </div>
+                                <a class="view-post" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">&nbsp;</a>-->
+                            </div>
+                        </div>
+                        <?php endwhile; ?>
+                    </div>
+                </div>
+				
+				<?php $fetured_slider_query = new WP_Query( 'category_name=online-exclusives&posts_per_page=8' ); ?>
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="double-posts double-post-slider js-responsive-section">
                     <div class="general-title clearfix">
-                        <h2><span>Featured</span></h2>
+                        <h2><span>Online Exclusives</span></h2>
                     </div>
                     <div class="jq-slider clearfix">
                         <ul class="slides-inner slides">
@@ -124,31 +148,7 @@ var addthis_product = 'wpp-3.1';
                         </ul>
                     </div>
                 </div>
-                
-                <?php $fetured_slider_query = new WP_Query( 'category_name='.TIMELY_FEATURES.'&posts_per_page=2' ); ?>
-                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="double-posts clearfix js-responsive-section">
-                    <div class="general-title clearfix">
-                        <h2>Timely <span>Features</span></h2>
-                    </div>
-                    <div class="clearfix">
-                        <?php while ($fetured_slider_query->have_posts()) : $fetured_slider_query->the_post(); ?>
-                        <div class="feat-post">
-                            <div class="feat-img"><a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('post-home-small-thumb');?></a></div>
-                            <div class="feat-text">
-                                <div class="clearfix">
-                                   <?php echo primary_and_secondary_categories(); ?>                                
-                                   </div>
-                                <h3><a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a></h3>
-                                <!--<div class="shares-count">
-                                    <?php render_shares_count(get_permalink(), $post->ID) ?> <span>Shares</span>
-                                </div>
-                                <a class="view-post" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">&nbsp;</a>-->
-                            </div>
-                        </div>
-                        <?php endwhile; ?>
-                    </div>
-                </div>
-        
+
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="ma-section clearfix js-responsive-section">
                     <div class="general-title clearfix">
                         <h2>Master <span>Anglers</span></h2>

@@ -39,41 +39,7 @@ get_header(); ?>
                             if ( ! empty( $category_description ) )
                                 echo apply_filters( 'category_archive_meta', '<div data-position="' . $dataPos = $dataPos + 1 . '" class="category-archive-meta taxdescription js-responsive-section">' . $category_description . '</div>' );
                         ?>
-                     <?php $fetured_slider_query = new WP_Query( 'category_name='.$cat_slug.'&posts_per_page=8' ); ?>
-                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="double-posts double-post-slider js-responsive-section">                    
-                    <div class="jq-slider clearfix">
-                        <ul class="slides-inner slides">
-                            <?php $i = 1  ?>
-                            <?php while ($fetured_slider_query->have_posts()) : $fetured_slider_query->the_post(); ?>
-                            
-                            <?php if (!(($i+1)%2) ): ?>
-                            <li>
-                            <?php endif; ?>
-                            
-                            <div class="feat-post">
-                                <div class="feat-img"><a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('post-home-small-thumb');?></a></div>
-                                <div class="feat-text">
-                                    <div class="clearfix">
-                                    	<?php echo primary_and_secondary_categories(); ?>
-                                    </div>
-                                    <h3><a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a></h3>
-                                    <!--<div class="shares-count">
-                                        <?php //render_shares_count(get_permalink(), $post->ID) ?> <span>Shares</span>
-                                    </div>
-                                    <a class="view-post" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">&nbsp;</a>-->
-                                </div>
-                            </div>
-                            
-                            <?php if (!($i%2)): ?>
-                            </li>
-                            <?php endif; ?>
-                            
-                            <?php $i++; ?>
-                            <?php endwhile; ?>
-                        </ul>
-                    </div>
-                </div>
-   
+                        
                     <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="filter-by jq-filter-by js-responsive-section">               
                         <strong>filter by:</strong>
                         <ul class="filter-links">
@@ -86,11 +52,7 @@ get_header(); ?>
                     
                     <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="js-responsive-section main-content-preppend">
                         <?php //twentyeleven_content_nav( 'nav-above' ); ?>
-						
-                        <?php /* Start the Loop */
-                        query_posts('offset=6');
-                        ?>
-                        <?php $i = 1; while ( have_posts() ) : the_post(); ?>
+						<?php $i = 1; while ( have_posts() ) : the_post(); ?>
         
                             <?php
                                 /* Include the Post-Format-specific template for the content.

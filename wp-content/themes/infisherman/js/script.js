@@ -67,7 +67,7 @@ jQuery(function(){
     jQuery('.jq-slider').flexslider({
         animation: "slide",
         animationSpeed: 200,
-        slideshow: false
+        slideshow: true
       });
       
     jQuery('.jq-paging-slider').flexslider({
