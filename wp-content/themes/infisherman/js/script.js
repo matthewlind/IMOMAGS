@@ -67,6 +67,12 @@ jQuery(function(){
     jQuery('.jq-slider').flexslider({
         animation: "slide",
         animationSpeed: 200,
+        slideshow: false
+      });
+      
+    jQuery('.jq-featured-slider').flexslider({
+        animation: "slide",
+        animationSpeed: 200,
         slideshow: true
       });
       

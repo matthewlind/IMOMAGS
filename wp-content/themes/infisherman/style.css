@@ -1737,6 +1737,9 @@ a.category-name-link:hover{
 	padding-left: 12px;
 	padding-top: 10px;
 }
+#cabelas-essentials .feat-text{
+	border: none;
+}
 #cabelas-essentials .image-div img{
 	width: auto !important;
 	margin: 0 auto;

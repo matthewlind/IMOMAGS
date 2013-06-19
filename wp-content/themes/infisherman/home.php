@@ -18,7 +18,7 @@ var addthis_product = 'wpp-3.1';
                 </a>-->
                 <?php $fetured_slider_query = new WP_Query( 'category_name=featured&posts_per_page=5' ); ?>
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="post-slider onload-hidden js-responsive-section">
-                    <div class="jq-slider">
+                    <div class="jq-featured-slider">
                         <ul class="slides-inner slides">
                             <?php while ($fetured_slider_query->have_posts()) : $fetured_slider_query->the_post(); ?>
                             <li>
@@ -87,7 +87,7 @@ var addthis_product = 'wpp-3.1';
                 </div>
                 <?php } ?>
                 
-                <?php $fetured_slider_query = new WP_Query( 'category_name='.TIMELY_FEATURES.'&posts_per_page=4' ); ?>
+                <?php $fetured_slider_query = new WP_Query( 'category_name='.TIMELY_FEATURES.'&posts_per_page=8' ); ?> 
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="double-posts double-post-slider js-responsive-section">
                     <div class="general-title clearfix">
                         <h2>Timely <span>Features</span></h2>
@@ -129,7 +129,7 @@ var addthis_product = 'wpp-3.1';
 				<?php $fetured_slider_query = new WP_Query( 'category_name=online-exclusives&posts_per_page=8' ); ?>
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="double-posts double-post-slider js-responsive-section">
                     <div class="general-title clearfix">
-                        <h2><span>Online Exclusives</span></h2>
+                        <h2>Online <span>Exclusives</span></h2>
                     </div>
                     <div class="jq-slider clearfix">
                         <ul class="slides-inner slides">

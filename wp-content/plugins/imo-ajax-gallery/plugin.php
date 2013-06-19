@@ -182,7 +182,7 @@ EOT;
 		    <h2><span>$title</span></h2>
 		</div>
 		<div class="jq-gallery-slider gallery-slider" id="gallery-$gallery_id">
-			<iframe id="gallery-iframe-ad" width=300 height=50 marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?ad_code=$dartDomain"></iframe>
+			<iframe id="gallery-iframe-ad" width=300 height=250 marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?ad_code=$dartDomain"></iframe>
 		    <span class="slide-count">$count</span>
 		    <ul class="slides">
 EOT;
@@ -241,12 +241,15 @@ $mobile .= <<<EOFasdf
 		</script>
 
 EOFasdf;
-	
-	if (is_mobile() || is_tablet()){
-		return $mobile;
-	}else{
-		return $output;
-	}
+	if (is_plugin_active('mobble/mobble.php')) { 
+			if (is_mobile() || is_tablet()){
+				return $mobile;
+			}else{
+				return $output;
+			}
+		}else{
+			return $output;
+		}
 }
 
 
@@ -279,8 +282,9 @@ function conditionally_add_scripts_and_styles($posts){
 		}
 
 		if ($shortcode_found) {
-		
-			if (!is_mobile() || !is_tablet()){
+			if (is_plugin_active('mobble/mobble.php')) { 
+				if (!is_mobile() || !is_tablet()){
+			}
 			// enqueue here
 			wp_enqueue_script('ajax-gallery-js',plugins_url('ajax-gallery.js', __FILE__));
 			wp_enqueue_script('jquery-scrollface',plugins_url('jquery.scrollface.min.js', __FILE__));
@@ -292,8 +296,8 @@ function conditionally_add_scripts_and_styles($posts){
 			wp_enqueue_style('ajax-mCustomScrollbar-css',plugins_url('jquery.mCustomScrollbar.css', __FILE__));				
 				
 				
-				
-			} else {
+			if (is_plugin_active('mobble/mobble.php')) { 	
+				}
 				
 				
 				
