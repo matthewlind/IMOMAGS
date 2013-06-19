@@ -242,7 +242,7 @@ $mobile .= <<<EOFasdf
 
 EOFasdf;
 	if (is_plugin_active('mobble/mobble.php')) { 
-			if (is_mobile()){
+			if (is_mobile() || is_tablet()){
 				return $mobile;
 			}else{
 				return $output;
@@ -283,7 +283,7 @@ function conditionally_add_scripts_and_styles($posts){
 
 		if ($shortcode_found) {
 			if (is_plugin_active('mobble/mobble.php')) { 
-				if (!is_mobile()){
+				if (!is_mobile() || !is_tablet()){
 			}
 			// enqueue here
 			wp_enqueue_script('ajax-gallery-js',plugins_url('ajax-gallery.js', __FILE__));
