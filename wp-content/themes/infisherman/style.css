@@ -2671,7 +2671,9 @@ a.change-location:before {
 }
 
 @media only screen and (max-width: 880px) {
-
+	.general-frame {
+        width:478px;
+    }
    /* header end */
     .post-slider .flex-direction-nav .flex-next,
     .post-slider .flex-direction-nav .flex-prev {
@@ -2755,7 +2757,9 @@ a.change-location:before {
     }
 }
 @media only screen and (max-width: 820px) {
-	
+	.general-frame {
+        width:auto;
+    }
    /* sidebar */
     .sidebar-area {
         padding:0;
