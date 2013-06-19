@@ -1,5 +1,5 @@
 <?php
-?><!DOCTYPE html>
+?><!DOCTYPE html><!-- bid: 15; env: production --> 
 <!--[if IE 6]>
 <html id="ie6" <?php language_attributes(); ?>>
 <![endif]-->
