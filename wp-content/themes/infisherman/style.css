@@ -2895,7 +2895,9 @@ a.change-location:before {
     }
 }
 @media only screen and (max-width: 700px) {
-
+	.general-frame{
+		width: auto;
+	}
     .double-posts .feat-img {
         width:168px;
     }
