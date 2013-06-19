@@ -114,15 +114,15 @@ get_header(); ?>
 						</div>
                     </div>
                     </div>
-					<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="filter-by jq-filter-by js-responsive-section">               
+					<!--<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="filter-by jq-filter-by js-responsive-section">               
                         <strong>filter by:</strong>
                         <ul class="filter-links">
                             <li><a href="#">Latest</a></li>
-                            <!--<li><a href="#">Most Viewed</a></li>-->
+                            <li><a href="#">Most Viewed</a></li>
                             <li><a href="#">Most Discussed</a></li>
-                            <!--<li><a href="#">Most Shared</a></li>-->
+                            <li><a href="#">Most Shared</a></li>
                         </ul>
-                    </div>
+                    </div>-->
                     <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="js-responsive-section main-content-preppend">
 						
                         <?php /* Start the Loop */ 

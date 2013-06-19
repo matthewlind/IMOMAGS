@@ -80,7 +80,7 @@
     <!-- mobile menu start (copy of main menu, displays only in mobile orientation) -->
 <div class="cbp-spmenu-vertical" id="cbp-spmenu-s1">
     <div class="mobile-menu-banner">
-       <!-- IF_Mobile_Banner -->
+       <!-- IF_Mobile_Banner 
 		<script type="text/javascript">
 		  var ord = window.ord || Math.floor(Math.random() * 1e16);
 		  document.write('<a href="http://ad.doubleclick.net/N4930/jump/IF_Mobile_Banner;sz=300x50;ord=' + ord + '?"><img src="http://ad.doubleclick.net/N4930/ad/IF_Mobile_Banner;sz=300x50;ord=' + ord + '?" width="300" height="50" /></a>');
@@ -89,7 +89,7 @@
 		<a href="http://ad.doubleclick.net/N4930/jump/IF_Mobile_Banner;sz=300x50;ord=[timestamp]?">
 		<img src="http://ad.doubleclick.net/N4930/ad/IF_Mobile_Banner;sz=300x50;ord=[timestamp]?" width="300" height="50" />
 		</a>
-		</noscript>	  
+		</noscript>	  -->
     </div>
     <div class="menu-main-menu-container">
         <ul>

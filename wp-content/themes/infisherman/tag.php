@@ -1,4 +1,5 @@
 <?php
+$dataPos = 0;
 get_header(); ?>
         <?php imo_sidebar();?>
         <div id="primary" class="general">
@@ -6,7 +7,7 @@ get_header(); ?>
                 
                 <?php if ( have_posts() ) : ?>
     
-                    <div data-position="1" class="page-header clearfix js-responsive-section">
+                    <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header clearfix js-responsive-section">
                         <h1 class="page-title"><?php
                             printf('<span>' . single_tag_title( '', false ) . '</span>' );
                             ?>
@@ -19,15 +20,17 @@ get_header(); ?>
                             if ( ! empty( $tag_description ) )
                                 echo apply_filters( 'tag_archive_meta', '<div data-position="'.$dataPos + 1.'" class="tag-archive-meta taxdescription js-responsive-section">' . $tag_description . '</div>' ); ?>
                                 
-                    <div data-position="4" class="filter-by jq-filter-by js-responsive-section">
+                    <!--<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="filter-by jq-filter-by js-responsive-section">               
                         <strong>filter by:</strong>
                         <ul class="filter-links">
                             <li><a href="#">Latest</a></li>
+                            <li><a href="#">Most Viewed</a></li>
                             <li><a href="#">Most Discussed</a></li>
+                            <li><a href="#">Most Shared</a></li>
                         </ul>
-                    </div>
+                    </div>-->
                     
-                    <div data-position="5" class="js-responsive-section main-content-preppend">
+                    <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="js-responsive-section main-content-preppend">
                         <?php //twentyeleven_content_nav( 'nav-above' ); ?>
     
                         <?php /* Start the Loop */ ?>
@@ -54,7 +57,7 @@ get_header(); ?>
                         <?php //twentyeleven_content_nav( 'nav-below' ); ?>
                     </div>
     
-                    <div data-position="6" class="pager-holder js-responsive-section">
+                    <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="pager-holder js-responsive-section">
                         <a href="#" class="btn-base">Load More</a>
                         <div class="next" style="display:none;"><?php next_posts_link(); ?></div>
                         <a href="#" class="go-top jq-go-top">go top</a>

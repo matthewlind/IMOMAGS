@@ -89,6 +89,16 @@ jQuery(function(){
           minItems: 1,
           maxItems: 1
         });
+     
+    /*jQuery('.jq-cabela-slider').flexslider({
+          animation: "slide",
+          animationSpeed: 200,
+          slideshow: false,
+          itemWidth: 318,
+          itemMargin: 0,
+        });*/
+        
+       
     
     jQuery('.jq-custom-form input[type="checkbox"]').ezMark();
     

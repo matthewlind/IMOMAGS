@@ -87,29 +87,44 @@ var addthis_product = 'wpp-3.1';
                 </div>
                 <?php } ?>
                 
-                <?php $fetured_slider_query = new WP_Query( 'category_name='.TIMELY_FEATURES.'&posts_per_page=2' ); ?>
-                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="double-posts clearfix js-responsive-section">
+                <?php $fetured_slider_query = new WP_Query( 'category_name='.TIMELY_FEATURES.'&posts_per_page=4' ); ?>
+                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="double-posts double-post-slider js-responsive-section">
                     <div class="general-title clearfix">
                         <h2>Timely <span>Features</span></h2>
                     </div>
-                    <div class="clearfix">
-                        <?php while ($fetured_slider_query->have_posts()) : $fetured_slider_query->the_post(); ?>
-                        <div class="feat-post">
-                            <div class="feat-img"><a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('post-home-small-thumb');?></a></div>
-                            <div class="feat-text">
-                                <div class="clearfix">
-                                   <?php echo primary_and_secondary_categories(); ?>                                
-                                   </div>
-                                <h3><a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a></h3>
-                                <!--<div class="shares-count">
-                                    <?php render_shares_count(get_permalink(), $post->ID) ?> <span>Shares</span>
+                    <div class="jq-slider clearfix">
+                        <ul class="slides-inner slides">
+                            <?php $i = 1  ?>
+                            <?php while ($fetured_slider_query->have_posts()) : $fetured_slider_query->the_post(); ?>
+                            
+                            <?php if (!(($i+1)%2) ): ?>
+                            <li>
+                            <?php endif; ?>
+                            
+                            <div class="feat-post">
+                                <div class="feat-img"><a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('post-home-small-thumb');?></a></div>
+                                <div class="feat-text">
+                                    <div class="clearfix">
+                                    	<?php echo primary_and_secondary_categories(); ?>
+                                    </div>
+                                    <h3><a href="<?php the_permalink(); ?>" ><?php $title = the_title('','',FALSE); echo substr($title, 0, 54); if (strlen($title) > 54) echo "..."; ?></a></h3>
+                                    <!--<div class="shares-count">
+                                        <?php //render_shares_count(get_permalink(), $post->ID) ?> <span>Shares</span>
+                                    </div>
+                                    <a class="view-post" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">&nbsp;</a>-->
                                 </div>
-                                <a class="view-post" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">&nbsp;</a>-->
                             </div>
-                        </div>
-                        <?php endwhile; ?>
+                            
+                            <?php if (!($i%2)): ?>
+                            </li>
+                            <?php endif; ?>
+                            
+                            <?php $i++; ?>
+                            <?php endwhile; ?>
+                        </ul>
                     </div>
                 </div>
+
 				
 				<?php $fetured_slider_query = new WP_Query( 'category_name=online-exclusives&posts_per_page=8' ); ?>
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="double-posts double-post-slider js-responsive-section">

@@ -65,6 +65,11 @@
             </div><!-- .author-info -->
 	    </div>
 	    <?php } ?>
+	    
+	    <?php imo_dart_tag("564x252"); ?>
+	    
+	    
+	    	   
 	    <?php if (isset_related_posts()): ?>
 	    <div class="paging-posts paging-single-post">
 	        <div class="jq-single-paging-slider">
@@ -72,10 +77,7 @@
 	        </div>
 	    </div>
 	    <?php endif; ?>
-	    <div class="article-brief">
-			<?php imo_dart_tag("564x252"); ?>
-	    </div>
-	    <div class="sub-boxes">
+		    <div class="sub-boxes">
 	            <div class="sub-box banner-box">
 	                <?php imo_dart_tag("300x250",array("pos"=>"mid")); ?> 
 	            </div>

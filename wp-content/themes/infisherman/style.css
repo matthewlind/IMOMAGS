@@ -840,6 +840,17 @@ img{max-width: 100%;height: auto;}
     left: 0;
     top: 0;
 }
+	.sidebar .BCLvideoWrapper div,
+	.sidebar .BCLvideoWrapper embed,
+	.sidebar .BCLvideoWrapper object,
+	.sidebar .BrightcoveExperience {
+	position: relative;
+	width: 310px;
+	height: 540px;
+	left: auto;
+	top: auto;
+	}
+
 .post-panel,
 .video-panel {
     border:1px solid #fff;
@@ -1589,6 +1600,7 @@ a.category-name-link:hover{
     background:#fff;
     margin:0;
     float:none;
+    border: none !important;
     /*background:url(images/bg/grey-transparence.png) repeat;*/
 }
 .cbp-spmenu-vertical .menu-top-menu-container li,
@@ -1711,6 +1723,35 @@ a.category-name-link:hover{
     float:none;
     margin:0 0 0 7px;
 }
+
+/** Cabelas product widget fixes ***/
+#cabelas-essentials {
+	background: white;
+	padding-left: 12px;
+	padding-top: 10px;
+}
+#cabelas-essentials .image-div img{
+	width: auto !important;
+	margin: 0 auto;
+    vertical-align: middle;
+}
+#cabelas-essentials .cabelas-logo{
+	float: left;
+}
+#cabelas-essentials h2{
+	font: 22px/2 "stagbold", serif;
+	margin-left: 8px;
+}
+#cabelas-essentials .product-item{
+	background: white;
+}
+#cabelas-essentials .feat-img{
+	display: table-cell;
+text-align: center;
+vertical-align: middle;
+height: 190px;
+}
+
 /* = styles for mobile menu end
 ---------------------------------------------------------------------- */
 .message-not-found {
@@ -2347,6 +2388,7 @@ a.change-location:before {
     .mobile-orientation .header .menu-top-menu-container {
         position:relative;
         left:-99999px;
+        border: none;
     }
     /* header */
    #subscribe-area {
@@ -2639,6 +2681,9 @@ a.change-location:before {
         background:#fff;
         border-bottom:1px solid #d8d7d6;
     }
+    #cabelas-essentials.double-posts .feat-img{
+	    width: auto !important;
+    }
     .double-posts .feat-img {
         float:left;
         width:230px;
@@ -2852,7 +2897,7 @@ a.change-location:before {
         padding:10px;
     }
     .entry-content-holder {
-        padding:52px 0 90px;
+        padding:52px 0 0;
     }
     .taxdescription{
 	    padding: 8px 17px;
