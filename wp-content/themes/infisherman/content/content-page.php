@@ -6,15 +6,15 @@
  * @subpackage Twenty_Eleven
  * @since Twenty Eleven 1.0
  */
+$dataPos = 0;
 ?>
-<div data-position="1" class="page-header clearfix js-responsive-section">
+<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header clearfix js-responsive-section">
 	<h1 class="page-title">
 		<span><?php the_title(); ?></span>
     </h1>
 </div>
-<div data-position="2" class="sub-titile-banner js-responsive-section">
-</div> 
-<div data-position="3"  id="post-<?php the_ID(); ?>" <?php post_class('article-brief clearfix js-responsive-section'); ?>>
+
+<div data-position="<?php echo $dataPos = $dataPos + 1; ?>"  id="post-<?php the_ID(); ?>" <?php post_class('article-brief clearfix js-responsive-section'); ?>>
 	<div class="article-holder">
 			<?php the_content(); ?>
 			<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'twentyeleven' ) . '</span>', 'after' => '</div>' ) ); ?>
