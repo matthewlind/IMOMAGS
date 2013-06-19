@@ -2758,7 +2758,7 @@ a.change-location:before {
 }
 @media only screen and (max-width: 820px) {
 	.general-frame {
-        width:auto;
+        width:478px;
     }
    /* sidebar */
     .sidebar-area {
