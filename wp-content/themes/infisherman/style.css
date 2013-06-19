@@ -1054,7 +1054,12 @@ a.category-name-link:hover{
 }
 .article-holder {
     overflow:hidden;
-    padding:12px 21px;
+    padding:12px 20px;
+}
+.article-holder #BCLcontainingBlock{
+	position: absolute;
+	left: 0;
+	margin-top: 20px;
 }
 .more-link {
     font-size:14px;
