@@ -1407,7 +1407,9 @@ a.category-name-link:hover{
 	list-style:decimal;
 	margin-left: 40px;
 }
-
+.hide-master-angler{
+	display: none !important;
+}
 /* Single Post Page
  ******************************************************************************/
 .post-header {
