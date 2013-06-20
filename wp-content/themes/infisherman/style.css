@@ -693,7 +693,11 @@ img{max-width: 100%;height: auto;}
 }
 .general-frame {
     width:648px;
-}.post-slider {
+}
+.gallery-slider .flex-direction-nav a{
+	top: 480px;
+}
+.post-slider {
     width:100%;
     border:1px solid #fff;
     position:relative;

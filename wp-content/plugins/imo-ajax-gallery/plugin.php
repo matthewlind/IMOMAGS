@@ -193,13 +193,13 @@ EOT;
 	
 	
 	$mobile = <<<EOT
+		<div class="jq-gallery-slider gallery-slider" id="gallery-$gallery_id">
+			<iframe id="gallery-iframe-ad" width=300 height=250 marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?ad_code=$dartDomain"></iframe>
 
 		<div class="general-title clearfix">
 		    <h2><span>$title</span></h2>
 		</div>
-		<div class="jq-gallery-slider gallery-slider" id="gallery-$gallery_id">
-			<iframe id="gallery-iframe-ad" width=300 height=250 marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?ad_code=$dartDomain"></iframe>
-		    <span class="slide-count">$count</span>
+		<span class="slide-count">$count</span>
 		    <ul class="slides">
 EOT;
 	foreach ($pictures as $picture) {
@@ -231,7 +231,6 @@ $mobile .= <<<EOT3
 		            animation: "slide",
 		            animationSpeed: 200,
 		            slideshow: false,
-		            directionNav: false, 
 		            start: function (slider) {
 		            
 EOT3;
@@ -258,11 +257,11 @@ $mobile .= <<<EOFasdf
 
 EOFasdf;
 		if($_SERVER['SERVER_NAME'] == "www.in-fisherman.com" || $_SERVER['SERVER_NAME'] == "www.in-fisherman.fox" || $_SERVER['SERVER_NAME'] == "www.in-fisherman.deva"){
-			if (mobile() || tablet()){
+			//if (mobile() || tablet()){
 				return $mobile;
-			}else{
-				return $output;
-			}
+			//}else{
+				//return $output;
+			//}
 		}else{
 			return $output;
 		}
@@ -289,7 +288,7 @@ function conditionally_add_scripts_and_styles($posts){
 		}
 
 		if ($shortcode_found) {
-			//if(!mobile() || !tablet()){
+			if(!mobile() || !tablet()){
 			// enqueue here
 			wp_enqueue_script('ajax-gallery-js',plugins_url('ajax-gallery.js', __FILE__));
 			wp_enqueue_script('jquery-scrollface',plugins_url('jquery.scrollface.min.js', __FILE__));
@@ -299,7 +298,7 @@ function conditionally_add_scripts_and_styles($posts){
 			wp_enqueue_script('jquery-mCustomScrollbar',plugins_url('jquery.mCustomScrollbar.js', __FILE__));
 			wp_enqueue_style('ajax-gallery-css',plugins_url('ajax-gallery.css', __FILE__));
 			wp_enqueue_style('ajax-mCustomScrollbar-css',plugins_url('jquery.mCustomScrollbar.css', __FILE__));				
-			//}
+			}
 				
 			
 		}
