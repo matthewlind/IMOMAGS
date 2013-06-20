@@ -241,27 +241,17 @@ $mobile .= <<<EOFasdf
 		</script>
 
 EOFasdf;
-	if (is_plugin_active('mobble/mobble.php')) { 
-			if (is_mobile() || is_tablet()){
-				return $mobile;
-			}else{
-				return $output;
-			}
+				
+		if(mobile() || tablet()){
+			return $mobile;
 		}else{
 			return $output;
 		}
+		
+	
+		
+	
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -282,9 +272,7 @@ function conditionally_add_scripts_and_styles($posts){
 		}
 
 		if ($shortcode_found) {
-			if (is_plugin_active('mobble/mobble.php')) { 
-				if (!is_mobile() || !is_tablet()){
-			}
+			if(!mobile() || !tablet()){
 			// enqueue here
 			wp_enqueue_script('ajax-gallery-js',plugins_url('ajax-gallery.js', __FILE__));
 			wp_enqueue_script('jquery-scrollface',plugins_url('jquery.scrollface.min.js', __FILE__));
@@ -294,15 +282,9 @@ function conditionally_add_scripts_and_styles($posts){
 			wp_enqueue_script('jquery-mCustomScrollbar',plugins_url('jquery.mCustomScrollbar.js', __FILE__));
 			wp_enqueue_style('ajax-gallery-css',plugins_url('ajax-gallery.css', __FILE__));
 			wp_enqueue_style('ajax-mCustomScrollbar-css',plugins_url('jquery.mCustomScrollbar.css', __FILE__));				
-				
-				
-			if (is_plugin_active('mobble/mobble.php')) { 	
-				}
-				
-				
-				
 			}
-
+				
+			
 		}
 
 	} else {//If there are no posts, such as a category page

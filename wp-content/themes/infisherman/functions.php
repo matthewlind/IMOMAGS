@@ -11,6 +11,21 @@ define("DRUPAL_SITE", TRUE);
 include_once('widgets/subscribe.php');
 include_once('widgets/newsletter-signup.php');
 include_once('widgets/ford-widget.php');
+include 'Mobile_Detect.php';
+
+// Mobile and Tablet detection. Add when the future comes and changes your devices. Uses Mobile_Detect.php - http://mobiledetect.net/
+function mobile() {
+	$detect = new Mobile_Detect();
+	$mobile = $detect->isMobile();
+	return $mobile;
+}
+
+function tablet() {
+	$detect = new Mobile_Detect();
+	$mobile = $detect->isTablet();
+	return $mobile;
+}
+
 
 
 function new_excerpt_more( $more ) {
@@ -569,7 +584,7 @@ function imo_sidebar($type){
 	$dartDomain = get_option("dart_domain", $default = false);
 	echo '<div class="sidebar-area">';
 	    get_sidebar($type);
-	    if (!is_mobile()) { 
+	    if (!mobile()) { 
 		    echo '<div id="responderfollow"></div>';
 			echo '<div class="sidebar advert">';
 				echo '<div class="widget_advert-widget">';

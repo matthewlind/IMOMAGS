@@ -45,7 +45,7 @@ get_header(); ?>
                             ?>
 
                         <?php if ( (($i - (($paged -1) * 2 ))%6) == 0 ): ?>
-	                        <?php if ( is_mobile() ){ ?>
+	                        <?php if ( mobile() ){ ?>
 	                        <div class="image-banner posts-image-banner">
 	                            <?php imo_dart_tag("300x250",array("pos"=>"mob")); ?> 
 	                        </div>

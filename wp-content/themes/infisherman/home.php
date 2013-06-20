@@ -36,7 +36,7 @@ var addthis_product = 'wpp-3.1';
                         </ul>
                     </div>
                 </div>
-				<?php if(!is_mobile()){ ?>
+				<?php if(!mobile()){ ?>
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="video-box js-responsive-section">
                     <div class="general-title clearfix">
                         <h2>In-Fisherman <span>TV</span></h2>
@@ -245,7 +245,7 @@ var addthis_product = 'wpp-3.1';
                 <!-- start footer posts -->
                 <div class="links-holder">
                     <div class="image-banner">
-                     <?php if (is_mobile()) { 
+                     <?php if (mobile()) { 
 	                 	imo_dart_tag("300x250",array("pos"=>"mob"));
 	                 } ?>              
                     </div>

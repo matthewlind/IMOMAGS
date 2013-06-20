@@ -63,7 +63,7 @@
 	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.jfollow.js" type="text/javascript"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/flash_heed.js" type="text/javascript"></script>
 	
-	<?php if (defined('JETPACK_SITE') && !is_mobile()): ?>
+	<?php if (defined('JETPACK_SITE') && !mobile()): ?>
 		<!--<script type='text/javascript' src='http://ads.jetpackdigital.com/sites/<?php print JETPACK_SITE; ?>/jpd.js'></script>-->
 	<?php endif; ?> 
 </head>
@@ -210,7 +210,7 @@
     
         <div class="content-banner-section">
             <div class="swipe-out"></div>
-            <?php if (is_mobile()) { ?>
+            <?php if (mobile()) { ?>
 					<!-- IF_Mobile_Banner 
 					<script type="text/javascript">
 					  var ord = window.ord || Math.floor(Math.random() * 1e16);
