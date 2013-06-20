@@ -90,10 +90,10 @@ get_header(); ?>
 	
 				<?php endif; ?>
 	
-			<div class="foot-social clearfix">
+				<div class="foot-social clearfix">
                     <strong class="social-title">Like us on Facebook to <span>stay updated !</span></strong>
-                    <div class="fb-like" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>
-                    <?php social_networks(); ?>
+                    <div class="fb-like" data-href="http://www.facebook.com/InFisherman" data-send="false" data-layout="button_count" data-width="100" data-show-faces="true"></div>
+                     <?php social_networks(); ?>
                 </div>
                 <div id="fb-root"></div>
                 <script>(function(d, s, id) {

@@ -1,12 +1,7 @@
 <?php
 $dataPos = 0;
 get_header(); ?>
-<script type="text/javascript">
-var addthis_options = "facebook_like,twitter,google";
-var addthis_config = {"data_track_clickback":false,"data_track_addressbar":false,"data_track_textcopy":false,"ui_atversion":"300"};
-var addthis_product = 'wpp-3.1';
-</script>
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=horechek"></script>
+
 	<?php imo_sidebar('home');?>
 	<div id="primary" class="general">
         <div class="general-frame">
@@ -184,7 +179,7 @@ var addthis_product = 'wpp-3.1';
                             <p>Submit your trophy catch for a chance to win!</p>
                             <a href="/master-angler/" class="btn-base btn-base-middle">Enter Now!</a>
                         </div>
-                        <?php $fetured_slider_query = new WP_Query( 'category_name='.MASTER_ANGLERS.'&posts_per_page=8' ); ?>
+                        <?php $fetured_slider_query = new WP_Query( 'category_name='.MASTER_ANGLERS.'&posts_per_page=6' ); ?>
                         <div class="single-post-slider ">
                             <div class="jq-slider">
                                 <ul class="slides-inner slides">
@@ -206,7 +201,7 @@ var addthis_product = 'wpp-3.1';
                                 </ul>
                             </div>
                             <div class="post-panel clearfix">
-                                <a class="see-all" href="/master-angler/">See All</a>
+                                <a class="see-all" href="/master-angler/">See All </a>
                             </div>
                         </div>
                         
@@ -335,7 +330,8 @@ var addthis_product = 'wpp-3.1';
                 
                 <div class="foot-social clearfix">
                     <strong class="social-title">Like us on Facebook to <span>stay updated !</span></strong>
-                    <div class="fb-like" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>
+                    <div class="fb-like" data-href="http://www.facebook.com/InFisherman" data-send="false" data-layout="button_count" data-width="100" data-show-faces="true"></div>
+
                      <?php social_networks(); ?>
                 </div>
                 <a href="/newsletter-signup" class="get-newsletter">Get the In-Fisherman <br />Newsletter</a>

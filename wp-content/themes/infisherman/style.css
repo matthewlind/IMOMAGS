@@ -788,7 +788,7 @@ img{max-width: 100%;height: auto;}
 .general-title {
     margin:0 0 18px;
 }
-.general-title h2 {
+.general-title h2{
     float:left;
     font:25px "stagbold", serif;
     color:#040503;
@@ -886,9 +886,12 @@ img{max-width: 100%;height: auto;}
 }
 .cat-feat-label {
     display:block;
-    font:11px/1.2 "open_sansbold", sans-serif;
+    font:10px/1.2 "open_sansbold", sans-serif;
     color:#fff;
     text-transform:uppercase;
+}
+.double-posts .cat-feat-label {
+    font:9px/1.1 "open_sansbold", sans-serif;
 }
 .cat-feat-label span {
     padding:4px 7px;
@@ -1352,6 +1355,12 @@ a.category-name-link:hover{
 }
 .subscribe-banner:hover {opacity:0.7;}
 .subscribe-banner img {display:block; width:100%;margin: 0 auto;position: relative;}
+/*** hide post box for fb like ***/
+.fb-like{
+    height: 20px;
+    overflow: hidden;
+    padding: 0;
+}
 
 /* Core Experts
  ******************************************************************************/
@@ -2671,6 +2680,10 @@ a.change-location:before {
 }
 
 @media only screen and (max-width: 880px) {
+
+	.double-posts .cat-feat-label {
+	    font:10px/1.2 "open_sansbold", sans-serif;
+	}
 	.general-frame {
         width:478px;
     }

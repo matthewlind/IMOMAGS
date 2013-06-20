@@ -63,8 +63,8 @@
 	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.jfollow.js" type="text/javascript"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/flash_heed.js" type="text/javascript"></script>
 	
-	<?php if (defined('JETPACK_SITE') && !mobile()): ?>
-		<!--<script type='text/javascript' src='http://ads.jetpackdigital.com/sites/<?php print JETPACK_SITE; ?>/jpd.js'></script>-->
+	<?php if ( defined('JETPACK_SITE') && !mobile() && !tablet()): ?>
+		<script type='text/javascript' src='http://ads.jetpackdigital.com/sites/<?php print JETPACK_SITE; ?>/jpd.js'></script>
 	<?php endif; ?> 
 </head>
 

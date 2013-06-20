@@ -69,7 +69,7 @@ function the_primary_category($cat_base) {
 	}
 
 	if($catID){
-		$categories = '<span class="cat-label"><a class="category-name-link" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;Primary Category&#39;,&#39;'.$categoryName->name.'&#39;]);" href="'.$cat_base.'/'.$catParent.$url.'">'.$primary.'</a>';
+		$categories = '<span class="cat-label"><a class="category-name-link primary-cat" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;Primary Category&#39;,&#39;'.$categoryName->name.'&#39;]);" href="'.$cat_base.'/'.$catParent.$url.'">'.$primary.'</a>';
 	}
     
     
@@ -147,7 +147,8 @@ function primary_and_secondary_categories($cat_base) {
 		"northeast",
 		"timely-features",
 		"in-fisherman-blogs",
-		"midwest-finesse"
+		"midwest-finesse",
+		"online-exclusives"
     );
 	
     foreach($allCats as $cat){

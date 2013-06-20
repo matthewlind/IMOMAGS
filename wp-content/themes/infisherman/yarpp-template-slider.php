@@ -4,11 +4,9 @@ YARPP Template: Slider
 Author: horechek
 Description: A Slider YARPP template.
 */
-?>
-
 <?php if (have_posts()):?>
 
-    <ul class="slides">
+    <ul class="slides related">
         <?php while (have_posts()) : the_post(); ?>
         <li>
             <div class="paging-post">

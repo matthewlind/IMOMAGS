@@ -12,8 +12,6 @@ include_once('widgets/subscribe.php');
 include_once('widgets/newsletter-signup.php');
 include_once('widgets/ford-widget.php');
 
-
-
 function new_excerpt_more( $more ) {
 	return '... <a href="'. get_permalink( get_the_ID() ) .'" >more <span class="meta-nav">&raquo;</span></a>';
 }
@@ -645,17 +643,7 @@ function infisherman_widgets_init()
     register_sidebar( array(
         'name' => __( 'Article Sidebar', 'infisherman' ),
         'id' => 'sidebar-2',
-        'description' => __( 'The sidebar for the optional Showcase Template', 'twentyeleven' ),
-        'before_widget' => '<div id="%1$s" class="widget %2$s">',
-        'after_widget' => "</div>",
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
-    ) );
-
-    /*register_sidebar( array(
-        'name' => __( 'Footer Area One', 'infisherman' ),
-        'id' => 'sidebar-3',
-        'description' => __( 'An optional widget area for your site footer', 'twentyeleven' ),
+        'description' => __( 'The sidebar for single pages', 'twentyeleven' ),
         'before_widget' => '<div id="%1$s" class="widget %2$s">',
         'after_widget' => "</div>",
         'before_title' => '<h3 class="widget-title">',
@@ -663,6 +651,16 @@ function infisherman_widgets_init()
     ) );
 
     register_sidebar( array(
+        'name' => __( 'Landing Page Sidebar', 'infisherman' ),
+        'id' => 'sidebar-3',
+        'description' => __( 'The sidebar for landing pages', 'twentyeleven' ),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget' => "</div>",
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>',
+    ) );
+
+   /*register_sidebar( array(
         'name' => __( 'Footer Area Two', 'infisherman' ),
         'id' => 'sidebar-4',
         'description' => __( 'An optional widget area for your site footer', 'twentyeleven' ),
@@ -741,7 +739,7 @@ function get_more_posts_query($limit = 4)
     $query = new WP_Query(array( 
         'category__not_in' =>  
             get_categories_ids(array(
-                MASTER_ANGLERS, TIMELY_FEATURES, FEATURED
+                MASTER_ANGLERS, TIMELY_FEATURES, FEATURED, 'midwest-finesse'
             )),
         'posts_per_page' => $limit ) 
     );

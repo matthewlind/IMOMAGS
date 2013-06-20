@@ -257,11 +257,15 @@ $mobile .= <<<EOFasdf
 		</script>
 
 EOFasdf;
+		if($_SERVER['SERVER_NAME'] == "www.in-fisherman.com" || $_SERVER['SERVER_NAME'] == "www.in-fisherman.fox" || $_SERVER['SERVER_NAME'] == "www.in-fisherman.deva"){
 			if (mobile() || tablet()){
 				return $mobile;
 			}else{
 				return $output;
 			}
+		}else{
+			return $output;
+		}
 	
 }
 
