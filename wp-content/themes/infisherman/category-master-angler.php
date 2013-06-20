@@ -1,7 +1,7 @@
 <?php
 $dataPos = 0;
 get_header(); ?>
-        <?php imo_sidebar();?>
+        <?php imo_sidebar("landing");?>
         <div id="primary" class="general">
             <div id="content" role="main" class="general-frame">
                 
