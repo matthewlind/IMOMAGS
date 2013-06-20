@@ -11,20 +11,6 @@ define("DRUPAL_SITE", TRUE);
 include_once('widgets/subscribe.php');
 include_once('widgets/newsletter-signup.php');
 include_once('widgets/ford-widget.php');
-include 'Mobile_Detect.php';
-
-// Mobile and Tablet detection. Add when the future comes and changes your devices. Uses Mobile_Detect.php - http://mobiledetect.net/
-function mobile() {
-	$detect = new Mobile_Detect();
-	$mobile = $detect->isMobile();
-	return $mobile;
-}
-
-function tablet() {
-	$detect = new Mobile_Detect();
-	$mobile = $detect->isTablet();
-	return $mobile;
-}
 
 
 

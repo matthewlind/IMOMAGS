@@ -8,6 +8,20 @@
  */
 
 add_shortcode( 'imo-slideshow', 'slideshow_gallery' );
+include_once('Mobile_Detect.php');
+
+// Mobile and Tablet detection. Add when the future comes and changes your devices. Uses Mobile_Detect.php - http://mobiledetect.net/
+function mobile() {
+	$detect = new Mobile_Detect();
+	$mobile = $detect->isMobile();
+	return $mobile;
+}
+
+function tablet() {
+	$detect = new Mobile_Detect();
+	$mobile = $detect->isTablet();
+	return $mobile;
+}
 
 // [slideshow gallery=GALLERY_ID]
 function slideshow_gallery( $atts ) {
@@ -28,6 +42,8 @@ function slideshow_gallery( $atts ) {
 
 
 function displayGallery($gallery_id,$tag) {
+
+
 
 	$dartDomain = get_option("dart_domain", $default = false);
 
@@ -174,7 +190,9 @@ function displayGallery($gallery_id,$tag) {
 
 EOT;
 	
-$mobile = <<<EOT
+	
+	
+	$mobile = <<<EOT
 
 		<div class="general-title clearfix">
 		    <h2><span>$title</span></h2>
@@ -209,7 +227,7 @@ $mobile .= <<<EOT3
 			
 		<script type="text/javascript">
 		    jQuery(function(){
-		        var fslider = jQuery('#gallery-$gallery_id').flexslider({
+		    	var fslider = jQuery('#gallery-$gallery_id').flexslider({
 		            animation: "slide",
 		            animationSpeed: 200,
 		            slideshow: false,
@@ -239,11 +257,11 @@ $mobile .= <<<EOFasdf
 		</script>
 
 EOFasdf;
-			//if (tablet()){
-			//	return $mobile;
-			//}else{
+			if (mobile() || tablet()){
+				return $mobile;
+			}else{
 				return $output;
-			//}
+			}
 	
 }
 

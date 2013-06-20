@@ -181,7 +181,7 @@ var addthis_product = 'wpp-3.1';
                     <div class="clearfix">
                         <div class="master-angler-banner">
                             <h2>Master <br />Angler <br /><span class="tite-year">2013</span></h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p>Submit your trophy catch for a chance to win!</p>
                             <a href="/master-angler/" class="btn-base btn-base-middle">Enter Now!</a>
                         </div>
                         <?php $fetured_slider_query = new WP_Query( 'category_name='.MASTER_ANGLERS.'&posts_per_page=8' ); ?>
