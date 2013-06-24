@@ -569,10 +569,12 @@ function imo_sidebar($type){
 	echo '<div class="sidebar-area">';
 	    get_sidebar($type);
 	    if (!mobile()) { 
-		    echo '<div id="responderfollow"></div>';
+	    	echo '<div id="responderfollow"></div>';
 			echo '<div class="sidebar advert">';
+	    	echo '<div class="widget"><iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FInFisherman&amp;width=310&amp;height=184&amp;colorscheme=light&amp;show_faces=true&amp;border_color=%23DDDDDD&amp;stream=false&amp;header=false&amp;appId=218070564894418" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:310px; height:184px;" allowTransparency="true"></iframe></div>';
+		    
 				echo '<div class="widget_advert-widget">';
-					echo '<iframe id="sticky-iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-sticky.php?ad_code='.$dartDomain.'"></iframe>';
+					echo '<iframe id="sticky-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-sticky.php?ad_code='.$dartDomain.'"></iframe>';
 				echo '</div>';
 				if (function_exists('dynamic_sidebar') && dynamic_sidebar('scroll-sidebar')) : else : endif; 
 			echo '</div>';
