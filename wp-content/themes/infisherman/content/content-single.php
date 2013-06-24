@@ -70,6 +70,9 @@
 	    
 	    	   
 	    <?php if (isset_related_posts()): ?>
+	    <?php if(mobile() || tablet()){ ?>
+	    	<h2 class="related-stories">Related Stories</h2>
+	    <?php } ?>
 	    <div class="paging-posts paging-single-post">
 	        <div class="jq-single-paging-slider">
 	        <?php related_posts(); ?>

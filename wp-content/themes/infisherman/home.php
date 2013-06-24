@@ -211,7 +211,7 @@ get_header(); ?>
                 
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section">
                     <div class="general-title clearfix">
-                        <h2><span>More</span></h2>
+                        <h2><span>Popular</span></h2>
                     </div>
                     <?php $more_query = get_more_posts_query(); ?>
                     <?php while ($more_query->have_posts()) : $more_query->the_post(); ?>

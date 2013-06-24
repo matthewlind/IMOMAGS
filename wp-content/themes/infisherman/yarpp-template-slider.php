@@ -6,6 +6,7 @@ Description: A Slider YARPP template.
 */
 ?>
 
+
 <?php if (have_posts()): ?>
 
     <ul class="slides">

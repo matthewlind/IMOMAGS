@@ -13,11 +13,11 @@ class Ford_Widget extends WP_Widget {
 <div class="widget">	
 	<script type="text/javascript">
 	 var ord = window.ord || Math.floor(Math.random() * 1e16);
-	 document.write('<iframe src="http://ad.doubleclick.net/N4930/adi/<?php echo $dartDomain; ?>;sz=300x645;ord=' + ord + '?" width="300" height="645" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no"></iframe>');
+	 document.write('<iframe src="http://ad.doubleclick.net/N4930/adi/<?php echo $dartDomain; ?>;sz=300x600;ord=' + ord + '?" width="300" height="600" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no"></iframe>');
 	</script>
 	<noscript>
-	<a href="http://ad.doubleclick.net/N4930/jump/<?php echo $dartDomain; ?>;sz=300x645;ord=[timestamp]?">
-	<img src="http://ad.doubleclick.net/N4930/ad/<?php echo $dartDomain; ?>;sz=300x645;ord=[timestamp]?" width="300" height="645" />
+	<a href="http://ad.doubleclick.net/N4930/jump/<?php echo $dartDomain; ?>;sz=300x600;ord=[timestamp]?">
+	<img src="http://ad.doubleclick.net/N4930/ad/<?php echo $dartDomain; ?>;sz=300x600;ord=[timestamp]?" width="300" height="600" />
 	</a>
 	</noscript>
 </div>

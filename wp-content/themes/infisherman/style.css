@@ -696,6 +696,7 @@ img{max-width: 100%;height: auto;}
 }
 .gallery-slider .flex-direction-nav a{
 	top: 480px;
+	background-color: black;
 }
 .post-slider {
     width:100%;
@@ -2319,6 +2320,11 @@ a.change-location:before {
 	margin: 0 auto !important;
 }
 
+/*** Related Stories ***/
+h2.related-stories{
+	text-align: center;
+}
+
 /* = Footer
  ******************************************************************************/
 .footer {
@@ -2724,7 +2730,7 @@ a.change-location:before {
 	    font:10px/1.2 "open_sansbold", sans-serif;
 	}
 	.general-frame {
-        width:478px;
+        width:auto;
     }
    /* header end */
     .post-slider .flex-direction-nav .flex-next,
@@ -2810,7 +2816,7 @@ a.change-location:before {
 }
 @media only screen and (max-width: 820px) {
 	.general-frame {
-        width:478px;
+        width:auto;
     }
    /* sidebar */
     .sidebar-area {
@@ -2818,6 +2824,9 @@ a.change-location:before {
         width:224px;
         float:right;
         display:block;
+    }
+    #fb-sidebar{
+	    width: 224px !important;
     }
     #gift-guide .network-feed{
 		width: 224px !important;
@@ -2930,6 +2939,11 @@ a.change-location:before {
     }
 }
 @media only screen and (max-width: 760px) {
+	#cabelas-essentials h2{
+	font: 20px/2 "stagbold", serif;
+	overflow: hidden;
+	line-height: 1;
+	}
     .single-post-slider {
         float:none;
         width:100%;

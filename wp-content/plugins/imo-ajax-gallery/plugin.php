@@ -215,7 +215,7 @@ $mobile .= <<<EOT2
 		            <img src="$picture->img_url" alt="$picture->alttext">
 		            <div class="feat-text">
 		                <h3>$picture->alttext</h3>
-						$description ...		                
+						$picture->description		                
 		            </div>
 		        </li>
 EOT2;
