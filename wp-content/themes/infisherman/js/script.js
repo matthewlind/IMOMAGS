@@ -70,6 +70,12 @@ jQuery(function(){
         slideshow: false
       });
       
+    jQuery('.jq-ma-slider').flexslider({
+        animation: "slide",
+        animationSpeed: 200,
+        slideshow: true
+      });
+      
     jQuery('.jq-featured-slider').flexslider({
         animation: "slide",
         animationSpeed: 200,

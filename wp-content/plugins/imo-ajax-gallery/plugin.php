@@ -208,7 +208,6 @@ EOT;
 		$picture->photo_desc = stripcslashes($picture->photo_desc);
 		$picture->alttext = stripcslashes($picture->alttext);
 		$picture->description = stripcslashes($picture->description);
-		$description = substr($picture->description, 0, 200); 
 		
 
 $mobile .= <<<EOT2
@@ -257,11 +256,11 @@ $mobile .= <<<EOFasdf
 
 EOFasdf;
 		if($_SERVER['SERVER_NAME'] == "www.in-fisherman.com" || $_SERVER['SERVER_NAME'] == "www.in-fisherman.fox" || $_SERVER['SERVER_NAME'] == "www.in-fisherman.deva"){
-			//if (mobile() || tablet()){
+			if (mobile() || tablet()){
 				return $mobile;
-			//}else{
-				//return $output;
-			//}
+			}else{
+				return $output;
+			}
 		}else{
 			return $output;
 		}

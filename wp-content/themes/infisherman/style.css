@@ -1420,9 +1420,41 @@ a.category-name-link:hover{
 	list-style:decimal;
 	margin-left: 40px;
 }
+.category-master-angler .jq-ma-slider ol {
+	margin-left:0;
+}
 .hide-master-angler{
 	display: none !important;
 }
+/*form post styles*/
+.manametitle{
+	border-bottom: 1px dashed #CCCCCC;
+	min-height: 50px;
+	padding: 6px 0;
+	margin-bottom: 10px;
+}
+.maname{
+	color: #B22730;
+    float: left;
+    font-size: 26px;
+    font-weight: bold;
+}
+.macity{font-size: 18px;font-weight: normal;float:right;color:#757474;margin-top:8px;}
+.fishinfo{font-size:18px;color:#B22730; margin-bottom: 20px;}
+.fishinfo span.grayz {color:#757474;}
+.tellyourstory{
+	border-bottom: 1px dashed #CCCCCC;
+    color: #000000;
+    font-size: 14px;
+	line-height: 20px;
+	margin: 14px 0;
+	padding: 0px 0 14px;
+}
+.gform_wrapper ul li.weight{clear: none;
+	float: left;
+	margin-right: 26px;
+}
+
 /* Single Post Page
  ******************************************************************************/
 .post-header {
@@ -1750,6 +1782,9 @@ a.category-name-link:hover{
 	padding-left: 12px;
 	padding-top: 10px;
 }
+#cabelas-essentials ol{
+	margin-left: 0;
+}
 #cabelas-essentials .feat-text{
 	border: none;
 }
@@ -1770,9 +1805,9 @@ a.category-name-link:hover{
 }
 #cabelas-essentials .feat-img{
 	display: table-cell;
-text-align: center;
-vertical-align: middle;
-height: 190px;
+	text-align: center;
+	vertical-align: middle;
+	height: 190px;
 }
 
 /* = styles for mobile menu end

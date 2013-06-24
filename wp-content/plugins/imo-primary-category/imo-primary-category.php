@@ -63,6 +63,8 @@ function the_primary_category($cat_base) {
 	$primary = $categoryName->name;
 	$url = $categoryName->slug;
 	
+	$parent = $categoryName->parent;
+	
 	if($parent !=0){
 			$catParent = get_the_category_by_ID( $parent );
 			$catParent = strtolower($catParent."/"); 
@@ -95,10 +97,18 @@ function primary_and_secondary_categories($cat_base) {
 	$primary = $categoryName->name;
 	$url = $categoryName->slug;
 	
+	$parent = $categoryName->parent;
+	
+	if($parent !=0){
+			$catParent = get_the_category_by_ID( $parent );
+			$catParent = strtolower($catParent."/"); 
+	}
+
+
 	$categories = '<span class="cat-feat-label">';
 	
 	if($catID){
-		$categories .= '<a class="category-name-link primary-cat" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;Primary Category&#39;,&#39;'.$categoryName->name.'&#39;]);" href="'.$cat_base.'/'.$url.'">'.$primary.'</a> ';
+		$categories .= '<a class="category-name-link primary-cat" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;Primary Category&#39;,&#39;'.$categoryName->name.'&#39;]);" href="'.$cat_base.'/'.$catParent.$url.'">'.$primary.'</a> ';
 	}
     
     

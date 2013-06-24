@@ -30,9 +30,9 @@ get_header(); ?>
                             if ( ! empty( $category_description ) )
                                 echo apply_filters( 'category_archive_meta', '<div data-position="'.$dataPos = $dataPos + 1 .'" class="category-archive-meta taxdescription js-responsive-section">' . $category_description . '</div>' );
                         
-                        $fetured_slider_query = new WP_Query( 'category_name='.MASTER_ANGLERS.'&posts_per_page=6' ); ?>
+                        $fetured_slider_query = new WP_Query( 'category_name='.MASTER_ANGLERS.'&posts_per_page=20' ); ?>
 		                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="double-posts double-post-slider js-responsive-section">
-		                    <div class="jq-slider clearfix">
+		                    <div class="jq-ma-slider clearfix">
 		                        <ul class="slides-inner slides">
 		                            <?php $i = 1  ?>
 		                            <?php while ($fetured_slider_query->have_posts()) : $fetured_slider_query->the_post(); ?>
@@ -48,10 +48,10 @@ get_header(); ?>
 		                                    	<?php echo primary_and_secondary_categories(); ?>
 		                                    </div>
 		                                    <h3><a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a></h3>
-		                                    <div class="shares-count">
+		                                    <!--<div class="shares-count">
 		                                        <?php render_shares_count(get_permalink(), $post->ID) ?> <span>Shares</span>
 		                                    </div>
-		                                    <a class="view-post" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">&nbsp;</a>
+		                                    <a class="view-post" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">&nbsp;</a>-->
 		                                </div>
 		                            </div>
 		                            
