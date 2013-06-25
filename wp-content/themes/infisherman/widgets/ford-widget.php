@@ -10,7 +10,7 @@ class Ford_Widget extends WP_Widget {
 	
 	$dartDomain = get_option("dart_domain", $default = false);
 ?>
-<div class="widget">	
+<div class="widget ford-outfitters-widget">	
 	<script type="text/javascript">
 	 var ord = window.ord || Math.floor(Math.random() * 1e16);
 	 document.write('<iframe src="http://ad.doubleclick.net/N4930/adi/<?php echo $dartDomain; ?>;sz=300x600;ord=' + ord + '?" width="300" height="600" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no"></iframe>');

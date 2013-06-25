@@ -549,6 +549,7 @@ img{max-width: 100%;height: auto;}
 .menu-main-menu-container li {
     float:left;
     z-index:1;
+    margin: 0;
 }
 .menu-main-menu-container > ul > li:last-child {float:right;}
 .menu-main-menu-container li:hover {
@@ -859,7 +860,7 @@ img{max-width: 100%;height: auto;}
 .post-panel,
 .video-panel {
     border:1px solid #fff;
-    padding:14px 16px;
+    padding:14px 8px;
     background:url(images/bg/grey-transparence.png) repeat;
 }
 .post-panel {
@@ -1844,7 +1845,8 @@ a.category-name-link:hover{
 	position: relative;
 	display: block;
 }
-
+iframe[style]#fb-sidebar{background-color: white !important;}
+.ford-outfitters-widget{padding: 0 5px;}
 /* solunar widget */
 .solunar-widget {
     padding:20px 9px 34px;
@@ -2578,21 +2580,7 @@ h2.related-stories{
         padding: 0 0 0 5px;
     }
     .single-post-slider {
-        width:48%;
-    }
-    .master-angler-banner {
-        width:234px;
-        height:321px;
-        background:url(images/pic/master-angler-small.jpg) no-repeat 50% 0;
-    }
-    .master-angler-banner h2 {
-        font-size:45px;
-        line-height:29px;
-        padding:36px 5px 31px;
-    }
-    .master-angler-banner p {
-        font-size:14px;
-        margin:0 0 62px;
+        width:44%;
     }
     .links-holder {
         overflow:hidden;
@@ -2721,7 +2709,20 @@ h2.related-stories{
         float:none;
         text-align:left;
     }
-
+	.master-angler-banner {
+        width:234px;
+        height:321px;
+        background:url(images/pic/master-angler-small.jpg) no-repeat 50% 0;
+    }
+    .master-angler-banner h2 {
+        font-size:45px;
+        line-height:29px;
+        padding:36px 5px 31px;
+    }
+    .master-angler-banner p {
+        font-size:14px;
+        margin:0 0 62px;
+    }
 }
 
 @media only screen and (max-width: 880px) {
@@ -2825,9 +2826,10 @@ h2.related-stories{
         float:right;
         display:block;
     }
-    #fb-sidebar{
-	    width: 224px !important;
-    }
+    .sidebar iframe[style]{width: 224px !important;}
+    iframe[style]#fb-sidebar{height: 236px !important;}
+    iframe[style]#fb-sidebar, iframe[style].twitter-follow-button { width: 100% !important; }
+    .ford-outfitters-widget{padding: 0;}
     #gift-guide .network-feed{
 		width: 224px !important;
 	}
