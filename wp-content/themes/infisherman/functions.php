@@ -586,6 +586,20 @@ function social_networks(){
 	    echo '<a href="http://www.in-fisherman.com/feed/" class="rss">RSS</a>';
 	echo '</div>';
 }
+function sponsor_logo(){
+return '<script type="text/javascript">
+						  var ord = window.ord || Math.floor(Math.random() * 1e16);
+						  document.write(unescape(\'<a href="http://ad.doubleclick.net/N4930/jump/imo.in-fisherman;sz=260x35;camp=iftv;ord=\' + ord + \'?"><img src="http://ad.doubleclick.net/N4930/ad/imo.in-fisherman;sz=260x35;camp=iftv;ord=\' + ord + \'?" width="260" height="35" /></a>\'));
+						</script>
+						<noscript>
+						<a href="http://ad.doubleclick.net/N4930/jump/imo.in-fisherman;sz=260x35;camp=iftv;ord=[timestamp]?">
+						<img src="http://ad.doubleclick.net/N4930/ad/imo.in-fisherman;sz=260x35;camp=iftv;ord=[timestamp]?" width="260" height="35" />
+						</a>
+						</noscript>';
+
+
+
+}
 
 function infisherman_setup()
 {

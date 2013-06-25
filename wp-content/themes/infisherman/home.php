@@ -45,6 +45,9 @@ get_header(); ?>
 						<img src="http://ad.doubleclick.net/N4930/ad/imo.in-fisherman;sz=260x35;camp=iftv;ord=[timestamp]?" width="260" height="35" />
 						</a>
 						</noscript> -->
+						
+						
+						<?php //sponsor_logo(); ?>
 
                     </div>
 
