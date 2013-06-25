@@ -121,6 +121,7 @@ function pagination_after_post($content){
  
  
 include_once(CFCT_PATH.'widgets/subscribe.php');
+include_once(CFCT_PATH.'widgets/ford-widget.php');
 
 /**
  * A title callback for the article type.
@@ -228,14 +229,6 @@ function register_imo_subscribe_settings () {
     register_setting( 'imo-subs-settings-group', 'gift_link' );
     register_setting( 'imo-subs-settings-group', 'service_link' );
     register_setting( 'imo-subs-settings-group', 'magazine_cover_uri' );
-    register_setting( 'imo-subs-settings-group', 'sons_header_uri' );
-    register_setting( 'imo-subs-settings-group', 'defend_header_uri' );
-    register_setting( 'imo-subs-settings-group', 'history_header_uri' );
-    register_setting( 'imo-subs-settings-group', 'competition_header_uri' );
-    register_setting( 'imo-subs-settings-group', 'news_header_uri' );
-    register_setting( 'imo-subs-settings-group', 'zombie_header_uri' );
-    register_setting( 'imo-subs-settings-group', 'affiliates_desc_uri' );
-    register_setting( 'imo-subs-settings-group', 'ma_desc_uri' );
     register_setting( 'imo-subs-settings-group', 'subs_form_link' );
     register_setting( 'imo-subs-settings-group', 'i4ky' );
 }

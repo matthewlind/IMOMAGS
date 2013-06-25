@@ -1591,7 +1591,10 @@ a.category-name-link:hover{
 }
 .gallery-slider img {
     display:block;
-    width:100%;
+	max-width:100%;
+	margin:0 auto;
+	height:auto !important;
+	max-height:350px;
 }
 .slide-count {
     display:block;
