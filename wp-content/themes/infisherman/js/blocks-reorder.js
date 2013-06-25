@@ -48,9 +48,9 @@ jQuery(document).ready(function () {
 
             //added mode data and necessary classes to js-wrapper element
             parent_container
-                .data('browser_mode', 'iphone')
-                .data('holder_settings', true)
-                .removeClass('default-mode')
+                .data('browser_mode', 'iphone');
+                .data('holder_settings', true);
+                .removeClass('default-mode');
                 .addClass('iphone-mode');
         }
 
