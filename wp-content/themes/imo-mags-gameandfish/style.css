@@ -661,9 +661,31 @@ p.state-name{
 	padding: 0;
 	border: none;
 }
+.category-summer-family-iiyn #masthead{
+        background: url("img/iiyn-thanks.jpg") no-repeat center top;
+        width: 1022px;
+        height: 488px;
+        padding: 0;
+        border: none;
+}
+.category-fall-iiyn #masthead{
+        background: url("img/iiyn-thanks.jpg") no-repeat center top;
+        width: 1022px;
+        height: 488px;
+        padding: 0;
+        border: none;
+}
 .category-thanks-dad-iiyn h2{
 	font-family: 'Arvo', arial, serif;
 	font-weight: normal;
+}
+.category-summer-family-iiyn h2{
+        font-family: 'Arvo', arial, serif;
+        font-weight: normal;
+}
+.category-fall-iiyn h2{
+        font-family: 'Arvo', arial, serif;
+        font-weight: normal;
 }
 .iiyn-entry-page #masthead{
 	background: url("img/iiyn-entry.jpg") no-repeat center top;
@@ -677,6 +699,16 @@ p.state-name{
 	position: absolute;
 	left: -9999px;
 	height: 0px;
+}
+.category-fall-iiyn #masthead h1, .iiyn-entry-page #masthead h1{
+        position: absolute;
+        left: -9999px;
+        height: 0px;
+}
+.category-summer-family-iiyn #masthead h1, .iiyn-entry-page #masthead h1{
+        position: absolute;
+        left: -9999px;
+        height: 0px;
 }
 .iiyn{
 	width: 100%;
