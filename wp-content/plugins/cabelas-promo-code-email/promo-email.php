@@ -22,8 +22,10 @@ include 'Barcode39.php';
 
  	$formID = $form["id"];
 
+ 	_log($entry);
+
  	//If we are reciving data from the IIYN father's day form
- 	if ($formID == 32) {
+ 	if ($formID == 36) {
 
 
 	 	$entryEmail = $entry["2"];
@@ -36,7 +38,7 @@ include 'Barcode39.php';
 
 
 
-	 	$entryLocation = $entry["12.3"] . ", " . $entry["12.4"];
+	 	$entryLocation = $entry["12.3"] . ", " . $entry["17"];
 
 	 	//add_post_meta($postID,"cabelas_entry_full_name",$entryFullName);
 	 	add_post_meta($postID,"cabelas_entry_location",$entryLocation);
