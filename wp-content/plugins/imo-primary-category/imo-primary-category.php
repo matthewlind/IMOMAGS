@@ -68,6 +68,7 @@ function the_primary_category($cat_base) {
 	if($parent !=0){
 			$catParent = get_the_category_by_ID( $parent );
 			$catParent = strtolower($catParent."/"); 
+			$catParent = str_replace(" &amp; ", "-", $catParent);
 	}
 
 	if($catID){
@@ -102,6 +103,7 @@ function primary_and_secondary_categories($cat_base) {
 	if($parent !=0){
 			$catParent = get_the_category_by_ID( $parent );
 			$catParent = strtolower($catParent."/"); 
+			$catParent = str_replace(" &amp; ", "-", $catParent);
 	}
 
 
@@ -166,15 +168,19 @@ function primary_and_secondary_categories($cat_base) {
 	    $slug = $cat->slug;
 	    $name = $cat->name;
 	    
-		$parent = $cat->parent;
+		$parents = $cat->parent;
 		
-		if($parent !=0){
-			$catParent = get_the_category_by_ID( $parent );
-			$catParent = strtolower($catParent."/"); 
+		if($parents != 0){
+			$SecondaryCatParent = get_the_category_by_ID( $parents );
+			$SecondaryCatParent = str_replace(" &amp; ", "-", $SecondaryCatParent);
+			$SecondaryCatParent = strtolower($SecondaryCatParent."/"); 
+
+		}else{
+			$SecondaryCatParent = "";
 		}
-		
+
 	    if(!array_search($slug,$slugArray) && $slug != $url){
-		    $categories .= '<a class="category-name-link" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;Category&#39;,&#39;'.$cat->name.'&#39;]);" href="'.$cat_base.'/'.$catParent.$slug.'">'.$name.'</a> ';
+		    $categories .= '<a class="category-name-link" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;Category&#39;,&#39;'.$cat->name.'&#39;]);" href="'.$cat_base.'/'.$SecondaryCatParent.$slug.'">'.$name.'</a> ';
 	    }
     }
     
