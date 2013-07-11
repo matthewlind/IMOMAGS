@@ -50,8 +50,8 @@ require_once 'imo-primary-category-core.php';
 
 //Show only the primary category
 add_action('init', 'the_primary_category');
-function the_primary_category($cat_base) {
-
+function the_primary_category($cat_base = null) {
+	
 	$id = get_the_ID();
 	$allCats = get_the_category( $id );
 	
@@ -68,6 +68,9 @@ function the_primary_category($cat_base) {
 	if($parent !=0){
 			$catParent = get_the_category_by_ID( $parent );
 			$catParent = strtolower($catParent."/"); 
+			$catParent = str_replace(" &amp; ", "-", $catParent);
+	}else{
+		$catParent = "";
 	}
 
 	if($catID){
@@ -84,7 +87,7 @@ function the_primary_category($cat_base) {
 
 //Show the primary category followed by the other categories
 add_action('init', 'primary_and_secondary_categories');
-function primary_and_secondary_categories($cat_base) {
+function primary_and_secondary_categories($cat_base = null) {
 
 	$id = get_the_ID();
 	$allCats = get_the_category( $id );
@@ -102,6 +105,9 @@ function primary_and_secondary_categories($cat_base) {
 	if($parent !=0){
 			$catParent = get_the_category_by_ID( $parent );
 			$catParent = strtolower($catParent."/"); 
+			$catParent = str_replace(" &amp; ", "-", $catParent);
+	}else{
+		$catParent = "";
 	}
 
 
@@ -166,15 +172,19 @@ function primary_and_secondary_categories($cat_base) {
 	    $slug = $cat->slug;
 	    $name = $cat->name;
 	    
-		$parent = $cat->parent;
+		$parents = $cat->parent;
 		
-		if($parent !=0){
-			$catParent = get_the_category_by_ID( $parent );
-			$catParent = strtolower($catParent."/"); 
+		if($parents != 0){
+			$SecondaryCatParent = get_the_category_by_ID( $parents );
+			$SecondaryCatParent = str_replace(" &amp; ", "-", $SecondaryCatParent);
+			$SecondaryCatParent = strtolower($SecondaryCatParent."/"); 
+
+		}else{
+			$SecondaryCatParent = "";
 		}
-		
+
 	    if(!array_search($slug,$slugArray) && $slug != $url){
-		    $categories .= '<a class="category-name-link" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;Category&#39;,&#39;'.$cat->name.'&#39;]);" href="'.$cat_base.'/'.$catParent.$slug.'">'.$name.'</a> ';
+		    $categories .= '<a class="category-name-link" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;Category&#39;,&#39;'.$cat->name.'&#39;]);" href="'.$cat_base.'/'.$SecondaryCatParent.$slug.'">'.$name.'</a> ';
 	    }
     }
     
