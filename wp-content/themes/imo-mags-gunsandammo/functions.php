@@ -809,12 +809,13 @@ function custom_topics_checklist($post_id = 0, $args = array()) {
 	        $zombies = get_term_by( 'slug', 'zombies', 'category' );
 	        $competition = get_term_by( 'slug', 'competition', 'category' );
 		    $politics = get_term_by( 'slug', 'politics', 'category' );
+		    $hunting = get_term_by( 'slug', 'hunting', 'category' );
 
 		    // Create the ID array
 		    $include = array(
 		    	$reloading->term_id,$military->term_id,$historical->term_id,$tactical->term_id,
 		        $personal->term_id,$culture->term_id,$survival->term_id,$gunsmithing->term_id,
-		        $zombies->term_id,$competition->term_id,$politics->term_id
+		        $zombies->term_id,$competition->term_id,$politics->term_id,$hunting->term_id
 		    );
 
 	        extract( wp_parse_args($args, $defaults), EXTR_SKIP );

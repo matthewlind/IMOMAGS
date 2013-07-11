@@ -229,7 +229,6 @@ function custom_gun_terminology_checklist($post_id = 0, $args = array()) {
         $riflescopes = get_term_by( 'slug', 'riflescopes', 'category' );
         $long_guns = get_term_by( 'slug', 'long-guns', 'category' );
         $muzzleloaders = get_term_by( 'slug', 'muzzleloaders', 'category' );
-        $reloading = get_term_by( 'slug', 'reloading', 'category' );
 
 	    // Create the ID array
 	    $include = array(
@@ -237,7 +236,7 @@ function custom_gun_terminology_checklist($post_id = 0, $args = array()) {
 	        $rim_hand->term_id,$semi_hand->term_id,$ar15->term_id,$rifles->term_id,$bolt->term_id,
 	        $lever->term_id,$rim_rifle->term_id,$semi_rifle->term_id,$shotguns->term_id,$double->term_id,
 	        $pump_shot->term_id,$semi_shot->term_id,$airguns->term_id,$ammo->term_id,$gear->term_id,$optics->term_id,
-	        $long_guns->term_id,$muzzleloaders->term_id,$reloading->term_id,$muzzleloaders->term_id,$riflescopes->term_id
+	        $long_guns->term_id,$muzzleloaders->term_id,$muzzleloaders->term_id,$riflescopes->term_id
 	    );
 
         extract( wp_parse_args($args, $defaults), EXTR_SKIP );

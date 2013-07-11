@@ -50,8 +50,8 @@ require_once 'imo-primary-category-core.php';
 
 //Show only the primary category
 add_action('init', 'the_primary_category');
-function the_primary_category($cat_base) {
-
+function the_primary_category($cat_base = null) {
+	
 	$id = get_the_ID();
 	$allCats = get_the_category( $id );
 	
@@ -69,6 +69,8 @@ function the_primary_category($cat_base) {
 			$catParent = get_the_category_by_ID( $parent );
 			$catParent = strtolower($catParent."/"); 
 			$catParent = str_replace(" &amp; ", "-", $catParent);
+	}else{
+		$catParent = "";
 	}
 
 	if($catID){
@@ -85,7 +87,7 @@ function the_primary_category($cat_base) {
 
 //Show the primary category followed by the other categories
 add_action('init', 'primary_and_secondary_categories');
-function primary_and_secondary_categories($cat_base) {
+function primary_and_secondary_categories($cat_base = null) {
 
 	$id = get_the_ID();
 	$allCats = get_the_category( $id );
@@ -104,6 +106,8 @@ function primary_and_secondary_categories($cat_base) {
 			$catParent = get_the_category_by_ID( $parent );
 			$catParent = strtolower($catParent."/"); 
 			$catParent = str_replace(" &amp; ", "-", $catParent);
+	}else{
+		$catParent = "";
 	}
 
 

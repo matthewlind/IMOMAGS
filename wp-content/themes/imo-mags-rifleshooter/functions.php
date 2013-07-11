@@ -350,13 +350,14 @@ function custom_topics_checklist($post_id = 0, $args = array()) {
 		    $carry = get_term_by( 'slug', 'concealed-carry', 'category' );
 		    $longrange = get_term_by( 'slug', 'longrange', 'category' );
 		    $personal = get_term_by( 'slug', 'personal-defense', 'category' );
+		    $hunting = get_term_by( 'slug', 'hunting', 'category' );
 		        
 		    // Create the ID array
 		    $include = array(
 		    	$reloading->term_id,$military->term_id,$historical->term_id,$tactical->term_id,
 		        $personal->term_id,$culture->term_id,$survival->term_id,$gunsmithing->term_id,
 		        $competition->term_id,$politics->term_id,$carry->term_id,$zombie->term_id,
-		        $longrange->term_id,$personal->term_id
+		        $longrange->term_id,$personal->term_id,$hunting->term_id
 		    );
 
 	        extract( wp_parse_args($args, $defaults), EXTR_SKIP );
