@@ -162,6 +162,13 @@
 				label: "Title",
 				editable: false,
 				sortable:true,
+				formatter:
+					_.extend({}, Backgrid.CellFormatter.prototype, {
+				    	fromRaw: function (rawValue) {
+				    		console.log(that);
+				     		return rawValue + "";
+				      }
+				    }),
 				// The cell type can be a reference of a Backgrid.Cell subclass, any Backgrid.Cell subclass instances like *id* above, or a string
 				cell: "string" // This is converted to "StringCell" and a corresponding class in the Backgrid package namespace is looked up,
 

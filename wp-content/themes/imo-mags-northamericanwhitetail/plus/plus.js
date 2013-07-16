@@ -9,17 +9,17 @@ if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)
    isNotIPhone = false;
 }
 
-if ($("#community-modal").length > 0 && userIMO.username.length == 0 && $.cookie('hide_alert') == null && isNotIPhone){	
-	
+if ($("#community-modal").length > 0 && userIMO.username.length == 0 && $.cookie('hide_alert') == null && isNotIPhone){
+
 	//Contest expiration date
 	var currentTime = new Date();
 	var month = currentTime.getMonth() + 1;
 	var day = currentTime.getDate();
 	var year = currentTime.getFullYear();
 	var expDate = month + "/" + day + "/" + year;
-	
+
 	$("#community-modal").modal({
-        opacity: 50, 
+        opacity: 50,
         overlayClose: true,
         autoPosition: true,
         minHeight: 420,
@@ -43,14 +43,14 @@ $("#community-modal .app-callout").click(function(event){
 	window.location = "https://itunes.apple.com/us/app/whitetail+/id568488512?mt=8";
 });
 //email login modal
-if ($(".user-login-modal-container").length > 0){	
-	
+if ($(".user-login-modal-container").length > 0){
+
 	$(".email-login a, .email-signup").click(function(event){
 		if ($("#community-modal").length > 0){
 			$.modal.close();
 		}
     	$(".user-login-modal-container").modal({
-	        opacity: 50, 
+	        opacity: 50,
 	        overlayClose: true,
 	        autoPosition: true,
 	        height: 'auto',
@@ -63,10 +63,10 @@ if ($(".user-login-modal-container").length > 0){
 		        $(".user-login-modal-container a.hide-this").click(function(){
 			        $.modal.close();
 		        });
-		        
-		        
+
+
 		        //alert("BOB");
-		        
+
 			  //**************************
 			  //LOGIN FORM AJAX REQUEST
 			  //**************************
@@ -74,38 +74,38 @@ if ($(".user-login-modal-container").length > 0){
 			  	beforeSubmit: AjaxLoginShowRequest,
 			    success: AjaxLoginSuccessful,
 			    error: AjaxLoginError,
-			    dataType: 'json'                               
-			  });    
-			  
+			    dataType: 'json'
+			  });
+
 			  var jqueryForm;
-			  
+
 			  function AjaxLoginShowRequest(formData, jqForm, options) {
 			      var queryString = $.param(formData);
-			      
+
 			      jqueryForm = jqForm;
 			      //alert('BeforeSend method: \n\nAbout to submit: \n\n' + queryString);
 			  }
-			  
+
 			  function AjaxLoginSuccessful(responseText, statusText) {
-			  
-			  	
+
+
 				  if (responseText.error != undefined && responseText.error.length > 0)
 				  	alert(responseText.error);
 				  else {
 					  $.modal.close();
 					  $clickedButton = $('#imo-ajax-login-form #lwa_wp-submit');
-					  
+
 					  console.log($clickedButton);
 					  authSuccess(responseText,jqueryForm);
 				  }
-				  	
+
 			  }
-			  
+
 			  function AjaxLoginError() {
 				  //alert("error");
 			  }
-			
-	
+
+
 			  //**************************
 			  //Register FORM AJAX REQUEST
 			  //**************************
@@ -113,32 +113,32 @@ if ($(".user-login-modal-container").length > 0){
 			  	beforeSubmit: AjaxRegisterShowRequest,
 			    success: AjaxRegisterSuccessful,
 			    error: AjaxRegisterError,
-			    dataType: 'json'                               
-			  });    
-			  
+			    dataType: 'json'
+			  });
+
 			  function AjaxRegisterShowRequest(formData, jqForm, options) {
 			      var queryString = $.param(formData);
 			      //alert('Register BeforeSend method: \n\nAbout to submit: \n\n' + queryString);
 			  }
-			  
+
 			  function AjaxRegisterSuccessful(responseText, statusText) {
-			  
-			  	
+
+
 				  if (responseText.error != undefined && responseText.error.length > 0)
 				  	alert(responseText.error);
 				  else {
 					  $.modal.close();
 					  authSuccess(responseText);
 				  }
-				  	
+
 			  }
-			  
+
 			  function AjaxRegisterError() {
 				  //alert("error");
 			  }
-					        
-		        
-		        
+
+
+
 	        },
 	     });
      });
@@ -234,7 +234,7 @@ stateKey.YT = "Yukon";
 if (window.location.hash == '#share') {
 
 	$(".new-post-share-box").modal({
-		opacity: 50, 
+		opacity: 50,
 		overlayClose: true,
 		autoPosition: true,
 		maxWidth:475,
@@ -260,7 +260,7 @@ if ($("#recon-activity").length > 0){
 	var displayMode = $("#recon-activity").attr("display");
 	var widthMode = $("#recon-activity").attr("widthMode");
 	var state = $("#recon-activity").attr("state");
-	
+
 	if (displayMode == "tile") { //then show some tiles
 		displayRecon(term);
 
@@ -274,9 +274,9 @@ if ($("#recon-activity").length > 0){
 
 //Display the user posts
 if ($("#user-activity").length > 0){
-	
+
 	var userID = $("#user-activity").attr("user");
-	
+
 	displayUserPosts(userID);
 }
 
@@ -285,9 +285,9 @@ $(".single-flag-button").click(function(){
 
 	$thisFlagButton = $(this);
 
-	if (confirm("Are you sure you want to flag this post as inappropriate?")) { 
+	if (confirm("Are you sure you want to flag this post as inappropriate?")) {
     	var spid = $thisFlagButton.attr("spid");
-       	$.post("/slim//api/post/flag", { post_id: spid, etype: "flag", user_id: userIMO.user_id } );  	
+       	$.post("/slim//api/post/flag", { post_id: spid, etype: "flag", user_id: userIMO.user_id } );
     	//$reconBox.fadeOut();
     	$thisFlagButton.find('img').attr("src","/wp-content/themes/imo-mags-northamericanwhitetail/img/flag-button-red.png");
     }
@@ -299,29 +299,50 @@ $(".single-flag-button").click(function(){
 $(".editor-functions").change(function(){
 
 
-	
+
 	var etype = $(this).val();
 
-	
+
 	var postData = userIMO;
-	
+
 	postData.post_id = $(this).attr("spid");
 	postData.etype = etype;
-	
+
 	if (etype == "edit") {
-	
+
 		var url = "/edit-your-post/?post_id=" + postData.post_id;
 		window.location = url;
-		
+
+	} else if (etype == "delete") {
+
+		$.ajax({
+		    url: '/community-api/posts/' + postData.post_id,
+		    type: 'DELETE',
+		    data: postData,
+		    success: function(data) {
+		        if (data.error) {
+					alert(data.error);
+				} else {
+					alert("delete done!");
+				}
+		    }
+		});
+
+	} else if (etype == "contact") {
+
+		window.location.href = "mailto:" + $(this).attr("email");
+
 	} else {
 		$.post("/slim/api/post/flagadmin", postData, function(data){
-			
+
 			if (data.error) {
 				alert(data.error);
-			}				
-		});  
+			} else {
+				alert(etype + " done!");
+			}
+		});
 	}
-	
+
 
 
 });
@@ -331,8 +352,8 @@ $(".editor-functions").change(function(){
 /* ON ICE
 //**************************
 //COMMUNITY PAGE ACTIONS
-//************************** 
-  
+//**************************
+
   //Show the community posts and hide the list and sidebar
 	$('#rut.title a').click(function(){
 		$(".community").fadeOut();
@@ -345,18 +366,18 @@ $(".editor-functions").change(function(){
 		displayMode = $(this).attr("display");
 
 		displayAtOnce = 6;
-		
+
 		currentDisplayStart = 0;
-		
+
 
 		if (displayMode == "tile") { //then show some tiles
 			displayRecon(term);
-	
+
 		} else { //then show the list
 			displayReconList(term);
 		}
 		$("ul.post-type-select li.selected").removeClass("selected");
-		$("ul.post-type-select li").hasClass("report-nav").addClass("selected");		
+		$("ul.post-type-select li").hasClass("report-nav").addClass("selected");
 
 	});
 	// Show the list and sidebar again and hide the back button
@@ -365,20 +386,20 @@ $(".editor-functions").change(function(){
 		$(".bonus-background").fadeIn();
 		$(".super-header").fadeIn();
 		$(".back-to-community").fadeOut();
-		
+
 		$("#recon-activity").attr("term","all");
 		$("#recon-activity").attr("display","tile");
 		term = $(this).attr("term");
 		displayMode = $(this).attr("display");
 
 		displayAtOnce = 6;
-		
+
 		currentDisplayStart = 0;
-		
+
 
 		if (displayMode == "tile") { //then show some tiles
 			displayRecon(term);
-	
+
 		} else { //then show the list
 			displayReconList(term);
 		}
@@ -387,50 +408,50 @@ $(".editor-functions").change(function(){
 */
 //activate Recon Network Controls - tabs
 $("ul.post-type-select li.change").click(function(){
-	
+
 	var postType = $(this).attr('title');
-	
+
 	currentDisplayStart = 0;
 	if (postType == "report" || postType == "general" || postType == "tip" || postType == "lifestyle"){
 		displayMode = "list";
 	}else{
 		displayMode = "tile";
 	}
-	
-	
+
+
 	if (displayMode == "tile") { //then show some tiles
 		displayRecon(postType);
 
 	} else { //then show the list
 		displayReconList(postType);
-		
+
 	}
 
 	$("ul.post-type-select li.selected").removeClass("selected");
-	$(this).addClass("selected");	
+	$(this).addClass("selected");
 });
 // recent posts tab on user profile page
 $("ul.post-type-select li.user-profile").click(function(){
-	
+
 	var userID = $(this).attr('user');
 	var display = $(this).attr('display');
-	
+
 	currentDisplayStart = 0;
-	if (display == "recent") { 
+	if (display == "recent") {
 		displayUserPosts(userID);
-	}else{ 
+	}else{
 		displayUserComments(userID);
 	}
 
 	$("ul.post-type-select li.selected").removeClass("selected");
-	$(this).addClass("selected");	
+	$(this).addClass("selected");
 });
 
 
 
 //activate Recon Network Controls - more button
 $("#more-superposts-button").click(function(){
-	
+
 	var postType = $("ul.post-type-select li.selected").attr("title");
 	currentDisplayStart += displayAtOnce;
 	if (displayMode == "tile") { //then show some tiles
@@ -445,16 +466,16 @@ $("#more-superposts-button").click(function(){
 
 //activate Recon Network Controls - more button for community pages
 $("#more-community-button").click(function(){
-	
+
 	var postType = $(".page-community #recon-activity").attr("term");
 	currentDisplayStart += displayAtOnce;
-	
+
 	displayReconList(postType);
 
 
 });
 
-	
+
 
 //activate Recon Network Controls - Toggle Display Button
 $("#toggle-display-button").click(function(){
@@ -469,7 +490,7 @@ $("#toggle-display-button").click(function(){
 		displayRecon(postType);
 		displayMode = "tile";
 	}
-	
+
 });
 
 //activate Recon Network Controls - Toggle List Button
@@ -482,7 +503,7 @@ $("#toggle-list").click(function(){
 
 		displayReconList(postType);
 		displayMode = "list";
-	
+
 });
 
 //activate Recon Network Controls - Toggle Tile Button
@@ -492,11 +513,11 @@ $("#toggle-tile").click(function(){
 	$("#toggle-tile").removeClass("tile-off").addClass("tile-on");
 	$("#toggle-list").removeClass("list-on").addClass("list-off");
 	var postType = $("ul.post-type-select li.selected").attr("title");
-	
+
 		displayRecon(postType);
 		displayMode = "tile";
-	
-	
+
+
 });
 
 //Hide popup elements on click
@@ -509,87 +530,87 @@ $(document).click(function() {
 function displayRecon(type) {
 	//var photo = $("#recon-activity").attr("photo");
 	//Hide posts before the AJAX Request
-	
+
 	if (currentDisplayStart == 0) {
 		$("#recon-activity").html("");
 	}
-	
-	
+
+
 	if ($("#recon-activity").attr("state") !== undefined){
-		var dataURL = "/slim/api/superpost/state/" + state + "/type/" + type;  	
+		var dataURL = "/slim/api/superpost/state/" + state + "/type/" + type;
 	}else{
-		var dataURL = "/slim/api/superpost/photos/" + type;   	
+		var dataURL = "/slim/api/superpost/photos/" + type;
 	}
-		
+
 	dataURL += "/" + displayAtOnce;
 	dataURL += "/" + currentDisplayStart;
 
     var getdata = $.getJSON(dataURL, function(data) {
-    
+
     	if(data.length > 0){
 	    	$("#no-activity").hide();
 	    }else if(data.length > displayAtOnce){
 	    	$("#more-community-button").show();
 	    }
-	    
+
 	    //if no posts are returned, hide the more button
 	    if (data.length == 0)
 	    	$("#more-superposts-button").fadeOut();
-	    
+
 	    //console.log(data.length);
 	    var count = 0;
 	    $(data).each(function(index,post) {
 	    	count++;
-	    
+
 	    	//console.log(post);
-	    	
+
 	    	var url = "/plus/" + post.post_type + "/" + post.id;
 	        var link = $("<a href='" + url + "'>");
 
 	        var randomnumber=Math.floor(Math.random()*3); //Get randomColor
-	        
+
 	        if (post.display_name)
 	        	var firstName = post.display_name.split(" ")[0];
 	        else {
 		        var firstName = post.username;
 		        post.display_name = post.username;
 	        }
-	        	
-	        	
+
+
 	        var nicePostType = "General Discussion";
 	        if (topicKey[post.post_type]) {
 		        nicePostType = topicKey[post.post_type];
 	        } else {
 		        nicePostType = post.post_type;
 	        }
-	    	 
+
 	    	if(this.post_type == "report" && this.state !== undefined && this.state !== "" && this.state !== null && this.state !== "NA"){
 	    		var niceState = stateKey[post.state] + " ";
-		    	
+
 		    }else{
-			    niceState = "";			  
+			    niceState = "";
 		    }
-		    
+
 		    if(post.comment_count == 1){
 			    niceReply = post.comment_count + " Reply";
 		    }else{
 			    niceReply = post.comment_count + " Replies";
 		    }
-		    
+
 		     if(post.comment_count == 1){
 			    nicePoint = post.score + " Point";
 		    }else{
 			    nicePoint = post.score + " Points";
 		    }
-		    
+
 	    	//*********************START LACONIC $reconBox********************
-	    	
-				var reconBox = 	    	
+
+				var reconBox =
 				$.el.div({'class':'recon-box masonry-box masonry-brick','id':'recon-box-' + post.id},
 					$.el.a({'class':'flag-button'},
 						$.el.img({'src':'/wp-content/themes/imo-mags-northamericanwhitetail/img/flag-button-gray.png','class':'flag-image'})
-					),					
-					
+					),
+
 
 					$.el.a({'href':url},
 						$.el.div({'class':'recon-title-box cover-pic'},
@@ -608,7 +629,7 @@ function displayRecon(type) {
 					),
 					$.el.a({'href':'/profile/' + post.username},
 					$.el.img({'src':'/avatar?uid=' + post.user_id,'class':'recon-gravatar'})
-					
+
 						),
 					$.el.div({'class':'under-box'},
 						$.el.a({'href':'/profile/' + post.username},
@@ -616,19 +637,19 @@ function displayRecon(type) {
 								$.el.span({'class':'author-name'},post.display_name),
 								" in ",
 								$.el.span({'class':'author-action'},niceState + nicePostType)
-								
+
 							)
 						),
-						
+
 						$.el.abbr({'class':'recon-date timeago','title':post.created}),
 						$.el.a({'href':url},
 							$.el.span({'class':'comment-count'}, niceReply),
 							" • ",
 							$.el.span({'class':'point-count'},nicePoint)
 						)
-					)		
+					)
 				);
-	
+
 
 //console.log(reconBox);
 
@@ -636,11 +657,11 @@ function displayRecon(type) {
 			//*********************END LACONIC $reconBox********************
 			//*********************ADD jQuery EVENTS to $reconBox********************
 			var $reconBox = $(reconBox);
-			
-			
+
+
 
 			//Add editor tools
-			if (userIMO.perms == "editor") {		
+			if (userIMO.perms == "editor") {
 				var $editorTools = $(
 					$.el.select({'class':'editor-functions'},
 						$.el.option("EDITOR OPTIONS"),
@@ -648,54 +669,54 @@ function displayRecon(type) {
 						$.el.option({'value':'unapprove'},"Unapprove"),
 						$.el.option({'value':'teflon'},"Teflon")
 					)
-				);		
-				
+				);
+
 				$editorTools.change(function(){
 					var etype = $editorTools.val();
-					
+
 					$reconBox = $(this).closest(".recon-box");
-					
+
 					var postData = userIMO;
-					
+
 					postData.post_id = $reconBox.data("post_id");
 					postData.etype = etype;
-					
+
 					if (etype == "unapprove")
 						$reconBox.find(".flag-image").attr("src","/wp-content/themes/imo-mags-northamericanwhitetail/img/flag-button-red.png");
-					
-					
+
+
 					if (etype == "edit") {
-	
+
 						var url = "/edit-your-post/?post_id=" + postData.post_id;
 						window.location = url;
-						
+
 					} else {
-					
+
 						$.post("/slim/api/post/flagadmin", postData, function(data){
-							
+
 							if (data.error) {
 								alert(data.error);
-							}				
-						});  
-						
+							}
+						});
+
 					}
-				});	
+				});
 				$reconBox.prepend($editorTools);
 				//End editor tools
-				
-				
+
+
 			}
-			
-			
-			
+
+
+
 			//Add data so that we can flag later
 			$reconBox.data("post_id",post.id);
-			
+
 			//If there is no picture, remove the <img>
 			if (!post.img_url)
 				$reconBox.find("img.superpost-thumb").remove();
-			
-			
+
+
 			//Add hover effects
 			$reconBox.find("div.detector-box").hover(function(){
 	        	if (post.img_url) {
@@ -704,38 +725,38 @@ function displayRecon(type) {
 
 
 	        });
-	        
+
 	        //Add Flag Reporting
 	        //isset($params['post_id']) && isset($params['etype']) && isset($params['user_id']
 	        $reconBox.find(".flag-button").click(function(){
-		    	if (confirm("Are you sure you want to flag this post as inappropriate?")) { 
+		    	if (confirm("Are you sure you want to flag this post as inappropriate?")) {
 			    	$reconBox = $(this).closest(".recon-box");
-			    	$.post("/slim//api/post/flag", { post_id: $reconBox.data("post_id"), etype: "flag", user_id: userIMO.user_id } );  	
+			    	$.post("/slim//api/post/flag", { post_id: $reconBox.data("post_id"), etype: "flag", user_id: userIMO.user_id } );
 			    	//$reconBox.fadeOut();
 			    	$reconBox.find(".flag-image").attr("src","/wp-content/themes/imo-mags-northamericanwhitetail/img/flag-button-red.png");
 			}
-		        
+
 	        });
 
 			//gravatar.data('user_id',post.user_id);
-			
+
 			//Append the Laconic reconBox
 	        //$("#recon-activity").append($reconBox);
 	        $reconBox.hide().appendTo("#recon-activity").fadeIn();
 
 	        if ($(data).length == count) {
-	        
 
-	        
+
+
 	        	beforeImageLoaded();
-	        		        
+
 	            $("#recon-activity").imagesLoaded( function(){
 
 	            	//afterImageLoaded();
-	                
+
 	            });
 	        }
-	        
+
 	    });
 
 	});
@@ -749,12 +770,12 @@ function displayUserPosts(userID) {
 	if (currentDisplayStart == 0) {
 		$("#user-activity").html("");
 	}
-		
-	
-	var dataURL = "/slim/api/superpost/user/posts/" + userID;  	
+
+
+	var dataURL = "/slim/api/superpost/user/posts/" + userID;
 
     var getdata = $.getJSON(dataURL, function(data) {
-    
+
 	    //$(".animal-container").html("");
 	    if(data.length < 1){
 	    	$("#no-activity").show();
@@ -762,10 +783,10 @@ function displayUserPosts(userID) {
 		    $("#no-activity").fadeOut();
 	    }
 	    var count = 0;
-	    
+
 	    $(data).each(function(index) {
 	        count++;
-	        
+
 	        var url = "/plus/" + this.post_type + "/" + this.id;
 	        var link = $("<a href='" + url + "'>");
 
@@ -805,28 +826,28 @@ function displayUserPosts(userID) {
 
 
 	        if (this.img_url) {
-	   			
+
 	   			link.append(image);
 	        	imageBox.append(link);
-	        	
-	        
+
+
 	        }
 
-	        
+
 	        underBox.append(userDetailsBox);
 	        underBox.append(gravatar);
 	        underBox.append(authorInfo);
 	        if(this.post_type != "question"){
 		        underBox.append(underTitle);
 	        }
-	        
+
 	        underBox.append(date);
 
 	        detectorBox.hover(function(){
 	        	if (imgUrl) {
 	        		$(this).parent().parent().find(".recon-title-box").stop().fadeToggle();
 	        	}
-	        	
+
 
 	        });
 
@@ -846,16 +867,16 @@ function displayUserPosts(userID) {
 	        	titleBox.addClass("cover-pic");
 	        }
 
-	      	
+
 
 	        reconBox.append(imageBox);
 	        reconBox.append(underBox);
-	        
+
 	        //Add data so that we can flag later
 			reconBox.data("post_id",this.id);
-	        
+
 	        //Add editor tools
-			if (userIMO.perms == "editor") {		
+			if (userIMO.perms == "editor") {
 				var $editorTools = $(
 					$.el.select({'class':'editor-functions'},
 						$.el.option("EDITOR OPTIONS"),
@@ -863,36 +884,36 @@ function displayUserPosts(userID) {
 						$.el.option({'value':'unapprove'},"Unapprove"),
 						$.el.option({'value':'teflon'},"Teflon")
 					)
-				);		
-				
+				);
+
 				$editorTools.change(function(){
 					var etype = $editorTools.val();
-					
+
 					$reconBox = $(this).closest(".recon-box");
-					
+
 					var postData = userIMO;
-					
+
 					postData.post_id = $reconBox.data("post_id");
 					postData.etype = etype;
-					
+
 					if (etype == "unapprove")
 						$reconBox.find(".flag-image").attr("src","/wp-content/themes/imo-mags-northamericanwhitetail/img/flag-button-red.png");
-					
+
 					if (etype == "edit") {
-					
+
 						var url = "/edit-your-post/?post_id=" + postData.post_id;
 						window.location = url;
-						
+
 					} else {
 						$.post("/slim/api/post/flagadmin", postData, function(data){
-							
+
 							if (data.error) {
 								alert(data.error);
-							}				
-						});  
+							}
+						});
 					}
-				});	
-				
+				});
+
 				reconBox.find(".detector-box").prepend($editorTools);
 			}
 			//End editor tools
@@ -900,11 +921,11 @@ function displayUserPosts(userID) {
 	        $("#user-activity").append(reconBox);
 
 	        if ($(data).length == count) {
-	        
+
 	            $("#user-activity").imagesLoaded( function(){
 
 	            	afterImageLoaded();
-	                
+
 	            });
 	        }
 	    });
@@ -914,7 +935,7 @@ function displayUserPosts(userID) {
 } //End function displayUserPosts()
 
 function beforeImageLoaded() {
-	
+
 	afterImageLoaded(false);
 }
 
@@ -952,7 +973,7 @@ function afterImageLoaded(animated) {
             itemSelector: masonryItemSelector,
             isAnimated: animated,
     });
-    	
+
     }
     //reset masonry for user profile
     if ($('#user-activity').hasClass("masonry")) {
@@ -965,7 +986,7 @@ function afterImageLoaded(animated) {
             itemSelector: masonryItemSelector,
             isAnimated: animated,
     });
-    	
+
     }
 
 
@@ -974,7 +995,7 @@ function afterImageLoaded(animated) {
 /*
 	$("img.recon-gravatar").click(function(e){
 		e.stopPropagation();
-		
+
 		var UnderBox = $(this).closest(".under-box");
 
 		UnderBox.find(".user-details-box").toggle(300);
@@ -983,9 +1004,9 @@ function afterImageLoaded(animated) {
 		var user_id = $(this).data("user_id");
 		var username = $(this).data("username");
 
-		var dataURL = "/slim/api/superpost/user/counts/" + user_id;  	
+		var dataURL = "/slim/api/superpost/user/counts/" + user_id;
 	    var getdata = $.getJSON(dataURL, function(data) {
-	    	
+
 	    	var countData = new Array();
 
 	    	$(data).each(function(){
@@ -1007,7 +1028,7 @@ function afterImageLoaded(animated) {
 	    		UnderBox.find(".stats-box").append(statBox);
 
 	    	});
-		
+
 	    });
 
 		//userDetailsBox.append(nameBox);
@@ -1026,11 +1047,11 @@ function displayReconList(type) {
 	if (currentDisplayStart == 0) {
 		$("#recon-activity").html("");
 	}
-		
+
 	if ($("#recon-activity").attr("state") !== undefined){
-		var dataURL = "/slim/api/superpost/state/" + state + "/type/" + type;  	
+		var dataURL = "/slim/api/superpost/state/" + state + "/type/" + type;
 	}else{
-		var dataURL = "/slim/api/superpost/type/" + type;  	
+		var dataURL = "/slim/api/superpost/type/" + type;
 	}
 	dataURL += "/" + displayAtOnce;
 	dataURL += "/" + currentDisplayStart;
@@ -1043,14 +1064,14 @@ function displayReconList(type) {
 	    }else if(data.length > displayAtOnce){
 	    	$("#more-community-button").show();
 	    }
-	    
+
 	    //if no posts are returned, hide the more button
 	    if (data.length == 0)
 	    	$("#more-community-button").fadeOut();
 
 
 	    //$(".animal-container").html("");
-	    
+
 	    var count = 0;
 	    $(data).each(function(index) {
 	        count++;
@@ -1066,7 +1087,7 @@ function displayReconList(type) {
 
 	        var url = "/plus/" + this.post_type + "/" + this.id;
 
-	        
+
 	        var image = $("<a href='" + url + "'><img class='superpost-list-thumb' src='" + this.img_url + "'></a>")
 
 
@@ -1076,35 +1097,35 @@ function displayReconList(type) {
 			var statsBox = $("<div class='stats-box'></div>");
 
 			var points = parseInt(this.comment_count) + parseInt(this.share_count);
-			
+
 			if (!this.display_name) {
 				this.display_name = this.username;
 			}
-			
+
 			if(this.comment_count == 1){
 			    niceReply = this.comment_count + " Reply";
 		    }else{
 			    niceReply = this.comment_count + " Replies";
 		    }
-		    
+
 		    if(this.view_count == 1){
 			    niceView = this.view_count + " View";
 		    }else{
 			    niceView = this.view_count + " Views";
 		    }
-		    
+
 		    if(this.score == 1){
 			    nicePoint = points + " Point";
 		    }else{
 			    nicePoint = points + " Points";
 		    }
-			
+
 				//if(this.post_type == "report"  && this.state !== undefined && this.state !== "" && this.state !== null){
-					
+
 					niceState = stateKey[this.state];
-				
-				
-				
+
+
+
 					if (niceState == 'New York'){
 						state_slug = 'new-york';
 					}else if (niceState == 'Rhode Island'){
@@ -1136,34 +1157,34 @@ function displayReconList(type) {
 					}else{
 						state_slug = stateKey[this.state];
 					}
-					
+
 					//var state_url = "<div class='state-type'><a href='/community/report/" + state_slug.toLowerCase() + "'>" + niceState + "</a></div>";
-					
+
 			   // }else{
 				   // state_url = "";
 			   // }
-			    
+
 			    //" + state_url + "\
-			    
+
 			    //Handle blank titles
 			   	if(this.post_type == "report"){
 				   	var defaultTitle = "My Rut Report";
 			   	}else if(this.post_type == "general"){
 			   		defaultTitle = "My General Discussion"
-			   	}else if(this.post_type == "question"){	
+			   	}else if(this.post_type == "question"){
 			   		defaultTitle = "My Question"
 			   	}else if(this.post_type == "tip"){
 			   		defaultTitle = "My Tip & Tactic"
 			   	}
-			   		   
+
 			    if(this.title){
 				    var postTitle = "<div class='row-title'><a href='" + url + "'>" + this.title + "</a></div>"
 			    }else{
 				    postTitle = "<div class='row-title'><a href='" + url + "'>" + defaultTitle + "</a>"
 			    }
-			//underBox.append(date);	
+			//underBox.append(date);
 			//var $avatar $("<img class='recon-gravatar'>").attr("src","avatar?uid=" + this.user_id);
-			
+
 			//" + state_url + "\
 			var category_type = " in <a href=/question/'>" + this.secondary_post_type + "</a>";
 			var reconRow = $("\
@@ -1185,8 +1206,8 @@ function displayReconList(type) {
 							<div class='list-flag'><a href='#' class='list-flag-button'></a></div>\
 						</div>\
 				</div>");
-				
-				
+
+
 			//Add Flag Reporting
 	        //isset($params['post_id']) && isset($params['etype']) && isset($params['user_id']
 
@@ -1194,23 +1215,23 @@ function displayReconList(type) {
 	        reconRow.find(".list-flag-button").click(function(event){
 
 	        	event.preventDefault();
-		    	if (confirm("Are you sure you want to flag this post as inappropriate?")) { 
+		    	if (confirm("Are you sure you want to flag this post as inappropriate?")) {
 			    	reconRow = $(this).closest(".recon-row");
 			    	$(this).css("background-image","url('/wp-content/themes/imo-mags-northamericanwhitetail/img/red-flag.png')");
-			    	$.post("/slim//api/post/flag", { post_id: reconRow.data("post_id"), etype: "flag", user_id: userIMO.user_id } );  	
+			    	$.post("/slim//api/post/flag", { post_id: reconRow.data("post_id"), etype: "flag", user_id: userIMO.user_id } );
 
 
 			    }
 
 	        });
-	        
-	        
-	        
+
+
+
 	        //Add data so that we can flag later
 			reconRow.data("post_id",this.id);
-	        
+
 	        //Add editor tools
-			if (userIMO.perms == "editor") {		
+			if (userIMO.perms == "editor") {
 				var $editorTools = $(
 					$.el.select({'class':'editor-functions'},
 						$.el.option("EDITOR OPTIONS"),
@@ -1218,43 +1239,43 @@ function displayReconList(type) {
 						$.el.option({'value':'unapprove'},"Unapprove"),
 						$.el.option({'value':'teflon'},"Teflon")
 					)
-				);		
-				
+				);
+
 				$editorTools.change(function(){
 					var etype = $editorTools.val();
-					
+
 					$reconRow = $(this).closest(".recon-row");
-					
+
 					var postData = userIMO;
-					
+
 					postData.post_id = $reconRow.data("post_id");
 					postData.etype = etype;
-					
+
 					if (etype == "unapprove")
-						$reconRow.find(".list-flag-button").css("background-image","url('/wp-content/themes/imo-mags-northamericanwhitetail/img/red-flag.png')");				
-					
-					
+						$reconRow.find(".list-flag-button").css("background-image","url('/wp-content/themes/imo-mags-northamericanwhitetail/img/red-flag.png')");
+
+
 					if (etype == "edit") {
-					
+
 						var url = "/edit-your-post/?post_id=" + postData.post_id;
 						window.location = url;
-						
+
 					} else {
 						$.post("/slim/api/post/flagadmin", postData, function(data){
-							
+
 							if (data.error) {
 								alert(data.error);
-							}				
-						});  
+							}
+						});
 					}
-				});	
-				
+				});
+
 				reconRow.prepend($editorTools);
 			}
 			//End editor tools
-	        
-	        
-			
+
+
+
 			$("#recon-activity").append(reconRow);
 
 			userDetailsBox.append(nameBox);
@@ -1265,11 +1286,11 @@ function displayReconList(type) {
 	        gravatar.data('user_id',this.user_id);
 	        gravatar.data('username',this.username);
 
-	 
+
 	        if (this.img_url) {
 	        	//imageBox.append(image);
 	        	reconRow.find("ul").prepend($("<li class='row-image'>").append(image.width(90)));
-	        	
+
 	        } else {
 	        	reconRow.find("div.row-info").addClass("no-image");
 	        	reconRow.find("li.user-avatar").addClass("no-image-clear");
@@ -1282,10 +1303,10 @@ function displayReconList(type) {
 
 	            	$(".recon-row:odd").addClass("odd");
 	            	afterImageLoaded();
-	                
+
 	            });
 	        }
-	        
+
 	    });
 
 	});
@@ -1298,12 +1319,12 @@ function displayUserComments(userID) {
 	if (currentDisplayStart == 0) {
 		$("#user-activity").html("");
 	}
-		
 
-	var dataURL = "/slim/api/superpost/user/comments/" + userID;  	
+
+	var dataURL = "/slim/api/superpost/user/comments/" + userID;
 
     var getdata = $.getJSON(dataURL, function(data) {
-    
+
 	    //$(".animal-container").html("");
 	    if(data.length < 1){
 	    	$("#no-activity").show();
@@ -1339,7 +1360,7 @@ function displayUserComments(userID) {
 			}else{
 				encoded = this.comment_body;
 			}
-			
+
 			var nicePostType = "General Discussion";
 	        if (topicKey[this.rent_type]) {
 		        nicePostType = topicKey[this.rent_type];
@@ -1347,7 +1368,7 @@ function displayUserComments(userID) {
 		        nicePostType = this.rent_type;
 	        }
 
-			
+
 			var reconRow = $("\
 				<div class='recon-row masonry-box'>\
 					<ul>\
@@ -1371,11 +1392,11 @@ function displayUserComments(userID) {
 	        gravatar.data('user_id',this.user_id);
 	        gravatar.data('username',this.username);
 
-	 
+
 	        if (this.img_url) {
 	        	//imageBox.append(image);
 	        	reconRow.find("ul").prepend($("<li class='row-image'>").append(image.width(90)));
-	        	
+
 	        } else {
 	        	reconRow.find("div.row-info").addClass("no-image");
 	        }
@@ -1389,10 +1410,10 @@ function displayUserComments(userID) {
 	            	afterImageLoaded();
 	            	//set back to tile for future tab click
 	            	displayMode = "tile";
-	                
+
 	            });
 	        }
-	        
+
 	    });
 
 	});
@@ -1410,13 +1431,13 @@ function capitaliseFirstLetter(string)
 $(document).ready(function(){
 	var type = "question";
 	showAtOnce = 10;
-	var dataURL = "/slim/api/superpost/type/" + type +"/" + showAtOnce + "/0";  	
+	var dataURL = "/slim/api/superpost/type/" + type +"/" + showAtOnce + "/0";
 	var getdata = $.getJSON(dataURL, function(data) {
-		
+
 		var $questionTemplate;
-				
-		$.each(data, function(index, question) { 
-		
+
+		$.each(data, function(index, question) {
+
 			$questionTemplate = $("ul#slides-questions li").eq(index);
 			if(question.title.length > 61){
 				var qTitle = question.title.substring(0,60) + "...";
@@ -1426,13 +1447,13 @@ $(document).ready(function(){
 			var url = "/plus/question/" + question.id;
 			var gravatar = $questionTemplate.find(".user-info img").attr("src","/avatar?uid=" + question.user_id);
 			if(question.display_name){
-				$questionTemplate.find(".user-info a.username").text(question.display_name); 
+				$questionTemplate.find(".user-info a.username").text(question.display_name);
 			}else{
-				$questionTemplate.find(".user-info a.username").text(question.username); 
+				$questionTemplate.find(".user-info a.username").text(question.username);
 			}
-			$questionTemplate.find(".user-info a.username").text(question.display_name); 
+			$questionTemplate.find(".user-info a.username").text(question.display_name);
 			$questionTemplate.find(".user-info a").attr("href","/profile/" + question.username);
-			
+
 			$questionTemplate.find("h4.quote a").attr("href",url).text(qTitle);
 			$questionTemplate.find(".mdl a").attr("href",url);
 			if(question.img_url){
@@ -1451,26 +1472,26 @@ $(document).ready(function(){
 			}
 			$questionTemplate.find("span.count").text(question.comment_count);
 
-		});	
-		if (typeof $questionTemplate != "undefined") 				
+		});
+		if (typeof $questionTemplate != "undefined")
 			$questionTemplate.appendTo(".questions-feed").fadeIn();
 	});
 
 }); //End display questions
-	
-// Questions List Widget	
+
+// Questions List Widget
 $(document).ready(function(){
 
-	
+
 
 	var type = "question";
 	showAtOnce = 5;
-	var dataURL = "/slim/api/superpost/type/" + type +"/" + showAtOnce + "/0";  	
+	var dataURL = "/slim/api/superpost/type/" + type +"/" + showAtOnce + "/0";
 	var getdata = $.getJSON(dataURL, function(data) {
-		
+
 		var $questionTemplate;
-				
-		$.each(data, function(index, question) { 
+
+		$.each(data, function(index, question) {
 			var url = "/plus/question/" + question.id;
 			$questionTemplate = $("#questions-list-widget .loop ul").eq(index);
 			$questionTemplate.find("a").attr("href",url);
@@ -1485,16 +1506,16 @@ $(document).ready(function(){
 			}else{
 				$questionTemplate.find("li.replies").text(question.comment_count + " Answers");
 			}
-			
-		});	
-		
-		if (typeof $questionTemplate != "undefined") 		
+
+		});
+
+		if (typeof $questionTemplate != "undefined")
 			$questionTemplate.appendTo("#questions-list-widget");
 		$("#questions-list-widget").fadeIn();
-	
+
 	});
-	
-	
+
+
 
 }); //End list questions
 
@@ -1503,85 +1524,85 @@ $(document).ready(function(){
 $(document).ready(function(){
 	var type = "all";
 	showAtOnce = 12;
-	var dataURL = "/slim/api/superpost/views/" + type +"/" + showAtOnce + "/0";  	
+	var dataURL = "/slim/api/superpost/views/" + type +"/" + showAtOnce + "/0";
 	var getdata = $.getJSON(dataURL, function(data) {
-		
+
 		var $questionTemplate;
-		
-		$.each(data, function(index, all) { 
+
+		$.each(data, function(index, all) {
 				$questionTemplate = $("ul#scroll-widget li").eq(index);
 				$questionTemplate.find("a").attr("href","/plus/" + all.post_type + "/" + all.id);
 				$questionTemplate.find("img").attr("src",all.img_url);
 				$questionTemplate.find("span").text(all.view_count + " Views");
-		});							
-	$questionTemplate.appendTo("ul#scroll-widget.scroll").fadeIn();	
+		});
+	$questionTemplate.appendTo("ul#scroll-widget.scroll").fadeIn();
 	});
 
-}); //End 
+}); //End
 
 // Honepage grid display
 $(document).ready(function(){
 	var type = "all";
 	showAtOnce = 12;
-	var dataURL = "/slim/api/superpost/photos/" + type + "/" + showAtOnce + "/0";  	
+	var dataURL = "/slim/api/superpost/photos/" + type + "/" + showAtOnce + "/0";
 	var getdata = $.getJSON(dataURL, function(data) {
 
 		var $questionTemplate;
-		
-		$.each(data, function(index, all) { 
+
+		$.each(data, function(index, all) {
 				$questionTemplate = $("ul#homepage-grid li").eq(index);
 				$questionTemplate.find("a").attr("href","/plus/" + all.post_type + "/" + all.id);
 				$questionTemplate.find("img").attr("src",all.img_url);
 				$questionTemplate.find("span").text(all.view_count + " Views");
-		
-		});							
-	$questionTemplate.appendTo("ul#homepage-grid").fadeIn();	
+
+		});
+	$questionTemplate.appendTo("ul#homepage-grid").fadeIn();
 	});
 
-}); //End 
+}); //End
 
 // Sidebar grid display
 $(document).ready(function(){
 	var type = "all";
 	showAtOnce = 9;
-	var dataURL = "/slim/api/superpost/photos/" + type + "/" + showAtOnce + "/0";  	
+	var dataURL = "/slim/api/superpost/photos/" + type + "/" + showAtOnce + "/0";
 	var getdata = $.getJSON(dataURL, function(data) {
 
 		var $questionTemplate;
-		
-		$.each(data, function(index, all) { 
+
+		$.each(data, function(index, all) {
 				$questionTemplate = $("ul#sidebar-grid li").eq(index);
 				$questionTemplate.find("a").attr("href","/plus/" + all.post_type + "/" + all.id);
 				$questionTemplate.find("img").attr("src",all.img_url);
 				$questionTemplate.find("span").text(all.view_count + " Views");
-		
-		});							
-	$questionTemplate.appendTo("ul#sidebar-grid").fadeIn();	
+
+		});
+	$questionTemplate.appendTo("ul#sidebar-grid").fadeIn();
 	});
 
-}); //End 
+}); //End
 
 // Top Users by Score
 /*$(document).ready(function(){
 	showAtOnce = 10;
-	var dataURL = "/slim/api/superpost/top_users/all/" + showAtOnce + "/0";  	
+	var dataURL = "/slim/api/superpost/top_users/all/" + showAtOnce + "/0";
 	var getdata = $.getJSON(dataURL, function(data) {
 
 		var $topUserTemplate;
-		
-		$.each(data, function(index, topScore) { 
+
+		$.each(data, function(index, topScore) {
 				$topUserTemplate = $(".top-users ul").eq(index);
 				$topUserTemplate.find("a").attr("href","/profile/" + topScore.username);
 				$topUserTemplate.find(".name a").attr("href","/profile/" + topScore.username);
 				$topUserTemplate.find("img").attr("src","/avatar?uid=" + topScore.user_id);
 				$topUserTemplate.find(".name").text(topScore.display_name);
 				$topUserTemplate.find(".score").text(topScore.score);
-		
-		});							
-	$topUserTemplate.appendTo(".top-users").fadeIn();	
+
+		});
+	$topUserTemplate.appendTo(".top-users").fadeIn();
 	});
 
-}); //End 
+}); //End
 */
 
 // Hide/Display Post Form

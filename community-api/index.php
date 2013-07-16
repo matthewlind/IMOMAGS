@@ -691,6 +691,15 @@ $app->delete('/posts/:id', function ($id) {
 
 	$params = json_decode($requestJSON,true);
 
+
+
+	if (!$params) {
+		//Grab the parameters
+		$params = \Slim\Slim::getInstance()->request()->post();
+	}
+
+
+
 	$userIsEditor = userIsEditor($params['username'],$params['timecode'],$params['editor_hash']);
 
 
