@@ -530,7 +530,7 @@ class Recipes_Widget extends WP_Widget
                     <?php the_post_thumbnail(array(125,80)); ?>
                     <div class="recipes-text">
                         <h3><a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a></h3>
-                        <div class="comment-count"><?php echo get_comments_number(); ?> Comments</div>
+                        <!--<div class="comment-count"><?php echo get_comments_number(); ?> Comments</div>-->
                     </div>
             <?php endwhile; ?>
             </div>

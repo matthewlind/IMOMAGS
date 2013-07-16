@@ -86,9 +86,10 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 			<li id="nt-widget-template" style="display:none;">
 				<a class="network-thumb" href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/" onclick=""><img src="http://www.handgunsmag.com/files/2013/04/Picking-duty-pistols-190x120.jpg" alt="title" /></a>
 				<div class="site"><a href="http://gunsandammo.com" onclick="">www.gunsandammo.com</a></div>				
-				<a class="title" rel="bookmark" href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/" onclick="">Deer of the Day Buckeye Brute, Alexa Perry</a>				
+				<a class="title" rel="bookmark" href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/" onclick="">Deer of the Day Buckeye Brute, Alexa Perry</a>		
+				<!-- undefined = magazine/site going to -->		
 			</li>
-		</div>
+		
 		<?php } ?>
         <div id="footer-content">
             
@@ -205,7 +206,7 @@ wp_footer();
       <li class="leaf first"><a href="http://www.imoutdoorsmedia.com/IM3/" title="">About</a></li>
       <li class="leaf"><a href="http://www.imoutdoorsmedia.com" title="">Advertise</a></li> 
       <li class="leaf"><a href="/contact" title="Send us an e-mail">Contact</a></li>
-      <!--<li class="leaf"><a href="http://www.intermediaoutdoors.com/jobs/" title="">Jobs</a></li> --> 
+      <li class="leaf"><a href="http://imomags.com/careers/" title="">Careers</a></li>
       <!--<li class="leaf"><a href="/privacy" title="">Privacy</a></li> --> 
       <!--<li class="leaf last"><a href="/terms" title="">Terms of Use</a></li> --> 
     </ul> 
