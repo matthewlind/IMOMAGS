@@ -12,16 +12,7 @@ get_header(); ?>
                             printf('<span>' . single_cat_title( '', false ) . '</span>' );
                             ?>
                         </h1>
-							<!-- Site - In-Fisherman 
-							<script type="text/javascript">
-							  var ord = window.ord || Math.floor(Math.random() * 1e16);
-							  document.write('<iframe src="http://ad.doubleclick.net/N4930/adi/imo.in-fisherman;sz=260x35;camp=master_angler;ord=' + ord + '?" width="260" height="35" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no"></iframe>');
-							</script>
-							<noscript>
-							<a href="http://ad.doubleclick.net/N4930/jump/imo.in-fisherman;sz=260x35;camp=master_angler;ord=[timestamp]?">
-							<img src="http://ad.doubleclick.net/N4930/ad/imo.in-fisherman;sz=260x35;camp=master_angler;ord=[timestamp]?" width="260" height="35" />
-							</a>
-							</noscript>-->
+						<div class="sponsor"><?php //imo_dart_tag("240x60",true); ?></div>
                    </div>
                       
                     <?php if (z_taxonomy_image_url()) echo '<div class="category-img"><img src="'.z_taxonomy_image_url().'" alt="'.single_cat_title( '', false ).'" title="'.single_cat_title( '', false ).'" /></div>'; ?>                    

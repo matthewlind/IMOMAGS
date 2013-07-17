@@ -77,7 +77,7 @@
 	<script src="<?php echo get_template_directory_uri(); ?>/js/dart.js" type="text/javascript"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.jfollow.js" type="text/javascript"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/flash_heed.js" type="text/javascript"></script>
-	<?php if ( defined('JETPACK_SITE') && !mobile()): ?>
+	<?php if ( defined('JETPACK_SITE') && !mobile() && !tablet()): ?>
 		<script type='text/javascript' src='http://ads.jetpackdigital.com/sites/<?php print JETPACK_SITE; ?>/jpd.js'></script>
 	<?php endif; ?> 
 </head>
@@ -93,33 +93,33 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <div data-role="page">
-<div data-role="panel" id="mypanel" class="aside-menu onload-hidden-abs" data-position="left" data-display="reveal" style="display:none;">
-            <div class="mobile-menu-banner ">
-				<?php //if (mobile()) { imo_dart_tag("300x90",array("pos"=>"")); } ?>
+<div data-role="panel" id="mypanel" class="aside-menu onload-hidden-abs" data-position="left" data-display="reveal">
+            <div class="mobile-menu-banner">
+				<?php //if (mobile()) { imo_dart_tag("300x50",true,array("pos"=>"")); } ?>
             </div>
-            
-            <div class="mob-aside-menu">
-                <?php 
-                    wp_nav_menu(array(
-                        'menu_class'=>'menu',  
-                        'theme_location'=>'mobile', 
-                        'walker'=> new AddParentClass_Walker()
-                    ));
-                ?>
+            <div id="mob-menu" style="display:none;">
+	            <div class="mob-aside-menu">
+	                <?php 
+	                    wp_nav_menu(array(
+	                        'menu_class'=>'menu',  
+	                        'theme_location'=>'mobile', 
+	                        'walker'=> new AddParentClass_Walker()
+	                    ));
+	                ?>
+	            </div>
+	
+	            <div class="menu-subscribe">
+	                <a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/pic/journals.png" alt="" /><span>Subscribe Now!</span></a>
+	            </div>
+	            <?php wp_nav_menu(array(
+	                'menu_class'=>'menu',  
+	                'theme_location'=>'top', 
+	            ));   ?>
+	            <div class="aside-socials">
+	                <strong>Connect</strong>
+	                <?php social_networks(); ?>
+	            </div>
             </div>
-
-            <div class="menu-subscribe">
-                <a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/pic/journals.png" alt="" /><span>Subscribe Now!</span></a>
-            </div>
-            <?php wp_nav_menu(array(
-                'menu_class'=>'menu',  
-                'theme_location'=>'top', 
-            ));   ?>
-            <div class="aside-socials">
-                <strong>Connect</strong>
-                <?php social_networks(); ?>
-            </div>
-        
 </div><!-- /panel -->
 <div id="page" class="hfeed wrapper" data-role="content" role="main">
     <div class="layout-frame">
@@ -205,9 +205,11 @@
         </div><!-- #branding -->
     
         <div class="content-banner-section">
-        	<div class="mdl-banner">
-				<?php if (!mobile()) { imo_dart_tag("728x90",true); } ?>
-			</div>
+        	<?php if (!mobile()) { ?>
+	        	<div class="mdl-banner">
+					 <?php imo_dart_tag("728x90",false); ?>
+				</div>
+			<?php } ?>
             <div class="swipe-out"></div>
         </div>
     
