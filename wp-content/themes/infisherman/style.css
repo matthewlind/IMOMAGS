@@ -2316,15 +2316,6 @@ a.change-location:before {
 	padding-top: 6px;
 }
 
-/*** JETPACK OVERRIDES ***/
-#jpsuperheader{
-	width: 1080px !important;
-	background-color: black !important;
-}
-#jpsuperheader .jpstage{
-	margin: 0 auto !important;
-}
-
 /*** Related Stories ***/
 h2.related-stories{
 	text-align: center;

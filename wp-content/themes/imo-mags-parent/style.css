@@ -690,6 +690,7 @@ img{max-width: 100%;height: auto;}
 	top: auto !important;
 }
 
+
 /* Main Section
  ******************************************************************************/
 .mdl-banner{
@@ -1577,7 +1578,7 @@ a.category-name-link:hover{
 ---------------------------------------------------------------------- */
 
 .ui-panel {
-    background: url(images/bg/mobile-menu-shadow.png) repeat-y 100% 0;
+    background: url(images/bg/mobile-menu-shadow.png) repeat-y 100% 0 white;
 }
 .ui-panel .menu-top-menu-container,
 .ui-panel .mob-aside-menu {
@@ -2238,15 +2239,6 @@ a.change-location:before {
 }
 #gift-guide .ui-tabs .ui-tabs-nav li a{
 	padding-top: 6px;
-}
-
-/*** JETPACK OVERRIDES ***/
-#jpsuperheader{
-	width: 1080px !important;
-	background-color: black !important;
-}
-#jpsuperheader .jpstage{
-	margin: 0 auto !important;
 }
 
 /*** Related Stories ***/

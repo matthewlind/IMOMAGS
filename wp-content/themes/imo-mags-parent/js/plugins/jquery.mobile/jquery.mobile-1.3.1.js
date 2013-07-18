@@ -6606,7 +6606,7 @@ $.widget( "mobile.textinput", $.mobile.widget, {
 		mini: false,
 		// This option defaults to true on iOS devices.
 		preventFocusZoom: /iPhone|iPad|iPod/.test( navigator.platform ) && navigator.userAgent.indexOf( "AppleWebKit" ) > -1,
-		//initSelector: "input[type='text'], input[type='search'], :jqmData(type='search'), input[type='number'], :jqmData(type='number'), input[type='password'], input[type='email'], input[type='url'], input[type='tel'], textarea, input[type='time'], input[type='date'], input[type='month'], input[type='week'], input[type='datetime'], input[type='datetime-local'], input[type='color'], input:not([type]), input[type='file']",
+		initSelector: "input[type='text'], input[type='search'], :jqmData(type='search'), input[type='number'], :jqmData(type='number'), input[type='password'], input[type='email'], input[type='url'], input[type='tel'], textarea, input[type='time'], input[type='date'], input[type='month'], input[type='week'], input[type='datetime'], input[type='datetime-local'], input[type='color'], input:not([type]), input[type='file']",
 		clearBtn: false,
 		clearSearchButtonText: null, //deprecating for 1.3...
 		clearBtnText: "clear text",
@@ -7008,7 +7008,7 @@ $.widget( "mobile.checkboxradio", $.mobile.widget, $.extend( {
 	options: {
 		theme: null,
 		mini: false,
-		//initSelector: "input[type='checkbox'],input[type='radio']"
+		initSelector: "input[type='checkbox'],input[type='radio']"
 	},
 	_create: function() {
 		var self = this,
@@ -7211,7 +7211,7 @@ $.widget( "mobile.button", $.mobile.widget, {
 		iconshadow: true,
 		inline: null,
 		mini: null,
-		//initSelector: "button, [type='button'], [type='submit'], [type='reset']"
+		initSelector: "button, [type='button'], [type='submit'], [type='reset']"
 	},
 	_create: function() {
 		var $el = this.element,
@@ -9311,7 +9311,9 @@ $.widget( "mobile.panel", $.mobile.widget, {
 				var $panelInner = $el.find( "." + self.options.classes.panelInner );
 				if ( $panelInner.length === 0 ) {
 					$panelInner = $el.children().wrapAll( '<div class="' + self.options.classes.panelInner + '" />' ).parent();
+					
 				}
+				
 				return $panelInner;
 			},
 			_getWrapper = function() {
@@ -9334,7 +9336,7 @@ $.widget( "mobile.panel", $.mobile.widget, {
 				}
 				return $fixedToolbar;
 			};
-
+			
 		// expose some private props to other methods
 		$.extend( this, {
 			_panelID: $el.attr( "id" ),
@@ -10054,7 +10056,9 @@ $.mobile.document.delegate( ":jqmData(role='table')", "tablecreate refresh", fun
 	}
 
 	// Add mobile, initial load "rendering" classes to docEl
+	/*** CRASHES IMO AD UNITS ***/
 	$html.addClass( "ui-mobile ui-mobile-rendering" );
+	
 
 	// This is a fallback. If anything goes wrong (JS errors, etc), or events don't fire,
 	// this ensures the rendering class is removed after 5 seconds, so content is visible and accessible
@@ -10073,7 +10077,7 @@ $.mobile.document.delegate( ":jqmData(role='table')", "tablecreate refresh", fun
 			if ( !$pages.length ) {
 				$pages = $( "body" ).wrapInner( "<div data-" + $.mobile.ns + "role='page'></div>" ).children( 0 );
 			}
-
+			
 			// add dialogs, set data-url attrs
 			$pages.each(function() {
 				var $this = $( this );
@@ -10164,6 +10168,7 @@ $.mobile.document.delegate( ":jqmData(role='table')", "tablecreate refresh", fun
 		// window load event
 		// hide iOS browser chrome on load
 		$window.load( $.mobile.silentScroll );
+		
 
 		if ( !$.support.cssPointerEvents ) {
 			// IE and Opera don't support CSS pointer-events: none that we use to disable link-based buttons
@@ -10179,6 +10184,5 @@ $.mobile.document.delegate( ":jqmData(role='table')", "tablecreate refresh", fun
 		}
 	});
 }( jQuery, this ));
-
 
 }));

@@ -94,10 +94,11 @@
 
 <div data-role="page">
 <div data-role="panel" id="mypanel" class="aside-menu onload-hidden-abs" data-position="left" data-display="reveal">
+	<div id="mob-menu" style="display:none;">
             <div class="mobile-menu-banner">
 				<?php //if (mobile()) { imo_dart_tag("300x50",true,array("pos"=>"")); } ?>
             </div>
-            <div id="mob-menu" style="display:none;">
+            
 	            <div class="mob-aside-menu">
 	                <?php 
 	                    wp_nav_menu(array(

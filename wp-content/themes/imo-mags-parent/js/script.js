@@ -12,20 +12,27 @@ jQuery(window).load(function() {
     jQuery('.onload-hidden-abs').removeClass('onload-hidden-abs');
     jQuery('.loading-block').removeClass('loading-block');
     
+    var optionsHash;
 	jQuery( "#idofpanel" ).panel( "open" , optionsHash );
-
-	jQuery('#mob-menu').show();
 	
 });
 
 jQuery(function(){
+	
+	//prevent jQuery mobile from styling form elements
+	jQuery(document).live('pagebeforecreate', function( e ) {
+        jQuery( "input, textarea, select", e.target ).attr( "data-role", "none" );
+    });
     
-    // Load more 
     jQuery(document).ready(function () {
-
+		// Load more 
 		if(jQuery(".next-link a").length){
 		    jQuery("a.btn-base").show();
 	    }
+	    //fix for menu loading before jquery mobile
+	    jQuery(".open-menu").click(function(){
+			jQuery("#mob-menu").show();
+		});
     });	
    	
    	jQuery(function(){
