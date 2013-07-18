@@ -11,15 +11,7 @@ class Ford_Widget extends WP_Widget {
 	$dartDomain = get_option("dart_domain", $default = false);
 ?>
 <div class="widget ford-outfitters-widget">
-	<script type="text/javascript">
-	 var ord = window.ord || Math.floor(Math.random() * 1e16);
-	 document.write('<iframe src="http://ad.doubleclick.net/N4930/adi/<?php echo $dartDomain; ?>;sz=300x602;ord=' + ord + '?" width="300" height="602" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no"></iframe>');
-	</script>
-	<noscript>
-	<a href="http://ad.doubleclick.net/N4930/jump/<?php echo $dartDomain; ?>;sz=300x602;ord=[timestamp]?">
-	<img src="http://ad.doubleclick.net/N4930/ad/<?php echo $dartDomain; ?>;sz=300x602;ord=[timestamp]?" width="300" height="602" />
-	</a>
-	</noscript>
+	<?php imo_dart_tag("300x602"); ?>
 </div>
 <?php }
 }

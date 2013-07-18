@@ -19,7 +19,7 @@ body.ui-mobile-viewport,
 div.ui-mobile-viewport { overflow-x: hidden; }
 /* "page" containers - full-screen views, one should always be in view post-pageload */
 .ui-mobile [data-role=page], .ui-mobile [data-role=dialog], .ui-page { top: 0; left: 0; width: 100%; min-height: 100%; position: absolute; display: none; border: 0; }
-.ui-mobile .ui-page-active { display: block; overflow: visible; }
+.ui-mobile .ui-page-active { display: block; overflow: hidden; }
 
 
 /* panel */
@@ -32,15 +32,7 @@ div.ui-mobile-viewport { overflow-x: hidden; }
 	top: 0;
 	display: block;
 }
-.ui-panel-inner {
-    width:244px;
-    min-height:2000px;
-    padding-right:900px;
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
-    margin-top:58px;
-}
+
 .ui-panel-closed {
 	width: 0;
 	max-height: 100%;
@@ -93,15 +85,6 @@ div.ui-mobile-viewport { overflow-x: hidden; }
 	-moz-transition: -moz-transform 350ms ease;
 	transition: transform 350ms ease;
 }
-/* hardware acceleration for smoother transitions on WebKit browsers */
-/*.ui-panel-animate.ui-panel:not(.ui-panel-display-reveal),
-.ui-panel-animate.ui-panel:not(.ui-panel-display-reveal) > div,
-.ui-panel-animate.ui-panel-closed.ui-panel-display-reveal > div,
-.ui-panel-animate.ui-panel-content-wrap,
-.ui-panel-animate.ui-panel-content-fixed-toolbar {
-	-webkit-backface-visibility: hidden;
-	-webkit-transform: translate3d(0,0,0);
-}*/
 /* positioning: panel */
 /* panel left  */
 .ui-panel-position-left {
@@ -151,9 +134,7 @@ div.ui-mobile-viewport { overflow-x: hidden; }
 	left: 0;
 }
 /* always disable overflow-x to prevent zoom issue on Android */
-.ui-page-active.ui-page-panel {
-	overflow-x: hidden;
-}
+
 @media only screen and (max-width: 610px) {
     .ui-panel {
         width:228px;
@@ -182,7 +163,7 @@ div.ui-mobile-viewport { overflow-x: hidden; }
         transform: translate3d(228px,0,0);
     }
     .ui-panel-inner {
-        margin-top:45px;
+        margin-top:0;
         width:228px;
     }
 }

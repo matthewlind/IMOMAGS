@@ -39,7 +39,7 @@ html[xmlns] .slides {display: block;}
 
 /* FlexSlider Default Theme
 *********************************/
-.flex-viewport {max-height: 2000px; -webkit-transition: all 1s ease; -moz-transition: all 1s ease; transition: all 1s ease;}
+.flex-viewport {max-height: 2000px; -webkit-transform:translate3d(0,0,0); -webkit-transition: all 1s ease; -moz-transition: all 1s ease; transition: all 1s ease;}
 .loading .flex-viewport {max-height: 300px;}
 .flexslider .slides {zoom: 1;}
 
@@ -58,6 +58,10 @@ html[xmlns] .slides {display: block;}
     z-index:9999;
     background:url(images/prev-next.png) no-repeat;
 }
+.gallery-slider .flex-direction-nav a {
+    top:50%;
+    margin-top:-88px;
+}
 .flex-direction-nav .flex-next {
     right:0;
     background-position:-33px 0;
@@ -75,6 +79,7 @@ html[xmlns] .slides {display: block;}
     height:136px;
     background-color:#e8e7e7;
     border-bottom:1px solid #d7d7d6;
+    -webkit-transform:translate3d(0,0,0);
 }
 .paging-posts .flex-direction-nav .flex-prev {
     background-position:-66px 0;

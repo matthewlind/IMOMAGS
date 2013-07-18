@@ -3,8 +3,8 @@
 get_header(); ?>
 
 <?php if (isset_related_posts()): ?>
-<div class="paging-posts paging-posts-top">
-    <div class="jq-paging-slider">
+<div class="paging-posts paging-posts-top loading-block">
+    <div class="jq-paging-slider onload-hidden">
     <?php related_posts(); ?>
     </div>
 </div>

@@ -67,7 +67,6 @@
 	    <?php } ?>
 	    
 	    <?php imo_dart_tag("564x252"); ?>
-	    
 	    	   
 	    <?php if (isset_related_posts()): ?>
 	    <?php if(mobile() || tablet()){ ?>
