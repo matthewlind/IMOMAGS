@@ -34,7 +34,7 @@ body{border-top: none !important;}
 #sidebar {
 	float: right;
 }
- 
+
 .entry {
 	margin: 0 0 30px 0;
 	border-bottom: 1px dotted #999;
@@ -68,7 +68,7 @@ body{border-top: none !important;}
 .pagination a.next, .pagination a.prev {
 	padding: 10px 15px;
 	background: #EEE;
-	font-size: 
+	font-size:
 }
 .pagination p {
 	color: #BBB;
@@ -158,7 +158,7 @@ body{border-top: none !important;}
     background:#fff;border:1px solid #909294;color:#555;font-size:14px;font-weight:bold;margin:0px 0px 1px;text-indent:3px;vertical-align:middle;width:150px;}
 
 .subscribeAdModContent form .subscribe-row .text.zip {
-    width: auto; 
+    width: auto;
     padding-left: 10px;
 }
 
@@ -166,7 +166,7 @@ body{border-top: none !important;}
     width: 55px;
 }
 .subscribeAdModContent form .subscribe-row input.form-text:focus,
-.subscribeAdModContent form .subscribe-row input.form-text.focus 
+.subscribeAdModContent form .subscribe-row input.form-text.focus
 {
     border-color: #7A7;    }
 .subscribeButton .submit-button{
@@ -194,13 +194,13 @@ body{border-top: none !important;}
     letter-spacing: -1px;
     text-transform: capitalize;
 }
-.gform_wrapper .newsletter .gform_footer { 
+.gform_wrapper .newsletter .gform_footer {
     margin:14px 0 0 180px;
     padding:0;
     width: 80px;
     clear:none;
 }
-.gform_wrapper .newsletter .gform_heading { 
+.gform_wrapper .newsletter .gform_heading {
     margin:0;
 }
 .gform_wrapper form.newsletter .gfield_label {
@@ -235,14 +235,14 @@ body{border-top: none !important;}
     padding:0;
     vertical-align: middle;
     margin:0;
-    height:24px; 
-    font-size: 16px; 
+    height:24px;
+    font-size: 16px;
     line-height:26px;
     float:left;
     text-indent: 8px;
 }
 /** Overridden stye **/
-.newsletter { 
+.newsletter {
     border: 3px solid #ccc;
     padding: 17px 17px;
     background-image: none;
@@ -333,7 +333,7 @@ nav.nav-featured, nav.nav-subnav-right.nav {
 	margin: 0;
 	padding-top:6px;
 	font-weight: bold;
-}	
+}
 #locateChannel {
 	background: #dddfe0 url(/wp-content/themes/carrington-business/img/cf-background.png) no-repeat center top;
 
@@ -346,7 +346,7 @@ nav.nav-featured, nav.nav-subnav-right.nav {
     padding-top:10px;
     padding-left:18px;
     height:110px;
-    
+
 }
 
 #locateChannel #channelControlsContainer #channelControls{
@@ -385,7 +385,7 @@ background-image: url(/wp-content/themes/carrington-business/img/button-bg.png);
 /*BONUS COLUMN MODS*/
 
 body.page-template-page-right-php {
-    
+
     width:1010px;
 }
 
@@ -404,7 +404,7 @@ body.page-template-page-right-php {
 .page-template-page-right-php .cfct-block-c,
 .page-template-page-right-php .cfct-block-b,
 .page-template-page-right-php .cfct-block-a{
-    
+
 }
 
 .page-template-page-right-php .str-container {
@@ -413,7 +413,7 @@ body.page-template-page-right-php {
 }
 
 .page-template-page-right-php .nav-main {
-    
+
     width:auto;
 }
 
@@ -440,10 +440,10 @@ body.page-template-page-right-php {
 .page-template-page-right-php .col-g,
 .page-template-page-right-php .col-h,
 .page-template-page-right-php  .cfct-block {
-    
+
     margin-right:10px;
     margin-left:10px;
-    
+
 }
 
 
@@ -482,7 +482,7 @@ width: 420px;
 
 .page-template-page-right-php .cfct-block-d,
 .page-template-page-right-php .cfct-block-e {
-     
+
      width:310px;
 
 }
@@ -518,7 +518,7 @@ width: 420px;
 }
 
 .taxonomy-featured-container {
-	
+
 	margin-bottom:30px;
 }
 
@@ -593,7 +593,7 @@ h2.entry-title a:hover {
     z-index: 999999999;
 }
 .ga-network{
-	
+
 }
 .top-bar{
 	background-color: #333;
@@ -630,7 +630,7 @@ h2.entry-title a:hover {
 	background: -ms-linear-gradient(top,  #171717 1%,#1c1c1c 31%,#474747 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  #171717 1%,#1c1c1c 31%,#474747 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#171717', endColorstr='#474747',GradientType=0 ); /* IE6-8 */
-	
+
 	display: block;
 	height: 40px;
     position: absolute;
@@ -763,10 +763,10 @@ width: 300px;
 
 /**** Shot Show Widget *****/
 #shot-show-widget{
-	
+
 }
 .widget-header{
-	background: url("../img/shot-show-widget-logo.jpg") no-repeat center top;	
+	background: url("../img/shot-show-widget-logo.jpg") no-repeat center top;
 	height: 40px;
 }
 .primary-shot-show{
@@ -1106,6 +1106,63 @@ table.gridtable td.title {
 	left: 86px;
 }
 
+/*** Category Settings ***/
+.category-page #masthead {
+    margin-left:0px;
+    padding-left:0px;
+    padding-right: 0px;
+    width:620px;
+}
+
+.category-page #masthead.has-image {
+    border-bottom:none;
+
+}
+
+.category-page #masthead.has-image h1{
+
+    margin-top:10px;
+}
+
+.category-page #masthead h1{
+    margin-left:0px;
+    padding-left:0px;
+    margin-bottom:0px;
+    padding-bottom: 0px;
+}
+
+.header-bonus {
 
 
+    position: absolute;
+    background-repeat: no-repeat;
+    width: 620px;
+    height: 120px;
+    margin-top: 15px;
+}
+
+.category-page .entry-category a {
+    color: #a1a1a1;
+}
+
+.header-info.has-image {
+
+    position: relative;
+z-index: 2342;
+margin-left: 165px;
+margin-bottom: 30px;
+height: 100px;
+padding-right:10px;
+}
+
+.entry-summary-dynamic .entry-info h2.entry-title {
+margin-top: 5px;
+padding-top: 0px;
+
+}
+
+.load-spinner img {
+    vertical-align: middle;
+    margin-left:10px;
+}
 
