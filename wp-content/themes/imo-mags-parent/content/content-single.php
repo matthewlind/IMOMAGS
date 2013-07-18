@@ -66,8 +66,7 @@
 	    </div>
 	    <?php } ?>
 	    
-	    <?php imo_dart_tag("564x252",true); ?>
-	    
+	    <?php imo_dart_tag("564x252"); ?>
 	    	   
 	    <?php if (isset_related_posts()): ?>
 	    <?php if(mobile() || tablet()){ ?>
@@ -81,7 +80,7 @@
 	    <?php endif; ?>
 		    <div class="sub-boxes">
 	            <div class="sub-box banner-box">
-	                <?php imo_dart_tag("300x250",true,array("pos"=>"mid")); ?> 
+	                <?php imo_dart_tag("300x250",array("pos"=>"mid")); ?> 
 	            </div>
 	            <div class="sub-box fb-box">
 	               <div class="fb-recommendations" data-site="in-fisherman.com" data-width="309" data-height="252" data-header="true" data-font="arial"></div>

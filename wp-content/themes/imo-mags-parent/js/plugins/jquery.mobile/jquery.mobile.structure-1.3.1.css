@@ -163,7 +163,7 @@ div.ui-mobile-viewport { overflow-x: hidden; }
         transform: translate3d(228px,0,0);
     }
     .ui-panel-inner {
-        margin-top:45px;
+        margin-top:0;
         width:228px;
     }
 }

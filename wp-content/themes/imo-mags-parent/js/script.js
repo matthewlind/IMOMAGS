@@ -1,9 +1,22 @@
 jQuery(window).load(function() {
-   jQuery('.onload-hidden').show().css('left','0');
-   jQuery('.onload-hidden-abs').removeClass('onload-hidden-abs');
-   jQuery('#mypanel').show();
-});
+	
+	var my_body = document.getElementsByTagName('body')[0],
+	my_script = document.createElement('script');
+	
+	my_script.src = 'http://' + window.location.hostname + '/wp-content/themes/infisherman/js/plugins/jquery.mobile/jquery.mobile-1.3.1.js';
+	my_body.appendChild(my_script);
+	
+	jQuery("html").removeClass("ui-mobile");
+	
+	jQuery('.onload-hidden').removeClass('onload-hidden');
+    jQuery('.onload-hidden-abs').removeClass('onload-hidden-abs');
+    jQuery('.loading-block').removeClass('loading-block');
+    
+	jQuery( "#idofpanel" ).panel( "open" , optionsHash );
 
+	jQuery('#mob-menu').show();
+	
+});
 
 jQuery(function(){
     
@@ -166,7 +179,6 @@ function updateSliderCounter(slider){
     jQuery(slider).find('.slide-count').html((slider.currentSlide + 1) + '/' + slider.count);
 }
 
-var optionsHash;
-jQuery( "#idofpanel" ).panel( "open" , optionsHash );
+
 
     
