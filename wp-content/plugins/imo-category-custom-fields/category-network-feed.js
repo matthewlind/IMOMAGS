@@ -1,7 +1,6 @@
 jQuery(document).ready(function($) {
 
-
-
+	var currentPage = 1;
 	var currentPosition = 0;
 	var showAtOnce = 15;
 	var sort = "post_date";
@@ -10,6 +9,7 @@ jQuery(document).ready(function($) {
 	//Check to see if cross-site-feed exists:
 	if ($(".cross-site-feed").length > 0) {
 		//if yes, display some things
+
 		displayCrossSiteFeed(currentPosition);
 	}
 
@@ -18,6 +18,11 @@ jQuery(document).ready(function($) {
 
 		currentPosition = currentPosition + showAtOnce;
 		displayCrossSiteFeed(currentPosition,sort);
+
+		currentPage++;
+
+		_gaq.push(['_trackPageview',"/" + window.location.pathname + "#" + currentPage]);
+		document.getElementById('sticky-iframe-ad').contentWindow.location.reload();
 	});
 
 	//When sort button is clicked:
@@ -58,18 +63,21 @@ jQuery(document).ready(function($) {
 
 
 
-		if (term.length > 0) {
-			var fileName = "/wp-content/cache/superloop/naw-plus-" + term + "-" + sort + ".json";
-		} else {
-			var fileName = "/wp-content/cache/superloop/naw-plus-" + sort + ".json";
-		}
+		// if (term.length > 0) {
+		// 	var fileName = "/wp-content/cache/superloop/naw-plus-" + term + "-" + sort + ".json";
+		// } else {
+		// 	var fileName = "/wp-content/cache/superloop/naw-plus-" + sort + ".json";
+		// }
+
+		var fileName = "/wpdb/shooting-network-json.php?t=ammo";
 
 
+		$(".load-spinner").show();
 		var getdata = $.getJSON(fileName, function(data) {
 
 	    //$(".animal-container").html("");
 
-
+	    	$(".load-spinner").hide();
 
 		    var count = 0;
 
@@ -85,45 +93,26 @@ jQuery(document).ready(function($) {
 		        $articleTemplate.find(".entry-category a").text("From " + data[i].brand + " Magazine");
 		        $articleTemplate.find(".entry-category a").attr("href","http://" + data[i].domain)
 
+		        if (data[i].domain == document.domain)
+		        	$articleTemplate.find(".entry-category a").text("");
+
+		        //console.log(data[i].domain,document.domain);
+
 		        $articleTemplate.find("h2.entry-title a").text(data[i].post_title);
 
-		        $articleTemplate.find("span.author").html(data[i].post_nicedate + " by " + data[i].author);
+		        $articleTemplate.find(".author").html(data[i].post_nicedate + " by " + data[i].author);
 		        $articleTemplate.find("p.excerpt-body").text("");
 
 		        $articleTemplate.find("img.entry-img").attr("src",data[i].img_url);
-		        $articleTemplate.find("a.comment-count").text(data[i].comment_count);
+		        $articleTemplate.find(".comment-count").text(data[i].comment_count);
+
+		        $articleTemplate.find(".entry-content").text(data[i].post_content);
 
 
 				//If data[i] is from NAW, add the categories
-				if (data[i].domain == "www.northamericanwhitetail.com") {
 
-					$articleTemplate.find(".entry-category").html("");
-
-					$categoryLinks = $articleTemplate.find(".entry-category");
-
-					var $termsArray = $(data[i].terms);
-
-					$(data[i].terms).each(function(index) {
-						var parentString = "";
-
-						if (this.parent != null) {
-							parentString = this.parent + "/";
-						}
-
-						$categoryLinks.append($("<a href='/category/" + parentString + this.slug + "'>" + this.name + "</a>"));
-
-
-
-						if ($termsArray.length != index + 1) {
-							$categoryLinks.append(" • ");
-						}
-
-					});
-
-
-				} else { //If not on whitetail
 					$articleTemplate.find("a").attr("target","_blank");
-				}
+
 
 
 		        $articleTemplate.appendTo(".cross-site-feed").fadeIn();

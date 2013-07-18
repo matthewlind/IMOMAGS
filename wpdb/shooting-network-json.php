@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 include 'mysql.php';
 include 'cli-helper-functions.php';
@@ -8,23 +8,23 @@ $arguments = getopt("s:t:");
 
 
 if (empty($arguments)) {
-	
+
 	$arguments['s'] = $_REQUEST['s'];
 	$arguments['t'] = $_REQUEST['t'];
-	
+
 }
 
 if (!empty($arguments['s']))
 	$sort = $arguments['s'];
-	
+
 $term = $arguments['t'];
 
 
-header('Access-Control-Allow-Origin: *');  
+header('Access-Control-Allow-Origin: *');
 
 
 
-date_default_timezone_set('America/New_York'); 
+date_default_timezone_set('America/New_York');
 
     $termList = getAllChildTerms($term);
     $termList[] = $term;
@@ -35,7 +35,7 @@ date_default_timezone_set('America/New_York');
 
     $count = 0;
     foreach ($termList as $term) {
-    	
+
     	$termString .= "'$term'";
     	$inQuery .= ":term" . $count;
     	$inQmarks .= "?";
@@ -45,9 +45,9 @@ date_default_timezone_set('America/New_York');
     		$inQuery .= ",";
     		$inQmarks .= ",";
     	}
-    		
+
     }
-    
+
     $siteID["www.gunsandammo.com"] = 2;
     $siteID["www.handgunsmag.com"] = 9;
     $siteID["www.shootingtimes.com"] = 11;
@@ -165,7 +165,7 @@ EOT;
 
         $executeArray = array();
 
-        for ($i=1; $i <= $siteCount; $i++) { 
+        for ($i=1; $i <= $siteCount; $i++) {
         	$executeArray = array_merge($executeArray,$termList);
         }
 
@@ -177,7 +177,7 @@ EOT;
 
         //print_r($stmt);
         $stmt->execute($executeArray);
-    
+
         $posts = $stmt->fetchAll(PDO::FETCH_OBJ);
 
         foreach ($posts as $key => $post) {
@@ -185,6 +185,7 @@ EOT;
         	//First Clean up the data
             $postContent = trim(strip_tags($post->post_content));
             $postContent = preg_replace('/\[[^\)]+\]/', "", $postContent);
+            $postContent = preg_replace( '|\[(.+?)\](.+?\[/\\1\])?|s', '', $postContent);
             $postContent = str_replace("\n", "", $postContent);
             $postContent = str_replace("\r", "", $postContent);
             $postContent = str_replace("\xe2", "", $postContent);
@@ -200,6 +201,7 @@ EOT;
             $postContent = str_replace("\\", "", $postContent);
             $postContent = str_replace("\\", "", $postContent);
 
+
             $postContent = substr($postContent,0,120) . "...";
             $posts[$key]->post_content = $postContent;
 
@@ -211,6 +213,8 @@ EOT;
             $url = "http://" . $post->domain . "/" . $datePath . "/" . $post->post_name;
 
             $posts[$key]->post_url = $url;
+
+            $posts[$key]->post_title = str_replace("&amp;", "&", $post->post_title);
 
             $niceDate = date("F j, Y",$timestamp);
             $posts[$key]->post_nicedate = $niceDate;
@@ -228,7 +232,7 @@ EOT;
 
 
             //TESTING
-        
+
             // _log($post);
             // json_encode($post);
 
@@ -236,7 +240,7 @@ EOT;
             // print_r($post);
             // echo $termString;
             // echo "</pre>";
-        
+
             //$json = json_encode($post);
 
         }
@@ -245,27 +249,27 @@ EOT;
         //echo $json;
 
         $db = "";
-        
+
         if (!empty($posts)) {
-	    
+
 	    	//$filename = "/data/wordpress/imomags/wp-content/cache/superloop/naw-plus-$term-$sort.json";
 	        //$f = fopen($filename, "w");
-	        
-	        
+
+
 	        if ($json) {
-	        
-	        	
+
+
 	        	echo $json;
 	        	//print_r($posts);
 /*
 		    	fwrite($f, $json);
-		    	fclose($f); 
+		    	fclose($f);
 */
 		    	//echo "SUCCESS $filename \n";
 	        } else {
 		        //echo "FAILURE $filename \n";
 	        }
-	
+
 	    } else {
 	    	echo "FAILURE - NO POSTS FROM QUERY: $term WITH SORT: $sort \n";
 	    }
