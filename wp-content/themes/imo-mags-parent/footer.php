@@ -38,7 +38,7 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
                         <div class="column column3">
                             <h5>Fish</h5>
                             <ul class="intermedia-list">
-                                <li><a href="/"><img src="<?php bloginfo('template_directory'); ?>/images/logos/fish-infisherman.png" alt=""><span>In-Fisherman</span></a></li>
+                                <li><a href="http://www.in-fisherman.com"><img src="<?php bloginfo('template_directory'); ?>/images/logos/fish-infisherman.png" alt=""><span>In-Fisherman</span></a></li>
                                 <li><a target="_blank" href="http://www.flyfisherman.com"><img src="<?php bloginfo('template_directory'); ?>/images/logos/fish-fltfisherman.png" alt=""><span>Fly Fisherman</span></a></li>
                                 <li><a target="_blank" href="http://www.floridasportsman.com/"><img src="<?php bloginfo('template_directory'); ?>/images/logos/fish-florida.png" alt=""><span>Florida Sportsman</span></a></li>
                                 <li><a target="_blank" href="http://www.bassfan.com/"><img src="<?php bloginfo('template_directory'); ?>/images/logos/fish-bassfan.png" alt=""><span>BassFan</span></a></li>
@@ -91,14 +91,14 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 
     
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/breakpoints.js"></script>
-	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/plugins/flexslider/jquery.flexslider.js"></script>
+	<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/plugins/flexslider/jquery.flexslider.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/plugins/ezmark/js/jquery.ezmark.min.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/plugins/classie.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/helper.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/plugins/jquery.placeholder.min.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/plugins/jquery.touchSwipe.min.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/script.js"></script>
-    <link rel="STYLESHEET" type="text/css" href="<?php bloginfo('template_directory'); ?>/js/plugins/flexslider/flexslider.css">
+    <link rel="STYLESHEET" type="text/css" href="<?php bloginfo('stylesheet_directory'); ?>/js/plugins/flexslider/flexslider.css">
     <link rel="STYLESHEET" type="text/css" href="<?php bloginfo('template_directory'); ?>/js/plugins/ezmark/css/ezmark.css">
 	<!--[if lt IE 9]><script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->
 

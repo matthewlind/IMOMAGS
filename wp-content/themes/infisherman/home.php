@@ -71,12 +71,11 @@ get_header(); ?>
                 <?php } ?>
                 
                 <?php $fetured_slider_query = new WP_Query( 'category_name='.TIMELY_FEATURES.'&posts_per_page=8' ); ?> 
-                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="double-posts double-post-slider js-responsive-section">
+                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="double-posts double-post-slider loading-block js-responsive-section">
                     <div class="general-title clearfix">
                         <h2>Timely <span>Features</span></h2>
                     </div>
-                    <div class="loading-block">
-	                    <div class="jq-slider clearfix">
+	                    <div class="jq-slider onload-hidden clearfix">
 	                        <ul class="slides-inner slides">
 	                            <?php $i = 1  ?>
 	                            <?php while ($fetured_slider_query->have_posts()) : $fetured_slider_query->the_post(); ?>
@@ -107,7 +106,6 @@ get_header(); ?>
 	                            <?php endwhile; ?>
 	                        </ul>
 	                    </div>
-	                </div>
                 </div>
 				
 				<?php $fetured_slider_query = new WP_Query( 'category_name=online-exclusives&posts_per_page=8' ); ?>

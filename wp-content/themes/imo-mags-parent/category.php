@@ -70,7 +70,7 @@ get_header(); ?>
                         <div class="next-link" style="display:none;"><?php next_posts_link(); ?></div>
                         <a href="#" class="go-top jq-go-top">go top</a>
 
-                        <img src="/wp-content/themes/infisherman/images/ajax-loader.gif" id="ajax-loader" style="display:none;"/>
+                        <img src="/wp-content/themes/imo-mags-parent/images/ajax-loader.gif" id="ajax-loader" style="display:none;"/>
                     </div>
                 <?php else : ?>
     

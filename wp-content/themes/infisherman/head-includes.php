@@ -6,8 +6,6 @@
 
 ?>
 <meta name="norton-safeweb-site-verification" content="lel6zw1429sky9cji3ahj0ygbtfbibkinjpss5j-ophp61v67avmtyky6egnjwftq791ihhmk8bkarb06wbmr5bb71u7fbuspaq1ycvu3tlwfdhm3j9zayxfxj67aoet" />	
-	<!-- FONTS -->
-	<link href='http://fonts.googleapis.com/css?family=Arvo:regular,bold&v1' rel='stylesheet' type='text/css'>
 
 	<script type="text/javascript">
 
@@ -36,3 +34,11 @@
   })();
 
 </script>
+<!-- BEGIN Tynt Script -->
+<script type="text/javascript">
+if(document.location.protocol=='http:'){
+ var Tynt=Tynt||[];Tynt.push('axmVrMyhmr4iQBadbi-bpO');Tynt.i={"ap":"Read more:","b":true};
+ (function(){var s=document.createElement('script');s.async="async";s.type="text/javascript";s.src='http://tcr.tynt.com/ti.js';var h=document.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})();
+}
+</script>
+<!-- END Tynt Script -->

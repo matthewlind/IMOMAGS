@@ -71,12 +71,11 @@ get_header(); ?>
                 <?php } ?>
                 
                 <?php $fetured_slider_query = new WP_Query( 'category_name='.TIMELY_FEATURES.'&posts_per_page=8' ); ?> 
-                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="double-posts double-post-slider js-responsive-section">
+                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="double-posts double-post-slider loading-block js-responsive-section">
                     <div class="general-title clearfix">
                         <h2>Timely <span>Features</span></h2>
                     </div>
-                    <div class="loading-block">
-	                    <div class="jq-slider clearfix">
+	                    <div class="jq-slider onload-hidden clearfix">
 	                        <ul class="slides-inner slides">
 	                            <?php $i = 1  ?>
 	                            <?php while ($fetured_slider_query->have_posts()) : $fetured_slider_query->the_post(); ?>
@@ -107,8 +106,7 @@ get_header(); ?>
 	                            <?php endwhile; ?>
 	                        </ul>
 	                    </div>
-	                </div>
-                </div>
+	            </div>
 				
 				<?php $fetured_slider_query = new WP_Query( 'category_name=online-exclusives&posts_per_page=8' ); ?>
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="double-posts double-post-slider js-responsive-section">
@@ -241,7 +239,7 @@ get_header(); ?>
                                <ul class="links-list">
                                     <?php while ($footer_query->have_posts()) : $footer_query->the_post(); ?>
                                     <li>
-                                        <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'infisherman' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
+                                        <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'imo-mags-parent' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
                                     </li><!-- #post -->                
                                     <?php endwhile; ?>
                                </ul>
@@ -252,7 +250,7 @@ get_header(); ?>
                                 <ul class="links-list">
                                     <?php while ($footer_query->have_posts()) : $footer_query->the_post(); ?>
                                     <li>
-                                        <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'infisherman' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
+                                        <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'imo-mags-parent' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
                                     </li><!-- #post -->                
                                     <?php endwhile; ?>
                                 </ul>
@@ -263,7 +261,7 @@ get_header(); ?>
                                 <ul class="links-list">
                                     <?php while ($footer_query->have_posts()) : $footer_query->the_post(); ?>
                                     <li>
-                                        <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'infisherman' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
+                                        <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'imo-mags-parent' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
                                     </li><!-- #post -->                
                                     <?php endwhile; ?>
                                 </ul>
@@ -276,7 +274,7 @@ get_header(); ?>
                                 <ul class="links-list">
                                     <?php while ($footer_query->have_posts()) : $footer_query->the_post(); ?>
                                     <li>
-                                        <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'infisherman' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
+                                        <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'imo-mags-parent' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
                                     </li><!-- #post -->                
                                     <?php endwhile; ?>
                                 </ul>
@@ -287,7 +285,7 @@ get_header(); ?>
                                 <ul class="links-list">
                                     <?php while ($footer_query->have_posts()) : $footer_query->the_post(); ?>
                                     <li>
-                                        <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'infisherman' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
+                                        <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'imo-mags-parent' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
                                     </li><!-- #post -->                
                                     <?php endwhile; ?>
                                 </ul>
@@ -298,7 +296,7 @@ get_header(); ?>
                                 <ul class="links-list">
                                     <?php while ($footer_query->have_posts()) : $footer_query->the_post(); ?>
                                     <li>
-                                        <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'infisherman' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
+                                        <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'imo-mags-parent' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
                                     </li><!-- #post -->                
                                     <?php endwhile; ?>
                                 </ul>

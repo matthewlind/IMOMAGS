@@ -1,262 +1,18 @@
 /*
-Theme Name: InFisherman
-Theme URI: http://bluefountainmedia.com/
-Description: The 2010 default theme for WordPress.
-Author: bluefountainmedia
-Author URI: http://bluefountainmedia.com/
-Version: 1.0
-
-License:
-License URI:
+Theme Name: 	In-Fisherman
+Theme URI:		http://imomags.com
+Description:    In-Fisherman theme
+Author:         IntermediaOutdoors
+Author URI:		http://imomags.com
+Template:       imo-mags-parent
+Version:        1.0
 
 General comments (optional).
 */
-/* Global reset
-*******************************************************************************/
-html, body, div, a, object, iframe, p, blockquote, pre,
-img, dl, dt, dd, ol, ul, li, h1, h2, h3, h4, h5, h6,
-fieldset, form, legend, textarea, button, input, select {
-    margin: 0;
-    padding: 0;
-    outline: 0;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
 
-/* =HTML5 display definitions
-*******************************************************************************/
-article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
-    display: block;
-}
-audio, canvas, video { display: inline-block; }
-audio:not([controls]) { display: none; height: 0; }
-[hidden] { display: none; }
-svg:not(:root)  { overflow: hidden; }
+@import url("../imo-mags-parent/style.css");
 
-/* Tags reset
-*******************************************************************************/
-html {
-    font-size: 100%;
-    overflow-y: scroll;
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-}
-html, button, input, select, textarea {
-    font-family: sans-serif;
-}
-blockquote, q { quotes: none; }
-blockquote:before, blockquote:after,
-q:before, q:after { content: ''; content: none; }
-a       { text-decoration: none;-webkit-transition: 0.6s;-moz-transition: 0.6s;transition: 0.6s; }
-table   { border-collapse: collapse; border-spacing: 0; }
-hr      { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding:0; }
-ul, ol  { list-style: none; }
-a:hover, a:active, label:focus, label:active { outline: none;text-decoration: none;-webkit-transition: 0.6s;-moz-transition: 0.6s;transition: 0.6s; }
-img     { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
-a.flex-prev, a.flex-next, a.menu-link, a.main-menu-link, .socials a, a.btn-base, a.user-btn, .flex-control-nav a, .flex-control-paging li a, a.open-search, a.open-menu, a.go-top, a.view-post, a.gal-prev, a.gal-next{
-	-webkit-transition: 0 !important;-moz-transition: 0 !important;transition: 0 !important;
-}
 
-/* Normalizing form elements
-*******************************************************************************/
-fieldset { border: none; }
-textarea, button, input, select { font-size: 100%; vertical-align: baseline; }
-textarea { overflow: auto; min-height: 30px; max-height: 400px; resize: vertical; }
-input[type="checkbox"],
-input[type="radio"] { box-sizing: border-box; padding: 0; vertical-align: middle; }
-button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] { -webkit-appearance: button; cursor: pointer; }
-input[type="search"]{ -webkit-appearance: textfield; }
-input[type="search"]::-webkit-search-decoration,
-input[type="search"]::-webkit-search-cancel-button { -webkit-appearance: none; }
-button[disabled],
-input[disabled] { cursor: default; }
-button::-moz-focus-inner,
-input::-moz-focus-inner { border: 0; padding: 0; }
-
-/* Normalizing Tags
-*******************************************************************************/
-small       { font-size: 85%; }
-strong, th  { font-weight: bold; }
-td, td img  { vertical-align: top; }
-sub, sup    { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
-sup         { top: -0.5em; }
-sub         { bottom: -0.25em; }
-h1, h2, h3, h4, h5, h6  { font-weight: normal; margin: 0; }
-
-/* Custom Fonts
-******************************************************************************/
-@font-face {
-    font-family: 'stagbold';
-    src: url('fonts/stag-bold-webfont-webfont.eot');
-    src: url('fonts/stag-bold-webfont-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/stag-bold-webfont-webfont.woff') format('woff'),
-         url('fonts/stag-bold-webfont-webfont.ttf') format('truetype'),
-         url('fonts/stag-bold-webfont-webfont.svg#stagbold') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-@font-face {
-    font-family: 'stagregular';
-    src: url('fonts/stag-medium-webfont-webfont.eot');
-    src: url('fonts/stag-medium-webfont-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/stag-medium-webfont-webfont.woff') format('woff'),
-         url('fonts/stag-medium-webfont-webfont.ttf') format('truetype'),
-         url('fonts/stag-medium-webfont-webfont.svg#stagregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-@font-face {
-    font-family: 'stagitalic';
-    src: url('fonts/stag-mediumitalic-webfont-webfont.eot');
-    src: url('fonts/stag-mediumitalic-webfont-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/stag-mediumitalic-webfont-webfont.woff') format('woff'),
-         url('fonts/stag-mediumitalic-webfont-webfont.ttf') format('truetype'),
-         url('fonts/stag-mediumitalic-webfont-webfont.svg#stagitalic') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-@font-face {
-    font-family: 'open_sansregular';
-    src: url('fonts/opensans-regular-webfont.eot');
-    src: url('fonts/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/opensans-regular-webfont.woff') format('woff'),
-         url('fonts/opensans-regular-webfont.ttf') format('truetype'),
-         url('fonts/opensans-regular-webfont.svg#open_sansregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-@font-face {
-    font-family: 'open_sansbold';
-    src: url('fonts/opensans-bold-webfont.eot');
-    src: url('fonts/opensans-bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/opensans-bold-webfont.woff') format('woff'),
-         url('fonts/opensans-bold-webfont.ttf') format('truetype'),
-         url('fonts/opensans-bold-webfont.svg#open_sansbold') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-@font-face {
-    font-family: 'open_sanssemibold';
-    src: url('fonts/opensans-semibold-webfont.eot');
-    src: url('fonts/opensans-semibold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/opensans-semibold-webfont.woff') format('woff'),
-         url('fonts/opensans-semibold-webfont.ttf') format('truetype'),
-         url('fonts/opensans-semibold-webfont.svg#open_sanssemibold') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-@font-face {
-    font-family: 'proxima_novaextrabold';
-    src: url('fonts/proximanova-extrabold-webfont.eot');
-    src: url('fonts/proximanova-extrabold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/proximanova-extrabold-webfont.woff') format('woff'),
-         url('fonts/proximanova-extrabold-webfont.ttf') format('truetype'),
-         url('fonts/proximanova-extrabold-webfont.svg#proxima_novaextrabold') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-@font-face {
-    font-family: 'proxima_novasemibold';
-    src: url('fonts/proximanova-semibold-webfont.eot');
-    src: url('fonts/proximanova-semibold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/proximanova-semibold-webfont.woff') format('woff'),
-         url('fonts/proximanova-semibold-webfont.ttf') format('truetype'),
-         url('fonts/proximanova-semibold-webfont.svg#proxima_novasemibold') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-@font-face {
-    font-family: 'proxima_nova_rgregular';
-    src: url('fonts/proximanova-regular-webfont.eot');
-    src: url('fonts/proximanova-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/proximanova-regular-webfont.woff') format('woff'),
-         url('fonts/proximanova-regular-webfont.ttf') format('truetype'),
-         url('fonts/proximanova-regular-webfont.svg#proxima_nova_rgregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-@font-face {
-    font-family: 'proxima_nova_rgbold';
-    src: url('fonts/proximanova-bold-webfont.eot');
-    src: url('fonts/proximanova-bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/proximanova-bold-webfont.woff') format('woff'),
-         url('fonts/proximanova-bold-webfont.ttf') format('truetype'),
-         url('fonts/proximanova-bold-webfont.svg#proxima_nova_rgbold') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-/* =Minimal base appearance
-*******************************************************************************/
-body {
-    background:white;
-    color:#3c3c3c;
-    font:14px "open_sansregular", Helvetica, Arial, sans-serif;
-}
-a       { color: #c9242c; }
-a:hover { color: #040503; }
-::-webkit-input-placeholder { color: #3c3c3c; }
-:-moz-placeholder           { color: #3c3c3c; }
-:focus::-webkit-input-placeholder { color: transparent; }
-:focus::-moz-placeholder { color: transparent; }
-img{max-width: 100%;height: auto;}
-/* =Useful classes
-*******************************************************************************/
-
-.clearfix:before, .clearfix:after,
-.container:before, .container:after,
-.nav:before, .nav:after,
-.f-row:before, .f-row:after { content: ""; display: table; }
-.clearfix:after, .f-row:after, .container:after, .nav:after { clear: both; } /* .clearfix, .f-row, .container, .nav */
-
-.debug    { border: 1px dotted red !important; }
-.hidden   { display: none; visibility: hidden; }
-.no-marg  { margin: 0 !important; }
-.no-pad   { padding: 0 !important; }
-.no-bg    { background: none !important; }
-.no-bd    { border: none !important; }
-.fl-l     { float: left !important; }
-.fl-r     { float: right !important; }
-.a-center { text-align: center; }
-.a-left   { text-align: left; }
-.a-right  { text-align: right; }
-.clear    { clear: both; }
-.ir {     /* image replacement */
-    border: 0;
-    font: 0/0 serif;
-    text-shadow: none;
-    color: transparent;
-    background-color: transparent;
-}
-.hr {
-    height: 0px;
-    font: 0/0 serif;
-    border-top:1px solid #dbdbda;
-    border-bottom: 1px dotted #fff;
-    margin: 0 0 20px;
-}
-.mobile-element-320,
-.mobile-element {display:none;}
-.wrapper {
-    width:100%;
-}
-.frame {
-    width:1080px;
-    margin:0 auto;
-}
 .layout-frame {
     width:1080px;
     margin:0 auto;
@@ -266,24 +22,6 @@ img{max-width: 100%;height: auto;}
     z-index:1;
     background:url(images/bg/layout-frame.jpg) repeat #f7f7f5;
     overflow:hidden;
-}
-.cal-title{
-	width: 428px;
-
-}
-.onload-hidden {
-    position:relative;
-    left:-99999px;
-}
-.onload-hidden-abs {
-    top:-99999px !important;
-    left:-99999px !important;
-    position:absolute !important;
-}
-.loading-block {
-    height:130px;
-    overflow:hidden;
-    background:url(images/ico/loadingAnimation.gif) no-repeat 50% !important;
 }
 /* Header
  ******************************************************************************/
@@ -390,6 +128,8 @@ img{max-width: 100%;height: auto;}
     margin:0 8px;
     background:url(images/bg/bg-btn.png) no-repeat 100% 0;
     position:relative;
+    border-radius: 0;
+    border: none;
 }
 .btn-base:hover {
     color:#fff;
@@ -561,9 +301,6 @@ img{max-width: 100%;height: auto;}
 }
 .menu-top-menu-container a:hover {color:#c9242c;}
 .menu-main-menu-container {
-    clear:both;
-    width:100%;
-    float:left;
     background:#040503;
     border-top: 4px solid #F1C548;
 }
@@ -1418,7 +1155,7 @@ a.category-name-link:hover{
 }
 .full-post .entry-content p {
     padding:0 0 24px;
-    -webkit-transform:translate3d(0,0,0);
+    /*-webkit-transform:translate3d(0,0,0);*/
 }
 .post-comments-area {
     background:#fff;

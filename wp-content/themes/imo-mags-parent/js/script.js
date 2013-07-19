@@ -3,7 +3,7 @@ jQuery(window).load(function() {
 	var my_body = document.getElementsByTagName('body')[0],
 	my_script = document.createElement('script');
 	
-	my_script.src = 'http://' + window.location.hostname + '/wp-content/themes/infisherman/js/plugins/jquery.mobile/jquery.mobile-1.3.1.js';
+	my_script.src = 'http://' + window.location.hostname + '/wp-content/themes/imo-mags-parent/js/plugins/jquery.mobile/jquery.mobile-1.3.1.js';
 	my_body.appendChild(my_script);
 	
 	jQuery("html").removeClass("ui-mobile");
@@ -33,6 +33,11 @@ jQuery(function(){
 	    jQuery(".open-menu").click(function(){
 			jQuery("#mob-menu").show();
 		});
+		
+		if( jQuery(".mob-aside-menu .menu-main-menu-container").length ){
+			jQuery(".mob-aside-menu .menu-main-menu-container").removeClass("menu-main-menu-container");
+			jQuery(".mob-aside-menu .menu-main-menu-container").addClass("menu-mobile-menu-container");
+		}
     });	
    	
    	jQuery(function(){
