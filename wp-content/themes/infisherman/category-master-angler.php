@@ -160,26 +160,8 @@ get_header(); ?>
                     </div><!-- #post-0 -->
     
                 <?php endif; ?>
-    
-                <div class="foot-social clearfix">
-                    <strong class="social-title">Like us on Facebook to <span>stay updated !</span></strong>
-                    <div class="fb-like" data-href="http://www.facebook.com/InFisherman" data-send="false" data-layout="button_count" data-width="100" data-show-faces="true"></div>
-                     <?php social_networks(); ?>
-                </div>
-                <div id="fb-root"></div>
-                <script>(function(d, s, id) {
-                  var js, fjs = d.getElementsByTagName(s)[0];
-                  if (d.getElementById(id)) return;
-                  js = d.createElement(s); js.id = id;
-                  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-                  fjs.parentNode.insertBefore(js, fjs);
-                }(document, 'script', 'facebook-jssdk'));</script>
-                
-                <a href="/newsletter-signup" class="get-newsletter">Get the In-Fisherman <br />Newsletter</a>
-                <a href="<?php print SUBS_LINK;?>" class="subscribe-banner">                                        
-                	<img src="<?php bloginfo('template_directory'); ?>/images/pic/subscribe-banner.jpg" alt="" />
-                </a>
-                <a href="#" class="back-top jq-go-top">back to top</a>
+               <?php social_footer(); ?>
+               <a href="#" class="back-top jq-go-top">back to top</a>
                 
             </div><!-- #content -->
         </div><!-- #primary -->

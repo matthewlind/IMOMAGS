@@ -22,17 +22,8 @@ get_header(); ?>
                     </div>
                     
                     <div class="hr"></div>
-                    
-                    <div class="foot-social clearfix">
-                    <strong class="social-title">Like us on Facebook to <span>stay updated !</span></strong>
-                    <div class="fb-like" data-href="http://www.facebook.com/InFisherman" data-send="false" data-layout="button_count" data-width="100" data-show-faces="true"></div>
-                     <?php social_networks(); ?>
-					 </div>
-                    <a href="/newsletter-signup" class="get-newsletter">Get the In-Fisherman <br />Newsletter</a>
-                    <a href="<?php print SUBS_LINK;?>" class="subscribe-banner">
-                        <img src="<?php bloginfo('template_directory'); ?>/images/pic/subscribe-banner.jpg" alt="" />
-                    </a>
-                    <a href="#" class="back-top jq-go-top">back to top</a>
+                    <?php social_footer(); ?> 
+					<a href="#" class="back-top jq-go-top">back to top</a>
                     
                 <?php endwhile; // end of the loop. ?>
     

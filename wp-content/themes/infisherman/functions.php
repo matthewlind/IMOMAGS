@@ -15,15 +15,79 @@ define("GIFT_LINK", "https://secure.palmcoastd.com/pcd/eSv?iMagId=01469&i4Ky=IGZ
 define("SERVICE_LINK", "https://secure.palmcoastd.com/pcd/eServ?iServ=MDE0Njk0NDY5NSZpVHlwZT1FTlRFUg==");
 define("SUBS_DEAL_STRING", "Save Over 70% off<br/> the Cover Price");
 define("DRUPAL_SITE", TRUE);
+define("FACEBOOK_LINK", "https://www.facebook.com/InFisherman");
+
+function imo_sidebar($type){
+	$dartDomain = get_option("dart_domain", $default = false);
+	echo '<div class="sidebar-area">';
+		echo '<div class="sidebar">';
+			echo '<div class="widget_advert-widget">';
+			imo_dart_tag("300x250",false);
+			echo '</div>';
+		echo '</div>';
+	    get_sidebar($type);
+	    	if(!mobile()){
+		    	echo '<div id="responderfollow"></div>';
+				echo '<div class="sidebar advert">';
+		    	echo '<div class="widget"><iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Finfisherman&amp;width=310&amp;height=184&amp;colorscheme=light&amp;show_faces=true&amp;show_border=false&amp;stream=false&amp;header=false&amp;appId=218070564894418" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:310px; height:184px;" allowTransparency="true" id="fb-sidebar"></iframe></div>';
+			    
+					echo '<div class="widget_advert-widget">';
+						echo '<iframe id="sticky-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-sticky.php?ad_code='.$dartDomain.'"></iframe>';
+					echo '</div>';
+				echo '</div>';
+			}
+	echo '</div>';
+}
 
 function social_networks(){
 	echo '<div class="socials">';
-		echo '<a href="https://www.facebook.com/InFisherman" class="facebook">Facebook</a>';
+		echo '<a href="'.FACEBOOK_LINK.'" class="facebook">Facebook</a>';
 	    echo '<a href="https://www.twitter.com/@InFishermanTV" class="twitter">Twitter</a>';
 	    echo '<a href="http://www.youtube.com/user/InFishermanTV" class="youtube">YouTube</a>';
 	    echo '<a href="http://www.in-fisherman.com/feed/" class="rss">RSS</a>';
 	echo '</div>';
 }
+
+function sub_footer(){ ?>
+	<div class="sub-boxes">
+		<div class="sub-box banner-box">
+			<?php imo_dart_tag("300x250",array("pos"=>"mid")); ?>
+			</div>
+			<div class="sub-box fb-box">
+			<div class="fb-recommendations" data-site="flyfisherman.com" data-width="309" data-height="252" data-header="true" data-font="arial"></div>
+		</div>
+	</div>
+	
+	<div class="foot-social clearfix">
+		<strong class="social-title">Like us on Facebook to <span>stay updated !</span></strong>
+		<div class="fb-like" data-href="<?php echo FACEBOOK_LINK; ?>" data-send="false" data-layout="button_count" data-width="100" data-show-faces="true"></div>
+		<?php social_networks(); ?>
+	</div>
+	<a href="/newsletter-signup" class="get-newsletter">Get the Fly Fisherman <br />Newsletter</a>
+	<a href="<?php print SUBS_LINK;?>" class="subscribe-banner">
+	<a href="#" class="back-top jq-go-top">back to top</a>
+<?php }
+
+function social_footer(){ ?>
+	<div class="foot-social clearfix">
+		<strong class="social-title">Like us on Facebook to <span>stay updated !</span></strong>
+		<div class="fb-like" data-href="<?php echo FACEBOOK_LINK; ?>" data-send="false" data-layout="button_count" data-width="100" data-show-faces="true"></div>
+		<?php social_networks(); ?>
+	</div>
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+	fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+	</script>
+	<a href="/newsletter-signup" class="get-newsletter">Get the In-Fisherman <br />Newsletter</a>
+	<a href="<?php print SUBS_LINK;?>" class="subscribe-banner">                                        
+	<img src="<?php bloginfo('template_directory'); ?>/images/pic/subscribe-banner.jpg" alt="" />
+	</a>
+<?php }
 
 function register_recipes_widget() {  
     register_widget( 'Recipes_Widget' );  

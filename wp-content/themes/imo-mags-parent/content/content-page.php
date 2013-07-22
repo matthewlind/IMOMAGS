@@ -32,12 +32,6 @@ $dataPos = 0;
 	</div>
 </div>
                 
-<div class="foot-social clearfix">
-    <strong class="social-title">Like us on Facebook to <span>stay updated !</span></strong>
-    <div class="fb-like" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>
-     <?php social_networks(); ?>
-</div>
-<a href="/newsletter-signup" class="get-newsletter">Get the In-Fisherman <br />Newsletter</a>
-<a href="<?php print SUBS_LINK;?>" class="subscribe-banner">
+<?php social_footer(); ?>
 <a href="#" class="back-top jq-go-top">back to top</a>
 

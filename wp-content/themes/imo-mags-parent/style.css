@@ -441,7 +441,7 @@ img{max-width: 100%;height: auto;}
     position:relative;
     z-index:20;
 }
-.subscribe-now p {margin:0 0 13px;}
+.subscribe-now p {margin:0 0 8px;}
 .subscribe-links {
     font:bold 10px Arial, Helvetica, sans-serif;
     text-transform:uppercase;
@@ -911,13 +911,14 @@ img{max-width: 100%;height: auto;}
     border-left:4px solid #040503;
     position:relative;
     padding:14px 32px 24px 18px;
-    height:119px;
+    min-height:119px;
 }
 .cat-feat-label {
     display:block;
     font:11px/1.2 "open_sansbold", sans-serif;
     color:#fff;
     text-transform:uppercase;
+    max-width: 350px;
 }
 .cat-feat-label span {
     padding:4px 7px;
@@ -1037,6 +1038,21 @@ a.category-name-link:hover{
 }
 .double-posts {
     margin:0 0 30px;
+}
+.double-post-slider .feat-text {
+    height:auto;
+    border:0;
+    position:static;
+}
+.double-post-slider .feat-post {
+    border-left:4px solid #000;
+    position:relative;
+    background:#fff;
+    border-bottom:1px solid #d8d7d6;
+}
+.double-post-slider .feat-img {
+Add a comment to this line
+    margin-left:-4px;
 }
 /* posts list */
 .posts-list {margin:0 0 67px;}
@@ -2350,14 +2366,6 @@ h2.related-stories{
 .footer .frame {
     position:relative;
 }
-.foot-logo {
-    position:absolute;
-    right:100px;
-    bottom:-1px;
-    width:134px;
-    height:213px;
-    background:url(images/logos/fisherman-logo.png) no-repeat;
-}
 .intermedia {
     padding:35px 0 20px;
     border-bottom:1px solid #171719;
@@ -2760,6 +2768,8 @@ h2.related-stories{
         position:relative;
         background:#fff;
         border-bottom:1px solid #d8d7d6;
+        height:auto !important;
+        border-left:0;
     }
     #cabelas-essentials.double-posts .feat-img{
 	    width: auto !important;
@@ -2767,6 +2777,7 @@ h2.related-stories{
     .double-posts .feat-img {
         float:left;
         width:230px;
+        margin-left:0;
     }
     .double-posts .feat-text {
         overflow:hidden;
@@ -3053,7 +3064,6 @@ h2.related-stories{
     .foot-sub-logos,
     .copyright img,
     .f-single-link,
-    .foot-logo,
     .feat-tags,
     .cat-feat-label,
     .feat-post .view-post,

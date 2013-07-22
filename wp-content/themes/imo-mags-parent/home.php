@@ -305,26 +305,8 @@ get_header(); ?>
                     </div>
                 </div>
                 <!-- end footer posts -->
-                
-                <div class="sub-boxes">
-                    <div class="sub-box banner-box">
-                        <?php imo_dart_tag("300x250",array("pos"=>"mid")); ?>
-                    </div>
-                    <div class="sub-box fb-box">
-                       <div class="fb-recommendations" data-site="in-fisherman.com" data-width="309" data-height="252" data-header="true" data-font="arial"></div>
-                    </div>
-                </div>
-                
-                <div class="foot-social clearfix">
-                    <strong class="social-title">Like us on Facebook to <span>stay updated !</span></strong>
-                    <div class="fb-like" data-href="http://www.facebook.com/InFisherman" data-send="false" data-layout="button_count" data-width="100" data-show-faces="true"></div>
-
-                     <?php social_networks(); ?>
-                </div>
-                <a href="/newsletter-signup" class="get-newsletter">Get the In-Fisherman <br />Newsletter</a>
-                <a href="<?php print SUBS_LINK;?>" class="subscribe-banner">
-                <a href="#" class="back-top jq-go-top">back to top</a>
-                <!-- end home page content-->
+               <?php sub_footer(); ?>
+               <!-- end home page content-->
             <?php endif; // end have_posts() check ?>
     
             </div><!-- #content -->

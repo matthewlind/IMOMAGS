@@ -19,28 +19,6 @@ function custom_excerpt_length( $length ) {
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
-function imo_sidebar($type){
-	$dartDomain = get_option("dart_domain", $default = false);
-	echo '<div class="sidebar-area">';
-		echo '<div class="sidebar">';
-			echo '<div class="widget_advert-widget">';
-			imo_dart_tag("300x250",false);
-			echo '</div>';
-		echo '</div>';
-	    get_sidebar($type);
-	    	if(!mobile()){
-		    	echo '<div id="responderfollow"></div>';
-				echo '<div class="sidebar advert">';
-		    	echo '<div class="widget"><iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Finfisherman&amp;width=310&amp;height=184&amp;colorscheme=light&amp;show_faces=true&amp;show_border=false&amp;stream=false&amp;header=false&amp;appId=218070564894418" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:310px; height:184px;" allowTransparency="true" id="fb-sidebar"></iframe></div>';
-			    
-					echo '<div class="widget_advert-widget">';
-						echo '<iframe id="sticky-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-sticky.php?ad_code='.$dartDomain.'"></iframe>';
-					echo '</div>';
-				echo '</div>';
-			}
-	echo '</div>';
-}
-
 class AddParentClass_Walker extends Walker_Nav_Menu 
 {
     
@@ -153,11 +131,11 @@ class AddParentClass_Walker extends Walker_Nav_Menu
 function parent_theme_setup()
 {
     // This theme uses a custom image size for featured images, displayed on "standard" posts.
-    //add_theme_support( 'post-thumbnails' );
+    add_theme_support( 'post-thumbnails' );
     set_post_thumbnail_size( 100, 9999 ); // Unlimited height, soft crop
     add_image_size( 'index-thumb', 200, 150, true );
     add_image_size( 'post-thumb', 700, 450, true );
-    add_image_size( 'post-home-thumb', 695, 460, true );
+    add_image_size( 'post-home-thumb', 695, 380, true );
     add_image_size( 'post-home-small-thumb', 335, 225, true );
 }
 
