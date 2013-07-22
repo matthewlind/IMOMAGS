@@ -1,3 +1,4 @@
+
 /*
 Theme Name: 	In-Fisherman
 Theme URI:		http://imomags.com
@@ -1152,10 +1153,6 @@ a.category-name-link:hover{
     background:#fff;
     border-bottom:1px solid #d8d7d6;
     padding:26px 37px 10px;
-}
-.full-post .entry-content p {
-    padding:0 0 24px;
-    /*-webkit-transform:translate3d(0,0,0);*/
 }
 .post-comments-area {
     background:#fff;
