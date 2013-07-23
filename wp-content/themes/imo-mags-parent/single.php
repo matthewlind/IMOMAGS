@@ -24,9 +24,8 @@ get_header(); ?>
                     <div class="hr"></div>
                     <?php social_footer(); ?> 
 					<a href="#" class="back-top jq-go-top">back to top</a>
-                    
                 <?php endwhile; // end of the loop. ?>
-    
+				
             </div><!-- #content -->
         </div><!-- #primary -->
         

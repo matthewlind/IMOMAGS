@@ -23,15 +23,7 @@ $dataPos = 0;
 		</footer><!-- .entry-meta -->
     </div>
 </div><!-- #post-<?php the_ID(); ?> -->
-<div class="sub-boxes">
-	<div class="sub-box banner-box">
-	    <?php imo_dart_tag("300x250",array("pos"=>"mid")); ?>
-	</div>
-	<div class="sub-box fb-box">
-	   <div class="fb-recommendations" data-site="in-fisherman.com" data-width="309" data-height="252" data-header="true" data-font="arial"></div>
-	</div>
-</div>
-                
-<?php social_footer(); ?>
+               
+<?php sub_footer(); ?> 
 <a href="#" class="back-top jq-go-top">back to top</a>
 

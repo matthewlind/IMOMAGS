@@ -78,7 +78,7 @@
 	        </div>
 	    </div>
 	    <?php endif; ?>
-		    <?php sub_footer(); ?>	        
+		    <?php sub_footer(); ?> 
 			<div class="hr mobile-element"></div>
 	    <div class="entry-meta">
 	        <?php edit_post_link( __( 'Edit', 'twentytwelve' ), '<span class="edit-link">', '</span>' ); ?>

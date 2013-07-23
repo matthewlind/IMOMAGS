@@ -2688,7 +2688,7 @@ h2.related-stories{
 
     #content img.size-full {
         height:auto;
-        width:100%;
+        width:auto;
     }
 	.page-template-core-experts-php .single-post-slider.left{
 	    margin-right: 10px;
@@ -3311,6 +3311,9 @@ h2.related-stories{
     .full-post .sub-boxes {
         border-bottom:0;
         padding-bottom:0;
+    }
+    .full-post .sub-boxes .banner-box{
+	    margin-top: 20px;
     }
     .full-post .sub-boxes:after {
         display:none;

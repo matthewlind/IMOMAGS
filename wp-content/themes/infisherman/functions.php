@@ -54,7 +54,7 @@ function sub_footer(){ ?>
 			<?php imo_dart_tag("300x250",array("pos"=>"mid")); ?>
 			</div>
 			<div class="sub-box fb-box">
-			<div class="fb-recommendations" data-site="flyfisherman.com" data-width="309" data-height="252" data-header="true" data-font="arial"></div>
+			<div class="fb-recommendations" data-site="in-fisherman.com" data-width="309" data-height="252" data-header="true" data-font="arial"></div>
 		</div>
 	</div>
 	
@@ -63,8 +63,10 @@ function sub_footer(){ ?>
 		<div class="fb-like" data-href="<?php echo FACEBOOK_LINK; ?>" data-send="false" data-layout="button_count" data-width="100" data-show-faces="true"></div>
 		<?php social_networks(); ?>
 	</div>
-	<a href="/newsletter-signup" class="get-newsletter">Get the Fly Fisherman <br />Newsletter</a>
+	<a href="/newsletter-signup" class="get-newsletter">Get the In-Fisherman <br />Newsletter</a>
 	<a href="<?php print SUBS_LINK;?>" class="subscribe-banner">
+		<img src="<?php bloginfo('stylesheet_directory'); ?>/images/pic/subscribe-banner.jpg" alt="" />
+	</a>
 	<a href="#" class="back-top jq-go-top">back to top</a>
 <?php }
 
@@ -74,19 +76,6 @@ function social_footer(){ ?>
 		<div class="fb-like" data-href="<?php echo FACEBOOK_LINK; ?>" data-send="false" data-layout="button_count" data-width="100" data-show-faces="true"></div>
 		<?php social_networks(); ?>
 	</div>
-	<div id="fb-root"></div>
-	<script>(function(d, s, id) {
-	var js, fjs = d.getElementsByTagName(s)[0];
-	if (d.getElementById(id)) return;
-	js = d.createElement(s); js.id = id;
-	js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-	fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));
-	</script>
-	<a href="/newsletter-signup" class="get-newsletter">Get the In-Fisherman <br />Newsletter</a>
-	<a href="<?php print SUBS_LINK;?>" class="subscribe-banner">                                        
-	<img src="<?php bloginfo('template_directory'); ?>/images/pic/subscribe-banner.jpg" alt="" />
-	</a>
 <?php }
 
 function register_recipes_widget() {  
