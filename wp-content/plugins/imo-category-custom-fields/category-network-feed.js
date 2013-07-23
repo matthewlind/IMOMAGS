@@ -69,7 +69,7 @@ jQuery(document).ready(function($) {
 		// 	var fileName = "/wp-content/cache/superloop/naw-plus-" + sort + ".json";
 		// }
 
-		var fileName = "/wpdb/shooting-network-json.php?t=ammo";
+		var fileName = "/wpdb/shooting-network-json.php?t=" + term;
 
 
 		$(".load-spinner").show();
