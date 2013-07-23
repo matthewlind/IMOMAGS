@@ -41,6 +41,85 @@ body{border-top: none !important;}
 	padding: 0 0 20px 0;
 }
 
+
+/* double posts */
+.double-post-slider {
+    width:100%;
+    position:relative;
+    padding:0 0 51px;
+    border-bottom:1px solid #dcdcdb;
+}
+.double-post-slider:after {
+    position:absolute;
+    left:0;
+    bottom:-2px;
+    width:100%;
+    height:1px;
+    background:#fff;
+    content:"";
+}
+.double-posts .feat-post {
+    float:right;
+    width:308px;
+    margin:0 3px 0 0;
+    -webkit-transform:translate3d(0,0,0);
+}
+.double-posts .feat-post:first-child {
+    float:left;
+}
+.double-posts {
+    margin:0 0 30px;
+}
+.double-post-slider .feat-text {
+    height:auto;
+    border:0;
+    position:static;
+}
+.double-post-slider .feat-post {
+    border-left:4px solid #000;
+    position:relative;
+    background:#fff;
+    border-bottom:1px solid #d8d7d6;
+}
+.double-post-slider .feat-img {
+    margin-left:-4px;
+}
+/** Cabelas product widget fixes ***/
+#cabelas-essentials {
+	background: white;
+	padding-left: 12px;
+	padding-top: 10px;
+}
+#cabelas-essentials ol{
+	margin-left: 0;
+}
+#cabelas-essentials .feat-text{
+	border: none;
+}
+#cabelas-essentials .image-div img{
+	width: auto !important;
+	margin: 0 auto;
+    vertical-align: middle;
+}
+#cabelas-essentials .cabelas-logo{
+	float: left;
+}
+#cabelas-essentials h2{
+	font: 22px/2 "stagbold", serif;
+	margin-left: 8px;
+}
+#cabelas-essentials .product-item{
+	background: white;
+	float: left;
+	padding: 0 8px;
+}
+#cabelas-essentials .feat-img{
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	height: 190px;
+}
+
 /**
  * Single Post Pagination
  * Added By Berry 11/16/2011

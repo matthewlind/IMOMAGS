@@ -260,6 +260,8 @@ wp_footer();
             </div> 
     </div> 
 </div> 
+<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/plugins/flexslider/jquery.flexslider.js"></script>
+<link rel="STYLESHEET" type="text/css" href="<?php bloginfo('template_directory'); ?>/js/plugins/flexslider/flexslider.css">
 <!-- Quantcast Tag -->
 <script type="text/javascript">
 var _qevents = _qevents || [];

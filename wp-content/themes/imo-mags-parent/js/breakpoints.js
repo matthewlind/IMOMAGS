@@ -63,38 +63,5 @@ jQuery(document).ready(function () {
 		return false;
     }
     
-    //width const for slides
-    var slidebreakpoint  = 870;
     
-    //resize and load events for window
-    jQuery(window)
-        .on('resize', function(){
-            if(!isMobile.iOS()){
-                slide_change_visibility();
-            }
-        })
-        .on('load', slide_change_visibility);
-    
-    //change visibility for desktop and mobile
-    function slide_change_visibility(){
-        
-        var slide_current_width = jQuery(window).width();
-
-        if (slide_current_width <= slidebreakpoint) {
-            slide_mobile_visibility();
-        }
-        else if(slide_current_width > slidebreakpoint){
-            slide_desktop_visibility();
-        }
-
-        return false;
-    }
-    
-    //slide mobile visibility
-    function slide_mobile_visibility() {
-        
-        
-        return false;
-    }
-	
 });
