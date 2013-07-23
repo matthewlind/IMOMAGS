@@ -46,3 +46,18 @@ a.category-name-link:hover{background: #2f7bb2;color: white;}
 .open-menu, .user-btn, .open-search, .filter-links li:before, .menu-top-menu-container li:before, .subscribe-links li:before, .socials a, .view-post, .go-top, .back-top:before, .get-newsletter, .cal-carousel .gal-prev, .cal-carousel .gal-next, .full-post .comment-count, 
 .article-brief .comment-count, .search-field input[type="submit"] {background-image: url(images/sprite.png);}
 
+/*flexslider*/
+/* Direction Nav */
+.flex-direction-nav a {background:url(images/prev-next.png) no-repeat !important;}
+.flex-direction-nav .flex-next {background-position:-33px 0 !important;}
+.flex-direction-nav .flex-prev {background-position:0 0 !important;}
+.flex-direction-nav .flex-next:hover {background-position:-33px -52px !important;}
+.flex-direction-nav .flex-prev:hover {background-position:0 -52px !important;}
+/* Control Nav */
+.flex-control-paging li a {background:url(images/controls.png) no-repeat !important;}
+.paging-single-post .flex-control-paging li a,
+.double-post-slider .flex-control-paging li a {background-position:0 -32px !important;}
+.flex-control-paging li a:hover,
+.flex-control-paging li a.flex-active { background-position:0 -16px !important; }
+
+

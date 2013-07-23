@@ -91,7 +91,7 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 
     
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/breakpoints.js"></script>
-	<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/plugins/flexslider/jquery.flexslider.js"></script>
+	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/plugins/flexslider/jquery.flexslider.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/plugins/ezmark/js/jquery.ezmark.min.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/plugins/classie.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/helper.js"></script>
@@ -99,7 +99,7 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/plugins/jquery.touchSwipe.min.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/script.js"></script>
     <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/script.js"></script>
-    <link rel="STYLESHEET" type="text/css" href="<?php bloginfo('stylesheet_directory'); ?>/js/plugins/flexslider/flexslider.css">
+    <link rel="STYLESHEET" type="text/css" href="<?php bloginfo('template_directory'); ?>/js/plugins/flexslider/flexslider.css">
     <link rel="STYLESHEET" type="text/css" href="<?php bloginfo('template_directory'); ?>/js/plugins/ezmark/css/ezmark.css">
 	<!--[if lt IE 9]><script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->
 
