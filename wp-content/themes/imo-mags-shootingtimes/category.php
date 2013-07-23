@@ -31,6 +31,9 @@ if (category_description()) {
 
 $categoryID = get_query_var('cat');
 
+$this_category = get_category($cat);
+$categorySlug =  $this_category->category_nicename;
+
 
 $useNetworkFeed = get_option('use_network_feed_'.$categoryID, false);
 $fullWidthImage = get_option('full_width_image_'.$categoryID, false);
@@ -90,7 +93,7 @@ get_header(); ?>
 		} else {
 
 			?>
-				<div class="cross-site-feed" term="ammo"><!-- This term= attribute is searched for by displayCrossSiteFeed() in cross-site-feed.js --></div>
+				<div class="cross-site-feed" term="<?php echo $categorySlug; ?>"><!-- This term= attribute is searched for by displayCrossSiteFeed() in cross-site-feed.js --></div>
 				<div class="cross-site-feed-more-button">
 					<div class="more-button button btn">
 						<span class="">Load More <?php single_cat_title(''); ?> Articles<span></span></span>
