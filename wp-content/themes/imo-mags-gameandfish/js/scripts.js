@@ -132,12 +132,13 @@ $(document).ready(function(){
 		});
 		
 		//prev & next buttons for gallery
-		$('.scroll').buffet({
-    		scroll_by : 3,
-   			next      : $('.next'),
-    		prev      : $('.prev')
-  		});
-
+		if($('.scroll').length){
+			$('.scroll').buffet({
+	    		scroll_by : 3,
+	   			next      : $('.next'),
+	    		prev      : $('.prev')
+	  		});
+	  	}
 	});
 					
 

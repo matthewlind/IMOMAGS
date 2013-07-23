@@ -78,15 +78,7 @@
 	        </div>
 	    </div>
 	    <?php endif; ?>
-		    <div class="sub-boxes">
-	            <div class="sub-box banner-box">
-	                <?php imo_dart_tag("300x250",array("pos"=>"mid")); ?> 
-	            </div>
-	            <div class="sub-box fb-box">
-	               <div class="fb-recommendations" data-site="in-fisherman.com" data-width="309" data-height="252" data-header="true" data-font="arial"></div>
-	            </div>
-	        </div>
-	        
+		    <?php sub_footer(); ?> 
 			<div class="hr mobile-element"></div>
 	    <div class="entry-meta">
 	        <?php edit_post_link( __( 'Edit', 'twentytwelve' ), '<span class="edit-link">', '</span>' ); ?>

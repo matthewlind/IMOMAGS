@@ -3,10 +3,10 @@ jQuery(window).load(function() {
 	var my_body = document.getElementsByTagName('body')[0],
 	my_script = document.createElement('script');
 	
-	my_script.src = 'http://' + window.location.hostname + '/wp-content/themes/infisherman/js/plugins/jquery.mobile/jquery.mobile-1.3.1.js';
+	my_script.src = 'http://' + window.location.hostname + '/wp-content/themes/imo-mags-parent/js/plugins/jquery.mobile/jquery.mobile-1.3.1.js';
 	my_body.appendChild(my_script);
 	
-	jQuery("html").removeClass("ui-mobile");
+	
 	
 	jQuery('.onload-hidden').removeClass('onload-hidden');
     jQuery('.onload-hidden-abs').removeClass('onload-hidden-abs');
@@ -14,7 +14,7 @@ jQuery(window).load(function() {
     
     var optionsHash;
 	jQuery( "#idofpanel" ).panel( "open" , optionsHash );
-	
+	jQuery("html").removeClass("ui-mobile");
 });
 
 jQuery(function(){
@@ -33,6 +33,11 @@ jQuery(function(){
 	    jQuery(".open-menu").click(function(){
 			jQuery("#mob-menu").show();
 		});
+		
+		if( jQuery(".mob-aside-menu .menu-main-menu-container").length ){
+			jQuery(".mob-aside-menu .menu-main-menu-container").removeClass("menu-main-menu-container");
+			jQuery(".mob-aside-menu .menu-main-menu-container").addClass("menu-mobile-menu-container");
+		}
     });	
    	
    	jQuery(function(){
@@ -89,12 +94,8 @@ jQuery(function(){
 	if (jQuery(".advert").length > 0) {
 		jQuery('.advert').jfollow('#responderfollow');
 	}
-});
-jQuery(function(){
-    
-  
-  
-    jQuery('.jq-slider').flexslider({
+	
+	jQuery('.jq-slider').flexslider({
         animation: "slide",
         animationSpeed: 200,
         slideshow: false
@@ -139,9 +140,8 @@ jQuery(function(){
           itemWidth: 318,
           itemMargin: 0,
         });*/
-    
+
     jQuery('.jq-custom-form input[type="checkbox"]').ezMark();
-    
     
 });
 

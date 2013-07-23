@@ -11,8 +11,8 @@ get_header(); ?>
                     <img alt="" src="<?php bloginfo('template_directory'); ?>/images/pic/subscribe-banner.jpg">
                 </a>-->
                 <?php $fetured_slider_query = new WP_Query( 'category_name=featured&posts_per_page=5' ); ?>
-                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="post-slider onload-hidden js-responsive-section">
-                    <div class="jq-featured-slider">
+                <div data-position="<?php echo $dataPos = $dataPos + 1; ?> "class="post-slider loading-block js-responsive-section">
+                    <div class="jq-slider onload-hidden">
                         <ul class="slides-inner slides">
                             <?php while ($fetured_slider_query->have_posts()) : $fetured_slider_query->the_post(); ?>
                             <li>
@@ -33,23 +33,9 @@ get_header(); ?>
 				<?php if(!mobile()){ ?>
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="video-box js-responsive-section">
                     <div class="general-title clearfix">
-                        <h2>In-Fisherman <span>TV</span></h2>
-                        <!-- Site - In-Fisherman
-						<script type="text/javascript">
-						  var ord = window.ord || Math.floor(Math.random() * 1e16);
-						  document.write('<a href="http://ad.doubleclick.net/N4930/jump/imo.in-fisherman;sz=260x35;camp=iftv;ord=' + ord + '?"><img src="http://ad.doubleclick.net/N4930/ad/imo.in-fisherman;sz=260x35;camp=iftv;ord=' + ord + '?" width="260" height="35" /></a>');
-						</script>
-						<noscript>
-						<a href="http://ad.doubleclick.net/N4930/jump/imo.in-fisherman;sz=260x35;camp=iftv;ord=[timestamp]?">
-						<img src="http://ad.doubleclick.net/N4930/ad/imo.in-fisherman;sz=260x35;camp=iftv;ord=[timestamp]?" width="260" height="35" />
-						</a>
-						</noscript> -->
-						
-						
-						<?php //sponsor_logo(); ?>
-
+                        <h2>In-Fisherman <span>TV</span></h2>		
+                        <div class="sponsor"><?php //imo_dart_tag("240x60"); ?></div>	
                     </div>
-
                     <div class="video-inner">
                         <div id="BCLcontainingBlock">
                              <div class="BCLvideoWrapper">
@@ -85,43 +71,42 @@ get_header(); ?>
                 <?php } ?>
                 
                 <?php $fetured_slider_query = new WP_Query( 'category_name='.TIMELY_FEATURES.'&posts_per_page=8' ); ?> 
-                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="double-posts double-post-slider js-responsive-section">
+                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="double-posts double-post-slider loading-block js-responsive-section">
                     <div class="general-title clearfix">
                         <h2>Timely <span>Features</span></h2>
                     </div>
-                    <div class="jq-slider clearfix">
-                        <ul class="slides-inner slides">
-                            <?php $i = 1  ?>
-                            <?php while ($fetured_slider_query->have_posts()) : $fetured_slider_query->the_post(); ?>
-                            
-                            <?php if (!(($i+1)%2) ): ?>
-                            <li>
-                            <?php endif; ?>
-                            
-                            <div class="feat-post">
-                                <div class="feat-img"><a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('post-home-small-thumb');?></a></div>
-                                <div class="feat-text">
-                                    <div class="clearfix">
-                                    	<?php echo primary_and_secondary_categories(); ?>
-                                    </div>
-                                    <h3><a href="<?php the_permalink(); ?>" ><?php $title = the_title('','',FALSE); echo substr($title, 0, 54); if (strlen($title) > 54) echo "..."; ?></a></h3>
-                                    <!--<div class="shares-count">
-                                        <?php //render_shares_count(get_permalink(), $post->ID) ?> <span>Shares</span>
-                                    </div>
-                                    <a class="view-post" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">&nbsp;</a>-->
-                                </div>
-                            </div>
-                            
-                            <?php if (!($i%2)): ?>
-                            </li>
-                            <?php endif; ?>
-                            
-                            <?php $i++; ?>
-                            <?php endwhile; ?>
-                        </ul>
-                    </div>
+	                    <div class="jq-slider onload-hidden clearfix">
+	                        <ul class="slides-inner slides">
+	                            <?php $i = 1  ?>
+	                            <?php while ($fetured_slider_query->have_posts()) : $fetured_slider_query->the_post(); ?>
+	                            
+	                            <?php if (!(($i+1)%2) ): ?>
+	                            <li>
+	                            <?php endif; ?>
+	                            
+	                            <div class="feat-post">
+	                                <div class="feat-img"><a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('post-home-small-thumb');?></a></div>
+	                                <div class="feat-text">
+	                                    <div class="clearfix">
+	                                    	<?php echo primary_and_secondary_categories(); ?>
+	                                    </div>
+	                                    <h3><a href="<?php the_permalink(); ?>" ><?php $title = the_title('','',FALSE); echo substr($title, 0, 54); if (strlen($title) > 54) echo "..."; ?></a></h3>
+	                                    <!--<div class="shares-count">
+	                                        <?php //render_shares_count(get_permalink(), $post->ID) ?> <span>Shares</span>
+	                                    </div>
+	                                    <a class="view-post" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">&nbsp;</a>-->
+	                                </div>
+	                            </div>
+	                            
+	                            <?php if (!($i%2)): ?>
+	                            </li>
+	                            <?php endif; ?>
+	                            
+	                            <?php $i++; ?>
+	                            <?php endwhile; ?>
+	                        </ul>
+	                    </div>
                 </div>
-
 				
 				<?php $fetured_slider_query = new WP_Query( 'category_name=online-exclusives&posts_per_page=8' ); ?>
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="double-posts double-post-slider js-responsive-section">
@@ -182,8 +167,8 @@ get_header(); ?>
                             <a href="/master-angler/" class="btn-base btn-base-middle">Enter Now!</a>
                         </div>
                         <?php $fetured_slider_query = new WP_Query( 'category_name='.MASTER_ANGLERS.'&posts_per_page=6' ); ?>
-                        <div class="single-post-slider ">
-                            <div class="jq-slider">
+                        <div class="single-post-slider loading-block">
+							<div class="jq-slider onload-hidden">
                                 <ul class="slides-inner slides">
                                     <?php while ($fetured_slider_query->have_posts()) : $fetured_slider_query->the_post(); ?>
                                     <li>
@@ -320,25 +305,7 @@ get_header(); ?>
                     </div>
                 </div>
                 <!-- end footer posts -->
-                
-                <div class="sub-boxes">
-                    <div class="sub-box banner-box">
-                        <?php imo_dart_tag("300x250",array("pos"=>"mid")); ?>
-                    </div>
-                    <div class="sub-box fb-box">
-                       <div class="fb-recommendations" data-site="in-fisherman.com" data-width="309" data-height="252" data-header="true" data-font="arial"></div>
-                    </div>
-                </div>
-                
-                <div class="foot-social clearfix">
-                    <strong class="social-title">Like us on Facebook to <span>stay updated !</span></strong>
-                    <div class="fb-like" data-href="http://www.facebook.com/InFisherman" data-send="false" data-layout="button_count" data-width="100" data-show-faces="true"></div>
-
-                     <?php social_networks(); ?>
-                </div>
-                <a href="/newsletter-signup" class="get-newsletter">Get the In-Fisherman <br />Newsletter</a>
-                <a href="<?php print SUBS_LINK;?>" class="subscribe-banner">
-                <a href="#" class="back-top jq-go-top">back to top</a>
+                <?php sub_footer(); ?>
                 <!-- end home page content-->
             <?php endif; // end have_posts() check ?>
     

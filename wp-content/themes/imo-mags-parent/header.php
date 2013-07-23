@@ -101,16 +101,25 @@
             
 	            <div class="mob-aside-menu">
 	                <?php 
-	                    wp_nav_menu(array(
+	                if(has_nav_menu( 'Mobile Menu' )){
+		                wp_nav_menu(array(
 	                        'menu_class'=>'menu',  
 	                        'theme_location'=>'mobile', 
 	                        'walker'=> new AddParentClass_Walker()
 	                    ));
+	                }else{
+		                wp_nav_menu(array(
+                        'menu_class'=>'menu',  
+                        'theme_location'=>'bottom',
+                        'walker'=> new AddParentClass_Walker()
+                    ));
+	                }
+	                    
 	                ?>
 	            </div>
 	
 	            <div class="menu-subscribe">
-	                <a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/pic/journals.png" alt="" /><span>Subscribe Now!</span></a>
+	                <a href="#"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/pic/journals.png" alt="" /><span>Subscribe Now!</span></a>
 	            </div>
 	            <?php wp_nav_menu(array(
 	                'menu_class'=>'menu',  
@@ -128,7 +137,7 @@
                 
                 <div class="clearfix">
                     <a href="#mypanel" class="open-menu">open menu</a>
-                    <strong class="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo('template_directory'); ?>/images/logo.png" alt="<?php bloginfo( 'name' ); ?>" /></a></strong>
+                    <strong class="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/logo.png" alt="<?php bloginfo( 'name' ); ?>" /></a></strong>
                     <?php
                         // Check to see if the header image has been removed
                         $header_image = get_header_image();
@@ -155,7 +164,7 @@
                         if ( 'blank' == get_header_textcolor() ) :
                     ?>
                         <div class="only-search<?php if ( ! empty( $header_image ) ) : ?> with-image<?php endif; ?>">
-                        <?php infisherman_get_search_form(); ?>
+                        <?php parent_theme_get_search_form(); ?>
                         </div>
                     <?php
                         else :
@@ -165,7 +174,7 @@
 						<div class="subscribe-box">
 						    <div class="clearfix">
 						        <div class="journal">
-						        <img src="/wp-content/themes/infisherman/images/pic/journals.png" alt="">
+						        <img src="<?php bloginfo('stylesheet_directory'); ?>/images/pic/journals.png" alt="">
 						    </div>
 						    <div class="subscribe-now">
 						        <p><span class="stag-bold">SUBSCRIBE </span><span class="stag-reg">&amp;  SAVE 70% OFF</span> <b>the Cover Price</b></p>
@@ -184,7 +193,7 @@
                             	<?php social_networks(); ?>
 							</div>                            
                             <div class="h-search-form">
-                                <?php infisherman_get_search_form(); ?>
+                                <?php parent_theme_get_search_form(); ?>
                             </div>
                         </div>
                     <?php endif; ?>

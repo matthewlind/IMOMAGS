@@ -1,9 +1,9 @@
 /*
 Theme Name: IMO Parent Theme
-Theme URI: http://bluefountainmedia.com/
-Description: The 2010 default theme for WordPress.
-Author: bluefountainmedia
-Author URI: http://bluefountainmedia.com/
+Theme URI: http://imomags.com/
+Description: The Parent theme for all responsive sites.
+Author: IMO
+Author URI: http://imomags.com/
 Version: 1.0
 
 License:
@@ -202,7 +202,6 @@ h1, h2, h3, h4, h5, h6  { font-weight: normal; margin: 0; }
 /* =Minimal base appearance
 *******************************************************************************/
 body {
-    background:white;
     color:#3c3c3c;
     font:14px "open_sansregular", Helvetica, Arial, sans-serif;
 }
@@ -264,7 +263,7 @@ img{max-width: 100%;height: auto;}
     border-width:0 1px;
     position:relative;
     z-index:1;
-    background:url(images/bg/layout-frame.jpg) repeat #f7f7f5;
+    background:white;
     overflow:hidden;
 }
 .cal-title{
@@ -296,8 +295,6 @@ img{max-width: 100%;height: auto;}
 }
 .logo {
     float:left;
-    width:353px;
-    height:84px;
     margin:8px 0 0 18px;
 }
 .logo a {
@@ -381,19 +378,47 @@ img{max-width: 100%;height: auto;}
     font-family:"stagregular";
 }
 .btn-base {
-    display:inline-block;
-    height:29px;
-    font:15px/29px "stagbold", serif;
+    display: inline-block;
+    font:15px/30px "stagbold", serif;
     color:#fff;
-    text-shadow:0 -1px 0 #7a0c11;
-    padding:0 8px;
+    padding: 4px 12px;
     margin:0 8px;
-    background:url(images/bg/bg-btn.png) no-repeat 100% 0;
-    position:relative;
+	margin-bottom: 0;
+	line-height: 20px;
+	color: #333333;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	background-color: #f5f5f5;
+	background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+	background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+	background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+	background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+	background-repeat: repeat-x;
+	border: 1px solid #cccccc;
+	border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	border-bottom-color: #b3b3b3;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+	-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 .btn-base:hover {
-    color:#fff;
-    background-position:100% -35px;
+	color: #333333;
+	text-decoration: none;
+	background-position: 0 -15px;
+	-webkit-transition: background-position 0.1s linear;
+	-moz-transition: background-position 0.1s linear;
+	-o-transition: background-position 0.1s linear;
+	transition: background-position 0.1s linear;
+	background-color: #e6e6e6;
+
 }
 .btn-base-middle {
     height:38px;
@@ -403,46 +428,20 @@ img{max-width: 100%;height: auto;}
     background-position:100% -68px;
 }
 .btn-base-middle:hover {background-position:100% -110px;}
-.btn-base:before,
-.btn-base:after {
-    position:absolute;
-    top:0;
-    width:8px;
-    height:29px;
-    content:"";
-    background:url(images/sprite.png) no-repeat;
-}
-.btn-base:before {
-    left:-8px;
-    background-position:0 0;
-}
-.btn-base:hover:before {background-position:-20px 0;}
-.btn-base:after {
-    right:-8px;
-    background-position:-10px 0;
-}
-.btn-base:hover:after {background-position:-30px 0;}
-.btn-base-middle:before,
-.btn-base-middle:after {
-    height:38px;
-}
 .btn-base-middle:before {background-position:-372px 0;}
 .btn-base-middle:hover:before {background-position:-390px 0;}
 .btn-base-middle:after {background-position:-381px 0;}
 .btn-base-middle:hover:after {background-position:-399px 0;}
 .btn-base input {
-    border:0;
+    border:none;
     background:none;
     height:29px;
     padding:0 16px;
     margin:0 -16px;
     position:relative;
     z-index:20;
-    font:17px/19px "stagbold", serif;
-    text-shadow:0 -1px 0 #7a0c11;
-    color:#fff;
 }
-.subscribe-now p {margin:0 0 13px;}
+.subscribe-now p {margin:0 0 8px;}
 .subscribe-links {
     font:bold 10px Arial, Helvetica, sans-serif;
     text-transform:uppercase;
@@ -565,7 +564,6 @@ img{max-width: 100%;height: auto;}
     width:100%;
     float:left;
     background:#040503;
-    border-top: 4px solid #F1C548;
 }
 .menu-main-menu-container li {
     float:left;
@@ -913,13 +911,14 @@ img{max-width: 100%;height: auto;}
     border-left:4px solid #040503;
     position:relative;
     padding:14px 32px 24px 18px;
-    height:119px;
+    min-height:119px;
 }
 .cat-feat-label {
     display:block;
     font:11px/1.2 "open_sansbold", sans-serif;
     color:#fff;
     text-transform:uppercase;
+    max-width: 350px;
 }
 .cat-feat-label span {
     padding:4px 7px;
@@ -1039,6 +1038,20 @@ a.category-name-link:hover{
 }
 .double-posts {
     margin:0 0 30px;
+}
+.double-post-slider .feat-text {
+    height:auto;
+    border:0;
+    position:static;
+}
+.double-post-slider .feat-post {
+    border-left:4px solid #000;
+    position:relative;
+    background:#fff;
+    border-bottom:1px solid #d8d7d6;
+}
+.double-post-slider .feat-img {
+    margin-left:-4px;
 }
 /* posts list */
 .posts-list {margin:0 0 67px;}
@@ -1418,7 +1431,7 @@ a.category-name-link:hover{
 }
 .full-post .entry-content p {
     padding:0 0 24px;
-    -webkit-transform:translate3d(0,0,0);
+    
 }
 .post-comments-area {
     background:#fff;
@@ -1735,6 +1748,14 @@ a.category-name-link:hover{
 	vertical-align: middle;
 	height: 190px;
 }
+/*** JETPACK FIXES ***/
+#jpsuperheader{
+	background: black !important;
+	width: 1080px !important;
+}
+#jpsuperheader .jpstage{
+	margin: 0 auto !important;
+}
 /* = styles for mobile menu end 
 ---------------------------------------------------------------------- */
 .message-not-found {
@@ -1789,7 +1810,6 @@ iframe[style]#fb-sidebar{background-color: white !important;}
     height:49px;
     overflow:hidden;
     text-indent:-9999px;
-    background:url(images/logos/logo-infisherman.png) no-repeat;
 }
 .presented-by {
     text-align:center;
@@ -2014,7 +2034,6 @@ a.change-location:before {
     text-align:center;
     color:#fff;
     font:22px/61px "stagbold", serif;
-    text-shadow:0 -1px 0 #7a0c11;
     text-transform:uppercase;
 }
 .signup-mdl {
@@ -2346,14 +2365,6 @@ h2.related-stories{
 .footer .frame {
     position:relative;
 }
-.foot-logo {
-    position:absolute;
-    right:100px;
-    bottom:-1px;
-    width:134px;
-    height:213px;
-    background:url(images/logos/fisherman-logo.png) no-repeat;
-}
 .intermedia {
     padding:35px 0 20px;
     border-bottom:1px solid #171719;
@@ -2676,7 +2687,7 @@ h2.related-stories{
 
     #content img.size-full {
         height:auto;
-        width:100%;
+        width:auto;
     }
 	.page-template-core-experts-php .single-post-slider.left{
 	    margin-right: 10px;
@@ -2756,6 +2767,8 @@ h2.related-stories{
         position:relative;
         background:#fff;
         border-bottom:1px solid #d8d7d6;
+        height:auto !important;
+        border-left:0;
     }
     #cabelas-essentials.double-posts .feat-img{
 	    width: auto !important;
@@ -2763,6 +2776,7 @@ h2.related-stories{
     .double-posts .feat-img {
         float:left;
         width:230px;
+        margin-left:0;
     }
     .double-posts .feat-text {
         overflow:hidden;
@@ -3049,7 +3063,6 @@ h2.related-stories{
     .foot-sub-logos,
     .copyright img,
     .f-single-link,
-    .foot-logo,
     .feat-tags,
     .cat-feat-label,
     .feat-post .view-post,
@@ -3297,6 +3310,9 @@ h2.related-stories{
     .full-post .sub-boxes {
         border-bottom:0;
         padding-bottom:0;
+    }
+    .full-post .sub-boxes .banner-box{
+	    margin-top: 20px;
     }
     .full-post .sub-boxes:after {
         display:none;
