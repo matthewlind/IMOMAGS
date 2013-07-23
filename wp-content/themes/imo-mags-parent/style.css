@@ -1748,6 +1748,9 @@ a.category-name-link:hover{
 	vertical-align: middle;
 	height: 190px;
 }
+#cabelas-essentials .double-post-slider .feat-post{
+	border: none;
+}
 /*** JETPACK FIXES ***/
 #jpsuperheader{
 	background: black !important;

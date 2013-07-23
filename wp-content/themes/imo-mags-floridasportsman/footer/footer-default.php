@@ -233,7 +233,7 @@ wp_footer();
 <?php } ?>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/custom.js"/></script>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.jfollow.js"/></script>
-<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/plugins/flexslider/jquery.flexslider.js"></script>
-<link rel="STYLESHEET" type="text/css" href="<?php bloginfo('template_directory'); ?>/js/plugins/flexslider/flexslider.css">
+<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/flexslider/jquery.flexslider.js"></script>
+<link rel="STYLESHEET" type="text/css" href="<?php bloginfo('template_directory'); ?>/js/flexslider/flexslider.css">
 </body>
 </html>
