@@ -1749,7 +1749,7 @@ a.category-name-link:hover{
 	height: 190px;
 }
 #cabelas-essentials .double-post-slider .feat-post{
-	border: none;
+	border: none !important;
 }
 /*** JETPACK FIXES ***/
 #jpsuperheader{
