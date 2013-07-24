@@ -180,12 +180,12 @@ EOT;
 
 
 	$mobile = <<<EOT
+	<div class="loading-block">
 		<div class="jq-gallery-slider gallery-slider" id="gallery-$gallery_id">
-			<iframe id="gallery-iframe-ad" width=300 height=250 marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?ad_code=$dartDomain"></iframe>
-
 		<div class="general-title clearfix">
 		    <h2><span>$title</span></h2>
 		</div>
+		<iframe id="gallery-iframe-ad" width="320" height="50" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?size=320x50&ad_code=$dartDomain"></iframe>
 		<span class="slide-count">$count</span>
 		    <ul class="slides">
 EOT;
@@ -209,6 +209,7 @@ EOT2;
 	}
 $mobile .= <<<EOT3
 		    </ul>
+		</div>
 		</div>
 
 		<script type="text/javascript">

@@ -98,41 +98,44 @@
 <div data-role="page">
 <div data-role="panel" id="mypanel" class="aside-menu onload-hidden-abs" data-position="left" data-display="reveal">
 	<div id="mob-menu" style="display:none;">
-            <div class="mobile-menu-banner">
-				<?php //if (mobile()) { imo_dart_tag("300x50",true,array("pos"=>"")); } ?>
-            </div>
 
-	            <div class="mob-aside-menu">
-	                <?php
-	                if(has_nav_menu( 'Mobile Menu' )){
-		                wp_nav_menu(array(
-	                        'menu_class'=>'menu',
-	                        'theme_location'=>'mobile',
-	                        'walker'=> new AddParentClass_Walker()
-	                    ));
-	                }else{
-		                wp_nav_menu(array(
-                        'menu_class'=>'menu',
-                        'theme_location'=>'bottom',
-                        'walker'=> new AddParentClass_Walker()
-                    ));
-	                }
+		<div class="mobile-menu-banner">
+			<?php $dartDomain = get_option("dart_domain", $default = false); ?>
+			<iframe id="menu-iframe-ad" width="320" height="50" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-menu.php?size=320x50&ad_code=<?php echo $dartDomain; ?>"></iframe>
+		</div>
 
-	                ?>
-	            </div>
+        <div class="mob-aside-menu">
+            <?php
+            if(has_nav_menu( 'Mobile Menu' )){
+                wp_nav_menu(array(
+                    'menu_class'=>'menu',
+                    'theme_location'=>'mobile',
+                    'walker'=> new AddParentClass_Walker()
+                ));
+            }else{
+                wp_nav_menu(array(
+                'menu_class'=>'menu',
+                'theme_location'=>'bottom',
+                'walker'=> new AddParentClass_Walker()
+            ));
+            }
 
-	            <div class="menu-subscribe">
-	                <a href="#"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/pic/journals.png" alt="" /><span>Subscribe Now!</span></a>
-	            </div>
-	            <?php wp_nav_menu(array(
-	                'menu_class'=>'menu',
-	                'theme_location'=>'top',
-	            ));   ?>
-	            <div class="aside-socials">
-	                <strong>Connect</strong>
-	                <?php social_networks(); ?>
-	            </div>
-            </div>
+            ?>
+        </div>
+
+        <div class="menu-subscribe">
+            <a href="#"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/pic/journals.png" alt="" /><span>Subscribe Now!</span></a>
+        </div>
+        <?php wp_nav_menu(array(
+            'menu_class'=>'menu',
+            'theme_location'=>'top',
+        ));   ?>
+        <div class="aside-socials">
+            <strong>Connect</strong>
+            <?php social_networks(); ?>
+        </div>
+    </div>
+
 </div><!-- /panel -->
 <div id="page" class="hfeed wrapper" data-role="content" role="main">
     <div class="layout-frame">
@@ -222,7 +225,9 @@
 	        	<div class="mdl-banner">
 					 <?php imo_dart_tag("728x90",false); ?>
 				</div>
-			<?php } ?>
+				<?php }else{
+					imo_dart_tag("320x50",true);
+				} ?>
             <div class="swipe-out"></div>
         </div>
 

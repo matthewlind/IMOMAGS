@@ -32,6 +32,13 @@ jQuery(function(){
 	    //fix for menu loading before jquery mobile
 	    jQuery(".open-menu").click(function(){
 			jQuery("#mob-menu").show();
+			_gaq.push(['_trackPageview',"/" + window.location.pathname + "-mobile-menu-open"]);  
+			document.getElementById('menu-iframe-ad').contentWindow.location.reload();
+		});
+		
+		jQuery( document ).on("swipeleft swiperight",".open-menu", function( e ) {
+			_gaq.push(['_trackPageview',"/" + window.location.pathname + "-mobile-menu-open"]);  
+			document.getElementById('menu-iframe-ad').contentWindow.location.reload();
 		});
 		
 		if( jQuery(".mob-aside-menu .menu-main-menu-container").length ){
@@ -89,8 +96,9 @@ jQuery(function(){
 	FlashHeed.heed();
 });
 
-// jFollow
 jQuery(function(){
+	
+	// jFollow
 	if (jQuery(".advert").length > 0) {
 		jQuery('.advert').jfollow('#responderfollow');
 	}

@@ -59,14 +59,15 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
         </div>
         <div class="f-nav-section clearfix">
             <ul class="foot-nav">
-                <li><a href="#">ABOUT</a></li>
-                <li><a href="#">ADVERTISE</a></li>
-                <li><a href="#">CONTACT</a></li>
-                <li class="mobile-element-320"><a href="#">SPONSORSHIP/ADVERTISING</a></li>
+                <li><a href="http://www.imoutdoorsmedia.com/IM3/">ABOUT</a></li>
+                <li><a href="http://www.imoutdoorsmedia.com/">ADVERTISE</a></li>
+                <li><a href="http://www.gameandfishmag.fox/contact">CONTACT</a></li>
+                <li><a href="http://imomags.com/careers/">CAREERS</a></li>
+                <!--<li class="mobile-element-320"><a href="#">SPONSORSHIP/ADVERTISING</a></li>
                 <li class="mobile-element-320"><a href="#">TERMS OF USE</a></li>
                 <li class="mobile-element-320"><a href="#">LINK TO US</a></li>
             </ul>
-            <a href="#" class="f-single-link">Conservation Partners</a>
+            <a href="#" class="f-single-link">Conservation Partners</a>-->
         </div>
         <div class="copyright-section clearfix">
             <div class="copyright">
