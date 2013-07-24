@@ -96,8 +96,9 @@ jQuery(function(){
 	FlashHeed.heed();
 });
 
-// jFollow
 jQuery(function(){
+	
+	// jFollow
 	if (jQuery(".advert").length > 0) {
 		jQuery('.advert').jfollow('#responderfollow');
 	}

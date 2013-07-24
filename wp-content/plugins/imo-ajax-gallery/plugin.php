@@ -8,6 +8,21 @@
  */
 
 add_shortcode( 'imo-slideshow', 'slideshow_gallery' );
+include_once('Mobile_Detect.php');
+
+// Mobile and Tablet detection. Add when the future comes and changes your devices. Uses Mobile_Detect.php - http://mobiledetect.net/
+function mobile() {
+	$detect = new Mobile_Detect();
+	$mobile = $detect->isMobile();
+	return $mobile;
+}
+
+function tablet() {
+	$detect = new Mobile_Detect();
+	$mobile = $detect->isTablet();
+	return $mobile;
+}
+
 // [slideshow gallery=GALLERY_ID]
 function slideshow_gallery( $atts ) {
 	

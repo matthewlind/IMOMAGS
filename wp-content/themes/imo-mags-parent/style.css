@@ -1720,11 +1720,19 @@ a.category-name-link:hover{
 	padding-left: 12px;
 	padding-top: 10px;
 }
+#cabelas-essentials .flex-direction-nav{
+	display: block;
+}
+#cabelas-essentials .flex-direction-nav a{
+	background-color: black;
+}
 #cabelas-essentials ol{
 	margin-left: 0;
 }
 #cabelas-essentials .feat-text{
 	border: none;
+	padding: 2px;
+	max-width: 250px;
 }
 #cabelas-essentials .image-div img{
 	width: auto !important;
@@ -1743,15 +1751,16 @@ a.category-name-link:hover{
 	float: left;
 	padding: 0 8px;
 }
+#cabelas-essentials .feat-post{
+	border: none !important;
+}
 #cabelas-essentials .feat-img{
 	display: table-cell;
 	text-align: center;
 	vertical-align: middle;
 	height: 190px;
 }
-#cabelas-essentials .double-post-slider .feat-post{
-	border: none !important;
-}
+
 /*** JETPACK FIXES ***/
 #jpsuperheader{
 	background: black !important;
@@ -2477,6 +2486,10 @@ h2.related-stories{
         position:relative;
         left:-99999px;
         border: none;
+    }
+    #cabelas-essentials .feat-text{
+	    clear: both;
+	    max-width: 180px;
     }
     /* header */
    #subscribe-area {
@@ -3511,3 +3524,4 @@ h2.related-stories{
     @page { margin: 0.5cm; }
     p, h2, h3 { orphans: 3; widows: 3; }
     h2, h3 { page-break-after: avoid; }
+}

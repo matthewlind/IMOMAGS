@@ -10,7 +10,6 @@
 
 <div id="post-<?php the_ID(); ?>" <?php post_class('full-post'); ?>>
     
-    <?php //the_post_thumbnail(); ?>
     <?php if ( is_single() ) : ?>
     <div class="clearfix">
         <?php echo primary_and_secondary_categories(); ?>
