@@ -10056,7 +10056,6 @@ $.mobile.document.delegate( ":jqmData(role='table')", "tablecreate refresh", fun
 	}
 
 	// Add mobile, initial load "rendering" classes to docEl
-	/*** CRASHES IMO AD UNITS ***/
 	$html.addClass( "ui-mobile ui-mobile-rendering" );
 	
 
