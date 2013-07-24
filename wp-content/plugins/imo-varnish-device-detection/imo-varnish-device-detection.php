@@ -14,8 +14,17 @@ add_action( 'init', 'check_and_add_http_headers' , -50); //Give function high pr
 //These variables are checked later in the functions below. If the page is mobile/tablet, these are set to true.
 $deviceTypeIsTablet = FALSE;
 $deviceTypeIsMobile = FALSE;
+$varnishHeaderExists = FALSE;
+
+
+
 
 function check_and_add_http_headers() {
+
+
+	global $deviceTypeIsMobile;
+	global $deviceTypeIsTablet;
+	global $varnishHeaderExists;
 
 	$headers = apache_request_headers();
 
@@ -23,6 +32,8 @@ function check_and_add_http_headers() {
 	foreach ($headers as $header => $value) {//Search through headers for the Device Type header
 
 		if ($header == "X-Device-Type") {//If Device Type header is found
+
+			$varnishHeaderExists = TRUE;
 
 			if ($value == "Mobile") {//If device is set to mobile
 
@@ -49,12 +60,41 @@ function check_and_add_http_headers() {
 
 	}
 
+	if (!$varnishHeaderExists) { //If no device type header is found, we are probably on .deva or .fox
+
+		include_once('Mobile_Detect.php');
+
+		$detect = new Mobile_Detect();
+
+
+		if ($detect->isMobile() && !$detect->isTablet()) {
+			$deviceTypeIsMobile = TRUE;
+
+
+		} //Make sure to only return true if tablet is false.
+
+
+		if ($detect->isTablet()) {
+
+			$deviceTypeIsTablet = TRUE;
+		} //Make sure to only return true if tablet is false.
+
+
+
+	}
+
 }
 
+
 function mobile() {
+
+	global $deviceTypeIsMobile;
 	return $deviceTypeIsMobile;
 }
 
 function tablet() {
+	global $deviceTypeIsTablet;
+
 	return $deviceTypeIsTablet;
 }
+

@@ -1,6 +1,9 @@
 <?php
 ?><!DOCTYPE html>
 <!-- bid: <?php global $blog_id; print $blog_id ?>; env: <?php if(defined("WEB_ENV")) { print WEB_ENV; } else { print "production"; } ?> -->
+<!-- X-Device-Type Varnish Header Found: <?php echo ($varnishHeaderExists ? "YES" : 'NO'); ?> -->
+<!-- Mobile Detected: <?php echo (mobile() ? "YES" : 'NO'); ?> -->
+<!-- Tablet Detected: <?php echo (tablet() ? "YES" : 'NO'); ?> -->
 <!--[if IE 6]>
 <html id="ie6" <?php language_attributes(); ?>>
 <![endif]-->
@@ -21,25 +24,25 @@
 	     * Print the <title> tag based on what is being viewed.
 	     */
 	    global $page, $paged;
-	
+
 	    wp_title( '|', true, 'right' );
-	
+
 	    // Add the blog name.
 	    bloginfo( 'name' );
-	
+
 	    // Add the blog description for the home/front page.
 	    $site_description = get_bloginfo( 'description', 'display' );
 	    if ( $site_description && ( is_home() || is_front_page() ) )
 	        echo " | $site_description";
-	
+
 	    // Add a page number if necessary:
 	    if ( $paged >= 2 || $page >= 2 )
 	        echo ' | ' . sprintf( __( 'Page %s', 'twentyeleven' ), max( $paged, $page ) );
-	
+
 	    ?></title>
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
-	
+
 	<?php if(mobile()){ ?>
 		<style type="text/css">
 			/* hardware acceleration for smoother transitions on WebKit browsers */
@@ -59,19 +62,19 @@
 	<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
 	<![endif]-->
 	<?php
-		include_once get_stylesheet_directory() . "/head-includes.php";  
+		include_once get_stylesheet_directory() . "/head-includes.php";
 	    /* We add some JavaScript to pages with the comment form
 	     * to support sites with threaded comments (when in use).
 	     */
 	    if ( is_singular() && get_option( 'thread_comments' ) )
 	        wp_enqueue_script( 'comment-reply' );
-	
+
 	    /* Always have wp_head() just before the closing </head>
 	     * tag of your theme, or you will break many plugins, which
 	     * generally use this hook to add elements to <head> such
 	     * as styles, scripts, and meta tags.
 	     */
-	    wp_enqueue_script("jquery"); 
+	    wp_enqueue_script("jquery");
 	    wp_head();
 	?>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/dart.js" type="text/javascript"></script>
@@ -79,7 +82,7 @@
 	<script src="<?php echo get_template_directory_uri(); ?>/js/flash_heed.js" type="text/javascript"></script>
 	<?php if ( defined('JETPACK_SITE') && !mobile() && !tablet()): ?>
 		<script type='text/javascript' src='http://ads.jetpackdigital.com/sites/<?php print JETPACK_SITE; ?>/jpd.js'></script>
-	<?php endif; ?> 
+	<?php endif; ?>
 </head>
 
 <body <?php body_class(); ?>  >
@@ -98,32 +101,32 @@
             <div class="mobile-menu-banner">
 				<?php //if (mobile()) { imo_dart_tag("300x50",true,array("pos"=>"")); } ?>
             </div>
-            
+
 	            <div class="mob-aside-menu">
-	                <?php 
+	                <?php
 	                if(has_nav_menu( 'Mobile Menu' )){
 		                wp_nav_menu(array(
-	                        'menu_class'=>'menu',  
-	                        'theme_location'=>'mobile', 
+	                        'menu_class'=>'menu',
+	                        'theme_location'=>'mobile',
 	                        'walker'=> new AddParentClass_Walker()
 	                    ));
 	                }else{
 		                wp_nav_menu(array(
-                        'menu_class'=>'menu',  
+                        'menu_class'=>'menu',
                         'theme_location'=>'bottom',
                         'walker'=> new AddParentClass_Walker()
                     ));
 	                }
-	                    
+
 	                ?>
 	            </div>
-	
+
 	            <div class="menu-subscribe">
 	                <a href="#"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/pic/journals.png" alt="" /><span>Subscribe Now!</span></a>
 	            </div>
 	            <?php wp_nav_menu(array(
-	                'menu_class'=>'menu',  
-	                'theme_location'=>'top', 
+	                'menu_class'=>'menu',
+	                'theme_location'=>'top',
 	            ));   ?>
 	            <div class="aside-socials">
 	                <strong>Connect</strong>
@@ -134,7 +137,7 @@
 <div id="page" class="hfeed wrapper" data-role="content" role="main">
     <div class="layout-frame">
         <div id="branding" class="header clearfix" role="banner">
-                
+
                 <div class="clearfix">
                     <a href="#mypanel" class="open-menu">open menu</a>
                     <strong class="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/logo.png" alt="<?php bloginfo( 'name' ); ?>" /></a></strong>
@@ -158,7 +161,7 @@
                         <?php endif; // end check for featured image or standard header ?>
                     </a>
                     <?php endif; // end check for removed header image ?>
-        
+
                     <?php
                         // Has the text been hidden?
                         if ( 'blank' == get_header_textcolor() ) :
@@ -170,7 +173,7 @@
                         else :
                     ?>
 					<a href="#" class="open-search jq-open-search">search</a>
-					<div id="subscribe-area" class="widget widget_text header-elements">			
+					<div id="subscribe-area" class="widget widget_text header-elements">
 						<div class="subscribe-box">
 						    <div class="clearfix">
 						        <div class="journal">
@@ -187,33 +190,33 @@
 						    </ul>
 						</div>
 					</div>
-                        
+
                         <div class="h-mdl-widget">
                             <div class="socials-hold">
                             	<?php social_networks(); ?>
-							</div>                            
+							</div>
                             <div class="h-search-form">
                                 <?php parent_theme_get_search_form(); ?>
                             </div>
                         </div>
                     <?php endif; ?>
                 </div>
-                                
+
                     <?php wp_nav_menu(array(
-                        'menu_class'=>'menu',  
-                        'theme_location'=>'top', 
+                        'menu_class'=>'menu',
+                        'theme_location'=>'top',
                     ));   ?>
                 <!-- #access -->
-                
-                    <?php 
+
+                    <?php
                     wp_nav_menu(array(
-                        'menu_class'=>'menu',  
+                        'menu_class'=>'menu',
                         'theme_location'=>'bottom',
                         'walker'=> new AddParentClass_Walker()
                     ));   ?>
                 <!-- #access -->
         </div><!-- #branding -->
-    
+
         <div class="content-banner-section">
         	<?php if (!mobile()) { ?>
 	        	<div class="mdl-banner">
@@ -222,6 +225,6 @@
 			<?php } ?>
             <div class="swipe-out"></div>
         </div>
-    
+
         <div id="main" class="main clearfix js-responsive-layout">
             <div class="swipe-out"></div>
