@@ -1280,9 +1280,7 @@ a.category-name-link:hover{
     -moz-box-sizing: content-box;
     box-sizing: content-box;
 }
-.gallery-slider #gallery-iframe-ad{
-	margin-left: -11px;
-}
+
 /* addthis */
 .addthis-below{
 	padding: 12px 0 8px;
@@ -2751,6 +2749,7 @@ h2.related-stories{
 }
 
 @media only screen and (max-width: 610px) {
+	
     .article-brief .comment-count,
     .foot-sub-logos,
     .copyright img,
@@ -3137,6 +3136,9 @@ h2.related-stories{
     }
 }
 @media only screen and (max-width: 340px) {
+	.gallery-slider #gallery-iframe-ad{
+		margin-left: -11px;
+	}
      .subscribe-banner {
          margin-left:-10px;
          margin-right:-10px;
