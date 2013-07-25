@@ -1,7 +1,7 @@
 <?php
 ?><!DOCTYPE html>
 <!-- bid: <?php global $blog_id; print $blog_id ?>; env: <?php if(defined("WEB_ENV")) { print WEB_ENV; } else { print "production"; } ?> -->
-<!-- X-Device-Type Varnish Header Found: <?php echo ($varnishHeaderExists ? "YES" : 'NO'); ?> -->
+<!-- X-Device-Type Varnish Header Found: <?php global $varnishHeaderExists; echo ($varnishHeaderExists ? "YES" : 'NO'); ?> -->
 <!-- Mobile Detected: <?php echo (mobile() ? "YES" : 'NO'); ?> -->
 <!-- Tablet Detected: <?php echo (tablet() ? "YES" : 'NO'); ?> -->
 <!--[if IE 6]>
