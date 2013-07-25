@@ -2434,7 +2434,7 @@ h2.related-stories{
 }
 
 @media only screen and (max-width: 880px) {
-
+	.gallery-slider #gallery-iframe-ad{margin-left: 50px;}
 	.double-posts .cat-feat-label {
 	    font:10px/1.2 "open_sansbold", sans-serif;
 	}
