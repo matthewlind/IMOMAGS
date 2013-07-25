@@ -12,14 +12,14 @@
  * **********************************************************************
  * This program is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * **********************************************************************
  */
 
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 ?>
-<div class="cfct-row cfct-row-abc" style="clear:both"> 
+<div class="cfct-row cfct-row-abc" style="clear:both">
 </div>
 
         </div><!-- .str-content -->
@@ -32,17 +32,17 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 	    <div id="network-topics-3-col" style="top:0;border-left:none;border-right:none;padding: 10px 30px;">
 			<div class="network-topics-widget">
 				<h3 class="widget-title"><span>The Guns & Ammo Network</span></h3>
-			
+
 				<div class="network-page-feed">
 					<h2>The Guns</h2>
-					<ul id="guns-network" class="network-topics" term="the-guns-network">
-				    
+					<ul id="the-guns-network" class="network-topics" term="the-guns-network">
+
 					</ul>
 				</div>
 				<div class="network-page-feed">
 					<h2>The Gear</h2>
-					<ul id="gear-network" class="network-topics" term="the-gear-network">
-				    
+					<ul id="the-gear-network" class="network-topics" term="the-gear-network">
+
 					</ul>
 				</div>
 				<div class="network-page-feed feed-ad">
@@ -58,46 +58,47 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 			          </a>
 			        </noscript>
 				</div>
-		
-				<div class="network-page-feed row-2">	
+
+				<div class="network-page-feed row-2">
 					<h2>Personal Defense</h2>
 					<ul id="personal-defense-network" class="network-topics" term="personal-defense-network">
-				    
+
 					</ul>
 				</div>
-				<div class="network-page-feed">	
+				<div class="network-page-feed">
 					<h2>Culture & Politics</h2>
 					<ul id="culture-politics-network" class="network-topics" term="culture-politics-network">
-					
+
 					</ul>
 				</div>
-				<!--<div class="network-page-feed">	
+				<!--<div class="network-page-feed">
 					<h2>Survival</h2>
 					<ul id="survival-network" class="network-topics last" term="survival-network">
-				    
+
 					</ul>-->
 				</div>
-				
-				
+
+
 			</div>
-			<?php } 
+			<?php }
 			if (function_exists('imo_nt_scripts')) { ?>
 			 <!-- clone -->
 			<li id="nt-widget-template" style="display:none;">
 				<a class="network-thumb" href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/" onclick=""><img src="http://www.handgunsmag.com/files/2013/04/Picking-duty-pistols-190x120.jpg" alt="title" /></a>
-				<div class="site"><a href="http://gunsandammo.com" onclick="">www.gunsandammo.com</a></div>				
-				<a class="title" rel="bookmark" href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/" onclick="">Deer of the Day Buckeye Brute, Alexa Perry</a>				
+				<div class="site"><a href="http://gunsandammo.com" onclick="">www.gunsandammo.com</a></div>
+				<a class="title" rel="bookmark" href="http://www.northamericanwhitetail.deva/2012/03/13/deer-of-the-day-buckeye-brute-alexa-perry/" onclick="">Deer of the Day Buckeye Brute, Alexa Perry</a>
+				<!-- undefined = magazine/site going to -->
 			</li>
-		</div>
+
 		<?php } ?>
         <div id="footer-content">
-            
+
         </div><!-- #footer-content -->
         <div id="footer-sub">
             <nav class="nav nav-footer">
                 <h3 class="site-title"><a href="<?php echo home_url('/') ?>" title="<?php _e('Home', 'carrington-business') ?>"><?php bloginfo('name') ?></a></h3>
 <?php
-wp_nav_menu(array( 
+wp_nav_menu(array(
     'theme_location' => 'footer',
     'container' => false,
     'depth' => 1,
@@ -109,7 +110,7 @@ if (cfct_get_option('cfct_credit') == 'yes') { ?>
     <p id="site-generator"><?php
     printf(__('Powered by <a href="%s">WordPress</a>. <a href="%s" title="Carrington Business theme for WordPress">Carrington Business</a> by <a id="cf-logo" title="Custom Web Applications and WordPress Development" href="%s">Crowd Favorite</a>', 'carrington-business'), 'http://wordpress.org/', 'http://crowdfavorite.com/wordpress/themes/carrington-business/', 'http://crowdfavorite.com/');
 ?></p>
-<?php 
+<?php
 }
 
 $colophon = str_replace('%Y', date('Y'), cfct_get_option('cfctbiz_legal_footer'));
@@ -133,79 +134,79 @@ if (CFCT_DEBUG) {
 wp_footer();
 ?>
 
-<div id="footer-section"> 
-    <div id='footer-universal-outer'> 
-        <div id='footer-universal' class='footer-row'> 
-                <div class='footer-col-wrapper'> 
-                    <div class='section'> 
+<div id="footer-section">
+    <div id='footer-universal-outer'>
+        <div id='footer-universal' class='footer-row'>
+                <div class='footer-col-wrapper'>
+                    <div class='section'>
 
-                        <ul id='hunt' class='footer-menu'> 
+                        <ul id='hunt' class='footer-menu'>
 
-                            <li class="first"><a class="bowhunting" href="http://www.bowhuntingmag.com">Petersen's Bowhunting</a></li> 
-                            <li><a class="northamericanwhitetail" href="http://www.northamericanwhitetail.com">North American Whitetail</a></li> 
-                            <li><a class="gundog" href="http://www.gundogmag.com">Gun Dog</a></li> 
-                            <li><a class="wildfowl" href="http://www.wildfowlmag.com">Wildfowl</a></li> 
-                            <li><a class="bowhunter" href="http://www.bowhunter.com">Bowhunter</a></li> 
-                            <li class="last"><a class="petersenshunting" href="http://www.petersenshunting.com">Petersen's Hunting</a></li> 
-
-
-
-
-                        </ul> 
-                    </div> 
-                </div> 
-                <div class='footer-col-wrapper'> 
-                    <div class='section'> 
-
-                        <ul id='shoot' class='footer-menu'> 
-                            <li  class="first"><a class='handguns' href="http://www.handgunsmag.com">Handguns</a></li> 
-                            <li><a class='rifleshooter' href="http://www.rifleshootermag.com">Rifleshooter</a></li> 
-                            <li><a class='shootingtimes' href="http://www.shootingtimes.com">Shooting Times</a></li> 
-                            <li><a class='shotgunnews' href="http://www.shotgunnews.com">Shotgun News</a></li> 
-
-
-                            <li class="last"><a class='gunsandammo' href="http://www.gunsandammo.com">Guns &amp; Ammo</a></li> 
-   
-                        </ul> 
-                    </div> 
-                </div> 
-                <div class='footer-col-wrapper'> 
-                    <div class='section'> 
-
-                        <ul id='fish' class='footer-menu'> 
-                            <li class="first"><a class="infisherman" href="http://www.in-fisherman.com">In-Fisherman</a></li> 
-                            <li><a class="flyfish" href="http://www.flyfisherman.com">Fly Fisherman</a></li> 
-                            <li><a class="floridasportsman" href="http://www.floridasportsman.com">Florida Sportsman</a></li> 
-
-                            <li class="last"><a class="bassfan" href="http://www.bassfan.com">BassFan</a></li> 
-                        </ul> 
-                    </div> 
-                </div> 
-
-                <div class='footer-col-wrapper r-col statebystate'> 
-                    <div class='section'> 
-                        <ul id='more' class='footer-menu'> 
-                        	<li class="first"><a class="sv" href="http://www.sportsmenvote.com">SportsmenVote</a></li> 
-                            <li><a class="gameandfish" href="http://www.gameandfishmag.com">Game &amp; Fish</a></li> 
-                            <li class=""><a class="sportsmanchannel" href="http://www.thesportsmanchannel.com">The Sportsman Channel</a></li> 
-                            <li class="last"><a class="imostore" href="http://store.intermediaoutdoors.com">The IMO Store</a></li> 
-                        </ul> 
+                            <li class="first"><a class="bowhunting" href="http://www.bowhuntingmag.com">Petersen's Bowhunting</a></li>
+                            <li><a class="northamericanwhitetail" href="http://www.northamericanwhitetail.com">North American Whitetail</a></li>
+                            <li><a class="gundog" href="http://www.gundogmag.com">Gun Dog</a></li>
+                            <li><a class="wildfowl" href="http://www.wildfowlmag.com">Wildfowl</a></li>
+                            <li><a class="bowhunter" href="http://www.bowhunter.com">Bowhunter</a></li>
+                            <li class="last"><a class="petersenshunting" href="http://www.petersenshunting.com">Petersen's Hunting</a></li>
 
 
 
-                    </div> 
-                </div> 
 
-                <div style='clear: both;'></div> 
-            </div> 
-    </div> 
-    <div id="block-menu-menu-footer-links" class="block block-menu region-even odd region-count-2 count-19"> 
-  <div class="content"> 
-    <ul class="menu"> 
+                        </ul>
+                    </div>
+                </div>
+                <div class='footer-col-wrapper'>
+                    <div class='section'>
+
+                        <ul id='shoot' class='footer-menu'>
+                            <li  class="first"><a class='handguns' href="http://www.handgunsmag.com">Handguns</a></li>
+                            <li><a class='rifleshooter' href="http://www.rifleshootermag.com">Rifleshooter</a></li>
+                            <li><a class='shootingtimes' href="http://www.shootingtimes.com">Shooting Times</a></li>
+                            <li><a class='shotgunnews' href="http://www.shotgunnews.com">Shotgun News</a></li>
+
+
+                            <li class="last"><a class='gunsandammo' href="http://www.gunsandammo.com">Guns &amp; Ammo</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class='footer-col-wrapper'>
+                    <div class='section'>
+
+                        <ul id='fish' class='footer-menu'>
+                            <li class="first"><a class="infisherman" href="http://www.in-fisherman.com">In-Fisherman</a></li>
+                            <li><a class="flyfish" href="http://www.flyfisherman.com">Fly Fisherman</a></li>
+                            <li><a class="floridasportsman" href="http://www.floridasportsman.com">Florida Sportsman</a></li>
+
+                            <li class="last"><a class="bassfan" href="http://www.bassfan.com">BassFan</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class='footer-col-wrapper r-col statebystate'>
+                    <div class='section'>
+                        <ul id='more' class='footer-menu'>
+                        	<li class="first"><a class="sv" href="http://www.sportsmenvote.com">SportsmenVote</a></li>
+                            <li><a class="gameandfish" href="http://www.gameandfishmag.com">Game &amp; Fish</a></li>
+                            <li class=""><a class="sportsmanchannel" href="http://www.thesportsmanchannel.com">The Sportsman Channel</a></li>
+                            <li class="last"><a class="imostore" href="http://store.intermediaoutdoors.com">The IMO Store</a></li>
+                        </ul>
+
+
+
+                    </div>
+                </div>
+
+                <div style='clear: both;'></div>
+            </div>
+    </div>
+    <div id="block-menu-menu-footer-links" class="block block-menu region-even odd region-count-2 count-19">
+  <div class="content">
+    <ul class="menu">
       <li class="leaf first"><a href="http://www.imoutdoorsmedia.com/IM3/" title="">About</a></li>
-      <li class="leaf"><a href="http://www.imoutdoorsmedia.com" title="">Advertise</a></li> 
+      <li class="leaf"><a href="http://www.imoutdoorsmedia.com" title="">Advertise</a></li>
       <li class="leaf"><a href="/contact" title="Send us an e-mail">Contact</a></li>
-      <!--<li class="leaf"><a href="http://www.intermediaoutdoors.com/jobs/" title="">Jobs</a></li> --> 
+      <li class="leaf"><a href="http://imomags.com/careers/" title="">Careers</a></li>
       <!--<li class="leaf"><a href="/privacy" title="">Privacy</a></li> --> 
       <!--<li class="leaf last"><a href="/terms" title="">Terms of Use</a></li> --> 
     </ul> 
@@ -259,5 +260,33 @@ wp_footer();
             </div> 
     </div> 
 </div> 
+<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/flexslider/jquery.flexslider.js"></script>
+<link rel="STYLESHEET" type="text/css" href="<?php bloginfo('template_directory'); ?>/js/flexslider/flexslider.css">
+<!-- Quantcast Tag -->
+<script type="text/javascript">
+var _qevents = _qevents || [];
+
+(function() {
+var elem = document.createElement('script');
+elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+elem.async = true;
+elem.type = "text/javascript";
+var scpt = document.getElementsByTagName('script')[0];
+scpt.parentNode.insertBefore(elem, scpt);
+})();
+
+_qevents.push({
+qacct:"p-8aKVgRBi4Hayk"
+});
+</script>
+
+<noscript>
+<div style="display:none;">
+<img src="//pixel.quantserve.com/pixel/p-8aKVgRBi4Hayk.gif" border="0" height="1" width="1" alt="Quantcast"/>
+</div>
+</noscript>
+<!-- End Quantcast tag -->
+
+
 </body>
 </html>

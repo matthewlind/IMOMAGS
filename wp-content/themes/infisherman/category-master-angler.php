@@ -12,16 +12,7 @@ get_header(); ?>
                             printf('<span>' . single_cat_title( '', false ) . '</span>' );
                             ?>
                         </h1>
-							<!-- Site - In-Fisherman 
-							<script type="text/javascript">
-							  var ord = window.ord || Math.floor(Math.random() * 1e16);
-							  document.write('<iframe src="http://ad.doubleclick.net/N4930/adi/imo.in-fisherman;sz=260x35;camp=master_angler;ord=' + ord + '?" width="260" height="35" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no"></iframe>');
-							</script>
-							<noscript>
-							<a href="http://ad.doubleclick.net/N4930/jump/imo.in-fisherman;sz=260x35;camp=master_angler;ord=[timestamp]?">
-							<img src="http://ad.doubleclick.net/N4930/ad/imo.in-fisherman;sz=260x35;camp=master_angler;ord=[timestamp]?" width="260" height="35" />
-							</a>
-							</noscript>-->
+						<div class="sponsor"><?php //imo_dart_tag("240x60",$iframe); ?></div>
                    </div>
                       
                     <?php if (z_taxonomy_image_url()) echo '<div class="category-img"><img src="'.z_taxonomy_image_url().'" alt="'.single_cat_title( '', false ).'" title="'.single_cat_title( '', false ).'" /></div>'; ?>                    
@@ -140,7 +131,7 @@ get_header(); ?>
                        <?php if ( (($i - (($paged -1) * 2 ))%6) == 0 ): ?>
 	                        <?php if ( mobile() ){ ?>
 	                        <div class="image-banner posts-image-banner">
-	                            <?php imo_dart_tag("300x250",array("pos"=>"mob")); ?> 
+	                            <?php imo_dart_tag("300x250",$iframe,array("pos"=>"mob")); ?> 
 	                        </div>
 	                        <?php } ?>
                         <?php endif;?>
@@ -169,26 +160,8 @@ get_header(); ?>
                     </div><!-- #post-0 -->
     
                 <?php endif; ?>
-    
-                <div class="foot-social clearfix">
-                    <strong class="social-title">Like us on Facebook to <span>stay updated !</span></strong>
-                    <div class="fb-like" data-href="http://www.facebook.com/InFisherman" data-send="false" data-layout="button_count" data-width="100" data-show-faces="true"></div>
-                     <?php social_networks(); ?>
-                </div>
-                <div id="fb-root"></div>
-                <script>(function(d, s, id) {
-                  var js, fjs = d.getElementsByTagName(s)[0];
-                  if (d.getElementById(id)) return;
-                  js = d.createElement(s); js.id = id;
-                  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-                  fjs.parentNode.insertBefore(js, fjs);
-                }(document, 'script', 'facebook-jssdk'));</script>
-                
-                <a href="/newsletter-signup" class="get-newsletter">Get the In-Fisherman <br />Newsletter</a>
-                <a href="<?php print SUBS_LINK;?>" class="subscribe-banner">                                        
-                	<img src="<?php bloginfo('template_directory'); ?>/images/pic/subscribe-banner.jpg" alt="" />
-                </a>
-                <a href="#" class="back-top jq-go-top">back to top</a>
+               <?php social_footer(); ?>
+               <a href="#" class="back-top jq-go-top">back to top</a>
                 
             </div><!-- #content -->
         </div><!-- #primary -->

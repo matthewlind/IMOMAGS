@@ -8,24 +8,11 @@
  */
 
 add_shortcode( 'imo-slideshow', 'slideshow_gallery' );
-include_once('Mobile_Detect.php');
 
-// Mobile and Tablet detection. Add when the future comes and changes your devices. Uses Mobile_Detect.php - http://mobiledetect.net/
-function mobile() {
-	$detect = new Mobile_Detect();
-	$mobile = $detect->isMobile();
-	return $mobile;
-}
-
-function tablet() {
-	$detect = new Mobile_Detect();
-	$mobile = $detect->isTablet();
-	return $mobile;
-}
 
 // [slideshow gallery=GALLERY_ID]
 function slideshow_gallery( $atts ) {
-	
+
 	extract(
     shortcode_atts(
       array(
@@ -80,7 +67,7 @@ function displayGallery($gallery_id,$tag) {
   }
 
 
-  	
+
 	$title = stripcslashes($pictures[0]->title);
 
 
@@ -189,16 +176,16 @@ function displayGallery($gallery_id,$tag) {
 
 
 EOT;
-	
-	
-	
-	$mobile = <<<EOT
-		<div class="jq-gallery-slider gallery-slider" id="gallery-$gallery_id">
-			<iframe id="gallery-iframe-ad" width=300 height=250 marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?ad_code=$dartDomain"></iframe>
 
+
+
+	$mobile = <<<EOT
+	<div class="loading-block">
+		<div class="jq-gallery-slider gallery-slider" id="gallery-$gallery_id">
 		<div class="general-title clearfix">
 		    <h2><span>$title</span></h2>
 		</div>
+		<iframe id="gallery-iframe-ad" width="320" height="50" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?size=320x50&ad_code=$dartDomain"></iframe>
 		<span class="slide-count">$count</span>
 		    <ul class="slides">
 EOT;
@@ -208,14 +195,14 @@ EOT;
 		$picture->photo_desc = stripcslashes($picture->photo_desc);
 		$picture->alttext = stripcslashes($picture->alttext);
 		$picture->description = stripcslashes($picture->description);
-		
+
 
 $mobile .= <<<EOT2
 		        <li>
 		            <img src="$picture->img_url" alt="$picture->alttext">
 		            <div class="feat-text">
 		                <h3>$picture->alttext</h3>
-						$picture->description		                
+						$picture->description
 		            </div>
 		        </li>
 EOT2;
@@ -223,7 +210,8 @@ EOT2;
 $mobile .= <<<EOT3
 		    </ul>
 		</div>
-			
+		</div>
+
 		<script type="text/javascript">
 		    jQuery(function(){
 		    	var fslider = jQuery('#gallery-$gallery_id').flexslider({
@@ -231,24 +219,24 @@ $mobile .= <<<EOT3
 		            animationSpeed: 200,
 		            slideshow: false,
 		            start: function (slider) {
-		            
+
 EOT3;
 		                if (count($pictures) > 1) {
 			                $mobile .= " updateSliderCounter(slider); ";
 		                }
-		                	
-		                
-		
 
-            
+
+
+
+
 $mobile .= <<<EOFasdf
-		                
+
 		            },
-		            after: function (slider) {  	   
-		                updateSliderCounter(slider);    
-		                _gaq.push(['_trackPageview',"/" + window.location.pathname + "#" + slider.currentSlide]);  
+		            after: function (slider) {
+		                updateSliderCounter(slider);
+		                _gaq.push(['_trackPageview',"/" + window.location.pathname + "#" + slider.currentSlide]);
 		                document.getElementById('gallery-iframe-ad').contentWindow.location.reload();
-		                
+
 		            }
 		        });
 		    })
@@ -264,7 +252,7 @@ EOFasdf;
 		}else{
 			return $output;
 		}
-	
+
 }
 
 
@@ -287,7 +275,7 @@ function conditionally_add_scripts_and_styles($posts){
 		}
 
 		if ($shortcode_found) {
-			if(!mobile() || !tablet()){
+			if(mobile() == false || tablet() == false){
 			// enqueue here
 			wp_enqueue_script('ajax-gallery-js',plugins_url('ajax-gallery.js', __FILE__));
 			wp_enqueue_script('jquery-scrollface',plugins_url('jquery.scrollface.min.js', __FILE__));
@@ -296,10 +284,10 @@ function conditionally_add_scripts_and_styles($posts){
 			wp_enqueue_script('jquery-mousewheel',plugins_url('jquery.mousewheel.min.js', __FILE__));
 			wp_enqueue_script('jquery-mCustomScrollbar',plugins_url('jquery.mCustomScrollbar.js', __FILE__));
 			wp_enqueue_style('ajax-gallery-css',plugins_url('ajax-gallery.css', __FILE__));
-			wp_enqueue_style('ajax-mCustomScrollbar-css',plugins_url('jquery.mCustomScrollbar.css', __FILE__));				
+			wp_enqueue_style('ajax-mCustomScrollbar-css',plugins_url('jquery.mCustomScrollbar.css', __FILE__));
 			}
-				
-			
+
+
 		}
 
 	} else {//If there are no posts, such as a category page

@@ -63,7 +63,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 <?php endif; ?> 
 </head>
 <body <?php body_class(); ?>>
-
+<?php imo_dart_tag("1x1",false,array("pos"=>"skin")); ?>
 	<?php 
 	if($_SERVER['SERVER_NAME'] == "www.flyfisherman.com" && is_page("destinations")){
 		$clickable = true;
@@ -144,24 +144,26 @@ else {
 		<div id="main-content">
 			<div class="str-content clearfix">
 				<div class="str-container">
-        <div class="aligncenter centerad">
-<?php if (function_exists("imo_dart_tag")) {
-    imo_dart_tag("728x90");
-}
-else { ?>
-	<!-- 728x90 Ad: -->
-<script type="text/javascript">
-document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dartadsgen_site+'/;sect=;page=index;subs=;sz=728x90;dcopt=;tile='+pr_tile+';ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
-</script>
-<script type="text/javascript">
-    ++pr_tile;
-</script>
-<noscript>
-    <a href="http://ad.doubleclick.net/adj/imo.outdoorsbest/;sect=;page=index;subs=;sz=728x90;dcopt=;tile=1;ord=7391727509?">
-        <img src="http://ad.doubleclick.net/ad/imo.outdoorsbest/home;sect=;page=index;subs=;sz=728x90;dcopt=;tile=1;ord=7391727509?" border="0" />
-    </a>
-</noscript>
-<!-- END 728x90 Ad: -->
-<?php } ?>
-</div>
-</div>
+					<?php if ( !is_category("thanks-dad-iiyn") && !is_page("iiyn") ){ ?>
+			        <div class="aligncenter centerad">
+						<?php if (function_exists("imo_dart_tag")) {
+						    imo_dart_tag("728x90");
+						}
+						else { ?>
+							<!-- 728x90 Ad: -->
+						<script type="text/javascript">
+						document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dartadsgen_site+'/;sect=;page=index;subs=;sz=728x90;dcopt=;tile='+pr_tile+';ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
+						</script>
+						<script type="text/javascript">
+						    ++pr_tile;
+						</script>
+						<noscript>
+						    <a href="http://ad.doubleclick.net/adj/imo.outdoorsbest/;sect=;page=index;subs=;sz=728x90;dcopt=;tile=1;ord=7391727509?">
+						        <img src="http://ad.doubleclick.net/ad/imo.outdoorsbest/home;sect=;page=index;subs=;sz=728x90;dcopt=;tile=1;ord=7391727509?" border="0" />
+						    </a>
+						</noscript>
+						<!-- END 728x90 Ad: -->
+						<?php } ?>
+					</div>
+					<?php } ?>
+				</div>

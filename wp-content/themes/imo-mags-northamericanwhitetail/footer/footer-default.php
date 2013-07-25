@@ -143,6 +143,7 @@ if ( is_user_logged_in() ) {
               <a href="http://www.imoutdoorsmedia.com/IM3/" title="">About</a>
               <a href="http://www.imoutdoorsmedia.com" title="">Advertise</a>
               <a href="http://www.imoutdoorsmedia.com/IM3/privacy.php">Privacy Policy</a>
+              <a href="http://imomags.com/careers/" title="">Careers</a>
              <!-- <a href="/privacy" title="">Privacy Policy</a> &middot;-->
               <!--<a href="/terms" title="">Terms &amp; Conditions</a>-->
             </div>
