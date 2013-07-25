@@ -275,7 +275,7 @@ function conditionally_add_scripts_and_styles($posts){
 		}
 
 		if ($shortcode_found) {
-			if(!mobile() || !tablet()){
+			if(mobile() == false || tablet() == false){
 			// enqueue here
 			wp_enqueue_script('ajax-gallery-js',plugins_url('ajax-gallery.js', __FILE__));
 			wp_enqueue_script('jquery-scrollface',plugins_url('jquery.scrollface.min.js', __FILE__));
