@@ -39,19 +39,19 @@ function check_and_add_http_headers() {
 
 				$deviceTypeIsMobile = TRUE; //Set the device so that wordpress can use it later in the functions below
 
-				header("Varys: X-Device-Type"); //Set Varys in the response header so that Varnish knows this page has multiple variations
+				header("Vary: X-Device-Type"); //Set Varys in the response header so that Varnish knows this page has multiple variations
 				header("X-Device-Type: Mobile");//Set the device type in the response header so that varnish knows this is a mobile page
 
 			} else if ($value == "Tablet") {
 
 				$deviceTypeIsTablet = TRUE;
 
-				header("Varys: X-Device-Type");
+				header("Vary: X-Device-Type");
 				header("X-Device-Type: Tablet");
 
 			} else {
 
-				header("Varys: X-Device-Type");
+				header("Vary: X-Device-Type");
 				header("X-Device-Type: Default");
 			}
 
