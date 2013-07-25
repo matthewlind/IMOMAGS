@@ -101,7 +101,7 @@ get_header(); ?>
                 <div class="links-holder">
                     <div class="image-banner">
                      <?php if (mobile()) { 
-	                 	imo_dart_tag("300x250",array("pos"=>"mob"));
+	                 	imo_dart_tag("300x250",$iframe,array("pos"=>"mob"));
 	                 } ?>              
                     </div>
                     <div>

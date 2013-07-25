@@ -29,7 +29,16 @@
 
 	    // Add the blog name.
 	    bloginfo( 'name' );
+		
+		//display iframe ads on Safari 5 & under due to jQuery mobile and DFP conflicts
+		$iframe = false;
+		$version = preg_replace("/(.*) OS ([0-9]*)_(.*)/","$2", $_SERVER['HTTP_USER_AGENT']);
+		 // for example you use it this way
 
+		 if ($version > 6){
+			$iframe = true;
+		}
+		
 	    // Add the blog description for the home/front page.
 	    $site_description = get_bloginfo( 'description', 'display' );
 	    if ( $site_description && ( is_home() || is_front_page() ) )
@@ -38,7 +47,7 @@
 	    // Add a page number if necessary:
 	    if ( $paged >= 2 || $page >= 2 )
 	        echo ' | ' . sprintf( __( 'Page %s', 'twentyeleven' ), max( $paged, $page ) );
-
+		
 	    ?></title>
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
@@ -223,7 +232,8 @@
         <div class="content-banner-section">
         	<?php if (!mobile()) { ?>
 	        	<div class="mdl-banner">
-					 <?php imo_dart_tag("728x90",false); ?>
+	        			
+					 <?php imo_dart_tag("728x90",$iframe); ?>
 				</div>
 				<?php }else{
 					imo_dart_tag("320x50",true);
