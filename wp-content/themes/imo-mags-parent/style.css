@@ -856,7 +856,6 @@ img{max-width: 100%;height: auto;}
     margin-bottom: 45px;
     margin-top: 0;
     width: 100%;
-    height: 100%;
 }
 
   .BCLvideoWrapper div,
@@ -865,20 +864,19 @@ img{max-width: 100%;height: auto;}
   .BrightcoveExperience {
     position: absolute;
     width: 100%;
-    height: 100%;
     left: 0;
     top: 0;
 }
-	.sidebar .BCLvideoWrapper div,
-	.sidebar .BCLvideoWrapper embed,
-	.sidebar .BCLvideoWrapper object,
-	.sidebar .BrightcoveExperience {
-	position: relative;
-	width: 310px;
-	height: 540px;
-	left: auto;
-	top: auto;
-	}
+.sidebar .BCLvideoWrapper div,
+.sidebar .BCLvideoWrapper embed,
+.sidebar .BCLvideoWrapper object,
+.sidebar .BrightcoveExperience {
+position: relative;
+width: 310px;
+height: 540px;
+left: auto;
+top: auto;
+}
 .post-panel,
 .video-panel {
     border:1px solid #fff;
