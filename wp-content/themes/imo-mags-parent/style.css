@@ -832,7 +832,6 @@ img{max-width: 100%;height: auto;}
 }
 .video-inner, .BCLvideoWrapper {
     width:100%;
-    height: 630px;
 }
 .remove-player{
     width:100%;
@@ -857,25 +856,27 @@ img{max-width: 100%;height: auto;}
     margin-top: 0;
     width: 100%;
 }
-
-  .BCLvideoWrapper div,
-  .BCLvideoWrapper embed,
-  .BCLvideoWrapper object,
-  .BrightcoveExperience {
-    position: absolute;
-    width: 100%;
-    left: 0;
-    top: 0;
+.home .BCLvideoWrapper div, .home .video-inner, .page-template-default .BCLvideoWrapper div, .page-template-default .video-inner{
+	height: 650px;
+}	
+.BCLvideoWrapper div,
+.BCLvideoWrapper embed,
+.BCLvideoWrapper object,
+.BrightcoveExperience {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	top: 0;
 }
 .sidebar .BCLvideoWrapper div,
 .sidebar .BCLvideoWrapper embed,
 .sidebar .BCLvideoWrapper object,
 .sidebar .BrightcoveExperience {
-position: relative;
-width: 310px;
-height: 540px;
-left: auto;
-top: auto;
+	position: relative;
+	width: 310px;
+	height: 540px;
+	left: auto;
+	top: auto;
 }
 .post-panel,
 .video-panel {
