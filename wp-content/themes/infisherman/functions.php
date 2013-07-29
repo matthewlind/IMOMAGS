@@ -23,10 +23,9 @@ function imo_sidebar($type){
 	$version = preg_replace("/(.*) OS ([0-9]*)_(.*)/","$2", $_SERVER['HTTP_USER_AGENT']);
 	 // for example you use it this way
 
-	 if ($version > 6){
+	 if ($version < 6){
 		$iframe = true;
 	}
-	echo $iframe;
 	$dartDomain = get_option("dart_domain", $default = false);
 	echo '<div class="sidebar-area">';
 		echo '<div class="sidebar">';
@@ -63,7 +62,7 @@ function sub_footer(){
 	$version = preg_replace("/(.*) OS ([0-9]*)_(.*)/","$2", $_SERVER['HTTP_USER_AGENT']);
 	 // for example you use it this way
 
-	 if ($version > 6){
+	 if ($version < 6){
 		$iframe = true;
 	} ?>
 	<div class="sub-boxes">

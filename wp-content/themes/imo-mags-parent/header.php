@@ -35,7 +35,7 @@
 		$version = preg_replace("/(.*) OS ([0-9]*)_(.*)/","$2", $_SERVER['HTTP_USER_AGENT']);
 		 // for example you use it this way
 
-		 if ($version > 6){
+		 if ($version < 6){
 			$iframe = true;
 		}
 		

@@ -23,7 +23,6 @@ fieldset, form, legend, textarea, button, input, select {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-
 /* =HTML5 display definitions
 *******************************************************************************/
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
@@ -203,7 +202,7 @@ h1, h2, h3, h4, h5, h6  { font-weight: normal; margin: 0; }
 *******************************************************************************/
 body {
     color:#3c3c3c;
-    font:14px "open_sansregular", Helvetica, Arial, sans-serif;
+    font:14px "open_sansregular", Helvetica, "open_sansregular", sans-serif;
 }
 a       { color: #c9242c; }
 a:hover { color: #040503; }
@@ -360,7 +359,7 @@ img{max-width: 100%;height: auto;}
     float:right;
     width:154px;
     margin:4px 0 0;
-    font:12px Helvetica, Arial, sans-serif;
+    font:12px Helvetica, "open_sansregular", sans-serif;
 }
 .subscribe-now .stag-bold {
     font-size:18px;
@@ -443,7 +442,7 @@ img{max-width: 100%;height: auto;}
 }
 .subscribe-now p {margin:0 0 8px;}
 .subscribe-links {
-    font:bold 10px Arial, Helvetica, sans-serif;
+    font:bold 10px Helvetica, "open_sansregular", sans-serif;
     text-transform:uppercase;
     float:right;
     clear:both;
@@ -487,7 +486,7 @@ img{max-width: 100%;height: auto;}
     float:left;
     width:174px;
     padding:7px 0 7px 8px;
-    font:italic 13px/15px Arial, Helvetica, sans-serif;
+    font:italic 13px/15px "open_sansregular", Helvetica, sans-serif;
     color:#3c3c3c;
     border:0;
     background:none;
@@ -695,6 +694,7 @@ img{max-width: 100%;height: auto;}
 	width: 728px;
 	margin: 0 auto;
 }
+.mdl-banner object{margin-top: 4px;}
 .mdl-banner img{
 	padding: 4px 0;
 }
@@ -782,7 +782,7 @@ img{max-width: 100%;height: auto;}
     position:absolute;
     right:34px;
     bottom:11px;
-    font:bold 11px Arial, Helvetica, sans-serif;
+    font:bold 11px "open_sansregular", Helvetica, sans-serif;
     color:#7e7e7e;
     text-transform:uppercase;
 }
@@ -890,7 +890,7 @@ img{max-width: 100%;height: auto;}
 }
 .see-all {
     float:right;
-    font:bold 12px Arial, Helvetica, sans-serif;
+    font:bold 12px "open_sansregular", Helvetica, sans-serif;
     text-transform:uppercase;
 }
 .see-all:after {
@@ -1242,7 +1242,7 @@ a.category-name-link:hover{
     border-width:0 0 1px;
     padding:15px 16px;
     margin:0 0 15px;
-    font:bold 11px Arial, Helvetica, sans-serif;
+    font:bold 11px "open_sansregular", Helvetica, sans-serif;
     color:#7e7e7e;
 }
 .filter-by strong {
@@ -1290,34 +1290,7 @@ a.category-name-link:hover{
     margin-top:4px;
     margin-right:15px;
 }
-.wp-pagenavi {
-    float:left;
-    display:none;
-}
-.wp-pagenavi a,
-.wp-pagenavi span {
-    display:inline-block;
-    vertical-align:top;
-    margin:0 7px 0 0;
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
-    min-width:52px;
-    height:34px;
-    padding:0 5px;
-    text-align:center;
-    font:14px/34px Arial, Helvetica, sans-serif;
-    color:#7e7e7e;
-}
-.wp-pagenavi a:hover,
-.wp-pagenavi .current {
-    color:#fff;
-    text-shadow:0 -1px 0 #7a0c11;
-    background:url(images/bg/menu-hover.png) no-repeat 100% 0;
-}
-.wp-pagenavi .current {
-    font-weight:bold;
-}
+
 .go-top {
     float:right;
     width:52px;
@@ -1331,7 +1304,7 @@ a.category-name-link:hover{
     width:120px;
     height:40px;
     text-align:center;
-    font:bold 12px Arial, Helvetica, sans-serif;
+    font:bold 12px "open_sansregular", Helvetica, sans-serif;
     text-transform:uppercase;
     padding:18px 0 0;
     position:relative;
@@ -2027,7 +2000,7 @@ a.change-location:before {
     padding:14px 15px 13px;
 }
 .aside-video-tag {
-    font:11px Helvetica, Arial, sans-serif;
+    font:11px Helvetica, "open_sansregular", sans-serif;
     color:#7e7e7e;
     margin:0 0 2px;
 }
@@ -2122,7 +2095,7 @@ a.change-location:before {
 .recipes-box h3 a {color:#040503;}
 .recipes-box h3 a:hover {color:#c6262d;}
 .recipes-box .comment-count {
-    font:12px Helvetica, Arial, sans-serif;
+    font:12px Helvetica, "open_sansregular", sans-serif;
     color:#7e7e7e;
 }
 .recipes-box {
@@ -2432,7 +2405,7 @@ h2.related-stories{
 }
 .foot-nav {
     float:left;
-    font:bold 12px Arial, Helvetica, sans-serif;
+    font:bold 12px "open_sansregular", Helvetica, sans-serif;
 }
 .foot-nav li {
     float:left;
@@ -2454,7 +2427,7 @@ h2.related-stories{
 }
 .copyright {
     float:left;
-    font:bold 12px Arial, Helvetica, sans-serif;
+    font:bold 12px "open_sansregular", Helvetica, sans-serif;
 }
 .copyright img {
     display:inline-block;
@@ -2756,6 +2729,7 @@ h2.related-stories{
         font-size:14px;
         margin:0 0 62px;
     }
+    .post-panel{padding-right: 2px;}
 }
 
 @media only screen and (max-width: 880px) {
@@ -2991,7 +2965,7 @@ h2.related-stories{
         float:none;
         margin:0 auto 20px;
     }
-
+	.post-panel{padding-right: 16px;}
     .message-not-found {
         font-size:28px;
     }
@@ -3076,6 +3050,7 @@ h2.related-stories{
 }
 
 @media only screen and (max-width: 610px) {
+	
     .article-brief .comment-count,
     .foot-sub-logos,
     .copyright img,
@@ -3462,6 +3437,9 @@ h2.related-stories{
     }
 }
 @media only screen and (max-width: 340px) {
+	.gallery-slider #gallery-iframe-ad{
+		margin-left: -11px;
+	}
      .subscribe-banner {
          margin-left:-10px;
          margin-right:-10px;
