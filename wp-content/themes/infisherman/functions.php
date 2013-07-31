@@ -28,10 +28,7 @@ function imo_sidebar($type){
 	$dartDomain = get_option("dart_domain", $default = false);
 	echo '<div class="sidebar-area">';
 		echo '<div class="sidebar">';
-			echo '<div class="widget_advert-widget">'; 
-			
-				echo '<iframe width="310" height="174" src="//www.youtube.com/embed/F7XNpxlojVc" frameborder="0" allowfullscreen></iframe>';
-			
+			echo '<div class="widget_advert-widget">'; 			
 			imo_dart_tag("300x250",$iframe);
 			echo '</div>';
 		echo '</div>';
