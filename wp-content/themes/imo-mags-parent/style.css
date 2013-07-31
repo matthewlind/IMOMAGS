@@ -377,7 +377,7 @@ img{max-width: 100%;height: auto;}
     font-family:"stagregular";
 }
 .btn-base {
-    display: inline-block;
+    display: none;
     font:15px/30px "stagbold", serif;
     color:#fff;
     padding: 4px 12px;
@@ -830,53 +830,40 @@ img{max-width: 100%;height: auto;}
 .video-box {
     margin:0 0 45px;
 }
-.video-inner, .BCLvideoWrapper {
-    width:100%;
-}
 .remove-player{
     width:100%;
     overflow:hidden;
 }
 #BCLcontainingBlock {
-    width: 100%;
+  width: 100%;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  float: right;
 }
 .BCLvideoWrapper {
-    position: relative;
-    padding-top: 1px;
-    padding-bottom: 56.25%;
-    /*height: 650px;*/
+  position: relative;
 }
-
-.single #BCLcontainingBlock {
-    margin-bottom:10px;
-}
-
 * html .BCLvideoWrapper {
-    margin-bottom: 45px;
-    margin-top: 0;
-    width: 100%;
+  margin-bottom: 45px;
+  margin-top: 0;
+  width: 100%;
 }
-.home .BCLvideoWrapper div, .home .video-inner, .page-template-default .BCLvideoWrapper div, .page-template-default .video-inner{
-	height: 650px;
-}	
 .BCLvideoWrapper div,
 .BCLvideoWrapper embed,
 .BCLvideoWrapper object,
 .BrightcoveExperience {
-	position: absolute;
-	width: 100%;
-	left: 0;
-	top: 0;
+  position: relative;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 99;
 }
 .sidebar .BCLvideoWrapper div,
 .sidebar .BCLvideoWrapper embed,
 .sidebar .BCLvideoWrapper object,
 .sidebar .BrightcoveExperience {
-	position: relative;
 	width: 310px;
 	height: 540px;
-	left: auto;
-	top: auto;
 }
 .post-panel,
 .video-panel {
@@ -884,12 +871,15 @@ img{max-width: 100%;height: auto;}
     padding:14px 16px;
     background:url(images/bg/grey-transparence.png) repeat;
 }
+.video-panel{
+	margin-top: 680px;
+}
 .post-panel {
     border:0;
 }
 .see-all {
     float:right;
-    font:bold 12px "open_sansregular", Helvetica, sans-serif;
+    font:bold 12px Helvetica, "open_sansregular", sans-serif;
     text-transform:uppercase;
 }
 .see-all:after {
@@ -1980,7 +1970,7 @@ a.change-location:before {
     width:100%;
     height: auto;
 }
-.widget-title {
+.widget-title, .recipes h3 {
     font:22px "stagbold", serif;
     color:#c6262d;
     text-transform:uppercase;

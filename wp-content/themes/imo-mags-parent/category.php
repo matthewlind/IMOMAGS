@@ -42,7 +42,6 @@ get_header(); ?>
                     </div>-->
                     
                     <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="js-responsive-section main-content-preppend">
-                        <?php //twentyeleven_content_nav( 'nav-above' ); ?>
 						<?php $i = 1; while ( have_posts() ) : the_post(); ?>
         
                             <?php
