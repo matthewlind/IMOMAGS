@@ -32,12 +32,14 @@
 		
 		//display iframe ads on Safari 5 & under due to jQuery mobile and DFP conflicts
 		$iframe = false;
-		$version = preg_replace("/(.*) OS ([0-9]*)_(.*)/","$2", $_SERVER['HTTP_USER_AGENT']);
-		 // for example you use it this way
-
-		 if ($version < 6){
+		$user_agent = $_SERVER['HTTP_USER_AGENT']; 
+	    if (strpos( $user_agent, 'Chrome') !== false){
+	
+		}
+		else if (strpos( $user_agent, 'Safari') !== false){
 			$iframe = true;
 		}
+
 		
 	    // Add the blog description for the home/front page.
 	    $site_description = get_bloginfo( 'description', 'display' );

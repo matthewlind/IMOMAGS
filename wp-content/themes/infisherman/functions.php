@@ -20,15 +20,18 @@ define("FACEBOOK_LINK", "https://www.facebook.com/InFisherman");
 function imo_sidebar($type){
 	//display iframe ads on Safari 5 & under due to jQuery mobile and DFP conflicts
 	$iframe = false;
-	$version = preg_replace("/(.*) OS ([0-9]*)_(.*)/","$2", $_SERVER['HTTP_USER_AGENT']);
-	// for example you use it this way
-	 if ($version < 6){
+	$user_agent = $_SERVER['HTTP_USER_AGENT']; 
+    if (strpos( $user_agent, 'Chrome') !== false){
+
+	}
+	else if (strpos( $user_agent, 'Safari') !== false){
 		$iframe = true;
 	}
+	
 	$dartDomain = get_option("dart_domain", $default = false);
 	echo '<div class="sidebar-area">';
 		echo '<div class="sidebar">';
-			echo '<div class="widget_advert-widget">'; 			
+			echo '<div class="widget_advert-widget">'; 	
 			imo_dart_tag("300x250",$iframe);
 			echo '</div>';
 		echo '</div>';
@@ -58,12 +61,14 @@ function social_networks(){
 function sub_footer(){
 	//display iframe ads on Safari 5 & under due to jQuery mobile and DFP conflicts
 	$iframe = false;
-	$version = preg_replace("/(.*) OS ([0-9]*)_(.*)/","$2", $_SERVER['HTTP_USER_AGENT']);
-	 // for example you use it this way
-	 
-	 if ($version < 6){
+	$user_agent = $_SERVER['HTTP_USER_AGENT']; 
+    if (strpos( $user_agent, 'Chrome') !== false){
+
+	}
+	else if (strpos( $user_agent, 'Safari') !== false){
 		$iframe = true;
-	} ?>
+	}
+	?>
 	<div class="sub-boxes">
 		<div class="sub-box banner-box">
 			<?php imo_dart_tag("300x250",$iframe,array("pos"=>"mid")); ?>
