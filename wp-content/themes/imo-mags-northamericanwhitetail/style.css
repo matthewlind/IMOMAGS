@@ -917,7 +917,12 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 	color: #000033 !important;
 }
 
-
+.footer-728{
+	width: 728px;
+	height: 100px;
+	margin: 0 auto;
+	padding: 20px 156px;
+}
 /*
  * Footer
  * branding, navigation, and social networking
