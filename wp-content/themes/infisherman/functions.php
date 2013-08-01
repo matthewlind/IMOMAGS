@@ -18,20 +18,11 @@ define("DRUPAL_SITE", TRUE);
 define("FACEBOOK_LINK", "https://www.facebook.com/InFisherman");
 
 function imo_sidebar($type){
-	//display iframe ads on Safari 5 & under due to jQuery mobile and DFP conflicts
-	$iframe = false;
-	$version = preg_replace("/(.*) OS ([0-9]*)_(.*)/","$2", $_SERVER['HTTP_USER_AGENT']);
-	 // for example you use it this way
-
-	 if ($version > 6){
-		$iframe = true;
-	}
-	echo $iframe;
 	$dartDomain = get_option("dart_domain", $default = false);
 	echo '<div class="sidebar-area">';
 		echo '<div class="sidebar">';
-			echo '<div class="widget_advert-widget">';
-			imo_dart_tag("300x250",$iframe);
+			echo '<div class="widget_advert-widget">'; 	
+			imo_dart_tag("300x250");
 			echo '</div>';
 		echo '</div>';
 	    get_sidebar($type);
@@ -57,18 +48,10 @@ function social_networks(){
 	echo '</div>';
 }
 
-function sub_footer(){
-	//display iframe ads on Safari 5 & under due to jQuery mobile and DFP conflicts
-	$iframe = false;
-	$version = preg_replace("/(.*) OS ([0-9]*)_(.*)/","$2", $_SERVER['HTTP_USER_AGENT']);
-	 // for example you use it this way
-
-	 if ($version > 6){
-		$iframe = true;
-	} ?>
+function sub_footer(){ ?>
 	<div class="sub-boxes">
 		<div class="sub-box banner-box">
-			<?php imo_dart_tag("300x250",$iframe,array("pos"=>"mid")); ?>
+			<?php imo_dart_tag("300x250",array("pos"=>"mid")); ?>
 			</div>
 			<div class="sub-box fb-box">
 			<div class="fb-recommendations" data-site="in-fisherman.com" data-width="309" data-height="252" data-header="true" data-font="arial"></div>
@@ -102,32 +85,92 @@ function register_recipes_widget() {
 class Recipes_Widget extends WP_Widget
 {
     function __construct() {
-        $widget_ops = array( 'classname' => 'recipes', 'description' => __('A widget that displays the last recipes ', 'recipes') );
+        $widget_ops = array( 'classname' => 'recipes', 'description' => __('A widget that displays related recipes & gear ', 'recipes') );
         
         $control_ops = array( 'width' => 300, 'height' => 350, 'id_base' => 'recipes-widget' );
         
-        $this->WP_Widget( 'recipes-widget', __('Recipes Widget', 'recipes'), $widget_ops, $control_ops );
+        $this->WP_Widget( 'recipes-widget', __('Related Recipes & Gear Widget', 'recipes'), $widget_ops, $control_ops );
     }
     
-    function widget( $args, $instance ) {
-        extract( $args );
-        $title = apply_filters('widget_title', $instance['title'] );
+    function widget() {
 
-        echo $before_widget;
-
-        if ( $title )
-            echo $before_title . $title . $after_title;
-
-        $query = new WP_Query( 'category_name=recipes&posts_per_page=1' );
-
+		// Let's get the Primary Category
+		$postID = get_the_ID();
+		$categoryID = get_post_meta($postID);
+		$catID = $categoryID["_category_permalink"];
+		$primaryCat = $catID[0];
+		$primary = get_term_by('id', $catID[0], 'category');
+		$primaryName = $primary->name;
+		$recipes = 112;
+		$gear = 20;
+		$category = get_category( get_query_var( 'cat' ) );
+		$slug = $category->slug;
+		$id = $category->term_id;
+		
+		$primaryAndRecipes = array(
+				'category__and' => array($primaryCat,$recipes),
+				'posts_per_page' => 1,
+				'orderby' => 'rand'
+				);
+		
+		$categoryAndRecipes = array(
+				'category__and' => array($id,$recipes),
+				'posts_per_page' => 1,
+				'orderby' => 'rand'
+				);
+		if($_SERVER['REQUEST_URI'] == "/".$slug."/" && ($slug == "walleye" || $slug == "panfish" || $slug == "catfish" || $slug == "pike" || $slug == "trout" || $slug == "salmon" || $slug == "trout-salmon" || $$slug == "pike-muskie")){
+			$query = new WP_Query( $categoryAndRecipes );
+		}else if($primaryName == "Walleye" || $primaryName == "Panfish" || $primaryName == "Catfish" || $primaryName == "Pike" || $primaryName == "Trout" || $primaryName == "Salmon" || $primaryName == "Trout & Salmon" || $primaryName == "Pike & Muskie"){
+			$query = new WP_Query( $primaryAndRecipes );
+		}else{
+			$query = new WP_Query( 'category_name=recipes&posts_per_page=1&orderby=rand' );
+		}
+        
+        if ($query->have_posts()): 
         ?>
-
-        <?php if ($query->have_posts()): ?>
-        <div data-position="8" class="recipes-holder js-responsive-section">
-            <h3 class="widget-title hidden-widget-title">Recipes</h3>
+        <div class="recipes-holder js-responsive-section widget">
+            <h3 class="widget-title">Recipes</h3>
             <div class="recipes-box">
             <?php while ($query->have_posts()) : $query->the_post(); ?>
-                    <?php the_post_thumbnail(array(125,80)); ?>
+                    <?php the_post_thumbnail(); ?>
+                    <div class="recipes-text">
+                        <h3><a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a></h3>
+                        <!--<div class="comment-count"><?php echo get_comments_number(); ?> Comments</div>-->
+                    </div>
+            <?php endwhile; ?>
+            </div>
+        </div>
+        <?php endif;                
+        /* Restore original Post Data */
+		wp_reset_postdata();
+
+		$primaryAndGear = array(
+				'category__and' => array($primaryCat,$gear),
+				'posts_per_page' => 1,
+				'orderby' => 'rand'
+				);
+				
+		$categoryAndGear = array(
+				'category__and' => array($id,$gear),
+				'posts_per_page' => 1,
+				'orderby' => 'rand'
+				);
+
+		if($_SERVER['REQUEST_URI'] == "/".$slug."/" && ($slug == "walleye" || $slug == "panfish" || $slug == "catfish" || $slug == "pike" || $slug == "trout" || $slug == "salmon" || $slug == "trout-salmon" || $$slug == "pike-muskie")){
+			$query = new WP_Query( $categoryAndGear );
+		}else if($primaryName == "Walleye" || $primaryName == "Panfish" || $primaryName == "Catfish" || $primaryName == "Pike" || $primaryName == "Trout" || $primaryName == "Salmon" || $primaryName == "Trout & Salmon" || $primaryName == "Pike & Muskie"){
+			$query = new WP_Query( $primaryAndGear );
+		}else{
+			$query = new WP_Query( 'category_name=gear-accessories&posts_per_page=1&orderby=rand' );
+		}
+        
+        if ($query->have_posts()): 
+        ?>
+        <div class="recipes-holder js-responsive-section widget">
+            <h3 class="widget-title">Gear & Accessories</h3>
+            <div class="recipes-box">
+            <?php while ($query->have_posts()) : $query->the_post(); ?>
+                    <?php the_post_thumbnail(); ?>
                     <div class="recipes-text">
                         <h3><a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a></h3>
                         <!--<div class="comment-count"><?php echo get_comments_number(); ?> Comments</div>-->
@@ -136,32 +179,62 @@ class Recipes_Widget extends WP_Widget
             </div>
         </div>
         <?php endif; ?>
-        <?php
-
         
-        echo $after_widget;
+        <div class="js-responsive-section widget">
+        <?php 	        
+        if(in_category("bass") || is_category("bass")){
+	        $bcoveID = 2296641582001;
+	        $bcoveValue = "AQ~~,AAAA-01d-uE~,FiwRPPEEyN7iVOxfzxjuTdxs15Rsp9C-";
+	        echo $before_widget . '<h3 class="widget-title">Bass Video</h3>'; 
+        }else if(in_category("walleye") || is_category("walleye")){
+	        $bcoveID = 2288756669001;
+	        $bcoveValue = "AQ~~,AAAA-01d-uE~,FiwRPPEEyN6t2_JKertfYNQSC0Z9-9sQ";
+	        echo $before_widget . '<h3 class="widget-title">Walleye Video</h3>';
+        }else if(in_category("pike-muskie") || is_category("pike-muskie") || in_category("muskie") || is_category("muskie") || in_category("northern-pike") || is_category("northern-pike")){
+	        $bcoveID = 2296641609001;
+	        $bcoveValue = "AQ~~,AAAA-01d-uE~,FiwRPPEEyN6BqJAlU1eBzQjM6JqWBeKy";
+	        echo $before_widget . '<h3 class="widget-title">Pike & Muskie Video</h3>';
+	    }else if(in_category("panfish") || is_category("panfish")){
+	        $bcoveID = 2288756671001;
+	        $bcoveValue = "AQ~~,AAAA-01d-uE~,FiwRPPEEyN5kh63oQSJLKGB-A-dR9uMg";	 
+	        echo $before_widget . '<h3 class="widget-title">Panfish Video</h3>';
+	    }else if(in_category("catfish") || is_category("catfish")){
+	        $bcoveID = 2288756670001;
+	        $bcoveValue = "AQ~~,AAAA-01d-uE~,FiwRPPEEyN5hceFGFRR5K3KxPIZYGAkv";
+	        echo $before_widget . '<h3 class="widget-title">Catfish Video</h3>'	; 
+	    }else if(in_category("trout-salmon") || is_category("trout-salmon") || in_category("salmon") || is_category("salmon") || in_category("trout") || is_category("trout") || in_category("lake-trout") || is_category("lake-trout") || in_category("brown-trout-salmon") || is_category("brown-trout") || in_category("rainbow-trout-steelhead") || is_category("rainbow-trout-steelhead")){
+	        $bcoveID = 2296641611001;
+	        $bcoveValue = "AQ~~,AAAA-01d-uE~,FiwRPPEEyN6EtzuPp5suAl2U2bK-AGVJ";	 
+	        echo $before_widget . '<h3 class="widget-title">Trout & Salmon Video</h3>';
+	    }else if(in_category("ice-fishing") || is_category("ice-fishing")){
+	        $bcoveID = 2288756675001;
+	        $bcoveValue = "AQ~~,AAAA-01d-uE~,FiwRPPEEyN7hI3ZdHnSfpvjTaN5j8yA_";	
+	        echo $before_widget . '<h3 class="widget-title">Ice Fishing Video</h3>'; 
+	    }else{
+		    $bcoveID = 2296641582001;
+	        $bcoveValue = "AQ~~,AAAA-01d-uE~,FiwRPPEEyN7iVOxfzxjuTdxs15Rsp9C-";
+	        echo $before_widget . '<h3 class="widget-title">Bass Video</h3>';
+	    }	    
+        
+        ?>
+		<script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+		<object id="myExperience" class="BrightcoveExperience">
+		  <param name="bgcolor" value="#FFFFFF" />
+		  <param name="width" value="300" />
+		  <param name="height" value="540" />
+		  <param name="playerID" value="<?php echo $bcoveID; ?>" />
+		  <param name="playerKey" value="<?php echo $bcoveValue; ?>" />
+		  <param name="isVid" value="true" />
+		  <param name="isUI" value="true" />
+		  <param name="dynamicStreaming" value="true" />
+		</object>
+		<script type="text/javascript">brightcove.createExperiences();</script>
+        <?php echo $after_widget;?>
+        </div>
+        <?php /* Restore original Post Data */
+			wp_reset_postdata();
     }
-     
-    function update( $new_instance, $old_instance ) {
-        $instance = $old_instance;
-        $instance['title'] = strip_tags( $new_instance['title'] );
-
-        return $instance;
-    }
-
     
-    function form( $instance ) {
-        $defaults = array( 'title' => __('Recipes', 'recipes'));
-        $instance = wp_parse_args( (array) $instance, $defaults ); ?>
-
-        <p>
-            <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e('Title:', 'recipes'); ?></label>
-            <input id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $instance['title']; ?>" style="width:100%;" />
-        </p>
-
-        <?php
-    }
-
 }        
 
 function infisherman_get_categories($categories_list, $show_featured = true)

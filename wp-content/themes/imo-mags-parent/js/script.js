@@ -1,28 +1,10 @@
 jQuery(window).load(function() {
-	
-	var my_body = document.getElementsByTagName('body')[0],
-	my_script = document.createElement('script');
-	
-	my_script.src = 'http://' + window.location.hostname + '/wp-content/themes/imo-mags-parent/js/plugins/jquery.mobile/jquery.mobile-1.3.1.js';
-	my_body.appendChild(my_script);
-	
-	
-	
 	jQuery('.onload-hidden').removeClass('onload-hidden');
     jQuery('.onload-hidden-abs').removeClass('onload-hidden-abs');
     jQuery('.loading-block').removeClass('loading-block');
-    
-    var optionsHash;
-	jQuery( "#idofpanel" ).panel( "open" , optionsHash );
-	jQuery("html").removeClass("ui-mobile");
 });
 
 jQuery(function(){
-	
-	//prevent jQuery mobile from styling form elements
-	jQuery(document).live('pagebeforecreate', function( e ) {
-        jQuery( "input, textarea, select", e.target ).attr( "data-role", "none" );
-    });
     
     jQuery(document).ready(function () {
 		// Load more 
@@ -30,13 +12,13 @@ jQuery(function(){
 		    jQuery("a.btn-base").show();
 	    }
 	    //fix for menu loading before jquery mobile
-	    jQuery(".open-menu").click(function(){
-			jQuery("#mob-menu").show();
+	    jQuery(".show-menu-button").click(function(){
+
 			_gaq.push(['_trackPageview',"/" + window.location.pathname + "-mobile-menu-open"]);  
 			document.getElementById('menu-iframe-ad').contentWindow.location.reload();
 		});
 		
-		jQuery( document ).on("swipeleft swiperight",".open-menu", function( e ) {
+		jQuery( document ).on("swipeleft swiperight",".show-menu-button", function( e ) {
 			_gaq.push(['_trackPageview',"/" + window.location.pathname + "-mobile-menu-open"]);  
 			document.getElementById('menu-iframe-ad').contentWindow.location.reload();
 		});
@@ -153,7 +135,6 @@ jQuery(function(){
     
 });
 
-
 jQuery('.jq-go-top').click(function(){
     jQuery('html, body').animate({scrollTop:0}, 'slow');
     return false;
@@ -174,10 +155,10 @@ jQuery('.jq-filter-by').toggle(function(){
     });
     
 
-jQuery('.aside-menu').on("click", ".mob-aside-menu .has-drop", function(){
+jQuery('#slidingMenuContent').on("click", ".mob-aside-menu .has-drop", function(){
     jQuery(this).parent("li").toggleClass('drop-open');
 });
-jQuery('.aside-menu').on("click", ".mob-aside-menu .has-drop", function(e){
+jQuery('#slidingMenuContent').on("click", ".mob-aside-menu .has-drop", function(e){
     e.preventDefault();
 });
 

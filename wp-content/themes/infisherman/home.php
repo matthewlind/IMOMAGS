@@ -30,45 +30,72 @@ get_header(); ?>
                         </ul>
                     </div>
                 </div>
-				<?php if(!mobile()){ ?>
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="video-box js-responsive-section">
                     <div class="general-title clearfix">
                         <h2>In-Fisherman <span>TV</span></h2>		
                         <div class="sponsor"><?php //imo_dart_tag("240x60",$iframe); ?></div>	
                     </div>
+                    <script type="text/javascript">
+                      // resizing function - newWidth is percentage of content width as a decimal value					
+				      var BCL = {};
+				      BCL.currentPlayerWidth = 1;
+				      var $BCLbodyContent = jQuery('#BCLbodyContent');
+				      var $BCLvideoWrapper = jQuery('.BCLvideoWrapper');
+				      var $BCLcontainingBlock = jQuery('#BCLcontainingBlock');
+				      
+				      // resizing function - newWidth is percentage of content width as a decimal value
+					  BCL.resizePlayer = function(newWidth) {
+					  var $BCLcontainingBlock = jQuery('#BCLcontainingBlock');
+					  $BCLcontainingBlock.width(jQuery('#BCLbodyContent').width() * newWidth);
+					  BCL.experienceModule.setSize($BCLcontainingBlock.width(),$BCLcontainingBlock.height());
+					  BCL.currentPlayerWidth = newWidth;
+					  }
+                   
+					</script>
                     <div class="video-inner">
                         <div id="BCLcontainingBlock">
                              <div class="BCLvideoWrapper">
                                <!-- Start of Brightcove Player -->
-                               <div style="display:none">
-                               </div>
-                               <script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
-                               <object id="myExperience1195045806001" class="BrightcoveExperience">
-                                 <param name="bgcolor" value="#FFFFFF" />
-                                 <param name="width" value="100%" />
-                                 <param name="height" value="100%" />
-                                 <param name="playerID" value="2305729440001" />
-								 <param name="playerKey" value="AQ~~,AAAA-01d-uE~,FiwRPPEEyN6__gDpGaKio54MyKID0JwZ" />
-                                 <param name="isVid" value="true" />
-                                 <param name="isUI" value="true" />
-                                 <param name="dynamicStreaming" value="true" />
-                                 <param name="htmlFallback" value="true" />
-                                 <param name="@videoPlayer" value="1807962446001" />
-                                   <!-- params for Universal Player API -->
-                                 <param name="includeAPI" value="true" />
-                                 <param name="templateLoadHandler" value="onTemplateLoaded" />
-                                 <param name="templateReadyHandler" value="onTemplateReady" />
-                               </object>
-                               <script type="text/javascript">brightcove.createExperiences();</script>
-                               <!-- End of Brightcove Player -->
-                             </div>
+
+								<div style="display:none">
+								
+								</div>
+								
+								<!--
+								By use of this code snippet, I agree to the Brightcove Publisher T and C 
+								found at https://accounts.brightcove.com/en/terms-and-conditions/. 
+								-->
+								
+								<script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+								
+								<object id="myExperience" class="BrightcoveExperience">
+								  <param name="bgcolor" value="#FFFFFF" />
+								  <param name="width" value="480" />
+								  <param name="height" value="628" />
+								  <param name="playerID" value="2568027916001" />
+								  <param name="playerKey" value="AQ~~,AAAA-01d-uE~,FiwRPPEEyN6J4wQRpEDgtXFI2RXzS-Wu" />
+								  <param name="isVid" value="true" />
+								  <param name="isUI" value="true" />
+								  <param name="dynamicStreaming" value="true" />
+								  
+								</object>
+								
+								<!-- 
+								This script tag will cause the Brightcove Players defined above it to be created as soon
+								as the line is read by the browser. If you wish to have the player instantiated only after
+								the rest of the HTML is processed and the page load is complete, remove the line.
+								-->
+								<script type="text/javascript" src="http://admin.brightcove.com/js/api/SmartPlayerAPI.js"></script>
+								<script type="text/javascript">brightcove.createExperiences();</script>
+								
+								<!-- End of Brightcove Player -->						
+								</div>
                           </div>
                     </div>
                     <div class="video-panel clearfix">
                         <a href="/in-fisherman-tv/" class="see-all">See All Video </a>
                     </div>
                 </div>
-                <?php } ?>
                 
                 <?php $fetured_slider_query = new WP_Query( 'category_name='.TIMELY_FEATURES.'&posts_per_page=8' ); ?> 
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="double-posts double-post-slider loading-block js-responsive-section">
