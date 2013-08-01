@@ -115,8 +115,10 @@ jQuery(document).ready(function(){
 	});
 
 	//Some windows phones (7.5) does'nt fired the "orientationchange" event, that's why we must use "resize" event
-	window.addEventListener("resize", orientationChange, false);
-	window.addEventListener("orientationchange", orientationChange, false);
+	if(window.addEventListener){
+		window.addEventListener("resize", orientationChange, false);
+		window.addEventListener("orientationchange", orientationChange, false);
+	}
 
 
 	//detect hash change
@@ -142,9 +144,9 @@ jQuery(document).ready(function(){
 
     function initGestures() {
 
-        var openingGesture = Hammer(document).on("swiperight", function(event) {
-            openMenu();
-        });
+       // var openingGesture = Hammer(document).on("swiperight", function(event) {
+         //   openMenu();
+        //});
         var closingGesture = Hammer(document).on("swipeleft", function(event) {
             closeMenu();
         });

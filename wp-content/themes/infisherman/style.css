@@ -25,7 +25,7 @@ General comments (optional).
 
 .user-btn {background-image:url(images/sprite.png);}
 .btn-base {
-    display:none;
+	display: inline-block;
     height:29px;
     font:15px/29px "stagbold", serif;
     color:#fff;

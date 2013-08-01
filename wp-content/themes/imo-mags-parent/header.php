@@ -41,6 +41,7 @@
 		
 	    ?></title>
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
+	<!--[if IE 8]><style type="text/css">img{max-width: none !important;}.BCLvideoWrapper object{width:480px !important;}</style><![endif]-->
 	<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	<!--[if lt IE 9]>
