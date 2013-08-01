@@ -698,7 +698,24 @@ $app->delete('/posts/:id', function ($id) {
 		$params = \Slim\Slim::getInstance()->request()->post();
 	}
 
+	//Grab the post
+	try {
 
+		$db = dbConnect();
+
+
+		$sql = "SELECT * FROM superposts WHERE id = ? LIMIT 1";
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array($post_id));
+		$post = $stmt->fetchObject();
+
+
+		$db = '';
+
+	} catch(PDOException $e) {
+    	echo $e->getMessage();
+    }
 
 	$userIsEditor = userIsEditor($params['username'],$params['timecode'],$params['editor_hash']);
 
@@ -718,6 +735,23 @@ $app->delete('/posts/:id', function ($id) {
 		$stmt->execute(array($id));
 
 		$db = "";
+
+
+		//CLEAR THE VARNISH CACHE!
+		$postURL = "http://" . $post->domain . "/plus/" . $post->post_type . "/" . $post->id . "/";
+
+		$curl = curl_init($postURL);
+        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PURGE");
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
+        $curlResult = curl_exec($curl);
+
+		$postURL = "http://" . $post->domain . "/slim/api/superpost/post/" . $post->id;
+
+		$curl = curl_init($postURL);
+        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PURGE");
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
+        $curlResult = curl_exec($curl);
+
 
 		//echo $sql;
 	} else {
