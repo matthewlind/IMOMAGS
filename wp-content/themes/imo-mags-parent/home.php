@@ -34,7 +34,7 @@ get_header(); ?>
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="video-box js-responsive-section">
                     <div class="general-title clearfix">
                         <h2>In-Fisherman <span>TV</span></h2>		
-                        <div class="sponsor"><?php //imo_dart_tag("240x60",$iframe); ?></div>	
+                        <div class="sponsor"><?php //imo_dart_tag("240x60"); ?></div>	
                     </div>
                     <div class="video-inner">
                         <div id="BCLcontainingBlock">
@@ -228,7 +228,7 @@ get_header(); ?>
                 <div class="links-holder">
                     <div class="image-banner">
                      <?php if (mobile()) { 
-	                 	imo_dart_tag("300x250",$iframe,array("pos"=>"mob"));
+	                 	imo_dart_tag("300x250",array("pos"=>"mob"));
 	                 } ?>              
                     </div>
                     <div>

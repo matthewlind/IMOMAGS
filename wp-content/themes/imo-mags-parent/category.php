@@ -21,7 +21,7 @@ get_header(); ?>
                             printf('<span>' . single_cat_title( '', false ) . '</span>' );
                             ?>
                         </h1>
-                        <div class="sponsor"><?php //imo_dart_tag("240x60",$iframe); ?></div>
+                        <div class="sponsor"><?php //imo_dart_tag("240x60"); ?></div>
 					</div>
                                                 
                     <?php if (z_taxonomy_image_url()) echo '<div class="category-img"><img src="'.z_taxonomy_image_url().'" alt="'.single_cat_title( '', false ).'" title="'.single_cat_title( '', false ).'" /></div>'; ?>                    
@@ -55,7 +55,7 @@ get_header(); ?>
                         <?php if ( (($i - (($paged -1) * 2 ))%6) == 0 ): ?>
 	                        <?php if ( mobile() ){ ?>
 	                        <div class="image-banner posts-image-banner">
-	                            <?php imo_dart_tag("300x250",$iframe,array("pos"=>"mob")); ?> 
+	                            <?php imo_dart_tag("300x250",array("pos"=>"mob")); ?> 
 	                        </div>
 	                        <?php } ?>
                         <?php endif;?>

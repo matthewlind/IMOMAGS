@@ -18,21 +18,11 @@ define("DRUPAL_SITE", TRUE);
 define("FACEBOOK_LINK", "https://www.facebook.com/InFisherman");
 
 function imo_sidebar($type){
-	//display iframe ads on Safari 5 & under due to jQuery mobile and DFP conflicts
-	$iframe = false;
-	$user_agent = $_SERVER['HTTP_USER_AGENT']; 
-    if (strpos( $user_agent, 'Chrome') !== false){
-
-	}
-	else if (strpos( $user_agent, 'Safari') !== false){
-		$iframe = true;
-	}
-	
 	$dartDomain = get_option("dart_domain", $default = false);
 	echo '<div class="sidebar-area">';
 		echo '<div class="sidebar">';
 			echo '<div class="widget_advert-widget">'; 	
-			imo_dart_tag("300x250",$iframe);
+			imo_dart_tag("300x250");
 			echo '</div>';
 		echo '</div>';
 	    get_sidebar($type);
@@ -58,20 +48,10 @@ function social_networks(){
 	echo '</div>';
 }
 
-function sub_footer(){
-	//display iframe ads on Safari 5 & under due to jQuery mobile and DFP conflicts
-	$iframe = false;
-	$user_agent = $_SERVER['HTTP_USER_AGENT']; 
-    if (strpos( $user_agent, 'Chrome') !== false){
-
-	}
-	else if (strpos( $user_agent, 'Safari') !== false){
-		$iframe = true;
-	}
-	?>
+function sub_footer(){ ?>
 	<div class="sub-boxes">
 		<div class="sub-box banner-box">
-			<?php imo_dart_tag("300x250",$iframe,array("pos"=>"mid")); ?>
+			<?php imo_dart_tag("300x250",array("pos"=>"mid")); ?>
 			</div>
 			<div class="sub-box fb-box">
 			<div class="fb-recommendations" data-site="in-fisherman.com" data-width="309" data-height="252" data-header="true" data-font="arial"></div>

@@ -29,18 +29,7 @@
 
 	    // Add the blog name.
 	    bloginfo( 'name' );
-		
-		//display iframe ads on Safari 5 & under due to jQuery mobile and DFP conflicts
-		$iframe = false;
-		$user_agent = $_SERVER['HTTP_USER_AGENT']; 
-	    if (strpos( $user_agent, 'Chrome') !== false){
-	
-		}
-		else if (strpos( $user_agent, 'Safari') !== false){
-			$iframe = true;
-		}
-
-		
+				
 	    // Add the blog description for the home/front page.
 	    $site_description = get_bloginfo( 'description', 'display' );
 	    if ( $site_description && ( is_home() || is_front_page() ) )
@@ -53,21 +42,6 @@
 	    ?></title>
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
-
-	<?php if(mobile()){ ?>
-		<style type="text/css">
-			/* hardware acceleration for smoother transitions on WebKit browsers */
-			.ui-panel-animate.ui-panel:not(.ui-panel-display-reveal),
-			.ui-panel-animate.ui-panel:not(.ui-panel-display-reveal) > div,
-			.ui-panel-animate.ui-panel-closed.ui-panel-display-reveal > div,
-			.ui-panel-animate.ui-panel-content-wrap,
-			.ui-panel-animate.ui-panel-content-fixed-toolbar {
-				-webkit-backface-visibility: hidden;
-				-webkit-transform: translate3d(0,0,0);
-		}
-		</style>
-	<?php } ?>
-	<link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/js/plugins/jquery.mobile/jquery.mobile.structure-1.3.1.css" />
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	<!--[if lt IE 9]>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
@@ -105,55 +79,56 @@
   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
+<div id="mobileContainer">
+	<div id="slidingMenu">
+		<div id="slidingMenuContent">
+			<div class="mobile-menu-banner">
+				<?php $dartDomain = get_option("dart_domain", $default = false); ?>
+				<iframe id="menu-iframe-ad" width="320" height="50" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-menu.php?size=320x50&ad_code=<?php echo $dartDomain; ?>"></iframe>
+			</div>
+	
+	        <div class="mob-aside-menu">
+	            <?php
+	            if(has_nav_menu( 'Mobile Menu' )){
+	                wp_nav_menu(array(
+	                    'menu_class'=>'menu',
+	                    'theme_location'=>'mobile',
+	                    'walker'=> new AddParentClass_Walker()
+	                ));
+	            }else{
+	                wp_nav_menu(array(
+	                'menu_class'=>'menu',
+	                'theme_location'=>'bottom',
+	                'walker'=> new AddParentClass_Walker()
+	            ));
+	            }
+	
+	            ?>
+	        </div>
+	
+	        <div class="menu-subscribe">
+	            <a href="#"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/pic/journals.png" alt="" /><span>Subscribe Now!</span></a>
+	        </div>
+	        <?php wp_nav_menu(array(
+	            'menu_class'=>'menu',
+	            'theme_location'=>'top',
+	        ));   ?>
+	        <div class="aside-socials">
+	            <strong>Connect</strong>
+	            <?php social_networks(); ?>
+	        </div>
 
-<div data-role="page">
-<div data-role="panel" id="mypanel" class="aside-menu onload-hidden-abs" data-position="left" data-display="reveal">
-	<div id="mob-menu" style="display:none;">
+	</div><!-- #mobileContainer -->
+</div><!-- slidingMenu -->
 
-		<div class="mobile-menu-banner">
-			<?php $dartDomain = get_option("dart_domain", $default = false); ?>
-			<iframe id="menu-iframe-ad" width="320" height="50" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-menu.php?size=320x50&ad_code=<?php echo $dartDomain; ?>"></iframe>
-		</div>
+<div id="page">
 
-        <div class="mob-aside-menu">
-            <?php
-            if(has_nav_menu( 'Mobile Menu' )){
-                wp_nav_menu(array(
-                    'menu_class'=>'menu',
-                    'theme_location'=>'mobile',
-                    'walker'=> new AddParentClass_Walker()
-                ));
-            }else{
-                wp_nav_menu(array(
-                'menu_class'=>'menu',
-                'theme_location'=>'bottom',
-                'walker'=> new AddParentClass_Walker()
-            ));
-            }
-
-            ?>
-        </div>
-
-        <div class="menu-subscribe">
-            <a href="#"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/pic/journals.png" alt="" /><span>Subscribe Now!</span></a>
-        </div>
-        <?php wp_nav_menu(array(
-            'menu_class'=>'menu',
-            'theme_location'=>'top',
-        ));   ?>
-        <div class="aside-socials">
-            <strong>Connect</strong>
-            <?php social_networks(); ?>
-        </div>
-    </div>
-
-</div><!-- /panel -->
-<div id="page" class="hfeed wrapper" data-role="content" role="main">
-    <div class="layout-frame">
-        <div id="branding" class="header clearfix" role="banner">
-
+	<div class="hfeed wrapper" data-role="content" role="main">
+	    <div class="layout-frame">
+	        <div id="branding" class="header clearfix" role="banner">
+	
                 <div class="clearfix">
-                    <a href="#mypanel" class="open-menu">open menu</a>
+                   <a class="show-menu-button open-menu">open menu</a>
                     <strong class="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/logo.png" alt="<?php bloginfo( 'name' ); ?>" /></a></strong>
                     <?php
                         // Check to see if the header image has been removed
@@ -214,7 +189,7 @@
                             </div>
                         </div>
                     <?php endif; ?>
-                </div>
+                </div><!-- #branding -->
 
                     <?php wp_nav_menu(array(
                         'menu_class'=>'menu',
@@ -230,17 +205,18 @@
                     ));   ?>
                 <!-- #access -->
         </div><!-- #branding -->
-
+	
         <div class="content-banner-section">
         	<?php if (mobile() == false) { ?>
 	        	<div class="mdl-banner">
-					 <?php imo_dart_tag("728x90",$iframe); ?>
+					 <?php imo_dart_tag("728x90"); ?>
 				</div>
-				<?php }else{
-					imo_dart_tag("320x50",true);
-				} ?>
-            <div class="swipe-out"></div>
-        </div>
+				<?php }else{ ?>
+					<div class="mob-mdl-banner">
+						<?php imo_dart_tag("320x50",true); ?>
+					</div>
+				<?php } ?>
 
+        </div>
+        
         <div id="main" class="main clearfix js-responsive-layout">
-            <div class="swipe-out"></div>
