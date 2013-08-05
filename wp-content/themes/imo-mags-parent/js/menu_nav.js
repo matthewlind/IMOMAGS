@@ -8,7 +8,7 @@ jQuery(document).ready(function(){
 	var isMenuOpen = false;
 	var visiblePageMargin = 55;
 	var maximumMenuWith = 320;
-	var preloader   = '<center style="margin-top: 30px;"><img src="images/preloader.gif" alt="loading..." /></center>';
+	var preloader   = '';
 
 	initMetrics();
 
@@ -23,10 +23,21 @@ jQuery(document).ready(function(){
 	    	height : jQuery(window).height()
 		};
 	}
+	
+	initGestures();
 
+    function initGestures() {
+
+       // var openingGesture = Hammer(document).on("swiperight", function(event) {
+           // openMenu();
+       // });
+        var closingGesture = Hammer(document).on("swipeleft", function(event) {
+            closeMenu();
+        });
+    }
 
 	function openMenu() { 
-
+		
 		isMenuOpen = true;
 		//Rem : Had to do this here because viewport.width value could have been updated since next open/close. If we rotate the device for example
 	    var menuWidth = viewport.width - visiblePageMargin;
@@ -42,7 +53,7 @@ jQuery(document).ready(function(){
 	    
 	    page.animate({
 	       left: menuWidth+"px"
-	    }, { duration: 180 });
+	    }, { duration: 120 });
 	}
 	
 
@@ -52,7 +63,7 @@ jQuery(document).ready(function(){
 
     	page.animate(
     		{	left: "0px" }, 
-    		{	duration: 180 , 
+    		{	duration: 100 , 
     			//For wp7 where div with lower z-index are clickable....
      			//SetTimeout to hide the menu only after closing
 	    		complete: function() { slidingMenu.css("visibility","hidden");}
@@ -107,6 +118,7 @@ jQuery(document).ready(function(){
 		var pagePosition = page.css('left');
 		
 		if(pagePosition == "0px") {
+			page.addClass("smooth-menu");
 			openMenu();
 		}
 		else { 
@@ -119,36 +131,5 @@ jQuery(document).ready(function(){
 		window.addEventListener("resize", orientationChange, false);
 		window.addEventListener("orientationchange", orientationChange, false);
 	}
-
-
-	//detect hash change
-	jQuery(window).bind('hashchange', function (e) { 
     
-	    var hash = location.hash;
-	    var url = "";
-
-	    //For windows phone 7.5, the view doesn't automatically scroll to top when the pageContent is load
-	    window.scrollTo(0, 1);
-	    
-	    if(hash == ''){
-	        url = "short.php";
-	    } else{
-	        url = hash.split("#")[1];
-	    } 
-
-	    loadPage(url); 
- 	});
-
-    /* Paste this in menu_nav.js : */
-    initGestures();
-
-    function initGestures() {
-
-       // var openingGesture = Hammer(document).on("swiperight", function(event) {
-         //   openMenu();
-        //});
-        var closingGesture = Hammer(document).on("swipeleft", function(event) {
-            closeMenu();
-        });
-    }
 });

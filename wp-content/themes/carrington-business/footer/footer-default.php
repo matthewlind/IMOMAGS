@@ -28,12 +28,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 <hr class="accessibility" />
 <footer id="footer">
     <div class="str-container">
-    	<div class="footer-728" style="
-    width: 728px;
-    background: white;
-    height: 100px;
-    margin:0 auto;
-"><?php imo_dart_tag("728x90",array("pos=btf")); ?></div>
+    	<div class="footer-728"><?php imo_dart_tag("728x90",array("pos=btf")); ?></div>
     	<?php if (function_exists('imo_nt_scripts') && is_front_page()) { ?>
 	    <div id="network-topics-3-col" style="top:0;border-left:none;border-right:none;padding: 10px 30px;">
 			<div class="network-topics-widget">

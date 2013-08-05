@@ -119,8 +119,8 @@
 	            <?php social_networks(); ?>
 	        </div>
 
-	</div><!-- #mobileContainer -->
-</div><!-- slidingMenu -->
+			</div><!-- #slidingMenuContent-->
+	</div><!-- slidingMenu -->
 
 <div id="page">
 
@@ -129,7 +129,7 @@
 	        <div id="branding" class="header clearfix" role="banner">
 	
                 <div class="clearfix">
-                   <a class="show-menu-button open-menu">open menu</a>
+                   <a href="javascript:void(0);" class="show-menu-button open-menu">open menu</a>
                     <strong class="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/logo.png" alt="<?php bloginfo( 'name' ); ?>" /></a></strong>
                     <?php
                         // Check to see if the header image has been removed

@@ -11,7 +11,7 @@ jQuery(function(){
 		if(jQuery(".next-link a").length){
 		    jQuery("a.btn-base").show();
 	    }
-	    //fix for menu loading before jquery mobile
+	    
 	    jQuery(".show-menu-button").click(function(){
 
 			_gaq.push(['_trackPageview',"/" + window.location.pathname + "-mobile-menu-open"]);  

@@ -3,7 +3,7 @@
 	$.fn.jfollow = function(follow){
 		
 		return this.each(function(){
-			
+			page = $("#page");
 			var that = $(this);
 			followme = $(follow);	
 			followHeight = $('.advert').height() + 280;
@@ -11,7 +11,9 @@
 				var followfn = function(){
 					// hide sidebar until scrolling
 					//that.css({display: 'none'});
+					page.removeClass("smooth-menu");
 					if($(window).scrollTop() >= followme.offset().top && $(window).scrollTop() < $('#footer').offset().top - followHeight){
+							
 							that.css({
 							display: 'block',
 							position: 'fixed',
@@ -24,6 +26,7 @@
 							position: '',
 							top: '',
 							left: ''
+							
 						});
 					};
 				};
