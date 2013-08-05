@@ -1,9 +1,11 @@
 // JavaScript Document
 (function($){
 	$.fn.jfollow = function(follow){
+		page = $("#page");
+		header = $("#header");
 		
 		return this.each(function(){
-			page = $("#page");
+			
 			var that = $(this);
 			followme = $(follow);	
 			followHeight = $('.advert').height() + 280;
@@ -12,6 +14,7 @@
 					// hide sidebar until scrolling
 					//that.css({display: 'none'});
 					page.removeClass("smooth-menu");
+					header.removeClass("smooth-menu");
 					if($(window).scrollTop() >= followme.offset().top && $(window).scrollTop() < $('#footer').offset().top - followHeight){
 							
 							that.css({

@@ -1,6 +1,7 @@
 jQuery(document).ready(function(){
 
 	var viewport;
+	var header;
 	var page;
 	var pageContent;
 	var slidingMenu;
@@ -13,7 +14,8 @@ jQuery(document).ready(function(){
 	initMetrics();
 
 	function initMetrics() {
-
+		
+		header = jQuery("#header");
 		page = jQuery("#page");
 		pageContent  = jQuery("#main");
 		slidingMenu  = jQuery("#slidingMenu");
@@ -53,7 +55,7 @@ jQuery(document).ready(function(){
 	    
 	    page.animate({
 	       left: menuWidth+"px"
-	    }, { duration: 120 });
+	    }, { duration: 140 });
 	}
 	
 
@@ -63,11 +65,7 @@ jQuery(document).ready(function(){
 
     	page.animate(
     		{	left: "0px" }, 
-    		{	duration: 100 , 
-    			//For wp7 where div with lower z-index are clickable....
-     			//SetTimeout to hide the menu only after closing
-	    		complete: function() { slidingMenu.css("visibility","hidden");}
-			}
+    		{	duration: 100 }
 		)
     	.animate({
             height : "100%"
@@ -90,14 +88,6 @@ jQuery(document).ready(function(){
 	    } 
 	} 
 
-	function loadPage(url) {
-
-		closeMenu();
-        pageContent.html(preloader);
-        //Rem : Timeout is only necessary for demo purpose, to display the loader. Remove it for production.
-        setTimeout( pageContent.load(url, function() {/* no callbacks */}), 1200);
-	}
-
 	function orientationChange() {
 
 		//We must wait at least 500ms before recalculate metrics, 
@@ -118,11 +108,18 @@ jQuery(document).ready(function(){
 		var pagePosition = page.css('left');
 		
 		if(pagePosition == "0px") {
-			page.addClass("smooth-menu");
+		// make sure sticky ad never fails on desktop
+			if (jQuery(window).width() <  1096 ) {
+				page.addClass("smooth-menu");
+				header.addClass("smooth-menu");
+			}
 			openMenu();
 		}
 		else { 
 			closeMenu(); 
+			setTimeout(function() { 
+				slidingMenu.css("visibility","hidden");
+	    	},1000);
 		}
 	});
 

@@ -290,8 +290,6 @@ img{max-width: 100%;height: auto;}
     padding:10px 0 0;
     position:relative;
     z-index:9999999;   
-    -webkit-transform:translate3d(0,0,0);
-	-webkit-backface-visibility: hidden;   
 }
 .logo {
     float:left;
@@ -304,6 +302,7 @@ img{max-width: 100%;height: auto;}
 .logo img {
     display:block;
 }
+
 #mobileContainer { 
 	position: relative; 
 	overflow: hidden; 
@@ -317,6 +316,9 @@ img{max-width: 100%;height: auto;}
 .smooth-menu{
 	-webkit-transform:translate3d(0,0,0);
 	-webkit-backface-visibility: hidden; 
+	-webkit-transition: all 100ms ease 0.2s;
+	transition: all 100ms ease 0.2s;
+
 }
 #slidingMenu { 
 	display: block; 
@@ -326,8 +328,6 @@ img{max-width: 100%;height: auto;}
 	top: 0px; 
 	z-index: 0;
 	visibility: hidden;	/* to block user interaction on wp7 (z-index wont work) */
-	-webkit-transform:translate3d(0,0,0);
-	-webkit-backface-visibility: hidden;  
 }
 .show-menu-button { 
 	display: block; 
@@ -3496,6 +3496,12 @@ h2.related-stories{
     }
 }
 @media only screen and (max-width: 340px) {
+	#slidingMenu{
+		width: 266px;
+	}
+	#slidingMenu iframe{
+		width: 266px !important;
+	}
 	.mobile-menu-banner{
 		width: 320px;
 		margin: 0 auto;

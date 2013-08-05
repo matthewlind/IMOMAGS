@@ -13,9 +13,8 @@ jQuery(function(){
 	    }
 	    
 	    jQuery(".show-menu-button").click(function(){
-
 			_gaq.push(['_trackPageview',"/" + window.location.pathname + "-mobile-menu-open"]);  
-			document.getElementById('menu-iframe-ad').contentWindow.location.reload();
+			document.getElementById('menu-iframe-ad').contentWindow.location.reload().fadeIn(1000);
 		});
 		
 		jQuery( document ).on("swipeleft swiperight",".show-menu-button", function( e ) {
