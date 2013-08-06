@@ -1,20 +1,24 @@
 // JavaScript Document
 (function($){
 	$.fn.jfollow = function(follow){
-		page = $("#page");
-		header = $("#header");
-		
+				
 		return this.each(function(){
 			
 			var that = $(this);
 			followme = $(follow);	
 			followHeight = $('.advert').height() + 280;
-				
-				var followfn = function(){
+			
+			var followfn = function(){
 					// hide sidebar until scrolling
 					//that.css({display: 'none'});
-					page.removeClass("smooth-menu");
-					header.removeClass("smooth-menu");
+					
+					//fix for mobile menu hardware acceleration. Remove css3 transitions that interefere with sticky ad scroll, then place it back for menu smoothness.
+					if($(window).scrollTop() >= followme.offset().top){
+						$('#page').removeClass("smooth-menu");
+					}else{
+						$('#page').addClass("smooth-menu");
+					}
+	
 					if($(window).scrollTop() >= followme.offset().top && $(window).scrollTop() < $('#footer').offset().top - followHeight){
 							
 							that.css({

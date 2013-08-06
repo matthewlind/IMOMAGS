@@ -6,7 +6,9 @@ jQuery(window).load(function() {
 
 jQuery(function(){
     
+
     jQuery(document).ready(function () {
+    
 		// Load more 
 		if(jQuery(".next-link a").length){
 		    jQuery("a.btn-base").show();
@@ -14,7 +16,7 @@ jQuery(function(){
 	    
 	    jQuery(".show-menu-button").click(function(){
 			_gaq.push(['_trackPageview',"/" + window.location.pathname + "-mobile-menu-open"]);  
-			document.getElementById('menu-iframe-ad').contentWindow.location.reload().fadeIn(1000);
+			document.getElementById('menu-iframe-ad').contentWindow.location.reload();
 		});
 		
 		jQuery( document ).on("swipeleft swiperight",".show-menu-button", function( e ) {

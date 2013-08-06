@@ -15,7 +15,7 @@ jQuery(document).ready(function(){
 
 	function initMetrics() {
 		
-		header = jQuery("#header");
+		header = jQuery(".header");
 		page = jQuery("#page");
 		pageContent  = jQuery("#main");
 		slidingMenu  = jQuery("#slidingMenu");
@@ -54,20 +54,20 @@ jQuery(document).ready(function(){
 		adjustHeight();
 	    
 	    page.animate({
-	       left: menuWidth+"px"
-	    }, { duration: 140 });
+	       left: menuWidth+"px",
+	    });
 	}
 	
 
 	function closeMenu() {
 
 		isMenuOpen = false;
-
+		
     	page.animate(
-    		{	left: "0px" }, 
-    		{	duration: 100 }
+    		{	left: "0px" }
 		)
-    	.animate({
+
+    	page.animate({
             height : "100%"
     	}, { duration: 0 });
 	}
@@ -101,18 +101,16 @@ jQuery(document).ready(function(){
 
 	    }, 500);
 	}
+	
+	
+
 
 	//trigger the opening or closing action
 	jQuery("a.show-menu-button").click(function () {
 		
 		var pagePosition = page.css('left');
 		
-		if(pagePosition == "0px") {
-		// make sure sticky ad never fails on desktop
-			if (jQuery(window).width() <  1096 ) {
-				page.addClass("smooth-menu");
-				header.addClass("smooth-menu");
-			}
+		if(pagePosition == "0px") {		
 			openMenu();
 		}
 		else { 

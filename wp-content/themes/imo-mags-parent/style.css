@@ -316,9 +316,9 @@ img{max-width: 100%;height: auto;}
 .smooth-menu{
 	-webkit-transform:translate3d(0,0,0);
 	-webkit-backface-visibility: hidden; 
-	-webkit-transition: all 100ms ease 0.2s;
-	transition: all 100ms ease 0.2s;
-
+	-webkit-transition: left 100ms ease 0.2s;
+	-moz-transition: left 100ms ease 0.2s;
+	transition: left 100ms ease 0.2s;
 }
 #slidingMenu { 
 	display: block; 
@@ -3111,9 +3111,12 @@ h2.related-stories{
     .solunar-widget {
         display:none;
     }
-    #page{
+    .smooth-menu, .header {
 		-webkit-transform:translate3d(0,0,0);
 		-webkit-backface-visibility: hidden; 
+		-webkit-transition: left 200ms ease-in-out 0.2s;
+		-moz-transition: left 200ms ease-in-out 0.2s;
+		transition: left 200ms ease-in-out 0.2s;
 	}
     .header {
         margin:0;

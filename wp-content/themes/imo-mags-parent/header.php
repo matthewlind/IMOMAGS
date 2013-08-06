@@ -25,15 +25,15 @@
 	     */
 	    global $page, $paged;
 
-	    wp_title( '|', true, 'right' );
+	    wp_title( '| ', true, 'right' );
 
 	    // Add the blog name.
-	    bloginfo( 'name' );
+	    //bloginfo( 'name' );
 				
 	    // Add the blog description for the home/front page.
-	    $site_description = get_bloginfo( 'description', 'display' );
+	
 	    if ( $site_description && ( is_home() || is_front_page() ) )
-	        echo " | $site_description";
+	        get_bloginfo( 'description', 'display' );
 
 	    // Add a page number if necessary:
 	    if ( $paged >= 2 || $page >= 2 )
@@ -66,8 +66,6 @@
 	<script src="<?php echo get_template_directory_uri(); ?>/js/dart.js" type="text/javascript"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.jfollow.js" type="text/javascript"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/flash_heed.js" type="text/javascript"></script>
-	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/hammer.min.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/menu_nav.js"></script>
 	<?php if ( defined('JETPACK_SITE') && mobile() == false && tablet() == false): ?>
 		<script type='text/javascript' src='http://ads.jetpackdigital.com/sites/<?php print JETPACK_SITE; ?>/jpd.js'></script>
 	<?php endif; ?>
@@ -124,7 +122,7 @@
 			</div><!-- #slidingMenuContent-->
 	</div><!-- slidingMenu -->
 
-<div id="page">
+<div id="page" class="smooth-menu">
 
 	<div class="hfeed wrapper" data-role="content" role="main">
 	    <div class="layout-frame">
