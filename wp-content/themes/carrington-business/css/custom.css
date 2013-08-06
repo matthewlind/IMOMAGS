@@ -40,7 +40,10 @@ body{border-top: none !important;}
 	border-bottom: 1px dotted #999;
 	padding: 0 0 20px 0;
 }
-
+.error404 .content{
+	float: left;
+	width: 660px;
+}
 
 /* double posts */
 .double-post-slider {
