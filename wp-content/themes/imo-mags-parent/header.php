@@ -80,13 +80,14 @@
   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-<div id="mobileContainer">
-	<div id="slidingMenu">
-		<div id="slidingMenuContent">
+
+<div class="snap-drawers">
+    <div class="snap-drawer snap-drawer-left">
+        <div>
 			<div class="mobile-menu-banner">
 				<?php $dartDomain = get_option("dart_domain", $default = false); ?>
 				<iframe id="menu-iframe-ad" width="320" height="50" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-menu.php?size=320x50&ad_code=<?php echo $dartDomain; ?>"></iframe>
-			</div>
+			</div>	
 	
 	        <div class="mob-aside-menu">
 	            <?php
@@ -119,17 +120,19 @@
 	            <?php social_networks(); ?>
 	        </div>
 
-			</div><!-- #slidingMenuContent-->
-	</div><!-- slidingMenu -->
+		</div>
+	</div>
+</div>
 
-<div id="page" class="smooth-menu">
+<div id="page" class="snap-content smooth-menu">
 
 	<div class="hfeed wrapper" data-role="content" role="main">
 	    <div class="layout-frame">
 	        <div id="branding" class="header clearfix" role="banner">
 	
                 <div class="clearfix">
-                   <a class="show-menu-button open-menu">open menu</a>
+
+                   <a id="open-left" class="open-menu">open menu</a>
                     <strong class="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/logo.png" alt="<?php bloginfo( 'name' ); ?>" /></a></strong>
                     <?php
                         // Check to see if the header image has been removed
@@ -217,7 +220,6 @@
 						<?php imo_dart_tag("320x50",true); ?>
 					</div>
 				<?php } ?>
-
         </div>
         
         <div id="main" class="main clearfix js-responsive-layout">

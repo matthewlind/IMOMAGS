@@ -90,9 +90,8 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 			</div><!-- #footer -->
 		</div><!-- .wrapper -->
 	</div><!-- #page -->
-</div><!-- #mobileContainer -->
-    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/hammer.min.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/menu_nav.js"></script>
+
+    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/snap.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/breakpoints.js"></script>
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/plugins/flexslider/jquery.flexslider.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/plugins/ezmark/js/jquery.ezmark.min.js"></script>

@@ -50,26 +50,28 @@ jQuery(document).ready(function(){
 
 		//Rem : Unecessary except for windows phone7.5 where div with lower z-index are clickable....
 		slidingMenu.css("visibility","visible");
-
+		slidingMenu.show();
 		adjustHeight();
-	    
-	    page.animate({
-	       left: menuWidth+"px",
-	    });
+		//page.addClass("smooth-menu-open");
+		page.animate({
+    		left: "266px",
+    		duration: 180
+            });
+        
+	   // page.css("-webkit-transform","translate3d(266px,0,0)");
 	}
-	
 
 	function closeMenu() {
 
 		isMenuOpen = false;
-		
-    	page.animate(
-    		{	left: "0px" }
-		)
-
+		//page.removeClass("smooth-menu-open");
+		//page.css("-webkit-transform","translate3d(0px,0,0)");
+		 
     	page.animate({
+    		left: 0,
             height : "100%"
-    	}, { duration: 0 });
+    	}, { duration: 180 });
+    	
 	}
 
 	//Use to avoid overflow problem with scroll
@@ -107,16 +109,16 @@ jQuery(document).ready(function(){
 
 	//trigger the opening or closing action
 	jQuery("a.show-menu-button").click(function () {
-		
-		var pagePosition = page.css('left');
-		
-		if(pagePosition == "0px") {		
+				
+		if(isMenuOpen == false) {		
+			jQuery("#page, .post-slider, .video-box").addClass("smooth-menu"); 
 			openMenu();
 		}
 		else { 
 			closeMenu(); 
 			setTimeout(function() { 
 				slidingMenu.css("visibility","hidden");
+				jQuery("#page, .post-slider, .video-box").removeClass("smooth-menu");
 	    	},1000);
 		}
 	});

@@ -302,62 +302,56 @@ img{max-width: 100%;height: auto;}
 .logo img {
     display:block;
 }
-
-#mobileContainer { 
-	position: relative; 
-	overflow: hidden; 
-}
-#page { 
-	position: relative; 
-	left: 0; 
-	top:0px; 
-	z-index: 99999; 
-}
 .smooth-menu{
 	-webkit-transform:translate3d(0,0,0);
 	-webkit-backface-visibility: hidden; 
-	-webkit-transition: left 100ms ease 0.2s;
-	-moz-transition: left 100ms ease 0.2s;
-	transition: left 100ms ease 0.2s;
 }
-#slidingMenu { 
-	display: block; 
+.snap-drawer-left {
+	left: 0;
+	z-index: 1;
+}
+.snap-drawers {
 	position: absolute;
-	width: 320px; 
-	left: 0px; 
-	top: 0px; 
-	z-index: 0;
-	visibility: hidden;	/* to block user interaction on wp7 (z-index wont work) */
-}
-.show-menu-button { 
-	display: block; 
-	float: left; 
-	width: 24px; 
-	height: 22px; 
-	margin-top: 12px; 
-	margin-left: 11px;
-	-webkit-tap-highlight-color: rgba(0,0,0,0); 
-	-webkit-touch-callout: none; 
-	-webkit-transform:translate3d(0,0,0);
-	-webkit-backface-visibility: hidden;  
-}
-#slidingMenu ul { 
-	height: 100%;
+	z-index: 1;
+	top: 0;
+	right: auto;
+	bottom: 0;
+	left: auto;
+	width: 320px;
+	height: auto;
+	overflow: visible;
+	-webkit-overflow-scrolling: touch;
+	-webkit-transition: width 0.3s ease;
+	-moz-transition: width 0.3s ease;
+	-ms-transition: width 0.3s ease;
+	-o-transition: width 0.3s ease;
+	transition: width 0.3s ease;
 }
 
-#slidingMenu ul li { 
-	display: block; 
+/* Styles for fading out the drawer content in the "Expanding" demo */
+.drawer-inner {
+	-webkit-transition: opacity 0.3s ease; 
+	   -moz-transition: opacity 0.3s ease; 
+	    -ms-transition: opacity 0.3s ease; 
+	     -o-transition: opacity 0.3s ease; 
+	        transition: opacity 0.3s ease; 
 }
-#pageContent { 
-	background: #fff; 
-	padding: 5px 12px; 
-	height: 100%; 
-	z-index: 9999; 
+
+.snapjs-expand-left .drawer-inner,
+.snapjs-expand-right .drawer-inner {
+	opacity: 0;
 }
-.menu-icon { 
-	vertical-align: middle;
-	margin-right: 6px;
-	border:none; /* wp7 display a border on image link*/
+#slidingMenu { 
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	overflow-x: hidden;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: auto;
+	z-index: 1;
+	visibility: hidden;	/* to block user interaction on wp7 (z-index wont work) */
 }
 .open-menu {
     float:left;
@@ -370,6 +364,14 @@ img{max-width: 100%;height: auto;}
     margin:0 13px 0 0;
     display:none;
     background:url(images/sprite.png) no-repeat 0 -72px;
+    -webkit-tap-highlight-color: rgba(0,0,0,0); 
+	-webkit-touch-callout: none; 
+}
+#page{
+	-webkit-tap-highlight-color: rgba(0,0,0,0); 
+	-webkit-touch-callout: none; 
+	position: relative;
+	z-index: 999999;
 }
 .open-menu:hover {
     background-position:-65px -72px;
@@ -1613,18 +1615,19 @@ a.category-name-link:hover{
 /* = General styles for mobile menu 
 ---------------------------------------------------------------------- */
 
-#slidingMenuContent {
+.snap-drawers {
     background: url(images/bg/mobile-menu-shadow.png) repeat-y 100% 0 white;
     height: 100%;
+    display: none;
 }
-#slidingMenuContent .menu-top-menu-container,
-#slidingMenuContent .mob-aside-menu {
+.snap-drawers .menu-top-menu-container,
+.snap-drawers .mob-aside-menu {
     background:none;
     margin:0;
     float:none;
 }
-#slidingMenuContent .menu-top-menu-container li,
-#slidingMenuContent .mob-aside-menu li {
+.snap-drawers .menu-top-menu-container li,
+.snap-drawers .mob-aside-menu li {
     float:none;
     display:block;
     border:1px solid #d5d5d5;
@@ -1632,11 +1635,11 @@ a.category-name-link:hover{
     padding:0;
     display:block;
 }
-#slidingMenuContent .menu-top-menu-container li:before {
+.snap-drawers .menu-top-menu-container li:before {
     display:none;
 }
-#slidingMenuContent .menu-top-menu-container a,
-#slidingMenuContent .mob-aside-menu > div > ul > li > a {
+.snap-drawers .menu-top-menu-container a,
+.snap-drawers .mob-aside-menu > div > ul > li > a {
     font:17px "open_sansbold", sans-serif;
     color:#3c3c3c;
     text-transform:uppercase;
@@ -1645,19 +1648,19 @@ a.category-name-link:hover{
     display:block;
     position:relative;
 }
-#slidingMenuContent .menu-top-menu-container a {
+.snap-drawers .menu-top-menu-container a {
     display:block;
     text-transform:none;
 }
-#slidingMenuContent .menu-top-menu-container a:hover,
-#slidingMenuContent .mob-aside-menu li.drop-open > a,
-#slidingMenuContent .mob-aside-menu > div > ul > li > a:hover {
+.snap-drawers .menu-top-menu-container a:hover,
+.snap-drawers .mob-aside-menu li.drop-open > a,
+.snap-drawers .mob-aside-menu > div > ul > li > a:hover {
     color:#c9242c;
 }
-#slidingMenuContent .mob-aside-menu li.drop-open > a {
+.snap-drawers .mob-aside-menu li.drop-open > a {
     background-color: transparent;
 }
-#slidingMenuContent .mob-aside-menu > div > ul > li > a.has-drop:after {
+.snap-drawers .mob-aside-menu > div > ul > li > a.has-drop:after {
     top:24px;
     right:11px;
     border-left: 6px solid transparent;
@@ -1669,11 +1672,11 @@ a.category-name-link:hover{
     position: absolute;
     width: 0;
 }
-#slidingMenuContent .mob-aside-menu > div > ul > li:hover > a.has-drop:after,
-#slidingMenuContent .mob-aside-menu > div > ul > li > a.has-drop:hover:after {
+.snap-drawers .mob-aside-menu > div > ul > li:hover > a.has-drop:after,
+.snap-drawers .mob-aside-menu > div > ul > li > a.has-drop:hover:after {
     border-top-color:#c1232a;
 }
-#slidingMenuContent .drop-down {
+.snap-drawers .drop-down {
     display:none;
     position:static;
     top:0;
@@ -1682,23 +1685,23 @@ a.category-name-link:hover{
     width:100%;
     clear:both;
 }
-#slidingMenuContent .drop-open .drop-down {
+.snap-drawers .drop-open .drop-down {
     display:block;
 }
-#slidingMenuContent .drop-down .sub-menu {
+.snap-drawers .drop-down .sub-menu {
     width:100%;
 }
-#slidingMenuContent .drop-down li {
+.snap-drawers .drop-down li {
     border-width:1px 0 0;
 }
-#slidingMenuContent .drop-down a {
+.snap-drawers .drop-down a {
     font-size:15px;
     background:url(images/bg/mobile-menu-shadow.png) repeat-y 100% 0;
 }
-#slidingMenuContent .sub-menu a:before {
+.snap-drawers .sub-menu a:before {
     font-size:14px;
 }
-#slidingMenuContent .drop-feat-post {display:none;}
+.snap-drawers .drop-feat-post {display:none;}
 
 .menu-subscribe a {
     display:block;
@@ -3096,7 +3099,6 @@ h2.related-stories{
 }
 
 @media only screen and (max-width: 610px) {
-	
     .article-brief .comment-count,
     .foot-sub-logos,
     .copyright img,
@@ -3499,12 +3501,7 @@ h2.related-stories{
     }
 }
 @media only screen and (max-width: 340px) {
-	#slidingMenu{
-		width: 266px;
-	}
-	#slidingMenu iframe{
-		width: 266px !important;
-	}
+	.snap-drawers {width: 266px;}
 	.mobile-menu-banner{
 		width: 320px;
 		margin: 0 auto;

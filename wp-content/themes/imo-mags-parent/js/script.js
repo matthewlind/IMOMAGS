@@ -2,74 +2,108 @@ jQuery(window).load(function() {
 	jQuery('.onload-hidden').removeClass('onload-hidden');
     jQuery('.onload-hidden-abs').removeClass('onload-hidden-abs');
     jQuery('.loading-block').removeClass('loading-block');
+    jQuery(".snap-drawers").show();
 });
 
 jQuery(function(){
     
-
+	
     jQuery(document).ready(function () {
-    
-		// Load more 
-		if(jQuery(".next-link a").length){
-		    jQuery("a.btn-base").show();
+    	var snapper = new Snap({
+    	element: document.getElementById('page')
+	});
+	
+	var addEvent = function addEvent(element, eventName, func) {
+		if (element.addEventListener) {
+	    	return element.addEventListener(eventName, func, false);
+	    } else if (element.attachEvent) {
+	        return element.attachEvent("on" + eventName, func);
 	    }
-	    
-	    jQuery(".show-menu-button").click(function(){
-			_gaq.push(['_trackPageview',"/" + window.location.pathname + "-mobile-menu-open"]);  
-			document.getElementById('menu-iframe-ad').contentWindow.location.reload();
-		});
-		
-		jQuery( document ).on("swipeleft swiperight",".show-menu-button", function( e ) {
-			_gaq.push(['_trackPageview',"/" + window.location.pathname + "-mobile-menu-open"]);  
-			document.getElementById('menu-iframe-ad').contentWindow.location.reload();
-		});
-		
-		if( jQuery(".mob-aside-menu .menu-main-menu-container").length ){
-			jQuery(".mob-aside-menu .menu-main-menu-container").removeClass("menu-main-menu-container");
-			jQuery(".mob-aside-menu .menu-main-menu-container").addClass("menu-mobile-menu-container");
-		}
-    });	
-   	
-   	jQuery(function(){
-        jQuery(".pager-holder a.btn-base").click(function(e){
-            jQuery("#ajax-loader").show();
-            if (jQuery(window).width() <  610 ) {
-                var findId = 'div.post, div.posts-image-banner';
-            } else {
-                var findId = 'div.post';
-            }
+	};
 
-            e.preventDefault();
-            if (jQuery(".next-link a").length) {
-                jQuery.ajax({
-                    url: jQuery(".next-link a").attr('href'),
-                    dataType: 'html',
-                    success: function(data) {
-                    	
-                        jQuery('.main-content-preppend').append(
-                            jQuery(data).find('.js-responsive-section').find(findId).hide()
-                        );
-                        jQuery('.main-content-preppend').find(findId).show('slow');
-                        if (jQuery(data).find('.next-link a').length) {
-                            jQuery(".next-link a").attr({'href': jQuery(data).find('.next-link a').attr('href')});
-                        } else {
-                            jQuery(".pager-holder a.btn-base").hide();
-                        }
-                        jQuery("#ajax-loader").hide();
-                        //refresh the sticky ad on load more
-                        if (jQuery(window).width() >  610 ) {
-                        	document.getElementById('sticky-iframe-ad').contentWindow.location.reload();
-                        	jQuery(".sidebar.advert").css({
+	addEvent(document.getElementById('open-left'), 'click', function(){
+	
+		var data = snapper.state();
+		console.log(data);
+		if( data.state == "closed" ){
+			//jQuery(".snap-drawers").css("visibility","visible");
+        	snapper.open("left");
+        	_gaq.push(['_trackPageview',"/" + window.location.pathname + "-mobile-menu-open"]);  
+        	 setTimeout(function() { 
+				 document.getElementById('menu-iframe-ad').contentWindow.location.reload();
+			},1000);
+		} else {
+       	 snapper.close();
+       	 setTimeout(function() { 
+       	 	//jQuery(".snap-drawers").css("visibility","hidden");
+       	 },1000);
+	   	}
+	});
+
+	/* Prevent Safari opening links when viewing as a Mobile App */
+	(function (a, b, c) {
+	    if(c in b && b[c]) {
+	        var d, e = a.location,
+	            f = /^(a|html)$/i;
+	        a.addEventListener("click", function (a) {
+	            d = a.target;
+	            while(!f.test(d.nodeName)) d = d.parentNode;
+	            "href" in d && (d.href.indexOf("http") || ~d.href.indexOf(e.host)) && (a.preventDefault(), e.href = d.href)
+	        }, !1)
+	    }
+	})(document, window.navigator, "standalone");
+
+	// Load more 
+	if(jQuery(".next-link a").length){
+	    jQuery("a.btn-base").show();
+    }
+    	
+	if( jQuery(".mob-aside-menu .menu-main-menu-container").length ){
+		jQuery(".mob-aside-menu .menu-main-menu-container").removeClass("menu-main-menu-container");
+		jQuery(".mob-aside-menu .menu-main-menu-container").addClass("menu-mobile-menu-container");
+	}
+});	
+   	
+jQuery(function(){
+    jQuery(".pager-holder a.btn-base").click(function(e){
+        jQuery("#ajax-loader").show();
+	        if (jQuery(window).width() <  610 ) {
+	            var findId = 'div.post, div.posts-image-banner';
+	        } else {
+	            var findId = 'div.post';
+	        }
+
+	        e.preventDefault();
+	        if (jQuery(".next-link a").length) {
+	            jQuery.ajax({
+	                url: jQuery(".next-link a").attr('href'),
+	                dataType: 'html',
+	                success: function(data) {
+	                	
+	                    jQuery('.main-content-preppend').append(
+	                        jQuery(data).find('.js-responsive-section').find(findId).hide()
+	                    );
+	                    jQuery('.main-content-preppend').find(findId).show('slow');
+	                    if (jQuery(data).find('.next-link a').length) {
+	                        jQuery(".next-link a").attr({'href': jQuery(data).find('.next-link a').attr('href')});
+	                    } else {
+	                        jQuery(".pager-holder a.btn-base").hide();
+	                    }
+	                    jQuery("#ajax-loader").hide();
+	                    //refresh the sticky ad on load more
+	                    if (jQuery(window).width() >  610 ) {
+	                    	document.getElementById('sticky-iframe-ad').contentWindow.location.reload();
+	                    	jQuery(".sidebar.advert").css({
 	                        	display: 'block',
 								position: 'fixed',
 								top: 10
 							});
-                        }
-                        if(jQuery(".next-link a").length){
+	                    }
+	                    if(jQuery(".next-link a").length){
 						    jQuery("a.btn-base").show();
 					    }
 					}
-                });
+	            });
             }
         });
     });
@@ -156,10 +190,10 @@ jQuery('.jq-filter-by').toggle(function(){
     });
     
 
-jQuery('#slidingMenuContent').on("click", ".mob-aside-menu .has-drop", function(){
+jQuery('.snap-drawers').on("click", ".mob-aside-menu .has-drop", function(){
     jQuery(this).parent("li").toggleClass('drop-open');
 });
-jQuery('#slidingMenuContent').on("click", ".mob-aside-menu .has-drop", function(e){
+jQuery('.snap-drawers').on("click", ".mob-aside-menu .has-drop", function(e){
     e.preventDefault();
 });
 
