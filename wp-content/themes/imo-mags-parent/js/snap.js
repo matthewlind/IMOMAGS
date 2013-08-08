@@ -23,9 +23,9 @@
     var Snap = Snap || function(userOpts) {
         var settings = {
             element: "#page",
-            dragger: null,
+            dragger: "#open-left",
             disable: 'right',
-            addBodyClasses: true,
+            addBodyClasses: false,
             hyperextensible: false,
             resistance: 0.5,
             flickThreshold: 0,
@@ -73,14 +73,12 @@
                     return (el.className).indexOf(name) !== -1;
                 },
                 add: function(el, name){
-                    if(!utils.klass.has(el, name) && settings.addBodyClasses){
+                    if(!utils.klass.has(el, name)){
                         el.className += " "+name;
                     }
                 },
                 remove: function(el, name){
-                    if(settings.addBodyClasses){
-                        el.className = (el.className).replace(name, "").replace(/^\s+|\s+$/g, '');
-                    }
+                    el.className = (el.className).replace(" "+name, "");
                 }
             },
             dispatchEvent: function(type) {
@@ -99,7 +97,7 @@
                 }
             },
             transitionCallback: function(){
-                return (cache.vendor==='Moz' || cache.vendor==='ms') ? 'transitionend' : cache.vendor+'TransitionEnd';
+                return (cache.vendor==='Moz' || cache.vendor=='ms') ? 'transitionend' : cache.vendor+'TransitionEnd';
             },
             canTransform: function(){
                 return typeof settings.element.style[cache.vendor+'Transform'] !== 'undefined';
@@ -154,11 +152,8 @@
                 }
             },
             parentUntil: function(el, attr) {
-                var isStr = typeof attr === 'string';
                 while (el.parentNode) {
-                    if (isStr && el.getAttribute && el.getAttribute(attr)){
-                        return el;
-                    } else if(!isStr && el === attr){
+                   if (el.getAttribute && el.getAttribute(attr)){
                         return el;
                     }
                     el = el.parentNode;
@@ -171,7 +166,7 @@
                 get: {
                     matrix: function(index) {
 
-                        if( !utils.canTransform() ){
+                        if( !cache.canTransform ){
                             return parseInt(settings.element.style.left, 10);
                         } else {
                             var matrix = win.getComputedStyle(settings.element)[cache.vendor+'Transform'].match(/\((.*)\)/),
@@ -203,7 +198,7 @@
                 },
                 easeTo: function(n) {
 
-                    if( !utils.canTransform() ){
+                    if( !cache.canTransform ){
                         cache.translation = n;
                         action.translate.x(n);
                     } else {
@@ -218,10 +213,11 @@
                         
                         utils.events.addEvent(settings.element, utils.transitionCallback(), action.translate.easeCallback);
                         action.translate.x(n);
-                    }
-                    if(n===0){
+
+                        if(n===0){
                            settings.element.style[cache.vendor+'Transform'] = '';
-                       }
+                        }
+                    }
                 },
                 x: function(n) {
                     if( (settings.disable==='left' && n>0) ||
@@ -241,7 +237,7 @@
                         n = 0;
                     }
 
-                    if( utils.canTransform() ){
+                    if( cache.canTransform ){
                         var theTranslate = 'translate3d(' + n + 'px, 0,0)';
                         settings.element.style[cache.vendor+'Transform'] = theTranslate;
                     } else {
@@ -289,7 +285,10 @@
                     }
                     
                     utils.dispatchEvent('start');
-                    settings.element.style[cache.vendor+'Transition'] = '';
+
+                    if(cache.canTransform) {
+                        settings.element.style[cache.vendor+'Transition'] = '';
+                    }
                     cache.isDragging = true;
                     cache.hasIntent = null;
                     cache.intentChecked = false;
@@ -428,7 +427,6 @@
 
                         // Tap Close
                         if (cache.dragWatchers.current === 0 && translated !== 0 && settings.tapToClose) {
-                            utils.dispatchEvent('close');
                             utils.events.prevent(e);
                             action.translate.easeTo(0);
                             cache.isDragging = false;
@@ -477,6 +475,7 @@
             if (opts.element) {
                 utils.deepExtend(settings, opts);
                 cache.vendor = utils.vendor();
+                cache.canTransform = utils.canTransform();
                 action.drag.listen();
             }
         };
@@ -484,7 +483,7 @@
          * Public
          */
         this.open = function(side) {
-            utils.dispatchEvent('open');
+
             utils.klass.remove(doc.body, 'snapjs-expand-left');
             utils.klass.remove(doc.body, 'snapjs-expand-right');
 
@@ -494,6 +493,7 @@
                 utils.klass.add(doc.body, 'snapjs-left');
                 utils.klass.remove(doc.body, 'snapjs-right');
                 action.translate.easeTo(settings.maxPosition);
+                //document.getElementById('menu-iframe-ad').contentWindow.location.reload();
             } else if (side === 'right') {
                 cache.simpleStates.opening = 'right';
                 cache.simpleStates.towards = 'left';
@@ -503,18 +503,15 @@
             }
         };
         this.close = function() {
-            utils.dispatchEvent('close');
             action.translate.easeTo(0);
         };
         this.expand = function(side){
             var to = win.innerWidth || doc.documentElement.clientWidth;
 
             if(side==='left'){
-                utils.dispatchEvent('expandLeft');
                 utils.klass.add(doc.body, 'snapjs-expand-left');
                 utils.klass.remove(doc.body, 'snapjs-expand-right');
             } else {
-                utils.dispatchEvent('expandRight');
                 utils.klass.add(doc.body, 'snapjs-expand-right');
                 utils.klass.remove(doc.body, 'snapjs-expand-left');
                 to *= -1;
@@ -533,11 +530,9 @@
         };
 
         this.enable = function() {
-            utils.dispatchEvent('enable');
             action.drag.listen();
         };
         this.disable = function() {
-            utils.dispatchEvent('disable');
             action.drag.stopListening();
         };
 

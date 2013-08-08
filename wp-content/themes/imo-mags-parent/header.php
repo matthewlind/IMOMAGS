@@ -19,6 +19,9 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta name="viewport" content="width=device-width" />
+	<meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
 	<title><?php
 	    /*
 	     * Print the <title> tag based on what is being viewed.
@@ -124,7 +127,7 @@
 	</div>
 </div>
 
-<div id="page" class="snap-content smooth-menu">
+<div id="page" class="snap-content smooth-menu<?php if ( mobile() == false && tablet() == false ){ echo ' ie9fix'; } ?>">
 
 	<div class="hfeed wrapper" data-role="content" role="main">
 	    <div class="layout-frame">

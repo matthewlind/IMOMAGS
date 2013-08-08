@@ -2,15 +2,15 @@ jQuery(window).load(function() {
 	jQuery('.onload-hidden').removeClass('onload-hidden');
     jQuery('.onload-hidden-abs').removeClass('onload-hidden-abs');
     jQuery('.loading-block').removeClass('loading-block');
-    jQuery(".snap-drawers").show();
+    
 });
 
 jQuery(function(){
     
-	
-    jQuery(document).ready(function () {
-    	var snapper = new Snap({
-    	element: document.getElementById('page')
+jQuery(document).ready(function () {
+
+	var snapper = new Snap({
+		element: document.getElementById('page')
 	});
 	
 	var addEvent = function addEvent(element, eventName, func) {
@@ -20,25 +20,43 @@ jQuery(function(){
 	        return element.attachEvent("on" + eventName, func);
 	    }
 	};
-
-	addEvent(document.getElementById('open-left'), 'click', function(){
 	
+	ie9 = false;
+	addEvent(document.getElementById('open-left'), 'click', function(){
+		
 		var data = snapper.state();
-		console.log(data);
-		if( data.state == "closed" ){
-			//jQuery(".snap-drawers").css("visibility","visible");
+		
+		//IE9 menu close fix
+		if( jQuery("#page").hasClass("ie9fix") ){
+			if( ie9 == false ){
+				jQuery(".snap-drawers").show();
         	snapper.open("left");
         	_gaq.push(['_trackPageview',"/" + window.location.pathname + "-mobile-menu-open"]);  
-        	 setTimeout(function() { 
-				 document.getElementById('menu-iframe-ad').contentWindow.location.reload();
-			},1000);
-		} else {
-       	 snapper.close();
-       	 setTimeout(function() { 
-       	 	//jQuery(".snap-drawers").css("visibility","hidden");
-       	 },1000);
-	   	}
+        	ie9 = true;
+			document.getElementById('menu-iframe-ad').contentWindow.location.reload();
+
+			} else {
+				ie9 = false;
+				snapper.close();
+				jQuery(".snap-drawers").fadeOut();
+		   	}
+		}else{
+		
+			if( data.state == "closed" ){
+				jQuery(".snap-drawers").show();
+	        	snapper.open("left");
+	        	_gaq.push(['_trackPageview',"/" + window.location.pathname + "-mobile-menu-open"]);  
+				document.getElementById('menu-iframe-ad').contentWindow.location.reload();
+	
+			} else {
+				snapper.close();
+				jQuery(".snap-drawers").fadeOut();
+		   	}
+		}
 	});
+	
+	
+	
 
 	/* Prevent Safari opening links when viewing as a Mobile App */
 	(function (a, b, c) {
