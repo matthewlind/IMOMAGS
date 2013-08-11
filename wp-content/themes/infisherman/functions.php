@@ -21,7 +21,7 @@ function imo_sidebar($type){
 	$dartDomain = get_option("dart_domain", $default = false);
 	echo '<div class="sidebar-area">';
 		echo '<div class="sidebar">';
-			echo '<div class="widget_advert-widget">'; 	
+			echo '<div class="widget_advert-widget">';
 			imo_dart_tag("300x250");
 			echo '</div>';
 		echo '</div>';
@@ -30,7 +30,7 @@ function imo_sidebar($type){
 		    	echo '<div id="responderfollow"></div>';
 				echo '<div class="sidebar advert">';
 		    	echo '<div class="widget"><iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Finfisherman&amp;width=310&amp;height=184&amp;colorscheme=light&amp;show_faces=true&amp;show_border=false&amp;stream=false&amp;header=false&amp;appId=218070564894418" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:310px; height:184px;" allowTransparency="true" id="fb-sidebar"></iframe></div>';
-			    
+
 					echo '<div class="widget_advert-widget">';
 						echo '<iframe id="sticky-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-sticky.php?ad_code='.$dartDomain.'"></iframe>';
 					echo '</div>';
@@ -57,7 +57,7 @@ function sub_footer(){ ?>
 			<div class="fb-recommendations" data-site="in-fisherman.com" data-width="309" data-height="252" data-header="true" data-font="arial"></div>
 		</div>
 	</div>
-	
+
 	<div class="foot-social clearfix">
 		<strong class="social-title">Like us on Facebook to <span>stay updated !</span></strong>
 		<div class="fb-like" data-href="<?php echo FACEBOOK_LINK; ?>" data-send="false" data-layout="button_count" data-width="100" data-show-faces="true"></div>
@@ -78,20 +78,20 @@ function social_footer(){ ?>
 	</div>
 <?php }
 
-function register_recipes_widget() {  
-    register_widget( 'Recipes_Widget' );  
-}  
+function register_recipes_widget() {
+    register_widget( 'Recipes_Widget' );
+}
 
 class Recipes_Widget extends WP_Widget
 {
     function __construct() {
         $widget_ops = array( 'classname' => 'recipes', 'description' => __('A widget that displays related recipes & gear ', 'recipes') );
-        
+
         $control_ops = array( 'width' => 300, 'height' => 350, 'id_base' => 'recipes-widget' );
-        
+
         $this->WP_Widget( 'recipes-widget', __('Related Recipes & Gear Widget', 'recipes'), $widget_ops, $control_ops );
     }
-    
+
     function widget() {
 
 		// Let's get the Primary Category
@@ -106,13 +106,13 @@ class Recipes_Widget extends WP_Widget
 		$category = get_category( get_query_var( 'cat' ) );
 		$slug = $category->slug;
 		$id = $category->term_id;
-		
+
 		$primaryAndRecipes = array(
 				'category__and' => array($primaryCat,$recipes),
 				'posts_per_page' => 1,
 				'orderby' => 'rand'
 				);
-		
+
 		$categoryAndRecipes = array(
 				'category__and' => array($id,$recipes),
 				'posts_per_page' => 1,
@@ -125,8 +125,8 @@ class Recipes_Widget extends WP_Widget
 		}else{
 			$query = new WP_Query( 'category_name=recipes&posts_per_page=1&orderby=rand' );
 		}
-        
-        if ($query->have_posts()): 
+
+        if ($query->have_posts()):
         ?>
         <div class="recipes-holder js-responsive-section widget">
             <h3 class="widget-title">Recipes</h3>
@@ -140,7 +140,7 @@ class Recipes_Widget extends WP_Widget
             <?php endwhile; ?>
             </div>
         </div>
-        <?php endif;                
+        <?php endif;
         /* Restore original Post Data */
 		wp_reset_postdata();
 
@@ -149,7 +149,7 @@ class Recipes_Widget extends WP_Widget
 				'posts_per_page' => 1,
 				'orderby' => 'rand'
 				);
-				
+
 		$categoryAndGear = array(
 				'category__and' => array($id,$gear),
 				'posts_per_page' => 1,
@@ -163,8 +163,8 @@ class Recipes_Widget extends WP_Widget
 		}else{
 			$query = new WP_Query( 'category_name=gear-accessories&posts_per_page=1&orderby=rand' );
 		}
-        
-        if ($query->have_posts()): 
+
+        if ($query->have_posts()):
         ?>
         <div class="recipes-holder js-responsive-section widget">
             <h3 class="widget-title">Gear & Accessories</h3>
@@ -179,13 +179,13 @@ class Recipes_Widget extends WP_Widget
             </div>
         </div>
         <?php endif; ?>
-        
+
         <div class="js-responsive-section widget">
-        <?php 	        
+        <?php
         if(in_category("bass") || is_category("bass")){
 	        $bcoveID = 2296641582001;
 	        $bcoveValue = "AQ~~,AAAA-01d-uE~,FiwRPPEEyN7iVOxfzxjuTdxs15Rsp9C-";
-	        echo $before_widget . '<h3 class="widget-title">Bass Video</h3>'; 
+	        echo $before_widget . '<h3 class="widget-title">Bass Video</h3>';
         }else if(in_category("walleye") || is_category("walleye")){
 	        $bcoveID = 2288756669001;
 	        $bcoveValue = "AQ~~,AAAA-01d-uE~,FiwRPPEEyN6t2_JKertfYNQSC0Z9-9sQ";
@@ -196,26 +196,26 @@ class Recipes_Widget extends WP_Widget
 	        echo $before_widget . '<h3 class="widget-title">Pike & Muskie Video</h3>';
 	    }else if(in_category("panfish") || is_category("panfish")){
 	        $bcoveID = 2288756671001;
-	        $bcoveValue = "AQ~~,AAAA-01d-uE~,FiwRPPEEyN5kh63oQSJLKGB-A-dR9uMg";	 
+	        $bcoveValue = "AQ~~,AAAA-01d-uE~,FiwRPPEEyN5kh63oQSJLKGB-A-dR9uMg";
 	        echo $before_widget . '<h3 class="widget-title">Panfish Video</h3>';
 	    }else if(in_category("catfish") || is_category("catfish")){
 	        $bcoveID = 2288756670001;
 	        $bcoveValue = "AQ~~,AAAA-01d-uE~,FiwRPPEEyN5hceFGFRR5K3KxPIZYGAkv";
-	        echo $before_widget . '<h3 class="widget-title">Catfish Video</h3>'	; 
+	        echo $before_widget . '<h3 class="widget-title">Catfish Video</h3>'	;
 	    }else if(in_category("trout-salmon") || is_category("trout-salmon") || in_category("salmon") || is_category("salmon") || in_category("trout") || is_category("trout") || in_category("lake-trout") || is_category("lake-trout") || in_category("brown-trout-salmon") || is_category("brown-trout") || in_category("rainbow-trout-steelhead") || is_category("rainbow-trout-steelhead")){
 	        $bcoveID = 2296641611001;
-	        $bcoveValue = "AQ~~,AAAA-01d-uE~,FiwRPPEEyN6EtzuPp5suAl2U2bK-AGVJ";	 
+	        $bcoveValue = "AQ~~,AAAA-01d-uE~,FiwRPPEEyN6EtzuPp5suAl2U2bK-AGVJ";
 	        echo $before_widget . '<h3 class="widget-title">Trout & Salmon Video</h3>';
 	    }else if(in_category("ice-fishing") || is_category("ice-fishing")){
 	        $bcoveID = 2288756675001;
-	        $bcoveValue = "AQ~~,AAAA-01d-uE~,FiwRPPEEyN7hI3ZdHnSfpvjTaN5j8yA_";	
-	        echo $before_widget . '<h3 class="widget-title">Ice Fishing Video</h3>'; 
+	        $bcoveValue = "AQ~~,AAAA-01d-uE~,FiwRPPEEyN7hI3ZdHnSfpvjTaN5j8yA_";
+	        echo $before_widget . '<h3 class="widget-title">Ice Fishing Video</h3>';
 	    }else{
 		    $bcoveID = 2296641582001;
 	        $bcoveValue = "AQ~~,AAAA-01d-uE~,FiwRPPEEyN7iVOxfzxjuTdxs15Rsp9C-";
 	        echo $before_widget . '<h3 class="widget-title">Bass Video</h3>';
-	    }	    
-        
+	    }
+
         ?>
 		<script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
 		<object id="myExperience" class="BrightcoveExperience">
@@ -234,18 +234,18 @@ class Recipes_Widget extends WP_Widget
         <?php /* Restore original Post Data */
 			wp_reset_postdata();
     }
-    
-}        
+
+}
 
 function infisherman_get_categories($categories_list, $show_featured = true)
 {
-    $categories = implode(' ', 
+    $categories = implode(' ',
         array_map(
             function($item){
                 return '<span class="category-name-box"><a class="category-name-link" href="'.esc_url(get_category_link(get_cat_ID($item->name))).'">'.$item->name.'</a></span>';
-            }, 
+            },
             array_filter(
-                $categories_list, 
+                $categories_list,
                 function ($item) use ($show_featured) {
                     if (($item->slug == TIMELY_FEATURES || $item->slug == FEATURED) && !$show_featured) {
                         return false;
@@ -261,12 +261,12 @@ function infisherman_get_categories($categories_list, $show_featured = true)
 
 function infisherman_get_more_posts_query($limit = 4)
 {
-    $query = new WP_Query(array( 
-        'category__not_in' =>  
+    $query = new WP_Query(array(
+        'category__not_in' =>
             get_categories_ids(array(
                 MASTER_ANGLERS, TIMELY_FEATURES, FEATURED
             )),
-        'posts_per_page' => $limit ) 
+        'posts_per_page' => $limit )
     );
     return $query;
 }
@@ -280,19 +280,15 @@ function infish_get_category_title_by_slug($slug)
 
 //Configure infish community
 //This section does nothing unless imo-community plugin is enabled
-add_action("init","infish_community_init");
+add_action("init","infish_community_init",0);
 function infish_community_init() {
 
 	//////////////////////////////////
 	//Community Configuration
 	//////////////////////////////////
-	$IMO_COMMUNITY_CONFIG = NULL;
-	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "community";//This slug will override ANY setting in wordpress.
-	$IMO_COMMUNITY_CONFIG['page_title'] = 'In-Fisherman Community';
-	$IMO_COMMUNITY_CONFIG['template'] = '/templates/blank-template.php';
-	$IMO_COMMUNITY_CONFIG['dart_page'] = 'infish_community';
-	$IMO_COMMUNITY_CONFIG['dart_sect'] = 'infishcommunity';
-	$IMO_COMMUNITY_CONFIG['post_types'] = array(
+
+	//This Post Types array is used in multiple configurations
+	$inFishPostTypes = array(
 
 		"report" => array(
 			"display_name" => "Rut Reports",
@@ -305,11 +301,76 @@ function infish_community_init() {
 		),
 
 		"general" => array(
-			"display_name" => "general",
+			"display_name" => "General",
+			"post_list_style" => "list"
+		),
+		"all" => array(
+			"display_name" => "All",
+			"post_list_style" => "list"
+		),
+		"trending" => array(
+			"display_name" => "Trending",
 			"post_list_style" => "list"
 		)
-
 	);
+
+
+	//NOTE: Configuration order matters! More specific URLs should appear before less specific urls on the same path.
+	// For example, the "single" below needs to appear before listing
+
+
+	///////////////////////////////////////////
+	//Community Single Post Page Configuration
+	///////////////////////////////////////////
+	$IMO_COMMUNITY_CONFIG = NULL;
+	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "community";//This slug will override ANY setting in wordpress.
+	$IMO_COMMUNITY_CONFIG['page_type'] = 'single';
+	$IMO_COMMUNITY_CONFIG['page_title'] = NULL; //On single pages, title is taken from Post
+	$IMO_COMMUNITY_CONFIG['template'] = '/infish/single.php';
+	$IMO_COMMUNITY_CONFIG['dart_page'] = 'infish_community';
+	$IMO_COMMUNITY_CONFIG['dart_sect'] = 'infishcommunity';
+	$IMO_COMMUNITY_CONFIG['post_types'] = $inFishPostTypes;
+
+	global $IMO_COMMUNITY;
+	$IMO_COMMUNITY['community-single'] = $IMO_COMMUNITY_CONFIG;
+
+
+
+
+	///////////////////////////////////////////
+	//Main Community Page Configuration
+	///////////////////////////////////////////
+	$IMO_COMMUNITY_CONFIG = NULL;
+	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "community";//This slug will override ANY setting in wordpress.
+	$IMO_COMMUNITY_CONFIG['page_type'] = 'listing';
+	$IMO_COMMUNITY_CONFIG['page_title'] = 'In-Fisherman Community';
+	$IMO_COMMUNITY_CONFIG['template'] = '/infish/listing.php';
+	$IMO_COMMUNITY_CONFIG['dart_page'] = 'infish_community';
+	$IMO_COMMUNITY_CONFIG['dart_sect'] = 'infishcommunity';
+	$IMO_COMMUNITY_CONFIG['post_types'] = $inFishPostTypes;
+
+	global $IMO_COMMUNITY;
+	$IMO_COMMUNITY['community-main'] = $IMO_COMMUNITY_CONFIG;
+
+
+
+
+
+
+
+
+
+	///////////////////////////////////////////
+	//Admin Page Testing
+	///////////////////////////////////////////
+	$IMO_COMMUNITY_CONFIG = NULL;
+	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "community-testing";//This slug will override ANY setting in wordpress.
+	$IMO_COMMUNITY_CONFIG['page_title'] = 'In-Fisherman Community';
+	$IMO_COMMUNITY_CONFIG['template'] = '/templates/blank-template.php';
+	$IMO_COMMUNITY_CONFIG['dart_page'] = 'infish_community';
+	$IMO_COMMUNITY_CONFIG['dart_sect'] = 'infishcommunity';
+	$IMO_COMMUNITY_CONFIG['post_types'] = $inFishPostTypes;
+
 	$IMO_COMMUNITY_CONFIG['additional_scripts'] = array(
 		//Third Part Scripts
 		array(
@@ -480,6 +541,7 @@ function infish_community_init() {
 
 
 
+
 	//////////////////////////////////
 	//Solunar Calendar config
 	//////////////////////////////////
@@ -552,20 +614,27 @@ function infish_community_init() {
 	/////////////////////////////////////////////////
 	/////////////////////////////////////////////////
 
+
+
 	//////////////////////////////////
 	//Mobile Solunar Calendar config
 	//////////////////////////////////
 	$IMO_COMMUNITY_CONFIG = NULL;
 	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "solunar-calendar-mobile";//This slug will override ANY setting in wordpress.
-	$IMO_COMMUNITY_CONFIG['page_title'] = 'Solunar Calendar';
+	$IMO_COMMUNITY_CONFIG['page_title'] = 'Best Times';
 	$IMO_COMMUNITY_CONFIG['template'] = '/solunar-mobile/solunar-template-mobile.php';
 	$IMO_COMMUNITY_CONFIG['dart_page'] = 'solunar_calendar';
 	$IMO_COMMUNITY_CONFIG['dart_sect'] = 'solunarcalendar';
 	$IMO_COMMUNITY_CONFIG['post_types'] = null;
 
 	global $IMO_COMMUNITY;
+
 	$IMO_COMMUNITY['solunar-calendar-mobile'] = $IMO_COMMUNITY_CONFIG;
 	/////////////////////////////////////////////////
+
+
+
+
 }
 
 

@@ -151,7 +151,7 @@
 
     <div class="frame">
         <div class="wide-banner">
-            <a href="#"><img src="wp-content/plugins/imo-community/solunar/images/banner/trokar-back.png" width="1005" alt="" /></a>
+            <a href="#"><img src="wp-content/plugins/imo-community/solunar/images/banner/banner-back.jpg" width="1005" alt="" /></a>
         </div>
         <div class="location-box jq-custom-form">
             <form action="#">
