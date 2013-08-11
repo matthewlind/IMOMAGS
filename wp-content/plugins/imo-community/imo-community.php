@@ -41,8 +41,8 @@ function imo_community_setup_routes() {
     					. "&config_name=" . $CONFIG_NAME
     					. '&spid=$matches[1]';
 
-        print($rewriteCondition . "  -  ");
-        print($rewriteString . "\n");
+        // print($rewriteCondition . "  -  ");
+        // print($rewriteString . "\n");
 
     	add_rewrite_rule( $rewriteCondition, $rewriteString,'top');
     }
@@ -74,7 +74,7 @@ function imo_community_template() {
 	//echo $_SERVER['REQUEST_URI'];
 
 	global $wp_query;
-	print_r($wp_query->query_vars);
+	// print_r($wp_query->query_vars);
 
 	$queryVars = $wp_query->query_vars;
 	$configName = $queryVars[config_name];
