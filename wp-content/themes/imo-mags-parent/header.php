@@ -19,21 +19,24 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta name="viewport" content="width=device-width" />
+	<meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
 	<title><?php
 	    /*
 	     * Print the <title> tag based on what is being viewed.
 	     */
 	    global $page, $paged;
 
-	    wp_title( '|', true, 'right' );
+	    wp_title( '| ', true, 'right' );
 
 	    // Add the blog name.
-	    bloginfo( 'name' );
+	    //bloginfo( 'name' );
 				
 	    // Add the blog description for the home/front page.
-	    $site_description = get_bloginfo( 'description', 'display' );
+	
 	    if ( $site_description && ( is_home() || is_front_page() ) )
-	        echo " | $site_description";
+	        get_bloginfo( 'description', 'display' );
 
 	    // Add a page number if necessary:
 	    if ( $paged >= 2 || $page >= 2 )
@@ -41,6 +44,7 @@
 		
 	    ?></title>
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
+	<!--[if IE 8]><style type="text/css">img{max-width: none !important;}.BCLvideoWrapper object{width:480px !important;}</style><![endif]-->
 	<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	<!--[if lt IE 9]>
@@ -79,13 +83,14 @@
   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-<div id="mobileContainer">
-	<div id="slidingMenu">
-		<div id="slidingMenuContent">
+
+<div class="snap-drawers">
+    <div class="snap-drawer snap-drawer-left">
+        <div>
 			<div class="mobile-menu-banner">
 				<?php $dartDomain = get_option("dart_domain", $default = false); ?>
 				<iframe id="menu-iframe-ad" width="320" height="50" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-menu.php?size=320x50&ad_code=<?php echo $dartDomain; ?>"></iframe>
-			</div>
+			</div>	
 	
 	        <div class="mob-aside-menu">
 	            <?php
@@ -107,7 +112,7 @@
 	        </div>
 	
 	        <div class="menu-subscribe">
-	            <a href="#"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/pic/journals.png" alt="" /><span>Subscribe Now!</span></a>
+	            <a href="<?php print SUBS_LINK;?>"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/pic/journals.png" alt="" /><span>Subscribe Now!</span></a>
 	        </div>
 	        <?php wp_nav_menu(array(
 	            'menu_class'=>'menu',
@@ -118,17 +123,19 @@
 	            <?php social_networks(); ?>
 	        </div>
 
-	</div><!-- #mobileContainer -->
-</div><!-- slidingMenu -->
+		</div>
+	</div>
+</div>
 
-<div id="page">
+<div id="page" class="snap-content smooth-menu<?php if ( mobile() == false && tablet() == false ){ echo ' ie9fix'; } ?>">
 
 	<div class="hfeed wrapper" data-role="content" role="main">
 	    <div class="layout-frame">
 	        <div id="branding" class="header clearfix" role="banner">
 	
                 <div class="clearfix">
-                   <a class="show-menu-button open-menu">open menu</a>
+
+                   <a id="open-left" class="open-menu">open menu</a>
                     <strong class="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/logo.png" alt="<?php bloginfo( 'name' ); ?>" /></a></strong>
                     <?php
                         // Check to see if the header image has been removed
@@ -216,7 +223,6 @@
 						<?php imo_dart_tag("320x50",true); ?>
 					</div>
 				<?php } ?>
-
         </div>
         
         <div id="main" class="main clearfix js-responsive-layout">

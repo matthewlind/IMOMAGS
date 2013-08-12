@@ -21,7 +21,7 @@ jQuery(document).ready(function($) {
 
 			sort = typeof sort !== 'undefined' ? sort : 'post_date'; //If sort is not set, set sort to post_date
 
-			var term = "the-guns-network";
+			var term = "guns-network";
 
 			var $sections = $("ul.network-topics");
 

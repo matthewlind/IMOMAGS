@@ -28,23 +28,25 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 <hr class="accessibility" />
 <footer id="footer">
     <div class="str-container">
+    	<div class="footer-728"><?php imo_dart_tag("728x90",array("pos=btf")); ?></div>
     	<?php if (function_exists('imo_nt_scripts') && is_front_page()) { ?>
 	    <div id="network-topics-3-col" style="top:0;border-left:none;border-right:none;padding: 10px 30px;">
 			<div class="network-topics-widget">
-				<h3 class="widget-title"><span>The Guns & Ammo Network</span></h3>
+				<h3 class="widget-title"><span>Guns & Ammo Network</span></h3>
 
 				<div class="network-page-feed">
-					<h2>The Guns</h2>
+					<h2><a href="http://www.gunsandammo.com/shooting/network-topics/the-guns-network/" target="_blank">Guns</a></h2>
 					<ul id="the-guns-network" class="network-topics" term="the-guns-network">
 
 					</ul>
 				</div>
+				
 				<div class="network-page-feed">
-					<h2>The Gear</h2>
-					<ul id="the-gear-network" class="network-topics" term="the-gear-network">
-
+					<h2><a href="http://www.shootingtimes.com/ammo/"<?php if($_SERVER['uri'] != 'www.shootingtimes.com'){ echo ' target="_blank"'; } ?>>Ammo</a></h2>
+					<ul id="ammo" class="network-topics" term="ammo">
 					</ul>
 				</div>
+				
 				<div class="network-page-feed feed-ad">
 					<script type="text/javascript">
 			          document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.'+dartadsgen_site+'/;sect=;page=index;pos=mid;subs=;sz=300x250;dcopt=;tile='+pr_tile+';ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
@@ -60,22 +62,22 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 				</div>
 
 				<div class="network-page-feed row-2">
-					<h2>Personal Defense</h2>
+					<h2><a href="http://www.gunsandammo.com/shooting/network-topics/personal-defense-network/" target="_blank">Personal Defense</a></h2>
 					<ul id="personal-defense-network" class="network-topics" term="personal-defense-network">
 
 					</ul>
 				</div>
 				<div class="network-page-feed">
-					<h2>Culture & Politics</h2>
+					<h2><a href="http://www.gunsandammo.com/shooting/network-topics/culture-politics-network/" target="_blank">Culture & Politics</a></h2>
 					<ul id="culture-politics-network" class="network-topics" term="culture-politics-network">
 
 					</ul>
 				</div>
-				<!--<div class="network-page-feed">
-					<h2>Survival</h2>
-					<ul id="survival-network" class="network-topics last" term="survival-network">
+				<div class="network-page-feed">
+					<h2><a href="http://www.gunsandammo.com/shooting/network-topics/the-gear-network/" target="_blank">Gear</a></h2>
+					<ul id="the-gear-network" class="network-topics" term="the-gear-network">
 
-					</ul>-->
+					</ul>
 				</div>
 
 

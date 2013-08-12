@@ -89,10 +89,9 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 
 			</div><!-- #footer -->
 		</div><!-- .wrapper -->
-	</div><!-- #mobileContainer -->
-</div><!-- #page -->
+	</div><!-- #page -->
 
-    
+    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/snap.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/breakpoints.js"></script>
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/plugins/flexslider/jquery.flexslider.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/plugins/ezmark/js/jquery.ezmark.min.js"></script>
@@ -100,8 +99,7 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/helper.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/plugins/jquery.placeholder.min.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/plugins/jquery.touchSwipe.min.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/hammer.min.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/menu_nav.js"></script>
+    
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/script.js"></script>
     <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/script.js"></script>
     <link rel="STYLESHEET" type="text/css" href="<?php bloginfo('template_directory'); ?>/js/plugins/flexslider/flexslider.css">

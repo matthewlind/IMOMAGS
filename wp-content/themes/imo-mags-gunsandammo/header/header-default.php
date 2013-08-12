@@ -57,7 +57,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
 	<div id="imo-tophat">
 		<div class="top-bar">
 		
-			<h2>The Guns & Ammo Network</h2>
+			<h2>Guns & Ammo Network</h2>
 			<hr>
 		</div>
 		

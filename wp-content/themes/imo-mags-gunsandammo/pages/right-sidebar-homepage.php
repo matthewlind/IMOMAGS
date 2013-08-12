@@ -92,42 +92,42 @@ the_post(); ?>
 <div id="network-topics-3-col">
 
 	<div class="network-topics-widget">
-		<h3 class="widget-title"><span>The Guns & Ammo Network</span></h3>
+		<h3 class="widget-title"><span>Guns & Ammo Network</span></h3>
 
 		<div class="network-page-feed">
-			<h2>The Guns</h2>
+			<h2><a href="http://www.gunsandammo.com/shooting/network-topics/the-guns-network/">Guns</a></h2>
 			<ul id="the-guns-network" class="network-topics" term="the-guns-network">
 
 			</ul>
 		</div>
+		
 		<div class="network-page-feed">
-			<h2>The Gear</h2>
-			<ul id="the-gear-network" class="network-topics" term="the-gear-network">
-
+			<h2><a href="http://www.shootingtimes.com/ammo/" target="_blank">Ammo</a></h2>
+			<ul id="ammo" class="network-topics" term="ammo">
 			</ul>
 		</div>
+
 		<div class="network-page-feed feed-ad">
 			<?php imo_dart_tag("300x250",false,array("pos"=>"mid")); ?>		</div>
 
 		<div class="network-page-feed row-2">
-			<h2>Personal Defense</h2>
+			<h2><a href="http://www.gunsandammo.com/shooting/network-topics/personal-defense-network/">Personal Defense</a></h2>
 			<ul id="personal-defense-network" class="network-topics" term="personal-defense-network">
 
 			</ul>
 		</div>
 		<div class="network-page-feed">
-			<h2>Culture & Politics</h2>
+			<h2><a href="http://www.gunsandammo.com/shooting/network-topics/culture-politics-network/">Culture & Politics</a></h2>
 			<ul id="culture-politics-network" class="network-topics" term="culture-politics-network">
 
 			</ul>
 		</div>
-		<!--<div class="network-page-feed">
-			<h2>Survival</h2>
-			<ul id="survival-network" class="network-topics last" term="survival-network">
+		<div class="network-page-feed">
+			<h2><a href="http://www.gunsandammo.com/shooting/network-topics/the-gear-network/">Gear</a></h2>
+			<ul id="the-gear-network" class="network-topics" term="the-gear-network">
 
-			</ul>-->
+			</ul>
 		</div>
-
 
 	</div>
 </div>
