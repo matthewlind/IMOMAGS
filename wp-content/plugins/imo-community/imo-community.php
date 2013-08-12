@@ -117,6 +117,8 @@ function imo_community_template() {
 
 	imo_include_wordpress_template(dirname( __FILE__ ) . $IMO_COMMUNITY_CONFIG['template'] );
 
+	exit();
+
 
 }
 

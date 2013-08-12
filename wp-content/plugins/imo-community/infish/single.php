@@ -523,6 +523,4 @@ if($data->view_count == 1){
 
 
 
-?>
-
 <?php get_footer(); ?>
