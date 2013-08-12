@@ -13,7 +13,12 @@ add_action('template_redirect', 'imo_community_template',5);
 add_filter( 'wp_title', 'imo_community_set_title', 0, 3 );
 
 
-
+register_activation_hook(__FILE__, 'imo_community_flush_rules');
+function imo_community_flush_rules()
+{
+    //add_rewrite_rule('plus/trophy-buck/([^/]+)', 'index.php?pagename=superpost&templatename=superpost_single&spid=$matches[1]', 'top');
+    flush_rewrite_rules(false);
+}
 
 add_action('init', 'imo_community_setup_routes');
 function imo_community_setup_routes() {
@@ -21,11 +26,6 @@ function imo_community_setup_routes() {
 
     global $IMO_COMMUNITY;
 
-
-    // add_rewrite_rule('^nutrition/([^/]*)/([^/]*)/?','index.php?page_id=12&templatename=$matches[1]&state=$matches[2]','top');
-    // add_rewrite_rule('^nutrition/(apple|banana)/([^/]*)/?','index.php?page_id=12&config_name=$matches[1]&state=$matches[2]','top');
-    // add_rewrite_rule('^nutrition/([^/]*)/?','index.php?page_id=12&templatename=$matches[1]','top');
-    // add_rewrite_rule('^nutrition/?','index.php?page_id=12&templatename=portland','top');
 
     foreach ($IMO_COMMUNITY as $CONFIG_NAME => $IMO_COMMUNITY_CONFIG) {
 

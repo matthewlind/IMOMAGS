@@ -314,10 +314,11 @@ function infish_community_init() {
 		)
 	);
 
-
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//NOTE: Configuration order matters! More specific URLs should appear before less specific urls on the same path.
-	// For example, the "single" below needs to appear before listing
-
+	// For example, the "single" page_type below needs to appear before "listing" page type on the same path.
+	//Also, solunar-calendar-mobile should appear before solunar-calendar
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	///////////////////////////////////////////
 	//Community Single Post Page Configuration
@@ -330,6 +331,34 @@ function infish_community_init() {
 	$IMO_COMMUNITY_CONFIG['dart_page'] = 'infish_community';
 	$IMO_COMMUNITY_CONFIG['dart_sect'] = 'infishcommunity';
 	$IMO_COMMUNITY_CONFIG['post_types'] = $inFishPostTypes;
+
+
+	$IMO_COMMUNITY_CONFIG['additional_scripts'] = array(
+		//Third Part Scripts
+		array(
+			"script-name" => "community-common-js",
+			"script-path" => "infish/js/community-common.js",
+			"script-dependencies" => array('jquery')
+		),
+		array(
+			"script-name" => "community-single-js",
+			"script-path" => "infish/js/community-single.js",
+			"script-dependencies" => array('jquery')
+		)
+	);
+
+	$IMO_COMMUNITY_CONFIG['additional_styles'] = array(
+		array(
+			"style-name" => "community-common-css",
+			"style-path" => "infish/css/community-common.css",
+			"style-dependencies" => null
+		),
+		array(
+			"style-name" => "community-single-css",
+			"style-path" => "infish/css/community-single.css",
+			"style-dependencies" => array('community-common-css')
+		)
+	);
 
 	global $IMO_COMMUNITY;
 	$IMO_COMMUNITY['community-single'] = $IMO_COMMUNITY_CONFIG;
@@ -348,6 +377,34 @@ function infish_community_init() {
 	$IMO_COMMUNITY_CONFIG['dart_page'] = 'infish_community';
 	$IMO_COMMUNITY_CONFIG['dart_sect'] = 'infishcommunity';
 	$IMO_COMMUNITY_CONFIG['post_types'] = $inFishPostTypes;
+
+
+	$IMO_COMMUNITY_CONFIG['additional_scripts'] = array(
+		//Third Part Scripts
+		array(
+			"script-name" => "community-common-js",
+			"script-path" => "infish/js/community-common.js",
+			"script-dependencies" => array('jquery')
+		),
+		array(
+			"script-name" => "community-listing-js",
+			"script-path" => "infish/js/community-listing.js",
+			"script-dependencies" => array('jquery')
+		)
+	);
+
+	$IMO_COMMUNITY_CONFIG['additional_styles'] = array(
+		array(
+			"style-name" => "community-common-css",
+			"style-path" => "infish/css/community-common.css",
+			"style-dependencies" => null
+		),
+		array(
+			"style-name" => "community-listing-css",
+			"style-path" => "infish/css/community-listing.css",
+			"style-dependencies" => array('community-common-css')
+		)
+	);
 
 	global $IMO_COMMUNITY;
 	$IMO_COMMUNITY['community-main'] = $IMO_COMMUNITY_CONFIG;
@@ -459,6 +516,7 @@ function infish_community_init() {
 			"style-dependencies" => null
 		)
 	);
+
 	global $IMO_COMMUNITY;
 	$IMO_COMMUNITY['beta-community'] = $IMO_COMMUNITY_CONFIG;
 	/////////////////////////////////////////////////
@@ -543,6 +601,24 @@ function infish_community_init() {
 
 
 	//////////////////////////////////
+	//Mobile Solunar Calendar config
+	//////////////////////////////////
+	$IMO_COMMUNITY_CONFIG = NULL;
+	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "solunar-calendar-mobile";//This slug will override ANY setting in wordpress.
+	$IMO_COMMUNITY_CONFIG['page_title'] = 'Best Times';
+	$IMO_COMMUNITY_CONFIG['template'] = '/solunar-mobile/solunar-template-mobile.php';
+	$IMO_COMMUNITY_CONFIG['dart_page'] = 'solunar_calendar';
+	$IMO_COMMUNITY_CONFIG['dart_sect'] = 'solunarcalendar';
+	$IMO_COMMUNITY_CONFIG['post_types'] = null;
+
+	global $IMO_COMMUNITY;
+
+	$IMO_COMMUNITY['solunar-calendar-mobile'] = $IMO_COMMUNITY_CONFIG;
+	/////////////////////////////////////////////////
+
+
+
+	//////////////////////////////////
 	//Solunar Calendar config
 	//////////////////////////////////
 	$IMO_COMMUNITY_CONFIG = NULL;
@@ -615,22 +691,6 @@ function infish_community_init() {
 	/////////////////////////////////////////////////
 
 
-
-	//////////////////////////////////
-	//Mobile Solunar Calendar config
-	//////////////////////////////////
-	$IMO_COMMUNITY_CONFIG = NULL;
-	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "solunar-calendar-mobile";//This slug will override ANY setting in wordpress.
-	$IMO_COMMUNITY_CONFIG['page_title'] = 'Best Times';
-	$IMO_COMMUNITY_CONFIG['template'] = '/solunar-mobile/solunar-template-mobile.php';
-	$IMO_COMMUNITY_CONFIG['dart_page'] = 'solunar_calendar';
-	$IMO_COMMUNITY_CONFIG['dart_sect'] = 'solunarcalendar';
-	$IMO_COMMUNITY_CONFIG['post_types'] = null;
-
-	global $IMO_COMMUNITY;
-
-	$IMO_COMMUNITY['solunar-calendar-mobile'] = $IMO_COMMUNITY_CONFIG;
-	/////////////////////////////////////////////////
 
 
 
