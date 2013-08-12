@@ -79,45 +79,52 @@ function imo_community_template() {
 	$queryVars = $wp_query->query_vars;
 	$configName = $queryVars[config_name];
 
-	imo_community_404_check();
+	if ($configName) {
 
-	$IMO_COMMUNITY_CONFIG = $IMO_COMMUNITY[$configName];
+		imo_community_404_check();
 
-    wp_deregister_script( 'jquery' );
-    wp_register_script( 'jquery', '/wp-content/plugins/imo-community/js/jquery-1.7.1.min.js');
-    wp_enqueue_script( 'jquery' );
+		$IMO_COMMUNITY_CONFIG = $IMO_COMMUNITY[$configName];
 
-	foreach($IMO_COMMUNITY_CONFIG['additional_scripts'] as $script) {
+	    wp_deregister_script( 'jquery' );
+	    wp_register_script( 'jquery', '/wp-content/plugins/imo-community/js/jquery-1.7.1.min.js');
+	    wp_enqueue_script( 'jquery' );
 
-		$in_footer = true;
+		foreach($IMO_COMMUNITY_CONFIG['additional_scripts'] as $script) {
 
-		if ($script["show-in-header"])
-			$in_footer = false;
+			$in_footer = true;
 
-		wp_enqueue_script($script['script-name'], plugins_url( $script['script-path'] , __FILE__), $script['script-dependencies'], '1.0',$in_footer);
+			if ($script["show-in-header"])
+				$in_footer = false;
+
+			wp_enqueue_script($script['script-name'], plugins_url( $script['script-path'] , __FILE__), $script['script-dependencies'], '1.0',$in_footer);
+
+		}
+
+		foreach($IMO_COMMUNITY_CONFIG['additional_styles'] as $style) {
+			wp_enqueue_style($style['style-name'], plugins_url( $style['style-path'], __FILE__), $style['style-dependencies'] );
+
+		}
+
+
+		//Make Certain variables available to dart.
+		define("COMMUNITY_DART_SECT",$IMO_COMMUNITY_CONFIG['dart_sect']);
+		define("COMMUNITY_DART_PAGE",$IMO_COMMUNITY_CONFIG['dart_page']);
+
+		//Use wp_localize_script to make these settings available to Javascript
+		//Erase some of the settings so that there isn't too much stuff
+		unset($IMO_COMMUNITY_CONFIG['additional_scripts']);
+		unset($IMO_COMMUNITY_CONFIG['additional_styles']);
+		wp_localize_script( 'imo-community-common', 'IMO_COMMUNITY_CONFIG', $IMO_COMMUNITY_CONFIG);
+
+
+		imo_include_wordpress_template(dirname( __FILE__ ) . $IMO_COMMUNITY_CONFIG['template'] );
+
+		exit();
+
 
 	}
 
-	foreach($IMO_COMMUNITY_CONFIG['additional_styles'] as $style) {
-		wp_enqueue_style($style['style-name'], plugins_url( $style['style-path'], __FILE__), $style['style-dependencies'] );
 
-	}
-
-
-	//Make Certain variables available to dart.
-	define("COMMUNITY_DART_SECT",$IMO_COMMUNITY_CONFIG['dart_sect']);
-	define("COMMUNITY_DART_PAGE",$IMO_COMMUNITY_CONFIG['dart_page']);
-
-	//Use wp_localize_script to make these settings available to Javascript
-	//Erase some of the settings so that there isn't too much stuff
-	unset($IMO_COMMUNITY_CONFIG['additional_scripts']);
-	unset($IMO_COMMUNITY_CONFIG['additional_styles']);
-	wp_localize_script( 'imo-community-common', 'IMO_COMMUNITY_CONFIG', $IMO_COMMUNITY_CONFIG);
-
-
-	imo_include_wordpress_template(dirname( __FILE__ ) . $IMO_COMMUNITY_CONFIG['template'] );
-
-	exit();
 
 
 }
