@@ -324,7 +324,7 @@ function infish_community_init() {
 	//Community Single Post Page Configuration
 	///////////////////////////////////////////
 	$IMO_COMMUNITY_CONFIG = NULL;
-	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "community";//This slug will override ANY setting in wordpress.
+	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "photos";//This slug will override ANY setting in wordpress.
 	$IMO_COMMUNITY_CONFIG['page_type'] = 'single';
 	$IMO_COMMUNITY_CONFIG['page_title'] = "Community"; //On single pages, title is taken from Post
 	$IMO_COMMUNITY_CONFIG['template'] = '/infish/single.php';
@@ -385,9 +385,9 @@ function infish_community_init() {
 	//Main Community Page Configuration
 	///////////////////////////////////////////
 	$IMO_COMMUNITY_CONFIG = NULL;
-	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "community";//This slug will override ANY setting in wordpress.
+	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "photos";//This slug will override ANY setting in wordpress.
 	$IMO_COMMUNITY_CONFIG['page_type'] = 'listing';
-	$IMO_COMMUNITY_CONFIG['page_title'] = 'In-Fisherman Community';
+	$IMO_COMMUNITY_CONFIG['page_title'] = 'FishHeads';
 	$IMO_COMMUNITY_CONFIG['template'] = '/infish/listing.php';
 	$IMO_COMMUNITY_CONFIG['dart_page'] = 'infish_community';
 	$IMO_COMMUNITY_CONFIG['dart_sect'] = 'infishcommunity';
@@ -396,6 +396,11 @@ function infish_community_init() {
 
 	$IMO_COMMUNITY_CONFIG['additional_scripts'] = array(
 		//Third Part Scripts
+		array(
+			"script-name" => "underscore-js",
+			"script-path" => "js/underscore-min.js",
+			"script-dependencies" => array('jquery')
+		),
 		array(
 			"script-name" => "community-common-js",
 			"script-path" => "infish/js/community-common.js",
