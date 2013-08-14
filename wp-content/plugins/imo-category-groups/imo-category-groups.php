@@ -292,8 +292,8 @@ class imoMetaBoxClass {
 					,'side'
 					,'high'
 				);
-				$i++;
 			}
+			$i++;
 		}
 
 	}
