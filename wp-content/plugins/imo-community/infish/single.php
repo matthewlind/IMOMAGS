@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: Gear
+ * Template Name: Single
  * Description: The NAW+ Community - Gear Category
  *
  * @package carrington-business
@@ -22,6 +22,7 @@ if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 
 
 get_header();
+imo_sidebar("community");
 
 $displayStyle = "display:none;";
 $loginStyle = "";
@@ -46,7 +47,6 @@ $apiURL = "http://$hostname/community-api/posts/$spid?get_comments=1";
 
 $file = file_get_contents($apiURL);
 
-
 //SET TEMPLATE VARIABLES
 $data = json_decode($file);
 $attachmentData = $data->attachments;
@@ -56,7 +56,7 @@ $commentData = $data->comments;
 if (empty($commentData)) {
 
 
-    $visible = "style='display:none;'";
+    $visible = " style='display:none;'";
 }
 
 
@@ -222,148 +222,180 @@ if($data->view_count == 1){
 	$niceView = $data->view_count.' Views';
 }
 
+if($data->comment_count == 1){
+	$niceComment = $data->comment_count.' Comment';
+}else{
+	$niceComment = $data->comment_count.' Comments';
+}
+
+// Get the timestamp
+$timestamp = $data->created;
+
+// Convert the timestamp
+$date = date("F j, Y", strtotime($timestamp));
+$time = date("g:i A", strtotime($timestamp));
 
 ?>
-
 
 <!-- Don't delete this. It's part of imo-add-this -->
 <div id="imo-add-this-spid" style="display:none;"><?php echo $spid; ?></div>
 
-
-
-
-
-
-
-
-<div class="col-abc single-header">
-	<header class="header-title">
-	    <h1 style="text-transform: capitalize;"><?php if($data->state != '' && $data->post_type == 'report'){ echo $state; }else{ echo 'Community:'; } ?> <?php echo $topicName; ?></h1>
-	    <div class="community-crumbs">
-	       	<a href="/community/">Community Home</a> &raquo; <a href="/community/<?php echo $data->post_type; ?>"><?php echo $topicName; ?></a><?php if($data->state != '' && $data->post_type == 'report'){ echo ' &raquo; <a href="/community/'.$data->post_type.'/'.strtolower($state_slug).'">'.$state.'</a>'; } ?>
-		</div>
-
-	</header>
-</div>
-
-<div class="col-abc super-content">
-
-	<a href="/profile/<?php echo $data->username; ?>"><img src="/avatar?uid=<?php echo $data->user_id; ?>" class="recon-gravatar"></a>
-		<div class="user-meta">
-			<a class="username" href="/profile/<?php echo $data->username; ?>"><?php echo $data->display_name; ?></a>
-			<p class="points"><?php echo $nicePoint; ?></p>
-		</div>
-
-<!--
-	<a href="/profile/<?php echo $data->username ?>"><img src="/avatar?uid=<?php echo $data->user_id; ?>" class="recon-gravatar"></a>
-
-		<a class="username" href="/profile/<?php echo $data->username ?>"><?php echo $data->display_name; ?></a>
-		<div class="super-meta">Posted <abbr style="display:inline" class='recon-date timeago' title='<?php echo $data->created; ?>'><?php echo $data->created; ?></abbr> &#8226; <a href="/<?php echo $data->post_type; ?>" class="post-type"><?php echo $data->post_type; ?></a> &#8226; <?php echo $data->view_count; ?> views</div>
--->
-
-		<div class="clearfix"></div>
-		<div class="entry-header"><h1 class="entry-title"><?php echo $data->title; ?></h1>
-		<div class="title-meta">
-		<?php
-		// Get the timestamp
-		$timestamp = $data->created;
-
-		// Convert the timestamp
-		$date = date("F j, Y", strtotime($timestamp));
-		$time = date("g:i A", strtotime($timestamp));
-		?>
-
-		<abbr style="display:inline" class="recon-date"><?php echo $date; ?> at <?php echo $time; ?> &#8226; <?php echo $niceView; ?></div>
-		</div>
-		<?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
-
-			<div <?php post_class('entry entry-full clearfix'); ?>>
-				<div class="entry-content">
-
-		            <div class="description">
-		                <?php echo $data->body;?>
+<div class="general general-com">
+    
+    <ul class="breadcrumbs">
+    	<li><a href="/community">Community</a></li>
+    	<li style="margin-top:1px;">&raquo; <?php echo $topicName; ?></li>
+    </ul>
+    <div class="basic-form post-reply-slide">
+        <div class="f-row">
+            <input type="text" placeholder="Your Post Headline" />
+        </div>
+        <div class="f-row">
+            <textarea id="" class="area" cols="30" rows="10" placeholder="Your Post Body"></textarea>
+        </div>
+        <div class="add-photo-field clearfix">
+            <img src="<?php bloginfo( 'template_url' ); ?>/images/pic/photo1.jpg" class="reply-photo" alt="" />
+            <div class="caption-area">
+                <textarea id="" class="area" cols="30" rows="10" placeholder="Add Caption"></textarea>
+            </div>
+        </div>
+        <div class="photo-link-area">
+            <a href="#" class="add-photo-link">Add Photo</a>
+        </div>
+        <span class="alter-sel jq-open-cat-popup">Choose category</span>
+        <span class="alter-sel jq-open-state-popup">Choose state</span>
+        <span class="btn-red btn-post">
+            <input class="jq-open-login-popup" type="submit" value="Post" />
+        </span>
+    </div>
+   
+    <div class="dif-full-post">
+        <h1><?php echo $data->title; ?></h1>
+        <div class="profile-panel">
+            <div class="profile-photo">
+                <a href="/profile/<?php echo $data->username; ?>"><img src="/avatar?uid=<?php echo $data->user_id; ?>" alt="<?php echo $data->username; ?>" /></a>
+            </div>            
+            <div class="profile-data">
+                <h4><a href="/profile/<?php echo $data->username; ?>"><?php echo $data->display_name; ?></a></h4>
+                <ul class="prof-tags">
+                    <li><a href="/community/<?php echo $data->post_type.'/'.strtolower($state_slug); ?>"><?php echo $state ?></a></li>
+                    <li><a href="/community/">Species</a></li>
+                    <li><a href="/community/<?php echo $data->post_type; ?>"><?php echo $topicName; ?></a></li>
+                </ul>
+                <div class="clearfix">
+                    <ul class="replies">
+                        <li><?php echo $date; ?> at <?php echo $time; ?><div class="bullet"></li>
+                        <li><a href="#reply_field"><?php echo $niceComment; ?></a></li>
+                        <li><?php echo $nicePoint; ?><div class="bullet"></li>
+                        <li><?php echo $niceView; ?></li>
+                    </ul>
+                    <ul class="prof-like">
+                        <li><div class="fb-like" data-href="<?php echo FACEBOOK_LINK; ?>" data-send="false" data-layout="button_count" data-width="100" data-show-faces="true"></div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <?php
+        	foreach ($attachmentData as $attachment) { 
+	        	$media = "";
+				$caption = "";
+	            
+	            if ($attachment->post_type == "youtube") {
+	
+	                $videoID = $attachment->meta;
+	                $media = "<div class='full-post-img'>";
+	                $media .= '<iframe width="640" height="480" src="http://www.youtube.com/embed/' . $videoID . '" frameborder="0" allowfullscreen></iframe>';
+	                $media .= "</div>$caption";
+	
+	            } else {
+	
+	                $photoURL = str_replace("thumb", "medium", $attachment->img_url);
+	                $media = "<div class='full-post-img'><img src='$photoURL' width=615></div>$caption";
+	
+	            }
+	
+	
+	            echo $media;
+	            
+			} ?>
+			<div class='full-text'>
+				
+				<?php if($data->body){ ?> 
+	            	<p><?php echo $data->body; ?>
+	            <?php } ?>
+	            
+	        <div class="clearfix">
+                <a href="#reply_field" class="post-it">Post a Reply</a>
+                <ul class="like-bar">
+                    <li><div class="fb-like" data-href="<?php echo FACEBOOK_LINK; ?>" data-send="false" data-layout="button_count" data-width="100" data-show-faces="true"></div></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="custom-slider-section mobile-hidden-section">
+        <div class="general-title clearfix">
+            <h2><span>Explore  more</span></h2>
+        </div>
+        <img src="<?php bloginfo( 'template_url' ); ?>/images/pic/slider-screen.jpg" alt="" />
+    </div>
+    <div class="explore-more-mobile">
+        <div class="general-title clearfix">
+            <h2><span>Explore</span></h2>
+            <div class="select-it jq-custom-form">
+                <select id="sort-posts" class="sel">
+                    <option value="0">Sort posts by</option>
+                    <option value="1">post 1</option>
+                    <option value="2">post 2</option>
+                    <option value="3">post 3</option>
+                    <option value="4">post 4</option>
+                    <option value="5">post 5</option>
+                    <option value="6">post 6</option>
+                    <option value="7">post 7</option>
+                </select>
+            </div>
+        </div>
+        <div class="explore-posts loading-block">
+            <div class="jq-explore-slider onload-hidden">
+                <ul class="slides">
+                    <li><a href="#"><img width="119" src="<?php bloginfo( 'template_url' ); ?>/images/pic/pic1.jpg" alt="" /></a></li>
+                    <li><a href="#"><img width="119" src="<?php bloginfo( 'template_url' ); ?>/images/pic/pic2.jpg" alt="" /></a></li>
+                    <li><a href="#"><img width="119" src="<?php bloginfo( 'template_url' ); ?>/images/pic/pic3.jpg" alt="" /></a></li>
+                    <li><a href="#"><img width="119" src="<?php bloginfo( 'template_url' ); ?>/images/pic/pic4.jpg" alt="" /></a></li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>-->
+    <div class="photo-link-area btn-link-area">
+        <a href="#" class="btn-grey jq-open-reply-slide">Start New Post</a>
+    </div>
+    <div class="replies-box">
+        <h2>Replies <a href="#">(<?php echo $niceComment; ?>)</a></h2>
+        
+        <ul class="replies-list">
+        
+        	<?php foreach ($commentData as $comment) {
+				// get the score of the users in the replies
+				$userscoreURL = "http://$hostname/slim/api/superpost/user/score/".$comment->user_id;
+				$file5 = file_get_contents($userscoreURL);
+				$comment_user_score = json_decode($file5);
+				$comment_user_score = $comment_user_score[0]; 
+				if($comment_user_score->score == 1){
+					$niceScore = $comment_user_score->score.' Point';
+				}else{
+					$niceScore = $comment_user_score->score.' Points';
+				} ?>
+				
+				
+		        <li<?php echo $visible; ?>>
+		            <div class="profile-photo">
+		                 <a href="/profile/<?php echo $comment->username; ?>"><img src="/avatar?uid=<?php echo $comment->user_id; ?>" alt="<?php echo $comment->display_name; ?>"></a>
 		            </div>
-
-			        <?php
-
-			            foreach ($attachmentData as $attachment) {
-
-			            $media = "";
-			            $caption = "";
-			            if($attachment->body){
-			            	$caption = "<div class='attachment-caption'>$attachment->body</div>";
-			            }
-			            if ($attachment->post_type == "youtube") {
-
-			                $videoID = $attachment->meta;
-			                $media = "<div class='attachment-container'>";
-			                $media .= '<iframe width="640" height="480" src="http://www.youtube.com/embed/' . $videoID . '" frameborder="0" allowfullscreen></iframe>';
-			                $media .= "</div>$caption";
-
-			            } else {
-
-			                $photoURL = str_replace("thumb", "medium", $attachment->img_url);
-			                $media = "<div class='attachment-container'><img src='$photoURL' width=615></div>$caption";
-
-			            }
-
-
-			            echo $media;
-
-
-			       }
-			       echo '<div class="reply-btn"><a href="#comments">REPLY</a></div>';
-			       //echo '<div class="like-btn"><a href="#"></a></div>';
-			       //echo '<div class="count"><a href="#comments">2</a></div>';
-
-			       echo '<a class="single-flag-button" spid="' . $spid . '"><img src="/wp-content/themes/imo-mags-northamericanwhitetail/img/flag-button-gray.png" class="flag-image"></a>';
-
-
-			?>
-
-			<?php if (current_user_can('edit_superposts')) { ?>
-			    <select class="editor-functions" spid="<?php echo $spid; ?>" email="<?php echo $postUserEmail; ?>">
-			    	<option>EDITOR OPTIONS</option>
-			    	<option value="edit">Edit</option>
-			    	<option value="unapprove">Unapprove</option>
-			    	<option value="delete">Delete</option>
-			    	<option value="contact" >Contact User</option>
-			    	<option value="teflon">Teflon</option>
-			    </select>
-
-		    <?php } //ENDIF current_user_can('delete_others_posts')?>
-
-			</div>
-		</div><!-- .entry -->
-</div><!-- .col-abc -->
-
-
-
-<div class="superpost-comment-container">
-	<?php foreach ($commentData as $comment) {
-
-	// get the score of the users in the replies
-	$userscoreURL = "http://$hostname/slim/api/superpost/user/score/".$comment->user_id;
-	$file5 = file_get_contents($userscoreURL);
-	$comment_user_score = json_decode($file5);
-	$comment_user_score = $comment_user_score[0];
-?>
-	<div class="col-abc super-comments zebra superpost-comment-single">
-		<div class="avatar-holder">
-	         <a href="/profile/<?php echo $comment->username; ?>"><img src="/avatar?uid=<?php echo $comment->user_id; ?>" class="superclass-gravatar_hash recon-gravatar"></a>
-	         <p class="comment-points"><?php echo $comment_user_score->score. " points"; ?></p>
-	    </div>
-
-		<div class="superpost-comments">
-				<div class="superpost-comment" <?php echo $visible; ?> >
-	        		<div class="superclass-body">
-	        			<a href="/profile/<?php echo $comment->username; ?>" class="username"><?php echo $comment->display_name; ?></a>
-
-
-
-	        			<p><?php echo $comment->body; ?></p>
-	        		</div>
-	        			<?php
+		            <div class="reply-text">
+		                <h3><a href="/profile/<?php echo $comment->username; ?>"><?php echo $comment->display_name; ?></a></h3>
+		                <div class="comment-points"><?php echo $niceScore; ?></div>
+		                <p><?php echo $comment->body; ?></p>
+		                <?php
 			            foreach ($comment->attachments as $attachment) {
 
 				            $media = "";
@@ -382,30 +414,31 @@ if($data->view_count == 1){
 
 				            }
 				            echo $media;
-			            }
+			            } ?>
 
-			            ?>
-	           </div>
+		            </div>
+		            <a href="#" class="flag-badge single-flag-button" spid="<?php echo $spid ?>"></a>
+		        </li>
+		           		        
+		        <?php if (current_user_can('edit_superposts')) { ?>
+			    <select class="editor-functions" spid="<?php echo $spid; ?>" email="<?php echo $postUserEmail; ?>">
+			    	<option>EDITOR OPTIONS</option>
+			    	<option value="edit">Edit</option>
+			    	<option value="unapprove">Unapprove</option>
+			    	<option value="delete">Delete</option>
+			    	<option value="contact" >Contact User</option>
+			    	<option value="teflon">Teflon</option>
+			    </select>
+				
+				<?php } //ENDIF current_user_can('delete_others_posts')?>
+		    
+	        <?php } ?>
+        </ul>
+    </div>
+    
+    <!-- INVISIBLE COMMENT FOR CLONING -->
 
-	    </div>
-	    <?php if (current_user_can('edit_superposts')) { ?>
-		    <select class="editor-functions" spid="<?php echo $comment->id; ?>">
-		    	<option>EDITOR OPTIONS</option>
-		    	<option value="edit">Edit</option>
-		    	<option value="unapprove">Unapprove</option>
-		    	<option value="delete">Delete</option>
-		    	<option value="teflon">Teflon</option>
-		    </select>
-
-	    <?php } //ENDIF urrent_user_can('delete_others_posts')?>
-
-	    <a class="single-flag-button" spid="<?php echo $comment->id; ?>"><img src="/wp-content/themes/imo-mags-northamericanwhitetail/img/flag-button-gray.png" class="flag-image"></a>
-	</div><!-- end superpost-comment-single -->
-	<?php } ?>
-
-<!-- INVISIBLE COMMENT FOR CLONING -->
-
-	<div class="col-abc super-comments zebra superpost-comment-template" style="display:none">
+	<div class="super-comments zebra superpost-comment-template" style="display:none">
 		<div class="avatar-holder">
 		     <img src="/avatar?uid=1" class="superclass-gravatar_hash recon-gravatar">
 		</div>
@@ -421,13 +454,144 @@ if($data->view_count == 1){
 
 		         </div>
 		</div>
-	</div><!-- end superpost-comment-single --><!-- end superpost-comment-single -->
+	</div>
+	
+   <?php sub_footer(); ?> 
 
-
-
+    <div class="reply-field" id="reply_field">
+        <div class="title-bar clearfix">
+            <h3>Post a <span>Reply</span></h3>
+            <a href="#" class="add-youtube">Add youtube video</a>
+            <a href="#" class="attach-photo">Attach Photo</a>
+            
+        </div>
+        <form action="#">
+            <fieldset>
+                <textarea id="" cols="30" placeholder="Your Reply" rows="10"></textarea>
+                <div class="replies-submit-field">
+                    <span class="btn-base btn-base-middle"><input type="submit" value="Submit" /></span>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="hr"></div>
+    <?php social_footer(); ?>
+    <div class="hr mobile-hr"></div>
+    <a href="#" class="back-top jq-go-top">back to top</a>
+    
+    <!-- category popup start -->
+    <div class="basic-popup cat-popup">
+        <h3>Choose Category</h3>
+        <ul class="browse-list">
+            <li><a href="#" class="ui-link">lorem ipsum</a></li>
+            <li><a href="#" class="ui-link">lorem ipsum</a></li>
+            <li><a href="#" class="ui-link">lorem ipsum</a></li>
+            <li><a href="#" class="ui-link">lorem ipsum</a></li>
+            <li><a href="#" class="ui-link">lorem ipsum</a></li>
+            <li><a href="#" class="ui-link">lorem ipsum</a></li>
+            <li><a href="#" class="ui-link">lorem ipsum</a></li>
+            <li><a href="#" class="ui-link">lorem ipsum</a></li>
+        </ul>
+        <a class="btn-close-popup jq-close-popup" href="#">close</a>
+        <a class="btn-cancel jq-close-popup" href="#">Cancel</a>
+    </div>
+    <!-- category popup end -->
+    
+    <!-- state popup start -->
+    <div class="basic-popup state-popup">
+        <h3>Choose State</h3>
+        <ul class="browse-list">
+            <li><a href="#" class="ui-link">lorem ipsum</a></li>
+            <li><a href="#" class="ui-link">lorem ipsum</a></li>
+            <li><a href="#" class="ui-link">lorem ipsum</a></li>
+            <li><a href="#" class="ui-link">lorem ipsum</a></li>
+            <li><a href="#" class="ui-link">lorem ipsum</a></li>
+            <li><a href="#" class="ui-link">lorem ipsum</a></li>
+            <li><a href="#" class="ui-link">lorem ipsum</a></li>
+            <li><a href="#" class="ui-link">lorem ipsum</a></li>
+        </ul>
+        <a class="btn-close-popup jq-close-popup" href="#">close</a>
+        <a class="btn-cancel jq-close-popup" href="#">Cancel</a>
+    </div>
+    <!-- state popup end -->
+    
+    <!-- login popup start -->
+    <div class="basic-popup login-popup">
+        <div class="popup-title">
+            You need to log in to post your photo
+        </div>
+        <div class="join-box">
+            <h3><span>LOGIN</span></h3>
+            <a href="#" class="btn-fb-login">Fast Login with Facebook</a>
+            <div class="sub-photo-note">* we do not post anything to your wall unless <br /> you say so!</div>
+            <span class="or-delim">OR</span>
+            <a href="#" class="btn-red">Use Your Email Address</a>
+        </div>
+        <a class="btn-cancel jq-close-popup" href="#">Cancel</a>
+    </div>
+    <!-- login popup end -->
+    
+    <!-- log/reg popup start -->
+    <div class="basic-popup basic-form reg-popup">
+        <div class="popup-inner clearfix">
+            <form action="#">
+                <fieldset>
+                    <h3>Login</h3>
+                    <div class="f-row">
+                        <input type="text" placeholder="Email Address" />
+                    </div>
+                    <div class="f-row">
+                        <input type="password" placeholder="Password" />
+                    </div>
+                    <div class="form-link">
+                        <a href="#">Lost your password?</a>
+                    </div>
+                    <div class="f-row">
+                        <div class="btn-red">
+                            <input type="submit" value="Log In" />
+                        </div>
+                    </div>
+                    <span class="or-delim">OR</span>
+                    <h3>Register</h3>
+                    <div class="f-row">
+                        <input type="text" placeholder="Display Name" />
+                    </div>
+                    <div class="f-row">
+                        <input type="text" placeholder="Email Address" />
+                    </div>
+                    <div class="f-row">
+                        <input type="password" placeholder="Password" />
+                    </div>
+                    <div class="f-row">
+                        <span class="btn-red">
+                            <input type="submit" value="Submit" />
+                        </span>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <a class="btn-close-popup jq-close-popup" href="#">close</a>
+        <a class="btn-cancel jq-close-popup" href="#">Cancel</a>
+    </div>
+    <!-- log/reg popup end -->
+    <div class="filter-fade-out"></div>
 </div>
 
 
+
+	
+	
+<!--
+***********************************************
+***********************************************
+***********************************************
+		          OLD HTML
+***********************************************
+***********************************************
+***********************************************
+***********************************************
+
+-->
 <div class="col-abc super-comments">
 	<div class="avatar-holder" style="<?php echo $displayStyle; ?>">
 		<a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" class="superclass-gravatar_hash recon-gravatar"></a>
@@ -482,7 +646,7 @@ if($data->view_count == 1){
 
     <form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-comment-form">
 	    <input type="text" name="title" id="title" value="Title" style="display:none;"/>
-        <textarea name="body" placeholder="What's up?"></textarea>
+        <textarea name="body" placeholder="Your Reply"></textarea>
 
         <input type="hidden" name="parent" value="<?php echo $spid;?>">
         <input type="hidden" name="post_type" value="comment">
@@ -517,10 +681,6 @@ if($data->view_count == 1){
     </form>
   </div>
 </div><!-- end superpost comment form -->
-
-
-
-
 
 
 <?php get_footer(); ?>

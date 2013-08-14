@@ -344,6 +344,16 @@ function infish_community_init() {
 			"script-name" => "community-single-js",
 			"script-path" => "infish/js/community-single.js",
 			"script-dependencies" => array('jquery')
+		),
+		array(
+			"script-name" => "jquery-mousewheel-js",
+			"script-path" => "infish/js/zfselect/js/jquery.mousewheel.js",
+			"script-dependencies" => array('jquery')
+		),
+		array(
+			"script-name" => "zfselect-js",
+			"script-path" => "infish/js/zfselect/js/jquery.zfselect.min.js",
+			"script-dependencies" => array('jquery')
 		)
 	);
 
@@ -356,6 +366,11 @@ function infish_community_init() {
 		array(
 			"style-name" => "community-single-css",
 			"style-path" => "infish/css/community-single.css",
+			"style-dependencies" => array('community-common-css')
+		),
+		array(
+			"style-name" => "zfselect-css",
+			"style-path" => "infish/js/zfselect/css/zfselect.css",
 			"style-dependencies" => array('community-common-css')
 		)
 	);
