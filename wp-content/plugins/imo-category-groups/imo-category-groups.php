@@ -281,16 +281,19 @@ class imoMetaBoxClass {
 		while($i <= $tabs){
 			$qued_tab = 'imo_tab_'.$i;
 			$options = get_option($qued_tab);
-			$title = $options['imo_group_title'];		
-			add_meta_box(
-			 	$qued_tab
-				,__( $title, self::LANG )
-				,array( &$this, 'render_meta_box_content' )
-				,'post'
-				,'side'
-				,'high'
-			);
-			$i++;
+			$title = $options['imo_group_title'];
+			$types = array( 'post', 'reviews' );
+			foreach( $types as $type ) {
+				add_meta_box(
+				 	$qued_tab
+					,__( $title, self::LANG )
+					,array( &$this, 'render_meta_box_content' )
+					,$type
+					,'side'
+					,'high'
+				);
+				$i++;
+			}
 		}
 
 	}
