@@ -364,6 +364,36 @@ function infish_community_init() {
 	$IMO_COMMUNITY['community-single'] = $IMO_COMMUNITY_CONFIG;
 
 
+	///////////////////////////////////////////
+	//Underscore Testing Page Configuration
+	///////////////////////////////////////////
+	$IMO_COMMUNITY_CONFIG = NULL;
+	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "underscore_test";//This slug will override ANY setting in wordpress.
+	$IMO_COMMUNITY_CONFIG['page_title'] = "Underscore"; //On single pages, title is taken from Post
+	$IMO_COMMUNITY_CONFIG['template'] = '/infish/underscore-test.php';
+	$IMO_COMMUNITY_CONFIG['dart_page'] = 'infish_community';
+	$IMO_COMMUNITY_CONFIG['dart_sect'] = 'infishcommunity';
+	$IMO_COMMUNITY_CONFIG['post_types'] = $inFishPostTypes;
+
+
+	$IMO_COMMUNITY_CONFIG['additional_scripts'] = array(
+		//Third Part Scripts
+		array(
+			"script-name" => "underscore-js",
+			"script-path" => "js/underscore-min.js",
+			"script-dependencies" => array('jquery')
+		),
+		array(
+			"script-name" => "underscore-testing-js",
+			"script-path" => "infish/js/underscore-test.js",
+			"script-dependencies" => array('jquery',"underscore-js")
+		)
+	);
+
+
+	global $IMO_COMMUNITY;
+	$IMO_COMMUNITY['underscore-test'] = $IMO_COMMUNITY_CONFIG;
+
 
 
 	///////////////////////////////////////////
@@ -421,7 +451,7 @@ function infish_community_init() {
 	//Admin Page Testing
 	///////////////////////////////////////////
 	$IMO_COMMUNITY_CONFIG = NULL;
-	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "community-testing";//This slug will override ANY setting in wordpress.
+	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "beta-community";//This slug will override ANY setting in wordpress.
 	$IMO_COMMUNITY_CONFIG['page_title'] = 'In-Fisherman Community';
 	$IMO_COMMUNITY_CONFIG['template'] = '/templates/blank-template.php';
 	$IMO_COMMUNITY_CONFIG['dart_page'] = 'infish_community';
