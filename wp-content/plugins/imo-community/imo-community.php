@@ -26,20 +26,26 @@ function imo_community_setup_routes() {
 
     global $IMO_COMMUNITY;
 
-
     foreach ($IMO_COMMUNITY as $CONFIG_NAME => $IMO_COMMUNITY_CONFIG) {
 
 
     	$regex = "?";
 
+    	$matchName = "&spid=";
+
     	if ($IMO_COMMUNITY_CONFIG['page_type'] == "single")
     		$regex = "/([^/]*)/?";
+
+    	if ($IMO_COMMUNITY_CONFIG['page_type'] == "profile") {
+    		$regex = "/([^/]*)/?";
+    		$matchName = "&username=";
+    	}
 
     	$rewriteCondition = "^" . $IMO_COMMUNITY_CONFIG['community_home_slug'] . $regex;
     	$rewriteString = "index.php?pagename="
     					. $CONFIG_NAME
     					. "&config_name=" . $CONFIG_NAME
-    					. '&spid=$matches[1]';
+    					. $matchName . '$matches[1]';
 
         // print($rewriteCondition . "  -  ");
         // print($rewriteString . "\n");
@@ -89,6 +95,12 @@ function imo_community_template() {
 	    wp_register_script( 'jquery', '/wp-content/plugins/imo-community/js/jquery-1.7.1.min.js');
 	    wp_enqueue_script( 'jquery' );
 
+
+
+
+
+
+
 		foreach($IMO_COMMUNITY_CONFIG['additional_scripts'] as $script) {
 
 			$in_footer = true;
@@ -114,7 +126,8 @@ function imo_community_template() {
 		//Erase some of the settings so that there isn't too much stuff
 		unset($IMO_COMMUNITY_CONFIG['additional_scripts']);
 		unset($IMO_COMMUNITY_CONFIG['additional_styles']);
-		wp_localize_script( 'imo-community-common', 'IMO_COMMUNITY_CONFIG', $IMO_COMMUNITY_CONFIG);
+		wp_enqueue_script( 'imo-community-config', plugin_dir_url( __FILE__ ) . 'wp-localize-fake-script.js', array( 'jquery' ) );
+		wp_localize_script( 'imo-community-config', 'IMO_COMMUNITY_CONFIG', $IMO_COMMUNITY_CONFIG);
 
 
 		imo_include_wordpress_template(dirname( __FILE__ ) . $IMO_COMMUNITY_CONFIG['template'] );
