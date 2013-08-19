@@ -117,7 +117,7 @@ $app->get('/users/:id', function ($id) {
 		$db = dbConnect();
 
 
-		$sql = "SELECT ID,user_login,user_nicename,user_registered,user_status,display_name,score,score_today,score_week,score_month,comment_count,post_count,CONCAT('users/',community_users.user_nicename) as url FROM community_users $whereString ORDER BY id DESC";
+		$sql = "SELECT ID,user_login,user_nicename,user_registered,user_status,display_name,city,state,score,score_today,score_week,score_month,comment_count,post_count,CONCAT('users/',community_users.user_nicename) as url FROM community_users $whereString ORDER BY id DESC";
 
 		$stmt = $db->prepare($sql);
 		$stmt->execute(array($id));
