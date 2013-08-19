@@ -26,9 +26,9 @@ imo_sidebar("community");
 
 $hostname = $_SERVER['SERVER_NAME'];
 
-$spid =  get_query_var("spid");
+$username = get_query_var("username");
 
-$apiURL = "http://$hostname/community-api/users/$spid?get_comments=1";
+$apiURL = "http://$hostname/community-api/users/$username?get_comments=1";
 
 $file = file_get_contents($apiURL);
 
@@ -36,6 +36,7 @@ $file = file_get_contents($apiURL);
 $data = json_decode($file);
 $attachmentData = $data->attachments;
 $commentData = $data->comments;
+
 
 
 if (empty($commentData)) {
@@ -179,23 +180,6 @@ if ($state == 'New York'){
 }
 
 
-if($post_user_score->score == 1){
-	$nicePoint = $post_user_score->score.' Point';
-}else{
-	$nicePoint = $post_user_score->score.' Points';
-}
-
-if($data->view_count == 1){
-	$niceView = $data->view_count.' View';
-}else{
-	$niceView = $data->view_count.' Views';
-}
-
-if($data->comment_count == 1){
-	$niceComment = $data->comment_count.' Comment';
-}else{
-	$niceComment = $data->comment_count.' Comments';
-}
 
 // Get the timestamp
 $timestamp = $data->created;
@@ -203,15 +187,6 @@ $timestamp = $data->created;
 // Convert the timestamp
 $date = date("F j, Y", strtotime($timestamp));
 $time = date("g:i A", strtotime($timestamp));
-
-
-$user = get_user_by("slug",$username);
-
-if ($user)
-	$userString = "username='$username'";
-
-
-$avatar = "/avatar?uid=".$user->ID;
 		
 $displayStyle = "display:none;";
 $loginStyle = "";
@@ -228,34 +203,24 @@ if ( is_user_logged_in() ) {
          return;
 }
 
-// user meta
-if( $user_meta = get_user_meta( $user->ID ) ) 
-    array_map( function( $a ){ return $a[0]; }, get_user_meta( $user->ID ) );
-    
-
-$twitter = $user_meta['twitter'][0];
-$city = $user_meta['city'][0];
-$state = $user_meta['state'][0];
 
 ?>
-
-
 
 <div id="primary" class="general general-com" role="main">
         
             <div class="profile-title clearfix">
-                <h1>COmmunity Profile</h1>
-                <img src="<?php bloginfo( 'template_url' ); ?>/images/logos/fishhead.png" alt="" class="profile-logo" />
+                <h1>Community Profile</h1>
+                <img src="<?php echo plugins_url('images/logos/fishhead.png' , __FILE__ ); ?>" alt="" class="profile-logo" />
             </div>
             <div class="profile-data-box">
                 <div class="thumb-col">
-                    <img src="<?php bloginfo( 'template_url' ); ?>/images/logos/master-angler.png" alt="" />
+                    <img src="<?php echo plugins_url('images/master-angler.png' , __FILE__ ); ?>" alt="" />
                 </div>
                 <div class="user-col">
-                    <h2>Rusty Bender</h2>
+                    <h2><?php echo $data->display_name; ?></h2>
                     <div class="profile-panel clearfix">
                         <div class="profile-photo">
-                            <a href="#"><img alt="" src="<?php bloginfo( 'template_url' ); ?>/images/pic/rud.jpg"></a>
+                            <a><img alt="" src="/avatar?uid=<?php echo $data->ID; ?>"></a>
                         </div>
                         <div class="profile-data">
                             <div class="user-from">
@@ -266,7 +231,14 @@ $state = $user_meta['state'][0];
                     </div>
                 </div>
                 <div class="points-col">
-                    <strong class="points-nb">57</strong><br />points
+                	<?php 
+                	if($data->score == 1){
+							$niceScore = '<strong class="points-nb">'.$data->score.'</strong><br />Point';
+						}else{
+							$niceScore = '<strong class="points-nb">'.$data->score.'</strong><br />Points';
+						} 
+					?>
+                    <?php echo $niceScore; ?>
                 </div>
             </div>
             <div class="profile-btn-panel">
@@ -279,253 +251,61 @@ $state = $user_meta['state'][0];
                 </ul>
             </div>
             <div class="general-title clearfix">
-                <h2>Rusty Bender?s  <span>Activity</span></h2>
+                <h2><?php echo $data->display_name; ?>'s  <span>Activity</span></h2>
             </div>
             <div class="profile-tabs">
                 <ul class="tabs">
                     <li><a href="#activity">Recent Activity</a></li>
-                    <li><a href="#replies">Replies  (<span>11</span>)</a></li>
+                    <li><a href="#replies">Replies  (<span><?php echo count($data->comments); ?></span>)</a></li>
                 </ul>
                 <div id="activity" class="tab-content">
                     <div class="dif-posts">
-                        <div class="dif-post">
-                            <div class="feat-img">
-                                <a href="#"><img class="feat-img" src="<?php bloginfo( 'template_url' ); ?>/images/pic/pic1.jpg" alt="" /></a>
-                            </div>
-                            <div class="dif-post-text">
-                                <h3><a href="#">What should it score?</a></h3>
-                                <div class="profile-panel">
-                                    <div class="profile-photo">
-                                        <a href="#"><img src="<?php bloginfo( 'template_url' ); ?>/images/pic/rud.jpg" alt="" /></a>
-                                    </div>
-                                    <div class="profile-data">
-                                        <h4><a href="#">Hunter Rud</a></h4>
-                                        <ul class="prof-tags">
-                                            <li><a href="#">North Carolina</a></li>
-                                            <li><a href="#">Smallmout</a></li>
-                                            <li><a href="#">Master Angler</a></li>
-                                        </ul>
-                                        <ul class="replies">
-                                            <li><a href="#">9 Reply</a></li>
-                                            <li>9 Point</li>
-                                        </ul>
-                                        <ul class="prof-like">
-                                            <li><img src="<?php bloginfo( 'template_url' ); ?>/images/btn/fb-like.png" alt="" /></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <span class="badge"><img src="<?php bloginfo( 'template_url' ); ?>/images/pic/badge-ma.png" alt="" /></span>
-                            </div>
-                        </div>
-                        <div class="dif-post">
-                            <div class="feat-img">
-                                <a href="#"><img class="feat-img" src="<?php bloginfo( 'template_url' ); ?>/images/pic/pic2.jpg" alt="" /></a>
-                            </div>
-                            <div class="dif-post-text">
-                                <h3><a href="#">Quest for Florida Giants</a></h3>
-                                <div class="profile-panel">
-                                    <div class="profile-photo">
-                                        <a href="#"><img src="<?php bloginfo( 'template_url' ); ?>/images/pic/rud.jpg" alt="" /></a>
-                                    </div>
-                                    <div class="profile-data">
-                                        <h4><a href="#">Hunter Rud</a></h4>
-                                        <ul class="prof-tags">
-                                            <li><a href="#">North Carolina</a></li>
-                                            <li><a href="#">Smallmout</a></li>
-                                            <li><a href="#">Master Angler</a></li>
-                                        </ul>
-                                        <ul class="replies">
-                                            <li><a href="#">9 Reply</a></li>
-                                            <li>9 Point</li>
-                                        </ul>
-                                        <ul class="prof-like">
-                                            <li><img src="<?php bloginfo( 'template_url' ); ?>/images/btn/fb-like.png" alt="" /></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <span class="badge"><img src="<?php bloginfo( 'template_url' ); ?>/images/pic/badge-ma.png" alt="" /></span>
-                            </div>
-                        </div>
-                        <div class="dif-post">
-                            <div class="feat-img">
-                                <a href="#"><img class="feat-img" src="<?php bloginfo( 'template_url' ); ?>/images/pic/pic3.jpg" alt="" /></a>
-                            </div>
-                            <div class="dif-post-text">
-                                <h3><a href="#">What should it score?</a></h3>
-                                <div class="profile-panel">
-                                    <div class="profile-photo">
-                                        <a href="#"><img src="<?php bloginfo( 'template_url' ); ?>/images/pic/rud.jpg" alt="" /></a>
-                                    </div>
-                                    <div class="profile-data">
-                                        <h4><a href="#">Hunter Rud</a></h4>
-                                        <ul class="prof-tags">
-                                            <li><a href="#">North Carolina</a></li>
-                                            <li><a href="#">Smallmout</a></li>
-                                            <li><a href="#">Master Angler</a></li>
-                                        </ul>
-                                        <ul class="replies">
-                                            <li><a href="#">9 Reply</a></li>
-                                            <li>9 Point</li>
-                                        </ul>
-                                        <ul class="prof-like">
-                                            <li><img src="<?php bloginfo( 'template_url' ); ?>/images/btn/fb-like.png" alt="" /></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <span class="badge"><img src="<?php bloginfo( 'template_url' ); ?>/images/pic/badge-ma.png" alt="" /></span>
-                            </div>
-                        </div>
-                        <div class="dif-post">
-                            <div class="feat-img">
-                                <a href="#"><img class="feat-img" src="<?php bloginfo( 'template_url' ); ?>/images/pic/pic4.jpg" alt="" /></a>
-                            </div>
-                            <div class="dif-post-text">
-                                <h3><a href="#">Quest for Florida Giants</a></h3>
-                                <div class="profile-panel">
-                                    <div class="profile-photo">
-                                        <a href="#"><img src="<?php bloginfo( 'template_url' ); ?>/images/pic/rud.jpg" alt="" /></a>
-                                    </div>
-                                    <div class="profile-data">
-                                        <h4><a href="#">Hunter Rud</a></h4>
-                                        <ul class="prof-tags">
-                                            <li><a href="#">North Carolina</a></li>
-                                            <li><a href="#">Smallmout</a></li>
-                                            <li><a href="#">Master Angler</a></li>
-                                        </ul>
-                                        <ul class="replies">
-                                            <li><a href="#">9 Reply</a></li>
-                                            <li>9 Point</li>
-                                        </ul>
-                                        <ul class="prof-like">
-                                            <li><img src="<?php bloginfo( 'template_url' ); ?>/images/btn/fb-like.png" alt="" /></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <span class="badge"><img src="<?php bloginfo( 'template_url' ); ?>/images/pic/badge-ma.png" alt="" /></span>
-                            </div>
-                        </div>
-                        <div class="content-banner-section">
-                            <a href="#"><img alt="" src="<?php bloginfo( 'template_url' ); ?>/images/pic/imitates-injured.jpg"></a>
-                        </div>
-                        <div class="dif-post">
-                            <div class="feat-img">
-                                <a href="#"><img class="feat-img" src="<?php bloginfo( 'template_url' ); ?>/images/pic/pic1.jpg" alt="" /></a>
-                            </div>
-                            <div class="dif-post-text">
-                                <h3><a href="#">What should it score?</a></h3>
-                                <div class="profile-panel">
-                                    <div class="profile-photo">
-                                        <a href="#"><img src="<?php bloginfo( 'template_url' ); ?>/images/pic/rud.jpg" alt="" /></a>
-                                    </div>
-                                    <div class="profile-data">
-                                        <h4><a href="#">Hunter Rud</a></h4>
-                                        <ul class="prof-tags">
-                                            <li><a href="#">North Carolina</a></li>
-                                            <li><a href="#">Smallmout</a></li>
-                                            <li><a href="#">Master Angler</a></li>
-                                        </ul>
-                                        <ul class="replies">
-                                            <li><a href="#">9 Reply</a></li>
-                                            <li>9 Point</li>
-                                        </ul>
-                                        <ul class="prof-like">
-                                            <li><img src="<?php bloginfo( 'template_url' ); ?>/images/btn/fb-like.png" alt="" /></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <span class="badge"><img src="<?php bloginfo( 'template_url' ); ?>/images/pic/badge-ma.png" alt="" /></span>
-                            </div>
-                        </div>
-                        <div class="dif-post">
-                            <div class="feat-img">
-                                <a href="#"><img class="feat-img" src="<?php bloginfo( 'template_url' ); ?>/images/pic/pic2.jpg" alt="" /></a>
-                            </div>
-                            <div class="dif-post-text">
-                                <h3><a href="#">Quest for Florida Giants</a></h3>
-                                <div class="profile-panel">
-                                    <div class="profile-photo">
-                                        <a href="#"><img src="<?php bloginfo( 'template_url' ); ?>/images/pic/rud.jpg" alt="" /></a>
-                                    </div>
-                                    <div class="profile-data">
-                                        <h4><a href="#">Hunter Rud</a></h4>
-                                        <ul class="prof-tags">
-                                            <li><a href="#">North Carolina</a></li>
-                                            <li><a href="#">Smallmout</a></li>
-                                            <li><a href="#">Master Angler</a></li>
-                                        </ul>
-                                        <ul class="replies">
-                                            <li><a href="#">9 Reply</a></li>
-                                            <li>9 Point</li>
-                                        </ul>
-                                        <ul class="prof-like">
-                                            <li><img src="<?php bloginfo( 'template_url' ); ?>/images/btn/fb-like.png" alt="" /></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <span class="badge"><img src="<?php bloginfo( 'template_url' ); ?>/images/pic/badge-ma.png" alt="" /></span>
-                            </div>
-                        </div>
-                        <div class="content-banner-section">
-                            <a href="#"><img alt="" src="<?php bloginfo( 'template_url' ); ?>/images/pic/banner-evinrude.jpg"></a>
-                        </div>
-                        <div class="dif-post">
-                            <div class="feat-img">
-                                <a href="#"><img class="feat-img" src="<?php bloginfo( 'template_url' ); ?>/images/pic/pic3.jpg" alt="" /></a>
-                            </div>
-                            <div class="dif-post-text">
-                                <h3><a href="#">What should it score?</a></h3>
-                                <div class="profile-panel">
-                                    <div class="profile-photo">
-                                        <a href="#"><img src="<?php bloginfo( 'template_url' ); ?>/images/pic/rud.jpg" alt="" /></a>
-                                    </div>
-                                    <div class="profile-data">
-                                        <h4><a href="#">Hunter Rud</a></h4>
-                                        <ul class="prof-tags">
-                                            <li><a href="#">North Carolina</a></li>
-                                            <li><a href="#">Smallmout</a></li>
-                                            <li><a href="#">Master Angler</a></li>
-                                        </ul>
-                                        <ul class="replies">
-                                            <li><a href="#">9 Reply</a></li>
-                                            <li>9 Point</li>
-                                        </ul>
-                                        <ul class="prof-like">
-                                            <li><img src="<?php bloginfo( 'template_url' ); ?>/images/btn/fb-like.png" alt="" /></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <span class="badge"><img src="<?php bloginfo( 'template_url' ); ?>/images/pic/badge-ma.png" alt="" /></span>
-                            </div>
-                        </div>
-                        <div class="dif-post">
-                            <div class="feat-img">
-                                <a href="#"><img class="feat-img" src="<?php bloginfo( 'template_url' ); ?>/images/pic/pic4.jpg" alt="" /></a>
-                            </div>
-                            <div class="dif-post-text">
-                                <h3><a href="#">Quest for Florida Giants</a></h3>
-                                <div class="profile-panel">
-                                    <div class="profile-photo">
-                                        <a href="#"><img src="<?php bloginfo( 'template_url' ); ?>/images/pic/rud.jpg" alt="" /></a>
-                                    </div>
-                                    <div class="profile-data">
-                                        <h4><a href="#">Hunter Rud</a></h4>
-                                        <ul class="prof-tags">
-                                            <li><a href="#">North Carolina</a></li>
-                                            <li><a href="#">Smallmout</a></li>
-                                            <li><a href="#">Master Angler</a></li>
-                                        </ul>
-                                        <ul class="replies">
-                                            <li><a href="#">9 Reply</a></li>
-                                            <li>9 Point</li>
-                                        </ul>
-                                        <ul class="prof-like">
-                                            <li><img src="<?php bloginfo( 'template_url' ); ?>/images/btn/fb-like.png" alt="" /></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <span class="badge"><img src="<?php bloginfo( 'template_url' ); ?>/images/pic/badge-ma.png" alt="" /></span>
-                            </div>
-                        </div>
+                        <?php 
+                        $posts = $data->posts;
+                        
+                        foreach($posts as $post){ 
+	                       	if($post->score == 1){
+								$niceScore = $post->score.' Point';
+							}else{
+								$niceScore = $post->score.' Points';
+							}
+							
+							if($post->comment_count == 1){
+								$niceComment = $post->comment_count.' Comment';
+							}else{
+								$niceComment = $post->comment_count.' Comments';
+							}
+							
+								if($post->img_url){ 
+							?>
+                        
+		                        <div class="dif-post">
+		                            <div class="feat-img">
+		                                <a href="/photos/<?php echo $post->id; ?>"><img class="feat-img" src="<?php echo $post->img_url; ?>" alt="<?php echo $post->title; ?>" title="<?php echo $post->title; ?>" /></a>
+		                            </div>
+		                            <div class="dif-post-text">
+		                                <h3><a href="/photos/<?php echo $post->id; ?>"><?php echo $post->title; ?></a></h3>
+		                                <div class="profile-panel">
+		                                    <div class="profile-photo">
+		                                        <a href="/profile/<?php echo $post->username; ?>"><img src="/avatar?uid=<?php echo $data->ID; ?>" alt="<?php echo $post->display_name; ?>" title="<?php echo $post->display_name; ?>" /></a>
+		                                    </div>
+		                                    <div class="profile-data">
+		                                        <h4><a href="/photos/<?php echo $post->id; ?>"></a></h4>
+		                                        <ul class="prof-tags">
+		                                            <li><a href="<?php echo $post->state; ?>"><?php echo $post->state; ?></a></li>
+		                                            <li><a href="<?php echo $post->post_type; ?>"><?php echo $post->post_type; ?></a></li>
+		                                            <li><a href="#">Master Angler</a></li>
+		                                        </ul>
+		                                        <ul class="replies">
+		                                            <li><a href="/photos/<?php echo $post->id; ?>/#reply_field"><?php echo $niceComment; ?></a></li>
+		                                            <li><?php echo $niceScore; ?></li>
+		                                        </ul>
+											</div>
+		                                </div>
+		                                <span class="badge"><img src="<?php echo plugins_url('images/badge-ma.png' , __FILE__ ); ?>" alt="" /></span>
+		                            </div>
+		                        </div>
+                        <?php } } ?>
                     </div>
                     <div class="pager-holder js-responsive-section" data-position="5">
                         <a class="btn-base" href="#">Load More</a>
@@ -534,74 +314,31 @@ $state = $user_meta['state'][0];
                 </div>
                 <div id="replies" class="tab-content">
                     <ul class="simple-replies">
-                        <li class="reply-item">
-                            <p>Yup. That's him. He's bulked up a bit since then. Don't think there's any question about it now.</p>
-                            <div class="replies-data-line">
-                                Replied To <a href="#">STUD</a>!! In <a href="#">Rut Reports</a>   |   3 Days Ago
-                            </div>
-                        </li>
-                        <li class="reply-item even">
-                            <p>Corn mixed with vita rack. Just on ground</p>
-                            <div class="replies-data-line">
-                                Replied To <a href="#">STUD</a>!! In <a href="#">Rut Reports</a>   |   3 Days Ago
-                            </div>
-                        </li>
-                        <li class="reply-item">
-                            <p>Good point Sean. The surrounding land owners do practice QDM, but my worries are the poachers that are shooting the bucks at night. Every year the DNR is out in...</p>
-                            <div class="replies-data-line">
-                                Replied To <a href="#">STUD</a>!! In <a href="#">Rut Reports</a>   |   3 Days Ago
-                            </div>
-                        </li>
-                        <li class="reply-item even">
-                            <p>Between ticks and bitting flies, you'll see this on a lot of deer this time of year.</p>
-                            <div class="replies-data-line">
-                                Replied To <a href="#">Is This A Disease Or Skin Abnormality?</a> In <a href="#">Q&A</a>    |   3 Days Ago
-                            </div>
-                        </li>
-                        <li class="reply-item">
-                            <p>Yup. That's him. He's bulked up a bit since then. Don't think there's any question about it now.</p>
-                            <div class="replies-data-line">
-                                Replied To <a href="#">STUD</a>!! In <a href="#">Rut Reports</a>   |   3 Days Ago
-                            </div>
-                        </li>
-                        <li class="reply-item even">
-                            <p>Corn mixed with vita rack. Just on ground</p>
-                            <div class="replies-data-line">
-                                Replied To <a href="#">STUD</a>!! In <a href="#">Rut Reports</a>   |   3 Days Ago
-                            </div>
-                        </li>
-                        <li class="reply-item">
-                            <p>Good point Sean. The surrounding land owners do practice QDM, but my worries are the poachers that are shooting the bucks at night. Every year the DNR is out in...</p>
-                            <div class="replies-data-line">
-                                Replied To <a href="#">STUD</a>!! In <a href="#">Rut Reports</a>   |   3 Days Ago
-                            </div>
-                        </li>
-                        <li class="reply-item even">
-                            <p>Between ticks and bitting flies, you'll see this on a lot of deer this time of year.</p>
-                            <div class="replies-data-line">
-                                 Replied To <a href="#">Is This A Disease Or Skin Abnormality?</a> In <a href="#">Q&A</a>   |   3 Days Ago
-                            </div>
-                        </li>
-                        <li class="reply-item">
-                            <p>Between ticks and bitting flies, you'll see this on a lot of deer this time of year.</p>
-                            <div class="replies-data-line">
-                                 Replied To <a href="#">Is This A Disease Or Skin Abnormality?</a> In <a href="#">Q&A</a>   |   3 Days Ago
-                            </div>
-                        </li>
-                    </ul>
+                    	<?php 
+                        $comments = $data->comments;
+                        
+                        foreach($comments as $comment){ $spid =  $comment->parent; }
+                        
+                        // Let's not run this a million times.
+                        $replyURL = "http://$hostname/community-api/posts/$spid?get_comments=1";
+						$replyFile = file_get_contents($replyURL);
+						//SET TEMPLATE VARIABLES
+						$replyData = json_decode($replyFile);
+
+                        foreach($comments as $comment){  ?>
+                        	<li class="reply-item">
+	                            <p><?php echo $comment->body; ?></p>
+	                            <div class="replies-data-line">
+	                                Replied To <a href="<?php echo $replyData->url; ?>"><?php echo $replyData->title; ?></a> In <a href="<?php echo $replyData->url; ?>"><?php echo $replyData->post_type; ?></a>   |   <abbr class="recon-date timeago" title="<?php echo $comment->created; ?>"></abbr>
+	                            </div>
+	                        </li>
+                        <?php } ?>
+					</ul>
                 </div>
             </div>
-            <div class="foot-social clearfix">
-                <strong class="social-title">Like us on Facebook to <span>stay updated !</span></strong>
-                <div class="fb-like" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>
-                <div class="socials">
-                    <a href="#" class="facebook">Facebook</a>
-                    <a href="#" class="twitter">Twitter</a>
-                    <a href="#" class="youtube">YouTube</a>
-                    <a href="#" class="rss">RSS</a>
-                </div>
-            </div>
-       
+			<?php social_footer(); ?>
+			<div class="hr mobile-hr"></div>
+			<a href="#" class="back-top jq-go-top">back to top</a>       
     </div><!-- #primary -->
 
 

@@ -290,68 +290,35 @@ function infish_community_init() {
 	//This Post Types array is used in multiple configurations
 	$inFishPostTypes = array(
 
-		"bass" => array(
-			"display_name" => "Bass",
+		"report" => array(
+			"display_name" => "Rut Reports",
 			"post_list_style" => "tile"
 		),
 
-		"panfish" => array(
-			"display_name" => "Panfish",
-			"post_list_style" => "tile"
+		"question" => array(
+			"display_name" => "Q&A",
+			"post_list_style" => "list"
 		),
 
-		"pike" => array(
-			"display_name" => "Pike",
-			"post_list_style" => "tile"
+		"general" => array(
+			"display_name" => "General",
+			"post_list_style" => "list"
 		),
-
-		"muskie" => array(
-			"display_name" => "Muskie",
-			"post_list_style" => "tile"
+		"all" => array(
+			"display_name" => "All",
+			"post_list_style" => "list"
 		),
-
-		"trout" => array(
-			"display_name" => "Trout",
-			"post_list_style" => "tile"
-		),
-		"salmon" => array(
-			"display_name" => "Salmon",
-			"post_list_style" => "tile"
-		),
-		"walleye" => array(
-			"display_name" => "Walleye",
-			"post_list_style" => "tile"
-		),
-
-		"carp" => array(
-			"display_name" => "Carp",
-			"post_list_style" => "tile"
-		),
-
-		"paddlefish" => array(
-			"display_name" => "Paddlefish",
-			"post_list_style" => "tile"
-		),
-		"walleye" => array(
-			"display_name" => "Walleye",
-			"post_list_style" => "tile"
-		),
-
-		"burbot" => array(
-			"display_name" => "Burbot",
-			"post_list_style" => "tile"
+		"trending" => array(
+			"display_name" => "Trending",
+			"post_list_style" => "list"
 		)
 	);
-
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//NOTE: Configuration order matters! More specific URLs should appear before less specific urls on the same path.
 	// For example, the "single" page_type below needs to appear before "listing" page type on the same path.
 	//Also, solunar-calendar-mobile should appear before solunar-calendar
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-	//External Community Configurations
-	include("community-config/new-post.php");
 
 	///////////////////////////////////////////
 	//Community Single Post Page Configuration
@@ -461,6 +428,11 @@ function infish_community_init() {
 		array(
 			"script-name" => "underscore-js",
 			"script-path" => "js/underscore-min.js",
+			"script-dependencies" => array('jquery')
+		),
+		array(
+			"script-name" => "timeago-js",
+			"script-path" => "js/jquery.timeago.js",
 			"script-dependencies" => array('jquery')
 		),
 		array(

@@ -200,18 +200,9 @@ if ( is_user_logged_in() ) {
 
             <img src="/wp-content/themes/imo-mags-parent/images/ajax-loader.gif" id="ajax-loader" style="display:none;"/>
         </div>
-        <div class="foot-social clearfix">
-            <strong class="social-title">Like us on Facebook to <span>stay updated !</span></strong>
-            <div class="fb-like" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>
-            <div class="socials">
-                <a href="#" class="facebook">Facebook</a>
-                <a href="#" class="twitter">Twitter</a>
-                <a href="#" class="youtube">YouTube</a>
-                <a href="#" class="rss">RSS</a>
-            </div>
-        </div>
-        <a class="get-newsletter" href="#">Get the In-Fisherman <br>Newsletter</a>
-        <a class="back-top jq-go-top" href="#">back to top</a>
+		<?php social_footer(); ?>
+		<div class="hr mobile-hr"></div>
+		<a href="#" class="back-top jq-go-top">back to top</a>        
         <!-- example of filter by state section, put it were you need 
         <br />
         <p>this is just an example of the filter section, put it were you need</p>

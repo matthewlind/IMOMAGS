@@ -638,7 +638,7 @@
     position:relative;
     background:none;
 }
-.replies-list li:nth-child(2n+1) {
+.replies-list li:nth-child(2n+1), li.reply-item:nth-child(2n+1) {
     background:#fff;
 }
 .reply-text {overflow:hidden;}
@@ -1118,11 +1118,9 @@
 .reply-item {
     border:1px solid #fff;
     padding:20px 26px;
-    background:#fff;
     font:15px "open_sansregular", sans-serif;
     color:#040503;
 }
-.reply-item.even {background:none;}
 .reply-item p {padding:0 0 5px;}
 .replies-data-line {
     font-size:13px;

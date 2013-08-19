@@ -211,9 +211,9 @@ if ($state == 'New York'){
 
 
 if($post_user_score->score == 1){
-	$nicePoint = $post_user_score->score.' Point';
+	$niceScore = $post_user_score->score.' Point';
 }else{
-	$nicePoint = $post_user_score->score.' Points';
+	$niceScore = $post_user_score->score.' Points';
 }
 
 if($data->view_count == 1){
@@ -286,7 +286,7 @@ $time = date("g:i A", strtotime($timestamp));
                     <ul class="replies">
                         <li><?php echo $date; ?> at <?php echo $time; ?><div class="bullet"></li>
                         <li><a href="#reply_field"><?php echo $niceComment; ?></a></li>
-                        <li><?php echo $nicePoint; ?><div class="bullet"></li>
+                        <li><?php echo $niceScore; ?><div class="bullet"></li>
                         <li><?php echo $niceView; ?></li>
                     </ul>
                     <ul class="prof-like">
