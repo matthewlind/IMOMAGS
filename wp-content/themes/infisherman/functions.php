@@ -290,29 +290,63 @@ function infish_community_init() {
 	//This Post Types array is used in multiple configurations
 	$inFishPostTypes = array(
 
-		"report" => array(
-			"display_name" => "Rut Reports",
+		"bass" => array(
+			"display_name" => "Bass",
 			"post_list_style" => "tile"
 		),
 
-		"question" => array(
-			"display_name" => "Q&A",
-			"post_list_style" => "list"
+		"panfish" => array(
+			"display_name" => "Panfish",
+			"post_list_style" => "tile"
 		),
 
-		"general" => array(
-			"display_name" => "General",
-			"post_list_style" => "list"
+		"pike" => array(
+			"display_name" => "Pike",
+			"post_list_style" => "tile"
 		),
-		"all" => array(
-			"display_name" => "All",
-			"post_list_style" => "list"
+
+		"muskie" => array(
+			"display_name" => "Muskie",
+			"post_list_style" => "tile"
 		),
-		"trending" => array(
-			"display_name" => "Trending",
-			"post_list_style" => "list"
+
+		"trout" => array(
+			"display_name" => "Trout",
+			"post_list_style" => "tile"
+		),
+		"salmon" => array(
+			"display_name" => "Salmon",
+			"post_list_style" => "tile"
+		),
+		"walleye" => array(
+			"display_name" => "Walleye",
+			"post_list_style" => "tile"
+		),
+
+		"carp" => array(
+			"display_name" => "Carp",
+			"post_list_style" => "tile"
+		),
+
+		"paddlefish" => array(
+			"display_name" => "Paddlefish",
+			"post_list_style" => "tile"
+		),
+		"walleye" => array(
+			"display_name" => "Walleye",
+			"post_list_style" => "tile"
+		),
+
+		"burbot" => array(
+			"display_name" => "Burbot",
+			"post_list_style" => "tile"
 		)
 	);
+
+
+	//External Community Configurations
+	include("community-config/new-post.php");
+
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//NOTE: Configuration order matters! More specific URLs should appear before less specific urls on the same path.
@@ -409,7 +443,7 @@ function infish_community_init() {
 	global $IMO_COMMUNITY;
 	$IMO_COMMUNITY['underscore-test'] = $IMO_COMMUNITY_CONFIG;
 
-	
+
 	///////////////////////////////////////////
 	//Profile Community Page Configuration
 	///////////////////////////////////////////
@@ -462,8 +496,8 @@ function infish_community_init() {
 
 	global $IMO_COMMUNITY;
 	$IMO_COMMUNITY['community-profile'] = $IMO_COMMUNITY_CONFIG;
-	
-	
+
+
 	///////////////////////////////////////////
 	//Edit Profile Community Page Configuration
 	///////////////////////////////////////////

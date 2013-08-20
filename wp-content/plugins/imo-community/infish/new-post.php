@@ -152,8 +152,8 @@ get_header();
 
 
 			      <div style="margin-top:20px">
-				      	<a href="<%= attachment.img_url %>/convert?w=150&h=150&fit=crop" class="thickbox">
-				      		<img src="<%= attachment.img_url %>" width=75>
+				      	<a href="<%= attachment.img_url %>" class="thickbox">
+				      		<img src="<%= attachment.img_url %>/convert?w=150&h=150&fit=crop" width=75>
 				      	</a>
 
 				      	<input class="caption-field" name="caption-body" type="text" placeholder="Caption (optional)" value="<%= attachment.body %>">
