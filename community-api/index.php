@@ -301,11 +301,15 @@ $app->get('/posts/:id', function ($id) {
 $app->post('/posts',function() {
 	header('Access-Control-Allow-Origin: *');
 
-	//$params = Slim\Slim::getInstance()->request()->post();
+	$params = Slim\Slim::getInstance()->request()->post(); //jQuery sends data this way
+	$requestJSON = Slim\Slim::getInstance()->request()->getBody(); //Backbone sends data this way
 
-	$requestJSON = Slim\Slim::getInstance()->request()->getBody();
+	if (json_decode($requestJSON)) {
 
-	$params = json_decode($requestJSON,true);
+		$params = json_decode($requestJSON,true);
+	}
+
+
 
 
 	_log( $params);
@@ -466,6 +470,8 @@ $app->post('/posts',function() {
 
 		$sql = $sql . $sql2;
 
+		_log($sql);
+
 		$stmt = $db->prepare($sql);
 
 
@@ -485,6 +491,8 @@ $app->post('/posts',function() {
 
 
 		if ($requestIsGood) {
+
+			_log('REQUEST IS GOOD');
 
 			$stmt->execute();
 	        $superpostID = $db->lastInsertId();
