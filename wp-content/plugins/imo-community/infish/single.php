@@ -289,11 +289,10 @@ $time = date("g:i A", strtotime($timestamp));
                         <li><?php echo $niceScore; ?><div class="bullet"></li>
                         <li><?php echo $niceView; ?></li>
                     </ul>
-                    <ul class="prof-like">
-                        <li><div class="fb-like" data-href="<?php echo FACEBOOK_LINK; ?>" data-send="false" data-layout="button_count" data-width="100" data-show-faces="true"></div></li>
-                    </ul>
+                    
                 </div>
             </div>
+            <?php if (function_exists('imo_add_this')) {imo_add_this("fblike");} ?></li>
         </div>
         <?php
         	foreach ($attachmentData as $attachment) { 

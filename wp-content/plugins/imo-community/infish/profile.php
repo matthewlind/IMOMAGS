@@ -34,49 +34,9 @@ $file = file_get_contents($apiURL);
 
 //SET TEMPLATE VARIABLES
 $data = json_decode($file);
-$attachmentData = $data->attachments;
-$commentData = $data->comments;
-
-
-
-if (empty($commentData)) {
-
-
-    $visible = " style='display:none;'";
-}
-
-
-
-$grav_url = "http://www.gravatar.com/avatar/" . $data->gravatar_hash . ".jpg?s=50&d=identicon";
-
-$headerTitle = $data->post_type . ": " . $data->title;
-
-// get the score of the post's author
-$requestURL4 = "http://$hostname/slim/api/superpost/user/score/".$data->user_id;
-$file4 = file_get_contents($requestURL4);
-$post_user_score = json_decode($file4);
-$post_user_score = $post_user_score[0];
-
-
-if (empty($data->display_name)) {
-	$data->display_name = $data->username;
-}
 
 //get post user email
 
-$postUserData = get_userdata( $data->user_id );
-$postUserEmail = $postUserData->user_email;
-
-// Topic nice names
-if($data->post_type == "trophy"){
-	$topicName = 'Trophy Bucks';
-}else if($data->post_type == "general"){
-	$topicName = 'General Discussion';
-}else if($data->post_type == "report"){
-	$topicName = 'Rut Reports';
-}else{
-	$topicName = $data->post_type;
-}
 $state_slug = $data->state;
 
 // convert some slugs
@@ -180,14 +140,6 @@ if ($state == 'New York'){
 }
 
 
-
-// Get the timestamp
-$timestamp = $data->created;
-
-// Convert the timestamp
-$date = date("F j, Y", strtotime($timestamp));
-$time = date("g:i A", strtotime($timestamp));
-		
 $displayStyle = "display:none;";
 $loginStyle = "";
 
@@ -222,12 +174,14 @@ if ( is_user_logged_in() ) {
                         <div class="profile-photo">
                             <a><img alt="" src="/avatar?uid=<?php echo $data->ID; ?>"></a>
                         </div>
+                        <?php if($data->city != null || $data->state != null ){ ?>
                         <div class="profile-data">
                             <div class="user-from">
                                 From: <br />
-                                <span class="location">Martin, MI</span>
+                                <span class="location"><?php echo $data->city; ?>, <?php echo $data->state; ?></span>
                             </div>
                         </div>
+                        <?php } ?>
                     </div>
                 </div>
                 <div class="points-col">

@@ -1,5 +1,7 @@
 jQuery(document).ready(function() {
-
+	//Add relative time
+	jQuery("abbr.timeago").timeago();
+	
     //When page loads...
     jQuery(".tab-content").hide(); //Hide all content
     jQuery("ul.tabs li:first").addClass("active").show(); //Activate first tab

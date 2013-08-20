@@ -24,8 +24,6 @@ if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 get_header();
 imo_sidebar("community");
 
-$hostname = $_SERVER['SERVER_NAME'];
-
 $username = get_query_var("username");
 var_dump($username);
 $apiURL = "http://$hostname/community-api/users/$username?get_comments=1";
@@ -34,49 +32,9 @@ $file = file_get_contents($apiURL);
 
 //SET TEMPLATE VARIABLES
 $data = json_decode($file);
-$attachmentData = $data->attachments;
-$commentData = $data->comments;
-
-
-
-if (empty($commentData)) {
-
-
-    $visible = " style='display:none;'";
-}
-
-
-
-$grav_url = "http://www.gravatar.com/avatar/" . $data->gravatar_hash . ".jpg?s=50&d=identicon";
-
-$headerTitle = $data->post_type . ": " . $data->title;
-
-// get the score of the post's author
-$requestURL4 = "http://$hostname/slim/api/superpost/user/score/".$data->user_id;
-$file4 = file_get_contents($requestURL4);
-$post_user_score = json_decode($file4);
-$post_user_score = $post_user_score[0];
-
-
-if (empty($data->display_name)) {
-	$data->display_name = $data->username;
-}
 
 //get post user email
 
-$postUserData = get_userdata( $data->user_id );
-$postUserEmail = $postUserData->user_email;
-
-// Topic nice names
-if($data->post_type == "trophy"){
-	$topicName = 'Trophy Bucks';
-}else if($data->post_type == "general"){
-	$topicName = 'General Discussion';
-}else if($data->post_type == "report"){
-	$topicName = 'Rut Reports';
-}else{
-	$topicName = $data->post_type;
-}
 $state_slug = $data->state;
 
 // convert some slugs
@@ -180,40 +138,6 @@ if ($state == 'New York'){
 }
 
 
-if($post_user_score->score == 1){
-	$nicePoint = $post_user_score->score.' Point';
-}else{
-	$nicePoint = $post_user_score->score.' Points';
-}
-
-if($data->view_count == 1){
-	$niceView = $data->view_count.' View';
-}else{
-	$niceView = $data->view_count.' Views';
-}
-
-if($data->comment_count == 1){
-	$niceComment = $data->comment_count.' Comment';
-}else{
-	$niceComment = $data->comment_count.' Comments';
-}
-
-// Get the timestamp
-$timestamp = $data->created;
-
-// Convert the timestamp
-$date = date("F j, Y", strtotime($timestamp));
-$time = date("g:i A", strtotime($timestamp));
-
-
-$user = get_user_by("slug",$username);
-
-if ($user)
-	$userString = "username='$username'";
-
-
-$avatar = "/avatar?uid=".$user->ID;
-		
 $displayStyle = "display:none;";
 $loginStyle = "";
 
@@ -229,14 +153,6 @@ if ( is_user_logged_in() ) {
          return;
 }
 
-// user meta
-if( $user_meta = get_user_meta( $user->ID ) ) 
-    array_map( function( $a ){ return $a[0]; }, get_user_meta( $user->ID ) );
-    
-
-$twitter = $user_meta['twitter'][0];
-$city = $user_meta['city'][0];
-$state = $user_meta['state'][0];
 
 ?>
 

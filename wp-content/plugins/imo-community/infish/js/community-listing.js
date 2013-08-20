@@ -12,7 +12,7 @@ jQuery(document).ready(function($) {
 		});
 
 	});
-
+	
     jQuery('.browse-panel').on("click", ".jq-open-filer", function(){
         jQuery(".browse-item").removeClass("item-active");
         jQuery(this).addClass("item-active");

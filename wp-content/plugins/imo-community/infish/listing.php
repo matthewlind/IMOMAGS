@@ -68,7 +68,7 @@ if ( is_user_logged_in() ) {
                     </ul>
                     <ul class="replies">
                         <li><a href="#"><%= post.comment_count %> Reply</a></li>
-                        <li><%= post.comment_score %> Points</li>
+                        <li><%= post.score %> Points</li>
                     </ul>
                     <ul class="prof-like">
                         <li><div class="fb-like" data-href="<?php echo FACEBOOK_LINK; ?>" data-send="false" data-layout="button_count" data-width="100" data-show-faces="true"></div></li>
