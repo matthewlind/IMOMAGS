@@ -329,6 +329,7 @@
               
         el.addEventListener('touchstart', onTouchStart, false);
         function onTouchStart(e) {
+		  showSlideOutTouch();
           if (slider.animating) {
             e.preventDefault();
           } else if (e.touches.length === 1) {
