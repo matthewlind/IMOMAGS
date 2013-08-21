@@ -122,7 +122,7 @@ if ( is_user_logged_in() ) {
 
     <div class="frame">
         <div class="wide-banner">
-            <a href="#"><img src="wp-content/plugins/imo-community/solunar/images/banner/trokar-back.png" width="1020" height="176" alt="" /></a>
+            <a href="#"><img src="wp-content/plugins/imo-community/solunar/images/banner/banner-back.jpg" width="1020" height="176" alt="" /></a>
         </div>
         <div class="location-box jq-custom-form">
             <form action="#">

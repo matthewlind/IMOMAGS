@@ -90,7 +90,6 @@ $app->get('/users/:id', function ($id) {
 
 
 
-
 	//Default Settings
 	$get_posts = TRUE; // use 1 or 0 in query string
 	$get_comments = FALSE; // use 1 or 0 in query string
@@ -105,13 +104,20 @@ $app->get('/users/:id', function ($id) {
 	extract($params,EXTR_OVERWRITE);
 
 
+	if (is_numeric($id)) {
+		$whereString = "WHERE id = ?";
+	} else {
+		$whereString = "WHERE user_nicename = ?";
+	}
+
+
   //Get the user
 	try {
 
 		$db = dbConnect();
 
 
-		$sql = "SELECT ID,user_login,user_nicename,user_registered,user_status,display_name,score,score_today,score_week,score_month,comment_count,post_count,CONCAT('users/',community_users.user_nicename) as url FROM community_users WHERE id = ? ORDER BY id DESC";
+		$sql = "SELECT ID,user_login,user_nicename,user_registered,user_status,display_name,city,state,score,score_today,score_week,score_month,comment_count,post_count,CONCAT('users/',community_users.user_nicename) as url FROM community_users $whereString ORDER BY id DESC";
 
 		$stmt = $db->prepare($sql);
 		$stmt->execute(array($id));
@@ -125,6 +131,8 @@ $app->get('/users/:id', function ($id) {
 	} catch(PDOException $e) {
     	echo $e->getMessage();
   }
+
+  $id = $users[0]->ID;
 
 
   //If we need to, get the posts

@@ -19,7 +19,7 @@
  * **********************************************************************
  */
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
-if (CFCT_DEBUG) { cfct_banner(__FILE__); }
+
 
 get_header();
 
@@ -62,7 +62,7 @@ if ( is_user_logged_in() ) {
 	            </noscript>
 
 			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('scroll-sidebar')) : else : ?><?php endif; ?>
-		</div>		
+		</div>
   		</div>
 	</div>
 
@@ -99,7 +99,7 @@ if ( is_user_logged_in() ) {
 			<div style="width:900px">
 				<h3><%= post.get('title') %></h3>
 			</div>
-			
+
 			<span class="under-box">
 				<a href="/profile/<%= post.get('username') %>">
 					<img src="/avatar?uid=<%= post.get('user_id') %>" class="recon-gravatar" style="width:25px;">
@@ -123,7 +123,7 @@ if ( is_user_logged_in() ) {
 
 		<li style="display:inline-block;">
 
-			
+
 			<div class="recon-image-box" style="background-color:#c65517;width:300px;">
 				<a href="#!<%= post.get('url') %>">
 				<div style="width:300px">
@@ -132,7 +132,7 @@ if ( is_user_logged_in() ) {
 					<img src="<%= post.get('img_url') %>" class="superpost-thumb">
 				</a>
 			</div>
-			
+
 			<div class="under-box">
 				<a href="/profile/<%= post.get('username') %>">
 					<img src="/avatar?uid=<%= post.get('user_id') %>" class="recon-gravatar">
@@ -238,7 +238,7 @@ if ( is_user_logged_in() ) {
 	<script type="text/template" id="user-toolbar">
 
     <div class="toolbar">
-      Sort By: 
+      Sort By:
      <select id="order_by">
         <option value="username">Username</option>
         <option value="score">All Time Score</option>
@@ -256,9 +256,9 @@ if ( is_user_logged_in() ) {
 	<script type="text/template" id="post-toolbar">
 
     <div class="toolbar">
-    Sort By: 
+    Sort By:
       <select id="order_by">
-        
+
         <option value="created">Newest First</option>
         <option value="score_today">Top Score Today</option>
         <option value="score_week">Top Score this Week</option>
@@ -269,7 +269,7 @@ if ( is_user_logged_in() ) {
         <option value="comment_count_month">Comment Count Month</option>
         <option value="comment_count">Comment Count All Time</option>
         <option value="view_count">View Count All Time</option>
-        
+
       </select>
     </div>
 	</script>

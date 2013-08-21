@@ -296,7 +296,7 @@ function conditionally_add_scripts_and_styles($posts){
 			$cat = get_category( get_query_var( 'cat' ) );
 			$categorySlug = $cat->slug;
 
-			$slugArray = array("thanks-dad-iiyn","more-category-slugs-here");
+			$slugArray = array("thanks-dad-iiyn","fall-iiyn","more-category-slugs-here");
 
 			if (in_array($categorySlug, $slugArray)) {
 				wp_enqueue_script('ajax-gallery-js',plugins_url('ajax-gallery.js', __FILE__));
