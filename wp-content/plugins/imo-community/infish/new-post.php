@@ -51,6 +51,10 @@ imo_sidebar("community");
 						</div>
 					</div>
 				</div>
+				<div id="progressBar">
+					
+					<div></div><span></span>
+				</div>
 				<select id="dynamic_select" class="post_type alter-sel" name="post_type">
 	         		<option value="">SPECIES</option>
 			 		<% _.each(post_types,function(postType,index){ %>
@@ -142,9 +146,6 @@ imo_sidebar("community");
 
 	<script type="text/template" id="single-attachment-template">
 
-
-
-
 			      <div style="margin:20px 0" class="add-photo-field">
 				      	<a href="<%= attachment.img_url %>" class="thickbox">
 				      		<img src="<%= attachment.img_url %>/convert?w=150&h=150&fit=crop" width=75>
@@ -156,7 +157,8 @@ imo_sidebar("community");
 
 				   </div>
 
-				   <div id="progressbar"><div class="progress-label">Loading...</div></div>
+				   
+
 
 	</script>
 	<!-- *********************************************************** -->

@@ -42,17 +42,19 @@ jQuery(document).ready(function($) {
 			//If they don't select anything... Do nothing
 		    //console.log("Choose an Image to upload.");
 		} else {
-
+		
+			$('#progressBar').fadeIn();
+			
 			filepicker.setKey('ANCtGPesfQI6nKja0ipqBz');
 
 		    filepicker.store(fileInput, function(FPFile){//Begin the upload
-		    
-		    		//If upload is good:
 
+					
+		    		//If upload is good:
 		            //console.log("Store successful:", FPFile);
 
 		            //Create the attachment data
-
+					
 		            var newAttachment = {};
 		            newAttachment.img_url = FPFile.url;
 		            newAttachment.post_type = "photo";
@@ -84,14 +86,21 @@ jQuery(document).ready(function($) {
 		            });
 
 		            postAttachments.push(newAttachment);//add the attachments to the list
+					$('#progressBar').fadeOut();
 
 		        }, function(FPError) {
 		            //console.log(FPError.toString());
 		        }, function(progress) {
 		        	//upload progress
-		            console.log("Loading: "+progress+"%");//PROGRESS INDICATOR!!!!!
+		            //console.log("Loading: "+progress+"%");//PROGRESS INDICATOR!!!!!
+		            
+		            //progress bar
+		            $('#progressBar div').css("width",progress*3 + "px");
+		            $('#progressBar span').text("Uploading: "+progress+"%");
+		            
 		        }
 		   );
+		   
 		}
 	});	
         
