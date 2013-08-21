@@ -25,6 +25,7 @@ $app->get('/posts', function () {
 	$require_images = FALSE; //Only return posts with images, use 1 or 0 in query string
 	$order_by = "id"; //e.g. "created","view_count"
 	$sort = "DESC";
+	$domain = convertDevDomainToDotCom($_SERVER['HTTP_HOST']);
 
 	//Grab the parameters
 	$params = \Slim\Slim::getInstance()->request()->get();
@@ -75,6 +76,18 @@ $app->get('/posts', function () {
 		exit();
 	}
 
+
+	//Check if Valid domain
+
+	if (preg_match("/^(?:[a-zA-Z0-9]+(?:\-*[a-zA-Z0-9])*\.)+[a-zA-Z]{2,6}$/", $domain)) {
+
+		$domainClause = "and domain = '$domain'";
+	} else {
+		header('HTTP 1.1/400 Bad Request', true, 400);
+		exit();
+	}
+
+
 	//IF order_by  is less than 22 characters and is only lowercase letters and underscores
 	if (preg_match("/^[a-z_]{1,22}$/", $order_by)) {
 
@@ -99,7 +112,7 @@ $app->get('/posts', function () {
 		$db = dbConnect();
 
 
-		$sql = "SELECT *,CONCAT(allcounts2.post_type,'/',allcounts2.id) as url FROM allcounts2 WHERE $postTypeClause $stateClause $requireImagesClause $orderByClause $sortClause $limitClause";
+		$sql = "SELECT *,CONCAT(allcounts2.post_type,'/',allcounts2.id) as url FROM allcounts2 WHERE $postTypeClause $stateClause $domainClause $requireImagesClause $orderByClause $sortClause $limitClause";
 
 
 
@@ -329,7 +342,7 @@ $app->post('/posts',function() {
 
 
 	$params['useragent'] = $_SERVER['HTTP_USER_AGENT'];
-	$params['domain'] = $_SERVER['HTTP_HOST'];
+	$params['domain'] = convertDevDomainToDotCom($_SERVER['HTTP_HOST']);
 	$params['posthash'] = '';
 
 	if ($params['post_type'] != "youtube" && $params['post_type'] != "photo" && $params['post_type'] != "comment") {
@@ -786,7 +799,7 @@ function process_attachments($attachmentArray, $parentID) {
 
 		$stmt = $db2->prepare($sql);
 
-		$stmt->execute(array($attachmentArray[0]['img_url'] . "/convert?w=300&h=300&fit=crop",$parentID));
+		$stmt->execute(array($attachmentArray[0]['img_url'] ,$parentID));
 
 		$row = $stmt->fetch(PDO::FETCH_OBJ);
 
@@ -804,12 +817,15 @@ function process_attachments($attachmentArray, $parentID) {
 			if (empty($body))
 				$body = '';
 
-			$sql = "INSERT INTO superposts (parent,post_type,body,img_url) values (? , ? , ? , ?)";
+
+			$domain = convertDevDomainToDotCom($_SERVER['HTTP_HOST']);
+
+			$sql = "INSERT INTO superposts (parent,post_type,body,img_url,domain) values (? , ? , ? , ? , ?)";
 
 
 			$stmt = $db2->prepare($sql);
 
-			$stmt->execute(array($parentID,$post_type,$body,$img_url));
+			$stmt->execute(array($parentID,$post_type,$body,$img_url,$domain));
 
 			$row = $stmt->fetch(PDO::FETCH_OBJ);
 
@@ -846,6 +862,19 @@ if(!function_exists('_log')){
 	    error_log( $message );
 	  }
   	}
+}
+
+function convertDevDomainToDotCom($domain) {
+
+	$domain = str_replace(".deva",".com",$domain);
+	$domain = str_replace(".fox",".com",$domain);
+	$domain = str_replace(".salah",".com",$domain);
+	$domain = str_replace(".devb",".com",$domain);
+	$domain = str_replace(".devc",".com",$domain);
+	$domain = str_replace(".dev-brock",".com",$domain);
+	$domain = str_replace(".dev-kayla",".com",$domain);
+
+	return $domain;
 }
 
 
