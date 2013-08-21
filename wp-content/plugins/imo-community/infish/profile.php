@@ -159,10 +159,9 @@ if ( is_user_logged_in() ) {
 ?>
 
 <div id="primary" class="general general-com" role="main">
-        
             <div class="profile-title clearfix">
                 <h1>Community Profile</h1>
-                <img src="<?php echo plugins_url('images/logos/fishhead.png' , __FILE__ ); ?>" alt="" class="profile-logo" />
+                <img src="<?php echo plugins_url('images/fishhead.png' , __FILE__ ); ?>" alt="" class="profile-logo" />
             </div>
             <div class="profile-data-box">
                 <div class="thumb-col">

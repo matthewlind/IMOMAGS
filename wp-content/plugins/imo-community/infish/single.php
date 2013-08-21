@@ -241,7 +241,7 @@ $time = date("g:i A", strtotime($timestamp));
 <div id="imo-add-this-spid" style="display:none;"><?php echo $spid; ?></div>
 
 <div class="general general-com">
-    
+   
     <ul class="breadcrumbs">
     	<li><a href="/community">Community</a></li>
     	<li style="margin-top:1px;">&raquo; <?php echo $topicName; ?></li>
@@ -271,6 +271,7 @@ $time = date("g:i A", strtotime($timestamp));
    
     <div class="dif-full-post">
         <h1><?php echo $data->title; ?></h1>
+        <img src="<?php echo plugins_url('images/fishhead.png' , __FILE__ ); ?>" alt="" class="profile-logo" />
         <div class="profile-panel">
             <div class="profile-photo">
                 <a href="/profile/<?php echo $data->username; ?>"><img src="/avatar?uid=<?php echo $data->user_id; ?>" alt="<?php echo $data->username; ?>" /></a>

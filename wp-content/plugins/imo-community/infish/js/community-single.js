@@ -1,50 +1,50 @@
 jQuery(document).ready(function(){
-        jQuery('.basic-popup').on("click", ".jq-close-popup .filter-fade-in", function(e){
-            jQuery(".basic-popup").removeClass("popup-opened");
-            jQuery(".filter-fade-out").removeClass("filter-fade-in");
-            jQuery(".layout-frame").removeClass("filter-popup-opened");
+        $('.basic-popup').on("click", ".jq-close-popup .filter-fade-in", function(e){
+            $(".basic-popup").removeClass("popup-opened");
+            $(".filter-fade-out").removeClass("filter-fade-in");
+            $(".layout-frame").removeClass("filter-popup-opened");
             e.preventDefault();
         });
         
-        jQuery('body').on("click", ".jq-open-reg-popup", function(e){
-            jQuery(".reg-popup").addClass("popup-opened");
-            jQuery(".filter-fade-out").addClass("filter-fade-in");
-            jQuery(".layout-frame").addClass("filter-popup-opened");
-            jQuery('html, body').animate({scrollTop:0}, 'slow');
+        $('body').on("click", ".jq-open-reg-popup", function(e){
+            $(".reg-popup").addClass("popup-opened");
+            $(".filter-fade-out").addClass("filter-fade-in");
+            $(".layout-frame").addClass("filter-popup-opened");
+            $('html, body').animate({scrollTop:0}, 'slow');
             return false;
         });
         
-        jQuery('body').on("click", ".jq-open-cat-popup", function(){
-            jQuery(".cat-popup").addClass("popup-opened");
-            jQuery(".filter-fade-out").addClass("filter-fade-in");
-            jQuery(".layout-frame").addClass("filter-popup-opened");
-            jQuery('html, body').animate({scrollTop:0}, 'slow');
+        $('body').on("click", ".jq-open-cat-popup", function(){
+            $(".cat-popup").addClass("popup-opened");
+            $(".filter-fade-out").addClass("filter-fade-in");
+            $(".layout-frame").addClass("filter-popup-opened");
+            $('html, body').animate({scrollTop:0}, 'slow');
             return false;
         });
         
-        jQuery('body').on("click", ".jq-open-state-popup", function(){
-            jQuery(".state-popup").addClass("popup-opened");
-            jQuery(".filter-fade-out").addClass("filter-fade-in");
-            jQuery(".layout-frame").addClass("filter-popup-opened");
-            jQuery('html, body').animate({scrollTop:0}, 'slow');
+        $('body').on("click", ".jq-open-state-popup", function(){
+            $(".state-popup").addClass("popup-opened");
+            $(".filter-fade-out").addClass("filter-fade-in");
+            $(".layout-frame").addClass("filter-popup-opened");
+            $('html, body').animate({scrollTop:0}, 'slow');
             return false;
         });
         
-        jQuery('body').on("click", ".jq-open-reply-slide", function(){
-            jQuery(".post-reply-slide").addClass("slide-opened");
-           // jQuery('html, body').animate({scrollTop:0}, 'slow');
+        $('body').on("click", ".jq-open-reply-slide", function(){
+            $(".post-reply-slide").addClass("slide-opened");
+           // $('html, body').animate({scrollTop:0}, 'slow');
             return false;
         });
         
-        jQuery('body').on("click", ".jq-open-login-popup", function(){
-            jQuery(".login-popup").addClass("popup-opened");
-            jQuery(".filter-fade-out").addClass("filter-fade-in");
-            jQuery(".layout-frame").addClass("filter-popup-opened");
-            jQuery('html, body').animate({scrollTop:0}, 'slow');
+        $('body').on("click", ".jq-open-login-popup", function(){
+            $(".login-popup").addClass("popup-opened");
+            $(".filter-fade-out").addClass("filter-fade-in");
+            $(".layout-frame").addClass("filter-popup-opened");
+            $('html, body').animate({scrollTop:0}, 'slow');
             return false;
         });
         
-        jQuery('.jq-explore-slider').flexslider({
+        $('.jq-explore-slider').flexslider({
             animation: "slide",
             animationSpeed: 200,
             slideshow: false,
@@ -56,7 +56,7 @@ jQuery(document).ready(function(){
             maxItems: 4
         });
         
-        jQuery('.jq-custom-form select').zfselect({
+        $('.jq-custom-form select').zfselect({
             rows:6
         });
      });

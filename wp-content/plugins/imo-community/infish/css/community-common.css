@@ -44,6 +44,11 @@
     bottom:0;
     border-color:#d8d8d7;
 }
+h2{
+	font:24px "stagbold", sans-serif;
+    color:#c6262d;
+    padding:0 0 10px;
+}
 .title-underline {
     padding:0 0 18px;
     border-bottom:1px solid #fff;
@@ -223,6 +228,7 @@
     cursor:pointer;
     margin:0 0 10px;
 }
+input.alter-sel {max-width: 300px;}
 .alter-sel:after {
     position:absolute;
     top:19px;
@@ -421,6 +427,7 @@
     padding:0 0 30px;
     display:none;
 }
+.post-page.post-reply-slide{display: block;}
 .slide-opened {display:block;}
 .post-reply-slide input[type="text"] {
     width:100%;
@@ -485,6 +492,7 @@
     font:14px "open_sansbold", sans-serif;
     text-align:center;
 }
+#image-upload{display: none;}
 .add-photo-link:before {
     display:inline-block;
     vertical-align:middle;
@@ -1568,6 +1576,10 @@
     .form .general-title {margin-top:15px;}
 }
 @media only screen and (max-width: 400px) {
+	.profile-title h1, .custom-title h1, .title-underline h1, .profile-title h1{
+		font-size: 30px;
+	}
+	.custom-title img, .profile-logo{display: none;}
     .profile-data-box {
         display:block;
         position:relative;

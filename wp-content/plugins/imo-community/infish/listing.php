@@ -86,11 +86,18 @@ if ( is_user_logged_in() ) {
 
 <div class="page-community">   
     <div class="general general-com">
-    
-        <div class="title-underline">
+    	<div class="custom-title clearfix">
+            <img src="<?php echo plugins_url('images/fishhead2.png' , __FILE__ ); ?>" alt="FishHeads" class="custom-tite-logo">
+            <div class="title-crumbs">
+                <h1>Fishhead Photos</h1>
+                <p>Description goes here in this place holder</p>
+			</div>
+        </div>
+
+        <!--<div class="title-underline">
             <h1>In-Fish Anglers <span>Your Freshwater Community</span></h1>
         </div>
-        <!--<div class="custom-slider-section mobile-hidden-section">
+        <div class="custom-slider-section mobile-hidden-section">
             <div class="general-title clearfix">
                 <h2><span>Explore  more</span></h2>
             </div>
@@ -185,7 +192,7 @@ if ( is_user_logged_in() ) {
                 <a href="#" class="btn-close-popup jq-close-filter">close</a>
             </div>
             <div class="filter-fade-out"></div>
-            <a href="#" class="share-photo jq-open-reg-popup"><span>Share a Photo</span></a>
+            <a href="photos/new" class="share-photo"><span>Share a Photo</span></a>
         </div>
         <div class="general-title clearfix alter-title">
             <h2>Latest <span>Submissions</span></h2>

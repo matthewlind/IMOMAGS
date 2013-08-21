@@ -13,44 +13,44 @@ jQuery(document).ready(function($) {
 
 	});
 	
-    jQuery('.browse-panel').on("click", ".jq-open-filer", function(){
-        jQuery(".browse-item").removeClass("item-active");
-        jQuery(this).addClass("item-active");
-        jQuery(".browse-holder").addClass("browse-panel-opened");
-        jQuery(".filter-fade-out").addClass("filter-fade-in");
-        jQuery(".layout-frame").addClass("filter-popup-opened");
-        jQuery('html, body').animate({scrollTop:0}, 'slow');
+    $('.browse-panel').on("click", ".jq-open-filer", function(){
+        $(".browse-item").removeClass("item-active");
+        $(this).addClass("item-active");
+        $(".browse-holder").addClass("browse-panel-opened");
+        $(".filter-fade-out").addClass("filter-fade-in");
+        $(".layout-frame").addClass("filter-popup-opened");
+        $('html, body').animate({scrollTop:0}, 'slow');
         return false;
     });
     
-    jQuery('body').on("click", ".jq-filter", function(e){
-        jQuery(".browse-holder").addClass("browse-panel-opened");
-        jQuery(".filter-fade-out").addClass("filter-fade-in");
-        jQuery(".layout-frame").addClass("filter-popup-opened");
-        jQuery('html, body').animate({scrollTop:0}, 'slow');
+    $('body').on("click", ".jq-filter", function(e){
+        $(".browse-holder").addClass("browse-panel-opened");
+        $(".filter-fade-out").addClass("filter-fade-in");
+        $(".layout-frame").addClass("filter-popup-opened");
+        $('html, body').animate({scrollTop:0}, 'slow');
         return false;
     });
     
-    jQuery('.browse-panel').on("click", ".jq-close-filter", function(e){
-        jQuery(".browse-item").removeClass("item-active");
-        jQuery(".browse-holder").removeClass("browse-panel-opened");
-        jQuery(".filter-fade-out").removeClass("filter-fade-in");
-        jQuery(".layout-frame").removeClass("filter-popup-opened");
+    $('.browse-panel').on("click", ".jq-close-filter", function(e){
+        $(".browse-item").removeClass("item-active");
+        $(".browse-holder").removeClass("browse-panel-opened");
+        $(".filter-fade-out").removeClass("filter-fade-in");
+        $(".layout-frame").removeClass("filter-popup-opened");
         e.preventDefault();
     });
     
-    jQuery('.basic-popup').on("click", ".jq-close-popup", function(e){
-        jQuery(".basic-popup").removeClass("popup-opened");
-        jQuery(".filter-fade-out").removeClass("filter-fade-in");
-        jQuery(".layout-frame").removeClass("filter-popup-opened");
+    $('.basic-popup').on("click", ".jq-close-popup", function(e){
+        $(".basic-popup").removeClass("popup-opened");
+        $(".filter-fade-out").removeClass("filter-fade-in");
+        $(".layout-frame").removeClass("filter-popup-opened");
         e.preventDefault();
     });
     
-    jQuery('body').on("click", ".jq-open-reg-popup", function(e){
-        jQuery(".reg-popup").addClass("popup-opened");
-        jQuery(".filter-fade-out").addClass("filter-fade-in");
-        jQuery(".layout-frame").addClass("filter-popup-opened");
-        jQuery('html, body').animate({scrollTop:0}, 'slow');
+    $('body').on("click", ".jq-open-reg-popup", function(e){
+        $(".reg-popup").addClass("popup-opened");
+        $(".filter-fade-out").addClass("filter-fade-in");
+        $(".layout-frame").addClass("filter-popup-opened");
+        $('html, body').animate({scrollTop:0}, 'slow');
         return false;
     });
     

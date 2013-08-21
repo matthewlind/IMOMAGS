@@ -1,6 +1,5 @@
 jQuery(document).ready(function($) {
-
-
+	
 	//Get post_type from community config
 	var postTypes = IMO_COMMUNITY_CONFIG.post_types;
 
@@ -92,6 +91,6 @@ jQuery(document).ready(function($) {
 		        }
 		   );
 		}
-	});
-
+	});	
+        
 });
