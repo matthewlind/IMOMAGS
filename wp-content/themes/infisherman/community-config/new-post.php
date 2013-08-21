@@ -39,6 +39,7 @@ $IMO_COMMUNITY_CONFIG['additional_scripts'] = array(
 		"script-path" => "infish/js/community-new-post.js",
 		"script-dependencies" => array('jquery',"underscore-js","community-common-js","filepicker-io-js","form-params-js")
 	)
+	
 );
 
 $IMO_COMMUNITY_CONFIG['additional_styles'] = array(

@@ -38,14 +38,9 @@ imo_sidebar("community");
 		            <input placeholder="Title" type="text" name="title" value="<%= post ? post.title : "" %>">
 		        </div>
 		        <div class="f-row">
-		        	<textarea placeholder="body" name="body" class="area" cols="30" rows="10"><%= post ? post.body : "" %></textarea>
+		        	<textarea placeholder="Body" name="body" class="area" cols="30" rows="10"><%= post ? post.body : "" %></textarea>
 		        </div>
-		        <div class="add-photo-field clearfix">
-		            <img src="<?php bloginfo( 'template_url' ); ?>/images/pic/photo1.jpg" class="reply-photo" alt="" />
-		            <div class="caption-area">
-		                <textarea id="" class="area" cols="30" rows="10" placeholder="Add Caption"></textarea>
-		            </div>
-		        </div>
+		        <div id="attachments" class="clearfix"></div>
 		        <div class="photo-link-area">
 		        	<div id="fileupload">
 						<div class="fileupload-buttonbar ">
@@ -136,8 +131,7 @@ imo_sidebar("community");
 				<% if (post && post.id) { %>
 						<input type="hidden" name="id" value="<%= post.id %>" >
 				<% } %>
-				<div id="attachments">
-		        </div>
+
 			    <span class="btn-red btn-post"><input type="submit"></span>
 			</div>
 		</form>
@@ -151,17 +145,18 @@ imo_sidebar("community");
 
 
 
-			      <div style="margin-top:20px">
+			      <div style="margin:20px 0" class="add-photo-field">
 				      	<a href="<%= attachment.img_url %>" class="thickbox">
 				      		<img src="<%= attachment.img_url %>/convert?w=150&h=150&fit=crop" width=75>
 				      	</a>
-
-				      	<input class="caption-field" name="caption-body" type="text" placeholder="Caption (optional)" value="<%= attachment.body %>">
-				      	<a href="" class="delete-attachment">delete</a>
+					  	 <div class="caption-area" name="caption-body" placeholder="Caption (optional)" value="<%= attachment.body %>">
+			                <textarea id="" class="area caption-field" cols="30" rows="10" placeholder="Add Caption (optional)"></textarea>
+			            </div>
+				      	<a href="" class="delete-attachment"><span>Delete</span></a>
 
 				   </div>
 
-
+				   <div id="progressbar"><div class="progress-label">Loading...</div></div>
 
 	</script>
 	<!-- *********************************************************** -->

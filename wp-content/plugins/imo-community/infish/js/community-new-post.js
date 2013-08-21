@@ -46,11 +46,13 @@ jQuery(document).ready(function($) {
 			filepicker.setKey('ANCtGPesfQI6nKja0ipqBz');
 
 		    filepicker.store(fileInput, function(FPFile){//Begin the upload
+		    
 		    		//If upload is good:
 
 		            //console.log("Store successful:", FPFile);
 
 		            //Create the attachment data
+
 		            var newAttachment = {};
 		            newAttachment.img_url = FPFile.url;
 		            newAttachment.post_type = "photo";
