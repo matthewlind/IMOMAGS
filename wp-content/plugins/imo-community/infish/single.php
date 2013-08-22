@@ -293,7 +293,7 @@ $time = date("g:i A", strtotime($timestamp));
                     
                 </div>
             </div>
-            <?php if (function_exists('imo_add_this')) {imo_add_this("fblike");} ?></li>
+            <?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
         </div>
         <?php
         	foreach ($attachmentData as $attachment) { 
@@ -327,7 +327,7 @@ $time = date("g:i A", strtotime($timestamp));
 	        <div class="clearfix">
                 <a href="#reply_field" class="post-it">Post a Reply</a>
                 <ul class="like-bar">
-                    <li><div class="fb-like" data-href="<?php echo FACEBOOK_LINK; ?>" data-send="false" data-layout="button_count" data-width="100" data-show-faces="true"></div></li>
+                    <li> <?php if (function_exists('imo_add_this')) {imo_add_this();} ?></li>
                 </ul>
             </div>
         </div>

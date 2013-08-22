@@ -1021,7 +1021,7 @@ select.alter-sel {max-width: 300px;}
 }
 .profile-logo {
     position:absolute;
-    top:-28px;
+    top:0;
     right:0;
     max-width:114px;
 }
