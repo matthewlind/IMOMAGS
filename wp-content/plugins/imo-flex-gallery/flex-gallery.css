@@ -9,6 +9,8 @@ content: "";
 display: table;
 }
 
+.displayNone {display: none;}
+
 .top-bar,
 .network-nav {z-index: 9999;}
 

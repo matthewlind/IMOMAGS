@@ -318,6 +318,15 @@ function closeFullScreen() {
 		centerSlides();
 	}, 50);
 	jQuery('.btn-full-screen').text('Fullscreen');
+	
+/*
+	if (jQuery('.flex-gallery').width() < 425) {
+		jQuery('.flex-fullscreen .flex-counter').addClass('displayNone');
+	} else {
+		jQuery('.flex-fullscreen .flex-counter').removeClass('displayNone');
+	}
+*/
+	
 	if (jQuery('#imo-tophat').length) {
 		var topHatOffset = jQuery('#imo-tophat').height();
 	}
