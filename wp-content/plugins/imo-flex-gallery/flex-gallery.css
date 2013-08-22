@@ -1,0 +1,395 @@
+.clear {
+	clear: both;
+}
+.clearfix:after, .f-row:after, .container:after, .nav:after {
+clear: both;
+}
+.clearfix:before, .clearfix:after, .container:before, .container:after, .nav:before, .nav:after, .f-row:before, .f-row:after {
+content: "";
+display: table;
+}
+
+.top-bar,
+.network-nav {z-index: 9999;}
+
+
+.flex-slide {
+	text-align: center;
+}
+.flex-slide img {
+	position: relative;
+	display: inline-block !important;
+	max-width: 99.5%;
+	width: auto;
+    height:auto !important;
+    max-height: 410px;
+	vertical-align: middle;
+}
+
+.flex-gallery {
+	visibility:hidden;
+	padding: 0 15px 11px 15px;
+}
+
+.flex-gallery .flex-viewport {
+	width: 100%;
+	padding:0 0 1px 0;
+    max-height:482px;
+	transition-property: none !important;
+	-moz-transition-property: none !important;
+	-webkit-transition-property: none !important;
+	-o-transition-property: none !important;
+}
+.flex-next, .flex-prev {-webkit-transition: 0s !important;-moz-transition: 0s !important;transition: 0s !important;}
+
+.flex-gallery-container {
+	width: 100%;
+	z-index: 9001 /*over 9000*/;
+	position: relative;	
+	background: #000;
+	margin-top: -1px;
+	
+}
+div.flex-gallery-inner {
+	width: auto;
+	text-align: center;
+}
+
+
+div.flex-gallery-title {
+	margin-bottom: 15px;
+}
+.flex-gallery-title h2 {
+	color: #fff;
+	margin: 15px 0px 0px 0px;
+	float: left;
+	font: 20px "stagregular", "StagMedium", serif;
+	text-transform:capitalize;
+}
+
+div.flex-gallery-social {
+	display: inline-block;
+	float: left;
+	width: 350px;
+	height: 26px;
+	margin: 0;
+	overflow: hidden;
+}
+
+div.flex-counter {
+display: inline-block;
+float: right;
+margin: 0;
+padding: 0;
+border: none;
+background: none;
+color: #ccc;
+font-size: 14px;
+}
+
+.background-overlay {
+	display: none;
+	z-index: 1000;
+	background-image:url(../../themes/carrington-business/img/dark-trans-bg.png);
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	overflow-x: auto;
+	overflow-y: auto;
+}
+
+.flex-gallery-slide-out {
+	position:relative;
+	overflow: hidden;
+	z-index: 9000;
+	height:100%;
+	float: left;
+	padding: 15px 15px 0px 0px;
+	color:white;
+	visibility: hidden;
+background: #000000;
+}
+.flex-content {
+	position: relative;
+	display: none;
+	overflow:hidden;
+	margin-top: 6px;
+	padding-right: 22px;
+}
+.x-close {
+	float: right;
+	font: 12px Arial,"Helvetica Neue",Helvetica,sans-serif;
+  	text-align: center;
+  	font-size: 24px;
+ 	cursor: pointer;
+  	position: relative;
+	display: inline-block;
+	height: 18px;
+	width: 24px;
+	line-height: 18px;
+	margin: 23px -8px 5px 0;
+}
+
+
+.flex-gallery-slide-out a {
+  color:#3e88e9;
+}
+
+.slide-out-content {
+  margin: -18px 10px 10px 10px;
+  padding-right: 1px;
+  overflow: hidden;
+}
+
+.slide-out-content-title {
+	font-size: 15px;
+	font-weight: bold;
+	float:left;
+}
+
+.flex-gallery-slide-out h2 {
+  color:white;
+  line-height: 24px;
+  display: inline-block;
+}
+
+
+#gallery-iframe-ad {
+	border: none;
+	position: relative;
+	margin: -8px 0 0 -11px;
+}
+
+
+.flex-gallery-slide-out .slide-out-ad {
+	margin: 8px 0 0 10px;
+	height: 370px;
+	overflow: hidden;
+}
+
+.flex-gallery img, .flex-carousel img {
+	border: 1px solid #bbb;
+}
+.flex-carousel img:hover {
+	cursor: pointer;
+	border: 1px solid #c1272e;
+}
+
+
+.flex-carousel img {
+	width: 60px;
+	height: 44px;
+}
+.flex-carousel li {
+	width: 62px !important;
+	margin: 0 10px 0 10px !important;
+	height: 46px;
+	overflow: hidden;
+}
+.flex-carousel ul {
+	margin-left: -10px;
+}
+
+.flex-carousel {
+	padding: 15px 0px 15px 0px;
+	width: 75%;
+	margin: auto;
+	position: relative;
+	z-index: 9003;
+	text-align: center;
+}
+
+/* Nav Buttons */
+.flex-gallery ul.flex-direction-nav,
+.flex-carousel-nav ul.flex-direction-nav {
+	display: block;
+	padding: 0;
+	margin: 0;
+}
+.flex-carousel-nav {
+padding: 0 15px 0 15px;
+}
+.flex-gallery ul.flex-direction-nav {
+	float: right;
+	margin: 15px 0px 0 10px;
+	position: relative;
+}
+
+.flex-carousel-nav ul.flex-direction-nav li:first-child {	
+	float: left;
+	position: relative;
+	margin: -62px 0 0 0px;
+}
+.flex-carousel-nav ul.flex-direction-nav li:last-child {
+	float: right;
+	position: relative;
+	margin: -62px 0px 0 0;
+}
+
+
+.flex-gallery ul.flex-direction-nav li:first-child  {
+	margin-right:10px;
+}
+
+/* Nav Button Styling */
+.flex-carousel-nav ul.flex-direction-nav li,
+.flex-gallery ul.flex-direction-nav li {
+	background: #606060 url(img/imo-flex-btn-bg.png) no-repeat;	
+	/*background-position: 0px -70px;*/
+	display: inline-block;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	width: 40px;
+	padding:0;
+	position: relative;
+}
+.flex-carousel-nav ul.flex-direction-nav li:hover,
+.flex-gallery ul.flex-direction-nav li:hover {
+	background: #C1272E url(img/imo-flex-btn-bg-hover.png) no-repeat;	
+}
+.flex-gallery ul.flex-direction-nav li {
+	height: 30px;
+}
+.flex-carousel-nav ul.flex-direction-nav li {
+	height: 46px;
+}
+.flex-gallery ul.flex-direction-nav a,
+.flex-carousel-nav ul.flex-direction-nav a {
+	background: none;
+	position: relative !important;
+	top: 0 !important;
+	left: 0 !important;
+	display: inline-block;
+	width: 33px;
+	height: 46px;
+}
+.flex-gallery ul.flex-direction-nav a.flex-next {
+	background:url(img/imo-flex-next-prev.png) no-repeat -40px 0px;
+}
+.flex-gallery ul.flex-direction-nav a.flex-next:hover {
+	background:url(img/imo-flex-next-prev.png) no-repeat -120px 0px;
+}
+.flex-gallery ul.flex-direction-nav a.flex-prev {
+	background:url(img/imo-flex-next-prev.png) no-repeat -3px 0px;
+}
+.flex-gallery ul.flex-direction-nav a.flex-prev:hover {
+	background:url(img/imo-flex-next-prev.png) no-repeat -83px 0px;
+}
+.flex-carousel-nav ul.flex-direction-nav a.flex-next {
+	background:url(img/imo-flex-next-prev.png) no-repeat -43px 9px;
+}
+.flex-carousel-nav ul.flex-direction-nav a.flex-next:hover {
+	background:url(img/imo-flex-next-prev.png) no-repeat -123px 9px;
+}
+.flex-carousel-nav ul.flex-direction-nav a.flex-prev {
+	background:url(img/imo-flex-next-prev.png) no-repeat -3px 9px;
+}
+.flex-carousel-nav ul.flex-direction-nav a.flex-prev:hover {
+	background:url(img/imo-flex-next-prev.png) no-repeat -83px 9px;
+}
+
+/* Full Screen Related */
+.flex-full-body {
+	height: 100% !important;
+	width: 100% !important;
+	position: fixed;
+	overflow: hidden;
+}
+
+.btn-full-screen {
+	position: relative;
+	font-size: 12px;
+	height: 18px;
+	line-height: 18px;
+	font-weight: bold;
+	color: #FFF;
+	display: inline-block;
+	cursor: pointer;
+	background: #606060 url(img/imo-flex-btn-bg.png) no-repeat;	
+	display: inline-block;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	margin: 18px 0 0 0;
+	padding:6px 11px 6px 11px;
+}
+.btn-full-screen:hover {
+	background: #C1272E url(img/imo-flex-btn-bg-hover.png) no-repeat;
+}
+
+/* .flex-fullscreen */
+.flex-fullscreen .flex-gallery-title {
+	display: none;
+}
+.flex-fullscreen .flex-gallery ul.flex-direction-nav {
+	position: absolute;
+	width: 100%;
+	margin: 0;
+}
+.flex-fullscreen .flex-gallery ul.flex-direction-nav li {height: 46px;}
+.flex-fullscreen .flex-gallery ul.flex-direction-nav li:first-child {	
+	float: left;
+	margin: 0;
+}
+.flex-fullscreen .flex-gallery ul.flex-direction-nav li:last-child {
+	float: right;
+	margin: 0;
+}
+.flex-fullscreen .flex-gallery ul.flex-direction-nav a.flex-next {
+	background:url(img/imo-flex-next-prev.png) no-repeat -43px 8px;
+}
+.flex-fullscreen .flex-gallery ul.flex-direction-nav a.flex-next:hover {
+	background:url(img/imo-flex-next-prev.png) no-repeat -123px 8px;
+}
+.flex-fullscreen .flex-gallery ul.flex-direction-nav a.flex-prev {
+	background:url(img/imo-flex-next-prev.png) no-repeat -3px 8px;flex-gallery-social 
+}
+.flex-fullscreen .flex-gallery ul.flex-direction-nav a.flex-prev:hover {
+	background:url(img/imo-flex-next-prev.png) no-repeat -83px 8px;
+}
+.flex-fullscreen .flex-gallery-social {
+	margin: 15px 0 15px 0;
+}
+.flex-fullscreen .flex-counter {
+	line-height: 26px;
+	margin-top: 16px;
+}
+.flex-fullscreen .flex-slide img {
+	/*max-width: 100%;*/
+}
+.flex-fullscreen #gallery-iframe-ad {
+	margin: -7 0 0 -11px;
+}
+.flex-fullscreen .flex-carousel {
+	margin-top: -8px;
+}
+
+
+/* From IMO Mags Parent style.css for sites that don't have it */
+
+.imo-flex-loading-block {
+    overflow:hidden;
+    background: #fff url(img/loadingAnimation.gif) no-repeat 50%;
+	z-index: 9999;
+	width: 100%;
+	height: 45px;
+	margin: 30px 0 30px 0;
+	position: relative;
+
+}
+
+
+/* Media Queries */
+@media only screen and (max-width: 850px) {
+	.flex-counter-extra {
+		display: none;
+	}
+}
+@media only screen and (max-width: 760px) {
+	.flex-counter {
+		display: none;
+	}
+}
