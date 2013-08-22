@@ -1,5 +1,5 @@
 jQuery(document).ready(function($) {
-	
+
 	//Get post_type from community config
 	var postTypes = IMO_COMMUNITY_CONFIG.post_types;
 
@@ -24,13 +24,15 @@ jQuery(document).ready(function($) {
 		//console.log(newPostData);
 
 		$.post("http://" + document.domain + "/community-api/posts",newPostData,function(data){
-			
-			
-			console.log(data);
-			
+
+			var postData = $.parseJSON(data);
+
+
+
+
 			//alert("New Post Added! Replace this alert with a redirect to something!")
-			
-			//window.location.href = "/photos/" + data.id;
+
+			window.location.href = "/photos/" + postData.id;
 		});
 
 		return false;
@@ -48,19 +50,19 @@ jQuery(document).ready(function($) {
 			//If they don't select anything... Do nothing
 		    //console.log("Choose an Image to upload.");
 		} else {
-		
+
 			$('#progressBar').fadeIn();
-			
+
 			filepicker.setKey('ANCtGPesfQI6nKja0ipqBz');
 
 		    filepicker.store(fileInput, function(FPFile){//Begin the upload
 
-					
+
 		    		//If upload is good:
 		            //console.log("Store successful:", FPFile);
 
 		            //Create the attachment data
-					
+
 		            var newAttachment = {};
 		            newAttachment.img_url = FPFile.url;
 		            newAttachment.post_type = "photo";
@@ -99,15 +101,15 @@ jQuery(document).ready(function($) {
 		        }, function(progress) {
 		        	//upload progress
 		            //console.log("Loading: "+progress+"%");//PROGRESS INDICATOR!!!!!
-		            
+
 		            //progress bar
 		            $('#progressBar div').css("width",progress*3 + "px");
 		            $('#progressBar span').text("Uploading: "+progress+"%");
-		            
+
 		        }
 		   );
-		   
+
 		}
-	});	
-        
+	});
+
 });
