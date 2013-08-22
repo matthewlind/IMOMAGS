@@ -23,8 +23,14 @@ jQuery(document).ready(function($) {
 
 		//console.log(newPostData);
 
-		$.post("http://www.in-fisherman.deva/community-api/posts",newPostData,function(data){
-			alert("New Post Added! Replace this alert with a redirect to something!")
+		$.post("http://" + document.domain + "/community-api/posts",newPostData,function(data){
+			
+			
+			console.log(data);
+			
+			//alert("New Post Added! Replace this alert with a redirect to something!")
+			
+			//window.location.href = "/photos/" + data.id;
 		});
 
 		return false;

@@ -1,6 +1,6 @@
 jQuery(document).ready(function($) {
 
-	var url = "http://" + document.domain + "/community-api/posts?skip=0&per_page=21&order_by=score_week&sort=DESC";
+	var url = "http://" + document.domain + "/community-api/posts?skip=0&per_page=21&order_by=created&sort=DESC";
 
 	$.getJSON(url,function(posts){
 
