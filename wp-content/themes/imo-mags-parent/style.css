@@ -289,7 +289,7 @@ img{max-width: 100%;height: auto;}
     width:100%;
     padding:10px 0 0;
     position:relative;
-    z-index:9999999;   
+    z-index:9999999;
 }
 .logo {
     float:left;
@@ -304,7 +304,7 @@ img{max-width: 100%;height: auto;}
 }
 .smooth-menu{
 	-webkit-transform:translate3d(0,0,0);
-	-webkit-backface-visibility: hidden; 
+	-webkit-backface-visibility: hidden;
 }
 .snap-drawer-left {
 	left: 0;
@@ -330,18 +330,18 @@ img{max-width: 100%;height: auto;}
 
 /* Styles for fading out the drawer content in the "Expanding" demo */
 .drawer-inner {
-	-webkit-transition: opacity 0.3s ease; 
-	   -moz-transition: opacity 0.3s ease; 
-	    -ms-transition: opacity 0.3s ease; 
-	     -o-transition: opacity 0.3s ease; 
-	        transition: opacity 0.3s ease; 
+	-webkit-transition: opacity 0.3s ease;
+	   -moz-transition: opacity 0.3s ease;
+	    -ms-transition: opacity 0.3s ease;
+	     -o-transition: opacity 0.3s ease;
+	        transition: opacity 0.3s ease;
 }
 
 .snapjs-expand-left .drawer-inner,
 .snapjs-expand-right .drawer-inner {
 	opacity: 0;
 }
-#slidingMenu { 
+#slidingMenu {
 	display: none;
 	position: fixed;
 	top: 0;
@@ -364,12 +364,12 @@ img{max-width: 100%;height: auto;}
     margin:0 13px 0 0;
     display:none;
     background:url(images/sprite.png) no-repeat 0 -72px;
-    -webkit-tap-highlight-color: rgba(0,0,0,0); 
-	-webkit-touch-callout: none; 
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-touch-callout: none;
 }
 #page{
-	-webkit-tap-highlight-color: rgba(0,0,0,0); 
-	-webkit-touch-callout: none; 
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-touch-callout: none;
 	position: relative;
 	z-index: 999999;
 }
@@ -767,8 +767,8 @@ img{max-width: 100%;height: auto;}
     border:1px solid #dddcdb;
     border-width:1px 0 0;
     position:relative;
-    height: 100%; 
-	z-index: 9999; 
+    height: 100%;
+	z-index: 9999;
 }
 .general {
     float:left;
@@ -825,7 +825,7 @@ img{max-width: 100%;height: auto;}
     width:92%;
     margin:0 0 0 -46%;
     padding:26px 25px 33px;
-} 
+}
 .slides-inner li {
     padding:0 0 129px;
     position:relative;
@@ -954,7 +954,7 @@ img{max-width: 100%;height: auto;}
 .feat-img {
     position:relative;
     z-index:1;
-    
+
 }
 .feat-text {
     background:#fff;
@@ -1082,7 +1082,7 @@ a.category-name-link:hover{
     float:right;
     width:308px;
     margin:0 3px 0 0;
-    
+
 }
 .double-posts .feat-post:first-child {
     float:left;
@@ -1113,7 +1113,7 @@ a.category-name-link:hover{
     border-width:0 0 1px;
     padding:1px;
     position:relative;
-    
+
 }
 .article-brief:first-child {
     margin-top:0;
@@ -1188,7 +1188,7 @@ a.category-name-link:hover{
     margin:0 auto 20px;
     border-bottom:1px solid #dbdad9;
     position:relative;
-    
+
 }
 .sub-boxes:after {
     position:absolute;
@@ -1420,7 +1420,7 @@ a.category-name-link:hover{
     width:100%;
     height:auto;
     border:1px solid #fff;
-    
+
 }
 .entry-content-holder {
     position:relative;
@@ -1442,7 +1442,7 @@ a.category-name-link:hover{
     left:0;
     bottom:32px;
     margin:0;
-    
+
 }
 .full-post .entry-content .addthis_toolbox:first-child {
     top:0;
@@ -1455,7 +1455,7 @@ a.category-name-link:hover{
 }
 .full-post .entry-content p {
     padding:0 0 24px;
-    
+
 }
 .post-comments-area {
     background:#fff;
@@ -1612,7 +1612,7 @@ a.category-name-link:hover{
 	margin: 0px 9px 0 8px;
 }
 
-/* = General styles for mobile menu 
+/* = General styles for mobile menu
 ---------------------------------------------------------------------- */
 
 .snap-drawers {
@@ -1794,7 +1794,7 @@ a.category-name-link:hover{
 #jpsuperheader .jpstage{
 	margin: 0 auto !important;
 }
-/* = styles for mobile menu end 
+/* = styles for mobile menu end
 ---------------------------------------------------------------------- */
 .message-not-found {
     display:block;
@@ -2503,6 +2503,13 @@ h2.related-stories{
     vertical-align:middle;
     margin:0 0 0 16px;
 }
+
+
+.hidden-desktop {
+    display:none;
+}
+
+
 /* =Responsive Breakpoints
 *******************************************************************************/
 @media only screen and (max-width: 1096px) {
@@ -2512,6 +2519,13 @@ h2.related-stories{
         left:-99999px;
         border: none;
     }
+
+    .hidden-phone {
+        display:block;
+    }
+
+
+
     #cabelas-essentials .feat-text{
 	    clear: both;
 	    max-width: 180px;
@@ -2577,7 +2591,7 @@ h2.related-stories{
        width:258px;
    }
 
-  
+
     /* general */
     .frame,
     .layout-frame {
@@ -2588,7 +2602,7 @@ h2.related-stories{
         clear:both;
         width:100%;
     }
-    
+
     .main {
         padding:0 20px 20px;
         border:0;
@@ -2872,7 +2886,7 @@ h2.related-stories{
 	.main{
 		padding-right: 10px;
 		padding-left: 10px;
-		
+
 	}
 	.general{
 		padding-right: 10px;
@@ -3110,12 +3124,23 @@ h2.related-stories{
     .post-slider .view-post,
     .post-slider .shares-count,
     .post-slider .cat-label,
-    .solunar-widget {
+    .solunar-widget,
+    .hidden-phone {
         display:none;
     }
+
+    .hidden-desktop {
+        display:block;
+    }
+
+    form select.mobile-select {
+        width:100%;
+        max-width: none;
+    }
+
     .smooth-menu, .header {
 		-webkit-transform:translate3d(0,0,0);
-		-webkit-backface-visibility: hidden; 
+		-webkit-backface-visibility: hidden;
 		-webkit-transition: left 200ms ease-in-out 0.2s;
 		-moz-transition: left 200ms ease-in-out 0.2s;
 		transition: left 200ms ease-in-out 0.2s;
@@ -3131,8 +3156,8 @@ h2.related-stories{
 		width: 300px;
 		margin: 0 auto;
 	}
-    #slidingMenu iframe { 
-		width: 296px !important; 
+    #slidingMenu iframe {
+		width: 296px !important;
     }
     .open-menu {
         width:46px;

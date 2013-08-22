@@ -573,9 +573,14 @@ function infish_community_init() {
 			"script-dependencies" => array('jquery')
 		),
 		array(
+			"script-name" => "bootstrap-dropdown-js",
+			"script-path" => "infish/js/bootstrap-dropdown.js",
+			"script-dependencies" => array('jquery')
+		),
+		array(
 			"script-name" => "community-listing-js",
 			"script-path" => "infish/js/community-listing.js",
-			"script-dependencies" => array('jquery')
+			"script-dependencies" => array('jquery',"bootstrap-dropdown-js")
 		)
 	);
 
@@ -586,9 +591,14 @@ function infish_community_init() {
 			"style-dependencies" => null
 		),
 		array(
+			"style-name" => "bootstrap-dropdown-css",
+			"style-path" => "infish/css/bootstrap-dropdown.css",
+			"style-dependencies" => null
+		),
+		array(
 			"style-name" => "community-listing-css",
 			"style-path" => "infish/css/community-listing.css",
-			"style-dependencies" => array('community-common-css')
+			"style-dependencies" => array('community-common-css',"bootstrap-dropdown-css")
 		)
 	);
 

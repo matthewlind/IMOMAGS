@@ -31,16 +31,21 @@ imo_sidebar("community");
 	<!-- *********************************************************** -->
 	<script type="text/template" id="new-post-template">
 	<h2><%= post ? 'Edit' : 'Create' %> Post</h2>
-	
+
 		<form id="new-post-form">
 			 <div class="basic-form post-page post-reply-slide">
 		        <div class="f-row">
 		            <input placeholder="Title" type="text" name="title" value="<%= post ? post.title : "" %>">
 		        </div>
-		        <div class="f-row">
-		        	<textarea placeholder="Body" name="body" class="area" cols="30" rows="10"><%= post ? post.body : "" %></textarea>
-		        </div>
+
 		        <div id="attachments" class="clearfix"></div>
+
+
+				<div id="progressBar">
+
+					<div></div><span></span>
+				</div>
+
 		        <div class="photo-link-area">
 		        	<div id="fileupload">
 						<div class="fileupload-buttonbar ">
@@ -51,87 +56,113 @@ imo_sidebar("community");
 						</div>
 					</div>
 				</div>
-				<div id="progressBar">
-					
-					<div></div><span></span>
+
+
+				<div class="dropdown-selects hidden-desktop">
+					<select id="dynamic_select" class="post_type alter-sel mobile-select" name="post_type">
+		         		<option value="">SPECIES</option>
+				 		<% _.each(post_types,function(postType,index){ %>
+		         			<option value="<%= index %>" <%= post && post.post_type == postType.index ? "SELECTED" : "" %> ><%= postType.display_name %></option>
+				 		<% }); %>
+			        </select>
+				    <select name="state" placeholder="Choose the state for this post:" class="alter-sel mobile-select">
+			            <option value="" >STATE</option>
+			            <option value="AL" <%= post && post.state == "AL" ? "SELECTED" : "" %> >Alabama</option>
+			            <option value="AK" <%= post && post.state == "AK" ? "SELECTED" : "" %> >Alaska</option>
+			            <option value="AZ" <%= post && post.state == "AZ" ? "SELECTED" : "" %> >Arizona</option>
+			            <option value="AR" <%= post && post.state == "AR" ? "SELECTED" : "" %> >Arkansas</option>
+			            <option value="CA" <%= post && post.state == "CA" ? "SELECTED" : "" %> >California</option>
+			            <option value="CO" <%= post && post.state == "CO" ? "SELECTED" : "" %> >Colorado</option>
+			            <option value="CT" <%= post && post.state == "CT" ? "SELECTED" : "" %> >Connecticut</option>
+			            <option value="DE" <%= post && post.state == "DE" ? "SELECTED" : "" %> >Delaware</option>
+			            <option value="DC" <%= post && post.state == "DC" ? "SELECTED" : "" %> >District of Columbia</option>
+			            <option value="FL" <%= post && post.state == "FL" ? "SELECTED" : "" %> >Florida</option>
+			            <option value="GA" <%= post && post.state == "GA" ? "SELECTED" : "" %> >Georgia</option>
+			            <option value="HI" <%= post && post.state == "HI" ? "SELECTED" : "" %> >Hawaii</option>
+			            <option value="ID" <%= post && post.state == "ID" ? "SELECTED" : "" %> >Idaho</option>
+			            <option value="IL" <%= post && post.state == "IL" ? "SELECTED" : "" %> >Illinois</option>
+			            <option value="IN" <%= post && post.state == "IN" ? "SELECTED" : "" %> >Indiana</option>
+			            <option value="IA" <%= post && post.state == "IA" ? "SELECTED" : "" %> >Iowa</option>
+			            <option value="KS" <%= post && post.state == "KS" ? "SELECTED" : "" %> >Kansas</option>
+			            <option value="KY" <%= post && post.state == "KY" ? "SELECTED" : "" %> >Kentucky</option>
+			            <option value="LA" <%= post && post.state == "LA" ? "SELECTED" : "" %> >Louisiana</option>
+			            <option value="ME" <%= post && post.state == "ME" ? "SELECTED" : "" %> >Maine</option>
+			            <option value="MD" <%= post && post.state == "MD" ? "SELECTED" : "" %> >Maryland</option>
+			            <option value="MA" <%= post && post.state == "MA" ? "SELECTED" : "" %> >Massachusetts</option>
+			            <option value="MI" <%= post && post.state == "MI" ? "SELECTED" : "" %> >Michigan</option>
+			            <option value="MN" <%= post && post.state == "MN" ? "SELECTED" : "" %> >Minnesota</option>
+			            <option value="MS" <%= post && post.state == "MS" ? "SELECTED" : "" %> >Mississippi</option>
+			            <option value="MO" <%= post && post.state == "MO" ? "SELECTED" : "" %> >Missouri</option>
+			            <option value="MT" <%= post && post.state == "MT" ? "SELECTED" : "" %> >Montana</option>
+			            <option value="NE" <%= post && post.state == "NE" ? "SELECTED" : "" %> >Nebraska</option>
+			            <option value="NV" <%= post && post.state == "NV" ? "SELECTED" : "" %> >Nevada</option>
+			            <option value="NH" <%= post && post.state == "NH" ? "SELECTED" : "" %> >New Hampshire</option>
+			            <option value="NJ" <%= post && post.state == "NJ" ? "SELECTED" : "" %> >New Jersey</option>
+			            <option value="NM" <%= post && post.state == "NM" ? "SELECTED" : "" %> >New Mexico</option>
+			            <option value="NY" <%= post && post.state == "NY" ? "SELECTED" : "" %> >New York</option>
+			            <option value="NC" <%= post && post.state == "NC" ? "SELECTED" : "" %> >North Carolina</option>
+			            <option value="ND" <%= post && post.state == "ND" ? "SELECTED" : "" %> >North Dakota</option>
+			            <option value="OH" <%= post && post.state == "OH" ? "SELECTED" : "" %> >Ohio</option>
+			            <option value="OK" <%= post && post.state == "OK" ? "SELECTED" : "" %> >Oklahoma</option>
+			            <option value="OR" <%= post && post.state == "OR" ? "SELECTED" : "" %> >Oregon</option>
+			            <option value="PA" <%= post && post.state == "PA" ? "SELECTED" : "" %> >Pennsylvania</option>
+			            <option value="RI" <%= post && post.state == "RI" ? "SELECTED" : "" %> >Rhode Island</option>
+			            <option value="SC" <%= post && post.state == "SC" ? "SELECTED" : "" %> >South Carolina</option>
+			            <option value="SD" <%= post && post.state == "SD" ? "SELECTED" : "" %> >South Dakota</option>
+			            <option value="TN" <%= post && post.state == "TN" ? "SELECTED" : "" %> >Tennessee</option>
+			            <option value="TX" <%= post && post.state == "TX" ? "SELECTED" : "" %> >Texas</option>
+			            <option value="UT" <%= post && post.state == "UT" ? "SELECTED" : "" %> >Utah</option>
+			            <option value="VT" <%= post && post.state == "VT" ? "SELECTED" : "" %> >Vermont</option>
+			            <option value="VA" <%= post && post.state == "VA" ? "SELECTED" : "" %> >Virginia</option>
+			            <option value="WA" <%= post && post.state == "WA" ? "SELECTED" : "" %> >Washington</option>
+			            <option value="WV" <%= post && post.state == "WV" ? "SELECTED" : "" %> >West Virginia</option>
+			            <option value="WI" <%= post && post.state == "WI" ? "SELECTED" : "" %> >Wisconsin</option>
+			            <option value="WY" <%= post && post.state == "WY" ? "SELECTED" : "" %> >Wyoming</option>
+			            <option value="AB" <%= post && post.state == "AB" ? "SELECTED" : "" %> >Alberta, Canada</option>
+			            <option value="BC" <%= post && post.state == "BC" ? "SELECTED" : "" %> >British Columbia, Canada</option>
+			            <option value="MB" <%= post && post.state == "MB" ? "SELECTED" : "" %> >Manitoba, Canada</option>
+			            <option value="NB" <%= post && post.state == "NB" ? "SELECTED" : "" %> >New Brunswick, Canada</option>
+			            <option value="NL" <%= post && post.state == "NL" ? "SELECTED" : "" %> >Newfoundland and Labrador, Canada</option>
+			            <option value="NT" <%= post && post.state == "NT" ? "SELECTED" : "" %> >Northwest Territories, Canada</option>
+			            <option value="NS" <%= post && post.state == "NS" ? "SELECTED" : "" %> >Nova Scotia, Canada</option>
+			            <option value="NU" <%= post && post.state == "NU" ? "SELECTED" : "" %> >Nunavut, Canada</option>
+			            <option value="ON" <%= post && post.state == "ON" ? "SELECTED" : "" %> >Ontario, Canada</option>
+			            <option value="PE" <%= post && post.state == "PE" ? "SELECTED" : "" %> >Prince Edward Island, Canada</option>
+			            <option value="QC" <%= post && post.state == "QC" ? "SELECTED" : "" %> >Quebec, Canada</option>
+			            <option value="SK" <%= post && post.state == "SK" ? "SELECTED" : "" %> >Saskatchewan, Canada</option>
+			            <option value="YT" <%= post && post.state == "YT" ? "SELECTED" : "" %> >Yukon, Canada</option>
+					</select>
 				</div>
-				<select id="dynamic_select" class="post_type alter-sel" name="post_type">
-	         		<option value="">SPECIES</option>
-			 		<% _.each(post_types,function(postType,index){ %>
-	         			<option value="<%= index %>" <%= post && post.post_type == postType.index ? "SELECTED" : "" %> ><%= postType.display_name %></option>
-			 		<% }); %>
-		        </select>
-			    <select name="state" placeholder="Choose the state for this post:" class="alter-sel">
-		            <option value="" >STATE</option>
-		            <option value="AL" <%= post && post.state == "AL" ? "SELECTED" : "" %> >Alabama</option>
-		            <option value="AK" <%= post && post.state == "AK" ? "SELECTED" : "" %> >Alaska</option>
-		            <option value="AZ" <%= post && post.state == "AZ" ? "SELECTED" : "" %> >Arizona</option>
-		            <option value="AR" <%= post && post.state == "AR" ? "SELECTED" : "" %> >Arkansas</option>
-		            <option value="CA" <%= post && post.state == "CA" ? "SELECTED" : "" %> >California</option>
-		            <option value="CO" <%= post && post.state == "CO" ? "SELECTED" : "" %> >Colorado</option>
-		            <option value="CT" <%= post && post.state == "CT" ? "SELECTED" : "" %> >Connecticut</option>
-		            <option value="DE" <%= post && post.state == "DE" ? "SELECTED" : "" %> >Delaware</option>
-		            <option value="DC" <%= post && post.state == "DC" ? "SELECTED" : "" %> >District of Columbia</option>
-		            <option value="FL" <%= post && post.state == "FL" ? "SELECTED" : "" %> >Florida</option>
-		            <option value="GA" <%= post && post.state == "GA" ? "SELECTED" : "" %> >Georgia</option>
-		            <option value="HI" <%= post && post.state == "HI" ? "SELECTED" : "" %> >Hawaii</option>
-		            <option value="ID" <%= post && post.state == "ID" ? "SELECTED" : "" %> >Idaho</option>
-		            <option value="IL" <%= post && post.state == "IL" ? "SELECTED" : "" %> >Illinois</option>
-		            <option value="IN" <%= post && post.state == "IN" ? "SELECTED" : "" %> >Indiana</option>
-		            <option value="IA" <%= post && post.state == "IA" ? "SELECTED" : "" %> >Iowa</option>
-		            <option value="KS" <%= post && post.state == "KS" ? "SELECTED" : "" %> >Kansas</option>
-		            <option value="KY" <%= post && post.state == "KY" ? "SELECTED" : "" %> >Kentucky</option>
-		            <option value="LA" <%= post && post.state == "LA" ? "SELECTED" : "" %> >Louisiana</option>
-		            <option value="ME" <%= post && post.state == "ME" ? "SELECTED" : "" %> >Maine</option>
-		            <option value="MD" <%= post && post.state == "MD" ? "SELECTED" : "" %> >Maryland</option>
-		            <option value="MA" <%= post && post.state == "MA" ? "SELECTED" : "" %> >Massachusetts</option>
-		            <option value="MI" <%= post && post.state == "MI" ? "SELECTED" : "" %> >Michigan</option>
-		            <option value="MN" <%= post && post.state == "MN" ? "SELECTED" : "" %> >Minnesota</option>
-		            <option value="MS" <%= post && post.state == "MS" ? "SELECTED" : "" %> >Mississippi</option>
-		            <option value="MO" <%= post && post.state == "MO" ? "SELECTED" : "" %> >Missouri</option>
-		            <option value="MT" <%= post && post.state == "MT" ? "SELECTED" : "" %> >Montana</option>
-		            <option value="NE" <%= post && post.state == "NE" ? "SELECTED" : "" %> >Nebraska</option>
-		            <option value="NV" <%= post && post.state == "NV" ? "SELECTED" : "" %> >Nevada</option>
-		            <option value="NH" <%= post && post.state == "NH" ? "SELECTED" : "" %> >New Hampshire</option>
-		            <option value="NJ" <%= post && post.state == "NJ" ? "SELECTED" : "" %> >New Jersey</option>
-		            <option value="NM" <%= post && post.state == "NM" ? "SELECTED" : "" %> >New Mexico</option>
-		            <option value="NY" <%= post && post.state == "NY" ? "SELECTED" : "" %> >New York</option>
-		            <option value="NC" <%= post && post.state == "NC" ? "SELECTED" : "" %> >North Carolina</option>
-		            <option value="ND" <%= post && post.state == "ND" ? "SELECTED" : "" %> >North Dakota</option>
-		            <option value="OH" <%= post && post.state == "OH" ? "SELECTED" : "" %> >Ohio</option>
-		            <option value="OK" <%= post && post.state == "OK" ? "SELECTED" : "" %> >Oklahoma</option>
-		            <option value="OR" <%= post && post.state == "OR" ? "SELECTED" : "" %> >Oregon</option>
-		            <option value="PA" <%= post && post.state == "PA" ? "SELECTED" : "" %> >Pennsylvania</option>
-		            <option value="RI" <%= post && post.state == "RI" ? "SELECTED" : "" %> >Rhode Island</option>
-		            <option value="SC" <%= post && post.state == "SC" ? "SELECTED" : "" %> >South Carolina</option>
-		            <option value="SD" <%= post && post.state == "SD" ? "SELECTED" : "" %> >South Dakota</option>
-		            <option value="TN" <%= post && post.state == "TN" ? "SELECTED" : "" %> >Tennessee</option>
-		            <option value="TX" <%= post && post.state == "TX" ? "SELECTED" : "" %> >Texas</option>
-		            <option value="UT" <%= post && post.state == "UT" ? "SELECTED" : "" %> >Utah</option>
-		            <option value="VT" <%= post && post.state == "VT" ? "SELECTED" : "" %> >Vermont</option>
-		            <option value="VA" <%= post && post.state == "VA" ? "SELECTED" : "" %> >Virginia</option>
-		            <option value="WA" <%= post && post.state == "WA" ? "SELECTED" : "" %> >Washington</option>
-		            <option value="WV" <%= post && post.state == "WV" ? "SELECTED" : "" %> >West Virginia</option>
-		            <option value="WI" <%= post && post.state == "WI" ? "SELECTED" : "" %> >Wisconsin</option>
-		            <option value="WY" <%= post && post.state == "WY" ? "SELECTED" : "" %> >Wyoming</option>
-		            <option value="AB" <%= post && post.state == "AB" ? "SELECTED" : "" %> >Alberta, Canada</option>
-		            <option value="BC" <%= post && post.state == "BC" ? "SELECTED" : "" %> >British Columbia, Canada</option>
-		            <option value="MB" <%= post && post.state == "MB" ? "SELECTED" : "" %> >Manitoba, Canada</option>
-		            <option value="NB" <%= post && post.state == "NB" ? "SELECTED" : "" %> >New Brunswick, Canada</option>
-		            <option value="NL" <%= post && post.state == "NL" ? "SELECTED" : "" %> >Newfoundland and Labrador, Canada</option>
-		            <option value="NT" <%= post && post.state == "NT" ? "SELECTED" : "" %> >Northwest Territories, Canada</option>
-		            <option value="NS" <%= post && post.state == "NS" ? "SELECTED" : "" %> >Nova Scotia, Canada</option>
-		            <option value="NU" <%= post && post.state == "NU" ? "SELECTED" : "" %> >Nunavut, Canada</option>
-		            <option value="ON" <%= post && post.state == "ON" ? "SELECTED" : "" %> >Ontario, Canada</option>
-		            <option value="PE" <%= post && post.state == "PE" ? "SELECTED" : "" %> >Prince Edward Island, Canada</option>
-		            <option value="QC" <%= post && post.state == "QC" ? "SELECTED" : "" %> >Quebec, Canada</option>
-		            <option value="SK" <%= post && post.state == "SK" ? "SELECTED" : "" %> >Saskatchewan, Canada</option>
-		            <option value="YT" <%= post && post.state == "YT" ? "SELECTED" : "" %> >Yukon, Canada</option>
-				</select>
-				
-				<span class="alter-sel jq-open-cat-popup">Choose category</span>
-				<span class="alter-sel jq-open-state-popup">Choose state</span>
-        
+
+				<div class="hidden-phone">
+
+
+
+				    <div class="btn-group btn-bar">
+				      <button type="button" class="btn btn-default dropdown-toggle alter-sel" data-toggle="dropdown">
+				        Choose Species
+				      </button>
+				      <ul class="dropdown-menu" role="menu">
+				        <li><a href="#">Action</a></li>
+				        <li><a href="#">Another action</a></li>
+				        <li><a href="#">Something else here</a></li>
+				        <li class="divider"></li>
+				        <li><a href="#">Separated link</a></li>
+				      </ul>
+				    </div>
+				    <div class="btn-group btn-bar">
+				      <button type="button" class="btn btn-default dropdown-toggle alter-sel" data-toggle="dropdown">
+				        Choose State
+				      </button>
+				      <ul class="dropdown-menu" role="menu">
+				        <li><a href="#">PANIC</a></li>
+				        <li><a href="#">Another action</a></li>
+
+				      </ul>
+				    </div>
+
+				</div>
+
 				<% if (post && post.id) { %>
 						<input type="hidden" name="id" value="<%= post.id %>" >
 				<% } %>
@@ -148,7 +179,9 @@ imo_sidebar("community");
 
 			      <div style="margin:20px 0" class="add-photo-field">
 				      	<a href="<%= attachment.img_url %>" class="thickbox">
-				      		<img src="<%= attachment.img_url %>/convert?w=150&h=150&fit=crop" width=75>
+
+				      			<img src="<%= attachment.img_url %>/convert?w=150&h=150&fit=crop" width=75 height=75 style="height:75px">
+
 				      	</a>
 					  	 <div class="caption-area" name="caption-body" placeholder="Caption (optional)" value="<%= attachment.body %>">
 			                <textarea id="" class="area caption-field" cols="30" rows="10" placeholder="Add Caption (optional)"></textarea>
@@ -157,7 +190,7 @@ imo_sidebar("community");
 
 				   </div>
 
-				   
+
 
 
 	</script>
@@ -176,11 +209,11 @@ imo_sidebar("community");
         </div>
 
 	    <div id="form-container">
-	
+
 	    </div>
-		
+
 	</div>
-	
+
 </div>
 
 
