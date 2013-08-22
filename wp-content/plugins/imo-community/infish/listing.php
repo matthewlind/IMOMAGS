@@ -21,7 +21,7 @@
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 
 
-get_header();
+get_header(); 
 imo_sidebar("community");
 
 the_post();
