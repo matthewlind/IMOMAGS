@@ -17,6 +17,9 @@ define("SUBS_DEAL_STRING", "Save Over 70% off<br/> the Cover Price");
 define("DRUPAL_SITE", TRUE);
 define("FACEBOOK_LINK", "https://www.facebook.com/InFisherman");
 
+define("FACEBOOK_APP_ID","172626882923364");
+define("FACEBOOK_APP_SECRET","60a79f156a44dc9a57096bf9ed3d1a80");
+
 function imo_sidebar($type){
 	$dartDomain = get_option("dart_domain", $default = false);
 	echo '<div class="sidebar-area">';
@@ -573,9 +576,14 @@ function infish_community_init() {
 			"script-dependencies" => array('jquery')
 		),
 		array(
+			"script-name" => "bootstrap-dropdown-js",
+			"script-path" => "infish/js/bootstrap-dropdown.js",
+			"script-dependencies" => array('jquery')
+		),
+		array(
 			"script-name" => "community-listing-js",
 			"script-path" => "infish/js/community-listing.js",
-			"script-dependencies" => array('jquery')
+			"script-dependencies" => array('jquery',"bootstrap-dropdown-js")
 		)
 	);
 
@@ -586,9 +594,14 @@ function infish_community_init() {
 			"style-dependencies" => null
 		),
 		array(
+			"style-name" => "bootstrap-dropdown-css",
+			"style-path" => "infish/css/bootstrap-dropdown.css",
+			"style-dependencies" => null
+		),
+		array(
 			"style-name" => "community-listing-css",
 			"style-path" => "infish/css/community-listing.css",
-			"style-dependencies" => array('community-common-css')
+			"style-dependencies" => array('community-common-css',"bootstrap-dropdown-css")
 		)
 	);
 

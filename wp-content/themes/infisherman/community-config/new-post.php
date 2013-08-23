@@ -30,16 +30,16 @@ $IMO_COMMUNITY_CONFIG['additional_scripts'] = array(
 		"script-dependencies" => array('jquery')
 	),
 	array(
-		"script-name" => "filepicker-io-js",
-		"script-path" => "js/filepicker.js",
+		"script-name" => "bootstrap-dropdown-js",
+		"script-path" => "infish/js/bootstrap-dropdown.js",
 		"script-dependencies" => array('jquery')
 	),
 	array(
 		"script-name" => "community-new-post-js",
 		"script-path" => "infish/js/community-new-post.js",
-		"script-dependencies" => array('jquery',"underscore-js","community-common-js","filepicker-io-js","form-params-js")
+		"script-dependencies" => array('jquery',"underscore-js","community-common-js","form-params-js","bootstrap-dropdown-js")
 	)
-	
+
 );
 
 $IMO_COMMUNITY_CONFIG['additional_styles'] = array(
@@ -49,9 +49,14 @@ $IMO_COMMUNITY_CONFIG['additional_styles'] = array(
 		"style-dependencies" => null
 	),
 	array(
+		"style-name" => "bootstrap-dropdown-css",
+		"style-path" => "infish/css/bootstrap-dropdown.css",
+		"style-dependencies" => null
+	),
+	array(
 		"style-name" => "community-new-post-css",
 		"style-path" => "infish/css/community-new-post.css",
-		"style-dependencies" => array('community-common-css')
+		"style-dependencies" => array('community-common-css',"bootstrap-dropdown-css")
 	)
 );
 
