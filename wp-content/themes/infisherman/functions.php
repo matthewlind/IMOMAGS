@@ -17,6 +17,9 @@ define("SUBS_DEAL_STRING", "Save Over 70% off<br/> the Cover Price");
 define("DRUPAL_SITE", TRUE);
 define("FACEBOOK_LINK", "https://www.facebook.com/InFisherman");
 
+define("FACEBOOK_APP_ID","172626882923364");
+define("FACEBOOK_APP_SECRET","60a79f156a44dc9a57096bf9ed3d1a80");
+
 function imo_sidebar($type){
 	$dartDomain = get_option("dart_domain", $default = false);
 	echo '<div class="sidebar-area">';
