@@ -8,9 +8,7 @@ clear: both;
 content: "";
 display: table;
 }
-
 .displayNone {display: none;}
-
 .top-bar,
 .network-nav {z-index: 9999;}
 
@@ -113,12 +111,24 @@ font-size: 14px;
 	visibility: hidden;
 background: #000000;
 }
+.slide-out-content {
+  margin: -18px 10px 15px 10px;
+  padding-right: 1px;
+  overflow: hidden;
+}
 .flex-content {
 	position: relative;
 	display: none;
 	overflow:hidden;
 	margin-top: 6px;
-	padding-right: 22px;
+	padding-right: 20px;
+}
+
+.slide-out-content-title {
+	display: none;
+	float:left;
+	margin-top: -23px;
+	font: 15px "stagregular", "StagMedium", Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 .x-close {
 	float: right;
@@ -139,17 +149,7 @@ background: #000000;
   color:#3e88e9;
 }
 
-.slide-out-content {
-  margin: -18px 10px 10px 10px;
-  padding-right: 1px;
-  overflow: hidden;
-}
 
-.slide-out-content-title {
-	font-size: 15px;
-	font-weight: bold;
-	float:left;
-}
 
 .flex-gallery-slide-out h2 {
   color:white;
@@ -302,6 +302,7 @@ padding: 0 15px 0 15px;
 }
 
 .btn-full-screen {
+	float: right;
 	position: relative;
 	font-size: 12px;
 	height: 18px;
@@ -315,7 +316,7 @@ padding: 0 15px 0 15px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
-	margin: 18px 0 0 0;
+	margin: 15px 0 0 0;
 	padding:6px 11px 6px 11px;
 }
 .btn-full-screen:hover {
@@ -326,30 +327,30 @@ padding: 0 15px 0 15px;
 .flex-fullscreen .flex-gallery-title {
 	display: none;
 }
-.flex-fullscreen .flex-gallery ul.flex-direction-nav {
+.flex-fullscreen #flex-direction-nav-clone {
 	position: absolute;
 	width: 100%;
 	margin: 0;
 }
-.flex-fullscreen .flex-gallery ul.flex-direction-nav li {height: 46px;}
-.flex-fullscreen .flex-gallery ul.flex-direction-nav li:first-child {	
+.flex-fullscreen #flex-direction-nav-clone li {height: 46px;}
+.flex-fullscreen #flex-direction-nav-clone li:first-child {	
 	float: left;
 	margin: 0;
 }
-.flex-fullscreen .flex-gallery ul.flex-direction-nav li:last-child {
+.flex-fullscreen #flex-direction-nav-clone li:last-child {
 	float: right;
 	margin: 0;
 }
-.flex-fullscreen .flex-gallery ul.flex-direction-nav a.flex-next {
+.flex-fullscreen #flex-direction-nav-clone a.flex-next {
 	background:url(img/imo-flex-next-prev.png) no-repeat -43px 8px;
 }
-.flex-fullscreen .flex-gallery ul.flex-direction-nav a.flex-next:hover {
+.flex-fullscreen #flex-direction-nav-clone a.flex-next:hover {
 	background:url(img/imo-flex-next-prev.png) no-repeat -123px 8px;
 }
-.flex-fullscreen .flex-gallery ul.flex-direction-nav a.flex-prev {
+.flex-fullscreen #flex-direction-nav-clone a.flex-prev {
 	background:url(img/imo-flex-next-prev.png) no-repeat -3px 8px;flex-gallery-social 
 }
-.flex-fullscreen .flex-gallery ul.flex-direction-nav a.flex-prev:hover {
+.flex-fullscreen #flex-direction-nav-clone a.flex-prev:hover {
 	background:url(img/imo-flex-next-prev.png) no-repeat -83px 8px;
 }
 .flex-fullscreen .flex-gallery-social {
@@ -368,6 +369,15 @@ padding: 0 15px 0 15px;
 .flex-fullscreen .flex-carousel {
 	margin-top: -8px;
 }
+.flex-fullscreen .ps-container .ps-scrollbar-y{
+	margin-right: 7px;
+}
+.flex-fullscreen .slide-out-content-top {
+	width: 296px;
+}
+.flex-fullscreen .btn-full-screen {
+	margin: 15px 0 0 10px;
+}
 
 
 /* From IMO Mags Parent style.css for sites that don't have it */
@@ -385,13 +395,13 @@ padding: 0 15px 0 15px;
 
 
 /* Media Queries */
-@media only screen and (max-width: 850px) {
-	.flex-counter-extra {
+@media only screen and (max-width: 1050px) {
+	.flex-fullscreen .flex-counter-extra {
 		display: none;
 	}
 }
-@media only screen and (max-width: 760px) {
-	.flex-counter {
+@media only screen and (max-width: 1000px) {
+	.flex-fullscreen .flex-counter {
 		display: none;
 	}
 }

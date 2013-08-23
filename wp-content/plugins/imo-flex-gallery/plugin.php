@@ -124,6 +124,7 @@ function displayGallery($gallery_id,$tag) {
 	<div class="imo-flex-loading-block flex-gallery-inner">
 		<div class="flex-gallery" id="gallery-$gallery_id">
 		<div class="flex-gallery-title clearfix">
+		<span class="btn-full-screen">Fullscreen</span>
 		    <h2>$title</h2>
 			<div class="clear"></div>
 			<div class="flex-gallery-social">$addThis</div><div class="flex-counter"><span class="flex-counter-extra">Picture </span><span class="current-slide">1</span> of $count</div>
@@ -176,15 +177,17 @@ $desktop_tablet_output .= <<<EOT_a5_2
 		
 		<div class="flex-gallery-slide-out" >
 			<div class="slide-out-content">
-						<span class="btn-full-screen">Fullscreen</span>
+					<div class="slide-out-content-top">
 						<span class="x-close">&times;</span>
+					</div>
 			<div class="clear"></div>
 EOT_a5_2;
 	$count = 1;
 	foreach ($pictures as $picture) {
 $desktop_tablet_output .= <<<EOT_a6
+				<span id="flex-content-title-$count" class="slide-out-content-title">$picture->alttext</span>
+				<div class="clear"></div>
 				<div id="flex-content-$count" class="flex-content">
-						<span class="slide-out-content-title">$picture->alttext</span>
 						<div class="clear"></div>
 						$picture->description
 				</div>
@@ -223,7 +226,7 @@ $desktop_tablet_output .= <<<EOF_a
 		            slideshow: false,
 					sync: '#carousel-$gallery_id',
 		            start: function (slider) {
-							imoFlexSetup();
+						imoFlexSetup();
 		            },
 		            after: function (slider) {
 		                
@@ -234,9 +237,11 @@ $desktop_tablet_output .= <<<EOF_a
 						var theSlide = slider.currentSlide+1;
 						while(totalSlides > 0){
 							jQuery('#flex-content-'+totalSlides).hide();
+							jQuery('#flex-content-title-'+totalSlides).hide();
 							totalSlides--;
 						}
 						jQuery('#flex-content-'+theSlide).show();
+						jQuery('#flex-content-title-'+theSlide).show();
 						jQuery('span.current-slide').text(theSlide);
 						jQuery('.flex-content').perfectScrollbar('update');	
 
