@@ -53,7 +53,7 @@ hr      { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; ma
 ul, ol  { list-style: none; }
 a:hover, a:active, label:focus, label:active { outline: none;text-decoration: none;-webkit-transition: 0.6s;-moz-transition: 0.6s;transition: 0.6s; }
 img     { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
-a.flex-prev, a.flex-next, a.menu-link, a.main-menu-link, .socials a, a.btn-base, a.user-btn, .flex-control-nav a, .flex-control-paging li a, a.open-search, a.open-menu, a.go-top, a.view-post, a.gal-prev, a.gal-next{
+a.flex-prev, a.flex-next, a.menu-link, a.main-menu-link, .socials a, a.btn-base, .btn-base, a.btn-cancel, a.user-btn, .flex-control-nav a, .flex-control-paging li a, a.open-search, a.open-menu, a.go-top, a.view-post, a.gal-prev, a.gal-next{
 	-webkit-transition: 0s !important;-moz-transition: 0s !important;transition: 0s !important;
 }
 
@@ -306,20 +306,26 @@ img{max-width: 100%;height: auto;}
 	-webkit-transform:translate3d(0,0,0);
 	-webkit-backface-visibility: hidden; 
 }
-.snap-drawer-left {
-	left: 0;
-	z-index: 1;
-}
+
 .snap-drawers {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: auto;
+	height: auto;
+	background: white;
+}
+.snap-drawer {
 	position: absolute;
-	z-index: 1;
 	top: 0;
 	right: auto;
 	bottom: 0;
 	left: auto;
-	width: 320px;
+	width: auto;
 	height: auto;
-	overflow: visible;
+	overflow: auto;
 	-webkit-overflow-scrolling: touch;
 	-webkit-transition: width 0.3s ease;
 	-moz-transition: width 0.3s ease;
@@ -327,7 +333,22 @@ img{max-width: 100%;height: auto;}
 	-o-transition: width 0.3s ease;
 	transition: width 0.3s ease;
 }
-
+.snap-drawer-left {
+	left: 0;
+	z-index: 1;
+	display: none;
+	background: url(images/bg/mobile-menu-shadow.png) repeat-y 100% 0 white;
+}
+.snap-drawer-right {
+	right: 0;
+	z-index: 1;
+	display: none;
+	background: url(images/bg/mobile-menu-shadow-right.png) repeat-y 0 0 white;
+	overflow: hidden;
+}
+.active-drawer{
+	display: block;
+}
 /* Styles for fading out the drawer content in the "Expanding" demo */
 .drawer-inner {
 	-webkit-transition: opacity 0.3s ease; 
@@ -340,18 +361,6 @@ img{max-width: 100%;height: auto;}
 .snapjs-expand-left .drawer-inner,
 .snapjs-expand-right .drawer-inner {
 	opacity: 0;
-}
-#slidingMenu { 
-	display: none;
-	position: fixed;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	overflow-x: hidden;
-	overflow-y: auto;
-	-webkit-overflow-scrolling: auto;
-	z-index: 1;
-	visibility: hidden;	/* to block user interaction on wp7 (z-index wont work) */
 }
 .open-menu {
     float:left;
@@ -1614,12 +1623,6 @@ a.category-name-link:hover{
 
 /* = General styles for mobile menu 
 ---------------------------------------------------------------------- */
-
-.snap-drawers {
-    background: url(images/bg/mobile-menu-shadow.png) repeat-y 100% 0 white;
-    height: 100%;
-    display: none;
-}
 .snap-drawers .menu-top-menu-container,
 .snap-drawers .mob-aside-menu {
     background:none;
@@ -1787,9 +1790,15 @@ a.category-name-link:hover{
 }
 
 /*** JETPACK FIXES ***/
+#jpsuperheader.jp-right-menu-open{
+	width: 100% !important;
+}
 #jpsuperheader{
 	background: black !important;
 	width: 1080px !important;
+}
+#jpsuperheader.jp-right-menu-open{
+	width: 100% !important;
 }
 #jpsuperheader .jpstage{
 	margin: 0 auto !important;
@@ -2395,7 +2404,7 @@ h2.related-stories{
  ******************************************************************************/
 .footer {
     padding:0 0 90px;
-    color:#313131;
+    color:#999;
     position:relative;
     z-index:2;
     background:url(images/bg/footer.png) repeat;
@@ -2464,7 +2473,7 @@ h2.related-stories{
     padding:0 17px;
 }
 .foot-nav li:first-child {padding-left:0;}
-.f-nav-section a {color:#313131;}
+.f-nav-section a {color:#999;}
 .f-nav-section a:hover {color:#836c03;}
 .f-single-link {
     float:right;
@@ -2537,7 +2546,7 @@ h2.related-stories{
     .logo {
        width:175px;
        height:42px;
-       margin:12px 0 0;
+       margin:8px 0 0;
    }
    .user-btn,
    .open-search,
@@ -3125,7 +3134,7 @@ h2.related-stories{
         height:48px;
         background-position:0 100%;    }
     .logo {
-       margin:9px 0 0;
+       margin:6px 0 0;
     }
     .mobile-menu-banner{
 		width: 300px;
@@ -3501,7 +3510,9 @@ h2.related-stories{
     }
 }
 @media only screen and (max-width: 340px) {
-	.snap-drawers {width: 266px;}
+	.snap-drawer-right{
+		width: 266px;
+	}
 	.mobile-menu-banner{
 		width: 320px;
 		margin: 0 auto;
