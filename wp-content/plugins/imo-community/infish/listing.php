@@ -39,9 +39,9 @@ if ( is_user_logged_in() ) {
     if ( !($current_user instanceof WP_User) )
          return;
     }
-    
 
 
+include 'common-templates.php';
 ?>
 
 <!-- *********************************************************** -->
@@ -84,7 +84,7 @@ if ( is_user_logged_in() ) {
 <!-- *********************************************************** -->
 <!-- *********************************************************** -->
 
-<div class="page-community">   
+<div class="page-community">
     <div class="general general-com">
     	<div class="custom-title clearfix">
             <img src="<?php echo plugins_url('images/fishhead2.png' , __FILE__ ); ?>" alt="FishHeads" class="custom-tite-logo">
@@ -106,6 +106,46 @@ if ( is_user_logged_in() ) {
         <div class="general-title browse-title clearfix">
             <h2>Browse <span>Community</span></h2>
         </div>
+
+        <div class="photo-link-area">
+            <div id="fileupload">
+                <div class="fileupload-buttonbar ">
+                    <label class="upload-button share-photo">
+                        <span class="add-photo-link">Share Photo</span>
+                        <input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
+                    </label>
+                </div>
+            </div>
+        </div>
+
+<div class="btn-group">
+    <div class="btn-group btn-bar">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+        Action <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="#">Action</a></li>
+        <li><a href="#">Another action</a></li>
+        <li><a href="#">Something else here</a></li>
+        <li class="divider"></li>
+        <li><a href="#">Separated link</a></li>
+      </ul>
+    </div>
+    <div class="btn-group btn-bar">
+      <button type="button" class="btn btn-default dropdown-toggle not-first" data-toggle="dropdown">
+        Another thing <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="#">PANIC</a></li>
+        <li><a href="#">Another action</a></li>
+
+      </ul>
+    </div>
+</div>
+
+
+<hr>
+
         <span class="alter-sel jq-filter">Browse Community</span>
         <div class="browse-holder clearfix">
             <div class="browse-panel">
@@ -202,15 +242,15 @@ if ( is_user_logged_in() ) {
          </div>
          <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="pager-holder js-responsive-section">
             <a href="#" class="btn-base" style="display:block;">Load More</a>
-			
+
             <a href="#" class="go-top jq-go-top">go top</a>
 
             <img src="/wp-content/themes/imo-mags-parent/images/ajax-loader.gif" id="ajax-loader" style="display:none;"/>
         </div>
 		<?php social_footer(); ?>
 		<div class="hr mobile-hr"></div>
-		<a href="#" class="back-top jq-go-top">back to top</a>        
-        <!-- example of filter by state section, put it were you need 
+		<a href="#" class="back-top jq-go-top">back to top</a>
+        <!-- example of filter by state section, put it were you need
         <br />
         <p>this is just an example of the filter section, put it were you need</p>
         <br />
@@ -220,10 +260,10 @@ if ( is_user_logged_in() ) {
                 <li>New York</li>
             </ul>
             <h1 class="filter-title">New York</h1>
-            
+
         </div>
         -->
-        
+
         <!-- log/reg popup start -->
         <div class="basic-popup basic-form reg-popup">
             <div class="popup-inner clearfix">
@@ -267,7 +307,7 @@ if ( is_user_logged_in() ) {
             <a class="btn-cancel jq-close-popup" href="#">Cancel</a>
         </div>
         <!-- log/reg popup end -->
-        
+
     </div>
 </div>
 <?php get_footer(); ?>

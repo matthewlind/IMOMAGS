@@ -30,72 +30,72 @@ function imo_facebook_auth_setup() {
 
 add_action("init", "imo_email_login");
 function imo_email_login() {
-	
+
     if (preg_match("/^\/imo-email-login\.json(\?(.+)?)?$/", $_SERVER['REQUEST_URI'])) {
-        header('Content-type: application/json');	
-        
+        header('Content-type: application/json');
+
         $errorMessage = "";
         $email = $_POST['email'];
         $password = $_POST['password'];
-        
-        $user = get_user_by("email",$email);
-        
-        
 
-        
+        $user = get_user_by("email",$email);
+
+
+
+
         $username = $user->user_login;
-        
+
         $user = wp_authenticate($username,$password);
-        
+
         wp_set_auth_cookie($user->ID,true);
 
-        
+
         $imouser = imo_get_user($user->ID);
-        
+
         if ($imouser['username'] == "") {
 	        $imouser['error'] = "Invalid Email or Password";
         }
-        
-        
+
+
         $json = json_encode($imouser);
 
 	    print $json;
         //print_r($user_profile);
         die();
-    } 
-	
+    }
+
 }
 
 add_action("init", "imo_email_register");
 function imo_email_register() {
-	
+
     if (preg_match("/^\/imo-email-register\.json(\?(.+)?)?$/", $_SERVER['REQUEST_URI'])) {
-        header('Content-type: application/json');	
-        
+        header('Content-type: application/json');
+
         //echo "hey";
-        
+
         $displayName = $_POST['displayname'];
         $email = $_POST['email'];
         $password = $_POST['password'];
         //$stateAbbrev = "GA";
-        
+
         $user = get_user_by("email",$email);
-        
-        
+
+
         //check for ban hammer
         $banString = get_option("blacklist_keys");
-        
+
         if (strpos($banString, $email)) {
 	        die();
         }
-        
-        
+
+
         if (empty($_POST['displayname']) || empty($_POST['email']) || empty($_POST['password'])) {
 	        $json = json_encode(array("errorcode"=>"incomplete_form","error"=>"Please fill enter a Display Name, Email and Password."));
     	    print $json;
 	        die();
         }
-        
+
         if ($user) {
 	        $json = json_encode(array("errorcode"=>"user_exists","error"=>"A user with this email address already has an account."));
     	    print $json;
@@ -108,21 +108,21 @@ function imo_email_register() {
         	$userdata['user_login'] = strtolower($displayName) . rand(1000,9999);
         	$userdata['user_pass'] = $password;
         	$userdata['role'] = "naw_community";
-        	
+
         	$userID = wp_insert_user($userdata);
        		wp_set_auth_cookie($userID,true);
        		//add_user_meta($userID,"state",$stateAbbrev);
-       		
+
        		$user = imo_get_user($userID);
        		$json = json_encode($user);
-       		
-       		print $json;        
+
+       		print $json;
        		die();
        	}
-    
 
-    } 
-	
+
+    }
+
 }
 
 
@@ -131,26 +131,41 @@ function imo_facebook_usercheck() {
 
     if (preg_match("/^\/facebook-usercheck\.json(\?(.+)?)?$/", $_SERVER['REQUEST_URI'])) {
         header('Content-type: application/json');
-        
-        $accessToken =  $_GET['accessToken'];
-        
 
-        
+        $accessToken =  $_GET['accessToken'];
+
+
+
+        //Set Defaults for whitetail app
+        $appID = '127971893974432';
+        $secretID = '998a58347d730b52dd2bac877180bedd';
+
+        //For for settings on new apps
+
+        if (defined("FACEBOOK_APP_ID") && defined("FACEBOOK_APP_SECRET")) {
+	        $appID = FACEBOOK_APP_ID;
+	        $secretID = FACEBOOK_APP_SECRET;
+        }
+
+
 
         $facebook = new Facebook(array(
-		  'appId'  => '127971893974432',
-		  'secret' => '998a58347d730b52dd2bac877180bedd',
+		  'appId'  => $appID,
+		  'secret' => $secretID,
 		));
-		
+
+
+
+
 		if (!empty($accessToken)) {
 	        $facebook->setAccessToken($accessToken);
         }
 
 		// Get FB User ID
 		$user = $facebook->getUser();
-		
-		
-		
+
+
+
 
 		if ($user) {
 		  try {
@@ -161,7 +176,7 @@ function imo_facebook_usercheck() {
 		    $user = null;
 		  }
 		}
-		
+
 		_log("*********************FB PROFILE********************");
 		_log($user_profile);
 
@@ -178,20 +193,20 @@ function imo_facebook_usercheck() {
         	//wp_authenticate("facebook","dgrsvgqt4523facebook");
         	wp_set_auth_cookie($user->ID,true);
         	$user = imo_get_user($user->ID);
-        	
+
         	$json = json_encode($user);
         } else { //if not, register the user
-        
+
         	if (!empty($email)) {
-        	
+
         	    //check for ban hammer
 		        $banString = get_option("blacklist_keys");
-		        
+
 		        if (strpos($banString, $email)) {
 			        die();
 		        }
-        	
-        	
+
+
 		        $userdata = array();
 	        	$userdata['user_email'] = $email;
 	        	$userdata['first_name'] = $user_profile['first_name'];
@@ -200,35 +215,35 @@ function imo_facebook_usercheck() {
 	        	$userdata['user_login'] = strtolower($user_profile['first_name']) . strtolower($user_profile['last_name']) . rand(100,999);
 	        	$userdata['user_pass'] = imo_facebook_generate_password();
 	        	$userdata['role'] = "naw_community";
-	
+
 	        	_log("User Inserted?");
-	        	
+
 	        	$facebookUsername = $user_profile['username'];
 	        	$facebookProfilePicURL = "http://graph.facebook.com/".$user_profile['id']."/picture";
-	        	
-	         	
 
-	        	
-	
-	        	
+
+
+
+
+
 	       		$userID = wp_insert_user($userdata);
 	       		wp_set_auth_cookie($userID,true);
-	       		
+
 	       		add_user_meta($userID,"facebook_ID",$user_profile['id']);
 	       		add_user_meta($userID,"facebook_profile_image_URL",$facebookProfilePicURL);
-	       		
+
 	       		$locations = explode(",", $user_profile['hometown']['name']);
-	        
-	        	
+
+
 	        	if ($stateAbbrev = locationIsState(ltrim($locations[1]))) {
-	        	
+
 	        		add_user_meta($userID,"city",ltrim($locations[0]));
 	        		add_user_meta($userID,"state",$stateAbbrev);
-		        	
+
 	        	}
-	       				
+
 	       		$user = imo_get_user($userID);
-	
+
 	       		$json = json_encode($user);
 
         	}
@@ -236,32 +251,32 @@ function imo_facebook_usercheck() {
 
         }
 
-        
+
 
         print $json;
         //print_r($user_profile);
         die();
-    } 
-    
+    }
+
     if (preg_match("/^\/logout\.json(\?(.+)?)?$/", $_SERVER['REQUEST_URI'])) {
         header('Content-type: application/json');
-       $current_user = wp_get_current_user();        
-        
+       $current_user = wp_get_current_user();
+
         update_user_meta($current_user->ID,"imo_fb_login_status",false);
-        
+
         wp_logout();
         die();
-        
+
     }
-    
+
    if (preg_match("/^\/usercheck\.json(\?(.+)?)?$/", $_SERVER['REQUEST_URI'])) {
         header('Content-type: application/json');
         $user = imo_get_user();
        	$json = json_encode($user);
        	print $json;
-       	
+
         die();
-        
+
     }
 
 
@@ -273,7 +288,7 @@ add_action("init", "imo_facebook_usercheck");
 function imo_facebook_generate_password($length=9, $strength=0) {
 	$vowels = 'aeuy23456789';
 	$consonants = 'bdghjmnpqrstvz';
- 
+
 	$password = '';
 	$alt = time() % 2;
 	for ($i = 0; $i < $length; $i++) {
@@ -287,12 +302,12 @@ function imo_facebook_generate_password($length=9, $strength=0) {
 	}
 	return $password;
 }
- 
+
 
 
 
 function locationIsState($state) {
-	
+
 	$stateList = array(
 	"alabama"=>"AL",
 	"alaska"=>"AK",
@@ -392,19 +407,19 @@ function locationIsState($state) {
 	"veracruz"=>"VZ",
 	"yucatan"=>"YC",
 	"zacatecas"=>"ZT");
-	
-	
+
+
 	$state = strtolower($state);
-	
+
 	if (array_key_exists($state,$stateList)) {
 		return $stateList[$state];
 	} else {
 		return false;
 	}
-	
+
 	return array_key_exists($state,$stateList);
-		
-	
+
+
 }
 
 

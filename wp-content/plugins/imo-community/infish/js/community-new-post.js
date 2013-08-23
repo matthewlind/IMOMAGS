@@ -4,6 +4,7 @@ jQuery(document).ready(function($) {
 	var postTypes = IMO_COMMUNITY_CONFIG.post_types;
 
 	postAttachments = [];
+	postData = [];
 
 	//*******************************************************
 	//****************** DISPLAY THE FORM *******************
@@ -12,12 +13,58 @@ jQuery(document).ready(function($) {
 	$("#form-container").append(formTemplate);
 
 	//*******************************************************
+	//****************** CHECK FOR IMAGE *******************
+	//*******************************************************
+	if (window.location.hash) {
+		var imageID = window.location.hash.substring(1);
+		var imgURL = "https://www.filepicker.io/api/file/" + imageID ;
+
+		var newAttachment = {};
+
+		newAttachment.img_url = imgURL;
+
+		//get template for attachment
+        var attachmentTemplate = _.template( $("#single-attachment-template").html() , {attachment: newAttachment} );
+        var $attachmentTemplate = $(attachmentTemplate);
+
+
+        //display attachment
+        $attachmentTemplate.hide().appendTo("#attachments").slideDown();
+
+        //hide the attach photo button
+        $(".photo-link-area").slideUp;
+
+        //Track the data
+        postData.img_url = FPFile.url;
+
+        //add event to edit caption on change
+        $attachmentTemplate.find(".caption-field").change(function(ev){
+        	var caption = ev.currentTarget.value;
+        	postData.body = caption;
+        });
+
+        //Add Event to Delete Attachment
+        $attachmentTemplate.find(".delete-attachment").click(function(ev){
+
+        	ev.preventDefault();
+
+        	$(".add-photo-link").slideDown();
+
+
+        	$attachmentTemplate.slideUp();
+
+        });
+
+	}
+
+
+	//*******************************************************
 	//****************** NEW POST SUBMISSION ****************
 	//*******************************************************
 	$("#new-post-form").submit(function(){
 
 		var formDataObject = $("#new-post-form").formParams();
-		var newPostData = $.extend(formDataObject,userIMO);
+		var newPostData = $.extend(formDataObject,userIMO,postData);
 
 		newPostData.attachments = postAttachments;
 
@@ -38,6 +85,11 @@ jQuery(document).ready(function($) {
 		return false;
 
 	});
+
+	//*******************************************************
+	//************* HANDLE SELECT DROPDOWNS *****************
+	//*******************************************************
+
 
 	//*******************************************************
 	//****************** UPLOAD IMAGES **********************
@@ -74,12 +126,12 @@ jQuery(document).ready(function($) {
 
 
 		            //display attachment
-		            $("#attachments").append($attachmentTemplate);
+		            $attachmentTemplate.hide().appendTo("#attachments").slideDown();
 
 		            //add event to edit caption on change
 		            $attachmentTemplate.find(".caption-field").change(function(ev){
 		            	var caption = ev.currentTarget.value;
-		            	newAttachment.body = caption;
+		            	postData.body = caption;
 		            });
 
 		            //Add Event to Delete Attachment
@@ -87,14 +139,19 @@ jQuery(document).ready(function($) {
 
 		            	ev.preventDefault();
 
-		            	var attachmentIndex = postAttachments.indexOf(newAttachment);
-		            	postAttachments.splice(attachmentIndex,1);
-		            	$attachmentTemplate.remove();
+		            	$(".add-photo-link").slideDown();
+
+
+		            	$attachmentTemplate.slideUp();
 
 		            });
 
-		            postAttachments.push(newAttachment);//add the attachments to the list
-					$('#progressBar').fadeOut();
+		            //Hide Attachment Button
+		            $(".add-photo-link").slideUp();
+
+		            //postAttachments.push(newAttachment);//add the attachments to the list
+		            postData.img_url = FPFile.url;
+					$('#progressBar').slideUp();
 
 		        }, function(FPError) {
 		            //console.log(FPError.toString());
@@ -112,4 +169,8 @@ jQuery(document).ready(function($) {
 		}
 	});
 
+
+
 });
+
+
