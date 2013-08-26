@@ -18,8 +18,20 @@ License: IMO
 add_action('init', 'imo_facebook_auth_setup');
 function imo_facebook_auth_setup() {
 
+        //Set Defaults for whitetail app
+        $appID = '127971893974432';
+        $secretID = '998a58347d730b52dd2bac877180bedd';
+
+        //For for settings on new apps
+
+        if (defined("FACEBOOK_APP_ID") && defined("FACEBOOK_APP_SECRET")) {
+	        $appID = FACEBOOK_APP_ID;
+	        $secretID = FACEBOOK_APP_SECRET;
+        }
+
     require 'src/facebook.php';
     wp_enqueue_script('imo-facebook-auth',plugins_url('js/facebook-auth.js', __FILE__));
+    wp_localize_script("imo-facebook-auth","fb_auth", array("app_id" => $appID) );
 
 }
 
