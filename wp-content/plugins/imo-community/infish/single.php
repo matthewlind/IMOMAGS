@@ -241,7 +241,7 @@ $time = date("g:i A", strtotime($timestamp));
 <div id="imo-add-this-spid" style="display:none;"><?php echo $spid; ?></div>
 
 <div class="general general-com">
-   
+
     <ul class="breadcrumbs">
     	<li><a href="/community">Community</a></li>
     	<li style="margin-top:1px;">&raquo; <?php echo $topicName; ?></li>
@@ -268,14 +268,14 @@ $time = date("g:i A", strtotime($timestamp));
             <input class="jq-open-login-popup" type="submit" value="Post" />
         </span>
     </div>
-   
+
     <div class="dif-full-post">
         <h1><?php echo $data->title; ?></h1>
         <img src="<?php echo plugins_url('images/fishhead.png' , __FILE__ ); ?>" alt="" class="profile-logo" />
         <div class="profile-panel">
             <div class="profile-photo">
                 <a href="/profile/<?php echo $data->username; ?>"><img src="/avatar?uid=<?php echo $data->user_id; ?>" alt="<?php echo $data->username; ?>" /></a>
-            </div>            
+            </div>
             <div class="profile-data">
                 <h4><a href="/profile/<?php echo $data->username; ?>"><?php echo $data->display_name; ?></a></h4>
                 <ul class="prof-tags">
@@ -290,40 +290,50 @@ $time = date("g:i A", strtotime($timestamp));
                         <li><?php echo $niceScore; ?><div class="bullet"></li>
                         <li><?php echo $niceView; ?></li>
                     </ul>
-                    
+
                 </div>
             </div>
             <?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
         </div>
+
         <?php
-        	foreach ($attachmentData as $attachment) { 
+            $media = "";
+            $media = "<div class='full-post-img'><img src='$data->img_url' width=615></div>";
+
+            echo $media;
+        ?>
+
+
+
+        <?php
+        	foreach ($attachmentData as $attachment) {
 	        	$media = "";
 				$caption = "";
-	            
+
 	            if ($attachment->post_type == "youtube") {
-	
+
 	                $videoID = $attachment->meta;
 	                $media = "<div class='full-post-img'>";
 	                $media .= '<iframe width="640" height="480" src="http://www.youtube.com/embed/' . $videoID . '" frameborder="0" allowfullscreen></iframe>';
 	                $media .= "</div>$caption";
-	
+
 	            } else {
-	
+
 	                $photoURL = str_replace("thumb", "medium", $attachment->img_url);
 	                $media = "<div class='full-post-img'><img src='$photoURL' width=615></div>$caption";
-	
+
 	            }
-	
-	
+
+
 	            echo $media;
-	            
+
 			} ?>
 			<div class='full-text'>
-				
-				<?php if($data->body){ ?> 
+
+				<?php if($data->body){ ?>
 	            	<p><?php echo $data->body; ?>
 	            <?php } ?>
-	            
+
 	        <div class="clearfix">
                 <a href="#reply_field" class="post-it">Post a Reply</a>
                 <ul class="like-bar">
@@ -364,29 +374,29 @@ $time = date("g:i A", strtotime($timestamp));
                 </ul>
             </div>
         </div>
-        
+
     </div>-->
     <div class="photo-link-area btn-link-area">
         <a href="#" class="btn-grey jq-open-reply-slide">Start New Post</a>
     </div>
     <div class="replies-box">
         <h2>Replies <a href="#">(<?php echo $niceComment; ?>)</a></h2>
-        
+
         <ul class="replies-list">
-        
+
         	<?php foreach ($commentData as $comment) {
 				// get the score of the users in the replies
 				$userscoreURL = "http://$hostname/slim/api/superpost/user/score/".$comment->user_id;
 				$file5 = file_get_contents($userscoreURL);
 				$comment_user_score = json_decode($file5);
-				$comment_user_score = $comment_user_score[0]; 
+				$comment_user_score = $comment_user_score[0];
 				if($comment_user_score->score == 1){
 					$niceScore = $comment_user_score->score.' Point';
 				}else{
 					$niceScore = $comment_user_score->score.' Points';
 				} ?>
-				
-				
+
+
 		        <li<?php echo $visible; ?>>
 		            <div class="profile-photo">
 		                 <a href="/profile/<?php echo $comment->username; ?>"><img src="/avatar?uid=<?php echo $comment->user_id; ?>" alt="<?php echo $comment->display_name; ?>"></a>
@@ -419,7 +429,7 @@ $time = date("g:i A", strtotime($timestamp));
 		            </div>
 		            <a href="#" class="flag-badge single-flag-button" spid="<?php echo $spid ?>"></a>
 		        </li>
-		           		        
+
 		        <?php if (current_user_can('edit_superposts')) { ?>
 			    <select class="editor-functions" spid="<?php echo $spid; ?>" email="<?php echo $postUserEmail; ?>">
 			    	<option>EDITOR OPTIONS</option>
@@ -429,13 +439,13 @@ $time = date("g:i A", strtotime($timestamp));
 			    	<option value="contact" >Contact User</option>
 			    	<option value="teflon">Teflon</option>
 			    </select>
-				
+
 				<?php } //ENDIF current_user_can('delete_others_posts')?>
-		    
+
 	        <?php } ?>
         </ul>
     </div>
-    
+
     <!-- INVISIBLE COMMENT FOR CLONING -->
 
 	<div class="super-comments zebra superpost-comment-template" style="display:none">
@@ -455,19 +465,21 @@ $time = date("g:i A", strtotime($timestamp));
 		         </div>
 		</div>
 	</div>
-	
-   <?php sub_footer(); ?> 
+
+   <?php sub_footer(); ?>
 
     <div class="reply-field" id="reply_field">
         <div class="title-bar clearfix">
             <h3>Post a <span>Reply</span></h3>
-            <a href="#" class="add-youtube">Add youtube video</a>
-            <a href="#" class="attach-photo">Attach Photo</a>
-            
+<!--             <a href="#" class="add-youtube">Add youtube video</a>
+            <a href="#" class="attach-photo">Attach Photo</a> -->
+
         </div>
-        <form action="#">
+        <form action="#" id="comment-form">
             <fieldset>
-                <textarea id="" cols="30" placeholder="Your Reply" rows="10"></textarea>
+                <textarea id="" cols="30" placeholder="Your Reply" rows="10" name="body"></textarea>
+                <input type="hidden" name="post_type" value="comment">
+                <input type="hidden" name="parent" value="<?php echo $data->id ?>">
                 <div class="replies-submit-field">
                     <span class="btn-base btn-base-middle"><input type="submit" value="Submit" /></span>
                 </div>
@@ -478,7 +490,7 @@ $time = date("g:i A", strtotime($timestamp));
     <?php social_footer(); ?>
     <div class="hr mobile-hr"></div>
     <a href="#" class="back-top jq-go-top">back to top</a>
-    
+
     <!-- category popup start -->
     <div class="basic-popup cat-popup">
         <h3>Choose Category</h3>
@@ -496,7 +508,7 @@ $time = date("g:i A", strtotime($timestamp));
         <a class="btn-cancel jq-close-popup" href="#">Cancel</a>
     </div>
     <!-- category popup end -->
-    
+
     <!-- state popup start -->
     <div class="basic-popup state-popup">
         <h3>Choose State</h3>
@@ -514,7 +526,7 @@ $time = date("g:i A", strtotime($timestamp));
         <a class="btn-cancel jq-close-popup" href="#">Cancel</a>
     </div>
     <!-- state popup end -->
-    
+
     <!-- login popup start -->
     <div class="basic-popup login-popup">
         <div class="popup-title">
@@ -530,7 +542,7 @@ $time = date("g:i A", strtotime($timestamp));
         <a class="btn-cancel jq-close-popup" href="#">Cancel</a>
     </div>
     <!-- login popup end -->
-    
+
     <!-- log/reg popup start -->
     <div class="basic-popup basic-form reg-popup">
         <div class="popup-inner clearfix">
@@ -579,8 +591,8 @@ $time = date("g:i A", strtotime($timestamp));
 
 
 
-	
-	
+
+
 <!--
 ***********************************************
 ***********************************************
