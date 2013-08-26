@@ -243,7 +243,7 @@ $time = date("g:i A", strtotime($timestamp));
 <div class="general general-com">
 
     <ul class="breadcrumbs">
-    	<li><a href="/community">Community</a></li>
+    	<li><a href="/photos">Community</a></li>
     	<li style="margin-top:1px;">&raquo; <?php echo $topicName; ?></li>
     </ul>
     <div class="basic-form post-reply-slide">
@@ -297,8 +297,12 @@ $time = date("g:i A", strtotime($timestamp));
         </div>
 
         <?php
+        	$width = "/convert?w=730&fit=scale";
+        	if(mobile()){
+        		$width = "/convert?w=478";
+        	}
             $media = "";
-            $media = "<div class='full-post-img'><img src='$data->img_url' width=615></div>";
+            $media = "<div class='full-post-img'><img src='$data->img_url$width'></div>";
 
             echo $media;
         ?>
@@ -320,7 +324,7 @@ $time = date("g:i A", strtotime($timestamp));
 	            } else {
 
 	                $photoURL = str_replace("thumb", "medium", $attachment->img_url);
-	                $media = "<div class='full-post-img'><img src='$photoURL' width=615></div>$caption";
+	                $media = "<div class='full-post-img'><img src='$photoURL$width'></div>$caption";
 
 	            }
 

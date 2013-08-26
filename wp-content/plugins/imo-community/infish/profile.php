@@ -155,6 +155,10 @@ if ( is_user_logged_in() ) {
          return;
 }
 
+$crop = "/convert?w=650&h=650&fit=crop";
+if(mobile()){
+	$crop = "/convert?w=458&h=458&fit=crop";
+}
 
 ?>
 
@@ -234,7 +238,7 @@ if ( is_user_logged_in() ) {
                         
 		                        <div class="dif-post">
 		                            <div class="feat-img">
-		                                <a href="/photos/<?php echo $post->id; ?>"><img class="feat-img" src="<?php echo $post->img_url; ?>" alt="<?php echo $post->title; ?>" title="<?php echo $post->title; ?>" /></a>
+		                                <a href="/photos/<?php echo $post->id; ?>"><img class="feat-img" src="<?php echo $post->img_url . $crop; ?>" alt="<?php echo $post->title; ?>" title="<?php echo $post->title; ?>" /></a>
 		                            </div>
 		                            <div class="dif-post-text">
 		                                <h3><a href="/photos/<?php echo $post->id; ?>"><?php echo $post->title; ?></a></h3>
