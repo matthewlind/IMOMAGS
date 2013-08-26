@@ -42,6 +42,11 @@ if ( is_user_logged_in() ) {
 
 
 include 'common-templates.php';
+$crop = "/convert?w=650&h=650&fit=crop";
+if(mobile()){
+	$crop = "/convert?w=458&h=458&fit=crop";
+}
+
 ?>
 
 <!-- *********************************************************** -->
@@ -51,7 +56,7 @@ include 'common-templates.php';
 <% if(post.img_url){ %>
 	<div class="dif-post">
         <div class="feat-img">
-            <a href="/photos/<%= post.id %>"><img class="feat-img" src="<%= post.img_url %>" alt="<%= post.title %>" title="<%= post.img_url %>" /></a>
+            <a href="/photos/<%= post.id %>"><img class="feat-img" src="<%= post.img_url %><?php echo $crop; ?>" alt="<%= post.title %>" title="<%= post.img_url %>" /></a>
         </div>
         <div class="dif-post-text">
             <h3><a href="/photos/<%= post.id %>"><%= post.title %></a></h3>
