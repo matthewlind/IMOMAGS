@@ -571,3 +571,14 @@ a.change-location:before {
     height:213px;
     background:url(images/logos/fisherman-logo.png) no-repeat;
 }
+
+/* =Responsive Breakpoints
+*******************************************************************************/
+@media only screen and (max-width: 1096px) {
+	.header .socials{
+		right: 120px;
+	}
+	#subscribe-area {
+		right: 315px;
+	}
+}

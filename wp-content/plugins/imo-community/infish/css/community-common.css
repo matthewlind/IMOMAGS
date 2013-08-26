@@ -424,6 +424,7 @@ select.alter-sel {max-width: 300px;}
     color:#c9242c;
     margin:0 0 15px;
 }
+.logout{float: right;}
 .basic-form input[type="text"],
 .basic-form input[type="password"]{
     width:274px;
