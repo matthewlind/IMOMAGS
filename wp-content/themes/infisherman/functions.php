@@ -20,6 +20,19 @@ define("FACEBOOK_LINK", "https://www.facebook.com/InFisherman");
 define("FACEBOOK_APP_ID","172626882923364");
 define("FACEBOOK_APP_SECRET","60a79f156a44dc9a57096bf9ed3d1a80");
 
+/* This function allows for logging when debugging mode is on */
+if(!function_exists('_log')){
+  function _log( $message ) {
+    if( WP_DEBUG === true ){
+      if( is_array( $message ) || is_object( $message ) ){
+        error_log( print_r( $message, true ) );
+      } else {
+        error_log( $message );
+      }
+    }
+  }
+}
+
 function imo_sidebar($type){
 	$dartDomain = get_option("dart_domain", $default = false);
 	echo '<div class="sidebar-area">';
