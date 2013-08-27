@@ -58,7 +58,7 @@ imo_sidebar("community");
 				</div>
 
 
-				<div class="dropdown-selects hidden-desktop">
+				<div class="dropdown-selects">
 					<select id="dynamic_select" class="post_type alter-sel mobile-select" name="post_type">
 		         		<option value="">SPECIES</option>
 				 		<% _.each(post_types,function(postType,index){ %>
@@ -134,34 +134,6 @@ imo_sidebar("community");
 					</select>
 				</div>
 
-				<div class="hidden-phone">
-
-
-
-				    <div class="btn-group btn-bar">
-				      <button type="button" class="btn btn-default dropdown-toggle alter-sel" data-toggle="dropdown">
-				        Choose Species
-				      </button>
-				      <ul class="dropdown-menu" role="menu">
-				        <li><a href="#">Action</a></li>
-				        <li><a href="#">Another action</a></li>
-				        <li><a href="#">Something else here</a></li>
-				        <li class="divider"></li>
-				        <li><a href="#">Separated link</a></li>
-				      </ul>
-				    </div>
-				    <div class="btn-group btn-bar">
-				      <button type="button" class="btn btn-default dropdown-toggle alter-sel" data-toggle="dropdown">
-				        Choose State
-				      </button>
-				      <ul class="dropdown-menu" role="menu">
-				        <li><a href="#">PANIC</a></li>
-				        <li><a href="#">Another action</a></li>
-
-				      </ul>
-				    </div>
-
-				</div>
 
 				<% if (post && post.id) { %>
 						<input type="hidden" name="id" value="<%= post.id %>" >

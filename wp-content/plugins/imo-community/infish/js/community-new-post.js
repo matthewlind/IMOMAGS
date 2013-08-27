@@ -13,7 +13,7 @@ jQuery(document).ready(function($) {
 	$("#form-container").append(formTemplate);
 
 	//*******************************************************
-	//****************** CHECK FOR IMAGE *******************
+	//********  CHECK FOR IMAGE FROM PREVIOUS PAGE  *********
 	//*******************************************************
 	if (window.location.hash) {
 		var imageID = window.location.hash.substring(1);
@@ -32,7 +32,7 @@ jQuery(document).ready(function($) {
         $attachmentTemplate.hide().appendTo("#attachments").slideDown();
 
         //hide the attach photo button
-        $(".photo-link-area").slideUp;
+        $(".photo-link-area").slideUp();
 
         //Track the data
         postData.img_url = imgURL;
@@ -48,7 +48,7 @@ jQuery(document).ready(function($) {
 
         	ev.preventDefault();
 
-        	$(".add-photo-link").slideDown();
+        	$(".photo-link-area").slideDown();
 
 
         	$attachmentTemplate.slideUp();
@@ -77,9 +77,12 @@ jQuery(document).ready(function($) {
 
 
 
-			alert("New Post Added! Replace this alert with a redirect to something!")
+			//alert("New Post Added! Replace this alert with a redirect to something!")
 
-			//window.location.href = "/photos/" + postData.id;
+			if (postData)
+				window.location.href = "/photos/" + postData.id;
+			else
+				alert("Could not post photo. Are you logged in?");
 		});
 
 		return false;

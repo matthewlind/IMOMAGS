@@ -268,7 +268,7 @@ h2{
     cursor:pointer;
     margin:0 0 10px;
 }
-select.alter-sel {max-width: 300px;}
+select.alter-sel {width: 100%;}
 .alter-sel:after {
     position:absolute;
     top:19px;
@@ -1254,8 +1254,20 @@ select.alter-sel {max-width: 300px;}
 }
 .form .btn-red input,
 .form .btn-red {width:198px;}
+
+.caption-area textarea {
+    width: 540px;
+
+}
+
 /* Responsive styles */
 @media only screen and (max-width: 1096px) {
+
+
+    .caption-area textarea {
+        width: 540px;
+
+    }
     .general-com {
         width:auto;
     }
