@@ -21,7 +21,7 @@
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 
 
-get_header(); 
+get_header();
 imo_sidebar("community");
 
 the_post();
@@ -123,122 +123,21 @@ if(mobile()){
             </div>
         </div>
 
-<div class="btn-group">
-    <div class="btn-group btn-bar">
-      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-        Action <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu" role="menu">
-        <li><a href="#">Action</a></li>
-        <li><a href="#">Another action</a></li>
-        <li><a href="#">Something else here</a></li>
-        <li class="divider"></li>
-        <li><a href="#">Separated link</a></li>
-      </ul>
-    </div>
-    <div class="btn-group btn-bar">
-      <button type="button" class="btn btn-default dropdown-toggle not-first" data-toggle="dropdown">
-        Another thing <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu" role="menu">
-        <li><a href="#">PANIC</a></li>
-        <li><a href="#">Another action</a></li>
-
-      </ul>
-    </div>
-</div>
-
-
-<hr>
-
-        <span class="alter-sel jq-filter">Browse Community</span>
-        <div class="browse-holder clearfix">
-            <div class="browse-panel">
-                <div class="browse-item jq-open-filer">
-                    <div class="browse-item-inner">
-                        <h3 class="arrow">Browse Species</h3>
-                        <ul class="browse-drop">
-                            <li><a href="#">lorem ipsum</a></li>
-                            <li><a href="#">lorem ipsum</a></li>
-                            <li><a href="#">lorem ipsum</a></li>
-                            <li><a href="#">lorem ipsum</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="browse-item jq-open-filer">
-                    <div class="browse-item-inner">
-                        <h3 class="arrow">Browse By State</h3>
-                        <ul class="browse-drop">
-                            <li><a href="#">Alabama</a></li>
-                            <li><a href="#">Alaska</a></li>
-                            <li><a href="#">Arizona</a></li>
-                            <li><a href="#">Arkansas</a></li>
-                            <li><a href="#">California</a></li>
-                            <li><a href="#">Colorado</a></li>
-                            <li><a href="#">Connecticut</a></li>
-                            <li><a href="#">Delaware</a></li>
-                            <li><a href="#">Florida</a></li>
-                            <li><a href="#">Georgia</a></li>
-                            <li><a href="#">Hawaii</a></li>
-                            <li><a href="#">Idaho</a></li>
-                            <li><a href="#">Illinois</a></li>
-                            <li><a href="#">Indiana</a></li>
-                            <li><a href="#">Iowa</a></li>
-                            <li><a href="#">Kansas</a></li>
-                            <li><a href="#">Kentucky</a></li>
-                            <li><a href="#">Louisiana</a></li>
-                            <li><a href="#">Maine</a></li>
-                            <li><a href="#">Maryland</a></li>
-                            <li><a href="#">Massachusetts</a></li>
-                            <li><a href="#">Michigan</a></li>
-                            <li><a href="#">Minnesota</a></li>
-                            <li><a href="#">Mississippi</a></li>
-                            <li><a href="#">Missouri</a></li>
-                            <li><a href="#">Montana</a></li>
-                            <li><a href="#">Nebraska</a></li>
-                            <li><a href="#">Nevada</a></li>
-                            <li><a href="#">New Hampshire</a></li>
-                            <li><a href="#">New Jersey</a></li>
-                            <li><a href="#">New Mexico</a></li>
-                            <li><a href="#">New York</a></li>
-                            <li><a href="#">North Carolina</a></li>
-                            <li><a href="#">North Dakota</a></li>
-                            <li><a href="#">Ohio</a></li>
-                            <li><a href="#">Oklahoma</a></li>
-                            <li><a href="#">Oregon</a></li>
-                            <li><a href="#">Pennsylvania</a></li>
-                            <li><a href="#">Rhode Island</a></li>
-                            <li><a href="#">South Carolina</a></li>
-                            <li><a href="#">South Dakota</a></li>
-                            <li><a href="#">Tennessee</a></li>
-                            <li><a href="#">Texas</a></li>
-                            <li><a href="#">Utah</a></li>
-                            <li><a href="#">Vermont</a></li>
-                            <li><a href="#">Virginia</a></li>
-                            <li><a href="#">Washington</a></li>
-                            <li><a href="#">West Virginia</a></li>
-                            <li><a href="#">Wisconsin</a></li>
-                            <li><a href="#">Wyoming</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="browse-item jq-open-filer">
-                    <div class="browse-item-inner">
-                        <h3>Master Anglers</h3>
-                        <ul class="browse-drop">
-                            <li><a href="#">lorem ipsum</a></li>
-                            <li><a href="#">lorem ipsum</a></li>
-                            <li><a href="#">lorem ipsum</a></li>
-                            <li><a href="#">lorem ipsum</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <a href="#" class="btn-cancel jq-close-filter">Cancel</a>
-                <a href="#" class="btn-close-popup jq-close-filter">close</a>
-            </div>
-            <div class="filter-fade-out"></div>
-            <a href="photos/new" class="share-photo"><span>Share a Photo</span></a>
+        <div class="btn-group btn-bar">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            Action <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
         </div>
+
+
+
         <div class="general-title clearfix alter-title">
             <h2>Latest <span>Submissions</span></h2>
         </div>

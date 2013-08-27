@@ -5,6 +5,7 @@ include 'mysql.php';
 include 'auth.php';
 include 'images.php';
 include 'video.php';
+include 'clsFlagger.php';
 
 
 \Slim\Slim::registerAutoloader();
