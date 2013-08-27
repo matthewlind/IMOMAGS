@@ -207,7 +207,7 @@ h2{
     height:17px;
     content:"";
     background:url(../images/sprite.png) no-repeat -323px -36px;
-    margin-left: 280px;
+    margin-left: 643px;
 	text-indent: -9999px;
 	-webkit-transition: 0s !important;
 	-moz-transition: 0s !important;
@@ -483,7 +483,7 @@ select.alter-sel {max-width: 300px;}
     height:94px;
 }
 .caption-area textarea {
-    width:190px;
+    width:550px;
     height:58px;
     min-height:58px;
     position:relative;
@@ -1251,8 +1251,18 @@ select.alter-sel {max-width: 300px;}
 }
 .form .btn-red input,
 .form .btn-red {width:198px;}
+
 /* Responsive styles */
 @media only screen and (max-width: 1096px) {
+    .delete-attachment{
+        margin-left:97%;
+    }
+    .caption-area {
+        width:83%;
+    }
+    .caption-area textarea {
+        width: 100%;
+    }
     .general-com {
         width:auto;
     }
@@ -1339,7 +1349,28 @@ select.alter-sel {max-width: 300px;}
     }
 
 }
+
+
+@media only screen and (max-width: 1015px) {
+    .delete-attachment{
+        margin-left:97%;
+    }
+
+    .caption-area {
+        width:81%;
+    }
+}
+
 @media only screen and (max-width: 936px) {
+
+    .delete-attachment{
+        margin-left:96%;
+    }
+
+    .caption-area {
+        width:76%;
+    }
+
     .browse-item h3.arrow {
         padding-right:25px;
     }
@@ -1367,6 +1398,15 @@ select.alter-sel {max-width: 300px;}
     }
 }
 @media only screen and (max-width: 820px) {
+    .delete-attachment{
+        margin-left:96%;
+    }
+
+    .caption-area {
+        width:75%;
+    }
+
+
     .dif-post {
         width:100%;
     }
@@ -1399,6 +1439,15 @@ select.alter-sel {max-width: 300px;}
     }
 }
 @media only screen and (max-width: 760px) {
+    .delete-attachment{
+        margin-left:93%;
+    }
+
+    .caption-area {
+        width:66%;
+    }
+
+
     .dif-posts .content-banner-section {
         display:block;
     }
@@ -1442,6 +1491,15 @@ select.alter-sel {max-width: 300px;}
     }
 }
 @media only screen and (max-width: 700px) {
+    .delete-attachment{
+        margin-left:93%;
+    }
+
+    .caption-area {
+        width:60%;
+    }
+
+
     .browse-title {
         display:none;
     }
@@ -1486,7 +1544,16 @@ select.alter-sel {max-width: 300px;}
         min-width:100px;
     }
 }
+
+/* single column */
 @media only screen and (max-width: 610px) {
+
+
+    .caption-area {
+        width:67%;
+    }
+
+
     .mobile-hr {display:block !important;}
     .mobile-hidden-section {display:none;}
     .explore-more-mobile {
