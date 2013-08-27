@@ -15,7 +15,6 @@ $city = get_user_meta($profileuser->ID,"city",true);
 $state = get_user_meta($profileuser->ID,"state",true);
 $zip = get_user_meta($profileuser->ID,"zip",true);
 
-
 $user_role = reset( $profileuser->roles );
 if ( is_multisite() && empty( $user_role ) ) {
 	$user_role = 'subscriber';
@@ -46,13 +45,14 @@ if ( is_user_logged_in() ) {
     <h1>COMMUNITY PROFILE</h1>
     <a href="<?php echo wp_logout_url( get_permalink() ); ?>" class="logout" alt="Logout" title="Logout">Logout</a>
 </div>
-<div class="image-banner posts-image-banner">
-    <a href="#" class="ui-link"><img alt="" src="<?php bloginfo( 'template_url' ); ?>/images/pic/imitates-injured.jpg"></a>
-</div>
+<?php if(mobile()){ ?>
+	<div class="image-banner posts-image-banner">
+		<?php imo_dart_tag("300x50"); ?>
+	</div>
+<?php } ?>
 <?php $template->the_action_template_message( 'profile' ); ?>
 <?php $template->the_errors(); ?>
-<div class="form" id="your-profile" method="post">
-    <form action="#">
+<form class="form" method="post" action="#">
     	<?php wp_nonce_field( 'update-user_' . $current_user->ID ) ?>
 		<input type="hidden" name="from" value="profile" />
 		<input type="hidden" name="checkuser_id" value="<?php echo $current_user->ID; ?>" />
@@ -70,7 +70,7 @@ if ( is_user_logged_in() ) {
             <div class="f-row">
                 <label for="namePublicly">Display name publicly as</label>
                 <div class="f-input">
-                    <input id="namePublicly" type="text" placeholder="<?php echo esc_attr( $profileuser->display_name ); ?>" />
+                    <input id="namePublicly" type="text" value="<?php echo esc_attr( $profileuser->display_name ); ?>" />
                 </div>
             </div>
             <div class="f-row">
@@ -128,21 +128,12 @@ if ( is_user_logged_in() ) {
                 </div>
                 
             </div>
-            <div class="f-row">
-	            <?php if ( function_exists( '_wp_get_user_contactmethods' ) ) :
-					foreach ( _wp_get_user_contactmethods() as $name => $desc ) {
-						//This section displays the twitter name
-						//Check functions/profile.php for other things this section could show
-				?>
-                <label for="<?php echo $name; ?>"><?php echo apply_filters( 'user_'.$name.'_label', $desc ); ?> Twitter</label>
+            <!--<div class="f-row">
+                <label for="twitter"> Twitter</label>
                 <div class="f-input">
-                    <input name="<?php echo $name; ?>" id="<?php echo $name; ?>" value="<?php echo esc_attr( $profileuser->$name ) ?>" type="text" />
+                    <input name="twitter" id="twitter" value="<?php echo esc_attr( $profileuser->$name ) ?>" type="text" />
                 </div>
-                	<?php
-					}
-					endif;
-				?>
-            </div>
+            </div>-->
             <?php
 			$show_password_fields = apply_filters( 'show_password_fields', true, $profileuser );
 			if ( $show_password_fields ) :
@@ -160,18 +151,11 @@ if ( is_user_logged_in() ) {
                     <input type="password" name="pass2" id="pass2" value="" autocomplete="off" />
                 </div>
             </div>
-            <div class="f-row single-row">
-                <div class="f-indicator">Strength indicator</div>
-                <div class="form-note">
-                    Hint: The password should be at least seven characters long.
-                    To make it stronger, use upper and lower case letters,
-                    numbers and symbols like ! " ? $ % ^ & ).
-                </div>
-            </div>
+         
             <?php endif; ?>
             
             <?php do_action( 'show_user_profile', $profileuser ); ?>
-            <?php if ( count( $profileuser->caps ) > count( $profileuser->roles ) && apply_filters( 'additional_capabilities_display', true, $profileuser ) ) { ?>
+           <!-- <?php if ( count( $profileuser->caps ) > count( $profileuser->roles ) && apply_filters( 'additional_capabilities_display', true, $profileuser ) ) { ?>
             	<table width="99%" style="border: none;" cellspacing="2" cellpadding="3" class="editform">
 				<tr>
 					<th scope="row"><?php _e( 'Additional Capabilities', 'theme-my-login' ) ?></th>
@@ -189,11 +173,10 @@ if ( is_user_logged_in() ) {
 					?></td>
 				</tr>
 			</table>
-		<?php } ?>
+		<?php } ?>-->
             <div class="f-row single-row">
             	<input type="hidden" name="user_id" id="user_id" value="<?php echo esc_attr( $current_user->ID ); ?>" />
                 <span class="btn-red"><input type="submit" value="<?php esc_attr_e( 'Update Profile', 'theme-my-login' ); ?>" name="submit" /></span>
             </div>
         </fieldset>
     </form>
-</div>

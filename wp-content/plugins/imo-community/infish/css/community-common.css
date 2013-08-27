@@ -1,6 +1,3 @@
-.general-com {
-    width:688px;
-}
 .breadcrumbs {
     border-top:1px solid #d8d8d7;
     border-bottom:1px solid #fff;
@@ -268,7 +265,7 @@ h2{
     cursor:pointer;
     margin:0 0 10px;
 }
-select.alter-sel {width: 100%;}
+select.alter-sel {max-width: 300px;}
 .alter-sel:after {
     position:absolute;
     top:19px;
@@ -289,7 +286,7 @@ select.alter-sel {width: 100%;}
     display:inline-block;
     vertical-align:top;
     width:314px;
-    margin:0 26px 34px 0;
+    margin:0 20px 34px 0;
 }
 .dif-post-text {
     position:relative;
@@ -879,7 +876,7 @@ select.alter-sel {width: 100%;}
     background:url(../images/sprite.png) no-repeat -295px -35px;
 }
 .join-box {
-    padding:24px 14px 12px;
+    padding:24px 18px 12px;
     margin:0 0 30px;
     background:#fff;
     border-bottom:1px solid #d0cfcd;
@@ -1254,20 +1251,8 @@ select.alter-sel {width: 100%;}
 }
 .form .btn-red input,
 .form .btn-red {width:198px;}
-
-.caption-area textarea {
-    width: 540px;
-
-}
-
 /* Responsive styles */
 @media only screen and (max-width: 1096px) {
-
-
-    .caption-area textarea {
-        width: 540px;
-
-    }
     .general-com {
         width:auto;
     }
@@ -1339,7 +1324,7 @@ select.alter-sel {width: 100%;}
     .dif-post {
         display:block;
         margin:0 auto 20px;
-        width:650px;
+        width:auto;
     }
     .reply-field {
         padding:24px 23px 57px;
@@ -1359,7 +1344,6 @@ select.alter-sel {width: 100%;}
         padding-right:25px;
     }
     .browse-item h3.arrow:after {right:5px;}
-    .dif-post {width:430px;}
     .user-col h2 {
         font-size:24px;
     }
@@ -1405,17 +1389,6 @@ select.alter-sel {width: 100%;}
     .singl-post-photo {
         width:222px;
     }
-    .sidebar .join-box {
-        padding:18px 10px 26px;
-    }
-    .sidebar .join-box h3 {
-        font-size:20px;
-    }
-    .sidebar .btn-fb-login {
-        width:204px;
-        height:31px;
-        background-position:0 -314px;
-    }
     .sidebar .or-delim {
         font-size:15px;
         margin-bottom:17px;
@@ -1423,15 +1396,6 @@ select.alter-sel {width: 100%;}
     .sidebar .or-delim:before,
     .sidebar .or-delim:after {
         width:80px;
-    }
-    .sidebar .btn-red {
-        width:204px;
-        height:31px;
-        line-height:31px;
-    }
-    .join-box .profile-panel {
-        margin:0 0 15px;
-        width:100%;
     }
 }
 @media only screen and (max-width: 760px) {

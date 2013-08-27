@@ -35,8 +35,8 @@ Theme My Login will always look in your theme's directory first, before using th
 			do_action_ref_array( 'tml_login_form', array( &$template ) ); // TML hook
 			?>
 			<div class="f-row">
-				<input name="rememberme" type="checkbox" id="rememberme<?php $template->the_instance(); ?>" value="forever" tabindex="90" />
 				<label for="rememberme<?php $template->the_instance(); ?>"><?php _e( 'Remember Me', 'theme-my-login' ); ?></label>
+				<input name="rememberme" type="checkbox" id="rememberme<?php $template->the_instance(); ?>" value="forever" tabindex="90" />
 			</div>
 			<div class="f-row single-row">
                 <span class="btn-red">
