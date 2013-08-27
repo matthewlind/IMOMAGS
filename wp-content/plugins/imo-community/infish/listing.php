@@ -67,12 +67,12 @@ if(mobile()){
                 <div class="profile-data">
                     <h4><a href="/profile/<%= post.username %>"><%= post.display_name %></a></h4>
                     <ul class="prof-tags">
-                        <li><a href="#"><%= post.state %></a></li>
-                        <li><a href="#"><%= post.post_type %></a></li>
-                        <li><a href="#">Master Angler</a></li>
+                        <!--<li><a href="#"><%= post.state %></a></li>-->
+                        <li><a href="/<%= post.post_type %>"><%= post.post_type %></a></li>
+                        <li><a href="/master-angler">Master Angler</a></li>
                     </ul>
                     <ul class="replies">
-                        <li><a href="#"><%= post.comment_count %> Reply</a></li>
+                        <li><a href="/photos/<%= post.id %>#reply_field"><%= post.comment_count %> Reply</a></li>
                         <li><%= post.score %> Points</li>
                     </ul>
                     <ul class="prof-like">

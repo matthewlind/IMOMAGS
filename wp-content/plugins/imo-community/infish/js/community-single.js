@@ -11,17 +11,12 @@ jQuery(document).ready(function(){
 
         alert("comment?");
 
-        //console.log(newPostData);
-
         $.post("http://" + document.domain + "/community-api/posts",newPostData,function(data){
 
             var postData = $.parseJSON(data);
 
-
-
-
             alert("Comment Added?!")
-
+			$("#replies-list").append('<li>' + postData.body + '</li>').fadeIn();
             //window.location.href = "/photos/" + postData.id;
         });
 
