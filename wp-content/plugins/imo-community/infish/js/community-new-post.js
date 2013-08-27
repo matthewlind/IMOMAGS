@@ -77,9 +77,9 @@ jQuery(document).ready(function($) {
 
 
 
-			alert("New Post Added! Replace this alert with a redirect to something!")
+			//alert("New Post Added! Replace this alert with a redirect to something!")
 
-			//window.location.href = "/photos/" + postData.id;
+			window.location.href = "/photos/" + postData.id;
 		});
 
 		return false;
