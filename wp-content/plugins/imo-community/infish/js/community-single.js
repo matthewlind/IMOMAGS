@@ -9,7 +9,7 @@ jQuery(document).ready(function(){
         var formDataObject = $("#comment-form").formParams();
         var newPostData = $.extend(formDataObject,userIMO);
 
-        alert("comment?");
+        //alert("comment?");
 
         $.post("http://" + document.domain + "/community-api/posts",newPostData,function(data){
 
@@ -17,7 +17,7 @@ jQuery(document).ready(function(){
 
             alert("Comment Added?!")
 			$("#replies-list").append('<li>' + postData.body + '</li>').fadeIn();
-            //window.location.href = "/photos/" + postData.id;
+            
         });
 
         return false;
