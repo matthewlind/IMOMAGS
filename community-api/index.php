@@ -867,6 +867,8 @@ if(!function_exists('_log')){
 
 
 function getEventHash($post_id, $etype, $user_id) {
+
+	date_default_timezone_set("America/New_York");
 	$eventDate = date("dmy");
 	$eventMinute = floor(((int)date("i"))/60);
 
