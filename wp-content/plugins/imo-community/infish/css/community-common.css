@@ -1252,8 +1252,20 @@ select.alter-sel {max-width: 300px;}
 }
 .form .btn-red input,
 .form .btn-red {width:198px;}
+
+.caption-area textarea {
+    width: 540px;
+
+}
+
 /* Responsive styles */
 @media only screen and (max-width: 1096px) {
+
+
+    .caption-area textarea {
+        width: 540px;
+
+    }
     .general-com {
         width:auto;
     }
