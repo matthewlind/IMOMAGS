@@ -243,7 +243,7 @@ $time = date("g:i A", strtotime($timestamp));
 <div class="general general-com">
 
     <ul class="breadcrumbs">
-    	<li><a href="/photos">Community</a></li>
+    	<li><a href="/photos">Photos</a></li>
     	<li style="margin-top:1px;text-transform:capitalize;">&raquo; <?php echo $topicName; ?></li>
     </ul>
     <div class="basic-form post-reply-slide">
@@ -380,7 +380,7 @@ $time = date("g:i A", strtotime($timestamp));
 
     </div>-->
     <div class="photo-link-area btn-link-area">
-        <a href="#" class="btn-grey jq-open-reply-slide">Start New Post</a>
+        <a href="/photos/new" class="btn-grey jq-open-reply-slide">Start New Post</a>
     </div>
     <div class="replies-box">
         <h2>Replies <a href="#">(<?php echo $niceComment; ?>)</a></h2>

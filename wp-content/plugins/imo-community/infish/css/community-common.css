@@ -616,6 +616,7 @@ select.alter-sel {max-width: 300px;}
 /* detail page */
 .dif-full-post {
     margin:0 0 42px;
+    position: relative;
 }
 .dif-full-post h1 {
     font:45px "stagregular", sans-serif;
@@ -688,6 +689,7 @@ select.alter-sel {max-width: 300px;}
     padding:25px 75px 20px 23px;
     position:relative;
     background:none;
+    min-height: 100px;
 }
 .replies-list li:nth-child(2n+1), li.reply-item:nth-child(2n+1) {
     background:#fff;
@@ -1020,9 +1022,8 @@ select.alter-sel {max-width: 300px;}
     text-transform:uppercase;
 }
 .profile-logo {
-    position:absolute;
-    top:0;
-    right:0;
+    position:relative;
+    float: right;
     max-width:114px;
 }
 .profile-data-box {

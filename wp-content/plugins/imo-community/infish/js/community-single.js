@@ -9,14 +9,13 @@ jQuery(document).ready(function(){
         var formDataObject = $("#comment-form").formParams();
         var newPostData = $.extend(formDataObject,userIMO);
 
-        //alert("comment?");
-
         $.post("http://" + document.domain + "/community-api/posts",newPostData,function(data){
 
             var postData = $.parseJSON(data);
 
-            alert("Comment Added?!")
-			$("#replies-list").append('<li>' + postData.body + '</li>').fadeIn();
+			$("#comment-form textarea").html("");
+			$("ul.replies-list").append('<li class="new-comment"></li>');
+			$("ul.replies-list li.new-comment").hide().append('<div class="profile-photo"><a href="/profile/' + postData.username + '"><img src="/avatar?uid=' + postData.user_id + '" alt="' + postData.display_name + '"></a></div><div class="reply-text"><h3><a href="/profile/' + postData.username + '">' + postData.display_name + '</a></h3><p>' + postData.body + '</p></div></li>').fadeIn("slow").removeClass("new-comment");
             
         });
 
@@ -60,11 +59,11 @@ jQuery(document).ready(function(){
         return false;
     });
 
-    $('body').on("click", ".jq-open-reply-slide", function(){
+   /* $('body').on("click", ".jq-open-reply-slide", function(){
         $(".post-reply-slide").addClass("slide-opened");
        // $('html, body').animate({scrollTop:0}, 'slow');
         return false;
-    });
+    });*/
 
     $('body').on("click", ".jq-open-login-popup", function(){
         $(".login-popup").addClass("popup-opened");
