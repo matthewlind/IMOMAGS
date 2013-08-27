@@ -450,28 +450,6 @@ $time = date("g:i A", strtotime($timestamp));
         </ul>
     </div>
 
-    <!-- INVISIBLE COMMENT FOR CLONING -->
-
-	<div class="super-comments zebra superpost-comment-template" style="display:none">
-		<div class="avatar-holder">
-		     <img src="/avatar?uid=1" class="superclass-gravatar_hash recon-gravatar">
-		</div>
-
-		<div class="superpost-comments">
-				<div class="superpost-comment">
-				<span class="superclass-display_name">NOBODY</span>
-
-		    		<div class="superclass-body">
-
-		    			<p>NICE.</p>
-		    		</div>
-
-		         </div>
-		</div>
-	</div>
-
-   <?php sub_footer(); ?>
-
     <div class="reply-field" id="reply_field">
         <div class="title-bar clearfix">
             <h3>Post a <span>Reply</span></h3>
@@ -491,7 +469,7 @@ $time = date("g:i A", strtotime($timestamp));
         </form>
     </div>
     <div class="hr"></div>
-    <?php social_footer(); ?>
+    <?php sub_footer(); ?>
     <div class="hr mobile-hr"></div>
     <a href="#" class="back-top jq-go-top">back to top</a>
 
@@ -592,111 +570,5 @@ $time = date("g:i A", strtotime($timestamp));
     <!-- log/reg popup end -->
     <div class="filter-fade-out"></div>
 </div>
-
-
-
-
-
-<!--
-***********************************************
-***********************************************
-***********************************************
-		          OLD HTML
-***********************************************
-***********************************************
-***********************************************
-***********************************************
-
--->
-<div class="col-abc super-comments">
-	<div class="avatar-holder" style="<?php echo $displayStyle; ?>">
-		<a href="/profile/<?php echo $current_user->user_nicename; ?>"><img src="/avatar?uid=<?php echo $current_user->ID; ?>" class="superclass-gravatar_hash recon-gravatar"></a>
-        <a href="/profile/<?php echo $current_user->user_nicename; ?>"><?php echo $current_user->display_name; ?></a>
-    </div>
-
-    <div id="comments" class="" style="height:500px:width:600px;background-color:white;">
-    <?php if($data->post_type == "question"){
-	    echo '<h1>Answer this question</h1> ';
-    }else{
-	    echo '<h1>Post a Reply</h1> ';
-    } ?>
-
-
-    <div class="media-section">
-
-	        	<form id="fileUploadForm-image" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-image-form">
-			    	<div id="fileupload" >
-			        	<div class="fileupload-buttonbar ">
-			            	<label class="upload-button">
-				                <span><span class="white-plus-sign">+</span><span class="button-text">ATTACH PHOTO</span></span>
-				                <input id="image-upload" type="file" name="photo-upload" id="photo-upload" />
-			                </label>
-			           </div>
-			       </div>
-			       <input type="hidden" name="post_type" value="photo">
-			       <input type="hidden" name="form_id" value="fileUploadForm">
-		       </form><!-- end form -->
-
-			   <div class="video-button">
-			        <span><span class="white-plus-sign"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/youtube.png" alt="YouTube" /></span>ADD YOUTUBE VIDEO</span>
-			   </div>
-			   <div class="video-url-form-holder-container" style="display:none;">
-			   		<div class="video-url-form-holder" style="">
-			        	<form id="video-url-form" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-image-form">
-				            <div class="video-body-holder">
-				            	<input type="text" name="body" id="video-body" placeholder="Paste YouTube URL or code here"/>
-				            </div>
-				            <input type="hidden" name="post_type" value="youtube">
-				            <input type="hidden" name="form_id" value="fileUploadForm">
-				       </form>
-				   </div>
-			       <div class="video-close-button">
-			       </div>
-			  </div><!-- /.video-url-form-holder-container-->
-
-			  <h4 style="display:none" class="photo-attachement-header">Photos</h4>
-			  <div class="attached-photos">
-			  </div>
-		</div><!-- /.media-section-->
-
-
-    <form id="fileUploadForm" method="POST" action="/slim/api/superpost/add" enctype="multipart/form-data" class="masonry-form superpost-comment-form">
-	    <input type="text" name="title" id="title" value="Title" style="display:none;"/>
-        <textarea name="body" placeholder="Your Reply"></textarea>
-
-        <input type="hidden" name="parent" value="<?php echo $spid;?>">
-        <input type="hidden" name="post_type" value="comment">
-
-        <input id="file" type="file" name="photo-upload" id="photo-upload" style="display:none"/>
-<!--
-        <input type="hidden" name="clone_target" value="superpost-box">
-        <input type="hidden" name="attach_target" value="post-container">
-        <input type="hidden" name="attachment_point" value="prepend">
-        <input type="hidden" name="masonry" value="true">
-
-
--->
-
-        <input type="hidden" name="post_type" value="comment">
-        <input type="hidden" name="clone_target" value="superpost-comment-template">
-        <input type="hidden" name="attach_target" value="superpost-comment-container">
-        <input type="hidden" name="attachment_point" value="append">
-
-
-        <input type="hidden" name="form_id" value="fileUploadForm">
-        <input type="hidden" name="attachment_id" class="attachment_id" value="">
-
-
-
-
-        <input type="submit" value="Submit" class="submit" style="<?php echo $displayStyle; ?>"/>
-		<div class="fast-login-then-post-button" style="<?php echo $loginStyle; ?>">Submit & Login <img class="submit-icon" src="/wp-content/themes/imo-mags-northamericanwhitetail/img/fb.png" height=20 width=20></div>
-
-        <p class="login-note">
-        </p>
-    </form>
-  </div>
-</div><!-- end superpost comment form -->
-
 
 <?php get_footer(); ?>
