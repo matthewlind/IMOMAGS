@@ -864,6 +864,19 @@ if(!function_exists('_log')){
   	}
 }
 
+
+function getEventHash($post_id, $etype, $user_id) {
+	$eventDate = date("dmy");
+	$eventMinute = floor(((int)date("i"))/60);
+
+	$eventHash = md5("STRINGTHINGSgfid25s" . $post_id . $etype . $user_id . $eventDate . $eventMinute);
+
+	return $eventHash;
+}
+
+
+
+
 function convertDevDomainToDotCom($domain) {
 
 	$domain = str_replace(".deva",".com",$domain);
