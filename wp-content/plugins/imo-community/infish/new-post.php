@@ -30,7 +30,7 @@ imo_sidebar("community");
 	<!-- ***************** UNDERSCORE TEMPLATE ********************* -->
 	<!-- *********************************************************** -->
 	<script type="text/template" id="new-post-template">
-	<h2><%= post ? 'Edit' : 'Create' %> Post</h2>
+	<h2><%= post ? 'Edit' : 'Post' %> a photo</h2>
 
 		<form id="new-post-form">
 			 <div class="basic-form post-page post-reply-slide">

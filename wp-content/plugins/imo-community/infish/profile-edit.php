@@ -24,16 +24,18 @@ if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 get_header();
 imo_sidebar("community");
 
-$username = get_query_var("username");
-var_dump($username);
+$hostname = $_SERVER['SERVER_NAME'];
+
+$userInfo = wp_get_current_user();
+	
+$username = $userInfo->user_nicename;
+
 $apiURL = "http://$hostname/community-api/users/$username?get_comments=1";
 
 $file = file_get_contents($apiURL);
 
 //SET TEMPLATE VARIABLES
 $data = json_decode($file);
-
-//get post user email
 
 $state_slug = $data->state;
 
@@ -137,7 +139,23 @@ if ($state == 'New York'){
 	$state_slug = $state;
 }
 
+$age = get_user_meta($profileuser->ID,"age",true);
+$address1 = get_user_meta($profileuser->ID,"address1",true);
+$address2 = get_user_meta($profileuser->ID,"address2",true);
+$city = get_user_meta($profileuser->ID,"city",true);
+$state = get_user_meta($profileuser->ID,"state",true);
+$zip = get_user_meta($profileuser->ID,"zip",true);
 
+
+$user_role = reset( $profileuser->roles );
+if ( is_multisite() && empty( $user_role ) ) {
+	$user_role = 'subscriber';
+}
+
+$user_can_edit = false;
+foreach ( array( 'posts', 'pages' ) as $post_cap )
+	
+$user_can_edit |= current_user_can( "edit_$post_cap" );
 $displayStyle = "display:none;";
 $loginStyle = "";
 
@@ -158,119 +176,6 @@ if ( is_user_logged_in() ) {
 
 
 
-  <div id="primary" class="general">
-        <div id="content" class="general-frame" role="main">
-            <div class="title-underline">
-                <h1>COMMUNITY PROFILE</h1>
-            </div>
-            <div class="image-banner posts-image-banner">
-                <a href="#" class="ui-link"><img alt="" src="<?php bloginfo( 'template_url' ); ?>/images/pic/imitates-injured.jpg"></a>
-            </div>
-            <div class="form">
-                <form action="#">
-                    <fieldset>
-                        <div class="general-title clearfix">
-                            <h2>Profile <span>Info</span></h2>
-                        </div>
-                        <div class="f-row">
-                            <label for="namePublicly">Display name publicly as</label>
-                            <div class="f-input">
-                                <input id="namePublicly" type="text" />
-                            </div>
-                        </div>
-                        <div class="f-row">
-                            <label for="fName">First name</label>
-                            <div class="f-input">
-                                <input id="fName" type="text" />
-                            </div>
-                        </div>
-                        <div class="f-row">
-                            <label for="lName">Last name</label>
-                            <div class="f-input">
-                                <input id="lName" type="text" />
-                            </div>
-                        </div>
-                        <div class="f-row">
-                            <label for="age">Age</label>
-                            <div class="f-input">
-                                <input id="age" class="input-short" type="text" />
-                            </div>
-                        </div>
-                        <div class="f-row">
-                            <label for="address">Address 1</label>
-                            <div class="f-input">
-                                <input id="address" type="text" />
-                            </div>
-                        </div>
-                        <div class="f-row">
-                            <label for="address2">Address 2</label>
-                            <div class="f-input">
-                                <input id="address2" type="text" />
-                            </div>
-                        </div>
-                        <div class="f-row">
-                            <label for="city">City</label>
-                            <div class="f-input">
-                                <input id="city" type="text" />
-                                <div class="form-note">Only your city and state will be shown as your hometown</div>
-                            </div>
-                        </div>
-                        <div class="f-row">
-                            <label for="state">State</label>
-                            <div class="f-input">
-                                <input id="state" class="input-short" type="text" />
-                                <div class="row-item">
-                                    <label for="zip">ZIP</label>
-                                    <input id="zip" class="input-short" type="text" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="f-row">
-                            <label for="mail">E-mail</label>
-                            <div class="f-input">
-                                <input id="mail" type="text" />
-                                <span class="required">*</span>
-                            </div>
-                            
-                        </div>
-                        <div class="f-row">
-                            <label for="twitter">Twitter</label>
-                            <div class="f-input">
-                                <input id="twitter" type="text" />
-                            </div>
-                        </div>
-                        <div class="f-row">
-                            <label for="psw">New Password</label>
-                            <div class="f-input">
-                                <input id="psw" type="password" />
-                                <div class="form-note">If you would like to change the password type a new one. Otherwise leave this blank.</div>
-                            </div>
-                        </div>
-                        <div class="f-row">
-                            <label for="newPsw">Repeat New Password</label>
-                            <div class="f-input">
-                                <input id="newPsw" type="password" />
-                            </div>
-                        </div>
-                        <div class="f-row single-row">
-                            <div class="f-indicator">Strength indicator</div>
-                            <div class="form-note">
-                                Hint: The password should be at least seven characters long.
-                                To make it stronger, use upper and lower case letters,
-                                numbers and symbols like ! " ? $ % ^ & ).
-                            </div>
-                        </div>
-                        <div class="f-row single-row">
-                            <span class="btn-red"><input type="submit" value="Update Profile" /></span>
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
-            <div class="image-banner posts-image-banner">
-                <a href="#" class="ui-link"><img alt="" src="<?php bloginfo( 'template_url' ); ?>/images/pic/banner-evinrude.jpg"></a>
-            </div>
-        </div><!-- #content -->
-    </div><!-- #primary -->
 
 
 <?php get_footer(); ?>
