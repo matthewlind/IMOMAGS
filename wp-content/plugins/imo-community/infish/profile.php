@@ -207,7 +207,7 @@ if(mobile()){
                     <li><a href="#"><span>Smallmouth</span></a></li>
                 </ul>
             </div>
-            <div class="general-title clearfix">
+            <div id="my-photos" class="general-title clearfix">
                 <h2><?php echo $data->display_name; ?>'s  <span>Activity</span></h2>
             </div>
             <div class="profile-tabs">
