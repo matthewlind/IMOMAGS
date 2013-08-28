@@ -111,7 +111,7 @@ if(mobile()){
         <div class="general-title browse-title clearfix">
             <h2>Browse <span>Community</span></h2>
         </div>
-
+		
         <div class="photo-link-area">
             <div id="fileupload">
                 <div class="fileupload-buttonbar ">
@@ -122,7 +122,7 @@ if(mobile()){
                 </div>
             </div>
         </div>
-
+		
         <div class="btn-group btn-bar">
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
             Action <span class="caret"></span>
