@@ -207,7 +207,7 @@ h2{
     height:17px;
     content:"";
     background:url(../images/sprite.png) no-repeat -323px -36px;
-    margin-left: 624px;
+    margin-left: 635px;
 	text-indent: -9999px;
 	-webkit-transition: 0s !important;
 	-moz-transition: 0s !important;
@@ -251,7 +251,7 @@ h2{
 .share-photo span:before {
    position: relative;
 	top: 0px;
-	width: 28px;    
+	width: 28px;
 	height:17px;
     content:"";
     background:url(../images/sprite.png) no-repeat -370px -112px;
@@ -269,7 +269,10 @@ h2{
     cursor:pointer;
     margin:0 0 10px;
 }
-select.alter-sel {max-width: 300px;}
+.dropdown-selects {
+    width:100%;
+}
+select.alter-sel {width:100%;}
 .alter-sel:after {
     position:absolute;
     top:19px;
