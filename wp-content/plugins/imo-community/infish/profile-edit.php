@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Template Name: Profile
- * Description: Community Profile page
+ * Template Name: Profile Edit
+ * Description: Community Profile edit page
  *
  * @package carrington-business
  *

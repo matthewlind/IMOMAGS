@@ -109,7 +109,7 @@ if(mobile()){
             <img src="<?php bloginfo( 'template_url' ); ?>/images/pic/slider-screen.jpg" alt="" />
         </div>-->
         <div class="general-title browse-title clearfix">
-            <h2>Browse <span>Community</span></h2>
+            <h2>Browse <span>Photos</span></h2>
         </div>
 
         <div class="photo-link-area">

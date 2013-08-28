@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Template Name: Gear
- * Description: The NAW+ Community - Gear Category
+ * Template Name: New Post
+ * Description: Community - Post a photo
  *
  * @package carrington-business
  *
