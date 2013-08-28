@@ -153,6 +153,10 @@ if ( is_user_logged_in() ) {
 	$current_user = wp_get_current_user();
     if ( !($current_user instanceof WP_User) )
          return;
+         
+    if( $current_user->ID == $data->ID ){
+		$myProfile = true;
+	}
 }
 
 $crop = "/convert?w=650&h=650&fit=crop";
@@ -164,8 +168,7 @@ if(mobile()){
 
 <div id="primary" class="general general-com" role="main">
             <div class="profile-title clearfix">
-                <h1>Community Profile</h1>
-                <img src="<?php echo plugins_url('images/fishhead.png' , __FILE__ ); ?>" alt="" class="profile-logo" />
+                <h1><?php if ($myProfile){ echo "My"; }else{ echo 'FishHead'; } ?> Profile</h1>
             </div>
             <div class="profile-data-box">
                 <div class="thumb-col">
@@ -185,8 +188,9 @@ if(mobile()){
                             </div>
                         </div>
                         <?php } ?>
-                    </div>
+					</div>
                 </div>
+                <img src="<?php echo plugins_url('images/fishhead.png' , __FILE__ ); ?>" alt="" class="profile-logo" />
                 <div class="points-col">
                 	<?php 
                 	if($data->score == 1){
@@ -199,7 +203,7 @@ if(mobile()){
                 </div>
             </div>
             <div class="profile-btn-panel">
-                <h3>Master Angler Achievements</h3>
+                <h3><?php if ($myProfile){ echo "My "; } ?>Master Angler Achievements</h3>
                 <ul class="profile-btns">
                     <li><a href="#"><span>Spotted bass</span></a></li>
                     <li><a href="#"><span>Wipper</span></a></li>
@@ -208,7 +212,7 @@ if(mobile()){
                 </ul>
             </div>
             <div id="my-photos" class="general-title clearfix">
-                <h2><?php echo $data->display_name; ?>'s  <span>Activity</span></h2>
+                <h2><?php if ($myProfile){ echo "My"; }else{ echo $data->display_name . "'s"; } ?>  <span>Activity</span></h2>
             </div>
             <div class="profile-tabs">
                 <ul class="tabs">
@@ -249,8 +253,8 @@ if(mobile()){
 		                                    <div class="profile-data">
 		                                        <h4><a href="/photos/<?php echo $post->id; ?>"></a></h4>
 		                                        <ul class="prof-tags">
-		                                            <li><a href="<?php echo $post->state; ?>"><?php echo $post->state; ?></a></li>
-		                                            <li><a href="<?php echo $post->post_type; ?>"><?php echo $post->post_type; ?></a></li>
+		                                            <!--<li><a href="<?php echo $post->state; ?>"><?php echo $post->state; ?></a></li>-->
+		                                            <li style="text-transform:capitalize;"><a href="<?php echo $post->post_type; ?>"><?php echo $post->post_type; ?></a></li>
 		                                            <li><a href="#">Master Angler</a></li>
 		                                        </ul>
 		                                        <ul class="replies">

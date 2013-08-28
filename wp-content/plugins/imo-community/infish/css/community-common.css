@@ -1029,6 +1029,7 @@ select.alter-sel {max-width: 300px;}
     position:relative;
     float: right;
     max-width:114px;
+    margin-right: 12px;
 }
 .profile-title .profile-logo{
 	position: absolute;
@@ -1563,10 +1564,6 @@ select.alter-sel {max-width: 300px;}
     .caption-area {
         width:67%;
     }
-
-	.profile-title .profile-logo{
-		display: none;
-	}
 
     .mobile-hr {display:block !important;}
     .mobile-hidden-section {display:none;}
