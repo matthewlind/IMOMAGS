@@ -97,16 +97,6 @@ if (empty($data->display_name)) {
 $postUserData = get_userdata( $data->user_id );
 $postUserEmail = $postUserData->user_email;
 
-// Topic nice names
-if($data->post_type == "trophy"){
-	$topicName = 'Trophy Bucks';
-}else if($data->post_type == "general"){
-	$topicName = 'General Discussion';
-}else if($data->post_type == "report"){
-	$topicName = 'Rut Reports';
-}else{
-	$topicName = $data->post_type;
-}
 $state_slug = $data->state;
 
 // convert some slugs
@@ -243,8 +233,8 @@ $time = date("g:i A", strtotime($timestamp));
 <div class="general general-com">
 
     <ul class="breadcrumbs">
-    	<li><a href="/photos">Community</a></li>
-    	<li style="margin-top:1px;text-transform:capitalize;">&raquo; <?php echo $topicName; ?></li>
+    	<li><a href="/photos">Photos</a></li>
+    	<li style="margin-top:1px;text-transform:capitalize;">&raquo; <?php echo $data->post_type; ?></li>
     </ul>
     <div class="basic-form post-reply-slide">
         <div class="f-row">
@@ -280,7 +270,7 @@ $time = date("g:i A", strtotime($timestamp));
                 <h4><a href="/profile/<?php echo $data->username; ?>"><?php echo $data->display_name; ?></a></h4>
                 <ul class="prof-tags">
                     <!--<li><a href="/photos/<?php echo $data->post_type.'/'.strtolower($state_slug); ?>"><?php echo $state ?></a></li>-->
-                    <li><a href="/photos/" style="text-transform:capitalize;"><?php echo $data->post_type; ?></a></li>
+                    <li><a href="/<?php echo $data->post_type; ?>" style="text-transform:capitalize;"><?php echo $data->post_type; ?></a></li>
                 </ul>
                 <div class="clearfix">
                     <ul class="replies">
@@ -379,11 +369,16 @@ $time = date("g:i A", strtotime($timestamp));
         </div>
 
     </div>-->
-    <div class="photo-link-area btn-link-area">
-        <a href="#" class="btn-grey jq-open-reply-slide">Start New Post</a>
+     <div id="fileupload">
+        <div class="fileupload-buttonbar ">
+            <label class="upload-button share-photo">
+                <span class="add-photo-link">Share Photo</span>
+                <input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
+            </label>
+        </div>
     </div>
     <div class="replies-box">
-        <h2>Replies <a href="#">(<?php echo $niceComment; ?>)</a></h2>
+        <h2>Replies (<?php echo $niceComment; ?>)</h2>
 
         <ul class="replies-list">
 
@@ -430,7 +425,7 @@ $time = date("g:i A", strtotime($timestamp));
 			            } ?>
 
 		            </div>
-		            <a href="#" class="flag-badge single-flag-button" spid="<?php echo $spid ?>"></a>
+		            <a href="#" class="flag-badge single-flag-button" spid="<?php echo $spid; ?>"></a>
 		        </li>
 
 		        <?php if (current_user_can('edit_superposts')) { ?>
