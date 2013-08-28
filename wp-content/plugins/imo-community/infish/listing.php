@@ -68,7 +68,7 @@ if(mobile()){
                     <h4><a href="/profile/<%= post.username %>"><%= post.display_name %></a></h4>
                     <ul class="prof-tags">
                         <!--<li><a href="#"><%= post.state %></a></li>-->
-                        <li><a href="/<%= post.post_type %>"><%= post.post_type %></a></li>
+                        <li><a href="/<%= post.post_type %>" style="text-transform:capitalize;"><%= post.post_type %></a></li>
                         <li><a href="/master-angler">Master Angler</a></li>
                     </ul>
                     <ul class="replies">

@@ -1030,6 +1030,11 @@ select.alter-sel {max-width: 300px;}
     float: right;
     max-width:114px;
 }
+.profile-title .profile-logo{
+	position: absolute;
+	float: none;
+	right: 0;
+}
 .profile-data-box {
     display:table;
     width:100%;
@@ -1410,7 +1415,9 @@ select.alter-sel {max-width: 300px;}
         width:75%;
     }
 
-
+	.profile-title .profile-logo{
+		top:30px;
+	}
     .dif-post {
         width:100%;
     }
@@ -1557,6 +1564,9 @@ select.alter-sel {max-width: 300px;}
         width:67%;
     }
 
+	.profile-title .profile-logo{
+		display: none;
+	}
 
     .mobile-hr {display:block !important;}
     .mobile-hidden-section {display:none;}
