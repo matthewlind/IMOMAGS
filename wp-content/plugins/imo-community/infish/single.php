@@ -379,8 +379,13 @@ $time = date("g:i A", strtotime($timestamp));
         </div>
 
     </div>-->
-    <div class="photo-link-area btn-link-area">
-        <a href="/photos/new" class="btn-grey jq-open-reply-slide">Start New Post</a>
+     <div id="fileupload">
+        <div class="fileupload-buttonbar ">
+            <label class="upload-button share-photo">
+                <span class="add-photo-link">Share Photo</span>
+                <input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
+            </label>
+        </div>
     </div>
     <div class="replies-box">
         <h2>Replies <a href="#">(<?php echo $niceComment; ?>)</a></h2>
