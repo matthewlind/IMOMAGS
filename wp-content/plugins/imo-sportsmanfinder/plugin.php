@@ -26,7 +26,7 @@ class IMOSportsmanWidget extends \WP_Widget {
      */
     function form($instance) {
 	/* Set up some default widget settings. */
-	$defaults = array( 'header' => __('Bowhunter TV', 'example'), 'banner' => __('', 'example'), 'playerID' => __(2625100402001, 'example'), 'playerKey' => __('AQ~~,AAAAAETeEfI~,i-5J2ubuAMu0ls65wqRSCQ-u4W5ZRGuf', 'example'), 'moreURL' => __('', 'example'));
+	$defaults = array( 'header' => __('Bowhunter TV', 'example'), 'banner' => __('http://www.bowhunter.com/files/2013/08/bowhunter-tv-banner.jpg', 'example'), 'playerID' => __(2625100402001, 'example'), 'playerKey' => __('AQ~~,AAAAAETeEfI~,i-5J2ubuAMu0ls65wqRSCQ-u4W5ZRGuf', 'example'), 'moreURL' => __('http://www.bowhunter.com/tv/bowhunter', 'example'));
 	
 	
 	
