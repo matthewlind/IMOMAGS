@@ -178,7 +178,7 @@ h2{
 	display: none;
 	width: 300px;
 	height: 20px;
-	margin: 6px auto;
+	margin: 6px auto 17px auto;
 	text-align: center;
 	background: #292929;
 	border: 1px solid #111;
@@ -541,6 +541,19 @@ select.alter-sel {width:100%;}
     text-align:center;
     cursor:pointer;
 }
+
+#new-post-form .photo-link-area {
+    margin-bottom:11px;
+}
+
+.attachment-image-container {
+    background-color:#1a82f7;
+    height:75px;
+    width:75px;
+    float:left;
+    margin: 0 10px 10px 0;
+}
+
 #image-upload{display: none;}
 .add-photo-link:before {
     display:inline-block;
