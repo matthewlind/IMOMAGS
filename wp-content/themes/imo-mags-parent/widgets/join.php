@@ -57,14 +57,23 @@ class Join_Widget extends WP_Widget {
 	        <h3><span>YOU ARE</span> LOGGED IN</h3>
 	        <div class="profile-panel">
 	            <div class="profile-photo">
-	                <a href="/profile/<?php echo $data->display_name; ?>"><img src="/avatar?uid=<?php echo $data->ID; ?>" alt="<?php echo $data->display_name; ?>" title="<?php echo $data->display_name; ?>"></a>
+	                <a href="/profile/<?php echo $data->display_name; ?>"><img src="/avatar?uid=<?php echo $data->ID; ?>" alt="<?php echo $data->display_name; ?>" title="<?php echo $data->display_name; ?>" /></a>
 	            </div>
 	            <div class="profile-data">
 	                <h4><a href="/profile/<?php echo $data->username; ?>"><?php echo $data->display_name; ?></a></h4>
 	                <strong class="user-points"><?php echo $niceScore; ?></strong>
 	            </div>
 	        </div>
-			<a href="/photos/new/" class="btn-red btn-red2">Start New Post</a>
+	         <div id="fileupload">
+                <div class="fileupload-buttonbar ">
+                    <label class="upload-button">
+                        <span class="btn-red btn-red2">Share Photo</span>
+                        <input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
+                    </label>
+                </div>
+            </div>
+
+			
 	        <div class="edit-section">
 	            <a href="/edit-profile/?action=profile">edit profile</a>
 	        </div>
