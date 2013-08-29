@@ -1,0 +1,99 @@
+.widget_channel-widget {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  width: 300px;
+  padding: 0 !important;
+}
+
+/* line 3516, sass/style.scss */
+#header #megaMenu .wpmega-widgetarea .widget_channel-widget {
+  border: none !important;
+  width: 300px;
+}
+/* line 3519, sass/style.scss */
+#header #megaMenu .wpmega-widgetarea .widget_channel-widget #channelControls a {
+  padding: 0;
+  display: inline;
+}
+
+/* line 3523, sass/style.scss */
+#locateChannel {
+  margin-bottom: 10px;
+  background: none;
+  height: 82px;
+}
+/* line 3526, sass/style.scss */
+/*#locateChannel h3 {
+  color: #ff8400;
+  font-family: "Helvetica","Arial", sans-serif;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-style: italic;
+  margin: 0;
+  padding-top: 6px;
+  font-weight: bold;
+}*/
+/* line 3535, sass/style.scss */
+#locateChannel #channelControlsContainer{
+	background: url("img/channel-find-bg.jpg") no-repeat bottom center;
+	width: 300px;
+	height: 92px;
+	padding: 0;
+}
+.video-title{
+	background: url("img/widget_stripe_bg_29.png") 0 0 repeat-x;
+	margin-top: -7px;
+	font-size: 16px !important;
+	line-height: 2 !important;
+	padding: 0 10px;
+	margin-bottom: 0;
+}
+.sc-link{
+	text-indent: -9999px;
+	position: absolute;
+	top: 100px;
+	right: 0;
+	width: 120px;
+	height: 30px;
+}
+.more-url{
+	font-family: "stagMedium",serif;
+	font-size: 13px;
+	font-style: italic;
+	text-align: center;
+	margin: -6px 0 6px;
+	padding: 0;
+}
+/* line 3541, sass/style.scss */
+#locateChannel #channelControlsContainer #channelControls {
+	padding: 17px;
+	margin: 0;
+}
+/* line 3544, sass/style.scss */
+#locateChannel input.searchbox {
+  border: 1px solid #cccccc;
+  padding: 4px;
+  font-family: verdana;
+  font-size: 11px;
+  font-weight: bold;
+  color: #999;
+  width: 170px;
+  margin-top: 30px;
+}
+/* line 3552, sass/style.scss */
+#locateChannel input.button {
+  margin: 0;
+  border: 0;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 12px;
+  text-shadow: 1px 1px 1px black;
+  filter: dropshadow(color=black, offx=1, offy=1);
+  padding: 4px 8px;
+  font-family: verdana;
+  font-weight: bold;
+  width: 81px;
+  color: white;
+  background-color: #d7ab55;
+  background-image: url(/wp-content/themes/carrington-business/img/button-bg.png);
+}

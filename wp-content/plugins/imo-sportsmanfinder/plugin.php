@@ -96,7 +96,10 @@ function popwin(loc,winname,w,h,scroll,resize) {
 } // function..popwin
 </script>
 
-<div class="header-image"><img src="<?php print $banner; ?>" alt="<?php print $header;?>" title="<?php print $header;?>" /></div>
+<div class="header-image">
+	<a href="http://www.thesportsmanchannel.com/" class="sc-link">Sportsman Channel</a>
+	<img src="<?php print $banner; ?>" alt="<?php print $header;?>" title="<?php print $header;?>" />
+</div>
 <h3 class="video-title"><?php print $header;?></h3>
 <!-- Start of Brightcove Player -->
 <div class="bc-player">
@@ -134,11 +137,10 @@ function popwin(loc,winname,w,h,scroll,resize) {
 <p class="more-url"><a href="<?php print $moreURL; ?>">more video and showtimes</a></p>
 <div id="locateChannel">
     <div id="channelControlsContainer">
-	
-	<div id="channelControls">
-	    <input type="text" name="zip" id="zip" onfocus="if(this.value == this.defaultValue) this.value = '';" value="Enter Your ZIP" class="searchbox" />
-	    <a href="#" onclick="javascript:popwin('http://thesportsmanchannel.viewerlink.tv/?zip='+document.getElementById('zip').value,'indicator',615,550,'yes','yes');"><input type="submit" value="GO!" class="button" /></a>
-	</div>
+		<div id="channelControls">
+		    <input type="text" name="zip" id="zip" onfocus="if(this.value == this.defaultValue) this.value = '';" value="Enter Your ZIP" class="searchbox" />
+		    <a href="#" onclick="javascript:popwin('http://thesportsmanchannel.viewerlink.tv/?zip='+document.getElementById('zip').value,'indicator',615,550,'yes','yes');"><input type="submit" value="GO!" class="button" /></a>
+		</div>
     </div>
 </div>
 
