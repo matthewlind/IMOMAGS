@@ -111,7 +111,7 @@ if(mobile()){
         <div class="general-title browse-title clearfix">
             <h2>Browse <span>Photos</span></h2>
         </div>
-		
+
         <div class="photo-link-area">
             <div id="fileupload">
                 <div class="fileupload-buttonbar ">
@@ -122,17 +122,33 @@ if(mobile()){
                 </div>
             </div>
         </div>
-		
+
         <div class="btn-group btn-bar">
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-            Action <span class="caret"></span>
+            <span class="menu-title browse-community">Browse Community</span> <span class="caret"></span>
           </button>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
+          <ul class="dropdown-menu filter" role="menu">
+            <li><a href="" class="filter-menu" order_by="created" id="filter-menu-default">Latest</a></li>
+            <li><a href="" class="filter-menu" order_by="view_count" >Popular</a></li>
+            <li><a href="" class="filter-menu" order_by="score_today" >Trending Today</a></li>
+            <li><a href="" class="filter-menu" order_by="score_week" >Trending This Week</a></li>
             <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+            <li><a href="" class="filter-menu" order_by="created" master="1">Master Anglers</a></li>
+            <li class="divider"></li>
+            <li><a href="" class="filter-menu" order_by="created" post_type="bass" >Bass</a></li>
+            <li><a href="" class="filter-menu" order_by="created" post_type="panfish" >Panfish</a></li>
+            <li><a href="" class="filter-menu" order_by="created" post_type="pike" >Pike</a></li>
+            <li><a href="" class="filter-menu" order_by="created" post_type="muskie" >Muskie</a></li>
+            <li><a href="" class="filter-menu" order_by="created" post_type="trout" >Trout</a></li>
+            <li><a href="" class="filter-menu" order_by="created" post_type="salmon" >Salmon</a></li>
+            <li><a href="" class="filter-menu" order_by="created" post_type="carp" >Carp</a></li>
+            <li><a href="" class="filter-menu" order_by="created" post_type="paddlefish" >Paddlefish</a></li>
+            <li><a href="" class="filter-menu" order_by="created" post_type="crappie" >Crappie</a></li>
+            <li><a href="" class="filter-menu" order_by="created" post_type="burbot" >Burbot</a></li>
+            <!--This is also a valid and working sorting option:
+            <li><a href="" class="filter-menu" order_by="created" sort="ASC" post_type="carp" >Oldest Carp</a></li>
+
+            -->
           </ul>
         </div>
 
@@ -145,7 +161,7 @@ if(mobile()){
 			<div id="posts-container"></div>
          </div>
          <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="pager-holder js-responsive-section">
-            <a href="#" class="btn-base" style="display:block;">Load More</a>
+            <a href="#" class="btn-base load-more" style="display:block;">Load More</a>
 
             <a href="#" class="go-top jq-go-top">go top</a>
 

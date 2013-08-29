@@ -70,29 +70,51 @@ jQuery(document).ready(function($) {
 
 		//console.log(newPostData);
 
-		$.post("http://" + document.domain + "/community-api/posts",newPostData,function(data){
 
-			var postData = $.parseJSON(data);
+		//Validate form data and submit
+		if (validateFormData(newPostData)) {
+			$.post("http://" + document.domain + "/community-api/posts",newPostData,function(data){
+
+				var postData = $.parseJSON(data);
 
 
+				//alert("New Post Added! Replace this alert with a redirect to something!")
 
+				if (postData)
+					window.location.href = "/photos/" + postData.id;
+				else
+					alert("Could not post photo. Are you logged in?");
+			});
+		}
 
-			//alert("New Post Added! Replace this alert with a redirect to something!")
-
-			if (postData)
-				window.location.href = "/photos/" + postData.id;
-			else
-				alert("Could not post photo. Are you logged in?");
-		});
 
 		return false;
 
 	});
 
 	//*******************************************************
-	//************* HANDLE SELECT DROPDOWNS *****************
+	//************* FORM VALIDATION *****************
 	//*******************************************************
+	function validateFormData(formData) {
 
+		if (formData.title.length < 1) {
+			alert("Please give this post a title.");
+			return false;
+		} else if (formData.img_url.length < 1) {
+			alert("Please attach a photo.");
+			return false;
+		} else if (formData.post_type.length < 1) {
+			alert("Please select a species.");
+			return false;
+		} else if (formData.state.length < 1) {
+			alert("Please Choose a state.");
+			return false;
+		} else {
+			return true;
+		}
+
+
+	}
 
 	//*******************************************************
 	//****************** UPLOAD IMAGES **********************

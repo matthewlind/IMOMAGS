@@ -151,9 +151,9 @@ imo_sidebar("community");
 
 			      <div style="margin:20px 0" class="add-photo-field">
 				      	<a href="<%= attachment.img_url %>" class="thickbox">
-
-				      			<img src="<%= attachment.img_url %>/convert?w=150&h=150&fit=crop" width=75 height=75 style="height:75px">
-
+				      			<div class="attachment-image-container">
+						      		<img src="<%= attachment.img_url %>/convert?w=150&h=150&fit=crop" width=75 height=75 style="height:75px">
+						      	</div>
 				      	</a>
 					  	 <div class="caption-area" name="caption-body" placeholder="Caption (optional)" value="<%= attachment.body %>">
 			                <textarea id="" class="area caption-field" cols="30" rows="10" placeholder="Add Caption (optional)"></textarea>
