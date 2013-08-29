@@ -13,26 +13,30 @@
 (function(win, doc) {
     'use strict';
     
-    var $mobileMenuToggle = null;
+    var $mobileMenuOpen = null;
+    var $mobileMenuClosed = null;
+    
     if(jQuery(window).width() <  380){
-	    $mobileMenuToggle = 266;
+	    $mobileMenuOpen = 266;
+	    $mobileMenuClosed = -266;
     }else{
-	    $mobileMenuToggle = 320;
+	    $mobileMenuOpen = 320;
+	    $mobileMenuClosed = -320;
     }
     
     var Snap = Snap || function(userOpts) {
         var settings = {
-            element: "#page",
-            dragger: "#open-left",
-            disable: 'right',
-            addBodyClasses: false,
+           element: null,
+            dragger: null,
+            disable: 'none',
+            addBodyClasses: true,
             hyperextensible: false,
             resistance: 0.5,
             flickThreshold: 0,
             transitionSpeed: 0.3,
             easing: 'ease',
-            maxPosition: $mobileMenuToggle,
-            minPosition: -266,
+            maxPosition: $mobileMenuOpen,
+            minPosition: $mobileMenuClosed,
             tapToClose: true,
             touchToDrag: false,
             slideIntent: 40, // degrees

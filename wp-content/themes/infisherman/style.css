@@ -142,7 +142,29 @@ General comments (optional).
 .drop-feat-post h5 {color:#040503;}
 .drop-feat-post h5 a {color:#040503;}
 .drop-feat-post h5 a:hover {color:#c9242c;}
-
+.hot-link a{
+	font: 14px/1.2 "open_sansbold", Helvetica, sans-serif;
+	padding: 0 0 0 28px;
+	color: #c9242c;
+	background:url(../../wp-content/plugins/imo-community/infish/images/sprite.png) no-repeat -370px -112px;
+}
+.mob-aside-menu #imo-fb-login-button{
+	width: 274px;
+	height: 42px;
+	overflow: hidden;
+	text-indent: -9999px;
+	margin: 14px auto;
+	background: url(../../wp-content/plugins/imo-community/infish/images/sprite.png) no-repeat 0 -270px;
+}
+.mob-aside-menu .mob-fb{
+	text-align: center;
+}
+.mob-aside-menu  .email-signup{
+	font: 13px "open_sansregular", sans-serif !important;
+	padding: 8px 0 20px !important;
+	text-transform: none !important;
+}
+	
 /* Main Section
  ******************************************************************************/
 .post-slider {
@@ -580,5 +602,28 @@ a.change-location:before {
 	}
 	#subscribe-area {
 		right: 315px;
+	}
+	.hot-link a{
+		padding: 0 0 0 30px !important;
+		margin: 18px;
+		line-height: 1.2 !important;
+		color: #c9242c !important;
+	 }
+}
+
+@media only screen and (max-width: 610px) {
+	.mob-aside-menu #imo-fb-login-button{
+		width: 204px;
+		height: 32px;
+		overflow: hidden;
+		text-indent: -9999px;
+		margin: 10px auto;
+		background: url(../../wp-content/plugins/imo-community/infish/images/sprite.png) no-repeat 0 -313px;
+	}
+	.or-delim::before, .or-delim::after {
+		width: 75px !important;
+	}
+	.or-delim{
+		font-size: 14px !important;
 	}
 }

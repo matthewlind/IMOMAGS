@@ -1,12 +1,12 @@
 jQuery(document).ready(function () {
-	jQuery(".open-menu").click(function(){
-		jQuery(".snap-drawer-left").show();
-	});
+	//jQuery(".open-menu").click(function(){
+		//jQuery(".snap-drawer-left").show();
+	//});
 
 	//*******************************************************
 	//****************** UPLOAD COMMUNITY IMAGES **********************
 	//*******************************************************
-	$(".common-image-upload").change(function(ev){//After the user selects a file
+	jQuery(".common-image-upload").change(function(ev){//After the user selects a file
 
 		var fileInput = ev.currentTarget;
 
@@ -15,11 +15,11 @@ jQuery(document).ready(function () {
 		    //console.log("Choose an Image to upload.");
 		} else {
 
-			$('#progressBar').fadeIn();
+			jQuery('#progressBar').fadeIn();
 
 			filepicker.setKey('ANCtGPesfQI6nKja0ipqBz');
 
-			$('#loadingModal').modal();
+			jQuery('#loadingModal').modal();
 
 		    filepicker.store(fileInput, function(FPFile){//Begin the upload
 
@@ -31,7 +31,7 @@ jQuery(document).ready(function () {
 
 					//alert(FPID);
 
-					$('#loadingModal').append("<img src='" + img_url + "' width=1 height=1>");
+					jQuery('#loadingModal').append("<img src='" + img_url + "' width=1 height=1>");
 
 					document.location = "/photos/new#" + FPID;
 					//alert(FPID);
@@ -45,8 +45,8 @@ jQuery(document).ready(function () {
 		            //console.log("Loading: "+progress+"%");//PROGRESS INDICATOR!!!!!
 
 		            //progress bar
-		            $('#progressBar div').css("width",progress*3 + "px");
-		            $('#progressBar span').text(""+progress+"%");
+		            jQuery('#progressBar div').css("width",progress*3 + "px");
+		            jQuery('#progressBar span').text(""+progress+"%");
 
 		        }
 		   );
