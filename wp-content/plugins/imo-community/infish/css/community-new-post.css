@@ -1,0 +1,70 @@
+
+
+.enter-master-angler {
+	float: none;
+	display: block;
+	width: 100%;
+	text-align: center;
+	clear: both;
+	position: relative;
+	padding: 10px 0px 10px 0px;
+	margin:10px 0px 20px 0px;
+	border: 3px solid #dbdbd9;
+	background: url(../images/body.jpg) repeat;
+}
+
+.fishsize {
+	color:red;
+}
+
+.post-reply-slide input[type="text"].fishsize {
+width: 30%;
+}
+
+.f-row-center {
+	text-align: center;
+}
+
+span.worl {
+	text-align: center;
+	display: inline-block;
+	width: 5%;
+}
+
+.post-reply-slide input[type="text"].fishsize:first-child {
+	margin-right:1%;
+}
+
+.post-reply-slide input[type="text"].fishsize:last-child {
+	margin-left:1%;
+}
+
+
+.btn-red a {
+	border: 0;
+	background: none;
+	width: 177px;
+	height: 42px;
+	padding: 0;
+	margin: 0;
+	position: relative;
+	z-index: 20;
+	font: 17px/20px "stagbold", serif;
+	text-shadow: 0 -1px 0 #7a0c11;
+	color: #fff;
+}
+
+.enter-master-angler p {
+	margin-bottom:30px;
+	margin-top:10px;
+
+
+}
+
+.enter-master-angler a.ma-read-rules {
+	font-size:12px;
+}
+
+h2 span {
+	color:black;
+}

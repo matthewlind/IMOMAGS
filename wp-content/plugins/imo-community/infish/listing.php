@@ -154,9 +154,9 @@ if(mobile()){
 
 
 
-        <div class="general-title clearfix alter-title">
+<!--         <div class="general-title clearfix alter-title">
             <h2>Latest <span>Submissions</span></h2>
-        </div>
+        </div> -->
         <div class="dif-posts">
 			<div id="posts-container"></div>
          </div>

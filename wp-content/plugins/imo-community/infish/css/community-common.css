@@ -927,6 +927,12 @@ select.alter-sel {width:100%;}
     margin:0 0 8px;
     background:url(../images/sprite.png) no-repeat 0 -270px;
 }
+
+.imo-community-new-post {
+    margin-left:auto;
+    margin-right:auto;
+}
+
 .btn-fb-login:hover {opacity:0.8;}
 .sub-photo-note {
     text-align:center;

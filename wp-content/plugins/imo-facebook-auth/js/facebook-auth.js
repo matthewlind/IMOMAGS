@@ -1,8 +1,9 @@
 window.fbAsyncInit = function() {
 
-
+  //set default whitetail app id
   var appID = '127971893974432';
 
+  //use facebook appId from settings
   if (fb_auth.length > 0);
   	appID = fb_auth.app_id;
 
@@ -144,15 +145,13 @@ function authSuccess(data,$clickedButton){
 
 		//If this was a login&post button, submit the form
 		if ($clickedButton.hasClass("fast-login-then-post-button")) {
-    	//alert("fast login used!");
+    		$("#fileUploadForm").first().submit();
+    	}
 
-    	//console.log("clicked button:",$clickedButton );
-
-    	//console.log("Submitted Forms:",$("#fileUploadForm"));
-
-    	$("#fileUploadForm").first().submit();
-
-    }
+		//If this was a login&post button, submit the form
+		if ($clickedButton.hasClass("fast-login-then-imo-community-post")) {
+    		$("#new-post-form").submit();
+    	}
 
     //
 
@@ -211,15 +210,11 @@ jQuery(document).ready(function($) {
 
 	jQuery(".imo-fb-login-button, .fast-login-then-post-button, .join-widget-fb-login").click(function(){
 
-
-
 		var $clickedButton = $(this);
 
 		$(".imo-fb-login-button").css({ opacity: 0.5 });
 		$(".join-widget-fb-login").css({ opacity: 0.5 });
 		//$(".fast-login-then-post-button").css({ opacity: 0.5 });
-
-
 
 			FB.login(function(response) {
 			   if (response.authResponse) {
@@ -232,8 +227,6 @@ jQuery(document).ready(function($) {
 			     FB.api('/me', function(response) {
 			       //console.log('FB FETCH INFO RESPONSE: ' + response.name + '.');
 
-
-
 			       	if (userIMO.username.length > 0) {//If user is logged in
 
 
@@ -244,17 +237,11 @@ jQuery(document).ready(function($) {
 					  	  //$.modal.close();
 
 
-
-
-
 						  jQuery.getJSON('/facebook-usercheck.json', function(data){
 							  authSuccess(data,$clickedButton);
 						  });
 
 					  }//End if user is logged in
-
-
-
 
 			     });
 			   } else {

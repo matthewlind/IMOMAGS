@@ -9,8 +9,61 @@ jQuery(document).ready(function($) {
 	//*******************************************************
 	//****************** DISPLAY THE FORM *******************
 	//*******************************************************
-	var formTemplate = _.template( $("#new-post-template").html() , { post:null, post_types:postTypes } );//Use the post types from the configuration
+
+	var formTemplate = _.template( $("#new-post-template").html() , { post:null, post_types:postTypes, species:masterAnglerData } );//Use the post types from the configuration
 	$("#form-container").append(formTemplate);
+
+	//If user is logged in, hide the FB login button
+	if (userIMO.username.length > 0) {
+		$(".imo-community-new-post.btn-fb-login").hide();
+	}
+
+
+	//*******************************************************
+	//*********** ACTIVATE FB LOGIN IN THE FORM *************
+	//*******************************************************
+	$(".imo-fb-login-button, .fast-login-then-post-button, .join-widget-fb-login").click(function(){
+
+		var $clickedButton = $(this);
+
+		$(".imo-fb-login-button").css({ opacity: 0.5 });
+		$(".join-widget-fb-login").css({ opacity: 0.5 });
+		//$(".fast-login-then-post-button").css({ opacity: 0.5 });
+
+			FB.login(function(response) {
+			   if (response.authResponse) {
+
+			   	if ($clickedButton.hasClass("fast-login-then-post-button")) {
+			   		$("img.submit-icon").attr("src","/wp-content/themes/imo-mags-northamericanwhitetail/img/submit-throbber.gif");
+			   	}
+
+			     //console.log('Welcome!  Fetching your information.... ');
+			     FB.api('/me', function(response) {
+			       //console.log('FB FETCH INFO RESPONSE: ' + response.name + '.');
+
+			       	if (userIMO.username.length > 0) {//If user is logged in
+
+
+					  } else { //if user is not logged in
+
+					  	  //$(".user-login-modal-container").modal.close();
+
+					  	  //$.modal.close();
+
+
+						  jQuery.getJSON('/facebook-usercheck.json', function(data){
+							  authSuccess(data,$clickedButton);
+						  });
+
+					  }//End if user is logged in
+
+			     });
+			   } else {
+			     //console.log('User cancelled login or did not fully authorize.');
+			   }
+			 }, {scope: 'email,user_hometown'});
+
+	});
 
 	//*******************************************************
 	//********  CHECK FOR IMAGE FROM PREVIOUS PAGE  *********
@@ -109,6 +162,9 @@ jQuery(document).ready(function($) {
 		} else if (formData.state.length < 1) {
 			alert("Please Choose a state.");
 			return false;
+		} else if (userIMO.username.length < 1) {
+			alert("Please login before you post.");
+			return false;
 		} else {
 			return true;
 		}
@@ -193,7 +249,47 @@ jQuery(document).ready(function($) {
 
 		}
 	});
+	//*******************************************************
+	//* CHECK TO SEE IF PHOTO QUALIFIES FOR MASTER ANGLER ***
+	//*******************************************************
+	$("#ma-state,#ma-species,#ma-length,#ma-weight").change(function(ev){
+		masterAnglerCheck();
+	});
 
+	$("#ma-length,#ma-weight").keypress(function() {
+		masterAnglerCheck();
+	});
+
+
+	var masterAnglerCheck = function() {
+
+
+		var weight = $("#ma-weight").val();
+		var length = $("#ma-length").val();
+		var species = $("#ma-species").val();
+		var state = $("#ma-state").val();
+
+		if (species.length > 0 && state.length > 0) {
+			var masterRegion = masterAnglerStates[state];
+			var masterWeight = masterAnglerData[species]["weight" + masterRegion];
+			var masterLength = masterAnglerData[species]["length" + masterRegion];
+
+			if (masterWeight.length > 0 && weight.length > 0 && weight >= masterWeight) {
+				$(".enter-master-angler").slideDown();
+			} else if (masterLength.length > 0 && length.length > 0 && length >= masterLength) {
+				$(".enter-master-angler").slideDown();
+			} else {
+				$(".enter-master-angler").slideUp();
+			}
+		}
+
+	}
+
+	$(".enter-ma-now").click(function(ev){
+		ev.preventDefault();
+
+		$(".master-angler-form-container").slideToggle();
+	});
 
 
 });

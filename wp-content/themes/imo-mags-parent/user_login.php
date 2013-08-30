@@ -4,7 +4,7 @@
  * Template Name: User Login
  * Description: Displays the login user
  *
-` *
+ *
  * @package WordPress
  * @subpackage Twenty_Eleven
  * @since Twenty Eleven 1.0
@@ -22,9 +22,10 @@ imo_sidebar("community"); ?>
 
 <div id="primary" class="general">
     <div id="content" class="general-frame" role="main">
-		<?php theme_my_login($args);  ?> 
+		<?php theme_my_login($args);  ?>
     </div>
 </div>
+<a href="http://www.in-fisherman.deva/wp-login.php?action=lostpassword">Forgot Password?</a>
 
 <?php get_footer(); ?>
 
