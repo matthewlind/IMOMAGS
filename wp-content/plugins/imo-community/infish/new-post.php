@@ -171,11 +171,11 @@ imo_sidebar("community");
 
                             <div class='ginput_complex ginput_container' >
                                 <span class='ginput_left' >
-                                    <input  name='input_3.3' tabindex='1' type='text' value=''>
-                                        <label for='input_4_3_3'>First</label>
+                                    <input  name='first_name' tabindex='1' type='text' value=''>
+                                        <label for=''>First</label>
                                 </span>
                                 <span class='ginput_right' >
-                                    <input  name='input_3.6' tabindex='2' type='text' value=''>
+                                    <input  name='last_name' tabindex='2' type='text' value=''>
                                         <label for=''>Last</label>
                                     </span>
                             </div>
@@ -185,7 +185,14 @@ imo_sidebar("community");
                             <label class='gfield_label' for='input_4_4'>Email<span class='gfield_required'>*</span></label>
 
                             <div class='ginput_complex ginput_container' >
-                                <span class='ginput_left' ><input  name='input_4' tabindex='3' type='text' value=''><label for='input_4_4'>Enter Email</label></span><span class='ginput_right' ><input  name='input_4_2' tabindex='4' type='text' value=''><label for='input_4_4_2'>Confirm Email</label></span>
+                                <span class='ginput_left' >
+                                	<input  name='input_4' tabindex='3' type='text' value=''>
+                                	<label for='input_4_4'>Enter Email</label>
+                                </span>
+                                <span class='ginput_right' >
+                                	<input  name='input_4_2' tabindex='4' type='text' value=''>
+                                	<label for='input_4_4_2'>Confirm Email</label>
+                                </span>
                             </div>
 
 
@@ -232,121 +239,6 @@ imo_sidebar("community");
                         </li>
 
 
-                        <li class='gfield gfield_contains_required' >
-                            <label class='gfield_label' for='input_4_34'>Species Caught<span class='gfield_required'>*</span></label>
-
-                            <div class='ginput_container'>
-                                <select class='medium gfield_select'  name='input_34' tabindex='20'>
-                                    <option selected='selected' value='-1'>
-                                        Select a Species
-                                    </option>
-
-                                    <option value='91'>
-                                        Blue Catfish
-                                    </option>
-
-                                    <option value='81'>
-                                        Bluegill
-                                    </option>
-
-                                    <option value='96'>
-                                        Brook Trout
-                                    </option>
-
-                                    <option value='97'>
-                                        Brown Trout
-                                    </option>
-
-                                    <option value='99'>
-                                        Carp (Common or Grass)
-                                    </option>
-
-                                    <option value='5'>
-                                        Catfish
-                                    </option>
-
-                                    <option value='100'>
-                                        Chain Pickerel
-                                    </option>
-
-                                    <option value='92'>
-                                        Channel Catfish
-                                    </option>
-
-                                    <option value='94'>
-                                        Chinook Salmon
-                                    </option>
-
-                                    <option value='95'>
-                                        Coho Salmon
-                                    </option>
-
-                                    <option value='83'>
-                                        Crappie (Black or White)
-                                    </option>
-
-                                    <option value='93'>
-                                        Flathead Catfish
-                                    </option>
-
-                                    <option value='80'>
-                                        Hybrid Striped Bass
-                                    </option>
-
-                                    <option value='67'>
-                                        Lake Trout
-                                    </option>
-
-                                    <option value='77'>
-                                        Largemouth Bass
-                                    </option>
-
-                                    <option value='89'>
-                                        Muskellunge
-                                    </option>
-
-                                    <option value='90'>
-                                        Musky (Hybrid)
-                                    </option>
-
-                                    <option value='88'>
-                                        Northern Pike
-                                    </option>
-
-                                    <option value='98'>
-                                        Rainbow Trout/Steelhead
-                                    </option>
-
-                                    <option value='82'>
-                                        Redear Sunfish
-                                    </option>
-
-                                    <option value='85'>
-                                        Sauger
-                                    </option>
-
-                                    <option value='87'>
-                                        Saugeye
-                                    </option>
-
-                                    <option value='78'>
-                                        Smallmouth Bass
-                                    </option>
-
-                                    <option value='79'>
-                                        Striped Bass
-                                    </option>
-
-                                    <option value='22'>
-                                        Walleye
-                                    </option>
-
-                                    <option value='84'>
-                                        Yellow Perch
-                                    </option>
-                                </select>
-                            </div>
-                        </li>
 
                         <li class='gfield gfield_contains_required' >
                             <label class='gfield_label' for='input_4_10'>Date Caught<span class='gfield_required'>*</span></label>
@@ -379,40 +271,6 @@ imo_sidebar("community");
 
                             <div class='ginput_container'>
                                 <input class='medium'  name='input_45' tabindex='25' type='text' value=''>
-                            </div>
-                        </li>
-
-
-
-                        <li class='gfield gfield_contains_required' >
-                            <label class='gfield_label' for='input_4_31'>Length<span class='gfield_required'>*</span></label>
-
-                            <div class='ginput_container'>
-                                <input class='medium'  name='input_31' tabindex='27' type='text' value=''>
-                            </div>
-                        </li>
-
-                        <li class='gfield' >
-                            <label class='gfield_label' for='input_4_32'>Girth</label>
-
-                            <div class='ginput_container'>
-                                <input class='medium'  name='input_32' tabindex='28' type='text' value=''>
-                            </div>
-                        </li>
-
-                        <li class='gfield weight' >
-                            <label class='gfield_label' for='input_4_36'>Weight of Fish (lbs)</label>
-
-                            <div class='ginput_container'>
-                                <input class='small'  name='input_36' tabindex='29' type='text' value=''>
-                            </div>
-                        </li>
-
-                        <li class='gfield weight' >
-                            <label class='gfield_label' for='input_4_38'>Weight (oz)</label>
-
-                            <div class='ginput_container'>
-                                <input class='small'  name='input_38' tabindex='30' type='text' value=''>
                             </div>
                         </li>
 

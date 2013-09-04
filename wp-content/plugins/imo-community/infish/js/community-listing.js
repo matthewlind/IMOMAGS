@@ -93,7 +93,7 @@ jQuery(document).ready(function($) {
 
             var totalPostCount = countData[0].post_count;
 
-            console.log(totalPostCount,filter.skip);
+            //console.log(totalPostCount,filter.skip);
 
             if (filter.skip + filter.per_page >= totalPostCount ) {
                 $("a.load-more").hide();

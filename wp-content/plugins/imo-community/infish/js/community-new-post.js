@@ -114,7 +114,9 @@ jQuery(document).ready(function($) {
 	//*******************************************************
 	//****************** NEW POST SUBMISSION ****************
 	//*******************************************************
-	$("#new-post-form").submit(function(){
+	$("#new-post-form").submit(function(ev){
+
+		ev.preventDefault();
 
 		var formDataObject = $("#new-post-form").formParams();
 		var newPostData = $.extend(formDataObject,userIMO,postData);
@@ -122,6 +124,13 @@ jQuery(document).ready(function($) {
 		newPostData.attachments = postAttachments;
 
 		//console.log(newPostData);
+
+		//get the post type from the species
+		if (newPostData.meta.length > 0) {
+			var species = newPostData.meta;
+
+			newPostData.post_type = masterAnglerData[species].species;
+		}
 
 
 		//Validate form data and submit
@@ -150,13 +159,15 @@ jQuery(document).ready(function($) {
 	//*******************************************************
 	function validateFormData(formData) {
 
+
+
 		if (formData.title.length < 1) {
 			alert("Please give this post a title.");
 			return false;
 		} else if (formData.img_url.length < 1) {
 			alert("Please attach a photo.");
 			return false;
-		} else if (formData.post_type.length < 1) {
+		} else if (formData.meta.length < 1) {
 			alert("Please select a species.");
 			return false;
 		} else if (formData.state.length < 1) {
@@ -253,15 +264,17 @@ jQuery(document).ready(function($) {
 	//* CHECK TO SEE IF PHOTO QUALIFIES FOR MASTER ANGLER ***
 	//*******************************************************
 	$("#ma-state,#ma-species,#ma-length,#ma-weight").change(function(ev){
-		masterAnglerCheck();
+		masterAnglerCheck(ev);
 	});
 
-	$("#ma-length,#ma-weight").keypress(function() {
-		masterAnglerCheck();
+	$("#ma-length,#ma-weight").keypress(function(ev) {
+		masterAnglerCheck(ev);
 	});
 
 
-	var masterAnglerCheck = function() {
+	var masterAnglerCheck = function(ev) {
+
+
 
 
 		var weight = $("#ma-weight").val();
@@ -269,17 +282,62 @@ jQuery(document).ready(function($) {
 		var species = $("#ma-species").val();
 		var state = $("#ma-state").val();
 
+
+		//Bizarre workaround so that the .keypress() event fires properly
+		if (ev.type == "keypress") {
+
+			if (ev.currentTarget.id == "ma-weight") {
+				var pressedKey = ev.charCode;
+				var pressedChar = String.fromCharCode(pressedKey);
+				var weight = weight + pressedChar;
+			}
+			if (ev.currentTarget.id == "ma-length") {
+				var pressedKey = ev.charCode;
+				var pressedChar = String.fromCharCode(pressedKey);
+				var length = length + pressedChar;
+			}
+
+		}
+
 		if (species.length > 0 && state.length > 0) {
+
+
 			var masterRegion = masterAnglerStates[state];
 			var masterWeight = masterAnglerData[species]["weight" + masterRegion];
 			var masterLength = masterAnglerData[species]["length" + masterRegion];
 
-			if (masterWeight.length > 0 && weight.length > 0 && weight >= masterWeight) {
+			//Use regex to allow for lbs and oz... eg: "2 lb 6 oz" is a valid input
+			var convertedWeight = 0;
+
+			//if there is a number in the weight
+			if (weight.match(/\d+\.?\d*/)) {
+
+				convertedWeight = weight.match(/\d+\.?\d*/)[0];
+
+				//if there are 2 numbers in the weight, assume that the second number is ounces
+				if (weight.match(/(\d+\.?\d*)/g)[0] && weight.match(/(\d+\.?\d*)/g)[1]) {
+
+					var pounds = weight.match(/(\d+\.?\d*)/g)[0];
+					var ounces = weight.match(/(\d+\.?\d*)/g)[1];
+
+					var ouncesInDecimal = (ounces / 16);
+
+					convertedWeight = parseFloat(pounds) + ouncesInDecimal;
+
+					postData.convertedWeight = convertedWeight;
+
+				}
+
+			}
+
+			//Use a regex to ignore an letters in the field
+			if (masterWeight.length > 0 && weight.match(/\d+\.?\d*/) && convertedWeight >= masterWeight) {
 				$(".enter-master-angler").slideDown();
-			} else if (masterLength.length > 0 && length.length > 0 && length >= masterLength) {
+			} else if (masterLength.length > 0 && length.match(/\d+\.?\d*/) && length.match(/\d+\.?\d*/)[0] >= masterLength) {
 				$(".enter-master-angler").slideDown();
 			} else {
 				$(".enter-master-angler").slideUp();
+				$(".master-angler-form-container").slideUp();
 			}
 		}
 
@@ -288,7 +346,7 @@ jQuery(document).ready(function($) {
 	$(".enter-ma-now").click(function(ev){
 		ev.preventDefault();
 
-		$(".master-angler-form-container").slideToggle();
+		$(".master-angler-form-container").slideDown();
 	});
 
 
