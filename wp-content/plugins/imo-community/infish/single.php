@@ -462,6 +462,7 @@ $time = date("g:i A", strtotime($timestamp));
             </fieldset>
         </form>
     </div>
+    <?php //echo do_shortcode('[imo-slideshow community=true]'); ?>
     <div class="hr"></div>
     <?php sub_footer(); ?>
     <div class="hr mobile-hr"></div>
