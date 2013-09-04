@@ -70,11 +70,12 @@
 	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.jfollow.js" type="text/javascript"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/flash_heed.js" type="text/javascript"></script>
 	<?php if ( defined('JETPACK_SITE') && mobile() == false && tablet() == false): ?>
-		<script type='text/javascript' src='http://ads.jetpackdigital.com/sites/<?php print JETPACK_SITE; ?>/jpd.js'></script>
+		<!--<script type='text/javascript' src='http://ads.jetpackdigital.com/sites/<?php print JETPACK_SITE; ?>/jpd.js'></script>-->
 	<?php endif; ?>
 </head>
 
 <body <?php body_class(); ?>  >
+
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -85,7 +86,7 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <div class="snap-drawers">
-    <div class="snap-drawer snap-drawer-left">
+    <div class="snap-drawer snap-drawer-left" id="left-drawer">
         <div>
 			<div class="mobile-menu-banner">
 				<?php $dartDomain = get_option("dart_domain", $default = false); ?>
@@ -125,10 +126,109 @@
 
 		</div>
 	</div>
+	<?php
+	$hostname = $_SERVER['SERVER_NAME'];
+    
+	$userInfo = wp_get_current_user();
+	
+	$username = $userInfo->user_nicename;
+
+	$apiURL = "http://$hostname/community-api/users/$username?get_comments=1";
+	
+	$file = file_get_contents($apiURL);
+	
+	//SET TEMPLATE VARIABLES
+	$data = json_decode($file);
+	
+	if($data->score == 1){
+		$niceScore = '<b>'.$data->score.'</b> Point';
+	}else{
+		$niceScore = '<b>'.$data->score.'</b> Points';
+	} 
+	
+    $displayStyle = "display:none";
+	$loginStyle = "";
+	
+	if ( is_user_logged_in() ) {
+	
+		$displayStyle = "";
+		$loginStyle = "display:none";
+		
+		wp_get_current_user();
+		
+		$current_user = wp_get_current_user();
+	    if ( !($current_user instanceof WP_User) )
+	         return;
+	    }
+	?>
+	<div class="snap-drawer snap-drawer-right" id="right-drawer">
+		 <div>
+			<div class="mobile-menu-banner">
+				<?php $dartDomain = get_option("dart_domain", $default = false); ?>
+				<iframe id="menu-iframe-ad" width="320" height="50" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-menu.php?size=320x50&ad_code=<?php echo $dartDomain; ?>"></iframe>
+			</div>	
+	
+	        <div class="mob-aside-menu">
+	            <div class="menu-community-menu-container">
+		       		<ul id="menu-community-menu" class="menu">
+				   		<li class="hot-link main-menu-item menu-item-even menu-item-depth-0 menu-item">
+			   				<a href="/photos" class="menu-link main-menu-link">Photos</a></li>
+			   			<li class="main-menu-item menu-item-even menu-item-depth-">
+			   				<a href="/master-angler" class="menu-link main-menu-link">Master Angler</a>
+			   			</li>
+			   			<li class="mob-fb main-menu-item menu-item-even menu-item-depth-" style="<?php echo $loginStyle; ?>">
+			   				 <a href="#" id="imo-fb-login-button" class="fb-login join-widget-fb-login btn-fb-login">Fast Login with Facebook</a>
+			   				 <div class="sub-photo-note">* we do not post anything to your wall unless you say so!</div>
+					        <span class="or-delim">OR</span>
+					        <a href="#" class="email-signup">Use Your Email Address</a>
+			   			<li class="main-menu-item menu-item-even menu-item-depth-" style="<?php echo $displayStyle; ?>">
+			   				<a href="#" class="menu-link main-menu-link has-drop">My Interests</a>
+			   				<div class="drop-down">
+			   					<ul class="sub-menu menu-odd menu-depth-1">
+				   					<li class="sub-menu-item menu-item-odd menu-item-depth-1 menu-item">
+				   						<a href="#" class="menu-link sub-menu-link">Bass</a>
+				   					</li>
+				   					<li class="sub-menu-item menu-item-odd menu-item-depth-1 menu-item">
+				   						<a href="#" class="menu-link sub-menu-link">Walleye</a>
+				   					</li>
+				   					<li class="sub-menu-item menu-item-odd menu-item-depth-1 menu-item">
+				   						<a href="#" class="menu-link sub-menu-link">Catfish</a>
+				   					</li>	
+				   				</ul>
+				   			</div>
+			   			</li>
+			   		</ul>
+		       </div>
+	        </div>
+	        <div class="menu-subscribe">
+	            <a href="<?php print SUBS_LINK;?>"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/pic/journals.png" alt="" /><span>Subscribe Now!</span></a>
+	        </div>
+	        <div class="mob-aside-menu" style="<?php echo $displayStyle; ?>">
+		        <div class="menu-community-menu-container">
+		       		<ul id="menu-community-menu" class="menu">
+	       				<li class="main-menu-item menu-item-even menu-item-depth-0 menu-item">
+			   				<a href="/profile/<?php echo $username; ?>#my-photos" class="menu-link main-menu-link">My Photos</a></li>
+			   				<li class="main-menu-item menu-item-even menu-item-depth-0 menu-item">
+			   				<a href="/edit-profile/?action=profile" class="menu-link main-menu-link">Edit Profile</a></li>
+			   			<li class="main-menu-item menu-item-even menu-item-depth-">
+			   				<a href="<?php echo wp_logout_url( get_permalink() ); ?>" class="menu-link main-menu-link">Sign Out</a>
+			   			</li>
+			   		</ul>
+			   	</div>
+	        </div>  
+	        	
+	        <div class="aside-socials">
+	            <strong>Connect</strong>
+	            <?php social_networks(); ?>
+	        </div>
+
+		</div>
+	</div>
+
 </div>
 
 <div id="page" class="snap-content smooth-menu<?php if ( mobile() == false && tablet() == false ){ echo ' ie9fix'; } ?>">
-
+<?php if (mobile() == false && tablet() == false) {  imo_dart_tag("1x1",false,array("pos"=>"skin")); } ?>
 	<div class="hfeed wrapper" data-role="content" role="main">
 	    <div class="layout-frame">
 	        <div id="branding" class="header clearfix" role="banner">
@@ -137,7 +237,11 @@
 
                    <a id="open-left" class="open-menu">open menu</a>
                     <strong class="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/logo.png" alt="<?php bloginfo( 'name' ); ?>" /></a></strong>
-                    <?php
+<a id="comm-mob-menu" class="user-btn" style="display:none;<?php //if( is_user_logged_in() ) { echo 'background:url(/avatar?uid=' . $data->ID .') no-repeat center center;'; } ?>">user</a>
+                     
+                     
+                     
+                                         <?php
                         // Check to see if the header image has been removed
                         $header_image = get_header_image();
                         if ( ! empty( $header_image ) ) :

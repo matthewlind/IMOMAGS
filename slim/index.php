@@ -69,7 +69,7 @@ $app->get('/api/superpost/all(/:count(/:start))',function($count = 20,$start = 0
 
 		$limitClause = "LIMIT $start,$count";
 
-		$sql = "SELECT * FROM allcounts ORDER BY id DESC $limitClause";
+		$sql = "SELECT * FROM allcounts2 WHERE domain = 'www.northamericanwhitetail.com' ORDER BY id DESC $limitClause";
 		$stmt = $db->query($sql);
 		$posts = $stmt->fetchAll(PDO::FETCH_OBJ);
 
@@ -107,7 +107,7 @@ $app->get('/api/superpost/photos/:post_type(/:count(/:start))',function($post_ty
 		$limitClause = "LIMIT $start,$count";
 
 
-		$sql = "SELECT * FROM allcounts $whereClause ORDER BY id DESC $limitClause";
+		$sql = "SELECT * FROM allcounts2 $whereClause AND domain = 'www.northamericanwhitetail.com' ORDER BY id DESC $limitClause";
 
 		$stmt = $db->prepare($sql);
 		$stmt->execute(array($post_type));
@@ -149,7 +149,7 @@ $app->get('/api/superpost/comment_count/:post_type(/:count(/:start))',function($
 		$limitClause = "LIMIT $start,$count";
 
 
-		$sql = "SELECT * FROM allcounts $whereClause ORDER BY comment_count DESC $limitClause";
+		$sql = "SELECT * FROM allcounts2 $whereClause AND domain = 'www.northamericanwhitetail.com' ORDER BY comment_count DESC $limitClause";
 
 		$stmt = $db->prepare($sql);
 		$stmt->execute(array($post_type));
@@ -190,7 +190,7 @@ $app->get('/api/superpost/type/:post_type(/:count(/:start))',function($post_type
 		$limitClause = "LIMIT $start,$count";
 
 
-		$sql = "SELECT * FROM allcounts $whereClause ORDER BY id DESC $limitClause";
+		$sql = "SELECT * FROM allcounts2 $whereClause AND domain = 'www.northamericanwhitetail.com' ORDER BY id DESC $limitClause";
 
 		$stmt = $db->prepare($sql);
 		$stmt->execute(array($post_type));
@@ -231,7 +231,7 @@ $app->get('/api/superpost/active/type/:post_type(/:count(/:start))',function($po
 		$limitClause = "LIMIT $start,$count";
 
 
-		$sql = "SELECT * FROM allcounts $whereClause ORDER BY score DESC $limitClause";
+		$sql = "SELECT * FROM allcounts2 $whereClause AND domain = 'www.northamericanwhitetail.com' ORDER BY score DESC $limitClause";
 
 		$stmt = $db->prepare($sql);
 		$stmt->execute(array($post_type));
@@ -272,7 +272,7 @@ $app->get('/api/superpost/views/:post_type(/:count(/:start))',function($post_typ
 
 		$limitClause = "LIMIT $start,$count";
 
-		$sql = "SELECT * FROM allcounts $whereClause ORDER BY view_count DESC $limitClause";
+		$sql = "SELECT * FROM allcounts2 $whereClause AND domain = 'www.northamericanwhitetail.com' ORDER BY view_count DESC $limitClause";
 
 		$stmt = $db->prepare($sql);
 		$stmt->execute(array($post_type));
@@ -662,8 +662,8 @@ $app->post('/api/superpost/add',function() {
 			    error_log("There was an error uploading the file, please try again!");
 			}
 		}
-		
-		
+
+
 			_log( "THIS THIS");
 
 		/////////////////////////////////////
@@ -701,11 +701,11 @@ $app->post('/api/superpost/add',function() {
 		);
 
     if (!empty($params['title']) && stristr($params['title'],"Nayarit")){
-       
+
       $params['title'] = "Photo from App";
     }
-    		
-    	_log($params);	
+
+    	_log($params);
     		_log( "THIS THIS3");
 
 		if (!empty($fileName) || $videoExists) {
@@ -753,7 +753,7 @@ $app->post('/api/superpost/add',function() {
 
 
 		if ($requestIsGood) {
-			
+
 
 			$stmt->execute();
 	        $superpostID = $db->lastInsertId();

@@ -26,6 +26,11 @@
 	display: inline;
 }
 
+.login h1 a {
+    background: url(/wp-content/uploads/2011/05/Intermedia-Outdoors-Logo.png) no-repeat top center;
+
+}
+
 .login input {
 	margin: 5px 0;
 }
@@ -86,4 +91,8 @@
 #pass-strength-result.strong {
     background-color: #c3ff88;
     border-color: #8dff1c !important;
+}
+
+.tml-action-links {
+	display:none;
 }

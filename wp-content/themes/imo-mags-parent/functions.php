@@ -9,6 +9,7 @@ add_action( 'widgets_init', 'register_recipes_widget' );
 include_once('widgets/subscribe.php');
 include_once('widgets/newsletter-signup.php');
 include_once('widgets/ford-widget.php');
+include_once('widgets/join.php');
 
 function new_excerpt_more( $more ) {
 	return '... <a href="'. get_permalink( get_the_ID() ) .'" >more <span class="meta-nav">&raquo;</span></a>';
@@ -199,6 +200,16 @@ function parent_theme_widgets_init()
         'before_title' => '<h3 class="widget-title">',
         'after_title' => '</h3>',
     ) );
+    
+    register_sidebar( array(
+        'name' => __( 'Community Sidebar', 'imo-mags-parent' ),
+        'id' => 'sidebar-4',
+        'description' => __( 'The sidebar for community pages', 'twentyeleven' ),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget' => "</div>",
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>',
+    ) );
 
    /*register_sidebar( array(
         'name' => __( 'Footer Area Two', 'parent_theme' ),
@@ -233,6 +244,11 @@ function parent_theme_widgets_init()
         'top' => 'Top Menu',  
         'bottom' => 'Main Menu',
         'mobile' => 'Mobile Menu'
+    ));
+    register_nav_menus(array(  
+        'top' => 'Community Menu',  
+        'bottom' => 'Community Menu',
+        'community' => 'Community Menu'
     ));
 }
 

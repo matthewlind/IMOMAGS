@@ -16,7 +16,7 @@ jQuery(document).ready(function(){
 			
 			$("ul.replies-list").append('<li class="new-comment"></li>');
 			$("ul.replies-list li.new-comment").hide().append('<div class="profile-photo"><a href="/profile/' + postData.username + '"><img src="/avatar?uid=' + postData.user_id + '" alt="' + postData.display_name + '"></a></div><div class="reply-text"><h3><a href="/profile/' + postData.username + '">' + postData.display_name + '</a></h3><p>' + postData.body + '</p></div></li>').fadeIn("slow").removeClass("new-comment");
-			//$("#comment-form textarea").html("");
+			$("#comment-form textarea").val("");
             
         });
 

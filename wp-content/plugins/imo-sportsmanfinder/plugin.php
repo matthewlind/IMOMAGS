@@ -87,4 +87,3 @@ function popwin(loc,winname,w,h,scroll,resize) {
 add_action("widgets_init", function() {
     return register_widget("imo\IMOSportsmanWidget");
 });
-

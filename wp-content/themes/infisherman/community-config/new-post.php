@@ -25,6 +25,11 @@ $IMO_COMMUNITY_CONFIG['additional_scripts'] = array(
 		"script-dependencies" => array('jquery',"underscore-js")
 	),
 	array(
+		"script-name" => "master-angler-data-js",
+		"script-path" => "infish/js/master-angler-data.js",
+		"script-dependencies" => array('jquery',"underscore-js")
+	),
+	array(
 		"script-name" => "form-params-js",
 		"script-path" => "js/formParams.min.js",
 		"script-dependencies" => array('jquery')
@@ -37,7 +42,7 @@ $IMO_COMMUNITY_CONFIG['additional_scripts'] = array(
 	array(
 		"script-name" => "community-new-post-js",
 		"script-path" => "infish/js/community-new-post.js",
-		"script-dependencies" => array('jquery',"underscore-js","community-common-js","form-params-js","bootstrap-dropdown-js")
+		"script-dependencies" => array('jquery',"underscore-js","community-common-js","form-params-js","bootstrap-dropdown-js","master-angler-data-js")
 	)
 
 );
@@ -51,6 +56,11 @@ $IMO_COMMUNITY_CONFIG['additional_styles'] = array(
 	array(
 		"style-name" => "bootstrap-dropdown-css",
 		"style-path" => "infish/css/bootstrap-dropdown.css",
+		"style-dependencies" => null
+	),
+	array(
+		"style-name" => "gravity-forms-copy-css",
+		"style-path" => "infish/css/forms.css",
 		"style-dependencies" => null
 	),
 	array(

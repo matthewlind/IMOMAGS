@@ -1,3 +1,4 @@
+.snap-drawer-right
 /*
 Theme Name: IMO Parent Theme
 Theme URI: http://imomags.com/
@@ -344,7 +345,6 @@ img{max-width: 100%;height: auto;}
 	z-index: 1;
 	display: none;
 	background: url(images/bg/mobile-menu-shadow-right.png) repeat-y 0 0 white;
-	overflow: hidden;
 }
 .active-drawer{
 	display: block;
@@ -385,6 +385,13 @@ img{max-width: 100%;height: auto;}
 .open-menu:hover {
     background-position:-65px -72px;
 }
+.user-btn.user-btn-avatar{
+	background: none;
+}
+.user-btn.user-btn-avatar img{
+	display: block;
+	padding: 8px;
+}
 .user-btn {
     float:right;
     width:60px;
@@ -419,7 +426,7 @@ img{max-width: 100%;height: auto;}
     margin:-4px 0 0;
 }
 .subscribe-box .journal img{
-	width: 80%;
+	width: 84px;
 }
 .subscribe-now {
     float:right;
@@ -1553,6 +1560,7 @@ a.category-name-link:hover{
 /*** Gallery desktop fixes ***/
 #slideshow-pager img.slideshow-thumb{
 	margin-left: 0 !important;
+	max-width:100px;
 }
 /*** mobile gallery ***/
 .gallery-slider {
@@ -3164,6 +3172,9 @@ h2.related-stories{
     .mobile-menu-banner{
 		width: 300px;
 		margin: 0 auto;
+	}
+	.snap-drawer{
+		width: 266px;
 	}
     #slidingMenu iframe {
 		width: 296px !important;

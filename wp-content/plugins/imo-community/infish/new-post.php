@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Template Name: Gear
- * Description: The NAW+ Community - Gear Category
+ * Template Name: New Post
+ * Description: Community - Post a photo
  *
  * @package carrington-business
  *
@@ -59,14 +59,14 @@ imo_sidebar("community");
 
 
 				<div class="dropdown-selects">
-					<select id="dynamic_select" class="post_type alter-sel mobile-select" name="post_type">
+					<select id="ma-species" class="post_type alter-sel mobile-select" name="meta">
 		         		<option value="">SPECIES</option>
-				 		<% _.each(post_types,function(postType,index){ %>
-		         			<option value="<%= index %>" <%= post && post.post_type == postType.index ? "SELECTED" : "" %> ><%= postType.display_name %></option>
+				 		<% _.each(species,function(fish,index){ %>
+		         			<option value="<%= index %>" <%= post && post.post_type == index ? "SELECTED" : "" %> ><%= fish.name %></option>
 				 		<% }); %>
 			        </select>
-				    <select name="state" placeholder="Choose the state for this post:" class="alter-sel mobile-select">
-			            <option value="" >STATE</option>
+				    <select name="state" placeholder="Choose the state for this post:" class="alter-sel mobile-select" id="ma-state">
+			            <option value="" >STATE / PROVINCE</option>
 			            <option value="AL" <%= post && post.state == "AL" ? "SELECTED" : "" %> >Alabama</option>
 			            <option value="AK" <%= post && post.state == "AK" ? "SELECTED" : "" %> >Alaska</option>
 			            <option value="AZ" <%= post && post.state == "AZ" ? "SELECTED" : "" %> >Arizona</option>
@@ -131,17 +131,236 @@ imo_sidebar("community");
 			            <option value="QC" <%= post && post.state == "QC" ? "SELECTED" : "" %> >Quebec, Canada</option>
 			            <option value="SK" <%= post && post.state == "SK" ? "SELECTED" : "" %> >Saskatchewan, Canada</option>
 			            <option value="YT" <%= post && post.state == "YT" ? "SELECTED" : "" %> >Yukon, Canada</option>
+                        <option value="MX" <%= post && post.state == "MX" ? "SELECTED" : "" %> >Mexico</option>
 					</select>
 				</div>
+
+                <div class="f-row f-row-center">
+                    <input placeholder="Weight (lbs.)" type="text" name="weight" class="fishsize" id="ma-weight"> <span class="worl">OR</span>
+                    <input placeholder="Length (in.)" type="text" name="length" class="fishsize" id="ma-length">
+                </div>
+
 
 
 				<% if (post && post.id) { %>
 						<input type="hidden" name="id" value="<%= post.id %>" >
 				<% } %>
 
+                <div class="enter-master-angler" style="display:none;">
+                    <img src="/wp-content/themes/infisherman/images/pic/badge-ma.png">
+                    <h2>Awesome catch.</h2>
+
+                    <p>Congratulations! Your fish qualifies for Master Angler.</p>
+
+                    <span class="btn-red btn-post"><a href="" class="enter-ma-now">Enter Now</a></span>
+                    <a href="" class="ma-read-rules">Read Rules</a>
+                </div>
+
+
+
+            <div class="gform_wrapper master-angler-form-container"  style="display:none;">
+
+                <div class='gform_body'>
+                    <ul class='gform_fields top_label description_below' >
+                        <li class='gfield gsection' >
+                            <h2 class='gsection_title'>Master Angler <span>Contact Information</span></h2>
+                        </li>
+
+                        <li class='gfield formname gfield_contains_required' >
+                            <label class='gfield_label' for='input_4_3_3'>Name<span class='gfield_required'>*</span></label>
+
+                            <div class='ginput_complex ginput_container' >
+                                <span class='ginput_left' >
+                                    <input  name='first_name' tabindex='1' type='text' value=''>
+                                        <label for=''>First</label>
+                                </span>
+                                <span class='ginput_right' >
+                                    <input  name='last_name' tabindex='2' type='text' value=''>
+                                        <label for=''>Last</label>
+                                    </span>
+                            </div>
+                        </li>
+
+                        <li class='gfield gfield_contains_required' >
+                            <label class='gfield_label' for='input_4_4'>Email<span class='gfield_required'>*</span></label>
+
+                            <div class='ginput_complex ginput_container' >
+                                <span class='ginput_left' >
+                                	<input  name='input_4' tabindex='3' type='text' value=''>
+                                	<label for='input_4_4'>Enter Email</label>
+                                </span>
+                                <span class='ginput_right' >
+                                	<input  name='input_4_2' tabindex='4' type='text' value=''>
+                                	<label for='input_4_4_2'>Confirm Email</label>
+                                </span>
+                            </div>
+
+
+                        </li>
+
+                        <li class='gfield formaddress gfield_contains_required' >
+                            <label class='gfield_label' for='input_4_5_1'>Address<span class='gfield_required'>*</span></label>
+
+                            <div class='ginput_complex ginput_container' >
+                                <span class='ginput_full' >
+                                    <input  name='input_5.1' tabindex='5' type='text' value=''>
+                                    <label for='input_4_5_1' >Street Address</label>
+                                </span>
+                                <span class='ginput_full' >
+                                    <input  name='input_5.2' tabindex='6' type='text' value=''>
+                                    <label for='input_4_5_2' >Address Line 2</label>
+                                </span>
+                                <span class='ginput_left' >
+                                    <input  name='input_5.3' tabindex='7' type='text' value=''>
+                                    <label for='input_4_5_3' >City</label>
+                                </span>
+                                <span class='ginput_right' >
+                                    <input  name='input_5.4' tabindex='9' type='text' value=''>
+                                    <label for='input_4_5_4' >State / Province / Region</label>
+                                </span>
+                                <span class='ginput_left' >
+                                    <input  name='input_5.5' tabindex='10' type='text' value=''>
+                                    <label for='input_4_5_5' >Zip / Postal Code</label>
+                                </span>
+
+                            </div>
+                        </li>
+
+                        <li class='gfield formphone gfield_contains_required' >
+                            <label class='gfield_label' for='input_4_6'>Phone<span class='gfield_required'>*</span></label>
+
+                            <div class='ginput_container'>
+                                <input class='medium'  name='input_6' tabindex='12' type='text' value=''>
+                            </div>
+                        </li>
+
+                        <li class='gfield gsection' >
+                            <h2 class='gsection_title'>About Your Catch</h2>
+                        </li>
+
+
+
+                        <li class='gfield gfield_contains_required' >
+                            <label class='gfield_label' for='input_4_10'>Date Caught<span class='gfield_required'>*</span></label>
+
+                            <div class='clear-multi'>
+                                <div class='gfield_date_month ginput_container' >
+                                    <input  maxlength='2' name='input_10[]' tabindex='21' type='text' value=''><label for='input_4_10_1'>MM</label>
+                                </div>
+
+                                <div class='gfield_date_day ginput_container' >
+                                    <input  maxlength='2' name='input_10[]' tabindex='22' type='text' value=''><label for='input_4_10_2'>DD</label>
+                                </div>
+
+                                <div class='gfield_date_year ginput_container' >
+                                    <input  maxlength='4' name='input_10[]' tabindex='23' type='text' value=''><label for='input_4_10_3'>YYYY</label>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class='gfield gfield_contains_required' >
+                            <label class='gfield_label' for='input_4_44'>Body of Water<span class='gfield_required'>*</span></label>
+
+                            <div class='ginput_container'>
+                                <input class='medium'  name='input_44' tabindex='24' type='text' value=''>
+                            </div>
+                        </li>
+
+                        <li class='gfield gfield_contains_required' >
+                            <label class='gfield_label' for='input_4_45'>Nearest Town<span class='gfield_required'>*</span></label>
+
+                            <div class='ginput_container'>
+                                <input class='medium'  name='input_45' tabindex='25' type='text' value=''>
+                            </div>
+                        </li>
+
+                        <li class='gfield gfield_contains_required' >
+                            <label class='gfield_label' for='input_4_14'>Lure or Bait used<span class='gfield_required'>*</span></label>
+
+                            <div class='ginput_container'>
+                                <select class='small gfield_select'  name='input_14' onchange='gf_apply_rules(4,["15","17","16"]);' tabindex='31'>
+                                    <option selected='selected' value='Select'>
+                                        Select
+                                    </option>
+
+                                    <option value='Lure'>
+                                        Lure
+                                    </option>
+
+                                    <option value='Bait'>
+                                        Bait
+                                    </option>
+                                </select>
+                            </div>
+                        </li>
+
+                        <li class='gfield'  style='display:none;'>
+                            <label class='gfield_label' for='input_4_15'>Kind of Lure</label>
+
+                            <div class='ginput_container'>
+                                <input class='medium'  name='input_15' tabindex='32' type='text' value=''>
+                            </div>
+                        </li>
+
+                        <li class='gfield'  style='display:none;'>
+                            <label class='gfield_label' for='input_4_17'>Color and Size of Lure</label>
+
+                            <div class='ginput_container'>
+                                <input class='medium'  name='input_17' tabindex='33' type='text' value=''>
+                            </div>
+                        </li>
+
+                        <li class='gfield'  style='display:none;'>
+                            <label class='gfield_label' for='input_4_16'>Kind of Bait</label>
+
+                            <div class='ginput_container'>
+                                <input class='medium'  name='input_16' tabindex='34' type='text' value=''>
+                            </div>
+                        </li>
+
+                        <li class='gfield gfield_contains_required' >
+                            <label class='gfield_label'>Kept or Released<span class='gfield_required'>*</span></label>
+
+                            <div class='ginput_container'>
+                                <ul class='gfield_radio' >
+                                    <li class='gchoice_22_0'><input  name='input_22' onclick='gf_apply_rules(4,["24","24","25","26","27","28","29","30","25","26","27","28","29","30"]);' tabindex='35' type='radio' value='Kept'><label for='choice_22_0'>Kept</label></li>
+
+                                    <li class='gchoice_22_1'><input  name='input_22' onclick='gf_apply_rules(4,["24","24","25","26","27","28","29","30","25","26","27","28","29","30"]);' tabindex='36' type='radio' value='Released'><label for='choice_22_1'>Released</label></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class='gfield' >
+                            <label class='gfield_label'>Newsletters &amp; Special Offers</label>
+
+                            <div class='ginput_container'>
+                                <ul class='gfield_checkbox' >
+                                    <li class='gchoice_41_1'><input checked='checked'  name='input_41.1' tabindex='57' type='checkbox' value='Yes, sign me up for the In-Fisherman Newsletter!'><label for='choice_41_1'>Yes, sign me up for the In-Fisherman Newsletter!</label></li>
+
+                                    <li class='gchoice_41_2'><input checked='checked'  name='input_41.2' tabindex='58' type='checkbox' value='I&#39;d also like to recieve special offers!'><label for='choice_41_2'>I&#39;d also like to recieve special offers!</label></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class='gfield gfield_html gfield_html_formatted gfield_no_follows_desc' >
+                            <a href="/master-angler#rules">Official Rules</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+				<a href="#" id="imo-fb-login-button" class="imo-community-new-post fb-login join-widget-fb-login btn-fb-login">Fast Login with Facebook</a>
 			    <span class="btn-red btn-post"><input type="submit"></span>
 			</div>
+
+
+
+
 		</form>
+
+
+
 	</script>
 	<!-- *********************************************************** -->
 	<!-- *********************************************************** -->
@@ -151,9 +370,9 @@ imo_sidebar("community");
 
 			      <div style="margin:20px 0" class="add-photo-field">
 				      	<a href="<%= attachment.img_url %>" class="thickbox">
-
-				      			<img src="<%= attachment.img_url %>/convert?w=150&h=150&fit=crop" width=75 height=75 style="height:75px">
-
+				      			<div class="attachment-image-container">
+						      		<img src="<%= attachment.img_url %>/convert?w=150&h=150&fit=crop" width=75 height=75 style="height:75px">
+						      	</div>
 				      	</a>
 					  	 <div class="caption-area" name="caption-body" placeholder="Caption (optional)" value="<%= attachment.body %>">
 			                <textarea id="" class="area caption-field" cols="30" rows="10" placeholder="Add Caption (optional)"></textarea>

@@ -1,0 +1,90 @@
+.widget_channel-video-widget {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-top: none !important;
+  width: 300px;
+  padding: 0 !important;
+}
+.header-image{
+	position: relative;
+}
+
+.widget_channel-video-widget #locateChannel {
+  margin: -10px 0 0 0;
+  background: black;
+  height: 92px;
+}
+.widget_channel-video-widget #locateChannel #channelControlsContainer{
+	background: url("img/channel-find-bg.jpg") no-repeat top center;
+	width: 300px;
+	height: 92px;
+	padding: 0;
+}
+.widget_channel-video-widget .video-title{
+	background: url("img/widget_stripe_bg_29.png") 0 0 repeat-x;
+	margin-top: -7px;
+	font-size: 16px !important;
+	line-height: 2 !important;
+	padding: 0;
+	margin-bottom: 0;
+	text-align: center;
+}
+.widget_channel-video-widget .sc-link{
+	text-indent: -9999px;
+	position: absolute;
+	top: 100px;
+	right: 0;
+	width: 120px;
+	height: 30px;
+}
+.widget_channel-video-widget .more-url{
+	font-family: "stagMedium",serif;
+	font-size: 13px;
+	font-style: italic;
+	text-align: center;
+	margin: -6px 0 6px;
+	padding: 0;
+}
+.widget_channel-video-widget #locateChannel #channelControlsContainer p {
+	line-height: 1;
+	font-family: "Helvetica",sans-serif;
+	font-weight: bold;
+	text-align: center;
+	color: #a1833a;
+	text-transform: uppercase;
+	font-size: 14px;
+	padding-top: 20px;
+}
+
+.widget_channel-video-widget #locateChannel #channelControlsContainer #channelControls {
+	padding: 0 17px;
+	margin: 0;
+}
+
+.widget_channel-video-widget #locateChannel input.searchbox {
+  border: 1px solid #cccccc;
+  padding: 4px;
+  font-family: verdana;
+  font-size: 11px;
+  font-weight: bold;
+  color: #999;
+  width: 170px;
+  margin-top: 0;
+}
+
+.widget_channel-video-widget #locateChannel input.button {
+  margin: 0;
+  border: 0;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 12px;
+  text-shadow: 1px 1px 1px black;
+  filter: dropshadow(color=black, offx=1, offy=1);
+  padding: 4px 8px;
+  font-family: verdana;
+  font-weight: bold;
+  width: 81px;
+  color: white;
+  background-color: #d7ab55;
+  background-image: url(/wp-content/themes/carrington-business/img/button-bg.png);
+}

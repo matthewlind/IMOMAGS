@@ -51,15 +51,19 @@ get_header(); ?>
                                  */
                                 get_template_part( 'content/content', get_post_format() );
                             ?>
-
+                        <?php if ( $i  == 4 ){ ?>
+                        <!-- insert community gallery here -->
+                        <?php } ?>
+							
                         <?php if ( (($i - (($paged -1) * 2 ))%6) == 0 ): ?>
+                        
 	                        <?php if ( mobile() ){ ?>
 	                        <div class="image-banner posts-image-banner">
 	                            <?php imo_dart_tag("300x250",array("pos"=>"mob")); ?> 
 	                        </div>
 	                        <?php } ?>
                         <?php endif;?>
-        
+						
                         <?php $i++; endwhile; ?>
         
                     </div>
