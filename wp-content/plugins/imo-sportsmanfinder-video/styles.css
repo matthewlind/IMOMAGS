@@ -8,14 +8,14 @@
 .header-image{
 	position: relative;
 }
-/* line 3523, sass/style.scss */
+
 .widget_channel-video-widget #locateChannel {
-  margin-bottom: 10px;
-  background: none;
-  height: 82px;
+  margin: -10px 0 0 0;
+  background: black;
+  height: 92px;
 }
 .widget_channel-video-widget #locateChannel #channelControlsContainer{
-	background: url("img/channel-find-bg.jpg") no-repeat bottom center;
+	background: url("img/channel-find-bg.jpg") no-repeat top center;
 	width: 300px;
 	height: 92px;
 	padding: 0;
@@ -25,8 +25,9 @@
 	margin-top: -7px;
 	font-size: 16px !important;
 	line-height: 2 !important;
-	padding: 0 0 0 16px;
+	padding: 0;
 	margin-bottom: 0;
+	text-align: center;
 }
 .widget_channel-video-widget .sc-link{
 	text-indent: -9999px;
@@ -44,12 +45,22 @@
 	margin: -6px 0 6px;
 	padding: 0;
 }
-/* line 3541, sass/style.scss */
+.widget_channel-video-widget #locateChannel #channelControlsContainer p {
+	line-height: 1;
+	font-family: "Helvetica",sans-serif;
+	font-weight: bold;
+	text-align: center;
+	color: #a1833a;
+	text-transform: uppercase;
+	font-size: 14px;
+	padding-top: 20px;
+}
+
 .widget_channel-video-widget #locateChannel #channelControlsContainer #channelControls {
-	padding: 17px;
+	padding: 0 17px;
 	margin: 0;
 }
-/* line 3544, sass/style.scss */
+
 .widget_channel-video-widget #locateChannel input.searchbox {
   border: 1px solid #cccccc;
   padding: 4px;
@@ -58,9 +69,9 @@
   font-weight: bold;
   color: #999;
   width: 170px;
-  margin-top: 30px;
+  margin-top: 0;
 }
-/* line 3552, sass/style.scss */
+
 .widget_channel-video-widget #locateChannel input.button {
   margin: 0;
   border: 0;

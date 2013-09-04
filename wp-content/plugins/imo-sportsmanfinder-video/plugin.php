@@ -98,7 +98,7 @@ function popwin(loc,winname,w,h,scroll,resize) {
 
 <div class="header-image">
 	<a href="http://www.thesportsmanchannel.com/" class="sc-link" target="_blank">Sportsman Channel</a>
-	<img src="<?php print $banner; ?>" alt="<?php print $header;?>" title="<?php print $header;?>" />
+	<a href="<?php print $moreURL; ?>"><img src="<?php print $banner; ?>" alt="<?php print $header;?>" title="<?php print $header;?>" /></a>
 </div>
 <h3 class="video-title"><?php print $header;?></h3>
 <!-- Start of Brightcove Player -->
@@ -134,9 +134,10 @@ function popwin(loc,winname,w,h,scroll,resize) {
 	<script type="text/javascript">brightcove.createExperiences();</script>
 </div>
 <!-- End of Brightcove Player -->
-<p class="more-url"><a href="<?php print $moreURL; ?>" target="_blank">more video and showtimes</a></p>
+<p class="more-url"><a href="<?php print $moreURL; ?>">more video and showtimes</a></p>
 <div id="locateChannel">
     <div id="channelControlsContainer">
+    	<p>Find Sportsman In Your Area!</p>
 		<div id="channelControls">
 		    <input type="text" name="zip" id="zip" onfocus="if(this.value == this.defaultValue) this.value = '';" value="Enter Your ZIP" class="searchbox" />
 		    <a href="#" onclick="javascript:popwin('http://thesportsmanchannel.viewerlink.tv/?zip='+document.getElementById('zip').value,'indicator',615,550,'yes','yes');"><input type="submit" value="GO!" class="button" /></a>
