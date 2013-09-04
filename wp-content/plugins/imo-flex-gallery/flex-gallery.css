@@ -56,6 +56,9 @@ div.flex-viewport {
 	margin-top: -1px;
 	
 }
+.category .flex-gallery-container{
+	margin-bottom: 20px;
+}
 div.flex-gallery-inner {
 	width: auto;
 	text-align: center;
