@@ -384,7 +384,7 @@ EOT;
 
 $mobile_output .= <<<EOT2
 		        <li>
-		            <img src="$picture->img_url" alt="$picture->alttext">
+		            <img src="$picture->img_url/convert?w=119&h=119&fit=crop" alt="$picture->alttext">
 		            <div class="feat-text">
 		                <h3>$picture->alttext</h3>
 						$picture->description

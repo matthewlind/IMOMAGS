@@ -10,7 +10,8 @@ class Join_Widget extends WP_Widget {
 		extract($args, EXTR_SKIP);
 
     $hostname = $_SERVER['SERVER_NAME'];
-
+	
+	//User Info
 	$userInfo = wp_get_current_user();
 
 	$username = $userInfo->user_nicename;
@@ -19,7 +20,6 @@ class Join_Widget extends WP_Widget {
 
 	$file = file_get_contents($apiURL);
 
-	//SET TEMPLATE VARIABLES
 	$data = json_decode($file);
 
 	if($data->score == 1){
@@ -27,6 +27,11 @@ class Join_Widget extends WP_Widget {
 	}else{
 		$niceScore = '<b>'.$data->score.'</b> Points';
 	}
+	
+	
+	//Community Photos
+	$jsonData = file_get_contents('http://'.$hostname.'/community-api/posts?per_page=10&sort=DESC');
+	$pictures = json_decode($jsonData);
 
     $displayStyle = "display:none";
 	$loginStyle = "";
@@ -43,13 +48,25 @@ class Join_Widget extends WP_Widget {
 	         return;
 	    }
 	    ?>
+	    <div id="join" class="join-box fb-join-widget-box">
 	    	<div class="fileupload-buttonbar" style="<?php echo $loginStyle; ?>">
                 <label class="upload-button">
 					<a href="/photos/new" class="singl-post-photo jq-open-reg-popup"><span>Share Photo</span></a>
 					<input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
                 </label>
             </div>
-	    
+            <h2>Explore Photos</h2>
+            <div class="explore-posts loading-block">
+            <div class="jq-explore-slider-sidebar onload-hidden">
+                <ul class="slides">
+                	<?php foreach ($pictures as $picture) { ?>
+                		<li><a href="/photos/<?php echo $picture->id; ?>"><img width="119" src="<?php echo $picture->img_url; ?>/convert?w=119&h=119&fit=crop" alt="<?php echo $picture->title; ?>" /></a></li>
+                	<?php } ?>
+                </ul>
+            </div>
+        </div>
+
+	    </div>
 	    <!--<div id="join" class="join-box fb-join-widget-box" style="<?php echo $loginStyle; ?>">
 	        <h3><span>Post</span> a Photo</h3>
 	        <a href="#" id="imo-fb-login-button" class="fb-login join-widget-fb-login btn-fb-login">Fast Login with Facebook</a>

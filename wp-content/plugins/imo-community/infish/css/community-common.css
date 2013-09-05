@@ -845,7 +845,7 @@ select.alter-sel {width:100%;}
 }
 .btn-red,
 .singl-post-photo {
-    width:310px;
+    
     height:42px;
     display:block;
     font:15px/42px "stagbold", sans-serif;
@@ -857,6 +857,7 @@ select.alter-sel {width:100%;}
     background:url(../images/btn-red.png) no-repeat 50% 0;
 }
 .btn-red {
+	width:310px;
     margin-bottom:0;
     width:274px;
     cursor: pointer;

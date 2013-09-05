@@ -2348,6 +2348,11 @@ h2.related-stories{
 	margin: 6px auto;
 	width: 96%;
 }
+#join .flex-control-nav{
+	position: relative;
+	margin-bottom: 12px !important;
+	bottom: -12px;
+}
 /* Master Angler
  ******************************************************************************/
 .category-master-angler .page-header img{

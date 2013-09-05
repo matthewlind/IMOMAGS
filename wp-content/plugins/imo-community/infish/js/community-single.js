@@ -74,18 +74,6 @@ jQuery(document).ready(function(){
         return false;
     });
 
-    $('.jq-explore-slider').flexslider({
-        animation: "slide",
-        animationSpeed: 200,
-        slideshow: false,
-        controlNav: false,
-        directionNav: false,
-        itemWidth: 123,
-        itemMargin: 0,
-        minItems: 2,
-        maxItems: 4
-    });
-
     $('.jq-custom-form select').zfselect({
         rows:6
     });

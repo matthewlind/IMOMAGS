@@ -228,7 +228,29 @@ jQuery(function(){
           minItems: 1,
           maxItems: 1
         });
-     
+        
+    $('.jq-explore-slider').flexslider({
+        animation: "slide",
+        animationSpeed: 200,
+        slideshow: false,
+        controlNav: false,
+        directionNav: false,
+        itemWidth: 123,
+        itemMargin: 0,
+        minItems: 2,
+        maxItems: 4
+    });
+	$('.jq-explore-slider-sidebar').flexslider({
+        animation: "slide",
+        animationSpeed: 200,
+        slideshow: false,
+        controlNav: true,
+        directionNav: true,
+        itemWidth: 123,
+        itemMargin: 0,
+        minItems: 2,
+        maxItems: 4
+    });
     /*jQuery('.jq-cabela-slider').flexslider({
           animation: "slide",
           animationSpeed: 200,
