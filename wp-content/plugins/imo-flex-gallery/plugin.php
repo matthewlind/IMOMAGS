@@ -36,8 +36,8 @@ function imo_flex_gallery( $atts ) {
 
 function imoCommunityGallery($gallery, $community, $tag, $dartDomain) {
 	//$baseUrl = 'http://'.$_SERVER['HTTP_HOST'];
-	$baseUrl = get_bloginfo('url');
-	//$baseUrl = 'http://www.northamericanwhitetail.com';
+	//$baseUrl = get_bloginfo('url');
+	$baseUrl = 'http://www.northamericanwhitetail.com';
 
 	if($_GET['gallery_sort']) {
 		if($gallery) {
@@ -109,9 +109,9 @@ function galleryOutput($pictures, $totalSlides, $dartDomain, $community, $baseUr
 	} else {
 		$title = stripcslashes($pictures[0]->title);
 	}
-	
+	if(is_single()){$closeDiv = '</div><!-- .entry-content -->';}
 	$desktop_tablet_output = <<<EOT_a1
-	</div><!-- .entry-content -->
+	$closeDiv
 	<div class="flex-gallery-insertion-point"></div>
 	<div class="flex-gallery-container $communityClass">
 	<div class="imo-flex-loading-block flex-gallery-inner">
@@ -130,7 +130,8 @@ EOT_a1;
 	foreach ($pictures as $picture) {
 		if(!empty($picture->img_url)) {
 			if($community == true ) {
-				$picture->img_url = $picture->img_url;
+				//$picture->img_url = $picture->img_url;
+				$picture->img_url = $baseUrl.$picture->img_url;
 				$picture->thumbnail = $picture->img_url;
 				$picture->description = $picture->body;
 				$image = '<a href="'.$baseUrl.'/photos/'.$picture->id.'"><img src="'.$picture->img_url.'" alt="'.$picture->title.'" class="slide-image"></a>';
@@ -474,11 +475,16 @@ function conditionally_add_scripts_and_styles($posts){
             if(mobile() == true) {
             	wp_enqueue_script('flex-gallery-js',plugins_url('flex-gallery.js', __FILE__));
                 wp_enqueue_style('ajax-gallery-css',plugins_url('flex-gallery.css', __FILE__));
+            	wp_enqueue_script('flexslider-js',plugins_url('jquery.flexslider.js', __FILE__));
+                wp_enqueue_style('flexslider-css',plugins_url('flexslider.css', __FILE__));
+                
             }
            
 
 			if(mobile() == false){
 			//Enqueue Desktop/Tablet Only
+            wp_enqueue_script('flexslider-js',plugins_url('jquery.flexslider.js', __FILE__));
+            wp_enqueue_style('flexslider-css',plugins_url('flexslider.css', __FILE__));
 			wp_enqueue_script('flex-gallery-js',plugins_url('flex-gallery.js', __FILE__));
             wp_enqueue_script('jquery-mobile-touch-events',plugins_url('jquery.mobile.custom.min.js', __FILE__));
 			wp_enqueue_script('jquery-scrollface',plugins_url('jquery.scrollface.min.js', __FILE__));
@@ -501,8 +507,9 @@ function conditionally_add_scripts_and_styles($posts){
 			$categorySlug = $cat->slug;
 
 			$slugArray = array("thanks-dad-iiyn","more-category-slugs-here");
-
 			if (in_array($categorySlug, $slugArray)) {
+            	wp_enqueue_script('flexslider-js',plugins_url('jquery.flexslider.js', __FILE__));
+                wp_enqueue_style('flexslider-css',plugins_url('flexslider.css', __FILE__));
 				wp_enqueue_script('flex-gallery-js',plugins_url('flex-gallery.js', __FILE__));
            		wp_enqueue_script('jquery-mobile',plugins_url('jquery.mobile.custom.min.js', __FILE__));
 				wp_enqueue_script('jquery-scrollface',plugins_url('jquery.scrollface.min.js', __FILE__));
