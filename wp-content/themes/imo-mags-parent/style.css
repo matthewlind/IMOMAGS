@@ -2341,6 +2341,13 @@ h2.related-stories{
 	width: 30px;
 	text-indent: -9999px;
 }
+
+/* Community
+ ******************************************************************************/
+.mob-share a{
+	margin: 6px auto;
+	width: 96%;
+}
 /* Master Angler
  ******************************************************************************/
 .category-master-angler .page-header img{
@@ -3553,18 +3560,21 @@ h2.related-stories{
 		width: 320px;
 		margin: 0 auto;
 	}
+	.mob-share a{
+		width: 88%;
+	}
 	.gallery-slider #gallery-iframe-ad{
 		margin-left: -11px;
 	}
-     .subscribe-banner {
-         margin-left:-10px;
-         margin-right:-10px;
-     }
-     .subscribe-banner-top {
-         margin-top:-10px;
-     }
-     .entry-content-holder {
-        padding-top:52px;
+	.subscribe-banner {
+		margin-left:-10px;
+		margin-right:-10px;
+	}
+	.subscribe-banner-top {
+		margin-top:-10px;
+	}
+	.entry-content-holder {
+	padding-top:52px;
     }
     .foot-social {
         margin-left:-10px;

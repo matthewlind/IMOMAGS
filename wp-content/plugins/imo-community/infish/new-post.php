@@ -359,7 +359,7 @@ imo_sidebar("community");
 	            </div>
 	            <div class="submit-area">
 					<a href="#" id="imo-fb-login-button" class="imo-community-new-post fb-login join-widget-fb-login btn-fb-login">Fast Login & Submit</a>
-				    <span class="btn-red btn-post btn-submit"><input type="submit" value="Post Photo"></span>
+				    <span class="btn-red btn-post btn-submit"><input type="submit" value="Share Photo"></span>
 	            </div>
 
 			</div>

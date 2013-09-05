@@ -171,9 +171,11 @@ if(mobile()){
                 <h1><?php if ($myProfile){ echo "My"; }else{ echo 'FishHead'; } ?> Profile</h1>
             </div>
             <div class="profile-data-box">
+                <?php if ($data->master){ ?>
                 <div class="thumb-col">
                     <img src="<?php echo plugins_url('images/master-angler.png' , __FILE__ ); ?>" alt="" />
                 </div>
+                <?php } ?>
                 <div class="user-col">
                     <h2><?php echo $data->display_name; ?></h2>
                     <div class="profile-panel clearfix">
@@ -202,7 +204,7 @@ if(mobile()){
                     <?php echo $niceScore; ?>
                 </div>
             </div>
-            <div class="profile-btn-panel">
+            <!--<div class="profile-btn-panel">
                 <h3><?php if ($myProfile){ echo "My "; } ?>Master Angler Achievements</h3>
                 <ul class="profile-btns">
                     <li><a href="#"><span>Spotted bass</span></a></li>
@@ -210,7 +212,7 @@ if(mobile()){
                     <li><a href="#"><span>Largemouth</span></a></li>
                     <li><a href="#"><span>Smallmouth</span></a></li>
                 </ul>
-            </div>
+            </div>-->
             <div id="my-photos" class="general-title clearfix">
                 <h2><?php if ($myProfile){ echo "My"; }else{ echo $data->display_name . "'s"; } ?>  <span>Activity</span></h2>
             </div>
@@ -255,7 +257,7 @@ if(mobile()){
 		                                        <ul class="prof-tags">
 		                                            <!--<li><a href="<?php echo $post->state; ?>"><?php echo $post->state; ?></a></li>-->
 		                                            <li style="text-transform:capitalize;"><a href="<?php echo $post->post_type; ?>"><?php echo $post->post_type; ?></a></li>
-		                                            <li><a href="#">Master Angler</a></li>
+		                                            <?php if ($post->master){ ?><li><a href="/master-angler">Master Angler</a></li><?php } ?>
 		                                        </ul>
 		                                        <ul class="replies">
 		                                            <li><a href="/photos/<?php echo $post->id; ?>/#reply_field"><?php echo $niceComment; ?></a></li>
@@ -263,7 +265,7 @@ if(mobile()){
 		                                        </ul>
 											</div>
 		                                </div>
-		                                <span class="badge"><img src="<?php echo plugins_url('images/badge-ma.png' , __FILE__ ); ?>" alt="" /></span>
+		                                 <?php if ($post->master){ ?><span class="badge"><img src="<?php echo plugins_url('images/badge-ma.png' , __FILE__ ); ?>" alt="" /></span><?php } ?>
 		                            </div>
 		                        </div>
                         <?php } } ?>

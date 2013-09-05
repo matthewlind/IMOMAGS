@@ -43,14 +43,20 @@ class Join_Widget extends WP_Widget {
 	         return;
 	    }
 	    ?>
-
-	    <div id="join" class="join-box fb-join-widget-box" style="<?php echo $loginStyle; ?>">
+	    	<div class="fileupload-buttonbar" style="<?php echo $loginStyle; ?>">
+                <label class="upload-button">
+					<a href="/photos/new" class="singl-post-photo jq-open-reg-popup"><span>Share Photo</span></a>
+					<input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
+                </label>
+            </div>
+	    
+	    <!--<div id="join" class="join-box fb-join-widget-box" style="<?php echo $loginStyle; ?>">
 	        <h3><span>Post</span> a Photo</h3>
 	        <a href="#" id="imo-fb-login-button" class="fb-login join-widget-fb-login btn-fb-login">Fast Login with Facebook</a>
 	        <div class="sub-photo-note">* we do not post anything to your wall unless you say so!</div>
 	        <span class="or-delim">OR</span>
 	        <a href="#" class="email-signup">Use Your Email Address</a>
-	    </div>
+	    </div>-->
 
 
 		<div class="join-box" style="<?php echo $displayStyle; ?>">

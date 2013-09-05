@@ -2,7 +2,7 @@
 
 /**
  * Template Name: Community Listing
- * Description: The NAW+ Community - Gear Category
+ * Description: Community Homepage
  *
  * @package carrington-business
  *
@@ -69,7 +69,8 @@ if(mobile()){
                     <ul class="prof-tags">
                         <!--<li><a href="#"><%= post.state %></a></li>-->
                         <li><a href="/<%= post.post_type %>" style="text-transform:capitalize;"><%= post.post_type %></a></li>
-                        <li><a href="/master-angler">Master Angler</a></li>
+                        <% if(post.master){ %><li><a href="/master-angler">Master Angler</a></li><% } %>
+                        
                     </ul>
                     <ul class="replies">
                         <li><a href="/photos/<%= post.id %>#reply_field"><%= post.comment_count %> Reply</a></li>
@@ -80,7 +81,7 @@ if(mobile()){
                     </ul>
                 </div>
             </div>
-            <span class="badge"><% if (post.master == 1) {  %><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/pic/badge-ma.png" alt="" /><% } %></span>
+            <% if (post.master == 1) {  %><span class="badge"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/pic/badge-ma.png" alt="" /></span><% } %>
         </div>
     </div>
 <% } %>

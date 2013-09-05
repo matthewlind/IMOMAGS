@@ -845,7 +845,7 @@ select.alter-sel {width:100%;}
 }
 .btn-red,
 .singl-post-photo {
-    width:300px;
+    width:310px;
     height:42px;
     display:block;
     font:15px/42px "stagbold", sans-serif;
@@ -1063,6 +1063,7 @@ select.alter-sel {width:100%;}
     width:100%;
     padding:29px 0 28px;
     background:#fff;
+    margin-bottom: 20px;/*temp until master angler badges are ready*/
 }
 .thumb-col {
     display:table-cell;
@@ -1461,7 +1462,7 @@ select.alter-sel {width:100%;}
     .flag-badge {right:20px;}
     /* sidebar */
     .singl-post-photo {
-        width:222px;
+        width:100%;
     }
     .sidebar .or-delim {
         font-size:15px;
