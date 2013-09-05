@@ -236,32 +236,11 @@ $time = date("g:i A", strtotime($timestamp));
     	<li><a href="/photos">Photos</a></li>
     	<li style="margin-top:1px;text-transform:capitalize;">&raquo; <?php echo $data->post_type; ?></li>
     </ul>
-    <div class="basic-form post-reply-slide">
-        <div class="f-row">
-            <input type="text" placeholder="Your Post Headline" />
-        </div>
-        <div class="f-row">
-            <textarea id="" class="area" cols="30" rows="10" placeholder="Your Post Body"></textarea>
-        </div>
-        <div class="add-photo-field clearfix">
-            <!--<img src="<?php bloginfo( 'template_url' ); ?>/images/pic/photo1.jpg" class="reply-photo" alt="" />-->
-            <div class="caption-area">
-                <textarea id="" class="area" cols="30" rows="10" placeholder="Add Caption"></textarea>
-            </div>
-        </div>
-        <div class="photo-link-area">
-            <a href="#" class="add-photo-link">Add Photo</a>
-        </div>
-        <span class="alter-sel jq-open-cat-popup">Choose category</span>
-        <span class="alter-sel jq-open-state-popup">Choose state</span>
-        <span class="btn-red btn-post">
-            <input class="jq-open-login-popup" type="submit" value="Post" />
-        </span>
-    </div>
+
 
     <div class="dif-full-post">
         <h1><?php echo $data->title; ?></h1>
-        <img src="<?php echo plugins_url('images/fishhead.png' , __FILE__ ); ?>" alt="" class="profile-logo" />
+        <img src="<?php echo ($data->master ? bloginfo( 'stylesheet_directory' ) . "/images/pic/badge-ma.png" : plugins_url('images/fishhead.png' , __FILE__ ) ); ?>" alt="" class="profile-logo" />
         <div class="profile-panel">
             <div class="profile-photo">
                 <a href="/profile/<?php echo $data->username; ?>"><img src="/avatar?uid=<?php echo $data->user_id; ?>" alt="<?php echo $data->username; ?>" /></a>
@@ -296,6 +275,13 @@ $time = date("g:i A", strtotime($timestamp));
             echo $media;
         ?>
 
+        <?php if ($data->master) { ?>
+        <div class="manametitle">
+            <div class="maname"><span class="firstname"><?php echo $data->first_name; ?></span> <span class="lastname"><?php echo $data->last_name; ?></span></div>
+            <div class="macity"><?php echo $data->nearest_town; ?>, <?php echo $data->state; ?></div>
+        </div>
+
+       <?php }//end if ?>
 
 
         <?php
@@ -324,7 +310,24 @@ $time = date("g:i A", strtotime($timestamp));
 			<div class='full-text'>
 
 				<?php if($data->body){ ?>
-	            	<p><?php echo $data->body; ?>
+	            	<p><?php echo $data->body; ?></p>
+
+                    <?php if ($data->master) { ?>
+
+                        <div class="fishinfo">
+                            <div class="maspecies"><span class="grayz">Species:</span> <?php echo $data->meta; ?></div>
+                            <div class="madatecaught"><span class="grayz">Date Caught: </span><?php echo $data->date; ?></div>
+                            <div class="madatecaught"><span class="grayz">Kept / Released: </span><?php echo ($data->kept ? "No" : "Yes"); ?></div>
+                            <!-- <div class="madatecaught"><span class="grayz">Region of Catch: </span>Region 6</div> -->
+                            <div class="madatecaught"><span class="grayz">Length: </span><?php echo $data->length; ?></div>
+                            <div class="madatecaught"><span class="grayz">Weight: </span><?php echo $data->weight; ?></div>
+                            <div class="lurebait">
+                                <span class="grayz">Lure / Bait used:</span>
+                                <?php echo ($data->lure_used ? "Lure" : "Bait"); ?>
+                                    <span class="grayz"> | </span> <?php echo $data->kind_of_lure . " ";echo $data->lure_desc . " ";echo $data->kind_of_bait; ?>
+                            </div>
+                        </div>
+                   <?php }//end if ?>
 	            <?php } ?>
 
 	        <div class="clearfix">

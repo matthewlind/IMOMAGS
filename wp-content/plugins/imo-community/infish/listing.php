@@ -80,7 +80,7 @@ if(mobile()){
                     </ul>
                 </div>
             </div>
-            <span class="badge"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/pic/badge-ma.png" alt="" /></span>
+            <span class="badge"><% if (post.master == 1) {  %><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/pic/badge-ma.png" alt="" /><% } %></span>
         </div>
     </div>
 <% } %>
