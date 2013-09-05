@@ -98,16 +98,16 @@ if(mobile()){
                 <p>Description goes here in this place holder</p>
 			</div>
         </div>
-
+		
         <!--<div class="title-underline">
             <h1>In-Fish Anglers <span>Your Freshwater Community</span></h1>
-        </div>
+        </div>-->
         <div class="custom-slider-section mobile-hidden-section">
             <div class="general-title clearfix">
-                <h2><span>Explore  more</span></h2>
+                <h2><span>Explore more</span></h2>
             </div>
-            <img src="<?php bloginfo( 'template_url' ); ?>/images/pic/slider-screen.jpg" alt="" />
-        </div>-->
+            <?php //echo do_shortcode('[imo-slideshow community=true]'); ?>
+        </div>
         <div class="general-title browse-title clearfix">
             <h2>Browse <span>Photos</span></h2>
         </div>
