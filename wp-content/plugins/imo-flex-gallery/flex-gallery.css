@@ -283,6 +283,7 @@ padding: 0 15px 0 15px;
 }
 .flex-gallery ul.flex-direction-nav li {
 	height: 30px;
+	margin: 0;
 }
 .flex-carousel-nav ul.flex-direction-nav li {
 	height: 46px;
@@ -589,7 +590,9 @@ a.post-a-photo:hover span .post-a-photo-icon {
 
 }
 
-
+.addthis_toolbox.addthis_default_style{
+	margin: 0;
+}
 /* Media Queries */
 /*@media only screen and (max-width: 1005px) {
 	.flex-fullscreen .flex-counter-extra {
