@@ -141,6 +141,7 @@ $app->get('/posts/:id', function ($id) {
 	$update_viewcount = TRUE; // use 1 or 0 in query string
 	$get_attachments = TRUE; // use 1 or 0 in query string
 	$get_comments = FALSE; // use 1 or 0 in query string
+	$get_master = TRUE;
 
 	header('Access-Control-Allow-Origin: *');
 
@@ -282,6 +283,30 @@ $app->get('/posts/:id', function ($id) {
 	    }
 
    	}//end if get_comments
+
+   	//Get master angler data
+   	if ($get_master && $posts[0]->master == TRUE) {
+	   	try {
+
+			$db = dbConnect();
+
+
+			//$sql = "SELECT *,CONCAT(allcounts2.post_type,'/',allcounts2.id) as url FROM superposts WHERE parent = ? AND post_type IN ('photo','youtube') ORDER BY id ASC";
+			$sql = "SELECT * FROM master_angler WHERE post_id = ?";
+
+			$stmt = $db->prepare($sql);
+			$stmt->execute(array($id));
+
+			$masterData = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+			$posts[0] = (object)array_merge((array)$posts[0], (array)$masterData[0]); //Array merge only works on arrays, but our data is objects. So, lots of casting.
+
+			$db = '';
+
+		} catch(PDOException $e) {
+	    	echo $e->getMessage();
+	    }
+   	}
 
 
     //Update the viewcount
@@ -450,6 +475,7 @@ $app->post('/posts',function() {
 			"username",
 			"gravatar_hash",
 			"img_url",
+			"master",
 			"ip",
 			"meta",
 			"state",
@@ -547,6 +573,12 @@ $app->post('/posts',function() {
 
 
 			$db = '';
+
+			if ($params['master'] == 1) {
+				processMasterAngler($params);
+			}
+
+
 			echo json_encode($response, JSON_NUMERIC_CHECK);
 
 		} else {
@@ -864,6 +896,88 @@ if(!function_exists('_log')){
 	    error_log( $message );
 	  }
   	}
+}
+
+
+function processMasterAngler($params){
+
+
+		_log("MASTER");
+		_log($params);
+
+		$paramList = array(
+			"post_id",
+			"weight",
+			"length",
+			"first_name",
+			"last_name",
+			"email",
+			"street_address_1",
+			"street_address_2",
+			"city",
+			"state_address",
+			"zip",
+			"phone",
+			"date",
+			"body_of_water",
+			"nearest_town",
+			"lure_used",
+			"kind-of-lure",
+			"lure-desc",
+			"kind-of-bait",
+			"kept"
+		);
+
+		$params["post_id"] = $params["id"];
+
+
+		$params['date'] = $params["year"] . "-" . sprintf("%02d", $params['month'] ) . "-" . sprintf("%02d", $params['day'] );
+
+		$db = dbConnect();
+
+		//BUILD THE PERFECT QUERY FOR THE PARAMETERS GIVEN
+		$sql = "INSERT INTO master_angler (";
+		$sql2 = "VALUES (";
+
+		foreach ($paramList as $parameter) {
+
+			if (!empty($params[$parameter])) {
+				$sql .= $parameter . ",";
+				$sql2 .= ":$parameter,";
+			}
+		}
+
+		$sql = substr_replace($sql ,'',-1);
+		$sql2 = substr_replace($sql2 ,'',-1);
+
+		$sql .= ") ";
+		$sql2 .= ")";
+
+		$sql = $sql . $sql2;
+
+		_log($sql);
+
+		$stmt = $db->prepare($sql);
+
+
+
+		foreach ($paramList as $parameter) {
+
+
+
+			if (!empty($params[$parameter])) {
+				_log("PARE: $parameter: " . $params[$parameter]);
+				$stmt->bindParam($parameter,$params[$parameter]);
+			} else {
+
+				_log("BLANK: $parameter: " . $parameter);
+			}
+		}
+
+		$stmt->execute();
+
+		$db = "";
+
 }
 
 
