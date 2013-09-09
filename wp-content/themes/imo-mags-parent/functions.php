@@ -9,7 +9,8 @@ add_action( 'widgets_init', 'register_recipes_widget' );
 include_once('widgets/subscribe.php');
 include_once('widgets/newsletter-signup.php');
 include_once('widgets/ford-widget.php');
-include_once('widgets/join.php');
+include_once('widgets/community-login-widget.php');
+include_once('widgets/community-slider.php');
 
 function new_excerpt_more( $more ) {
 	return '... <a href="'. get_permalink( get_the_ID() ) .'" >more <span class="meta-nav">&raquo;</span></a>';

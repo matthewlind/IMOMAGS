@@ -1,9 +1,9 @@
-<?php // Custom Join NAW+ Widget
+<?php // Community login widget
 
-class Join_Widget extends WP_Widget {
-	function Join_Widget() {
-		$widget_ops = array('classname' => 'widget_gravity_form', 'description' => 'Custom Join Community Widget.' );
-		$this->WP_Widget('join', 'Join Community', $widget_ops);
+class Community_Login_Widget extends WP_Widget {
+	function Community_Login_Widget() {
+		$widget_ops = array('classname' => 'community_login_widget', 'description' => 'Community Login Widget.' );
+		$this->WP_Widget('login widget', 'Community Login Widget', $widget_ops);
 	}
 
 	function widget($args, $instance) {
@@ -48,8 +48,8 @@ class Join_Widget extends WP_Widget {
 	         return;
 	    }
 	    ?>
-	    <div id="join" class="join-box fb-join-widget-box">
-	    	<div class="fileupload-buttonbar" style="<?php echo $loginStyle; ?>">
+	    <div id="join" class="join-box fb-join-widget-box" style="<?php echo $loginStyle; ?>">
+	    	<div class="fileupload-buttonbar">
                 <label class="upload-button">
 					<a href="/photos/new" class="singl-post-photo jq-open-reg-popup"><span>Share Photo</span></a>
 					<input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
@@ -95,15 +95,15 @@ class Join_Widget extends WP_Widget {
                     </label>
                 </div>
             </div>
-
-
 	        <div class="edit-section">
 	            <a href="/edit-profile/?action=profile">edit profile</a>
 	        </div>
+	        
+	        
 	    </div>
 
 
 <?php	}
 
 }
-register_widget('Join_Widget');
+register_widget('Community_Login_Widget');

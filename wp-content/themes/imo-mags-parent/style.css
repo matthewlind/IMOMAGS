@@ -2353,6 +2353,81 @@ h2.related-stories{
 	margin-bottom: 12px !important;
 	bottom: -12px;
 }
+.login-popup .join-box .btn-red {width:274px !important;}
+.btn-red input {
+    border:0;
+    background:none;
+    width:177px;
+    height:42px;
+    padding:0;
+    margin:0;
+    position:relative;
+    z-index:20;
+    font:17px/20px "stagbold", serif;
+    text-shadow:0 -1px 0 #7a0c11;
+    color:#fff;
+}
+.btn-red:hover,
+.singl-post-photo:hover {
+    color:#fff;
+    opacity:0.7;
+}
+.singl-post-photo span {
+    display:inline-block;
+    vertical-align:middle;
+}
+.main-menu-item .singl-post-photo span{
+	margin: 0;
+}
+.singl-post-photo span:before {
+    vertical-align:middle;
+    width:22px;
+    height:18px;
+    margin:-6px 8px 0 0;
+    content:"";
+    background:url(../images/sprite.png) no-repeat -295px -35px;
+}
+.join-box {
+    padding:24px 18px 12px;
+    margin:0 0 30px;
+    background:#fff;
+    border-bottom:1px solid #d0cfcd;
+    text-align: center;
+}
+.login-popup .join-box {
+    border-top:1px solid #d0cfcd;
+    border-bottom:0;
+    padding:30px 12px 36px;
+    margin:0;
+}
+.join-box h3 {
+    text-align:center;
+    font:22px/1.2 "stagbold", sans-serif;
+    text-transform:uppercase;
+    color:#010101;
+    margin:0 0 14px;
+}
+.join-box h3 span {color:#c6262d;}
+.btn-red,
+.singl-post-photo {
+    
+    height:42px;
+    display:block;
+    font:15px/42px "stagbold", sans-serif;
+    color:#fff;
+    text-shadow:0 -1px 0 #7a0c11;
+    border-radius:4px;
+    text-align:center;
+    margin:0 0 22px;
+    background:url(../images/btn-red.png) no-repeat 50% 0;
+}
+.btn-red {
+	width:310px;
+    margin-bottom:0;
+    width:274px;
+    cursor: pointer;
+}
+
 /* Master Angler
  ******************************************************************************/
 .category-master-angler .page-header img{
