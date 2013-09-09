@@ -229,7 +229,7 @@ jQuery(function(){
           maxItems: 1
         });
         
-    $('.jq-explore-slider').flexslider({
+    jQuery('.jq-explore-slider').flexslider({
         animation: "slide",
         animationSpeed: 200,
         slideshow: false,
@@ -240,7 +240,7 @@ jQuery(function(){
         minItems: 2,
         maxItems: 4
     });
-	$('.jq-explore-slider-sidebar').flexslider({
+	jQuery('.jq-explore-slider-sidebar').flexslider({
         animation: "slide",
         animationSpeed: 200,
         slideshow: false,
