@@ -364,7 +364,12 @@ class imo_state_rankings_initiate {
         $this->settings_api->show_navigation();
         $this->settings_api->show_forms();
 
-
+		echo '<h2>Settings</h2>';
+		echo '<p>Shortcode: [rankings week=1 show=20 initials=on]</p>';
+		echo '<p>Week: week=1 *required<br />Show: show=20 (default is 20)<br />Initials: initials=on (show state abbreviation or name. default is on, show name is off)</p>';
+		echo '<p>Adding a + or a - before a number in trend will show the up and down arrows.</p>';
+		echo '<p>Only the rows which have a rank assigned to them will show in the table.</p>';
+		
         echo '</div>';
     }
 
