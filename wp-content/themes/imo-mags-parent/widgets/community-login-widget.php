@@ -10,7 +10,7 @@ class Community_Login_Widget extends WP_Widget {
 		extract($args, EXTR_SKIP);
 
     $hostname = $_SERVER['SERVER_NAME'];
-	
+
 	//User Info
 	$userInfo = wp_get_current_user();
 
@@ -27,8 +27,8 @@ class Community_Login_Widget extends WP_Widget {
 	}else{
 		$niceScore = '<b>'.$data->score.'</b> Points';
 	}
-	
-	
+
+
 	//Community Photos
 	$jsonData = file_get_contents('http://'.$hostname.'/community-api/posts?per_page=10&sort=DESC');
 	$pictures = json_decode($jsonData);
@@ -59,7 +59,6 @@ class Community_Login_Widget extends WP_Widget {
 	                </ul>
 	            </div>
 	        </div>
-
 	    </div>
 		<div class="join-box join-logged-in" style="<?php echo $displayStyle; ?>">
 	        <h3><span>YOU ARE</span> LOGGED IN</h3>
@@ -74,17 +73,14 @@ class Community_Login_Widget extends WP_Widget {
 	        </div>
 	        <div class="edit-section">
 	            <a href="/edit-profile/?action=profile">edit profile</a>
-	        </div>	        
+	        </div>
 	    </div>
-		<div class="fileupload-buttonbar">
+		<div class="fileupload-buttonbar fileupload-sidebar">
             <label class="upload-button">
-				<a href="/photos/new" class="singl-post-photo jq-open-reg-popup"><span>Share Photo</span></a>
+				<a class="singl-post-photo"><span class="add-photo-link">Share Photo</span></a>
 				<input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
             </label>
         </div>
-
-
-
 <?php	}
 
 }

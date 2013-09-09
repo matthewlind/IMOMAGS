@@ -48,12 +48,13 @@ class Community_Slider extends WP_Widget {
 		
 
     </div>
-	<div class="fileupload-buttonbar">
-            <label class="upload-button">
-				<a href="/photos/new" class="singl-post-photo jq-open-reg-popup"><span>Share Photo</span></a>
-				<input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
-            </label>
-        </div>
+	<div class="fileupload-buttonbar fileupload-sidebar">
+        <label class="upload-button">
+			<a class="singl-post-photo"><span class="add-photo-link">Share Photo</span></a>
+			<input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
+        </label>
+    </div>
+
 
 
 <?php	}

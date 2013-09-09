@@ -494,6 +494,15 @@ a.change-location:before {
     content:"";
 }
 
+.fileupload-sidebar {
+    margin-bottom:10px;
+}
+
+#new-post-form .email-signup-button {
+    margin-right:auto;
+    margin-left:auto;
+}
+
 /* Core Experts
  ******************************************************************************/
 .page-template-core-experts-php .article-brief p{
