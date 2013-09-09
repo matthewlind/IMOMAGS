@@ -1,0 +1,18 @@
+.rt-arrow-up {
+	float: left;
+	position: relative;
+	margin: 7px 16px -37px 0;
+	width: 15px;
+	height: 8px;
+	background: url("images/up.png") no-repeat;
+	display: inline-block;
+}
+.rt-arrow-down {
+	float: left;
+	position: relative;
+	margin: 7px 16px -37px 0;
+	width: 15px;
+	height: 8px;
+	background: url("images/down.png") no-repeat;
+	display: inline-block;
+}
