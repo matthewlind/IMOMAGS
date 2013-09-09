@@ -2367,6 +2367,9 @@ h2.related-stories{
     text-shadow:0 -1px 0 #7a0c11;
     color:#fff;
 }
+#join .singl-post-photo{
+	margin: 26px 0 4px;
+}
 .btn-red:hover,
 .singl-post-photo:hover {
     color:#fff;
@@ -2388,8 +2391,8 @@ h2.related-stories{
     background:url(../images/sprite.png) no-repeat -295px -35px;
 }
 .join-box {
-    padding:24px 18px 12px;
-    margin:0 0 30px;
+    padding:14px 18px 12px;
+    margin:0 0 20px;
     background:#fff;
     border-bottom:1px solid #d0cfcd;
     text-align: center;
@@ -2427,7 +2430,12 @@ h2.related-stories{
     width:274px;
     cursor: pointer;
 }
-
+.jq-explore-slider-sidebar img{
+	opacity:1;-webkit-transition: 0.6s;-moz-transition: 0.6s;transition: 0.6s;
+}
+.jq-explore-slider-sidebar img:hover{
+	opacity:0.7;-webkit-transition: 0.6s;-moz-transition: 0.6s;transition: 0.6s;
+}
 /* Master Angler
  ******************************************************************************/
 .category-master-angler .page-header img{

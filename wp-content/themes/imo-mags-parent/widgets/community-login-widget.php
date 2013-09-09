@@ -49,33 +49,18 @@ class Community_Login_Widget extends WP_Widget {
 	    }
 	    ?>
 	    <div id="join" class="join-box fb-join-widget-box" style="<?php echo $loginStyle; ?>">
-	    	<div class="fileupload-buttonbar">
-                <label class="upload-button">
-					<a href="/photos/new" class="singl-post-photo jq-open-reg-popup"><span>Share Photo</span></a>
-					<input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
-                </label>
-            </div>
-            <h2>Explore Photos</h2>
+			<h2>Explore Photos</h2>
             <div class="explore-posts loading-block">
-            <div class="jq-explore-slider-sidebar onload-hidden">
-                <ul class="slides">
-                	<?php foreach ($pictures as $picture) { ?>
-                		<li><a href="/photos/<?php echo $picture->id; ?>"><img width="119" src="<?php echo $picture->img_url; ?>/convert?w=119&h=119&fit=crop" alt="<?php echo $picture->title; ?>" /></a></li>
-                	<?php } ?>
-                </ul>
-            </div>
-        </div>
+	            <div class="jq-explore-slider-sidebar onload-hidden">
+	                <ul class="slides">
+	                	<?php foreach ($pictures as $picture) { ?>
+	                		<li><a href="/photos/<?php echo $picture->id; ?>"><img width="119" src="<?php echo $picture->img_url; ?>/convert?w=119&h=119&fit=crop" alt="<?php echo $picture->title; ?>" /></a></li>
+	                	<?php } ?>
+	                </ul>
+	            </div>
+	        </div>
 
 	    </div>
-	    <!--<div id="join" class="join-box fb-join-widget-box" style="<?php echo $loginStyle; ?>">
-	        <h3><span>Post</span> a Photo</h3>
-	        <a href="#" id="imo-fb-login-button" class="fb-login join-widget-fb-login btn-fb-login">Fast Login with Facebook</a>
-	        <div class="sub-photo-note">* we do not post anything to your wall unless you say so!</div>
-	        <span class="or-delim">OR</span>
-	        <a href="#" class="email-signup">Use Your Email Address</a>
-	    </div>-->
-
-
 		<div class="join-box join-logged-in" style="<?php echo $displayStyle; ?>">
 	        <h3><span>YOU ARE</span> LOGGED IN</h3>
 	        <div class="profile-panel">
@@ -87,20 +72,17 @@ class Community_Login_Widget extends WP_Widget {
 	                <strong class="user-points"><?php echo $niceScore; ?></strong>
 	            </div>
 	        </div>
-	         <div id="fileupload">
-                <div class="fileupload-buttonbar ">
-                    <label class="upload-button">
-                        <span class="btn-red btn-red2">Share Photo</span>
-                        <input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
-                    </label>
-                </div>
-            </div>
 	        <div class="edit-section">
 	            <a href="/edit-profile/?action=profile">edit profile</a>
-	        </div>
-	        
-	        
+	        </div>	        
 	    </div>
+		<div class="fileupload-buttonbar">
+            <label class="upload-button">
+				<a href="/photos/new" class="singl-post-photo jq-open-reg-popup"><span>Share Photo</span></a>
+				<input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
+            </label>
+        </div>
+
 
 
 <?php	}

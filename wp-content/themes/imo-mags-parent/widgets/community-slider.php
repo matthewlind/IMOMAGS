@@ -35,13 +35,7 @@ class Community_Slider extends WP_Widget {
 
 ?>
     <div id="join" class="join-box fb-join-widget-box">
-    	<div class="fileupload-buttonbar">
-            <label class="upload-button">
-				<a href="/photos/new" class="singl-post-photo jq-open-reg-popup"><span>Share Photo</span></a>
-				<input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
-            </label>
-        </div>
-        <h2>Explore Photos</h2>
+    	<h2>Explore Photos</h2>
         <div class="explore-posts loading-block">
             <div class="jq-explore-slider-sidebar onload-hidden">
                 <ul class="slides">
@@ -51,8 +45,15 @@ class Community_Slider extends WP_Widget {
                 </ul>
             </div>
 		</div>
-    </div>
+		
 
+    </div>
+	<div class="fileupload-buttonbar">
+            <label class="upload-button">
+				<a href="/photos/new" class="singl-post-photo jq-open-reg-popup"><span>Share Photo</span></a>
+				<input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
+            </label>
+        </div>
 
 
 <?php	}
