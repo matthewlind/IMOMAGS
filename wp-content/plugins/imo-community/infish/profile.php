@@ -20,9 +20,10 @@
  */
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 
-
 get_header();
 imo_sidebar("community");
+
+include 'common-templates.php';
 
 $hostname = $_SERVER['SERVER_NAME'];
 
@@ -147,13 +148,13 @@ if ( is_user_logged_in() ) {
 
 	$displayStyle = "";
 	$loginStyle = "display:none;";
-	
+
 	wp_get_current_user();
-	
+
 	$current_user = wp_get_current_user();
     if ( !($current_user instanceof WP_User) )
          return;
-         
+
     if( $current_user->ID == $data->ID ){
 		$myProfile = true;
 	}
@@ -194,12 +195,12 @@ if(mobile()){
                 </div>
                 <img src="<?php echo plugins_url('images/fishhead.png' , __FILE__ ); ?>" alt="" class="profile-logo" />
                 <div class="points-col">
-                	<?php 
+                	<?php
                 	if($data->score == 1){
 							$niceScore = '<strong class="points-nb">'.$data->score.'</strong><br />Point';
 						}else{
 							$niceScore = '<strong class="points-nb">'.$data->score.'</strong><br />Points';
-						} 
+						}
 					?>
                     <?php echo $niceScore; ?>
                 </div>
@@ -223,25 +224,25 @@ if(mobile()){
                 </ul>
                 <div id="activity" class="tab-content">
                     <div class="dif-posts">
-                        <?php 
+                        <?php
                         $posts = $data->posts;
-                        
-                        foreach($posts as $post){ 
+
+                        foreach($posts as $post){
 	                       	if($post->score == 1){
 								$niceScore = $post->score.' Point';
 							}else{
 								$niceScore = $post->score.' Points';
 							}
-							
+
 							if($post->comment_count == 1){
 								$niceComment = $post->comment_count.' Comment';
 							}else{
 								$niceComment = $post->comment_count.' Comments';
 							}
-							
-								if($post->img_url){ 
+
+								if($post->img_url){
 							?>
-                        
+
 		                        <div class="dif-post">
 		                            <div class="feat-img">
 		                                <a href="/photos/<?php echo $post->id; ?>"><img class="feat-img" src="<?php echo $post->img_url . $crop; ?>" alt="<?php echo $post->title; ?>" title="<?php echo $post->title; ?>" /></a>
@@ -277,11 +278,11 @@ if(mobile()){
                 </div>
                 <div id="replies" class="tab-content">
                     <ul class="simple-replies">
-                    	<?php 
+                    	<?php
                         $comments = $data->comments;
-                        
+
                         foreach($comments as $comment){ $spid =  $comment->parent; }
-                        
+
                         // Let's not run this a million times.
                         $replyURL = "http://$hostname/community-api/posts/$spid?get_comments=1";
 						$replyFile = file_get_contents($replyURL);
@@ -301,7 +302,7 @@ if(mobile()){
             </div>
 			<?php social_footer(); ?>
 			<div class="hr mobile-hr"></div>
-			<a href="#" class="back-top jq-go-top">back to top</a>       
+			<a href="#" class="back-top jq-go-top">back to top</a>
     </div><!-- #primary -->
 
 

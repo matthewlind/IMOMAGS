@@ -164,7 +164,7 @@ General comments (optional).
 	padding: 8px 0 20px !important;
 	text-transform: none !important;
 }
-	
+
 /* Main Section
  ******************************************************************************/
 .post-slider {
@@ -175,7 +175,7 @@ General comments (optional).
     background:#fff;
     border-bottom:1px solid #bebebd;
     border-left:4px solid #040503;
-} 
+}
 .post-slider h2 {color:#040503;}
 .post-slider h2 a {color:#040503;}
 .post-slider h2 a:hover {color:#c6262d;}
@@ -249,7 +249,7 @@ a.category-name-link:hover{background: #F1C548;color: black;}
 .paging-post h3 a:hover {color:#c9242c;}
 
 
-/* = General styles for mobile menu 
+/* = General styles for mobile menu
 ---------------------------------------------------------------------- */
 
 .ui-panel {background: url(images/bg/mobile-menu-shadow.png) repeat-y 100% 0 white;}
@@ -582,6 +582,28 @@ a.change-location:before {
 	float: left;
 	margin-right: 26px;
 }
+
+input.login-field {
+    width:100%;
+    border: 1px solid #d8d8d8;
+    padding: 12px 13px;
+    background: #fff;
+    font-size: 13px;
+    line-height: 16px;
+    color: #3c3c3c;
+    font-style: italic;
+    margin-bottom:10px;
+}
+
+input.login-btn {
+    width: 259px;
+
+}
+
+div.login-register-block {
+    margin-top:20px;
+}
+
 
 /* = Footer
  ******************************************************************************/

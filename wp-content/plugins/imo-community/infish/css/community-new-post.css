@@ -85,6 +85,11 @@ span.worl {
 
 }
 
+.btn-submit {
+	margin-right:auto;
+	margin-left:auto;
+}
+
 a.ma-read-rules {
 	display: block;
 }
@@ -104,6 +109,7 @@ h2 span {
 #ma-state,#ma-species {
 	display:block;
 }
+
 
 
 /* Responsive styles */

@@ -354,6 +354,9 @@ $app->post('/posts',function() {
 
 	_log( $params);
 
+	if (empty($params['master']))
+		$params['master'] = 0;
+
 	//Get the user info and authenticate
 	if (!empty($params['username']) && !empty($params['userhash'])) {
 		$userIsGood = userIsGood($params['username'],$params['userhash']);
