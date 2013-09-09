@@ -449,6 +449,7 @@ img{max-width: 100%;height: auto;}
 .stag-reg {
     font-family:"stagregular";
 }
+.submit-button, .btn-base, .btn-base input, .signup-box h3{letter-spacing: 0.1em;}
 .pager-holder .btn-base{display: none;}
 .btn-base {
     font:15px/30px "stagbold", serif;
@@ -646,14 +647,6 @@ img{max-width: 100%;height: auto;}
 .menu-main-menu-container li:hover {
     position:relative;
     z-index:5;
-}
-.menu-main-menu-container > ul > li > a {
-    display:block;
-    height:42px;
-    color:#fff;
-    font:19px/42px "stagbold", serif;
-    text-transform:uppercase;
-    padding:0 30px 0 26px;
 }
 .menu-main-menu-container a.has-drop {
     padding-right:30px;
@@ -2412,7 +2405,7 @@ h2.related-stories{
 .join-box h3 span {color:#c6262d;}
 .btn-red,
 .singl-post-photo {
-    
+    text-transform: uppercase;
     height:42px;
     display:block;
     font:15px/42px "stagbold", sans-serif;

@@ -379,7 +379,7 @@ $time = date("g:i A", strtotime($timestamp));
      <div id="fileupload">
         <div class="fileupload-buttonbar ">
             <label class="upload-button share-photo">
-                <span class="add-photo-link">Share Photo</span>
+                <span class="add-photo-link">Share Your Catch</span>
                 <input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
             </label>
         </div>
@@ -469,7 +469,7 @@ $time = date("g:i A", strtotime($timestamp));
                     <a href="#" id="imo-fb-login-button" style="<?php echo $loginStyle; ?>" class="imo-community-new-post fb-login join-widget-fb-login btn-fb-login">Fast Login & Submit</a>
                     <a href="#" class="btn-red btn-post email-signup email-signup-button singl-post-photo jq-open-reg-popup" style="<?php echo $loginStyle; ?>" >Login with Email Address</a>
                     <p class="login-message" style="<?php echo $loginStyle; ?>">Your Comment will be submitted immediately after Login</p>
-                    <span class="btn-red btn-post btn-submit"  style="<?php echo $displayStyle; ?>"><input id="post-photo" type="submit" value="Post Photo"></span>
+                    <span class="btn-red btn-post btn-submit"  style="<?php echo $displayStyle; ?>"><input id="post-photo" type="submit" value="Submit"></span>
                 </div>
             </fieldset>
         </form>
@@ -478,8 +478,6 @@ $time = date("g:i A", strtotime($timestamp));
     <div class="hr"></div>
     <?php sub_footer(); ?>
     <div class="hr mobile-hr"></div>
-    <a href="#" class="back-top jq-go-top">back to top</a>
-
     <!-- category popup start -->
     <div class="basic-popup cat-popup">
         <h3>Choose Category</h3>

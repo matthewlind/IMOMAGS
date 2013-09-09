@@ -105,7 +105,7 @@ if(mobile()){
             <div id="fileupload">
                 <div class="fileupload-buttonbar ">
                     <label class="upload-button share-photo">
-                        <span class="add-photo-link">Share Photo</span>
+                        <span class="add-photo-link">Share Your Catch</span>
                         <input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
                     </label>
                 </div>
