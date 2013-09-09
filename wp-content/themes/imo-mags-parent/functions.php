@@ -1,15 +1,17 @@
 <?php
 
-add_theme_support( 'post-thumbnails' ); 
+add_theme_support( 'post-thumbnails' );
 add_action( 'widgets_init', 'parent_theme_widgets_init' );
 add_action('after_setup_theme', 'parent_theme_setup');
-add_action( 'widgets_init', 'register_recipes_widget' );  
+add_action( 'widgets_init', 'register_recipes_widget' );
 
 // Widgets
 include_once('widgets/subscribe.php');
 include_once('widgets/newsletter-signup.php');
 include_once('widgets/ford-widget.php');
 include_once('widgets/join.php');
+include_once('widgets/user-info.php');
+
 
 function new_excerpt_more( $more ) {
 	return '... <a href="'. get_permalink( get_the_ID() ) .'" >more <span class="meta-nav">&raquo;</span></a>';
@@ -20,9 +22,9 @@ function custom_excerpt_length( $length ) {
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
-class AddParentClass_Walker extends Walker_Nav_Menu 
+class AddParentClass_Walker extends Walker_Nav_Menu
 {
-    
+
     function start_lvl( &$output, $depth ) {
         // depth dependent classes
         $indent = ( $depth > 0  ? str_repeat( "\t", $depth ) : '' ); // code indent
@@ -34,24 +36,24 @@ class AddParentClass_Walker extends Walker_Nav_Menu
             'menu-depth-' . $display_depth
             );
         $class_names = implode( ' ', $classes );
-      
+
         // build html
         $output .= "\n" . $indent . '<ul class="' . $class_names . '">' . "\n";
     }
 
     function end_lvl( &$output, $depth ) {
-       
+
         if ($depth > 0) {
-            $output .= "\n" . '</div>' . "\n";    
+            $output .= "\n" . '</div>' . "\n";
         }
         $output .= "\n" . '</ul>' . "\n";
     }
 
-    function start_el( &$output, $item, $depth, $args ) 
+    function start_el( &$output, $item, $depth, $args )
     {
         global $wp_query;
         $indent = ( $depth > 0 ? str_repeat( "\t", $depth ) : '' ); // code indent
-      
+
         $depth_classes = array(
             ( $depth == 0 ? 'main-menu-item' : 'sub-menu-item' ),
             ( $depth >=2 ? 'sub-sub-menu-item' : '' ),
@@ -59,12 +61,12 @@ class AddParentClass_Walker extends Walker_Nav_Menu
             'menu-item-depth-' . $depth
         );
         $depth_class_names = esc_attr( implode( ' ', $depth_classes ) );
-      
+
         $classes = empty( $item->classes ) ? array() : (array) $item->classes;
         $class_names = esc_attr( implode( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) ) );
-      
+
         $output .= $indent . '<li id="nav-menu-item-'. $item->ID . '" class="' . $depth_class_names . ' ' . $class_names . '">';
-      
+
         $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
         $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
         $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
@@ -76,11 +78,11 @@ class AddParentClass_Walker extends Walker_Nav_Menu
         if (!empty($children)) {
             $has_drop = 'has-drop';
             $template = '%1$s<a%2$s>%3$s%4$s%5$s</a><div class="drop-down">%6$s';
-        }  
+        }
 
         $attributes .= ' class="menu-link ' . $has_drop . ' ' . ( $depth > 0 ? 'sub-menu-link' : 'main-menu-link' ) . '"';
-      
-        
+
+
         $item_output = sprintf( $template,
             $args->before,
             $attributes,
@@ -89,26 +91,26 @@ class AddParentClass_Walker extends Walker_Nav_Menu
             $args->link_after,
             $args->after
         );
-      
+
         $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
     }
 
-    function end_el( &$output, $item, $depth, $args ) 
+    function end_el( &$output, $item, $depth, $args )
     {
         global $wp_query;
         $children = get_posts(array('post_type' => 'nav_menu_item', 'nopaging' => true, 'numberposts' => 1, 'meta_key' => '_menu_item_menu_item_parent', 'meta_value' => $item->ID));
-      
+
         if (!empty($children)) {
             if ($item->object == 'category') {
-                $query = new WP_Query(array( 
-                    'category__and' =>  
+                $query = new WP_Query(array(
+                    'category__and' =>
                         array_merge(get_categories_ids(array(
                             FEATURED
                         )), array((int)$item->object_id)),
-                    'posts_per_page' => 1 ) 
+                    'posts_per_page' => 1 )
                 );
 
-                ob_start(); 
+                ob_start();
 ?>
                 <?php while ($query->have_posts()): $query->the_post();?>
                     <div class="drop-feat-post">
@@ -127,7 +129,7 @@ class AddParentClass_Walker extends Walker_Nav_Menu
     }
 }
 
-     
+
 
 function parent_theme_setup()
 {
@@ -140,7 +142,7 @@ function parent_theme_setup()
     add_image_size( 'post-home-small-thumb', 335, 225, true );
 }
 
-function parent_theme_widgets_init() 
+function parent_theme_widgets_init()
 {
 
     // register_widget( 'Twenty_Eleven_Ephemera_Widget' );
@@ -200,7 +202,7 @@ function parent_theme_widgets_init()
         'before_title' => '<h3 class="widget-title">',
         'after_title' => '</h3>',
     ) );
-    
+
     register_sidebar( array(
         'name' => __( 'Community Sidebar', 'imo-mags-parent' ),
         'id' => 'sidebar-4',
@@ -240,13 +242,13 @@ function parent_theme_widgets_init()
         'before_title' => '<h3 class="widget-title">',
         'after_title' => '</h3>',
     ) );*/
-    register_nav_menus(array(  
-        'top' => 'Top Menu',  
+    register_nav_menus(array(
+        'top' => 'Top Menu',
         'bottom' => 'Main Menu',
         'mobile' => 'Mobile Menu'
     ));
-    register_nav_menus(array(  
-        'top' => 'Community Menu',  
+    register_nav_menus(array(
+        'top' => 'Community Menu',
         'bottom' => 'Community Menu',
         'community' => 'Community Menu'
     ));
@@ -254,13 +256,13 @@ function parent_theme_widgets_init()
 
 function parent_theme_get_categories($categories_list, $show_featured = true)
 {
-    $categories = implode(' ', 
+    $categories = implode(' ',
         array_map(
             function($item){
                 return '<span class="category-name-box"><a class="category-name-link" href="'.esc_url(get_category_link(get_cat_ID($item->name))).'">'.$item->name.'</a></span>';
-            }, 
+            },
             array_filter(
-                $categories_list, 
+                $categories_list,
                 function ($item) use ($show_featured) {
                     if (($item->slug == TIMELY_FEATURES || $item->slug == FEATURED) && !$show_featured) {
                         return false;
@@ -292,12 +294,12 @@ function get_categories_ids($slugs){
 
 function get_more_posts_query($limit = 4)
 {
-    $query = new WP_Query(array( 
-        'category__not_in' =>  
+    $query = new WP_Query(array(
+        'category__not_in' =>
             get_categories_ids(array(
                 MASTER_ANGLERS, TIMELY_FEATURES, FEATURED
             )),
-        'posts_per_page' => $limit ) 
+        'posts_per_page' => $limit )
     );
     return $query;
 }
@@ -337,7 +339,7 @@ function render_shares_count($url, $post_id)
 
         jQuery("#"+elemid).text(
             parseInt(jQuery("#"+elemid).text()) + count
-        ) 
+        )
 
     }
     </script>
@@ -371,14 +373,14 @@ function parent_theme_get_featured_posts_query_in_slider()
 {
     add_filter( 'posts_where', 'parent_theme_filter_where' );
     $query = new WP_Query(
-        array( 
+        array(
             'category' => FEATURED,
             'posts_per_page' => 9
         )
     );
     remove_filter( 'posts_where', 'parent_theme_filter_where' );
 
-    return $query; 
+    return $query;
 }
 
 function parent_theme_filter_where( $where = '' ) {
@@ -388,7 +390,7 @@ function parent_theme_filter_where( $where = '' ) {
 
 function isset_related_posts()
 {
-    ob_start(); 
+    ob_start();
     related_posts();
     $output .= ob_get_contents();
     ob_end_clean();
@@ -460,7 +462,7 @@ function imo_addons_subscription_page() {
         <tr valign="top">
         <th scope="row">Subscription Form Action</th>
         <td><input type="text" name="subs_form_link" value="<?php echo get_option('subs_form_link'); ?>" /><p>(No slash at the end: 'http://www.example.com'.)</p></td>
-        </tr>        
+        </tr>
         <th scope="row">iMagID</th>
         <td><input type="text" name="iMagID" value="<?php echo get_option('iMagID'); ?>" /></br><p>(Leave this alone if you don't konw what this does.)</p></td>
         </tr> <tr valign="top">
@@ -474,9 +476,9 @@ function imo_addons_subscription_page() {
     </p>
 </form>
 </div>
-<?php 
+<?php
 }
-add_action("widgets_init", 'imo_addons_sidebar_init'); 
+add_action("widgets_init", 'imo_addons_sidebar_init');
 add_action("admin_menu", "imo_addons_create_subscriptions_menu");
 add_action('wp_head','imo_addons_include_header_file');
 

@@ -21,11 +21,15 @@
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 
 
+
+
 get_header();
 imo_sidebar("community");
 
 $displayStyle = "display:none;";
 $loginStyle = "";
+
+include 'common-templates.php';
 
 if ( is_user_logged_in() ) {
 
@@ -459,8 +463,13 @@ $time = date("g:i A", strtotime($timestamp));
                 <textarea id="" cols="30" placeholder="Your Reply" rows="10" name="body"></textarea>
                 <input type="hidden" name="post_type" value="comment">
                 <input type="hidden" name="parent" value="<?php echo $data->id ?>">
-                <div class="replies-submit-field">
-                    <span class="btn-base btn-base-middle"><input type="submit" value="Submit" /></span>
+
+                <div class="">
+                    <p class="login-message" style="<?php echo $loginStyle; ?>">Please Login to Comment:</p>
+                    <a href="#" id="imo-fb-login-button" style="<?php echo $loginStyle; ?>" class="imo-community-new-post fb-login join-widget-fb-login btn-fb-login">Fast Login & Submit</a>
+                    <a href="#" class="btn-red btn-post email-signup email-signup-button singl-post-photo jq-open-reg-popup" style="<?php echo $loginStyle; ?>" >Login with Email Address</a>
+                    <p class="login-message" style="<?php echo $loginStyle; ?>">Your Comment will be submitted immediately after Login</p>
+                    <span class="btn-red btn-post btn-submit"  style="<?php echo $displayStyle; ?>"><input id="post-photo" type="submit" value="Post Photo"></span>
                 </div>
             </fieldset>
         </form>

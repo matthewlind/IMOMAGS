@@ -38,7 +38,7 @@ if ( is_user_logged_in() ) {
 	$current_user = wp_get_current_user();
     if ( !($current_user instanceof WP_User) )
          return;
-    }
+}
 
 
 include 'common-templates.php';
@@ -98,19 +98,7 @@ if(mobile()){
                 <p>Description goes here in this place holder</p>
 			</div>
         </div>
-		
-        <!--<div class="title-underline">
-            <h1>In-Fish Anglers <span>Your Freshwater Community</span></h1>
-        </div>-->
-        <div class="custom-slider-section mobile-hidden-section">
-            <div class="general-title clearfix">
-                <h2><span>Explore more</span></h2>
-            </div>
-            <?php //echo do_shortcode('[imo-slideshow community=true]'); ?>
-        </div>
-        <div class="general-title browse-title clearfix">
-            <h2>Browse <span>Photos</span></h2>
-        </div>
+
 
         <div class="photo-link-area">
             <div id="fileupload">
@@ -125,7 +113,7 @@ if(mobile()){
 
         <div class="btn-group btn-bar">
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-            <span class="menu-title browse-community">Browse Community</span> <span class="caret"></span>
+            <span class="menu-title browse-community">Browse Photos</span> <span class="caret"></span>
           </button>
           <ul class="dropdown-menu filter" role="menu">
             <li><a href="" class="filter-menu" order_by="created" id="filter-menu-default">Latest</a></li>

@@ -30,10 +30,20 @@ function imo_facebook_auth_setup() {
         }
 
     require 'src/facebook.php';
-    wp_enqueue_script('imo-facebook-auth',plugins_url('js/facebook-auth.js', __FILE__));
+    wp_enqueue_script('jquery-form-js',plugins_url('js/jquery.form.min.js', __FILE__));
+    wp_enqueue_script('imo-facebook-auth',plugins_url('js/facebook-auth.js', __FILE__),array('jquery-form-js'));
     wp_localize_script("imo-facebook-auth","fb_auth", array("app_id" => $appID) );
 
 }
+/********************************
+**** ADD TEMPLATE TO FOOTER *****
+*********************************/
+add_action('wp_footer', 'imo_login_auth_footer', 100);
+function imo_login_auth_footer() {
+	include 'footer-templates.php';
+}
+
+
 
 /********************************
 **********JSON RESPONSES*********

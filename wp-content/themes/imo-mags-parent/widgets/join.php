@@ -53,7 +53,7 @@ class Join_Widget extends WP_Widget {
 	    </div>
 
 
-		<div class="join-box" style="<?php echo $displayStyle; ?>">
+		<div class="join-box join-logged-in" style="<?php echo $displayStyle; ?>">
 	        <h3><span>YOU ARE</span> LOGGED IN</h3>
 	        <div class="profile-panel">
 	            <div class="profile-photo">

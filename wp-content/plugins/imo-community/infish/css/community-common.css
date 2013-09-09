@@ -176,7 +176,7 @@ h2{
 }
 #progressBar {
 	display: none;
-	width: 300px;
+	width: 260px;
 	height: 20px;
 	margin: 6px auto 17px auto;
 	text-align: center;
@@ -746,6 +746,25 @@ select.alter-sel {width:100%;}
     padding:40px 24px 53px;
     margin:0 0 20px;
 }
+
+.email-signup-button {
+    margin-right:auto;
+    margin-left:auto;
+}
+
+.login-message {
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 280px;
+    text-align: center;
+}
+
+#comment-form .email-signup-button {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .title-bar {
     margin:0 0 23px;
 }
@@ -1760,7 +1779,7 @@ select.alter-sel {width:100%;}
 .modal{display:none;overflow:auto;overflow-y:scroll;position:fixed;top:0;right:0;bottom:0;left:0;z-index:1040;}.modal.fade .modal-dialog{-webkit-transform:translate(0, -25%);-ms-transform:translate(0, -25%);transform:translate(0, -25%);-webkit-transition:-webkit-transform 0.3s ease-out;-moz-transition:-moz-transform 0.3s ease-out;-o-transition:-o-transform 0.3s ease-out;transition:transform 0.3s ease-out;}
 .modal.in .modal-dialog{-webkit-transform:translate(0, 0);-ms-transform:translate(0, 0);transform:translate(0, 0);}
 .modal-dialog{margin-left:auto;margin-right:auto;width:auto;padding:10px;z-index:1050;}
-.modal-content{position:relative;background-color:#ffffff;border:1px solid #999999;border:1px solid rgba(0, 0, 0, 0.2);border-radius:6px;-webkit-box-shadow:0 3px 9px rgba(0, 0, 0, 0.5);box-shadow:0 3px 9px rgba(0, 0, 0, 0.5);background-clip:padding-box;outline:none;}
+.modal-content{position:absolute;width:300px;background-color:#ffffff;border:1px solid #999999;border:1px solid rgba(0, 0, 0, 0.2);border-radius:6px;-webkit-box-shadow:0 6px 19px rgba(0, 0, 0, 0.7);box-shadow:0 6px 19px rgba(0, 0, 0, 0.7);background-clip:padding-box;outline:none;}
 .modal-backdrop{position:fixed;top:0;right:0;bottom:0;left:0;z-index:1030;background-color:#000000;}.modal-backdrop.fade{opacity:0;filter:alpha(opacity=0);}
 .modal-backdrop.in{opacity:0.5;filter:alpha(opacity=50);}
 .modal-header{padding:15px;border-bottom:1px solid #e5e5e5;min-height:16.428571429px;}

@@ -23,6 +23,28 @@ if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 get_header();
 imo_sidebar("community");
 
+$displayStyle = "display:none;";
+$loginStyle = "";
+
+if ( is_user_logged_in() ) {
+
+	$displayStyle = "";
+	$loginStyle = "display:none;";
+
+	wp_get_current_user();
+
+	$current_user = wp_get_current_user();
+    if ( !($current_user instanceof WP_User) )
+         return;
+}
+
+
+
+include 'common-templates.php';
+
+
+
+
 ?>
 
 
@@ -62,7 +84,7 @@ imo_sidebar("community");
 					<select id="ma-species" class="post_type alter-sel mobile-select" name="meta">
 		         		<option value="">SPECIES</option>
 				 		<% _.each(species,function(fish,index){ %>
-		         			<option value="<%= fish.name %>" <%= post && post.post_type == index ? "SELECTED" : "" %> ><%= fish.name %></option>
+		         			<option value="<%= index %>" <%= post && post.post_type == index ? "SELECTED" : "" %> ><%= fish.name %></option>
 				 		<% }); %>
 			        </select>
 				    <select name="state" placeholder="Choose the state for this post:" class="alter-sel mobile-select" id="ma-state">
@@ -357,10 +379,15 @@ imo_sidebar("community");
 	                    </ul>
 	                </div>
 	            </div>
-	            <div class="submit-area">
-					<a href="#" id="imo-fb-login-button" class="imo-community-new-post fb-login join-widget-fb-login btn-fb-login">Fast Login & Submit</a>
-				    <span class="btn-red btn-post btn-submit"><input type="submit" value="Post Photo"></span>
+	            <div class="">
+	            	<p class="login-message" style="<?php echo $loginStyle; ?>">Please Login to Post:</p>
+	            	<a href="#" id="imo-fb-login-button" class="imo-community-new-post fb-login join-widget-fb-login btn-fb-login">Fast Login & Submit</a>
+	            	<a href="#" class="btn-red btn-post email-signup email-signup-button singl-post-photo jq-open-reg-popup" style="<?php echo $loginStyle; ?>" >Login with Email Address</a>
+	            	<p class="login-message" style="<?php echo $loginStyle; ?>">Your post will be submitted immediately after Login</p>
+				    <span class="btn-red btn-post btn-submit"  style="<?php echo $displayStyle; ?>"><input id="post-photo" type="submit" value="Post Photo"></span>
 	            </div>
+	            <hr>
+
 
 			</div>
 

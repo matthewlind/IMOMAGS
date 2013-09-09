@@ -1,3 +1,7 @@
+
+//***********************************
+//** FACEBOOK INIT **
+//***********************************
 window.fbAsyncInit = function() {
 
   //set default whitetail app id
@@ -7,7 +11,6 @@ window.fbAsyncInit = function() {
   if (fb_auth.length > 0);
   	appID = fb_auth.app_id;
 
-
   FB.init({
     appId      : appID,
     status     : true,
@@ -16,7 +19,6 @@ window.fbAsyncInit = function() {
     oauth      : true,
   });
 
-
   FB.Event.subscribe('auth.authResponseChange', function(response) {
     //console.log('authResponseChange: The status of the session is: ' + response.status);
   });
@@ -24,7 +26,6 @@ window.fbAsyncInit = function() {
     FB.Event.subscribe('auth.prompt', function(response) {
     //console.log('auth.prompt: The status of the session is: ' + response.status);
   });
-
 
 	FB.Event.subscribe('auth.statusChange', function(response) {
 	  //console.log('STATUS CHANGE: The status of the session is: ' + response.status);
@@ -44,20 +45,23 @@ window.fbAsyncInit = function() {
 
 	  if (response.status == "connected") {
 
-		  //This section moved to imo-fb-login
-
 	  }//End if response.status == connected
-
 
 	});//End facebook event subscribe
 
-
-
-
 };//END window.fbAsyncInit
 
+(function(d){
+   var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+   js = d.createElement('script'); js.id = id; js.async = true;
+   js.src = "//connect.facebook.net/en_US/all.js";
+   d.getElementsByTagName('head')[0].appendChild(js);
+ }(document));
 
-
+//*****************************************************
+//** AFTER FACEBOOK LOGIN BUTTON IS CLICKED, **********
+//** THE authSuccess() FUNCTION IS CALLED IF LOGIN WAS SUCCESSFUL **
+//*****************************************************
 function authSuccess(data,$clickedButton){
     //console.log(data);
 
@@ -66,6 +70,8 @@ function authSuccess(data,$clickedButton){
     $submit = $('.superpost-form input[type="submit"]');
     var $userWidget = $("#user-info-widget");
     //var $userBar = $("ul#user-bar");
+
+
 
  	$userWidget.find(".user-info-area a").attr("href","/profile/" + data.username);
  	$userWidget.find(".name").attr("href","/profile/" + data.username);
@@ -86,6 +92,25 @@ function authSuccess(data,$clickedButton){
         $("#community-menu-nav small").fadeOut(400);
         //$userBar.fadeIn();
         $submit.fadeIn();
+
+
+
+                jQuery(".browse-item").removeClass("item-active");
+        jQuery(".browse-holder").removeClass("browse-panel-opened");
+        jQuery(".filter-fade-out").removeClass("filter-fade-in");
+        jQuery(".layout-frame").removeClass("filter-popup-opened");
+
+
+        $("#new-post-form").submit();
+        $("#comment-form").submit();
+
+        $(".btn-submit").fadeIn();
+
+        $(".login-message").fadeOut();
+        $(".join-logged-in").find(".profile-photo img").attr("src","/avatar?uid=" + data.user_id);
+        $(".join-logged-in").fadeIn(function(){
+
+        });
 
         //$userBar.fadeIn();
         $userWidget.fadeIn(500,function(){
@@ -132,16 +157,6 @@ function authSuccess(data,$clickedButton){
 
     //replace when App is live
      $(".fb-join-widget-box").fadeOut(500);
-    //$(".fb-join-widget-box .widget_gravity_form").fadeOut(500,function(){
-
-
-      //  $.get('/static-widgets/get-the-app.html', function(data) {
-
-		//  $(data).prependTo(".fb-join-widget-box").fadeIn();
-
-		//});
-   // });
-
 
 		//If this was a login&post button, submit the form
 		if ($clickedButton.hasClass("fast-login-then-post-button")) {
@@ -155,7 +170,6 @@ function authSuccess(data,$clickedButton){
 
     //
 
-
     if ($clickedButton.hasClass("fb-login-community-modal") || $clickedButton.hasClass("email-redirect")) {
     	window.location="http://www.northamericanwhitetail.com/community-post/";
     	}
@@ -165,14 +179,7 @@ function authSuccess(data,$clickedButton){
         //$(".submit").css({ opacity: 0.5 });
         $(".submit").fadeIn();
 
-
-
-
-
     });
-
-
-
 
 }
 
@@ -183,32 +190,293 @@ jQuery(document).ready(function($) {
 		$('#imo-ajax-login-form').addClass("email-redirect");
 	    $("input#hidden-redirect").addClass("hidden-redirect");
 	    $(".hidden-redirect").val("http://www.northamericanwhitetail.com/community-post");
-
-
-
 	});
 
     $("input.email-redirect").submit(function(){
 	    window.location="http://www.northamericanwhitetail.com/community-post";
     });
 
+//**************************
+//NEW STYLE EMAIL LOGIN MODAL POPUP
+//**************************
 
- 	//TESTING TO SEE IF THINGS WORK.
-/*
-	$("a").click(function(event){
-		//alert("hey");
 
-		$.getJSON("/imo-email-login.json",function(data){
-			alert("login?");
-			console.log(data);
+
+	//**************************
+	//LOGIN FORM AJAX REQUEST
+	//**************************
+	$('#imo-ajax-login-form').ajaxForm({
+		beforeSubmit: AjaxLoginShowRequest,
+	success: AjaxLoginSuccessful,
+	error: AjaxLoginError,
+	dataType: 'json'
+	});
+
+	var jqueryForm;
+
+	function AjaxLoginShowRequest(formData, jqForm, options) {
+	  var queryString = $.param(formData);
+
+	  jqueryForm = jqForm;
+	  //alert('BeforeSend method: \n\nAbout to submit: \n\n' + queryString);
+	}
+
+	function AjaxLoginSuccessful(responseText, statusText) {
+
+
+	  if (responseText.error != undefined && responseText.error.length > 0)
+	  	alert(responseText.error);
+	  else {
+
+
+	  	  $('#login-modal').modal('hide');
+
+		  $clickedButton = $('#imo-ajax-login-form #lwa_wp-submit');
+
+		  //console.log($clickedButton);
+		  authSuccess(responseText,jqueryForm);
+	  }
+
+	}
+
+	function AjaxLoginError() {
+	  //alert("error");
+	}
+
+	//**************************
+	//Register FORM AJAX REQUEST
+	//**************************
+	$('#imo-ajax-register-form').ajaxForm({
+		beforeSubmit: AjaxRegisterShowRequest,
+	success: AjaxRegisterSuccessful,
+	error: AjaxRegisterError,
+	dataType: 'json'
+	});
+
+	function AjaxRegisterShowRequest(formData, jqForm, options) {
+	  var queryString = $.param(formData);
+	  //alert('Register BeforeSend method: \n\nAbout to submit: \n\n' + queryString);
+	}
+
+	function AjaxRegisterSuccessful(responseText, statusText) {
+
+
+	  if (responseText.error != undefined && responseText.error.length > 0)
+	  	alert(responseText.error);
+	  else {
+		  $('#login-modal').modal('hide');
+		  authSuccess(responseText);
+	  }
+
+	}
+
+	function AjaxRegisterError() {
+	  //alert("error");
+	}
+
+
+
+
+
+
+
+
+//**************************
+//EMAIL LOGIN MODAL POPUP
+//**************************
+if ($(".user-login-modal-container").length > 0){
+
+
+	$(".email-login a, .email-signup").click(function(event){
+		$('#login-modal').modal();
+
+		//**************************
+		//LOGIN FORM AJAX REQUEST
+		//**************************
+		$('#imo-ajax-login-form').ajaxForm({
+			beforeSubmit: AjaxLoginShowRequest,
+		success: AjaxLoginSuccessful,
+		error: AjaxLoginError,
+		dataType: 'json'
 		});
 
-		event.preventDefault();
+		var jqueryForm;
+
+		function AjaxLoginShowRequest(formData, jqForm, options) {
+		  var queryString = $.param(formData);
+
+		  jqueryForm = jqForm;
+		  //alert('BeforeSend method: \n\nAbout to submit: \n\n' + queryString);
+		}
+
+		function AjaxLoginSuccessful(responseText, statusText) {
+
+
+		  if (responseText.error != undefined && responseText.error.length > 0)
+		  	alert(responseText.error);
+		  else {
+
+
+		  	  $('#login-modal').modal('hide');
+
+			  $clickedButton = $('#imo-ajax-login-form #lwa_wp-submit');
+
+			  //console.log($clickedButton);
+			  authSuccess(responseText,jqueryForm);
+		  }
+
+		}
+
+		function AjaxLoginError() {
+		  //alert("error");
+		}
+
+		//**************************
+		//Register FORM AJAX REQUEST
+		//**************************
+		$('#imo-ajax-register-form').ajaxForm({
+			beforeSubmit: AjaxRegisterShowRequest,
+		success: AjaxRegisterSuccessful,
+		error: AjaxRegisterError,
+		dataType: 'json'
+		});
+
+		function AjaxRegisterShowRequest(formData, jqForm, options) {
+		  var queryString = $.param(formData);
+		  //alert('Register BeforeSend method: \n\nAbout to submit: \n\n' + queryString);
+		}
+
+		function AjaxRegisterSuccessful(responseText, statusText) {
+
+
+		  if (responseText.error != undefined && responseText.error.length > 0)
+		  	alert(responseText.error);
+		  else {
+			  $('#login-modal').modal('hide');
+			  authSuccess(responseText);
+		  }
+
+		}
+
+		function AjaxRegisterError() {
+		  //alert("error");
+		}
+
+
+
+
 	});
-*/
 
 
-	jQuery(".imo-fb-login-button, .fast-login-then-post-button, .join-widget-fb-login").click(function(){
+	$(".email-login a, .email-signup").click(function(event){
+		event.preventDefault();
+
+		if ($("#community-modal").length > 0){
+			$.modal.close();
+		}
+    	$(".user-login-modal-container").modal({
+	        opacity: 50,
+	        overlayClose: true,
+	        autoPosition: true,
+	        height: 'auto',
+	        width: 376,
+	        onShow: function(dialog) {
+	        	$("#simplemodal-container").css({
+		        	 height: 'auto',
+		        	 width: 376,
+	        	});
+		        $(".user-login-modal-container a.hide-this").click(function(){
+			        $.modal.close();
+		        });
+
+
+		        //alert("BOB");
+
+			  //**************************
+			  //LOGIN FORM AJAX REQUEST
+			  //**************************
+			  $('#imo-ajax-login-form').ajaxForm({
+			  	beforeSubmit: AjaxLoginShowRequest,
+			    success: AjaxLoginSuccessful,
+			    error: AjaxLoginError,
+			    dataType: 'json'
+			  });
+
+			  var jqueryForm;
+
+			  function AjaxLoginShowRequest(formData, jqForm, options) {
+			      var queryString = $.param(formData);
+
+			      jqueryForm = jqForm;
+			      //alert('BeforeSend method: \n\nAbout to submit: \n\n' + queryString);
+			  }
+
+			  function AjaxLoginSuccessful(responseText, statusText) {
+
+
+				  if (responseText.error != undefined && responseText.error.length > 0)
+				  	alert(responseText.error);
+				  else {
+					  $.modal.close();
+					  $clickedButton = $('#imo-ajax-login-form #lwa_wp-submit');
+
+					  console.log($clickedButton);
+					  authSuccess(responseText,jqueryForm);
+				  }
+
+			  }
+
+			  function AjaxLoginError() {
+				  //alert("error");
+			  }
+
+
+			  //**************************
+			  //Register FORM AJAX REQUEST
+			  //**************************
+			  $('#imo-ajax-register-form').ajaxForm({
+			  	beforeSubmit: AjaxRegisterShowRequest,
+			    success: AjaxRegisterSuccessful,
+			    error: AjaxRegisterError,
+			    dataType: 'json'
+			  });
+
+			  function AjaxRegisterShowRequest(formData, jqForm, options) {
+			      var queryString = $.param(formData);
+			      //alert('Register BeforeSend method: \n\nAbout to submit: \n\n' + queryString);
+			  }
+
+			  function AjaxRegisterSuccessful(responseText, statusText) {
+
+
+				  if (responseText.error != undefined && responseText.error.length > 0)
+				  	alert(responseText.error);
+				  else {
+					  $.modal.close();
+					  authSuccess(responseText);
+				  }
+
+			  }
+
+			  function AjaxRegisterError() {
+				  //alert("error");
+			  }
+
+
+
+	        },
+	     });
+     });
+}
+
+
+
+//***********************************
+//** FACEBOOK LOGIN BUTTON CLICKED **
+//***********************************
+	jQuery(".imo-fb-login-button, .fast-login-then-post-button, .join-widget-fb-login").click(function(ev){
+
+		ev.preventDefault();
 
 		var $clickedButton = $(this);
 
@@ -257,10 +525,5 @@ jQuery(document).ready(function($) {
 
 
 
-(function(d){
-   var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
-   js = d.createElement('script'); js.id = id; js.async = true;
-   js.src = "//connect.facebook.net/en_US/all.js";
-   d.getElementsByTagName('head')[0].appendChild(js);
- }(document));
+
 
