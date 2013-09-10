@@ -85,7 +85,7 @@ $app->get('/users', function () {
 
 
 
-//GET a single post by ID
+//GET a single user by ID
 $app->get('/users/:id', function ($id) {
 
 
@@ -141,12 +141,14 @@ $app->get('/users/:id', function ($id) {
 
     $db = dbConnect();
 
+    $domain = convertDevDomainToDotCom($_SERVER['HTTP_HOST']);
+
 
     //$sql = "SELECT *,CONCAT(allcounts.post_type,'/',allcounts.id) as url FROM superposts WHERE parent = ? AND post_type IN ('photo','youtube') ORDER BY id ASC";
-    $sql = "SELECT * FROM allcounts2 WHERE user_id = ? AND post_type NOT IN ('photo','youtube','comment') ORDER BY id DESC";
+    $sql = "SELECT * FROM allcounts2 WHERE user_id = ? AND post_type NOT IN ('photo','youtube','comment') AND domain = ? ORDER BY id DESC";
 
     $stmt = $db->prepare($sql);
-    $stmt->execute(array($id));
+    $stmt->execute(array($id,$domain));
 
     $posts = $stmt->fetchAll(PDO::FETCH_OBJ);
 
@@ -166,12 +168,12 @@ $app->get('/users/:id', function ($id) {
 
     $db = dbConnect();
 
-
+    $domain = convertDevDomainToDotCom($_SERVER['HTTP_HOST']);
     //$sql = "SELECT *,CONCAT(allcounts.post_type,'/',allcounts.id) as url FROM superposts WHERE parent = ? AND post_type IN ('photo','youtube') ORDER BY id ASC";
-    $sql = "SELECT * FROM allcounts2 WHERE user_id = ? AND post_type = 'comment' ORDER BY id DESC";
+    $sql = "SELECT * FROM allcounts2 WHERE user_id = ? AND post_type = 'comment' AND domain = ? ORDER BY id DESC";
 
     $stmt = $db->prepare($sql);
-    $stmt->execute(array($id));
+    $stmt->execute(array($id,$domain));
 
     $comments = $stmt->fetchAll(PDO::FETCH_OBJ);
 

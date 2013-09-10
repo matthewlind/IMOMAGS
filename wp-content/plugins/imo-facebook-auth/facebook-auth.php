@@ -38,10 +38,10 @@ function imo_facebook_auth_setup() {
 /********************************
 **** ADD TEMPLATE TO FOOTER *****
 *********************************/
-add_action('wp_footer', 'imo_login_auth_footer', 100);
-function imo_login_auth_footer() {
-	include 'footer-templates.php';
-}
+// add_action('wp_footer', 'imo_login_auth_footer', 100);
+// function imo_login_auth_footer() {
+// 	include 'footer-templates.php';
+// }
 
 
 
@@ -107,6 +107,14 @@ function imo_email_register() {
         //check for ban hammer
         $banString = get_option("blacklist_keys");
 
+
+        $role = "subscriber";
+        if (strstr($_SERVER['HTTP_HOST'], "northamericanwhitetail")) {
+        	$role = "naw_community";
+        }
+
+
+
         if (strpos($banString, $email)) {
 	        die();
         }
@@ -129,7 +137,7 @@ function imo_email_register() {
         	$userdata['display_name'] = $displayName;
         	$userdata['user_login'] = strtolower($displayName) . rand(1000,9999);
         	$userdata['user_pass'] = $password;
-        	$userdata['role'] = "naw_community";
+        	$userdata['role'] = $role;
 
         	$userID = wp_insert_user($userdata);
        		wp_set_auth_cookie($userID,true);
@@ -228,6 +236,11 @@ function imo_facebook_usercheck() {
 			        die();
 		        }
 
+		        $role = "subscriber";
+		        if (strstr($_SERVER['HTTP_HOST'], "northamericanwhitetail")) {
+		        	$role = "naw_community";
+		        }
+
 
 		        $userdata = array();
 	        	$userdata['user_email'] = $email;
@@ -236,7 +249,7 @@ function imo_facebook_usercheck() {
 	        	$userdata['display_name'] = $user_profile['first_name'] . " " . $user_profile['last_name'];
 	        	$userdata['user_login'] = strtolower($user_profile['first_name']) . strtolower($user_profile['last_name']) . rand(100,999);
 	        	$userdata['user_pass'] = imo_facebook_generate_password();
-	        	$userdata['role'] = "naw_community";
+	        	$userdata['role'] = $role;
 
 	        	_log("User Inserted?");
 
