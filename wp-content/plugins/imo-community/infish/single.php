@@ -460,7 +460,7 @@ $time = date("g:i A", strtotime($timestamp));
         </div>
         <form action="#" id="comment-form">
             <fieldset>
-                <textarea id="" cols="30" placeholder="Your Reply" rows="10" name="body"></textarea>
+                <textarea id="" cols="30" placeholder="What's Your Take?" rows="10" name="body"></textarea>
                 <input type="hidden" name="post_type" value="comment">
                 <input type="hidden" name="parent" value="<?php echo $data->id ?>">
 
