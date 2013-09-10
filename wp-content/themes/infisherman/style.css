@@ -164,7 +164,13 @@ General comments (optional).
 	padding: 8px 0 20px !important;
 	text-transform: none !important;
 }
-
+.horz-logo{
+	background: url(images/logos/fishhead-logo-horz.png) no-repeat center top;
+	width: 262px;
+	height: 65px;
+	margin: 0 auto 10px;
+	display: block;
+}
 /* Main Section
  ******************************************************************************/
 .post-slider {

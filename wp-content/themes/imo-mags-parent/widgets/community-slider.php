@@ -35,7 +35,7 @@ class Community_Slider extends WP_Widget {
 
 ?>
     <div id="join" class="join-box fb-join-widget-box">
-    	<h2>Explore Photos</h2>
+    	<a href="/photos" class="horz-logo"></a>
         <div class="explore-posts loading-block">
             <div class="jq-explore-slider-sidebar onload-hidden">
                 <ul class="slides">
