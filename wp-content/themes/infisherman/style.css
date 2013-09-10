@@ -30,7 +30,6 @@ General comments (optional).
     font:15px/29px "stagbold", serif;
     color:#fff;
     text-shadow:0 -1px 0 #7a0c11;
-    padding:0 8px;
     margin:0 8px;
     background:url(images/bg/bg-btn.png) no-repeat 100% 0;
     position:relative;
@@ -107,7 +106,8 @@ General comments (optional).
     color:#fff;
     font:19px/42px "stagbold", serif;
     text-transform:uppercase;
-    padding:0 30px 0 26px;
+    padding:0 18px 0 22px;
+    letter-spacing: 0.1em;
 }
 .menu-main-menu-container a.has-drop:after {
     border-left: 6px solid transparent;
@@ -164,7 +164,13 @@ General comments (optional).
 	padding: 8px 0 20px !important;
 	text-transform: none !important;
 }
-
+.horz-logo{
+	background: url(images/logos/fishhead-logo-horz.png) no-repeat center top;
+	width: 262px;
+	height: 65px;
+	margin: 0 auto 10px;
+	display: block;
+}
 /* Main Section
  ******************************************************************************/
 .post-slider {

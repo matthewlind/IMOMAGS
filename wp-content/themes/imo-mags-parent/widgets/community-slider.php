@@ -35,7 +35,7 @@ class Community_Slider extends WP_Widget {
 
 ?>
     <div id="join" class="join-box fb-join-widget-box">
-    	<h2>Explore Photos</h2>
+    	<a href="/photos" class="horz-logo"></a>
         <div class="explore-posts loading-block">
             <div class="jq-explore-slider-sidebar onload-hidden">
                 <ul class="slides">
@@ -50,7 +50,7 @@ class Community_Slider extends WP_Widget {
     </div>
 	<div class="fileupload-buttonbar fileupload-sidebar">
         <label class="upload-button">
-			<a class="singl-post-photo"><span class="add-photo-link">Share Photo</span></a>
+			<a class="singl-post-photo"><span>Share Your Catch</span></a>
 			<input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
         </label>
     </div>
