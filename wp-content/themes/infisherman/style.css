@@ -171,6 +171,10 @@ General comments (optional).
 	margin: 0 auto 10px;
 	display: block;
 }
+.singl-post-photo span{
+	background:url(images/community-sprite.png) no-repeat -370px -112px;
+	padding-left: 30px;
+}
 /* Main Section
  ******************************************************************************/
 .post-slider {

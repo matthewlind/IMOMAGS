@@ -214,9 +214,9 @@ if($data->view_count == 1){
 }
 
 if($data->comment_count == 1){
-	$niceComment = $data->comment_count.' Comment';
+	$niceComment = $data->comment_count.' Reply';
 }else{
-	$niceComment = $data->comment_count.' Comments';
+	$niceComment = $data->comment_count.' Replies';
 }
 
 // Get the timestamp
@@ -381,7 +381,7 @@ $time = date("g:i A", strtotime($timestamp));
 	<?php } ?>
 
     <div class="replies-box">
-        <h2>Replies (<?php echo $niceComment; ?>)</h2>
+        <h2>What's Your Take?</h2>
 
         <ul class="replies-list">
 

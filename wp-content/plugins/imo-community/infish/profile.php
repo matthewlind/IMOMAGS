@@ -235,9 +235,9 @@ if(mobile()){
 							}
 
 							if($post->comment_count == 1){
-								$niceComment = $post->comment_count.' Comment';
+								$niceComment = $post->comment_count.' Reply';
 							}else{
-								$niceComment = $post->comment_count.' Comments';
+								$niceComment = $post->comment_count.' Replies';
 							}
 
 								if($post->img_url){
