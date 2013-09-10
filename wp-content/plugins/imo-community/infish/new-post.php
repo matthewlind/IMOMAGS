@@ -176,7 +176,7 @@ include 'common-templates.php';
 
 
 		            <div>
-						<a href="#" id="imo-fb-login-button" class="imo-community-new-post fb-login join-widget-fb-login btn-fb-login">Fast Login & Submit</a>
+
 					    <span class="btn-red btn-post btn-new-post btn-left"><a href="" class="no-thanks">No Thanks</a></span>
 					</div>
 					<span class="btn-red btn-post btn-new-post btn-right"><a href="" class="enter-ma-now">Enter Your Catch!</a></span>
