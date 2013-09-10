@@ -39,9 +39,9 @@ class Community_Slider extends WP_Widget {
         <div class="explore-posts loading-block">
             <div class="jq-explore-slider-sidebar onload-hidden">
                 <ul class="slides">
-                	<?php foreach ($pictures as $picture) { ?>
+                	<?php $i=1; foreach ($pictures as $picture) { $i++; ?>
                 		<li><a href="/photos/<?php echo $picture->id; ?>"><img width="119" src="<?php echo $picture->img_url; ?>/convert?w=119&h=119&fit=crop" alt="<?php echo $picture->title; ?>" /></a></li>
-                	<?php } ?>
+                	<?php if($i==11){ echo '<li class="slider-view-more"><a href="/photos">View More</a></li>'; } } ?>
                 </ul>
             </div>
 		</div>

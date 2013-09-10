@@ -53,6 +53,16 @@ if(mobile()){
 <!-- ***************** UNDERSCORE TEMPLATE ********************* -->
 <!-- *********************************************************** -->
 <script type="text/template" id="post-template">
+<% 
+
+
+if(post.score == 1){
+	niceScore = post.score + ' Point';
+}else{
+	niceScore = post.score + ' Points';
+} 
+%>
+
 <% if(post.img_url){ %>
 	<div class="dif-post">
         <div class="feat-img">
@@ -74,7 +84,7 @@ if(mobile()){
                     </ul>
                     <ul class="replies">
                         <li><a href="/photos/<%= post.id %>#reply_field"><%= post.comment_count %> Reply</a></li>
-                        <li><%= post.score %> Points</li>
+						<li><%= niceScore %></li>
                     </ul>
                     <ul class="prof-like">
                         <li><div class="fb-like" data-href="<?php echo FACEBOOK_LINK; ?>" data-send="false" data-layout="button_count" data-width="100" data-show-faces="true"></div></li>
