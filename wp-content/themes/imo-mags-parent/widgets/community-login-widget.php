@@ -75,6 +75,18 @@ class Community_Login_Widget extends WP_Widget {
 	            <a href="/edit-profile/?action=profile">edit profile</a>
 	        </div>
 	    </div>
+	    <div id="join" class="join-box join-logged-in" style="<?php echo $displayStyle; ?>">
+		    <h2>Explore Photos</h2>
+            <div class="explore-posts loading-block">
+	            <div class="jq-explore-slider-sidebar onload-hidden">
+	                <ul class="slides">
+	                	<?php foreach ($pictures as $picture) { ?>
+	                		<li><a href="/photos/<?php echo $picture->id; ?>"><img width="119" src="<?php echo $picture->img_url; ?>/convert?w=119&h=119&fit=crop" alt="<?php echo $picture->title; ?>" /></a></li>
+	                	<?php } ?>
+	                </ul>
+	            </div>
+	        </div>
+	    </div>
 		<div class="fileupload-buttonbar fileupload-sidebar">
             <label class="upload-button">
 				<a class="singl-post-photo"><span>Share Your Catch</span></a>

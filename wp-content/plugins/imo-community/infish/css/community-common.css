@@ -751,13 +751,14 @@ select.alter-sel {width:100%;}
     margin-right:auto;
     margin-left:auto;
 }
-
+.login-area .or-delim{
+	margin: 10px 0;
+}
 .login-message {
-    margin-bottom: 10px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 10px auto;
     width: 280px;
     text-align: center;
+    font-size: 14px;
 }
 #comment-form .btn-red{margin-top: 20px;}
 #comment-form .email-signup-button {
@@ -942,7 +943,7 @@ select.alter-sel {width:100%;}
 }
 .join-box .profile-panel {
     width:222px;
-    margin:0 0 20px 34px;
+    margin:0 0 10px 34px;
     padding:0 0 18px;
     border-bottom:1px solid #d9d9d9;
 }
@@ -955,7 +956,7 @@ select.alter-sel {width:100%;}
     font:20px/1.1 "open_sansbold", sans-serif;
 }
 .edit-section {
-    padding:20px 0 0;
+    padding:0;
     text-align:center;
 }
 .edit-section a {
