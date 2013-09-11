@@ -2346,6 +2346,17 @@ h2.related-stories{
 	margin-bottom: 12px !important;
 	bottom: -12px;
 }
+.slider-view-more{
+	background-color: #eee;
+}
+.slider-view-more a{
+	text-align: center;
+	position: relative;
+	display: block;
+	padding: 50px 10px;
+	text-transform: uppercase;
+	font-weight: bold;
+}
 .login-popup .join-box .btn-red {width:274px !important;}
 .btn-red input {
     border:0;
@@ -2369,7 +2380,6 @@ h2.related-stories{
     opacity:0.7;
 }
 .singl-post-photo span {
-    display:inline-block;
     vertical-align:middle;
 }
 .main-menu-item .singl-post-photo span{

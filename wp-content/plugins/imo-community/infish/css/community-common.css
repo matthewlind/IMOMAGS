@@ -760,7 +760,7 @@ select.alter-sel {width:100%;}
     text-align: center;
     font-size: 14px;
 }
-#comment-form .btn-red{margin-top: 20px;}
+#comment-form .btn-red{margin: 20px auto 0;}
 #comment-form .email-signup-button {
     margin-left: auto;
     margin-right: auto;

@@ -20,9 +20,6 @@
  */
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 
-
-
-
 get_header();
 imo_sidebar("community");
 
@@ -204,10 +201,10 @@ if ($state == 'New York'){
 }
 
 
-if($post_user_score->score == 1){
-	$niceScore = $post_user_score->score.' Point';
+if($data->score == 1){
+	$niceScore = $data->score.' Point';
 }else{
-	$niceScore = $post_user_score->score.' Points';
+	$niceScore = $data->score.' Points';
 }
 
 if($data->view_count == 1){
@@ -217,9 +214,9 @@ if($data->view_count == 1){
 }
 
 if($data->comment_count == 1){
-	$niceComment = $data->comment_count.' Comment';
+	$niceComment = $data->comment_count.' Reply';
 }else{
-	$niceComment = $data->comment_count.' Comments';
+	$niceComment = $data->comment_count.' Replies';
 }
 
 // Get the timestamp
@@ -259,7 +256,7 @@ $time = date("g:i A", strtotime($timestamp));
                     <ul class="replies">
                         <li><?php echo $date; ?> at <?php echo $time; ?><div class="bullet"></li>
                         <li><a href="#reply_field"><?php echo $niceComment; ?></a></li>
-                        <li><?php echo $niceScore; ?><div class="bullet"></li>
+                        <li><?php echo $niceScore; ?><div class="bullet"></div></li>
                         <li><?php echo $niceView; ?></li>
                     </ul>
 
@@ -376,16 +373,15 @@ $time = date("g:i A", strtotime($timestamp));
         </div>
 
     </div>-->
-     <div id="fileupload">
-        <div class="fileupload-buttonbar ">
-            <label class="upload-button share-photo">
-                <span class="add-photo-link">Share Your Catch</span>
-                <input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
-            </label>
-        </div>
-    </div>
+    <?php //echo do_shortcode('[imo-slideshow community=true]');
+      if(mobile()){ ?>
+        <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="js-responsive-section">
+			<?php the_widget( 'Community_Slider' ); ?> 
+		</div>
+	<?php } ?>
+
     <div class="replies-box">
-        <h2>Replies (<?php echo $niceComment; ?>)</h2>
+        <h2>What's Your Take?</h2>
 
         <ul class="replies-list">
 
@@ -450,7 +446,6 @@ $time = date("g:i A", strtotime($timestamp));
 	        <?php } ?>
         </ul>
     </div>
-
     <div class="reply-field" id="reply_field">
         <div class="title-bar clearfix">
             <h3>Post a <span>Reply</span></h3>
@@ -474,7 +469,6 @@ $time = date("g:i A", strtotime($timestamp));
             </fieldset>
         </form>
     </div>
-    <?php //echo do_shortcode('[imo-slideshow community=true]'); ?>
     <div class="hr"></div>
     <?php sub_footer(); ?>
     <div class="hr mobile-hr"></div>
