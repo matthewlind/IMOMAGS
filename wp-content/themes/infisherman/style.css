@@ -172,8 +172,8 @@ General comments (optional).
 	display: block;
 }
 .singl-post-photo span{
-	background:url(images/community-sprite.png) no-repeat -370px -112px;
-	padding-left: 30px;
+	background:url(images/ico/camera-white.png) no-repeat;
+	padding:2px 0 0 30px;
 }
 /* Main Section
  ******************************************************************************/

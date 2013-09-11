@@ -257,7 +257,7 @@ if(mobile()){
 		                                        <h4><a href="/photos/<?php echo $post->id; ?>"></a></h4>
 		                                        <ul class="prof-tags">
 		                                            <!--<li><a href="<?php echo $post->state; ?>"><?php echo $post->state; ?></a></li>-->
-		                                            <li style="text-transform:capitalize;"><a href="<?php echo $post->post_type; ?>"><?php echo $post->post_type; ?></a></li>
+		                                            <li style="text-transform:capitalize;"><a href="/<?php echo $post->post_type; ?>"><?php echo $post->post_type; ?></a></li>
 		                                            <?php if ($post->master){ ?><li><a href="/master-angler">Master Angler</a></li><?php } ?>
 		                                        </ul>
 		                                        <ul class="replies">

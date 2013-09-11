@@ -2370,6 +2370,7 @@ h2.related-stories{
     font:17px/20px "stagbold", serif;
     text-shadow:0 -1px 0 #7a0c11;
     color:#fff;
+    cursor: pointer;
 }
 #join .singl-post-photo{
 	margin: 26px 0 4px;
@@ -2425,6 +2426,7 @@ h2.related-stories{
     text-align:center;
     margin:0 0 22px;
     background:url(../images/btn-red.png) no-repeat 50% 0;
+    cursor: pointer;
 }
 .btn-red {
 	width:310px;
