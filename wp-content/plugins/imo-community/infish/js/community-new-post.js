@@ -224,43 +224,54 @@ jQuery(document).ready(function($) {
 
 		            //Create the attachment data
 
-		            var newAttachment = {};
-		            newAttachment.img_url = FPFile.url;
-		            newAttachment.post_type = "photo";
+
+		            //Check if post is image
+		            if (FPFile.mimetype.indexOf("image") != -1) {
+
+			            var newAttachment = {};
+			            newAttachment.img_url = FPFile.url;
+			            newAttachment.post_type = "photo";
 
 
-		            //get template for attachment
-		            var attachmentTemplate = _.template( $("#single-attachment-template").html() , {attachment: newAttachment} );
-		            var $attachmentTemplate = $(attachmentTemplate);
+			            //get template for attachment
+			            var attachmentTemplate = _.template( $("#single-attachment-template").html() , {attachment: newAttachment} );
+			            var $attachmentTemplate = $(attachmentTemplate);
 
 
-		            //display attachment
-		            $attachmentTemplate.hide().appendTo("#attachments").slideDown();
+			            //display attachment
+			            $attachmentTemplate.hide().appendTo("#attachments").slideDown();
 
-		            //add event to edit caption on change
-		            $attachmentTemplate.find(".caption-field").change(function(ev){
-		            	var caption = ev.currentTarget.value;
-		            	postData.body = caption;
-		            });
+			            //add event to edit caption on change
+			            $attachmentTemplate.find(".caption-field").change(function(ev){
+			            	var caption = ev.currentTarget.value;
+			            	postData.body = caption;
+			            });
 
-		            //Add Event to Delete Attachment
-		            $attachmentTemplate.find(".delete-attachment").click(function(ev){
+			            //Add Event to Delete Attachment
+			            $attachmentTemplate.find(".delete-attachment").click(function(ev){
 
-		            	ev.preventDefault();
+			            	ev.preventDefault();
 
-		            	$(".add-photo-link").slideDown();
+			            	$(".add-photo-link").slideDown();
 
 
-		            	$attachmentTemplate.slideUp();
+			            	$attachmentTemplate.slideUp();
 
-		            });
+			            });
 
-		            //Hide Attachment Button
-		            $(".add-photo-link").slideUp();
+			            //Hide Attachment Button
+			            $(".add-photo-link").slideUp();
 
-		            //postAttachments.push(newAttachment);//add the attachments to the list
-		            postData.img_url = FPFile.url;
-					$('#progressBar').slideUp();
+			            //postAttachments.push(newAttachment);//add the attachments to the list
+			            postData.img_url = FPFile.url;
+						$('#progressBar').slideUp();
+
+
+		            } else {
+		            	alert("Only images can be posted. Other file types are not allowed.");
+		            	$('#progressBar').slideUp();
+		            }
+
 
 		        }, function(FPError) {
 		            //console.log(FPError.toString());
@@ -367,6 +378,7 @@ jQuery(document).ready(function($) {
 		ev.preventDefault();
 
 		$(".master-angler-form-container").slideDown();
+		$('html, body').animate({scrollTop:$("#master-angler-container").offset().top + 'px'}, 'slow');
 	});
 
 

@@ -156,7 +156,9 @@ include 'common-templates.php';
                         <option value="MX" <%= post && post.state == "MX" ? "SELECTED" : "" %> >Mexico</option>
 					</select>
 				</div>
-
+				<div class="f-row f-row-center ">
+                    <p>(Fish Size is Optional)</p>
+                </div>
                 <div class="f-row f-row-center ">
                     <input placeholder="Weight (lbs.)" type="text" name="weight" class="fishsize" id="ma-weight"> <span class="worl">OR</span>
                     <input placeholder="Length (in.)" type="text" name="length" class="fishsize" id="ma-length">
@@ -175,19 +177,19 @@ include 'common-templates.php';
                     <p>Congratulations! Your fish qualifies for Master Angler.</p>
 
 
+
+					<span class="btn-red btn-post btn-new-post"><a href="" class="enter-ma-now">Enter Your Catch!</a></span>
 		            <div>
 
-					    <span class="btn-red btn-post btn-new-post btn-left"><a href="" class="no-thanks">No Thanks</a></span>
+					    <span class=""><a href="" class="no-thanks">No Thanks</a></span>
 					</div>
-					<span class="btn-red btn-post btn-new-post btn-right"><a href="" class="enter-ma-now">Enter Your Catch!</a></span>
-
 
                     <a href="#" class="ma-read-rules">Read Rules</a>
                 </div>
 
 
 
-	            <div class="gform_wrapper master-angler-form-container"  style="display:none;">
+	            <div class="gform_wrapper master-angler-form-container"  style="display:none;" id="master-angler-container">
 
 	                <div class='gform_body'>
 	                    <ul class='gform_fields top_label description_below' >
@@ -303,59 +305,33 @@ include 'common-templates.php';
 	                            </div>
 	                        </li>
 
-	                        <li class='gfield gfield_contains_required' >
-	                            <label class='gfield_label' for='input_4_14'>Lure or Bait used<span class='gfield_required'>*</span></label>
 
-	                            <div class='ginput_container'>
-	                                <select class='small gfield_select'  name='lure_used' onchange='' tabindex='31'>
-	                                    <option selected='selected' value='Select'>
-	                                        Select
-	                                    </option>
 
-	                                    <option value='1'>
-	                                        Lure
-	                                    </option>
-
-	                                    <option value='0'>
-	                                        Bait
-	                                    </option>
-	                                </select>
-	                            </div>
-	                        </li>
-
-	                        <li class='gfield'  style='display:none;'>
-	                            <label class='gfield_label' for='input_4_15'>Kind of Lure</label>
+	                        <li class='gfield'>
+	                            <label class='gfield_label' for='input_4_15'>Lure or Bait</label>
 
 	                            <div class='ginput_container'>
 	                                <input class='medium'  name='kind_of_lure' tabindex='32' type='text' value=''>
 	                            </div>
 	                        </li>
 
-	                        <li class='gfield'  style='display:none;'>
-	                            <label class='gfield_label' for='input_4_17'>Color and Size of Lure</label>
-
-	                            <div class='ginput_container'>
-	                                <input class='medium'  name='lure_desc' tabindex='33' type='text' value=''>
-	                            </div>
-	                        </li>
-
-	                        <li class='gfield'  style='display:none;'>
-	                            <label class='gfield_label' for='input_4_16'>Kind of Bait</label>
-
-	                            <div class='ginput_container'>
-	                                <input class='medium'  name='kind_of_bait' tabindex='34' type='text' value=''>
-	                            </div>
-	                        </li>
-
 	                        <li class='gfield gfield_contains_required' >
-	                            <label class='gfield_label'>Kept or Released<span class='gfield_required'>*</span></label>
+	                            <label class='gfield_label' for='input_4_14'>Kept or Released<span class='gfield_required'>*</span></label>
 
 	                            <div class='ginput_container'>
-	                                <ul class='gfield_radio' >
-	                                    <li class='gchoice_22_0'><input  name='kept' tabindex='35' type='radio' value='1'><label for='choice_22_0'>Kept</label></li>
+	                                <select class='small gfield_select'  name='kept' onchange='' tabindex='31'>
+	                                    <option selected='selected' value='Select'>
+	                                        Select
+	                                    </option>
 
-	                                    <li class='gchoice_22_1'><input  name='released' tabindex='36' type='radio' value='0'><label for='choice_22_1'>Released</label></li>
-	                                </ul>
+	                                    <option value='1'>
+	                                        Kept
+	                                    </option>
+
+	                                    <option value='0'>
+	                                        Released
+	                                    </option>
+	                                </select>
 	                            </div>
 	                        </li>
 

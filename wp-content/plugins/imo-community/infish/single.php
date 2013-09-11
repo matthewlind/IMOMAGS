@@ -322,12 +322,17 @@ $time = date("g:i A", strtotime($timestamp));
                             <div class="madatecaught"><span class="grayz">Date Caught: </span><?php echo $data->date; ?></div>
                             <div class="madatecaught"><span class="grayz">Kept / Released: </span><?php echo ($data->kept ? "No" : "Yes"); ?></div>
                             <!-- <div class="madatecaught"><span class="grayz">Region of Catch: </span>Region 6</div> -->
-                            <div class="madatecaught"><span class="grayz">Length: </span><?php echo $data->length; ?></div>
-                            <div class="madatecaught"><span class="grayz">Weight: </span><?php echo $data->weight; ?></div>
+
+                            <?php if ($data->length): ?>
+                                <div class="madatecaught"><span class="grayz">Length: </span><?php echo $data->length; ?></div>
+                            <?php endif; ?>
+                            <?php if ($data->weight): ?>
+                                <div class="madatecaught"><span class="grayz">Weight: </span><?php echo $data->weight; ?></div>
+                            <?php endif; ?>
+
                             <div class="lurebait">
-                                <span class="grayz">Lure / Bait used:</span>
-                                <?php echo ($data->lure_used ? "Lure" : "Bait"); ?>
-                                    <span class="grayz"> | </span> <?php echo $data->kind_of_lure . " ";echo $data->lure_desc . " ";echo $data->kind_of_bait; ?>
+                                <span class="grayz">Lure / Bait:</span>
+                                <?php echo $data->kind_of_lure ?>
                             </div>
                         </div>
                    <?php }//end if ?>
@@ -376,7 +381,7 @@ $time = date("g:i A", strtotime($timestamp));
     <?php //echo do_shortcode('[imo-slideshow community=true]');
       if(mobile()){ ?>
         <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="js-responsive-section">
-			<?php the_widget( 'Community_Slider' ); ?> 
+			<?php the_widget( 'Community_Slider' ); ?>
 		</div>
 	<?php } ?>
 
