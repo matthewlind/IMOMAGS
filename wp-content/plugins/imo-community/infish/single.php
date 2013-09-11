@@ -467,7 +467,8 @@ $time = date("g:i A", strtotime($timestamp));
                 <div class="login-area">
                     <p class="login-message" style="<?php echo $loginStyle; ?>">Please Login to Comment:</p>
                     <a href="#" id="imo-fb-login-button" style="<?php echo $loginStyle; ?>" class="imo-community-new-post fb-login join-widget-fb-login btn-fb-login">Fast Login & Submit</a>
-                    <a href="#" class="email-signup email-signup-button jq-open-reg-popup" style="<?php echo $loginStyle; ?>" >or login with email address</a>
+                    <span class="or-delim">OR</span>
+                    <a href="#" class="email-signup email-signup-button jq-open-reg-popup" style="<?php echo $loginStyle; ?>" >login with email address</a>
                     <p class="login-message" style="<?php echo $loginStyle; ?>">Your Comment will be submitted immediately after Login</p>
                     <span class="btn-red btn-post btn-submit"  style="<?php echo $displayStyle; ?>"><input id="post-photo" type="submit" value="Submit"></span>
                 </div>
