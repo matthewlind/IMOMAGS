@@ -1,5 +1,5 @@
 jQuery(document).ready(function($) {
-
+	
 
     //Set the filter to the default settings
     filter = {};
@@ -34,6 +34,16 @@ jQuery(document).ready(function($) {
 
             //hide the ajax loading spinner
             $("#ajax-loader").hide();
+            
+            //refresh the sticky ad on load more
+            if (jQuery(window).width() >  610 ) {
+            	document.getElementById('sticky-iframe-ad').contentWindow.location.reload();
+            	jQuery(".sidebar.advert").css({
+                	display: 'block',
+					position: 'fixed',
+					top: 10
+				});
+			}
 
         });
     }
@@ -75,14 +85,32 @@ jQuery(document).ready(function($) {
 
     //Loadmore button
     $("a.load-more").click(function(ev){
-        ev.preventDefault();
+    	ev.preventDefault();
 
-        filter.skip = filter.skip + filter.per_page;
-        getPhotosAndAppend();
-
-        loadMoreCheck();
+	    filter.skip = filter.skip + filter.per_page;
+	    getPhotosAndAppend();
+	
+	    loadMoreCheck();
     });
+    
 
+/*
+	var infiniteScroll = function(){
+		 
+		if($(window).scrollTop() >= $("a.load-more").offset().top - 500){
+					
+			filter.skip = filter.skip + filter.per_page;
+			getPhotosAndAppend();
+			
+			loadMoreCheck();
+			
+			
+		}		
+	}	
+	$(window).bind('scroll', infiniteScroll);	*/
+
+
+	
     //CHeck to see if loadmore needs to be hidden
     function loadMoreCheck() {
         var url = "http://" + document.domain + "/community-api/posts/counts?skip="+filter.skip+"&per_page="+filter.per_page+"&order_by="+filter.order_by+"&sort="+filter.sort+"&master="+filter.master+"&post_type="+filter.post_type;
