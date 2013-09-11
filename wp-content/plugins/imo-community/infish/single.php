@@ -316,6 +316,8 @@ $time = date("g:i A", strtotime($timestamp));
 				<?php if($data->body){ ?>
 	            	<p><?php echo $data->body; ?></p>
 
+
+	            <?php } ?>
                     <?php if ($data->master) { ?>
 
                         <div class="fishinfo">
@@ -332,8 +334,6 @@ $time = date("g:i A", strtotime($timestamp));
                             </div>
                         </div>
                    <?php }//end if ?>
-	            <?php } ?>
-
 	        <div class="clearfix">
                 <a href="#reply_field" class="post-it">Post a Reply</a>
                 <ul class="like-bar">
