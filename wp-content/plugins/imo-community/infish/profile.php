@@ -293,7 +293,7 @@ if(mobile()){
                         	<li class="reply-item">
 	                            <p><?php echo $comment->body; ?></p>
 	                            <div class="replies-data-line">
-	                                Replied To <a href="<?php echo $replyData->url; ?>"><?php echo $replyData->title; ?></a> In <a href="<?php echo $replyData->url; ?>"><?php echo $replyData->post_type; ?></a>   |   <abbr class="recon-date timeago" title="<?php echo $comment->created; ?>"></abbr>
+	                                Replied To <a href="<?php echo $replyData->url; ?>"><?php echo $replyData->title; ?></a>   |   <abbr class="recon-date timeago" title="<?php echo $comment->created; ?>"></abbr>
 	                            </div>
 	                        </li>
                         <?php } ?>

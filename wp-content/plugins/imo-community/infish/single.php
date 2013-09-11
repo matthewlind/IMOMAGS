@@ -464,10 +464,10 @@ $time = date("g:i A", strtotime($timestamp));
                 <input type="hidden" name="post_type" value="comment">
                 <input type="hidden" name="parent" value="<?php echo $data->id ?>">
 
-                <div class="">
+                <div class="login-area">
                     <p class="login-message" style="<?php echo $loginStyle; ?>">Please Login to Comment:</p>
                     <a href="#" id="imo-fb-login-button" style="<?php echo $loginStyle; ?>" class="imo-community-new-post fb-login join-widget-fb-login btn-fb-login">Fast Login & Submit</a>
-                    <a href="#" class="btn-red btn-post email-signup email-signup-button singl-post-photo jq-open-reg-popup" style="<?php echo $loginStyle; ?>" >Login with Email Address</a>
+                    <a href="#" class="email-signup email-signup-button jq-open-reg-popup" style="<?php echo $loginStyle; ?>" >or login with email address</a>
                     <p class="login-message" style="<?php echo $loginStyle; ?>">Your Comment will be submitted immediately after Login</p>
                     <span class="btn-red btn-post btn-submit"  style="<?php echo $displayStyle; ?>"><input id="post-photo" type="submit" value="Submit"></span>
                 </div>

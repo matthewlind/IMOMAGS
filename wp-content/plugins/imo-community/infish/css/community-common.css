@@ -746,10 +746,11 @@ select.alter-sel {width:100%;}
     padding:40px 24px 23px;
     margin:0 0 20px;
 }
-
+.login-area{
+	text-align: center;
+}
 .email-signup-button {
-    margin-right:auto;
-    margin-left:auto;
+    text-decoration: underline;
 }
 .login-area .or-delim{
 	margin: 10px 0;
