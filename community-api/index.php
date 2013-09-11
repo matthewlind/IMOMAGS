@@ -28,6 +28,7 @@ $app->get('/posts', function () {
 	$order_by = "id"; //e.g. "created","view_count"
 	$sort = "DESC";
 	$domain = convertDevDomainToDotCom($_SERVER['HTTP_HOST']);
+	$master = 0; //Set to 1 to only show Master Angler
 
 	//Grab the parameters
 	$params = \Slim\Slim::getInstance()->request()->get();
@@ -99,6 +100,18 @@ $app->get('/posts', function () {
 		exit();
 	}
 
+	//Check for master angler
+	$masterClause = "";
+	if ($master == 0) {
+		$masterClause = "";
+	} else if ($master == 1) {
+		$masterClause = "AND master = 1";
+	} else {
+		echo $master;
+		header('HTTP 1.1/400 Bad Request', true, 400);
+		exit();
+	}
+
 	//Make sure these integers are not evil strings
 	$per_page = intval($per_page);
 	$skip = intval($skip);
@@ -114,7 +127,7 @@ $app->get('/posts', function () {
 		$db = dbConnect();
 
 
-		$sql = "SELECT *,CONCAT(allcounts2.post_type,'/',allcounts2.id) as url FROM allcounts2 WHERE $postTypeClause $stateClause $domainClause $requireImagesClause $orderByClause $sortClause $limitClause";
+		$sql = "SELECT *,CONCAT(allcounts2.post_type,'/',allcounts2.id) as url FROM allcounts2 WHERE $postTypeClause $stateClause $domainClause $masterClause $requireImagesClause $orderByClause $sortClause $limitClause";
 
 
 
