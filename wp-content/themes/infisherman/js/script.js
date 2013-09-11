@@ -21,22 +21,30 @@ jQuery(document).ready(function () {
 
 			jQuery('#loadingModal').modal();
 
+			$("html, body").animate({ scrollTop: 0 }, "slow");
+
 		    filepicker.store(fileInput, function(FPFile){//Begin the upload
 
-		            var img_url = FPFile.url;
 
-		            var n = img_url.lastIndexOf('/');
-					var FPID = img_url.substring(n + 1);
+		    		if (FPFile.mimetype.indexOf("image") != -1) {
 
+			            var img_url = FPFile.url;
 
-					//alert(FPID);
-
-					jQuery('#loadingModal').append("<img src='" + img_url + "' width=1 height=1>");
-
-					document.location = "/photos/new#" + FPID;
-					//alert(FPID);
+			            var n = img_url.lastIndexOf('/');
+						var FPID = img_url.substring(n + 1);
 
 
+						//alert(FPID);
+
+						jQuery('#loadingModal').append("<img src='" + img_url + "' width=1 height=1>");
+
+						document.location = "/photos/new#" + FPID;
+						//alert(FPID);
+
+					} else {
+						alert("Only images can be posted. Other file types are not allowed.");
+						jQuery('#loadingModal').modal('hide');
+					}
 
 		        }, function(FPError) {
 		            //console.log(FPError.toString());

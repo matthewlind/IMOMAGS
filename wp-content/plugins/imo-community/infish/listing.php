@@ -53,14 +53,14 @@ if(mobile()){
 <!-- ***************** UNDERSCORE TEMPLATE ********************* -->
 <!-- *********************************************************** -->
 <script type="text/template" id="post-template">
-<% 
+<%
 
 
 if(post.score == 1){
 	niceScore = post.score + ' Point';
 }else{
 	niceScore = post.score + ' Points';
-} 
+}
 %>
 
 <% if(post.img_url){ %>
@@ -80,7 +80,7 @@ if(post.score == 1){
                         <!--<li><a href="#"><%= post.state %></a></li>-->
                         <li><a href="/<%= post.post_type %>" style="text-transform:capitalize;"><%= post.post_type %></a></li>
                         <% if(post.master){ %><li><a href="/master-angler">Master Angler</a></li><% } %>
-                        
+
                     </ul>
                     <ul class="replies">
                         <li><a href="/photos/<%= post.id %>#reply_field"><%= post.comment_count %> Reply</a></li>
@@ -130,11 +130,11 @@ if(post.score == 1){
             <li><a href="" class="filter-menu" order_by="created" id="filter-menu-default">Latest</a></li>
             <li><a href="" class="filter-menu" order_by="view_count" >Popular</a></li>
             <li><a href="" class="filter-menu" order_by="score_today" >Trending Today</a></li>
-            <li><a href="" class="filter-menu" order_by="score_week" >Trending This Week</a></li>
+<!--             <li><a href="" class="filter-menu" order_by="score_week" >Trending This Week</a></li> -->
             <li class="divider"></li>
             <li><a href="" class="filter-menu" order_by="created" master="1">Master Anglers</a></li>
             <li class="divider"></li>
-            <li><a href="" class="filter-menu" order_by="created" post_type="bass" >Bass</a></li>
+<!--             <li><a href="" class="filter-menu" order_by="created" post_type="bass" >Bass</a></li>
             <li><a href="" class="filter-menu" order_by="created" post_type="panfish" >Panfish</a></li>
             <li><a href="" class="filter-menu" order_by="created" post_type="pike" >Pike</a></li>
             <li><a href="" class="filter-menu" order_by="created" post_type="muskie" >Muskie</a></li>
@@ -143,7 +143,7 @@ if(post.score == 1){
             <li><a href="" class="filter-menu" order_by="created" post_type="carp" >Carp</a></li>
             <li><a href="" class="filter-menu" order_by="created" post_type="paddlefish" >Paddlefish</a></li>
             <li><a href="" class="filter-menu" order_by="created" post_type="crappie" >Crappie</a></li>
-            <li><a href="" class="filter-menu" order_by="created" post_type="burbot" >Burbot</a></li>
+            <li><a href="" class="filter-menu" order_by="created" post_type="burbot" >Burbot</a></li> -->
             <!--This is also a valid and working sorting option:
             <li><a href="" class="filter-menu" order_by="created" sort="ASC" post_type="carp" >Oldest Carp</a></li>
 

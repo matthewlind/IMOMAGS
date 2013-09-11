@@ -156,14 +156,14 @@ include 'common-templates.php';
                         <option value="MX" <%= post && post.state == "MX" ? "SELECTED" : "" %> >Mexico</option>
 					</select>
 				</div>
-
+				<div class="f-row f-row-center ">
+                    <p>(Fish Size is Optional)</p>
+                </div>
                 <div class="f-row f-row-center ">
                     <input placeholder="Weight (lbs.)" type="text" name="weight" class="fishsize" id="ma-weight"> <span class="worl">OR</span>
                     <input placeholder="Length (in.)" type="text" name="length" class="fishsize" id="ma-length">
                 </div>
-                <div class="f-row f-row-center ">
-                    <p>(optional)</p>
-                </div>
+
 
 
 				<% if (post && post.id) { %>
@@ -177,19 +177,19 @@ include 'common-templates.php';
                     <p>Congratulations! Your fish qualifies for Master Angler.</p>
 
 
+
+					<span class="btn-red btn-post btn-new-post"><a href="" class="enter-ma-now">Enter Your Catch!</a></span>
 		            <div>
 
-					    <span class="btn-red btn-post btn-new-post btn-left"><a href="" class="no-thanks">No Thanks</a></span>
+					    <span class=""><a href="" class="no-thanks">No Thanks</a></span>
 					</div>
-					<span class="btn-red btn-post btn-new-post btn-right"><a href="" class="enter-ma-now">Enter Your Catch!</a></span>
-
 
                     <a href="#" class="ma-read-rules">Read Rules</a>
                 </div>
 
 
 
-	            <div class="gform_wrapper master-angler-form-container"  style="display:none;">
+	            <div class="gform_wrapper master-angler-form-container"  style="display:none;" id="master-angler-container">
 
 	                <div class='gform_body'>
 	                    <ul class='gform_fields top_label description_below' >
