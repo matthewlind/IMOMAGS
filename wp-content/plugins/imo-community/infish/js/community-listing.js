@@ -34,16 +34,6 @@ jQuery(document).ready(function($) {
 
             //hide the ajax loading spinner
             $("#ajax-loader").hide();
-            
-            //refresh the sticky ad on load more
-            if (jQuery(window).width() >  610 ) {
-            	document.getElementById('sticky-iframe-ad').contentWindow.location.reload();
-            	jQuery(".sidebar.advert").css({
-                	display: 'block',
-					position: 'fixed',
-					top: 10
-				});
-			}
 
         });
     }
@@ -91,6 +81,15 @@ jQuery(document).ready(function($) {
 	    getPhotosAndAppend();
 	
 	    loadMoreCheck();
+	    //refresh the sticky ad on load more
+        if (jQuery(window).width() >  610 ) {
+        	document.getElementById('sticky-iframe-ad').contentWindow.location.reload();
+        	jQuery(".sidebar.advert").css({
+            	display: 'block',
+				position: 'fixed',
+				top: 10
+			});
+		}
     });
     
 
