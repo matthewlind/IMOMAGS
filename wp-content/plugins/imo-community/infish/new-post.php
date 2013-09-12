@@ -409,7 +409,7 @@ include 'common-templates.php';
             <img src="<?php echo plugins_url('images/fishhead2.png' , __FILE__ ); ?>" alt="FishHeads" class="custom-tite-logo">
             <div class="title-crumbs">
                 <h1>Fishhead Photos</h1>
-                <p>Description goes here in this place holder</p>
+                <p>In-Fisherman, the world's foremost authority on freshwater fishing for over three decades, invites you to share your latest and greatest fishing photos, stories, tips, reports and more. Start uploading from your desktop or phone today!</p>
 			</div>
         </div>
 

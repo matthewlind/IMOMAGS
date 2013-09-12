@@ -74,10 +74,10 @@ jQuery(document).ready(function($) {
     });
 
     //Loadmore button
-    $("a.load-more").click(function(ev){
+  $("a.load-more").click(function(ev){
     	ev.preventDefault();
 
-	    filter.skip = filter.skip + filter.per_page;
+    filter.skip = filter.skip + filter.per_page;
 	    getPhotosAndAppend();
 	
 	    loadMoreCheck();
@@ -93,21 +93,32 @@ jQuery(document).ready(function($) {
     });
     
 
-/*
+ /*	 
 	var infiniteScroll = function(){
 		 
 		if($(window).scrollTop() >= $("a.load-more").offset().top - 500){
-					
+			$(window).unbind('scroll', infiniteScroll);			
 			filter.skip = filter.skip + filter.per_page;
 			getPhotosAndAppend();
 			
 			loadMoreCheck();
 			
+			//refresh the sticky ad on load more
+	        if (jQuery(window).width() >  610 ) {
+	        	document.getElementById('sticky-iframe-ad').contentWindow.location.reload();
+	        	jQuery(".sidebar.advert").css({
+	            	display: 'block',
+					position: 'fixed',
+					top: 10
+				});
+			}
+			
+			//$(window).bind('scroll', infiniteScroll);	
 			
 		}		
 	}	
-	$(window).bind('scroll', infiniteScroll);	*/
-
+	$(window).bind('scroll', infiniteScroll);	
+	*/
 
 	
     //CHeck to see if loadmore needs to be hidden
