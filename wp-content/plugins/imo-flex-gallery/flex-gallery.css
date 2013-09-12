@@ -557,8 +557,11 @@ a.post-a-photo:hover span .post-a-photo-icon {
     height:0;*/
     overflow:hidden;
 }
+.explore-more-mobile ul.slides {
+	white-space:nowrap;
+}
 .explore-more-mobile ul.slides li {
-	display: inline-block;
+	display: inline;
 	float: left;
 	width: 119px !important;
 	margin-right: 10px;
@@ -568,6 +571,14 @@ a.post-a-photo:hover span .post-a-photo-icon {
 }
 .explore-more-mobile ul.slides li img {
 	width: 119px !important;
+}
+.explore-more-mobile ul.slides li a {
+	display: inline-block;
+	height: 89px;
+	background: #dddddd;
+}
+.jq-explore-slider {
+	overflow: hidden;
 }
 .explore-posts {
     padding:3px 0 0;

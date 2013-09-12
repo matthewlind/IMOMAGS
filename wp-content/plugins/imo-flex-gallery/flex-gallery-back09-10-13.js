@@ -21,14 +21,11 @@ function imoFlexSetup(isCommunity, isFullScreenNow){
 	theSlider = jQuery('.flex-gallery').data('flexslider');
 	
 	jQuery(document).ready(function(){
-		jQuery('.flex-gallery-slide-out').hide();
 		jQuery('.flex-gallery').waitForImages(function() {
-			isLoaded = true;
 			centerSlides();
 			jQuery('.imo-flex-loading-block').removeClass('imo-flex-loading-block');
-			jQuery('.flex-gallery-container').css({'background':'#000'});
 			jQuery('.flex-gallery').css({'visibility':'visible'});
-			jQuery('.flex-carousel').css({'visibility':'visible'});	
+			jQuery('.flex-carousel').css({'visibility':'visible'});		
 		});
 	
 		jQuery('.flex-direction-nav a').text('');
@@ -42,9 +39,7 @@ function imoFlexSetup(isCommunity, isFullScreenNow){
 		jQuery('#flex-content-title-1').show();
 		jQuery('#flex-content-community-1').show();
 		var initialTitle = jQuery('#flex-content-title-1').text();
-		if(community == true) {
-			jQuery('.flex-gallery-title h2').text(truncateSlideTitle(initialTitle));
-		}
+		jQuery('.flex-gallery-title h2').text(truncateSlideTitle(initialTitle));
 		jQuery('.flex-content').perfectScrollbar();
 		
 		jQuery('.flex-gallery-container, .flex-gallery-slide-out').mouseleave(function(){
@@ -64,7 +59,7 @@ function imoFlexSetup(isCommunity, isFullScreenNow){
 			containerHover = false;
 		});
 		jQuery('.flex-gallery-container').mouseenter(function(){
-			if(isFullScreen == false && isLoaded == true) {
+			if(isFullScreen == false) {
 				containerHover = true;
 				showSlideOut();
 			}
@@ -106,17 +101,6 @@ function imoFlexSetup(isCommunity, isFullScreenNow){
 				sizeFullScreen();
 			}
 		});
-		if (jQuery('.custom-slider-section').length) {
-		//if community page
-			jQuery('div.main').bind('resize', function () { 
-				if(isFullScreen == false) {
-					positionSlideOut();
-					centerSlides();
-				} else {
-					sizeFullScreen();
-				}
-			});
-		}
 		
 		if(isFullScreen == true) {
 			goFullScreen();
@@ -183,21 +167,21 @@ function positionSlideOut() {
 				'height':galHeight,
 				'width':sidebarWidth+15,
 				'position':'absolute',
-				'top':slideOutPosY
+				'top': jQuery('.flex-gallery-insertion-point').offset().top
 			});
 		} else if (jQuery('.custom-slider-section').length) {
 		//if community page
-			var sidebarWidth = jQuery('#main').outerWidth() - jQuery('#content').outerWidth() - 15;
+			var sidebarWidth = jQuery('.sidebar-area').outerWidth();
 			jQuery('.flex-content').css({
 				'height':galHeight - adHeight + 40 - commFeatHeight
 			});
-			jQuery('.flex-gallery-slide-out').insertAfter('.layout-frame');	
+			jQuery('.flex-gallery-slide-out').appendTo('#main');	
 			jQuery('.flex-gallery-slide-out').css({
-				'left':galWidth + galPos.left,
+				'left':galWidth + 30,
 				'height':galHeight,
-				'width':jQuery('div.main').width() - jQuery('.custom-slider-section').width() - 2,
+				'width':sidebarWidth+15,
 				'position':'absolute',
-				'top':slideOutPosY
+				'top':jQuery('.custom-slider-section').offset().top
 			});
 		}
 	}
@@ -389,7 +373,12 @@ function closeFullScreen() {
 	jQuery('body').removeClass('flex-full-body');
 	jQuery('body').css({'overflow':'visible'});
 	jQuery('.flex-gallery-container').insertAfter('.flex-gallery-insertion-point');
-	jQuery('.flex-gallery-slide-out').insertBefore('#footer');
+	if (jQuery('.custom-slider-section').length) {
+		//if community page
+		jQuery('.flex-gallery-slide-out').appendTo('.sidebar-area');
+	} else {
+		jQuery('.flex-gallery-slide-out').insertBefore('#footer');
+	}
 	jQuery('.flex-gallery-slide-out').hide();
 	jQuery('.background-overlay').hide();
 	jQuery('#flex-direction-nav-clone').remove();
@@ -436,12 +425,10 @@ function flexSortReload() {
 
 function flexSortReloadMobile() {
 	var sortBy = jQuery('.community-select').val();
-	var ulWidth = jQuery('.explore-more-mobile ul.slides').css('width');
-	jQuery('.imo-flex-mobile').remove();
-	jQuery('<div class="imo-flex-mobile imo-flex-loading-block"></div>').insertAfter('.flex-gallery-insertion-point');
-	jQuery('.imo-flex-mobile').load(window.location + '?gallery_sort='+sortBy+' .explore-more-mobile-container', function() {
+	jQuery('.imo-flex-mobile').addClass('imo-flex-loading-block');
+	jQuery('.explore-more-mobile-container').css({'visibility':'hidden'});
+	jQuery('.explore-more-mobile-container').load(window.location + '?gallery_sort='+sortBy+' .explore-more-mobile', function() {
 				imoFlexSetupMobile(community);
-				jQuery('.explore-more-mobile ul.slides').css({'width':ulWidth});
 	});
 }
 
