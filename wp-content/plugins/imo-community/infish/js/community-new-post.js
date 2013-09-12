@@ -71,44 +71,51 @@ jQuery(document).ready(function($) {
 	//********  CHECK FOR IMAGE FROM PREVIOUS PAGE  *********
 	//*******************************************************
 	if (window.location.hash) {
-		var imageID = window.location.hash.substring(1);
-		var imgURL = "https://www.filepicker.io/api/file/" + imageID ;
+		var hashValue = window.location.hash.substring(1);
 
-		var newAttachment = {};
+		if (hashValue == "master") {
+			$(".master-angler-form-container").slideDown();
+		} else {
+			var imageID = window.location.hash.substring(1);
+			var imgURL = "https://www.filepicker.io/api/file/" + imageID ;
 
-		newAttachment.img_url = imgURL;
+			var newAttachment = {};
 
-		//get template for attachment
-        var attachmentTemplate = _.template( $("#single-attachment-template").html() , {attachment: newAttachment} );
-        var $attachmentTemplate = $(attachmentTemplate);
+			newAttachment.img_url = imgURL;
 
-
-        //display attachment
-        $attachmentTemplate.hide().appendTo("#attachments").slideDown();
-
-        //hide the attach photo button
-        $(".photo-link-area").slideUp();
-
-        //Track the data
-        postData.img_url = imgURL;
-
-        //add event to edit caption on change
-        $attachmentTemplate.find(".caption-field").change(function(ev){
-        	var caption = ev.currentTarget.value;
-        	postData.body = caption;
-        });
-
-        //Add Event to Delete Attachment
-        $attachmentTemplate.find(".delete-attachment").click(function(ev){
-
-        	ev.preventDefault();
-
-        	$(".photo-link-area").slideDown();
+			//get template for attachment
+	        var attachmentTemplate = _.template( $("#single-attachment-template").html() , {attachment: newAttachment} );
+	        var $attachmentTemplate = $(attachmentTemplate);
 
 
-        	$attachmentTemplate.slideUp();
+	        //display attachment
+	        $attachmentTemplate.hide().appendTo("#attachments").slideDown();
 
-        });
+	        //hide the attach photo button
+	        $(".photo-link-area").slideUp();
+
+	        //Track the data
+	        postData.img_url = imgURL;
+
+	        //add event to edit caption on change
+	        $attachmentTemplate.find(".caption-field").change(function(ev){
+	        	var caption = ev.currentTarget.value;
+	        	postData.body = caption;
+	        });
+
+	        //Add Event to Delete Attachment
+	        $attachmentTemplate.find(".delete-attachment").click(function(ev){
+
+	        	ev.preventDefault();
+
+	        	$(".photo-link-area").slideDown();
+
+
+	        	$attachmentTemplate.slideUp();
+
+	        });
+		}
+
 
 	}
 	//*******************************************************
