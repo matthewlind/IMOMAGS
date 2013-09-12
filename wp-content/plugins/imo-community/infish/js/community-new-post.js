@@ -17,7 +17,7 @@ jQuery(document).ready(function($) {
 
 	//If user is logged in, hide the FB login button
 	if (userIMO.username.length > 0) {
-		$(".imo-community-new-post.btn-fb-login, .login-area .or-delim").hide();
+		$(".imo-community-new-post.btn-fb-login").hide();
 	}
 
 
