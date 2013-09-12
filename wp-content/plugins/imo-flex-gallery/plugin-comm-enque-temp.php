@@ -9,6 +9,7 @@
 
 add_shortcode( 'imo-slideshow', 'imo_flex_gallery' );
 
+
 // [slideshow gallery=GALLERY_ID]
 function imo_flex_gallery( $atts ) {
 	$dartDomain = get_option("dart_domain", $default = false);
@@ -33,6 +34,29 @@ function imo_flex_gallery( $atts ) {
 
 }
 
+function imo_community_gallery($gallery) {
+	//Load community page scripts
+			if (mobile() == true){
+	
+			} else {
+				//Enqueue Desktop/Tablet Only
+				wp_enqueue_script('flexslider-js',plugins_url('jquery.flexslider.js', __FILE__));
+				wp_enqueue_style('flexslider-css',plugins_url('flexslider.css', __FILE__));
+				wp_enqueue_script('flex-gallery-js',plugins_url('flex-gallery.js', __FILE__));
+				wp_enqueue_script('jquery-mobile-touch-events',plugins_url('jquery.mobile.custom.min.js', __FILE__));
+				wp_enqueue_script('jquery-scrollface',plugins_url('jquery.scrollface.min.js', __FILE__));
+				wp_enqueue_script('jquery-buffet',plugins_url('jquery.buffet.min.js', __FILE__));
+				wp_enqueue_script('jquery-ui-draggable');
+				wp_enqueue_script('jquery-ui-slide-effect',plugins_url('jquery-ui-slide-effect.min.js', __FILE__));
+				wp_enqueue_script('jquery-mousewheel',plugins_url('jquery.mousewheel.min.js', __FILE__));
+				wp_enqueue_script('perfect-scrollbar-js',plugins_url('perfect-scrollbar-0.4.3.with-mousewheel.min.js', __FILE__));
+				wp_enqueue_style('ajax-gallery-css',plugins_url('flex-gallery.css', __FILE__));
+				wp_enqueue_style('perfect-scrollbar-css',plugins_url('perfect-scrollbar-0.4.3.min.css', __FILE__));
+			}
+		$dartDomain = get_option("dart_domain", $default = false);
+		$community = true;
+		echo imoCommunityGallery($gallery, $community, '', $dartDomain);
+}
 function imoCommunityGallery($gallery, $community, $tag, $dartDomain) {
 	//$baseUrl = 'http://'.$_SERVER['HTTP_HOST'];
 	$baseUrl = get_bloginfo('url');
@@ -114,7 +138,7 @@ function galleryOutput($pictures, $totalSlides, $dartDomain, $community, $baseUr
 	<div class="flex-gallery-insertion-point"></div>
 	<div class="flex-gallery-container $communityClass">
 	<div class="imo-flex-loading-block flex-gallery-inner">
-		<div class="flex-gallery" id="gallery-$gallery" style="visibility:hidden;">
+		<div class="flex-gallery" id="gallery-$gallery">
 		<div id="flex-gallery-top-left">
 			<div class="flex-gallery-title clearfix">
 			<a class="btn-full-screen flex-gallery-button">Fullscreen</a>
@@ -169,7 +193,7 @@ $desktop_tablet_output .= <<<EOT_a5_1
 		</div>
 EOT_a5_1;
 		//Just for viewing with the admin bar in the way
-		if(is_admin_bar_showing()) { $desktop_tablet_output .= '<style>.flex-gallery-slide-out{margin-top:-28px;}</style>'; }
+		//if(is_admin_bar_showing()) { $desktop_tablet_output .= '<style>.flex-gallery-slide-out{margin-top:-28px;}</style>'; }
 $desktop_tablet_output .= <<<EOT_a5_2
 		
 		<div class="flex-gallery-slide-out $communityClass" >
@@ -274,9 +298,7 @@ $desktop_tablet_output .= <<<EOF_a
 							jQuery('#flex-content-title-'+theSlide).show();
 							jQuery('#flex-content-community-'+theSlide).show();
 							jQuery('span.current-slide').text(theSlide);
-							if(isCommunity == true) {
-								jQuery('.flex-gallery-title h2').text(truncateSlideTitle(theSlideTitle));
-							}
+							jQuery('.flex-gallery-title h2').text(truncateSlideTitle(theSlideTitle));
 							jQuery('.flex-content').perfectScrollbar('update');	
 	
 						}
@@ -298,7 +320,6 @@ EOF_a;
 if($community == true) {
 	$pictureLimit = 4;
 	$mobile_output = <<<EOT
-<div class="flex-gallery-insertion-point"></div>
 <div class="imo-flex-mobile imo-flex-loading-block">    
 <div class="explore-more-mobile-container">
      <div class="explore-more-mobile">
@@ -340,7 +361,11 @@ $mobile_output .= <<<EOFmobile_community
                 </ul>
             </div>
         </div>      
-    </div>   
+    </div>
+</div>
+</div>    
+
+
 		<script type="text/javascript">
 			imoFlexSetupMobile($community);
 		    jQuery(function(){
@@ -357,8 +382,6 @@ $mobile_output .= <<<EOFmobile_community
 				});
 			});
 		</script>
-</div>
-</div>
 EOFmobile_community;
 } else {
 	$mobile_output = <<<EOT
@@ -441,25 +464,23 @@ $mobile_output .= <<<EOFmobile_standard
 		</script>
 EOFmobile_standard;
 }
+
 		if($_SERVER['SERVER_NAME'] == "www.in-fisherman.com" || $_SERVER['SERVER_NAME'] == "www.in-fisherman.salah" || $_SERVER['SERVER_NAME'] == "www.in-fisherman.fox" || $_SERVER['SERVER_NAME'] == "www.in-fisherman.deva"){
 			if (mobile()){
 				return $mobile_output;
 			}else{
-            	//return $mobile_output;
-               	return $desktop_tablet_output;
+                return $desktop_tablet_output;
 			}
 		} else {
             return $desktop_tablet_output;
 		}
 }
 
-//Since we don't want to add the scripts to every page, we check to see if we need them before adding
 
-add_filter('posts_request', 'conditionally_add_scripts_and_styles');
+
+//Since we don't want to add the scripts to every page, we check to see if we need them before adding
 add_filter('the_posts', 'conditionally_add_scripts_and_styles'); // the_posts gets triggered before wp_head
 function conditionally_add_scripts_and_styles($posts){
-
-
 
 	if (!empty($posts)) {
 
@@ -490,6 +511,7 @@ function conditionally_add_scripts_and_styles($posts){
             wp_enqueue_script('jquery-mobile-touch-events',plugins_url('jquery.mobile.custom.min.js', __FILE__));
 			wp_enqueue_script('jquery-scrollface',plugins_url('jquery.scrollface.min.js', __FILE__));
 			wp_enqueue_script('jquery-buffet',plugins_url('jquery.buffet.min.js', __FILE__));
+			wp_enqueue_script('jquery-ui-draggable');
 			wp_enqueue_script('jquery-ui-slide-effect',plugins_url('jquery-ui-slide-effect.min.js', __FILE__));
 			wp_enqueue_script('jquery-mousewheel',plugins_url('jquery.mousewheel.min.js', __FILE__));
 			wp_enqueue_script('perfect-scrollbar-js',plugins_url('perfect-scrollbar-0.4.3.with-mousewheel.min.js', __FILE__));
@@ -500,31 +522,29 @@ function conditionally_add_scripts_and_styles($posts){
 
 		}
 
-	} else {
-				//Exceptions to load scripts even if there are no posts present with the shortcode
-				$cat = get_category( get_query_var( 'cat' ) );
-                $categorySlug = $cat->slug;
-                $slugArray = array('thanks-dad-iiyn','more-category-slugs-here');
-                if ( in_array($categorySlug, $slugArray) ) {
-                	//un-used exception strpos($_SERVER['REQUEST_URI'],'photos')
-                	$exception = true;
-                }
-                
-                if ($exception) {
-                    wp_enqueue_script('flexslider-js',plugins_url('jquery.flexslider.js', __FILE__));
-                    wp_enqueue_style('flexslider-css',plugins_url('flexslider.css', __FILE__));
-                    wp_enqueue_script('flex-gallery-js',plugins_url('flex-gallery.js', __FILE__));
-                    wp_enqueue_script('jquery-mobile',plugins_url('jquery.mobile.custom.min.js', __FILE__));
-                    wp_enqueue_script('jquery-scrollface',plugins_url('jquery.scrollface.min.js', __FILE__));
-                    wp_enqueue_script('jquery-buffet',plugins_url('jquery.buffet.min.js', __FILE__));
-                    wp_enqueue_script('jquery-mousewheel',plugins_url('jquery.mousewheel.min.js', __FILE__));
-                    wp_enqueue_script('perfect-scrollbar-js',plugins_url('perfect-scrollbar-0.4.3.with-mousewheel.min.js', __FILE__));
-                    wp_enqueue_style('ajax-gallery-css',plugins_url('flex-gallery.css', __FILE__));
-                    wp_enqueue_style('perfect-scrollbar-css',plugins_url('perfect-scrollbar-0.4.3.min.css', __FILE__));
-                }
-    
-    
-        }
+	} else {//If there are no posts, such as a category page
+
+
+			$cat = get_category( get_query_var( 'cat' ) );
+			$categorySlug = $cat->slug;
+
+			$slugArray = array("thanks-dad-iiyn","more-category-slugs-here");
+			if (in_array($categorySlug, $slugArray)) {
+            	wp_enqueue_script('flexslider-js',plugins_url('jquery.flexslider.js', __FILE__));
+                wp_enqueue_style('flexslider-css',plugins_url('flexslider.css', __FILE__));
+				wp_enqueue_script('flex-gallery-js',plugins_url('flex-gallery.js', __FILE__));
+           		wp_enqueue_script('jquery-mobile',plugins_url('jquery.mobile.custom.min.js', __FILE__));
+				wp_enqueue_script('jquery-scrollface',plugins_url('jquery.scrollface.min.js', __FILE__));
+				wp_enqueue_script('jquery-buffet',plugins_url('jquery.buffet.min.js', __FILE__));
+				wp_enqueue_script('jquery-ui-draggable');
+				wp_enqueue_script('jquery-mousewheel',plugins_url('jquery.mousewheel.min.js', __FILE__));
+				wp_enqueue_script('perfect-scrollbar-js',plugins_url('perfect-scrollbar-0.4.3.with-mousewheel.min.js', __FILE__));
+				wp_enqueue_style('ajax-gallery-css',plugins_url('flex-gallery.css', __FILE__));
+				wp_enqueue_style('perfect-scrollbar-css',plugins_url('perfect-scrollbar-0.4.3.min.css', __FILE__));
+			}
+
+
+	}
 
 
 
