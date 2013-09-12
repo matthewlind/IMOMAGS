@@ -778,7 +778,7 @@ $app->delete('/posts/:id', function ($id) {
 		$sql = "SELECT * FROM superposts WHERE id = ? LIMIT 1";
 
 		$stmt = $db->prepare($sql);
-		$stmt->execute(array($post_id));
+		$stmt->execute(array($id));
 		$post = $stmt->fetchObject();
 
 
