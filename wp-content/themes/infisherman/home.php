@@ -30,6 +30,11 @@ get_header(); ?>
                         </ul>
                     </div>
                 </div>
+                <?php if(mobile()){ ?>
+	                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="js-responsive-section">
+						<?php the_widget( 'Community_Slider' ); ?> 
+					</div>
+				<?php } ?>
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="video-box js-responsive-section">
                     <div class="general-title clearfix">
                         <h2>In-Fisherman <span>TV</span></h2>		

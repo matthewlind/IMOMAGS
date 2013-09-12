@@ -47,8 +47,7 @@ function imo_sidebar($type){
 		    	
 			    	echo '<div id="responderfollow"></div>';
 					echo '<div class="sidebar advert">';
-			    	echo '<div class="widget"><iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Finfisherman&amp;width=310&amp;height=184&amp;colorscheme=light&amp;show_faces=true&amp;show_border=false&amp;stream=false&amp;header=false&amp;appId=218070564894418" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:310px; height:184px;" allowTransparency="true" id="fb-sidebar"></iframe></div>';
-	
+			    	the_widget( 'Community_Slider' );
 						echo '<div class="widget_advert-widget">';
 							echo '<iframe id="sticky-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-sticky.php?ad_code='.$dartDomain.'"></iframe>';
 						echo '</div>';

@@ -107,7 +107,6 @@ General comments (optional).
     font:19px/42px "stagbold", serif;
     text-transform:uppercase;
     padding:0 18px 0 22px;
-    letter-spacing: 0.1em;
 }
 .menu-main-menu-container a.has-drop:after {
     border-left: 6px solid transparent;

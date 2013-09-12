@@ -5,14 +5,13 @@ jQuery(window).load(function() {
     
 });
 
-jQuery(function(){
-    
+
 jQuery(document).ready(function () {
 
 	var snapper = new Snap({
 		element: document.getElementById('page')
 	});
-	
+
 	var addEvent = function addEvent(element, eventName, func) {
 		if (element.addEventListener) {
 	    	return element.addEventListener(eventName, func, false);
@@ -133,9 +132,7 @@ jQuery(document).ready(function () {
 		jQuery(".mob-aside-menu .menu-main-menu-container").removeClass("menu-main-menu-container");
 		jQuery(".mob-aside-menu .menu-main-menu-container").addClass("menu-mobile-menu-container");
 	}
-});	
-   	
-jQuery(function(){
+
     jQuery(".pager-holder a.btn-base").click(function(e){
         jQuery("#ajax-loader").show();
 	        if (jQuery(window).width() <  610 ) {
@@ -178,7 +175,7 @@ jQuery(function(){
             }
         });
     });
-});
+
 // Flash ad z-index pecking order fix
 jQuery(function(){
 	FlashHeed.heed();

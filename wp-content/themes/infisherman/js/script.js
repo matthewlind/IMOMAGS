@@ -21,7 +21,7 @@ jQuery(document).ready(function () {
 
 			jQuery('#loadingModal').modal();
 
-			$("html, body").animate({ scrollTop: 0 }, "slow");
+			jQuery("html, body").animate({ scrollTop: 0 }, "slow");
 
 		    filepicker.store(fileInput, function(FPFile){//Begin the upload
 

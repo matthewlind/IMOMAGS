@@ -132,7 +132,7 @@
 	$userInfo = wp_get_current_user();
 	
 	$username = $userInfo->user_nicename;
-
+	
 	$apiURL = "http://$hostname/community-api/users/$username?get_comments=1";
 	
 	$file = file_get_contents($apiURL);
@@ -160,6 +160,7 @@
 	    if ( !($current_user instanceof WP_User) )
 	         return;
 	    }
+	    
 	?>
 	<div class="snap-drawer snap-drawer-right" id="right-drawer">
 		 <div>
@@ -172,16 +173,19 @@
 	            <div class="menu-community-menu-container">
 		       		<ul id="menu-community-menu" class="menu">
 				   		<li class="hot-link main-menu-item menu-item-even menu-item-depth-0 menu-item">
-			   				<a href="/photos" class="menu-link main-menu-link">Photos</a></li>
+			   				<a href="/photos" class="menu-link main-menu-link">Latest Photos</a></li>
+			   			<li class="mob-share main-menu-item menu-item-even menu-item-depth-">
+			   				<div class="fileupload-buttonbar fileupload-sidebar">
+						        <label class="upload-button">
+									<a class="singl-post-photo"><span>Share Your Catch</span></a>
+									<input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
+						        </label>
+						    </div>
+			   			</li>
 			   			<li class="main-menu-item menu-item-even menu-item-depth-">
 			   				<a href="/master-angler" class="menu-link main-menu-link">Master Angler</a>
-			   			</li>
-			   			<li class="mob-fb main-menu-item menu-item-even menu-item-depth-" style="<?php echo $loginStyle; ?>">
-			   				 <a href="#" id="imo-fb-login-button" class="fb-login join-widget-fb-login btn-fb-login">Fast Login with Facebook</a>
-			   				 <div class="sub-photo-note">* we do not post anything to your wall unless you say so!</div>
-					        <span class="or-delim">OR</span>
-					        <a href="#" class="email-signup">Use Your Email Address</a>
-			   			<li class="main-menu-item menu-item-even menu-item-depth-" style="<?php echo $displayStyle; ?>">
+			   			</li>			   				 
+				   		<!--<li class="main-menu-item menu-item-even menu-item-depth-" style="<?php echo $displayStyle; ?>">
 			   				<a href="#" class="menu-link main-menu-link has-drop">My Interests</a>
 			   				<div class="drop-down">
 			   					<ul class="sub-menu menu-odd menu-depth-1">
@@ -196,7 +200,7 @@
 				   					</li>	
 				   				</ul>
 				   			</div>
-			   			</li>
+			   			</li>-->
 			   		</ul>
 		       </div>
 	        </div>
@@ -237,7 +241,7 @@
 
                    <a id="open-left" class="open-menu">open menu</a>
                     <strong class="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/logo.png" alt="<?php bloginfo( 'name' ); ?>" /></a></strong>
-<a id="comm-mob-menu" class="user-btn" style="display:none;<?php //if( is_user_logged_in() ) { echo 'background:url(/avatar?uid=' . $data->ID .') no-repeat center center;'; } ?>">user</a>
+<a id="comm-mob-menu" class="user-btn" <?php if( is_user_logged_in() ) { echo 'style="background:url(/avatar?uid=' . $data->ID . ') no-repeat center center;"'; } ?>>user</a>
                      
                      
                      
