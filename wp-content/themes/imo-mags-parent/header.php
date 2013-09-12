@@ -241,7 +241,8 @@
 
                    <a id="open-left" class="open-menu">open menu</a>
                     <strong class="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/logo.png" alt="<?php bloginfo( 'name' ); ?>" /></a></strong>
-<a id="comm-mob-menu" class="user-btn" <?php if( is_user_logged_in() ) { echo 'style="background:url(/avatar?uid=' . $data->ID . ') no-repeat center center;"'; } ?>>user</a>
+					<a id="comm-mob-menu" class="user-btn" <?php if( is_user_logged_in() ) { echo 'style="background:url(/avatar?uid=' . $data->ID . ') no-repeat center center;"'; } ?>>user</a>
+					<div class="community-tooltip"></div>
                      
                      
                      
@@ -320,7 +321,7 @@
                     ));   ?>
                 <!-- #access -->
         </div><!-- #branding -->
-	
+		
         <div class="content-banner-section">
         	<?php if (mobile() == false) { ?>
 	        	<div class="mdl-banner">
