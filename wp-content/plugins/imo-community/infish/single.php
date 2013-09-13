@@ -244,7 +244,7 @@ $time = date("g:i A", strtotime($timestamp));
         <?php if ( $data->master ){ ?>
         	<a href="/master-angler"><img src="<?php echo plugins_url("images/badge-ma.png" , __FILE__ ); ?>" alt="" class="profile-logo" /></a>
         <?php }else{ ?>
-        	<a href="/photos"><img src="<?php echo plugins_url("images/fishhead.png" , __FILE__ ); ?>" alt="" class="profile-logo" /></a>'
+        	<a href="/photos"><img src="<?php echo plugins_url("images/fishhead.png" , __FILE__ ); ?>" alt="" class="profile-logo" /></a>
         <?php } ?>
         <div class="profile-panel">
             <div class="profile-photo">
