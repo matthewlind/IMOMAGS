@@ -1266,6 +1266,7 @@ select.alter-sel {width:100%;}
 	.community-ad{
 		display: block;
 		margin: 0 auto 34px;
+		width: 300px;
 	}
     .delete-attachment{
         margin-left:97%;
@@ -1426,9 +1427,9 @@ select.alter-sel {width:100%;}
     }
     .badge {
         width:100px;
-        top:-82px;
+        top:-88px;
     }
-    .badge img {width:100%;}
+    .badge img {width:80%;}
     .dif-post h3 {
         font-size:21px;
     }

@@ -181,7 +181,7 @@ if(mobile()){
                     <h2><?php echo $data->display_name; ?></h2>
                     <div class="profile-panel clearfix">
                         <div class="profile-photo">
-                            <a><img alt="" src="/avatar?uid=<?php echo $data->ID; ?>"></a>
+                            <a><img alt="<?php echo $data->display_name; ?>" src="/avatar?uid=<?php echo $data->ID; ?>"></a>
                         </div>
                         <?php if($data->city != null || $data->state != null ){ ?>
                         <div class="profile-data">
@@ -193,7 +193,7 @@ if(mobile()){
                         <?php } ?>
 					</div>
                 </div>
-                <img src="<?php echo plugins_url('images/fishhead.png' , __FILE__ ); ?>" alt="" class="profile-logo" />
+                <a href="/photos"><img src="<?php echo plugins_url('images/fishhead.png' , __FILE__ ); ?>" alt="" class="profile-logo" /></a>
                 <div class="points-col">
                 	<?php
                 	if($data->score == 1){
@@ -226,7 +226,7 @@ if(mobile()){
                     <div class="dif-posts">
                         <?php
                         $posts = $data->posts;
-
+						$i = 1;
                         foreach($posts as $post){
 	                       	if($post->score == 1){
 								$niceScore = $post->score.' Point';
@@ -269,7 +269,19 @@ if(mobile()){
 		                                 <?php if ($post->master){ ?><span class="badge"><img src="<?php echo plugins_url('images/badge-ma.png' , __FILE__ ); ?>" alt="" /></span><?php } ?>
 		                            </div>
 		                        </div>
-                        <?php } } ?>
+		                        <?php 
+		                        if ( mobile() || tablet() ){ $adCount = ($i%6) == 0; }else{ $adCount = ($i%10) == 0; } 
+		                        if ( $adCount ): ?>
+                        
+			                        <div class="community-ad">
+			                        	<div class="image-banner">
+			                            	<?php imo_dart_tag("300x250",array("pos"=>"mob")); ?> 
+										</div>
+			                        </div>
+
+		                        <?php endif;?>
+
+                        <?php } $i++; } ?>
                     </div>
                     <div class="pager-holder js-responsive-section" data-position="5">
                         <a class="btn-base" href="#">Load More</a>
