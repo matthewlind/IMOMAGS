@@ -54,8 +54,6 @@ if(mobile()){
 <!-- *********************************************************** -->
 <script type="text/template" id="post-template">
 <%
-
-
 if(post.score == 1){
 	niceScore = post.score + ' Point';
 }else{
@@ -72,10 +70,10 @@ if(post.score == 1){
             <h3><a href="/photos/<%= post.id %>"><%= post.title %></a></h3>
             <div class="profile-panel">
                 <div class="profile-photo">
-                    <a href="/profile/<%= post.username %>"><img src="/avatar?uid=<%= post.user_id %>" alt="<%= post.username %>" title="<%= post.username %>" /></a>
+                    <a href="/profile/<%= post.usern_nicename %>"><img src="/avatar?uid=<%= post.user_id %>" alt="<%= post.usern_nicename %>" title="<%= post.usern_nicename %>" /></a>
                 </div>
                 <div class="profile-data">
-                    <h4><a href="/profile/<%= post.username %>"><%= post.display_name %></a></h4>
+                    <h4><a href="/profile/<%= post.usern_nicename %>"><%= post.display_name %></a></h4>
                     <ul class="prof-tags">
                         <!--<li><a href="#"><%= post.state %></a></li>-->
                         <li><a href="/<%= post.post_type %>" style="text-transform:capitalize;"><%= post.post_type %></a></li>
