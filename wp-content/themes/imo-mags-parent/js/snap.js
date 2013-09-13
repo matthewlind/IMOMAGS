@@ -37,7 +37,7 @@
             easing: 'ease',
             maxPosition: $mobileMenuOpen,
             minPosition: $mobileMenuClosed,
-            tapToClose: true,
+            tapToClose: false,
             touchToDrag: false,
             slideIntent: 40, // degrees
             minDragDistance: 5

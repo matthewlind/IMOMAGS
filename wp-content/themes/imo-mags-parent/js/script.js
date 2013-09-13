@@ -60,7 +60,7 @@ jQuery(document).ready(function () {
 
 	//Left Menu
 	addEvent(document.getElementById('open-left'), 'click', function(){
-		
+
 		if( jQuery("body").hasClass("snapjs-left") ){
 			snapper.close();
 			jQuery(".snap-drawer-left").fadeOut();
@@ -80,7 +80,7 @@ jQuery(document).ready(function () {
 	
 	//Community Menu
     addEvent(document.getElementById('comm-mob-menu'), 'click', function(){
-    
+
     	if( jQuery("body").hasClass("snapjs-right") ){
         	jQuery(".snap-drawer-right").fadeOut();
 			snapper.close();
