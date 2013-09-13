@@ -227,7 +227,7 @@ jQuery(function(){
         animationSpeed: 200,
         slideshow: false,
         controlNav: true,
-        directionNav: false,
+        directionNav: true,
         itemWidth: 123,
         itemMargin: 0,
         minItems: 2,

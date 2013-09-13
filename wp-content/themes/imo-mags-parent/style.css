@@ -2346,6 +2346,10 @@ h2.related-stories{
 	margin-bottom: 12px !important;
 	bottom: -12px;
 }
+#join .flex-direction-nav a{
+	top: 124px;
+	background-color:black;
+}
 .slider-view-more{
 	background-color: #eee;
 }
@@ -3337,7 +3341,9 @@ h2.related-stories{
 }
 
 @media only screen and (max-width: 610px) {
-
+	#join .flex-direction-nav a{
+		display: none;
+	}
 	#tiptip_holder{
 		top:40px;
 	}

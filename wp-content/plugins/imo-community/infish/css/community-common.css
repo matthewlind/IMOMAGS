@@ -736,6 +736,12 @@ select.alter-sel {width:100%;}
 	margin-bottom: 2px;
 	color: grey;
 }
+.community-ad{
+	display: inline-block;
+	vertical-align: top;
+	width: 314px;
+	margin: 0 20px 34px 0;
+}
 .general-com .content-banner-section {
     margin:0 0 24px;
 }
@@ -1257,6 +1263,10 @@ select.alter-sel {width:100%;}
 
 /* Responsive styles */
 @media only screen and (max-width: 1096px) {
+	.community-ad{
+		display: block;
+		margin: 0 auto 34px;
+	}
     .delete-attachment{
         margin-left:97%;
     }
