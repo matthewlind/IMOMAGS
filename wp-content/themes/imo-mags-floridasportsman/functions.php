@@ -460,6 +460,52 @@ $labels = array(
             "query_var" => "blog",
             "rewrite" => array("slug"=>"blog"),
         ));
+        
+$labels = array(
+        'name' => _x( 'Where will you fish?', 'taxonomy general name' ),
+        'singular_name' => _x( 'Where will you fish?', 'taxonomy singular name' ),
+        'search_items' =>  __( 'Search BB Wheres' ),
+        'all_items' => __( 'All BB Wheres' ),
+        'edit_item' => __( 'Edit BB Where' ), 
+        'update_item' => __( 'Update BB Where' ),
+        'add_new_item' => __( 'Add New BB Where' ),
+        'new_item_name' => __( 'New BB Where Name' ),
+        'menu_name' => __( 'BB Where' ),
+    );
+    register_taxonomy(
+        "where",
+        "post",
+         array(
+            "labels" => $labels,
+            "hierarchical" => True,
+            "public" => True,
+            "show_ui" => True,
+            "query_var" => "where",
+            "rewrite" => array("slug"=>"where"),
+        ));
+        
+$labels = array(
+        'name' => _x( 'Best Boat Price', 'taxonomy general name' ),
+        'singular_name' => _x( 'Best Boat Price', 'taxonomy singular name' ),
+        'search_items' =>  __( 'Search BB Price' ),
+        'all_items' => __( 'All BB Prices' ),
+        'edit_item' => __( 'Edit BB Prices' ), 
+        'update_item' => __( 'Update BB Price' ),
+        'add_new_item' => __( 'Add New BB Price' ),
+        'new_item_name' => __( 'New BB Price Name' ),
+        'menu_name' => __( 'BB Price' ),
+    );
+    register_taxonomy(
+        "price",
+        "post",
+         array(
+            "labels" => $labels,
+            "hierarchical" => True,
+            "public" => True,
+            "show_ui" => True,
+            "query_var" => "price",
+            "rewrite" => array("slug"=>"price"),
+        ));
 
     //default configuration from carrington build
     $sidebar_settings = array(
@@ -500,6 +546,7 @@ function eg_add_rewrite_rules(){
     //add_rewrite_rule('(show|region|species|marketplace|activity|gear|column|page|blog)/(.+)/(show|region|species|marketplace|activity|gear|column|page|blog)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]&$matches[3]=$matches[4]', 'top'); 
     add_rewrite_rule('(show|region|species|marketplace|activity|gear|column|page|blog)/(.+)/(show|region|species|marketplace|activity|gear|column|page|blog)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]&$matches[3]=$matches[4]', 'top');
    // add_rewrite_rule('(show|region|species|marketplace|activity|gear|column|page|blog)/(.+)/?$' , 'index.php?$matches[1]=$matches[2]', 'top');
+   add_rewrite_rule('columns/florida-sportsman-best-boat/browse/?$','index.php', 'top');
     
 
      add_rewrite_tag('%gallery%','([^/]+)');

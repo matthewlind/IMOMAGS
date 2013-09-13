@@ -195,11 +195,36 @@ else {
 	</header><!-- #header -->
 	
 	<!-- Breadcrumbs -->
-	<?php if ( !is_front_page() && function_exists('yoast_breadcrumb') ): ?>
+	<?php if ( !is_front_page() && function_exists('yoast_breadcrumb') && !isset($_GET['where']) && !isset($_GET['price']) ): ?>
 	<div id="crumb-wrapper">
-		<?php	yoast_breadcrumb('<p id="breadcrumbs">','</p>'); ?>
+		<?php yoast_breadcrumb('<p id="breadcrumbs">','</p>'); ?>
 	</div>
 	<?php endif; ?>
+	
+	<?php if (isset($_GET['where']) || isset($_GET['price'])) {?>
+    <div id="crumb-wrapper">
+		<p id="breadcrumbs" style="text-transform:capitalize;">You are Here: <a href="/">Home</a> : <a href="">Your Best Boat</a> : <?php if (isset($_GET['where'])) {
+$taxonomy = 'where';
+$queried_term = get_query_var($taxonomy);
+$terms = get_terms($taxonomy, 'slug='.$queried_term);
+if ($terms) {
+  foreach($terms as $term) {
+    echo 'for ' . $term->name . '';
+  }
+}
+}
+?> <?php if (isset($_GET['price'])) {
+$taxonomy = 'price';
+$queried_term = get_query_var($taxonomy);
+$terms = get_terms($taxonomy, 'slug='.$queried_term);
+if ($terms) {
+  foreach($terms as $term) {
+    echo 'with a price range of ' . $term->name . '';
+  }
+}
+ } ?></p>
+	</div>
+    <?php } ?>
 	<!-- end Breadcrumbs -->
 	
 	<hr class="accessibility" />
