@@ -1347,8 +1347,8 @@ a.category-name-link:hover{
 }
 .pager-holder .btn-base {
     float:left;
-    margin-top:4px;
-    margin-right:15px;
+    margin:4px auto;
+    width: 250px;
 }
 
 .go-top {
