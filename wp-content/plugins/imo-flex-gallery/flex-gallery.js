@@ -1,3 +1,4 @@
+var isLoaded;
 function imoFlexSetupMobile(isCommunity){
 	community = isCommunity;
 	jQuery(document).ready(function(){
@@ -11,7 +12,57 @@ function imoFlexSetupMobile(isCommunity){
 	});
 }
 
-function imoFlexSetup(isCommunity, isFullScreenNow){
+function imoFlexInitiate(isCommunity, galleryID, totalSlides, isFullScreenNow) {
+	jQuery(function(){
+		var fslider = 
+			jQuery('#carousel-' + galleryID).flexslider({
+				animation: "slide",
+				controlNav: false,
+				animationLoop: false,
+				slideshow: false,
+				itemWidth: 80,
+				itemMargin: 0,
+				asNavFor: '#gallery-' + galleryID
+			});
+		jQuery('#gallery-' + galleryID).flexslider({
+			animation: "slide",
+			controlNav: false,
+			animationLoop: true,
+			animationSpeed: 200,
+			slideshow: false,
+			smoothHeight: false,
+			sync: '#carousel-' + galleryID,
+			start: function (slider) {
+				imoFlexSetup(isCommunity, galleryID, totalSlides, isFullScreenNow);
+			},
+			after: function (slider) {
+				_gaq.push(['_trackPageview',"/" + window.location.pathname + "#" + slider.currentSlide]);
+				document.getElementById('gallery-iframe-ad').contentWindow.location.reload();
+				
+				var theSlide = slider.currentSlide+1;
+				var theSlideTitleText = jQuery('#flex-content-title-'+theSlide+' a').text();
+				var theSlideTitleLink = jQuery('#flex-content-title-'+theSlide+' a').attr('href');
+				var totalSlidesCount = totalSlides;
+				while(totalSlidesCount > 0){
+					jQuery('#flex-content-'+totalSlidesCount).hide();
+					jQuery('#flex-content-title-'+totalSlidesCount).hide();
+					jQuery('#flex-content-community-'+totalSlidesCount).hide();
+					totalSlidesCount--;
+				}
+				jQuery('#flex-content-'+theSlide).show();
+				jQuery('#flex-content-title-'+theSlide).show();
+				jQuery('#flex-content-community-'+theSlide).show();
+				jQuery('span.current-slide').text(theSlide);
+				if(isCommunity == true) {
+					jQuery('.flex-gallery-title h2').html(truncateSlideTitle(theSlideTitleText, theSlideTitleLink));
+				}
+				jQuery('.flex-content').perfectScrollbar('update');	
+			}
+		});
+	});
+}
+
+function imoFlexSetup(isCommunity, galleryID, totalSlides, isFullScreenNow){
 	community = isCommunity;
 	isFullScreen = isFullScreenNow;
 	lockedOpen = false;
@@ -41,12 +92,14 @@ function imoFlexSetup(isCommunity, isFullScreenNow){
 		jQuery('#flex-content-1').show();
 		jQuery('#flex-content-title-1').show();
 		jQuery('#flex-content-community-1').show();
-		var initialTitle = jQuery('#flex-content-title-1').text();
+		var theSlideTitleText = jQuery('#flex-content-title-1 a').text();
+		var theSlideTitleLink = jQuery('#flex-content-title-1 a').attr('href');
 		if(community == true) {
-			jQuery('.flex-gallery-title h2').text(truncateSlideTitle(initialTitle));
+			jQuery('.flex-gallery-title h2').html(truncateSlideTitle(theSlideTitleText, theSlideTitleLink));
 		}
 		jQuery('.flex-content').perfectScrollbar();
 		
+		//Event triggers
 		jQuery('.flex-gallery-container, .flex-gallery-slide-out').mouseleave(function(){
 			setTimeout(function(){
 				if (containerHover == false && slideOutHover == false && lockedOpen == false && isFullScreen == false) {
@@ -96,7 +149,7 @@ function imoFlexSetup(isCommunity, isFullScreenNow){
 		});
 		jQuery('.community-select').change(function(){
 			lockedOpen = true;
-			flexSortReload();	
+			flexSortReload(isCommunity, galleryID, totalSlides, isFullScreenNow);	
 		});
 		jQuery(window).bind('resize', function () { 
 			if(isFullScreen == false) {
@@ -125,16 +178,17 @@ function imoFlexSetup(isCommunity, isFullScreenNow){
 	});
 }
 
-function truncateSlideTitle(theSlideTitle) {
-	if(theSlideTitle.length > 54) {
-		var theSlideTitle = theSlideTitle.substring(0,45);
-		var theSlideTitle = theSlideTitle + '. . .';
+function truncateSlideTitle(theSlideTitleText, theSlideTitleLink) {
+	if(theSlideTitleText.length > 54) {
+		var theSlideTitleText = theSlideTitleText.substring(0,45);
+		var theSlideTitleText = theSlideTitleText + '. . .';
 	}
-	if(theSlideTitle.length > 44) {
+	if(theSlideTitleText.length > 44) {
 		jQuery('.flex-gallery-title h2').addClass('flex-gallery-title-small');
 	} else {
 		jQuery('.flex-gallery-title h2').removeClass('flex-gallery-title-small');
 	}
+		var theSlideTitle = '<a href="'+theSlideTitleLink+'">'+theSlideTitleText+'</a>';
 	return theSlideTitle;
 }
 
@@ -417,21 +471,24 @@ function closeFullScreen() {
 	jQuery(window).scrollTop(jQuery('.flex-gallery-insertion-point').offset().top);
 }
 
-function flexSortReload() {
+function flexSortReload(isCommunity, galleryID, totalSlides, isFullScreenNow) {
 	var sortBy = jQuery('.community-select').val();
 	jQuery('.flex-gallery-slide-out-inner').hide();
 	jQuery('.flex-gallery-inner').hide();
 	jQuery('.flex-gallery-container').addClass('community-sort-reload');
 	jQuery('.community-sort-reload').css({'height':jQuery('.flex-gallery-inner').height()});
-	jQuery('.flex-gallery-container').load(window.location + '?gallery_sort='+sortBy+' .flex-gallery-inner', function() {
-		jQuery('.flex-gallery-slide-out').load(window.location + '?gallery_sort='+sortBy+' .flex-gallery-slide-out-inner', function() {
-				imoFlexInitiate(community, isFullScreen);
+	//jQuery('.flex-gallery-jquery-container').load(window.location + '?gallery_sort='+sortBy+' .flex-gallery-jquery', function() {
+		jQuery('.flex-gallery-container').load(window.location + '?gallery_sort='+sortBy+' .flex-gallery-inner', function() {
+			jQuery('.flex-gallery-slide-out').load(window.location + '?gallery_sort='+sortBy+' .flex-gallery-slide-out-inner', function() {
+					//the below are now "static" from the original load, need to change total slides as this could change by saving in div maybe
+					imoFlexInitiate(isCommunity, galleryID, totalSlides, isFullScreenNow);
+			});
+			jQuery('#flex-gallery-social-save').clone().attr('id', 'flex-gallery-social-save-clone').insertBefore(jQuery('#flex-gallery-social'));
+			jQuery('#flex-gallery-social-save-clone').removeClass('displayNone');
+			jQuery('#flex-gallery-social').remove();
+			jQuery('#flex-gallery-social-save-clone').attr('id', 'flex-gallery-social');
 		});
-		jQuery('#flex-gallery-social-save').clone().attr('id', 'flex-gallery-social-save-clone').insertBefore(jQuery('#flex-gallery-social'));
-		jQuery('#flex-gallery-social-save-clone').removeClass('displayNone');
-		jQuery('#flex-gallery-social').remove();
-		jQuery('#flex-gallery-social-save-clone').attr('id', 'flex-gallery-social');
-	});
+	//});
 }
 
 function flexSortReloadMobile() {
