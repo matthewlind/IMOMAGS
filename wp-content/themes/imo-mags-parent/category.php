@@ -51,10 +51,8 @@ get_header(); ?>
                                  */
                                 get_template_part( 'content/content', get_post_format() );
                             ?>
-                        <?php if ( $i  == 4 ){ ?>
-                        <!-- insert community gallery here -->
-                        <?php } ?>
-							
+                       
+                       							
                         <?php if ( (($i - (($paged -1) * 2 ))%6) == 0 ): ?>
                         
 	                        <?php if ( mobile() ){ ?>

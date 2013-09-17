@@ -110,7 +110,7 @@ jQuery(document).ready(function () {
 
 	// Load more 
 	if(jQuery(".next-link a").length){
-	    jQuery("a.btn-base").show();
+	    jQuery("a.btn-base").css("display","block");
     }
     	
 	if( jQuery(".mob-aside-menu .menu-main-menu-container").length ){
@@ -153,13 +153,14 @@ jQuery(document).ready(function () {
 							});
 	                    }
 	                    if(jQuery(".next-link a").length){
-						    jQuery("a.btn-base").show();
+						    jQuery("a.btn-base").css("display","block");
 					    }
 					}
 	            });
             }
         });
     });
+
 
 // Flash ad z-index pecking order fix
 jQuery(function(){
@@ -284,5 +285,28 @@ MBP.scaleFix();
 function updateSliderCounter(slider){
     jQuery(slider).find('.slide-count').html((slider.currentSlide + 1) + '/' + slider.count);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

@@ -1,4 +1,17 @@
 <?php
+//Gallery Scripts
+wp_enqueue_script('flexslider-js',plugins_url('imo-flex-gallery/jquery.flexslider.js'));
+wp_enqueue_style('flexslider-css',plugins_url('imo-flex-gallery/flexslider.css'));
+wp_enqueue_script('flex-gallery-js',plugins_url('imo-flex-gallery/flex-gallery.js'));
+wp_enqueue_script('jquery-mobile',plugins_url('imo-flex-gallery/jquery.mobile.custom.min.js'));
+wp_enqueue_script('jquery-ui-slide-effect',plugins_url('imo-flex-gallery/jquery-ui-slide-effect.min.js'));
+wp_enqueue_script('jquery-scrollface',plugins_url('imo-flex-gallery/jquery.scrollface.min.js'));
+wp_enqueue_script('jquery-buffet',plugins_url('imo-flex-gallery/jquery.buffet.min.js'));
+wp_enqueue_script('jquery-mousewheel',plugins_url('imo-flex-gallery/jquery.mousewheel.min.js'));
+wp_enqueue_script('perfect-scrollbar-js',plugins_url('imo-flex-gallery/perfect-scrollbar-0.4.3.with-mousewheel.min.js'));
+wp_enqueue_style('ajax-gallery-css',plugins_url('imo-flex-gallery/flex-gallery.css','imo-flex-gallery'));
+wp_enqueue_style('perfect-scrollbar-css',plugins_url('imo-flex-gallery/perfect-scrollbar-0.4.3.min.css'));
+
 $dataPos = 0;
 get_header(); ?>
         <?php imo_sidebar("landing");?>
@@ -19,42 +32,12 @@ get_header(); ?>
                     <?php
                     	$category_description = category_description();
                             if ( ! empty( $category_description ) )
-                                echo apply_filters( 'category_archive_meta', '<div data-position="'.$dataPos = $dataPos + 1 .'" class="category-archive-meta taxdescription js-responsive-section">' . $category_description . '</div>' );
-
-                        $fetured_slider_query = new WP_Query( 'category_name='.MASTER_ANGLERS.'&posts_per_page=20' ); ?>
-		                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="double-posts double-post-slider js-responsive-section">
-		                    <div class="jq-ma-slider clearfix">
-		                        <ul class="slides-inner slides">
-		                            <?php $i = 1  ?>
-		                            <?php while ($fetured_slider_query->have_posts()) : $fetured_slider_query->the_post(); ?>
-
-		                            <?php if (!(($i+1)%2) ): ?>
-		                            <li>
-		                            <?php endif; ?>
-
-		                            <div class="feat-post">
-		                                <div class="feat-img"><a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('post-home-small-thumb');?></a></div>
-		                                <div class="feat-text">
-		                                    <div class="clearfix">
-		                                    	<?php echo primary_and_secondary_categories(); ?>
-		                                    </div>
-		                                    <h3><a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a></h3>
-		                                    <!--<div class="shares-count">
-		                                        <?php render_shares_count(get_permalink(), $post->ID) ?> <span>Shares</span>
-		                                    </div>
-		                                    <a class="view-post" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">&nbsp;</a>-->
-		                                </div>
-		                            </div>
-
-		                            <?php if (!($i%2)): ?>
-		                            </li>
-		                            <?php endif; ?>
-
-		                            <?php $i++; ?>
-		                            <?php endwhile; ?>
-		                        </ul>
-		                    </div>
-		                </div>
+                                echo apply_filters( 'category_archive_meta', '<div data-position="'.$dataPos = $dataPos + 1 .'" class="category-archive-meta taxdescription js-responsive-section">' . $category_description . '</div>' ); ?>
+	                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="js-responsive-section">
+	                	<div class="custom-slider-section">
+	                	<?php //echo do_shortcode('[imo-slideshow community=true gallery=master-angler]'); ?>
+	                	</div>
+					</div>
 
                     <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="article-brief js-responsive-section ma-info">
 
@@ -114,38 +97,14 @@ get_header(); ?>
                             <li><a href="#">Most Shared</a></li>
                         </ul>
                     </div>-->
-                    <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="js-responsive-section main-content-preppend">
-
-                        <?php /* Start the Loop */
-                        //query_posts('category_name=master-angler&offset=6');
-                        $i = 1; while ( have_posts() ) : the_post(); ?>
-
-                            <?php
-                                /* Include the Post-Format-specific template for the content.
-                                 * If you want to overload this in a child theme then include a file
-                                 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-                                 */
-                                get_template_part( 'content/content', get_post_format() );
-                            ?>
-
-                       <?php if ( (($i - (($paged -1) * 2 ))%6) == 0 ): ?>
-	                        <?php if ( mobile() ){ ?>
-	                        <div class="image-banner posts-image-banner">
-	                            <?php imo_dart_tag("300x250",array("pos"=>"mob")); ?>
-	                        </div>
-	                        <?php } ?>
-                        <?php endif;?>
-
-                        <?php $i++; endwhile; ?>
-                    </div>
-
-                    <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="pager-holder js-responsive-section">
-                        <a href="#" class="btn-base">Load More</a>
-                        <div class="next-link" style="display:none;"><?php next_posts_link(); ?></div>
-                        <a href="#" class="go-top jq-go-top">go top</a>
-
-                        <img src="/wp-content/themes/infisherman/images/ajax-loader.gif" id="ajax-loader" style="display:none;"/>
-                    </div>
+                    <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" id="ma-entries" class="js-responsive-section main-content-preppend"></div>
+							
+						<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="pager-holder js-responsive-section">
+	                    <a href="#" class="btn-base load-more" style="display:block;">Load More</a>
+	                    <a href="#" class="go-top jq-go-top">go top</a>
+	
+	                    <img src="/wp-content/themes/infisherman/images/ajax-loader.gif" id="ajax-loader" style="display:none;"/>
+					</div>
                 <?php else : ?>
 
                     <div id="post-0" class="post no-results not-found">
