@@ -10,13 +10,26 @@ jQuery(document).ready(function($) {
         filter.master = 0;
         filter.skip = 0;
         filter.post_type = "all";
-        filter.per_page=10;
+        filter.per_page=11;
         filter.post_count = 10000000;
     }
 
     //Highlight the default menu item
     $("ul.filter #filter-menu-default").addClass("active");
-
+	
+	
+	//Place ads
+	function adPlacement() {
+			$("#posts-container .community-ad").remove();
+			if ($(window).width() <  1096 ) {
+				$('<div class="community-ad"><div class="image-banner"><iframe id="community-listing-ad" width=300 height=250 marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-community-ad.php?ad_code=imo.in-fisherman"></iframe></div></div>')
+				.insertAfter("#posts-container .dif-post:nth-child(5n)");
+			}else{
+				$('<div class="community-ad"><div class="image-banner"><iframe id="community-listing-ad" width=300 height=250 marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-community-ad.php?ad_code=imo.in-fisherman"></iframe></div></div>')
+				.insertAfter("#posts-container .dif-post:nth-child(10n)");
+			}
+	}
+	
     //Get the JSON using the above filter configuration and append the photos.
     getPhotosAndAppend();
     loadMoreCheck();
@@ -29,9 +42,10 @@ jQuery(document).ready(function($) {
 
                 var postHTML = _.template( $('#post-template').html() , { post: post });
                 $("#posts-container").append(postHTML);
+               
 
             });
-
+			adPlacement();
             //hide the ajax loading spinner
             $("#ajax-loader").hide();
 
@@ -75,17 +89,17 @@ jQuery(document).ready(function($) {
 
     //Loadmore button
   $("a.load-more").click(function(ev){
-    	ev.preventDefault();
-
-    filter.skip = filter.skip + filter.per_page;
-	    getPhotosAndAppend();
-	
-	    loadMoreCheck();
-	    //refresh the sticky ad on load more
-        if (jQuery(window).width() >  610 ) {
-        	document.getElementById('sticky-iframe-ad').contentWindow.location.reload();
-        	jQuery(".sidebar.advert").css({
-            	display: 'block',
+		ev.preventDefault();
+		
+		filter.skip = filter.skip + filter.per_page;
+		getPhotosAndAppend();
+		
+		loadMoreCheck();
+		//refresh the sticky ad on load more
+		if (jQuery(window).width() >  610 ) {
+			document.getElementById('sticky-iframe-ad').contentWindow.location.reload();
+			jQuery(".sidebar.advert").css({
+		    	display: 'block',
 				position: 'fixed',
 				top: 10
 			});

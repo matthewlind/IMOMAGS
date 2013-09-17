@@ -21,6 +21,7 @@
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 
 
+
 get_header();
 imo_sidebar("community");
 
@@ -54,8 +55,6 @@ if(mobile()){
 <!-- *********************************************************** -->
 <script type="text/template" id="post-template">
 <%
-
-
 if(post.score == 1){
 	niceScore = post.score + ' Point';
 }else{
@@ -72,10 +71,10 @@ if(post.score == 1){
             <h3><a href="/photos/<%= post.id %>"><%= post.title %></a></h3>
             <div class="profile-panel">
                 <div class="profile-photo">
-                    <a href="/profile/<%= post.username %>"><img src="/avatar?uid=<%= post.user_id %>" alt="<%= post.username %>" title="<%= post.username %>" /></a>
+                    <a href="/profile/<%= post.user_nicename %>"><img src="/avatar?uid=<%= post.user_id %>" alt="<%= post.user_nicename %>" title="<%= post.user_nicename %>" /></a>
                 </div>
                 <div class="profile-data">
-                    <h4><a href="/profile/<%= post.username %>"><%= post.display_name %></a></h4>
+                    <h4><a href="/profile/<%= post.user_nicename %>"><%= post.display_name %></a></h4>
                     <ul class="prof-tags">
                         <!--<li><a href="#"><%= post.state %></a></li>-->
                         <li><a href="/<%= post.post_type %>" style="text-transform:capitalize;"><%= post.post_type %></a></li>
@@ -109,7 +108,7 @@ if(post.score == 1){
                 <p>In-Fisherman, the world's foremost authority on freshwater fishing for over three decades, invites you to share your latest and greatest fishing photos, stories, tips, reports and more. Start uploading from your desktop or phone today!</p>
 			</div>
         </div>
-		<div class="custom-slider-section mobile-hidden-section">
+		<div class="custom-slider-section">
             <?php //echo do_shortcode('[imo-slideshow community=true]'); ?>
         </div>
 

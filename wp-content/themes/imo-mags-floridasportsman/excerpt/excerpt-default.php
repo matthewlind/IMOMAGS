@@ -33,14 +33,13 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 		<?php
 		the_excerpt();
 		?>
-        	<div class="entry-info">
-			<span class="author vcard"><span class="fn">by <?php the_author(); ?></span></span>
-			<span class="spacer">&bull;</span>
-			<abbr class="published" title="<?php the_time('Y-m-d\TH:i'); ?>"><?php the_time('F j, Y'); ?></abbr>
-			<span class="spacer">&bull;</span>
-			
-			<?php comments_popup_link(__('No comments', 'carrington-business'), __('1 comment', 'carrington-business'), __('% comments', 'carrington-business')); ?>
-		</div>
+        	<?php if (!isset($_GET['price']) || !isset($_GET['where'])) { ?><div class="entry-info">
+				<span class="author vcard"><span class="fn">by <?php the_author(); ?></span></span>
+				<span class="spacer">&bull;</span>
+				<abbr class="published" title="<?php the_time('Y-m-d\TH:i'); ?>"><?php the_time('F j, Y'); ?></abbr>
+				<span class="spacer">&bull;</span>
+				<?php comments_popup_link(__('No comments', 'carrington-business'), __('1 comment', 'carrington-business'), __('% comments', 'carrington-business')); ?>
+			</div><?php } ?>
 	</div>
 	<div class="entry-footer">
 		<?php _e('In', 'carrington-business'); ?>

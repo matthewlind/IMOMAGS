@@ -2,8 +2,8 @@
 /*
  * Plugin Name: IMO Flex Gallery
  * Plugin URI: http://github.com/imoutdoors
- * Description: Adds a shortcode for responsive Flex galleries, v0.5 includes Community API support. Requires IMO Varnish Device Detection plugin. NextGen Gallery plugin required for NextGen based galleries. IMO Community API plugin required for comunity galleries.
- * Version: 0.5
+ * Description: Adds a shortcode for responsive Flex galleries. Requires deactivation of IMO Ajax Gallery and activation of IMO Varnish Device Detection. NextGen Gallery activation required for NextGen based galleries (not community). IMO Community API activation required for comunity galleries.
+ * Version: 0.6
  * Author: Salah for InterMedia Outdoors
  */
 
@@ -43,19 +43,21 @@ function imoCommunityGallery($gallery, $community, $tag, $dartDomain) {
 			$jsonData = file_get_contents($baseUrl.'/community-api/posts?sort=DESC&post_type='.$gallery.'&order_by='.$_GET['gallery_sort']);
 		} else {
 			$jsonData = file_get_contents($baseUrl.'/community-api/posts?sort=DESC&order_by='.$_GET['gallery_sort']);
+			$gallery = 'all';
 		}
 	} else {
 		if($gallery) {
 			$jsonData = file_get_contents($baseUrl.'/community-api/posts?sort=DESC&post_type='.$gallery);
 		} else {
 			$jsonData = file_get_contents($baseUrl.'/community-api/posts?sort=DESC');
+			$gallery = 'all';
 		}
 	}
 	$pictures = json_decode($jsonData);
 	$emptySlides = 0;
 	foreach ($pictures as $picture) {if(empty($picture->img_url)) $emptySlides = $emptySlides + 1;}
 	$totalSlides = count($pictures) - $emptySlides;
-	return galleryOutput($pictures, $totalSlides, $dartDomain, $community, $baseUrl);
+	return galleryOutput($gallery, $pictures, $totalSlides, $dartDomain, $community, $baseUrl);
 }
 
 
@@ -93,10 +95,10 @@ function imoGallery($gallery, $community, $tag, $dartDomain) {
   }
 
 	$totalSlides = count($pictures);
-	return galleryOutput($pictures, $totalSlides, $dartDomain, $community, $baseUrl);
+	return galleryOutput($gallery, $pictures, $totalSlides, $dartDomain, $community, $baseUrl);
 }
 
-function galleryOutput($pictures, $totalSlides, $dartDomain, $community, $baseUrl) {
+function galleryOutput($gallery, $pictures, $totalSlides, $dartDomain, $community, $baseUrl) {
 	if (function_exists('imo_add_this')) {
 		ob_start();
 		imo_add_this();
@@ -108,9 +110,12 @@ function galleryOutput($pictures, $totalSlides, $dartDomain, $community, $baseUr
 	} else {
 		$title = stripcslashes($pictures[0]->title);
 	}
-	if(is_single()){$closeDiv = '</div><!-- .entry-content -->';}
+	if(is_single()){
+		$entryContentClose = '</div><!-- .entry-content -->';
+		$entryContentOpen = '<div class="entry-content">';
+	}
 	$desktop_tablet_output = <<<EOT_a1
-	$closeDiv
+	$entryContentClose
 	<div class="flex-gallery-insertion-point"></div>
 	<div class="flex-gallery-container $communityClass">
 	<div class="imo-flex-loading-block flex-gallery-inner">
@@ -126,6 +131,7 @@ function galleryOutput($pictures, $totalSlides, $dartDomain, $community, $baseUr
 		</div>
 		    <ul class="slides">
 EOT_a1;
+	$count = 1;
 	foreach ($pictures as $picture) {
 		if(!empty($picture->img_url)) {
 			if($community == true ) {
@@ -133,17 +139,19 @@ EOT_a1;
 				//$picture->img_url = $baseUrl.$picture->img_url;
 				$picture->thumbnail = $picture->img_url;
 				$picture->description = $picture->body;
-				$image = '<a href="'.$baseUrl.'/photos/'.$picture->id.'"><img src="'.$picture->img_url.'" alt="'.$picture->title.'" class="slide-image"></a>';
+				$image = '<img src="'.$picture->img_url.'" alt="'.$picture->title.'" class="slide-image">';
 			} else {
 				$picture->title = stripcslashes($picture->alttext);
-				$picture->description = stripcslashes($picture->description);
+				$picture->descriptionRaw = stripcslashes($picture->description);
+				$picture->description = strip_tags($picture->description, '<p><a><br><b><i><strong><u>');
 				$image = '<img src="'.$picture->img_url.'" alt="'.$picture->title.'" class="slide-image">';
 			}
 $desktop_tablet_output .= <<<EOT_a2
-		        <li class="flex-slide">				
+		        <li class="flex-slide flex-slide-$count">				
 		           $image				
 		        </li>
 EOT_a2;
+		$count++;
 		}
 	}
 $desktop_tablet_output .= <<<EOT_a3
@@ -203,12 +211,18 @@ EOT_a5_2;
 					$replies = $picture->comment_count.' Replies';	
 				}
 			}
+			if($community == true){
+				$pictureTitle = '<a href="'.$baseUrl.'/photos/'.$picture->id.'">'.$picture->title.'</a>';
+			} else {
+				$pictureTitle = $picture->title;
+			}
 $desktop_tablet_output .= <<<EOT_a6
-					<span id="flex-content-title-$count" class="slide-out-content-title">$picture->title</span>
+					<span id="flex-content-title-$count" class="slide-out-content-title">$pictureTitle</span>
 					<div class="clear"></div>
 					<div id="flex-content-$count" class="flex-content">
 							<div class="clear"></div>
 							$picture->description
+							<div id="flex-content-$count-html" class="displayNone">$picture->descriptionRaw</div>
 					</div>
 					<div class="community-only">
 						<div id="flex-content-community-$count" class="slide-out-community-features">
@@ -229,68 +243,17 @@ $desktop_tablet_output .= <<<EOF_a
 				<div class="slide-out-ad-cover"></div>
 			</div>
 		</div>
-
+</div><!-- .flex-gallery-container -->
 	<div class="flex-gallery-jquery-container">
 		<div class="flex-gallery-jquery">
 			<script type="text/javascript">	
-			function imoFlexInitiate(isCommunity, isFullScreenNow) {
-				jQuery(function(){
-					var fslider = 
-					jQuery('#carousel-$gallery').flexslider({
-						animation: "slide",
-						controlNav: false,
-						animationLoop: false,
-						slideshow: false,
-						itemWidth: 80,
-						itemMargin: 0,
-						asNavFor: '#gallery-$gallery'
-					});
-					jQuery('#gallery-$gallery').flexslider({
-						animation: "slide",
-						controlNav: false,
-						animationLoop: true,
-						animationSpeed: 200,
-						slideshow: false,
-						smoothHeight: false,
-						sync: '#carousel-$gallery',
-						start: function (slider) {
-							imoFlexSetup(isCommunity, isFullScreenNow);
-						},
-						after: function (slider) {
-							
-							_gaq.push(['_trackPageview',"/" + window.location.pathname + "#" + slider.currentSlide]);
-							document.getElementById('gallery-iframe-ad').contentWindow.location.reload();
-							
-							var totalSlides = '$totalSlides';
-							var theSlide = slider.currentSlide+1;
-							var theSlideTitle = jQuery('#flex-content-title-'+theSlide).text();
-							while(totalSlides > 0){
-								jQuery('#flex-content-'+totalSlides).hide();
-								jQuery('#flex-content-title-'+totalSlides).hide();
-								jQuery('#flex-content-community-'+totalSlides).hide();
-								totalSlides--;
-							}
-							jQuery('#flex-content-'+theSlide).show();
-							jQuery('#flex-content-title-'+theSlide).show();
-							jQuery('#flex-content-community-'+theSlide).show();
-							jQuery('span.current-slide').text(theSlide);
-							if(isCommunity == true) {
-								jQuery('.flex-gallery-title h2').text(truncateSlideTitle(theSlideTitle));
-							}
-							jQuery('.flex-content').perfectScrollbar('update');	
-	
-						}
-					});
-				});
-			}
-			imoFlexInitiate($community, false);
+				imoFlexInitiate($community, "$gallery", $totalSlides, false);
 			</script>
 		</div>
 	</div>
-</div><!-- .flex-gallery-container -->
 <div id="flex-gallery-social-save" class="displayNone">$addThis</div>
 <div class="background-overlay"></div>
-<div class="entry-content">
+$entryContentOpen
 EOF_a;
 
 /* Begin Mobile */

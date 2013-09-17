@@ -1347,8 +1347,8 @@ a.category-name-link:hover{
 }
 .pager-holder .btn-base {
     float:left;
-    margin-top:4px;
-    margin-right:15px;
+    margin:4px auto;
+    width: 250px;
 }
 
 .go-top {
@@ -2346,6 +2346,10 @@ h2.related-stories{
 	margin-bottom: 12px !important;
 	bottom: -12px;
 }
+#join .flex-direction-nav a{
+	top: 124px;
+	background-color:black;
+}
 .slider-view-more{
 	background-color: #eee;
 }
@@ -2440,6 +2444,7 @@ h2.related-stories{
 .jq-explore-slider-sidebar img:hover{
 	opacity:0.7;-webkit-transition: 0.6s;-moz-transition: 0.6s;transition: 0.6s;
 }
+
 /* Master Angler
  ******************************************************************************/
 .category-master-angler .page-header img{
@@ -2855,6 +2860,113 @@ h2.related-stories{
 	.page-template-core-experts-php .single-post-slider.left{
 	    margin-right: 10px;
     }
+    
+    /* TipTip CSS - Version 1.2 */
+
+	#tiptip_holder {
+		display: none;
+		position: absolute;
+		top: 48px;
+		right: 6px;
+		z-index: 9999999999999999999999;
+		width: 110px;
+		text-align: center;
+	}
+	
+	#tiptip_holder.tip_top {
+		padding-bottom: 5px;
+	}
+	
+	#tiptip_holder.tip_bottom {
+		padding-top: 5px;
+	}
+	
+	#tiptip_holder.tip_right {
+		padding-left: 5px;
+	}
+	
+	#tiptip_holder.tip_left {
+		padding-right: 5px;
+	}
+	
+	#tiptip_content {
+		font-size: 13px;
+		color: #fff;
+		text-shadow: 0 0 2px #000;
+		text-transform: uppercase;
+		font-weight: bold;
+		padding: 10px 8px 14px;
+		border: 1px solid rgba(255,255,255,0.25);
+		background-color: rgb(25,25,25);
+		background-color: rgba(25,25,25,0.92);
+		background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(transparent), to(#000));
+		border-radius: 3px;
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		box-shadow: 0 0 3px #555;
+		-webkit-box-shadow: 0 0 3px #555;
+		-moz-box-shadow: 0 0 3px #555;
+		
+	}
+	
+	#tiptip_arrow, #tiptip_arrow_inner {
+		position: absolute;
+		border-color: transparent;
+		border-style: solid;
+		border-width: 6px;
+		height: 0;
+		width: 0;
+		margin-top: -13px;
+		right: 6px;
+	}
+	
+	#tiptip_holder.tip_top #tiptip_arrow {
+		border-top-color: #fff;
+		border-top-color: rgba(255,255,255,0.35);
+	}
+	
+	#tiptip_holder.tip_bottom #tiptip_arrow {
+		border-bottom-color: #fff;
+		border-bottom-color: rgba(255,255,255,0.35);
+	}
+	
+	#tiptip_holder.tip_right #tiptip_arrow {
+		border-right-color: #fff;
+		border-right-color: rgba(255,255,255,0.35);
+	}
+	
+	#tiptip_holder.tip_left #tiptip_arrow {
+		border-left-color: #fff;
+		border-left-color: rgba(255,255,255,0.35);
+	}
+	
+	#tiptip_holder.tip_top #tiptip_arrow_inner {
+		margin-top: -7px;
+		margin-left: -6px;
+		border-top-color: rgb(25,25,25);
+		border-top-color: rgba(25,25,25,0.92);
+	}
+	
+	#tiptip_holder.tip_bottom #tiptip_arrow_inner {
+		margin-top: -5px;
+		margin-left: -6px;
+		border-bottom-color: rgb(25,25,25);
+		border-bottom-color: rgba(25,25,25,0.92);
+	}
+	
+	#tiptip_holder.tip_right #tiptip_arrow_inner {
+		margin-top: -6px;
+		margin-left: -5px;
+		border-right-color: rgb(25,25,25);
+		border-right-color: rgba(25,25,25,0.92);
+	}
+	
+	#tiptip_holder.tip_left #tiptip_arrow_inner {
+		margin-top: -6px;
+		margin-left: -7px;
+		border-left-color: rgb(25,25,25);
+		border-left-color: rgba(25,25,25,0.92);
+	}
 
 }
 
@@ -3229,6 +3341,15 @@ h2.related-stories{
 }
 
 @media only screen and (max-width: 610px) {
+	#join .flex-direction-nav a{
+		display: none;
+	}
+	#tiptip_holder{
+		top:40px;
+	}
+	#tiptip_arrow, #tiptip_arrow_inner{
+		right: 3px;
+	}
     .article-brief .comment-count,
     .foot-sub-logos,
     .copyright img,
@@ -3690,7 +3811,19 @@ h2.related-stories{
 
 }
 
-
+/* Webkit Hacks  */
+@media screen and (-webkit-min-device-pixel-ratio:0) {	
+	#tiptip_content {
+		padding: 10px 8px 14px;
+		background-color: rgba(45,45,45,0.88);
+	}
+	#tiptip_holder.tip_bottom #tiptip_arrow_inner { 
+		border-bottom-color: rgba(45,45,45,0.88);
+	}
+	#tiptip_holder.tip_top #tiptip_arrow_inner { 
+		border-top-color: rgba(20,20,20,0.92);
+	}
+}
 /* =Print styles
 *******************************************************************************/
 @media print {

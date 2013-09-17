@@ -7,7 +7,23 @@ jQuery(window).load(function() {
 
 
 jQuery(document).ready(function () {
-
+	
+	jQuery(function(){
+		
+		if(jQuery.cookie('hide_alert') == null){
+		
+			jQuery("#tiptip_holder").show();
+			jQuery(".community-tooltip").tipTip();
+			
+			jQuery(".user-btn").click(function(){
+				jQuery("#tiptip_holder").hide();
+				jQuery.cookie('hide_alert', true);
+			});
+		}
+		
+	});
+	
+	
 	var snapper = new Snap({
 		element: document.getElementById('page')
 	});
@@ -24,8 +40,8 @@ jQuery(document).ready(function () {
 		var state = snapper.state(),
 		towards = state.info.towards,
 		opening = state.info.opening;
-	if(opening=='right' && towards=='left'){
-		jQuery(".snap-drawer-left").hide();
+		if(opening=='right' && towards=='left'){
+			jQuery(".snap-drawer-left").hide();
 			jQuery(".snap-drawer-right").show();
 			
 		} else if(opening=='left' && towards=='right') {
@@ -38,76 +54,45 @@ jQuery(document).ready(function () {
 	snapper.on('drag', UpdateDrawers);
 	snapper.on('animating', UpdateDrawers);
 	snapper.on('animated', UpdateDrawers);
-		
-	ie9 = false;
 	
+
+		
+
 	//Left Menu
 	addEvent(document.getElementById('open-left'), 'click', function(){
-		
-		var data = snapper.state();
-		
-		//IE9 menu close fix
-		if( jQuery("#page").hasClass("ie9fix") ){
-			if( ie9 == false ){
-				jQuery(".snap-drawer-left").show();
-	        	snapper.open("left");
-	        	_gaq.push(['_trackPageview',"/" + window.location.pathname + "-mobile-menu-open"]);  
-	        	ie9 = true;
-				document.getElementById('menu-iframe-ad').contentWindow.location.reload();
 
-			} else {
-				ie9 = false;
-				snapper.close();
-				jQuery(".snap-drawer-left").fadeOut();
-		   	}
-		}else{
-			if( data.state == "closed" ){
-				//jQuery(".snap-drawers-right").hide();
-				jQuery(".snap-drawer-left").show();
-	        	snapper.open("left");
-	        	_gaq.push(['_trackPageview',"/" + window.location.pathname + "-mobile-menu-open"]);  
-				document.getElementById('menu-iframe-ad').contentWindow.location.reload();
-	
-			} else {
-				snapper.close();
-				jQuery(".snap-drawers-left").fadeOut();
-		   	}
+		if( jQuery("body").hasClass("snapjs-left") ){
+			snapper.close();
+			jQuery(".snap-drawer-left").fadeOut();
+
+		} else {
+			jQuery("#tiptip_holder").hide();
+			jQuery(".snap-drawer-right").hide();
+			jQuery(".snap-drawer-left").show();
+        	
+        	_gaq.push(['_trackPageview',"/" + window.location.pathname + "-mobile-menu-open"]);  
+			document.getElementById('menu-iframe-ad').contentWindow.location.reload();
+			snapper.open("left");
+			
 		}
+	
 	});
 	
 	//Community Menu
     addEvent(document.getElementById('comm-mob-menu'), 'click', function(){
-    
-    	var data = snapper.state();
-    	
-    	if( jQuery("#page").hasClass("ie9fix") ){
-			if( ie9 == false ){
-				jQuery(".snap-drawer-right").show();
-				jQuery("#jpsuperheader").addClass("jp-right-menu-open");
-	        	snapper.open("right");
-	        	_gaq.push(['_trackPageview',"/" + window.location.pathname + "-mobile-menu-open"]);  
-	        	ie9 = true;
-				document.getElementById('menu-iframe-ad').contentWindow.location.reload();
 
-			} else {
-				ie9 = false;
-				snapper.close();
-				jQuery(".snap-drawer-right").fadeOut();
-		   	}
-		}else{
-		
-	        if( data.state == "closed" ){
-	        	//jQuery(".snap-drawers-left").hide();
-	        	jQuery(".snap-drawer-right").show();
-	        	jQuery("#jpsuperheader").addClass("jp-right-menu-open");
-	        	snapper.open('right');
-		        _gaq.push(['_trackPageview',"/" + window.location.pathname + "-mobile-menu-open"]);  
-				document.getElementById('menu-iframe-ad').contentWindow.location.reload();
-			} else {
-				jQuery(".snap-drawer-right").fadeOut();
-				snapper.close();				
-			}
+    	if( jQuery("body").hasClass("snapjs-right") ){
+        	jQuery(".snap-drawer-right").fadeOut();
+			snapper.close();
+		} else {
+			jQuery(".snap-drawer-left").hide();
+        	jQuery(".snap-drawer-right").show();
+        	jQuery("#jpsuperheader").addClass("jp-right-menu-open");
+        	snapper.open('right');
+	        _gaq.push(['_trackPageview',"/" + window.location.pathname + "-mobile-menu-open"]);  
+			document.getElementById('menu-iframe-ad').contentWindow.location.reload();				
 		}
+		
     });
 		
 	/* Prevent Safari opening links when viewing as a Mobile App */
@@ -242,7 +227,7 @@ jQuery(function(){
         animationSpeed: 200,
         slideshow: false,
         controlNav: true,
-        directionNav: false,
+        directionNav: true,
         itemWidth: 123,
         itemMargin: 0,
         minItems: 2,

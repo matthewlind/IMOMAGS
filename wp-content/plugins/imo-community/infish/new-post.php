@@ -406,7 +406,7 @@ include 'common-templates.php';
 <div class="page-community">
 	<div class="general general-com">
 		<div class="custom-title clearfix">
-            <img src="<?php echo plugins_url('images/fishhead2.png' , __FILE__ ); ?>" alt="FishHeads" class="custom-tite-logo">
+            <a href="/photos"><img src="<?php echo plugins_url('images/fishhead2.png' , __FILE__ ); ?>" alt="FishHeads" class="custom-tite-logo"></a>
             <div class="title-crumbs">
                 <h1>Fishhead Photos</h1>
                 <p>In-Fisherman, the world's foremost authority on freshwater fishing for over three decades, invites you to share your latest and greatest fishing photos, stories, tips, reports and more. Start uploading from your desktop or phone today!</p>
