@@ -1203,7 +1203,7 @@ a.comment-count:hover {
   line-height: 1.2;
   margin-top: 5px;
   width: 95%;
-  
+
 }
 /* line 839, sass/style.scss */
 .entry-excerpt .entry-title a {
@@ -6767,11 +6767,16 @@ font-size: 0.72em;
 	height: 30px;
 }
 .cross-site-feed{margin-top: 40px;}
-.cross-site-feed-more-button, .local-site-feed-more-button{
+.cross-site-feed-more-button,.category-cross-site-feed-more-button, .local-site-feed-more-button{
 	margin-bottom: 60px;
 	clear: both;
 	width: 682px;
 }
+
+.category-header-image {
+  margin-bottom:20px;
+}
+
 .more-button{
 	position: relative;
 	font-weight: bold;

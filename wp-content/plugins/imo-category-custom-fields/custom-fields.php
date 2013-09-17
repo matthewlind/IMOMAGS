@@ -22,8 +22,39 @@ function imo_category_page_scripts() {
 
 		wp_enqueue_script("category-network-feed",plugins_url('category-network-feed.js', __FILE__),array('jquery'));
 
+
+
 	}
 }
+
+add_action('template_redirect', 'imo_category_template_redirect');
+function imo_category_template_redirect() {
+    if (is_category()) {
+
+    	$categoryID = get_query_var('cat');
+
+
+    	if (get_option('use_network_feed_'.$categoryID, false) || get_option('full_width_image_'.$categoryID, false)) {
+
+			if ( $overridden_template = locate_template( 'category-network-feed.php' ) ) {
+			// locate_template() returns path to file
+			// if either the child theme or the parent theme have overridden the template
+			load_template( $overridden_template );
+			} else {
+			// If neither the child nor parent theme have overridden the template,
+			// we load the template from the 'templates' sub-directory of the directory this file is in
+			load_template( dirname( __FILE__ ) . '/category-network-feed.php' );
+			}
+			exit;
+    	}
+
+
+    }
+}
+
+
+
+
 
 function imo_category_add_field($term) {
 
