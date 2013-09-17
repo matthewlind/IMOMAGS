@@ -11,6 +11,7 @@ $app->get('/posts/counts', function () {
 	$order_by = "id"; //e.g. "created","view_count"
 	$sort = "DESC";
 	$domain = convertDevDomainToDotCom($_SERVER['HTTP_HOST']);
+	$master = 0;
 
 	//Grab the parameters
 	$params = \Slim\Slim::getInstance()->request()->get();
@@ -72,6 +73,18 @@ $app->get('/posts/counts', function () {
 		exit();
 	}
 
+	//Check for master angler
+	$masterClause = "";
+	if ($master == 0) {
+		$masterClause = "";
+	} else if ($master == 1) {
+		$masterClause = "AND master = 1";
+	} else {
+		echo $master;
+		header('HTTP 1.1/400 Bad Request', true, 400);
+		exit();
+	}
+
 
 	//IF order_by  is less than 22 characters and is only lowercase letters and underscores
 	if (preg_match("/^[a-z_]{1,22}$/", $order_by)) {
@@ -97,7 +110,7 @@ $app->get('/posts/counts', function () {
 		$db = dbConnect();
 
 
-		$sql = "SELECT count(*) as post_count FROM allcounts2 WHERE $postTypeClause $stateClause $domainClause $requireImagesClause $orderByClause $sortClause ";
+		$sql = "SELECT count(*) as post_count FROM allcounts2 WHERE $postTypeClause $stateClause $domainClause $masterClause $requireImagesClause $orderByClause $sortClause ";
 
 
 
