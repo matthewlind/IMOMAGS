@@ -1,0 +1,129 @@
+#new-post-form .email-signup-button{
+	padding-top: 1px;
+}
+
+.enter-master-angler {
+	float: none;
+	display: block;
+	width: 100%;
+	text-align: center;
+	clear: both;
+	position: relative;
+	padding: 20px 0px 20px 0px;
+	margin:10px 0px 20px 0px;
+	border: 3px solid #dbdbd9;
+	background: url(../images/body.jpg) repeat;
+}
+
+input[type="text"].title-input {
+	width:100%;
+}
+
+.fishsize {
+	width: 30%;
+}
+
+.basic-form input[type="text"].fishsize {
+	width:30%;
+}
+
+.f-row-center {
+	text-align: center;
+}
+
+span.worl {
+	text-align: center;
+	display: inline-block;
+	width: 5%;
+}
+
+.basic-form input[type="text"].fishsize:first-child {
+	margin-right:1%;
+}
+
+.basic-form input[type="text"].fishsize:last-child {
+	margin-left:1%;
+}
+
+.btn-left {
+	float:left;
+	background-image:none;
+	background-color:#3c3c3c;
+	text-shadow: none;
+}
+
+.btn-right {
+	float:right;
+}
+
+.btn-new-post {
+	margin:20px 20px 20px 20px;
+	display:inline-block;
+}
+
+
+.btn-red a.no-thanks {
+	text-shadow: none;
+}
+
+.btn-red a {
+	border: 0;
+	background: none;
+	width: 177px;
+	height: 42px;
+	padding: 0;
+	margin: 0;
+	position: relative;
+	z-index: 20;
+	font: 17px/20px "stagbold", serif;
+	text-shadow: 0 -1px 0 #7a0c11;
+	color: #fff;
+}
+
+.enter-master-angler p {
+	margin-bottom:20px;
+	margin-top:10px;
+
+
+}
+
+.btn-submit {
+	margin-right:auto;
+	margin-left:auto;
+}
+
+a.ma-read-rules {
+	display: block;
+}
+.enter-master-angler a.ma-read-rules {
+	font-size:12px;
+}
+
+h2 span {
+	color:black;
+}
+
+.submit-area {
+	width: 280px;
+	margin: 10px auto 10px auto;
+}
+
+#ma-state,#ma-species {
+	display:block;
+}
+
+
+
+/* Responsive styles */
+@media only screen and (max-width: 1096px) {
+.btn-left,.btn-right  {
+	float:none;
+	margin-top:10px;
+	margin-bottom:10px;
+
+}
+
+
+
+
+}

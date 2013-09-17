@@ -210,6 +210,7 @@ if(document.location.protocol=='http:'){
 <script type="text/javascript" src="/wp-content/themes/imo-mags-northamericanwhitetail/js/flash_heed.js"></script>
 </head>
 <body <?php body_class(); ?>>
+<?php imo_dart_tag("1x1",false,array("pos"=>"skin")); ?>
 <div id="fb-root"></div>
 
 

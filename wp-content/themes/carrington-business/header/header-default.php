@@ -64,6 +64,12 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 </head>
 <body <?php body_class(); ?>>
 <?php imo_dart_tag("1x1",false,array("pos"=>"skin")); ?>
+<!-- Site - Bowhunter -->
+<div id='div-gpt-ad-1378748370877-7' style='width:970px; height:90px;'>
+	<script type='text/javascript'>
+		googletag.cmd.push(function() { googletag.display('div-gpt-ad-1378748370877-7'); });
+	</script>
+</div>
 	<?php 
 	if($_SERVER['SERVER_NAME'] == "www.flyfisherman.com" && is_page("destinations")){
 		$clickable = true;

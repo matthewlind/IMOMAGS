@@ -87,7 +87,7 @@ function _imo_dart_get_params($size, $tile) {
     // for referecee
     $sizes = array(
         "box-ad" => "300x250", "skyscraper" => "160x600", "leaderboard" => "728x90",
-        "rectangle" => "180x150", "wide-skyscraper" => "300x600", "button2" => "120x60","product-widget" => "564x252","site-skin" => "1x1"
+        "rectangle" => "180x150", "wide-skyscraper" => "300x600", "button2" => "120x60","product-widget" => "564x252","mobile-ad" => "320x50","site-skin" => "1x1","ford-widget" => "300x602", "sponsor" => "240x60"
     );
     if ( !in_array($size, $sizes)) {
         $size = "300x250";
@@ -100,7 +100,7 @@ function _imo_dart_get_params($size, $tile) {
         "height"=> array_pop(explode("x", $size)),
         "size" => $size,
         "tile" => $tile,
-        "refresh" => 45,
+       // "refresh" => '',
     );
 
 
@@ -357,7 +357,7 @@ if (__FILE__ == $_SERVER['PWD'] . '/'. $_SERVER['SCRIPT_FILENAME']) {
 function iframe_maker () {
     if (preg_match("/^\/iframe-advert\.php(\?(.+)?)?$/", $_SERVER['REQUEST_URI']))
     {
-        $refresh_rate = ( intval($_GET['rr']) < 45 || empty($_GET['rr']) ) ? 45 : intval($_GET['rr']);
+        //$refresh_rate = ( intval($_GET['rr']) < 45 || empty($_GET['rr']) ) ? 45 : intval($_GET['rr']);
          $sizes = array(
             "box-ad" => "300x250", "skyscraper" => "160x600", "leaderboard" => "728x90",
             "rectangle" => "180x150", "wide-skyscraper" => "300x600", "button2" => "120x60",
@@ -377,7 +377,7 @@ function iframe_maker () {
 <!DOCTYPE html>
 <html>
     <head>
-    <meta http-equiv="refresh" content="<?php print $refresh_rate; ?>">
+    <meta http-equiv="refresh" content="<?php //print $refresh_rate; ?>">
     </head>
     <body style="margin:0px;border:0px;">
         <script type="text/javascript">

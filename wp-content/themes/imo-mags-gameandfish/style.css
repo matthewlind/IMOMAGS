@@ -734,6 +734,15 @@ p.state-name{
 	font-size: 14px;
 }
 
+.category-fall-iiyn #main-content .str-content {
+	padding-left:0px;
+}
+
+.category-fall-iiyn .col-ab {
+	padding-left:20px;
+}
+
+
 .page-template-iiyn-page-php div.page {
 	width:670px;
 }

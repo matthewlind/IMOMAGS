@@ -6992,6 +6992,18 @@ font-size: 0.72em;
 	height: 86px;
 }
 
+/*** error 404 ***/
+.error404 .content{
+	float: left;
+	width: 660px;
+}
+.error404 .404-thumbnail{
+	float: left;
+	display: block;
+}
+.error404 .404-content-exerpt{
+	overflow: hidden !important;
+}
 
 .leiki_products {
     box-shadow: none !important;
@@ -7982,7 +7994,6 @@ li.no-vote:hover img{
 #super-header-iframe{
 	margin-bottom: -7px !important;
 }
-
 
 
 

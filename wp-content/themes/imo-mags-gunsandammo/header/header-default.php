@@ -46,6 +46,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
   <?php endif; ?> 
 </head>
 <body <?php body_class(); ?>>
+<?php imo_dart_tag("1x1",false,array("pos"=>"skin")); ?>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -57,7 +58,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
 	<div id="imo-tophat">
 		<div class="top-bar">
 		
-			<h2>The Guns & Ammo Network</h2>
+			<h2>Guns & Ammo Network</h2>
 			<hr>
 		</div>
 		

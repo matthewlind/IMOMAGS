@@ -29,7 +29,7 @@ the_post(); ?>
 				</div>
 			</div>
 		</div>
-			
+
 		<div class="c6-3456 cfct-block-bc cfct-block block-1">
 			<div class="cfct-module cfct-heading">
 				<h4 class="cfct-mod-title">Most Commented</h4>
@@ -40,7 +40,7 @@ the_post(); ?>
 				<?php
 				//$week = date('W');
 				//$year = date('Y');
-		
+
 				$args = array(
 					'post_type' => 'post',
 					'post_status'  => 'publish',
@@ -49,8 +49,8 @@ the_post(); ?>
 					'order' => 'DESC'
 				);
 				$query = new WP_Query( $args );
-				
-				
+
+
 				while ( $query->have_posts() ) : $query->the_post(); ?>
 				<article class="post type-post status-publish format-standard hentry category-news-brief entry entry-excerpt has-img home-trending">
 					<?php if(has_post_thumbnail()){ ?>
@@ -63,7 +63,7 @@ the_post(); ?>
 	    				<h2 class="entry-title"><a rel="bookmark" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 						<p><?php the_excerpt(); ?></p>
 					</div>
-  
+
   					<a class="comment-count" href="http://www.gunsandammo.fox/2012/04/12/introducing-the-smith-wesson-mp-shield/#comments"><?php echo get_comments_number(); ?></a>
 
 				</article>
@@ -74,14 +74,14 @@ the_post(); ?>
 				wp_reset_postdata();
 
 				?>
-			
+
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
 				<?php } ?>
-	 
+
 	<?php wp_link_pages(); ?>
 			</div>
 		</div>
@@ -92,43 +92,43 @@ the_post(); ?>
 <div id="network-topics-3-col">
 
 	<div class="network-topics-widget">
-		<h3 class="widget-title"><span>The Guns & Ammo Network</span></h3>
-	
+		<h3 class="widget-title"><span>Guns & Ammo Network</span></h3>
+
 		<div class="network-page-feed">
-			<h2>The Guns</h2>
-			<ul id="guns-network" class="network-topics" term="the-guns-network">
-		    
+			<h2><a href="http://www.gunsandammo.com/shooting/network-topics/the-guns-network/">Guns</a></h2>
+			<ul id="the-guns-network" class="network-topics" term="the-guns-network">
+
 			</ul>
 		</div>
+		
 		<div class="network-page-feed">
-			<h2>The Gear</h2>
-			<ul id="gear-network" class="network-topics" term="the-gear-network">
-		    
+			<h2><a href="http://www.shootingtimes.com/ammo/" target="_blank">Ammo</a></h2>
+			<ul id="ammo" class="network-topics" term="ammo">
 			</ul>
 		</div>
+
 		<div class="network-page-feed feed-ad">
 			<?php imo_dart_tag("300x250",false,array("pos"=>"mid")); ?>		</div>
 
-		<div class="network-page-feed row-2">	
-			<h2>Personal Defense</h2>
+		<div class="network-page-feed row-2">
+			<h2><a href="http://www.gunsandammo.com/shooting/network-topics/personal-defense-network/">Personal Defense</a></h2>
 			<ul id="personal-defense-network" class="network-topics" term="personal-defense-network">
-		    
+
 			</ul>
 		</div>
-		<div class="network-page-feed">	
-			<h2>Culture & Politics</h2>
+		<div class="network-page-feed">
+			<h2><a href="http://www.gunsandammo.com/shooting/network-topics/culture-politics-network/">Culture & Politics</a></h2>
 			<ul id="culture-politics-network" class="network-topics" term="culture-politics-network">
-			
+
 			</ul>
 		</div>
-		<!--<div class="network-page-feed">	
-			<h2>Survival</h2>
-			<ul id="survival-network" class="network-topics last" term="survival-network">
-		    
-			</ul>-->
+		<div class="network-page-feed">
+			<h2><a href="http://www.gunsandammo.com/shooting/network-topics/the-gear-network/">Gear</a></h2>
+			<ul id="the-gear-network" class="network-topics" term="the-gear-network">
+
+			</ul>
 		</div>
-		
-		
+
 	</div>
 </div>
 <div class="feed-clear"></div>

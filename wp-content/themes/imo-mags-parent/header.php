@@ -1,6 +1,9 @@
 <?php
 ?><!DOCTYPE html>
 <!-- bid: <?php global $blog_id; print $blog_id ?>; env: <?php if(defined("WEB_ENV")) { print WEB_ENV; } else { print "production"; } ?> -->
+<!-- X-Device-Type Varnish Header Found: <?php global $varnishHeaderExists; echo ($varnishHeaderExists ? "YES" : 'NO'); ?> -->
+<!-- Mobile Detected: <?php echo (mobile() ? "YES" : 'NO'); ?> -->
+<!-- Tablet Detected: <?php echo (tablet() ? "YES" : 'NO'); ?> -->
 <!--[if IE 6]>
 <html id="ie6" <?php language_attributes(); ?>>
 <![endif]-->
@@ -16,73 +19,63 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta name="viewport" content="width=device-width" />
+	<meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
 	<title><?php
 	    /*
 	     * Print the <title> tag based on what is being viewed.
 	     */
 	    global $page, $paged;
-	
-	    wp_title( '|', true, 'right' );
-	
+
+	    wp_title( '| ', true, 'right' );
+
 	    // Add the blog name.
-	    bloginfo( 'name' );
-	
+	    //bloginfo( 'name' );
+				
 	    // Add the blog description for the home/front page.
-	    $site_description = get_bloginfo( 'description', 'display' );
-	    if ( $site_description && ( is_home() || is_front_page() ) )
-	        echo " | $site_description";
 	
+	    if ( $site_description && ( is_home() || is_front_page() ) )
+	        get_bloginfo( 'description', 'display' );
+
 	    // Add a page number if necessary:
 	    if ( $paged >= 2 || $page >= 2 )
 	        echo ' | ' . sprintf( __( 'Page %s', 'twentyeleven' ), max( $paged, $page ) );
-	
+		
 	    ?></title>
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
+	<!--[if IE 8]><style type="text/css">img{max-width: none !important;}.BCLvideoWrapper object{width:480px !important;}</style><![endif]-->
 	<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
-	
-	<?php if(mobile()){ ?>
-		<style type="text/css">
-			/* hardware acceleration for smoother transitions on WebKit browsers */
-			.ui-panel-animate.ui-panel:not(.ui-panel-display-reveal),
-			.ui-panel-animate.ui-panel:not(.ui-panel-display-reveal) > div,
-			.ui-panel-animate.ui-panel-closed.ui-panel-display-reveal > div,
-			.ui-panel-animate.ui-panel-content-wrap,
-			.ui-panel-animate.ui-panel-content-fixed-toolbar {
-				-webkit-backface-visibility: hidden;
-				-webkit-transform: translate3d(0,0,0);
-		}
-		</style>
-	<?php } ?>
-	<link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/js/plugins/jquery.mobile/jquery.mobile.structure-1.3.1.css" />
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	<!--[if lt IE 9]>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
 	<![endif]-->
 	<?php
-		include_once get_stylesheet_directory() . "/head-includes.php";  
+		include_once get_stylesheet_directory() . "/head-includes.php";
 	    /* We add some JavaScript to pages with the comment form
 	     * to support sites with threaded comments (when in use).
 	     */
 	    if ( is_singular() && get_option( 'thread_comments' ) )
 	        wp_enqueue_script( 'comment-reply' );
-	
+
 	    /* Always have wp_head() just before the closing </head>
 	     * tag of your theme, or you will break many plugins, which
 	     * generally use this hook to add elements to <head> such
 	     * as styles, scripts, and meta tags.
 	     */
-	    wp_enqueue_script("jquery"); 
+	    wp_enqueue_script("jquery");
 	    wp_head();
 	?>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/dart.js" type="text/javascript"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.jfollow.js" type="text/javascript"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/flash_heed.js" type="text/javascript"></script>
-	<?php if ( defined('JETPACK_SITE') && !mobile()): ?>
-		<script type='text/javascript' src='http://ads.jetpackdigital.com/sites/<?php print JETPACK_SITE; ?>/jpd.js'></script>
-	<?php endif; ?> 
+	<?php if ( defined('JETPACK_SITE') && mobile() == false && tablet() == false): ?>
+		<!--<script type='text/javascript' src='http://ads.jetpackdigital.com/sites/<?php print JETPACK_SITE; ?>/jpd.js'></script>-->
+	<?php endif; ?>
 </head>
 
 <body <?php body_class(); ?>  >
+
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -92,43 +85,168 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-<div data-role="page">
-<div data-role="panel" id="mypanel" class="aside-menu onload-hidden-abs" data-position="left" data-display="reveal" style="display:none;">
-            <div class="mobile-menu-banner ">
-				<?php //if (mobile()) { imo_dart_tag("300x90",array("pos"=>"")); } ?>
-            </div>
-            
-            <div class="mob-aside-menu">
-                <?php 
-                    wp_nav_menu(array(
-                        'menu_class'=>'menu',  
-                        'theme_location'=>'mobile', 
-                        'walker'=> new AddParentClass_Walker()
-                    ));
-                ?>
-            </div>
+<div class="snap-drawers">
+    <div class="snap-drawer snap-drawer-left" id="left-drawer">
+        <div>
+			<div class="mobile-menu-banner">
+				<?php $dartDomain = get_option("dart_domain", $default = false); ?>
+				<iframe id="menu-iframe-ad" width="320" height="50" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-menu.php?size=320x50&ad_code=<?php echo $dartDomain; ?>"></iframe>
+			</div>	
+	
+	        <div class="mob-aside-menu">
+	            <?php
+	            if(has_nav_menu( 'Mobile Menu' )){
+	                wp_nav_menu(array(
+	                    'menu_class'=>'menu',
+	                    'theme_location'=>'mobile',
+	                    'walker'=> new AddParentClass_Walker()
+	                ));
+	            }else{
+	                wp_nav_menu(array(
+	                'menu_class'=>'menu',
+	                'theme_location'=>'bottom',
+	                'walker'=> new AddParentClass_Walker()
+	            ));
+	            }
+	
+	            ?>
+	        </div>
+	
+	        <div class="menu-subscribe">
+	            <a href="<?php print SUBS_LINK;?>"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/pic/journals.png" alt="" /><span>Subscribe Now!</span></a>
+	        </div>
+	        <?php wp_nav_menu(array(
+	            'menu_class'=>'menu',
+	            'theme_location'=>'top',
+	        ));   ?>
+	        <div class="aside-socials">
+	            <strong>Connect</strong>
+	            <?php social_networks(); ?>
+	        </div>
 
-            <div class="menu-subscribe">
-                <a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/pic/journals.png" alt="" /><span>Subscribe Now!</span></a>
-            </div>
-            <?php wp_nav_menu(array(
-                'menu_class'=>'menu',  
-                'theme_location'=>'top', 
-            ));   ?>
-            <div class="aside-socials">
-                <strong>Connect</strong>
-                <?php social_networks(); ?>
-            </div>
-        
-</div><!-- /panel -->
-<div id="page" class="hfeed wrapper" data-role="content" role="main">
-    <div class="layout-frame">
-        <div id="branding" class="header clearfix" role="banner">
-                
+		</div>
+	</div>
+	<?php
+	$hostname = $_SERVER['SERVER_NAME'];
+    
+	$userInfo = wp_get_current_user();
+	
+	$username = $userInfo->user_nicename;
+	
+	$apiURL = "http://$hostname/community-api/users/$username?get_comments=1";
+	
+	$file = file_get_contents($apiURL);
+	
+	//SET TEMPLATE VARIABLES
+	$data = json_decode($file);
+	
+	if($data->score == 1){
+		$niceScore = '<b>'.$data->score.'</b> Point';
+	}else{
+		$niceScore = '<b>'.$data->score.'</b> Points';
+	} 
+	
+    $displayStyle = "display:none";
+	$loginStyle = "";
+	
+	if ( is_user_logged_in() ) {
+	
+		$displayStyle = "";
+		$loginStyle = "display:none";
+		
+		wp_get_current_user();
+		
+		$current_user = wp_get_current_user();
+	    if ( !($current_user instanceof WP_User) )
+	         return;
+	    }
+	    
+	?>
+	<div class="snap-drawer snap-drawer-right" id="right-drawer">
+		 <div>
+			<div class="mobile-menu-banner">
+				<?php $dartDomain = get_option("dart_domain", $default = false); ?>
+				<iframe id="menu-iframe-ad" width="320" height="50" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-menu.php?size=320x50&ad_code=<?php echo $dartDomain; ?>"></iframe>
+			</div>	
+	
+	        <div class="mob-aside-menu">
+	            <div class="menu-community-menu-container">
+		       		<ul id="menu-community-menu" class="menu">
+				   		<li class="hot-link main-menu-item menu-item-even menu-item-depth-0 menu-item">
+			   				<a href="/photos" class="menu-link main-menu-link">Latest Photos</a></li>
+			   			<li class="mob-share main-menu-item menu-item-even menu-item-depth-">
+			   				<div class="fileupload-buttonbar fileupload-sidebar">
+						        <label class="upload-button">
+									<a class="singl-post-photo"><span>Share Your Catch</span></a>
+									<input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
+						        </label>
+						    </div>
+			   			</li>
+			   			<li class="main-menu-item menu-item-even menu-item-depth-">
+			   				<a href="/master-angler" class="menu-link main-menu-link">Master Angler</a>
+			   			</li>			   				 
+				   		<!--<li class="main-menu-item menu-item-even menu-item-depth-" style="<?php echo $displayStyle; ?>">
+			   				<a href="#" class="menu-link main-menu-link has-drop">My Interests</a>
+			   				<div class="drop-down">
+			   					<ul class="sub-menu menu-odd menu-depth-1">
+				   					<li class="sub-menu-item menu-item-odd menu-item-depth-1 menu-item">
+				   						<a href="#" class="menu-link sub-menu-link">Bass</a>
+				   					</li>
+				   					<li class="sub-menu-item menu-item-odd menu-item-depth-1 menu-item">
+				   						<a href="#" class="menu-link sub-menu-link">Walleye</a>
+				   					</li>
+				   					<li class="sub-menu-item menu-item-odd menu-item-depth-1 menu-item">
+				   						<a href="#" class="menu-link sub-menu-link">Catfish</a>
+				   					</li>	
+				   				</ul>
+				   			</div>
+			   			</li>-->
+			   		</ul>
+		       </div>
+	        </div>
+	        <div class="menu-subscribe">
+	            <a href="<?php print SUBS_LINK;?>"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/pic/journals.png" alt="" /><span>Subscribe Now!</span></a>
+	        </div>
+	        <div class="mob-aside-menu" style="<?php echo $displayStyle; ?>">
+		        <div class="menu-community-menu-container">
+		       		<ul id="menu-community-menu" class="menu">
+	       				<li class="main-menu-item menu-item-even menu-item-depth-0 menu-item">
+			   				<a href="/profile/<?php echo $username; ?>#my-photos" class="menu-link main-menu-link">My Photos</a></li>
+			   				<li class="main-menu-item menu-item-even menu-item-depth-0 menu-item">
+			   				<a href="/edit-profile/?action=profile" class="menu-link main-menu-link">Edit Profile</a></li>
+			   			<li class="main-menu-item menu-item-even menu-item-depth-">
+			   				<a href="<?php echo wp_logout_url( get_permalink() ); ?>" class="menu-link main-menu-link">Sign Out</a>
+			   			</li>
+			   		</ul>
+			   	</div>
+	        </div>  
+	        	
+	        <div class="aside-socials">
+	            <strong>Connect</strong>
+	            <?php social_networks(); ?>
+	        </div>
+
+		</div>
+	</div>
+
+</div>
+
+<div id="page" class="snap-content smooth-menu<?php if ( mobile() == false && tablet() == false ){ echo ' ie9fix'; } ?>">
+<?php if (mobile() == false && tablet() == false) {  imo_dart_tag("1x1",false,array("pos"=>"skin")); } ?>
+	<div class="hfeed wrapper" data-role="content" role="main">
+	    <div class="layout-frame">
+	        <div id="branding" class="header clearfix" role="banner">
+	
                 <div class="clearfix">
-                    <a href="#mypanel" class="open-menu">open menu</a>
-                    <strong class="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo('template_directory'); ?>/images/logo.png" alt="<?php bloginfo( 'name' ); ?>" /></a></strong>
-                    <?php
+
+                   <a id="open-left" class="open-menu">open menu</a>
+                    <strong class="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/logo.png" alt="<?php bloginfo( 'name' ); ?>" /></a></strong>
+					<a id="comm-mob-menu" class="user-btn" <?php if( is_user_logged_in() ) { echo 'style="background:url(/avatar?uid=' . $data->ID . ') no-repeat center center;"'; } ?>>user</a>
+					<div class="community-tooltip"></div>
+                     
+                     
+                     
+                                         <?php
                         // Check to see if the header image has been removed
                         $header_image = get_header_image();
                         if ( ! empty( $header_image ) ) :
@@ -148,23 +266,23 @@
                         <?php endif; // end check for featured image or standard header ?>
                     </a>
                     <?php endif; // end check for removed header image ?>
-        
+
                     <?php
                         // Has the text been hidden?
                         if ( 'blank' == get_header_textcolor() ) :
                     ?>
                         <div class="only-search<?php if ( ! empty( $header_image ) ) : ?> with-image<?php endif; ?>">
-                        <?php infisherman_get_search_form(); ?>
+                        <?php parent_theme_get_search_form(); ?>
                         </div>
                     <?php
                         else :
                     ?>
 					<a href="#" class="open-search jq-open-search">search</a>
-					<div id="subscribe-area" class="widget widget_text header-elements">			
+					<div id="subscribe-area" class="widget widget_text header-elements">
 						<div class="subscribe-box">
 						    <div class="clearfix">
 						        <div class="journal">
-						        <img src="/wp-content/themes/infisherman/images/pic/journals.png" alt="">
+						        <img src="<?php bloginfo('stylesheet_directory'); ?>/images/pic/journals.png" alt="">
 						    </div>
 						    <div class="subscribe-now">
 						        <p><span class="stag-bold">SUBSCRIBE </span><span class="stag-reg">&amp;  SAVE 70% OFF</span> <b>the Cover Price</b></p>
@@ -177,39 +295,43 @@
 						    </ul>
 						</div>
 					</div>
-                        
+
                         <div class="h-mdl-widget">
                             <div class="socials-hold">
                             	<?php social_networks(); ?>
-							</div>                            
+							</div>
                             <div class="h-search-form">
-                                <?php infisherman_get_search_form(); ?>
+                                <?php parent_theme_get_search_form(); ?>
                             </div>
                         </div>
                     <?php endif; ?>
-                </div>
-                                
+                </div><!-- #branding -->
+
                     <?php wp_nav_menu(array(
-                        'menu_class'=>'menu',  
-                        'theme_location'=>'top', 
+                        'menu_class'=>'menu',
+                        'theme_location'=>'top',
                     ));   ?>
                 <!-- #access -->
-                
-                    <?php 
+
+                    <?php
                     wp_nav_menu(array(
-                        'menu_class'=>'menu',  
+                        'menu_class'=>'menu',
                         'theme_location'=>'bottom',
                         'walker'=> new AddParentClass_Walker()
                     ));   ?>
                 <!-- #access -->
         </div><!-- #branding -->
-    
+		
         <div class="content-banner-section">
-        	<div class="mdl-banner">
-				<?php if (!mobile()) { imo_dart_tag("728x90",true); } ?>
-			</div>
-            <div class="swipe-out"></div>
+        	<?php if (mobile() == false) { ?>
+	        	<div class="mdl-banner">
+					 <?php imo_dart_tag("728x90"); ?>
+				</div>
+				<?php }else{ ?>
+					<div class="mob-mdl-banner">
+						<?php imo_dart_tag("320x50",true); ?>
+					</div>
+				<?php } ?>
         </div>
-    
+        
         <div id="main" class="main clearfix js-responsive-layout">
-            <div class="swipe-out"></div>

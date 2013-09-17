@@ -10,7 +10,6 @@
 
 <div id="post-<?php the_ID(); ?>" <?php post_class('full-post'); ?>>
     
-    <?php //the_post_thumbnail(); ?>
     <?php if ( is_single() ) : ?>
     <div class="clearfix">
         <?php echo primary_and_secondary_categories(); ?>
@@ -66,8 +65,7 @@
 	    </div>
 	    <?php } ?>
 	    
-	    <?php imo_dart_tag("564x252",true); ?>
-	    
+	    <?php imo_dart_tag("564x252"); ?>
 	    	   
 	    <?php if (isset_related_posts()): ?>
 	    <?php if(mobile() || tablet()){ ?>
@@ -79,15 +77,7 @@
 	        </div>
 	    </div>
 	    <?php endif; ?>
-		    <div class="sub-boxes">
-	            <div class="sub-box banner-box">
-	                <?php imo_dart_tag("300x250",true,array("pos"=>"mid")); ?> 
-	            </div>
-	            <div class="sub-box fb-box">
-	               <div class="fb-recommendations" data-site="in-fisherman.com" data-width="309" data-height="252" data-header="true" data-font="arial"></div>
-	            </div>
-	        </div>
-	        
+		    <?php sub_footer(); ?> 
 			<div class="hr mobile-element"></div>
 	    <div class="entry-meta">
 	        <?php edit_post_link( __( 'Edit', 'twentytwelve' ), '<span class="edit-link">', '</span>' ); ?>

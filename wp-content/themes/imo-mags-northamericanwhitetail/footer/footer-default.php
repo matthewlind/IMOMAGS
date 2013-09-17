@@ -29,8 +29,9 @@ if ( is_user_logged_in() ) {
 
 ?>
 		</div><!-- #main -->
+		
 	</section><!-- .container -->
-
+<div class="footer-728"><?php imo_dart_tag("728x90",array("pos=btf")); ?></div>
   <footer id="footer" class="end-scroll">
     
       <section id="imo-network">

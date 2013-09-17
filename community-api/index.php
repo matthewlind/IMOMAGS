@@ -5,6 +5,7 @@ include 'mysql.php';
 include 'auth.php';
 include 'images.php';
 include 'video.php';
+include 'clsFlagger.php';
 
 
 \Slim\Slim::registerAutoloader();
@@ -12,6 +13,7 @@ include 'video.php';
 $app = new \Slim\Slim();
 
 include 'users.php';
+include 'counts.php';
 
 // GET a list of posts. 20 by default
 //Note, $post_type = "all" does not fetch comments or answers
@@ -25,6 +27,8 @@ $app->get('/posts', function () {
 	$require_images = FALSE; //Only return posts with images, use 1 or 0 in query string
 	$order_by = "id"; //e.g. "created","view_count"
 	$sort = "DESC";
+	$domain = convertDevDomainToDotCom($_SERVER['HTTP_HOST']);
+	$master = 0; //Set to 1 to only show Master Angler
 
 	//Grab the parameters
 	$params = \Slim\Slim::getInstance()->request()->get();
@@ -75,11 +79,35 @@ $app->get('/posts', function () {
 		exit();
 	}
 
+
+	//Check if Valid domain
+
+	if (preg_match("/^(?:[a-zA-Z0-9]+(?:\-*[a-zA-Z0-9])*\.)+[a-zA-Z]{2,6}$/", $domain)) {
+
+		$domainClause = "and domain = '$domain'";
+	} else {
+		header('HTTP 1.1/400 Bad Request', true, 400);
+		exit();
+	}
+
+
 	//IF order_by  is less than 22 characters and is only lowercase letters and underscores
 	if (preg_match("/^[a-z_]{1,22}$/", $order_by)) {
 
 		$orderByClause = "ORDER BY $order_by";
 	} else {
+		header('HTTP 1.1/400 Bad Request', true, 400);
+		exit();
+	}
+
+	//Check for master angler
+	$masterClause = "";
+	if ($master == 0) {
+		$masterClause = "";
+	} else if ($master == 1) {
+		$masterClause = "AND master = 1";
+	} else {
+		echo $master;
 		header('HTTP 1.1/400 Bad Request', true, 400);
 		exit();
 	}
@@ -99,7 +127,7 @@ $app->get('/posts', function () {
 		$db = dbConnect();
 
 
-		$sql = "SELECT *,CONCAT(allcounts2.post_type,'/',allcounts2.id) as url FROM allcounts2 WHERE $postTypeClause $stateClause $requireImagesClause $orderByClause $sortClause $limitClause";
+		$sql = "SELECT *,CONCAT(allcounts2.post_type,'/',allcounts2.id) as url FROM allcounts2 WHERE $postTypeClause $stateClause $domainClause $masterClause $requireImagesClause $orderByClause $sortClause $limitClause";
 
 
 
@@ -126,6 +154,7 @@ $app->get('/posts/:id', function ($id) {
 	$update_viewcount = TRUE; // use 1 or 0 in query string
 	$get_attachments = TRUE; // use 1 or 0 in query string
 	$get_comments = FALSE; // use 1 or 0 in query string
+	$get_master = TRUE;
 
 	header('Access-Control-Allow-Origin: *');
 
@@ -268,6 +297,30 @@ $app->get('/posts/:id', function ($id) {
 
    	}//end if get_comments
 
+   	//Get master angler data
+   	if ($get_master && $posts[0]->master == TRUE) {
+	   	try {
+
+			$db = dbConnect();
+
+
+			//$sql = "SELECT *,CONCAT(allcounts2.post_type,'/',allcounts2.id) as url FROM superposts WHERE parent = ? AND post_type IN ('photo','youtube') ORDER BY id ASC";
+			$sql = "SELECT * FROM master_angler WHERE post_id = ?";
+
+			$stmt = $db->prepare($sql);
+			$stmt->execute(array($id));
+
+			$masterData = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+			$posts[0] = (object)array_merge((array)$posts[0], (array)$masterData[0]); //Array merge only works on arrays, but our data is objects. So, lots of casting.
+
+			$db = '';
+
+		} catch(PDOException $e) {
+	    	echo $e->getMessage();
+	    }
+   	}
+
 
     //Update the viewcount
     if ($update_viewcount) {
@@ -301,14 +354,21 @@ $app->get('/posts/:id', function ($id) {
 $app->post('/posts',function() {
 	header('Access-Control-Allow-Origin: *');
 
-	//$params = Slim\Slim::getInstance()->request()->post();
+	$params = Slim\Slim::getInstance()->request()->post(); //jQuery sends data this way
+	$requestJSON = Slim\Slim::getInstance()->request()->getBody(); //Backbone sends data this way
 
-	$requestJSON = Slim\Slim::getInstance()->request()->getBody();
+	if (json_decode($requestJSON)) {
 
-	$params = json_decode($requestJSON,true);
+		$params = json_decode($requestJSON,true);
+	}
+
+
 
 
 	_log( $params);
+
+	if (empty($params['master']))
+		$params['master'] = 0;
 
 	//Get the user info and authenticate
 	if (!empty($params['username']) && !empty($params['userhash'])) {
@@ -325,7 +385,7 @@ $app->post('/posts',function() {
 
 
 	$params['useragent'] = $_SERVER['HTTP_USER_AGENT'];
-	$params['domain'] = $_SERVER['HTTP_HOST'];
+	$params['domain'] = convertDevDomainToDotCom($_SERVER['HTTP_HOST']);
 	$params['posthash'] = '';
 
 	if ($params['post_type'] != "youtube" && $params['post_type'] != "photo" && $params['post_type'] != "comment") {
@@ -431,6 +491,7 @@ $app->post('/posts',function() {
 			"username",
 			"gravatar_hash",
 			"img_url",
+			"master",
 			"ip",
 			"meta",
 			"state",
@@ -466,6 +527,8 @@ $app->post('/posts',function() {
 
 		$sql = $sql . $sql2;
 
+		_log($sql);
+
 		$stmt = $db->prepare($sql);
 
 
@@ -485,6 +548,8 @@ $app->post('/posts',function() {
 
 
 		if ($requestIsGood) {
+
+			_log('REQUEST IS GOOD');
 
 			$stmt->execute();
 	        $superpostID = $db->lastInsertId();
@@ -524,6 +589,12 @@ $app->post('/posts',function() {
 
 
 			$db = '';
+
+			if ($params['master'] == 1) {
+				processMasterAngler($params);
+			}
+
+
 			echo json_encode($response, JSON_NUMERIC_CHECK);
 
 		} else {
@@ -698,7 +769,24 @@ $app->delete('/posts/:id', function ($id) {
 		$params = \Slim\Slim::getInstance()->request()->post();
 	}
 
+	//Grab the post
+	try {
 
+		$db = dbConnect();
+
+
+		$sql = "SELECT * FROM superposts WHERE id = ? LIMIT 1";
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array($id));
+		$post = $stmt->fetchObject();
+
+
+		$db = '';
+
+	} catch(PDOException $e) {
+    	echo $e->getMessage();
+    }
 
 	$userIsEditor = userIsEditor($params['username'],$params['timecode'],$params['editor_hash']);
 
@@ -718,6 +806,23 @@ $app->delete('/posts/:id', function ($id) {
 		$stmt->execute(array($id));
 
 		$db = "";
+
+
+		//CLEAR THE VARNISH CACHE!
+		$postURL = "http://" . $post->domain . "/plus/" . $post->post_type . "/" . $post->id . "/";
+
+		$curl = curl_init($postURL);
+        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PURGE");
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
+        $curlResult = curl_exec($curl);
+
+		$postURL = "http://" . $post->domain . "/slim/api/superpost/post/" . $post->id;
+
+		$curl = curl_init($postURL);
+        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PURGE");
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
+        $curlResult = curl_exec($curl);
+
 
 		//echo $sql;
 	} else {
@@ -744,7 +849,7 @@ function process_attachments($attachmentArray, $parentID) {
 
 		$stmt = $db2->prepare($sql);
 
-		$stmt->execute(array($attachmentArray[0]['img_url'] . "/convert?w=300&h=300&fit=crop",$parentID));
+		$stmt->execute(array($attachmentArray[0]['img_url'] ,$parentID));
 
 		$row = $stmt->fetch(PDO::FETCH_OBJ);
 
@@ -762,12 +867,15 @@ function process_attachments($attachmentArray, $parentID) {
 			if (empty($body))
 				$body = '';
 
-			$sql = "INSERT INTO superposts (parent,post_type,body,img_url) values (? , ? , ? , ?)";
+
+			$domain = convertDevDomainToDotCom($_SERVER['HTTP_HOST']);
+
+			$sql = "INSERT INTO superposts (parent,post_type,body,img_url,domain) values (? , ? , ? , ? , ?)";
 
 
 			$stmt = $db2->prepare($sql);
 
-			$stmt->execute(array($parentID,$post_type,$body,$img_url));
+			$stmt->execute(array($parentID,$post_type,$body,$img_url,$domain));
 
 			$row = $stmt->fetch(PDO::FETCH_OBJ);
 
@@ -804,6 +912,116 @@ if(!function_exists('_log')){
 	    error_log( $message );
 	  }
   	}
+}
+
+
+function processMasterAngler($params){
+
+
+		_log("MASTER");
+		_log($params);
+
+		$paramList = array(
+			"post_id",
+			"weight",
+			"length",
+			"first_name",
+			"last_name",
+			"email",
+			"street_address_1",
+			"street_address_2",
+			"city",
+			"state_address",
+			"zip",
+			"phone",
+			"date",
+			"body_of_water",
+			"nearest_town",
+			"lure_used",
+			"kind-of-lure",
+			"lure-desc",
+			"kind-of-bait",
+			"kept"
+		);
+
+		$params["post_id"] = $params["id"];
+
+
+		$params['date'] = $params["year"] . "-" . sprintf("%02d", $params['month'] ) . "-" . sprintf("%02d", $params['day'] );
+
+		$db = dbConnect();
+
+		//BUILD THE PERFECT QUERY FOR THE PARAMETERS GIVEN
+		$sql = "INSERT INTO master_angler (";
+		$sql2 = "VALUES (";
+
+		foreach ($paramList as $parameter) {
+
+			if (!empty($params[$parameter])) {
+				$sql .= $parameter . ",";
+				$sql2 .= ":$parameter,";
+			}
+		}
+
+		$sql = substr_replace($sql ,'',-1);
+		$sql2 = substr_replace($sql2 ,'',-1);
+
+		$sql .= ") ";
+		$sql2 .= ")";
+
+		$sql = $sql . $sql2;
+
+		_log($sql);
+
+		$stmt = $db->prepare($sql);
+
+
+
+		foreach ($paramList as $parameter) {
+
+
+
+			if (!empty($params[$parameter])) {
+				_log("PARE: $parameter: " . $params[$parameter]);
+				$stmt->bindParam($parameter,$params[$parameter]);
+			} else {
+
+				_log("BLANK: $parameter: " . $parameter);
+			}
+		}
+
+		$stmt->execute();
+
+		$db = "";
+
+}
+
+
+function getEventHash($post_id, $etype, $user_id) {
+
+	date_default_timezone_set("America/New_York");
+	$eventDate = date("dmy");
+	$eventMinute = floor(((int)date("i"))/60);
+
+	$eventHash = md5("STRINGTHINGSgfid25s" . $post_id . $etype . $user_id . $eventDate . $eventMinute);
+
+	return $eventHash;
+}
+
+
+
+
+function convertDevDomainToDotCom($domain) {
+
+	$domain = str_replace(".deva",".com",$domain);
+	$domain = str_replace(".fox",".com",$domain);
+	$domain = str_replace(".salah",".com",$domain);
+	$domain = str_replace(".devb",".com",$domain);
+	$domain = str_replace(".devc",".com",$domain);
+	$domain = str_replace(".dev-brock",".com",$domain);
+	$domain = str_replace(".dev-kayla",".com",$domain);
+
+	return $domain;
 }
 
 

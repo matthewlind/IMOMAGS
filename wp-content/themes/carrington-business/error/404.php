@@ -20,8 +20,9 @@ if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 get_header();
-?>
-<header id="masthead">
+get_sidebar(); ?>
+
+<header>
 	<h1 class="page-title-b"><?php _e('<i class="label">Error 404:</i> Page Not Found', 'carrington-business'); ?></h1>
 </header><!-- #masthead -->
 
@@ -35,7 +36,7 @@ get_header();
 
 
 <?php
-$custom_query = new WP_Query('order=DESC&limit=10');
+$custom_query = new WP_Query('order=DESC&limit=20');
 while ($custom_query->have_posts()) : $custom_query->the_post();
 
 ?>
@@ -55,7 +56,7 @@ while ($custom_query->have_posts()) : $custom_query->the_post();
 
 
       </div>
-      <div class="404-content-exerpt">
+      <div class="404-content-exerpt" style="overflow: hidden;">
 
         <div class="entry-info">
 
@@ -91,14 +92,6 @@ while ($custom_query->have_posts()) : $custom_query->the_post();
 
 <?php endwhile; ?>
 
-
-
-
-
-
-
-  <div style="height:40px"></div>
-
-
 </div>
+
 <?php get_footer(); ?>

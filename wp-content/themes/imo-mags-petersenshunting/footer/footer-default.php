@@ -21,14 +21,15 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 ?>
 <div class="cfct-row cfct-row-abc" style="clear:both"> 
 </div>
-
+		<div class="footer-728"><?php imo_dart_tag("728x90",array("pos=btf")); ?></div>
         </div><!-- .str-content -->
+        
     </div><!-- #main-content -->
 </section><!-- .str-container -->
 <hr class="accessibility" />
 <footer id="footer">
     <div class="str-container">
-        <div id="footer-content">
+    	<div id="footer-content">
             
         </div><!-- #footer-content -->
         <div id="footer-sub">
@@ -143,7 +144,7 @@ wp_footer();
       <li class="leaf first"><a href="http://www.imoutdoorsmedia.com/IM3/" title="">About</a></li>
       <li class="leaf"><a href="http://www.imoutdoorsmedia.com" title="">Advertise</a></li> 
       <li class="leaf"><a href="/contact" title="Send us an e-mail">Contact</a></li>
-      <!--<li class="leaf"><a href="http://www.intermediaoutdoors.com/jobs/" title="">Jobs</a></li> --> 
+      <li class="leaf"><a href="http://imomags.com/careers/" title="">Careers</a></li>
       <!--<li class="leaf"><a href="/privacy" title="">Privacy</a></li> --> 
       <!--<li class="leaf last"><a href="/terms" title="">Terms of Use</a></li> --> 
     </ul> 

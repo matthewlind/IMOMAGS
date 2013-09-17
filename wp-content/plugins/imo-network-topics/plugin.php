@@ -19,10 +19,11 @@ include('page-widget.php');
 
 add_action('init', 'imo_nt_scripts');
 function imo_nt_scripts() {
-    wp_enqueue_script('network-topics-js',plugins_url('js/network-topics.js', __FILE__));
 	wp_enqueue_script('jquery-flexslider',plugins_url('js/jquery.flexslider.js', __FILE__));
-	
-	wp_enqueue_style('network-topics-css',plugins_url('css/network-topics.css', __FILE__));	
+    wp_enqueue_script('network-topics-js',plugins_url('js/network-topics.js', __FILE__),array("jquery-flexslider"));
+
+
+	wp_enqueue_style('network-topics-css',plugins_url('css/network-topics.css', __FILE__));
 
 }
 

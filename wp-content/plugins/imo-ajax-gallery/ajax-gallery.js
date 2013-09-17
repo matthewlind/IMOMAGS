@@ -1,5 +1,5 @@
 jQuery(document).ready(function($) {
-	
+
 	//Description Scrollbar
 
 
@@ -21,7 +21,7 @@ jQuery(document).ready(function($) {
 	});	
 
 	var lockedOpen = false;
-	
+		
 	function trackPage(slideID) {
 
 		_gaq.push(['_trackPageview',"/" + window.location.pathname + "#" + slideID]);
@@ -188,8 +188,9 @@ jQuery(document).ready(function($) {
 
 	$(".gallery-slide-out").height($(".ngg-imagebrowser").outerHeight());
 	
+	var sliderStartPosition = 298;
 
-	var sliderStartPosition = $(".ngg-imagebrowser").width() + parseInt($(".ngg-imagebrowser").css('padding-left'),10) + parseInt($(".ngg-imagebrowser").css('padding-right'),10) - $(".gallery-slide-out").width();
+	//var sliderStartPosition = $(".ngg-imagebrowser").width() + parseInt($(".ngg-imagebrowser").css('padding-left'),10) + parseInt($(".ngg-imagebrowser").css('padding-right'),10) - $(".gallery-slide-out").width();
 
 
 	//sliderStartPosition = $(".ngg-imagebrowser").outerWidth() - $(".gallery-slide-out").outerWidth();
@@ -217,7 +218,9 @@ jQuery(document).ready(function($) {
 	//Handle the slideout hover
 	var currentLeft = parseInt($(".gallery-slide-out").css('left'),10); 
   	$(".gallery-hover-div").hover(function(){
-	  	
+		//FS fix for overflow. call it when viewing the gallery.
+		$("div.post").css( "overflow","visible");
+
 	  	if(document.domain == "www.floridasportsman.com"){
   			$(".cfct-can-haz-build, .general").css("overflow","visible"); 
   		}
@@ -225,8 +228,6 @@ jQuery(document).ready(function($) {
 	      	left: $(".ngg-imagebrowser").outerWidth(true)
     	},300,'easeOutExpo');
 		
-
-
   	},function(){
   		
   		if (lockedOpen == false) {

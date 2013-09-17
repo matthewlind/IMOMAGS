@@ -917,7 +917,12 @@ nav.nav-main > ul > li > a, nav.nav-featured > ul > li > a{
 	color: #000033 !important;
 }
 
-
+.footer-728{
+	width: 728px;
+	height: 100px;
+	margin: 0 auto;
+	padding: 20px 156px;
+}
 /*
  * Footer
  * branding, navigation, and social networking
@@ -5831,6 +5836,19 @@ font-size: 0.8em !important;
 	width: 681px;
 	
 }
+/*** error 404 ***/
+.error404 .content{
+	float: left;
+	width: 660px;
+}
+.error404 .404-thumbnail{
+	float: left;
+	display: block;
+}
+.error404 .404-content-exerpt{
+	overflow: hidden !important;
+}
+
 
 /*** Local edits ***/   
     

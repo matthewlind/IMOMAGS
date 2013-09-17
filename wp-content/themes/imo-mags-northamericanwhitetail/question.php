@@ -46,7 +46,8 @@ if ( is_user_logged_in() ) {
 		</div>
 		<div id="responderfollow"></div>
 		<div class="sidebar advert">
-		       <?php imo_dart_tag("300x250",false,array("pos"=>"btf")); ?>
+		       <?php $dartDomain = get_option("dart_domain", $default = false); ?>
+			<iframe id="sticky-iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-sticky.php?ad_code=<?php echo $dartDomain ?>"></iframe>
 			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('scroll-sidebar')) : else : ?><?php endif; ?>
 		</div>
 

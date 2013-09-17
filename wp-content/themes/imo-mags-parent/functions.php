@@ -1,30 +1,17 @@
 <?php
 
-define('TIMELY_FEATURES', 'timely-features');
-define('MASTER_ANGLERS', 'master-angler');
-define('FEATURED', 'featured');
-define('CATFISH', 'catfish');
-define('ICE_FISHING', 'ice-fishing');
-define('TRTUT_SALMON', 'trout-salmon');
-define('PANFISH', 'panfish');
-define('WALLEYE', 'walleye');
-
-define("JETPACK_SITE", "infisherman");
-define("SUBS_LINK", "https://secure.palmcoastd.com/pcd/eSv?iMagId=01469&i4Ky=IBZN");
-define("GIFT_LINK", "https://secure.palmcoastd.com/pcd/eSv?iMagId=01469&i4Ky=IGZN");
-define("SERVICE_LINK", "https://secure.palmcoastd.com/pcd/eServ?iServ=MDE0Njk0NDY5NSZpVHlwZT1FTlRFUg==");
-define("SUBS_DEAL_STRING", "Save Over 70% off<br/> the Cover Price");
-define("DRUPAL_SITE", TRUE);
-
-add_theme_support( 'post-thumbnails' ); 
-add_action( 'widgets_init', 'infisherman_widgets_init' );
-add_action('after_setup_theme', 'infisherman_setup');
-add_action( 'widgets_init', 'register_recipes_widget' );  
+add_theme_support( 'post-thumbnails' );
+add_action( 'widgets_init', 'parent_theme_widgets_init' );
+add_action('after_setup_theme', 'parent_theme_setup');
+add_action( 'widgets_init', 'register_recipes_widget' );
 
 // Widgets
 include_once('widgets/subscribe.php');
 include_once('widgets/newsletter-signup.php');
 include_once('widgets/ford-widget.php');
+include_once('widgets/community-login-widget.php');
+include_once('widgets/community-slider.php');
+include_once('widgets/user-info.php');
 
 function new_excerpt_more( $more ) {
 	return '... <a href="'. get_permalink( get_the_ID() ) .'" >more <span class="meta-nav">&raquo;</span></a>';
@@ -35,40 +22,9 @@ function custom_excerpt_length( $length ) {
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
-function imo_sidebar($type){
-	$dartDomain = get_option("dart_domain", $default = false);
-	echo '<div class="sidebar-area">';
-		echo '<div class="sidebar">';
-			echo '<div class="widget_advert-widget">';
-			imo_dart_tag("300x250",true);
-			echo '</div>';
-		echo '</div>';
-	    get_sidebar($type);
-	    	if(!mobile()){
-		    	echo '<div id="responderfollow"></div>';
-				echo '<div class="sidebar advert">';
-		    	echo '<div class="widget"><iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FInFisherman&amp;width=310&amp;height=184&amp;colorscheme=light&amp;show_faces=true&amp;show_border=false&amp;stream=false&amp;header=false&amp;appId=218070564894418" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:310px; height:184px;" allowTransparency="true" id="fb-sidebar"></iframe></div>';
-			    
-					echo '<div class="widget_advert-widget">';
-						echo '<iframe id="sticky-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-sticky.php?ad_code='.$dartDomain.'"></iframe>';
-					echo '</div>';
-				echo '</div>';
-			}
-	echo '</div>';
-}
-
-function social_networks(){
-	echo '<div class="socials">';
-		echo '<a href="https://www.facebook.com/InFisherman" class="facebook">Facebook</a>';
-	    echo '<a href="https://www.twitter.com/@InFishermanTV" class="twitter">Twitter</a>';
-	    echo '<a href="http://www.youtube.com/user/InFishermanTV" class="youtube">YouTube</a>';
-	    echo '<a href="http://www.in-fisherman.com/feed/" class="rss">RSS</a>';
-	echo '</div>';
-}
-
-class AddParentClass_Walker extends Walker_Nav_Menu 
+class AddParentClass_Walker extends Walker_Nav_Menu
 {
-    
+
     function start_lvl( &$output, $depth ) {
         // depth dependent classes
         $indent = ( $depth > 0  ? str_repeat( "\t", $depth ) : '' ); // code indent
@@ -80,24 +36,24 @@ class AddParentClass_Walker extends Walker_Nav_Menu
             'menu-depth-' . $display_depth
             );
         $class_names = implode( ' ', $classes );
-      
+
         // build html
         $output .= "\n" . $indent . '<ul class="' . $class_names . '">' . "\n";
     }
 
     function end_lvl( &$output, $depth ) {
-       
+
         if ($depth > 0) {
-            $output .= "\n" . '</div>' . "\n";    
+            $output .= "\n" . '</div>' . "\n";
         }
         $output .= "\n" . '</ul>' . "\n";
     }
 
-    function start_el( &$output, $item, $depth, $args ) 
+    function start_el( &$output, $item, $depth, $args )
     {
         global $wp_query;
         $indent = ( $depth > 0 ? str_repeat( "\t", $depth ) : '' ); // code indent
-      
+
         $depth_classes = array(
             ( $depth == 0 ? 'main-menu-item' : 'sub-menu-item' ),
             ( $depth >=2 ? 'sub-sub-menu-item' : '' ),
@@ -105,12 +61,12 @@ class AddParentClass_Walker extends Walker_Nav_Menu
             'menu-item-depth-' . $depth
         );
         $depth_class_names = esc_attr( implode( ' ', $depth_classes ) );
-      
+
         $classes = empty( $item->classes ) ? array() : (array) $item->classes;
         $class_names = esc_attr( implode( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) ) );
-      
+
         $output .= $indent . '<li id="nav-menu-item-'. $item->ID . '" class="' . $depth_class_names . ' ' . $class_names . '">';
-      
+
         $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
         $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
         $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
@@ -122,11 +78,11 @@ class AddParentClass_Walker extends Walker_Nav_Menu
         if (!empty($children)) {
             $has_drop = 'has-drop';
             $template = '%1$s<a%2$s>%3$s%4$s%5$s</a><div class="drop-down">%6$s';
-        }  
+        }
 
         $attributes .= ' class="menu-link ' . $has_drop . ' ' . ( $depth > 0 ? 'sub-menu-link' : 'main-menu-link' ) . '"';
-      
-        
+
+
         $item_output = sprintf( $template,
             $args->before,
             $attributes,
@@ -135,26 +91,26 @@ class AddParentClass_Walker extends Walker_Nav_Menu
             $args->link_after,
             $args->after
         );
-      
+
         $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
     }
 
-    function end_el( &$output, $item, $depth, $args ) 
+    function end_el( &$output, $item, $depth, $args )
     {
         global $wp_query;
         $children = get_posts(array('post_type' => 'nav_menu_item', 'nopaging' => true, 'numberposts' => 1, 'meta_key' => '_menu_item_menu_item_parent', 'meta_value' => $item->ID));
-      
+
         if (!empty($children)) {
             if ($item->object == 'category') {
-                $query = new WP_Query(array( 
-                    'category__and' =>  
+                $query = new WP_Query(array(
+                    'category__and' =>
                         array_merge(get_categories_ids(array(
                             FEATURED
                         )), array((int)$item->object_id)),
-                    'posts_per_page' => 1 ) 
+                    'posts_per_page' => 1 )
                 );
 
-                ob_start(); 
+                ob_start();
 ?>
                 <?php while ($query->have_posts()): $query->the_post();?>
                     <div class="drop-feat-post">
@@ -173,93 +129,26 @@ class AddParentClass_Walker extends Walker_Nav_Menu
     }
 }
 
-function register_recipes_widget() {  
-    register_widget( 'Recipes_Widget' );  
-}  
 
-class Recipes_Widget extends WP_Widget
-{
-    function __construct() {
-        $widget_ops = array( 'classname' => 'recipes', 'description' => __('A widget that displays the last recipes ', 'recipes') );
-        
-        $control_ops = array( 'width' => 300, 'height' => 350, 'id_base' => 'recipes-widget' );
-        
-        $this->WP_Widget( 'recipes-widget', __('Recipes Widget', 'recipes'), $widget_ops, $control_ops );
-    }
-    
-    function widget( $args, $instance ) {
-        extract( $args );
-        $title = apply_filters('widget_title', $instance['title'] );
 
-        echo $before_widget;
-
-        if ( $title )
-            echo $before_title . $title . $after_title;
-
-        $query = new WP_Query( 'category_name=recipes&posts_per_page=1' );
-
-        ?>
-
-        <?php if ($query->have_posts()): ?>
-        <div data-position="8" class="recipes-holder js-responsive-section">
-            <h3 class="widget-title hidden-widget-title">Recipes</h3>
-            <div class="recipes-box">
-            <?php while ($query->have_posts()) : $query->the_post(); ?>
-                    <?php the_post_thumbnail(array(125,80)); ?>
-                    <div class="recipes-text">
-                        <h3><a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a></h3>
-                        <!--<div class="comment-count"><?php echo get_comments_number(); ?> Comments</div>-->
-                    </div>
-            <?php endwhile; ?>
-            </div>
-        </div>
-        <?php endif; ?>
-        <?php
-
-        
-        echo $after_widget;
-    }
-     
-    function update( $new_instance, $old_instance ) {
-        $instance = $old_instance;
-        $instance['title'] = strip_tags( $new_instance['title'] );
-
-        return $instance;
-    }
-
-    
-    function form( $instance ) {
-        $defaults = array( 'title' => __('Recipes', 'recipes'));
-        $instance = wp_parse_args( (array) $instance, $defaults ); ?>
-
-        <p>
-            <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e('Title:', 'recipes'); ?></label>
-            <input id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $instance['title']; ?>" style="width:100%;" />
-        </p>
-
-        <?php
-    }
-
-}        
-
-function infisherman_setup()
+function parent_theme_setup()
 {
     // This theme uses a custom image size for featured images, displayed on "standard" posts.
-    //add_theme_support( 'post-thumbnails' );
+    add_theme_support( 'post-thumbnails' );
     set_post_thumbnail_size( 100, 9999 ); // Unlimited height, soft crop
     add_image_size( 'index-thumb', 200, 150, true );
     add_image_size( 'post-thumb', 700, 450, true );
-    add_image_size( 'post-home-thumb', 695, 460, true );
+    add_image_size( 'post-home-thumb', 695, 380, true );
     add_image_size( 'post-home-small-thumb', 335, 225, true );
 }
 
-function infisherman_widgets_init() 
+function parent_theme_widgets_init()
 {
 
     // register_widget( 'Twenty_Eleven_Ephemera_Widget' );
 
     /*register_sidebar( array(
-        'name' => __( 'Header Sidebar', 'infisherman' ),
+        'name' => __( 'Header Sidebar', 'parent_theme' ),
         'id' => 'sidebar-header',
         'before_widget' => '<div id="%1$s" class="widget %2$s header-elements">',
         'after_widget' => "</div>",
@@ -268,7 +157,7 @@ function infisherman_widgets_init()
     ) );
 
     register_sidebar( array(
-        'name' => __( 'Header Sidebar First', 'infisherman' ),
+        'name' => __( 'Header Sidebar First', 'parent_theme' ),
         'id' => 'sidebar-header-1',
         'before_widget' => '<div id="%1$s" class="widget %2$s header-elements">',
         'after_widget' => "</div>",
@@ -277,7 +166,7 @@ function infisherman_widgets_init()
     ) );
 
     register_sidebar( array(
-        'name' => __( 'Header Sidebar Second', 'infisherman' ),
+        'name' => __( 'Header Sidebar Second', 'parent_theme' ),
         'id' => 'sidebar-header-2',
         'before_widget' => '<div id="%1$s" class="widget %2$s header-elements">',
         'after_widget' => "</div>",
@@ -314,8 +203,18 @@ function infisherman_widgets_init()
         'after_title' => '</h3>',
     ) );
 
+    register_sidebar( array(
+        'name' => __( 'Community Sidebar', 'imo-mags-parent' ),
+        'id' => 'sidebar-4',
+        'description' => __( 'The sidebar for community pages', 'twentyeleven' ),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget' => "</div>",
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>',
+    ) );
+
    /*register_sidebar( array(
-        'name' => __( 'Footer Area Two', 'infisherman' ),
+        'name' => __( 'Footer Area Two', 'parent_theme' ),
         'id' => 'sidebar-4',
         'description' => __( 'An optional widget area for your site footer', 'twentyeleven' ),
         'before_widget' => '<div id="%1$s" class="widget %2$s">',
@@ -325,7 +224,7 @@ function infisherman_widgets_init()
     ) );
 
     register_sidebar( array(
-        'name' => __( 'Footer Area Three', 'infisherman' ),
+        'name' => __( 'Footer Area Three', 'parent_theme' ),
         'id' => 'sidebar-5',
         'description' => __( 'An optional widget area for your site footer', 'twentyeleven' ),
         'before_widget' => '<div id="%1$s" class="widget %2$s">',
@@ -335,7 +234,7 @@ function infisherman_widgets_init()
     ) );
 
     register_sidebar( array(
-        'name' => __( 'Main Menu', 'infisherman' ),
+        'name' => __( 'Main Menu', 'parent_theme' ),
         'id' => 'sidebar-6',
         'description' => __( 'An optional widget area for your site footer', 'twentyeleven' ),
         'before_widget' => '<div id="%1$s" class="widget %2$s">',
@@ -343,22 +242,27 @@ function infisherman_widgets_init()
         'before_title' => '<h3 class="widget-title">',
         'after_title' => '</h3>',
     ) );*/
-    register_nav_menus(array(  
-        'top' => 'Top Menu',  
+    register_nav_menus(array(
+        'top' => 'Top Menu',
         'bottom' => 'Main Menu',
         'mobile' => 'Mobile Menu'
     ));
+    register_nav_menus(array(
+        'top' => 'Community Menu',
+        'bottom' => 'Community Menu',
+        'community' => 'Community Menu'
+    ));
 }
 
-function infisherman_get_categories($categories_list, $show_featured = true)
+function parent_theme_get_categories($categories_list, $show_featured = true)
 {
-    $categories = implode(' ', 
+    $categories = implode(' ',
         array_map(
             function($item){
                 return '<span class="category-name-box"><a class="category-name-link" href="'.esc_url(get_category_link(get_cat_ID($item->name))).'">'.$item->name.'</a></span>';
-            }, 
+            },
             array_filter(
-                $categories_list, 
+                $categories_list,
                 function ($item) use ($show_featured) {
                     if (($item->slug == TIMELY_FEATURES || $item->slug == FEATURED) && !$show_featured) {
                         return false;
@@ -390,12 +294,12 @@ function get_categories_ids($slugs){
 
 function get_more_posts_query($limit = 4)
 {
-    $query = new WP_Query(array( 
-        'category__not_in' =>  
+    $query = new WP_Query(array(
+        'category__not_in' =>
             get_categories_ids(array(
                 MASTER_ANGLERS, TIMELY_FEATURES, FEATURED
             )),
-        'posts_per_page' => $limit ) 
+        'posts_per_page' => $limit )
     );
     return $query;
 }
@@ -435,7 +339,7 @@ function render_shares_count($url, $post_id)
 
         jQuery("#"+elemid).text(
             parseInt(jQuery("#"+elemid).text()) + count
-        ) 
+        )
 
     }
     </script>
@@ -443,7 +347,7 @@ function render_shares_count($url, $post_id)
     <?php
 }
 
-function infisherman_get_search_form($echo = true) {
+function parent_theme_get_search_form($echo = true) {
     do_action( 'get_search_form' );
 
     $search_form_template = locate_template('searchform.php');
@@ -465,28 +369,28 @@ function infisherman_get_search_form($echo = true) {
         return apply_filters('get_search_form', $form);
 }
 
-function infisherman_get_featured_posts_query_in_slider()
+function parent_theme_get_featured_posts_query_in_slider()
 {
-    add_filter( 'posts_where', 'infisherman_filter_where' );
+    add_filter( 'posts_where', 'parent_theme_filter_where' );
     $query = new WP_Query(
-        array( 
+        array(
             'category' => FEATURED,
             'posts_per_page' => 9
         )
     );
-    remove_filter( 'posts_where', 'infisherman_filter_where' );
+    remove_filter( 'posts_where', 'parent_theme_filter_where' );
 
-    return $query; 
+    return $query;
 }
 
-function infisherman_filter_where( $where = '' ) {
+function parent_theme_filter_where( $where = '' ) {
     $where .= " AND post_name LIKE '%featured%'";
     return $where;
 }
 
 function isset_related_posts()
 {
-    ob_start(); 
+    ob_start();
     related_posts();
     $output .= ob_get_contents();
     ob_end_clean();
@@ -558,7 +462,7 @@ function imo_addons_subscription_page() {
         <tr valign="top">
         <th scope="row">Subscription Form Action</th>
         <td><input type="text" name="subs_form_link" value="<?php echo get_option('subs_form_link'); ?>" /><p>(No slash at the end: 'http://www.example.com'.)</p></td>
-        </tr>        
+        </tr>
         <th scope="row">iMagID</th>
         <td><input type="text" name="iMagID" value="<?php echo get_option('iMagID'); ?>" /></br><p>(Leave this alone if you don't konw what this does.)</p></td>
         </tr> <tr valign="top">
@@ -572,301 +476,11 @@ function imo_addons_subscription_page() {
     </p>
 </form>
 </div>
-<?php 
+<?php
 }
-add_action("widgets_init", 'imo_addons_sidebar_init'); 
+add_action("widgets_init", 'imo_addons_sidebar_init');
 add_action("admin_menu", "imo_addons_create_subscriptions_menu");
 add_action('wp_head','imo_addons_include_header_file');
 
-
-//Configure infish community
-//This section does nothing unless imo-community plugin is enabled
-add_action("init","infish_community_init");
-function infish_community_init() {
-
-	//////////////////////////////////
-	//Community Configuration
-	//////////////////////////////////
-	$IMO_COMMUNITY_CONFIG = NULL;
-	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "community";//This slug will override ANY setting in wordpress.
-	$IMO_COMMUNITY_CONFIG['page_title'] = 'In-Fisherman Community';
-	$IMO_COMMUNITY_CONFIG['template'] = '/templates/blank-template.php';
-	$IMO_COMMUNITY_CONFIG['dart_page'] = 'infish_community';
-	$IMO_COMMUNITY_CONFIG['dart_sect'] = 'infishcommunity';
-	$IMO_COMMUNITY_CONFIG['post_types'] = array(
-
-		"report" => array(
-			"display_name" => "Rut Reports",
-			"post_list_style" => "tile"
-		),
-
-		"question" => array(
-			"display_name" => "Q&A",
-			"post_list_style" => "list"
-		),
-
-		"general" => array(
-			"display_name" => "general",
-			"post_list_style" => "list"
-		)
-
-	);
-	$IMO_COMMUNITY_CONFIG['additional_scripts'] = array(
-		//Third Part Scripts
-		array(
-			"script-name" => "underscore-js",
-			"script-path" => "js/underscore-min.js",
-			"script-dependencies" => array('jquery')
-		),
-		array(
-			"script-name" => "backbone-js",
-			"script-path" => "js/backbone-min.js",
-			"script-dependencies" => array('jquery','underscore-js')
-		),
-		array(
-			"script-name" => "form-params-js",
-			"script-path" => "js/formParams.min.js",
-			"script-dependencies" => array('jquery')
-		),
-		array(
-			"script-name" => "filepicker-io-js",
-			"script-path" => "js/filepicker.js",
-			"script-dependencies" => array('jquery')
-		),
-		array(
-			"script-name" => "imo-community-grid-js",
-			"script-path" => "js/backgrid.min.js",
-			"script-dependencies" => array('jquery','backbone-js','underscore-js')
-		),
-		//Application specific scripts
-		array(
-			"script-name" => "imo-community-common",
-			"script-path" => "js/common.js",
-			"script-dependencies" => array('jquery','backbone-js','underscore-js')
-		),
-		array(
-			"script-name" => "imo-community-models",
-			"script-path" => "js/models.js",
-			"script-dependencies" => array('jquery','backbone-js','underscore-js','imo-community-common')
-		),
-		array(
-			"script-name" => "imo-community-mod",
-			"script-path" => "js/mod2.js",
-			"script-dependencies" => array('jquery','backbone-js','underscore-js','imo-community-models','imo-community-common')
-		),
-		array(
-			"script-name" => "imo-community-community",
-			"script-path" => "js/community.js",
-			"script-dependencies" => array('jquery','backbone-js','underscore-js','imo-community-models','imo-community-common','imo-community-mod')
-		),
-		array(
-			"script-name" => "imo-community-routes",
-			"script-path" => "js/routes.js",
-			"script-dependencies" => array('jquery','backbone-js','underscore-js','imo-community-community','imo-community-mod')
-		),
-		array(
-			"script-name" => "backgrid-select-all",
-			"script-path" => "js/backgrid-select-all.js",
-			"script-dependencies" => array('jquery','backbone-js','underscore-js','imo-community-grid-js','custom.js','jquery.timeago.js')
-		)
-
-	);
-
-	$IMO_COMMUNITY_CONFIG['additional_styles'] = array(
-		array(
-			"style-name" => "imo-community-stylesheet-main",
-			"style-path" => "css/bootstrap.min.css",
-			"style-dependencies" => null
-		),
-		array(
-			"style-name" => "stylesheet_responsive",
-			"style-path" => "css/bootstrap-responsive.css",
-			"style-dependencies" => null
-		),
-		array(
-			"style-name" => "imo-community-grid-css",
-			"style-path" => "css/backgrid.min.css",
-			"style-dependencies" => null
-		),
-		array(
-			"style-name" => "styles-select-all",
-			"style-path" => "css/styles-select-all.css",
-			"style-dependencies" => array('custom.css')
-		),
-		array(
-			"style-name" => "stylesheet_custom",
-			"style-path" => "css/custom.css",
-			"style-dependencies" => null
-		)
-	);
-	global $IMO_COMMUNITY;
-	$IMO_COMMUNITY['beta-community'] = $IMO_COMMUNITY_CONFIG;
-	/////////////////////////////////////////////////
-
-
-
-	//////////////////////////////////
-	//Solunar Calendar iPad Embed config
-	//////////////////////////////////
-	$IMO_COMMUNITY_CONFIG = NULL;
-	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "solunar-calendar-ipad";//This slug will override ANY setting in wordpress.
-	$IMO_COMMUNITY_CONFIG['page_title'] = 'Solunar Calendar';
-	$IMO_COMMUNITY_CONFIG['template'] = '/solunar/solunar-template-minimal.php';
-	$IMO_COMMUNITY_CONFIG['dart_page'] = 'solunar_calendar';
-	$IMO_COMMUNITY_CONFIG['dart_sect'] = 'solunarcalendar';
-	$IMO_COMMUNITY_CONFIG['post_types'] = null;
-	$IMO_COMMUNITY_CONFIG['additional_scripts'] = array(
-		array(
-			"script-name" => "jquery-mousewheel-zf",
-			"script-path" => "solunar/js/plugins/zfselect/js/jquery.mousewheel.js",
-			"script-dependencies" => array('jquery')
-		),
-		array(
-			"script-name" => "jquery-zfselect",
-			"script-path" => "solunar/js/plugins/zfselect/js/jquery.zfselect.min.js",
-			"script-dependencies" => array('jquery')
-		),
-		array(
-			"script-name" => "jquery-carousel-fred",
-			"script-path" => "solunar/js/plugins/carouFredSel/jquery.carouFredSel-6.2.0-packed.js",
-			"script-dependencies" => array('jquery')
-		),
-		array(
-			"script-name" => "lodash",
-			"script-path" => "solunar/js/lodash.min.js",
-			"script-dependencies" => array('jquery')
-		),
-		array(
-			"script-name" => "solunar-googletag",
-			"script-path" => "solunar/js/googletag.js",
-			"script-dependencies" => null,
-			"show-in-header" => true
-		),
-		array(
-			"script-name" => "solunar-app",
-			"script-path" => "solunar/js/script.js",
-			"script-dependencies" => array('jquery','lodash','jquery-carousel-fred','jquery-zfselect','jquery-mousewheel-zf')
-		),
-
-
-
-	);
-
-	$IMO_COMMUNITY_CONFIG['additional_styles'] = array(
-		array(
-			"style-name" => "solunar-base-css",
-			"style-path" => "solunar/css/css-php.css",
-			"style-dependencies" => null
-		),
-		array(
-			"style-name" => "solunar-style-css",
-			"style-path" => "solunar/css/styles.css?v=2",
-			"style-dependencies" => null
-		),
-		array(
-			"style-name" => "zfselect-css",
-			"style-path" => "solunar/js/plugins/zfselect/css/zfselect.css",
-			"style-dependencies" => null
-		),
-		array(
-			"style-name" => "flexslider-css",
-			"style-path" => "solunar/js/plugins/flexslider/flexslider.css",
-			"style-dependencies" => null
-		),
-	);
-	global $IMO_COMMUNITY;
-	$IMO_COMMUNITY['solunar-calendar-ipad'] = $IMO_COMMUNITY_CONFIG;
-	/////////////////////////////////////////////////
-	/////////////////////////////////////////////////
-
-
-
-	//////////////////////////////////
-	//Solunar Calendar config
-	//////////////////////////////////
-	$IMO_COMMUNITY_CONFIG = NULL;
-	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "solunar-calendar";//This slug will override ANY setting in wordpress.
-	$IMO_COMMUNITY_CONFIG['page_title'] = 'Solunar Calendar';
-	$IMO_COMMUNITY_CONFIG['template'] = '/solunar/solunar-template.php';
-	$IMO_COMMUNITY_CONFIG['post_types'] = null;
-	$IMO_COMMUNITY_CONFIG['dart_page'] = 'solunar_calendar';
-	$IMO_COMMUNITY_CONFIG['dart_sect'] = 'solunarcalendar';
-	$IMO_COMMUNITY_CONFIG['additional_scripts'] = array(
-		array(
-			"script-name" => "jquery-mousewheel-zf",
-			"script-path" => "solunar/js/plugins/zfselect/js/jquery.mousewheel.js",
-			"script-dependencies" => array('jquery')
-		),
-		array(
-			"script-name" => "jquery-zfselect",
-			"script-path" => "solunar/js/plugins/zfselect/js/jquery.zfselect.min.js",
-			"script-dependencies" => array('jquery')
-		),
-		array(
-			"script-name" => "jquery-carousel-fred",
-			"script-path" => "solunar/js/plugins/carouFredSel/jquery.carouFredSel-6.2.0-packed.js",
-			"script-dependencies" => array('jquery')
-		),
-		array(
-			"script-name" => "lodash",
-			"script-path" => "solunar/js/lodash.min.js",
-			"script-dependencies" => array('jquery')
-		),
-		array(
-			"script-name" => "solunar-googletag",
-			"script-path" => "solunar/js/googletag.js",
-			"script-dependencies" => null,
-			"show-in-header" => true
-		),
-		array(
-			"script-name" => "solunar-app",
-			"script-path" => "solunar/js/script.js",
-			"script-dependencies" => array('jquery','lodash','jquery-carousel-fred','jquery-zfselect','jquery-mousewheel-zf')
-		),
-
-	);
-
-	$IMO_COMMUNITY_CONFIG['additional_styles'] = array(
-		array(
-			"style-name" => "solunar-base-css",
-			"style-path" => "solunar/css/css-php.css",
-			"style-dependencies" => null
-		),
-		array(
-			"style-name" => "solunar-style-css",
-			"style-path" => "solunar/css/styles.css?v=2",
-			"style-dependencies" => null
-		),
-		array(
-			"style-name" => "zfselect-css",
-			"style-path" => "solunar/js/plugins/zfselect/css/zfselect.css",
-			"style-dependencies" => null
-		),
-		array(
-			"style-name" => "flexslider-css",
-			"style-path" => "solunar/js/plugins/flexslider/flexslider.css",
-			"style-dependencies" => null
-		),
-	);
-	global $IMO_COMMUNITY;
-	$IMO_COMMUNITY['solunar-calendar'] = $IMO_COMMUNITY_CONFIG;
-	/////////////////////////////////////////////////
-	/////////////////////////////////////////////////
-
-	//////////////////////////////////
-	//Mobile Solunar Calendar config
-	//////////////////////////////////
-	$IMO_COMMUNITY_CONFIG = NULL;
-	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "solunar-calendar-mobile";//This slug will override ANY setting in wordpress.
-	$IMO_COMMUNITY_CONFIG['page_title'] = 'Solunar Calendar';
-	$IMO_COMMUNITY_CONFIG['template'] = '/solunar-mobile/solunar-template-mobile.php';
-	$IMO_COMMUNITY_CONFIG['dart_page'] = 'solunar_calendar';
-	$IMO_COMMUNITY_CONFIG['dart_sect'] = 'solunarcalendar';
-	$IMO_COMMUNITY_CONFIG['post_types'] = null;
-
-	global $IMO_COMMUNITY;
-	$IMO_COMMUNITY['solunar-calendar-mobile'] = $IMO_COMMUNITY_CONFIG;
-	/////////////////////////////////////////////////
-}
 
 
