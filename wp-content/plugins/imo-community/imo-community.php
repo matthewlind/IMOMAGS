@@ -188,9 +188,7 @@ function imo_include_wordpress_template($t) {
 add_filter( 'wpseo_head',"imo_community_seo_thing");
 function imo_community_seo_thing($thing) {
 
-	echo "THINGTHING: ";
-	print_r($thing);
-	echo "THING22THING: ";
+
 }
 
 
