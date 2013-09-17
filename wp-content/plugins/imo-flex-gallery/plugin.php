@@ -34,20 +34,35 @@ function imo_flex_gallery( $atts ) {
 }
 
 function imoCommunityGallery($gallery, $community, $tag, $dartDomain) {
-	//$baseUrl = 'http://'.$_SERVER['HTTP_HOST'];
 	$baseUrl = get_bloginfo('url');
-	//$baseUrl = 'http://www.northamericanwhitetail.com';
-
+	
+	//Retrieve and sort JSON data
 	if($_GET['gallery_sort']) {
 		if($gallery) {
-			$jsonData = file_get_contents($baseUrl.'/community-api/posts?sort=DESC&post_type='.$gallery.'&order_by='.$_GET['gallery_sort']);
+			if($gallery == 'master-angler') {
+				$jsonData = file_get_contents($baseUrl.'/community-api/posts?sort=DESC&master=1&order_by='.$_GET['gallery_sort']);
+			} else {
+				if($_GET['gallery_sort'] == 'master-angler') {
+					$jsonData = file_get_contents($baseUrl.'/community-api/posts?sort=DESC&master=1&post_type='.$gallery );
+				} else {
+					$jsonData = file_get_contents($baseUrl.'/community-api/posts?sort=DESC&post_type='.$gallery.'&order_by='.$_GET['gallery_sort']);
+				}
+			}
 		} else {
-			$jsonData = file_get_contents($baseUrl.'/community-api/posts?sort=DESC&order_by='.$_GET['gallery_sort']);
+			if($_GET['gallery_sort'] == 'master-angler') {
+				$jsonData = file_get_contents($baseUrl.'/community-api/posts?sort=DESC&master=1');
+			} else {
+				$jsonData = file_get_contents($baseUrl.'/community-api/posts?sort=DESC&order_by='.$_GET['gallery_sort']);
+			}
 			$gallery = 'all';
 		}
 	} else {
 		if($gallery) {
-			$jsonData = file_get_contents($baseUrl.'/community-api/posts?sort=DESC&post_type='.$gallery);
+			if($gallery == 'master-angler') {
+				$jsonData = file_get_contents($baseUrl.'/community-api/posts?sort=DESC&master=1');
+			} else {
+				$jsonData = file_get_contents($baseUrl.'/community-api/posts?sort=DESC&post_type='.$gallery);
+			}
 		} else {
 			$jsonData = file_get_contents($baseUrl.'/community-api/posts?sort=DESC');
 			$gallery = 'all';
@@ -137,13 +152,14 @@ EOT_a1;
 			if($community == true ) {
 				$picture->img_url = $picture->img_url;
 				//$picture->img_url = $baseUrl.$picture->img_url;
-				$picture->thumbnail = $picture->img_url;
+				$picture->thumbnail = $picture->img_url.'/convert?rotate=0&w=59&h=44&fit=crop';
 				$picture->description = $picture->body;
-				$image = '<img src="'.$picture->img_url.'" alt="'.$picture->title.'" class="slide-image">';
+				$image = '<img src="'.$picture->img_url.'/convert?rotate=0" alt="'.$picture->title.'" class="slide-image">';
 			} else {
 				$picture->title = stripcslashes($picture->alttext);
-				$picture->descriptionRaw = stripcslashes($picture->description);
-				$picture->description = strip_tags($picture->description, '<p><a><br><b><i><strong><u>');
+				//$picture->descriptionRaw = stripcslashes($picture->description);
+				//$picture->description = strip_tags($picture->description, '<p><a><br><b><i><strong><u>');
+				$picture->description = stripcslashes($picture->description);
 				$image = '<img src="'.$picture->img_url.'" alt="'.$picture->title.'" class="slide-image">';
 			}
 $desktop_tablet_output .= <<<EOT_a2
@@ -195,7 +211,7 @@ $desktop_tablet_output .= <<<EOT_a5_2
 								<option value="created">Latest</option>
 								<option value="share_count_today">Trending Today</option>
 								<option value="share_count_week">Trending This Week</option>
-								<option value="">Master Anglers</option>
+								<option value="master-angler">Master Anglers</option>
 							</select>
 						</form>
 					</div>
@@ -206,9 +222,9 @@ EOT_a5_2;
 		if(!empty($picture->img_url)) {
 			if($picture->comment_count > 0) {
 				if($picture->comment_count == 1) {
-					$replies = '1 Reply';
+					$replies = '<span class="flex-gallery-replies">1 Reply</span>';
 				} else {
-					$replies = $picture->comment_count.' Replies';	
+					$replies = '<span class="flex-gallery-replies">'.$picture->comment_count.' Replies</span>';	
 				}
 			}
 			if($community == true){
@@ -222,7 +238,6 @@ $desktop_tablet_output .= <<<EOT_a6
 					<div id="flex-content-$count" class="flex-content">
 							<div class="clear"></div>
 							$picture->description
-							<div id="flex-content-$count-html" class="displayNone">$picture->descriptionRaw</div>
 					</div>
 					<div class="community-only">
 						<div id="flex-content-community-$count" class="slide-out-community-features">
@@ -251,7 +266,7 @@ $desktop_tablet_output .= <<<EOF_a
 			</script>
 		</div>
 	</div>
-<div id="flex-gallery-social-save" class="displayNone">$addThis</div>
+<div id="flex-gallery-social-save" class="display-none">$addThis</div>
 <div class="background-overlay"></div>
 $entryContentOpen
 EOF_a;
@@ -273,7 +288,7 @@ if($community == true) {
 						<option value="created">Latest</option>
 						<option value="share_count_today">Trending Today</option>
 						<option value="share_count_week">Trending This Week</option>
-						<option value="">Master Anglers</option>
+						<option value="master-angler">Master Anglers</option>
 					</select>
 				</form>
         </div>
