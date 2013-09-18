@@ -40,7 +40,11 @@ function imoCommunityGallery($gallery, $community, $tag, $dartDomain) {
 	if($_GET['gallery_sort']) {
 		if($gallery) {
 			if($gallery == 'master-angler') {
-				$jsonData = file_get_contents($baseUrl.'/community-api/posts?sort=DESC&master=1&order_by='.$_GET['gallery_sort']);
+				if($_GET['gallery_sort'] == 'master-angler') {
+					$jsonData = file_get_contents($baseUrl.'/community-api/posts?sort=DESC&master=1');
+				}  else {
+					$jsonData = file_get_contents($baseUrl.'/community-api/posts?sort=DESC&order_by='.$_GET['gallery_sort']);
+				}
 			} else {
 				if($_GET['gallery_sort'] == 'master-angler') {
 					$jsonData = file_get_contents($baseUrl.'/community-api/posts?sort=DESC&master=1&post_type='.$gallery );
