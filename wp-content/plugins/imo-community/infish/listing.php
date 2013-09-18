@@ -60,7 +60,6 @@ if(mobile()){
 }
 
 ?>
-
 <!-- *********************************************************** -->
 <!-- ***************** UNDERSCORE TEMPLATE ********************* -->
 <!-- *********************************************************** -->
@@ -72,7 +71,6 @@ if(post.score == 1){
 	niceScore = post.score + ' Points';
 }
 %>
-
 <% if(post.img_url){ %>
 	<div class="dif-post">
         <div class="feat-img">
@@ -91,13 +89,18 @@ if(post.score == 1){
                         <li><a href="/<%= post.post_type %>" style="text-transform:capitalize;"><%= post.post_type %></a></li>
                         <% if(post.master){ %><li><a href="/master-angler">Master Angler</a></li><% } %>
 
-                    </ul>
+                    </ul><div class="fb-like" data-href="http://in-fisherman.com/photos/<%= post.id %>" data-width="450" data-layout="button_count" data-show-faces="true" data-send="false"></div>
                     <ul class="replies">
                         <li><a href="/photos/<%= post.id %>#reply_field"><%= post.comment_count %> Reply</a></li>
 						<li><%= niceScore %></li>
                     </ul>
                     <ul class="prof-like">
-                        <li><div class="fb-like" data-href="<?php echo FACEBOOK_LINK; ?>" data-send="false" data-layout="button_count" data-width="100" data-show-faces="true"></div></li>
+                    	<li>
+                    		<div addthis:url="http://<?php echo $_SERVER['SERVER_NAME']; ?>/photos/<%= post.id %>" addthis:title="' . htmlentities(<?php echo $post->title; ?>) . '" class="addthis_toolbox addthis_default_style ">
+								<a class="addthis_button_facebook_like"fb:like:layout="button_count"></a>
+							</div>
+							
+                       </li>
                     </ul>
                 </div>
             </div>
@@ -242,4 +245,5 @@ if(post.score == 1){
 
     </div>
 </div>
+
 <?php get_footer(); ?>

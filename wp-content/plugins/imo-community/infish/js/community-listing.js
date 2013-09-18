@@ -42,12 +42,13 @@ jQuery(document).ready(function($) {
 
                 var postHTML = _.template( $('#post-template').html() , { post: post });
                 $("#posts-container").append(postHTML);
-               
+				$(".dif-posts .prof-like li").append('<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4de0e5f24e016c81"></script>');
 
             });
 			adPlacement();
             //hide the ajax loading spinner
             $("#ajax-loader").hide();
+            
 
         });
     }
@@ -109,7 +110,7 @@ jQuery(document).ready(function($) {
     //Check to see if loadmore needs to be hidden
     function loadMoreCheck() {
         var url = "http://" + document.domain + "/community-api/posts/counts?skip="+filter.skip+"&per_page="+filter.per_page+"&order_by="+filter.order_by+"&sort="+filter.sort+"&master="+filter.master+"&post_type="+filter.post_type;
-
+		
 
         $.getJSON(url,function(countData){
 
@@ -125,6 +126,7 @@ jQuery(document).ready(function($) {
             }
 
         });
+        
     }
 
 

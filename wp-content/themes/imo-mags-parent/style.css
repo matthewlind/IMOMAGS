@@ -1445,6 +1445,8 @@ a.category-name-link:hover{
     background:#dbdbd9;
     content:"";
 }
+#at4-whatsnext{z-index: 999999999999999999 !important;}
+
 .full-post .entry-content .addthis_toolbox {
     position:absolute;
     left:0;
