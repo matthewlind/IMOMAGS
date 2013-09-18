@@ -10,7 +10,7 @@ jQuery(document).ready(function($) {
         filter.master = 0;
         filter.skip = 0;
         filter.post_type = "all";
-        filter.per_page=11;
+        filter.per_page=20;
         filter.post_count = 10000000;
     }
 
@@ -26,7 +26,7 @@ jQuery(document).ready(function($) {
 				.insertAfter("#posts-container .dif-post:nth-child(5n)");
 			}else{
 				$('<div class="community-ad"><div class="image-banner"><iframe id="community-listing-ad" width=300 height=250 marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-community-ad.php?ad_code=imo.in-fisherman"></iframe></div></div>')
-				.insertAfter("#posts-container .dif-post:nth-child(10n)");
+				.insertAfter("#posts-container .dif-post:nth-child(9n)");
 			}
 	}
 	
@@ -42,12 +42,13 @@ jQuery(document).ready(function($) {
 
                 var postHTML = _.template( $('#post-template').html() , { post: post });
                 $("#posts-container").append(postHTML);
-               
+				$(".dif-posts .prof-like li").append('<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4de0e5f24e016c81"></script>');
 
             });
 			adPlacement();
             //hide the ajax loading spinner
             $("#ajax-loader").hide();
+            
 
         });
     }
@@ -105,40 +106,11 @@ jQuery(document).ready(function($) {
 			});
 		}
     });
-    
-
- /*	 
-	var infiniteScroll = function(){
-		 
-		if($(window).scrollTop() >= $("a.load-more").offset().top - 500){
-			$(window).unbind('scroll', infiniteScroll);			
-			filter.skip = filter.skip + filter.per_page;
-			getPhotosAndAppend();
-			
-			loadMoreCheck();
-			
-			//refresh the sticky ad on load more
-	        if (jQuery(window).width() >  610 ) {
-	        	document.getElementById('sticky-iframe-ad').contentWindow.location.reload();
-	        	jQuery(".sidebar.advert").css({
-	            	display: 'block',
-					position: 'fixed',
-					top: 10
-				});
-			}
-			
-			//$(window).bind('scroll', infiniteScroll);	
-			
-		}		
-	}	
-	$(window).bind('scroll', infiniteScroll);	
-	*/
-
 	
-    //CHeck to see if loadmore needs to be hidden
+    //Check to see if loadmore needs to be hidden
     function loadMoreCheck() {
         var url = "http://" + document.domain + "/community-api/posts/counts?skip="+filter.skip+"&per_page="+filter.per_page+"&order_by="+filter.order_by+"&sort="+filter.sort+"&master="+filter.master+"&post_type="+filter.post_type;
-
+		
 
         $.getJSON(url,function(countData){
 
@@ -154,6 +126,7 @@ jQuery(document).ready(function($) {
             }
 
         });
+        
     }
 
 

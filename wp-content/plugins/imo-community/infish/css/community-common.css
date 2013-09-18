@@ -383,6 +383,10 @@ select.alter-sel {width:100%;}
     display:inline-block;
     vertical-align:middle;
 }
+.prof-like iframe{
+	float: right;
+	width: 82px !important;
+}
 .badge {
     position:absolute;
     top:-83px;

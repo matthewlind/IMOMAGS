@@ -182,3 +182,17 @@ function imo_include_wordpress_template($t) {
     header("HTTP/1.1 200 OK");
     include($t);
 }
+
+
+//Set the FB Opengraph Meta title
+add_filter( 'wpseo_head',"imo_community_seo_thing");
+function imo_community_seo_thing($thing) {
+
+
+}
+
+
+
+
+
+

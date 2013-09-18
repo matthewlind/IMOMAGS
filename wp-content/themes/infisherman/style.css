@@ -561,6 +561,8 @@ a.change-location:before {
 }
 .ma-enter a.btn-base{
 	padding: 0 60px;
+	margin: 0 auto;
+	width: 240px;
 }
 .category-master-angler ol{
 	list-style:decimal;

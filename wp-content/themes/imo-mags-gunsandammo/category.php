@@ -12,17 +12,17 @@
  * **********************************************************************
  * This program is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * **********************************************************************
  */
 
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 
-// NOTE: this file is here for compatibility reasons - active templates are in the posts/ dir 
+// NOTE: this file is here for compatibility reasons - active templates are in the posts/ dir
 
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
-get_header(); 
+get_header();
 
 $current_category = single_cat_title("", false);
 
@@ -68,12 +68,12 @@ if (empty($zn_img)) {
 		echo '<div id="sidebar">';
 		if( in_category($soga_slug) || in_category($floc_slug) || in_category($dt_slug) || in_category($nb_slug) || in_category($zn_slug) || in_category($tgr_slug) ) {
 			if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-default')) : else : endif;
-		
+
 		}else if( in_category("shot-show-2013") ){
-					
+
 		}else if( in_category("affiliates") ){
 			if (function_exists('dynamic_sidebar') && dynamic_sidebar('affiliate-sidebar')) : else : endif;
-		
+
 		}else{
 			if (function_exists('dynamic_sidebar') && dynamic_sidebar('homepage-sidebar')) : else : endif;
 		}
@@ -100,7 +100,7 @@ if (empty($zn_img)) {
 		<div class="blog-border"></div>
 		<h1>For the Love of Competition</h1>
 		<!--<div class="presented-by">Presented By</div>-->
-		<p>News, notes, jackassery and the occasional explosion from the world of competitive shooting with Top Shot champion and aspiring 3-gunner 
+		<p>News, notes, jackassery and the occasional explosion from the world of competitive shooting with Top Shot champion and aspiring 3-gunner
 Iain Harrison.</p>
 		<!--<div class="sponsor-logo"></div>-->
 	</div>
@@ -130,7 +130,7 @@ Iain Harrison.</p>
 		<!--<div class="presented-by">Presented By</div>-->
 		<p>All the news you'll ever need from the world of guns, shooting and weird web stuff. Brought to you by the scribes at GunsandAmmo.com.</p>
 		<!--<div class="sponsor-logo"></div>-->
-	</div>		
+	</div>
 	<?php } else if (is_category($tgr_slug)) { ?>
 	<div class="blog-headers fthb">
 		<div class="blog-border"></div>
@@ -146,7 +146,7 @@ Iain Harrison.</p>
 		<!--<div class="presented-by">Presented By</div>-->
 		<p>When you're helpless against the zombie horde and their blood lust, don't say we didn't warn you. Get your tips, tactics and gear for zombie defense here.</p>
 		<!--<div class="sponsor-logo"></div>-->
-	</div>	
+	</div>
 	<?php } else if (is_category("affiliates") || is_category("military-arms") ) { ?>
 	<div class="affiliate-header">
 		<div class="bar"></div>
@@ -165,51 +165,51 @@ Iain Harrison.</p>
 	<?php } else { ?>
 
 		<div class="section-title posts" style="width:648px;">
-					<div class="cfct-mod-content">
-						<h4>
- 							<div class="icon"></div>
-  								<span><?php single_cat_title('');?></span>
-						</h4>
-					</div>
-				</div>
+			<div class="cfct-mod-content">
+				<h4>
+						<div class="icon"></div>
+							<span><?php single_cat_title('');?></span>
+				</h4>
+			</div>
+		</div>
 
 	<?php }
 	if( is_category("shot-show-2013") ){ ?>
 		<div class="cat-col-full">
 				<?php
 
-					
+
 		//Then get attachment data
 		$requestURL = "http://gunsandammo.com/wpdb/shotshow-shoot-json.php";
-		
+
 		$file = file_get_contents($requestURL);
-		$postData = json_decode($file);		
-					
+		$postData = json_decode($file);
+
 		?>
-			
+
 			<div id="slideshow_mask" class="featured-thumb-wide">
 				<div id="slideshow">
-					
-					
-	
+
+
+
 					<?php // The Loop
-					
+
 					$itemCount = 0;
 					foreach($postData as $post) {
-					
+
 						$isATAFeatured = FALSE;
 						//Check for ata-featured term
-						
+
 						foreach ($post->terms as $term) {
 							if ($term->slug == "shot-show-featured")
 								$isATAFeatured = TRUE;
 						}
-						
-						
+
+
 						if ($isATAFeatured) {
-						
+
 							$imageURL = str_replace("-190x120", "", $post->img_url);
-							
+
 
 							?>
 
@@ -221,28 +221,28 @@ Iain Harrison.</p>
 										<h2><a href="<?php echo $post->post_url; ?>"><?php echo $post->post_title; ?></a></h2>
 									</div>
 								</div>
-							
-							
-							<?php 
+
+
+							<?php
 							$itemCount++;
-						
+
 						}//end if $isATAFeatured
-					
+
 						if ($itemCount >= 4)
 							break;
-					
+
 						}//End Foreach
 						?>
 				</div>
 			</div>
-				
+
 				<div id="pager" class=""></div>
 						<a id="prev"></a>
-						<a id="next"></a>	
-						
+						<a id="next"></a>
+
 			<div style="clear:both;"></div>
 		<div class="cross-site-feed" term=""></div><!-- This term= attribute is searched for by displayCrossSiteFeed() in cross-site-feed.js -->
-				
+
 		</div>
 		<div class="cross-site-feed-more-button"> <div class="more-button"><span>LOAD MORE<span></span></span></div> </div>
 	<?php }else{

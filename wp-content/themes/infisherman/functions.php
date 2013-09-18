@@ -361,7 +361,7 @@ function infish_community_init() {
 		)
 	);
 
-
+	
 	//External Community Configurations
 	include("community-config/new-post.php");
 	include("community-config/single.php");
@@ -520,7 +520,6 @@ function infish_community_init() {
 	$IMO_COMMUNITY_CONFIG['dart_sect'] = 'infishcommunity';
 	$IMO_COMMUNITY_CONFIG['post_types'] = $inFishPostTypes;
 
-
 	$IMO_COMMUNITY_CONFIG['additional_scripts'] = array(
 		//Third Part Scripts
 		array(
@@ -566,7 +565,7 @@ function infish_community_init() {
 	global $IMO_COMMUNITY;
 	$IMO_COMMUNITY['community-main'] = $IMO_COMMUNITY_CONFIG;
 
-
+	
 	///////////////////////////////////////////
 	//Admin Page Testing
 	///////////////////////////////////////////

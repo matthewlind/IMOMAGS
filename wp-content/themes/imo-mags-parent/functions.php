@@ -137,6 +137,7 @@ function parent_theme_setup()
     add_theme_support( 'post-thumbnails' );
     set_post_thumbnail_size( 100, 9999 ); // Unlimited height, soft crop
     add_image_size( 'index-thumb', 200, 150, true );
+    add_image_size( 'legacy-thumb', 190, 120, true );
     add_image_size( 'post-thumb', 700, 450, true );
     add_image_size( 'post-home-thumb', 695, 380, true );
     add_image_size( 'post-home-small-thumb', 335, 225, true );
@@ -481,6 +482,45 @@ function imo_addons_subscription_page() {
 add_action("widgets_init", 'imo_addons_sidebar_init');
 add_action("admin_menu", "imo_addons_create_subscriptions_menu");
 add_action('wp_head','imo_addons_include_header_file');
+
+
+function edit_community_contactmethods( $contactmethods ) {
+ $contactmethods['twitter'] = 'Twitter';
+
+   unset($contactmethods['yim']);
+   unset($contactmethods['aim']);
+   unset($contactmethods['jabber']);
+
+
+ return $contactmethods;
+ }
+ add_filter('user_contactmethods','edit_community_contactmethods',10,1);
+
+
+function imo_community_user_profile( $user_id ) {
+
+
+
+    if ( !empty( $_POST['age'] ) )
+        update_user_meta( $user_id, 'age', $_POST['age'] );
+
+    if ( !empty( $_POST['address1'] ) )
+        update_user_meta( $user_id, 'address1', $_POST['address1'] );
+    if ( !empty( $_POST['address2'] ) )
+        update_user_meta( $user_id, 'address2', $_POST['address2'] );
+    if ( !empty( $_POST['city'] ) )
+        update_user_meta( $user_id, 'city', $_POST['city'] );
+    if ( !empty( $_POST['state'] ) )
+        update_user_meta( $user_id, 'state', $_POST['state'] );
+    if ( !empty( $_POST['zip'] ) )
+        update_user_meta( $user_id, 'zip', $_POST['zip'] );
+
+
+
+}
+add_action( 'edit_user_profile_update', 'imo_community_user_profile' );
+add_action( 'edit_user_profile', 'imo_community_user_profile' );
+add_action( 'personal_options_update', 'imo_community_user_profile' );
 
 
 
