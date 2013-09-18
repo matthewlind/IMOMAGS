@@ -274,7 +274,7 @@ EOF_a;
 /* Begin Mobile */
 		
 if($community == true) {
-	$pictureLimit = 4;
+	$pictureLimit = 20;
 	$mobile_output = <<<EOT
 <div class="flex-gallery-insertion-point"></div>
 <div class="imo-flex-mobile imo-flex-loading-block">    
@@ -308,7 +308,7 @@ EOT;
 
 $mobile_output .= <<<EOT2
 		        <li>
-		            <a href="$baseUrl/photos/$picture->id"><img src="$picture->img_url" alt="$picture->alttext" ></a>
+		            <a href="$baseUrl/photos/$picture->id"><img src="$picture->img_url/convert?rotate=0&w=119&h=89&fit=crop" alt="$picture->alttext" ></a>
 		        </li>
 EOT2;
 		$count++;
@@ -320,20 +320,7 @@ $mobile_output .= <<<EOFmobile_community
         </div>      
     </div>   
 		<script type="text/javascript">
-			imoFlexSetupMobile($community);
-		    jQuery(function(){
-				jQuery('.jq-explore-slider').flexslider({
-					animation: "slide",
-					animationSpeed: 200,
-					slideshow: false,
-					controlNav: false,
-					directionNav: false,
-					itemWidth: 123,
-					itemMargin: 0,
-					minItems: 2,
-					maxItems: $pictureLimit
-				});
-			});
+			imoFlexSetupMobile($community, $pictureLimit);
 		</script>
 </div>
 </div>

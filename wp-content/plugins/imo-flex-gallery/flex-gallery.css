@@ -81,9 +81,10 @@ div.flex-gallery-title {
 	float: left;
 	font: 20px "stagregular", "StagMedium", serif;
 	text-transform:capitalize;
-	height: 23px;
+	/*height: 23px;*/
 	line-height: 23px;
-	min-width: 395px;
+	/*width: 395px;*/
+	white-space:normal;
 	text-align: left;
 }
 .flex-gallery-title h2 a {
