@@ -89,14 +89,14 @@ if(post.score == 1){
                         <li><a href="/<%= post.post_type %>" style="text-transform:capitalize;"><%= post.post_type %></a></li>
                         <% if(post.master){ %><li><a href="/master-angler">Master Angler</a></li><% } %>
 
-                    </ul><div class="fb-like" data-href="http://in-fisherman.com/photos/<%= post.id %>" data-width="450" data-layout="button_count" data-show-faces="true" data-send="false"></div>
+                    </ul>
                     <ul class="replies">
                         <li><a href="/photos/<%= post.id %>#reply_field"><%= post.comment_count %> Reply</a></li>
 						<li><%= niceScore %></li>
                     </ul>
                     <ul class="prof-like">
                     	<li>
-                    		<div addthis:url="http://<?php echo $_SERVER['SERVER_NAME']; ?>/photos/<%= post.id %>" addthis:title="' . htmlentities(<?php echo $post->title; ?>) . '" class="addthis_toolbox addthis_default_style ">
+                    		<div addthis:url="http://<?php echo $_SERVER['SERVER_NAME']; ?>/photos/<%= post.id %>" addthis:title="<%= post.title %>" class="addthis_toolbox addthis_default_style ">
 								<a class="addthis_button_facebook_like"fb:like:layout="button_count"></a>
 							</div>
 							
@@ -123,7 +123,7 @@ if(post.score == 1){
 			</div>
         </div>
 		<div class="custom-slider-section">
-            <?php //echo do_shortcode('[imo-slideshow community=true]'); ?>
+            <?php echo do_shortcode('[imo-slideshow community=true]'); ?>
         </div>
 
 
