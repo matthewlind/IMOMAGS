@@ -123,7 +123,7 @@ if(post.score == 1){
 			</div>
         </div>
 		<div class="custom-slider-section">
-            <?php echo do_shortcode('[imo-slideshow community=true]'); ?>
+            <?php //echo do_shortcode('[imo-slideshow community=true]'); ?>
         </div>
 
 
