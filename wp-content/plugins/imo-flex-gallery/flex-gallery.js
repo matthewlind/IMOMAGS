@@ -72,7 +72,7 @@ function imoFlexInitiate(isCommunity, galleryID, totalSlides, isFullScreenNow, i
 			}
 		});
 	});
-	callback();
+	//callback();
 }
 
 function responsiveReposition() {
