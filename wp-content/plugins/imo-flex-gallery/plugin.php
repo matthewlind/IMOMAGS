@@ -121,9 +121,8 @@ function galleryOutput($gallery, $pictures, $totalSlides, $dartDomain, $communit
 	if (function_exists('imo_add_this')) {
 		ob_start();
 		imo_add_this();
-		$addThis = ob_get_clean();
+		$addThisLegacy = ob_get_clean();
 	}
-
 	if($community == true ) {
 		$communityClass = 'flex-community-gallery';
 	} else {
@@ -132,6 +131,11 @@ function galleryOutput($gallery, $pictures, $totalSlides, $dartDomain, $communit
 	if(is_single()){
 		$entryContentClose = '</div><!-- .entry-content -->';
 		$entryContentOpen = '<div class="entry-content">';
+	}
+	if($community == true ) {
+		$addThis = '<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4de0e5f24e016c81"></script>';
+	} else {
+		$addThis = $addThisLegacy;
 	}
 	$desktop_tablet_output = <<<EOT_a1
 	$entryContentClose
@@ -156,7 +160,7 @@ EOT_a1;
 			if($community == true ) {
 				$picture->img_url = $picture->img_url;
 				//$picture->img_url = $baseUrl.$picture->img_url;
-				$picture->thumbnail = $picture->img_url.'/convert?rotate=0&w=59&h=44&fit=crop';
+				$picture->thumbnail = $picture->img_url.'/convert?rotate=0&w=60&h=45&fit=crop';
 				$picture->description = $picture->body;
 				$image = '<img src="'.$picture->img_url.'/convert?rotate=0" alt="'.$picture->title.'" class="slide-image">';
 			} else {
@@ -166,6 +170,17 @@ EOT_a1;
 				$picture->description = stripcslashes($picture->description);
 				$image = '<img src="'.$picture->img_url.'" alt="'.$picture->title.'" class="slide-image">';
 			}
+			
+			$addThis .= '
+				<div id="flex-addthis-'.$count.'" class="flex-addthis">
+					<div addthis:url="'.$baseUrl.'/photos/'.$picture->id.'" addthis:title="'.htmlentities($picture->title).'" class="addthis_toolbox addthis_default_style ">
+						<a class="addthis_button_facebook_like"fb:like:layout="button_count"></a>
+						<a class="addthis_button_tweet"></a>
+						<a class="addthis_button_google_plusone"g:plusone:size="medium"></a>
+						<a class="addthis_counter addthis_pill_style"></a>
+					</div>
+				</div>
+			';
 $desktop_tablet_output .= <<<EOT_a2
 		        <li class="flex-slide flex-slide-$count">				
 		           $image				
@@ -265,9 +280,7 @@ $desktop_tablet_output .= <<<EOF_a
 </div><!-- .flex-gallery-container -->
 	<div class="flex-gallery-jquery-container">
 		<div class="flex-gallery-jquery">
-			<script type="text/javascript">	
-				imoFlexInitiate($community, "$gallery", $totalSlides, false);
-			</script>
+			<script type="text/javascript">	imoFlexInitiate($community, "$gallery", $totalSlides, false);</script>
 		</div>
 	</div>
 <div id="flex-gallery-social-save" class="display-none">$addThis</div>
