@@ -63,7 +63,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 <?php endif; ?>
 </head>
 <body <?php body_class(); ?>>
-
+<?php imo_dart_tag("1x1",false,array("pos"=>"skin")); ?>
 	<?php
 	if($_SERVER['SERVER_NAME'] == "www.flyfisherman.com" && is_page("destinations")){
 		$clickable = true;

@@ -59,6 +59,9 @@ function imoFlexInitiate(isCommunity, galleryID, totalSlides, isFullScreenNow, i
 					jQuery('#flex-content-'+totalSlidesCount).hide();
 					jQuery('#flex-content-title-'+totalSlidesCount).hide();
 					jQuery('#flex-content-community-'+totalSlidesCount).hide();
+					if(isCommunity == true) {
+						jQuery('#flex-addthis-'+totalSlidesCount).css('z-index','9');
+					}
 					totalSlidesCount--;
 				}
 				jQuery('#flex-content-'+theSlide).show();
@@ -66,13 +69,14 @@ function imoFlexInitiate(isCommunity, galleryID, totalSlides, isFullScreenNow, i
 				jQuery('#flex-content-community-'+theSlide).show();
 				jQuery('span.current-slide').text(theSlide);
 				if(isCommunity == true) {
+					jQuery('#flex-addthis-'+theSlide).css('z-index','10');
 					jQuery('.flex-gallery-title h2').html(truncateSlideTitle(theSlideTitleText, theSlideTitleLink));
 				}
 				jQuery('.flex-content').perfectScrollbar('update');	
 			}
 		});
 	});
-	callback();
+	//callback();
 }
 
 function responsiveReposition() {
@@ -119,6 +123,14 @@ function imoFlexSetup(isCommunity, galleryID, totalSlides, isFullScreenNow, isRe
 		jQuery('#flex-content-1').show();
 		jQuery('#flex-content-title-1').show();
 		jQuery('#flex-content-community-1').show();
+		if(isCommunity == true) {
+			jQuery('#flex-addthis-1').css('z-index','10');
+			var totalSlidesCount = totalSlides;
+			while(totalSlidesCount > 0){
+				jQuery('#flex-addthis-'+totalSlidesCount).appendTo('#flex-gallery-social');
+				totalSlidesCount--;
+			}
+		}
 		var theSlideTitleText = jQuery('#flex-content-title-1 a').text();
 		var theSlideTitleLink = jQuery('#flex-content-title-1 a').attr('href');
 		resizeMainTitleH2();

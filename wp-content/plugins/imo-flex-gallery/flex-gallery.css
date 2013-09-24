@@ -105,10 +105,15 @@ div#flex-gallery-social {
 	margin: 0;
 	overflow: hidden;
 }
-div#flex-gallery-social iframe {
-	display: none;
+div.flex-addthis {
+	position: absolute;
+	height: 26px;
+	z-index: 9;
+	background: #000;
 }
-
+div#flex-gallery-social iframe {
+	/*display: none;*/
+}
 
 div.flex-counter {
 display: inline-block;
@@ -240,8 +245,8 @@ font-size: 14px;
 
 
 .flex-carousel img {
-	height: 44px;
-	width: auto;
+	height: auto/*44px*/;
+	width: 60px/*auto*/;
 }
 .flex-carousel li {
 	width: 62px !important;
@@ -460,11 +465,12 @@ a.post-a-photo:hover span .post-a-photo-icon {
 	background-position: -23px -31px;
 }
 .community-sort-reload {
-	background: #000;
+	/*background: #000;*/
+	background: #000 url(img/loadingAnimation.gif) no-repeat 50%;
 }
 .community-sort-reload .imo-flex-loading-block {
 	height: 100%;
-	background-color: black !important;
+	background-color: #000 !important;
 	margin: 0;
 }
 .community-sort-reload .flex-carousel {
