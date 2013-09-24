@@ -1446,6 +1446,8 @@ a.category-name-link:hover{
     content:"";
 }
 #at4-whatsnext{z-index: 999999999999999999 !important;}
+#at4m-mobile{z-index: 99999999999999999 !important}
+#at4m-dock, #at4m-fb, #at4m-sb, #at4m-menu {z-index: 999999999999999999 !important}
 
 .full-post .entry-content .addthis_toolbox {
     position:absolute;
