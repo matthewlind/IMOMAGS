@@ -99,10 +99,8 @@ html[xmlns] .slides {display: block;}
 }
 .flex-direction-nav .flex-disabled {opacity: .3!important; filter:alpha(opacity=30); cursor: default;}
 .single-post-slider .flex-direction-nav,
-.double-posts .flex-direction-nav {
-	background: black;
+.double-posts .flex-direction-nav {display: none;}
 }
-.single-post-slider .flex-direction-nav{margin-top:-20px;}
 /* Control Nav */
 .flex-control-nav li {display:inline-block;    padding:0 3px;}
 .flex-control-paging li a {
