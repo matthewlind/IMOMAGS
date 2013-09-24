@@ -68,7 +68,7 @@ function svDisplayPoll($pollpost,$pollheader){
 		<div class="poll-right-column">
 			<div class="poll-ad">
 
-				<a href="" style="line-height: 0;display:block;">
+				<a href="" style="line-height: 0;display:block;" target="_blank">
 					<img src="/wp-content/plugins/sv-polls/img/test.jpg" width="300" height="250" />
 				</a>
 
@@ -92,7 +92,7 @@ function svDisplayPoll($pollpost,$pollheader){
 
 							<span class="powered-by modern">powered by</span>
 
-							<a href="">
+							<a href="http://www.sportsmenvote.com" target="_blank">
 								<img class="sv-logo" src="/wp-content/plugins/sv-polls/img/sv-logo.png" />
 							</a>
 
@@ -101,7 +101,7 @@ function svDisplayPoll($pollpost,$pollheader){
 			</form>
 		</div>
 		<div class="poll-stats" style="display:none;">
-			<span class="poll-total-votes">1,923</span> Total Votes <span class="poll-bullet">•</span> <span class="poll-comment-count">10</span> Comments <span class="poll-bullet">•</span> <a href="http://www.sportsmenvote.com/polls">See More Polls</a>
+			<span class="poll-total-votes">1,923</span> Total Votes <span class="poll-bullet">•</span> <a class="poll-link" target="_blank" href=""><span class="poll-comment-count">10</span> Comments </a><span class="poll-bullet">•</span> <a href="http://www.sportsmenvote.com/polls" target="_blank">See More Polls</a>
 		</div>
 
 

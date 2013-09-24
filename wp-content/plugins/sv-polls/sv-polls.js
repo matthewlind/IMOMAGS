@@ -36,6 +36,8 @@ jQuery(document).ready(function() {
 			$pollContainer.find("h1.poll-question").text(questionData.pollq_question);
 			$pollContainer.find(".poll-comment-count").text(pollPostData.comment_count);
 
+			$pollContainer.find(".poll-link").attr("href",'http://www.sportsmenvote.com/polls?pollID=' + questionData.pollq_id);
+
 			//Sharing
 
 			var sharingContainerID = $pollContainer.find(".sharing-links").attr("id");
@@ -79,6 +81,9 @@ jQuery(document).ready(function() {
 				$answerListClone.find("input").attr("id","ans" + answerData.polla_aid);
 				$answerListClone.find("label").text(answerData.polla_answers);
 				$answerListClone.find("label").attr("for","ans" + answerData.polla_aid);
+
+
+
 
 				$answerListClone.show();
 
@@ -126,6 +131,9 @@ jQuery(document).ready(function() {
 				$(pollContainer).find("input.poll-vote-button").fadeOut();
 				$(pollContainer).find("ul.poll-answers").removeClass("unanswered");
 
+
+				$(pollContainer).find(".poll-sponsor").css("display","block").css("margin-top","10px").appendTo($(pollContainer).find(".poll-stats"));
+
 				$.post(submitPostURL, submissionData, function(pollData){
 
 
@@ -149,6 +157,10 @@ jQuery(document).ready(function() {
 
 
 					$(pollContainer).find(".poll-stats").slideDown();
+
+
+
+
 					$(pollContainer).find(".poll-total-votes").text(pollData.poll_question.pollq_totalvotes);
 
 					$(pollContainer).find("ul.poll-answers").fadeIn();

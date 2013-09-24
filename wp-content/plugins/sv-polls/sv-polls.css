@@ -114,6 +114,8 @@ footer, .sv-poll-container header, .sv-poll-container hgroup, .sv-poll-container
 	transition: height 0.5s;
 	-webkit-transition: height 0.5s;
 	min-height: 400px;
+	border:1px solid #C0C0C0;
+	padding:20px;
 }
 
 .sv-poll-container .poll-header {
@@ -126,7 +128,7 @@ footer, .sv-poll-container header, .sv-poll-container hgroup, .sv-poll-container
 	font-family: "StagMedium";
 	font-weight: lighter;
 /*	text-transform: uppercase;*/
-	font-size:20px;
+	font-size:22px;
 	color: #c51c18;
 	vertical-align: middle;
 	margin-right:20px;
@@ -252,17 +254,17 @@ footer, .sv-poll-container header, .sv-poll-container hgroup, .sv-poll-container
 
 .sv-poll-container ul.poll-answers li {
 
-	width: 50%;
+	width: 45%;
 }
 
 
 .sv-poll-container .poll-vote-button {
 	background-color: #cd322c;
-	padding:10px;
+	padding:7px;
 	color:white;
 	font-family: 'TrajanProBold';
 	text-transform: uppercase;
-	width: 150px;
+	width: 130px;
 	border: none;
 	transition: background-color 0.5s;
 	-webkit-transition: background-color 0.5s;
@@ -353,13 +355,14 @@ footer, .sv-poll-container header, .sv-poll-container hgroup, .sv-poll-container
 	border:1px solid #C0C0C0;
 }
 .sv-poll-container .sv-logo {
-	height:40px;
+	height:31px;
 	vertical-align: middle;
 }
 
 .sv-poll-container .powered-by {
-	margin-left:5px;
-	margin-right:5px;
+	font-size: 10px;
+	margin-left: 4px;
+	margin-right: 4px;
 
 }
 
