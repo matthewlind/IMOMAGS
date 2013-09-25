@@ -35,7 +35,7 @@ function postShared(event) {
 
 	if ($("#imo-add-this-spid").length > 0) {
 		var postID = $("#imo-add-this-spid").text();
-	
+
 	$.post("/slim/api/post/flag", { post_id: postID, etype: "share", user_id: "0" },
    function(data) {
 
@@ -43,13 +43,55 @@ function postShared(event) {
 	}
 
 
-	
-	
+
+
 }
 
 </script>
 <!-- IMO AddThis Button END -->
 ';
+}
+
+
+
+
+function imo_add_this_for_this($url,$title,$print = true) {
+
+
+	$output =  '<!-- IMO AddThis Button BEGIN -->
+<div addthis:url="' . $url . '" addthis:title="' . $title . '" class="addthis_toolbox addthis_default_style ">
+	<a class="addthis_button_facebook_like"fb:like:layout="button_count"></a>
+	<a class="addthis_button_tweet"></a>
+</div>
+<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4de0e5f24e016c81"></script>
+<script type="text/javascript">
+addthis.addEventListener("addthis.menu.share", postShared);
+
+function postShared(event) {
+
+
+	if ($("#imo-add-this-spid").length > 0) {
+		var postID = $("#imo-add-this-spid").text();
+
+		$.post("/slim/api/post/flag", { post_id: postID, etype: "share", user_id: "0" },
+	   function(data) {
+
+	   });
+	}
+
+
+
+
+}
+
+</script>
+<!-- IMO AddThis Button END -->
+';
+
+	if ($print)
+		print($output);
+	else
+		return $output;
 }
 
 
@@ -72,7 +114,7 @@ function postShared(event) {
 
 	if ($("#imo-add-this-spid").length > 0) {
 		var postID = $("#imo-add-this-spid").text();
-	
+
 	$.post("/slim/api/post/flag", { post_id: postID, etype: "share", user_id: "0" },
    function(data) {
 
@@ -80,8 +122,8 @@ function postShared(event) {
 	}
 
 
-	
-	
+
+
 }
 
 </script>

@@ -1,0 +1,372 @@
+/*****************************************************************/
+/*=====================Create a Blank Canvas============================*/
+/*========Reset the CSS on anything inside a .sv-poll-container===========*/
+/*=============(This helps prevent site specific tweaks)===========*/
+/*****************************************************************/
+.sv-poll-container div, .sv-poll-container span,  .sv-poll-container object, .sv-poll-container iframe, .sv-poll-container
+h1, .sv-poll-container h2, .sv-poll-container h3, .sv-poll-container h4, .sv-poll-container h5, .sv-poll-container h6, .sv-poll-container p, .sv-poll-container blockquote, .sv-poll-container pre, .sv-poll-container
+a, .sv-poll-container abbr, .sv-poll-container acronym, .sv-poll-container address, .sv-poll-container big, .sv-poll-container cite, .sv-poll-container code, .sv-poll-container
+del, .sv-poll-container dfn, .sv-poll-container em, .sv-poll-container img, .sv-poll-container ins, .sv-poll-container kbd, .sv-poll-container q, .sv-poll-container s, .sv-poll-container samp, .sv-poll-container
+small, .sv-poll-container strike, .sv-poll-container strong, .sv-poll-container sub, .sv-poll-container sup, .sv-poll-container tt, .sv-poll-container var, .sv-poll-container
+b, .sv-poll-container u, .sv-poll-container i, .sv-poll-container
+dl, .sv-poll-container dt, .sv-poll-container dd, .sv-poll-container ol, .sv-poll-container ul, .sv-poll-container li, .sv-poll-container
+fieldset, .sv-poll-container form, .sv-poll-container label, .sv-poll-container legend, .sv-poll-container
+table, .sv-poll-container caption, .sv-poll-container tbody, .sv-poll-container tfoot, .sv-poll-container thead, .sv-poll-container tr, .sv-poll-container th, .sv-poll-container td, .sv-poll-container
+article, .sv-poll-container aside, .sv-poll-container canvas, .sv-poll-container details, .sv-poll-container
+figure, .sv-poll-container figcaption, .sv-poll-container footer, .sv-poll-container header, .sv-poll-container hgroup, .sv-poll-container
+menu, .sv-poll-container nav, .sv-poll-container output, .sv-poll-container section, .sv-poll-container summary, .sv-poll-container
+time, .sv-poll-container mark, .sv-poll-container audio, .sv-poll-container video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+.sv-poll-container article, .sv-poll-container aside, .sv-poll-container details, .sv-poll-container figcaption, .sv-poll-container figure, .sv-poll-container
+footer, .sv-poll-container header, .sv-poll-container hgroup, .sv-poll-container menu, .sv-poll-container nav, .sv-poll-container section {
+	display: block;
+}
+
+.sv-poll-container ol, .sv-poll-container ul {
+	list-style: none;
+}
+.sv-poll-container blockquote, .sv-poll-container q {
+	quotes: none;
+}
+.sv-poll-container blockquote:before, .sv-poll-container blockquote:after, .sv-poll-container
+.sv-poll-container q:before, .sv-poll-container q:after {
+	content: '';
+	content: none;
+}
+.sv-poll-container table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*****************************************************************/
+/*========Fonts===========*/
+/*****************************************************************/
+@font-face {
+    font-family: 'GeorgiaRegular';
+    src: url('fonts/georgia/georgia-webfont.eot');
+    src: url('fonts/georgia/georgia-webfont.eot?#iefix') format('embedded-opentype'),
+	url('fonts/georgia/georgia-webfont.woff') format('woff'),
+	url('fonts/georgia/georgia-webfont.ttf') format('truetype'),
+	url('fonts/georgia/georgia-webfont.svg#GeorgiaRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/*HelveticaLTStdBold*/
+@font-face {
+    font-family: 'HelveticaLTStdBold';
+    src: url('fonts/helveticabold/helveticaltstd-bold-webfont.eot');
+    src: url('fonts/helveticabold/helveticaltstd-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/helveticabold/helveticaltstd-bold-webfont.woff') format('woff'),
+         url('fonts/helveticabold/helveticaltstd-bold-webfont.ttf') format('truetype'),
+         url('fonts/helveticabold/helveticaltstd-bold-webfont.svg#HelveticaLTStdBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'TrajanProRegular';
+    src: url('fonts/trajanpro-regular/trajanpro-regular-webfont.eot');
+    src: url('fonts/trajanpro-regular/trajanpro-regular-webfont.eot?#iefix') format('embedded-opentype'),
+	url('fonts/trajanpro-regular/trajanpro-regular-webfont.woff') format('woff'),
+	url('fonts/trajanpro-regular/trajanpro-regular-webfont.ttf') format('truetype'),
+	url('fonts/trajanpro-regular/trajanpro-regular-webfont.svg#TrajanProRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'TrajanProBold';
+    src: url('fonts/trajanpro-bold/trajanpro-bold-webfont.eot');
+    src: url('fonts/trajanpro-bold/trajanpro-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/trajanpro-bold/trajanpro-bold-webfont.woff') format('woff'),
+         url('fonts/trajanpro-bold/trajanpro-bold-webfont.ttf') format('truetype'),
+         url('fonts/trajanpro-bold/trajanpro-bold-webfont.svg#TrajanProBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'HelveticaNeueRegular';
+    src: url('fonts/helveticaneue/helveticaneue-webfont.eot');
+    src: url('fonts/helveticaneue/helveticaneue-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/helveticaneue/helveticaneue-webfont.woff') format('woff'),
+         url('fonts/helveticaneue/helveticaneue-webfont.ttf') format('truetype'),
+         url('fonts/helveticaneue/helveticaneue-webfont.svg#HelveticaNeueRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/*****************************************************************/
+/*========Widget Styles===========*/
+/*****************************************************************/
+
+.sv-poll-container {
+	transition: height 0.5s;
+	-webkit-transition: height 0.5s;
+	min-height: 400px;
+	border:1px solid #C0C0C0;
+	padding:20px;
+}
+
+.sv-poll-container .poll-header {
+	border-bottom:1px solid #C0C0C0;
+	padding-bottom:5px;
+	margin-bottom:20px;
+}
+
+.sv-poll-container .poll-header-title {
+	font-family: "StagMedium";
+	font-weight: lighter;
+/*	text-transform: uppercase;*/
+	font-size:22px;
+	color: #c51c18;
+	vertical-align: middle;
+	margin-right:20px;
+}
+
+
+.sv-poll-container img.sv-sponsor-logo {
+	vertical-align: middle;
+	height:40px;
+	margin-top:2px;
+
+}
+
+.sv-poll-container .modern {
+	vertical-align: middle;
+	font-family: 'HelveticaNeueRegular';
+	font-size:12px;
+	color:gray;
+	margin-right:15px;
+}
+
+
+.sv-poll-container .sharing-links {
+	display: inline-block;
+	width: 200px;
+	text-align: right;
+	vertical-align: middle;
+	padding-right: 0px;
+	float: right;
+	padding-top: 12px;
+}
+
+
+.sv-poll-container h1.poll-question {
+	color: #174783;
+	font-size: 20px;
+	line-height: 23px;
+	font-family: 'TrajanProBold';
+	text-transform: uppercase;
+	width: 323px;
+	width: 100%;
+	margin-bottom:18px;
+	font-weight: bold;
+}
+
+.sv-poll-container h1.poll-question:first-letter {
+	font-size: 22px;
+}
+
+.sv-poll-container ul.poll-answers li{
+	margin-bottom:6px;
+	/*padding-left:2px;*/
+	font-size:12px;
+	transition: background-color 0.5s,color 0.5s;
+	-webkit-transition: background-color 0.5s,color 0.5s;
+	padding-top:2px;
+	padding-bottom:2px;
+}
+
+/*colors: ['#3f8fcd', '#174783', '#ee4833', '#af1f24','#3D96AE','#DB843D','#92A8CD','#A47D7C','#B5CA92']*/
+
+.sv-poll-container ul.unanswered li:nth-child(1n + 0):hover {
+	background-color:#3f8fcd;
+	color:white;
+}
+
+.sv-poll-container ul.unanswered li:nth-child(2n + 0):hover {
+	background-color:#174783;
+	color:white;
+}
+
+.sv-poll-container ul.unanswered li:nth-child(3n + 0):hover {
+	background-color:#ee4833;
+	color:white;
+}
+
+.sv-poll-container ul.unanswered li:nth-child(4n + 0):hover {
+	background-color:#58a8e6;
+	color:white;
+}
+
+.sv-poll-container ul.unanswered li:nth-child(5n + 0):hover {
+	background-color:#3D96AE;
+	color:white;
+}
+
+.sv-poll-container ul.unanswered li:nth-child(6n + 0):hover {
+	background-color:#DB843D;
+	color:white;
+}
+
+.sv-poll-container ul.unanswered li:nth-child(7n + 0):hover {
+	background-color:#92A8CD;
+	color:white;
+}
+
+.sv-poll-container ul.unanswered li:nth-child(8n + 0):hover {
+	background-color:#A47D7C;
+	color:white;
+}
+
+.sv-poll-container ul.unanswered li:nth-child(9n + 0):hover {
+	background-color:#B5CA92;
+	color:white;
+}
+
+
+
+.sv-poll-container ul.poll-answers li input {
+	margin-right:5px;
+	margin-left:5px;
+	cursor:pointer;
+}
+
+.sv-poll-container ul.poll-answers li:last-child {
+	margin-bottom:20px;
+}
+
+.sv-poll-container ul.unanswered li {
+	cursor: pointer;
+
+}
+
+.sv-poll-container ul.poll-answers li {
+
+	width: 45%;
+}
+
+
+.sv-poll-container .poll-vote-button {
+	background-color: #cd322c;
+	padding:7px;
+	color:white;
+	font-family: 'TrajanProBold';
+	text-transform: uppercase;
+	width: 130px;
+	border: none;
+	transition: background-color 0.5s;
+	-webkit-transition: background-color 0.5s;
+
+}
+
+.sv-poll-container .poll-vote-button:hover {
+	background-color: #3f8fcd;
+
+}
+
+.sv-poll-container label.radio-label {
+	vertical-align: middle;
+	width: 90%;
+	display: inline-block;
+	cursor:pointer;
+}
+
+.sv-poll-container .percent-bar {
+	display: inline-block;
+	transition: width 0.5s;
+	-webkit-transition: width 0.5s;
+	height:5px;
+
+}
+
+.sv-poll-container ul.answered li:nth-child(1n + 0) .percent-bar {
+	background-color:#3f8fcd;
+	color:white;
+}
+
+.sv-poll-container ul.answered li:nth-child(2n + 0) .percent-bar {
+	background-color:#174783;
+	color:white;
+}
+
+.sv-poll-container ul.answered li:nth-child(3n + 0) .percent-bar {
+	background-color:#ee4833;
+	color:white;
+}
+
+.sv-poll-container ul.answered li:nth-child(4n + 0) .percent-bar {
+	background-color:#58a8e6;
+	color:white;
+}
+
+.sv-poll-container ul.answered li:nth-child(5n + 0) .percent-bar {
+	background-color:#3D96AE;
+	color:white;
+}
+
+.sv-poll-container ul.answered li:nth-child(6n + 0) .percent-bar {
+	background-color:#DB843D;
+	color:white;
+}
+
+.sv-poll-container ul.answered li:nth-child(7n + 0) .percent-bar {
+	background-color:#92A8CD;
+	color:white;
+}
+
+.sv-poll-container ul.answered li:nth-child(8n + 0) .percent-bar {
+	background-color:#A47D7C;
+	color:white;
+}
+
+.sv-poll-container ul.answered li:nth-child(9n + 0) .percent-bar {
+	background-color:#B5CA92;
+	color:white;
+}
+
+.sv-poll-container .poll-right-column {
+	float:right;
+}
+
+
+.sv-poll-container .percent {
+	font-weight: bold;
+}
+
+.sv-poll-container .poll-bullet {
+	padding-right:10px;
+	padding-left:10px;
+}
+
+.sv-poll-container .poll-ad {
+	padding:5px;
+	border:1px solid #C0C0C0;
+}
+.sv-poll-container .sv-logo {
+	height:31px;
+	vertical-align: middle;
+}
+
+.sv-poll-container .powered-by {
+	font-size: 10px;
+	margin-left: 4px;
+	margin-right: 4px;
+
+}
+
+
+.sv-poll-container .poll-stats {
+	font-size:11px;
+}

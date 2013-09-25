@@ -146,8 +146,12 @@ jQuery(document).ready(function($) {
 		        $articleTemplate.find(".entry-category a").text("From " + data[i].brand + " Magazine");
 		        $articleTemplate.find(".entry-category a").attr("href","http://" + data[i].domain)
 
-		        if (data[i].domain == document.domain)
+		        if (data[i].domain == document.domain) {
 		        	$articleTemplate.find(".entry-category a").text("");
+		        } else {
+		        	$articleTemplate.find("a").attr("target","_blank");
+		        }
+
 
 		        //console.log(data[i].domain,document.domain);
 
@@ -164,7 +168,7 @@ jQuery(document).ready(function($) {
 
 				//If data[i] is from NAW, add the categories
 
-					$articleTemplate.find("a").attr("target","_blank");
+
 
 
 

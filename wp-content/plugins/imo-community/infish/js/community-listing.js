@@ -30,8 +30,11 @@ jQuery(document).ready(function($) {
 			}
 	}
 	
+	
+
     //Get the JSON using the above filter configuration and append the photos.
     getPhotosAndAppend();
+    
     loadMoreCheck();
     function getPhotosAndAppend() {
         var url = "http://" + document.domain + "/community-api/posts?skip="+filter.skip+"&per_page="+filter.per_page+"&order_by="+filter.order_by+"&sort="+filter.sort+"&master="+filter.master+"&post_type="+filter.post_type;
@@ -42,9 +45,11 @@ jQuery(document).ready(function($) {
 
                 var postHTML = _.template( $('#post-template').html() , { post: post });
                 $("#posts-container").append(postHTML);
-				$(".dif-posts .prof-like li").append('<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4de0e5f24e016c81"></script>');
+				
+				addthis.toolbox('.addthis_toolbox');
 
             });
+                        			
 			adPlacement();
             //hide the ajax loading spinner
             $("#ajax-loader").hide();
@@ -81,7 +86,7 @@ jQuery(document).ready(function($) {
         //Clear the HTML and append posts
         $("#posts-container").html("");
         getPhotosAndAppend();
-
+		
         //Change menu title to reflect filter
         $(".menu-title.browse-community").html($menuItem.html());
 
@@ -116,7 +121,7 @@ jQuery(document).ready(function($) {
 
 
             var totalPostCount = countData[0].post_count;
-
+			
             //console.log(totalPostCount,filter.skip);
 
             if (filter.skip + filter.per_page >= totalPostCount ) {

@@ -2,12 +2,15 @@ jQuery(window).load(function() {
 	jQuery('.onload-hidden').removeClass('onload-hidden');
     jQuery('.onload-hidden-abs').removeClass('onload-hidden-abs');
     jQuery('.loading-block').removeClass('loading-block');
-    
+    //jQuery('#at4m-mobile').appendTo("#page");
 });
 
 
 jQuery(document).ready(function () {
 	
+
+
+
 	jQuery(function(){
 		
 		if(jQuery.cookie('hide_alert') == null){
@@ -189,6 +192,8 @@ jQuery(function(){
     jQuery('.jq-featured-slider').flexslider({
         animation: "slide",
         animationSpeed: 200,
+        controlNav: true,
+        directionNav: true,
         slideshow: true
       });
       
@@ -210,6 +215,7 @@ jQuery(function(){
           itemMargin: 0,
           minItems: 1,
           maxItems: 1
+          
         });
         
     jQuery('.jq-explore-slider').flexslider({
