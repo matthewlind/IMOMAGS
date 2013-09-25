@@ -52,13 +52,22 @@ function svDisplayPoll($pollpost,$pollheader){
 
 	$output = "";
 
+
+	$dartAdTag = get_imo_dart_tag("300x250",null,false,array("camp"=>"shooting_polls"));
+	$dartSponsorTag = get_imo_dart_tag("240x60",null,false,array("camp"=>"shooting_polls"));
+
 	$output .= <<<EOFEOFEOF
 
 	<div class="sv-poll-container" poll-post-id="$pollpost" id="poll-post-$pollpost">
 		<div class="poll-header">
 			<span class="poll-header-title">$pollheader</span>
-			<span class="presented-by modern">presented by</span>
-			<img src="/wp-content/plugins/sv-polls/img/taurus.jpg" class="sv-sponsor-logo" height=50>
+			<!-- <span class="presented-by modern">presented by</span> -->
+			<span class="sponsor-logo">
+
+				$dartSponsorTag
+
+			</span>
+
 			<span class="sharing-links" id="sharing-links-$pollpost">
 
 			</span>
@@ -68,9 +77,8 @@ function svDisplayPoll($pollpost,$pollheader){
 		<div class="poll-right-column">
 			<div class="poll-ad">
 
-				<a href="" style="line-height: 0;display:block;" target="_blank">
-					<img src="/wp-content/plugins/sv-polls/img/test.jpg" width="300" height="250" />
-				</a>
+				$dartAdTag
+
 
 			</div>
 
