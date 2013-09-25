@@ -2,7 +2,7 @@
 /*
 Plugin Name: IMO State Rankings
 Description: State rankings.
-Version: 0.1
+Version: 0.2
 Author: Salah for InterMedia Outdoors
 */
 
@@ -42,7 +42,6 @@ function state_rankings_display($week, $show, $initials, $widget) {
 				"name" => "'.$stateName.'",
 				"initials" => "'.$stateInitials.'",
 				"rank" => "'.$rankingData[$state.'_rank'].'",
-				"points" => "'.$rankingData[$state.'_points'].'",
 				"trend" => "'.$rankingData[$state.'_trend'].'",
 				"notes" => "'.$rankingData[$state.'_notes'].'"
 			)'
@@ -76,8 +75,8 @@ function rankListing($state_rankings_data, $week, $show, $initials, $widget){
 		border: none;
 		border-spacing: 0px;
 		background: #fff;
-		margin: 10px 0 10px 0;
-		width: 99.5%;
+		margin: 10px 0 10px 1px;
+		width: 99%;
 	}
 	.rt-table tr {
 		padding: 0px;
@@ -235,10 +234,10 @@ function rankListing($state_rankings_data, $week, $show, $initials, $widget){
 	';
 	$rankTable .= '
 	<table class="rank-table rt-table">
-		<tr class="rt-header"><td>Rank</td><td>State</td><td>Points</td><td>Trend</td>';
+		<tr class="rt-header"><td>Rank</td><td>State</td><td>Trend</td>';
 	if(empty($widget)) $rankTable .= '<td>Notes</td>';
 	$rankTable .= '</tr>
-		<tr class="rt-divider"><td></td><td></td><td></td><td></td>
+		<tr class="rt-divider"><td></td><td></td><td></td>
 	';
 	if(empty($widget)) $rankTable .= '<td></td>';
 	$rankTable .= '</tr>';
@@ -248,7 +247,6 @@ function rankListing($state_rankings_data, $week, $show, $initials, $widget){
 		$rank = intval($state_data['rank']);
 		$name = $state_data['name'];
 		$stateUrl = get_bloginfo('url').'/community/report/'.str_replace(' ', '-', strtolower($name));
-		$points = $state_data['points'];
 		if($initials == 'true') {$label = $state_data['initials'];} else {$label = $name;}
 		if($state_data['notes']) {$notes = $state_data['notes'];} else {$notes = '&nbsp';}
 		$trendUp = 'trendUp';
@@ -266,11 +264,11 @@ function rankListing($state_rankings_data, $week, $show, $initials, $widget){
 		
 		if($count <= $show && $rank > 0) {
 		$rankTable .= '
-			<tr><td class="rt-rank">'.$rank.'</td><td class="rt-name"><a href="'.$stateUrl.'">'.$label.'</a></td><td class="rt-points">'.$points.'</td><td class="rt-trend">'.$trend.'</td>';
+			<tr><td class="rt-rank">'.$rank.'</td><td class="rt-name"><a href="'.$stateUrl.'">'.$label.'</a></td><td class="rt-trend">'.$trend.'</td>';
 		if(empty($widget)) $rankTable .= '<td class="rt-notes">'.$notes.'</td></tr>';
 		if($show == $count) $rtDividerLast = ' rt-divider-last';
 		$rankTable .= '
-			<tr class="rt-divider'.$rtDividerLast.'"><td></td><td></td><td></td><td></td>
+			<tr class="rt-divider'.$rtDividerLast.'"><td></td><td></td><td></td>
 		';
 		if(empty($widget)) $rankTable .= '<td></td>';
 		$rankTable .= '</tr>';
@@ -354,13 +352,6 @@ class imo_state_rankings_initiate {
 						"state" => "'.$state.'"
 					),
 					array(
-						"name" => "'.$state.'_points",
-						"label" => __( "Points", "imo" ),
-						"type" => "ranking_record",
-						"desc" => "",
-						"state" => "'.$state.'"
-					),
-					array(
 						"name" => "'.$state.'_trend",
 						"label" => __( "Trend", "imo" ),
 						"type" => "ranking_record",
@@ -421,40 +412,26 @@ class imo_state_rankings_initiate {
 		}
 		#wpbody-content .metabox-holder .postbox {
 			margin-top: -3px;
-			border: 1px solid #aaa;
+		  	border: 1px solid #aaa;
+		  	padding: 10px;
+		}
+		.loading-box {
+			color: #ccc;
+			margin-top: -1px;
+			border: 1px solid #ccc;
 			padding: 10px;
+			-webkit-border-bottom-right-radius: 4px;
+			-webkit-border-bottom-left-radius: 4px;
+			-moz-border-radius-bottomright: 4px;
+			-moz-border-radius-bottomleft: 4px;
+			border-bottom-right-radius: 4px;
+			border-bottom-left-radius: 4px;
 		}
 		a.nav-tab-active {
 			background: #aaa;
 			border: 1px solid #aaa;
 			color: #fff;
 			text-shadow: #000 0 1px 0;
-		}
-		.imo-success-or-error {
-			margin-bottom:10px;
-			padding: 10px;
-			background: #FFFBCC;
-			border: 1px solid #E6DB55;
-			color: #000;
-			font-weight: bold;
-			-webkit-border-radius: 4px;
-			-moz-border-radius: 4px;
-			border-radius: 4px;
-			width: 110px;
-			text-align: center;
-			display: none;
-			float: left;
-		}
-		.form-submit-saving {
-			padding-left: 20px;
-			background: #FFFBCC url(../wp-content/plugins/imo-state-rankings/assets/ajax-loader.gif) no-repeat 20px 10px;
-		}
-		.form-submit-success {
-			border: 1px solid #0C5F1B;
-			background: #ABD85A;
-		}
-		.form-submit-error {
-			border: 1px solid red;
 		}
 		.title-input {
 			padding: 0 5px 0 5px;
@@ -467,13 +444,6 @@ class imo_state_rankings_initiate {
 			height: 28px;
 			display: inline;
 			font-weight: normal;
-		}
-		.cat-list {
-			float: left;
-			margin: 10px 40px 0 0;
-		}
-		.child-checkbox {
-			margin-left: 16px;
 		}
 		</style>
 		<div class="wrap">

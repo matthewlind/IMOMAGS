@@ -104,7 +104,7 @@ if(post.score == 1){
                     </ul>
                 </div>
             </div>
-            <% if (post.master == 1) {  %><span class="badge"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/pic/badge-ma.png" alt="" /></span><% } %>
+            <% if (post.master == 1) {  %><span class="badge"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/pic/badge-ma.png" alt="Master Angler" /></span><% } %>
         </div>
     </div>
 <% } %>
