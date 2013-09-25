@@ -47,32 +47,12 @@ footer, .sv-poll-container header, .sv-poll-container hgroup, .sv-poll-container
 /*****************************************************************/
 /*========Fonts===========*/
 /*****************************************************************/
-@font-face {
-    font-family: 'GeorgiaRegular';
-    src: url('fonts/georgia/georgia-webfont.eot');
-    src: url('fonts/georgia/georgia-webfont.eot?#iefix') format('embedded-opentype'),
-	url('fonts/georgia/georgia-webfont.woff') format('woff'),
-	url('fonts/georgia/georgia-webfont.ttf') format('truetype'),
-	url('fonts/georgia/georgia-webfont.svg#GeorgiaRegular') format('svg');
-    font-weight: normal;
-    font-style: normal;
 
-}
 
 /*HelveticaLTStdBold*/
-@font-face {
-    font-family: 'HelveticaLTStdBold';
-    src: url('fonts/helveticabold/helveticaltstd-bold-webfont.eot');
-    src: url('fonts/helveticabold/helveticaltstd-bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/helveticabold/helveticaltstd-bold-webfont.woff') format('woff'),
-         url('fonts/helveticabold/helveticaltstd-bold-webfont.ttf') format('truetype'),
-         url('fonts/helveticabold/helveticaltstd-bold-webfont.svg#HelveticaLTStdBold') format('svg');
-    font-weight: normal;
-    font-style: normal;
 
-}
 
-@font-face {
+/*@font-face {
     font-family: 'TrajanProRegular';
     src: url('fonts/trajanpro-regular/trajanpro-regular-webfont.eot');
     src: url('fonts/trajanpro-regular/trajanpro-regular-webfont.eot?#iefix') format('embedded-opentype'),
@@ -82,7 +62,7 @@ footer, .sv-poll-container header, .sv-poll-container hgroup, .sv-poll-container
     font-weight: normal;
     font-style: normal;
 
-}
+}*/
 @font-face {
     font-family: 'TrajanProBold';
     src: url('fonts/trajanpro-bold/trajanpro-bold-webfont.eot');
@@ -90,17 +70,6 @@ footer, .sv-poll-container header, .sv-poll-container hgroup, .sv-poll-container
          url('fonts/trajanpro-bold/trajanpro-bold-webfont.woff') format('woff'),
          url('fonts/trajanpro-bold/trajanpro-bold-webfont.ttf') format('truetype'),
          url('fonts/trajanpro-bold/trajanpro-bold-webfont.svg#TrajanProBold') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-@font-face {
-    font-family: 'HelveticaNeueRegular';
-    src: url('fonts/helveticaneue/helveticaneue-webfont.eot');
-    src: url('fonts/helveticaneue/helveticaneue-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/helveticaneue/helveticaneue-webfont.woff') format('woff'),
-         url('fonts/helveticaneue/helveticaneue-webfont.ttf') format('truetype'),
-         url('fonts/helveticaneue/helveticaneue-webfont.svg#HelveticaNeueRegular') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -151,7 +120,7 @@ footer, .sv-poll-container header, .sv-poll-container hgroup, .sv-poll-container
 
 .sv-poll-container .modern {
 	vertical-align: middle;
-	font-family: 'HelveticaNeueRegular';
+	font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
 	font-size:12px;
 	color:gray;
 	margin-right:15px;
