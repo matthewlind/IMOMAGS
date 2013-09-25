@@ -288,6 +288,7 @@ class imo_state_rankings {
 		jQuery(document).ready(function($) {
 			<?php echo $stateRowsJS; ?>
 			$('.form-table').hide(function(){
+				$('.loading-box').remove();
 				$('.postbox').css({'visibility':'visible'});
 			}); 
 			
@@ -329,6 +330,9 @@ class imo_state_rankings {
 		</script>
         
         <div class="metabox-holder">
+       		<div class="loading-box">
+            	Loading...
+            </div>
             <div class="postbox">
             <div class="state-rows">
 				<?php echo $stateRows; ?>
@@ -337,7 +341,7 @@ class imo_state_rankings {
                     <div id="<?php echo $form['id']; ?>" class="group persist-area">
                         <form method="post" action="options.php">
                         <div class="state-rows-column-header persist-header">
-							<span>Rank</span><span>Points</span><span>Trend</span><span>Notes</span>
+							<span>Rank</span><span>Trend</span><span>Notes</span>
 							<input type="submit" name="submit" id="submit" class="button-primary submit2" value="Save Changes">
                         </div>
                         <div class="state-rows-insert"></div>
