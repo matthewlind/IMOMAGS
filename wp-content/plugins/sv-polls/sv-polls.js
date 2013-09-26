@@ -14,53 +14,56 @@ jQuery(document).ready(function() {
 		domain = "www.sportsmenvote.salah";
 	}
 
+	if (jQuery(".sv-poll-container").length > 0) {
+
+		$(".sv-poll-container").each(function(index,pollContainer){
+
+			var $pollContainer = $(pollContainer);
+			var pollPostID = $pollContainer.attr("poll-post-id");
+
+			var pollPostURL = "http://" + domain + "/wp-content/plugins/imo-wp-polls-ajax/imo-wp-polls-ajax.php?ajax_pollpost=" + pollPostID;
+
+			//Get Poll Data & diplay poll
+			$.getJSON(pollPostURL, function(pollData){
+
+				var pollPostData = pollData.poll_post;
+				var questionData = pollData.poll_question;
+				var answersData = pollData.poll_answers;
+
+				//Show the question
+				$pollContainer.find("h1.poll-question").text(questionData.pollq_question);
+				$pollContainer.find(".poll-comment-count").text(pollPostData.comment_count);
+
+				$pollContainer.find(".poll-link").attr("href",'http://www.sportsmenvote.com/polls?pollID=' + questionData.pollq_id);
+
+				//Sharing
+				var sharingContainerID = $pollContainer.find(".sharing-links").attr("id");
+				var sharingContainerSelector = "#" + sharingContainerID;
+
+				var addThisToolboxContainer = document.getElementById(sharingContainerID);
+
+				addThisToolboxContainer.innerHTML += '<a class="addthis_button_facebook_like"></a>';
+				addThisToolboxContainer.innerHTML += '<a class="addthis_button_tweet"></a>';
+
+				addthis.toolbox(sharingContainerSelector,{}, {url: 'http://www.sportsmenvote.com/polls?pollID=' + questionData.pollq_id, title: questionData.pollq_question});
+
+				var cookieName = "voted_" + pollData.poll_question.pollq_id;
+
+				if (readCookie(cookieName) == null) {
+					displayPollQuestion(pollData,$pollContainer);
+				} else {
+					displayPollResults(pollData,$pollContainer);
+				}
 
 
-	$(".sv-poll-container").each(function(index,pollContainer){
 
-		var $pollContainer = $(pollContainer);
-		var pollPostID = $pollContainer.attr("poll-post-id");
-
-		var pollPostURL = "http://" + domain + "/wp-content/plugins/imo-wp-polls-ajax/imo-wp-polls-ajax.php?ajax_pollpost=" + pollPostID;
-
-		//Get Poll Data & diplay poll
-		$.getJSON(pollPostURL, function(pollData){
-
-			var pollPostData = pollData.poll_post;
-			var questionData = pollData.poll_question;
-			var answersData = pollData.poll_answers;
-
-			//Show the question
-			$pollContainer.find("h1.poll-question").text(questionData.pollq_question);
-			$pollContainer.find(".poll-comment-count").text(pollPostData.comment_count);
-
-			$pollContainer.find(".poll-link").attr("href",'http://www.sportsmenvote.com/polls?pollID=' + questionData.pollq_id);
-
-			//Sharing
-			var sharingContainerID = $pollContainer.find(".sharing-links").attr("id");
-			var sharingContainerSelector = "#" + sharingContainerID;
-
-			var addThisToolboxContainer = document.getElementById(sharingContainerID);
-
-			addThisToolboxContainer.innerHTML += '<a class="addthis_button_facebook_like"></a>';
-			addThisToolboxContainer.innerHTML += '<a class="addthis_button_tweet"></a>';
-
-			addthis.toolbox(sharingContainerSelector,{}, {url: 'http://www.sportsmenvote.com/polls?pollID=' + questionData.pollq_id, title: questionData.pollq_question});
-
-			var cookieName = "voted_" + pollData.poll_question.pollq_id;
-
-			if (readCookie(cookieName) == null) {
-				displayPollQuestion(pollData,$pollContainer);
-			} else {
-				displayPollResults(pollData,$pollContainer);
-			}
-
+			});
 
 
 		});
+	}
 
 
-	});
 
 	function displayPollQuestion(pollData,$pollContainer) {
 
