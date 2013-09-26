@@ -8,9 +8,9 @@
 					    "click": "deleteRow",
 					    },
 					deleteRow: function(ev) {
-			
+
 						ev.preventDefault();
-						
+
 						if (confirm("Really?")) {
 							this.model.destroy({
 								data: JSON.stringify(userIMO),
@@ -18,19 +18,19 @@
 								error: function() {
 									alert("Delete failed! Try reloading the page to get a new permissions token.")
 								}
-								
+
 							});
 
 						}
-						
-												
+
+
 					}
 				});
 
 	//**************************
 	//User Table View
 	//**************************
-	
+
 	var UserListTable = Backbone.View.extend({
 		el: '#app',
 		pager: null,
@@ -43,14 +43,14 @@
 		    editable: false, // By default every cell in a column is editable, but *ID* shouldn't be
 		    // Defines a cell type, and ID is displayed as an integer without the ',' separating 1000s.
 		    cell: "string"
-		
+
 		  }, {
 		    name: "user_login",
 		    label: "Username",
 		    editable: false,
 		    // The cell type can be a reference of a Backgrid.Cell subclass, any Backgrid.Cell subclass instances like *id* above, or a string
 		    cell: "string" // This is converted to "StringCell" and a corresponding class in the Backgrid package namespace is looked up,
-		
+
 		  }, {
 		    name: "display_name",
 		    label: "Display Name",
@@ -97,44 +97,44 @@
 
 
 	      this.users = new UsersCollection();
-	
+
 	      this.grid = new Backgrid.Grid({
 	        columns: columns,
 	        collection: this.users
 	      });
-	      
 
-	
-	
 
-	
+
+
+
+
 	      //Monitor the datamodel for changes so that it can be re-rendered
-	
+
 	      this.users.on("change",function(){
 	        that.render();
 	      });
-	
-	      
+
+
 
 		},
 		template: null,
 		render: function(){
-		
+
 		  var that = this;
 		  //Monitor the Toolbar for changes so that the datamodel can be updated
 	      var toolbar = $("#user-toolbar").html();
-	
+
 	      this.$toolbar = $(toolbar);
-	
+
 	      this.$toolbar.on("change",function(ev){
 	        that.users.params.order_by = $(this).find('#order_by').val();
 	        that.users.trigger("change");
 	        console.log(that.users.params);
 	      });
-	
+
 	      $("#app-header").html(this.$toolbar);
-	
-	      this.$el.html(this.grid.render().$el);	
+
+	      this.$el.html(this.grid.render().$el);
 	      this.users.fetch({data:this.users.params});
 
 		}
@@ -156,7 +156,7 @@
 				editable: false, // By default every cell in a column is editable, but *ID* shouldn't be
 				// Defines a cell type, and ID is displayed as an integer without the ',' separating 1000s.
 				cell: "string"
-			
+
 			}, {
 				name: "title",
 				label: "Title",
@@ -164,7 +164,7 @@
 				sortable:true,
 				// The cell type can be a reference of a Backgrid.Cell subclass, any Backgrid.Cell subclass instances like *id* above, or a string
 				cell: "string" // This is converted to "StringCell" and a corresponding class in the Backgrid package namespace is looked up,
-			
+
 			},{
 				name: "post_type",
 				label: "Post Type",
@@ -175,61 +175,69 @@
 				label: "Created",
 				editable: false,
 				cell: "date",
-			}, {
+			},{
+				name: "master",
+				label: "MA",
+				editable: true,
+				cell: "boolean",
+			},{
 				name: "delete",
 				label: "Delete",
-				cell: deleteCell,	
-		
+				cell: deleteCell,
+
 			}
 			];
-	
+
 			this.posts = new PostsClass();
-					
+
 			//Monitor the datamodel for changes so that it can be re-rendered
-			this.posts.on("change",function(){
-				that.render();
-				
-				console.log(that.posts);
-			});
-			
+			// this.posts.on("change",function(){
+			// 	that.render();
+
+			// 	console.log(that.posts);
+			// });
+
 			this.grid = new Backgrid.Grid({
 				columns: columns,
 				collection: this.posts
 			});
-			
-			
-			
-			
-/*
-			this.listenTo(this.posts,"change",function(post){
-				console.log(post);
-				post.save();
-			});
-*/
-			
-			
+
+
+		  this.posts.on("change",function(post){
+
+				 post.save(userIMO,{silent:true});
+
+	      });
+
+
+			// this.listenTo(this.posts,"change",function(post){
+
+			// });
+
+
+
 			jQuery("#app-header").html("");
 
 		},
 		template: null,
 		render: function(){
-		
+
 		  var that = this;
 
 		  //Monitor the Toolbar for changes so that the datamodel can be updated
 	      var toolbar = jQuery("#post-toolbar").html();
-	
+
 	      this.$toolbar = jQuery(toolbar);
-	
+
 	      this.$toolbar.find("option[value='" + that.posts.params.order_by + "']").attr("selected","selected");
-	
+
 	      this.$toolbar.on("change",function(ev){
 	        that.posts.params.order_by = $(this).find('#order_by').val();
 	        that.posts.trigger("change");
-	        
+
 	        that.grid.removeColumn(that.grid.columns.where({ added: true }));
 	        that.grid.removeColumn(that.grid.columns.where({ name: "delete" }));
-	        
+
 	        that.grid.insertColumn([{
 				name: that.posts.params.order_by,
 				label: that.posts.params.order_by,
@@ -237,21 +245,21 @@
 			    cell: "string",
 			    added:true
 			}]);
-			
+
 			that.grid.insertColumn([{
 				name: "delete",
 				label: "Delete",
-				cell: deleteCell,	
+				cell: deleteCell,
 			}]);
-	        
-	        
+
+
 	      });
-	
+
 	      jQuery("#app-header").html(this.$toolbar);
-		  
+
 	      this.$el.html(this.grid.render().$el);
 	      this.posts.fetch({data:this.posts.params});
-	      
+
 
 		}
 	});

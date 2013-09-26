@@ -5,7 +5,7 @@
 	$IMO_COMMUNITY_CONFIG = NULL;
 	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "photos";//This slug will override ANY setting in wordpress.
 	$IMO_COMMUNITY_CONFIG['page_type'] = 'single';
-	$IMO_COMMUNITY_CONFIG['page_title'] = "Community"; //On single pages, title is taken from Post
+	$IMO_COMMUNITY_CONFIG['page_title'] = "Community Post"; //On single pages, title is taken from Post
 	$IMO_COMMUNITY_CONFIG['template'] = '/infish/single.php';
 	$IMO_COMMUNITY_CONFIG['dart_page'] = 'infish_community';
 	$IMO_COMMUNITY_CONFIG['dart_sect'] = 'infishcommunity';

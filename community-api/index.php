@@ -683,6 +683,7 @@ $app->put('/posts/:id',function($id) {
 				"img_url",
 				"meta",
 				"state",
+				"master",
 				"video_url",
 				"domain",
 			);
