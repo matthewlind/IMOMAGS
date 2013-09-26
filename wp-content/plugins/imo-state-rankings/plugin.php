@@ -68,8 +68,13 @@ function rankListing($state_rankings_data, $week, $show, $initials, $widget){
 	.rt-logo {
 		width: 224px;
 		height: 127px;
-		margin: 0 auto 17px auto;
-		background: url("'.plugins_url( 'images/state-rankings-logo.jpg' , __FILE__ ).'") no-repeat;
+		margin: 0 auto;
+		background: url("'.plugins_url( 'images/NAW-Power-Rankings-20131.jpg' , __FILE__ ).'") no-repeat;
+	}
+	.pr-widget-sponsor img{
+		width: 110px;
+		height: auto;
+		margin-left: 85px;
 	}
 	table.rt-table, .rt-table td, .rt-table tr {
 		border: none;
@@ -228,6 +233,16 @@ function rankListing($state_rankings_data, $week, $show, $initials, $widget){
 	</style>';
 	if(!empty($widget)) $rankTable .= '
 	<div class="rt-logo"></div>
+	<div class="pr-widget-sponsor">
+        <script type="text/javascript">
+        document.write(unescape(\'%3Cscript src="http://ad.doubleclick.net/adj/imo.northamericanwhitetail/;sect=week1;manf=;pos=;page=naw_power_rankings_week_1;subs=;sz=240x60;dcopt=;tile=;ord=\'+dartadsgen_rand+\'?"%3E%3C/script%3E\'));
+        </script>
+        <noscript>
+        <a href="http://ad.doubleclick.net/adj/imo.northamericanwhitetail/;sect=week1;manf=;pos=;page=naw_power_rankings_week_1;subs=;sz=240x60;dcopt=;tile=;ord=6545512368?">
+        <img src="http://ad.doubleclick.net/ad/imo.northamericanwhitetail/;sect=week1;manf=;pos=;page=naw_power_rankings_week_1;subs=;sz=240x60;dcopt=;tile=;ord=6545512368?" border="0" />
+        </a>
+        </noscript>
+	</div>
 	<div class="rt-widget-top">
 		Week '.$week.'<a href="'.$ranksUrl.'/week-'.$week.'"class="right">See All 20 Rankings</a>
 	</div>
