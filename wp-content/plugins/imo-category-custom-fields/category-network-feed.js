@@ -146,8 +146,23 @@ jQuery(document).ready(function($) {
 		        $articleTemplate.find(".entry-category a").text("From " + data[i].brand + " Magazine");
 		        $articleTemplate.find(".entry-category a").attr("href","http://" + data[i].domain)
 
-		        if (data[i].domain == document.domain) {
-		        	$articleTemplate.find(".entry-category a").text("");
+
+
+		        if (data[i].domain == document.domain || data[i].domain == "www.gunsandammo.com") { //FIX BEFORE GOING TO PROD
+		        	var $category = $articleTemplate.find(".cat-feat-label").clone();
+		        	$articleTemplate.find(".cat-feat-label").remove();
+
+		        	$.each(data[i].terms,function(index, term){
+		        		var $categoryClone  = $category.clone();
+		        		$categoryClone.find("a").attr("href","/" + term.slug);
+		        		$categoryClone.find("a").text(term.name.replace("&amp;","&"));
+
+		        		$articleTemplate.find(".entry-summary").prepend($categoryClone);
+
+
+
+		        	});
+
 		        } else {
 		        	$articleTemplate.find("a").attr("target","_blank");
 		        }

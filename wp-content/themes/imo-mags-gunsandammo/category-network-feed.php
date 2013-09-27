@@ -109,7 +109,7 @@ get_header(); ?>
 				</div>
 
 
-<article id="category-excerpt-template" class="post-18066 post type-post status-publish format-standard hentry category-home-featured category-military-law-enforcement entry entry-excerpt has-img" style="display:none;">
+<article id="category-excerpt-template" class="post-18066 post type-post status-publish format-standard hentry category-home-featured entry entry-excerpt has-img" style="display:none;">
 
 					<a href="http://www.gunsandammo.deva/2012/12/07/ga-retrospective-pearl-harbor-71-years-later/">
 
@@ -118,7 +118,8 @@ get_header(); ?>
 
 
 	<div class="entry-summary">
-	    <span class="cat-feat-label entry-category"><a class="category-name-link" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;Category&#39;,&#39;Military &amp; Law Enforcement&#39;]);" href="/shooting/military-law-enforcement">Military &amp; Law Enforcement</a> </span>		<h2 class="entry-title"><a rel="bookmark" href="http://www.gunsandammo.deva/2012/12/07/ga-retrospective-pearl-harbor-71-years-later/">G&#038;A Retrospective: Pearl Harbor 71 Years Later</a></h2>
+	    <span class="cat-feat-label entry-category"><a class="category-name-link" href="/shooting/military-law-enforcement">Military &amp; Law Enforcement</a> </span>
+	    <h2 class="entry-title"><a rel="bookmark" href="http://www.gunsandammo.deva/2012/12/07/ga-retrospective-pearl-harbor-71-years-later/">G&#038;A Retrospective: Pearl Harbor 71 Years Later</a></h2>
 		<span class="entry-category"><span style="color:#CE181E;" class="author">December 7, 2012</span></span>
 		<p class="entry-content">Dec. 7, 2012, marks 71 years since the Japanese attack on Pearl Harbor. The unity, innovation and perseverance that followed<a href="http://www.gunsandammo.deva/2012/12/07/ga-retrospective-pearl-harbor-71-years-later/">&#8230;&raquo;</a></p>
 	</div>

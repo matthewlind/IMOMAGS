@@ -221,6 +221,10 @@ EOT;
             $postContent = str_replace("\\", "", $postContent);
             $postContent = str_replace("\\", "", $postContent);
 
+            $postContent = preg_replace ("/^\[.+]/", "", $postContent);
+
+            $postContent = delete_all_between("[","]",$postContent);
+
             $postContent = substr($postContent,0,120) . "...";
             $posts[$key]->post_content = $postContent;
 
