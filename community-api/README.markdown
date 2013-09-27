@@ -9,5 +9,21 @@ If you get a whitescreen when trying to access the API, check the logs. While Wo
 
 (Be sure to change the domain to your dev environment)
 
+## Posting & Editing Data
+POSTing new data to the API also conforms somehwat closely to the REST standard. However, the API uses a custom system to determine if the user as the necessary privledges to post and modify content. By default, the API allows authenticated users to post new content, edit their own content, and delete their own content. In addition, Wordpress users with Admin or Editor privledges can edit and delete all content.
 
+When making a POST or PUT request to the API, a userIMO variable must also be included with the request or authenitcation will fail. The userIMO variable is created by the IMO User Auth wordpress plugin. This plugin will add the userIMO javascript variable to every Wordpress page. Using the variable in a post request looks like this:
+
+```
+var newPostData = $.extend(userIMO,postData); //Combine the new post data and user data into one object
+$.post("http://" + document.domain + "/community-api/posts",newPostData,function(data){
+
+  var postData = $.parseJSON(data);
+
+  if (postData)
+    alert("New Post created!");
+  else
+    alert("Could not post photo. Are you logged in?");
+});
+```
 
