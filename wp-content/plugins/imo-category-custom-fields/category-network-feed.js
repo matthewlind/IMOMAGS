@@ -148,7 +148,7 @@ jQuery(document).ready(function($) {
 
 
 
-		        if (data[i].domain == document.domain || data[i].domain == "www.gunsandammo.com") { //FIX BEFORE GOING TO PROD
+		        if (data[i].domain == document.domain) { //FIX BEFORE GOING TO PROD
 		        	var $category = $articleTemplate.find(".cat-feat-label").clone();
 		        	$articleTemplate.find(".cat-feat-label").remove();
 
