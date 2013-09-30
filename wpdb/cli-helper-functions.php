@@ -26,9 +26,34 @@ function getPostTerms($post_id, $site_id = 6) {
         foreach ($terms as $key => $term) {
 	    	$parent = getParentTerm($term);
 	    	$terms[$key]->parent = $parent;
+            $terms[$key]->base = getCategoryBase($site_id);
+
         }
 
         return($terms);
+
+    } catch(PDOException $e) {
+        echo $e->getMessage();
+    }
+}
+
+function getCategoryBase($site_id = 2) {
+    try {
+
+        $db = dbConnect();
+
+        $sql = "SELECT option_value FROM wp_{$site_id}_options WHERE option_name = 'category_base'";
+
+
+
+        $stmt = $db->prepare($sql);
+        $stmt->execute(array($post_id));
+
+        $base = $stmt->fetchColumn();
+
+        $db = "";
+
+        return($base);
 
     } catch(PDOException $e) {
         echo $e->getMessage();

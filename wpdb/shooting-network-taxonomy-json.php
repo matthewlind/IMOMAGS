@@ -249,6 +249,8 @@ EOT;
             //Check to see if we need to add terms
             //if ($post->domain == "www.northamericanwhitetail.com") {
                 $posts[$key]->terms = getPostTerms($post->ID,$siteID[$post->domain]);
+
+
             //}
 
 
