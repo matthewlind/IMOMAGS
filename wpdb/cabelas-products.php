@@ -43,7 +43,11 @@ $app->get('/products', function () {
 		}
 
 		if (strstr($site,"gameandfish") && !strstr($slug,"bass") && !strstr($slug,"flyfishing") && !strstr($slug,"saltwater")){
-			$slug = "fresh-water,freshwater";
+			$slug = "hunting";
+		}
+
+		if (strstr($site,"hunt") || strstr($site,"wildfowl") || strstr($site,"gundog") || strstr($site,"whitetail")) {
+			$slug = "hunting";
 		}
 
 
@@ -173,6 +177,8 @@ $app->post('/products',function() {
 	$stmt->execute();
 	$db = "";
 
+	clearVarnishProducts();
+
 
 
 });
@@ -215,6 +221,8 @@ $app->put('/products/:id', function ($id) {
 	$stmt->execute();
 	$db = "";
 
+	clearVarnishProducts();
+
 
 });
 
@@ -246,6 +254,8 @@ $app->delete('/products/:id', function ($id) {
 
 		$db = "";
 
+		clearVarnishProducts();
+
 		echo json_encode($data);
 
 	} else {
@@ -259,7 +269,15 @@ $app->delete('/products/:id', function ($id) {
 
 
 
+function clearVarnishProducts() {
+				//CLEAR THE VARNISH CACHE!
+			$url = "http://www.in-fisherman.com/wpdb/products";
 
+			$curl = curl_init($url);
+            curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PURGE");
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
+            $curlResult = curl_exec($curl);
+}
 
 
 function sanitizeURL($url) {
