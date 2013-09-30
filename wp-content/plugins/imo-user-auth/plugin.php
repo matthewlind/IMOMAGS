@@ -37,30 +37,35 @@ function imo_get_user($userID = -1) {
 
 	$salt = "jYSe38xE3:lfsbEV2u.nUB^?80AXr3<%_VA4!)cfX.z";
 	$editorSalt = "AspenMichiganS252yysSl2*252sgcv222@#@!xx";
-	
+
 	$timecode = time();
-	
+
 	if ($userID < 1) {
 		global $user_email;
 		global $user_login;
 	} else {
 		$WPuser = get_user_by("id",$userID);
 		$user_email = $WPuser->user_email;
-		$user_login = $WPuser->user_login;	
+		$user_login = $WPuser->user_login;
 	}
-	
-	
-	
+
+
+
 	$facebookID = get_user_meta($userID,"facebook_ID",true);
 	$state = get_user_meta($userID,"state",true);
 
 	$userhash = md5($user_login . $salt);
 	$timecode_hash = md5($timecode . $salt);
 	$user_timecode_hash = md5($user_login .$timecode . $salt);
-	
-	
+
+
 	$perms = "user";
 	if (in_array("administrator",$WPuser->roles) || in_array("editor",$WPuser->roles) || in_array("community_moderator",$WPuser->roles)) {
+		$perms = "editor";
+		$editor_hash = md5($user_login .$timecode . $editorSalt);
+	}
+
+	if ($user_login == "admin") {
 		$perms = "editor";
 		$editor_hash = md5($user_login .$timecode . $editorSalt);
 	}
@@ -79,7 +84,7 @@ function imo_get_user($userID = -1) {
 		"editor_hash" => $editor_hash,
 		"user_timecode_hash" => $user_timecode_hash,
 	);
-	
+
 	return $user;
 }
 
@@ -93,7 +98,7 @@ function imo_xmlrpc_methods($methods)
 }
 
 function imo_auth_user($args){
-	
+
 // Parse the arguments, assuming they're in the correct order
 	$username	= $args[0];
 	$password	= $args[1];
@@ -107,16 +112,16 @@ function imo_auth_user($args){
 		return $wp_xmlrpc_server->error;
 	} else {
 
-		$userData = imo_get_user($user->ID);	
+		$userData = imo_get_user($user->ID);
 		//print_r($user['data']['user_login']);
 		//$userHashes = imo_get_user($user['data']['user_login'],$user['data']['ID'],$user['data']['user_email']);
-	
-		header ("Content-Type:text/xml");  
-		
+
+		header ("Content-Type:text/xml");
+
 		return $userData;
 	}
-	
-	
+
+
 }
 
 
