@@ -14,6 +14,7 @@ $app = new \Slim\Slim();
 
 include 'users.php';
 include 'counts.php';
+include 'master.php';
 
 // GET a list of posts. 20 by default
 //Note, $post_type = "all" does not fetch comments or answers
