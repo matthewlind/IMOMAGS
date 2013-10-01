@@ -516,9 +516,18 @@ function imo_community_user_profile( $user_id ) {
         update_user_meta( $user_id, 'zip', $_POST['zip'] );
 
 
-
+    if ( !empty( $_POST['send_community_updates'] ) )
+        update_user_meta( $user_id, 'send_community_updates', $_POST['send_community_updates'] );
+    else
+        update_user_meta( $user_id, 'send_community_updates', 0 );
+    if ( !empty( $_POST['send_offers'] ) )
+        update_user_meta( $user_id, 'send_offers', $_POST['send_offers'] );
+    else
+        update_user_meta( $user_id, 'send_offers', 0 );
 }
 add_action( 'edit_user_profile_update', 'imo_community_user_profile' );
+
+
 add_action( 'edit_user_profile', 'imo_community_user_profile' );
 add_action( 'personal_options_update', 'imo_community_user_profile' );
 

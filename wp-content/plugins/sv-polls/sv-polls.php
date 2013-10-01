@@ -48,13 +48,19 @@ function svDisplayPoll($pollpost,$pollheader){
 
 	//$addThis = imo_add_this_for_this($sharingURL,null,false);
 
+	//get the ad campaign code.
+	$adCampCode = "shooting_polls";
 
+	$serverName = $_SERVER['SERVER_NAME'];
+
+	if (strstr($serverName, "hunt") || strstr($serverName, "whitetail") || strstr($serverName, "wildfowl") || strstr($serverName, "gundog" || strstr($serverName, "game"))
+		$adCampCode = "hunting_polls";
 
 	$output = "";
 
 
-	$dartAdTag = get_imo_dart_tag("300x250",null,false,array("camp"=>"shooting_polls"));
-	$dartSponsorTag = get_imo_dart_tag("240x60",null,false,array("camp"=>"shooting_polls"));
+	$dartAdTag = get_imo_dart_tag("300x250",null,false,array("camp"=>$adCampCode));
+	$dartSponsorTag = get_imo_dart_tag("240x60",null,false,array("camp"=>$adCampCode));
 
 	$output .= <<<EOFEOFEOF
 
