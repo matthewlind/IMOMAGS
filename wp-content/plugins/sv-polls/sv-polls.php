@@ -53,8 +53,10 @@ function svDisplayPoll($pollpost,$pollheader){
 
 	$serverName = $_SERVER['SERVER_NAME'];
 
-	if (strstr($serverName, "hunt") || strstr($serverName, "whitetail") || strstr($serverName, "wildfowl") || strstr($serverName, "gundog" || strstr($serverName, "game"))
+	if (strstr($serverName, "hunt") || strstr($serverName, "whitetail") || strstr($serverName, "wildfowl") || strstr($serverName, "gundog") || strstr($serverName, "game")) {
 		$adCampCode = "hunting_polls";
+	}
+
 
 	$output = "";
 
