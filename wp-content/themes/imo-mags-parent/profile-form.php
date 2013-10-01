@@ -160,7 +160,10 @@ if ( is_user_logged_in() ) {
             </div>
 
             <?php endif; ?>
+
 <!--             <div class="f-row checkbox">
+
+
                 <input type="checkbox" name="send_community_updates" id="send_community_updates" value="1" <?php echo $send_community_updates_checked; ?> >
                 <label for="send_community_updates" class="checkbox-label">Send Me Community Updates</label>
             </div>
@@ -169,7 +172,10 @@ if ( is_user_logged_in() ) {
                 <input type="checkbox" name="send_offers" id="send_offers" value="1" <?php echo $send_offers_checked; ?>>
                 <label for="send_offers" class="checkbox-label">Send Me Special Offers</label>
 
+
             </div> -->
+
+>>>>>>> e382dff9c4beeaccf661cbf5045e1e3ccc33d66a
             <?php do_action( 'show_user_profile', $profileuser ); ?>
            <!-- <?php if ( count( $profileuser->caps ) > count( $profileuser->roles ) && apply_filters( 'additional_capabilities_display', true, $profileuser ) ) { ?>
             	<table width="99%" style="border: none;" cellspacing="2" cellpadding="3" class="editform">
