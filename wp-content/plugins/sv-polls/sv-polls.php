@@ -73,7 +73,7 @@ function svDisplayPoll($pollpost,$pollheader){
 			</span>
 
 		</div>
-		<h1 class="poll-question">Have you ever purchased a firearm because you feared gun control was on the horizon?</h1>
+		<h1 class="poll-question">Loading...</h1>
 		<div class="poll-right-column">
 			<div class="poll-ad">
 

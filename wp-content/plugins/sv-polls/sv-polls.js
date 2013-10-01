@@ -16,15 +16,15 @@ jQuery(document).ready(function() {
 
 	if (jQuery(".sv-poll-container").length > 0) {
 
-		$(".sv-poll-container").each(function(index,pollContainer){
+		jQuery(".sv-poll-container").each(function(index,pollContainer){
 
-			var $pollContainer = $(pollContainer);
+			var $pollContainer = jQuery(pollContainer);
 			var pollPostID = $pollContainer.attr("poll-post-id");
 
 			var pollPostURL = "http://" + domain + "/wp-content/plugins/imo-wp-polls-ajax/imo-wp-polls-ajax.php?ajax_pollpost=" + pollPostID;
 
 			//Get Poll Data & diplay poll
-			$.getJSON(pollPostURL, function(pollData){
+			jQuery.getJSON(pollPostURL, function(pollData){
 
 				var pollPostData = pollData.poll_post;
 				var questionData = pollData.poll_question;
@@ -72,9 +72,9 @@ jQuery(document).ready(function() {
 		var answersData = pollData.poll_answers;
 
 		//Show the answers
-		$.each(answersData, function(index,answerData){
+		jQuery.each(answersData, function(index,answerData){
 
-			var $answerListClone = $("<li class='clone-answer' style='display:none'><input type='radio' name='answer' value='male' id='radio1'><label for='radio1' class='radio-label'>No. Those people are paranoid and silly. Just Silly.</label></li>");
+			var $answerListClone = jQuery("<li class='clone-answer' style='display:none'><input type='radio' name='answer' value='male' id='radio1'><label for='radio1' class='radio-label'>No. Those people are paranoid and silly. Just Silly.</label></li>");
 			$answerListClone.attr("id","answer" + answerData.polla_aid);
 			$answerListClone.find("input").attr("value",answerData.polla_aid);
 			$answerListClone.find("input").attr("id","ans" + answerData.polla_aid);
@@ -118,7 +118,7 @@ jQuery(document).ready(function() {
 
 
 
-			$.post(submitPostURL, submissionData, function(pollData){
+			jQuery.post(submitPostURL, submissionData, function(pollData){
 
 				createCookie("voted_" + questionData.pollq_id ,selectedAnswerID,3);
 
@@ -135,10 +135,10 @@ jQuery(document).ready(function() {
 
 		$pollContainer.find(".poll-sponsor").css("display","block").css("margin-top","10px").appendTo($pollContainer.find(".poll-stats"));
 
-		$.each(pollData.poll_answers, function(index,answerData){
+		jQuery.each(pollData.poll_answers, function(index,answerData){
 
 
-			var $answerListClone = $("<li><div class='percent-bar-container'><span class='percent-bar'></span></div><div class='answer'><span class='percent'>23</span><span class='bar'>% - </span><span class='answer-text'>Cheesecake is neither cheese nor cake: Discuss.</span></div></li>");
+			var $answerListClone = jQuery("<li><div class='percent-bar-container'><span class='percent-bar'></span></div><div class='answer'><span class='percent'>23</span><span class='bar'>% - </span><span class='answer-text'>Cheesecake is neither cheese nor cake: Discuss.</span></div></li>");
 			$answerListClone.find(".answer-text").text(answerData.polla_answers);
 			$answerListClone.find(".percent").text(answerData.percent);
 
