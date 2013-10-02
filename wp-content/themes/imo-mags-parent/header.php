@@ -123,7 +123,7 @@
 	        </div>
 	
 	        <div class="menu-subscribe">
-	            <a href="<?php print $subs_link;?>"><img src="<?php print $magazine_img;?>" alt="Subscribe" /><span>Subscribe Now!</span></a>
+	            <a href="<?php print $subs_link;?>" target="_blank"><img src="<?php print $magazine_img;?>" alt="Subscribe" /><span>Subscribe Now!</span></a>
 	        </div>
 	        <?php wp_nav_menu(array(
 	            'menu_class'=>'menu',
@@ -215,7 +215,7 @@
 		       </div>
 	        </div>
 	        <div class="menu-subscribe">
-	            <a href="<?php print $subs_link;?>"><img src="<?php print $magazine_img;?>" alt="" /><span>Subscribe Now!</span></a>
+	            <a href="<?php print $subs_link;?>" target="_blank"><img src="<?php print $magazine_img;?>" alt="" /><span>Subscribe Now!</span></a>
 	        </div>
 	        <div class="mob-aside-menu" style="<?php echo $displayStyle; ?>">
 		        <div class="menu-community-menu-container">
@@ -297,12 +297,12 @@
 
 						    <div class="subscribe-now">
 								<?php print $deal_copy;?>
-								<a href="<?php print $subs_link;?>" class="btn-base">Subscribe <span>Now!</span></a>
+								<a href="<?php print $subs_link;?>" target="_blank" class="btn-base">Subscribe <span>Now!</span></a>
 						    </div>
 						    </div>
 						    <ul class="subscribe-links">
-						        <li><a href="<?php print $gift_link;?>">Give a Gift <span>&raquo;</span></a></li>
-						        <li><a href="<?php print $service_link; ?>">Subscriber Services <span>&raquo;</span></a></li>
+						        <li><a href="<?php print $gift_link;?>" target="_blank">Give a Gift <span>&raquo;</span></a></li>
+						        <li><a href="<?php print $service_link; ?>" target="_blank">Subscriber Services <span>&raquo;</span></a></li>
 						    </ul>
 						</div>
 					</div>
