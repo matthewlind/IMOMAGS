@@ -174,9 +174,9 @@ EOT_a1;
 			$addThis .= '
 				<div id="flex-addthis-'.$count.'" class="flex-addthis">
 					<div addthis:url="'.$baseUrl.'/photos/'.$picture->id.'" addthis:title="'.htmlentities($picture->title).'" class="addthis_toolbox addthis_default_style ">
-						<a class="addthis_button_facebook_like"fb:like:layout="button_count"></a>
+						<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
 						<a class="addthis_button_tweet"></a>
-						<a class="addthis_button_google_plusone"g:plusone:size="medium"></a>
+						<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
 						<a class="addthis_counter addthis_pill_style"></a>
 					</div>
 				</div>
@@ -207,8 +207,8 @@ EOT_a4;
 $desktop_tablet_output .= <<<EOT_a5_1
 		    </ul>
 		</div>
-		<div class="flex-carousel-nav">
-		</div>
+		<div class="flex-carousel-nav"></div>
+		<div class="flex-carousel-fade-left"></div><div class="flex-carousel-fade-right"></div>
 		</div>
 EOT_a5_1;
 		//Just for viewing with the admin bar in the way
