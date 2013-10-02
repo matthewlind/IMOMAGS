@@ -65,6 +65,15 @@
 	     */
 	    wp_enqueue_script("jquery");
 	    wp_head();
+	    
+	    $magazine_img = get_option('magazine_cover_uri' );
+		$subs_link = get_option('subs_link'); 
+		$iMagID = get_option('iMagID' );
+		$deal_copy = get_option('deal_copy' );
+		$gift_link = get_option('gift_link' );
+		$service_link = get_option('service_link' );
+		$subs_form_link = get_option('subs_form_link' );
+		$i4ky = get_option('i4ky' );
 	?>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/dart.js" type="text/javascript"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.jfollow.js" type="text/javascript"></script>
@@ -114,7 +123,7 @@
 	        </div>
 	
 	        <div class="menu-subscribe">
-	            <a href="<?php print SUBS_LINK;?>"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/pic/journals.png" alt="" /><span>Subscribe Now!</span></a>
+	            <a href="<?php print $subs_link;?>"><img src="<?php print $magazine_img;?>" alt="Subscribe" /><span>Subscribe Now!</span></a>
 	        </div>
 	        <?php wp_nav_menu(array(
 	            'menu_class'=>'menu',
@@ -206,7 +215,7 @@
 		       </div>
 	        </div>
 	        <div class="menu-subscribe">
-	            <a href="<?php print SUBS_LINK;?>"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/pic/journals.png" alt="" /><span>Subscribe Now!</span></a>
+	            <a href="<?php print $subs_link;?>"><img src="<?php print $magazine_img;?>" alt="" /><span>Subscribe Now!</span></a>
 	        </div>
 	        <div class="mob-aside-menu" style="<?php echo $displayStyle; ?>">
 		        <div class="menu-community-menu-container">
@@ -232,7 +241,7 @@
 
 </div>
 
-<div id="page" class="snap-content smooth-menu<?php if ( mobile() == false && tablet() == false ){ echo ' ie9fix'; } ?>">
+<div id="page" class="snap-content smooth-menu">
 <?php if (mobile() == false && tablet() == false) {  imo_dart_tag("1x1",false,array("pos"=>"skin")); } ?>
 	<div class="hfeed wrapper" data-role="content" role="main">
 	    <div class="layout-frame">
@@ -283,16 +292,17 @@
 						<div class="subscribe-box">
 						    <div class="clearfix">
 						        <div class="journal">
-						        <img src="<?php bloginfo('stylesheet_directory'); ?>/images/pic/journals.png" alt="">
+						        <img src="<?php echo $magazine_img; ?>" alt="Subscribe">
 						    </div>
+
 						    <div class="subscribe-now">
-						        <p><span class="stag-bold">SUBSCRIBE </span><span class="stag-reg">&amp;  SAVE 70% OFF</span> <b>the Cover Price</b></p>
-						        <a href="<?php print SUBS_LINK;?>" class="btn-base">Subscribe <span>Now!</span></a>
+								<?php print $deal_copy;?>
+								<a href="<?php print $subs_link;?>" class="btn-base">Subscribe <span>Now!</span></a>
 						    </div>
 						    </div>
 						    <ul class="subscribe-links">
-						        <li><a href="<?php print GIFT_LINK;?>">Give a Gift <span>&raquo;</span></a></li>
-						        <li><a href="<?php print SERVICE_LINK; ?>">Subscriber Services <span>&raquo;</span></a></li>
+						        <li><a href="<?php print $gift_link;?>">Give a Gift <span>&raquo;</span></a></li>
+						        <li><a href="<?php print $service_link; ?>">Subscriber Services <span>&raquo;</span></a></li>
 						    </ul>
 						</div>
 					</div>

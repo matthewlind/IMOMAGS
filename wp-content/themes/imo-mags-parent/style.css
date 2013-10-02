@@ -569,7 +569,7 @@ img{max-width: 100%;height: auto;}
     float:right;
     width:30px;
     height:30px;
-    padding:;
+    padding:0;
     overflow:hidden;
     text-indent:-99999px;
     font-size:0;
@@ -2180,6 +2180,7 @@ a.change-location:before {
 
 /* = WP default overrides
  ******************************************************************************/
+#wpadminbar {z-index: 9999999;}
 .wp-caption {
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
