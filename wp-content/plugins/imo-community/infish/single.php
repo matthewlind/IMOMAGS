@@ -18,6 +18,9 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * **********************************************************************
  */
+
+
+
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 
 //Gallery Scripts
@@ -65,6 +68,8 @@ $file = file_get_contents($apiURL);
 $data = json_decode($file);
 $attachmentData = $data->attachments;
 $commentData = $data->comments;
+
+
 
 
 if (empty($commentData)) {
@@ -400,7 +405,7 @@ $time = date("g:i A", strtotime($timestamp));
     		<?php //echo do_shortcode('[imo-slideshow community=true]'); ?>
     	</div>
     </div>
-      
+
     <div class="replies-box">
         <h2>What's Your Take?</h2>
 

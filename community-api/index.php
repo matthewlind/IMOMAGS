@@ -184,6 +184,8 @@ $app->get('/posts/:id', function ($id) {
 
 
 
+
+
 		$db = '';
 
 	} catch(PDOException $e) {
@@ -214,6 +216,7 @@ $app->get('/posts/:id', function ($id) {
 	    	echo $e->getMessage();
 	    }
    	}
+
 
    	if ($get_comments) {
 	   	try {
@@ -298,6 +301,8 @@ $app->get('/posts/:id', function ($id) {
 
    	}//end if get_comments
 
+
+
    	//Get master angler data
    	if ($get_master && $posts[0]->master == TRUE) {
 	   	try {
@@ -312,6 +317,9 @@ $app->get('/posts/:id', function ($id) {
 			$stmt->execute(array($id));
 
 			$masterData = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+			$masterData[0]->master_id = $masterData[0]->id;
+			$masterData[0]->id = $posts[0]->id;
 
 			$posts[0] = (object)array_merge((array)$posts[0], (array)$masterData[0]); //Array merge only works on arrays, but our data is objects. So, lots of casting.
 
@@ -580,9 +588,11 @@ $app->post('/posts',function() {
 
 				$eventHash = getEventHash($post_id, $etype, $user_id);
 
+				$commentID = $superpostID;
+
 
 				$oFlagger = new postFlagger();
-				$rtn = $oFlagger->insertEvent($params['parent'], "comment", $params['user_id'],$eventHash);
+				$rtn = $oFlagger->insertEvent($params['parent'], "comment", $params['user_id'],$eventHash,$commentID);
 			}
 
 			if (!empty($params['attachments']))
@@ -1003,7 +1013,7 @@ function getEventHash($post_id, $etype, $user_id) {
 
 	date_default_timezone_set("America/New_York");
 	$eventDate = date("dmy");
-	$eventMinute = floor(((int)date("i"))/60);
+	$eventMinute = floor(((int)date("i")));
 
 	$eventHash = md5("STRINGTHINGSgfid25s" . $post_id . $etype . $user_id . $eventDate . $eventMinute);
 
