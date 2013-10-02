@@ -1531,12 +1531,12 @@ a.comment-count:hover {
   position: absolute;
   right: 0;
   top: 143px;
-  width: 316px;
+  width: 282px;
   z-index: 20;
 }
 /* line 1081, sass/style.scss */
 #header .subscription-block img {
-  left: 0;
+  left: -23px;
   position: absolute;
   top: 0;
   width: 140px;

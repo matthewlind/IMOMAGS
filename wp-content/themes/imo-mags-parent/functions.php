@@ -13,6 +13,10 @@ include_once('widgets/community-login-widget.php');
 include_once('widgets/community-slider.php');
 include_once('widgets/user-info.php');
 
+
+$magazine_img = get_option("magazine_cover_uri", get_stylesheet_directory_uri(). "/images/pic/journals.png" );
+$subs_link = get_option("subs_link"); 
+						    
 function new_excerpt_more( $more ) {
 	return '... <a href="'. get_permalink( get_the_ID() ) .'" >more <span class="meta-nav">&raquo;</span></a>';
 }
@@ -246,13 +250,10 @@ function parent_theme_widgets_init()
     register_nav_menus(array(
         'top' => 'Top Menu',
         'bottom' => 'Main Menu',
-        'mobile' => 'Mobile Menu'
-    ));
-    register_nav_menus(array(
-        'top' => 'Community Menu',
-        'bottom' => 'Community Menu',
+        'mobile' => 'Mobile Menu',
         'community' => 'Community Menu'
     ));
+
 }
 
 function parent_theme_get_categories($categories_list, $show_featured = true)
