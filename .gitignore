@@ -36,3 +36,4 @@ slim/mysql.php
 community-api/mysql.php
 userinfo/mysql.php
 avatar/mysql.php
+wpdb/.htaccess

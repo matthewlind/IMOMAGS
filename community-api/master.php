@@ -2,56 +2,132 @@
 
 $app->get('/master_anglers', function () {
 
-	try {
-
-		$db = dbConnect();
-
-
-		$sql = "SELECT * FROM master_angler JOIN superposts ON superposts.id = post_id;";
+  $requestJSON = Slim\Slim::getInstance()->request()->getBody();
+  $params = json_decode($requestJSON,true);
 
 
 
-		$stmt = $db->prepare($sql);
-		$stmt->execute(array());
+  if (!$params) {
+    //Grab the parameters
+    $params = \Slim\Slim::getInstance()->request()->post();
+  }
 
-		$posts = $stmt->fetchAll(PDO::FETCH_OBJ);
+    if (!$params) {
+    //Grab the parameters
+    $params = \Slim\Slim::getInstance()->request()->get();
+  }
 
-		echo json_encode($posts,JSON_NUMERIC_CHECK);
+  $userIsGood = userIsGood($params['username'],$params['userhash']);
+  $userIsEditor = userIsEditor($params['username'],$params['timecode'],$params['editor_hash']);
 
-		$db = "";
 
-	} catch(PDOException $e) {
-    	echo $e->getMessage();
+
+
+  if ($userIsEditor && $userIsGood) {
+    try {
+
+      $db = dbConnect();
+
+
+      $sql = "SELECT master_angler.id,first_name,last_name,email,street_address_1,street_address_2,city,state_address,state,zip,phone,date,body_of_water,nearest_town,meta as species,length,weight,lure_used,kind_of_lure,lure_desc,kind_of_bait,kept,post_type,secondary_post_type,title,body,img_url,user_id,username,created as date_submitted FROM master_angler JOIN superposts ON superposts.id = post_id WHERE master = 1;";
+
+
+
+      $stmt = $db->prepare($sql);
+      $stmt->execute(array());
+
+      $posts = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+      echo json_encode($posts,JSON_NUMERIC_CHECK);
+
+      $db = "";
+
+    } catch(PDOException $e) {
+        echo $e->getMessage();
     }
+  } else {
+    echo "error: link expired";
+  }
+
+
 
 });
 
 $app->get('/master_anglers/csv', function () {
-	try {
-
-		$db = dbConnect();
-
-
-		$sql = "SELECT * FROM master_angler JOIN superposts ON superposts.id = post_id;";
+  $requestJSON = Slim\Slim::getInstance()->request()->getBody();
+  $params = json_decode($requestJSON,true);
 
 
 
-		$stmt = $db->prepare($sql);
-		$stmt->execute(array());
+  if (!$params) {
+    //Grab the parameters
+    $params = \Slim\Slim::getInstance()->request()->post();
+  }
 
-		$posts = $stmt->fetchAll(PDO::FETCH_OBJ);
+    if (!$params) {
+    //Grab the parameters
+    $params = \Slim\Slim::getInstance()->request()->get();
+  }
 
-		 date_default_timezone_set("America/New_York");
-
-		download_send_headers("data_export_" . date("Y-m-d") . ".csv");
-		echo array2csv($posts);
+  $userIsGood = userIsGood($params['username'],$params['userhash']);
+  $userIsEditor = userIsEditor($params['username'],$params['timecode'],$params['editor_hash']);
 
 
-		$db = "";
 
-	} catch(PDOException $e) {
-    	echo $e->getMessage();
+
+  if ($userIsEditor && $userIsGood) {
+    try {
+
+      $db = dbConnect();
+
+
+      $sql = "SELECT master_angler.id,first_name,last_name,email,street_address_1,street_address_2,city,state_address,state,zip,phone,date,body_of_water,nearest_town,meta as species,length,weight,lure_used,kind_of_lure,lure_desc,kind_of_bait,kept,post_type,secondary_post_type,title,body,img_url,user_id,username,created as date_submitted FROM master_angler JOIN superposts ON superposts.id = post_id WHERE master = 1;";
+
+
+
+      $stmt = $db->prepare($sql);
+      $stmt->execute(array());
+
+      $masterAnglers = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+      download_send_headers("master_angler.csv");
+
+      $arrayKeys = array_keys(reset($masterAnglers));
+
+
+
+      $arrayKeysString = "";
+
+      foreach ($arrayKeys as $key => $value) {
+        $arrayKeysString .= "\"$value\",";
+      }
+
+      $arrayKeysString = rtrim($arrayKeysString,",");
+      $arrayKeysString .= "\n";
+
+      echo $arrayKeysString;
+
+      $csv = new arrayToCsv();
+
+      echo $csv->convert($masterAnglers);
+
+      $db = "";
+
+
+
+      //array2csv(array_keys(reset($masterAnglers)));
+
+      //print_r(array_keys($masterAnglers));
+
+      //array2csv($masterAnglers);
+
+    } catch(PDOException $e) {
+        echo $e->getMessage();
     }
+  } else {
+    echo "ERROR: Expired Link. Please try reloading page";
+  }
+
 
 });
 

@@ -27,6 +27,17 @@ the_post();
 $displayStyle = "display:none;";
 $loginStyle = "";
 
+$userIMO = imo_get_user();
+$username = $userIMO['username'];
+$userhash = $userIMO['userhash'];
+$timecode = $userIMO['timecode'];
+$editor_hash = $userIMO['editor_hash'];
+
+//print_r($userIMO);
+
+$masterAnglerURL = "http://www.in-fisherman.deva/community-api/master_anglers/csv?username=$username&userhash=$userhash&timecode=$timecode&editor_hash=$editor_hash";
+
+
 if ( is_user_logged_in() ) {
 
 	$displayStyle = "";
@@ -46,6 +57,7 @@ if ( is_user_logged_in() ) {
 
 	<div class="container">
 		<h1 class="community-title">Community</h1>
+		<a href="<?php echo $masterAnglerURL; ?>" id="master-angler-link" style="float:right;padding-right:200px;">Download Master Angler Data</a>
     <div id="app-header">
 
     </div>
