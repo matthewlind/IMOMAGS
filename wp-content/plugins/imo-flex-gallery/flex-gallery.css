@@ -104,9 +104,9 @@ div#flex-gallery-social {
 }
 div.flex-addthis {
 	position: absolute;
+	width: 100%;
 	height: 26px;
 	z-index: 9;
-	background: #000;
 }
 div#flex-gallery-social iframe {
 	/*display: none;*/

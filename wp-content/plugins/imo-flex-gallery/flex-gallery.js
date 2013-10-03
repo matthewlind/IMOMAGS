@@ -126,7 +126,9 @@ function imoFlexSetup(isCommunity, galleryID, totalSlidesNow, isFullScreenNow, i
 	
 		jQuery('.flex-direction-nav a').text('');
 		jQuery('.background-overlay').prependTo('#main');
-		jQuery('.flex-gallery .flex-direction-nav').prependTo('.flex-gallery .flex-gallery-title');
+		if(isFullScreen != true) {
+			jQuery('.flex-gallery .flex-direction-nav').prependTo('.flex-gallery .flex-gallery-title');
+		}
 		jQuery('.flex-carousel .flex-direction-nav').prependTo('.flex-carousel-nav');
 		if(jQuery('.flex-carousel-nav .flex-prev').hasClass('flex-disabled')){
 			jQuery('.flex-carousel-fade-left').addClass('display-none');
@@ -159,7 +161,7 @@ function imoFlexSetup(isCommunity, galleryID, totalSlidesNow, isFullScreenNow, i
 		jQuery('.flex-content').perfectScrollbar();
 		
 		//Events: Navigation
-		jQuery('.flex-next, .flex-prev').on('click touchstart', function(){
+		jQuery('.flex-next, .flex-prev').on('click tap taphold', function(){
 			carouselNavStyles();
 		});
 		//Events: Slide Out
@@ -185,7 +187,7 @@ function imoFlexSetup(isCommunity, galleryID, totalSlidesNow, isFullScreenNow, i
 				showSlideOut();
 			}
 		});
-		jQuery('.flex-gallery-container').on('click touchstart', function(){
+		jQuery('.flex-gallery-container').on('click swipeleft swiperight tap taphold', function(){
 			if(isFullScreen == false && isLoaded == true) {
 				showSlideOutTouch();
 			}
@@ -196,14 +198,14 @@ function imoFlexSetup(isCommunity, galleryID, totalSlidesNow, isFullScreenNow, i
 				jQuery('.background-overlay').show();
 			}
 		});
-		jQuery('.x-close').on('click touchstart', function(){
+		jQuery('.x-close').on('click tap taphold', function(){
 			if(isFullScreen == false) {
 				closeSlideout();
 			} else {
 				closeFullScreen();
 			}
 		});
-		jQuery('.background-overlay').on('click touchstart', function(){
+		jQuery('.background-overlay').on('click swipeleft swiperight tap taphold', function(){
 			if(isFullScreen == false) {
 				closeSlideout();
 			}
@@ -233,7 +235,6 @@ function imoFlexSetup(isCommunity, galleryID, totalSlidesNow, isFullScreenNow, i
 			jQuery('div.main').bind('resize', function () { 
 				if(isFullScreen == false) {
 					resizeMainTitleH2();
-					positionSlideOut();
 					centerSlides();
 				} else {
 					sizeFullScreen();
@@ -243,8 +244,9 @@ function imoFlexSetup(isCommunity, galleryID, totalSlidesNow, isFullScreenNow, i
 		jQuery(window).bind('orientationchange', function () { 
 			if(isFullScreen == false) {
 				resizeMainTitleH2();
-				positionSlideOut();
+				theSlider.resize();
 				centerSlides();
+				sizeCarousel();
 			} else {
 				sizeFullScreen();
 				theSlider.resize();
@@ -255,8 +257,9 @@ function imoFlexSetup(isCommunity, galleryID, totalSlidesNow, isFullScreenNow, i
 			jQuery('div.main').bind('orientationchange', function () { 
 				if(isFullScreen == false) {
 					resizeMainTitleH2();
-					positionSlideOut();
+					theSlider.resize();
 					centerSlides();
+					sizeCarousel();
 				} else {
 					sizeFullScreen();
 					theSlider.resize();
@@ -389,9 +392,10 @@ function showSlideOut() {
 	}
 }
 
-function hideSlideOut() {
+function hideSlideOut(callback) {
 	slideOutShown = false;
 	jQuery('.flex-gallery-slide-out').hide('slide', { direction: 'left' }, 300);
+	ifCallback(callback);
 }
 	
 function closeSlideout() {
@@ -450,6 +454,7 @@ function carouselNavStyles() {
 }
 function goFullScreen() {
 	if(isFullScreen == false) {
+		isFullScreen = true;
 		origParent = jQuery('.flex-gallery-container').parent();
 		origX = jQuery('.flex-gallery-container').css('left');
 		origY = jQuery('.flex-gallery-container').css('top');
@@ -463,14 +468,18 @@ function goFullScreen() {
 		origWidthSlideOut = jQuery('.flex-gallery-slide-out').css('width');
 		origZslideOut = jQuery('.flex-gallery-slide-out').css('z-index');
 		origXcloseMargin = jQuery('.x-close').css('margin');
-		isFullScreen = true;
-	}
-	
+		
+	}	
 	jQuery('body').addClass('flex-full-body');
 	jQuery('.flex-gallery-container').addClass('flex-fullscreen');
 	jQuery('.flex-gallery-slide-out').addClass('flex-fullscreen');
 	jQuery('.flex-gallery-container').prependTo('body');
 	jQuery('.flex-gallery-slide-out').prependTo('.flex-gallery-container');
+	
+	if(jQuery('#tiptip_holder').css('display') != 'none') {
+		tiptipWasShowing = true;
+		jQuery('#tiptip_holder').css('display', 'none');
+	}
 	
 	jQuery('.flex-gallery-container').css({
 		'position':'fixed',
@@ -561,6 +570,12 @@ function sizeFullScreen(callback) {
 function closeFullScreen(callback) {
 	jQuery('.flex-gallery-container').removeClass('flex-fullscreen');
 	jQuery('.flex-gallery-slide-out').removeClass('flex-fullscreen');
+	
+	if(tiptipWasShowing == true) {
+		tiptipWasShowing = null;
+		jQuery('#tiptip_holder').css('display', 'block');
+	}
+	
 	setTimeout(function(){
 		isFullScreen = false;
 		lockedOpen = false;
