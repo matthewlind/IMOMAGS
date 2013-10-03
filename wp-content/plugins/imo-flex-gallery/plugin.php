@@ -274,7 +274,6 @@ $desktop_tablet_output .= <<<EOF_a
 				<div class="slide-out-ad">
 					<iframe id="gallery-iframe-ad" height=280 width=330 src="/iframe-ad.php?ad_code=$dartDomain"></iframe>
 				</div>
-				<div class="slide-out-ad-cover"></div>
 			</div>
 		</div>
 </div><!-- .flex-gallery-container -->

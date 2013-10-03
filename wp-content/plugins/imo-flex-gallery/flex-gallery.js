@@ -68,6 +68,16 @@ function imoFlexInitiate(isCommunity, galleryID, totalSlides, isFullScreenNow, i
 				jQuery('#flex-content-community-'+theSlide).show();
 				jQuery('span.current-slide').text(theSlide);
 				if(isCommunity == true) {
+					if (window.addthis) {
+						window.addthis = null;
+						window._adr = null;
+						window._atc = null;
+						window._atd = null;
+						window._ate = null;
+						window._atr = null;
+						window._atw = null;
+					}
+					jQuery.getScript('http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4de0e5f24e016c81');
 					jQuery('#flex-addthis-'+theSlide).css('z-index','10');
 					jQuery('.flex-gallery-title h2').html(truncateSlideTitle(theSlideTitleText, theSlideTitleLink));
 				}
@@ -104,6 +114,7 @@ function imoFlexSetup(isCommunity, galleryID, totalSlidesNow, isFullScreenNow, i
 			centerSlides();
 			sizeCarousel();
 			jQuery('.imo-flex-loading-block').removeClass('imo-flex-loading-block');
+			jQuery('.flex-gallery-inner').removeClass('community-sort-reload');
 			jQuery('.flex-gallery-container').css({'background':'#000'});
 			jQuery('.flex-gallery').css({'visibility':'visible'});
 			jQuery('#flex-gallery-social iframe').addClass('display-inline-block');
@@ -143,6 +154,7 @@ function imoFlexSetup(isCommunity, galleryID, totalSlidesNow, isFullScreenNow, i
 		resizeMainTitleH2();
 		if(community == true) {
 			jQuery('.flex-gallery-title h2').html(truncateSlideTitle(theSlideTitleText, theSlideTitleLink));	
+			//Annoying addthis more services should be removed jQuery('#at16p').remove();
 		}
 		jQuery('.flex-content').perfectScrollbar();
 		
@@ -332,7 +344,7 @@ function positionSlideOut(callback) {
 			jQuery('.flex-content').css({
 				'height':galHeight - adHeight + 40 - commFeatHeight
 			});
-			jQuery('.flex-gallery-slide-out').insertBefore('#footer');	
+			jQuery('.flex-gallery-slide-out').insertAfter('.wrapper');	
 			jQuery('.flex-gallery-slide-out').css({
 				'left':galWidth + galPos.left,
 				'height':galHeight,
@@ -367,7 +379,11 @@ function showSlideOut() {
 			positionSlideOut();
 		}
 		jQuery('.flex-gallery-slide-out').css({'visibility': 'visible'});
-		jQuery('.flex-gallery-slide-out').show('slide', { direction: 'left' }, 300);
+		if(community == true) {
+			jQuery('.flex-gallery-slide-out').show('slide', { direction: 'left' }, 550, 'easeOutCirc');
+		} else {
+			jQuery('.flex-gallery-slide-out').show('slide', { direction: 'left' }, 300, 'easeOutExpo');
+		}
 		jQuery('.flex-content').delay(100).perfectScrollbar('update');
 		slideOutShown = true;
 	}
@@ -617,7 +633,7 @@ function closeFullScreen(callback) {
 	ifCallback(callback);
 }
 
-function flexSortReload(isCommunity, galleryID, totalSlides, isFullScreenNow) {
+function flexSortReload(isCommunity, galleryID, totalSlides, isFullScreen) {
 	jQuery('.flex-gallery-slide-out-inner, .flex-gallery, .flex-carousel-nav, .flex-carousel, .flex-carousel-fade-left, .flex-carousel-fade-right').fadeOut('fast');
 	jQuery('.flex-gallery-inner').addClass('community-sort-reload');
 	jQuery('.community-sort-reload').css({'height':jQuery('.flex-gallery-inner').height()});
@@ -626,6 +642,7 @@ function flexSortReload(isCommunity, galleryID, totalSlides, isFullScreenNow) {
 		var sortObj = document.createElement('div')
 		sortObj.innerHTML = data;
 		jQuery('.flex-gallery-inner').html(jQuery(sortObj).find('.flex-gallery-inner').html());
+		jQuery('#flex-gallery-social-save').remove();
 		jQuery('#flex-gallery-social').html(jQuery(sortObj).find('#flex-gallery-social-save').html());
 		jQuery('.flex-gallery-slide-out').html(jQuery(sortObj).find('.flex-gallery-slide-out').html());
 		sortObj = null;
@@ -634,22 +651,32 @@ function flexSortReload(isCommunity, galleryID, totalSlides, isFullScreenNow) {
 			if(isFullScreen == true) {
 				goFullScreenTopLeft();
 			}
-			jQuery('.flex-addthis').each(function(i,e) {		
-				addthis.toolbox(e);
-				var urlFix = jQuery(e).find('div:first').attr('addthis:url');
-				var wrongUrlInstance = new RegExp(encodeURIComponent(window.location), 'g');
-				var fbSrc = jQuery(e).find('.addthis_button_facebook_like iframe').attr('src');
-				var gSrc = jQuery(e).find('.addthis_button_google_plusone iframe').attr('src');			
+			//jQuery('.flex-addthis').each(function(i,e) {		
+				if (window.addthis) {
+					window.addthis = null;
+					window._adr = null;
+					window._atc = null;
+					window._atd = null;
+					window._ate = null;
+					window._atr = null;
+					window._atw = null;
+				}
+				jQuery.getScript('http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4de0e5f24e016c81');
+				//addthis.toolbox(e);
+				//var urlFix = jQuery(e).find('div:first').attr('addthis:url');
+				//var wrongUrlInstance = new RegExp(encodeURIComponent(window.location), 'g');
+				//var fbSrc = jQuery(e).find('.addthis_button_facebook_like iframe').attr('src');
+				//var gSrc = jQuery(e).find('.addthis_button_google_plusone iframe').attr('src');			
 				//Facebook
-				jQuery(e).find('.addthis_button_facebook_like, .fb-like').attr('data-href', urlFix);
-				jQuery(e).find('.addthis_button_facebook_like iframe').attr('src', fbSrc.replace(wrongUrlInstance, encodeURIComponent(urlFix)));
+				//jQuery(e).find('.addthis_button_facebook_like, .fb-like').attr('data-href', urlFix);
+				//jQuery(e).find('.addthis_button_facebook_like iframe').attr('src', fbSrc.replace(wrongUrlInstance, encodeURIComponent(urlFix)));
 				//Google Plus
-				jQuery(e).find('.addthis_button_google_plusone iframe').attr('src', gSrc.replace(wrongUrlInstance, encodeURIComponent(urlFix)));							
+				//jQuery(e).find('.addthis_button_google_plusone iframe').attr('src', gSrc.replace(wrongUrlInstance, encodeURIComponent(urlFix)));							
 				//Twitter
-				jQuery(e).find('.addthis_button_tweet .twitter-share-button').attr('data-url', urlFix);
-				jQuery(e).find('.addthis_button_tweet .twitter-share-button').attr('data-counturl', urlFix);
-				jQuery(e).find('.addthis_button_tweet .twitter-share-button').attr('data-text', jQuery('#flex-content-title-'+(i+1)).text());
-			});
+				//jQuery(e).find('.addthis_button_tweet .twitter-share-button').attr('data-url', urlFix);
+				//jQuery(e).find('.addthis_button_tweet .twitter-share-button').attr('data-counturl', urlFix);
+				//jQuery(e).find('.addthis_button_tweet .twitter-share-button').attr('data-text', jQuery('#flex-content-title-'+(i+1)).text());
+			//});
 		});
 	}, 'html');
 }

@@ -1,7 +1,4 @@
-.clear {
-	clear: both;
-}
-.clearfix:after, .f-row:after, .container:after, .nav:after {
+.clear, .clearfix:after, .f-row:after, .container:after, .nav:after {
 clear: both;
 }
 .clearfix:before, .clearfix:after, .container:before, .container:after, .nav:before, .nav:after, .f-row:before, .f-row:after {
