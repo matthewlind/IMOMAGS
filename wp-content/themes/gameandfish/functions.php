@@ -10,7 +10,6 @@ define("SUBS_DEAL_STRING", "Save Over 70% off<br/> the Cover Price");
 
 define("FACEBOOK_LINK", "https://www.facebook.com/GameAndFish");
 
-
 /* This function allows for logging when debugging mode is on */
 if(!function_exists('_log')){
   function _log( $message ) {
@@ -49,10 +48,10 @@ function imo_sidebar($type){
 
 function social_networks(){
 	echo '<div class="socials">';
-		echo '<a href="'.FACEBOOK_LINK.'" class="facebook">Facebook</a>';
-	    echo '<a href="https://www.twitter.com/@gameandfishmag';
-	    //echo '<a href="http://www.youtube.com/user/InFishermanTV" class="youtube">YouTube</a>';
-	    echo '<a href="http://www.gameandfishmag.com/feed/" class="rss">RSS</a>';
+		echo '<a href="https://www.twitter.com/@gameandfishmag" class="twitter">Twitter</a>';
+	    echo '<a href="http://www.youtube.com/user/InFishermanTV" class="youtube">YouTube</a>';
+	    echo '<a href="http://www.gameandfishmag.com/feed" class="rss">RSS</a>';
+	    echo '<div class="fb-like" data-href="' . FACEBOOK_LINK . '" data-send="false" data-layout="button_count" data-width="100" data-show-faces="true"></div>';
 	echo '</div>';
 }
 
