@@ -29,15 +29,74 @@ the_post();
 	<header id="masthead">
 		<h1>Game & Fish 2013 Deer Forecast</h1>
 	</header>
-	<div class="forecast-map">	
-		<div class="col-abc">
-			<p class="select-state"></p>
-			<p class="state-name">Select a State</p>
-			<div id="us-map-forecast" style="min-width:840px;height:600px;padding:20px;margin-left:30px;position:absolute;top:20px;"></div>
-		</div>
-		<?php if(is_page("deer-forecast")){ ?>
-			<img src="<?php bloginfo("stylesheet_directory"); ?>/img/deer-forecast-logo-sm.png" alt="Deer Forecast" />
-		<?php } ?>
+			<?php if(mobile() == true){ ?>
+					
+			<div class="col-abc">
+				<form name="menuform" class="forecast-menu">
+				<select name="menu4">
+					<option value="">Select a State</option>
+					<option value="/alabama-deer-forecast-2013">alabama</option>
+					<option value="/rocky-mountain-deer-forecast-2013">arizona</option>
+					<option value="/arkansas-deer-forecast-2013">arkansas</option>
+					<option value="/california-deer-forecast-2013">california</option>
+					<option value="/new-england-deer-forecast-2013">connecticut</option>
+					<option value="/florida-deer-forecast-2013">florida</option>
+					<option value="/georgia-deer-forecast-2013">georgia</option>
+					<option value="/idaho-deer-forecast-2013">idaho</option>
+					<option value="/illinois-deer-forecast-2013">illinois</option>
+					<option value="/indiana-deer-forecast-2013">indiana</option>
+					<option value="/iowa-deer-forecast-2013">iowa</option>
+					<option value="/great-plains-deer-forecast-2013">kansas</option>
+					<option value="/kentucky-deer-forecast-2013">kentucky</option>
+					<option value="/louisiana-deer-forecast-2013">louisiana</option>
+					<option value="/maine-deer-forecast-2013">maine</option>
+					<option value="/new-england-deer-forecast-2013">massachusetts</option>
+					<option value="/michigan-deer-forecast-2013">michigan</option>
+					<option value="/minnesota-deer-forecast-2013">minnesota</option>
+					<option value="/mississippi-deer-forecast-2013">mississippi</option>
+					<option value="/missouri-deer-forecast-2013">missouri</option>
+					<option value="/great-plains-deer-forecast-2013">nebraska</option>
+					<option value="/new-england-deer-forecast-2013">new hampshire</option>
+					<option value="/rocky-mountain-deer-forecast-2013">new mexico</option>
+					<option value="/new-york-deer-forecast-2013">new york</option>
+					<option value="/north-carolina-deer-forecast-2013">north carolina</option>
+					<option value="/great-plains-deer-forecast-2013">north dakota</option>
+					<option value="/ohio-deer-forecast-2013">ohio</option>
+					<option value="/oklahoma-deer-forecast-2013">oklahoma</option>
+					<option value="/washington-oregon-deer-forecast-2013">oregon</option>
+					<option value="/pennsylvania-deer-forecast-2013">pennsylvania</option>
+					<option value="/new-england-deer-forecast-2013">rhode island</option>
+					<option value="/south-carolina-deer-forecast-2013">south carolina</option>
+					<option value="/great-plains-deer-forecast-2013">south dakota</option>
+					<option value="/tennessee-deer-forecast-2013">tennessee</option>
+					<option value="/texas-deer-forecast-2013">texas</option>
+					<option value="/vermont-deer-forecast-2013">vermont</option>
+					<option value="/virginia-deer-forecast-2013">virginia</option>
+					<option value="/washington-oregon-deer-forecast-2013">washington</option>
+					<option value="/west-virginia-deer-forecast-2013">west virginia</option>
+					<option value="/wisconsin-deer-forecast-2013">wisconsin</option>
+					
+				</select>
+				<input type="button" name="Submit" value="Go" class="forecast-submit" onClick="window.location = this.form.menu4.options[this.form.menu4.selectedIndex].value;">
+				</form>
+				<?php if(is_page("deer-forecast")){ ?>
+					<img src="<?php bloginfo("stylesheet_directory"); ?>/img/deer-forecast-logo-sm.png" alt="Deer Forecast" />
+				<?php } ?>
+			</div>
+			<?php }else{ ?>
+			
+				<div class="forecast-map">	
+					<div class="col-abc">
+						<p class="state-name">Select a State</p>
+						<div id="us-map-forecast" style="min-width:840px;height:600px;padding:20px;margin-left:30px;position:absolute;top:20px;"></div>
+					</div>
+				</div>
+				<?php if(is_page("deer-forecast")){ ?>
+					<img src="<?php bloginfo("stylesheet_directory"); ?>/img/deer-forecast-logo-sm.png" alt="Deer Forecast" />
+				<?php } ?>
+			<?php } ?>
+		
+		
 		
 	</div>
 	<div class="forecast-content">
