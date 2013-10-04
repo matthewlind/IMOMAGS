@@ -31,7 +31,8 @@ the_post();
 	</header>
 	<div class="forecast-map">	
 		<div class="col-abc">
-			<p class="state-name"></p>
+			<p class="select-state"></p>
+			<p class="state-name">Select a State</p>
 			<div id="us-map-forecast" style="min-width:840px;height:600px;padding:20px;margin-left:30px;position:absolute;top:20px;"></div>
 		</div>
 		<?php if(is_page("deer-forecast")){ ?>

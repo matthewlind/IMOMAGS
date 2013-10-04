@@ -93,7 +93,7 @@ function getMapForContainer(containerNameString) {
     
     //Do Work on Map
     for (var state in usRaphael) {
-    	usRaphael[state].color = "#333333";
+    	usRaphael[state].color = "#FF6600";
     	
        (function (st, state) {
 	       	if(state == "md" || state == "de" || state == "nj" || state == "co" || state == "wy" || state == "id" || state == "ut" || state == "mt" || state == "nv"){
@@ -140,7 +140,7 @@ function getMapForContainer(containerNameString) {
 			    	st.animate({fill: colors[colorcode]}, 500);
 					st.toFront();
 					R.safari();
-					jQuery("p.state-name").text("");
+					jQuery("p.state-name").text("Select a State");
 				};
 			}           
 		})(usRaphael[state], state);
