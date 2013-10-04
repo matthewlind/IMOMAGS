@@ -129,7 +129,7 @@ function getMapForContainer(containerNameString) {
 			//get the post urls
 			var postURL = "/deer-forecast/" + $region + "-deer-forecast-2013/#forecast";
 
-			if(state != "md" || state != "de" || state != "nj" || state != "co" && state != "wy" && state != "id" && state != "ut" && state != "mt" && state != "nv"){
+			if(state != "md" && state != "de" && state != "nj" && state != "co" && state != "wy" && state != "id" && state != "ut" && state != "mt" && state != "nv"){
 				jQuery(st[0]).click(function(){
 					window.location = postURL;
 				});
