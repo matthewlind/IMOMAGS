@@ -1888,3 +1888,16 @@ aside .textwidget img {
 .cfct-slideshow-html, .cfct-inrow-slideshow-html{
 	overflow: visible !important;
 }
+
+/** best boat widget **/
+.taxonomies-filter-widget {
+	height: 330px;
+	padding: 110px 10px 10px;
+	color: white;
+	background: #003f5e url(img/best-boat-widget-background.png) no-repeat;
+}
+.taxonomies-filter-widget h1.widget-title {
+	color: white;
+	border: none;
+	margin: 0px;
+}

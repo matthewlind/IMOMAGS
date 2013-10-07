@@ -69,7 +69,7 @@ if ($terms) {
 			array(
 				'taxonomy' => 'column',
 				'field' => 'slug',
-				'terms' => 'florida-sportsman-best-boat',
+				'terms' => 'bb-featured',
 			)
 		)
 	);
@@ -105,7 +105,7 @@ if ($terms) {
 			array(
 				'taxonomy' => 'column',
 				'field' => 'slug',
-				'terms' => 'florida-sportsman-best-boat',
+				'terms' => 'bb-featured',
 				'operator' => 'NOT IN'
 			)
 		)

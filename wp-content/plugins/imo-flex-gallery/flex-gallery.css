@@ -1,7 +1,4 @@
-.clear {
-	clear: both;
-}
-.clearfix:after, .f-row:after, .container:after, .nav:after {
+.clear, .clearfix:after, .f-row:after, .container:after, .nav:after {
 clear: both;
 }
 .clearfix:before, .clearfix:after, .container:before, .container:after, .nav:before, .nav:after, .f-row:before, .f-row:after {
@@ -107,9 +104,9 @@ div#flex-gallery-social {
 }
 div.flex-addthis {
 	position: absolute;
+	width: 100%;
 	height: 26px;
 	z-index: 9;
-	background: #000;
 }
 div#flex-gallery-social iframe {
 	/*display: none;*/
@@ -254,6 +251,10 @@ font-size: 14px;
 	height: 46px;
 	overflow: hidden;
 }
+.flex-carousel li:first-child {
+	
+}
+
 .flex-thumb-wrap {
 	border: 1px solid #bbb;
 	width: 59px;
@@ -277,9 +278,28 @@ font-size: 14px;
 	z-index: 9003;
 	text-align: center;
 }
+.flex-carousel-fade-left {
+	float: left;
+	position: relative;
+	margin: -61px 0 0 75px;
+	z-index: 9999;
+	width: 20px;
+	height: 46px;
+	background: url(img/sprite.png) -280px 0px no-repeat;
+}
+.flex-carousel-fade-right {
+	float: right;
+	position: relative;
+	margin: -61px 75px 0;
+	z-index: 9999;
+	width: 20px;
+	height: 46px;
+	background: url(img/sprite.png) -260px 0px no-repeat;
+}
+
 
 /* Nav Buttons */
-.flex-gallery-container .flex-gallery-inner ul.flex-direction-nav {visibility:hidden;}
+ul.flex-direction-nav {visibility:hidden;}
 .gallery-slider .flex-direction-nav a {margin-top: 0 !important;}
 .flex-gallery ul.flex-direction-nav,
 .flex-carousel-nav ul.flex-direction-nav {
