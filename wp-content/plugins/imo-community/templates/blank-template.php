@@ -35,7 +35,7 @@ $editor_hash = $userIMO['editor_hash'];
 
 //print_r($userIMO);
 
-$masterAnglerURL = "http://www.in-fisherman.deva/community-api/master_anglers/csv?username=$username&userhash=$userhash&timecode=$timecode&editor_hash=$editor_hash";
+$masterAnglerURL = "http://www.in-fisherman.com/community-api/master_anglers/csv?username=$username&userhash=$userhash&timecode=$timecode&editor_hash=$editor_hash";
 
 
 if ( is_user_logged_in() ) {
