@@ -695,8 +695,8 @@ element:hover, element.hover_effect {
     rule:properties;
 }
 .hover {
--webkit-user-select: none;
--webkit-touch-callout: none;        
+	-webkit-user-select: none;
+	-webkit-touch-callout: none;        
 }
 .forecast-menu{
 	width: 430px;

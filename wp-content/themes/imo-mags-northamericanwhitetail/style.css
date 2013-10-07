@@ -5196,6 +5196,14 @@ ul#scroll-widget li a:hover span{
 #us-map-ubermenu-container path{
 	z-index: 999999999;
 }
+element:hover, element.hover_effect {
+    rule:properties;
+}
+.hover {
+	-webkit-user-select: none;
+	-webkit-touch-callout: none;        
+}
+
 #header #megaMenu li.community-menu-right,
 #header #megaMenu li.community-menu-left{
 	float: left !important;
