@@ -34,7 +34,7 @@ the_post();
 			<div class="col-abc">
 				<form name="menuform" class="forecast-menu">
 				<select name="menu4">
-					<option value="">Select a State</option>
+					<option value="">Select Your State</option>
 					<option value="/alabama-deer-forecast-2013">alabama</option>
 					<option value="/rocky-mountain-deer-forecast-2013">arizona</option>
 					<option value="/arkansas-deer-forecast-2013">arkansas</option>
@@ -87,7 +87,7 @@ the_post();
 			
 				<div class="forecast-map">	
 					<div class="col-abc">
-						<p class="state-name">Select a State</p>
+						<p class="state-name">Select Your State</p>
 						<div id="us-map-forecast" style="min-width:840px;height:600px;padding:20px;margin-left:30px;position:absolute;top:20px;"></div>
 					</div>
 				</div>

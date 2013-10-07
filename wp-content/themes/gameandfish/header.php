@@ -404,6 +404,10 @@
         </div><!-- #branding -->
 		
         <div class="content-banner-section">
+        	<div class="header-newsletter">
+        		
+        		<?php //the_widget("Signup_Widget_Header"); ?>
+        	</div>
         	<?php if (mobile() == false) { ?>
 	        	<div class="mdl-banner">
 					 <?php imo_dart_tag("728x90"); ?>

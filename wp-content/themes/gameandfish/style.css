@@ -300,6 +300,51 @@ body{background-color: black;}
 }
 /* Main Section
  ******************************************************************************/
+
+
+.mdl-banner{
+	
+	
+}
+.header-newsletter{
+	background: url(images/bg/menu-hover.png) repeat 100% 0;
+}
+.header-newsletter h3{
+	color: white;
+	float: left;
+	padding: 15px 54px 0 50px;
+	font-family: "Stag",serif;
+}
+.signup-box .input-row{
+	padding: 0;
+	float: left;
+}
+.signup-mdl {
+	padding: 4px 0;
+	border: none;
+	border-width: 0;
+	float: left;
+}
+.signup-btn-row {
+	padding: 1px 20px;
+	text-align: center;
+	float: left;
+}
+.header-newsletter .ez-checkbox {margin-top: 8px;}
+.signup-box .check-row label {
+	width: auto;
+	padding: 9px 0 0 6px;
+}
+.header-newsletter .btn-base {
+	width: 30px;
+}
+.header-newsletter .btn-base input {
+	padding: 0 0;
+	margin: 0 -56px;
+}
+.header-newsletter .signup-box input[type="text"]{
+	width: 260px;
+}
 .post-slider {
     border:1px solid #fff;
     background:url(images/bg/grey-transparence.png) repeat;
@@ -452,6 +497,11 @@ div.login-register-block {
 .state-info{
 	float: left;
 	width: 440px;
+}
+.state-info h2{
+	font-family: "Stag",serif;
+	padding: 2px 0;
+	color: #fff;
 }
 p.state-name{
 	text-transform: uppercase;
