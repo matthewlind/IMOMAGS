@@ -44,7 +44,7 @@ class Forecast_Widget extends WP_Widget {
 }
 .forecast-widget .forecast-widget-sponsor{
 	position: absolute;
-	bottom: 140px;
+	bottom: 102px;
 }
 .forecast-widget p{
 	padding: 0 10px 10px;
@@ -87,7 +87,7 @@ class Forecast_Widget extends WP_Widget {
 	    </noscript>
 	    <!-- END 240x60 Ad: -->
 	</div>
-	<a href="/<?php echo $url; ?>/" class="forecast-image" onclick="_gaq.push(['_trackEvent','Forecast Widget','<?php echo $campaign; ?>','<?php echo $url; ?>']);"><img src="<?php echo $img; ?>" alt="<?php echo $title; ?>" /></a>
+	<a href="http://www.gameandfishmag.com/<?php echo $url; ?>/" class="forecast-image" onclick="_gaq.push(['_trackEvent','Forecast Widget','<?php echo $campaign; ?>','<?php echo $url; ?>']);"><img src="<?php echo $img; ?>" alt="<?php echo $title; ?>" /></a>
 	<div class="state-filter">
 		<form name="menuform" class="forecast-menu">
 			<select name="menu4">
