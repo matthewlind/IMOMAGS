@@ -46,7 +46,7 @@ jQuery(document).ready(function($) {
 					desc = '';
 				}
 				
-				jQuery('#ma-entries').append('<div id="ma-content" class="post article-brief clearfix"><a href="/photos/' + post.id + '"><img class="attachment-index-thumb wp-post-image" src="' + post.img_url + '/convert?w=200&h=150&fit=crop" alt="" /></a><div class="article-holder"><div class="clearfix"></div><h3 class="entry-title"><a href="/photos/' + post.id + '" rel="bookmark">' + post.title + '</a></h3><a class="comment-count" href="/photos/' + post.id + '#reply_field">' + post.comment_count + '</a><div class="entry-content"></a></p></div><div class="entry-meta">' + desc + '</div></div>');
+				jQuery('#ma-entries').append('<div id="ma-content" class="post article-brief clearfix"><a href="/photos/' + post.id + '"><img class="attachment-index-thumb wp-post-image" src="' + post.img_url + '/convert?w=200&h=150&fit=crop&rotate=exif" alt="" /></a><div class="article-holder"><div class="clearfix"></div><h3 class="entry-title"><a href="/photos/' + post.id + '" rel="bookmark">' + post.title + '</a></h3><a class="comment-count" href="/photos/' + post.id + '#reply_field">' + post.comment_count + '</a><div class="entry-content"></a></p></div><div class="entry-meta">' + desc + '</div></div>');
 				 
 			});
          
