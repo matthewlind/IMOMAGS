@@ -8,6 +8,7 @@ add_action( 'widgets_init', 'register_recipes_widget' );
 // Widgets
 include_once('widgets/subscribe.php');
 include_once('widgets/newsletter-signup.php');
+include_once('widgets/newsletter-signup-header.php');
 include_once('widgets/ford-widget.php');
 include_once('widgets/community-login-widget.php');
 include_once('widgets/community-slider.php');
