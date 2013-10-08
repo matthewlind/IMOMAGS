@@ -288,7 +288,7 @@ $time = date("g:i A", strtotime($timestamp));
         </div>
 
         <?php
-        	$width = "/convert?w=730&fit=scale";
+        	$width = "/convert?w=730&fit=scale&rotate=exif";
         	if(mobile()){
         		$width = "/convert?w=478";
         	}

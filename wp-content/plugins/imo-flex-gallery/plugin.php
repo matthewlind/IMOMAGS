@@ -160,7 +160,7 @@ EOT_a1;
 			if($community == true ) {
 				$picture->img_url = $picture->img_url;
 				//$picture->img_url = $baseUrl.$picture->img_url;
-				$picture->thumbnail = $picture->img_url.'/convert?rotate=0&w=60&h=45&fit=crop';
+				$picture->thumbnail = $picture->img_url.'/convert?rotate=0&w=60&h=45&fit=crop&rotate=exif';
 				$picture->description = $picture->body;
 				$image = '<img src="'.$picture->img_url.'/convert?rotate=0" alt="'.$picture->title.'" class="slide-image">';
 			} else {

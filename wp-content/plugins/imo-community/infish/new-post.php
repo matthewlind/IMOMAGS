@@ -385,7 +385,7 @@ include 'common-templates.php';
 			      <div style="margin:20px 0" class="add-photo-field">
 				      	<a href="<%= attachment.img_url %>" class="thickbox">
 				      			<div class="attachment-image-container">
-						      		<img src="<%= attachment.img_url %>/convert?w=150&h=150&fit=crop" width=75 height=75 style="height:75px">
+						      		<img src="<%= attachment.img_url %>/convert?w=150&h=150&fit=crop&rotate=exif" width=75 height=75 style="height:75px">
 						      	</div>
 				      	</a>
 					  	 <div class="caption-area" name="caption-body" placeholder="Caption (optional)" value="<%= attachment.body %>">

@@ -207,7 +207,7 @@ get_header(); ?>
                                    <?php foreach ($pictures as $picture) { ?>
 								   <li>
                                         <div class="feat-post">
-                                            <div class="feat-img"><a href="/photos/<?php echo $picture->id; ?>" ><img src="<?php echo $picture->img_url; ?>/convert?w=335&h=225&fit=crop" alt="<?php echo $picture->title; ?>" /></a></div>
+                                            <div class="feat-img"><a href="/photos/<?php echo $picture->id; ?>" ><img src="<?php echo $picture->img_url; ?>/convert?w=335&h=225&fit=crop&rotate=exif" alt="<?php echo $picture->title; ?>" /></a></div>
                                             <div class="feat-text">
                                                 <h3><a href="/photos/<?php echo $picture->id; ?>" ><?php echo $picture->title; ?></a></h3>
 
