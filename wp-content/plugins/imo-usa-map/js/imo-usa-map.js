@@ -215,8 +215,7 @@ function getMapForContainer(containerNameString) {
 				})
 			}
 			
-			jQuery(st[0]).bind('touchstart touchend', function(e) {
-		        e.preventDefault();
+			jQuery(st[0]).click(function() {
 		        jQuery(this).toggleClass('hover_effect');
 				//alert(state + '!');
 				
@@ -225,7 +224,11 @@ function getMapForContainer(containerNameString) {
 				window.location = '/community/' + post_type + '/' + stateAbbrev[state.toUpperCase()].replace(" ","-");
 	
 			});
-		    
+		    /*jQuery(st[0]).bind('touchstart touchend', function(e) {
+			        e.preventDefault();
+			        jQuery(this).toggleClass('hover_effect');
+					window.location = postURL;
+				});*/
 		
 		    st[0].onmouseout = function () {
 	

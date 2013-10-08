@@ -663,9 +663,17 @@ p.state-name{
 	position: relative;
 	height: 610px;
 }
-.forecast-map img{
+.forecast-map .deer-logo{
 	position: absolute;
 	bottom: 0;
+}
+.forecast-map .sponsor-logo{
+	float: left;
+}
+.sponsor-logo-below{
+	position: absolute;
+	bottom: 0;
+	z-index: 9999999999999;
 }
 .forecast-map p.state-name{
 	text-align: right;
@@ -713,53 +721,6 @@ element:hover, element.hover_effect {
 	background: white;
 	margin-left: 6px;
 	margin-left: -1000px
-}
-.forecast-widget{
-	margin-bottom: 20px;
-}
-.forecast-widget h3{
-	font-family: "Stag",serif;
-	font-size: 20px;
-	padding: 6px 10px 0;
-	margin: 0;
-}
-.forecast-copy{
-	border-left: 3px dashed #ccc;
-	border-right: 3px dashed #ccc;
-}
-.forecast-widget .forecast-image{
-	background: url(img/Deer-Forecast-2013-200.jpg) no-repeat center top;	
-	border-top: 3px solid #FF6600;
-	width: 300px;
-	height: 200px;
-	display: block;
-}
-.forecast-widget p{
-	padding: 0 10px 10px;
-	color: #757575;
-	margin: 0
-}
-.forecast-widget .state-filter{
-	margin: 0 auto;
-	padding: 8px 0;
-	background: #FF6600;
-}
-.forecast-widget .state-filter select{
-	font-size: 16px;
-	width: 242px;
-	margin-left: 10px;
-	text-transform: capitalize;
-}
-.forecast-widget .state-filter input{
-	font-size: 16px;
-}
-.forecast-sponor{
-	background: black;
-}
-.forecast-sponor img{
-	margin: 0 auto;
-	display: block;
-	padding: 10px 0;
 }
 /*** Cabela's IIYN ***/
 .category-thanks-dad-iiyn #masthead{
