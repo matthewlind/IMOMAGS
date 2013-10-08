@@ -135,7 +135,7 @@ class Forecast_Widget extends WP_Widget {
 				
 			</select>
 			<input type="button" name="Submit" value="Go" class="forecast-submit" 
-			onClick="_gaq.push(['_trackEvent','Forecast Widget','<?php echo $campaign; ?>','this.form.menu4.options[this.form.menu4.selectedIndex].value']);window.location = this.form.menu4.options[this.form.menu4.selectedIndex].value;">
+			onClick="_gaq.push(['_trackEvent','Forecast Widget','<?php echo $campaign; ?>',this.form.menu4.options[this.form.menu4.selectedIndex].value]);window.location = this.form.menu4.options[this.form.menu4.selectedIndex].value;">
 		</form>
 	</div>
 	
