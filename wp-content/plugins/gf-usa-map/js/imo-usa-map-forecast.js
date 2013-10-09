@@ -145,7 +145,7 @@ function getMapForContainer(containerNameString) {
 			    	st.animate({fill: colors[colorcode]}, 500);
 					st.toFront();
 					R.safari();
-					jQuery("p.state-name").text("Select a State");
+					jQuery("p.state-name").text("Select Your State");
 				};
 			}           
 		})(usRaphael[state], state);
