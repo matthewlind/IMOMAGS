@@ -52,9 +52,19 @@ get_header(); ?>
                                 get_template_part( 'content/content', get_post_format() );
                             ?>
                        
-                       							
+                        <?php if ( $i == 4 && $paged == 0 ){ ?>
+	                       <!--<div class="post">
+		                       <div class="custom-slider-section">
+			                        <h2 style="margin-top:10px;">Explore Photos</h2>
+			                        <?php $category = get_category( get_query_var( 'cat' ) );
+									$category_slug = $cat->slug;
+			                        echo do_shortcode('[imo-slideshow community=true gallery='. $category_slug .']'); ?>
+			                   </div>
+			               </div>-->
+		                <?php } ?>
+							
                         <?php if ( (($i - (($paged -1) * 2 ))%6) == 0 ): ?>
-                        
+                        	
 	                        <?php if ( mobile() ){ ?>
 	                        <div class="image-banner posts-image-banner">
 	                            <?php imo_dart_tag("300x250",array("pos"=>"mob")); ?> 

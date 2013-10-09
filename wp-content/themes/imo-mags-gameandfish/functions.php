@@ -11,7 +11,13 @@ define("GIFT_LINK", "https://secure.palmcoastd.com/pcd/eSv?iMagId=01488&i4Ky=IGZ
 define("SERVICE_LINK", "https://secure.palmcoastd.com/pcd/eServ?iServ=MDE0ODg0NDcwNSZpVHlwZT1FTlRFUg==");
 define("SUBS_DEAL_STRING", "Save Over 70% off<br/> the Cover Price");
 
-
+	add_theme_support( 'post-thumbnails' );
+    set_post_thumbnail_size( 100, 9999 ); // Unlimited height, soft crop
+    add_image_size( 'index-thumb', 200, 150, true );
+    add_image_size( 'legacy-thumb', 190, 120, true );
+    add_image_size( 'post-thumb', 700, 450, true );
+    add_image_size( 'post-home-thumb', 695, 380, true );
+    add_image_size( 'post-home-small-thumb', 335, 225, true );
 /**
  * Register widgetized areas
  * @uses register_sidebar
@@ -67,6 +73,7 @@ function gf_widgets_init() {
 	)));
 }
 add_action( 'widgets_init', 'gf_widgets_init' );
+
 
 include_once get_stylesheet_directory().'/widgets/us-map.php';
 

@@ -130,12 +130,15 @@ function getMapForContainer(containerNameString) {
 			var postURL = "/deer-forecast/" + $region + "-deer-forecast-2013/#forecast";
 
 			if(state != "md" && state != "de" && state != "nj" && state != "co" && state != "wy" && state != "id" && state != "ut" && state != "mt" && state != "nv"){
-				jQuery(st[0]).bind('touchstart touchend', function(e) {
-			        e.preventDefault();
+				jQuery(st[0]).click(function() {
 			        jQuery(this).toggleClass('hover_effect');
 					window.location = postURL;
 				});
-			
+				/*jQuery(st[0]).bind('touchstart touchend', function(e) {
+			        e.preventDefault();
+			        jQuery(this).toggleClass('hover_effect');
+					window.location = postURL;
+				});*/
 			
 				st[0].onmouseout = function () {
 			    	colorcode = 1;

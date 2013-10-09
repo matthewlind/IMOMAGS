@@ -20,7 +20,7 @@
  */
 
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
-
+$dartDomain = get_option("dart_domain", $default = false); 
 get_header();
 
 the_post();
@@ -29,12 +29,23 @@ the_post();
 	<header id="masthead">
 		<h1>Game & Fish 2013 Deer Forecast</h1>
 	</header>
-			<?php if(mobile() == true){ ?>
+		<?php if(mobile() == true){ ?>
 					
 			<div class="col-abc">
+				<!-- 240x60 Ad: -->
+                <script type="text/javascript">
+                document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/<?php echo $dartDomain; ?>/;camp=deerforecast;sect=;manf=;pos=;page=;subs=;sz=240x60;dcopt=;tile=;ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
+                </script>
+                <noscript>
+                <a href="http://ad.doubleclick.net/adj/<?php echo $dartDomain; ?>/;camp=deerforecast;sect=;manf=;pos=;page=;subs=;sz=240x60;dcopt=;tile=;ord=6545512368?">
+                <img src="http://ad.doubleclick.net/ad/<?php echo $dartDomain; ?>/;camp=deerforecast;sect=;manf=;pos=;page=;subs=;sz=240x60;dcopt=;tile=;ord=6545512368?" border="0" />
+                </a>
+                </noscript>
+                <!-- END 240x60 Ad: -->
+
 				<form name="menuform" class="forecast-menu">
 				<select name="menu4">
-					<option value="">Select a State</option>
+					<option value="">Select Your State</option>
 					<option value="/alabama-deer-forecast-2013">alabama</option>
 					<option value="/rocky-mountain-deer-forecast-2013">arizona</option>
 					<option value="/arkansas-deer-forecast-2013">arkansas</option>
@@ -87,17 +98,30 @@ the_post();
 			
 				<div class="forecast-map">	
 					<div class="col-abc">
-						<p class="state-name">Select a State</p>
-						<div id="us-map-forecast" style="min-width:840px;height:600px;padding:20px;margin-left:30px;position:absolute;top:20px;"></div>
+						<div class="<?php if(is_page("deer-forecast")){ echo 'sponsor-logo'; }else{ echo 'sponsor-logo-below'; } ?>">
+							<div id="forecast"></div>
+							<!-- 240x60 Ad: -->
+			                <script type="text/javascript">
+			                document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/<?php echo $dartDomain; ?>/;camp=deerforecast;sect=;manf=;pos=;page=;subs=;sz=240x60;dcopt=;tile=;ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
+			                </script>
+			                <noscript>
+			                <a href="http://ad.doubleclick.net/adj/<?php echo $dartDomain; ?>/;camp=deerforecast;sect=;manf=;pos=;page=;subs=;sz=240x60;dcopt=;tile=;ord=6545512368?">
+			                <img src="http://ad.doubleclick.net/ad/<?php echo $dartDomain; ?>/;camp=deerforecast;sect=;manf=;pos=;page=;subs=;sz=240x60;dcopt=;tile=;ord=6545512368?" border="0" />
+			                </a>
+			                </noscript>
+			                <!-- END 240x60 Ad: -->
+						</div>
+						<p class="state-name">Select Your State</p>
+						<div id="us-map-forecast" style="min-width:840px;height:600px;padding:20px;margin-left:30px;position:absolute;top:50px;"></div>
 					</div>
 				</div>
 				<?php if(is_page("deer-forecast")){ ?>
-					<img src="<?php bloginfo("stylesheet_directory"); ?>/img/deer-forecast-logo-sm.png" alt="Deer Forecast" />
+					<img src="<?php bloginfo("stylesheet_directory"); ?>/img/deer-forecast-logo-sm.png" alt="Deer Forecast" class="deer-logo" />
 				<?php } ?>
 			<?php } ?>
 		
 		
-		
+			 
 	</div>
 	<div class="forecast-content">
 		<div class="bonus-background">
@@ -111,7 +135,7 @@ the_post();
 			</div>
 		</div>
 	
-		<div id="forecast" class="col-abc">
+		<div class="col-abc">
 		<?php if(!is_page("deer-forecast")){ ?>
 			<a href="/deer-forecast/">G&F Deer Forecast</a>
 		<?php } ?>
@@ -119,6 +143,7 @@ the_post();
 			<div <?php post_class('entry entry-full clearfix'); ?>>
 				<div class="entry-content">
 					<?php
+					if (function_exists('imo_add_this')) {imo_add_this();}
 					the_content(__('Continued&hellip;', 'carrington-business'));				
 					?>
 				</div>

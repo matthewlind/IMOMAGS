@@ -168,6 +168,7 @@ jQuery(document).ready(function () {
 // Flash ad z-index pecking order fix
 jQuery(function(){
 	FlashHeed.heed();
+	FlashHeed.heed(document.getElementById('_containermyExperience'));
 });
 
 jQuery(function(){
