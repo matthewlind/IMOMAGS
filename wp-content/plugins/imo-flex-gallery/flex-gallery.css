@@ -115,6 +115,9 @@ div.flex-addthis {
 	overflow: hidden;
 	z-index: 9;
 }
+#flex-gallery-social .addthis_toolbox{
+	padding-top: 0;
+}
 div#flex-gallery-social iframe {
 	/*display: none;*/
 }
