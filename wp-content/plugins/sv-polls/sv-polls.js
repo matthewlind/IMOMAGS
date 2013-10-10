@@ -78,7 +78,10 @@ jQuery(document).ready(function() {
 			$answerListClone.attr("id","answer" + answerData.polla_aid);
 			$answerListClone.find("input").attr("value",answerData.polla_aid);
 			$answerListClone.find("input").attr("id","ans" + answerData.polla_aid);
-			$answerListClone.find("label").text(answerData.polla_answers.replace("\'","'"));
+
+
+
+			$answerListClone.find("label").text(answerData.polla_answers.replace("\\'","'"));
 			$answerListClone.find("label").attr("for","ans" + answerData.polla_aid);
 
 			$answerListClone.show();
@@ -139,7 +142,7 @@ jQuery(document).ready(function() {
 
 
 			var $answerListClone = jQuery("<li><div class='percent-bar-container'><span class='percent-bar'></span></div><div class='answer'><span class='percent'>23</span><span class='bar'>% - </span><span class='answer-text'>Cheesecake is neither cheese nor cake: Discuss.</span></div></li>");
-			$answerListClone.find(".answer-text").text(answerData.polla_answers.replace("\'","'"));
+			$answerListClone.find(".answer-text").text(answerData.polla_answers.replace("\\'","'"));
 			$answerListClone.find(".percent").text(answerData.percent);
 
 			$answerListClone.find(".percent-bar").css("width",answerData.percent + "%");
