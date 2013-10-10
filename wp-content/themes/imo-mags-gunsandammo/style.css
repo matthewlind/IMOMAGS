@@ -3333,7 +3333,10 @@ a.comment-count:hover {
   line-height: 26px;
   letter-spacing: 0.04em;
 }
-
+.post-byline{
+	color: #333;
+	font-style: italic;
+}
 /* line 2456, sass/style.scss */
 #breadcrumbs {
   color: #7D7D7D;
