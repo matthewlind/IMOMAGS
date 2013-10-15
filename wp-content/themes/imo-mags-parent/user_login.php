@@ -25,7 +25,7 @@ imo_sidebar("community"); ?>
 		<?php theme_my_login($args);  ?>
     </div>
 </div>
-<a href="http://www.in-fisherman.deva/wp-login.php?action=lostpassword">Forgot Password?</a>
+<a href="/wp-login.php?action=lostpassword">Forgot Password?</a>
 
 <?php get_footer(); ?>
 
