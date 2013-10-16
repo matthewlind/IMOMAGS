@@ -10,7 +10,7 @@
 
 
 add_action('template_redirect', 'imo_community_template',5);
-add_filter( 'wp_title', 'imo_community_set_title', 0, 3 );
+add_filter( 'wp_title', 'imo_community_set_title', 50, 3 );
 
 
 register_activation_hook(__FILE__, 'imo_community_flush_rules');
@@ -33,8 +33,10 @@ function imo_community_setup_routes() {
 
     	$matchName = "&spid=";
 
-    	if ($IMO_COMMUNITY_CONFIG['page_type'] == "single")
+    	if ($IMO_COMMUNITY_CONFIG['page_type'] == "single") {
     		$regex = "/([^/]*)/?";
+    	}
+
 
     	if ($IMO_COMMUNITY_CONFIG['page_type'] == "profile") {
     		$regex = "/([^/]*)/?";
@@ -80,9 +82,14 @@ function imo_community_template() {
 	//echo $_SERVER['REQUEST_URI'];
 
 	global $wp_query;
-	// print_r($wp_query->query_vars);
+	//print_r($wp_query->query_vars);
 
 	$queryVars = $wp_query->query_vars;
+
+
+
+
+
 	$configName = $queryVars[config_name];
 
 	if ($configName) {
@@ -90,6 +97,14 @@ function imo_community_template() {
 		imo_community_404_check();
 
 		$IMO_COMMUNITY_CONFIG = $IMO_COMMUNITY[$configName];
+
+
+		$postData = get_imo_community_post_data($queryVars['spid']);
+
+
+		$wp_query->query_vars['post_title'] = $postData->title;
+		$wp_query->query_vars['seo_image'] = $postData->img_url;
+
 
 	    wp_deregister_script( 'jquery' );
 	    wp_register_script( 'jquery', '/wp-content/plugins/imo-community/js/jquery-1.7.1.min.js');
@@ -142,23 +157,39 @@ function imo_community_template() {
 
 }
 
+
+
+function get_imo_community_post_data($spid) {
+	global $wpdb;
+
+	$postData = $wpdb->get_row($wpdb->prepare("SELECT * FROM slim.superposts WHERE id = %d",$spid));
+
+	return $postData;
+}
+
 function imo_community_set_title($title,$sep,$seplocation) {
 
+
+	global $wp_query;
 	global $IMO_COMMUNITY;
 
-	foreach ($IMO_COMMUNITY as $IMO_COMMUNITY_CONFIG) {
+	$queryVars = $wp_query->query_vars;
+	$configName = $queryVars[config_name];
 
+	if ($configName) {
 
+		$IMO_COMMUNITY_CONFIG = $IMO_COMMUNITY[$configName];
 
-		$matchString = "/" . $IMO_COMMUNITY_CONFIG['community_home_slug'] . "/";
+		$title = $IMO_COMMUNITY_CONFIG['page_title'];
+		//$title = "cola";
 
-		if (strstr($_SERVER['REQUEST_URI'],$matchString)) {
-
-	     	$title = $IMO_COMMUNITY_CONFIG['page_title'];
-	     	return $title;
-	     }
+		if ($queryVars["spid"]) {
+			$title = $wp_query->query_vars['post_title'];
+		}
 	}
+
 	return $title;
+
 }
 function imo_community_404_check() {
 
@@ -182,3 +213,59 @@ function imo_include_wordpress_template($t) {
     header("HTTP/1.1 200 OK");
     include($t);
 }
+
+
+
+// function yoast_change_opengraph_type( $type ) {
+
+//     return 'video';
+// }
+// add_filter( 'wpseo_opengraph_type', 'yoast_change_opengraph_type', 10, 1 );
+
+//Set the FB Opengraph Meta title
+add_filter( 'wpseo_opengraph_title',"imo_community_seo_title");
+function imo_community_seo_title($title) {
+
+	global $wp_query;
+
+	//If this is community single post, change the meta.
+	if ($wp_query->query_vars['spid']) {
+		$title = $wp_query->query_vars['post_title'];
+	}
+
+
+	return $title;
+}
+
+add_filter( 'wpseo_opengraph_image',"imo_community_seo_image");
+function imo_community_seo_image($image) {
+
+	global $wp_query;
+
+	//If this is community single post, change the meta.
+	if ($wp_query->query_vars['spid']) {
+		$image = $wp_query->query_vars['seo_image'];
+	}
+
+	return $image;
+}
+
+add_filter( 'wpseo_opengraph_type',"imo_community_seo_type");
+function imo_community_seo_type($type) {
+
+	global $wp_query;
+
+	//If this is community single post, change the meta.
+	if ($wp_query->query_vars['spid']) {
+		$type = "article";
+	}
+
+	return $type;
+}
+
+
+
+
+
+
+

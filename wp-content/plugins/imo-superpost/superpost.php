@@ -12,7 +12,7 @@ License: IMO
 
 
 ******************
-IMPORTANT NOTE: 
+IMPORTANT NOTE:
 For this template to work correctly, there must be a page this name and slug: superpost-single
 
 YES. The name of the page and the slug should both be superpost-single.
@@ -40,21 +40,21 @@ function imo_superpost_scripts() {
 
 	wp_enqueue_style('superpost-css',plugins_url('css/superpost.css', __FILE__));
     wp_enqueue_style('chosen-css',plugins_url('css/chosen.css', __FILE__));
-    
+
     //wp_localize_script( 'imo-user-auth', 'userIMO', $user);
-    
+
     global $user_login;
     $username['authUser'] = $user_login;
-    
+
 
     $profileUsername = getLastPathSegment($_SERVER["REQUEST_URI"]);
     $username['profileUser'] = $profileUsername;
 
-    
+
     wp_enqueue_script('superpost-profile-js',plugins_url('js/profile.js', __FILE__));
     wp_localize_script( 'superpost-profile-js', 'username', $username);
 
-	
+
 }
 
 function getLastPathSegment($url) {
@@ -108,7 +108,7 @@ function imo_superpost_setup_routes() {
 add_filter('query_vars', 'imo_superpost_query_vars');
 function imo_superpost_query_vars($query_vars)
 {
-    
+
 
     $query_vars[] = 'username';
     $query_vars[] = 'spid';
@@ -126,9 +126,122 @@ add_action("pre_get_posts","add_sp_conditional_scripts");
 function add_sp_conditional_scripts() {
 
 
-         
+
 
 }
+
+add_action('template_redirect', 'imo_superpost_modify_query_vars',5);
+function imo_superpost_modify_query_vars() {
+
+    global $wp_query;
+    //print_r($wp_query->query_vars);
+
+    $queryVars = $wp_query->query_vars;
+
+    if ($queryVars["spid"]) {
+        $postData = get_imo_superpost_post_data($queryVars['spid']);
+
+
+        $wp_query->query_vars['post_title'] = $postData->title;
+        $wp_query->query_vars['seo_image'] = $postData->img_url;
+        $wp_query->query_vars['seo_body'] = substr($postData->body,0,160) . "...";
+    }
+}
+
+
+function get_imo_superpost_post_data($spid) {
+    global $wpdb;
+
+    $postData = $wpdb->get_row($wpdb->prepare("SELECT * FROM slim.superposts WHERE id = %d",$spid));
+
+    return $postData;
+}
+
+
+
+
+add_filter( 'wp_title', 'imo_superpost_set_title', 50, 3 );
+function imo_superpost_set_title($title,$sep,$seplocation) {
+
+
+    global $wp_query;
+
+
+
+    $queryVars = $wp_query->query_vars;
+
+
+
+    if ($queryVars["spid"]) {
+        //$title = $wp_query->query_vars['post_title'];
+        $title = "cheese";
+    }
+
+
+    return $title;
+
+}
+
+
+
+
+
+
+//Set the FB Opengraph Meta title
+add_filter( 'wpseo_opengraph_title',"imo_superpost_seo_title");
+function imo_superpost_seo_title($title) {
+
+    global $wp_query;
+
+    //If this is community single post, change the meta.
+    if ($wp_query->query_vars['spid']) {
+        $title = $wp_query->query_vars['post_title'];
+    }
+
+
+    return $title;
+}
+
+add_filter( 'wpseo_opengraph_desc',"imo_superpost_seo_desc");
+function imo_superpost_seo_desc($desc) {
+
+    global $wp_query;
+
+    //If this is community single post, change the meta.
+    if ($wp_query->query_vars['spid']) {
+        $desc = $wp_query->query_vars['seo_body'];
+    }
+
+
+    return $desc;
+}
+
+add_filter( 'wpseo_opengraph_image',"imo_superpost_seo_image");
+function imo_superpost_seo_image($image) {
+
+    global $wp_query;
+
+    //If this is community single post, change the meta.
+    if ($wp_query->query_vars['spid']) {
+        $image = $wp_query->query_vars['seo_image'];
+    }
+
+    return $image;
+}
+
+add_filter( 'wpseo_opengraph_type',"imo_superpost_seo_type");
+function imo_superpost_seo_type($type) {
+
+    global $wp_query;
+
+    //If this is community single post, change the meta.
+    if ($wp_query->query_vars['spid']) {
+        $type = "article";
+    }
+
+    return $type;
+}
+
 
 
 

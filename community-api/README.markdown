@@ -1,130 +1,29 @@
-# Slim Framework
+# Community API
 
-[![Build Status](https://secure.travis-ci.org/codeguy/Slim.png)](http://travis-ci.org/codeguy/Slim)
+The IMOMags community API is almost enitrely written in vanilla PHP with the exception that the Slim framework is used for URL routing and some error handling. When it comes to reading data, the API tries to be as RESTful as possible and many of the API calls for reading data are self explanatory.
 
-Slim is a PHP micro framework that helps you quickly write simple yet powerful web applications and APIs.
-Slim is easy to use for both beginners and professionals. Slim favors cleanliness over terseness and common cases
-over edge cases. Its interface is simple, intuitive, and extensively documented — both online and in the code itself.
-Thank you for choosing the Slim Framework for your next project. I think you're going to love it.
+## Troubleshooting
+If you get a whitescreen when trying to access the API, check the logs. While Wordpress has it's own separate error log, the Community API just uses the regular Apache error log. You can access it on your dev with the following command:
 
-## Features
+`sudo tail -f /etc/httpd/logs/imomags.deva-error_log`
 
-* Powerful router
-    * Standard and custom HTTP methods
-    * Route parameters with wildcards and conditions
-    * Route redirect, halt, and pass
-    * Route middleware
-* Template rendering with custom views
-* Flash messages
-* Secure cookies with AES-256 encryption
-* HTTP caching
-* Logging with custom log writers
-* Error handling and debugging
-* Middleware and hook architecture
-* Simple configuration
+(Be sure to change the domain to your dev environment)
 
-## Getting Started
+## Posting & Editing Data
+POSTing new data to the API also conforms somehwat closely to the REST standard. However, the API uses a custom system to determine if the user as the necessary privledges to post and modify content. By default, the API allows authenticated users to post new content, edit their own content, and delete their own content. In addition, Wordpress users with Admin or Editor privledges can edit and delete all content.
 
-### Install
+When making a POST or PUT request to the API, a userIMO variable must also be included with the request or authenitcation will fail. The userIMO variable is created by the IMO User Auth wordpress plugin. This plugin will add the userIMO javascript variable to every Wordpress page. Using the variable in a post request looks like this:
 
-You may install the Slim Framework with Composer (recommended) or manually.
+```
+var newPostData = $.extend(userIMO,postData); //Combine the new post data and user data into one object
+$.post("http://" + document.domain + "/community-api/posts",newPostData,function(data){
 
-[Read how to install Slim](http://docs.slimframework.com/pages/getting-started-install)
+  var postData = $.parseJSON(data);
 
-### System Requirements
+  if (postData)
+    alert("New Post created!");
+  else
+    alert("Could not post photo. Are you logged in?");
+});
+```
 
-You need **PHP >= 5.3.0**. If you use encrypted cookies, you'll also need the `mcrypt` extension.
-
-### Hello World Tutorial
-
-Instantiate a Slim application:
-
-    $app = new \Slim\Slim();
-
-Define a HTTP GET route:
-
-    $app->get('/hello/:name', function ($name) {
-        echo "Hello, $name";
-    });
-
-Run the Slim application:
-
-    $app->run();
-
-### Setup your web server
-
-#### Apache
-
-Ensure the `.htaccess` and `index.php` files are in the same public-accessible directory. The `.htaccess` file
-should contain this code:
-
-    RewriteEngine On
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ index.php [QSA,L]
-
-#### Nginx
-
-Your nginx configuration file should contain this code (along with other settings you may need) in your `location` block:
-
-    try_files $uri $uri/ /index.php;
-
-This assumes that Slim's `index.php` is in the root folder of your project (www root).
-
-#### lighttpd ####
-
-Your lighttpd configuration file should contain this code (along with other settings you may need). This code requires
-lighttpd >= 1.4.24.
-
-    url.rewrite-if-not-file = ("(.*)" => "/index.php/$0")
-
-This assumes that Slim's `index.php` is in the root folder of your project (www root).
-
-## Documentation
-
-<http://docs.slimframework.com/>
-
-## How to Contribute
-
-### Pull Requests
-
-1. Fork the Slim Framework repository
-2. Create a new branch for each feature or improvement
-3. Send a pull request from each feature branch to the **develop** branch
-
-It is very important to separate new features or improvements into separate feature branches, and to send a pull
-request for each branch. This allows me to review and pull in new features or improvements individually.
-
-### Style Guide
-
-All pull requests must adhere to the [PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md) standard.
-
-### Unit Testing
-
-All pull requests must be accompanied by passing unit tests and complete code coverage. The Slim Framework uses
-`phpunit` for testing.
-
-[Learn about PHPUnit](https://github.com/sebastianbergmann/phpunit/)
-
-## Community
-
-### Forum and Knowledgebase
-
-Visit Slim's official forum and knowledge base at <http://help.slimframework.com> where you can find announcements,
-chat with fellow Slim users, ask questions, help others, or show off your cool Slim Framework apps.
-
-### Twitter
-
-Follow [@slimphp](http://www.twitter.com/slimphp) on Twitter to receive news and updates about the framework.
-
-## Author
-
-The Slim Framework is created and maintained by [Josh Lockhart](https://www.joshlockhart.com). Josh is a senior
-web developer at [New Media Campaigns](http://www.newmediacampaigns.com/). Josh also created and maintains
-[PHP: The Right Way](http://www.phptherightway.com/), a popular movement in the PHP community to introduce new
-PHP programmers to best practices and good information.
-
-## License
-
-The Slim Framework is released under the MIT public license.
-
-<http://www.slimframework.com/license>

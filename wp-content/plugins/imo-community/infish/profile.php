@@ -160,9 +160,9 @@ if ( is_user_logged_in() ) {
 	}
 }
 
-$crop = "/convert?w=650&h=650&fit=crop";
+$crop = "/convert?w=650&h=650&fit=crop&rotate=exif";
 if(mobile()){
-	$crop = "/convert?w=458&h=458&fit=crop";
+	$crop = "/convert?w=458&h=458&fit=crop&rotate=exif";
 }
 
 ?>
@@ -264,6 +264,16 @@ if(mobile()){
 		                                            <li><a href="/photos/<?php echo $post->id; ?>/#reply_field"><?php echo $niceComment; ?></a></li>
 		                                            <li><?php echo $niceScore; ?></li>
 		                                        </ul>
+		                                         <!-- Don't delete this. It's part of imo-add-this -->
+												<div id="imo-add-this-spid" style="display:none;"></div>
+							                    <ul class="prof-like">
+							                    	<li>
+														<div addthis:url="http://<?php echo $_SERVER['SERVER_NAME']; ?>/photos/<?php echo $post->id; ?>" addthis:title="' . htmlentities(<?php echo $post->title; ?>) . '" class="addthis_toolbox addthis_default_style ">
+															<a class="addthis_button_facebook_like"fb:like:layout="button_count"></a>
+														</div>
+														<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4de0e5f24e016c81"></script>
+							                    	</li>
+							                    </ul>
 											</div>
 		                                </div>
 		                                 <?php if ($post->master){ ?><span class="badge"><img src="<?php echo plugins_url('images/badge-ma.png' , __FILE__ ); ?>" alt="" /></span><?php } ?>

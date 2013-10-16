@@ -221,6 +221,10 @@ EOT;
             $postContent = str_replace("\\", "", $postContent);
             $postContent = str_replace("\\", "", $postContent);
 
+            $postContent = preg_replace ("/^\[.+]/", "", $postContent);
+
+            $postContent = delete_all_between("[","]",$postContent);
+
             $postContent = substr($postContent,0,120) . "...";
             $posts[$key]->post_content = $postContent;
 
@@ -245,6 +249,8 @@ EOT;
             //Check to see if we need to add terms
             //if ($post->domain == "www.northamericanwhitetail.com") {
                 $posts[$key]->terms = getPostTerms($post->ID,$siteID[$post->domain]);
+
+
             //}
 
 

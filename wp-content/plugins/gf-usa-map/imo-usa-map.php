@@ -24,7 +24,7 @@ function imo_usa_map_init() {
 
 
 	wp_enqueue_script('imo-usa-map-js',plugins_url('js/imo-usa-map.js', __FILE__));
-	
+	wp_enqueue_script('imo-usa-map-forecast-js',plugins_url('js/imo-usa-map-forecast.js', __FILE__));
 	wp_enqueue_script('us-map-svg',plugins_url('js/us-map-svg.js', __FILE__));
 	wp_enqueue_script('raphael-min',plugins_url('js/raphael-min.js', __FILE__));
 	wp_enqueue_script('jquery-qtip',plugins_url('js/jquery.qtip.min.js', __FILE__));

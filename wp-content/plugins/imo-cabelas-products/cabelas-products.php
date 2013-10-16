@@ -13,7 +13,7 @@ add_action( 'admin_menu', 'cabelas_products_menu' );
 add_action( 'admin_enqueue_scripts', 'cabelas_products_scripts' );
 
 function cabelas_products_menu() {
-	add_options_page( 'Cabela\'s Products', 'Cabela\'s Products', 'manage_options', 'cabelas-products-manager', 'cabelas_products_options' );
+	add_options_page( 'E-Commerce Widget Products', 'E-Comm. Widget Products', 'manage_options', 'cabelas-products-manager', 'cabelas_products_options' );
 }
 
 function cabelas_products_scripts($hook) {
@@ -48,7 +48,7 @@ function cabelas_products_options() {
 
 	<div style="padding:10px 20px 20px 10px">
 
-		<h1 style="padding-bottom:10px;">Cabela's Products</h1>
+		<h1 style="padding-bottom:10px;">E-Commerce Widget Products</h1>
 
 
 		<!-- Button to trigger modal -->

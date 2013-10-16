@@ -785,9 +785,11 @@ $app->post('/api/superpost/add',function() {
 
 				$eventHash = getEventHash($post_id, $etype, $user_id);
 
+				$commentID = $superpostID;
+
 
 				$oFlagger = new postFlagger();
-				$rtn = $oFlagger->insertEvent($params['parent'], "comment", $params['user_id'],$eventHash);
+				$rtn = $oFlagger->insertEvent($params['parent'], "comment", $params['user_id'],$eventHash,$commentID);
 			}
 
 			$db = "";
@@ -1330,10 +1332,11 @@ function getImgURL($spid) {
     }
 }
 
-
 function getEventHash($post_id, $etype, $user_id) {
+
+	date_default_timezone_set("America/New_York");
 	$eventDate = date("dmy");
-	$eventMinute = floor(((int)date("i"))/60);
+	$eventMinute = floor(((int)date("i")));
 
 	$eventHash = md5("STRINGTHINGSgfid25s" . $post_id . $etype . $user_id . $eventDate . $eventMinute);
 

@@ -6,15 +6,15 @@ jQuery(document).ready(function($) {
 	var sort = "post_date";
 	var feedData;
 
-	//Check to see if cross-site-feed exists:
-	if ($(".cross-site-feed").length > 0) {
+	//Check to see if category-cross-site-feed exists:
+	if ($(".category-cross-site-feed").length > 0) {
 		//if yes, display some things
 
 		displayCrossSiteFeed(currentPosition);
 	}
 
 	//When more button is clicked....
-	$(".cross-site-feed-more-button").click(function(){
+	$(".category-cross-site-feed-more-button").click(function(){
 
 		currentPosition = currentPosition + showAtOnce;
 		displayCrossSiteFeed(currentPosition,sort);
@@ -31,8 +31,8 @@ jQuery(document).ready(function($) {
 		event.preventDefault();
 
 		currentPosition = 0;
-		$(".cross-site-feed").css("height",800);
-		$(".cross-site-feed").html("");
+		$(".category-cross-site-feed").css("height",800);
+		$(".category-cross-site-feed").html("");
 
 		sort = $(this).attr("sort");
 		displayCrossSiteFeed(currentPosition,sort)
@@ -41,8 +41,8 @@ jQuery(document).ready(function($) {
 	});
 
 	function resetDisplay(slug) {
-		$(".cross-site-feed").attr("term",slug);
-		$(".cross-site-feed").text("");
+		$(".category-cross-site-feed").attr("term",slug);
+		$(".category-cross-site-feed").text("");
 
 		currentPosition = 0;
 		displayCrossSiteFeed(currentPosition);
@@ -59,7 +59,7 @@ jQuery(document).ready(function($) {
 
 
 		//First get any extra term
-		var term = $(".cross-site-feed").attr("term");
+		var term = $(".category-cross-site-feed").attr("term");
 
 
 
@@ -69,7 +69,60 @@ jQuery(document).ready(function($) {
 		// 	var fileName = "/wp-content/cache/superloop/naw-plus-" + sort + ".json";
 		// }
 
-		var fileName = "/wpdb/shooting-network-json.php?t=" + term;
+
+		var fileName = "/wpdb/gf-network-taxonomy-json.php?term=" + term;
+
+
+		if (document.domain.indexOf('gunsandammo') !== -1) {
+			var fileName = "/wpdb/shooting-network-taxonomy-json.php?term=" + term;
+		}
+		if (document.domain.indexOf('shotgunnews') !== -1) {
+			var fileName = "/wpdb/shooting-network-taxonomy-json.php?term=" + term;
+		}
+		if (document.domain.indexOf('handguns') !== -1) {
+			var fileName = "/wpdb/shooting-network-taxonomy-json.php?term=" + term;
+		}
+		if (document.domain.indexOf('shootingtimes') !== -1) {
+			var fileName = "/wpdb/shooting-network-taxonomy-json.php?term=" + term;
+		}
+		if (document.domain.indexOf('rifleshooter') !== -1) {
+			var fileName = "/wpdb/shooting-network-taxonomy-json.php?term=" + term;
+		}
+		if (document.domain.indexOf('floridasportsman') !== -1) {
+			var fileName = "/wpdb/fishing-network-taxonomy-json.php?term=" + term;
+		}
+		if (document.domain.indexOf('in-fisherman') !== -1) {
+			var fileName = "/wpdb/fishing-network-taxonomy-json.php?term=" + term;
+		}
+		if (document.domain.indexOf('flyfisherman') !== -1) {
+			var fileName = "/wpdb/fishing-network-taxonomy-json.php?term=" + term;
+		}
+		if (document.domain.indexOf('petersenshunting') !== -1) {
+			var fileName = "/wpdb/hunting-network-taxonomy-json.php?term=" + term;
+		}
+		if (document.domain.indexOf('bowhunting') !== -1) {
+			var fileName = "/wpdb/hunting-network-taxonomy-json.php?term=" + term;
+		}
+		if (document.domain.indexOf('bowhunter') !== -1) {
+			var fileName = "/wpdb/hunting-network-taxonomy-json.php?term=" + term;
+		}
+		if (document.domain.indexOf('gundog') !== -1) {
+			var fileName = "/wpdb/hunting-network-taxonomy-json.php?term=" + term;
+		}
+		if (document.domain.indexOf('wildfowl') !== -1) {
+			var fileName = "/wpdb/hunting-network-taxonomy-json.php?term=" + term;
+		}
+		if (document.domain.indexOf('northamericanwhitetail') !== -1) {
+			var fileName = "/wpdb/hunting-network-taxonomy-json.php?term=" + term;
+		}
+		if (document.domain.indexOf('petersenshunting') !== -1) {
+			var fileName = "/wpdb/hunting-network-taxonomy-json.php?term=" + term;
+		}
+		if (document.domain.indexOf('gameandfish') !== -1) {
+			var fileName = "/wpdb/gf-network-taxonomy-json.php?term=" + term;
+		}
+
+
 
 
 		$(".load-spinner").show();
@@ -85,16 +138,35 @@ jQuery(document).ready(function($) {
 
 		    for (i = start; i < end; i++) {
 		        count++;
-		        var $articleTemplate = $("article#excerpt-template").clone();
+		        var $articleTemplate = $("article#category-excerpt-template").clone();
 
-		        $articleTemplate.attr("id","excerpt-" + data[i].post_name + count);
+		        $articleTemplate.attr("id","category-excerpt-" + data[i].post_name + count);
 		        $articleTemplate.find("a").attr("href",data[i].post_url);
 
 		        $articleTemplate.find(".entry-category a").text("From " + data[i].brand + " Magazine");
 		        $articleTemplate.find(".entry-category a").attr("href","http://" + data[i].domain)
 
-		        if (data[i].domain == document.domain)
-		        	$articleTemplate.find(".entry-category a").text("");
+
+
+		        if (data[i].domain == document.domain || data[i].domain == 'www.gunsandammo.com') { //FIX BEFORE GOING TO PROD
+		        	var $category = $articleTemplate.find(".cat-feat-label").clone();
+		        	$articleTemplate.find(".cat-feat-label").remove();
+
+		        	$.each(data[i].terms,function(index, term){
+		        		var $categoryClone  = $category.clone();
+		        		$categoryClone.find("a").attr("href", term.base +  "/" + term.slug);
+		        		$categoryClone.find("a").text(term.name.replace("&amp;","&"));
+
+		        		$articleTemplate.find(".entry-summary").prepend($categoryClone);
+
+
+
+		        	});
+
+		        } else {
+		        	$articleTemplate.find("a").attr("target","_blank");
+		        }
+
 
 		        //console.log(data[i].domain,document.domain);
 
@@ -111,11 +183,11 @@ jQuery(document).ready(function($) {
 
 				//If data[i] is from NAW, add the categories
 
-					$articleTemplate.find("a").attr("target","_blank");
 
 
 
-		        $articleTemplate.appendTo(".cross-site-feed").fadeIn();
+
+		        $articleTemplate.appendTo(".category-cross-site-feed").fadeIn();
 
 		        $(data[i].terms).each(function(index) {
 	        		//Hide featured posts

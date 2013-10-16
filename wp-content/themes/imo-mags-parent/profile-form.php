@@ -14,6 +14,13 @@ $address2 = get_user_meta($profileuser->ID,"address2",true);
 $city = get_user_meta($profileuser->ID,"city",true);
 $state = get_user_meta($profileuser->ID,"state",true);
 $zip = get_user_meta($profileuser->ID,"zip",true);
+$send_offers = get_user_meta($profileuser->ID,"send_offers",true);
+$send_community_updates = get_user_meta($profileuser->ID,"send_community_updates",true);
+
+if ($send_offers)
+    $send_offers_checked = "checked";
+if ($send_community_updates)
+    $send_community_updates_checked = "checked";
 
 $user_role = reset( $profileuser->roles );
 if ( is_multisite() && empty( $user_role ) ) {
@@ -22,7 +29,7 @@ if ( is_multisite() && empty( $user_role ) ) {
 
 $user_can_edit = false;
 foreach ( array( 'posts', 'pages' ) as $post_cap )
-	
+
 $user_can_edit |= current_user_can( "edit_$post_cap" );
 $displayStyle = "display:none;";
 $loginStyle = "";
@@ -31,16 +38,16 @@ if ( is_user_logged_in() ) {
 
 	$displayStyle = "";
 	$loginStyle = "display:none;";
-	
+
 	wp_get_current_user();
-	
+
 	$current_user = wp_get_current_user();
     if ( !($current_user instanceof WP_User) )
          return;
     }
 
 ?>
-  
+
 <div class="title-underline">
     <h1>COMMUNITY PROFILE</h1>
     <a href="<?php echo wp_logout_url( get_permalink() ); ?>" class="logout" alt="Logout" title="Logout">Logout</a>
@@ -56,7 +63,7 @@ if ( is_user_logged_in() ) {
     	<?php wp_nonce_field( 'update-user_' . $current_user->ID ) ?>
 		<input type="hidden" name="from" value="profile" />
 		<input type="hidden" name="checkuser_id" value="<?php echo $current_user->ID; ?>" />
-		
+
 		<?php if ( !$theme_my_login->options->get_option( array( 'themed_profiles', $user_role, 'restrict_admin' ) ) && !has_action( 'personal_options' ) ): ?>
 
 		<?php endif; // restrict admin ?>
@@ -126,7 +133,7 @@ if ( is_user_logged_in() ) {
                     <input name="email" id="email" value="<?php echo esc_attr( $profileuser->user_email ) ?>" type="text" />
                     <span class="required">*</span>
                 </div>
-                
+
             </div>
             <!--<div class="f-row">
                 <label for="twitter"> Twitter</label>
@@ -151,9 +158,24 @@ if ( is_user_logged_in() ) {
                     <input type="password" name="pass2" id="pass2" value="" autocomplete="off" />
                 </div>
             </div>
-         
+
             <?php endif; ?>
-            
+
+            <div class="f-row checkbox">
+
+
+                <input type="checkbox" name="send_community_updates" id="send_community_updates" value="1" <?php echo $send_community_updates_checked; ?> >
+                <label for="send_community_updates" class="checkbox-label">Send Me Community Updates</label>
+            </div>
+            <div class="f-row checkbox">
+
+                <input type="checkbox" name="send_offers" id="send_offers" value="1" <?php echo $send_offers_checked; ?>>
+                <label for="send_offers" class="checkbox-label">Send Me Special Offers</label>
+
+
+            </div>
+
+
             <?php do_action( 'show_user_profile', $profileuser ); ?>
            <!-- <?php if ( count( $profileuser->caps ) > count( $profileuser->roles ) && apply_filters( 'additional_capabilities_display', true, $profileuser ) ) { ?>
             	<table width="99%" style="border: none;" cellspacing="2" cellpadding="3" class="editform">

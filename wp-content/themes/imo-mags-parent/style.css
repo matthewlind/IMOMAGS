@@ -418,7 +418,7 @@ img{max-width: 100%;height: auto;}
 .open-search:hover {background-position:-309px -72px;}
 #subscribe-area {
     float:right;
-    width:281px;
+    width:262px;
     margin:0 11px 0 25px;
 }
 .subscribe-box .journal {
@@ -545,10 +545,10 @@ img{max-width: 100%;height: auto;}
 .subscribe-links a span {font-size:16px; line-height:16px; position:relative; top:1px;}
 .h-mdl-widget {
     float:right;
-    margin:4px 0 0;
+    margin:28px 22px 0 0;
 }
 .h-search-form {
-    clear:both;
+    float: right;
 }
 .search-field {
     width:208px;
@@ -569,7 +569,7 @@ img{max-width: 100%;height: auto;}
     float:right;
     width:30px;
     height:30px;
-    padding:;
+    padding:0;
     overflow:hidden;
     text-indent:-99999px;
     font-size:0;
@@ -589,7 +589,8 @@ img{max-width: 100%;height: auto;}
     display:none;
 }
 .socials-hold {
-    float:right;
+    float: left;
+	margin-right: 4px;
 }
 .socials {
     float:right;
@@ -1346,7 +1347,6 @@ a.category-name-link:hover{
     content:"";
 }
 .pager-holder .btn-base {
-    float:left;
     margin:4px auto;
     width: 250px;
 }
@@ -1446,6 +1446,10 @@ a.category-name-link:hover{
     background:#dbdbd9;
     content:"";
 }
+#at4-whatsnext{z-index: 999999999999999999 !important;}
+#at4m-mobile{z-index: 99999999999999999 !important}
+#at4m-dock, #at4m-fb, #at4m-sb, #at4m-menu {z-index: 999999999999999999 !important}
+
 .full-post .entry-content .addthis_toolbox {
     position:absolute;
     left:0;
@@ -2177,6 +2181,7 @@ a.change-location:before {
 
 /* = WP default overrides
  ******************************************************************************/
+#wpadminbar {z-index: 9999999;}
 .wp-caption {
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;

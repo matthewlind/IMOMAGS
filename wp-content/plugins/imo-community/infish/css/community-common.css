@@ -383,6 +383,10 @@ select.alter-sel {width:100%;}
     display:inline-block;
     vertical-align:middle;
 }
+.prof-like iframe{
+	float: right;
+	width: 82px !important;
+}
 .badge {
     position:absolute;
     top:-83px;
@@ -872,7 +876,7 @@ select.alter-sel {width:100%;}
 }
 .btn-red,
 .singl-post-photo {
-    
+
     height:42px;
     display:block;
     font:15px/42px "stagbold", sans-serif;
@@ -1193,6 +1197,9 @@ select.alter-sel {width:100%;}
 .form .f-row {
     padding:0 0 17px;
 }
+.form .f-row.checkbox {
+    padding-left:200px;
+}
 .form .single-row {padding-left:200px;}
 .form label {
     float:left;
@@ -1203,6 +1210,11 @@ select.alter-sel {width:100%;}
     text-transform:uppercase;
     text-align:right;
 }
+
+.form label.checkbox-label {
+    float:none;
+}
+
 .form div.ui-input-text {
     display:inline-block;
 }
@@ -1382,6 +1394,15 @@ select.alter-sel {width:100%;}
 
     .caption-area {
         width:76%;
+    }
+
+    .form .f-row.checkbox {
+        padding-left:0px;
+    }
+
+    .form input[type="checkbox"] {
+        margin-right: 5px;
+        float: left;
     }
 
     .browse-item h3.arrow {

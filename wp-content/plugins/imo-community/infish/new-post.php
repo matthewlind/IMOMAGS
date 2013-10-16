@@ -356,11 +356,11 @@ include 'common-templates.php';
 	                </div>
 	            </div>
 	            <div class="login-area">
-	            	<p class="login-message" style="<?php echo $loginStyle; ?>">Please Login to Post:</p>
+	            	<p class="login-message" style="<?php echo $loginStyle; ?>">Post Your Photo:</p>
 	            	<a href="#" id="imo-fb-login-button" class="imo-community-new-post fb-login join-widget-fb-login btn-fb-login">Fast Login & Submit</a>
 	            	<span class="or-delim" style="<?php echo $loginStyle; ?>">OR</span>
 	            	<a href="#" class="email-signup email-signup-button jq-open-reg-popup" style="<?php echo $loginStyle; ?>" >login with email address</a>
-	            	<p class="login-message" style="<?php echo $loginStyle; ?>">Your post will be submitted immediately after Login</p>
+	            	<!-- <p class="login-message" style="<?php echo $loginStyle; ?>">Your post will be submitted immediately after Login</p> -->
 				    <span class="btn-red btn-post btn-submit"  style="<?php echo $displayStyle; ?>"><input id="post-photo" type="submit" value="Post Photo"></span>
 	            </div>
 	            <hr>
@@ -385,7 +385,7 @@ include 'common-templates.php';
 			      <div style="margin:20px 0" class="add-photo-field">
 				      	<a href="<%= attachment.img_url %>" class="thickbox">
 				      			<div class="attachment-image-container">
-						      		<img src="<%= attachment.img_url %>/convert?w=150&h=150&fit=crop" width=75 height=75 style="height:75px">
+						      		<img src="<%= attachment.img_url %>/convert?w=150&h=150&fit=crop&rotate=exif" width=75 height=75 style="height:75px">
 						      	</div>
 				      	</a>
 					  	 <div class="caption-area" name="caption-body" placeholder="Caption (optional)" value="<%= attachment.body %>">

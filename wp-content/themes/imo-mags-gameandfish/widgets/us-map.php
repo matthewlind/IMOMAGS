@@ -12,7 +12,7 @@ class us_map_Widget extends WP_Widget {
 
     <aside id="us-map-nav" class="us-map-widget">
     <div class="state-info">
-    	<h2>Choose a state</h2>
+    	<h2>Select Your state</h2>
     	<p class="state-name"></p>
     	<div class="state-list">
 	    	<ul>

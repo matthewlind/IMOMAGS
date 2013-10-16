@@ -2,12 +2,15 @@ jQuery(window).load(function() {
 	jQuery('.onload-hidden').removeClass('onload-hidden');
     jQuery('.onload-hidden-abs').removeClass('onload-hidden-abs');
     jQuery('.loading-block').removeClass('loading-block');
-    
+    //jQuery('#at4m-mobile').appendTo("#page");
 });
 
 
 jQuery(document).ready(function () {
 	
+
+
+
 	jQuery(function(){
 		
 		if(jQuery.cookie('hide_alert') == null){
@@ -110,7 +113,7 @@ jQuery(document).ready(function () {
 
 	// Load more 
 	if(jQuery(".next-link a").length){
-	    jQuery("a.btn-base").show();
+	    jQuery("a.btn-base").css("display","block");
     }
     	
 	if( jQuery(".mob-aside-menu .menu-main-menu-container").length ){
@@ -153,7 +156,7 @@ jQuery(document).ready(function () {
 							});
 	                    }
 	                    if(jQuery(".next-link a").length){
-						    jQuery("a.btn-base").show();
+						    jQuery("a.btn-base").css("display","block");
 					    }
 					}
 	            });
@@ -161,9 +164,11 @@ jQuery(document).ready(function () {
         });
     });
 
+
 // Flash ad z-index pecking order fix
 jQuery(function(){
 	FlashHeed.heed();
+	FlashHeed.heed(document.getElementById('_containermyExperience'));
 });
 
 jQuery(function(){
@@ -188,6 +193,8 @@ jQuery(function(){
     jQuery('.jq-featured-slider').flexslider({
         animation: "slide",
         animationSpeed: 200,
+        controlNav: true,
+        directionNav: true,
         slideshow: true
       });
       
@@ -209,6 +216,7 @@ jQuery(function(){
           itemMargin: 0,
           minItems: 1,
           maxItems: 1
+          
         });
         
     jQuery('.jq-explore-slider').flexslider({
@@ -284,5 +292,28 @@ MBP.scaleFix();
 function updateSliderCounter(slider){
     jQuery(slider).find('.slide-count').html((slider.currentSlide + 1) + '/' + slider.count);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

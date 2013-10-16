@@ -97,7 +97,7 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 		<div id="tiptip_content">Share your catch & see the latest photos!</div>
 	</div>
 		
-    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/snap.js"></script>
+    
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery.tipTip.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery.cookie.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/breakpoints.js"></script>

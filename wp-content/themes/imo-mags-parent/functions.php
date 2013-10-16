@@ -8,11 +8,16 @@ add_action( 'widgets_init', 'register_recipes_widget' );
 // Widgets
 include_once('widgets/subscribe.php');
 include_once('widgets/newsletter-signup.php');
+include_once('widgets/newsletter-signup-header.php');
 include_once('widgets/ford-widget.php');
 include_once('widgets/community-login-widget.php');
 include_once('widgets/community-slider.php');
 include_once('widgets/user-info.php');
 
+
+$magazine_img = get_option("magazine_cover_uri", get_stylesheet_directory_uri(). "/images/pic/journals.png" );
+$subs_link = get_option("subs_link"); 
+						    
 function new_excerpt_more( $more ) {
 	return '... <a href="'. get_permalink( get_the_ID() ) .'" >more <span class="meta-nav">&raquo;</span></a>';
 }
@@ -137,6 +142,7 @@ function parent_theme_setup()
     add_theme_support( 'post-thumbnails' );
     set_post_thumbnail_size( 100, 9999 ); // Unlimited height, soft crop
     add_image_size( 'index-thumb', 200, 150, true );
+    add_image_size( 'legacy-thumb', 190, 120, true );
     add_image_size( 'post-thumb', 700, 450, true );
     add_image_size( 'post-home-thumb', 695, 380, true );
     add_image_size( 'post-home-small-thumb', 335, 225, true );
@@ -245,13 +251,10 @@ function parent_theme_widgets_init()
     register_nav_menus(array(
         'top' => 'Top Menu',
         'bottom' => 'Main Menu',
-        'mobile' => 'Mobile Menu'
-    ));
-    register_nav_menus(array(
-        'top' => 'Community Menu',
-        'bottom' => 'Community Menu',
+        'mobile' => 'Mobile Menu',
         'community' => 'Community Menu'
     ));
+
 }
 
 function parent_theme_get_categories($categories_list, $show_featured = true)
@@ -481,6 +484,54 @@ function imo_addons_subscription_page() {
 add_action("widgets_init", 'imo_addons_sidebar_init');
 add_action("admin_menu", "imo_addons_create_subscriptions_menu");
 add_action('wp_head','imo_addons_include_header_file');
+
+
+function edit_community_contactmethods( $contactmethods ) {
+ $contactmethods['twitter'] = 'Twitter';
+
+   unset($contactmethods['yim']);
+   unset($contactmethods['aim']);
+   unset($contactmethods['jabber']);
+
+
+ return $contactmethods;
+ }
+ add_filter('user_contactmethods','edit_community_contactmethods',10,1);
+
+
+function imo_community_user_profile( $user_id ) {
+
+
+
+    if ( !empty( $_POST['age'] ) )
+        update_user_meta( $user_id, 'age', $_POST['age'] );
+
+    if ( !empty( $_POST['address1'] ) )
+        update_user_meta( $user_id, 'address1', $_POST['address1'] );
+    if ( !empty( $_POST['address2'] ) )
+        update_user_meta( $user_id, 'address2', $_POST['address2'] );
+    if ( !empty( $_POST['city'] ) )
+        update_user_meta( $user_id, 'city', $_POST['city'] );
+    if ( !empty( $_POST['state'] ) )
+        update_user_meta( $user_id, 'state', $_POST['state'] );
+    if ( !empty( $_POST['zip'] ) )
+        update_user_meta( $user_id, 'zip', $_POST['zip'] );
+
+
+    if ( !empty( $_POST['send_community_updates'] ) )
+        update_user_meta( $user_id, 'send_community_updates', $_POST['send_community_updates'] );
+    else
+        update_user_meta( $user_id, 'send_community_updates', 0 );
+    if ( !empty( $_POST['send_offers'] ) )
+        update_user_meta( $user_id, 'send_offers', $_POST['send_offers'] );
+    else
+        update_user_meta( $user_id, 'send_offers', 0 );
+}
+add_action( 'edit_user_profile_update', 'imo_community_user_profile' );
+
+
+add_action( 'edit_user_profile', 'imo_community_user_profile' );
+add_action( 'personal_options_update', 'imo_community_user_profile' );
 
 
 

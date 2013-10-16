@@ -142,6 +142,7 @@ function imo_email_register() {
         	$userID = wp_insert_user($userdata);
        		wp_set_auth_cookie($userID,true);
        		//add_user_meta($userID,"state",$stateAbbrev);
+       		add_user_meta($userID,"send_community_updates",1);
 
        		$user = imo_get_user($userID);
        		$json = json_encode($user);
@@ -266,6 +267,7 @@ function imo_facebook_usercheck() {
 
 	       		add_user_meta($userID,"facebook_ID",$user_profile['id']);
 	       		add_user_meta($userID,"facebook_profile_image_URL",$facebookProfilePicURL);
+	       		add_user_meta($userID,"send_community_updates",1);
 
 	       		$locations = explode(",", $user_profile['hometown']['name']);
 

@@ -14,11 +14,11 @@ function getPostTerms($post_id, $site_id = 6) {
             WHERE tr.`object_id` = ?
             AND taxonomy = 'category'";
 
-        
+
 
         $stmt = $db->prepare($sql);
         $stmt->execute(array($post_id));
-    
+
         $terms = $stmt->fetchAll(PDO::FETCH_OBJ);
 
         $db = "";
@@ -26,6 +26,8 @@ function getPostTerms($post_id, $site_id = 6) {
         foreach ($terms as $key => $term) {
 	    	$parent = getParentTerm($term);
 	    	$terms[$key]->parent = $parent;
+            $terms[$key]->base = getCategoryBase($site_id);
+
         }
 
         return($terms);
@@ -33,6 +35,42 @@ function getPostTerms($post_id, $site_id = 6) {
     } catch(PDOException $e) {
         echo $e->getMessage();
     }
+}
+
+function getCategoryBase($site_id = 2) {
+    try {
+
+        $db = dbConnect();
+
+        $sql = "SELECT option_value FROM wp_{$site_id}_options WHERE option_name = 'category_base'";
+
+
+
+        $stmt = $db->prepare($sql);
+        $stmt->execute(array($post_id));
+
+        $base = $stmt->fetchColumn();
+
+        $db = "";
+
+        return($base);
+
+    } catch(PDOException $e) {
+        echo $e->getMessage();
+    }
+}
+
+
+function delete_all_between($beginning, $end, $string) {
+  $beginningPos = strpos($string, $beginning);
+  $endPos = strpos($string, $end);
+  if (!$beginningPos || !$endPos) {
+    return $string;
+  }
+
+  $textToDelete = substr($string, $beginningPos, ($endPos + strlen($end)) - $beginningPos);
+
+  return str_replace($textToDelete, '', $string);
 }
 
 
@@ -49,11 +87,11 @@ function getWhitetailPostTerms($post_id, $site_id = 6) {
             AND slug != 'naw-plus'
             AND taxonomy = 'category'";
 
-        
+
 
         $stmt = $db->prepare($sql);
         $stmt->execute(array($post_id));
-    
+
         $terms = $stmt->fetchAll(PDO::FETCH_OBJ);
 
         $db = "";
@@ -84,11 +122,11 @@ function getParentTerm($term) {
 				WHERE tt.taxonomy = 'category'
 				AND ts.slug = ?";
 
-        
+
 
         $stmt = $db->prepare($sql);
         $stmt->execute(array($term->slug));
-    
+
         $terms = $stmt->fetchAll(PDO::FETCH_OBJ);
 
         $db = "";
@@ -129,11 +167,11 @@ function getAllChildTerms($term_slug, &$results = array()) {
 				WHERE tt.taxonomy = 'category'
 				AND t.slug = ?";
 
-        
+
 
         $stmt = $db->prepare($sql);
         $stmt->execute(array($term_slug));
-    
+
         $terms = $stmt->fetchAll(PDO::FETCH_OBJ);
 
         $db = "";

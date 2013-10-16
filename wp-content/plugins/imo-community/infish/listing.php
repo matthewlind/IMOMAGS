@@ -20,7 +20,18 @@
  */
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 
-
+//Gallery Scripts
+wp_enqueue_script('flexslider-js',plugins_url('imo-flex-gallery/jquery.flexslider.js'));
+wp_enqueue_style('flexslider-css',plugins_url('imo-flex-gallery/flexslider.css'));
+wp_enqueue_script('flex-gallery-js',plugins_url('imo-flex-gallery/flex-gallery.js'));
+wp_enqueue_script('jquery-mobile',plugins_url('imo-flex-gallery/jquery.mobile.custom.min.js'));
+wp_enqueue_script('jquery-ui-slide-effect',plugins_url('imo-flex-gallery/jquery-ui-slide-effect.min.js'));
+wp_enqueue_script('jquery-scrollface',plugins_url('imo-flex-gallery/jquery.scrollface.min.js'));
+wp_enqueue_script('jquery-buffet',plugins_url('imo-flex-gallery/jquery.buffet.min.js'));
+wp_enqueue_script('jquery-mousewheel',plugins_url('imo-flex-gallery/jquery.mousewheel.min.js'));
+wp_enqueue_script('perfect-scrollbar-js',plugins_url('imo-flex-gallery/perfect-scrollbar-0.4.3.with-mousewheel.min.js'));
+wp_enqueue_style('ajax-gallery-css',plugins_url('imo-flex-gallery/flex-gallery.css','imo-flex-gallery'));
+wp_enqueue_style('perfect-scrollbar-css',plugins_url('imo-flex-gallery/perfect-scrollbar-0.4.3.min.css'));
 
 get_header();
 imo_sidebar("community");
@@ -43,13 +54,12 @@ if ( is_user_logged_in() ) {
 
 
 include 'common-templates.php';
-$crop = "/convert?w=650&h=650&fit=crop";
+$crop = "/convert?w=650&h=650&fit=crop&rotate=exif";
 if(mobile()){
-	$crop = "/convert?w=458&h=458&fit=crop";
+	$crop = "/convert?w=458&h=458&fit=crop&rotate=exif";
 }
 
 ?>
-
 <!-- *********************************************************** -->
 <!-- ***************** UNDERSCORE TEMPLATE ********************* -->
 <!-- *********************************************************** -->
@@ -61,7 +71,6 @@ if(post.score == 1){
 	niceScore = post.score + ' Points';
 }
 %>
-
 <% if(post.img_url){ %>
 	<div class="dif-post">
         <div class="feat-img">
@@ -86,11 +95,16 @@ if(post.score == 1){
 						<li><%= niceScore %></li>
                     </ul>
                     <ul class="prof-like">
-                        <li><div class="fb-like" data-href="<?php echo FACEBOOK_LINK; ?>" data-send="false" data-layout="button_count" data-width="100" data-show-faces="true"></div></li>
+                    	<li>
+                    		<div addthis:url="http://<?php echo $_SERVER['SERVER_NAME']; ?>/photos/<%= post.id %>" addthis:title="<%= post.title %>" class="addthis_toolbox addthis_default_style ">
+								<a class="addthis_button_facebook_like"fb:like:layout="button_count"></a>
+							</div>
+							
+                       </li>
                     </ul>
                 </div>
             </div>
-            <% if (post.master == 1) {  %><span class="badge"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/pic/badge-ma.png" alt="" /></span><% } %>
+            <% if (post.master == 1) {  %><span class="badge"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/pic/badge-ma.png" alt="Master Angler" /></span><% } %>
         </div>
     </div>
 <% } %>
@@ -136,17 +150,17 @@ if(post.score == 1){
             <li class="divider"></li>
             <li><a href="" class="filter-menu" order_by="created" master="1">Master Anglers</a></li>
             <li class="divider"></li>
-<!--             <li><a href="" class="filter-menu" order_by="created" post_type="bass" >Bass</a></li>
+            <li><a href="" class="filter-menu" order_by="created" post_type="bass" >Bass</a></li>
             <li><a href="" class="filter-menu" order_by="created" post_type="panfish" >Panfish</a></li>
             <li><a href="" class="filter-menu" order_by="created" post_type="pike" >Pike</a></li>
             <li><a href="" class="filter-menu" order_by="created" post_type="muskie" >Muskie</a></li>
             <li><a href="" class="filter-menu" order_by="created" post_type="trout" >Trout</a></li>
             <li><a href="" class="filter-menu" order_by="created" post_type="salmon" >Salmon</a></li>
             <li><a href="" class="filter-menu" order_by="created" post_type="carp" >Carp</a></li>
-            <li><a href="" class="filter-menu" order_by="created" post_type="paddlefish" >Paddlefish</a></li>
+            <!--<li><a href="" class="filter-menu" order_by="created" post_type="paddlefish" >Paddlefish</a></li>-->
             <li><a href="" class="filter-menu" order_by="created" post_type="crappie" >Crappie</a></li>
-            <li><a href="" class="filter-menu" order_by="created" post_type="burbot" >Burbot</a></li> -->
-            <!--This is also a valid and working sorting option:
+           <!-- <li><a href="" class="filter-menu" order_by="created" post_type="burbot" >Burbot</a></li> -->
+            This is also a valid and working sorting option:
             <li><a href="" class="filter-menu" order_by="created" sort="ASC" post_type="carp" >Oldest Carp</a></li>
 
             -->
@@ -231,4 +245,5 @@ if(post.score == 1){
 
     </div>
 </div>
+
 <?php get_footer(); ?>

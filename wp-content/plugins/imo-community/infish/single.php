@@ -18,7 +18,23 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * **********************************************************************
  */
+
+
+
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
+
+//Gallery Scripts
+wp_enqueue_script('flexslider-js',plugins_url('imo-flex-gallery/jquery.flexslider.js'));
+wp_enqueue_style('flexslider-css',plugins_url('imo-flex-gallery/flexslider.css'));
+wp_enqueue_script('flex-gallery-js',plugins_url('imo-flex-gallery/flex-gallery.js'));
+wp_enqueue_script('jquery-mobile',plugins_url('imo-flex-gallery/jquery.mobile.custom.min.js'));
+wp_enqueue_script('jquery-ui-slide-effect',plugins_url('imo-flex-gallery/jquery-ui-slide-effect.min.js'));
+wp_enqueue_script('jquery-scrollface',plugins_url('imo-flex-gallery/jquery.scrollface.min.js'));
+wp_enqueue_script('jquery-buffet',plugins_url('imo-flex-gallery/jquery.buffet.min.js'));
+wp_enqueue_script('jquery-mousewheel',plugins_url('imo-flex-gallery/jquery.mousewheel.min.js'));
+wp_enqueue_script('perfect-scrollbar-js',plugins_url('imo-flex-gallery/perfect-scrollbar-0.4.3.with-mousewheel.min.js'));
+wp_enqueue_style('ajax-gallery-css',plugins_url('imo-flex-gallery/flex-gallery.css','imo-flex-gallery'));
+wp_enqueue_style('perfect-scrollbar-css',plugins_url('imo-flex-gallery/perfect-scrollbar-0.4.3.min.css'));
 
 get_header();
 imo_sidebar("community");
@@ -52,6 +68,8 @@ $file = file_get_contents($apiURL);
 $data = json_decode($file);
 $attachmentData = $data->attachments;
 $commentData = $data->comments;
+
+
 
 
 if (empty($commentData)) {
@@ -266,11 +284,15 @@ $time = date("g:i A", strtotime($timestamp));
 
                 </div>
             </div>
-            <?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
-        </div>
+            <div addthis:url="http://www.in-fisherman.com/photos/<?php echo $data->id; ?>" addthis:title="" class="addthis_toolbox addthis_default_style ">
+				<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+				<a class="addthis_button_tweet"></a>
+				<a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+				<a class="addthis_counter addthis_pill_style"></a>
+			</div>
 
         <?php
-        	$width = "/convert?w=730&fit=scale";
+        	$width = "/convert?w=730&fit=scale&rotate=exif";
         	if(mobile()){
         		$width = "/convert?w=478";
         	}
@@ -342,9 +364,15 @@ $time = date("g:i A", strtotime($timestamp));
                    <?php }//end if ?>
 	        <div class="clearfix">
                 <a href="#reply_field" class="post-it">Post a Reply</a>
-                <ul class="like-bar">
-                    <li> <?php if (function_exists('imo_add_this')) {imo_add_this();} ?></li>
-                </ul>
+          
+                     <div addthis:url="http://www.in-fisherman.com/photos/<?php echo $data->id; ?>" addthis:title="" class="addthis_toolbox addthis_default_style ">
+				<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+				<a class="addthis_button_tweet"></a>
+				<a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+				<a class="addthis_counter addthis_pill_style"></a>
+			</div>
+            <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+			<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4de659c80f33d1e7"></script>
             </div>
         </div>
     </div>
@@ -382,12 +410,11 @@ $time = date("g:i A", strtotime($timestamp));
         </div>
 
     </div>-->
-    <?php //echo do_shortcode('[imo-slideshow community=true]');
-      if(mobile()){ ?>
-        <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="js-responsive-section">
-			<?php the_widget( 'Community_Slider' ); ?>
-		</div>
-	<?php } ?>
+    <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="js-responsive-section">
+    	<div class="custom-slider-section">
+    		<?php //echo do_shortcode('[imo-slideshow community=true]'); ?>
+    	</div>
+    </div>
 
     <div class="replies-box">
         <h2>What's Your Take?</h2>

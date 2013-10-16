@@ -56,7 +56,7 @@ class Community_Login_Widget extends WP_Widget {
 	            <div class="jq-explore-slider-sidebar onload-hidden">
 	                <ul class="slides">
 	                	<?php //foreach ($pictures as $picture) { ?>
-	                		<li><a href="/photos/<?php echo $picture->id; ?>"><img width="119" src="<?php echo $picture->img_url; ?>/convert?w=119&h=119&fit=crop" alt="<?php echo $picture->title; ?>" /></a></li>
+	                		<li><a href="/photos/<?php echo $picture->id; ?>"><img width="119" src="<?php echo $picture->img_url; ?>/convert?w=119&h=119&fit=crop&rotate=exif" alt="<?php echo $picture->title; ?>" /></a></li>
 	                	<?php //} ?>
 	                </ul>
 	            </div>

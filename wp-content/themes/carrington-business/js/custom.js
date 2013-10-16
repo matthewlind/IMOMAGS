@@ -45,6 +45,10 @@ $(function(){
 		$('.advert').jfollow('#responderfollow');
 	}
 });
+// Flash ad z-index pecking order fix
+$(document).ready(function(){
+	FlashHeed.heed(document.getElementById('_containermyExperience'));
+});
 
       
 /*****
