@@ -22,6 +22,7 @@ div.flex-viewport {
 	-webkit-transition-property: none !important;
 	-o-transition-property: none !important;
 }
+.flex-gallery ul.slides{margin:0 !important;}
 .flex-gallery-container .flex-active-slide {
 	position: relative;
 	z-index: 9999;
