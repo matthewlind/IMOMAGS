@@ -14,6 +14,13 @@ $address2 = get_user_meta($profileuser->ID,"address2",true);
 $city = get_user_meta($profileuser->ID,"city",true);
 $state = get_user_meta($profileuser->ID,"state",true);
 $zip = get_user_meta($profileuser->ID,"zip",true);
+$send_offers = get_user_meta($profileuser->ID,"send_offers",true);
+$send_community_updates = get_user_meta($profileuser->ID,"send_community_updates",true);
+
+if ($send_offers)
+    $send_offers_checked = "checked";
+if ($send_community_updates)
+    $send_community_updates_checked = "checked";
 
 
 $user_role = reset( $profileuser->roles );
@@ -23,7 +30,7 @@ if ( is_multisite() && empty( $user_role ) ) {
 
 $user_can_edit = false;
 foreach ( array( 'posts', 'pages' ) as $post_cap )
-	
+
 $user_can_edit |= current_user_can( "edit_$post_cap" );
 $displayStyle = "display:none;";
 $loginStyle = "";
@@ -32,9 +39,9 @@ if ( is_user_logged_in() ) {
 
 	$displayStyle = "";
 	$loginStyle = "display:none;";
-	
+
 	wp_get_current_user();
-	
+
 	$current_user = wp_get_current_user();
     if ( !($current_user instanceof WP_User) )
          return;
@@ -53,7 +60,7 @@ if ( is_user_logged_in() ) {
 
 		<?php if ( !$theme_my_login->options->get_option( array( 'themed_profiles', $user_role, 'restrict_admin' ) ) && !has_action( 'personal_options' ) ): ?>
 
-		
+
 		<?php endif; // restrict admin ?>
 
 		<?php do_action( 'profile_personal_options', $profileuser ); ?>
@@ -66,7 +73,7 @@ if ( is_user_logged_in() ) {
 			<th><label for="user_login"><?php _e( 'Username', 'theme-my-login' ); ?></label></th>
 			<td><input type="text" name="user_login" id="user_login" value="<?php echo esc_attr( $profileuser->user_login ); ?>" disabled="disabled" class="regular-text" /> <span class="description"><?php _e( 'Your username cannot be changed.', 'theme-my-login' ); ?></span></td>
 		</tr>
-			
+
 -->
 
 		<tr>
@@ -90,46 +97,46 @@ if ( is_user_logged_in() ) {
 
 
 		<tr>
-	
+
 			<th><label for="age<?php $template->the_instance(); ?>">Age</label></th>
 			<td><input type="text" name="age" id="age<?php $template->the_instance(); ?>" class="input" value="<?php echo $age; ?>" size="2" tabindex="20" /></td>
-		
+
 		</tr>
-		
+
 		<tr>
-	
+
 			<th><label for="address1<?php $template->the_instance(); ?>">Address 1</label></th>
 			<td><input type="text" name="address1" id="address1<?php $template->the_instance(); ?>" class="input" value="<?php echo $address1; ?>" size="35" tabindex="20" /></td>
-		
+
 		</tr>
-		
+
 		<tr>
-	
+
 			<th><label for="address2<?php $template->the_instance(); ?>">Address 2</label></th>
 			<td><input type="text" name="address2" id="address2<?php $template->the_instance(); ?>" class="input" value="<?php echo $address2; ?>" size="35" tabindex="20" /></td>
-		
+
 		</tr>
-		
+
 		<tr>
-	
+
 			<th><label for="city<?php $template->the_instance(); ?>">City</label></th>
 			<td><input type="text" name="city" id="city<?php $template->the_instance(); ?>" class="input" value="<?php echo $city; ?>" size="20" tabindex="20" />
 			<span class="description">Only your city and state will be shown as your hometown.</span></td>
-		
+
 		</tr>
-		
+
 		<tr>
-	
+
 			<th><label for="state<?php $template->the_instance(); ?>">State</label></th>
 			<td><input type="text" name="state" id="state<?php $template->the_instance(); ?>" class="input" value="<?php echo $state; ?>" size="2" tabindex="20" /></td>
-		
+
 		</tr>
-		
+
 		<tr>
-	
+
 			<th><label for="zip<?php $template->the_instance(); ?>">Zip</label></th>
 			<td><input type="text" name="zip" id="zip<?php $template->the_instance(); ?>" class="input" value="<?php echo $zip; ?>" size="5" tabindex="20" /></td>
-		
+
 		</tr>
 
 
@@ -145,7 +152,7 @@ if ( is_user_logged_in() ) {
 			<td><input type="text" name="email" id="email" value="<?php echo esc_attr( $profileuser->user_email ) ?>" class="regular-text" /></td>
 		</tr>
 
-<!--  This section is temporarily commented out. We don't want users to be able to link to websites because that can encourage spam comments. 
+<!--  This section is temporarily commented out. We don't want users to be able to link to websites because that can encourage spam comments.
 	  However, we will want outfitters to do this later.
 		<tr>
 			<th><label for="url"><?php _e( 'Website', 'theme-my-login' ) ?></label></th>
@@ -158,24 +165,33 @@ if ( is_user_logged_in() ) {
 				//This section displays the twitter name
 				//Check functions/profile.php for other things this section could show
 		?>
-		
+
 		<tr>
 			<th><label for="<?php echo $name; ?>"><?php echo apply_filters( 'user_'.$name.'_label', $desc ); ?></label></th>
 			<td><input type="text" name="<?php echo $name; ?>" id="<?php echo $name; ?>" value="<?php echo esc_attr( $profileuser->$name ) ?>" class="regular-text" /></td>
 		</tr>
-		
-		
-		
+
+
+
 		<?php
 			}
 			endif;
 		?>
+
+
+
+
+
+
+
+
+
 		</table>
 
 		<h3><?php _e( 'About Yourself', 'theme-my-login' ); ?></h3>
 
 		<table class="form-table">
-		
+
 <!--	Commented out this section because we currently do not display user biographies.
 		<tr>
 			<th><label for="description"><?php _e( 'Biographical Info', 'theme-my-login' ); ?></label></th>
@@ -197,6 +213,26 @@ if ( is_user_logged_in() ) {
 			</td>
 		</tr>
 		<?php endif; ?>
+
+
+
+		<tr>
+			<th>
+			</th>
+
+			<td> <input type="checkbox" name="send_community_updates" id="send_community_updates" value="1" <?php echo $send_community_updates_checked; ?> ><label for="send_community_updates" class="checkbox-label">Send Me Community Updates</label>
+			</td>
+		</tr>
+		<tr>
+			<th>
+			</th>
+
+			<td><input type="checkbox" name="send_offers" id="send_offers" value="1" <?php echo $send_offers_checked; ?>><label for="send_offers" class="checkbox-label">Send Me Special Offers</label>
+			</td>
+		</tr>
+
+
+
 		</table>
 
 		<?php
