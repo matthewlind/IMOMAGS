@@ -648,7 +648,7 @@ class Taxonomies_Filter_Widget extends WP_Widget {
 			$args = array(
 				'show_option_all'    => $select_all,
 				'show_option_none'   => '',
-				'orderby'            => 'name', 
+				'orderby'            => 'slug', 
 				'order'              => 'ASC',
 				'show_count'         => $this->tfw_options['post_count'],
 				'hide_empty'         => $this->tfw_options['hide_empty'], 

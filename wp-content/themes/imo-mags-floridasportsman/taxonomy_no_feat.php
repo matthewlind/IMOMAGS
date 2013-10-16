@@ -49,6 +49,7 @@ if ($terms) {
   }
 }
  } ?></span></h1>
+ 
 </header><!-- #masthead -->
 
 <div class="page-template-page-right-php taxonomy-page bw-fullwidth">
@@ -58,21 +59,72 @@ if ($terms) {
 		</div>
 	</div>
 
+	<?php
+	global $wp_query;
+		$args = array(
+		'orderby' => 'title',
+		'order' => 'ASC',
+		'posts_per_page' => -1,
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'column',
+				'field' => 'slug',
+				'terms' => 'florida-sportsman-best-boat',
+			)
+		)
+	);
+	$args = array_merge( $wp_query->query, $args );
+	$the_query = new WP_Query( $args );
 
-<div class="col-abc taxonomy-col-abc">
-
-
-<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-
+	// The Loop
+	if ($the_query->have_posts()) {?>
+	<div class="col-abc taxonomy-col-abc">
+	<?php while ( $the_query->have_posts() ) : $the_query->the_post();?>
 	<div id="category-content">
 	<?php
        cfct_excerpt();
 	?>
 	</div>
+	
+	<?php wp_reset_postdata(); endwhile;?>
+	</div>
+	<hr/><br/>
+	<?php } else { ?>
+	<!--Nothing found!-->
+	<?php } ?>
+	
+<div class="col-abc taxonomy-col-abc">
 
- <?php endwhile; else: ?>
- <h3>No posts matching that criteria exist.</h3>
- <?php endif;?>
+	<?php
+	global $wp_query;
+		$args = array(
+		'orderby' => 'title',
+		'order' => 'ASC',
+		'posts_per_page' => -1,
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'column',
+				'field' => 'slug',
+				'terms' => 'florida-sportsman-best-boat',
+				'operator' => 'NOT IN'
+			)
+		)
+	);
+	$args = array_merge( $wp_query->query, $args );
+	$the_query = new WP_Query( $args );
+
+	// The Loop
+	if ($the_query->have_posts()) { while ( $the_query->have_posts() ) : $the_query->the_post();?>
+	
+	<div id="category-content">
+	<?php
+       cfct_excerpt();
+	?>
+	</div>
+	
+	<?php wp_reset_postdata();
+
+	endwhile;}?>
 
 
 </div> <!-- end div col-abc-->
