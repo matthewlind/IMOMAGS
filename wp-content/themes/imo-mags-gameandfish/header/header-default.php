@@ -25,7 +25,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 <html <?php language_attributes() ?>>
 <head>
 	<meta http-equiv="content-type" content="<?php bloginfo('html_type') ?>; charset=<?php bloginfo('charset') ?>" />
-
+	<meta name="google-site-verification" content="Gh1dNa1jYNe-TTpTWebLVchxandboFxjBH4y_baq8mI" />
 	<title><?php wp_title(''); ?></title>
 
 	<meta http-equiv="X-UA-Compatible" content="chrome=1" />
