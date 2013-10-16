@@ -8,7 +8,7 @@ $postID = get_the_ID();
 $categoryID = get_post_meta($postID);
 $catID = $categoryID["_category_permalink"];
 $categoryName = get_term_by('id', $catID[0], 'category');
-
+$byline = get_post_meta($postID, 'ecpt_byline', true);
 //set the primary category urls
 $url="/shooting/".$categoryName->slug;
 
@@ -58,12 +58,12 @@ $url="/shooting/".$categoryName->slug;
 		<div class="entry-info">
             <?php if (! in_category("What's Biting Now")): ?>
 			<span class="author vcard"><span class="fn">by <?php the_author_link(); ?></span></span>
-			<span class="spacer">|</span>
-            <?php endif; ?>
+			<span class="spacer">|</span>            <?php endif; ?>
 			<time class="published" datetime="<?php the_time('Y-m-d\TH:i'); ?>"><?php the_time('F j, Y'); ?></time>
 			<?php if(function_exists('wp_print')) { ?>
 			<span class="spacer">|</span>
 			<?php print_link(); } ?>
+			<div class="post-byline"><?php echo $byline; ?></div>
 		</div>
 		<a class="comment-count" href="#idc-container"><?php echo get_comments_number(); ?></a>
 	</div>

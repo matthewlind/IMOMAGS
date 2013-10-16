@@ -284,8 +284,12 @@ $time = date("g:i A", strtotime($timestamp));
 
                 </div>
             </div>
-            <?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
-        </div>
+            <div addthis:url="http://www.in-fisherman.com/photos/<?php echo $data->id; ?>" addthis:title="" class="addthis_toolbox addthis_default_style ">
+				<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+				<a class="addthis_button_tweet"></a>
+				<a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+				<a class="addthis_counter addthis_pill_style"></a>
+			</div>
 
         <?php
         	$width = "/convert?w=730&fit=scale&rotate=exif";
@@ -360,9 +364,15 @@ $time = date("g:i A", strtotime($timestamp));
                    <?php }//end if ?>
 	        <div class="clearfix">
                 <a href="#reply_field" class="post-it">Post a Reply</a>
-                <ul class="like-bar">
-                    <li> <?php if (function_exists('imo_add_this')) {imo_add_this();} ?></li>
-                </ul>
+          
+                     <div addthis:url="http://www.in-fisherman.com/photos/<?php echo $data->id; ?>" addthis:title="" class="addthis_toolbox addthis_default_style ">
+				<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+				<a class="addthis_button_tweet"></a>
+				<a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+				<a class="addthis_counter addthis_pill_style"></a>
+			</div>
+            <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+			<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4de659c80f33d1e7"></script>
             </div>
         </div>
     </div>

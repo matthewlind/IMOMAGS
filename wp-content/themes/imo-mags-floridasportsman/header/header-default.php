@@ -107,6 +107,7 @@ googletag.enableServices();
 
 </head>
 <body <?php body_class(); ?>>
+<?php imo_dart_tag("1x1",false,array("pos"=>"skin")); ?>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
