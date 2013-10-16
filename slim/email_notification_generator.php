@@ -4,14 +4,17 @@ include 'mysql.php';
 include 'email_html_creator.php';
 include 'postmark.php';
 
+$sentCount = 0;
 
 function generateAndSendEmails($testrun = TRUE) {
+
+
 
 	//First query the database for the emails that need to be sent
 	$emailDataArray = getEmailData();
 
 	//For each user, grab the HTML and send the email.
-	foreach ($emailDataArray as $emailData) {
+	foreach ($emailDataArray as $postUserID => $emailData) {
 
 
 
@@ -22,32 +25,113 @@ function generateAndSendEmails($testrun = TRUE) {
 
 			$emailSubject = generateEmailSubject($emailData);
 
-			echo "<h1 style='background-color:red'>EMAIL SUBJECT:$emailSubject</h1>";
-			echo $emailHTML;
+
+			//Get the FROM Address
+
+			$fromAddress = "NAW Community <community@intermediaoutdoors.com>";
+
+			if (strstr($emailData['domain'],"in-fisherman")) {
+				$fromAddress = "Fishhead Photos <community@intermediaoutdoors.com>";
+			}
+
+
+
+			//print_r($emailData);
+
+			$userEmail = $emailData['email'];
+
+
+
 			//echo json_encode($emailData);
 
-			$postmark = new Postmark("2338c32a-e4b3-4a36-a6a6-6ff501f4f614","community@intermediaoutdoors.com");
+
+			//if user wants to get emails
 
 
-			if (!$testrun) {
-				$result = $postmark->to("baker.aaron@gmail.com")
-				->subject($emailSubject)
-				->html_message($emailHTML)
-				->send();
 
-				if ($result) {
-					//Email Sent!
+			if (userEmailPrefs($postUserID)) {
+
+				if ($testrun) {
+					echo "<h1 style='background-color:red'>TO: $userEmail <br>SUBJECT:$emailSubject</h1>";
+					echo $emailHTML;
+				}
+
+				$postmark = new Postmark("2338c32a-e4b3-4a36-a6a6-6ff501f4f614",$fromAddress);
+
+				if (!$testrun) {
+
+					$result = $postmark->to("aaron.baker@imoutdoors.com")
+					->subject($emailSubject)
+					->html_message($emailHTML)
+					->send();
+
+					if ($result) {//If it sent...
+
+						//print_r(array($userEmail,"community@intermediaoutdoors.com",$emailSubject,$emailHTML,$emailData['domain']));
+
+						//Log the results!
+						$db = dbConnect();
+						$sql = "INSERT into sent_emails (recipient,sender,subject,content,site) VALUES (?,?,?,?,?)";
+						$stmt = $db->prepare($sql);
+						$stmt->execute(array($userEmail,$fromAddress,$emailSubject,$emailHTML,$emailData['domain']));
+						$db = "";
+
+						//AND track the events as being sent
+						foreach ($emailData['event_ids'] as $eventID) {
+
+							$db = dbConnect();
+							$sql = "UPDATE `events` SET `email_sent` = '1' WHERE `id` = ?;";
+							$stmt = $db->prepare($sql);
+							$stmt->execute(array($eventID));
+							$db = "";
+						}
+
+						$sentCount++;
+
+					}
 				}
 			}
 
 
 
 
-			if($result === true)
-				echo "Message sent";
+
 		}
 
+
 	}
+
+	echo "sentcount: $sentCount";
+
+}
+
+
+function userEmailPrefs($user_id) {
+
+	$prefs = false;
+
+	$user_id = intval($user_id);
+
+	$sql = "SELECT meta_value FROM imomags.wp_usermeta WHERE meta_key = 'send_community_updates' AND user_id = $user_id";
+
+
+	$db = dbConnect();
+
+	$stmt = $db->prepare($sql);
+
+	$stmt->execute();
+
+
+	$prefValue = $stmt->fetchColumn();
+
+
+	$db = "";
+
+	if ($prefValue == 1) {
+		$prefs = true;
+	}
+
+	return $prefs;
 
 }
 
@@ -102,7 +186,8 @@ function getEmailData() {
 
 			$emailDataArray[$event->post_user_id]['domain'] = $event->domain;
 
-
+			$emailDataArray[$event->post_user_id]['email'] = $event->email;
+			$emailDataArray[$event->post_user_id]['event_ids'][] = $event->id;
 
 
 			if (!empty($event->post_img_url)) {//if there is an image
