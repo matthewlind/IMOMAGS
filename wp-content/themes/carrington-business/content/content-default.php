@@ -24,7 +24,7 @@ $postID = get_the_ID();
 $categoryID = get_post_meta($postID);
 $catID = $categoryID["_category_permalink"];
 $categoryName = get_term_by('id', $catID[0], 'category');
-
+$byline = get_post_meta($postID, 'ecpt_byline', true);
 //set the primary category urls
 $url="/category/".$categoryName->slug;
 
@@ -62,14 +62,13 @@ $url="/category/".$categoryName->slug;
 			<span class="spacer">&bull;</span>
             <?php endif; ?>
 			<abbr class="published" title="<?php the_time('Y-m-d\TH:i'); ?>"><?php the_time('F j, Y'); ?></abbr>
-
-
 			<?php
 			//if ($this_post_is_not_single) {
 				echo ' <span class="spacer">&bull;</span> ';
 				comments_popup_link(__('No comments', 'carrington-business'), __('1 comment', 'carrington-business'), __('% comments', 'carrington-business'));
 			//}
 			?>
+			<div class="post-byline"><?php echo $byline; ?></div>
 		</div><!-- entry info -->
 	</div><!--entry header-->
 
