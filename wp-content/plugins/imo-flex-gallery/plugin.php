@@ -160,7 +160,7 @@ EOT_a1;
 			if($community == true ) {
 				$picture->img_url = $picture->img_url;
 				//$picture->img_url = $baseUrl.$picture->img_url;
-				$picture->thumbnail = $picture->img_url.'/convert?rotate=0&w=60&h=45&fit=crop&rotate=exif';
+				$picture->thumbnail = $picture->img_url.'/convert?rotate=0&w=60&h=45&fit=crop';
 				$picture->description = $picture->body;
 				$image = '<img src="'.$picture->img_url.'/convert?rotate=0" alt="'.$picture->title.'" class="slide-image">';
 			} else {
@@ -216,11 +216,11 @@ EOT_a5_1;
 $desktop_tablet_output .= <<<EOT_a5_2
 		
 		<div class="flex-gallery-slide-out $communityClass" >
+			<span class="x-close">&times;</span>
+			<div class="clear"></div>
 			<div class="flex-gallery-slide-out-inner" >
 				<div class="slide-out-content">
-					<div class="slide-out-content-top">
-						<span class="x-close">&times;</span>
-					</div>
+					<div class="slide-out-content-top"></div>
 					<div class="community-only">
 						<a href="$baseUrl/photos/new" class="flex-gallery-button post-a-photo community-only"><span><span class="post-a-photo-icon"></span>Post a Photo</span></a>
 						<div class="clear"></div>
