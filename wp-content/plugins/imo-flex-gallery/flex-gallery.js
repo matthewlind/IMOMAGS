@@ -550,10 +550,8 @@ function fullScreenResize(callback) {
 			'width':'283px',
 			'height':winHeight - adHeight + 58 - commFeatHeight
 		});
-		setTimeout(function(){
-			jQuery('.flex-gallery-slide-out').css('margin-right','-25px');
-			jQuery('.x-close').css('margin-right','16px');
-		}, 500);
+		jQuery('.flex-gallery-slide-out').css('margin-right','-25px');
+		jQuery('.x-close').css('margin-right','16px');
 		if (jQuery('#sidebar').length + jQuery('.sidebar-area').length == 0 && jQuery('div.entry-content').length) {
 			//if old theme page
 			jQuery('.flex-content').css({
@@ -579,6 +577,9 @@ function fullScreenResize(callback) {
 		'top':(jQuery('.flex-gallery .flex-viewport').height()/2) - (jQuery('.flex-gallery .flex-direction-nav').height()/2)
 	});
 	sizeCarousel();
+	setTimeout(function(){
+	jQuery('.flex-gallery-slide-out').attr('style','');//repat from above for ios, figure this out and delete later. something is adding styles we on't want
+	}, 500);
 	jQuery('.flex-content').delay(100).perfectScrollbar('update');
 	window.scrollTo(0, 0);//Fixes Chrome OS X bug
 	ifCallback(callback);
