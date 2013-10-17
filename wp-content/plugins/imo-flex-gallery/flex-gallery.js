@@ -550,8 +550,10 @@ function fullScreenResize(callback) {
 			'width':'283px',
 			'height':winHeight - adHeight + 58 - commFeatHeight
 		});
-		jQuery('.flex-gallery-slide-out').css('margin-right','-25px');
-		jQuery('.x-close').css('margin-right','16px');
+		setTimeout(function(){
+			jQuery('.flex-gallery-slide-out').css('margin-right','-25px');
+			jQuery('.x-close').css('margin-right','16px');
+		}, 500);
 		if (jQuery('#sidebar').length + jQuery('.sidebar-area').length == 0 && jQuery('div.entry-content').length) {
 			//if old theme page
 			jQuery('.flex-content').css({

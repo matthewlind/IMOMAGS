@@ -589,7 +589,7 @@ a.post-a-photo:hover span .post-a-photo-icon {
 	margin-right: 7px;
 }
 .flex-full-body .flex-gallery-slide-out {
-	display: block;visibility: visible;width: 330px;height: 100%;z-index: 200000008;position: absolute;right: 0;top: 0 !important;
+	display: block;visibility: visible;width: 330px;height: 100% !important;z-index: 200000008;position: absolute;right: 0 !important;top: 0 !important;
 	float:right;
 }
 .flex-full-body .flex-gallery-container {
