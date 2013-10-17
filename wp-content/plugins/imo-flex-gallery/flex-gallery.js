@@ -3,6 +3,7 @@ function imoFlexSetupMobile(community, pictureLimit){
 		jQuery('.jq-explore-slider').flexslider({
 			animation: "slide",
 			animationSpeed: 200,
+			animationLoop: false,
 			slideshow: false,
 			controlNav: false,
 			directionNav: false,
