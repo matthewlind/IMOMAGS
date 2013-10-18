@@ -1,6 +1,5 @@
 <?php echo $before_title . $title . $after_title; ?>
-	<form action="<?php echo esc_url( home_url( '/columns/florida-sportsman-best-boat/browse/' ) ); ?>" role="search" method="get" class="taxonomies-filter-widget-form <?php if( $auto_submit ) echo 'tfw_auto'; ?>"><div>
-		<input type="hidden" name="post_type" value="<?php echo $tfw_post_type ?>" />
+	<form action="<?php echo esc_url( home_url( '/index.php' ) ); ?>" role="search" method="get" class="taxonomies-filter-widget-form <?php if( $auto_submit ) echo 'tfw_auto'; ?>"><div>
 		<ul>
 <?php
 	foreach ($selected_filters as $filter) {
