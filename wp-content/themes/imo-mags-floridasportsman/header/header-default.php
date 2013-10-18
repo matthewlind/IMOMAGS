@@ -196,15 +196,15 @@ else {
 	</header><!-- #header -->
 	
 	<!-- Breadcrumbs -->
-	<?php if ( !is_front_page() && function_exists('yoast_breadcrumb') && !isset($_GET['where']) && !isset($_GET['price']) ): ?>
+	<?php if ( !is_front_page() && function_exists('yoast_breadcrumb') && !isset($_GET['where']) && !isset($_GET['price']) && !is_tax('price') && !is_tax('where') ): ?>
 	<div id="crumb-wrapper">
 		<?php yoast_breadcrumb('<p id="breadcrumbs">','</p>'); ?>
 	</div>
 	<?php endif; ?>
 	
-	<?php if (isset($_GET['where']) || isset($_GET['price'])) {?>
+	<?php if (isset($_GET['where']) || isset($_GET['price']) || is_tax('price') || is_tax('where')) {?>
     <div id="crumb-wrapper">
-		<p id="breadcrumbs" style="text-transform:capitalize;">You are Here: <a href="/">Home</a> : <a href="">Your Best Boat</a> : <?php if (isset($_GET['where'])) {
+		<p id="breadcrumbs" style="text-transform:capitalize;">You are Here: <a href="/">Home</a> : <a href="">Your Best Boat</a> : <?php if (isset($_GET['where']) || is_tax('where')) {
 $taxonomy = 'where';
 $queried_term = get_query_var($taxonomy);
 $terms = get_terms($taxonomy, 'slug='.$queried_term);
@@ -214,7 +214,7 @@ if ($terms) {
   }
 }
 }
-?> <?php if (isset($_GET['price'])) {
+?> <?php if (isset($_GET['price']) || is_tax('price')) {
 $taxonomy = 'price';
 $queried_term = get_query_var($taxonomy);
 $terms = get_terms($taxonomy, 'slug='.$queried_term);
