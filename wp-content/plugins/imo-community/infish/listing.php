@@ -159,7 +159,7 @@ if(post.score == 1){
             <li><a href="" class="filter-menu" order_by="created" post_type="carp" >Carp</a></li>
             <!--<li><a href="" class="filter-menu" order_by="created" post_type="paddlefish" >Paddlefish</a></li>-->
             <li><a href="" class="filter-menu" order_by="created" post_type="crappie" >Crappie</a></li>
-           <!-- <li><a href="" class="filter-menu" order_by="created" post_type="burbot" >Burbot</a></li> -->
+           <!-- <li><a href="" class="filter-menu" order_by="created" post_type="burbot" >Burbot</a></li>
             This is also a valid and working sorting option:
             <li><a href="" class="filter-menu" order_by="created" sort="ASC" post_type="carp" >Oldest Carp</a></li>
 
