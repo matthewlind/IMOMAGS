@@ -380,7 +380,7 @@ EOT;
         // print_r($termList);
         //echo $sql;
 
-        $siteCount = 5;
+        $siteCount = 15;
 
         $executeArray = array();
 
