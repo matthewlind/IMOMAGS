@@ -118,6 +118,7 @@ function imoGallery($gallery, $community, $tag, $dartDomain) {
 }
 
 function galleryOutput($gallery, $pictures, $totalSlides, $dartDomain, $community, $baseUrl) {
+	$totalSlidesShow = $totalSlides;
 	if (function_exists('imo_add_this')) {
 		ob_start();
 		imo_add_this();
@@ -125,17 +126,59 @@ function galleryOutput($gallery, $pictures, $totalSlides, $dartDomain, $communit
 	}
 	if($community == true ) {
 		$communityClass = 'flex-community-gallery';
+		$addThis = '<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4de0e5f24e016c81"></script>';
 	} else {
+		global $wpdb;
 		$title = stripcslashes($pictures[0]->title);
+		$prefix = $wpdb->prefix;
+		$nextGenGalCount = $wpdb->get_results($wpdb->prepare(
+				"SELECT COUNT(*) FROM {$prefix}ngg_gallery"
+			)
+		);
+		$nextGalID = intval($gallery) + 1;
+		$nextGalFound = false;
+		while ($nextGalFound == false) {
+			$query_args = array('s' => 'gallery='.$nextGalID, 'post_status'=>'publish', 'posts_per_page' => 1, 'orderby' => 'date', 'order' => 'DESC' );
+			$query = new WP_Query($query_args);
+			if ($query->have_posts()) {
+				$nextGalFound = true;
+				while ($query->have_posts()) {
+					$query->the_post();
+					$nextGalPics = $wpdb->get_results($wpdb->prepare(
+					  "SELECT * , CONCAT('/' , path, '/' , filename) as img_url, CONCAT('/' , path, '/thumbs/thumbs_' , filename) as thumbnail, meta_data, pictures.description as photo_desc
+					  from {$prefix}ngg_gallery as gallery
+					  JOIN `{$prefix}ngg_pictures` as pictures ON (gallery.gid = pictures.galleryid)
+					  WHERE gallery.gid = %d
+					  ORDER BY sortorder asc",
+					  $nextGalID
+					  )
+					);
+					$nextGalUrl = get_permalink();
+					$nextGalSlide = '
+						<li class="next-gal-slide">
+							<h2>Next Up: &nbsp;'.stripcslashes($nextGalPics[0]->title).'</h2>
+							<a class="flex-gallery-button">Click Here to View the Next Gallery</a><br/>
+							<img src="'.$nextGalPics[0]->img_url.'"/>
+							<span class="next-gal-id display-none">'.$nextGalID.'</span>
+							<span class="next-gal-url display-none">'.$nextGalUrl.'</span>
+						</li>
+					';
+					$totalSlidesShow = $totalSlides + 1;
+				}
+			} else {
+				if($nextGalID >= $nextGenGalCount) {
+					$nextGalID = 1;
+				} else {
+					$nextGalID++;
+				}
+			}
+		}
+
+		$addThis = $addThisLegacy;
 	}
 	if(is_single()){
 		$entryContentClose = '</div><!-- .entry-content -->';
 		$entryContentOpen = '<div class="entry-content">';
-	}
-	if($community == true ) {
-		$addThis = '<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4de0e5f24e016c81"></script>';
-	} else {
-		$addThis = $addThisLegacy;
 	}
 	$desktop_tablet_output = <<<EOT_a1
 	$entryContentClose
@@ -148,7 +191,7 @@ function galleryOutput($gallery, $pictures, $totalSlides, $dartDomain, $communit
 			<a class="btn-full-screen flex-gallery-button">Fullscreen</a>
 				<h2>$title</h2>
 				<div class="clear"></div>	
-				<div id="flex-gallery-social">$addThis</div><div class="flex-counter"><span class="flex-counter-extra">Picture </span><span class="current-slide">1</span> of $totalSlides</div>
+				<div id="flex-gallery-social">$addThis</div><div class="flex-counter"><span class="flex-counter-extra">Picture </span><span class="current-slide">1</span> of <span class="total-slides">$totalSlidesShow</span></div>
 			</div>
 			<div class="clear"></div>
 		</div>
@@ -163,6 +206,16 @@ EOT_a1;
 				$picture->thumbnail = $picture->img_url.'/convert?rotate=0&w=60&h=45&fit=crop';
 				$picture->description = $picture->body;
 				$image = '<img src="'.$picture->img_url.'/convert?rotate=0" alt="'.$picture->title.'" class="slide-image">';
+				$addThis .= '
+					<div id="flex-addthis-'.$count.'" class="flex-addthis">
+						<div addthis:url="'.$baseUrl.'/photos/'.$picture->id.'" addthis:title="'.htmlentities($picture->title).'" class="addthis_toolbox addthis_default_style ">
+							<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+							<a class="addthis_button_tweet"></a>
+							<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+							<a class="addthis_counter addthis_pill_style"></a>
+						</div>
+					</div>
+				';
 			} else {
 				$picture->title = stripcslashes($picture->alttext);
 				//$picture->descriptionRaw = stripcslashes($picture->description);
@@ -170,17 +223,6 @@ EOT_a1;
 				$picture->description = stripcslashes($picture->description);
 				$image = '<img src="'.$picture->img_url.'" alt="'.$picture->title.'" class="slide-image">';
 			}
-			
-			$addThis .= '
-				<div id="flex-addthis-'.$count.'" class="flex-addthis">
-					<div addthis:url="'.$baseUrl.'/photos/'.$picture->id.'" addthis:title="'.htmlentities($picture->title).'" class="addthis_toolbox addthis_default_style ">
-						<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-						<a class="addthis_button_tweet"></a>
-						<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
-						<a class="addthis_counter addthis_pill_style"></a>
-					</div>
-				</div>
-			';
 $desktop_tablet_output .= <<<EOT_a2
 		        <li class="flex-slide flex-slide-$count">				
 		           $image				
@@ -190,7 +232,8 @@ EOT_a2;
 		}
 	}
 $desktop_tablet_output .= <<<EOT_a3
-		    </ul>
+				$nextGalSlide
+			</ul>
 		</div>
 		<div class="flex-carousel" id="carousel-$gallery">
 		    <ul class="slides">
@@ -209,6 +252,7 @@ $desktop_tablet_output .= <<<EOT_a5_1
 		</div>
 		<div class="flex-carousel-nav"></div>
 		<div class="flex-carousel-fade-left"></div><div class="flex-carousel-fade-right"></div>
+		<div class="flex-carousel-cover"></div>
 		</div>
 EOT_a5_1;
 		//Just for viewing with the admin bar in the way

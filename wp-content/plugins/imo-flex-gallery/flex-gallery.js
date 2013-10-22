@@ -68,6 +68,7 @@ function imoFlexInitiate(isCommunity, galleryID, totalSlides, isFullScreenNow, i
 				jQuery('#flex-content-title-'+theSlide).show();
 				jQuery('#flex-content-community-'+theSlide).show();
 				jQuery('span.current-slide').text(theSlide);
+				jQuery('.flex-content').perfectScrollbar('update');	
 				if(isCommunity == true) {
 					if (window.addthis) {
 						window.addthis = null;
@@ -81,8 +82,11 @@ function imoFlexInitiate(isCommunity, galleryID, totalSlides, isFullScreenNow, i
 					jQuery.getScript('http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4de0e5f24e016c81');
 					jQuery('#flex-addthis-'+theSlide).css('visibility','visible');
 					jQuery('.flex-gallery-title h2').html(truncateSlideTitle(theSlideTitleText, theSlideTitleLink));
+				} else if(theSlide == totalSlides + 1){
+					jQuery('.flex-carousel-cover').fadeIn('fast');
+				} else if(theSlide <  totalSlides + 1){
+					jQuery('.flex-carousel-cover').fadeOut('fast');
 				}
-				jQuery('.flex-content').perfectScrollbar('update');	
 			}
 		});
 	});
@@ -120,7 +124,7 @@ function imoFlexSetup(isCommunity, galleryID, totalSlidesNow, isFullScreenNow, i
 			jQuery('.flex-gallery-container').css({'background':'#000'});
 			jQuery('.flex-gallery, .x-close, .flex-carousel, .flex-direction-nav, .flex-gallery-slide-out-inner').css({'visibility':'visible'});
 			jQuery('#flex-gallery-social iframe').addClass('display-inline-block');
-			jQuery('').css({'visibility':'visible'});
+			jQuery('.flex-gallery ul.slides li').addClass('display-block');//Because of default display none which helps iPad rendering
 		});
 	
 		jQuery('.flex-direction-nav a').text('');
@@ -247,6 +251,11 @@ function imoFlexSetup(isCommunity, galleryID, totalSlidesNow, isFullScreenNow, i
 			lockedOpen = true;
 			flexSortReload(isCommunity, galleryID, totalSlides, isFullScreen);	
 		});
+		jQuery('.next-gal-slide').on('click tap taphold', function(){
+			flexNextGal();
+		});
+		
+		//Resize Events
 		jQuery(window).bind('resize', function () { 
 			if(isFullScreen == false) {
 				resizeMainTitleH2();
@@ -498,7 +507,6 @@ function fullScreenOpen(callback) {
 	jQuery('body').addClass('flex-full-body');
 	jQuery('.flex-gallery-container, .flex-gallery-slide-out').addClass('flex-fullscreen');
 	jQuery('.flex-gallery-container').prependTo('body');
-	jQuery('.flex-gallery-slide-out').attr('style','');
 	jQuery('.flex-gallery-slide-out').insertAfter('.flex-gallery-container');
 	
 	ifCallback(callback);	
@@ -533,7 +541,7 @@ function fullScreenResize(callback) {
 		var commFeatHeight = 0;
 	}
 	jQuery('.flex-gallery-container').css({'height':'100%','width':fullSliderWidth+'px'});
-	
+	jQuery('.flex-gallery-slide-out').attr('style','');
 	if (jQuery('.sidebar-area').length) {
 		//if new responsive theme
 		jQuery('.flex-content').css({
@@ -573,13 +581,13 @@ function fullScreenResize(callback) {
 	jQuery('.flex-slide img').css({     
 		'max-height':(jQuery('.flex-slide').height()-3)+'px'
 	});
+	jQuery('.next-gal-slide img').css({     
+		'max-height':(jQuery('.flex-slide').height()-93)+'px'
+	});
 	jQuery('#flex-direction-nav-clone').css({
 		'top':(jQuery('.flex-gallery .flex-viewport').height()/2) - (jQuery('.flex-gallery .flex-direction-nav').height()/2)
 	});
 	sizeCarousel();
-	setTimeout(function(){
-	jQuery('.flex-gallery-slide-out').attr('style','');//repat from above for ios, figure this out and delete later. something is adding styles we on't want
-	}, 500);
 	jQuery('.flex-content').delay(100).perfectScrollbar('update');
 	window.scrollTo(0, 0);//Fixes Chrome OS X bug
 	ifCallback(callback);
@@ -677,7 +685,7 @@ function flexSortReload(isCommunity, galleryID, totalSlides, isFullScreen) {
 	jQuery('.community-sort-reload').css({'height':jQuery('.flex-gallery-inner').height()});
 	jQuery('.community-sort-reload').css({'background-position':((jQuery('.flex-gallery').width()+jQuery('.flex-gallery-slide-out').width())/2) - 104+'px 50%'});
 	jQuery.get(window.location, {gallery_sort:jQuery('.community-select').val()}, function(data){
-		var sortObj = document.createElement('div')
+		var sortObj = document.createElement('div');
 		sortObj.innerHTML = data;
 		jQuery('.flex-gallery-inner').html(jQuery(sortObj).find('.flex-gallery-inner').html());
 		jQuery('#flex-gallery-social-save').remove();
@@ -728,6 +736,60 @@ function flexSortReloadMobile(community) {
 	jQuery('.imo-flex-mobile').load(window.location + '?gallery_sort='+sortBy+' .explore-more-mobile-container', function() {
 				imoFlexSetupMobile(community);
 	});
+}
+
+function flexNextGal() {
+	var nextGal = parseInt(jQuery('.next-gal-id').text());
+	var nextGalUrl = jQuery('.next-gal-url').text();
+	jQuery('.flex-gallery-slide-out-inner, .flex-gallery, .flex-carousel-nav, .flex-carousel, .flex-carousel-fade-left, .flex-carousel-fade-right, .x-close, .flex-carousel-cover').fadeOut('fast');
+	jQuery('.flex-gallery-inner').addClass('community-sort-reload');
+	jQuery('.community-sort-reload').css({'height':jQuery('.flex-gallery-inner').height()});
+	if(slideOutShown == true) {
+		jQuery('.community-sort-reload').css({'background-position':((jQuery('.flex-gallery').width()+jQuery('.flex-gallery-slide-out').width())/2) - 104+'px 50%'});
+	} else {
+		jQuery('.community-sort-reload').css({'background-position':'50% 50%'});
+	}
+	flexNextGalGet(nextGal, nextGalUrl);
+}
+
+function flexNextGalGet(nextGal, nextGalUrl) {
+	jQuery.get(nextGalUrl, function(data){
+		var galObj = document.createElement('div');
+		galObj.innerHTML = data;
+		totalSlides = parseInt(jQuery(galObj).find('.total-slides').text()) - 1;
+		if(totalSlides > 0) {
+			if(slideOutShown == false) {
+				showSlideOut();
+			}
+			jQuery('.flex-gallery-inner').html(jQuery(galObj).find('.flex-gallery-inner').html());
+			jQuery('#flex-gallery-social-save').remove();
+			jQuery('#flex-gallery-social').html(jQuery(galObj).find('#flex-gallery-social-save').html());
+			jQuery('.flex-gallery-slide-out').html(jQuery(galObj).find('.flex-gallery-slide-out').html());
+			galObj = null;
+			setTimeout(function() {
+				imoFlexInitiate(false, nextGal, totalSlides, isFullScreen, true, function(){
+					positionSlideOut();
+					if(isFullScreen == true) {
+						jQuery('.flex-gallery-slide-out').attr('style','');
+						jQuery('.flex-gallery-slide-out').insertAfter('.flex-gallery-container');
+						fullScreenOpenTopLeft();
+					}	
+					if (window.addthis) {
+						window.addthis = null;
+						window._adr = null;
+						window._atc = null;
+						window._atd = null;
+						window._ate = null;
+						window._atr = null;
+						window._atw = null;
+					}
+					jQuery.getScript('http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4de0e5f24e016c81');
+				});
+			}, 500);
+		} else {
+			flexNextGalGet(nextGal);
+		}
+	}, 'html');
 }
 
 function filterSlideContent() {
