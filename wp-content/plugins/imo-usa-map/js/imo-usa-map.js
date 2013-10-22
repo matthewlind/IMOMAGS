@@ -215,21 +215,20 @@ function getMapForContainer(containerNameString) {
 				})
 			}
 			
-			jQuery(st[0]).click(function() {
-		        jQuery(this).toggleClass('hover_effect');
-				//alert(state + '!');
-				
-				//alert('http://www.northamericanwhitetail.deva/community/' + post_type + '/' + stateAbbrev[state.toUpperCase()].replace(" ","-"));
-	
-				window.location = '/community/' + post_type + '/' + stateAbbrev[state.toUpperCase()].replace(" ","-");
-	
-			});
-		    /*jQuery(st[0]).bind('touchstart touchend', function(e) {
+			postURL = '/community/' + post_type + '/' + stateAbbrev[state.toUpperCase()].replace(" ","-");
+			//map touch vs click mobile/tablet fix
+			if($mobile == true){
+				jQuery(st[0]).bind('touchstart touchend', function(e) {
 			        e.preventDefault();
 			        jQuery(this).toggleClass('hover_effect');
 					window.location = postURL;
-				});*/
-		
+				});
+			}else{
+				jQuery(st[0]).click(function() {
+					window.location = postURL;
+				});
+			}
+
 		    st[0].onmouseout = function () {
 	
 		    	colorcode = 1;
