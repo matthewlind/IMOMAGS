@@ -61,7 +61,11 @@ $tempFileName = "/data/wordpress/imomags/wp-content/cache/temp-feeds/$network-$t
 
 
 $fileExists = file_exists($fileName);
-$fileTimestamp = filemtime($fileName);
+
+if ($fileExists)
+    $fileTimestamp = filemtime($fileName);
+else
+    $fileTimestamp = 1643473790; //Year 2022 (not expired.)
 
 $fileAge = time() - $fileTimestamp;
 
@@ -75,7 +79,7 @@ if ($fileExists) {
     //return file
     $fileData = file_get_contents($fileName);
 
-    if ($fileIsStale) {
+    if ($fileIsStale && !file_exists($tempFileName)) {
 
         sendDataAndStartBackgroundProcess($fileData);
 
