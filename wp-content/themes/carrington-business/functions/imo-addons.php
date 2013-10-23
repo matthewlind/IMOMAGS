@@ -377,7 +377,7 @@ add_shortcode( 'imo-featured-flexslider', 'imo_featured_flexslider' );
 
 
 // shortcode loop for pages
-//[loop category="news" posts_per_page=20 query="" pagination="false"]
+//[loop pagination="false" category="news" posts_per_page=20 query=""]
 function myLoop($atts, $content = null) {
 	extract(shortcode_atts(array(
 		"pagination" => 'true',
