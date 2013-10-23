@@ -11,7 +11,7 @@ get_header(); ?>
                     <img alt="" src="<?php bloginfo('template_directory'); ?>/images/pic/subscribe-banner.jpg">
                 </a>-->
                 <?php $fetured_slider_query = new WP_Query( 'category_name=featured&posts_per_page=5' ); ?>
-                <div data-position="<?php echo $dataPos = $dataPos + 1; ?> "class="post-slider loading-block js-responsive-section">
+                <div data-position="<?php echo $dataPos = $dataPos + 1; ?> "class="post-slider homepage-slider loading-block js-responsive-section">
                     <div class="jq-slider onload-hidden">
                         <ul class="slides-inner slides">
                             <?php while ($fetured_slider_query->have_posts()) : $fetured_slider_query->the_post(); ?>

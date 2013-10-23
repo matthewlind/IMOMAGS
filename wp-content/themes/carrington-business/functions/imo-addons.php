@@ -369,7 +369,7 @@ function imo_featured_flexslider( $atts ) {
 	</script>	
 <?php }
 wp_enqueue_style('flexslider-css',get_template_directory_uri() . '/js/flexslider/flexslider.css', __FILE__);
-wp_enqueue_script('flex-gallery-js',get_template_directory_uri() . '/js/flexslider/jquery.flexslider.js',array('jquery'));
+wp_enqueue_script('flex-slider-js',get_template_directory_uri() . '/js/flexslider/jquery.flexslider.js',array('jquery'));
 wp_enqueue_script('resizecrop-js',get_template_directory_uri() . '/js/jquery.resizecrop-1.0.3.js', __FILE__);
 
 add_shortcode( 'imo-featured-flexslider', 'imo_featured_flexslider' );

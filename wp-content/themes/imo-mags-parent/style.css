@@ -794,6 +794,9 @@ img{max-width: 100%;height: auto;}
 	top: 480px;
 	background-color: black;
 }
+.flex-direction-nav{
+	visibility: visible;
+}
 .post-slider {
     width:100%;
     border:1px solid #fff;
@@ -801,6 +804,7 @@ img{max-width: 100%;height: auto;}
     margin:0 0 50px;
     background:url(images/bg/grey-transparence.png) repeat;
 }
+.category-master-angler ol.flex-control-paging{margin-left: 0 !important;}
 .cat-label a {
 	padding: 4px 18px;
     float:left;

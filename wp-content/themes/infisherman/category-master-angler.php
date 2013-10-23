@@ -35,7 +35,7 @@ get_header(); ?>
                                 echo apply_filters( 'category_archive_meta', '<div data-position="'.$dataPos = $dataPos + 1 .'" class="category-archive-meta taxdescription js-responsive-section">' . $category_description . '</div>' ); ?>
 	                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="js-responsive-section">
 	                	<div class="custom-slider-section">
-	                	<?php //echo do_shortcode('[imo-slideshow community=true gallery=master-angler]'); ?>
+	                	<?php echo do_shortcode('[imo-slideshow community=true gallery=master-angler]'); ?>
 	                	</div>
 					</div>
 
