@@ -131,10 +131,7 @@ function galleryOutput($gallery, $pictures, $totalSlides, $dartDomain, $communit
 		global $wpdb;
 		$title = stripcslashes($pictures[0]->title);
 		$prefix = $wpdb->prefix;
-		$nextGenGalCount = $wpdb->get_results($wpdb->prepare(
-				"SELECT COUNT(*) FROM {$prefix}ngg_gallery"
-			)
-		);
+		$nextGenGalCount = $wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM {$prefix}ngg_gallery")); 
 		$nextGalID = intval($gallery) + 1;
 		$nextGalFound = false;
 		while ($nextGalFound == false) {
@@ -161,6 +158,7 @@ function galleryOutput($gallery, $pictures, $totalSlides, $dartDomain, $communit
 							<img src="'.$nextGalPics[0]->img_url.'"/>
 							<span class="next-gal-id display-none">'.$nextGalID.'</span>
 							<span class="next-gal-url display-none">'.$nextGalUrl.'</span>
+							<span class="next-gen-gal-count display-none">'.$nextGenGalCount.'</span>
 						</li>
 					';
 					$totalSlidesShow = $totalSlides + 1;
