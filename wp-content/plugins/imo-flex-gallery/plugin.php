@@ -161,7 +161,7 @@ function galleryOutput($gallery, $pictures, $totalSlides, $dartDomain, $communit
 							<span class="next-gen-gal-count display-none">'.$nextGenGalCount.'</span>
 						</li>
 					';
-					$totalSlidesShow = $totalSlides + 1;
+					$totalSlidesShow = $totalSlides; //+ 1;
 				}
 			} else {
 				if($nextGalID >= $nextGenGalCount) {
@@ -230,7 +230,7 @@ EOT_a2;
 		}
 	}
 $desktop_tablet_output .= <<<EOT_a3
-				$nextGalSlide
+				
 			</ul>
 		</div>
 		<div class="flex-carousel" id="carousel-$gallery">
