@@ -5,8 +5,6 @@ clear: both;
 content: "";
 display: table;
 }
-.display-none {display: none !important;}
-.display-inline-block {display: inline-block !important;}
 .top-bar,
 .network-nav {z-index: 9999;}
 
@@ -36,7 +34,7 @@ div.flex-viewport {
 	max-width: 99.5%;
 	width: auto;
     height:auto !important;
-    max-height: 440px;
+    max-height: 435px;
 	vertical-align: middle;
 }
 .flex-slide .flex-object-wrap {
@@ -96,7 +94,7 @@ div.flex-gallery-title {
 .flex-gallery-title h2 a {
 	color: #fff;
 }
-.flex-gallery-title h2 a:hover {
+.flex-gallery-title h2 a:hover, .next-gal-slide h2 a:hover {
 	color: #c9242c;
 }
 h2.flex-gallery-title-small {
@@ -291,6 +289,16 @@ font-size: 14px;
 	position: relative;
 	z-index: 9003;
 	text-align: center;
+}
+.flex-carousel-cover {
+	display: none;
+	float: left;
+	position: relative;
+	margin: -63px 0 0 0;
+	z-index: 10000;
+	width: 100%;
+	height: 50px;
+	background:#000;
 }
 .flex-carousel-fade-left {
 	float: left;
@@ -537,7 +545,31 @@ a.post-a-photo:hover span .post-a-photo-icon {
 	position: relative;
 	margin: 15px 0 0 0;
 }
-
+li.next-gal-slide:hover {
+	cursor: pointer;
+}
+li.next-gal-slide:hover .flex-gallery-button {
+	background: #C1272E url(img/sprite.png) no-repeat;
+	background-position: 0px -110px;
+}
+li.next-gal-slide:hover h2 {
+	color: #C1272E;
+}
+.next-gal-slide .flex-gallery-button {
+	margin-bottom: 20px;
+}
+.next-gal-slide h2 {
+	color: #fff;
+	font-style:italic;
+	margin: 5px;
+	font: 20px "stagregular", "StagMedium", serif;
+	text-transform: capitalize;
+	white-space: normal;
+	text-align: center;
+}
+.next-gal-slide img {
+	max-height: 300px;
+}
 
 /* .flex-fullscreen */
 .flex-fullscreen .flex-gallery-title {
@@ -598,7 +630,7 @@ a.post-a-photo:hover span .post-a-photo-icon {
 	right: 0 !important;
 	top: 0 !important;
 	float:right !important;
-	margin-right: 0 !important;
+	margin-right: 0;
 }
 .flex-full-body .flex-gallery-container {
 	position: fixed;
@@ -752,3 +784,11 @@ a.post-a-photo:hover span .post-a-photo-icon {
 		margin-top: 2px;
 	}
 }
+
+/* General Overrides */
+.display-none,
+a.display-none {display: none !important;}
+.display-inline-block,
+a.display-inline-block {display: inline-block !important;}
+.display-block,
+li.display-block {display: block !important;}
