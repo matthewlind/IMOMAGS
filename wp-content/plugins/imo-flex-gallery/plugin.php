@@ -203,7 +203,7 @@ EOT_a1;
 				//$picture->img_url = $baseUrl.$picture->img_url;
 				$picture->thumbnail = $picture->img_url.'/convert?rotate=exif&w=60&h=45&fit=crop';
 				$picture->description = $picture->body;
-				$image = '<img src="'.$picture->img_url.'/convert?rotate=exif" alt="'.$picture->title.'" class="slide-image">';
+				$image = '<img src="'.$picture->img_url.'/convert?rotate=exif&w=1200&h=1200" alt="'.$picture->title.'" class="slide-image">';
 				$addThis .= '
 					<div id="flex-addthis-'.$count.'" class="flex-addthis">
 						<div addthis:url="'.$baseUrl.'/photos/'.$picture->id.'" addthis:title="'.htmlentities($picture->title).'" class="addthis_toolbox addthis_default_style ">
