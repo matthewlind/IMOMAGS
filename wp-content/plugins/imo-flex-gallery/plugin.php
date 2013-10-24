@@ -161,7 +161,7 @@ function galleryOutput($gallery, $pictures, $totalSlides, $dartDomain, $communit
 							<span class="next-gen-gal-count display-none">'.$nextGenGalCount.'</span>
 						</li>
 					';
-					$totalSlidesShow = $totalSlides; //+ 1;
+					$totalSlidesShow = $totalSlides + 1;
 				}
 			} else {
 				if($nextGalID >= $nextGenGalCount) {
@@ -201,9 +201,9 @@ EOT_a1;
 			if($community == true ) {
 				$picture->img_url = $picture->img_url;
 				//$picture->img_url = $baseUrl.$picture->img_url;
-				$picture->thumbnail = $picture->img_url.'/convert?rotate=0&w=60&h=45&fit=crop';
+				$picture->thumbnail = $picture->img_url.'/convert?rotate=exif&w=60&h=45&fit=crop';
 				$picture->description = $picture->body;
-				$image = '<img src="'.$picture->img_url.'/convert?rotate=0" alt="'.$picture->title.'" class="slide-image">';
+				$image = '<img src="'.$picture->img_url.'/convert?rotate=exif" alt="'.$picture->title.'" class="slide-image">';
 				$addThis .= '
 					<div id="flex-addthis-'.$count.'" class="flex-addthis">
 						<div addthis:url="'.$baseUrl.'/photos/'.$picture->id.'" addthis:title="'.htmlentities($picture->title).'" class="addthis_toolbox addthis_default_style ">
@@ -230,7 +230,7 @@ EOT_a2;
 		}
 	}
 $desktop_tablet_output .= <<<EOT_a3
-				
+				$nextGalSlide
 			</ul>
 		</div>
 		<div class="flex-carousel" id="carousel-$gallery">
@@ -366,7 +366,7 @@ EOT;
 
 $mobile_output .= <<<EOT2
 		        <li>
-		            <a href="$baseUrl/photos/$picture->id"><img src="$picture->img_url/convert?rotate=0&w=119&h=89&fit=crop" alt="$picture->alttext" ></a>
+		            <a href="$baseUrl/photos/$picture->id"><img src="$picture->img_url/convert?rotate=exif&w=119&h=89&fit=crop" alt="$picture->alttext" ></a>
 		        </li>
 EOT2;
 		$count++;
@@ -498,7 +498,7 @@ function conditionally_add_scripts_and_styles($posts){
         	//Enqueue for Mobile Community
             if(mobile() == true) {
             	wp_enqueue_script('flex-gallery-js',plugins_url('flex-gallery.js', __FILE__));
-                wp_enqueue_style('ajax-gallery-css',plugins_url('flex-gallery.css', __FILE__));
+                wp_enqueue_style('flex-gallery-css',plugins_url('flex-gallery.css', __FILE__));
             	wp_enqueue_script('flexslider-js',plugins_url('jquery.flexslider.js', __FILE__));
                 wp_enqueue_style('flexslider-css',plugins_url('flexslider.css', __FILE__));
                 
@@ -516,7 +516,7 @@ function conditionally_add_scripts_and_styles($posts){
 			wp_enqueue_script('jquery-ui-slide-effect',plugins_url('jquery-ui-slide-effect.min.js', __FILE__));
 			wp_enqueue_script('jquery-mousewheel',plugins_url('jquery.mousewheel.min.js', __FILE__));
 			wp_enqueue_script('perfect-scrollbar-js',plugins_url('perfect-scrollbar-0.4.3.with-mousewheel.min.js', __FILE__));
-			wp_enqueue_style('ajax-gallery-css',plugins_url('flex-gallery.css', __FILE__));
+			wp_enqueue_style('flex-gallery-css',plugins_url('flex-gallery.css', __FILE__));
 			wp_enqueue_style('perfect-scrollbar-css',plugins_url('perfect-scrollbar-0.4.3.min.css', __FILE__));
 			}
 
@@ -542,7 +542,7 @@ function conditionally_add_scripts_and_styles($posts){
                     wp_enqueue_script('jquery-buffet',plugins_url('jquery.buffet.min.js', __FILE__));
                     wp_enqueue_script('jquery-mousewheel',plugins_url('jquery.mousewheel.min.js', __FILE__));
                     wp_enqueue_script('perfect-scrollbar-js',plugins_url('perfect-scrollbar-0.4.3.with-mousewheel.min.js', __FILE__));
-                    wp_enqueue_style('ajax-gallery-css',plugins_url('flex-gallery.css', __FILE__));
+                    wp_enqueue_style('flex-gallery-css',plugins_url('flex-gallery.css', __FILE__));
                     wp_enqueue_style('perfect-scrollbar-css',plugins_url('perfect-scrollbar-0.4.3.min.css', __FILE__));
                 }
     
