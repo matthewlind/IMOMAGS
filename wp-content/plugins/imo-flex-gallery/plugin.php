@@ -131,11 +131,12 @@ function galleryOutput($gallery, $pictures, $totalSlides, $dartDomain, $communit
 		global $wpdb;
 		$title = stripcslashes($pictures[0]->title);
 		$prefix = $wpdb->prefix;
-		$nextGenGalCount = $wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM {$prefix}ngg_gallery")); 
+		$nextGalLimit = $wpdb->get_var($wpdb->prepare("SELECT * FROM {$prefix}ngg_gallery ORDER BY gid DESC LIMIT 0, 1"));
+		$nextGalStart = $wpdb->get_var($wpdb->prepare("SELECT * FROM {$prefix}ngg_gallery ORDER BY gid ASC LIMIT 0, 1"));
 		$nextGalID = intval($gallery) + 1;
 		$nextGalFound = false;
 		while ($nextGalFound == false) {
-			$query_args = array('s' => 'gallery='.$nextGalID, 'post_status'=>'publish', 'posts_per_page' => 1, 'orderby' => 'date', 'order' => 'DESC' );
+			$query_args = array('s' => 'gallery='.$nextGalID.']', 'post_status'=>'publish', 'posts_per_page' => 1, 'orderby' => 'date', 'order' => 'DESC' );
 			$query = new WP_Query($query_args);
 			if ($query->have_posts()) {
 				$nextGalFound = true;
@@ -158,14 +159,13 @@ function galleryOutput($gallery, $pictures, $totalSlides, $dartDomain, $communit
 							<img src="'.$nextGalPics[0]->img_url.'"/>
 							<span class="next-gal-id display-none">'.$nextGalID.'</span>
 							<span class="next-gal-url display-none">'.$nextGalUrl.'</span>
-							<span class="next-gen-gal-count display-none">'.$nextGenGalCount.'</span>
 						</li>
 					';
 					$totalSlidesShow = $totalSlides + 1;
 				}
 			} else {
-				if($nextGalID >= $nextGenGalCount) {
-					$nextGalID = 1;
+				if($nextGalID > $nextGalLimit) {
+					$nextGalID = $nextGalStart;
 				} else {
 					$nextGalID++;
 				}

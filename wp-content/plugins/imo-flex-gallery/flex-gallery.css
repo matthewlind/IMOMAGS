@@ -545,6 +545,11 @@ a.post-a-photo:hover span .post-a-photo-icon {
 	position: relative;
 	margin: 15px 0 0 0;
 }
+li.next-gal-slide {
+	width: 100%;
+	height: 100%;
+	background: #000;
+}
 li.next-gal-slide:hover {
 	cursor: pointer;
 }
