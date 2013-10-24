@@ -377,12 +377,14 @@ add_shortcode( 'imo-featured-flexslider', 'imo_featured_flexslider' );
 
 
 // shortcode loop for pages
-//[loop pagination="false" category="news" posts_per_page=20 query=""]
+//[loop pagination="false" category="news" posts_per_page=20 query="" type="list"]
 function myLoop($atts, $content = null) {
 	extract(shortcode_atts(array(
 		"pagination" => 'true',
 		"query" => '',
 		"category" => '',
+		"posts_per_page" => 20,
+		"type" => 'excerpt'
 	), $atts));
 	global $wp_query,$paged,$post;
 	$temp = $wp_query;
@@ -404,23 +406,31 @@ function myLoop($atts, $content = null) {
 	$wp_query->query($query);
 	ob_start();
 
-	if(!empty($category)){ ?>
-		<h2><?php echo $category; ?></h2>
-	<?php } ?>
-	<?php while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
-		<div class="post type-post status-publish format-standard hentry category-breeds entry entry-excerpt clearfix has-img">
-			<div class="entry-summary">
-				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('small-featured-thumb',array('class' => 'entry.has-img entry-summary entry-img'));?></a>		
-				<div class="entry-info">
-					<h2 class="entry-title"><a rel="bookmark" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-					<?php the_date(); ?>
-					<a href="<?php the_permalink(); ?>/#comments" title="<?php the_title(); ?>"><?php comments_number(); ?></a>		
+	if($type == "excerpt"){
+	
+		while ($wp_query->have_posts()) : $wp_query->the_post();  ?>
+			<div class="post type-post status-publish format-standard hentry category-breeds entry entry-excerpt clearfix has-img">
+				<div class="entry-summary">
+					<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( array(190,120),array('class' => 'entry.has-img entry-summary entry-img'));?></a>		
+					<div class="entry-info">
+						<h2 class="entry-title"><a rel="bookmark" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+						<?php the_date(); ?>
+						<a href="<?php the_permalink(); ?>/#comments" title="<?php the_title(); ?>"><?php comments_number(); ?></a>		
+					</div>
+					<?php the_excerpt(); ?>			
 				</div>
-				<?php the_excerpt(); ?>			
 			</div>
-		</div>
-	<?php endwhile; ?>
-	<?php if(pagination == 'true'){ ?>
+
+		<?php endwhile;
+	} 
+	
+	if($type == "list"){ 
+		while ($wp_query->have_posts()) : $wp_query->the_post();  ?>
+				<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+		<?php endwhile;
+	} 
+	
+	if(pagination == 'true'){ ?>
 	<div class="navigation">
 	  <div class="alignleft"><?php previous_posts_link('« Previous') ?></div>
 	  <div class="alignright"><?php next_posts_link('More »') ?></div>
