@@ -173,8 +173,8 @@ function imo_superpost_set_title($title,$sep,$seplocation) {
 
 
     if ($queryVars["spid"]) {
-        //$title = $wp_query->query_vars['post_title'];
-        $title = "cheese";
+        $title = $wp_query->query_vars['post_title'];
+        //$title = "cheese";
     }
 
 
