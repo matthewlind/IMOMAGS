@@ -185,7 +185,6 @@ function getMapForContainer(containerNameString) {
 		      st.animate({fill: st.color}, 50);
 		      st.toFront();
 		      R.safari();
-		      ////console.log(state);
 		    };
 	
 		    var targetPosition = 'topMiddle';
@@ -214,18 +213,17 @@ function getMapForContainer(containerNameString) {
 				   }
 				})
 			}
-			
-			postURL = '/community/' + post_type + '/' + stateAbbrev[state.toUpperCase()].replace(" ","-");
+						
 			//map touch vs click mobile/tablet fix
 			if($mobile == true){
 				jQuery(st[0]).bind('touchstart touchend', function(e) {
 			        e.preventDefault();
 			        jQuery(this).toggleClass('hover_effect');
-					window.location = postURL;
+					window.location = '/community/' + post_type + '/' + stateAbbrev[state.toUpperCase()].replace(" ","-");;
 				});
 			}else{
 				jQuery(st[0]).click(function() {
-					window.location = postURL;
+					window.location = '/community/' + post_type + '/' + stateAbbrev[state.toUpperCase()].replace(" ","-");;
 				});
 			}
 
