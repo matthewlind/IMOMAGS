@@ -332,51 +332,59 @@ add_action('wp_head','imo_addons_include_header_file');
 
 //shortcode featured sliders for pages
 function imo_featured_flexslider( $atts ) {
-	
 	$post = new WP_Query( 'category_name=featured&posts_per_page=4' ); ?>
     <div class="post-slider loading-block js-responsive-section">
         <div class="jq-featured-slider onload-hidden">
             <ul class="slides-inner slides">
                 <?php while ($post->have_posts()) : $post->the_post(); 
-	                $feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>
-	      
-	                <li data-thumb="<?php echo $feat_image; ?>">
-	                    <a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('large-featured-thumb');?></a>
+
+	                $thumb = wp_get_attachment_url( get_post_thumbnail_id($post->ID)); ?>
+					
+	                <li data-thumb="<?php echo $thumb; ?>">
+	                    <a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('large-featured-thumb-x');?></a>
 	                    <div class="nl-txt">
-	                        <h2 class="entry-title home-entry-title"><a href="<?php the_permalink(); ?>" ><?php $title = the_title('','',FALSE); echo substr($title, 0, 70); if (strlen($title) > 70) echo "..."; ?></a></h2>
+	                        <h2><a href="<?php the_permalink(); ?>" ><?php $title = the_title('','',FALSE); echo substr($title, 0, 70); if (strlen($title) > 70) echo "..."; ?></a></h2>
 	                   </div>
 	                </li>
 	            <?php endwhile; ?>
             </ul>
         </div>
     </div>
-
 	<script type="text/javascript">
-	
+	jQuery(document).ready(function(){
 		jQuery('.jq-featured-slider').flexslider({
 			animation: "slide",
 			animationSpeed: 200,
 			controlNav: "thumbnails",
 			slideshow: true
 		});
-
+		jQuery('ol.flex-control-thumbs img').resizecrop({
+		  width:98,
+		  height:76,
+		  vertical:"middle"
+		});  
+		//fix
+		jQuery('ol.flex-control-thumbs li:first-child img').addClass("flex-active");
+	});  
 	</script>	
-	<?php 
-	
-
-}
+<?php }
 wp_enqueue_style('flexslider-css',get_template_directory_uri() . '/js/flexslider/flexslider.css', __FILE__);
-wp_enqueue_script('flex-gallery-js',get_template_directory_uri() . '/js/flexslider/jquery.flexslider.js',array('jquery'));
+wp_enqueue_script('flex-slider-js',get_template_directory_uri() . '/js/flexslider/jquery.flexslider.js',array('jquery'));
+wp_enqueue_script('resizecrop-js',get_template_directory_uri() . '/js/jquery.resizecrop-1.0.3.js', __FILE__);
+
 add_shortcode( 'imo-featured-flexslider', 'imo_featured_flexslider' );
 
 
 
 // shortcode loop for pages
+//[loop pagination="false" category="news" posts_per_page=20 query="" type="list"]
 function myLoop($atts, $content = null) {
 	extract(shortcode_atts(array(
 		"pagination" => 'true',
 		"query" => '',
 		"category" => '',
+		"posts_per_page" => 20,
+		"type" => 'excerpt'
 	), $atts));
 	global $wp_query,$paged,$post;
 	$temp = $wp_query;
@@ -385,6 +393,7 @@ function myLoop($atts, $content = null) {
 	if($pagination == 'true'){
 		$query .= '&paged='.$paged;
 	}
+	$query .= '&post_type=post';
 	if(!empty($category)){
 		$query .= '&category_name='.$category;
 	}
@@ -396,24 +405,32 @@ function myLoop($atts, $content = null) {
 	}
 	$wp_query->query($query);
 	ob_start();
-	?>
-	
 
-	<h2><?php echo $category; ?></h2>
-	<?php while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
-		<div class="post type-post status-publish format-standard hentry category-breeds entry entry-excerpt clearfix has-img">
-			<div class="entry-summary">
-				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array('class' => 'entry.has-img entry-summary entry-img'));?></a>		
-				<div class="entry-info">
-					<h2 class="entry-title"><a rel="bookmark" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-					<?php the_date(); ?>
-					<a href="<?php the_permalink(); ?>/#comments" title="<?php the_title(); ?>"><?php comments_number(); ?></a>		
+	if($type == "excerpt"){
+	
+		while ($wp_query->have_posts()) : $wp_query->the_post();  ?>
+			<div class="post type-post status-publish format-standard hentry category-breeds entry entry-excerpt clearfix has-img">
+				<div class="entry-summary">
+					<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( array(190,120),array('class' => 'entry.has-img entry-summary entry-img'));?></a>		
+					<div class="entry-info">
+						<h2 class="entry-title"><a rel="bookmark" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+						<?php the_date(); ?>
+						<a href="<?php the_permalink(); ?>/#comments" title="<?php the_title(); ?>"><?php comments_number(); ?></a>		
+					</div>
+					<?php the_excerpt(); ?>			
 				</div>
-				<?php the_excerpt(); ?>			
 			</div>
-		</div>
-	<?php endwhile; ?>
-	<?php if(pagination == 'true'){ ?>
+
+		<?php endwhile;
+	} 
+	
+	if($type == "list"){ 
+		while ($wp_query->have_posts()) : $wp_query->the_post();  ?>
+				<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+		<?php endwhile;
+	} 
+	
+	if(pagination == 'true'){ ?>
 	<div class="navigation">
 	  <div class="alignleft"><?php previous_posts_link('« Previous') ?></div>
 	  <div class="alignright"><?php next_posts_link('More »') ?></div>

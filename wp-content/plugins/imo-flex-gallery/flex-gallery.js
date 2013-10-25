@@ -516,9 +516,11 @@ function fullScreenOpen(callback) {
 function fullScreenOpenTopLeft(callback) {
 	jQuery('#flex-gallery-social').prependTo('.flex-gallery');
 	jQuery('.flex-gallery .flex-direction-nav').insertAfter('#flex-gallery-social');
-	jQuery('.btn-full-screen').insertAfter('.flex-gallery .flex-direction-nav');
+	if(jQuery('#flex-direction-nav-clone').length == 0){
+			jQuery('.btn-full-screen').insertAfter('.flex-gallery .flex-direction-nav');
 	jQuery('.flex-counter').insertAfter('.btn-full-screen');
-	jQuery('.flex-gallery .flex-direction-nav').clone(true,true).appendTo('.flex-gallery .flex-viewport').attr('id','flex-direction-nav-clone');
+		jQuery('.flex-gallery .flex-direction-nav').clone(true,true).appendTo('.flex-gallery .flex-viewport').attr('id','flex-direction-nav-clone');
+	}
 	jQuery('.btn-full-screen').text('Exit Fullscreen');
 	jQuery('#flex-direction-nav-clone').hide();
 	
@@ -759,7 +761,7 @@ function flexNextGalGet(nextGal, nextGalUrl) {
 		totalSlides = parseInt(jQuery(galObj).find('.total-slides').text()) - 1;
 		if(totalSlides > 0) {
 			if(slideOutShown == false) {
-				showSlideOut();
+				showSlideOut();	
 			}
 			jQuery('.flex-gallery-inner').html(jQuery(galObj).find('.flex-gallery-inner').html());
 			jQuery('#flex-gallery-social-save').remove();
@@ -772,6 +774,7 @@ function flexNextGalGet(nextGal, nextGalUrl) {
 					if(isFullScreen == true) {
 						jQuery('.flex-gallery-slide-out').attr('style','');
 						jQuery('.flex-gallery-slide-out').insertAfter('.flex-gallery-container');
+						jQuery('#flex-direction-nav-clone').remove();
 						fullScreenOpenTopLeft();
 					}	
 					if (window.addthis) {
