@@ -243,7 +243,7 @@
                    <a id="open-left" class="open-menu">open menu</a>	
                   
                     <strong class="logo">
-						<h1 class="state-logo">Indiana</h1>
+						<h1 class="state-logo">State</h1>
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/logo.png" alt="<?php bloginfo( 'name' ); ?>" /><span class="state-drop"></span></a>
 						<div class="gf-drop-down">
 							<aside id="us-map-nav" class="us-map-widget">

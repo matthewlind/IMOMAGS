@@ -667,6 +667,15 @@ img{max-width: 100%;height: auto;}
 .menu-main-menu-container li:last-child a.has-drop:after, .menu-header-menu-container li:last-child a.has-drop:after {
     top: 18px;
 }
+.menu-main-menu-container > ul > li > a,
+.menu-header-menu-container > ul > li > a {
+    display:block;
+    height:42px;
+    color:#fff;
+    font:19px/42px "stagbold", serif;
+    text-transform:uppercase;
+    padding:0 18px 0 22px;
+}
 .header .menu-main-menu-container > ul > li.current-menu-item > a,
 .header .menu-header-menu-container > ul > li.current-menu-item > a,
 .menu-main-menu-container > ul > li:hover > a,
@@ -2459,6 +2468,12 @@ h2.related-stories{
 .jq-explore-slider-sidebar img:hover{
 	opacity:0.7;-webkit-transition: 0.6s;-moz-transition: 0.6s;transition: 0.6s;
 }
+
+/* banner page */
+.page-template-page-banner-php .article-holder{
+	margin-top: 160px;
+}
+.page-template-page-banner-php .sidebar-area{margin-top: 210px;}
 
 /* Master Angler
  ******************************************************************************/

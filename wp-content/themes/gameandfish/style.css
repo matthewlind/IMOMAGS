@@ -30,6 +30,7 @@ body{background-color: black;}
 .state-logo{
 	font: 20px "stagregular",serif;
 	color: #f2c11d;
+	visibility: hidden;
 }
 .header{
 	background: #212121; /* Old browsers */
@@ -712,6 +713,18 @@ background-color:#FFFFFF}
 	top: 425px;
 	left: 440px;
 	display: none;
+}
+
+
+/*banners*/
+.gf-photo-corner-biggame {
+	background: url(http://www.wildfowlmag.com/files/2012/11/Wildfowl-Fowl-Territory-Banner.jpg) no-repeat scroll 60px 0px black;
+	height: 200px;
+	margin-bottom: 20px;
+	position: absolute;
+	top: -51px;
+	width: 1080px;
+	left: -31px;
 }
 
 /* = Footer
