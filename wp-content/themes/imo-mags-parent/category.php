@@ -54,12 +54,10 @@ get_header(); ?>
                        
                         <?php if ( $i == 4 && $paged == 0 ){ ?>
 	                       <div class="post">
-		                       <div class="custom-slider-section">
-			                        <h2 style="margin-top:10px;">Explore Photos</h2>
-			                        <?php $category = get_category( get_query_var( 'cat' ) );
-									$category_slug = $cat->slug;
-			                        echo do_shortcode('[imo-slideshow community=true gallery='. $category_slug .']'); ?>
-			                   </div>
+		                        <h2 style="margin-top:10px;">Explore Photos</h2>
+		                        <?php $category = get_category( get_query_var( 'cat' ) );
+								$category_slug = $cat->slug;
+		                        echo do_shortcode('[imo-slideshow community=true gallery='. $category_slug .']'); ?>
 			               </div>
 		                <?php } ?>
 							

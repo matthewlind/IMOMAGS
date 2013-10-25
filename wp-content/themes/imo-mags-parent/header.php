@@ -105,7 +105,7 @@
 	
 	        <div class="mob-aside-menu">
 	            <?php
-	            if(has_nav_menu( 'Mobile Menu' )){
+	            if(has_nav_menu( 'mobile' )){
 	                wp_nav_menu(array(
 	                    'menu_class'=>'menu',
 	                    'theme_location'=>'mobile',
@@ -171,7 +171,9 @@
 	         return;
 	    }
 	    
+	    
 	?>
+
 	<div class="snap-drawer snap-drawer-right" id="right-drawer">
 		 <div>
 			<div class="mobile-menu-banner">
@@ -251,7 +253,11 @@
 
                    <a id="open-left" class="open-menu">open menu</a>
                     <strong class="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/logo.png" alt="<?php bloginfo( 'name' ); ?>" /></a></strong>
-					<a id="comm-mob-menu" class="user-btn" <?php if( is_user_logged_in() ) { echo 'style="background:url(/avatar?uid=' . $data->ID . ') no-repeat center center;"'; } ?>>user</a>
+                    	<?php if ( function_exists('imo_community_template') ){ ?>
+						<a id="comm-mob-menu" class="user-btn" <?php if( is_user_logged_in() ) { echo 'style="background:url(/avatar?uid=' . $data->ID . ') no-repeat center center;"'; } ?>>user</a>
+						<?php }else{ ?>
+							<a id="comm-mob-menu" class="user-btn" style="display:none;">
+						<?php } ?>
 					<div class="community-tooltip"></div>
                      
                      
@@ -318,10 +324,12 @@
                     <?php endif; ?>
                 </div><!-- #branding -->
 
-                    <?php wp_nav_menu(array(
-                        'menu_class'=>'menu',
-                        'theme_location'=>'top',
-                    ));   ?>
+                    <?php if(has_nav_menu( 'top' )){
+                    	wp_nav_menu(array(
+	                        'menu_class'=>'menu',
+	                        'theme_location'=>'top',
+						));  
+                    } ?>
                 <!-- #access -->
 
                     <?php

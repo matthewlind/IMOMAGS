@@ -10,7 +10,7 @@ $dataPos = 0;
 ?>
 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header clearfix js-responsive-section">
 	<h1 class="page-title">
-		<span><?php the_title(); ?></span>
+		<span style="display:none;"><?php the_title(); ?></span>
     </h1>
 </div>
 

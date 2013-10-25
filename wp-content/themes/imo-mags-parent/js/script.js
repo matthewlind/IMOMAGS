@@ -82,6 +82,7 @@ jQuery(document).ready(function () {
 	});
 	
 	//Community Menu
+	
     addEvent(document.getElementById('comm-mob-menu'), 'click', function(){
 
     	if( jQuery("body").hasClass("snapjs-right") ){
