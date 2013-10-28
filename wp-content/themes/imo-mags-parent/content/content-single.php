@@ -11,7 +11,7 @@
 <div id="post-<?php the_ID(); ?>" <?php post_class('full-post'); ?>>
     <?php if ( is_single() ) : ?>
     <div class="clearfix">
-        <?php echo primary_and_secondary_categories(); ?>
+        <?php if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(); } ?>
         <a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>
     </div>
     

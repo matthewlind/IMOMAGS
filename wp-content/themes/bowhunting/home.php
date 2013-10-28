@@ -18,7 +18,7 @@ get_header(); ?>
                             <li>
                                 <a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('post-home-thumb');?></a>
                                 <div class="nl-txt">
-                                    <?php echo the_primary_category(); ?>
+                                   <?php if (function_exists('the_primary_category')){ echo primary_and_secondary_categories(); } ?>
                                     <h2 class="entry-title home-entry-title"><a href="<?php the_permalink(); ?>" ><?php $title = the_title('','',FALSE); echo substr($title, 0, 70); if (strlen($title) > 70) echo "..."; ?></a></h2>
                                     <!--<div class="shares-count">
                                         <?php render_shares_count(get_permalink(), $post->ID) ?> <span>SHARES</span>

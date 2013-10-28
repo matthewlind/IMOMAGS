@@ -18,7 +18,7 @@ get_header(); ?>
                             <li>
                                 <a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('post-home-thumb');?></a>
                                 <div class="nl-txt">
-                                    <?php echo the_primary_category(); ?>
+                                    <?php if (function_exists('the_primary_category')){ echo primary_and_secondary_categories(); } ?>
                                     <h2 class="entry-title home-entry-title"><a href="<?php the_permalink(); ?>" ><?php $title = the_title('','',FALSE); echo substr($title, 0, 70); if (strlen($title) > 70) echo "..."; ?></a></h2>
                                     <!--<div class="shares-count">
                                         <?php render_shares_count(get_permalink(), $post->ID) ?> <span>SHARES</span>
@@ -49,7 +49,7 @@ get_header(); ?>
 	                                <div class="feat-img"><a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('post-home-small-thumb');?></a></div>
 	                                <div class="feat-text">
 	                                    <div class="clearfix">
-	                                    	<?php echo primary_and_secondary_categories(); ?>
+	                                    	<?php if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(); } ?>
 	                                    </div>
 	                                    <h3><a href="<?php the_permalink(); ?>" ><?php $title = the_title('','',FALSE); echo substr($title, 0, 54); if (strlen($title) > 54) echo "..."; ?></a></h3>
 	                                    <!--<div class="shares-count">
@@ -80,7 +80,7 @@ get_header(); ?>
                         <a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('index-thumb');?></a>
                         <div class="article-holder">
                             <div class="clearfix">
-                                <?php echo primary_and_secondary_categories(); ?>
+                                <?php if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(); } ?>
                             </div>
                             <h3 class="entry-title">
                                 <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>

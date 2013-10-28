@@ -7,7 +7,7 @@
     	<a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('index-thumb'); ?></a>
         <div class="article-holder">
 		    <div class="clearfix">
-                <?php echo primary_and_secondary_categories(); ?>
+                <?php if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(); } ?>
             </div>
 			<?php //the_post_thumbnail(); ?>
 			<?php if ( is_single() ) : ?>
