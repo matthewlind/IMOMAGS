@@ -182,19 +182,20 @@ function galleryOutput($gallery, $pictures, $totalSlides, $dartDomain, $communit
 	$desktop_tablet_output = <<<EOT_a1
 	$entryContentClose
 	<div class="flex-gallery-insertion-point"></div>
-	<div class="flex-gallery-container $communityClass">
-	<div class="imo-flex-loading-block flex-gallery-inner">
-		<div class="flex-gallery" id="gallery-$gallery" style="visibility:hidden;">
-		<div id="flex-gallery-top-left">
-			<div class="flex-gallery-title clearfix">
-			<a class="btn-full-screen flex-gallery-button">Fullscreen</a>
-				<h2>$title</h2>
-				<div class="clear"></div>	
-				<div id="flex-gallery-social">$addThis</div><div class="flex-counter"><span class="flex-counter-extra">Picture </span><span class="current-slide">1</span> of <span class="total-slides">$totalSlidesShow</span></div>
+	<div class="custom-slider-section">
+		<div class="flex-gallery-container $communityClass">
+		<div class="imo-flex-loading-block flex-gallery-inner">
+			<div class="flex-gallery" id="gallery-$gallery" style="visibility:hidden;">
+			<div id="flex-gallery-top-left">
+				<div class="flex-gallery-title clearfix">
+				<a class="btn-full-screen flex-gallery-button">Fullscreen</a>
+					<h2>$title</h2>
+					<div class="clear"></div>	
+					<div id="flex-gallery-social">$addThis</div><div class="flex-counter"><span class="flex-counter-extra">Picture </span><span class="current-slide">1</span> of <span class="total-slides">$totalSlidesShow</span></div>
+				</div>
+				<div class="clear"></div>
 			</div>
-			<div class="clear"></div>
-		</div>
-		    <ul class="slides">
+			    <ul class="slides">
 EOT_a1;
 	$count = 1;
 	foreach ($pictures as $picture) {
@@ -317,7 +318,8 @@ $desktop_tablet_output .= <<<EOF_a
 				</div>
 			</div>
 		</div>
-</div><!-- .flex-gallery-container -->
+	</div><!-- .flex-gallery-container -->
+</div><!-- .custom-slider-section -->
 	<div class="flex-gallery-jquery-container">
 		<div class="flex-gallery-jquery">
 			<script type="text/javascript">
