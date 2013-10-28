@@ -607,8 +607,7 @@ element:hover, element.hover_effect {
         text-transform: capitalize;
 }
 /*banners*/
-.gf-photo-corner-biggame {
-	background: url(http://www.wildfowlmag.com/files/2012/11/Wildfowl-Fowl-Territory-Banner.jpg) no-repeat scroll 60px 0px black;
+.gf-photo-corner, .gf-photo-corner-biggame, .gf-photo-corner-deer, .gf-photo-corner-fowl, .gf-photo-corner-turkey, .gf-photo-corner-smallgame, .gf-photo-corner-fish {
 	height: 200px;
 	margin-bottom: 20px;
 	position: absolute;
@@ -616,6 +615,15 @@ element:hover, element.hover_effect {
 	width: 1080px;
 	left: -31px;
 }
+.gf-photo-corner {background: url(http://www.gameandfishmag.com/files/2012/11/Camera-Corner-Banner.jpg) no-repeat scroll 60px 0px black;}
+.gf-photo-corner-deer {background: url(http://www.gameandfishmag.com/files/2013/04/Camera-Corner-Banner-Deer.jpg) no-repeat scroll 60px 0px black;}
+.gf-photo-corner-biggame {	background: url(http://www.gameandfishmag.com/files/2013/04/Camera-Corner-Big-Game-Banner.jpg) no-repeat scroll 60px 0px black;}
+.gf-photo-corner-fowl {background: url(http://www.gameandfishmag.com/files/2013/04/Camera-Corner-fowl-banner.jpg) no-repeat scroll 60px 0px black;}
+.gf-photo-corner-turkey {
+background: url(http://www.gameandfishmag.com/files/2013/04/Camera-Corner-Turkey-Banner.jpg) no-repeat scroll 60px 0px black;}
+.gf-photo-corner-smallgame {background: url(http://www.gameandfishmag.com/files/2013/04/Camera-Corner-small-game-Banner.jpg) no-repeat scroll 60px 0px black;}
+.gf-photo-corner-fish {background: url(http://www.gameandfishmag.com/files/2013/04/Camera-Corner-Fish-Banner.jpg) no-repeat scroll 60px 0px black;}
+
 
 /* = Footer
  ******************************************************************************/

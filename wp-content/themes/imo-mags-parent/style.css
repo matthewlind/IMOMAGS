@@ -2200,7 +2200,7 @@ a.change-location:before {
 
 /* = WP default overrides
  ******************************************************************************/
-#wpadminbar {z-index: 9999999;}
+#wpadminbar {z-index: 9999999 !important;}
 .wp-caption {
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
@@ -2470,10 +2470,11 @@ h2.related-stories{
 }
 
 /* banner page */
-.page-template-page-banner-php .article-holder{
+.page-template-banner-page-php h1.page-title span{display:none;}
+.page-template-banner-page-php .article-holder{
 	margin-top: 160px;
 }
-.page-template-page-banner-php .sidebar-area{margin-top: 210px;}
+.page-template-banner-page-php .sidebar-area{margin-top: 210px;}
 
 /* Master Angler
  ******************************************************************************/
