@@ -540,182 +540,72 @@ p.state-name{
 .forecast-title{
 	text-transform: capitalize;
 }
-#floatingCirclesG{
-position:relative;
-width:128px;
-height:128px;
--moz-transform:scale(0.6);
--webkit-transform:scale(0.6);
--ms-transform:scale(0.6);
--o-transform:scale(0.6);
-transform:scale(0.6);
+/*** Forecast Page ***/
+#forecast{
+        width: 670px;
 }
-
-.f_circleG{
-position:absolute;
-background-color:#FFFFFF;
-height:23px;
-width:23px;
--moz-border-radius:12px;
--moz-animation-name:f_fadeG;
--moz-animation-duration:1.04s;
--moz-animation-iteration-count:infinite;
--moz-animation-direction:linear;
--webkit-border-radius:12px;
--webkit-animation-name:f_fadeG;
--webkit-animation-duration:1.04s;
--webkit-animation-iteration-count:infinite;
--webkit-animation-direction:linear;
--ms-border-radius:12px;
--ms-animation-name:f_fadeG;
--ms-animation-duration:1.04s;
--ms-animation-iteration-count:infinite;
--ms-animation-direction:linear;
--o-border-radius:12px;
--o-animation-name:f_fadeG;
--o-animation-duration:1.04s;
--o-animation-iteration-count:infinite;
--o-animation-direction:linear;
-border-radius:12px;
-animation-name:f_fadeG;
-animation-duration:1.04s;
-animation-iteration-count:infinite;
-animation-direction:linear;
+#forecast h1{
+        font-family: "StagMedium",serif;
+        border-bottom: 2px solid #ccc;
+        padding-bottom: 6px;
 }
-
-#frotateG_01{
-left:0;
-top:52px;
--moz-animation-delay:0.39s;
--webkit-animation-delay:0.39s;
--ms-animation-delay:0.39s;
--o-animation-delay:0.39s;
-animation-delay:0.39s;
+.forecast-map{
+        position: relative;
+        height: 610px;
+        border-bottom: 1px solid #dddcdb;
 }
-
-#frotateG_02{
-left:15px;
-top:15px;
--moz-animation-delay:0.52s;
--webkit-animation-delay:0.52s;
--ms-animation-delay:0.52s;
--o-animation-delay:0.52s;
-animation-delay:0.52s;
+.forecast-map .deer-logo{
+        position: absolute;
+        bottom: 0;
 }
-
-#frotateG_03{
-left:52px;
-top:0;
--moz-animation-delay:0.65s;
--webkit-animation-delay:0.65s;
--ms-animation-delay:0.65s;
--o-animation-delay:0.65s;
-animation-delay:0.65s;
+.forecast-map .sponsor-logo{
+        float: left;
 }
-
-#frotateG_04{
-right:15px;
-top:15px;
--moz-animation-delay:0.78s;
--webkit-animation-delay:0.78s;
--ms-animation-delay:0.78s;
--o-animation-delay:0.78s;
-animation-delay:0.78s;
+.sponsor-logo-below{
+        position: absolute;
+        bottom: 0;
+        z-index: 9999999999999;
 }
-
-#frotateG_05{
-right:0;
-top:52px;
--moz-animation-delay:0.91s;
--webkit-animation-delay:0.91s;
--ms-animation-delay:0.91s;
--o-animation-delay:0.91s;
-animation-delay:0.91s;
+.forecast-map p.state-name{
+        text-align: right;
+        min-height: 20px;
+        margin: 0 30px 0 0;
+        text-transform: uppercase;
+        font-size: 1.6em;
+        font-weight: bold;
+        color: #333;
 }
-
-#frotateG_06{
-right:15px;
-bottom:15px;
--moz-animation-delay:1.04s;
--webkit-animation-delay:1.04s;
--ms-animation-delay:1.04s;
--o-animation-delay:1.04s;
-animation-delay:1.04s;
+.forecast-map p.select-state{
+        text-align: left;
+        min-height: 20px;
+        margin: 0 30px 0 0;
+        text-transform: uppercase;
+        font-size: 1.6em;
+        font-weight: bold;
+        float: left;
 }
-
-#frotateG_07{
-left:52px;
-bottom:0;
--moz-animation-delay:1.17s;
--webkit-animation-delay:1.17s;
--ms-animation-delay:1.17s;
--o-animation-delay:1.17s;
-animation-delay:1.17s;
+.forecast-content{
+        position: relative;
+        font-size: 14px !important;
 }
-
-#frotateG_08{
-left:15px;
-bottom:15px;
--moz-animation-delay:1.3s;
--webkit-animation-delay:1.3s;
--ms-animation-delay:1.3s;
--o-animation-delay:1.3s;
-animation-delay:1.3s;
+.forecast-content h1.page-title{
+        color: #373737;
+        margin-bottom: 12px;
+        font: 40px/1 "stagbold", serif;
 }
-
-@-moz-keyframes f_fadeG{
-0%{
-background-color:#000000}
-
-100%{
-background-color:#FFFFFF}
-
+.forecast-title{
+        text-transform: capitalize;
 }
-
-@-webkit-keyframes f_fadeG{
-0%{
-background-color:#000000}
-
-100%{
-background-color:#FFFFFF}
-
+element:hover, element.hover_effect {
+    rule:properties;
 }
-
-@-ms-keyframes f_fadeG{
-0%{
-background-color:#000000}
-
-100%{
-background-color:#FFFFFF}
-
+.hover {
+        -webkit-user-select: none;
+        -webkit-touch-callout: none;        
 }
-
-@-o-keyframes f_fadeG{
-0%{
-background-color:#000000}
-
-100%{
-background-color:#FFFFFF}
-
+.forecast-menu select{
+        text-transform: capitalize;
 }
-
-@keyframes f_fadeG{
-0%{
-background-color:#000000}
-
-100%{
-background-color:#FFFFFF}
-
-} 
-.loader-bg{
-	background: white;
-	position: absolute;
-	top: 425px;
-	left: 440px;
-	display: none;
-}
-
-
 /*banners*/
 .gf-photo-corner-biggame {
 	background: url(http://www.wildfowlmag.com/files/2012/11/Wildfowl-Fowl-Territory-Banner.jpg) no-repeat scroll 60px 0px black;
