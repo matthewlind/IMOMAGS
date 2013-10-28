@@ -22,7 +22,6 @@ if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 
 //Gallery Scripts
 wp_enqueue_script('flexslider-js',plugins_url('imo-flex-gallery/jquery.flexslider.js'));
-wp_enqueue_style('flexslider-css',plugins_url('imo-flex-gallery/flexslider.css'));
 wp_enqueue_script('flex-gallery-js',plugins_url('imo-flex-gallery/flex-gallery.js'));
 wp_enqueue_script('jquery-mobile',plugins_url('imo-flex-gallery/jquery.mobile.custom.min.js'));
 wp_enqueue_script('jquery-ui-slide-effect',plugins_url('imo-flex-gallery/jquery-ui-slide-effect.min.js'));
