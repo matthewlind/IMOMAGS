@@ -24,8 +24,9 @@ function imoFlexSetupMobile(community, pictureLimit){
 	});
 }
 
-function imoFlexInitiate(isCommunity, galleryID, totalSlides, isFullScreenNow, isReloaded, callback) {
-	jQuery(function(){
+function imoFlexInitiate(isCommunity, galleryID, totalSlides, isFullScreenNow, isReloaded, jsonUrl, callback) {
+		var lastLoadCount = null;
+		var communityApiLimit = 20;
 		var fslider = 
 			jQuery('#carousel-' + galleryID).flexslider({
 				animation: "slide",
@@ -45,16 +46,22 @@ function imoFlexInitiate(isCommunity, galleryID, totalSlides, isFullScreenNow, i
 			smoothHeight: false,
 			sync: '#carousel-' + galleryID,
 			start: function (slider) {
-				imoFlexSetup(isCommunity, galleryID, totalSlides, isFullScreenNow, isReloaded);
+				imoFlexSetup(isCommunity, galleryID, totalSlides, isFullScreenNow, isReloaded, jsonUrl);
+				if(isCommunity == true) {
+					jQuery('.flex-gallery').waitForImages(function() {
+						loadMore(jsonUrl);
+					});
+				}
 			},
 			after: function (slider) {
-				_gaq.push(['_trackPageview',"/" + window.location.pathname + "#" + slider.currentSlide]);
-				document.getElementById('gallery-iframe-ad').contentWindow.location.reload();
-				
 				var theSlide = slider.currentSlide+1;
 				var theSlideTitleText = jQuery('#flex-content-title-'+theSlide+' a').text();
 				var theSlideTitleLink = jQuery('#flex-content-title-'+theSlide+' a').attr('href');
 				var totalSlidesCount = totalSlides;
+				
+				_gaq.push(['_trackPageview',"/" + window.location.pathname + "#" + slider.currentSlide]);
+				document.getElementById('gallery-iframe-ad').contentWindow.location.reload();
+				
 				while(totalSlidesCount > 0){
 					jQuery('#flex-content-'+totalSlidesCount).hide();
 					jQuery('#flex-content-title-'+totalSlidesCount).hide();
@@ -82,6 +89,9 @@ function imoFlexInitiate(isCommunity, galleryID, totalSlides, isFullScreenNow, i
 					jQuery.getScript('http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4de0e5f24e016c81');
 					jQuery('#flex-addthis-'+theSlide).css('visibility','visible');
 					jQuery('.flex-gallery-title h2').html(truncateSlideTitle(theSlideTitleText, theSlideTitleLink));
+					if(lastLoadCount == null || (theSlide >= totalSlides - lastLoadCount && lastLoadCount >= communityApiLimit)){
+						loadMore(jsonUrl);
+					}
 				} else if(theSlide == totalSlides + 1){
 					jQuery('.flex-carousel-cover').fadeIn('fast');
 				} else if(theSlide <  totalSlides + 1){
@@ -89,7 +99,79 @@ function imoFlexInitiate(isCommunity, galleryID, totalSlides, isFullScreenNow, i
 				}
 			}
 		});
-	});
+					function loadMore(jsonUrl) {
+						var jsonUrlMore = jsonUrl+'&skip='+totalSlides;
+						jQuery.getJSON(jsonUrlMore, function(photos) {
+							if(photos.length > 0) {
+								lastLoadCount = photos.length;
+								for(photo in photos) {
+									totalSlides++;
+									if(jQuery('#flex-slide-id-'+photos[photo].id).length == 0) {
+										theSlider.addSlide('\
+											<li id="flex-slide-id-'+photos[photo].id+'" class="flex-slide flex-slide-'+totalSlides+' display-block ">\
+												<img src="'+photos[photo].img_url+'/convert?rotate=exif&w=1200&h=1200" alt="'+photos[photo].title+'" class="slide-image" />\
+											</li>\
+										');
+										//NOTE: We had to modify the core on line 142 two get added thumbnail slides to sync properly as nav for the main slider. WooThemes hasn't corrected this yet, more info at https://github.com/zapnap/FlexSlider/commit/a644e0d1d5f5ea69337cdf9eb9c9e8d646fa32e4
+										theCarousel.addSlide('\
+											<li>\
+												<span class="flex-thumb-wrap"><img src="'+photos[photo].img_url+'/convert?rotate=exif&w=60&h=45&fit=crop" alt="'+photos[photo].title+'"></span>\
+											</li>\
+										');
+									}
+									jQuery('#flex-gallery-social').append('\
+										<div id="flex-addthis-'+totalSlides+'" class="flex-addthis">\
+											<div addthis:url="http://'+window.location.hostname+'/photos/'+photos[photo].id+'" addthis:title="'+photos[photo].title+'" class="addthis_toolbox addthis_default_style ">\
+												<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>\
+												<a class="addthis_button_tweet"></a>\
+												<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>\
+												<a class="addthis_counter addthis_pill_style"></a>\
+											</div>\
+										</div>\
+									');
+									if(photos[photo].comment_count == 1) {
+										var replies = '<span class="flex-gallery-replies">1 Reply</span>';
+									} else {
+										var replies = '<span class="flex-gallery-replies">'+photos[photo].comment_count+' Replies</span>';	
+									}
+									if(photos[photo].body) {
+										var description = photos[photo].body;
+									} else {
+										var description = '';	
+									}
+									jQuery('div.slide-out-content').append('\
+										<span id="flex-content-title-'+totalSlides+'" class="slide-out-content-title"><a href="http://'+window.location.hostname+'/photos/'+photos[photo].id+'">'+photos[photo].title+'</a></span>\
+										<div class="clear"></div>\
+										<div id="flex-content-'+totalSlides+'" class="flex-content">\
+												<div class="clear"></div>\
+												'+description+'\
+										</div>\
+										<div class="community-only">\
+											<div id="flex-content-community-'+totalSlides+'" class="slide-out-community-features">\
+													'+replies+'<a href="http://'+window.location.hostname+'/photos/'+photos[photo].id+'#reply_field" class="flex-gallery-button">Post a Reply</a>\
+													<div class="clear"></div>\
+											</div>\
+										</div>\
+									');
+								}
+								jQuery('.flex-slide').css({   
+									'float':'left',
+									'display':'block', 
+									'width':jQuery('.flex-gallery .flex-viewport').width()+'px',
+									'height':(jQuery('.flex-gallery .flex-viewport').height()+1)+'px',
+									'line-height':(jQuery('.flex-gallery .flex-viewport').height()+1)+'px'
+								});
+								var jsonUrlMore = jsonUrl+'&skip='+totalSlides;
+								jQuery.getJSON(jsonUrlMore, function(photosNext) {
+									if(photosNext.length < 1) {
+										jQuery('.total-slides').text(jQuery('.flex-gallery li.flex-slide').length);
+									} else {
+										jQuery('.total-slides').text(jQuery('.flex-gallery li.flex-slide').length+'+');
+									}
+								});
+							}
+						});
+					}
 	ifCallback(callback);
 }
 
@@ -97,11 +179,12 @@ function responsiveReposition() {
 
 }
 
-function imoFlexSetup(isCommunity, galleryID, totalSlidesNow, isFullScreenNow, isReloaded){
+function imoFlexSetup(isCommunity, galleryID, totalSlidesNow, isFullScreenNow, isReloaded, jsonUrl){
 	community = isCommunity;
 	isFullScreen = isFullScreenNow;
 	totalSlides = totalSlidesNow;
 	theSlider = jQuery('.flex-gallery').data('flexslider');
+	theCarousel = jQuery('.flex-carousel').data('flexslider');
 	theGallery = galleryID;
 	if(isReloaded != true) {
 		lockedOpen = false;
@@ -124,7 +207,7 @@ function imoFlexSetup(isCommunity, galleryID, totalSlidesNow, isFullScreenNow, i
 			jQuery('.flex-gallery-container').css({'background':'#000'});
 			jQuery('.flex-gallery, .x-close, .flex-carousel, .flex-direction-nav, .flex-gallery-slide-out-inner').css({'visibility':'visible'});
 			jQuery('#flex-gallery-social iframe').addClass('display-inline-block');
-			jQuery('.flex-gallery ul.slides li').addClass('display-block');//Because of default display none which helps iPad rendering
+			//jQuery('.flex-gallery ul.slides li').addClass('display-block'); Because of default display none class needed to help iPad rendering
 		});
 	
 		jQuery('.flex-direction-nav a').text('');
@@ -159,7 +242,6 @@ function imoFlexSetup(isCommunity, galleryID, totalSlidesNow, isFullScreenNow, i
 		resizeMainTitleH2();
 		if(community == true) {
 			jQuery('.flex-gallery-title h2').html(truncateSlideTitle(theSlideTitleText, theSlideTitleLink));	
-			//Annoying addthis more services should be removed jQuery('#at16p').remove();
 		}
 		jQuery('.flex-content').perfectScrollbar();
 		
@@ -249,7 +331,7 @@ function imoFlexSetup(isCommunity, galleryID, totalSlidesNow, isFullScreenNow, i
 		});
 		jQuery('.community-select').change(function(){
 			lockedOpen = true;
-			flexSortReload(isCommunity, galleryID, totalSlides, isFullScreen);	
+			flexSortReload(isCommunity, galleryID, totalSlides, isFullScreen, jsonUrl);	
 		});
 		jQuery('.next-gal-slide').on('click tap taphold', function(){
 			flexNextGal();
@@ -302,6 +384,8 @@ function imoFlexSetup(isCommunity, galleryID, totalSlidesNow, isFullScreenNow, i
 		if(isFullScreen == true) {
 			fullScreenResize();
 		}
+		
+		jQuery('#at16pcc').remove();//Annoying, unnecessary addthis more services pop up, gets in the way if you go full screen
 
 	});
 }
@@ -441,6 +525,7 @@ function hideSlideOut(callback) {
 }
 	
 function closeSlideout() {
+
 	lockedOpen = false;
 	setTimeout(function(){
 	jQuery('.background-overlay').hide();
@@ -449,7 +534,7 @@ function closeSlideout() {
 }
 
 function centerSlides(callback) {
-	var viewportHeight = parseInt(jQuery('.flex-gallery .flex-viewport').height()+1);
+	var viewportHeight = jQuery('.flex-gallery .flex-viewport').height()+1;
 	jQuery('.flex-slide').css({     
 		'height':viewportHeight+'px',
 		'line-height':viewportHeight+'px'
@@ -681,7 +766,7 @@ function fullScreenClose(callback) {
 }
 
 
-function flexSortReload(isCommunity, galleryID, totalSlides, isFullScreen) {
+function flexSortReload(isCommunity, galleryID, totalSlides, isFullScreen, jsonUrl) {
 	jQuery('.flex-gallery-slide-out-inner, .flex-gallery, .flex-carousel-nav, .flex-carousel, .flex-carousel-fade-left, .flex-carousel-fade-right, .x-close').fadeOut('fast');
 	jQuery('.flex-gallery-inner').addClass('community-sort-reload');
 	jQuery('.community-sort-reload').css({'height':jQuery('.flex-gallery-inner').height()});
@@ -693,15 +778,16 @@ function flexSortReload(isCommunity, galleryID, totalSlides, isFullScreen) {
 		jQuery('#flex-gallery-social-save').remove();
 		jQuery('#flex-gallery-social').html(jQuery(sortObj).find('#flex-gallery-social-save').html());
 		jQuery('.flex-gallery-slide-out').html(jQuery(sortObj).find('.flex-gallery-slide-out').html());
+		jQuery('#flex-gallery-social').html(jQuery(sortObj).find('#flex-gallery-social-save').html());
+		var jsonUrl = jQuery(sortObj).find('#flex-gallery-json-save').text();
 		sortObj = null;
-		imoFlexInitiate(isCommunity, galleryID, totalSlides, isFullScreen, true, function(){
+		imoFlexInitiate(isCommunity, galleryID, totalSlides, isFullScreen, true, jsonUrl, function(){
 			positionSlideOut();
 			if(isFullScreen == true) {
 				fullScreenOpenTopLeft();
 				jQuery('.flex-gallery-slide-out').attr('style','');
 				jQuery('.flex-gallery-slide-out').insertAfter('.flex-gallery-container');
 			}
-			//jQuery('.flex-addthis').each(function(i,e) {		
 				if (window.addthis) {
 					window.addthis = null;
 					window._adr = null;
@@ -712,21 +798,6 @@ function flexSortReload(isCommunity, galleryID, totalSlides, isFullScreen) {
 					window._atw = null;
 				}
 				jQuery.getScript('http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4de0e5f24e016c81');
-				//addthis.toolbox(e);
-				//var urlFix = jQuery(e).find('div:first').attr('addthis:url');
-				//var wrongUrlInstance = new RegExp(encodeURIComponent(window.location), 'g');
-				//var fbSrc = jQuery(e).find('.addthis_button_facebook_like iframe').attr('src');
-				//var gSrc = jQuery(e).find('.addthis_button_google_plusone iframe').attr('src');			
-				//Facebook
-				//jQuery(e).find('.addthis_button_facebook_like, .fb-like').attr('data-href', urlFix);
-				//jQuery(e).find('.addthis_button_facebook_like iframe').attr('src', fbSrc.replace(wrongUrlInstance, encodeURIComponent(urlFix)));
-				//Google Plus
-				//jQuery(e).find('.addthis_button_google_plusone iframe').attr('src', gSrc.replace(wrongUrlInstance, encodeURIComponent(urlFix)));							
-				//Twitter
-				//jQuery(e).find('.addthis_button_tweet .twitter-share-button').attr('data-url', urlFix);
-				//jQuery(e).find('.addthis_button_tweet .twitter-share-button').attr('data-counturl', urlFix);
-				//jQuery(e).find('.addthis_button_tweet .twitter-share-button').attr('data-text', jQuery('#flex-content-title-'+(i+1)).text());
-			//});
 		});
 	}, 'html');
 }
@@ -769,7 +840,7 @@ function flexNextGalGet(nextGal, nextGalUrl) {
 			jQuery('.flex-gallery-slide-out').html(jQuery(galObj).find('.flex-gallery-slide-out').html());
 			galObj = null;
 			setTimeout(function() {
-				imoFlexInitiate(false, nextGal, totalSlides, isFullScreen, true, function(){
+				imoFlexInitiate(false, nextGal, totalSlides, isFullScreen, true, '', function(){
 					positionSlideOut();
 					if(isFullScreen == true) {
 						jQuery('.flex-gallery-slide-out').attr('style','');

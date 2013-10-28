@@ -41,42 +41,42 @@ function imoCommunityGallery($gallery, $community, $tag, $dartDomain) {
 		if($gallery) {
 			if($gallery == 'master-angler') {
 				if($_GET['gallery_sort'] == 'master-angler') {
-					$jsonData = file_get_contents($baseUrl.'/community-api/posts?sort=DESC&master=1');
+					$jsonUrl = $baseUrl.'/community-api/posts?sort=DESC&master=1';
 				}  else {
-					$jsonData = file_get_contents($baseUrl.'/community-api/posts?sort=DESC&order_by='.$_GET['gallery_sort']);
+					$jsonUrl = $baseUrl.'/community-api/posts?sort=DESC&order_by='.$_GET['gallery_sort'];
 				}
 			} else {
 				if($_GET['gallery_sort'] == 'master-angler') {
-					$jsonData = file_get_contents($baseUrl.'/community-api/posts?sort=DESC&master=1&post_type='.$gallery );
+					$jsonUrl = $baseUrl.'/community-api/posts?sort=DESC&master=1&post_type='.$gallery;
 				} else {
-					$jsonData = file_get_contents($baseUrl.'/community-api/posts?sort=DESC&post_type='.$gallery.'&order_by='.$_GET['gallery_sort']);
+					$jsonUrl = $baseUrl.'/community-api/posts?sort=DESC&post_type='.$gallery.'&order_by='.$_GET['gallery_sort'];
 				}
 			}
 		} else {
 			if($_GET['gallery_sort'] == 'master-angler') {
-				$jsonData = file_get_contents($baseUrl.'/community-api/posts?sort=DESC&master=1');
+				$jsonUrl = $baseUrl.'/community-api/posts?sort=DESC&master=1';
 			} else {
-				$jsonData = file_get_contents($baseUrl.'/community-api/posts?sort=DESC&order_by='.$_GET['gallery_sort']);
+				$jsonUrl = $baseUrl.'/community-api/posts?sort=DESC&order_by='.$_GET['gallery_sort'];
 			}
 			$gallery = 'all';
 		}
 	} else {
 		if($gallery) {
 			if($gallery == 'master-angler') {
-				$jsonData = file_get_contents($baseUrl.'/community-api/posts?sort=DESC&master=1');
+				$jsonUrl = $baseUrl.'/community-api/posts?sort=DESC&master=1';
 			} else {
-				$jsonData = file_get_contents($baseUrl.'/community-api/posts?sort=DESC&post_type='.$gallery);
+				$jsonUrl = $baseUrl.'/community-api/posts?sort=DESC&post_type='.$gallery;
 			}
 		} else {
-			$jsonData = file_get_contents($baseUrl.'/community-api/posts?sort=DESC');
+			$jsonUrl = $baseUrl.'/community-api/posts?sort=DESC';
 			$gallery = 'all';
 		}
 	}
-	$pictures = json_decode($jsonData);
+	$pictures = json_decode(file_get_contents($jsonUrl));
 	$emptySlides = 0;
 	foreach ($pictures as $picture) {if(empty($picture->img_url)) $emptySlides = $emptySlides + 1;}
 	$totalSlides = count($pictures) - $emptySlides;
-	return galleryOutput($gallery, $pictures, $totalSlides, $dartDomain, $community, $baseUrl);
+	return galleryOutput($gallery, $pictures, $totalSlides, $dartDomain, $community, $baseUrl, $jsonUrl);
 }
 
 
@@ -117,7 +117,7 @@ function imoGallery($gallery, $community, $tag, $dartDomain) {
 	return galleryOutput($gallery, $pictures, $totalSlides, $dartDomain, $community, $baseUrl);
 }
 
-function galleryOutput($gallery, $pictures, $totalSlides, $dartDomain, $community, $baseUrl) {
+function galleryOutput($gallery, $pictures, $totalSlides, $dartDomain, $community, $baseUrl, $jsonUrl) {
 	$totalSlidesShow = $totalSlides;
 	if (function_exists('imo_add_this')) {
 		ob_start();
@@ -127,6 +127,7 @@ function galleryOutput($gallery, $pictures, $totalSlides, $dartDomain, $communit
 	if($community == true ) {
 		$communityClass = 'flex-community-gallery';
 		$addThis = '<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4de0e5f24e016c81"></script>';
+		$jsonSave = '<div id="flex-gallery-json-save" class="display-none">'.$jsonUrl.'</div>';
 	} else {
 		global $wpdb;
 		$title = stripcslashes($pictures[0]->title);
@@ -152,7 +153,7 @@ function galleryOutput($gallery, $pictures, $totalSlides, $dartDomain, $communit
 					  )
 					);
 					$nextGalUrl = get_permalink();
-					$nextGalSlide = '
+					$nextGal = '
 						<li class="next-gal-slide">
 							<h2>Next Up: &nbsp;'.stripcslashes($nextGalPics[0]->title).'</h2>
 							<a class="flex-gallery-button">Click Here to View the Next Gallery</a><br/>
@@ -180,28 +181,27 @@ function galleryOutput($gallery, $pictures, $totalSlides, $dartDomain, $communit
 	}
 	$desktop_tablet_output = <<<EOT_a1
 	$entryContentClose
-	<div class="custom-slider-section">
-		<div class="flex-gallery-insertion-point"></div>
-		<div class="flex-gallery-container $communityClass">
-		<div class="imo-flex-loading-block flex-gallery-inner">
-			<div class="flex-gallery" id="gallery-$gallery" style="visibility:hidden;">
-			<div id="flex-gallery-top-left">
-				<div class="flex-gallery-title clearfix">
-				<a class="btn-full-screen flex-gallery-button">Fullscreen</a>
-					<h2>$title</h2>
-					<div class="clear"></div>	
-					<div id="flex-gallery-social">$addThis</div><div class="flex-counter"><span class="flex-counter-extra">Picture </span><span class="current-slide">1</span> of <span class="total-slides">$totalSlidesShow</span></div>
-				</div>
-				<div class="clear"></div>
+	<div class="flex-gallery-insertion-point"></div>
+	<div class="flex-gallery-container $communityClass">
+	<div class="imo-flex-loading-block flex-gallery-inner">
+		<div class="flex-gallery" id="gallery-$gallery" style="visibility:hidden;">
+		<div id="flex-gallery-top-left">
+			<div class="flex-gallery-title clearfix">
+			<a class="btn-full-screen flex-gallery-button">Fullscreen</a>
+				<h2>$title</h2>
+				<div class="clear"></div>	
+				<div id="flex-gallery-social">$addThis</div><div class="flex-counter"><span class="flex-counter-extra">Picture </span><span class="current-slide">1</span> of <span class="total-slides">$totalSlidesShow</span></div>
 			</div>
-			    <ul class="slides">
+			<div class="clear"></div>
+		</div>
+		    <ul class="slides">
 EOT_a1;
 	$count = 1;
 	foreach ($pictures as $picture) {
 		if(!empty($picture->img_url)) {
 			if($community == true ) {
+				$idAttribute = 'id="flex-slide-id-'.$picture->id.'"';
 				$picture->img_url = $picture->img_url;
-				//$picture->img_url = $baseUrl.$picture->img_url;
 				$picture->thumbnail = $picture->img_url.'/convert?rotate=exif&w=60&h=45&fit=crop';
 				$picture->description = $picture->body;
 				$image = '<img src="'.$picture->img_url.'/convert?rotate=exif&w=1200&h=1200" alt="'.$picture->title.'" class="slide-image">';
@@ -217,13 +217,11 @@ EOT_a1;
 				';
 			} else {
 				$picture->title = stripcslashes($picture->alttext);
-				//$picture->descriptionRaw = stripcslashes($picture->description);
-				//$picture->description = strip_tags($picture->description, '<p><a><br><b><i><strong><u>');
 				$picture->description = stripcslashes($picture->description);
 				$image = '<img src="'.$picture->img_url.'" alt="'.$picture->title.'" class="slide-image">';
 			}
 $desktop_tablet_output .= <<<EOT_a2
-		        <li class="flex-slide flex-slide-$count">				
+		        <li $idAttribute class="flex-slide flex-slide-$count">				
 		           $image				
 		        </li>
 EOT_a2;
@@ -231,7 +229,7 @@ EOT_a2;
 		}
 	}
 $desktop_tablet_output .= <<<EOT_a3
-				$nextGalSlide
+				$nextGal
 			</ul>
 		</div>
 		<div class="flex-carousel" id="carousel-$gallery">
@@ -319,14 +317,17 @@ $desktop_tablet_output .= <<<EOF_a
 				</div>
 			</div>
 		</div>
-	</div><!-- .flex-gallery-container -->
-</div><!-- .custom-slider-section -->
+</div><!-- .flex-gallery-container -->
 	<div class="flex-gallery-jquery-container">
 		<div class="flex-gallery-jquery">
-			<script type="text/javascript">	imoFlexInitiate($community, "$gallery", $totalSlides, false);</script>
+			<script type="text/javascript">
+				imoFlexInitiate($community, "$gallery", $totalSlides, false, false, "$jsonUrl");
+				//imoFlexInitiate(isCommunity, galleryID, totalSlides, isFullScreenNow, isReloaded, jsonUrl, callback)
+    		</script>
 		</div>
 	</div>
 <div id="flex-gallery-social-save" class="display-none">$addThis</div>
+$jsonSave
 <div class="background-overlay"></div>
 $entryContentOpen
 EOF_a;
@@ -510,7 +511,6 @@ function conditionally_add_scripts_and_styles($posts){
 			if(mobile() == false){
 			//Enqueue Desktop/Tablet Only
             wp_enqueue_script('flexslider-js',plugins_url('jquery.flexslider.js', __FILE__));
-            wp_enqueue_style('flexslider-css',plugins_url('flexslider.css', __FILE__));
 			wp_enqueue_script('flex-gallery-js',plugins_url('flex-gallery.js', __FILE__));
             wp_enqueue_script('jquery-mobile-touch-events',plugins_url('jquery.mobile.custom.min.js', __FILE__));
 			wp_enqueue_script('jquery-scrollface',plugins_url('jquery.scrollface.min.js', __FILE__));
