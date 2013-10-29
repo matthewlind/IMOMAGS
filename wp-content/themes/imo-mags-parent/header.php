@@ -254,15 +254,13 @@
                    <a id="open-left" class="open-menu">open menu</a>
                     <strong class="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/logo.png" alt="<?php bloginfo( 'name' ); ?>" /></a></strong>
                     	<?php if ( function_exists('imo_community_template') ){ ?>
-						<a id="comm-mob-menu" class="user-btn" <?php if( is_user_logged_in() ) { echo 'style="background:url(/avatar?uid=' . $data->ID . ') no-repeat center center;"'; } ?>>user</a>
+							<a id="comm-mob-menu" class="user-btn" <?php if( is_user_logged_in() ) { echo 'style="background:url(/avatar?uid=' . $data->ID . ') no-repeat center center;"'; } ?>>user</a>
+							<div class="community-tooltip"></div>
 						<?php }else{ ?>
 							<a id="comm-mob-menu" class="user-btn" style="display:none;">
 						<?php } ?>
-					<div class="community-tooltip"></div>
                      
-                     
-                     
-                                         <?php
+						<?php
                         // Check to see if the header image has been removed
                         $header_image = get_header_image();
                         if ( ! empty( $header_image ) ) :

@@ -68,6 +68,7 @@ body{background-color: black;}
 	display: none;
 }
 .location-services{
+	display: none;
 	background: #f2c11d;
 	width: 100%;
 	height: 30px;
@@ -141,14 +142,17 @@ body{background-color: black;}
 .gf-bottom-menu{
 	width: 100%;
 	background: white;
-	height: 40px;
+	height: 43px;
 	margin-top: 14px;
+	border-top: 3px solid #f2c11d;
+	border-bottom: 1px solid #dddcdb;
 }
-.menu-top-menu-container.trending{padding-left: 30px;font-weight: bold;}
+.menu-top-menu-container.trending{padding-left: 30px;color: #f2c11d;}
 .menu-top-menu-container{
 	padding: 10px 0;
 	margin: 0;
 	float: left;
+	font: 14px "open_sansbold", Helvetica, sans-serif;
 }
 .menu-top-menu-container li{padding: 2px 20px;}
 .filter-links li:before,
@@ -320,6 +324,8 @@ body{background-color: black;}
 	padding: 0;
 	float: left;
 }
+.tite-year {color: #f2c11d;}
+.ma-section .btn-base{margin-top: 30px;}
 .signup-mdl {
 	padding: 4px 0;
 	border: none;
@@ -373,7 +379,8 @@ a.category-name-link:hover{background: #F1C548;color: black;}
 .article-brief h3 a:hover,
 .feat-text h3 a:hover {color:#c6262d;}
 .cat-label-inline {color:#7e7e7e;border:1px solid #c3c3c3;border-width:0 0 0 1px;}
-
+.home .single-post-slider .flex-direction-nav{display: block !important;visibility: visible;}
+.home .single-post-slider .flex-direction-nav a{top:90px;}
 /* double posts */
 .double-post-slider {border-bottom:1px solid #dcdcdb;}
 .double-post-slider:after {background:#fff;}
@@ -606,6 +613,21 @@ element:hover, element.hover_effect {
 .forecast-menu select{
         text-transform: capitalize;
 }
+.foot-social .facebook{display: none;}
+.camera-corner-banner{
+	float: right;
+	width: 308px;
+	height: 390px;
+	border: 1px solid #fff;
+	text-align: center;
+	background: url(images/pic/camera-corner-banner.jpg) no-repeat;
+}
+.camera-corner-banner h2 {
+	font: 68px/43px "stagbold", serif;
+	color: #fff;
+	padding: 36px 10px 18px;
+	text-shadow: 1px 3px 7px #585855;
+}
 /*banners*/
 .gf-photo-corner, .gf-photo-corner-biggame, .gf-photo-corner-deer, .gf-photo-corner-fowl, .gf-photo-corner-turkey, .gf-photo-corner-smallgame, .gf-photo-corner-fish {
 	height: 200px;
@@ -639,12 +661,15 @@ background: url(http://www.gameandfishmag.com/files/2013/04/Camera-Corner-Turkey
 /* =Responsive Breakpoints
 *******************************************************************************/
 @media only screen and (max-width: 1096px) {
+	.header{height: 44px;}
 	.snap-drawers{background-color: white;}
 	.header .socials{
 		right: 120px;
 	}
 	#subscribe-area {
 		right: 315px;
+		top: 7px;
+		right: 255px;
 	}
 	.hot-link a{
 		padding: 0 0 0 30px !important;
@@ -652,8 +677,132 @@ background: url(http://www.gameandfishmag.com/files/2013/04/Camera-Corner-Turkey
 		line-height: 1.2 !important;
 		color: #c9242c !important;
 	 }
-}
+	 .logo {
+		width: auto;
+		height: 42px;
+		margin:5px 0 0 0;
+	}
+	.logo img{width: 140px;}
+	.state-logo{
+		display: none;
+	}
+	.state-drop{
+		height: 32px;
+	}
+	.logo:hover .gf-drop-down{
+		top:44px;
+	}
+	.subs-links, #tiptip_holder.tip_bottom{display: none !important;}
+	.open-search {
+		float: none;
+		background-position: 0px 2px;
+		width: 44px;
+		height: 44px;
+		position: absolute;
+		right: 0;
+		top: 0px;
+	}
+	.open-search:hover{
+		background-position: 0px 2px;
+	}
+	.h-search-open {
+		top: 44px;
+	}
+	.header .socials {
+		right: 90px;
+	}
+	.header .socials {
+		padding: 6px 15px 0 7px;
+		height: 44px;
+		right: 44px;
+	}
+	.socials a {
+		display: inline-block;
+		width: 31px;
+		height: 31px;
+		overflow: hidden;
+		text-indent: -99999px;
+		margin: 0 0 0 3px;
+		background: url(images/sprite.png) no-repeat;
+	}
+	.socials a.facebook {
+		background-position: -237px 0;
+	}
+	.socials a.facebook:hover {
+		background-position: -104px 0;
+	}
+	.socials a.twitter {
+		background-position: -271px 0;
+	}
+	.socials a.twitter:hover {
+		background-position: -138px 0;
+	}
+	.socials a.youtube {
+		background-position: -305px 0;
+	}
+	.socials a.youtube:hover {
+		background-position: -172px 0;		
+	}
+	.socials a.rss {
+		background-position: -339px 0;
+	}
+	.socials a.rss:hover {
+		background-position: -206px 0;
+	}
+	.gf-bottom-menu {
+		width: 0;
+		background: none;
+		height: 0;
+		margin-top: 0;
+	}
+	.snap-drawer {
+		background-color: #333333;
+	}
+	.snap-drawers .menu-top-menu-container a, .snap-drawers .mob-aside-menu > div > ul > li > a {color: white;}
+	.snap-drawers .menu-top-menu-container a:hover, .snap-drawers .mob-aside-menu > div > ul > li > a:hover{color:#f2c11d;}
+	.open-menu {
+		width: 44px;
+		height: 44px;
+		border: none;
+		border-width:0;
+		background-position: -9px -78px;
+	}
+	.open-menu:hover {
+		background-position: -71px -78px;
+	}
+	.menu-subscribe a{color: #f2c11d;}
+	.menu-subscribe a:hover{color: white;}
+	.subs-btn {
+		display: inline-block;
+		height: 29px;
+		font: 15px/29px "stagbold", serif;
+		color: #fff;
+		text-shadow: 0 -1px 0 #7a0c11;
+		margin: 0 8px;
+		background: url(images/bg/bg-btn.png) no-repeat 100% 0;
+		position: relative;
+		border-radius: 0;
+		border: none;
+		letter-spacing: 0.1em;
+	}
+	.subs-btn:before {
+		left: -8px;
+		background-position: 0 0;
+	}
+	.subs-btn:before, .subs-btn:after {
+		position: absolute;
+		top: 0;
+		width: 8px;
+		height: 29px;
+		content: "";
+		background: url(images/sprite.png) no-repeat;
+	}
+	.subs-btn:after {
+		right: -8px;
+		background-position: -10px 0;
+	}
 
+}
 @media only screen and (max-width: 610px) {
 	.mob-aside-menu #imo-fb-login-button{
 		width: 204px;

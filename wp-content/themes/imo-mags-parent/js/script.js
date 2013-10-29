@@ -184,7 +184,12 @@ jQuery(function(){
         animationSpeed: 200,
         slideshow: false
       });
-      
+    jQuery('.single-featured-slider').flexslider({
+    	animation: "slide",
+        animationSpeed: 200,
+        slideshow: true,
+    	directionNav: true
+    });
     jQuery('.jq-ma-slider').flexslider({
         animation: "slide",
         animationSpeed: 200,

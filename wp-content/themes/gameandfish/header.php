@@ -324,12 +324,13 @@
                         'theme_location'=>'bottom',
                         'walker'=> new AddParentClass_Walker()
                     ));   ?>
-					<a id="comm-mob-menu" class="user-btn" <?php if( is_user_logged_in() ) { echo 'style="background:url(/avatar?uid=' . $data->ID . ') no-repeat center center;"'; } ?>>user</a>
-					<div class="community-tooltip"></div>
-                     
-                     
-                     
-                                         <?php
+					<?php if ( function_exists('imo_community_template') ){ ?>
+						<a id="comm-mob-menu" class="user-btn" <?php if( is_user_logged_in() ) { echo 'style="background:url(/avatar?uid=' . $data->ID . ') no-repeat center center;"'; } ?>>user</a>
+					<?php }else{ ?>
+						<a id="comm-mob-menu" class="user-btn" style="display:none;">
+					<?php } ?>
+
+					<?php
                         // Check to see if the header image has been removed
                         $header_image = get_header_image();
                         if ( ! empty( $header_image ) ) :
