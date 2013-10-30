@@ -44,7 +44,6 @@ body{background-color: black;}
 	background: linear-gradient(to bottom,  #212121 0%,#303030 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#212121', endColorstr='#303030',GradientType=0 ); /* IE6-8 */
 }
-.header a:hover{color: #f2c11d !important;}
 .open-menu {background-image:url(images/sprite.png);}
 .open-search{
 	display: block;
@@ -196,7 +195,7 @@ body{background-color: black;}
 .socials .fb-like{margin: 2px 0 0 6px;float: right;}
 /* main top navigation */
 .menu-top-menu-container a {color:#3c3c3c;}
-.menu-top-menu-container a:hover {color:#c9242c;}
+.menu-top-menu-container a:hover {color:#f2c11d;}
 .menu-main-menu-container {
 	background:none;
 	float: left;
@@ -216,8 +215,7 @@ body{background-color: black;}
 	float: right;
 	border-right: 2px solid #545454;
 }
-.menu-main-menu-container > ul > li:last-child {float:left;}
-.menu-main-menu-container > ul > li > a {
+.menu-main-menu-container > ul > li > a, .has-drop li a {
     display:block;
     height:48px;
     color:#fff;
@@ -228,12 +226,12 @@ body{background-color: black;}
 .menu-main-menu-container a.has-drop:after {
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
-    border-top: 7px solid #c9242c;
+    border-top: 7px solid white;
 }
 .header .menu-main-menu-container > ul > li.current-menu-item > a,
 .menu-main-menu-container > ul > li:hover > a,
 .menu-main-menu-container > ul > li > a:hover {
-    color:#fff;
+    color:#f2c11d;
     background:none;
 }
 .menu-main-menu-container > ul > li:hover > a:after,
@@ -523,10 +521,10 @@ p.state-name{
 .state-list{
 	position: absolute;
 	top: 70px;
-	width: 560px;
+
 }
 .state-list ul{
-	width: 160px !important;
+	padding: 0 12px;
 	float: left;
 }
 .state-list ul li{
@@ -717,38 +715,9 @@ background: url(http://www.gameandfishmag.com/files/2013/04/Camera-Corner-Turkey
 		right: 44px;
 	}
 	.socials a {
-		display: inline-block;
-		width: 31px;
-		height: 31px;
-		overflow: hidden;
-		text-indent: -99999px;
-		margin: 0 0 0 3px;
-		background: url(images/sprite.png) no-repeat;
+		
 	}
-	.socials a.facebook {
-		background-position: -237px 0;
-	}
-	.socials a.facebook:hover {
-		background-position: -104px 0;
-	}
-	.socials a.twitter {
-		background-position: -271px 0;
-	}
-	.socials a.twitter:hover {
-		background-position: -138px 0;
-	}
-	.socials a.youtube {
-		background-position: -305px 0;
-	}
-	.socials a.youtube:hover {
-		background-position: -172px 0;		
-	}
-	.socials a.rss {
-		background-position: -339px 0;
-	}
-	.socials a.rss:hover {
-		background-position: -206px 0;
-	}
+	
 	.gf-bottom-menu {
 		width: 0;
 		background: none;
@@ -758,8 +727,9 @@ background: url(http://www.gameandfishmag.com/files/2013/04/Camera-Corner-Turkey
 	.snap-drawer {
 		background-color: #333333;
 	}
-	.snap-drawers .menu-top-menu-container a, .snap-drawers .mob-aside-menu > div > ul > li > a {color: white;}
-	.snap-drawers .menu-top-menu-container a:hover, .snap-drawers .mob-aside-menu > div > ul > li > a:hover{color:#f2c11d;}
+	.snap-drawers .menu-top-menu-container a, .snap-drawers .mob-aside-menu > div > ul > li > a, .has-drop li a {color: white;}
+	.snap-drawers .menu-top-menu-container a:hover, .snap-drawers .mob-aside-menu > div > ul > li > a:hover, .drop-down li a:hover{color:#f2c11d;}
+	.drop-down li{background: #373737;}
 	.open-menu {
 		width: 44px;
 		height: 44px;
@@ -774,34 +744,23 @@ background: url(http://www.gameandfishmag.com/files/2013/04/Camera-Corner-Turkey
 	.menu-subscribe a:hover{color: white;}
 	.subs-btn {
 		display: inline-block;
-		height: 29px;
-		font: 15px/29px "stagbold", serif;
-		color: #fff;
-		text-shadow: 0 -1px 0 #7a0c11;
+		height: 28px;
+		font: 15px/28px "stagbold", serif;
+		color: white;
+		text-shadow: 0 -1px 0 #373737;
 		margin: 0 8px;
-		background: url(images/bg/bg-btn.png) no-repeat 100% 0;
+		background: #afafaf;
 		position: relative;
-		border-radius: 0;
+		border-radius: 6px;
 		border: none;
 		letter-spacing: 0.1em;
+		padding: 0 14px;
 	}
-	.subs-btn:before {
-		left: -8px;
-		background-position: 0 0;
+	.subs-btn:hover{
+		color: white;
+		text-shadow: 0 -1px 0 #afafaf;
+		background: #373737;
 	}
-	.subs-btn:before, .subs-btn:after {
-		position: absolute;
-		top: 0;
-		width: 8px;
-		height: 29px;
-		content: "";
-		background: url(images/sprite.png) no-repeat;
-	}
-	.subs-btn:after {
-		right: -8px;
-		background-position: -10px 0;
-	}
-
 }
 @media only screen and (max-width: 610px) {
 	.mob-aside-menu #imo-fb-login-button{
@@ -818,4 +777,18 @@ background: url(http://www.gameandfishmag.com/files/2013/04/Camera-Corner-Turkey
 	.or-delim{
 		font-size: 14px !important;
 	}
+	.state-list {width: 600px;}
+	.state-drop{display: none;}
 }
+@media only screen and (max-width: 320px) {
+	.gf-drop-down, .state-list {width: 320px;min-height: 900px;}
+	.state-list ul{max-width: 120px;padding: 0 20px;}
+
+}
+
+
+
+
+
+
+

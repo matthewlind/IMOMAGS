@@ -6,6 +6,7 @@ get_header(); ?>
         <div class="general-frame">
             <div id="content" role="main">
             <?php if ( is_home() ) : ?>
+            	<?php if (  mobile() == false ) { ?>
             	<?php $fetured_slider_query = new WP_Query( 'category_name=featured&posts_per_page=5' ); ?>
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="ma-section clearfix js-responsive-section">
                     <!--<div class="general-title clearfix">
@@ -37,7 +38,38 @@ get_header(); ?>
 
                     </div>
                 </div>
+				<?php }else{ ?>
+					<?php $fetured_slider_query = new WP_Query( 'category_name=featured&posts_per_page=1' ); ?>
+                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="ma-section clearfix js-responsive-section">
+                    <!--<div class="general-title clearfix">
+                        <h2>Featured</h2>
+                    </div>-->
+                    <div class="clearfix">
+                        <div class="master-angler-banner">
+                            <h2>Camera <br />Corner <br /><span class="tite-year">Reader Best Photos</span></h2>
+                            <a href="/reader-photos/" class="btn-base btn-base-middle">Share Now!</a>
+                        </div>
+                        <div class="single-post-slider">
+							<div class="single-featured-slider">
+                                <ul class="slides-inner slides">
+                                 <?php while ($fetured_slider_query->have_posts()) : $fetured_slider_query->the_post(); ?>
+								  	<li>
+                                        <div class="feat-post">
+                                            <div class="feat-img"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('index-thumb'); ?></a></div>
+                                            <div class="feat-text">
+                                                <h3><a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a></h3>
+                                        </div>
+                                    </li>
+                                <?php endwhile; ?>
+                                </ul>
+                            </div>
+                        </div>
 
+                    </div>
+                </div>
+
+				
+				<?php } ?>
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section main-content-preppend">
                     <!--<div class="general-title clearfix">
                         <h2><span>Popular</span></h2>
