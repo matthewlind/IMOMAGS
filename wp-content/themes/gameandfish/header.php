@@ -473,15 +473,12 @@
                         <?php parent_theme_get_search_form(); ?>
                     </div>
 				</div>
-                   <div class="location-services">
-	                   Earth, Milky Way.
-                   </div>
         </div><!-- #branding -->
 		
         <div class="content-banner-section">
         	<div class="header-newsletter">
         		
-        		<?php //the_widget("Signup_Widget_Header"); ?>
+        		<?php the_widget("Signup_Widget_Header"); ?>
         	</div>
         	<?php if (mobile() == false) { ?>
 	        	<div class="mdl-banner">
@@ -493,5 +490,9 @@
 					</div>
 				<?php } ?>
         </div>
-        
-        <div id="main" class="main clearfix js-responsive-layout">
+        <div class="location-services">
+           Your Location: <strong>You're in the jungle, baby!</strong>
+           <a href="#">X</a>
+       </div>
+       
+       <div id="main" class="main clearfix js-responsive-layout">
