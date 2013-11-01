@@ -5,8 +5,8 @@ jQuery(window).load(function() {
     //jQuery('#at4m-mobile').appendTo("#page");
 });
 
-
 jQuery(document).ready(function () {
+	
 	
 
 

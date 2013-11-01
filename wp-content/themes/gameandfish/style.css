@@ -29,7 +29,7 @@ body{background-color: black;}
 }
 .state-logo{
 	font: 20px "stagregular",serif;
-	color: #f2c11d;
+	color: #cda220;
 	visibility: hidden;
 }
 .header{
@@ -56,7 +56,7 @@ body{background-color: black;}
 .h-search-open {
 	display:block !important;
 	position:absolute;
-	top:138px;
+	top:140px;
 	right:0;
 	background:#fff;
 	border:1px solid #dddcdb;
@@ -68,7 +68,7 @@ body{background-color: black;}
 }
 .location-services{
 	display: none;
-	background: #f2c11d;
+	background: #cda220;
 	width: 100%;
 	height: 30px;
 	padding: 6px 0;
@@ -77,19 +77,19 @@ body{background-color: black;}
 .user-btn {background-image:url(images/sprite.png);}
 .btn-base {
 	display: inline-block;
-    height:29px;
-    font:15px/29px "stagbold", serif;
-    color:#fff;
-    text-shadow:0 -1px 0 #7a0c11;
-    margin:0 8px;
-    background:url(images/bg/bg-btn.png) no-repeat 100% 0;
-    position:relative;
-    border-radius: 0;
-    border: none;
+	height: 28px;
+	color: white;
+	margin: 0 8px;
+	background: #cda220;
+	position: relative;
+	border-radius: 6px;
+	border: none;
+	letter-spacing: 0.1em;
 }
-.btn-base:hover {
-    color:#fff;
-    background-position:100% -35px;
+.btn-base:hover{
+	color: white;
+	text-shadow: 0 -1px 0 #afafaf;
+	background: #373737;
 }
 .btn-base-middle {
     height:38px;
@@ -101,12 +101,12 @@ body{background-color: black;}
 .btn-base-middle:hover {background-position:100% -110px;}
 .btn-base:before,
 .btn-base:after {
-    position:absolute;
-    top:0;
-    width:8px;
-    height:29px;
+    position:relative;
+    top:auto;
+    width:0;
+    height:0;
     content:"";
-    background:url(images/sprite.png) no-repeat;
+    background:none;
 }
 .btn-base:before {
     left:-8px;
@@ -134,7 +134,6 @@ body{background-color: black;}
     margin:0 -16px;
     position:relative;
     z-index:20;
-    font:17px/19px "stagbold", serif;
     text-shadow:0 -1px 0 #7a0c11;
     color:#fff;
 }
@@ -143,10 +142,10 @@ body{background-color: black;}
 	background: white;
 	height: 43px;
 	margin-top: 14px;
-	border-top: 3px solid #f2c11d;
+	border-top: 3px solid #cda220;
 	border-bottom: 1px solid #dddcdb;
 }
-.menu-top-menu-container.trending{padding-left: 30px;color: #f2c11d;}
+.menu-top-menu-container.trending{padding-left: 30px;color: #cda220;}
 .menu-top-menu-container{
 	padding: 10px 0;
 	margin: 0;
@@ -157,7 +156,7 @@ body{background-color: black;}
 .filter-links li:before,
 .menu-top-menu-container li:before,
 .subscribe-links li:before {background-image:none;}
-.subscribe-now .stag-reg{color:#f2c11d;letter-spacing: 0;}
+.subscribe-now .stag-reg{color:#cda220;letter-spacing: 0;}
 .subs-btn{
 	color: white;
 	font: 18px "opensans_bold",sans-serif;
@@ -195,7 +194,7 @@ body{background-color: black;}
 .socials .fb-like{margin: 2px 0 0 6px;float: right;}
 /* main top navigation */
 .menu-top-menu-container a {color:#3c3c3c;}
-.menu-top-menu-container a:hover {color:#f2c11d;}
+.menu-top-menu-container a:hover {color:#cda220;}
 .menu-main-menu-container {
 	background:none;
 	float: left;
@@ -231,7 +230,7 @@ body{background-color: black;}
 .header .menu-main-menu-container > ul > li.current-menu-item > a,
 .menu-main-menu-container > ul > li:hover > a,
 .menu-main-menu-container > ul > li > a:hover {
-    color:#f2c11d;
+    color:#cda220;
     background:none;
 }
 .menu-main-menu-container > ul > li:hover > a:after,
@@ -322,7 +321,7 @@ body{background-color: black;}
 	padding: 0;
 	float: left;
 }
-.tite-year {color: #f2c11d;}
+.tite-year {color: #cda220;}
 .ma-section .btn-base{margin-top: 30px;}
 .signup-mdl {
 	padding: 4px 0;
@@ -375,7 +374,7 @@ a.category-name-link:hover{background: #F1C548;color: black;}
 .article-brief h3 a,
 .feat-text h3 a {color:#040503;}
 .article-brief h3 a:hover,
-.feat-text h3 a:hover {color:#c6262d;}
+.feat-text h3 a:hover {color:#cda220;}
 .cat-label-inline {color:#7e7e7e;border:1px solid #c3c3c3;border-width:0 0 0 1px;}
 .home .single-post-slider .flex-direction-nav{display: block !important;visibility: visible;}
 .home .single-post-slider .flex-direction-nav a{top:90px;}
@@ -513,7 +512,7 @@ p.state-name{
 	text-transform: uppercase;
 	font-size: 1.6em;
 	font-weight: bold;
-	color: #f2c11d;
+	color: #cda220;
 }
 .us-map-widget svg{
 	width: 686px;
@@ -540,7 +539,7 @@ p.state-name{
 	text-shadow: 0px 1px 1px #000;
 }
 .state-list ul li a:hover{
-	color: #f2c11d !important;
+	color: #cda220 !important;
 }
 .forecast-title{
 	text-transform: capitalize;
@@ -705,6 +704,7 @@ background: url(http://www.gameandfishmag.com/files/2013/04/Camera-Corner-Turkey
 	}
 	.h-search-open {
 		top: 44px;
+		background: black;
 	}
 	.header .socials {
 		right: 90px;
@@ -728,7 +728,7 @@ background: url(http://www.gameandfishmag.com/files/2013/04/Camera-Corner-Turkey
 		background-color: #333333;
 	}
 	.snap-drawers .menu-top-menu-container a, .snap-drawers .mob-aside-menu > div > ul > li > a, .has-drop li a {color: white;}
-	.snap-drawers .menu-top-menu-container a:hover, .snap-drawers .mob-aside-menu > div > ul > li > a:hover, .drop-down li a:hover{color:#f2c11d;}
+	.snap-drawers .menu-top-menu-container a:hover, .snap-drawers .mob-aside-menu > div > ul > li > a:hover, .drop-down li a:hover{color:#cda220;}
 	.drop-down li{background: #373737;}
 	.open-menu {
 		width: 44px;
@@ -740,7 +740,7 @@ background: url(http://www.gameandfishmag.com/files/2013/04/Camera-Corner-Turkey
 	.open-menu:hover {
 		background-position: -71px -78px;
 	}
-	.menu-subscribe a{color: #f2c11d;}
+	.menu-subscribe a{color: #cda220;}
 	.menu-subscribe a:hover{color: white;}
 	.subs-btn {
 		display: inline-block;
