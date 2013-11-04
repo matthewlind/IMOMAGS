@@ -256,6 +256,7 @@ jQuery(function(){
         });*/
 
     jQuery('.jq-custom-form input[type="checkbox"]').ezMark();
+    jQuery('.jq-custom-form input[type="checkbox"]').show();
     
 });
 

@@ -35,10 +35,13 @@ get_header(); ?>
                     <?php 
 					$slug = 'featured';
 					$category = get_category_by_slug($slug);
-                    $more_query = new WP_Query( 'posts_per_page=20&cat=-' . $category->cat_ID ); ?>
-                    <?php while ($more_query->have_posts()) : $more_query->the_post(); ?>
+					
+					$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+                    $more_query = new WP_Query( 'posts_per_page=20&paged=' . $paged. '&cat=-' . $category->cat_ID );                     
+                    
+                    while ($more_query->have_posts()) : $more_query->the_post(); ?>
 
-                    <div class="article-brief clearfix">
+                    <div class="post article-brief clearfix">
                         <a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('index-thumb');?></a>
                         <div class="article-holder">
                             <div class="clearfix">

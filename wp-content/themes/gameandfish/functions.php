@@ -9,6 +9,10 @@ define("SERVICE_LINK", "https://secure.palmcoastd.com/pcd/eServ?iServ=MDE0ODg0ND
 define("SUBS_DEAL_STRING", "Save Over 70% off<br/> the Cover Price");
 
 define("FACEBOOK_LINK", "https://www.facebook.com/GameAndFish");
+define("TWITTER_LINK", "https://www.twitter.com/@gameandfishmag");
+define("RSS_LINK", "http://www.gameandfishmag.com/feed/");
+define("SITE_LINK", "gameandfishmag.com");
+define("SITE_NAME", "Game & Fish");
 
 /* This function allows for logging when debugging mode is on */
 if(!function_exists('_log')){
@@ -49,9 +53,8 @@ function imo_sidebar($type){
 function social_networks(){
 	echo '<div class="socials">';
 		echo '<a href="'.FACEBOOK_LINK.'" class="facebook">Facebook</a>';
-	    echo '<a href="https://www.twitter.com/@InFishermanTV" class="twitter">Twitter</a>';
-	    echo '<a href="http://www.youtube.com/user/InFishermanTV" class="youtube">YouTube</a>';
-	    echo '<a href="http://www.in-fisherman.com/feed/" class="rss">RSS</a>';
+	    echo '<a href="'.TWITTER_LINK.'" class="twitter">Twitter</a>';
+	    echo '<a href="'.RSS_LINK.'" class="rss">RSS</a>';
 	echo '</div>';
 }
 
@@ -61,7 +64,7 @@ function sub_footer(){ ?>
 			<?php imo_dart_tag("300x250",array("pos"=>"mid")); ?>
 			</div>
 			<div class="sub-box fb-box">
-			<div class="fb-recommendations" data-site="in-fisherman.com" data-width="309" data-height="252" data-header="true" data-font="arial"></div>
+			<div class="fb-recommendations" data-site="<?php echo RSS_LINK; ?>" data-width="309" data-height="252" data-header="true" data-font="arial"></div>
 		</div>
 	</div>
 
@@ -70,10 +73,22 @@ function sub_footer(){ ?>
 		<div class="fb-like" data-href="<?php echo FACEBOOK_LINK; ?>" data-send="false" data-layout="button_count" data-width="100" data-show-faces="true"></div>
 		<?php social_networks(); ?>
 	</div>
-	<a href="/newsletter-signup" class="get-newsletter">Get the In-Fisherman <br />Newsletter</a>
-	<a href="<?php print SUBS_LINK;?>" class="subscribe-banner">
-		<img src="<?php bloginfo('stylesheet_directory'); ?>/images/pic/subscribe-banner.jpg" alt="" />
-	</a>
+	<div class="newsletter-box bottom-newsletter">
+		<?php the_widget("Signup_Widget_Header", "title=GET THE GF NEWSLETTER!"); ?>
+	</div>
+	<div class="widget widget_text header-elements">
+	    <div class="subs-wrap">
+	        <div class="journal">
+	        	<img src="http://www.gameandfishmag.fox/wp-content/themes/gameandfish/images/pic/journals.png" alt="">
+		    </div>
+		    <div class="subscribe-now">
+		        <p><span class="stag-reg">SAVE 80%</span></p>
+		        <a href="http://subs.gameandfishmag.com/" class="subs-btn">Subscribe Now!<span></span></a>
+		        <a class="subs-links" href="http://subs.gameandfishmag.com/gift">Give a Gift</a>
+		        <a class="subs-links" href="">Store</a>
+		    </div>
+	    </div>
+	</div>
 	<a href="#" class="back-top jq-go-top">back to top</a>
 <?php }
 
@@ -85,7 +100,7 @@ function social_footer(){ ?>
 	</div>
 <?php }
 
-//Configure infish community
+//Configure community
 //This section does nothing unless imo-community plugin is enabled
 add_action("init","infish_community_init",0);
 function infish_community_init() {

@@ -553,7 +553,7 @@ img{max-width: 100%;height: auto;}
     float: right;
 }
 .search-field {
-    width:208px;
+    width:100%;
     height:32px;
     border:1px solid #d8d8d8;
     background:#fff;
@@ -1164,7 +1164,7 @@ a.category-name-link:hover{
 	min-height:0;
 }
 /* posts list */
-.posts-list {margin:20px 0 67px;clear: both;border-top: 1px solid #d8d7d6;padding-top: 12px;}
+.posts-list {margin:0 0 67px;clear: both;border-top: 1px solid #d8d7d6;padding-top: 12px;}
 .article-brief {
     margin:20px 0 0;
     background:#fff;
@@ -1319,7 +1319,7 @@ a.category-name-link:hover{
 .page-header h1 {
     float:left;
     font:45px/1.2 "stagbold", serif;
-    color:#c6262d;
+    color:#040503;
     text-transform:uppercase;
 }
 .sub-titile-banner {
@@ -2727,11 +2727,11 @@ h2.related-stories{
    #subscribe-area {
         width:auto;
     }
-    .subscribe-box .journal,
+    .header .subscribe-box .journal,
     .h-search-form,
-    .subscribe-box .btn-base span,
-    .subscribe-links,
-    .subscribe-now p,
+    .header .subscribe-box .btn-base span,
+    .header .subscribe-links,
+    .header .subscribe-now p,
     .header .menu-top-menu-container,
     .header .menu-main-menu-container,
     .header .menu-header-menu-container {
@@ -2775,16 +2775,15 @@ h2.related-stories{
        right:255px;
    }
    .h-search-open {
-       display:block;
+       display: block !important;
        position:absolute;
        top:44px;
-       right:0;
+       left:0;
        background:#fff;
-       border:1px solid #dddcdb;
-       padding:20px;
-       width:258px;
+       border:none;
+       padding:10px;
+       width:100%;
    }
-
 
     /* general */
     .frame,
@@ -3517,10 +3516,6 @@ h2.related-stories{
         background-position:0 -214px;
     }
     .user-btn:hover {background-position:-47px -214px;}
-    .h-search-open {
-        top:44px;
-    }
-
     .main {
         padding:10px;
     }
@@ -3885,8 +3880,7 @@ h2.related-stories{
         margin-right:-10px;
         border-width:1px 0;
     }
-
-
+	
     /* article - mobile - Aaron*/
 
     #content img.alignleft,

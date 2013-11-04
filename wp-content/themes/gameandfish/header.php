@@ -476,9 +476,10 @@
         </div><!-- #branding -->
 		
         <div class="content-banner-section">
-        	<div class="header-newsletter">
-        		
-        		<?php the_widget("Signup_Widget_Header"); ?>
+        	<div class="newsletter-box header-newsletter">
+        		<?php if(!mobile() && !tablet()){
+        			the_widget("Signup_Widget_Header", "title=GET THE GF NEWSLETTER!"); 
+        		} ?>
         	</div>
         	<?php if (mobile() == false) { ?>
 	        	<div class="mdl-banner">
