@@ -17,6 +17,13 @@ General comments (optional).
 
 /* Header
  ******************************************************************************/
+.wp-post-image{
+	max-height: 100%;
+	overflow: visible;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
 .logo img {
     display:block;
     width:226px;

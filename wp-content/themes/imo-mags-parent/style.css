@@ -1027,7 +1027,7 @@ a.category-name-link:hover{
 }
 .cat-label a,
 .cat-feat-label a {color:#fff;}
-.article-brief h3{max-width: 410px;}
+.article-brief h3{max-width: 350px;}
 .article-brief h3,
 .feat-text h3 {
     color:#040503;
@@ -1144,12 +1144,17 @@ a.category-name-link:hover{
     margin-left:-4px;
 }
 
-.home-featured{float: left;width: 420px;}
-.home-featured img{width: 420px;height: 270px;}
+.home-featured{float: left;width: 62%;}
 .home-featured .feat-text{border: none;}
-.home-featured-right{float: right;width: 196px;margin: 0;}
+.home-featured-right{float: right;width: 33%;margin: 0;}
+.home-featured-right .feat-img{
+	max-height: 110px;
+	overflow: hidden;
+	-webkit-box-shadow: 1px 1px 3px #666666;
+	-moz-box-shadow: 1px 1px 3px #666666;
+	box-shadow: 1px 1px 3px #666666;
+}
 .home-featured-right .feat-post{margin-bottom: 4px;}
-.home-featured-right img{width:196;height: 110px !important;}
 .home-featured-right h3{font-size: 16px;}
 .home-featured-right .feat-text {
 	background: #fff;
@@ -1159,7 +1164,7 @@ a.category-name-link:hover{
 	min-height:0;
 }
 /* posts list */
-.posts-list {margin:0 0 67px;clear: both;border-top: 1px solid #d8d7d6;padding-top: 12px;}
+.posts-list {margin:20px 0 67px;clear: both;border-top: 1px solid #d8d7d6;padding-top: 12px;}
 .article-brief {
     margin:20px 0 0;
     background:#fff;
@@ -1167,7 +1172,7 @@ a.category-name-link:hover{
     border-width:0 0 1px;
     padding:1px;
     position:relative;
-
+	min-height: 200px;
 }
 .article-brief:first-child {
     margin-top:0;
@@ -1897,6 +1902,7 @@ a.category-name-link:hover{
 	margin-left: 5px;
 }
 iframe[style]#fb-sidebar{background-color: white !important;}
+.foot-social .fb_iframe_widget iframe{max-height: 20px;max-width: 90px;}
 .ford-outfitters-widget{padding: 0 5px;}
 /* solunar widget */
 .solunar-widget {
@@ -2708,7 +2714,8 @@ h2.related-stories{
         left:-99999px;
         border: none;
     }
-
+	.home-featured{float: left;width: 64%;}
+	
     .hidden-phone {
         display:block;
     }
@@ -2806,6 +2813,7 @@ h2.related-stories{
     .general-frame {
         width:auto;
     }
+
     .post-slider h2 {
         font-size:30px;
     }
@@ -2819,7 +2827,7 @@ h2.related-stories{
         font-size:20px;
     }
     .article-brief h3 {
-        font-size:21px;
+        font-size:20px;
     }
     .feat-tags a {
         font-size:14px;
@@ -3188,6 +3196,24 @@ h2.related-stories{
 	.general-frame {
         width:auto;
     }
+    .home-featured{float: none;width: 100%;}
+	.home-featured-right {float: none;width: 100%;}
+	.home-featured-right .feat-img{
+		max-height: 100%;
+		overflow: visible;
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+	}
+	.home-featured .feat-text, .posts-list .article-holder{min-height: 0;}
+	.posts-list .article-brief img{float:none;width: 100%;}
+	.article-holder{padding:0 21px 12px 0;}
+	.home-featured .feat-text, .article-brief h3{
+		background: #fff;
+		border-bottom: none;
+		border-left: none;
+		padding: 8px 0;
+	}
    /* sidebar */
     .sidebar-area {
         padding:0;
@@ -3328,6 +3354,7 @@ h2.related-stories{
     }
 }
 @media only screen and (max-width: 700px) {
+	
 	.general-frame{
 		width: auto;
 	}
@@ -3577,7 +3604,7 @@ h2.related-stories{
         display:none;
     }
     .posts-list {
-        margin:0 0 30px;
+        margin:20px 0 30px;
     }
     .links-section h4 {
         font-size:22px;
@@ -3600,11 +3627,9 @@ h2.related-stories{
     .article-brief {
         margin-top:10px;
     }
-    .article-brief h3 {
-        font-size:16px;
-    }
     .feat-text,
-    .article-holder {
+    .article-holder,
+    .home-featured-right .feat-text {
         padding:6px 10px;
     }
     .subscribe-banner {

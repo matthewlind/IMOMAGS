@@ -142,8 +142,7 @@ function parent_theme_setup()
     add_theme_support( 'post-thumbnails' );
     set_post_thumbnail_size( 100, 9999 ); // Unlimited height, soft crop
     add_image_size( 'index-thumb', 200, 150, true );
-    add_image_size( 'list-thumb', 420, 270, true );
-    add_image_size( 'list-thumb-right', 196, 110, true ); 
+    add_image_size( 'list-thumb', 440, 270, true );
     add_image_size( 'legacy-thumb', 190, 120, true );
     add_image_size( 'post-thumb', 700, 450, true );
     add_image_size( 'post-home-thumb', 695, 380, true );

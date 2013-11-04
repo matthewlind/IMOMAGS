@@ -169,29 +169,33 @@ body{background-color: black;}
 .h-mdl-widget{float: left;margin: 34px 0 0 20px;}
 .socials-hold{float: none;}
 .socials a {
-	background-image:url(images/socials.png);
-	width: 25px;
-	height: 25px;
+
 }
-.socials a.rss{
-	background-position: -66px 0;
+.socials a.facebook {
+	background-position: -239px 0;
+}
+.socials a.facebook:hover {
+	background-position: -105px 0;
 }
 .socials a.twitter{
-	background-position: 0 0;
+	background-position: -273px 0;
+}
+.socials a.twitter:hover  {
+	background-position: -140px 0;
 }
 .socials a.youtube{
-	background-position: -33px 0;
+	background-position: -307px 0;
 }
-.socials a.twitter:hover{
-	background-position: 0 -25px;
+.socials a.youtube:hover  {
+	background-position: -172px 0;
 }
-.socials a.rss:hover{
-	background-position: -66px -25px;
+.socials a.rss {
+	background-position: -340px 0;
 }
-.socials a.youtube:hover{
-	background-position: -33px -25px;
+.socials a.rss:hover {
+	background-position: -206px 0;
 }
-.socials .fb-like{margin: 2px 0 0 6px;float: right;}
+
 /* main top navigation */
 .menu-top-menu-container a {color:#3c3c3c;}
 .menu-top-menu-container a:hover {color:#cda220;}
@@ -435,12 +439,12 @@ a.category-name-link:hover{background: #F1C548;color: black;}
 .sub-boxes:after {background:#fff;}
 /* sub area */
 .foot-social {
-    border:1px solid #bcbbba;
-    background:url(images/bg/grey-transparence.png) repeat;
+    border:none;
+    background:#373737;
 }
-.social-title {color:#000;text-shadow:0 1px 0 #fff;}
-.social-title span {color:#c6262d;}
-.foot-social .socials {background:#c8c8c7;border-left:1px solid #bcbbba;}
+.social-title {color:#fff;text-shadow:0 1px 0 #000;}
+.social-title span {color:#cda220;}
+.foot-social .socials {background:#212121;border-left:1px solid #bcbbba;}
 .page-header h1 {color:#c6262d;}
 .sub-titile-banner {border-top:1px solid #fff;border-bottom:1px solid #dbdada;}
 .sub-titile-banner:before,
@@ -756,10 +760,6 @@ background: url(http://www.gameandfishmag.com/files/2013/04/Camera-Corner-Turkey
 		height: 44px;
 		right: 44px;
 	}
-	.socials a {
-		
-	}
-	
 	.gf-bottom-menu {
 		width: 0;
 		background: none;

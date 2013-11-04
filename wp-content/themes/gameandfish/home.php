@@ -7,54 +7,39 @@ get_header(); ?>
             <div id="content" role="main">
             <?php if ( is_home() ) : ?>
 
-            	<?php $featured_query = new WP_Query( 'category_name=featured&posts_per_page=1' ); ?>
-                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="home-featured clearfix js-responsive-section">
-                    <!--<div class="general-title clearfix">
+            	<?php $featured_query = new WP_Query( 'category_name=featured&posts_per_page=3' ); ?>
+                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="clearfix js-responsive-section">
+                
+                    <div class="general-title clearfix">
                         <h2>Featured</h2>
-                    </div>-->
+                    </div>
                     <div class="clearfix">
                         <ul>
-                         <?php while ($featured_query->have_posts()) : $featured_query->the_post(); ?>
-						  	<li>
+                         <?php $i = 0; while ($featured_query->have_posts()) : $featured_query->the_post(); ?>
+						  	<li class="<?php if ($i == 0){ echo 'home-featured'; }else{ echo 'home-featured-right'; } ?>">
                                 <div class="feat-post">
                                     <div class="feat-img"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('index-thumb'); ?></a></div>
                                     <div class="feat-text">
                                         <h3><a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a></h3>
                                 </div>
                             </li>
-                        <?php endwhile; ?>
+                        <?php $i++; endwhile; ?>
                         </ul>
                     </div>
                 </div>
-
-				<?php $featured_right_query = new WP_Query( 'category_name=featured&posts_per_page=2&offset=1' ); ?>
-                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="home-featured-right clearfix js-responsive-section">
-                    <!--<div class="general-title clearfix">
-                        <h2>Featured</h2>
-                    </div>-->
-                    <div class="clearfix">
-                        <ul>
-                         <?php while ($featured_right_query->have_posts()) : $featured_right_query->the_post(); ?>
-						  	<li>
-                                <div class="feat-post">
-                                    <div class="feat-img"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('list-thumb'); ?></a></div>
-                                    <div class="feat-text">
-                                        <h3><a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a></h3>
-                                </div>
-                            </li>
-                        <?php endwhile; ?>
-                        </ul>
-                    </div>
-                </div>
-
 				
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section main-content-preppend">
-
-                    <?php $more_query = new WP_Query( 'posts_per_page=20' ); ?>
+					<div class="general-title clearfix">
+                        <h2>Popular</h2>
+                    </div>
+                    <?php 
+					$slug = 'featured';
+					$category = get_category_by_slug($slug);
+                    $more_query = new WP_Query( 'posts_per_page=20&cat=-' . $category->cat_ID ); ?>
                     <?php while ($more_query->have_posts()) : $more_query->the_post(); ?>
 
                     <div class="article-brief clearfix">
-                        <a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('legacy-thumb');?></a>
+                        <a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('index-thumb');?></a>
                         <div class="article-holder">
                             <div class="clearfix">
                                 <?php 
