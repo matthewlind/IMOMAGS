@@ -270,7 +270,7 @@ function _bc_embed_format_tag($brightcove_ID) {
 }
 
 wp_embed_register_handler( "brightcove", '#http://brightcove=([^]]*)#i', "wp_embed_handler_brightcove");
-wp_embed_register_handler( "brightcove", '#http://brightcovefishing=([^]]*)#i', "wp_embed_handler_brightcove_fishing");
+wp_embed_register_handler( "brightcovefishing", '#http://brightcovefishing=([^]]*)#i', "wp_embed_handler_brightcove_fishing");
 wp_embed_register_handler( "brightcovemobile", '#http://brightcovemobile=([^]]*)#i', "wp_embed_handler_brightcove_mobile");
 
 /******************************************************************************************
