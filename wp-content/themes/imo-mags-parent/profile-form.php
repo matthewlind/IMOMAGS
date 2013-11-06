@@ -49,7 +49,7 @@ if ( is_user_logged_in() ) {
 ?>
 
 <div class="title-underline">
-    <h1>COMMUNITY PROFILE</h1>
+    <!-- <h1>COMMUNITY PROFILE</h1> -->
     <a href="<?php echo wp_logout_url( get_permalink() ); ?>" class="logout" alt="Logout" title="Logout">Logout</a>
 </div>
 <?php if(mobile()){ ?>
