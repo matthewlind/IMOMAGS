@@ -5,8 +5,8 @@ jQuery(window).load(function() {
     //jQuery('#at4m-mobile').appendTo("#page");
 });
 
-
 jQuery(document).ready(function () {
+	
 	
 
 
@@ -82,6 +82,7 @@ jQuery(document).ready(function () {
 	});
 	
 	//Community Menu
+	
     addEvent(document.getElementById('comm-mob-menu'), 'click', function(){
 
     	if( jQuery("body").hasClass("snapjs-right") ){
@@ -183,7 +184,12 @@ jQuery(function(){
         animationSpeed: 200,
         slideshow: false
       });
-      
+    jQuery('.single-featured-slider').flexslider({
+    	animation: "slide",
+        animationSpeed: 200,
+        slideshow: true,
+    	directionNav: true
+    });
     jQuery('.jq-ma-slider').flexslider({
         animation: "slide",
         animationSpeed: 200,
@@ -250,6 +256,7 @@ jQuery(function(){
         });*/
 
     jQuery('.jq-custom-form input[type="checkbox"]').ezMark();
+    jQuery('.jq-custom-form input[type="checkbox"]').show();
     
 });
 

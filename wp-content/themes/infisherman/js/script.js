@@ -2,7 +2,7 @@ jQuery(document).ready(function($) {
 	//Master Angler Page
 	//Set the filter to the default settings
 	
-
+		
     //Set the filter to the default settings
     filter = {};
     filterReset();

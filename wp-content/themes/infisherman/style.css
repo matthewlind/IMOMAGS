@@ -17,17 +17,24 @@ General comments (optional).
 
 /* Header
  ******************************************************************************/
+.wp-post-image{
+	max-height: 100%;
+	overflow: visible;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
 .logo img {
     display:block;
     width:226px;
 }
-.open-menu {background-image:url(images/sprite.png);}
+.open-menu, .user-btn, .search-field input[type="submit"] {background-image:url(images/sprite.png);}
 
-.user-btn {background-image:url(images/sprite.png);}
+
 .btn-base {
 	display: inline-block;
-    height:29px;
-    font:15px/29px "stagbold", serif;
+    height:30px;
+    font:15px/30px "stagbold", serif;
     color:#fff;
     text-shadow:0 -1px 0 #7a0c11;
     margin:0 8px;
@@ -35,6 +42,7 @@ General comments (optional).
     position:relative;
     border-radius: 0;
     border: none;
+    padding: 0;
 }
 .btn-base:hover {
     color:#fff;
@@ -53,20 +61,20 @@ General comments (optional).
     position:absolute;
     top:0;
     width:8px;
-    height:29px;
+    height:30px;
     content:"";
     background:url(images/sprite.png) no-repeat;
 }
 .btn-base:before {
     left:-8px;
-    background-position:0 0;
+    background-position:0 -1px;
 }
-.btn-base:hover:before {background-position:-20px 0;}
+.btn-base:hover:before {background-position:-20px -1px;}
 .btn-base:after {
     right:-8px;
-    background-position:-10px 0;
+    background-position:-10px -1px;
 }
-.btn-base:hover:after {background-position:-30px 0;}
+.btn-base:hover:after {background-position:-30px -1px;}
 .btn-base-middle:before,
 .btn-base-middle:after {
     height:38px;
@@ -78,7 +86,7 @@ General comments (optional).
 .btn-base input {
     border:0;
     background:none;
-    height:29px;
+    height:28px;
     padding:0 16px;
     margin:0 -16px;
     position:relative;
@@ -87,12 +95,21 @@ General comments (optional).
     text-shadow:0 -1px 0 #7a0c11;
     color:#fff;
 }
+.signup-box h3{background:url(images/bg/menu-hover.png) repeat 100% 0;}
+.signup-box .intro-text { padding-bottom: 12px;text-align: left;}
+.submit-button, .btn-base, .btn-base input, .signup-box h3{letter-spacing: 0.1em;}
+.subscribe-links{margin:0px -7px 5px 0}
 .filter-links li:before,
 .menu-top-menu-container li:before,
 .subscribe-links li:before {background-image:url(images/sprite.png);}
 .socials a {background-image:url(images/sprite.png);}
+.socials a.twitter {background-position: -140px 0;}
+.socials a.twitter:hover {background-position: -273px 0;}
+.socials a.youtube {background-position: -173px 0;}
+.socials a.youtube:hover {background-position: -307px 0;}
 
 /* main top navigation */
+.menu-top-menu-container{margin-top: -34px;}
 .menu-top-menu-container a {color:#3c3c3c;}
 .menu-top-menu-container a:hover {color:#c9242c;}
 .menu-main-menu-container {
@@ -100,14 +117,6 @@ General comments (optional).
     border-top: 4px solid #F1C548;
 }
 .menu-main-menu-container > ul > li:last-child {float:right;}
-.menu-main-menu-container > ul > li > a {
-    display:block;
-    height:42px;
-    color:#fff;
-    font:19px/42px "stagbold", serif;
-    text-transform:uppercase;
-    padding:0 18px 0 22px;
-}
 .menu-main-menu-container a.has-drop:after {
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
@@ -197,19 +206,25 @@ a.category-name-link:hover{background: #F1C548;color: black;}
 .cat-label a,
 .cat-feat-label a {color:#fff;}
 .article-brief h3,
-.feat-text h3 {color:#040503;}
+.feat-text h3 {
+	color:#040503;
+    padding:0;
+    font:22px/1.2 "stagregular", serif;
+}
+.article-holder {padding:12px 21px;}
 .article-brief h3 a,
 .feat-text h3 a {color:#040503;}
 .article-brief h3 a:hover,
 .feat-text h3 a:hover {color:#c6262d;}
 .cat-label-inline {color:#7e7e7e;border:1px solid #c3c3c3;border-width:0 0 0 1px;}
-
+.feat-img img {border:1px solid #fff;border-width:1px 1px 0 0;}
 /* double posts */
 .double-post-slider {border-bottom:1px solid #dcdcdb;}
 .double-post-slider:after {background:#fff;}
-.article-brief {background:#fff;border:1px solid #d8d7d6;border-width:0 0 1px;}
+.posts-list .article-brief{min-height: 160px;}
+.article-brief {margin:20px 0 0;background:#fff;border:1px solid #d8d7d6;border-width:0 0 1px;}
 .full-post .comment-count,
-.article-brief .comment-count {color:#fff;background:url(images/sprite.png) no-repeat -134px -36px;}
+.article-brief .comment-count {color:#fff;top:12px;background:url(images/sprite.png) no-repeat -134px -36px;}
 .links-section h4 {color:#000;border-bottom:4px solid #040503;}
 .links-list li {border-top:1px dotted #9a9a9a;}
 .links-list a {color:#3c3c3c;}
@@ -243,9 +258,10 @@ a.category-name-link:hover{background: #F1C548;color: black;}
 /* Single Post Page
  ******************************************************************************/
 .post-header {border-bottom:4px solid #040503;}
-.post-header h1 {color:#040503;}
+.post-header h1 {font:45px/1.2 "stagregular", serif;color:#040503;}
 .meta-date-author {color:#7e7e7e;}
 .author-item {color:#040503;}
+.full-post .entry-content{padding-top: 26px;}
 .entry-content-holder {border-bottom:1px solid #fff;}
 .entry-content-holder:after {background:#dbdbd9;}
 /* paging posts */
@@ -511,6 +527,8 @@ a.change-location:before {
     margin-right:auto;
     margin-left:auto;
 }
+.widget_subscribe-form .subscribeButton{float: right;margin: 0 7px 8px 0;}
+.subs-header {background: url(images/bg/menu-hover.png) repeat 100% 0;color: white;}
 
 /* Core Experts
  ******************************************************************************/
@@ -639,9 +657,18 @@ div.login-register-block {
 /* =Responsive Breakpoints
 *******************************************************************************/
 @media only screen and (max-width: 1096px) {
-	.header .socials{
-		right: 120px;
+	.logo {
+		width: 135px;
+		height: auto;
 	}
+	.logo img {
+		display: block;
+		width: 135px;
+	}
+	.header .socials{
+		right: 104px;
+		padding-right: 0;
+	}	
 	#subscribe-area {
 		right: 315px;
 	}

@@ -1,7 +1,6 @@
 jQuery(document).ready(function () {
 ////////////////////////////////////
 
-
 var colors = new Array();
 
 colors[8] = "#000000";
@@ -93,8 +92,11 @@ function getMapForContainer(containerNameString) {
     
     //Do Work on Map
     for (var state in usRaphael) {
-    	usRaphael[state].color = "#FF6600";
-    	
+    	if($mobile == true){
+    		usRaphael[state].color = "#eee";
+    	}else{
+	    	usRaphael[state].color = "#FF6600";
+    	}
        (function (st, state) {
 	       	if(state == "md" || state == "de" || state == "nj" || state == "co" || state == "wy" || state == "id" || state == "ut" || state == "mt" || state == "nv"){
 		       	st[0].style.cursor = "cursor";
@@ -128,17 +130,59 @@ function getMapForContainer(containerNameString) {
 			
 			//get the post urls
 			var postURL = "/deer-forecast/" + $region + "-deer-forecast-2013/#forecast";
-
+			var trophyPostURL = "/deer-forecast/" + $region + "-trophy-bucks-2013/#forecast";
+			
 			if(state != "md" && state != "de" && state != "nj" && state != "co" && state != "wy" && state != "id" && state != "ut" && state != "mt" && state != "nv"){
-				jQuery(st[0]).click(function() {
-			        jQuery(this).toggleClass('hover_effect');
-					window.location = postURL;
-				});
-				/*jQuery(st[0]).bind('touchstart touchend', function(e) {
-			        e.preventDefault();
-			        jQuery(this).toggleClass('hover_effect');
-					window.location = postURL;
-				});*/
+				
+				//map touch vs click mobile/tablet fix
+				if($mobile == true){
+					jQuery(st[0]).live('touchstart touchend', function(e) {
+						e.stopPropagation();
+				        e.preventDefault();
+				        e.stopImmediatePropagation();
+				        jQuery(this).toggleClass('hover_effect');
+				        
+				        jQuery(".forecast-map .modal p.state-selection").text("Select Your " + stateAbbrev[state.toUpperCase()].replace("-"," ") + " Forecast");
+						jQuery(".forecast-map .modal a.deer-forecast").attr("href",postURL);
+						if(state == "wa" || state == "az"){
+							jQuery(".forecast-map .modal a.trophy-buck, p.delim").hide();
+						}else{
+							jQuery(".forecast-map .modal a.trophy-buck, p.delim").show();
+						}
+						jQuery(".forecast-map .modal a.trophy-buck").attr("href",trophyPostURL);
+						jQuery(".overlay, .forecast-map .modal").show();
+					});
+					jQuery(".overlay, .forecast-map .close").live('touchstart touchend', function(e) {
+						jQuery(".overlay, .forecast-map .modal").fadeOut();
+					});
+					
+					
+
+				}else{
+					jQuery(st[0]).click(function() {
+						jQuery(".forecast-map .modal p.state-selection").text("Select Your " + stateAbbrev[state.toUpperCase()].replace("-"," ") + " Forecast");
+						jQuery(".forecast-map .modal a.deer-forecast").attr("href",postURL);
+						if(state == "wa" || state == "az"){
+							jQuery(".forecast-map .modal a.trophy-buck, p.delim").hide();
+						}else{
+							jQuery(".forecast-map .modal a.trophy-buck, p.delim").show();
+						}
+						if(state == "wa" || state == "or"){
+							jQuery(".forecast-map .modal a.deer-forecast").html("Places for Blacktail");
+						}else if(state == "nm" || state == "ca" || state == "az"){
+							jQuery(".forecast-map .modal a.deer-forecast").html("Places for Mule Deer");
+						}else{
+							jQuery(".forecast-map .modal a.deer-forecast").html("Places for Whitetail");
+						}
+						jQuery(".forecast-map .modal a.trophy-buck").attr("href",trophyPostURL);
+						jQuery(".overlay, .forecast-map .modal").fadeIn();
+					});
+					jQuery(".overlay, .forecast-map .close").click(function() {
+						jQuery(".overlay, .forecast-map .modal").fadeOut();
+					});
+				}
+				
+				
 			
 				st[0].onmouseout = function () {
 			    	colorcode = 1;

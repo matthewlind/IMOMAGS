@@ -1,7 +1,6 @@
 jQuery(document).ready(function () {
 ////////////////////////////////////
 
-
 var colors = new Array();
 
 colors[7] = "#444444";
@@ -150,24 +149,28 @@ function getMapForContainer(containerNameString) {
 		      R.safari();
 		      jQuery("p.state-name").text(stateAbbrev[state.toUpperCase()]);
 		    };
-		    var $test = "/" + stateAbbrev[state.toUpperCase()].replace(" ","") + "/";
-
-			jQuery(st[0]).click(function() {
-		        jQuery(this).toggleClass('hover_effect');
-				window.location = $test;	
-			});
-			/*jQuery(st[0]).bind('touchstart touchend', function(e) {
+		    var postURL = "/" + stateAbbrev[state.toUpperCase()].replace(" ","") + "/";
+		
+			//map touch vs click mobile/tablet fix
+			if($mobile == true){
+				jQuery(st[0]).bind('touchstart touchend', function(e) {
 			        e.preventDefault();
 			        jQuery(this).toggleClass('hover_effect');
 					window.location = postURL;
-				});*/
+				});
+			}else{
+				jQuery(st[0]).click(function() {
+			        jQuery(this).toggleClass('hover_effect');
+					window.location = postURL;	
+				});
+			}
 
 			st[0].onmouseout = function () {
 		    	colorcode = 1;
 		    	st.animate({fill: colors[colorcode]}, 500);
 				st.toFront();
 				R.safari();
-				jQuery("p.state-name").text("");
+				jQuery("p.state-name").text("Select Your State");
 			};
 		               
 		})(usRaphael[state], state);

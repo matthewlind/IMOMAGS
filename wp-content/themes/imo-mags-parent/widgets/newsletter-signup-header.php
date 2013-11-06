@@ -107,10 +107,12 @@ class Signup_Widget_Header extends WP_Widget {
 	   <div class="signup-box jq-custom-form">
 	        <fieldset>
 	            <div class="signup-mdl">
-	            	<h3>GET THE G&F NEWSLETTER!</h3>
-	                <div class="f-row input-row">
-						<input alt="Email Address" type="text" name="email" size="25" maxlength="100" value="" placeholder="Enter Your Email..." >
-	                </div>
+	            	<h3><?php echo $title; ?></h3>
+	            	<div class="inputs">
+		                <div class="f-row input-row">
+							<input alt="Email Address" type="text" name="email" size="25" maxlength="100" value="" placeholder="Enter Your Email..." >
+		                </div>
+	            	</div>
 	                 <div class="signup-btn-row">
 	                    <span class="btn-base"><input type="submit" value="GO" name="update" ></span>
 	                </div>

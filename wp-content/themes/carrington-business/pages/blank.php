@@ -23,17 +23,6 @@ get_header();
 
 the_post();
 ?>
-<div class="bonus-background">
-	<div class="bonus">
-		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-landing')) : else : ?><?php endif; ?>
-	</div>
-	<div id="responderfollow"></div>
-	<div class="sidebar advert">
-		<?php imo_dart_tag("300x250",false,array("pos"=>"btf")); ?>
-		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('scroll-sidebar')) : else : endif; ?>
-	</div>
-</div>
-
 <div class="col-abc">
 	<div <?php post_class('entry entry-full clearfix'); ?>>
 		<div class="entry-content">

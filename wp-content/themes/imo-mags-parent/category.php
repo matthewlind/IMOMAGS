@@ -41,7 +41,7 @@ get_header(); ?>
                         </ul>
                     </div>-->
                     
-                    <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="js-responsive-section main-content-preppend">
+                    <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section main-content-preppend">
 						<?php $i = 1; while ( have_posts() ) : the_post(); ?>
         
                             <?php
@@ -51,17 +51,15 @@ get_header(); ?>
                                  */
                                 get_template_part( 'content/content', get_post_format() );
                             ?>
-                       
-                        <?php if ( $i == 4 && $paged == 0 ){ ?>
-	                       <div class="post">
-		                       <div class="custom-slider-section">
+						<?php if ( function_exists('imo_community_template') ){ 
+							if ( $i == 4 && $paged == 0 ){ ?>
+		                       <div class="post">
 			                        <h2 style="margin-top:10px;">Explore Photos</h2>
 			                        <?php $category = get_category( get_query_var( 'cat' ) );
 									$category_slug = $cat->slug;
 			                        echo do_shortcode('[imo-slideshow community=true gallery='. $category_slug .']'); ?>
-			                   </div>
-			               </div>
-		                <?php } ?>
+				               </div>
+			                <?php } } ?>
 							
                         <?php if ( (($i - (($paged -1) * 2 ))%6) == 0 ): ?>
                         	

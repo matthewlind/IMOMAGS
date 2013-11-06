@@ -10,11 +10,8 @@
 
 <div id="post-<?php the_ID(); ?>" <?php post_class('full-post'); ?>>
     <?php if ( is_single() ) : ?>
-    <div class="clearfix">
-        <?php echo primary_and_secondary_categories(); ?>
-        <a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>
-    </div>
-    
+    <?php if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(); } ?>
+    <a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>
     <div class="post-header">
         <h1 class="entry-title"><?php the_title(); ?></h1>
         <?php else : ?>
@@ -26,6 +23,13 @@
         <em class="meta-date-author">by <span class="author-item"><?php the_author_link(); ?></span>&nbsp;&nbsp;|&nbsp;&nbsp;<?php } the_time('F jS, Y'); ?></em>
         
     </div>
+                        	
+    <?php if ( mobile() ){ ?>
+    <div class="image-banner posts-image-banner">
+        <?php imo_dart_tag("300x250",array("pos"=>"mob")); ?> 
+    </div>
+    <?php } ?>
+
     <?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
     <!-- .entry-header -->
     <div class="entry-content-holder">

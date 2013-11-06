@@ -68,6 +68,12 @@ add_image_size("large-featured-thumb-x",420,300,TRUE);
 add_image_size("huge-featured-thumb-x",648,225,TRUE);
 add_image_size("imo-slider-thumb",134,90,TRUE);
 add_image_size("imo-mini-slider-thumb",70,70,TRUE);
+add_image_size( 'index-thumb', 200, 150, true );
+add_image_size( 'legacy-thumb', 190, 120, true );
+add_image_size( 'post-thumb', 700, 450, true );
+add_image_size( 'post-home-thumb', 695, 380, true );
+add_image_size( 'post-home-small-thumb', 335, 225, true );
+
 
 
 

@@ -389,28 +389,28 @@ padding: 0 15px 0 15px;
 	height: 46px;
 }
 .flex-gallery ul.flex-direction-nav a.flex-next {
-	background:url(img/imo-flex-next-prev.png) no-repeat -40px 0px;
+	background:url(img/imo-flex-next-prev.png) no-repeat -40px 0px !important;
 }
 .flex-gallery ul.flex-direction-nav a.flex-next:hover {
-	background:url(img/imo-flex-next-prev.png) no-repeat -120px 0px;
+	background:url(img/imo-flex-next-prev.png) no-repeat -120px 0px !important;
 }
 .flex-gallery ul.flex-direction-nav a.flex-prev {
-	background:url(img/imo-flex-next-prev.png) no-repeat -3px 0px;
+	background:url(img/imo-flex-next-prev.png) no-repeat -3px 0px !important;
 }
 .flex-gallery ul.flex-direction-nav a.flex-prev:hover {
-	background:url(img/imo-flex-next-prev.png) no-repeat -83px 0px;
+	background:url(img/imo-flex-next-prev.png) no-repeat -83px 0px !important;
 }
 .flex-carousel-nav ul.flex-direction-nav a.flex-next {
-	background:url(img/imo-flex-next-prev.png) no-repeat -43px 9px;
+	background:url(img/imo-flex-next-prev.png) no-repeat -43px 9px !important;
 }
 .flex-carousel-nav ul.flex-direction-nav a.flex-next:hover {
-	background:url(img/imo-flex-next-prev.png) no-repeat -123px 9px;
+	background:url(img/imo-flex-next-prev.png) no-repeat -123px 9px !important;
 }
 .flex-carousel-nav ul.flex-direction-nav a.flex-prev {
-	background:url(img/imo-flex-next-prev.png) no-repeat -3px 9px;
+	background:url(img/imo-flex-next-prev.png) no-repeat -3px 9px !important;
 }
 .flex-carousel-nav ul.flex-direction-nav a.flex-prev:hover {
-	background:url(img/imo-flex-next-prev.png) no-repeat -83px 9px;
+	background:url(img/imo-flex-next-prev.png) no-repeat -83px 9px !important;
 }
 
 .flex-gallery-button,

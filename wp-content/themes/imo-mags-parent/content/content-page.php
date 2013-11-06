@@ -25,5 +25,4 @@ $dataPos = 0;
 </div><!-- #post-<?php the_ID(); ?> -->
                
 <?php sub_footer(); ?> 
-<a href="#" class="back-top jq-go-top">back to top</a>
 
