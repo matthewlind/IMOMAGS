@@ -16,6 +16,7 @@ define("SERVICE_LINK", "https://secure.palmcoastd.com/pcd/eServ?iServ=MDE0Njk0ND
 define("SUBS_DEAL_STRING", "Save Over 70% off<br/> the Cover Price");
 define("DRUPAL_SITE", TRUE);
 define("FACEBOOK_LINK", "https://www.facebook.com/InFisherman");
+define("SITE_NAME", "In-Fisherman");
 
 define("FACEBOOK_APP_ID","172626882923364");
 define("FACEBOOK_APP_SECRET","60a79f156a44dc9a57096bf9ed3d1a80");

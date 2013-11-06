@@ -203,7 +203,7 @@ h1, h2, h3, h4, h5, h6  { font-weight: normal; margin: 0; }
 *******************************************************************************/
 body {
     color:#3c3c3c;
-    font:16px "open_sansregular", Helvetica, "open_sansregular", sans-serif;
+    font:16px "open_sansregular", Helvetica, Arial, sans-serif;
 }
 a       { color: #c9242c; }
 a:hover { color: #040503; }
@@ -435,7 +435,7 @@ img{max-width: 100%;height: auto;}
     float:right;
     width:154px;
     margin:4px 0 0;
-    font:12px Helvetica, "open_sansregular", sans-serif;
+    font:12px "open_sansregular", Helvetica, Arial, sans-serif;
 }
 .subscribe-now .stag-bold {
     font-size:18px;
@@ -452,15 +452,14 @@ img{max-width: 100%;height: auto;}
 .stag-reg {
     font-family:"stagregular";
 }
-.submit-button, .btn-base, .btn-base input, .signup-box h3{letter-spacing: 0.1em;}
 .pager-holder .btn-base{display: none;}
 .btn-base {
-    font:14px/28px "open_sanssemibold", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    font:16px/28px "open_sanssemibold", "Helvetica Neue", "Helvetica", Helvetica, Arial, Arial, sans-serif;
     color:#fff;
-    padding: 4px 0;
+    padding: 0;
     margin:0;
 	margin-bottom: 0;
-	line-height: 20px;
+	line-height: 28px;
 	color: #333333;
 	text-align: center;
 	vertical-align: middle;
@@ -511,7 +510,7 @@ img{max-width: 100%;height: auto;}
 .btn-base input {
     border:none;
     background:none;
-    height:29px;
+    height:28px;
     padding:0 16px;
     margin:0 -16px;
     position:relative;
@@ -519,7 +518,7 @@ img{max-width: 100%;height: auto;}
 }
 .subscribe-now p {margin:0 0 8px;}
 .subscribe-links {
-    font:bold 10px Helvetica, "open_sansregular", sans-serif;
+    font:bold 10px "open_sansregular", Helvetica, Arial, sans-serif;
     text-transform:uppercase;
     float:right;
     clear:both;
@@ -563,7 +562,7 @@ img{max-width: 100%;height: auto;}
     float:left;
     width:174px;
     padding:8px 0 0 8px;
-    font:italic 13px/15px "open_sansregular", Helvetica, sans-serif;
+    font:italic 13px/15px "open_sansregular", Helvetica, Arial, sans-serif;
     color:#3c3c3c;
     border:0;
     background:none;
@@ -623,7 +622,7 @@ img{max-width: 100%;height: auto;}
     float:left;
     margin:-18px 0 10px 10px;
     position:relative;
-    font:14px "open_sansregular", Helvetica, sans-serif;
+    font:14px "open_sansregular", Helvetica, Arial, sans-serif;
 }
 .menu-top-menu-container li {
     display:inline-block;
@@ -727,7 +726,7 @@ img{max-width: 100%;height: auto;}
     border:0;
 }
 .sub-menu a {
-    font:16px/1.1 "open_sanssemibold", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    font:16px/1.1 "open_sanssemibold", "Helvetica Neue", "Helvetica", Helvetica, Arial, Arial, sans-serif;
     color:#6f6e6e;
     display:block;
     padding:15px 10px 13px; /*left w/ arrows: 36px;*/
@@ -831,7 +830,7 @@ img{max-width: 100%;height: auto;}
     left:-4px;
     background:#6d7468;
     padding:6px 28px 3px;
-    font:15px "open_sansbold", sans-serif;
+    font:15px "open_sansbold", Helvetica, Arial, sans-serif;
     color:#fff;
     text-transform:uppercase;
 }
@@ -872,7 +871,7 @@ img{max-width: 100%;height: auto;}
     position:absolute;
     right:34px;
     bottom:11px;
-    font:bold 11px "open_sansregular", Helvetica, sans-serif;
+    font:bold 11px "open_sansregular", Helvetica, Arial, sans-serif;
     color:#7e7e7e;
     text-transform:uppercase;
 }
@@ -969,7 +968,7 @@ img{max-width: 100%;height: auto;}
 }
 .see-all {
     float:right;
-    font:bold 12px Helvetica, "open_sansregular", sans-serif;
+    font:bold 12px "open_sansregular", Helvetica, Arial, sans-serif;
     text-transform:uppercase;
 }
 .see-all:after {
@@ -994,7 +993,7 @@ img{max-width: 100%;height: auto;}
 }
 .cat-feat-label {
     display:block;
-    font:11px/1.2 "open_sansbold", sans-serif;
+    font:11px/1.2 "open_sansbold", Helvetica, Arial, sans-serif;
     color:#fff;
     text-transform:uppercase;
     max-width: 350px;
@@ -1033,21 +1032,21 @@ a.category-name-link:hover{
 .feat-text h3 {
     color:#040503;
     padding:0;
-    font:24px/1.2em "open_sanssemibold", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    font:24px/1.2em "open_sanssemibold", "Helvetica Neue", "Helvetica", Helvetica, Arial, Arial, sans-serif;
 }
 .article-brief h3 a,
 .feat-text h3 a {color:#040503;}
 .article-brief h3 a:hover,
 .feat-text h3 a:hover {color:#afafaf;}
 .feat-tags a {
-    font:16px "open_sansbold", sans-serif;
+    font:16px "open_sansbold", Helvetica, Arial, sans-serif;
     display:inline-block;
     vertical-align:top;
 }
 .cat-label-inline {
     display:inline-block;
     vertical-align:top;
-    font:13px "open_sansregular", sans-serif;
+    font:13px "open_sansregular", Helvetica, Arial, sans-serif;
     color:#7e7e7e;
     padding:0 0 0 10px;
     margin:4px 0 0 10px;
@@ -1199,7 +1198,7 @@ a.category-name-link:hover{
     height:26px;
     text-align:center;
     color:#fff;
-    font:12px/20px "open_sansbold", sans-serif;
+    font:12px/20px "open_sansbold", Helvetica, Arial, sans-serif;
     background:url(images/sprite.png) no-repeat -134px -36px;
 }
 
@@ -1358,7 +1357,7 @@ a.category-name-link:hover{
     border-width:0 0 1px;
     padding:15px 16px;
     margin:0 0 15px;
-    font:bold 11px "open_sansregular", Helvetica, sans-serif;
+    font:bold 11px "open_sansregular", Helvetica, Arial, sans-serif;
     color:#7e7e7e;
 }
 .filter-by strong {
@@ -1419,7 +1418,7 @@ a.category-name-link:hover{
     width:120px;
     height:40px;
     text-align:center;
-    font:bold 12px "open_sansregular", Helvetica, sans-serif;
+    font:bold 12px "open_sansregular", Helvetica, Arial, sans-serif;
     text-transform:uppercase;
     padding:18px 0 0;
     position:relative;
@@ -1436,6 +1435,9 @@ a.category-name-link:hover{
     height:13px;
     content:"";
     background:url(images/sprite.png) no-repeat -271px -36px;
+}
+.newsletter-sidebar{
+	
 }
 .get-newsletter {
     display:none;
@@ -1468,7 +1470,7 @@ a.category-name-link:hover{
     border-bottom:4px solid #040503;
 }
 .post-header h1 {
-    font:50px/1.2 "open_sansbold", serif;
+    font:50px/1.2 "open_sansbold", Helvetica, Arial, serif;
     color:#040503;
     margin:0 0 10px;
 }
@@ -1702,7 +1704,7 @@ a.category-name-link:hover{
 }
 .snap-drawers .menu-top-menu-container a,
 .snap-drawers .mob-aside-menu > div > ul > li > a {
-    font:17px "open_sansbold", sans-serif;
+    font:17px "open_sansbold", Helvetica, Arial, sans-serif;
     color:#3c3c3c;
     text-transform:uppercase;
     padding:16px 24px 16px 16px;
@@ -1887,7 +1889,7 @@ a.category-name-link:hover{
 	padding: 0;
 }
 .sidebar-area .widget {
-    margin:0 0 20px;
+    margin:0 auto 20px;
 }
 .widget_advert-widget img, #facebook, .sidebar.advert img {
     width:100%;
@@ -2121,7 +2123,7 @@ a.change-location:before {
     padding:14px 15px 13px;
 }
 .aside-video-tag {
-    font:11px Helvetica, "open_sansregular", sans-serif;
+    font:11px Helvetica, "open_sansregular", Helvetica, Arial, sans-serif;
     color:#7e7e7e;
     margin:0 0 2px;
 }
@@ -2130,6 +2132,36 @@ a.change-location:before {
     color:#040503;
 }
 .video-box-frame img {width:100%;}
+
+.arrow_box {
+	position: relative;
+	background: #88b7d5;
+	border: 4px solid #c2e1f5;
+}
+.arrow_box:after, .arrow_box:before {
+	bottom: 100%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.arrow_box:after {
+	border-color: rgba(136, 183, 213, 0);
+	border-bottom-color: #88b7d5;
+	border-width: 30px;
+	left: 50%;
+	margin-left: -30px;
+}
+.arrow_box:before {
+	border-color: rgba(194, 225, 245, 0);
+	border-bottom-color: #c2e1f5;
+	border-width: 36px;
+	left: 50%;
+	margin-left: -36px;
+}
 .signup-box {
     background:#040503;
     color:#fff;
@@ -2149,7 +2181,7 @@ a.change-location:before {
     border-width:0 0 1px;
 }
 .signup-box .intro-text {
-    font:14px "open_sansbold", sans-serif;
+    font:14px "open_sansbold", Helvetica, Arial, sans-serif;
     margin:0;
     padding-bottom: 12px;
 }
@@ -2157,7 +2189,7 @@ a.change-location:before {
     padding:0 0 14px;
 }
 .signup-box input[type="text"]{
-    font:italic 13px/16px "open_sansregular", Helvetica, sans-serif !important;
+    font:italic 13px/16px "open_sansregular", Helvetica, Arial, sans-serif !important;
     color:#3c3c3c;
     width:100% !important;
     padding:7px 9px 5px !important;
@@ -2172,7 +2204,7 @@ a.change-location:before {
 .signup-box .check-row label {
     display:inline-block;
     vertical-align:top;
-    font:12px/1.1 "open_sansbold", sans-serif;
+    font:12px/1.1 "open_sansbold", Helvetica, Arial, sans-serif;
     color:#7e7e7e;
     width:242px;
     padding:2px 0 0 6px;
@@ -2216,7 +2248,7 @@ a.change-location:before {
 .recipes-box h3 a {color:#040503;}
 .recipes-box h3 a:hover {color:#c6262d;}
 .recipes-box .comment-count {
-    font:12px Helvetica, "open_sansregular", sans-serif;
+    font:12px Helvetica, "open_sansregular", Helvetica, Arial, sans-serif;
     color:#7e7e7e;
 }
 .recipes-box {
@@ -2309,6 +2341,15 @@ a.change-location:before {
 }
 
 /*** Subscribe widget ***/
+.subscribe-form-block{height: 320px;}
+.subs-header{
+	background: #373737;
+	width: 100%;
+	height: 54px;
+	padding: 6px 0;
+	color: white;
+}
+.subscribe-form-block h4{float: left;font: 18px/1.2 "open_sansbold", Helvetica, Arial, sans-serif;width: 140px;text-align: center;}
 .widget_subscribe-form{
 	background: white;
 	padding: 10px;
@@ -2324,7 +2365,7 @@ a.change-location:before {
 	clear: both;
 	float: right;
 }
-.widget_subscribe-form .subscribeButton{float: right;margin: 8px 7px 8px 0;}
+.widget_subscribe-form .subscribeButton{float: right;margin:0;}
 .widget_subscribe-form input[type="text"], .widget_subscribe-form select{
  background-color: #ffffff;
   border: 1px solid #cccccc;
@@ -2344,20 +2385,17 @@ a.change-location:before {
   line-height: 20px;
   color: #555555;
   -webkit-border-radius: 4px;
-     -moz-border-radius: 4px;
-          border-radius: 4px;
+    -moz-border-radius: 4px;
+        border-radius: 4px;
 }
-.subscribeAdModContent{
-	margin: 0 auto;
-}
-.widget_subscribe-form img{
-	float: left;
-	margin: 0 10px 10px 0;
-}
-.widget_subscribe-form .zipCode{
-	width: 44px;
-}
-
+.subscribe-form-block .content{padding-top: 14px;}
+.subscribeAdMod{float: right;width: 150px;}
+.mag-cover{float: left;}
+.widget_subscribe-form .mag-cover{float: left;max-width: 138px;}
+.widget_subscribe-form input{width: 150px;}
+.widget_subscribe-form .zipCode{width: 44px;float: right;}
+.widget_subscribe-form select{width: 100px;float: left;margin-right: 6px;}
+.widget_subscribe-form .mag-copy{font:14px/1.2 "open_sansbold", Helvetica, Arial, sans-serif;padding: 4px 2px;text-align: center;}
 
 /*** TEMP GIFT GUIDE OVERRIDES ***/
 #gift-guide .widget-title span{
@@ -2651,7 +2689,7 @@ h2.related-stories{
 }
 .foot-nav {
     float:left;
-    font:bold 12px "open_sansregular", Helvetica, sans-serif;
+    font:bold 12px "open_sansregular", Helvetica, Arial, sans-serif;
 }
 .foot-nav li {
     float:left;
@@ -2673,7 +2711,7 @@ h2.related-stories{
 }
 .copyright {
     float:left;
-    font:bold 12px "open_sansregular", Helvetica, sans-serif;
+    font:bold 12px "open_sansregular", Helvetica, Arial, sans-serif;
 }
 .copyright img {
     display:inline-block;
@@ -2697,8 +2735,6 @@ h2.related-stories{
     vertical-align:middle;
     margin:0 0 0 16px;
 }
-
-
 .hidden-desktop {
     display:none;
 }
@@ -2715,7 +2751,17 @@ h2.related-stories{
         border: none;
     }
 	.home-featured{float: left;width: 64%;}
-	
+	.h-search-open {
+	   display: block !important;
+	   position:absolute;
+	   top:44px;
+	   left:0;
+	   background:#fff;
+	   border-top: 1px solid #dddcdb;
+	   border-bottom: 1px solid #dddcdb;
+	   padding:10px;
+	   width:100%;
+	}
     .hidden-phone {
         display:block;
     }
@@ -2774,17 +2820,6 @@ h2.related-stories{
        top:8px;
        right:255px;
    }
-   .h-search-open {
-       display: block !important;
-       position:absolute;
-       top:44px;
-       left:0;
-       background:#fff;
-       border:none;
-       padding:10px;
-       width:100%;
-   }
-
     /* general */
     .frame,
     .layout-frame {
@@ -3093,7 +3128,7 @@ h2.related-stories{
 @media only screen and (max-width: 880px) {
 	.gallery-slider #gallery-iframe-ad{margin-left: 50px;}
 	.double-posts .cat-feat-label {
-	    font:10px/1.2 "open_sansbold", sans-serif;
+	    font:10px/1.2 "open_sansbold", Helvetica, Arial, sans-serif;
 	}
 	.general-frame {
         width:auto;

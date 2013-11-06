@@ -13,6 +13,7 @@ include_once('widgets/ford-widget.php');
 include_once('widgets/community-login-widget.php');
 include_once('widgets/community-slider.php');
 include_once('widgets/user-info.php');
+include_once('widgets/forecast.php');
 
 
 $magazine_img = get_option("magazine_cover_uri", get_stylesheet_directory_uri(). "/images/pic/journals.png" );

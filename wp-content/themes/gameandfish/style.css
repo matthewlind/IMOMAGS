@@ -45,17 +45,6 @@ body{background-color: black;}
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#212121', endColorstr='#303030',GradientType=0 ); /* IE6-8 */
 }
 .open-menu {background-image:url(images/sprite.png);}
-.open-search{
-	display: block;
-	float: right;
-	background: url(images/search.jpg) no-repeat left top #252525;
-	width: 40px;
-	height: 40px;
-}
-.open-search:hover{background-position: left top;}
-.h-search-form{
-	display: none;
-}
 .location-services{
 	display: none;
 	background: #cda220;
@@ -68,9 +57,9 @@ body{background-color: black;}
 .btn-base {
 	display: inline-block;
 	height: 28px;
-	color: white;
+	color: #cda220;
 	margin: 0 8px;
-	background: #cda220;
+	background: #373737;	
 	position: relative;
 	border-radius: 6px;
 	border: none;
@@ -79,8 +68,10 @@ body{background-color: black;}
 .btn-base:hover{
 	color: white;
 	text-shadow: 0 -1px 0 #afafaf;
-	background: #373737;
+	background: #cda220;
 }
+.btn-base input{color: #cda220;}
+.btn-base input:hover{color: white;}
 .btn-base-middle {
     height:38px;
     font-size:17px;
@@ -89,44 +80,6 @@ body{background-color: black;}
     background-position:100% -68px;
 }
 .btn-base-middle:hover {background-position:100% -110px;}
-.btn-base:before,
-.btn-base:after {
-    position:relative;
-    top:auto;
-    width:0;
-    height:0;
-    content:"";
-    background:none;
-}
-.btn-base:before {
-    left:-8px;
-    background-position:0 0;
-}
-.btn-base:hover:before {background-position:-20px 0;}
-.btn-base:after {
-    right:-8px;
-    background-position:-10px 0;
-}
-.btn-base:hover:after {background-position:-30px 0;}
-.btn-base-middle:before,
-.btn-base-middle:after {
-    height:38px;
-}
-.btn-base-middle:before {background-position:-372px 0;}
-.btn-base-middle:hover:before {background-position:-390px 0;}
-.btn-base-middle:after {background-position:-381px 0;}
-.btn-base-middle:hover:after {background-position:-399px 0;}
-.btn-base input {
-    border:0;
-    background:none;
-    height:29px;
-    padding:0 16px;
-    margin:0 -16px;
-    position:relative;
-    z-index:20;
-    text-shadow:0 -1px 0 #7a0c11;
-    color:#fff;
-}
 .gf-bottom-menu{
 	width: 100%;
 	background: white;
@@ -142,7 +95,7 @@ body{background-color: black;}
 	float: left;
 	font: 14px "open_sansbold", Helvetica, sans-serif;
 }
-.menu-top-menu-container li{padding: 2px 20px;}
+.menu-top-menu-container li{padding: 2px 18px;}
 .filter-links li:before,
 .menu-top-menu-container li:before,
 .subscribe-links li:before {background-image:none;}
@@ -185,6 +138,8 @@ body{background-color: black;}
 }
 
 /* main top navigation */
+.menu-top-menu-container li{border-left:1px dashed #ccc;}
+.menu-top-menu-container.trending li{border: none;}
 .menu-top-menu-container a {color:#3c3c3c;}
 .menu-top-menu-container a:hover {color:#cda220;}
 .menu-main-menu-container {
@@ -319,38 +274,44 @@ body{background-color: black;}
 	background: linear-gradient(to right,  #000000 0%,#545454 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#545454',GradientType=1 ); /* IE6-8 */
 }
-.newsletter-box h3{
+.newsletter-box h3 {
 	color: white;
 	float: left;
 	padding: 0 54px 0 50px;
 	height: 38px;
 	font: 18px/38px "open_sansbold", sans-serif;
 	letter-spacing: 0.05em;
+	background: #7a0c11;
 }
-.jq-custom-form input[type="checkbox"]{
+.newsletter-sidebar h3{
+	font: 22px/52px "open_sansbold", sans-serif;
+	background: #7a0c11;
+	height: 50px;
+}
+.newsletter-box .jq-custom-form input[type="checkbox"]{
 	display: none;
 }
-.signup-box {background: none;}
-.signup-box .f-row{padding: 0;float: left;}
-.signup-box .input-row{
+.newsletter-box .signup-box {background: none;}
+.newsletter-box .signup-box .f-row{padding: 0;float: left;}
+.newsletter-box .signup-box .input-row{
 	padding: 0;
 	float: left;
 	margin: 3px 0 0 4px;
 }
-.signup-mdl {
+.newsletter-box .signup-mdl {
 	padding: 0;
 	border: none;
 	border-width: 0;
 	float: none;
 }
-.f-row check-row{float: left;}
-.signup-btn-row {
+.newsletter-box .f-row check-row{float: left;}
+.newsletter-box .signup-btn-row {
 	padding: 0;
 	text-align: center;
 	float: left;
 }
 .newsletter-box .ez-checkbox {margin: 11px 0 0 16px;}
-.signup-box .check-row label {
+.newsletter-box .signup-box .check-row label {
 	font: 12px/1.1 "open_sansregular", sans-serif;
 	width: auto;
 	padding: 12px 0 0 6px;
@@ -377,7 +338,7 @@ body{background-color: black;}
 	width: auto;
 	height: 32px;
 }
-.signup-btn-row input{
+.newsletter-box .signup-btn-row input{
 	width: auto;
 }
 .newsletter-box .signup-box input[type="text"]{
@@ -410,6 +371,7 @@ a.category-name-link:hover{background: #F1C548;color: black;}
 .feat-text h3 a {color:#373737;}
 .article-brief h3 a:hover,
 .feat-text h3 a:hover {color:#cda220;}
+.widget-title{color:#373737}
 .cat-label-inline {color:#7e7e7e;border:1px solid #c3c3c3;border-width:0 0 0 1px;}
 .home .single-post-slider .flex-direction-nav{display: block !important;visibility: visible;}
 .home .single-post-slider .flex-direction-nav a{top:90px;}
@@ -450,7 +412,7 @@ a.category-name-link:hover{background: #F1C548;color: black;}
 #subscribe-area{width: auto;margin: 0;}
 #subscribe-area a:hover{color: #cda220;}
 .subscribe-banner:hover {opacity:0.7;}
-.subscribe-box .journal img{width: auto;padding: 10px 10px 0 0;}
+.subscribe-box .journal img{padding: 10px 10px 0 0;}
 .subscribe-now p{margin: 4px 0 2px;}
 .subs-btm{clear: both;min-height: 120px;margin: 30px 0;}
 .subs-btm .subs-wrap{
@@ -474,6 +436,8 @@ a.category-name-link:hover{background: #F1C548;color: black;}
 }
 .btm-subs-links p{margin: 8px 0 0;}
 .btm-subs-links a{padding: 2px 0 4px;color: white;}
+
+.subs-header{color: #cda220;}
 
 /* Single Post Page
  ******************************************************************************/
@@ -572,6 +536,7 @@ p.state-name{
 	font-size: 20px;
 	font-weight: bold;
 	color: #cda220;
+	margin-top: 6px;
 }
 .us-map-widget svg{
 	width: 686px;
@@ -758,7 +723,22 @@ element:hover, element.hover_effect {
 background: url(http://www.gameandfishmag.com/files/2013/04/Camera-Corner-Turkey-Banner.jpg) no-repeat scroll 60px 0px black;}
 .gf-photo-corner-smallgame {background: url(http://www.gameandfishmag.com/files/2013/04/Camera-Corner-small-game-Banner.jpg) no-repeat scroll 60px 0px black;}
 .gf-photo-corner-fish {background: url(http://www.gameandfishmag.com/files/2013/04/Camera-Corner-Fish-Banner.jpg) no-repeat scroll 60px 0px black;}
-
+.open-search{display: none;}
+.h-search-open {
+	display: block !important;
+	position:absolute;
+	top:44px;
+	left:0;
+	background:#fff;
+	border-top: 1px solid #dddcdb;
+	border-bottom: 1px solid #dddcdb;
+	padding:10px;
+	width:100%;
+}
+.h-search-form {
+	padding: 4px 4px 0 0;
+}
+.search-field input{width: 194px;}
 
 /* = Footer
  ******************************************************************************/
@@ -807,20 +787,23 @@ background: url(http://www.gameandfishmag.com/files/2013/04/Camera-Corner-Turkey
 	}
 	.subs-links, #tiptip_holder.tip_bottom{display: none !important;}
 	.open-search {
+		display: block;
 		float: none;
-		background-position: 0px 2px;
 		width: 44px;
 		height: 44px;
 		position: absolute;
 		right: 0;
 		top: 0px;
+		background: url(images/search.jpg) no-repeat 0px 2px #252525;
 	}
+	.open-search:hover{background-position: left top;}
 	.open-search:hover{
 		background-position: 0px 2px;
 	}
 	.h-search-open {
 		background: #252525;
 	}
+	.h-search-form{padding: 10px;}
 	.newsletter-box{display: none;}
 	.header .socials {
 		right: 90px;

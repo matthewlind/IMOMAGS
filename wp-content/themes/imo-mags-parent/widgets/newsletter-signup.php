@@ -12,7 +12,7 @@ class Signup_Widget extends WP_Widget {
     $title = empty($instance['title']) ? '' : apply_filters('widget_title', $instance['title']); ?>
 	
 	
-<div class="widget">	
+<div class="widget newsletter-sidebar">	
 	<script type="text/javascript">
 	/***********************************************
 	* Textarea Maxlength script- © Dynamic Drive (www.dynamicdrive.com)
@@ -110,7 +110,7 @@ class Signup_Widget extends WP_Widget {
 				 	<h3><?php echo $title; ?></h3>
 				 <?php endif; ?>
 	            <div class="signup-mdl">
-	                <p class="intro-text">Sign up to receive the latest updates from In-Fisherman</p>
+	                <p class="intro-text">Sign up to receive the latest updates from <?php echo SITE_NAME; ?></p>
 	                <div class="f-row">
 						<input alt="Email Address" type="text" name="email" size="25" maxlength="100" value="" placeholder="Enter Your Email..." >
 	                </div>

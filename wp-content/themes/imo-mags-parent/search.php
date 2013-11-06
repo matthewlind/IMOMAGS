@@ -20,7 +20,7 @@ get_header(); ?>
                         <h1 class="page-title"><?php printf( __( 'Results for: %s', 'twentyeleven' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 				</div>
 
-				<div class="js-responsive-section main-content-preppend">
+				<div class="posts-list js-responsive-section main-content-preppend">
 				<?php /* Start the Loop */ ?>
 				<?php while ( have_posts() ) : the_post(); ?>
 

@@ -95,6 +95,9 @@ General comments (optional).
     text-shadow:0 -1px 0 #7a0c11;
     color:#fff;
 }
+.signup-box h3{background:url(images/bg/menu-hover.png) repeat 100% 0;}
+.signup-box .intro-text { padding-bottom: 12px;text-align: left;}
+.submit-button, .btn-base, .btn-base input, .signup-box h3{letter-spacing: 0.1em;}
 .subscribe-links{margin:0px -7px 5px 0}
 .filter-links li:before,
 .menu-top-menu-container li:before,
@@ -218,6 +221,7 @@ a.category-name-link:hover{background: #F1C548;color: black;}
 /* double posts */
 .double-post-slider {border-bottom:1px solid #dcdcdb;}
 .double-post-slider:after {background:#fff;}
+.posts-list .article-brief{min-height: 160px;}
 .article-brief {margin:20px 0 0;background:#fff;border:1px solid #d8d7d6;border-width:0 0 1px;}
 .full-post .comment-count,
 .article-brief .comment-count {color:#fff;top:12px;background:url(images/sprite.png) no-repeat -134px -36px;}
@@ -523,6 +527,8 @@ a.change-location:before {
     margin-right:auto;
     margin-left:auto;
 }
+.widget_subscribe-form .subscribeButton{float: right;margin: 0 7px 8px 0;}
+.subs-header {background: url(images/bg/menu-hover.png) repeat 100% 0;color: white;}
 
 /* Core Experts
  ******************************************************************************/

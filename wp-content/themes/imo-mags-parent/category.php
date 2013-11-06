@@ -41,7 +41,7 @@ get_header(); ?>
                         </ul>
                     </div>-->
                     
-                    <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="js-responsive-section main-content-preppend">
+                    <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section main-content-preppend">
 						<?php $i = 1; while ( have_posts() ) : the_post(); ?>
         
                             <?php
