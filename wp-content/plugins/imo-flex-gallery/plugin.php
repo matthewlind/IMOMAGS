@@ -371,7 +371,7 @@ EOT;
 
 $mobile_output .= <<<EOT2
 		        <li>
-		            <a href="$baseUrl/photos/$picture->id"><img src="$picture->img_url/convert?rotate=exif&w=119&h=89&fit=crop" alt="$picture->alttext" ></a>
+		            <a href="$baseUrl/photos/$picture->id"><img src="$picture->img_url" alt="$picture->alttext" ></a>
 		        </li>
 EOT2;
 		$count++;
@@ -410,7 +410,7 @@ EOT;
 
 $mobile_output .= <<<EOT2
 		        <li>
-		            <img src="$picture->img_url/convert?w=119&h=119&fit=crop" alt="$picture->alttext">
+		            <img src="$picture->img_url" alt="$picture->alttext">
 		            <div class="feat-text">
 		                <h3>$picture->alttext</h3>
 						$picture->description
@@ -441,6 +441,7 @@ $mobile_output .= <<<EOT3
 		    	var fslider = jQuery('#gallery-$gallery').flexslider({
 		            animation: "slide",
 		            animationSpeed: 200,
+		            animationLoop: false,
 		            slideshow: false,
 		            start: function (slider) {
 						positionNavArrows();		
@@ -469,7 +470,7 @@ $mobile_output .= <<<EOFmobile_standard
 		</script>
 EOFmobile_standard;
 }
-		if($_SERVER['SERVER_NAME'] == "www.in-fisherman.com" || $_SERVER['SERVER_NAME'] == "www.in-fisherman.salah" || $_SERVER['SERVER_NAME'] == "www.in-fisherman.fox" || $_SERVER['SERVER_NAME'] == "www.in-fisherman.deva"){
+		if($_SERVER['SERVER_NAME'] == "www.in-fisherman.com" || $_SERVER['SERVER_NAME'] == "www.in-fisherman.fox" || $_SERVER['SERVER_NAME'] == "www.in-fisherman.deva" || $_SERVER['SERVER_NAME'] == "www.gameandfishmag.fox"){
 			if (mobile()){
 				return $mobile_output;
 			}else{

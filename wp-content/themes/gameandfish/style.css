@@ -235,7 +235,7 @@ body{background-color: black;}
     overflow:hidden;
     z-index: 999999999;
     padding: 10px 0 20px 40px;
-    min-height: 520px;
+    min-height: 600px;
     color: white;
     background: #373737; /* Old browsers */
 	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
@@ -255,9 +255,9 @@ body{background-color: black;}
     border-width:1px 0 0;
 }
 .sub-menu a:hover {color:#c6262d;}
-.submenu-category-title {color:#040503;}
-.drop-feat-post h5 {color:#040503;}
-.drop-feat-post h5 a {color:#040503;}
+.submenu-category-title {color:#373737;}
+.drop-feat-post h5 {color:#373737;}
+.drop-feat-post h5 a {color:#373737;}
 .drop-feat-post h5 a:hover {color:#c9242c;}
 .hot-link a{
 	font: 14px/1.2 "open_sansbold", Helvetica, sans-serif;
@@ -298,7 +298,7 @@ body{background-color: black;}
 .newsletter-box.bottom-newsletter{margin: 10px 0;display: block;}
 .newsletter-box.bottom-newsletter fieldset{min-height: 114px;}
 .newsletter-box.bottom-newsletter h3{float: none !important;padding: 0;}
-.newsletter-box.bottom-newsletter .inputs{margin: 0 auto;width: 33%;}
+.newsletter-box.bottom-newsletter .inputs{margin: 0 auto;width: 23%;}
 .newsletter-box.bottom-newsletter .check-row{float: none !important;text-align: center;clear: both;}
 .newsletter-box{
 	background: url(images/bg/menu-hover.png) repeat 100% 0;
@@ -324,7 +324,7 @@ body{background-color: black;}
 	float: left;
 	padding: 0 54px 0 50px;
 	height: 38px;
-	font: 22px/38px "open_sansbold", sans-serif;
+	font: 18px/38px "open_sansbold", sans-serif;
 	letter-spacing: 0.05em;
 }
 .jq-custom-form input[type="checkbox"]{
@@ -391,13 +391,13 @@ body{background-color: black;}
 .post-slider .nl-txt {
     background:#fff;
     border-bottom:1px solid #bebebd;
-    border-left:4px solid #040503;
+    border-left:4px solid #373737;
 }
-.post-slider h2 {color:#040503;}
-.post-slider h2 a {color:#040503;}
+.post-slider h2 {color:#373737;}
+.post-slider h2 a {color:#373737;}
 .post-slider h2 a:hover {color:#c6262d;}
 .view-post {background:url(images/sprite.png) no-repeat 0 -35px;}
-.general-title h2 span {color:#c6262d;}
+.general-title h2 span {color:#373737;}
 .cat-feat-label span {background:#6d7468;}
 a.category-name-link.primary-cat{background: #c6262d;}
 a.category-name-link{color: #fff;background: #6d7468;}
@@ -405,9 +405,9 @@ a.category-name-link:hover{background: #F1C548;color: black;}
 .cat-label a,
 .cat-feat-label a {color:#fff;}
 .article-brief h3,
-.feat-text h3 {color:#040503;}
+.feat-text h3 {color:#373737;}
 .article-brief h3 a,
-.feat-text h3 a {color:#040503;}
+.feat-text h3 a {color:#373737;}
 .article-brief h3 a:hover,
 .feat-text h3 a:hover {color:#cda220;}
 .cat-label-inline {color:#7e7e7e;border:1px solid #c3c3c3;border-width:0 0 0 1px;}
@@ -419,7 +419,7 @@ a.category-name-link:hover{background: #F1C548;color: black;}
 .article-brief {background:#fff;border:1px solid #d8d7d6;border-width:0 0 1px;}
 .full-post .comment-count,
 .article-brief .comment-count {color:#fff;background:url(images/sprite.png) no-repeat -134px -36px;}
-.links-section h4 {color:#000;border-bottom:4px solid #040503;}
+.links-section h4 {color:#000;border-bottom:4px solid #373737;}
 .links-list li {border-top:1px dotted #9a9a9a;}
 .links-list a {color:#3c3c3c;}
 .links-list a:hover {color:#c9242c;}
@@ -434,7 +434,7 @@ a.category-name-link:hover{background: #F1C548;color: black;}
 .social-title {color:#fff;text-shadow:0 1px 0 #000;}
 .social-title span {color:#cda220;}
 .foot-social .socials {background:#212121;border-left:1px solid #bcbbba;}
-.page-header h1 {color:#040503;}
+.page-header h1 {color:#373737;}
 .sub-titile-banner {border-top:1px solid #fff;border-bottom:1px solid #dbdada;}
 .sub-titile-banner:before,
 .sub-titile-banner:after{background:#fff;}
@@ -448,16 +448,39 @@ a.category-name-link:hover{background: #F1C548;color: black;}
     color:#fff;
 }
 #subscribe-area{width: auto;margin: 0;}
+#subscribe-area a:hover{color: #cda220;}
 .subscribe-banner:hover {opacity:0.7;}
-.subscribe-box .journal img{width: auto;padding-right: 10px;}
+.subscribe-box .journal img{width: auto;padding: 10px 10px 0 0;}
 .subscribe-now p{margin: 4px 0 2px;}
-.subs-wrap{background: #afafaf;}
+.subs-btm{clear: both;min-height: 120px;margin: 30px 0;}
+.subs-btm .subs-wrap{
+	width:300px;
+	margin: 0 auto;
+	background: #313131;
+	padding: 10px;
+	height: 140px;
+	border-radius: 20px;
+}
+.subs-btm .subs-wrap .journal{float: left;margin: 20px 0 0;}
+.subs-btm .subs-wrap .subscribe-now{float: none;text-align: center;}
+.subs-btm .subs-wrap .subscribe-now p{text-align: center;margin: 4px 0 2px;}
+.subs-btm .subs-wrap .subscribe-now .subs-btn{margin-top: 4px;}
+.btm-subs-links{
+	width: 188px;
+	margin: 0 auto;
+	min-height: 100px;
+	float: right;
+	text-align: center;
+}
+.btm-subs-links p{margin: 8px 0 0;}
+.btm-subs-links a{padding: 2px 0 4px;color: white;}
+
 /* Single Post Page
  ******************************************************************************/
-.post-header {border-bottom:4px solid #040503;}
-.post-header h1 {color:#040503;}
+.post-header {border-bottom:4px solid #373737;}
+.post-header h1 {color:#373737;clear: both;}
 .meta-date-author {color:#7e7e7e;}
-.author-item {color:#040503;}
+.author-item {color:#373737;}
 .entry-content-holder {border-bottom:1px solid #fff;}
 .entry-content-holder:after {background:#dbdbd9;}
 /* paging posts */
@@ -465,8 +488,8 @@ a.category-name-link:hover{background: #F1C548;color: black;}
 .paging-posts .flex-control-nav{
     display:none;
 }
-.paging-post h3 {color:#040503;}
-.paging-post h3 a {color:#040503;}
+.paging-post h3 {color:#373737;}
+.paging-post h3 a {color:#373737;}
 .paging-post h3 a:hover {color:#c9242c;}
 
 
@@ -546,7 +569,7 @@ div.login-register-block {
 }
 p.state-name{
 	text-transform: uppercase;
-	font-size: 1.6em;
+	font-size: 20px;
 	font-weight: bold;
 	color: #cda220;
 }
@@ -555,11 +578,11 @@ p.state-name{
 }
 .state-list{
 	position: absolute;
-	top: 70px;
+	top: 48px;
 
 }
 .state-list ul{
-	padding: 0 12px;
+	padding: 0 8px;
 	float: left;
 }
 .state-list ul li{
@@ -589,6 +612,63 @@ p.state-name{
         border-bottom: 2px solid #ccc;
         padding-bottom: 6px;
 }
+.forecast-map .modal{
+	font-family: "Stag",serif;
+	font-size: 15px;
+	position: relative;
+	text-align: center;
+	padding: 30px 0;
+	margin: 0 auto;
+	width: 230px;
+	top: 210px;
+	border: 1px solid;
+	background: rgb(255,255,255);
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod?BoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+	background: -moz-linear-gradient(top, rgba(255,255,255,1) 10%, rgba(239,236,230,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(10%,rgba(255,255,255,1)), color-stop(100%,rgba(239,236,230,1)));
+	background: -webkit-linear-gradient(top, rgba(255,255,255,1) 10%,rgba(239,236,230,1) 100%);
+	background: -o-linear-gradient(top, rgba(255,255,255,1) 10%,rgba(239,236,230,1) 100%);
+	background: -ms-linear-gradient(top, rgba(255,255,255,1) 10%,rgba(239,236,230,1) 100%);
+	background: linear-gradient(top, rgba(255,255,255,1) 10%,rgba(239,236,230,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#efece6',GradientType=0 );
+	border-radius: 8px;
+	border: 12px solid rgb(255, 255, 255);
+	border: 12px solid rgba(255, 255, 255, 0.6);
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	z-index: 9999999 !important;
+	display: none;
+}
+.forecast-map .modal p.state-selection{
+	text-transform: uppercase;
+	margin-bottom: 22px;
+}
+.forecast-map .modal  p{
+	margin: 0;
+}
+.forecast-map .modal a{
+	font-size: 18px;
+}
+.forecast-map .close{
+	background: url(img/close.png) no-repeat;
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	top: -20px;
+	right: -20px;
+	cursor: pointer;
+}
+.overlay{
+	width: 110%;
+	height: 100%;
+	position: absolute;
+	background: black;
+	opacity: 0.5;
+	top: 0;
+	left: -10px;
+	display: none;
+}
+
 .forecast-map{
         position: relative;
         height: 610px;
@@ -701,8 +781,8 @@ background: url(http://www.gameandfishmag.com/files/2013/04/Camera-Corner-Turkey
 	}
 	#subscribe-area {
 		right: 315px;
-		top: 7px;
-		right: 255px;
+		top: 8px;
+		right: 187px;
 	}
 	.hot-link a{
 		padding: 0 0 0 30px !important;
@@ -771,7 +851,7 @@ background: url(http://www.gameandfishmag.com/files/2013/04/Camera-Corner-Turkey
 	.subs-btn {
 		display: inline-block;
 		height: 28px;
-		font: 15px/28px "stagbold", serif;
+		font: 15px/28px "open_sanssemibold", serif;
 		color: white;
 		text-shadow: 0 -1px 0 #373737;
 		margin: 0 8px;
@@ -805,11 +885,13 @@ background: url(http://www.gameandfishmag.com/files/2013/04/Camera-Corner-Turkey
 	}
 	.state-list {width: 600px;}
 	.state-drop{display: none;}
+	.socials{border-left:none !important;}
+	.newsletter-box.bottom-newsletter .inputs{margin: 0 auto;width: 33%;}
 }
 @media only screen and (max-width: 320px) {
 	.gf-drop-down, .state-list {width: 320px;min-height: 900px;}
 	.state-list ul{max-width: 120px;padding: 0 20px;}
-
+	.signup-box .input-row{width: 130px;margin: 0;}
 }
 
 

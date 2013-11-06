@@ -65,6 +65,16 @@
 	     */
 	    wp_enqueue_script("jquery");
 	    wp_head();
+	    
+	    $magazine_img = get_option('magazine_cover_uri' );
+		$subs_link = get_option('subs_link'); 
+		$iMagID = get_option('iMagID' );
+		$deal_copy = get_option('deal_copy' );
+		$gift_link = get_option('gift_link' );
+		$service_link = get_option('service_link' );
+		$subs_form_link = get_option('subs_form_link' );
+		$i4ky = get_option('i4ky' );
+
 	?>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/dart.js" type="text/javascript"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.jfollow.js" type="text/javascript"></script>
@@ -311,17 +321,13 @@
                   
                     <strong class="logo">
 						<h1 class="state-logo">State</h1>
-						<?php if(mobile() == false && tablet() == false){ ?>
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/logo.png" alt="<?php bloginfo( 'name' ); ?>" /><span class="state-drop"></span></a>
-						<?php }else{ ?>
-							<img src="<?php bloginfo('stylesheet_directory'); ?>/images/logo.png" alt="<?php bloginfo( 'name' ); ?>" /><span class="state-drop"></span></a>
-						<?php } ?>
-						<?php if(mobile() == false){ ?>
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/logo.png" alt="<?php bloginfo( 'name' ); ?>" /><?php if(!mobile() && !tablet()){ ?><span class="state-drop"></span><?php } ?></a>
+					
+						<?php if(!mobile() && !tablet()){ ?>
 						<div class="gf-drop-down">
 							<aside id="us-map-nav" class="us-map-widget">
 							    <div class="state-info">
-							    	<h2>Choose a state</h2>
-							    	<p class="state-name"></p>
+							    	<p class="state-name">Select Your State</p>
 							    	<div class="state-list">
 							    	
 								    	<ul<?php if(tablet()){ echo ' style="padding:0 40px;"'; } ?>>
@@ -388,7 +394,7 @@
 								    	
 							    	</div>
 							    </div>
-							     	<?php if(mobile() == false && tablet() == false){ ?><div id="us-map-ubermenu-container" style="min-width: 686px;height: 420px;margin-left: 440px;padding-top:70px;"></div><?php } ?>
+							     	<?php if(mobile() == false && tablet() == false){ ?><div id="us-map-ubermenu-container" style="min-width: 686px;height: 420px;margin-left: 448px;padding-top:110px;"></div><?php } ?>
 							    </aside>
 						</div><?php } ?>
 					</strong>
@@ -440,22 +446,23 @@
                         	<?php social_networks(); ?>
 						</div>
 					</div>
+								
 					<div id="subscribe-area" class="widget widget_text header-elements">
 						<div class="subscribe-box">
 						    <div class="clearfix">
-						        <div class="journal">
-						        	<img src="<?php bloginfo('stylesheet_directory'); ?>/images/pic/journals.png" alt="">
+						       	<div class="journal">
+							        <img src="<?php echo $magazine_img; ?>" alt="Subscribe">
 							    </div>
-							    <div class="subscribe-now">
-							        <p><span class="stag-reg">SAVE 80%</span></p>
-							        <a href="<?php print SUBS_LINK;?>" class="subs-btn">Subscribe Now!<span></span></a>
-							        <a class="subs-links" href="<?php print GIFT_LINK;?>">Give a Gift</a>
-							        <a class="subs-links" href="">Store</a>
 	
+							    <div class="subscribe-now">
+									<p><span class="stag-reg"><?php print $deal_copy;?></span></p>
+									<a href="<?php print $subs_link;?>" target="_blank"  class="subs-btn">Subscribe Now!<span></span></a>
+									<a class="subs-links" href="<?php print $gift_link;?>" target="_blank">Give a Gift <span>&raquo;</span></a>
+							        <a class="subs-links" href="<?php print $service_link; ?>" target="_blank">Subscriber Services <span>&raquo;</span></a>
 							    </div>
-						    </div>
 						</div>
-					</div>
+					</div>  
+				</div>            
                     <?php endif; ?>
                 </div><!-- #branding -->
 				<div class="gf-bottom-menu">
@@ -478,7 +485,7 @@
         <div class="content-banner-section">
         	<div class="newsletter-box header-newsletter">
         		<?php if(!mobile() && !tablet()){
-        			the_widget("Signup_Widget_Header", "title=GET THE GF NEWSLETTER!"); 
+        			the_widget("Signup_Widget_Header", "title=GET THE GAME AND FISH NEWSLETTER!"); 
         		} ?>
         	</div>
         	<?php if (mobile() == false) { ?>

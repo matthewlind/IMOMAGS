@@ -39,6 +39,8 @@ get_header(); ?>
 					$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                     $more_query = new WP_Query( 'posts_per_page=20&paged=' . $paged. '&cat=-' . $category->cat_ID );                     
                     
+                    $i++;
+                    
                     while ($more_query->have_posts()) : $more_query->the_post(); ?>
 
                     <div class="post article-brief clearfix">
@@ -63,7 +65,15 @@ get_header(); ?>
                             </div><!-- .entry-content -->
                         </div>
                     </div><!-- #post -->
-                    <?php endwhile; ?>
+                    <?php if ( (($i - (($paged -1) * 2 ))%6) == 0 ): ?>
+                        <?php if ( mobile() ){ ?>
+                        <div class="image-banner posts-image-banner">
+                            <?php imo_dart_tag("300x250",array("pos"=>"mob")); ?> 
+                        </div>
+                        <?php } ?>
+                    <?php endif;?>
+
+                <?php $i++; endwhile; ?>
                 </div>
 				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="pager-holder js-responsive-section">
                     <a href="#" class="btn-base">Load More</a>
