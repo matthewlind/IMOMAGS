@@ -39,10 +39,6 @@ jQuery(document).ready(function($) {
 
 	}
 
-
-
-
-
   // Video Slideshow
   $("#video-slideshow").tabs();
 
@@ -105,6 +101,17 @@ $(document).ready(function(){
 **
 *****/
 $(document).ready(function(){
+
+	//alert
+	if(jQuery.cookie('hide_alert') == null){
+		console.log(jQuery.cookie('hide_alert'));
+		jQuery(".alert-msg").fadeIn();
+		
+		jQuery(".alert-msg span").click(function(){
+			jQuery(".alert-msg").fadeOut();
+			jQuery.cookie('hide_alert', true);
+		});
+	}
 
 	var $window = $(window);
     var $networkNav = $(".network-nav");
