@@ -4,7 +4,7 @@
 
 <div id="post-<?php the_ID(); ?>" <?php post_class('article-brief clearfix'); ?>>
     
-    	<a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('list-thumb'); ?></a>
+    	<a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('index-thumb'); ?></a>
         <div class="article-holder">
 		    <div class="clearfix">
                 <?php if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(); } ?>

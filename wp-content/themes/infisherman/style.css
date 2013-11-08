@@ -184,6 +184,54 @@ General comments (optional).
 	background:url(images/ico/camera-white.png) no-repeat;
 	padding:2px 0 0 30px;
 }
+.drop-down {
+    position:absolute;
+    top:-99999px;
+    left:0;
+    width:240px;
+    background:#fff;
+    border:2px solid #bd242b;
+    border-top:0;
+    overflow:hidden;
+}
+.menu-main-menu-container > ul > li:last-child .drop-down,
+.menu-header-menu-container > ul > li:last-child .drop-down{
+	right: 0;
+	left: auto;
+}
+.menu-main-menu-container > ul > li:last-child:hover .drop-down,
+.menu-header-menu-container > ul > li:last-child:hover .drop-down{
+	top:42px;
+}
+.menu-main-menu-container li:hover .drop-down, .menu-header-menu-container li:hover .drop-down {top:50px;}
+.sub-menu {
+    float:left;
+    width:252px;
+    background:url(images/bg/body.jpg) repeat;
+}
+.sub-menu li {
+    border:1px solid #d8d8d8;
+    border-width:1px 0 0;
+    float:none;
+    width:100%;
+}
+.sub-menu li:first-child {
+    border:0;
+}
+.sub-menu a {
+    font:16px/1.1 "open_sanssemibold", "Helvetica Neue", "Helvetica", Helvetica, Arial, Arial, sans-serif;
+    color:#6f6e6e;
+    display:block;
+    padding:15px 10px 13px; /*left w/ arrows: 36px;*/
+    position:relative;
+}
+/*.sub-menu a:before {
+    position:absolute;
+    top:15px;
+    left:18px;
+    content:"»";
+}*/
+.sub-menu a:hover {color:#c6262d;}
 /* Main Section
  ******************************************************************************/
 .post-slider {
@@ -256,7 +304,15 @@ a.category-name-link:hover{background: #F1C548;color: black;}
     color:#fff;
 }
 .subscribe-banner:hover {opacity:0.7;}
-
+.pager-holder:after{
+    position:absolute;
+    left:0;
+    bottom:0px;
+    width:100%;
+    height:1px;
+    background:#dbdbd9;
+    content:"";
+}
 /* Single Post Page
  ******************************************************************************/
 .post-header {border-bottom:4px solid #040503;}
@@ -268,9 +324,6 @@ a.category-name-link:hover{background: #F1C548;color: black;}
 .entry-content-holder:after {background:#dbdbd9;}
 /* paging posts */
 .paging-posts {background:#e8e7e7;border:1px solid #d7d7d6;border-width:0 0 1px;}
-.paging-posts .flex-control-nav{
-    display:none;
-}
 .paging-post h3 {color:#040503;}
 .paging-post h3 a {color:#040503;}
 .paging-post h3 a:hover {color:#c9242c;}
@@ -681,8 +734,13 @@ div.login-register-block {
 		color: #c9242c !important;
 	 }
 }
-
 @media only screen and (max-width: 610px) {
+	 .article-brief .comment-count{display: none;}
+	.feat-text,
+    .article-holder{
+        padding:6px 10px;
+    }
+    .single .post div.addthis-below{height: 50px;}
 	.mob-aside-menu #imo-fb-login-button{
 		width: 204px;
 		height: 32px;
@@ -697,4 +755,23 @@ div.login-register-block {
 	.or-delim{
 		font-size: 14px !important;
 	}
+	.article-brief{border: 1px solid #d8d7d6;background: #fff;}
+	.article-brief:before, .article-brief:after{
+		position:relative;
+		left:auto;
+		bottom:auto;
+		width:auto;
+		height:auto;
+		background:none;
+	}
+	.image-banner{border-top:1px solid #dbdad9;}
+	.image-banner:before {
+        position:absolute;
+        left:0;
+        top:0px;
+        width:100%;
+        height:1px;
+        background:#fff;
+        content:"";
+    }   
 }

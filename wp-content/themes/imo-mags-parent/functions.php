@@ -412,6 +412,8 @@ function imo_addons_create_subscriptions_menu() {
 }
 function register_imo_subscribe_settings () {
     register_setting( 'imo-subs-settings-group', 'iMagID' );
+    register_setting( 'imo-subs-settings-group', 'headline_1' );
+    register_setting( 'imo-subs-settings-group', 'headline_2' );
     register_setting( 'imo-subs-settings-group', 'deal_copy' );
     register_setting( 'imo-subs-settings-group', 'subs_link' );
     register_setting( 'imo-subs-settings-group', 'gift_link' );
@@ -441,6 +443,14 @@ function imo_addons_subscription_page() {
 <table class="form-table">
 		<tr valign="top">
         <td><strong>Magazine Section</strong></td>
+        </tr>
+        <tr valign="top">
+        <th scope="row">Headline 1</th>
+        <td><input type="text" name="headline_1" value="<?php echo get_option('headline_1'); ?>" /></td>
+        </tr>
+		 <tr valign="top">
+        <th scope="row">Headline 2</th>
+        <td><input type="text" name="headline_2" value="<?php echo get_option('headline_2'); ?>" /></td>
         </tr>
         <tr valign="top">
         <th scope="row">Deal Copy</th>

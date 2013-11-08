@@ -30,7 +30,7 @@
     </div>
     <?php } ?>
 
-    <?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
+    <div class="addthis-below" <?php if(mobile()){ echo 'style="width: 320px;"'; } ?>><?php if (function_exists('imo_add_this')) {imo_add_this();} ?></div>
     <!-- .entry-header -->
     <div class="entry-content-holder">
         <?php if ( is_search() ) : // Only display Excerpts for Search ?>
@@ -71,14 +71,14 @@
 	    <?php imo_dart_tag("564x252"); ?>
 	    	   
 	    <?php if (isset_related_posts()): ?>
-	    <?php if(mobile() || tablet()){ ?>
-	    	<h2 class="related-stories">Related Stories</h2>
-	    <?php } ?>
-	    <div class="paging-posts paging-single-post">
-	        <div class="jq-single-paging-slider">
-	        <?php related_posts(); ?>
-	        </div>
-	    </div>
+		    <?php if(mobile() || tablet()){ ?>
+		    	<h2 class="related-stories">Related Stories</h2>
+		    <?php } ?>
+		    <div class="paging-posts paging-single-post">
+		        <div class="jq-single-paging-slider">
+		        <?php related_posts(); ?>
+		        </div>
+		    </div>
 	    <?php endif; ?>
 		    <?php sub_footer(); ?> 
 			<div class="hr mobile-element"></div>

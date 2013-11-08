@@ -6,7 +6,7 @@
 
 <!-- Magazine sign up  --> 
 <div class="block subscribe-form-block" id="store"> 
-<div class="subs-header"><h4>Subscribe to<br /><?php echo SITE_NAME; ?></h4><h4>Now on the iPad!</h4></div>
+<div class="subs-header"><h4><?php print get_option('headline_1'); ?></h4><h4><?php print get_option('headline_2'); ?></h4></div>
     <div class="content"> 
     	<div class="mag-cover">
     		<a href="<?php print get_option("subs_link");?>"><img src='<?php print get_option('magazine_cover_uri' ); ?>'></a>

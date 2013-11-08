@@ -94,7 +94,7 @@ class Forecast_Widget extends WP_Widget {
 	<div class="state-filter">
 		<form name="menuform" class="forecast-menu">
 			<select name="menu4">
-				<option value="">Deer Forecast</option>
+				<option value="">Choose State: Deer Forecast</option>
 				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/alabama-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">alabama</option>
 				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/rocky-mountain-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">arizona</option>
 				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/arkansas-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">arkansas</option>
@@ -147,7 +147,7 @@ class Forecast_Widget extends WP_Widget {
 
 				<form name="menuform" class="forecast-menu">
 					<select name="menu4">
-						<option value="">Trophy Bucks</option>
+						<option value="">Choose State: Trophy Bucks</option>
 						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/alabama-trophy-bucks-<?php echo $year; ?>/#forecast">alabama</option>
 						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/arkansas-trophy-bucks-<?php echo $year; ?>/#forecast">arkansas</option>
 						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/california-trophy-bucks-<?php echo $year; ?>/#forecast">california</option>

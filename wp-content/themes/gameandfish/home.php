@@ -8,25 +8,26 @@ get_header(); ?>
             <?php if ( is_home() ) : ?>
 
             	<?php $featured_query = new WP_Query( 'category_name=featured&posts_per_page=3' ); ?>
-                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="clearfix js-responsive-section">
-                    <!--<div class="general-title clearfix">
+                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="featured-area clearfix js-responsive-section">
+                    <div class="general-title clearfix">
                         <h2>Featured</h2>
-                    </div>-->
+                    </div>
                     <div class="clearfix">
                         <ul>
                          <?php $i = 0; while ($featured_query->have_posts()) : $featured_query->the_post(); ?>
 						  	<li class="<?php if ($i == 0){ echo 'home-featured'; }else{ echo 'home-featured-right'; } ?>">
                                 <div class="feat-post">
-                                    <div class="feat-img"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('index-thumb'); ?></a></div>
+                                    <div class="feat-img"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('list-thumb'); ?></a></div>
                                     <div class="feat-text">
                                         <h3><a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a></h3>
+                                        <a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>
                                 </div>
                             </li>
                         <?php $i++; endwhile; ?>
                         </ul>
                     </div>
                 </div>
-				
+				<div class="feat-sep"><div></div></div>
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section main-content-preppend">
 					<div class="general-title clearfix">
                         <h2>Popular</h2>
@@ -41,9 +42,9 @@ get_header(); ?>
                     $i++;
                     
                     while ($more_query->have_posts()) : $more_query->the_post(); ?>
-
+					
                     <div class="post article-brief clearfix">
-                        <a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('index-thumb');?></a>
+                        <a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('list-thumb');?></a>
                         <div class="article-holder">
                             <div class="clearfix">
                                 <?php 

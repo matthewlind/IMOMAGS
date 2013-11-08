@@ -321,7 +321,6 @@ font-size: 14px;
 
 
 /* Nav Buttons */
-ul.flex-direction-nav {visibility:hidden;}
 .gallery-slider .flex-direction-nav a {margin-top: 0 !important;}
 .flex-gallery ul.flex-direction-nav,
 .flex-carousel-nav ul.flex-direction-nav {

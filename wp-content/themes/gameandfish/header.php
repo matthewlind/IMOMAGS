@@ -111,21 +111,21 @@
 			   		<li class="main-menu-item menu-item-even">
 		   				<a href="#" class="menu-link main-menu-link has-drop">Your State</a>
 		   				<div class="drop-down">
-			   		<ul>
-			    		<li>NEW ENGLAND</li>
+			   		<ul class="sub-menu menu-odd">
+			    		<li><a class="region" href="/new-england/">NEW ENGLAND</a></li>
 			    		<li><a href="/connecticut/">connecticut</a></li>
 			    		<li><a href="/maine/">maine</a></li>
 			    		<li><a href="/massachusetts/">massachusetts</a></li>
 			    		<li><a href="/newhampshire/">new hampshire</a></li>
 						<li><a href="/rhodeisland/">rhode island</a></li>
 			    		<li><a href="/vermont/">vermont</a></li>
-			    		<li>NORTHEAST</li>
+			    		<li><a class="region" href="/northeast/">NORTHEAST</a></li>
 			    		<li><a href="/delaware/">delaware</a></li>
 						<li><a href="/maryland/">maryland</a></li>		
 						<li><a href="/newjersey/">new jersey</a></li>
 						<li><a href="/newyork/">new york</a></li>
 						<li><a href="/pennsylvania/">pennsylvania</a></li>
-						<li>MIDWEST</li>
+						<li><a class="region" href="/midwest/">MIDWEST</a></li>
 						<li><a href="/illinois/">illinois</a></li>
 						<li><a href="/indiana/">indiana</a></li>
 						<li><a href="/iowa/">iowa</a></li>
@@ -138,13 +138,13 @@
 						<li><a href="/ohio/">ohio</a></li>
 						<li><a href="/wisconsin/">wisconsin</a></li>
 						<li><a href="/southdakota/">south dakota</a></li>
-						<li>ROCKY MOUNTAINS</li>
+						<li><a class="region" href="/rocky-mountains/">ROCKY MOUNTAINS</a></li>
 						<li><a href="/colorado/">colorado</a></li>
 						<li><a href="/idaho/">idaho</a></li>
 						<li><a href="/montana/">montana</a></li>
 						<li><a href="/utah/">utah</a></li>
 						<li><a href="/wyoming/">wyoming</a></li>
-						<li>SOUTH</li>
+						<li><a class="region"  href="/south/">SOUTH</a></li>
 			    		<li><a href="/alabama/">alabama</a></li>
 						<li><a href="/arkansas/">arkansas</a></li>
 						<li><a href="/florida/">florida</a></li>
@@ -157,13 +157,13 @@
 						<li><a href="/tennessee/">tennessee</a></li>
 						<li><a href="/virginia/">virginia</a></li>
 						<li><a href="/westvirginia/">west virginia</a></li>
-						<li>SOUTHWEST</li>
+						<li><a class="region" href="/southwest/">SOUTHWEST</a></li>
 			    		<li><a href="/arizona/">arizona</a></li>
 						<li><a href="/nevada/">nevada</a></li>
 						<li><a href="/newmexico/">new mexico</a></li>
 						<li><a href="/oklahoma/">oklahoma</a></li>	
 						<li><a href="/texas/">texas</a></li>
-			    		<li>WEST COAST</li>
+			    		<li><a class="region" href="/westcoast/">WEST COAST</a></li>
 						<li><a href="/california/">california</a></li>
 						<li><a href="/oregon/">oregon</a></li>
 						<li><a href="/washington/">washington</a></li>
@@ -481,26 +481,26 @@
                     </div>
 				</div>
         </div><!-- #branding -->
-		
+		<div class="location-services">
+           Your Location: <strong>You're in the jungle, baby!</strong>
+           <a href="#">X</a>
+       </div>
         <div class="content-banner-section">
-        	<div class="newsletter-box header-newsletter">
+         	<?php if (mobile() == false) { ?>
+        	<div class="mdl-banner">
+				 <?php imo_dart_tag("728x90"); ?>
+			</div>
+			<?php }else{ ?>
+				<div class="mob-mdl-banner">
+					<?php imo_dart_tag("320x50",true); ?>
+				</div>
+			<?php } ?>
+			<div class="newsletter-box header-newsletter">
         		<?php if(!mobile() && !tablet()){
         			the_widget("Signup_Widget_Header", "title=GET THE GAME AND FISH NEWSLETTER!"); 
         		} ?>
         	</div>
-        	<?php if (mobile() == false) { ?>
-	        	<div class="mdl-banner">
-					 <?php imo_dart_tag("728x90"); ?>
-				</div>
-				<?php }else{ ?>
-					<div class="mob-mdl-banner">
-						<?php imo_dart_tag("320x50",true); ?>
-					</div>
-				<?php } ?>
+
         </div>
-        <div class="location-services">
-           Your Location: <strong>You're in the jungle, baby!</strong>
-           <a href="#">X</a>
-       </div>
        
        <div id="main" class="main clearfix js-responsive-layout">
