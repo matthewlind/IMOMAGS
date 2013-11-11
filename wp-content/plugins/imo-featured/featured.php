@@ -23,8 +23,11 @@ function imo_featured_scripts($hook) {
 	if ($hook == "settings_page_imo-featured-manager") {
 
 		wp_enqueue_style('twitter-bootstrap',"http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.0/css/bootstrap.css");
+		wp_enqueue_style('jquery-ui-style',"http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css");
 
-
+		wp_enqueue_script('jquery-ui-autocomplete');
+		wp_enqueue_script('jquery-ui-sortable');
+		wp_enqueue_script('imo-featured-script',plugins_url( 'imo-featured/featured.js' , dirname(__FILE__) ),array("jquery","jquery-ui-sortable","jquery-ui-autocomplete"));
 
 	}
 
@@ -63,7 +66,6 @@ function showFeaturedList() {
 		<a href="/wp-admin/options-general.php?page=imo-featured-manager&setID=new">New Set</a>
 	</div>
 
-
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
@@ -94,9 +96,10 @@ function showFeaturedDetail($setID) {
 		echo "<h1>Edit Set</h1>";
 
 	?>
-	<form>
-		<input type="text" id="featured-search" placeholder="Search Posts">
-	</form>
+	<div class="ui-widget">
+	  <label for="featured-search">Search: </label>
+	  <input id="featured-search" />
+	</div>
 
 
 	<?php
