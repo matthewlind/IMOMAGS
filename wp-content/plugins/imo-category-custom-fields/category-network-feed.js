@@ -176,7 +176,7 @@ jQuery(document).ready(function($) {
 
 		        //console.log(data[i].domain,document.domain);
 
-		        $articleTemplate.find("h2.entry-title a").text(data[i].post_title);
+		        $articleTemplate.find("h2.entry-title a").html(data[i].post_title);
 
 		        $articleTemplate.find(".author").html(data[i].post_nicedate + " by " + data[i].author);
 		        $articleTemplate.find("p.excerpt-body").text("");
@@ -184,7 +184,7 @@ jQuery(document).ready(function($) {
 		        $articleTemplate.find("img.entry-img").attr("src",data[i].img_url);
 		        $articleTemplate.find(".comment-count").text(data[i].comment_count);
 
-		        $articleTemplate.find(".entry-content").text(data[i].post_content);
+		        $articleTemplate.find(".entry-content").html(data[i].post_content);
 
 
 				//If data[i] is from NAW, add the categories
