@@ -6460,7 +6460,7 @@ span.sponsored-thumb {
 	padding: 4px 0;
 	z-index: 99999;
 	position: fixed;
-	display: none;
+	display: none !important;
 }
 .alert-msg a{color: white;text-decoration: underline;font-weight: bold;}
 .alert-msg a:hover{text-decoration: none;}

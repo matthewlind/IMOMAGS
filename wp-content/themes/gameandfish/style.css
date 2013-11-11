@@ -153,6 +153,7 @@ body{background-color: black;}
 .menu-main-menu-container li{
 	border-right: 2px solid #545454;
 }
+.menu-main-menu-container a.has-drop, .menu-header-menu-container a.has-drop {padding: 0 26px 0 22px;}
 .state-drop{
 	text-indent: -9999px !important;
 	background: url(images/menu-arrow.png) no-repeat center center #373737;
@@ -167,7 +168,7 @@ body{background-color: black;}
     color:#fff;
     font:19px/50px "stag", serif;
     text-transform:uppercase;
-    padding:0 18px 0 22px;
+    background: #282828;
 }
 .menu-main-menu-container a.has-drop:after {
     border-left: 6px solid transparent;
@@ -209,8 +210,8 @@ body{background-color: black;}
     position:absolute;
     top:-99999px;
     left:-2px;
-    width:160px;
-    background:#fff;
+    width:440px;
+    background:#282828 !important;
     border:2px solid #545454;
     border-top:0;
     overflow:hidden;
@@ -226,14 +227,18 @@ body{background-color: black;}
 	background: linear-gradient(to bottom,  #373737 0%,#212121 75%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#373737', endColorstr='#212121',GradientType=0 ); /* IE6-8 */
 }
+.submenu-category-title, .drop-feat-post h5 a{font-family: "open_sanssemibold", Helvetica, sans-serif;}
 .snap-drawers .mob-aside-menu > div > ul > li > a.has-drop:after{border-top: 7px solid #cda220;}
 .snap-drawers .mob-aside-menu > div > ul > li:hover > a.has-drop:after, .snap-drawers .mob-aside-menu > div > ul > li > a.has-drop:hover:after{border-top: 7px solid #cda220;}
-.sub-menu{}
+.sub-menu{width: auto;}
 .sub-menu li {
-    border:1px solid #d8d8d8;
-    border-width:1px 0 0;
+	width: 168px;
+	border: none;
+    /*border:1px solid #d8d8d8;
+    border-width:1px 0 0;*/
 }
-.sub-menu a {color:white;}
+.sub-menu li :hover{background: #373737;}
+.sub-menu a {color:white;padding: 10px;}
 .sub-menu a.region{
 	color: rgb(124, 124, 124);
 	line-height: 1.7;
@@ -242,6 +247,12 @@ body{background-color: black;}
 }
 .sub-menu a:hover {color:#cda220;}
 .submenu-category-title {color:white;}
+.drop-feat-post .wp-post-image{
+	border: 1px solid white;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
 .drop-feat-post h5 {color:#373737;}
 .drop-feat-post h5 a {color:white;}
 .drop-feat-post h5 a:hover {color:#cda220;}
@@ -438,7 +449,7 @@ a.category-name-link:hover{background: #F1C548;color: black;}
     opacity:0.7;
     color:#fff;
 }
-#subscribe-area{width: auto;margin: 0;}
+#subscribe-area{width: auto;margin: 0;position: relative;/*z-index: 999999999;*/}
 #subscribe-area a:hover{color: #cda220;}
 .subscribe-banner:hover {opacity:0.7;}
 .subscribe-box .journal img{padding: 10px 10px 0 0;}
@@ -467,6 +478,8 @@ a.category-name-link:hover{background: #F1C548;color: black;}
 .btm-subs-links a{padding: 2px 0 4px;color: white;}
 
 .subs-header{color: #cda220;}
+
+.category .comment-count, .category .entry-content{display: none;}
 
 /* Single Post Page
  ******************************************************************************/
@@ -737,7 +750,7 @@ element:hover, element.hover_effect {
 	height: 200px;
 	margin-bottom: 20px;
 	position: absolute;
-	top: -51px;
+	top: -42px;
 	width: 1080px;
 	left: -31px;
 }
@@ -749,6 +762,7 @@ element:hover, element.hover_effect {
 background: url(http://www.gameandfishmag.com/files/2013/04/Camera-Corner-Turkey-Banner.jpg) no-repeat scroll 60px 0px black;}
 .gf-photo-corner-smallgame {background: url(http://www.gameandfishmag.com/files/2013/04/Camera-Corner-small-game-Banner.jpg) no-repeat scroll 60px 0px black;}
 .gf-photo-corner-fish {background: url(http://www.gameandfishmag.com/files/2013/04/Camera-Corner-Fish-Banner.jpg) no-repeat scroll 60px 0px black;}
+.camera-corner-callouts img{float: left;width: 296px;padding: 10px;}
 .open-search{display: none;}
 .h-search-open {
 	display: block !important;
@@ -785,6 +799,7 @@ background: url(http://www.gameandfishmag.com/files/2013/04/Camera-Corner-Turkey
 	.header{height: 44px;}
 	.snap-drawers{background-color: white;}
 	.snap-drawers .menu-top-menu-container a:hover, .snap-drawers .mob-aside-menu li.drop-open > a, .snap-drawers .mob-aside-menu > div > ul > li > a:hover{color: white;}
+	.snap-drawers .drop-down a{background: none;}
 	.header .socials{
 		right: 120px;
 	}
@@ -853,7 +868,7 @@ background: url(http://www.gameandfishmag.com/files/2013/04/Camera-Corner-Turkey
 	}
 	.snap-drawers .menu-top-menu-container a, .snap-drawers .mob-aside-menu > div > ul > li > a, .has-drop li a {color: white;}
 	.snap-drawers .menu-top-menu-container a:hover, .snap-drawers .mob-aside-menu > div > ul > li > a:hover, .drop-down li a:hover{color:#cda220;}
-	.drop-down li{background: #373737;}
+	.drop-down li{background:black;}
 	.open-menu {
 		border: none;
 		border-width:0;
@@ -879,6 +894,10 @@ background: url(http://www.gameandfishmag.com/files/2013/04/Camera-Corner-Turkey
 		text-shadow: 0 -1px 0 #afafaf;
 		background: #373737;
 	}
+	.sub-menu li{width: 100%;}
+	.sub-menu a {padding:15px 10px 13px;}
+	.gf-photo-corner, .gf-photo-corner-biggame, .gf-photo-corner-deer, .gf-photo-corner-fowl, .gf-photo-corner-turkey, .gf-photo-corner-smallgame, .gf-photo-corner-fish{display: none;}
+	.page-template-banner-page-php .article-holder{margin-top: 0;}
 }
 @media only screen and (max-width: 610px) {
 	.mob-aside-menu #imo-fb-login-button{

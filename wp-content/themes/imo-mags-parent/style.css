@@ -204,6 +204,7 @@ h1, h2, h3, h4, h5, h6  { font-weight: normal; margin: 0; }
 body {
     color:#3c3c3c;
     font:16px "open_sansregular", Helvetica, Arial, sans-serif;
+    overflow: hidden;
 }
 a       { color: #c9242c; }
 a:hover { color: #040503; }
@@ -651,7 +652,7 @@ img{max-width: 100%;height: auto;}
     z-index:5;
 }
 .menu-main-menu-container a.has-drop, .menu-header-menu-container a.has-drop {
-    padding-right:0 42px;
+    padding: 0 42px;
     position:relative;
 }
 .menu-main-menu-container a.has-drop:after, .menu-header-menu-container a.has-drop:after {
@@ -2548,7 +2549,7 @@ h2.related-stories{
 /* banner page */
 .page-template-banner-page-php h1.page-title span{display:none;}
 .page-template-banner-page-php .article-holder{
-	margin-top: 160px;
+	margin-top: 170px;
 }
 .page-template-banner-page-php .sidebar-area{margin-top: 210px;}
 
@@ -2734,7 +2735,7 @@ h2.related-stories{
 .hidden-desktop {
     display:none;
 }
-
+.gform_wrapper{overflow: visible !important;}
 
 /* =Responsive Breakpoints
 *******************************************************************************/
@@ -2964,7 +2965,8 @@ h2.related-stories{
 	.page-template-core-experts-php .single-post-slider.left{
 	    margin-right: 10px;
     }
-
+	.page-template-banner-page-php h1.page-title span{display:block;}
+	.page-template-banner-page-php .sidebar-area {margin-top: 0;}
     /* TipTip CSS - Version 1.2 */
 
 	#tiptip_holder {
