@@ -20,13 +20,13 @@ function runBigAssQuery($network,$term,$taxonomy,$sort,$count,$skip) {
 
     if ($network == "hunting") {
 
-        $siteID["www.bowhunter.com"] = 3;
-        $siteID["www.bowhuntingmag.com"] = 4;
-        $siteID["www.gundogmag.com"] = 5;
-        $siteID["www.northamericanwhitetail.com"] = 6;
-        $siteID["www.petersenshunting.com"] = 7;
-        $siteID["www.wildfowlmag.com"] = 8;
-        $siteID["www.gameandfishmag.com"] = 14;
+        $siteIDs["www.bowhunter.com"] = 3;
+        $siteIDs["www.bowhuntingmag.com"] = 4;
+        $siteIDs["www.gundogmag.com"] = 5;
+        $siteIDs["www.northamericanwhitetail.com"] = 6;
+        $siteIDs["www.petersenshunting.com"] = 7;
+        $siteIDs["www.wildfowlmag.com"] = 8;
+        $siteIDs["www.gameandfishmag.com"] = 14;
 
         $brand["www.bowhunter.com"] = "Bowhunter";
         $brand["www.bowhuntingmag.com"] = "Petersen's Bowhunting";
@@ -39,10 +39,10 @@ function runBigAssQuery($network,$term,$taxonomy,$sort,$count,$skip) {
 
     if ($network == "fishing") {
 
-        $siteID["www.floridasportsman.com"] = 13;
-        $siteID["www.gameandfishmag.com"] = 14;
-        $siteID["www.in-fisherman.com"] = 15;
-        $siteID["www.flyfisherman.com"] = 16;
+        $siteIDs["www.floridasportsman.com"] = 13;
+        $siteIDs["www.gameandfishmag.com"] = 14;
+        $siteIDs["www.in-fisherman.com"] = 15;
+        $siteIDs["www.flyfisherman.com"] = 16;
 
         $brand["www.floridasportsman.com"] = "Florida Sportsman";
         $brand["www.gameandfishmag.com"] = "Game & Fish";
@@ -63,13 +63,13 @@ function runBigAssQuery($network,$term,$taxonomy,$sort,$count,$skip) {
         $brand["www.rifleshootermag.com"] = "RifleShooter";
         $brand["www.shotgunnews.com"] = "Shotgun News";
 
-        $siteID["www.bowhunter.com"] = 3;
-        $siteID["www.bowhuntingmag.com"] = 4;
-        $siteID["www.gundogmag.com"] = 5;
-        $siteID["www.northamericanwhitetail.com"] = 6;
-        $siteID["www.petersenshunting.com"] = 7;
-        $siteID["www.wildfowlmag.com"] = 8;
-        $siteID["www.gameandfishmag.com"] = 14;
+        $siteIDs["www.bowhunter.com"] = 3;
+        $siteIDs["www.bowhuntingmag.com"] = 4;
+        $siteIDs["www.gundogmag.com"] = 5;
+        $siteIDs["www.northamericanwhitetail.com"] = 6;
+        $siteIDs["www.petersenshunting.com"] = 7;
+        $siteIDs["www.wildfowlmag.com"] = 8;
+        $siteIDs["www.gameandfishmag.com"] = 14;
 
         $brand["www.bowhunter.com"] = "Bowhunter";
         $brand["www.bowhuntingmag.com"] = "Petersen's Bowhunting";
@@ -79,9 +79,9 @@ function runBigAssQuery($network,$term,$taxonomy,$sort,$count,$skip) {
         $brand["www.wildfowlmag.com"] = "Wildfowl";
         $brand["www.gameandfishmag.com"] = "Game & Fish";
 
-        $siteID["www.floridasportsman.com"] = 13;
-        $siteID["www.in-fisherman.com"] = 15;
-        $siteID["www.flyfisherman.com"] = 16;
+        $siteIDs["www.floridasportsman.com"] = 13;
+        $siteIDs["www.in-fisherman.com"] = 15;
+        $siteIDs["www.flyfisherman.com"] = 16;
 
         $brand["www.floridasportsman.com"] = "Florida Sportsman";
         $brand["www.in-fisherman.com"] = "In-Fisherman";

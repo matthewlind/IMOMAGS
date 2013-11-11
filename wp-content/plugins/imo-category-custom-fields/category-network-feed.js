@@ -132,7 +132,7 @@ jQuery(document).ready(function($) {
 
 	    //$(".animal-container").html("");
 
-	    	console.log(data);
+
 
 	    	$(".load-spinner").hide();
 
