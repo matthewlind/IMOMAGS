@@ -20,7 +20,7 @@ get_header(); ?>
                                     <div class="feat-img"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('list-thumb'); ?></a></div>
                                     <div class="feat-text">
                                         <h3><a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a></h3>
-                                        <a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>
+                                        <!--<a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>-->
                                 </div>
                             </li>
                         <?php $i++; endwhile; ?>
@@ -59,7 +59,7 @@ get_header(); ?>
                             <!-- .entry-header -->
                             <a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>
                             <div class="entry-content">
-                                <?php the_excerpt(); ?>
+                                <?php //the_excerpt(); ?>
                                 <?php //the_content( __( 'more <span class="meta-nav">&raquo;</span>', 'twentytwelve' ) ); ?>
                                 <?php wp_link_pages( array( 'before' => '<div class="page-links">' . 'Pages:', 'after' => '</div>' ) ); ?>
                             </div><!-- .entry-content -->
