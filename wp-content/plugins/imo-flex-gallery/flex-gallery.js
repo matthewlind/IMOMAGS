@@ -874,7 +874,7 @@ function flexNextGalGet(nextGal, nextGalUrl) {
 			setTimeout(function() {
 				imoFlexInitiate(false, nextGal, totalSlides, isFullScreen, true, '', function(){
 					
-					console.log(_gaq.push(['_trackPageview', + window.location.pathname + "Next Click Gallery-" + nextGal]));
+					_gaq.push(['_trackPageview', + window.location.pathname + "Next Click Gallery-" + nextGal]);
 					positionSlideOut();
 					if(isFullScreen == true) {
 						jQuery('.flex-gallery-slide-out').attr('style','');

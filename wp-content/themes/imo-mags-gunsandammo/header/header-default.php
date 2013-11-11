@@ -55,7 +55,9 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); } ?>
   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
+	
 	<div id="imo-tophat">
+		<div class="alert-msg"><a href="/2013/11/06/response-december-2013-backpage-column/">Read an important letter to readers from Jim Bequette, Editor Guns & Ammo Magazine</a><span>X</span></div>
 		<div class="top-bar">
 		
 			<h2>Guns & Ammo Network</h2>
