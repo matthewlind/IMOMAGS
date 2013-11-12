@@ -27,11 +27,11 @@ get_header(); ?>
                         </ul>
                     </div>
                 </div>
-				<div class="feat-sep"><div></div></div>
+				
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section main-content-preppend">
-					<div class="general-title clearfix">
+					<!--<div class="general-title clearfix">
                         <h2>Popular</h2>
-                    </div>
+                    </div>-->
                     <?php 
 					$slug = 'featured';
 					$category = get_category_by_slug($slug);
@@ -44,6 +44,7 @@ get_header(); ?>
                     while ($more_query->have_posts()) : $more_query->the_post(); ?>
 					
                     <div class="post article-brief clearfix">
+                        <!--<div class="posts-list-sep"><div class="bar"></div></div>-->
                         <a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('list-thumb');?></a>
                         <div class="article-holder">
                             <div class="clearfix">
@@ -56,10 +57,11 @@ get_header(); ?>
                             <h3 class="entry-title">
                                 <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
                             </h3>
+                            <!--<a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('list-thumb');?></a>-->
                             <!-- .entry-header -->
-                            <a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>
+                            <!--<a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>-->
                             <div class="entry-content">
-                                <?php //the_excerpt(); ?>
+                                <?php the_excerpt(); ?>
                                 <?php //the_content( __( 'more <span class="meta-nav">&raquo;</span>', 'twentytwelve' ) ); ?>
                                 <?php wp_link_pages( array( 'before' => '<div class="page-links">' . 'Pages:', 'after' => '</div>' ) ); ?>
                             </div><!-- .entry-content -->

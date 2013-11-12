@@ -121,7 +121,7 @@ class AddParentClass_Walker extends Walker_Nav_Menu
                 <?php while ($query->have_posts()): $query->the_post();?>
                     <div class="drop-feat-post">
                         <h4 class="submenu-category-title"><?php echo $item->title ?></h4>
-                        <a class="drop-feat-img" href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(230, 155)); ?></a>
+                        <a class="drop-feat-img" href="<?php the_permalink(); ?>"><?php the_post_thumbnail('legacy-thumb'); ?></a>
                         <h5><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
                     </div>
                 <?php endwhile; ?>
@@ -550,7 +550,7 @@ add_action( 'personal_options_update', 'imo_community_user_profile' );
 //SHORTCODES
 
 //shortcode featured sliders for pages
-function imo_featured_flexslider( $atts ) {
+/*function imo_featured_flexslider( $atts ) {
 	$post = new WP_Query( 'category_name=featured&posts_per_page=4' ); ?>
     <div class="post-slider loading-block js-responsive-section">
         <div class="jq-featured-slider onload-hidden">
@@ -660,4 +660,4 @@ function myLoop($atts, $content = null) {
 	ob_end_clean();
 	return $content;
 }
-add_shortcode("loop", "myLoop");
+add_shortcode("loop", "myLoop");*/

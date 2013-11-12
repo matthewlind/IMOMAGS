@@ -121,7 +121,7 @@ class Signup_Widget extends WP_Widget {
 						}
 					</script>
 	                <div class="f-row check-row">
-	                    <input alt="Third Party" type="checkbox" value="22697" name="interests" id="receive" />
+	                    <input alt="Third Party" type="checkbox" checked="checked" value="22697" name="interests" id="receive" />
 	                    <input type="hidden" name="OptoutInfo" value="">
 	                    <label for="receive">Yes, I'd like to receive offers from your partners</label>
 	                </div>

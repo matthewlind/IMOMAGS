@@ -55,7 +55,7 @@ get_header(); ?>
 						</div><!-- #author-description	-->
 					</div><!-- #entry-author-info -->
 					<?php endif; ?>
-					<div class="js-responsive-section main-content-preppend">
+					<div class="posts-list js-responsive-section main-content-preppend">
 						<?php /* Start the Loop */ ?>
 						<?php while ( have_posts() ) : the_post(); ?>
 		

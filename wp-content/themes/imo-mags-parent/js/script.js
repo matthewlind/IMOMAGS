@@ -7,10 +7,6 @@ jQuery(window).load(function() {
 
 jQuery(document).ready(function () {
 	
-	
-
-
-
 	jQuery(function(){
 		
 		if(jQuery.cookie('hide_alert') == null){
@@ -138,7 +134,7 @@ jQuery(document).ready(function () {
 	                success: function(data) {
 	                	
 	                    jQuery('.main-content-preppend').append(
-	                        jQuery(data).find('.js-responsive-section').find(findId).hide()
+	                        jQuery(data).find('.posts-list.js-responsive-section').find(findId).hide()
 	                    );
 	                    jQuery('.main-content-preppend').find(findId).show('slow');
 	                    if (jQuery(data).find('.next-link a').length) {
