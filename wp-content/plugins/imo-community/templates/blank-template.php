@@ -27,15 +27,17 @@ the_post();
 $displayStyle = "display:none;";
 $loginStyle = "";
 
-$userIMO = imo_get_user();
+$user_ID = get_current_user_id();
+
+$userIMO = imo_get_user($user_ID);
 $username = $userIMO['username'];
 $userhash = $userIMO['userhash'];
 $timecode = $userIMO['timecode'];
 $editor_hash = $userIMO['editor_hash'];
 
-//print_r($userIMO);
 
-$masterAnglerURL = "http://www.in-fisherman.com/community-api/master_anglers/csv?username=$username&userhash=$userhash&timecode=$timecode&editor_hash=$editor_hash";
+
+$masterAnglerURL = "/community-api/master_anglers/csv?username=$username&userhash=$userhash&timecode=$timecode&editor_hash=$editor_hash";
 
 
 if ( is_user_logged_in() ) {
