@@ -30,9 +30,9 @@ class Forecast_Widget extends WP_Widget {
 	position: relative;
 }
 .forecast-widget h3{
-	font-family: "Stag",serif;
+	font-family: "open_sansbold", Helvetica, Arial, sans-serif;
 	font-size: 20px;
-	padding: 6px 10px 0;
+	padding: 10px 10px 0;
 	margin: 0;
 }
 .forecast-copy{
@@ -48,13 +48,14 @@ class Forecast_Widget extends WP_Widget {
 	display: block;
 }
 .forecast-widget .forecast-widget-sponsor{
+	top: 192px;
 	position: absolute;
-	bottom: 186px;
 }
 .forecast-widget p{
 	padding: 0 10px 10px;
 	color: #757575;
-	margin: 0
+	margin: 0;
+	font-size: 15px;
 }
 .forecast-widget .state-filter{
 	margin: 0 auto;
@@ -62,7 +63,7 @@ class Forecast_Widget extends WP_Widget {
 	background: #FF6600;
 }
 .forecast-widget .state-filter select{
-	font-size: 14px;
+	<?php if(tablet()){ echo "font-size: 14px;"; }else{ echo "font-size: 16px;"; } ?>
 	width: 222px;
 	margin-left: 10px;
 	text-transform: capitalize;

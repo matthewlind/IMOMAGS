@@ -13,7 +13,7 @@ if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 
 // NOTE: this file is here for compatibility reasons - active templates are in the posts/ dir
 
-if (CFCT_DEBUG) { cfct_banner(__FILE__); }
+//if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 $h1Class = "";
 $imageURL = false;

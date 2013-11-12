@@ -1,4 +1,5 @@
 jQuery(document).ready(function($) {
+
 	//Master Angler Page
 	//Set the filter to the default settings
 	

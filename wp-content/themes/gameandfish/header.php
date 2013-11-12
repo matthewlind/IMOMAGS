@@ -173,7 +173,7 @@
     	</ul>	
     </div>	
 				<?php //}
-	            if(has_nav_menu( 'Mobile Menu' )){
+	            if(has_nav_menu( 'mobile' )){
 	                wp_nav_menu(array(
 	                    'menu_class'=>'menu',
 	                    'theme_location'=>'mobile',
