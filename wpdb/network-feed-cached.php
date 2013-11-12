@@ -7,6 +7,7 @@ $term = "ammo"; //e.g. "shotguns","poltics"
 $count = 10; //Number of posts to return
 $skip = 0; //Number of posts to skip (for paging)
 $sort = "post_date"; //Sort posts by
+$thumbnail_size = null; //Specify a Wordpress thumbnail size. e.g. "thumbnail". Leave blank for legacy behavior.
 
 //This controls how long a file should be cached
 //Set to -1 to force a refresh. (This could potentially be used to refresh the data after editors submit new posts.)
@@ -56,8 +57,8 @@ $skip = intval($skip);
 //*********************************************************************************
 $fileIsStale = false;
 
-$fileName = "/data/wordpress/imomags/wp-content/cache/network-feeds/$network-$term-$taxonomy-$sort-$count-$skip.json";
-$tempFileName = "/data/wordpress/imomags/wp-content/cache/temp-feeds/$network-$term-$taxonomy-$sort-$count-$skip.json";
+$fileName = "/data/wordpress/imomags/wp-content/cache/network-feeds/$network-$term-$taxonomy-$sort-$count-$skip{$thumbnail_size}.json";
+$tempFileName = "/data/wordpress/imomags/wp-content/cache/temp-feeds/$network-$term-$taxonomy-$sort-$count-$skip{$thumbnail_size}.json";
 
 
 $fileExists = file_exists($fileName);
@@ -84,7 +85,7 @@ if ($fileExists) {
         sendDataAndStartBackgroundProcess($fileData);
 
         //File is written, but nothing is done with returned data because we already sent a cached copy
-        writeFileAndReturnData($fileName,$tempFileName,$network,$term,$taxonomy,$sort,$count,$skip);
+        writeFileAndReturnData($fileName,$tempFileName,$network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_size);
 
 
     } else {
@@ -102,7 +103,7 @@ if ($fileExists) {
     if (!file_exists($tempFileName)) {
 
         //echo "NEW FILE: ";
-        echo writeFileAndReturnData($fileName,$tempFileName,$network,$term,$taxonomy,$sort,$count,$skip);
+        echo writeFileAndReturnData($fileName,$tempFileName,$network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_size);
 
         exit;
 
@@ -116,10 +117,10 @@ if ($fileExists) {
 //*********************************************************************************
 //*********************************************************************************
 
-function writeFileAndReturnData($fileName,$tempFileName,$network,$term,$taxonomy,$sort,$count,$skip) {
+function writeFileAndReturnData($fileName,$tempFileName,$network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_size) {
 
         $fileHandle = fopen($tempFileName,"w+");
-        $data = runBigAssQuery($network,$term,$taxonomy,$sort,$count,$skip);
+        $data = runBigAssQuery($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_size);
         fwrite($fileHandle,$data);
         fclose($fileHandle);
         rename($tempFileName,$fileName);
