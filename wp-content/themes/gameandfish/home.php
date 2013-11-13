@@ -37,7 +37,7 @@ get_header(); ?>
 					$category = get_category_by_slug($slug);
 					
 					$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-                    $more_query = new WP_Query( 'posts_per_page=20&paged=' . $paged. '&cat=-' . $category->cat_ID );                     
+                    $more_query = new WP_Query( 'post_type=post&posts_per_page=20&paged=' . $paged. '&cat=-' . $category->cat_ID );                     
                     
                     $i++;
                     
