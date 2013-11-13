@@ -96,7 +96,7 @@ imo_sidebar("landing");?>
 			        $i++; endwhile;                  
 			} else { ?>
       
-				<div class="category-cross-site-feed" term="<?php echo $categorySlug; ?>" dart="<?php echo $code; ?>" thumb="attachment-list-thumb"><!-- This term= attribute is searched for --></div>
+				<div class="category-cross-site-feed" term="<?php echo $categorySlug; ?>" dart="<?php echo $code; ?>" thumb="list-thumb"><!-- This term= attribute is searched for --></div>
 				<div id="category-excerpt-template" class="post type-post status-publish format-standard hentry category-gear-accessories category-hunting category-gear-hunting article-brief clearfix" style="display:none;">
 					<div class="entry-summary entry-summary-dynamic">
 						<div class="entry-info">
