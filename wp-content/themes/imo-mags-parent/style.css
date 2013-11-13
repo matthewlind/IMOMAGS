@@ -581,12 +581,46 @@ img{max-width: 100%;height: auto;}
     background:url(images/sprite.png) no-repeat -41px 0;
 }
 .search-field input[type="submit"]:hover {background-position:-73px 0;}
+.google-search-btn{
+	width: 30px;
+	height: 30px;
+	text-indent: -99999px;
+	line-height: 0;
+	cursor: pointer;
+	background: url(/wp-content/themes/imo-mags-parent/images/sprite.png) no-repeat -41px 0;
+}
 .search-field .ui-input-text {
     float:left;
 }
 .search-field .ui-submit {
     float:right;
 }
+/*** google search ***/
+.cse .gsc-control-cse, .gsc-control-cse{padding: 0 !important;}
+.gsc-control-cse{border: none !important;}
+form.gsc-search-box{margin: 0 !important;}
+.gsc-input-box {border: none !important;height: 30px !important;}
+table.gsc-search-box{margin-bottom: 0 !important;}
+.gsib_a, .gsst_b{padding: 0 !important;}
+input.gsc-input{
+	width: 100% !important;
+	padding: 0 0 0 10px !important;
+	border: none !important;
+	height: 30px !important;
+	float: none !important;
+	margin: 0 !important;
+	background-color: transparent !important;
+	border-color: transparent !important;
+}
+input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus{
+	border-color: transparent !important;
+	-moz-box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+}
+.gscb_a {font: 30px/26px arial,sans-serif !important;}
+.gsst_a .gscb_a{color: #cda220 !important;}
+.gsst_a .gscb_a:hover{color: black !important;}
 .btn-base .ui-btn-inner,
 .search-field .ui-btn-inner {
     display:none;
@@ -1200,7 +1234,7 @@ a.category-name-link:hover{
 }
 .article-holder {
     overflow:hidden;
-    padding:0 26px 12px;
+    padding:0 0 12px;
 }
 .more-link {
     font-size:14px;
@@ -2275,6 +2309,7 @@ a.change-location:before {
 	padding: 5px;
 	position: relative;
 	background: #e0e0e0;
+	margin: 20px 0;
 }
 .wp-caption .wp-caption-text {
 	margin: 6px 2px 0 2px;
@@ -2555,7 +2590,7 @@ h2.related-stories{
 }
 .page-template-banner-page-php .sidebar-area{margin-top: 210px;}
 .page-template-banner-page-php.page-id-4026 .article-holder{
-	margin-top: 210px;
+	margin-top: 280px;
 }
 .page-template-banner-page-php.page-id-4026 .sidebar-area{margin-top: 290px;}
 
