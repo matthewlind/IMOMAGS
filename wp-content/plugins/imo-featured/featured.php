@@ -24,6 +24,7 @@ function imo_featured_scripts($hook) {
 
 		wp_enqueue_style('twitter-bootstrap',"http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.0/css/bootstrap.css");
 		wp_enqueue_style('jquery-ui-style',"http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css");
+		wp_enqueue_style('imo-featured-style',plugins_url( 'imo-featured/featured.css' , dirname(__FILE__) ));
 
 		wp_enqueue_script('jquery-ui-autocomplete');
 		wp_enqueue_script('jquery-ui-sortable');
@@ -43,7 +44,7 @@ function imo_featured_options() {
 
 
 
-	if ($_GET['setID'])
+	if ($_GET['setID'] && $_GET['action'] != "update")
 		showFeaturedDetail($_GET['setID']);
 	else
 		showFeaturedList();
@@ -52,6 +53,12 @@ function imo_featured_options() {
 
 
 function showFeaturedList() {
+
+
+if ($_GET['action'] == "update") {
+	updateSet($_GET['setID'],$_GET['post_ids']);
+}
+
 //*********************************************************************************************************************
 //*********************************************************************************************************************
 //*****************************************   ADMIN PAGE DISPLAY   ************************************************
@@ -61,15 +68,12 @@ function showFeaturedList() {
 
 
 	<div style="padding:10px 20px 20px 10px">
-		<h1 style="padding-bottom:10px;">Hello There</h1>
+		<h1 style="padding-bottom:10px;">Manage Sets of Posts</h1>
 
-		<a href="/wp-admin/options-general.php?page=imo-featured-manager&setID=new">New Set</a>
+		<a class="btn" href="/wp-admin/options-general.php?page=imo-featured-manager&setID=new">New Set</a>
 	</div>
 
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.9/backbone-min.js"></script>
+
 
 
 	<script type="text/javascript">
@@ -93,17 +97,66 @@ function showFeaturedDetail($setID) {
 	if ($setID == "new")
 		echo "<h1>Create New Set</h1>";
 	else
-		echo "<h1>Edit Set</h1>";
+		echo "<h1>Edit Set $setID</h1>";
 
 	?>
-	<div class="ui-widget">
-	  <label for="featured-search">Search: </label>
-	  <input id="featured-search" />
+	<div class="ui-widget post-search">
+	  <label for="featured-search">Search for Posts to Add: </label>
+	  <input id="featured-search" style="width: 650px;" />
 	</div>
+
+	<p class="list-header">Reorder and Remove Posts:</p>
+
+	<ul id="sortable" class="sortable-list">
+	</ul>
+
+	<form class="hidden-form">
+		<input type="hidden" id="setID" name="setID" value="<?php echo $setID; ?>">
+		<input type="hidden" id="post_ids" name="post_ids">
+		<input type="hidden" id="page" name="page" value="imo-featured-manager">
+		<input type="hidden" id="action" name="action" value="update">
+
+		<input type="submit" value="Save Changes" class="btn btn-primary save-changes">
+
+	</form>
 
 
 	<?php
 }
 
+function updateSet($setID,$postIDs) {
 
+	if ($setID == "new") {
+
+		//Query the db to get the next set ID.
+		global $wpdb;
+    	$sets = $wpdb->get_results( "SELECT * FROM {$wpdb->options} WHERE option_name LIKE 'featured_set_%' ORDER BY option_id ASC" );
+
+    	print_r($sets);
+
+    	if (empty($sets)) {
+    		$setID = 1;
+    	} else {
+
+    		foreach ($sets as $set) {
+
+
+    			$setName = $set->option_name;
+
+
+				preg_match_all('!\d+!', $setName, $valueArray);
+
+				$setID = $valueArray[0][0] + 1;
+    		}
+
+    	}
+
+	}//End if NEW
+
+	update_option("featured_set_$setID",$postIDs);
+
+	//Now that we have the ID, let's insert it!
+
+
+}
 

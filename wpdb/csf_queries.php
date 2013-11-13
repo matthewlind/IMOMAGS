@@ -1,6 +1,6 @@
 <?php
 
-function runBigAssQuery($network,$term,$taxonomy,$sort,$count,$skip) {
+function runBigAssQuery($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_size) {
 
 
 
@@ -140,7 +140,7 @@ function runBigAssQuery($network,$term,$taxonomy,$sort,$count,$skip) {
             $siteBrand = $brand[$domain];
 
             $sql .= <<<EOT
-(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, null as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "$siteBrand" as brand,
+(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, null as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "$siteBrand" as brand,attachmentmeta.meta_value as attachment_meta,
 (SELECT count(comment_ID) from wp_{$siteID}_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "$domain" as domain
 FROM wp_{$siteID}_term_relationships as relationships
 JOIN wp_{$siteID}_term_relationships as relationships2 ON (relationships.`object_id` = relationships2.`object_id`)
@@ -152,7 +152,11 @@ JOIN wp_{$siteID}_terms as terms ON (term_taxonomy.term_id = terms.term_id)
 JOIN wp_{$siteID}_posts as attachments ON (attachments.post_parent = posts.ID)
 JOIN wp_{$siteID}_postmeta as meta ON (meta.meta_value = attachments.ID)
 JOIN wp_users as users ON (users.`ID` = posts.post_author)
+JOIN wp_{$siteID}_postmeta as postmeta ON (posts.ID = postmeta.post_id)
+JOIN wp_{$siteID}_postmeta as attachmentmeta ON (attachments.ID = attachmentmeta.post_id)
 AND posts.post_status = "publish"
+AND postmeta.meta_key = '_thumbnail_id'
+AND attachmentmeta.meta_key = '_wp_attachment_metadata'
 $termQuery
 AND term_taxonomy.taxonomy = "$taxonomy"
 AND meta.meta_key = "_thumbnail_id")
@@ -234,6 +238,15 @@ EOT;
             $posts[$key]->post_nicedate = $niceDate;
 
             $thumbnail = str_replace(".jpg", "-190x120.jpg", $post->img_url);
+
+
+            if ($thumbnail_size) {
+                $thumbnail = "http://" . $post->domain . getThumbnail(unserialize($post->attachment_meta),$thumbnail_size);
+            }
+
+            $post->attachment_meta = "";
+
+
             $posts[$key]->img_url = $thumbnail;
 
             $posts[$key]->terms = getPostTerms($post->ID,$siteIDs[$post->domain]);
@@ -273,3 +286,26 @@ EOT;
 
 
 }
+
+
+function getThumbnail($dataArray,$thumbnailSize) {
+
+    $filepath = $dataArray['file'];
+
+    $filepathParts = explode("/",$filepath);
+
+
+
+    $filename = $dataArray['sizes'][$thumbnailSize]['file'];
+
+    $fullPath = "/files/" . $filepathParts[0] . "/" . $filepathParts[1] . "/" . $filename;
+
+    if (empty($filename)) {
+        $fullPath = "/files/" . $filepath;
+    }
+
+
+
+    return $fullPath;
+}
+
