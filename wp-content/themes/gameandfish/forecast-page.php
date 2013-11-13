@@ -125,28 +125,24 @@ imo_sidebar();?>
 	<div id="primary" class="general">
         <div class="general-frame">
             <div id="content" role="main" class="forecast-content">  
-	            <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header clearfix js-responsive-section">
-	            	<?php if(!is_page("deer-forecast")){ ?>
-						<a href="/deer-forecast/">G&F Deer Forecast</a>
-					<?php } ?>
-					<h1 class="page-title">
-						<span><?php the_title(); ?></span>
-				    </h1>
-				    <?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
+	            <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="clearfix js-responsive-section">
+	            	<?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
 				</div>
 											
             	<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="article-brief clearfix js-responsive-section">
-	            	<div class="article-holder custom-slider-section">
-						<?php the_content(); ?>
+	            	<div class="article-holder">
+	            		<?php if(!is_page("deer-forecast")){ ?>
+							<a href="/deer-forecast/">G&F Deer Forecast</a>
+						<?php } ?>
+						<?php while ( have_posts() ) : the_post(); ?>
+							<?php get_template_part( 'content/content', 'page' ); ?>
+						<?php endwhile; // end of the loop. ?>		
 	            	</div>
             	</div>
 				
 				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="pager-holder js-responsive-section">
 					<a href="#" class="go-top jq-go-top">go top</a>
 				</div>
-				<?php social_footer(); ?>
-                </a>
-                <a href="#" class="back-top jq-go-top">back to top</a>
 
 		 	</div><!-- #content -->
         </div>

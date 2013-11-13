@@ -230,6 +230,7 @@ body{background-color: black;}
 }
 .menu-main-menu-container > ul > li:hover > a:after,
 .menu-main-menu-container > ul > li > a:hover:after {border-top-color:#fff;}
+.all-hunting, .all-fishing, .all-gear{display: none;}
 .gf-drop-down {
     position:absolute;
     top:-99999px;
@@ -497,7 +498,7 @@ a.category-name-link:hover{background: #F1C548;color: black;}
     border:none;
     background:#373737;
 }
-.social-title {color:#fff;text-shadow:0 1px 0 #000;}
+.social-title {color:#fff;text-shadow:0 1px 1px #000;}
 .social-title span {color:#cda220;}
 .foot-social .socials {background:#212121;border-left:1px solid #bcbbba;}
 .page-header h1 {color:#373737;}
@@ -811,7 +812,7 @@ element:hover, element.hover_effect {
 	text-shadow: 1px 3px 7px #585855;
 }
 /*banners*/
-.gf-photo-corner, .gf-photo-corner-biggame, .gf-photo-corner-deer, .gf-photo-corner-fowl, .gf-photo-corner-turkey, .gf-photo-corner-smallgame, .gf-photo-corner-fish {
+.gf-photo-corner, .gf-photo-corner-biggame, .gf-photo-corner-deer, .gf-photo-corner-fowl, .gf-photo-corner-turkey, .gf-photo-corner-smallgame, .gf-photo-corner-fish, .your-pack-banner {
 	height: 200px;
 	margin-bottom: 20px;
 	position: absolute;
@@ -819,6 +820,7 @@ element:hover, element.hover_effect {
 	width: 1080px;
 	left: -31px;
 }
+.your-pack-banner {background: url(http://www.gameandfishmag.com/files/2011/09/pack-hunt1.jpg) no-repeat scroll 60px 0px black;height: 300px;}
 .gf-photo-corner {background: url(http://www.gameandfishmag.com/files/2012/11/Camera-Corner-Banner.jpg) no-repeat scroll 60px 0px black;}
 .gf-photo-corner-deer {background: url(http://www.gameandfishmag.com/files/2013/04/Camera-Corner-Banner-Deer.jpg) no-repeat scroll 60px 0px black;}
 .gf-photo-corner-biggame {	background: url(http://www.gameandfishmag.com/files/2013/04/Camera-Corner-Big-Game-Banner.jpg) no-repeat scroll 60px 0px black;}
@@ -846,8 +848,10 @@ background: url(http://www.gameandfishmag.com/files/2013/04/Camera-Corner-Turkey
 }
 .search-field{border: none;}
 .search-field input{width: 194px;}
-.featured-placehoder{width: 400px;float: left;}
-.rankings{	width: 200px;float: right;}
+.rankings{width:190px;float: right;font-size: 14px;}
+.rankings h3{font-size: 24px;}
+
+
 /* = Footer
  ******************************************************************************/
 .foot-logo {
@@ -872,7 +876,8 @@ background: url(http://www.gameandfishmag.com/files/2013/04/Camera-Corner-Turkey
 		text-shadow: 2px 1px 0px rgba(12, 12, 12, 0.58) !important;
 		font-weight: bold !important;
 	}
-	..snap-drawers .mob-aside-menu > div > ul > li > a.has-drop::after{top:18px;}
+	.all-hunting, .all-fishing, .all-gear{display: block;}
+	.snap-drawers .mob-aside-menu > div > ul > li > a.has-drop::after{top:18px;}
 	.mobile-menu-banner{height: 50px;}
 	#subscribe-area {
 		right: 315px;
@@ -978,7 +983,7 @@ background: url(http://www.gameandfishmag.com/files/2013/04/Camera-Corner-Turkey
 	}
 	.sub-menu li{width: 100%;}
 	.sub-menu a {padding:15px 10px 13px;}
-	.gf-photo-corner, .gf-photo-corner-biggame, .gf-photo-corner-deer, .gf-photo-corner-fowl, .gf-photo-corner-turkey, .gf-photo-corner-smallgame, .gf-photo-corner-fish{display: none;}
+	.gf-photo-corner, .gf-photo-corner-biggame, .gf-photo-corner-deer, .gf-photo-corner-fowl, .gf-photo-corner-turkey, .gf-photo-corner-smallgame, .gf-photo-corner-fish, .your-pack-banner{display: none;}
 	.page-template-banner-page-php .article-holder{margin-top: 0;}
 }
 
