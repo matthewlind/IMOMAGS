@@ -5,7 +5,7 @@ jQuery(document).ready(function($) {
 	var showAtOnce = 15;
 	var sort = "post_date";
 	var feedData;
-
+	
 	//Check to see if category-cross-site-feed exists:
 	if ($(".category-cross-site-feed").length > 0) {
 		//if yes, display some things
@@ -48,6 +48,7 @@ jQuery(document).ready(function($) {
 	function resetDisplay(slug) {
 		$(".category-cross-site-feed").attr("term",slug);
 		$(".category-cross-site-feed").text("");
+		
 
 		currentPosition = 0;
 		displayCrossSiteFeed(currentPosition);
@@ -66,9 +67,9 @@ jQuery(document).ready(function($) {
 
 		//First get any extra term
 		var term = $(".category-cross-site-feed").attr("term");
-		
+		var thumb = $(".category-cross-site-feed").attr("thumb");
 		var dart = $(".category-cross-site-feed").attr("dart");
-
+		
 		// if (term.length > 0) {
 		// 	var fileName = "/wp-content/cache/superloop/naw-plus-" + term + "-" + sort + ".json";
 		// } else {
@@ -76,56 +77,56 @@ jQuery(document).ready(function($) {
 		// }
 
 
-		var fileName = "/wpdb/network-feed-cached.php?network=everything&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce;
+		var fileName = "/wpdb/network-feed-cached.php?network=everything&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce + "&thumbnail_size="+ thumb;
 
 
 		if (document.domain.indexOf('gunsandammo') !== -1) {
-			var fileName = "/wpdb/network-feed-cached.php?network=shooting&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce;
+			var fileName = "/wpdb/network-feed-cached.php?network=shooting&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce + "&thumbnail_size="+ thumb;
 		}
 		if (document.domain.indexOf('shotgunnews') !== -1) {
-			var fileName = "/wpdb/network-feed-cached.php?network=shooting&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce;
+			var fileName = "/wpdb/network-feed-cached.php?network=shooting&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce + "&thumbnail_size="+ thumb;
 		}
 		if (document.domain.indexOf('handguns') !== -1) {
-			var fileName = "/wpdb/network-feed-cached.php?network=shooting&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce;
+			var fileName = "/wpdb/network-feed-cached.php?network=shooting&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce + "&thumbnail_size="+ thumb;
 		}
 		if (document.domain.indexOf('shootingtimes') !== -1) {
-			var fileName = "/wpdb/network-feed-cached.php?network=shooting&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce;
+			var fileName = "/wpdb/network-feed-cached.php?network=shooting&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce + "&thumbnail_size="+ thumb;
 		}
 		if (document.domain.indexOf('rifleshooter') !== -1) {
-			var fileName = "/wpdb/network-feed-cached.php?network=shooting&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce;
+			var fileName = "/wpdb/network-feed-cached.php?network=shooting&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce + "&thumbnail_size="+ thumb;
 		}
 		if (document.domain.indexOf('floridasportsman') !== -1) {
-			var fileName = "/wpdb/network-feed-cached.php?network=fishing&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce;
+			var fileName = "/wpdb/network-feed-cached.php?network=fishing&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce + "&thumbnail_size="+ thumb;
 		}
 		if (document.domain.indexOf('in-fisherman') !== -1) {
-			var fileName = "/wpdb/network-feed-cached.php?network=fishing&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce;
+			var fileName = "/wpdb/network-feed-cached.php?network=fishing&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce + "&thumbnail_size="+ thumb;
 		}
 		if (document.domain.indexOf('flyfisherman') !== -1) {
-			var fileName = "/wpdb/network-feed-cached.php?network=fishing&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce;
+			var fileName = "/wpdb/network-feed-cached.php?network=fishing&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce + "&thumbnail_size="+ thumb;
 		}
 		if (document.domain.indexOf('petersenshunting') !== -1) {
-			var fileName = "/wpdb/network-feed-cached.php?network=hunting&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce;
+			var fileName = "/wpdb/network-feed-cached.php?network=hunting&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce + "&thumbnail_size="+ thumb;
 		}
 		if (document.domain.indexOf('bowhunting') !== -1) {
-			var fileName = "/wpdb/network-feed-cached.php?network=hunting&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce;
+			var fileName = "/wpdb/network-feed-cached.php?network=hunting&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce + "&thumbnail_size="+ thumb;
 		}
 		if (document.domain.indexOf('bowhunter') !== -1) {
-			var fileName = "/wpdb/network-feed-cached.php?network=hunting&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce;
+			var fileName = "/wpdb/network-feed-cached.php?network=hunting&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce + "&thumbnail_size="+ thumb;
 		}
 		if (document.domain.indexOf('gundog') !== -1) {
-			var fileName = "/wpdb/network-feed-cached.php?network=hunting&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce;
+			var fileName = "/wpdb/network-feed-cached.php?network=hunting&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce + "&thumbnail_size="+ thumb;
 		}
 		if (document.domain.indexOf('wildfowl') !== -1) {
-			var fileName = "/wpdb/network-feed-cached.php?network=hunting&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce;
+			var fileName = "/wpdb/network-feed-cached.php?network=hunting&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce + "&thumbnail_size="+ thumb;
 		}
 		if (document.domain.indexOf('northamericanwhitetail') !== -1) {
-			var fileName = "/wpdb/network-feed-cached.php?network=hunting&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce;
+			var fileName = "/wpdb/network-feed-cached.php?network=hunting&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce + "&thumbnail_size="+ thumb;
 		}
 		if (document.domain.indexOf('petersenshunting') !== -1) {
-			var fileName = "/wpdb/network-feed-cached.php?network=hunting&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce;
+			var fileName = "/wpdb/network-feed-cached.php?network=hunting&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce + "&thumbnail_size="+ thumb;
 		}
 		if (document.domain.indexOf('gameandfish') !== -1) {
-			var fileName = "/wpdb/network-feed-cached.php?network=everything&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce;
+			var fileName = "/wpdb/network-feed-cached.php?network=everything&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce + "&thumbnail_size="+ thumb;
 		}
 
 

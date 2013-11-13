@@ -96,11 +96,11 @@ imo_sidebar("landing");?>
 			        $i++; endwhile;                  
 			} else { ?>
       
-				<div class="category-cross-site-feed" term="<?php echo $categorySlug; ?>" dart="<?php echo $code; ?>"><!-- This term= attribute is searched for --></div>
+				<div class="category-cross-site-feed" term="<?php echo $categorySlug; ?>" dart="<?php echo $code; ?>" thumb="attachment-list-thumb"><!-- This term= attribute is searched for --></div>
 				<div id="category-excerpt-template" class="post type-post status-publish format-standard hentry category-gear-accessories category-hunting category-gear-hunting article-brief clearfix" style="display:none;">
 					<div class="entry-summary entry-summary-dynamic">
 						<div class="entry-info">
-			    			<a href="http://www.shootingtimes.deva/2011/01/03/optics_optics_090706/"><img width="190" height="120" src="http://www.shootingtimes.deva/files/2010/09/stoptics_090706pl.jpg" class="attachment-list-thumb entry-img wp-post-image" alt="stoptics_090706pl" title="stoptics_090706pl" /></a>
+			    			<a href="http://www.shootingtimes.deva/2011/01/03/optics_optics_090706/"><img src="http://www.shootingtimes.deva/files/2010/09/stoptics_090706pl.jpg" class="attachment-list-thumb entry-img wp-post-image" alt="stoptics_090706pl" title="stoptics_090706pl" /></a>
 						</div>
 					</div>
 			        <div class="article-holder">
