@@ -314,7 +314,7 @@ $desktop_tablet_output .= <<<EOF_a
 	
 				</div>
 				<div class="slide-out-ad">
-					<iframe id="gallery-iframe-ad" height=280 width=330 src="/iframe-ad.php?ad_code=$dartDomain"></iframe>
+					<iframe id="gallery-iframe-ad" height=280 width=330 src="/iframe-ad.php?ad_code=$dartDomain&ajax_gallery-$gallery"></iframe>
 				</div>
 			</div>
 		</div>
