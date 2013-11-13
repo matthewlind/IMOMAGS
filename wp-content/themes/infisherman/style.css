@@ -225,6 +225,15 @@ General comments (optional).
     padding:15px 10px 13px; /*left w/ arrows: 36px;*/
     position:relative;
 }
+.menu-main-menu-container > ul > li:last-child:hover .drop-down,
+.menu-header-menu-container > ul > li:last-child:hover .drop-down{
+	top:42px;
+}
+.menu-main-menu-container > ul > li:last-child .drop-down,
+.menu-header-menu-container > ul > li:last-child .drop-down{
+	right: 0;
+	left: auto;
+}
 /*.sub-menu a:before {
     position:absolute;
     top:15px;
@@ -232,6 +241,7 @@ General comments (optional).
     content:"»";
 }*/
 .sub-menu a:hover {color:#c6262d;}
+
 /* Main Section
  ******************************************************************************/
 .post-slider {

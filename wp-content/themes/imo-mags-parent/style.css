@@ -581,12 +581,46 @@ img{max-width: 100%;height: auto;}
     background:url(images/sprite.png) no-repeat -41px 0;
 }
 .search-field input[type="submit"]:hover {background-position:-73px 0;}
+.google-search-btn{
+	width: 30px;
+	height: 30px;
+	text-indent: -99999px;
+	line-height: 0;
+	cursor: pointer;
+	background: url(/wp-content/themes/imo-mags-parent/images/sprite.png) no-repeat -41px 0;
+}
 .search-field .ui-input-text {
     float:left;
 }
 .search-field .ui-submit {
     float:right;
 }
+/*** google search ***/
+.cse .gsc-control-cse, .gsc-control-cse{padding: 0 !important;}
+.gsc-control-cse{border: none !important;}
+form.gsc-search-box{margin: 0 !important;}
+.gsc-input-box {border: none !important;height: 30px !important;}
+table.gsc-search-box{margin-bottom: 0 !important;}
+.gsib_a, .gsst_b{padding: 0 !important;}
+input.gsc-input{
+	width: 100% !important;
+	padding: 0 0 0 10px !important;
+	border: none !important;
+	height: 30px !important;
+	float: none !important;
+	margin: 0 !important;
+	background-color: transparent !important;
+	border-color: transparent !important;
+}
+input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus{
+	border-color: transparent !important;
+	-moz-box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+}
+.gscb_a {font: 30px/26px arial,sans-serif !important;}
+.gsst_a .gscb_a{color: #cda220 !important;}
+.gsst_a .gscb_a:hover{color: black !important;}
 .btn-base .ui-btn-inner,
 .search-field .ui-btn-inner {
     display:none;
@@ -700,15 +734,6 @@ img{max-width: 100%;height: auto;}
     background:#fff;
     border-top:0;
     overflow:hidden;
-}
-.menu-main-menu-container > ul > li:last-child .drop-down,
-.menu-header-menu-container > ul > li:last-child .drop-down{
-	right: 0;
-	left: auto;
-}
-.menu-main-menu-container > ul > li:last-child:hover .drop-down,
-.menu-header-menu-container > ul > li:last-child:hover .drop-down{
-	top:42px;
 }
 .menu-main-menu-container li:hover .drop-down, .menu-header-menu-container li:hover .drop-down {top:48px;}
 .sub-menu {
@@ -1144,7 +1169,7 @@ a.category-name-link:hover{
 }
 
 .home-featured{float: left;width: 62%;}
-.home-featured .feat-text{border: none;}
+.home-featured .feat-text{border: none;padding-left: 0}
 .home-featured-right{float: right;width: 33%;margin: 0;}
 .home-featured-right .feat-img{
 	max-height: 110px;
@@ -1164,7 +1189,7 @@ a.category-name-link:hover{
 }
 /* posts list */
 .posts-list {margin:0 0 16px;clear: both;border-top: 1px solid #d8d7d6;padding-top: 12px;}
-.posts-list .article-brief {min-height: 190px;margin-top: 10px;}
+.posts-list .article-brief {min-height: 168px;margin-top: 10px;}
 .article-brief {
     background:#fff;
     border:1px solid #d8d7d6;
@@ -1180,6 +1205,7 @@ a.category-name-link:hover{
     width:235px;
     height:auto;
 }
+.align-left{float: left;margin: 0 14px 0 0;}
 .article-brief .attachment-legacy-thumb {
     float:left;
     width:190px;
@@ -1208,7 +1234,7 @@ a.category-name-link:hover{
 }
 .article-holder {
     overflow:hidden;
-    padding:0 26px 12px;
+    padding:0 0 12px;
 }
 .more-link {
     font-size:14px;
@@ -1678,7 +1704,7 @@ a.category-name-link:hover{
 	width: 80px;
 	height: auto;
 	float: left;
-	margin: 0px 9px 0 8px;
+	margin: 0px 9px 10px 8px;
 }
 
 /* = General styles for mobile menu
@@ -2283,6 +2309,7 @@ a.change-location:before {
 	padding: 5px;
 	position: relative;
 	background: #e0e0e0;
+	margin: 20px 0;
 }
 .wp-caption .wp-caption-text {
 	margin: 6px 2px 0 2px;
@@ -2562,6 +2589,11 @@ h2.related-stories{
 	margin-top: 170px;
 }
 .page-template-banner-page-php .sidebar-area{margin-top: 210px;}
+.page-template-banner-page-php.page-id-4026 .article-holder{
+	margin-top: 280px;
+}
+.page-template-banner-page-php.page-id-4026 .sidebar-area{margin-top: 290px;}
+
 
 /* Master Angler
  ******************************************************************************/
@@ -2864,7 +2896,7 @@ h2.related-stories{
         padding:9px 32px 24px 14px;
     }
     .feat-text h3 {
-        font-size:20px;
+        font-size:20px !important;
     }
     .article-brief h3 {
         font-size:20px;
@@ -3246,7 +3278,6 @@ h2.related-stories{
 	.main{
 		padding-right: 10px;
 		padding-left: 10px;
-
 	}
 	.general{
 		padding-right: 10px;
@@ -3673,7 +3704,7 @@ h2.related-stories{
         display:none;
     }
     .posts-list {
-        margin:20px 0 30px;
+        margin:0 0 30px;
     }
     .links-section h4 {
         font-size:22px;

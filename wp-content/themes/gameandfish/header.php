@@ -436,7 +436,21 @@
                         if ( 'blank' == get_header_textcolor() ) :
                     ?>
                         <div class="only-search<?php if ( ! empty( $header_image ) ) : ?> with-image<?php endif; ?>">
-                        <?php parent_theme_get_search_form(); ?>
+	                        <script>
+							  (function() {
+							    var cx = '000784987907684239526:o5vka_nc6h4';
+							    var gcse = document.createElement('script');
+							    gcse.type = 'text/javascript';
+							    gcse.async = true;
+							    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+							        '//www.google.com/cse/cse.js?cx=' + cx;
+							    var s = document.getElementsByTagName('script')[0];
+							    s.parentNode.insertBefore(gcse, s);
+							  })();
+							  
+							</script>
+							<gcse:search></gcse:search>
+	                        <?php //parent_theme_get_search_form(); ?>
                         </div>
                     <?php
                         else :
@@ -477,7 +491,20 @@
                     ));   ?>
 					<a href="#" class="open-search jq-open-search">search</a>
 					<div class="h-search-form">
-                        <?php parent_theme_get_search_form(); ?>
+						<script>
+						  (function() {
+						    var cx = '000784987907684239526:o5vka_nc6h4';
+						    var gcse = document.createElement('script');
+						    gcse.type = 'text/javascript';
+						    gcse.async = true;
+						    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+						        '//www.google.com/cse/cse.js?cx=' + cx;
+						    var s = document.getElementsByTagName('script')[0];
+						    s.parentNode.insertBefore(gcse, s);
+						  })();
+						</script>
+						<gcse:search></gcse:search>
+                        <?php //parent_theme_get_search_form(); ?>
                     </div>
 				</div>
         </div><!-- #branding -->

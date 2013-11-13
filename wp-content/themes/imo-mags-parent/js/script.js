@@ -3,9 +3,13 @@ jQuery(window).load(function() {
     jQuery('.onload-hidden-abs').removeClass('onload-hidden-abs');
     jQuery('.loading-block').removeClass('loading-block');
     //jQuery('#at4m-mobile').appendTo("#page");
+     jQuery('td.gsc-input').removeClass('gsc-input');
+    jQuery('.gsc-search-button').attr('src','').removeClass('gsc-search-button gsc-search-button-v2').addClass('google-search-btn');
 });
 
 jQuery(document).ready(function () {
+	
+	
 	
 	jQuery(function(){
 		
