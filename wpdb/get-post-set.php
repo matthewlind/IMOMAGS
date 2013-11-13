@@ -37,36 +37,43 @@ $query = "";
 $count = intval($_REQUEST['count']);
 $skip = intval($_REQUEST['skip']);
 
-$searchParameter = $_GET['term'];
+$searchParameter = $_GET['setID'];
 
 try {
 
     $db = dbConnect();
 
 
-        $query = "SELECT
-            posts.ID as id,
-            posts.post_title as title,
-            posts.post_title as label,
-            posts.post_title as value,
-            posts.post_type as type,
-            attachmentmeta.meta_value as attachment_meta,
-            posts.guid as url
-            FROM wp_{$currentSiteID}_posts posts
-            JOIN wp_{$currentSiteID}_postmeta as postmeta ON (posts.ID = postmeta.post_id)
-            JOIN wp_{$currentSiteID}_posts as attachments ON (attachments.ID = postmeta.meta_value)
-            JOIN wp_{$currentSiteID}_postmeta as attachmentmeta ON (attachments.ID = attachmentmeta.post_id)
-            WHERE posts.post_title LIKE ?
-            AND posts.post_type IN ('post')
-            AND posts.post_status = 'publish'
-            AND postmeta.meta_key = '_thumbnail_id'
-            AND attachmentmeta.meta_key = '_wp_attachment_metadata'
-            ORDER BY posts.post_date DESC LIMIT 0,10";
+    $query = "SELECT option_value FROM wp_{$currentSiteID}_options WHERE option_name = ?";
+
+    $stmt = $db->prepare($query);
+
+    $stmt->execute(array("featured_set_{$searchParameter}"));
+
+    $postIDs = $stmt->fetchColumn(0);
+
+    $query = "SELECT
+        posts.ID as id,
+        posts.post_title as title,
+        posts.post_title as label,
+        posts.post_title as value,
+        posts.post_type as type,
+        attachmentmeta.meta_value as attachment_meta,
+        posts.guid as url
+        FROM wp_{$currentSiteID}_posts posts
+        JOIN wp_{$currentSiteID}_postmeta as postmeta ON (posts.ID = postmeta.post_id)
+        JOIN wp_{$currentSiteID}_posts as attachments ON (attachments.ID = postmeta.meta_value)
+        JOIN wp_{$currentSiteID}_postmeta as attachmentmeta ON (attachments.ID = attachmentmeta.post_id)
+        WHERE posts.ID IN ($postIDs)
+        AND posts.post_status = 'publish'
+        AND postmeta.meta_key = '_thumbnail_id'
+        AND attachmentmeta.meta_key = '_wp_attachment_metadata'
+        ORDER BY posts.post_date DESC LIMIT 0,10";
 
 
     $stmt = $db->prepare($query);
 
-    $stmt->execute(array("%$searchParameter%"));
+    $stmt->execute();
 
     $posts = $stmt->fetchAll(PDO::FETCH_OBJ);
 
