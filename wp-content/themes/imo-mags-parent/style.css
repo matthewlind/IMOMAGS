@@ -527,7 +527,7 @@ img{max-width: 100%;height: auto;}
 .subscribe-links li {
     display:inline-block;
     vertical-align:top;
-    padding:0 14px;
+    padding:0 12px;
     position:relative;
 }
 .filter-links li:before,
@@ -716,7 +716,7 @@ input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus{
     display:block;
     height:42px;
     color:#fff;
-    font:19px/42px "stagbold", serif;
+    font:19px/42px "open_sansbold", Helvetica, Arial, sans-serif;
     text-transform:uppercase;
     padding:0 18px 0 22px;
 }
@@ -773,7 +773,7 @@ input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus{
 .drop-feat-post {
     float:right;
     width:256px;
-    padding:14px 24px 14px 0;
+    padding:0 24px 14px 0;
 }
 .submenu-category-title {
     font:16px/1.2 "stagbold", serif;
@@ -841,9 +841,6 @@ input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus{
 .gallery-slider .flex-direction-nav a{
 	top: 480px;
 	background-color: black;
-}
-.flex-direction-nav{
-	visibility: visible;
 }
 .post-slider {
     width:100%;
@@ -3531,7 +3528,7 @@ h2.related-stories{
         padding:8px 0;
     }
 }
-.flex-gallery-slide-out{background: white;}
+
 @media only screen and (max-width: 610px) {
 	.single .post .addthis_toolbox, .entry-content-holder{padding-top: 10px;}
 	.single .post .addthis_toolbox{position: absolute;left: -20px;}
@@ -3546,6 +3543,7 @@ h2.related-stories{
 		left: 0px !important;
 		position: relative !important;
 		top: 0px !important;
+		background: white;
 	}
 	.custom-slider-section .x-close, .custom-slider-section .btn-full-screen{display: none !important;}
 	.slide-out-content .flex-content{overflow: scroll !important;}
@@ -3581,7 +3579,7 @@ h2.related-stories{
         width:100%;
         max-width: none;
     }
-
+	.header .socials, #subscribe-area, .user-btn{display: none;}
     .smooth-menu, .header {
 		-webkit-transform:translate3d(0,0,0);
 		-webkit-backface-visibility: hidden;
@@ -3933,6 +3931,7 @@ h2.related-stories{
 	.category-img{
 		display: none;
 	}
+	
 }
 @media only screen and (max-width: 510px) {
     .entry-content-holder {
@@ -3948,11 +3947,13 @@ h2.related-stories{
         display:block;
         bottom:18px;
     }
+    .header .socials, #subscribe-area, .user-btn{display: none;}
 }
 @media only screen and (max-width: 340px) {
 	.snap-drawer-right{
 		width: 266px;
 	}
+	.header .socials, #subscribe-area, .user-btn{display: none;}
 	.mobile-menu-banner{
 		width: 320px;
 		margin: 0 auto;
@@ -3991,8 +3992,6 @@ h2.related-stories{
     #content img {
         margin-bottom:10px;
     }
-
-
 }
 
 /* Webkit Hacks  */

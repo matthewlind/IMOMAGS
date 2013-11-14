@@ -117,6 +117,8 @@ General comments (optional).
     background:#040503;
     border-top: 4px solid #F1C548;
 }
+.menu-main-menu-container > ul > li > a,
+.menu-header-menu-container > ul > li > a {font:19px/42px "stagbold", serif;}
 .menu-main-menu-container li:last-child a.has-drop:after, .menu-header-menu-container li:last-child a.has-drop:after {top: 18px;}
 .menu-main-menu-container > ul > li:last-child {float:right;}
 .menu-main-menu-container a.has-drop:after {
@@ -174,6 +176,7 @@ General comments (optional).
 	padding: 8px 0 20px !important;
 	text-transform: none !important;
 }
+.subscribe-links li {padding: 0 14px;}
 .horz-logo{
 	background: url(images/logos/fishhead-logo-horz.png) no-repeat center top;
 	width: 262px;
@@ -747,6 +750,7 @@ div.login-register-block {
 	 }
 }
 @media only screen and (max-width: 610px) {
+	.header .socials, #subscribe-area, .user-btn{display: none;}
 	.article-brief .comment-count{display: none;}
 	.feat-text,
     .article-holder{

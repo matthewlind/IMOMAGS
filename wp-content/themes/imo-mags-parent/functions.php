@@ -120,7 +120,7 @@ class AddParentClass_Walker extends Walker_Nav_Menu
 ?>
                 <?php while ($query->have_posts()): $query->the_post();?>
                     <div class="drop-feat-post">
-                        <h4 class="submenu-category-title"><?php echo $item->title ?></h4>
+                        <h4 class="submenu-category-title"><?php //echo $item->title ?></h4>
                         <a class="drop-feat-img" href="<?php the_permalink(); ?>"><?php the_post_thumbnail('legacy-thumb'); ?></a>
                         <h5><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
                     </div>
