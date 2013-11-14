@@ -419,7 +419,6 @@ img{max-width: 100%;height: auto;}
     display:none;
     background:url(images/sprite.png) no-repeat -305px -177px;
 }
-.open-search:hover {background-position:-352px -177px;}
 #subscribe-area {
     float:right;
     width:262px;
@@ -599,6 +598,12 @@ input.gsc-search-button-v2{
     float:right;
 }
 /*** google search ***/
+.gsc-results-wrapper-overlay {
+	top: 162px !important;
+	left: 4% !important;
+	width: 92% !important;
+	height: auto !important;
+}
 .cse .gsc-control-cse, .gsc-control-cse{padding: 0 !important;}
 .gsc-control-cse{border: none !important;}
 form.gsc-search-box{margin: 0 !important;}
@@ -2792,6 +2797,7 @@ h2.related-stories{
         border: none;
     }
 	.home-featured{float: left;width: 64%;}
+	.gsc-results-wrapper-overlay{top:95px !important;padding: 0 20px !important;}
 	.h-search-open {
 	   display: block !important;
 	   position:absolute;
@@ -3598,15 +3604,6 @@ h2.related-stories{
     #slidingMenu iframe {
 		width: 296px !important;
     }
-    .open-menu {
-        width:44px;
-        height:44px;
-        margin:0 20px 0 0;
-        background-position:-304px -131px;
-    }
-    .open-menu:hover {
-        background-position:-352px -131px;
-    }
     .logo {
         width:134px;
         height:32px;
@@ -3616,7 +3613,8 @@ h2.related-stories{
         height:44px;
         background-position:-304px -177px;
     }
-    .open-search:hover {background-position:-352px -177px;}
+    .gsc-results{padding: 0 10px 2px !important;}
+    .h-search-form{padding: 6px;}
     .user-btn {
         width:44px;
         height:44px;
@@ -3777,7 +3775,7 @@ h2.related-stories{
     .foot-social .socials a.youtube {background-position:-140px -222px;}
     .foot-social .socials a.youtube:hover {background-position:-278px -222px;}
     .foot-social .socials a.rss {background-position:-186px -222px;}
-    .foot-social .socials a.rss:hover {background-position:-324px -222px;}
+    .foot-social .socials a.rss:hover {background-position: -325px -222px;}
 	.article-brief, .home-featured, .home-featured-right, .posts-list{border: none !important;}
 	.feat-sep {position: relative;height: 1px;}
 	.article-brief:after, .feat-sep div{

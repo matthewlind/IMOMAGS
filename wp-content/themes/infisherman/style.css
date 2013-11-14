@@ -29,7 +29,7 @@ General comments (optional).
     width:226px;
 }
 .open-menu, .user-btn, .search-field input[type="submit"] {background-image:url(images/sprite.png);}
-
+.open-menu{background-position: -306px -131px;}
 
 .btn-base {
 	display: inline-block;
@@ -747,7 +747,7 @@ div.login-register-block {
 	 }
 }
 @media only screen and (max-width: 610px) {
-	 .article-brief .comment-count{display: none;}
+	.article-brief .comment-count{display: none;}
 	.feat-text,
     .article-holder{
         padding:6px 10px;
@@ -786,4 +786,6 @@ div.login-register-block {
         background:#fff;
         content:"";
     }   
+    .open-menu:hover {background-position: -353px -131px;}
+    .foot-social .socials a.youtube:hover{background-position: -280px -222px;}
 }
