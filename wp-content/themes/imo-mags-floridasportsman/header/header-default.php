@@ -52,6 +52,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 <?php  endif; ?>     	
 
 <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/scripts.js"/></script>
+<script type="text/javascript" src="/wp-content/themes/imo-mags-gunsandammo/js/flash_heed.js"></script>
 <?php if (defined('JETPACK_SITE')): ?>
 <script type='text/javascript' src='http://ads.jetpackdigital.com/sites/<?php print JETPACK_SITE; ?>/jpd.js'></script>
 <?php endif; ?> 

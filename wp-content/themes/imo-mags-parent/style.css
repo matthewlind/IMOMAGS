@@ -2796,7 +2796,7 @@ h2.related-stories{
         border: none;
     }
 	.home-featured{float: left;width: 64%;}
-	.gsc-results-wrapper-overlay{top:95px !important;padding: 0 20px !important;}
+	.gsc-results-wrapper-overlay{top:42px !important;padding: 0 20px !important;}
 	.h-search-open {
 	   display: block !important;
 	   position:absolute;
