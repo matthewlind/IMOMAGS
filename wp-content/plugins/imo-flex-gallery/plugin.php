@@ -162,7 +162,7 @@ function galleryOutput($gallery, $pictures, $totalSlides, $dartDomain, $communit
 							<span class="next-gal-url display-none">'.$nextGalUrl.'</span>
 						</li>
 					';
-					$totalSlidesShow = $totalSlides + 1;
+					$totalSlidesShow;
 				}
 			} else {
 				if($nextGalID > $nextGalLimit) {
@@ -190,7 +190,6 @@ function galleryOutput($gallery, $pictures, $totalSlides, $dartDomain, $communit
 				<div class="flex-gallery-title clearfix">
 				<a class="btn-full-screen flex-gallery-button">Fullscreen</a>
 					<h2>$title</h2>
-					<div class="clear"></div>	
 					<div id="flex-gallery-social">$addThis</div><div class="flex-counter"><span class="flex-counter-extra">Picture </span><span class="current-slide">1</span> of <span class="total-slides">$totalSlidesShow</span></div>
 				</div>
 				<div class="clear"></div>
@@ -229,8 +228,8 @@ EOT_a2;
 		$count++;
 		}
 	}
+	//$nextGal before next closing </ul>
 $desktop_tablet_output .= <<<EOT_a3
-				$nextGal
 			</ul>
 		</div>
 		<div class="flex-carousel" id="carousel-$gallery">
@@ -359,7 +358,7 @@ if($community == true) {
             <div class="jq-explore-slider">
                 <ul class="slides">       
 EOT;
-	$count = 0;
+	$count = 1;
 	foreach ($pictures as $picture) {
     	if(!empty($picture->img_url) && $count < $pictureLimit) {
 		$picture->meta_data = unserialize($picture->meta_data);
@@ -470,7 +469,7 @@ $mobile_output .= <<<EOFmobile_standard
 		</script>
 EOFmobile_standard;
 }
-		if($_SERVER['SERVER_NAME'] == "www.in-fisherman.com" || $_SERVER['SERVER_NAME'] == "www.in-fisherman.fox" || $_SERVER['SERVER_NAME'] == "www.in-fisherman.deva" || $_SERVER['SERVER_NAME'] == "www.gameandfishmag.fox"){
+		if($_SERVER['SERVER_NAME'] != "www.flyfisherman.com" || $_SERVER['SERVER_NAME'] != "www.floridasportsman.om" || $_SERVER['SERVER_NAME'] != "www.gunsandammo.com" || $_SERVER['SERVER_NAME'] != "www.shootingtimes.com" || $_SERVER['SERVER_NAME'] != "www.shotgunnews.com" || $_SERVER['SERVER_NAME'] != "www.handgunsmag.com" || $_SERVER['SERVER_NAME'] != "www.rifleshootermag.com" || $_SERVER['SERVER_NAME'] != "www.northamericanwhitetail.com" || $_SERVER['SERVER_NAME'] != "www.bowhuntingmag.com" || $_SERVER['SERVER_NAME'] != "www.bowhunter.com" || $_SERVER['SERVER_NAME'] != "www.petersenshunting.com" || $_SERVER['SERVER_NAME'] != "www.gundogmag.com" || $_SERVER['SERVER_NAME'] != "www.wildfowlmag.com"){
 			if (mobile()){
 				return $mobile_output;
 			}else{

@@ -7,6 +7,7 @@ if($cat_slug == "pike-muskie"){
 if($cat_slug == "trout-salmon"){
 	$cat_slug = "trout_amp_salmon";
 }
+
 $dataPos = 0;
 
 get_header(); ?>
@@ -50,14 +51,15 @@ get_header(); ?>
                                  * called content-___.php (where ___ is the Post Format name) and that will be used instead.
                                  */
                                 get_template_part( 'content/content', get_post_format() );
+                                
+                                $community_category = get_category( get_query_var( 'cat' ) );
+								$community_cat = $community_category->slug;
                             ?>
 						<?php if ( function_exists('imo_community_template') ){ 
-							if ( $i == 4 && $paged == 0 ){ ?>
+							if ( $i == 4 && $paged == 0 && ($community_cat == "master-angler" || $community_cat == "bass" || $community_cat == "panfish" || $community_cat == "pike" || $community_cat == "muskie" || $community_cat == "trout" || $community_cat == "salmon" || $community_cat == "carp" || $community_cat == "crappie" || $community_cat == "catfish") ){ ?>
 		                       <div class="post">
 			                        <h2 style="margin-top:10px;">Explore Photos</h2>
-			                        <?php $category = get_category( get_query_var( 'cat' ) );
-									$category_slug = $cat->slug;
-			                        echo do_shortcode('[imo-slideshow community=true gallery='. $category_slug .']'); ?>
+			                        <?php echo do_shortcode('[imo-slideshow community=true gallery='. $community_cat .']'); ?>
 				               </div>
 			                <?php } } ?>
 							

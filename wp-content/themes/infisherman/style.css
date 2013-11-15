@@ -750,7 +750,7 @@ div.login-register-block {
 	 }
 }
 @media only screen and (max-width: 610px) {
-	.header .socials, #subscribe-area, .user-btn{display: none;}
+	.header .socials, #subscribe-area{display: none;}
 	.article-brief .comment-count{display: none;}
 	.feat-text,
     .article-holder{

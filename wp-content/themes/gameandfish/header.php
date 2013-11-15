@@ -18,7 +18,7 @@
 <!--<![endif]-->
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
-	<meta name="viewport" content="width=device-width" />
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1" />
 	<meta http-equiv="x-ua-compatible" content="IE=edge" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
@@ -191,7 +191,7 @@
 	        </div>
 	
 	        <div class="menu-subscribe">
-	            <a href="<?php print SUBS_LINK;?>"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/pic/journals.png" alt="" /><span>Subscribe Now!</span></a>
+	            <a href="<?php print $subs_link;?>"><img src="<?php echo $magazine_img; ?>" alt="" /><span>Subscribe Now!</span></a>
 	        </div>
 	        <?php wp_nav_menu(array(
 	            'menu_class'=>'menu',
@@ -283,7 +283,7 @@
 		       </div>
 	        </div>
 	        <div class="menu-subscribe">
-	            <a href="<?php print SUBS_LINK;?>"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/pic/journals.png" alt="" /><span>Subscribe Now!</span></a>
+	            <a href="<?php print $subs_link;?>"><img src="<?php echo $magazine_img; ?>" alt="" /><span>Subscribe Now!</span></a>
 	        </div>
 	        <div class="mob-aside-menu" style="<?php echo $displayStyle; ?>">
 		        <div class="menu-community-menu-container">

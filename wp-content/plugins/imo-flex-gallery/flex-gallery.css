@@ -30,7 +30,7 @@ div.flex-viewport {
 }
 .flex-slide img {
 	position: relative;
-	display: inline-block !important;
+	display: inline !important;
 	max-width: 99.5%;
 	width: auto;
     height:auto !important;
@@ -186,7 +186,6 @@ font-size: 14px;
 
 .slide-out-content-title {
 	display: none;
-	float:left;
 	/*margin-top: -23px;*/
 	font: 16px "stagregular", "StagMedium", Arial, "Helvetica Neue", Helvetica, sans-serif;
 }

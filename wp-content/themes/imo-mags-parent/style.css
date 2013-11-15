@@ -598,6 +598,7 @@ input.gsc-search-button-v2{
     float:right;
 }
 /*** google search ***/
+.gssb_c{z-index: 999999999 !important;}
 .gsc-results-wrapper-visible{
 	position: absolute !important;
 	left: 0 !important;
@@ -1645,6 +1646,7 @@ a.category-name-link:hover{
 	margin-left: 0 !important;
 	max-width:100px;
 }
+#gallery-iframe-ad{position: absolute;bottom: -20px;}
 /*** mobile gallery ***/
 .gallery-slider {
     position:relative;
@@ -2996,10 +2998,6 @@ h2.related-stories{
 
     /* article - tablet - Aaron*/
 
-    #content .wp-caption {
-        width:100% !important;
-    }
-
     #content img.alignleft,
     #content img.alignright {
         width:50%;
@@ -3306,10 +3304,9 @@ h2.related-stories{
 	.posts-list .article-holder{padding:8px 0 12px;position: relative;}
 	
 	.posts-list{margin-top: 0;}
-	.posts-list .article-brief h3{float: left;max-width: 100%;
-	
+	.posts-list .article-brief h3{float: left;max-width: 100%;}
 	.article-brief h3{float: left;}
-   /* sidebar */
+	/* sidebar */
     .sidebar-area {
         padding:0;
         float:right;
@@ -3427,7 +3424,6 @@ h2.related-stories{
     .sidebar-area .signup-box {
         display:none;
     }
-    ol.flex-control-nav.flex-control-paging{display: none;}
 }
 @media only screen and (max-width: 760px) {
 	#cabelas-essentials h2{
