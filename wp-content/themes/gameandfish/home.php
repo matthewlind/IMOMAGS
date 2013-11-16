@@ -7,7 +7,7 @@ get_header(); ?>
             <div id="content" role="main">
             <?php if ( is_home() ) : ?>
 
-            	<?php $featured_query = new WP_Query( 'category_name=featured&posts_per_page=3' ); ?>
+            	<?php $featured_query = new WP_Query( 'category_name=featured&posts_per_page=2' ); ?>
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="featured-area clearfix js-responsive-section">
                     <div class="general-title clearfix">
                         <h2>Featured</h2>
@@ -15,7 +15,7 @@ get_header(); ?>
                     <div class="clearfix">
                         <ul>
                          <?php $i = 0; while ($featured_query->have_posts()) : $featured_query->the_post(); ?>
-						  	<li class="<?php if ($i == 0){ echo 'home-featured'; }else{ echo 'home-featured-right'; } ?>">
+						  	<li class="home-featured">
                                 <div class="feat-post">
                                     <div class="feat-img"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('list-thumb'); ?></a></div>
                                     <div class="feat-text">
