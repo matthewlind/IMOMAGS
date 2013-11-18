@@ -11,6 +11,8 @@ General comments (optional).
 */
 
 @import url("../imo-mags-parent/style.css");
+.header{background: url(images/bg/naw-header-bg.jpg) no-repeat center top;}
+.layout-frame{border: none;}
 
 /* Tags reset
 *******************************************************************************/
@@ -32,7 +34,7 @@ a,
 .ui-panel .mob-aside-menu li.drop-open > a,
 .ui-panel .mob-aside-menu > div > ul > li > a:hover {color:#2f7bb2;}
 .logo img{width: 300px;padding-bottom: 28px;}
-.menu-main-menu-container, .menu-header-menu-container{background:#b4b199;}
+.menu-main-menu-container, .menu-header-menu-container{background:#f0e9e1;}
 .menu-main-menu-container a.has-drop:after, .menu-header-menu-container a.has-drop:after {border-top: 7px solid #2f7bb2;}
 a.category-name-link.primary-cat,
 a.category-name-link:hover{background: #2f7bb2;color: white;}
@@ -46,7 +48,7 @@ a.category-name-link:hover{background: #2f7bb2;color: white;}
 .ui-panel .mob-aside-menu > div > ul > li > a.has-drop:after {border-top: 7px solid #2f7bb2;}
 .get-newsletter{text-shadow: 0 -1px 0 #000;}
 /*sprite*/
-.open-menu, .user-btn, .open-search, .filter-links li:before, .menu-top-menu-container li:before, .subscribe-links li:before, .socials a, .view-post, .go-top, .back-top:before, .get-newsletter, .cal-carousel .gal-prev, .cal-carousel .gal-next, .full-post .comment-count, 
+.open-menu, .user-btn, .open-search, .filter-links li:before, .menu-top-menu-container li:before, .subscribe-links li:before, .view-post, .go-top, .back-top:before, .get-newsletter, .cal-carousel .gal-prev, .cal-carousel .gal-next, .full-post .comment-count, 
 .article-brief .comment-count, .search-field input[type="submit"] {background-image: url(images/sprite.png);}
 
 /*flexslider*/
