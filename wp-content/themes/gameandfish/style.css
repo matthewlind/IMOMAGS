@@ -59,8 +59,20 @@ body{background-color: black;}
 	padding: 20px 30px;
 	border-bottom: 1px solid #d8d7d6;
 }
-.home .posts-list .article-brief h3{margin-bottom: 6px;}*/
+.home .posts-list .article-brief h3{margin-bottom: 6px;}
 
+
+.posts-list .article-brief.callout{background: #f1f1f1;margin-top: 0;padding: 10px;}
+goes above title 
+.callout-copy{
+    font-size: 12px;
+    background: #cda220;
+    padding: 2px 4px;
+    width: 108px;
+    text-transform: uppercase;
+    color: white;
+}
+*/
 /* Header
  ******************************************************************************/
 .logo{

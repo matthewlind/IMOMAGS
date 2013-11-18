@@ -9,9 +9,9 @@ get_header(); ?>
 
             	<?php $featured_query = new WP_Query( 'category_name=featured&posts_per_page=2' ); ?>
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="featured-area clearfix js-responsive-section">
-                    <div class="general-title clearfix">
+                    <!--<div class="general-title clearfix">
                         <h2>Featured</h2>
-                    </div>
+                    </div>-->
                     <div class="clearfix">
                         <ul>
                          <?php $i = 0; while ($featured_query->have_posts()) : $featured_query->the_post(); ?>
