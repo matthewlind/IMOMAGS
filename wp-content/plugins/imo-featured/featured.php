@@ -28,13 +28,12 @@ function imo_featured_scripts($hook) {
 
 		wp_enqueue_script('jquery-ui-autocomplete');
 		wp_enqueue_script('jquery-ui-sortable');
-		wp_enqueue_script('imo-featured-script',plugins_url( 'imo-featured/featured.js' , dirname(__FILE__) ),array("jquery","jquery-ui-sortable","jquery-ui-autocomplete"));
-
+		wp_enqueue_script('jquery-masonry',plugins_url( 'imo-featured/masonry.pkgd.js' , dirname(__FILE__) ),array("jquery"));
+		wp_enqueue_script('imo-featured-script',plugins_url( 'imo-featured/featured.js' , dirname(__FILE__) ),array("jquery","jquery-ui-sortable","jquery-ui-autocomplete","jquery-masonry"));
 	}
 
 
 }
-
 
 function imo_featured_options() {
 
@@ -52,6 +51,11 @@ function imo_featured_options() {
 }
 
 
+//*********************************************************************************************************************
+//*********************************************************************************************************************
+//*****************************************   ADMIN PAGE DISPLAY   ************************************************
+//*********************************************************************************************************************
+//*********************************************************************************************************************
 function showFeaturedList() {
 
 
@@ -59,36 +63,21 @@ if ($_GET['action'] == "update") {
 	updateSet($_GET['setID'],$_GET['post_ids']);
 }
 
-//*********************************************************************************************************************
-//*********************************************************************************************************************
-//*****************************************   ADMIN PAGE DISPLAY   ************************************************
-//*********************************************************************************************************************
-//*********************************************************************************************************************
 ?>
 
 
 	<div style="padding:10px 20px 20px 10px">
-		<h1 style="padding-bottom:10px;">Manage Sets of Posts</h1>
+		<h1 style="padding-bottom:10px;">Post Sets</h1>
+		<p>Organize posts into sets so that they can be featured! Just use this shortcode to feature a set: [postset=2] Replace "2" with the id of the set you want to feature.</p>
 
 		<a class="btn" href="/wp-admin/options-general.php?page=imo-featured-manager&setID=new">New Set</a>
 	</div>
+	<div class="set-list-container">
 
-
-
-
-	<script type="text/javascript">
-	//Main App Script
-
-	</script>
+	</div>
 
 <?php
 
-//*********************************************************************************************************************
-//*********************************************************************************************************************
-//*********************************************************************************************************************
-//*********************************************************************************************************************
-//*********************************************************************************************************************
-//*********************************************************************************************************************
 }
 
 
@@ -132,13 +121,21 @@ function updateSet($setID,$postIDs) {
 		global $wpdb;
     	$sets = $wpdb->get_results( "SELECT * FROM {$wpdb->options} WHERE option_name LIKE 'featured_set_%' ORDER BY option_id ASC" );
 
-    	print_r($sets);
 
-    	if (empty($sets)) {
+
+    	//print_r($sets);
+
+    	if (count($sets) < 1) {
     		$setID = 1;
     	} else {
 
+
+
+    		$prevSetID = 0;
+
     		foreach ($sets as $set) {
+
+
 
 
     			$setName = $set->option_name;
@@ -146,12 +143,21 @@ function updateSet($setID,$postIDs) {
 
 				preg_match_all('!\d+!', $setName, $valueArray);
 
-				$setID = $valueArray[0][0] + 1;
+
+				if ($prevSetID <= $valueArray[0][0])
+					$setID = $valueArray[0][0] + 1;
+
+
+				$prevSetID = $setID;
+
+
     		}
 
     	}
 
 	}//End if NEW
+
+
 
 	update_option("featured_set_$setID",$postIDs);
 
@@ -159,4 +165,62 @@ function updateSet($setID,$postIDs) {
 
 
 }
+
+//*********************************************************************************************************************
+//*********************************************************************************************************************
+//*****************************************   SHORTCODE DISPLAY   ************************************************
+//*********************************************************************************************************************
+//*********************************************************************************************************************
+
+add_action( 'init', 'imo_featured_register_shortcodes');
+
+function imo_featured_register_shortcodes(){
+   add_shortcode('featured-posts', 'showFeaturedPosts');
+}
+
+function showFeaturedPosts($atts) {
+
+	extract(shortcode_atts(array(
+	  'set_id' => 1,
+	), $atts));
+
+
+	$postIDString = get_option("featured_set_{$set_id}");
+
+	$outputString = "";
+
+	global $wpdb;
+
+    $query = "SELECT
+        posts.ID as id,
+        posts.post_title as title,
+        posts.post_type as type,
+        attachmentmeta.meta_value as attachment_meta,
+        posts.guid as url
+        FROM {$wpdb->posts} as posts
+        JOIN {$wpdb->postmeta} as postmeta ON (posts.ID = postmeta.post_id)
+        JOIN {$wpdb->posts} as attachments ON (attachments.ID = postmeta.meta_value)
+        JOIN {$wpdb->postmeta} as attachmentmeta ON (attachments.ID = attachmentmeta.post_id)
+        WHERE posts.ID IN ($postIDString)
+        AND posts.post_status = 'publish'
+        AND postmeta.meta_key = '_thumbnail_id'
+        AND attachmentmeta.meta_key = '_wp_attachment_metadata'
+        ORDER BY FIELD (posts.ID,$postIDString)";
+
+
+
+    $posts = $wpdb->get_results( $query );
+
+
+    foreach($posts as $post) {
+
+    	$title = $post->title;
+    	$outputString .= "<li>$title</li>";
+    }
+
+
+	return $outputString;
+
+}
+
 
