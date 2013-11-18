@@ -68,7 +68,7 @@ try {
         AND posts.post_status = 'publish'
         AND postmeta.meta_key = '_thumbnail_id'
         AND attachmentmeta.meta_key = '_wp_attachment_metadata'
-        ORDER BY posts.post_date DESC LIMIT 0,10";
+        ORDER BY FIELD (posts.ID,$postIDs)";
 
 
     $stmt = $db->prepare($query);

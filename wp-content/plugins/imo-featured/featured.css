@@ -41,3 +41,34 @@ ul#sortable {
 	margin-right:5px;
 	margin-top:10px;
 }
+
+.set-container {
+	width: 250px;
+	margin:10px;
+	padding:10px;
+	-webkit-border-radius: 7px;
+    border-radius: 7px;
+	border:1px solid #bbb;
+	float:left;
+	cursor:pointer;
+}
+
+.set-container:hover {
+	background-color: #f9f9f9;
+}
+
+.post-item-template img {
+	height: 50px;
+	width: 50px;
+	float:left;
+	margin-right:10px;
+}
+
+.post-item-template {
+	padding:2.5px;
+	min-height: 60px;
+}
+
+.post-item-template p {
+	margin:10px;
+}
