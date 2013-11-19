@@ -67,8 +67,8 @@ if ($_GET['action'] == "update") {
 
 
 	<div style="padding:10px 20px 20px 10px">
-		<h1 style="padding-bottom:10px;">Post Sets</h1>
-		<p>Organize posts into sets so that they can be featured! Just use this shortcode to feature a set: [postset=2] Replace "2" with the id of the set you want to feature.</p>
+		<h1 style="padding-bottom:10px;">Featured Post Sets</h1>
+		<p>Organize posts into sets so that they can be featured! Just use this shortcode to feature a set: <b>[featured-posts set_id=2]</b> </p>
 
 		<a class="btn" href="/wp-admin/options-general.php?page=imo-featured-manager&setID=new">New Set</a>
 	</div>
