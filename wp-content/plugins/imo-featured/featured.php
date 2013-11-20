@@ -197,7 +197,11 @@ function showFeaturedPosts($atts) {
 	), $atts));
 
 
-	$postIDString = get_option("featured_set_{$set_id}");
+	$setData = get_option("featured_set_{$set_id}");
+
+
+
+	$postIDString = $setData['post_id_string'];
 
 	$outputString = "";
 
@@ -227,23 +231,23 @@ function showFeaturedPosts($atts) {
 	function getThumbnail($dataArray) {
 
 	    $filepath = $dataArray['file'];
-	
+
 	    $filepathParts = explode("/",$filepath);
-		
+
 	    $filename = $dataArray['sizes']['list-thumb']['file'];
-	
+
 	    $fullPath = "/files/" . $filepathParts[0] . "/" . $filepathParts[1] . "/" . $filename;
-	
+
 	    if (empty($filename)) {
 	        $fullPath = "/files/" . $filepath;
 	    }
 
 	    return $fullPath;
 	}
-	
+
 
     foreach($posts as $post) {
-    
+
 		$thumb = getThumbnail(unserialize($post->attachment_meta));
     	$title = $post->title;
     	$url = $post->url;
