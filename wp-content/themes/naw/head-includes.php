@@ -5,9 +5,6 @@
  */
 
 ?>
-<!-- FONTS -->
-<link href='http://fonts.googleapis.com/css?family=Anton&v1' rel='stylesheet' type='text/css'>
-
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
@@ -43,4 +40,3 @@ if(document.location.protocol=='http:'){
 }
 </script>
 <!-- END Tynt Script -->
-
