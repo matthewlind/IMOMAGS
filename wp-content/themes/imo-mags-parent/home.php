@@ -14,17 +14,8 @@ get_header(); ?>
                     </div>-->
                     <div class="clearfix">
                         <ul>
-                         <?php $i = 0; while ($featured_query->have_posts()) : $featured_query->the_post(); ?>
-						  	<li class="home-featured">
-                                <div class="feat-post">
-                                    <div class="feat-img"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('list-thumb'); ?></a></div>
-                                    <div class="feat-text">
-                                        <h3><a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a></h3>
-                                        <!--<a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>-->
-                                </div>
-                            </li>
-                        <?php $i++; endwhile; ?>
-                        </ul>
+                       	 	<?php if( function_exists('showFeaturedList') ){ echo showFeaturedPosts('1'); } ?>
+                       	</ul>
                     </div>
                 </div>
 				

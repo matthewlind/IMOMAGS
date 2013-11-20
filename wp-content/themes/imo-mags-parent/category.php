@@ -25,12 +25,14 @@ get_header(); ?>
                         <div class="sponsor"><?php //imo_dart_tag("240x60"); ?></div>
 					</div>
                                                 
-                    <?php if (z_taxonomy_image_url()) echo '<div class="category-img"><img src="'.z_taxonomy_image_url().'" alt="'.single_cat_title( '', false ).'" title="'.single_cat_title( '', false ).'" /></div>'; ?>                    
-                    <?php
-                    	$category_description = category_description();
-                            if ( ! empty( $category_description ) )
-                                echo apply_filters( 'category_archive_meta', '<div data-position="' . $dataPos = $dataPos + 1 . '" class="category-archive-meta taxdescription js-responsive-section">' . $category_description . '</div>' );
-                        ?>
+                    <?php 
+                    if(function_exists('z_taxonomy_image_url')){
+                    	if (z_taxonomy_image_url()) echo '<div class="category-img"><img src="'.z_taxonomy_image_url().'" alt="'.single_cat_title( '', false ).'" title="'.single_cat_title( '', false ).'" /></div>'; 
+                    } 
+                	$category_description = category_description();
+                        if ( ! empty( $category_description ) )
+                            echo apply_filters( 'category_archive_meta', '<div data-position="' . $dataPos = $dataPos + 1 . '" class="category-archive-meta taxdescription js-responsive-section">' . $category_description . '</div>' );
+                    ?>
                         
                     <!--<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="filter-by jq-filter-by js-responsive-section">               
                         <strong>filter by:</strong>

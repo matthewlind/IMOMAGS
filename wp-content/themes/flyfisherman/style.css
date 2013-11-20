@@ -11,6 +11,8 @@ General comments (optional).
 */
 
 @import url("../imo-mags-parent/style.css");
+body{background: #e0e0e0;}
+.header{background-color: white;}
 
 /* Tags reset
 *******************************************************************************/

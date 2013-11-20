@@ -206,6 +206,7 @@ function showFeaturedPosts($atts) {
     $query = "SELECT
         posts.ID as id,
         posts.post_title as title,
+        posts.guid as url,
         posts.post_type as type,
         attachmentmeta.meta_value as attachment_meta,
         posts.guid as url
@@ -223,11 +224,36 @@ function showFeaturedPosts($atts) {
 
     $posts = $wpdb->get_results( $query );
 
+	function getThumbnail($dataArray) {
+
+	    $filepath = $dataArray['file'];
+	
+	    $filepathParts = explode("/",$filepath);
+		
+	    $filename = $dataArray['sizes']['list-thumb']['file'];
+	
+	    $fullPath = "/files/" . $filepathParts[0] . "/" . $filepathParts[1] . "/" . $filename;
+	
+	    if (empty($filename)) {
+	        $fullPath = "/files/" . $filepath;
+	    }
+
+	    return $fullPath;
+	}
+	
 
     foreach($posts as $post) {
-
+    
+		$thumb = getThumbnail(unserialize($post->attachment_meta));
     	$title = $post->title;
-    	$outputString .= "<li>$title</li>";
+    	$url = $post->url;
+    	$outputString .= "<li class='home-featured'>
+                                <div class='feat-post'>
+                                    <div class='feat-img'><a href='$url'><img src='$thumb' alt='$title' /></a></div>
+                                    <div class='feat-text'><h3><a href='$url' onclick='_gaq.push(['_trackEvent','Special Features','$title','$url']);'>$title</a></h3>
+                                </div>
+                            </li>
+                            <div class='feat-sep'><div></div></div>";
     }
 
 
