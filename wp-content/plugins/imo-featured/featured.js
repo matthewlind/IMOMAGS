@@ -5,9 +5,11 @@ jQuery( document ).ready(function( $ ) {
     if ( $("div.set-list-container").length > 0 ){
 
 
-		var $setContainer = $("<div class='set-container'><h2>Set ID: <span class='set-id'></span></h2><div class='posts-container'></div></div>");
+		var $setContainer = $("<div class='set-container'><p class='id-block'>ID: <span class='set-id'></span></p><h2 class='set-title'></h2><div class='posts-container'></div></div>");
 
-		var $postItemTemplate = $("<div class='post-item-template'><img src=''><p class='post-title'>HEY WHAT UP</p></div>");
+		//var $postItemTemplate = $("<div class='post-item-template'><img src=''><p class='post-title'>HEY WHAT UP</p></div>");
+
+		var $postItemTemplate = $("<div class='media post-item-template'><a class='pull-left' href='#'><img class='media-object' src=''></a><div class='media-body post-title'></div></div>");
 
 		var allSetsURL = "/wpdb/get-all-sets.php";
 
@@ -20,15 +22,19 @@ jQuery( document ).ready(function( $ ) {
 
 			$setsObject = $(setsObject);
 
-			$.each(setsObject,function(index,set){
+			$.each(setsObject,function(index,setData){
 
 				console.log(index,set);
+
+				var set = setData.posts;
+				var name = setData.name;
 
 				var $newSetContainer = $setContainer.clone();
 
 
 
 				$newSetContainer.find(".set-id").text(index);
+				$newSetContainer.find(".set-title").html(name);
 
 
 
@@ -48,7 +54,7 @@ jQuery( document ).ready(function( $ ) {
 					var $newPostItem = $postItemTemplate.clone();
 
 					$newPostItem.find("img").attr("src",post.thumb);
-					$newPostItem.find("p").html(post.title);
+					$newPostItem.find(".post-title").html(post.title);
 
 
 
@@ -77,11 +83,13 @@ jQuery( document ).ready(function( $ ) {
 	}
 
 
-    //If we are on the add/new set page
+    //If we are on the add/edit set page
     if ($("div.post-search").length > 0) {
 
 
-		var listItemTemplate = '<li post_id="" style="" class="list-item" role="menuitem"><span class="ui-icon ui-icon-arrowthick-2-n-s" style=""></span><a target="_new" class="ui-corner-all" tabindex="-1"><img src="/files/2012/11/Carry-gear-150x150.jpg"><span class="post-title">Gear Essentials: What You Need for Everyday Carry</span></a><a post_id="" class="btn btn-delete btn-danger" href="">X</a></li>';
+		//var listItemTemplate = '<li post_id="" style="" class="list-item" role="menuitem"><span class="ui-icon ui-icon-arrowthick-2-n-s" style=""></span><a target="_new" class="ui-corner-all" tabindex="-1"><img src="/files/2012/11/Carry-gear-150x150.jpg"><span class="post-title">Gear Essentials: What You Need for Everyday Carry</span></a><a post_id="" class="btn btn-delete btn-danger" href="">X</a></li>';
+
+		var listItemTemplate = "<div class='media post-item-template list-item'><span class='ui-icon ui-icon-arrowthick-2-n-s' style=''></span><a class='pull-left' href='#'><img class='media-object' src=''></a><div class='media-body post-title'></div><a post_id='' class='btn btn-delete btn-danger' href=''>X</a></div>";
 
 		jQuery.ui.autocomplete.prototype._resizeMenu = function () {
 		  var ul = this.menu.element;
@@ -94,7 +102,12 @@ jQuery( document ).ready(function( $ ) {
 
 			var setURL = "/wpdb/get-post-set.php?setID=" + setID;
 
-			$.getJSON(setURL,function(posts){
+			$.getJSON(setURL,function(setData){
+
+				var posts = setData.posts;
+
+				$("#name").val(setData.name);
+				$(".edit-set-header").append(setData.name);
 
 				$.each(posts,function(index,post){
 

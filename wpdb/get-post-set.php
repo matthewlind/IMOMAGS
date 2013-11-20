@@ -50,7 +50,15 @@ try {
 
     $stmt->execute(array("featured_set_{$searchParameter}"));
 
-    $postIDs = $stmt->fetchColumn(0);
+    $serializedData = $stmt->fetchColumn(0);
+
+
+
+    $setData = unserialize($serializedData);
+
+
+    $postIDs = $setData["post_id_string"];
+    $setName = $setData["name"];
 
     $query = "SELECT
         posts.ID as id,
@@ -87,7 +95,10 @@ try {
         $posts[$key]->attachment_meta = unserialize($posts[$key]->attachment_meta);
     }
 
-    echo json_encode($posts);
+    $setData['posts'] = $posts;
+    //unset($setData["post_id_string"]);
+
+    echo json_encode($setData);
 
 } catch(PDOException $e) {
     echo $e->getMessage();

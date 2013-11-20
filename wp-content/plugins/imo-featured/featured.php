@@ -60,7 +60,7 @@ function showFeaturedList() {
 
 
 if ($_GET['action'] == "update") {
-	updateSet($_GET['setID'],$_GET['post_ids']);
+	updateSet($_GET['setID'],$_GET['post_ids'],$_GET['name']);
 }
 
 ?>
@@ -86,24 +86,32 @@ function showFeaturedDetail($setID) {
 	if ($setID == "new")
 		echo "<h1>Create New Set</h1>";
 	else
-		echo "<h1>Edit Set $setID</h1>";
+		echo "<h1 class='edit-set-header'>Edit Set $setID: </h1>";
 
 	?>
-	<div class="ui-widget post-search">
-	  <label for="featured-search">Search for Posts to Add: </label>
-	  <input id="featured-search" style="width: 650px;" />
-	</div>
-
-	<p class="list-header">Reorder and Remove Posts:</p>
-
-	<ul id="sortable" class="sortable-list">
-	</ul>
 
 	<form class="hidden-form">
+
+		<label for="name" >Name your Set:</label>
+		<input id="name" name="name" placeholder="Name">
+
+		<form class="hidden-form">
+		<div class="post-search">
+		  <label for="featured-search">Search for Posts to Add: </label>
+		  <input id="featured-search" style="width: 650px;" />
+		</div>
+
+		<p class="list-header">Reorder and Remove Posts:</p>
+
+		<ul id="sortable" class="sortable-list">
+		</ul>
+
+
 		<input type="hidden" id="setID" name="setID" value="<?php echo $setID; ?>">
 		<input type="hidden" id="post_ids" name="post_ids">
 		<input type="hidden" id="page" name="page" value="imo-featured-manager">
 		<input type="hidden" id="action" name="action" value="update">
+
 
 		<input type="submit" value="Save Changes" class="btn btn-primary save-changes">
 
@@ -113,7 +121,7 @@ function showFeaturedDetail($setID) {
 	<?php
 }
 
-function updateSet($setID,$postIDs) {
+function updateSet($setID,$postIDs,$name) {
 
 	if ($setID == "new") {
 
@@ -158,10 +166,13 @@ function updateSet($setID,$postIDs) {
 	}//End if NEW
 
 
+	$setData['post_id_string'] = $postIDs;
+	$setData['name'] = $name;
 
-	update_option("featured_set_$setID",$postIDs);
 
-	//Now that we have the ID, let's insert it!
+	update_option("featured_set_$setID",$setData);
+
+
 
 
 }
@@ -246,6 +257,22 @@ function showFeaturedPosts($atts) {
 
 
 	return $outputString;
+
+}
+
+
+
+
+
+
+add_filter('wp_nav_menu_items','add_search', 10, 2);
+
+function add_search($items, $args)
+{
+		print_r($args);
+
+
+        return $items . '';
 
 }
 

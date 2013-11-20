@@ -58,7 +58,13 @@ try {
 
     foreach ($sets as $index => $set) {
 
-        $postIDs = $set->option_value;
+        $setData = unserialize($set->option_value);
+
+
+        $postIDs = $setData["post_id_string"];
+        $setName = $setData["name"];
+
+
 
         $query = "SELECT
             posts.ID as id,
@@ -95,7 +101,10 @@ try {
             $posts[$key]->attachment_meta = unserialize($posts[$key]->attachment_meta);
         }
 
-        $setResults[substr($set->option_name,13)] = $posts;
+        $postset['posts'] = $posts;
+        $postset['name'] = $setName;
+
+        $setResults[substr($set->option_name,13)] = $postset;
 
     }
 
