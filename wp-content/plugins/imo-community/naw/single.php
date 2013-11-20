@@ -259,11 +259,6 @@ $time = date("g:i A", strtotime($timestamp));
 
     <div class="dif-full-post">
         <h1><?php echo $data->title; ?></h1>
-        <?php if ( $data->master ){ ?>
-        	<a href="/master-angler"><img src="<?php echo plugins_url("images/badge-ma.png" , __FILE__ ); ?>" alt="" class="profile-logo" /></a>
-        <?php }else{ ?>
-        	<a href="/photos"><img src="<?php echo plugins_url("images/fishhead.png" , __FILE__ ); ?>" alt="" class="profile-logo" /></a>
-        <?php } ?>
         <div class="profile-panel">
             <div class="profile-photo">
                 <a href="/profile/<?php echo $data->username; ?>"><img src="/avatar?uid=<?php echo $data->user_id; ?>" alt="<?php echo $data->username; ?>" /></a>
@@ -297,7 +292,7 @@ $time = date("g:i A", strtotime($timestamp));
         		$width = "/convert?w=478";
         	}
             $media = "";
-            $media = "<div class='full-post-img'><img src='$data->img_url$width'></div>";
+            $media = "<div class='full-post-img'><img src='$data->img_url'></div>";
 
             echo $media;
         ?>
@@ -412,7 +407,7 @@ $time = date("g:i A", strtotime($timestamp));
     </div>-->
     <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="js-responsive-section">
     	<div class="custom-slider-section">
-    		<?php echo do_shortcode('[imo-slideshow community=true]'); ?>
+    		<?php //echo do_shortcode('[imo-slideshow community=true]'); ?>
     	</div>
     </div>
 

@@ -11,17 +11,9 @@ define("DRUPAL_SITE", TRUE);
 
 define("FACEBOOK_LINK", "https://www.facebook.com/NAWhitetail");
 define("TWITTER_LINK", "https://www.twitter.com/@NAWhitetail");
-define("RSS_LINK", "http://www.bowhunter.com/feed/");
-define("SITE_LINK", "bowhunter.com");
-define("SITE_NAME", "Bowhunter");
-
-// Thumbs
-add_image_size('medium-thumb', 420, 330, true);
-add_image_size('huge-thumb', 672, 407, true);
-add_image_size('gear-thumb', 250, 250, true);
-add_image_size('video-widget-thumb', 318, 228, true);
-add_image_size('gallery-thumb', 'auto', 169, true);
-add_image_size('gallery-grid', 158, 158, true);
+define("RSS_LINK", "http://www.northamericanwhitetail.com/feed/");
+define("SITE_LINK", "northamericanwhitetail.com");
+define("SITE_NAME", "North American Whitetail");
 
 function imo_sidebar($type){
 	//Speed up mobile load time by not loading sidebar in the background
@@ -292,7 +284,7 @@ function naw_community_init() {
 	//Main Community Page Configuration
 	///////////////////////////////////////////
 	$IMO_COMMUNITY_CONFIG = NULL;
-	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "photos";//This slug will override ANY setting in wordpress.
+	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "community";//This slug will override ANY setting in wordpress.
 	$IMO_COMMUNITY_CONFIG['page_type'] = 'listing';
 	$IMO_COMMUNITY_CONFIG['page_title'] = 'NAW Community';
 	$IMO_COMMUNITY_CONFIG['template'] = '/naw/listing.php';

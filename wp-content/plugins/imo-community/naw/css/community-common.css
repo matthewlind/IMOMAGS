@@ -35,7 +35,7 @@
     font-family:"open_sansregular";
     color:#3c3c3c;
 }
-.breadcrumbs a:hover {color:#c6262d;}
+.breadcrumbs a:hover {color:#040503;}
 .breadcrumbs:after {
     top:auto;
     bottom:0;
@@ -43,7 +43,7 @@
 }
 h2{
 	font:24px "stagbold", sans-serif;
-    color:#c6262d;
+    color:#040503;
     padding:0 0 10px;
 }
 .title-underline {
@@ -65,7 +65,7 @@ h2{
     display:inline-block;
     vertical-align:top;
     font:45px "stagbold", sans-serif;
-    color:#c6262d;
+    color:#040503;
 }
 .title-underline h1 span {
     color:#000;
@@ -157,7 +157,7 @@ h2{
     text-align:center;
     font:13px1.2 "open_sanssemibold", sans-serif;
 }
-.browse-drop a:hover {color:#c6262d;}
+.browse-drop a:hover {color:#040503;}
 .filter-fade-out,
 .btn-close-popup,
 .btn-cancel {display:none;}
@@ -239,7 +239,7 @@ h2{
 	position: relative;
 	padding: 0;
 	border: 1px solid #dbdbd9;
-	color: #c6262d;
+	color: #040503;
 	font: 16px/1.1 "open_sansbold", sans-serif;
 	background: url(../images/body.jpg) repeat;
 }
@@ -297,11 +297,10 @@ select.alter-sel {width:100%;}
 }
 .dif-post-text {
     position:relative;
-    padding:15px 12px 12px 15px;
-    border-left:3px solid #040503;
-    border-bottom:1px solid #d3d2cf;
+    padding:15px 0 0;
     background:#fff;
     z-index:10;
+    border: none;
 }
 .dif-post h3 {
     font:22px "stagregular", sans-serif;
@@ -310,7 +309,7 @@ select.alter-sel {width:100%;}
 }
 .dif-post h3 a {color:#040503;}
 .profile-panel h4 a:hover,
-.dif-post h3 a:hover {color:#c6262d;}
+.dif-post h3 a:hover {color:#040503;}
 .profile-photo {
     float:left;
     width:52px;
@@ -619,7 +618,7 @@ select.alter-sel {width:100%;}
 }
 .filter-title {
     font:27px/1.2 "stagbold", sans-serif;
-    color:#c6262d;
+    color:#040503;
     text-transform:uppercase;
     text-shadow:0 -1px 0 #fff;
     position:relative;
@@ -686,7 +685,7 @@ select.alter-sel {width:100%;}
     margin:20px 0 0;
 }
 .post-it:hover {
-    color:#c6262d;
+    color:#040503;
     text-decoration:none;
 }
 .replies-box {
@@ -699,7 +698,7 @@ select.alter-sel {width:100%;}
 .replies-box h2 {
     padding:20px 0 5px 22px;
     font:25px "stagbold", sans-serif;
-    color:#c6262d;
+    color:#040503;
     background:#fff;
     text-transform:uppercase;
 }
@@ -724,7 +723,7 @@ select.alter-sel {width:100%;}
     margin:0;
 }
 .replies-list h3 a {color:#040503;}
-.replies-list h3 a:hover {color:#c6262d;}
+.replies-list h3 a:hover {color:#040503;}
 .flag-badge {
     position:absolute;
     top:27px;
@@ -786,7 +785,7 @@ select.alter-sel {width:100%;}
     text-transform:uppercase;
     padding:10px 0 0;
 }
-.title-bar h3 span {color:#c6262d;}
+.title-bar h3 span {color:#040503;}
 .attach-photo,
 .add-youtube {
     float:right;
@@ -869,7 +868,7 @@ select.alter-sel {width:100%;}
     margin:0 auto;
     background:url(../images/btn-grey.png) no-repeat 50% 0;
 }
-.btn-grey:hover {color:#c6262d;}
+.btn-grey:hover {color:#040503;}
 /* sidebar */
 .btn-red .ui-btn-inner {
     display:none;
@@ -988,7 +987,7 @@ select.alter-sel {width:100%;}
 .custom-tite-logo {
     float:left;
     max-width:130px;
-    margin:0 25px 0 0;
+    margin:2px 5px 0 0;
 }
 .title-crumbs {
     overflow:hidden;
@@ -997,7 +996,7 @@ select.alter-sel {width:100%;}
 }
 .custom-title h1 {
     font:45px/1.1 "stagbold", sans-serif;
-    color:#c6262d;
+    color:#040503;
     text-transform:uppercase;
     margin:0 0 5px;
     -moz-pre-wrap;
@@ -1023,7 +1022,7 @@ select.alter-sel {width:100%;}
     float:left;
     margin:0;
     font:45px "stagbold", sans-serif;
-    color:#c6262d;
+    color:#040503;
     text-transform:uppercase;
 }
 .profile-logo {
@@ -1070,7 +1069,7 @@ select.alter-sel {width:100%;}
 }
 .user-from .location {
     text-transform:none;
-    color:#c6262d;
+    color:#040503;
 }
 .points-col {
     display:table-cell;
@@ -1083,7 +1082,7 @@ select.alter-sel {width:100%;}
     border-left:1px solid #dddcdb;
 }
 .points-col .points-nb {
-    color:#c6262d;
+    color:#040503;
     font:47px/1 "stagregular", sans-serif;
 }
 .profile-btn-panel {
@@ -1105,7 +1104,7 @@ select.alter-sel {width:100%;}
 }
 .profile-btn-panel h3 {
     font:17px "open_sansregular", sans-serif;
-    color:#c6262d;
+    color:#040503;
     margin:0 0 8px;
 }
 .profile-btns li {
@@ -1133,8 +1132,8 @@ select.alter-sel {width:100%;}
     text-align:center;
 }
 .profile-btns a:hover {
-    color:#c6262d;
-    background:#c6262d;
+    color:#040503;
+    background:#040503;
 }
 .tabs {margin:0 0 20px;}
 .tabs li {
@@ -1166,10 +1165,10 @@ select.alter-sel {width:100%;}
 .tabs .active a,
 .tabs a:hover{
     color:#fff;
-    background:#c6262d;
+    background:#040503;
 }
 .tabs a span {
-    color:#c6262d;
+    color:#040503;
     font-family:"open_sansbold";
 }
 .tabs .active a span,
@@ -1254,7 +1253,7 @@ select.alter-sel {width:100%;}
 }
 .form .required {
     font:16px/1 "open_sansbold", sans-serif;
-    color:#c6262d;
+    color:#040503;
     display:inline-block;
     vertical-align:top;
     margin:0 0 0 2px;

@@ -193,7 +193,7 @@ if(mobile()){
                         <?php } ?>
 					</div>
                 </div>
-                <a href="/photos"><img src="<?php echo plugins_url('images/fishhead.png' , __FILE__ ); ?>" alt="" class="profile-logo" /></a>
+                <img src="<?php echo plugins_url('images/naw-plus.png' , __FILE__ ); ?>" alt="NAW Community" class="custom-tite-logo">
                 <div class="points-col">
                 	<?php
                 	if($data->score == 1){
@@ -245,7 +245,7 @@ if(mobile()){
 
 		                        <div class="dif-post">
 		                            <div class="feat-img">
-		                                <a href="/photos/<?php echo $post->id; ?>"><img class="feat-img" src="<?php echo $post->img_url . $crop; ?>" alt="<?php echo $post->title; ?>" title="<?php echo $post->title; ?>" /></a>
+		                                <a href="/photos/<?php echo $post->id; ?>"><img class="feat-img" src="<?php echo $post->img_url; ?>" alt="<?php echo $post->title; ?>" title="<?php echo $post->title; ?>" /></a>
 		                            </div>
 		                            <div class="dif-post-text">
 		                                <h3><a href="/photos/<?php echo $post->id; ?>"><?php echo $post->title; ?></a></h3>

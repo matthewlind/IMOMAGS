@@ -86,8 +86,6 @@ if(post.score == 1){
                     <ul class="prof-tags">
                         <!--<li><a href="#"><%= post.state %></a></li>-->
                         <li><a href="/<%= post.post_type %>" style="text-transform:capitalize;"><%= post.post_type %></a></li>
-                        <% if(post.master){ %><li><a href="/master-angler">Master Angler</a></li><% } %>
-
                     </ul>
                     <ul class="replies">
                         <li><a href="/photos/<%= post.id %>#reply_field"><%= post.comment_count %> Reply</a></li>
@@ -115,22 +113,20 @@ if(post.score == 1){
 <div class="page-community">
     <div class="general general-com">
     	<div class="custom-title clearfix">
-            <img src="<?php echo plugins_url('images/fishhead2.png' , __FILE__ ); ?>" alt="FishHeads" class="custom-tite-logo">
+            <img src="<?php echo plugins_url('images/naw-plus.png' , __FILE__ ); ?>" alt="NAW Community" class="custom-tite-logo">
             <div class="title-crumbs">
-                <h1>Fishhead Photos</h1>
-                <p>In-Fisherman, the world's foremost authority on freshwater fishing for over three decades, invites you to share your latest and greatest fishing photos, stories, tips, reports and more. Start uploading from your desktop or phone today!</p>
+                <h1>NAW Community</h1>
+                <div class="sponsor"><?php imo_dart_tag("240x60"); ?></div>
 			</div>
         </div>
 		<div class="custom-slider-section">
             <?php //echo do_shortcode('[imo-slideshow community=true]'); ?>
         </div>
-
-
         <div class="photo-link-area">
             <div id="fileupload">
                 <div class="fileupload-buttonbar ">
                     <label class="upload-button share-photo">
-                        <span class="add-photo-link">Share Your Catch</span>
+                        <span class="add-photo-link">Share Your Photo</span>
                         <input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
                     </label>
                 </div>
