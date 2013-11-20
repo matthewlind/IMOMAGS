@@ -736,6 +736,7 @@ div.login-register-block {
 		display: block;
 		width: 135px;
 	}
+	.header{height: 48px;}
 	.header .socials{
 		right: 104px;
 		padding-right: 0;
