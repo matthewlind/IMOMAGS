@@ -1,6 +1,16 @@
 jQuery( document ).ready(function( $ ) {
 
 
+
+
+	if ($.QueryString["action"] == "update" && $.QueryString["setID"] == "new") {
+
+		document.location = "/wp-admin/options-general.php?page=imo-featured-manager";
+	}
+
+
+
+
     //If we are on the set listing page:
     if ( $("div.set-list-container").length > 0 ){
 
@@ -16,15 +26,15 @@ jQuery( document ).ready(function( $ ) {
 		$.getJSON(allSetsURL,function(sets){
 
 
-			console.log(sets);
+			//console.log(sets);
 			var setsObject = $.extend({}, sets);
-			console.log(setsObject);
+			//console.log(setsObject);
 
 			$setsObject = $(setsObject);
 
 			$.each(setsObject,function(index,setData){
 
-				console.log(index,set);
+				//console.log(index,set);
 
 				var set = setData.posts;
 				var name = setData.name;
@@ -221,3 +231,17 @@ jQuery( document ).ready(function( $ ) {
 
 
 });
+
+(function($) {
+    $.QueryString = (function(a) {
+        if (a == "") return {};
+        var b = {};
+        for (var i = 0; i < a.length; ++i)
+        {
+            var p=a[i].split('=');
+            if (p.length != 2) continue;
+            b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+        }
+        return b;
+    })(window.location.search.substr(1).split('&'))
+})(jQuery);
