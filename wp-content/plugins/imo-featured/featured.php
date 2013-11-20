@@ -172,6 +172,7 @@ function updateSet($setID,$postIDs,$name) {
 
 	update_option("featured_set_$setID",$setData);
 
+	//header('Location: http://www.google.com');
 
 
 
@@ -239,15 +240,5 @@ function showFeaturedPosts($atts) {
 
 
 
-add_filter('wp_nav_menu_items','add_search', 10, 2);
-
-function add_search($items, $args)
-{
-		print_r($args);
-
-
-        return $items . '';
-
-}
 
 
