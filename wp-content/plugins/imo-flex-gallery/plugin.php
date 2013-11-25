@@ -35,7 +35,7 @@ function imo_flex_gallery( $atts ) {
 
 function imoCommunityGallery($gallery, $community, $tag, $dartDomain) {
 	$baseUrl = get_bloginfo('url');
-	
+
 	//Retrieve and sort JSON data
 	if($_GET['gallery_sort']) {
 		if($gallery) {
@@ -84,7 +84,7 @@ function imoGallery($gallery, $community, $tag, $dartDomain) {
 	$baseUrl = get_bloginfo('url');
 	global $wpdb;
 	$prefix = $wpdb->prefix;
-	
+
   if (!$tag) {
   	$pictures = $wpdb->get_results($wpdb->prepare(
       "SELECT * , CONCAT('/' , path, '/' , filename) as img_url, CONCAT('/' , path, '/thumbs/thumbs_' , filename) as thumbnail, meta_data, pictures.description as photo_desc
@@ -164,6 +164,9 @@ function galleryOutput($gallery, $pictures, $totalSlides, $dartDomain, $communit
 					';
 					$totalSlidesShow;
 				}
+
+				wp_reset_postdata();
+
 			} else {
 				if($nextGalID > $nextGalLimit) {
 					$nextGalID = $nextGalStart;
@@ -221,8 +224,8 @@ EOT_a1;
 				$image = '<img src="'.$picture->img_url.'" alt="'.$picture->title.'" class="slide-image">';
 			}
 $desktop_tablet_output .= <<<EOT_a2
-		        <li $idAttribute class="flex-slide flex-slide-$count">				
-		           $image				
+		        <li $idAttribute class="flex-slide flex-slide-$count">
+		           $image
 		        </li>
 EOT_a2;
 		$count++;
@@ -255,7 +258,7 @@ EOT_a5_1;
 		//Just for viewing with the admin bar in the way
 		if(is_admin_bar_showing()) { $desktop_tablet_output .= '<style>.flex-gallery-slide-out{margin-top:-28px;}</style>'; }
 $desktop_tablet_output .= <<<EOT_a5_2
-		
+
 		<div class="flex-gallery-slide-out $communityClass" >
 			<span class="x-close">&times;</span>
 			<div class="clear"></div>
@@ -284,7 +287,7 @@ EOT_a5_2;
 				if($picture->comment_count == 1) {
 					$replies = '<span class="flex-gallery-replies">1 Reply</span>';
 				} else {
-					$replies = '<span class="flex-gallery-replies">'.$picture->comment_count.' Replies</span>';	
+					$replies = '<span class="flex-gallery-replies">'.$picture->comment_count.' Replies</span>';
 				}
 			}
 			if($community == true){
@@ -310,7 +313,7 @@ EOT_a6;
 		}
 	}
 $desktop_tablet_output .= <<<EOF_a
-	
+
 				</div>
 				<div class="slide-out-ad">
 					<iframe id="gallery-iframe-ad" height=280 width=330 src="/iframe-ad.php?ad_code=$dartDomain&ajax_gallery-$gallery"></iframe>
@@ -334,12 +337,12 @@ $entryContentOpen
 EOF_a;
 
 /* Begin Mobile */
-		
+
 if($community == true) {
 	$pictureLimit = 20;
 	$mobile_output = <<<EOT
 <div class="flex-gallery-insertion-point"></div>
-<div class="imo-flex-mobile imo-flex-loading-block">    
+<div class="imo-flex-mobile imo-flex-loading-block">
 <div class="explore-more-mobile-container">
      <div class="explore-more-mobile">
         <div class="general-title clearfix">
@@ -356,7 +359,7 @@ if($community == true) {
         </div>
         <div class="explore-posts">
             <div class="jq-explore-slider">
-                <ul class="slides">       
+                <ul class="slides">
 EOT;
 	$count = 1;
 	foreach ($pictures as $picture) {
@@ -379,8 +382,8 @@ EOT2;
 $mobile_output .= <<<EOFmobile_community
                 </ul>
             </div>
-        </div>      
-    </div>   
+        </div>
+    </div>
 		<script type="text/javascript">
 			imoFlexSetupMobile($community, $pictureLimit);
 		</script>
@@ -443,7 +446,7 @@ $mobile_output .= <<<EOT3
 		            animationLoop: false,
 		            slideshow: false,
 		            start: function (slider) {
-						positionNavArrows();		
+						positionNavArrows();
 EOT3;
 		                if (count($pictures) > 1) {
 			                $mobile_output .= " updateSliderCounter(slider); ";
@@ -462,7 +465,7 @@ $mobile_output .= <<<EOFmobile_standard
 		        });
 
 
-					jQuery(window).bind('resize', function () { 
+					jQuery(window).bind('resize', function () {
 						positionNavArrows();
 					});
 		    })
@@ -506,9 +509,9 @@ function conditionally_add_scripts_and_styles($posts){
                 wp_enqueue_style('flex-gallery-css',plugins_url('flex-gallery.css', __FILE__));
             	wp_enqueue_script('flexslider-js',plugins_url('jquery.flexslider.js', __FILE__));
                 wp_enqueue_style('flexslider-css',plugins_url('flexslider.css', __FILE__));
-                
+
             }
-           
+
 
 			if(mobile() == false){
 			//Enqueue Desktop/Tablet Only
@@ -536,7 +539,7 @@ function conditionally_add_scripts_and_styles($posts){
                 	//un-used exception strpos($_SERVER['REQUEST_URI'],'photos')
                 	$exception = true;
                 }
-                
+
                 if ($exception) {
                     wp_enqueue_script('flexslider-js',plugins_url('jquery.flexslider.js', __FILE__));
                     wp_enqueue_style('flexslider-css',plugins_url('flexslider.css', __FILE__));
@@ -549,8 +552,8 @@ function conditionally_add_scripts_and_styles($posts){
                     wp_enqueue_style('flex-gallery-css',plugins_url('flex-gallery.css', __FILE__));
                     wp_enqueue_style('perfect-scrollbar-css',plugins_url('perfect-scrollbar-0.4.3.min.css', __FILE__));
                 }
-    
-    
+
+
         }
 
 
