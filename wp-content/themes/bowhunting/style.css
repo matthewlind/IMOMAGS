@@ -140,6 +140,7 @@ subscribe-links a{color: white;}
 .open-search{background-position-x: -352px;}
 
 @media only screen and (max-width: 1096px) {
+	.logo img{width: 130px !important;}
 	.header, .h-search-open{background: black;}
 	.header .socials{right: 44px;}
 	.snap-drawer {
@@ -181,10 +182,4 @@ subscribe-links a{color: white;}
 		line-height: 1.2 !important;
 		color: #c9242c !important;
 	 }
-	 .logo {
-		width: auto;
-		height: 42px;
-		margin:5px 0 0 0;
-	}
-	.logo img{width: 140px;}
 }

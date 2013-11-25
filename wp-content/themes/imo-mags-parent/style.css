@@ -1538,12 +1538,14 @@ a.category-name-link:hover{
     padding:0 0 14px;
     margin:0 0 18px;
     border-bottom:4px solid #040503;
+    clear: both;
 }
 .post-header h1, .page-title.author a{
     font:50px/1.2 "open_sansbold", Helvetica, Arial, serif;
     color:#040503;
     margin:0 0 10px;
     padding-right: 40px;
+    clear: both;
 }
 .meta-date-author {
     display:block;
@@ -2909,15 +2911,12 @@ h2.related-stories{
     }
 
     .main {padding:0 20px 20px;}
-    /* general */
     .home-featured{
         padding:20px 0 0 20px;
         width:50%;
         display:block;
     }
     .home .home-featured:first-child {padding: 20px 20px 0 0;}
-    .special-features .arrow-right{top:10px;}
-       /* general */
     .general {
         padding:0 20px 0 0;
         border:0;
@@ -3233,7 +3232,7 @@ h2.related-stories{
     }
     .posts-list{padding-top: 0;}
     .article-brief, .home-featured, .home-featured-right, .posts-list{border: none !important;}
-	.single .home-featured, .home-featured:first-child{padding: 4px;}
+	.single .home-featured, .home-featured:first-child{padding-top: 14px;}
     .post-slider .flex-direction-nav .flex-next,
     .post-slider .flex-direction-nav .flex-prev {
         display:none;
@@ -3578,7 +3577,8 @@ h2.related-stories{
 		position: relative;
 		height: 32px;
 	}
-	.special-features .home-featured, .special-features .home-featured.features{width: 100%;float: none;padding: 0;}
+	.home .feat-sep {position: relative;height: 1px;display: block;}
+	.special-features .home-featured, .special-features .home-featured.features{width: 100%;float: none;padding: 0;min-height: 0;}
 	.special-features .home-featured.features .feat-text{padding: 6px 0;}
 	.special-features .feat-text{padding:12px 0 6px;text-align: center;}
 	.arrow-right {
@@ -3829,7 +3829,6 @@ h2.related-stories{
     .foot-social .socials a.youtube:hover {background-position:-278px -222px;}
     .foot-social .socials a.rss {background-position:-186px -222px;}
     .foot-social .socials a.rss:hover {background-position: -325px -222px;}
-	.feat-sep {position: relative;height: 1px;display: block;}
 	.featured-area{position: relative;}
 	.article-brief:after, .feat-sep div{
 		position:absolute;
