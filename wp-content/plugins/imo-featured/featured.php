@@ -8,6 +8,7 @@
  * Author URI: http://imomags.com
  */
 
+include("sidebar-widget.php");
 
 add_action( 'admin_menu', 'imo_featured_menu' );
 add_action( 'admin_enqueue_scripts', 'imo_featured_scripts' );
@@ -199,8 +200,6 @@ function showFeaturedPosts($atts) {
 
 	$setData = get_option("featured_set_{$set_id}");
 
-
-
 	$postIDString = $setData['post_id_string'];
 
 	$outputString = "";
@@ -228,27 +227,12 @@ function showFeaturedPosts($atts) {
 
     $posts = $wpdb->get_results( $query );
 
-	function getThumbnail($dataArray) {
 
-	    $filepath = $dataArray['file'];
-
-	    $filepathParts = explode("/",$filepath);
-
-	    $filename = $dataArray['sizes']['list-thumb']['file'];
-
-	    $fullPath = "/files/" . $filepathParts[0] . "/" . $filepathParts[1] . "/" . $filename;
-
-	    if (empty($filename)) {
-	        $fullPath = "/files/" . $filepath;
-	    }
-
-	    return $fullPath;
-	}
 
 
     foreach($posts as $post) {
 
-		$thumb = getThumbnail(unserialize($post->attachment_meta));
+		$thumb = getSetItemThumbnail(unserialize($post->attachment_meta));
     	$title = $post->title;
     	$url = $post->url;
     	$outputString .= "<li class='home-featured'>
@@ -267,8 +251,19 @@ function showFeaturedPosts($atts) {
 
 
 
+function getSetItemThumbnail($dataArray) {
 
+    $filepath = $dataArray['file'];
 
+    $filepathParts = explode("/",$filepath);
 
+    $filename = $dataArray['sizes']['list-thumb']['file'];
 
+    $fullPath = "/files/" . $filepathParts[0] . "/" . $filepathParts[1] . "/" . $filename;
 
+    if (empty($filename)) {
+        $fullPath = "/files/" . $filepath;
+    }
+
+    return $fullPath;
+}

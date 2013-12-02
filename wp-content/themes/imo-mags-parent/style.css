@@ -590,7 +590,7 @@ input.gsc-search-button-v2{
 	padding: 14px !important;
 	min-width: 0 !important;
 	margin-top: 0 !important;
-	vertical-align: top !important; 
+	vertical-align: top !important;
 }
 .search-field .ui-input-text {
     float:left;
@@ -729,7 +729,7 @@ input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus{
 .menu-main-menu-container > ul > li > a:hover,
 .menu-header-menu-container > ul > li > a:hover {
     color:#fff;
-    
+
 }
 .menu-main-menu-container > ul > li:hover > a:after,
 .menu-header-menu-container > ul > li:hover > a:after,
@@ -2344,6 +2344,34 @@ a.change-location:before {
 }
 .feat-sep{display: none;}
 
+
+.sidebar-widget-featured ul.sidebar-widget-featured {
+    margin-left:0px;
+}
+
+.sidebar-widget-featured li.home-featured {
+    list-style-type:none;
+}
+
+.sidebar-widget-featured li.home-featured div.feat-post {
+    min-height:60px;
+}
+
+.sidebar-widget-featured li.home-featured div.feat-post .feat-img {
+    float:left;
+    margin-right:10px;
+}
+
+.sidebar-widget-featured li.home-featured div.feat-post .feat-img img {
+    height: 50px;
+    width: 50px;
+}
+
+.sidebar-widget-featured li.home-featured p {
+    font-size: 14px;
+    font-face:bold;
+    color:black;
+}
 /* = WP default overrides
  ******************************************************************************/
 #wpadminbar {z-index: 9999999 !important;}
@@ -3213,7 +3241,7 @@ h2.related-stories{
 	.featured-area{padding-top: 20px;}
 	.home-featured{float: none;width: 100%;}
     .home .home-featured, .home .home-featured:first-child {padding: 0;}
-	
+
 	.home-featured-right {float: none;width: 100%;}
 	.home-featured-right .feat-img{
 		max-height: 100%;
@@ -3345,7 +3373,7 @@ h2.related-stories{
     .home-featured .feat-text{padding: 8px 0 12px;}
 	.posts-list .article-brief img{float:none;width: 100%;}
 	.posts-list .article-holder, .home .home-featured{padding:8px 0 12px;position: relative;}
-	
+
 	.posts-list{margin-top: 0;}
 	.posts-list .article-brief h3{float: left;max-width: 100%;}
 	.article-brief h3{float: left;}
@@ -3490,7 +3518,7 @@ h2.related-stories{
     }
 }
 @media only screen and (max-width: 700px) {
-	
+
 	.general-frame{
 		width: auto;
 	}
@@ -3972,7 +4000,7 @@ h2.related-stories{
    .mobile-menu-banner img {
         margin-top:-6px;
     }
-	
+
     .menu-subscribe a {
         font-size:15px;
         padding:10px 5px 10px 70px;
@@ -3983,7 +4011,7 @@ h2.related-stories{
 	.category-img{
 		display: none;
 	}
-	
+
 }
 @media only screen and (max-width: 510px) {
     .entry-content-holder {
