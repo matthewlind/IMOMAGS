@@ -7,6 +7,7 @@ Themes
 ------
 All the themes use [Carrington Business](http://crowdfavorite.com/wordpress/themes/carrington-business/) as a parent theme. Slight modifications have been made to the parent theme, most notably to remove the wordpress version from the header and automatic ajax loading of posts on click.
 
+
 Carrington Business Modifications
 ---------------------------------
 
