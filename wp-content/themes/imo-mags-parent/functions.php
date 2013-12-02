@@ -17,8 +17,8 @@ include_once('widgets/forecast.php');
 
 
 $magazine_img = get_option("magazine_cover_uri", get_stylesheet_directory_uri(). "/images/pic/journals.png" );
-$subs_link = get_option("subs_link"); 
-						    
+$subs_link = get_option("subs_link");
+
 function new_excerpt_more( $more ) {
 	return '... <a href="'. get_permalink( get_the_ID() ) .'" >more <span class="meta-nav">&raquo;</span></a>';
 }
@@ -148,6 +148,7 @@ function parent_theme_setup()
     add_image_size( 'post-thumb', 700, 450, true );
     add_image_size( 'post-home-thumb', 695, 380, true );
     add_image_size( 'post-home-small-thumb', 335, 225, true );
+    add_image_size("imo-mini-slider-thumb",70,70,TRUE);
 }
 
 function parent_theme_widgets_init()
@@ -555,10 +556,10 @@ add_action( 'personal_options_update', 'imo_community_user_profile' );
     <div class="post-slider loading-block js-responsive-section">
         <div class="jq-featured-slider onload-hidden">
             <ul class="slides-inner slides">
-                <?php while ($post->have_posts()) : $post->the_post(); 
+                <?php while ($post->have_posts()) : $post->the_post();
 
 	                $thumb = wp_get_attachment_url( get_post_thumbnail_id($post->ID)); ?>
-					
+
 	                <li data-thumb="<?php echo $thumb; ?>">
 	                    <a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('large-featured-thumb-x');?></a>
 	                    <div class="nl-txt">
@@ -581,11 +582,11 @@ add_action( 'personal_options_update', 'imo_community_user_profile' );
 		  width:98,
 		  height:76,
 		  vertical:"middle"
-		});  
+		});
 		//fix
 		jQuery('ol.flex-control-thumbs li:first-child img').addClass("flex-active");
-	});  
-	</script>	
+	});
+	</script>
 <?php }
 wp_enqueue_style('flexslider-css',get_template_directory_uri() . '/js/flexslider/flexslider.css', __FILE__);
 wp_enqueue_script('flex-slider-js',get_template_directory_uri() . '/js/flexslider/jquery.flexslider.js',array('jquery'));
@@ -626,29 +627,29 @@ function myLoop($atts, $content = null) {
 	ob_start();
 
 	if($type == "excerpt"){
-	
+
 		while ($wp_query->have_posts()) : $wp_query->the_post();  ?>
 			<div class="post type-post status-publish format-standard hentry category-breeds entry entry-excerpt clearfix has-img">
 				<div class="entry-summary">
-					<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( array(190,120),array('class' => 'entry.has-img entry-summary entry-img'));?></a>		
+					<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( array(190,120),array('class' => 'entry.has-img entry-summary entry-img'));?></a>
 					<div class="entry-info">
 						<h2 class="entry-title"><a rel="bookmark" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 						<?php the_date(); ?>
-						<a href="<?php the_permalink(); ?>/#comments" title="<?php the_title(); ?>"><?php comments_number(); ?></a>		
+						<a href="<?php the_permalink(); ?>/#comments" title="<?php the_title(); ?>"><?php comments_number(); ?></a>
 					</div>
-					<?php the_excerpt(); ?>			
+					<?php the_excerpt(); ?>
 				</div>
 			</div>
 
 		<?php endwhile;
-	} 
-	
-	if($type == "list"){ 
+	}
+
+	if($type == "list"){
 		while ($wp_query->have_posts()) : $wp_query->the_post();  ?>
 				<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
 		<?php endwhile;
-	} 
-	
+	}
+
 	if(pagination == 'true'){ ?>
 	<div class="navigation">
 	  <div class="alignleft"><?php previous_posts_link('« Previous') ?></div>

@@ -366,6 +366,35 @@ aside.widget .newsletter h3.gform_title {
     font-weight: bold;
 }
 
+.sidebar-widget-featured ul.sidebar-widget-featured {
+    margin-left:0px;
+}
+
+.sidebar-widget-featured li.home-featured {
+    list-style-type:none;
+}
+
+.sidebar-widget-featured li.home-featured div.feat-post {
+    min-height:60px;
+}
+
+.sidebar-widget-featured li.home-featured div.feat-post .feat-img {
+    float:left;
+    margin-right:10px;
+}
+
+.sidebar-widget-featured li.home-featured div.feat-post .feat-img img {
+    height: 50px;
+    width: 50px;
+}
+
+.sidebar-widget-featured li.home-featured p {
+    font-size: 14px;
+    font-face:bold;
+    color:black;
+}
+
+
 /** Store Widget ***/
 
 .widget .regprice {
