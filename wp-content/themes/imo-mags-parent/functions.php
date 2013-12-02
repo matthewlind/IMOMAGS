@@ -661,3 +661,164 @@ function myLoop($atts, $content = null) {
 	return $content;
 }
 add_shortcode("loop", "myLoop");*/
+
+
+function fixed_connect_footer(){ ?>
+<div class="fixed-connect">
+	<div class="close"><a href="javascript:void(0);" title="Collapse bottom bar"><img src="<?php echo get_template_directory_uri(); ?>/images/ico/close_icon_small.png" alt="Collapse bottom bar"></a>
+	</div>
+	<div class="container">
+		<div class="currentIssue">
+			<div class="journal">
+		        <img src="<?php echo get_option('magazine_cover_uri'); ?>" alt="Subscribe">
+		    </div>		    
+		</div>
+		<div class="subscribe">						
+			<a href="<?php print $subs_link;?>" target="_blank">Subscribe</a>
+		</div>
+		<div class="newsletter">
+			<div class="title">Get The Newsletter</div>
+		
+				<script type="text/javascript">
+				/***********************************************
+				* Textarea Maxlength script- © Dynamic Drive (www.dynamicdrive.com)
+				* This notice must stay intact for legal use.
+				* Visit http://www.dynamicdrive.com/ for full source code
+				***********************************************/
+				function ismaxlength(obj, mlength)
+				{
+				  if (obj.value.length > mlength)
+				    obj.value = obj.value.substring(0, mlength)
+				}
+				</script>
+
+				<form method="post" name="profileform" action="https://intermediaoutdoors.informz.net/clk/remote_post.asp">
+				      
+					<SCRIPT LANGUAGE="JavaScript">
+						function moveCaret(event, objThisField, objNextField, objPrevField, nSize)
+						{
+							var keynum;
+							if(window.event) // IE	
+								keynum = event.keyCode;	
+							else if(event.which) // Netscape/Firefox/Opera	
+								keynum = event.which;				
+							if (keynum == 37 || keynum == 39 || keynum == 38 || keynum == 40 || keynum == 8) //left, right, up, down arrows, backspace
+							{		
+								var nCaretPosition = getCaretPosition(objThisField);		
+								if (keynum == 39 && nCaretPosition == nSize)
+									moveToNextField(objNextField);		   
+								if ((keynum == 37 || keynum == 8) && nCaretPosition == 0)			
+									moveToPrevField(objPrevField);		   
+								return;
+							}
+							if (keynum == 9) //Tab
+							return;
+						if (objThisField.value.length >= nSize && objNextField != null)
+							moveToNextField(objNextField);
+					}  
+					function moveToNextField(objNextField)
+					{
+						if (objNextField == null)
+							return;
+						objNextField.focus();
+						if (document.selection) //IE
+						{
+							oSel = document.selection.createRange ();
+							oSel.moveStart ('character', 0);
+							oSel.moveEnd ('character', objNextField.value.length);
+							oSel.select();							
+						}
+						else
+						{
+						   objNextField.selectionStart = 0;
+					       objNextField.selectionEnd = objNextField.value.length;
+						}
+					}
+					function moveToPrevField(objPrevField)
+					{
+						if (objPrevField == null)
+							return;
+						objPrevField.focus();
+						if (document.selection) //IE
+						{		
+							oSel = document.selection.createRange ();
+							oSel.moveStart ('character', 0);
+							oSel.moveEnd ('character', objPrevField.value.length);
+							oSel.select ();					
+						}
+						else
+						{
+						   objPrevField.selectionStart = 0;
+					       objPrevField.selectionEnd = objNextField.value.length;
+						}
+					}
+					function getCaretPosition(objField)
+					{
+						var nCaretPosition = 0;
+						if (document.selection) //IE
+						{
+						   var oSel = document.selection.createRange ();
+						   oSel.moveStart ('character', -objField.value.length);
+						   nCaretPosition = oSel.text.length;
+						}	
+						if (objField.selectionStart || objField.selectionStart == '0')
+					       nCaretPosition = objField.selectionStart;
+						return nCaretPosition;
+					}
+					</script>
+					
+					<fieldset>
+						<input alt="Email Address" type="text" name="email" size="25" maxlength="100" value="" placeholder="Enter Your Email..." >
+				        <script type="text/javascript">
+							function ShowDescriptions(SubDomain,val, brid) {
+								myWindow = window.open(SubDomain + '/description.asp?brid=' + brid + '&id=' + val, 'Description', 'location=no,height=180,width=440,resizeable=no,scrollbars=yes,dependent=yes');
+								myWindow.focus()
+							}
+						</script>
+				
+				        <input alt="Third Party" type="checkbox" checked="checked" value="22697" name="interests" id="receive" />
+				        <input type="hidden" name="OptoutInfo" value="">
+				        <div class="opt-in">Yes, I'd like to receive offers from your partners</div>
+						<input type="submit" value="Sign Up" name="update" >
+				        <input type=hidden name=fid value=2493>
+						<input type=hidden name=b value=4038>
+						<input type=hidden name=returnUrl value="http://<?php echo $_SERVER['SERVER_NAME']; ?>/?zmsg=1">  
+				    
+					</fieldset>
+				</form>
+				<script language='javascript'>
+				fullURL = document.URL
+				sAlertStr = ''
+				nLoc = fullURL.indexOf('&')
+				if (nLoc == -1)
+					nLoc = fullURL.length
+				if (fullURL.indexOf('zreq=') > 0){
+					sRequired = fullURL.substring(fullURL.indexOf('zreq=')+5, nLoc)
+					if (sRequired.length > 0){
+						sRequired = ',' + sRequired.replace('%20',' ')
+						sRequired = sRequired.replace(/,/g,'\n  - ')
+						sAlertStr = 'The following item(s) are required: '+sRequired + '\n'
+					}
+				}
+				if (fullURL.indexOf('zmsg=') > 0) {
+					sMessage = fullURL.substring(fullURL.indexOf('zmsg=')+5, fullURL.length)
+					if (sMessage.length > 0) {
+						sMessage = sMessage.replace(/%20/g, ' ')
+						sMessage = sMessage.replace(/%0A/g, '\n')
+						sAlertStr = sAlertStr + sMessage
+					}
+				}
+				
+				if (sAlertStr.length > 0)
+					alert(sAlertStr)
+				</script>
+
+			</div>
+			<div class="follow">
+              <div class="follow-us">Follow us:</div>
+              <?php social_networks(); ?>
+			</div>
+		</div>
+	</div>              
+
+<?php }
