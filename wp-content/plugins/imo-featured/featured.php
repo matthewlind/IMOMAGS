@@ -240,8 +240,8 @@ function showFeaturedPosts($atts) {
                                     <div class='feat-img'><a href='$url'><img src='$thumb' alt='$title' /></a></div>
                                     <div class='feat-text'><h3><a href='$url' onclick='_gaq.push(['_trackEvent','Special Features','$title','$url']);'>$title</a></h3>
                                 </div>
-                            </li>
-                            <div class='feat-sep'><div></div></div>";
+                                <div class='feat-sep'><div></div></div>
+                            </li>";
     }
 
 
