@@ -141,7 +141,7 @@ class imo_featured_sidebar_widget extends WP_Widget {
 
             $filepathParts = explode("/",$filepath);
 
-            $filename = $dataArray['sizes']['thumb']['file'];
+            $filename = $dataArray['sizes']['legacy-thumb']['file'];
 
             $fullPath = "/files/" . $filepathParts[0] . "/" . $filepathParts[1] . "/" . $filename;
 

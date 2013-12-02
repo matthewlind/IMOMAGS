@@ -217,7 +217,9 @@ jQuery( document ).ready(function( $ ) {
 			$(deleteButton).on("click",function(ev){
 				ev.preventDefault();
 
-				$(this).closest("li").remove();
+
+
+				$(this).closest("div.list-item").remove();
 				updateForm();
 
 			});
