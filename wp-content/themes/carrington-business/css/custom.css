@@ -371,37 +371,37 @@ ul.sidebar-widget-featured {
     padding-left:0px;
 }
 
-.sidebar-widget-featured li.home-featured {
+.sidebar-widget-featured li.sidebar-featured {
     list-style-type:none;
     float:left;
     width:120px;
 }
 
-.sidebar-widget-featured a:nth-child(odd) li.home-featured {
+.sidebar-widget-featured a:nth-child(odd) li.sidebar-featured {
     margin-right:30px;
     margin-left:15px;
 }
 
-.sidebar-widget-featured a:nth-child(deven) li.home-featured {
+.sidebar-widget-featured a:nth-child(deven) li.sidebar-featured {
     margin-right:15px;
 
 }
 
-.sidebar-widget-featured li.home-featured div.feat-post {
+.sidebar-widget-featured li.sidebar-featured div.feat-post {
     min-height:60px;
 }
 
-.sidebar-widget-featured li.home-featured div.feat-post .feat-img {
+.sidebar-widget-featured li.sidebar-featured div.feat-post .feat-img {
 
 
 }
 
-.sidebar-widget-featured li.home-featured div.feat-post .feat-img img {
+.sidebar-widget-featured li.sidebar-featured div.feat-post .feat-img img {
     height: 80px;
-    width: 120 px;
+    width: 120px;
 }
 
-.sidebar-widget-featured li.home-featured p {
+.sidebar-widget-featured li.sidebar-featured p {
     font-size: 14px;
     font-weight:bold;
 
