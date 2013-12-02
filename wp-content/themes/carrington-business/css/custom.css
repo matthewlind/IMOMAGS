@@ -366,13 +366,13 @@ aside.widget .newsletter h3.gform_title {
     font-weight: bold;
 }
 
-ul.sidebar-widget-featured {
+.sidebar-widget-featured ul.sidebar-widget-featured {
     margin-left:0px;
-    padding-left:0px;
 }
 
 .sidebar-widget-featured li.sidebar-featured {
     list-style-type:none;
+<<<<<<< HEAD
     float:left;
     width:120px;
 }
@@ -385,12 +385,15 @@ ul.sidebar-widget-featured {
 .sidebar-widget-featured a:nth-child(deven) li.sidebar-featured {
     margin-right:15px;
 
+=======
+>>>>>>> 4ceb6f85c4d54acd4a9b118c59c2fd2dab9a4bfe
 }
 
 .sidebar-widget-featured li.sidebar-featured div.feat-post {
     min-height:60px;
 }
 
+<<<<<<< HEAD
 .sidebar-widget-featured li.sidebar-featured div.feat-post .feat-img {
 
 
@@ -399,12 +402,21 @@ ul.sidebar-widget-featured {
 .sidebar-widget-featured li.sidebar-featured div.feat-post .feat-img img {
     height: 80px;
     width: 120px;
+=======
+.sidebar-widget-featured li.home-featured div.feat-post .feat-img {
+    float:left;
+    margin-right:10px;
+}
+
+.sidebar-widget-featured li.home-featured div.feat-post .feat-img img {
+    height: 50px;
+    width: 50px;
+>>>>>>> 4ceb6f85c4d54acd4a9b118c59c2fd2dab9a4bfe
 }
 
 .sidebar-widget-featured li.sidebar-featured p {
     font-size: 14px;
-    font-weight:bold;
-
+    font-face:bold;
     color:black;
 }
 
