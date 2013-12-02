@@ -366,25 +366,12 @@ aside.widget .newsletter h3.gform_title {
     font-weight: bold;
 }
 
-ul.sidebar-widget-featured {
+.sidebar-widget-featured ul.sidebar-widget-featured {
     margin-left:0px;
-    padding-left:0px;
 }
 
 .sidebar-widget-featured li.home-featured {
     list-style-type:none;
-    float:left;
-    width:120px;
-}
-
-.sidebar-widget-featured a:nth-child(odd) li.home-featured {
-    margin-right:30px;
-    margin-left:15px;
-}
-
-.sidebar-widget-featured a:nth-child(deven) li.home-featured {
-    margin-right:15px;
-
 }
 
 .sidebar-widget-featured li.home-featured div.feat-post {
@@ -392,19 +379,18 @@ ul.sidebar-widget-featured {
 }
 
 .sidebar-widget-featured li.home-featured div.feat-post .feat-img {
-
-
+    float:left;
+    margin-right:10px;
 }
 
 .sidebar-widget-featured li.home-featured div.feat-post .feat-img img {
-    height: 80px;
-    width: 120 px;
+    height: 50px;
+    width: 50px;
 }
 
 .sidebar-widget-featured li.home-featured p {
     font-size: 14px;
-    font-weight:bold;
-
+    font-face:bold;
     color:black;
 }
 
