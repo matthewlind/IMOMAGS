@@ -2358,7 +2358,7 @@ ul.sidebar-widget-featured-thumbs {
 .sidebar-widget-featured-thumbs li.sidebar-featured {
     list-style-type:none;
     float:left;
-    width:140px;
+    width:310px;
 }
 
 .sidebar-widget-featured-thumbs a:nth-child(odd) li.sidebar-featured {
@@ -2384,7 +2384,9 @@ ul.sidebar-widget-featured-thumbs {
 
 .sidebar-widget-featured-thumbs li.sidebar-featured div.feat-post .feat-img {
 
-
+float:left;
+margin-right:10px;
+margin-bottom:15px;
 }
 
 .sidebar-widget-featured-thumbs li.sidebar-featured div.feat-post .feat-img img {
