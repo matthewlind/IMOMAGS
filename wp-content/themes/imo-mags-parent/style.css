@@ -2378,7 +2378,8 @@ ul.sidebar-widget-featured-thumbs {
 
 .sidebar-widget-featured-thumbs li.sidebar-featured div.feat-post .feat-text {
     border:none;
-    padding:10px 0 0 0;
+    padding:10px 0 10px 0;
+    min-height:90px;
 }
 
 .sidebar-widget-featured-thumbs li.sidebar-featured div.feat-post .feat-img {
@@ -2398,9 +2399,11 @@ ul.sidebar-widget-featured-thumbs {
     color:black;
 }
 
-/*.sidebar-widget-featured li.sidebar-featured div.feat-post .feat-text {
-    border:none;
-}*/
+.sidebar-widget-featured li.sidebar-featured div.feat-post .feat-text {
+    /*border:none;*/
+    min-height:80px;
+    padding-bottom:20px;
+}
 
 
 /* = WP default overrides
