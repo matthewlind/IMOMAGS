@@ -2347,33 +2347,62 @@ a.change-location:before {
 .feat-sep{display: none;}
 
 
-.sidebar-widget-featured ul.sidebar-widget-featured {
+
+ul.sidebar-widget-featured-thumbs {
     margin-left:0px;
+    padding-left:0px;
+    display:inline-block;
+    margin-top:5px;
 }
 
-.sidebar-widget-featured li.home-featured {
+.sidebar-widget-featured-thumbs li.sidebar-featured {
     list-style-type:none;
-}
-
-.sidebar-widget-featured li.home-featured div.feat-post {
-    min-height:60px;
-}
-
-.sidebar-widget-featured li.home-featured div.feat-post .feat-img {
     float:left;
-    margin-right:10px;
+    width:140px;
 }
 
-.sidebar-widget-featured li.home-featured div.feat-post .feat-img img {
-    height: 50px;
-    width: 50px;
+.sidebar-widget-featured-thumbs a:nth-child(odd) li.sidebar-featured {
+    margin-right:30px;
+    /*margin-left:15px;*/
+
 }
 
-.sidebar-widget-featured li.home-featured p {
+.sidebar-widget-featured-thumbs a:nth-child(even) li.sidebar-featured {
+
+    /*margin-right:15px;*/
+}
+
+.sidebar-widget-featured-thumbs li.sidebar-featured div.feat-post {
+    min-height:40px;
+}
+
+.sidebar-widget-featured-thumbs li.sidebar-featured div.feat-post .feat-text {
+    border:none;
+    padding:10px 0 0 0;
+}
+
+.sidebar-widget-featured-thumbs li.sidebar-featured div.feat-post .feat-img {
+
+
+}
+
+.sidebar-widget-featured-thumbs li.sidebar-featured div.feat-post .feat-img img {
+    height: 90px;
+    width: 140px;
+}
+
+.sidebar-widget-featured-thumbs li.sidebar-featured p {
     font-size: 14px;
-    font-face:bold;
+    font-weight:bold;
+
     color:black;
 }
+
+/*.sidebar-widget-featured li.sidebar-featured div.feat-post .feat-text {
+    border:none;
+}*/
+
+
 /* = WP default overrides
  ******************************************************************************/
 #wpadminbar {z-index: 9999999 !important;}

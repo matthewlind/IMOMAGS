@@ -9,6 +9,7 @@
  */
 
 include("sidebar-widget.php");
+include("thumbs-sidebar-widget.php");
 
 add_action( 'admin_menu', 'imo_featured_menu' );
 add_action( 'admin_enqueue_scripts', 'imo_featured_scripts' );
