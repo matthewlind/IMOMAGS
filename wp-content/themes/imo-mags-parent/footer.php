@@ -3,7 +3,13 @@
 _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.0', null, sprintf( __('Please include a %1$s template in your theme.'), basename(__FILE__) ) );
 ?>
 			</div><!-- #main -->
-		<span class="foot-logo">&nbsp;</span>
+		<?php if (mobile() == false) { ?>
+			<div class="content-banner-section footer-728">
+	        	<div class="mdl-banner">
+					 <?php imo_dart_tag("728x90"); ?>
+				</div>
+			</div>
+		<?php } ?>
 		</div><!-- .layout-frame -->
 		
 		

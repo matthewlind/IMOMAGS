@@ -790,7 +790,7 @@ input.gsc-search-button-v2{
 	margin: 0 auto;
 }
 .main {
-    padding:0 30px 30px;
+    padding:0 30px 0;
     border:1px solid #dddcdb;
     border-width:1px 0 0;
     position:relative;
@@ -807,6 +807,7 @@ input.gsc-search-button-v2{
 .single .general{padding-top: 30px;}
 .general-frame {
     width:648px;
+    padding-bottom: 20px;
 }
 .gallery-slider .flex-direction-nav a{
 	top: 480px;
@@ -2782,6 +2783,10 @@ h2.related-stories{
 
 /* = Footer
  ******************************************************************************/
+.content-banner-section.footer-728{
+	 border: solid #dddcdb;
+	 border-width: 1px 0;
+}
 .footer {
     padding:0 0 90px;
     color:#999;
