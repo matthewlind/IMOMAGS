@@ -47,7 +47,11 @@ div.flex-viewport {
 .flex-gallery .slides > li {
     display: none;
 }
-
+.caption-btn{
+	margin: 30px auto 0;
+display: block;
+width: 50%;
+}
 .flex-gallery {
 	/*visibility:hidden; added inline becuase of css load delay*/
 	padding: 0 15px 11px 15px;

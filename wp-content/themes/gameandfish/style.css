@@ -145,7 +145,7 @@ goes above title
 	border-top: 3px solid #cda220;
 	border-bottom: 1px solid #dddcdb;
 }
-.menu-top-menu-container.trending{padding-left: 30px;color: #cda220;}
+.menu-top-menu-container.menu-subscribe{padding-left: 30px;color: #cda220;}
 .menu-top-menu-container{
 	padding: 10px 0;
 	margin: 0;
@@ -196,7 +196,8 @@ goes above title
 
 /* main top navigation */
 .menu-top-menu-container li{border-left:1px dashed #ccc;}
-.menu-top-menu-container.trending li{border: none;}
+.menu-top-menu-container.subscribe-left {padding-left: 30px;}
+.menu-top-menu-container.subscribe-left li{border: none;}
 .menu-top-menu-container a {color:#3c3c3c;}
 .menu-top-menu-container a:hover {color:#cda220;}
 .menu-main-menu-container {
@@ -638,7 +639,41 @@ input.login-btn {
 div.login-register-block {
     margin-top:20px;
 }
-
+/*** google search ***/
+.gssb_c{z-index: 999999999 !important;width: 130px !important;top: 155px !important;}
+.gsc-results-wrapper-visible{
+	position: absolute !important;
+	left: 0 !important;
+	background: white !important;
+	padding: 0 50px !important;
+	top: 162px !important;
+	box-shadow: 0 3px 6px #666;
+}
+.cse .gsc-control-cse, .gsc-control-cse{padding: 0 !important;}
+.gsc-control-cse{border: none !important;}
+form.gsc-search-box{margin: 0 !important;}
+.gsc-input-box {border: none !important;height: 30px !important;}
+table.gsc-search-box{margin-bottom: 0 !important;}
+.gsib_a, .gsst_b{padding: 0 !important;}
+input.gsc-input{
+	width: 100% !important;
+	padding: 0 0 0 10px !important;
+	border: none !important;
+	height: 30px !important;
+	float: none !important;
+	margin: 0 !important;
+	background-color: transparent !important;
+	border-color: transparent !important;
+}
+input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus{
+	border-color: transparent !important;
+	-moz-box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+}
+.gscb_a {font: 30px/26px arial,sans-serif !important;}
+.gsst_a .gscb_a{color: #cda220 !important;}
+.gsst_a .gscb_a:hover{color: black !important;}
 /* US MAP WIDGET */
 .state-info{
 	float: left;
@@ -857,8 +892,9 @@ element:hover, element.hover_effect {
 	padding: 4px 6px 5px;
 	width: 190px;
 	height: 40px;
+	margin-top: 0;
 }
-.search-field{border: none;}
+.search-field{border: none;height: 32px;}
 .search-field input{width: 194px;}
 .rankings{width:190px;float: right;font-size: 14px;}
 .rankings h3{font-size: 24px;}

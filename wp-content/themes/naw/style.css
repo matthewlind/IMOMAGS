@@ -12,7 +12,6 @@ General comments (optional).
 
 @import url("../imo-mags-parent/style.css");
 .header{background: url(images/bg/naw-header-bg.jpg) no-repeat center top;color: white;}
-.layout-frame{border: none;}
 .logo{margin-top: 0;}
 
 /* Tags reset
@@ -68,7 +67,8 @@ subscribe-links a{color: white;}
 
 /*flexslider*/
 /* Direction Nav */
-.flex-direction-nav a {background:url(images/prev-next.png) no-repeat !important;}
+.flex-direction-nav a {background: url(images/prev-next.png) no-repeat !important;}
+#join .flex-direction-nav a{top:50px;}
 .flex-direction-nav .flex-next {background-position:-33px 0 !important;}
 .flex-direction-nav .flex-prev {background-position:0 0 !important;}
 .flex-direction-nav .flex-next:hover {background-position:-33px -52px !important;}
@@ -139,8 +139,25 @@ subscribe-links a{color: white;}
 .submenu-category-title {color:white;}
 .open-menu{border: none;}
 .open-search{background-position-x: -352px;}
-
-
+.singl-post-photo {
+	background: none repeat scroll 0 0 #347FE7 !important;
+	border: 1px solid #2861B2;
+	border-radius: 4px 4px 4px 4px;
+	box-shadow: 0 1px 0 transparent, 1px 1px 0 #679FED inset;
+}
+.singl-post-photo span {
+    background: none !important;
+	color: #FFFFFF;
+	cursor: pointer;
+	font-size: 1em;
+	height: 40px;
+	margin-top: 17px;
+	padding: 10px 0;
+	text-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 1px 2px 0 rgba(0, 0, 0, 0.4);
+	text-transform: uppercase;
+	width: 178px;
+}
+.horz-logo{background: url(http://www.northamericanwhitetail.fox/wp-content/plugins/imo-community/naw/images/naw-plus.png);}
 /* Score This Buck Widget */
 
 #buck_contest_promo{

@@ -429,7 +429,10 @@ function register_imo_subscribe_settings () {
     register_setting( 'imo-subs-settings-group', 'affiliates_desc_uri' );
     register_setting( 'imo-subs-settings-group', 'ma_desc_uri' );
     register_setting( 'imo-subs-settings-group', 'subs_form_link' );
+    register_setting( 'imo-subs-settings-group', 'header_key' );
+    register_setting( 'imo-subs-settings-group', 'menu_key' );
     register_setting( 'imo-subs-settings-group', 'i4ky' );
+    register_setting( 'imo-subs-settings-group', 'sticky_key' );
 }
 /**
  *HTML generation call back for the Subscriptions settings page.
@@ -482,8 +485,21 @@ function imo_addons_subscription_page() {
         <th scope="row">iMagID</th>
         <td><input type="text" name="iMagID" value="<?php echo get_option('iMagID'); ?>" /></br><p>(Leave this alone if you don't konw what this does.)</p></td>
         </tr> <tr valign="top">
-        <th scope="row">Special Keys</th>
+        <tr>
+        <th scope="row">Header Subscribe Key</th>
+        <td><input type="text" name="header_key" value="<?php echo get_option('header_key'); ?>" /></td>
+        </tr>
+        <tr>
+        <th scope="row">Menu Subscribe Key</th>
+        <td><input type="text" name="menu_key" value="<?php echo get_option('menu_key'); ?>" /></td>
+        </tr>
+        <tr>
+         <th scope="row">Widget Key</th>
         <td><input type="text" name="i4ky" value="<?php echo get_option('i4ky'); ?>" /></td>
+        </tr>
+        <tr>
+        <th scope="row">Sticky Bar Subscribe Key</th>
+        <td><input type="text" name="sticky_key" value="<?php echo get_option('sticky_key'); ?>" /></td>
         </tr>
   </table>
 

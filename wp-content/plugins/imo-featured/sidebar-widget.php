@@ -51,7 +51,7 @@ class imo_featured_sidebar_widget extends WP_Widget {
         $thumb = getWidgetThumbnail(unserialize($post->attachment_meta));
           $title = $post->title;
           $url = $post->url;
-          $outputString .= "<a href='$url' onclick='_gaq.push(['_trackEvent','Special Features','$title','$url']);'><li class='sidebar-featured' style=''>
+          $outputString .= "<a href='$url' onclick='_gaq.push(['_trackEvent','Special Features Widget','$title','$url']);'><li class='sidebar-featured' style=''>
                                     <div class='feat-post' style=''>
                                         <div class='feat-img' style=''><img  src='$thumb' alt='$title' /></div>
                                         <div class='feat-text'><p>$title</p>

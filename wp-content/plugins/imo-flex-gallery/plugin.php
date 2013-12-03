@@ -118,7 +118,7 @@ function imoGallery($gallery, $community, $tag, $dartDomain) {
 }
 
 function galleryOutput($gallery, $pictures, $totalSlides, $dartDomain, $community, $baseUrl, $jsonUrl) {
-	$totalSlidesShow = $totalSlides;
+	$totalSlidesShow = $totalSlides + 1;
 	if (function_exists('imo_add_this')) {
 		ob_start();
 		imo_add_this();
@@ -231,8 +231,8 @@ EOT_a2;
 		$count++;
 		}
 	}
-	//$nextGal before next closing </ul>
 $desktop_tablet_output .= <<<EOT_a3
+				$nextGal
 			</ul>
 		</div>
 		<div class="flex-carousel" id="carousel-$gallery">
@@ -413,7 +413,7 @@ EOT;
 $mobile_output .= <<<EOT2
 		        <li>
 		            <img src="$picture->img_url" alt="$picture->alttext">
-		            <div class="feat-text">
+		            <div class="feat-text exp">
 		                <h3>$picture->alttext</h3>
 						$picture->description
 		            </div>
@@ -424,11 +424,28 @@ EOT2;
 $mobile_output .= <<<EOT3
 		    </ul>
 		</div>
+		<!--<div class="btn-base caption-btn expand-caption">- Expand Caption</div>-->
 		</div>
 
 
 		<script type="text/javascript">
 		    jQuery(function(){
+		    
+		    	jQuery(".caption-btn").click(function() {
+		    		if(jQuery(".caption-btn").hasClass("expand-caption")){
+		    			jQuery(".caption-btn").removeClass("expand-caption");
+			    		jQuery(".caption-btn").addClass("collapse-caption");
+			    		jQuery(".caption-btn").text("+ Collapse Caption");
+		    		}else{
+			    		jQuery(".caption-btn").removeClass("collapse-caption");
+			    		jQuery(".caption-btn").addClass("expand-caption");
+			    		jQuery(".caption-btn").text("- Expand Caption");
+			    		
+			    	}
+		    		
+					jQuery(".feat-text.exp").toggle();
+				});
+		    		
 				function positionNavArrows() {
 					//var arrowNavTop = jQuery('.gallery-slider .slide-count').outerHeight() + jQuery('.gallery-slider .gallery-iframe-ad').outerHeight() + jQuery('.gallery-slider .general-title').outerHeight() + ((jQuery('.gallery-slider ul.slides').height() - jQuery('.gallery-slider .feat-text').outerHeight())/2) - (jQuery('.gallery-slider .flex-direction-nav a').height()/2) + 20;
 					var arrowNavTop = 20 + jQuery('.gallery-slider .slide-count').outerHeight() + jQuery('.gallery-slider .gallery-iframe-ad').outerHeight() + jQuery('.gallery-slider .general-title').outerHeight() + (jQuery('.gallery-slider ul.slides .flex-active-slide img:first').height()/2);

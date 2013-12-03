@@ -123,7 +123,7 @@
 	        </div>
 	
 	        <div class="menu-subscribe">
-	            <a href="<?php print $subs_link;?>" target="_blank"><img src="<?php print $magazine_img;?>" alt="Subscribe" /><span>Subscribe Now!</span></a>
+	            <a href="<?php print $subs_link . get_option("header_key"); ?>" target="_blank"><img src="<?php print $magazine_img;?>" alt="Subscribe" /><span>Subscribe Now!</span></a>
 	        </div>
 	        <?php wp_nav_menu(array(
 	            'menu_class'=>'menu',
@@ -217,7 +217,7 @@
 		       </div>
 	        </div>
 	        <div class="menu-subscribe">
-	            <a href="<?php print $subs_link;?>" target="_blank"><img src="<?php print $magazine_img;?>" alt="" /><span>Subscribe Now!</span></a>
+	            <a href="<?php print $subs_link . get_option("header_key"); ?>;?>" target="_blank"><img src="<?php print $magazine_img;?>" alt="" /><span>Subscribe Now!</span></a>
 	        </div>
 	        <div class="mob-aside-menu" style="<?php echo $displayStyle; ?>">
 		        <div class="menu-community-menu-container">
@@ -243,7 +243,10 @@
 
 </div>
 
+<?php fixed_connect_footer(); ?>
+
 <div id="page" class="snap-content smooth-menu">
+
 <?php if (mobile() == false && tablet() == false) {  imo_dart_tag("1x1",false,array("pos"=>"skin")); } ?>
 	<div class="hfeed wrapper" data-role="content" role="main">
 	    <div class="layout-frame">
@@ -301,7 +304,7 @@
 
 						    <div class="subscribe-now">
 								<?php print $deal_copy;?>
-								<a href="<?php print $subs_link;?>" target="_blank" class="btn-base">Subscribe <span>Now!</span></a>
+								<a href="<?php print $subs_link . get_option("header_key"); ?>;?>" target="_blank" class="btn-base">Subscribe <span>Now!</span></a>
 						    </div>
 						    </div>
 						    <ul class="subscribe-links">
@@ -321,8 +324,15 @@
                         </div>
                     <?php endif; ?>
                 </div><!-- #branding -->
-
-                    <?php if(has_nav_menu( 'top' )){
+                	<?php 
+                	if(get_option("header_key")){ ?>
+	                	<div class="menu-top-menu-container subscribe-left">
+							<ul class="menu">
+								<li class="menu-item"><a href="<?php echo $subs_link . get_option("header_key"); ?>">Subscribe!</a></li>
+							</ul>
+						</div>
+                	<?php }
+					if(has_nav_menu( 'top' )){
                     	wp_nav_menu(array(
 	                        'menu_class'=>'menu',
 	                        'theme_location'=>'top',

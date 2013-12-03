@@ -10,7 +10,7 @@ get_header(); ?>
 	            </div>
 	        </div>
 		</li>
-		<?php if( function_exists('showFeaturedList')){ echo showFeaturedPosts('1'); } ?>
+		<?php if( function_exists('showFeaturedList')){ echo showFeaturedPosts(array('set_id' => 2)); } ?>
 	</ul>
 </div>
     <div class="inner-main">

@@ -96,6 +96,8 @@ General comments (optional).
     text-shadow:0 -1px 0 #7a0c11;
     color:#fff;
 }
+.h-search-form {margin-top: 0;}
+.search-field{border: none;height: 32px;}
 .signup-box h3{background:url(images/bg/menu-hover.png) repeat 100% 0;}
 .signup-box .intro-text { padding-bottom: 12px;text-align: left;}
 .submit-button, .btn-base, .btn-base input, .signup-box h3{letter-spacing: 0.1em;}
@@ -548,7 +550,7 @@ a.change-location:before {
     color:#94040b;
 }
 /* calendar carousel end */
-.widget-title {color:#c6262d;}
+.widget-title, .recipes h3  {color:#c6262d;font:22px "stagbold", serif;}
 .widget-title span {color:#040503;}
 .aside-video-tag {color:#7e7e7e;}
 .video-box-frame h4 {color:#040503;}

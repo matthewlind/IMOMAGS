@@ -70,15 +70,17 @@
 	    
 	    <?php imo_dart_tag("564x252"); ?>
 	    	   
-	    <?php if (isset_related_posts()): ?>
-		    <?php if(mobile() || tablet()){ ?>
-		    	<h2 class="related-stories">Related Stories</h2>
-		    <?php } ?>
-		    <div class="paging-posts paging-single-post">
-		        <div class="jq-single-paging-slider">
-		        <?php related_posts(); ?>
-		        </div>
-		    </div>
+	    <?php if ( function_exists('yarpp_plugin_activate') ): ?>
+		    <?php if ( isset_related_posts() ): ?>	
+			    <?php if(mobile() || tablet()){ ?>
+			    	<h2 class="related-stories">Related Stories</h2>
+			    <?php } ?>
+			    <div class="paging-posts paging-single-post">
+			        <div class="jq-single-paging-slider">
+			        <?php related_posts(); ?>
+			        </div>
+			    </div>
+		    <?php endif; ?>
 	    <?php endif; ?>
 		    <?php sub_footer(); ?> 
 			<div class="hr mobile-element"></div>

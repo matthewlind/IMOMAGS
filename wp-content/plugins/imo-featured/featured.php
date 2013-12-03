@@ -236,10 +236,15 @@ function showFeaturedPosts($atts) {
 		$thumb = getSetItemThumbnail(unserialize($post->attachment_meta));
     	$title = $post->title;
     	$url = $post->url;
+    	if(is_single()){
+	    	$tracking = "_gaq.push(['_trackEvent','Special Features Article Top','$title','$url']);";
+    	}else if(is_home()){
+	    	$tracking = "_gaq.push(['_trackEvent','Special Features Homepage','$title','$url']);";
+    	}
     	$outputString .= "<li class='home-featured'>
                                 <div class='feat-post'>
-                                    <div class='feat-img'><a href='$url'><img src='$thumb' alt='$title' /></a></div>
-                                    <div class='feat-text'><h3><a href='$url' onclick='_gaq.push(['_trackEvent','Special Features','$title','$url']);'>$title</a></h3>
+                                    <div class='feat-img'><a href='$url' onclick='$tracking'><img src='$thumb' alt='$title' /></a></div>
+                                    <div class='feat-text'><h3><a href='$url' onclick='$tracking'>$title</a></h3>
                                 </div>
                                 <div class='feat-sep'><div></div></div>
                             </li>";

@@ -15,6 +15,8 @@ define("RSS_LINK", "http://www.northamericanwhitetail.com/feed/");
 define("SITE_LINK", "northamericanwhitetail.com");
 define("SITE_NAME", "North American Whitetail");
 
+
+
 function imo_sidebar($type){
 	//Speed up mobile load time by not loading sidebar in the background
 	if(!mobile()){

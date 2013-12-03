@@ -191,7 +191,7 @@
 	        </div>
 	
 	        <div class="menu-subscribe">
-	            <a href="<?php print $subs_link;?>"><img src="<?php echo $magazine_img; ?>" alt="" /><span>Subscribe Now!</span></a>
+	            <a href="<?php print $subs_link . get_option("header_key"); ?>"><img src="<?php echo $magazine_img; ?>" alt="" /><span>Subscribe Now!</span></a>
 	        </div>
 	        <?php wp_nav_menu(array(
 	            'menu_class'=>'menu',
@@ -283,7 +283,7 @@
 		       </div>
 	        </div>
 	        <div class="menu-subscribe">
-	            <a href="<?php print $subs_link;?>"><img src="<?php echo $magazine_img; ?>" alt="" /><span>Subscribe Now!</span></a>
+	            <a href="<?php print $subs_link . get_option("header_key"); ?>"><img src="<?php echo $magazine_img; ?>" alt="" /><span>Subscribe Now!</span></a>
 	        </div>
 	        <div class="mob-aside-menu" style="<?php echo $displayStyle; ?>">
 		        <div class="menu-community-menu-container">
@@ -309,7 +309,7 @@
 
 </div>
 
-<?php //fixed_connect_footer(); ?>
+<?php fixed_connect_footer(); ?>
 
 <div id="page" class="snap-content smooth-menu">
 <?php if (mobile() == false && tablet() == false) {  imo_dart_tag("1x1",false,array("pos"=>"skin")); } ?>
@@ -472,7 +472,7 @@
 	
 							    <div class="subscribe-now">
 									<p><span class="stag-reg"><?php print $deal_copy;?></span></p>
-									<a href="<?php print $subs_link;?>" target="_blank"  class="subs-btn">Subscribe Now!<span></span></a>
+									<a href="<?php print $subs_link . get_option("header_key"); ?>" target="_blank"  class="subs-btn">Subscribe Now!<span></span></a>
 									<a class="subs-links" href="<?php print $gift_link;?>" target="_blank">Give a Gift <span>&raquo;</span></a>
 							        <a class="subs-links" href="<?php print $service_link; ?>" target="_blank">Subscriber Services <span>&raquo;</span></a>
 							    </div>
@@ -482,12 +482,14 @@
                     <?php endif; ?>
                 </div><!-- #branding -->
 				<div class="gf-bottom-menu">
-					<div class="menu-top-menu-container trending">
+					<?php if(get_option("header_key")){ ?>
+					<div class="menu-top-menu-container subscribe-left">
 						<ul class="menu">
-							<li class="menu-item">Trending:</li>
+							<li class="menu-item"><a href="<?php echo $subs_link . get_option("header_key"); ?>">Subscribe!</a></li>
 						</ul>
 					</div>
-                    <?php wp_nav_menu(array(
+					<?php }
+					wp_nav_menu(array(
                         'menu_class'=>'menu',
                         'theme_location'=>'top',
                     ));   ?>
@@ -524,12 +526,6 @@
 					<?php imo_dart_tag("320x50",true); ?>
 				</div>
 			<?php } ?>
-			<div class="newsletter-box header-newsletter">
-        		<?php if(!mobile() && !tablet()){
-        			the_widget("Signup_Widget_Header", "title=GET THE GAME AND FISH NEWSLETTER!"); 
-        		} ?>
-        	</div>
-
         </div>
        
        <div id="main" class="main clearfix js-responsive-layout">

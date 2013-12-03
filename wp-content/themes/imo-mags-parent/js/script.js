@@ -270,24 +270,26 @@ jQuery('.jq-open-search').toggle(function(){
         
     },function(){
         jQuery('.h-search-form').removeClass('h-search-open');
-    });
+});
 
 jQuery('.jq-filter-by').toggle(function(){
         jQuery('.filter-by').addClass('filter-open');
         
     },function(){
         jQuery('.filter-by').removeClass('filter-open');
-    });
+});
     
-
 jQuery('.snap-drawers').on("click", ".mob-aside-menu .has-drop", function(){
     jQuery(this).parent("li").toggleClass('drop-open');
 });
+
 jQuery('.snap-drawers').on("click", ".mob-aside-menu .has-drop", function(e){
     e.preventDefault();
 });
 
-
+jQuery('.fixed-connect .close').click(function(){
+	jQuery('.fixed-connect').slideUp();
+});
     
 //placeholder
 jQuery('input[placeholder], textarea[placeholder]').placeholder();
