@@ -12,14 +12,16 @@ General comments (optional).
 
 @import url("../imo-mags-parent/style.css");
 body{background:#2d2d2d;}
-.header{background:#2d2d2d;}
+.header{background:url(images/bg/ga-header-bg.jpg) no-repeat -250px 0;padding-top: 7px;}
 
 .header, .header .subscribe-links a{color: white;}
 .layout-frame{border: none;background: none;}
 .main, .content-banner-section{background: white;}
+.logo{margin-left: 30px;}
 
 /* Tags reset
 *******************************************************************************/
+.article-brief h3 a, .feat-text h3 a{font-family: "stagMedium", serif;}
 .drop-feat-post h5 a:hover,
 .links-list a:hover, 
 .subscribe-now .stag-bold,
@@ -27,24 +29,69 @@ body{background:#2d2d2d;}
 .ui-panel .menu-top-menu-container a:hover,
 .ui-panel .mob-aside-menu li.drop-open > a,
 .ui-panel .mob-aside-menu > div > ul > li > a:hover {color:white;}
-.logo img{margin-top: 6px;}
-.menu-top-menu-container a{color: white;}
-.menu-main-menu-container a.has-drop:after, .menu-header-menu-container a.has-drop:after {border-top: 7px solid #623d11;}
+.logo img{margin-top: 10px;}
+.menu-main-menu-container{
+	background: none;
+	float: left;
+	width: auto;
+	height: 44px;
+	clear: none;
+	margin: 26px 0 0 22px;
+}
+.menu-main-menu-container > ul > li > a, .has-drop li a {
+	display: block;
+	height: 44px;
+	color: #fff;
+	font: 24px/44px "stagMedium", serif;	
+	text-transform: none;
+	background: #282828;
+	background: none;
+}
+.menu-main-menu-container li.main-menu-item:hover{background: #ce181e;}
+.menu-main-menu-container > ul > li > a:hover{color: white;}
+.ga-submenu{background: url(images/bg/menu_site_bg.png) repeat-x left top;width: 100%;height: 46px;border-top: 3px solid #ce181e;border-bottom: 1px solid #dddcdb;}
+.menu-top-menu-container{float: left;margin: 0;font-size: 16px;}
+.menu-main-menu-container a{padding-left: 10px;}
+.menu-top-menu-container li {padding: 12px 10px;}
+.menu-top-menu-container li:first-child{padding-left: 30px;}
+.filter-links li:before, .menu-top-menu-container li:before, .subscribe-links li:before{border: none;position: relative;}
+.menu-top-menu-container a {color: black;font-weight: lighter;font-family: "stagMedium", serif;}
+.menu-main-menu-container a, .menu-main-menu-container a.has-drop{padding: 0 28px 0 10px;}
+.menu-main-menu-container a.has-drop:after{border-top: 7px solid white;}
 a.category-name-link.primary-cat,
 a.category-name-link:hover{background: #623d11;color: white;}
-.header .menu-main-menu-container > ul > li.current-menu-item > a,
-.header .menu-header-menu-container > ul > li.current-menu-item > a,
-.menu-main-menu-container > ul > li:hover > a,
-.menu-header-menu-container > ul > li:hover > a,
-.menu-main-menu-container > ul > li > a:hover,
-.menu-header-menu-container > ul > li > a:hover,
 .menu-top-menu-container a:hover,
-.subscribe-links a:hover{color: #afafaf;}
+.subscribe-links a:hover{color: #ce181e;}
 .ui-panel .mob-aside-menu > div > ul > li > a.has-drop:after {border-top: 7px solid #623d11;}
-subscribe-links a{color: white;}
+.menu-main-menu-container > ul > li:hover > a:after, .menu-header-menu-container > ul > li:hover > a:after, .menu-main-menu-container > ul > li > a:hover:after, .menu-header-menu-container > ul > li > a:hover:after{border-top-color: #ce181e;}
+#subscribe-area{margin:0 16px 0 0;max-height: 100px;}
+.subscribe-links{float: none;margin: 0 0 4px;}
+.subscribe-links li {display: block;padding: 0;}
+.h-mdl-widget {float: right;margin: 0;padding: 5px 6px 0;}
+.subscribe-links a{color: white;}
+.subscribe-now{
+	float: right;
+	width: 144px;
+	margin: 0 0 0px 0;
+	font: 14px "open_sansbold", Helvetica, Arial, sans-serif;
+	line-height: 1.2;
+}
+.subscribe-now .btn-base{margin-top: 2px;}
 .subscribe-now span{font: "open_sansbold";}
+.subscribe-box .journal{margin: 0 0 0 30px;}
 .get-newsletter{text-shadow: 0 -1px 0 #000;}
-
+li.menu-parent{line-height: 1.7;font-weight: bold;}
+li.menu-parent a{font-size: 18px;font-family: "stagMedium", serif;color:#ce181e;}
+.menu-main-menu-container li:hover .drop-down, .menu-header-menu-container li:hover .drop-down{
+	-moz-box-shadow: rgba(0, 0, 0, 0.35) 2px 2px 5px;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.35) 2px 2px 5px;
+	-o-box-shadow: rgba(0, 0, 0, 0.35) 2px 2px 5px;
+	box-shadow: rgba(0, 0, 0, 0.35) 2px 2px 5px;
+	background: white;
+	border: 2px solid #ce181e;
+	border-width: 3px 0 0;
+	top:40px;
+}
 /*socials for dark backgrounds*/
 .socials a.facebook:hover {background-position:-105px 0;}
 .socials a.facebook {background-position:-239px 0;}
@@ -85,17 +132,6 @@ subscribe-links a{color: white;}
 .paging-posts .flex-direction-nav .flex-next {background-position:-107px 0 !important;}
 .paging-posts .flex-direction-nav .flex-next:hover {background-position:-189px 0 !important;}
 
-/*banners*/
-.gd-reader-photos {
-	background: url(http://www.gundogmag.com/files/2012/11/Gun-Dog-Reader-Photos-Banner.jpg) no-repeat scroll 60px 0px black;
-	height: 200px;
-	margin-bottom: 20px;
-	position: absolute;
-	top: -12px;
-	width: 1080px;
-	left: -31px;
-}
-
 /* mobile menu dark */
 .snap-drawers .menu-top-menu-container{padding:0;}
 .snap-drawers .mob-aside-menu li, .snap-drawers .menu-top-menu-container li{
@@ -116,48 +152,37 @@ subscribe-links a{color: white;}
 	background-color: #313131;
 }
 .snap-drawers .mob-aside-menu > div > ul > li > a{color: white;}
-.snap-drawers .mob-aside-menu > div > ul > li > a.has-drop:after{border-top: 7px solid #cda220;top:18px;}
-.snap-drawers .mob-aside-menu > div > ul > li:hover > a.has-drop:after, .snap-drawers .mob-aside-menu > div > ul > li > a.has-drop:hover:after{border-top: 7px solid #cda220;}
+.snap-drawers .mob-aside-menu > div > ul > li > a.has-drop:after{border-top: 7px solid #ce181e;top:18px;}
+.snap-drawers .mob-aside-menu > div > ul > li:hover > a.has-drop:after, .snap-drawers .mob-aside-menu > div > ul > li > a.has-drop:hover:after{border-top: 7px solid #ce181e;}
 .sub-menu{width: auto;padding-top: 0;}
-.sub-menu li {
-	width: 168px;
-	border: none;
-    /*border:1px solid #d8d8d8;
-    border-width:1px 0 0;*/
-}
-.sub-menu li :hover{background: #373737;}
-.sub-menu a {color:white;padding: 10px;}
-.sub-menu a.region{
-	color: rgb(124, 124, 124);
-	line-height: 1.7;
-	text-shadow: 2px 1px 0px rgba(12, 12, 12, 0.58);
-	font-weight: bold;
-}
-.sub-menu a:hover {color:#cda220;}
-.submenu-category-title {color:white;}
-.open-menu{border: none;}
+.sub-menu li {border: none;}
+.sub-menu a {color:black;padding: 10px;}
+.sub-menu a:hover {color:#afafaf;}
+.open-menu{border-width: 0 1px 0 0;background-position: -353px -131px;}
+.open-menu:hover{background-position: -306px -131px;}
 .open-search{background-position-x: -352px;}
 
 @media only screen and (max-width: 1096px) {
-	.header, .h-search-open{background: black;}
+	.snap-drawers .menu-top-menu-container a, .snap-drawers .mob-aside-menu > div > ul > li > a{font-family: "stagMedium",serif;}
+	.snap-drawers .menu-top-menu-container a{text-transform: none;}
+	.snap-drawers .mob-aside-menu li.menu-parent a, .snap-drawers .menu-top-menu-container li.menu-parent a{color: #afafaf;font-size: 18px;}
+	.header{padding-top: 0;}
+	.h-search-open{background: #373737;top:43px;}
+	.logo{margin: 0;}
+	.logo img {margin-top: 5px;}
+	.ga-submenu{background: none;border: none;}
 	.header .socials{right: 44px;}
+	.menu-top-menu-container li:first-child{padding-left: 0;}
 	.snap-drawer {
 	background-color: #333333;
 	}
 	.snap-drawers .menu-top-menu-container a:hover, .snap-drawers .mob-aside-menu li.drop-open > a, .snap-drawers .mob-aside-menu > div > ul > li > a:hover{color: white;}
 	.snap-drawers .drop-down a{background: none;text-transform: capitalize;}
-	.sub-menu a.region{
-		color: rgb(124, 124, 124) !important;
-		line-height: 1.7 !important;
-		text-shadow: 2px 1px 0px rgba(12, 12, 12, 0.58) !important;
-		font-weight: bold !important;
-	}
-	.all-hunting, .all-fishing, .all-gear{display: block;}
-	.snap-drawers .mob-aside-menu > div > ul > li > a.has-drop::after{top:18px;}
+	.snap-drawers .mob-aside-menu > div > ul > li > a.has-drop::after{top:24px;border-top-color: white;}
 	.mobile-menu-banner{height: 50px;}
 	.menu-subscribe a{
 		font-family: "open_sansbold", Helvetica, Arial, sans-serif;
-		color: #cda220;
+		color: white;
 		height: 60px;
 		padding-top: 20px;
 		border-top: 1px solid rgba(255,255,255,.1);
@@ -173,7 +198,7 @@ subscribe-links a{color: white;}
 		top: 8px;
 		right: 187px;
 	}
-	.menu-subscribe a img{top: -2px;}
+	.menu-subscribe a img{top: -2px;color: white;}
 	.hot-link a{
 		padding: 0 0 0 30px !important;
 		margin: 18px;
@@ -183,7 +208,7 @@ subscribe-links a{color: white;}
 	 .logo {
 		width: auto;
 		height: 42px;
-		margin:5px 0 0 0;
+		margin:0;
 	}
-	.logo img{width: 140px;}
+	.logo img{width: 140px;margin-top:9px;}
 }

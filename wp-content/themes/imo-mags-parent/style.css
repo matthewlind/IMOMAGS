@@ -22,6 +22,7 @@ fieldset, form, legend, textarea, button, input, select {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
 }
 /* =HTML5 display definitions
 *******************************************************************************/
@@ -89,6 +90,16 @@ h1, h2, h3, h4, h5, h6  { font-weight: normal; margin: 0; }
 /* Custom Fonts
 ******************************************************************************/
 @font-face {
+  font-family: "stagMedium";
+  src: url("fonts/stag-medium-webfont-webfont.eot");
+  src: url("fonts/stag-medium-webfont-webfont.eot?iefix") format("eot"), url("fonts/stag-medium-webfont-webfont.woff") format("woff"), url("fonts/stag-medium-webfont-webfont.ttf") format("truetype"), url("fonts/stag-medium-webfont-webfont.svg") format("svg");
+}
+@font-face {
+  font-family: "stagMediumItalic";
+  src: url("fonts/stag-mediumitalic-webfont-webfont.eot");
+  src: url("fonts/stag-mediumitalic-webfont-webfont.eot?iefix") format("eot"), url("fonts/stag-mediumitalic-webfont-webfont.woff") format("woff"), url("fonts/stag-mediumitalic-webfont-webfont.ttf") format("truetype"), url("fonts/stag-mediumitalic-webfont.svg") format("svg");
+}
+@font-face {
     font-family: 'stagbold';
     src: url('fonts/stag-bold-webfont-webfont.eot');
     src: url('fonts/stag-bold-webfont-webfont.eot?#iefix') format('embedded-opentype'),
@@ -98,6 +109,11 @@ h1, h2, h3, h4, h5, h6  { font-weight: normal; margin: 0; }
     font-weight: normal;
     font-style: normal;
 
+}
+@font-face {
+  font-family: "stagBoldItalic";
+  src: url("fonts/stag-bolditalic-webfont-webfont.eot");
+  src: url("fonts/stag-bolditalic-webfont-webfont.eot?iefix") format("eot"), url("fonts/stag-bolditalic-webfont-webfont.woff") format("woff"), url("fonts/stag-bolditalic-webfont-webfont.ttf") format("truetype"), url("fonts/stag-bolditalic-webfont-webfont.svg") format("svg");
 }
 @font-face {
     font-family: 'stagregular';
@@ -581,7 +597,6 @@ img{max-width: 100%;height: auto;}
     border:0;
     background:url(images/sprite.png) no-repeat -41px 0;
 }
-.search-field input[type="submit"]:hover {background-position:-73px 0;}
 input.gsc-search-button-v2{
 	width: 30px !important;
 	height: 30px !important;
@@ -1660,10 +1675,6 @@ a.category-name-link:hover{
 .gallery-slider {
     position:relative;
 }
-.gallery-slider #gallery-iframe-ad{
-	position: relative;
-	left: -10px;
-}
 .gallery-hover-div{
 	width: 640px;
 	margin: 0 0 0 -33px;
@@ -1695,9 +1706,7 @@ a.category-name-link:hover{
     -moz-box-sizing: content-box;
     box-sizing: content-box;
 }
-.gallery-slider #gallery-iframe-ad{
-	margin-left: -11px;
-}
+
 /* addthis */
 .addthis-below{
 	padding: 12px 0 8px;
@@ -2925,6 +2934,7 @@ h2.related-stories{
 	   padding:10px;
 	   width:100%;
 	}
+	.search-field input{width: 95%;}
     .hidden-phone {
         display:block;
     }
@@ -2936,6 +2946,7 @@ h2.related-stories{
     #subscribe-area {
         width:auto;
     }
+    .subscribe-now span{display: none;}
     .header .subscribe-box .journal,
     .h-search-form,
     .header .subscribe-box .btn-base span,
@@ -3298,7 +3309,7 @@ h2.related-stories{
 		box-shadow: none;
 	}
 	.home-featured .feat-text, .posts-list .article-holder{min-height: 0;}
-	.gallery-slider #gallery-iframe-ad{margin-left: 50px;}
+	
 	.double-posts .cat-feat-label {
 	    font:10px/1.2 "open_sansbold", Helvetica, Arial, sans-serif;
 	}
@@ -3565,6 +3576,7 @@ h2.related-stories{
     }
 }
 @media only screen and (max-width: 700px) {
+	.search-field input{width: 90%;}
 	.general-frame{
 		width: auto;
 	}
@@ -3644,6 +3656,12 @@ h2.related-stories{
 }
 
 @media only screen and (max-width: 610px) {
+	.gallery-slider #gallery-iframe-ad{
+		top: -6px;
+		margin: 0 auto;
+		display: block;
+		position: relative;
+	}
 	.single .post .addthis_toolbox, .entry-content-holder{padding-top: 10px;}
 	.single .post .addthis_toolbox{position: absolute;left: -20px;}
 	.single .post div.addthis-below{
@@ -4088,9 +4106,6 @@ h2.related-stories{
 	.mob-share a{
 		width: 88%;
 	}
-	.gallery-slider #gallery-iframe-ad{
-		margin-left: -11px;
-	}
 	.subscribe-banner {
 		margin-left:-10px;
 		margin-right:-10px;
@@ -4117,6 +4132,9 @@ h2.related-stories{
         margin-bottom:10px;
     }
     .arrow-right {left: 130px !important;}
+    .gallery-slider #gallery-iframe-ad{
+		margin: 0 auto 0 -47px !important;
+	}
 }
 
 /* Webkit Hacks  */

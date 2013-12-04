@@ -28,6 +28,7 @@ General comments (optional).
 .logo img {
     display:block;
     width:226px;
+	padding-bottom: 43px;
 }
 .open-menu, .user-btn, .search-field input[type="submit"] {background-image:url(images/sprite.png);}
 .open-menu{background-position: -306px -131px;}
@@ -264,6 +265,7 @@ General comments (optional).
 .post-slider h2 a {color:#040503;}
 .post-slider h2 a:hover {color:#c6262d;}
 .view-post {background:url(images/sprite.png) no-repeat 0 -35px;}
+.general-title h2 {font-family:"stagbold", serif;}
 .general-title h2 span {color:#c6262d;font-family:"stagbold", serif;}
 .full-post .cat-feat-label{max-width: 600px;}
 .cat-feat-label span {background:#6d7468;}
