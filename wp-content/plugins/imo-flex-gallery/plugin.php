@@ -417,6 +417,8 @@ $mobile_output .= <<<EOT2
 		                <h3>$picture->alttext</h3>
 						$picture->description
 		            </div>
+		            <div class="hidden-desc"></div>
+		            <div class="more-link">Read More</div>
 		        </li>
 EOT2;
 		}
@@ -430,21 +432,13 @@ $mobile_output .= <<<EOT3
 
 		<script type="text/javascript">
 		    jQuery(function(){
-		    
-		    	jQuery(".caption-btn").click(function() {
-		    		if(jQuery(".caption-btn").hasClass("expand-caption")){
-		    			jQuery(".caption-btn").removeClass("expand-caption");
-			    		jQuery(".caption-btn").addClass("collapse-caption");
-			    		jQuery(".caption-btn").text("+ Collapse Caption");
-		    		}else{
-			    		jQuery(".caption-btn").removeClass("collapse-caption");
-			    		jQuery(".caption-btn").addClass("expand-caption");
-			    		jQuery(".caption-btn").text("- Expand Caption");
-			    		
-			    	}
-		    		
-					jQuery(".feat-text.exp").toggle();
+		    	
+		    	jQuery(".more-link").click(function() {
+		    		jQuery(".hidden-desc, .more-link").fadeOut();
+					jQuery(".feat-text.exp").css("height","auto");
 				});
+				
+				
 		    		
 				function positionNavArrows() {
 					//var arrowNavTop = jQuery('.gallery-slider .slide-count').outerHeight() + jQuery('.gallery-slider .gallery-iframe-ad').outerHeight() + jQuery('.gallery-slider .general-title').outerHeight() + ((jQuery('.gallery-slider ul.slides').height() - jQuery('.gallery-slider .feat-text').outerHeight())/2) - (jQuery('.gallery-slider .flex-direction-nav a').height()/2) + 20;
@@ -489,7 +483,7 @@ $mobile_output .= <<<EOFmobile_standard
 		</script>
 EOFmobile_standard;
 }
-		if($_SERVER['SERVER_NAME'] != "www.flyfisherman.com" || $_SERVER['SERVER_NAME'] != "www.floridasportsman.om" || $_SERVER['SERVER_NAME'] != "www.gunsandammo.com" || $_SERVER['SERVER_NAME'] != "www.shootingtimes.com" || $_SERVER['SERVER_NAME'] != "www.shotgunnews.com" || $_SERVER['SERVER_NAME'] != "www.handgunsmag.com" || $_SERVER['SERVER_NAME'] != "www.rifleshootermag.com" || $_SERVER['SERVER_NAME'] != "www.northamericanwhitetail.com" || $_SERVER['SERVER_NAME'] != "www.bowhuntingmag.com" || $_SERVER['SERVER_NAME'] != "www.bowhunter.com" || $_SERVER['SERVER_NAME'] != "www.petersenshunting.com" || $_SERVER['SERVER_NAME'] != "www.gundogmag.com" || $_SERVER['SERVER_NAME'] != "www.wildfowlmag.com"){
+		if($_SERVER['SERVER_NAME'] != "www.floridasportsman.com" || $_SERVER['SERVER_NAME'] != "www.gunsandammo.com" || $_SERVER['SERVER_NAME'] != "www.shootingtimes.com" || $_SERVER['SERVER_NAME'] != "www.shotgunnews.com" || $_SERVER['SERVER_NAME'] != "www.handgunsmag.com" || $_SERVER['SERVER_NAME'] != "www.rifleshootermag.com" || $_SERVER['SERVER_NAME'] != "www.northamericanwhitetail.com"){
 			if (mobile()){
 				return $mobile_output;
 			}else{

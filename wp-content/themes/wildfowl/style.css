@@ -88,6 +88,7 @@ subscribe-links a{color: white;}
 .page-template-page-banner-php .sidebar-area{margin-top: 210px;}
 
 @media only screen and (max-width: 1096px) {
+	body{background: none;}
 	.logo {
 		width: 135px;
 		height: auto;

@@ -449,11 +449,11 @@ function imo_addons_subscription_page() {
         <td><strong>Magazine Section</strong></td>
         </tr>
         <tr valign="top">
-        <th scope="row">Headline 1</th>
+        <th scope="row">Widget Headline Left</th>
         <td><input type="text" name="headline_1" value="<?php echo get_option('headline_1'); ?>" /></td>
         </tr>
 		 <tr valign="top">
-        <th scope="row">Headline 2</th>
+        <th scope="row">Widget Headline Right</th>
         <td><input type="text" name="headline_2" value="<?php echo get_option('headline_2'); ?>" /></td>
         </tr>
         <tr valign="top">
@@ -691,7 +691,7 @@ function fixed_connect_footer(){ ?>
 		    </div>		    
 		</div>
 		<div class="subscribe">						
-			<a href="<?php print $subs_link;?>" target="_blank">Subscribe</a>
+			<a href="<?php print get_option('subs_link') . "/?pkey=" . get_option('sticky_key'); ?>" target="_blank">Subscribe</a>
 		</div>
 		<div class="newsletter">
 			<div class="title">Get The Newsletter</div>

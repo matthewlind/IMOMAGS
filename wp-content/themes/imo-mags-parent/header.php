@@ -67,7 +67,7 @@
 	    wp_head();
 	    
 	    $magazine_img = get_option('magazine_cover_uri' );
-		$subs_link = get_option('subs_link'); 
+		$subs_link = get_option('subs_link') . "/?pkey="; 
 		$iMagID = get_option('iMagID' );
 		$deal_copy = get_option('deal_copy' );
 		$gift_link = get_option('gift_link' );
@@ -303,8 +303,8 @@
 						    </div>
 
 						    <div class="subscribe-now">
-								<?php print $deal_copy;?>
-								<a href="<?php print $subs_link . get_option("header_key"); ?>;?>" target="_blank" class="btn-base">Subscribe <span>Now!</span></a>
+								<span><?php print $deal_copy;?></span>
+								<a href="<?php print $subs_link . get_option("header_key"); ?>" target="_blank" class="btn-base">Subscribe <span>Now!</span></a>
 						    </div>
 						    </div>
 						    <ul class="subscribe-links">
@@ -328,7 +328,7 @@
                 	if(get_option("header_key")){ ?>
 	                	<div class="menu-top-menu-container subscribe-left">
 							<ul class="menu">
-								<li class="menu-item"><a href="<?php echo $subs_link . get_option("header_key"); ?>">Subscribe!</a></li>
+								<li class="menu-item"><a href="<?php echo $subs_link . get_option("menu_key"); ?>" target="_blank">Subscribe!</a></li>
 							</ul>
 						</div>
                 	<?php }
