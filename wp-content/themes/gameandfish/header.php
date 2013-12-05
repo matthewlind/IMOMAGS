@@ -67,7 +67,7 @@
 	    wp_head();
 	    
 	    $magazine_img = get_option('magazine_cover_uri' );
-		$subs_link = get_option('subs_link'); 
+		$subs_link = get_option('subs_link') . "/?pkey="; 
 		$iMagID = get_option('iMagID' );
 		$deal_copy = get_option('deal_copy' );
 		$gift_link = get_option('gift_link' );
@@ -191,7 +191,7 @@
 	        </div>
 	
 	        <div class="menu-subscribe">
-	            <a href="<?php print $subs_link . get_option("header_key"); ?>"><img src="<?php echo $magazine_img; ?>" alt="" /><span>Subscribe Now!</span></a>
+	            <a href="<?php print $subs_link . get_option("mobile_menu_key"); ?>" target="_blank"><img src="<?php echo $magazine_img; ?>" alt="" /><span>Subscribe Now!</span></a>
 	        </div>
 	        <?php wp_nav_menu(array(
 	            'menu_class'=>'menu',
@@ -283,7 +283,7 @@
 		       </div>
 	        </div>
 	        <div class="menu-subscribe">
-	            <a href="<?php print $subs_link . get_option("header_key"); ?>"><img src="<?php echo $magazine_img; ?>" alt="" /><span>Subscribe Now!</span></a>
+	            <a href="<?php print $subs_link . get_option("mobile_menu_key"); ?>" target="_blank"><img src="<?php echo $magazine_img; ?>" alt="" /><span>Subscribe Now!</span></a>
 	        </div>
 	        <div class="mob-aside-menu" style="<?php echo $displayStyle; ?>">
 		        <div class="menu-community-menu-container">
@@ -482,10 +482,10 @@
                     <?php endif; ?>
                 </div><!-- .clearfix -->
 				<div class="gf-bottom-menu">
-					<?php if(get_option("header_key")){ ?>
+					<?php if(get_option("menu_key")){ ?>
 					<div class="menu-top-menu-container subscribe-left">
 						<ul class="menu">
-							<li class="menu-item"><a href="<?php echo $subs_link . get_option("header_key"); ?>">Subscribe!</a></li>
+							<li class="menu-item"><a href="<?php echo $subs_link . get_option("menu_key"); ?>" target="_blank">Subscribe!</a></li>
 						</ul>
 					</div>
 					<?php }

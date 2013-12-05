@@ -322,7 +322,7 @@
                     <?php endif; ?>
 			</div><!-- .clearfix -->
                 	<?php
-                    if(get_option("header_key")){ ?>
+                    if(get_option("menu_key")){ ?>
 	                	<div class="menu-top-menu-container subscribe-left">
 							<ul class="menu">
 								<li class="menu-item"><a href="<?php echo $subs_link . get_option("menu_key"); ?>" target="_blank">Subscribe!</a></li>
