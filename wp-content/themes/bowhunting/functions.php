@@ -64,35 +64,7 @@ function sub_footer(){ ?>
 		<?php the_widget("Signup_Widget_Header", "title=GET THE NEWSLETTER!"); ?>
 	</div>
 	<?php
-		$magazine_img = get_option('magazine_cover_uri' );
-		$subs_link = get_option('subs_link'); 
-		$iMagID = get_option('iMagID' );
-		$deal_copy = get_option('deal_copy' );
-		$gift_link = get_option('gift_link' );
-		$service_link = get_option('service_link' );
-		$subs_form_link = get_option('subs_form_link' );
-		$i4ky = get_option('i4ky' );
-	if(mobile()){
-	?>
-
-	<div class="subs-btm widget widget_text header-elements">
-	    <div class="subs-wrap">
-	        <div class="journal">
-		        <img src="<?php echo $magazine_img; ?>" alt="Subscribe">
-		    </div>
-		    <div class="subscribe-now">
-				<p><span class="stag-reg"><?php print $deal_copy;?></span></p>
-				<a href="<?php print $subs_link;?>" target="_blank" class="subs-btn">Subscribe <span>Now!</span></a>
-		    </div>
-		    <div class="btm-subs-links">
-		        <p><a href="<?php print $gift_link;?>" target="_blank">Give a Gift <span>&raquo;</span></a></p>
-		        <p><a href="<?php print $service_link; ?>" target="_blank">Subscriber Services <span>&raquo;</span></a></p>
-		    </div>
-		</div>
-	</div>				
-					
-	<a href="#" class="back-top jq-go-top">back to top</a>
-<?php } }
+}
 
 function social_footer(){ ?>
 	<div class="foot-social clearfix">
