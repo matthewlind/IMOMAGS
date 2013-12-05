@@ -7,7 +7,8 @@
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 ?>
-<meta name="norton-safeweb-site-verification" content="lel6zw1429sky9cji3ahj0ygbtfbibkinjpss5j-ophp61v67avmtyky6egnjwftq791ihhmk8bkarb06wbmr5bb71u7fbuspaq1ycvu3tlwfdhm3j9zayxfxj67aoet" />	
+<meta name="apple-itunes-app" content="app-id=582716133">
+<meta name="norton-safeweb-site-verification" content="lel6zw1429sky9cji3ahj0ygbtfbibkinjpss5j-ophp61v67avmtyky6egnjwftq791ihhmk8bkarb06wbmr5bb71u7fbuspaq1ycvu3tlwfdhm3j9zayxfxj67aoet" />
 	<!-- FONTS -->
 	<link href='http://fonts.googleapis.com/css?family=Arvo:regular,bold&v1' rel='stylesheet' type='text/css'>
 
@@ -24,7 +25,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
   	if (is_single()) {
 		$author = get_the_author();
 		echo " _gaq.push(['_setCustomVar', 1,'author','". addslashes($author) . "', 3]);";
-		
+
 		//$category = get_the_category();
 		//echo " _gaq.push(['_setCustomVar', 2,'category','". $category[0]->cat_name . "', 3]);";
 	}

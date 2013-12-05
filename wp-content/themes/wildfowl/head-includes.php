@@ -5,6 +5,8 @@
  */
 
 ?>
+<meta name="apple-itunes-app" content="app-id=582719568">
+
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
@@ -18,7 +20,7 @@
   	if (is_single()) {
 		$author = get_the_author();
 		echo " _gaq.push(['_setCustomVar', 1,'author','". addslashes($author) . "', 3]);";
-		
+
 		//$category = get_the_category();
 		//echo " _gaq.push(['_setCustomVar', 2,'category','". $category[0]->cat_name . "', 3]);";
 	}
