@@ -123,7 +123,7 @@
 	        </div>
 	
 	        <div class="menu-subscribe">
-	            <a href="<?php print $subs_link . get_option("header_key"); ?>" target="_blank"><img src="<?php print $magazine_img;?>" alt="Subscribe" /><span>Subscribe Now!</span></a>
+	            <a href="<?php print $subs_link . get_option("mobile_menu_key"); ?>" target="_blank"><img src="<?php print $magazine_img;?>" alt="Subscribe" /><span>Subscribe Now!</span></a>
 	        </div>
 	        <?php wp_nav_menu(array(
 	            'menu_class'=>'menu',

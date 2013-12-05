@@ -431,6 +431,7 @@ function register_imo_subscribe_settings () {
     register_setting( 'imo-subs-settings-group', 'subs_form_link' );
     register_setting( 'imo-subs-settings-group', 'header_key' );
     register_setting( 'imo-subs-settings-group', 'menu_key' );
+    register_setting( 'imo-subs-settings-group', 'mobile_menu_key' );
     register_setting( 'imo-subs-settings-group', 'i4ky' );
     register_setting( 'imo-subs-settings-group', 'sticky_key' );
 }
@@ -492,6 +493,10 @@ function imo_addons_subscription_page() {
         <tr>
         <th scope="row">Menu Subscribe Key</th>
         <td><input type="text" name="menu_key" value="<?php echo get_option('menu_key'); ?>" /></td>
+        </tr>
+         <tr>
+        <th scope="row">Mobile Menu Subscribe Key</th>
+        <td><input type="text" name="mobile_menu_key" value="<?php echo get_option('mobile_menu_key'); ?>" /></td>
         </tr>
         <tr>
          <th scope="row">Widget Key</th>
