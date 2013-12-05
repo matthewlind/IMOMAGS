@@ -305,12 +305,12 @@
 						    <div class="subscribe-now">
 								<span><?php print $deal_copy;?></span>
 								<a href="<?php print $subs_link . get_option("header_key"); ?>" target="_blank" class="btn-base">Subscribe <span>Now!</span></a>
+								<ul class="subscribe-links">
+							        <li><a href="<?php print $gift_link;?>" target="_blank">Give a Gift <span>&raquo;</span></a></li>
+							        <li><a href="<?php print $service_link; ?>" target="_blank">Subscriber Services <span>&raquo;</span></a></li>
+							    </ul>
 						    </div>
 						    </div>
-						    <ul class="subscribe-links">
-						        <li><a href="<?php print $gift_link;?>" target="_blank">Give a Gift <span>&raquo;</span></a></li>
-						        <li><a href="<?php print $service_link; ?>" target="_blank">Subscriber Services <span>&raquo;</span></a></li>
-						    </ul>
 						</div>
 					</div>
 
