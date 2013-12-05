@@ -559,7 +559,7 @@ img{max-width: 100%;height: auto;}
     background:url(images/sprite.png) no-repeat -39px 0;
 }
 .filter-links li:first-child:before,
-.menu-top-menu-container li:first-child:before,
+.subscribe-left li:first-child:before,
 .subscribe-links li:first-child:before {display:none;}
 .subscribe-links a span {font-size:16px; line-height:16px; position:relative; top:1px;}
 .h-mdl-widget {
@@ -651,7 +651,7 @@ input.gsc-search-button-v2{
     float:left;
     margin:-18px 0 10px 10px;
     position:relative;
-    font:14px "open_sansregular", Helvetica, Arial, sans-serif;
+    font:14px "open_sanssemibold", Helvetica, Arial, sans-serif;
 }
 .menu-top-menu-container li {
     display:inline-block;
@@ -2762,7 +2762,7 @@ h2.related-stories{
 }
 .fixed-connect .newsletter input{
 	font-size: 14px;
-	color: #ccc;
+	color: black;
 	border: none;
 	float: left;
 	margin: 2px 0 0 8px;

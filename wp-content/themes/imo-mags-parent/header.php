@@ -123,7 +123,7 @@
 	        </div>
 	
 	        <div class="menu-subscribe">
-	            <a href="<?php print $subs_link . get_option("header_key"); ?>" target="_blank"><img src="<?php print $magazine_img;?>" alt="Subscribe" /><span>Subscribe Now!</span></a>
+	            <a href="<?php print $subs_link . get_option("mobile_menu_key"); ?>" target="_blank"><img src="<?php print $magazine_img;?>" alt="Subscribe" /><span>Subscribe Now!</span></a>
 	        </div>
 	        <?php wp_nav_menu(array(
 	            'menu_class'=>'menu',
@@ -217,7 +217,7 @@
 		       </div>
 	        </div>
 	        <div class="menu-subscribe">
-	            <a href="<?php print $subs_link . get_option("header_key"); ?>;?>" target="_blank"><img src="<?php print $magazine_img;?>" alt="" /><span>Subscribe Now!</span></a>
+	            <a href="<?php print $subs_link . get_option("mobile_menu_key"); ?>" target="_blank"><img src="<?php print $magazine_img;?>" alt="" /><span>Subscribe Now!</span></a>
 	        </div>
 	        <div class="mob-aside-menu" style="<?php echo $displayStyle; ?>">
 		        <div class="menu-community-menu-container">
@@ -305,12 +305,12 @@
 						    <div class="subscribe-now">
 								<span><?php print $deal_copy;?></span>
 								<a href="<?php print $subs_link . get_option("header_key"); ?>" target="_blank" class="btn-base">Subscribe <span>Now!</span></a>
+								<ul class="subscribe-links">
+							        <li><a href="<?php print $gift_link;?>" target="_blank">Give a Gift <span>&raquo;</span></a></li>
+							        <li><a href="<?php print $service_link; ?>" target="_blank">Subscriber Services <span>&raquo;</span></a></li>
+							    </ul>
 						    </div>
 						    </div>
-						    <ul class="subscribe-links">
-						        <li><a href="<?php print $gift_link;?>" target="_blank">Give a Gift <span>&raquo;</span></a></li>
-						        <li><a href="<?php print $service_link; ?>" target="_blank">Subscriber Services <span>&raquo;</span></a></li>
-						    </ul>
 						</div>
 					</div>
 
@@ -325,7 +325,7 @@
                     <?php endif; ?>
                 </div><!-- #branding -->
                 	<?php 
-                	if(get_option("header_key")){ ?>
+                	if(get_option("menu_key")){ ?>
 	                	<div class="menu-top-menu-container subscribe-left">
 							<ul class="menu">
 								<li class="menu-item"><a href="<?php echo $subs_link . get_option("menu_key"); ?>" target="_blank">Subscribe!</a></li>

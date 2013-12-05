@@ -102,11 +102,10 @@ General comments (optional).
 .signup-box h3{background:url(images/bg/menu-hover.png) repeat 100% 0;}
 .signup-box .intro-text { padding-bottom: 12px;text-align: left;}
 .submit-button, .btn-base, .btn-base input, .signup-box h3{letter-spacing: 0.1em;}
-.subscribe-links{margin:0px -7px 5px 0}
+.subscribe-links{margin:0;}
 .subscribe-links li{float: left;}
-.filter-links li:before,
-.menu-top-menu-container li:before,
-.subscribe-links li:before {background-image:url(images/sprite.png);}
+.menu-top-menu-container li{padding: 2px 8px;}
+.subscribe-links li:before {background-image:none;}
 .socials a {background-image:url(images/sprite.png);}
 .socials a.twitter {background-position: -140px 0;}
 .socials a.twitter:hover {background-position: -273px 0;}
@@ -114,7 +113,7 @@ General comments (optional).
 .socials a.youtube:hover {background-position: -307px 0;}
 
 /* main top navigation */
-.menu-top-menu-container{margin-top: -34px;}
+.menu-top-menu-container{margin-top: -26px;}
 .menu-top-menu-container a {color:#3c3c3c;}
 .menu-top-menu-container a:hover {color:#c9242c;}
 .menu-main-menu-container {
@@ -180,7 +179,8 @@ General comments (optional).
 	padding: 8px 0 20px !important;
 	text-transform: none !important;
 }
-.subscribe-links li {padding: 0 14px;}
+.subscribe-box .journal {margin: -7px 0 0 19px;}
+.subscribe-links li {padding: 0;}
 .horz-logo{
 	background: url(images/logos/fishhead-logo-horz.png) no-repeat center top;
 	width: 262px;

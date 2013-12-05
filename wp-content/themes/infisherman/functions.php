@@ -83,10 +83,6 @@ function sub_footer(){ ?>
 		<?php social_networks(); ?>
 	</div>
 	<a href="/newsletter-signup" class="get-newsletter">Get the In-Fisherman <br />Newsletter</a>
-	<a href="<?php print SUBS_LINK;?>" class="subscribe-banner">
-		<img src="<?php bloginfo('stylesheet_directory'); ?>/images/pic/subscribe-banner.jpg" alt="" />
-	</a>
-	<a href="#" class="back-top jq-go-top">back to top</a>
 <?php }
 
 function social_footer(){ ?>

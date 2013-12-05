@@ -9,7 +9,11 @@ class Signup_Widget extends WP_Widget {
 	function widget($args, $instance) {
 		extract($args, EXTR_SKIP);
  
-    $title = empty($instance['title']) ? '' : apply_filters('widget_title', $instance['title']); ?>
+    $title = empty($instance['title']) ? '' : apply_filters('widget_title', $instance['title']); 
+    
+	$formID = get_option("newsletter_id");
+	
+	?>
 	
 	
 <div class="widget newsletter-sidebar">	
@@ -25,7 +29,6 @@ class Signup_Widget extends WP_Widget {
 	    obj.value = obj.value.substring(0, mlength)
 	}
 	</script>
-	
 	
 	
 	<form method="post" name="profileform" action="https://intermediaoutdoors.informz.net/clk/remote_post.asp">
@@ -129,7 +132,7 @@ class Signup_Widget extends WP_Widget {
 	                <div class="signup-btn-row">
 	                    <span class="btn-base"><input type="submit" value="Sign Up" name="update" ></span>
 	                </div>
-	                <input type=hidden name=fid value=2493>
+	                <input type=hidden name=fid value=<?php echo $formID; ?>>
 					<input type=hidden name=b value=4038>
 					<input type=hidden name=returnUrl value="http://<?php echo $_SERVER['SERVER_NAME']; ?>/?zmsg=1">  
 	            
@@ -137,32 +140,6 @@ class Signup_Widget extends WP_Widget {
 	    
 		</div>
 	</form>
-	<script language='javascript'>
-	fullURL = document.URL
-	sAlertStr = ''
-	nLoc = fullURL.indexOf('&')
-	if (nLoc == -1)
-		nLoc = fullURL.length
-	if (fullURL.indexOf('zreq=') > 0){
-		sRequired = fullURL.substring(fullURL.indexOf('zreq=')+5, nLoc)
-		if (sRequired.length > 0){
-			sRequired = ',' + sRequired.replace('%20',' ')
-			sRequired = sRequired.replace(/,/g,'\n  - ')
-			sAlertStr = 'The following item(s) are required: '+sRequired + '\n'
-		}
-	}
-	if (fullURL.indexOf('zmsg=') > 0) {
-		sMessage = fullURL.substring(fullURL.indexOf('zmsg=')+5, fullURL.length)
-		if (sMessage.length > 0) {
-			sMessage = sMessage.replace(/%20/g, ' ')
-			sMessage = sMessage.replace(/%0A/g, '\n')
-			sAlertStr = sAlertStr + sMessage
-		}
-	}
-	
-	if (sAlertStr.length > 0)
-		alert(sAlertStr)
-	</script>
 </div>
 <?php	}
  

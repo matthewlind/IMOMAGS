@@ -431,8 +431,12 @@ function register_imo_subscribe_settings () {
     register_setting( 'imo-subs-settings-group', 'subs_form_link' );
     register_setting( 'imo-subs-settings-group', 'header_key' );
     register_setting( 'imo-subs-settings-group', 'menu_key' );
+    register_setting( 'imo-subs-settings-group', 'mobile_menu_key' );
     register_setting( 'imo-subs-settings-group', 'i4ky' );
     register_setting( 'imo-subs-settings-group', 'sticky_key' );
+    register_setting( 'imo-subs-settings-group', 'newsletter_id' );
+    //IF: 2493
+    //GD: 2660
 }
 /**
  *HTML generation call back for the Subscriptions settings page.
@@ -493,6 +497,10 @@ function imo_addons_subscription_page() {
         <th scope="row">Menu Subscribe Key</th>
         <td><input type="text" name="menu_key" value="<?php echo get_option('menu_key'); ?>" /></td>
         </tr>
+         <tr>
+        <th scope="row">Mobile Menu Subscribe Key</th>
+        <td><input type="text" name="mobile_menu_key" value="<?php echo get_option('mobile_menu_key'); ?>" /></td>
+        </tr>
         <tr>
          <th scope="row">Widget Key</th>
         <td><input type="text" name="i4ky" value="<?php echo get_option('i4ky'); ?>" /></td>
@@ -501,6 +509,14 @@ function imo_addons_subscription_page() {
         <th scope="row">Sticky Bar Subscribe Key</th>
         <td><input type="text" name="sticky_key" value="<?php echo get_option('sticky_key'); ?>" /></td>
         </tr>
+        <tr valign="top">
+        <td><strong>Newsletter</strong></td>
+        </tr>
+		<tr>
+        <th scope="row">ID</th>
+        <td><input type="text" name="newsletter_id" value="<?php echo get_option('newsletter_id'); ?>" /></td>
+        </tr>
+        
   </table>
 
     <p class="submit">
@@ -680,7 +696,11 @@ function myLoop($atts, $content = null) {
 add_shortcode("loop", "myLoop");*/
 
 
-function fixed_connect_footer(){ ?>
+function fixed_connect_footer(){ 
+	
+	$formID = get_option("newsletter_id");
+
+?>
 <div class="fixed-connect">
 	<div class="close"><a href="javascript:void(0);" title="Collapse bottom bar"><img src="<?php echo get_template_directory_uri(); ?>/images/ico/close_icon_small.png" alt="Collapse bottom bar"></a>
 	</div>
@@ -797,7 +817,7 @@ function fixed_connect_footer(){ ?>
 				        <input type="hidden" name="OptoutInfo" value="">
 				        <div class="opt-in">Yes, I'd like to receive offers from your partners</div>
 						<input type="submit" value="Sign Up" name="update" >
-				        <input type=hidden name=fid value=2493>
+				        <input type=hidden name=fid value=<?php echo $formID; ?>>
 						<input type=hidden name=b value=4038>
 						<input type=hidden name=returnUrl value="http://<?php echo $_SERVER['SERVER_NAME']; ?>/?zmsg=1">  
 				    
@@ -825,11 +845,14 @@ function fixed_connect_footer(){ ?>
 						sAlertStr = sAlertStr + sMessage
 					}
 				}
-				
+				if( document.URL.indexOf('zmsg=1') > -1)
+					{
+					alert('Thank you for subscribing.')
+					}
 				if (sAlertStr.length > 0)
 					alert(sAlertStr)
 				</script>
-
+	
 			</div>
 			<div class="follow">
               <div class="follow-us">Follow us:</div>
