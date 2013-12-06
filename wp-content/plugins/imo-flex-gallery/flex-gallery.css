@@ -20,6 +20,8 @@ div.flex-viewport {
 	-webkit-transition-property: none !important;
 	-o-transition-property: none !important;
 }
+.gallery-slider div.flex-viewport{max-height: 300px;}	
+.gallery-holder{position:relative;}
 .flex-gallery-container .flex-active-slide {
 	position: relative;
 	z-index: 9999;
@@ -91,7 +93,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 width: 100%;
 height: 50px;
 position: absolute;
-bottom: 0;
+bottom: 12px;
 
 }
 .more-link{

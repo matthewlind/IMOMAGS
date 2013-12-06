@@ -392,7 +392,7 @@ $mobile_output .= <<<EOFmobile_community
 EOFmobile_community;
 } else {
 	$mobile_output = <<<EOT
-	<div class="loading-block">
+	<div class="loading-block gallery-holder">
 		<div class="jq-gallery-slider gallery-slider" id="gallery-$gallery">
 		<div class="general-title clearfix">
 		    <h2><span>$title</span></h2>
@@ -417,8 +417,6 @@ $mobile_output .= <<<EOT2
 		                <h3>$picture->alttext</h3>
 						$picture->description
 		            </div>
-		            <div class="hidden-desc"></div>
-		            <div class="more-link">Read More</div>
 		        </li>
 EOT2;
 		}
@@ -426,8 +424,9 @@ EOT2;
 $mobile_output .= <<<EOT3
 		    </ul>
 		</div>
-		<!--<div class="btn-base caption-btn expand-caption">- Expand Caption</div>-->
-		</div>
+		<div class="hidden-desc"></div>
+		<div class="more-link">Read More</div>
+	</div>
 
 
 		<script type="text/javascript">
@@ -436,9 +435,13 @@ $mobile_output .= <<<EOT3
 		    	jQuery(".more-link").click(function() {
 		    		jQuery(".hidden-desc, .more-link").fadeOut();
 					jQuery(".feat-text.exp").css("height","auto");
+					var li_height = jQuery(".flex-active-slide").height();
+					jQuery(".gallery-slider div.flex-viewport").css("max-height",li_height);	
 				});
 				
-				
+				jQuery(".gallery-slider .flex-direction-nav a").click(function() {
+		    		
+				});
 		    		
 				function positionNavArrows() {
 					//var arrowNavTop = jQuery('.gallery-slider .slide-count').outerHeight() + jQuery('.gallery-slider .gallery-iframe-ad').outerHeight() + jQuery('.gallery-slider .general-title').outerHeight() + ((jQuery('.gallery-slider ul.slides').height() - jQuery('.gallery-slider .feat-text').outerHeight())/2) - (jQuery('.gallery-slider .flex-direction-nav a').height()/2) + 20;
@@ -471,6 +474,10 @@ $mobile_output .= <<<EOFmobile_standard
 						updateSliderCounter(slider);
 		                _gaq.push(['_trackPageview',"/" + window.location.pathname + "#" + slider.currentSlide]);
 		                document.getElementById('gallery-iframe-ad').contentWindow.location.reload();
+		                jQuery(".hidden-desc, .more-link").show();
+						jQuery(".feat-text.exp").css("height","0px");
+						var li_height = jQuery(".flex-active-slide").height();
+						jQuery(".gallery-slider div.flex-viewport").css("max-height",li_height);
 
 		            }
 		        });
