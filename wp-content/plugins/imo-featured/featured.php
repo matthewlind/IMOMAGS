@@ -45,7 +45,7 @@ function imo_featured_options() {
 
 
 
-	if ($_GET['setID'] && $_GET['action'] != "update")
+	if ($_GET['setID'] && $_GET['action'] != "update" && $_GET['action'] != "delete")
 		showFeaturedDetail($_GET['setID']);
 	else
 		showFeaturedList();
@@ -63,6 +63,13 @@ function showFeaturedList() {
 
 if ($_GET['action'] == "update") {
 	updateSet($_GET['setID'],$_GET['post_ids'],$_GET['name']);
+	clearVarnishForSet($_GET['setID']);
+}
+
+if ($_GET['action'] == "delete") {
+	$setID = $_GET['setID'];
+	delete_option("featured_set_$setID");
+	clearVarnishForSet($setID);
 }
 
 ?>
@@ -255,7 +262,22 @@ function showFeaturedPosts($atts) {
 
 }
 
+function clearVarnishForSet($setID) {
+	//CLEAR THE VARNISH CACHE!
+	$postURL = "http://" . $post->domain . "/wpdb/get-all-sets.php";
 
+	$curl = curl_init($postURL);
+    curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PURGE");
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
+    $curlResult = curl_exec($curl);
+
+	$postURL = "http://" . $post->domain . "/wpdb/get-post-set.php?setID=" . $setID;
+
+	$curl = curl_init($postURL);
+    curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PURGE");
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
+    $curlResult = curl_exec($curl);
+}
 
 function getSetItemThumbnail($dataArray) {
 
