@@ -9,6 +9,9 @@
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 ?>
+
+<meta name="apple-itunes-app" content="app-id=582719568">
+
 	<!-- FONTS -->
 	<link href='http://fonts.googleapis.com/css?family=EB+Garamond&v1' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Arvo:regular,bold&v1' rel='stylesheet' type='text/css'>
@@ -26,7 +29,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
   	if (is_single()) {
 		$author = get_the_author();
 		echo " _gaq.push(['_setCustomVar', 1,'author','". addslashes($author) . "', 3]);";
-		
+
 		//$category = get_the_category();
 		//echo " _gaq.push(['_setCustomVar', 2,'category','". $category[0]->cat_name . "', 3]);";
 	}

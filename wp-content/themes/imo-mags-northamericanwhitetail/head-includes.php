@@ -1,7 +1,7 @@
 <?php
 
 /**
- * head-includes.php 
+ * head-includes.php
  * adds specific customizations to each child theme.
 */
 
@@ -11,6 +11,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 	<!-- FONTS -->
 	<link href='http://fonts.googleapis.com/css?family=Anton&v1' rel='stylesheet' type='text/css'>
+  <meta name="apple-itunes-app" content="app-id=582721507">
 
 	<script type="text/javascript">
 
@@ -25,10 +26,10 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 
 		$author = get_the_author();
 		echo " _gaq.push(['_setCustomVar', 1,'author','". addslashes($author) . "', 3]);";
-		
+
 		//$category = get_the_category();
 		//echo " _gaq.push(['_setCustomVar', 2,'category','". $category[0]->cat_name . "', 3]);";
-	
+
   ?>
   _gaq.push(['_trackPageview']);
 
