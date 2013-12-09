@@ -16,17 +16,17 @@
 		//Third Part Scripts
 		array(
 			"script-name" => "community-common-js",
-			"script-path" => "community/js/community-common.js",
+			"script-path" => "naw/js/community-common.js",
 			"script-dependencies" => array('jquery')
 		),
 		array(
 			"script-name" => "community-single-js",
-			"script-path" => "community/js/community-single.js",
+			"script-path" => "naw/js/community-single.js",
 			"script-dependencies" => array('jquery',"form-params-js")
 		),
 		array(
 			"script-name" => "jquery-mousewheel-js",
-			"script-path" => "community/js/zfselect/js/jquery.mousewheel.js",
+			"script-path" => "naw/js/zfselect/js/jquery.mousewheel.js",
 			"script-dependencies" => array('jquery')
 		),
 		array(
@@ -36,12 +36,12 @@
 		),
 		array(
 			"script-name" => "zfselect-js",
-			"script-path" => "community/js/zfselect/js/jquery.zfselect.min.js",
+			"script-path" => "naw/js/zfselect/js/jquery.zfselect.min.js",
 			"script-dependencies" => array('jquery')
 		),
 		array(
 			"script-name" => "community-single-js",
-			"script-path" => "community/js/community-single.js",
+			"script-path" => "naw/js/community-single.js",
 			"script-dependencies" => array('jquery',"form-params-js","community-common-js")
 		)
 	);
@@ -49,17 +49,17 @@
 	$IMO_COMMUNITY_CONFIG['additional_styles'] = array(
 		array(
 			"style-name" => "community-common-css",
-			"style-path" => "community/css/community-common.css",
+			"style-path" => "naw/css/community-common.css",
 			"style-dependencies" => null
 		),
 		array(
 			"style-name" => "community-single-css",
-			"style-path" => "community/css/community-single.css",
+			"style-path" => "naw/css/community-single.css",
 			"style-dependencies" => array('community-common-css')
 		),
 		array(
 			"style-name" => "zfselect-css",
-			"style-path" => "community/js/zfselect/css/zfselect.css",
+			"style-path" => "naw/js/zfselect/css/zfselect.css",
 			"style-dependencies" => array('community-common-css')
 		)
 	);

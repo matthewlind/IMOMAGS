@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Template Name: Community Listing
- * Description: Community Homepage
+ * Template Name: report
+ * Description: Community Rut Reports Page
  *
  * @package carrington-business
  *
@@ -70,15 +70,14 @@ if(post.score == 1){
 	niceScore = post.score + ' Points';
 }
 %>
-
 	<div class="dif-post">
-        <% if(post.img_url){ %>
+       <% if(post.img_url){ %>
 	        <div class="feat-img">
 	            <a href="/community/<%= post.id %>"><img class="feat-img" src="<%= post.img_url %>" alt="<%= post.title %>" title="<%= post.img_url %>" /></a>
 	        </div>
         <% } %>
         <div class="dif-post-text">
-            <h3><a href="/community/<%= post.id %>"><%= post.title %></a></h3>
+            <h3><a href="/photos/<%= post.id %>"><%= post.title %></a></h3>
             <div class="profile-panel">
                 <div class="profile-photo">
                     <a href="/profile/<%= post.user_nicename %>"><img src="/avatar?uid=<%= post.user_id %>" alt="<%= post.user_nicename %>" title="<%= post.user_nicename %>" /></a>
@@ -86,16 +85,16 @@ if(post.score == 1){
                 <div class="profile-data">
                     <h4><a href="/profile/<%= post.user_nicename %>"><%= post.display_name %></a></h4>
                     <ul class="prof-tags">
-                        <li><a href="#"><%= post.state %></a></li>
+                        <!--<li><a href="#"><%= post.state %></a></li>-->
                         <li><a href="/<%= post.post_type %>" style="text-transform:capitalize;"><%= post.post_type %></a></li>
                     </ul>
                     <ul class="replies">
-                        <li><a href="/community/<%= post.id %>#reply_field"><%= post.comment_count %> Reply</a></li>
+                        <li><a href="/photos/<%= post.id %>#reply_field"><%= post.comment_count %> Reply</a></li>
 						<li><%= niceScore %></li>
                     </ul>
                     <ul class="prof-like">
                     	<li>
-                    		<div addthis:url="http://<?php echo $_SERVER['SERVER_NAME']; ?>/community/<%= post.id %>" addthis:title="<%= post.title %>" class="addthis_toolbox addthis_default_style ">
+                    		<div addthis:url="http://<?php echo $_SERVER['SERVER_NAME']; ?>/photos/<%= post.id %>" addthis:title="<%= post.title %>" class="addthis_toolbox addthis_default_style ">
 								<a class="addthis_button_facebook_like"fb:like:layout="button_count"></a>
 							</div>
 							
@@ -106,7 +105,6 @@ if(post.score == 1){
             <% if (post.master == 1) {  %><span class="badge"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/pic/badge-ma.png" alt="Master Angler" /></span><% } %>
         </div>
     </div>
-
 </script>
 <!-- *********************************************************** -->
 <!-- *********************************************************** -->
@@ -115,12 +113,13 @@ if(post.score == 1){
 <div class="page-community">
     <div class="general general-com">
     	<div class="custom-title clearfix">
-            <img src="<?php echo plugins_url('images/naw-plus.png' , __FILE__ ); ?>" alt="NAW Community" class="custom-tite-logo">
+    		<img src="<?php echo plugins_url('images/naw-plus.png' , __FILE__ ); ?>" alt="NAW Community" class="custom-tite-logo">
             <div class="title-crumbs">
-                <h1>NAW Community</h1>
+            	<h1>State Rut Reports</h1>
                 <div class="sponsor"><?php imo_dart_tag("240x60"); ?></div>
 			</div>
         </div>
+        
 		<div class="custom-slider-section">
             <?php //echo do_shortcode('[imo-slideshow community=true]'); ?>
         </div>
@@ -137,27 +136,19 @@ if(post.score == 1){
 
         <div class="btn-group btn-bar">
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-            <span class="menu-title browse-community">Browse Photos</span> <span class="caret"></span>
+            <span class="menu-title browse-community">Browse by State</span> <span class="caret"></span>
           </button>
           <ul class="dropdown-menu filter" role="menu">
             <li><a href="" class="filter-menu" order_by="created" id="filter-menu-default">Latest</a></li>
             <li><a href="" class="filter-menu" order_by="view_count" >Popular</a></li>
             <li><a href="" class="filter-menu" order_by="score_today" >Trending Today</a></li>
 <!--             <li><a href="" class="filter-menu" order_by="score_week" >Trending This Week</a></li> -->
-            <li class="divider"></li>
-            <li><a href="" class="filter-menu" order_by="created" post_type="report" >Rut Reports</a></li>
-            <li class="divider"></li>
-            <li><a href="" class="filter-menu" order_by="created" post_type="general" >General Discusion</a></li>
-            <li><a href="" class="filter-menu" order_by="created" post_type="question" >Questions</a></li>
+            <li><a href="" class="filter-menu" order_by="created" post_type="new-york" >New York</a></li>
+            <li><a href="" class="filter-menu" order_by="created" post_type="california" >California</a></li>
             
           </ul>
         </div>
 
-
-
-<!--         <div class="general-title clearfix alter-title">
-            <h2>Latest <span>Submissions</span></h2>
-        </div> -->
         <div class="dif-posts">
 			<div id="posts-container"></div>
          </div>
@@ -171,7 +162,7 @@ if(post.score == 1){
 		<?php social_footer(); ?>
 		<div class="hr mobile-hr"></div>
 		<a href="#" class="back-top jq-go-top">back to top</a>
-
+        
     </div>
 </div>
 
