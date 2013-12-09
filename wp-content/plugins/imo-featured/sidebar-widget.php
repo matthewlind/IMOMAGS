@@ -70,7 +70,7 @@ class imo_featured_sidebar_widget extends WP_Widget {
 
 
 
-        $title = $setData["name"];
+        $title = stripslashes($setData["name"]);
 
 
 

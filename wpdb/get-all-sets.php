@@ -62,7 +62,7 @@ try {
 
 
         $postIDs = $setData["post_id_string"];
-        $setName = $setData["name"];
+        $setName = stripslashes($setData["name"]);
 
 
 

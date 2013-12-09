@@ -58,7 +58,9 @@ try {
 
 
     $postIDs = $setData["post_id_string"];
-    $setName = $setData["name"];
+    $setName = stripslashes($setData["name"]);
+
+    $setData["name"] = stripslashes($setData["name"]);
 
     $query = "SELECT
         posts.ID as id,
