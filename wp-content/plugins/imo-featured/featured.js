@@ -3,7 +3,7 @@ jQuery( document ).ready(function( $ ) {
 
 
 
-	if ($.QueryString["action"] == "update" && $.QueryString["setID"] == "new") {
+	if ($.QueryString["action"] == "update" || $.QueryString["action"] == "delete") {
 
 		document.location = "/wp-admin/options-general.php?page=imo-featured-manager";
 	}
@@ -72,7 +72,22 @@ jQuery( document ).ready(function( $ ) {
 
 				});
 
+				var setID = index;
+				$deleteButton = $('<a set_id=' + setID + ' class="btn btn-delete btn-danger" href="">X</a>');
+				$newSetContainer.append($deleteButton);
 
+				$deleteButton.on("click",function(ev){
+					ev.preventDefault();
+					ev.stopPropagation();
+
+					if (confirm('Are you sure you want to delete this set?')) {
+					    document.location = "/wp-admin/options-general.php?page=imo-featured-manager&action=delete&setID=" + setID;
+					} else {
+					    // Do nothing!
+					}
+
+
+				});
 
 				$("div.set-list-container").prepend($newSetContainer);
 
