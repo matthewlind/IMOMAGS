@@ -9,7 +9,7 @@
 	$IMO_COMMUNITY_CONFIG['template'] = '/naw/single.php';
 	$IMO_COMMUNITY_CONFIG['dart_page'] = 'community_community';
 	$IMO_COMMUNITY_CONFIG['dart_sect'] = 'communitycommunity';
-	$IMO_COMMUNITY_CONFIG['post_types'] = $communityPostTypes;
+	$IMO_COMMUNITY_CONFIG['post_types'] = $nawPostTypes;
 
 
 	$IMO_COMMUNITY_CONFIG['additional_scripts'] = array(

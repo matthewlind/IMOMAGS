@@ -162,7 +162,7 @@ jQuery(document).ready(function($) {
 				//alert("New Post Added! Replace this alert with a redirect to something!")
 
 				if (postData)
-					window.location.href = "/photos/" + postData.id;
+					window.location.href = "/community/" + postData.id;
 				else
 					alert("Could not post photo. Are you logged in?");
 			});

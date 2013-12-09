@@ -321,7 +321,7 @@ $time = date("g:i A", strtotime($timestamp));
 	            } else {
 
 	                $photoURL = str_replace("thumb", "medium", $attachment->img_url);
-	                $media = "<div class='full-post-img'><img src='$photoURL$width'></div>$caption";
+	                $media = "<div class='full-post-img'><img src='$photoURL'></div>$caption";
 
 	            }
 

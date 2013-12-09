@@ -1,7 +1,4 @@
 <?php
-include("functions/profile.php");
-include("plus/functions-plus.php");
-
 define("JETPACK_SITE", "flyfisherman");
 define("SUBS_LINK", "http://subs.flyfisherman.com/");
 define("GIFT_LINK", "http://subs.flyfisherman.com/gift");

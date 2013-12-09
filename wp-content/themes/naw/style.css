@@ -25,22 +25,21 @@ General comments (optional).
 .ui-panel .mob-aside-menu li.drop-open > a,
 .ui-panel .mob-aside-menu > div > ul > li > a:hover {color:white;}
 .menu-top-menu-container a{color: white;}
-.menu-main-menu-container > ul > li > a{color: black;font-family: "rokkitt",serif;font-weight: 700;}
+.menu-main-menu-container > ul > li > a{color: #58534f;font: 24px/44px "rokkitt",serif;font-weight: 700;text-transform: none;}
 .menu-main-menu-container{background-color: #f0e9e1;box-shadow: 0px 2px 2px #ccc;}
-.menu-main-menu-container a.has-drop:after, .menu-header-menu-container a.has-drop:after {border-top: 7px solid black;}
+.menu-main-menu-container a.has-drop:after, .menu-header-menu-container a.has-drop:after {border-top: 7px solid #58534f;}
 a.category-name-link.primary-cat,
 a.category-name-link:hover{background: #623d11;color: white;}
-.signup-box h3,
 .header .menu-main-menu-container > ul > li.current-menu-item > a,
 .header .menu-header-menu-container > ul > li.current-menu-item > a,
-.menu-main-menu-container > ul > li:hover > a,
+.menu-main-menu-container > ul > li:hover, .menu-main-menu-container > ul > li:hover > a{color: black;}
 .menu-header-menu-container > ul > li:hover > a,
-.menu-main-menu-container > ul > li > a:hover,
 .menu-header-menu-container > ul > li > a:hover,
 .menu-top-menu-container a:hover,
 .subscribe-links a:hover{color: #afafaf;}
 .ui-panel .mob-aside-menu > div > ul > li > a.has-drop:after {border-top: 7px solid #623d11;}
-subscribe-links a{color: white;}
+.menu-main-menu-container li:hover a.has-drop:after {border-top: 7px solid black;}
+.subscribe-links a{color: white;}
 .subscribe-now span{font: "open_sansbold";}
 .get-newsletter{text-shadow: 0 -1px 0 #000;}
 .drop-down{border: medium none;box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.35);background:#5f5852;}
@@ -59,17 +58,16 @@ subscribe-links a{color: white;}
 .foot-social .socials {background:#212121;}
 .social-title span{color: #afafaf;}
 .home .comment-count, .category .comment-count{display: none;}
-
+.subscribe-links li{padding: 0;}
 .menu-main-menu-container a.has-drop{padding: 0 30px;}
-.menu-main-menu-container li:hover a.has-drop:after{border-top: 7px solid #afafaf;}
 
 /*sprite*/
-.open-menu, .user-btn, .open-search, .filter-links li:before, .menu-top-menu-container li:before, .subscribe-links li:before, .view-post, .back-top:before, .get-newsletter, .cal-carousel .gal-prev, .cal-carousel .gal-next, .full-post .comment-count, 
+.subscribe-links li:before{background-image: none;}
+.open-menu, .user-btn, .open-search, .filter-links li:before, .menu-top-menu-container li:before, .view-post, .back-top:before, .get-newsletter, .cal-carousel .gal-prev, .cal-carousel .gal-next, .full-post .comment-count, 
 .article-brief .comment-count {background-image: url(images/sprite.png);}
 
 /*flexslider*/
 /* Direction Nav */
-.flex-direction-nav a {background: url(images/prev-next.png) no-repeat !important;}
 #join .flex-direction-nav a{top:50px;}
 .flex-direction-nav .flex-next {background-position:-33px 0 !important;}
 .flex-direction-nav .flex-prev {background-position:0 0 !important;}

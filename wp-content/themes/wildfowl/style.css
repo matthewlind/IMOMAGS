@@ -48,7 +48,7 @@ subscribe-links a{color: white;}
 .menu-subscribe a, .snap-drawers .menu-top-menu-container a:hover, .snap-drawers .mob-aside-menu > div > ul > li > a:hover{color: #2b80bd;}
 
 /*sprite*/
-.open-menu, .user-btn, .open-search, .filter-links li:before, .menu-top-menu-container li:before, .subscribe-links li:before, .socials a, .view-post, .back-top:before, .get-newsletter, .cal-carousel .gal-prev, .cal-carousel .gal-next, .full-post .comment-count,
+.open-menu, .user-btn, .open-search, .filter-links li:before, .menu-top-menu-container li:before, .socials a, .view-post, .back-top:before, .get-newsletter, .cal-carousel .gal-prev, .cal-carousel .gal-next, .full-post .comment-count,
  .article-brief .comment-count {background-image: url(images/sprite.png);}
 
 /*flexslider*/

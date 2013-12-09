@@ -321,31 +321,31 @@
 					</div>
                     <?php endif; ?>
 			</div><!-- .clearfix -->
-                	<?php
-                    if(get_option("menu_key")){ ?>
-	                	<div class="menu-top-menu-container subscribe-left">
-							<ul class="menu">
-								<li class="menu-item"><a href="<?php echo $subs_link . get_option("menu_key"); ?>" target="_blank">Subscribe!</a></li>
-							</ul>
-						</div>
-					<?php } ?>
-					<div class="ga-submenu">
-						<?php
-						if(has_nav_menu( 'top' )){
-	                    	wp_nav_menu(array(
-		                        'menu_class'=>'menu',
-		                        'theme_location'=>'top',
-							));  
-	                   } ?>
-						<div class="h-mdl-widget">
-						    <div class="socials-hold">
-						    	<?php social_networks(); ?>
-							</div>
-						    <div class="h-search-form">
-						        <?php parent_theme_get_search_form(); ?>
-						    </div>
-						</div>
+			<div class="ga-submenu">
+            	<?php
+                if(get_option("menu_key")){ ?>
+                	<div class="menu-top-menu-container subscribe-left">
+						<ul class="menu">
+							<li class="menu-item"><a href="<?php echo $subs_link . get_option("menu_key"); ?>" target="_blank">Subscribe!</a></li>
+						</ul>
 					</div>
+				<?php } ?>
+				<?php
+				if(has_nav_menu( 'top' )){
+                	wp_nav_menu(array(
+                        'menu_class'=>'menu',
+                        'theme_location'=>'top',
+					));  
+               } ?>
+				<div class="h-mdl-widget">
+				    <div class="socials-hold">
+				    	<?php social_networks(); ?>
+					</div>
+				    <div class="h-search-form">
+				        <?php parent_theme_get_search_form(); ?>
+				    </div>
+				</div>
+			</div>
         </div><!-- #branding -->
 		
         <div class="content-banner-section">

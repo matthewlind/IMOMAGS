@@ -81,12 +81,12 @@ include 'common-templates.php';
 
 
 				<div class="dropdown-selects">
-					<select id="ma-species" class="post_type alter-sel mobile-select" name="meta">
+					<!--<select id="ma-species" class="post_type alter-sel mobile-select" name="meta">
 		         		<option value="">SPECIES</option>
 				 		<% _.each(species,function(fish,index){ %>
 		         			<option value="<%= index %>" <%= post && post.post_type == index ? "SELECTED" : "" %> ><%= fish.name %></option>
 				 		<% }); %>
-			        </select>
+			        </select>-->
 				    <select name="state" placeholder="Choose the state for this post:" class="alter-sel mobile-select" id="ma-state">
 			            <option value="" >STATE / PROVINCE</option>
 			            <option value="AL" <%= post && post.state == "AL" ? "SELECTED" : "" %> >Alabama</option>
@@ -156,14 +156,7 @@ include 'common-templates.php';
                         <option value="MX" <%= post && post.state == "MX" ? "SELECTED" : "" %> >Mexico</option>
 					</select>
 				</div>
-				<div class="f-row f-row-center ">
-                    <p>(Fish Size is Optional)</p>
-                </div>
-                <div class="f-row f-row-center ">
-                    <input placeholder="Weight (lbs.)" type="text" name="weight" class="fishsize" id="ma-weight"> <span class="worl">OR</span>
-                    <input placeholder="Length (in.)" type="text" name="length" class="fishsize" id="ma-length">
-                </div>
-
+				
 
 
 				<% if (post && post.id) { %>

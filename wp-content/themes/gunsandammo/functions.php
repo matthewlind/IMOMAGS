@@ -64,8 +64,7 @@ function sub_footer(){ ?>
 	<div class="newsletter-box bottom-newsletter">
 		<?php the_widget("Signup_Widget_Header", "title=GET THE NEWSLETTER!"); ?>
 	</div>
-	<?php
-		<?php } }
+		<?php } 
 
 function social_footer(){ ?>
 	<div class="foot-social clearfix">
