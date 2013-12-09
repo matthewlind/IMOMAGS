@@ -29,11 +29,13 @@ class imo_featured_sidebar_widget extends WP_Widget {
             posts.guid as url,
             posts.post_type as type,
             attachmentmeta.meta_value as attachment_meta,
-            posts.guid as url
+            posts.guid as url,
+            postmeta2.meta_value as promo_title
             FROM {$wpdb->posts} as posts
             JOIN {$wpdb->postmeta} as postmeta ON (posts.ID = postmeta.post_id)
             JOIN {$wpdb->posts} as attachments ON (attachments.ID = postmeta.meta_value)
             JOIN {$wpdb->postmeta} as attachmentmeta ON (attachments.ID = attachmentmeta.post_id)
+            LEFT JOIN {$wpdb->postmeta} as postmeta2 ON (posts.ID = postmeta2.post_id AND postmeta2.meta_key = 'promo_title')
             WHERE posts.ID IN ($postIDString)
             AND posts.post_status = 'publish'
             AND postmeta.meta_key = '_thumbnail_id'
@@ -50,6 +52,11 @@ class imo_featured_sidebar_widget extends WP_Widget {
 
         $thumb = getWidgetThumbnail(unserialize($post->attachment_meta));
           $title = $post->title;
+
+        if (!empty($post->promo_title))
+            $title = $post->promo_title;
+
+
           $url = $post->url;
           $outputString .= "<a href='$url' onclick='_gaq.push(['_trackEvent','Special Features Widget','$title','$url']);'><li class='sidebar-featured' style=''>
                                     <div class='feat-post' style=''>
