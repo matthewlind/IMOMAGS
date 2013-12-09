@@ -446,7 +446,7 @@ img{max-width: 100%;height: auto;}
     margin:-4px 0 0;
 }
 .subscribe-box .journal img, .subs-wrap .journal img{
-	width: 74px;
+	width: 100px;
 }
 .subscribe-now {
     float:right;
@@ -544,7 +544,6 @@ img{max-width: 100%;height: auto;}
 .subscribe-links li {
     display:inline-block;
     vertical-align:top;
-    padding:0 12px;
     position:relative;
 }
 .filter-links li:before,
@@ -556,7 +555,7 @@ img{max-width: 100%;height: auto;}
     width:1px;
     height:19px;
     content:"";
-    background:url(images/sprite.png) no-repeat -39px 0;
+    background:none;
 }
 .filter-links li:first-child:before,
 .subscribe-left li:first-child:before,
@@ -2538,6 +2537,7 @@ h2.related-stories{
 	text-align: center;
 	display: none;
 }
+.page .article-holder p{padding-bottom: 24px;}
 /* Core Experts
  ******************************************************************************/
 .page-template-core-experts-php .article-brief p{
@@ -2914,7 +2914,7 @@ h2.related-stories{
 /* =Responsive Breakpoints
 *******************************************************************************/
 @media only screen and (max-width: 1096px) {
-	body{background: none;}
+	body{background: none !important;}
     .mobile-orientation .header .menu-main-menu-container,
     .mobile-orientation .header .menu-header-menu-container,
     .mobile-orientation .header .menu-top-menu-container {
@@ -2998,6 +2998,7 @@ h2.related-stories{
     .layout-frame {
         width:100%;
     }
+    .layout-frame{border: none;}
     .menu-top-menu-container {
         margin:10px 0;
         clear:both;

@@ -42,7 +42,7 @@
     border-color:#d8d8d7;
 }
 h2{
-	font:24px "stagbold", sans-serif;
+	font:24px "Rokkitt", serif;
     color:#040503;
     padding:0 0 10px;
 }
@@ -64,7 +64,7 @@ h2{
 .title-underline h1 {
     display:inline-block;
     vertical-align:top;
-    font:45px "stagbold", sans-serif;
+    font:45px "Rokkitt", serif;
     color:#040503;
 }
 .title-underline h1 span {
@@ -303,7 +303,7 @@ select.alter-sel {width:100%;}
     border: none;
 }
 .dif-post h3 {
-    font:22px "stagregular", sans-serif;
+    font:22px "Rokkitt", serif;
     color:#040503;
     margin:0 0 13px;
 }
@@ -425,7 +425,7 @@ select.alter-sel {width:100%;}
     padding:24px 13px 17px;
 }
 .basic-popup h3 {
-    font:22px "stagbold", sans-serif;
+    font:22px "Rokkitt", serif;
     text-transform:uppercase;
     text-align:center;
     color:#c9242c;
@@ -617,7 +617,7 @@ select.alter-sel {width:100%;}
     margin:0 0 22px;
 }
 .filter-title {
-    font:27px/1.2 "stagbold", sans-serif;
+    font:27px/1.2 "Rokkitt", serif;
     color:#040503;
     text-transform:uppercase;
     text-shadow:0 -1px 0 #fff;
@@ -641,7 +641,7 @@ select.alter-sel {width:100%;}
     position: relative;
 }
 .dif-full-post h1 {
-    font:45px "stagregular", sans-serif;
+    font:45px "Rokkitt", serif;
     color:#040503;
     margin:0 0 10px;
 }
@@ -697,7 +697,7 @@ select.alter-sel {width:100%;}
 }
 .replies-box h2 {
     padding:20px 0 5px 22px;
-    font:25px "stagbold", sans-serif;
+    font:25px "Rokkitt", serif;
     color:#040503;
     background:#fff;
     text-transform:uppercase;
@@ -781,7 +781,7 @@ select.alter-sel {width:100%;}
 }
 .title-bar h3 {
     float:left;
-    font:25px/1.1 "stagbold", sans-serif;
+    font:25px/1.1 "Rokkitt", serif;
     text-transform:uppercase;
     padding:10px 0 0;
 }
@@ -860,7 +860,7 @@ select.alter-sel {width:100%;}
     width:220px;
     height:41px;
     display:block;
-    font:17px/41px "stagbold", sans-serif;
+    font:17px/41px "Rokkitt", serif;
     color:#fff;
     text-shadow:0 -1px 0 #000;
     border-radius:4px;
@@ -878,7 +878,7 @@ select.alter-sel {width:100%;}
 
     height:42px;
     display:block;
-    font:15px/42px "stagbold", sans-serif;
+    font:15px/42px "Rokkitt", serif;
     color:#fff;
     text-shadow:0 -1px 0 #7a0c11;
     border-radius:4px;
@@ -995,10 +995,10 @@ select.alter-sel {width:100%;}
     color:#040503;
 }
 .custom-title h1 {
-    font:45px/1.1 "stagbold", sans-serif;
+    font:45px/1.1 "Rokkitt", serif;
     color:#040503;
     text-transform:uppercase;
-    margin:0 0 5px;
+    margin:7px 0 0;
     -moz-pre-wrap;
     white-space: -o-pre-wrap;
     word-wrap: break-word;
@@ -1021,7 +1021,7 @@ select.alter-sel {width:100%;}
 .profile-title h1 {
     float:left;
     margin:0;
-    font:45px "stagbold", sans-serif;
+    font:45px "Rokkitt", serif;
     color:#040503;
     text-transform:uppercase;
 }
@@ -1056,7 +1056,7 @@ select.alter-sel {width:100%;}
     padding:0 18px;
 }
 .user-col h2 {
-    font:35px/1 "stagregular", sans-serif;
+    font:35px/1 "Rokkitt", serif;
     color:#040503;
     margin:-3px 0 12px;
 }
@@ -1083,7 +1083,7 @@ select.alter-sel {width:100%;}
 }
 .points-col .points-nb {
     color:#040503;
-    font:47px/1 "stagregular", sans-serif;
+    font:47px/1 "Rokkitt", serif;
 }
 .profile-btn-panel {
     padding:18px 25px 24px;

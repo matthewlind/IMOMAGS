@@ -62,7 +62,7 @@ subscribe-links a{color: white;}
 .home .comment-count, .category .comment-count{display: none;}
 
 /*sprite*/
-.open-menu, .user-btn, .open-search, .filter-links li:before, .menu-top-menu-container li:before, .subscribe-links li:before, .view-post, .back-top:before, .get-newsletter, .cal-carousel .gal-prev, .cal-carousel .gal-next, .full-post .comment-count, 
+.open-menu, .user-btn, .open-search, .filter-links li:before, .menu-top-menu-container li:before, .view-post, .back-top:before, .get-newsletter, .cal-carousel .gal-prev, .cal-carousel .gal-next, .full-post .comment-count, 
 .article-brief .comment-count {background-image: url(images/sprite.png);}
 
 /*flexslider*/

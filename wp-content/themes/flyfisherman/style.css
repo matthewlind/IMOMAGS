@@ -48,7 +48,7 @@ a.category-name-link:hover{background: #2f7bb2;color: white;}
 .ui-panel .mob-aside-menu > div > ul > li > a.has-drop:after {border-top: 7px solid #2f7bb2;}
 .get-newsletter{text-shadow: 0 -1px 0 #000;}
 /*sprite*/
-.open-menu, .user-btn, .open-search, .filter-links li:before, .menu-top-menu-container li:before, .subscribe-links li:before, .socials a, .view-post, .go-top, .back-top:before, .get-newsletter, .cal-carousel .gal-prev, .cal-carousel .gal-next, .full-post .comment-count, 
+.open-menu, .user-btn, .open-search, .filter-links li:before, .menu-top-menu-container li:before, .socials a, .view-post, .go-top, .back-top:before, .get-newsletter, .cal-carousel .gal-prev, .cal-carousel .gal-next, .full-post .comment-count, 
 .article-brief .comment-count, .search-field input[type="submit"] {background-image: url(images/sprite.png);}
 
 /*flexslider*/

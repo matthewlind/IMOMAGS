@@ -35,7 +35,7 @@ jQuery(document).ready(function($) {
 
 						jQuery('#loadingModal').append("<img src='" + img_url + "' width=1 height=1>");
 
-						document.location = "/photos/new#" + FPID;
+						document.location = "/community/new#" + FPID;
 						//alert(FPID);
 
 					} else {
