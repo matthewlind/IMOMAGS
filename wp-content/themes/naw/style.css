@@ -25,7 +25,7 @@ General comments (optional).
 .ui-panel .mob-aside-menu li.drop-open > a,
 .ui-panel .mob-aside-menu > div > ul > li > a:hover {color:white;}
 .menu-top-menu-container a{color: white;}
-.menu-main-menu-container > ul > li > a{color: black;font-family: "rokkitt",Georgia,serif;font-weight: lighter;}
+.menu-main-menu-container > ul > li > a{color: black;font-family: "rokkitt",serif;font-weight: 700;}
 .menu-main-menu-container{background-color: #f0e9e1;box-shadow: 0px 2px 2px #ccc;}
 .menu-main-menu-container a.has-drop:after, .menu-header-menu-container a.has-drop:after {border-top: 7px solid black;}
 a.category-name-link.primary-cat,

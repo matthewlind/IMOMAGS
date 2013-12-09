@@ -144,33 +144,6 @@ imo_sidebar();?>
 	    
 		</div>
 	</form>
-	<script language='javascript'>
-	fullURL = document.URL
-	sAlertStr = ''
-	nLoc = fullURL.indexOf('&')
-	if (nLoc == -1)
-		nLoc = fullURL.length
-	if (fullURL.indexOf('zreq=') > 0){
-		sRequired = fullURL.substring(fullURL.indexOf('zreq=')+5, nLoc)
-		if (sRequired.length > 0){
-			sRequired = ',' + sRequired.replace('%20',' ')
-			sRequired = sRequired.replace(/,/g,'\n  - ')
-			sAlertStr = 'The following item(s) are required: '+sRequired + '\n'
-		}
-	}
-	if (fullURL.indexOf('zmsg=') > 0) {
-		sMessage = fullURL.substring(fullURL.indexOf('zmsg=')+5, fullURL.length)
-		if (sMessage.length > 0) {
-			sMessage = sMessage.replace(/%20/g, ' ')
-			sMessage = sMessage.replace(/%0A/g, '\n')
-			sAlertStr = sAlertStr + sMessage
-		}
-	}
-	
-	if (sAlertStr.length > 0)
-		alert(sAlertStr)
-	</script>
-
 </div>
 					
 					

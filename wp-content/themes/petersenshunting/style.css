@@ -18,6 +18,11 @@ body, .header {background: #333;}
 .layout-frame{border: none;background: none;}
 .main, .content-banner-section{background: white;}
 .menu-main-menu-container {background: url(http://www.petersenshunting.com/wp-content/themes/imo-mags-petersenshunting/img/my-nav-bg.jpg) repeat-x;}
+.page-header h1 {
+color: #040503;
+font-size: 36px;
+text-transform: uppercase;
+}
 
 /* Tags reset
 *******************************************************************************/

@@ -836,21 +836,14 @@ function fixed_connect_footer(){
 						sRequired = sRequired.replace(/,/g,'\n  - ')
 						sAlertStr = 'The following item(s) are required: '+sRequired + '\n'
 					}
+
 				}
-				if (fullURL.indexOf('zmsg=') > 0) {
-					sMessage = fullURL.substring(fullURL.indexOf('zmsg=')+5, fullURL.length)
-					if (sMessage.length > 0) {
-						sMessage = sMessage.replace(/%20/g, ' ')
-						sMessage = sMessage.replace(/%0A/g, '\n')
-						sAlertStr = sAlertStr + sMessage
-					}
-				}
-				if( document.URL.indexOf('zmsg=1') > -1)
-					{
-					alert('Thank you for subscribing.')
-					}
-				if (sAlertStr.length > 0)
+				if (sAlertStr.length > 0){
 					alert(sAlertStr)
+				}else if( document.URL.indexOf('zmsg=1') > -1){
+					alert('Thank you for subscribing.')
+				}
+					
 				</script>
 	
 			</div>
