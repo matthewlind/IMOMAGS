@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Template Name: report
- * Description: Community Rut Reports Page
+ * Template Name: general
+ * Description: Community General Discussions Page
  *
  * @package carrington-business
  *
@@ -119,7 +119,7 @@ if(post.score == 1){
     	<div class="custom-title clearfix">
     		<img src="<?php echo plugins_url('images/naw-plus.png' , __FILE__ ); ?>" alt="NAW Community" class="custom-tite-logo">
             <div class="title-crumbs">
-            	<h1>State Rut Reports</h1>
+            	<h1>General Discussion</h1>
                 <div class="sponsor"><?php imo_dart_tag("240x60"); ?></div>
 			</div>
         </div>
@@ -140,16 +140,13 @@ if(post.score == 1){
 
         <div class="btn-group btn-bar">
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-            <span class="menu-title browse-community">Browse by State</span> <span class="caret"></span>
+            <span class="menu-title browse-community">Browse Discussions</span> <span class="caret"></span>
           </button>
           <ul class="dropdown-menu filter" role="menu">
             <li><a href="" class="filter-menu" order_by="created" id="filter-menu-default">Latest</a></li>
             <li><a href="" class="filter-menu" order_by="view_count" >Popular</a></li>
             <li><a href="" class="filter-menu" order_by="score_today" >Trending Today</a></li>
 <!--             <li><a href="" class="filter-menu" order_by="score_week" >Trending This Week</a></li> -->
-            <li><a href="" class="filter-menu" order_by="created" post_type="new-york" >New York</a></li>
-            <li><a href="" class="filter-menu" order_by="created" post_type="california" >California</a></li>
-            
           </ul>
         </div>
 

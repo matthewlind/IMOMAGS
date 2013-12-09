@@ -76,6 +76,10 @@ if(post.score == 1){
 	        <div class="feat-img">
 	            <a href="/community/<%= post.id %>"><img class="feat-img" src="<%= post.img_url %>" alt="<%= post.title %>" title="<%= post.img_url %>" /></a>
 	        </div>
+        <% }else{ %>
+        	 <div class="feat-img">
+	            <a href="/community/<%= post.id %>"><img class="feat-img" src="<?php echo plugins_url('images/crosshair.jpg' , __FILE__ ); ?>" alt="<%= post.title %>" title="<%= post.img_url %>" /></a>
+	        </div>
         <% } %>
         <div class="dif-post-text">
             <h3><a href="/community/<%= post.id %>"><%= post.title %></a></h3>
@@ -86,7 +90,7 @@ if(post.score == 1){
                 <div class="profile-data">
                     <h4><a href="/profile/<%= post.user_nicename %>"><%= post.display_name %></a></h4>
                     <ul class="prof-tags">
-                        <li><a href="#"><%= post.state %></a></li>
+                        <!--<li><a href="#"><%= post.state %></a></li>-->
                         <li><a href="/<%= post.post_type %>" style="text-transform:capitalize;"><%= post.post_type %></a></li>
                     </ul>
                     <ul class="replies">
