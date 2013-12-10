@@ -179,7 +179,6 @@ General comments (optional).
 	padding: 8px 0 20px !important;
 	text-transform: none !important;
 }
-.subscribe-box .journal {margin: -7px 0 0 19px;}
 .subscribe-links li {padding: 0;}
 .horz-logo{
 	background: url(images/logos/fishhead-logo-horz.png) no-repeat center top;
@@ -605,6 +604,12 @@ a.change-location:before {
 }
 .widget_subscribe-form .subscribeButton{float: right;margin: 0 7px 8px 0;}
 .subs-header {background: url(images/bg/menu-hover.png) repeat 100% 0;color: white;}
+
+
+/*** Homepage featured ***/
+.home .home-featured{border: none !important;padding: 0 0 30px;}
+.home .home-featured:first-child, .home .home-featured:nth-child(odd){padding-right: 30px}
+.home .home-featured .feat-text{padding: 14px 32px 24px 18px;border-left: 4px solid #040503;border-bottom: 1px solid #d8d7d6;}
 
 /* Core Experts
  ******************************************************************************/

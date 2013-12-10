@@ -13,7 +13,7 @@
  */
 
 get_header(); ?>
-	<?php imo_sidebar();?>
+	<?php imo_sidebar('landing');?>
 	<div id="primary" class="general">
         <div class="general-frame">
             <div id="content" role="main">

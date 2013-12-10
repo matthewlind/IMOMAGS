@@ -243,7 +243,7 @@ function showFeaturedPosts($atts) {
     foreach($posts as $post) {
 
 		$thumb = getSetItemThumbnail(unserialize($post->attachment_meta));
-    	$title = $post->title;
+		$title = $post->title;
 
     	if (!empty($post->promo_title))
     		$title = $post->promo_title;
@@ -254,10 +254,18 @@ function showFeaturedPosts($atts) {
     	}else if(is_home()){
 	    	$tracking = "_gaq.push(['_trackEvent','Special Features Homepage','$title','$url']);";
     	}
+    	$primaryCat = '';
+    	if (function_exists('the_primary_category')){
+    		$primaryCat = the_primary_category(); 
+    	}
     	$outputString .= "<li class='home-featured'>
                                 <div class='feat-post'>
                                     <div class='feat-img'><a href='$url' onclick='$tracking'><img src='$thumb' alt='$title' /></a></div>
-                                    <div class='feat-text'><h3><a href='$url' onclick='$tracking'>$title</a></h3>
+                                    <div class='feat-text'>
+                                    	<div class='clearfix'>
+	                                    	$primaryCat
+	                                    	<h3><a href='$url' onclick='$tracking'>$title</a></h3>
+                                    	</div>
                                 </div>
                                 <div class='feat-sep'><div></div></div>
                             </li>";

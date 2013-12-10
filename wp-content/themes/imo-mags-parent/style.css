@@ -646,6 +646,7 @@ input.gsc-search-button-v2{
 .socials a.rss {background-position:-206px 0;}
 .socials a.rss:hover {background-position:-340px 0;}
 /* main top navigation */
+.menu-top-menu-container.subscribe-left li{padding-right: 2px;}
 .menu-top-menu-container {
     float:left;
     margin:-18px 0 10px 10px;
@@ -836,11 +837,10 @@ input.gsc-search-button-v2{
 }
 .category-master-angler ol.flex-control-paging{margin-left: 0 !important;}
 .cat-label a {
-	padding: 4px 18px;
-    float:left;
+    /*float:left;
     position:absolute;
     top:-16px;
-    left:-4px;
+    left:-4px;*/
     background:#6d7468;
     padding:6px 28px 3px;
     font:15px "open_sansbold", Helvetica, Arial, sans-serif;
@@ -929,6 +929,10 @@ input.gsc-search-button-v2{
 .sponsor {
     float:right;
 }
+
+/*** sportsman channel video widget ***/
+.widget_channel-video-widget{width: 310px;}
+
 .video-box {
     margin:0 0 45px;
 }
@@ -965,7 +969,6 @@ input.gsc-search-button-v2{
 .sidebar .BCLvideoWrapper object,
 .sidebar .BrightcoveExperience {
 	width: 310px;
-	height: 540px;
 }
 .post-panel,
 .video-panel {
@@ -1949,7 +1952,7 @@ a.category-name-link:hover{
 	position: relative;
 	display: block;
 }
-.widget_advert-widget iframe{
+.sidebar.advert .widget_advert-widget iframe{
 	margin-left: 5px;
 }
 iframe[style]#fb-sidebar{background-color: white !important;}
@@ -2752,7 +2755,7 @@ h2.related-stories{
 .fixed-connect{width:100%;height:42px;position:fixed;bottom:0;background:#545454;color:#fff;font-weight:700;opacity:.99;z-index:999999999999999;}
 .fixed-connect .container{max-width:1060px;margin:0 auto;padding:0 20px 0 20px;}
 .fixed-connect a{color:#fff;text-decoration:none;}
-.fixed-connect .currentIssue{width:100px;height:83px;float:left;margin:-66px 0 0 0;}
+.fixed-connect .currentIssue{width:100px;height:83px;float:left;margin:-54px 0 0 0;}
 .fixed-connect .subscribe, .fixed-connect input[type="submit"]{float:left;height:28px;padding: 0 6px;text-transform: uppercase;background:red;margin:8px 0 0 0;font-size:20px;}
 .fixed-connect .subscribe a{height:100%;width:100%;display:block;}
 .fixed-connect .newsletter{float:left;margin:0 0 0 15px;font-size:14px;padding:8px 0 0 10px;border-left: 1px solid white;height: 42px;}
@@ -3008,7 +3011,6 @@ h2.related-stories{
     .home-featured{
         padding:20px 0 0 20px;
         width:50%;
-        display:block;
     }
     .home .home-featured:nth-child(odd){padding: 20px 20px 0 0;}
     .general {

@@ -2,13 +2,14 @@
   border-left: 1px solid black;
   border-right: 1px solid black;
   border-top: none !important;
-  width: 300px;
+  width: 310px;
   padding: 0 !important;
 }
 .header-image{
 	position: relative;
+	background: black;
 }
-
+.header-image img{margin: 0 auto;display: block;}
 .widget_channel-video-widget #locateChannel {
   margin: -10px 0 0 0;
   background: black;
@@ -19,6 +20,7 @@
 	width: 300px;
 	height: 92px;
 	padding: 0;
+	margin: 0 auto;
 }
 .widget_channel-video-widget .video-title{
 	background: url("img/widget_stripe_bg_29.png") 0 0 repeat-x;
@@ -46,7 +48,7 @@
 	font-size: 13px;
 	font-style: italic;
 	text-align: center;
-	margin: -6px 0 6px;
+	margin: -2px 0 18px;
 	padding: 0;
 }
 .widget_channel-video-widget #locateChannel #channelControlsContainer p {
@@ -61,7 +63,7 @@
 }
 
 .widget_channel-video-widget #locateChannel #channelControlsContainer #channelControls {
-	padding: 0 17px;
+	padding: 8px 22px;
 	margin: 0;
 }
 

@@ -71,3 +71,9 @@ a.category-name-link:hover{background: #2f7bb2;color: white;}
 .paging-posts .flex-direction-nav .flex-prev:hover {background-position:-148px 0 !important;}
 .paging-posts .flex-direction-nav .flex-next {background-position:-107px 0 !important;}
 .paging-posts .flex-direction-nav .flex-next:hover {background-position:-189px 0 !important;}
+
+/* =Responsive Breakpoints
+*******************************************************************************/
+@media only screen and (max-width: 1096px) {
+	.logo{width: 115px;}
+}

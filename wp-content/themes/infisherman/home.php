@@ -10,25 +10,16 @@ get_header(); ?>
                <!-- <a data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="subscribe-banner subscribe-banner-top js-responsive-section" href="#">
                     <img alt="" src="<?php bloginfo('template_directory'); ?>/images/pic/subscribe-banner.jpg">
                 </a>-->
-                <?php $fetured_slider_query = new WP_Query( 'category_name=featured&posts_per_page=5' ); ?>
-                <div data-position="<?php echo $dataPos = $dataPos + 1; ?> "class="post-slider homepage-slider loading-block js-responsive-section">
-                    <div class="jq-slider onload-hidden">
-                        <ul class="slides-inner slides">
-                            <?php while ($fetured_slider_query->have_posts()) : $fetured_slider_query->the_post(); ?>
-                            <li>
-                                <a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('post-home-thumb');?></a>
-                                <div class="nl-txt">
-                                    <?php echo the_primary_category(); ?>
-                                    <h2 class="entry-title home-entry-title"><a href="<?php the_permalink(); ?>" ><?php $title = the_title('','',FALSE); echo substr($title, 0, 70); if (strlen($title) > 70) echo "..."; ?></a></h2>
-                                    <!--<div class="shares-count">
-                                        <?php render_shares_count(get_permalink(), $post->ID) ?> <span>SHARES</span>
-                                    </div>
-                                    <a class="view-post" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">view post</a>-->
-                                </div>
-                            </li>
-                            <?php endwhile; ?>
-                        </ul>
+                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="clearfix js-responsive-section">
+                    <!--<div class="general-title clearfix">
+                        <h2>Featured</h2>
+                    </div>-->
+                    <div class="clearfix">
+                        <ul>
+                       	 	<?php if( function_exists('showFeaturedList') ){ echo showFeaturedPosts('1'); } ?>
+                       	</ul>
                     </div>
+              
                 </div>
                 <?php if(mobile()){ ?>
 	                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="js-responsive-section">
