@@ -43,6 +43,12 @@ function imo_community_setup_routes() {
     		$matchName = "&username=";
     	}
 
+
+    	if ($IMO_COMMUNITY_CONFIG['page_type'] == "state") {
+    		$regex = "/([^/]*)/?";
+    		$matchName = "&state=";
+    	}
+
     	$rewriteCondition = "^" . $IMO_COMMUNITY_CONFIG['community_home_slug'] . $regex;
     	$rewriteString = "index.php?pagename="
     					. $CONFIG_NAME

@@ -1,5 +1,5 @@
 jQuery(document).ready(function($) {
-	
+
 
     //Set the filter to the default settings
     filter = {};
@@ -12,12 +12,15 @@ jQuery(document).ready(function($) {
         filter.post_type = "report";
         filter.per_page=20;
         filter.post_count = 10000000;
+
+        if ($("#posts-container").attr("state").length > 0)
+            filter.state = $("#posts-container").attr("state");
     }
 
     //Highlight the default menu item
     $("ul.filter #filter-menu-default").addClass("active");
-	
-	
+
+
 	//Place ads
 	function adPlacement() {
 			$("#posts-container .community-ad").remove();
@@ -29,15 +32,15 @@ jQuery(document).ready(function($) {
 				.insertAfter("#posts-container .dif-post:nth-child(9n)");
 			}
 	}
-	
-	
+
+
 
     //Get the JSON using the above filter configuration and append the photos.
     getPhotosAndAppend();
-    
+
     loadMoreCheck();
     function getPhotosAndAppend() {
-        var url = "http://" + document.domain + "/community-api/posts?skip="+filter.skip+"&per_page="+filter.per_page+"&order_by="+filter.order_by+"&sort="+filter.sort+"&master="+filter.master+"&post_type="+filter.post_type;
+        var url = "http://" + document.domain + "/community-api/posts?skip="+filter.skip+"&per_page="+filter.per_page+"&order_by="+filter.order_by+"&sort="+filter.sort+"&master="+filter.master+"&post_type="+filter.post_type+"&state="+filter.state;
 
         $.getJSON(url,function(posts){
 
@@ -45,15 +48,15 @@ jQuery(document).ready(function($) {
 
                 var postHTML = _.template( $('#post-template').html() , { post: post });
                 $("#posts-container").append(postHTML);
-				
+
 				addthis.toolbox('.addthis_toolbox');
 
             });
-                        			
+
 			adPlacement();
             //hide the ajax loading spinner
             $("#ajax-loader").hide();
-            
+
 
         });
     }
@@ -86,7 +89,7 @@ jQuery(document).ready(function($) {
         //Clear the HTML and append posts
         $("#posts-container").html("");
         getPhotosAndAppend();
-		
+
         //Change menu title to reflect filter
         $(".menu-title.browse-community").html($menuItem.html());
 
@@ -96,10 +99,10 @@ jQuery(document).ready(function($) {
     //Loadmore button
   $("a.load-more").click(function(ev){
 		ev.preventDefault();
-		
+
 		filter.skip = filter.skip + filter.per_page;
 		getPhotosAndAppend();
-		
+
 		loadMoreCheck();
 		//refresh the sticky ad on load more
 		if (jQuery(window).width() >  610 ) {
@@ -111,17 +114,17 @@ jQuery(document).ready(function($) {
 			});
 		}
     });
-	
+
     //Check to see if loadmore needs to be hidden
     function loadMoreCheck() {
         var url = "http://" + document.domain + "/community-api/posts/counts?skip="+filter.skip+"&per_page="+filter.per_page+"&order_by="+filter.order_by+"&sort="+filter.sort+"&master="+filter.master+"&post_type="+filter.post_type;
-		
+
 
         $.getJSON(url,function(countData){
 
 
             var totalPostCount = countData[0].post_count;
-			
+
             //console.log(totalPostCount,filter.skip);
 
             if (filter.skip + filter.per_page >= totalPostCount ) {
@@ -131,7 +134,7 @@ jQuery(document).ready(function($) {
             }
 
         });
-        
+
     }
 
 

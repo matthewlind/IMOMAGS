@@ -25,7 +25,7 @@ function imo_sidebar($type){
 				echo '</div>';
 			echo '</div>';
 		    get_sidebar($type);
-		    	
+
 			    	echo '<div id="responderfollow"></div>';
 					echo '<div class="sidebar advert">';
 			    	//the_widget( 'Community_Slider' );
@@ -33,7 +33,7 @@ function imo_sidebar($type){
 							echo '<iframe id="sticky-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-sticky.php?ad_code='.$dartDomain.'"></iframe>';
 						echo '</div>';
 					echo '</div>';
-				
+
 		echo '</div>';
 	}
 }
@@ -104,9 +104,9 @@ function naw_community_init() {
 		)
 	);
 
-	
+
 	//External Community Configurations
-	
+
 	include("community-config/report.php");
 	include("community-config/general.php");
 	include("community-config/question.php");
@@ -116,6 +116,7 @@ function naw_community_init() {
 	include("community-config/edit-profile.php");
 	include("community-config/admin.php");
 	include("community-config/listing.php");
+	include("community-config/state-report.php");
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//NOTE: Configuration order matters! More specific URLs should appear before less specific urls on the same path.
