@@ -120,7 +120,7 @@ a.category-name-link:hover{background: #623d11;color: white;}
 .snap-drawers .mob-aside-menu > div > ul > li > a{color: white;}
 .snap-drawers .mob-aside-menu > div > ul > li > a.has-drop:after{border-top: 7px solid #cda220;top:18px;}
 .snap-drawers .mob-aside-menu > div > ul > li:hover > a.has-drop:after, .snap-drawers .mob-aside-menu > div > ul > li > a.has-drop:hover:after{border-top: 7px solid #cda220;}
-.sub-menu{width: auto;padding-top: 0;}
+.sub-menu{width: 100%;padding-top: 0;}
 .sub-menu li {
 	width: 168px;
 	border: none;
