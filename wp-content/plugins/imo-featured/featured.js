@@ -223,10 +223,7 @@ jQuery( document ).ready(function( $ ) {
 
 	    }
 
-	    function getParameterByName(name) {
-		    var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
-		    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
-		}
+
 
 		function attachDeleteEvent(deleteButton) {
 			$(deleteButton).on("click",function(ev){
@@ -246,6 +243,11 @@ jQuery( document ).ready(function( $ ) {
 
 
 });
+
+	    function getParameterByName(name) {
+		    var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+		    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+		}
 
 (function($) {
     $.QueryString = (function(a) {
