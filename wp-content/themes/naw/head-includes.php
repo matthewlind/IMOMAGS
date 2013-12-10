@@ -3,7 +3,7 @@
 /**
  *head-includes.php makes special things special.
  */
-
+$appArgument = "whitetailplus://www.northamericanwhitetail.com" . $_SERVER['REQUEST_URI'];
 ?>
 <meta name="apple-itunes-app" content="app-id=582721507">
 <script type="text/javascript">

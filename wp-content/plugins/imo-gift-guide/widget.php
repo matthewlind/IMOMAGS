@@ -92,7 +92,7 @@ class GiftGuideWidget extends \WP_Widget {
 										</script>
 										<noscript>
 										<a href="http://ad.doubleclick.net/N4930/jump/<?php echo $dartSite; ?>;sz=240x60;camp=fish;ord=[timestamp]?">
-										<img src="http://ad.doubleclick.net/N4930/ad/<?php echo $dartSite; ?>;sz=240x60;camp=fish;ord=[timestamp]?" width="240" height="60" />
+										<img src="http://ad.doubleclick.net/N4930/ad/<?php echo $dartSite; ?>;sz=240x60;camp=fish;ord=[timestamp]?" />
 										</a>
 										</noscript>
 									</li>

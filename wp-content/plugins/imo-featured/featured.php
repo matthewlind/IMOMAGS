@@ -263,7 +263,6 @@ function showFeaturedPosts($atts) {
                                     <div class='feat-img'><a href='$url' onclick='$tracking'><img src='$thumb' alt='$title' /></a></div>
                                     <div class='feat-text'>
                                     	<div class='clearfix'>
-	                                    	$primaryCat
 	                                    	<h3><a href='$url' onclick='$tracking'>$title</a></h3>
                                     	</div>
                                 </div>
