@@ -277,15 +277,13 @@
 	include_once get_stylesheet_directory() . "/network-bar.php";
 	fixed_connect_footer(); 
 ?>
+<div id="page" class="snap-content smooth-menu">
 <!-- Site - Bowhunter -->
 <div id='div-gpt-ad-1386788577276-9'>
 	<script type='text/javascript'>
 		googletag.cmd.push(function() { googletag.display('div-gpt-ad-1386788577276-9'); });
 	</script>
 </div>
-
-<div id="page" class="snap-content smooth-menu">
-
 <?php if (mobile() == false && tablet() == false) {  imo_dart_tag("1x1",false,array("pos"=>"skin")); } ?>
 	<div class="hfeed wrapper" data-role="content" role="main">
 	    <div class="layout-frame">

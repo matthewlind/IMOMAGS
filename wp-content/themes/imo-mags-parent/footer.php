@@ -23,11 +23,11 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 		                        <div class="column">
 		                            <h5>Hunt</h5>
 		                            <ul class="intermedia-list">
-		                                <li><a target="_blank" href="http://www.bowhuntingmag.com/"><img src="<?php bloginfo('template_directory'); ?>/images/logos/hunt-bowhunter.png" alt=""><span>Petersen's Bowhunting</span></a></li>
+		                                <li><a target="_blank" href="http://www.bowhuntingmag.com/"><img src="<?php bloginfo('template_directory'); ?>/images/logos/hunt-bowhunting.png" alt=""><span>Petersen's Bowhunting</span></a></li>
 		                                <li><a target="_blank" href="http://www.northamericanwhitetail.com/"><img src="<?php bloginfo('template_directory'); ?>/images/logos/hunt-whitetail.png" alt=""><span>North American Whitetail</span></a></li>
 		                                <li><a target="_blank" href="http://www.gundogmag.com/"><img src="<?php bloginfo('template_directory'); ?>/images/logos/hunt-gundog.png" alt=""><span>Gun Dog</span></a></li>
 		                                <li><a target="_blank" href="http://www.wildfowlmag.com/"><img src="<?php bloginfo('template_directory'); ?>/images/logos/hunt-wildfowl.png" alt=""><span>Wildfowl</span></a></li>
-		                                <li><a target="_blank" href="http://www.bowhunter.com/"><img src="<?php bloginfo('template_directory'); ?>/images/logos/hunt-bowhunting.png" alt=""><span>Bowhunter</span></a></li>
+		                                <li><a target="_blank" href="http://www.bowhunter.com/"><img src="<?php bloginfo('template_directory'); ?>/images/logos/hunt-bowhunter.png" alt=""><span>Bowhunter</span></a></li>
 		                                <li><a target="_blank" href="http://www.petersenshunting.com/"><img src="<?php bloginfo('template_directory'); ?>/images/logos/hunt-hunting.png" alt=""><span>Petersen's Hunting</span></a></li>
 		                            </ul>
 		                        </div>

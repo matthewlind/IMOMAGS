@@ -13,6 +13,20 @@ define("SITE_LINK", "northamericanwhitetail.com");
 define("SITE_NAME", "North American Whitetail");
 
 
+/***
+**
+** Enqueue Scripts
+**
+***/
+function naw_scripts_method() {
+    wp_deregister_script( 'jquery' );
+    wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js');
+
+    wp_enqueue_script( 'jquery' );
+    wp_enqueue_script("cross-site-feed", get_template_directory_uri() . "/js/cross-site-feed.js");
+
+}
+add_action('wp_enqueue_scripts', 'naw_scripts_method');
 
 function imo_sidebar($type){
 	//Speed up mobile load time by not loading sidebar in the background

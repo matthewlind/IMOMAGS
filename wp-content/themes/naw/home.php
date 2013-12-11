@@ -26,35 +26,11 @@ get_header(); ?>
 				<!--</div>-->
 				<?php //} ?>
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section main-content-preppend">
-					<!--<div class="general-title clearfix">
-                        <h2>Popular</h2>
-                    </div>-->
- 
-                    <div class="post article-brief clearfix cross-site-feed" term="">
-                        <!--<div class="posts-list-sep"><div class="bar"></div></div>-->
-                        <a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('list-thumb');?></a>
-                        <div class="article-holder">
-                            <div class="clearfix">
-                                <?php 
-	                                if(function_exists('primary_and_secondary_categories')){
-	                                	echo primary_and_secondary_categories(); 
-	                                }                                
-                                ?>
-                            </div>
-                            <h3 class="entry-title">
-                                <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
-                            </h3>
-                            <!--<a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('list-thumb');?></a>-->
-                            <!-- .entry-header -->
-                            <!--<a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>-->
-                            <div class="entry-content">
-                                <?php the_excerpt(); ?>
-                                <?php //the_content( __( 'more <span class="meta-nav">&raquo;</span>', 'twentytwelve' ) ); ?>
-                                <?php wp_link_pages( array( 'before' => '<div class="page-links">' . 'Pages:', 'after' => '</div>' ) ); ?>
-                            </div><!-- .entry-content -->
-                        </div>
-                    </div><!-- #post -->
-                    <?php if ( (($i - (($paged -1) * 2 ))%6) == 0 ): ?>
+					<div class="general-title clearfix">
+                        <h2>Latest</h2>
+                    </div>
+                    <div class="cross-site-feed" term=""></div>
+                        <?php if ( (($i - (($paged -1) * 2 ))%6) == 0 ): ?>
                         <?php if ( mobile() ){ ?>
                         <div class="image-banner posts-image-banner">
                             <?php imo_dart_tag("300x250",array("pos"=>"mob")); ?> 
@@ -62,10 +38,9 @@ get_header(); ?>
                         <?php } ?>
                     <?php endif;?>
 
-                <?php $i++; endwhile; ?>
                 </div>
 				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="pager-holder js-responsive-section">
-                    <a href="#" class="btn-base">Load More</a>
+                    <a href="#" class="btn-base cross-site-feed-more-button">Load More</a>
                     <div class="next-link" style="display:none;"><?php next_posts_link(); ?></div>
                     <a href="#" class="go-top jq-go-top">go top</a>
 
@@ -79,6 +54,25 @@ get_header(); ?>
             </div><!-- #content -->
         </div>
     </div><!-- #primary -->
+	 <div id="site-feed" class="post article-brief clearfix" style="display:none;">
+        <a href=""><img src="" class="attachment-list-thumb wp-post-image" alt="" /></a>
+        <div class="article-holder">
+            <div class="clearfix">
+                <?php 
+                    //if(function_exists('primary_and_secondary_categories')){
+                    	//echo primary_and_secondary_categories(); 
+                   // }                                
+                ?>
+                <span class="cat-feat-label"></span>
+            </div>
+            <h3 class="entry-title">
+                <a href="" title="" rel="bookmark"></a>
+            </h3>
+            <!-- .entry-header -->
+            <!--<a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>-->
+            <div class="entry-content"></div><!-- .entry-content -->
+        </div>
+    </div><!-- #post -->
 
 
 <?php get_footer(); ?>
