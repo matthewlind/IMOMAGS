@@ -18,7 +18,8 @@ function imo_sidebar($type){
 		echo '<div class="sidebar-area">';
 			echo '<div class="sidebar">';
 				echo '<div class="widget_advert-widget">';
-					split_120_ad();
+					//split_120_ad();
+					imo_dart_tag("300x250");
 				echo '</div>';
 			echo '</div>';
 		    get_sidebar($type);
@@ -37,11 +38,12 @@ function imo_sidebar($type){
 
 function split_120_ad(){ ?>
 	<!-- Site - Shotgun News -->
-	<div id='div-gpt-ad-1386782139095-2' class="image-banner">
-		<script type='text/javascript'>
-			googletag.cmd.push(function() { googletag.display('div-gpt-ad-1386782139095-2'); });
-			googletag.cmd.push(function() { googletag.display('div-gpt-ad-1386782139095-2'); });
-		</script>
+	<div class="image-banner">
+		<div id='div-gpt-ad-1386782139095-2'>
+			<script type='text/javascript'>
+				googletag.cmd.push(function() { googletag.display('div-gpt-ad-1386782139095-2'); });
+			</script>
+		</div>
 	</div>
 <?php } 
 

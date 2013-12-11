@@ -1049,6 +1049,7 @@ a.category-name-link:hover{
     color:#040503;
     padding:0;
     font:24px/1.2em "open_sanssemibold", "Helvetica Neue", "Helvetica", Helvetica, Arial, Arial, sans-serif;
+    max-width: 360px;
 }
 .article-brief h3 a,
 .feat-text h3 a {color:#040503;}
@@ -3839,6 +3840,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 	.special-features .home-featured, .special-features .home-featured.features{width: 100%;float: none;padding: 0;min-height: 0;}
 	.special-features .home-featured.features .feat-text{padding: 6px 0;}
 	.special-features .feat-text{padding:12px 0 6px;text-align: center;}
+	.article-brief .comment-count, .featured-area .comment-count{display: none;}
+	.article-brief h3 a, .feat-text h3{max-width: 100%;}
 	.arrow-right {
 		border-left: 15px solid transparent !important;
 		border-right: 15px solid transparent !important;
@@ -4294,9 +4297,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
         margin-bottom:10px;
     }
     .arrow-right {left: 130px !important;}
-    .gallery-slider #gallery-iframe-ad{
-		margin: 0 auto 0 -47px !important;
-	}
+	.gallery-holder{position:relative;background: black;left: -20px;width: 320px;}
 }
 
 /* Webkit Hacks  */

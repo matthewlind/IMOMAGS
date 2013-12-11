@@ -438,10 +438,6 @@ $mobile_output .= <<<EOT3
 					var li_height = jQuery(".flex-active-slide").height();
 					jQuery(".gallery-slider div.flex-viewport").css("max-height",li_height);	
 				});
-				
-				jQuery(".gallery-slider .flex-direction-nav a").click(function() {
-		    		
-				});
 		    		
 				function positionNavArrows() {
 					//var arrowNavTop = jQuery('.gallery-slider .slide-count').outerHeight() + jQuery('.gallery-slider .gallery-iframe-ad').outerHeight() + jQuery('.gallery-slider .general-title').outerHeight() + ((jQuery('.gallery-slider ul.slides').height() - jQuery('.gallery-slider .feat-text').outerHeight())/2) - (jQuery('.gallery-slider .flex-direction-nav a').height()/2) + 20;

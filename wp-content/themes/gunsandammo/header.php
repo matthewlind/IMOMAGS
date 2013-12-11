@@ -74,11 +74,43 @@
 		$service_link = get_option('service_link' );
 		$subs_form_link = get_option('subs_form_link' );
 		$i4ky = get_option('i4ky' );
+		$dartDomain = get_option("dart_domain", $default = false);
 	?>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/dart.js" type="text/javascript"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.jfollow.js" type="text/javascript"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/flash_heed.js" type="text/javascript"></script>
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/snap.js"></script>
+	<script type='text/javascript'>
+		var googletag = googletag || {};
+		googletag.cmd = googletag.cmd || [];
+		(function() {
+		var gads = document.createElement('script');
+		gads.async = true;
+		gads.type = 'text/javascript';
+		var useSSL = 'https:' == document.location.protocol;
+		gads.src = (useSSL ? 'https:' : 'http:') +
+		'//www.googletagservices.com/tag/js/gpt.js';
+		var node = document.getElementsByTagName('script')[0];
+		node.parentNode.insertBefore(gads, node);
+		})();
+	</script>
+	 
+	<script type='text/javascript'>
+		googletag.cmd.push(function() {
+			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [1, 1], 'div-gpt-ad-1386782139095-0').addService(googletag.pubads());
+			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [240, 60], 'div-gpt-ad-1386782139095-1').addService(googletag.pubads());
+			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 120], 'div-gpt-ad-1386782139095-2').addService(googletag.pubads());
+			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], 'div-gpt-ad-1386782139095-3').addService(googletag.pubads());
+			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 300], 'div-gpt-ad-1386782139095-4').addService(googletag.pubads());
+			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 600], 'div-gpt-ad-1386782139095-5').addService(googletag.pubads());
+			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 602], 'div-gpt-ad-1386782139095-6').addService(googletag.pubads());
+			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [728, 90], 'div-gpt-ad-1386782139095-7').addService(googletag.pubads());
+			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [1080, 90], 'div-gpt-ad-1386782139095-8').addService(googletag.pubads());
+			googletag.pubads().enableSingleRequest();
+			googletag.pubads().enableVideoAds();
+			googletag.enableServices();
+		});
+	</script>
 	<?php if ( defined('JETPACK_SITE') && mobile() == false && tablet() == false): ?>
 		<script type='text/javascript' src='http://ads.jetpackdigital.com/sites/<?php print JETPACK_SITE; ?>/jpd.js'></script>
 	<?php endif; ?>
@@ -99,7 +131,7 @@
     <div class="snap-drawer snap-drawer-left" id="left-drawer">
         <div>
 			<div class="mobile-menu-banner">
-				<?php $dartDomain = get_option("dart_domain", $default = false); ?>
+				
 				<iframe id="menu-iframe-ad" width="320" height="50" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-menu.php?size=320x50&ad_code=<?php echo $dartDomain; ?>"></iframe>
 			</div>	
 	
@@ -177,7 +209,7 @@
 	<div class="snap-drawer snap-drawer-right" id="right-drawer">
 		 <div>
 			<div class="mobile-menu-banner">
-				<?php $dartDomain = get_option("dart_domain", $default = false); ?>
+				
 				<iframe id="menu-iframe-ad" width="320" height="50" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-menu.php?size=320x50&ad_code=<?php echo $dartDomain; ?>"></iframe>
 			</div>	
 	
@@ -247,6 +279,12 @@
 	include_once get_stylesheet_directory() . "/network-bar.php";
 	fixed_connect_footer(); 
 ?>
+<!-- Site - Bowhunter -->
+<div id='div-gpt-ad-1386788577276-9'>
+	<script type='text/javascript'>
+		googletag.cmd.push(function() { googletag.display('div-gpt-ad-1386788577276-9'); });
+	</script>
+</div>
 
 <div id="page" class="snap-content smooth-menu">
 
