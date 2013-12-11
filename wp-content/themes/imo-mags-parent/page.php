@@ -12,8 +12,8 @@
  * @since Twenty Eleven 1.0
  */
 
-get_header(); ?>
-	<?php imo_sidebar('landing');?>
+get_header(); 
+imo_sidebar(); ?>
 	<div id="primary" class="general">
         <div class="general-frame">
             <div id="content" role="main">

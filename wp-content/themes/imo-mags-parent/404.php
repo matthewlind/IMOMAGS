@@ -12,7 +12,7 @@ header ("Cache-Control: max-age=20800"); // HTTP 1.1
 
 $dataPos = 0;
 get_header();
-imo_sidebar();?>
+imo_sidebar(); ?>
 	<div id="primary" class="general">
         <div class="general-frame">
             <div id="content" role="main">
@@ -20,7 +20,7 @@ imo_sidebar();?>
 					 <strong class="message-not-found">Error: Page not found.</strong>
 					 <p style="padding: 0 30px 30px;">Unfortunately, We can't find the page you are looking for. Here are the latest stories from In-Fisherman</p>
             	 </div>
-				<div class="js-responsive-section main-content-preppend">
+				<div class="posts-list js-responsive-section main-content-preppend">
 						<?php
 							$custom_query = new WP_Query('order=DESC&limit=10');
 							while ($custom_query->have_posts()) : $custom_query->the_post();

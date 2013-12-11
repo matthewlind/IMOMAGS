@@ -14,7 +14,7 @@ get_header(); ?>
 	</ul>
 </div>
     <div class="inner-main">
-    	<?php imo_sidebar();?>
+    	<?php imo_sidebar(); ?>
 		<div id="primary" class="general">
             <div id="content" class="general-frame" role="main">
 

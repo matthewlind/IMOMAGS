@@ -578,8 +578,8 @@ img{max-width: 100%;height: auto;}
 .search-field input {
     float:left;
     width:174px;
-    padding:8px 0 0 8px;
-    font:italic 13px/15px "open_sansregular", Helvetica, Arial, sans-serif;
+    padding:4px 0 4px 8px;
+    font:italic 14px/14px "open_sansregular", Helvetica, Arial, sans-serif;
     color:#3c3c3c;
     border:0;
     background:none;
@@ -1529,7 +1529,7 @@ a.category-name-link:hover{
     clear: both;
 }
 .post-header h1, .page-title.author a{
-    font:50px/1.2 "open_sansbold", Helvetica, Arial, serif;
+    font:40px/1.2 "open_sansbold", Helvetica, Arial, serif;
     color:#040503;
     margin:0 0 10px;
     padding-right: 40px;
@@ -3093,7 +3093,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 	.h-search-open {
 	   display: block !important;
 	   position:absolute;
-	   top:44px;
+	   top:43px;
 	   left:0;
 	   background:#fff;
 	   border-top: 1px solid #dddcdb;
@@ -3243,9 +3243,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
     .paging-post {
         padding:19px;
     }
-    .post-header h1 {
-        font-size:40px;
-    }
+
     /* sidebar */
     .sidebar-area {
     	padding-top: 20px;
@@ -3916,10 +3914,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
     #slidingMenu iframe {
 		width: 296px !important;
     }
-    .logo {
-        width:134px;
-        height:32px;
-    }
+ 
     .open-search {
         width:44px;
         height:44px;

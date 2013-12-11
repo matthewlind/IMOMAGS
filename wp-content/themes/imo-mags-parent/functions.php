@@ -152,6 +152,14 @@ function parent_theme_setup()
 
 function parent_theme_widgets_init()
 {
+	 register_sidebar( array(
+        'name' => __( 'Main Sidebar', 'imo-mags-parent' ),
+        'id' => 'sidebar-1',
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget' => "</div>",
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>',
+    ) );
 
     // register_widget( 'Twenty_Eleven_Ephemera_Widget' );
 
@@ -180,17 +188,9 @@ function parent_theme_widgets_init()
         'after_widget' => "</div>",
         'before_title' => '<h3 class="widget-title">',
         'after_title' => '</h3>',
-    ) );*/
-
-    register_sidebar( array(
-        'name' => __( 'Home Sidebar', 'imo-mags-parent' ),
-        'id' => 'sidebar-1',
-        'before_widget' => '<div id="%1$s" class="widget %2$s">',
-        'after_widget' => "</div>",
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
     ) );
 
+   
     register_sidebar( array(
         'name' => __( 'Article Sidebar', 'imo-mags-parent' ),
         'id' => 'sidebar-2',
@@ -211,17 +211,7 @@ function parent_theme_widgets_init()
         'after_title' => '</h3>',
     ) );
 
-    register_sidebar( array(
-        'name' => __( 'Community Sidebar', 'imo-mags-parent' ),
-        'id' => 'sidebar-4',
-        'description' => __( 'The sidebar for community pages', 'twentyeleven' ),
-        'before_widget' => '<div id="%1$s" class="widget %2$s">',
-        'after_widget' => "</div>",
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
-    ) );
-
-   /*register_sidebar( array(
+   register_sidebar( array(
         'name' => __( 'Footer Area Two', 'parent_theme' ),
         'id' => 'sidebar-4',
         'description' => __( 'An optional widget area for your site footer', 'twentyeleven' ),

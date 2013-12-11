@@ -11,7 +11,7 @@ if($cat_slug == "trout-salmon"){
 $dataPos = 0;
 
 get_header(); ?>
-        <?php imo_sidebar("landing");?>
+        <?php imo_sidebar(); ?>
         <div id="primary" class="general">
             <div id="content" role="main" class="general-frame">
                 

@@ -13,8 +13,8 @@ wp_enqueue_style('ajax-gallery-css',plugins_url('imo-flex-gallery/flex-gallery.c
 wp_enqueue_style('perfect-scrollbar-css',plugins_url('imo-flex-gallery/perfect-scrollbar-0.4.3.min.css'));
 
 $dataPos = 0;
-get_header(); ?>
-        <?php imo_sidebar("landing");?>
+get_header(); 
+imo_sidebar(); ?>
         <div id="primary" class="general">
             <div id="content" role="main" class="general-frame">
 

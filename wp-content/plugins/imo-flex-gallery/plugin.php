@@ -490,16 +490,14 @@ $mobile_output .= <<<EOFmobile_standard
 		</script>
 EOFmobile_standard;
 }
-		if($_SERVER['SERVER_NAME'] != "www.floridasportsman.com" || $_SERVER['SERVER_NAME'] != "www.gunsandammo.com" || $_SERVER['SERVER_NAME'] != "www.shootingtimes.com" || $_SERVER['SERVER_NAME'] != "www.shotgunnews.com" || $_SERVER['SERVER_NAME'] != "www.handgunsmag.com" || $_SERVER['SERVER_NAME'] != "www.rifleshootermag.com" || $_SERVER['SERVER_NAME'] != "www.northamericanwhitetail.com"){
-			if (mobile()){
-				return $mobile_output;
-			}else{
-            	//return $mobile_output;
-               	return $desktop_tablet_output;
-			}
-		} else {
-            return $desktop_tablet_output;
-		}
+		
+	if (mobile()){
+		return $mobile_output;
+	}else{
+    	//return $mobile_output;
+       	return $desktop_tablet_output;
+	}
+		
 }
 
 //Since we don't want to add the scripts to every page, we check to see if we need them before adding

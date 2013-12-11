@@ -38,7 +38,7 @@ if ($imageURL)
 	$h1Class .= " has-image";
 
 get_header();
-imo_sidebar("landing");?>
+imo_sidebar(); ?>
 
 <div id="primary" class="general category-page">
 	<div id="content" role="main" class="<?php echo $h1Class; ?> general-frame">
