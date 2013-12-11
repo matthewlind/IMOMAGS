@@ -243,7 +243,10 @@
 
 </div>
 
-<?php fixed_connect_footer(); ?>
+<?php 
+	include_once get_stylesheet_directory() . "/network-bar.php";
+	fixed_connect_footer(); 
+?>
 
 <div id="page" class="snap-content smooth-menu">
 

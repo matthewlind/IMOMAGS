@@ -75,7 +75,6 @@ function social_footer(){ ?>
 	<?php 
 }
 
-
 /*New Menu for TV*/
 
 add_action( 'init', 'register_rt_menu' );

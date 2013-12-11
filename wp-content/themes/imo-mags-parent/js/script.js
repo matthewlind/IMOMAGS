@@ -9,6 +9,47 @@ jQuery(window).load(function() {
 
 jQuery(document).ready(function () {
 	
+	/*****
+	**
+	** IMO NETWORK TOPHAT
+	**
+	*****/
+
+					
+		var $window = jQuery(window);
+	    var $networkNav = jQuery(".network-nav");
+	    var $tophat = jQuery("#imo-tophat");
+	   
+	    // show network nav at top on load
+	    if ($window.scrollTop() != 0) {             
+	        $networkNav.slideDown(1000,function(){
+		        jQuery(this).css("top", "30px");
+		    });    
+	    }   
+	    setTimeout(function() {
+	    // Moves status bar to top of browser window on scroll
+	    $window.scroll(function () { 
+	        $networkNav.stop().animate({
+	            top: -100
+	            }, 500, function() {
+	                if ($window.scrollTop() == 0) {
+	                    jQuery(this).animate({ display: 'block',top: 30 },300); // return to default position                             
+	                }
+	        });
+	    });
+	    }, 1000);
+	      
+	    //hover over to reveal
+		$tophat.hover(function(){
+	    	$networkNav.slideDown(100,function(){
+	    		jQuery(this).stop().animate({top: 30});
+	    	});
+	   
+	    });
+	     	
+
+
+	
 	
 	
 	jQuery(function(){
