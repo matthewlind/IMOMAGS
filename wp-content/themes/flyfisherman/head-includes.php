@@ -15,10 +15,8 @@
   _gaq.push(['_setDomainName', 'none']);
   _gaq.push(['_setAllowLinker', true]);
   _gaq.push(['_trackPageview']);
-
-  _gaq.push(['_setAccount', 'UA-12158262-1']);
-  _gaq.push(['_setDomainName', 'none']);
-  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_setAccount', 'UA-2409437-4']);
+  _gaq.push(['_setDomainName', '.flyfisherman.com']);
   <?php
   	if (is_single()) {
 		$author = get_the_author();

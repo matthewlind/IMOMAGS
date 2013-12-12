@@ -20,7 +20,6 @@ body{background:url(images/bg/shotgunnews-bg.jpg) no-repeat center top black;}
 .subscribe-box .journal{margin: 0;}
 .h-mdl-widget{margin: 0;}
 .sn-menu{background: #040503;height: 44px;clear: both;width: 1020px;margin: 0 auto;}
-.menu-top-menu-container{margin-left: 30px;}
 .h-search-form{display: none;}
 .open-search{display: block;position: absolute;right: 29px;top: 224px;background-color: white;border:1px solid black;border-width: 1px 1px 1px 0;background-position: -304px -177px;}
 .h-search-open {
@@ -42,6 +41,7 @@ body{background:url(images/bg/shotgunnews-bg.jpg) no-repeat center top black;}
 .socials a.youtube{display: none;}
 .socials a.rss:hover {background-position:-206px 0;}
 .socials a.rss {background-position:-340px 0;}
+.menu-top-menu-container li{padding: 2px 8px 2px 10px;}
 
 /* Tags reset
 *******************************************************************************/

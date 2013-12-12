@@ -358,6 +358,7 @@
 					</div>
 					<?php endif; ?>
                 </div><!-- #branding -->
+                <div class="clearfix">
                 	<?php 
                 	if(get_option("menu_key")){ ?>
 	                	<div class="menu-top-menu-container subscribe-left">
@@ -373,6 +374,7 @@
 						));  
                     } ?>
                 <!-- #access -->
+                </div>
 				<div class="sn-menu">
                     <?php
                     wp_nav_menu(array(
