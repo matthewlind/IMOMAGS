@@ -5,6 +5,7 @@
  */
 
 ?>
+<link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 <script type="text/javascript">
 
   var _gaq = _gaq || [];

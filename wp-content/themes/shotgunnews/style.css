@@ -12,8 +12,36 @@ General comments (optional).
 
 @import url("../imo-mags-parent/style.css");
 body{background:url(images/bg/shotgunnews-bg.jpg) no-repeat center top black;}
-.header{background-color:white;padding-top: 74px;}
-
+.header{background-color:white;padding-top: 84px;}
+.logo{margin-left: 30px;}
+.logo img{width: 694px;}
+.tagline{background: url(images/tagline.jpg) no-repeat center top;width: 100%;margin: 0 auto;height: 15px;}
+#subscribe-area{margin-right: 30px;}
+.subscribe-box .journal{margin: 0;}
+.h-mdl-widget{margin: 0;}
+.sn-menu{background: #040503;height: 44px;clear: both;width: 1020px;margin: 0 auto;}
+.h-search-form{display: none;}
+.open-search{display: block;position: absolute;right: 29px;top: 224px;background-color: white;border:1px solid black;border-width: 1px 1px 1px 0;background-position: -304px -177px;}
+.h-search-open {
+	display: block !important;
+	position: absolute;
+	top: 266px;
+	left: 29px;
+	background: black;
+	border-top: 1px solid white;
+	padding: 10px;
+	width: 1020px;
+}
+.h-search-form {float: right;margin-top: 1px;}
+.socials-hold{padding: 6px 48px 0 5px;border-left: 1px solid white;height: 44px;}
+.socials a.facebook:hover {background-position:-105px 0;}
+.socials a.facebook {background-position:-239px 0;}
+.socials a.twitter:hover {background-position:-140px 0;}
+.socials a.twitter {background-position:-273px 0;}
+.socials a.youtube{display: none;}
+.socials a.rss:hover {background-position:-206px 0;}
+.socials a.rss {background-position:-340px 0;}
+.menu-top-menu-container li{padding: 2px 8px 2px 10px;}
 
 /* Tags reset
 *******************************************************************************/
@@ -33,24 +61,24 @@ a,
 .author-item a:hover,
 .ui-panel .menu-top-menu-container a:hover,
 .ui-panel .mob-aside-menu li.drop-open > a,
-.ui-panel .mob-aside-menu > div > ul > li > a:hover {color:#005da4;}
-.logo img{width: 314px;margin-top: 16px;}
-.menu-main-menu-container, .menu-header-menu-container{background:black;}
-.menu-main-menu-container a.has-drop:after, .menu-header-menu-container a.has-drop:after {border-top: 7px solid #005da4;}
+.ui-panel .mob-aside-menu > div > ul > li > a:hover {color:#025da4;}
+.menu-main-menu-container, .menu-header-menu-container{width: 82%;}
+.menu-main-menu-container a.has-drop:after, .menu-header-menu-container a.has-drop:after {border-top: 7px solid #025da4;}
 a.category-name-link.primary-cat,
-a.category-name-link:hover{background: #005da4;color: white;}
+a.category-name-link:hover{background: #025da4;color: white;}
+.menu-main-menu-container > ul > li > a{font: 16px/46px 'Arvo', arial, serif, sans-serif;padding: 0 14px;font-weight: 700;}
 .signup-box h3,
 .header .menu-main-menu-container > ul > li.current-menu-item > a,
-.header .menu-header-menu-container > ul > li.current-menu-item > a,
-.menu-main-menu-container > ul > li:hover > a,
+.header .menu-header-menu-container > ul > li.current-menu-item > a,,
 .menu-header-menu-container > ul > li:hover > a,
 .menu-main-menu-container > ul > li > a:hover,
-.menu-header-menu-container > ul > li > a:hover{background: #005da4;}
-.ui-panel .mob-aside-menu > div > ul > li > a.has-drop:after {border-top: 7px solid #005da4;}
+.menu-header-menu-container > ul > li > a:hover{background: #025da4;}
+.menu-main-menu-container > ul > li:hover > a{color: #025da4;}
+.ui-panel .mob-aside-menu > div > ul > li > a.has-drop:after {border-top: 7px solid #025da4;}
 .get-newsletter{text-shadow: 0 -1px 0 #000;}
 /*sprite*/
-.open-menu, .user-btn, .open-search, .filter-links li:before, .menu-top-menu-container li:before, .socials a, .view-post, .go-top, .back-top:before, .get-newsletter, .cal-carousel .gal-prev, .cal-carousel .gal-next, .full-post .comment-count, 
-.article-brief .comment-count, .search-field input[type="submit"] {background-image: url(images/sprite.png);}
+.user-btn, .filter-links li:before, .menu-top-menu-container li:before, .socials a, .view-post, .go-top, .back-top:before, .get-newsletter, .cal-carousel .gal-prev, .cal-carousel .gal-next, .full-post .comment-count, .socials a, .open-search,
+.article-brief .comment-count {background-image: url(images/sprite.png);}
 
 /*flexslider*/
 /* Direction Nav */
@@ -73,7 +101,43 @@ a.category-name-link:hover{background: #005da4;color: white;}
 .paging-posts .flex-direction-nav .flex-next {background-position:-107px 0 !important;}
 .paging-posts .flex-direction-nav .flex-next:hover {background-position:-189px 0 !important;}
 
+
 @media only screen and (max-width: 1096px){
-	.logo {margin-top: 0;}
 	.header{height: 48px;padding-top: 0;}
+	.tagline{display: none;}
+	.logo {margin: 0;width: 165px;}
+	.logo img {width: 165px;margin-top: 12px;}
+	.open-menu{background: url(images/sprite.png) no-repeat -306px -131px;}
+	.open-search{position: relative;top: auto;right:0;border-width: 0 0 0 1px;border-color:#dddcdb;background: url(/wp-content/themes/imo-mags-parent/images/sprite.png) no-repeat -304px -175px;}
+	.h-search-open{top: 44px;width: 100%;left: 0;background: white;}
+	.sn-menu{background: transparent;height: 0;}
+	.header .socials {right: 44px;}
+	.socials-hold{border: none;}
+	#subscribe-area{right: 195px;margin-right: 0;}
+	.search-field input {width: 80%;}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

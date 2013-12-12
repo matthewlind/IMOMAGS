@@ -16,7 +16,7 @@
  
 $dataPos = 0;
 get_header();
-imo_sidebar();?>
+imo_sidebar(); ?>
 	<div id="primary" class="general">
         <div class="general-frame">
             <div id="content" role="main">

@@ -438,10 +438,6 @@ $mobile_output .= <<<EOT3
 					var li_height = jQuery(".flex-active-slide").height();
 					jQuery(".gallery-slider div.flex-viewport").css("max-height",li_height);	
 				});
-				
-				jQuery(".gallery-slider .flex-direction-nav a").click(function() {
-		    		
-				});
 		    		
 				function positionNavArrows() {
 					//var arrowNavTop = jQuery('.gallery-slider .slide-count').outerHeight() + jQuery('.gallery-slider .gallery-iframe-ad').outerHeight() + jQuery('.gallery-slider .general-title').outerHeight() + ((jQuery('.gallery-slider ul.slides').height() - jQuery('.gallery-slider .feat-text').outerHeight())/2) - (jQuery('.gallery-slider .flex-direction-nav a').height()/2) + 20;
@@ -490,16 +486,14 @@ $mobile_output .= <<<EOFmobile_standard
 		</script>
 EOFmobile_standard;
 }
-		if($_SERVER['SERVER_NAME'] != "www.floridasportsman.com" || $_SERVER['SERVER_NAME'] != "www.gunsandammo.com" || $_SERVER['SERVER_NAME'] != "www.shootingtimes.com" || $_SERVER['SERVER_NAME'] != "www.shotgunnews.com" || $_SERVER['SERVER_NAME'] != "www.handgunsmag.com" || $_SERVER['SERVER_NAME'] != "www.rifleshootermag.com" || $_SERVER['SERVER_NAME'] != "www.northamericanwhitetail.com"){
-			if (mobile()){
-				return $mobile_output;
-			}else{
-            	//return $mobile_output;
-               	return $desktop_tablet_output;
-			}
-		} else {
-            return $desktop_tablet_output;
-		}
+		
+	if (mobile()){
+		return $mobile_output;
+	}else{
+    	//return $mobile_output;
+       	return $desktop_tablet_output;
+	}
+		
 }
 
 //Since we don't want to add the scripts to every page, we check to see if we need them before adding

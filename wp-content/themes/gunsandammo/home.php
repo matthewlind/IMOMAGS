@@ -18,17 +18,16 @@ get_header(); ?>
                        	</ul>
                     </div>
                 </div>
-				<?php 
-				//Shotgun news ad units
-				//if( mobile() && function_exists('split_120_ad') ){ ?>
-				<!--<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="js-responsive-section">-->
-					<?php //split_120_ad(); ?>			
-				<!--</div>-->
-				<?php //} ?>
+				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="js-responsive-section">
+					<?php the_widget('GAReviewWidget'); ?>			
+				</div>
+				
+				
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section main-content-preppend">
 					<!--<div class="general-title clearfix">
                         <h2>Popular</h2>
                     </div>-->
+                    
                     <?php 
 					$slug = 'featured';
 					$category = get_category_by_slug($slug);

@@ -5,6 +5,9 @@ jQuery(window).load(function() {
     //jQuery('#at4m-mobile').appendTo("#page");
     jQuery('td.gsc-input').removeClass('gsc-input');
     jQuery('.gsc-search-button').attr('src','').removeClass('gsc-search-button');
+    jQuery(".feat-text.exp").css("height","0px");
+	var li_height = jQuery(".flex-active-slide").height();
+	jQuery(".gallery-slider div.flex-viewport").css("max-height",li_height);
 });
 
 jQuery(document).ready(function () {

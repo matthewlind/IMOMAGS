@@ -1,7 +1,7 @@
 <?php
 $dataPos = 0;
 get_header(); ?>
-	<?php imo_sidebar('home');?>
+	<?php imo_sidebar(); ?>
 	<div id="primary" class="general">
         <div class="general-frame">
             <div id="content" role="main">

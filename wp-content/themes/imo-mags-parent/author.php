@@ -8,7 +8,7 @@
  */
 $dataPos = 0;
 get_header(); ?>
-	<?php imo_sidebar();?>
+	<?php imo_sidebar(); ?>
 		<div id="primary" class="general">
             <div id="content" role="main" class="general-frame">
 	            <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header clearfix js-responsive-section">

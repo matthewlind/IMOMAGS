@@ -75,8 +75,8 @@
 		$subs_form_link = get_option('subs_form_link' );
 		$i4ky = get_option('i4ky' );
 		$dartDomain = get_option("dart_domain", $default = false);
-
 	?>
+	<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/dart.js" type="text/javascript"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.jfollow.js" type="text/javascript"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/flash_heed.js" type="text/javascript"></script>
@@ -137,74 +137,7 @@
 			</div>	
 	
 	        <div class="mob-aside-menu">
-	        <?php //if(mobile()){ ?>
-	         <div>
-	        	<ul id="menu-main-menu" class="menu">
-			   		<li class="main-menu-item menu-item-even">
-		   				<a href="#" class="menu-link main-menu-link has-drop">Your State</a>
-		   				<div class="drop-down">
-			   		<ul class="sub-menu menu-odd">
-			    		<li><a class="region" href="/new-england/">NEW ENGLAND</a></li>
-			    		<li><a href="/connecticut/">connecticut</a></li>
-			    		<li><a href="/maine/">maine</a></li>
-			    		<li><a href="/massachusetts/">massachusetts</a></li>
-			    		<li><a href="/newhampshire/">new hampshire</a></li>
-						<li><a href="/rhodeisland/">rhode island</a></li>
-			    		<li><a href="/vermont/">vermont</a></li>
-			    		<li><a class="region" href="/northeast/">NORTHEAST</a></li>
-			    		<li><a href="/delaware/">delaware</a></li>
-						<li><a href="/maryland/">maryland</a></li>		
-						<li><a href="/newjersey/">new jersey</a></li>
-						<li><a href="/newyork/">new york</a></li>
-						<li><a href="/pennsylvania/">pennsylvania</a></li>
-						<li><a class="region" href="/midwest/">MIDWEST</a></li>
-						<li><a href="/illinois/">illinois</a></li>
-						<li><a href="/indiana/">indiana</a></li>
-						<li><a href="/iowa/">iowa</a></li>
-						<li><a href="/kansas/">kansas</a></li>
-						<li><a href="/michigan/">michigan</a></li>
-						<li><a href="/minnesota/">minnesota</a></li>
-						<li><a href="/missouri/">missouri</a></li>
-						<li><a href="/nebraska/">nebraska</a></li>
-						<li><a href="/northdakota/">north dakota</a></li>
-						<li><a href="/ohio/">ohio</a></li>
-						<li><a href="/wisconsin/">wisconsin</a></li>
-						<li><a href="/southdakota/">south dakota</a></li>
-						<li><a class="region" href="/rocky-mountains/">ROCKY MOUNTAINS</a></li>
-						<li><a href="/colorado/">colorado</a></li>
-						<li><a href="/idaho/">idaho</a></li>
-						<li><a href="/montana/">montana</a></li>
-						<li><a href="/utah/">utah</a></li>
-						<li><a href="/wyoming/">wyoming</a></li>
-						<li><a class="region"  href="/south/">SOUTH</a></li>
-			    		<li><a href="/alabama/">alabama</a></li>
-						<li><a href="/arkansas/">arkansas</a></li>
-						<li><a href="/florida/">florida</a></li>
-						<li><a href="/georgia/">georgia</a></li>
-						<li><a href="/kentucky/">kentucky</a></li>
-						<li><a href="/louisiana/">louisiana</a></li>		
-						<li><a href="/mississippi/">mississippi</a></li>
-						<li><a href="/northcarolina/">north carolina</a></li>
-						<li><a href="/southcarolina/">south carolina</a></li>
-						<li><a href="/tennessee/">tennessee</a></li>
-						<li><a href="/virginia/">virginia</a></li>
-						<li><a href="/westvirginia/">west virginia</a></li>
-						<li><a class="region" href="/southwest/">SOUTHWEST</a></li>
-			    		<li><a href="/arizona/">arizona</a></li>
-						<li><a href="/nevada/">nevada</a></li>
-						<li><a href="/newmexico/">new mexico</a></li>
-						<li><a href="/oklahoma/">oklahoma</a></li>	
-						<li><a href="/texas/">texas</a></li>
-			    		<li><a class="region" href="/westcoast/">WEST COAST</a></li>
-						<li><a href="/california/">california</a></li>
-						<li><a href="/oregon/">oregon</a></li>
-						<li><a href="/washington/">washington</a></li>
-					</ul>
-   				</div>
-	   		</li>
-    	</ul>	
-    </div>	
-				<?php //}
+	            <?php
 	            if(has_nav_menu( 'mobile' )){
 	                wp_nav_menu(array(
 	                    'menu_class'=>'menu',
@@ -223,7 +156,7 @@
 	        </div>
 	
 	        <div class="menu-subscribe">
-	            <a href="<?php print $subs_link . get_option("mobile_menu_key"); ?>" target="_blank"><img src="<?php echo $magazine_img; ?>" alt="" /><span>Subscribe Now!</span></a>
+	            <a href="<?php print $subs_link . get_option("mobile_menu_key"); ?>" target="_blank"><img src="<?php print $magazine_img;?>" alt="Subscribe" /><span>Subscribe Now!</span></a>
 	        </div>
 	        <?php wp_nav_menu(array(
 	            'menu_class'=>'menu',
@@ -271,7 +204,9 @@
 	         return;
 	    }
 	    
+	    
 	?>
+
 	<div class="snap-drawer snap-drawer-right" id="right-drawer">
 		 <div>
 			<div class="mobile-menu-banner">
@@ -315,7 +250,7 @@
 		       </div>
 	        </div>
 	        <div class="menu-subscribe">
-	            <a href="<?php print $subs_link . get_option("mobile_menu_key"); ?>" target="_blank"><img src="<?php echo $magazine_img; ?>" alt="" /><span>Subscribe Now!</span></a>
+	            <a href="<?php print $subs_link . get_option("mobile_menu_key"); ?>" target="_blank"><img src="<?php print $magazine_img;?>" alt="" /><span>Subscribe Now!</span></a>
 	        </div>
 	        <div class="mob-aside-menu" style="<?php echo $displayStyle; ?>">
 		        <div class="menu-community-menu-container">
@@ -341,7 +276,10 @@
 
 </div>
 
-<?php fixed_connect_footer(); ?>
+<?php 
+	include_once get_stylesheet_directory() . "/network-bar.php";
+	fixed_connect_footer(); 
+?>
 <!-- Site - Bowhunter -->
 <div id='div-gpt-ad-1386788577276-9'>
 	<script type='text/javascript'>
@@ -350,6 +288,7 @@
 </div>
 
 <div id="page" class="snap-content smooth-menu">
+
 <?php if (mobile() == false && tablet() == false) {  imo_dart_tag("1x1",false,array("pos"=>"skin")); } ?>
 	<div class="hfeed wrapper" data-role="content" role="main">
 	    <div class="layout-frame">
@@ -357,100 +296,17 @@
 	
                 <div class="clearfix">
 
-                   <a id="open-left" class="open-menu">open menu</a>	
-                  
-                    <strong class="logo">
-						<h1 class="state-logo">State</h1>
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/logo.png" alt="<?php bloginfo( 'name' ); ?>" /><?php if(!mobile() && !tablet()){ ?><span class="state-drop"></span><?php } ?></a>
-					
-						<?php if(!mobile() && !tablet()){ ?>
-						<div class="gf-drop-down">
-							<aside id="us-map-nav" class="us-map-widget">
-							    <div class="state-info">
-							    	<p class="state-name">Select Your State</p>
-							    	<div class="state-list">
-							    	
-								    	<ul<?php if(tablet()){ echo ' style="padding:0 40px;"'; } ?>>
-								    		<li>NEW ENGLAND</li>
-								    		<li><a href="/connecticut/">connecticut</a></li>
-								    		<li><a href="/maine/">maine</a></li>
-								    		<li><a href="/massachusetts/">massachusetts</a></li>
-								    		<li><a href="/newhampshire/">new hampshire</a></li>
-											<li><a href="/rhodeisland/">rhode island</a></li>
-								    		<li><a href="/vermont/">vermont</a></li>
-								    		<li>NORTHEAST</li>
-								    		<li><a href="/delaware/">delaware</a></li>
-											<li><a href="/maryland/">maryland</a></li>		
-											<li><a href="/newjersey/">new jersey</a></li>
-											<li><a href="/newyork/">new york</a></li>
-											<li><a href="/pennsylvania/">pennsylvania</a></li>
-											<li>MIDWEST</li>
-											<li><a href="/illinois/">illinois</a></li>
-											<li><a href="/indiana/">indiana</a></li>
-											<li><a href="/iowa/">iowa</a></li>
-											<li><a href="/kansas/">kansas</a></li>
-											<li><a href="/michigan/">michigan</a></li>
-										</ul>
-								    	<ul<?php if(tablet()){ echo ' style="padding:0 40px;"'; } ?>>	
-											<li><a href="/minnesota/">minnesota</a></li>
-											<li><a href="/missouri/">missouri</a></li>
-											<li><a href="/nebraska/">nebraska</a></li>
-											<li><a href="/northdakota/">north dakota</a></li>
-											<li><a href="/ohio/">ohio</a></li>
-											<li><a href="/wisconsin/">wisconsin</a></li>
-											<li><a href="/southdakota/">south dakota</a></li>
-											<li>ROCKY MOUNTAINS</li>
-											<li><a href="/colorado/">colorado</a></li>
-											<li><a href="/idaho/">idaho</a></li>
-											<li><a href="/montana/">montana</a></li>
-											<li><a href="/utah/">utah</a></li>
-											<li><a href="/wyoming/">wyoming</a></li>
-											<li>SOUTH</li>
-								    		<li><a href="/alabama/">alabama</a></li>
-											<li><a href="/arkansas/">arkansas</a></li>
-											<li><a href="/florida/">florida</a></li>
-											<li><a href="/georgia/">georgia</a></li>
-										</ul>
-								    	<ul<?php if(tablet()){ echo ' style="padding:0 40px;"'; } ?>>	
-											<li><a href="/kentucky/">kentucky</a></li>
-											<li><a href="/louisiana/">louisiana</a></li>		
-											<li><a href="/mississippi/">mississippi</a></li>
-											<li><a href="/northcarolina/">north carolina</a></li>
-											<li><a href="/southcarolina/">south carolina</a></li>
-											<li><a href="/tennessee/">tennessee</a></li>
-											<li><a href="/virginia/">virginia</a></li>
-											<li><a href="/westvirginia/">west virginia</a></li>
-											<li>SOUTHWEST</li>
-								    		<li><a href="/arizona/">arizona</a></li>
-											<li><a href="/nevada/">nevada</a></li>
-											<li><a href="/newmexico/">new mexico</a></li>
-											<li><a href="/oklahoma/">oklahoma</a></li>	
-											<li><a href="/texas/">texas</a></li>
-								    		<li>WEST COAST</li>
-											<li><a href="/california/">california</a></li>
-											<li><a href="/oregon/">oregon</a></li>
-											<li><a href="/washington/">washington</a></li>
-								    	</ul>
-								    	
-							    	</div>
-							    </div>
-							     	<?php if(mobile() == false && tablet() == false){ ?><div id="us-map-ubermenu-container" style="min-width: 686px;height: 420px;margin-left: 448px;padding-top:110px;"></div><?php } ?>
-							    </aside>
-						</div><?php } ?>
-					</strong>
-					<?php
-                    wp_nav_menu(array(
-                        'menu_class'=>'menu',
-                        'theme_location'=>'bottom',
-                        'walker'=> new AddParentClass_Walker()
-                    ));   ?>
-					<?php if ( function_exists('imo_community_template') ){ ?>
-						<a id="comm-mob-menu" class="user-btn" <?php if( is_user_logged_in() ) { echo 'style="background:url(/avatar?uid=' . $data->ID . ') no-repeat center center;"'; } ?>>user</a>
-					<?php }else{ ?>
-						<a id="comm-mob-menu" class="user-btn" style="display:none;">
-					<?php } ?>
-
-					<?php
+                   <a id="open-left" class="open-menu">open menu</a>
+                   <div class="tagline"></div>
+                    <strong class="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/logo.png" alt="<?php bloginfo( 'name' ); ?>" /></a></strong>
+                    	<?php if ( function_exists('imo_community_template') ){ ?>
+							<a id="comm-mob-menu" class="user-btn" <?php if( is_user_logged_in() ) { echo 'style="background:url(/avatar?uid=' . $data->ID . ') no-repeat center center;"'; } ?>>user</a>
+							<div class="community-tooltip"></div>
+						<?php }else{ ?>
+							<a id="comm-mob-menu" class="user-btn" style="display:none;">
+						<?php } ?>
+                     
+						<?php
                         // Check to see if the header image has been removed
                         $header_image = get_header_image();
                         if ( ! empty( $header_image ) ) :
@@ -476,94 +332,78 @@
                         if ( 'blank' == get_header_textcolor() ) :
                     ?>
                         <div class="only-search<?php if ( ! empty( $header_image ) ) : ?> with-image<?php endif; ?>">
-	                        <script>
-							  (function() {
-							    var cx = '000784987907684239526:o5vka_nc6h4';
-							    var gcse = document.createElement('script');
-							    gcse.type = 'text/javascript';
-							    gcse.async = true;
-							    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-							        '//www.google.com/cse/cse.js?cx=' + cx;
-							    var s = document.getElementsByTagName('script')[0];
-							    s.parentNode.insertBefore(gcse, s);
-							  })();
-							  
-							</script>
-							<gcse:search></gcse:search>
-	                        <?php //parent_theme_get_search_form(); ?>
+                        <?php parent_theme_get_search_form(); ?>
                         </div>
                     <?php
                         else :
                     ?>
-					<div class="h-mdl-widget">
-                        <div class="socials-hold">
-                        	<?php social_networks(); ?>
-						</div>
-					</div>
-								
+					<a href="#" class="open-search jq-open-search">search</a>
 					<div id="subscribe-area" class="widget widget_text header-elements">
 						<div class="subscribe-box">
 						    <div class="clearfix">
-						       	<div class="journal">
-							        <img src="<?php echo $magazine_img; ?>" alt="Subscribe">
-							    </div>
-	
-							    <div class="subscribe-now">
-									<p><span class="stag-reg"><?php print $deal_copy;?></span></p>
-									<a href="<?php print $subs_link . get_option("header_key"); ?>" target="_blank"  class="subs-btn">Subscribe Now!<span></span></a>
-									<a class="subs-links" href="<?php print $gift_link;?>" target="_blank">Give a Gift <span>&raquo;</span></a>
-							        <a class="subs-links" href="<?php print $service_link; ?>" target="_blank">Subscriber Services <span>&raquo;</span></a>
-							    </div>
+						        <div class="journal">
+						        <img src="<?php echo $magazine_img; ?>" alt="Subscribe">
+						    </div>
+
+						    <div class="subscribe-now">
+								<span><?php print $deal_copy;?></span>
+								<a href="<?php print $subs_link . get_option("header_key"); ?>" target="_blank" class="btn-base">Subscribe <span>Now!</span></a>
+								<ul class="subscribe-links">
+							        <li><a href="<?php print $gift_link;?>" target="_blank">Give a Gift <span>&raquo;</span></a></li>
+							        <li><a href="<?php print $service_link; ?>" target="_blank">Subscriber Services <span>&raquo;</span></a></li>
+							    </ul>
+						    </div>
+						    </div>
 						</div>
-					</div>  
-				</div>            
-                    <?php endif; ?>
-                </div><!-- .clearfix -->
-				<div class="gf-bottom-menu">
-					<?php if(get_option("menu_key")){ ?>
-					<div class="menu-top-menu-container subscribe-left">
-						<ul class="menu">
-							<li class="menu-item"><a href="<?php echo $subs_link . get_option("menu_key"); ?>" target="_blank">Subscribe!</a></li>
-						</ul>
 					</div>
-					<?php }
-					wp_nav_menu(array(
+					<?php endif; ?>
+                </div><!-- #branding -->
+                <div class="clearfix">
+                	<?php 
+                	if(get_option("menu_key")){ ?>
+	                	<div class="menu-top-menu-container subscribe-left">
+							<ul class="menu">
+								<li class="menu-item"><a href="<?php echo $subs_link . get_option("menu_key"); ?>" target="_blank">Subscribe!</a></li>
+							</ul>
+						</div>
+                	<?php }
+					if(has_nav_menu( 'top' )){
+                    	wp_nav_menu(array(
+	                        'menu_class'=>'menu',
+	                        'theme_location'=>'top',
+						));  
+                    } ?>
+                <!-- #access -->
+                </div>
+				<div class="sn-menu">
+                    <?php
+                    wp_nav_menu(array(
                         'menu_class'=>'menu',
-                        'theme_location'=>'top',
+                        'theme_location'=>'bottom',
+                        'walker'=> new AddParentClass_Walker()
                     ));   ?>
-					<a href="#" class="open-search jq-open-search">search</a>
-					<div class="h-search-form">
-						<script>
-						  (function() {
-						    var cx = '000784987907684239526:o5vka_nc6h4';
-						    var gcse = document.createElement('script');
-						    gcse.type = 'text/javascript';
-						    gcse.async = true;
-						    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-						        '//www.google.com/cse/cse.js?cx=' + cx;
-						    var s = document.getElementsByTagName('script')[0];
-						    s.parentNode.insertBefore(gcse, s);
-						  })();
-						</script>
-						<gcse:search></gcse:search>
-                        <?php //parent_theme_get_search_form(); ?>
+                <!-- #access -->
+                <div class="h-mdl-widget">
+                    <div class="socials-hold">
+                    	<?php social_networks(); ?>
+					</div>
+                    <div class="h-search-form">
+                        <?php parent_theme_get_search_form(); ?>
                     </div>
-				</div>
-			</div><!-- #branding -->
-		<div class="location-services">
-           Your Location: <strong>You're in the jungle, baby!</strong>
-           <a href="#">X</a>
-       </div>
-        <div class="content-banner-section">
-         	<?php if (mobile() == false) { ?>
-        	<div class="mdl-banner">
-				 <?php imo_dart_tag("728x90"); ?>
+                </div>
 			</div>
-			<?php }else{ ?>
-				<div class="mob-mdl-banner">
-					<?php imo_dart_tag("320x50",true); ?>
+        </div><!-- #branding -->
+		
+        <div class="content-banner-section">
+        	<?php if (mobile() == false) { ?>
+	        	<div class="mdl-banner">
+					 <?php imo_dart_tag("728x90"); ?>
 				</div>
-			<?php } ?>
+				<?php }else{ ?>
+					<div class="mob-mdl-banner">
+						<?php imo_dart_tag("320x50",true); ?>
+					</div>
+				<?php } ?>
         </div>
-       
-       <div id="main" class="main clearfix js-responsive-layout">
+        
+        <div id="main" class="main clearfix js-responsive-layout">
