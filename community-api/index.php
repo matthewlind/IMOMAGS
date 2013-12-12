@@ -376,6 +376,8 @@ $app->post('/posts',function() {
 
 	_log( $params);
 
+	_log(serialize($params));
+
 	if (empty($params['master']))
 		$params['master'] = 0;
 
@@ -1006,7 +1008,128 @@ function processMasterAngler($params){
 
 		$db = "";
 
+
+
+
+		sendMAEmail($params);
 }
+
+function sendMAEmail($params) {
+
+
+	include_once("postmark.php");
+
+	_log($params);
+
+	$paramList = array(
+		"title" => "-----",
+		"body" => "-----",
+		"post_id" => "-----",
+		"weight" => "-----",
+		"length" => "-----",
+		"first_name" => "-----",
+		"last_name" => "-----",
+		"email" => "-----",
+		"street_address_1" => "-----",
+		"street_address_2" => "-----",
+		"city" => "-----",
+		"state_address" => "-----",
+		"zip" => "-----",
+		"meta" => "-----",
+		"phone" => "-----",
+		"date" => "-----",
+		"body_of_water" => "-----",
+		"nearest_town" => "-----",
+		"lure_used" => "-----",
+		"kind-of-lure" => "-----",
+		"lure-desc" => "-----",
+		"kind-of-bait" => "-----",
+		"img_url" => "-----",
+		"kept" => "-----"
+	);
+
+	$params = array_merge($paramList,$params);
+
+	_log($params);
+
+	$string = "<b>Name:</b><br>" . $params['first_name'] . " " . $params['last_name'] . "<p>";
+
+	$string .= "<b>Email:</b><br>" . $params['email'] . "<p>";
+
+
+	$string .= "<b>Address:</b><br>" . $params['street_address_1'] . "\n" . $params['street_address_2'] . "<br>";
+	$string .= $params['city'] . ", " . $params['state_address'] . " " . $params['zip'] . "<p>";
+
+	$string .= "<b>Phone:</b><br>" . $params['phone'] . "<p>";
+
+	$string .= "<b>Title:</b><br>" . $params['title'] . "<p>";
+	$string .= "<b>Your Story:</b><br>" . $params['body'] . "<p>";
+
+	$string .= "<b>Species:</b><br>" . $params['meta'] . "<p>";
+
+	$string .= "<b>Region:</b><br>" . $params['zone'] . "<p>";
+	$string .= "<b>Date Caught:</b><br>" . $params['month'] . "/" . $params['day'] . "/" . $params['year'] . "<p>";
+
+	$string .= "<b>Body of Water:</b><br>" . $params['body_of_water'] . "<p>";
+	$string .= "<b>Nearest Town:</b><br>" . $params['nearest_town'] . "<p>";
+	$string .= "<b>State Caught:</b><br>" . $params['state'] . "<p>";
+
+	$string .= "<b>Length:</b><br>" . $params['length'] . "<p>";
+	$string .= "<b>Weight:</b><br>" . $params['weight'] . "<p>";
+
+	$string .= "<b>Lure or Bait:</b><br>" . $params['kind_of_lure'] . "<p>";
+
+	$kORr = "released";
+	if ($params['kept'] == 1)
+		$kORr = "kept";
+
+	$url = "http://www.in-fisherman.com/photos/" . $params['post_id'];
+
+	$string .= "<b>Kept or Released:</b><br>" . $kORr . "<p>";
+
+	$string .= "<b>Entry URL:</b><br><a href='". $url . "'>" . $url . "</a><p>";
+
+	$string .= "<b>Photo:</b><br><img src='" . $params['img_url'] . "/convert?w=600&fit=scale&rotate=exif'><p>";
+
+
+	_log($string);
+
+
+
+	$fromAddress = "Fishhead Photos <community@intermediaoutdoors.com>";
+	$postmark = new Postmark("2338c32a-e4b3-4a36-a6a6-6ff501f4f614",$fromAddress);
+
+	// $result = $postmark->to("baker.aaron@gmail.com")
+	// 				->subject("New Master Angler Entry")
+	// 				->html_message($string)
+	// 				->send();
+
+	$result = $postmark->to("Wendy.Shamp@IMOutdoors.com")
+					->subject("New Master Angler Entry")
+					->html_message($string)
+					->send();
+
+	// $result = $postmark->to("aaron.baker@IMOutdoors.com")
+	// 				->subject("New Master Angler Entry")
+	// 				->html_message($string)
+	// 				->send();
+
+	// $result = $postmark->to("jeff.simpson@IMOutdoors.com")
+	// 				->subject("New Master Angler Entry")
+	// 				->html_message($string)
+	// 				->send();
+
+	// $result = $postmark->to("berry.blanton@IMOutdoors.com")
+	// 				->subject("New Master Angler Entry")
+	// 				->html_message($string)
+	// 				->send();
+
+	if ($result) {//If it sent...
+		_log("Message Sent!");
+	}
+
+}
+
 
 
 function getEventHash($post_id, $etype, $user_id) {
