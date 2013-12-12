@@ -256,7 +256,7 @@ function showFeaturedPosts($atts) {
     	}
     	$primaryCat = '';
     	if (function_exists('the_primary_category')){
-    		$primaryCat = the_primary_category(); 
+    		$primaryCat = the_primary_category();
     	}
     	$outputString .= "<li class='home-featured'>
                                 <div class='feat-post'>
@@ -276,20 +276,28 @@ function showFeaturedPosts($atts) {
 }
 
 function clearVarnishForSet($setID) {
+
+
+	$domain = $_SERVER['HTTP_HOST'];
+
 	//CLEAR THE VARNISH CACHE!
-	$postURL = "http://" . $post->domain . "/wpdb/get-all-sets.php";
+	$postURL = "http://" . $domain . "/wpdb/get-all-sets.php";
 
 	$curl = curl_init($postURL);
     curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PURGE");
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
     $curlResult = curl_exec($curl);
 
-	$postURL = "http://" . $post->domain . "/wpdb/get-post-set.php?setID=" . $setID;
+	$postURL2 = "http://" . $domain . "/wpdb/get-post-set.php?setID=" . $setID;
 
-	$curl = curl_init($postURL);
+	$curl = curl_init($postURL2);
     curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PURGE");
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
     $curlResult = curl_exec($curl);
+
+
+
+
 }
 
 function getSetItemThumbnail($dataArray) {
