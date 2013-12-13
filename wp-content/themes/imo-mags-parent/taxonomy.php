@@ -1,12 +1,4 @@
 <?php
-$cat = get_category( get_query_var( 'cat' ) );
-$cat_slug = $cat->slug;
-if($cat_slug == "pike-muskie"){
-	$cat_slug = "pike_amp_muskie";
-}
-if($cat_slug == "trout-salmon"){
-	$cat_slug = "trout_amp_salmon";
-}
 
 $dataPos = 0;
 
@@ -19,10 +11,10 @@ get_header(); ?>
     
                     <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header clearfix js-responsive-section">
                         <h1 class="page-title">
-						<div class="icon"></div>
+                        <div class="icon"></div>
                         <?php
                             printf('<span>' . single_cat_title( '', false ) . '</span>' );
-                            ?>
+                        ?>
                         </h1>
                         <div class="sponsor"><?php //imo_dart_tag("240x60"); ?></div>
 					</div>

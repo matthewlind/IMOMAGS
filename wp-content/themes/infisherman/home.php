@@ -100,7 +100,7 @@ get_header(); ?>
                     </div>
 	                    <div class="jq-slider onload-hidden clearfix">
 	                        <ul class="slides-inner slides">
-	                            <?php $i = 1  ?>
+	                            <?php $i = 1;  ?>
 	                            <?php while ($fetured_slider_query->have_posts()) : $fetured_slider_query->the_post(); ?>
 
 	                            <?php if (!(($i+1)%2) ): ?>

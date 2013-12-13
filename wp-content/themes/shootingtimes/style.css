@@ -139,6 +139,7 @@ subscribe-links a{color: white;}
 .open-search{background-position-x: -352px;}
 
 @media only screen and (max-width: 1096px) {
+	.header{padding-top: 0;}
 	.header, .h-search-open{background: black;}
 	.header .socials{right: 44px;}
 	.snap-drawer {

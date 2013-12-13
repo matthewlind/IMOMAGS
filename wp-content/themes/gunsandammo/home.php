@@ -7,26 +7,54 @@ get_header(); ?>
             <div id="content" role="main">
             <?php if ( is_home() ) : ?>
 
-            	<?php $featured_query = new WP_Query( 'category_name=featured&posts_per_page=2' ); ?>
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="featured-area clearfix js-responsive-section">
-                    <!--<div class="general-title clearfix">
-                        <h2>Featured</h2>
-                    </div>-->
                     <div class="clearfix">
                         <ul>
-                       	 	<?php if( function_exists('showFeaturedList') ){ echo showFeaturedPosts('1'); } ?>
+                       	 	<?php if( function_exists('showFeaturedList') ){ echo showFeaturedPosts(array('set_id' => 1)); } ?>
                        	</ul>
                     </div>
                 </div>
-				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="js-responsive-section">
-					<?php the_widget('GAReviewWidget'); ?>			
+                
+                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header clearfix js-responsive-section">
+                 	<div class="section-title posts">
+					    <h2>
+					        <div class="icon"></div>
+					        <span>The G&amp;A Lists</span> 
+					    </h2>
+					</div>
+				
+                    <div class="ga-lists-featured">
+							<?php if( function_exists('showFeaturedList') ){ echo showFeaturedPosts(array('set_id' => 3)); } ?>                
+					</div>
+					
+                    <div class="ga-lists-list">
+	                    <div class="fancy">
+							<ul>
+								<?php $slug = 'featured';
+								$category = get_category_by_slug($slug);
+								
+								$lists_query = new WP_Query( 'category_name=ga-lists&posts_per_page=8&cat=-' . $category->cat_ID );                     
+								while ($lists_query->have_posts()) : $lists_query->the_post(); ?>			
+									<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+								<?php $i++; endwhile; ?>
+							</ul>
+						</div>
+						<hr class="cfct-div-solid">
+						<a class="cta" href="/ga-lists/">See More Lists<span></span></a>
+                    </div>
+                </div>
+				
+				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header loading-block js-responsive-section">
+					<?php the_widget('imo\GAReviewWidget'); ?>			
 				</div>
-				
-				
-                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section main-content-preppend">
-					<!--<div class="general-title clearfix">
-                        <h2>Popular</h2>
-                    </div>-->
+	
+                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list page-header js-responsive-section main-content-preppend">
+					<div class="section-title posts">
+					    <h2>
+					        <div class="icon"></div>
+					            <span>Latest</span> 
+					    </h2>
+					</div>
                     
                     <?php 
 					$slug = 'featured';
@@ -41,7 +69,7 @@ get_header(); ?>
 					
                     <div class="post article-brief clearfix">
                         <!--<div class="posts-list-sep"><div class="bar"></div></div>-->
-                        <a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('list-thumb');?></a>
+                        <a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('list-thumb'); ?></a>
                         <div class="article-holder">
                             <div class="clearfix">
                                 <?php 
@@ -55,7 +83,7 @@ get_header(); ?>
                             </h3>
                             <!--<a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('list-thumb');?></a>-->
                             <!-- .entry-header -->
-                            <!--<a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>-->
+                           <a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>
                             <div class="entry-content">
                                 <?php the_excerpt(); ?>
                                 <?php //the_content( __( 'more <span class="meta-nav">&raquo;</span>', 'twentytwelve' ) ); ?>
@@ -86,7 +114,7 @@ get_header(); ?>
             <?php endif; // end have_posts() check ?>
 
             </div><!-- #content -->
-        </div>
+        </div><!-- .general -->
     </div><!-- #primary -->
 
 

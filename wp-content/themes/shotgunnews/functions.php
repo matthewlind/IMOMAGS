@@ -18,8 +18,8 @@ function imo_sidebar($type){
 		echo '<div class="sidebar-area">';
 			echo '<div class="sidebar">';
 				echo '<div class="widget_advert-widget">';
-					//split_120_ad();
 					imo_dart_tag("300x250");
+					split_120_ad();
 				echo '</div>';
 			echo '</div>';
 		    get_sidebar($type);

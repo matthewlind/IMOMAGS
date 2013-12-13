@@ -268,7 +268,7 @@ jQuery(function(){
           maxItems: 1
           
         });
-        
+    
     jQuery('.jq-explore-slider').flexslider({
         animation: "slide",
         animationSpeed: 200,

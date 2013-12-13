@@ -56,7 +56,7 @@ class GiftGuideWidget extends \WP_Widget {
 									</script>
 									<noscript>
 									<a href="http://ad.doubleclick.net/N4930/jump/<?php echo $dartSite; ?>;sz=240x60;camp=shoot;ord=[timestamp]?">
-									<img src="http://ad.doubleclick.net/N4930/ad/<?php echo $dartSite; ?>;sz=240x60;camp=shoot;ord=[timestamp]?" width="240" height="60" />
+									<img src="http://ad.doubleclick.net/N4930/ad/<?php echo $dartSite; ?>;sz=240x60;camp=shoot;ord=[timestamp]?" />
 									</a>
 									</noscript>
 									</li>
@@ -74,7 +74,7 @@ class GiftGuideWidget extends \WP_Widget {
 										</script>
 										<noscript>
 										<a href="http://ad.doubleclick.net/N4930/jump/<?php echo $dartSite; ?>;sz=240x60;camp=hunt;ord=[timestamp]?">
-										<img src="http://ad.doubleclick.net/N4930/ad/<?php echo $dartSite; ?>;sz=240x60;camp=hunt;ord=[timestamp]?" width="240" height="60" />
+										<img src="http://ad.doubleclick.net/N4930/ad/<?php echo $dartSite; ?>;sz=240x60;camp=hunt;ord=[timestamp]?" />
 										</a>
 										</noscript>
 								    </li>

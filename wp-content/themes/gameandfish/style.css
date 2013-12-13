@@ -499,7 +499,6 @@ a.category-name-link:hover{background: #F1C548;color: black;}
 /* double posts */
 .double-post-slider {border-bottom:1px solid #dcdcdb;}
 .double-post-slider:after {background:#fff;}
-.article-brief {background:#fff;border:1px solid #d8d7d6;border-width:0 0 1px;}
 .links-section h4 {color:#000;border-bottom:4px solid #373737;}
 .links-list li {border-top:1px dotted #9a9a9a;}
 .links-list a {color:#3c3c3c;}
