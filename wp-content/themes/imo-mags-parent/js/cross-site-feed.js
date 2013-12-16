@@ -82,7 +82,7 @@ $(document).ready(function($) {
 		        $articleTemplate.attr("id","site-feed-" + data[i].post_name + count);
 		        $articleTemplate.find("a").attr("href",data[i].post_url);
 
-		        $articleTemplate.find(".cat-feat-label").append($("<a href='" + data[i].domain + "' style='color:black;'>From " + data[i].brand + " Magazine</a>"));
+		        $articleTemplate.find(".cat-feat-label").append($("<a href='" + data[i].domain + "' style='color:#006699;'>From " + data[i].brand + " Magazine</a>"));
 
 		        $articleTemplate.find("h3.entry-title a").text(data[i].post_title);
 

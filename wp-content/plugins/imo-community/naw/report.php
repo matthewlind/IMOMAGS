@@ -143,10 +143,14 @@ if(post.score == 1){
             <span class="menu-title browse-community">Browse by State</span> <span class="caret"></span>
           </button>
           <ul class="dropdown-menu filter" role="menu">
-            <li><a href="" class="filter-menu" order_by="created" id="filter-menu-default">Latest</a></li>
+     <!--   <li><a href="" class="filter-menu" order_by="created" id="filter-menu-default">Latest</a></li>
             <li><a href="" class="filter-menu" order_by="view_count" >Popular</a></li>
             <li><a href="" class="filter-menu" order_by="score_today" >Trending Today</a></li>
-<!--             <li><a href="" class="filter-menu" order_by="score_week" >Trending This Week</a></li> -->
+             <li><a href="" class="filter-menu" order_by="score_week" >Trending This Week</a></li> 
+             <li class="divider"></div>
+             <li><a href="" class="filter-menu" order_by="created" post_type="report" >Rut Reports</a></li>
+            <li><a href="" class="filter-menu" order_by="created" post_type="general" >General Discusion</a></li>
+            <li><a href="" class="filter-menu" order_by="created" post_type="question" >Questions</a></li>-->
             <li><a href="" class="filter-menu" order_by="created" post_type="new-york" >New York</a></li>
             <li><a href="" class="filter-menu" order_by="created" post_type="california" >California</a></li>
             

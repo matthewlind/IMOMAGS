@@ -150,7 +150,6 @@ if(post.score == 1){
 <!--             <li><a href="" class="filter-menu" order_by="score_week" >Trending This Week</a></li> -->
             <li class="divider"></li>
             <li><a href="" class="filter-menu" order_by="created" post_type="report" >Rut Reports</a></li>
-            <li class="divider"></li>
             <li><a href="" class="filter-menu" order_by="created" post_type="general" >General Discusion</a></li>
             <li><a href="" class="filter-menu" order_by="created" post_type="question" >Questions</a></li>
             
