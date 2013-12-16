@@ -10,9 +10,9 @@ get_header(); ?>
                 <?php if ( have_posts() ) : ?>
     
                     <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header clearfix js-responsive-section">
-                        <h1 class="page-title"><?php
-                            printf('<span>' . single_cat_title( '', false ) . '</span>' );
-                            ?>
+                        <h1 class="page-title">
+                        <div class="icon"></div>
+                        	<span><?php post_type_archive_title(); ?></span>
                         </h1>
                         <div class="sponsor"><?php //imo_dart_tag("240x60"); ?></div>
 					</div>
