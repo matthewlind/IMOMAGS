@@ -3535,9 +3535,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
     .article-brief .entry-content {
         display:none;
     }
-    .article-brief .attachment-index-thumb {
-        width:200px;
-    }
+
     /* paging-single-post */
     h2.related-stories{display: block;}
     .paging-single-post {

@@ -15,6 +15,7 @@ General comments (optional).
 
 .layout-frame {background:url(images/bg/layout-frame.jpg) repeat #f7f7f5;}
 .general{padding-top: 30px;}
+.menu-top-menu-container.subscribe-left a{color: #c9242c !important;}
 
 /* Header
  ******************************************************************************/
@@ -764,6 +765,9 @@ div.login-register-block {
 }
 @media only screen and (max-width: 880px) {
 	.home .home-featured, .home .home-featured:nth-child(odd), .home .home-featured:first-child{padding: 0 0 20px 0;}
+	.posts-list .article-brief {margin-top: 10px;}
+	.posts-list .article-holder {padding: 12px 0 12px 26px;}
+	.full-post .comment-count, .article-brief .comment-count{display: none;}
 }
 @media only screen and (max-width: 820px) {
 	.general {padding-top: 10px;}

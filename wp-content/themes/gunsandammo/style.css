@@ -655,7 +655,7 @@ h2.reviews-form-header span {
 .ga-lists-featured .home-featured {padding: 0;border: none;width: auto;}
 .home-featured:nth-child(odd){border-right: none;padding-right: 15px;padding-top: 0;}
 .home-featured{padding-left: 15px;border: none;padding-top: 0;}
-
+.special-features .home-featured:nth-child(odd){padding-top: 23px;}
 @media only screen and (max-width: 1096px) {
 	.header{padding-top: 0;}
 	.snap-drawers .menu-top-menu-container a, .snap-drawers .mob-aside-menu > div > ul > li > a{font-family: "stagMedium",serif;}
@@ -725,6 +725,7 @@ h2.reviews-form-header span {
 	.home-featured:nth-child(odd){padding-right: 0;}
 	.home-featured{padding-left: 0;}
 	.featured-area {padding-top: 0;}
+	.special-features .home-featured, .special-features .home-featured:nth-child(odd){padding-top: 4px;}
 }
 @media only screen and (max-width: 820px){
 	
@@ -742,12 +743,14 @@ h2.reviews-form-header span {
 	.single-imo_caption_contest .caption-banner{background: none #ce181e;width: 250px;height: 44px;top: 10px;}
 	.single-imo_caption_contest .prize-box .prize-thumb{float: none;}
 	.page-header{border: none;}
-	.page-header .page-title, .page-header .section-title{margin-left: -10px;}
+	.section-title, .page-title{margin-left: -10px;}
 	.section-title h2 span, .page-title span{width: 320px;}
 	.ga-lists-featured, .ga-lists-list {width: 100%;}
 	.ga-lists-featured {float: none;padding-right: 0;}
-	.ga-lists-featured .feat-sep{display: none;}
+	.ga-lists-featured .feat-sep, .home-featured .feat-sep{display: none;}
 	.ga-lists-featured .home-featured .feat-text{text-align: center;}
+	.home-featured{padding-top: 8px;}
+	
 }
 
 
