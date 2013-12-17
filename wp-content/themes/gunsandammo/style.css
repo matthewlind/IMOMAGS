@@ -17,9 +17,12 @@ body{background:#2d2d2d;}
 .header, .header .subscribe-links a{color: white;}
 .layout-frame{border: none;background: none;}
 .main, .content-banner-section{background: white;}
+.general-frame{padding-top: 30px;}
+.single .general-frame{padding-top: 0;}
 .logo{margin-left: 30px;}
 .general, .main{border: none;}
-.posts-list{padding-top: 0;}
+.posts-list{padding-top: 0;border-top: none;}
+.category-video .posts-list{border: none;}
 
 /* Tags reset
 *******************************************************************************/
@@ -29,6 +32,7 @@ font-weight: lighter;
 color: #252525;
 }
 .article-brief h3 a, .feat-text h3 a, .page-header h1{font-family: "stagMedium", serif;}
+.error404 .page-header{border: none;}
 .drop-feat-post h5 a:hover,
 .links-list a:hover, 
 .subscribe-now .stag-bold,
@@ -71,7 +75,7 @@ a.category-name-link:hover{background: #623d11;color: white;}
 .menu-top-menu-container a:hover,
 .subscribe-links a:hover{color: #ce181e;}
 .ui-panel .mob-aside-menu > div > ul > li > a.has-drop:after {border-top: 7px solid #623d11;}
-.menu-main-menu-container > ul > li:hover > a:after, .menu-header-menu-container > ul > li:hover > a:after, .menu-main-menu-container > ul > li > a:hover:after, .menu-header-menu-container > ul > li > a:hover:after{border-top-color: #ce181e;}
+
 #subscribe-area{margin:0 16px 0 0;max-height: 100px;}
 .subscribe-links{float: none;margin: 0 0 4px;}
 .subscribe-links li {display: block;padding: 0;}
@@ -557,6 +561,92 @@ h2.reviews-form-header span {
 }
 .single-imo_caption_contest #main #idc-container .idc-head h3 {
   background-image: url("images/section_title_captions.gif");
+}
+#caption_contest_promo {
+  	background: url("images/widget_caption_contest_bg.jpg") 0 0 no-repeat black;
+	color: white;
+	text-align: center;
+	width: 310px;
+}
+#caption_contest_promo p{font-family: georgia;}
+#caption_contest_promo p.view-all-p {
+	padding-bottom: 10px;
+	line-height: 24px;
+	font-size: 16px;
+	margin-top: 10px;
+}
+#caption_contest_promo p.view-all-p a:hover{color: white;}
+#caption_contest_promo .banner {
+  text-indent: -119988px;
+  overflow: hidden;
+  text-align: left;
+  height: 200px;
+}
+#caption_contest_promo .wp-post-image {
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  border: 5px solid white;
+  max-width: 180px;
+  *display: inline;
+}
+#caption_contest_promo a.button {
+	background: white;
+	border: none;
+	color: black;
+	padding: 0 28px 0 12px;
+	display: inline-block;
+	font-family: "StagMedium";
+	font-weight: lighter;
+	font-size: 14px;
+	height: 35px;
+	line-height: 35px;
+	position: relative;
+	text-align: center;
+	vertical-align: baseline;
+}
+#caption_contest_promo a.button span {
+	display: inline-block;
+	vertical-align: middle;
+	position: absolute;
+	top: 13px;
+}
+#caption_contest_promo a.button span, #caption_contest_promo a.button:hover span {
+	background: url("images/ga-icons.png") no-repeat;
+}
+#caption_contest_promo a.button span {
+  background-position: 0 -16px;
+  height: 9px;
+  width: 7px;
+  right: 12px;
+}
+#caption_contest_promo a.button:hover {
+  background: #ce181e;
+  color: white;
+}
+#caption_contest_promo a.button:hover span {
+  background-position: 0 -50px;
+  height: 9px;
+  width: 7px;
+}
+#caption_contest_promo .prize {
+  margin: 24px 0 18px;
+}
+#caption_contest_promo .prize h6 {
+  font-family: "Helvetica Nueue", Helvetica, Arial, sans-serif;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 1;
+}
+#caption_contest_promo .prize p {
+  color: #D9D9D9;
+  font-size: 14px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 250px;
 }
 
 .ga-lists-featured{float: left;padding-right: 10px;}

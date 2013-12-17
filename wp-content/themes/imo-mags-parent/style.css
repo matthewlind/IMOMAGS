@@ -2391,7 +2391,7 @@ margin-bottom:15px;
 
 /* = WP default overrides
  ******************************************************************************/
-#wpadminbar {z-index: 9999999 !important;}
+#wpadminbar {z-index: 999999999 !important;}
 .wp-caption {
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;

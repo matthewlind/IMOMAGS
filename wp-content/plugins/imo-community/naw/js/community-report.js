@@ -65,36 +65,8 @@ jQuery(document).ready(function($) {
     $(".filter-menu").click(function(ev){
 
         ev.preventDefault();
-
-        //Grab the selected menu item
-        var $menuItem = $(ev.currentTarget);
-
-        //Change the actively selected menu item
-        $("ul.filter li.active").removeClass("active");
-        $menuItem.closest("li").addClass("active");
-
-        //reset the filter
-        filterReset();
-
-
-        //Change the filter configuration according to the attributes of the clicked menu item
-        if ($menuItem.attr("sort") != undefined) { filter.sort = $menuItem.attr("sort"); }
-        if ($menuItem.attr("order_by") != undefined) { filter.order_by = $menuItem.attr("order_by"); }
-        if ($menuItem.attr("master") != undefined) { filter.master = $menuItem.attr("master"); }
-        if ($menuItem.attr("skip") != undefined) { filter.skip = $menuItem.attr("skip"); }
-        if ($menuItem.attr("post_type") != undefined) { filter.post_type = $menuItem.attr("post_type"); }
-        if ($menuItem.attr("per_page") != undefined) { filter.per_page = $menuItem.attr("per_page"); }
-
-
-        //Clear the HTML and append posts
-        $("#posts-container").html("");
-        getPhotosAndAppend();
-
-        //Change menu title to reflect filter
-        $(".menu-title.browse-community").html($menuItem.html());
-
-        loadMoreCheck();
-    });
+		window.location = $(".filter-menu").attr("href");
+     });
 
     //Loadmore button
   $("a.load-more").click(function(ev){

@@ -104,7 +104,7 @@ if(post.score == 1){
                         <li><a href="/<%= post.post_type %>" style="text-transform:capitalize;"><%= post.post_type %></a></li>
                     </ul>
                     <ul class="replies">
-                        <li><a href="/photos/<%= post.id %>#reply_field"><%= post.comment_count %> Reply</a></li>
+                        <li><a href="/photos/<%= post.id %>#reply_field"><%= post.comment_count %> Reply</a></li><div class="divider"></div>
 						<li><%= niceScore %></li>
                     </ul>
                     <ul class="prof-like">
@@ -154,13 +154,57 @@ if(post.score == 1){
             <span class="menu-title browse-community">Browse by State</span> <span class="caret"></span>
           </button>
           <ul class="dropdown-menu filter" role="menu">
-            <li><a href="" class="filter-menu" order_by="created" id="filter-menu-default">Latest</a></li>
-            <li><a href="" class="filter-menu" order_by="view_count" >Popular</a></li>
-            <li><a href="" class="filter-menu" order_by="score_today" >Trending Today</a></li>
-<!--             <li><a href="" class="filter-menu" order_by="score_week" >Trending This Week</a></li> -->
-            <li><a href="" class="filter-menu" order_by="created" post_type="new-york" >New York</a></li>
-            <li><a href="" class="filter-menu" order_by="created" post_type="california" >California</a></li>
-
+			<li><a href="/community/report/alabama" class="filter-menu" order_by="created">alabama</a></li><div class="divider"></div>
+			<li><a href="/community/report/alaska" class="filter-menu" order_by="created">alaska</a></li><div class="divider"></div>
+			<li><a href="/community/report/arizona" class="filter-menu" order_by="created">arizona</a></li><div class="divider"></div>
+			<li><a href="/community/report/arkansas" class="filter-menu" order_by="created">arkansas</a></li><div class="divider"></div>
+			<li><a href="/community/report/california" class="filter-menu" order_by="created">california</a></li><div class="divider"></div>
+			<li><a href="/community/report/colorado" class="filter-menu" order_by="created">colorado</a></li><div class="divider"></div>
+			<li><a href="/community/report/connecticut" class="filter-menu" order_by="created">connecticut</a></li><div class="divider"></div>
+			<li><a href="/community/report/delaware" class="filter-menu" order_by="created">delaware</a></li><div class="divider"></div>
+			<li><a href="/community/report/district-of-columbia" class="filter-menu" order_by="created">district of columbia</a></li><div class="divider"></div>
+			<li><a href="/community/report/florida" class="filter-menu" order_by="created">florida</a></li><div class="divider"></div>
+			<li><a href="/community/report/georgia" class="filter-menu" order_by="created">georgia</a></li><div class="divider"></div>
+			<li><a href="/community/report/hawaii" class="filter-menu" order_by="created">hawaii</a></li><div class="divider"></div>
+			<li><a href="/community/report/idaho" class="filter-menu" order_by="created">idaho</a></li><div class="divider"></div>
+			<li><a href="/community/report/illinois" class="filter-menu" order_by="created">illinois</a></li><div class="divider"></div>
+			<li><a href="/community/report/indiana" class="filter-menu" order_by="created">indiana</a></li><div class="divider"></div>
+			<li><a href="/community/report/iowa" class="filter-menu" order_by="created">iowa</a></li><div class="divider"></div>
+			<li><a href="/community/report/kansas" class="filter-menu" order_by="created">kansas</a></li><div class="divider"></div>
+			<li><a href="/community/report/kentucky" class="filter-menu" order_by="created">kentucky</a></li><div class="divider"></div>
+			<li><a href="/community/report/louisiana" class="filter-menu" order_by="created">louisiana</a></li><div class="divider"></div>
+			<li><a href="/community/report/maine" class="filter-menu" order_by="created">maine</a></li><div class="divider"></div>
+			<li><a href="/community/report/maryland" class="filter-menu" order_by="created">maryland</a></li><div class="divider"></div>
+			<li><a href="/community/report/massachusetts" class="filter-menu" order_by="created">massachusetts</a></li><div class="divider"></div>
+			<li><a href="/community/report/michigan" class="filter-menu" order_by="created">michigan</a></li><div class="divider"></div>
+			<li><a href="/community/report/minnesota" class="filter-menu" order_by="created">minnesota</a></li><div class="divider"></div>
+			<li><a href="/community/report/mississippi" class="filter-menu" order_by="created">mississippi</a></li><div class="divider"></div>
+			<li><a href="/community/report/missouri" class="filter-menu" order_by="created">missouri</a></li><div class="divider"></div>
+			<li><a href="/community/report/montana" class="filter-menu" order_by="created">montana</a></li><div class="divider"></div>
+			<li><a href="/community/report/nebraska" class="filter-menu" order_by="created">nebraska</a></li><div class="divider"></div>
+			<li><a href="/community/report/nevada" class="filter-menu" order_by="created">nevada</a></li><div class="divider"></div>
+			<li><a href="/community/report/new-hampshire" class="filter-menu" order_by="created">new hampshire</a></li><div class="divider"></div>
+			<li><a href="/community/report/new-jersey" class="filter-menu" order_by="created">new jersey</a></li><div class="divider"></div>
+			<li><a href="/community/report/new-mexico" class="filter-menu" order_by="created">new mexico</a></li><div class="divider"></div>
+			<li><a href="/community/report/new-york" class="filter-menu" order_by="created">new york</a></li><div class="divider"></div>
+			<li><a href="/community/report/north-carolina" class="filter-menu" order_by="created">north carolina</a></li><div class="divider"></div>
+			<li><a href="/community/report/north-dakota" class="filter-menu" order_by="created">north dakota</a></li><div class="divider"></div>
+			<li><a href="/community/report/ohio" class="filter-menu" order_by="created">ohio</a></li><div class="divider"></div>
+			<li><a href="/community/report/oklahoma" class="filter-menu" order_by="created">oklahoma</a></li><div class="divider"></div>
+			<li><a href="/community/report/oregon" class="filter-menu" order_by="created">oregon</a></li><div class="divider"></div>
+			<li><a href="/community/report/pennsylvania" class="filter-menu" order_by="created">pennsylvania</a></li><div class="divider"></div>
+			<li><a href="/community/report/rhode-island" class="filter-menu" order_by="created">rhode island</a></li><div class="divider"></div>
+			<li><a href="/community/report/south-carolina" class="filter-menu" order_by="created">south carolina</a></li><div class="divider"></div>
+			<li><a href="/community/report/south-dakota" class="filter-menu" order_by="created">south dakota</a></li><div class="divider"></div>
+			<li><a href="/community/report/tennessee" class="filter-menu" order_by="created">tennessee</a></li><div class="divider"></div>
+			<li><a href="/community/report/texas" class="filter-menu" order_by="created">texas</a></li><div class="divider"></div>
+			<li><a href="/community/report/utah" class="filter-menu" order_by="created">utah</a></li><div class="divider"></div>
+			<li><a href="/community/report/vermont" class="filter-menu" order_by="created">vermont</a></li><div class="divider"></div>
+			<li><a href="/community/report/virginia" class="filter-menu" order_by="created">virginia</a></li><div class="divider"></div>
+			<li><a href="/community/report/washington" class="filter-menu" order_by="created">washington</a></li><div class="divider"></div>
+			<li><a href="/community/report/west-virginia" class="filter-menu" order_by="created">west virginia</a></li><div class="divider"></div>
+			<li><a href="/community/report/wisconsin" class="filter-menu" order_by="created">wisconsin</a></li><div class="divider"></div>
+			<li><a href="/community/report/wyoming" class="filter-menu" order_by="created">wyoming</a></li><div class="divider"></div>
           </ul>
         </div>
 

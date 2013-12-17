@@ -12,6 +12,7 @@ define("RSS_LINK", "http://www.northamericanwhitetail.com/feed/");
 define("SITE_LINK", "northamericanwhitetail.com");
 define("SITE_NAME", "North American Whitetail");
 
+include_once('widgets/buck-contest.php');
 
 /***
 **

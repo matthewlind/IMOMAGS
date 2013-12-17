@@ -14,6 +14,10 @@ define("RSS_LINK", "http://feeds.feedburner.com/GunsAndAmmoMag");
 define("SITE_LINK", "gunsandammo.com");
 define("SITE_NAME", "Guns & Ammo");
 
+include_once('widgets/caption-contest.php');
+include_once('widgets/ipad-app.php');
+include_once('widgets/ipad-app-reloaded.php');
+
 function imo_sidebar($type){
 	//Speed up mobile load time by not loading sidebar in the background
 	if(!mobile()){

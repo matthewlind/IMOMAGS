@@ -20,7 +20,7 @@ class NetworkTopicsWidget extends \WP_Widget {
     function widget() {
     ?>
 
-	  <aside id="network-topics">
+	  <aside id="network-topics" class="widget">
 
 			<div class="network-topics-widget">
 				<h3 class="widget-title"><span>G&amp;A Network</span></h3>
