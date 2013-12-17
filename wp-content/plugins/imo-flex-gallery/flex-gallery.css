@@ -752,7 +752,7 @@ li.next-gal-slide:hover h2 {
 	overflow: hidden;
 }
 .explore-posts {
-    padding:3px 0 0;
+    padding:3px 0 0;margin:0 34px 0 54px;
 }
 .btn-link-area {
     padding:14px 0;
@@ -818,6 +818,9 @@ li.next-gal-slide:hover h2 {
 	.flex-fullscreen .flex-counter {
 		margin-top: 2px;
 	}
+}
+@media only screen and (max-width: 880px) {
+	.explore-posts{margin: 0;}
 }
 
 /* General Overrides */

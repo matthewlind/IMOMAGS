@@ -291,7 +291,7 @@ a.category-name-link:hover{background: #F1C548;color: black;}
 .double-post-slider {border-bottom:1px solid #dcdcdb;}
 .double-post-slider:after {background:#fff;}
 .posts-list .article-brief{min-height: 160px;}
-.article-brief {border-bottom: 1px solid #d8d7d6;}
+.article-brief {border: 1px solid #d8d7d6;border-width: 0 0 1px;}
 .type-page.article-brief {margin-bottom:20px;}
 .full-post .comment-count,
 .article-brief .comment-count {color:#fff;top:12px;background:url(images/sprite.png) no-repeat -134px -36px;}
@@ -796,7 +796,6 @@ div.login-register-block {
 	.or-delim{
 		font-size: 14px !important;
 	}
-	.article-brief{border: 1px solid #d8d7d6;background: #fff;}
 	.article-brief:before, .article-brief:after{
 		position:relative;
 		left:auto;

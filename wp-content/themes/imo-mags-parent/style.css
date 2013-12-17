@@ -1224,6 +1224,8 @@ a.category-name-link:hover{
 .article-brief {
     background:#fff;
     position:relative;
+    border: 1px solid #d8d7d6;
+    border-width: 0 0 1px;
 }
 .article-brief:first-child {
     margin-top:0;

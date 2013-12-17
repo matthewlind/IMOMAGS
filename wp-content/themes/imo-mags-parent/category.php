@@ -24,7 +24,7 @@ get_header(); ?>
                             printf('<span>' . single_cat_title( '', false ) . '</span>' );
                             ?>
                         </h1>
-                        <div class="sponsor"><?php //imo_dart_tag("240x60"); ?></div>
+                        <div class="sponsor"><?php imo_dart_tag("240x60"); ?></div>
 					</div>
                                                 
                     <?php 
