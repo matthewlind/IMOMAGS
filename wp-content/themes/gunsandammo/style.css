@@ -12,17 +12,21 @@ General comments (optional).
 
 @import url("../imo-mags-parent/style.css");
 body{background:#2d2d2d;}
-.header{background:url(images/bg/ga-header-bg.jpg) no-repeat -250px 0;padding-top: 74px;}
+.header{background:url(images/bg/ga-header-bg.jpg) no-repeat -250px 0;padding-top: 60px;}
 
 .header, .header .subscribe-links a{color: white;}
 .layout-frame{border: none;background: none;}
 .main, .content-banner-section{background: white;}
-.general-frame{padding-top: 30px;}
-.single .general-frame{padding-top: 0;}
+.single .sidebar-area{padding-top: 4px;}
+.special-features{margin:0;}
+.single .general-frame, .general-frame, .sidebar-area{padding-top: 0;}
 .logo{margin-left: 30px;}
 .general, .main{border: none;}
 .posts-list{padding-top: 0;border-top: none;}
 .category-video .posts-list{border: none;}
+.subscribe-form-block h4{color: white;}
+.subscribe-box .journal {margin: -20px 0 0;}
+.subscribe-box .journal img{width: 116px;}
 
 /* Tags reset
 *******************************************************************************/
@@ -49,14 +53,13 @@ color: #252525;
 	clear: none;
 	margin: 26px 0 0 22px;
 }
+.menu-main-menu-container > ul > li > a{padding:0 10px;}
 .menu-main-menu-container > ul > li > a, .has-drop li a {
 	display: block;
 	height: 44px;
 	color: #fff;
 	font: 24px/40px "stagMedium", serif;	
 	text-transform: none;
-	background: #282828;
-	background: none;
 }
 .menu-main-menu-container li.main-menu-item:hover{background: #ce181e;}
 .menu-main-menu-container > ul > li > a:hover{color: white;}
@@ -667,8 +670,8 @@ h2.reviews-form-header span {
 	.logo{margin: 0;}
 	.logo img {margin-top: 5px;}
 	.ga-submenu{background: none;border: none;}
-	.h-mdl-widget{background: none transparent;display: none;}
-	.header .socials{right: 44px;}
+	.h-mdl-widget{background: none transparent;}
+	.header .socials{right: 44px;background: #5E5E5E;}
 	.menu-top-menu-container li:first-child{padding-left: 0;}
 	.snap-drawer {
 	background-color: #333333;
@@ -689,11 +692,6 @@ h2.reviews-form-header span {
 		background: -webkit-linear-gradient(top, #303030 0%,#373737 100%);
 		background: linear-gradient(to bottom, #303030 0%, #373737 100%);
 		text-shadow: 0px 1px 1px black;
-	}
-	#subscribe-area {
-		right: 315px;
-		top: 8px;
-		right: 187px;
 	}
 	.menu-subscribe a img{top: -2px;color: white;}
 	.hot-link a{

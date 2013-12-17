@@ -291,7 +291,8 @@ a.category-name-link:hover{background: #F1C548;color: black;}
 .double-post-slider {border-bottom:1px solid #dcdcdb;}
 .double-post-slider:after {background:#fff;}
 .posts-list .article-brief{min-height: 160px;}
-.article-brief {margin:20px 0 0;background:#fff;border:1px solid #d8d7d6;border-width:0 0 1px;}
+.article-brief {border-bottom: 1px solid #d8d7d6;}
+.type-page.article-brief {margin-bottom:20px;}
 .full-post .comment-count,
 .article-brief .comment-count {color:#fff;top:12px;background:url(images/sprite.png) no-repeat -134px -36px;}
 .links-section h4 {color:#000;border-bottom:4px solid #040503;}

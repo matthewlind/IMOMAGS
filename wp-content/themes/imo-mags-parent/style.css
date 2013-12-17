@@ -397,7 +397,7 @@ img{max-width: 100%;height: auto;}
     border-width:0 1px 0 0;
     margin:0 13px 0 0;
     display:none;
-    background:url(images/sprite.png) no-repeat -306px -131px;
+    background:url(images/sprite.png) no-repeat -306px -132px;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
 	-webkit-touch-callout: none;
 	cursor: pointer;
@@ -1223,9 +1223,6 @@ a.category-name-link:hover{
 
 .article-brief {
     background:#fff;
-    border:1px solid #d8d7d6;
-    border-width:0 0 1px;
-    padding:1px;
     position:relative;
 }
 .article-brief:first-child {
