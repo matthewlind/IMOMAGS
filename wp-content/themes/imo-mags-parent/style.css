@@ -946,6 +946,7 @@ input.gsc-search-button-v2{
   margin-bottom: 10px;
   float: right;
 }
+.single #BCLcontainingBlock{float: none;}
 .BCLvideoWrapper {
   position: relative;
 }
