@@ -13,24 +13,8 @@ get_header(); ?>
                             ?>
                         </h1>
                     </div>
-                                        
-                    <?php //echo '<div class="category-img"><img src="'.z_taxonomy_image_url().'" alt="'.single_tag_title( '', false ).'" title="'.single_tag_title( '', false ).'" /></div>'; ?>   
-                        <?php
-                            $tag_description = tag_description();
-                            if ( ! empty( $tag_description ) )
-                                echo apply_filters( 'tag_archive_meta', '<div data-position="'.$dataPos + 1.'" class="tag-archive-meta taxdescription js-responsive-section">' . $tag_description . '</div>' ); ?>
-                                
-                    <!--<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="filter-by jq-filter-by js-responsive-section">               
-                        <strong>filter by:</strong>
-                        <ul class="filter-links">
-                            <li><a href="#">Latest</a></li>
-                            <li><a href="#">Most Viewed</a></li>
-                            <li><a href="#">Most Discussed</a></li>
-                            <li><a href="#">Most Shared</a></li>
-                        </ul>
-                    </div>-->
-                    
-                    <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="js-responsive-section main-content-preppend">
+             
+                    <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section main-content-preppend">
                         <?php //twentyeleven_content_nav( 'nav-above' ); ?>
     
                         <?php /* Start the Loop */ ?>
@@ -41,7 +25,7 @@ get_header(); ?>
                                  * If you want to overload this in a child theme then include a file
                                  * called content-___.php (where ___ is the Post Format name) and that will be used instead.
                                  */
-                                get_template_part( 'content', get_post_format() );
+                                get_template_part( 'content/content', get_post_format() );
                             ?>
 
                         <?php if ( (($i - (($paged -1) * 2 ))%6) == 0 ): ?>

@@ -45,7 +45,7 @@ color: #252525;
 .ui-panel .menu-top-menu-container a:hover,
 .ui-panel .mob-aside-menu li.drop-open > a,
 .ui-panel .mob-aside-menu > div > ul > li > a:hover {color:white;}
-.logo img{margin-top: 10px;}
+.logo img{margin-top: 10px;width: 290px;}
 .menu-main-menu-container{
 	background: none;
 	float: left;
@@ -708,6 +708,7 @@ h2.reviews-form-header span {
 	}
 	.logo img{width: 140px;margin-top:9px;}
 	h2.reviews-form-header span{width: 646px;}
+	#subscribe-area{top: 6px;right: 178px;}
 }
 @media only screen and (max-width: 980px){
 	.reviews-form{padding: 18px 0 16px;margin: 0 auto;margin-left: 6px;position: relative;float: none;top: auto;right: auto;clear: both;}
