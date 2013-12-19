@@ -403,7 +403,7 @@ img{max-width: 100%;height: auto;}
 	cursor: pointer;
 }
 .open-menu:hover {
-    background-position:-353px -131px;
+    background-position:-353px -132px;
 }
 .user-btn.user-btn-avatar{
 	background: none;
@@ -3753,10 +3753,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
     .double-posts .feat-img {
         width:168px;
     }
-    .header .socials,
-    #subscribe-area {
-        display:none;
-    }
+
     .double-posts .feat-img,
     .article-brief .attachment-index-thumb {
         width:30%;
@@ -3904,7 +3901,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
         width:100%;
         max-width: none;
     }
-	.header .socials, #subscribe-area{display: none;}
     .smooth-menu, .header {
 		-webkit-transform:translate3d(0,0,0);
 		-webkit-backface-visibility: hidden;

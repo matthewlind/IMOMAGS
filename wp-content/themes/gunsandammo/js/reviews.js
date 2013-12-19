@@ -194,10 +194,10 @@ jQuery(document).ready(function($) {
 	function populateSlider(rows) {
 
 		//first grab a review to use as a template
-		var article = $('<li style="width: 340px; float: left; display: block;"><div class="feat-post"><div class="feat-img"><a href="http://www.gunsandammo.fox/reviews/range-m16a1-review/"><img src="http://www.gunsandammo.fox/files/2013/10/m16a1_review-335x225.jpg"></a></div><div class="feat-text"><h3><a href="http://www.gunsandammo.fox/reviews/range-m16a1-review/">At the Range: M16A1 Review</a></h3></div></div></li>')
+		var article = $('<li style="width: 148px; float: left; display: block;"><div class="feat-post"><div class="feat-img"><a href="http://www.gunsandammo.fox/reviews/range-m16a1-review/"><img src="http://www.gunsandammo.fox/files/2013/10/m16a1_review-335x225.jpg"></a></div><div class="feat-text"><h3><a href="http://www.gunsandammo.fox/reviews/range-m16a1-review/">At the Range: M16A1 Review</a></h3></div></div></li>')
 
 		//Then, clear existing reviews
-		$(".jq-reviews-paging-slider ul.slides").empty();
+		$(".ga-reviews-slider ul.slides").empty();
 
 		$(rows).each(function(i,row){
 
@@ -210,7 +210,7 @@ jQuery(document).ready(function($) {
 			articleClone.find(".feat-img").append("<a href='" + row.permalink + "'>" + row.imo_slider_thumb + "</a>");//Add the new thumbnail
 
 
-			$(".jq-reviews-paging-slider ul.slides").append(articleClone);
+			$(".ga-reviews-slider ul.slides").append(articleClone);
 
 		});
 

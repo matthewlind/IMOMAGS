@@ -105,7 +105,7 @@ imo_sidebar(); ?>
 					</div>
 			        <div class="article-holder">
 					    <div class="clearfix">
-			                <?php if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(); } ?>
+			                <?php //if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(); } ?>
 			            </div>
 
 						<div class="entry-category">

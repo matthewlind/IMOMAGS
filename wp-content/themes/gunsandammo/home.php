@@ -85,7 +85,10 @@ get_header(); ?>
                             <!-- .entry-header -->
                            <a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>
                             <div class="entry-content">
-                                <?php the_excerpt(); ?>
+                                <?php if(in_category('video')){ ?>
+	                                <span class="cat-feat-label"><a class="category-name-link primary-cat">VIDEO</a></span>
+                                <?php }
+                                the_excerpt(); ?>
                                 <?php //the_content( __( 'more <span class="meta-nav">&raquo;</span>', 'twentytwelve' ) ); ?>
                                 <?php wp_link_pages( array( 'before' => '<div class="page-links">' . 'Pages:', 'after' => '</div>' ) ); ?>
                             </div><!-- .entry-content -->
