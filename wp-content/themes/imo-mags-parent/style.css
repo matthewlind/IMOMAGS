@@ -1221,7 +1221,15 @@ a.category-name-link:hover{
 .posts-list {margin:0 0 16px;clear: both;border-top: 1px solid #d8d7d6;padding-top: 12px;}
 .posts-list .article-brief {min-height: 168px;margin-top: 10px;}
 .posts-list .article-holder {padding:0 0 12px 26px;}
-
+.posts-list .article-brief.callout{background: #f1f1f1;margin-top: 0;padding: 10px;}
+.callout-copy{
+    font-size: 12px;
+    background: #cda220;
+    padding: 2px 4px;
+    width: 108px;
+    text-transform: uppercase;
+    color: white;
+}
 .article-brief {
     background:#fff;
     position:relative;
