@@ -6453,6 +6453,18 @@ span.sponsored-thumb {
 }
 
 
+.alert-msg{
+	background: #ce181e;
+	width: 100%;
+	text-align: center;
+	padding: 4px 0;
+	z-index: 99999;
+	position: fixed;
+	display: none !important;
+}
+.alert-msg a{color: white;text-decoration: underline;font-weight: bold;}
+.alert-msg a:hover{text-decoration: none;}
+.alert-msg span{color: white;padding-left: 20px;cursor: pointer;}
 
 /************************
 *****
@@ -6465,9 +6477,6 @@ span.sponsored-thumb {
     position: fixed;
     width: 100%;
     z-index: 9999;
-}
-.ga-network{
-
 }
 .top-bar{
 	background-color: #333;

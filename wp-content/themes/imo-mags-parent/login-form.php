@@ -9,10 +9,14 @@ Theme My Login will always look in your theme's directory first, before using th
 <?php $template->the_action_template_message( 'login' ); ?>
 <?php $template->the_errors(); ?>
 <div id="theme-my-login<?php $template->the_instance(); ?>">
-	
+
 	<div class="title-underline">
-    	<h1>Login</h1>
+    	<!-- <h1>Login</h1> -->
     	<!--<a href="<?php echo wp_logout_url( get_permalink() ); ?>" class="logout" alt="Logout" title="Logout">Logout</a>-->
+	</div>
+	<div class="login-form-facebook" style="">
+		<a href="#" id="imo-fb-login-button" class="go-to-profile fb-login join-widget-fb-login btn-fb-login">Fast Login &amp; Submit</a>
+	<p style="margin-top:10px">or Login with your Email Address</p>
 	</div>
 	<form name="loginform" class="form" id="loginform<?php $template->the_instance(); ?>" action="<?php $template->the_action_url( 'login' ); ?>" method="post">
 		 <fieldset>
@@ -22,7 +26,7 @@ Theme My Login will always look in your theme's directory first, before using th
                     <input name="log" id="user_login<?php $template->the_instance(); ?>" type="text" value="<?php $template->the_posted_value( 'log' ); ?>" />
                 </div>
             </div>
-            
+
             <div class="f-row">
                 <label for="user_pass<?php $template->the_instance(); ?>"><?php _e( 'Password', 'theme-my-login' ) ?></label>
                 <div class="f-input">
@@ -46,8 +50,9 @@ Theme My Login will always look in your theme's directory first, before using th
 				<input type="hidden" name="testcookie" value="1" />
 				<input type="hidden" name="instance" value="<?php $template->the_instance(); ?>" />
 				</div>
-			
+
 			</fieldset>
 		</form>
 	<?php $template->the_action_links( array( 'login' => false ) ); ?>
+	<a href="/wp-login.php?action=lostpassword">Forgot Password?</a>
 </div>

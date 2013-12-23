@@ -9,8 +9,10 @@ Theme My Login will always look in your theme's directory first, before using th
 <?php $template->the_action_template_message( 'login' ); ?>
 	<?php $template->the_errors(); ?>
 <div class="login" id="theme-my-login<?php $template->the_instance(); ?>">
-	
-	<h2 class="comm-header">Login</h2>
+
+	<!-- <h2 class="comm-header">Login</h2> -->
+	<div id="imo-fb-login-button" class="go-to-profile-naw fb-login join-widget-fb-login">Fast Facebook Login</div>
+	<p style="margin-top:10px">or Login with your Email Address</p>
 	<form name="loginform" id="loginform<?php $template->the_instance(); ?>" action="<?php $template->the_action_url( 'login' ); ?>" method="post">
 		<p>
 			<label for="user_login<?php $template->the_instance(); ?>"><?php _e( 'Username', 'theme-my-login' ) ?></label>

@@ -1,0 +1,83 @@
+ul#sortable {
+	margin:20px 20px 20px 0px;
+	width:650px;
+}
+
+
+.sortable-list li,.sortable-list div.list-item {
+	border:1px solid #bbb;
+	background-color: #eee;
+	margin:5px 5px 10px 0;
+	padding:11px;
+	height:50px;
+	-webkit-border-radius: 7px;
+
+    border-radius: 7px;
+}
+.sortable-list li img{
+	margin-right:10px;
+	width:50px;
+	height:50px;
+}
+.post-search {
+	margin-bottom:20px;
+}
+
+.id-block {
+	float:right;
+}
+
+.list-header {
+	margin-bottom:0px;
+}
+
+.ui-icon-arrowthick-2-n-s {
+	margin-top: 15px;float: left;width: 20px;
+}
+
+.hidden-form .save-changes,.hidden-form .save-changes:hover {
+	border-color: #dfdfdf;
+	color: white;
+}
+
+label {
+	margin-top:15px;
+}
+
+.btn-delete {
+	float:right;
+	margin-right:5px;
+	margin-top:10px;
+}
+
+.set-container {
+	width: 250px;
+	margin:10px;
+	padding:10px;
+	-webkit-border-radius: 7px;
+    border-radius: 7px;
+	border:1px solid #bbb;
+	float:left;
+	cursor:pointer;
+}
+
+.set-container:hover {
+	background-color: #f9f9f9;
+}
+
+.post-item-template img {
+	height: 50px;
+	width: 50px;
+	float:left;
+	margin-right:10px;
+}
+
+.post-item-template {
+	padding:2.5px;
+	min-height: 60px;
+	margin-top:0px;
+}
+
+.post-item-template p {
+	margin:10px;
+}

@@ -412,7 +412,7 @@ $time = date("g:i A", strtotime($timestamp));
     </div>-->
     <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="js-responsive-section">
     	<div class="custom-slider-section">
-    		<?php //echo do_shortcode('[imo-slideshow community=true]'); ?>
+    		<?php echo do_shortcode('[imo-slideshow community=true]'); ?>
     	</div>
     </div>
 

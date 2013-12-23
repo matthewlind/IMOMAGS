@@ -155,8 +155,9 @@ $args = array(
               <a href="http://www.imoutdoorsmedia.com/IM3/" title="">About</a> &middot;
               <!--<a href="#">Conservation Partners</a> &middot;-->
               <a href="http://www.imoutdoorsmedia.com" title="">Advertise</a> &middot;
-             <a href="http://www.imoutdoorsmedia.com/IM3/privacy.php" title="">Privacy Policy</a> &middot;
-             <a href="http://imomags.com/careers/" title="">Careers</a>
+              <a href="http://www.imoutdoorsmedia.com/IM3/privacy.php" title="">Privacy Policy</a> &middot;
+              <a href="http://imomags.com/careers/" title="">Careers</a> &middot;
+              <a href="/contact" title="Send us an e-mail">Contact</a>
               <!--<a href="/terms" title="">Terms &amp; Conditions</a>-->
             </div>
           </div>

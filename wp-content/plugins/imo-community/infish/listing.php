@@ -22,7 +22,6 @@ if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 
 //Gallery Scripts
 wp_enqueue_script('flexslider-js',plugins_url('imo-flex-gallery/jquery.flexslider.js'));
-wp_enqueue_style('flexslider-css',plugins_url('imo-flex-gallery/flexslider.css'));
 wp_enqueue_script('flex-gallery-js',plugins_url('imo-flex-gallery/flex-gallery.js'));
 wp_enqueue_script('jquery-mobile',plugins_url('imo-flex-gallery/jquery.mobile.custom.min.js'));
 wp_enqueue_script('jquery-ui-slide-effect',plugins_url('imo-flex-gallery/jquery-ui-slide-effect.min.js'));
@@ -123,7 +122,7 @@ if(post.score == 1){
 			</div>
         </div>
 		<div class="custom-slider-section">
-            <?php //echo do_shortcode('[imo-slideshow community=true]'); ?>
+            <?php echo do_shortcode('[imo-slideshow community=true]'); ?>
         </div>
 
 
@@ -159,7 +158,7 @@ if(post.score == 1){
             <li><a href="" class="filter-menu" order_by="created" post_type="carp" >Carp</a></li>
             <!--<li><a href="" class="filter-menu" order_by="created" post_type="paddlefish" >Paddlefish</a></li>-->
             <li><a href="" class="filter-menu" order_by="created" post_type="crappie" >Crappie</a></li>
-           <!-- <li><a href="" class="filter-menu" order_by="created" post_type="burbot" >Burbot</a></li> -->
+           <!-- <li><a href="" class="filter-menu" order_by="created" post_type="burbot" >Burbot</a></li>
             This is also a valid and working sorting option:
             <li><a href="" class="filter-menu" order_by="created" sort="ASC" post_type="carp" >Oldest Carp</a></li>
 

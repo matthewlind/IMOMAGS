@@ -1,0 +1,29 @@
+.scroll_mask {
+  position:relative;
+  overflow:hidden;
+  width:620px;
+  height:150px;
+  margin:0 auto;
+}
+
+ul.scroll {
+  margin:0;
+  padding:0;
+  position:absolute;
+  width:9999em;
+  height:150px;
+  list-style-type:none;
+
+}
+
+ul.scroll li {
+  float:left;
+  width:134px;
+  height:150px;
+  margin:0 20px 0 0;
+
+}
+
+a.inactive {
+  display:none;
+}

@@ -3,14 +3,58 @@ jQuery(window).load(function() {
     jQuery('.onload-hidden-abs').removeClass('onload-hidden-abs');
     jQuery('.loading-block').removeClass('loading-block');
     //jQuery('#at4m-mobile').appendTo("#page");
+    jQuery('td.gsc-input').removeClass('gsc-input');
+    jQuery('.gsc-search-button').attr('src','').removeClass('gsc-search-button');
+    jQuery(".feat-text.exp").css("height","0px");
+	var li_height = jQuery(".flex-active-slide").height();
+	jQuery(".gallery-slider div.flex-viewport").css("max-height",li_height);
 });
-
 
 jQuery(document).ready(function () {
 	
+	/*****
+	**
+	** IMO NETWORK TOPHAT
+	**
+	*****/
+
+					
+		var $window = jQuery(window);
+	    var $networkNav = jQuery(".network-nav");
+	    var $tophat = jQuery("#imo-tophat");
+	   
+	    // show network nav at top on load
+	    if ($window.scrollTop() != 0) {             
+	        $networkNav.slideDown(1000,function(){
+		        jQuery(this).css("top", "30px");
+		    });    
+	    }   
+	    setTimeout(function() {
+	    // Moves status bar to top of browser window on scroll
+	    $window.scroll(function () { 
+	        $networkNav.stop().animate({
+	            top: -100
+	            }, 500, function() {
+	                if ($window.scrollTop() == 0) {
+	                    jQuery(this).animate({ display: 'block',top: 30 },300); // return to default position                             
+	                }
+	        });
+	    });
+	    }, 1000);
+	      
+	    //hover over to reveal
+		$tophat.hover(function(){
+	    	$networkNav.slideDown(100,function(){
+	    		jQuery(this).stop().animate({top: 30});
+	    	});
+	   
+	    });
+	     	
 
 
-
+	
+	
+	
 	jQuery(function(){
 		
 		if(jQuery.cookie('hide_alert') == null){
@@ -82,6 +126,7 @@ jQuery(document).ready(function () {
 	});
 	
 	//Community Menu
+	
     addEvent(document.getElementById('comm-mob-menu'), 'click', function(){
 
     	if( jQuery("body").hasClass("snapjs-right") ){
@@ -137,7 +182,7 @@ jQuery(document).ready(function () {
 	                success: function(data) {
 	                	
 	                    jQuery('.main-content-preppend').append(
-	                        jQuery(data).find('.js-responsive-section').find(findId).hide()
+	                        jQuery(data).find('.posts-list.js-responsive-section').find(findId).hide()
 	                    );
 	                    jQuery('.main-content-preppend').find(findId).show('slow');
 	                    if (jQuery(data).find('.next-link a').length) {
@@ -183,7 +228,12 @@ jQuery(function(){
         animationSpeed: 200,
         slideshow: false
       });
-      
+    jQuery('.single-featured-slider').flexslider({
+    	animation: "slide",
+        animationSpeed: 200,
+        slideshow: true,
+    	directionNav: true
+    });
     jQuery('.jq-ma-slider').flexslider({
         animation: "slide",
         animationSpeed: 200,
@@ -218,7 +268,7 @@ jQuery(function(){
           maxItems: 1
           
         });
-        
+    
     jQuery('.jq-explore-slider').flexslider({
         animation: "slide",
         animationSpeed: 200,
@@ -250,6 +300,7 @@ jQuery(function(){
         });*/
 
     jQuery('.jq-custom-form input[type="checkbox"]').ezMark();
+    jQuery('.jq-custom-form input[type="checkbox"]').show();
     
 });
 
@@ -263,24 +314,26 @@ jQuery('.jq-open-search').toggle(function(){
         
     },function(){
         jQuery('.h-search-form').removeClass('h-search-open');
-    });
+});
 
 jQuery('.jq-filter-by').toggle(function(){
         jQuery('.filter-by').addClass('filter-open');
         
     },function(){
         jQuery('.filter-by').removeClass('filter-open');
-    });
+});
     
-
 jQuery('.snap-drawers').on("click", ".mob-aside-menu .has-drop", function(){
     jQuery(this).parent("li").toggleClass('drop-open');
 });
+
 jQuery('.snap-drawers').on("click", ".mob-aside-menu .has-drop", function(e){
     e.preventDefault();
 });
 
-
+jQuery('.fixed-connect .close').click(function(){
+	jQuery('.fixed-connect').slideUp();
+});
     
 //placeholder
 jQuery('input[placeholder], textarea[placeholder]').placeholder();

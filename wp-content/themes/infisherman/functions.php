@@ -16,6 +16,7 @@ define("SERVICE_LINK", "https://secure.palmcoastd.com/pcd/eServ?iServ=MDE0Njk0ND
 define("SUBS_DEAL_STRING", "Save Over 70% off<br/> the Cover Price");
 define("DRUPAL_SITE", TRUE);
 define("FACEBOOK_LINK", "https://www.facebook.com/InFisherman");
+define("SITE_NAME", "In-Fisherman");
 
 define("FACEBOOK_APP_ID","172626882923364");
 define("FACEBOOK_APP_SECRET","60a79f156a44dc9a57096bf9ed3d1a80");
@@ -82,10 +83,6 @@ function sub_footer(){ ?>
 		<?php social_networks(); ?>
 	</div>
 	<a href="/newsletter-signup" class="get-newsletter">Get the In-Fisherman <br />Newsletter</a>
-	<a href="<?php print SUBS_LINK;?>" class="subscribe-banner">
-		<img src="<?php bloginfo('stylesheet_directory'); ?>/images/pic/subscribe-banner.jpg" alt="" />
-	</a>
-	<a href="#" class="back-top jq-go-top">back to top</a>
 <?php }
 
 function social_footer(){ ?>

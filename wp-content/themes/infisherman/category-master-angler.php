@@ -13,8 +13,8 @@ wp_enqueue_style('ajax-gallery-css',plugins_url('imo-flex-gallery/flex-gallery.c
 wp_enqueue_style('perfect-scrollbar-css',plugins_url('imo-flex-gallery/perfect-scrollbar-0.4.3.min.css'));
 
 $dataPos = 0;
-get_header(); ?>
-        <?php imo_sidebar("landing");?>
+get_header(); 
+imo_sidebar(); ?>
         <div id="primary" class="general">
             <div id="content" role="main" class="general-frame">
 
@@ -34,9 +34,7 @@ get_header(); ?>
                             if ( ! empty( $category_description ) )
                                 echo apply_filters( 'category_archive_meta', '<div data-position="'.$dataPos = $dataPos + 1 .'" class="category-archive-meta taxdescription js-responsive-section">' . $category_description . '</div>' ); ?>
 	                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="js-responsive-section">
-	                	<div class="custom-slider-section">
-	                	<?php //echo do_shortcode('[imo-slideshow community=true gallery=master-angler]'); ?>
-	                	</div>
+	                	<?php echo do_shortcode('[imo-slideshow community=true gallery=master-angler]'); ?>
 					</div>
 
                     <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="article-brief js-responsive-section ma-info">

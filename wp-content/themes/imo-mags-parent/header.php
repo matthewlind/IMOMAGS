@@ -18,7 +18,7 @@
 <!--<![endif]-->
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
-	<meta name="viewport" content="width=device-width" />
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1" />
 	<meta http-equiv="x-ua-compatible" content="IE=edge" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
@@ -67,20 +67,53 @@
 	    wp_head();
 	    
 	    $magazine_img = get_option('magazine_cover_uri' );
-		$subs_link = get_option('subs_link'); 
+		$subs_link = get_option('subs_link') . "/?pkey="; 
 		$iMagID = get_option('iMagID' );
 		$deal_copy = get_option('deal_copy' );
 		$gift_link = get_option('gift_link' );
 		$service_link = get_option('service_link' );
 		$subs_form_link = get_option('subs_form_link' );
 		$i4ky = get_option('i4ky' );
+		$dartDomain = get_option("dart_domain", $default = false);
 	?>
+	<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/dart.js" type="text/javascript"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.jfollow.js" type="text/javascript"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/flash_heed.js" type="text/javascript"></script>
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/snap.js"></script>
+	<script type='text/javascript'>
+		var googletag = googletag || {};
+		googletag.cmd = googletag.cmd || [];
+		(function() {
+		var gads = document.createElement('script');
+		gads.async = true;
+		gads.type = 'text/javascript';
+		var useSSL = 'https:' == document.location.protocol;
+		gads.src = (useSSL ? 'https:' : 'http:') +
+		'//www.googletagservices.com/tag/js/gpt.js';
+		var node = document.getElementsByTagName('script')[0];
+		node.parentNode.insertBefore(gads, node);
+		})();
+	</script>
+	 
+	<script type='text/javascript'>
+		googletag.cmd.push(function() {
+			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [1, 1], 'div-gpt-ad-1386782139095-0').addService(googletag.pubads());
+			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [240, 60], 'div-gpt-ad-1386782139095-1').addService(googletag.pubads());
+			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 120], 'div-gpt-ad-1386782139095-2').addService(googletag.pubads());
+			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], 'div-gpt-ad-1386782139095-3').addService(googletag.pubads());
+			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 300], 'div-gpt-ad-1386782139095-4').addService(googletag.pubads());
+			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 600], 'div-gpt-ad-1386782139095-5').addService(googletag.pubads());
+			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 602], 'div-gpt-ad-1386782139095-6').addService(googletag.pubads());
+			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [728, 90], 'div-gpt-ad-1386782139095-7').addService(googletag.pubads());
+			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [1080, 90], 'div-gpt-ad-1386782139095-8').addService(googletag.pubads());
+			googletag.pubads().enableSingleRequest();
+			googletag.pubads().enableVideoAds();
+			googletag.enableServices();
+		});
+	</script>
 	<?php if ( defined('JETPACK_SITE') && mobile() == false && tablet() == false): ?>
-		<!--<script type='text/javascript' src='http://ads.jetpackdigital.com/sites/<?php print JETPACK_SITE; ?>/jpd.js'></script>-->
+		<script type='text/javascript' src='http://ads.jetpackdigital.com/sites/<?php print JETPACK_SITE; ?>/jpd.js'></script>
 	<?php endif; ?>
 </head>
 
@@ -99,13 +132,12 @@
     <div class="snap-drawer snap-drawer-left" id="left-drawer">
         <div>
 			<div class="mobile-menu-banner">
-				<?php $dartDomain = get_option("dart_domain", $default = false); ?>
 				<iframe id="menu-iframe-ad" width="320" height="50" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-menu.php?size=320x50&ad_code=<?php echo $dartDomain; ?>"></iframe>
 			</div>	
 	
 	        <div class="mob-aside-menu">
 	            <?php
-	            if(has_nav_menu( 'Mobile Menu' )){
+	            if(has_nav_menu( 'mobile' )){
 	                wp_nav_menu(array(
 	                    'menu_class'=>'menu',
 	                    'theme_location'=>'mobile',
@@ -123,7 +155,7 @@
 	        </div>
 	
 	        <div class="menu-subscribe">
-	            <a href="<?php print $subs_link;?>" target="_blank"><img src="<?php print $magazine_img;?>" alt="Subscribe" /><span>Subscribe Now!</span></a>
+	            <a href="<?php print $subs_link . get_option("mobile_menu_key"); ?>" target="_blank"><img src="<?php print $magazine_img;?>" alt="Subscribe" /><span>Subscribe Now!</span></a>
 	        </div>
 	        <?php wp_nav_menu(array(
 	            'menu_class'=>'menu',
@@ -171,11 +203,12 @@
 	         return;
 	    }
 	    
+	    
 	?>
+
 	<div class="snap-drawer snap-drawer-right" id="right-drawer">
 		 <div>
 			<div class="mobile-menu-banner">
-				<?php $dartDomain = get_option("dart_domain", $default = false); ?>
 				<iframe id="menu-iframe-ad" width="320" height="50" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-menu.php?size=320x50&ad_code=<?php echo $dartDomain; ?>"></iframe>
 			</div>	
 	
@@ -215,7 +248,7 @@
 		       </div>
 	        </div>
 	        <div class="menu-subscribe">
-	            <a href="<?php print $subs_link;?>" target="_blank"><img src="<?php print $magazine_img;?>" alt="" /><span>Subscribe Now!</span></a>
+	            <a href="<?php print $subs_link . get_option("mobile_menu_key"); ?>" target="_blank"><img src="<?php print $magazine_img;?>" alt="" /><span>Subscribe Now!</span></a>
 	        </div>
 	        <div class="mob-aside-menu" style="<?php echo $displayStyle; ?>">
 		        <div class="menu-community-menu-container">
@@ -240,8 +273,17 @@
 	</div>
 
 </div>
-
+<?php 
+	include_once get_stylesheet_directory() . "/network-bar.php";
+	fixed_connect_footer(); 
+?>
 <div id="page" class="snap-content smooth-menu">
+<!-- Site - Bowhunter -->
+<div id='div-gpt-ad-1386788577276-9'>
+	<script type='text/javascript'>
+		googletag.cmd.push(function() { googletag.display('div-gpt-ad-1386788577276-9'); });
+	</script>
+</div>
 <?php if (mobile() == false && tablet() == false) {  imo_dart_tag("1x1",false,array("pos"=>"skin")); } ?>
 	<div class="hfeed wrapper" data-role="content" role="main">
 	    <div class="layout-frame">
@@ -251,12 +293,14 @@
 
                    <a id="open-left" class="open-menu">open menu</a>
                     <strong class="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/logo.png" alt="<?php bloginfo( 'name' ); ?>" /></a></strong>
-					<a id="comm-mob-menu" class="user-btn" <?php if( is_user_logged_in() ) { echo 'style="background:url(/avatar?uid=' . $data->ID . ') no-repeat center center;"'; } ?>>user</a>
-					<div class="community-tooltip"></div>
+                    	<?php if ( function_exists('imo_community_template') ){ ?>
+							<a id="comm-mob-menu" class="user-btn" <?php if( is_user_logged_in() ) { echo 'style="background:url(/avatar?uid=' . $data->ID . ') no-repeat center center;"'; } ?>>user</a>
+							<div class="community-tooltip"></div>
+						<?php }else{ ?>
+							<a id="comm-mob-menu" class="user-btn" style="display:none;">
+						<?php } ?>
                      
-                     
-                     
-                                         <?php
+						<?php
                         // Check to see if the header image has been removed
                         $header_image = get_header_image();
                         if ( ! empty( $header_image ) ) :
@@ -296,14 +340,14 @@
 						    </div>
 
 						    <div class="subscribe-now">
-								<?php print $deal_copy;?>
-								<a href="<?php print $subs_link;?>" target="_blank" class="btn-base">Subscribe <span>Now!</span></a>
+								<span><?php print $deal_copy;?></span>
+								<a href="<?php print $subs_link . get_option("header_key"); ?>" target="_blank" class="btn-base">Subscribe <span>Now!</span></a>
+								<ul class="subscribe-links">
+							        <li><a href="<?php print $gift_link;?>" target="_blank">Give a Gift <span>&raquo;</span></a></li>
+							        <li><a href="<?php print $service_link; ?>" target="_blank">Subscriber Services <span>&raquo;</span></a></li>
+							    </ul>
 						    </div>
 						    </div>
-						    <ul class="subscribe-links">
-						        <li><a href="<?php print $gift_link;?>" target="_blank">Give a Gift <span>&raquo;</span></a></li>
-						        <li><a href="<?php print $service_link; ?>" target="_blank">Subscriber Services <span>&raquo;</span></a></li>
-						    </ul>
 						</div>
 					</div>
 
@@ -317,11 +361,20 @@
                         </div>
                     <?php endif; ?>
                 </div><!-- #branding -->
-
-                    <?php wp_nav_menu(array(
-                        'menu_class'=>'menu',
-                        'theme_location'=>'top',
-                    ));   ?>
+                	<?php 
+                	if(get_option("menu_key")){ ?>
+	                	<div class="menu-top-menu-container subscribe-left">
+							<ul class="menu">
+								<li class="menu-item"><a href="<?php echo $subs_link . get_option("menu_key"); ?>" target="_blank">Subscribe!</a></li>
+							</ul>
+						</div>
+                	<?php }
+					if(has_nav_menu( 'top' )){
+                    	wp_nav_menu(array(
+	                        'menu_class'=>'menu',
+	                        'theme_location'=>'top',
+						));  
+                    } ?>
                 <!-- #access -->
 
                     <?php

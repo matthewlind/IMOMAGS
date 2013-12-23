@@ -107,10 +107,12 @@ class Signup_Widget_Header extends WP_Widget {
 	   <div class="signup-box jq-custom-form">
 	        <fieldset>
 	            <div class="signup-mdl">
-	            	<h3>GET THE G&F NEWSLETTER!</h3>
-	                <div class="f-row input-row">
-						<input alt="Email Address" type="text" name="email" size="25" maxlength="100" value="" placeholder="Enter Your Email..." >
-	                </div>
+	            	<h3><?php echo $title; ?></h3>
+	            	<div class="inputs">
+		                <div class="f-row input-row">
+							<input alt="Email Address" type="text" name="email" size="25" maxlength="100" value="" placeholder="Enter Your Email..." >
+		                </div>
+	            	</div>
 	                 <div class="signup-btn-row">
 	                    <span class="btn-base"><input type="submit" value="GO" name="update" ></span>
 	                </div>
@@ -122,7 +124,7 @@ class Signup_Widget_Header extends WP_Widget {
 						}
 					</script>
 	                <div class="f-row check-row">
-	                    <input alt="Third Party" type="checkbox" value="22697" name="interests" id="receive" />
+	                    <input alt="Third Party" type="checkbox" checked="checked" value="22697" name="interests" id="receive" />
 	                    <input type="hidden" name="OptoutInfo" value="">
 	                    <label for="receive">Yes, I'd like to receive offers from your partners</label>
 	                </div>
@@ -135,32 +137,6 @@ class Signup_Widget_Header extends WP_Widget {
 	    
 		</div>
 	</form>
-	<script language='javascript'>
-	fullURL = document.URL
-	sAlertStr = ''
-	nLoc = fullURL.indexOf('&')
-	if (nLoc == -1)
-		nLoc = fullURL.length
-	if (fullURL.indexOf('zreq=') > 0){
-		sRequired = fullURL.substring(fullURL.indexOf('zreq=')+5, nLoc)
-		if (sRequired.length > 0){
-			sRequired = ',' + sRequired.replace('%20',' ')
-			sRequired = sRequired.replace(/,/g,'\n  - ')
-			sAlertStr = 'The following item(s) are required: '+sRequired + '\n'
-		}
-	}
-	if (fullURL.indexOf('zmsg=') > 0) {
-		sMessage = fullURL.substring(fullURL.indexOf('zmsg=')+5, fullURL.length)
-		if (sMessage.length > 0) {
-			sMessage = sMessage.replace(/%20/g, ' ')
-			sMessage = sMessage.replace(/%0A/g, '\n')
-			sAlertStr = sAlertStr + sMessage
-		}
-	}
-	
-	if (sAlertStr.length > 0)
-		alert(sAlertStr)
-	</script>
 </div>
 <?php	}
  

@@ -9,6 +9,10 @@ define("SERVICE_LINK", "https://secure.palmcoastd.com/pcd/eServ?iServ=MDE0ODg0ND
 define("SUBS_DEAL_STRING", "Save Over 70% off<br/> the Cover Price");
 
 define("FACEBOOK_LINK", "https://www.facebook.com/GameAndFish");
+define("TWITTER_LINK", "https://www.twitter.com/@gameandfishmag");
+define("RSS_LINK", "http://www.gameandfishmag.com/feed/");
+define("SITE_LINK", "gameandfishmag.com");
+define("SITE_NAME", "Game & Fish");
 
 /* This function allows for logging when debugging mode is on */
 if(!function_exists('_log')){
@@ -22,7 +26,6 @@ if(!function_exists('_log')){
     }
   }
 }
-
 function imo_sidebar($type){
 	//Speed up mobile load time by not loading sidebar in the background
 	if(!mobile()){
@@ -34,9 +37,10 @@ function imo_sidebar($type){
 				echo '</div>';
 			echo '</div>';
 		    get_sidebar($type);
+		    	
 			    	echo '<div id="responderfollow"></div>';
 					echo '<div class="sidebar advert">';
-			    	echo '<iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FGameAndFish&amp;width=300&amp;height=75&amp;colorscheme=light&amp;show_faces=false&amp;border_color=%23DDDDDD&amp;stream=false&amp;header=false&amp;appId=218070564894418" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:300px; height:75px;" allowTransparency="true"></iframe>';
+			    	//the_widget( 'Community_Slider' );
 						echo '<div class="widget_advert-widget">';
 							echo '<iframe id="sticky-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-sticky.php?ad_code='.$dartDomain.'"></iframe>';
 						echo '</div>';
@@ -48,10 +52,9 @@ function imo_sidebar($type){
 
 function social_networks(){
 	echo '<div class="socials">';
-		echo '<a href="https://www.twitter.com/@gameandfishmag" class="twitter">Twitter</a>';
-	    echo '<a href="http://www.youtube.com/user/InFishermanTV" class="youtube">YouTube</a>';
-	    echo '<a href="http://www.gameandfishmag.com/feed" class="rss">RSS</a>';
-	    echo '<div class="fb-like" data-href="' . FACEBOOK_LINK . '" data-send="false" data-layout="button_count" data-width="100" data-show-faces="true"></div>';
+		echo '<a href="'.FACEBOOK_LINK.'" class="facebook">Facebook</a>';
+	    echo '<a href="'.TWITTER_LINK.'" class="twitter">Twitter</a>';
+	    echo '<a href="'.RSS_LINK.'" class="rss">RSS</a>';
 	echo '</div>';
 }
 
@@ -61,7 +64,7 @@ function sub_footer(){ ?>
 			<?php imo_dart_tag("300x250",array("pos"=>"mid")); ?>
 			</div>
 			<div class="sub-box fb-box">
-			<div class="fb-recommendations" data-site="gameandfishmag.com" data-width="309" data-height="252" data-header="true" data-font="arial"></div>
+			<div class="fb-recommendations" data-site="<?php echo RSS_LINK; ?>" data-width="309" data-height="252" data-header="true" data-font="arial"></div>
 		</div>
 	</div>
 
@@ -70,12 +73,11 @@ function sub_footer(){ ?>
 		<div class="fb-like" data-href="<?php echo FACEBOOK_LINK; ?>" data-send="false" data-layout="button_count" data-width="100" data-show-faces="true"></div>
 		<?php social_networks(); ?>
 	</div>
-	<a href="/newsletter-signup" class="get-newsletter">Get the Game & Fish <br />Newsletter</a>
-	<a href="<?php print SUBS_LINK;?>" class="subscribe-banner">
-		<img src="<?php bloginfo('stylesheet_directory'); ?>/images/pic/subscribe-banner.jpg" alt="" />
-	</a>
-	<a href="#" class="back-top jq-go-top">back to top</a>
-<?php }
+	<div class="newsletter-box bottom-newsletter">
+		<?php the_widget("Signup_Widget_Header", "title=GET THE NEWSLETTER!"); ?>
+	</div>
+	<?php
+}
 
 function social_footer(){ ?>
 	<div class="foot-social clearfix">
@@ -85,9 +87,7 @@ function social_footer(){ ?>
 	</div>
 <?php }
 
-
-
-//Configure infish community
+//Configure community
 //This section does nothing unless imo-community plugin is enabled
 add_action("init","infish_community_init",0);
 function infish_community_init() {

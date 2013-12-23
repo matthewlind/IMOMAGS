@@ -1,16 +1,20 @@
-
 <?php
 get_header(); ?>
-
-<?php if (isset_related_posts()): ?>
-<div class="paging-posts paging-posts-top loading-block">
-    <div class="jq-paging-slider onload-hidden">
-    <?php related_posts(); ?>
-    </div>
+<div class="special-features">
+	<ul>
+		<li class="home-featured features">
+			<div class="arrow-right"></div>
+			<div class="feat-post">
+	        	<div class="feat-text">
+	        		<h3>Special Features</h3>
+	            </div>
+	        </div>
+		</li>
+		<?php if( function_exists('showFeaturedList')){ echo showFeaturedPosts(array('set_id' => 2)); } ?>
+	</ul>
 </div>
-<?php endif; ?>
     <div class="inner-main">
-    	<?php imo_sidebar();?>
+    	<?php imo_sidebar(); ?>
 		<div id="primary" class="general">
             <div id="content" class="general-frame" role="main">
 

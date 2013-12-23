@@ -10,6 +10,7 @@ $dataPos = 0;
 ?>
 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header clearfix js-responsive-section">
 	<h1 class="page-title">
+		<div class="icon"></div>
 		<span><?php the_title(); ?></span>
     </h1>
 </div>
@@ -25,5 +26,4 @@ $dataPos = 0;
 </div><!-- #post-<?php the_ID(); ?> -->
                
 <?php sub_footer(); ?> 
-<a href="#" class="back-top jq-go-top">back to top</a>
 

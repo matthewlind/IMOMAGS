@@ -8,7 +8,7 @@
  */
 $dataPos = 0;
 get_header(); ?>
-	<?php imo_sidebar();?>
+	<?php imo_sidebar(); ?>
 		<div id="primary" class="general">
             <div id="content" role="main" class="general-frame">
 	            <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header clearfix js-responsive-section">
@@ -55,7 +55,7 @@ get_header(); ?>
 						</div><!-- #author-description	-->
 					</div><!-- #entry-author-info -->
 					<?php endif; ?>
-					<div class="js-responsive-section main-content-preppend">
+					<div class="posts-list js-responsive-section main-content-preppend">
 						<?php /* Start the Loop */ ?>
 						<?php while ( have_posts() ) : the_post(); ?>
 		

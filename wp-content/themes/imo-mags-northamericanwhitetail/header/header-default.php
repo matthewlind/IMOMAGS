@@ -163,11 +163,11 @@ $appArgument = "whitetailplus://www.northamericanwhitetail.com" . $_SERVER['REQU
  * License: http://www.myfonts.com/viewlicense?type=web&buildid=2288984
  * Webfonts copyright: Copyright (c) Mark Simonson, 2005. All rights reserved.
  * 
- * � 2012 Bitstream Inc
+ * 2012 Bitstream Inc
 */
 
 -->
-	<link rel="stylesheet" type="text/css" href="<?php bloginfo('url'); ?>/wp-content/themes/imo-mags-northamericanwhitetail/MyFontsWebfontsKit.css">
+	<link rel="stylesheet" type="text/css" href="<?php bloginfo('url'); ?>/wp-content/themes/naw/MyFontsWebfontsKit.css">
 	 <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/scripts.js"></script>
 	<!-- IMO MODS -->
   <script type="text/javascript">

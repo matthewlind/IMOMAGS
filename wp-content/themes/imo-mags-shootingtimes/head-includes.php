@@ -1,7 +1,7 @@
 <?php
 
 /**
- * head-include.php 
+ * head-include.php
  *
  * Includes any specific customizations to the child theme
 */
@@ -9,8 +9,10 @@
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 ?>
+
+<meta name="apple-itunes-app" content="app-id=582718044">
 	<link href='http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold' rel='stylesheet' type='text/css'>
-	
+
 	<script type="text/javascript">
 
   var _gaq = _gaq || [];
@@ -24,7 +26,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
   	if (is_single()) {
 		$author = get_the_author();
 		echo " _gaq.push(['_setCustomVar', 1,'author','". addslashes($author) . "', 3]);";
-		
+
 		//$category = get_the_category();
 		//echo " _gaq.push(['_setCustomVar', 2,'category','". $category[0]->cat_name . "', 3]);";
 	}

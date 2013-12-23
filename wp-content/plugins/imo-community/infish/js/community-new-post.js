@@ -368,9 +368,11 @@ jQuery(document).ready(function($) {
 			//Use a regex to ignore an letters in the field
 			if (masterWeight.length > 0 && weight.match(/\d+\.?\d*/) && convertedWeight >= masterWeight) {
 				$(".enter-master-angler").slideDown();
+				$("#fishzone").attr("value",masterRegion);
 
 			} else if (masterLength.length > 0 && length.match(/\d+\.?\d*/) && length.match(/\d+\.?\d*/)[0] >= masterLength) {
 				$(".enter-master-angler").slideDown();
+				$("#fishzone").attr("value",masterRegion);
 
 			} else {
 				$(".enter-master-angler").slideUp();

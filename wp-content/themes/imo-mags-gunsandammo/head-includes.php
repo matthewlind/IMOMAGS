@@ -16,9 +16,13 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
     js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));</script>
-	
+
+
+<meta name="apple-itunes-app" content="app-id=583722374">
+
+
   <link href='http://fonts.googleapis.com/css?family=Lora:400italic' rel='stylesheet' type='text/css'>
-	
+
 	<script type="text/javascript">
 
   var _gaq = _gaq || [];
@@ -28,12 +32,12 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
   _gaq.push(['_trackPageview']);
   _gaq.push(['_setAccount', 'UA-2409437-1']);
   _gaq.push(['_setDomainName', '.gunsandammo.com']);
-  
+
   <?php
   	if (is_single()) {
 		$author = get_the_author();
 		echo " _gaq.push(['_setCustomVar', 1,'author','". addslashes($author) . "', 3]);";
-		
+
 		//$category = get_the_category();
 		//echo " _gaq.push(['_setCustomVar', 2,'category','". $category[0]->cat_name . "', 3]);";
 	}

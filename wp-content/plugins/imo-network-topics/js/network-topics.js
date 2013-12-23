@@ -30,7 +30,7 @@ jQuery(document).ready(function($) {
 				var term =  $(this).attr("term") ;
 
 
-				var URL = "/wpdb/shooting-network-json.php?t=" + term;
+				var URL = "/wpdb/network-feed-cached.php?network=shooting&count=10&term=" + term;
 
 
 				var getdata = $.getJSON(URL, function(data) {
@@ -55,7 +55,7 @@ jQuery(document).ready(function($) {
 			        	$articleTemplate.find("a.network-thumb").attr("href",data[i].post_url);
 			        	$articleTemplate.find("img").attr("src",data[i].img_url).attr("alt",title);
 			        }
-			        $articleTemplate.find("a.title").text(title);
+			        $articleTemplate.find("a.title").html(title);
 
 			         if (data[i].domain != document.domain) {
 			        	$articleTemplate.find(".site a").text(data[i].brand + " Mag");

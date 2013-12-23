@@ -69,11 +69,7 @@ if ($terms) {
 			array(
 				'taxonomy' => 'column',
 				'field' => 'slug',
-<<<<<<< HEAD
-				'terms' => 'florida-sportsman-best-boat',
-=======
 				'terms' => 'bb-featured',
->>>>>>> 85475ed471b49cf735235a0675cbdce74cf75f52
 			)
 		)
 	);
@@ -109,11 +105,7 @@ if ($terms) {
 			array(
 				'taxonomy' => 'column',
 				'field' => 'slug',
-<<<<<<< HEAD
-				'terms' => 'florida-sportsman-best-boat',
-=======
 				'terms' => 'bb-featured',
->>>>>>> 85475ed471b49cf735235a0675cbdce74cf75f52
 				'operator' => 'NOT IN'
 			)
 		)

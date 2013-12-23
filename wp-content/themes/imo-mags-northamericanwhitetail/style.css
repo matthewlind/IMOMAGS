@@ -2085,7 +2085,11 @@ a.comment-count:hover {
 .sponsored{
 	background-color: #f1f1f1;
 }
-
+.naw-sponsor{
+	position: absolute;
+	right: 333px;
+	top: 6px;
+}
 /*
  * Homepage
  *

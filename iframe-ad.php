@@ -1,7 +1,7 @@
 <?php
 
 $code = $_GET['ad_code'];
-
+$sect = $_GET['sect'];
 
 if (!empty($_GET['size'])) {
   $size = $_GET['size'];
@@ -27,7 +27,7 @@ var randomdate=new Date();
 var randomtime=randomdate.getTime();
 var pr_tile=1;
 var dartadsgen_rand=randomtime;
-document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/<?php echo $code; ?>/;sect=ajax_gallery;page=index;<?php echo $campString; ?>subs=;sz=<?php echo $size; ?>;dcopt=;tile='+pr_tile+';ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
+document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/<?php echo $code; ?>/;sect=<?php echo $sect; ?>;page=index;<?php echo $campString; ?>subs=;sz=<?php echo $size; ?>;dcopt=;tile='+pr_tile+';ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
 -->
 
 </script>
