@@ -4033,7 +4033,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
     }
     .home-featured .image-banner:after {position: relative;width: 0;height: 0;background: none;margin-top: 0;padding-top: 0;}
     .home-featured-ad{display: block;clear: both;width: 100%;}
-    .home-featured .image-banner iframe{margin: 0 auto;width: 300px;}
+    .home-featured .image-banner {padding-right: 15px;padding-top: 0;margin-top: 0; overflow: hidden;}
+    .home-featured .image-banner iframe{margin: 0 auto;width: 100%;}
     .posts-list {
         margin:10px 0 30px;border-top: 1px solid #d8d7d6;
 
@@ -4329,7 +4330,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 	.page .article-holder{overflow: visible;}
 	.page .gallery-holder{left: -12px;}
 	.posts-list .article-holder{overflow: hidden;}
-	.home-featured .image-banner {padding-bottom: 6px;}
+	.home-featured .image-banner {padding-bottom: 6px;padding-right: 0;}
+	.home-featured .image-banner iframe{width: 300px;margin-top: 10px;}
     .home-featured .posts-image-banner {margin-bottom: 10px;}
     .home-featured .image-banner:before {
         position:absolute;
