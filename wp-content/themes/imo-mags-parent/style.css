@@ -1531,6 +1531,8 @@ a.category-name-link:hover{
 /* Single Post Page
  ******************************************************************************/
 .single .inner-main{clear: both;}
+.single .entry-content ul, .single .entry-content ol{list-style: disc !important;margin-bottom: 24px;padding-left: 40px;}
+.single .entry-content li{padding: 10px 0;}
 .post-header {
     padding:0 0 14px;
     margin:0 0 18px;
