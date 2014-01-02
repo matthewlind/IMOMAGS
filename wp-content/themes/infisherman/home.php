@@ -6,11 +6,7 @@ get_header(); ?>
         <div class="general-frame">
             <div id="content" role="main">
             <?php if ( is_home() ) : ?>
-               <!-- start home page content-->
-               <!-- <a data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="subscribe-banner subscribe-banner-top js-responsive-section" href="#">
-                    <img alt="" src="<?php bloginfo('template_directory'); ?>/images/pic/subscribe-banner.jpg">
-                </a>-->
-                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="clearfix js-responsive-section">
+            	<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="featured-area clearfix js-responsive-section">
                     <!--<div class="general-title clearfix">
                         <h2>Featured</h2>
                     </div>-->

@@ -107,7 +107,7 @@ jQuery(document).ready(function($) {
 		if (document.domain.indexOf('petersenshunting') !== -1) {
 			var fileName = "/wpdb/network-feed-cached.php?network=hunting&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce + "&thumbnail_size="+ thumb;
 		}
-		if (document.domain.indexOf('bowhunting') !== -1) {
+		if (document.domain.indexOf('bowhuntingmag') !== -1) {
 			var fileName = "/wpdb/network-feed-cached.php?network=hunting&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce + "&thumbnail_size="+ thumb;
 		}
 		if (document.domain.indexOf('bowhunter') !== -1) {
