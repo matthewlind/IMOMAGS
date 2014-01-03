@@ -81,7 +81,7 @@ $app->get('/master_anglers/csv', function () {
       $db = dbConnect();
 
 
-      $sql = "SELECT master_angler.id,first_name,last_name,email,street_address_1,street_address_2,city,state_address,state,zip,phone,date,body_of_water,nearest_town,meta as species,length,weight,lure_used,kind_of_lure,lure_desc,kind_of_bait,kept,post_type,secondary_post_type,title,body,img_url,user_id,username,created as date_submitted FROM master_angler JOIN superposts ON superposts.id = post_id WHERE master = 1;";
+      $sql = 'SELECT master_angler.id,CONCAT("http://www.in-fisherman.com/photos/",post_id) as url,first_name,last_name,email,street_address_1,street_address_2,city,state_address,state,zip,phone,date,body_of_water,nearest_town,meta as species,length,weight,lure_used,kind_of_lure,lure_desc,kind_of_bait,kept,post_type,secondary_post_type,title,body,img_url,user_id,username,created as date_submitted FROM master_angler JOIN superposts ON superposts.id = post_id WHERE master = 1;';
 
 
 

@@ -1,8 +1,52 @@
 <?php
 
-function runBigAssQuery($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_size) {
+
+function getPosts($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_size,$state,$post_set_merge) {
+
+    $posts = runBigAssQuery($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_size,$state);
+
+    $json = "";
+
+    if (!empty($post_set_merge)) {
+
+        include_once "ps-queries.php";
+
+        $mergeVars = explode("-", $post_set_merge);
+        $ps_site_id = $mergeVars[0];
+        $post_set_id = $mergeVars[1];
+
+        $ps_post_data = get_set_data($ps_site_id,$post_set_id);
+        $ps_posts = $ps_post_data['posts'];
+
+        $posts = array_merge($posts,$ps_posts);
+
+        shuffle($posts);
+
+    }
+
+    $json = json_encode($posts);
+
+    return $json;
+}
 
 
+function runBigAssQuery($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_size,$state) {
+
+    $brand["www.gunsandammo.com"] = "Guns & Ammo";
+    $brand["www.handgunsmag.com"] = "Handguns";
+    $brand["www.shootingtimes.com"] = "Shooting Times";
+    $brand["www.rifleshootermag.com"] = "RifleShooter";
+    $brand["www.shotgunnews.com"] = "Shotgun News";
+    $brand["www.bowhunter.com"] = "Bowhunter";
+    $brand["www.bowhuntingmag.com"] = "Petersen's Bowhunting";
+    $brand["www.gundogmag.com"] = "Gundog";
+    $brand["www.northamericanwhitetail.com"] = "North American Whitetail";
+    $brand["www.petersenshunting.com"] = "Petersens Hunting";
+    $brand["www.wildfowlmag.com"] = "Wildfowl";
+    $brand["www.gameandfishmag.com"] = "Game & Fish";
+    $brand["www.floridasportsman.com"] = "Florida Sportsman";
+    $brand["www.in-fisherman.com"] = "In-Fisherman";
+    $brand["www.flyfisherman.com"] = "Fly Fisherman";
 
     if ($network == "shooting") {
         $siteIDs["www.gunsandammo.com"] = 2;
@@ -10,12 +54,6 @@ function runBigAssQuery($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_s
         $siteIDs["www.shootingtimes.com"] = 11;
         $siteIDs["www.rifleshootermag.com"] = 10;
         $siteIDs["www.shotgunnews.com"] = 12;
-
-        $brand["www.gunsandammo.com"] = "Guns & Ammo";
-        $brand["www.handgunsmag.com"] = "Handguns";
-        $brand["www.shootingtimes.com"] = "Shooting Times";
-        $brand["www.rifleshootermag.com"] = "RifleShooter";
-        $brand["www.shotgunnews.com"] = "Shotgun News";
     }
 
     if ($network == "hunting") {
@@ -27,14 +65,6 @@ function runBigAssQuery($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_s
         $siteIDs["www.petersenshunting.com"] = 7;
         $siteIDs["www.wildfowlmag.com"] = 8;
         $siteIDs["www.gameandfishmag.com"] = 14;
-
-        $brand["www.bowhunter.com"] = "Bowhunter";
-        $brand["www.bowhuntingmag.com"] = "Petersen's Bowhunting";
-        $brand["www.gundogmag.com"] = "Gundog";
-        $brand["www.northamericanwhitetail.com"] = "North American Whitetail";
-        $brand["www.petersenshunting.com"] = "Petersens Hunting";
-        $brand["www.wildfowlmag.com"] = "Wildfowl";
-        $brand["www.gameandfishmag.com"] = "Game & Fish";
     }
 
     if ($network == "fishing") {
@@ -44,10 +74,7 @@ function runBigAssQuery($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_s
         $siteIDs["www.in-fisherman.com"] = 15;
         $siteIDs["www.flyfisherman.com"] = 16;
 
-        $brand["www.floridasportsman.com"] = "Florida Sportsman";
-        $brand["www.gameandfishmag.com"] = "Game & Fish";
-        $brand["www.in-fisherman.com"] = "In-Fisherman";
-        $brand["www.flyfisherman.com"] = "Fly Fisherman";
+
     }
 
     if ($network == "everything") {
@@ -56,13 +83,6 @@ function runBigAssQuery($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_s
         $siteIDs["www.shootingtimes.com"] = 11;
         $siteIDs["www.rifleshootermag.com"] = 10;
         $siteIDs["www.shotgunnews.com"] = 12;
-
-        $brand["www.gunsandammo.com"] = "Guns & Ammo";
-        $brand["www.handgunsmag.com"] = "Handguns";
-        $brand["www.shootingtimes.com"] = "Shooting Times";
-        $brand["www.rifleshootermag.com"] = "RifleShooter";
-        $brand["www.shotgunnews.com"] = "Shotgun News";
-
         $siteIDs["www.bowhunter.com"] = 3;
         $siteIDs["www.bowhuntingmag.com"] = 4;
         $siteIDs["www.gundogmag.com"] = 5;
@@ -70,22 +90,32 @@ function runBigAssQuery($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_s
         $siteIDs["www.petersenshunting.com"] = 7;
         $siteIDs["www.wildfowlmag.com"] = 8;
         $siteIDs["www.gameandfishmag.com"] = 14;
-
-        $brand["www.bowhunter.com"] = "Bowhunter";
-        $brand["www.bowhuntingmag.com"] = "Petersen's Bowhunting";
-        $brand["www.gundogmag.com"] = "Gundog";
-        $brand["www.northamericanwhitetail.com"] = "North American Whitetail";
-        $brand["www.petersenshunting.com"] = "Petersens Hunting";
-        $brand["www.wildfowlmag.com"] = "Wildfowl";
-        $brand["www.gameandfishmag.com"] = "Game & Fish";
-
         $siteIDs["www.floridasportsman.com"] = 13;
         $siteIDs["www.in-fisherman.com"] = 15;
         $siteIDs["www.flyfisherman.com"] = 16;
 
-        $brand["www.floridasportsman.com"] = "Florida Sportsman";
-        $brand["www.in-fisherman.com"] = "In-Fisherman";
-        $brand["www.flyfisherman.com"] = "Fly Fisherman";
+    }
+
+    //If network contains .com, only search a single site.
+    if (strstr($network, ".com")) {
+
+        $siteIDlist["www.gunsandammo.com"] = 2;
+        $siteIDlist["www.handgunsmag.com"] = 9;
+        $siteIDlist["www.shootingtimes.com"] = 11;
+        $siteIDlist["www.rifleshootermag.com"] = 10;
+        $siteIDlist["www.shotgunnews.com"] = 12;
+        $siteIDlist["www.bowhunter.com"] = 3;
+        $siteIDlist["www.bowhuntingmag.com"] = 4;
+        $siteIDlist["www.gundogmag.com"] = 5;
+        $siteIDlist["www.northamericanwhitetail.com"] = 6;
+        $siteIDlist["www.petersenshunting.com"] = 7;
+        $siteIDlist["www.wildfowlmag.com"] = 8;
+        $siteIDlist["www.gameandfishmag.com"] = 14;
+        $siteIDlist["www.floridasportsman.com"] = 13;
+        $siteIDlist["www.in-fisherman.com"] = 15;
+        $siteIDlist["www.flyfisherman.com"] = 16;
+
+        $siteIDs[$network] = $siteIDlist[$network];
 
     }
 
@@ -115,10 +145,26 @@ function runBigAssQuery($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_s
     }
 
 
+    $termSelect = "terms.slug as slug,";
+
+    //If there is a term, search for it.
     if (!empty($term))
         $termQuery = "AND terms.slug IN ($inQmarks)";
     else
         $termQuery = "";
+
+    //If there is a state, search for it and show it.
+    if (!empty($state)) {
+        $stateQuery = "AND terms2.slug IN ('$state')";
+        $stateSelect = "terms2.slug as state,";
+
+    }
+    else {
+        $stateQuery = "";
+        $stateSelect = "";
+    }
+
+
 
 
 
@@ -140,7 +186,7 @@ function runBigAssQuery($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_s
             $siteBrand = $brand[$domain];
 
             $sql .= <<<EOT
-(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, terms.slug as slug, null as slug2, posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "$siteBrand" as brand,attachmentmeta.meta_value as attachment_meta,
+(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, $termSelect $stateSelect posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "$siteBrand" as brand,attachmentmeta.meta_value as attachment_meta,
 (SELECT count(comment_ID) from wp_{$siteID}_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "$domain" as domain
 FROM wp_{$siteID}_term_relationships as relationships
 JOIN wp_{$siteID}_term_relationships as relationships2 ON (relationships.`object_id` = relationships2.`object_id`)
@@ -158,6 +204,7 @@ AND posts.post_status = "publish"
 AND postmeta.meta_key = '_thumbnail_id'
 AND attachmentmeta.meta_key = '_wp_attachment_metadata'
 $termQuery
+$stateQuery
 AND term_taxonomy.taxonomy = "$taxonomy"
 AND meta.meta_key = "_thumbnail_id")
 EOT;
@@ -217,9 +264,7 @@ EOT;
             $postContent = str_replace("\xa8", "", $postContent);
             $postContent = str_replace("\\", "", $postContent);
             $postContent = str_replace("\\", "", $postContent);
-
             $postContent = preg_replace ("/^\[.+]/", "", $postContent);
-
             $postContent = delete_all_between("[","]",$postContent);
 
             $postContent = substr($postContent,0,120) . "...";
@@ -241,7 +286,7 @@ EOT;
 
 
             if ($thumbnail_size) {
-                $thumbnail = "http://" . $post->domain . getThumbnail(unserialize($post->attachment_meta),$thumbnail_size);
+                $thumbnail = "http://" . $post->domain . getPostThumbnail2(unserialize($post->attachment_meta),$thumbnail_size);
             }
 
             $post->attachment_meta = "";
@@ -253,25 +298,12 @@ EOT;
 
         }
 
-        $json = json_encode($posts);
-        //echo $json;
+
 
         $db = "";
 
         if (!empty($posts)) {
-
-
-
-
-            if ($json) {
-
-
-                return $json;
-
-            } else {
-
-            }
-
+            return $posts;
         } else {
             return "FAILURE - NO POSTS FROM QUERY: $term WITH SORT: $sort \n";
         }
@@ -288,7 +320,10 @@ EOT;
 }
 
 
-function getThumbnail($dataArray,$thumbnailSize) {
+
+
+
+function getPostThumbnail2($dataArray,$thumbnailSize) {
 
     $filepath = $dataArray['file'];
 
