@@ -63,6 +63,9 @@ function showFeaturedList() {
 
 if ($_GET['action'] == "update") {
 	updateSet($_GET['setID'],$_GET['post_ids'],$_GET['name']);
+
+	updatePromoTitles($_GET);
+
 	clearVarnishForSet($_GET['setID']);
 }
 
@@ -104,7 +107,7 @@ function showFeaturedDetail($setID) {
 		<label for="name" >Name your Set:</label>
 		<input id="name" name="name" placeholder="Name">
 
-		<form class="hidden-form">
+
 		<div class="post-search">
 		  <label for="featured-search">Search for Posts to Add: </label>
 		  <input id="featured-search" style="width: 650px;" />
@@ -121,7 +124,7 @@ function showFeaturedDetail($setID) {
 		<input type="hidden" id="page" name="page" value="imo-featured-manager">
 		<input type="hidden" id="action" name="action" value="update">
 
-
+		<p>NOTE: You can also set a custom title when creating an article. Just use the "promo_title" custom field and it will show up here.</p>
 		<input type="submit" value="Save Changes" class="btn btn-primary save-changes">
 
 	</form>
@@ -178,6 +181,12 @@ function updateSet($setID,$postIDs,$name) {
 	$setData['post_id_string'] = $postIDs;
 	$setData['name'] = $name;
 
+	$postIDarray = explode((","), $postIDs);
+
+	foreach ($postIDarray as $postID) {
+		# code...
+	}
+
 
 	update_option("featured_set_$setID",$setData);
 
@@ -186,6 +195,22 @@ function updateSet($setID,$postIDs,$name) {
 
 
 }
+
+function updatePromoTitles($data) {
+
+	$postIDarray = explode(",", $data['post_ids']);
+
+	foreach ($postIDarray as $postID) {
+		$oldTitleKey = $postID . "_orig_title";
+
+		if ($data[$postID] != $data[$oldTitleKey])
+			update_post_meta($postID, "promo_title", $data[$postID]);
+	}
+
+	//print_r($data);
+}
+
+
 
 //*********************************************************************************************************************
 //*********************************************************************************************************************

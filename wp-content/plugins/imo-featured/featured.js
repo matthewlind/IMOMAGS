@@ -5,7 +5,7 @@ jQuery( document ).ready(function( $ ) {
 
 	if ($.QueryString["action"] == "update" || $.QueryString["action"] == "delete") {
 
-		document.location = "/wp-admin/options-general.php?page=imo-featured-manager";
+		//document.location = "/wp-admin/options-general.php?page=imo-featured-manager";
 	}
 
 
@@ -114,7 +114,7 @@ jQuery( document ).ready(function( $ ) {
 
 		//var listItemTemplate = '<li post_id="" style="" class="list-item" role="menuitem"><span class="ui-icon ui-icon-arrowthick-2-n-s" style=""></span><a target="_new" class="ui-corner-all" tabindex="-1"><img src="/files/2012/11/Carry-gear-150x150.jpg"><span class="post-title">Gear Essentials: What You Need for Everyday Carry</span></a><a post_id="" class="btn btn-delete btn-danger" href="">X</a></li>';
 
-		var listItemTemplate = "<div class='media post-item-template list-item'><span class='ui-icon ui-icon-arrowthick-2-n-s' style=''></span><a class='pull-left' href='#'><img class='media-object' src=''></a><div class='media-body post-title'></div><a post_id='' class='btn btn-delete btn-danger' href=''>X</a></div>";
+		var listItemTemplate = "<div class='media post-item-template list-item'><span class='ui-icon ui-icon-arrowthick-2-n-s' style=''></span><a class='pull-left' href='#'><img class='media-object' src=''></a><input class='media-body post-title' name=''></input><input type='hidden' class='orig-title' name='orig_title'><a post_id='' class='btn btn-delete btn-danger' href=''>X</a></div>";
 
 		jQuery.ui.autocomplete.prototype._resizeMenu = function () {
 		  var ul = this.menu.element;
@@ -138,11 +138,17 @@ jQuery( document ).ready(function( $ ) {
 
 			        $listTemplate = $(listItemTemplate);
 
+			        console.log(post);
+
 			        $listTemplate.find("img").attr("src",post.thumb);
 			        $listTemplate.find("a").attr("href",post.url);
 			        $listTemplate.find("a.btn-delete").attr("post_id",post.id);
 			        $listTemplate.attr("post_id",post.id);
-			        $listTemplate.find(".post-title").html(post.title);
+			        $listTemplate.find(".post-title").val(post.title);
+
+			        $listTemplate.find(".orig-title").val(post.value);
+			        $listTemplate.find(".orig-title").attr("name",post.id + "_orig_title");
+			        $listTemplate.find(".post-title").attr("name",post.id);
 
 			        $("ul#sortable").append($listTemplate);
 

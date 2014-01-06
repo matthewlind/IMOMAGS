@@ -78,6 +78,10 @@ label {
 	margin-top:0px;
 }
 
+.post-item-template input.post-title {
+	width: 450px;
+}
+
 .post-item-template p {
 	margin:10px;
 }
