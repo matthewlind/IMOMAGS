@@ -9,6 +9,8 @@
  */
 
 
+include("widgets/trending-community-sidebar-widget.php");
+
 add_action('template_redirect', 'imo_community_template',5);
 add_filter( 'wp_title', 'imo_community_set_title', 50, 3 );
 
@@ -76,7 +78,7 @@ register_sidebar( array(
     'before_title' => '<h3 class="widget-title">',
     'after_title' => '</h3>',
 ) );
-    
+
 add_filter('query_vars', 'imo_community_query_vars');
 function imo_community_query_vars($query_vars)
 {
