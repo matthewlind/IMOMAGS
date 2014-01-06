@@ -29,7 +29,9 @@ $categorySlug =  $this_category->category_nicename;
 
 $useNetworkFeed = get_option('use_network_feed_'.$categoryID, false);
 $fullWidthImage = get_option('full_width_image_'.$categoryID, false);
-
+$post_set_id = get_option('post_set_id_'.$categoryID, false);
+$playerID = get_option('playerID_'.$categoryID, false);
+$playerKey = get_option('playerKey_'.$categoryID, false);
 
 if (function_exists('z_taxonomy_image_url'))
 	$imageURL = z_taxonomy_image_url();
@@ -42,7 +44,6 @@ imo_sidebar(); ?>
 
 <div id="primary" class="general category-page">
 	<div id="content" role="main" class="<?php echo $h1Class; ?> general-frame">
-
 		<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header clearfix js-responsive-section">
 		
 			<?php if ($fullWidthImage != "") { ?>
@@ -58,7 +59,7 @@ imo_sidebar(); ?>
 			    <h1 class="header-info page-title <?php echo $h1Class; ?>">
 			    	<?php printf('<span>' . single_cat_title( '', false ) . '</span>' ); ?>
 			    </h1>
-			    <div class="sponsor"><?php //imo_dart_tag("240x60"); ?></div>
+			    <div class="sponsor"><?php imo_dart_tag("240x60"); ?></div>
 		
 				<?php 
 				if(function_exists('z_taxonomy_image_url')){
@@ -70,8 +71,48 @@ imo_sidebar(); ?>
 		             ?>
 		
 				<?php } } ?>
-		</div><!-- .page-header -->
+            </div>
 
+		</div><!-- .page-header -->
+		
+		<?php if( $post_set_id ){ ?>
+		<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="featured-area clearfix js-responsive-section">
+            <div class="clearfix">
+                <ul>
+               	 	<?php if( function_exists('showFeaturedList') ){  echo showFeaturedPosts(array('set_id' => $post_set_id)); } ?>
+               	</ul>
+            </div>
+      
+        </div>
+
+		<?php } 
+		
+		if( $playerID && $playerKey ){ ?>
+		<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section">
+			<div class="general-title clearfix">
+                <h2>New Bowhunting Gear for 2014</h2>
+            </div>
+
+			<!-- Start of Brightcove Player -->
+			<div style="display:none"></div>
+							
+			<script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+			
+			<object id="myExperience" class="BrightcoveExperience">
+			  <param name="bgcolor" value="#FFFFFF" />
+			  <param name="width" value="480" />
+			  <param name="height" value="628" />
+			  <param name="playerID" value="<?php echo $playerID; ?>" />
+			  <param name="playerKey" value="<?php echo $playerKey; ?>" />
+			  <param name="isVid" value="true" />
+			  <param name="isUI" value="true" />
+			  <param name="dynamicStreaming" value="true" />
+			</object>
+			<script type="text/javascript">brightcove.createExperiences();</script>
+			<!-- End of Brightcove Player -->		
+		</div>
+		<?php } ?>
+		
 		<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section">
 			<?php if (!$useNetworkFeed) {
 				$i = 1; while ( have_posts() ) : the_post(); ?>
