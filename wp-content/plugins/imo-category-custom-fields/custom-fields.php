@@ -68,6 +68,15 @@ function imo_category_add_field($term) {
 
 	if (get_option('full_width_image_'.$term_id))
 		$fullWidthChecked = "checked";
+		
+	if (get_option('post_set_id_'.$term_id))
+		$post_set_id = get_option('post_set_id_'.$term_id);
+
+	if (get_option('playerID_'.$term_id))
+		$playerID = get_option('playerID_'.$term_id);
+
+	if (get_option('playerKey_'.$term_id))
+		$playerKey = get_option('playerKey_'.$term_id);
 
 
 	echo "<tr class='form-field'>
@@ -88,6 +97,28 @@ function imo_category_add_field($term) {
 				</span>
 			</td>
 		</tr>";
+		
+	//featured post set
+	echo "<tr class='form-field'>
+			<th scope='row' valign='top'><label for='post_set_id'>Featured Post Set ID</label></th>
+			<td><input type='text' style='width:30px' name='post_set_id' id='post_set_id' value='$post_set_id' />
+			<span class='description'>Enter the Featured post set ID if you want to feature content at the top of the page.</span>
+			</td>
+		</tr>";
+	
+	//brightcove player	
+	echo "<tr class='form-field'>
+			<th scope='row' valign='top'><label for='post_set_id'>Brightcove Player ID</label></th>
+			<td><input type='text' name='playerID' id='playerID' value='$playerID' />
+			</td>
+		</tr>";
+		
+	echo "<tr class='form-field'>
+			<th scope='row' valign='top'><label for='post_set_id'>Brightcove Player Key</label></th>
+			<td><input type='text' name='playerKey' id='playerKey' value='$playerKey' />
+			</td>
+		</tr>";
+
 }
 
 
@@ -106,4 +137,19 @@ function save_imo_category_field($term_id) {
         update_option('full_width_image_'.$term_id, $_POST['full_width_image']);
     else
     	delete_option('full_width_image_'.$term_id);
+    
+    if(!empty($_POST['post_set_id']))
+        update_option('post_set_id_'.$term_id, $_POST['post_set_id']);
+    else
+    	delete_option('post_set_id_'.$term_id);
+    	
+    if(!empty($_POST['playerID']))
+        update_option('playerID_'.$term_id, $_POST['playerID']);
+    else
+    	delete_option('playerID_'.$term_id);
+    	
+    if(!empty($_POST['playerKey']))
+        update_option('playerKey_'.$term_id, $_POST['playerKey']);
+    else
+    	delete_option('playerKey_'.$term_id);
 }

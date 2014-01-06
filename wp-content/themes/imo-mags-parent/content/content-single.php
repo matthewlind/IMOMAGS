@@ -6,6 +6,8 @@
  * @subpackage Twenty_Twelve
  * @since Twenty Twelve 1.0
  */
+$postID = get_the_ID();
+$byline = get_post_meta($postID, 'ecpt_byline', true);
 ?>
 
 <div id="post-<?php the_ID(); ?>" <?php post_class('full-post'); ?>>
@@ -20,8 +22,11 @@
         </h1>
         <?php endif; // is_single()
         if(get_the_author() != "admin" && get_the_author() != "infisherman"){ ?>
-        <em class="meta-date-author">by <span class="author-item"><?php the_author_link(); ?></span>&nbsp;&nbsp;|&nbsp;&nbsp;<?php } the_time('F jS, Y'); ?></em>
-        
+        <em class="meta-date-author">by <span class="author-item"><?php the_author_link(); ?></span>
+        &nbsp;&nbsp;|&nbsp;&nbsp;<?php } the_time('F jS, Y'); ?>
+        &nbsp;&nbsp;|&nbsp;&nbsp;<span class="post-byline author-item"><?php echo $byline; ?></span>
+        </em>
+       
     </div>
                         	
     <?php if ( mobile() ){ ?>

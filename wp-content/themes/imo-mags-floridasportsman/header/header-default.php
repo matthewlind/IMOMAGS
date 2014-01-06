@@ -157,7 +157,7 @@ else {
 }
 ?>
 	     <h1 class="site-title"><a href="<?php echo home_url('/'); ?>" title="<?php _e('Home', 'carrington-business') ?>"><?php bloginfo('name'); ?></a></h1>
-         <a href="/florida-sportsman-best-boat/"><img class="header-feature-nav" src="/wp-content/themes/imo-mags-floridasportsman/img/bw-header_04.png" border="0" /></a>
+         <a href="/rtfs/"><img class="header-feature-nav" src="/wp-content/themes/imo-mags-floridasportsman/img/bw-header_04-rtfs.png" border="0" /></a>
 <a class="header-gallery" href="/galleries/"><img  src="/wp-content/themes/imo-mags-floridasportsman/img/bw-header_07.png"></a>
 <a class="header-webxtra" href="/store/" rel="nofollow"><img  src="/wp-content/themes/imo-mags-floridasportsman/img/bw-header_08.png"></a>
 					     

@@ -424,6 +424,7 @@ function register_imo_subscribe_settings () {
     register_setting( 'imo-subs-settings-group', 'i4ky' );
     register_setting( 'imo-subs-settings-group', 'sticky_key' );
     register_setting( 'imo-subs-settings-group', 'newsletter_id' );
+    register_setting( 'imo-subs-settings-group', 'master_angler_pdf' );
     //IF: 2493
     //GD: 2660
 }
@@ -505,7 +506,17 @@ function imo_addons_subscription_page() {
         <th scope="row">ID</th>
         <td><input type="text" name="newsletter_id" value="<?php echo get_option('newsletter_id'); ?>" /></td>
         </tr>
-        
+        <?php 
+        $dartDomain = get_option("dart_domain", $default = false);
+        if($dartDomain == "imo.in-fisherman"){ ?>
+	        <tr valign="top">
+	        <td><strong>Master Angler</strong></td>
+	        </tr>
+	        <tr valign="top">
+	        <th scope="row">File URL path</th>
+	        <td><input type="text" name="master_angler_pdf" value="<?php echo get_option('master_angler_pdf'); ?>" /></td>
+	        </tr>
+		<?php } ?>
   </table>
 
     <p class="submit">
