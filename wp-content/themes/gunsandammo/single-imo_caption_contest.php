@@ -28,7 +28,7 @@ get_header(); ?>
                     <div id="post-<?php the_ID(); ?>" <?php post_class('full-post'); ?>>
 				    <?php if ( is_single() ) : ?>
 				    <?php if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(); } ?>
-				    <a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>
+				    <div class="sponsor"><?php imo_dart_tag("240x60"); ?></div>
 				    <div class="post-header">
 				        <h1 class="entry-title"><?php the_title(); ?></h1>
 				        <?php else : ?>
@@ -38,7 +38,7 @@ get_header(); ?>
 				        <?php endif; // is_single()
 				        if(get_the_author() != "admin" && get_the_author() != "infisherman"){ ?>
 				        <em class="meta-date-author">by <span class="author-item"><?php the_author_link(); ?></span>&nbsp;&nbsp;|&nbsp;&nbsp;<?php } the_time('F jS, Y'); ?></em>
-				        
+				        <a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>
 				    </div>
 				                        	
 				    <?php if ( mobile() ){ ?>
