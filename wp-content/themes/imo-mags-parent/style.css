@@ -1025,7 +1025,6 @@ input.gsc-search-button-v2{
 }
 .full-post .cat-feat-label {
     font-size:14px;
-    float:left;
     max-width: 400px;
     float: left;
 }
@@ -3433,6 +3432,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 }
 
 @media only screen and (max-width: 936px) {
+	.full-post .cat-feat-label, .sponsor{float: none;margin-top: 0;}
     .sub-boxes {
         display:none;
     }
