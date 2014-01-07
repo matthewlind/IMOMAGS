@@ -12,6 +12,13 @@ jQuery(window).load(function() {
 
 jQuery(document).ready(function () {
 	
+	jQuery('.sidebar-widget-featured li.sidebar-featured').hover(function () {
+        jQuery(this).find('.feat-text').animate({'bottom': '-80px'});
+
+    }, function () {
+        jQuery(this).find('.feat-text').animate({'bottom': 0});
+	});
+
 	/*****
 	**
 	** IMO NETWORK TOPHAT
@@ -345,11 +352,6 @@ MBP.scaleFix();
 function updateSliderCounter(slider){
     jQuery(slider).find('.slide-count').html((slider.currentSlide + 1) + '/' + slider.count);
 }
-
-
-
-
-
 
 
 
