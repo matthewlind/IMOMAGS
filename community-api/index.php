@@ -1109,15 +1109,15 @@ function sendMAEmail($params) {
 					->html_message($string)
 					->send();
 
-	// $result = $postmark->to("aaron.baker@IMOutdoors.com")
-	// 				->subject("New Master Angler Entry")
-	// 				->html_message($string)
-	// 				->send();
+	$result = $postmark->to("aaron.baker@IMOutdoors.com")
+					->subject("New Master Angler Entry")
+					->html_message($string)
+					->send();
 
-	// $result = $postmark->to("jeff.simpson@IMOutdoors.com")
-	// 				->subject("New Master Angler Entry")
-	// 				->html_message($string)
-	// 				->send();
+	$result = $postmark->to("jeff.simpson@IMOutdoors.com")
+					->subject("New Master Angler Entry")
+					->html_message($string)
+					->send();
 
 	// $result = $postmark->to("berry.blanton@IMOutdoors.com")
 	// 				->subject("New Master Angler Entry")
