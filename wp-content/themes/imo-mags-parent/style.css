@@ -928,6 +928,7 @@ input.gsc-search-button-v2{
 }
 .general-title h2 span {color:#040503;}
 .sponsor {float:right;}
+.sponsor img{float: right;margin-top: -20px;}
 .single .sponsor{float: none;}
 
 /*** sportsman channel video widget ***/
@@ -1025,6 +1026,8 @@ input.gsc-search-button-v2{
 .full-post .cat-feat-label {
     font-size:14px;
     float:left;
+    max-width: 400px;
+    float: left;
 }
 a.category-name-link.primary-cat{
 	background: #c6262d;
