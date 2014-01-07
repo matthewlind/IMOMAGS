@@ -1104,6 +1104,8 @@ function sendMAEmail($params) {
 	// 				->html_message($string)
 	// 				->send();
 
+	$string .= "<p><b>This email was sent to:</b> wendy.shamp@imoutdoors.com, aaron.baker@IMOutdoors.com, jeff.simpson@IMOutdoors.com, berry.blanton@IMOutdoors.com";
+
 	$result = $postmark->to("wendy.shamp@imoutdoors.com")
 					->subject("New Master Angler Entry")
 					->html_message($string)
