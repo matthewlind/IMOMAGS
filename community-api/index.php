@@ -1104,7 +1104,7 @@ function sendMAEmail($params) {
 	// 				->html_message($string)
 	// 				->send();
 
-	$result = $postmark->to("Wendy.Shamp@IMOutdoors.com")
+	$result = $postmark->to("wendy.shamp@imoutdoors.com")
 					->subject("New Master Angler Entry")
 					->html_message($string)
 					->send();
@@ -1119,10 +1119,10 @@ function sendMAEmail($params) {
 					->html_message($string)
 					->send();
 
-	// $result = $postmark->to("berry.blanton@IMOutdoors.com")
-	// 				->subject("New Master Angler Entry")
-	// 				->html_message($string)
-	// 				->send();
+	$result = $postmark->to("berry.blanton@IMOutdoors.com")
+					->subject("New Master Angler Entry")
+					->html_message($string)
+					->send();
 
 	if ($result) {//If it sent...
 		_log("Message Sent!");
