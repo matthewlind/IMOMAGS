@@ -8,7 +8,7 @@ get_header(); ?>
                 <?php if ( have_posts() ) : ?>
     
                     <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header clearfix js-responsive-section">
-                        <h1 class="page-title"><?php
+                        <h1 class="page-title"><div class="icon"></div><?php
                             printf('<span>' . single_tag_title( '', false ) . '</span>' );
                             ?>
                         </h1>
