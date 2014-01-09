@@ -928,7 +928,7 @@ input.gsc-search-button-v2{
 }
 .general-title h2 span {color:#040503;}
 .sponsor {float:right;}
-.sponsor img{float: right;margin-top: -20px;}
+.sponsor img{float: right;}
 .single .sponsor{float: none;}
 
 /*** sportsman channel video widget ***/
@@ -947,7 +947,7 @@ input.gsc-search-button-v2{
   margin-bottom: 10px;
   float: right;
 }
-.single #BCLcontainingBlock{float: none;}
+.single #BCLcontainingBlock{float: none;margin: 0;}
 .BCLvideoWrapper {
   position: relative;
 }
@@ -1548,6 +1548,7 @@ a.category-name-link:hover{
     margin:0 0 10px;
     clear: both;
 }
+.image-banner small {font-size: 11px;display: block;clear: both;}
 .meta-date-author {
     display:block;
     font-size:14px;

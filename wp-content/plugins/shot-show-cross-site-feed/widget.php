@@ -32,19 +32,7 @@ class SScsfWidget extends \WP_Widget {
 			    
 				</ul>
 				<div class="sponsor-bg">
-					<div class="sponsor">
-						<!-- 240x60 Ad: -->
-		                <script type="text/javascript">
-		                document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/<?php echo $dartdomain; ?>/;sect=;camp=shot_show;pos=;page=;subs=;sz=240x60;dcopt=;tile=;ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
-		                </script>
-		                <noscript>
-		                <a href="http://ad.doubleclick.net/adj/<?php echo $dartdomain; ?>/;sect=;camp=shot_show;pos=;page=;subs=;sz=240x60;dcopt=;tile=;ord=6545512368?">
-		                <img src="http://ad.doubleclick.net/ad/<?php echo $dartdomain; ?>/;sect=;camp=shot_show;pos=;page=;subs=;sz=240x60;dcopt=;tile=;ord=6545512368?" border="0" />
-		                </a>
-		                </noscript>
-		                <!-- END 240x60 Ad: -->
-					</div>
-				</div>
+					<div class="sponsor"><?php echo get_imo_dart_tag("240x60",1,false,array("camp"=>"shot_show")); ?></div>				</div>
 	
 				<div class="see-all"><a href="<?php echo "http://www.gunsandammo.com/shot-show-" . date("Y"); ?>" <?php if($dartdomain != "imo.gunsandammo"){echo 'target="_blank"'; } ?>>See All <?php echo date("Y"); ?> SHOT Show Coverage</a></div>
 		    </div>

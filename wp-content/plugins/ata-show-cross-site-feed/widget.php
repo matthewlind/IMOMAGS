@@ -33,18 +33,7 @@ class ATAcsfWidget extends \WP_Widget {
 			    
 				</ul>
 				<div class="sponsor-bg">
-					<div class="sponsor">
-						<!-- 240x60 Ad: -->
-		                <script type="text/javascript">
-		                document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/<?php echo $dartdomain; ?>/;sect=;camp=ata_show;pos=;page=;subs=;sz=240x60;dcopt=;tile=;ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
-		                </script>
-		                <noscript>
-		                <a href="http://ad.doubleclick.net/adj/<?php echo $dartdomain; ?>/;sect=;camp=ata_show;pos=;page=;subs=;sz=240x60;dcopt=;tile=;ord=6545512368?">
-		                <img src="http://ad.doubleclick.net/ad/<?php echo $dartdomain; ?>/;sect=;camp=ata_show;pos=;page=;subs=;sz=240x60;dcopt=;tile=;ord=6545512368?" border="0" />
-		                </a>
-		                </noscript>
-		                <!-- END 240x60 Ad: -->
-					</div>
+					<div class="sponsor"><?php echo get_imo_dart_tag("240x60",1,false,array("camp"=>"ata_show")); ?></div>
 				</div>
 				<div class="see-all"><a href="<?php echo "http://www.bowhuntingmag.com/ata-show-" . date("Y"); ?>">See All <?php echo date("Y"); ?> ATA Show Coverage</a></div>
 		    </div>
