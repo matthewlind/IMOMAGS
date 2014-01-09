@@ -58,6 +58,7 @@ imo_sidebar(); ?>
 	
 			    <h1 class="header-info page-title <?php echo $h1Class; ?>">
 			    	<?php printf('<span>' . single_cat_title( '', false ) . '</span>' ); ?>
+			    	<div class="icon"></div>
 			    </h1>
 			    <div class="sponsor"><?php imo_dart_tag("240x60"); ?></div>
 		
@@ -158,6 +159,7 @@ imo_sidebar(); ?>
 						<h3 class="entry-title">
 							<a rel="bookmark" href="http://www.shootingtimes.deva/2011/01/03/optics_optics_090706/">How To Cope With A Cross-Eyed Rifle</a>
 						</h3>
+						<span>by <?php the_author(); ?></span>
 						<!-- .entry-header -->
 		    		
 		    		    <div class="entry-content">

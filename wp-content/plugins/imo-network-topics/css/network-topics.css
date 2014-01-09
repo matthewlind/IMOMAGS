@@ -20,8 +20,7 @@
 	position: relative;
 	text-align: center;
 	margin: 0 0 24px;
-	font-family: "StagBold";
-	font-weight: lighter;
+	font-family: "stagbold";
 	color: #252525;
 	letter-spacing: 0.04em;
 }
@@ -40,7 +39,7 @@
 #network-topics h2 a{
 	font-size: 27px;
 	clear: both;
-	font-family: "StagBold";
+	font-family: "stagbold";
 	font-weight: lighter;
 	color: #252525;
 	letter-spacing: 0.04em;
@@ -48,7 +47,7 @@
 .network-page-feed h2 a{
 	font-size: 27px;
 	clear: both;
-	font-family: "StagBold";
+	font-family: "stagbold";
 	font-weight: lighter;
 	color: #252525 !important;
 	letter-spacing: 0.04em;
@@ -79,7 +78,7 @@ ul.network-topics li{
 #network-topics .site a, #network-topics-3-col .site a{
 	font-size: 11px;
 	color: gray;
-	font-weight: 600;
+	font-family: "open_sanssemibold","Helvetica",Arial,sans-serif;
 }
 #network-topics a, #network-topics-3-col a{
 	display: block;
@@ -89,7 +88,7 @@ ul.network-topics li{
 	color: #313131;
 	line-height: 1.2;
 	font-size: 14px;
-	font-weight: bold;
+	font-family: "stagmedium",serif;
 }
 #network-topics a.title{
 	width: 120px;
@@ -128,8 +127,7 @@ ul.network-topics li{
 	text-align: center;
 	margin-top: 0;
 	margin-bottom: 20px;
-	font-family: "StagBold";
-	font-weight: lighter;
+	font-family: "stagbold";
 	color: #252525;
 	letter-spacing: 0.04em;
 }

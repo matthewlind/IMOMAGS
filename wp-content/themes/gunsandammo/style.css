@@ -36,11 +36,11 @@ body{background:#2d2d2d;}
 /* Tags reset
 *******************************************************************************/
 h1, h2, h3, h4, h5, h6 {
-font-family: "StagMedium";
+font-family: "stagmedium";
 font-weight: lighter;
 color: #252525;
 }
-.article-brief h3 a, .feat-text h3 a, .page-header h1{font-family: "stagMedium", serif;}
+.article-brief h3 a, .feat-text h3 a, .page-header h1{font-family: "stagmedium", serif;}
 .error404 .page-header{border: none;}
 .drop-feat-post h5 a:hover,
 .links-list a:hover, 
@@ -63,7 +63,7 @@ color: #252525;
 	display: block;
 	height: 44px;
 	color: #fff;
-	font: 24px/40px "stagMedium", serif;	
+	font: 24px/40px "stagmedium", serif;	
 	text-transform: none;
 }
 .menu-main-menu-container li.main-menu-item:hover{background: #ce181e;}
@@ -75,7 +75,7 @@ color: #252525;
 .menu-top-menu-container.subscribe-left li{padding-left: 30px;padding-right: 10px;}
 .menu-top-menu-container.subscribe-left li a{color: #ce181e;}
 .filter-links li:before, .menu-top-menu-container li:before, .subscribe-links li:before{border: none;position: relative;}
-.menu-top-menu-container a {color: black;font-weight: lighter;font-family: "stagMedium", serif;}
+.menu-top-menu-container a {color: black;font-weight: lighter;font-family: "stagmedium", serif;}
 .menu-main-menu-container a, .menu-main-menu-container a.has-drop{padding: 0 28px 0 10px;}
 .menu-main-menu-container a.has-drop:after{border-top: 7px solid white;}
 a.category-name-link.primary-cat,
@@ -101,7 +101,7 @@ a.category-name-link:hover{background: #623d11;color: white;}
 .subscribe-box .journal{margin: 0 0 0 26px;}
 .get-newsletter{text-shadow: 0 -1px 0 #000;}
 li.menu-parent{line-height: 1.7;font-weight: bold;}
-li.menu-parent a{font-size: 18px;font-family: "stagMedium", serif;color:#ce181e;}
+li.menu-parent a{font-size: 18px;font-family: "stagmedium", serif;color:#ce181e;}
 .menu-main-menu-container li:hover .drop-down, .menu-header-menu-container li:hover .drop-down{
 	-moz-box-shadow: rgba(0, 0, 0, 0.35) 2px 2px 5px;
 	-webkit-box-shadow: rgba(0, 0, 0, 0.35) 2px 2px 5px;
@@ -262,7 +262,7 @@ ol.fancy li, .fancy ol li, .widget_rss ol li, .yarpp-content ol li {
 
 /* line 576, sass/style.scss */
 ol.fancy li span, .fancy ol li span, .widget_rss ol li span, .yarpp-content ol li span {
-  font-family: "StagBold";
+  font-family: "stagbold";
   font-weight: lighter;
   background: black;
   color: white;
@@ -366,7 +366,7 @@ hr {
 .widget_ga-reviews-widget .flex-direction-nav{display: block !important;}
 .widget_ga-reviews-widget .flex-direction-nav a , .widget_ga-reviews-widget .flex-direction-nav a:hover {top: 70px;background-color: black !important;}
 
-.page-header h1{font: 18px/16px "stagMedium", sans-serif;}
+.page-header h1{font: 18px/16px "stagmedium", sans-serif;}
 .page-title div.icon{display: block;}
 .section-title.posts .icon, .section-title.galleries .icon, .section-title.comments .icon, .section-title.videos .icon, .page-title .icon {background: url("images/ga-icons.png") no-repeat;}
 .page-header {
@@ -398,7 +398,7 @@ hr {
   z-index: 20;
 }
 .section-title h2 span, .page-title span {
-  font: 18px/16px "stagMedium", sans-serif;
+  font: 18px/16px "stagmedium", sans-serif;
   display: -moz-inline-box;
   -moz-box-orient: vertical;
   display: inline-block;
@@ -519,7 +519,7 @@ h2.reviews-form-header span {
   z-index: 1000;
 }
 .single-imo_caption_contest .caption-banner-text {
-  font-family: "StagBold";
+  font-family: "stagbold";
   font-weight: lighter;
   text-transform: uppercase;
   font-size: 22px;
@@ -607,7 +607,7 @@ h2.reviews-form-header span {
 	color: black;
 	padding: 0 28px 0 12px;
 	display: inline-block;
-	font-family: "StagMedium";
+	font-family: "stagmedium";
 	font-weight: lighter;
 	font-size: 14px;
 	height: 35px;
@@ -674,7 +674,7 @@ h2.reviews-form-header span {
 .special-features .home-featured:nth-child(odd){padding-top: 23px;}
 @media only screen and (max-width: 1096px) {
 	.header{padding-top: 0;}
-	.snap-drawers .menu-top-menu-container a, .snap-drawers .mob-aside-menu > div > ul > li > a{font-family: "stagMedium",serif;}
+	.snap-drawers .menu-top-menu-container a, .snap-drawers .mob-aside-menu > div > ul > li > a{font-family: "stagmedium",serif;}
 	.snap-drawers #menu-main-menu .mob-aside-menu li.drop-open > a{text-transform: none !important;font-size: 20px;}
 	.snap-drawers .menu-top-menu-container a{text-transform: none;}
 	.snap-drawers .mob-aside-menu li.menu-parent a, .snap-drawers .menu-top-menu-container li.menu-parent a{color: #afafaf;font-size: 18px;}
