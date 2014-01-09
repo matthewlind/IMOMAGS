@@ -47,7 +47,7 @@ get_header(); ?>
 				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header loading-block js-responsive-section">
 					<?php the_widget('imo\GAReviewWidget'); ?>			
 				</div>
-	
+				<?php if ( mobile() ){ get_sidebar("mobile"); } ?>
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list page-header js-responsive-section main-content-preppend">
 					<div class="section-title posts">
 					    <h2>
@@ -72,15 +72,12 @@ get_header(); ?>
                         <a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('list-thumb'); ?></a>
                         <div class="article-holder">
                             <div class="clearfix">
-                                <?php 
-	                                if(function_exists('primary_and_secondary_categories')){
-	                                	echo primary_and_secondary_categories(); 
-	                                }                                
-                                ?>
+                                <?php //if(function_exists('primary_and_secondary_categories')){echo primary_and_secondary_categories();} ?>
                             </div>
                             <h3 class="entry-title">
                                 <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
                             </h3>
+                            <span>by <?php the_author(); ?></span>
                             <!--<a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('list-thumb');?></a>-->
                             <!-- .entry-header -->
                            <a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>

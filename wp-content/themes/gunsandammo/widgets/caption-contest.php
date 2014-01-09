@@ -34,6 +34,7 @@ class Caption_Contest_Widget extends WP_Widget {
 	    
 	    <a href="<?php echo get_page_link($contestID); ?>" class="button">Enter The Contest <span></span></a>
       <p class="view-all-p"><a href="/caption-contest" class="view-all">View All Caption Contests</a>
+      <div class="sponsor"><?php imo_dart_tag("240x60"); ?></div>
     </p>
     </aside>
     

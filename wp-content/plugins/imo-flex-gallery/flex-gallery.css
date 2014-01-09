@@ -23,6 +23,8 @@ div.flex-viewport {
 	-webkit-transition-property: none !important;
 	-o-transition-property: none !important;
 }
+.gallery-slider  ul{padding-left: 0 !important;}
+.gallery-slider .feat-text{padding-left: 14px;}
 .gallery-slider div.flex-viewport{max-height: 300px;}	
 .gallery-holder{position:relative;background: black;}
 .flex-gallery-container .flex-active-slide {
@@ -352,6 +354,9 @@ font-size: 14px;
 
 
 /* Nav Buttons */
+.gallery-slider .flex-direction-nav{display: block;}
+.gallery-slider .flex-direction-nav li{list-style: none;}
+.gallery-slider .flex-direction-nav a, .gallery-slider .flex-direction-nav a:hover{background-color: black !important;}
 .gallery-slider .flex-direction-nav a, .flex-gallery-container .flex-direction-nav a{margin-top: 0 !important;}
 .flex-gallery ul.flex-direction-nav,
 .flex-carousel-nav ul.flex-direction-nav {

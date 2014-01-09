@@ -49,7 +49,7 @@ function imoFlexInitiate(isCommunity, galleryID, totalSlides, isFullScreenNow, i
 				imoFlexSetup(isCommunity, galleryID, totalSlides, isFullScreenNow, isReloaded, jsonUrl);
 				if(isCommunity == true) {
 					jQuery('.flex-gallery').waitForImages(function() {
-						loadMore(jsonUrl);
+						//loadMore(jsonUrl);
 					});
 				}
 			},

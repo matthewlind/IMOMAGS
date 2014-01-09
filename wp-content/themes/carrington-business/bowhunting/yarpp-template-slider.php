@@ -1,6 +1,7 @@
 <?php 
 /*
 YARPP Template: Slider
+Author: horechek
 Description: A Slider YARPP template.
 */
 ?>
@@ -15,7 +16,7 @@ Description: A Slider YARPP template.
                 <div class="paging-post-inner">
                     <?php if(has_post_thumbnail()){ ?>
                     <div class="paging-image">
-                        <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('list-thumb'); ?></a>
+                        <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('index-thumb'); ?></a>
                     </div>
                     <?php } ?>
                     <div class="paging-post-holder">

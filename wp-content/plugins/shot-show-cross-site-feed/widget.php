@@ -2,6 +2,7 @@
 
 namespace imo;
 $should_print_my_script = true;
+
 /**
  * SScsfWidget
  *
@@ -19,19 +20,23 @@ class SScsfWidget extends \WP_Widget {
      * @see WP_Widget::widget
      */
     function widget() {
-    ?>      
+    $dartdomain = get_option("dart_domain", $default = false); ?>      
 	    <aside id="shot-show-widget">
-			<div class="widget-header shot-show">
-				<h4>SHOT SHOW <?php echo date("Y"); ?></h4>
-				<!--<div class="sub-header">New Products & Daily Updates</div>-->
-				<div class="widget-border"></div>
-			</div>
-			<ul class="shot-show-widget" term="<?php echo "shot-show-" . date("Y"); ?>"><!-- This term= attribute is searched for by displayCrossSiteFeed() in cross-site-feed.js -->
-		    
-			</ul>
-			<div class="sponsor-bg"><div class="sponsor"><?php imo_dart_tag("240x60"); ?></div></div>
-			<div class="see-all"><a href="<?php echo "/shot-show-" . date("Y"); ?>">See All <?php echo date("Y"); ?> SHOT Show Coverage</a></div>
-		</aside>
+		    <div class="widget-wrapper">
+				<div class="widget-header shot-show">
+					<h4>SHOT SHOW <?php echo date("Y"); ?></h4>
+					<!--<div class="sub-header">New Products & Daily Updates</div>-->
+					<div class="widget-border"></div>
+				</div>
+				<ul class="shot-show-widget" term="<?php echo "shot-show-" . date("Y"); ?>"><!-- This term= attribute is searched for by displayCrossSiteFeed() in cross-site-feed.js -->
+			    
+				</ul>
+				<div class="sponsor-bg">
+					<div class="sponsor"><?php echo get_imo_dart_tag("240x60",1,false,array("camp"=>"shot_show")); ?></div>				</div>
+	
+				<div class="see-all"><a href="<?php echo "http://www.gunsandammo.com/shot-show-" . date("Y"); ?>" <?php if($dartdomain != "imo.gunsandammo"){echo 'target="_blank"'; } ?>>See All <?php echo date("Y"); ?> SHOT Show Coverage</a></div>
+		    </div>
+	    </aside>
 		<div style="clear:both;"></div>
 
 	    <!-- clone -->

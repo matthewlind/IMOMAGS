@@ -121,22 +121,27 @@ if(post.score == 1){
                 <p>In-Fisherman, the world's foremost authority on freshwater fishing for over three decades, invites you to share your latest and greatest fishing photos, stories, tips, reports and more. Start uploading from your desktop or phone today!</p>
 			</div>
         </div>
-		<div class="custom-slider-section">
-            <?php echo do_shortcode('[imo-slideshow community=true]'); ?>
-        </div>
-
-
-        <div class="photo-link-area">
+		
             <div id="fileupload">
                 <div class="fileupload-buttonbar ">
-                    <label class="upload-button share-photo">
-                        <span class="add-photo-link">Share Your Catch</span>
+                    <label class="upload-button">
+                        <span class="singl-post-photo"><span>Share Your Catch</span></span>
                         <input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
                     </label>
                 </div>
             </div>
-        </div>
-
+        
+        <?php echo do_shortcode('[imo-slideshow community=true]'); ?>
+        
+            <div id="fileupload">
+                <div class="fileupload-buttonbar hide-extra">
+                    <label class="upload-button">
+                        <span class="singl-post-photo"><span>Share Your Catch</span></span>
+                        <input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
+                    </label>
+                </div>
+            </div>
+        
         <div class="btn-group btn-bar">
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
             <span class="menu-title browse-community">Browse Photos</span> <span class="caret"></span>

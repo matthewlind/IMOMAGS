@@ -76,14 +76,14 @@ imo_sidebar(); ?>
         <div class="general-frame">
             <div id="content" role="main">
             	
-	             <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="featured-area clearfix js-responsive-section">
+	             <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header featured-area clearfix js-responsive-section">
 	                <div class="section-title posts">
 					    <h2 class="">
 					        <div class="icon"></div>
 					        <span>Shooting</span> 
 					    </h2>
 					</div>
-
+					<div class="addthis-below" <?php if(mobile()){ echo 'style="width: 320px;"'; } ?>><?php if (function_exists('imo_add_this')) {imo_add_this();} ?></div>
 	                <div class="clearfix">
 	                    <ul>
 	                   	 	<?php if( function_exists('showFeaturedList') ){ echo showFeaturedPosts(array('set_id' => 5)); } ?>

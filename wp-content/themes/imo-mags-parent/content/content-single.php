@@ -33,6 +33,7 @@ $byline = get_post_meta($postID, 'ecpt_byline', true);
     <?php if ( mobile() ){ ?>
     <div class="image-banner posts-image-banner">
         <?php imo_dart_tag("300x250",array("pos"=>"mob")); ?> 
+        <small>ADVERTISEMENT</small>
     </div>
     <?php } ?>
 
