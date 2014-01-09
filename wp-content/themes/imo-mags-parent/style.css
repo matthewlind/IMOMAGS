@@ -3844,7 +3844,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 }
 
 @media only screen and (max-width: 610px) {
-	
+	.hide-extra{display: none;}
 	.gallery-slider #gallery-iframe-ad{
 		top: -6px;
 		margin: 0 auto;

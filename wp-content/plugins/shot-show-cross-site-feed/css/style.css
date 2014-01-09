@@ -4,6 +4,7 @@
 	padding: 4px;
 	margin-bottom: 20px;
 }
+#shot-show-widget .widget-wrapper{background: white;}
 #shot-show-widget .widget-header{
 	background: url("../img/shot-show-widget-logo.jpg") no-repeat 8px 4px white;	
 	width: 302px;
@@ -14,6 +15,7 @@
 	padding: 17px 0 11px 109px;
 	font-size: 18px;
 	text-align: left;
+	font-family: "stagbold", serif;
 }
 #shot-show-widget .widget-border{
 	background: #ccc;
@@ -54,6 +56,7 @@
 	text-align: center;
 	float: none;
 	padding-bottom: 8px;
+	clear: both;
 }
 #shot-show-widget .see-all:after {left: 2px;}
 #shot-show-widget .sub-header{
@@ -79,7 +82,7 @@
 	float: none;
 }
 #shot-show-widget .sponsor-bg{background: white;width: 300px;}
-
+#shot-show-widget .sponsor img{margin-top: 0;}
 
 
 

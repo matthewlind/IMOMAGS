@@ -2,6 +2,7 @@
 
 namespace imo;
 $should_print_ata_script = true;
+
 /**
  * ATAcsfWidget
  *
@@ -19,18 +20,34 @@ class ATAcsfWidget extends \WP_Widget {
      * @see WP_Widget::widget
      */
     function widget() {
-    ?>      
+    $dartdomain = get_option("dart_domain", $default = false);
+?>      
 	    <aside id="ata-show-widget">
-			<div class="widget-header shot-show">
-				<h4>ATA SHOW <?php echo date("Y"); ?></h4>
-				<!--<div class="sub-header">New Products & Daily Updates</div>-->
-				<div class="widget-border"></div>
-			</div>
-			<ul class="ata-show-widget" term="<?php echo "ata-show-" . date("Y"); ?>"><!-- This term= attribute is searched for by displayCrossSiteFeed() in cross-site-feed.js -->
-		    
-			</ul>
-			<div class="sponsor-bg"><div class="sponsor"><?php imo_dart_tag("240x60"); ?></div></div>
-			<div class="see-all"><a href="<?php echo "http://www.bowhuntingmag.com/ata-show-" . date("Y"); ?>">See All <?php echo date("Y"); ?> ATA Show Coverage</a></div>
+		    <div class="widget-wrapper">
+				<div class="widget-header shot-show">
+					<h4>ATA SHOW <?php echo date("Y"); ?></h4>
+					<!--<div class="sub-header">New Products & Daily Updates</div>-->
+					<div class="widget-border"></div>
+				</div>
+				<ul class="ata-show-widget" term="<?php echo "ata-show-" . date("Y"); ?>"><!-- This term= attribute is searched for by displayCrossSiteFeed() in cross-site-feed.js -->
+			    
+				</ul>
+				<div class="sponsor-bg">
+					<div class="sponsor">
+						<!-- 240x60 Ad: -->
+		                <script type="text/javascript">
+		                document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/<?php echo $dartdomain; ?>/;sect=;camp=ata_show;pos=;page=;subs=;sz=240x60;dcopt=;tile=;ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
+		                </script>
+		                <noscript>
+		                <a href="http://ad.doubleclick.net/adj/<?php echo $dartdomain; ?>/;sect=;camp=ata_show;pos=;page=;subs=;sz=240x60;dcopt=;tile=;ord=6545512368?">
+		                <img src="http://ad.doubleclick.net/ad/<?php echo $dartdomain; ?>/;sect=;camp=ata_show;pos=;page=;subs=;sz=240x60;dcopt=;tile=;ord=6545512368?" border="0" />
+		                </a>
+		                </noscript>
+		                <!-- END 240x60 Ad: -->
+					</div>
+				</div>
+				<div class="see-all"><a href="<?php echo "http://www.bowhuntingmag.com/ata-show-" . date("Y"); ?>">See All <?php echo date("Y"); ?> ATA Show Coverage</a></div>
+		    </div>
 		</aside>
 		<div style="clear:both;"></div>
 

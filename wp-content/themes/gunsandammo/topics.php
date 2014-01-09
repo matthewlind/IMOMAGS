@@ -76,7 +76,7 @@ imo_sidebar(); ?>
         <div class="general-frame">
             <div id="content" role="main">
             	
-	             <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="featured-area clearfix js-responsive-section">
+	             <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header featured-area clearfix js-responsive-section">
 	                <div class="section-title posts">
 					    <h2 class="">
 					        <div class="icon"></div>

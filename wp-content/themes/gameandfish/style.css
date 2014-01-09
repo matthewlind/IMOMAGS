@@ -18,7 +18,7 @@ body{background-color: black;}
 /* Header
  ******************************************************************************/
 .logo{
-	margin: 0 0 0 40px;
+	margin: 20px 0 0 40px;
 }
 .logo img {
     display:block;
@@ -42,6 +42,7 @@ body{background-color: black;}
 	background: -ms-linear-gradient(top,  #212121 0%,#303030 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  #212121 0%,#303030 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#212121', endColorstr='#303030',GradientType=0 ); /* IE6-8 */
+	padding-top: 0; 
 }
 .open-menu {background-image:url(images/sprite.png);}
 .location-services{
@@ -111,6 +112,7 @@ body{background-color: black;}
 .h-mdl-widget{float: left;margin: 34px 0 0 20px;}
 .socials-hold{float: none;}
 .aside-socials strong{color: white;text-shadow: 0px 1px 1px black;font-family: "open_sansbold", Helvetica, Arial, sans-serif;}
+.socials{padding-top: 20px;}
 .socials a.facebook {
 	background-position: -239px 0;
 }
@@ -148,7 +150,7 @@ body{background-color: black;}
 	width: auto;
 	height: 50px;
 	clear: none;
-	margin: 24px 0 0 0;
+	margin: 44px 0 0 0;
 }
 .menu-main-menu-container li{
 	border-right: 2px solid #545454;
@@ -208,7 +210,7 @@ body{background-color: black;}
 	background: linear-gradient(to bottom,  #373737 0%,#212121 75%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#373737', endColorstr='#212121',GradientType=0 ); /* IE6-8 */
 }
-.logo:hover .gf-drop-down {top:83px;}
+.logo:hover .gf-drop-down {top:93px;}
 .drop-down {
     position:absolute;
     top:-99999px;

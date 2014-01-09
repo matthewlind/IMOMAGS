@@ -134,7 +134,7 @@ if(post.score == 1){
         <?php echo do_shortcode('[imo-slideshow community=true]'); ?>
         
             <div id="fileupload">
-                <div class="fileupload-buttonbar ">
+                <div class="fileupload-buttonbar hide-extra">
                     <label class="upload-button">
                         <span class="singl-post-photo"><span>Share Your Catch</span></span>
                         <input id="image-upload" class="common-image-upload" type="file" name="photo-upload">

@@ -23,6 +23,8 @@ div.flex-viewport {
 	-webkit-transition-property: none !important;
 	-o-transition-property: none !important;
 }
+.gallery-slider  ul{padding-left: 0 !important;}
+.gallery-slider .feat-text{padding-left: 14px;}
 .gallery-slider div.flex-viewport{max-height: 300px;}	
 .gallery-holder{position:relative;background: black;}
 .flex-gallery-container .flex-active-slide {
