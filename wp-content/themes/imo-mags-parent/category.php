@@ -60,7 +60,7 @@ get_header(); ?>
 								$community_cat = $community_category->slug;
                             ?>
 						<?php if ( function_exists('imo_community_template') ){ 
-							if ( $i == 4 && $paged == 0 && ($community_cat == "master-angler" || $community_cat == "bass" || $community_cat == "panfish" || $community_cat == "pike" || $community_cat == "muskie" || $community_cat == "trout" || $community_cat == "salmon" || $community_cat == "carp" || $community_cat == "crappie" || $community_cat == "catfish") ){ ?>
+							if ( $i == 4 && $paged == 0 && ($community_cat == "master-angler" || $community_cat == "panfish" || $community_cat == "pike" || $community_cat == "muskie" || $community_cat == "trout" || $community_cat == "salmon" || $community_cat == "carp" || $community_cat == "crappie" || $community_cat == "catfish") ){ ?>
 		                       <div class="post">
 			                        <h2 style="margin-top:10px;">Explore Photos</h2>
 			                        <?php echo do_shortcode('[imo-slideshow community=true gallery='. $community_cat .']'); ?>
