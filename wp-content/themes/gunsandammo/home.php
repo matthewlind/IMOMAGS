@@ -27,6 +27,7 @@ get_header(); ?>
 					        <div class="icon"></div>
 					        <span><?php echo $videoTitle; ?></span>
 					    </h2>
+					    <div class="sponsor"><?php echo get_imo_dart_tag("240x60",1,false,array("camp"=>"ata_show")); ?></div>
 		            </div>
 		
 					<!-- Start of Brightcove Player -->
