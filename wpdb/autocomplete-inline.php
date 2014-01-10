@@ -121,7 +121,7 @@ function getThumbnail($dataArray) {
 
 
 
-    $filename = $dataArray['sizes']['thumbnail']['file'];
+    $filename = $dataArray['sizes']['list-thumb']['file'];
 
     $fullPath = "/files/" . $filepathParts[0] . "/" . $filepathParts[1] . "/" . $filename;
 

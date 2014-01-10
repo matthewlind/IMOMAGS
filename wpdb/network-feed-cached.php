@@ -8,7 +8,7 @@ $domain = ""; //***NEW FEATURE*** You can now just specify a domain to search a 
 $count = 10; //Number of posts to return
 $skip = 0; //Number of posts to skip (for paging)
 $sort = "post_date"; //Sort posts by
-$state = "all"; //Slug for US state. All results will be in the state.
+$state = "all"; //Slug for US state. Returned results will have both the State and the term
 $post_set_merge = "0-0"; //Use this code to merge in results of a FPS with the query results. First Digit of the code is the site ID, the second digit is the FPS ID. e.g. "14-3"
 
 

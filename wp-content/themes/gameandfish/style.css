@@ -59,7 +59,7 @@ body{background-color: black;}
 	height: 28px;
 	color: #cda220;
 	margin: 0 8px;
-	background: #373737;	
+	background: #373737;
 	position: relative;
 	border-radius: 6px;
 	border: none;
@@ -519,6 +519,29 @@ a.category-name-link:hover{background: #F1C548;color: black;}
 .paging-post h3 a:hover {color:#c9242c;}
 
 
+.inline-post a img.wp-post-image {
+    max-width:300px;
+    width: 40%;
+    float:left;
+    margin:10px 20px 10px 10px;
+}
+
+.inline-post .inline-details {
+
+	/*overflow: hidden;*/
+}
+
+.inline-post h1 {
+	margin-top:0.3em;
+	font: 30px/1.1 "open_sansbold", Helvetica, Arial, serif;
+	margin-bottom:0.3em;
+}
+
+.inline-post a {
+	color: #3c3c3c;
+}
+
+
 /* = General styles for mobile menu
 ---------------------------------------------------------------------- */
 
@@ -778,7 +801,7 @@ element:hover, element.hover_effect {
 }
 .hover {
         -webkit-user-select: none;
-        -webkit-touch-callout: none;        
+        -webkit-touch-callout: none;
 }
 .forecast-menu select{
         text-transform: capitalize;
