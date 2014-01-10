@@ -434,8 +434,9 @@ function register_imo_subscribe_settings () {
     register_setting( 'imo-subs-settings-group', 'sticky_key' );
     register_setting( 'imo-subs-settings-group', 'newsletter_id' );
     register_setting( 'imo-subs-settings-group', 'master_angler_pdf' );
-    //IF: 2493
-    //GD: 2660
+    register_setting( 'imo-subs-settings-group', 'home_player_id' );
+    register_setting( 'imo-subs-settings-group', 'home_player_key' );
+    register_setting( 'imo-subs-settings-group', 'video_title' );
 }
 /**
  *HTML generation call back for the Subscriptions settings page.
@@ -515,6 +516,22 @@ function imo_addons_subscription_page() {
         <th scope="row">ID</th>
         <td><input type="text" name="newsletter_id" value="<?php echo get_option('newsletter_id'); ?>" /></td>
         </tr>
+        <tr valign="top">
+        <td><strong>Homepage Video Player</strong></td>
+        </tr>
+        <tr>
+        <th scope="row">Title</th>
+        <td><input type="text" name="video_title" value="<?php echo get_option('video_title'); ?>" /></td>
+        </tr>
+		<tr>
+        <th scope="row">Player ID</th>
+        <td><input type="text" name="home_player_id" value="<?php echo get_option('home_player_id'); ?>" /></td>
+        </tr>
+        <tr>
+        <th scope="row">Player Key</th>
+        <td><input type="text" name="home_player_key" value="<?php echo get_option('home_player_key'); ?>" /></td>
+        </tr>
+
         <?php 
         $dartDomain = get_option("dart_domain", $default = false);
         if($dartDomain == "imo.in-fisherman"){ ?>

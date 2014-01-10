@@ -1,5 +1,10 @@
 <?php
 $dataPos = 0;
+
+$videoTitle = get_option('video_title', false);
+$playerID = get_option('home_player_id', false);
+$playerKey = get_option('home_player_Key', false);
+
 get_header(); ?>
 	<?php imo_sidebar(); ?>
 	<div id="primary" class="general">
@@ -15,6 +20,35 @@ get_header(); ?>
                     </div>
                 </div>
                 
+                <?php if( $playerID && $playerKey ){ ?>
+				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header js-responsive-section">
+					<div class="section-title videos">
+					    <h2>
+					        <div class="icon"></div>
+					        <span><?php echo $videoTitle; ?></span>
+					    </h2>
+		            </div>
+		
+					<!-- Start of Brightcove Player -->
+					<div style="display:none"></div>
+									
+					<script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+					
+					<object id="myExperience" class="BrightcoveExperience">
+					  <param name="bgcolor" value="#FFFFFF" />
+					  <param name="width" value="480" />
+					  <param name="height" value="628" />
+					  <param name="playerID" value="<?php echo $playerID; ?>" />
+					  <param name="playerKey" value="<?php echo $playerKey; ?>" />
+					  <param name="isVid" value="true" />
+					  <param name="isUI" value="true" />
+					  <param name="dynamicStreaming" value="true" />
+					</object>
+					<script type="text/javascript">brightcove.createExperiences();</script>
+					<!-- End of Brightcove Player -->		
+				</div>
+				<?php } ?>
+
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header clearfix js-responsive-section">
                  	<div class="section-title posts">
 					    <h2>

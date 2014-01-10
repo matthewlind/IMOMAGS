@@ -2424,9 +2424,7 @@ margin-bottom:15px;
 }
 
 .sidebar-widget-featured-thumbs li.sidebar-featured p {
-    font-size: 14px;
-    font-weight:bold;
-
+	font: 14px "open_sansbold", "Helvetica", sans-serif;
     color:black;
 }
 .sidebar-widget-featured li.sidebar-featured{margin-bottom: 10px;}

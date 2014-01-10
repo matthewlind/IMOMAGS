@@ -112,7 +112,7 @@ body{background-color: black;}
 .h-mdl-widget{float: left;margin: 34px 0 0 20px;}
 .socials-hold{float: none;}
 .aside-socials strong{color: white;text-shadow: 0px 1px 1px black;font-family: "open_sansbold", Helvetica, Arial, sans-serif;}
-.socials{padding-top: 20px;}
+.header .socials{padding-top: 20px;}
 .socials a.facebook {
 	background-position: -239px 0;
 }
