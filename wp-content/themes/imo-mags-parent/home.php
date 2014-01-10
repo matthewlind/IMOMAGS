@@ -3,6 +3,7 @@ $dataPos = 0;
 
 $playerID = get_option('home_player_id', false);
 $playerKey = get_option('home_player_Key', false);
+$camp = get_option('home_player_camp', false);
 
 get_header(); ?>
 	<?php imo_sidebar(); ?>
@@ -34,7 +35,7 @@ get_header(); ?>
 				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section">
 					<div class="general-title clearfix">
 		                <h2>New Bowhunting Gear for 2014</h2>
-		                <div class="sponsor"><?php echo get_imo_dart_tag("240x60",1,false,array("camp"=>"ata_show")); ?></div>
+		                <div class="sponsor"><?php echo get_imo_dart_tag("240x60",1,false,array("camp"=>"$camp")); ?></div>
 		            </div>
 					
 					<!-- Start of Brightcove Player -->
