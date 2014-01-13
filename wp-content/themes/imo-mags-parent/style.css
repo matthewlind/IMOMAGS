@@ -231,7 +231,7 @@ a:hover { color: #040503; }
 :-moz-placeholder           { color: #3c3c3c; }
 :focus::-webkit-input-placeholder { color: transparent; }
 :focus::-moz-placeholder { color: transparent; }
-img{max-width: 100%;height: auto;}
+.general img{max-width: 100%;height: auto;}
 
 /* =Useful classes
 *******************************************************************************/
@@ -973,7 +973,7 @@ input.gsc-search-button-v2{
 .sidebar .BCLvideoWrapper embed,
 .sidebar .BCLvideoWrapper object,
 .sidebar .BrightcoveExperience {
-	width: 310px;
+	width: 100%;
 }
 .post-panel,
 .video-panel {
@@ -2323,8 +2323,9 @@ a.change-location:before {
 .signup-btn-row input {width:138px;}
 .sidebar-area .feat-text {
     height:auto;
-    padding:12px;
+    padding:10px 12px;
 }
+.sidebar-area .feat-text p{margin: 0;padding: 0;}
 .sidebar-area .feat-text h3 {
     font-size:17px;
 }
@@ -2423,9 +2424,7 @@ margin-bottom:15px;
 }
 
 .sidebar-widget-featured-thumbs li.sidebar-featured p {
-    font-size: 14px;
-    font-weight:bold;
-
+	font: 14px "open_sansbold", "Helvetica", sans-serif;
     color:black;
 }
 .sidebar-widget-featured li.sidebar-featured{margin-bottom: 10px;}
@@ -2536,6 +2535,8 @@ margin-bottom:15px;
 }
 .widget_subscribe-form img{
 	padding-right: 10px;
+	width: 100%;
+	height: auto;
 }
 .widget_subscribe-form .title{
 	padding-top: 10px;
@@ -2596,7 +2597,6 @@ h2.related-stories{
 	text-align: center;
 	display: none;
 }
-.page .article-holder p{padding-bottom: 24px;}
 
 
 /************************
@@ -2975,6 +2975,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 .fixed-connect .container{max-width:1060px;margin:0 auto;padding:0 20px 0 20px;}
 .fixed-connect a{color:#fff;text-decoration:none;}
 .fixed-connect .currentIssue{width:100px;height:83px;float:left;margin:-54px 0 0 0;}
+.fixed-connect .currentIssue img{width: 100%;height: auto;}
 .fixed-connect .subscribe, .fixed-connect input[type="submit"]{float:left;height:28px;padding: 0 6px;text-transform: uppercase;background:red;margin:8px 0 0 0;font-size:20px;}
 .fixed-connect .subscribe a{height:100%;width:100%;display:block;}
 .fixed-connect .newsletter{float:left;margin:0 0 0 15px;font-size:14px;padding:8px 0 0 10px;border-left: 1px solid white;height: 42px;}

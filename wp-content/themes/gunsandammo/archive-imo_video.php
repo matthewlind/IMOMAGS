@@ -8,7 +8,7 @@ imo_sidebar(); ?>
         <div class="general-frame">
             <div id="content" role="main">
             	
-	             <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="featured-area clearfix js-responsive-section">
+	             <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="featured-area page-header clearfix js-responsive-section">
 	                <div class="section-title videos">
 					    <h2>
 					        <div class="icon"></div>
@@ -23,7 +23,7 @@ imo_sidebar(); ?>
 	                </div>
 	            </div>
 
-	            <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list clearfix js-responsive-section">
+	            <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header clearfix js-responsive-section">
 	                <div class="section-title videos">
 					    <h2>
 					        <div class="icon"></div>
@@ -43,7 +43,7 @@ imo_sidebar(); ?>
 			        </div>
 			    </div>
 
-				 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list clearfix js-responsive-section">
+				 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header clearfix js-responsive-section">
 	                <div class="section-title videos">
 					    <h2>
 					        <div class="icon"></div>
@@ -63,7 +63,7 @@ imo_sidebar(); ?>
 			        </div>
 			    </div>				
 				
-				 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list clearfix js-responsive-section">
+				 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header clearfix js-responsive-section">
 	                <div class="section-title videos">
 					    <h2>
 					        <div class="icon"></div>
@@ -85,7 +85,7 @@ imo_sidebar(); ?>
 
 
 				  
-                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section main-content-preppend">
+                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header js-responsive-section main-content-preppend">
                 	 <div class="section-title videos">
 				    <h2>
 				        <div class="icon"></div>
