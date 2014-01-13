@@ -16,7 +16,7 @@ if (mobilecheck()) {
 		//Initialize the page
 		var d = new Date();
 		var currentMonth = d.getMonth() + 1;
-		var year = 2013; //This needs to be changed later if we extend our contract
+		var year = 2014; //This needs to be changed later if we extend our contract
 		var searchLocation = "";
 
 
