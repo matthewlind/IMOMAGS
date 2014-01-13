@@ -37,7 +37,7 @@ $byline = get_post_meta($postID, 'ecpt_byline', true);
     </div>
     <?php } ?>
 
-    <div class="addthis-below" <?php if(mobile()){ echo 'style="width: 320px;"'; } ?>><?php if (function_exists('imo_add_this')) {imo_add_this();} ?></div>
+    <div class="addthis-below"><?php if (function_exists('imo_add_this')) {imo_add_this();} ?></div>
     <!-- .entry-header -->
     <div class="entry-content-holder">
         <?php if ( is_search() ) : // Only display Excerpts for Search ?>

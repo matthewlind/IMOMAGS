@@ -42,3 +42,22 @@ if(document.location.protocol=='http:'){
  (function(){var s=document.createElement('script');s.async="async";s.type="text/javascript";s.src='http://tcr.tynt.com/ti.js';var h=document.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})();
 }
 </script>
+<div id="fb-root"></div>   
+<script>
+(function(w, d, s) {
+  function go(){
+  var js, fjs = d.getElementsByTagName(s)[0], load = function(url, id) {
+  if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.src = url; js.id = id;
+    fjs.parentNode.insertBefore(js, fjs);
+  };
+  load('//connect.facebook.net/en_US/all.js#xfbml=1&appId=121771584602003', 'fbjssdk');
+  load('//apis.google.com/js/plusone.js', 'gplus1js');
+  load('//platform.twitter.com/widgets.js', 'tweetjs');
+  load('//platform.linkedin.com/in.js', 'lnkdjs');
+  load('//assets.pinterest.com/js/pinit.js', 'pinitjs');
+ }
+ if (w.addEventListener) { w.addEventListener("load", go, false); }
+  else if (w.attachEvent) { w.attachEvent("onload",go); }
+ }(window, document, 'script'));
+</script> 
