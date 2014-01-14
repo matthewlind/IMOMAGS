@@ -495,6 +495,7 @@ h2.reviews-form-header span {
 }
 
 /*** Caption Contest ***/
+
 .single-imo_caption_contest .prize-box {
   border: 5px solid #999999;
   background-color: #dddddd;
@@ -579,7 +580,6 @@ h2.reviews-form-header span {
 }
 #caption_contest_promo p{font-family: georgia;}
 #caption_contest_promo p.view-all-p {
-	padding-bottom: 10px;
 	line-height: 24px;
 	font-size: 16px;
 	margin-top: 10px;
@@ -662,7 +662,7 @@ h2.reviews-form-header span {
 	width: 240px;
 	margin: 0 auto;
 }
-.imo_caption_contest .sponsor img{float: none;}
+#caption_contest_promo .sponsor img, .imo_caption_contest .sponsor img{float: none;}
 .post-type-archive-imo_caption_contest .sponsor img{margin-top: 2px;}
 
 .ga-lists-featured{float: left;padding-right: 10px;}
