@@ -340,7 +340,7 @@ a.category-name-link:hover{background: #F1C548;color: black;}
 .post-header h1 {font:45px/1.2 "stagregular", serif;color:#040503;clear: both;}
 .meta-date-author {color:#7e7e7e;}
 .author-item {color:#040503;}
-.full-post .entry-content{padding: 26px 37px 10px;}
+.full-post .entry-content{padding: 10px 37px;}
 
 .entry-content-holder {border-bottom:1px solid #fff;}
 .entry-content-holder:after {background:#dbdbd9;}

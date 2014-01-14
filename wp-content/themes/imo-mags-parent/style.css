@@ -1608,7 +1608,7 @@ a.category-name-link:hover{
 }
 .entry-content-holder {
     position:relative;
-    padding:38px 0 0;
+    padding:0;
     margin:0 0 20px;
 }
 .entry-content-holder:after {
@@ -2461,6 +2461,7 @@ margin-bottom:15px;
 	position: relative;
 	background: #e0e0e0;
 	margin: 20px 0;
+	max-width: 580px;
 }
 .wp-caption .wp-caption-text {
 	margin: 6px 2px 0 2px;
