@@ -1048,7 +1048,7 @@ a.category-name-link:hover{
 	color: black;
 }
 .cat-label a,
-.cat-feat-label a {color:#fff;}
+.cat-feat-label a {color:#fff;font-style: normal;}
 .article-brief h3{padding:0 12px 0 0 !important;}
 .article-brief h3,
 .feat-text h3 {
