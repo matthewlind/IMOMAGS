@@ -32,6 +32,7 @@ $fullWidthImage = get_option('full_width_image_'.$categoryID, false);
 $post_set_id = get_option('post_set_id_'.$categoryID, false);
 $playerID = get_option('playerID_'.$categoryID, false);
 $playerKey = get_option('playerKey_'.$categoryID, false);
+$network_video_title = get_option('network_video_title_'.$categoryID, false);
 
 if (function_exists('z_taxonomy_image_url'))
 	$imageURL = z_taxonomy_image_url();
@@ -91,7 +92,7 @@ imo_sidebar(); ?>
 		if( $playerID && $playerKey ){ ?>
 		<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section">
 			<div class="general-title clearfix">
-                <h2>New Bowhunting Gear for 2014</h2>
+                <h2><?php echo $network_video_title; ?></h2>
             </div>
 
 			<!-- Start of Brightcove Player -->
@@ -159,8 +160,8 @@ imo_sidebar(); ?>
 						<h3 class="entry-title">
 							<a rel="bookmark" href="http://www.shootingtimes.deva/2011/01/03/optics_optics_090706/">How To Cope With A Cross-Eyed Rifle</a>
 						</h3>
-						<span>by <?php the_author(); ?></span>
-						<!-- .entry-header -->
+						<!--<span>by <?php //the_author(); ?></span>
+						 .entry-header -->
 		    		
 		    		    <div class="entry-content">
 			    			<p class="entry-content">Hugh explains how to cope with a rifle that has misaligned scope-mount holes.</p>

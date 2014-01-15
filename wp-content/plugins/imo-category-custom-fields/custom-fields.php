@@ -78,6 +78,9 @@ function imo_category_add_field($term) {
 	if (get_option('playerKey_'.$term_id))
 		$playerKey = get_option('playerKey_'.$term_id);
 
+	if (get_option('network_video_title_'.$term_id))
+		$playerKey = get_option('network_video_title_'.$term_id);
+
 
 	echo "<tr class='form-field'>
 			<th scope='row' valign='top'><label for='use_network_feed'>Use Network Feed </label></th>
@@ -107,6 +110,12 @@ function imo_category_add_field($term) {
 		</tr>";
 	
 	//brightcove player	
+	echo "<tr class='form-field'>
+			<th scope='row' valign='top'><label for='post_set_id'>Player Title</label></th>
+			<td><input type='text' name='network_video_title' id='network_video_title' value='$network_video_title' />
+			</td>
+		</tr>";
+
 	echo "<tr class='form-field'>
 			<th scope='row' valign='top'><label for='post_set_id'>Brightcove Player ID</label></th>
 			<td><input type='text' name='playerID' id='playerID' value='$playerID' />
@@ -143,6 +152,11 @@ function save_imo_category_field($term_id) {
     else
     	delete_option('post_set_id_'.$term_id);
     	
+    if(!empty($_POST['network_video_title']))
+        update_option('network_video_title_'.$term_id, $_POST['network_video_title']);
+    else
+    	delete_option('network_video_title_'.$term_id);
+    
     if(!empty($_POST['playerID']))
         update_option('playerID_'.$term_id, $_POST['playerID']);
     else
