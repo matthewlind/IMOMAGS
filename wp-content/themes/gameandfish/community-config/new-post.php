@@ -4,7 +4,7 @@
 //Community Single Post Page Configuration
 ///////////////////////////////////////////
 $IMO_COMMUNITY_CONFIG = NULL;
-$IMO_COMMUNITY_CONFIG['community_home_slug'] = "community/new";//This slug will override ANY setting in wordpress.
+$IMO_COMMUNITY_CONFIG['community_home_slug'] = "photos/new";//This slug will override ANY setting in wordpress.
 $IMO_COMMUNITY_CONFIG['page_title'] = "New Post";
 $IMO_COMMUNITY_CONFIG['template'] = '/gameandfish/new-post.php';
 $IMO_COMMUNITY_CONFIG['dart_page'] = 'gf_community';

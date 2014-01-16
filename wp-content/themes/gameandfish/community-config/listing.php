@@ -3,7 +3,7 @@
 	//Main Community Page Configuration
 	///////////////////////////////////////////
 	$IMO_COMMUNITY_CONFIG = NULL;
-	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "community";//This slug will override ANY setting in wordpress.
+	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "photos";//This slug will override ANY setting in wordpress.
 	$IMO_COMMUNITY_CONFIG['page_type'] = 'listing';
 	$IMO_COMMUNITY_CONFIG['page_title'] = 'Game & Fish Community';
 	$IMO_COMMUNITY_CONFIG['template'] = '/gameandfish/listing.php';
