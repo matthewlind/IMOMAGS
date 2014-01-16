@@ -292,130 +292,117 @@ $time = date("g:i A", strtotime($timestamp));
 			<li><a href="#">Pike & Muskie</a></li>
 		</ul>
 	</div>
-		
-	<?php //echo do_shortcode('[imo-slideshow community=true]'); ?>
+	<div class="slider-hat">
+		<ul class="breadcrumbs">
+	    	<li><a href="/photos">Photos</a></li>
+	    	<li style="margin-top:1px;text-transform:capitalize;">&raquo; <?php echo $data->post_type; ?></li>
+		</ul>
+    	<div id="fileupload">
+	        <div class="fileupload-buttonbar ">
+	            <label class="upload-button">
+	                <span class="singl-post-photo"><span>Share Your Photo Now!</span></span>
+	                <input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
+	            </label>
+	        </div>
+		</div>
+    </div>
+	<div class="slider-section">
+		<?php //echo do_shortcode('[imo-slideshow community=true]'); ?>
+		<div class="dif-full-post">
+	        <h1><?php echo $data->title; ?></h1>
+	        <div class="profile-panel">
+			<?php
+	        	$width = "/convert?w=730&fit=scale&rotate=exif";
+	        	if(mobile()){
+	        		$width = "/convert?w=478";
+	        	}
+	            $media = "";
+	            $media = "<div class='full-post-img'><img src='$data->img_url'></div>";
+			    //$media = "<div class='full-post-img'><img src='https://www.filepicker.io/api/file/hyI5K2JXQwyizEqvfbEA'></div>";
+	            echo $media;
+	        ?>
+	
+	        <?php if ($data->master) { ?>
+	        <div class="manametitle">
+	            <div class="maname"><span class="firstname"><?php echo $data->first_name; ?></span> <span class="lastname"><?php echo $data->last_name; ?></span></div>
+	            <div class="macity"><?php echo $data->nearest_town; ?>, <?php echo $data->state; ?></div>
+	        </div>
+	
+	       <?php }//end if ?>
+	
+	
+	        <?php
+	        	foreach ($attachmentData as $attachment) {
+		        	$media = "";
+					$caption = "";
+	
+		            if ($attachment->post_type == "youtube") {
+	
+		                $videoID = $attachment->meta;
+		                $media = "<div class='full-post-img'>";
+		                $media .= '<iframe width="640" height="480" src="http://www.youtube.com/embed/' . $videoID . '" frameborder="0" allowfullscreen></iframe>';
+		                $media .= "</div>$caption";
+	
+		            } else {
+	
+		                $photoURL = str_replace("thumb", "medium", $attachment->img_url);
+		                $media = "<div class='full-post-img'><img src='$photoURL'></div>$caption";
+	
+		            }
+	
+	
+		            echo $media;
+	
+				} ?>
+				<div class='full-text'>
+					 <div class="profile-photo">
+		                <a href="/profile/<?php echo $data->username; ?>">
+		                	<img src="/avatar?uid=<?php //echo $data->user_id; ?>" alt="<?php echo $data->username; ?>" />
+		                </a>
+		            </div>
+		            <div class="profile-data">
+		                <h4><a href="/profile/<?php echo $data->username; ?>"><?php echo $data->display_name; ?></a></h4>
+		                <ul class="prof-tags">
+		                    <!--<li><a href="/photos/<?php echo $data->post_type.'/'.strtolower($state_slug); ?>"><?php echo $state ?></a></li>-->
+		                    <li><a href="/<?php echo $data->post_type; ?>" style="text-transform:capitalize;"><?php echo $data->post_type; ?></a></li>
+		                </ul>
+		                <div class="clearfix">
+		                    <ul class="replies">
+		                        <li><?php echo $date; ?> at <?php echo $time; ?><div class="bullet"></li>
+		                        <li><a href="#reply_field"><?php echo $niceComment; ?></a></li>
+		                        <li><?php echo $niceScore; ?><div class="bullet"></div></li>
+		                        <li><?php echo $niceView; ?></li>
+		                    </ul>
+		                </div>
+		            </div>
+
+					<?php if($data->body){ ?>
+		            	<p><?php echo $data->body; ?></p>
+	
+	
+		            <?php } ?>
+	                <div class="clearfix">
+	                <a href="#reply_field" class="post-it">Post a Reply</a>
+	          
+		            <div addthis:url="http://www.in-fisherman.com/photos/<?php echo $data->id; ?>" addthis:title="" class="addthis_toolbox addthis_default_style ">
+						<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+						<a class="addthis_button_tweet"></a>
+						<a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+					</div>
+		            <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+					<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4de659c80f33d1e7"></script>
+				</div>
+	        </div>
+	    </div>
+	</div>
+	<div class="slider-sidebar"><?php imo_dart_tag("300x50"); ?></div>
 </div>
 <?php imo_sidebar("community"); ?>    
 <div class="general general-com">
 
-    <ul class="breadcrumbs">
-    	<li><a href="/photos">Photos</a></li>
-    	<li style="margin-top:1px;text-transform:capitalize;">&raquo; <?php echo $data->post_type; ?></li>
-    </ul>
+   
 
-
-    <div class="dif-full-post">
-        <h1><?php echo $data->title; ?></h1>
-        <div class="profile-panel">
-            <div class="profile-photo">
-                <a href="/profile/<?php echo $data->username; ?>"><img src="/avatar?uid=<?php echo $data->user_id; ?>" alt="<?php echo $data->username; ?>" /></a>
-            </div>
-            <div class="profile-data">
-                <h4><a href="/profile/<?php echo $data->username; ?>"><?php echo $data->display_name; ?></a></h4>
-                <ul class="prof-tags">
-                    <!--<li><a href="/photos/<?php echo $data->post_type.'/'.strtolower($state_slug); ?>"><?php echo $state ?></a></li>-->
-                    <li><a href="/<?php echo $data->post_type; ?>" style="text-transform:capitalize;"><?php echo $data->post_type; ?></a></li>
-                </ul>
-                <div class="clearfix">
-                    <ul class="replies">
-                        <li><?php echo $date; ?> at <?php echo $time; ?><div class="bullet"></li>
-                        <li><a href="#reply_field"><?php echo $niceComment; ?></a></li>
-                        <li><?php echo $niceScore; ?><div class="bullet"></div></li>
-                        <li><?php echo $niceView; ?></li>
-                    </ul>
-
-                </div>
-            </div>
-            <div addthis:url="http://www.in-fisherman.com/photos/<?php echo $data->id; ?>" addthis:title="" class="addthis_toolbox addthis_default_style ">
-				<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-				<a class="addthis_button_tweet"></a>
-				<a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
-			</div>
-
-        <?php
-        	$width = "/convert?w=730&fit=scale&rotate=exif";
-        	if(mobile()){
-        		$width = "/convert?w=478";
-        	}
-            $media = "";
-            $media = "<div class='full-post-img'><img src='$data->img_url'></div>";
-
-            echo $media;
-        ?>
-
-        <?php if ($data->master) { ?>
-        <div class="manametitle">
-            <div class="maname"><span class="firstname"><?php echo $data->first_name; ?></span> <span class="lastname"><?php echo $data->last_name; ?></span></div>
-            <div class="macity"><?php echo $data->nearest_town; ?>, <?php echo $data->state; ?></div>
-        </div>
-
-       <?php }//end if ?>
-
-
-        <?php
-        	foreach ($attachmentData as $attachment) {
-	        	$media = "";
-				$caption = "";
-
-	            if ($attachment->post_type == "youtube") {
-
-	                $videoID = $attachment->meta;
-	                $media = "<div class='full-post-img'>";
-	                $media .= '<iframe width="640" height="480" src="http://www.youtube.com/embed/' . $videoID . '" frameborder="0" allowfullscreen></iframe>';
-	                $media .= "</div>$caption";
-
-	            } else {
-
-	                $photoURL = str_replace("thumb", "medium", $attachment->img_url);
-	                $media = "<div class='full-post-img'><img src='$photoURL'></div>$caption";
-
-	            }
-
-
-	            echo $media;
-
-			} ?>
-			<div class='full-text'>
-
-				<?php if($data->body){ ?>
-	            	<p><?php echo $data->body; ?></p>
-
-
-	            <?php } ?>
-                    <?php if ($data->master) { ?>
-
-                        <div class="fishinfo">
-                            <div class="maspecies"><span class="grayz">Species:</span> <?php echo $data->meta; ?></div>
-                            <div class="madatecaught"><span class="grayz">Date Caught: </span><?php echo $data->date; ?></div>
-                            <div class="madatecaught"><span class="grayz">Kept / Released: </span><?php echo ($data->kept ? "No" : "Yes"); ?></div>
-                            <!-- <div class="madatecaught"><span class="grayz">Region of Catch: </span>Region 6</div> -->
-
-                            <?php if ($data->length): ?>
-                                <div class="madatecaught"><span class="grayz">Length: </span><?php echo $data->length; ?></div>
-                            <?php endif; ?>
-                            <?php if ($data->weight): ?>
-                                <div class="madatecaught"><span class="grayz">Weight: </span><?php echo $data->weight; ?></div>
-                            <?php endif; ?>
-
-                            <div class="lurebait">
-                                <span class="grayz">Lure / Bait:</span>
-                                <?php echo $data->kind_of_lure ?>
-                            </div>
-                        </div>
-                   <?php }//end if ?>
-	        <div class="clearfix">
-                <a href="#reply_field" class="post-it">Post a Reply</a>
-          
-                     <div addthis:url="http://www.in-fisherman.com/photos/<?php echo $data->id; ?>" addthis:title="" class="addthis_toolbox addthis_default_style ">
-				<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-				<a class="addthis_button_tweet"></a>
-				<a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
-			</div>
-            <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
-			<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4de659c80f33d1e7"></script>
-            </div>
-        </div>
-    </div>
+   
     <!--<div class="custom-slider-section mobile-hidden-section">
         <div class="general-title clearfix">
             <h2><span>Explore  more</span></h2>
