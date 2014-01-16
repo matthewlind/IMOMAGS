@@ -184,7 +184,7 @@ get_header(); ?>
 					$pictures = json_decode($jsonData); ?>
                     <div class="clearfix">
                         <div class="master-angler-banner">
-                            <h2>Master <br />Angler <br /><span class="tite-year">2013</span></h2>
+                            <h2>Master <br />Angler <br /><span class="tite-year"><?php echo date("Y"); ?></span></h2>
                             <p>Submit your trophy catch for a chance to win!</p>
                             <a href="/photos/new#master" class="btn-base btn-base-middle">Enter Now!</a>
                         </div>

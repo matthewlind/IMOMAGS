@@ -81,12 +81,12 @@ include 'common-templates.php';
 
 
 				<div class="dropdown-selects">
-					<!--<select id="ma-species" class="post_type alter-sel mobile-select" name="meta">
+					<select id="ma-species" class="post_type alter-sel mobile-select" name="meta">
 		         		<option value="">SPECIES</option>
 				 		<% _.each(species,function(fish,index){ %>
 		         			<option value="<%= index %>" <%= post && post.post_type == index ? "SELECTED" : "" %> ><%= fish.name %></option>
 				 		<% }); %>
-			        </select>-->
+			        </select>
 				    <select name="state" placeholder="Choose the state for this post:" class="alter-sel mobile-select" id="ma-state">
 			            <option value="" >STATE / PROVINCE</option>
 			            <option value="AL" <%= post && post.state == "AL" ? "SELECTED" : "" %> >Alabama</option>
