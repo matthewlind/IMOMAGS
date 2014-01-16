@@ -20,6 +20,12 @@
  */
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 
+
+//Path Data:
+$post_type_primary = get_query_var("post_type_primary");
+$post_type_secondary = get_query_var("post_type_secondary");
+$post_type_tertiary = get_query_var("post_type_tertiary");
+
 //Gallery Scripts
 wp_enqueue_script('flexslider-js',plugins_url('imo-flex-gallery/jquery.flexslider.js'));
 wp_enqueue_script('flex-gallery-js',plugins_url('imo-flex-gallery/flex-gallery.js'));
@@ -59,6 +65,15 @@ if(mobile()){
 }
 
 ?>
+<?php
+echo "<h1>Post Type: $post_type_primary</h1>";
+echo "<h1>Post Type Secondary: $post_type_secondary</h1>";
+echo "<h1>Post Type Tertiary: $post_type_tertiary</h1>";
+
+?>
+
+
+
 <!-- *********************************************************** -->
 <!-- ***************** UNDERSCORE TEMPLATE ********************* -->
 <!-- *********************************************************** -->
@@ -102,7 +117,7 @@ if(post.score == 1){
                     		<div addthis:url="http://<?php echo $_SERVER['SERVER_NAME']; ?>/community/<%= post.id %>" addthis:title="<%= post.title %>" class="addthis_toolbox addthis_default_style ">
 								<a class="addthis_button_facebook_like"fb:like:layout="button_count"></a>
 							</div>
-							
+
                        </li>
                     </ul>
                 </div>
@@ -151,7 +166,7 @@ if(post.score == 1){
             <li><a href="" class="filter-menu" order_by="created" post_type="report" >Rut Reports</a></li>
             <li><a href="" class="filter-menu" order_by="created" post_type="general" >General Discusion</a></li>
             <li><a href="" class="filter-menu" order_by="created" post_type="question" >Questions</a></li>
-            
+
           </ul>
         </div>
 

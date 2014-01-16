@@ -496,6 +496,7 @@ $app->post('/posts',function() {
 			"parent",
 			"post_type",
 			"secondary_post_type",
+			"tertiary_post_type",
 			"title",
 			"body",
 			"user_id",

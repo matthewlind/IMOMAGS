@@ -22,49 +22,170 @@ function imo_community_flush_rules()
     flush_rewrite_rules(false);
 }
 
-add_action('init', 'imo_community_setup_routes');
-function imo_community_setup_routes() {
 
+
+add_action('generate_rewrite_rules', 'imo_community_setup_routes');
+function imo_community_setup_routes($wp_rewrite) {
+
+
+
+	$newRewriteRules = array();
+
+
+
+	// print_r($wp_rewrite->rules);
 
     global $IMO_COMMUNITY;
 
     foreach ($IMO_COMMUNITY as $CONFIG_NAME => $IMO_COMMUNITY_CONFIG) {
 
+    	$post_types = $IMO_COMMUNITY_CONFIG['post_types'];
 
-    	$regex = "?";
+    	//Check if page type is nested list, if it is, cycle through taxonomy
+    	if ($IMO_COMMUNITY_CONFIG['page_type'] == "nested-listing") {
 
-    	$matchName = "&spid=";
 
-    	if ($IMO_COMMUNITY_CONFIG['page_type'] == "single") {
-    		$regex = "/([^/]*)/?";
+
+	    	//$regex = "/([^/]*)/([^/]*)/([^/]*)/?";
+    		$regex = ")?$";
+
+    		$pathBeginning = $IMO_COMMUNITY_CONFIG['community_home_slug'];
+
+	    	$post_types = $IMO_COMMUNITY_CONFIG['post_types'];
+
+	    	// $matchName1 = "&post_type_tertiary=";
+	    	// $matchName2 = "&post_type_secondary=";
+	    	// $matchName3 = "&post_type_primary=";
+
+	    	// $rewriteCondition = "^" . $IMO_COMMUNITY_CONFIG['community_home_slug'] . $regex;
+	    	// $rewriteString = "index.php?pagename="
+	    	// 				. $CONFIG_NAME
+	    	// 				. "&config_name=" . $CONFIG_NAME
+	    	// 				. $matchName1 . '$matches[1]'
+	    	// 				. $matchName2 . '$matches[2]'
+	    	// 				. $matchName3 . '$matches[3]';
+
+	    	foreach ($post_types as $post_type_name => $post_type_data) {
+
+	    		$rewriteCondition = "(" . $IMO_COMMUNITY_CONFIG['community_home_slug']. "/" . $post_type_name . $regex;
+	    		$rewriteString = "index.php?pagename="
+	    					. $CONFIG_NAME
+	    					. "&config_name=" . $CONFIG_NAME
+	    					. "&post_type_tertiary=" . $post_type_name;
+
+
+
+
+
+	    		foreach ($post_type_data['children'] as $post_type_name2 => $post_type_data2) {
+
+		    		$rewriteCondition2 = "(" . $IMO_COMMUNITY_CONFIG['community_home_slug']. "/" . $post_type_name . "/" . $post_type_name2 . $regex;
+		    		$rewriteString2 = "index.php?pagename="
+		    					. $CONFIG_NAME
+		    					. "&config_name=" . $CONFIG_NAME
+		    					. "&post_type_tertiary=" . $post_type_name
+		    					. "&post_type_secondary=" . $post_type_name2;
+
+
+
+
+		    		foreach ($post_type_data2['children'] as $post_type_name3 => $post_type_data3) {
+
+			    		$rewriteCondition3 = "(" . $IMO_COMMUNITY_CONFIG['community_home_slug']. "/" . $post_type_name . "/" . $post_type_name2 . "/" . $post_type_name3 . $regex;
+			    		$rewriteString3 = "index.php?pagename="
+			    					. $CONFIG_NAME
+			    					. "&config_name=" . $CONFIG_NAME
+			    					. "&post_type_tertiary=" . $post_type_name
+			    					. "&post_type_secondary=" . $post_type_name2
+			    					. "&post_type_primary=" . $post_type_name3;
+
+			    		print($rewriteCondition3 . "  -  ");
+			        	print($rewriteString3 . "\n");
+			    		$newRewriteRules[$rewriteCondition3] = $rewriteString3;
+
+			    	}
+
+		    		print($rewriteCondition2 . "  -  ");
+		        	print($rewriteString2 . "\n");
+		    		$newRewriteRules[$rewriteCondition2] = $rewriteString2;
+
+		    	}
+
+		    	print($rewriteCondition . "  -  ");
+	        	print($rewriteString . "\n");
+		    	$newRewriteRules[$rewriteCondition] = $rewriteString;
+
+	    	}
+
+
+
+	        // print($rewriteCondition . "  -  ");
+	        // print($rewriteString . "\n");
+
+	    	//Perhaps uncomment this if things go sour
+	    	//add_rewrite_rule( $rewriteCondition, $rewriteString,'top');
+
+
+
+    	//If it's not, just use the community_home_slug to determine the path
+    	} else {
+
+
+
+
+	    	$regex = "?";
+
+	    	$matchName = "&spid=";
+
+	    	echo "hey";
+
+	    	if ($IMO_COMMUNITY_CONFIG['page_type'] == "single") {
+	    		$regex = "/([^/]*)/?";
+	    	}
+
+
+	    	if ($IMO_COMMUNITY_CONFIG['page_type'] == "profile") {
+	    		$regex = "/([^/]*)/?";
+	    		$matchName = "&username=";
+	    	}
+
+
+	    	if ($IMO_COMMUNITY_CONFIG['page_type'] == "state") {
+	    		$regex = "/([^/]*)/?";
+	    		$matchName = "&state=";
+	    	}
+
+	    	$rewriteCondition = "^" . $IMO_COMMUNITY_CONFIG['community_home_slug'] . $regex;
+	    	$rewriteString = "index.php?pagename="
+	    					. $CONFIG_NAME
+	    					. "&config_name=" . $CONFIG_NAME
+	    					. $matchName . '$matches[1]';
+
+	         // print($rewriteCondition . "  -  ");
+	         // print($rewriteString . "\n");
+
+	    	//add_rewrite_rule( $rewriteCondition, $rewriteString,'top');
+
+	    	$newRewriteRules[$rewriteCondition] = $rewriteString;
+
     	}
 
 
-    	if ($IMO_COMMUNITY_CONFIG['page_type'] == "profile") {
-    		$regex = "/([^/]*)/?";
-    		$matchName = "&username=";
-    	}
 
 
-    	if ($IMO_COMMUNITY_CONFIG['page_type'] == "state") {
-    		$regex = "/([^/]*)/?";
-    		$matchName = "&state=";
-    	}
 
-    	$rewriteCondition = "^" . $IMO_COMMUNITY_CONFIG['community_home_slug'] . $regex;
-    	$rewriteString = "index.php?pagename="
-    					. $CONFIG_NAME
-    					. "&config_name=" . $CONFIG_NAME
-    					. $matchName . '$matches[1]';
 
-        // print($rewriteCondition . "  -  ");
-        // print($rewriteString . "\n");
-
-    	add_rewrite_rule( $rewriteCondition, $rewriteString,'top');
     }
 
+    // print_r($wp_rewrite->rewrite_rules());
+    //flush_rewrite_rules(false);
 
 
+    // print('DID WORK?\n\n');
+    // print_r($wp_rewrite->rules);
+
+    $wp_rewrite->rules = $newRewriteRules + $wp_rewrite->rules;
+	return $wp_rewrite->rules;
 
 }
 
@@ -88,6 +209,9 @@ function imo_community_query_vars($query_vars)
     $query_vars[] = 'config_name';
     $query_vars[] = 'state';
     $query_vars[] = 'post_type';
+    $query_vars[] = 'post_type_primary';
+    $query_vars[] = 'post_type_secondary';
+    $query_vars[] = 'post_type_tertiary';
 
     return $query_vars;
 }
@@ -100,7 +224,7 @@ function imo_community_template() {
 	//echo $_SERVER['REQUEST_URI'];
 
 	global $wp_query;
-	//print_r($wp_query->query_vars);
+	print_r($wp_query->query_vars);
 
 	$queryVars = $wp_query->query_vars;
 
@@ -113,6 +237,8 @@ function imo_community_template() {
 	if ($configName) {
 
 		imo_community_404_check();
+
+		echo "WAIT DID THIS WORK?!??????";
 
 		$IMO_COMMUNITY_CONFIG = $IMO_COMMUNITY[$configName];
 

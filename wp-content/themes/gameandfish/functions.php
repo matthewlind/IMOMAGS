@@ -37,7 +37,7 @@ function imo_sidebar($type){
 				echo '</div>';
 			echo '</div>';
 		    get_sidebar($type);
-		    	
+
 			    	echo '<div id="responderfollow"></div>';
 					echo '<div class="sidebar advert">';
 			    	//the_widget( 'Community_Slider' );
@@ -45,7 +45,7 @@ function imo_sidebar($type){
 							echo '<iframe id="sticky-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-sticky.php?ad_code='.$dartDomain.'"></iframe>';
 						echo '</div>';
 					echo '</div>';
-				
+
 		echo '</div>';
 	}
 }
@@ -96,23 +96,12 @@ function gf_community_init() {
 	//Community Configuration
 	//////////////////////////////////
 
-	//This Post Types array is used in multiple configurations
-	$gfPostTypes = array(
 
-		"general" => array(
-			"display_name" => "General Discussion",
-			"post_list_style" => "tile"
-		),
-
-		"question" => array(
-			"display_name" => "Questions",
-			"post_list_style" => "tile"
-		)
-	);
 
 
 	//External Community Configurations
 
+	include("community-config/community-term-list.php"); //Post types array is moved here
 	include("community-config/general.php");
 	include("community-config/new-post.php");
 	include("community-config/single.php");
@@ -120,6 +109,7 @@ function gf_community_init() {
 	include("community-config/edit-profile.php");
 	include("community-config/admin.php");
 	include("community-config/listing.php");
+	include("community-config/nested-listing.php");
 	include("community-config/state-report.php");
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
