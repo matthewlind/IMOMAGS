@@ -37,7 +37,6 @@ wp_enqueue_style('ajax-gallery-css',plugins_url('imo-flex-gallery/flex-gallery.c
 wp_enqueue_style('perfect-scrollbar-css',plugins_url('imo-flex-gallery/perfect-scrollbar-0.4.3.min.css'));
 
 get_header();
-imo_sidebar("community");
 
 $displayStyle = "display:none;";
 $loginStyle = "";
@@ -249,6 +248,54 @@ $time = date("g:i A", strtotime($timestamp));
 <!-- Don't delete this. It's part of imo-add-this -->
 <div id="imo-add-this-spid" style="display:none;"><?php echo $spid; ?></div>
 
+<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="community-header js-responsive-section">
+	<div class="header-section">
+		<div class="community-logo"><img src="<?php echo plugins_url('images/community-logo-placeholder.png' , __FILE__ ); ?>" alt="<?php echo $state ?> Game & Fish Photos" title="<?php echo $state ?> Game & Fish Photos" /></div>
+	</div>
+	<div class="header-section">
+		<h3>Hunting</h3>
+		<ul class="community-nav">
+			<li><a href="#">Whitetail</a></li>
+			<li><a href="#">Big Game</a></li>
+			<li><a href="#">Turkey</a></li>
+			<li><a href="#">Elk</a></li>
+		</ul>
+		
+		<ul class="community-nav">
+			<li><a href="#">Whitetail</a></li>
+			<li><a href="#">Big Game</a></li>
+			<li><a href="#">Turkey</a></li>
+			<li><a href="#">Elk</a></li>
+		</ul>
+		
+		<ul class="community-nav">
+			<li><a href="#">Whitetail</a></li>
+			<li><a href="#">Big Game</a></li>
+			<li><a href="#">Turkey</a></li>
+			<li><a href="#">Elk</a></li>
+		</ul>
+	</div>
+	
+	<div class="header-section">
+		<h3>Fishing</h3>
+		<ul class="community-nav">
+			<li><a href="#">Bass</a></li>
+			<li><a href="#">Catfish</a></li>
+			<li><a href="#">Crappie & Panfish</a></li>
+			<li><a href="#">Pike & Muskie</a></li>
+		</ul>
+
+		<ul class="community-nav">
+			<li><a href="#">Bass</a></li>
+			<li><a href="#">Catfish</a></li>
+			<li><a href="#">Crappie & Panfish</a></li>
+			<li><a href="#">Pike & Muskie</a></li>
+		</ul>
+	</div>
+		
+	<?php //echo do_shortcode('[imo-slideshow community=true]'); ?>
+</div>
+<?php imo_sidebar("community"); ?>    
 <div class="general general-com">
 
     <ul class="breadcrumbs">
@@ -283,7 +330,6 @@ $time = date("g:i A", strtotime($timestamp));
 				<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
 				<a class="addthis_button_tweet"></a>
 				<a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
-				<a class="addthis_counter addthis_pill_style"></a>
 			</div>
 
         <?php
@@ -364,7 +410,6 @@ $time = date("g:i A", strtotime($timestamp));
 				<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
 				<a class="addthis_button_tweet"></a>
 				<a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
-				<a class="addthis_counter addthis_pill_style"></a>
 			</div>
             <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
 			<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4de659c80f33d1e7"></script>
@@ -405,12 +450,6 @@ $time = date("g:i A", strtotime($timestamp));
         </div>
 
     </div>-->
-    <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="js-responsive-section">
-    	<div class="custom-slider-section">
-    		<?php //echo do_shortcode('[imo-slideshow community=true]'); ?>
-    	</div>
-    </div>
-
     <div class="replies-box">
         <h2>What's Your Take?</h2>
 
