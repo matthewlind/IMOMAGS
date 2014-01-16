@@ -110,6 +110,7 @@ function gf_community_init() {
 	include("community-config/admin.php");
 	include("community-config/listing.php");
 	include("community-config/nested-listing.php");
+	include("community-config/nested-single.php");
 	include("community-config/state-report.php");
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

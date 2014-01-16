@@ -260,14 +260,14 @@ $time = date("g:i A", strtotime($timestamp));
 			<li><a href="#">Turkey</a></li>
 			<li><a href="#">Elk</a></li>
 		</ul>
-		
+
 		<ul class="community-nav">
 			<li><a href="#">Whitetail</a></li>
 			<li><a href="#">Big Game</a></li>
 			<li><a href="#">Turkey</a></li>
 			<li><a href="#">Elk</a></li>
 		</ul>
-		
+
 		<ul class="community-nav">
 			<li><a href="#">Whitetail</a></li>
 			<li><a href="#">Big Game</a></li>
@@ -275,7 +275,7 @@ $time = date("g:i A", strtotime($timestamp));
 			<li><a href="#">Elk</a></li>
 		</ul>
 	</div>
-	
+
 	<div class="header-section">
 		<h3>Fishing</h3>
 		<ul class="community-nav">
@@ -309,6 +309,7 @@ $time = date("g:i A", strtotime($timestamp));
 	<div class="slider-section">
 		<?php //echo do_shortcode('[imo-slideshow community=true]'); ?>
 		<div class="dif-full-post">
+			<h1><?php echo "SPID: $spid"; ?></h1>
 	        <h1><?php echo $data->title; ?></h1>
 	        <div class="profile-panel">
 			<?php
@@ -321,38 +322,38 @@ $time = date("g:i A", strtotime($timestamp));
 			    //$media = "<div class='full-post-img'><img src='https://www.filepicker.io/api/file/hyI5K2JXQwyizEqvfbEA'></div>";
 	            echo $media;
 	        ?>
-	
+
 	        <?php if ($data->master) { ?>
 	        <div class="manametitle">
 	            <div class="maname"><span class="firstname"><?php echo $data->first_name; ?></span> <span class="lastname"><?php echo $data->last_name; ?></span></div>
 	            <div class="macity"><?php echo $data->nearest_town; ?>, <?php echo $data->state; ?></div>
 	        </div>
-	
+
 	       <?php }//end if ?>
-	
-	
+
+
 	        <?php
 	        	foreach ($attachmentData as $attachment) {
 		        	$media = "";
 					$caption = "";
-	
+
 		            if ($attachment->post_type == "youtube") {
-	
+
 		                $videoID = $attachment->meta;
 		                $media = "<div class='full-post-img'>";
 		                $media .= '<iframe width="640" height="480" src="http://www.youtube.com/embed/' . $videoID . '" frameborder="0" allowfullscreen></iframe>';
 		                $media .= "</div>$caption";
-	
+
 		            } else {
-	
+
 		                $photoURL = str_replace("thumb", "medium", $attachment->img_url);
 		                $media = "<div class='full-post-img'><img src='$photoURL'></div>$caption";
-	
+
 		            }
-	
-	
+
+
 		            echo $media;
-	
+
 				} ?>
 				<div class='full-text'>
 					 <div class="profile-photo">
@@ -378,12 +379,12 @@ $time = date("g:i A", strtotime($timestamp));
 
 					<?php if($data->body){ ?>
 		            	<p><?php echo $data->body; ?></p>
-	
-	
+
+
 		            <?php } ?>
 	                <div class="clearfix">
 	                <a href="#reply_field" class="post-it">Post a Reply</a>
-	          
+
 		            <div addthis:url="http://www.in-fisherman.com/photos/<?php echo $data->id; ?>" addthis:title="" class="addthis_toolbox addthis_default_style ">
 						<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
 						<a class="addthis_button_tweet"></a>
@@ -397,12 +398,12 @@ $time = date("g:i A", strtotime($timestamp));
 	</div>
 	<div class="slider-sidebar"><?php imo_dart_tag("300x50"); ?></div>
 </div>
-<?php imo_sidebar("community"); ?>    
+<?php imo_sidebar("community"); ?>
 <div class="general general-com">
 
-   
 
-   
+
+
     <!--<div class="custom-slider-section mobile-hidden-section">
         <div class="general-title clearfix">
             <h2><span>Explore  more</span></h2>
