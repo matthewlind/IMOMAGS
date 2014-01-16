@@ -247,150 +247,96 @@ $time = date("g:i A", strtotime($timestamp));
 
 <!-- Don't delete this. It's part of imo-add-this -->
 <div id="imo-add-this-spid" style="display:none;"><?php echo $spid; ?></div>
+<!-- start nav -->
+<?php include_once('nav.php'); ?>
+<div class="slider-hat">
+	<ul class="breadcrumbs">
+    	<li><a href="/photos">All Photos</a></li>
+    	<li style="margin-top:1px;text-transform:capitalize;">&raquo; <?php echo $data->post_type; ?></li>
+	</ul>
+	<div id="fileupload">
+        <div class="fileupload-buttonbar ">
+            <label class="upload-button">
+                <span class="singl-post-photo"><span>Share Your Photo Now!</span></span>
+                <input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
+            </label>
+        </div>
+	</div>
+</div>
+<div class="slider-section">
+	<?php //echo do_shortcode('[imo-slideshow community=true]'); ?>
+	<div class="dif-full-post">
+        <h1><?php echo $data->title; ?></h1>
+        <div class="profile-panel">
+		<?php
+        	$width = "/convert?w=730&fit=scale&rotate=exif";
+        	if(mobile()){
+        		$width = "/convert?w=478";
+        	}
+            $media = "";
+            $media = "<div class='full-post-img'><img src='$data->img_url'></div>";
+		    //$media = "<div class='full-post-img'><img src='https://www.filepicker.io/api/file/hyI5K2JXQwyizEqvfbEA'></div>";
+            echo $media;
+   
+        	foreach ($attachmentData as $attachment) {
+	        	$media = "";
+				$caption = "";
 
-<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="community-header js-responsive-section">
-	<div class="header-section">
-		<div class="community-logo"><img src="<?php echo plugins_url('images/community-logo-placeholder.png' , __FILE__ ); ?>" alt="<?php echo $state ?> Game & Fish Photos" title="<?php echo $state ?> Game & Fish Photos" /></div>
-	</div>
-	<div class="header-section">
-		<h3>Hunting</h3>
-		<ul class="community-nav">
-			<li><a href="#">Whitetail</a></li>
-			<li><a href="#">Big Game</a></li>
-			<li><a href="#">Turkey</a></li>
-			<li><a href="#">Elk</a></li>
-		</ul>
-		
-		<ul class="community-nav">
-			<li><a href="#">Whitetail</a></li>
-			<li><a href="#">Big Game</a></li>
-			<li><a href="#">Turkey</a></li>
-			<li><a href="#">Elk</a></li>
-		</ul>
-		
-		<ul class="community-nav">
-			<li><a href="#">Whitetail</a></li>
-			<li><a href="#">Big Game</a></li>
-			<li><a href="#">Turkey</a></li>
-			<li><a href="#">Elk</a></li>
-		</ul>
-	</div>
-	
-	<div class="header-section">
-		<h3>Fishing</h3>
-		<ul class="community-nav">
-			<li><a href="#">Bass</a></li>
-			<li><a href="#">Catfish</a></li>
-			<li><a href="#">Crappie & Panfish</a></li>
-			<li><a href="#">Pike & Muskie</a></li>
-		</ul>
+	            if ($attachment->post_type == "youtube") {
 
-		<ul class="community-nav">
-			<li><a href="#">Bass</a></li>
-			<li><a href="#">Catfish</a></li>
-			<li><a href="#">Crappie & Panfish</a></li>
-			<li><a href="#">Pike & Muskie</a></li>
-		</ul>
-	</div>
-	<div class="slider-hat">
-		<ul class="breadcrumbs">
-	    	<li><a href="/photos">Photos</a></li>
-	    	<li style="margin-top:1px;text-transform:capitalize;">&raquo; <?php echo $data->post_type; ?></li>
-		</ul>
-    	<div id="fileupload">
-	        <div class="fileupload-buttonbar ">
-	            <label class="upload-button">
-	                <span class="singl-post-photo"><span>Share Your Photo Now!</span></span>
-	                <input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
-	            </label>
-	        </div>
-		</div>
-    </div>
-	<div class="slider-section">
-		<?php //echo do_shortcode('[imo-slideshow community=true]'); ?>
-		<div class="dif-full-post">
-	        <h1><?php echo $data->title; ?></h1>
-	        <div class="profile-panel">
-			<?php
-	        	$width = "/convert?w=730&fit=scale&rotate=exif";
-	        	if(mobile()){
-	        		$width = "/convert?w=478";
-	        	}
-	            $media = "";
-	            $media = "<div class='full-post-img'><img src='$data->img_url'></div>";
-			    //$media = "<div class='full-post-img'><img src='https://www.filepicker.io/api/file/hyI5K2JXQwyizEqvfbEA'></div>";
+	                $videoID = $attachment->meta;
+	                $media = "<div class='full-post-img'>";
+	                $media .= '<iframe width="640" height="480" src="http://www.youtube.com/embed/' . $videoID . '" frameborder="0" allowfullscreen></iframe>';
+	                $media .= "</div>$caption";
+
+	            } else {
+
+	                $photoURL = str_replace("thumb", "medium", $attachment->img_url);
+	                $media = "<div class='full-post-img'><img src='$photoURL'></div>$caption";
+
+	            }
+
+
 	            echo $media;
-	        ?>
-	
-	        <?php if ($data->master) { ?>
-	        <div class="manametitle">
-	            <div class="maname"><span class="firstname"><?php echo $data->first_name; ?></span> <span class="lastname"><?php echo $data->last_name; ?></span></div>
-	            <div class="macity"><?php echo $data->nearest_town; ?>, <?php echo $data->state; ?></div>
-	        </div>
-	
-	       <?php }//end if ?>
-	
-	
-	        <?php
-	        	foreach ($attachmentData as $attachment) {
-		        	$media = "";
-					$caption = "";
-	
-		            if ($attachment->post_type == "youtube") {
-	
-		                $videoID = $attachment->meta;
-		                $media = "<div class='full-post-img'>";
-		                $media .= '<iframe width="640" height="480" src="http://www.youtube.com/embed/' . $videoID . '" frameborder="0" allowfullscreen></iframe>';
-		                $media .= "</div>$caption";
-	
-		            } else {
-	
-		                $photoURL = str_replace("thumb", "medium", $attachment->img_url);
-		                $media = "<div class='full-post-img'><img src='$photoURL'></div>$caption";
-	
-		            }
-	
-	
-		            echo $media;
-	
-				} ?>
-				<div class='full-text'>
-					 <div class="profile-photo">
-		                <a href="/profile/<?php echo $data->username; ?>">
-		                	<img src="/avatar?uid=<?php //echo $data->user_id; ?>" alt="<?php echo $data->username; ?>" />
-		                </a>
-		            </div>
-		            <div class="profile-data">
-		                <h4><a href="/profile/<?php echo $data->username; ?>"><?php echo $data->display_name; ?></a></h4>
-		                <ul class="prof-tags">
-		                    <!--<li><a href="/photos/<?php echo $data->post_type.'/'.strtolower($state_slug); ?>"><?php echo $state ?></a></li>-->
-		                    <li><a href="/<?php echo $data->post_type; ?>" style="text-transform:capitalize;"><?php echo $data->post_type; ?></a></li>
-		                </ul>
-		                <div class="clearfix">
-		                    <ul class="replies">
-		                        <li><?php echo $date; ?> at <?php echo $time; ?><div class="bullet"></li>
-		                        <li><a href="#reply_field"><?php echo $niceComment; ?></a></li>
-		                        <li><?php echo $niceScore; ?><div class="bullet"></div></li>
-		                        <li><?php echo $niceView; ?></li>
-		                    </ul>
-		                </div>
-		            </div>
-
-					<?php if($data->body){ ?>
-		            	<p><?php echo $data->body; ?></p>
-	
-	
-		            <?php } ?>
+				
+			} ?>
+			<div class='full-text'>
+				 <div class="profile-photo">
+	                <a href="/profile/<?php echo $data->username; ?>">
+	                	<img src="/avatar?uid=<?php echo $data->user_id; ?>" alt="<?php echo $data->username; ?>" />
+	                </a>
+	            </div>
+	            <div class="profile-data">
+	                <h4><a href="/profile/<?php echo $data->username; ?>"><?php echo $data->display_name; ?></a></h4>
+	                <ul class="prof-tags">
+	                    <!--<li><a href="/photos/<?php echo $data->post_type.'/'.strtolower($state_slug); ?>"><?php echo $state ?></a></li>-->
+	                    <li><a href="/<?php echo $data->post_type; ?>" style="text-transform:capitalize;"><?php echo $data->post_type; ?></a></li>
+	                </ul>
 	                <div class="clearfix">
-	                <a href="#reply_field" class="post-it">Post a Reply</a>
-	          
-		            <div addthis:url="http://www.in-fisherman.com/photos/<?php echo $data->id; ?>" addthis:title="" class="addthis_toolbox addthis_default_style ">
-						<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-						<a class="addthis_button_tweet"></a>
-						<a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
-					</div>
-		            <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
-					<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4de659c80f33d1e7"></script>
+	                    <ul class="replies">
+	                        <li><?php echo $date; ?> at <?php echo $time; ?><div class="bullet"></li>
+	                        <li><a href="#reply_field"><?php echo $niceComment; ?></a></li>
+	                        <li><?php echo $niceScore; ?><div class="bullet"></div></li>
+	                        <li><?php echo $niceView; ?></li>
+	                    </ul>
+	                </div>
+	            </div>
+
+				<?php if($data->body){ ?>
+	            	<p><?php echo $data->body; ?></p>
+
+
+	            <?php } ?>
+                <div class="clearfix">
+                <a href="#reply_field" class="post-it">Post a Reply</a>
+          
+	            <div addthis:url="http://www.in-fisherman.com/photos/<?php echo $data->id; ?>" addthis:title="" class="addthis_toolbox addthis_default_style ">
+					<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+					<a class="addthis_button_tweet"></a>
+					<a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+				</div>
+	            <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+				<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4de659c80f33d1e7"></script>
 				</div>
 	        </div>
 	    </div>

@@ -3,7 +3,7 @@
 //Report Community Page Configuration
 ///////////////////////////////////////////
 $IMO_COMMUNITY_CONFIG = NULL;
-$IMO_COMMUNITY_CONFIG['community_home_slug'] = "community/report";//This slug will override ANY setting in wordpress.
+$IMO_COMMUNITY_CONFIG['community_home_slug'] = "photos/report";//This slug will override ANY setting in wordpress.
 $IMO_COMMUNITY_CONFIG['page_type'] = 'state';
 $IMO_COMMUNITY_CONFIG['page_title'] = 'State Rut Reports';
 $IMO_COMMUNITY_CONFIG['template'] = '/gameandfish/state-report.php';
