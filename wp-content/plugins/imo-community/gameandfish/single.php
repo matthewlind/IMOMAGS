@@ -23,6 +23,12 @@
 
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 
+
+//Path Data:
+$post_type_primary = get_query_var("post_type_primary");
+$post_type_secondary = get_query_var("post_type_secondary");
+$post_type_tertiary = get_query_var("post_type_tertiary");
+
 //Gallery Scripts
 wp_enqueue_script('flexslider-js',plugins_url('imo-flex-gallery/jquery.flexslider.js'));
 wp_enqueue_style('flexslider-css',plugins_url('imo-flex-gallery/flexslider.css'));
@@ -242,6 +248,13 @@ $timestamp = $data->created;
 // Convert the timestamp
 $date = date("F j, Y", strtotime($timestamp));
 $time = date("g:i A", strtotime($timestamp));
+
+
+echo "<h1>Post Type: $post_type_primary</h1>";
+echo "<h1>Post Type Secondary: $post_type_secondary</h1>";
+echo "<h1>Post Type Tertiary: $post_type_tertiary</h1>";
+
+
 
 ?>
 
