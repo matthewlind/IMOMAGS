@@ -79,7 +79,7 @@ function imo_category_add_field($term) {
 		$playerKey = get_option('playerKey_'.$term_id);
 
 	if (get_option('network_video_title_'.$term_id))
-		$playerKey = get_option('network_video_title_'.$term_id);
+		$network_video_title = get_option('network_video_title_'.$term_id);
 
 
 	echo "<tr class='form-field'>
@@ -111,19 +111,19 @@ function imo_category_add_field($term) {
 	
 	//brightcove player	
 	echo "<tr class='form-field'>
-			<th scope='row' valign='top'><label for='post_set_id'>Player Title</label></th>
+			<th scope='row' valign='top'><label for='network_video_title'>Player Title</label></th>
 			<td><input type='text' name='network_video_title' id='network_video_title' value='$network_video_title' />
 			</td>
 		</tr>";
 
 	echo "<tr class='form-field'>
-			<th scope='row' valign='top'><label for='post_set_id'>Brightcove Player ID</label></th>
+			<th scope='row' valign='top'><label for='playerID'>Brightcove Player ID</label></th>
 			<td><input type='text' name='playerID' id='playerID' value='$playerID' />
 			</td>
 		</tr>";
 		
 	echo "<tr class='form-field'>
-			<th scope='row' valign='top'><label for='post_set_id'>Brightcove Player Key</label></th>
+			<th scope='row' valign='top'><label for='playerKey'>Brightcove Player Key</label></th>
 			<td><input type='text' name='playerKey' id='playerKey' value='$playerKey' />
 			</td>
 		</tr>";

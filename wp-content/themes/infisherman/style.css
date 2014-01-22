@@ -636,6 +636,33 @@ a.change-location:before {
 }
 /* Master Angler
  ******************************************************************************/
+.master-angler-banner {
+	position: relative;
+    float:right;
+    width:308px;
+    height:390px;
+    border:1px solid #fff;
+    text-align:center;
+    background:url(images/pic/master-angler.jpg) no-repeat;
+}
+.master-angler-banner h2 {
+    font:68px/43px "stagbold", serif;
+    color:#fff;
+    padding:36px 10px 18px;
+    text-shadow:1px 3px 7px #585855;
+}
+.master-angler-copy{
+	position: absolute;
+	bottom: 30px;
+}
+.master-angler-copy a{text-transform: uppercase;}
+.master-angler-banner p {
+    font: 22px "proxima_nova_rgbold", sans-serif;
+	color: #fff;
+	margin: 0 0 20px;
+	text-shadow: 1px 1px 0 #1b1a18;
+	padding: 0 10px;
+}
 .category-master-angler .page-header img{
 	width: 241px;
 	height: auto;
