@@ -24,7 +24,7 @@ class NetworkTopicsWidget extends \WP_Widget {
 
 			<div class="network-topics-widget">
 				<h3 class="widget-title"><span>G&amp;A Network</span></h3>
-
+				<div class="sponsor"><?php echo get_imo_dart_tag("240x60",1,false,array("camp"=>"network_topics")); ?></div>
 				<div class="network-feed">
 				
 					<h2><a href="http://www.gunsandammo.com/shooting/network-topics/the-guns-network/"<?php if( $_SERVER['SERVER_NAME'] != "www.gunsandammo.com" ){ echo ' target="_blank"'; } ?>>Guns</a></h2>

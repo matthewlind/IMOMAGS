@@ -168,25 +168,16 @@ get_header(); ?>
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="ma-section clearfix js-responsive-section">
                     <div class="general-title clearfix">
                         <h2>Master <span>Anglers</span></h2>
-                        <!-- Site - In-Fisherman
-						<script type="text/javascript">
-						  var ord = window.ord || Math.floor(Math.random() * 1e16);
-						  document.write('<a href="http://ad.doubleclick.net/N4930/jump/imo.in-fisherman;sz=260x35;camp=master_angler;ord=' + ord + '?"><img src="http://ad.doubleclick.net/N4930/ad/imo.in-fisherman;sz=260x35;camp=master_angler;ord=' + ord + '?" width="260" height="35" /></a>');
-						</script>
-						<noscript>
-						<a href="http://ad.doubleclick.net/N4930/jump/imo.in-fisherman;sz=260x35;camp=master_angler;ord=[timestamp]?">
-						<img src="http://ad.doubleclick.net/N4930/ad/imo.in-fisherman;sz=260x35;camp=master_angler;ord=[timestamp]?" width="260" height="35" />
-						</a>
-						</noscript> -->
                     </div>
                     <?php $hostname = $_SERVER['SERVER_NAME'];
 					$jsonData = file_get_contents('http://'.$hostname.'/community-api/posts?master=1&per_page=10&sort=DESC');
 					$pictures = json_decode($jsonData); ?>
                     <div class="clearfix">
-                        <div class="master-angler-banner">
-                            <h2>Master <br />Angler <br /><span class="tite-year"><?php echo date("Y"); ?></span></h2>
-                            <p>Submit your trophy catch for a chance to win!</p>
-                            <a href="/photos/new#master" class="btn-base btn-base-middle">Enter Now!</a>
+                        <div class="master-angler-banner">	
+                        	<div class="master-angler-copy">
+	                            <p>Submit your trophy catch for a chance to win!</p>
+	                            <a href="/photos/new#master" class="btn-base btn-base-middle">Enter Now!</a>
+                        	</div>
                         </div>
                         <div class="single-post-slider loading-block">
 							<div class="jq-slider onload-hidden">

@@ -7,6 +7,9 @@
 #network-topics a{
 	text-decoration: none;
 }
+#network-topics h2:first-child{
+	margin-top: 10px;
+}
 #network-topics h2{
 	margin-top: 26px;
 }
@@ -162,9 +165,9 @@ ul.network-topics li{
 	clear: both;
 	float: none;
 }
+#network-topics .sponsor{float: none;width: 240px;margin: 0 auto;}
+#network-topics .sponsor img{width: 240px;padding: 0;float: none;}
 
-
-/*
  * jQuery FlexSlider v2.0
  * http://www.woothemes.com/flexslider/
  *

@@ -2,7 +2,8 @@ jQuery(document).ready(function($) {
 
 	var currentPage = 1;
 	var currentPosition = 0;
-	var showAtOnce = 15;
+	var showAtOnce = 999;
+	var start = 0;
 	var sort = "post_date";
 	var feedData;
 	
@@ -137,13 +138,12 @@ jQuery(document).ready(function($) {
 
 	    //$(".animal-container").html("");
 			
-
 	    	$(".load-spinner").hide();
 
 		    var count = 0;
 
 		    var end = start + showAtOnce;
-			
+
 		    for (i = 0; i < showAtOnce; i++) {
 		        count++;
 		       
@@ -197,7 +197,7 @@ jQuery(document).ready(function($) {
 
 
 
-
+				
 		        $articleTemplate.appendTo(".category-cross-site-feed").fadeIn();
 		        
 
@@ -213,6 +213,7 @@ jQuery(document).ready(function($) {
 				});
 
 		    }
+		    
 			//Place ads
 			if ($(window).width() <  610 ) {
 				$('<div class="category-ad"><div class="image-banner"><iframe id="category-ad" width=300 height=250 marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-category-ad.php?ad_code=' + dart + '"></iframe></div></div>')

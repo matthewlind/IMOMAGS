@@ -65,4 +65,4 @@
 	);
 
 	global $IMO_COMMUNITY;
-	$IMO_COMMUNITY['community-single'] = $IMO_COMMUNITY_CONFIG;
+	$IMO_COMMUNITY['photo-single'] = $IMO_COMMUNITY_CONFIG;

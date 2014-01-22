@@ -533,7 +533,7 @@ function imo_addons_subscription_page() {
         <td><input type="text" name="home_player_key" value="<?php echo get_option('home_player_key'); ?>" /></td>
         </tr>
         <tr>
-        <th scope="row">Player Key</th>
+        <th scope="row">Dart Campaign</th>
         <td><input type="text" name="home_player_camp" value="<?php echo get_option('home_player_camp'); ?>" /></td>
         </tr>
 

@@ -1080,29 +1080,6 @@ a.category-name-link:hover{
 .article-brief .entry-content a {
     white-space:nowrap;
 }
-.master-angler-banner {
-    float:right;
-    width:308px;
-    height:390px;
-    border:1px solid #fff;
-    text-align:center;
-    background:url(images/pic/master-angler.jpg) no-repeat;
-}
-.master-angler-banner h2 {
-    font:68px/43px "stagbold", serif;
-    color:#fff;
-    padding:36px 10px 18px;
-    text-shadow:1px 3px 7px #585855;
-}
-.tite-year {
-    color:#c9252c;
-}
-.master-angler-banner p {
-    font:19px "proxima_nova_rgbold", sans-serif;
-    color:#fff;
-    margin:0 0 40px;
-    text-shadow: 1px 1px 0 #1b1a18;
-}
 .single-post-slider {
     float:left;
     width:309px;

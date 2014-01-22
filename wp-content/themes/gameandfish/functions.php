@@ -104,11 +104,11 @@ function gf_community_init() {
 	include("community-config/community-term-list.php"); //Post types array is moved here
 	include("community-config/general.php");
 	include("community-config/new-post.php");
-	include("community-config/single.php");
+	//include("community-config/single.php");
 	include("community-config/profile.php");
 	include("community-config/edit-profile.php");
 	include("community-config/admin.php");
-	include("community-config/listing.php");
+	//include("community-config/listing.php");
 	include("community-config/nested-listing.php");
 	include("community-config/nested-single.php");
 	include("community-config/state-report.php");
