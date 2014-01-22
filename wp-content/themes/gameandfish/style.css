@@ -29,7 +29,7 @@ body{background-color: black;}
 .state-logo{
 	font: 20px "stagregular",serif;
 	color: #cda220;
-	visibility: hidden;
+	/*visibility: hidden;*/
 }
 .header{
 	background: #212121; /* Old browsers */
@@ -42,7 +42,7 @@ body{background-color: black;}
 	background: -ms-linear-gradient(top,  #212121 0%,#303030 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  #212121 0%,#303030 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#212121', endColorstr='#303030',GradientType=0 ); /* IE6-8 */
-	padding-top: 0; 
+	padding-top: 0;
 }
 .open-menu {background-image:url(images/sprite.png);}
 .location-services{
@@ -437,6 +437,17 @@ a.category-name-link:hover{background: #F1C548;color: black;}
 .article-brief h3 a:hover,
 .feat-text h3 a:hover {color:#cda220;}
 .widget-title{color:#373737}
+.widget_imo_geolocation_sidebar_widget .widget-title {
+	margin-bottom:0px;
+}
+.widget_imo_geolocation_sidebar_widget .not-your-state {
+	margin-bottom:10px;display:block;
+}
+
+.widget_imo_geolocation_sidebar_widget .choose-your-state {
+	margin-bottom:10px;
+	width:100%;
+}
 .cat-label-inline {color:#7e7e7e;border:1px solid #c3c3c3;border-width:0 0 0 1px;}
 .home .single-post-slider .flex-direction-nav{display: block !important;visibility: visible;}
 .home .single-post-slider .flex-direction-nav a{top:90px;}

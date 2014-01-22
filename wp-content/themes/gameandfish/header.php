@@ -32,16 +32,16 @@
 
 	    // Add the blog name.
 	    //bloginfo( 'name' );
-				
+
 	    // Add the blog description for the home/front page.
-	
+
 	    if ( $site_description && ( is_home() || is_front_page() ) )
 	        get_bloginfo( 'description', 'display' );
 
 	    // Add a page number if necessary:
 	    if ( $paged >= 2 || $page >= 2 )
 	        echo ' | ' . sprintf( __( 'Page %s', 'twentyeleven' ), max( $paged, $page ) );
-		
+
 	    ?></title>
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<!--[if IE 8]><style type="text/css">img{max-width: none !important;}.BCLvideoWrapper object{width:480px !important;}</style><![endif]-->
@@ -65,9 +65,9 @@
 	     */
 	    wp_enqueue_script("jquery");
 	    wp_head();
-	    
+
 	    $magazine_img = get_option('magazine_cover_uri' );
-		$subs_link = get_option('subs_link') . "/?pkey="; 
+		$subs_link = get_option('subs_link') . "/?pkey=";
 		$iMagID = get_option('iMagID' );
 		$deal_copy = get_option('deal_copy' );
 		$gift_link = get_option('gift_link' );
@@ -95,7 +95,7 @@
 		node.parentNode.insertBefore(gads, node);
 		})();
 	</script>
-	 
+
 	<script type='text/javascript'>
 		googletag.cmd.push(function() {
 			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [1, 1], 'div-gpt-ad-1386782139095-0').addService(googletag.pubads());
@@ -122,10 +122,10 @@
     <div class="snap-drawer snap-drawer-left" id="left-drawer">
         <div>
 			<div class="mobile-menu-banner">
-				
+
 				<iframe id="menu-iframe-ad" width="320" height="50" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-menu.php?size=320x50&ad_code=<?php echo $dartDomain; ?>"></iframe>
-			</div>	
-	
+			</div>
+
 	        <div class="mob-aside-menu">
 	        <?php //if(mobile()){ ?>
 	         <div>
@@ -143,7 +143,7 @@
 			    		<li><a href="/vermont/">vermont</a></li>
 			    		<li><a class="region" href="/northeast/">NORTHEAST</a></li>
 			    		<li><a href="/delaware/">delaware</a></li>
-						<li><a href="/maryland/">maryland</a></li>		
+						<li><a href="/maryland/">maryland</a></li>
 						<li><a href="/newjersey/">new jersey</a></li>
 						<li><a href="/newyork/">new york</a></li>
 						<li><a href="/pennsylvania/">pennsylvania</a></li>
@@ -172,7 +172,7 @@
 						<li><a href="/florida/">florida</a></li>
 						<li><a href="/georgia/">georgia</a></li>
 						<li><a href="/kentucky/">kentucky</a></li>
-						<li><a href="/louisiana/">louisiana</a></li>		
+						<li><a href="/louisiana/">louisiana</a></li>
 						<li><a href="/mississippi/">mississippi</a></li>
 						<li><a href="/northcarolina/">north carolina</a></li>
 						<li><a href="/southcarolina/">south carolina</a></li>
@@ -183,7 +183,7 @@
 			    		<li><a href="/arizona/">arizona</a></li>
 						<li><a href="/nevada/">nevada</a></li>
 						<li><a href="/newmexico/">new mexico</a></li>
-						<li><a href="/oklahoma/">oklahoma</a></li>	
+						<li><a href="/oklahoma/">oklahoma</a></li>
 						<li><a href="/texas/">texas</a></li>
 			    		<li><a class="region" href="/westcoast/">WEST COAST</a></li>
 						<li><a href="/california/">california</a></li>
@@ -192,8 +192,8 @@
 					</ul>
    				</div>
 	   		</li>
-    	</ul>	
-    </div>	
+    	</ul>
+    </div>
 				<?php //}
 	            if(has_nav_menu( 'mobile' )){
 	                wp_nav_menu(array(
@@ -208,10 +208,10 @@
 	                'walker'=> new AddParentClass_Walker()
 	            ));
 	            }
-	
+
 	            ?>
 	        </div>
-	
+
 	        <div class="menu-subscribe">
 	            <a href="<?php print $subs_link . get_option("mobile_menu_key"); ?>" target="_blank"><img src="<?php echo $magazine_img; ?>" alt="" /><span>Subscribe Now!</span></a>
 	        </div>
@@ -228,47 +228,47 @@
 	</div>
 	<?php
 	$hostname = $_SERVER['SERVER_NAME'];
-    
+
 	$userInfo = wp_get_current_user();
-	
+
 	$username = $userInfo->user_nicename;
-	
+
 	$apiURL = "http://$hostname/community-api/users/$username?get_comments=1";
-	
+
 	$file = file_get_contents($apiURL);
-	
+
 	//SET TEMPLATE VARIABLES
 	$data = json_decode($file);
-	
+
 	if($data->score == 1){
 		$niceScore = '<b>'.$data->score.'</b> Point';
 	}else{
 		$niceScore = '<b>'.$data->score.'</b> Points';
-	} 
-	
+	}
+
     $displayStyle = "display:none";
 	$loginStyle = "";
-	
+
 	if ( is_user_logged_in() ) {
-	
+
 		$displayStyle = "";
 		$loginStyle = "display:none";
-		
+
 		wp_get_current_user();
-		
+
 		$current_user = wp_get_current_user();
 	    if ( !($current_user instanceof WP_User) )
 	         return;
 	    }
-	    
+
 	?>
 	<div class="snap-drawer snap-drawer-right" id="right-drawer">
 		 <div>
 			<div class="mobile-menu-banner">
-				
+
 				<iframe id="menu-iframe-ad" width="320" height="50" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-menu.php?size=320x50&ad_code=<?php echo $dartDomain; ?>"></iframe>
-			</div>	
-	
+			</div>
+
 	        <div class="mob-aside-menu">
 	            <div class="menu-community-menu-container">
 		       		<ul id="menu-community-menu" class="menu">
@@ -284,7 +284,7 @@
 			   			</li>
 			   			<li class="main-menu-item menu-item-even menu-item-depth-">
 			   				<a href="/master-angler" class="menu-link main-menu-link">Master Angler</a>
-			   			</li>			   				 
+			   			</li>
 				   		<!--<li class="main-menu-item menu-item-even menu-item-depth-" style="<?php echo $displayStyle; ?>">
 			   				<a href="#" class="menu-link main-menu-link has-drop">My Interests</a>
 			   				<div class="drop-down">
@@ -297,7 +297,7 @@
 				   					</li>
 				   					<li class="sub-menu-item menu-item-odd menu-item-depth-1 menu-item">
 				   						<a href="#" class="menu-link sub-menu-link">Catfish</a>
-				   					</li>	
+				   					</li>
 				   				</ul>
 				   			</div>
 			   			</li>-->
@@ -319,8 +319,8 @@
 			   			</li>
 			   		</ul>
 			   	</div>
-	        </div>  
-	        	
+	        </div>
+
 	        <div class="aside-socials">
 	            <strong>Connect</strong>
 	            <?php social_networks(); ?>
@@ -344,22 +344,22 @@
 	<div class="hfeed wrapper" data-role="content" role="main">
 	    <div class="layout-frame">
 	        <div id="branding" class="header clearfix" role="banner">
-	
+
                 <div class="clearfix">
 
-                   <a id="open-left" class="open-menu">open menu</a>	
-                  
+                   <a id="open-left" class="open-menu">open menu</a>
+
                     <strong class="logo">
-						<h1 class="state-logo">State</h1>
+						<h1 class="state-logo"><?php global $IMO_USER_STATE_NICENAME; echo $IMO_USER_STATE_NICENAME; ?></h1>
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/logo.png" alt="<?php bloginfo( 'name' ); ?>" /><?php if(!mobile() && !tablet()){ ?><span class="state-drop"></span><?php } ?></a>
-					
+
 						<?php if(!mobile() && !tablet()){ ?>
 						<div class="gf-drop-down">
 							<aside id="us-map-nav" class="us-map-widget">
 							    <div class="state-info">
 							    	<p class="state-name">Select Your State</p>
 							    	<div class="state-list">
-							    	
+
 								    	<ul<?php if(tablet()){ echo ' style="padding:0 40px;"'; } ?>>
 								    		<li>NEW ENGLAND</li>
 								    		<li><a href="/connecticut/">connecticut</a></li>
@@ -370,7 +370,7 @@
 								    		<li><a href="/vermont/">vermont</a></li>
 								    		<li>NORTHEAST</li>
 								    		<li><a href="/delaware/">delaware</a></li>
-											<li><a href="/maryland/">maryland</a></li>		
+											<li><a href="/maryland/">maryland</a></li>
 											<li><a href="/newjersey/">new jersey</a></li>
 											<li><a href="/newyork/">new york</a></li>
 											<li><a href="/pennsylvania/">pennsylvania</a></li>
@@ -381,7 +381,7 @@
 											<li><a href="/kansas/">kansas</a></li>
 											<li><a href="/michigan/">michigan</a></li>
 										</ul>
-								    	<ul<?php if(tablet()){ echo ' style="padding:0 40px;"'; } ?>>	
+								    	<ul<?php if(tablet()){ echo ' style="padding:0 40px;"'; } ?>>
 											<li><a href="/minnesota/">minnesota</a></li>
 											<li><a href="/missouri/">missouri</a></li>
 											<li><a href="/nebraska/">nebraska</a></li>
@@ -401,9 +401,9 @@
 											<li><a href="/florida/">florida</a></li>
 											<li><a href="/georgia/">georgia</a></li>
 										</ul>
-								    	<ul<?php if(tablet()){ echo ' style="padding:0 40px;"'; } ?>>	
+								    	<ul<?php if(tablet()){ echo ' style="padding:0 40px;"'; } ?>>
 											<li><a href="/kentucky/">kentucky</a></li>
-											<li><a href="/louisiana/">louisiana</a></li>		
+											<li><a href="/louisiana/">louisiana</a></li>
 											<li><a href="/mississippi/">mississippi</a></li>
 											<li><a href="/northcarolina/">north carolina</a></li>
 											<li><a href="/southcarolina/">south carolina</a></li>
@@ -414,14 +414,14 @@
 								    		<li><a href="/arizona/">arizona</a></li>
 											<li><a href="/nevada/">nevada</a></li>
 											<li><a href="/newmexico/">new mexico</a></li>
-											<li><a href="/oklahoma/">oklahoma</a></li>	
+											<li><a href="/oklahoma/">oklahoma</a></li>
 											<li><a href="/texas/">texas</a></li>
 								    		<li>WEST COAST</li>
 											<li><a href="/california/">california</a></li>
 											<li><a href="/oregon/">oregon</a></li>
 											<li><a href="/washington/">washington</a></li>
 								    	</ul>
-								    	
+
 							    	</div>
 							    </div>
 							     	<?php if(mobile() == false && tablet() == false){ ?><div id="us-map-ubermenu-container" style="min-width: 686px;height: 420px;margin-left: 448px;padding-top:110px;"></div><?php } ?>
@@ -477,7 +477,7 @@
 							    var s = document.getElementsByTagName('script')[0];
 							    s.parentNode.insertBefore(gcse, s);
 							  })();
-							  
+
 							</script>
 							<gcse:search></gcse:search>
 	                        <?php //parent_theme_get_search_form(); ?>
@@ -490,14 +490,14 @@
                         	<?php social_networks(); ?>
 						</div>
 					</div>
-								
+
 					<div id="subscribe-area" class="widget widget_text header-elements">
 						<div class="subscribe-box">
 						    <div class="clearfix">
 						       	<div class="journal">
 							        <img src="<?php echo $magazine_img; ?>" alt="Subscribe">
 							    </div>
-	
+
 							    <div class="subscribe-now">
 									<p><span class="stag-reg"><?php print $deal_copy;?></span></p>
 									<a href="<?php print $subs_link . get_option("header_key"); ?>" target="_blank"  class="subs-btn">Subscribe Now!<span></span></a>
@@ -505,8 +505,8 @@
 							        <a class="subs-links" href="<?php print $service_link; ?>" target="_blank">Subscriber Services <span>&raquo;</span></a>
 							    </div>
 						</div>
-					</div>  
-				</div>            
+					</div>
+				</div>
                     <?php endif; ?>
                 </div><!-- .clearfix -->
 				<div class="gf-bottom-menu">
@@ -555,5 +555,5 @@
 				</div>
 			<?php } ?>
         </div>
-       
+
        <div id="main" class="main clearfix js-responsive-layout">
