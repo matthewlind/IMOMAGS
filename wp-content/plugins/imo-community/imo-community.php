@@ -102,6 +102,12 @@ function imo_community_setup_routes($wp_rewrite) {
 
 	    	}
 
+	    	$rewriteCondition = "(" . $IMO_COMMUNITY_CONFIG['community_home_slug'] . $regex;
+	    	$rewriteString = "index.php?pagename="
+				. $CONFIG_NAME
+				. "&config_name=" . $CONFIG_NAME;
+
+			$newRewriteRules[$rewriteCondition] = $rewriteString;
 
 
 	        // print($rewriteCondition . "  -  ");
