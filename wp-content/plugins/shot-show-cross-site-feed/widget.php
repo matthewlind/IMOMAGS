@@ -32,9 +32,16 @@ class SScsfWidget extends \WP_Widget {
 			    
 				</ul>
 				<div class="sponsor-bg">
-					<div class="sponsor"><?php echo get_imo_dart_tag("240x60",1,false,array("camp"=>"shot_show")); ?></div>				</div>
-	
-				<div class="see-all"><a href="<?php echo "http://www.gunsandammo.com/shot-show-" . date("Y"); ?>" <?php if($dartdomain != "imo.gunsandammo"){echo 'target="_blank"'; } ?>>See All <?php echo date("Y"); ?> SHOT Show Coverage</a></div>
+					<div class="sponsor"><?php echo get_imo_dart_tag("240x60",1,false,array("camp"=>"shot_show")); ?></div>				
+				</div>
+				<?php if( $_SERVER['SERVER_NAME'] == "www.petersenshunting.com" || $_SERVER['SERVER_NAME'] == "www.northamericanwhitetail.com" || $_SERVER['SERVER_NAME'] == "www.bowhuntingmag.com" || $_SERVER['SERVER_NAME'] == "www.gundogmag.com" || $_SERVER['SERVER_NAME'] == "www.wildfowlmag.com" || $_SERVER['SERVER_NAME'] == "www.bowhunter.com" || $_SERVER['SERVER_NAME'] == "www.gameandfishmag.com" ){ 
+				?>
+					<div class="see-all"><a href="<?php echo "http://www.petersenshunting.com/shot-show-" . date("Y"); ?>" <?php if($dartdomain != "imo.hunting"){echo 'target="_blank"'; } ?>>See All <?php echo date("Y"); ?> SHOT Show Coverage</a></div>
+				<?php }else{ ?>
+					<div class="see-all"><a href="<?php echo "http://www.gunsandammo.com/shot-show-" . date("Y"); ?>" <?php if($dartdomain != "imo.gunsandammo"){echo 'target="_blank"'; } ?>>See All <?php echo date("Y"); ?> SHOT Show Coverage</a></div>
+				<?php } ?>
+
+				
 		    </div>
 	    </aside>
 		<div style="clear:both;"></div>
