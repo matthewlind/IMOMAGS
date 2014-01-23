@@ -18,7 +18,7 @@
 .community-header ul.community-nav li a:hover{color: white;}
 
 .slider-hat{background: #3b3b3b;padding: 0 20px;}
-.slider-hat #fileupload{display: inline-block;float: right;padding-top: 5px;}
+.slider-hat .nav-share{display: inline-block;float: right;padding-top: 5px;}
 .slider-hat .singl-post-photo{
 	margin:0;
 	padding-left: 62px;
@@ -37,6 +37,7 @@
     font:12px/1 "open_sansbold", sans-serif;
     color:white;
     display: inline-block;
+    background: none;
 }
 .breadcrumbs li {
     display:inline-block;
@@ -44,24 +45,13 @@
     margin:0 5px 0 0;
     padding: 10px 0;
 }
-.breadcrumbs li:before {
-    display:inline-block;
-    vertical-align:top;
-    margin:-2px 8px 0 0;
-    color:white;
-    font:12px/1 "open_sansregular", sans-serif;
-}
 .breadcrumbs li:first-child:before {display:none;}
 .breadcrumbs a {
     font-family:"open_sansregular";
     color:#acacac;
 }
 .breadcrumbs a:hover {color:white;}
-.breadcrumbs:after {
-    top:auto;
-    bottom:0;
-    border-color:#d8d8d7;
-}
+
 
 .slider-section{min-height: 700px;background: #1c1c1c;padding: 0 20px;}
 .slider-section li{color: #cacaca;}

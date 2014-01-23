@@ -136,13 +136,11 @@ if(post.score == 1){
     	<li><a href="/photos">All Photos</a></li>
     	<li style="margin-top:1px;text-transform:capitalize;">&raquo; <?php echo $data->post_type; ?></li>
 	</ul>
-	<div id="fileupload">
-        <div class="fileupload-buttonbar ">
-            <label class="upload-button">
-                <span class="singl-post-photo"><span>Share Your Photo Now!</span></span>
-                <input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
-            </label>
-        </div>
+	<div class="nav-share">
+        <label class="upload-button">
+            <a href="/photos/new/"><span class="singl-post-photo"><span>Share Your Photo Now!</span></span></a>
+            <input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
+        </label>
 	</div>
 </div>
 <?php imo_sidebar("community"); ?>
