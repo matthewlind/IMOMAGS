@@ -27,7 +27,6 @@
 	color: #f9cc39;
 	height: 40px;
 }
-.slider-hat .singl-post-photo span {padding-top: 5px;}
 
 /***breadcrumbs ***/
 .breadcrumbs {
@@ -53,9 +52,10 @@
 .breadcrumbs a:hover {color:white;}
 
 
-.slider-section{min-height: 700px;background: #1c1c1c;padding: 0 20px;}
+.slider-section{min-height: 700px;background: #1c1c1c;padding: 0 20px;overflow: hidden;}
 .slider-section li{color: #cacaca;}
 .slider-section a{color: white;}
+.slider-section a:hover{color: #cacaca;}
 .slider-section .slider-sidebar{
 	width: 300px;
 	float: right;
@@ -64,7 +64,7 @@
 
 /*** common ***/
 h2{
-	font:24px "stag", serif;
+	font:24px "stagmedium", serif;
     color:#040503;
     padding:0 0 10px;
 }
@@ -86,7 +86,7 @@ h2{
 .title-underline h1 {
     display:inline-block;
     vertical-align:top;
-    font:45px "stag", serif;
+    font:45px "stagmedium", serif;
     color:#040503;
 }
 .title-underline h1 span {
@@ -325,13 +325,13 @@ select.alter-sel {width:100%;}
     border: none;
 }
 .dif-post h3 {
-    font:22px "stag", serif;
+    font:22px "stagmedium", serif;
     color:#040503;
     margin:0 0 13px;
 }
 .dif-post h3 a {color:#040503;}
 .profile-panel h4 a:hover,
-.dif-post h3 a:hover {color:#040503;}
+.dif-post h3 a:hover {color:#cacaca;}
 .profile-photo {
     float:left;
     width:52px;
@@ -353,7 +353,7 @@ select.alter-sel {width:100%;}
     margin:0 0 3px;
     text-transform: capitalize;
 }
-.profile-panel h4 a {color:#040503;}
+.profile-panel h4 a {color:white;}
 .prof-tags li {
     display:inline-block;
     vertical-align:top;
@@ -447,7 +447,7 @@ select.alter-sel {width:100%;}
     padding:24px 13px 17px;
 }
 .basic-popup h3 {
-    font:22px "stag", serif;
+    font:22px "stagmedium", serif;
     text-transform:uppercase;
     text-align:center;
     color:#c9242c;
@@ -639,7 +639,7 @@ select.alter-sel {width:100%;}
     margin:0 0 22px;
 }
 .filter-title {
-    font:27px/1.2 "stag", serif;
+    font:27px/1.2 "stagmedium", serif;
     color:#040503;
     text-transform:uppercase;
     text-shadow:0 -1px 0 #fff;
@@ -719,7 +719,7 @@ select.alter-sel {width:100%;}
 }
 .replies-box h2 {
     padding:20px 0 5px 22px;
-    font:25px "stag", serif;
+    font:25px "stagmedium", serif;
     color:#040503;
     background:#fff;
     text-transform:uppercase;
@@ -803,7 +803,7 @@ select.alter-sel {width:100%;}
 }
 .title-bar h3 {
     float:left;
-    font:25px/1.1 "stag", serif;
+    font:25px/1.1 "stagmedium", serif;
     text-transform:uppercase;
     padding:10px 0 0;
 }
@@ -882,7 +882,7 @@ select.alter-sel {width:100%;}
     width:220px;
     height:41px;
     display:block;
-    font:17px/41px "stag", serif;
+    font:17px/41px "stagmedium", serif;
     color:#fff;
     text-shadow:0 -1px 0 #000;
     border-radius:4px;
@@ -900,7 +900,7 @@ select.alter-sel {width:100%;}
 
     height:42px;
     display:block;
-    font:15px/42px "stag", serif;
+    font:15px/42px "stagmedium", serif;
     color:#fff;
     text-shadow:0 -1px 0 #7a0c11;
     border-radius:4px;
@@ -1017,7 +1017,7 @@ select.alter-sel {width:100%;}
     color:#040503;
 }
 .custom-title h1 {
-    font:45px/1.1 "stag", serif;
+    font:45px/1.1 "stagmedium", serif;
     color:#040503;
     text-transform:uppercase;
     margin:7px 0 0;
@@ -1043,7 +1043,7 @@ select.alter-sel {width:100%;}
 .profile-title h1 {
     float:left;
     margin:0;
-    font:45px "stag", serif;
+    font:45px "stagmedium", serif;
     color:#040503;
     text-transform:uppercase;
 }
@@ -1078,7 +1078,7 @@ select.alter-sel {width:100%;}
     padding:0 18px;
 }
 .user-col h2 {
-    font:35px/1 "stag", serif;
+    font:35px/1 "stagmedium", serif;
     color:#040503;
     margin:-3px 0 12px;
 }
@@ -1105,7 +1105,7 @@ select.alter-sel {width:100%;}
 }
 .points-col .points-nb {
     color:#040503;
-    font:47px/1 "stag", serif;
+    font:47px/1 "stagmedium", serif;
 }
 .profile-btn-panel {
     padding:18px 25px 24px;
@@ -1293,7 +1293,7 @@ select.alter-sel {width:100%;}
 }
 .form .btn-red input,
 .form .btn-red {width:198px;}
-.join-box h3{font: 26px "stag",sans-serif;font-weight: 700;}
+.join-box h3{font: 26px "stagmedium",sans-serif;font-weight: 700;}
 .dropdown-menu > li > a{font-family: "opensans_regular",Helvetica,sans-serif;text-transform: capitalize;}
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {background-color: #006699 !important;}
 
