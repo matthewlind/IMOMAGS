@@ -110,3 +110,20 @@ $gfPostTypes = array(
 	)
 );
 
+// $simpleTermList = array();
+
+// foreach ($gfPostTypes as $tertiaryTermName => $tertiaryTermValue) {
+
+// 	foreach ($tertiaryTermValue as $secondaryTermName => $secondaryTermValue) {
+
+// 		foreach ($secondaryTermValue as $termName => $termValue) {
+
+// 			$simpleTermList[$termName]["secondary"] = $secondaryTermName;
+// 			$simpleTermList[$termName]["tertiary"] = $tertiaryTermName;
+
+// 		}
+
+// 	}
+
+// }
+

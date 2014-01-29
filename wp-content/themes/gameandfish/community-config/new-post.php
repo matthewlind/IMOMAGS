@@ -11,7 +11,6 @@ $IMO_COMMUNITY_CONFIG['dart_page'] = 'gf_community';
 $IMO_COMMUNITY_CONFIG['dart_sect'] = 'gfcommunity';
 $IMO_COMMUNITY_CONFIG['post_types'] = $gfPostTypes;
 
-
 $IMO_COMMUNITY_CONFIG['additional_scripts'] = array(
 	//Third Part Scripts
 	array(
@@ -26,7 +25,7 @@ $IMO_COMMUNITY_CONFIG['additional_scripts'] = array(
 	),
 	array(
 		"script-name" => "master-angler-data-js",
-		"script-path" => "gameandfish/js/master-angler-data.js",
+		"script-path" => "gameandfish/js/species-data.js",
 		"script-dependencies" => array('jquery',"underscore-js")
 	),
 	array(

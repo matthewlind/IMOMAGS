@@ -80,11 +80,18 @@ include 'common-templates.php';
 				</div>
 
 
+
 				<div class="dropdown-selects">
-					<select id="ma-species" class="post_type alter-sel mobile-select" name="meta">
+					<select id="ma-species" class="post_type alter-sel mobile-select" name="post_type">
 		         		<option value="">SPECIES</option>
-				 		<% _.each(species,function(fish,index){ %>
-		         			<option value="<%= index %>" <%= post && post.post_type == index ? "SELECTED" : "" %> ><%= fish.name %></option>
+		         		<% var prevTertType = ''; %>
+				 		<% _.each(species,function(animal,index){   %>
+				 			<% if (prevTertType != animal.tertiary) { %>
+				 				<option value="<%= animal.tertiary %>" class='not-uppercase'>- <%= animal.tertiary %> - </option>
+
+				 			<% } %>
+		         			<option value="<%= animal.post_type %>" <%= post && post.post_type == index ? "SELECTED" : "" %> ><%= animal.display_name %></option>
+		         			<% prevTertType = animal.tertiary; %>
 				 		<% }); %>
 			        </select>
 				    <select name="state" placeholder="Choose the state for this post:" class="alter-sel mobile-select" id="ma-state">
@@ -156,7 +163,7 @@ include 'common-templates.php';
                         <option value="MX" <%= post && post.state == "MX" ? "SELECTED" : "" %> >Mexico</option>
 					</select>
 				</div>
-				
+
 
 
 				<% if (post && post.id) { %>
