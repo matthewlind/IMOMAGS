@@ -14,6 +14,9 @@ define("RSS_LINK", "http://www.gameandfishmag.com/feed/");
 define("SITE_LINK", "gameandfishmag.com");
 define("SITE_NAME", "Game & Fish");
 
+define("FACEBOOK_APP_ID","624736570896056");
+define("FACEBOOK_APP_SECRET","4011410d01c27af26e016760c03492ea");
+
 /* This function allows for logging when debugging mode is on */
 if(!function_exists('_log')){
   function _log( $message ) {

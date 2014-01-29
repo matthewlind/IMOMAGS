@@ -405,7 +405,7 @@ function isset_related_posts()
  * Callback Handler for the admin_menu action.
  */
 function imo_addons_create_subscriptions_menu() {
-    add_menu_page("Subscriptions Settings", "Subscription Settings",
+    add_menu_page("Site & Subs Settings", "Site & Subs Settings",
         "administrator", 'subs', "imo_addons_subscription_page");
     add_action("admin_init", "register_imo_subscribe_settings");
 }
@@ -446,7 +446,7 @@ function register_imo_subscribe_settings () {
 function imo_addons_subscription_page() {
 ?>
 <div class="wrap">
-<h2>Subscription Settings</h2>
+<h2>Site & Subscription Settings</h2>
 <form method="post" action="options.php">
 <?php settings_fields( 'imo-subs-settings-group' ); ?>
 <table class="form-table">
@@ -488,7 +488,7 @@ function imo_addons_subscription_page() {
         <td><input type="text" name="subs_form_link" value="<?php echo get_option('subs_form_link'); ?>" /><p>(No slash at the end: 'http://www.example.com'.)</p></td>
         </tr>
         <th scope="row">iMagID</th>
-        <td><input type="text" name="iMagID" value="<?php echo get_option('iMagID'); ?>" /></br><p>(Leave this alone if you don't konw what this does.)</p></td>
+        <td><input type="text" name="iMagID" value="<?php echo get_option('iMagID'); ?>" /></br><p>(Leave this alone if you don't know what this does.)</p></td>
         </tr> <tr valign="top">
         <tr>
         <th scope="row">Header Subscribe Key</th>

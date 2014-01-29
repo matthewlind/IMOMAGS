@@ -29,6 +29,7 @@ body{background-color: black;}
 .state-logo{
 	font: 20px "stagregular",serif;
 	color: #cda220;
+	min-height: 23px;
 	/*visibility: hidden;*/
 }
 .header{
