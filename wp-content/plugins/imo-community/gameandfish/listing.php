@@ -88,15 +88,15 @@ if(post.score == 1){
 	<div class="dif-post">
         <% if(post.img_url){ %>
 	        <div class="feat-img">
-	            <a href="/photos/<%= post.id %>"><img class="feat-img" src="<%= post.img_url %>" alt="<%= post.title %>" title="<%= post.img_url %>" /></a>
+	            <a href="/photos/<%= post.tertiary_post_type %>/<%= post.secondary_post_type %>/<%= post.post_type %>/<%= post.id %>"><img class="feat-img" src="<%= post.img_url %>" alt="<%= post.title %>" title="<%= post.img_url %>" /></a>
 	        </div>
         <% }else{ %>
         	 <div class="feat-img">
-	            <a href="/photos/<%= post.id %>"><img class="feat-img" src="<?php echo plugins_url('images/crosshair.jpg' , __FILE__ ); ?>" alt="<%= post.title %>" title="<%= post.img_url %>" /></a>
+	            <a href="/photos/<%= post.tertiary_post_type %>/<%= post.secondary_post_type %>/<%= post.post_type %>/<%= post.id %>"><img class="feat-img" src="<?php echo plugins_url('images/crosshair.jpg' , __FILE__ ); ?>" alt="<%= post.title %>" title="<%= post.img_url %>" /></a>
 	        </div>
         <% } %>
         <div class="dif-post-text">
-            <h3><a href="/photos/<%= post.id %>"><%= post.title %></a></h3>
+            <h3><a href="/photos/<%= post.tertiary_post_type %>/<%= post.secondary_post_type %>/<%= post.post_type %>/<%= post.id %>"><%= post.title %></a></h3>
             <div class="profile-panel">
                 <div class="profile-photo">
                     <a href="/profile/<%= post.user_nicename %>"><img src="/avatar?uid=<%= post.user_id %>" alt="<%= post.user_nicename %>" title="<%= post.user_nicename %>" /></a>
@@ -108,12 +108,12 @@ if(post.score == 1){
                         <li><a href="/<%= post.post_type %>" style="text-transform:capitalize;"><%= post.post_type %></a></li>
                     </ul>
                     <ul class="replies">
-                        <li><a href="/photos/<%= post.id %>#reply_field"><%= post.comment_count %> Reply</a></li>
+                        <li><a href="/photos/<%= post.tertiary_post_type %>/<%= post.secondary_post_type %>/<%= post.post_type %>/<%= post.id %>#reply_field"><%= post.comment_count %> Reply</a></li>
 						<li><%= niceScore %></li>
                     </ul>
                     <ul class="prof-like">
                     	<li>
-                    		<div addthis:url="http://<?php echo $_SERVER['SERVER_NAME']; ?>/photos/<%= post.id %>" addthis:title="<%= post.title %>" class="addthis_toolbox addthis_default_style ">
+                    		<div addthis:url="http://<?php echo $_SERVER['SERVER_NAME']; ?>/photos/<%= post.tertiary_post_type %>/<%= post.secondary_post_type %>/<%= post.post_type %>/<%= post.id %>" addthis:title="<%= post.title %>" class="addthis_toolbox addthis_default_style ">
 								<a class="addthis_button_facebook_like"fb:like:layout="button_count"></a>
 							</div>
 
