@@ -154,22 +154,7 @@ if(post.score == 1){
         <div class="sponsor"><?php imo_dart_tag("240x60"); ?></div>
         <?php //echo do_shortcode('[imo-slideshow community=true]'); ?>
 
-        <div class="btn-group btn-bar">
-          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-            <span class="menu-title browse-community">Browse Photos</span> <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu filter" role="menu">
-            <li><a href="" class="filter-menu" order_by="created" id="filter-menu-default">Latest</a></li>
-            <li><a href="" class="filter-menu" order_by="view_count" >Popular</a></li>
-            <li><a href="" class="filter-menu" order_by="score_today" >Trending Today</a></li>
-<!--             <li><a href="" class="filter-menu" order_by="score_week" >Trending This Week</a></li> -->
-            <li class="divider"></li>
-            <li><a href="" class="filter-menu" order_by="created" post_type="report" >Rut Reports</a></li>
-            <li><a href="" class="filter-menu" order_by="created" post_type="general" >General Discusion</a></li>
-            <li><a href="" class="filter-menu" order_by="created" post_type="question" >Questions</a></li>
 
-          </ul>
-        </div>
 
 
 
@@ -177,7 +162,7 @@ if(post.score == 1){
             <h2>Latest <span>Submissions</span></h2>
         </div> -->
         <div class="dif-posts">
-			<div id="posts-container"></div>
+			<div id="posts-container" posttype="<?php echo $post_type_primary; ?>" secondaryposttype="<?php echo $post_type_secondary; ?>" tertiaryposttype="<?php echo $post_type_tertiary; ?>"></div>
          </div>
          <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="pager-holder js-responsive-section">
             <a href="#" class="btn-base load-more" style="display:block;">Load More</a>
