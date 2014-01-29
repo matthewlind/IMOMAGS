@@ -126,4 +126,3 @@ $gfPostTypes = array(
 // 	}
 
 // }
-

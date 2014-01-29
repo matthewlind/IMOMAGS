@@ -21,7 +21,6 @@
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 
 get_header();
-imo_sidebar("community");
 
 $displayStyle = "display:none;";
 $loginStyle = "";
@@ -52,8 +51,6 @@ include 'common-templates.php';
 	<!-- ***************** UNDERSCORE TEMPLATE ********************* -->
 	<!-- *********************************************************** -->
 	<script type="text/template" id="new-post-template">
-	<h2><%= post ? 'Edit' : 'Share' %> Your Catch</h2>
-
 		<form id="new-post-form">
 			 <div class="basic-form post-page">
 		        <div class="f-row">
@@ -402,25 +399,30 @@ include 'common-templates.php';
 	<!-- *********************************************************** -->
 	<!-- *********************************************************** -->
 	<!-- *********************************************************** -->
-
-<div class="page-community">
-	<div class="general general-com">
-		<div class="custom-title clearfix">
-            <a href="/photos"><img src="<?php echo plugins_url('images/fishhead2.png' , __FILE__ ); ?>" alt="FishHeads" class="custom-tite-logo"></a>
-            <div class="title-crumbs">
-                <h1>Fishhead Photos</h1>
-                <p>In-Fisherman, the world's foremost authority on freshwater fishing for over three decades, invites you to share your latest and greatest fishing photos, stories, tips, reports and more. Start uploading from your desktop or phone today!</p>
-			</div>
-        </div>
-
-	    <div id="form-container">
-
-	    </div>
-
+	<?php include_once('nav.php'); ?>
+	<div class="slider-hat">
+		<ul class="breadcrumbs">
+	    	<li><a href="/photos">All Photos</a></li>
+	    	<li style="margin-top:1px;text-transform:capitalize;">&raquo; Share Your Photo</li>
+		</ul>
 	</div>
-
-</div>
-
+	<?php imo_sidebar("community"); ?>
+	<div class="page-community">
+		<div class="general general-com">
+			<div class="custom-title clearfix">
+	            <div class="title-crumbs">
+	                <h1>Share Your Photo</h1>
+				</div>
+	        </div>
+	
+		    <div id="form-container">
+	
+		    </div>
+	
+		</div>
+	
+	</div>
+	
 
 
 

@@ -65,9 +65,9 @@ if(mobile()){
 
 ?>
 <?php
-echo "<h1>Post Type: $post_type_primary</h1>";
-echo "<h1>Post Type Secondary: $post_type_secondary</h1>";
-echo "<h1>Post Type Tertiary: $post_type_tertiary</h1>";
+//echo "<h1>Post Type: $post_type_primary</h1>";
+//echo "<h1>Post Type Secondary: $post_type_secondary</h1>";
+//echo "<h1>Post Type Tertiary: $post_type_tertiary</h1>";
 
 ?>
 
@@ -105,7 +105,7 @@ if(post.score == 1){
                     <h4><a href="/profile/<%= post.user_nicename %>"><%= post.display_name %></a></h4>
                     <ul class="prof-tags">
                         <!--<li><a href="#"><%= post.state %></a></li>-->
-                        <li><a href="/<%= post.post_type %>" style="text-transform:capitalize;"><%= post.post_type %></a></li>
+                        <li><a href="/photos/<%= post.tertiary_post_type %>/<%= post.secondary_post_type %>/<%= post.post_type %>"style="text-transform:capitalize;"><%= post.post_type %></a></li>
                     </ul>
                     <ul class="replies">
                         <li><a href="/photos/<%= post.tertiary_post_type %>/<%= post.secondary_post_type %>/<%= post.post_type %>/<%= post.id %>#reply_field"><%= post.comment_count %> Reply</a></li>
@@ -121,7 +121,6 @@ if(post.score == 1){
                     </ul>
                 </div>
             </div>
-            <% if (post.master == 1) {  %><span class="badge"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/pic/badge-ma.png" alt="Master Angler" /></span><% } %>
         </div>
     </div>
 
@@ -134,7 +133,10 @@ if(post.score == 1){
 <div class="slider-hat">
 	<ul class="breadcrumbs">
     	<li><a href="/photos">All Photos</a></li>
-    	<li style="margin-top:1px;text-transform:capitalize;">&raquo; <?php echo $data->post_type; ?></li>
+    	<?php if($post_type_tertiary){ ?><li style="margin-top:1px;text-transform:capitalize;"> &raquo; <a href="/photos/<?php echo $post_type_tertiary; ?>"><?php echo $post_type_tertiary; ?></a></li><?php } ?>
+    	<?php if($post_type_secondary){ ?><li style="margin-top:1px;text-transform:capitalize;"> &raquo; <a href="/photos/<?php echo $post_type_tertiary; ?>/<?php echo $post_type_secondary; ?>"><?php echo $post_type_secondary; ?></a></li><?php } ?>
+    	<?php if($post_type_primary){ ?><li style="margin-top:1px;text-transform:capitalize;"> &raquo; <?php echo $post_type_primary; ?></li><?php } ?>
+
 	</ul>
 	<div class="nav-share">
         <label class="upload-button">
@@ -177,5 +179,4 @@ if(post.score == 1){
 
     </div>
 </div>
-
 <?php get_footer(); ?>

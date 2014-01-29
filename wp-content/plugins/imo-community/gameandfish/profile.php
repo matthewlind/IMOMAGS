@@ -21,7 +21,6 @@
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 
 get_header();
-imo_sidebar("community");
 
 include 'common-templates.php';
 
@@ -166,166 +165,171 @@ if(mobile()){
 }
 
 ?>
-
+<!-- start nav -->
+<?php include_once('nav.php'); ?>
+<div class="slider-hat">
+	<ul class="breadcrumbs">
+    	<li><a href="/photos">All Photos</a></li>
+    	<li style="margin-top:1px;text-transform:capitalize;"> &raquo; <?php if ($myProfile){ echo "My"; }else{ echo $data->display_name . "'s"; } ?> Profile</li>
+	</ul>
+	<div class="nav-share">
+        <label class="upload-button">
+            <a href="/photos/new/"><span class="singl-post-photo"><span>Share Your Photo Now!</span></span></a>
+            <input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
+        </label>
+	</div>
+</div>
+<?php imo_sidebar("community"); ?>
 <div id="primary" class="general general-com" role="main">
-            <div class="profile-title clearfix">
-                <h1><?php if ($myProfile){ echo "My"; }else{ echo 'FishHead'; } ?> Profile</h1>
-            </div>
-            <div class="profile-data-box">
-                <?php if ($data->master){ ?>
-                <div class="thumb-col">
-                    <img src="<?php echo plugins_url('images/master-angler.png' , __FILE__ ); ?>" alt="" />
+    <div class="profile-data-box">
+        <div class="user-col">
+            <h2><?php echo $data->display_name; ?></h2>
+            <div class="profile-panel clearfix">
+                <div class="profile-photo">
+                    <a><img alt="<?php echo $data->display_name; ?>" src="/avatar?uid=<?php echo $data->ID; ?>"></a>
+                </div>
+                <?php if($data->city != null || $data->state != null ){ ?>
+                <div class="profile-data">
+                    <div class="user-from">
+                        From: <br />
+                        <span class="location"><?php echo $data->city; ?>, <?php echo $data->state; ?></span>
+                    </div>
                 </div>
                 <?php } ?>
-                <div class="user-col">
-                    <h2><?php echo $data->display_name; ?></h2>
-                    <div class="profile-panel clearfix">
-                        <div class="profile-photo">
-                            <a><img alt="<?php echo $data->display_name; ?>" src="/avatar?uid=<?php echo $data->ID; ?>"></a>
-                        </div>
-                        <?php if($data->city != null || $data->state != null ){ ?>
-                        <div class="profile-data">
-                            <div class="user-from">
-                                From: <br />
-                                <span class="location"><?php echo $data->city; ?>, <?php echo $data->state; ?></span>
+			</div>
+        </div>
+        <div class="points-col">
+        	<?php
+        	if($data->score == 1){
+					$niceScore = '<strong class="points-nb">'.$data->score.'</strong><br />Point';
+				}else{
+					$niceScore = '<strong class="points-nb">'.$data->score.'</strong><br />Points';
+				}
+			?>
+            <?php echo $niceScore; ?>
+        </div>
+    </div>
+    <!--<div class="profile-btn-panel">
+        <h3><?php if ($myProfile){ echo "My "; } ?>Master Angler Achievements</h3>
+        <ul class="profile-btns">
+            <li><a href="#"><span>Spotted bass</span></a></li>
+            <li><a href="#"><span>Wipper</span></a></li>
+            <li><a href="#"><span>Largemouth</span></a></li>
+            <li><a href="#"><span>Smallmouth</span></a></li>
+        </ul>
+    </div>-->
+    <div id="my-photos" class="general-title clearfix">
+        <h2><?php if ($myProfile){ echo "My"; }else{ echo $data->display_name . "'s"; } ?>  <span>Activity</span></h2>
+    </div>
+    <div class="profile-tabs">
+        <ul class="tabs">
+            <li><a href="#activity">Recent Activity</a></li>
+            <li><a href="#replies">Replies  (<span><?php echo count($data->comments); ?></span>)</a></li>
+        </ul>
+        <div id="activity" class="tab-content">
+            <div class="dif-posts">
+                <?php
+                $posts = $data->posts;
+				$i = 1;
+                foreach($posts as $post){
+                   	if($post->score == 1){
+						$niceScore = $post->score.' Point';
+					}else{
+						$niceScore = $post->score.' Points';
+					}
+
+					if($post->comment_count == 1){
+						$niceComment = $post->comment_count.' Reply';
+					}else{
+						$niceComment = $post->comment_count.' Replies';
+					}
+
+						if($post->img_url){
+					?>
+
+                        <div class="dif-post">
+                            <div class="feat-img">
+                                <a href="/photos/<?php echo $post->id; ?>"><img class="feat-img" src="<?php echo $post->img_url; ?>" alt="<?php echo $post->title; ?>" title="<?php echo $post->title; ?>" /></a>
+                            </div>
+                            <div class="dif-post-text">
+                                <h3><a href="/photos/<?php echo $post->id; ?>"><?php echo $post->title; ?></a></h3>
+                                <div class="profile-panel">
+                                    <div class="profile-photo">
+                                        <a href="/profile/<?php echo $post->username; ?>"><img src="/avatar?uid=<?php echo $data->ID; ?>" alt="<?php echo $post->display_name; ?>" title="<?php echo $post->display_name; ?>" /></a>
+                                    </div>
+                                    <div class="profile-data">
+                                        <h4><a href="/photos/<?php echo $post->id; ?>"></a></h4>
+                                        <ul class="prof-tags">
+                                            <!--<li><a href="<?php echo $post->state; ?>"><?php echo $post->state; ?></a></li>-->
+                                            <li style="text-transform:capitalize;"><a href="/<?php echo $post->post_type; ?>"><?php echo $post->post_type; ?></a></li>
+                                            <?php if ($post->master){ ?><li><a href="/master-angler">Master Angler</a></li><?php } ?>
+                                        </ul>
+                                        <ul class="replies">
+                                            <li><a href="/photos/<?php echo $post->id; ?>/#reply_field"><?php echo $niceComment; ?></a></li>
+                                            <li><?php echo $niceScore; ?></li>
+                                        </ul>
+                                         <!-- Don't delete this. It's part of imo-add-this -->
+										<div id="imo-add-this-spid" style="display:none;"></div>
+					                    <ul class="prof-like">
+					                    	<li>
+												<div addthis:url="http://<?php echo $_SERVER['SERVER_NAME']; ?>/photos/<?php echo $post->id; ?>" addthis:title="' . htmlentities(<?php echo $post->title; ?>) . '" class="addthis_toolbox addthis_default_style ">
+													<a class="addthis_button_facebook_like"fb:like:layout="button_count"></a>
+												</div>
+												<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4de0e5f24e016c81"></script>
+					                    	</li>
+					                    </ul>
+									</div>
+                                </div>
+                                 <?php if ($post->master){ ?><span class="badge"><img src="<?php echo plugins_url('images/badge-ma.png' , __FILE__ ); ?>" alt="" /></span><?php } ?>
                             </div>
                         </div>
-                        <?php } ?>
-					</div>
-                </div>
-                <img src="<?php echo plugins_url('images/naw-plus.png' , __FILE__ ); ?>" alt="NAW Community" class="custom-tite-logo">
-                <div class="points-col">
-                	<?php
-                	if($data->score == 1){
-							$niceScore = '<strong class="points-nb">'.$data->score.'</strong><br />Point';
-						}else{
-							$niceScore = '<strong class="points-nb">'.$data->score.'</strong><br />Points';
-						}
-					?>
-                    <?php echo $niceScore; ?>
-                </div>
+                        <?php 
+                        if ( mobile() || tablet() ){ $adCount = ($i%6) == 0; }else{ $adCount = ($i%10) == 0; } 
+                        if ( $adCount ): ?>
+                
+	                        <div class="community-ad">
+	                        	<div class="image-banner">
+	                            	<?php imo_dart_tag("300x250",array("pos"=>"mob")); ?> 
+								</div>
+	                        </div>
+
+                        <?php endif;?>
+
+                <?php } $i++; } ?>
             </div>
-            <!--<div class="profile-btn-panel">
-                <h3><?php if ($myProfile){ echo "My "; } ?>Master Angler Achievements</h3>
-                <ul class="profile-btns">
-                    <li><a href="#"><span>Spotted bass</span></a></li>
-                    <li><a href="#"><span>Wipper</span></a></li>
-                    <li><a href="#"><span>Largemouth</span></a></li>
-                    <li><a href="#"><span>Smallmouth</span></a></li>
-                </ul>
-            </div>-->
-            <div id="my-photos" class="general-title clearfix">
-                <h2><?php if ($myProfile){ echo "My"; }else{ echo $data->display_name . "'s"; } ?>  <span>Activity</span></h2>
+            <div class="pager-holder js-responsive-section" data-position="5">
+                <a class="btn-base" href="#">Load More</a>
+                <a class="go-top jq-go-top" href="#">go top</a>
             </div>
-            <div class="profile-tabs">
-                <ul class="tabs">
-                    <li><a href="#activity">Recent Activity</a></li>
-                    <li><a href="#replies">Replies  (<span><?php echo count($data->comments); ?></span>)</a></li>
-                </ul>
-                <div id="activity" class="tab-content">
-                    <div class="dif-posts">
-                        <?php
-                        $posts = $data->posts;
-						$i = 1;
-                        foreach($posts as $post){
-	                       	if($post->score == 1){
-								$niceScore = $post->score.' Point';
-							}else{
-								$niceScore = $post->score.' Points';
-							}
+        </div>
+        <div id="replies" class="tab-content">
+            <ul class="simple-replies">
+            	<?php
+                $comments = $data->comments;
 
-							if($post->comment_count == 1){
-								$niceComment = $post->comment_count.' Reply';
-							}else{
-								$niceComment = $post->comment_count.' Replies';
-							}
+                foreach($comments as $comment){ $spid =  $comment->parent; }
 
-								if($post->img_url){
-							?>
+                // Let's not run this a million times.
+                $replyURL = "http://$hostname/community-api/posts/$spid?get_comments=1";
+				$replyFile = file_get_contents($replyURL);
+				//SET TEMPLATE VARIABLES
+				$replyData = json_decode($replyFile);
 
-		                        <div class="dif-post">
-		                            <div class="feat-img">
-		                                <a href="/photos/<?php echo $post->id; ?>"><img class="feat-img" src="<?php echo $post->img_url; ?>" alt="<?php echo $post->title; ?>" title="<?php echo $post->title; ?>" /></a>
-		                            </div>
-		                            <div class="dif-post-text">
-		                                <h3><a href="/photos/<?php echo $post->id; ?>"><?php echo $post->title; ?></a></h3>
-		                                <div class="profile-panel">
-		                                    <div class="profile-photo">
-		                                        <a href="/profile/<?php echo $post->username; ?>"><img src="/avatar?uid=<?php echo $data->ID; ?>" alt="<?php echo $post->display_name; ?>" title="<?php echo $post->display_name; ?>" /></a>
-		                                    </div>
-		                                    <div class="profile-data">
-		                                        <h4><a href="/photos/<?php echo $post->id; ?>"></a></h4>
-		                                        <ul class="prof-tags">
-		                                            <!--<li><a href="<?php echo $post->state; ?>"><?php echo $post->state; ?></a></li>-->
-		                                            <li style="text-transform:capitalize;"><a href="/<?php echo $post->post_type; ?>"><?php echo $post->post_type; ?></a></li>
-		                                            <?php if ($post->master){ ?><li><a href="/master-angler">Master Angler</a></li><?php } ?>
-		                                        </ul>
-		                                        <ul class="replies">
-		                                            <li><a href="/photos/<?php echo $post->id; ?>/#reply_field"><?php echo $niceComment; ?></a></li>
-		                                            <li><?php echo $niceScore; ?></li>
-		                                        </ul>
-		                                         <!-- Don't delete this. It's part of imo-add-this -->
-												<div id="imo-add-this-spid" style="display:none;"></div>
-							                    <ul class="prof-like">
-							                    	<li>
-														<div addthis:url="http://<?php echo $_SERVER['SERVER_NAME']; ?>/photos/<?php echo $post->id; ?>" addthis:title="' . htmlentities(<?php echo $post->title; ?>) . '" class="addthis_toolbox addthis_default_style ">
-															<a class="addthis_button_facebook_like"fb:like:layout="button_count"></a>
-														</div>
-														<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4de0e5f24e016c81"></script>
-							                    	</li>
-							                    </ul>
-											</div>
-		                                </div>
-		                                 <?php if ($post->master){ ?><span class="badge"><img src="<?php echo plugins_url('images/badge-ma.png' , __FILE__ ); ?>" alt="" /></span><?php } ?>
-		                            </div>
-		                        </div>
-		                        <?php 
-		                        if ( mobile() || tablet() ){ $adCount = ($i%6) == 0; }else{ $adCount = ($i%10) == 0; } 
-		                        if ( $adCount ): ?>
-                        
-			                        <div class="community-ad">
-			                        	<div class="image-banner">
-			                            	<?php imo_dart_tag("300x250",array("pos"=>"mob")); ?> 
-										</div>
-			                        </div>
-
-		                        <?php endif;?>
-
-                        <?php } $i++; } ?>
-                    </div>
-                    <div class="pager-holder js-responsive-section" data-position="5">
-                        <a class="btn-base" href="#">Load More</a>
-                        <a class="go-top jq-go-top" href="#">go top</a>
-                    </div>
-                </div>
-                <div id="replies" class="tab-content">
-                    <ul class="simple-replies">
-                    	<?php
-                        $comments = $data->comments;
-
-                        foreach($comments as $comment){ $spid =  $comment->parent; }
-
-                        // Let's not run this a million times.
-                        $replyURL = "http://$hostname/community-api/posts/$spid?get_comments=1";
-						$replyFile = file_get_contents($replyURL);
-						//SET TEMPLATE VARIABLES
-						$replyData = json_decode($replyFile);
-
-                        foreach($comments as $comment){  ?>
-                        	<li class="reply-item">
-	                            <p><?php echo $comment->body; ?></p>
-	                            <div class="replies-data-line">
-	                                Replied To <a href="<?php echo $replyData->url; ?>"><?php echo $replyData->title; ?></a>   |   <abbr class="recon-date timeago" title="<?php echo $comment->created; ?>"></abbr>
-	                            </div>
-	                        </li>
-                        <?php } ?>
-					</ul>
-                </div>
-            </div>
-			<?php social_footer(); ?>
-			<div class="hr mobile-hr"></div>
-			<a href="#" class="back-top jq-go-top">back to top</a>
-    </div><!-- #primary -->
+                foreach($comments as $comment){  ?>
+                	<li class="reply-item">
+                        <p><?php echo $comment->body; ?></p>
+                        <div class="replies-data-line">
+                            Replied To <a href="<?php echo $replyData->url; ?>"><?php echo $replyData->title; ?></a>   |   <abbr class="recon-date timeago" title="<?php echo $comment->created; ?>"></abbr>
+                        </div>
+                    </li>
+                <?php } ?>
+			</ul>
+        </div>
+    </div>
+	<?php social_footer(); ?>
+	<div class="hr mobile-hr"></div>
+	<a href="#" class="back-top jq-go-top">back to top</a>
+</div><!-- #primary -->
 
 
 <?php get_footer(); ?>

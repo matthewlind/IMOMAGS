@@ -110,32 +110,32 @@ body{background-color: black;}
 	padding-right:20px;
 	color: white;
 }
-.h-mdl-widget{float: left;margin: 34px 0 0 20px;}
+.h-mdl-widget{float: left;margin: 0 0 0 70px;}
 .socials-hold{float: none;}
 .aside-socials strong{color: white;text-shadow: 0px 1px 1px black;font-family: "open_sansbold", Helvetica, Arial, sans-serif;}
-.header .socials{padding-top: 20px;}
-.socials a.facebook {
+.header .socials{padding-top: 4px;}
+.socials a.facebook:hover {
 	background-position: -239px 0;
 }
-.socials a.facebook:hover {
+.socials a.facebook {
 	background-position: -105px 0;
 }
-.socials a.twitter{
+.socials a.twitter:hover{
 	background-position: -273px 0;
 }
-.socials a.twitter:hover  {
+.socials a.twitter  {
 	background-position: -140px 0;
 }
-.socials a.youtube{
+.socials a.youtube:hover{
 	background-position: -307px 0;
 }
-.socials a.youtube:hover  {
+.socials a.youtube  {
 	background-position: -172px 0;
 }
-.socials a.rss {
+.socials a.rss:hover {
 	background-position: -340px 0;
 }
-.socials a.rss:hover {
+.socials a.rss {
 	background-position: -206px 0;
 }
 
@@ -143,6 +143,7 @@ body{background-color: black;}
 .menu-top-menu-container li{border-left:1px dashed #ccc;}
 .menu-top-menu-container.subscribe-left {padding-left: 30px;}
 .menu-top-menu-container.subscribe-left li{border: none;}
+.menu-top-menu-container.subscribe-left li a{color:#cda220;}
 .menu-top-menu-container a {color:#3c3c3c;}
 .menu-top-menu-container a:hover {color:#cda220;}
 .menu-main-menu-container {
@@ -280,11 +281,11 @@ body{background-color: black;}
 .drop-feat-post h5 {color:#373737;}
 .drop-feat-post h5 a {color:white;}
 .drop-feat-post h5 a:hover {color:#cda220;}
+.hot-link{border: none !important;padding-left: 18px;}
 .hot-link a{
-	font: 14px/1.2 "open_sansbold", Helvetica, sans-serif;
-	padding: 0 0 0 28px;
-	color: #c9242c;
-	background:url(../../wp-content/plugins/imo-community/infish/images/sprite.png) no-repeat -370px -112px;
+	color: white;
+	padding: 0 0 0 30px !important;
+	background: url(images/ico/camera-white.png) no-repeat 0px 12px !important;
 }
 .mob-aside-menu #imo-fb-login-button{
 	width: 274px;
@@ -292,7 +293,7 @@ body{background-color: black;}
 	overflow: hidden;
 	text-indent: -9999px;
 	margin: 14px auto;
-	background: url(../../wp-content/plugins/imo-community/infish/images/sprite.png) no-repeat 0 -270px;
+	background: url(../../wp-content/plugins/imo-community/gameandfish/images/sprite.png) no-repeat 0 -270px;
 }
 .mob-aside-menu .mob-fb{
 	text-align: center;
@@ -1045,7 +1046,7 @@ element:hover, element.hover_effect {
 		overflow: hidden;
 		text-indent: -9999px;
 		margin: 10px auto;
-		background: url(../../wp-content/plugins/imo-community/infish/images/sprite.png) no-repeat 0 -313px;
+		background: url(../../wp-content/plugins/imo-community/gameandfish/images/sprite.png) no-repeat 0 -313px;
 	}
 	.or-delim::before, .or-delim::after {
 		width: 75px !important;

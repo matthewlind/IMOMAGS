@@ -250,11 +250,11 @@ $date = date("F j, Y", strtotime($timestamp));
 $time = date("g:i A", strtotime($timestamp));
 
 
+/**
 echo "<h1>Post Type: $post_type_primary</h1>";
 echo "<h1>Post Type Secondary: $post_type_secondary</h1>";
 echo "<h1>Post Type Tertiary: $post_type_tertiary</h1>";
-
-
+**/
 
 ?>
 
@@ -266,7 +266,9 @@ echo "<h1>Post Type Tertiary: $post_type_tertiary</h1>";
 <div class="slider-hat">
 	<ul class="breadcrumbs">
     	<li><a href="/photos">All Photos</a></li>
-    	<li style="margin-top:1px;text-transform:capitalize;">&raquo; <?php echo $data->post_type; ?></li>
+    	<li style="margin-top:1px;text-transform:capitalize;"> &raquo; <a href="/photos/<?php echo $post_type_tertiary; ?>"><?php echo $post_type_tertiary; ?></a></li>
+    	<li style="margin-top:1px;text-transform:capitalize;"> &raquo; <a href="/photos/<?php echo $post_type_tertiary; ?>/<?php echo $post_type_secondary; ?>"><?php echo $post_type_secondary; ?></a></li>
+    	<li style="margin-top:1px;text-transform:capitalize;"> &raquo; <?php echo $post_type_primary; ?></li>
 	</ul>
 	<div class="nav-share">
         <label class="upload-button">
@@ -322,7 +324,7 @@ echo "<h1>Post Type Tertiary: $post_type_tertiary</h1>";
 	                <h4><a href="/profile/<?php echo $data->username; ?>"><?php echo $data->display_name; ?></a></h4>
 	                <ul class="prof-tags">
 	                    <!--<li><a href="/photos/<?php echo $data->post_type.'/'.strtolower($state_slug); ?>"><?php echo $state ?></a></li>-->
-	                    <li><a href="/<?php echo $data->post_type; ?>" style="text-transform:capitalize;"><?php echo $data->post_type; ?></a></li>
+	                    <li><a href="/photos/<?php echo $post_type_tertiary; ?>/<?php echo $post_type_secondary; ?>/<?php echo $post_type_primary; ?>" style="text-transform:capitalize;"><?php echo $data->post_type; ?></a></li>
 	                </ul>
 	                <div class="clearfix">
 	                    <ul class="replies">
