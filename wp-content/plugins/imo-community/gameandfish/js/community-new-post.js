@@ -12,7 +12,7 @@ jQuery(document).ready(function($) {
 	//****************** DISPLAY THE FORM *******************
 	//*******************************************************
 
-	var formTemplate = _.template( $("#new-post-template").html() , { post:null, post_types:postTypes, species:masterAnglerData } );//Use the post types from the configuration
+	var formTemplate = _.template( $("#new-post-template").html() , { post:null, post_types:postTypes, species:speciesDataList } );//Use the post types from the configuration
 	$("#form-container").append(formTemplate);
 
 	//If user is logged in, hide the FB login button
@@ -135,21 +135,29 @@ jQuery(document).ready(function($) {
 	//*******************************************************
 	$("#new-post-form").submit(function(ev){
 
+
+
+
+
+
 		ev.preventDefault();
 
 		var formDataObject = $("#new-post-form").formParams();
 		var newPostData = $.extend(formDataObject,userIMO,postData);
 
+
 		newPostData.attachments = postAttachments;
 
 		//console.log(newPostData);
 
-		//get the post type from the species
-		if (newPostData.meta.length > 0) {
-			var species = newPostData.meta;
+		// console.log(newPostData);
+		// console.log(speciesData);
 
-			newPostData.post_type = masterAnglerData[species].species;
-		}
+
+		newPostData.secondary_post_type = speciesData[newPostData.post_type].secondary;
+		newPostData.tertiary_post_type = speciesData[newPostData.post_type].tertiary;
+
+
 
 
 		//Validate form data and submit
@@ -161,8 +169,11 @@ jQuery(document).ready(function($) {
 
 				//alert("New Post Added! Replace this alert with a redirect to something!")
 
+
+				var newPostURL = "/photos/" + newPostData.tertiary_post_type + "/" + newPostData.secondary_post_type + "/" + newPostData.post_type + "/" + postData.id;
+
 				if (postData)
-					window.location.href = "/photos/" + postData.id;
+					window.location.href = newPostURL;
 				else
 					alert("Could not post photo. Are you logged in?");
 			});
@@ -191,7 +202,7 @@ jQuery(document).ready(function($) {
 		} else if (formData.img_url.length < 1) {
 			alert("Please attach a photo.");
 			return false;
-		} else if (formData.meta.length < 1) {
+		} else if (formData.post_type.length < 1) {
 			alert("Please select a species.");
 			return false;
 		} else if (formData.state.length < 1) {
@@ -295,7 +306,7 @@ jQuery(document).ready(function($) {
 
 		}
 	});
-	
+
 
 });
 

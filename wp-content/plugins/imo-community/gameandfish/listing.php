@@ -88,15 +88,15 @@ if(post.score == 1){
 	<div class="dif-post">
         <% if(post.img_url){ %>
 	        <div class="feat-img">
-	            <a href="/photos/<%= post.id %>"><img class="feat-img" src="<%= post.img_url %>" alt="<%= post.title %>" title="<%= post.img_url %>" /></a>
+	            <a href="/photos/<%= post.tertiary_post_type %>/<%= post.secondary_post_type %>/<%= post.post_type %>/<%= post.id %>"><img class="feat-img" src="<%= post.img_url %>" alt="<%= post.title %>" title="<%= post.img_url %>" /></a>
 	        </div>
         <% }else{ %>
         	 <div class="feat-img">
-	            <a href="/photos/<%= post.id %>"><img class="feat-img" src="<?php echo plugins_url('images/crosshair.jpg' , __FILE__ ); ?>" alt="<%= post.title %>" title="<%= post.img_url %>" /></a>
+	            <a href="/photos/<%= post.tertiary_post_type %>/<%= post.secondary_post_type %>/<%= post.post_type %>/<%= post.id %>"><img class="feat-img" src="<?php echo plugins_url('images/crosshair.jpg' , __FILE__ ); ?>" alt="<%= post.title %>" title="<%= post.img_url %>" /></a>
 	        </div>
         <% } %>
         <div class="dif-post-text">
-            <h3><a href="/photos/<%= post.id %>"><%= post.title %></a></h3>
+            <h3><a href="/photos/<%= post.tertiary_post_type %>/<%= post.secondary_post_type %>/<%= post.post_type %>/<%= post.id %>"><%= post.title %></a></h3>
             <div class="profile-panel">
                 <div class="profile-photo">
                     <a href="/profile/<%= post.user_nicename %>"><img src="/avatar?uid=<%= post.user_id %>" alt="<%= post.user_nicename %>" title="<%= post.user_nicename %>" /></a>
@@ -108,12 +108,12 @@ if(post.score == 1){
                         <li><a href="/<%= post.post_type %>" style="text-transform:capitalize;"><%= post.post_type %></a></li>
                     </ul>
                     <ul class="replies">
-                        <li><a href="/photos/<%= post.id %>#reply_field"><%= post.comment_count %> Reply</a></li>
+                        <li><a href="/photos/<%= post.tertiary_post_type %>/<%= post.secondary_post_type %>/<%= post.post_type %>/<%= post.id %>#reply_field"><%= post.comment_count %> Reply</a></li>
 						<li><%= niceScore %></li>
                     </ul>
                     <ul class="prof-like">
                     	<li>
-                    		<div addthis:url="http://<?php echo $_SERVER['SERVER_NAME']; ?>/photos/<%= post.id %>" addthis:title="<%= post.title %>" class="addthis_toolbox addthis_default_style ">
+                    		<div addthis:url="http://<?php echo $_SERVER['SERVER_NAME']; ?>/photos/<%= post.tertiary_post_type %>/<%= post.secondary_post_type %>/<%= post.post_type %>/<%= post.id %>" addthis:title="<%= post.title %>" class="addthis_toolbox addthis_default_style ">
 								<a class="addthis_button_facebook_like"fb:like:layout="button_count"></a>
 							</div>
 
@@ -154,22 +154,7 @@ if(post.score == 1){
         <div class="sponsor"><?php imo_dart_tag("240x60"); ?></div>
         <?php //echo do_shortcode('[imo-slideshow community=true]'); ?>
 
-        <div class="btn-group btn-bar">
-          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-            <span class="menu-title browse-community">Browse Photos</span> <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu filter" role="menu">
-            <li><a href="" class="filter-menu" order_by="created" id="filter-menu-default">Latest</a></li>
-            <li><a href="" class="filter-menu" order_by="view_count" >Popular</a></li>
-            <li><a href="" class="filter-menu" order_by="score_today" >Trending Today</a></li>
-<!--             <li><a href="" class="filter-menu" order_by="score_week" >Trending This Week</a></li> -->
-            <li class="divider"></li>
-            <li><a href="" class="filter-menu" order_by="created" post_type="report" >Rut Reports</a></li>
-            <li><a href="" class="filter-menu" order_by="created" post_type="general" >General Discusion</a></li>
-            <li><a href="" class="filter-menu" order_by="created" post_type="question" >Questions</a></li>
 
-          </ul>
-        </div>
 
 
 
@@ -177,7 +162,7 @@ if(post.score == 1){
             <h2>Latest <span>Submissions</span></h2>
         </div> -->
         <div class="dif-posts">
-			<div id="posts-container"></div>
+			<div id="posts-container" posttype="<?php echo $post_type_primary; ?>" secondaryposttype="<?php echo $post_type_secondary; ?>" tertiaryposttype="<?php echo $post_type_tertiary; ?>"></div>
          </div>
          <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="pager-holder js-responsive-section">
             <a href="#" class="btn-base load-more" style="display:block;">Load More</a>

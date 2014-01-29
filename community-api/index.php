@@ -22,6 +22,8 @@ $app->get('/posts', function () {
 
 	//Default Settings
 	$post_type = "all"; // e.g. "report","question"
+	$secondary_post_type = null; ///Used on G&F. i.e. "freshwater","big-game"
+	$tertiary_post_type = null; //Used on G&F. i.e. "hunting" or "fishing"
 	$state = NULL; // e.g. "GA","NY"
 	$skip = 0; //Start Number
 	$per_page = 20;
@@ -43,6 +45,9 @@ $app->get('/posts', function () {
 	//////////////////////////////////////////////////////
 	//Validate the parameters to prevent MySQL injection//
 	//////////////////////////////////////////////////////
+	$secondaryPostTypeClause = "";
+	$tertiaryPostTypeClause = "";
+
 
 	//If $post_type is all lowercase and it's less than 20 char, it's GOOD
 	if (ctype_lower($post_type) && strlen($post_type) < 20) {
@@ -55,6 +60,37 @@ $app->get('/posts', function () {
 	} else {
 		header('HTTP 1.1/400 Bad Request', true, 400);
 		exit();
+	}
+
+	//If $secondary_post_type is all lowercase and it's less than 20 char, it's GOOD
+	if (ctype_lower($secondary_post_type) && strlen($secondary_post_type) < 20) {
+
+		$secondaryPostTypeClause = " AND secondary_post_type = '$secondary_post_type'";
+
+	} else {
+
+		if ($secondary_post_type != null) {
+			header('HTTP 1.1/400 Bad Request', true, 400);
+			echo "Bad secondary post type";
+			exit();
+		}
+
+	}
+
+	//If $tertiary_post_type is all lowercase and it's less than 20 char, it's GOOD
+	if (ctype_lower($tertiary_post_type) && strlen($tertiary_post_type) < 20) {
+
+		$tertiaryPostTypeClause = " AND tertiary_post_type = '$tertiary_post_type'";
+
+	} else {
+
+		if ($tertiary_post_type != null){
+			header('HTTP 1.1/400 Bad Request', true, 400);
+			echo "bad tertiary post type";
+			exit();
+		}
+
+
 	}
 
 	//If state is 2 letters
@@ -128,9 +164,9 @@ $app->get('/posts', function () {
 		$db = dbConnect();
 
 
-		$sql = "SELECT *,CONCAT(allcounts2.post_type,'/',allcounts2.id) as url FROM allcounts2 WHERE $postTypeClause $stateClause $domainClause $masterClause $requireImagesClause $orderByClause $sortClause $limitClause";
+		$sql = "SELECT *,CONCAT(allcounts2.post_type,'/',allcounts2.id) as url FROM allcounts2 WHERE $postTypeClause $secondaryPostTypeClause $tertiaryPostTypeClause $stateClause $domainClause $masterClause $requireImagesClause $orderByClause $sortClause $limitClause";
 
-
+		//echo $sql;
 
 		$stmt = $db->prepare($sql);
 		$stmt->execute(array());
