@@ -672,6 +672,7 @@ h2.reviews-form-header span {
 .home-featured:nth-child(odd){border-right: none;padding-right: 15px;padding-top: 0;}
 .home-featured{padding-left: 15px;border: none;padding-top: 0;}
 .special-features .home-featured:nth-child(odd){padding-top: 23px;}
+
 @media only screen and (max-width: 1096px) {
 	.header{padding-top: 0;}
 	.snap-drawers .menu-top-menu-container a, .snap-drawers .mob-aside-menu > div > ul > li > a{font-family: "stagmedium",serif;}

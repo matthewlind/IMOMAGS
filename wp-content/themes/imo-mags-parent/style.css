@@ -744,7 +744,7 @@ input.gsc-search-button-v2{
     border:0;
 }
 .sub-menu a {
-    font:16px/1.1 "open_sanssemibold", "Helvetica Neue", "Helvetica", Helvetica, Arial, Arial, sans-serif;
+    font:16px/1.1 "open_sanssemibold", "Helvetica Neue", "Helvetica", Arial, sans-serif;
     color:#6f6e6e;
     display:block;
     padding:15px 10px 13px; /*left w/ arrows: 36px;*/
@@ -1054,7 +1054,7 @@ a.category-name-link:hover{
 .feat-text h3 {
     color:#040503;
     padding:0;
-    font:24px/1.2em "open_sanssemibold", "Helvetica Neue", "Helvetica", Helvetica, Arial, Arial, sans-serif;
+    font:24px/1.2em "open_sanssemibold", "Helvetica Neue", "Helvetica", Arial, sans-serif;
     max-width: 360px;
 }
 .article-brief h3 a,
@@ -2882,6 +2882,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 .page-template-banner-page-php h1.page-title span{display:none;}
 .page-template-banner-page-php .article-holder{margin-top: 194px;}
 .page-template-banner-page-php .sidebar-area{margin-top: 210px;}
+
+/*** viral sweeps ***/
+.viralsweeps{height: 1120px;position: relative;}
 
 /* Master Angler
  ******************************************************************************/

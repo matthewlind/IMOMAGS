@@ -33,7 +33,7 @@ class ATAcsfWidget extends \WP_Widget {
 			    
 				</ul>
 				<div class="sponsor-bg">
-					<div class="sponsor"><?php echo get_imo_dart_tag("240x60",1,false,array("camp"=>"ata_show")); ?></div>
+					<div class="sponsor"><?php echo get_imo_dart_tag("240x60",1,false,array("sect"=>"","camp"=>"ata_show")); ?></div>
 				</div>
 				<div class="see-all"><a href="<?php echo "http://www.bowhuntingmag.com/ata-show-" . date("Y"); ?>">See All <?php echo date("Y"); ?> ATA Show Coverage</a></div>
 		    </div>
