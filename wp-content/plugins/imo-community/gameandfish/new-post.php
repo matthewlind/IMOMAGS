@@ -37,13 +37,6 @@ if ( is_user_logged_in() ) {
          return;
 }
 
-
-
-include 'common-templates.php';
-
-
-
-
 ?>
 
 
@@ -59,12 +52,6 @@ include 'common-templates.php';
 
 		        <div id="attachments" class="clearfix"></div>
 
-
-				<div id="progressBar">
-
-					<div></div><span></span>
-				</div>
-
 		        <div class="photo-link-area">
 		        	<div id="fileupload">
 						<div class="fileupload-buttonbar ">
@@ -75,8 +62,7 @@ include 'common-templates.php';
 						</div>
 					</div>
 				</div>
-
-
+				<div class="loading-gif"></div>
 
 				<div class="dropdown-selects">
 					<select id="ma-species" class="post_type alter-sel mobile-select" name="post_type">
@@ -418,14 +404,12 @@ include 'common-templates.php';
 		    <div id="form-container">
 	
 		    </div>
-	
+			<?php include 'common-templates.php'; ?>
 		</div>
 	
 	</div>
-	
-
-
-
 
 
 <?php get_footer(); ?>
+
+

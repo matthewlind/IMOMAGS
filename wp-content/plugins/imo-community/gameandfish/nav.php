@@ -1,6 +1,6 @@
 <div class="community-header">
 	<div class="header-section">
-		<a href="/photos/"><img src="<?php echo plugins_url('images/community-logo-placeholder.png' , __FILE__ ); ?>" alt="<?php echo $state ?> Game & Fish Photos" title="<?php echo $state ?> Game & Fish Photos" /></a>
+		<a href="/photos/"><img src="<?php echo plugins_url('images/yourphotos.png' , __FILE__ ); ?>" alt="<?php echo $state ?> Game & Fish Photos" title="<?php echo $state ?> Game & Fish Photos" /></a>
 	</div>
 	<div class="header-section">
 		<h3><a href="/photos/hunting">Hunting</a></h3>

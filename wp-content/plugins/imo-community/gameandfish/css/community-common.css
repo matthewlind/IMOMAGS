@@ -11,7 +11,7 @@
 	border-left: 1px solid #3b3b3b;
 }
 .community-header .header-section:first-child{border: none;}
-.community-header img{vertical-align: bottom;}
+.community-header img{vertical-align: 12px;width: 200px;}
 .community-header .header-section h3 a{color: white;}
 .community-header .header-section h3 a:hover{color: #acacac;}
 .community-header ul.community-nav{display: inline-block;padding-right: 36px;}
@@ -63,6 +63,10 @@
 	float: right;
 	margin: 56px 20px 0 0;
 }
+
+
+/*** Loading Gif ***/
+.loading-gif{display: none;}
 
 /*** common ***/
 h2{
@@ -437,15 +441,11 @@ select.alter-sel {width:100%;}
     filter: alpha(opacity=80);
 }
 .basic-popup {
-    position:absolute;
     width:300px;
-    top:14px;
-    left:50%;
-    margin-left:-150px;
-    z-index:9999999;
-    background:#fff;
+    margin: 0 auto;
     display:none;
 }
+.basic-popup .btn-red input{width: auto;}
 .popup-opened {display:block;}
 .popup-inner {
     padding:24px 13px 17px;
@@ -461,7 +461,7 @@ select.alter-sel {width:100%;}
 #rememberme1{margin-top: 11px;}
 .basic-form input[type="text"],
 .basic-form input[type="password"]{
-    width:274px;
+    width:300px;
     border:1px solid #d8d8d8;
     padding:12px 13px;
     background:#fff;

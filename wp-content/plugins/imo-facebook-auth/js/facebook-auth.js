@@ -88,30 +88,28 @@ function authSuccess(data,$clickedButton){
         jQuery(".join-widget-fb-login").fadeOut(400);
         jQuery(".choose-fb").fadeOut(400);
         jQuery(".email-login").fadeOut(400);
-        jQuery(".email-signup").fadeOut(400);
+        jQuery(".email-signup, .login-message, .or-delim").fadeOut(400);
         jQuery("#community-menu-nav small").fadeOut(400);
         //$userBar.fadeIn();
-        $submit.fadeIn();
-
-
-
-                jQuery(".browse-item").removeClass("item-active");
+        $submit.fadeIn(400);
+		
+		jQuery(".browse-item").removeClass("item-active");
         jQuery(".browse-holder").removeClass("browse-panel-opened");
         jQuery(".filter-fade-out").removeClass("filter-fade-in");
         jQuery(".layout-frame").removeClass("filter-popup-opened");
 
-
+		jQuery(".btn-submit").fadeIn(600);
         jQuery("#new-post-form").submit();
         jQuery("#comment-form").submit();
 
-        jQuery(".btn-submit").fadeIn();
+        
 
         jQuery(".login-message").fadeOut();
         jQuery(".join-logged-in").find(".profile-photo img").attr("src","/avatar?uid=" + data.user_id);
         jQuery(".join-logged-in").fadeIn(function(){
 
         });
-
+		
         //$userBar.fadeIn();
         $userWidget.fadeIn(500,function(){
 

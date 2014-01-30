@@ -40,7 +40,7 @@ jQuery(document).ready(function($) {
         jQuery(".reg-popup").addClass("popup-opened");
         jQuery(".filter-fade-out").addClass("filter-fade-in");
         jQuery(".layout-frame").addClass("filter-popup-opened");
-        jQuery('html, body').animate({scrollTop:0}, 'slow');
+        //jQuery('html, body').animate({scrollTop:0}, 'slow');
         return false;
     });
 

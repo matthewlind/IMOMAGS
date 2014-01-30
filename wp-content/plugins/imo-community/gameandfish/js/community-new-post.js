@@ -1,5 +1,7 @@
 jQuery(document).ready(function($) {
-
+	
+	//jQuery('.loading-gif').removeClass('loading-gif');
+	
 	//Get post_type from community config
 	var postTypes = IMO_COMMUNITY_CONFIG.post_types;
 
@@ -30,13 +32,14 @@ jQuery(document).ready(function($) {
 
 		$(".imo-fb-login-button").css({ opacity: 0.5 });
 		$(".join-widget-fb-login").css({ opacity: 0.5 });
+		
 		//$(".fast-login-then-post-button").css({ opacity: 0.5 });
 
 			FB.login(function(response) {
 			   if (response.authResponse) {
 
 			   	if ($clickedButton.hasClass("fast-login-then-post-button")) {
-			   		$("img.submit-icon").attr("src","/wp-content/themes/imo-mags-northamericanwhitetail/img/submit-throbber.gif");
+			   		$("img.submit-icon").attr("src","../images/submit-throbber.gif");
 			   	}
 
 			     //console.log('Welcome!  Fetching your information.... ');
@@ -44,7 +47,6 @@ jQuery(document).ready(function($) {
 			       //console.log('FB FETCH INFO RESPONSE: ' + response.name + '.');
 
 			       	if (userIMO.username.length > 0) {//If user is logged in
-
 
 					  } else { //if user is not logged in
 
@@ -56,7 +58,7 @@ jQuery(document).ready(function($) {
 						  jQuery.getJSON('/facebook-usercheck.json', function(data){
 							  authSuccess(data,$clickedButton);
 						  });
-
+						  
 					  }//End if user is logged in
 
 			     });
@@ -135,11 +137,6 @@ jQuery(document).ready(function($) {
 	//*******************************************************
 	$("#new-post-form").submit(function(ev){
 
-
-
-
-
-
 		ev.preventDefault();
 
 		var formDataObject = $("#new-post-form").formParams();
@@ -169,7 +166,7 @@ jQuery(document).ready(function($) {
 
 				//alert("New Post Added! Replace this alert with a redirect to something!")
 
-
+				$('.loading-gif').fadeIn();
 				var newPostURL = "/photos/" + newPostData.tertiary_post_type + "/" + newPostData.secondary_post_type + "/" + newPostData.post_type + "/" + postData.id;
 
 				if (postData)
@@ -202,7 +199,7 @@ jQuery(document).ready(function($) {
 		} else if (formData.img_url.length < 1) {
 			alert("Please attach a photo.");
 			return false;
-		} else if (formData.post_type.length < 1) {
+		} else if (formData.post_type.length < 1 || formData.secondary.length < 1) {
 			alert("Please select a species.");
 			return false;
 		} else if (formData.state.length < 1) {
@@ -230,7 +227,7 @@ jQuery(document).ready(function($) {
 		    //console.log("Choose an Image to upload.");
 		} else {
 
-			$('#progressBar').fadeIn();
+			$('.loading-gif').fadeIn();
 
 			filepicker.setKey('ANCtGPesfQI6nKja0ipqBz');
 
@@ -272,7 +269,6 @@ jQuery(document).ready(function($) {
 
 			            	$(".add-photo-link").slideDown();
 
-
 			            	$attachmentTemplate.slideUp();
 
 			            });
@@ -282,12 +278,12 @@ jQuery(document).ready(function($) {
 
 			            //postAttachments.push(newAttachment);//add the attachments to the list
 			            postData.img_url = FPFile.url;
-						$('#progressBar').slideUp();
+						$('.loading-gif').fadeOut();
 
 
 		            } else {
 		            	alert("Only images can be posted. Other file types are not allowed.");
-		            	$('#progressBar').slideUp();
+		            	$('.loading-gif').fadeOut();
 		            }
 
 
@@ -298,8 +294,8 @@ jQuery(document).ready(function($) {
 		            //console.log("Loading: "+progress+"%");//PROGRESS INDICATOR!!!!!
 
 		            //progress bar
-		            $('#progressBar div').css("width",progress*3 + "px");
-		            $('#progressBar span').text("Uploading: "+progress+"%");
+		            $('.loading-gif div').css("width",progress*3 + "px");
+		            $('.loading-gif span').text("Uploading: "+progress+"%");
 
 		        }
 		   );

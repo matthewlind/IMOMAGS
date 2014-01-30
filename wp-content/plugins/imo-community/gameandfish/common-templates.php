@@ -1,10 +1,7 @@
 <?php
 
 ?>
-
-
-
-   <!-- log/reg popup start -->
+<!-- log/reg popup start -->
         <div class="basic-popup basic-form reg-popup">
             <div class="popup-inner clearfix">
                 <form id="imo-ajax-login-form" action="/imo-email-login.json" method="post">
@@ -45,31 +42,7 @@
                     </fieldset>
                 </form>
             </div>
-            <a class="btn-close-popup jq-close-popup" href="#">close</a>
-            <a class="btn-cancel jq-close-popup" href="#">Cancel</a>
+            <!--<a class="btn-close-popup jq-close-popup" href="#">close</a>
+            <a class="btn-cancel jq-close-popup" href="#">Cancel</a>-->
         </div>
         <!-- log/reg popup end -->
-
-
-
-
-
-  <!-- Modal -->
-  <div class="modal fade" id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 class="modal-title">Sending Photo...</h2>
-        </div>
-        <div class="modal-body">
-          <div id="progressBar">
-
-            <div></div><span></span>
-          </div>
-        </div>
-
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
-
-
