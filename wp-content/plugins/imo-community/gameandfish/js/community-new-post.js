@@ -32,14 +32,13 @@ jQuery(document).ready(function($) {
 
 		$(".imo-fb-login-button").css({ opacity: 0.5 });
 		$(".join-widget-fb-login").css({ opacity: 0.5 });
-		
 		//$(".fast-login-then-post-button").css({ opacity: 0.5 });
 
 			FB.login(function(response) {
 			   if (response.authResponse) {
 
 			   	if ($clickedButton.hasClass("fast-login-then-post-button")) {
-			   		$("img.submit-icon").attr("src","../images/submit-throbber.gif");
+			   		$("img.submit-icon").attr("src","/wp-content/themes/imo-mags-northamericanwhitetail/img/submit-throbber.gif");
 			   	}
 
 			     //console.log('Welcome!  Fetching your information.... ');
@@ -47,6 +46,7 @@ jQuery(document).ready(function($) {
 			       //console.log('FB FETCH INFO RESPONSE: ' + response.name + '.');
 
 			       	if (userIMO.username.length > 0) {//If user is logged in
+
 
 					  } else { //if user is not logged in
 
@@ -58,7 +58,7 @@ jQuery(document).ready(function($) {
 						  jQuery.getJSON('/facebook-usercheck.json', function(data){
 							  authSuccess(data,$clickedButton);
 						  });
-						  
+
 					  }//End if user is logged in
 
 			     });
@@ -136,7 +136,7 @@ jQuery(document).ready(function($) {
 	//****************** NEW POST SUBMISSION ****************
 	//*******************************************************
 	$("#new-post-form").submit(function(ev){
-
+		$('.loading-gif').fadeIn();
 		ev.preventDefault();
 
 		var formDataObject = $("#new-post-form").formParams();
@@ -165,8 +165,7 @@ jQuery(document).ready(function($) {
 
 
 				//alert("New Post Added! Replace this alert with a redirect to something!")
-
-				$('.loading-gif').fadeIn();
+				
 				var newPostURL = "/photos/" + newPostData.tertiary_post_type + "/" + newPostData.secondary_post_type + "/" + newPostData.post_type + "/" + postData.id;
 
 				if (postData)
@@ -199,7 +198,7 @@ jQuery(document).ready(function($) {
 		} else if (formData.img_url.length < 1) {
 			alert("Please attach a photo.");
 			return false;
-		} else if (formData.post_type.length < 1 || formData.secondary.length < 1) {
+		} else if (formData.post_type.length < 1) {
 			alert("Please select a species.");
 			return false;
 		} else if (formData.state.length < 1) {

@@ -263,24 +263,27 @@ echo "<h1>Post Type Tertiary: $post_type_tertiary</h1>";
 
 <!-- start nav -->
 <?php include_once('nav.php'); ?>
-<div class="slider-hat">
-	<ul class="breadcrumbs">
-    	<li><a href="/photos">All Photos</a></li>
-    	<li style="margin-top:1px;text-transform:capitalize;"> &raquo; <a href="/photos/<?php echo $post_type_tertiary; ?>"><?php echo $post_type_tertiary; ?></a></li>
-    	<li style="margin-top:1px;text-transform:capitalize;"> &raquo; <a href="/photos/<?php echo $post_type_tertiary; ?>/<?php echo $post_type_secondary; ?>"><?php echo $post_type_secondary; ?></a></li>
-    	<li style="margin-top:1px;text-transform:capitalize;"> &raquo; <?php echo $post_type_primary; ?></li>
-	</ul>
+<div class="slider-section">
 	<div class="nav-share">
         <label class="upload-button">
             <a href="/photos/new/"><span class="singl-post-photo"><span>Share Your Photo Now!</span></span></a>
             <input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
         </label>
 	</div>
-</div>
-<div class="slider-section">
 	<?php //echo do_shortcode('[imo-slideshow community=true]'); ?>
 	<div class="dif-full-post">
-        <h1><?php echo $data->title; ?></h1>
+		<ul class="breadcrumbs">
+	    	<li><a href="/photos">All Photos</a></li>
+	    	<?php if($post_type_tertiary){ ?><li style="margin-top:1px;text-transform:capitalize;"> &raquo; <a href="/photos/<?php echo $post_type_tertiary; ?>"><?php echo $post_type_tertiary; ?></a></li><?php } ?>
+	    	<?php if($post_type_secondary){ ?>
+	    		<li style="margin-top:1px;text-transform:capitalize;"> &raquo; <a href="/photos/<?php echo $post_type_tertiary; ?>/<?php echo $post_type_secondary; ?>"><?php echo $post_type_secondary; ?></a></li><?php } ?>
+	    	<?php if($post_type_primary){ ?><li style="margin-top:1px;text-transform:capitalize;"> &raquo; <?php echo $post_type_primary; ?></li><?php } ?>
+		</ul>
+		<div class="custom-title clearfix">
+            <div class="title-crumbs">
+				<h1><?php echo $data->title; ?></h1>
+            </div>
+		</div>
         <div class="profile-panel">
 		<?php
         	$width = "/convert?w=730&fit=scale&rotate=exif";

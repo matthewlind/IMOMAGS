@@ -166,21 +166,17 @@ if(mobile()){
 
 ?>
 <!-- start nav -->
-<?php include_once('nav.php'); ?>
-<div class="slider-hat">
-	<ul class="breadcrumbs">
-    	<li><a href="/photos">All Photos</a></li>
-    	<li style="margin-top:1px;text-transform:capitalize;"> &raquo; <?php if ($myProfile){ echo "My"; }else{ echo $data->display_name . "'s"; } ?> Profile</li>
-	</ul>
+<?php 
+include_once('nav.php');
+imo_sidebar("community"); 
+?>
+<div id="primary" class="general general-com" role="main">
 	<div class="nav-share">
         <label class="upload-button">
             <a href="/photos/new/"><span class="singl-post-photo"><span>Share Your Photo Now!</span></span></a>
             <input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
         </label>
 	</div>
-</div>
-<?php imo_sidebar("community"); ?>
-<div id="primary" class="general general-com" role="main">
     <div class="profile-data-box">
         <div class="user-col">
             <h2><?php echo $data->display_name; ?></h2>
