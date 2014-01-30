@@ -129,40 +129,50 @@ if(post.score == 1){
 <!-- *********************************************************** -->
 <!-- *********************************************************** -->
 <!-- start nav -->
-<?php include_once('nav.php'); ?>
-<div class="slider-hat">
-	<ul class="breadcrumbs">
-    	<li><a href="/photos">All Photos</a></li>
-    	<?php if($post_type_tertiary){ ?><li style="margin-top:1px;text-transform:capitalize;"> &raquo; <a href="/photos/<?php echo $post_type_tertiary; ?>"><?php echo $post_type_tertiary; ?></a></li><?php } ?>
-    	<?php if($post_type_secondary){ ?><li style="margin-top:1px;text-transform:capitalize;"> &raquo; <a href="/photos/<?php echo $post_type_tertiary; ?>/<?php echo $post_type_secondary; ?>"><?php echo $post_type_secondary; ?></a></li><?php } ?>
-    	<?php if($post_type_primary){ ?><li style="margin-top:1px;text-transform:capitalize;"> &raquo; <?php echo $post_type_primary; ?></li><?php } ?>
-
-	</ul>
-	<div class="nav-share">
-        <label class="upload-button">
-            <a href="/photos/new/"><span class="singl-post-photo"><span>Share Your Photo Now!</span></span></a>
-            <input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
-        </label>
-	</div>
-</div>
-<?php imo_sidebar("community"); ?>
+<?php 
+include_once('nav.php');
+imo_sidebar("community"); 
+?>
 <div class="page-community">
     <div class="general general-com">
-    	<!--<div class="custom-title clearfix">
+    	<div class="nav-share">
+	        <label class="upload-button">
+	            <a href="/photos/new/"><span class="singl-post-photo"><span>Share Your Photo Now!</span></span></a>
+	            <input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
+	        </label>
+		</div>
+		<div class="btn-group btn-bar">
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+			<span class="menu-title browse-community">Browse by State</span> <span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu filter" role="menu">
+				<li><a href="" class="filter-menu active" order_by="created" id="filter-menu-default">State</a></li>
+			</ul>
+		</div>
+    	<div class="custom-title clearfix">
             <div class="title-crumbs">
-                <h1>Game & Fish Community</h1>
+            	<ul class="breadcrumbs">
+			    	<li><a href="/photos">All Photos</a></li>
+			    	<?php if($post_type_tertiary){ ?><li style="margin-top:1px;text-transform:capitalize;"> &raquo; <a href="/photos/<?php echo $post_type_tertiary; ?>"><?php echo $post_type_tertiary; ?></a></li><?php } ?>
+			    	<?php if($post_type_secondary){ ?>
+			    		<li style="margin-top:1px;text-transform:capitalize;"> &raquo; <a href="/photos/<?php echo $post_type_tertiary; ?>/<?php echo $post_type_secondary; ?>"><?php echo $post_type_secondary; ?></a></li><?php } ?>
+			    	<?php if($post_type_primary){ ?><li style="margin-top:1px;text-transform:capitalize;"> &raquo; <?php echo $post_type_primary; ?></li><?php } ?>
+				</ul>
+                <h1><?php if( empty($post_type_primary) && !empty($post_type_secondary) && !empty($post_type_tertiary)){ 
+		                	echo $post_type_secondary; 
+		                }else if( empty($post_type_primary) && empty($post_type_secondary) && !empty($post_type_tertiary) ){ 
+		                	echo $post_type_tertiary; 
+		                }else if( empty($post_type_primary) && empty($post_type_secondary) && empty($post_type_tertiary) ){ 
+		                	echo 'All Photos'; 
+		                }else if( !empty($post_type_primary) && !empty($post_type_secondary) && !empty($post_type_tertiary) ){ 
+		                	echo $post_type_primary; 
+		                } ?></h1>
+                <div class="sponsor"><?php imo_dart_tag("240x60"); ?></div>
 			</div>
-        </div>-->
-        <div class="sponsor"><?php imo_dart_tag("240x60"); ?></div>
+        </div>
+        
         <?php //echo do_shortcode('[imo-slideshow community=true]'); ?>
-
-
-
-
-
-<!--         <div class="general-title clearfix alter-title">
-            <h2>Latest <span>Submissions</span></h2>
-        </div> -->
+		
         <div class="dif-posts">
 			<div id="posts-container" posttype="<?php echo $post_type_primary; ?>" secondaryposttype="<?php echo $post_type_secondary; ?>" tertiaryposttype="<?php echo $post_type_tertiary; ?>"></div>
          </div>
