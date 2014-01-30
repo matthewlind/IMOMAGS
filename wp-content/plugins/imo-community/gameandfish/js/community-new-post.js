@@ -1,7 +1,7 @@
 jQuery(document).ready(function($) {
-	
+
 	//jQuery('.loading-gif').removeClass('loading-gif');
-	
+
 	//Get post_type from community config
 	var postTypes = IMO_COMMUNITY_CONFIG.post_types;
 
@@ -32,7 +32,7 @@ jQuery(document).ready(function($) {
 
 		$(".imo-fb-login-button").css({ opacity: 0.5 });
 		$(".join-widget-fb-login").css({ opacity: 0.5 });
-		
+
 		//$(".fast-login-then-post-button").css({ opacity: 0.5 });
 
 			FB.login(function(response) {
@@ -58,7 +58,7 @@ jQuery(document).ready(function($) {
 						  jQuery.getJSON('/facebook-usercheck.json', function(data){
 							  authSuccess(data,$clickedButton);
 						  });
-						  
+
 					  }//End if user is logged in
 
 			     });
@@ -169,6 +169,10 @@ jQuery(document).ready(function($) {
 				$('.loading-gif').fadeIn();
 				var newPostURL = "/photos/" + newPostData.tertiary_post_type + "/" + newPostData.secondary_post_type + "/" + newPostData.post_type + "/" + postData.id;
 
+				if (newPostData.secondary_post_type == null) {
+					var newPostURL = "/photos/" + newPostData.tertiary_post_type + "/" + newPostData.post_type + "/" + postData.id;
+				}
+
 				if (postData)
 					window.location.href = newPostURL;
 				else
@@ -199,7 +203,7 @@ jQuery(document).ready(function($) {
 		} else if (formData.img_url.length < 1) {
 			alert("Please attach a photo.");
 			return false;
-		} else if (formData.post_type.length < 1 || formData.secondary.length < 1) {
+		} else if (formData.post_type.length < 1) {
 			alert("Please select a species.");
 			return false;
 		} else if (formData.state.length < 1) {

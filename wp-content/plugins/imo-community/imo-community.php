@@ -66,12 +66,22 @@ function imo_community_setup_routes($wp_rewrite) {
 
 	    		foreach ($post_type_data['children'] as $post_type_name2 => $post_type_data2) {
 
-		    		$rewriteCondition2 = "(" . $IMO_COMMUNITY_CONFIG['community_home_slug']. "/" . $post_type_name . "/" . $post_type_name2 . $regex;
-		    		$rewriteString2 = "index.php?pagename="
-		    					. $CONFIG_NAME
-		    					. "&config_name=" . $CONFIG_NAME
-		    					. "&post_type_tertiary=" . $post_type_name
-		    					. "&post_type_secondary=" . $post_type_name2;
+	    			if (empty($post_type_data2['children'])) {
+			    		$rewriteCondition2 = "(" . $IMO_COMMUNITY_CONFIG['community_home_slug']. "/" . $post_type_name . "/" . $post_type_name2 . $regex;
+			    		$rewriteString2 = "index.php?pagename="
+			    					. $CONFIG_NAME
+			    					. "&config_name=" . $CONFIG_NAME
+			    					. "&post_type_tertiary=" . $post_type_name
+			    					. "&post_type_primary=" . $post_type_name2;
+	    			} else {
+			    		$rewriteCondition2 = "(" . $IMO_COMMUNITY_CONFIG['community_home_slug']. "/" . $post_type_name . "/" . $post_type_name2 . $regex;
+			    		$rewriteString2 = "index.php?pagename="
+			    					. $CONFIG_NAME
+			    					. "&config_name=" . $CONFIG_NAME
+			    					. "&post_type_tertiary=" . $post_type_name
+			    					. "&post_type_secondary=" . $post_type_name2;
+	    			}
+
 
 
 		    		foreach ($post_type_data2['children'] as $post_type_name3 => $post_type_data3) {
@@ -132,6 +142,22 @@ function imo_community_setup_routes($wp_rewrite) {
 	    	foreach ($post_types as $post_type_name => $post_type_data) {
 
 	    		foreach ($post_type_data['children'] as $post_type_name2 => $post_type_data2) {
+
+
+	    				if (empty($post_type_data2['children'])) {
+				    		$rewriteCondition2 = "(" . $IMO_COMMUNITY_CONFIG['community_home_slug']. "/" . $post_type_name . "/" . $post_type_name2 . $regex;
+				    		$rewriteString2 = "index.php?pagename="
+				    					. $CONFIG_NAME
+				    					. "&config_name=" . $CONFIG_NAME
+				    					. "&post_type_tertiary=" . $post_type_name
+				    					. "&post_type_primary=" . $post_type_name2
+				    					. '&spid=$matches[2]';
+
+				    		$newRewriteRules[$rewriteCondition2] = $rewriteString2;
+	    				}
+
+
+
 
 		    		foreach ($post_type_data2['children'] as $post_type_name3 => $post_type_data3) {
 

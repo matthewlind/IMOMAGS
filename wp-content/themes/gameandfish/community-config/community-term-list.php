@@ -29,6 +29,104 @@ $gfPostTypes = array(
 				)
 			),
 
+			"deer" => array(
+				"display_name" => "Deer",
+				"post_list_style" => "tile",
+				"children" => array(
+
+					"whitetail" => array(
+						"display_name" => "Whitetail",
+						"post_list_style" => "tile"
+					),
+					"mule-deer" => array(
+						"display_name" => "Mule Deer",
+						"post_list_style" => "tile"
+					),
+					"blacktail" => array(
+						"display_name" => "Blacktail",
+						"post_list_style" => "tile"
+					)
+
+				)
+			),
+
+
+
+			"hogs" => array(
+				"display_name" => "Hogs",
+				"post_list_style" => "tile",
+
+			),
+
+			"turkey" => array(
+				"display_name" => "Turkey",
+				"post_list_style" => "tile",
+
+			),
+
+
+
+
+			"predators" => array(
+				"display_name" => "Predators",
+				"post_list_style" => "tile",
+				"children" => array(
+
+					"cougars" => array(
+						"display_name" => "Cougars",
+						"post_list_style" => "tile"
+					),
+					"coyotes" => array(
+						"display_name" => "Coyotes",
+						"post_list_style" => "tile"
+					),
+					"wolves" => array(
+						"display_name" => "Wolves",
+						"post_list_style" => "tile"
+					)
+
+				)
+			),
+
+
+
+			"small-game" => array(
+				"display_name" => "Small Game",
+				"post_list_style" => "tile",
+				"children" => array(
+
+					"rabbits" => array(
+						"display_name" => "Rabbits",
+						"post_list_style" => "tile"
+					),
+					"squirrels" => array(
+						"display_name" => "Squirrels",
+						"post_list_style" => "tile"
+					)
+
+				)
+			),
+
+
+
+
+			"upland-bird" => array(
+				"display_name" => "Upland Bird",
+				"post_list_style" => "tile",
+				"children" => array(
+
+					"doves" => array(
+						"display_name" => "Doves",
+						"post_list_style" => "tile"
+					),
+					"pheasants" => array(
+						"display_name" => "Pheasants",
+						"post_list_style" => "tile"
+					)
+
+				)
+			),
+
 			"waterfowl" => array(
 				"display_name" => "Waterfowl",
 				"post_list_style" => "tile",
@@ -39,29 +137,14 @@ $gfPostTypes = array(
 						"post_list_style" => "tile"
 					),
 					"goose" => array(
-						"display_name" => "Goose",
-						"post_list_style" => "tile"
-					)
-
-				)
-			),
-
-			"deer" => array(
-				"display_name" => "Deer",
-				"post_list_style" => "tile",
-				"children" => array(
-
-					"whitetail" => array(
-						"display_name" => "Whitetail",
-						"post_list_style" => "tile"
-					),
-					"blacktail" => array(
-						"display_name" => "Blacktail",
+						"display_name" => "Geese",
 						"post_list_style" => "tile"
 					)
 
 				)
 			)
+
+
 		)
 	),
 
@@ -70,41 +153,49 @@ $gfPostTypes = array(
 		"post_list_style" => "tile",
 		"children" => array(
 
-			"freshwater" => array(
-				"display_name" => "Freshwater",
+			"bass" => array(
+				"display_name" => "Bass",
 				"post_list_style" => "tile",
 				"children" => array(
 
-					"trout" => array(
-						"display_name" => "Trout",
+					"largemouth-bass" => array(
+						"display_name" => "Largemouth Bass",
 						"post_list_style" => "tile"
 					),
-					"catfish" => array(
-						"display_name" => "Catfish",
+					"smallmouth-bass" => array(
+						"display_name" => "Smallmouth Bass",
 						"post_list_style" => "tile"
 					),
-					"bass" => array(
-						"display_name" => "Bass",
+					"stripers" => array(
+						"display_name" => "Stripers & Hybrids",
 						"post_list_style" => "tile"
 					)
 				)
 			),
 
+			"catfish" => array(
+				"display_name" => "Catfish",
+				"post_list_style" => "tile"
+			),
+			"panfish" => array(
+				"display_name" => "Panfish & Crappie",
+				"post_list_style" => "tile"
+			),
+			"walleye" => array(
+				"display_name" => "Walleye",
+				"post_list_style" => "tile"
+			),
+			"trout" => array(
+				"display_name" => "Trout",
+				"post_list_style" => "tile"
+			),
+			"pike" => array(
+				"display_name" => "Pike & Muskie",
+				"post_list_style" => "tile"
+			),
 			"saltwater" => array(
 				"display_name" => "Saltwater",
-				"post_list_style" => "tile",
-				"children" => array(
-
-					"tuna" => array(
-						"display_name" => "Tuna",
-						"post_list_style" => "tile"
-					),
-					"grouper" => array(
-						"display_name" => "Grouper",
-						"post_list_style" => "tile"
-					)
-
-				)
+				"post_list_style" => "tile"
 			)
 		)
 	)

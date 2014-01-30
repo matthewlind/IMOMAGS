@@ -10,6 +10,26 @@ for (var tertiaryPostTypeName in allPostTypes) {
 	for (var secondaryPostTypeName in tertiaryPostType) {
 
 		secondaryPostType = tertiaryPostType[secondaryPostTypeName]['children'];
+		secondaryPostTypeData = tertiaryPostType[secondaryPostTypeName];
+
+		if (secondaryPostType == undefined) {
+
+
+			speciesData[secondaryPostTypeName] = Array();
+			speciesData[secondaryPostTypeName].secondary = null;
+			speciesData[secondaryPostTypeName].tertiary = tertiaryPostTypeName;
+			speciesData[secondaryPostTypeName].display_name = secondaryPostTypeData.display_name;
+
+			var speciesType = {};
+			speciesType.post_type = secondaryPostTypeName;
+			speciesType.secondary = null;
+			speciesType.tertiary = tertiaryPostTypeName;
+			speciesType.display_name = secondaryPostTypeData.display_name;
+
+			speciesDataList.push(speciesType);
+		}
+
+
 
 		for (var postTypeName in secondaryPostType) {
 
