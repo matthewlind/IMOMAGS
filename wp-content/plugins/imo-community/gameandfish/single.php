@@ -401,7 +401,7 @@ echo "<h1>Post Type Tertiary: $post_type_tertiary</h1>";
 
     </div>-->
     <div class="replies-box">
-        <h2>What's Your Take?</h2>
+        <h2>Replies</h2>
 
         <ul class="replies-list">
 
