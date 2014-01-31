@@ -1,6 +1,7 @@
 <div class="community-header">
 	<div class="header-section">
-		<a href="/photos/"><img src="<?php echo plugins_url('images/yourphotos.png' , __FILE__ ); ?>" alt="<?php echo $state ?> Game & Fish Photos" title="<?php echo $state ?> Game & Fish Photos" /></a>
+		<a href="/photos/"><img src="<?php echo plugins_url('images/yourphotos.png' , __FILE__ ); ?>" alt="<?php echo $state ?> Game & Fish Photos" title="Game & Fish Photos" /></a>
+		<div class="sponsor"><?php imo_dart_tag("240x60"); ?></div>
 	</div>
 	<div class="header-section">
 		<h3><a href="/photos/hunting">Hunting</a></h3>
@@ -9,6 +10,7 @@
 			<li><a href="#">Big Game</a></li>
 			<li><a href="#">Turkey</a></li>
 			<li><a href="#">Elk</a></li>
+			<li><a href="#">Big Game</a></li>
 		</ul>
 		
 		<ul class="community-nav">
@@ -16,6 +18,7 @@
 			<li><a href="#">Big Game</a></li>
 			<li><a href="#">Turkey</a></li>
 			<li><a href="#">Elk</a></li>
+			<li><a href="#">Big Game</a></li>
 		</ul>
 		
 		<ul class="community-nav">
@@ -23,6 +26,7 @@
 			<li><a href="#">Big Game</a></li>
 			<li><a href="#">Turkey</a></li>
 			<li><a href="#">Elk</a></li>
+			<li><a href="#">Big Game</a></li>
 		</ul>
 	</div>
 	
@@ -33,6 +37,7 @@
 			<li><a href="#">Catfish</a></li>
 			<li><a href="#">Crappie & Panfish</a></li>
 			<li><a href="#">Pike & Muskie</a></li>
+			<li><a href="#">Catfish</a></li>
 		</ul>
 
 		<ul class="community-nav">
@@ -40,6 +45,7 @@
 			<li><a href="#">Catfish</a></li>
 			<li><a href="#">Crappie & Panfish</a></li>
 			<li><a href="#">Pike & Muskie</a></li>
+			<li><a href="#">Catfish</a></li>
 		</ul>
 	</div>
 </div>
