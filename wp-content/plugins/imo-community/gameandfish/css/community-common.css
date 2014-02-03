@@ -1021,7 +1021,6 @@ select.alter-sel {width:100%;}
     margin:2px 5px 0 0;
 }
 .title-crumbs {
-  	padding-top: 10px;
     color:#040503;
 }
 .custom-title h1 {
@@ -1038,6 +1037,7 @@ select.alter-sel {width:100%;}
 .title-crumbs p {
     padding:0 0 18px;
 }
+.addthis_toolbox{clear: both;}
 .tite-soc li {
     display:inline-block;
     vertical-align:middle;

@@ -342,7 +342,9 @@
 <div id="page" class="snap-content smooth-menu">
 <?php if (mobile() == false && tablet() == false) {  
 	imo_dart_tag("1x1",false,array("pos"=>"skin")); 
-	imo_dart_tag("1080x90"); 
+	echo '<div class="expandable">';
+		imo_dart_tag("1080x90");
+	echo '</div>';
 } ?>
 	<div class="hfeed wrapper" data-role="content" role="main">
 	    <div class="layout-frame">
