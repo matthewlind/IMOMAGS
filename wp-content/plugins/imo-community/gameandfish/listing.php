@@ -163,11 +163,10 @@ imo_sidebar("community");
 		                }else if( empty($post_type_primary) && empty($post_type_secondary) && !empty($post_type_tertiary) ){ 
 		                	echo $post_type_tertiary; 
 		                }else if( empty($post_type_primary) && empty($post_type_secondary) && empty($post_type_tertiary) ){ 
-		                	echo 'All Photos'; 
+		                	echo 'Game & Fish Photos'; 
 		                }else if( !empty($post_type_primary) && !empty($post_type_secondary) && !empty($post_type_tertiary) ){ 
 		                	echo $post_type_primary; 
 		                } ?></h1>
-                <div class="sponsor"><?php imo_dart_tag("240x60"); ?></div>
 			</div>
         </div>
         

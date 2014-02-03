@@ -3,6 +3,9 @@ jQuery(document).ready(function($) {
 	//add class to body element for css styling
 	//jQuery("body").addClass("is_community");
 	
+	
+
+	
     jQuery('.browse-panel').on("click", ".jq-open-filer", function(){
         jQuery(".browse-item").removeClass("item-active");
         jQuery(this).addClass("item-active");

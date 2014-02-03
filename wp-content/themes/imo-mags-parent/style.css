@@ -933,6 +933,8 @@ input.gsc-search-button-v2{
 .sponsor {float:right;}
 .sponsor img{float: right;}
 .single .sponsor{float: none;}
+.expandable{margin: 0 auto;width: 1080px;}
+.expandable img{margin: 0 auto !important;display: block;}
 
 /*** sportsman channel video widget ***/
 .widget_channel-video-widget{width: 310px;}
@@ -2422,6 +2424,7 @@ margin-bottom:15px;
 	background: url(images/bg/black-50.png) repeat left bottom;
 	opacity: 1;
 	color: white;
+	min-width: 310px;
 }
 
 

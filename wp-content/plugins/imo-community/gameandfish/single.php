@@ -283,8 +283,16 @@ echo "<h1>Post Type Tertiary: $post_type_tertiary</h1>";
             <div class="title-crumbs">
 				<h1><?php echo $data->title; ?></h1>
             </div>
+            <div addthis:url="http://www.in-fisherman.com/photos/<?php echo $data->id; ?>" addthis:title="" class="addthis_toolbox addthis_default_style ">
+			<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+			<a class="addthis_button_tweet"></a>
 		</div>
-        <div class="profile-panel">
+        <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4de659c80f33d1e7"></script>
+
+
+		</div>
+		        <div class="profile-panel">
 		<?php
         	$width = "/convert?w=730&fit=scale&rotate=exif";
         	if(mobile()){
@@ -346,15 +354,7 @@ echo "<h1>Post Type Tertiary: $post_type_tertiary</h1>";
 	            <?php } ?>
                 <div class="clearfix">
                 <a href="#reply_field" class="post-it">Post a Reply</a>
-
-	            <div addthis:url="http://www.in-fisherman.com/photos/<?php echo $data->id; ?>" addthis:title="" class="addthis_toolbox addthis_default_style ">
-					<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-					<a class="addthis_button_tweet"></a>
-					<a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
-				</div>
-	            <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
-				<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4de659c80f33d1e7"></script>
-				</div>
+	           	</div>
 	        </div>
 	    </div>
 	</div>

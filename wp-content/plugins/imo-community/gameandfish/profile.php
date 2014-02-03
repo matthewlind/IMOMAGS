@@ -164,6 +164,14 @@ if(mobile()){
 	$crop = "/convert?w=458&h=458&fit=crop&rotate=exif";
 }
 
+//Path Data:
+$post_type_primary = get_query_var("post_type_primary");
+$post_type_secondary = get_query_var("post_type_secondary");
+$post_type_tertiary = get_query_var("post_type_tertiary");
+
+echo "<h1>Post Type: $post_type_primary</h1>";
+echo "<h1>Post Type Secondary: $post_type_secondary</h1>";
+echo "<h1>Post Type Tertiary: $post_type_tertiary</h1>";
 ?>
 <!-- start nav -->
 <?php 
@@ -245,7 +253,7 @@ imo_sidebar("community");
 
                         <div class="dif-post">
                             <div class="feat-img">
-                                <a href="/photos/<?php echo $post->id; ?>"><img class="feat-img" src="<?php echo $post->img_url; ?>" alt="<?php echo $post->title; ?>" title="<?php echo $post->title; ?>" /></a>
+                            	<a href="/photos/<?php echo $post_type_tertiary; ?>/<?php echo $post_type_secondary; ?>/<?php echo $post->id; ?>"><img class="feat-img" src="<?php echo $post->img_url; ?>" alt="<?php echo $post->title; ?>" title="<?php echo $post->title; ?>" /></a>
                             </div>
                             <div class="dif-post-text">
                                 <h3><a href="/photos/<?php echo $post->id; ?>"><?php echo $post->title; ?></a></h3>

@@ -10,6 +10,14 @@ if($cat_slug == "trout-salmon"){
 
 $dataPos = 0;
 
+$categoryID = get_query_var('cat');
+
+$fullWidthImage = get_option('full_width_image_'.$categoryID, false);
+$post_set_id = get_option('post_set_id_'.$categoryID, false);
+$playerID = get_option('playerID_'.$categoryID, false);
+$playerKey = get_option('playerKey_'.$categoryID, false);
+$network_video_title = get_option('network_video_title_'.$categoryID, false);
+
 get_header(); ?>
         <?php imo_sidebar(); ?>
         <div id="primary" class="general">
@@ -45,7 +53,44 @@ get_header(); ?>
                             <li><a href="#">Most Shared</a></li>
                         </ul>
                     </div>-->
-                    
+                    <?php if( $post_set_id ){ ?>
+					<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="featured-area clearfix js-responsive-section">
+			            <div class="clearfix">
+			                <ul>
+			               	 	<?php if( function_exists('showFeaturedList') ){  echo showFeaturedPosts(array('set_id' => $post_set_id)); } ?>
+			               	</ul>
+			            </div>
+			      
+			        </div>
+			
+					<?php } 
+
+                    if( $playerID && $playerKey ){ ?>
+						<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section">
+							<div class="general-title clearfix">
+				                <h2><?php echo $network_video_title; ?></h2>
+				            </div>
+				
+							<!-- Start of Brightcove Player -->
+							<div style="display:none"></div>
+											
+							<script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+							
+							<object id="myExperience" class="BrightcoveExperience">
+							  <param name="bgcolor" value="#FFFFFF" />
+							  <param name="width" value="480" />
+							  <param name="height" value="628" />
+							  <param name="playerID" value="<?php echo $playerID; ?>" />
+							  <param name="playerKey" value="<?php echo $playerKey; ?>" />
+							  <param name="isVid" value="true" />
+							  <param name="isUI" value="true" />
+							  <param name="dynamicStreaming" value="true" />
+							</object>
+							<script type="text/javascript">brightcove.createExperiences();</script>
+							<!-- End of Brightcove Player -->		
+						</div>
+						<?php } ?>
+
                     <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section main-content-preppend">
 						<?php $i = 1; while ( have_posts() ) : the_post(); ?>
         

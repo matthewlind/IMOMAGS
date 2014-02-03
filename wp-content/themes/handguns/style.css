@@ -17,6 +17,12 @@ body{background:#2d2d2d;}
 .header, .header .subscribe-links a{color: white;}
 .layout-frame{border: none;background: none;}
 .main, .content-banner-section{background: white;}
+.expandable{
+	padding-top: 70px;
+	margin-bottom: -65px;
+	z-index: 999;
+	position: relative;
+}
 
 /* Tags reset
 *******************************************************************************/
