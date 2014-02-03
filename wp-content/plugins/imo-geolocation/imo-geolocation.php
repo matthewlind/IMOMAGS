@@ -9,6 +9,7 @@
  */
 
 include("sidebar-widget.php");
+include("related-footer-widget.php");
 
 $IMO_USER_STATE;
 $IMO_USER_STATE_NICENAME;
