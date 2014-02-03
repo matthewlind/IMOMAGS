@@ -356,7 +356,22 @@
 
                     <strong class="logo">
 						<h1 class="state-logo"><?php global $IMO_USER_STATE_NICENAME; echo $IMO_USER_STATE_NICENAME; ?></h1>
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/logo.png" alt="<?php bloginfo( 'name' ); ?>" /><?php if(!mobile() && !tablet()){ ?><span class="state-drop"></span><?php } ?></a>
+						<?php
+
+							$logo = "logo.png";
+
+							global $IMO_USER_STATE;
+
+							$sportsmanStates = array("GA","MI","MN","WI","AR","TN","TX");
+
+							//echo "USERSTATE: $IMO_USER_STATE";
+
+							if (in_array($IMO_USER_STATE, $sportsmanStates)) {
+								$logo = "logo-sportsman.png";
+							}
+
+						?>
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/<?php echo $logo; ?>" alt="<?php bloginfo( 'name' ); ?>" /><?php if(!mobile() && !tablet()){ ?><span class="state-drop"></span><?php } ?></a>
 
 						<?php if(!mobile() && !tablet()){ ?>
 						<div class="gf-drop-down">
@@ -490,7 +505,7 @@
                     <?php
                         else :
                     ?>
-					
+
 
 					<div id="subscribe-area" class="widget widget_text header-elements">
 						<div class="subscribe-box">

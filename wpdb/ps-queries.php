@@ -65,6 +65,7 @@ function get_set_data($siteID,$setID) {
             $thumb = getPSThumbnail(unserialize($post->attachment_meta));
 
             $posts[$key]->thumb = $thumb;
+            $posts[$key]->img_url = $thumb;
             $posts[$key]->attachment_meta = unserialize($posts[$key]->attachment_meta);
 
             if (!empty($post->promo_title)) {
@@ -128,7 +129,7 @@ function getPSThumbnail($dataArray) {
 
 
 
-    $filename = $dataArray['sizes']['thumbnail']['file'];
+    $filename = $dataArray['sizes']['index-thumb']['file'];
 
     $fullPath = "/files/" . $filepathParts[0] . "/" . $filepathParts[1] . "/" . $filename;
 

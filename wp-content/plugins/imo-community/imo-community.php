@@ -293,7 +293,7 @@ function imo_community_template() {
 
 		imo_community_404_check();
 
-
+		global $IMO_COMMUNITY_CONFIG;
 
 		$IMO_COMMUNITY_CONFIG = $IMO_COMMUNITY[$configName];
 
