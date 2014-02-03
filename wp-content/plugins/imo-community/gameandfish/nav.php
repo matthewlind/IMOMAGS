@@ -1,7 +1,7 @@
 <?php
 global $IMO_COMMUNITY_CONFIG;
 $terms = $IMO_COMMUNITY_CONFIG['post_types'];
-var_dump($terms);
+//var_dump($terms);
 ?>
 
 <div class="community-header">
