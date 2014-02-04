@@ -164,14 +164,6 @@ if(mobile()){
 	$crop = "/convert?w=458&h=458&fit=crop&rotate=exif";
 }
 
-//Path Data:
-$post_type_primary = get_query_var("post_type_primary");
-$post_type_secondary = get_query_var("post_type_secondary");
-$post_type_tertiary = get_query_var("post_type_tertiary");
-
-echo "<h1>Post Type: $post_type_primary</h1>";
-echo "<h1>Post Type Secondary: $post_type_secondary</h1>";
-echo "<h1>Post Type Tertiary: $post_type_tertiary</h1>";
 ?>
 <!-- start nav -->
 <?php 
@@ -253,23 +245,22 @@ imo_sidebar("community");
 
                         <div class="dif-post">
                             <div class="feat-img">
-                            	<a href="/photos/<?php echo $post_type_tertiary; ?>/<?php echo $post_type_secondary; ?>/<?php echo $post->id; ?>"><img class="feat-img" src="<?php echo $post->img_url; ?>" alt="<?php echo $post->title; ?>" title="<?php echo $post->title; ?>" /></a>
+                            	<a href="/photos/<?php echo $post->tertiary_post_type; ?>/<?php echo $post->secondary_post_type; ?>/<?php echo $post->post_type; ?>/<?php echo $post->id; ?>"><img class="feat-img" src="<?php echo $post->img_url; ?>" alt="<?php echo $post->title; ?>" title="<?php echo $post->title; ?>" /></a>
                             </div>
                             <div class="dif-post-text">
-                                <h3><a href="/photos/<?php echo $post->id; ?>"><?php echo $post->title; ?></a></h3>
+                                <h3><a href="/photos/<?php echo $post->tertiary_post_type; ?>/<?php echo $post->secondary_post_type; ?>/<?php echo $post->post_type; ?>/<?php echo $post->id; ?>"><?php echo $post->title; ?></a></h3>
                                 <div class="profile-panel">
                                     <div class="profile-photo">
                                         <a href="/profile/<?php echo $post->username; ?>"><img src="/avatar?uid=<?php echo $data->ID; ?>" alt="<?php echo $post->display_name; ?>" title="<?php echo $post->display_name; ?>" /></a>
                                     </div>
                                     <div class="profile-data">
-                                        <h4><a href="/photos/<?php echo $post->id; ?>"></a></h4>
+                                        <h4><a href="/photos/<?php echo $post->tertiary_post_type; ?>/<?php echo $post->secondary_post_type; ?>/<?php echo $post->post_type; ?>/<?php echo $post->id; ?>"></a></h4>
                                         <ul class="prof-tags">
                                             <!--<li><a href="<?php echo $post->state; ?>"><?php echo $post->state; ?></a></li>-->
-                                            <li style="text-transform:capitalize;"><a href="/<?php echo $post->post_type; ?>"><?php echo $post->post_type; ?></a></li>
-                                            <?php if ($post->master){ ?><li><a href="/master-angler">Master Angler</a></li><?php } ?>
+                                            <li style="text-transform:capitalize;"><a href="/photos/<?php echo $post->tertiary_post_type; ?>/<?php echo $post->secondary_post_type; ?>/<?php echo $post->post_type; ?>"><?php echo $post->post_type; ?></a></li>
                                         </ul>
                                         <ul class="replies">
-                                            <li><a href="/photos/<?php echo $post->id; ?>/#reply_field"><?php echo $niceComment; ?></a></li>
+                                            <li><a href="/photos/<?php echo $post->tertiary_post_type; ?>/<?php echo $post->secondary_post_type; ?>/<?php echo $post->post_type; ?>/<?php echo $post->id; ?>/#reply_field"><?php echo $niceComment; ?></a></li>
                                             <li><?php echo $niceScore; ?></li>
                                         </ul>
                                          <!-- Don't delete this. It's part of imo-add-this -->
@@ -284,7 +275,6 @@ imo_sidebar("community");
 					                    </ul>
 									</div>
                                 </div>
-                                 <?php if ($post->master){ ?><span class="badge"><img src="<?php echo plugins_url('images/badge-ma.png' , __FILE__ ); ?>" alt="" /></span><?php } ?>
                             </div>
                         </div>
                         <?php 
@@ -318,12 +308,11 @@ imo_sidebar("community");
 				$replyFile = file_get_contents($replyURL);
 				//SET TEMPLATE VARIABLES
 				$replyData = json_decode($replyFile);
-
                 foreach($comments as $comment){  ?>
                 	<li class="reply-item">
                         <p><?php echo $comment->body; ?></p>
                         <div class="replies-data-line">
-                            Replied To <a href="<?php echo $replyData->url; ?>"><?php echo $replyData->title; ?></a>   |   <abbr class="recon-date timeago" title="<?php echo $comment->created; ?>"></abbr>
+                            Replied To <a href="/photos/<?php echo $replyData->tertiary_post_type; ?>/<?php echo $replyData->secondary_post_type; ?>/<?php echo $replyData->post_type; ?>/<?php echo $replyData->id; ?>"><?php echo $replyData->title; ?></a>   |   <abbr class="recon-date timeago" title="<?php echo $comment->created; ?>"></abbr>
                         </div>
                     </li>
                 <?php } ?>

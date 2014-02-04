@@ -7,15 +7,15 @@
 .community-header .header-section{
 	display: inline-block;
 	background: #1c1c1c;
-	padding: 18px 24px;
+	padding: 18px 26px 18px 0;
 	border-left: 1px solid #3b3b3b;
 	vertical-align: middle;
 }
-.community-header .header-section:first-child{border: none;}
+.community-header .header-section:first-child{border: none;width: 253px;padding: 0;}
 .community-header img{vertical-align: 12px;width: 200px;margin: 0 auto;display: block;}
-.community-header .header-section h3 a{color: white;}
+.community-header .header-section h3 a{padding-left: 26px;color: white;}
 .community-header .header-section h3 a:hover{color: #acacac;}
-.community-header ul.community-nav{display: inline-block;padding-right: 36px;}
+.community-header ul.community-nav{display: inline-block;padding-left: 26px;vertical-align: text-top;}
 .community-header ul.community-nav li a{font-size: 14px;color: #acacac;}
 .community-header ul.community-nav li a:hover{color: white;}
 
@@ -1307,6 +1307,7 @@ select.alter-sel {width:100%;}
 .join-box h3{font: 26px "stagmedium",sans-serif;}
 .dropdown-menu > li > a{font-family: "opensans_regular",Helvetica,sans-serif;text-transform: capitalize;}
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {background-color: #006699 !important;}
+.filter-menu, .browse-community{text-transform: capitalize;}
 
 /* Responsive styles */
 @media only screen and (max-width: 1096px) {

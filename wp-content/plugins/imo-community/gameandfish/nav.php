@@ -1,7 +1,8 @@
 <?php
 global $IMO_COMMUNITY_CONFIG;
-$terms = $IMO_COMMUNITY_CONFIG['post_types'];
-var_dump($terms);
+$termTaxonomy = $IMO_COMMUNITY_CONFIG['post_types'];
+$huntingTerms = $termTaxonomy['hunting']['children'];
+$fishingTerms = $termTaxonomy['fishing']['children'];
 ?>
 
 <div class="community-header">
@@ -14,13 +15,31 @@ var_dump($terms);
 		<?php 
 			echo "<ul class='community-nav'>";
 			$termcount = 0;
-			foreach ($terms as $term) {
-				echo "<li>$term<li>";
-				if ($termcount%6 == 0) {
-					//If $termcount divides by 6 evenly with no remainder
+			foreach ($huntingTerms as $parentSlug => $term) {
+				$parent = strtolower( str_replace( " ", "-", $term['display_name']) );
+
+				if( $term["show_in_menu"] == TRUE ){
+					echo "<li><a href='/photos/hunting/" . $parent . "'>" . $term['display_name'] . "</a></li>";
+					$termcount++;
+					if ($termcount%4 == 0) {
+					//If $termcount divides by 4 evenly with no remainder
 					echo "</ul><ul class='community-nav'>";
+					}
+	
 				}
-			}
+				foreach($term['children'] as $childSlug => $termChild) {
+					$child = strtolower( str_replace( " ", "-", $termChild['display_name']) );
+					if( $termChild["show_in_menu"] == TRUE ){
+						echo "<li><a href='/photos/hunting/" . $parentSlug . "/" . $child . "'>" . $termChild['display_name'] . "</a></li>";
+						$termcount++;
+						if ($termcount%4 == 0) {
+							//If $termcount divides by 4 evenly with no remainder
+							echo "</ul><ul class='community-nav'>";
+						}
+					}
+				}
+			}			
+		
 			echo "</ul>";
 		?>
 	</div>
@@ -29,15 +48,34 @@ var_dump($terms);
 		<h3><a href="/photos/hunting">Fishing</a></h3>
 		<?php 
 			echo "<ul class='community-nav'>";
-			//$termcount = 0;
-			foreach ($terms as $term) {
-				echo "<li>$term<li>";
-				if ($termcount%6 == 0) {
-					//If $termcount divides by 6 evenly with no remainder
+			$termcount = 0;
+			foreach ($fishingTerms as $parentSlug => $term) {
+				$parent = strtolower( str_replace( " ", "-", $term['display_name']) );
+
+				if( $term["show_in_menu"] == TRUE ){
+					echo "<li><a href='/photos/fishing/" . $parent . "'>" . $term['display_name'] . "</a></li>";
+					$termcount++;
+					if ($termcount%4 == 0) {
+					//If $termcount divides by 4 evenly with no remainder
 					echo "</ul><ul class='community-nav'>";
+					}
+	
 				}
-			}
+				foreach($term['children'] as $childSlug => $termChild) {
+					$child = strtolower( str_replace( " ", "-", $termChild['display_name']) );
+					if( $termChild["show_in_menu"] == TRUE ){
+						echo "<li><a href='/photos/fishing/" . $parentSlug . "/" . $child . "'>" . $termChild['display_name'] . "</a></li>";
+						$termcount++;
+						if ($termcount%4 == 0) {
+							//If $termcount divides by 4 evenly with no remainder
+							echo "</ul><ul class='community-nav'>";
+						}
+					}
+				}
+			}			
+		
 			echo "</ul>";
 		?>
+
 	</div>
 </div>

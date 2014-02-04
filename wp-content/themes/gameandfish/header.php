@@ -471,7 +471,7 @@
 					<?php }else{ ?>
 						<a id="comm-mob-menu" class="user-btn" style="display:none;">
 					<?php } ?>
-
+					
 					<?php
                         // Check to see if the header image has been removed
                         $header_image = get_header_image();
@@ -518,7 +518,11 @@
                         else :
                     ?>
 
-
+					<div class="h-mdl-widget">
+                        <div class="socials-hold">
+                        	<?php social_networks(); ?>
+						</div>
+					</div>
 					<div id="subscribe-area" class="widget widget_text header-elements">
 						<div class="subscribe-box">
 						    <div class="clearfix">
@@ -549,11 +553,7 @@
                         'menu_class'=>'menu',
                         'theme_location'=>'top',
                     ));   ?>
-                    <div class="h-mdl-widget">
-                        <div class="socials-hold">
-                        	<?php social_networks(); ?>
-						</div>
-					</div>
+                    
 					<a href="#" class="open-search jq-open-search">search</a>
 					<div class="h-search-form">
 						<script>

@@ -8,6 +8,7 @@ jQuery(document).ready(function($) {
         filter.order_by = "created";
         filter.sort = "DESC";
         filter.master = 0;
+        filter.state = "";
         filter.skip = 0;
         filter.post_type = "all";
         filter.secondary_post_type = "";
@@ -48,7 +49,7 @@ jQuery(document).ready(function($) {
 
     loadMoreCheck();
     function getPhotosAndAppend() {
-        var url = "http://" + document.domain + "/community-api/posts?skip="+filter.skip+"&per_page="+filter.per_page+"&order_by="+filter.order_by+"&sort="+filter.sort+"&master="+filter.master+"&post_type="+filter.post_type+"&secondary_post_type="+filter.secondary_post_type+"&tertiary_post_type="+filter.tertiary_post_type;
+        var url = "http://" + document.domain + "/community-api/posts?skip="+filter.skip+"&per_page="+filter.per_page+"&order_by="+filter.order_by+"&sort="+filter.sort+"&master="+filter.master+"&post_type="+filter.post_type+"&secondary_post_type="+filter.secondary_post_type+"&tertiary_post_type="+filter.tertiary_post_type+"&state="+filter.state;
 
         $.getJSON(url,function(posts){
 
@@ -87,7 +88,7 @@ jQuery(document).ready(function($) {
 
         //Change the filter configuration according to the attributes of the clicked menu item
         if ($menuItem.attr("sort") != undefined) { filter.sort = $menuItem.attr("sort"); }
-        if ($menuItem.attr("order_by") != undefined) { filter.order_by = $menuItem.attr("order_by"); }
+        if ($menuItem.attr("state") != undefined) { filter.state = $menuItem.attr("state"); }
         if ($menuItem.attr("master") != undefined) { filter.master = $menuItem.attr("master"); }
         if ($menuItem.attr("skip") != undefined) { filter.skip = $menuItem.attr("skip"); }
         if ($menuItem.attr("post_type") != undefined) { filter.post_type = $menuItem.attr("post_type"); }
@@ -100,8 +101,10 @@ jQuery(document).ready(function($) {
 
         //Change menu title to reflect filter
         $(".menu-title.browse-community").html($menuItem.html());
-
+		console.log(filter.state);
+		
         loadMoreCheck();
+        
     });
 
     //Loadmore button
@@ -125,16 +128,18 @@ jQuery(document).ready(function($) {
 
     //Check to see if loadmore needs to be hidden
     function loadMoreCheck() {
-        var url = "http://" + document.domain + "/community-api/posts/counts?skip="+filter.skip+"&per_page="+filter.per_page+"&order_by="+filter.order_by+"&sort="+filter.sort+"&master="+filter.master+"&post_type="+filter.post_type+"&secondary_post_type="+filter.secondary_post_type+"&tertiary_post_type="+filter.tertiary_post_type;
+        var url = "http://" + document.domain + "/community-api/posts/counts?skip="+filter.skip+"&per_page="+filter.per_page+"&order_by="+filter.order_by+"&sort="+filter.sort+"&master="+filter.master+"&post_type="+filter.post_type+"&secondary_post_type="+filter.secondary_post_type+"&tertiary_post_type="+filter.tertiary_post_type+"&state="+filter.state;
 
 
         $.getJSON(url,function(countData){
 
 
             var totalPostCount = countData[0].post_count;
-
+			
             //console.log(totalPostCount,filter.skip);
-
+			if(totalPostCount == 0){
+				$("#posts-container").append('<h3 class="no-result">No Results for this state.</h3>');
+			}
             if (filter.skip + filter.per_page >= totalPostCount ) {
                 $("a.load-more").hide();
             } else {
