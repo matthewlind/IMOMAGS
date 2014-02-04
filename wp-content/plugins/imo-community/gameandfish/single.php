@@ -358,10 +358,15 @@ echo "<h1>Post Type Tertiary: $post_type_tertiary</h1>";
 	        </div>
 	    </div>
 	</div>
-	<div class="slider-sidebar"><?php imo_dart_tag("300x50"); ?></div>
+	<?php if(!mobile()){ ?>
+		<div class="slider-sidebar"><?php imo_dart_tag("300x50"); ?></div>
+	<?php } ?>
 </div>
 <?php imo_sidebar("community"); ?>
 <div class="general general-com">
+	<?php if(mobile()){ ?>
+		<div class="slider-sidebar-mobile"><?php imo_dart_tag("300x50"); ?></div>
+	<?php } ?>
 
 
 

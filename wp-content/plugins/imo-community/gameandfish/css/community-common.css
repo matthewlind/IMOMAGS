@@ -27,8 +27,8 @@
 .slider-hat{background: #3b3b3b;padding: 0 20px;}
 .nav-share{margin-top: 30px;}
 .nav-share .singl-post-photo{
-	padding-left: 62px;
-	padding-right: 62px;
+	padding-left: 0;
+	padding-right: 0;
 	background: black;
 	color: #f9cc39;
 	height: 40px;
@@ -1311,11 +1311,13 @@ select.alter-sel {width:100%;}
 
 /* Responsive styles */
 @media only screen and (max-width: 1096px) {
+	.community-header .header-section{padding-right:8px;}
 	.community-ad{
 		display: block;
 		margin: 0 auto 34px;
 		width: 300px;
 	}
+	.dif-full-post {width: auto;}
     .delete-attachment{
         margin-left:97%;
     }
@@ -1423,7 +1425,11 @@ select.alter-sel {width:100%;}
 }
 
 @media only screen and (max-width: 936px) {
-
+	.community-header .header-section{padding-right:2px;}
+	.community-header .header-section:first-child{width: 147px;}
+	.community-header img{width: 120px;}
+	.community-header .header-section h3 a{padding-left: 8px;}
+	.community-header ul.community-nav{padding-left: 6px;}
     .delete-attachment{
         margin-left:96%;
     }
@@ -1466,6 +1472,10 @@ select.alter-sel {width:100%;}
         margin-top:-18px;
         padding-left:10px;
     }
+}
+@media only screen and (max-width: 880px) {
+	.dif-full-post {width: 50%;}
+	.title-crumbs h1{max-width: 360px;}
 }
 @media only screen and (max-width: 820px) {
     .delete-attachment{
@@ -1511,6 +1521,8 @@ select.alter-sel {width:100%;}
     }
 }
 @media only screen and (max-width: 760px) {
+    .dif-full-post {width: auto;float: none;}
+    .slider-section .slider-sidebar{float: none;margin: 0 auto;}
     .delete-attachment{
         margin-left:93%;
     }
@@ -1620,10 +1632,12 @@ select.alter-sel {width:100%;}
 /* single column */
 @media only screen and (max-width: 610px) {
 
-
-    .caption-area {
-        width:67%;
-    }
+	.slider-section{margin: 0px;padding: 0 10px;min-height: 0;}
+	.slider-section .singl-post-photo{width: auto;}
+	.slider-section .title-crumbs, .slider-section .custom-title h1{padding-right: 0;max-width: 100%;}
+	.slider-sidebar-mobile{width: 300px;margin: 10px auto;}
+	.dif-full-post{padding: 0 10px;}
+    .caption-area {width:67%;}
 
     .mobile-hr {display:block !important;}
     .mobile-hidden-section {display:none;}
@@ -1699,9 +1713,6 @@ select.alter-sel {width:100%;}
         width:auto;
         border-left:0;
         border-right:0;
-    }
-    .custom-title {
-        text-align:center;
     }
     .profile-logo,
     .custom-tite-logo {
