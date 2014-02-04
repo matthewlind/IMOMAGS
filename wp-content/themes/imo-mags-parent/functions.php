@@ -556,6 +556,7 @@ function imo_addons_subscription_page() {
     </p>
 </form>
 </div>
+
 <?php
 }
 add_action("widgets_init", 'imo_addons_sidebar_init');
