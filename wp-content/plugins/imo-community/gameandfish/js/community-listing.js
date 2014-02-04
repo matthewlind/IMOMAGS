@@ -112,7 +112,6 @@ jQuery(document).ready(function($) {
 
         //Change menu title to reflect filter
         $(".menu-title.browse-community").html($menuItem.html());
-		console.log(filter.state);
 
         loadMoreCheck();
 
@@ -149,7 +148,7 @@ jQuery(document).ready(function($) {
 
             //console.log(totalPostCount,filter.skip);
 			if(totalPostCount == 0){
-				$("#posts-container").append('<h3 class="no-result">No Results for this state.</h3>');
+				$("#posts-container").append('<h3 class="no-result">No Results</h3>');
 			}
             if (filter.skip + filter.per_page >= totalPostCount ) {
                 $("a.load-more").hide();
