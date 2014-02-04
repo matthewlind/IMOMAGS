@@ -10,6 +10,20 @@ $fishingTerms = $termTaxonomy['fishing']['children'];
 		<a href="/photos/"><img src="<?php echo plugins_url('images/yourphotos.png' , __FILE__ ); ?>" alt="<?php echo $state ?> Game & Fish Photos" title="Game & Fish Photos" /></a>
 		<div class="sponsor"><?php imo_dart_tag("240x60"); ?></div>
 	</div>
+	<?php if(mobile()){
+		echo '<div class="header-section">';
+			echo "<select>";
+				echo "<option value=''>Photos Menu</option>";
+				foreach ($huntingTerms as $parentSlug => $term) {
+					$child = strtolower( str_replace( " ", "-", $term['display_name']) );
+					if( $term["show_in_menu"] == TRUE ){
+						echo "<option value='/photos/" . $parentSlug . "/" . $child . " /'>" . $term['display_name'] . "</option>";
+					}
+				}
+			echo "</select>";
+		echo "</div>";
+	}else{ ?>
+	
 	<div class="header-section">
 		<h3><a href="/photos/hunting">Hunting</a></h3>
 		<?php 
@@ -78,4 +92,5 @@ $fishingTerms = $termTaxonomy['fishing']['children'];
 		?>
 
 	</div>
+	<?php } ?>
 </div>

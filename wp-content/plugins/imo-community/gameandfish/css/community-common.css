@@ -18,7 +18,7 @@
 .community-header ul.community-nav{display: inline-block;padding-left: 26px;vertical-align: text-top;}
 .community-header ul.community-nav li a{font-size: 14px;color: #acacac;}
 .community-header ul.community-nav li a:hover{color: white;}
-
+.community-header .header-section select{margin-left: 6px;}
 /*** sponsor logos ***/
 .community-header .sponsor{float: none;}
 .community-header .sponsor img{float: none;vertical-align: bottom;margin-top: 2px;max-height: 50px;}
@@ -68,7 +68,7 @@
 .slider-section .slider-sidebar{
 	width: 300px;
 	float: right;
-	margin: 56px 20px 0 0;
+	margin: 20px 10px 0 0;
 }
 
 
@@ -669,7 +669,7 @@ select.alter-sel {width:100%;}
     padding: 0;
     position: relative;
     float: left;	
-    width: 620px;
+    width: 630px;
 }
 .dif-full-post h1 {
     font: 26px "open_sansbold", "Helvetica", Arial, sans-serif;
@@ -709,10 +709,8 @@ select.alter-sel {width:100%;}
     vertical-align:middle;
 }
 .post-it {
-    float:right;
     font:13px "open_sansbold", sans-serif;
     text-decoration:underline;
-    margin:20px 0 0;
 }
 .post-it:hover {
     color:#040503;
