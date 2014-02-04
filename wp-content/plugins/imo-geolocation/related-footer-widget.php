@@ -16,6 +16,16 @@ class imo_related_footer_widget extends WP_Widget {
 
         $postCategories = get_the_category();
 
+        $postID = get_the_ID();
+
+
+        $primaryCategoryID = get_post_meta($postID,"_category_permalink",TRUE);
+
+        $primaryCategoryObject = get_category($primaryCategoryID);
+
+
+        $primaryCategorySlug = $primaryCategoryObject->slug;
+
         $stateSlugToAbbv = array("alabama"=>"AL",
 "alaska"=>"AK","arizona"=>"AZ","arkansas"=>"AR","california"=>"CA","colorado"=>"CO","connecticut"=>"CT","delaware"=>"DE","district-of-columbia"=>"DC","florida"=>"FL","georgia"=>"GA","hawaii"=>"HI","idaho"=>"ID","illinois"=>"IL","indiana"=>"IN","iowa"=>"IA","kansas"=>"KS","kentucky"=>"KY","louisiana"=>"LA","maine"=>"ME","maryland"=>"MD","massachusetts"=>"MA","michigan"=>"MI","minnesota"=>"MN","mississippi"=>"MS","missouri"=>"MO","montana"=>"MT","nebraska"=>"NE","nevada"=>"NV","new-hampshire"=>"NH","new-jersey"=>"NJ","new-mexico"=>"NM","new-york"=>"NY","north-carolina"=>"NC","north-dakota"=>"ND","ohio"=>"OH","oklahoma"=>"OK","oregon"=>"OR","pennsylvania"=>"PA","rhode-island"=>"RI","south-carolina"=>"SC","south-dakota"=>"SD","tennessee"=>"TN","texas"=>"TX","utah"=>"UT","vermont"=>"VT","virginia"=>"VA","washington"=>"WA","west-virginia"=>"WV","wisconsin"=>"WI","wyoming"=>"WY","alberta"=>"AB","british-columbia"=>"BC","manitoba"=>"MB","new-brunswick"=>"NB","newfoundland-and-labrador"=>"NL","northwest-territories"=>"NT","nova-scotia"=>"NS","nunavut"=>"NU","ontario"=>"ON","prince-edward-island"=>"PE","quebec"=>"QC","saskatchewan"=>"SK","yukon"=>"YT");
 
@@ -69,21 +79,29 @@ class imo_related_footer_widget extends WP_Widget {
             $outputString = "";
 
             $domain = $_SERVER['HTTP_HOST'];
-            $url = "http://$domain/wpdb/network-feed-cached.php?state=$IMO_USER_STATE&count=4&domain=www.gameandfishmag.com&post_set_merge=14-5&thumbnail_size=index-thumb&term=$secondChoiceCategorySlug";
+            $url = "http://$domain/wpdb/network-feed-cached.php?count=4&domain=www.gameandfishmag.com&post_set_merge=14-5&thumbnail_size=index-thumb&term=$primaryCategorySlug";
             $postJSON = file_get_contents($url);
             $posts = json_decode($postJSON);
 
 
 
             if (count($posts) < 6) {
-                $url = "http://$domain/wpdb/network-feed-cached.php?state=$IMO_USER_STATE&count=4&domain=www.gameandfishmag.com&post_set_merge=14-5&thumbnail_size=index-thumb&term=$firstChoiceCategorySlug";
+                $url = "http://$domain/wpdb/network-feed-cached.php?count=4&domain=www.gameandfishmag.com&post_set_merge=14-5&thumbnail_size=index-thumb&term=$secondChoiceCategorySlug";
                 $postJSON = file_get_contents($url);
                 $posts = json_decode($postJSON);
 
-            } else if (count($posts) < 6) {
-                $url = "http://$domain/wpdb/network-feed-cached.php?state=$IMO_USER_STATE&count=4&domain=www.gameandfishmag.com&thumbnail_size=index-thumb&post_set_merge=14-5";
+
+            } elseif (count($posts) < 6) {
+                $url = "http://$domain/wpdb/network-feed-cached.php?count=4&domain=www.gameandfishmag.com&post_set_merge=14-5&thumbnail_size=index-thumb&term=$firstChoiceCategorySlug";
                 $postJSON = file_get_contents($url);
                 $posts = json_decode($postJSON);
+
+
+            } else if (count($posts) < 6) {
+                $url = "http://$domain/wpdb/network-feed-cached.php?count=4&domain=www.gameandfishmag.com&thumbnail_size=index-thumb&post_set_merge=14-5";
+                $postJSON = file_get_contents($url);
+                $posts = json_decode($postJSON);
+
 
             }
 
