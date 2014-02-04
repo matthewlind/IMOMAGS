@@ -55,6 +55,17 @@ jQuery(document).ready(function($) {
 
             $.each(posts,function(index,post){
 
+
+                var postURL = "/photos/" +  post.tertiary_post_type  + "/" + post.secondary_post_type +  "/" + post.post_type  + "/" +  post.id;
+
+                if (post.secondary_post_type == null || post.secondary_post_type == "null" || post.secondary_post_type.length < 1) {
+                    postURL = "/photos/" +  post.tertiary_post_type  + "/" + post.post_type  + "/" +  post.id;
+                }
+
+                post.post_url = postURL;
+
+
+
                 var postHTML = _.template( $('#post-template').html() , { post: post });
                 $("#posts-container").append(postHTML);
 
@@ -101,9 +112,9 @@ jQuery(document).ready(function($) {
 
         //Change menu title to reflect filter
         $(".menu-title.browse-community").html($menuItem.html());
-		
+
         loadMoreCheck();
-        
+
     });
 
     //Loadmore button
@@ -134,7 +145,7 @@ jQuery(document).ready(function($) {
 
 
             var totalPostCount = countData[0].post_count;
-			
+
             //console.log(totalPostCount,filter.skip);
 			if(totalPostCount == 0){
 				$("#posts-container").append('<h3 class="no-result">No Results</h3>');

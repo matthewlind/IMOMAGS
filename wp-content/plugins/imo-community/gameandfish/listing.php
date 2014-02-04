@@ -88,15 +88,15 @@ if(post.score == 1){
 	<div class="dif-post">
         <% if(post.img_url){ %>
 	        <div class="feat-img">
-	            <a href="/photos/<%= post.tertiary_post_type %>/<%= post.secondary_post_type %>/<%= post.post_type %>/<%= post.id %>"><img class="feat-img" src="<%= post.img_url %>" alt="<%= post.title %>" title="<%= post.img_url %>" /></a>
+	            <a href="<%= post.post_url %>"><img class="feat-img" src="<%= post.img_url %>" alt="<%= post.title %>" title="<%= post.img_url %>" /></a>
 	        </div>
         <% }else{ %>
         	 <div class="feat-img">
-	            <a href="/photos/<%= post.tertiary_post_type %>/<%= post.secondary_post_type %>/<%= post.post_type %>/<%= post.id %>"><img class="feat-img" src="<?php echo plugins_url('images/crosshair.jpg' , __FILE__ ); ?>" alt="<%= post.title %>" title="<%= post.img_url %>" /></a>
+	            <a href="<%= post.post_url %>"><img class="feat-img" src="<?php echo plugins_url('images/crosshair.jpg' , __FILE__ ); ?>" alt="<%= post.title %>" title="<%= post.img_url %>" /></a>
 	        </div>
         <% } %>
         <div class="dif-post-text">
-            <h3><a href="/photos/<%= post.tertiary_post_type %>/<%= post.secondary_post_type %>/<%= post.post_type %>/<%= post.id %>"><%= post.title %></a></h3>
+            <h3><a href="<%= post.post_url %>"><%= post.title %></a></h3>
             <div class="profile-panel">
                 <div class="profile-photo">
                     <a href="/profile/<%= post.user_nicename %>"><img src="/avatar?uid=<%= post.user_id %>" alt="<%= post.user_nicename %>" title="<%= post.user_nicename %>" /></a>
@@ -129,9 +129,9 @@ if(post.score == 1){
 <!-- *********************************************************** -->
 <!-- *********************************************************** -->
 <!-- start nav -->
-<?php 
+<?php
 include_once('nav.php');
-imo_sidebar("community"); 
+imo_sidebar("community");
 ?>
 <div class="page-community">
     <div class="general general-com">
@@ -208,20 +208,20 @@ imo_sidebar("community");
 			    		<li style="margin-top:1px;text-transform:capitalize;"> &raquo; <a href="/photos/<?php echo $post_type_tertiary; ?>/<?php echo $post_type_secondary; ?>"><?php echo $post_type_secondary; ?></a></li><?php } ?>
 			    	<?php if($post_type_primary){ ?><li style="margin-top:1px;text-transform:capitalize;"> &raquo; <?php echo $post_type_primary; ?></li><?php } ?>
 				</ul>
-                <h1><?php if( empty($post_type_primary) && !empty($post_type_secondary) && !empty($post_type_tertiary)){ 
-		                	echo $post_type_secondary; 
-		                }else if( empty($post_type_primary) && empty($post_type_secondary) && !empty($post_type_tertiary) ){ 
-		                	echo $post_type_tertiary; 
-		                }else if( empty($post_type_primary) && empty($post_type_secondary) && empty($post_type_tertiary) ){ 
-		                	echo 'Game & Fish Photos'; 
-		                }else if( !empty($post_type_primary) && !empty($post_type_secondary) && !empty($post_type_tertiary) ){ 
-		                	echo $post_type_primary; 
+                <h1><?php if( empty($post_type_primary) && !empty($post_type_secondary) && !empty($post_type_tertiary)){
+		                	echo $post_type_secondary;
+		                }else if( empty($post_type_primary) && empty($post_type_secondary) && !empty($post_type_tertiary) ){
+		                	echo $post_type_tertiary;
+		                }else if( empty($post_type_primary) && empty($post_type_secondary) && empty($post_type_tertiary) ){
+		                	echo 'Game & Fish Photos';
+		                }else if( !empty($post_type_primary) && !empty($post_type_secondary) && !empty($post_type_tertiary) ){
+		                	echo $post_type_primary;
 		                } ?></h1>
 			</div>
         </div>
-        
+
         <?php //echo do_shortcode('[imo-slideshow community=true]'); ?>
-		
+
         <div class="dif-posts">
 			<div id="posts-container" posttype="<?php echo $post_type_primary; ?>" secondaryposttype="<?php echo $post_type_secondary; ?>" tertiaryposttype="<?php echo $post_type_tertiary; ?>"></div>
          </div>
