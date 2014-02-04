@@ -199,7 +199,7 @@ function parent_theme_widgets_init()
         'after_title' => '</h3>',
     ) );
 
-   
+
     register_sidebar( array(
         'name' => __( 'Article Sidebar', 'imo-mags-parent' ),
         'id' => 'sidebar-2',
@@ -418,6 +418,7 @@ function register_imo_subscribe_settings () {
     register_setting( 'imo-subs-settings-group', 'gift_link' );
     register_setting( 'imo-subs-settings-group', 'service_link' );
     register_setting( 'imo-subs-settings-group', 'magazine_cover_uri' );
+    register_setting( 'imo-subs-settings-group', 'magazine_cover_alt_uri' );
     register_setting( 'imo-subs-settings-group', 'sons_header_uri' );
     register_setting( 'imo-subs-settings-group', 'defend_header_uri' );
     register_setting( 'imo-subs-settings-group', 'history_header_uri' );
@@ -476,9 +477,14 @@ function imo_addons_subscription_page() {
          <tr valign="top">
         <th scope="row">Service Link</th>
         <td><input type="text" name="service_link" value="<?php echo get_option('service_link'); ?>" /></td>
-        </tr><tr valign="top">
+        </tr>
+        <tr valign="top">
         <th scope="row">Magazine Cover URL</th>
         <td><input type="text" name="magazine_cover_uri" value="<?php echo get_option('magazine_cover_uri'); ?>" /></td>
+        </tr>
+        <tr valign="top">
+        <th scope="row">Magazine Cover URL - Alternate</th>
+        <td><input type="text" name="magazine_cover_alt_uri" value="<?php echo get_option('magazine_cover_alt_uri'); ?>" /></td>
         </tr>
         <tr valign="top">
         <td><strong>Subscribe</strong></td>
@@ -537,8 +543,8 @@ function imo_addons_subscription_page() {
         <td><input type="text" name="home_player_camp" value="<?php echo get_option('home_player_camp'); ?>" /></td>
         </tr>
 
-		
-        <?php 
+
+        <?php
         $dartDomain = get_option("dart_domain", $default = false);
         if($dartDomain == "imo.in-fisherman"){ ?>
 	        <tr valign="top">
@@ -728,8 +734,8 @@ function myLoop($atts, $content = null) {
 add_shortcode("loop", "myLoop");*/
 
 
-function fixed_connect_footer(){ 
-	
+function fixed_connect_footer(){
+
 	$formID = get_option("newsletter_id");
 
 ?>
@@ -739,15 +745,27 @@ function fixed_connect_footer(){
 	<div class="container">
 		<div class="currentIssue">
 			<div class="journal">
-		        <img src="<?php echo get_option('magazine_cover_uri'); ?>" alt="Subscribe">
-		    </div>		    
+                <?php
+                    global $IMO_USER_STATE;
+
+                    $sportsmanStates = array("GA","MI","MN","WI","AR","TN","TX");
+
+                    $cover = get_option('magazine_cover_uri');
+
+                     if (in_array($IMO_USER_STATE, $sportsmanStates)) {
+                        $cover = get_option('magazine_cover_alt_uri');
+                    }
+                ?>
+
+		        <img src="<?php echo $cover; ?>" alt="Subscribe">
+		    </div>
 		</div>
-		<div class="subscribe">						
+		<div class="subscribe">
 			<a href="<?php print get_option('subs_link') . "/?pkey=" . get_option('sticky_key'); ?>" target="_blank">Subscribe</a>
 		</div>
 		<div class="newsletter">
 			<div class="title">Get The Newsletter</div>
-		
+
 				<script type="text/javascript">
 				/***********************************************
 				* Textarea Maxlength script- © Dynamic Drive (www.dynamicdrive.com)
@@ -762,29 +780,29 @@ function fixed_connect_footer(){
 				</script>
 
 				<form method="post" name="profileform" action="https://intermediaoutdoors.informz.net/clk/remote_post.asp">
-				      
+
 					<SCRIPT LANGUAGE="JavaScript">
 						function moveCaret(event, objThisField, objNextField, objPrevField, nSize)
 						{
 							var keynum;
-							if(window.event) // IE	
-								keynum = event.keyCode;	
-							else if(event.which) // Netscape/Firefox/Opera	
-								keynum = event.which;				
+							if(window.event) // IE
+								keynum = event.keyCode;
+							else if(event.which) // Netscape/Firefox/Opera
+								keynum = event.which;
 							if (keynum == 37 || keynum == 39 || keynum == 38 || keynum == 40 || keynum == 8) //left, right, up, down arrows, backspace
-							{		
-								var nCaretPosition = getCaretPosition(objThisField);		
+							{
+								var nCaretPosition = getCaretPosition(objThisField);
 								if (keynum == 39 && nCaretPosition == nSize)
-									moveToNextField(objNextField);		   
-								if ((keynum == 37 || keynum == 8) && nCaretPosition == 0)			
-									moveToPrevField(objPrevField);		   
+									moveToNextField(objNextField);
+								if ((keynum == 37 || keynum == 8) && nCaretPosition == 0)
+									moveToPrevField(objPrevField);
 								return;
 							}
 							if (keynum == 9) //Tab
 							return;
 						if (objThisField.value.length >= nSize && objNextField != null)
 							moveToNextField(objNextField);
-					}  
+					}
 					function moveToNextField(objNextField)
 					{
 						if (objNextField == null)
@@ -795,7 +813,7 @@ function fixed_connect_footer(){
 							oSel = document.selection.createRange ();
 							oSel.moveStart ('character', 0);
 							oSel.moveEnd ('character', objNextField.value.length);
-							oSel.select();							
+							oSel.select();
 						}
 						else
 						{
@@ -809,11 +827,11 @@ function fixed_connect_footer(){
 							return;
 						objPrevField.focus();
 						if (document.selection) //IE
-						{		
+						{
 							oSel = document.selection.createRange ();
 							oSel.moveStart ('character', 0);
 							oSel.moveEnd ('character', objPrevField.value.length);
-							oSel.select ();					
+							oSel.select ();
 						}
 						else
 						{
@@ -829,13 +847,13 @@ function fixed_connect_footer(){
 						   var oSel = document.selection.createRange ();
 						   oSel.moveStart ('character', -objField.value.length);
 						   nCaretPosition = oSel.text.length;
-						}	
+						}
 						if (objField.selectionStart || objField.selectionStart == '0')
 					       nCaretPosition = objField.selectionStart;
 						return nCaretPosition;
 					}
 					</script>
-					
+
 					<fieldset>
 						<input alt="Email Address" type="text" name="email" size="25" maxlength="100" value="" placeholder="Enter Your Email..." >
 				        <script type="text/javascript">
@@ -844,15 +862,15 @@ function fixed_connect_footer(){
 								myWindow.focus()
 							}
 						</script>
-				
+
 				        <input alt="Third Party" type="checkbox" checked="checked" value="22697" name="interests" id="receive" />
 				        <input type="hidden" name="OptoutInfo" value="">
 				        <div class="opt-in">Yes, I'd like to receive offers from your partners</div>
 						<input type="submit" value="Sign Up" name="update" >
 				        <input type=hidden name=fid value=<?php echo $formID; ?>>
 						<input type=hidden name=b value=4038>
-						<input type=hidden name=returnUrl value="http://<?php echo $_SERVER['SERVER_NAME']; ?>/?zmsg=1">  
-				    
+						<input type=hidden name=returnUrl value="http://<?php echo $_SERVER['SERVER_NAME']; ?>/?zmsg=1">
+
 					</fieldset>
 				</form>
 				<script language='javascript'>
@@ -875,15 +893,15 @@ function fixed_connect_footer(){
 				}else if( document.URL.indexOf('zmsg=1') > -1){
 					alert('Thank you for subscribing.')
 				}
-					
+
 				</script>
-	
+
 			</div>
 			<div class="follow">
               <div class="follow-us">Follow us:</div>
               <?php social_networks(); ?>
 			</div>
 		</div>
-	</div>              
+	</div>
 
 <?php }

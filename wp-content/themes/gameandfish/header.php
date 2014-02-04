@@ -66,7 +66,19 @@
 	    wp_enqueue_script("jquery");
 	    wp_head();
 
-	    $magazine_img = get_option('magazine_cover_uri' );
+        global $IMO_USER_STATE;
+
+        $sportsmanStates = array("GA","MI","MN","WI","AR","TN","TX");
+
+        $magazine_img = get_option('magazine_cover_uri');
+
+         if (in_array($IMO_USER_STATE, $sportsmanStates)) {
+            $magazine_img = get_option('magazine_cover_alt_uri');
+        }
+
+
+
+
 		$subs_link = get_option('subs_link') . "/?pkey=";
 		$iMagID = get_option('iMagID' );
 		$deal_copy = get_option('deal_copy' );
@@ -340,8 +352,8 @@
 </div>
 
 <div id="page" class="snap-content smooth-menu">
-<?php if (mobile() == false && tablet() == false) {  
-	imo_dart_tag("1x1",false,array("pos"=>"skin")); 
+<?php if (mobile() == false && tablet() == false) {
+	imo_dart_tag("1x1",false,array("pos"=>"skin"));
 	echo '<div class="expandable">';
 		imo_dart_tag("1080x90");
 	echo '</div>';
