@@ -277,7 +277,7 @@ echo "<h1>Post Type Tertiary: $post_type_tertiary</h1>";
 	    	<?php if($post_type_tertiary){ ?><li style="margin-top:1px;text-transform:capitalize;"> &raquo; <a href="/photos/<?php echo $post_type_tertiary; ?>"><?php echo $post_type_tertiary; ?></a></li><?php } ?>
 	    	<?php if($post_type_secondary){ ?>
 	    		<li style="margin-top:1px;text-transform:capitalize;"> &raquo; <a href="/photos/<?php echo $post_type_tertiary; ?>/<?php echo $post_type_secondary; ?>"><?php echo $post_type_secondary; ?></a></li><?php } ?>
-	    	<?php if($post_type_primary){ ?><li style="margin-top:1px;text-transform:capitalize;"> &raquo; <?php echo $post_type_primary; ?></li><?php } ?>
+	    	<?php if($post_type_primary){ ?><li style="margin-top:1px;text-transform:capitalize;"> &raquo; <a href="/photos/<?php echo $post_type_tertiary; ?>/<?php echo $post_type_secondary; ?>/<?php echo $post_type_primary; ?>"><?php echo $post_type_primary; ?></a></li><?php } ?>
 		</ul>
 		<div class="custom-title clearfix">
             <div class="title-crumbs">

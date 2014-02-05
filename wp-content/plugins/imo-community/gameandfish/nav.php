@@ -3,6 +3,7 @@ global $IMO_COMMUNITY_CONFIG;
 $termTaxonomy = $IMO_COMMUNITY_CONFIG['post_types'];
 $huntingTerms = $termTaxonomy['hunting']['children'];
 $fishingTerms = $termTaxonomy['fishing']['children'];
+//var_dump($termTaxonomy);
 ?>
 
 <div class="community-header">
@@ -12,17 +13,37 @@ $fishingTerms = $termTaxonomy['fishing']['children'];
 	</div>
 	<?php if(mobile()){
 		echo '<div class="header-section">';
-			echo "<select>";
+			echo "<select id='community-nav'>";
 				echo "<option value=''>Photos Menu</option>";
-				foreach ($huntingTerms as $parentSlug => $term) {
-					$child = strtolower( str_replace( " ", "-", $term['display_name']) );
+				foreach ($termTaxonomy as $parentSlug => $term) {
+				$parent = strtolower( str_replace( " ", "-", $term['display_name']) );
 					if( $term["show_in_menu"] == TRUE ){
-						echo "<option value='/photos/" . $parentSlug . "/" . $child . " /'>" . $term['display_name'] . "</option>";
+	
+						$child = strtolower( str_replace( " ", "-", $term['display_name']) );
+						echo "<option value='/photos/$parent'><strong>" . $term['display_name'] . "</strong></option>";
+					}
+					foreach($term['children'] as $childSlug => $termChild) {
+						$child = strtolower( str_replace( " ", "-", $termChild['display_name']) );
+						if( $term["show_in_menu"] == TRUE ){
+							echo "<option value='/photos/$parent/$child'><strong>" . $termChild['display_name'] . "</strong></option>";
+						}
 					}
 				}
 			echo "</select>";
-		echo "</div>";
-	}else{ ?>
+		echo "</div>"; ?>
+		<script>
+	    $(function(){
+	      // bind change event to select
+	      $('#community-nav').bind('change', function () {
+	          var url = $(this).val(); // get selected value
+	          if (url) { // require a URL
+	              window.location = url; // redirect
+	          }
+	          return false;
+	      });
+	    });
+	</script>
+	<?php }else{ ?>
 	
 	<div class="header-section">
 		<h3><a href="/photos/hunting">Hunting</a></h3>

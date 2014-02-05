@@ -159,7 +159,27 @@ body{background-color: black;}
 }
 .menu-main-menu-container a.has-drop, .menu-header-menu-container a.has-drop {padding: 0 30px 0 18px;}
 .menu-main-menu-container > ul > li > a, .menu-header-menu-container > ul > li > a{padding: 0 18px;}
-.menu-main-menu-container a.has-drop:after, .menu-header-menu-container a.has-drop:after {top: 24px;}
+.menu-main-menu-container a.has-drop:after{top: 24px;}
+.menu-main-menu-container .hot-link a.has-drop:after {right: -20px;}
+.menu-main-menu-container .hot-link .sub-menu{width: 100%;}
+.menu-main-menu-container .hot-link li.photos-logo a{
+	text-indent: -99999px;
+	position: absolute;
+	background: url(images/yourphotos-menu.png) no-repeat center top transparent;
+	right: 24px;
+	height: 88px;
+	width: 219px;
+	top: 40px;
+}
+.menu-main-menu-container .hot-link li.photos-logo a:hover{background: url(images/yourphotos-menu.png) no-repeat center top transparent;}
+.menu-main-menu-container .hot-link .sub-menu li.singl-post-photo{
+	width: 400px;
+	margin: 20px 0 0 8px;
+	padding: 0;
+	border-right: none;
+	border-width: 0;
+}
+
 .state-drop{
 	text-indent: -9999px !important;
 	background: url(images/menu-arrow.png) no-repeat center center #373737;
@@ -282,7 +302,7 @@ body{background-color: black;}
 .drop-feat-post h5 a {color:white;}
 .drop-feat-post h5 a:hover {color:#cda220;}
 .hot-link{border: none !important;padding-left: 18px;}
-.hot-link a{
+.hot-link a.main-menu-link{
 	color: white;
 	padding: 0 0 0 30px !important;
 	background: url(images/ico/camera-white.png) no-repeat 0px 12px !important;
