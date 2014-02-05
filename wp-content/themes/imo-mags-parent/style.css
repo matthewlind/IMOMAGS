@@ -2888,6 +2888,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 
 /*** viral sweeps ***/
 .viralsweeps{height: 1120px;position: relative;}
+.viral-300{padding-top: 4px;border: none;margin: 0 auto;width: 300px;}
+
 
 /* Master Angler
  ******************************************************************************/

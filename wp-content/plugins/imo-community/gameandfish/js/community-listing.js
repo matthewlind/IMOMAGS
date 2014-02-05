@@ -115,7 +115,7 @@ jQuery(document).ready(function($) {
 
         loadMoreCheck();
         $('html, body').animate({
-	        scrollTop: $(".dropdown-menu").offset().top
+	        scrollTop: $(".general-com").offset().top
 	    }, 'slow');
 
     });

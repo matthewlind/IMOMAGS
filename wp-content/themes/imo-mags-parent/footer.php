@@ -71,6 +71,7 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 		                <li><a href="http://www.imoutdoorsmedia.com/">ADVERTISE</a></li>
 		                <li><a href="/contact">CONTACT</a></li>
 		                <li><a href="http://imomags.com/careers/">CAREERS</a></li>
+						<li><a href="http://www.imoutdoorsmedia.com/IM3/privacy.php">PRIVACY POLICY</a></li>
 		                <!--<li class="mobile-element-320"><a href="#">SPONSORSHIP/ADVERTISING</a></li>
 		                <li class="mobile-element-320"><a href="#">TERMS OF USE</a></li>
 		                <li class="mobile-element-320"><a href="#">LINK TO US</a></li>

@@ -17,7 +17,7 @@
 $dataPos = 0;
 get_header(); ?>
     <div id="content" role="main">
-    	<div data-position="1" class="page-header clearfix js-responsive-section">
+    	<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header clearfix js-responsive-section">
 			<h1 class="page-title">
 				<div class="icon"></div>
 				<span><?php the_title(); ?></span>
@@ -34,6 +34,9 @@ get_header(); ?>
 					<script type="text/javascript" src="https://www.viralsweep.com/external/contest.js"></script>
 				<?php } ?>
 			</div>
+    	</div>
+    	<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="article-brief clearfix js-responsive-section viral-300">
+    		<?php imo_dart_tag(); ?>
     	</div>
  	</div><!-- #content -->
 <?php get_footer(); ?>
