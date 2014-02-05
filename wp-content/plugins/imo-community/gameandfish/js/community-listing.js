@@ -114,6 +114,9 @@ jQuery(document).ready(function($) {
         $(".menu-title.browse-community").html($menuItem.html());
 
         loadMoreCheck();
+        $('html, body').animate({
+	        scrollTop: $(".dropdown-menu").offset().top
+	    }, 'slow');
 
     });
 
@@ -145,7 +148,7 @@ jQuery(document).ready(function($) {
 
 
             var totalPostCount = countData[0].post_count;
-
+			
             //console.log(totalPostCount,filter.skip);
 			if(totalPostCount == 0){
 				$("#posts-container").append('<h3 class="no-result">No Results</h3>');

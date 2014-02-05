@@ -1303,6 +1303,7 @@ select.alter-sel {width:100%;}
 .form .btn-red input,
 .form .btn-red {width:198px;}
 .join-box h3{font: 26px "stagmedium",sans-serif;}
+.dropdown-menu{position: relative !important;}
 .dropdown-menu > li > a{font-family: "opensans_regular",Helvetica,sans-serif;text-transform: capitalize;}
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {background-color: #006699 !important;}
 .filter-menu, .browse-community{text-transform: capitalize;}
