@@ -391,30 +391,16 @@ if ( is_user_logged_in() ) {
 	?>
 	<div class="page-community">
 	    <div class="general general-com">
-	    	<div class="nav-share">
-		        <label class="upload-button">
-		            <a href="/photos/new/"><span class="singl-post-photo"><span>Share Your Photo Now!</span></span></a>
-		            <input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
-		        </label>
-			</div>
-			<div class="btn-group btn-bar">
-				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-				<span class="menu-title browse-community">Browse by State</span> <span class="caret"></span>
-				</button>
-				<ul class="dropdown-menu filter" role="menu">
-					<li><a href="" class="filter-menu active" order_by="created" id="filter-menu-default">State</a></li>
-				</ul>
-			</div>
 	    	<div class="custom-title clearfix">
 	            <div class="title-crumbs">
 	            	<ul class="breadcrumbs">
 				    	<li><a href="/photos">All Photos</a></li>
-				    	<li style="margin-top:1px;text-transform:capitalize;"> &raquo; Share Your Photo </li>
+			    	<li style="margin-top:1px;text-transform:capitalize;"> &raquo; Share Your Photo </li>
 					</ul>
 	                <h1>Share Your Photo</h1>
 	                <div class="sponsor"><?php imo_dart_tag("240x60"); ?></div>
 				</div>
-	        </div>	
+			</div>	
 		    <div id="form-container">
 	
 		    </div>
