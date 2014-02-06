@@ -292,14 +292,14 @@ echo "<h1>Post Type Tertiary: $post_type_tertiary</h1>";
 
 
 		</div>
-		        <div class="profile-panel">
+		<div class="profile-panel">
 		<?php
         	$width = "/convert?w=730&fit=scale&rotate=exif";
         	if(mobile()){
         		$width = "/convert?w=478";
         	}
             $media = "";
-            $media = "<div class='full-post-img'><img src='$data->img_url'></div>";
+            $media = "<div class='full-post-img'><img src='$data->img_url$width'></div>";
 		    //$media = "<div class='full-post-img'><img src='https://www.filepicker.io/api/file/hyI5K2JXQwyizEqvfbEA'></div>";
             echo $media;
 
@@ -317,7 +317,7 @@ echo "<h1>Post Type Tertiary: $post_type_tertiary</h1>";
 	            } else {
 
 	                $photoURL = str_replace("thumb", "medium", $attachment->img_url);
-	                $media = "<div class='full-post-img'><img src='$photoURL'></div>$caption";
+	                $media = "<div class='full-post-img'><img src='$photoUR$widthL'></div>$caption";
 
 	            }
 

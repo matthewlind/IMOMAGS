@@ -58,7 +58,7 @@ if ( is_user_logged_in() ) {
 
 
 include 'common-templates.php';
-$crop = "/convert?w=650&h=650&fit=crop&rotate=exif";
+$crop = "/convert?w=730&h=730&fit=crop&rotate=exif";
 if(mobile()){
 	$crop = "/convert?w=458&h=458&fit=crop&rotate=exif";
 }
@@ -88,7 +88,7 @@ if(post.score == 1){
 	<div class="dif-post">
         <% if(post.img_url){ %>
 	        <div class="feat-img">
-	            <a href="<%= post.post_url %>"><img class="feat-img" src="<%= post.img_url %>" alt="<%= post.title %>" title="<%= post.img_url %>" /></a>
+	            <a href="<%= post.post_url %>"><img class="feat-img" src="<%= post.img_url %><?php echo $crop; ?>" alt="<%= post.title %>" title="<%= post.img_url %>" /></a>
 	        </div>
         <% }else{ %>
         	 <div class="feat-img">

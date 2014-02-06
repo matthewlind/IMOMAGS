@@ -160,7 +160,7 @@ if ( is_user_logged_in() ) {
 	}
 }
 
-$crop = "/convert?w=650&h=650&fit=crop&rotate=exif";
+$crop = "/convert?w=730&h=730&fit=crop&rotate=exif";
 if(mobile()){
 	$crop = "/convert?w=458&h=458&fit=crop&rotate=exif";
 }

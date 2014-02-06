@@ -293,7 +293,6 @@ $time = date("g:i A", strtotime($timestamp));
 			</div>
 
         <?php
-        	$facebookThumb = "/convert?w=180&h=h180&fit=scale&rotate=exif";
         	$width = "/convert?w=730&fit=scale&rotate=exif";
         	if(mobile()){
         		$width = "/convert?w=478";
@@ -328,7 +327,7 @@ $time = date("g:i A", strtotime($timestamp));
 	            } else {
 
 	                $photoURL = str_replace("thumb", "medium", $attachment->img_url);
-	                $media = "<div class='full-post-img'><img src='$photoURL$width' /><img src='$photoURL$facebookThumb' style='display:none;' /></div>$caption";
+	                $media = "<div class='full-post-img'><img src='$photoURL$width' /></div>$caption";
 
 	            }
 
