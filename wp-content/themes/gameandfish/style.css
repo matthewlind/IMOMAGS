@@ -14,6 +14,7 @@ General comments (optional).
 
 body{background-color: black;}
 .layout-frame {background:#fff;border: none;}
+.mobile-state{color: #cda220;float: left;display: none;}
 
 /* Header
  ******************************************************************************/
@@ -161,25 +162,31 @@ body{background-color: black;}
 .menu-main-menu-container > ul > li > a, .menu-header-menu-container > ul > li > a{padding: 0 18px;}
 .menu-main-menu-container a.has-drop:after{top: 24px;}
 .menu-main-menu-container .hot-link a.has-drop:after {right: -20px;}
-.menu-main-menu-container .hot-link .sub-menu{width: 100%;}
+.menu-main-menu-container .hot-link .sub-menu{width: 100%;min-height: 160px;}
+.menu-main-menu-container .hot-link li.photos-logo{position: absolute;right: 50px;}
 .menu-main-menu-container .hot-link li.photos-logo a{
 	text-indent: -99999px;
-	position: absolute;
 	background: url(images/yourphotos-menu.png) no-repeat center top transparent;
-	right: 24px;
-	height: 88px;
-	width: 219px;
-	top: 40px;
+	height: 72px;
+	width: 180px;
+	top: 70px;
 }
+.menu-main-menu-container li.photos-logo{width: auto;}
+.menu-main-menu-container li.photos-logo:hover{position: absolute;}
 .menu-main-menu-container .hot-link li.photos-logo a:hover{background: url(images/yourphotos-menu.png) no-repeat center top transparent;}
 .menu-main-menu-container .hot-link .sub-menu li.singl-post-photo{
-	width: 400px;
-	margin: 20px 0 0 8px;
+	width: 240px;
+	margin: 20px auto 0;
 	padding: 0;
 	border-right: none;
 	border-width: 0;
+	background: #373737;
+	color: #f9cc39;
+	height: 40px;
+	text-shadow: none;
 }
-
+.menu-main-menu-container .hot-link .sub-menu li.singl-post-photo:hover{background: black;}
+.sub-menu li.singl-post-photo a{padding: 12px;}
 .state-drop{
 	text-indent: -9999px !important;
 	background: url(images/menu-arrow.png) no-repeat center center #373737;
@@ -301,12 +308,13 @@ body{background-color: black;}
 .drop-feat-post h5 {color:#373737;}
 .drop-feat-post h5 a {color:white;}
 .drop-feat-post h5 a:hover {color:#cda220;}
-.hot-link{border: none !important;padding-left: 18px;}
+.hot-link{padding-left: 18px;}
 .hot-link a.main-menu-link{
 	color: white;
 	padding: 0 0 0 30px !important;
 	background: url(images/ico/camera-white.png) no-repeat 0px 12px !important;
 }
+.menu-main-menu-container li.hot-link{	border-right-width:0;}
 .mob-aside-menu #imo-fb-login-button{
 	width: 274px;
 	height: 42px;
@@ -410,7 +418,6 @@ body{background-color: black;}
 	height: 32px;
 	font: 15px/29px "stagbold", serif;
 	color: #fff;
-	text-shadow: 0 -1px 0 #7a0c11;
 	margin: 3px 8px 3px 4px;
 	background: #7a0c11;
 	position: relative;
@@ -995,6 +1002,8 @@ element:hover, element.hover_effect {
 /* =Responsive Breakpoints
 *******************************************************************************/
 @media only screen and (max-width: 1096px) {
+	.mobile-state{display: block;font: 24px/1.4 "stagregular",serif;color: #cda220;float: left;margin: 0 6px 0 0;}
+	.state-drop{display: none;}
 	.snap-drawers{background-color: white;}
 	.snap-drawers .menu-top-menu-container a:hover, .snap-drawers .mob-aside-menu li.drop-open > a, .snap-drawers .mob-aside-menu > div > ul > li > a:hover{color: white;}
 	.snap-drawers .drop-down a{background: none;text-transform: capitalize;}
@@ -1013,12 +1022,12 @@ element:hover, element.hover_effect {
 		right: 187px;
 	}
 	.menu-subscribe a img{top: -2px;}
-	.hot-link a{
-		padding: 0 0 0 30px !important;
-		margin: 18px;
+	.hot-link a.main-menu-link{
+		padding: 10px 15px 10px 30px !important;
+		margin: 0 0 0 16px;
 		line-height: 1.2 !important;
-		color: #c9242c !important;
 	 }
+	 .sub-menu li.singl-post-photo a
 	 .logo {
 		width: auto;
 		height: 42px;
@@ -1138,6 +1147,7 @@ element:hover, element.hover_effect {
 	.foot-social .socials a.rss:hover {background-position: -325px -222px;}
 }
 @media only screen and (max-width: 610px) {
+	.mobile-state{font: 26px/1.3 "stagregular",serif;margin: 0 3px 0 0;}
 	.header .socials, #subscribe-area, .user-btn{display: none;}
 	/*.home .posts-list .article-holder {padding: 10px 10px 5px 30px;}
 	.home .general, .home .general-frame {padding-right: 0;}*/

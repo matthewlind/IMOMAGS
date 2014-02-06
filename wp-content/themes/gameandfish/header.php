@@ -383,7 +383,14 @@
 							}
 
 						?>
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/<?php echo $logo; ?>" alt="<?php bloginfo( 'name' ); ?>" /><?php if(!mobile() && !tablet()){ ?><span class="state-drop"></span><?php } ?></a>
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+							<?php if(mobile()){ ?>
+								<h1 class="mobile-state"><?php echo $IMO_USER_STATE; ?></h1>
+							<?php }else{ ?>
+								<h1 class="mobile-state"><?php echo $IMO_USER_STATE_NICENAME; ?></h1>
+							<?php } ?>
+								
+							<img src="<?php bloginfo('stylesheet_directory'); ?>/images/<?php echo $logo; ?>" alt="<?php bloginfo( 'name' ); ?>" /><?php if(!mobile() && !tablet()){ ?><span class="state-drop"></span><?php } ?></a>
 
 						<?php if(!mobile() && !tablet()){ ?>
 						<div class="gf-drop-down">

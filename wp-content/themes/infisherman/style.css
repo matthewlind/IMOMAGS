@@ -778,6 +778,7 @@ div.login-register-block {
 		right: 104px;
 		padding-right: 0;
 	}	
+	.open-menu:hover {background-position: -353px -131px;}
 	#subscribe-area {
 		right: 315px;
 	}
@@ -841,6 +842,5 @@ div.login-register-block {
         background:#fff;
         content:"";
     }   
-    .open-menu:hover {background-position: -353px -131px;}
     .foot-social .socials a.youtube:hover{background-position: -280px -222px;}
 }
