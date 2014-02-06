@@ -302,8 +302,7 @@ function imo_community_template() {
 
 
 		$wp_query->query_vars['post_title'] = $postData->title;
-		$wp_query->query_vars['seo_image'] = $postData->img_url;
-
+		$wp_query->query_vars['seo_image'] = $postData->img_url . "/convert?w=180&h=180&fit=crop&rotate=exif";
 
 	    wp_deregister_script( 'jquery' );
 	    wp_register_script( 'jquery', '/wp-content/plugins/imo-community/js/jquery-1.7.1.min.js');
