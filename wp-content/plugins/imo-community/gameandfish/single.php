@@ -491,6 +491,7 @@ echo "<h1>Post Type Tertiary: $post_type_tertiary</h1>";
                     <a href="#" class="email-signup email-signup-button jq-open-reg-popup" style="<?php echo $loginStyle; ?>" >login with email address</a>
                     <p class="login-message" style="<?php echo $loginStyle; ?>">Your Comment will be submitted immediately after Login</p>
                     <span class="btn-red btn-post btn-submit"  style="<?php echo $displayStyle; ?>"><input id="post-photo" type="submit" value="Submit"></span>
+                    <div class="loading-gif"></div>
                 </div>
             </fieldset>
         </form>
