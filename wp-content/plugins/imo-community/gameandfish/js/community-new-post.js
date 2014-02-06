@@ -137,7 +137,6 @@ jQuery(document).ready(function($) {
 	//****************** NEW POST SUBMISSION ****************
 	//*******************************************************
 	$("#new-post-form").submit(function(ev){
-		$('.loading-gif').fadeIn();
 		ev.preventDefault();
 
 		var formDataObject = $("#new-post-form").formParams();
@@ -160,6 +159,7 @@ jQuery(document).ready(function($) {
 
 		//Validate form data and submit
 		if (validateFormData(newPostData)) {
+			$('.loading-gif').fadeIn();
 			$.post("http://" + document.domain + "/community-api/posts",newPostData,function(data){
 
 				var postData = $.parseJSON(data);
