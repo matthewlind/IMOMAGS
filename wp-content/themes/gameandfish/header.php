@@ -147,60 +147,60 @@
 		   				<div class="drop-down">
 			   		<ul class="sub-menu menu-odd">
 			    		<li><a class="region" href="/new-england/">NEW ENGLAND</a></li>
-			    		<li><a href="/connecticut/">connecticut</a></li>
-			    		<li><a href="/maine/">maine</a></li>
-			    		<li><a href="/massachusetts/">massachusetts</a></li>
-			    		<li><a href="/newhampshire/">new hampshire</a></li>
-						<li><a href="/rhodeisland/">rhode island</a></li>
-			    		<li><a href="/vermont/">vermont</a></li>
+			    		<li><a class="state-chooser" state="CT" href="/connecticut/">connecticut</a></li>
+			    		<li><a class="state-chooser" state="ME" href="/maine/">maine</a></li>
+			    		<li><a class="state-chooser" state="MA" href="/massachusetts/">massachusetts</a></li>
+			    		<li><a class="state-chooser" state="NH" href="/newhampshire/">new hampshire</a></li>
+						<li><a class="state-chooser" state="RI" href="/rhodeisland/">rhode island</a></li>
+			    		<li><a class="state-chooser" state="VT" href="/vermont/">vermont</a></li>
 			    		<li><a class="region" href="/northeast/">NORTHEAST</a></li>
-			    		<li><a href="/delaware/">delaware</a></li>
-						<li><a href="/maryland/">maryland</a></li>
-						<li><a href="/newjersey/">new jersey</a></li>
-						<li><a href="/newyork/">new york</a></li>
-						<li><a href="/pennsylvania/">pennsylvania</a></li>
+			    		<li><a class="state-chooser" state="DE" href="/delaware/">delaware</a></li>
+						<li><a class="state-chooser" state="MD" href="/maryland/">maryland</a></li>
+						<li><a class="state-chooser" state="NJ" href="/newjersey/">new jersey</a></li>
+						<li><a class="state-chooser" state="NY" href="/newyork/">new york</a></li>
+						<li><a class="state-chooser" state="PA" href="/pennsylvania/">pennsylvania</a></li>
 						<li><a class="region" href="/midwest/">MIDWEST</a></li>
-						<li><a href="/illinois/">illinois</a></li>
-						<li><a href="/indiana/">indiana</a></li>
-						<li><a href="/iowa/">iowa</a></li>
-						<li><a href="/kansas/">kansas</a></li>
-						<li><a href="/michigan/">michigan</a></li>
-						<li><a href="/minnesota/">minnesota</a></li>
-						<li><a href="/missouri/">missouri</a></li>
-						<li><a href="/nebraska/">nebraska</a></li>
-						<li><a href="/northdakota/">north dakota</a></li>
-						<li><a href="/ohio/">ohio</a></li>
-						<li><a href="/wisconsin/">wisconsin</a></li>
-						<li><a href="/southdakota/">south dakota</a></li>
+						<li><a class="state-chooser" state="IL" href="/illinois/">illinois</a></li>
+						<li><a class="state-chooser" state="IN" href="/indiana/">indiana</a></li>
+						<li><a class="state-chooser" state="IA" href="/iowa/">iowa</a></li>
+						<li><a class="state-chooser" state="KS" href="/kansas/">kansas</a></li>
+						<li><a class="state-chooser" state="MI" href="/michigan/">michigan</a></li>
+						<li><a class="state-chooser" state="MN" href="/minnesota/">minnesota</a></li>
+						<li><a class="state-chooser" state="MO" href="/missouri/">missouri</a></li>
+						<li><a class="state-chooser" state="NE" href="/nebraska/">nebraska</a></li>
+						<li><a class="state-chooser" state="ND" href="/northdakota/">north dakota</a></li>
+						<li><a class="state-chooser" state="OH" href="/ohio/">ohio</a></li>
+						<li><a class="state-chooser" state="WI" href="/wisconsin/">wisconsin</a></li>
+						<li><a class="state-chooser" state="SD" href="/southdakota/">south dakota</a></li>
 						<li><a class="region" href="/rocky-mountains/">ROCKY MOUNTAINS</a></li>
-						<li><a href="/colorado/">colorado</a></li>
-						<li><a href="/idaho/">idaho</a></li>
-						<li><a href="/montana/">montana</a></li>
-						<li><a href="/utah/">utah</a></li>
-						<li><a href="/wyoming/">wyoming</a></li>
+						<li><a class="state-chooser" state="CO" href="/colorado/">colorado</a></li>
+						<li><a class="state-chooser" state="ID" href="/idaho/">idaho</a></li>
+						<li><a class="state-chooser" state="MT" href="/montana/">montana</a></li>
+						<li><a class="state-chooser" state="UT" href="/utah/">utah</a></li>
+						<li><a class="state-chooser" state="WY" href="/wyoming/">wyoming</a></li>
 						<li><a class="region"  href="/south/">SOUTH</a></li>
-			    		<li><a href="/alabama/">alabama</a></li>
-						<li><a href="/arkansas/">arkansas</a></li>
-						<li><a href="/florida/">florida</a></li>
-						<li><a href="/georgia/">georgia</a></li>
-						<li><a href="/kentucky/">kentucky</a></li>
-						<li><a href="/louisiana/">louisiana</a></li>
-						<li><a href="/mississippi/">mississippi</a></li>
-						<li><a href="/northcarolina/">north carolina</a></li>
-						<li><a href="/southcarolina/">south carolina</a></li>
-						<li><a href="/tennessee/">tennessee</a></li>
-						<li><a href="/virginia/">virginia</a></li>
-						<li><a href="/westvirginia/">west virginia</a></li>
+			    		<li><a class="state-chooser" state="AL" href="/alabama/">alabama</a></li>
+						<li><a class="state-chooser" state="AR" href="/arkansas/">arkansas</a></li>
+						<li><a class="state-chooser" state="FL" href="/florida/">florida</a></li>
+						<li><a class="state-chooser" state="GA" href="/georgia/">georgia</a></li>
+						<li><a class="state-chooser" state="KY" href="/kentucky/">kentucky</a></li>
+						<li><a class="state-chooser" state="LA" href="/louisiana/">louisiana</a></li>
+						<li><a class="state-chooser" state="MS" href="/mississippi/">mississippi</a></li>
+						<li><a class="state-chooser" state="NC" href="/northcarolina/">north carolina</a></li>
+						<li><a class="state-chooser" state="SC" href="/southcarolina/">south carolina</a></li>
+						<li><a class="state-chooser" state="TN" href="/tennessee/">tennessee</a></li>
+						<li><a class="state-chooser" state="VA" href="/virginia/">virginia</a></li>
+						<li><a class="state-chooser" state="WV" href="/westvirginia/">west virginia</a></li>
 						<li><a class="region" href="/southwest/">SOUTHWEST</a></li>
-			    		<li><a href="/arizona/">arizona</a></li>
-						<li><a href="/nevada/">nevada</a></li>
-						<li><a href="/newmexico/">new mexico</a></li>
-						<li><a href="/oklahoma/">oklahoma</a></li>
-						<li><a href="/texas/">texas</a></li>
+			    		<li><a class="state-chooser" state="AZ" href="/arizona/">arizona</a></li>
+						<li><a class="state-chooser" state="NV" href="/nevada/">nevada</a></li>
+						<li><a class="state-chooser" state="NM" href="/newmexico/">new mexico</a></li>
+						<li><a class="state-chooser" state="OK" href="/oklahoma/">oklahoma</a></li>
+						<li><a class="state-chooser" state="TX" href="/texas/">texas</a></li>
 			    		<li><a class="region" href="/westcoast/">WEST COAST</a></li>
-						<li><a href="/california/">california</a></li>
-						<li><a href="/oregon/">oregon</a></li>
-						<li><a href="/washington/">washington</a></li>
+						<li><a class="state-chooser" state="CA" href="/california/">california</a></li>
+						<li><a class="state-chooser" state="OR" href="/oregon/">oregon</a></li>
+						<li><a class="state-chooser" state="WA" href="/washington/">washington</a></li>
 					</ul>
    				</div>
 	   		</li>
@@ -389,7 +389,7 @@
 							<?php }else{ ?>
 								<h1 class="mobile-state"><?php echo $IMO_USER_STATE_NICENAME; ?></h1>
 							<?php } ?>
-								
+
 							<img src="<?php bloginfo('stylesheet_directory'); ?>/images/<?php echo $logo; ?>" alt="<?php bloginfo( 'name' ); ?>" /><?php if(!mobile() && !tablet()){ ?><span class="state-drop"></span><?php } ?></a>
 
 						<?php if(!mobile() && !tablet()){ ?>
@@ -401,64 +401,64 @@
 
 								    	<ul<?php if(tablet()){ echo ' style="padding:0 40px;"'; } ?>>
 								    		<li>NEW ENGLAND</li>
-								    		<li><a href="/connecticut/">connecticut</a></li>
-								    		<li><a href="/maine/">maine</a></li>
-								    		<li><a href="/massachusetts/">massachusetts</a></li>
-								    		<li><a href="/newhampshire/">new hampshire</a></li>
-											<li><a href="/rhodeisland/">rhode island</a></li>
-								    		<li><a href="/vermont/">vermont</a></li>
+								    		<li><a class="state-chooser" state="CT" href="/connecticut/">connecticut</a></li>
+								    		<li><a class="state-chooser" state="ME" href="/maine/">maine</a></li>
+								    		<li><a class="state-chooser" state="MA" href="/massachusetts/">massachusetts</a></li>
+								    		<li><a class="state-chooser" state="NH" href="/newhampshire/">new hampshire</a></li>
+											<li><a class="state-chooser" state="RI" href="/rhodeisland/">rhode island</a></li>
+								    		<li><a class="state-chooser" state="VT" href="/vermont/">vermont</a></li>
 								    		<li>NORTHEAST</li>
-								    		<li><a href="/delaware/">delaware</a></li>
-											<li><a href="/maryland/">maryland</a></li>
-											<li><a href="/newjersey/">new jersey</a></li>
-											<li><a href="/newyork/">new york</a></li>
-											<li><a href="/pennsylvania/">pennsylvania</a></li>
+								    		<li><a class="state-chooser" state="DE" href="/delaware/">delaware</a></li>
+											<li><a class="state-chooser" state="MD" href="/maryland/">maryland</a></li>
+											<li><a class="state-chooser" state="NY" href="/newjersey/">new jersey</a></li>
+											<li><a class="state-chooser" state="NY" href="/newyork/">new york</a></li>
+											<li><a class="state-chooser" state="PE" href="/pennsylvania/">pennsylvania</a></li>
 											<li>MIDWEST</li>
-											<li><a href="/illinois/">illinois</a></li>
-											<li><a href="/indiana/">indiana</a></li>
-											<li><a href="/iowa/">iowa</a></li>
-											<li><a href="/kansas/">kansas</a></li>
-											<li><a href="/michigan/">michigan</a></li>
+											<li><a class="state-chooser" state="IL" href="/illinois/">illinois</a></li>
+											<li><a class="state-chooser" state="IN" href="/indiana/">indiana</a></li>
+											<li><a class="state-chooser" state="IA" href="/iowa/">iowa</a></li>
+											<li><a class="state-chooser" state="KS" href="/kansas/">kansas</a></li>
+											<li><a class="state-chooser" state="MI" href="/michigan/">michigan</a></li>
 										</ul>
 								    	<ul<?php if(tablet()){ echo ' style="padding:0 40px;"'; } ?>>
-											<li><a href="/minnesota/">minnesota</a></li>
-											<li><a href="/missouri/">missouri</a></li>
-											<li><a href="/nebraska/">nebraska</a></li>
-											<li><a href="/northdakota/">north dakota</a></li>
-											<li><a href="/ohio/">ohio</a></li>
-											<li><a href="/wisconsin/">wisconsin</a></li>
-											<li><a href="/southdakota/">south dakota</a></li>
+											<li><a class="state-chooser" state="MN" href="/minnesota/">minnesota</a></li>
+											<li><a class="state-chooser" state="MO" href="/missouri/">missouri</a></li>
+											<li><a class="state-chooser" state="NE" href="/nebraska/">nebraska</a></li>
+											<li><a class="state-chooser" state="ND" href="/northdakota/">north dakota</a></li>
+											<li><a class="state-chooser" state="OH" href="/ohio/">ohio</a></li>
+											<li><a class="state-chooser" state="WI" href="/wisconsin/">wisconsin</a></li>
+											<li><a class="state-chooser" state="SD" href="/southdakota/">south dakota</a></li>
 											<li>ROCKY MOUNTAINS</li>
-											<li><a href="/colorado/">colorado</a></li>
-											<li><a href="/idaho/">idaho</a></li>
-											<li><a href="/montana/">montana</a></li>
-											<li><a href="/utah/">utah</a></li>
-											<li><a href="/wyoming/">wyoming</a></li>
+											<li><a class="state-chooser" state="CO" href="/colorado/">colorado</a></li>
+											<li><a class="state-chooser" state="ID" href="/idaho/">idaho</a></li>
+											<li><a class="state-chooser" state="MT" href="/montana/">montana</a></li>
+											<li><a class="state-chooser" state="UT" href="/utah/">utah</a></li>
+											<li><a class="state-chooser" state="WY" href="/wyoming/">wyoming</a></li>
 											<li>SOUTH</li>
-								    		<li><a href="/alabama/">alabama</a></li>
-											<li><a href="/arkansas/">arkansas</a></li>
-											<li><a href="/florida/">florida</a></li>
-											<li><a href="/georgia/">georgia</a></li>
+								    		<li><a class="state-chooser" state="AL" href="/alabama/">alabama</a></li>
+											<li><a class="state-chooser" state="AK" href="/arkansas/">arkansas</a></li>
+											<li><a class="state-chooser" state="FL" href="/florida/">florida</a></li>
+											<li><a class="state-chooser" state="GA" href="/georgia/">georgia</a></li>
 										</ul>
 								    	<ul<?php if(tablet()){ echo ' style="padding:0 40px;"'; } ?>>
-											<li><a href="/kentucky/">kentucky</a></li>
-											<li><a href="/louisiana/">louisiana</a></li>
-											<li><a href="/mississippi/">mississippi</a></li>
-											<li><a href="/northcarolina/">north carolina</a></li>
-											<li><a href="/southcarolina/">south carolina</a></li>
-											<li><a href="/tennessee/">tennessee</a></li>
-											<li><a href="/virginia/">virginia</a></li>
-											<li><a href="/westvirginia/">west virginia</a></li>
+											<li><a class="state-chooser" state="KY" href="/kentucky/">kentucky</a></li>
+											<li><a class="state-chooser" state="LA" href="/louisiana/">louisiana</a></li>
+											<li><a class="state-chooser" state="MS" href="/mississippi/">mississippi</a></li>
+											<li><a class="state-chooser" state="NC" href="/northcarolina/">north carolina</a></li>
+											<li><a class="state-chooser" state="SC" href="/southcarolina/">south carolina</a></li>
+											<li><a class="state-chooser" state="TN" href="/tennessee/">tennessee</a></li>
+											<li><a class="state-chooser" state="VA" href="/virginia/">virginia</a></li>
+											<li><a class="state-chooser" state="WV" href="/westvirginia/">west virginia</a></li>
 											<li>SOUTHWEST</li>
-								    		<li><a href="/arizona/">arizona</a></li>
-											<li><a href="/nevada/">nevada</a></li>
-											<li><a href="/newmexico/">new mexico</a></li>
-											<li><a href="/oklahoma/">oklahoma</a></li>
-											<li><a href="/texas/">texas</a></li>
+								    		<li><a class="state-chooser" state="AZ" href="/arizona/">arizona</a></li>
+											<li><a class="state-chooser" state="NV" href="/nevada/">nevada</a></li>
+											<li><a class="state-chooser" state="NM" href="/newmexico/">new mexico</a></li>
+											<li><a class="state-chooser" state="OK" href="/oklahoma/">oklahoma</a></li>
+											<li><a class="state-chooser" state="TX" href="/texas/">texas</a></li>
 								    		<li>WEST COAST</li>
-											<li><a href="/california/">california</a></li>
-											<li><a href="/oregon/">oregon</a></li>
-											<li><a href="/washington/">washington</a></li>
+											<li><a class="state-chooser" state="CA" href="/california/">california</a></li>
+											<li><a class="state-chooser" state="OR" href="/oregon/">oregon</a></li>
+											<li><a class="state-chooser" state="WA" href="/washington/">washington</a></li>
 								    	</ul>
 
 							    	</div>
@@ -478,7 +478,7 @@
 					<?php }else{ ?>
 						<a id="comm-mob-menu" class="user-btn" style="display:none;">
 					<?php } ?>
-					
+
 					<?php
                         // Check to see if the header image has been removed
                         $header_image = get_header_image();
@@ -525,7 +525,7 @@
                         else :
                     ?>
 
-					
+
 					<div id="subscribe-area" class="widget widget_text header-elements">
 						<div class="subscribe-box">
 						    <div class="clearfix">
