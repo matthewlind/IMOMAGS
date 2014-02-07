@@ -314,7 +314,6 @@ imo_sidebar("community");
 				$url = $replyData->tertiary_post_type . "/" . $replyData->secondary_post_type . "/" . $replyData->post_type;
 				$url = str_replace("/null/", "/", $url);
 
-
                 foreach($comments as $comment){ ?>
                 	<li class="reply-item">
                         <p><?php echo $comment->body; ?></p>
