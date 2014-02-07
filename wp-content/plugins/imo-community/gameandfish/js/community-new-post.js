@@ -159,7 +159,9 @@ jQuery(document).ready(function($) {
 
 		//Validate form data and submit
 		if (validateFormData(newPostData)) {
+			$('.btn-submit').fadeOut();
 			$('.loading-gif').fadeIn();
+			
 			$.post("http://" + document.domain + "/community-api/posts",newPostData,function(data){
 
 				var postData = $.parseJSON(data);

@@ -243,6 +243,7 @@ imo_sidebar("community");
 						if($post->img_url){
 						$url = $post->tertiary_post_type . "/" . $post->secondary_post_type . "/" . $post->post_type;
 						$url = str_replace("/null/", "/", $url);
+						$postType = str_replace("-", " ", $post->post_type) 
 					?>
 
                         <div class="dif-post">
@@ -259,7 +260,7 @@ imo_sidebar("community");
                                         <h4><a href="/photos/<?php echo $url; ?>/<?php echo $post->id; ?>"></a></h4>
                                         <ul class="prof-tags">
                                             <!--<li><a href="<?php echo $post->state; ?>"><?php echo $post->state; ?></a></li>-->
-                                            <li style="text-transform:capitalize;"><a href="/photos/<?php echo $url; ?>"><?php echo $post->post_type; ?></a></li>
+                                            <li style="text-transform:capitalize;"><a href="/photos/<?php echo $url; ?>"><?php echo $postType; ?></a></li>
                                         </ul>
                                         <ul class="replies">
                                             <li><a href="/photos/<?php echo $url; ?>/<?php echo $post->id; ?>/#reply_field"><?php echo $niceComment; ?></a></li>
