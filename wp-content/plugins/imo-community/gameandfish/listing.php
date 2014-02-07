@@ -106,7 +106,7 @@ postType = post.post_type.replace("-"," ");
                     <h4><a href="/profile/<%= post.user_nicename %>"><%= post.display_name %></a></h4>
                     <ul class="prof-tags">
                         <!--<li><a href="#"><%= post.state %></a></li>-->
-                        <li><a href="<%= post.term %>"style="text-transform:capitalize;"><%= postType %></a></li>
+                        <li><a href="<%= post.term_url %>"style="text-transform:capitalize;"><%= postType %></a></li>
                     </ul>
                     <ul class="replies">
                         <li><a href="<%= post.post_url %>/#reply_field"><%= post.comment_count %> Reply</a></li>
