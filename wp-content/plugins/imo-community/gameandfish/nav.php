@@ -12,18 +12,16 @@ $fishingTerms = $termTaxonomy['fishing']['children'];
 		<div class="sponsor"><?php imo_dart_tag("240x60"); ?></div>
 	</div>
 	<?php if(mobile()){
-		echo '<div class="header-section">';
+		echo '<div class="header-section"><div class="select-arrow"></div>';
 			echo "<select id='community-nav'>";
 				echo "<option value=''>Photos Menu</option>";
 				foreach ($termTaxonomy as $parentSlug => $term) {
-				$parent = strtolower( str_replace( " ", "-", $term['display_name']) );
+				$parent = $term['slug'];
 					if( $term["show_in_menu"] == TRUE ){
-	
-						$child = strtolower( str_replace( " ", "-", $term['display_name']) );
 						echo "<option value='/photos/$parent'><strong>" . $term['display_name'] . "</strong></option>";
 					}
 					foreach($term['children'] as $childSlug => $termChild) {
-						$child = strtolower( str_replace( " ", "-", $termChild['display_name']) );
+						$child = $termChild['slug'];
 						if( $term["show_in_menu"] == TRUE ){
 							echo "<option value='/photos/$parent/$child'><strong>" . $termChild['display_name'] . "</strong></option>";
 						}
@@ -51,7 +49,7 @@ $fishingTerms = $termTaxonomy['fishing']['children'];
 			echo "<ul class='community-nav'>";
 			$termcount = 0;
 			foreach ($huntingTerms as $parentSlug => $term) {
-				$parent = strtolower( str_replace( " ", "-", $term['display_name']) );
+				$parent = $term['slug'];
 
 				if( $term["show_in_menu"] == TRUE ){
 					echo "<li><a href='/photos/hunting/" . $parent . "'>" . $term['display_name'] . "</a></li>";
@@ -63,7 +61,7 @@ $fishingTerms = $termTaxonomy['fishing']['children'];
 	
 				}
 				foreach($term['children'] as $childSlug => $termChild) {
-					$child = strtolower( str_replace( " ", "-", $termChild['display_name']) );
+					$child = $termChild['slug'];
 					if( $termChild["show_in_menu"] == TRUE ){
 						echo "<li><a href='/photos/hunting/" . $parentSlug . "/" . $child . "'>" . $termChild['display_name'] . "</a></li>";
 						$termcount++;
@@ -80,12 +78,12 @@ $fishingTerms = $termTaxonomy['fishing']['children'];
 	</div>
 	
 	<div class="header-section">
-		<h3><a href="/photos/hunting">Fishing</a></h3>
+		<h3><a href="/photos/fishing">Fishing</a></h3>
 		<?php 
 			echo "<ul class='community-nav'>";
 			$termcount = 0;
 			foreach ($fishingTerms as $parentSlug => $term) {
-				$parent = strtolower( str_replace( " ", "-", $term['display_name']) );
+				$parent = $term['slug'];
 
 				if( $term["show_in_menu"] == TRUE ){
 					echo "<li><a href='/photos/fishing/" . $parent . "'>" . $term['display_name'] . "</a></li>";
@@ -97,7 +95,7 @@ $fishingTerms = $termTaxonomy['fishing']['children'];
 	
 				}
 				foreach($term['children'] as $childSlug => $termChild) {
-					$child = strtolower( str_replace( " ", "-", $termChild['display_name']) );
+					$child = $termChild['slug'];
 					if( $termChild["show_in_menu"] == TRUE ){
 						echo "<li><a href='/photos/fishing/" . $parentSlug . "/" . $child . "'>" . $termChild['display_name'] . "</a></li>";
 						$termcount++;

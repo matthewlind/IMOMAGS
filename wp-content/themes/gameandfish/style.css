@@ -1149,6 +1149,7 @@ element:hover, element.hover_effect {
 @media only screen and (max-width: 610px) {
 	.mobile-state{font: 26px/1.3 "stagregular",serif;margin: 0 3px 0 0;}
 	.header .socials, #subscribe-area, .user-btn{display: none;}
+	.logo{margin: 6px 0 0;width: auto;}
 	/*.home .posts-list .article-holder {padding: 10px 10px 5px 30px;}
 	.home .general, .home .general-frame {padding-right: 0;}*/
 	.home .article-brief .entry-content {display:none;}

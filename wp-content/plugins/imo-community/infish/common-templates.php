@@ -17,7 +17,7 @@
                             <input name="password" type="password" placeholder="Password" />
                         </div>
                         <div class="form-link">
-                            <a href="#">Lost your password?</a>
+                            <a href="/login/?action=lostpassword">Lost your password?</a>
                         </div>
                         <div class="f-row">
                             <div class="btn-red">

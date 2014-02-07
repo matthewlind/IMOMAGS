@@ -277,7 +277,7 @@ echo "<h1>Post Type Tertiary: $post_type_tertiary</h1>";
 	    	<?php if($post_type_tertiary){ ?><li style="margin-top:1px;text-transform:capitalize;"> &raquo; <a href="/photos/<?php echo $post_type_tertiary; ?>"><?php echo $post_type_tertiary; ?></a></li><?php } ?>
 	    	<?php if($post_type_secondary){ ?>
 	    		<li style="margin-top:1px;text-transform:capitalize;"> &raquo; <a href="/photos/<?php echo $post_type_tertiary; ?>/<?php echo $post_type_secondary; ?>"><?php echo $post_type_secondary; ?></a></li><?php } ?>
-	    	<?php if($post_type_primary){ ?><li style="margin-top:1px;text-transform:capitalize;"> &raquo; <a href="/photos/<?php echo $post_type_tertiary; ?>/<?php echo $post_type_secondary; ?>/<?php echo $post_type_primary; ?>"><?php echo $post_type_primary; ?></a></li><?php } ?>
+	    	<?php if($post_type_primary){ ?><li style="margin-top:1px;text-transform:capitalize;"> &raquo; <a href="/photos/<?php echo $post_type_tertiary; ?>/<?php if($post_type_secondary){ echo $post_type_secondary . "/"; } ?><?php echo $post_type_primary; ?>"><?php echo $post_type_primary; ?></a></li><?php } ?>
 		</ul>
 		<div class="custom-title clearfix">
             <div class="title-crumbs">
@@ -292,14 +292,14 @@ echo "<h1>Post Type Tertiary: $post_type_tertiary</h1>";
 
 
 		</div>
-		        <div class="profile-panel">
+		<div class="profile-panel">
 		<?php
         	$width = "/convert?w=730&fit=scale&rotate=exif";
         	if(mobile()){
         		$width = "/convert?w=478";
         	}
             $media = "";
-            $media = "<div class='full-post-img'><img src='$data->img_url'></div>";
+            $media = "<div class='full-post-img'><img src='$data->img_url$width'></div>";
 		    //$media = "<div class='full-post-img'><img src='https://www.filepicker.io/api/file/hyI5K2JXQwyizEqvfbEA'></div>";
             echo $media;
 
@@ -317,7 +317,7 @@ echo "<h1>Post Type Tertiary: $post_type_tertiary</h1>";
 	            } else {
 
 	                $photoURL = str_replace("thumb", "medium", $attachment->img_url);
-	                $media = "<div class='full-post-img'><img src='$photoURL'></div>$caption";
+	                $media = "<div class='full-post-img'><img src='$photoUR$widthL'></div>$caption";
 
 	            }
 
@@ -335,7 +335,7 @@ echo "<h1>Post Type Tertiary: $post_type_tertiary</h1>";
 	                <h4><a href="/profile/<?php echo $data->username; ?>"><?php echo $data->display_name; ?></a></h4>
 	                <ul class="prof-tags">
 	                    <!--<li><a href="/photos/<?php echo $data->post_type.'/'.strtolower($state_slug); ?>"><?php echo $state ?></a></li>-->
-	                    <li><a href="/photos/<?php echo $post_type_tertiary; ?>/<?php echo $post_type_secondary; ?>/<?php echo $post_type_primary; ?>" style="text-transform:capitalize;"><?php echo $data->post_type; ?></a></li>
+	                    <li><a href="/photos/<?php echo $post_type_tertiary; ?>/<?php if($post_type_secondary){ echo $post_type_secondary . "/"; } ?><?php echo $post_type_primary; ?>" style="text-transform:capitalize;"><?php echo $data->post_type; ?></a></li>
 	                </ul>
 	                <div class="clearfix">
 	                    <ul class="replies">
@@ -491,6 +491,7 @@ echo "<h1>Post Type Tertiary: $post_type_tertiary</h1>";
                     <a href="#" class="email-signup email-signup-button jq-open-reg-popup" style="<?php echo $loginStyle; ?>" >login with email address</a>
                     <p class="login-message" style="<?php echo $loginStyle; ?>">Your Comment will be submitted immediately after Login</p>
                     <span class="btn-red btn-post btn-submit"  style="<?php echo $displayStyle; ?>"><input id="post-photo" type="submit" value="Submit"></span>
+                    <div class="loading-gif"></div>
                 </div>
             </fieldset>
         </form>

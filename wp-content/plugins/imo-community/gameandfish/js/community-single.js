@@ -5,7 +5,10 @@ jQuery(document).ready(function(){
 //****************** NEW COMMENT SUBMISSION ****************
 //*******************************************************
     $("#comment-form").submit(function(){
-
+		
+		$("#comment-form .btn-submit").hide();
+        $(".loading-gif").fadeIn();
+        
         var formDataObject = $("#comment-form").formParams();
         var newPostData = $.extend(formDataObject,userIMO);
 
@@ -22,6 +25,9 @@ jQuery(document).ready(function(){
 			});
 			$("#new-comment").removeAttr("id");
 			$("#comment-form textarea").val("");
+            
+            $(".loading-gif").fadeOut('fast');
+            $("#comment-form .btn-submit").delay(700).fadeIn();
             
         });
 

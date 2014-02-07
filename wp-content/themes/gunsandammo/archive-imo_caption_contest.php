@@ -14,7 +14,7 @@ get_header(); ?>
                         <div class="icon"></div>
                         	<span><?php post_type_archive_title(); ?></span>
                         </h1>
-						<div class="sponsor"><?php echo get_imo_dart_tag("240x60",1,false,array("sect"=>"caption_contest")); ?></div>
+						<div class="sponsor"><?php echo get_imo_dart_tag("240x60",1,false,array("page"=>"caption_contest","sect"=>"caption_contest")); ?></div>
 					</div>
                     		<div class="addthis-below" <?php if(mobile()){ echo 'style="width: 320px;"'; } ?>><?php if (function_exists('imo_add_this')) {imo_add_this();} ?></div>
                             

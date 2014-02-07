@@ -58,7 +58,7 @@ if ( is_user_logged_in() ) {
 
 
 include 'common-templates.php';
-$crop = "/convert?w=650&h=650&fit=crop&rotate=exif";
+$crop = "/convert?w=730&h=730&fit=crop&rotate=exif";
 if(mobile()){
 	$crop = "/convert?w=458&h=458&fit=crop&rotate=exif";
 }
@@ -88,7 +88,7 @@ if(post.score == 1){
 	<div class="dif-post">
         <% if(post.img_url){ %>
 	        <div class="feat-img">
-	            <a href="<%= post.post_url %>"><img class="feat-img" src="<%= post.img_url %>" alt="<%= post.title %>" title="<%= post.img_url %>" /></a>
+	            <a href="<%= post.post_url %>"><img class="feat-img" src="<%= post.img_url %><?php echo $crop; ?>" alt="<%= post.title %>" title="<%= post.img_url %>" /></a>
 	        </div>
         <% }else{ %>
         	 <div class="feat-img">
@@ -105,10 +105,10 @@ if(post.score == 1){
                     <h4><a href="/profile/<%= post.user_nicename %>"><%= post.display_name %></a></h4>
                     <ul class="prof-tags">
                         <!--<li><a href="#"><%= post.state %></a></li>-->
-                        <li><a href="/photos/<%= post.tertiary_post_type %>/<%= post.secondary_post_type %>/<%= post.post_type %>"style="text-transform:capitalize;"><%= post.post_type %></a></li>
+                        <li><a href="<%= post.term_url %>"style="text-transform:capitalize;"><%= post.post_type %></a></li>
                     </ul>
                     <ul class="replies">
-                        <li><a href="/photos/<%= post.tertiary_post_type %>/<%= post.secondary_post_type %>/<%= post.post_type %>/<%= post.id %>#reply_field"><%= post.comment_count %> Reply</a></li>
+                        <li><a href="<%= post.post_url %>/#reply_field"><%= post.comment_count %> Reply</a></li>
 						<li><%= niceScore %></li>
                     </ul>
                     <ul class="prof-like">
@@ -143,7 +143,7 @@ imo_sidebar("community");
 		</div>
 		<div class="btn-group btn-bar">
 			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-			<span class="menu-title browse-community">Browse by State</span> <span class="caret"></span>
+			<span class="menu-title browse-community" style="text-transform:normal;">Browse by State</span> <span class="caret"></span>
 			</button>
 			<ul class="dropdown-menu filter" role="menu">
 				<li><a href="#" class="filter-menu" state="AL">alabama</a></li><div class="divider"></div>

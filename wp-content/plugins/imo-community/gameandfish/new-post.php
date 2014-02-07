@@ -395,7 +395,7 @@ if ( is_user_logged_in() ) {
 	            <div class="title-crumbs">
 	            	<ul class="breadcrumbs">
 				    	<li><a href="/photos">All Photos</a></li>
-			    	<li style="margin-top:1px;text-transform:capitalize;"> &raquo; Share Your Photo </li>
+			    	<li> &raquo; Share Your Photo </li>
 					</ul>
 	                <h1>Share Your Photo</h1>
 	                <div class="sponsor"><?php imo_dart_tag("240x60"); ?></div>
