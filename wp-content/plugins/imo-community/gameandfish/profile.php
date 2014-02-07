@@ -305,16 +305,13 @@ imo_sidebar("community");
 
                 foreach($comments as $comment){ $spid =  $comment->parent; }
 
-                // Let's not run this a million times.
-                $replyURL = "http://$hostname/community-api/posts/$spid?get_comments=1";
+                foreach($comments as $comment){ 
+                	$replyURL = "http://$hostname/community-api/posts/{$comment->parent}?get_comments=1";
 				$replyFile = file_get_contents($replyURL);
 				//SET TEMPLATE VARIABLES
-				$replyData = json_decode($replyFile);
-				
+				$replyData = json_decode($replyFile); 
 				$url = $replyData->tertiary_post_type . "/" . $replyData->secondary_post_type . "/" . $replyData->post_type;
-				$url = str_replace("/null/", "/", $url);
-
-                foreach($comments as $comment){ ?>
+				$url = str_replace("/null/", "/", $url); ?>
                 	<li class="reply-item">
                         <p><?php echo $comment->body; ?></p>
                         <div class="replies-data-line">

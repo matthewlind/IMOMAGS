@@ -143,7 +143,7 @@ imo_sidebar("community");
 		</div>
 		<div class="btn-group btn-bar">
 			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-			<span class="menu-title browse-community">Browse by State</span> <span class="caret"></span>
+			<span class="menu-title browse-community" style="text-transform:normal;">Browse by State</span> <span class="caret"></span>
 			</button>
 			<ul class="dropdown-menu filter" role="menu">
 				<li><a href="#" class="filter-menu" state="AL">alabama</a></li><div class="divider"></div>
