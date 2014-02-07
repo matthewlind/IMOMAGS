@@ -133,6 +133,13 @@ jQuery(document).ready(function($) {
 		$(".master-angler-form-container").slideUp();
 	});
 
+
+	if (userState != undefined && userState.length > 0) {
+
+		$("select#ma-state").val(userState);
+
+  	}
+
 	//*******************************************************
 	//****************** NEW POST SUBMISSION ****************
 	//*******************************************************

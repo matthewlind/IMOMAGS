@@ -72,7 +72,7 @@ function setStateVariablesAndCookie($state) {
 	global $IMO_USER_STATE_NICENAME;
 	$IMO_USER_STATE_NICENAME = $states[$state];
 
-	wp_enqueue_script( 'imo-geolocation-js', plugin_dir_url( __FILE__ ) . 'imo-geolocation.js' ,array('jquery'));
+	wp_enqueue_script( 'imo-geolocation-js', plugin_dir_url( __FILE__ ) . 'imo-geolocation.js' ,array('jquery'),"0.6");
 	wp_localize_script( 'imo-geolocation-js', 'userState', $state);
 
 	if (empty($_COOKIE['userState']))

@@ -116,6 +116,23 @@ jQuery( document ).ready(function() {
 
   });
 
+
+  jQuery(".state-chooser").on("click",function(ev){
+
+
+
+    var stateAbbrev = jQuery(this).attr("state");
+    createCookie('userState',stateAbbrev,30,'/',window.location.host);
+    userState = stateAbbrev;
+
+
+
+  });
+
+
+
+
+
 });
 
 

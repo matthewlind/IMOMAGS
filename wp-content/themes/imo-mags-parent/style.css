@@ -1226,6 +1226,11 @@ a.category-name-link:hover{
     color: #3c3c3c;
 }
 
+.wp-caption.inline-post {
+
+  max-width:none;
+}
+
 
 /* posts list */
 .posts-list {margin:0 0 16px;clear: both;border-top: 1px solid #d8d7d6;padding-top: 12px;}
