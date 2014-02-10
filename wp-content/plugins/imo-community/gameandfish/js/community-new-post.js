@@ -134,7 +134,7 @@ jQuery(document).ready(function($) {
 	});
 
 
-	if (userState != undefined && userState.length > 0) {
+	if (typeof userState !== 'undefined') {
 
 		$("select#ma-state").val(userState);
 
@@ -168,7 +168,7 @@ jQuery(document).ready(function($) {
 		if (validateFormData(newPostData)) {
 			$('.btn-submit').fadeOut();
 			$('.loading-gif').fadeIn();
-			
+
 			$.post("http://" + document.domain + "/community-api/posts",newPostData,function(data){
 
 				var postData = $.parseJSON(data);
