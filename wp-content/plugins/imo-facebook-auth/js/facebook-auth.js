@@ -235,8 +235,12 @@ jQuery(document).ready(function($) {
 
 
 	  	  $('#login-modal').modal('hide');
-
+	  	  	  	  
 		  $clickedButton = $('#imo-ajax-login-form #lwa_wp-submit');
+		  $('.general-com .basic-popup').removeClass('popup-opened');
+	  	  $('html, body').animate({
+		        scrollTop: $(".general-com").offset().top
+		    }, 'slow');
 
 		  //console.log($clickedButton);
 		  authSuccess(responseText,jqueryForm);
