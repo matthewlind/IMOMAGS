@@ -161,31 +161,31 @@ body{background-color: black;}
 .menu-main-menu-container a.has-drop, .menu-header-menu-container a.has-drop {padding: 0 30px 0 18px;}
 .menu-main-menu-container > ul > li > a, .menu-header-menu-container > ul > li > a{padding: 0 18px;}
 .menu-main-menu-container a.has-drop:after{top: 24px;}
+.menu-main-menu-container .hot-link .drop-down{width: 272px;}
 .menu-main-menu-container .hot-link a.has-drop:after {right: -20px;}
 .menu-main-menu-container .hot-link .sub-menu{width: 100%;min-height: 160px;}
-.menu-main-menu-container .hot-link li.photos-logo{position: absolute;right: 50px;}
+.menu-main-menu-container .hot-link .sub-menu li{width: auto;text-align: center;}
 .menu-main-menu-container .hot-link li.photos-logo a{
 	text-indent: -99999px;
 	background: url(images/yourphotos-menu.png) no-repeat center top transparent;
 	height: 72px;
 	width: 180px;
-	top: 70px;
+	margin: 12px auto 6px;
 }
 .menu-main-menu-container li.photos-logo{width: auto;}
-.menu-main-menu-container li.photos-logo:hover{position: absolute;}
 .menu-main-menu-container .hot-link li.photos-logo a:hover{background: url(images/yourphotos-menu.png) no-repeat center top transparent;}
 .menu-main-menu-container .hot-link .sub-menu li.singl-post-photo{
 	width: 240px;
-	margin: 20px auto 0;
-	padding: 0;
+	margin: 10px auto;
+	padding: 0 0 0 30px;
 	border-right: none;
 	border-width: 0;
-	background: #373737;
+	background: url(images/ico/camera-white.png) no-repeat 25px 10px #acacac !important;
 	color: #f9cc39;
 	height: 40px;
 	text-shadow: none;
 }
-.menu-main-menu-container .hot-link .sub-menu li.singl-post-photo:hover{background: black;}
+.menu-main-menu-container .hot-link .sub-menu li.singl-post-photo:hover, .menu-main-menu-container .hot-link .sub-menu li:hover{background: url(images/ico/camera-white.png) no-repeat 25px 10px #acacac !important;color: white;}
 .sub-menu li.singl-post-photo a{padding: 12px;}
 .state-drop{
 	text-indent: -9999px !important;
@@ -274,6 +274,7 @@ body{background-color: black;}
 	color: white;
 	text-shadow: 0px 1px 1px black;
 	padding: 10px 15px;
+	text-align: left;
 }
 .snap-drawers .drop-down li{
 	border-top: 1px solid rgba(255,255,255,.2);
@@ -289,7 +290,7 @@ body{background-color: black;}
     /*border:1px solid #d8d8d8;
     border-width:1px 0 0;*/
 }
-.sub-menu li :hover{background: #373737;}
+.sub-menu li:hover{background: #373737;}
 .sub-menu a {color:white;padding: 10px;}
 .sub-menu a.region{
 	color: rgb(124, 124, 124);
