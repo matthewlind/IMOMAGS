@@ -136,7 +136,14 @@ jQuery(document).ready(function($) {
 
 	if (typeof userState !== 'undefined') {
 
-		$("select#ma-state").val(userState);
+		if (userState.length > 0) {
+
+			$("select#ma-state").val(userState);
+		}
+
+
+
+
 
   	}
 
