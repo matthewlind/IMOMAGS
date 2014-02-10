@@ -83,6 +83,7 @@ if(post.score == 1){
 }else{
 	niceScore = post.score + ' Points';
 }
+postType = post.post_type.replace("-"," ");
 %>
 
 	<div class="dif-post">
@@ -105,7 +106,7 @@ if(post.score == 1){
                     <h4><a href="/profile/<%= post.user_nicename %>"><%= post.display_name %></a></h4>
                     <ul class="prof-tags">
                         <!--<li><a href="#"><%= post.state %></a></li>-->
-                        <li><a href="<%= post.term_url %>"style="text-transform:capitalize;"><%= post.post_type %></a></li>
+                        <li><a href="<%= post.term_url %>"style="text-transform:capitalize;"><%= postType %></a></li>
                     </ul>
                     <ul class="replies">
                         <li><a href="<%= post.post_url %>/#reply_field"><%= post.comment_count %> Reply</a></li>
@@ -203,10 +204,12 @@ imo_sidebar("community");
             <div class="title-crumbs">
             	<ul class="breadcrumbs">
 			    	<li><a href="/photos">All Photos</a></li>
-			    	<?php if($post_type_tertiary){ ?><li style="margin-top:1px;text-transform:capitalize;"> &raquo; <a href="/photos/<?php echo $post_type_tertiary; ?>"><?php echo $post_type_tertiary; ?></a></li><?php } ?>
+			    	<?php 
+			    	$post_type = str_replace("-", " ", $post_type_primary);
+			    	if($post_type_tertiary){ ?><li style="margin-top:1px;text-transform:capitalize;"> &raquo; <a href="/photos/<?php echo $post_type_tertiary; ?>"><?php echo $post_type_tertiary; ?></a></li><?php } ?>
 			    	<?php if($post_type_secondary){ ?>
 			    		<li style="margin-top:1px;text-transform:capitalize;"> &raquo; <a href="/photos/<?php echo $post_type_tertiary; ?>/<?php echo $post_type_secondary; ?>"><?php echo $post_type_secondary; ?></a></li><?php } ?>
-			    	<?php if($post_type_primary){ ?><li style="margin-top:1px;text-transform:capitalize;"> &raquo; <?php echo $post_type_primary; ?></li><?php } ?>
+			    	<?php if($post_type_primary){ ?><li style="margin-top:1px;text-transform:capitalize;"> &raquo; <?php echo $post_type; ?></li><?php } ?>
 				</ul>
                 <h1><?php if( empty($post_type_primary) && !empty($post_type_secondary) && !empty($post_type_tertiary)){
 		                	echo $post_type_secondary;
@@ -215,7 +218,7 @@ imo_sidebar("community");
 		                }else if( empty($post_type_primary) && empty($post_type_secondary) && empty($post_type_tertiary) ){
 		                	echo 'Game & Fish Photos';
 		                }else if( !empty($post_type_primary) && !empty($post_type_secondary) && !empty($post_type_tertiary) ){
-		                	echo $post_type_primary;
+		                	echo $post_type;
 		                } ?></h1>
 			</div>
         </div>

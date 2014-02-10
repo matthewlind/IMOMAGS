@@ -471,7 +471,7 @@ select.alter-sel {width:100%;}
     margin: 0 auto;
     display:none;
 }
-.basic-popup .btn-red input{width: auto;}
+.basic-popup .btn-red input{width: 100%;}
 .popup-opened {display:block;}
 .popup-inner {
     padding:24px 13px 17px;

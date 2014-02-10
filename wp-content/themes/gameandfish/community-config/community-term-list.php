@@ -223,7 +223,7 @@ $gfPostTypes = array(
 					),
 					"stripers" => array(
 						"display_name" => "Stripers & Hybrids",
-						"slug" => "stripers-hybrids",
+						"slug" => "stripers",
 						"show_in_menu" => TRUE,
 						"post_list_style" => "tile"
 					)
@@ -238,7 +238,7 @@ $gfPostTypes = array(
 			),
 			"panfish" => array(
 				"display_name" => "Panfish & Crappie",
-				"slug" => "panfish-crappie",
+				"slug" => "panfish",
 				"post_list_style" => "tile",
 				"show_in_menu" => TRUE
 			),
@@ -256,7 +256,7 @@ $gfPostTypes = array(
 			),
 			"pike" => array(
 				"display_name" => "Pike & Muskie",
-				"slug" => "pike-muskie",
+				"slug" => "pike",
 				"post_list_style" => "tile",
 				"show_in_menu" => TRUE
 			),
