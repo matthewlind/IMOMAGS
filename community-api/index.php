@@ -50,7 +50,7 @@ $app->get('/posts', function () {
 
 
 	//If $post_type is all lowercase and it's less than 20 char, it's GOOD
-	if (ctype_lower($post_type) && strlen($post_type) < 20) {
+	if (preg_match("/^[a-z_-]{1,32}$/", $post_type)) {
 
 		$postTypeClause = " post_type = '$post_type'";
 
@@ -63,7 +63,7 @@ $app->get('/posts', function () {
 	}
 
 	//If $secondary_post_type is all lowercase and it's less than 20 char, it's GOOD
-	if (ctype_lower($secondary_post_type) && strlen($secondary_post_type) < 20) {
+	if (preg_match("/^[a-z_-]{1,32}$/", $secondary_post_type)) {
 
 		$secondaryPostTypeClause = " AND secondary_post_type = '$secondary_post_type'";
 
@@ -78,7 +78,7 @@ $app->get('/posts', function () {
 	}
 
 	//If $tertiary_post_type is all lowercase and it's less than 20 char, it's GOOD
-	if (ctype_lower($tertiary_post_type) && strlen($tertiary_post_type) < 20) {
+	if (preg_match("/^[a-z_-]{1,32}$/", $tertiary_post_type)) {
 
 		$tertiaryPostTypeClause = " AND tertiary_post_type = '$tertiary_post_type'";
 
