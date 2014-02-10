@@ -321,7 +321,7 @@ function imo_community_template() {
 			if ($script["show-in-header"])
 				$in_footer = false;
 
-			wp_enqueue_script($script['script-name'], plugins_url( $script['script-path'] , __FILE__), $script['script-dependencies'], '1.0',$in_footer);
+			wp_enqueue_script($script['script-name'], plugins_url( $script['script-path'] , __FILE__), $script['script-dependencies'], '1.1',$in_footer);
 
 		}
 
