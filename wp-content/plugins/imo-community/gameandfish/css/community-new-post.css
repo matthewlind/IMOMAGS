@@ -19,9 +19,8 @@
 	background: url(../images/body.jpg) repeat;
 }
 
-input[type="text"].title-input {
-	width:100%;
-}
+input[type="text"].title-input {display: none;width:60%;margin-bottom: 4px;}
+
 
 .fishsize {
 	width: 30%;

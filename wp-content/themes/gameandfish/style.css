@@ -185,7 +185,10 @@ body{background-color: black;}
 	height: 40px;
 	text-shadow: none;
 }
-.menu-main-menu-container .hot-link .sub-menu li.singl-post-photo:hover, .menu-main-menu-container .hot-link .sub-menu li:hover{background: url(images/ico/camera-white.png) no-repeat 25px 10px #acacac !important;color: white;}
+.menu-main-menu-container .hot-link .sub-menu li.photos-logo:hover{background: transparent !important;}
+.menu-main-menu-container .hot-link .sub-menu li.singl-post-photo:hover{background-image: url(images/ico/camera-white.png) no-repeat 25px 10px !important;}
+.menu-main-menu-container .hot-link .sub-menu li.singl-post-photo:hover, .menu-main-menu-container .hot-link .sub-menu li:hover{background-color: #acacac !important;}
+.menu-main-menu-container .hot-link .sub-menu li.singl-post-photo:hover a, .menu-main-menu-container .hot-link .sub-menu li:hover a{color: white !important;}
 .sub-menu li.singl-post-photo a{padding: 12px;}
 .state-drop{
 	text-indent: -9999px !important;
@@ -1014,6 +1017,7 @@ element:hover, element.hover_effect {
 		text-shadow: 2px 1px 0px rgba(12, 12, 12, 0.58) !important;
 		font-weight: bold !important;
 	}
+	.hot-link .sub-menu li.singl-post-photo{margin: 0;height: auto;}
 	.all-hunting, .all-fishing, .all-gear{display: block;}
 	.snap-drawers .mob-aside-menu > div > ul > li > a.has-drop::after{top:18px;}
 	.mobile-menu-banner{height: 50px;}
@@ -1024,7 +1028,7 @@ element:hover, element.hover_effect {
 	}
 	.menu-subscribe a img{top: -2px;}
 	.hot-link a.main-menu-link{
-		padding: 10px 15px 10px 30px !important;
+		padding: 12px 15px 10px 30px !important;
 		margin: 0 0 0 16px;
 		line-height: 1.2 !important;
 	 }

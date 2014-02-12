@@ -96,7 +96,7 @@ jQuery(document).ready(function($) {
 
 	        //hide the attach photo button
 	        $(".photo-link-area").slideUp();
-
+			
 	        //Track the data
 	        postData.img_url = imgURL;
 
@@ -110,9 +110,8 @@ jQuery(document).ready(function($) {
 	        $attachmentTemplate.find(".delete-attachment").click(function(ev){
 
 	        	ev.preventDefault();
-
+				
 	        	$(".photo-link-area").slideDown();
-
 
 	        	$attachmentTemplate.slideUp();
 
@@ -275,6 +274,7 @@ jQuery(document).ready(function($) {
 
 			            //display attachment
 			            $attachmentTemplate.hide().appendTo("#attachments").slideDown();
+			            $(".title-input").slideDown();
 
 			            //add event to edit caption on change
 			            $attachmentTemplate.find(".caption-field").change(function(ev){

@@ -46,27 +46,26 @@ if ( is_user_logged_in() ) {
 	<script type="text/template" id="new-post-template">
 		<form id="new-post-form">
 			 <div class="basic-form post-page">
-		        <div class="f-row">
-		            <input class="title-input" placeholder="Title" type="text" name="title" value="<%= post ? post.title : "" %>">
+		        <div id="attachments" class="clearfix">
+			    	<input class="title-input" placeholder="Title Your Photo (Required)" type="text" name="title" value="<%= post ? post.title : "" %>">
 		        </div>
-
-		        <div id="attachments" class="clearfix"></div>
 
 		        <div class="photo-link-area">
 		        	<div id="fileupload">
 						<div class="fileupload-buttonbar ">
 							<label class="upload-button">
-								<span class="add-photo-link">ATTACH PHOTO</span>
+								<span class="add-photo-link">ADD YOUR PHOTO</span>
 								<input id="image-upload" type="file" name="photo-upload">
 							</label>
 						</div>
 					</div>
 				</div>
 				<div class="loading-gif"></div>
+				
 
 				<div class="dropdown-selects">
 					<select id="ma-species" class="post_type alter-sel mobile-select" name="post_type">
-		         		<option value="" >SPECIES</option>
+		         		<option value="" >WHAT IS IT'S SPECIES?</option>
 		         		<% var prevTertType = ''; %>
 				 		<% _.each(species,function(animal,index){   %>
 				 			<% if (prevTertType != animal.tertiary) { %>
@@ -78,7 +77,7 @@ if ( is_user_logged_in() ) {
 				 		<% }); %>
 			        </select>
 				    <select name="state" placeholder="Choose the state for this post:" class="alter-sel mobile-select" id="ma-state">
-			            <option value="" >STATE / PROVINCE</option>
+			            <option value="" >WHERE DID THIS HAPPEN?</option>
 			            <option value="AL" <%= post && post.state == "AL" ? "SELECTED" : "" %> >Alabama</option>
 			            <option value="AK" <%= post && post.state == "AK" ? "SELECTED" : "" %> >Alaska</option>
 			            <option value="AZ" <%= post && post.state == "AZ" ? "SELECTED" : "" %> >Arizona</option>
@@ -364,22 +363,15 @@ if ( is_user_logged_in() ) {
 	<!-- *********************************************************** -->
 
 	<script type="text/template" id="single-attachment-template">
-
-			      <div style="margin:20px 0" class="add-photo-field">
-				      	<a href="<%= attachment.img_url %>" class="thickbox">
-				      			<div class="attachment-image-container">
-						      		<img src="<%= attachment.img_url %>/convert?w=150&h=150&fit=crop&rotate=exif" width=75 height=75 style="height:75px">
-						      	</div>
-				      	</a>
-					  	 <div class="caption-area" name="caption-body" placeholder="Caption (optional)" value="<%= attachment.body %>">
-			                <textarea id="" class="area caption-field" cols="30" rows="10" placeholder="Add Caption (optional)"></textarea>
-			            </div>
-				      	<a href="" class="delete-attachment"><span>Delete</span></a>
-
-				   </div>
-
-
-
+			     
+      	<a href="<%= attachment.img_url %>" class="thickbox">
+      			<div class="attachment-image-container">
+		      		<img src="<%= attachment.img_url %>/convert?w=150&h=150&fit=crop&rotate=exif" width=75 height=75 style="height:75px">
+		      	</div>
+      	</a>
+	  	 <div class="caption-area" name="caption-body" value="<%= attachment.body %>">
+            <textarea id="" class="area caption-field" cols="30" rows="10" placeholder="Tell Your Story (optional)"></textarea>
+        </div>
 
 	</script>
 	<!-- *********************************************************** -->
