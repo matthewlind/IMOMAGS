@@ -27,9 +27,24 @@ class imo_geolocation_sidebar_widget extends WP_Widget {
             $domain = $_SERVER['HTTP_HOST'];
             $url = "http://$domain/wpdb/network-feed-cached.php?state=$IMO_USER_STATE&count=2&domain=www.gameandfishmag.com";
 
-            $postJSON = file_get_contents($url);
+            $postSetID = get_option( $IMO_USER_STATE . "_state_post_set",false);
 
-            $posts = json_decode($postJSON);
+
+
+            if ($postSetID) {
+
+                $url = "http://$domain/wpdb/get-post-set.php?setID=$postSetID";
+                $postJSON = file_get_contents($url);
+
+                $postSet = json_decode($postJSON);
+                $posts = $postSet->posts;
+            } else {
+                $url = "http://$domain/wpdb/network-feed-cached.php?state=$IMO_USER_STATE&count=2&domain=www.gameandfishmag.com";
+                $postJSON = file_get_contents($url);
+
+                $posts = json_decode($postJSON);
+            }
+
 
 
 
