@@ -9,6 +9,7 @@
 	$IMO_COMMUNITY_CONFIG['template'] = '/gameandfish/single.php';
 	$IMO_COMMUNITY_CONFIG['dart_page'] = 'gf_community';
 	$IMO_COMMUNITY_CONFIG['dart_sect'] = 'gfcommunity';
+	$IMO_COMMUNITY_CONFIG['og_description'] = "Check out your favorite species, state, and upload YOUR PHOTO now!​";
 	$IMO_COMMUNITY_CONFIG['post_types'] = $gfPostTypes;
 
 
