@@ -2442,6 +2442,51 @@ margin-bottom:15px;
 }
 
 
+
+
+.sidebar-widget-featured-thumbs li.footer-featured div.feat-post {
+    min-height:40px;
+}
+
+.sidebar-widget-featured-thumbs li.footer-featured div.feat-post .feat-text {
+
+}
+
+.sidebar-widget-featured-thumbs li.footer-featured div.feat-post .feat-img {
+
+float:left;
+margin-right:10px;
+margin-bottom:15px;
+}
+
+.sidebar-widget-featured-thumbs li.footer-featured div.feat-post .feat-img img {
+    height: 90px;
+    width: 140px;
+}
+
+.sidebar-widget-featured-thumbs li.footer-featured p {
+  font: 14px "open_sansbold", "Helvetica", sans-serif;
+    color:black;
+}
+.sidebar-widget-featured li.footer-featured{margin-bottom: 10px;}
+
+.sidebar-widget-featured li.footer-featured div.feat-post{position: relative;overflow: hidden;}
+
+.sidebar-widget-featured li.footer-featured div.feat-post .footer-feat-text {
+  font: 14px/1.2 "open_sansbold", "Helvetica", sans-serif;
+    border:none;
+    height: 50px;
+    margin-top:10px;
+/*    min-height: 150px;
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  background: url(images/bg/black-50.png) repeat left bottom;
+  opacity: 1;
+  color: white;*/
+}
+
+
 /* = WP default overrides
  ******************************************************************************/
 #wpadminbar {z-index: 999999999 !important;}
@@ -4402,6 +4447,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 		background: #dbdad9;
 		content: "";
 	}
+
+  .sidebar-widget-featured li.footer-featured {
+    width:300px;
+  }
+
+  .sidebar-widget-featured li.footer-featured div.feat-post img{
+    width:120px;
+    float:left;
+    margin-right:10px;
+  }
 }
 
 /* Webkit Hacks  */

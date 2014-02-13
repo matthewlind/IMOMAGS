@@ -19,12 +19,12 @@ jQuery(document).ready(function () {
         jQuery(this).find('.feat-text').animate({'bottom': 0});
 	});
 
-	jQuery('.sidebar-widget-featured li.footer-featured').hover(function () {
-        jQuery(this).find('.feat-text').animate({'bottom': '-150px'});
+	// jQuery('.sidebar-widget-featured li.footer-featured').hover(function () {
+ //        jQuery(this).find('.feat-text').animate({'bottom': '-150px'});
 
-    }, function () {
-        jQuery(this).find('.feat-text').animate({'bottom': 0});
-	});
+ //    }, function () {
+ //        jQuery(this).find('.feat-text').animate({'bottom': 0});
+	// });
 
 	/*****
 	**
