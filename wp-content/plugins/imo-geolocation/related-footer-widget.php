@@ -115,7 +115,7 @@ class imo_related_footer_widget extends WP_Widget {
             $outputString .= "<a href='$url' onclick='_gaq.push(['_trackEvent','Special Features Widget','$title','$url']);'><li class='footer-featured' style=''>
                                         <div class='feat-post' style=''>
                                             <div class='feat-img' style=''><img  src='$thumb' alt='$title' /></div>
-                                            <div class='feat-text'><p>$title</p>
+                                            <div class='footer-feat-text'>$title
                                         </div>
                                     </li></a>
                                     ";

@@ -1205,20 +1205,29 @@ a.category-name-link:hover{
 
 
 .inline-post a img.wp-post-image {
-    max-width:300px;
-    width: 40%;
+    max-width:130px;
+    width: 30%;
     float:left;
     margin:10px 20px 10px 10px;
 }
 
 .inline-post .inline-details {
+  margin-top:1.5em;
 
+  font-family: "open_sansbold";
+  font-size: 14px;
     /*overflow: hidden;*/
+
+}
+
+.inline-post .inline-details .related {
+  text-transform: uppercase;
+  color:gray;
 }
 
 .inline-post h1 {
-    margin-top:0.3em;
-    font: 30px/1.1 "open_sansbold", Helvetica, Arial, serif;
+    margin-top:0.1em;
+    font: 20px/1.0 "open_sansbold", Helvetica, Arial, serif;
     margin-bottom:0.3em;
 }
 
@@ -2430,6 +2439,51 @@ margin-bottom:15px;
 	opacity: 1;
 	color: white;
 	min-width: 310px;
+}
+
+
+
+
+.sidebar-widget-featured-thumbs li.footer-featured div.feat-post {
+    min-height:40px;
+}
+
+.sidebar-widget-featured-thumbs li.footer-featured div.feat-post .feat-text {
+
+}
+
+.sidebar-widget-featured-thumbs li.footer-featured div.feat-post .feat-img {
+
+float:left;
+margin-right:10px;
+margin-bottom:15px;
+}
+
+.sidebar-widget-featured-thumbs li.footer-featured div.feat-post .feat-img img {
+    height: 90px;
+    width: 140px;
+}
+
+.sidebar-widget-featured-thumbs li.footer-featured p {
+  font: 14px "open_sansbold", "Helvetica", sans-serif;
+    color:black;
+}
+.sidebar-widget-featured li.footer-featured{margin-bottom: 10px;}
+
+.sidebar-widget-featured li.footer-featured div.feat-post{position: relative;overflow: hidden;}
+
+.sidebar-widget-featured li.footer-featured div.feat-post .footer-feat-text {
+  font: 14px/1.2 "open_sansbold", "Helvetica", sans-serif;
+    border:none;
+    height: 50px;
+    margin-top:10px;
+/*    min-height: 150px;
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  background: url(images/bg/black-50.png) repeat left bottom;
+  opacity: 1;
+  color: white;*/
 }
 
 
@@ -4393,6 +4447,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 		background: #dbdad9;
 		content: "";
 	}
+
+  .sidebar-widget-featured li.footer-featured {
+    width:300px;
+  }
+
+  .sidebar-widget-featured li.footer-featured div.feat-post img{
+    width:120px;
+    float:left;
+    margin-right:10px;
+  }
 }
 
 /* Webkit Hacks  */

@@ -303,6 +303,7 @@ function imo_community_template() {
 
 		$wp_query->query_vars['post_title'] = $postData->title;
 		$wp_query->query_vars['seo_image'] = $postData->img_url . "/convert?w=200&h=200&fit=crop&rotate=exif";
+		$wp_query->query_vars['og_description'] = $IMO_COMMUNITY_CONFIG['og_description'];
 
 	    wp_deregister_script( 'jquery' );
 	    wp_register_script( 'jquery', '/wp-content/plugins/imo-community/js/jquery-1.7.1.min.js');
@@ -447,6 +448,21 @@ function imo_community_seo_image($image) {
 
 	return $image;
 }
+
+
+add_filter( 'wpseo_opengraph_desc',"imo_community_seo_desc");
+function imo_community_seo_desc($image) {
+
+	global $wp_query;
+
+	//If this is community single post, change the meta.
+	if ($wp_query->query_vars['spid']) {
+		$desc = $wp_query->query_vars['og_description'];
+	}
+
+	return $desc;
+}
+
 
 add_filter( 'wpseo_opengraph_type',"imo_community_seo_type");
 function imo_community_seo_type($type) {

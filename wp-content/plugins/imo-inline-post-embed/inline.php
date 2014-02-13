@@ -48,7 +48,7 @@ function displayInlinePost($atts) {
 
 	$thumbnailTag = get_the_post_thumbnail($id,'list-thumb');
 
-	$outputString = "<div class='wp-caption inline-post'><a href='$permalink'>$thumbnailTag<div class='inline-details'><h1>{$post->post_title}</h1><p>{$post->post_content}</p></div></a></div>";
+	$outputString = "<div class='wp-caption inline-post'><a href='$permalink'>$thumbnailTag<div class='inline-details'><span class='related'>related</span><h1>{$post->post_title}</h1><p>{$post->post_content}</p></div></a></div>";
 
 	return $outputString;
 

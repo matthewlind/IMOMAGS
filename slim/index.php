@@ -22,7 +22,7 @@ function get_IP() {
 	if (!empty($headers["X-Forwarded-For"]))
 		$XFFip = $headers["X-Forwarded-For"];
 
-	if ($_SERVER['REMOTE_ADDR'] == "127.0.0.1" && !empty($headers["X-Forwarded-For"]))
+	if (!empty($headers["X-Forwarded-For"]))
 		return $XFFip;
 	else
 		return $_SERVER['REMOTE_ADDR'];

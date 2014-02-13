@@ -16,6 +16,18 @@ include 'users.php';
 include 'counts.php';
 include 'master.php';
 
+function get_IP() {
+	$headers = apache_request_headers();
+	if (!empty($headers["X-Forwarded-For"]))
+		$XFFip = $headers["X-Forwarded-For"];
+
+	if (!empty($headers["X-Forwarded-For"]))
+		return $XFFip;
+	else
+		return $_SERVER['REMOTE_ADDR'];
+
+}
+
 // GET a list of posts. 20 by default
 //Note, $post_type = "all" does not fetch comments or answers
 $app->get('/posts', function () {
@@ -458,7 +470,7 @@ $app->post('/posts',function() {
 	_log("USER IS GOOD");
 
 		//Set additional parameters
-		$params['ip'] = ip2long($_SERVER['REMOTE_ADDR']);
+		$params['ip'] = ip2long(get_IP());
 
 		//error_log($params);
 
