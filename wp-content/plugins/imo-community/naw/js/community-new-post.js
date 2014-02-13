@@ -90,7 +90,7 @@ jQuery(document).ready(function($) {
 
 	        //display attachment
 	        $attachmentTemplate.hide().appendTo("#attachments").slideDown();
-
+			
 	        //hide the attach photo button
 	        $(".photo-link-area").slideUp();
 
@@ -142,18 +142,12 @@ jQuery(document).ready(function($) {
 
 		newPostData.attachments = postAttachments;
 
-		//console.log(newPostData);
-
-		//get the post type from the species
-		if (newPostData.meta.length > 0) {
-			var species = newPostData.meta;
-
-			newPostData.post_type = masterAnglerData[species].species;
-		}
-
 
 		//Validate form data and submit
 		if (validateFormData(newPostData)) {
+			$('.btn-submit').fadeOut();
+			$('.loading-gif').fadeIn();
+			
 			$.post("http://" + document.domain + "/community-api/posts",newPostData,function(data){
 
 				var postData = $.parseJSON(data);
@@ -162,7 +156,7 @@ jQuery(document).ready(function($) {
 				//alert("New Post Added! Replace this alert with a redirect to something!")
 
 				if (postData)
-					window.location.href = "/community/" + postData.id;
+					window.location.href = "/photos/" + postData.id;
 				else
 					alert("Could not post photo. Are you logged in?");
 			});
@@ -191,9 +185,9 @@ jQuery(document).ready(function($) {
 		} else if (formData.img_url.length < 1) {
 			alert("Please attach a photo.");
 			return false;
-		} else if (formData.meta.length < 1) {
-			alert("Please select a species.");
-			return false;
+		//} else if (formData.meta.length < 1) {
+			//alert("Please select a species.");
+			//return false;
 		} else if (formData.state.length < 1) {
 			alert("Please Choose a state.");
 			return false;
@@ -219,7 +213,7 @@ jQuery(document).ready(function($) {
 		    //console.log("Choose an Image to upload.");
 		} else {
 
-			$('#progressBar').fadeIn();
+			$('.loading-gif').fadeIn();
 
 			filepicker.setKey('ANCtGPesfQI6nKja0ipqBz');
 
@@ -247,7 +241,8 @@ jQuery(document).ready(function($) {
 
 			            //display attachment
 			            $attachmentTemplate.hide().appendTo("#attachments").slideDown();
-
+						$(".title-input").slideDown();
+						
 			            //add event to edit caption on change
 			            $attachmentTemplate.find(".caption-field").change(function(ev){
 			            	var caption = ev.currentTarget.value;
@@ -271,12 +266,12 @@ jQuery(document).ready(function($) {
 
 			            //postAttachments.push(newAttachment);//add the attachments to the list
 			            postData.img_url = FPFile.url;
-						$('#progressBar').slideUp();
+						$('.loading-gif').fadeOut();
 
 
 		            } else {
 		            	alert("Only images can be posted. Other file types are not allowed.");
-		            	$('#progressBar').slideUp();
+		            	$('.loading-gif').fadeOut();
 		            }
 
 
@@ -295,99 +290,6 @@ jQuery(document).ready(function($) {
 
 		}
 	});
-	//*******************************************************
-	//* CHECK TO SEE IF PHOTO QUALIFIES FOR MASTER ANGLER ***
-	//*******************************************************
-	$("#ma-state,#ma-species,#ma-length,#ma-weight").change(function(ev){
-		masterAnglerCheck(ev);
-	});
-
-	$("#ma-length,#ma-weight").keypress(function(ev) {
-		masterAnglerCheck(ev);
-	});
-
-
-	var masterAnglerCheck = function(ev) {
-
-
-
-
-		var weight = $("#ma-weight").val();
-		var length = $("#ma-length").val();
-		var species = $("#ma-species").val();
-		var state = $("#ma-state").val();
-
-
-		//Bizarre workaround so that the .keypress() event fires properly
-		if (ev.type == "keypress") {
-
-			if (ev.currentTarget.id == "ma-weight") {
-				var pressedKey = ev.charCode;
-				var pressedChar = String.fromCharCode(pressedKey);
-				var weight = weight + pressedChar;
-			}
-			if (ev.currentTarget.id == "ma-length") {
-				var pressedKey = ev.charCode;
-				var pressedChar = String.fromCharCode(pressedKey);
-				var length = length + pressedChar;
-			}
-
-		}
-
-		if (species.length > 0 && state.length > 0) {
-
-
-			var masterRegion = masterAnglerStates[state];
-			var masterWeight = masterAnglerData[species]["weight" + masterRegion];
-			var masterLength = masterAnglerData[species]["length" + masterRegion];
-
-			//Use regex to allow for lbs and oz... eg: "2 lb 6 oz" is a valid input
-			var convertedWeight = 0;
-
-			//if there is a number in the weight
-			if (weight.match(/\d+\.?\d*/)) {
-
-				convertedWeight = weight.match(/\d+\.?\d*/)[0];
-
-				//if there are 2 numbers in the weight, assume that the second number is ounces
-				if (weight.match(/(\d+\.?\d*)/g)[0] && weight.match(/(\d+\.?\d*)/g)[1]) {
-
-					var pounds = weight.match(/(\d+\.?\d*)/g)[0];
-					var ounces = weight.match(/(\d+\.?\d*)/g)[1];
-
-					var ouncesInDecimal = (ounces / 16);
-
-					convertedWeight = parseFloat(pounds) + ouncesInDecimal;
-
-					postData.convertedWeight = convertedWeight;
-
-				}
-
-			}
-
-			//Use a regex to ignore an letters in the field
-			if (masterWeight.length > 0 && weight.match(/\d+\.?\d*/) && convertedWeight >= masterWeight) {
-				$(".enter-master-angler").slideDown();
-
-			} else if (masterLength.length > 0 && length.match(/\d+\.?\d*/) && length.match(/\d+\.?\d*/)[0] >= masterLength) {
-				$(".enter-master-angler").slideDown();
-
-			} else {
-				$(".enter-master-angler").slideUp();
-				$(".master-angler-form-container").slideUp();
-
-			}
-		}
-
-	}
-
-	$(".enter-ma-now").click(function(ev){
-		ev.preventDefault();
-
-		$(".master-angler-form-container").slideDown();
-		$('html, body').animate({scrollTop:$("#master-angler-container").offset().top + 'px'}, 'slow');
-	});
-
 
 });
 

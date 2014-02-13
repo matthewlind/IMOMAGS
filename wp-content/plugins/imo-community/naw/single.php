@@ -252,7 +252,7 @@ $time = date("g:i A", strtotime($timestamp));
 <div class="general general-com">
 
     <ul class="breadcrumbs">
-    	<li><a href="/photos">Photos</a></li>
+    	<li><a href="/community">NAW Community</a></li>
     	<li style="margin-top:1px;text-transform:capitalize;">&raquo; <?php echo $data->post_type; ?></li>
     </ul>
 
@@ -266,8 +266,8 @@ $time = date("g:i A", strtotime($timestamp));
             <div class="profile-data">
                 <h4><a href="/profile/<?php echo $data->username; ?>"><?php echo $data->display_name; ?></a></h4>
                 <ul class="prof-tags">
-                    <!--<li><a href="/photos/<?php echo $data->post_type.'/'.strtolower($state_slug); ?>"><?php echo $state ?></a></li>-->
-                    <li><a href="/<?php echo $data->post_type; ?>" style="text-transform:capitalize;"><?php echo $data->post_type; ?></a></li>
+                    <!--<li><a href="/community/<?php echo $data->post_type.'/'.strtolower($state_slug); ?>"><?php echo $state ?></a></li>-->
+                    <li><a href="/community/<?php echo $data->post_type; ?>" style="text-transform:capitalize;"><?php echo $data->post_type; ?></a></li>
                 </ul>
                 <div class="clearfix">
                     <ul class="replies">
@@ -279,7 +279,7 @@ $time = date("g:i A", strtotime($timestamp));
 
                 </div>
             </div>
-            <div addthis:url="http://www.in-fisherman.com/photos/<?php echo $data->id; ?>" addthis:title="" class="addthis_toolbox addthis_default_style ">
+            <div addthis:url="http://www.northamericanwhitetail/community/<?php echo $data->id; ?>" addthis:title="" class="addthis_toolbox addthis_default_style ">
 				<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
 				<a class="addthis_button_tweet"></a>
 				<a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
@@ -360,7 +360,7 @@ $time = date("g:i A", strtotime($timestamp));
 	        <div class="clearfix">
                 <a href="#reply_field" class="post-it">Post a Reply</a>
           
-                     <div addthis:url="http://www.in-fisherman.com/photos/<?php echo $data->id; ?>" addthis:title="" class="addthis_toolbox addthis_default_style ">
+                     <div addthis:url="http://<?php echo $_SERVER['SERVER_NAME']; ?>/community/<?php echo $data->id; ?>" addthis:title="" class="addthis_toolbox addthis_default_style ">
 				<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
 				<a class="addthis_button_tweet"></a>
 				<a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
@@ -497,6 +497,7 @@ $time = date("g:i A", strtotime($timestamp));
                     <a href="#" class="email-signup email-signup-button jq-open-reg-popup" style="<?php echo $loginStyle; ?>" >login with email address</a>
                     <p class="login-message" style="<?php echo $loginStyle; ?>">Your Comment will be submitted immediately after Login</p>
                     <span class="btn-red btn-post btn-submit"  style="<?php echo $displayStyle; ?>"><input id="post-photo" type="submit" value="Submit"></span>
+                    <div class="loading-gif"></div>
                 </div>
             </fieldset>
         </form>

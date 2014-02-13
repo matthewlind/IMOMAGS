@@ -147,6 +147,7 @@ jQuery(document).ready(function($) {
 
     //Check to see if loadmore needs to be hidden
     function loadMoreCheck() {
+    	$('.loading-gif').fadeIn();
         var url = "http://" + document.domain + "/community-api/posts/counts?skip="+filter.skip+"&per_page="+filter.per_page+"&order_by="+filter.order_by+"&sort="+filter.sort+"&master="+filter.master+"&post_type="+filter.post_type+"&secondary_post_type="+filter.secondary_post_type+"&tertiary_post_type="+filter.tertiary_post_type+"&state="+filter.state;
 
 
@@ -156,6 +157,7 @@ jQuery(document).ready(function($) {
             var totalPostCount = countData[0].post_count;
 			
             //console.log(totalPostCount,filter.skip);
+            $('.loading-gif').fadeOut();
 			if(totalPostCount == 0){
 				$("#posts-container").append('<h3 class="no-result">No Results</h3>');
 			}

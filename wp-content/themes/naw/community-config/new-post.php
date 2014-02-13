@@ -5,7 +5,7 @@
 ///////////////////////////////////////////
 $IMO_COMMUNITY_CONFIG = NULL;
 $IMO_COMMUNITY_CONFIG['community_home_slug'] = "community/new";//This slug will override ANY setting in wordpress.
-$IMO_COMMUNITY_CONFIG['page_title'] = "New Post";
+$IMO_COMMUNITY_CONFIG['page_title'] = "Share Your Photo";
 $IMO_COMMUNITY_CONFIG['template'] = '/naw/new-post.php';
 $IMO_COMMUNITY_CONFIG['dart_page'] = 'community_community';
 $IMO_COMMUNITY_CONFIG['dart_sect'] = 'communitycommunity';
