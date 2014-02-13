@@ -52,34 +52,25 @@ include 'common-templates.php';
 	<!-- ***************** UNDERSCORE TEMPLATE ********************* -->
 	<!-- *********************************************************** -->
 	<script type="text/template" id="new-post-template">
-	<h2><%= post ? 'Edit' : 'Share' %> Your Catch</h2>
 
 		<form id="new-post-form">
 			 <div class="basic-form post-page">
-		        <div class="f-row">
-		            <input class="title-input" placeholder="Title" type="text" name="title" value="<%= post ? post.title : "" %>">
+
+		        <div id="attachments" class="clearfix">
+			    	<input class="title-input" placeholder="Title Your Photo (Required)" type="text" name="title" value="<%= post ? post.title : "" %>">
 		        </div>
-
-		        <div id="attachments" class="clearfix"></div>
-
-
-				<div id="progressBar">
-
-					<div></div><span></span>
-				</div>
 
 		        <div class="photo-link-area">
 		        	<div id="fileupload">
 						<div class="fileupload-buttonbar ">
 							<label class="upload-button">
-								<span class="add-photo-link">ATTACH PHOTO</span>
+								<span class="add-photo-link">ADD YOUR PHOTO</span>
 								<input id="image-upload" type="file" name="photo-upload">
 							</label>
 						</div>
 					</div>
 				</div>
-
-
+				<div class="loading-gif"></div>
 				<div class="dropdown-selects">
 					<!--<select id="ma-species" class="post_type alter-sel mobile-select" name="meta">
 		         		<option value="">SPECIES</option>
@@ -372,26 +363,21 @@ include 'common-templates.php';
 	<!-- *********************************************************** -->
 	<!-- *********************************************************** -->
 	<!-- *********************************************************** -->
-
+	
+	
 	<script type="text/template" id="single-attachment-template">
-
-			      <div style="margin:20px 0" class="add-photo-field">
-				      	<a href="<%= attachment.img_url %>" class="thickbox">
-				      			<div class="attachment-image-container">
-						      		<img src="<%= attachment.img_url %>/convert?w=150&h=150&fit=crop&rotate=exif" width=75 height=75 style="height:75px">
-						      	</div>
-				      	</a>
-					  	 <div class="caption-area" name="caption-body" placeholder="Caption (optional)" value="<%= attachment.body %>">
-			                <textarea id="" class="area caption-field" cols="30" rows="10" placeholder="Add Caption (optional)"></textarea>
-			            </div>
-				      	<a href="" class="delete-attachment"><span>Delete</span></a>
-
-				   </div>
-
-
-
+			     
+      	<a href="<%= attachment.img_url %>" class="thickbox">
+      			<div class="attachment-image-container">
+		      		<img src="<%= attachment.img_url %>/convert?w=150&h=150&fit=crop&rotate=exif" width=75 height=75 style="height:75px">
+		      	</div>
+      	</a>
+	  	 <div class="caption-area" name="caption-body" value="<%= attachment.body %>">
+            <textarea id="" class="area caption-field" cols="30" rows="10" placeholder="Tell Your Story (optional)"></textarea>
+        </div>
 
 	</script>
+	
 	<!-- *********************************************************** -->
 	<!-- *********************************************************** -->
 	<!-- *********************************************************** -->
@@ -399,10 +385,10 @@ include 'common-templates.php';
 <div class="page-community">
 	<div class="general general-com">
 		<div class="custom-title clearfix">
-            <a href="/photos"><img src="<?php echo plugins_url('images/fishhead2.png' , __FILE__ ); ?>" alt="FishHeads" class="custom-tite-logo"></a>
+            <a href="/community"><img src="<?php echo plugins_url('images/naw-plus.png' , __FILE__ ); ?>" alt="NAW community" class="custom-tite-logo"></a>
             <div class="title-crumbs">
-                <h1>Fishhead Photos</h1>
-                <p>In-Fisherman, the world's foremost authority on freshwater fishing for over three decades, invites you to share your latest and greatest fishing photos, stories, tips, reports and more. Start uploading from your desktop or phone today!</p>
+                <h1>Share Your Photo</h1>
+				<div class="sponsor"><?php imo_dart_tag("240x60"); ?></div>
 			</div>
         </div>
 

@@ -91,7 +91,7 @@ if(post.score == 1){
                     <h4><a href="/profile/<%= post.user_nicename %>"><%= post.display_name %></a></h4>
                     <ul class="prof-tags">
                         <!--<li><a href="#"><%= post.state %></a></li>-->
-                        <li><a href="/<%= post.post_type %>" style="text-transform:capitalize;"><%= post.post_type %></a></li>
+                        <li><a href="/community/<%= post.post_type %>" style="text-transform:capitalize;"><%= post.post_type %></a></li>
                     </ul>
                     <ul class="replies">
                         <li><a href="/community/<%= post.id %>#reply_field"><%= post.comment_count %> Reply</a></li>
@@ -129,19 +129,17 @@ if(post.score == 1){
             <?php //echo do_shortcode('[imo-slideshow community=true]'); ?>
         </div>
         <div class="photo-link-area">
-            <div id="fileupload">
                 <div class="fileupload-buttonbar ">
                     <label class="upload-button share-photo">
-                        <span class="add-photo-link">Share Your Photo</span>
+                        <a href="/community/new/"><span class="add-photo-link">Share Your Photo</span></a>
                         <input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
                     </label>
                 </div>
-            </div>
         </div>
 
         <div class="btn-group btn-bar">
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-            <span class="menu-title browse-community">Browse Photos</span> <span class="caret"></span>
+            <span class="menu-title browse-community">Browse Community</span> <span class="caret"></span>
           </button>
           <ul class="dropdown-menu filter" role="menu">
             <li><a href="" class="filter-menu" order_by="created" id="filter-menu-default">Latest</a></li>
@@ -155,14 +153,15 @@ if(post.score == 1){
             
           </ul>
         </div>
-
+		
 
 
 <!--         <div class="general-title clearfix alter-title">
             <h2>Latest <span>Submissions</span></h2>
         </div> -->
         <div class="dif-posts">
-			<div id="posts-container"></div>
+			<div class="loading-gif"></div>
+     		<div id="posts-container"></div>
          </div>
          <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="pager-holder js-responsive-section">
             <a href="#" class="btn-base load-more" style="display:block;">Load More</a>

@@ -307,7 +307,7 @@ imo_sidebar("community");
                 foreach($comments as $comment){ $spid =  $comment->parent; }
 
                 foreach($comments as $comment){ 
-                	$replyURL = "http://$hostname/community-api/posts/{$comment->parent}?get_comments=1";
+                $replyURL = "http://$hostname/community-api/posts/{$comment->parent}?get_comments=1";
 				$replyFile = file_get_contents($replyURL);
 				//SET TEMPLATE VARIABLES
 				$replyData = json_decode($replyFile); 

@@ -5,7 +5,7 @@
 $IMO_COMMUNITY_CONFIG = NULL;
 $IMO_COMMUNITY_CONFIG['community_home_slug'] = "community/question";//This slug will override ANY setting in wordpress.
 $IMO_COMMUNITY_CONFIG['page_type'] = 'question';
-$IMO_COMMUNITY_CONFIG['page_title'] = 'Rut questions';
+$IMO_COMMUNITY_CONFIG['page_title'] = 'Q&A';
 $IMO_COMMUNITY_CONFIG['template'] = '/naw/question.php';
 $IMO_COMMUNITY_CONFIG['dart_page'] = 'naw_community';
 $IMO_COMMUNITY_CONFIG['dart_sect'] = 'nawcommunity';

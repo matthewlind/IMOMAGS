@@ -104,7 +104,7 @@ function naw_community_init() {
 	$nawPostTypes = array(
 
 		"report" => array(
-			"display_name" => "Rut Report",
+			"display_name" => "State Rut Report",
 			"post_list_style" => "tile"
 		),
 

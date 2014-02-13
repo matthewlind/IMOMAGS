@@ -1713,7 +1713,7 @@ select.alter-sel {width:100%;}
         font-size:20px;
     }
     .full-post-img {
-        margin:0 -10px;
+        margin:0;
         border:0;
     }
     .full-text {
@@ -1845,6 +1845,8 @@ select.alter-sel {width:100%;}
     .f-input .input-short {width:200px;}
     .f-indicator {width:100%;}
     .form .btn-red {margin:0 auto;}
+    form#comment-form{max-width: 280px;margin: 0 auto;}
+    .slider-section, .community-header{margin-left: -10px;width: 108%;}
 }
 
 /* Bootstrap Modal */

@@ -169,7 +169,7 @@ if(mobile()){
 
 <div id="primary" class="general general-com" role="main">
             <div class="profile-title clearfix">
-                <h1><?php if ($myProfile){ echo "My"; }else{ echo 'FishHead'; } ?> Profile</h1>
+                <h1><?php if ($myProfile){ echo "My"; }else{ echo 'NAW'; } ?> Profile</h1>
             </div>
             <div class="profile-data-box">
                 <?php if ($data->master){ ?>
@@ -214,7 +214,7 @@ if(mobile()){
                     <li><a href="#"><span>Smallmouth</span></a></li>
                 </ul>
             </div>-->
-            <div id="my-photos" class="general-title clearfix">
+            <div id="my-community" class="general-title clearfix">
                 <h2><?php if ($myProfile){ echo "My"; }else{ echo $data->display_name . "'s"; } ?>  <span>Activity</span></h2>
             </div>
             <div class="profile-tabs">
@@ -245,30 +245,30 @@ if(mobile()){
 
 		                        <div class="dif-post">
 		                            <div class="feat-img">
-		                                <a href="/photos/<?php echo $post->id; ?>"><img class="feat-img" src="<?php echo $post->img_url; ?>" alt="<?php echo $post->title; ?>" title="<?php echo $post->title; ?>" /></a>
+		                                <a href="/community/<?php echo $post->id; ?>"><img class="feat-img" src="<?php echo $post->img_url; ?>" alt="<?php echo $post->title; ?>" title="<?php echo $post->title; ?>" /></a>
 		                            </div>
 		                            <div class="dif-post-text">
-		                                <h3><a href="/photos/<?php echo $post->id; ?>"><?php echo $post->title; ?></a></h3>
+		                                <h3><a href="/community/<?php echo $post->id; ?>"><?php echo $post->title; ?></a></h3>
 		                                <div class="profile-panel">
 		                                    <div class="profile-photo">
 		                                        <a href="/profile/<?php echo $post->username; ?>"><img src="/avatar?uid=<?php echo $data->ID; ?>" alt="<?php echo $post->display_name; ?>" title="<?php echo $post->display_name; ?>" /></a>
 		                                    </div>
 		                                    <div class="profile-data">
-		                                        <h4><a href="/photos/<?php echo $post->id; ?>"></a></h4>
+		                                        <h4><a href="/community/<?php echo $post->id; ?>"></a></h4>
 		                                        <ul class="prof-tags">
 		                                            <!--<li><a href="<?php echo $post->state; ?>"><?php echo $post->state; ?></a></li>-->
-		                                            <li style="text-transform:capitalize;"><a href="/<?php echo $post->post_type; ?>"><?php echo $post->post_type; ?></a></li>
+		                                            <li style="text-transform:capitalize;"><a href="/community/<?php echo $post->post_type; ?>"><?php echo $post->post_type; ?></a></li>
 		                                            <?php if ($post->master){ ?><li><a href="/master-angler">Master Angler</a></li><?php } ?>
 		                                        </ul>
 		                                        <ul class="replies">
-		                                            <li><a href="/photos/<?php echo $post->id; ?>/#reply_field"><?php echo $niceComment; ?></a></li>
+		                                            <li><a href="/community/<?php echo $post->id; ?>/#reply_field"><?php echo $niceComment; ?></a></li>
 		                                            <li><?php echo $niceScore; ?></li>
 		                                        </ul>
 		                                         <!-- Don't delete this. It's part of imo-add-this -->
 												<div id="imo-add-this-spid" style="display:none;"></div>
 							                    <ul class="prof-like">
 							                    	<li>
-														<div addthis:url="http://<?php echo $_SERVER['SERVER_NAME']; ?>/photos/<?php echo $post->id; ?>" addthis:title="' . htmlentities(<?php echo $post->title; ?>) . '" class="addthis_toolbox addthis_default_style ">
+														<div addthis:url="http://<?php echo $_SERVER['SERVER_NAME']; ?>/community/<?php echo $post->id; ?>" addthis:title="' . htmlentities(<?php echo $post->title; ?>) . '" class="addthis_toolbox addthis_default_style ">
 															<a class="addthis_button_facebook_like"fb:like:layout="button_count"></a>
 														</div>
 														<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4de0e5f24e016c81"></script>
@@ -303,22 +303,21 @@ if(mobile()){
                     	<?php
                         $comments = $data->comments;
 
-                        foreach($comments as $comment){ $spid =  $comment->parent; }
+	                foreach($comments as $comment){ $spid =  $comment->parent; }
+	
+	                foreach($comments as $comment){ 
+	                $replyURL = "http://$hostname/community-api/posts/{$comment->parent}?get_comments=1";
+					$replyFile = file_get_contents($replyURL);
+					//SET TEMPLATE VARIABLES
+					$replyData = json_decode($replyFile); ?>
 
-                        // Let's not run this a million times.
-                        $replyURL = "http://$hostname/community-api/posts/$spid?get_comments=1";
-						$replyFile = file_get_contents($replyURL);
-						//SET TEMPLATE VARIABLES
-						$replyData = json_decode($replyFile);
-
-                        foreach($comments as $comment){  ?>
-                        	<li class="reply-item">
-	                            <p><?php echo $comment->body; ?></p>
-	                            <div class="replies-data-line">
-	                                Replied To <a href="<?php echo $replyData->url; ?>"><?php echo $replyData->title; ?></a>   |   <abbr class="recon-date timeago" title="<?php echo $comment->created; ?>"></abbr>
-	                            </div>
-	                        </li>
-                        <?php } ?>
+	                	<li class="reply-item">
+	                        <p><?php echo $comment->body; ?></p>
+	                        <div class="replies-data-line">
+	                            Replied To <a href="/community/<?php echo $replyData->id; ?>"><?php echo $replyData->title; ?></a>   |   <abbr class="recon-date timeago" title="<?php echo $comment->created; ?>"></abbr>
+	                        </div>
+	                    </li>
+	                <?php } ?>
 					</ul>
                 </div>
             </div>
