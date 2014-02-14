@@ -250,6 +250,7 @@ h2{
     display:block;
     border:1px solid #fff;
     position:relative;
+	cursor: pointer;
 }
 .share-photo span:before {
    position: relative;

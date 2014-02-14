@@ -177,7 +177,7 @@ body{background-color: black;}
 .menu-main-menu-container .hot-link .sub-menu li.singl-post-photo{
 	width: 240px;
 	margin: 10px auto;
-	padding: 0 0 0 30px;
+	padding: 0 0 0 30px !important;
 	border-right: none;
 	border-width: 0;
 	background: url(images/ico/camera-white.png) no-repeat 25px 10px #acacac !important;
@@ -335,17 +335,41 @@ body{background-color: black;}
 	padding: 8px 0 20px !important;
 	text-transform: none !important;
 }
-.horz-logo{
-	background: url(images/logos/fishhead-logo-horz.png) no-repeat center top;
-	width: 262px;
-	height: 65px;
+.horz-logo {
+	background: url(images/yourphotos-menu.png) no-repeat center top #1c1c1c;
+	width: 270px;
+	height: 72px;
 	margin: 0 auto 10px;
 	display: block;
 }
+.join-box{background: #1c1c1c;margin: 0;border-bottom: none;padding: 14px 18px 4px;}
+.share-photo-btn {
+	background: #1c1c1c;
+	width: 310px;
+	height: 66px;
+	padding: 12px 10px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #d0cfcd;
+}
+.share-photo-btn .singl-post-photo{text-shadow: none;background: #acacac;color: black;}
+.slider-view-more a {padding: 48px 10px 49px;}
+.flex-control-paging li a {
+	background-image: url(images/controls.png) !important;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	-o-border-radius: 20px;
+	border-radius: 20px;
+	-webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+	-moz-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+	-o-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+	box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+}
+.flex-direction-nav a {background-image: url(images/prev-next.png) !important;}
 .singl-post-photo span{
 	background:url(images/ico/camera-white.png) no-repeat;
 	padding:2px 0 0 30px;
 }
+.btn-red, .singl-post-photo{padding: 0 !important;}
 /* Main Section
  ******************************************************************************/
 
@@ -756,7 +780,7 @@ p.state-name{
 	float: left;
 }
 .state-list ul li{
-	color: rgb(124, 124, 124);
+	color: #cda220;
 	line-height: 1.7;
 	text-shadow: 2px 1px 0px rgba(12, 12, 12, 0.58);
 	font-weight: bold;
@@ -1015,7 +1039,7 @@ element:hover, element.hover_effect {
 		width: 44px;
 		height: 44px;
 		position: absolute;
-		right: 0;
+		right :45px;
 		top: 0px;
 		background: url(images/search.jpg) no-repeat 0px 2px #252525;
 	}
@@ -1040,8 +1064,9 @@ element:hover, element.hover_effect {
 	.header .socials {
 		padding: 6px 8px 0 0;
 		height: 44px;
-		right: 44px;
+		right: 90px;
 	}
+	.snap-drawer a.singl-post-photo{text-align: center !important;}
 	.gf-bottom-menu {
 		width: 0;
 		background: none;

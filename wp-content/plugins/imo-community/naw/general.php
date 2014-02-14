@@ -52,13 +52,8 @@ if ( is_user_logged_in() ) {
 }
 
 
-include 'common-templates.php';
-$crop = "/convert?w=650&h=650&fit=crop&rotate=exif";
-if(mobile()){
-	$crop = "/convert?w=458&h=458&fit=crop&rotate=exif";
-}
+include 'common-templates.php'; ?>
 
-?>
 <!-- *********************************************************** -->
 <!-- ***************** UNDERSCORE TEMPLATE ********************* -->
 <!-- *********************************************************** -->
@@ -69,11 +64,18 @@ if(post.score == 1){
 }else{
 	niceScore = post.score + ' Points';
 }
+newdate = post.created;
+olddate = '2014-02-14 00:00:00'; 
+if( newdate < olddate ){ 
+	crop = "";
+}else{
+	crop = "/convert?w=650&h=650&fit=crop&rotate=exif";	
+}
 %>
 	<div class="dif-post">
        <% if(post.img_url){ %>
 	        <div class="feat-img">
-	            <a href="/community/<%= post.id %>"><img class="feat-img" src="<%= post.img_url %>" alt="<%= post.title %>" title="<%= post.img_url %>" /></a>
+	            <a href="/community/<%= post.id %>"><img class="feat-img" src="<%= post.img_url %><%= crop %>" alt="<%= post.title %>" title="<%= post.img_url %>" /></a>
 	        </div>
         <% }else{ %>
         	 <div class="feat-img">
@@ -131,7 +133,7 @@ if(post.score == 1){
             <div id="fileupload">
                 <div class="fileupload-buttonbar ">
                     <label class="upload-button share-photo">
-                        <span class="add-photo-link">Share Your Photo</span>
+                         <a href="/community/new/"><span class="add-photo-link">Share Your Photo</span></a>
                         <input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
                     </label>
                 </div>

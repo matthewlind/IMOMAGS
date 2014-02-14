@@ -187,6 +187,8 @@ General comments (optional).
 	margin: 0 auto 10px;
 	display: block;
 }
+.btn-red,
+.singl-post-photo {background:url(images/btn-red.png) no-repeat 50% 0;}
 .singl-post-photo span{
 	background:url(images/ico/camera-white.png) no-repeat;
 	padding:2px 0 0 30px;

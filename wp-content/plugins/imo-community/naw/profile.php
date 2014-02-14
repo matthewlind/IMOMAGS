@@ -239,13 +239,19 @@ if(mobile()){
 							}else{
 								$niceComment = $post->comment_count.' Replies';
 							}
-
-								if($post->img_url){
+							$newdate = $post->created;
+							$olddate = '2014-02-14 00:00:00'; 
+							if( $newdate < $olddate ){ 
+								$crop = "";
+							}else{
+								$crop = "/convert?w=650&h=650&fit=crop&rotate=exif";	
+							}
+							
 							?>
 
 		                        <div class="dif-post">
 		                            <div class="feat-img">
-		                                <a href="/community/<?php echo $post->id; ?>"><img class="feat-img" src="<?php echo $post->img_url; ?>" alt="<?php echo $post->title; ?>" title="<?php echo $post->title; ?>" /></a>
+		                                <a href="/community/<?php echo $post->id; ?>"><img class="feat-img" src="<?php echo $post->img_url.$crop; ?>" alt="<?php echo $post->title; ?>" title="<?php echo $post->title; ?>" /></a>
 		                            </div>
 		                            <div class="dif-post-text">
 		                                <h3><a href="/community/<?php echo $post->id; ?>"><?php echo $post->title; ?></a></h3>
@@ -291,7 +297,7 @@ if(mobile()){
 
 		                        <?php endif;?>
 
-                        <?php } $i++; } ?>
+                        <?php } $i++; ?>
                     </div>
                     <div class="pager-holder js-responsive-section" data-position="5">
                         <a class="btn-base" href="#">Load More</a>

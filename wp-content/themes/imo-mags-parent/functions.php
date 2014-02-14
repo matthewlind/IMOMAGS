@@ -169,6 +169,15 @@ function parent_theme_widgets_init()
         'before_title' => '<h3 class="widget-title">',
         'after_title' => '</h3>',
     ) );
+    
+    register_sidebar( array(
+        'name' => __( 'Sticky Widgets', 'imo-mags-parent' ),
+        'id' => 'sidebar-98',
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget' => "</div>",
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>',
+    ) );
 
     // register_widget( 'Twenty_Eleven_Ephemera_Widget' );
 

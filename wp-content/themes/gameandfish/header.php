@@ -284,35 +284,14 @@
 	        <div class="mob-aside-menu">
 	            <div class="menu-community-menu-container">
 		       		<ul id="menu-community-menu" class="menu">
-				   		<li class="hot-link main-menu-item menu-item-even menu-item-depth-0 menu-item">
-			   				<a href="/photos" class="menu-link main-menu-link">Latest Photos</a></li>
+				   		<li class="sub-menu-item photos-logo menu-item"><a href="/photos" class="menu-link sub-menu-link">All Photos</a></li>
 			   			<li class="mob-share main-menu-item menu-item-even menu-item-depth-">
 			   				<div class="fileupload-buttonbar fileupload-sidebar">
 						        <label class="upload-button">
-									<a class="singl-post-photo"><span>Share Your Catch</span></a>
-									<input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
+									<a href="/photos/new" class="singl-post-photo"><span>Share Your Catch</span></a>
 						        </label>
 						    </div>
 			   			</li>
-			   			<li class="main-menu-item menu-item-even menu-item-depth-">
-			   				<a href="/master-angler" class="menu-link main-menu-link">Master Angler</a>
-			   			</li>
-				   		<!--<li class="main-menu-item menu-item-even menu-item-depth-" style="<?php echo $displayStyle; ?>">
-			   				<a href="#" class="menu-link main-menu-link has-drop">My Interests</a>
-			   				<div class="drop-down">
-			   					<ul class="sub-menu menu-odd menu-depth-1">
-				   					<li class="sub-menu-item menu-item-odd menu-item-depth-1 menu-item">
-				   						<a href="#" class="menu-link sub-menu-link">Bass</a>
-				   					</li>
-				   					<li class="sub-menu-item menu-item-odd menu-item-depth-1 menu-item">
-				   						<a href="#" class="menu-link sub-menu-link">Walleye</a>
-				   					</li>
-				   					<li class="sub-menu-item menu-item-odd menu-item-depth-1 menu-item">
-				   						<a href="#" class="menu-link sub-menu-link">Catfish</a>
-				   					</li>
-				   				</ul>
-				   			</div>
-			   			</li>-->
 			   		</ul>
 		       </div>
 	        </div>
@@ -324,8 +303,6 @@
 		       		<ul id="menu-community-menu" class="menu">
 	       				<li class="main-menu-item menu-item-even menu-item-depth-0 menu-item">
 			   				<a href="/profile/<?php echo $username; ?>#my-photos" class="menu-link main-menu-link">My Photos</a></li>
-			   				<li class="main-menu-item menu-item-even menu-item-depth-0 menu-item">
-			   				<a href="/edit-profile/?action=profile" class="menu-link main-menu-link">Edit Profile</a></li>
 			   			<li class="main-menu-item menu-item-even menu-item-depth-">
 			   				<a href="<?php echo wp_logout_url( get_permalink() ); ?>" class="menu-link main-menu-link">Sign Out</a>
 			   			</li>

@@ -72,14 +72,16 @@ include 'common-templates.php';
 				</div>
 				<div class="loading-gif"></div>
 				<div class="dropdown-selects">
-					<!--<select id="ma-species" class="post_type alter-sel mobile-select" name="meta">
-		         		<option value="">SPECIES</option>
-				 		<% _.each(species,function(fish,index){ %>
-		         			<option value="<%= index %>" <%= post && post.post_type == index ? "SELECTED" : "" %> ><%= fish.name %></option>
+					<select id="ma-species" class="post_type alter-sel mobile-select" name="post_type">
+		         		<%var taxonomyTerms = IMO_COMMUNITY_CONFIG.post_types; 
+		         		 _.each(taxonomyTerms,function(term,index){   
+		         		 %>
+				 			<option value="<%= index %>"><%= term.display_name %></option>
 				 		<% }); %>
-			        </select>-->
+			        </select>
+
 				    <select name="state" placeholder="Choose the state for this post:" class="alter-sel mobile-select" id="ma-state">
-			            <option value="" >STATE / PROVINCE</option>
+			            <option value="" >SELECT STATE</option>
 			            <option value="AL" <%= post && post.state == "AL" ? "SELECTED" : "" %> >Alabama</option>
 			            <option value="AK" <%= post && post.state == "AK" ? "SELECTED" : "" %> >Alaska</option>
 			            <option value="AZ" <%= post && post.state == "AZ" ? "SELECTED" : "" %> >Arizona</option>
@@ -345,7 +347,7 @@ include 'common-templates.php';
 	            	<span class="or-delim" style="<?php echo $loginStyle; ?>">OR</span>
 	            	<a href="#" class="email-signup email-signup-button jq-open-reg-popup" style="<?php echo $loginStyle; ?>" >login with email address</a>
 	            	<!-- <p class="login-message" style="<?php echo $loginStyle; ?>">Your post will be submitted immediately after Login</p> -->
-				    <span class="btn-red btn-post btn-submit"  style="<?php echo $displayStyle; ?>"><input id="post-photo" type="submit" value="Post Photo"></span>
+				    <span class="btn-red btn-post btn-submit"  style="<?php echo $displayStyle; ?>"><input id="post-photo" type="submit" value="Share Your Photo"></span>
 	            </div>
 	            <hr>
 

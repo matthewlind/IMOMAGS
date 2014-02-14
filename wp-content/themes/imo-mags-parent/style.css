@@ -2924,7 +2924,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
     border-radius:4px;
     text-align:center;
     margin:0 0 22px;
-    background:url(images/btn-red.png) no-repeat 50% 0;
+    background:gray;
     cursor: pointer;
 }
 .btn-red {

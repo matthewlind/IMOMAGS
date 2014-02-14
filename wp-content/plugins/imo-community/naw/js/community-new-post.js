@@ -142,7 +142,6 @@ jQuery(document).ready(function($) {
 
 		newPostData.attachments = postAttachments;
 
-
 		//Validate form data and submit
 		if (validateFormData(newPostData)) {
 			$('.btn-submit').fadeOut();
@@ -156,7 +155,7 @@ jQuery(document).ready(function($) {
 				//alert("New Post Added! Replace this alert with a redirect to something!")
 
 				if (postData)
-					window.location.href = "/photos/" + postData.id;
+					window.location.href = "/community/" + postData.id;
 				else
 					alert("Could not post photo. Are you logged in?");
 			});
@@ -173,21 +172,16 @@ jQuery(document).ready(function($) {
 	function validateFormData(formData) {
 
 
-		//Check master angler:
-		if (formData.last_name.length > 1 && formData.email.length > 1 && formData.zip.length > 1 && formData.body_of_water.length > 1) {
-			formData.master = 1;
-		}
-
 		//Check form fields
-		if (formData.title.length < 1) {
+		if (formData.title.length < 1 && formData.img_url.length < 1) {
+			alert("Please attach a photo and give this post a title.");
+			return false;
+		} else if (formData.title.length < 1) {
 			alert("Please give this post a title.");
 			return false;
 		} else if (formData.img_url.length < 1) {
-			alert("Please attach a photo.");
-			return false;
-		//} else if (formData.meta.length < 1) {
-			//alert("Please select a species.");
-			//return false;
+		alert("Please attach a photo.");
+		return false;
 		} else if (formData.state.length < 1) {
 			alert("Please Choose a state.");
 			return false;
@@ -290,7 +284,7 @@ jQuery(document).ready(function($) {
 
 		}
 	});
-
+		
 });
 
 

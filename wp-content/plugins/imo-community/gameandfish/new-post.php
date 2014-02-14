@@ -65,7 +65,7 @@ if ( is_user_logged_in() ) {
 
 				<div class="dropdown-selects">
 					<select id="ma-species" class="post_type alter-sel mobile-select" name="post_type">
-		         		<option value="" >WHAT IS IT'S SPECIES?</option>
+		         		<option value="" >SELECT SPECIES</option>
 		         		<% var prevTertType = ''; %>
 				 		<% _.each(species,function(animal,index){   %>
 				 			<% if (prevTertType != animal.tertiary) { %>
@@ -77,7 +77,7 @@ if ( is_user_logged_in() ) {
 				 		<% }); %>
 			        </select>
 				    <select name="state" placeholder="Choose the state for this post:" class="alter-sel mobile-select" id="ma-state">
-			            <option value="" >WHERE DID THIS HAPPEN?</option>
+			            <option value="" >SELECT STATE</option>
 			            <option value="AL" <%= post && post.state == "AL" ? "SELECTED" : "" %> >Alabama</option>
 			            <option value="AK" <%= post && post.state == "AK" ? "SELECTED" : "" %> >Alaska</option>
 			            <option value="AZ" <%= post && post.state == "AZ" ? "SELECTED" : "" %> >Arizona</option>

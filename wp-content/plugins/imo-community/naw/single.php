@@ -287,12 +287,19 @@ $time = date("g:i A", strtotime($timestamp));
 			</div>
 
         <?php
-        	$width = "/convert?w=730&fit=scale&rotate=exif";
-        	if(mobile()){
-        		$width = "/convert?w=478";
-        	}
+        	$newdate = $data->created;
+			$olddate = '2014-02-14 00:00:00'; 
+			if( $newdate < $olddate ){ 
+				$width = "";
+			}else{
+				$width = "/convert?w=730&fit=scale&rotate=exif";
+	        	if(mobile()){
+	        		$width = "/convert?w=478";
+	        	}	
+			}
+        	
             $media = "";
-            $media = "<div class='full-post-img'><img src='$data->img_url'></div>";
+            $media = "<div class='full-post-img'><img src='$data->img_url$width'></div>";
 
             echo $media;
         ?>
