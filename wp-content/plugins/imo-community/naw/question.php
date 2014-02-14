@@ -225,6 +225,7 @@ if( newdate < olddate ){
 	crop = "/convert?w=650&h=650&fit=crop&rotate=exif";	
 } %>
 	<div class="dif-post">
+       <div class="loading-gif"></div>
        <% if(post.img_url){ %>
 	        <div class="feat-img">
 	            <a href="/community/<%= post.id %>"><img class="feat-img" src="<%= post.img_url %><%= crop %>" alt="<%= post.title %>" title="<%= post.img_url %>" /></a>

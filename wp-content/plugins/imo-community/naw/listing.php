@@ -131,12 +131,12 @@ if( newdate < olddate ){
             <?php //echo do_shortcode('[imo-slideshow community=true]'); ?>
         </div>
         <div class="photo-link-area">
-                <div class="fileupload-buttonbar ">
-                    <label class="upload-button share-photo">
-                        <a href="/community/new/"><span class="add-photo-link">Share Your Photo</span></a>
-                        <input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
-                    </label>
-                </div>
+            <div class="fileupload-buttonbar ">
+                <label class="upload-button share-photo">
+                    <a href="/community/new/"><span class="add-photo-link">Share Your Photo</span></a>
+                    <input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
+                </label>
+            </div>
         </div>
 
         <div class="btn-group btn-bar">

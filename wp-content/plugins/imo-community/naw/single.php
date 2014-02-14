@@ -343,28 +343,7 @@ $time = date("g:i A", strtotime($timestamp));
 
 
 	            <?php } ?>
-                    <?php if ($data->master) { ?>
-
-                        <div class="fishinfo">
-                            <div class="maspecies"><span class="grayz">Species:</span> <?php echo $data->meta; ?></div>
-                            <div class="madatecaught"><span class="grayz">Date Caught: </span><?php echo $data->date; ?></div>
-                            <div class="madatecaught"><span class="grayz">Kept / Released: </span><?php echo ($data->kept ? "No" : "Yes"); ?></div>
-                            <!-- <div class="madatecaught"><span class="grayz">Region of Catch: </span>Region 6</div> -->
-
-                            <?php if ($data->length): ?>
-                                <div class="madatecaught"><span class="grayz">Length: </span><?php echo $data->length; ?></div>
-                            <?php endif; ?>
-                            <?php if ($data->weight): ?>
-                                <div class="madatecaught"><span class="grayz">Weight: </span><?php echo $data->weight; ?></div>
-                            <?php endif; ?>
-
-                            <div class="lurebait">
-                                <span class="grayz">Lure / Bait:</span>
-                                <?php echo $data->kind_of_lure ?>
-                            </div>
-                        </div>
-                   <?php }//end if ?>
-	        <div class="clearfix">
+				<div class="clearfix">
                 <a href="#reply_field" class="post-it">Post a Reply</a>
           
                      <div addthis:url="http://<?php echo $_SERVER['SERVER_NAME']; ?>/community/<?php echo $data->id; ?>" addthis:title="" class="addthis_toolbox addthis_default_style ">
@@ -377,6 +356,15 @@ $time = date("g:i A", strtotime($timestamp));
 			<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4de659c80f33d1e7"></script>
             </div>
         </div>
+        <div class="photo-link-area">
+            <div class="fileupload-buttonbar ">
+                <label class="upload-button share-photo">
+                    <a href="/community/new/"><span class="add-photo-link">Share Your Photo</span></a>
+                    <input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
+                </label>
+            </div>
+        </div>
+
     </div>
     <!--<div class="custom-slider-section mobile-hidden-section">
         <div class="general-title clearfix">

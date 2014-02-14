@@ -214,6 +214,14 @@ if(mobile()){
                     <li><a href="#"><span>Smallmouth</span></a></li>
                 </ul>
             </div>-->
+            <div class="photo-link-area">
+	            <div class="fileupload-buttonbar ">
+	                <label class="upload-button share-photo">
+	                    <a href="/community/new/"><span class="add-photo-link">Share Your Photo</span></a>
+	                    <input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
+	                </label>
+	            </div>
+	        </div>
             <div id="my-community" class="general-title clearfix">
                 <h2><?php if ($myProfile){ echo "My"; }else{ echo $data->display_name . "'s"; } ?>  <span>Activity</span></h2>
             </div>
