@@ -75,6 +75,8 @@ class imo_related_footer_widget extends WP_Widget {
 
         if (!empty($IMO_USER_STATE)) {
 
+            $postCount;
+
 
             $outputString = "";
 
@@ -84,26 +86,36 @@ class imo_related_footer_widget extends WP_Widget {
             $posts = json_decode($postJSON);
 
 
+            $postCount = count($posts);
 
-            if (count($posts) < 6) {
+
+
+            if ($postCount < 6) {
                 $url = "http://$domain/wpdb/network-feed-cached.php?state=$IMO_USER_STATE&count=4&domain=www.gameandfishmag.com&post_set_merge=14-5&thumbnail_size=index-thumb&term=$secondChoiceCategorySlug";
                 $postJSON = file_get_contents($url);
                 $posts = json_decode($postJSON);
-
-
-            } elseif (count($posts) < 6) {
-                $url = "http://$domain/wpdb/network-feed-cached.php?state=$IMO_USER_STATE&count=4&domain=www.gameandfishmag.com&post_set_merge=14-5&thumbnail_size=index-thumb&term=$firstChoiceCategorySlug";
-                $postJSON = file_get_contents($url);
-                $posts = json_decode($postJSON);
-
-
-            } else if (count($posts) < 6) {
-                $url = "http://$domain/wpdb/network-feed-cached.php?state=$IMO_USER_STATE&count=4&domain=www.gameandfishmag.com&thumbnail_size=index-thumb&post_set_merge=14-5";
-                $postJSON = file_get_contents($url);
-                $posts = json_decode($postJSON);
+                $postCount = count($posts);
 
 
             }
+            if ($postCount < 6) {
+                $url = "http://$domain/wpdb/network-feed-cached.php?state=$IMO_USER_STATE&count=4&domain=www.gameandfishmag.com&post_set_merge=14-5&thumbnail_size=index-thumb&term=$firstChoiceCategorySlug";
+                $postJSON = file_get_contents($url);
+                $posts = json_decode($postJSON);
+                $postCount = count($posts);
+
+
+            }
+            if ($postCount < 6) {
+                $url = "http://$domain/wpdb/network-feed-cached.php?state=$IMO_USER_STATE&count=4&domain=www.gameandfishmag.com&thumbnail_size=index-thumb&post_set_merge=14-5";
+                $postJSON = file_get_contents($url);
+                $posts = json_decode($postJSON);
+                $postCount = count($posts);
+
+
+            }
+
+
 
             foreach($posts as $post) {
 
