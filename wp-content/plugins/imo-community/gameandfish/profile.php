@@ -254,7 +254,7 @@ imo_sidebar("community");
                                 <h3><a href="/photos/<?php echo $url; ?>/<?php echo $post->id; ?>"><?php echo $post->title; ?></a></h3>
                                 <div class="profile-panel">
                                     <div class="profile-photo">
-                                        <a href="/profile/<?php echo $post->username; ?>"><img src="/avatar?uid=<?php echo $data->ID; ?>" alt="<?php echo $post->display_name; ?>" title="<?php echo $post->display_name; ?>" /></a>
+                                        <a href="/profile/<?php echo $post->user_nicename; ?>"><img src="/avatar?uid=<?php echo $data->ID; ?>" alt="<?php echo $post->display_name; ?>" title="<?php echo $post->display_name; ?>" /></a>
                                     </div>
                                     <div class="profile-data">
                                         <h4><a href="/photos/<?php echo $url; ?>/<?php echo $post->id; ?>"></a></h4>

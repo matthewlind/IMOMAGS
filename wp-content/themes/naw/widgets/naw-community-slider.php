@@ -49,9 +49,9 @@ class NAW_Community_Slider extends WP_Widget {
 				   	}
 				   	$i++; 
 	                	if($picture->img_url){ ?>
-                			<li><a href="/photos/<?php echo $picture->id; ?>"><img width="119" src="<?php echo $picture->img_url . $crop; ?>" alt="<?php echo $picture->title; ?>" /></a></li>
+                			<li><a href="/community/post/<?php echo $picture->id; ?>"><img width="119" src="<?php echo $picture->img_url . $crop; ?>" alt="<?php echo $picture->title; ?>" /></a></li>
                 		<?php } ?>
-                	<?php if($i==11){ echo '<li class="slider-view-more"><a href="/photos">View More</a></li>'; } } ?>
+                	<?php if($i==11){ echo '<li class="slider-view-more"><a href="/community">View More</a></li>'; } } ?>
                 </ul>
             </div>
 		</div>
@@ -59,7 +59,7 @@ class NAW_Community_Slider extends WP_Widget {
 
     </div>
     <div class="share-photo-btn">
-		<a href="/photos/new" class="singl-post-photo"><span>Share Your Photo</span></a>
+		<a href="/community/new" class="singl-post-photo"><span>Share Your Photo</span></a>
     </div>
 <?php	}
 

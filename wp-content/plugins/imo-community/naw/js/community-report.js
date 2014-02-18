@@ -97,8 +97,10 @@ jQuery(document).ready(function($) {
 
 
             var totalPostCount = countData[0].post_count;
-			
-            console.log(totalPostCount,filter.skip);
+			if(totalPostCount == 0){
+				$("#posts-container").append('<h3 class="no-result">No Photos</h3>');
+			}
+            //console.log(totalPostCount,filter.skip);
 			$('.loading-gif').fadeOut();
             if (filter.skip + filter.per_page >= totalPostCount ) {
                 $("a.load-more").hide();

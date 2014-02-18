@@ -20,18 +20,6 @@
  */
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 
-//Gallery Scripts
-wp_enqueue_script('flexslider-js',plugins_url('imo-flex-gallery/jquery.flexslider.js'));
-wp_enqueue_script('flex-gallery-js',plugins_url('imo-flex-gallery/flex-gallery.js'));
-wp_enqueue_script('jquery-mobile',plugins_url('imo-flex-gallery/jquery.mobile.custom.min.js'));
-wp_enqueue_script('jquery-ui-slide-effect',plugins_url('imo-flex-gallery/jquery-ui-slide-effect.min.js'));
-wp_enqueue_script('jquery-scrollface',plugins_url('imo-flex-gallery/jquery.scrollface.min.js'));
-wp_enqueue_script('jquery-buffet',plugins_url('imo-flex-gallery/jquery.buffet.min.js'));
-wp_enqueue_script('jquery-mousewheel',plugins_url('imo-flex-gallery/jquery.mousewheel.min.js'));
-wp_enqueue_script('perfect-scrollbar-js',plugins_url('imo-flex-gallery/perfect-scrollbar-0.4.3.with-mousewheel.min.js'));
-wp_enqueue_style('ajax-gallery-css',plugins_url('imo-flex-gallery/flex-gallery.css','imo-flex-gallery'));
-wp_enqueue_style('perfect-scrollbar-css',plugins_url('imo-flex-gallery/perfect-scrollbar-0.4.3.min.css'));
-
 get_header();
 imo_sidebar("community");
 
@@ -59,7 +47,6 @@ $state = get_query_var("state");
 $stateSlugToAbbv = array("alabama"=>"AL",
 "alaska"=>"AK","arizona"=>"AZ","arkansas"=>"AR","california"=>"CA","colorado"=>"CO","connecticut"=>"CT","delaware"=>"DE","district-of-columbia"=>"DC","florida"=>"FL","georgia"=>"GA","hawaii"=>"HI","idaho"=>"ID","illinois"=>"IL","indiana"=>"IN","iowa"=>"IA","kansas"=>"KS","kentucky"=>"KY","louisiana"=>"LA","maine"=>"ME","maryland"=>"MD","massachusetts"=>"MA","michigan"=>"MI","minnesota"=>"MN","mississippi"=>"MS","missouri"=>"MO","montana"=>"MT","nebraska"=>"NE","nevada"=>"NV","new-hampshire"=>"NH","new-jersey"=>"NJ","new-mexico"=>"NM","new-york"=>"NY","north-carolina"=>"NC","north-dakota"=>"ND","ohio"=>"OH","oklahoma"=>"OK","oregon"=>"OR","pennsylvania"=>"PA","rhode-island"=>"RI","south-carolina"=>"SC","south-dakota"=>"SD","tennessee"=>"TN","texas"=>"TX","utah"=>"UT","vermont"=>"VT","virginia"=>"VA","washington"=>"WA","west-virginia"=>"WV","wisconsin"=>"WI","wyoming"=>"WY","alberta"=>"AB","british-columbia"=>"BC","manitoba"=>"MB","new-brunswick"=>"NB","newfoundland-and-labrador"=>"NL","northwest-territories"=>"NT","nova-scotia"=>"NS","nunavut"=>"NU","ontario"=>"ON","prince-edward-island"=>"PE","quebec"=>"QC","saskatchewan"=>"SK","yukon"=>"YT");
 
-
 $shortState = $stateSlugToAbbv[$state];
 
 ?>
@@ -68,6 +55,61 @@ $shortState = $stateSlugToAbbv[$state];
 <!-- *********************************************************** -->
 <script type="text/template" id="post-template">
 <%
+var stateKey = new Object;
+stateKey.AR = "arizona";
+stateKey.AL = "alabama";
+stateKey.AK = "alaska";
+stateKey.AZ = "arizona";
+stateKey.AR = "arkansas";
+stateKey.CA = "california";
+stateKey.CO = "colorado";
+stateKey.CT = "connecticut";
+stateKey.DE = "delaware";
+stateKey.DC = "district-of-columbia";
+stateKey.FL = "florida";
+stateKey.GA = "georgia";
+stateKey.HI = "hawaii";
+stateKey.ID = "idaho";
+stateKey.IL = "illinois";
+stateKey.IN = "indiana";
+stateKey.IA = "iowa";
+stateKey.KS = "kansas";
+stateKey.KY = "kentucky";
+stateKey.LA = "louisiana";
+stateKey.ME = "maine";
+stateKey.MD = "maryland";
+stateKey.MA = "massachusetts";
+stateKey.MI = "michigan";
+stateKey.MN = "minnesota";
+stateKey.MS = "mississippi";
+stateKey.MO = "missouri";
+stateKey.MT = "montana";
+stateKey.NE = "nebraska";
+stateKey.NV = "nevada";
+stateKey.NH = "new-hampshire";
+stateKey.NJ = "new-jersey";
+stateKey.NM = "new-mexico";
+stateKey.NY = "new-york";
+stateKey.NC = "north-carolina";
+stateKey.ND = "north-dakota";
+stateKey.OH = "ohio";
+stateKey.OK = "oklahoma";
+stateKey.OR = "oregon";
+stateKey.PA = "pennsylvania";
+stateKey.RI = "rhode-island";
+stateKey.SC = "south-carolina";
+stateKey.SD = "south-dakota";
+stateKey.TN = "tennessee";
+stateKey.TX = "texas";
+stateKey.UT = "utah";
+stateKey.VT = "vermont";
+stateKey.VA = "virginia";
+stateKey.WA = "washington";
+stateKey.WV = "west-Virginia";
+stateKey.WI = "wisconsin";
+stateKey.WY = "wyoming";
+
+var stateSlug = stateKey[post.state];
 if(post.score == 1){
 	niceScore = post.score + ' Point';
 }else{
@@ -82,7 +124,6 @@ if( newdate < olddate ){
 }
 %>
 	<div class="dif-post">
-	   <div class="loading-gif"></div>
        <% if(post.img_url){ %>
 	        <div class="feat-img">
 	            <a href="/community/post/<%= post.id %>"><img class="feat-img" src="<%= post.img_url %><%= crop %>" alt="<%= post.title %>" title="<%= post.img_url %>" /></a>
@@ -101,11 +142,11 @@ if( newdate < olddate ){
                 <div class="profile-data">
                     <h4><a href="/profile/<%= post.user_nicename %>"><%= post.display_name %></a></h4>
                     <ul class="prof-tags">
-                        <!--<li><a href="#"><%= post.state %></a></li>-->
-                        <li><a href="/<%= post.post_type %>" style="text-transform:capitalize;"><%= post.post_type %></a></li>
+                        <% if(post.state){ %><li><a href="/community/report/<%= stateSlug %>"><%= post.state %></a></li><% } %>
+                        <li><a href="/community/<%= post.post_type %>" style="text-transform:capitalize;"><%= post.post_type %></a></li>
                     </ul>
                     <ul class="replies">
-                        <li><a href="/community/post/<%= post.id %>#reply_field"><%= post.comment_count %> Reply</a></li><div class="divider"></div>
+                        <li><a href="/community/post/<%= post.id %>#reply_field"><%= post.comment_count %> Reply</a></li>
 						<li><%= niceScore %></li>
                     </ul>
                     <ul class="prof-like">
@@ -128,16 +169,17 @@ if( newdate < olddate ){
 
 <div class="page-community">
     <div class="general general-com">
+    	<div class="title-crumbs">
+    	 <ul class="breadcrumbs">
+	    	<li><a href="/community">NAW+ Community</a></li>
+	    	<li style="margin-top:1px;text-transform:capitalize;">&raquo; State Rut Reports</li>
+	    </ul>
     	<div class="custom-title clearfix">
     		<img src="<?php echo plugins_url('images/naw-plus.png' , __FILE__ ); ?>" alt="NAW Community" class="custom-tite-logo">
             <div class="title-crumbs">
-            	<h1>State Rut Reports</h1>
+            	<h1><?php echo $state ?> Rut Reports</h1>
                 <div class="sponsor"><?php imo_dart_tag("240x60"); ?></div>
 			</div>
-        </div>
-
-		<div class="custom-slider-section">
-            <?php //echo do_shortcode('[imo-slideshow community=true]'); ?>
         </div>
         <div class="photo-link-area">
             <div id="fileupload">
@@ -210,6 +252,7 @@ if( newdate < olddate ){
         </div>
 
         <div class="dif-posts">
+        	<div class="loading-gif"></div>
 			<div id="posts-container" state="<?php echo $shortState; ?>"></div>
          </div>
          <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="pager-holder js-responsive-section">

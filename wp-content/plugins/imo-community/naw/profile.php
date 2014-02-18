@@ -167,7 +167,11 @@ if(mobile()){
 
 ?>
 
-<div id="primary" class="general general-com" role="main">
+	<div id="primary" class="general general-com" role="main">
+        	 <ul class="breadcrumbs">
+		    	<li><a href="/community">NAW+ Community</a></li>
+		    	<li style="margin-top:1px;text-transform:capitalize;">&raquo; Profile</li>
+		    </ul>
             <div class="profile-title clearfix">
                 <h1><?php if ($myProfile){ echo "My"; }else{ echo 'NAW'; } ?> Profile</h1>
             </div>
@@ -265,7 +269,7 @@ if(mobile()){
 		                                <h3><a href="/community/post/<?php echo $post->id; ?>"><?php echo $post->title; ?></a></h3>
 		                                <div class="profile-panel">
 		                                    <div class="profile-photo">
-		                                        <a href="/profile/<?php echo $post->username; ?>"><img src="/avatar?uid=<?php echo $data->ID; ?>" alt="<?php echo $post->display_name; ?>" title="<?php echo $post->display_name; ?>" /></a>
+		                                        <a href="/profile/<?php echo $post->user_nicename; ?>"><img src="/avatar?uid=<?php echo $data->ID; ?>" alt="<?php echo $post->display_name; ?>" title="<?php echo $post->display_name; ?>" /></a>
 		                                    </div>
 		                                    <div class="profile-data">
 		                                        <h4><a href="/community/post/<?php echo $post->id; ?>"></a></h4>

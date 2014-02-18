@@ -29,19 +29,6 @@ $post_type_primary = get_query_var("post_type_primary");
 $post_type_secondary = get_query_var("post_type_secondary");
 $post_type_tertiary = get_query_var("post_type_tertiary");
 
-//Gallery Scripts
-wp_enqueue_script('flexslider-js',plugins_url('imo-flex-gallery/jquery.flexslider.js'));
-wp_enqueue_style('flexslider-css',plugins_url('imo-flex-gallery/flexslider.css'));
-wp_enqueue_script('flex-gallery-js',plugins_url('imo-flex-gallery/flex-gallery.js'));
-wp_enqueue_script('jquery-mobile',plugins_url('imo-flex-gallery/jquery.mobile.custom.min.js'));
-wp_enqueue_script('jquery-ui-slide-effect',plugins_url('imo-flex-gallery/jquery-ui-slide-effect.min.js'));
-wp_enqueue_script('jquery-scrollface',plugins_url('imo-flex-gallery/jquery.scrollface.min.js'));
-wp_enqueue_script('jquery-buffet',plugins_url('imo-flex-gallery/jquery.buffet.min.js'));
-wp_enqueue_script('jquery-mousewheel',plugins_url('imo-flex-gallery/jquery.mousewheel.min.js'));
-wp_enqueue_script('perfect-scrollbar-js',plugins_url('imo-flex-gallery/perfect-scrollbar-0.4.3.with-mousewheel.min.js'));
-wp_enqueue_style('ajax-gallery-css',plugins_url('imo-flex-gallery/flex-gallery.css','imo-flex-gallery'));
-wp_enqueue_style('perfect-scrollbar-css',plugins_url('imo-flex-gallery/perfect-scrollbar-0.4.3.min.css'));
-
 get_header();
 
 $displayStyle = "display:none;";
@@ -270,13 +257,12 @@ $post_type = str_replace("-", " ", $post_type_primary)
             <input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
         </label>
 	</div>
-	<?php //echo do_shortcode('[imo-slideshow community=true]'); ?>
 	<div class="dif-full-post">
 		<ul class="breadcrumbs">
 	    	<li><a href="/photos">All Photos</a></li>
 	    	<?php if($post_type_tertiary){ ?><li style="margin-top:1px;text-transform:capitalize;"> &raquo; <a href="/photos/<?php echo $post_type_tertiary; ?>"><?php echo $post_type_tertiary; ?></a></li><?php } ?>
 	    	<?php if($post_type_secondary){ ?>
-	    		<li style="margin-top:1px;text-transform:capitalize;"> &raquo; <a href="/photos/<?php echo $post_type_tertiary; ?>/<?php echo $post_type_secondary; ?>"><?php echo $post_type_secondary; ?></a></li><?php } ?>
+	    		<li style="margin-top:1px;text-transform:capitalize;"> &raquo; <a href="/photos/<?php echo $post_type_tertiary; ?>/<?php echo $post_type_secondary; ?>"><?php $secondary = str_replace("-"," ",$post_type_secondary); echo $secondary; ?></a></li><?php } ?>
 	    	<?php if($post_type_primary){ ?><li style="margin-top:1px;text-transform:capitalize;"> &raquo; <a href="/photos/<?php echo $post_type_tertiary; ?>/<?php if($post_type_secondary){ echo $post_type_secondary . "/"; } ?><?php echo $post_type_primary; ?>"><?php echo $post_type; ?></a></li><?php } ?>
 		</ul>
 		<div class="custom-title clearfix">
@@ -329,12 +315,12 @@ $post_type = str_replace("-", " ", $post_type_primary)
 			$post_type = str_replace("-", " ", $data->post_type); ?>
 			<div class='full-text'>
 				 <div class="profile-photo">
-	                <a href="/profile/<?php echo $data->username; ?>">
+	                <a href="/profile/<?php echo $data->user_nicename; ?>">
 	                	<img src="/avatar?uid=<?php echo $data->user_id; ?>" alt="<?php echo $data->username; ?>" />
 	                </a>
 	            </div>
 	            <div class="profile-data">
-	                <h4><a href="/profile/<?php echo $data->username; ?>"><?php echo $data->display_name; ?></a></h4>
+	                <h4><a href="/profile/<?php echo $data->user_nicename; ?>"><?php echo $data->display_name; ?></a></h4>
 	                <ul class="prof-tags">
 	                    <!--<li><a href="/photos/<?php echo $data->post_type.'/'.strtolower($state_slug); ?>"><?php echo $state ?></a></li>-->
 	                    <li><a href="/photos/<?php echo $post_type_tertiary; ?>/<?php if($post_type_secondary){ echo $post_type_secondary . "/"; } ?><?php echo $post_type_primary; ?>" style="text-transform:capitalize;"><?php echo $post_type; ?></a></li>
@@ -427,10 +413,10 @@ $post_type = str_replace("-", " ", $post_type_primary)
 
 		        <li<?php echo $visible; ?>>
 		            <div class="profile-photo">
-		                 <a href="/profile/<?php echo $comment->username; ?>"><img src="/avatar?uid=<?php echo $comment->user_id; ?>" alt="<?php echo $comment->display_name; ?>"></a>
+		                 <a href="/profile/<?php echo $comment->user_nicename; ?>"><img src="/avatar?uid=<?php echo $comment->user_id; ?>" alt="<?php echo $comment->display_name; ?>"></a>
 		            </div>
 		            <div class="reply-text">
-		                <h3><a href="/profile/<?php echo $comment->username; ?>"><?php echo $comment->display_name; ?></a></h3>
+		                <h3><a href="/profile/<?php echo $comment->user_nicename; ?>"><?php echo $comment->display_name; ?></a></h3>
 		                <div class="comment-points"><?php echo $niceScore; ?></div>
 		                <p><?php echo $comment->body; ?></p>
 		                <?php

@@ -23,19 +23,6 @@
 
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 
-//Gallery Scripts
-wp_enqueue_script('flexslider-js',plugins_url('imo-flex-gallery/jquery.flexslider.js'));
-wp_enqueue_style('flexslider-css',plugins_url('imo-flex-gallery/flexslider.css'));
-wp_enqueue_script('flex-gallery-js',plugins_url('imo-flex-gallery/flex-gallery.js'));
-wp_enqueue_script('jquery-mobile',plugins_url('imo-flex-gallery/jquery.mobile.custom.min.js'));
-wp_enqueue_script('jquery-ui-slide-effect',plugins_url('imo-flex-gallery/jquery-ui-slide-effect.min.js'));
-wp_enqueue_script('jquery-scrollface',plugins_url('imo-flex-gallery/jquery.scrollface.min.js'));
-wp_enqueue_script('jquery-buffet',plugins_url('imo-flex-gallery/jquery.buffet.min.js'));
-wp_enqueue_script('jquery-mousewheel',plugins_url('imo-flex-gallery/jquery.mousewheel.min.js'));
-wp_enqueue_script('perfect-scrollbar-js',plugins_url('imo-flex-gallery/perfect-scrollbar-0.4.3.with-mousewheel.min.js'));
-wp_enqueue_style('ajax-gallery-css',plugins_url('imo-flex-gallery/flex-gallery.css','imo-flex-gallery'));
-wp_enqueue_style('perfect-scrollbar-css',plugins_url('imo-flex-gallery/perfect-scrollbar-0.4.3.min.css'));
-
 get_header();
 imo_sidebar("community");
 
@@ -244,19 +231,24 @@ $timestamp = $data->created;
 $date = date("F j, Y", strtotime($timestamp));
 $time = date("g:i A", strtotime($timestamp));
 
+
+if($data->post_type == "report"){
+	$postType = "Rut Report";
+}else if($data->post_type == "general"){
+	$postType = "General Discussion";
+}else if($data->post_type == "question"){
+	$postType = "question";
+}
 ?>
 
 <!-- Don't delete this. It's part of imo-add-this -->
 <div id="imo-add-this-spid" style="display:none;"><?php echo $spid; ?></div>
 
 <div class="general general-com">
-
-    <ul class="breadcrumbs">
-    	<li><a href="/community">NAW Community</a></li>
-    	<li style="margin-top:1px;text-transform:capitalize;">&raquo; <?php echo $data->post_type; ?></li>
+	<ul class="breadcrumbs">
+    	<li><a href="/community">NAW+ Community</a></li>
+    	<li style="margin-top:1px;text-transform:capitalize;">&raquo; <?php echo $postType; ?></li>
     </ul>
-
-
     <div class="dif-full-post">
         <h1><?php echo $data->title; ?></h1>
         <div class="profile-panel">
@@ -266,8 +258,8 @@ $time = date("g:i A", strtotime($timestamp));
             <div class="profile-data">
                 <h4><a href="/profile/<?php echo $data->username; ?>"><?php echo $data->display_name; ?></a></h4>
                 <ul class="prof-tags">
-                    <!--<li><a href="/community/<?php echo $data->post_type.'/'.strtolower($state_slug); ?>"><?php echo $state ?></a></li>-->
-                    <li><a href="/community/<?php echo $data->post_type; ?>" style="text-transform:capitalize;"><?php echo $data->post_type; ?></a></li>
+                    <?php if($state){ ?><li><a href="/community/<?php echo $data->post_type . '/' . strtolower($state_slug); ?>"><?php echo $state ?></a></li><?php } ?>
+                    <li><a href="/community/<?php echo $data->post_type; ?>" style="text-transform:capitalize;"><?php echo $postType; ?></a></li>
                 </ul>
                 <div class="clearfix">
                     <ul class="replies">

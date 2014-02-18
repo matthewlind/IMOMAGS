@@ -1,12 +1,12 @@
 /*** Loading Gif ***/
 .loading-gif{display: none;}
-
+.general-com{padding-top: 30px;}
 .breadcrumbs {
     border-top:1px solid #d8d8d7;
     border-bottom:1px solid #fff;
     position:relative;
     padding:7px 8px 8px;
-    margin:0 0 10px;
+    margin:0;
     font:12px/1 "open_sansbold", sans-serif;
     color:#3c3c3c;
     background:#f9f9f8;
@@ -24,7 +24,7 @@
 .breadcrumbs li {
     display:inline-block;
     vertical-align:top;
-    margin:0 5px 0 0;
+    margin:0;
 }
 .breadcrumbs li:before {
     display:inline-block;
@@ -38,7 +38,7 @@
     font-family:"open_sansregular";
     color:#3c3c3c;
 }
-.breadcrumbs a:hover {color:#040503;}
+.breadcrumbs a:hover {color:black;text-decoration: underline;}
 .breadcrumbs:after {
     top:auto;
     bottom:0;
@@ -307,7 +307,8 @@ select.alter-sel {width:100%;}
     border: none;
 }
 .dif-post h3 {
-    font:22px "Rokkitt", serif;
+    font:28px "Rokkitt", serif;
+    font-weight: 700;
     color:#040503;
     margin:0 0 13px;
 }
@@ -975,7 +976,7 @@ select.alter-sel {width:100%;}
     line-height:1;
 }
 .custom-title {
-    margin:0 0 16px;
+    margin:0 0 10px;
 }
 .custom-tite-logo {
     float:left;
@@ -1265,6 +1266,7 @@ select.alter-sel {width:100%;}
 .form .btn-red input,
 .form .btn-red {width:198px;}
 .join-box h3{font: 26px "rokkitt",sans-serif;font-weight: 700;}
+.dropdown-menu{position: relative !important;}
 .dropdown-menu > li > a{font-family: "opensans_regular",Helvetica,sans-serif;text-transform: capitalize;}
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {background-color: #006699 !important;}
 

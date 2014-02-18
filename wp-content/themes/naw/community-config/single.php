@@ -3,7 +3,7 @@
 	//Community Single Post Page Configuration
 	///////////////////////////////////////////
 	$IMO_COMMUNITY_CONFIG = NULL;
-	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "community";//This slug will override ANY setting in wordpress.
+	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "community/post";//This slug will override ANY setting in wordpress.
 	$IMO_COMMUNITY_CONFIG['page_type'] = 'single';
 	$IMO_COMMUNITY_CONFIG['page_title'] = "Community Post"; //On single pages, title is taken from Post
 	$IMO_COMMUNITY_CONFIG['template'] = '/naw/single.php';

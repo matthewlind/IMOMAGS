@@ -26,18 +26,6 @@ $post_type_primary = get_query_var("post_type_primary");
 $post_type_secondary = get_query_var("post_type_secondary");
 $post_type_tertiary = get_query_var("post_type_tertiary");
 
-//Gallery Scripts
-wp_enqueue_script('flexslider-js',plugins_url('imo-flex-gallery/jquery.flexslider.js'));
-wp_enqueue_script('flex-gallery-js',plugins_url('imo-flex-gallery/flex-gallery.js'));
-wp_enqueue_script('jquery-mobile',plugins_url('imo-flex-gallery/jquery.mobile.custom.min.js'));
-wp_enqueue_script('jquery-ui-slide-effect',plugins_url('imo-flex-gallery/jquery-ui-slide-effect.min.js'));
-wp_enqueue_script('jquery-scrollface',plugins_url('imo-flex-gallery/jquery.scrollface.min.js'));
-wp_enqueue_script('jquery-buffet',plugins_url('imo-flex-gallery/jquery.buffet.min.js'));
-wp_enqueue_script('jquery-mousewheel',plugins_url('imo-flex-gallery/jquery.mousewheel.min.js'));
-wp_enqueue_script('perfect-scrollbar-js',plugins_url('imo-flex-gallery/perfect-scrollbar-0.4.3.with-mousewheel.min.js'));
-wp_enqueue_style('ajax-gallery-css',plugins_url('imo-flex-gallery/flex-gallery.css','imo-flex-gallery'));
-wp_enqueue_style('perfect-scrollbar-css',plugins_url('imo-flex-gallery/perfect-scrollbar-0.4.3.min.css'));
-
 get_header();
 
 the_post();
@@ -208,7 +196,7 @@ imo_sidebar("community");
 			    	$post_type = str_replace("-", " ", $post_type_primary);
 			    	if($post_type_tertiary){ ?><li style="margin-top:1px;text-transform:capitalize;"> &raquo; <a href="/photos/<?php echo $post_type_tertiary; ?>"><?php echo $post_type_tertiary; ?></a></li><?php } ?>
 			    	<?php if($post_type_secondary){ ?>
-			    		<li style="margin-top:1px;text-transform:capitalize;"> &raquo; <a href="/photos/<?php echo $post_type_tertiary; ?>/<?php echo $post_type_secondary; ?>"><?php echo $post_type_secondary; ?></a></li><?php } ?>
+			    		<li style="margin-top:1px;text-transform:capitalize;"> &raquo; <a href="/photos/<?php echo $post_type_tertiary; ?>/<?php echo $post_type_secondary; ?>"><?php $secondary = str_replace("-"," ",$post_type_secondary); echo $secondary; ?></a></li><?php } ?>
 			    	<?php if($post_type_primary){ ?><li style="margin-top:1px;text-transform:capitalize;"> &raquo; <?php echo $post_type; ?></li><?php } ?>
 				</ul>
                 <h1><?php if( empty($post_type_primary) && !empty($post_type_secondary) && !empty($post_type_tertiary)){

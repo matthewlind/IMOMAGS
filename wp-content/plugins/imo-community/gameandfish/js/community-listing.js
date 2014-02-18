@@ -159,7 +159,7 @@ jQuery(document).ready(function($) {
             //console.log(totalPostCount,filter.skip);
             $('.loading-gif').fadeOut();
 			if(totalPostCount == 0){
-				$("#posts-container").append('<h3 class="no-result">No Results</h3>');
+				$("#posts-container").append('<h3 class="no-result">No Photos</h3>');
 			}
             if (filter.skip + filter.per_page >= totalPostCount ) {
                 $("a.load-more").hide();
