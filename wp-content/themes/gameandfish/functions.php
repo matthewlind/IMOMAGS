@@ -54,9 +54,9 @@ function imo_sidebar($type){
 
 function social_networks(){
 	echo '<div class="socials">';
-		echo '<a href="'.FACEBOOK_LINK.'" class="facebook">Facebook</a>';
-	    echo '<a href="'.TWITTER_LINK.'" class="twitter">Twitter</a>';
-	    echo '<a href="'.RSS_LINK.'" class="rss">RSS</a>';
+		echo '<a href="'.FACEBOOK_LINK.'" class="facebook" target="_blank">Facebook</a>';
+	    echo '<a href="'.TWITTER_LINK.'" class="twitter" target="_blank">Twitter</a>';
+	    echo '<a href="'.RSS_LINK.'" class="rss" target="_blank">RSS</a>';
 	echo '</div>';
 }
 

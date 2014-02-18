@@ -60,8 +60,7 @@ $stateSlugToAbbv = array("alabama"=>"AL",
 "alaska"=>"AK","arizona"=>"AZ","arkansas"=>"AR","california"=>"CA","colorado"=>"CO","connecticut"=>"CT","delaware"=>"DE","district-of-columbia"=>"DC","florida"=>"FL","georgia"=>"GA","hawaii"=>"HI","idaho"=>"ID","illinois"=>"IL","indiana"=>"IN","iowa"=>"IA","kansas"=>"KS","kentucky"=>"KY","louisiana"=>"LA","maine"=>"ME","maryland"=>"MD","massachusetts"=>"MA","michigan"=>"MI","minnesota"=>"MN","mississippi"=>"MS","missouri"=>"MO","montana"=>"MT","nebraska"=>"NE","nevada"=>"NV","new-hampshire"=>"NH","new-jersey"=>"NJ","new-mexico"=>"NM","new-york"=>"NY","north-carolina"=>"NC","north-dakota"=>"ND","ohio"=>"OH","oklahoma"=>"OK","oregon"=>"OR","pennsylvania"=>"PA","rhode-island"=>"RI","south-carolina"=>"SC","south-dakota"=>"SD","tennessee"=>"TN","texas"=>"TX","utah"=>"UT","vermont"=>"VT","virginia"=>"VA","washington"=>"WA","west-virginia"=>"WV","wisconsin"=>"WI","wyoming"=>"WY","alberta"=>"AB","british-columbia"=>"BC","manitoba"=>"MB","new-brunswick"=>"NB","newfoundland-and-labrador"=>"NL","northwest-territories"=>"NT","nova-scotia"=>"NS","nunavut"=>"NU","ontario"=>"ON","prince-edward-island"=>"PE","quebec"=>"QC","saskatchewan"=>"SK","yukon"=>"YT");
 
 
- $shortState = $stateSlugToAbbv[$state];
-echo "<h1>STATE: $state: $shortState</h1>";
+$shortState = $stateSlugToAbbv[$state];
 
 ?>
 <!-- *********************************************************** -->
@@ -86,15 +85,15 @@ if( newdate < olddate ){
 	   <div class="loading-gif"></div>
        <% if(post.img_url){ %>
 	        <div class="feat-img">
-	            <a href="/community/<%= post.id %>"><img class="feat-img" src="<%= post.img_url %><%= crop %>" alt="<%= post.title %>" title="<%= post.img_url %>" /></a>
+	            <a href="/community/post/<%= post.id %>"><img class="feat-img" src="<%= post.img_url %><%= crop %>" alt="<%= post.title %>" title="<%= post.img_url %>" /></a>
 	        </div>
         <% }else{ %>
         	 <div class="feat-img">
-	            <a href="/community/<%= post.id %>"><img class="feat-img" src="<?php echo plugins_url('images/crosshair.jpg' , __FILE__ ); ?>" alt="<%= post.title %>" title="<%= post.img_url %>" /></a>
+	            <a href="/community/post/<%= post.id %>"><img class="feat-img" src="<?php echo plugins_url('images/crosshair.jpg' , __FILE__ ); ?>" alt="<%= post.title %>" title="<%= post.img_url %>" /></a>
 	        </div>
         <% } %>
         <div class="dif-post-text">
-            <h3><a href="/community/<%= post.id %>"><%= post.title %></a></h3>
+            <h3><a href="/community/post/<%= post.id %>"><%= post.title %></a></h3>
             <div class="profile-panel">
                 <div class="profile-photo">
                     <a href="/profile/<%= post.user_nicename %>"><img src="/avatar?uid=<%= post.user_id %>" alt="<%= post.user_nicename %>" title="<%= post.user_nicename %>" /></a>
@@ -106,12 +105,12 @@ if( newdate < olddate ){
                         <li><a href="/<%= post.post_type %>" style="text-transform:capitalize;"><%= post.post_type %></a></li>
                     </ul>
                     <ul class="replies">
-                        <li><a href="/community/<%= post.id %>#reply_field"><%= post.comment_count %> Reply</a></li><div class="divider"></div>
+                        <li><a href="/community/post/<%= post.id %>#reply_field"><%= post.comment_count %> Reply</a></li><div class="divider"></div>
 						<li><%= niceScore %></li>
                     </ul>
                     <ul class="prof-like">
                     	<li>
-                    		<div addthis:url="http://<?php echo $_SERVER['SERVER_NAME']; ?>/community/<%= post.id %>" addthis:title="<%= post.title %>" class="addthis_toolbox addthis_default_style ">
+                    		<div addthis:url="http://<?php echo $_SERVER['SERVER_NAME']; ?>/community/post/<%= post.id %>" addthis:title="<%= post.title %>" class="addthis_toolbox addthis_default_style ">
 								<a class="addthis_button_facebook_like"fb:like:layout="button_count"></a>
 							</div>
 
@@ -144,7 +143,7 @@ if( newdate < olddate ){
             <div id="fileupload">
                 <div class="fileupload-buttonbar ">
                     <label class="upload-button share-photo">
-                        <span class="add-photo-link">Share Your Photo</span>
+                        <a href="/community/new/"> <span class="add-photo-link">Share Your Photo</span></a>
                         <input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
                     </label>
                 </div>

@@ -29,6 +29,11 @@ $IMO_COMMUNITY_CONFIG['additional_scripts'] = array(
 		"script-dependencies" => array('jquery')
 	),
 	array(
+		"script-name" => "form-params-js",
+		"script-path" => "js/formParams.min.js",
+		"script-dependencies" => array('jquery')
+	),
+	array(
 		"script-name" => "community-question-js",
 		"script-path" => "naw/js/community-question.js",
 		"script-dependencies" => array('jquery',"bootstrap-dropdown-js")

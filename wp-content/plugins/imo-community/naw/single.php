@@ -279,7 +279,7 @@ $time = date("g:i A", strtotime($timestamp));
 
                 </div>
             </div>
-            <div addthis:url="http://www.northamericanwhitetail/community/<?php echo $data->id; ?>" addthis:title="" class="addthis_toolbox addthis_default_style ">
+            <div addthis:url="http://www.northamericanwhitetail/community/post/<?php echo $data->id; ?>" addthis:title="" class="addthis_toolbox addthis_default_style ">
 				<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
 				<a class="addthis_button_tweet"></a>
 				<a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
@@ -346,7 +346,7 @@ $time = date("g:i A", strtotime($timestamp));
 				<div class="clearfix">
                 <a href="#reply_field" class="post-it">Post a Reply</a>
           
-                     <div addthis:url="http://<?php echo $_SERVER['SERVER_NAME']; ?>/community/<?php echo $data->id; ?>" addthis:title="" class="addthis_toolbox addthis_default_style ">
+                     <div addthis:url="http://<?php echo $_SERVER['SERVER_NAME']; ?>/community/post/<?php echo $data->id; ?>" addthis:title="" class="addthis_toolbox addthis_default_style ">
 				<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
 				<a class="addthis_button_tweet"></a>
 				<a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>

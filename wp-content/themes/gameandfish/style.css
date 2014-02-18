@@ -1016,9 +1016,8 @@ element:hover, element.hover_effect {
 		margin: 0 0 0 16px;
 		line-height: 1.2 !important;
 	 }
-	 .sub-menu li.singl-post-photo a
 	 .logo {
-		width: auto;
+		width: auto !important;
 		height: 42px;
 		margin:5px 0 0 0;
 	}
