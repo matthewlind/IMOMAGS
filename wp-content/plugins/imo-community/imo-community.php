@@ -291,7 +291,7 @@ function imo_community_template() {
 
 	if ($configName) {
 
-		imo_community_404_check();
+		//imo_community_404_check();
 
 		global $IMO_COMMUNITY_CONFIG;
 
@@ -304,6 +304,11 @@ function imo_community_template() {
 		$wp_query->query_vars['post_title'] = $postData->title;
 		$wp_query->query_vars['seo_image'] = $postData->img_url . "/convert?w=200&h=200&fit=crop&rotate=exif";
 		$wp_query->query_vars['og_description'] = $IMO_COMMUNITY_CONFIG['og_description'];
+
+		if ($wp_query->query_vars['spid']) {
+
+			$IMO_COMMUNITY_CONFIG['spid'] = $wp_query->query_vars['spid'];
+		}
 
 	    wp_deregister_script( 'jquery' );
 	    wp_register_script( 'jquery', '/wp-content/plugins/imo-community/js/jquery-1.7.1.min.js');
@@ -344,7 +349,16 @@ function imo_community_template() {
 		wp_localize_script( 'imo-community-config', 'IMO_COMMUNITY_CONFIG', $IMO_COMMUNITY_CONFIG);
 
 
-		imo_include_wordpress_template(dirname( __FILE__ ) . $IMO_COMMUNITY_CONFIG['template'] );
+		if ($wp_query->query_vars['spid'] && !$postData) {
+
+		} else {
+
+			imo_include_wordpress_template(dirname( __FILE__ ) . $IMO_COMMUNITY_CONFIG['template'] );
+		}
+
+
+
+
 
 		exit();
 

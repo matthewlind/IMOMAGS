@@ -323,7 +323,7 @@ $(".editor-functions").change(function(){
 		        if (data.error) {
 					alert(data.error);
 				} else {
-					alert("delete done!");
+					alert("Delete done! Reload the page and it should be blank.");
 				}
 		    }
 		});

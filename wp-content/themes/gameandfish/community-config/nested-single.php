@@ -44,6 +44,11 @@
 			"script-name" => "community-single-js",
 			"script-path" => "gameandfish/js/community-single.js",
 			"script-dependencies" => array('jquery',"form-params-js","community-common-js")
+		),
+		array(
+			"script-name" => "community-mod",
+			"script-path" => "shared/community-mod.js",
+			"script-dependencies" => array('jquery')
 		)
 	);
 
