@@ -137,35 +137,40 @@ get_header(); ?>
 						</select>
 					</form>
 				</div>
-                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section main-content-preppend">
-					<?php $i = 1; 					
+                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section">
+                	<?php $i = 1; 					
 					$query = new WP_Query(  array( "posts_per_page" => 999, "category__and" => array($forecasts,$states) )  );
-					while ($query->have_posts()) : $query->the_post(); ?>	 		
-						<div class="article-brief clearfix">				
-				            <a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('list-thumb');?></a>
-				            <div class="article-holder">
-				                <h3 class="entry-title">
-				                    <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
-				                </h3>
-				                <!-- .entry-header -->
-				                <a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>
-				                <div class="entry-content">
-				                    <?php the_excerpt(); ?>
-				                </div><!-- .entry-content -->
+					if ( $query->have_posts() ) : 
+						while ($query->have_posts()) : $query->the_post(); ?>	 	
+						
+							<div class="article-brief clearfix">				
+					            <a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('list-thumb');?></a>
+					            <div class="article-holder">
+					                <h3 class="entry-title">
+					                    <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
+					                </h3>
+					                <!-- .entry-header -->
+					                <a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>
+					                <div class="entry-content">
+					                    <?php the_excerpt(); ?>
+					                </div><!-- .entry-content -->
+								</div>
 							</div>
-						</div>
-				    <?php if ( (($i - (($paged -1) * 2 ))%6) == 0 ): ?>
-                    	
-                        <?php if ( mobile() ){ ?>
-                        <div class="image-banner posts-image-banner">
-                            <?php imo_dart_tag("300x250",array("pos"=>"mob")); ?> 
-                        </div>
-                        <?php } ?>
-                    <?php endif;?>
-					
-                    <?php $i++; endwhile; ?>
-    
-                </div>
+						    <?php if ( (($i - (($paged -1) * 2 ))%6) == 0 ): ?>
+		                    	
+		                        <?php if ( mobile() ){ ?>
+		                        <div class="image-banner posts-image-banner">
+		                            <?php imo_dart_tag("300x250",array("pos"=>"mob")); ?> 
+		                        </div>
+		                        <?php } 
+		                    endif; 
+		                    $i++; 
+		                endwhile;
+					else : ?>
+						<h2>There are no current forecasts for <?php echo $state; ?>. Please choose another state.</h2>
+					<?php endif; ?>
+		        </div>
+                
 				<?php if($IMO_USER_STATE_NICENAME || $_POST['state']){ ?>
                     <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="pager-holder js-responsive-section">
                         <a href="#" class="go-top jq-go-top">go top</a>
