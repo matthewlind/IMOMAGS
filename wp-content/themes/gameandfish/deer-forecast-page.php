@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Name: Deer Forecast Template
- * Description: A Page Template that showcases authors
+ * Description: A Page Template for Deer forecasts w/ map
  *
  * The showcase template in Twenty Eleven consists of a featured posts section using sticky posts,
  * another recent posts area (with the latest post shown in full and the rest as a list)
