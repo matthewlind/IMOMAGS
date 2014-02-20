@@ -166,9 +166,11 @@ get_header(); ?>
 		                    endif; 
 		                    $i++; 
 		                endwhile;
-					else : ?>
-						<h2>There are no current forecasts for <?php echo $state; ?>. Please choose another state.</h2>
-					<?php endif; ?>
+					else : 
+						if($IMO_USER_STATE_NICENAME || $_POST['state']){ ?>
+							<h2>There are no current forecasts for <?php echo $state; ?>. Please choose another state.</h2>
+						<?php }
+					endif; ?>
 		        </div>
                 
 				<?php if($IMO_USER_STATE_NICENAME || $_POST['state']){ ?>
