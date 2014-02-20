@@ -816,6 +816,310 @@ $app->put('/posts/:id',function($id) {
 
 });
 
+// DELETE request to ban an Email
+$app->delete('/posts/ban_email/:id', function ($id) {
+	header('Access-Control-Allow-Origin: *');
+
+	$requestJSON = Slim\Slim::getInstance()->request()->getBody();
+
+	$params = json_decode($requestJSON,true);
+
+	if (!$params) {
+		//Grab the parameters
+		$params = \Slim\Slim::getInstance()->request()->post();
+	}
+
+	//Grab the post
+	try {
+
+		$db = dbConnect();
+
+
+		$sql = "SELECT * FROM superposts WHERE id = ? LIMIT 1";
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array($id));
+		$post = $stmt->fetchObject();
+
+
+		$db = '';
+
+	} catch(PDOException $e) {
+    	echo $e->getMessage();
+    }
+
+	$userIsEditor = userIsEditor($params['username'],$params['timecode'],$params['editor_hash']);
+
+
+	if ($userIsEditor) {
+
+		//Get the EMAIL to ban
+		$userID = $post->user_id;
+
+		$db = dbConnect();
+
+
+		$sql = "SELECT * FROM imomags.wp_users WHERE ID = ? LIMIT 1";
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array($userID));
+		$user = $stmt->fetchObject();
+
+
+		$db = '';
+
+		$email = $user->user_email;
+
+
+
+
+
+		//get the site ID so we know which table to use.
+		$siteID["www.gunsandammo.com"] = 2;
+		$siteID["www.handgunsmag.com"] = 9;
+		$siteID["www.shootingtimes.com"] = 11;
+		$siteID["www.rifleshootermag.com"] = 10;
+		$siteID["www.shotgunnews.com"] = 12;
+		$siteID["www.bowhunter.com"] = 3;
+		$siteID["www.bowhuntingmag.com"] = 4;
+		$siteID["www.gundogmag.com"] = 5;
+		$siteID["www.northamericanwhitetail.com"] = 6;
+		$siteID["www.petersenshunting.com"] = 7;
+		$siteID["www.wildfowlmag.com"] = 8;
+		$siteID["www.gameandfishmag.com"] = 14;
+		$siteID["www.floridasportsman.com"] = 13;
+		$siteID["www.in-fisherman.com"] = 15;
+		$siteID["www.flyfisherman.com"] = 16;
+
+
+		$domain = $_SERVER['HTTP_HOST'];
+
+		$domain = str_replace(".deva", ".com", $domain);
+		$domain = str_replace(".fox", ".com", $domain);
+		$domain = str_replace(".salah", ".com", $domain);
+		$domain = str_replace(".devb", ".com", $domain);
+		$domain = str_replace(".devc", ".com", $domain);
+
+		$currentSiteID = $siteID[$domain];
+
+		$optionsTable = "imomags.wp_{$currentSiteID}_options";
+
+		$db = dbConnect();
+
+		$sql = "SELECT option_value FROM $optionsTable WHERE option_name = 'blacklist_keys' LIMIT 1";
+
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute();
+		$banListString = $stmt->fetchColumn();
+
+		$newBanListString = $banListString .= "\r\n" . $email;
+
+		$sql = "UPDATE $optionsTable SET option_value = '$newBanListString' WHERE option_name = 'blacklist_keys'";
+		$stmt = $db->prepare($sql);
+		$stmt->execute();
+
+		echo $sql;
+
+		$db = '';
+
+
+		// $db = dbConnect();
+
+		// $sql = "DELETE FROM superposts WHERE id = ? LIMIT 1";
+
+		// $stmt = $db->prepare($sql);
+		// $stmt->execute(array($id));
+
+		// $db = "";
+
+
+
+		//echo $sql;
+	} else {
+		echo "NOT EDITOR";
+	}
+
+});
+
+
+
+
+
+// DELETE request to ban a IP
+$app->delete('/posts/ban_ip/:id', function ($id) {
+	header('Access-Control-Allow-Origin: *');
+
+	$requestJSON = Slim\Slim::getInstance()->request()->getBody();
+
+	$params = json_decode($requestJSON,true);
+
+	if (!$params) {
+		//Grab the parameters
+		$params = \Slim\Slim::getInstance()->request()->post();
+	}
+
+	//Grab the post
+	try {
+
+		$db = dbConnect();
+
+
+		$sql = "SELECT * FROM superposts WHERE id = ? LIMIT 1";
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array($id));
+		$post = $stmt->fetchObject();
+
+
+		$db = '';
+
+	} catch(PDOException $e) {
+    	echo $e->getMessage();
+    }
+
+	$userIsEditor = userIsEditor($params['username'],$params['timecode'],$params['editor_hash']);
+
+
+	if ($userIsEditor) {
+
+		//Ge the IP to ban
+		$decIP = $post->ip;
+		$ip = long2ip($decIP);
+
+		//get the site ID so we know which table to use.
+		$siteID["www.gunsandammo.com"] = 2;
+		$siteID["www.handgunsmag.com"] = 9;
+		$siteID["www.shootingtimes.com"] = 11;
+		$siteID["www.rifleshootermag.com"] = 10;
+		$siteID["www.shotgunnews.com"] = 12;
+		$siteID["www.bowhunter.com"] = 3;
+		$siteID["www.bowhuntingmag.com"] = 4;
+		$siteID["www.gundogmag.com"] = 5;
+		$siteID["www.northamericanwhitetail.com"] = 6;
+		$siteID["www.petersenshunting.com"] = 7;
+		$siteID["www.wildfowlmag.com"] = 8;
+		$siteID["www.gameandfishmag.com"] = 14;
+		$siteID["www.floridasportsman.com"] = 13;
+		$siteID["www.in-fisherman.com"] = 15;
+		$siteID["www.flyfisherman.com"] = 16;
+
+
+		$domain = $_SERVER['HTTP_HOST'];
+
+		$domain = str_replace(".deva", ".com", $domain);
+		$domain = str_replace(".fox", ".com", $domain);
+		$domain = str_replace(".salah", ".com", $domain);
+		$domain = str_replace(".devb", ".com", $domain);
+		$domain = str_replace(".devc", ".com", $domain);
+
+		$currentSiteID = $siteID[$domain];
+
+		$optionsTable = "imomags.wp_{$currentSiteID}_options";
+
+		$db = dbConnect();
+
+		$sql = "SELECT option_value FROM $optionsTable WHERE option_name = 'blacklist_keys' LIMIT 1";
+
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute();
+		$banListString = $stmt->fetchColumn();
+
+		$newBanListString = $banListString .= "\r\n" . $ip;
+
+		$sql = "UPDATE $optionsTable SET option_value = '$newBanListString' WHERE option_name = 'blacklist_keys'";
+		$stmt = $db->prepare($sql);
+		$stmt->execute();
+
+		echo $sql;
+
+		$db = '';
+
+
+		// $db = dbConnect();
+
+		// $sql = "DELETE FROM superposts WHERE id = ? LIMIT 1";
+
+		// $stmt = $db->prepare($sql);
+		// $stmt->execute(array($id));
+
+		// $db = "";
+
+
+
+		//echo $sql;
+	} else {
+		echo "NOT EDITOR";
+	}
+
+});
+
+
+
+// DELETE request to delete a USER
+$app->delete('/posts/delete_user/:post_id', function ($post_id) {
+	header('Access-Control-Allow-Origin: *');
+
+	$requestJSON = Slim\Slim::getInstance()->request()->getBody();
+
+	$params = json_decode($requestJSON,true);
+
+
+
+	if (!$params) {
+		//Grab the parameters
+		$params = \Slim\Slim::getInstance()->request()->post();
+	}
+
+	//Grab the post
+	try {
+
+		$db = dbConnect();
+
+
+		$sql = "SELECT * FROM superposts WHERE id = ? LIMIT 1";
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array($post_id));
+		$post = $stmt->fetchObject();
+
+
+		$db = '';
+
+	} catch(PDOException $e) {
+    	echo $e->getMessage();
+    }
+
+	$userIsEditor = userIsEditor($params['username'],$params['timecode'],$params['editor_hash']);
+
+
+	if ($userIsEditor) {
+
+		$db = dbConnect();
+
+		$sql = "DELETE FROM imomags.wp_users WHERE ID = ? LIMIT 1";
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array($post->user_id));
+
+
+		$db = "";
+
+
+		//echo $sql;
+	} else {
+		echo "NOT EDITOR";
+	}
+
+});
+
+
+
+
+
+
+
 
 // DELETE request to delete a post
 $app->delete('/posts/:id', function ($id) {
@@ -891,9 +1195,6 @@ $app->delete('/posts/:id', function ($id) {
 	} else {
 		echo "NOT EDITOR";
 	}
-
-
-
 
 });
 
