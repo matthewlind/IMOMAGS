@@ -84,56 +84,56 @@ get_header(); ?>
 					<form action="" method="post">
 						<select id="state" name="state" onchange="this.form.submit()">
 							<option value=""><?php if($IMO_USER_STATE_NICENAME || $_POST['state']){ echo $state; }else{ echo 'SELECT STATE'; } ?></option>
-							<option value="<?php echo get_cat_ID( "Alabama" ); ?>">Alabama</option>
-							<option value="<?php echo get_cat_ID( "Alaska" ); ?>">Alaska</option>
-							<option value="<?php echo get_cat_ID( "Arizona" ); ?>">Arizona</option>
-							<option value="<?php echo get_cat_ID( "Arkansas" ); ?>">Arkansas</option>
-							<option value="<?php echo get_cat_ID( "California" ); ?>">California</option>
-							<option value="<?php echo get_cat_ID( "Colorado" ); ?>">Colorado</option>
-							<option value="<?php echo get_cat_ID( "Connecticut" ); ?>">Connecticut</option>
-							<option value="<?php echo get_cat_ID( "Delaware" ); ?>">Delaware</option>
-							<option value="<?php echo get_cat_ID( "Florida" ); ?>">Florida</option>
-							<option value="<?php echo get_cat_ID( "Georgia" ); ?>">Georgia</option>
-							<option value="<?php echo get_cat_ID( "Hawaii" ); ?>">Hawaii</option>
-							<option value="<?php echo get_cat_ID( "Idaho" ); ?>">Idaho</option>
-							<option value="<?php echo get_cat_ID( "Illinois" ); ?>">Illinois</option>
-							<option value="<?php echo get_cat_ID( "Indiana" ); ?>">Indiana</option>
-							<option value="<?php echo get_cat_ID( "Iowa" ); ?>">Iowa</option>
-							<option value="<?php echo get_cat_ID( "Kansas" ); ?>">Kansas</option>
-							<option value="<?php echo get_cat_ID( "Kentucky" ); ?>">Kentucky</option>
-							<option value="<?php echo get_cat_ID( "Louisiana" ); ?>">Louisiana</option>
-							<option value="<?php echo get_cat_ID( "Maine" ); ?>">Maine</option>
-							<option value="<?php echo get_cat_ID( "Maryland" ); ?>">Maryland</option>
-							<option value="<?php echo get_cat_ID( "Massachusetts" ); ?>">Massachusetts</option>
-							<option value="<?php echo get_cat_ID( "Michigan" ); ?>">Michigan</option>
-							<option value="<?php echo get_cat_ID( "Minnesota" ); ?>">Minnesota</option>
-							<option value="<?php echo get_cat_ID( "Mississippi" ); ?>">Mississippi</option>
-							<option value="<?php echo get_cat_ID( "Missouri" ); ?>">Missouri</option>
-							<option value="<?php echo get_cat_ID( "Montana" ); ?>">Montana</option>
-							<option value="<?php echo get_cat_ID( "Nebraska" ); ?>">Nebraska</option>
-							<option value="<?php echo get_cat_ID( "Nevada" ); ?>">Nevada</option>
-							<option value="<?php echo get_cat_ID( "New Hampshire" ); ?>">New Hampshire</option>
-							<option value="<?php echo get_cat_ID( "New Jersey" ); ?>">New Jersey</option>
-							<option value="<?php echo get_cat_ID( "New Mexico" ); ?>">New Mexico</option>
-							<option value="<?php echo get_cat_ID( "New York" ); ?>">New York</option>
-							<option value="<?php echo get_cat_ID( "North Carolina" ); ?>">North Carolina</option>
-							<option value="<?php echo get_cat_ID( "North Dakota" ); ?>">North Dakota</option>
-							<option value="<?php echo get_cat_ID( "Ohio" ); ?>">Ohio</option>
-							<option value="<?php echo get_cat_ID( "Oklahoma" ); ?>">Oklahoma</option>
-							<option value="<?php echo get_cat_ID( "Oregon" ); ?>">Oregon</option>
-							<option value="<?php echo get_cat_ID( "Pennsylvania" ); ?>">Pennsylvania</option>
-							<option value="<?php echo get_cat_ID( "Rhode Island" ); ?>">Rhode Island</option>
-							<option value="<?php echo get_cat_ID( "South Carolina" ); ?>">South Carolina</option>
-							<option value="<?php echo get_cat_ID( "South Dakota" ); ?>">South Dakota</option>
-							<option value="<?php echo get_cat_ID( "Tennessee" ); ?>">Tennessee</option>
-							<option value="<?php echo get_cat_ID( "Texas" ); ?>">Texas</option>
-							<option value="<?php echo get_cat_ID( "Utah" ); ?>">Utah</option>
-							<option value="<?php echo get_cat_ID( "Vermont" ); ?>">Vermont</option>
-							<option value="<?php echo get_cat_ID( "Virginia" ); ?>">Virginia</option>
-							<option value="<?php echo get_cat_ID( "Washington" ); ?>">Washington</option>
-							<option value="<?php echo get_cat_ID( "West Virginia" ); ?>">West Virginia</option>
-							<option value="<?php echo get_cat_ID( "Wisconsin" ); ?>">Wisconsin</option>
-							<option value="<?php echo get_cat_ID( "Wyoming" ); ?>">Wyoming</option>
+							<option value="<?php $idObj = get_category_by_slug('alabama'); $id = $idObj->term_id; echo $id ?>">Alabama</option>
+							<option value="<?php $idObj = get_category_by_slug('alaska'); $id = $idObj->term_id; echo $id ?>">Alaska</option>
+							<option value="<?php $idObj = get_category_by_slug('arizona'); $id = $idObj->term_id; echo $id ?>">Arizona</option>
+							<option value="<?php $idObj = get_category_by_slug('arkansas'); $id = $idObj->term_id; echo $id ?>">Arkansas</option>
+							<option value="<?php $idObj = get_category_by_slug('california'); $id = $idObj->term_id; echo $id ?>">California</option>
+							<option value="<?php $idObj = get_category_by_slug('colorado'); $id = $idObj->term_id; echo $id ?>">Colorado</option>
+							<option value="<?php $idObj = get_category_by_slug('connecticut'); $id = $idObj->term_id; echo $id ?>">Connecticut</option>
+							<option value="<?php $idObj = get_category_by_slug('delaware'); $id = $idObj->term_id; echo $id ?>">Delaware</option>
+							<option value="<?php $idObj = get_category_by_slug('florida'); $id = $idObj->term_id; echo $id ?>">Florida</option>
+							<option value="<?php $idObj = get_category_by_slug('georgia'); $id = $idObj->term_id; echo $id ?>">Georgia</option>
+							<option value="<?php $idObj = get_category_by_slug('hawaii'); $id = $idObj->term_id; echo $id ?>">Hawaii</option>
+							<option value="<?php $idObj = get_category_by_slug('idaho'); $id = $idObj->term_id; echo $id ?>">Idaho</option>
+							<option value="<?php $idObj = get_category_by_slug('illinois'); $id = $idObj->term_id; echo $id ?>">Illinois</option>
+							<option value="<?php $idObj = get_category_by_slug('indiana'); $id = $idObj->term_id; echo $id ?>">Indiana</option>
+							<option value="<?php $idObj = get_category_by_slug('iowa'); $id = $idObj->term_id; echo $id ?>">Iowa</option>
+							<option value="<?php $idObj = get_category_by_slug('kansas'); $id = $idObj->term_id; echo $id ?>">Kansas</option>
+							<option value="<?php $idObj = get_category_by_slug('kentucky'); $id = $idObj->term_id; echo $id ?>">Kentucky</option>
+							<option value="<?php $idObj = get_category_by_slug('louisiana'); $id = $idObj->term_id; echo $id ?>">Louisiana</option>
+							<option value="<?php $idObj = get_category_by_slug('maine'); $id = $idObj->term_id; echo $id ?>">Maine</option>
+							<option value="<?php $idObj = get_category_by_slug('maryland'); $id = $idObj->term_id; echo $id ?>">Maryland</option>
+							<option value="<?php $idObj = get_category_by_slug('massachusetts'); $id = $idObj->term_id; echo $id ?>">Massachusetts</option>
+							<option value="<?php $idObj = get_category_by_slug('michigan'); $id = $idObj->term_id; echo $id ?>">Michigan</option>
+							<option value="<?php $idObj = get_category_by_slug('minnesota'); $id = $idObj->term_id; echo $id ?>">Minnesota</option>
+							<option value="<?php $idObj = get_category_by_slug('mississippi'); $id = $idObj->term_id; echo $id ?>">Mississippi</option>
+							<option value="<?php $idObj = get_category_by_slug('missouri'); $id = $idObj->term_id; echo $id ?>">Missouri</option>
+							<option value="<?php $idObj = get_category_by_slug('montana'); $id = $idObj->term_id; echo $id ?>">Montana</option>
+							<option value="<?php $idObj = get_category_by_slug('nebraska'); $id = $idObj->term_id; echo $id ?>">Nebraska</option>
+							<option value="<?php $idObj = get_category_by_slug('nevada'); $id = $idObj->term_id; echo $id ?>">Nevada</option>
+							<option value="<?php $idObj = get_category_by_slug('new-hampshire'); $id = $idObj->term_id; echo $id ?>">New Hampshire</option>
+							<option value="<?php $idObj = get_category_by_slug('new-jersey'); $id = $idObj->term_id; echo $id ?>">New Jersey</option>
+							<option value="<?php $idObj = get_category_by_slug('new-mexico'); $id = $idObj->term_id; echo $id ?>">New Mexico</option>
+							<option value="<?php $idObj = get_category_by_slug('new-york'); $id = $idObj->term_id; echo $id ?>">New York</option>
+							<option value="<?php $idObj = get_category_by_slug('north-carolina'); $id = $idObj->term_id; echo $id ?>">North Carolina</option>
+							<option value="<?php $idObj = get_category_by_slug('north-dakota'); $id = $idObj->term_id; echo $id ?>">North Dakota</option>
+							<option value="<?php $idObj = get_category_by_slug('ohio'); $id = $idObj->term_id; echo $id ?>">Ohio</option>
+							<option value="<?php $idObj = get_category_by_slug('oklahoma'); $id = $idObj->term_id; echo $id ?>">Oklahoma</option>
+							<option value="<?php $idObj = get_category_by_slug('oregon'); $id = $idObj->term_id; echo $id ?>">Oregon</option>
+							<option value="<?php $idObj = get_category_by_slug('pennsylvania'); $id = $idObj->term_id; echo $id ?>">Pennsylvania</option>
+							<option value="<?php $idObj = get_category_by_slug('rhode-island'); $id = $idObj->term_id; echo $id ?>">Rhode Island</option>
+							<option value="<?php $idObj = get_category_by_slug('south-carolina'); $id = $idObj->term_id; echo $id ?>">South Carolina</option>
+							<option value="<?php $idObj = get_category_by_slug('south-dakota'); $id = $idObj->term_id; echo $id ?>">South Dakota</option>
+							<option value="<?php $idObj = get_category_by_slug('tennessee'); $id = $idObj->term_id; echo $id ?>">Tennessee</option>
+							<option value="<?php $idObj = get_category_by_slug('texas'); $id = $idObj->term_id; echo $id ?>">Texas</option>
+							<option value="<?php $idObj = get_category_by_slug('utah'); $id = $idObj->term_id; echo $id ?>">Utah</option>
+							<option value="<?php $idObj = get_category_by_slug('vermont'); $id = $idObj->term_id; echo $id ?>">Vermont</option>
+							<option value="<?php $idObj = get_category_by_slug('virginia'); $id = $idObj->term_id; echo $id ?>">Virginia</option>
+							<option value="<?php $idObj = get_category_by_slug('washington'); $id = $idObj->term_id; echo $id ?>">Washington</option>
+							<option value="<?php $idObj = get_category_by_slug('west-virginia'); $id = $idObj->term_id; echo $id ?>">West Virginia</option>
+							<option value="<?php $idObj = get_category_by_slug('wisconsin'); $id = $idObj->term_id; echo $id ?>">Wisconsin</option>
+							<option value="<?php $idObj = get_category_by_slug('wyoming'); $id = $idObj->term_id; echo $id ?>">Wyoming</option>
 						</select>
 					</form>
 				</div>
