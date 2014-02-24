@@ -679,6 +679,55 @@ h2.reviews-form-header span {
 .home-featured{padding-left: 15px;border: none;padding-top: 0;}
 .special-features .home-featured:nth-child(odd){padding-top: 23px;}
 
+
+/***GA MADNESS ***/
+.ga-madness ul li{float: left;}
+.ga-madness #tabs ul li{
+	padding: 6px 10px;
+	background: black;
+	margin-right: 1px;
+	position: relative;
+}
+.ga-madness ul li.ui-tabs-selected{background: #c9242c;}
+.ga-madness ul li a{color: white;} 
+.ga-madness ul li.ui-tabs-selected a:after {
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 7px solid #c9242c;
+	top: 34px;
+	content: "";
+	height: 0;
+	left: 50%;
+	margin-left: -6px;
+	position: absolute;
+	width: 0;
+}
+.ga-madness #tabs-1{margin-top: 14px;}
+.ga-madness .matchup{
+	background: #c9242c;
+	margin: 10px 0;
+	padding: 2px 10px;
+}
+.ga-madness .matchup span{
+	display: block;
+	margin: 0 10px;
+	padding: 6px 0;
+}
+.ga-madness .action-arrow{
+	background: url("images/ga-icons.png") no-repeat 0 -50px;
+	height: 9px;
+	width: 7px;
+	float: right;
+	margin: 40px 6px 0 0;
+}
+.ga-madness .contender{
+	display: block;
+	color: white;
+	padding: 0;
+	margin: 10px 0;
+}
+
+
 @media only screen and (max-width: 1096px) {
 	.header{padding-top: 0;}
 	.snap-drawers .menu-top-menu-container a, .snap-drawers .mob-aside-menu > div > ul > li > a{font-family: "stagmedium",serif;}
@@ -757,6 +806,8 @@ h2.reviews-form-header span {
 	.home-featured:nth-child(odd){padding-right: 15px;}
 	.home-featured{padding-left: 15px;}
 	.general {padding:0;}
+	/***GA MADNESS ***/
+	
 }
 @media only screen and (max-width: 460px){
 	.home-featured:nth-child(odd){padding-right: 0;}

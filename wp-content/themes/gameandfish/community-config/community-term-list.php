@@ -249,7 +249,7 @@ $gfPostTypes = array(
 				"show_in_menu" => TRUE
 			),
 			"trout" => array(
-				"display_name" => "Trout",
+				"display_name" => "Trout & Salmon",
 				"slug" => "trout",
 				"post_list_style" => "tile",
 				"show_in_menu" => TRUE

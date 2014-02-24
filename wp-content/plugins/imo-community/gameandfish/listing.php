@@ -93,7 +93,7 @@ postType = post.post_type.replace("-"," ");
                 <div class="profile-data">
                     <h4><a href="/profile/<%= post.user_nicename %>"><%= post.display_name %></a></h4>
                     <ul class="prof-tags">
-                        <!--<li><a href="#"><%= post.state %></a></li>-->
+                        <li><%= post.state %></li>
                         <li><a href="<%= post.term_url %>"style="text-transform:capitalize;"><%= postType %></a></li>
                     </ul>
                     <ul class="replies">

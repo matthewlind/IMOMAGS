@@ -322,7 +322,7 @@ $post_type = str_replace("-", " ", $post_type_primary)
 	            <div class="profile-data">
 	                <h4><a href="/profile/<?php echo $data->user_nicename; ?>"><?php echo $data->display_name; ?></a></h4>
 	                <ul class="prof-tags">
-	                    <!--<li><a href="/photos/<?php echo $data->post_type.'/'.strtolower($state_slug); ?>"><?php echo $state ?></a></li>-->
+	                    <li><?php echo $state ?></li>
 	                    <li><a href="/photos/<?php echo $post_type_tertiary; ?>/<?php if($post_type_secondary){ echo $post_type_secondary . "/"; } ?><?php echo $post_type_primary; ?>" style="text-transform:capitalize;"><?php echo $post_type; ?></a></li>
 	                </ul>
 	                <div class="clearfix">

@@ -259,7 +259,7 @@ imo_sidebar("community");
                                     <div class="profile-data">
                                         <h4><a href="/photos/<?php echo $url; ?>/<?php echo $post->id; ?>"></a></h4>
                                         <ul class="prof-tags">
-                                            <!--<li><a href="<?php echo $post->state; ?>"><?php echo $post->state; ?></a></li>-->
+                                            <li><?php echo $post->state; ?></li>
                                             <li style="text-transform:capitalize;"><a href="/photos/<?php echo $url; ?>"><?php echo $postType; ?></a></li>
                                         </ul>
                                         <ul class="replies">
