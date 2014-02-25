@@ -96,7 +96,7 @@ jQuery(document).ready(function($) {
 
 	        //hide the attach photo button
 	        $(".photo-link-area").slideUp();
-			
+
 	        //Track the data
 	        postData.img_url = imgURL;
 
@@ -110,7 +110,7 @@ jQuery(document).ready(function($) {
 	        $attachmentTemplate.find(".delete-attachment").click(function(ev){
 
 	        	ev.preventDefault();
-				
+
 	        	$(".photo-link-area").slideDown();
 
 	        	$attachmentTemplate.slideUp();
@@ -135,14 +135,10 @@ jQuery(document).ready(function($) {
 
 	if (typeof userState !== 'undefined') {
 
-		if (userState.length > 0) {
+		if (userState != null) {
 
 			$("select#ma-state").val(userState);
 		}
-
-
-
-
 
   	}
 

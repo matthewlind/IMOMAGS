@@ -1,13 +1,14 @@
 <?php
 
 
-function getPosts($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_size,$state,$post_set_merge) {
+function getPosts($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_size,$state,$post_set_merge,$get_count) {
 
-    $posts = runBigAssQuery($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_size,$state);
+    $posts = runBigAssQuery($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_size,$state,$get_count);
 
     $json = "";
 
     if (!empty($post_set_merge)) {
+
 
         include_once "ps-queries.php";
 
@@ -18,9 +19,18 @@ function getPosts($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_size,$s
         $ps_post_data = get_set_data($ps_site_id,$post_set_id);
         $ps_posts = $ps_post_data['posts'];
 
-        $posts = array_merge($posts,$ps_posts);
 
-        shuffle($posts);
+        if (!$get_count) {
+
+            $posts = array_merge($posts,$ps_posts);
+
+            shuffle($posts);
+
+        } else {
+
+            $posts[0]->count += count($ps_posts);
+        }
+
 
     }
 
@@ -30,7 +40,7 @@ function getPosts($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_size,$s
 }
 
 
-function runBigAssQuery($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_size,$state) {
+function runBigAssQuery($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_size,$state,$get_count) {
 
     $brand["www.gunsandammo.com"] = "Guns & Ammo";
     $brand["www.handgunsmag.com"] = "Handguns";
@@ -212,14 +222,19 @@ EOT;
             if ($siteCount < count($siteIDs)) {
                 $sql .= " UNION ";
             } else {
-                $sql .= " ORDER BY $sort DESC LIMIT $skip,$count";
+
+                if (!$get_count) {
+                    $sql .= " ORDER BY $sort DESC LIMIT $skip,$count";
+                }
+
             }
 
         }//End foreach()
 
 
-
-        //echo $sql;
+        if ($get_count) {
+            $sql = "select count(*) as count from (" . $sql . " ) x";
+        }
 
         $stmt = $db->prepare($sql);
 
@@ -268,33 +283,42 @@ EOT;
             $postContent = delete_all_between("[","]",$postContent);
 
             $postContent = substr($postContent,0,120) . "...";
-            $posts[$key]->post_content = $postContent;
-
-            $posts[$key]->post_excerpt = "";
-
-            //Generate the URL
-            $timestamp =  strtotime($post->post_date);
-            $datePath = date("Y/m/d",$timestamp);
-            $url = "http://" . $post->domain . "/" . $datePath . "/" . $post->post_name;
-
-            $posts[$key]->post_url = $url;
-
-            $niceDate = date("F j, Y",$timestamp);
-            $posts[$key]->post_nicedate = $niceDate;
-
-            $thumbnail = str_replace(".jpg", "-190x120.jpg", $post->img_url);
 
 
-            if ($thumbnail_size) {
-                $thumbnail = "http://" . $post->domain . getPostThumbnail2(unserialize($post->attachment_meta),$thumbnail_size);
+            if (!$get_count) {
+
+                $posts[$key]->post_content = $postContent;
+
+                $posts[$key]->post_excerpt = "";
+
+                //Generate the URL
+                $timestamp =  strtotime($post->post_date);
+                $datePath = date("Y/m/d",$timestamp);
+                $url = "http://" . $post->domain . "/" . $datePath . "/" . $post->post_name;
+
+                $posts[$key]->post_url = $url;
+
+                $niceDate = date("F j, Y",$timestamp);
+                $posts[$key]->post_nicedate = $niceDate;
+
+                $thumbnail = str_replace(".jpg", "-190x120.jpg", $post->img_url);
+
+
+                if ($thumbnail_size) {
+                    $thumbnail = "http://" . $post->domain . getPostThumbnail2(unserialize($post->attachment_meta),$thumbnail_size);
+                }
+
+                $post->attachment_meta = "";
+
+
+                $posts[$key]->img_url = $thumbnail;
+
+                $posts[$key]->terms = getPostTerms($post->ID,$siteIDs[$post->domain]);
+
+
             }
 
-            $post->attachment_meta = "";
 
-
-            $posts[$key]->img_url = $thumbnail;
-
-            $posts[$key]->terms = getPostTerms($post->ID,$siteIDs[$post->domain]);
 
         }
 
@@ -305,7 +329,12 @@ EOT;
         if (!empty($posts)) {
             return $posts;
         } else {
-            return "FAILURE - NO POSTS FROM QUERY: $term WITH SORT: $sort \n";
+
+
+
+                return "FAILURE - NO POSTS FROM QUERY: $term WITH SORT: $sort \n";
+
+
         }
 
 
