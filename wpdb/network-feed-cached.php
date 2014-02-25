@@ -10,6 +10,7 @@ $skip = 0; //Number of posts to skip (for paging)
 $sort = "post_date"; //Sort posts by
 $state = "all"; //Slug for US state. Returned results will have both the State and the term
 $post_set_merge = "0-0"; //Use this code to merge in results of a FPS with the query results. First Digit of the code is the site ID, the second digit is the FPS ID. e.g. "14-3"
+$get_count;
 
 
 $thumbnail_size = null; //Specify a Wordpress thumbnail size. e.g. "thumbnail". Leave blank for legacy behavior.
@@ -107,8 +108,8 @@ $skip = intval($skip);
 //*********************************************************************************
 $fileIsStale = false;
 
-$fileName = "/data/wordpress/imomags/wp-content/cache/network-feeds/$network-$term-$taxonomy-$sort-$count-$skip{$thumbnail_size}$state{$post_set_merge}.json";
-$tempFileName = "/data/wordpress/imomags/wp-content/cache/temp-feeds/$network-$term-$taxonomy-$sort-$count-$skip{$thumbnail_size}$state{$post_set_merge}.json";
+$fileName = "/data/wordpress/imomags/wp-content/cache/network-feeds/$network-$term-$taxonomy-$sort-$count-$skip{$thumbnail_size}{$get_count}$state{$post_set_merge}.json";
+$tempFileName = "/data/wordpress/imomags/wp-content/cache/temp-feeds/$network-$term-$taxonomy-$sort-$count-$skip{$thumbnail_size}{$get_count}$state{$post_set_merge}.json";
 
 
 $fileExists = file_exists($fileName);
@@ -135,7 +136,7 @@ if ($fileExists) {
         sendDataAndStartBackgroundProcess($fileData);
 
         //File is written, but nothing is done with returned data because we already sent a cached copy
-        writeFileAndReturnData($fileName,$tempFileName,$network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_size,$state,$post_set_merge);
+        writeFileAndReturnData($fileName,$tempFileName,$network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_size,$state,$post_set_merge,$get_count);
 
 
     } else {
@@ -153,7 +154,7 @@ if ($fileExists) {
     if (!file_exists($tempFileName)) {
 
         //echo "NEW FILE: ";
-        echo writeFileAndReturnData($fileName,$tempFileName,$network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_size,$state,$post_set_merge);
+        echo writeFileAndReturnData($fileName,$tempFileName,$network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_size,$state,$post_set_merge,$get_count);
 
         exit;
 
@@ -167,11 +168,11 @@ if ($fileExists) {
 //*********************************************************************************
 //*********************************************************************************
 
-function writeFileAndReturnData($fileName,$tempFileName,$network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_size,$state,$post_set_merge) {
+function writeFileAndReturnData($fileName,$tempFileName,$network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_size,$state,$post_set_merge,$get_count) {
 
 
         $fileHandle = fopen($tempFileName,"w+");
-        $data = getPosts($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_size,$state,$post_set_merge);
+        $data = getPosts($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_size,$state,$post_set_merge,$get_count);
         fwrite($fileHandle,$data);
         fclose($fileHandle);
         rename($tempFileName,$fileName);

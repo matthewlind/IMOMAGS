@@ -2,11 +2,13 @@ jQuery(document).ready(function($) {
 
 	var currentPage = 1;
 	var currentPosition = 0;
-	var showAtOnce = 999;
+	var showAtOnce = 20;
 	var start = 0;
 	var sort = "post_date";
 	var feedData;
-	
+
+	var totalCount;
+
 	//Check to see if category-cross-site-feed exists:
 	if ($(".category-cross-site-feed").length > 0) {
 		//if yes, display some things
@@ -16,10 +18,10 @@ jQuery(document).ready(function($) {
 
 	//When more button is clicked....
 	$(".category-cross-site-feed-more-button").click(function(){
-	
+
 		//remove ads to prevent doubling
 		$(".category-ad").remove();
-		
+
 		currentPosition = currentPosition + showAtOnce;
 		displayCrossSiteFeed(currentPosition,sort);
 
@@ -29,6 +31,12 @@ jQuery(document).ready(function($) {
 
 		if (document.getElementById('sticky-iframe-ad'))
 			document.getElementById('sticky-iframe-ad').contentWindow.location.reload();
+
+
+
+		if (currentPosition + showAtOnce >= parseInt(totalCount)) {
+			$(".category-cross-site-feed-more-button").hide();
+		}
 	});
 
 	//When sort button is clicked:
@@ -49,7 +57,7 @@ jQuery(document).ready(function($) {
 	function resetDisplay(slug) {
 		$(".category-cross-site-feed").attr("term",slug);
 		$(".category-cross-site-feed").text("");
-		
+
 
 		currentPosition = 0;
 		displayCrossSiteFeed(currentPosition);
@@ -60,8 +68,8 @@ jQuery(document).ready(function($) {
 	$(".ignore-click").click(function(event){
 		event.preventDefault();
 	});
-	
-		
+
+
 	function displayCrossSiteFeed(start,sort) {
 		sort = typeof sort !== 'undefined' ? sort : 'post_date'; //If sort is not set, set sort to post_date
 
@@ -70,7 +78,7 @@ jQuery(document).ready(function($) {
 		var term = $(".category-cross-site-feed").attr("term");
 		var thumb = $(".category-cross-site-feed").attr("thumb");
 		var dart = $(".category-cross-site-feed").attr("dart");
-		
+
 		// if (term.length > 0) {
 		// 	var fileName = "/wp-content/cache/superloop/naw-plus-" + term + "-" + sort + ".json";
 		// } else {
@@ -137,16 +145,20 @@ jQuery(document).ready(function($) {
 		var getdata = $.getJSON(fileName, function(data) {
 
 	    //$(".animal-container").html("");
-			
+
 	    	$(".load-spinner").hide();
 
 		    var count = 0;
 
 		    var end = start + showAtOnce;
 
+		    if (data.length < showAtOnce){
+		    	showAtOnce = data.length;
+		    }
+
 		    for (i = 0; i < showAtOnce; i++) {
 		        count++;
-		       
+
 		        var $articleTemplate = $("#category-excerpt-template").clone();
 
 		        //console.log('hey',data[i]);
@@ -197,9 +209,9 @@ jQuery(document).ready(function($) {
 
 
 
-				
+
 		        $articleTemplate.appendTo(".category-cross-site-feed").fadeIn();
-		        
+
 
 		        $(data[i].terms).each(function(index) {
 	        		//Hide featured posts
@@ -213,7 +225,7 @@ jQuery(document).ready(function($) {
 				});
 
 		    }
-		    
+
 			//Place ads
 			if ($(window).width() <  610 ) {
 				$('<div class="category-ad"><div class="image-banner"><iframe id="category-ad" width=300 height=250 marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-category-ad.php?ad_code=' + dart + '"></iframe></div></div>')
@@ -223,6 +235,17 @@ jQuery(document).ready(function($) {
 
 
 		});
+
+		if (start == 0) {
+			fileName = fileName + "&get_count=1";
+			var getCountData = $.getJSON(fileName, function(data) {
+
+				totalCount = data[0].count;
+
+			});
+		}
+
+
 
 	}
 
