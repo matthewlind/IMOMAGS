@@ -681,20 +681,36 @@ h2.reviews-form-header span {
 
 
 /***GA MADNESS ***/
-.ga-madness ul li{float: left;}
-.ga-madness #tabs ul li{
+.ga-madness ul.schedule{margin: 0 auto;width: 67%;}
+.ga-madness ul.schedule li{
 	padding: 6px 10px;
-	background: black;
+	background: #2d2d2d;
+	margin-right: 2px;
+	color: white;
+	text-align: center;
+}
+.ga-madness ul.schedule li div{display: block;font-size: 12px;}
+.ga-madness ul li{float: left;}
+.ga-madness ul.rounds{margin: 0 auto;width: 300px;}
+.ga-madness ul.rounds li{
+	padding: 8px 10px;
+	background: #2d2d2d;
 	margin-right: 1px;
 	position: relative;
+	display: inline-block;
+	border-left: 1px solid white;
+	margin: 0;
+	color: white;
+	text-align: center;
+	font-size: 14px;
 }
-.ga-madness ul li.ui-tabs-selected{background: #c9242c;}
-.ga-madness ul li a{color: white;} 
-.ga-madness ul li.ui-tabs-selected a:after {
+.ga-madness ul.rounds li.ui-tabs-selected{background: #c9242c;}
+.ga-madness ul.rounds li a{text-transform: uppercase;} 
+.ga-madness ul.rounds li.ui-tabs-selected a:after {
 	border-left: 6px solid transparent;
 	border-right: 6px solid transparent;
 	border-top: 7px solid #c9242c;
-	top: 34px;
+	top: 36px;
 	content: "";
 	height: 0;
 	left: 50%;
@@ -702,13 +718,10 @@ h2.reviews-form-header span {
 	position: absolute;
 	width: 0;
 }
+.ga-madness ul.rounds li.final-round{margin-right: 0 !important;}
 .ga-madness #tabs-1{margin-top: 14px;}
-.ga-madness .matchup{
-	background: #c9242c;
-	margin: 10px 0;
-	padding: 2px 10px;
-}
-.ga-madness .matchup span{
+
+.ga-madness .matchup .rank{
 	display: block;
 	margin: 0 10px;
 	padding: 6px 0;
@@ -718,14 +731,103 @@ h2.reviews-form-header span {
 	height: 9px;
 	width: 7px;
 	float: right;
-	margin: 40px 6px 0 0;
+	margin: 28px 6px 0 0;
 }
-.ga-madness .contender{
-	display: block;
-	color: white;
-	padding: 0;
+.matchup .contender{display: block;padding: 0;}
+.ga-madness .gun-types {
+   	width: 100%;
+	overflow: hidden;
+	background: #F8F8F8;
+	border: 1px solid black;
+	height: 30px;
+	border-radius: 2px;
+	margin: 18px auto 4px
+}
+.ga-madness .gun-types select {
+	width: 100%;
+	border: 0;
+	line-height: 1.5;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	text-indent: 0.01px;
+	text-overflow: '';
+	appearance: none;
+	background: white url("images/dropdown-arrow.png") no-repeat scroll 97% 12px;
+	padding: 3px 10px;
+}
+.ga-madness-wrapper{width: 100%;}
+.ga-madness .addthis-below{width: 250px;clear: both;}
+.regions{width: 49%;display: inline-block;}
+.region-final{width: 100%;margin: 0 0 40px;}
+.region-final .column6 .matchup{border-width: 0;margin-top: 15px;}
+.region-final .column6 .rank-top{border-bottom: 1px solid #2d2d2d;margin: 0;padding: 0 10px 8px;}
+.region-final .column{width: 33%;}
+.final-wrapper{width: 60%;margin: 0 auto;}
+.final-wrapper h2{text-align: center;}
+.final-wrapper img{margin: 0 auto;display: block;}
+.region1, .region3{margin-right: 10px;}
+.region2 .matchup, .region4 .matchup, .column7 .matchup{border-width: 1px 0 1px 1px;}
+.region2 .column, .region4 .column, .region7 .column{float: right;}
+.column{width: 25%;margin: 0;float: left;}
+.column2{margin-top: 30px;}
+.column2 .matchup{height: 70px;margin-bottom: 70px;}
+.column3{margin-top: 70px;}
+.column3 .matchup{height: 140px;margin-bottom: 140px;}
+.column4{margin-top: 140px;}
+.column4 .matchup{height: 280px;}
+.matchup{
+	height: 60px;
 	margin: 10px 0;
+	font-size: 12px;
+	border: 1px solid #2d2d2d;
+	border-width: 1px 1px 1px 0;
+	position: relative;
 }
+.matchup .contender{color: #2d2d2d;}
+.matchup .rank span{font-size: 10px;color:#c9242c;}
+.matchup .rank-bottom{bottom: 4px;position: absolute;left: 0px;}
+.region-titles{width: 100%;display: inline-block;}
+.region-left{float: left;}
+.region-right{float: right;}
+.region-left h2{margin: 14px 6px 2px 0;float: left;}
+.region-right h2{text-align: right;margin: 14px 0 2px 6px;float: right}
+.region-left img{float: right;}
+.region-right img{float: left;}
+ul#ga-madness-nav{
+	list-style: none;
+	height: 50px;
+	position: relative;
+	margin-top: -6px;
+}
+#ga-madness-nav .madness-logo{width: 36%;background: white;}
+#ga-madness-nav .madness-logo img{
+	margin: 6px auto 20px;
+	display: block;
+	width: 70%;
+	margin-top: -30px;
+}
+ul#ga-madness-nav li{
+	float: left;
+	padding: 14px 0 0;
+	width: 16%;
+	text-align: center;
+	margin: 0;
+}
+
+ul#ga-madness-nav li a{
+	font-family: "stagmedium",serif;
+}
+ul#ga-madness-nav li a:hover{
+	color: #2d2d2d;
+}
+.how-works{
+	cursor: pointer;
+}
+.how-content{
+	padding: 40px;
+}
+
+
 
 
 @media only screen and (max-width: 1096px) {
@@ -796,17 +898,18 @@ h2.reviews-form-header span {
 	.home-featured{padding-left: 0;}
 	.featured-area {padding-top: 0;}
 	.special-features .home-featured, .special-features .home-featured:nth-child(odd){padding-top: 4px;}
-}
-@media only screen and (max-width: 880px){
 	.general {padding-right: 10px;}
 	.content-banner-section{padding:4px;}
 }
 @media only screen and (max-width: 610px){
+	.regions{width: 100%;display: block;}
+	.region2 .matchup, .region4 .matchup{border-width: 1px 1px 1px 0;}
+	.matchup{background: #c9242c;margin: 10px 0;}
+	.matchup .contender{color: white;}
 	.widget_ga-reviews-widget .flex-viewport{overflow: visible !important;}
 	.home-featured:nth-child(odd){padding-right: 15px;}
 	.home-featured{padding-left: 15px;}
 	.general {padding:0;}
-	/***GA MADNESS ***/
 	
 }
 @media only screen and (max-width: 460px){

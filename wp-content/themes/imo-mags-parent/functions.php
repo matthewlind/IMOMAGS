@@ -11,7 +11,6 @@ include_once('widgets/newsletter-signup.php');
 include_once('widgets/newsletter-signup-header.php');
 include_once('widgets/ford-widget.php');
 include_once('widgets/community-login-widget.php');
-include_once('widgets/community-slider.php');
 include_once('widgets/user-info.php');
 include_once('widgets/forecast.php');
 

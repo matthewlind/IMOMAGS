@@ -21,6 +21,8 @@ define("SITE_NAME", "In-Fisherman");
 define("FACEBOOK_APP_ID","172626882923364");
 define("FACEBOOK_APP_SECRET","60a79f156a44dc9a57096bf9ed3d1a80");
 
+include_once("widgets/if-community-slider.php");
+
 /* This function allows for logging when debugging mode is on */
 if(!function_exists('_log')){
   function _log( $message ) {
