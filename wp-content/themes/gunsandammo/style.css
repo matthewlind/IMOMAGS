@@ -681,7 +681,7 @@ h2.reviews-form-header span {
 
 
 /***GA MADNESS ***/
-.ga-madness ul.schedule{margin: 0 auto;width: 67%;}
+.ga-madness ul.schedule{margin: 0 auto;display: block;max-width: 640px;}
 .ga-madness ul.schedule li{
 	padding: 6px 10px;
 	background: #2d2d2d;
@@ -691,7 +691,7 @@ h2.reviews-form-header span {
 }
 .ga-madness ul.schedule li div{display: block;font-size: 12px;}
 .ga-madness ul li{float: left;}
-.ga-madness ul.rounds{margin: 0 auto;width: 340px;}
+.ga-madness ul.rounds{margin: 0 auto;max-width: 324px;}
 .ga-madness ul.rounds li{
 	padding: 8px 10px;
 	background: #2d2d2d;
@@ -1115,6 +1115,8 @@ ul#ga-madness-nav li a:hover{
 	.special-features .home-featured, .special-features .home-featured:nth-child(odd){padding-top: 4px;}
 	.general {padding-right: 10px;}
 	.content-banner-section{padding:4px;}
+	.matchup .rank span, .ga-madness .matchup .rank{font-size: 10px;}
+	#ga-madness-nav .madness-logo img{margin-top: -16px;}
 }
 @media only screen and (max-width: 610px){
 	.widget_ga-reviews-widget .flex-viewport{overflow: visible !important;}
@@ -1166,7 +1168,6 @@ ul#ga-madness-nav li a:hover{
 	.ga-lists-featured .home-featured .feat-text{text-align: center;}
 	.home-featured{padding-top: 8px;}
 	.h-mdl-widget{height: 0;}
-	.ga-madness ul.rounds{width: 300px;}
 	.ga-madness ul.rounds li{padding: 10px 8px;}
 	.ga-madness ul.rounds li.ui-tabs-selected a:after {top: 38px;}
 	ul#ga-madness-nav{list-style: none;height: auto;position: relative;margin: 0 auto 0 -11px;width: 370px;}

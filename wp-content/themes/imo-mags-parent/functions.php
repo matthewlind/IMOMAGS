@@ -770,7 +770,7 @@ function fixed_connect_footer(){
 		    </div>
 		</div>
 		<div class="subscribe">
-			<a href="<?php print get_option('subs_link') . "/?pkey=" . get_option('sticky_key'); ?>" target="_blank">Subscribe</a>
+			<a href="<?php print get_option('subs_link') . "/?pkey=" . get_option('sticky_key'); ?>" target="_blank" onClick="_gaq.push(['_trackEvent', 'Subscribe', 'Location', 'Sticky Footer']);">Subscribe</a>
 		</div>
 		<div class="newsletter">
 			<div class="title">Get The Newsletter</div>

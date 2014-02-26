@@ -56,7 +56,7 @@ get_header(); ?>
 					</ul>
 					<div class="clearfix"></div>
 					<div class="gun-types">
-						<form action="">
+						<form action="" onchange="this.form.submit()">
 							<select>
 								<option value="">SELECT A GUN REGION</option>
 								<option value="">Handguns</option>
@@ -64,7 +64,7 @@ get_header(); ?>
 								<option value="">Rifles</option>
 								<option value="">AR-15s</option>
 							</select>
-							<input type="submit" name="submit" onchange="this.form.submit()" style="display:none;" />
+							<input type="submit" name="submit" style="display:none;" />
 						</form>
 					</div>
 					<div id="tabs-1">
