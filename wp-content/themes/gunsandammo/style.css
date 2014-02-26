@@ -691,7 +691,7 @@ h2.reviews-form-header span {
 }
 .ga-madness ul.schedule li div{display: block;font-size: 12px;}
 .ga-madness ul li{float: left;}
-.ga-madness ul.rounds{margin: 0 auto;width: 300px;}
+.ga-madness ul.rounds{margin: 0 auto;width: 340px;}
 .ga-madness ul.rounds li{
 	padding: 8px 10px;
 	background: #2d2d2d;
@@ -705,12 +705,12 @@ h2.reviews-form-header span {
 	font-size: 14px;
 }
 .ga-madness ul.rounds li.ui-tabs-selected{background: #c9242c;}
-.ga-madness ul.rounds li a{text-transform: uppercase;} 
+.ga-madness ul.rounds li a{text-transform: uppercase;color: white;font-size: 11px;}
 .ga-madness ul.rounds li.ui-tabs-selected a:after {
 	border-left: 6px solid transparent;
 	border-right: 6px solid transparent;
 	border-top: 7px solid #c9242c;
-	top: 36px;
+	top: 34px;
 	content: "";
 	height: 0;
 	left: 50%;
@@ -720,19 +720,23 @@ h2.reviews-form-header span {
 }
 .ga-madness ul.rounds li.final-round{margin-right: 0 !important;}
 .ga-madness #tabs-1{margin-top: 14px;}
-
+.matchup{
+	height: 100px;
+	margin: 10px 0;
+	font-size: 12px;
+	border: 1px solid #2d2d2d;
+	border-width: 1px 1px 1px 0;
+	position: relative;
+}
+.matchup .contender{color: #2d2d2d;height: 100%;}
+.matchup .rank span{font-size: 12px;color:#c9242c;float: left;padding-right: 2px;}
+.matchup .rank-bottom{bottom: 2px;position: absolute;left: 0px;}
 .ga-madness .matchup .rank{
 	display: block;
-	margin: 0 10px;
-	padding: 6px 0;
+	margin: 0 0 0 3px;
+	padding: 0;
 }
-.ga-madness .action-arrow{
-	background: url("images/ga-icons.png") no-repeat 0 -50px;
-	height: 9px;
-	width: 7px;
-	float: right;
-	margin: 28px 6px 0 0;
-}
+.ga-madness .matchup .rank div{overflow: hidden;}
 .matchup .contender{display: block;padding: 0;}
 .ga-madness .gun-types {
    	width: 100%;
@@ -769,23 +773,12 @@ h2.reviews-form-header span {
 .region2 .matchup, .region4 .matchup, .column7 .matchup{border-width: 1px 0 1px 1px;}
 .region2 .column, .region4 .column, .region7 .column{float: right;}
 .column{width: 25%;margin: 0;float: left;}
-.column2{margin-top: 30px;}
-.column2 .matchup{height: 70px;margin-bottom: 70px;}
-.column3{margin-top: 70px;}
-.column3 .matchup{height: 140px;margin-bottom: 140px;}
-.column4{margin-top: 140px;}
-.column4 .matchup{height: 280px;}
-.matchup{
-	height: 60px;
-	margin: 10px 0;
-	font-size: 12px;
-	border: 1px solid #2d2d2d;
-	border-width: 1px 1px 1px 0;
-	position: relative;
-}
-.matchup .contender{color: #2d2d2d;}
-.matchup .rank span{font-size: 10px;color:#c9242c;}
-.matchup .rank-bottom{bottom: 4px;position: absolute;left: 0px;}
+.column2{margin-top: 50px;}
+.column2 .matchup{height: 110px;margin-bottom: 110px;}
+.column3{margin-top: 110px;}
+.column3 .matchup{height: 220px;margin-bottom: 210px;}
+.column4{margin-top: 220px;}
+.column4 .matchup{height: 430px;}
 .region-titles{width: 100%;display: inline-block;}
 .region-left{float: left;}
 .region-right{float: right;}
@@ -800,6 +793,7 @@ ul#ga-madness-nav{
 	margin-top: -6px;
 }
 #ga-madness-nav .madness-logo{width: 36%;background: white;}
+#ga-madness-nav .madness-logo-mobile{display: none;}
 #ga-madness-nav .madness-logo img{
 	margin: 6px auto 20px;
 	display: block;
@@ -902,15 +896,34 @@ ul#ga-madness-nav li a:hover{
 	.content-banner-section{padding:4px;}
 }
 @media only screen and (max-width: 610px){
-	.regions{width: 100%;display: block;}
-	.region2 .matchup, .region4 .matchup{border-width: 1px 1px 1px 0;}
-	.matchup{background: #c9242c;margin: 10px 0;}
-	.matchup .contender{color: white;}
 	.widget_ga-reviews-widget .flex-viewport{overflow: visible !important;}
 	.home-featured:nth-child(odd){padding-right: 15px;}
 	.home-featured{padding-left: 15px;}
 	.general {padding:0;}
-	
+	ul#ga-madness-nav{list-style: none;height: auto;position: relative;margin: 0 auto;width: 332px;}
+	ul#ga-madness-nav li{float: left;padding: 0 4px 0;width: auto;text-align: center;margin: 0;border-left: 1px solid #ccc;line-height: 1;}	
+	ul#ga-madness-nav li:first-child{border-width: 0;}
+	ul#ga-madness-nav li a{font-size: 14px;}
+	#ga-madness-nav .madness-logo{display: none;}
+	.madness-logo-mobile{width: 240px;margin: 10px auto 20px;display: block;}
+	.regions{width: 100%;display: block;}
+	.region2 .matchup, .region4 .matchup{border-width: 1px 1px 1px 0;}
+	.matchup{background: #c9242c;margin: 10px 0;height: auto;border-width: 0;}
+	.matchup .contender{color: white;}	
+	.ga-madness .matchup .rank{padding: 6px 4px;font-size: 14px;}
+	.matchup .rank span{color: white !important;padding-right: 4px;}
+	.ga-madness .action-arrow{
+		background: url("images/ga-icons.png") no-repeat 0 -50px;
+		height: 9px;
+		width: 7px;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 10px;
+		margin: auto;
+	}
+	.addthis-below{padding: 12px 0 14px;}
+	.page-template-ga-madness-php .page-header{border-width: 0;}
 }
 @media only screen and (max-width: 460px){
 	.home-featured:nth-child(odd){padding-right: 0;}
@@ -930,7 +943,10 @@ ul#ga-madness-nav li a:hover{
 	.ga-lists-featured .home-featured .feat-text{text-align: center;}
 	.home-featured{padding-top: 8px;}
 	.h-mdl-widget{height: 0;}
-	}
+	.ga-madness ul.rounds{width: 300px;}
+	.ga-madness ul.rounds li{padding: 10px 8px;}
+	.ga-madness ul.rounds li.ui-tabs-selected a:after {top: 38px;}
+	ul#ga-madness-nav{list-style: none;height: auto;position: relative;margin: 0 auto 0 -11px;width: 370px;}
 }
 
 

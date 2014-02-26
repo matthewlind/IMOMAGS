@@ -22,31 +22,33 @@ get_header(); ?>
 				<div class="icon"></div>
 				<span><?php the_title(); ?></span>
 		    </h1>
+		    <?php if(mobile()){ ?><img class="madness-logo-mobile" src="/wp-content/themes/gunsandammo/images/ga-madness/ga-madness-galco.png" alt="G&A Madness" title="G&A Madness" /><?php } ?>
 		    <ul id="ga-madness-nav">
 				<li><a href="/ga-madness">Gun Bracket</a></li>
-				<li><a href="/ga-madness/enter">Enter Now</a></li>
-				<li class="madness-logo"><img src="/wp-content/themes/gunsandammo/images/ga-madness/ga-madness-galco.png" alt="G&A Madness" title="G&A Madness" /></li>
+				<li><a href="/ga-madness/enter">Enter</a></li>
+				<?php if(!mobile()){ ?><li class="madness-logo"><img src="/wp-content/themes/gunsandammo/images/ga-madness/ga-madness-galco.png" alt="G&A Madness" title="G&A Madness" /></li><?php } ?>
 				<li><a href="/ga-madness/prizes">Prizes & Rules</a></li>
 				<li><a href="/ga-madness/how-it-works">How it Works</a></li>
 			</ul>
 		</div>
 		<div data-position="<?php echo $dataPos = $dataPos + 1; ?>"  id="post-<?php the_ID(); ?>" <?php post_class('article-brief clearfix js-responsive-section'); ?>>
 			<div class="article-holder ga-madness">
-				<ul class="schedule">
-					<li>First Round<div>March, 18-21</div></li>
-					<li>Second Round<div>March, 18-21</div></li>
-					<li>Sweet 16<div>March, 18-21</div></li>
-					<li>Elite 8<div>March, 18-21</div></li>
-					<li>Final Four<div>March, 18-21</div></li>
-					<li>Final Round<div>March, 18-21</div></li>
-				</ul>
+				<?php if(!mobile()){ ?>
+					<ul class="schedule">
+						<li>First Round<div>March, 18-21</div></li>
+						<li>Second Round<div>March, 18-21</div></li>
+						<li>Sweet 16<div>March, 18-21</div></li>
+						<li>Elite 8<div>March, 18-21</div></li>
+						<li>Final Four<div>March, 18-21</div></li>
+						<li>Final Round<div>March, 18-21</div></li>
+					</ul>
+				<?php } ?>
 				<div class="addthis-below"><?php if (function_exists('imo_add_this')) {imo_add_this();} ?></div>
-				<!--<img class="madness-logo" src="/wp-content/themes/gunsandammo/images/ga-madness/ga-madness-galco.png" alt="G&A Madness" title="G&A Madness" />-->
 				<?php if(mobile()){ ?>
 				<div id="tabs">
 					<ul class="rounds">
-						<li><a href="#tabs-1">First</a></li>
-						<li><a href="#tabs-2">Second</a></li>
+						<li><a href="#tabs-1">1st</a></li>
+						<li><a href="#tabs-2">2nd</a></li>
 						<li><a href="#tabs-3">Sweet 16</a></li>
 						<li><a href="#tabs-4">Elite 8</a></li>
 						<li><a href="#tabs-5">Final 4</a></li>
@@ -114,57 +116,57 @@ get_header(); ?>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Springfield XD-S 4.0</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Colt M45A1 CQBP Marine Pistol</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>2</span><div>Smith & Wesson M&P Bodyguard .380</div></div>
+									<div class="rank rank-bottom"><span>7</span><div>Nighthawk Costa Compact 9mm</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 						</div>
@@ -173,29 +175,29 @@ get_header(); ?>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 						</div>
@@ -204,15 +206,15 @@ get_header(); ?>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 						</div>
@@ -221,8 +223,8 @@ get_header(); ?>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 													
@@ -234,57 +236,57 @@ get_header(); ?>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 						</div>
@@ -293,29 +295,29 @@ get_header(); ?>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 						</div>
@@ -324,15 +326,15 @@ get_header(); ?>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 						</div>
@@ -341,8 +343,8 @@ get_header(); ?>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 													
@@ -357,8 +359,8 @@ get_header(); ?>
 								<div class="matchup">									
 									<div class="action-arrow"></div>
 									<a href="#" class="contender">
-										<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+										<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 									</a>
 								</div>
 							</div>
@@ -367,8 +369,8 @@ get_header(); ?>
 								<div class="matchup">									
 									<div class="action-arrow"></div>
 									<a href="#" class="contender">
-										<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+										<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 									</a>
 								</div>
 							</div>
@@ -377,8 +379,8 @@ get_header(); ?>
 								<div class="matchup">									
 									<div class="action-arrow"></div>
 									<a href="#" class="contender">
-										<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+										<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 									</a>
 								</div>
 							</div>
@@ -399,57 +401,57 @@ get_header(); ?>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 						</div>
@@ -458,29 +460,29 @@ get_header(); ?>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 						</div>
@@ -489,15 +491,15 @@ get_header(); ?>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 						</div>
@@ -506,8 +508,8 @@ get_header(); ?>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 													
@@ -519,57 +521,57 @@ get_header(); ?>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 						</div>
@@ -578,29 +580,29 @@ get_header(); ?>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 						</div>
@@ -609,15 +611,15 @@ get_header(); ?>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 						</div>
@@ -626,8 +628,8 @@ get_header(); ?>
 							<div class="matchup">									
 								<div class="action-arrow"></div>
 								<a href="#" class="contender">
-									<div class="rank rank-top"><span>1</span> Gun type</div>
-									<div class="rank rank-bottom"><span>8</span> Gun type</div>
+									<div class="rank rank-top"><span>1</span><div>Gun type</div></div>
+									<div class="rank rank-bottom"><span>8</span><div>Gun type</div></div>
 								</a>
 							</div>
 													
