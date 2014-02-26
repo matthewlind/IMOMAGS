@@ -12,7 +12,6 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 		<?php } ?>
 		</div><!-- .layout-frame -->
 		
-		
 		<div id="footer" class="footer" role="contentinfo">
 		    
 		        <div class="intermedia">

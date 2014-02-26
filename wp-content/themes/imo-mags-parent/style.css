@@ -3184,7 +3184,17 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
     display:none;
 }
 .gform_wrapper{overflow: visible !important;}
-
+.overlay{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5); /*dim the background*/
+	z-index: 999;
+	display: none;
+}
+  
 /* =Responsive Breakpoints
 *******************************************************************************/
 @media only screen and (max-width: 1096px) {
