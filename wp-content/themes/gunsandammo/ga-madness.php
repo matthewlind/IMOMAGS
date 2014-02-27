@@ -702,26 +702,9 @@ get_header(); ?>
 												
 					</div>
 				</div>
-
+				
 				<?php } ?>
-		    </div><!-- .article-holder -->
-		</div>
-	</div><!-- #content -->
-	<div class="clearfix"></div>
-	<?php //imo_sidebar(); ?>
-	<div id="primary" class="general">
-        <div class="general-frame">
-        	<div id="content" role="main">
-				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>"  id="post-<?php the_ID(); ?>" <?php post_class('article-brief clearfix js-responsive-section'); ?>>
-					<?php the_content(); ?>
-				</div>
-				<?php sub_footer(); ?> 
-        	</div>
-			
-        </div>
-	</div>
-<div class="overlay"></div>
-<!-- log/reg popup start -->
+				<!-- log/reg popup start -->
 <div class="basic-popup basic-form reg-popup">
     <div class="popup-inner clearfix gun">
     	<h3>Select A Gun To Vote</h3>
@@ -743,6 +726,23 @@ get_header(); ?>
 </div>
 <!-- log/reg popup end -->	
 
+		    </div><!-- .article-holder -->
+		</div>
+	</div><!-- #content -->
+	<div class="clearfix"></div>
+	<?php //imo_sidebar(); ?>
+	<div id="primary" class="general">
+        <div class="general-frame">
+        	<div id="content" role="main">
+				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>"  id="post-<?php the_ID(); ?>" <?php post_class('article-brief clearfix js-responsive-section'); ?>>
+					<?php the_content(); ?>
+				</div>
+				<?php sub_footer(); ?> 
+        	</div>
+			
+        </div>
+	</div>
+<div class="overlay"></div>
 <?php get_footer(); ?>
 
 

@@ -17,8 +17,11 @@ jQuery(document).ready(function($) {
         e.preventDefault();
     });
 
-    jQuery('body').on("click", ".matchup .vote-pop, .matchup .action-arrow, .matchup .rank", function(e){
+    jQuery('body').on("click", ".vote-pop, .action-arrow, .rank", function(e){
 	    jQuery(".overlay").show();
+	    modalPlacement = jQuery(this).offset().top - 700;
+	    jQuery(".basic-popup").css({top: modalPlacement + "px"})
+	    console.log( modalPlacement );
     	jQuery(".reg-popup").addClass("popup-opened");
         jQuery(".filter-fade-out").addClass("filter-fade-in");
         jQuery(".layout-frame").addClass("filter-popup-opened");

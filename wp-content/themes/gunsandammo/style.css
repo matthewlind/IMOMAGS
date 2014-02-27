@@ -956,20 +956,20 @@ ul#ga-madness-nav li a:hover{
 }
 .basic-popup {
     position: absolute;
-	width: 700px;
-	max-height: 430px;
-	top: -1597px;
+	width: 100%;
+	max-height: 458px;
+	top: 0;
 	left: 0;
 	margin: auto;
 	z-index: 9999999;
 	background: #fff;
 	display: none;
-	bottom: 0;
 	right: 0;
 }
 .popup-opened {display:block;}
 .popup-inner {
     padding:10px 22px 16px;
+    text-align: center;
 }
 .popup-vote{
 	padding: 5px 10px;
@@ -1043,7 +1043,7 @@ ul#ga-madness-nav li a:hover{
 .vote-section{display: inline-block;position: relative;}
 .vote-section img{width: 100%;height: auto;}
 .vote-section.gun{width: 44%;}
-.vote-section.gun h2{font-size: 18px;max-width: 280px;margin-bottom: 10px;}
+.vote-section.gun h2{font-size: 18px;max-width: 280px;margin-bottom: 10px;text-align: left;}
 .vote-section.versus{font-size:24px;text-align: center;width: 9%;}
 
 @media only screen and (max-width: 1096px) {
@@ -1158,19 +1158,7 @@ ul#ga-madness-nav li a:hover{
 	.matchup .rank-bottom{position: relative;}
 	.addthis-below{padding: 12px 0 14px;}
 	.page-template-ga-madness-php .page-header{border-width: 0;}
-	.basic-popup{
-		position: absolute;
-		width: 100%;
-		top:860px;
-		left: 0;
-		margin: auto;
-		z-index: 9999999;
-		background: #fff;
-		bottom: 0;
-		right: 0;
-	}
 	.popup-inner{padding: 20px 10px;}
-	.basic-popup{top:920px;}
 }
 @media only screen and (max-width: 460px){
 	.home-featured:nth-child(odd){padding-right: 0;}
