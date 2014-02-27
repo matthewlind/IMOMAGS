@@ -3,8 +3,13 @@ jQuery(window).load(function() {
 });
 
 jQuery(document).ready(function($) {
+	jQuery('.gun-types select').change(function(){
+		var value = jQuery(this).val();
+		if(value)
+		jQuery('html, body').animate({scrollTop: jQuery("h2#" + value).offset().top}, "slow");
+	});
 	
-    jQuery('body').on("click", ".general .overlay, .jq-close-popup", function(e){
+    jQuery('body').on("click", ".overlay, .jq-close-popup", function(e){
     	jQuery(".overlay").hide();
         jQuery(".basic-popup").removeClass("popup-opened");
         jQuery(".filter-fade-out").removeClass("filter-fade-in");
@@ -19,7 +24,6 @@ jQuery(document).ready(function($) {
         jQuery(".layout-frame").addClass("filter-popup-opened");
         jQuery('html, body').animate({scrollTop: jQuery(".basic-popup").offset().top - 100}, "slow");
 	    return false;
-
     });
 
 });
