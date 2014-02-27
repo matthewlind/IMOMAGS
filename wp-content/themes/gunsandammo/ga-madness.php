@@ -146,6 +146,7 @@ get_header(); ?>
 							</div>
 						</div>
 						<a href="#" class="go-top jq-go-top">go top</a>
+						<div class="clearfix"></div>
 					</div>
 					<div id="tabs-2">
 						<p>Come back on March 00 to see who advances!</p>
@@ -723,7 +724,7 @@ get_header(); ?>
 <!-- log/reg popup start -->
 <div class="basic-popup basic-form reg-popup">
     <div class="popup-inner clearfix gun">
-    	<h3>Select Your Gun To Vote</h3>
+    	<h3>Select A Gun To Vote</h3>
     	<div class="vote-section gun">
     		<div class="thumbsup"></div>
 	    	<h2>Nighthawk Costa Compact 9mm</h2>
