@@ -9,12 +9,13 @@ jQuery(document).ready(function($) {
 		jQuery('html, body').animate({scrollTop: jQuery("h2#" + value).offset().top}, "slow");
 	});
 	
-    jQuery('body').on("click", ".wrapper, .overlay, .jq-close-popup", function(e){
+    jQuery('body').on("click", "body, .overlay, .jq-close-popup", function(e){
     	jQuery(".overlay").hide();
         jQuery(".basic-popup").removeClass("popup-opened");
         jQuery(".filter-fade-out").removeClass("filter-fade-in");
         jQuery(".layout-frame").removeClass("filter-popup-opened");
         jQuery("#wpadminbar, #imo-tophat, .fixed-connect").slideDown();
+        jQuery("#imo-tophat").css({overflow: "visible"});
         e.preventDefault();
     });
 

@@ -24,7 +24,7 @@ get_header(); ?>
 		    </h1>
 		    <?php if(mobile()){ ?>
 		    	<img class="madness-logo-mobile" src="/wp-content/themes/gunsandammo/images/ga-madness/ga-madness-logo.png" alt="G&A Madness" title="G&A Madness" />
-				<?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"ga_madness")); 
+				<?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"presentingmadness")); 
 			} ?>
 		    <ul id="ga-madness-nav">
 				<li><a href="/bracket">Gun Bracket</a></li>
@@ -73,7 +73,7 @@ get_header(); ?>
 						</div>
 
 						<h2 id="handguns">Handguns</h2>
-						<?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"ga_madness")); ?>
+						<?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"handgunsmadness")); ?>
 						<div class="matchup">									
 							<div class="contender vote-pop">
 								<div class="action-arrow"></div>
@@ -92,7 +92,7 @@ get_header(); ?>
 						<div class="clearfix"></div>
 						
 						<h2 id="shotguns">Shotguns</h2>
-						<?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"ga_madness")); ?>
+						<?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"shotgunsmadness")); ?>
 						<div class="matchup">									
 							<div class="contender vote-pop">
 								<div class="action-arrow"></div>
@@ -111,7 +111,7 @@ get_header(); ?>
 						<div class="clearfix"></div>
 						
 						<h2 id="rifles">Rifles</h2>
-						<?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"ga_madness")); ?>
+						<?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"riflesmadness")); ?>
 						<div class="matchup">									
 							<div class="contender vote-pop">
 								<div class="action-arrow"></div>
@@ -130,7 +130,7 @@ get_header(); ?>
 						<div class="clearfix"></div>
 						
 						<h2 id="ar15s">Ar-15s</h2>
-						<?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"ga_madness")); ?>
+						<?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"arsmadness")); ?>
 						<div class="matchup">									
 							<div class="contender vote-pop">
 								<div class="action-arrow"></div>
@@ -172,10 +172,10 @@ get_header(); ?>
 				
 				<div class="region-titles">
 					<div class="region-left">
-						<h2>Handguns</h2><?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"ga_madness")); ?>
+						<h2>Handguns</h2><?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"handgunsmadness")); ?>
 					</div>
 					<div class="region-right">
-						<h2>Shotguns</h2><?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"ga_madness")); ?>
+						<h2>Shotguns</h2><?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"shotgunsmadness")); ?>
 					</div>
 				</div>
 				<div class="regions region1">
@@ -456,10 +456,10 @@ get_header(); ?>
 				
 				<div class="region-titles">
 					<div class="region-left">
-						<h2>Rifles</h2><?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"ga_madness")); ?>
+						<h2>Rifles</h2><?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"riflesmadness")); ?>
 					</div>
 					<div class="region-right">
-						<h2>AR-15s</h2><?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"ga_madness")); ?>
+						<h2>AR-15s</h2><?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"arsmadness")); ?>
 					</div>
 				</div>
 
@@ -710,39 +710,44 @@ get_header(); ?>
 		    <!-- log/reg popup start -->
 			<div class="basic-popup basic-form reg-popup">
 			    <div class="popup-inner clearfix gun">
-			    	<h3>Select A Gun To Vote</h3>
+			    	<h3>The Matchup</h3>
+			    	<div class="addthis-below"><?php if (function_exists('imo_add_this')) {imo_add_this();} ?></div>
 			    	<div class="vote-section gun">
-			    		<div class="thumbsup"></div>
 				    	<h2>Nighthawk Costa Compact 9mm</h2>
 				    	<img src="http://www.gunsandammo.com/files/2012/03/Springfield-XDS-001.jpg" alt="" title="" />
+				    	<div class="popup-vote">VOTE</div>
 			    	</div>
-			    	<div class="vote-section versus"><h2>vs.</h2></div>
-			    	<div class="vote-section gun">
-			    		<div class="thumbsup"></div>
+			    	<div class="vote-section versus">
+			    		<div><h2>vs.</h2></div>		
+			    	</div>	    	
+					<div class="vote-section gun">
 				    	<h2>Springfield XD-S 4.0</h2>
 				    	<img src="http://www.gunsandammo.com/files/2012/04/SmithWessonMP9Shield_002.jpg" alt="" title="" />
+				    	<div class="popup-vote">VOTE</div>
 			    	</div>
-			    	<div class="popup-vote">VOTE</div>
+			    	<a class="next-matchup">Go to the next matchup <span>&raquo;</span></a>
+			    	
 			    	<div class="modal-footer">
 			    		<div class="modal-footer-content">
 				    		<div class="bracket-sposor">
-					    		<?php echo get_imo_dart_tag("300x50",1,false,array("sect" => "","camp"=>"ga_madness")); ?>
+					    		<?php echo get_imo_dart_tag("300x50",1,false,array("sect" => "","camp"=>"")); ?>
 				    		</div>
 					    	<div class="related-content">
 					    		<h4>Related Stories</h4>
 					    		<ul>
 					    			<li>Title of story</li>
 					    			<li>Title of story</li>
-					    			<li>Title of story</li>
-					    			<li>Title of story</li>
-					    			<li>Title of story</li>
-					    			<li>Title of story</li>
-					    		</ul>
+							    </ul>
 					    	</div>
+					    	<?php echo get_imo_dart_tag("300x100",1,false,array("sect" => "","camp"=>"")); ?>
 			    		</div>
 			    	</div>
 			    </div>
 			    <a class="btn-close-popup jq-close-popup" href="#">close</a>
+			    <ul class="flex-direction-nav">
+				    <li><a class="flex-prev" href="#">Previous</a></li>
+				    <li><a class="flex-next" href="#">Next</a></li>
+				</ul>
 			</div>
 			<!-- log/reg popup end -->	
 
