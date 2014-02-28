@@ -24,14 +24,14 @@ get_header(); ?>
 		    </h1>
 		    <?php if(mobile()){ ?>
 		    	<img class="madness-logo-mobile" src="/wp-content/themes/gunsandammo/images/ga-madness/ga-madness-logo.png" alt="G&A Madness" title="G&A Madness" />
-				<?php echo get_imo_dart_tag("240x60",1,false,array("camp"=>"ga_madness")); 
+				<?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"ga_madness")); 
 			} ?>
 		    <ul id="ga-madness-nav">
 				<li><a href="/bracket">Gun Bracket</a></li>
 				<li><a href="/bracket/enter">Enter</a></li>
 				<?php if(!mobile()){ ?>
 					<li class="madness-logo"><img src="/wp-content/themes/gunsandammo/images/ga-madness/ga-madness-logo.png" alt="G&A Madness" title="G&A Madness" />
-					<?php echo get_imo_dart_tag("240x60",1,false,array("camp"=>"ga_madness")); ?>
+					<?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"ga_madness")); ?>
 				</li><?php } ?>
 				<li><a href="/bracket/prizes">Prizes & Rules</a></li>
 				<li><a href="/bracket/how-it-works">How it Works</a></li>
@@ -41,7 +41,7 @@ get_header(); ?>
 			<div class="article-holder ga-madness">
 				<?php if(!mobile()){ ?>
 					<ul class="schedule">
-						<li>First Round<div>March, 18-21</div></li>
+						<li class="active-round">First Round<div>March, 18-21</div></li>
 						<li>Second Round<div>March, 18-21</div></li>
 						<li>Sweet 16<div>March, 18-21</div></li>
 						<li>Elite 8<div>March, 18-21</div></li>
@@ -73,7 +73,7 @@ get_header(); ?>
 						</div>
 
 						<h2 id="handguns">Handguns</h2>
-						<?php echo get_imo_dart_tag("240x60",1,false,array("camp"=>"ga_madness")); ?>
+						<?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"ga_madness")); ?>
 						<div class="matchup">									
 							<div class="contender vote-pop">
 								<div class="action-arrow"></div>
@@ -92,7 +92,7 @@ get_header(); ?>
 						<div class="clearfix"></div>
 						
 						<h2 id="shotguns">Shotguns</h2>
-						<?php echo get_imo_dart_tag("240x60",1,false,array("camp"=>"ga_madness")); ?>
+						<?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"ga_madness")); ?>
 						<div class="matchup">									
 							<div class="contender vote-pop">
 								<div class="action-arrow"></div>
@@ -111,7 +111,7 @@ get_header(); ?>
 						<div class="clearfix"></div>
 						
 						<h2 id="rifles">Rifles</h2>
-						<?php echo get_imo_dart_tag("240x60",1,false,array("camp"=>"ga_madness")); ?>
+						<?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"ga_madness")); ?>
 						<div class="matchup">									
 							<div class="contender vote-pop">
 								<div class="action-arrow"></div>
@@ -130,7 +130,7 @@ get_header(); ?>
 						<div class="clearfix"></div>
 						
 						<h2 id="ar15s">Ar-15s</h2>
-						<?php echo get_imo_dart_tag("240x60",1,false,array("camp"=>"ga_madness")); ?>
+						<?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"ga_madness")); ?>
 						<div class="matchup">									
 							<div class="contender vote-pop">
 								<div class="action-arrow"></div>
@@ -172,10 +172,10 @@ get_header(); ?>
 				
 				<div class="region-titles">
 					<div class="region-left">
-						<h2>Handguns</h2><?php echo get_imo_dart_tag("240x60",1,false,array("camp"=>"ga_madness")); ?>
+						<h2>Handguns</h2><?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"ga_madness")); ?>
 					</div>
 					<div class="region-right">
-						<h2>Shotguns</h2><?php echo get_imo_dart_tag("240x60",1,false,array("camp"=>"ga_madness")); ?>
+						<h2>Shotguns</h2><?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"ga_madness")); ?>
 					</div>
 				</div>
 				<div class="regions region1">
@@ -421,7 +421,7 @@ get_header(); ?>
 				<div class="regions region-final">
 					<div class="final-wrapper">
 						<h2>Final Round</h2>
-						<?php echo get_imo_dart_tag("240x60",1,false,array("camp"=>"ga_madness")); ?>
+						<?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"ga_madness")); ?>
 						<div class="column column5">
 							<div class="matchup">									
 								<div class="contender vote-pop">
@@ -456,10 +456,10 @@ get_header(); ?>
 				
 				<div class="region-titles">
 					<div class="region-left">
-						<h2>Rifles</h2><?php echo get_imo_dart_tag("240x60",1,false,array("camp"=>"ga_madness")); ?>
+						<h2>Rifles</h2><?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"ga_madness")); ?>
 					</div>
 					<div class="region-right">
-						<h2>AR-15s</h2><?php echo get_imo_dart_tag("240x60",1,false,array("camp"=>"ga_madness")); ?>
+						<h2>AR-15s</h2><?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"ga_madness")); ?>
 					</div>
 				</div>
 
@@ -704,30 +704,49 @@ get_header(); ?>
 				</div>
 				
 				<?php } ?>
-				<!-- log/reg popup start -->
-<div class="basic-popup basic-form reg-popup">
-    <div class="popup-inner clearfix gun">
-    	<h3>Select A Gun To Vote</h3>
-    	<div class="vote-section gun">
-    		<div class="thumbsup"></div>
-	    	<h2>Nighthawk Costa Compact 9mm</h2>
-	    	<img src="http://www.gunsandammo.com/files/2012/03/Springfield-XDS-001.jpg" alt="" title="" />
-    	</div>
-    	<div class="vote-section versus"><h2>vs.</h2></div>
-    	<div class="vote-section gun">
-    		<div class="thumbsup"></div>
-	    	<h2>Springfield XD-S 4.0</h2>
-	    	<img src="http://www.gunsandammo.com/files/2012/04/SmithWessonMP9Shield_002.jpg" alt="" title="" />
-    	</div>
-    	<div class="popup-vote">VOTE</div>
-    	
-    </div>
-    <a class="btn-close-popup jq-close-popup" href="#">close</a>
-</div>
-<!-- log/reg popup end -->	
-
+				
 		    </div><!-- .article-holder -->
 		</div>
+		    <!-- log/reg popup start -->
+			<div class="basic-popup basic-form reg-popup">
+			    <div class="popup-inner clearfix gun">
+			    	<h3>Select A Gun To Vote</h3>
+			    	<div class="vote-section gun">
+			    		<div class="thumbsup"></div>
+				    	<h2>Nighthawk Costa Compact 9mm</h2>
+				    	<img src="http://www.gunsandammo.com/files/2012/03/Springfield-XDS-001.jpg" alt="" title="" />
+			    	</div>
+			    	<div class="vote-section versus"><h2>vs.</h2></div>
+			    	<div class="vote-section gun">
+			    		<div class="thumbsup"></div>
+				    	<h2>Springfield XD-S 4.0</h2>
+				    	<img src="http://www.gunsandammo.com/files/2012/04/SmithWessonMP9Shield_002.jpg" alt="" title="" />
+			    	</div>
+			    	<div class="popup-vote">VOTE</div>
+			    	<div class="modal-footer">
+			    		<div class="modal-footer-content">
+				    		<div class="bracket-sposor">
+					    		<?php echo get_imo_dart_tag("300x50",1,false,array("sect" => "","camp"=>"ga_madness")); ?>
+				    		</div>
+					    	<div class="related-content">
+					    		<h4>Related Stories</h4>
+					    		<ul>
+					    			<li>Title of story</li>
+					    			<li>Title of story</li>
+					    			<li>Title of story</li>
+					    			<li>Title of story</li>
+					    			<li>Title of story</li>
+					    			<li>Title of story</li>
+					    		</ul>
+					    	</div>
+			    		</div>
+			    	</div>
+			    </div>
+			    <a class="btn-close-popup jq-close-popup" href="#">close</a>
+			</div>
+			<!-- log/reg popup end -->	
+
+		
 	</div><!-- #content -->
 	<div class="clearfix"></div>
 	<?php //imo_sidebar(); ?>
@@ -739,7 +758,6 @@ get_header(); ?>
 				</div>
 				<?php sub_footer(); ?> 
         	</div>
-			
         </div>
 	</div>
 <div class="overlay"></div>
