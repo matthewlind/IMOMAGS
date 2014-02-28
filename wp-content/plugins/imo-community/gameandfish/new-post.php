@@ -47,7 +47,7 @@ if ( is_user_logged_in() ) {
 		<form id="new-post-form">
 			 <div class="basic-form post-page">
 		        <div id="attachments" class="clearfix">
-			    	<input class="title-input" placeholder="Title Your Photo (Required)" type="text" name="title" value="<%= post ? post.title : "" %>">
+			    	<input class="title-input" placeholder="Title Your Photo" type="text" name="title" value="<%= post ? post.title : "" %>">
 		        </div>
 
 		        <div class="photo-link-area">
@@ -61,7 +61,7 @@ if ( is_user_logged_in() ) {
 					</div>
 				</div>
 				<div class="loading-gif"></div>
-				
+
 
 				<div class="dropdown-selects">
 					<select id="ma-species" class="post_type alter-sel mobile-select" name="post_type">
@@ -363,23 +363,23 @@ if ( is_user_logged_in() ) {
 	<!-- *********************************************************** -->
 
 	<script type="text/template" id="single-attachment-template">
-			     
+
       	<a href="<%= attachment.img_url %>" class="thickbox">
       			<div class="attachment-image-container">
 		      		<img src="<%= attachment.img_url %>/convert?w=150&h=150&fit=crop&rotate=exif" width=75 height=75 style="height:75px">
 		      	</div>
       	</a>
 	  	 <div class="caption-area" name="caption-body" value="<%= attachment.body %>">
-            <textarea id="" class="area caption-field" cols="30" rows="10" placeholder="Tell Your Story (optional)"></textarea>
+            <textarea id="" class="area caption-field" cols="30" rows="10" placeholder="Tell Us Where and How you Caught It"></textarea>
         </div>
 
 	</script>
 	<!-- *********************************************************** -->
 	<!-- *********************************************************** -->
 	<!-- *********************************************************** -->
-	<?php 
+	<?php
 	include_once('nav.php');
-	imo_sidebar("community"); 
+	imo_sidebar("community");
 	?>
 	<div class="page-community">
 	    <div class="general general-com">
@@ -392,13 +392,13 @@ if ( is_user_logged_in() ) {
 	                <h1>Share Your Photo</h1>
 	                <div class="sponsor"><?php imo_dart_tag("240x60"); ?></div>
 				</div>
-			</div>	
+			</div>
 		    <div id="form-container">
-	
+
 		    </div>
 			<?php include 'common-templates.php'; ?>
 		</div>
-	
+
 	</div>
 
 

@@ -160,8 +160,7 @@ jQuery(document).ready(function($) {
 		// console.log(speciesData);
 
 
-		newPostData.secondary_post_type = speciesData[newPostData.post_type].secondary;
-		newPostData.tertiary_post_type = speciesData[newPostData.post_type].tertiary;
+
 
 
 
@@ -191,6 +190,8 @@ jQuery(document).ready(function($) {
 			});
 		}
 
+		newPostData.secondary_post_type = speciesData[newPostData.post_type].secondary;
+		newPostData.tertiary_post_type = speciesData[newPostData.post_type].tertiary;
 
 		return false;
 
@@ -207,12 +208,17 @@ jQuery(document).ready(function($) {
 			formData.master = 1;
 		}
 
+		console.log(formData);
+
 		//Check form fields
-		if (formData.title.length < 1) {
+		if (formData.img_url == undefined || formData.img_url.length < 1) {
+			alert("Please attach a photo.");
+			return false;
+		} else if (formData.title.length < 1) {
 			alert("Please give this post a title.");
 			return false;
-		} else if (formData.img_url.length < 1) {
-			alert("Please attach a photo.");
+		} else if (formData.body == undefined || formData.body.length < 1) {
+			alert("Please tell us where and how you caught it.");
 			return false;
 		} else if (formData.post_type.length < 1) {
 			alert("Please select a species.");
