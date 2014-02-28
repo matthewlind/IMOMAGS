@@ -646,6 +646,7 @@ a.change-location:before {
     border:1px solid #fff;
     text-align:center;
     background:url(images/pic/master-angler.jpg) no-repeat;
+    margin: 0 auto 20px;
 }
 .master-angler-banner h2 {
     font:68px/43px "stagbold", serif;
@@ -799,6 +800,8 @@ div.login-register-block {
 	.posts-list .article-holder {padding: 12px 0 12px 26px;}
 	.posts-list .article-brief h3{float: none;}
 	.full-post .comment-count, .article-brief .comment-count{display: none;}
+	.master-angler-banner{float: none;}
+	.ma-section .single-post-slider{width: 100%;}
 }
 @media only screen and (max-width: 820px) {
 	.general {padding-top: 10px;}

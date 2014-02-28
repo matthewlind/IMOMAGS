@@ -12,7 +12,6 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 		<?php } ?>
 		</div><!-- .layout-frame -->
 		
-		
 		<div id="footer" class="footer" role="contentinfo">
 		    
 		        <div class="intermedia">
@@ -46,7 +45,7 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 		                        <div class="column column3">
 		                            <h5>Fish</h5>
 		                            <ul class="intermedia-list">
-		                                <li><a href="http://www.in-fisherman.com"><img src="<?php bloginfo('template_directory'); ?>/images/logos/fish-infisherman.png" alt=""><span>In-Fisherman</span></a></li>
+		                                <li><a href="http://www.in-fisherman.com" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/images/logos/fish-infisherman.png" alt=""><span>In-Fisherman</span></a></li>
 		                                <li><a target="_blank" href="http://www.flyfisherman.com"><img src="<?php bloginfo('template_directory'); ?>/images/logos/fish-fltfisherman.png" alt=""><span>Fly Fisherman</span></a></li>
 		                                <li><a target="_blank" href="http://www.floridasportsman.com/"><img src="<?php bloginfo('template_directory'); ?>/images/logos/fish-florida.png" alt=""><span>Florida Sportsman</span></a></li>
 		                                <li><a target="_blank" href="http://www.bassfan.com/"><img src="<?php bloginfo('template_directory'); ?>/images/logos/fish-bassfan.png" alt=""><span>BassFan</span></a></li>

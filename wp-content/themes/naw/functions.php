@@ -9,7 +9,7 @@ define("SITE_NAME", "North American Whitetail");
 
 include_once('widgets/buck-contest.php');
 include_once('widgets/get-app.php');
-include_once('widgets/naw-community-slider.php');
+include_once("widgets/naw-community-slider.php");
 
 /***
 **

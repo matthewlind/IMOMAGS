@@ -292,7 +292,7 @@ function showFeaturedPosts($atts) {
                                 </div>
                                 <div class='feat-sep'><div></div></div>
                             </li>";
-	     if ( (($i - (($paged -1) * 2 ))%6) == 0 ):
+	     if ( (($i - (($paged -1) * 2 ))%7) == 0 ):
 		     if ( mobile() ){
 		        $outputString .= "<li class='home-featured'><div class='image-banner posts-image-banner'><iframe id='iframe-category-ad' marginwidth='0' marginheight='0' hspace='0' vspace='0' frameborder='0' scrolling='no' src='/iframe-category-ad.php?ad_code=$dartDomain'></iframe></div></li>";
 		     }

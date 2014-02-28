@@ -25,7 +25,7 @@
     	</div>
         <div class="subscribeAdMod">
             <div class="subscribeAdModContent">
-                <form method="GET" action="<?php print get_option("subs_form_link"); ?>/?pkey=<?php print get_option('i4ky')?>" target="_blank">
+                <form method="GET" action="<?php print get_option("subs_form_link"); ?>/?pkey=<?php print get_option('i4ky')?>" target="_blank" onsubmit="_gaq.push(['_trackEvent', 'Subscribe', 'Location', 'Widget']);">
                     <input type="hidden" name="i4Ky" value="<?php print get_option('i4ky')?>" />
                     <input type="hidden" name="pkey" value="<?php print get_option('i4ky')?>" />
                     <input type="hidden" name="iMagId" value="<?php print get_option('iMagId')?>" />

@@ -1,9 +1,10 @@
 <?php // Community slider for sidebar
 
-class Community_Slider extends WP_Widget {
-	function Community_Slider() {
-		$widget_ops = array('classname' => 'community_slider', 'description' => 'Community Slider Widget.' );
-		$this->WP_Widget('community-slider', 'Community Slider', $widget_ops);
+class GF_Community_Slider extends WP_Widget {
+	
+	function GF_Community_Slider() {
+		$widget_ops = array('classname' => 'community_slider', 'description' => 'Game & Fish Community Slider Widget.' );
+		$this->WP_Widget('gf-community-slider', 'Game & Fish Community Slider', $widget_ops);
 	}
 
 	function widget($args, $instance) {
@@ -28,11 +29,10 @@ class Community_Slider extends WP_Widget {
 		$niceScore = '<b>'.$data->score.'</b> Points';
 	}
 	
-	
 	//Community Photos
 	$jsonData = file_get_contents('http://'.$hostname.'/community-api/posts?per_page=10&sort=DESC');
 	$pictures = json_decode($jsonData);
-	
+
 	$crop = "/convert?w=119&h=119&fit=crop&rotate=exif";
 ?>
     <div id="join" class="join-box fb-join-widget-box">
@@ -42,7 +42,7 @@ class Community_Slider extends WP_Widget {
                 <ul class="slides">
                 	<?php $i=1; foreach ($pictures as $picture) { $i++; 
 	                	if($picture->img_url){ ?>
-                			<li><a href="/photos/<?php echo $picture->id; ?>"><img width="119" src="<?php echo $picture->img_url . $crop; ?>" alt="<?php echo $picture->title; ?>" /></a></li>
+                			<li><a href="/photos/<?php echo $picture->tertiary_post_type; ?>/<?php if($picture->secondary_post_type != "null"){ echo $picture->secondary_post_type . "/"; } ?><?php echo $picture->post_type; ?>/<?php echo $picture->id; ?>"><img width="119" src="<?php echo $picture->img_url . $crop; ?>" alt="<?php echo $picture->title; ?>" /></a></li>
                 		<?php } ?>
                 	<?php if($i==11){ echo '<li class="slider-view-more"><a href="/photos">View More</a></li>'; } } ?>
                 </ul>
@@ -57,4 +57,4 @@ class Community_Slider extends WP_Widget {
 <?php	}
 
 }
-register_widget('Community_Slider');
+register_widget('GF_Community_Slider');
