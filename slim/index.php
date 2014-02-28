@@ -586,7 +586,7 @@ $app->post('/api/superpost/add',function() {
 
 
 	$params['useragent'] = $_SERVER['HTTP_USER_AGENT'];
-	$params['domain'] = $_SERVER['HTTP_HOST'];
+	$params['domain'] = convertDevDomainToDotCom($_SERVER['HTTP_HOST']);
 	$params['posthash'] = "";
 
 	if ($params['post_type'] != "youtube" && $params['post_type'] != "photo" && $params['post_type'] != "comment") {
@@ -1359,7 +1359,18 @@ if(!function_exists('_log')){
   	}
 }
 
+function convertDevDomainToDotCom($domain) {
 
+	$domain = str_replace(".deva",".com",$domain);
+	$domain = str_replace(".fox",".com",$domain);
+	$domain = str_replace(".salah",".com",$domain);
+	$domain = str_replace(".devb",".com",$domain);
+	$domain = str_replace(".devc",".com",$domain);
+	$domain = str_replace(".dev-brock",".com",$domain);
+	$domain = str_replace(".dev-kayla",".com",$domain);
+
+	return $domain;
+}
 
 
 

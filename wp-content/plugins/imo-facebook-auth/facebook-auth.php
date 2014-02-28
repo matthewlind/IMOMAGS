@@ -208,8 +208,8 @@ function imo_facebook_usercheck() {
 		  }
 		}
 
-		_log("*********************FB PROFILE********************");
-		_log($user_profile);
+		// _log("*********************FB PROFILE********************");
+		// _log($user_profile);
 
 
 		$email = $user_profile['email'];
