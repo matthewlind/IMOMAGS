@@ -170,6 +170,9 @@ jQuery(document).ready(function($) {
 			$('.btn-submit').fadeOut();
 			$('.loading-gif').fadeIn();
 
+			newPostData.secondary_post_type = speciesData[newPostData.post_type].secondary;
+			newPostData.tertiary_post_type = speciesData[newPostData.post_type].tertiary;
+
 			$.post("http://" + document.domain + "/community-api/posts",newPostData,function(data){
 
 				var postData = $.parseJSON(data);
@@ -190,8 +193,7 @@ jQuery(document).ready(function($) {
 			});
 		}
 
-		newPostData.secondary_post_type = speciesData[newPostData.post_type].secondary;
-		newPostData.tertiary_post_type = speciesData[newPostData.post_type].tertiary;
+
 
 		return false;
 
