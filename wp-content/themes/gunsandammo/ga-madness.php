@@ -711,7 +711,17 @@ get_header(); ?>
 			<div class="basic-popup basic-form reg-popup">
 			    <div class="popup-inner clearfix gun">
 			    	<h3>The Matchup</h3>
-			    	<div class="addthis-below"><?php if (function_exists('imo_add_this')) {imo_add_this();} ?></div>
+			    	<div class="addthis-below">
+			    	<!-- Let's dynamically insert the gun matchups into the add this title -->
+			    		<div addthis:url="http://<?php echo $_SERVER['SERVER_NAME']; ?>/bracket/" addthis:title="Gun vs. Gun" class="addthis_toolbox addthis_default_style ">
+								<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+								<a class="addthis_button_tweet"></a>
+								<a class="addthis_counter addthis_pill_style"></a>
+							</div>
+	
+						<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+						<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=gunsandammo"></script>
+			    	</div>
 			    	<div class="vote-section gun">
 				    	<h2>Nighthawk Costa Compact 9mm</h2>
 				    	<img src="http://www.gunsandammo.com/files/2012/03/Springfield-XDS-001.jpg" alt="" title="" />
