@@ -31,7 +31,7 @@ get_header(); ?>
 				<li><a href="/bracket/enter">Enter</a></li>
 				<?php if(!mobile()){ ?>
 					<li class="madness-logo"><img src="/wp-content/themes/gunsandammo/images/ga-madness/ga-madness-logo.png" alt="G&A Madness" title="G&A Madness" />
-					<?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"ga_madness")); ?>
+					<?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"presentingmadness")); ?>
 				</li><?php } ?>
 				<li><a href="/bracket/prizes">Prizes & Rules</a></li>
 				<li><a href="/bracket/how-it-works">How it Works</a></li>
