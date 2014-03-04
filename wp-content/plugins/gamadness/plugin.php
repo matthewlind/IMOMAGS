@@ -27,7 +27,6 @@ wp_enqueue_style( 'madnesscss', plugin_dir_url( __FILE__ ) . 'madness.css' );
 function jsGAMRender() {
 	$outp = "";
 	
-	//$outp.= 'Let&apos;s try a <a href="#" id="jstestclick" data-pk="22">click</a> event<br><br>';
 	$outp.= '<div class="ga-madness">'
 		 .  '<div class="region-titles">'
 		 .	'  <div class="region-left">'
