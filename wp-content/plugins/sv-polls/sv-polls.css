@@ -153,7 +153,11 @@ footer, .sv-poll-container header, .sv-poll-container hgroup, .sv-poll-container
 .sv-poll-container h1.poll-question:first-letter {
 	font-size: 22px;
 }
-
+.sv-poll-container ul{
+	list-style: none !important;
+	padding-left: 0;
+	margin-bottom: 0;
+}
 .sv-poll-container ul.poll-answers li{
 	margin-bottom:6px;
 	/*padding-left:2px;*/

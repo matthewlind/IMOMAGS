@@ -80,7 +80,7 @@ function imo_video_init() {
 		'public' => true,
 		'publicly_queryable' => true,
 		'show_ui' => true,
-    'has_archive' => true, 
+		'has_archive' => true, 
 		'query_var' => true,
 		'capability_type' => 'post',
 		'hierarchical' => false,

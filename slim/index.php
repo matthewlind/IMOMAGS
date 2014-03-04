@@ -22,7 +22,7 @@ function get_IP() {
 	if (!empty($headers["X-Forwarded-For"]))
 		$XFFip = $headers["X-Forwarded-For"];
 
-	if ($_SERVER['REMOTE_ADDR'] == "127.0.0.1" && !empty($headers["X-Forwarded-For"]))
+	if (!empty($headers["X-Forwarded-For"]))
 		return $XFFip;
 	else
 		return $_SERVER['REMOTE_ADDR'];
@@ -586,7 +586,7 @@ $app->post('/api/superpost/add',function() {
 
 
 	$params['useragent'] = $_SERVER['HTTP_USER_AGENT'];
-	$params['domain'] = $_SERVER['HTTP_HOST'];
+	$params['domain'] = convertDevDomainToDotCom($_SERVER['HTTP_HOST']);
 	$params['posthash'] = "";
 
 	if ($params['post_type'] != "youtube" && $params['post_type'] != "photo" && $params['post_type'] != "comment") {
@@ -785,9 +785,11 @@ $app->post('/api/superpost/add',function() {
 
 				$eventHash = getEventHash($post_id, $etype, $user_id);
 
+				$commentID = $superpostID;
+
 
 				$oFlagger = new postFlagger();
-				$rtn = $oFlagger->insertEvent($params['parent'], "comment", $params['user_id'],$eventHash);
+				$rtn = $oFlagger->insertEvent($params['parent'], "comment", $params['user_id'],$eventHash,$commentID);
 			}
 
 			$db = "";
@@ -1330,10 +1332,11 @@ function getImgURL($spid) {
     }
 }
 
-
 function getEventHash($post_id, $etype, $user_id) {
+
+	date_default_timezone_set("America/New_York");
 	$eventDate = date("dmy");
-	$eventMinute = floor(((int)date("i"))/60);
+	$eventMinute = floor(((int)date("i")));
 
 	$eventHash = md5("STRINGTHINGSgfid25s" . $post_id . $etype . $user_id . $eventDate . $eventMinute);
 
@@ -1356,7 +1359,18 @@ if(!function_exists('_log')){
   	}
 }
 
+function convertDevDomainToDotCom($domain) {
 
+	$domain = str_replace(".deva",".com",$domain);
+	$domain = str_replace(".fox",".com",$domain);
+	$domain = str_replace(".salah",".com",$domain);
+	$domain = str_replace(".devb",".com",$domain);
+	$domain = str_replace(".devc",".com",$domain);
+	$domain = str_replace(".dev-brock",".com",$domain);
+	$domain = str_replace(".dev-kayla",".com",$domain);
+
+	return $domain;
+}
 
 
 

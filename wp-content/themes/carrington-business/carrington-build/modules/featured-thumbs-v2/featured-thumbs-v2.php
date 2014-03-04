@@ -1,5 +1,4 @@
 <?php
-
 if (!class_exists('cfct_module_featured_thumbs_v2') && class_exists('cfct_build_module')) {
 	class cfct_module_featured_thumbs_v2 extends cfct_build_module {
 		protected $context_excludes = array(

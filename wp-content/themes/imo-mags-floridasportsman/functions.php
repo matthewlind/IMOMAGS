@@ -485,7 +485,7 @@ $labels = array(
         ));
         
 $labels = array(
-        'name' => _x( 'Best Boat Price', 'taxonomy general name' ),
+        'name' => _x( 'What is your price range?', 'taxonomy general name' ),
         'singular_name' => _x( 'Best Boat Price', 'taxonomy singular name' ),
         'search_items' =>  __( 'Search BB Price' ),
         'all_items' => __( 'All BB Prices' ),

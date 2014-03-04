@@ -40,8 +40,34 @@ get_header();
 		
 	</div>
 	<div class="col-abc sticky-height">
-				<?php the_content(__('Continued&hellip;', 'carrington-business')); ?>
-				<div class="clearfix"></div>
+		<?php the_content(__('Continued&hellip;', 'carrington-business')); ?>
+	</div>
+	<div class="col-abc" style="padding-top:30px;">
+		<div class="header-sort">
+			<h1 class="more-header">New Bowhunting Gear for 2014</h1>
+	        <div class="sponsor"><?php imo_dart_tag("240x60"); ?></div>
+		</div>
+		<div style="margin:0 auto;width:464px;">
+			<!-- Start of Brightcove Player -->
+			<div style="display:none"></div>
+							
+			<script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+			
+			<object id="myExperience" class="BrightcoveExperience">
+			  <param name="bgcolor" value="#FFFFFF" />
+			  <param name="width" value="480" />
+			  <param name="height" value="628" />
+			  <param name="playerID" value="3011005742001" />
+			  <param name="playerKey" value="AQ~~,AAAAAETeEfI~,i-5J2ubuAMuCAybyFY7wuxbWyLX04QuP" />
+			  <param name="isVid" value="true" />
+			  <param name="isUI" value="true" />
+			  <param name="dynamicStreaming" value="true" />
+			</object>
+			<script type="text/javascript">brightcove.createExperiences();</script>
+			<!-- End of Brightcove Player -->
+		</div>
+	</div>
+	<div class="col-abc">
 	<div class="homepage-gear top">
 	<div class="header-sort">
 		<h1 class="more-header">NAW Lists</h1>

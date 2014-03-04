@@ -1,34 +1,21 @@
 <?php
 $dataPos = 0;
 get_header(); ?>
-	<?php imo_sidebar('home');?>
+	<?php imo_sidebar(); ?>
 	<div id="primary" class="general">
         <div class="general-frame">
             <div id="content" role="main">
             <?php if ( is_home() ) : ?>
-               <!-- start home page content-->
-               <!-- <a data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="subscribe-banner subscribe-banner-top js-responsive-section" href="#">
-                    <img alt="" src="<?php bloginfo('template_directory'); ?>/images/pic/subscribe-banner.jpg">
-                </a>-->
-                <?php $fetured_slider_query = new WP_Query( 'category_name=featured&posts_per_page=5' ); ?>
-                <div data-position="<?php echo $dataPos = $dataPos + 1; ?> "class="post-slider loading-block js-responsive-section">
-                    <div class="jq-slider onload-hidden">
-                        <ul class="slides-inner slides">
-                            <?php while ($fetured_slider_query->have_posts()) : $fetured_slider_query->the_post(); ?>
-                            <li>
-                                <a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('post-home-thumb');?></a>
-                                <div class="nl-txt">
-                                    <?php echo the_primary_category(); ?>
-                                    <h2 class="entry-title home-entry-title"><a href="<?php the_permalink(); ?>" ><?php $title = the_title('','',FALSE); echo substr($title, 0, 70); if (strlen($title) > 70) echo "..."; ?></a></h2>
-                                    <!--<div class="shares-count">
-                                        <?php render_shares_count(get_permalink(), $post->ID) ?> <span>SHARES</span>
-                                    </div>
-                                    <a class="view-post" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">view post</a>-->
-                                </div>
-                            </li>
-                            <?php endwhile; ?>
-                        </ul>
+            	<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="featured-area clearfix js-responsive-section">
+                    <!--<div class="general-title clearfix">
+                        <h2>Featured</h2>
+                    </div>-->
+                    <div class="clearfix">
+                        <ul>
+                       	 	<?php if( function_exists('showFeaturedList') ){ echo showFeaturedPosts('1'); } ?>
+                       	</ul>
                     </div>
+              
                 </div>
                 <?php if(mobile()){ ?>
 	                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="js-responsive-section">
@@ -109,7 +96,7 @@ get_header(); ?>
                     </div>
 	                    <div class="jq-slider onload-hidden clearfix">
 	                        <ul class="slides-inner slides">
-	                            <?php $i = 1  ?>
+	                            <?php $i = 1;  ?>
 	                            <?php while ($fetured_slider_query->have_posts()) : $fetured_slider_query->the_post(); ?>
 
 	                            <?php if (!(($i+1)%2) ): ?>
@@ -181,25 +168,16 @@ get_header(); ?>
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="ma-section clearfix js-responsive-section">
                     <div class="general-title clearfix">
                         <h2>Master <span>Anglers</span></h2>
-                        <!-- Site - In-Fisherman
-						<script type="text/javascript">
-						  var ord = window.ord || Math.floor(Math.random() * 1e16);
-						  document.write('<a href="http://ad.doubleclick.net/N4930/jump/imo.in-fisherman;sz=260x35;camp=master_angler;ord=' + ord + '?"><img src="http://ad.doubleclick.net/N4930/ad/imo.in-fisherman;sz=260x35;camp=master_angler;ord=' + ord + '?" width="260" height="35" /></a>');
-						</script>
-						<noscript>
-						<a href="http://ad.doubleclick.net/N4930/jump/imo.in-fisherman;sz=260x35;camp=master_angler;ord=[timestamp]?">
-						<img src="http://ad.doubleclick.net/N4930/ad/imo.in-fisherman;sz=260x35;camp=master_angler;ord=[timestamp]?" width="260" height="35" />
-						</a>
-						</noscript> -->
                     </div>
                     <?php $hostname = $_SERVER['SERVER_NAME'];
 					$jsonData = file_get_contents('http://'.$hostname.'/community-api/posts?master=1&per_page=10&sort=DESC');
 					$pictures = json_decode($jsonData); ?>
                     <div class="clearfix">
-                        <div class="master-angler-banner">
-                            <h2>Master <br />Angler <br /><span class="tite-year">2013</span></h2>
-                            <p>Submit your trophy catch for a chance to win!</p>
-                            <a href="/photos/new#master" class="btn-base btn-base-middle">Enter Now!</a>
+                        <div class="master-angler-banner">	
+                        	<div class="master-angler-copy">
+	                            <p>Submit your trophy catch for a chance to win!</p>
+	                            <a href="/photos/new#master" class="btn-base btn-base-middle">Enter Now!</a>
+                        	</div>
                         </div>
                         <div class="single-post-slider loading-block">
 							<div class="jq-slider onload-hidden">

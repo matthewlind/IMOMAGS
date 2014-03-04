@@ -35,48 +35,48 @@ function imo_flex_gallery( $atts ) {
 
 function imoCommunityGallery($gallery, $community, $tag, $dartDomain) {
 	$baseUrl = get_bloginfo('url');
-	
+
 	//Retrieve and sort JSON data
 	if($_GET['gallery_sort']) {
 		if($gallery) {
 			if($gallery == 'master-angler') {
 				if($_GET['gallery_sort'] == 'master-angler') {
-					$jsonData = file_get_contents($baseUrl.'/community-api/posts?sort=DESC&master=1');
+					$jsonUrl = $baseUrl.'/community-api/posts?sort=DESC&master=1';
 				}  else {
-					$jsonData = file_get_contents($baseUrl.'/community-api/posts?sort=DESC&order_by='.$_GET['gallery_sort']);
+					$jsonUrl = $baseUrl.'/community-api/posts?sort=DESC&order_by='.$_GET['gallery_sort'];
 				}
 			} else {
 				if($_GET['gallery_sort'] == 'master-angler') {
-					$jsonData = file_get_contents($baseUrl.'/community-api/posts?sort=DESC&master=1&post_type='.$gallery );
+					$jsonUrl = $baseUrl.'/community-api/posts?sort=DESC&master=1&post_type='.$gallery;
 				} else {
-					$jsonData = file_get_contents($baseUrl.'/community-api/posts?sort=DESC&post_type='.$gallery.'&order_by='.$_GET['gallery_sort']);
+					$jsonUrl = $baseUrl.'/community-api/posts?sort=DESC&post_type='.$gallery.'&order_by='.$_GET['gallery_sort'];
 				}
 			}
 		} else {
 			if($_GET['gallery_sort'] == 'master-angler') {
-				$jsonData = file_get_contents($baseUrl.'/community-api/posts?sort=DESC&master=1');
+				$jsonUrl = $baseUrl.'/community-api/posts?sort=DESC&master=1';
 			} else {
-				$jsonData = file_get_contents($baseUrl.'/community-api/posts?sort=DESC&order_by='.$_GET['gallery_sort']);
+				$jsonUrl = $baseUrl.'/community-api/posts?sort=DESC&order_by='.$_GET['gallery_sort'];
 			}
 			$gallery = 'all';
 		}
 	} else {
 		if($gallery) {
 			if($gallery == 'master-angler') {
-				$jsonData = file_get_contents($baseUrl.'/community-api/posts?sort=DESC&master=1');
+				$jsonUrl = $baseUrl.'/community-api/posts?sort=DESC&master=1';
 			} else {
-				$jsonData = file_get_contents($baseUrl.'/community-api/posts?sort=DESC&post_type='.$gallery);
+				$jsonUrl = $baseUrl.'/community-api/posts?sort=DESC&post_type='.$gallery;
 			}
 		} else {
-			$jsonData = file_get_contents($baseUrl.'/community-api/posts?sort=DESC');
+			$jsonUrl = $baseUrl.'/community-api/posts?sort=DESC';
 			$gallery = 'all';
 		}
 	}
-	$pictures = json_decode($jsonData);
+	$pictures = json_decode(file_get_contents($jsonUrl));
 	$emptySlides = 0;
 	foreach ($pictures as $picture) {if(empty($picture->img_url)) $emptySlides = $emptySlides + 1;}
 	$totalSlides = count($pictures) - $emptySlides;
-	return galleryOutput($gallery, $pictures, $totalSlides, $dartDomain, $community, $baseUrl);
+	return galleryOutput($gallery, $pictures, $totalSlides, $dartDomain, $community, $baseUrl, $jsonUrl);
 }
 
 
@@ -84,7 +84,7 @@ function imoGallery($gallery, $community, $tag, $dartDomain) {
 	$baseUrl = get_bloginfo('url');
 	global $wpdb;
 	$prefix = $wpdb->prefix;
-	
+
   if (!$tag) {
   	$pictures = $wpdb->get_results($wpdb->prepare(
       "SELECT * , CONCAT('/' , path, '/' , filename) as img_url, CONCAT('/' , path, '/thumbs/thumbs_' , filename) as thumbnail, meta_data, pictures.description as photo_desc
@@ -117,7 +117,8 @@ function imoGallery($gallery, $community, $tag, $dartDomain) {
 	return galleryOutput($gallery, $pictures, $totalSlides, $dartDomain, $community, $baseUrl);
 }
 
-function galleryOutput($gallery, $pictures, $totalSlides, $dartDomain, $community, $baseUrl) {
+function galleryOutput($gallery, $pictures, $totalSlides, $dartDomain, $community, $baseUrl, $jsonUrl) {
+	$totalSlidesShow = $totalSlides + 1;
 	if (function_exists('imo_add_this')) {
 		ob_start();
 		imo_add_this();
@@ -125,72 +126,113 @@ function galleryOutput($gallery, $pictures, $totalSlides, $dartDomain, $communit
 	}
 	if($community == true ) {
 		$communityClass = 'flex-community-gallery';
+		$addThis = '<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4de0e5f24e016c81"></script>';
+		$jsonSave = '<div id="flex-gallery-json-save" class="display-none">'.$jsonUrl.'</div>';
 	} else {
+		global $wpdb;
 		$title = stripcslashes($pictures[0]->title);
+		$prefix = $wpdb->prefix;
+		$nextGalLimit = $wpdb->get_var($wpdb->prepare("SELECT * FROM {$prefix}ngg_gallery ORDER BY gid DESC LIMIT 0, 1"));
+		$nextGalStart = $wpdb->get_var($wpdb->prepare("SELECT * FROM {$prefix}ngg_gallery ORDER BY gid ASC LIMIT 0, 1"));
+		$nextGalID = intval($gallery) + 1;
+		$nextGalFound = false;
+		while ($nextGalFound == false) {
+			$query_args = array('s' => 'gallery='.$nextGalID.']', 'post_status'=>'publish', 'posts_per_page' => 1, 'orderby' => 'date', 'order' => 'DESC' );
+			$query = new WP_Query($query_args);
+			if ($query->have_posts()) {
+				$nextGalFound = true;
+				while ($query->have_posts()) {
+					$query->the_post();
+					$nextGalPics = $wpdb->get_results($wpdb->prepare(
+					  "SELECT * , CONCAT('/' , path, '/' , filename) as img_url, CONCAT('/' , path, '/thumbs/thumbs_' , filename) as thumbnail, meta_data, pictures.description as photo_desc
+					  from {$prefix}ngg_gallery as gallery
+					  JOIN `{$prefix}ngg_pictures` as pictures ON (gallery.gid = pictures.galleryid)
+					  WHERE gallery.gid = %d
+					  ORDER BY sortorder asc",
+					  $nextGalID
+					  )
+					);
+					$nextGalUrl = get_permalink();
+					$nextGal = '
+						<li class="next-gal-slide">
+							<h2>Next Up: &nbsp;'.stripcslashes($nextGalPics[0]->title).'</h2>
+							<a class="flex-gallery-button">Click Here to View the Next Gallery</a><br/>
+							<img src="'.$nextGalPics[0]->img_url.'"/>
+							<span class="next-gal-id display-none">'.$nextGalID.'</span>
+							<span class="next-gal-url display-none">'.$nextGalUrl.'</span>
+						</li>
+					';
+					$totalSlidesShow;
+				}
+
+				wp_reset_postdata();
+
+			} else {
+				if($nextGalID > $nextGalLimit) {
+					$nextGalID = $nextGalStart;
+				} else {
+					$nextGalID++;
+				}
+			}
+		}
+
+		$addThis = $addThisLegacy;
 	}
 	if(is_single()){
 		$entryContentClose = '</div><!-- .entry-content -->';
 		$entryContentOpen = '<div class="entry-content">';
 	}
-	if($community == true ) {
-		$addThis = '<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4de0e5f24e016c81"></script>';
-	} else {
-		$addThis = $addThisLegacy;
-	}
 	$desktop_tablet_output = <<<EOT_a1
 	$entryContentClose
 	<div class="flex-gallery-insertion-point"></div>
-	<div class="flex-gallery-container $communityClass">
-	<div class="imo-flex-loading-block flex-gallery-inner">
-		<div class="flex-gallery" id="gallery-$gallery" style="visibility:hidden;">
-		<div id="flex-gallery-top-left">
-			<div class="flex-gallery-title clearfix">
-			<a class="btn-full-screen flex-gallery-button">Fullscreen</a>
-				<h2>$title</h2>
-				<div class="clear"></div>	
-				<div id="flex-gallery-social">$addThis</div><div class="flex-counter"><span class="flex-counter-extra">Picture </span><span class="current-slide">1</span> of $totalSlides</div>
+	<div class="custom-slider-section">
+		<div class="flex-gallery-container $communityClass">
+		<div class="imo-flex-loading-block flex-gallery-inner">
+			<div class="flex-gallery" id="gallery-$gallery" style="visibility:hidden;">
+			<div id="flex-gallery-top-left">
+				<div class="flex-gallery-title clearfix">
+				<a class="btn-full-screen flex-gallery-button">Fullscreen</a>
+					<h2>$title</h2>
+					<div id="flex-gallery-social">$addThis</div><div class="flex-counter"><span class="flex-counter-extra">Picture </span><span class="current-slide">1</span> of <span class="total-slides">$totalSlidesShow</span></div>
+				</div>
+				<div class="clear"></div>
 			</div>
-			<div class="clear"></div>
-		</div>
-		    <ul class="slides">
+			    <ul class="slides">
 EOT_a1;
 	$count = 1;
 	foreach ($pictures as $picture) {
 		if(!empty($picture->img_url)) {
 			if($community == true ) {
+				$idAttribute = 'id="flex-slide-id-'.$picture->id.'"';
 				$picture->img_url = $picture->img_url;
-				//$picture->img_url = $baseUrl.$picture->img_url;
-				$picture->thumbnail = $picture->img_url.'/convert?rotate=0&w=60&h=45&fit=crop';
+				$picture->thumbnail = $picture->img_url.'/convert?rotate=exif&w=60&h=45&fit=crop';
 				$picture->description = $picture->body;
-				$image = '<img src="'.$picture->img_url.'/convert?rotate=0" alt="'.$picture->title.'" class="slide-image">';
+				$image = '<img src="'.$picture->img_url.'/convert?rotate=exif&w=1200&h=1200" alt="'.$picture->title.'" class="slide-image">';
+				$addThis .= '
+					<div id="flex-addthis-'.$count.'" class="flex-addthis">
+						<div addthis:url="'.$baseUrl.'/photos/'.$picture->id.'" addthis:title="'.htmlentities($picture->title).'" class="addthis_toolbox addthis_default_style ">
+							<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+							<a class="addthis_button_tweet"></a>
+							<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+						</div>
+					</div>
+				';
 			} else {
 				$picture->title = stripcslashes($picture->alttext);
-				//$picture->descriptionRaw = stripcslashes($picture->description);
-				//$picture->description = strip_tags($picture->description, '<p><a><br><b><i><strong><u>');
 				$picture->description = stripcslashes($picture->description);
 				$image = '<img src="'.$picture->img_url.'" alt="'.$picture->title.'" class="slide-image">';
 			}
-			
-			$addThis .= '
-				<div id="flex-addthis-'.$count.'" class="flex-addthis">
-					<div addthis:url="'.$baseUrl.'/photos/'.$picture->id.'" addthis:title="'.htmlentities($picture->title).'" class="addthis_toolbox addthis_default_style ">
-						<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-						<a class="addthis_button_tweet"></a>
-						<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
-						<a class="addthis_counter addthis_pill_style"></a>
-					</div>
-				</div>
-			';
 $desktop_tablet_output .= <<<EOT_a2
-		        <li class="flex-slide flex-slide-$count">				
-		           $image				
+		        <li $idAttribute class="flex-slide flex-slide-$count">
+		           $image
 		        </li>
 EOT_a2;
 		$count++;
 		}
 	}
 $desktop_tablet_output .= <<<EOT_a3
-		    </ul>
+				$nextGal
+			</ul>
 		</div>
 		<div class="flex-carousel" id="carousel-$gallery">
 		    <ul class="slides">
@@ -209,12 +251,13 @@ $desktop_tablet_output .= <<<EOT_a5_1
 		</div>
 		<div class="flex-carousel-nav"></div>
 		<div class="flex-carousel-fade-left"></div><div class="flex-carousel-fade-right"></div>
+		<div class="flex-carousel-cover"></div>
 		</div>
 EOT_a5_1;
 		//Just for viewing with the admin bar in the way
 		if(is_admin_bar_showing()) { $desktop_tablet_output .= '<style>.flex-gallery-slide-out{margin-top:-28px;}</style>'; }
 $desktop_tablet_output .= <<<EOT_a5_2
-		
+
 		<div class="flex-gallery-slide-out $communityClass" >
 			<span class="x-close">&times;</span>
 			<div class="clear"></div>
@@ -243,7 +286,7 @@ EOT_a5_2;
 				if($picture->comment_count == 1) {
 					$replies = '<span class="flex-gallery-replies">1 Reply</span>';
 				} else {
-					$replies = '<span class="flex-gallery-replies">'.$picture->comment_count.' Replies</span>';	
+					$replies = '<span class="flex-gallery-replies">'.$picture->comment_count.' Replies</span>';
 				}
 			}
 			if($community == true){
@@ -269,31 +312,36 @@ EOT_a6;
 		}
 	}
 $desktop_tablet_output .= <<<EOF_a
-	
+
 				</div>
 				<div class="slide-out-ad">
-					<iframe id="gallery-iframe-ad" height=280 width=330 src="/iframe-ad.php?ad_code=$dartDomain"></iframe>
+					<iframe id="gallery-iframe-ad" height=280 width=330 src="/iframe-ad.php?ad_code=$dartDomain&ajax_gallery-$gallery"></iframe>
 				</div>
 			</div>
 		</div>
-</div><!-- .flex-gallery-container -->
+	</div><!-- .flex-gallery-container -->
+</div><!-- .custom-slider-section -->
 	<div class="flex-gallery-jquery-container">
 		<div class="flex-gallery-jquery">
-			<script type="text/javascript">	imoFlexInitiate($community, "$gallery", $totalSlides, false);</script>
+			<script type="text/javascript">
+				imoFlexInitiate($community, "$gallery", $totalSlides, false, false, "$jsonUrl");
+				//imoFlexInitiate(isCommunity, galleryID, totalSlides, isFullScreenNow, isReloaded, jsonUrl, callback)
+    		</script>
 		</div>
 	</div>
 <div id="flex-gallery-social-save" class="display-none">$addThis</div>
+$jsonSave
 <div class="background-overlay"></div>
 $entryContentOpen
 EOF_a;
 
 /* Begin Mobile */
-		
+
 if($community == true) {
 	$pictureLimit = 20;
 	$mobile_output = <<<EOT
 <div class="flex-gallery-insertion-point"></div>
-<div class="imo-flex-mobile imo-flex-loading-block">    
+<div class="imo-flex-mobile imo-flex-loading-block">
 <div class="explore-more-mobile-container">
      <div class="explore-more-mobile">
         <div class="general-title clearfix">
@@ -310,9 +358,9 @@ if($community == true) {
         </div>
         <div class="explore-posts">
             <div class="jq-explore-slider">
-                <ul class="slides">       
+                <ul class="slides">
 EOT;
-	$count = 0;
+	$count = 1;
 	foreach ($pictures as $picture) {
     	if(!empty($picture->img_url) && $count < $pictureLimit) {
 		$picture->meta_data = unserialize($picture->meta_data);
@@ -324,7 +372,7 @@ EOT;
 
 $mobile_output .= <<<EOT2
 		        <li>
-		            <a href="$baseUrl/photos/$picture->id"><img src="$picture->img_url/convert?rotate=0&w=119&h=89&fit=crop" alt="$picture->alttext" ></a>
+		            <a href="$baseUrl/photos/$picture->id"><img src="$picture->img_url" alt="$picture->alttext" ></a>
 		        </li>
 EOT2;
 		$count++;
@@ -333,8 +381,8 @@ EOT2;
 $mobile_output .= <<<EOFmobile_community
                 </ul>
             </div>
-        </div>      
-    </div>   
+        </div>
+    </div>
 		<script type="text/javascript">
 			imoFlexSetupMobile($community, $pictureLimit);
 		</script>
@@ -343,7 +391,7 @@ $mobile_output .= <<<EOFmobile_community
 EOFmobile_community;
 } else {
 	$mobile_output = <<<EOT
-	<div class="loading-block">
+	<div class="loading-block gallery-holder">
 		<div class="jq-gallery-slider gallery-slider" id="gallery-$gallery">
 		<div class="general-title clearfix">
 		    <h2><span>$title</span></h2>
@@ -363,8 +411,8 @@ EOT;
 
 $mobile_output .= <<<EOT2
 		        <li>
-		            <img src="$picture->img_url/convert?w=119&h=119&fit=crop" alt="$picture->alttext">
-		            <div class="feat-text">
+		            <img src="$picture->img_url" alt="$picture->alttext">
+		            <div class="feat-text exp">
 		                <h3>$picture->alttext</h3>
 						$picture->description
 		            </div>
@@ -375,11 +423,21 @@ EOT2;
 $mobile_output .= <<<EOT3
 		    </ul>
 		</div>
-		</div>
+		<div class="hidden-desc"></div>
+		<div class="more-link">Read More</div>
+	</div>
 
 
 		<script type="text/javascript">
 		    jQuery(function(){
+		    	
+		    	jQuery(".more-link").click(function() {
+		    		jQuery(".hidden-desc, .more-link").fadeOut();
+					jQuery(".feat-text.exp").css("height","auto");
+					var li_height = jQuery(".flex-active-slide").height();
+					jQuery(".gallery-slider div.flex-viewport").css("max-height",li_height);	
+				});
+		    		
 				function positionNavArrows() {
 					//var arrowNavTop = jQuery('.gallery-slider .slide-count').outerHeight() + jQuery('.gallery-slider .gallery-iframe-ad').outerHeight() + jQuery('.gallery-slider .general-title').outerHeight() + ((jQuery('.gallery-slider ul.slides').height() - jQuery('.gallery-slider .feat-text').outerHeight())/2) - (jQuery('.gallery-slider .flex-direction-nav a').height()/2) + 20;
 					var arrowNavTop = 20 + jQuery('.gallery-slider .slide-count').outerHeight() + jQuery('.gallery-slider .gallery-iframe-ad').outerHeight() + jQuery('.gallery-slider .general-title').outerHeight() + (jQuery('.gallery-slider ul.slides .flex-active-slide img:first').height()/2);
@@ -394,9 +452,10 @@ $mobile_output .= <<<EOT3
 		    	var fslider = jQuery('#gallery-$gallery').flexslider({
 		            animation: "slide",
 		            animationSpeed: 200,
+		            animationLoop: false,
 		            slideshow: false,
 		            start: function (slider) {
-						positionNavArrows();		
+						positionNavArrows();
 EOT3;
 		                if (count($pictures) > 1) {
 			                $mobile_output .= " updateSliderCounter(slider); ";
@@ -410,28 +469,30 @@ $mobile_output .= <<<EOFmobile_standard
 						updateSliderCounter(slider);
 		                _gaq.push(['_trackPageview',"/" + window.location.pathname + "#" + slider.currentSlide]);
 		                document.getElementById('gallery-iframe-ad').contentWindow.location.reload();
+		                jQuery(".hidden-desc, .more-link").show();
+						jQuery(".feat-text.exp").css("height","0px");
+						var li_height = jQuery(".flex-active-slide").height();
+						jQuery(".gallery-slider div.flex-viewport").css("max-height",li_height);
 
 		            }
 		        });
 
 
-					jQuery(window).bind('resize', function () { 
+					jQuery(window).bind('resize', function () {
 						positionNavArrows();
 					});
 		    })
 		</script>
 EOFmobile_standard;
 }
-		if($_SERVER['SERVER_NAME'] == "www.in-fisherman.com" || $_SERVER['SERVER_NAME'] == "www.in-fisherman.salah" || $_SERVER['SERVER_NAME'] == "www.in-fisherman.fox" || $_SERVER['SERVER_NAME'] == "www.in-fisherman.deva"){
-			if (mobile()){
-				return $mobile_output;
-			}else{
-            	//return $mobile_output;
-               	return $desktop_tablet_output;
-			}
-		} else {
-            return $desktop_tablet_output;
-		}
+		
+	if (mobile()){
+		return $mobile_output;
+	}else{
+    	//return $mobile_output;
+       	return $desktop_tablet_output;
+	}
+		
 }
 
 //Since we don't want to add the scripts to every page, we check to see if we need them before adding
@@ -456,17 +517,16 @@ function conditionally_add_scripts_and_styles($posts){
         	//Enqueue for Mobile Community
             if(mobile() == true) {
             	wp_enqueue_script('flex-gallery-js',plugins_url('flex-gallery.js', __FILE__));
-                wp_enqueue_style('ajax-gallery-css',plugins_url('flex-gallery.css', __FILE__));
+                wp_enqueue_style('flex-gallery-css',plugins_url('flex-gallery.css', __FILE__));
             	wp_enqueue_script('flexslider-js',plugins_url('jquery.flexslider.js', __FILE__));
                 wp_enqueue_style('flexslider-css',plugins_url('flexslider.css', __FILE__));
-                
+
             }
-           
+
 
 			if(mobile() == false){
 			//Enqueue Desktop/Tablet Only
             wp_enqueue_script('flexslider-js',plugins_url('jquery.flexslider.js', __FILE__));
-            wp_enqueue_style('flexslider-css',plugins_url('flexslider.css', __FILE__));
 			wp_enqueue_script('flex-gallery-js',plugins_url('flex-gallery.js', __FILE__));
             wp_enqueue_script('jquery-mobile-touch-events',plugins_url('jquery.mobile.custom.min.js', __FILE__));
 			wp_enqueue_script('jquery-scrollface',plugins_url('jquery.scrollface.min.js', __FILE__));
@@ -474,7 +534,7 @@ function conditionally_add_scripts_and_styles($posts){
 			wp_enqueue_script('jquery-ui-slide-effect',plugins_url('jquery-ui-slide-effect.min.js', __FILE__));
 			wp_enqueue_script('jquery-mousewheel',plugins_url('jquery.mousewheel.min.js', __FILE__));
 			wp_enqueue_script('perfect-scrollbar-js',plugins_url('perfect-scrollbar-0.4.3.with-mousewheel.min.js', __FILE__));
-			wp_enqueue_style('ajax-gallery-css',plugins_url('flex-gallery.css', __FILE__));
+			wp_enqueue_style('flex-gallery-css',plugins_url('flex-gallery.css', __FILE__));
 			wp_enqueue_style('perfect-scrollbar-css',plugins_url('perfect-scrollbar-0.4.3.min.css', __FILE__));
 			}
 
@@ -490,7 +550,7 @@ function conditionally_add_scripts_and_styles($posts){
                 	//un-used exception strpos($_SERVER['REQUEST_URI'],'photos')
                 	$exception = true;
                 }
-                
+
                 if ($exception) {
                     wp_enqueue_script('flexslider-js',plugins_url('jquery.flexslider.js', __FILE__));
                     wp_enqueue_style('flexslider-css',plugins_url('flexslider.css', __FILE__));
@@ -500,11 +560,11 @@ function conditionally_add_scripts_and_styles($posts){
                     wp_enqueue_script('jquery-buffet',plugins_url('jquery.buffet.min.js', __FILE__));
                     wp_enqueue_script('jquery-mousewheel',plugins_url('jquery.mousewheel.min.js', __FILE__));
                     wp_enqueue_script('perfect-scrollbar-js',plugins_url('perfect-scrollbar-0.4.3.with-mousewheel.min.js', __FILE__));
-                    wp_enqueue_style('ajax-gallery-css',plugins_url('flex-gallery.css', __FILE__));
+                    wp_enqueue_style('flex-gallery-css',plugins_url('flex-gallery.css', __FILE__));
                     wp_enqueue_style('perfect-scrollbar-css',plugins_url('perfect-scrollbar-0.4.3.min.css', __FILE__));
                 }
-    
-    
+
+
         }
 
 

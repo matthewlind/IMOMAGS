@@ -16,9 +16,12 @@ define("SERVICE_LINK", "https://secure.palmcoastd.com/pcd/eServ?iServ=MDE0Njk0ND
 define("SUBS_DEAL_STRING", "Save Over 70% off<br/> the Cover Price");
 define("DRUPAL_SITE", TRUE);
 define("FACEBOOK_LINK", "https://www.facebook.com/InFisherman");
+define("SITE_NAME", "In-Fisherman");
 
 define("FACEBOOK_APP_ID","172626882923364");
 define("FACEBOOK_APP_SECRET","60a79f156a44dc9a57096bf9ed3d1a80");
+
+include_once("widgets/if-community-slider.php");
 
 /* This function allows for logging when debugging mode is on */
 if(!function_exists('_log')){
@@ -44,15 +47,14 @@ function imo_sidebar($type){
 				echo '</div>';
 			echo '</div>';
 		    get_sidebar($type);
-		    	
+
 			    	echo '<div id="responderfollow"></div>';
 					echo '<div class="sidebar advert">';
-			    	the_widget( 'Community_Slider' );
 						echo '<div class="widget_advert-widget">';
 							echo '<iframe id="sticky-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-sticky.php?ad_code='.$dartDomain.'"></iframe>';
 						echo '</div>';
+						get_sidebar("sticky");
 					echo '</div>';
-				
 		echo '</div>';
 	}
 }
@@ -82,10 +84,6 @@ function sub_footer(){ ?>
 		<?php social_networks(); ?>
 	</div>
 	<a href="/newsletter-signup" class="get-newsletter">Get the In-Fisherman <br />Newsletter</a>
-	<a href="<?php print SUBS_LINK;?>" class="subscribe-banner">
-		<img src="<?php bloginfo('stylesheet_directory'); ?>/images/pic/subscribe-banner.jpg" alt="" />
-	</a>
-	<a href="#" class="back-top jq-go-top">back to top</a>
 <?php }
 
 function social_footer(){ ?>

@@ -16,12 +16,26 @@ include 'users.php';
 include 'counts.php';
 include 'master.php';
 
+function get_IP() {
+	$headers = apache_request_headers();
+	if (!empty($headers["X-Forwarded-For"]))
+		$XFFip = $headers["X-Forwarded-For"];
+
+	if (!empty($headers["X-Forwarded-For"]))
+		return $XFFip;
+	else
+		return $_SERVER['REMOTE_ADDR'];
+
+}
+
 // GET a list of posts. 20 by default
 //Note, $post_type = "all" does not fetch comments or answers
 $app->get('/posts', function () {
 
 	//Default Settings
 	$post_type = "all"; // e.g. "report","question"
+	$secondary_post_type = null; ///Used on G&F. i.e. "freshwater","big-game"
+	$tertiary_post_type = null; //Used on G&F. i.e. "hunting" or "fishing"
 	$state = NULL; // e.g. "GA","NY"
 	$skip = 0; //Start Number
 	$per_page = 20;
@@ -43,9 +57,12 @@ $app->get('/posts', function () {
 	//////////////////////////////////////////////////////
 	//Validate the parameters to prevent MySQL injection//
 	//////////////////////////////////////////////////////
+	$secondaryPostTypeClause = "";
+	$tertiaryPostTypeClause = "";
+
 
 	//If $post_type is all lowercase and it's less than 20 char, it's GOOD
-	if (ctype_lower($post_type) && strlen($post_type) < 20) {
+	if (preg_match("/^[a-z_-]{1,32}$/", $post_type)) {
 
 		$postTypeClause = " post_type = '$post_type'";
 
@@ -55,6 +72,37 @@ $app->get('/posts', function () {
 	} else {
 		header('HTTP 1.1/400 Bad Request', true, 400);
 		exit();
+	}
+
+	//If $secondary_post_type is all lowercase and it's less than 20 char, it's GOOD
+	if (preg_match("/^[a-z_-]{1,32}$/", $secondary_post_type)) {
+
+		$secondaryPostTypeClause = " AND secondary_post_type = '$secondary_post_type'";
+
+	} else {
+
+		if ($secondary_post_type != null) {
+			header('HTTP 1.1/400 Bad Request', true, 400);
+			echo "Bad secondary post type";
+			exit();
+		}
+
+	}
+
+	//If $tertiary_post_type is all lowercase and it's less than 20 char, it's GOOD
+	if (preg_match("/^[a-z_-]{1,32}$/", $tertiary_post_type)) {
+
+		$tertiaryPostTypeClause = " AND tertiary_post_type = '$tertiary_post_type'";
+
+	} else {
+
+		if ($tertiary_post_type != null){
+			header('HTTP 1.1/400 Bad Request', true, 400);
+			echo "bad tertiary post type";
+			exit();
+		}
+
+
 	}
 
 	//If state is 2 letters
@@ -128,9 +176,9 @@ $app->get('/posts', function () {
 		$db = dbConnect();
 
 
-		$sql = "SELECT *,CONCAT(allcounts2.post_type,'/',allcounts2.id) as url FROM allcounts2 WHERE $postTypeClause $stateClause $domainClause $masterClause $requireImagesClause $orderByClause $sortClause $limitClause";
+		$sql = "SELECT *,CONCAT(allcounts2.post_type,'/',allcounts2.id) as url FROM allcounts2 WHERE $postTypeClause $secondaryPostTypeClause $tertiaryPostTypeClause $stateClause $domainClause $masterClause $requireImagesClause $orderByClause $sortClause $limitClause";
 
-
+		//echo $sql;
 
 		$stmt = $db->prepare($sql);
 		$stmt->execute(array());
@@ -376,6 +424,8 @@ $app->post('/posts',function() {
 
 	_log( $params);
 
+	_log(serialize($params));
+
 	if (empty($params['master']))
 		$params['master'] = 0;
 
@@ -420,7 +470,7 @@ $app->post('/posts',function() {
 	_log("USER IS GOOD");
 
 		//Set additional parameters
-		$params['ip'] = ip2long($_SERVER['REMOTE_ADDR']);
+		$params['ip'] = ip2long(get_IP());
 
 		//error_log($params);
 
@@ -494,6 +544,7 @@ $app->post('/posts',function() {
 			"parent",
 			"post_type",
 			"secondary_post_type",
+			"tertiary_post_type",
 			"title",
 			"body",
 			"user_id",
@@ -765,6 +816,310 @@ $app->put('/posts/:id',function($id) {
 
 });
 
+// DELETE request to ban an Email
+$app->delete('/posts/ban_email/:id', function ($id) {
+	header('Access-Control-Allow-Origin: *');
+
+	$requestJSON = Slim\Slim::getInstance()->request()->getBody();
+
+	$params = json_decode($requestJSON,true);
+
+	if (!$params) {
+		//Grab the parameters
+		$params = \Slim\Slim::getInstance()->request()->post();
+	}
+
+	//Grab the post
+	try {
+
+		$db = dbConnect();
+
+
+		$sql = "SELECT * FROM superposts WHERE id = ? LIMIT 1";
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array($id));
+		$post = $stmt->fetchObject();
+
+
+		$db = '';
+
+	} catch(PDOException $e) {
+    	echo $e->getMessage();
+    }
+
+	$userIsEditor = userIsEditor($params['username'],$params['timecode'],$params['editor_hash']);
+
+
+	if ($userIsEditor) {
+
+		//Get the EMAIL to ban
+		$userID = $post->user_id;
+
+		$db = dbConnect();
+
+
+		$sql = "SELECT * FROM imomags.wp_users WHERE ID = ? LIMIT 1";
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array($userID));
+		$user = $stmt->fetchObject();
+
+
+		$db = '';
+
+		$email = $user->user_email;
+
+
+
+
+
+		//get the site ID so we know which table to use.
+		$siteID["www.gunsandammo.com"] = 2;
+		$siteID["www.handgunsmag.com"] = 9;
+		$siteID["www.shootingtimes.com"] = 11;
+		$siteID["www.rifleshootermag.com"] = 10;
+		$siteID["www.shotgunnews.com"] = 12;
+		$siteID["www.bowhunter.com"] = 3;
+		$siteID["www.bowhuntingmag.com"] = 4;
+		$siteID["www.gundogmag.com"] = 5;
+		$siteID["www.northamericanwhitetail.com"] = 6;
+		$siteID["www.petersenshunting.com"] = 7;
+		$siteID["www.wildfowlmag.com"] = 8;
+		$siteID["www.gameandfishmag.com"] = 14;
+		$siteID["www.floridasportsman.com"] = 13;
+		$siteID["www.in-fisherman.com"] = 15;
+		$siteID["www.flyfisherman.com"] = 16;
+
+
+		$domain = $_SERVER['HTTP_HOST'];
+
+		$domain = str_replace(".deva", ".com", $domain);
+		$domain = str_replace(".fox", ".com", $domain);
+		$domain = str_replace(".salah", ".com", $domain);
+		$domain = str_replace(".devb", ".com", $domain);
+		$domain = str_replace(".devc", ".com", $domain);
+
+		$currentSiteID = $siteID[$domain];
+
+		$optionsTable = "imomags.wp_{$currentSiteID}_options";
+
+		$db = dbConnect();
+
+		$sql = "SELECT option_value FROM $optionsTable WHERE option_name = 'blacklist_keys' LIMIT 1";
+
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute();
+		$banListString = $stmt->fetchColumn();
+
+		$newBanListString = $banListString .= "\r\n" . $email;
+
+		$sql = "UPDATE $optionsTable SET option_value = '$newBanListString' WHERE option_name = 'blacklist_keys'";
+		$stmt = $db->prepare($sql);
+		$stmt->execute();
+
+		echo $sql;
+
+		$db = '';
+
+
+		// $db = dbConnect();
+
+		// $sql = "DELETE FROM superposts WHERE id = ? LIMIT 1";
+
+		// $stmt = $db->prepare($sql);
+		// $stmt->execute(array($id));
+
+		// $db = "";
+
+
+
+		//echo $sql;
+	} else {
+		echo "NOT EDITOR";
+	}
+
+});
+
+
+
+
+
+// DELETE request to ban a IP
+$app->delete('/posts/ban_ip/:id', function ($id) {
+	header('Access-Control-Allow-Origin: *');
+
+	$requestJSON = Slim\Slim::getInstance()->request()->getBody();
+
+	$params = json_decode($requestJSON,true);
+
+	if (!$params) {
+		//Grab the parameters
+		$params = \Slim\Slim::getInstance()->request()->post();
+	}
+
+	//Grab the post
+	try {
+
+		$db = dbConnect();
+
+
+		$sql = "SELECT * FROM superposts WHERE id = ? LIMIT 1";
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array($id));
+		$post = $stmt->fetchObject();
+
+
+		$db = '';
+
+	} catch(PDOException $e) {
+    	echo $e->getMessage();
+    }
+
+	$userIsEditor = userIsEditor($params['username'],$params['timecode'],$params['editor_hash']);
+
+
+	if ($userIsEditor) {
+
+		//Ge the IP to ban
+		$decIP = $post->ip;
+		$ip = long2ip($decIP);
+
+		//get the site ID so we know which table to use.
+		$siteID["www.gunsandammo.com"] = 2;
+		$siteID["www.handgunsmag.com"] = 9;
+		$siteID["www.shootingtimes.com"] = 11;
+		$siteID["www.rifleshootermag.com"] = 10;
+		$siteID["www.shotgunnews.com"] = 12;
+		$siteID["www.bowhunter.com"] = 3;
+		$siteID["www.bowhuntingmag.com"] = 4;
+		$siteID["www.gundogmag.com"] = 5;
+		$siteID["www.northamericanwhitetail.com"] = 6;
+		$siteID["www.petersenshunting.com"] = 7;
+		$siteID["www.wildfowlmag.com"] = 8;
+		$siteID["www.gameandfishmag.com"] = 14;
+		$siteID["www.floridasportsman.com"] = 13;
+		$siteID["www.in-fisherman.com"] = 15;
+		$siteID["www.flyfisherman.com"] = 16;
+
+
+		$domain = $_SERVER['HTTP_HOST'];
+
+		$domain = str_replace(".deva", ".com", $domain);
+		$domain = str_replace(".fox", ".com", $domain);
+		$domain = str_replace(".salah", ".com", $domain);
+		$domain = str_replace(".devb", ".com", $domain);
+		$domain = str_replace(".devc", ".com", $domain);
+
+		$currentSiteID = $siteID[$domain];
+
+		$optionsTable = "imomags.wp_{$currentSiteID}_options";
+
+		$db = dbConnect();
+
+		$sql = "SELECT option_value FROM $optionsTable WHERE option_name = 'blacklist_keys' LIMIT 1";
+
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute();
+		$banListString = $stmt->fetchColumn();
+
+		$newBanListString = $banListString .= "\r\n" . $ip;
+
+		$sql = "UPDATE $optionsTable SET option_value = '$newBanListString' WHERE option_name = 'blacklist_keys'";
+		$stmt = $db->prepare($sql);
+		$stmt->execute();
+
+		echo $sql;
+
+		$db = '';
+
+
+		// $db = dbConnect();
+
+		// $sql = "DELETE FROM superposts WHERE id = ? LIMIT 1";
+
+		// $stmt = $db->prepare($sql);
+		// $stmt->execute(array($id));
+
+		// $db = "";
+
+
+
+		//echo $sql;
+	} else {
+		echo "NOT EDITOR";
+	}
+
+});
+
+
+
+// DELETE request to delete a USER
+$app->delete('/posts/delete_user/:post_id', function ($post_id) {
+	header('Access-Control-Allow-Origin: *');
+
+	$requestJSON = Slim\Slim::getInstance()->request()->getBody();
+
+	$params = json_decode($requestJSON,true);
+
+
+
+	if (!$params) {
+		//Grab the parameters
+		$params = \Slim\Slim::getInstance()->request()->post();
+	}
+
+	//Grab the post
+	try {
+
+		$db = dbConnect();
+
+
+		$sql = "SELECT * FROM superposts WHERE id = ? LIMIT 1";
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array($post_id));
+		$post = $stmt->fetchObject();
+
+
+		$db = '';
+
+	} catch(PDOException $e) {
+    	echo $e->getMessage();
+    }
+
+	$userIsEditor = userIsEditor($params['username'],$params['timecode'],$params['editor_hash']);
+
+
+	if ($userIsEditor) {
+
+		$db = dbConnect();
+
+		$sql = "DELETE FROM imomags.wp_users WHERE ID = ? LIMIT 1";
+
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array($post->user_id));
+
+
+		$db = "";
+
+
+		//echo $sql;
+	} else {
+		echo "NOT EDITOR";
+	}
+
+});
+
+
+
+
+
+
+
 
 // DELETE request to delete a post
 $app->delete('/posts/:id', function ($id) {
@@ -840,9 +1195,6 @@ $app->delete('/posts/:id', function ($id) {
 	} else {
 		echo "NOT EDITOR";
 	}
-
-
-
 
 });
 
@@ -1006,7 +1358,130 @@ function processMasterAngler($params){
 
 		$db = "";
 
+
+
+
+		sendMAEmail($params);
 }
+
+function sendMAEmail($params) {
+
+
+	include_once("postmark.php");
+
+	_log($params);
+
+	$paramList = array(
+		"title" => "-----",
+		"body" => "-----",
+		"post_id" => "-----",
+		"weight" => "-----",
+		"length" => "-----",
+		"first_name" => "-----",
+		"last_name" => "-----",
+		"email" => "-----",
+		"street_address_1" => "-----",
+		"street_address_2" => "-----",
+		"city" => "-----",
+		"state_address" => "-----",
+		"zip" => "-----",
+		"meta" => "-----",
+		"phone" => "-----",
+		"date" => "-----",
+		"body_of_water" => "-----",
+		"nearest_town" => "-----",
+		"lure_used" => "-----",
+		"kind-of-lure" => "-----",
+		"lure-desc" => "-----",
+		"kind-of-bait" => "-----",
+		"img_url" => "-----",
+		"kept" => "-----"
+	);
+
+	$params = array_merge($paramList,$params);
+
+	_log($params);
+
+	$string = "<b>Name:</b><br>" . $params['first_name'] . " " . $params['last_name'] . "<p>";
+
+	$string .= "<b>Email:</b><br>" . $params['email'] . "<p>";
+
+
+	$string .= "<b>Address:</b><br>" . $params['street_address_1'] . "\n" . $params['street_address_2'] . "<br>";
+	$string .= $params['city'] . ", " . $params['state_address'] . " " . $params['zip'] . "<p>";
+
+	$string .= "<b>Phone:</b><br>" . $params['phone'] . "<p>";
+
+	$string .= "<b>Title:</b><br>" . $params['title'] . "<p>";
+	$string .= "<b>Your Story:</b><br>" . $params['body'] . "<p>";
+
+	$string .= "<b>Species:</b><br>" . $params['meta'] . "<p>";
+
+	$string .= "<b>Region:</b><br>" . $params['zone'] . "<p>";
+	$string .= "<b>Date Caught:</b><br>" . $params['month'] . "/" . $params['day'] . "/" . $params['year'] . "<p>";
+
+	$string .= "<b>Body of Water:</b><br>" . $params['body_of_water'] . "<p>";
+	$string .= "<b>Nearest Town:</b><br>" . $params['nearest_town'] . "<p>";
+	$string .= "<b>State Caught:</b><br>" . $params['state'] . "<p>";
+
+	$string .= "<b>Length:</b><br>" . $params['length'] . "<p>";
+	$string .= "<b>Weight:</b><br>" . $params['weight'] . "<p>";
+
+	$string .= "<b>Lure or Bait:</b><br>" . $params['kind_of_lure'] . "<p>";
+
+	$kORr = "released";
+	if ($params['kept'] == 1)
+		$kORr = "kept";
+
+	$url = "http://www.in-fisherman.com/photos/" . $params['post_id'];
+
+	$string .= "<b>Kept or Released:</b><br>" . $kORr . "<p>";
+
+	$string .= "<b>Entry URL:</b><br><a href='". $url . "'>" . $url . "</a><p>";
+
+	$string .= "<b>Photo:</b><br><img src='" . $params['img_url'] . "/convert?w=600&fit=scale&rotate=exif'><p>";
+
+
+	_log($string);
+
+
+
+	$fromAddress = "Fishhead Photos <community@intermediaoutdoors.com>";
+	$postmark = new Postmark("2338c32a-e4b3-4a36-a6a6-6ff501f4f614",$fromAddress);
+
+	// $result = $postmark->to("baker.aaron@gmail.com")
+	// 				->subject("New Master Angler Entry")
+	// 				->html_message($string)
+	// 				->send();
+
+	$string .= "<p><b>This email was sent to:</b> wendy.shamp@imoutdoors.com, aaron.baker@IMOutdoors.com, jeff.simpson@IMOutdoors.com, berry.blanton@IMOutdoors.com";
+
+	$result = $postmark->to("wendy.shamp@imoutdoors.com")
+					->subject("New Master Angler Entry")
+					->html_message($string)
+					->send();
+
+	$result = $postmark->to("aaron.baker@IMOutdoors.com")
+					->subject("New Master Angler Entry")
+					->html_message($string)
+					->send();
+
+	$result = $postmark->to("jeff.simpson@IMOutdoors.com")
+					->subject("New Master Angler Entry")
+					->html_message($string)
+					->send();
+
+	$result = $postmark->to("berry.blanton@IMOutdoors.com")
+					->subject("New Master Angler Entry")
+					->html_message($string)
+					->send();
+
+	if ($result) {//If it sent...
+		_log("Message Sent!");
+	}
+
+}
+
 
 
 function getEventHash($post_id, $etype, $user_id) {

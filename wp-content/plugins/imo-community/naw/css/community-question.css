@@ -1,0 +1,5 @@
+input[type="text"].title-input {font-weight: bold;width: 100%;margin: 10px 0;}
+.alter-title, .alter-sel{display: block;}
+.caption-area{float: none;}
+.share-photo span:before{background: none;}
+.btn-red{margin: 0 auto;}

@@ -284,7 +284,8 @@ $time = date("g:i A", strtotime($timestamp));
 
                 </div>
             </div>
-            <div addthis:url="http://www.in-fisherman.com/photos/<?php echo $data->id; ?>" addthis:title="" class="addthis_toolbox addthis_default_style ">
+
+            <div addthis:url="http://www.in-fisherman.com/photos/<?php echo $data->id; ?>" addthis:title="<?php echo $data->title; ?>" class="addthis_toolbox addthis_default_style "<?php if(mobile()){ echo ' style="width: 320px;"'; } ?>>
 				<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
 				<a class="addthis_button_tweet"></a>
 				<a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
@@ -326,7 +327,7 @@ $time = date("g:i A", strtotime($timestamp));
 	            } else {
 
 	                $photoURL = str_replace("thumb", "medium", $attachment->img_url);
-	                $media = "<div class='full-post-img'><img src='$photoURL$width'></div>$caption";
+	                $media = "<div class='full-post-img'><img src='$photoURL$width' /></div>$caption";
 
 	            }
 
@@ -412,7 +413,7 @@ $time = date("g:i A", strtotime($timestamp));
     </div>-->
     <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="js-responsive-section">
     	<div class="custom-slider-section">
-    		<?php //echo do_shortcode('[imo-slideshow community=true]'); ?>
+    		<?php echo do_shortcode('[imo-slideshow community=true]'); ?>
     	</div>
     </div>
 

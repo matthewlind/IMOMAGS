@@ -3,9 +3,14 @@
 _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.0', null, sprintf( __('Please include a %1$s template in your theme.'), basename(__FILE__) ) );
 ?>
 			</div><!-- #main -->
-		<span class="foot-logo">&nbsp;</span>
+		<?php if (mobile() == false) { ?>
+			<div class="content-banner-section footer-728">
+	        	<div class="mdl-banner">
+					 <?php imo_dart_tag("728x90"); ?>
+				</div>
+			</div>
+		<?php } ?>
 		</div><!-- .layout-frame -->
-		
 		
 		<div id="footer" class="footer" role="contentinfo">
 		    
@@ -17,11 +22,11 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 		                        <div class="column">
 		                            <h5>Hunt</h5>
 		                            <ul class="intermedia-list">
-		                                <li><a target="_blank" href="http://www.bowhunter.com/"><img src="<?php bloginfo('template_directory'); ?>/images/logos/hunt-bowhunter.png" alt=""><span>Petersen's Bowhunting</span></a></li>
+		                                <li><a target="_blank" href="http://www.bowhuntingmag.com/"><img src="<?php bloginfo('template_directory'); ?>/images/logos/hunt-bowhunting.png" alt=""><span>Petersen's Bowhunting</span></a></li>
 		                                <li><a target="_blank" href="http://www.northamericanwhitetail.com/"><img src="<?php bloginfo('template_directory'); ?>/images/logos/hunt-whitetail.png" alt=""><span>North American Whitetail</span></a></li>
 		                                <li><a target="_blank" href="http://www.gundogmag.com/"><img src="<?php bloginfo('template_directory'); ?>/images/logos/hunt-gundog.png" alt=""><span>Gun Dog</span></a></li>
 		                                <li><a target="_blank" href="http://www.wildfowlmag.com/"><img src="<?php bloginfo('template_directory'); ?>/images/logos/hunt-wildfowl.png" alt=""><span>Wildfowl</span></a></li>
-		                                <li><a target="_blank" href="http://www.bowhuntingmag.com/"><img src="<?php bloginfo('template_directory'); ?>/images/logos/hunt-bowhunting.png" alt=""><span>Bowhunter</span></a></li>
+		                                <li><a target="_blank" href="http://www.bowhunter.com/"><img src="<?php bloginfo('template_directory'); ?>/images/logos/hunt-bowhunter.png" alt=""><span>Bowhunter</span></a></li>
 		                                <li><a target="_blank" href="http://www.petersenshunting.com/"><img src="<?php bloginfo('template_directory'); ?>/images/logos/hunt-hunting.png" alt=""><span>Petersen's Hunting</span></a></li>
 		                            </ul>
 		                        </div>
@@ -40,7 +45,7 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 		                        <div class="column column3">
 		                            <h5>Fish</h5>
 		                            <ul class="intermedia-list">
-		                                <li><a href="http://www.in-fisherman.com"><img src="<?php bloginfo('template_directory'); ?>/images/logos/fish-infisherman.png" alt=""><span>In-Fisherman</span></a></li>
+		                                <li><a href="http://www.in-fisherman.com" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/images/logos/fish-infisherman.png" alt=""><span>In-Fisherman</span></a></li>
 		                                <li><a target="_blank" href="http://www.flyfisherman.com"><img src="<?php bloginfo('template_directory'); ?>/images/logos/fish-fltfisherman.png" alt=""><span>Fly Fisherman</span></a></li>
 		                                <li><a target="_blank" href="http://www.floridasportsman.com/"><img src="<?php bloginfo('template_directory'); ?>/images/logos/fish-florida.png" alt=""><span>Florida Sportsman</span></a></li>
 		                                <li><a target="_blank" href="http://www.bassfan.com/"><img src="<?php bloginfo('template_directory'); ?>/images/logos/fish-bassfan.png" alt=""><span>BassFan</span></a></li>
@@ -63,8 +68,9 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 		            <ul class="foot-nav">
 		                <li><a href="http://www.imoutdoorsmedia.com/IM3/">ABOUT</a></li>
 		                <li><a href="http://www.imoutdoorsmedia.com/">ADVERTISE</a></li>
-		                <li><a href="http://www.gameandfishmag.fox/contact">CONTACT</a></li>
+		                <li><a href="/contact">CONTACT</a></li>
 		                <li><a href="http://imomags.com/careers/">CAREERS</a></li>
+						<li><a href="http://www.imoutdoorsmedia.com/IM3/privacy.php">PRIVACY POLICY</a></li>
 		                <!--<li class="mobile-element-320"><a href="#">SPONSORSHIP/ADVERTISING</a></li>
 		                <li class="mobile-element-320"><a href="#">TERMS OF USE</a></li>
 		                <li class="mobile-element-320"><a href="#">LINK TO US</a></li>
@@ -74,10 +80,10 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 		        <div class="copyright-section clearfix">
 		            <div class="copyright">
 		                <img src="<?php bloginfo('template_directory'); ?>/images/logos/outdoors.png" class="copyright-img" alt="" />
-		                <p>&copy; 2013 InterMedia Outdoors. All Rights Reserved</p>
+		                <p>&copy; <?php echo date("Y"); ?> InterMedia Outdoors. All Rights Reserved</p>
 		            </div>
 		            <div class="foot-sub-logos">
-		                <strong>In partnership with</strong>
+		                <!--<strong>In partnership with</strong>-->
 		                <img class="sub-logo" src="<?php bloginfo('template_directory'); ?>/images/logos/universal.png" alt="">
 		                <img class="sub-logo" src="<?php bloginfo('template_directory'); ?>/images/logos/nbc.png" alt="">
 		                <img class="sub-logo" src="<?php bloginfo('template_directory'); ?>/images/logos/msnbc.png" alt="">
@@ -85,19 +91,10 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 		            </div>
 		        </div>
 
-		
-
 			</div><!-- #footer -->
 		</div><!-- .wrapper -->
 	</div><!-- #page -->
-	<div id="tiptip_holder" class="tip_bottom">
-		<div id="tiptip_arrow">
-			<div id="tiptip_arrow_inner"></div>
-		</div>
-		<div id="tiptip_content">Share your catch & see the latest photos!</div>
-	</div>
-		
-    
+	    
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery.tipTip.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery.cookie.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/breakpoints.js"></script>

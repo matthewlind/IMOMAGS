@@ -34,14 +34,8 @@ jQuery(document).ready(function($) {
 		//First get any extra term
 		var term = $(".shot-show-widget").attr("term");
 		
+		var fileName = "/wpdb/network-feed-cached.php?network=hunting&count=5&term=" + term;
 	
-		
-		if (term.length > 0) {
-			var fileName = "/wpdb/shotshow-hunt-json.php?t=" + term;
-		} else {
-			var fileName = "/wpdb/shotshow-hunt-json.php";
-		}
-		
 		
 		var getdata = $.getJSON(fileName, function(data) {
     
@@ -60,16 +54,20 @@ jQuery(document).ready(function($) {
 
 		        $articleTemplate.attr("id","ss-" + data[i].post_name + count);
 		        $articleTemplate.find("a.title").attr("href",data[i].post_url);
-		        $articleTemplate.find("a.title").text(data[i].post_title);
+		        
 		        		        
+		        $articleTemplate.find("a.title").text(data[i].post_title);
+		        
 		        if (data[i].domain != document.domain) {
-		        	$articleTemplate.find("a").attr("target","_blank");
 		        	$articleTemplate.find(".site a").text("From " + data[i].brand + " Magazine");
 		        	$articleTemplate.find(".site a").attr("href","http://" + data[i].domain);
-		        }else{
+
+					$articleTemplate.find("a").attr("target","_blank");
+				}else{
 					$articleTemplate.find(".site a").hide();
 				}
-		        
+				
+
 		        $articleTemplate.appendTo(".shot-show-widget").fadeIn();
 
 		    }

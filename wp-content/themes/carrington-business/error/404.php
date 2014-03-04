@@ -15,6 +15,8 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * **********************************************************************
  */
+//For some reason, 404 pages were set to not be cached be varnish. This should fix that issue.
+header ("Cache-Control: max-age=20800"); // HTTP 1.1
 
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) { die(); }
 if (CFCT_DEBUG) { cfct_banner(__FILE__); }

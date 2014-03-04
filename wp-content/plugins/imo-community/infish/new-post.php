@@ -165,7 +165,7 @@ include 'common-templates.php';
                 </div>
 
 
-
+                <input type="hidden" id="fishzone" name="zone" value="" >
 				<% if (post && post.id) { %>
 						<input type="hidden" name="id" value="<%= post.id %>" >
 				<% } %>

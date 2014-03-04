@@ -9,15 +9,17 @@
 $dataPos = 0;
 ?>
 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header clearfix js-responsive-section">
-	<h1 class="page-title">
+	<h1 class="page-title<?php if(is_page("guns-ammo-tv-2")){ echo ' section-title videos'; } ?>">
+		<div class="icon"></div>
 		<span><?php the_title(); ?></span>
     </h1>
 </div>
 
 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>"  id="post-<?php the_ID(); ?>" <?php post_class('article-brief clearfix js-responsive-section'); ?>>
 	<div class="article-holder">
-			<?php the_content(); ?>
-			<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'twentyeleven' ) . '</span>', 'after' => '</div>' ) ); ?>
+		<div class="addthis-below" <?php if(mobile()){ echo 'style="width: 320px;"'; } ?>><?php if (function_exists('imo_add_this')) {imo_add_this();} ?></div>
+		<?php the_content(); ?>
+		<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'twentyeleven' ) . '</span>', 'after' => '</div>' ) ); ?>
 		<footer class="entry-meta">
 			<?php edit_post_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?>
 		</footer><!-- .entry-meta -->
@@ -25,5 +27,4 @@ $dataPos = 0;
 </div><!-- #post-<?php the_ID(); ?> -->
                
 <?php sub_footer(); ?> 
-<a href="#" class="back-top jq-go-top">back to top</a>
 

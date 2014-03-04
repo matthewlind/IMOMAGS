@@ -52,6 +52,7 @@ if (CFCT_DEBUG) { cfct_banner(__FILE__); }
 <?php  endif; ?>     	
 
 <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/scripts.js"/></script>
+<script type="text/javascript" src="/wp-content/themes/imo-mags-gunsandammo/js/flash_heed.js"></script>
 <?php if (defined('JETPACK_SITE')): ?>
 <script type='text/javascript' src='http://ads.jetpackdigital.com/sites/<?php print JETPACK_SITE; ?>/jpd.js'></script>
 <?php endif; ?> 
@@ -156,7 +157,7 @@ else {
 }
 ?>
 	     <h1 class="site-title"><a href="<?php echo home_url('/'); ?>" title="<?php _e('Home', 'carrington-business') ?>"><?php bloginfo('name'); ?></a></h1>
-         <a href="/florida-sportsman-best-boat/"><img class="header-feature-nav" src="/wp-content/themes/imo-mags-floridasportsman/img/bw-header_04.png" border="0" /></a>
+         <a href="/rtfs/"><img class="header-feature-nav" src="/wp-content/themes/imo-mags-floridasportsman/img/bw-header_04-rtfs.png" border="0" /></a>
 <a class="header-gallery" href="/galleries/"><img  src="/wp-content/themes/imo-mags-floridasportsman/img/bw-header_07.png"></a>
 <a class="header-webxtra" href="/store/" rel="nofollow"><img  src="/wp-content/themes/imo-mags-floridasportsman/img/bw-header_08.png"></a>
 					     
@@ -196,15 +197,15 @@ else {
 	</header><!-- #header -->
 	
 	<!-- Breadcrumbs -->
-	<?php if ( !is_front_page() && function_exists('yoast_breadcrumb') && !isset($_GET['where']) && !isset($_GET['price']) ): ?>
+	<?php if ( !is_front_page() && function_exists('yoast_breadcrumb') && !isset($_GET['where']) && !isset($_GET['price']) && !is_tax('price') && !is_tax('where') ): ?>
 	<div id="crumb-wrapper">
 		<?php yoast_breadcrumb('<p id="breadcrumbs">','</p>'); ?>
 	</div>
 	<?php endif; ?>
 	
-	<?php if (isset($_GET['where']) || isset($_GET['price'])) {?>
+	<?php if (isset($_GET['where']) || isset($_GET['price']) || is_tax('price') || is_tax('where')) {?>
     <div id="crumb-wrapper">
-		<p id="breadcrumbs" style="text-transform:capitalize;">You are Here: <a href="/">Home</a> : <a href="">Your Best Boat</a> : <?php if (isset($_GET['where'])) {
+		<p id="breadcrumbs" style="text-transform:capitalize;">You are Here: <a href="/">Home</a> : <a href="">Your Best Boat</a> : <?php if (isset($_GET['where']) || is_tax('where')) {
 $taxonomy = 'where';
 $queried_term = get_query_var($taxonomy);
 $terms = get_terms($taxonomy, 'slug='.$queried_term);
@@ -214,7 +215,7 @@ if ($terms) {
   }
 }
 }
-?> <?php if (isset($_GET['price'])) {
+?> <?php if (isset($_GET['price']) || is_tax('price')) {
 $taxonomy = 'price';
 $queried_term = get_query_var($taxonomy);
 $terms = get_terms($taxonomy, 'slug='.$queried_term);

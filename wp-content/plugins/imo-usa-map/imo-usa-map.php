@@ -21,7 +21,17 @@ add_action('wp_enqueue_scripts', 'imo_usa_map_init');
 
 
 function imo_usa_map_init() {
-
+	
+	//mobile map touch fix
+	if(tablet() == true || mobile() == true){ ?>
+		<script type="text/javascript">
+			var $mobile = true;
+		</script>
+	<?php }else{ ?>
+		<script type="text/javascript">
+			var $mobile = false;
+		</script>
+	<?php }
 
 	wp_enqueue_script('imo-usa-map-js',plugins_url('js/imo-usa-map.js', __FILE__));
 	

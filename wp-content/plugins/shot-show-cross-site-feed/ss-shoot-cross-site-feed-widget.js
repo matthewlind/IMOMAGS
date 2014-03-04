@@ -34,13 +34,8 @@ jQuery(document).ready(function($) {
 		//First get any extra term
 		var term = $(".shot-show-widget").attr("term");
 		
+		var fileName = "/wpdb/network-feed-cached.php?network=shooting&count=5&term=" + term;
 	
-		
-		if (term.length > 0) {
-			var fileName = "/wpdb/shotshow-shoot-json.php?t=" + term;
-		} else {
-			var fileName = "/wpdb/shotshow-shoot-json.php";
-		}		
 		
 		var getdata = $.getJSON(fileName, function(data) {
     

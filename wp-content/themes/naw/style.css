@@ -1,0 +1,508 @@
+/*
+Theme Name: 	North American Whitetail
+Theme URI:		http://imomags.com
+Description:    NAW theme
+Author:         IntermediaOutdoors
+Author URI:		http://imomags.com
+Template:       imo-mags-parent
+Version:        1.0
+
+General comments (optional).
+*/
+
+@import url("../imo-mags-parent/style.css");
+body{font: 20px "rokkitt",serif;}
+.header{background: url(images/bg/naw-header-bg.jpg) no-repeat center top;color: white;}
+.logo{margin-top: 0;}
+
+/* Tags reset
+*******************************************************************************/
+a{color: #006699;}
+.article-brief h3, .feat-text h3{font: 30px/1em "rokkitt", serif;}
+.page-header h1{font-family: "rokkitt", serif;}
+.post-header h1, .page-title.author a{font: 50px/0.8 "rokkitt", serif;padding-top: 10px;}
+.general-title{margin: 0;}
+.general-title h2 {font-family: "rokkitt", serif !important;font-size: 40px;}
+.author-description h2{font-family: "rokkitt", serif;color: black;font-size: 30px;}
+.signup-box h3{color:white;font-family: "open_sansbold", sans-serif !important;}
+.meta-date-author, .wp-caption .wp-caption-text{font-size: 16px;}
+.subscribe-links a,
+.drop-feat-post h5 a:hover,
+.links-list a:hover, 
+.subscribe-now .stag-bold,
+.subscribe-now .stag-reg,
+.ui-panel .menu-top-menu-container a:hover,
+.ui-panel .mob-aside-menu li.drop-open > a,
+.ui-panel .mob-aside-menu > div > ul > li > a:hover{color:white;}
+.menu-top-menu-container a{color: white;}
+.menu-main-menu-container > ul > li > a{color: #58534f;font: 24px/44px "rokkitt",serif;text-transform: none;}
+.menu-main-menu-container{background-color: #f0e9e1;box-shadow: 0px 2px 2px #ccc;}
+.menu-main-menu-container a.has-drop:after, .menu-header-menu-container a.has-drop:after {border-top: 7px solid #58534f;}
+a.category-name-link.primary-cat,
+a.category-name-link:hover{background: #623d11;color: white;}
+.header .menu-main-menu-container > ul > li.current-menu-item > a,
+.header .menu-header-menu-container > ul > li.current-menu-item > a,
+.menu-main-menu-container > ul > li:hover, .menu-main-menu-container > ul > li:hover > a{color: black;}
+.menu-header-menu-container > ul > li:hover > a,
+.menu-header-menu-container > ul > li > a:hover,
+.menu-top-menu-container a:hover,
+.subscribe-links a:hover{color: #afafaf;}
+.ui-panel .mob-aside-menu > div > ul > li > a.has-drop:after {border-top: 7px solid #623d11;}
+.menu-main-menu-container li:hover a.has-drop:after {border-top: 7px solid black;}
+.subscribe-links a{color: white;}
+.subscribe-now span{font: "open_sansbold";}
+.get-newsletter{text-shadow: 0 -1px 0 #000;}
+.drop-down{border: medium none;box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.35);background:#5f5852;}
+.menu-main-menu-container li:hover .drop-down{top:42px;}
+/*socials for dark backgrounds*/
+.socials a.facebook:hover {background-position:-105px 0;}
+.socials a.facebook {background-position:-239px 0;}
+.socials a.twitter:hover {background-position:-140px 0;}
+.socials a.twitter {background-position:-273px 0;}
+.socials a.youtube{display: none;}
+.socials a.rss:hover {background-position:-206px 0;}
+.socials a.rss {background-position:-340px 0;}
+.foot-social {border:none;background:#373737;}
+.social-title {color:#fff;text-shadow:0 1px 1px #000;}
+.social-title span {color:#623d11;}
+.foot-social .socials {background:#212121;}
+.social-title span{color: #afafaf;}
+.home .comment-count, .category .comment-count{display: none;}
+.subscribe-links li{padding: 0;}
+.menu-main-menu-container a.has-drop{padding: 0 30px;}
+
+/*sprite*/
+.subscribe-links li:before{background-image: none;}
+.open-menu, .user-btn, .open-search, .filter-links li:before, .menu-top-menu-container li:before, .view-post, .back-top:before, .get-newsletter, .cal-carousel .gal-prev, .cal-carousel .gal-next, .full-post .comment-count, 
+.article-brief .comment-count {background-image: url(images/sprite.png);}
+
+/*flexslider*/
+/* Direction Nav */
+#join .flex-direction-nav a{top:50px;background-image: url(images/prev-next.png);}
+.flex-direction-nav .flex-next {background-position:-33px 0 !important;}
+.flex-direction-nav .flex-prev {background-position:0 0 !important;}
+.flex-direction-nav .flex-next:hover {background-position:-33px -52px !important;}
+.flex-direction-nav .flex-prev:hover {background-position:0 -52px !important;}
+/* Control Nav */
+.flex-control-paging li a {background:url(images/controls.png) no-repeat !important;}
+.paging-single-post .flex-control-paging li a,
+.double-post-slider .flex-control-paging li a {background-position:0 -32px !important;}
+.flex-control-paging li a:hover,
+.flex-control-paging li a.flex-active {background-position:0 -16px !important; }
+/* YARPP Slider */
+.paging-posts .flex-direction-nav .flex-prev,
+.paging-posts .flex-direction-nav .flex-next{background-color: #e8e7e7 !important;}
+.paging-posts .flex-direction-nav .flex-prev {background-position:-66px 0 !important;}
+.paging-posts .flex-direction-nav .flex-prev:hover {background-position:-148px 0 !important;}
+.paging-posts .flex-direction-nav .flex-next {background-position:-107px 0 !important;}
+.paging-posts .flex-direction-nav .flex-next:hover {background-position:-189px 0 !important;}
+
+/*banners*/
+.gd-reader-photos {
+	background: url(http://www.gundogmag.com/files/2012/11/Gun-Dog-Reader-Photos-Banner.jpg) no-repeat scroll 60px 0px black;
+	height: 200px;
+	margin-bottom: 20px;
+	position: absolute;
+	top: -12px;
+	width: 1080px;
+	left: -31px;
+}
+
+/* mobile menu dark */
+.snap-drawers .menu-top-menu-container{padding:0;}
+.snap-drawers .mob-aside-menu li, .snap-drawers .menu-top-menu-container li{
+	border-top: 1px solid rgba(255,255,255,.2);
+	border-bottom: 1px solid rgba(0,0,0,1);
+	background-color: #424242;
+}
+.snap-drawers .mob-aside-menu li a, .snap-drawers .menu-top-menu-container li a{
+	display: block;
+	text-decoration: none;
+	color: white;
+	text-shadow: 0px 1px 1px black;
+	padding: 10px 15px;
+}
+.snap-drawers .drop-down li{
+	border-top: 1px solid rgba(255,255,255,.2);
+	border-bottom: 1px solid rgba(0,0,0,1);
+	background-color: #313131;
+}
+.snap-drawers .mob-aside-menu > div > ul > li > a{color: white;}
+.snap-drawers .mob-aside-menu > div > ul > li > a.has-drop:after{border-top: 7px solid #cda220;top:18px;}
+.snap-drawers .mob-aside-menu > div > ul > li:hover > a.has-drop:after, .snap-drawers .mob-aside-menu > div > ul > li > a.has-drop:hover:after{border-top: 7px solid #cda220;}
+.sub-menu{width: 100%;padding-top: 0;}
+.sub-menu li {
+	width: 168px;
+	border: none;
+    /*border:1px solid #d8d8d8;
+    border-width:1px 0 0;*/
+}
+.sub-menu li :hover{background: #373737;}
+.sub-menu a {color:white;padding: 10px;}
+.sub-menu a.region{
+	color: rgb(124, 124, 124);
+	line-height: 1.7;
+	text-shadow: 2px 1px 0px rgba(12, 12, 12, 0.58);
+	font-weight: bold;
+}
+.sub-menu a:hover {color:#cda220;}
+.submenu-category-title {color:white;}
+.open-menu{border: none;}
+.open-search{background-position-x: -352px;}
+.btn-red, .singl-post-photo{
+	text-shadow: none !important;
+	background: none repeat scroll 0 0 #347FE7 !important;
+	border: 1px solid #2861B2;
+	border-radius: 4px 4px 4px 4px;
+	box-shadow: 0 1px 0 transparent, 1px 1px 0 #679FED inset;
+}
+.btn-red input, .singl-post-photo{text-shadow: none !important;}
+.singl-post-photo span {
+    background: none !important;
+	color: #FFFFFF;
+	cursor: pointer;
+	font-size: 1em;
+	height: 40px;
+	margin-top: 17px;
+	padding: 10px 0;
+	text-transform: uppercase;
+	width: 178px;
+}
+.join-box{
+	padding:0 18px 1px 0;
+	border: 1px solid #d0cfcd !important;
+	border-bottom-width: 0 !important;
+	margin: 0;
+	border: none;
+}
+.join-box h3{font-size: 22px !important;}
+.explore-posts{padding-left:18px !important;}
+#join .flex-control-nav {bottom: 10px;}
+#join .flex-direction-nav a{top:96px !important;}
+.horz-logo{
+	background: url(http://www.northamericanwhitetail.fox/wp-content/plugins/imo-community/naw/images/naw-plus.png) no-repeat 20px 4px;
+	width: 310px;
+	height: 56px;
+	display: block;
+	padding: 20px 0 0 53px;
+	margin: 0 auto;
+	color: white;
+	border-top: 3px solid black;
+}
+.slider-view-more a {padding: 38px 10px;margin: 8px auto 20px;}
+.share-photo-btn{border: 1px solid #d0cfcd;border-top-width: 0;}
+.share-photo-btn a{width: 280px;margin: 0 auto 14px;}
+
+/* Score This Buck Widget */
+#buck_contest_promo{
+	background: url("images/contest-bg.jpg") no-repeat scroll center top #290600;
+    border: 9px solid #290600;
+    width: 300px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+#buck_contest_promo h4{
+	color: white;
+    font-size: 2.1em;
+    margin-top: 6px;
+    text-align: center;
+    text-shadow: 0px 3px 1px #444;
+    margin-bottom: 0;
+}
+ #buck_contest_promo p{
+	margin-top: -5px;
+    text-shadow: 0 2px 1px #444;
+}
+#buck_contest_promo h4, #buck_contest_promo p{
+	color: white;
+    text-align: center;
+}
+#buck_contest_promo .contest-img img{
+	border: 6px solid #eee;
+	max-width: 280px;
+}
+#buck_contest_promo .prize {
+	margin-bottom: 20px;
+	color: white;
+}
+#buck_contest_promo .prize h6{
+	color: white;
+    font-family: "ProximaNova-Semibold";
+    margin-top: 6px;
+    font-size: 1em;
+}
+#caption_contest_promo a.button {
+	background: white;
+	border: none;
+	color: black;
+	margin-bottom: 32px;
+	padding: 0 28px 0 12px;
+}
+#buck_contest_promo a, #buck_contest_promo a:visited{
+	color: white;
+    font-family: ProximaNovaA-Regular;
+    text-transform: uppercase;
+    font-size: 0.8em;
+}
+#buck_contest_promo a:hover{
+	color: #006699;
+}
+#buck_contest_promo a.button{
+	padding: 10px 20px 10px;
+	color: #000;
+	background: #eee;
+}
+#buck_contest_promo a.button span{
+	background: url("images/subscribe-arrow.png") no-repeat scroll 6px -7px transparent;
+    height: 15px;
+    position: absolute;
+    width: 14px;
+    margin-top: 7px;
+}
+#buck_contest_promo .view-all-p{
+	margin-top: 20px
+}
+.single-imo_buck_contest .prize-box {
+  border: 5px solid #999999;
+  background-color: #dddddd;
+  margin: 10px 10px 30px 10px;
+  padding: 10px 10px 10px 10px;
+  min-height: 170px;
+}
+/* Score This Buck Page */
+.single-imo_buck_contest .prize-box .prize-thumb {
+  float: left;
+  padding: 10px;
+}
+.single-imo_buck_contest .caption-banner {
+  margin-left: auto;
+  margin-right: auto;
+  background: url("images/buck-contest-header.png") center top;
+  width: 385px;
+  height: 49px;
+  color: #FFFFFF;
+  text-align: center;
+  top:15px;
+  position: relative;
+  z-index: 1000;
+}
+.single-imo_buck_contest .caption-banner-text {
+  font-family: "ProximaNova-Bold";
+  font-weight: lighter;
+  text-transform: uppercase;
+  font-size: 22px;
+  padding-top: 6px;
+  color: white;
+  line-height: 43px;
+  text-shadow: 1px 1px 0px #000000;
+  filter: dropshadow(color=black, offx=1, offy=1);
+}
+.single-imo_buck_contest .caption-contest {
+  overflow: hidden;
+  *zoom: 1;
+  background: #290600;
+  clear: both;
+  margin-bottom: 30px;
+  padding: 16px;
+}
+.single-imo_buck_contest .caption-contest .wp-post-image {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+}
+.single-imo_buck_contest .caption-contest h2 {
+  color: white;
+  margin: 28px 0;
+  text-align: center;
+}
+.single-imo_buck_contest .caption-contest .avatar {
+  float: left;
+  margin: 0 18px 0 30px;
+  position: relative;
+}
+.single-imo_buck_contest .caption-contest .winning-caption {
+  float: left;
+  width: 490px;
+}
+.single-imo_buck_contest .caption-contest .author {
+  color: #ce181e;
+  font-size: 15px;
+  font-weight: bold;
+}
+.single-imo_buck_contest .caption-contest .caption {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-weight: normal;
+  color: white;
+  font-size: 18px;
+  margin-bottom: 32px;
+}
+.single-imo_buck_contest #main #idc-container .idc-head h3 {
+  background-image: url("img/section_title_captions.gif");
+}
+/******
+*** App callout widget
+***
+******/
+#get-app{
+	width: 318px;
+	background-color: #ededed;
+	margin-bottom: 10px;
+	clear: both;
+}
+.sidebar-header{
+	background: url('images/sidebar-header.png') no-repeat center top;
+	height: 41px;
+	width: 318px;
+}
+.sidebar-header h2{
+	font-weight: lighter;
+	color: #fff;
+    text-align: center;
+    padding: 4px 0;
+    text-transform: uppercase;
+}
+#get-app p {
+	color: #AAA197;
+    font-family: ProximaNova-Semibold;
+    font-size: 0.9em;
+    padding: 10px 0 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+#get-app .left{
+	float: left;
+    padding: 0 14px;
+	width: 200px;
+}
+.app-icon{
+	background: url("images/nawp-app-icon.png") no-repeat scroll center top transparent;
+    display: block;
+    height: 39px;
+    width: 39px;
+    margin-top: 5px;
+}
+.app-icon span{
+	color: #59524B;
+    font-family: ProximaNova-Bold;
+    font-size: 1.4em;
+    padding-left: 54px;
+    position: relative;
+    top: 5px;
+}
+#get-app .copy{
+	color: #C2290D;
+    font-family: "rokkitt",serif;
+    font-size: 1.4em;
+    line-height: 1em;
+    padding: 18px 0 4px;
+    text-align: center;
+}
+
+.app-store-icon{
+	background: url("images/app-store-icon.png") no-repeat scroll center top transparent;
+    height: 41px;
+    padding: 0;
+    text-indent: -9999px;
+    width: 160px;
+    margin-left: 10px;
+}
+
+#get-app .right{
+	float: right;
+    width: 112px;
+}
+
+.iphone-screen{
+	background: url("images/iphone-screen.png") no-repeat scroll center top transparent;
+    display: block;
+    height: 188px;
+    text-indent: -99999px;
+    width: 89px;
+}
+
+#get-app .footer{
+	clear: both;
+	padding:14px 0;
+	text-align: center;
+	background: #ededed;
+}
+
+#get-app .download{
+    background: none repeat scroll 0 0 #347FE7;
+    border: 1px solid #2861B2;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 0 transparent, 1px 1px 0 #679FED inset;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 1.3em;
+    margin: 0 auto;
+    padding: 6px 12px;
+    text-align: center;
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 1px 2px 0 rgba(0, 0, 0, 0.4);
+    width: 270px;
+
+}
+
+  /** logged out version **/
+#get-app.logged-out .content{
+	margin-top: 10px;
+}
+
+
+
+@media only screen and (max-width: 1096px) {
+	.logo img{width: 130px;}
+	.logo img {margin-top: 3px;}
+	.h-search-open{background: black;}
+	.header .socials{
+		right: 104px;
+		padding-right: 0;
+	}	
+	.sub-menu li{width: 100%;}
+	.hot-link a{
+		padding: 0 0 0 30px !important;
+		margin: 18px;
+		line-height: 1.2 !important;
+		color: #c9242c !important;
+	 }
+	.snap-drawer {
+	background-color: #333333;
+	}
+	.snap-drawers .menu-top-menu-container a:hover, .snap-drawers .mob-aside-menu li.drop-open > a, .snap-drawers .mob-aside-menu > div > ul > li > a:hover{color: white;}
+	.snap-drawers .drop-down a{background: none;text-transform: capitalize;}
+	.sub-menu a.region{
+		color: rgb(124, 124, 124) !important;
+		line-height: 1.7 !important;
+		text-shadow: 2px 1px 0px rgba(12, 12, 12, 0.58) !important;
+		font-weight: bold !important;
+	}
+	.all-hunting, .all-fishing, .all-gear{display: block;}
+	.snap-drawers .mob-aside-menu > div > ul > li > a.has-drop::after{top:18px;}
+	.mobile-menu-banner{height: 50px;}
+	.menu-subscribe a{
+		font-family: "open_sansbold", Helvetica, Arial, sans-serif;
+		color: #cda220;
+		height: 60px;
+		padding-top: 20px;
+		border-top: 1px solid rgba(255,255,255,.1);
+		border-bottom: 1px solid rgba(0,0,0,1);
+		margin: 0;
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#373737), color-stop(100%,#303030));
+		background: -webkit-linear-gradient(top, #303030 0%,#373737 100%);
+		background: linear-gradient(to bottom, #303030 0%, #373737 100%);
+		text-shadow: 0px 1px 1px black;
+	}
+	#subscribe-area {
+		right: 245px;
+		top: 8px;
+	}
+	.menu-subscribe a img{top: -2px;}
+	.header .socials{
+		right: 104px;
+		padding-right: 0;
+	}	
+}
+@media only screen and (max-width: 760px) {
+    .single-imo_buck_contest .caption-banner{background: none #604322;width: 80%;}
+}

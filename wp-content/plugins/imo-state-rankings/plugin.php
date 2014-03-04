@@ -157,7 +157,7 @@ function rankListing($state_rankings_data, $week, $show, $initials, $widget){
 	
 	.widget_state_rankings_widget {
 		border: 1px solid #D2D2D2;
-		padding-bottom: 10px !important;
+		padding: 0 6px 24px !important;
 	}
 	.widget_state_rankings_widget table.rt-table {
 		border: 1px solid #D2D2D2;

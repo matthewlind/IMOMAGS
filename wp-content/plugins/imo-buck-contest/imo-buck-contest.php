@@ -50,6 +50,7 @@ function imo_buck_contest_init() {
 		'publicly_queryable' => true,
 		'show_ui' => true, 
 		'query_var' => true,
+		'has_archive' => true,
 		'rewrite' => array('slug' => 'score-this-buck-contest', 'with_front' => FALSE),
 		'capability_type' => 'post',
 		'hierarchical' => false,

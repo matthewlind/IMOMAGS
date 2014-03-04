@@ -67,8 +67,8 @@ function authSuccess(data,$clickedButton){
 
     userIMO = data;
 
-    $submit = $('.superpost-form input[type="submit"]');
-    var $userWidget = $("#user-info-widget");
+    $submit = jQuery('.superpost-form input[type="submit"]');
+    var $userWidget = jQuery("#user-info-widget");
     //var $userBar = $("ul#user-bar");
 
 
@@ -83,35 +83,33 @@ function authSuccess(data,$clickedButton){
     $userBar.find("#current-user-name").text(data.display_name);
     $userBar.find("img.recon-gravatar").attr("src","/avatar?uid=" + data.user_id);*/
 
-    $("#imo-fb-login-button").fadeOut(500,function(){
-        $(".imo-fb-login-button").fadeOut(400);
-        $(".join-widget-fb-login").fadeOut(400);
-        $(".choose-fb").fadeOut(400);
-        $(".email-login").fadeOut(400);
-        $(".email-signup").fadeOut(400);
-        $("#community-menu-nav small").fadeOut(400);
+    jQuery("#imo-fb-login-button").fadeOut(500,function(){
+        jQuery(".imo-fb-login-button").fadeOut(400);
+        jQuery(".join-widget-fb-login").fadeOut(400);
+        jQuery(".choose-fb").fadeOut(400);
+        jQuery(".email-login").fadeOut(400);
+        jQuery(".email-signup, .login-message, .or-delim").fadeOut(400);
+        jQuery("#community-menu-nav small").fadeOut(400);
         //$userBar.fadeIn();
-        $submit.fadeIn();
-
-
-
-                jQuery(".browse-item").removeClass("item-active");
+        $submit.fadeIn(400);
+		
+		jQuery(".browse-item").removeClass("item-active");
         jQuery(".browse-holder").removeClass("browse-panel-opened");
         jQuery(".filter-fade-out").removeClass("filter-fade-in");
         jQuery(".layout-frame").removeClass("filter-popup-opened");
 
+		jQuery(".btn-submit").fadeIn(600);
+        jQuery("#new-post-form").submit();
+        jQuery("#comment-form").submit();
 
-        $("#new-post-form").submit();
-        $("#comment-form").submit();
+        
 
-        $(".btn-submit").fadeIn();
-
-        $(".login-message").fadeOut();
-        $(".join-logged-in").find(".profile-photo img").attr("src","/avatar?uid=" + data.user_id);
-        $(".join-logged-in").fadeIn(function(){
+        jQuery(".login-message").fadeOut();
+        jQuery(".join-logged-in").find(".profile-photo img").attr("src","/avatar?uid=" + data.user_id);
+        jQuery(".join-logged-in").fadeIn(function(){
 
         });
-
+		
         //$userBar.fadeIn();
         $userWidget.fadeIn(500,function(){
 
@@ -134,12 +132,12 @@ function authSuccess(data,$clickedButton){
 
 
 
-		    	$({animatedScore: 0}).animate({animatedScore: score}, {
+		    	jQuery({animatedScore: 0}).animate({animatedScore: score}, {
 					duration: duration,
 					easing:'jswing', // can be anything
 					step: function() { // called on every step
 						// Update the element's text with rounded-up value:
-						$(".user-points").text(Math.ceil(this.animatedScore));
+						jQuery(".user-points").text(Math.ceil(this.animatedScore));
 					}
 				});
 
@@ -156,16 +154,16 @@ function authSuccess(data,$clickedButton){
 
 
     //replace when App is live
-     $(".fb-join-widget-box").fadeOut(500);
+     jQuery(".fb-join-widget-box").fadeOut(500);
 
 		//If this was a login&post button, submit the form
 		if ($clickedButton.hasClass("fast-login-then-post-button")) {
-    		$("#fileUploadForm").first().submit();
+    		jQuery("#fileUploadForm").first().submit();
     	}
 
 		//If this was a login&post button, submit the form
 		if ($clickedButton.hasClass("fast-login-then-imo-community-post")) {
-    		$("#new-post-form").submit();
+    		jQuery("#new-post-form").submit();
     	}
 
     //
@@ -174,10 +172,17 @@ function authSuccess(data,$clickedButton){
     	window.location="http://www.northamericanwhitetail.com/community-post/";
     	}
 
-    $(".fast-login-then-post-button").fadeOut(400,function(){
+    if ($clickedButton.hasClass("go-to-profile")) {
+    	window.location="/login/?action=edit-profile";
+    }
+    if ($clickedButton.hasClass("go-to-profile-naw")) {
+    	window.location="/login/?action=edit-profile";
+    }
 
-        //$(".submit").css({ opacity: 0.5 });
-        $(".submit").fadeIn();
+    jQuery(".fast-login-then-post-button").fadeOut(400,function(){
+
+        //jQuery(".submit").css({ opacity: 0.5 });
+        jQuery(".submit").fadeIn();
 
     });
 
@@ -230,8 +235,12 @@ jQuery(document).ready(function($) {
 
 
 	  	  $('#login-modal').modal('hide');
-
+	  	  	  	  
 		  $clickedButton = $('#imo-ajax-login-form #lwa_wp-submit');
+		  $('.general-com .basic-popup').removeClass('popup-opened');
+	  	  $('html, body').animate({
+		        scrollTop: $(".general-com").offset().top
+		    }, 'slow');
 
 		  //console.log($clickedButton);
 		  authSuccess(responseText,jqueryForm);

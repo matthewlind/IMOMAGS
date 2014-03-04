@@ -10,8 +10,8 @@ header('Access-Control-Allow-Origin: *');
 date_default_timezone_set('America/New_York');
 
 //Default Settings
-$month = 3;
-$year = 2013;
+$month = 1;
+$year = 2014;
 //$location = 56425;
 
 //Grab the parameters
@@ -239,13 +239,13 @@ function importSolunarData($month,$year,$location) {
 		//Generate the start times and end times by adding and subtracting an hour
 		$dayData->ammajorstart = date("g:iA",$dayData->ammajortimestamp - 3600);
 		$dayData->ammajorend =   date("g:iA",$dayData->ammajortimestamp + 3600);
-		
+
 		$dayData->pmmajorstart = date("g:iA",$dayData->pmmajortimestamp - 3600);
 		$dayData->pmmajorend =   date("g:iA",$dayData->pmmajortimestamp + 3600);
-		
+
 		$dayData->amminorstart = date("g:iA",$dayData->amminortimestamp - 3600);
 		$dayData->amminorend =   date("g:iA",$dayData->amminortimestamp + 3600);
-		
+
 		$dayData->pmminorstart = date("g:iA",$dayData->pmminortimestamp - 3600);
 		$dayData->pmminorend =   date("g:iA",$dayData->pmminortimestamp + 3600);
 
@@ -378,7 +378,7 @@ function getLocationFromIP() {
 
 
 	$location = $locationData[0]->postalcode;
-	
+
 
 	if (!empty($location))
 		return $location;

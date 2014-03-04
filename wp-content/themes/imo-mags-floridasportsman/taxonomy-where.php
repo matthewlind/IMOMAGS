@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Taxonomy Archive with No Featured Content
+ * Results Page for Best Boat
  * 
  *
  * @package carrington-business
@@ -29,7 +29,7 @@ $taxonomy = $term->taxonomy;
 
 <header id="masthead">
 
-	<h1>Your Best Boat<br/><span style="font-size:14px;"><?php if (isset($_GET['where'])) {
+	<h1>Your Best Boat<br/><span style="font-size:14px;"><?php if (isset($_GET['where']) || is_tax('where')) {
 $taxonomy = 'where';
 $queried_term = get_query_var($taxonomy);
 $terms = get_terms($taxonomy, 'slug='.$queried_term);
@@ -39,7 +39,7 @@ if ($terms) {
   }
 }
 }
-?> <?php if (isset($_GET['price'])) {
+?> <?php if (isset($_GET['price']) || is_tax('price')) {
 $taxonomy = 'price';
 $queried_term = get_query_var($taxonomy);
 $terms = get_terms($taxonomy, 'slug='.$queried_term);
@@ -49,6 +49,7 @@ if ($terms) {
   }
 }
  } ?></span></h1>
+ 
 </header><!-- #masthead -->
 
 <div class="page-template-page-right-php taxonomy-page bw-fullwidth">
@@ -58,21 +59,72 @@ if ($terms) {
 		</div>
 	</div>
 
+	<?php
+	global $wp_query;
+		$args = array(
+		'orderby' => 'title',
+		'order' => 'ASC',
+		'posts_per_page' => -1,
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'column',
+				'field' => 'slug',
+				'terms' => 'bb-featured',
+			)
+		)
+	);
+	$args = array_merge( $wp_query->query, $args );
+	$the_query = new WP_Query( $args );
 
-<div class="col-abc taxonomy-col-abc">
-
-
-<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-
+	// The Loop
+	if ($the_query->have_posts()) {?>
+	<div class="col-abc taxonomy-col-abc">
+	<?php while ( $the_query->have_posts() ) : $the_query->the_post();?>
 	<div id="category-content">
 	<?php
        cfct_excerpt();
 	?>
 	</div>
+	
+	<?php wp_reset_postdata(); endwhile;?>
+	</div>
+	<hr/><br/>
+	<?php } else { ?>
+	<!--Nothing found!-->
+	<?php } ?>
+	
+<div class="col-abc taxonomy-col-abc">
 
- <?php endwhile; else: ?>
- <h3>No posts matching that criteria exist.</h3>
- <?php endif;?>
+	<?php
+	global $wp_query;
+		$args = array(
+		'orderby' => 'title',
+		'order' => 'ASC',
+		'posts_per_page' => -1,
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'column',
+				'field' => 'slug',
+				'terms' => 'bb-featured',
+				'operator' => 'NOT IN'
+			)
+		)
+	);
+	$args = array_merge( $wp_query->query, $args );
+	$the_query = new WP_Query( $args );
+
+	// The Loop
+	if ($the_query->have_posts()) { while ( $the_query->have_posts() ) : $the_query->the_post();?>
+	
+	<div id="category-content">
+	<?php
+       cfct_excerpt();
+	?>
+	</div>
+	
+	<?php wp_reset_postdata();
+
+	endwhile;}?>
 
 
 </div> <!-- end div col-abc-->

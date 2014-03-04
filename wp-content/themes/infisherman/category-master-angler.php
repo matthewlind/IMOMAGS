@@ -13,8 +13,8 @@ wp_enqueue_style('ajax-gallery-css',plugins_url('imo-flex-gallery/flex-gallery.c
 wp_enqueue_style('perfect-scrollbar-css',plugins_url('imo-flex-gallery/perfect-scrollbar-0.4.3.min.css'));
 
 $dataPos = 0;
-get_header(); ?>
-        <?php imo_sidebar("landing");?>
+get_header(); 
+imo_sidebar(); ?>
         <div id="primary" class="general">
             <div id="content" role="main" class="general-frame">
 
@@ -34,9 +34,7 @@ get_header(); ?>
                             if ( ! empty( $category_description ) )
                                 echo apply_filters( 'category_archive_meta', '<div data-position="'.$dataPos = $dataPos + 1 .'" class="category-archive-meta taxdescription js-responsive-section">' . $category_description . '</div>' ); ?>
 	                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="js-responsive-section">
-	                	<div class="custom-slider-section">
-	                	<?php //echo do_shortcode('[imo-slideshow community=true gallery=master-angler]'); ?>
-	                	</div>
+	                	<?php echo do_shortcode('[imo-slideshow community=true gallery=master-angler]'); ?>
 					</div>
 
                     <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="article-brief js-responsive-section ma-info">
@@ -44,7 +42,7 @@ get_header(); ?>
 	                    <div class="ma-enter">
 							<a href="/photos/new#master" class="btn-base"><span>Enter Now!</span></a>
 
-							<div>Want to mail your entry? <a href="http://www.in-fisherman.com/files/2012/02/2012MasterAnglerFP.pdf" target="_blank"><strong>Download a printable form (PDF)</strong></a>
+							<div>Want to mail your entry? <a href="<?php echo get_option('master_angler_pdf'); ?>" target="_blank"><strong>Download a printable form (PDF)</strong></a>
 							</div>
 	                    </div>
 
@@ -62,7 +60,7 @@ get_header(); ?>
 
 						<img src="http://www.in-fisherman.com/files/2011/07/species11.jpeg" alt="species1" title="species1" />
 
-						<h2>Rules for 2013</h2>
+						<h2>Rules for <?php echo date("Y"); ?></h2>
 
 						<ol>
 							<li>In-Fisherman readers and television viewers are eligible to apply for Master Angler awards.</li>
@@ -73,7 +71,7 @@ get_header(); ?>
 							<li>Measure released fish from the tip of the nose (with mouth closed) to the tip of the tail. Quickly photograph and release the fish. Don't hang fish to be released on a scale; impale them on a gaff, or place them on a stringer. Fish showing signs of improper handling will be disqualified.</li>
 							<li>Include a brief description of how the fish was caught.</li>
 							<li>Entry and photograph become the property of In-Fisherman with publication and television rights. We are not responsible for lost or mis- placed entries. Photos cannot be returned.</li>
-							<li>The awards program runs from Jan. 1 to Dec. 31, 2013. Entries must be received by Jan. 15, 2014, to qualify for the 2013 program.</li>
+							<li>The awards program runs from Jan. 1 to Dec. 31, <?php echo date("Y"); ?>. Entries must be received by Jan. 15, <?php echo date("Y") + 1; ?>, to qualify for the <?php echo date("Y"); ?> program.</li>
 							<li>Each entry is reviewed by the awards commit- tee whose decision is final.</li>
 							<li>For each species, only one kept and two released fish may be entered during the awards program year (no upgrading allowed).</li>
 							<li>Each entry must be mailed by angler catching fish and not by guide service or fishing lodge.</li>
@@ -84,7 +82,7 @@ get_header(); ?>
 					<div class="ma-enter" style="padding-top:20px;">
 						<a href="/photos/new#master" class="btn-base"><span>Enter Now!</span></a>
 
-						<div>Want to mail your entry? <a href="http://www.in-fisherman.com/files/2012/02/2012MasterAnglerFP.pdf" target="_blank"><strong>Download a printable form (PDF)</strong></a>
+						<div>Want to mail your entry? <a href="<?php echo get_option('master_angler_pdf'); ?>" target="_blank"><strong>Download a printable form (PDF)</strong></a>
 						</div>
                     </div>
                     </div>
@@ -97,7 +95,7 @@ get_header(); ?>
                             <li><a href="#">Most Shared</a></li>
                         </ul>
                     </div>-->
-                    <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" id="ma-entries" class="js-responsive-section main-content-preppend"></div>
+                    <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" id="ma-entries" class="posts-list js-responsive-section main-content-preppend"></div>
 							
 						<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="pager-holder js-responsive-section">
 	                    <a href="#" class="btn-base load-more" style="display:block;">Load More</a>
