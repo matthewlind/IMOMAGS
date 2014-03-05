@@ -146,7 +146,11 @@ if ( is_user_logged_in() ) {
 					</select>
 				</div>
 
+				<div class="terms-div">
 
+				<input type="checkbox" name="agreeToTerms" id="agree-to-terms" value="1"> I agree to <a href="http://www.imoutdoorsmedia.com/IM3/privacy.php">Terms</a>.
+
+				</div>
 
 				<% if (post && post.id) { %>
 						<input type="hidden" name="id" value="<%= post.id %>" >

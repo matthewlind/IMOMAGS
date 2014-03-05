@@ -210,7 +210,7 @@ jQuery(document).ready(function($) {
 			formData.master = 1;
 		}
 
-		console.log(formData);
+
 
 		//Check form fields
 		if (formData.img_url == undefined || formData.img_url.length < 1) {
@@ -230,6 +230,9 @@ jQuery(document).ready(function($) {
 			return false;
 		} else if (userIMO.username.length < 1) {
 			alert("Please login before you post.");
+			return false;
+		} else if (formData.agreeToTerms == undefined || formData.agreeToTerms.length < 1) {
+			alert("Please agree to Terms.");
 			return false;
 		} else {
 			return true;
