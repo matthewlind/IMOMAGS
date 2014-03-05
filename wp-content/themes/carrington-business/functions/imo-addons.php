@@ -13,7 +13,7 @@
 **
 ***/
 
-add_action("init","grab_bracket_polling_data");
+/*add_action("init","grab_bracket_polling_data");
 
 function grab_bracket_polling_data() {
 
@@ -76,7 +76,7 @@ function grab_bracket_polling_data() {
 
 
 
-}
+}*/
 
 
 function sitewide_scripts_method() {

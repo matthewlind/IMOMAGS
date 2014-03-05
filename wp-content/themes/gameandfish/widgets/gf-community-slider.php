@@ -42,7 +42,7 @@ class GF_Community_Slider extends WP_Widget {
                 <ul class="slides">
                 	<?php $i=1; foreach ($pictures as $picture) { $i++; 
 	                	if($picture->img_url){ ?>
-                			<li><a href="/photos/<?php echo $picture->tertiary_post_type; ?>/<?php if($picture->secondary_post_type != "null"){ echo $picture->secondary_post_type . "/"; } ?><?php echo $picture->post_type; ?>/<?php echo $picture->id; ?>"><img width="119" src="<?php echo $picture->img_url . $crop; ?>" alt="<?php echo $picture->title; ?>" /></a></li>
+                			<li><a href="/photos/<?php echo $picture->tertiary_post_type; ?>/<?php if($picture->secondary_post_type != "null" && $picture->secondary_post_type != null && $picture->secondary_post_type != ""){ echo $picture->secondary_post_type . "/"; } ?><?php echo $picture->post_type; ?>/<?php echo $picture->id; ?>"><img width="119" src="<?php echo $picture->img_url . $crop; ?>" alt="<?php echo $picture->title; ?>" /></a></li>
                 		<?php } ?>
                 	<?php if($i==11){ echo '<li class="slider-view-more"><a href="/photos">View More</a></li>'; } } ?>
                 </ul>
