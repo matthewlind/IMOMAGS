@@ -30,6 +30,21 @@ input[type="text"].title-input {display: none;width:60%;margin-bottom: 4px;}
 	width:30%;
 }
 
+
+
+.terms-div {
+
+	vertical-align: text-bottom;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.terms-div #agree-to-terms{
+
+	vertical-align: initial;
+
+}
+
 .f-row-center {
 	text-align: center;
 }
