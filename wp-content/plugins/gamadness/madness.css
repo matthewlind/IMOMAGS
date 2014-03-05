@@ -75,7 +75,7 @@
 	text-indent: 0.01px;
 	text-overflow: '';
 	appearance: none;
-	background: white url("images/dropdown-arrow.png") no-repeat scroll 97% 12px;
+	background: white url("../../themes/gunsandammo/images/dropdown-arrow.png") no-repeat scroll 97% 12px;
 	padding: 3px 10px;
 }
 .ga-madness-wrapper{width: 100%;}
@@ -178,7 +178,7 @@ action-area{margin: 0 auto;}
     width:16px;
     height:17px;
     content:"";
-    background:url(images/ga-madness/sprite.png) no-repeat -323px -36px;
+    background:url(../../themes/gunsandammo/images/ga-madness/sprite.png) no-repeat -323px -36px;
 }
 .btn-close-popup:hover:before {background-position:-339px -36px;}
 .btn-cancel {
@@ -186,7 +186,7 @@ action-area{margin: 0 auto;}
     height:50px;
     overflow:hidden;
     text-indent:-9999px;
-    background:url(images/ga-madness/sprite.png) no-repeat 0 -347px;
+    background:url(../../themes/gunsandammo/images/ga-madness/sprite.png) no-repeat 0 -347px;
 }
 .btn-cancel:hover {background-position: 0 -399px;}
 .btn-close-popup {
@@ -224,7 +224,7 @@ action-area{margin: 0 auto;}
 	color: white;
 }
 .thumbsup{
-	background: url(images/ga-madness/thumbsup.png) no-repeat;
+	background: url(../../themes/gunsandammo/images/ga-madness/thumbsup.png) no-repeat;
 	position: absolute;
 	top: 30px;
 	left: 0;
@@ -317,7 +317,7 @@ action-area{margin: 0 auto;}
 	.ga-madness .matchup .rank{padding: 6px 4px;font-size: 14px;}
 	.matchup .rank span{color: white !important;padding-right: 4px;}
 	.ga-madness .action-arrow{
-		background: url("images/ga-icons.png") no-repeat 0 -50px;
+		background: url("../../themes/gunsandammo/images/ga-icons.png") no-repeat 0 -50px;
 		height: 9px;
 		width: 7px;
 		position: absolute;

@@ -166,16 +166,11 @@ get_header(); ?>
 						
 					</div>
 				</div><!-- #tabs -->
-				<?php }else{ 
-					
+				<?php }
+				
 					the_content(); 
 				?>
-				
-				
-				
-				
-				
-				<?php } ?>
+
 				
 		    </div><!-- .article-holder -->
 		</div>
