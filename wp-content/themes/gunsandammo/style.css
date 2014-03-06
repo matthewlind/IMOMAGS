@@ -196,75 +196,49 @@ a.category-name-link.primary-cat{background-color: #ce181e;}
 ul.fancy li:nth-child(2n + 1), ol.fancy li:nth-child(2n + 1) {
   background: #F3F3F3;
 }
-
-/* line 525, sass/style.scss */
 .fancy ul li:nth-child(2n + 1), .fancy ol li:nth-child(2n + 1) {
   background: #F3F3F3;
 }
-
-/* line 529, sass/style.scss */
 .widget_rss ul li:nth-child(2n + 1), .widget_rss ol li:nth-child(2n + 1) {
   background: #F3F3F3;
 }
-
-/* line 533, sass/style.scss */
 .yarpp-content ul li:nth-child(2n + 1), .yarpp-content ol li:nth-child(2n + 1) {
   background: #F3F3F3;
 }
-
-/* line 536, sass/style.scss */
 ul.fancy li a, ol.fancy li a {
   color: #313131;
   font-weight: normal;
 }
-
-/* line 541, sass/style.scss */
 .fancy ul li a, .fancy ol li a {
   color: #313131;
   font-weight: normal;
 }
-
-/* line 546, sass/style.scss */
 .widget_rss ul li a, .widget_rss ol li a {
   color: #313131;
   font-weight: normal;
 }
-
-/* line 551, sass/style.scss */
 .yarpp-content ul li a, .yarpp-content ol li a {
   color: #313131;
   font-weight: normal;
 }
-
-/* line 555, sass/style.scss */
 ul.fancy li a:hover, ol.fancy li a:hover {
   color: #ce181e;
 }
-
-/* line 559, sass/style.scss */
 .fancy ul li a:hover, .fancy ol li a:hover {
   color: #ce181e;
 }
-
-/* line 563, sass/style.scss */
 .widget_rss ul li a:hover, .widget_rss ol li a:hover {
   color: #ce181e;
 }
-
-/* line 567, sass/style.scss */
 .yarpp-content ul li a:hover, .yarpp-content ol li a:hover {
   color: #ce181e;
 }
-
-/* line 570, sass/style.scss */
 ol.fancy li, .fancy ol li, .widget_rss ol li, .yarpp-content ol li {
   border-bottom: 1px solid white;
   min-height: 30px;
   padding-left: 34px;
   position: relative;
 }
-
-/* line 576, sass/style.scss */
 ol.fancy li span, .fancy ol li span, .widget_rss ol li span, .yarpp-content ol li span {
   font-family: "stagbold";
   background: black;
@@ -277,13 +251,9 @@ ol.fancy li span, .fancy ol li span, .widget_rss ol li span, .yarpp-content ol l
   top: 0;
   width: 30px;
 }
-
-/* line 589, sass/style.scss */
 .fancy, .widget_rss, .yarpp-content {
   text-align: center;
 }
-
-
 .fancy h4, .widget_rss h4, .yarpp-content h4 {
   display: -moz-inline-box;
   -moz-box-orient: vertical;

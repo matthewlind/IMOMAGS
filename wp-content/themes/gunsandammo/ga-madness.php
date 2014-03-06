@@ -23,14 +23,14 @@ get_header(); ?>
 				<span><?php the_title(); ?></span>
 		    </h1>
 		    <?php if(mobile()){ ?>
-		    	<img class="madness-logo-mobile" src="/wp-content/themes/gunsandammo/images/ga-madness/ga-madness-logo.png" alt="G&A Madness" title="G&A Madness" />
+		    	<img class="madness-logo-mobile" src="/wp-content/themes/gunsandammo/images/ga-madness/ga-madness-logo-galco.png" alt="G&A Madness" title="G&A Madness" />
 				<?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"presentingmadness")); 
 			} ?>
 		    <ul id="ga-madness-nav">
 				<li><a href="/bracket">Gun Bracket</a></li>
 				<li><a href="/bracket/enter">Enter</a></li>
 				<?php if(!mobile()){ ?>
-					<li class="madness-logo"><img src="/wp-content/themes/gunsandammo/images/ga-madness/ga-madness-logo.png" alt="G&A Madness" title="G&A Madness" />
+					<li class="madness-logo"><img src="/wp-content/themes/gunsandammo/images/ga-madness/ga-madness-logo-galco.png" alt="G&A Madness" title="G&A Madness" />
 					<?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"presentingmadness")); ?>
 				</li><?php } ?>
 				<li><a href="/bracket/prizes">Prizes & Rules</a></li>
