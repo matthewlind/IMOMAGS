@@ -719,11 +719,6 @@ function infish_community_init() {
 
 	$IMO_COMMUNITY_CONFIG['additional_styles'] = array(
 		array(
-			"style-name" => "solunar-base-css",
-			"style-path" => "solunar/css/css-php.css",
-			"style-dependencies" => null
-		),
-		array(
 			"style-name" => "solunar-style-css",
 			"style-path" => "solunar/css/styles.css?v=2",
 			"style-dependencies" => null
@@ -811,11 +806,6 @@ function infish_community_init() {
 	);
 
 	$IMO_COMMUNITY_CONFIG['additional_styles'] = array(
-		array(
-			"style-name" => "solunar-base-css",
-			"style-path" => "solunar/css/css-php.css",
-			"style-dependencies" => null
-		),
 		array(
 			"style-name" => "solunar-style-css",
 			"style-path" => "solunar/css/styles.css?v=2",

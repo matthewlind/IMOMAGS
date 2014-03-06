@@ -124,6 +124,8 @@ body {
 .wide-banner img {
     display:block;
 }
+.sponsor{float: none;}
+.sponsor img{margin: -65px auto 0;float: none;display: block;}
 .location-box {
     border-bottom:1px solid #eaeaea;
     padding:30px 40px 37px 35px;
