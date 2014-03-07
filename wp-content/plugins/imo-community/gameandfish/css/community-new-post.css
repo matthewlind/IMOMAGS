@@ -26,6 +26,21 @@ input[type="text"].title-input {display: none;width:60%;margin-bottom: 4px;}
 	width: 30%;
 }
 
+h1.new-header {
+
+font-size: 26px;
+display: block;
+width: 100%;
+margin-bottom: 10px;
+}
+
+p.new-p {
+
+margin:0px;
+padding:0px;
+font-size: 14px;
+}
+
 .basic-form input[type="text"].fishsize {
 	width:30%;
 }

@@ -393,7 +393,8 @@ if ( is_user_logged_in() ) {
 				    	<li><a href="/photos">All Photos</a></li>
 			    	<li> &raquo; Share Your Photo </li>
 					</ul>
-	                <h1>Share Your Photo</h1>
+	                <h1 class='new-header'>Your photo may be featured in the magazine!</h1>
+	                <p class='new-p'>Please include the names of everyone in the photo, the town and state where they live, and when and where the photo was taken (at least approximately).</p>
 	                <div class="sponsor"><?php imo_dart_tag("240x60"); ?></div>
 				</div>
 			</div>
