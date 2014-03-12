@@ -102,7 +102,7 @@ postType = post.post_type.replace("-"," ");
                     </ul>
                     <ul class="prof-like">
                     	<li>
-                    		<div addthis:url="http://<?php echo $_SERVER['SERVER_NAME']; ?>/photos/<%= post.tertiary_post_type %>/<%= post.secondary_post_type %>/<%= post.post_type %>/<%= post.id %>" addthis:title="<%= post.title %>" class="addthis_toolbox addthis_default_style ">
+                    		<div addthis:url="<%= post.post_url %>" addthis:title="<%= post.title %>" class="addthis_toolbox addthis_default_style ">
 								<a class="addthis_button_facebook_like"fb:like:layout="button_count"></a>
 							</div>
 
@@ -192,7 +192,7 @@ imo_sidebar("community");
             <div class="title-crumbs">
             	<ul class="breadcrumbs">
 			    	<li><a href="/photos">All Photos</a></li>
-			    	<?php 
+			    	<?php
 			    	$post_type = str_replace("-", " ", $post_type_primary);
 			    	if($post_type_tertiary){ ?><li style="margin-top:1px;text-transform:capitalize;"> &raquo; <a href="/photos/<?php echo $post_type_tertiary; ?>"><?php echo $post_type_tertiary; ?></a></li><?php } ?>
 			    	<?php if($post_type_secondary){ ?>

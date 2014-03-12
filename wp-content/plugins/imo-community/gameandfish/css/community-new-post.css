@@ -26,9 +26,37 @@ input[type="text"].title-input {display: none;width:60%;margin-bottom: 4px;}
 	width: 30%;
 }
 
+.gform_wrapper select.new-select {
+
+
+	font-size:14px;
+}
+
+.gform_wrapper .ginput_complex .ginput_left.ginput_or,
+.gform_wrapper .ginput_complex .ginput_right.ginput_or {
+
+	width:47%;
+}
+
+span.or-span {
+
+	/*padding-left:3px;*/
+}
+
+.gform_wrapper select.new-select.species-new-select {
+
+
+	width: 96% !important;
+}
+.your-story {
+
+
+	width:100%;
+}
+
 h1.new-header {
 
-font-size: 26px;
+font-size: 32px;
 display: block;
 width: 100%;
 margin-bottom: 10px;
