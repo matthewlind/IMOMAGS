@@ -1360,8 +1360,11 @@ function processMasterAngler($params){
 
 
 
+		if ($params['domain'] == "www.in-fisherman.com") {
 
-		sendMAEmail($params);
+			sendMAEmail($params);
+		}
+
 }
 
 function sendMAEmail($params) {
