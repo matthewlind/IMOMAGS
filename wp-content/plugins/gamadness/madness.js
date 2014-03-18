@@ -170,6 +170,7 @@
 								template.find("#popuptitle").html(regions[region]+": First Round");
 							},
 							open: function() {
+								slidecnt--;
 								jQuery.magnificPopup.instance.goTo(slide);
 								
 								googletag.cmd.push(function() {
@@ -178,21 +179,17 @@
 								});
 								jQuery(".next-matchup").on("click", function() {
 									console.log("slidecnt: "+slidecnt+", region: "+region);
-									if(slidecnt<9)
+									if(slidecnt<8)
 										jQuery.magnificPopup.instance.next();
 									else {
-										console.log("In reset");
 										slidecnt = 0;
 										var nextRegion = parseInt(region)+1;
 										if(nextRegion == 5) nextRegion = 1;
 								
 										region = nextRegion.toString();
-										console.log("new region: "+region);
-										jQuery("div[data-region='"+region+"'][data-idx='0'][data-round='2']").trigger("click");														
-										
-									}	
+										jQuery("div[data-region='"+region+"'][data-idx='0'][data-round='2']").trigger("click");				
+									}
 								});
-								
 								
 							},
 							change: function() {
@@ -201,8 +198,9 @@
 								
 								_gaq.push(['_trackPageview',"/" + window.location.pathname + "/match"+item.data.id]);
 								
+								
 								setTimeout(function() {
-									jQuery(".gunone img, .guntwo img").css({ opacity: 1 });
+									jQuery(".gunone img, .guntwo img, .gunone h2, .guntwo h2").css({ opacity: 1 });
 									var btn1 = '<div class="popup-vote-btn" data-mid="'+item.data.id+'" data-pnum="1">VOTE</div>';
 									jQuery("#popvoteon1").html(btn1);
 									var btn2 = '<div class="popup-vote-btn" data-mid="'+item.data.id+'" data-pnum="2">VOTE</div>';
@@ -240,8 +238,8 @@
 				//var scoretot = score1 + score2;
 				//var per1 = ((score1/scoretot)*100).toFixed(0);
 				//var per2 = ((score2/scoretot)*100).toFixed(0);
-				if(pnum=="1") jQuery(".guntwo img").fadeTo("fast", "0.5");
-				if(pnum=="2") jQuery(".gunone img").fadeTo("fast", "0.5");
+				if(pnum=="1") jQuery(".guntwo img, .guntwo h2").fadeTo("fast", "0.5");
+				if(pnum=="2") jQuery(".gunone img, .gunone h2").fadeTo("fast", "0.5");
 				
 				jQuery("#popvoteon1").html('<div class="popvoted '+((pnum=="2")? "popvoted-no":"")+'">'+score1+' Votes</div>');
 				jQuery("#popvoteon2").html('<div class="popvoted '+((pnum=="1")? "popvoted-no":"")+'">'+score2+' Votes</div>');
