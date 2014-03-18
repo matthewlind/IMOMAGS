@@ -795,6 +795,10 @@ MagnificPopup.prototype = {
 						if(arr.length == 3) {
 							el.attr('data-'+arr[2], value);
 						}
+					} else if(attr === 'href') {
+						
+						el.attr('href', value);
+					
 					} else {
 						el.attr(arr[1], value);
 					}

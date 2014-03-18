@@ -16,166 +16,35 @@
  
 $dataPos = 0;
 get_header(); ?>
-    <div id="content" role="main">
+    <div id="content" role="main" data-mobile="">
 		<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header clearfix js-responsive-section">
 			<h1 class="page-title" style="display:none;height:0;">
 				<div class="icon"></div>
 				<span><?php the_title(); ?></span>
 		    </h1>
 		    <?php if(mobile()){ ?>
-		    	<img class="madness-logo-mobile" src="/wp-content/themes/gunsandammo/images/ga-madness/ga-madness-logo.png" alt="G&A Madness" title="G&A Madness" />
+		    	<img class="madness-logo-mobile" src="/wp-content/themes/gunsandammo/images/ga-madness/GA-gun-madness-galco-small.png" alt="G&A Madness" title="G&A Madness" />
 				<?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"presentingmadness")); 
 			} ?>
 		    <ul id="ga-madness-nav">
 				<li><a href="/bracket">Gun Bracket</a></li>
 				<li><a href="/bracket/enter">Enter</a></li>
 				<?php if(!mobile()){ ?>
-					<li class="madness-logo"><img src="/wp-content/themes/gunsandammo/images/ga-madness/ga-madness-logo.png" alt="G&A Madness" title="G&A Madness" />
-					<?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"ga_madness")); ?>
-				</li><?php } ?>
+					<li class="madness-logo"><img src="/wp-content/themes/gunsandammo/images/ga-madness/GA-gun-madness-galco-small.png" alt="G&A Madness" title="G&A Madness" />
+					</li>
+				<?php } ?>
 				<li><a href="/bracket/prizes">Prizes & Rules</a></li>
 				<li><a href="/bracket/how-it-works">How it Works</a></li>
 			</ul>
 		</div>
 		<div data-position="<?php echo $dataPos = $dataPos + 1; ?>"  id="post-<?php the_ID(); ?>" <?php post_class('article-brief clearfix js-responsive-section'); ?>>
 			<div class="article-holder ga-madness">
-				<?php if(!mobile()){ ?>
-					<ul class="schedule">
-						<li class="active-round">First Round<div>March, 18-21</div></li>
-						<li>Second Round<div>March, 18-21</div></li>
-						<li>Sweet 16<div>March, 18-21</div></li>
-						<li>Elite 8<div>March, 18-21</div></li>
-						<li>Final Four<div>March, 18-21</div></li>
-						<li>Final Round<div>March, 18-21</div></li>
-					</ul>
-				<?php } ?>
-				<div class="addthis-below"><?php if (function_exists('imo_add_this')) {imo_add_this();} ?></div>
-				<?php if(mobile()){ ?>
-				<div id="tabs">
-					<ul class="rounds">
-						<li><a href="#tabs-1">1st</a></li>
-						<li><a href="#tabs-2">2nd</a></li>
-						<li><a href="#tabs-3">Sweet 16</a></li>
-						<li><a href="#tabs-4">Elite 8</a></li>
-						<li><a href="#tabs-5">Final 4</a></li>
-						<li class="final-round"><a href="#tabs-6">Final</a></li>
-					</ul>
-					
-					<div id="tabs-1">
-						<div class="gun-types">
-							<select>
-								<option value="">SELECT A GUN REGION</option>
-								<option value="#handguns">Handguns</option>
-								<option value="#shotguns">Shotguns</option>
-								<option value="#rifles">Rifles</option>
-								<option value="#ar15s">AR-15s</option>
-							</select>
-						</div>
 
-						<h2 id="handguns">Handguns</h2>
-						<?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"handgunsmadness")); ?>
-						<div class="matchup">									
-							<div class="contender vote-pop">
-								<div class="action-arrow"></div>
-								<div class="rank rank-top"><span>1</span><div>Springfield XD-S 4.0</div></div>
-								<div class="rank rank-bottom"><span>8</span><div>Colt M45A1 CQBP Marine Pistol</div></div>
-							</div>
-						</div>
-						<div class="matchup">									
-							<div class="contender vote-pop">
-								<div class="action-arrow"></div>
-								<div class="rank rank-top"><span>1</span><div>Springfield XD-S 4.0</div></div>
-								<div class="rank rank-bottom"><span>8</span><div>Colt M45A1 CQBP Marine Pistol</div></div>
-							</div>
-						</div>
-						<a href="#" class="go-top jq-go-top">go top</a>
-						<div class="clearfix"></div>
-						
-						<h2 id="shotguns">Shotguns</h2>
-						<?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"shotgunsmadness")); ?>
-						<div class="matchup">									
-							<div class="contender vote-pop">
-								<div class="action-arrow"></div>
-								<div class="rank rank-top"><span>1</span><div>Springfield XD-S 4.0</div></div>
-								<div class="rank rank-bottom"><span>8</span><div>Colt M45A1 CQBP Marine Pistol</div></div>
-							</div>
-						</div>
-						<div class="matchup">									
-							<div class="contender vote-pop">
-								<div class="action-arrow"></div>
-								<div class="rank rank-top"><span>1</span><div>Springfield XD-S 4.0</div></div>
-								<div class="rank rank-bottom"><span>8</span><div>Colt M45A1 CQBP Marine Pistol</div></div>
-							</div>
-						</div>
-						<a href="#" class="go-top jq-go-top">go top</a>
-						<div class="clearfix"></div>
-						
-						<h2 id="rifles">Rifles</h2>
-						<?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"riflesmadness")); ?>
-						<div class="matchup">									
-							<div class="contender vote-pop">
-								<div class="action-arrow"></div>
-								<div class="rank rank-top"><span>1</span><div>Springfield XD-S 4.0</div></div>
-								<div class="rank rank-bottom"><span>8</span><div>Colt M45A1 CQBP Marine Pistol</div></div>
-							</div>
-						</div>
-						<div class="matchup">									
-							<div class="contender vote-pop">
-								<div class="action-arrow"></div>
-								<div class="rank rank-top"><span>1</span><div>Springfield XD-S 4.0</div></div>
-								<div class="rank rank-bottom"><span>8</span><div>Colt M45A1 CQBP Marine Pistol</div></div>
-							</div>
-						</div>
-						<a href="#" class="go-top jq-go-top">go top</a>
-						<div class="clearfix"></div>
-						
-						<h2 id="ar15s">Ar-15s</h2>
-						<?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"arsmadness")); ?>
-						<div class="matchup">									
-							<div class="contender vote-pop">
-								<div class="action-arrow"></div>
-								<div class="rank rank-top"><span>1</span><div>Springfield XD-S 4.0</div></div>
-								<div class="rank rank-bottom"><span>8</span><div>Colt M45A1 CQBP Marine Pistol</div></div>
-							</div>
-						</div>
-						<div class="matchup">									
-							<div class="contender vote-pop">
-								<div class="action-arrow"></div>
-								<div class="rank rank-top"><span>1</span><div>Springfield XD-S 4.0</div></div>
-								<div class="rank rank-bottom"><span>8</span><div>Colt M45A1 CQBP Marine Pistol</div></div>
-							</div>
-						</div>
-						<a href="#" class="go-top jq-go-top">go top</a>
-						<div class="clearfix"></div>
-					</div>
-					<div id="tabs-2">
-						<p>Come back on March 00 to see who advances!</p>
-					</div>
-					<div id="tabs-3">
-						
-						
-					</div>
-					<div id="tabs-4">
-						
-						
-					</div>
-					<div id="tabs-5">
-						
-					</div>
-					<div id="tabs-6">
-						
-					</div>
-				</div><!-- #tabs -->
-				<?php }else{ 
-					
-					the_content(); 
+				<?php
+					$ismobile = mobile();
+					//$ismobile = true;
+					the_content();
 				?>
-				
-				
-				
-				
-				
-				<?php } ?>
 				
 		    </div><!-- .article-holder -->
 		</div>
@@ -235,8 +104,9 @@ get_header(); ?>
 
 		
 	</div><!-- #content -->
-	<div class="clearfix"></div>
-	<div class="overlay"></div>
+
+	
+	
 <?php get_footer(); ?>
 
 
