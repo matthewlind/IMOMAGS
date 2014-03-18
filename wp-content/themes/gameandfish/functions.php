@@ -384,6 +384,30 @@ function gf_post_sets_page() {
 }
 
 
+/******************************************************************************************
+ * Admin Settings Menu for Community New Post Promo Image
+ ******************************************************************************************/
+
+/* add_settings_field callback */
+function gf_community_promo_settings_option() {
+    echo "<input type='text' name='community_promo_image_url' id='gf-promo-settings' value='".get_option("community_promo_image_url", "" )."' />";
+}
+
+function gf_community_promo_settings_section() {
+    echo "";
+}
+
+/* admin_menu callback. */
+function gf_community_promo_settings_init() {
+    add_settings_section("community_promo_settings", __("Community Promo Settings"), "gf_community_promo_settings_section", "general");
+    add_settings_field("community_promo_image_url", __("Community Promo Image URL"), "gf_community_promo_settings_option", "general", "community_promo_settings");
+    register_setting("general", "community_promo_image_url");
+}
+add_action("admin_menu", "gf_community_promo_settings_init");
+
+
+
+
 
 //Configure G&F community
 //This section does nothing unless imo-community plugin is enabled

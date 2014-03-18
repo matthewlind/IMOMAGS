@@ -16,7 +16,7 @@ License: GPL2
 	
 function madness_func( $atts ) {
 	global $ismobile;
-	//include("madnesstmpl.php");
+
 	return jsGAMRender($ismobile);
 }
 add_shortcode( 'madness', 'madness_func' );
@@ -25,7 +25,6 @@ add_shortcode( 'madness', 'madness_func' );
 	wp_enqueue_style( 'madnesscss', plugin_dir_url( __FILE__ ) . 'madness.css' );
 	wp_enqueue_script( 'magnificjs', plugin_dir_url( __FILE__ ) . 'jquery.magnific-popup.js');
 	wp_enqueue_style( 'magnificcss', plugin_dir_url( __FILE__ ) . 'magnific-popup.css');
-	wp_enqueue_script( 'jqueryads', plugin_dir_url( __FILE__ ) . 'jquery.ads.js');
 
 function renderGAMpopup($mobile) {
 	$outp = "";
@@ -34,7 +33,7 @@ function renderGAMpopup($mobile) {
     <div class="white-popup mfp-hidden"><div class="mfp-close"></div>
         <div class='mfp-counter'></div>
 	    <div class="popup-inner clearfix gun">
-	    	<h3>The Matchup</h3>
+	    	<h3 id="popuptitle">The Matchup</h3>
 			<div class="popmatchbrackettop"></div>
 			<div class="popmatchbracket"></div>
 	    	<div class="vote-section gun gunone">
@@ -54,7 +53,7 @@ function renderGAMpopup($mobile) {
 		    		<div class="popup-vote-btn mfp-mid" data-pnum="2">VOTE</div>
 		    	</div>
 	    	</div>
-	    	<a class="next-matchup">Go to the next matchup <span>&raquo;</span></a>
+	    	<div class="next-matchup">Go to the next matchup <span>&raquo;</span></div>
 	    	
 	    	<div class="modal-footer">
 	    		<div class="modal-footer-content">
@@ -88,7 +87,7 @@ function jsGAMRender($mobile) {
 	$ismobile = ($mobile)? "true":"false"; 
 
 
-if($mobile) {
+  if($mobile) {
 	$outp.= '<div class="ga-madness-votestats"></div>';
 	
 	if (function_exists('imo_add_this'))
@@ -139,8 +138,8 @@ if($mobile) {
 		 .  '  </div>'
 		 .  '  </div>';
 
-}
-else {
+  }
+  else {
 
 	$outp.= '<ul class="schedule">'
 		 .  '  <li class="active-round">First Round<div>March 18-23</div></li>'
@@ -211,7 +210,8 @@ else {
 		 .  '</div>'
 	 
 		 .  '</div>';
-}	
+  }	
+
 	$outp.= '<script type="text/javascript">';
 	$outp.= 'var ismobile = '.$ismobile.';';
 	

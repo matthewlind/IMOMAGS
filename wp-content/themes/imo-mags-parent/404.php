@@ -18,7 +18,7 @@ imo_sidebar(); ?>
             <div id="content" role="main">
             	 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header article-brief clearfix js-responsive-section">
 					 <strong class="message-not-found">Error: Page not found.</strong>
-					 <p style="padding: 0 30px 30px;">Unfortunately, We can't find the page you are looking for. Here are the latest stories from In-Fisherman</p>
+					 <p style="padding: 0 30px 30px;">Unfortunately, We can't find the page you are looking for. Here are the latest stories.</p>
             	 </div>
 				<div class="posts-list js-responsive-section main-content-preppend">
 						<?php

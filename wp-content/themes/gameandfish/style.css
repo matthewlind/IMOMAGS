@@ -617,6 +617,7 @@ margin-right:0px;
 .article-holder .entry-content{font-size: 15px;color: #757575;}
 /* Single Post Page
  ******************************************************************************/
+blockquote{color: #cda220;}
 .post-header {border-bottom:4px solid #373737;}
 .post-header h1 {color:#373737;clear: both;}
 .meta-date-author {color:#7e7e7e;}

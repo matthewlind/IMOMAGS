@@ -44,6 +44,34 @@ if ( is_user_logged_in() ) {
 	<!-- ***************** UNDERSCORE TEMPLATE ********************* -->
 	<!-- *********************************************************** -->
 	<script type="text/template" id="new-post-template">
+
+		<?php
+
+			$url = get_option("community_promo_image_url", "" );
+
+			if (!empty($url)) {
+
+
+
+
+				echo "<img width=100% src='$url' class='community-promo-image'>";
+
+			}
+
+
+
+
+		?>
+		<div class="gform_wrapper master-angler-form-container"  style="" id="master-angler-container">
+            <div class='gform_body'>
+                <ul class='gform_fields top_label description_below' >
+                    <li class='gfield gsection' >
+                        <h2 class='gsection_title'>Step 1: Upload Your Photo</h2>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
 		<form id="new-post-form">
 			 <div class="basic-form post-page">
 		        <div id="attachments" class="clearfix">
@@ -63,21 +91,162 @@ if ( is_user_logged_in() ) {
 				<div class="loading-gif"></div>
 
 
-				<div class="dropdown-selects">
-					<select id="ma-species" class="post_type alter-sel mobile-select" name="post_type">
-		         		<option value="" >SELECT SPECIES</option>
+
+
+				<% if (post && post.id) { %>
+						<input type="hidden" name="id" value="<%= post.id %>" >
+				<% } %>
+
+
+
+
+	            <div class="gform_wrapper master-angler-form-container"  style="" id="master-angler-container">
+
+	                <div class='gform_body'>
+	                    <ul class='gform_fields top_label description_below' >
+
+
+
+                        <li class='gfield gsection' >
+	                            <h2 class='gsection_title'>Step 2: About Your Photo</h2>
+	                        </li>
+
+
+	                        <p class='new-p'>Your photo may be featured in the magazine!</p>
+
+	                        <li class='gfield formname gfield_contains_required' >
+	                            <label class='gfield_label' for='input_4_3_3'>Choose Species<span class='gfield_required'>*</span></label>
+
+	                            <div class='ginput_complex ginput_container species-section' >
+	                                <span class='ginput_left ginput_or' >
+
+					<select id="ma-species" class="post_type alter-sel mobile-select new-select species-new-select" name="post_type_hunting">
+		         		<option value="" >Hunting</option>
 		         		<% var prevTertType = ''; %>
 				 		<% _.each(species,function(animal,index){   %>
-				 			<% if (prevTertType != animal.tertiary) { %>
-				 				<option value="<%= animal.tertiary %>" class='not-uppercase' <%= animal.tertiary == "hunting" || animal.tertiary == "fishing" ? "disabled" : "" %>>- <%= animal.tertiary %> - </option>
-
+				 			<% if (animal.tertiary == "hunting") { %>
+				 				<option value="<%= animal.post_type %>" <%= post && post.post_type == index ? "SELECTED" : "" %> ><%= animal.display_name %></option>
 				 			<% } %>
-		         			<option value="<%= animal.post_type %>" <%= post && post.post_type == index ? "SELECTED" : "" %> ><%= animal.display_name %></option>
-		         			<% prevTertType = animal.tertiary; %>
+
+
 				 		<% }); %>
 			        </select>
-				    <select name="state" placeholder="Choose the state for this post:" class="alter-sel mobile-select" id="ma-state">
-			            <option value="" >SELECT STATE</option>
+
+	                                </span>
+
+	                                <span class="or-span"> or </span>
+
+	                                <span class='ginput_right ginput_or' >
+
+					<select id="ma-species" class="post_type alter-sel mobile-select new-select species-new-select" name="post_type_fishing">
+		         		<option value="" >Fishing</option>
+		         		<% var prevTertType = ''; %>
+				 		<% _.each(species,function(animal,index){   %>
+				 			<% if (animal.tertiary == "fishing") { %>
+				 				<option value="<%= animal.post_type %>" <%= post && post.post_type == index ? "SELECTED" : "" %> ><%= animal.display_name %></option>
+				 			<% } %>
+				 		<% }); %>
+			        </select>
+
+	                                    </span>
+	                            </div>
+	                        </li>
+
+
+	                        <li class='gfield gfield_contains_required' >
+	                            <label class='gfield_label' for='input_4_44'>Where was the photo taken? (at least approximately) <span class='gfield_required'>*</span></label>
+
+	                            <div class='ginput_container'>
+	                                <input class='large'  name='body_of_water' tabindex='9' type='text' value=''>
+	                            </div>
+	                        </li>
+
+	                        <li class='gfield gfield_contains_required' >
+	                            <label class='gfield_label' for='input_4_10'>When was the Photo Taken?<span class='gfield_required'>*</span></label>
+
+	                            <div class='clear-multi'>
+	                                <div class='gfield_date_month ginput_container' >
+	                                    <input  maxlength='2' name='month' tabindex='21' type='text' value=''><label for='input_4_10_1'>MM</label>
+	                                </div>
+
+	                                <div class='gfield_date_day ginput_container' >
+	                                    <input  maxlength='2' name='day' tabindex='22' type='text' value=''><label for='input_4_10_2'>DD</label>
+	                                </div>
+
+	                                <div class='gfield_date_year ginput_container' >
+	                                    <input  maxlength='4' name='year' tabindex='23' type='text' value=''><label for='input_4_10_3'>YYYY</label>
+	                                </div>
+	                            </div>
+	                        </li>
+
+
+
+	                        <li class='gfield gfield_contains_required' >
+	                            <label class='gfield_label' for='input_4_45'>Who is in the picture?<span class='gfield_required'>*</span></label>
+
+	                            <div class='ginput_container'>
+	                                <input class='large'  name='nearest_town' tabindex='25' type='text' value=''>
+	                            </div>
+	                        </li>
+
+	                        <li class='gfield' >
+	                            <label class='gfield_label' for='input_4_45'>Tell us more about the Story</label>
+
+	                            <div class='ginput_container'>
+	                                <textarea class='medium your-story' name='body' tabindex='27'></textarea>
+	                            </div>
+	                        </li>
+
+
+	                        <li class='gfield gsection' >
+	                            <h2 class='gsection_title'>Step 3: About You</h2>
+	                        </li>
+
+
+	                        <li class='gfield formname gfield_contains_required' >
+	                            <label class='gfield_label' for='input_4_3_3'>Name<span class='gfield_required'>*</span></label>
+
+	                            <div class='ginput_complex ginput_container' >
+	                                <span class='ginput_left' >
+	                                    <input  name='first_name' tabindex='1' type='text' value=''>
+	                                        <label for=''>First</label>
+	                                </span>
+	                                <span class='ginput_right' >
+	                                    <input  name='last_name' tabindex='2' type='text' value=''>
+	                                        <label for=''>Last</label>
+	                                    </span>
+	                            </div>
+	                        </li>
+
+	                        <li class='gfield gfield_contains_required' >
+	                            <label class='gfield_label' for='input_4_4'>Email<span class='gfield_required'>*</span></label>
+
+	                            <div class='ginput_complex ginput_container' >
+	                                <span class='ginput_left' >
+	                                	<input  name='email' tabindex='3' type='text' value='' class="email-field">
+	                                	<label for='input_4_4'>Enter Email</label>
+	                                </span>
+	                                <span class='ginput_right' >
+	                                	<input  name='confirm-email' tabindex='4' type='text' value='' class="email-field">
+	                                	<label for='input_4_4_2'>Confirm Email</label>
+	                                </span>
+	                            </div>
+
+
+	                        </li>
+
+	                        <li class='gfield formaddress gfield_contains_required' >
+	                            <label class='gfield_label' for='input_4_5_1'>Where You Live<span class='gfield_required'>*</span></label>
+
+	                            <div class='ginput_complex ginput_container' >
+
+	                                <span class='ginput_left' >
+	                                    <input  name='city' tabindex='7' type='text' value=''>
+	                                    <label for='input_4_5_3' >City</label>
+	                                </span>
+	                                <span class='ginput_right' >
+	                                    				    <select name="state" tabindex='8' placeholder="Choose the state for this post:" class="post_type alter-sel mobile-select new-select" id="ma-state">
+			            <option value="" >Choose State</option>
 			            <option value="AL" <%= post && post.state == "AL" ? "SELECTED" : "" %> >Alabama</option>
 			            <option value="AK" <%= post && post.state == "AK" ? "SELECTED" : "" %> >Alaska</option>
 			            <option value="AZ" <%= post && post.state == "AZ" ? "SELECTED" : "" %> >Arizona</option>
@@ -144,199 +313,25 @@ if ( is_user_logged_in() ) {
 			            <option value="YT" <%= post && post.state == "YT" ? "SELECTED" : "" %> >Yukon, Canada</option>
                         <option value="MX" <%= post && post.state == "MX" ? "SELECTED" : "" %> >Mexico</option>
 					</select>
-				</div>
-
-
-
-				<% if (post && post.id) { %>
-						<input type="hidden" name="id" value="<%= post.id %>" >
-				<% } %>
-
-                <div class="enter-master-angler" style="display:none;">
-                    <img src="/wp-content/themes/infisherman/images/pic/badge-ma.png">
-                    <h2>Awesome catch.</h2>
-
-                    <p>Congratulations! Your fish qualifies for Master Angler.</p>
-
-
-
-					<span class="btn-red btn-post btn-new-post"><a href="" class="enter-ma-now">Enter Your Catch!</a></span>
-		            <div>
-
-					    <span class=""><a href="" class="no-thanks">No Thanks</a></span>
-					</div>
-
-                    <a href="#" class="ma-read-rules">Read Rules</a>
-                </div>
-
-
-
-	            <div class="gform_wrapper master-angler-form-container"  style="display:none;" id="master-angler-container">
-
-	                <div class='gform_body'>
-	                    <ul class='gform_fields top_label description_below' >
-	                        <li class='gfield gsection' >
-	                            <h2 class='gsection_title'>Master Angler <span>Contact Information</span></h2>
-	                        </li>
-
-	                        <li class='gfield formname gfield_contains_required' >
-	                            <label class='gfield_label' for='input_4_3_3'>Name<span class='gfield_required'>*</span></label>
-
-	                            <div class='ginput_complex ginput_container' >
-	                                <span class='ginput_left' >
-	                                    <input  name='first_name' tabindex='1' type='text' value=''>
-	                                        <label for=''>First</label>
-	                                </span>
-	                                <span class='ginput_right' >
-	                                    <input  name='last_name' tabindex='2' type='text' value=''>
-	                                        <label for=''>Last</label>
-	                                    </span>
-	                            </div>
-	                        </li>
-
-	                        <li class='gfield gfield_contains_required' >
-	                            <label class='gfield_label' for='input_4_4'>Email<span class='gfield_required'>*</span></label>
-
-	                            <div class='ginput_complex ginput_container' >
-	                                <span class='ginput_left' >
-	                                	<input  name='email' tabindex='3' type='text' value='' class="email-field">
-	                                	<label for='input_4_4'>Enter Email</label>
-	                                </span>
-	                                <span class='ginput_right' >
-	                                	<input  name='confirm-email' tabindex='4' type='text' value='' class="email-field">
-	                                	<label for='input_4_4_2'>Confirm Email</label>
-	                                </span>
-	                            </div>
-
-
-	                        </li>
-
-	                        <li class='gfield formaddress gfield_contains_required' >
-	                            <label class='gfield_label' for='input_4_5_1'>Address<span class='gfield_required'>*</span></label>
-
-	                            <div class='ginput_complex ginput_container' >
-	                                <span class='ginput_full' >
-	                                    <input  name='street_address_1' tabindex='5' type='text' value=''>
-	                                    <label for='input_4_5_1' >Street Address</label>
-	                                </span>
-	                                <span class='ginput_full' >
-	                                    <input  name='street_address_2' tabindex='6' type='text' value=''>
-	                                    <label for='input_4_5_2' >Address Line 2</label>
-	                                </span>
-	                                <span class='ginput_left' >
-	                                    <input  name='city' tabindex='7' type='text' value=''>
-	                                    <label for='input_4_5_3' >City</label>
-	                                </span>
-	                                <span class='ginput_right' >
-	                                    <input  name='state_address' tabindex='9' type='text' value=''>
 	                                    <label for='input_4_5_4' >State / Province / Region</label>
 	                                </span>
-	                                <span class='ginput_left' >
-	                                    <input  name='zip' tabindex='10' type='text' value=''>
-	                                    <label for='input_4_5_5' >Zip / Postal Code</label>
-	                                </span>
+
 
 	                            </div>
 	                        </li>
 
-	                        <li class='gfield formphone gfield_contains_required' >
-	                            <label class='gfield_label' for='input_4_6'>Phone<span class='gfield_required'>*</span></label>
 
-	                            <div class='ginput_container'>
-	                                <input class='medium'  name='phone' tabindex='12' type='text' value=''>
-	                            </div>
-	                        </li>
-
-	                        <li class='gfield gsection' >
-	                            <h2 class='gsection_title'>About Your Catch</h2>
-	                        </li>
-
-
-
-	                        <li class='gfield gfield_contains_required' >
-	                            <label class='gfield_label' for='input_4_10'>Date Caught<span class='gfield_required'>*</span></label>
-
-	                            <div class='clear-multi'>
-	                                <div class='gfield_date_month ginput_container' >
-	                                    <input  maxlength='2' name='month' tabindex='21' type='text' value=''><label for='input_4_10_1'>MM</label>
-	                                </div>
-
-	                                <div class='gfield_date_day ginput_container' >
-	                                    <input  maxlength='2' name='day' tabindex='22' type='text' value=''><label for='input_4_10_2'>DD</label>
-	                                </div>
-
-	                                <div class='gfield_date_year ginput_container' >
-	                                    <input  maxlength='4' name='year' tabindex='23' type='text' value=''><label for='input_4_10_3'>YYYY</label>
-	                                </div>
-	                            </div>
-	                        </li>
-
-	                        <li class='gfield gfield_contains_required' >
-	                            <label class='gfield_label' for='input_4_44'>Body of Water<span class='gfield_required'>*</span></label>
-
-	                            <div class='ginput_container'>
-	                                <input class='medium'  name='body_of_water' tabindex='24' type='text' value=''>
-	                            </div>
-	                        </li>
-
-	                        <li class='gfield gfield_contains_required' >
-	                            <label class='gfield_label' for='input_4_45'>Nearest Town<span class='gfield_required'>*</span></label>
-
-	                            <div class='ginput_container'>
-	                                <input class='medium'  name='nearest_town' tabindex='25' type='text' value=''>
-	                            </div>
-	                        </li>
-
-
-
-	                        <li class='gfield'>
-	                            <label class='gfield_label' for='input_4_15'>Lure or Bait</label>
-
-	                            <div class='ginput_container'>
-	                                <input class='medium'  name='kind_of_lure' tabindex='32' type='text' value=''>
-	                            </div>
-	                        </li>
-
-	                        <li class='gfield gfield_contains_required' >
-	                            <label class='gfield_label' for='input_4_14'>Kept or Released<span class='gfield_required'>*</span></label>
-
-	                            <div class='ginput_container'>
-	                                <select class='small gfield_select'  name='kept' onchange='' tabindex='31'>
-	                                    <option selected='selected' value='Select'>
-	                                        Select
-	                                    </option>
-
-	                                    <option value='1'>
-	                                        Kept
-	                                    </option>
-
-	                                    <option value='0'>
-	                                        Released
-	                                    </option>
-	                                </select>
-	                            </div>
-	                        </li>
-
-	                        <li class='gfield' >
-	                            <label class='gfield_label'>Newsletters &amp; Special Offers</label>
-
-	                            <div class='ginput_container'>
-	                                <ul class='gfield_checkbox' >
-	                                    <li class='gchoice_41_1'><input checked='checked'  name='yes_newsletter' tabindex='57' type='checkbox' value='1'><label for='choice_41_1'>Yes, sign me up for the In-Fisherman Newsletter!</label></li>
-
-	                                    <li class='gchoice_41_2'><input checked='checked'  name='yes_offers' tabindex='58' type='checkbox' value='1'><label for='choice_41_2'>I&#39;d also like to recieve special offers!</label></li>
-	                                </ul>
-	                            </div>
-	                        </li>
-
-	                        <li class='gfield gfield_html gfield_html_formatted gfield_no_follows_desc' >
-	                            <a href="#">Official Rules</a>
-	                        </li>
 
 
 	                    </ul>
 	                </div>
 	            </div>
+
+	            <div class="terms-div">
+
+					<input type="checkbox" name="agreeToTerms" id="agree-to-terms" value="1"> I agree to <a href="http://www.imoutdoorsmedia.com/IM3/privacy.php">Terms</a>.
+
+				</div>
 	            <div class="login-area">
 	            	<p class="login-message" style="<?php echo $loginStyle; ?>">Post Your Photo:</p>
 	            	<a href="#" id="imo-fb-login-button" class="imo-community-new-post fb-login join-widget-fb-login btn-fb-login">Fast Login & Submit</a>
@@ -369,9 +364,7 @@ if ( is_user_logged_in() ) {
 		      		<img src="<%= attachment.img_url %>/convert?w=150&h=150&fit=crop&rotate=exif" width=75 height=75 style="height:75px">
 		      	</div>
       	</a>
-	  	 <div class="caption-area" name="caption-body" value="<%= attachment.body %>">
-            <textarea id="" class="area caption-field" cols="30" rows="10" placeholder="Tell Us Where and How you Caught It"></textarea>
-        </div>
+
 
 	</script>
 	<!-- *********************************************************** -->
@@ -389,7 +382,8 @@ if ( is_user_logged_in() ) {
 				    	<li><a href="/photos">All Photos</a></li>
 			    	<li> &raquo; Share Your Photo </li>
 					</ul>
-	                <h1>Share Your Photo</h1>
+	                <h1 class='new-header'>Share Your Photo</h1>
+
 	                <div class="sponsor"><?php imo_dart_tag("240x60"); ?></div>
 				</div>
 			</div>

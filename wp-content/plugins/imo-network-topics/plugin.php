@@ -11,7 +11,7 @@ Stable tag: 0.1
 License: IMO
 */
 include('widget.php');
-include('page-widget.php');
+//include('page-widget.php');
 
 /********************************
 *******LOAD SCRIPTS & STYLE******

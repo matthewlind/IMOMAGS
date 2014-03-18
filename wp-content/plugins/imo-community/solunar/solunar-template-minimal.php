@@ -38,8 +38,6 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
     <link rel="pingback" href="<?php bloginfo('pingback_url') ?>" />
     <?php wp_get_archives(array('type' => 'monthly', 'format' => 'link')); ?>
-
-    <link rel="stylesheet" type="text/css" media="screen" href="<?php bloginfo('template_url'); ?>/css/css.php?ver=<?php echo CFCT_URL_VERSION; ?>" />
     <!--[if lt IE 9]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->

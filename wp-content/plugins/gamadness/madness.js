@@ -21,7 +21,7 @@
 			success: function(resp, status, jqxhr) {
 				//console.log(resp.data);
 				if(ismobile) {
-					console.log("debug: .tabs-"+(parseInt(round)-1)+" .mreg"+region);
+					
 					jQuery("#tabs-"+(parseInt(round)-1)+" .mreg"+region).html(writeGAMBracket(resp.data));
 				}
 				else {
@@ -78,7 +78,7 @@
 			var activem = parseInt(row.status) == 1;
 			
 			outp+='<div class="matchup '+((activem)? "activem":"")
-				+'" data-mid="'+row.id+'" data-region="'+row.region+'" data-idx="'+i+'">'
+				+'" data-mid="'+row.id+'" data-region="'+row.region+'" data-idx="'+i+'" data-round="'+row.round+'">'
 				+ '<div class="contender votepop">'
 				if(activem) outp+='<div class="action-arrow"></div>';
 			outp+='<div class="rank rank-top '+((winner==1)?"matchwinner":"")+'">'
@@ -105,6 +105,7 @@
 		 	var region = jQuery(this).data("region");
 		 	var mid = jQuery(this).data("mid");
 		 	var slide = jQuery(this).data("idx");
+		 	var slidecnt = 0;
 		 	
 		 	jQuery.ajax({
 				type: "GET",
@@ -113,10 +114,8 @@
 				data: {"format": "json", "round": "2", "region": region},
 				dataType: "json",
 
-				success: function(resp, status, jqxhr) {
-					
+				success: function(resp, status, jqxhr) {					
 					pdata = resp.data;
-					//console.log(pdata);
 					
 					jQuery.each(pdata, function(i, row) {
 						pdata[i].mid_data_mid = pdata[i].id;
@@ -135,6 +134,7 @@
 						'arsmadness' : 'Pelican-GA-MAdness-popup-300x120.jpg',
 						'shotgunsmadness' : 'Winchester-GA-MAdness-popup-300x120.jpg'
 					}
+					var regions = {'1':'Handguns', '2':'Rifles', '3':'Modern Sporting Rifles', '4':'Shotguns'}
 					
 					var campaigns = new Array('handgunsmadness', 'riflesmadness', 'arsmadness', 'shotgunsmadness');
 					pdata[0].campaign = campaigns[parseInt(pdata[0].region)-1];
@@ -155,31 +155,52 @@
 							navigateByImgClick: false,
 							arrowMarkup: '',
 							tPrev: '',
-							tNext: ''
+							tNext: '',
+							tCounter: '%curr% of %total% '
 						},
 						callbacks: {
 							markupParse: function(template, values, item) {
-								//console.log(item);
+								console.log(item);
 								region = parseInt(item.data.region);
+								round = parseInt(item.data.round)-1;
 								campaign = campaigns[region-1];
 								campimg = "/wp-content/themes/gunsandammo/images/ga-madness/"+popads[campaign];
 								template.find("#popupsponsor a").html('<img src="'+campimg+'" />');
+								console.log(regions[item.data.region]);
+								template.find("#popuptitle").html(regions[region]+": First Round");
 							},
 							open: function() {
 								jQuery.magnificPopup.instance.goTo(slide);
+								
 								googletag.cmd.push(function() {
 									//googletag.setTargeting("camp", pdata[0].campaign);
 									googletag.display('div-gpt-ad-1386782139095-3'); 
 								});
 								jQuery(".next-matchup").on("click", function() {
-									jQuery.magnificPopup.instance.next();
+									console.log("slidecnt: "+slidecnt+", region: "+region);
+									if(slidecnt<9)
+										jQuery.magnificPopup.instance.next();
+									else {
+										console.log("In reset");
+										slidecnt = 0;
+										var nextRegion = parseInt(region)+1;
+										if(nextRegion == 5) nextRegion = 1;
+								
+										region = nextRegion.toString();
+										console.log("new region: "+region);
+										jQuery("div[data-region='"+region+"'][data-idx='0'][data-round='2']").trigger("click");														
 										
+									}	
 								});
+								
 								
 							},
 							change: function() {
 								var item = jQuery.magnificPopup.instance.currItem;
-								//console.log(item);
+								slidecnt++;
+								
+								_gaq.push(['_trackPageview',"/" + window.location.pathname + "/match"+item.data.id]);
+								
 								setTimeout(function() {
 									jQuery(".gunone img, .guntwo img").css({ opacity: 1 });
 									var btn1 = '<div class="popup-vote-btn" data-mid="'+item.data.id+'" data-pnum="1">VOTE</div>';
@@ -197,7 +218,7 @@
 									});
 									
 								}, 200);
-							}	
+							}
 						}
 					});	
 				}
@@ -225,10 +246,17 @@
 				jQuery("#popvoteon1").html('<div class="popvoted '+((pnum=="2")? "popvoted-no":"")+'">'+score1+' Votes</div>');
 				jQuery("#popvoteon2").html('<div class="popvoted '+((pnum=="1")? "popvoted-no":"")+'">'+score2+' Votes</div>');
 				
-				jQuery(".next-matchup").show();
 				
+				jQuery(".next-matchup").show();
+
 			}
 		});
+	}
+	
+	function jumpRegion(newregion) {
+	
+		jQuery("div[data-region='"+nextRegion+"'][data-idx='0'][data-round='2']").trigger("click");
+		//console.log("Go Next Region! - "+(parseInt(region)+1));
 	}
 	
 	

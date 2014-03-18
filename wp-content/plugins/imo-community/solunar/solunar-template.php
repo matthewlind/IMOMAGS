@@ -90,11 +90,6 @@ if ( is_user_logged_in() ) {
                     </div>
                     <div class="cal-row presented-by">
 
-<!-- Site - In-Fisherman/solunar_calendar -->
-
-    <a href="http://ad.doubleclick.net/N4930/jump/imo.in-fisherman/solunar_calendar;sz=125x125;sect=solunarcalendar;page=solunar_calendar;ord=[timestamp]?">
-    <img src="http://ad.doubleclick.net/N4930/ad/imo.in-fisherman/solunar_calendar;sz=125x125;sect=solunarcalendar;page=solunar_calendar;ord=[timestamp]?" width="125" height="125" />
-    </a>
 
                     </div>
                 </div>
@@ -122,7 +117,10 @@ if ( is_user_logged_in() ) {
 
     <div class="frame">
         <div class="wide-banner">
-            <a href="#"><img src="wp-content/plugins/imo-community/solunar/images/banner/banner-back.jpg" width="1020" height="176" alt="" /></a>
+            <img src="wp-content/plugins/imo-community/solunar/images/banner/banner-back.jpg" width="1020" height="176" alt="" />
+        </div>
+        <div class="sponsor">
+        	<?php imo_dart_tag("240x60"); ?>
         </div>
         <div class="location-box jq-custom-form">
             <form action="#">

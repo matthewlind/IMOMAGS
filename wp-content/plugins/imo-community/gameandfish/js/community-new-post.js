@@ -8,7 +8,7 @@ jQuery(document).ready(function($) {
 	postAttachments = [];
 	postData = [];
 
-	postData.master = 0;
+	postData.master = 1;
 
 	//*******************************************************
 	//****************** DISPLAY THE FORM *******************
@@ -165,13 +165,38 @@ jQuery(document).ready(function($) {
 
 
 
+
 		//Validate form data and submit
 		if (validateFormData(newPostData)) {
 			$('.btn-submit').fadeOut();
 			$('.loading-gif').fadeIn();
 
+
+
+			if (newPostData.post_type_hunting.length > 0) {
+				newPostData.post_type = newPostData.post_type_hunting;
+			}
+			if (newPostData.post_type_fishing.length > 0) {
+				newPostData.post_type = newPostData.post_type_fishing;
+			}
+
+
+			newPostData.state_address = newPostData.state;
+
+
+
 			newPostData.secondary_post_type = speciesData[newPostData.post_type].secondary;
 			newPostData.tertiary_post_type = speciesData[newPostData.post_type].tertiary;
+
+
+						var newBody = "<p>"+ newPostData.body + "</p>"
+									+ "<p class='post-detail'><span>Species:</span> " +  newPostData.post_type + "</p>"
+									+ "<p class='post-detail'><span>Taken at:</span> " +  newPostData.body_of_water + "</p>"
+									+ "<p class='post-detail'><span>Taken On:</span> " +  newPostData.month + "/" + newPostData.day + "/" +  newPostData.year + "</p>"
+									+ "<p class='post-detail'><span>With:</span> " +  newPostData.nearest_town + "</p>";
+
+
+			newPostData.body = newBody;
 
 			$.post("http://" + document.domain + "/community-api/posts",newPostData,function(data){
 
@@ -205,12 +230,9 @@ jQuery(document).ready(function($) {
 	function validateFormData(formData) {
 
 
-		//Check master angler:
-		if (formData.last_name.length > 1 && formData.email.length > 1 && formData.zip.length > 1 && formData.body_of_water.length > 1) {
-			formData.master = 1;
-		}
 
-		console.log(formData);
+
+
 
 		//Check form fields
 		if (formData.img_url == undefined || formData.img_url.length < 1) {
@@ -220,9 +242,9 @@ jQuery(document).ready(function($) {
 			alert("Please give this post a title.");
 			return false;
 		} else if (formData.body == undefined || formData.body.length < 1) {
-			alert("Please tell us where and how you caught it.");
+			alert("Please tell Your Story.");
 			return false;
-		} else if (formData.post_type.length < 1) {
+		} else if (formData.post_type_fishing.length < 1 && formData.post_type_hunting.length < 1) {
 			alert("Please select a species.");
 			return false;
 		} else if (formData.state.length < 1) {
@@ -230,6 +252,9 @@ jQuery(document).ready(function($) {
 			return false;
 		} else if (userIMO.username.length < 1) {
 			alert("Please login before you post.");
+			return false;
+		} else if (formData.agreeToTerms == undefined || formData.agreeToTerms.length < 1) {
+			alert("Please agree to Terms.");
 			return false;
 		} else {
 			return true;
