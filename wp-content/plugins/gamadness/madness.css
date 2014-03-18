@@ -189,9 +189,11 @@ ul#ga-madness-nav li a:hover{
 	background: #c9242c;
 	width: 100%;
 	text-align: center;
-	margin: 10px auto;
+	margin: 1px auto 10px;
 	color: white;
-	cursor: pointer;}
+	cursor: pointer;
+	width: 240px;
+}
 .filter-fade-out,
 .btn-close-popup,
 .btn-cancel {display:none;}
