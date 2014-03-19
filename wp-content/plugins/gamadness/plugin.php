@@ -125,6 +125,8 @@ function jsGAMRender($mobile) {
 		 .  '    <h2 id="shotguns">Shotguns</h2>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"shotgunsmadness")) .'</div>'
 		 .  '    <div class="mreg2"></div>'
+		 .  '  </div>'
+		 
 		 .  '  <div id="tabs-2">'
 		 .  '    <p>Come back on March 00 to see who advances!</p>'
 		 .  '  </div>'
@@ -136,7 +138,7 @@ function jsGAMRender($mobile) {
 		 .  '  </div>'
 		 .  '  <div id="tabs-6">'
 		 .  '  </div>'
-		 .  '  </div>';
+		 .  '</div>';
 
   }
   else {

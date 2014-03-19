@@ -53,8 +53,8 @@
 			dataType: "json",
 
 			success: function(resp, status, jqxhr) {
-				var seed = 0;
-				resp[0].tvotes = parseInt(resp[0].tvotes)+seed;
+				var seed = 123456;
+				resp[0].tvotes = parseInt(resp[0].tvotes);
 				var vcount = resp[0].tvotes.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 				jQuery(".ga-madness-votestats").html("<strong>Total Votes:</strong><br />"+vcount+"");
 			
