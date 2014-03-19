@@ -78,14 +78,18 @@
 	background: white url("../../themes/gunsandammo/images/dropdown-arrow.png") no-repeat scroll 97% 12px;
 	padding: 3px 10px;
 }
+.ga-madness-votestats {text-align:center;margin-bottom: -44px;font-size:x-large;}
+.votebar {background-color: #c9242c; height:20px;float:left;}
+.votebartext {color: #c9242c; float:left;}
+
 .ga-madness-wrapper{width: 100%;}
 .ga-madness .addthis-below{width: 250px;clear: both;margin-top: 70px;}
 .regions{width: 49%;display: inline-block;}
-.region-final{width: 100%;margin: 0 0 40px;}
+.region-final{width: 100%;margin: 0 0 50px;}
 .region-final .column6 .matchup{border-width: 0;margin-top: 15px;}
 .region-final .column6 .rank-top{border-bottom: 1px solid #2d2d2d;margin: 0;padding: 0 10px 8px;}
 .region-final .column{width: 33%;}
-.final-wrapper{width: 60%;margin: 0 auto;}
+.final-wrapper{width: 60%;margin: 15px auto 10px;}
 .final-wrapper h2{text-align: center;}
 .final-wrapper img{margin: 0 auto;display: block;}
 .region1, .region3{margin-right: 10px;}
@@ -103,8 +107,8 @@
 .region-right{float: right;}
 .region-left h2{margin: 14px 6px 2px 0;float: left;}
 .region-right h2{text-align: right;margin: 14px 0 2px 6px;float: right}
-.region-left img{float: right;}
-.region-right img{float: left;}
+.region-left img{float: right;width:170px;height:auto;margin:0px 10px;}
+.region-right img{float: left;width:170px;height:auto;margin:0px 10px;}
 ul#ga-madness-nav{
 	list-style: none;
 	height: 50px;
@@ -116,7 +120,7 @@ ul#ga-madness-nav{
 #ga-madness-nav .madness-logo img{
 	margin: 6px auto 20px;
 	display: block;
-	width: 70%;
+	width: 90%;
 	margin-top: -30px;
 }
 ul#ga-madness-nav li{
@@ -155,8 +159,22 @@ ul#ga-madness-nav li a:hover{
 }
 .ga-madness .action-arrow:before{content: "VOTE";}
 .basic-popup .modal-footer{width: 100%;margin-top: 30px;}
+.modal-footer {margin-top: 10px;}
 .modal-footer-content{max-width: 620px;margin: 0 auto;}
-action-area{margin: 0 auto;}
+.modal-footer-content-left {float:left;width:50%;min-width: 300px;}
+.modal-footer-content-right {float:left;width:50%;min-width: 300px;}
+.action-area{margin: 0 auto;}
+
+.popup-inner .addthis-below{max-width: 250px;}
+.popup-inner .modal-footer .bracket-sposor, .popup-inner .related-content{float: left; width:300px;}
+.popup-inner .modal-footer .bracket-sposor{margin-right:20px;}
+.popup-inner .related-content {float:left;background: #ccc;padding: 10px;margin: 16px 0 16px 0;}
+.popup-inner .related-content li{text-align: left;padding: 4px 0;margin: 0;width: 280px;}
+.popup-inner .flex-direction-nav{display: block;}
+.popup-inner .flex-direction-nav .flex-prev{background-position: 0 -52px !important;opacity: 1;top: 240px;}
+.popup-inner .flex-direction-nav .flex-next{background-position: -33px -52px !important;opacity: 1;top: 240px;}
+
+
 .basic-popup .addthis-below{max-width: 250px;}
 .basic-popup .modal-footer .bracket-sposor, .basic-popup .related-content{float: left; width:300px;}
 .basic-popup .modal-footer .bracket-sposor{margin-right:20px;}
@@ -165,7 +183,17 @@ action-area{margin: 0 auto;}
 .basic-popup .flex-direction-nav{display: block;}
 .basic-popup .flex-direction-nav .flex-prev{background-position: 0 -52px !important;opacity: 1;top: 240px;}
 .basic-popup .flex-direction-nav .flex-next{background-position: -33px -52px !important;opacity: 1;top: 240px;}
-.next-matchup{text-decoration: underline;font-style: italic;text-align: right;cursor: pointer;}
+.next-matchup{
+	font-style: italic;
+	padding: 5px 12px;
+	background: #c9242c;
+	width: 100%;
+	text-align: center;
+	margin: -4px auto 10px;
+	color: white;
+	cursor: pointer;
+	width: 240px;
+}
 .filter-fade-out,
 .btn-close-popup,
 .btn-cancel {display:none;}
@@ -178,7 +206,7 @@ action-area{margin: 0 auto;}
     width:16px;
     height:17px;
     content:"";
-    background:url(../../themes/gunsandammo/images/ga-madness/sprite.png) no-repeat -323px -36px;
+    background:url(images/ga-madness/sprite.png) no-repeat -323px -36px;
 }
 .btn-close-popup:hover:before {background-position:-339px -36px;}
 .btn-cancel {
@@ -186,7 +214,7 @@ action-area{margin: 0 auto;}
     height:50px;
     overflow:hidden;
     text-indent:-9999px;
-    background:url(../../themes/gunsandammo/images/ga-madness/sprite.png) no-repeat 0 -347px;
+    background:url(images/ga-madness/sprite.png) no-repeat 0 -347px;
 }
 .btn-cancel:hover {background-position: 0 -399px;}
 .btn-close-popup {
@@ -216,15 +244,11 @@ action-area{margin: 0 auto;}
     text-align: center;
 }
 .popup-vote{
-	padding: 5px 10px;
-	background: #c9242c;
 	width: 100%;
 	text-align: center;
-	margin: 10px auto;
-	color: white;
 }
 .thumbsup{
-	background: url(../../themes/gunsandammo/images/ga-madness/thumbsup.png) no-repeat;
+	background: url(images/ga-madness/thumbsup.png) no-repeat;
 	position: absolute;
 	top: 30px;
 	left: 0;
@@ -285,16 +309,81 @@ action-area{margin: 0 auto;}
 }
 .filter-popup-opened {z-index:100;}
 .filter-popup-opened .main {position:static;}
-.vote-section{display: inline-block;position: relative;}
+.vote-section{display: inline-block;position: relative;margin-top: 8px;}
 .vote-section img{width: 100%;height: auto;}
 .vote-section.gun{width: 44%;}
 .vote-section.gun h2{font-size: 1.3em;margin-bottom: 10px;text-align: left;}
 .vote-section.versus{font-size:24px;text-align: center;width: 9%;vertical-align: top;}
 .vote-section.versus div{position: relative;margin-top: 180%;}
+
+
+.white-popup {
+  position: relative;
+  background: #FFF;
+  height:
+  width:90%;
+  height:100%;
+  max-width: 1050px;
+  margin: 70px auto;
+}
+#popupsponsor {
+	float: left;
+	width:300px;
+	height:120px;
+	background:  #4c3910;
+	color: white;
+	}
+
+.region1 .column4 {
+	background-color: ;
+} 
+.ga-madness .finalsadvert {
+	margin-top:-140px;
+	text-align: center;
+}
+.popmatchbrackettop {
+	width:1px;
+	height:12px;
+	margin:1px auto 0;
+	border-left: 1px solid #c9242c;
+}
+.popmatchbracket {
+	width:56%;
+	height:24px;
+	margin:0 auto 0px;
+	border: 1px solid #c9242c;
+	border-bottom: none;
+}
+.popup-vote-btn {
+	padding: 5px 10px;
+	background: #c9242c;
+	width: 100%;
+	text-align: center;
+	margin: 10px auto;
+	color: white;
+	cursor: pointer;
+}
+.popvoted {
+	padding: 5px 10px;
+	background: #c9242c;
+	width: 150px;
+	text-align: center;
+	margin: 10px auto;
+}
+.popvoted-no {
+	color: #111111;
+	background: #eaa7aa;
+}
+.vote-section.gun h2 {
+	text-align: center;
+}
+#popuptitle {
+	letter-spacing: 1px;
+}
  
 @media only screen and (max-width: 880px){
 	.matchup .rank span, .ga-madness .matchup .rank{font-size: 10px;}
-	#ga-madness-nav .madness-logo img{margin-top: -16px;}
+	#ga-madness-nav .madness-logo img{margin-top: -16px;margin-bottom: 10px;}
 }
 @media only screen and (max-width: 700px){	
 	.vote-section.versus{font-size: 14px;}
@@ -333,10 +422,13 @@ action-area{margin: 0 auto;}
 	.matchup .rank-bottom{position: relative;}
 	.addthis-below{padding: 12px 0 14px;}
 	.page-template-ga-madness-php .page-header{border-width: 0;}
-	.popup-inner{padding: 20px 10px;}
+	.popup-inner{padding: 27px 10px;}
 }
 @media only screen and (max-width: 340px){
 	.ga-madness ul.rounds li{padding: 10px 8px;}
 	.ga-madness ul.rounds li.ui-tabs-selected a:after {top: 38px;}
 	ul#ga-madness-nav{list-style: none;height: auto;position: relative;margin: 0 auto 0 -11px;width: 370px;}
+}
+@media only screen and (max-width:320px) {
+	.white-popup{margin-left: -7px;width: 320px;}
 }

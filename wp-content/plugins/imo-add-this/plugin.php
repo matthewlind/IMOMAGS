@@ -16,10 +16,10 @@ License: IMO
 
 
 
-function imo_add_this() {
+function imo_add_this($print = true) {
 
 
-	print '<!-- IMO AddThis Button BEGIN -->
+	$output = '<!-- IMO AddThis Button BEGIN -->
 <div addthis:url="' . get_permalink() . '" addthis:title="' . htmlentities(get_the_title()) . '" class="addthis_toolbox addthis_default_style ">
 	<a class="addthis_button_facebook_like"fb:like:layout="button_count"></a>
 	<a class="addthis_button_tweet"></a>
@@ -50,6 +50,12 @@ function postShared(event) {
 </script>
 <!-- IMO AddThis Button END -->
 ';
+
+	if ($print)
+		print($output);
+	else
+		return $output;
+
 }
 
 
