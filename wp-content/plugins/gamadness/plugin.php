@@ -89,7 +89,6 @@ EOF;
 }
 function jsGAMRender($mobile) {
 	$outp = "";
-	$mobile = true;
 	$ismobile = ($mobile)? "true":"false"; 
 	
 
