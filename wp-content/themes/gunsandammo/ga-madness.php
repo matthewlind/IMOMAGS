@@ -22,9 +22,9 @@ get_header(); ?>
 				<div class="icon"></div>
 				<span><?php the_title(); ?></span>
 		    </h1>
-		    <?php if(mobile()){ ?>
+		    <?php if(true){ ?>
 		    	<img class="madness-logo-mobile" src="/wp-content/themes/gunsandammo/images/ga-madness/GA-gun-madness-galco-small.png" alt="G&A Madness" title="G&A Madness" />
-				<?php echo get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"presentingmadness")); 
+				<?php echo "<div style='text-align:center;'>".get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"presentingmadness"))."</div>"; 
 			} ?>
 		    <ul id="ga-madness-nav">
 				<li><a href="/bracket">Gun Bracket</a></li>

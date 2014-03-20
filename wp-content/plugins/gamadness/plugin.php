@@ -89,8 +89,9 @@ EOF;
 }
 function jsGAMRender($mobile) {
 	$outp = "";
+	$mobile = true;
 	$ismobile = ($mobile)? "true":"false"; 
-
+	
 
   if($mobile) {
 	$outp.= '<div class="ga-madness-votestats"></div>';

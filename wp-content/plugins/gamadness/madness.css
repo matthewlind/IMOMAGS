@@ -380,6 +380,9 @@ ul#ga-madness-nav li a:hover{
 #popuptitle {
 	letter-spacing: 1px;
 }
+.madnessmobilepresent {
+	text-align: center;
+}
  
 @media only screen and (max-width: 880px){
 	.matchup .rank span, .ga-madness .matchup .rank{font-size: 10px;}
@@ -391,7 +394,7 @@ ul#ga-madness-nav li a:hover{
 	.vote-section.gun h2{font-size: 16px;}
 }
 @media only screen and (max-width: 610px){
-	ul#ga-madness-nav{list-style: none;height: auto;position: relative;margin: 0 auto;width: 332px;}
+	ul#ga-madness-nav{list-style: none;height: 30px;position: relative;margin: 0 auto;width: 332px;}
 	ul#ga-madness-nav li{float: left;padding: 0 4px 0;width: auto;text-align: center;margin: 0;border-left: 1px solid #ccc;line-height: 1;}	
 	ul#ga-madness-nav li:first-child{border-width: 0;}
 	ul#ga-madness-nav li a{font-size: 14px;}
@@ -416,7 +419,7 @@ ul#ga-madness-nav li a:hover{
 		margin: auto;
 		left: auto;
 	}
-	.ga-madness .addthis-below{max-width: 250px;}
+	.ga-madness .addthis-below{max-width: 250px;margin-top: 50px;}
 	.matchup .rank span, .ga-madness .matchup .rank{font-size: 14px;}
 	.ga-madness .action-arrow:before{content: "";}
 	.matchup .rank-bottom{position: relative;}
