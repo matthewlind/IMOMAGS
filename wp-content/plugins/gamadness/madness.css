@@ -96,11 +96,11 @@
 .region2 .matchup, .region4 .matchup, .column7 .matchup{border-width: 1px 0 1px 1px;}
 .region2 .column, .region4 .column, .region7 .column{float: right;}
 .column{width: 25%;margin: 0;float: left;}
-.column2{margin-top: 50px;}
+.ga-madness .column2{margin-top: 50px;}
 .column2 .matchup{height: 110px;margin-bottom: 110px;}
-.column3{margin-top: 110px;}
+.ga-madness .column3{margin-top: 110px;}
 .column3 .matchup{height: 220px;margin-bottom: 210px;}
-.column4{margin-top: 220px;}
+.ga-madness .column4{margin-top: 220px;}
 .column4 .matchup{height: 430px;}
 .region-titles{width: 100%;display: inline-block;}
 .region-left{float: left;}

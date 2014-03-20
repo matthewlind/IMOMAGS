@@ -25,6 +25,11 @@ add_shortcode( 'madness', 'madness_func' );
 	wp_enqueue_style( 'madnesscss', plugin_dir_url( __FILE__ ) . 'madness.css' );
 	wp_enqueue_script( 'magnificjs', plugin_dir_url( __FILE__ ) . 'jquery.magnific-popup.js');
 	wp_enqueue_style( 'magnificcss', plugin_dir_url( __FILE__ ) . 'magnific-popup.css');
+	
+	wp_enqueue_script( 'htmlparser', plugin_dir_url( __FILE__ ) . 'htmlParser.js');
+	wp_enqueue_script( 'postscribe', plugin_dir_url( __FILE__ ) . 'postscribe.js');
+	wp_enqueue_script( 'xdomainrequest', plugin_dir_url( __FILE__ ) . 'xdomainrequest.min.js');
+	
 
 function renderGAMpopup($mobile) {
 	$outp = "";
@@ -70,7 +75,7 @@ function renderGAMpopup($mobile) {
 						</div>
 		    		</div>
 		    		<div class="modal-footer-content-right">
-		    			<div id="div-gpt-ad-1386782139095-3"></div>
+		    			<div id="gpt-ad-1386782139095-3"></div>
 		    		</div>
 	    		</div>
 	    	</div>
@@ -142,7 +147,7 @@ function jsGAMRender($mobile) {
 
   }
   else {
-
+	
 	$outp.= '<ul class="schedule">'
 		 .  '  <li class="active-round">First Round<div>March 18-23</div></li>'
 		 .  '  <li>Second Round<div>March 24-27</div></li>'

@@ -6,12 +6,13 @@
 		jQuery('.gun-types select').change(function(){
 			var value = jQuery(this).val();
 			if(value)
-			jQuery('html, body').animate({scrollTop: jQuery("h2#" + value).offset().top}, "slow");
+				jQuery('html, body').animate({scrollTop: jQuery("h2#" + value).offset().top}, "slow");
 		});
 		
 	});
 	
 	function getGAMData(region, round) {
+
 		jQuery.ajax({
 			type: "GET",
 			url: "http://www.imoutdoors.com/bracket/getMatches",
@@ -19,7 +20,6 @@
 			dataType: "json",
 
 			success: function(resp, status, jqxhr) {
-				//console.log(resp.data);
 				if(ismobile) {
 					
 					jQuery("#tabs-"+(parseInt(round)-1)+" .mreg"+region).html(writeGAMBracket(resp.data));
@@ -39,6 +39,12 @@
 						jQuery(".region"+region+" .column"+(parseInt(round)-1)).html(writeGAMBracket(resp.data));
 					}
 				}
+			},
+			fail: function() {
+				alert("Communication Failure");
+			},
+			error: function(jqXHR, textStatus, errorThrown) {
+				alert(errorThrown);
 			}
 			
 		});
@@ -98,6 +104,18 @@
 		return outp;
 	}
 	
+	navigator.sayswho= (function(){
+    	var ua= navigator.userAgent, tem, 
+		M= ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*([\d\.]+)/i) || [];
+		if(/trident/i.test(M[1])){
+        	tem=  /\brv[ :]+(\d+(\.\d+)?)/g.exec(ua) || [];
+			return 'IE '+(tem[1] || '');
+	    }
+		M= M[2]? [M[1], M[2]]:[navigator.appName, navigator.appVersion, '-?'];
+		if((tem= ua.match(/version\/([\.\d]+)/i))!= null) M[2]= tem[1];
+		return M.join(' ');
+	})();
+	
 	function makeGAMPopup() {
 		 		 
 		 jQuery(".activem").on("click", function() {
@@ -106,6 +124,12 @@
 		 	var mid = jQuery(this).data("mid");
 		 	var slide = jQuery(this).data("idx");
 		 	var slidecnt = 0;
+		 	var yourBrowser = navigator.sayswho;
+		 	if(yourBrowser.substring(0,6)=="MSIE 8") {
+			 	var msg = "Unfortunately, bracket voting requires a modern web browser.\r\n\r\n"
+			 			+ "You need to upgrade your browser in order to continue.";
+			 	alert(msg);	
+		 	}
 		 	
 		 	jQuery.ajax({
 				type: "GET",
@@ -160,25 +184,25 @@
 						},
 						callbacks: {
 							markupParse: function(template, values, item) {
-								console.log(item);
 								region = parseInt(item.data.region);
 								round = parseInt(item.data.round)-1;
 								campaign = campaigns[region-1];
 								campimg = "/wp-content/themes/gunsandammo/images/ga-madness/"+popads[campaign];
 								template.find("#popupsponsor a").html('<img src="'+campimg+'" />');
-								console.log(regions[item.data.region]);
+																
 								template.find("#popuptitle").html(regions[region]+": First Round");
 							},
 							open: function() {
 								slidecnt--;
 								jQuery.magnificPopup.instance.goTo(slide);
 								
-								googletag.cmd.push(function() {
-									//googletag.setTargeting("camp", pdata[0].campaign);
-									googletag.display('div-gpt-ad-1386782139095-3'); 
-								});
+								var bidadtag = '<script src=http://ad.doubleclick.net/adj/imo.gunsandammo/bracket;'
+								+'camp='+pdata[0].campaign+';sect=;manf=;pos=;page=ga_madness;subs=;sz=300x250;'
+								+'dcopt=;tile=1;ord='+(Math.floor((Math.random()) * 100000000))+'></script>';
+								postscribe('#gpt-ad-1386782139095-3',bidadtag);
+								
 								jQuery(".next-matchup").on("click", function() {
-									console.log("slidecnt: "+slidecnt+", region: "+region);
+	
 									if(slidecnt<8)
 										jQuery.magnificPopup.instance.next();
 									else {
@@ -211,8 +235,13 @@
 									});
 									jQuery(".next-matchup").hide();
 									
+									//var bidadtag = '<script src=http:ad.doubleclick.net/adj/imo.gunsandammo/bracket;'
+									//+'camp='+pdata[0].campaign+';sect=;manf=;pos=;page=ga_madness;subs=;sz=300x250;'
+									//+'dcopt=;tile=1;ord='+(Math.floor((Math.random()) * 100000000))+'></script>';
+									//jQuery('#gpt-ad-1386782139095-3').html(bidadtag);
+									
 									googletag.cmd.push(function() {
-										googletag.display('div-gpt-ad-1386782139095-3');
+										googletag.display('gpt-ad-1386782139095-3');
 									});
 									
 								}, 200);
@@ -250,12 +279,3 @@
 			}
 		});
 	}
-	
-	function jumpRegion(newregion) {
-	
-		jQuery("div[data-region='"+nextRegion+"'][data-idx='0'][data-round='2']").trigger("click");
-		//console.log("Go Next Region! - "+(parseInt(region)+1));
-	}
-	
-	
-
