@@ -88,7 +88,14 @@ if ( is_user_logged_in() ) {
 		                    <li class="minor-p"><%= data.times[2].start %> - <%= data.times[2].end %></li>
                         </ul>
                     </div>
-                    <div class="cal-row presented-by">
+                    <div class="cal-row related-articles">
+                        <h3><%= data.fishname %> Fishing Tips</h3>
+
+                        <ul>
+                            <li><a href="<%= data.articles[0].post_url %>"><%= data.articles[0].post_title %></a></li>
+                            <li><a href="<%= data.articles[0].post_url %>"><%= data.articles[1].post_title %></a></li>
+                            <li><a href="<%= data.articles[0].post_url %>"><%= data.articles[2].post_title %></a></li>
+                        <ul>
 
 
                     </div>
