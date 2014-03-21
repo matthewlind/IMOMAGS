@@ -14,7 +14,20 @@ $dataPos = 0;
 		<span><?php the_title(); ?></span>
     </h1>
 </div>
-
+<?php if(get_field("viral_sweeps_id",get_the_ID())){ ?>
+	<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="article-brief clearfix js-responsive-section">
+		<div class="viralsweeps">
+			<script type="text/javascript">
+			var cnt_id = "<?php echo get_field("viral_sweeps_id",get_the_ID()); ?>";
+			</script>
+			<?php if( mobile() ){ ?>
+				<script type="text/javascript" src="https://www.viralsweep.com/external/widget.js"></script>
+			<?php }else{ ?>
+				<script type="text/javascript" src="https://www.viralsweep.com/external/contest.js"></script>
+			<?php } ?>
+		</div>
+	</div>
+<?php } ?>
 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>"  id="post-<?php the_ID(); ?>" <?php post_class('article-brief clearfix js-responsive-section'); ?>>
 	<div class="article-holder">
 		<div class="addthis-below" <?php if(mobile()){ echo 'style="width: 320px;"'; } ?>><?php if (function_exists('imo_add_this')) {imo_add_this();} ?></div>
