@@ -480,6 +480,32 @@ div.fishday.active .cal-popup {
     padding:19px 0 17px;
     border-top:1px solid #eaeaea;
 }
+
+.cal-row.related-articles ul {
+
+    margin-left:20px;
+    margin-top:10px;
+}
+
+.cal-row.related-articles li{
+
+    margin-bottom:10px;
+    list-style-type: square;
+
+}
+
+.cal-row.related-articles li a{
+
+    /*font-weight: bold;*/
+
+}
+
+.cal-row.related-articles h3 {
+    color:black;
+    font-size: 20px;
+
+}
+
 .moon-data,
 .sun-data {
     display:inline-block;

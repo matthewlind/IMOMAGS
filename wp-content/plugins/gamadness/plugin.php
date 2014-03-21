@@ -25,6 +25,11 @@ add_shortcode( 'madness', 'madness_func' );
 	wp_enqueue_style( 'madnesscss', plugin_dir_url( __FILE__ ) . 'madness.css' );
 	wp_enqueue_script( 'magnificjs', plugin_dir_url( __FILE__ ) . 'jquery.magnific-popup.js');
 	wp_enqueue_style( 'magnificcss', plugin_dir_url( __FILE__ ) . 'magnific-popup.css');
+	
+	wp_enqueue_script( 'htmlparser', plugin_dir_url( __FILE__ ) . 'htmlParser.js');
+	wp_enqueue_script( 'postscribe', plugin_dir_url( __FILE__ ) . 'postscribe.js');
+	wp_enqueue_script( 'xdomainrequest', plugin_dir_url( __FILE__ ) . 'xdomainrequest.min.js');
+	
 
 function renderGAMpopup($mobile) {
 	$outp = "";
@@ -70,7 +75,7 @@ function renderGAMpopup($mobile) {
 						</div>
 		    		</div>
 		    		<div class="modal-footer-content-right">
-		    			<div id="div-gpt-ad-1386782139095-3"></div>
+		    			<div id="gpt-ad-1386782139095-3"></div>
 		    		</div>
 	    		</div>
 	    	</div>
@@ -85,7 +90,7 @@ EOF;
 function jsGAMRender($mobile) {
 	$outp = "";
 	$ismobile = ($mobile)? "true":"false"; 
-
+	
 
   if($mobile) {
 	$outp.= '<div class="ga-madness-votestats"></div>';
@@ -125,6 +130,8 @@ function jsGAMRender($mobile) {
 		 .  '    <h2 id="shotguns">Shotguns</h2>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"shotgunsmadness")) .'</div>'
 		 .  '    <div class="mreg2"></div>'
+		 .  '  </div>'
+		 
 		 .  '  <div id="tabs-2">'
 		 .  '    <p>Come back on March 00 to see who advances!</p>'
 		 .  '  </div>'
@@ -136,11 +143,11 @@ function jsGAMRender($mobile) {
 		 .  '  </div>'
 		 .  '  <div id="tabs-6">'
 		 .  '  </div>'
-		 .  '  </div>';
+		 .  '</div>';
 
   }
   else {
-
+	
 	$outp.= '<ul class="schedule">'
 		 .  '  <li class="active-round">First Round<div>March 18-23</div></li>'
 		 .  '  <li>Second Round<div>March 24-27</div></li>'
