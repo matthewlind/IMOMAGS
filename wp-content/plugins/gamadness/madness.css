@@ -57,6 +57,8 @@
 }
 .ga-madness .matchup .rank div{overflow: hidden;}
 .matchup .contender{display: block;padding: 0;}
+.matchup .contender .matchwinner {}
+.matchup .contender .matchloser {text-decoration: line-through;}
 .ga-madness .gun-types {
    	width: 100%;
 	overflow: hidden;
@@ -158,6 +160,24 @@ ul#ga-madness-nav li a:hover{
 	padding: 0 4px;
 }
 .ga-madness .action-arrow:before{content: "VOTE";}
+
+.ga-madness .action-closed{
+	font-family: "open_sansbold", Helvetica, Arial, sans-serif;
+	height: 17px;
+	width: 60px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+	left: 0;
+	color: white;
+	background: #bdbdbd;
+	padding: 0 4px;
+}
+.ga-madness .action-closed:before{content: "RESULTS";}
+
+
 .basic-popup .modal-footer{width: 100%;margin-top: 30px;}
 .modal-footer {margin-top: 10px;}
 .modal-footer-content{max-width: 620px;margin: 0 auto;}
@@ -366,9 +386,10 @@ ul#ga-madness-nav li a:hover{
 .popvoted {
 	padding: 5px 10px;
 	background: #c9242c;
-	width: 150px;
+	width: 180px;
 	text-align: center;
 	margin: 10px auto;
+	color:#eeeeee;
 }
 .popvoted-no {
 	color: #111111;

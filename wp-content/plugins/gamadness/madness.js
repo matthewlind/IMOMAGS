@@ -81,18 +81,24 @@
 			if(parseInt(row.status) > 1) {
 				winner = (parseInt(row.player1score)>parseInt(row.player2score))? 1:2;
 			}
-			var activem = parseInt(row.status) == 1;
+			var matchclass = "";
+			if(parseInt(row.status) == 1) matchclass = "activem";
+			if(parseInt(row.status) == 2) matchclass = "closedm";
 			
-			outp+='<div class="matchup '+((activem)? "activem":"")
+			outp+='<div class="matchup '+matchclass
 				+'" data-mid="'+row.id+'" data-region="'+row.region+'" data-idx="'+i+'" data-round="'+row.round+'">'
 				+ '<div class="contender votepop">'
-				if(activem) outp+='<div class="action-arrow"></div>';
-			outp+='<div class="rank rank-top '+((winner==1)?"matchwinner":"")+'">'
+				if(row.status==1) outp+='<div class="action-arrow"></div>';
+				if(row.status==2) outp+='<div class="action-closed"></div>';
+				
+			outp+='<div class="rank rank-top '
+				+ ((row.status==2)? ((winner==1)?"matchwinner":"matchloser"):"")+'">'
 				+ '<span>'+row.player1seed+'</span>'
 				+ '<div>'+row.player1name+'</div>'
 				//+ row.player1score+'</span>'
 				+ '</div>'
-				+ '<div class="rank rank-bottom '+((winner==1)?"matchwinner":"")+'">'
+				+ '<div class="rank rank-bottom '
+				+ ((row.status==2)? ((winner==2)?"matchwinner":"matchloser"):"")+'">'
 				+ '<span>'+row.player2seed+'</span>'
 				+ '<div>'+row.player2name+'</div>'
 				//+ row.player2score+'</span></div>'
@@ -117,11 +123,98 @@
 	})();
 	
 	function makeGAMPopup() {
+		 
+		 jQuery(".closedm").on("click", function() {
+			var pdata;
+		 	var region = jQuery(this).data("region");
+		 	var mid = jQuery(this).data("mid");
+		 	var round = jQuery(this).data("round");
+
+		 	jQuery.ajax({
+				type: "GET",
+				url: "http://www.imoutdoors.com/bracket/getMatches",
+				data: {"format": "json", "round":jQuery(this).data("mid"), "region": "0"},
+				//data: {"format": "json", "round": "2", "region": region},
+				dataType: "json",
+
+				success: function(resp, status, jqxhr) {					
+					pdata = resp.data[0];
+					pdata.mid_data_mid = pdata.id;
+					pdata.player1image_img = pdata.player1image;
+					pdata.player2image_img = pdata.player2image;
+					pdata.player1link_href = pdata.player1link;
+					pdata.player2link_href = pdata.player2link;
+					delete pdata.player1link;
+					delete pdata.player2link;
+			 
+					var popads = {
+						'handgunsmadness' : 'Laserlyte-GA-MAdness-popup-300x120.jpg',
+						'riflesmadness' : 'Burris-GA-MAdness-popup-300x120.jpg',
+						'arsmadness' : 'Pelican-GA-MAdness-popup-300x120.jpg',
+						'shotgunsmadness' : 'Winchester-GA-MAdness-popup-300x120.jpg'
+					}
+					var regions = {'1':'Handguns', '2':'Rifles', '3':'Modern Sporting Rifles', '4':'Shotguns'}
+					
+					var campaigns = new Array('handgunsmadness', 'riflesmadness', 'arsmadness', 'shotgunsmadness');
+					pdata.campaign = campaigns[parseInt(pdata.region)-1];
+					
+					jQuery.magnificPopup.open({
+						items: pdata,
+						inline: {
+		            		markup: jQuery('#tmplGAMpopup').html()
+						},
+						closeBtnInside: true,
+						prependTo: jQuery("#page"),
+						alignTop: true,
+						fixedContentPos: false,
+						fixedBgPos: true,
+						gallery: {
+							enabled: false
+						},
+						callbacks: {
+							markupParse: function(template, values, item) {
+								region = parseInt(item.data.region);
+								round = parseInt(item.data.round)-1;
+								campaign = campaigns[region-1];
+								campimg = "/wp-content/themes/gunsandammo/images/ga-madness/"+popads[campaign];
+								template.find("#popupsponsor a").html('<img src="'+campimg+'" />');
+																
+								var roundtitle = (round==1)? "First Round":"Second Round";
+								template.find("#popuptitle").html(regions[region]+": "+roundtitle);
+								template.find(".next-matchup").hide();
+								
+								var score1 = parseInt(pdata.player1score);
+								var score2 = parseInt(pdata.player2score);
+								var scoretot = score1 + score2;
+								var per1 = ((score1/scoretot)*100).toFixed(0);
+								var per2 = ((score2/scoretot)*100).toFixed(0);
+								pwin = ((score1>score2)? "1":"2");
+								if(pwin=="1") template.find(".guntwo img, .guntwo h2").fadeTo("fast", "0.5");
+								if(pwin=="2") template.find(".gunone img, .gunone h2").fadeTo("fast", "0.5");
+								
+								template.find("#popvoteon1").html('<div class="popvoted '+((pwin=="2")? "popvoted-no":"")+'">'+per1+"% ("+score1+' Votes)</div>');
+								template.find("#popvoteon2").html('<div class="popvoted '+((pwin=="1")? "popvoted-no":"")+'">'+per2+"% ("+score2+' Votes)</div>');
+							},
+							open: function() {
+
+								googletag.cmd.push(function() {
+									googletag.display('div-gpt-ad-1386782139095-3');
+								});
+								_gaq.push(['_trackPageview',"/" + window.location.pathname + "/match"+item.data.id]);
+								
+							}
+						}
+					});
+				}
+			 });
+		 });
+		 
 		 		 
 		 jQuery(".activem").on("click", function() {
 		 	var pdata;
 		 	var region = jQuery(this).data("region");
 		 	var mid = jQuery(this).data("mid");
+		 	var round = jQuery(this).data("round");
 		 	var slide = jQuery(this).data("idx");
 		 	var slidecnt = 0;
 		 	var yourBrowser = navigator.sayswho;
@@ -135,7 +228,7 @@
 				type: "GET",
 				url: "http://www.imoutdoors.com/bracket/getMatches",
 				//data: {"format": "json", "round":jQuery(this).data("mid"), "region": "0"},
-				data: {"format": "json", "round": "2", "region": region},
+				data: {"format": "json", "round": round, "region": region},
 				dataType: "json",
 
 				success: function(resp, status, jqxhr) {					
@@ -190,16 +283,21 @@
 								campimg = "/wp-content/themes/gunsandammo/images/ga-madness/"+popads[campaign];
 								template.find("#popupsponsor a").html('<img src="'+campimg+'" />');
 																
-								template.find("#popuptitle").html(regions[region]+": First Round");
+								var roundtitle = (round==1)? "First Round":"Second Round";
+								template.find("#popuptitle").html(regions[region]+": "+roundtitle);
 							},
 							open: function() {
 								slidecnt--;
 								jQuery.magnificPopup.instance.goTo(slide);
 								
-								var bidadtag = '<script src=http://ad.doubleclick.net/adj/imo.gunsandammo/bracket;'
-								+'camp='+pdata[0].campaign+';sect=;manf=;pos=;page=ga_madness;subs=;sz=300x250;'
-								+'dcopt=;tile=1;ord='+(Math.floor((Math.random()) * 100000000))+'></script>';
-								postscribe('#gpt-ad-1386782139095-3',bidadtag);
+								//googletag.cmd.push(function() {
+								//	googletag.display('div-gpt-ad-1386782139095-3');
+								//});
+									
+								//var bidadtag = '<script src=http://ad.doubleclick.net/adj/imo.gunsandammo/bracket;'
+								//+'camp='+pdata[0].campaign+';sect=;manf=;pos=;page=ga_madness;subs=;sz=300x250;'
+								//+'dcopt=;tile=1;ord='+(Math.floor((Math.random()) * 100000000))+'></script>';
+								//postscribe('#div-gpt-ad-1386782139095-3',bidadtag);
 								
 								jQuery(".next-matchup").on("click", function() {
 	
@@ -211,7 +309,7 @@
 										if(nextRegion == 5) nextRegion = 1;
 								
 										region = nextRegion.toString();
-										jQuery("div[data-region='"+region+"'][data-idx='0'][data-round='2']").trigger("click");				
+										jQuery("div[data-region='"+region+"'][data-idx='0'][data-round='"+round+"']").trigger("click");				
 									}
 								});
 								
@@ -219,6 +317,10 @@
 							change: function() {
 								var item = jQuery.magnificPopup.instance.currItem;
 								slidecnt++;
+								
+								region = parseInt(item.data.region);
+								round = parseInt(item.data.round)-1;
+								campaign = campaigns[region-1];
 								
 								_gaq.push(['_trackPageview',"/" + window.location.pathname + "/match"+item.data.id]);
 								
@@ -235,13 +337,14 @@
 									});
 									jQuery(".next-matchup").hide();
 									
+									//jQuery('#gpt-ad-1386782139095-3').empty();
 									//var bidadtag = '<script src=http:ad.doubleclick.net/adj/imo.gunsandammo/bracket;'
-									//+'camp='+pdata[0].campaign+';sect=;manf=;pos=;page=ga_madness;subs=;sz=300x250;'
+									//+'camp='+campaign+';sect=;manf=;pos=;page=ga_madness;subs=;sz=300x250;'
 									//+'dcopt=;tile=1;ord='+(Math.floor((Math.random()) * 100000000))+'></script>';
-									//jQuery('#gpt-ad-1386782139095-3').html(bidadtag);
+									//postscribe('#gpt-ad-1386782139095-3',bidadtag);
 									
 									googletag.cmd.push(function() {
-										googletag.display('gpt-ad-1386782139095-3');
+										googletag.display('div-gpt-ad-1386782139095-3');
 									});
 									
 								}, 200);

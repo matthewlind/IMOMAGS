@@ -75,7 +75,7 @@ function renderGAMpopup($mobile) {
 						</div>
 		    		</div>
 		    		<div class="modal-footer-content-right">
-		    			<div id="gpt-ad-1386782139095-3"></div>
+		    			<div id="div-gpt-ad-1386782139095-3"></div>
 		    		</div>
 	    		</div>
 	    	</div>
