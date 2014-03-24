@@ -8,6 +8,7 @@
 			if(value)
 				jQuery('html, body').animate({scrollTop: jQuery("h2#" + value).offset().top}, "slow");
 		});
+		jQuery('#madtabs').tabs({selected: 1});
 		
 	});
 	
@@ -22,7 +23,7 @@
 			success: function(resp, status, jqxhr) {
 				if(ismobile) {
 					
-					jQuery("#tabs-"+(parseInt(round)-1)+" .mreg"+region).html(writeGAMBracket(resp.data));
+					jQuery("#madtabs-"+(parseInt(round)-1)+" .mreg"+region).html(writeGAMBracket(resp.data));
 				}
 				else {
 					if(resp.type == "finals"){

@@ -98,17 +98,17 @@ function jsGAMRender($mobile) {
 	if (function_exists('imo_add_this'))
 		 	$outp.='<div class="addthis-below">'.imo_add_this(false). '</div>';
 		 	
-	$outp.= '<div id="tabs">'
+	$outp.= '<div id="madtabs">'
 		 .  '  <ul class="rounds">'
-		 .  '    <li><a href="#tabs-1">1st</a></li>'
-		 .  '    <li><a href="#tabs-2" class="ui-btn-active">2nd</a></li>'
-		 .  '    <li><a href="#tabs-3">Sweet 16</a></li>'
-		 .  '    <li><a href="#tabs-4">Elite 8</a></li>'
-		 .  '    <li><a href="#tabs-5">Final 4</a></li>'
-		 .  '    <li class="final-round"><a href="#tabs-6">Final</a></li>'
+		 .  '    <li><a href="#madtabs-1">1st</a></li>'
+		 .  '    <li class="ui-tabs-selected ui-state-active"><a href="#madtabs-2" >2nd</a></li>'
+		 .  '    <li><a href="#madtabs-3">Sweet 16</a></li>'
+		 .  '    <li><a href="#madtabs-4">Elite 8</a></li>'
+		 .  '    <li><a href="#madtabs-5">Final 4</a></li>'
+		 .  '    <li class="final-round"><a href="#madtabs-6">Final</a></li>'
 		 .  '  </ul>'
 					
-		 .  '  <div id="tabs-1">'
+		 .  '  <div id="madtabs-1">'
 		 .  '    <div class="gun-types">'
 		 .  '      <select>'
 		 .  '        <option value="">SELECT A GUN REGION</option>'
@@ -132,7 +132,7 @@ function jsGAMRender($mobile) {
 		 .  '    <div class="mreg2"></div>'
 		 .  '  </div>'
 		 
-		 .  '  <div id="tabs-2">'
+		 .  '  <div id="madtabs-2">'
 
 		 .  '    <h2 id="handguns">Handguns</h2>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"handgunsmadness")) .'</div>'
@@ -147,14 +147,14 @@ function jsGAMRender($mobile) {
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"shotgunsmadness")) .'</div>'
 		 .  '    <div class="mreg2"></div>'
 		 .  '  </div>'
-		 .  '  <div id="tabs-3">'
+		 .  '  <div id="madtabs-3">'
 		 		 .  '    <p>Come back on March 28 to see who advances!</p>'
 		 .  '  </div>'
-		 .  '  <div id="tabs-4">'
+		 .  '  <div id="madtabs-4">'
 		 .  '  </div>'
-		 .  '  <div id="tabs-5">'
+		 .  '  <div id="madtabs-5">'
 		 .  '  </div>'
-		 .  '  <div id="tabs-6">'
+		 .  '  <div id="madtabs-6">'
 		 .  '  </div>'
 		 .  '</div>';
 
