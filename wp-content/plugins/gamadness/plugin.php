@@ -75,7 +75,7 @@ function renderGAMpopup($mobile) {
 						</div>
 		    		</div>
 		    		<div class="modal-footer-content-right">
-		    			<div id="gpt-ad-1386782139095-3"></div>
+		    			<div id="div-gpt-ad-1386782139095-3"></div>
 		    		</div>
 	    		</div>
 	    	</div>
@@ -101,7 +101,7 @@ function jsGAMRender($mobile) {
 	$outp.= '<div id="tabs">'
 		 .  '  <ul class="rounds">'
 		 .  '    <li><a href="#tabs-1">1st</a></li>'
-		 .  '    <li><a href="#tabs-2">2nd</a></li>'
+		 .  '    <li><a href="#tabs-2" class="ui-btn-active">2nd</a></li>'
 		 .  '    <li><a href="#tabs-3">Sweet 16</a></li>'
 		 .  '    <li><a href="#tabs-4">Elite 8</a></li>'
 		 .  '    <li><a href="#tabs-5">Final 4</a></li>'
@@ -133,9 +133,22 @@ function jsGAMRender($mobile) {
 		 .  '  </div>'
 		 
 		 .  '  <div id="tabs-2">'
-		 .  '    <p>Come back on March 00 to see who advances!</p>'
+
+		 .  '    <h2 id="handguns">Handguns</h2>'
+		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"handgunsmadness")) .'</div>'
+		 .  '    <div class="mreg1"></div>'
+		 .  '    <h2 id="rifles">Rifles</h2>'
+		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"riflesmadness")) .'</div>'
+		 .  '    <div class="mreg3"></div>'
+		 .  '    <h2 id="ar15s">Modern Sporting Rifles</h2>'
+		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"arsmadness")) .'</div>'
+		 .  '    <div class="mreg4"></div>'
+		 .  '    <h2 id="shotguns">Shotguns</h2>'
+		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"shotgunsmadness")) .'</div>'
+		 .  '    <div class="mreg2"></div>'
 		 .  '  </div>'
 		 .  '  <div id="tabs-3">'
+		 		 .  '    <p>Come back on March 28 to see who advances!</p>'
 		 .  '  </div>'
 		 .  '  <div id="tabs-4">'
 		 .  '  </div>'
@@ -149,8 +162,8 @@ function jsGAMRender($mobile) {
   else {
 	
 	$outp.= '<ul class="schedule">'
-		 .  '  <li class="active-round">First Round<div>March 18-23</div></li>'
-		 .  '  <li>Second Round<div>March 24-27</div></li>'
+		 .  '  <li>First Round<div>March 18-23</div></li>'
+		 .  '  <li class="active-round">Second Round<div>March 24-27</div></li>'
 		 .  '  <li>Sweet 16<div>March 28-31</div></li>'
 		 .  '  <li>Elite 8<div>April 1-3</div></li>'
 		 .  '  <li>Final Four<div>April 4-7</div></li>'
