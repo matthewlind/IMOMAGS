@@ -174,12 +174,12 @@
 						callbacks: {
 							markupParse: function(template, values, item) {
 								region = parseInt(item.data.region);
-								round = parseInt(item.data.round)-1;
+								round = parseInt(item.data.round);console.log(round);
 								campaign = campaigns[region-1];
 								campimg = "/wp-content/themes/gunsandammo/images/ga-madness/"+popads[campaign];
 								template.find("#popupsponsor a").html('<img src="'+campimg+'" />');
 																
-								var roundtitle = (round==1)? "First Round":"Second Round";
+								var roundtitle = (round==2)? "First Round":"Second Round";
 								template.find("#popuptitle").html(regions[region]+": "+roundtitle);
 								template.find(".next-matchup").hide();
 								
@@ -200,7 +200,7 @@
 								googletag.cmd.push(function() {
 									googletag.display('div-gpt-ad-1386782139095-3');
 								});
-								_gaq.push(['_trackPageview',"/" + window.location.pathname + "/match"+item.data.id]);
+								_gaq.push(['_trackPageview',"/" + window.location.pathname + "/match"+pdata.mid_data_mid]);
 								
 							}
 						}
@@ -278,12 +278,12 @@
 						callbacks: {
 							markupParse: function(template, values, item) {
 								region = parseInt(item.data.region);
-								round = parseInt(item.data.round)-1;
+								round = parseInt(item.data.round);
 								campaign = campaigns[region-1];
 								campimg = "/wp-content/themes/gunsandammo/images/ga-madness/"+popads[campaign];
 								template.find("#popupsponsor a").html('<img src="'+campimg+'" />');
 																
-								var roundtitle = (round==1)? "First Round":"Second Round";
+								var roundtitle = (round==2)? "First Round":"Second Round";
 								template.find("#popuptitle").html(regions[region]+": "+roundtitle);
 							},
 							open: function() {
@@ -300,14 +300,14 @@
 								//postscribe('#div-gpt-ad-1386782139095-3',bidadtag);
 								
 								jQuery(".next-matchup").on("click", function() {
-	
-									if(slidecnt<8)
+									
+									if(slidecnt<4)
 										jQuery.magnificPopup.instance.next();
 									else {
 										slidecnt = 0;
 										var nextRegion = parseInt(region)+1;
 										if(nextRegion == 5) nextRegion = 1;
-								
+										
 										region = nextRegion.toString();
 										jQuery("div[data-region='"+region+"'][data-idx='0'][data-round='"+round+"']").trigger("click");				
 									}
@@ -319,7 +319,6 @@
 								slidecnt++;
 								
 								region = parseInt(item.data.region);
-								round = parseInt(item.data.round)-1;
 								campaign = campaigns[region-1];
 								
 								_gaq.push(['_trackPageview',"/" + window.location.pathname + "/match"+item.data.id]);
