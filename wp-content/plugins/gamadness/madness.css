@@ -38,7 +38,7 @@
 	width: 0;
 }
 .ga-madness ul.rounds li.final-round{margin-right: 0 !important;}
-.ga-madness #tabs-1{margin-top: 14px;}
+.ga-madness #madtabs-1{margin-top: 14px;}
 .matchup{
 	height: 100px;
 	margin: 10px 0;
@@ -423,8 +423,8 @@ ul#ga-madness-nav li a:hover{
 	.madness-logo-mobile{width: 240px;margin: 10px auto 20px;display: block;}
 	.regions{width: 100%;display: block;}
 	.region2 .matchup, .region4 .matchup{border-width: 1px 1px 1px 0;}
-	#tabs .matchup{background: #c9242c;margin: 10px 0;height: auto;border-width: 0;clear: both;}
-	#tabs .matchup .contender{color: white;}	
+	#madtabs .matchup{background: #c9242c;margin: 10px 0;height: auto;border-width: 0;clear: both;}
+	#madtabs .matchup .contender{color: white;}	
 	.ui-tabs-panel h2{float: left;margin: 8px 0;}
 	.ga-madness a.go-top.jq-go-top{margin-bottom: 20px;}
 	.ga-madness .matchup .rank{padding: 6px 4px;font-size: 14px;}
