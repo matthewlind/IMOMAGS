@@ -24,8 +24,18 @@
 
 			success: function(resp, status, jqxhr) {
 				if(ismobile) {
-					
-					jQuery("#madtabs-"+(parseInt(round)-1)+" .mreg"+region).html(writeGAMBracket(resp.data));
+					if(resp.type == "finals"){
+						var finalone = {};finalone[0] = resp.data[0];
+						var finaltwo = {};finaltwo[0] = resp.data[1];
+						var finall   = {};finall[0]   = resp.data[2];
+	
+						jQuery(".match61").html(writeGAMBracket(finalone));
+						jQuery(".match62").html(writeGAMBracket(finaltwo));
+						jQuery(".match63").html(writeGAMBracket(finall));
+					}
+					else {
+						jQuery("#madtabs-"+(parseInt(round)-1)+" .mreg"+region).html(writeGAMBracket(resp.data));
+					}
 				}
 				else {
 					if(resp.type == "finals"){
@@ -184,7 +194,6 @@
 								template.find("#popupsponsor a").html('<img src="'+campimg+'" />');
 																
 								var roundtitle = roundtitles[round];
-								alert(round);
 								var regiontitle = (round<6)? (regions[region]+": "):"";
 								template.find("#popuptitle").html(regiontitle+roundtitle);
 								template.find(".next-matchup").hide();

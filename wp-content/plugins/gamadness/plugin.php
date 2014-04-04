@@ -181,11 +181,12 @@ function jsGAMRender($mobile) {
 		 		 
 		 .  '  </div>'
 		 .  '  <div id="madtabs-5">'
-		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"handgunsmadness")) .'</div>'
+		 .  '    <br><div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"handgunsmadness")) .'</div>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"riflesmadness")) .'</div>'
-		 .  '    <div class="mreg5"></div>'
-		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"arsmadness")) .'</div>'
+		 .  '    <div class="mreg5 match61"></div>'
+		 .  '    <div class="mreg6 match62"></div>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"shotgunsmadness")) .'</div>'
+		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"arsmadness")) .'</div>'
 		 
 		 .  '  </div>'
 		 .  '</div>';
