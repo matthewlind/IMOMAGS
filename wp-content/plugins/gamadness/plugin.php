@@ -89,7 +89,7 @@ EOF;
 }
 function jsGAMRender($mobile) {
 	$outp = "";
-	$mobile = true;
+	//$mobile = true;
 	$ismobile = ($mobile)? "true":"false"; 
 	$madnessround = 6;
 
