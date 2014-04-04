@@ -38,7 +38,7 @@
 	width: 0;
 }
 .ga-madness ul.rounds li.final-round{margin-right: 0 !important;}
-.ga-madness #tabs-1{margin-top: 14px;}
+.ga-madness #madtabs-1{margin-top: 14px;}
 .matchup{
 	height: 100px;
 	margin: 10px 0;
@@ -57,6 +57,8 @@
 }
 .ga-madness .matchup .rank div{overflow: hidden;}
 .matchup .contender{display: block;padding: 0;}
+.matchup .contender .matchwinner {}
+.matchup .contender .matchloser {text-decoration: line-through;}
 .ga-madness .gun-types {
    	width: 100%;
 	overflow: hidden;
@@ -96,11 +98,11 @@
 .region2 .matchup, .region4 .matchup, .column7 .matchup{border-width: 1px 0 1px 1px;}
 .region2 .column, .region4 .column, .region7 .column{float: right;}
 .column{width: 25%;margin: 0;float: left;}
-.column2{margin-top: 50px;}
+.ga-madness .column2{margin-top: 50px;}
 .column2 .matchup{height: 110px;margin-bottom: 110px;}
-.column3{margin-top: 110px;}
+.ga-madness .column3{margin-top: 110px;}
 .column3 .matchup{height: 220px;margin-bottom: 210px;}
-.column4{margin-top: 220px;}
+.ga-madness .column4{margin-top: 220px;}
 .column4 .matchup{height: 430px;}
 .region-titles{width: 100%;display: inline-block;}
 .region-left{float: left;}
@@ -158,6 +160,24 @@ ul#ga-madness-nav li a:hover{
 	padding: 0 4px;
 }
 .ga-madness .action-arrow:before{content: "VOTE";}
+
+.ga-madness .action-closed{
+	font-family: "open_sansbold", Helvetica, Arial, sans-serif;
+	height: 17px;
+	width: 60px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+	left: 0;
+	color: white;
+	background: #bdbdbd;
+	padding: 0 4px;
+}
+.ga-madness .action-closed:before{content: "RESULTS";}
+
+
 .basic-popup .modal-footer{width: 100%;margin-top: 30px;}
 .modal-footer {margin-top: 10px;}
 .modal-footer-content{max-width: 620px;margin: 0 auto;}
@@ -366,9 +386,10 @@ ul#ga-madness-nav li a:hover{
 .popvoted {
 	padding: 5px 10px;
 	background: #c9242c;
-	width: 150px;
+	width: 180px;
 	text-align: center;
 	margin: 10px auto;
+	color:#eeeeee;
 }
 .popvoted-no {
 	color: #111111;
@@ -379,6 +400,9 @@ ul#ga-madness-nav li a:hover{
 }
 #popuptitle {
 	letter-spacing: 1px;
+}
+.madnessmobilepresent {
+	text-align: center;
 }
  
 @media only screen and (max-width: 880px){
@@ -391,7 +415,7 @@ ul#ga-madness-nav li a:hover{
 	.vote-section.gun h2{font-size: 16px;}
 }
 @media only screen and (max-width: 610px){
-	ul#ga-madness-nav{list-style: none;height: auto;position: relative;margin: 0 auto;width: 332px;}
+	ul#ga-madness-nav{list-style: none;height: 30px;position: relative;margin: 0 auto;width: 332px;}
 	ul#ga-madness-nav li{float: left;padding: 0 4px 0;width: auto;text-align: center;margin: 0;border-left: 1px solid #ccc;line-height: 1;}	
 	ul#ga-madness-nav li:first-child{border-width: 0;}
 	ul#ga-madness-nav li a{font-size: 14px;}
@@ -399,8 +423,8 @@ ul#ga-madness-nav li a:hover{
 	.madness-logo-mobile{width: 240px;margin: 10px auto 20px;display: block;}
 	.regions{width: 100%;display: block;}
 	.region2 .matchup, .region4 .matchup{border-width: 1px 1px 1px 0;}
-	#tabs .matchup{background: #c9242c;margin: 10px 0;height: auto;border-width: 0;clear: both;}
-	#tabs .matchup .contender{color: white;}	
+	#madtabs .matchup{background: #c9242c;margin: 10px 0;height: auto;border-width: 0;clear: both;}
+	#madtabs .matchup .contender{color: white;}	
 	.ui-tabs-panel h2{float: left;margin: 8px 0;}
 	.ga-madness a.go-top.jq-go-top{margin-bottom: 20px;}
 	.ga-madness .matchup .rank{padding: 6px 4px;font-size: 14px;}
@@ -416,7 +440,7 @@ ul#ga-madness-nav li a:hover{
 		margin: auto;
 		left: auto;
 	}
-	.ga-madness .addthis-below{max-width: 250px;}
+	.ga-madness .addthis-below{max-width: 250px;margin-top: 50px;}
 	.matchup .rank span, .ga-madness .matchup .rank{font-size: 14px;}
 	.ga-madness .action-arrow:before{content: "";}
 	.matchup .rank-bottom{position: relative;}
