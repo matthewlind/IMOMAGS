@@ -89,8 +89,9 @@ EOF;
 }
 function jsGAMRender($mobile) {
 	$outp = "";
+	$mobile = true;
 	$ismobile = ($mobile)? "true":"false"; 
-	$madnessround = 5;
+	$madnessround = 6;
 
   if($mobile) {
 	$outp.= '<div class="ga-madness-votestats"></div>';
@@ -180,21 +181,12 @@ function jsGAMRender($mobile) {
 		 		 
 		 .  '  </div>'
 		 .  '  <div id="madtabs-5">'
-
-		 .  '    <h2 id="handguns">Handguns</h2>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"handgunsmadness")) .'</div>'
-		 .  '    <div class="mreg1"></div>'
-		 .  '    <h2 id="rifles">Rifles</h2>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"riflesmadness")) .'</div>'
-		 .  '    <div class="mreg3"></div>'
-		 .  '    <h2 id="ar15s">Modern Sporting Rifles</h2>'
+		 .  '    <div class="mreg5"></div>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"arsmadness")) .'</div>'
-		 .  '    <div class="mreg4"></div>'
-		 .  '    <h2 id="shotguns">Shotguns</h2>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"shotgunsmadness")) .'</div>'
-		 .  '    <div class="mreg2"></div>'
-		 .  '  </div>'
-		 .  '  <div id="madtabs-6">'
+		 
 		 .  '  </div>'
 		 .  '</div>';
 

@@ -1,4 +1,4 @@
-	var madnessround = 4;
+	var madnessround = 5;
 	
 	jQuery(window).load(function() {
 		jQuery('.ga-madness ul.rounds').css("overflow","visible");
@@ -178,13 +178,15 @@
 						callbacks: {
 							markupParse: function(template, values, item) {
 								region = parseInt(item.data.region);
-								round = parseInt(item.data.round);console.log(round);
+								round = parseInt(item.data.round);
 								campaign = campaigns[region-1];
 								campimg = "/wp-content/themes/gunsandammo/images/ga-madness/"+popads[campaign];
 								template.find("#popupsponsor a").html('<img src="'+campimg+'" />');
 																
 								var roundtitle = roundtitles[round];
-								template.find("#popuptitle").html(regions[region]+": "+roundtitle);
+								alert(round);
+								var regiontitle = (round<6)? (regions[region]+": "):"";
+								template.find("#popuptitle").html(regiontitle+roundtitle);
 								template.find(".next-matchup").hide();
 								
 								var score1 = parseInt(pdata.player1score);
@@ -289,7 +291,8 @@
 								template.find("#popupsponsor a").html('<img src="'+campimg+'" />');
 																
 								var roundtitle = roundtitles[round];
-								template.find("#popuptitle").html(regions[region]+": "+roundtitle);
+								var regiontitle = (round<6)? (regions[region]+": "):"";
+								template.find("#popuptitle").html(regiontitle+roundtitle);
 							},
 							open: function() {
 								slidecnt--;
