@@ -270,7 +270,16 @@
 					var roundtitles = {'2':'First Round', '3':'Second Round', '4':'Sweet Sixteen', '5':'Elite Eight', '6':'Final Four', '7':'Final Round'}
 					
 					var campaigns = new Array('handgunsmadness', 'riflesmadness', 'arsmadness', 'shotgunsmadness');
-					pdata[0].campaign = campaigns[parseInt(pdata[0].region)-1];
+					if(parseInt(pdata[0].region) == 5) {
+						var fregion = (Math.random() < 0.5)? 1 : 2;
+						pdata[0].campaign = campaigns[fregion-1];
+					}
+					else if(parseInt(pdata[0].region) == 6) {
+						var fregion = (Math.random() < 0.5)? 3 : 4;
+						pdata[0].campaign = campaigns[fregion-1];
+					}
+					else
+						pdata[0].campaign = campaigns[parseInt(pdata[0].region)-1];
 					
 					jQuery.magnificPopup.open({
 						items: pdata,
@@ -295,7 +304,9 @@
 							markupParse: function(template, values, item) {
 								region = parseInt(item.data.region);
 								round = parseInt(item.data.round);
-								campaign = campaigns[region-1];
+								//campaign = campaigns[region-1];
+								campaign = item.data.campaign;
+								
 								campimg = "/wp-content/themes/gunsandammo/images/ga-madness/"+popads[campaign];
 								template.find("#popupsponsor a").html('<img src="'+campimg+'" />');
 																
