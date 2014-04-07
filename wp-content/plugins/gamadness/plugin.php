@@ -1,5 +1,5 @@
 <?php
-/*  Copyright 2014 Jeff Burrows
+/*  Copyright 2014 Intermedia Outdoors
 
 */
 
@@ -7,7 +7,7 @@
 Plugin Name: G&A Madness Bracket/Voting
 Plugin URI: https://imomags.com
 Description: 2014 
-Author: Jeff
+Author: Jeff Burrows
 Author URI:
 Version: 0.1
 Stable tag: 0.1
@@ -89,8 +89,9 @@ EOF;
 }
 function jsGAMRender($mobile) {
 	$outp = "";
+	//$mobile = true;
 	$ismobile = ($mobile)? "true":"false"; 
-	
+	$madnessround = 6;
 
   if($mobile) {
 	$outp.= '<div class="ga-madness-votestats"></div>';
@@ -98,17 +99,17 @@ function jsGAMRender($mobile) {
 	if (function_exists('imo_add_this'))
 		 	$outp.='<div class="addthis-below">'.imo_add_this(false). '</div>';
 		 	
-	$outp.= '<div id="tabs">'
+	$outp.= '<div id="madtabs">'
 		 .  '  <ul class="rounds">'
-		 .  '    <li><a href="#tabs-1">1st</a></li>'
-		 .  '    <li><a href="#tabs-2" class="ui-btn-active">2nd</a></li>'
-		 .  '    <li><a href="#tabs-3">Sweet 16</a></li>'
-		 .  '    <li><a href="#tabs-4">Elite 8</a></li>'
-		 .  '    <li><a href="#tabs-5">Final 4</a></li>'
-		 .  '    <li class="final-round"><a href="#tabs-6">Final</a></li>'
+		 .  '    <li><a href="#madtabs-1">1st</a></li>'
+		 .  '    <li><a href="#madtabs-2">2nd</a></li>'
+		 .  '    <li><a href="#madtabs-3">Sweet 16</a></li>'
+		 .  '    <li><a href="#madtabs-4">Elite 8</a></li>'
+		 .  '    <li><a href="#madtabs-5">Final 4</a></li>'
+		 .  '    <li class="final-round"><a href="#madtabs-6">Final</a></li>'
 		 .  '  </ul>'
 					
-		 .  '  <div id="tabs-1">'
+		 .  '  <div id="madtabs-1">'
 		 .  '    <div class="gun-types">'
 		 .  '      <select>'
 		 .  '        <option value="">SELECT A GUN REGION</option>'
@@ -130,9 +131,9 @@ function jsGAMRender($mobile) {
 		 .  '    <h2 id="shotguns">Shotguns</h2>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"shotgunsmadness")) .'</div>'
 		 .  '    <div class="mreg2"></div>'
+
 		 .  '  </div>'
-		 
-		 .  '  <div id="tabs-2">'
+		 .  '  <div id="madtabs-2">'
 
 		 .  '    <h2 id="handguns">Handguns</h2>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"handgunsmadness")) .'</div>'
@@ -146,15 +147,47 @@ function jsGAMRender($mobile) {
 		 .  '    <h2 id="shotguns">Shotguns</h2>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"shotgunsmadness")) .'</div>'
 		 .  '    <div class="mreg2"></div>'
+		 
 		 .  '  </div>'
-		 .  '  <div id="tabs-3">'
-		 		 .  '    <p>Come back on March 28 to see who advances!</p>'
+		 .  '  <div id="madtabs-3">'
+		 .  '    <h2 id="handguns">Handguns</h2>'
+		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"handgunsmadness")) .'</div>'
+		 .  '    <div class="mreg1"></div>'
+		 .  '    <h2 id="rifles">Rifles</h2>'
+		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"riflesmadness")) .'</div>'
+		 .  '    <div class="mreg3"></div>'
+		 .  '    <h2 id="ar15s">Modern Sporting Rifles</h2>'
+		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"arsmadness")) .'</div>'
+		 .  '    <div class="mreg4"></div>'
+		 .  '    <h2 id="shotguns">Shotguns</h2>'
+		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"shotgunsmadness")) .'</div>'
+		 .  '    <div class="mreg2"></div>'
+		 
 		 .  '  </div>'
-		 .  '  <div id="tabs-4">'
+		 .  '  <div id="madtabs-4">'
+
+		 .  '    <h2 id="handguns">Handguns</h2>'
+		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"handgunsmadness")) .'</div>'
+		 .  '    <div class="mreg1"></div>'
+		 .  '    <h2 id="rifles">Rifles</h2>'
+		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"riflesmadness")) .'</div>'
+		 .  '    <div class="mreg3"></div>'
+		 .  '    <h2 id="ar15s">Modern Sporting Rifles</h2>'
+		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"arsmadness")) .'</div>'
+		 .  '    <div class="mreg4"></div>'
+		 .  '    <h2 id="shotguns">Shotguns</h2>'
+		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"shotgunsmadness")) .'</div>'
+		 .  '    <div class="mreg2"></div>'
+		 		 
 		 .  '  </div>'
-		 .  '  <div id="tabs-5">'
-		 .  '  </div>'
-		 .  '  <div id="tabs-6">'
+		 .  '  <div id="madtabs-5">'
+		 .  '    <br><div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"handgunsmadness")) .'</div>'
+		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"riflesmadness")) .'</div>'
+		 .  '    <div class="mreg5 match61"></div>'
+		 .  '    <div class="mreg6 match62"></div>'
+		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"shotgunsmadness")) .'</div>'
+		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"arsmadness")) .'</div>'
+		 
 		 .  '  </div>'
 		 .  '</div>';
 
@@ -162,12 +195,12 @@ function jsGAMRender($mobile) {
   else {
 	
 	$outp.= '<ul class="schedule">'
-		 .  '  <li>First Round<div>March 18-23</div></li>'
-		 .  '  <li class="active-round">Second Round<div>March 24-27</div></li>'
-		 .  '  <li>Sweet 16<div>March 28-31</div></li>'
-		 .  '  <li>Elite 8<div>April 1-3</div></li>'
-		 .  '  <li>Final Four<div>April 4-7</div></li>'
-		 .  '  <li>Final Round<div>April 8-11</div></li>'
+		 .  '  <li class="'.(($madnessround==2)? "active-round":"").'">First Round<div>March 18-23</div></li>'
+		 .  '  <li class="'.(($madnessround==3)? "active-round":"").'">Second Round<div>March 24-27</div></li>'
+		 .  '  <li class="'.(($madnessround==4)? "active-round":"").'">Sweet 16<div>March 28-31</div></li>'
+		 .  '  <li class="'.(($madnessround==5)? "active-round":"").'">Elite 8<div>April 1-3</div></li>'
+		 .  '  <li class="'.(($madnessround==6)? "active-round":"").'">Final Four<div>April 4-7</div></li>'
+		 .  '  <li class="'.(($madnessround==7)? "active-round":"").'">Final Round<div>April 8-11</div></li>'
 		 .  '</ul>'
 		 .  '<div class="addthis-below">'.imo_add_this(false). '</div>'
 	

@@ -1,3 +1,5 @@
+	var madnessround = 5;
+	
 	jQuery(window).load(function() {
 		jQuery('.ga-madness ul.rounds').css("overflow","visible");
 	});
@@ -8,6 +10,7 @@
 			if(value)
 				jQuery('html, body').animate({scrollTop: jQuery("h2#" + value).offset().top}, "slow");
 		});
+		jQuery('#madtabs').tabs({selected: (madnessround-1)});
 		
 	});
 	
@@ -21,8 +24,18 @@
 
 			success: function(resp, status, jqxhr) {
 				if(ismobile) {
-					
-					jQuery("#tabs-"+(parseInt(round)-1)+" .mreg"+region).html(writeGAMBracket(resp.data));
+					if(resp.type == "finals"){
+						var finalone = {};finalone[0] = resp.data[0];
+						var finaltwo = {};finaltwo[0] = resp.data[1];
+						var finall   = {};finall[0]   = resp.data[2];
+	
+						jQuery(".match61").html(writeGAMBracket(finalone));
+						jQuery(".match62").html(writeGAMBracket(finaltwo));
+						jQuery(".match63").html(writeGAMBracket(finall));
+					}
+					else {
+						jQuery("#madtabs-"+(parseInt(round)-1)+" .mreg"+region).html(writeGAMBracket(resp.data));
+					}
 				}
 				else {
 					if(resp.type == "finals"){
@@ -154,6 +167,7 @@
 						'shotgunsmadness' : 'Winchester-GA-MAdness-popup-300x120.jpg'
 					}
 					var regions = {'1':'Handguns', '2':'Rifles', '3':'Modern Sporting Rifles', '4':'Shotguns'}
+					var roundtitles = {'2':'First Round', '3':'Second Round', '4':'Sweet Sixteen', '5':'Elite Eight', '6':'Final Four', '7':'Final Round'}
 					
 					var campaigns = new Array('handgunsmadness', 'riflesmadness', 'arsmadness', 'shotgunsmadness');
 					pdata.campaign = campaigns[parseInt(pdata.region)-1];
@@ -174,13 +188,14 @@
 						callbacks: {
 							markupParse: function(template, values, item) {
 								region = parseInt(item.data.region);
-								round = parseInt(item.data.round);console.log(round);
+								round = parseInt(item.data.round);
 								campaign = campaigns[region-1];
 								campimg = "/wp-content/themes/gunsandammo/images/ga-madness/"+popads[campaign];
 								template.find("#popupsponsor a").html('<img src="'+campimg+'" />');
 																
-								var roundtitle = (round==2)? "First Round":"Second Round";
-								template.find("#popuptitle").html(regions[region]+": "+roundtitle);
+								var roundtitle = roundtitles[round];
+								var regiontitle = (round<6)? (regions[region]+": "):"";
+								template.find("#popuptitle").html(regiontitle+roundtitle);
 								template.find(".next-matchup").hide();
 								
 								var score1 = parseInt(pdata.player1score);
@@ -252,9 +267,19 @@
 						'shotgunsmadness' : 'Winchester-GA-MAdness-popup-300x120.jpg'
 					}
 					var regions = {'1':'Handguns', '2':'Rifles', '3':'Modern Sporting Rifles', '4':'Shotguns'}
+					var roundtitles = {'2':'First Round', '3':'Second Round', '4':'Sweet Sixteen', '5':'Elite Eight', '6':'Final Four', '7':'Final Round'}
 					
 					var campaigns = new Array('handgunsmadness', 'riflesmadness', 'arsmadness', 'shotgunsmadness');
-					pdata[0].campaign = campaigns[parseInt(pdata[0].region)-1];
+					if(parseInt(pdata[0].region) == 5) {
+						var fregion = (Math.random() < 0.5)? 1 : 2;
+						pdata[0].campaign = campaigns[fregion-1];
+					}
+					else if(parseInt(pdata[0].region) == 6) {
+						var fregion = (Math.random() < 0.5)? 3 : 4;
+						pdata[0].campaign = campaigns[fregion-1];
+					}
+					else
+						pdata[0].campaign = campaigns[parseInt(pdata[0].region)-1];
 					
 					jQuery.magnificPopup.open({
 						items: pdata,
@@ -279,12 +304,15 @@
 							markupParse: function(template, values, item) {
 								region = parseInt(item.data.region);
 								round = parseInt(item.data.round);
-								campaign = campaigns[region-1];
+								//campaign = campaigns[region-1];
+								campaign = item.data.campaign;
+								
 								campimg = "/wp-content/themes/gunsandammo/images/ga-madness/"+popads[campaign];
 								template.find("#popupsponsor a").html('<img src="'+campimg+'" />');
 																
-								var roundtitle = (round==2)? "First Round":"Second Round";
-								template.find("#popuptitle").html(regions[region]+": "+roundtitle);
+								var roundtitle = roundtitles[round];
+								var regiontitle = (round<6)? (regions[region]+": "):"";
+								template.find("#popuptitle").html(regiontitle+roundtitle);
 							},
 							open: function() {
 								slidecnt--;
@@ -300,8 +328,8 @@
 								//postscribe('#div-gpt-ad-1386782139095-3',bidadtag);
 								
 								jQuery(".next-matchup").on("click", function() {
-									
-									if(slidecnt<4)
+
+									if(slidecnt<(16/(Math.pow(2,(round-1)))))
 										jQuery.magnificPopup.instance.next();
 									else {
 										slidecnt = 0;

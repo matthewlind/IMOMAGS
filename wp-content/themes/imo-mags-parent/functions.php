@@ -147,7 +147,6 @@ function parent_theme_setup()
     add_image_size( 'post-home-thumb', 695, 380, true );
     add_image_size( 'post-home-small-thumb', 335, 225, true );
     add_image_size("imo-mini-slider-thumb",70,70,TRUE);
-    add_image_size("tsc-medium",340,200,TRUE);
 }
 
 function parent_theme_widgets_init()
