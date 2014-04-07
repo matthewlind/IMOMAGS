@@ -181,6 +181,7 @@ jQuery(document).ready(function () {
 	}
 
     jQuery(".pager-holder a.btn-base").click(function(e){
+    	//console.log(_gaq.push(['_trackPageview',window.location.pathname + "/page/"]));
         jQuery("#ajax-loader").show();
 	        if (jQuery(window).width() <  610 ) {
 	            var findId = 'div.post, div.posts-image-banner';
@@ -194,7 +195,7 @@ jQuery(document).ready(function () {
 	                url: jQuery(".next-link a").attr('href'),
 	                dataType: 'html',
 	                success: function(data) {
-
+						
 	                    jQuery('.main-content-preppend').append(
 	                        jQuery(data).find('.posts-list.js-responsive-section').find(findId).hide()
 	                    );
@@ -205,6 +206,7 @@ jQuery(document).ready(function () {
 	                        jQuery(".pager-holder a.btn-base").hide();
 	                    }
 	                    jQuery("#ajax-loader").hide();
+	                   
 	                    //refresh the sticky ad on load more
 	                    if (jQuery(window).width() >  610 ) {
 	                    	document.getElementById('sticky-iframe-ad').contentWindow.location.reload();
