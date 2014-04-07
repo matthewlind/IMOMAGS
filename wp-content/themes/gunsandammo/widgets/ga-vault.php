@@ -1,9 +1,9 @@
-<?php // A widget to promote the Caption Contest post type
+<?php // A widget to promote the GA Vault Contest post type
 
-class Caption_Contest_Widget extends WP_Widget {
-	function Caption_Contest_Widget() {
-		$widget_ops = array('classname' => 'widget_caption_contest', 'description' => 'Promote a Caption Contest.' );
-		$this->WP_Widget('caption_contest', 'Caption Contest', $widget_ops);
+class ga_vault_Widget extends WP_Widget {
+	function ga_vault_Widget() {
+		$widget_ops = array('classname' => 'widget_ga_vault', 'description' => 'Promote a GA Vault Contest.' );
+		$this->WP_Widget('ga_vault', 'GA Vault', $widget_ops);
 	}
  
 	function widget($args, $instance) {
@@ -13,11 +13,11 @@ class Caption_Contest_Widget extends WP_Widget {
     
     if (!empty($contestID)) : ?>
     
-    <aside id="caption_contest_promo" class="widget widget_caption_contest">
+    <aside id="ga_vault_promo" class="widget widget_ga_vault">
       <!-- <?php print_r(get_post_custom_keys($contestID)); ?> -->
       
       <div class="banner">
-        <h4>Caption Contest</h4>
+        <h4>GA Vault Contest</h4>
         <p>Enter your caption for a chance to win!</p>
       </div>
       
@@ -33,8 +33,8 @@ class Caption_Contest_Widget extends WP_Widget {
 	    </div>
 	    
 	    <a href="<?php echo get_page_link($contestID); ?>" class="button">Enter The Contest <span></span></a>
-    <p class="view-all-p"><a href="/caption-contest" class="view-all">View All Caption Contests</a>
-	   <div class="sponsor"><?php echo get_imo_dart_tag("240x60",1,false,array("sect"=>"","camp"=>"caption_contest")); ?></div>
+    <p class="view-all-p"><a href="/ga-vault" class="view-all">View All GA Vault Contests</a>
+	   <div class="sponsor"><?php echo get_imo_dart_tag("240x60",1,false,array("sect"=>"","camp"=>"ga_vault")); ?></div>
     </p>
     </aside>
     
@@ -53,11 +53,11 @@ class Caption_Contest_Widget extends WP_Widget {
     
     $contestID = $instance['contestID'];
     
-    // Get Caption Contest posts so we can display them in a drop down menu
-    $contests = get_posts('post_type=imo_caption_contest'); ?>
+    // Get GA Vault Contest posts so we can display them in a drop down menu
+    $contests = get_posts('post_type=imo_ga_vault'); ?>
     
     <select name="<?php echo $this->get_field_name('contestID'); ?>" id="<?php echo $this->get_field_id('contestID'); ?>">
-    	<option value="">-- Select a Caption Contest --</option>
+    	<option value="">-- Select a GA Vault Contest --</option>
     	<?php foreach ($contests as $contest) : ?>
     	<option value="<?php echo esc_attr($contest->ID); ?>" <?php if ($contestID == $contest->ID) echo "selected"?>><?php echo $contest->post_title; ?></option>
     	<?php endforeach; ?>
@@ -66,4 +66,4 @@ class Caption_Contest_Widget extends WP_Widget {
 <?php
 	}
 }
-register_widget('Caption_Contest_Widget');
+register_widget('ga_vault_Widget');

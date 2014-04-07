@@ -469,18 +469,18 @@ h2.reviews-form-header span {
 
 /*** Caption Contest ***/
 
-.single-imo_caption_contest .prize-box {
+.single-imo_ga_vault .prize-box {
   border: 5px solid #999999;
   background-color: #dddddd;
   margin: 10px 10px 30px 10px;
   padding: 10px 10px 10px 10px;
   min-height: 170px;
 }
-.single-imo_caption_contest .prize-box .prize-thumb {
+.single-imo_ga_vault .prize-box .prize-thumb {
   float: left;
   padding: 10px;
 }
-.single-imo_caption_contest .caption-banner {
+.single-imo_ga_vault .caption-banner {
   margin-left: auto;
   margin-right: auto;
   background-image: url("images/red-banner.png");
@@ -492,7 +492,7 @@ h2.reviews-form-header span {
   position: relative;
   z-index: 1000;
 }
-.single-imo_caption_contest .caption-banner-text {
+.single-imo_ga_vault .caption-banner-text {
   font-family: "stagbold";
   text-transform: uppercase;
   font-size: 22px;
@@ -501,7 +501,7 @@ h2.reviews-form-header span {
   text-shadow: 1px 1px 0px #000000;
   filter: dropshadow(color=black, offx=1, offy=1);
 }
-.single-imo_caption_contest .caption-contest {
+.single-imo_ga_vault .caption-contest {
   overflow: hidden;
   *zoom: 1;
   background: #1C1C1C;
@@ -509,30 +509,30 @@ h2.reviews-form-header span {
   margin-bottom: 30px;
   padding: 16px;
 }
-.single-imo_caption_contest .caption-contest .wp-post-image {
+.single-imo_ga_vault .caption-contest .wp-post-image {
   display: block;
   max-width: 100%;
 }
-.single-imo_caption_contest .caption-contest h2 {
+.single-imo_ga_vault .caption-contest h2 {
   color: white;
   margin: 28px 0;
   text-align: center;
 }
-.single-imo_caption_contest .caption-contest .avatar {
+.single-imo_ga_vault .caption-contest .avatar {
   float: left;
   margin: 0 18px 0 30px;
   position: relative;
 }
-.single-imo_caption_contest .caption-contest .winning-caption {
+.single-imo_ga_vault .caption-contest .winning-caption {
   float: left;
   width: 490px;
 }
-.single-imo_caption_contest .caption-contest .author {
+.single-imo_ga_vault .caption-contest .author {
   color: #ce181e;
   font-size: 15px;
   font-weight: bold;
 }
-.single-imo_caption_contest .caption-contest .caption {
+.single-imo_ga_vault .caption-contest .caption {
   font-family: 'Lora', serif;
   font-style: italic;
   font-weight: normal;
@@ -540,30 +540,30 @@ h2.reviews-form-header span {
   font-size: 18px;
   margin-bottom: 32px;
 }
-.single-imo_caption_contest #main #idc-container .idc-head h3 {
+.single-imo_ga_vault #main #idc-container .idc-head h3 {
   background-image: url("images/section_title_captions.gif");
 }
-#caption_contest_promo {
-  	background: url("images/widget_caption_contest_bg.jpg") 0 0 no-repeat black;
+#ga_vault_promo {
+  	background: url("images/widget_ga_vault_bg.jpg") 0 0 no-repeat black;
 	color: white;
 	text-align: center;
-	width: 310px;
+	width: 300px;
 	padding-bottom: 10px;
 }
-#caption_contest_promo p{font-family: georgia;}
-#caption_contest_promo p.view-all-p {
+#ga_vault_promo p{font-family: georgia;}
+#ga_vault_promo p.view-all-p {
 	line-height: 24px;
 	font-size: 16px;
 	margin-top: 10px;
 }
-#caption_contest_promo p.view-all-p a:hover{color: white;}
-#caption_contest_promo .banner {
+#ga_vault_promo p.view-all-p a:hover{color: white;}
+#ga_vault_promo .banner {
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
   height: 200px;
 }
-#caption_contest_promo .wp-post-image {
+#ga_vault_promo .wp-post-image {
   display: -moz-inline-box;
   -moz-box-orient: vertical;
   display: inline-block;
@@ -573,7 +573,7 @@ h2.reviews-form-header span {
   max-width: 180px;
   *display: inline;
 }
-#caption_contest_promo a.button {
+#ga_vault_promo a.button {
 	background: white;
 	border: none;
 	color: black;
@@ -587,54 +587,54 @@ h2.reviews-form-header span {
 	text-align: center;
 	vertical-align: baseline;
 }
-#caption_contest_promo a.button span {
+#ga_vault_promo a.button span {
 	display: inline-block;
 	vertical-align: middle;
 	position: absolute;
 	top: 13px;
 }
-#caption_contest_promo a.button span, #caption_contest_promo a.button:hover span {
+#ga_vault_promo a.button span, #ga_vault_promo a.button:hover span {
 	background: url("images/ga-icons.png") no-repeat;
 }
-#caption_contest_promo a.button span {
+#ga_vault_promo a.button span {
   background-position: 0 -16px;
   height: 9px;
   width: 7px;
   right: 12px;
 }
-#caption_contest_promo a.button:hover {
+#ga_vault_promo a.button:hover {
   background: #ce181e;
   color: white;
 }
-#caption_contest_promo a.button:hover span {
+#ga_vault_promo a.button:hover span {
   background-position: 0 -50px;
   height: 9px;
   width: 7px;
 }
-#caption_contest_promo .prize {
+#ga_vault_promo .prize {
   margin: 24px 0 18px;
 }
-#caption_contest_promo .prize h6 {
+#ga_vault_promo .prize h6 {
   font-family: "Helvetica Nueue", Helvetica, Arial, sans-serif;
   color: white;
   font-size: 15px;
   font-weight: bold;
   line-height: 1;
 }
-#caption_contest_promo .prize p {
+#ga_vault_promo .prize p {
   color: #D9D9D9;
   font-size: 14px;
   margin-left: auto;
   margin-right: auto;
   width: 250px;
 }
-#caption_contest_promo .sponsor{
+#ga_vault_promo .sponsor{
 	float:none;
 	width: 240px;
 	margin: 0 auto;
 }
-#caption_contest_promo .sponsor img, .imo_caption_contest .sponsor img{float: none;}
-.post-type-archive-imo_caption_contest .sponsor img{margin-top: 2px;}
+#ga_vault_promo .sponsor img, .imo_ga_vault .sponsor img{float: none;}
+.post-type-archive-imo_ga_vault .sponsor img{margin-top: 2px;}
 
 .ga-lists-featured{float: left;padding-right: 10px;}
 .ga-lists-list{float: right;padding-left: 10px;text-align: center;margin-bottom: 30px;}
@@ -728,8 +728,8 @@ h2.reviews-form-header span {
 }
 @media only screen and (max-width: 340px){
 	.widget_ga-reviews-widget{clear: both;}
-	.single-imo_caption_contest .caption-banner{background: none #ce181e;width: 250px;height: 44px;top: 10px;}
-	.single-imo_caption_contest .prize-box .prize-thumb{float: none;}
+	.single-imo_ga_vault .caption-banner{background: none #ce181e;width: 250px;height: 44px;top: 10px;}
+	.single-imo_ga_vault .prize-box .prize-thumb{float: none;}
 	.page-header{border: none;}
 	.section-title, .page-title{margin-left: -10px;}
 	.section-title h2 span, .page-title span{width: 320px;}

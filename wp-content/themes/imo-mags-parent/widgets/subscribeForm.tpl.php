@@ -25,7 +25,16 @@
     	</div>
         <div class="subscribeAdMod">
             <div class="subscribeAdModContent">
-                <form method="GET" action="<?php print get_option("subs_form_link"); ?>/?pkey=<?php print get_option('i4ky')?>" target="_blank" onsubmit="_gaq.push(['_trackEvent', 'Subscribe', 'Location', 'Widget']);">
+                <?php $dartDomain = get_option("dart_domain", $default = false);
+			    if($dartDomain == "imo.gunsandammo" || $dartDomain == "imo.in-fisherman" || $dartDomain == "imo.shotgunnews" || $dartDomain == "imo.shootingtimes"){ ?>
+				    <form method="GET" action="<?php print get_option("subs_form_link"); ?>" target="_blank" onsubmit="_gaq.push(['_trackEvent', 'Subscribe', 'Location', 'Widget']);">
+			    <?php }else{ ?>
+					<form method="GET" action="<?php print get_option("subs_form_link"); ?>/?pkey=<?php print get_option('i4ky')?>" target="_blank" onsubmit="_gaq.push(['_trackEvent', 'Subscribe', 'Location', 'Widget']);">
+			   <?php } ?>
+
+                
+                
+                
                     <input type="hidden" name="i4Ky" value="<?php print get_option('i4ky')?>" />
                     <input type="hidden" name="pkey" value="<?php print get_option('i4ky')?>" />
                     <input type="hidden" name="iMagId" value="<?php print get_option('iMagId')?>" />
