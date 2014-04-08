@@ -17,6 +17,10 @@ define("SITE_NAME", "Game & Fish");
 define("FACEBOOK_APP_ID","624736570896056");
 define("FACEBOOK_APP_SECRET","4011410d01c27af26e016760c03492ea");
 
+@ini_set( 'upload_max_size' , '64M' );
+@ini_set( 'post_max_size', '64M');
+@ini_set( 'max_execution_time', '300' );
+
 include_once("widgets/gf-community-slider.php");
 
 /* This function allows for logging when debugging mode is on */
@@ -408,6 +412,22 @@ add_action("admin_menu", "gf_community_promo_settings_init");
 
 
 
+//G&F Wordpress Community Config
+add_action("init","gf_wp_community_init",2);
+function gf_wp_community_init() {
+
+    wp_enqueue_script( 'bootstrap-dropdown', get_stylesheet_directory_uri() . '/js/bootstrap-dropdown.js', array("jquery",'underscore'), '0.1', true );
+    wp_enqueue_script( 'gf-wp-community-listing', get_stylesheet_directory_uri() . '/js/community-listing.js', array("jquery",'underscore','bootstrap-dropdown'), '0.1', true );
+
+}
+
+function custom_post_author_archive( &$query )
+{
+    if ( $query->is_author )
+        $query->set( 'post_type', 'reader-photos' );
+    //remove_action( 'pre_get_posts', 'custom_post_author_archive' ); // run once!
+}
+add_action( 'pre_get_posts', 'custom_post_author_archive' );
 
 //Configure G&F community
 //This section does nothing unless imo-community plugin is enabled
@@ -417,10 +437,6 @@ function gf_community_init() {
 	//////////////////////////////////
 	//Community Configuration
 	//////////////////////////////////
-
-
-
-
 	//External Community Configurations
 
 	include("community-config/community-term-list.php"); //Post types array is moved here
