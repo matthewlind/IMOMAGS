@@ -279,7 +279,6 @@
 						var fregion = (Math.random() < 0.5)? 3 : 4;
 						pdata[0].campaign = campaigns[fregion-1];
 					}
-<<<<<<< HEAD
 					else if(parseInt(pdata[0].region) == 7) {
 						var fregion = 0;
 						var rand = Math.random();
@@ -289,8 +288,6 @@
 						else fregion = 4;
 						pdata[0].campaign = campaigns[fregion-1];
 					}
-=======
->>>>>>> 22caa3514b25c13e602375c135d0042900f3319d
 					else
 						pdata[0].campaign = campaigns[parseInt(pdata[0].region)-1];
 					
