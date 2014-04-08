@@ -406,15 +406,17 @@ ul#ga-madness-nav li a:hover{
 }
 
 @media only screen and (min-width: 700px){
+
+
 .match63 .matchup .rank-bottom {
 	bottom: 49px;
 	position: absolute;
-	left: 19px;
+	left: 3px;
 }
 .match63 .matchup .rank-top {
 	border-bottom: 1px solid #2d2d2d;
 	margin: 0;
-	padding: 0 10px 8px 22px;
+	padding: 0 0px 8px 6px;
 }
 .match63 .action-arrow {
 	top: 55px;
