@@ -32,7 +32,7 @@ function imo_gf_import_generate_options_page() {
 
                             global $wpdb;
 
-                            $superposts = $wpdb->get_results( "SELECT * FROM slim.gfimport ORDER BY id DESC LIMIT 3" );
+                            $superposts = $wpdb->get_results( "SELECT * FROM slim.gfimport ORDER BY id DESC LIMIT 300" );
 
                             foreach ($superposts as $superpost) {
 
