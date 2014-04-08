@@ -781,7 +781,12 @@ function fixed_connect_footer(){
 		    </div>
 		</div>
 		<div class="subscribe">
+		<?php $dartDomain = get_option("dart_domain", $default = false);
+	    if($dartDomain == "imo.gunsandammo" || $dartDomain == "imo.in-fisherman" || $dartDomain == "imo.shotgunnews" || $dartDomain == "imo.shootingtimes"){ ?>
+		    <a href="<?php print get_option('subs_link') . get_option('sticky_key'); ?>" target="_blank" onClick="_gaq.push(['_trackEvent', 'Subscribe', 'Location', 'Sticky Footer']);">Subscribe</a>
+	    <?php }else{ ?>
 			<a href="<?php print get_option('subs_link') . "/?pkey=" . get_option('sticky_key'); ?>" target="_blank" onClick="_gaq.push(['_trackEvent', 'Subscribe', 'Location', 'Sticky Footer']);">Subscribe</a>
+	   <?php } ?>
 		</div>
 		<div class="newsletter">
 			<div class="title">Get The Newsletter</div>

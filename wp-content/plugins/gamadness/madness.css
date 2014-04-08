@@ -203,7 +203,7 @@ ul#ga-madness-nav li a:hover{
 .basic-popup .flex-direction-nav{display: block;}
 .basic-popup .flex-direction-nav .flex-prev{background-position: 0 -52px !important;opacity: 1;top: 240px;}
 .basic-popup .flex-direction-nav .flex-next{background-position: -33px -52px !important;opacity: 1;top: 240px;}
-.next-matchup{
+.next-matchup, .vote-again {
 	font-style: italic;
 	padding: 5px 12px;
 	background: #c9242c;
@@ -403,6 +403,28 @@ ul#ga-madness-nav li a:hover{
 }
 .madnessmobilepresent {
 	text-align: center;
+}
+
+@media only screen and (min-width: 700px){
+
+
+.match63 .matchup .rank-bottom {
+	bottom: 49px;
+	position: absolute;
+	left: 3px;
+}
+.match63 .matchup .rank-top {
+	border-bottom: 1px solid #2d2d2d;
+	margin: 0;
+	padding: 0 0px 8px 6px;
+}
+.match63 .action-arrow {
+	top: 55px;
+	padding:4px 10px;
+	width:56px;
+	height:28px;
+	font-size: 14px;
+}
 }
  
 @media only screen and (max-width: 880px){

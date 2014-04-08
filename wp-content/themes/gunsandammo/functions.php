@@ -14,7 +14,8 @@ define("RSS_LINK", "http://feeds.feedburner.com/GunsAndAmmoMag");
 define("SITE_LINK", "gunsandammo.com");
 define("SITE_NAME", "Guns & Ammo");
 
-include_once('widgets/caption-contest.php');
+include_once('taxonomies.php');
+include_once('widgets/ga-vault.php');
 include_once('widgets/ipad-app.php');
 include_once('widgets/ipad-app-reloaded.php');
 
@@ -285,5 +286,4 @@ function wpse_5057_match_multiple_taxonomy_terms($where_clause, $wp_query) {
 
 }
 add_action('posts_where','wpse_5057_match_multiple_taxonomy_terms',10,2); // Hook this to posts_where
-
 

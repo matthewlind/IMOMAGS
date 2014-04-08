@@ -65,16 +65,20 @@
 	     */
 	    wp_enqueue_script("jquery");
 	    wp_head();
-	    
+	    $dartDomain = get_option("dart_domain", $default = false);
 	    $magazine_img = get_option('magazine_cover_uri' );
-		$subs_link = get_option('subs_link') . "/?pkey="; 
+	    if($dartDomain == "imo.gunsandammo" || $dartDomain == "imo.in-fisherman" || $dartDomain == "imo.shotgunnews" || $dartDomain == "imo.shootingtimes"){
+		    $subs_link = get_option('subs_link');
+	    }else{
+			$subs_link = get_option('subs_link') . "/?pkey=";
+	    }
 		$iMagID = get_option('iMagID' );
 		$deal_copy = get_option('deal_copy' );
 		$gift_link = get_option('gift_link' );
 		$service_link = get_option('service_link' );
 		$subs_form_link = get_option('subs_form_link' );
 		$i4ky = get_option('i4ky' );
-		$dartDomain = get_option("dart_domain", $default = false);
+		
 	?>
 	<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/dart.js" type="text/javascript"></script>
@@ -365,15 +369,12 @@
                         </div>
                     <?php endif; ?>
                 </div><!-- #branding -->
-                	<?php 
-                	if(get_option("menu_key")){ ?>
 	                	<div class="menu-top-menu-container subscribe-left">
 							<ul class="menu">
 								<li class="menu-item"><a href="<?php echo $subs_link . get_option("menu_key"); ?>" target="_blank">Subscribe!</a></li>
 							</ul>
 						</div>
-                	<?php }
-					if(has_nav_menu( 'top' )){
+					<?php if(has_nav_menu( 'top' )){
                     	wp_nav_menu(array(
 	                        'menu_class'=>'menu',
 	                        'theme_location'=>'top',
