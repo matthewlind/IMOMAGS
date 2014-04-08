@@ -108,12 +108,12 @@ if(post.score == 1){
 }else{
 	niceScore = post.score + ' Points';
 }
-newdate = post.created;
-olddate = '2014-02-14 00:00:00'; 
-if( newdate < olddate ){ 
-	crop = "";
+var desktop = new RegExp('filepicker');
+desktop = desktop.test(post.img_url);
+if( desktop ){ 
+	crop = "/convert?w=650&h=650&fit=crop&rotate=exif";
 }else{
-	crop = "/convert?w=650&h=650&fit=crop&rotate=exif";	
+	crop = "";	
 }
 %>
 
