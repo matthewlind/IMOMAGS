@@ -52,7 +52,7 @@ $byline = get_post_meta($postID, 'ecpt_byline', true);
                 <!-- <li><b>Species: </b><?php echo $species; ?></li> -->
                 <li><b>Taken At: </b><?php echo get_post_meta($postID,"camera_corner_taken",true); ?></li>
                 <li><b>Taken On: </b><?php echo get_post_meta($postID,"camera_corner_when",true); ?></li>
-                <li><b>Width: </b><?php echo get_post_meta($postID,"camera_corner_who",true); ?></li>
+                <li><b>With: </b><?php echo get_post_meta($postID,"camera_corner_who",true); ?></li>
             </ul>
 
             <?php wp_link_pages( array( 'before' => '<div class="page-links">' . 'Pages:', 'after' => '</div>' ) ); ?>

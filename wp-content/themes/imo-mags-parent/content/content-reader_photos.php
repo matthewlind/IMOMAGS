@@ -11,7 +11,7 @@
                 <a href="<?php echo get_author_posts_url(the_author_meta('ID')); ?>"><img src="/avatar?uid=<?php echo get_the_author_meta( "ID" ); ?>" alt="<?php echo get_the_author_meta( "user_nicename" ); ?>" title="<?php echo get_the_author_meta( "user_nicename" ); ?>" /></a>
             </div>
             <div class="profile-data">
-                <h4>By <?php the_author_posts_link(); ?></h4>
+                <h4>By <?php the_author(); ?></h4>
                 <ul class="prof-tags">
                     <?php
 
