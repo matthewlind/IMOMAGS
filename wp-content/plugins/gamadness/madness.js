@@ -1,4 +1,4 @@
-	var madnessround = 5;
+	var madnessround = 6;
 	
 	jQuery(window).load(function() {
 		jQuery('.ga-madness ul.rounds').css("overflow","visible");
@@ -167,7 +167,7 @@
 						'shotgunsmadness' : 'Winchester-GA-MAdness-popup-300x120.jpg'
 					}
 					var regions = {'1':'Handguns', '2':'Rifles', '3':'Modern Sporting Rifles', '4':'Shotguns'}
-					var roundtitles = {'2':'First Round', '3':'Second Round', '4':'Sweet Sixteen', '5':'Elite Eight', '6':'Final Four', '7':'Final Round'}
+					var roundtitles = {'2':'First Round', '3':'Second Round', '4':'Sweet Sixteen', '5':'Elite Eight', '6':'Final Four', '7':'Championship'}
 					
 					var campaigns = new Array('handgunsmadness', 'riflesmadness', 'arsmadness', 'shotgunsmadness');
 					pdata.campaign = campaigns[parseInt(pdata.region)-1];
@@ -197,6 +197,7 @@
 								var regiontitle = (round<6)? (regions[region]+": "):"";
 								template.find("#popuptitle").html(regiontitle+roundtitle);
 								template.find(".next-matchup").hide();
+								template.find(".vote-again").hide();
 								
 								var score1 = parseInt(pdata.player1score);
 								var score2 = parseInt(pdata.player2score);
@@ -267,7 +268,7 @@
 						'shotgunsmadness' : 'Winchester-GA-MAdness-popup-300x120.jpg'
 					}
 					var regions = {'1':'Handguns', '2':'Rifles', '3':'Modern Sporting Rifles', '4':'Shotguns'}
-					var roundtitles = {'2':'First Round', '3':'Second Round', '4':'Sweet Sixteen', '5':'Elite Eight', '6':'Final Four', '7':'Final Round'}
+					var roundtitles = {'2':'First Round', '3':'Second Round', '4':'Sweet Sixteen', '5':'Elite Eight', '6':'Final Four', '7':'Championship'}
 					
 					var campaigns = new Array('handgunsmadness', 'riflesmadness', 'arsmadness', 'shotgunsmadness');
 					if(parseInt(pdata[0].region) == 5) {
@@ -276,6 +277,15 @@
 					}
 					else if(parseInt(pdata[0].region) == 6) {
 						var fregion = (Math.random() < 0.5)? 3 : 4;
+						pdata[0].campaign = campaigns[fregion-1];
+					}
+					else if(parseInt(pdata[0].region) == 7) {
+						var fregion = 0;
+						var rand = Math.random();
+						if(rand < 0.25) fregion = 1;
+						else if(rand < 0.5) fregion = 2;
+						else if(rand < 0.75) fregion = 3;
+						else fregion = 4;
 						pdata[0].campaign = campaigns[fregion-1];
 					}
 					else
@@ -328,8 +338,10 @@
 								//postscribe('#div-gpt-ad-1386782139095-3',bidadtag);
 								
 								jQuery(".next-matchup").on("click", function() {
-
-									if(slidecnt<(16/(Math.pow(2,(round-1)))))
+									if(region==6) {
+										jQuery("div[data-region='5'][data-idx='0'][data-round='6']").trigger("click");
+									}
+									else if(slidecnt<(16/(Math.pow(2,(round-1)))))
 										jQuery.magnificPopup.instance.next();
 									else {
 										slidecnt = 0;
@@ -340,6 +352,10 @@
 										jQuery("div[data-region='"+region+"'][data-idx='0'][data-round='"+round+"']").trigger("click");				
 									}
 								});
+								jQuery(".vote-again").on("click", function() {
+									jQuery("div[data-mid='63']").trigger("click");
+								});
+
 								
 							},
 							change: function() {
@@ -363,6 +379,7 @@
 										logVote(jQuery(this).data("mid"),jQuery(this).data("pnum"));
 									});
 									jQuery(".next-matchup").hide();
+									jQuery(".vote-again").hide();
 									
 									//jQuery('#gpt-ad-1386782139095-3').empty();
 									//var bidadtag = '<script src=http:ad.doubleclick.net/adj/imo.gunsandammo/bracket;'
@@ -394,18 +411,19 @@
 			success: function(data) {
 				var score1 = parseInt(data[0].player1score);
 				var score2 = parseInt(data[0].player2score);
-				//var scoretot = score1 + score2;
-				//var per1 = ((score1/scoretot)*100).toFixed(0);
-				//var per2 = ((score2/scoretot)*100).toFixed(0);
+
 				if(pnum=="1") jQuery(".guntwo img, .guntwo h2").fadeTo("fast", "0.5");
 				if(pnum=="2") jQuery(".gunone img, .gunone h2").fadeTo("fast", "0.5");
 				
 				jQuery("#popvoteon1").html('<div class="popvoted '+((pnum=="2")? "popvoted-no":"")+'">'+score1+' Votes</div>');
 				jQuery("#popvoteon2").html('<div class="popvoted '+((pnum=="1")? "popvoted-no":"")+'">'+score2+' Votes</div>');
 				
-				
-				jQuery(".next-matchup").show();
-
+				if(match=="63") {
+					jQuery(".vote-again").show();
+				}
+				else {
+					jQuery(".next-matchup").show();
+				}
 			}
 		});
 	}
