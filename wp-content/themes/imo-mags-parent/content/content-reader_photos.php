@@ -13,7 +13,16 @@
             <div class="profile-data">
                 <h4>By <?php the_author_posts_link(); ?></h4>
                 <ul class="prof-tags">
-                    <li>Tags!</li>
+                    <?php
+
+                        $categories = get_the_category();
+
+                        if($categories){
+                            foreach($categories as $category) {
+                                echo "<li>" . $category->name . "</li>";
+                            }
+                        };
+                    ?>
                 </ul>
                 <ul class="replies">
                     <li><a href="<?php the_permalink(); ?>/#reply_field"><?php echo get_comments_number(); ?> Reply</a></li>

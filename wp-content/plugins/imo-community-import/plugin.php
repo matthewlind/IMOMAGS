@@ -40,8 +40,8 @@ function imo_gf_import_generate_options_page() {
                                 //first check to see if it's been imported
                                 $test = $wpdb->get_var( "SELECT meta_value FROM imomags.wp_14_postmeta WHERE meta_key = 'legacy_spid' AND meta_value = '{$superpost->id}'" );
 
-                                echo "test:";
-                                echo $test;
+                                //echo "test:";
+                                //echo $test;
 
                                 if (empty($test)) {
 
@@ -49,12 +49,46 @@ function imo_gf_import_generate_options_page() {
                                     $stateSlug = $statesAbbv[$superpost->state];
                                     $stateCategory = get_category_by_slug( $stateSlug );
 
+                                    //Convert bad terms to good terms
+                                    $superPostType = $superpost->post_type;
+
+                                    if ($superPostType == "stripers") {
+                                        $superPostType = "stripers-hybrids";
+                                    }
+                                    if ($superPostType == "panfish") {
+                                        $superPostType = "crappies-panfish";
+                                    }
+                                    if ($superPostType == "pike") {
+                                        $superPostType = "pike-muskie";
+                                    }
+                                    if ($superPostType == "goose") {
+                                        $superPostType = "geese";
+                                    }
+                                    if ($superPostType == "duck") {
+                                        $superPostType = "ducks";
+                                    }
+
+
                                     //Get species category
-                                    $speciesCategory = get_category_by_slug( $superpost->post_type );
+                                    $speciesCategory = get_category_by_slug( $superPostType );
+
+                                    echo "{$superpost->post_type}: {$speciesCategory->term_id}<br>";
+
+
+                                    $body = $superpost->body;
+                                    $delimeter = "<p class='post-detail'>";
+
+                                    if (strstr($body,$delimeter)) {
+
+                                        $pieces = explode($delimeter, $body);
+
+                                        $body = $pieces[0];
+
+                                    }
 
 
                                     $postData = array(
-                                      'post_content'   => $superpost->body, // The full text of the post.
+                                      'post_content'   => $body, // The full text of the post.
                                       'post_title'     => $superpost->title, // The title of your post.
                                       'post_status'    => 'publish',
                                       'post_type'      => 'reader_photos',
@@ -71,9 +105,9 @@ function imo_gf_import_generate_options_page() {
                                     $postID = wp_insert_post( $postData, FALSE );
 
                                     if ($postID == 0) {
-                                        echo "<b>SUPERPOST $superpost->id IMPORT FAILED</b><br>";
+                                        //echo "<b>SUPERPOST $superpost->id IMPORT FAILED</b><br>";
                                     } else {
-                                        echo "SUPERPOST $superpost->id IMPORTED TO $postID<br>";
+                                        //echo "SUPERPOST $superpost->id IMPORTED TO $postID<br>";
 
                                         //Update the post meta
                                         update_post_meta($postID, 'camera_corner_taken', $superpost->location);
@@ -114,7 +148,7 @@ function imo_gf_import_generate_options_page() {
 
                                         $attach_id = wp_insert_attachment( $attachment, $filename, $postID );
 
-                                        echo "attach_id: $attach_id";
+                                        //echo "attach_id: $attach_id";
                                         add_post_meta($postID, '_thumbnail_id', $attach_id, true);
 
                                         //Get any comments and insert them too
