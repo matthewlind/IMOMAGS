@@ -38,6 +38,7 @@ $IMO_COMMUNITY_CONFIG['additional_scripts'] = array(
 		"script-path" => "naw/js/community-question.js",
 		"script-dependencies" => array('jquery',"bootstrap-dropdown-js")
 	)
+	
 );
 
 $IMO_COMMUNITY_CONFIG['additional_styles'] = array(

@@ -251,14 +251,12 @@ if(mobile()){
 							}else{
 								$niceComment = $post->comment_count.' Replies';
 							}
-							$newdate = $post->created;
-							$olddate = '2014-02-14 00:00:00'; 
-							if( $newdate < $olddate ){ 
-								$crop = "";
+							if( strpos($data->img_url,'filepicker') ){ 
+								$crop = "/convert?w=650&h=650&fit=crop&rotate=exif";
 							}else{
-								$crop = "/convert?w=650&h=650&fit=crop&rotate=exif";	
+					        	$crop = "";
 							}
-							
+						
 							?>
 
 		                        <div class="dif-post">

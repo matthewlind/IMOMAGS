@@ -203,8 +203,8 @@ if( desktop ){
 <!--         <div class="general-title clearfix alter-title">
             <h2>Latest <span>Submissions</span></h2>
         </div> -->
+        <div class="loading-gif"></div>
         <div class="dif-posts">
-			<div class="loading-gif"></div>
      		<div id="posts-container"></div>
          </div>
          <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="pager-holder js-responsive-section">

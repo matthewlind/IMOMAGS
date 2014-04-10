@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: report
+ * Template Name: state
  * Description: Community Rut Reports Page
  *
  * @package carrington-business
@@ -43,6 +43,7 @@ if ( is_user_logged_in() ) {
 include 'common-templates.php';
 
 $state = get_query_var("state");
+$niceState = str_replace("-", " ", $state);
 
 $stateSlugToAbbv = array("alabama"=>"AL",
 "alaska"=>"AK","arizona"=>"AZ","arkansas"=>"AR","california"=>"CA","colorado"=>"CO","connecticut"=>"CT","delaware"=>"DE","district-of-columbia"=>"DC","florida"=>"FL","georgia"=>"GA","hawaii"=>"HI","idaho"=>"ID","illinois"=>"IL","indiana"=>"IN","iowa"=>"IA","kansas"=>"KS","kentucky"=>"KY","louisiana"=>"LA","maine"=>"ME","maryland"=>"MD","massachusetts"=>"MA","michigan"=>"MI","minnesota"=>"MN","mississippi"=>"MS","missouri"=>"MO","montana"=>"MT","nebraska"=>"NE","nevada"=>"NV","new-hampshire"=>"NH","new-jersey"=>"NJ","new-mexico"=>"NM","new-york"=>"NY","north-carolina"=>"NC","north-dakota"=>"ND","ohio"=>"OH","oklahoma"=>"OK","oregon"=>"OR","pennsylvania"=>"PA","rhode-island"=>"RI","south-carolina"=>"SC","south-dakota"=>"SD","tennessee"=>"TN","texas"=>"TX","utah"=>"UT","vermont"=>"VT","virginia"=>"VA","washington"=>"WA","west-virginia"=>"WV","wisconsin"=>"WI","wyoming"=>"WY","alberta"=>"AB","british-columbia"=>"BC","manitoba"=>"MB","new-brunswick"=>"NB","newfoundland-and-labrador"=>"NL","northwest-territories"=>"NT","nova-scotia"=>"NS","nunavut"=>"NU","ontario"=>"ON","prince-edward-island"=>"PE","quebec"=>"QC","saskatchewan"=>"SK","yukon"=>"YT");
@@ -115,12 +116,12 @@ if(post.score == 1){
 }else{
 	niceScore = post.score + ' Points';
 }
-newdate = post.created;
-olddate = '2014-02-14 00:00:00'; 
-if( newdate < olddate ){ 
-	crop = "";
+var desktop = new RegExp('filepicker');
+desktop = desktop.test(post.img_url);
+if( desktop ){ 
+	crop = "/convert?w=650&h=650&fit=crop&rotate=exif";
 }else{
-	crop = "/convert?w=650&h=650&fit=crop&rotate=exif";	
+	crop = "";	
 }
 %>
 	<div class="dif-post">
@@ -159,7 +160,6 @@ if( newdate < olddate ){
                     </ul>
                 </div>
             </div>
-            <% if (post.master == 1) {  %><span class="badge"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/pic/badge-ma.png" alt="Master Angler" /></span><% } %>
         </div>
     </div>
 </script>
@@ -169,15 +169,14 @@ if( newdate < olddate ){
 
 <div class="page-community">
     <div class="general general-com">
-    	<div class="title-crumbs">
-    	 <ul class="breadcrumbs">
-	    	<li><a href="/community">NAW+ Community</a></li>
-	    	<li style="margin-top:1px;text-transform:capitalize;">&raquo; State Rut Reports</li>
-	    </ul>
     	<div class="custom-title clearfix">
     		<img src="<?php echo plugins_url('images/naw-plus.png' , __FILE__ ); ?>" alt="NAW Community" class="custom-tite-logo">
             <div class="title-crumbs">
-            	<h1><?php echo $state ?> Rut Reports</h1>
+            	 <ul class="breadcrumbs">
+			    	<li><a href="/community">NAW+ Community</a></li>
+			    	<li style="margin-top:1px;text-transform:capitalize;">&raquo; <?php echo $niceState ?> Rut Reports</li>
+				</ul>
+                <h1><?php echo $niceState ?> Rut Reports</h1>
                 <div class="sponsor"><?php imo_dart_tag("240x60"); ?></div>
 			</div>
         </div>
@@ -250,9 +249,8 @@ if( newdate < olddate ){
 			<li><a href="/community/report/wyoming" class="filter-menu" order_by="created">wyoming</a></li><div class="divider"></div>
           </ul>
         </div>
-
+		<div class="loading-gif"></div>
         <div class="dif-posts">
-        	<div class="loading-gif"></div>
 			<div id="posts-container" state="<?php echo $shortState; ?>"></div>
          </div>
          <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="pager-holder js-responsive-section">

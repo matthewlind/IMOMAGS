@@ -291,7 +291,7 @@ select.alter-sel {width:100%;}
     width: 0;
 }
 .dif-posts {
-    width:700px;
+    width:680px;
 }
 .dif-post {
     display:inline-block;
@@ -508,7 +508,6 @@ select.alter-sel {width:100%;}
 .add-photo-field img{margin: 0 10px 10px 0;float: left;}
 .caption-area {
     position:relative;
-    float:left;
 }
 .photo-link-area {
     border-top:1px solid #d6d4d2;
@@ -1269,6 +1268,7 @@ select.alter-sel {width:100%;}
 .dropdown-menu{position: relative !important;}
 .dropdown-menu > li > a{font-family: "opensans_regular",Helvetica,sans-serif;text-transform: capitalize;}
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {background-color: #006699 !important;}
+.loading-gif {margin: 0 auto;width: 208px;}
 
 /* Responsive styles */
 @media only screen and (max-width: 1096px) {
