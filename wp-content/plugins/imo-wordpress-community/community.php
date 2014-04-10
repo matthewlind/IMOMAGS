@@ -11,19 +11,19 @@ add_action('init', 'category_cpt_rewrites');
 
 function category_cpt_rewrites() {
 
-    $rule = '^' . "reader-photos" . '/hunting/(.+?)/?$';
+    $rule = '^' . "photos" . '/hunting/(.+?)/?$';
     $rewrite = 'index.php?post_type=' . "reader_photos" . '&category_name=$matches[1]';
     add_rewrite_rule($rule,$rewrite,'top');
 
-    $rule = '^' . "reader-photos" . '/hunting';
+    $rule = '^' . "photos" . '/hunting';
     $rewrite = 'index.php?post_type=' . "reader_photos" . '&category_name=hunting';
     add_rewrite_rule($rule,$rewrite,'top');
 
-    $rule = '^' . "reader-photos" . '/fishing';
+    $rule = '^' . "photos" . '/fishing';
     $rewrite = 'index.php?post_type=' . "reader_photos" . '&category_name=fishing';
     add_rewrite_rule($rule,$rewrite,'top');
 
-    $rule2 = '^' . "reader-photos" . '/fishing/(.+?)/?$';
+    $rule2 = '^' . "photos" . '/fishing/(.+?)/?$';
     $rewrite2 = 'index.php?post_type=' . "reader_photos" . '&category_name=$matches[1]';
     add_rewrite_rule($rule2,$rewrite2,'top');
 
@@ -45,7 +45,7 @@ function cptui_register_my_cpt_reader_photos() {
 			'capability_type' => 'reader_post',
 			'map_meta_cap' => true,
 			'hierarchical' => false,
-			'rewrite' => array('slug' => 'reader-photos'),
+			'rewrite' => array('slug' => 'photos'),
 			'query_var' => true,
 			'has_archive' => true,
 			'supports' => array('title','editor','excerpt','trackbacks','custom-fields','comments','revisions','thumbnail','author','page-attributes'),
