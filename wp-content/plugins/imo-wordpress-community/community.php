@@ -15,6 +15,14 @@ function category_cpt_rewrites() {
     $rewrite = 'index.php?post_type=' . "reader_photos" . '&category_name=$matches[1]';
     add_rewrite_rule($rule,$rewrite,'top');
 
+    $rule = '^' . "reader-photos" . '/hunting';
+    $rewrite = 'index.php?post_type=' . "reader_photos" . '&category_name=hunting';
+    add_rewrite_rule($rule,$rewrite,'top');
+
+    $rule = '^' . "reader-photos" . '/fishing';
+    $rewrite = 'index.php?post_type=' . "reader_photos" . '&category_name=fishing';
+    add_rewrite_rule($rule,$rewrite,'top');
+
     $rule2 = '^' . "reader-photos" . '/fishing/(.+?)/?$';
     $rewrite2 = 'index.php?post_type=' . "reader_photos" . '&category_name=$matches[1]';
     add_rewrite_rule($rule2,$rewrite2,'top');

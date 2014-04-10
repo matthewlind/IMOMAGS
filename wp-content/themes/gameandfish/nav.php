@@ -8,7 +8,7 @@ $gfPostTypes = array(
 		"display_name" => "Hunting",
 		"slug" => "hunting",
 		"post_list_style" => "tile",
-		"show_in_menu" => TRUE,
+		"show_in_menu" => FALSE,
 		"children" => array(
 
 			"big-game" => array(
@@ -199,7 +199,7 @@ $gfPostTypes = array(
 		"display_name" => "Fishing",
 		"slug" => "fishing",
 		"post_list_style" => "tile",
-		"show_in_menu" => TRUE,
+		"show_in_menu" => FALSE,
 		"children" => array(
 
 			"bass" => array(

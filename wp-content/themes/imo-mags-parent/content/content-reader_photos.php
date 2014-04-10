@@ -11,9 +11,18 @@
                 <a href="<?php echo get_author_posts_url(the_author_meta('ID')); ?>"><img src="/avatar?uid=<?php echo get_the_author_meta( "ID" ); ?>" alt="<?php echo get_the_author_meta( "user_nicename" ); ?>" title="<?php echo get_the_author_meta( "user_nicename" ); ?>" /></a>
             </div>
             <div class="profile-data">
-                <h4>By <?php the_author_posts_link(); ?></h4>
+                <h4>By <?php the_author(); ?></h4>
                 <ul class="prof-tags">
-                    <li>Tags!</li>
+                    <?php
+
+                        $categories = get_the_category();
+
+                        if($categories){
+                            foreach($categories as $category) {
+                                echo "<li>" . $category->name . "</li>";
+                            }
+                        };
+                    ?>
                 </ul>
                 <ul class="replies">
                     <li><a href="<?php the_permalink(); ?>/#reply_field"><?php echo get_comments_number(); ?> Reply</a></li>

@@ -2654,6 +2654,10 @@ select.alter-sel {width:100%;}
         float:left;
     }
 
+    .community-posts .feat-img img {
+    	height:auto;
+    }
+
 }
 
 
