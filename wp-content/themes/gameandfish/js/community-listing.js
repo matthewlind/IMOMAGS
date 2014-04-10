@@ -31,6 +31,15 @@ jQuery( document ).ready(function( $ ) {
 	});
 
 
+	$("#community-nav").on("change",function(ev){
+
+		var url = $(this).val();
+		window.location.href = url;
+
+
+	});
+
+
 	$(".community-pager .more").click(function(ev){
 
 		ev.preventDefault();
@@ -97,7 +106,7 @@ jQuery( document ).ready(function( $ ) {
 
 				$.each(posts,function(index,post){
 
-					//console.log(post);
+
 
 
 					$postTemplate = $postTemplateCopy.clone();
@@ -115,6 +124,16 @@ jQuery( document ).ready(function( $ ) {
 					$postTemplate.find("ul.replies li a").html(post.comment_count + "replies");
 
 					$postTemplate.find("a").attr("href",post.post_url);
+
+					$postTemplate.find("ul.prof-tags").html("");
+
+					$.each(post.terms,function(index,term){
+
+
+
+						$postTemplate.find("ul.prof-tags").append("<li>" + term.name + "</li>");
+
+					});
 
 
 					$(".posts-list").append($postTemplate);
