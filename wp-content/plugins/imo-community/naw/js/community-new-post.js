@@ -1,5 +1,6 @@
 jQuery(document).ready(function($) {
 
+	
 	//Get post_type from community config
 	var postTypes = IMO_COMMUNITY_CONFIG.post_types;
 
@@ -11,16 +12,22 @@ jQuery(document).ready(function($) {
 	//*******************************************************
 	//****************** DISPLAY THE FORM *******************
 	//*******************************************************
-
+	var questionPost = window.location.href.indexOf("question") > -1;
+	
 	var formTemplate = _.template( $("#new-post-template").html() , { post:null, post_types:postTypes, species:masterAnglerData } );//Use the post types from the configuration
 	$("#form-container").append(formTemplate);
-
+	
+	if(questionPost){
+		$("#ma-species").hide();
+		$("#ma-species").html("");
+		$("#ma-species").prepend('<option value="question">Question</option>');
+	}
+	
 	//If user is logged in, hide the FB login button
 	if (userIMO.username.length > 0) {
 		$(".imo-community-new-post.btn-fb-login").hide();
 	}
-
-
+	
 	//*******************************************************
 	//*********** ACTIVATE FB LOGIN IN THE FORM *************
 	//*******************************************************
@@ -170,28 +177,40 @@ jQuery(document).ready(function($) {
 	//************* FORM VALIDATION *****************
 	//*******************************************************
 	function validateFormData(formData) {
-
-
-		//Check form fields
-		if (formData.title.length < 1 && formData.img_url.length < 1) {
-			alert("Please attach a photo and give this post a title.");
-			return false;
-		} else if (formData.title.length < 1) {
-			alert("Please give this post a title.");
-			return false;
-		} else if (formData.img_url.length < 1) {
-		alert("Please attach a photo.");
-		return false;
-		} else if (formData.state.length < 1) {
-			alert("Please Choose a state.");
-			return false;
-		} else if (userIMO.username.length < 1) {
-			alert("Please login before you post.");
-			return false;
-		} else {
-			return true;
+	
+		formData.img_url = "";
+		
+		if(formData.post_type == "question" || questionPost){
+			if (formData.title.length < 1) {
+				alert("Please give this post a title.");
+				return false;
+			}else if (formData.state.length < 1) {
+				alert("Please Choose a state.");
+				return false;
+			} else if (userIMO.username.length < 1) {
+				alert("Please login before you post.");
+				return false;
+			} else {
+				return true;
+			}
+		}else{
+			//Check form fields
+			if (formData.title.length < 1) {
+				alert("Please give this post a title.");
+				return false;
+			} else if(formData.img_url.length < 1) {
+				alert("Please attach a photo.");
+				return false;
+			} else if (formData.state.length < 1) {
+				alert("Please Choose a state.");
+				return false;
+			} else if (userIMO.username.length < 1) {
+				alert("Please login before you post.");
+				return false;
+			} else {
+				return true;
+			}
 		}
-
 
 	}
 

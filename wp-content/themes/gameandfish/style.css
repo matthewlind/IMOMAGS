@@ -1045,7 +1045,7 @@ element:hover, element.hover_effect {
 		width: 44px;
 		height: 44px;
 		position: absolute;
-		right :45px;
+		right :0;
 		top: 0px;
 		background: url(images/search.jpg) no-repeat 0px 2px #252525;
 	}
@@ -1070,7 +1070,7 @@ element:hover, element.hover_effect {
 	.header .socials {
 		padding: 6px 8px 0 0;
 		height: 44px;
-		right: 90px;
+		right: 45px;
 	}
 	.snap-drawer a.singl-post-photo{text-align: center !important;}
 	.gf-bottom-menu {

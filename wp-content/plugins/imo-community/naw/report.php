@@ -106,14 +106,13 @@ if(post.score == 1){
 }else{
 	niceScore = post.score + ' Points';
 }
-newdate = post.created;
-olddate = '2014-02-14 00:00:00'; 
-if( newdate < olddate ){ 
-	crop = "";
+var desktop = new RegExp('filepicker');
+desktop = desktop.test(post.img_url);
+if( desktop ){ 
+	crop = "/convert?w=650&h=650&fit=crop&rotate=exif";
 }else{
-	crop = "/convert?w=650&h=650&fit=crop&rotate=exif";	
-}
-%>
+	crop = "";	
+}%>
 	<div class="dif-post">
        <% if(post.img_url){ %>
 	        <div class="feat-img">
@@ -164,7 +163,7 @@ if( newdate < olddate ){
             <div class="title-crumbs">
             	 <ul class="breadcrumbs">
 			    	<li><a href="/community">NAW+ Community</a></li>
-			    	<li style="margin-top:1px;text-transform:capitalize;">&raquo; State Rut Reports</li>
+			    	<li style="margin-top:1px;text-transform:capitalize;">&raquo; Rut Reports</li>
 			    </ul>
             	<h1>State Rut Reports</h1>
                 <div class="sponsor"><?php imo_dart_tag("240x60"); ?></div>
@@ -239,9 +238,8 @@ if( newdate < olddate ){
 				<li><a href="/community/report/wyoming" class="filter-menu" order_by="created">wyoming</a></li><div class="divider"></div>
 			</ul>
         </div>
-
+		<div class="loading-gif"></div>
         <div class="dif-posts">
-        	<div class="loading-gif"></div>
 			<div id="posts-container"></div>
          </div>
          <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="pager-holder js-responsive-section">

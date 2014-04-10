@@ -116,7 +116,8 @@ function naw_community_init() {
 
 
 	//External Community Configurations
-
+	
+	include("community-config/state-report.php");
 	include("community-config/report.php");
 	include("community-config/general.php");
 	include("community-config/question.php");
@@ -126,7 +127,6 @@ function naw_community_init() {
 	include("community-config/edit-profile.php");
 	include("community-config/admin.php");
 	include("community-config/listing.php");
-	include("community-config/state-report.php");
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//NOTE: Configuration order matters! More specific URLs should appear before less specific urls on the same path.

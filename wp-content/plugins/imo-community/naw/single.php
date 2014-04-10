@@ -261,7 +261,7 @@ if($data->post_type == "report"){
                     <?php if($state){ ?><li><a href="/community/<?php echo $data->post_type . '/' . strtolower($state_slug); ?>"><?php echo $state ?></a></li><?php } ?>
                     <li><a href="/community/<?php echo $data->post_type; ?>" style="text-transform:capitalize;"><?php echo $postType; ?></a></li>
                 </ul>
-                <div class="clearfix">
+                <div class="clearfix"></div>
                     <ul class="replies">
                         <li><?php echo $date; ?> at <?php echo $time; ?><div class="bullet"></li>
                         <li><a href="#reply_field"><?php echo $niceComment; ?></a></li>
@@ -278,29 +278,25 @@ if($data->post_type == "report"){
 				<a class="addthis_counter addthis_pill_style"></a>
 			</div>
 
-        <?php
-        	$newdate = $data->created;
-			$olddate = '2014-02-14 00:00:00'; 
-			if( $newdate < $olddate ){ 
-				$width = "";
-			}else{
-				$width = "/convert?w=730&fit=scale&rotate=exif";
-	        	if(mobile()){
-	        		$width = "/convert?w=478";
-	        	}	
-			}
+        <?php if( strpos($data->img_url,'filepicker') ){ 
+			$width = "/convert?w=730&fit=scale&rotate=exif";
+        	if(mobile()){
+        		$width = "/convert?w=478";
+        	}	
+		}else{
+        	$width = "";
+		}
         	
-            $media = "";
-            $media = "<div class='full-post-img'><img src='$data->img_url$width'></div>";
+        $media = "";
+        $media = "<div class='full-post-img'><img src='$data->img_url$width'></div>";
 
-            echo $media;
-        ?>
-
-        <?php if ($data->master) { ?>
-        <div class="manametitle">
-            <div class="maname"><span class="firstname"><?php echo $data->first_name; ?></span> <span class="lastname"><?php echo $data->last_name; ?></span></div>
-            <div class="macity"><?php echo $data->nearest_town; ?>, <?php echo $data->state; ?></div>
-        </div>
+        echo $media; 
+        
+        if ($data->master) { ?>
+	        <div class="manametitle">
+	            <div class="maname"><span class="firstname"><?php echo $data->first_name; ?></span> <span class="lastname"><?php echo $data->last_name; ?></span></div>
+	            <div class="macity"><?php echo $data->nearest_town; ?>, <?php echo $data->state; ?></div>
+	        </div>
 
        <?php }//end if ?>
 

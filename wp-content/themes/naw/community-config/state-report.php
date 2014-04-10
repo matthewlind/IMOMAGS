@@ -29,8 +29,8 @@ $IMO_COMMUNITY_CONFIG['additional_scripts'] = array(
 		"script-dependencies" => array('jquery')
 	),
 	array(
-		"script-name" => "community-report-js",
-		"script-path" => "naw/js/community-report.js",
+		"script-name" => "community-state-report-js",
+		"script-path" => "naw/js/community-state-report.js",
 		"script-dependencies" => array('jquery',"bootstrap-dropdown-js")
 	)
 );
@@ -54,4 +54,4 @@ $IMO_COMMUNITY_CONFIG['additional_styles'] = array(
 );
 
 global $IMO_COMMUNITY;
-$IMO_COMMUNITY['community-report'] = $IMO_COMMUNITY_CONFIG;
+$IMO_COMMUNITY['community-state'] = $IMO_COMMUNITY_CONFIG;

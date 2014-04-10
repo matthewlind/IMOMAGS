@@ -4,7 +4,7 @@
 */
 
 /*
-Plugin Name: GA Vault
+Plugin Name: G&A Vault
 Plugin URI: https://imomags.com
 Description: Choose the best comment to win the contest!
 Author: aaron
@@ -32,16 +32,16 @@ function imo_ga_vault_admin_script() {
 
 function imo_ga_vault_init() {
 	$labels = array(
-		'name' => _x('GA Vault', 'post type general name'),
-		'singular_name' => _x('GA Vault', 'post type singular name'),
-		'add_new' => _x('Add New', 'GA Vault'),
-		'add_new_item' => __("Add New GA Vault"),
-		'edit_item' => __("Edit GA Vault"),
-		'new_item' => __("New GA Vault"),
-		'view_item' => __("View GA Vault"),
-		'search_items' => __("Search GA Vault"),
-		'not_found' =>  __('No GA Vault found'),
-		'not_found_in_trash' => __('No GA Vault found in Trash'), 
+		'name' => _x('G&A Vault', 'post type general name'),
+		'singular_name' => _x('G&A Vault', 'post type singular name'),
+		'add_new' => _x('Add New', 'G&A Vault'),
+		'add_new_item' => __("Add New G&A Vault"),
+		'edit_item' => __("Edit G&A Vault"),
+		'new_item' => __("New G&A Vault"),
+		'view_item' => __("View G&A Vault"),
+		'search_items' => __("Search G&A Vault"),
+		'not_found' =>  __('No G&A Vault found'),
+		'not_found_in_trash' => __('No G&A Vault found in Trash'), 
 		'parent_item_colon' => ''
 	  );
 	  $args = array(
