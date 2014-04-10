@@ -15,13 +15,14 @@ jQuery( document ).ready(function( $ ) {
 	$("a.filter-menu").click(function(ev){
 
 		$(".posts-list").empty();
-		console.log("clear");
+		//console.log("clear");
 
 		ev.preventDefault();
 
 
 
 		querySettings.state = $(this).attr('state');
+		querySettings.skip = 0;
 
 
 
@@ -52,7 +53,7 @@ jQuery( document ).ready(function( $ ) {
 
 	function getTotalCount() {
 
-		var url =  "http://www.gameandfishmag.deva/wpdb/network-feed-cached.php?post_type=reader_photos&domain=www.gameandfishmag.com&thumbnail_size=community-square-retina"
+		var url =  "/wpdb/network-feed-cached.php?post_type=reader_photos&domain=www.gameandfishmag.com&thumbnail_size=community-square-retina"
 
 				 + "&term=" + querySettings.term
 				 + "&get_count=1";
@@ -74,7 +75,7 @@ jQuery( document ).ready(function( $ ) {
 
 	function getPosts() {
 
-		var url =  "http://www.gameandfishmag.deva/wpdb/network-feed-cached.php?post_type=reader_photos&domain=www.gameandfishmag.com&thumbnail_size=community-square-retina"
+		var url =  "/wpdb/network-feed-cached.php?post_type=reader_photos&domain=www.gameandfishmag.com&thumbnail_size=community-square-retina"
 
 				 + "&term=" + querySettings.term
 				 + "&count=" + querySettings.showAtOnce
@@ -86,7 +87,7 @@ jQuery( document ).ready(function( $ ) {
 
 
 
-		console.log(url);
+		//console.log(url);
 		$.getJSON(url,function(posts){
 
 			if(typeof posts =='object')
@@ -96,7 +97,7 @@ jQuery( document ).ready(function( $ ) {
 
 				$.each(posts,function(index,post){
 
-					console.log(post);
+					//console.log(post);
 
 
 					$postTemplate = $postTemplateCopy.clone();

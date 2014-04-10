@@ -147,7 +147,8 @@ function runBigAssQuery($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_s
 
         foreach ($siteIDs as $domain => $siteID) {
 
-
+            if ($term == "all")
+                $term = "";
 
 
 
@@ -177,10 +178,15 @@ function runBigAssQuery($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_s
             $termSelect = "terms.slug as slug,";
 
             //If there is a term, search for it.
-            if (!empty($term))
+            if (!empty($term)) {
                 $termQuery = "AND terms.slug IN ($inQmarks)";
-            else
+            }
+            else {
                 $termQuery = "";
+                $termSelect = "";
+
+            }
+
 
             //If there is a state, search for it and show it.
             if (!empty($state)) {
@@ -253,8 +259,8 @@ EOT;
 
         $stmt = $db->prepare($sql);
 
-        // print_r($termList);
-         //echo $sql;
+         // print_r($termList);
+         // echo $sql;
 
         // $siteCount = 5;
 

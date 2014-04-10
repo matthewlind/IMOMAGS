@@ -1188,10 +1188,7 @@ element:hover, element.hover_effect {
 .general, .sidebar-area{border-top: none;}
 .sidebar-area{clear: both;}
 
-.community-posts .feat-img img {
 
-	height: 300px;
-}
 
 .community-pager{
 	text-align: center;

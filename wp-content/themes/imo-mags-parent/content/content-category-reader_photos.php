@@ -16,7 +16,7 @@ $catSlug = $category->slug;
 </div>
         <div class="nav-share">
             <label class="upload-button">
-                <a href="/reader-photos-add-new-photo/"><span class="singl-post-photo"><span>Share Your Photo Now!</span></span></a>
+                <a href="/add-new-photo/"><span class="singl-post-photo"><span>Share Your Photo Now!</span></span></a>
                 <input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
             </label>
         </div>

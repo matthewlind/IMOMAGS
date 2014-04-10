@@ -322,7 +322,7 @@ $fishingTerms = $termTaxonomy['fishing']['children'];
 				$parent = $term['slug'];
 
 				if( $term["show_in_menu"] == TRUE ){
-					echo "<li><a href='/reader-photos/hunting/" . $parent . "'>" . $term['display_name'] . "</a></li>";
+					echo "<li><a href='/photos/hunting/" . $parent . "'>" . $term['display_name'] . "</a></li>";
 					$termcount++;
 					if ($termcount%4 == 0) {
 					//If $termcount divides by 4 evenly with no remainder
@@ -333,7 +333,7 @@ $fishingTerms = $termTaxonomy['fishing']['children'];
 				foreach($term['children'] as $childSlug => $termChild) {
 					$child = $termChild['slug'];
 					if( $termChild["show_in_menu"] == TRUE ){
-						echo "<li><a href='/reader-photos/hunting/"  . $child . "'>" . $termChild['display_name'] . "</a></li>";
+						echo "<li><a href='/photos/hunting/"  . $child . "'>" . $termChild['display_name'] . "</a></li>";
 						$termcount++;
 						if ($termcount%4 == 0) {
 							//If $termcount divides by 4 evenly with no remainder
@@ -356,7 +356,7 @@ $fishingTerms = $termTaxonomy['fishing']['children'];
 				$parent = $term['slug'];
 
 				if( $term["show_in_menu"] == TRUE ){
-					echo "<li><a href='/reader-photos/fishing/" . $parent . "'>" . $term['display_name'] . "</a></li>";
+					echo "<li><a href='/photos/fishing/" . $parent . "'>" . $term['display_name'] . "</a></li>";
 					$termcount++;
 					if ($termcount%4 == 0) {
 					//If $termcount divides by 4 evenly with no remainder
@@ -367,7 +367,7 @@ $fishingTerms = $termTaxonomy['fishing']['children'];
 				foreach($term['children'] as $childSlug => $termChild) {
 					$child = $termChild['slug'];
 					if( $termChild["show_in_menu"] == TRUE ){
-						echo "<li><a href='/reader-photos/fishing/"  . $child . "'>" . $termChild['display_name'] . "</a></li>";
+						echo "<li><a href='/photos/fishing/"  . $child . "'>" . $termChild['display_name'] . "</a></li>";
 						$termcount++;
 						if ($termcount%4 == 0) {
 							//If $termcount divides by 4 evenly with no remainder
