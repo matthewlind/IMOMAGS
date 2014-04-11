@@ -37,6 +37,13 @@ $byline = get_post_meta($postID, 'ecpt_byline', true);
     </div>
     <?php } ?>
 
+    <?php if ($_GET['message']=="share") {?>
+
+        <!-- <h1>SHARE THIS NOW!</h1> -->
+
+    <?php } ?>
+
+
     <div class="addthis-below"><?php if (function_exists('imo_add_this')) {imo_add_this();} ?></div>
     <!-- .entry-header -->
     <div class="entry-content-holder">
