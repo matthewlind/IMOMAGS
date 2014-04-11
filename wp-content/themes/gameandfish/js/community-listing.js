@@ -107,12 +107,14 @@ jQuery( document ).ready(function( $ ) {
 				$.each(posts,function(index,post){
 
 
-
+					console.log(post);
 
 					$postTemplate = $postTemplateCopy.clone();
 
 					var imgURL = post.img_url;
 					imgURL.replace("www.gameandfishmag.com",document.domain);
+
+					var userURL = "/author/" + post.user_nicename + "/";
 
 
 					$postTemplate.find("div.feat-img img").attr("src",imgURL.replace("www.gameandfishmag.com",document.domain));
@@ -124,8 +126,11 @@ jQuery( document ).ready(function( $ ) {
 					$postTemplate.find("ul.replies li a").html(post.comment_count + "replies");
 
 					$postTemplate.find("a").attr("href",post.post_url);
+					$postTemplate.find("a.author-link").attr("href",userURL);
 
 					$postTemplate.find("ul.prof-tags").html("");
+
+
 
 					$.each(post.terms,function(index,term){
 

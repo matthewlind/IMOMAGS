@@ -387,6 +387,19 @@ function gf_post_sets_page() {
 <?php
 }
 
+function custom_post_author_archive($query) {
+    if ($query->is_author) {
+
+        $query->set( 'post_type', array('reader_photos', 'reader_photo', 'post') );
+
+    }
+
+    remove_action( 'pre_get_posts', 'custom_post_author_archive' );
+}
+add_action('pre_get_posts', 'custom_post_author_archive');
+
+
+
 
 /******************************************************************************************
  * Admin Settings Menu for Community New Post Promo Image
@@ -421,13 +434,7 @@ function gf_wp_community_init() {
 
 }
 
-function custom_post_author_archive( &$query )
-{
-    if ( $query->is_author )
-        $query->set( 'post_type', 'reader-photos' );
-    //remove_action( 'pre_get_posts', 'custom_post_author_archive' ); // run once!
-}
-add_action( 'pre_get_posts', 'custom_post_author_archive' );
+
 
 //Configure G&F community
 //This section does nothing unless imo-community plugin is enabled
