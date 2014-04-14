@@ -818,6 +818,7 @@ input.gsc-search-button-v2{
 	width: 320px;
 	margin: 0 auto;
 }
+.mob-mdl-banner iframe{display:block;}
 .main {
     padding:0 30px 0;
     border:1px solid #dddcdb;
