@@ -22,7 +22,6 @@ get_header(); ?>
         <?php imo_sidebar(); ?>
         <div id="primary" class="general">
             <div id="content" role="main" class="general-frame">
-                <h1>PARENT CATEGORY PHP</h1>
 
                 <?php if ( have_posts() ) : ?>
 

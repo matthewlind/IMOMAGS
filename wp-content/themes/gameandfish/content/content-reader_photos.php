@@ -31,7 +31,7 @@
                 </ul>
                 <ul class="prof-like">
                     <li>
-                        <div addthis:url="<?php the_title(); ?>" addthis:title="<?php the_title(); ?>" class="addthis_toolbox addthis_default_style " id="posts-container">
+                        <div addthis:url="<?php the_permalink(); ?>" addthis:title="<?php the_title(); ?>" class="addthis_toolbox addthis_default_style " id="posts-container">
                             <a class="addthis_button_facebook_like"fb:like:layout="button_count"></a>
                         </div>
 
