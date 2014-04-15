@@ -17,10 +17,6 @@ define("SITE_NAME", "Game & Fish");
 define("FACEBOOK_APP_ID","624736570896056");
 define("FACEBOOK_APP_SECRET","4011410d01c27af26e016760c03492ea");
 
-@ini_set( 'upload_max_size' , '64M' );
-@ini_set( 'post_max_size', '64M');
-@ini_set( 'max_execution_time', '300' );
-
 include_once("widgets/gf-community-slider.php");
 
 /* This function allows for logging when debugging mode is on */

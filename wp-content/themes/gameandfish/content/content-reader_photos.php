@@ -1,4 +1,4 @@
-
+<?php $postID = get_the_ID(); ?>
 
 <div class="dif-post">
         <div class="feat-img">
@@ -7,23 +7,17 @@
     <div class="dif-post-text">
         <h3><a href="<?php the_permalink(); ?>"><?php echo the_title(); ?></a></h3>
         <div class="profile-panel">
-            <div class="profile-photo">
-                <a class="author-link" href="/author/<?php echo get_the_author_meta( "user_nicename" ); ?>/">
-                <img src="/avatar?uid=<?php echo get_the_author_meta( "ID" ); ?>" alt="<?php echo get_the_author_meta( "user_nicename" ); ?>" title="<?php echo get_the_author_meta( "user_nicename" ); ?>" />
-                </a>
-            </div>
             <div class="profile-data">
                 <h4>By <a class="author-link" href="/author/<?php echo get_the_author_meta( "user_nicename" ); ?>/"><?php the_author(); ?></a></h4>
                 <ul class="prof-tags">
                     <?php
-
                         $categories = get_the_category();
 
                         if($categories){
                             foreach($categories as $category) {
                                 echo "<li>" . $category->name . "</li>";
                             }
-                        };
+                        }
                     ?>
                 </ul>
                 <ul class="replies">
