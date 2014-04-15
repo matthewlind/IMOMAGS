@@ -62,8 +62,8 @@ $byline = get_post_meta($postID, 'ecpt_byline', true);
         <?php else : ?>
         <div class="entry-content">
             <?php echo get_the_post_thumbnail( $postID, "large"); ?>
+            <h4>By <a class="author-link" href="/author/<?php echo get_the_author_meta( "user_nicename" ); ?>/"><?php the_author(); ?></a></h4>
             <?php the_content( __( 'more <span class="meta-nav">&raquo;</span>', 'twentytwelve' ) ); ?>
-			<h4>By <a class="author-link" href="/author/<?php echo get_the_author_meta( "user_nicename" ); ?>/"><?php the_author(); ?></a></h4>            
 			<ul>
                 <!-- <li><b>Species: </b><?php echo $species; ?></li> -->
                 <li><b>Taken At: </b><?php echo get_post_meta($postID,"camera_corner_taken",true); ?></li>
