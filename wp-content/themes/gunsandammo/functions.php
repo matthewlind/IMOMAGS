@@ -14,7 +14,8 @@ define("RSS_LINK", "http://feeds.feedburner.com/GunsAndAmmoMag");
 define("SITE_LINK", "gunsandammo.com");
 define("SITE_NAME", "Guns & Ammo");
 
-include_once('widgets/caption-contest.php');
+include_once('taxonomies.php');
+include_once('widgets/ga-vault.php');
 include_once('widgets/ipad-app.php');
 include_once('widgets/ipad-app-reloaded.php');
 
@@ -53,21 +54,15 @@ function sub_footer(){ ?>
 	<div class="sub-boxes">
 		<div class="sub-box banner-box">
 			<?php imo_dart_tag("300x250",array("pos"=>"mid")); ?>
+		</div>
+		<div class="sub-box fb-box">
+			<div class="newsletter-box bottom-newsletter">
+				<?php the_widget("Signup_Widget_Header", "title=GET THE NEWSLETTER!"); ?>
 			</div>
-			<div class="sub-box fb-box">
-			<div class="fb-recommendations" data-site="<?php echo RSS_LINK; ?>" data-width="309" data-height="252" data-header="true" data-font="arial"></div>
 		</div>
 	</div>
-
-	<div class="foot-social clearfix">
-		<strong class="social-title">Like us on Facebook to <span>stay updated !</span></strong>
-		<div class="fb-like" data-href="<?php echo FACEBOOK_LINK; ?>" data-send="false" data-layout="button_count" data-width="100" data-show-faces="true"></div>
-		<?php social_networks(); ?>
-	</div>
-	<div class="newsletter-box bottom-newsletter">
-		<?php the_widget("Signup_Widget_Header", "title=GET THE NEWSLETTER!"); ?>
-	</div>
-		<?php } 
+	<?php
+}
 
 function social_footer(){ ?>
 	<div class="foot-social clearfix">
@@ -285,5 +280,4 @@ function wpse_5057_match_multiple_taxonomy_terms($where_clause, $wp_query) {
 
 }
 add_action('posts_where','wpse_5057_match_multiple_taxonomy_terms',10,2); // Hook this to posts_where
-
 

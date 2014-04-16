@@ -13,8 +13,6 @@ jQuery(document).ready(function($) {
         filter.per_page=20;
         filter.post_count = 10000000;
 
-        if ($("#posts-container").attr("state").length > 0)
-            filter.state = $("#posts-container").attr("state");
     }
 
     //Highlight the default menu item
@@ -40,7 +38,7 @@ jQuery(document).ready(function($) {
 
     loadMoreCheck();
     function getPhotosAndAppend() {
-        var url = "http://" + document.domain + "/community-api/posts?skip="+filter.skip+"&per_page="+filter.per_page+"&order_by="+filter.order_by+"&sort="+filter.sort+"&master="+filter.master+"&post_type="+filter.post_type+"&state="+filter.state;
+        var url = "http://" + document.domain + "/community-api/posts?skip="+filter.skip+"&per_page="+filter.per_page+"&order_by="+filter.order_by+"&sort="+filter.sort+"&master="+filter.master+"&post_type="+filter.post_type;
 
         $.getJSON(url,function(posts){
 
@@ -89,9 +87,8 @@ jQuery(document).ready(function($) {
 
     //Check to see if loadmore needs to be hidden
     function loadMoreCheck() {
-    var state = $("#posts-container").attr("state");
     $('.loading-gif').fadeIn();
-        var url = "http://" + document.domain + "/community-api/posts/counts?skip="+filter.skip+"&per_page="+filter.per_page+"&order_by="+filter.order_by+"&sort="+filter.sort+"&master="+filter.master+"&post_type="+filter.post_type+"&state="+state;
+        var url = "http://" + document.domain + "/community-api/posts/counts?skip="+filter.skip+"&per_page="+filter.per_page+"&order_by="+filter.order_by+"&sort="+filter.sort+"&master="+filter.master+"&post_type="+filter.post_type;
 
         $.getJSON(url,function(countData){
 

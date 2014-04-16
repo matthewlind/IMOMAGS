@@ -1,5 +1,9 @@
 <?php
 $dataPos = 0;
+$playerID = get_option('home_player_id', false);
+$playerKey = get_option('home_player_Key', false);
+$camp = get_option('home_player_camp', false);
+$videoTitle = get_option('video_title', false);
 get_header(); ?>
 	<?php imo_sidebar(); ?>
 	<div id="primary" class="general">
@@ -25,6 +29,33 @@ get_header(); ?>
 					<?php //split_120_ad(); ?>			
 				<!--</div>-->
 				<?php //} ?>
+				<?php if( $playerID && $playerKey ){ ?>
+				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section">
+					<div class="general-title clearfix">
+		                <h2><?php echo $videoTitle; ?></h2>
+		                <div class="sponsor"><?php echo get_imo_dart_tag("240x60",1,false,array("camp"=>"$camp")); ?></div>
+		            </div>
+					
+					<!-- Start of Brightcove Player -->
+					<div style="display:none"></div>
+									
+					<script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+					
+					<object id="myExperience" class="BrightcoveExperience">
+					  <param name="bgcolor" value="#FFFFFF" />
+					  <param name="width" value="480" />
+					  <param name="height" value="628" />
+					  <param name="playerID" value="<?php echo $playerID; ?>" />
+					  <param name="playerKey" value="<?php echo $playerKey; ?>" />
+					  <param name="isVid" value="true" />
+					  <param name="isUI" value="true" />
+					  <param name="dynamicStreaming" value="true" />
+					</object>
+					<script type="text/javascript">brightcove.createExperiences();</script>
+					<!-- End of Brightcove Player -->		
+				</div>
+				<?php } ?>
+		
 				<?php if ( mobile() ){ get_sidebar("mobile"); } ?>
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section main-content-preppend">
 					<div class="general-title clearfix">

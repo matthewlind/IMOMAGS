@@ -194,6 +194,47 @@ function getAllChildTerms($term_slug, &$results = array()) {
 
 
 
+function getAllChildTerms2($term_slug,$siteID = 6,&$results = array()) {
+
+    try {
+
+        $db = dbConnect();
+
+        $sql = "SELECT ts.slug FROM wp_{$siteID}_terms as t
+                JOIN wp_{$siteID}_term_taxonomy as tt ON t.term_id = tt.term_id
+                JOIN wp_{$siteID}_term_taxonomy as tp ON tp.parent = tt.term_id
+                JOIN wp_{$siteID}_terms ts ON ts.term_id = tp.term_id
+                WHERE tt.taxonomy = 'category'
+                AND t.slug = ?";
+
+        //echo $sql;
+        //echo $term_slug;
+
+        $stmt = $db->prepare($sql);
+        $stmt->execute(array($term_slug));
+
+        $terms = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+        $db = "";
+
+        foreach ($terms as $term) {
+
+            $slug = $term->slug;
+            $results[] = $slug;
+
+            getAllChildTerms($slug,$results);
+
+        }
+
+        return($results);
+
+    } catch(PDOException $e) {
+        echo $e->getMessage();
+    }
+}
+
+
+
 
 
 

@@ -1,9 +1,9 @@
 <?php
 
 
-function getPosts($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_size,$state,$post_set_merge,$get_count) {
+function getPosts($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_size,$state,$post_set_merge,$get_count,$post_type) {
 
-    $posts = runBigAssQuery($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_size,$state,$get_count);
+    $posts = runBigAssQuery($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_size,$state,$get_count,$post_type);
 
     $json = "";
 
@@ -40,7 +40,7 @@ function getPosts($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_size,$s
 }
 
 
-function runBigAssQuery($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_size,$state,$get_count) {
+function runBigAssQuery($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_size,$state,$get_count,$post_type) {
 
     $brand["www.gunsandammo.com"] = "Guns & Ammo";
     $brand["www.handgunsmag.com"] = "Handguns";
@@ -132,50 +132,6 @@ function runBigAssQuery($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_s
 
 
 
-    $termList = getAllChildTerms($term);
-    $termList[] = $term;
-
-    $termString = "";
-    $inQuery = "";
-    $inQmarks = "";
-
-    $termCount = 0;
-    foreach ($termList as $term) {
-
-        $termString .= "'$term'";
-        $inQuery .= ":term" . $termCount;
-        $inQmarks .= "?";
-        $termCount++;
-        if ($termCount != count($termList)) {
-            $termString .= ",";
-            $inQuery .= ",";
-            $inQmarks .= ",";
-        }
-
-    }
-
-
-    $termSelect = "terms.slug as slug,";
-
-    //If there is a term, search for it.
-    if (!empty($term))
-        $termQuery = "AND terms.slug IN ($inQmarks)";
-    else
-        $termQuery = "";
-
-    //If there is a state, search for it and show it.
-    if (!empty($state)) {
-        $stateQuery = "AND terms2.slug IN ('$state')";
-        $stateSelect = "terms2.slug as state,";
-
-    }
-    else {
-        $stateQuery = "";
-        $stateSelect = "";
-    }
-
-
-
 
 
 
@@ -186,9 +142,68 @@ function runBigAssQuery($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_s
 
         $sql = "";
         $siteCount = 0;
+        $executeArray = array();
 
 
         foreach ($siteIDs as $domain => $siteID) {
+
+            if ($term == "all")
+                $term = "";
+
+
+
+            $termList = getAllChildTerms2($term,$siteID);
+            $termList[] = $term;
+
+            $termString = "";
+            $inQuery = "";
+            $inQmarks = "";
+
+            $termCount = 0;
+            foreach ($termList as $term) {
+
+                $termString .= "'$term'";
+                $inQuery .= ":term" . $termCount;
+                $inQmarks .= "?";
+                $termCount++;
+                if ($termCount != count($termList)) {
+                    $termString .= ",";
+                    $inQuery .= ",";
+                    $inQmarks .= ",";
+                }
+
+            }
+
+
+            $termSelect = "terms.slug as slug,";
+
+            //If there is a term, search for it.
+            if (!empty($term)) {
+                $termQuery = "AND terms.slug IN ($inQmarks)";
+            }
+            else {
+                $termQuery = "";
+                $termSelect = "";
+
+            }
+
+
+            //If there is a state, search for it and show it.
+            if (!empty($state)) {
+                $stateQuery = "AND terms2.slug IN ('$state')";
+                $stateSelect = "terms2.slug as state,";
+
+            }
+            else {
+                $stateQuery = "";
+                $stateSelect = "";
+            }
+
+
+
+
+
+
 
 
             $siteCount++;
@@ -196,7 +211,7 @@ function runBigAssQuery($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_s
             $siteBrand = $brand[$domain];
 
             $sql .= <<<EOT
-(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, $termSelect $stateSelect posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url, users.display_name as author, "$siteBrand" as brand,attachmentmeta.meta_value as attachment_meta,
+(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, $termSelect $stateSelect posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url,users.user_nicename as user_nicename, users.display_name as author,users.`ID` as user_id, "$siteBrand" as brand,attachmentmeta.meta_value as attachment_meta,
 (SELECT count(comment_ID) from wp_{$siteID}_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "$domain" as domain
 FROM wp_{$siteID}_term_relationships as relationships
 JOIN wp_{$siteID}_term_relationships as relationships2 ON (relationships.`object_id` = relationships2.`object_id`)
@@ -213,6 +228,7 @@ JOIN wp_{$siteID}_postmeta as attachmentmeta ON (attachments.ID = attachmentmeta
 AND posts.post_status = "publish"
 AND postmeta.meta_key = '_thumbnail_id'
 AND attachmentmeta.meta_key = '_wp_attachment_metadata'
+AND posts.post_type = '$post_type'
 $termQuery
 $stateQuery
 AND term_taxonomy.taxonomy = "$taxonomy"
@@ -229,6 +245,11 @@ EOT;
 
             }
 
+
+
+
+            $executeArray = array_merge($executeArray,$termList);
+
         }//End foreach()
 
 
@@ -238,16 +259,13 @@ EOT;
 
         $stmt = $db->prepare($sql);
 
-        // print_r($termList);
-        // echo $sql;
+         // print_r($termList);
+         // echo $sql;
 
         // $siteCount = 5;
 
-        $executeArray = array();
 
-        for ($i=1; $i <= $siteCount; $i++) {
-            $executeArray = array_merge($executeArray,$termList);
-        }
+
 
 
         foreach ($termList as $key => $term) {
@@ -257,6 +275,8 @@ EOT;
 
         //print_r($stmt);
         $stmt->execute($executeArray);
+
+        //print_r($executeArray);
 
         $posts = $stmt->fetchAll(PDO::FETCH_OBJ);
 

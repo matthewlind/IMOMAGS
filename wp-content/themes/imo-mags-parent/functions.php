@@ -17,6 +17,19 @@ include_once('widgets/forecast.php');
 $magazine_img = get_option("magazine_cover_uri", get_stylesheet_directory_uri(). "/images/pic/journals.png" );
 $subs_link = get_option("subs_link");
 
+/** changing default wordpres email settings */
+add_filter('wp_mail_from', 'new_mail_from');
+add_filter('wp_mail_from_name', 'new_mail_from_name');
+ 
+function new_mail_from($old) {
+	$url = home_url();
+	$url = str_replace("http://www.", "", $url);
+	return 'noreply@'.$url;
+}
+function new_mail_from_name($old) {
+ 	return bloginfo("name");
+}
+
 function new_excerpt_more( $more ) {
 	return '... <a href="'. get_permalink( get_the_ID() ) .'" >more <span class="meta-nav">&raquo;</span></a>';
 }
@@ -147,6 +160,8 @@ function parent_theme_setup()
     add_image_size( 'post-home-thumb', 695, 380, true );
     add_image_size( 'post-home-small-thumb', 335, 225, true );
     add_image_size("imo-mini-slider-thumb",70,70,TRUE);
+    add_image_size("community-square",320,320,TRUE);
+    add_image_size("community-square-retina",640,640,TRUE);
 }
 
 function parent_theme_widgets_init()
@@ -168,7 +183,7 @@ function parent_theme_widgets_init()
         'before_title' => '<h3 class="widget-title">',
         'after_title' => '</h3>',
     ) );
-    
+
     register_sidebar( array(
         'name' => __( 'Sticky Widgets', 'imo-mags-parent' ),
         'id' => 'sidebar-98',
@@ -626,6 +641,15 @@ add_action( 'edit_user_profile', 'imo_community_user_profile' );
 add_action( 'personal_options_update', 'imo_community_user_profile' );
 
 
+add_action( 'init','imo_parent_theme_init',1);
+
+function imo_parent_theme_init() {
+
+        wp_register_script( 'underscore', get_template_directory_uri() . '/js/underscore-min.js', '0.1', true );
+
+
+}
+
 
 //SHORTCODES
 
@@ -770,7 +794,12 @@ function fixed_connect_footer(){
 		    </div>
 		</div>
 		<div class="subscribe">
+		<?php $dartDomain = get_option("dart_domain", $default = false);
+	    if($dartDomain == "imo.gunsandammo" || $dartDomain == "imo.in-fisherman" || $dartDomain == "imo.shotgunnews" || $dartDomain == "imo.shootingtimes"){ ?>
+		    <a href="<?php print get_option('subs_link') . get_option('sticky_key'); ?>" target="_blank" onClick="_gaq.push(['_trackEvent', 'Subscribe', 'Location', 'Sticky Footer']);">Subscribe</a>
+	    <?php }else{ ?>
 			<a href="<?php print get_option('subs_link') . "/?pkey=" . get_option('sticky_key'); ?>" target="_blank" onClick="_gaq.push(['_trackEvent', 'Subscribe', 'Location', 'Sticky Footer']);">Subscribe</a>
+	   <?php } ?>
 		</div>
 		<div class="newsletter">
 			<div class="title">Get The Newsletter</div>

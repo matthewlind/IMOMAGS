@@ -67,7 +67,7 @@
 	    wp_head();
 	    
 	    $magazine_img = get_option('magazine_cover_uri' );
-		$subs_link = get_option('subs_link') . "/?pkey="; 
+		$subs_link = get_option('subs_link'); 
 		$iMagID = get_option('iMagID' );
 		$deal_copy = get_option('deal_copy' );
 		$gift_link = get_option('gift_link' );
@@ -368,14 +368,11 @@
                     <?php endif; ?>
 			</div><!-- .clearfix -->
 			<div class="ga-submenu">
-            	<?php
-                if(get_option("menu_key")){ ?>
                 	<div class="menu-top-menu-container subscribe-left">
 						<ul class="menu">
 							<li class="menu-item"><a href="<?php echo $subs_link . get_option("menu_key"); ?>" target="_blank" onClick="_gaq.push(['_trackEvent', 'Subscribe', 'Location', 'Header Left']);">Subscribe!</a></li>
 						</ul>
 					</div>
-				<?php } ?>
 				<?php
 				if(has_nav_menu( 'top' )){
                 	wp_nav_menu(array(

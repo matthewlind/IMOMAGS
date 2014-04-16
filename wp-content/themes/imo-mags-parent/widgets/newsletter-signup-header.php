@@ -106,8 +106,8 @@ class Signup_Widget_Header extends WP_Widget {
 	
 	   <div class="signup-box jq-custom-form">
 	        <fieldset>
+	        	<h3><?php echo $title; ?></h3>
 	            <div class="signup-mdl">
-	            	<h3><?php echo $title; ?></h3>
 	            	<div class="inputs">
 		                <div class="f-row input-row">
 							<input alt="Email Address" type="text" name="email" size="25" maxlength="100" value="" placeholder="Enter Your Email..." >
@@ -126,7 +126,7 @@ class Signup_Widget_Header extends WP_Widget {
 	                <div class="f-row check-row">
 	                    <input alt="Third Party" type="checkbox" checked="checked" value="22697" name="interests" id="receive" />
 	                    <input type="hidden" name="OptoutInfo" value="">
-	                    <label for="receive">Yes, I'd like to receive offers from your partners</label>
+	                    <div class="opt-in">Yes, I'd like to receive offers from your partners</div>
 	                </div>
 	             </div>
 	                <input type=hidden name=fid value=2493>

@@ -66,19 +66,12 @@ function sub_footer(){ ?>
 	<div class="sub-boxes">
 		<div class="sub-box banner-box">
 			<?php imo_dart_tag("300x250",array("pos"=>"mid")); ?>
-			</div>
-			<div class="sub-box fb-box">
-			<div class="fb-recommendations" data-site="<?php echo RSS_LINK; ?>" data-width="309" data-height="252" data-header="true" data-font="arial"></div>
 		</div>
-	</div>
-
-	<div class="foot-social clearfix">
-		<strong class="social-title">Like us on Facebook to <span>stay updated !</span></strong>
-		<div class="fb-like" data-href="<?php echo FACEBOOK_LINK; ?>" data-send="false" data-layout="button_count" data-width="100" data-show-faces="true"></div>
-		<?php social_networks(); ?>
-	</div>
-	<div class="newsletter-box bottom-newsletter">
-		<?php the_widget("Signup_Widget_Header", "title=GET THE NEWSLETTER!"); ?>
+		<div class="sub-box fb-box">
+			<div class="newsletter-box bottom-newsletter">
+				<?php the_widget("Signup_Widget_Header", "title=GET THE NEWSLETTER!"); ?>
+			</div>
+		</div>
 	</div>
 	<?php
 }
@@ -383,6 +376,19 @@ function gf_post_sets_page() {
 <?php
 }
 
+function custom_post_author_archive($query) {
+    if ($query->is_author) {
+
+        $query->set( 'post_type', array('reader_photos', 'reader_photo', 'post') );
+
+    }
+
+    remove_action( 'pre_get_posts', 'custom_post_author_archive' );
+}
+add_action('pre_get_posts', 'custom_post_author_archive');
+
+
+
 
 /******************************************************************************************
  * Admin Settings Menu for Community New Post Promo Image
@@ -408,6 +414,16 @@ add_action("admin_menu", "gf_community_promo_settings_init");
 
 
 
+//G&F Wordpress Community Config
+add_action("init","gf_wp_community_init",2);
+function gf_wp_community_init() {
+
+    wp_enqueue_script( 'bootstrap-dropdown', get_stylesheet_directory_uri() . '/js/bootstrap-dropdown.js', array("jquery",'underscore'), '0.1', true );
+    wp_enqueue_script( 'gf-wp-community-listing', get_stylesheet_directory_uri() . '/js/community-listing.js', array("jquery",'underscore','bootstrap-dropdown'), '0.1', true );
+
+}
+
+
 
 //Configure G&F community
 //This section does nothing unless imo-community plugin is enabled
@@ -417,10 +433,6 @@ function gf_community_init() {
 	//////////////////////////////////
 	//Community Configuration
 	//////////////////////////////////
-
-
-
-
 	//External Community Configurations
 
 	include("community-config/community-term-list.php"); //Post types array is moved here

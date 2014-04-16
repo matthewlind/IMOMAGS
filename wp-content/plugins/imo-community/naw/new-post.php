@@ -57,7 +57,7 @@ include 'common-templates.php';
 			 <div class="basic-form post-page">
 
 		        <div id="attachments" class="clearfix">
-			    	<input class="title-input" placeholder="Title Your Photo (Required)" type="text" name="title" value="<%= post ? post.title : "" %>">
+			    	<input class="title-input" placeholder="Title (Required)" type="text" name="title" value="<%= post ? post.title : "" %>">
 		        </div>
 
 		        <div class="photo-link-area">
@@ -73,12 +73,17 @@ include 'common-templates.php';
 				<div class="loading-gif"></div>
 				<div class="dropdown-selects">
 					<select id="ma-species" class="post_type alter-sel mobile-select" name="post_type">
-		         		<%var taxonomyTerms = IMO_COMMUNITY_CONFIG.post_types; 
+						
+			
+						<% var taxonomyTerms = IMO_COMMUNITY_CONFIG.post_types; 
 		         		 _.each(taxonomyTerms,function(term,index){   
 		         		 %>
 				 			<option value="<%= index %>"><%= term.display_name %></option>
 				 		<% }); %>
-			        </select>
+
+				
+		         					        </select>
+			        
 
 				    <select name="state" placeholder="Choose the state for this post:" class="alter-sel mobile-select" id="ma-state">
 			            <option value="" >SELECT STATE</option>

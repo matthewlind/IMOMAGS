@@ -14,7 +14,6 @@ General comments (optional).
 body{font: 20px "rokkitt",serif;}
 .header{background: url(images/bg/naw-header-bg.jpg) no-repeat center top;color: white;}
 .logo{margin-top: 0;}
-
 /* Tags reset
 *******************************************************************************/
 a{color: #006699;}
@@ -460,12 +459,9 @@ a.category-name-link:hover{background: #623d11;color: white;}
 		padding-right: 0;
 	}	
 	.sub-menu li{width: 100%;}
-	.hot-link a{
-		padding: 0 0 0 30px !important;
-		margin: 18px;
-		line-height: 1.2 !important;
-		color: #c9242c !important;
-	 }
+	.mob-aside-menu .singl-post-photo{line-height: 25px;}
+	.mob-aside-menu .singl-post-photo span{font-size:1.4em;}
+	.snap-drawers .mob-aside-menu > div > ul > li > a.has-drop::after {top: 26px !important;}
 	.snap-drawer {
 	background-color: #333333;
 	}

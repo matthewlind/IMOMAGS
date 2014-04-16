@@ -85,7 +85,7 @@ imo_sidebar(); ?>
 
 
 				  
-                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header js-responsive-section main-content-preppend">
+                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header posts-list js-responsive-section main-content-preppend">
                 	 <div class="section-title videos">
 				    <h2>
 				        <div class="icon"></div>

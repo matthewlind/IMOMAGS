@@ -65,16 +65,20 @@
 	     */
 	    wp_enqueue_script("jquery");
 	    wp_head();
-	    
+	    $dartDomain = get_option("dart_domain", $default = false);
 	    $magazine_img = get_option('magazine_cover_uri' );
-		$subs_link = get_option('subs_link') . "/?pkey="; 
+	    if($dartDomain == "imo.gunsandammo" || $dartDomain == "imo.in-fisherman" || $dartDomain == "imo.shotgunnews" || $dartDomain == "imo.shootingtimes"){
+		    $subs_link = get_option('subs_link');
+	    }else{
+			$subs_link = get_option('subs_link') . "/?pkey=";
+	    }
 		$iMagID = get_option('iMagID' );
 		$deal_copy = get_option('deal_copy' );
 		$gift_link = get_option('gift_link' );
 		$service_link = get_option('service_link' );
 		$subs_form_link = get_option('subs_form_link' );
 		$i4ky = get_option('i4ky' );
-		$dartDomain = get_option("dart_domain", $default = false);
+		
 	?>
 	<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/dart.js" type="text/javascript"></script>
@@ -216,18 +220,24 @@
 	            <div class="menu-community-menu-container">
 		       		<ul id="menu-community-menu" class="menu">
 				   		<li class="hot-link main-menu-item menu-item-even menu-item-depth-0 menu-item">
-			   				<a href="/photos" class="menu-link main-menu-link">Latest Photos</a></li>
+					   		<?php if($dartDomain == "imo.northamericanwhitetail"){ ?>
+				   				<a href="/community" class="menu-link main-menu-link">Community Photos</a>
+				   			<?php }else{ ?>
+				   				<a href="/photos" class="menu-link main-menu-link">Latest Photos</a>
+				   			<?php } ?>
+			   			</li>
 			   			<li class="mob-share main-menu-item menu-item-even menu-item-depth-">
 			   				<div class="fileupload-buttonbar fileupload-sidebar">
 						        <label class="upload-button">
-									<a class="singl-post-photo"><span>Share Your Catch</span></a>
-									<input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
+									<a href="<?php if($dartDomain == "imo.northamericanwhitetail"){ echo '/community/new'; }else{ echo '/photos/new'; } ?>/" class="singl-post-photo"><span><?php if($dartDomain == "imo.northamericanwhitetail"){ echo 'Share Your Photos'; }else{ echo 'Share Your Catch'; } ?></span></a>
 						        </label>
 						    </div>
 			   			</li>
+			   			<?php if($dartDomain == "imo.in-fisherman"){ ?>
 			   			<li class="main-menu-item menu-item-even menu-item-depth-">
 			   				<a href="/master-angler" class="menu-link main-menu-link">Master Angler</a>
-			   			</li>			   				 
+			   			</li>	
+			   			<?php } ?>		   				 
 				   		<!--<li class="main-menu-item menu-item-even menu-item-depth-" style="<?php echo $displayStyle; ?>">
 			   				<a href="#" class="menu-link main-menu-link has-drop">My Interests</a>
 			   				<div class="drop-down">
@@ -254,9 +264,11 @@
 		        <div class="menu-community-menu-container">
 		       		<ul id="menu-community-menu" class="menu">
 	       				<li class="main-menu-item menu-item-even menu-item-depth-0 menu-item">
-			   				<a href="/profile/<?php echo $username; ?>#my-photos" class="menu-link main-menu-link">My Photos</a></li>
-			   				<li class="main-menu-item menu-item-even menu-item-depth-0 menu-item">
-			   				<a href="/edit-profile/?action=profile" class="menu-link main-menu-link">Edit Profile</a></li>
+			   				<a href="/profile/<?php echo $username; ?>#my-photos" class="menu-link main-menu-link">My Photos</a>
+			   			</li>
+		   				<!--<li class="main-menu-item menu-item-even menu-item-depth-0 menu-item">
+		   					<a href="/edit-profile/?action=profile" class="menu-link main-menu-link">Edit Profile</a>
+		   				</li>-->
 			   			<li class="main-menu-item menu-item-even menu-item-depth-">
 			   				<a href="<?php echo wp_logout_url( get_permalink() ); ?>" class="menu-link main-menu-link">Sign Out</a>
 			   			</li>
@@ -365,15 +377,12 @@
                         </div>
                     <?php endif; ?>
                 </div><!-- #branding -->
-                	<?php 
-                	if(get_option("menu_key")){ ?>
 	                	<div class="menu-top-menu-container subscribe-left">
 							<ul class="menu">
 								<li class="menu-item"><a href="<?php echo $subs_link . get_option("menu_key"); ?>" target="_blank">Subscribe!</a></li>
 							</ul>
 						</div>
-                	<?php }
-					if(has_nav_menu( 'top' )){
+					<?php if(has_nav_menu( 'top' )){
                     	wp_nav_menu(array(
 	                        'menu_class'=>'menu',
 	                        'theme_location'=>'top',

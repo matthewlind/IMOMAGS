@@ -33,19 +33,30 @@ function imo_category_template_redirect() {
 
     	$categoryID = get_query_var('cat');
 
+    	$post_type = get_query_var('post_type');
+
 
     	if (get_option('use_network_feed_'.$categoryID, false) || get_option('full_width_image_'.$categoryID, false)) {
 
-			if ( $overridden_template = locate_template( 'category-network-feed.php' ) ) {
-			// locate_template() returns path to file
-			// if either the child theme or the parent theme have overridden the template
-			load_template( $overridden_template );
-			} else {
-			// If neither the child nor parent theme have overridden the template,
-			// we load the template from the 'templates' sub-directory of the directory this file is in
-			load_template( dirname( __FILE__ ) . '/category-network-feed.php' );
-			}
-			exit;
+
+    		if ($post_type != "reader_photos") {
+
+
+				if ( $overridden_template = locate_template( 'category-network-feed.php' ) ) {
+				// locate_template() returns path to file
+				// if either the child theme or the parent theme have overridden the template
+				load_template( $overridden_template );
+				} else {
+				// If neither the child nor parent theme have overridden the template,
+				// we load the template from the 'templates' sub-directory of the directory this file is in
+				load_template( dirname( __FILE__ ) . '/category-network-feed.php' );
+				}
+				exit;
+    		}
+
+
+
+
     	}
 
 
@@ -68,7 +79,7 @@ function imo_category_add_field($term) {
 
 	if (get_option('full_width_image_'.$term_id))
 		$fullWidthChecked = "checked";
-		
+
 	if (get_option('post_set_id_'.$term_id))
 		$post_set_id = get_option('post_set_id_'.$term_id);
 
@@ -100,7 +111,7 @@ function imo_category_add_field($term) {
 				</span>
 			</td>
 		</tr>";
-		
+
 	//featured post set
 	echo "<tr class='form-field'>
 			<th scope='row' valign='top'><label for='post_set_id'>Featured Post Set ID</label></th>
@@ -108,8 +119,8 @@ function imo_category_add_field($term) {
 			<span class='description'>Enter the Featured post set ID if you want to feature content at the top of the page.</span>
 			</td>
 		</tr>";
-	
-	//brightcove player	
+
+	//brightcove player
 	echo "<tr class='form-field'>
 			<th scope='row' valign='top'><label for='network_video_title'>Player Title</label></th>
 			<td><input type='text' name='network_video_title' id='network_video_title' value='$network_video_title' />
@@ -121,7 +132,7 @@ function imo_category_add_field($term) {
 			<td><input type='text' name='playerID' id='playerID' value='$playerID' />
 			</td>
 		</tr>";
-		
+
 	echo "<tr class='form-field'>
 			<th scope='row' valign='top'><label for='playerKey'>Brightcove Player Key</label></th>
 			<td><input type='text' name='playerKey' id='playerKey' value='$playerKey' />
@@ -146,22 +157,22 @@ function save_imo_category_field($term_id) {
         update_option('full_width_image_'.$term_id, $_POST['full_width_image']);
     else
     	delete_option('full_width_image_'.$term_id);
-    
+
     if(!empty($_POST['post_set_id']))
         update_option('post_set_id_'.$term_id, $_POST['post_set_id']);
     else
     	delete_option('post_set_id_'.$term_id);
-    	
+
     if(!empty($_POST['network_video_title']))
         update_option('network_video_title_'.$term_id, $_POST['network_video_title']);
     else
     	delete_option('network_video_title_'.$term_id);
-    
+
     if(!empty($_POST['playerID']))
         update_option('playerID_'.$term_id, $_POST['playerID']);
     else
     	delete_option('playerID_'.$term_id);
-    	
+
     if(!empty($_POST['playerKey']))
         update_option('playerKey_'.$term_id, $_POST['playerKey']);
     else
