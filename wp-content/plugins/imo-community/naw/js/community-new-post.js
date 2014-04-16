@@ -177,10 +177,9 @@ jQuery(document).ready(function($) {
 	//************* FORM VALIDATION *****************
 	//*******************************************************
 	function validateFormData(formData) {
-	
-		formData.img_url = "";
-		
+		console.log(formData);
 		if(formData.post_type == "question" || questionPost){
+			formData.img_url = "";
 			if (formData.title.length < 1) {
 				alert("Please give this post a title.");
 				return false;

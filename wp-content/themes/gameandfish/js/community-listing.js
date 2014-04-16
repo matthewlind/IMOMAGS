@@ -107,7 +107,7 @@ jQuery( document ).ready(function( $ ) {
 				$.each(posts,function(index,post){
 
 
-					//console.log(post);
+					console.log(post);
 
 					$postTemplate = $postTemplateCopy.clone();
 
@@ -126,7 +126,8 @@ jQuery( document ).ready(function( $ ) {
 					$postTemplate.find(".profile-photo img").attr("src","/avatar?uid=" + post.user_id);
 					$postTemplate.find("ul.replies li a").html(post.comment_count + "replies");
 
-					$postTemplate.find("a").attr("href",post.post_url);
+					$postTemplate.find("a").attr("href","/photos/" + post.post_name);
+					
 					$postTemplate.find("a.author-link").attr("href",userURL);
 
 					$postTemplate.find("ul.prof-tags").html("");
