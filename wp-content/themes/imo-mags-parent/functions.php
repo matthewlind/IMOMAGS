@@ -17,6 +17,19 @@ include_once('widgets/forecast.php');
 $magazine_img = get_option("magazine_cover_uri", get_stylesheet_directory_uri(). "/images/pic/journals.png" );
 $subs_link = get_option("subs_link");
 
+/** changing default wordpres email settings */
+add_filter('wp_mail_from', 'new_mail_from');
+add_filter('wp_mail_from_name', 'new_mail_from_name');
+ 
+function new_mail_from($old) {
+	$url = home_url();
+	$url = str_replace("http://www.", "", $url);
+	return 'noreply@'.$url;
+}
+function new_mail_from_name($old) {
+ 	return bloginfo("name");
+}
+
 function new_excerpt_more( $more ) {
 	return '... <a href="'. get_permalink( get_the_ID() ) .'" >more <span class="meta-nav">&raquo;</span></a>';
 }
