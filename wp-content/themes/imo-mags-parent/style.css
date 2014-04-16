@@ -611,7 +611,7 @@ a:hover { color: #040503; }
     background:url(images/sprite.png) no-repeat -41px 0;
 }
 input.gsc-search-button-v2{
-	width: 30px !important;
+	width: 31px !important;
 	height: 30px !important;
 	line-height: 0 !important;
 	cursor: pointer !important;
