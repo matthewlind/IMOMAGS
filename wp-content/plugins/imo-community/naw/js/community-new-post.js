@@ -21,6 +21,7 @@ jQuery(document).ready(function($) {
 		$("#ma-species").hide();
 		$("#ma-species").html("");
 		$("#ma-species").prepend('<option value="question">Question</option>');
+		$("#post-photo").val("Ask Your Question");
 	}
 	
 	//If user is logged in, hide the FB login button
@@ -177,7 +178,7 @@ jQuery(document).ready(function($) {
 	//************* FORM VALIDATION *****************
 	//*******************************************************
 	function validateFormData(formData) {
-		console.log(formData);
+
 		if(formData.post_type == "question" || questionPost){
 			formData.img_url = "";
 			if (formData.title.length < 1) {

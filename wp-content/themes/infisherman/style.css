@@ -343,7 +343,6 @@ a.category-name-link:hover{background: #F1C548;color: black;}
 .author-item {color:#040503;}
 .full-post .entry-content{padding: 10px 37px;}
 
-.entry-content-holder {border-bottom:1px solid #fff;}
 .entry-content-holder:after {background:#dbdbd9;}
 /* paging posts */
 .paging-posts {background:#e8e7e7;border:1px solid #d7d7d6;border-width:0 0 1px;}
