@@ -3208,7 +3208,58 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 	z-index: 999;
 	display: none;
 }
-  
+
+
+/* Like Leaderboard Styles
+*******************************************************************************/
+.widget_imo_like_leaderboard_widget ul.leaderboard-list {
+
+  margin-top:10px;
+}
+
+.widget_imo_like_leaderboard_widget ul.leaderboard-list li {
+  min-height: 50px;
+  margin-bottom:10px;
+}
+
+.widget_imo_like_leaderboard_widget img.leaderboard-thumb {
+  height:50px;
+  width:50px;
+  margin-right:10px;
+  vertical-align: middle;
+  float:left;
+}
+
+.widget_imo_like_leaderboard_widget span.entry-title {
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 240px;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.widget_imo_like_leaderboard_widget a.leaderboard-link {
+  color: black;
+
+}
+
+.widget_imo_like_leaderboard_widget .like-icon {
+
+
+  height:12px;
+  width:12px;
+  vertical-align: baseline;
+}
+
+.widget_imo_like_leaderboard_widget .like-count {
+
+  color:#2A4185;
+}
+
+
+
 /* =Responsive Breakpoints
 *******************************************************************************/
 @media only screen and (max-width: 1096px) {
