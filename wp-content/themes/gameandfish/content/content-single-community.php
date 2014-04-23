@@ -20,15 +20,12 @@ $byline = get_post_meta($postID, 'ecpt_byline', true);
         <h1 class="entry-title">
             <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
         </h1>
-        <?php endif; // is_single()
-        if(get_the_author() != "admin" && get_the_author() != "infisherman"){ ?>
-        <em class="meta-date-author">by <span class="author-item"><?php the_author_posts_link(); ?></span>
-        &nbsp;&nbsp;|&nbsp;&nbsp;<?php } the_time('F jS, Y'); ?>
-        <?php if($byline){ ?>&nbsp;&nbsp;|&nbsp;&nbsp;<span class="post-byline author-item"><?php echo $byline; ?></span><?php } ?>
-        </em>
-        <a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>
+        <?php endif; // is_single() ?>
+        <div class="post-date"><?php the_time('F jS, Y'); ?>&nbsp;&nbsp;|&nbsp;&nbsp;</div>
+        <div addthis:url="<?php the_permalink(); ?>" addthis:title="<?php the_title(); ?>" class="addthis_toolbox addthis_default_style" id="posts-container"><a class="addthis_button_facebook_like"fb:like:layout="button_count"></a></div>
 
-    </div>
+        <a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>
+	</div>
 
     <?php if ( mobile() ){ ?>
     <div class="image-banner posts-image-banner">
@@ -37,14 +34,25 @@ $byline = get_post_meta($postID, 'ecpt_byline', true);
     </div>
     <?php } ?>
 
-    <?php if ($_GET['message']=="share") {?>
-
-        <!-- <h1>SHARE THIS NOW!</h1> -->
-
+    <?php $checked = get_field("cc_sweeps_viral_msg","options");
+	if ($_GET['message'] == "share" && $checked) { ?>
+	    <div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+	    <div class="share-photo-now clearfix">
+	    	<div class="share-container">
+	        	<?php if( get_field("cc_sweeps_viral_msg_1","options") ){ ?><h2><?php echo get_field("cc_sweeps_viral_msg_1","options"); ?></h2>
+	        	<div class="fb-share-button" data-href="<?php the_permalink(); ?>" data-type="button_count"></div><?php } ?>
+	        	<?php if( get_field("cc_sweeps_viral_msg_2","options") ){ ?><p><?php echo get_field("cc_sweeps_viral_msg_2","options"); ?></p><?php } ?>
+	        	<?php if( get_field("cc_sweeps_viral_img","options") ){ ?><img src="<?php echo get_field("cc_sweeps_viral_img","options"); ?>" alt="Camera Corner Sweeps" title="Camera Corner Sweeps" /><?php } ?>
+	    	</div>
+	    </div>
     <?php } ?>
-
-
-    <div class="addthis-below"><?php if (function_exists('imo_add_this')) {imo_add_this();} ?></div>
     <!-- .entry-header -->
     <div class="entry-content-holder">
         <?php if ( is_search() ) : // Only display Excerpts for Search ?>
@@ -54,8 +62,9 @@ $byline = get_post_meta($postID, 'ecpt_byline', true);
         <?php else : ?>
         <div class="entry-content">
             <?php echo get_the_post_thumbnail( $postID, "large"); ?>
+            <h4>By <a class="author-link" href="/author/<?php echo get_the_author_meta( "user_nicename" ); ?>/"><?php the_author(); ?></a></h4>
             <?php the_content( __( 'more <span class="meta-nav">&raquo;</span>', 'twentytwelve' ) ); ?>
-            <ul>
+			<ul>
                 <!-- <li><b>Species: </b><?php echo $species; ?></li> -->
                 <li><b>Taken At: </b><?php echo get_post_meta($postID,"camera_corner_taken",true); ?></li>
                 <li><b>Taken On: </b><?php echo get_post_meta($postID,"camera_corner_when",true); ?></li>
@@ -86,7 +95,7 @@ $byline = get_post_meta($postID, 'ecpt_byline', true);
 			    </div>
 		    <?php endif; ?>
 	    <?php endif; ?>
-		    <?php sub_footer(); ?>
+		    <?php //sub_footer(); ?>
 			<div class="hr mobile-element"></div>
 	    <div class="entry-meta">
 	        <?php edit_post_link( __( 'Edit', 'twentytwelve' ), '<span class="edit-link">', '</span>' ); ?>

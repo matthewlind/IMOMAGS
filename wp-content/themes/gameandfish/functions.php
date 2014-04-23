@@ -17,11 +17,13 @@ define("SITE_NAME", "Game & Fish");
 define("FACEBOOK_APP_ID","624736570896056");
 define("FACEBOOK_APP_SECRET","4011410d01c27af26e016760c03492ea");
 
-@ini_set( 'upload_max_size' , '64M' );
-@ini_set( 'post_max_size', '64M');
-@ini_set( 'max_execution_time', '300' );
-
 include_once("widgets/gf-community-slider.php");
+
+//community menus
+register_nav_menus(array(
+    'hunting' => 'Hunting Community Menu',
+    'fishing' => 'Fishing Community Menu'
+));
 
 /* This function allows for logging when debugging mode is on */
 if(!function_exists('_log')){
@@ -70,19 +72,12 @@ function sub_footer(){ ?>
 	<div class="sub-boxes">
 		<div class="sub-box banner-box">
 			<?php imo_dart_tag("300x250",array("pos"=>"mid")); ?>
-			</div>
-			<div class="sub-box fb-box">
-			<div class="fb-recommendations" data-site="<?php echo RSS_LINK; ?>" data-width="309" data-height="252" data-header="true" data-font="arial"></div>
 		</div>
-	</div>
-
-	<div class="foot-social clearfix">
-		<strong class="social-title">Like us on Facebook to <span>stay updated !</span></strong>
-		<div class="fb-like" data-href="<?php echo FACEBOOK_LINK; ?>" data-send="false" data-layout="button_count" data-width="100" data-show-faces="true"></div>
-		<?php social_networks(); ?>
-	</div>
-	<div class="newsletter-box bottom-newsletter">
-		<?php the_widget("Signup_Widget_Header", "title=GET THE NEWSLETTER!"); ?>
+		<div class="sub-box fb-box">
+			<div class="newsletter-box bottom-newsletter">
+				<?php the_widget("Signup_Widget_Header", "title=GET THE NEWSLETTER!"); ?>
+			</div>
+		</div>
 	</div>
 	<?php
 }

@@ -8,6 +8,7 @@
  */
 $postID = get_the_ID();
 $byline = get_post_meta($postID, 'ecpt_byline', true);
+$acf_byline = get_field("byline",$postID);
 ?>
 
 <div id="post-<?php the_ID(); ?>" <?php post_class('full-post'); ?>>
@@ -25,6 +26,7 @@ $byline = get_post_meta($postID, 'ecpt_byline', true);
         <em class="meta-date-author">by <span class="author-item"><?php the_author_link(); ?></span>
         &nbsp;&nbsp;|&nbsp;&nbsp;<?php } the_time('F jS, Y'); ?>
         <?php if($byline){ ?>&nbsp;&nbsp;|&nbsp;&nbsp;<span class="post-byline author-item"><?php echo $byline; ?></span><?php } ?>
+        <?php if($acf_byline){ ?>&nbsp;&nbsp;|&nbsp;&nbsp;<span class="post-byline author-item"><?php echo $acf_byline; ?></span><?php } ?>
         </em>
         <a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>
 
@@ -37,7 +39,9 @@ $byline = get_post_meta($postID, 'ecpt_byline', true);
     </div>
     <?php } ?>
 
-    <div class="addthis-below"><?php if (function_exists('imo_add_this')) {imo_add_this();} ?></div>
+    <!-- Go to the Addthis.com Pro Dashboard to update any options -->
+	<div id="addthis_responsive_sharing_51nu"></div>
+	
     <!-- .entry-header -->
     <div class="entry-content-holder">
         <?php if ( is_search() ) : // Only display Excerpts for Search ?>
@@ -51,30 +55,10 @@ $byline = get_post_meta($postID, 'ecpt_byline', true);
         </div><!-- .entry-content -->
         <?php endif; ?>
         
-         <div class="article-brief">
+        <div class="article-brief single-addthis">
          	<div class="addthis-below" <?php if(mobile()){ echo 'style="width: 320px;"'; } ?>><?php if (function_exists('imo_add_this')) {imo_add_this();} ?></div>
 	    </div>
-		<?php 
-		if(get_the_author() != "admin" && get_the_author() != "infisherman"){ ?>
-        <div class="author-info article-brief">
-                <div class="author-avatar">
-                    <?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'twentytwelve_author_bio_avatar_size', 68 ) ); ?>
-                </div><!-- .author-avatar -->
-                <div class="author-description">
-                    <h2><?php printf( __( 'About %s', 'twentytwelve' ), get_the_author() ); ?></h2>
-                    <p><?php the_author_meta( 'description' ); ?>
-	                    <div class="author-link">
-	                        <a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author">
-	                            <?php printf( __( 'View all stories by %s <span class="meta-nav">&rarr;</span>', 'twentytwelve' ), get_the_author() ); ?>
-	                        </a>
-	                    </div><!-- .author-link -->
-                    </p>
-                   
-                </div><!-- .author-description -->
-            </div><!-- .author-info -->
-	    </div>
-	    <?php } ?>
-	    
+			    
 	    <?php imo_dart_tag("564x252"); ?>
 	    	   
 	    <?php if ( function_exists('yarpp_plugin_activate') ): ?>
