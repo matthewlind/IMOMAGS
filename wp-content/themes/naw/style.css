@@ -14,6 +14,10 @@ General comments (optional).
 body{font: 20px "rokkitt",serif;}
 .header{background: url(images/bg/naw-header-bg.jpg) no-repeat center top;color: white;}
 .logo{margin-top: 0;}
+.post-header h1, .page-title.author a{font-size:66px;}
+.single .entry-content, .slide-out-content-title{font-size:1em;}
+.slide-out-content .flex-content{font-size:0.9em;}
+
 /* Tags reset
 *******************************************************************************/
 a{color: #006699;}
