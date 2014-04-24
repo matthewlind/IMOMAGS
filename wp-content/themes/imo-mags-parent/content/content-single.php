@@ -39,8 +39,7 @@ $acf_byline = get_field("byline",$postID);
     </div>
     <?php } ?>
 
-    <!-- Go to the Addthis.com Pro Dashboard to update any options -->
-	<div id="addthis_responsive_sharing_51nu"></div>
+   <div class="addthis-below" <?php if(mobile()){ echo 'style="width: 320px;"'; } ?>><?php if (function_exists('imo_add_this')) {imo_add_this();} ?></div>
 	
     <!-- .entry-header -->
     <div class="entry-content-holder">

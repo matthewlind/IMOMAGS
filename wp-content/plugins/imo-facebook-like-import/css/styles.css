@@ -1,0 +1,33 @@
+/* Like Leaderboard Styles
+*******************************************************************************/
+.widget_imo_like_leaderboard_widget ul.leaderboard-list {}
+.widget_imo_like_leaderboard_widget ul.leaderboard-list li {
+  height: 90px;
+  background: white;
+  padding: 10px 10px 20px;
+  border-bottom: 1px solid #eee;
+}
+.widget_imo_like_leaderboard_widget img.leaderboard-thumb {
+  height:70px;
+  width:70px;
+  vertical-align: middle;
+  float:right;
+  margin-right: 25px;
+}
+.widget_imo_like_leaderboard_widget .entry-title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 180px;
+  float: left;
+  font-weight: bold;
+}
+.widget_imo_like_leaderboard_widget a.leaderboard-link {color: black;}
+.widget_imo_like_leaderboard_widget .like-count {color:#2A4185;padding: 7px 7px 7px 0;float: left;}
+.widget_imo_like_leaderboard_widget{border-top: 5px solid #CDA228;background: #1c1c1c;}
+.widget_imo_like_leaderboard_widget ul{padding: 0 10px;}
+.widget_imo_like_leaderboard_widget .banner{width: 310px;height: 100px;}
+.widget_imo_like_leaderboard_widget h2{background:white;padding: 10px 10px 0;text-align: center;margin: 10px 10px 0;}
+.widget_imo_like_leaderboard_widget ul.leaderboard-list li.footer-link{height: auto;background: transparent;}
+.widget_imo_like_leaderboard_widget .like-wrap{float: left;margin: 18px 2px 18px 16px;}
+.widget_imo_like_leaderboard_widget .fb-like{float: left;margin: 22px 25px;}
