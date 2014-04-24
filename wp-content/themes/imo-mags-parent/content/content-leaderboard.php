@@ -23,9 +23,9 @@ $dataPos = 0;
 		<?php the_content(); ?>
 
 
-		<table>
+		<table class="likes-leaderboard">
 
-			<tr>
+
 				<?php
 
 	                global $wpdb;
@@ -43,22 +43,30 @@ $dataPos = 0;
 	                	$place++;
 
 	                	$thumb_id = get_post_thumbnail_id($post->ID);
-                        $thumb_url = wp_get_attachment_image_src($thumb_id,"imo-mini-slider-thumb");
+                        $thumb_url = wp_get_attachment_image_src($thumb_id,"community-square");
                         $thumbnailURL = $thumb_url[0];
 
                         echo "<tr>";
 
                         echo "<td>";
-                        echo "<span class='leaderboard-place'>$place</span>";
+                        echo "<span class='leaderboard-place'><h2>$place</h2></span>";
                         echo "</td>";
 
-                        echo "<td>";
-                        echo "<img height=70 width=70 src='$thumbnailURL'>";
+                        echo "<td class='thumb-td'>";
+                        echo "<a href='{$post->guid}'><img class='thumb' src='$thumbnailURL'></a>";
                         echo "</td>";
 
-                        echo "<td>";
-                        echo "<div>{$post->post_title}</div>";
-                        echo "<div><span class='like-count'>{$post->like_count}</span> <img src='/wp-content/plugins/imo-facebook-like-import/like@2x.png' class='like-icon'></div>";
+                        echo "<td class='likes-td'>";
+                        echo "<div><span class='like-count'>{$post->like_count}</span> <img src='/wp-content/plugins/imo-facebook-like-import/images/like@2x.png' class='like-icon'></div>";
+                        echo "</td>";
+
+                        echo "<td class='like-button-td'>";
+                        echo "<div class='fb-like' data-href='{$post->guid}' data-width='40px' data-layout='button' data-action='like' data-show-faces='true' data-share='false'></div>";
+                        echo "</td>";
+
+                        echo "<td class='title-td'>";
+                        echo "<div class='entry-title'><a href='{$post->guid}'>{$post->post_title}</a></div>";
+
                         echo "</td>";
 
                         echo "</tr>";
@@ -66,7 +74,7 @@ $dataPos = 0;
 	                }
 
                 ?>
-			</tr>
+
 		</table>
 
 
