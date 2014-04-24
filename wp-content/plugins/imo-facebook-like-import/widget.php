@@ -23,9 +23,11 @@ class imo_like_leaderboard_widget extends WP_Widget {
 							  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
 							  fjs.parentNode.insertBefore(js, fjs);
 							}(document, 'script', 'facebook-jssdk'));</script>
-			  				<div class="banner"><img src="<?php echo "$banner"; ?>" alt="<?php echo "$title"; ?>" title="<?php echo "$title"; ?>" /></div>
+			  				<div class="banner">
+			  					<img src="<?php echo "$banner"; ?>" alt="<?php echo "$title"; ?>" title="<?php echo "$title"; ?>" />
+			  					 <h3><?php echo "$message"; ?></h3>
+			  				</div>
                             <h2><?php echo "$title"; ?></h2>
-                            <h3><?php echo "$message"; ?></h3>
 							<ul class="leaderboard-list">
                                 <?php
 
@@ -34,7 +36,7 @@ class imo_like_leaderboard_widget extends WP_Widget {
                                     $sql = "SELECT *,CONVERT(likes.meta_value, UNSIGNED INTEGER) as like_count FROM wp_14_posts as posts
                                             JOIN wp_14_postmeta AS likes ON (posts.ID = likes.post_id AND likes.meta_key = 'facebook_like_count')
                                             WHERE post_type = 'reader_photos'
-                                            ORDER BY like_count DESC LIMIT 5";
+                                            ORDER BY like_count DESC LIMIT 3";
 
                                     $posts = $wpdb->get_results($sql);
 
@@ -52,16 +54,13 @@ class imo_like_leaderboard_widget extends WP_Widget {
 	                                           
 	                                            
                                               </li>";
-                                              //<div class='entry-title'>{$post->post_title}</div>
-
                                     }
 
 
                                 ?>
-
-                                <li class="footer-link"><a href="">See All Top 25</a></li>
-                                <li class="footer-link"><a href="">Rules</a></li>
+                                <li class="footer-link"><a href="">See All Top 25</a> | <a href="/game-fish-camera-corner-fishing-giveaway">Rules</a></li>
 							</ul>
+							<a class="enter" href="/photos/add-new-photo">Submit yours now</a>
               <?php echo $after_widget; ?>
         <?php
     }

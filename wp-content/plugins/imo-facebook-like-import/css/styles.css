@@ -1,33 +1,38 @@
 /* Like Leaderboard Styles
 *******************************************************************************/
-.widget_imo_like_leaderboard_widget ul.leaderboard-list {}
-.widget_imo_like_leaderboard_widget ul.leaderboard-list li {
-  height: 90px;
-  background: white;
-  padding: 10px 10px 20px;
-  border-bottom: 1px solid #eee;
-}
-.widget_imo_like_leaderboard_widget img.leaderboard-thumb {
-  height:70px;
-  width:70px;
-  vertical-align: middle;
-  float:right;
-  margin-right: 25px;
-}
-.widget_imo_like_leaderboard_widget .entry-title {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  width: 180px;
-  float: left;
-  font-weight: bold;
-}
+.widget_imo_like_leaderboard_widget{border-top: 5px solid #CDA228;background: #1c1c1c;}
+.widget_imo_like_leaderboard_widget ul.leaderboard-list {margin-bottom: 15px;}
+.widget_imo_like_leaderboard_widget ul.leaderboard-list li {height: 90px;background: white;padding: 10px 10px 20px;border-bottom: 1px solid #eee;}
+.widget_imo_like_leaderboard_widget img.leaderboard-thumb {height:70px;width:70px;vertical-align: middle;float:right;margin-right: 25px;}
 .widget_imo_like_leaderboard_widget a.leaderboard-link {color: black;}
 .widget_imo_like_leaderboard_widget .like-count {color:#2A4185;padding: 7px 7px 7px 0;float: left;}
-.widget_imo_like_leaderboard_widget{border-top: 5px solid #CDA228;background: #1c1c1c;}
 .widget_imo_like_leaderboard_widget ul{padding: 0 10px;}
-.widget_imo_like_leaderboard_widget .banner{width: 310px;height: 100px;}
+.widget_imo_like_leaderboard_widget .banner{width: 310px;height: 100px;position: relative;}
+.widget_imo_like_leaderboard_widget .banner h3{color: white;position: absolute;bottom: 2px;left:50%;-moz-box-shadow: inset 0px 0px 1px rgba(160,170,184,1);-webkit-box-shadow: inset 0px 0px 1px rgba(160,170,184,1);}
 .widget_imo_like_leaderboard_widget h2{background:white;padding: 10px 10px 0;text-align: center;margin: 10px 10px 0;}
-.widget_imo_like_leaderboard_widget ul.leaderboard-list li.footer-link{height: auto;background: transparent;}
+.widget_imo_like_leaderboard_widget ul.leaderboard-list li.footer-link{height: 10px;background: transparent;color: white;border: none;text-align: center;}
+.widget_imo_like_leaderboard_widget ul.leaderboard-list li.footer-link a{color: white;font-size: 0.8em;text-decoration:underline;}
+.widget_imo_like_leaderboard_widget ul.leaderboard-list li.footer-link a:hover{text-decoration:none;}
 .widget_imo_like_leaderboard_widget .like-wrap{float: left;margin: 18px 2px 18px 16px;}
 .widget_imo_like_leaderboard_widget .fb-like{float: left;margin: 22px 25px;}
+.widget_imo_like_leaderboard_widget a.enter{
+	color:#222;
+	clear: both;
+	display: block;
+	text-align: center;
+	margin: 10px 0 0;
+	padding: 10px;
+	text-transform: uppercase;
+	font:16px "open_sansbold", Helvetica, Arial, sans-serif;
+	background-color: #cda220;
+	-moz-box-shadow: inset 0px 0px 1px rgba(160,170,184,1);
+	-webkit-box-shadow: inset 0px 0px 1px rgba(160,170,184,1);
+	box-shadow: inset 0px 0px 1px rgba(160,170,184,1);
+	background-image: -o-linear-gradient(90deg , rgb(252,202,52) 0%, rgb(205,162,32) 100%);
+	background-image: -moz-linear-gradient(90deg , rgb(252,202,52) 0%, rgb(205,162,32) 100%);
+	background-image: -webkit-linear-gradient(90deg , rgb(252,202,52) 0%, rgb(205,162,32) 100%);
+	background-image: -ms-linear-gradient(90deg , rgb(252,202,52) 0%, rgb(205,162,32) 100%);
+	background-image: linear-gradient(90deg , rgb(252,202,52) 0%, rgb(205,162,32) 100%);
+	text-shadow: rgba(255,255,255,0.5) 0px 1px 0px;
+}
+.widget_imo_like_leaderboard_widget a.enter:hover{color: #444;}
