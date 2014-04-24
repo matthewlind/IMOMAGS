@@ -3245,6 +3245,66 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 	display: none;
 }
 
+
+table.likes-leaderboard {
+
+
+
+    width:100%;
+}
+
+table.likes-leaderboard tr {
+
+
+}
+
+table.likes-leaderboard td{
+
+    vertical-align: middle;
+    padding-bottom:20px;
+}
+
+table.likes-leaderboard img.thumb {
+    width:100px;
+    height:100px;
+    max-width: 100px;
+}
+
+table.likes-leaderboard td.thumb-td {
+
+    width:20%;
+}
+
+table.likes-leaderboard .like-count {
+    font-size: 23px;
+    color:#2A4185;
+}
+
+table.likes-leaderboard td.likes-td {
+    padding-top: 5px;
+
+}
+
+table.likes-leaderboard td.like-button-td {
+    /*width:70px;*/
+
+}
+
+table.likes-leaderboard td.title-td {
+
+    width:40%;
+}
+
+table.likes-leaderboard .entry-title {
+
+      overflow: hidden;
+      /*white-space: nowrap;*/
+      text-overflow: ellipsis;
+      /*width: 60%;*/
+      font-weight: bold;
+      font-size:18px;
+}
+
 /* =Responsive Breakpoints
 *******************************************************************************/
 @media only screen and (max-width: 1096px) {
@@ -3891,6 +3951,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
     }
 }
 @media only screen and (max-width: 760px) {
+
+
+    table.likes-leaderboard td.title-td {
+        display: none;
+    }
+
+    table.likes-leaderboard td.likes-td {
+        padding-left: 20px;
+    }
+
+    table.likes-leaderboard td.likes-td a {
+        color:black;
+    }
+
+
 	#cabelas-essentials h2{
 	font: 20px/2 "stagbold", serif;
 	overflow: hidden;

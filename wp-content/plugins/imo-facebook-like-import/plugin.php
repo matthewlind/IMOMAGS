@@ -11,6 +11,25 @@
 
 include("widget.php");
 
+/////////////////////////////////////////
+//Setup Schedule for Facebook Like import
+
+register_activation_hook( __FILE__, 'prefix_activation' );
+
+add_action( 'imo_facebook_import_event_hook', 'imo_facebook_import_likes' );
+
+function prefix_activation() {
+    wp_schedule_event( time(), 'twicedaily', 'imo_facebook_import_event_hook' );
+}
+
+register_deactivation_hook( __FILE__, 'prefix_deactivation' );
+
+function prefix_deactivation() {
+    wp_clear_scheduled_hook( 'imo_facebook_import_event_hook' );
+}
+/////////////////////////////////////////
+
+
 add_action('init', 'imo_facebook_like_css');
 function imo_facebook_like_css() {
     wp_enqueue_style('styles-css',plugins_url('css/styles.css', __FILE__));
@@ -80,6 +99,8 @@ if(function_exists("register_field_group"))
         'menu_order' => 0,
     ));
 }
+
+
 
 
 function imo_facebook_import_likes() {
