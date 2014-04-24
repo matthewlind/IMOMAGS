@@ -11,6 +11,10 @@
 
 include("widget.php");
 
+add_action('init', 'imo_facebook_like_css');
+function imo_facebook_like_css() {
+    wp_enqueue_style('styles-css',plugins_url('css/styles.css', __FILE__));
+}
 
 if(function_exists("register_field_group"))
 {
@@ -79,6 +83,7 @@ if(function_exists("register_field_group"))
 
 
 function imo_facebook_import_likes() {
+
 
     global $wpdb;
 
