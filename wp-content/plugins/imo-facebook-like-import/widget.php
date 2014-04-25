@@ -11,12 +11,15 @@ class imo_like_leaderboard_widget extends WP_Widget {
     /** @see WP_Widget::widget -- do not rename this */
     function widget($args, $instance) {
         extract( $args );
-        $banner		= apply_filters('widget_banner', $instance['banner']);
-        $title 		= apply_filters('widget_title', $instance['title']);
-        $link		= apply_filters('widget_title', $instance['link']);
-        $link_title	= apply_filters('widget_title', $instance['link_title']);
-        $count 		= apply_filters('widget_count', $instance['count']);
-        $message 	= $instance['message'];
+        $banner			= apply_filters('widget_banner', $instance['banner']);
+        $title 			= apply_filters('widget_title', $instance['title']);
+        $link			= apply_filters('widget_title', $instance['link']);
+        $link_title		= apply_filters('widget_title', $instance['link_title']);
+        $rules			= apply_filters('widget_title', $instance['rules']);
+        $submit_url		= apply_filters('widget_submit_url', $instance['submit_url']);
+        $submit_title	= apply_filters('widget_submit_title', $instance['submit_title']);
+        $count 			= apply_filters('widget_count', $instance['count']);
+        $message 		= $instance['message'];
         ?>
               <?php echo $before_widget; ?>
 							<script>(function(d, s, id) {
@@ -30,7 +33,7 @@ class imo_like_leaderboard_widget extends WP_Widget {
 			  					<img src="<?php echo "$banner"; ?>" alt="<?php echo "$title"; ?>" title="<?php echo "$title"; ?>" />
 			  					 <h3><?php echo "$message"; ?></h3>
 			  				</div>
-   							<a class="enter" href="/photos/add-new-photo">Submit yours now</a>
+   							<a class="enter" href="<?php echo "$submit_url"; ?>"><?php echo "$submit_title"; ?></a>
                          <h2><?php echo "$title"; ?></h2>
 							<ul class="leaderboard-list">
                                 <?php
@@ -64,7 +67,7 @@ class imo_like_leaderboard_widget extends WP_Widget {
 
 
                                 ?>
-                                <li class="footer-link"><a href="<?php echo "$link"; ?>"><?php echo "$link_title"; ?></a> | <a href="/game-fish-camera-corner-fishing-giveaway">Rules</a></li>
+                                <li class="footer-link"><a href="<?php echo "$link"; ?>"><?php echo "$link_title"; ?></a> | <a href="<?php echo "$rules"; ?>">Rules</a></li>
 							</ul>
               <?php echo $after_widget; ?>
         <?php
@@ -78,6 +81,9 @@ class imo_like_leaderboard_widget extends WP_Widget {
 		$instance['title'] = strip_tags($new_instance['title']);
 		$instance['link'] = strip_tags($new_instance['link']);
 		$instance['link_title'] = strip_tags($new_instance['link_title']);
+		$instance['rules'] = strip_tags($new_instance['rules']);
+		$instance['submit_url'] = strip_tags($new_instance['submit_url']);
+		$instance['submit_title'] = strip_tags($new_instance['submit_title']);
 		$instance['message'] = strip_tags($new_instance['message']);
 		$instance['count'] = strip_tags($new_instance['count']);
         return $instance;
@@ -85,14 +91,19 @@ class imo_like_leaderboard_widget extends WP_Widget {
 
     /** @see WP_Widget::form -- do not rename this */
     function form($instance) {
-		$banner		= esc_attr($instance['banner']);
-        $title 		= esc_attr($instance['title']);
-        $link		= esc_attr($instance['link']);
-        $link_title 		= esc_attr($instance['link_title']);
-        $message	= esc_attr($instance['message']);
-        $count		= esc_attr($instance['count']);
+
+		$banner			= esc_attr($instance['banner']);
+        $title 			= esc_attr($instance['title']);
+        $link			= esc_attr($instance['link']);
+        $link_title		= esc_attr($instance['link_title']);
+        $rules			= esc_attr($instance['rules']);
+        $submit_url		= esc_attr($instance['submit_url']);
+        $submit_title	= esc_attr($instance['submit_title']);
+        $message		= esc_attr($instance['message']);
+        $count			= esc_attr($instance['count']);
+
         ?>
-         <p>
+        <p>
           <label for="<?php echo $this->get_field_id('banner'); ?>"><?php _e('Banner url:'); ?></label>
           <input class="widefat" id="<?php echo $this->get_field_id('banner'); ?>" name="<?php echo $this->get_field_name('banner'); ?>" type="text" value="<?php echo $banner; ?>" />
         </p>
@@ -115,6 +126,18 @@ class imo_like_leaderboard_widget extends WP_Widget {
         <p>
           <label for="<?php echo $this->get_field_id('link'); ?>"><?php _e('Link URL'); ?></label>
           <input class="widefat" id="<?php echo $this->get_field_id('link'); ?>" name="<?php echo $this->get_field_name('link'); ?>" type="text" value="<?php echo $link; ?>" />
+        </p>
+		<p>
+          <label for="<?php echo $this->get_field_id('rules'); ?>"><?php _e('Rules URL'); ?></label>
+          <input class="widefat" id="<?php echo $this->get_field_id('rules'); ?>" name="<?php echo $this->get_field_name('rules'); ?>" type="text" value="<?php echo $rules; ?>" />
+        </p>
+		<p>
+          <label for="<?php echo $this->get_field_id('submit_title'); ?>"><?php _e('Submit Title'); ?></label>
+          <input class="widefat" id="<?php echo $this->get_field_id('submit_title'); ?>" name="<?php echo $this->get_field_name('submit_title'); ?>" type="text" value="<?php echo $submit_title; ?>" />
+        </p>
+        <p>
+          <label for="<?php echo $this->get_field_id('submit_url'); ?>"><?php _e('Submit URL'); ?></label>
+          <input class="widefat" id="<?php echo $this->get_field_id('submit_url'); ?>" name="<?php echo $this->get_field_name('submit_url'); ?>" type="text" value="<?php echo $submit_url; ?>" />
         </p>
         <?php
     }
