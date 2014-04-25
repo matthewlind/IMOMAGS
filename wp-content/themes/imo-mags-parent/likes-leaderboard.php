@@ -10,6 +10,7 @@
  */
 
 get_header();
+get_template_part( 'nav', get_post_format() );
 imo_sidebar(); ?>
 	<div id="primary" class="general">
         <div class="general-frame">

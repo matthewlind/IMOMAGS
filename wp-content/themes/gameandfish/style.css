@@ -373,7 +373,7 @@ body{background-color: black;}
 .btn-red, .singl-post-photo{padding: 0 !important;}
 /* Main Section
  ******************************************************************************/
-.newsletter-box.bottom-newsletter{margin: 0;display: block;padding: 20px;}
+.newsletter-box.bottom-newsletter{margin: 0;display: block;background: none;}
 .newsletter-box.bottom-newsletter fieldset{min-height: 114px;}
 .newsletter-box.bottom-newsletter h3{float: none !important;padding: 0;color: white;}
 .newsletter-box.bottom-newsletter .inputs{margin: 0 auto;}
