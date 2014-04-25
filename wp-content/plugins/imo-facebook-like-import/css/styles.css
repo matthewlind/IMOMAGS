@@ -11,7 +11,7 @@
 .widget_imo_like_leaderboard_widget .banner img{width: 310px;}
 .widget_imo_like_leaderboard_widget .banner h3{color: white;position: absolute;bottom: 0;padding: 2px 0;background:rgba(0,0,0,0.4);text-shadow: 1px 1px 4px #000;
 line-height: 1.2;text-align: center;}
-.widget_imo_like_leaderboard_widget h2{background: #F7F7F7;padding: 10px 10px;text-align: center;margin: 10px 10px 0;border-bottom: 1px solid #eee;}
+.widget_imo_like_leaderboard_widget h2{font-size: 1em;background: #F7F7F7;padding: 10px 10px;text-align: center;margin: 10px 10px 0;border-bottom: 1px solid #eee;}
 .widget_imo_like_leaderboard_widget ul.leaderboard-list li.footer-link{height: 45px;background: transparent;color: white;border: none;text-align: center;}
 .widget_imo_like_leaderboard_widget ul.leaderboard-list li.footer-link a{color: white;font-size: 0.8em;text-decoration:underline;}
 .widget_imo_like_leaderboard_widget ul.leaderboard-list li.footer-link a:hover{text-decoration:none;}
