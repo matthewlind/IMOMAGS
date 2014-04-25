@@ -40,6 +40,8 @@ class imo_like_leaderboard_widget extends WP_Widget {
                                     $sql = "SELECT *,CONVERT(likes.meta_value, UNSIGNED INTEGER) as like_count FROM wp_14_posts as posts
                                             JOIN wp_14_postmeta AS likes ON (posts.ID = likes.post_id AND likes.meta_key = 'facebook_like_count')
                                             WHERE post_type = 'reader_photos'
+                                            AND posts.ID NOT IN (49658,49182,49252,48942,49681)
+                                            AND post_status = 'publish'
                                             ORDER BY like_count DESC LIMIT $count";
 
                                     $posts = $wpdb->get_results($sql);
@@ -55,8 +57,8 @@ class imo_like_leaderboard_widget extends WP_Widget {
                                         		<div class='like-wrap'><span class='like-count'>{$post->like_count}</span> <img src='/wp-content/plugins/imo-facebook-like-import/images/like@2x.png' class='like-icon'></div>
                                         		<div class='fb-like' data-href='{$post->guid}' data-width='40px' data-layout='button' data-action='like' data-show-faces='true' data-share='false'></div>
 	                                            <a href='{$post->guid}' class='leaderboard-link'><img class='leaderboard-thumb' src='$thumbnailURL'></a>
-	                                           
-	                                            
+
+
                                               </li>";
                                     }
 
@@ -86,7 +88,7 @@ class imo_like_leaderboard_widget extends WP_Widget {
 		$banner		= esc_attr($instance['banner']);
         $title 		= esc_attr($instance['title']);
         $link		= esc_attr($instance['link']);
-        $link_title 		= esc_attr($instance['link_title']);        
+        $link_title 		= esc_attr($instance['link_title']);
         $message	= esc_attr($instance['message']);
         $count		= esc_attr($instance['count']);
         ?>
