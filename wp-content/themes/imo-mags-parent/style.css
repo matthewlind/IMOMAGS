@@ -436,7 +436,7 @@ a:hover { color: #040503; }
 }
 #page{
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
-	-webkit-touch-callout: none;
+	/*-webkit-touch-callout: none;*/
 	position: relative;
 	z-index: 999999;
 }
