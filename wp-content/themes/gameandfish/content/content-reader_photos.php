@@ -1,6 +1,10 @@
 <?php $postID = get_the_ID(); ?>
 
-<div class="dif-post">
+<li id="photos-gallery">
+	<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('community-square-retina'); ?></a>
+</li>
+
+<div class="dif-post" style="display:none;">
         <div class="feat-img">
             <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('community-square-retina'); ?></a>
         </div>

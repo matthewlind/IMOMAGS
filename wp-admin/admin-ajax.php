@@ -23,10 +23,50 @@ require_once('./includes/admin.php');
 @header('Content-Type: text/html; charset=' . get_option('blog_charset'));
 send_nosniff_header();
 
+/**
+ * Get Photos AJAX
+ */
+function get_photos_from_post(){	
+	if(isset($_GET['action']) && $_GET['action'] == 'get_photos'){
+		
+		$photo_posts = get_posts(array(
+			'post_status' => 'publish',
+			'numberposts' => -1,
+			'post_type'   => 'reader_photos'
+		));
+		
+		$count = 0;
+		foreach ($photo_posts as $key => $photo){
+			$post_thumbnail_id = get_post_thumbnail_id( $photo->ID );
+			$photo_url         = get_the_post_thumbnail($photo->ID, 'large');
+			$thumb_url         = get_the_post_thumbnail($photo->ID, 'thumbnail');
+			$permalink         = get_permalink( $photo->ID );
+			
+			$response[] = array(
+				'ID'        => $photo->ID,
+				'photo_url' => $photo_url,
+				'thumbnail' => $thumb_url,
+				'title'     => $photo->post_title,
+				'permalink' => $permalink,
+				'count'     => $count,
+				'post_name' => $photo->post_name
+			);
+			
+			$count++;
+		}
+
+		//echo json_encode($photo_posts);
+		echo json_encode($response);
+		exit;
+	}
+}
+
 do_action('admin_init');
-
 if ( ! is_user_logged_in() ) {
-
+	
+	//add_action('wp_ajax_' . $_GET['action'], 'get_photos_from_post');
+	
+	
 	if ( isset( $_POST['action'] ) && $_POST['action'] == 'autosave' ) {
 		$id = isset($_POST['post_ID'])? (int) $_POST['post_ID'] : 0;
 
@@ -42,10 +82,12 @@ if ( ! is_user_logged_in() ) {
 		$x->send();
 	}
 
-	if ( !empty( $_REQUEST['action'] ) )
+	if ( !empty( $_REQUEST['action'] ) ){
+		add_action('wp_ajax_' . $_GET['action'], 'get_photos_from_post');
 		do_action( 'wp_ajax_nopriv_' . $_REQUEST['action'] );
-
-	die('-1');
+	}else{
+		die('-1');
+	}
 }
 
 if ( isset( $_GET['action'] ) ) :
@@ -1582,6 +1624,10 @@ case 'dismiss-wp-pointer' :
 
 	update_user_meta( get_current_user_id(), 'dismissed_wp_pointers', $dismissed );
 	die( '1' );
+	break;
+case 'get-photos' :
+	echo 'ddddd';
+	die(1);
 	break;
 default :
 	do_action( 'wp_ajax_' . $_POST['action'] );

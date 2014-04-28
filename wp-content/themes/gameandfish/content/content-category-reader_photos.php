@@ -82,8 +82,204 @@ $catSlug = $category->slug;
     </ul>
 </div>
 
-<div class='community-posts'>
+<div class='community-posts' style="background:#000;">
     <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section main-content-preppend" slug="<?php echo $catSlug; ?>">
+    
+    <style type="text/css" media="screen">
+    		#photoTopControls{
+    			text-align: right;
+    		}
+
+		#photoTopControls .sliderPrev{
+			display: inline-block;
+			width: 33px;
+			height: 46px;
+			border-radius:3px;
+			border:1px solid #5A5A5A;
+			cursor:pointer;
+			background: #5A5A5A url('wp-content/plugins/imo-flex-gallery/img/imo-flex-next-prev.png') no-repeat -3px 9px !important;
+		}
+
+		#photoTopControls .sliderNext{
+			display: inline-block;
+			width: 33px;
+			height: 46px;
+			border-radius:3px;
+			border:1px solid #5A5A5A;
+			cursor:pointer;
+			background: #5A5A5A url('wp-content/plugins/imo-flex-gallery/img/imo-flex-next-prev.png') no-repeat -43px 9px !important;
+		}
+
+		#photoGalleryBody{
+			position: relative;
+		}
+		
+		#photoGalleryBody .slide_title{
+			text-align:left;
+		}
+
+		#photoSlider .slides{
+			text-align:center;
+		}
+		
+		#photoSlider .slides img{
+			display:inline-block;
+			width:auto;
+			max-height:450px;
+		}
+		
+		#photoSliderThumbs{
+			margin:20px 0;
+			position:relative;
+			overflow:hidden;
+		}
+		
+		#photoSliderThumbs .sliderPrev{
+			display:block;
+			float:left;
+			width: 33px;
+			height: 50px;
+			margin-left:5px;
+			border-radius:3px;
+			border:1px solid #5A5A5A;
+			cursor:pointer;
+			background: #5A5A5A url('wp-content/plugins/imo-flex-gallery/img/imo-flex-next-prev.png') no-repeat -3px 9px !important;
+		}
+
+		#photoSliderThumbs .sliderNext{
+			display:block;
+			float:right;
+			width: 33px;
+			height: 50px;
+			margin-right:5px;
+			border-radius:3px;
+			border:1px solid #5A5A5A;
+			cursor:pointer;
+			background: #5A5A5A url('wp-content/plugins/imo-flex-gallery/img/imo-flex-next-prev.png') no-repeat -43px 9px !important;
+		}
+		
+		#photoSliderThumbs .slides{
+			display:block;
+			float:left;
+			text-align:center;
+		}
+		
+		#photoSliderThumbs .slides img{
+			display:inline-block;
+			width:auto;
+			max-height:50px;
+		}
+		
+		#photoSliderThumbs li img{
+			border: 1px solid #fff;
+		}
+		
+		#photoSliderThumbs .flex-active-slide img{
+			border: 1px solid red;
+		}
+		
+		.spinner{
+			background:#000;
+			width:100%;
+			/*height: 400px;*/
+			text-align: center;
+			position:absolute;
+			min-height:500px;
+			z-index: 999999;
+			top:0;
+			left:0;
+		}
+		
+		.spinner img{
+			display:inline-block;
+			position:absolute;
+			top:40%;
+			left:50%;
+		}
+		
+		.flex-direction-nav .flex-next, .flex-direction-nav .flex-prev{
+			display:none;
+		}
+		
+		.fb-like{
+		    height: 22px;
+		    overflow: hidden;
+		}
+		
+		#photoGalleryTitle{
+			padding:0 30px;
+		}
+		
+		#photoGalleryTitle h2{
+			color:#fff;
+		}
+		
+		#photoGalleryLike{
+			padding: 20px 30px;
+		}
+		
+		#photoGalleryLike .photoGalleryLikeInner{
+			background:#222222;
+			width:100%;
+			padding: 15px 40px;
+			overflow:hidden;
+		}
+		
+		#photoGalleryLike .photoGalleryLikeLeft{
+			width:80%;
+			float:left;
+			position:relative;
+		}
+		
+		#photoGalleryLike .photoGalleryLikeRight{
+			width:20%;
+			float:left;
+			position:relative;
+		}
+		
+		#photoGalleryLike .photoGalleryLikeLeft h3{
+			color:#F9CC3A;
+			font-size:1.1em;
+			font-family: 'stagmedium', Arial, Helvetica, sans-serif;
+		}
+		
+		#photoGalleryBottomContent{
+			padding:0 30px 30px 30px;
+		}
+		
+		#photoGalleryBottomContent p, #photoGalleryBottomContent span{
+			color:#fff;
+		}
+    </style>
+    
+    <div id="photoTopControls">
+		<div class="sliderPrev"></div>
+		<div class="sliderNext"></div>
+	</div>
+	<div id="photoGalleryLike">
+		<div class="photoGalleryLikeInner">
+			<div class="photoGalleryLikeLeft">
+				<h3>Think this photo deserves more views? Like it!</h3>
+			</div>
+			<div class="photoGalleryLikeRight"></div>
+		</div>
+	</div>
+	<div id="photoGalleryBody">
+		<div class="spinner">
+			<img src="wp-content/themes/gameandfish/images/spinner-black.gif" alt="" />
+		</div>
+		<div id="photoSlider" class="flexslider">
+    			<ul class="slides"></ul>
+	    </div>
+	    <div id="photoSliderThumbs" class="flexslider">
+	    		<ul class="slides"></ul>
+	    </div>
+    </div>
+    <div id="photoGalleryTitle">
+		<h2></h2>
+	</div>
+	<div id="photoGalleryBottomContent"></div>
+
     	<?php $i = 1; while ( have_posts() ) : the_post(); ?>
 
             <?php
@@ -91,7 +287,7 @@ $catSlug = $category->slug;
                  * If you want to overload this in a child theme then include a file
                  * called content-___.php (where ___ is the Post Format name) and that will be used instead.
                  */
-                get_template_part( 'content/content-reader_photos', get_post_format() );
+               // get_template_part( 'content/content-reader_photos', get_post_format() );
 
                 $community_category = get_category( get_query_var( 'cat' ) );
     			$community_cat = $community_category->slug;
@@ -108,11 +304,12 @@ $catSlug = $category->slug;
         <?php endif;?>
 
         <?php $i++; endwhile; ?>
+        
 
     </div>
 </div>
 
-<div class="community-pager">
+<div class="community-pager" style="display: none;">
 
     <a href="" class="more btn-red">Load More</a>
 
