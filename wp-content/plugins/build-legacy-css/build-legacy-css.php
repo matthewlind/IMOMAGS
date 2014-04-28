@@ -256,7 +256,7 @@ class CFCT_Restore_Deprecated {
 	 */
 	public static function check_features() {
 		if (!function_exists('cfct_build')) {
-			return new WP_Error('function not found', 'Carrington Build needs to be activated for \"Restore Deprecated Build Settings\" to take effect.');
+			return new WP_Error('function not found', 'Carrington Build Sucks!!!');
 		}
 		if (!class_exists('cfct_tpl')) {
 			return new WP_Error('class not found', 'Class cfct_tpl does not exist. You probably need to install a newer version of Carrington Build.');

@@ -8,6 +8,7 @@
  */
 $postID = get_the_ID();
 $byline = get_post_meta($postID, 'ecpt_byline', true);
+$acf_byline = get_field("byline",$postID);
 ?>
 
 <div id="post-<?php the_ID(); ?>" <?php post_class('full-post'); ?>>
@@ -25,6 +26,7 @@ $byline = get_post_meta($postID, 'ecpt_byline', true);
         <em class="meta-date-author">by <span class="author-item"><?php the_author_link(); ?></span>
         &nbsp;&nbsp;|&nbsp;&nbsp;<?php } the_time('F jS, Y'); ?>
         <?php if($byline){ ?>&nbsp;&nbsp;|&nbsp;&nbsp;<span class="post-byline author-item"><?php echo $byline; ?></span><?php } ?>
+         <?php if($acf_byline){ ?>&nbsp;&nbsp;|&nbsp;&nbsp;<span class="post-byline author-item"><?php echo $acf_byline; ?></span><?php } ?>
         </em>
         <a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>
 

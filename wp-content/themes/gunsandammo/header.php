@@ -168,111 +168,6 @@
 
 		</div>
 	</div>
-	<?php
-	$hostname = $_SERVER['SERVER_NAME'];
-    
-	$userInfo = wp_get_current_user();
-	
-	$username = $userInfo->user_nicename;
-	
-	$apiURL = "http://$hostname/community-api/users/$username?get_comments=1";
-	
-	$file = file_get_contents($apiURL);
-	
-	//SET TEMPLATE VARIABLES
-	$data = json_decode($file);
-	
-	if($data->score == 1){
-		$niceScore = '<b>'.$data->score.'</b> Point';
-	}else{
-		$niceScore = '<b>'.$data->score.'</b> Points';
-	} 
-	
-    $displayStyle = "display:none";
-	$loginStyle = "";
-	
-	if ( is_user_logged_in() ) {
-	
-		$displayStyle = "";
-		$loginStyle = "display:none";
-		
-		wp_get_current_user();
-		
-		$current_user = wp_get_current_user();
-	    if ( !($current_user instanceof WP_User) )
-	         return;
-	    }
-	    
-	    
-	?>
-
-	<div class="snap-drawer snap-drawer-right" id="right-drawer">
-		 <div>
-			<div class="mobile-menu-banner">
-				
-				<iframe id="menu-iframe-ad" width="320" height="50" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-menu.php?size=320x50&ad_code=<?php echo $dartDomain; ?>"></iframe>
-			</div>	
-	
-	        <div class="mob-aside-menu">
-	            <div class="menu-community-menu-container">
-		       		<ul id="menu-community-menu" class="menu">
-				   		<li class="hot-link main-menu-item menu-item-even menu-item-depth-0 menu-item">
-			   				<a href="/photos" class="menu-link main-menu-link">Latest Photos</a></li>
-			   			<li class="mob-share main-menu-item menu-item-even menu-item-depth-">
-			   				<div class="fileupload-buttonbar fileupload-sidebar">
-						        <label class="upload-button">
-									<a class="singl-post-photo"><span>Share Your Catch</span></a>
-									<input id="image-upload" class="common-image-upload" type="file" name="photo-upload">
-						        </label>
-						    </div>
-			   			</li>
-			   			<li class="main-menu-item menu-item-even menu-item-depth-">
-			   				<a href="/master-angler" class="menu-link main-menu-link">Master Angler</a>
-			   			</li>			   				 
-				   		<!--<li class="main-menu-item menu-item-even menu-item-depth-" style="<?php echo $displayStyle; ?>">
-			   				<a href="#" class="menu-link main-menu-link has-drop">My Interests</a>
-			   				<div class="drop-down">
-			   					<ul class="sub-menu menu-odd menu-depth-1">
-				   					<li class="sub-menu-item menu-item-odd menu-item-depth-1 menu-item">
-				   						<a href="#" class="menu-link sub-menu-link">Bass</a>
-				   					</li>
-				   					<li class="sub-menu-item menu-item-odd menu-item-depth-1 menu-item">
-				   						<a href="#" class="menu-link sub-menu-link">Walleye</a>
-				   					</li>
-				   					<li class="sub-menu-item menu-item-odd menu-item-depth-1 menu-item">
-				   						<a href="#" class="menu-link sub-menu-link">Catfish</a>
-				   					</li>	
-				   				</ul>
-				   			</div>
-			   			</li>-->
-			   		</ul>
-		       </div>
-	        </div>
-	        <div class="menu-subscribe">
-	            <a href="<?php print $subs_link . get_option("header_key"); ?>;?>" target="_blank" onClick="_gaq.push(['_trackEvent', 'Subscribe', 'Location', 'Mobile Header']);"><img src="<?php print $magazine_img;?>" alt="" /><span>Subscribe Now!</span></a>
-	        </div>
-	        <div class="mob-aside-menu" style="<?php echo $displayStyle; ?>">
-		        <div class="menu-community-menu-container">
-		       		<ul id="menu-community-menu" class="menu">
-	       				<li class="main-menu-item menu-item-even menu-item-depth-0 menu-item">
-			   				<a href="/profile/<?php echo $username; ?>#my-photos" class="menu-link main-menu-link">My Photos</a></li>
-			   				<li class="main-menu-item menu-item-even menu-item-depth-0 menu-item">
-			   				<a href="/edit-profile/?action=profile" class="menu-link main-menu-link">Edit Profile</a></li>
-			   			<li class="main-menu-item menu-item-even menu-item-depth-">
-			   				<a href="<?php echo wp_logout_url( get_permalink() ); ?>" class="menu-link main-menu-link">Sign Out</a>
-			   			</li>
-			   		</ul>
-			   	</div>
-	        </div>  
-	        	
-	        <div class="aside-socials">
-	            <strong>Connect</strong>
-	            <?php social_networks(); ?>
-	        </div>
-
-		</div>
-	</div>
-
 </div>
 
 <?php 
@@ -285,15 +180,13 @@
 		googletag.cmd.push(function() { googletag.display('div-gpt-ad-1386788577276-9'); });
 	</script>
 </div>
-
-<div id="page" class="snap-content smooth-menu">
-
 <?php if (mobile() == false && tablet() == false) {  
 	imo_dart_tag("1x1",false,array("pos"=>"skin")); 
 	echo '<div class="expandable">';
 		imo_dart_tag("1080x90");
 	echo '</div>';
 } ?>
+<div id="page" class="snap-content smooth-menu">
 	<div class="hfeed wrapper" data-role="content" role="main">
 	    <div class="layout-frame">
 	        <div id="branding" class="header clearfix" role="banner">

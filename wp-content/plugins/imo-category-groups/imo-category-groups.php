@@ -282,7 +282,7 @@ class imoMetaBoxClass {
 			$qued_tab = 'imo_tab_'.$i;
 			$options = get_option($qued_tab);
 			$title = $options['imo_group_title'];
-			$types = array( 'post', 'reviews' );
+			$types = array( 'post', 'reviews', 'reader_photos' );
 			foreach( $types as $type ) {
 				add_meta_box(
 				 	$qued_tab

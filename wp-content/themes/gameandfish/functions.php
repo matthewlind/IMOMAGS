@@ -18,6 +18,12 @@ define("FACEBOOK_APP_SECRET","4011410d01c27af26e016760c03492ea");
 
 include_once("widgets/gf-community-slider.php");
 
+//community menus
+register_nav_menus(array(
+    'hunting' => 'Hunting Community Menu',
+    'fishing' => 'Fishing Community Menu'
+));
+
 /* This function allows for logging when debugging mode is on */
 if(!function_exists('_log')){
   function _log( $message ) {

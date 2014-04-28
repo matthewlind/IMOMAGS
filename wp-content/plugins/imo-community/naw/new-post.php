@@ -352,7 +352,7 @@ include 'common-templates.php';
 	            	<span class="or-delim" style="<?php echo $loginStyle; ?>">OR</span>
 	            	<a href="#" class="email-signup email-signup-button jq-open-reg-popup" style="<?php echo $loginStyle; ?>" >login with email address</a>
 	            	<!-- <p class="login-message" style="<?php echo $loginStyle; ?>">Your post will be submitted immediately after Login</p> -->
-				    <span class="btn-red btn-post btn-submit"  style="<?php echo $displayStyle; ?>"><input id="post-photo" type="submit" value="Share Your Photo"></span>
+				    <span class="btn-red btn-post btn-submit"  style="<?php echo $displayStyle; ?>"><input id="post-photo" type="submit" class="share-photo-btn" value="Share Your Photo"></span>
 	            </div>
 	            <hr>
 
