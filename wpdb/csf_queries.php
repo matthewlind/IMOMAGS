@@ -199,19 +199,12 @@ function runBigAssQuery($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_s
                 $stateSelect = "";
             }
 
-
-
-
-
-
-
-
             $siteCount++;
 
             $siteBrand = $brand[$domain];
 
             $sql .= <<<EOT
-(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, $termSelect $stateSelect posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url,users.user_nicename as user_nicename, users.display_name as author,users.`ID` as user_id, "$siteBrand" as brand,attachmentmeta.meta_value as attachment_meta,
+(SELECT DISTINCT posts.ID, camera_corner_taken.meta_value as camera_corner_taken,camera_corner_when.meta_value as camera_corner_when,camera_corner_who.meta_value as camera_corner_who, posts.post_title, posts.post_name, posts.post_date, $termSelect $stateSelect posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url,users.user_nicename as user_nicename, users.display_name as author,users.`ID` as user_id, "$siteBrand" as brand,attachmentmeta.meta_value as attachment_meta,
 (SELECT count(comment_ID) from wp_{$siteID}_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "$domain" as domain
 FROM wp_{$siteID}_term_relationships as relationships
 JOIN wp_{$siteID}_term_relationships as relationships2 ON (relationships.`object_id` = relationships2.`object_id`)
@@ -224,10 +217,20 @@ JOIN wp_{$siteID}_posts as attachments ON (attachments.post_parent = posts.ID)
 JOIN wp_{$siteID}_postmeta as meta ON (meta.meta_value = attachments.ID)
 JOIN wp_users as users ON (users.`ID` = posts.post_author)
 JOIN wp_{$siteID}_postmeta as postmeta ON (posts.ID = postmeta.post_id)
+
+JOIN wp_{$siteID}_postmeta as camera_corner_taken ON (posts.ID = camera_corner_taken.post_id)
+JOIN wp_{$siteID}_postmeta as camera_corner_when ON (posts.ID = camera_corner_when.post_id)
+JOIN wp_{$siteID}_postmeta as camera_corner_who ON (posts.ID = camera_corner_who.post_id)
+
 JOIN wp_{$siteID}_postmeta as attachmentmeta ON (attachments.ID = attachmentmeta.post_id)
 AND posts.post_status = "publish"
 AND postmeta.meta_key = '_thumbnail_id'
 AND attachmentmeta.meta_key = '_wp_attachment_metadata'
+
+AND camera_corner_taken.meta_key = 'camera_corner_taken'
+AND camera_corner_when.meta_key = 'camera_corner_when'
+AND camera_corner_who.meta_key = 'camera_corner_who'
+
 AND posts.post_type = '$post_type'
 $termQuery
 $stateQuery
@@ -245,9 +248,6 @@ EOT;
 
             }
 
-
-
-
             $executeArray = array_merge($executeArray,$termList);
 
         }//End foreach()
@@ -258,6 +258,7 @@ EOT;
         }
 
         $stmt = $db->prepare($sql);
+
 
          // print_r($termList);
          // echo $sql;

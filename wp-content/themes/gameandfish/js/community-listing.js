@@ -126,14 +126,14 @@ var PhotosGallery = (function(){
 			</li>';
 		},
 		templateLikeButton : function(v){
-			return '<div class="fb-like" data-href="'+v.post_url+'" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>';
+			return '<div class="fb-like" data-href="' + v.post_url + '" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>';
 		},
 		templateBottomContent : function(v){
-			return '<p class="photoGalleryDescription">'+v.post_content+'</p>\
+			return '<p class="photoGalleryDescription">' + v.post_content + '</p>\
 			<p class="photoGalleryExtras">\
-				Taken At: <span>'+v.location+'</span><br/>\
-				Taken On: <span>'+v.post_nicedate+'</span><br/>\
-				With: <span>'+v.author+'</span><br/>\
+				Taken At: <span>' + v.camera_corner_taken + '</span><br/>\
+				Taken On: <span>' + v.camera_corner_when + '</span><br/>\
+				With: <span>' + v.camera_corner_who + '</span><br/>\
 			</p>';
 		},
 		loadSlider: function(){
@@ -147,8 +147,8 @@ var PhotosGallery = (function(){
 				controlNav    : false,
 				animationLoop : false,
 				slideshow     : false,
-				itemWidth     : 80,
-				// itemMargin    : 5,
+				itemWidth     : 77,
+				itemMargin    : 3,
 				startAt       : self.startAt,
 				asNavFor      : '#photoSlider',
 				minItems      : 7,
@@ -216,8 +216,9 @@ var PhotosGallery = (function(){
 			});
 		},
 		parseSlider : function(slider){
-			var self      = this;
-			var slideData = self.data[parseInt(slider.currentSlide)];
+			var self      = this,
+				slideData = self.data[parseInt(slider.currentSlide)],
+				slug      = (slideData.terms[0].slug) ? slideData.terms[0].slug : '';
 			
 			// Handle if term 1 is not defined
 			if(slideData.terms[1].name){
@@ -237,6 +238,10 @@ var PhotosGallery = (function(){
 		    }catch(e){
 		    		//console.log(e);
 		    }
+		        
+		    //Refresh Ad
+		    _gaq.push(['_trackPageview',"/photos/" +  slug  ]);
+			document.getElementById('community-iframe-ad').contentWindow.location.reload();
 		}
 	};
 	

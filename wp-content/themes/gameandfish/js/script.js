@@ -41,7 +41,7 @@ jQuery(document).ready(function($) {
 		            }
 		        }
 		    });
-		    jQuery(".community-header").slideDown();
+		    jQuery(".community-header").show().css("overflow","visible");
 		}
 	});
 	
