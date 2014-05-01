@@ -19,19 +19,19 @@ function imo_wordpress_community_flush() {
 add_action('init', 'category_cpt_rewrites');
 function category_cpt_rewrites() {
 
-    $rule = '^' . "photos" . '/hunting/(.+?)/?$';
+    $rule = "photos" . '/hunting/(.+?)/?$';
     $rewrite = 'index.php?post_type=' . "reader_photos" . '&category_name=$matches[1]';
     add_rewrite_rule($rule,$rewrite,'top');
 
-    $rule = '^' . "photos" . '/hunting/';
+    $rule = "photos" . '/hunting';
     $rewrite = 'index.php?post_type=' . "reader_photos" . '&category_name=hunting';
     add_rewrite_rule($rule,$rewrite,'top');
 
-	$rule2 = '^' . "photos" . '/fishing/(.+?)/?$';
+	$rule2 = "photos" . '/fishing/(.+?)/?$';
     $rewrite2 = 'index.php?post_type=' . "reader_photos" . '&category_name=$matches[1]';
     add_rewrite_rule($rule2,$rewrite2,'top');
 
-    $rule = '^' . "photos" . '/fishing/';
+    $rule = "photos" . '/fishing';
     $rewrite = 'index.php?post_type=' . "reader_photos" . '&category_name=fishing';
     add_rewrite_rule($rule,$rewrite,'top');
 
