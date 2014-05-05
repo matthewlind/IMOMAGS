@@ -849,6 +849,7 @@ input.gsc-search-button-v2{
 .mdl-banner object{margin-top: 4px;}
 .mdl-banner img{
 	padding: 4px 0;
+	display: block;
 }
 .mdl-banner iframe{
 	margin-top: 4px !important;
@@ -1824,9 +1825,9 @@ a.category-name-link:hover{
 .taxdescription p{
 	overflow: hidden;
 }
-.category-img{clear: both;}
+.category-img{clear: both;padding-bottom: 10px;}
 .category-img img{
-	width: 80px;
+	width: 120px;
 	height: auto;
 	float: left;
 	margin: 0px 9px 10px 8px;
@@ -4490,9 +4491,6 @@ table.likes-leaderboard .entry-title {
     .menu-subscribe a img {
         width:50px;
     }
-	.category-img{
-		display: none;
-	}
 	.posts-list .article-brief{margin-top: 10px;}
 }
 @media only screen and (max-width: 510px) {
