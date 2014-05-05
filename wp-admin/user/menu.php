@@ -13,12 +13,10 @@ $menu[4] = array( '', 'exist', 'separator1', '', 'wp-menu-separator' );
 
 $menu[70] = array( __('Profile'), 'exist', 'profile.php', '', 'menu-top menu-icon-users', 'menu-users', 'div' );
 
-$menu[99] = array( '', 'exist', 'separator-last', '', 'wp-menu-separator-last' );
+$menu[99] = array( '', 'exist', 'separator-last', '', 'wp-menu-separator' );
 
 $_wp_real_parent_file['users.php'] = 'profile.php';
 $compat = array();
 $submenu = array();
 
 require_once(ABSPATH . 'wp-admin/includes/menu.php');
-
-?>
