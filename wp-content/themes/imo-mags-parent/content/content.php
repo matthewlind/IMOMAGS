@@ -12,7 +12,7 @@
 			<h3 class="entry-title">
 				<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
 			</h3>
-			<span>by <?php the_author(); ?></span>
+			<span>by <?php if ( 'imo_ga_vault' == get_post_type() ) { echo '<a href="/author/"'.get_the_author_meta('user_nicename',1607).'">'.get_the_author_meta('display_name',1607).'</a>'; }else{ the_author(); } ?></span>
 			<?php endif; // is_single() ?>
     		<!-- .entry-header -->
     		

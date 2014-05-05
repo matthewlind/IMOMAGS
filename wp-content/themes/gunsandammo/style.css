@@ -32,12 +32,8 @@ body{background:#2d2d2d;}
 .subscribe-box .journal {margin: -18px 0 0 0;}
 .subscribe-box .journal img{width: 116px;}
 .explore-posts{margin-left: 34px;}
-.expandable{
-	padding-top: 70px;
-	margin-bottom: -65px;
-	z-index: 999;
-	position: relative;
-}
+.expandable{padding-top: 70px;z-index: 999;position: relative;}
+.page-title.author a{color: white;font: 18px/16px "stagmedium", sans-serif;}
 
 /* Tags reset
 *******************************************************************************/

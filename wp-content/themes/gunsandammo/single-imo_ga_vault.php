@@ -35,9 +35,8 @@ get_header(); ?>
 				        <h1 class="entry-title">
 				            <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
 				        </h1>
-				        <?php endif; // is_single()
-				        if(get_the_author() != "admin" && get_the_author() != "infisherman"){ ?>
-				        <em class="meta-date-author">by <span class="author-item"><?php the_author_link(); ?></span>&nbsp;&nbsp;|&nbsp;&nbsp;<?php } the_time('F jS, Y'); ?></em>
+				        <?php endif; // is_single() ?>
+				        <em class="meta-date-author">by <span class="author-item"><a href="/author/<?php echo get_the_author_meta('user_nicename',1607) ?>"><?php echo get_the_author_meta('display_name',1607) ?></a></span>&nbsp;&nbsp;|&nbsp;&nbsp;<?php the_time('F jS, Y'); ?></em>
 				        <a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>
 				    </div>
 				                        	
@@ -100,18 +99,16 @@ get_header(); ?>
 			        <div class="article-brief">
 			         	<div class="addthis-below" <?php if(mobile()){ echo 'style="width: 320px;"'; } ?>><?php if (function_exists('imo_add_this')) {imo_add_this();} ?></div>
 				    </div>
-					<?php 
-					if(get_the_author() != "admin" && get_the_author() != "infisherman"){ ?>
 			        <div class="author-info article-brief">
 			                <div class="author-avatar">
-			                    <?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'twentytwelve_author_bio_avatar_size', 68 ) ); ?>
+			                    <?php echo get_avatar( get_the_author_meta( 'user_email',1607 ), apply_filters( 'twentytwelve_author_bio_avatar_size', 68 ) ); ?>
 			                </div><!-- .author-avatar -->
 			                <div class="author-description">
-			                    <h2><?php printf( __( 'About %s', 'twentytwelve' ), get_the_author() ); ?></h2>
+			                    <h2><?php printf( __( 'About %s', 'twentytwelve' ), get_the_author_meta('display_name',1607) ); ?></h2>
 			                    <p><?php the_author_meta( 'description' ); ?>
 				                    <div class="author-link">
-				                        <a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author">
-				                            <?php printf( __( 'View all stories by %s <span class="meta-nav">&rarr;</span>', 'twentytwelve' ), get_the_author() ); ?>
+				                        <a href="/author/<?php echo get_the_author_meta( 'user_nicename',1607 ); ?>" rel="author">
+				                            <?php printf( __( 'View all stories by %s <span class="meta-nav">&rarr;</span>', 'twentytwelve' ), get_the_author_meta('display_name',1607) ); ?>
 				                        </a>
 				                    </div><!-- .author-link -->
 			                    </p>
@@ -119,7 +116,6 @@ get_header(); ?>
 			                </div><!-- .author-description -->
 			            </div><!-- .author-info -->
 				    </div>
-				    <?php } ?>
 				    
 				    <?php imo_dart_tag("564x252"); ?>
 				    	   
