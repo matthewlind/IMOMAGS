@@ -39,6 +39,22 @@ function category_cpt_rewrites() {
 }
 
 
+add_filter( 'wp_unique_post_slug', 'imo_wordpress_community_post_slug', 10, 4 );
+function imo_wordpress_community_post_slug( $slug, $post_ID, $post_status, $post_type ) {
+
+		if ($post_type == "reader_photos") {
+
+			if (strpos($slug,"photo-") === FALSE && $post_ID == 0) {
+
+				$slug = "photo-" . $slug;
+			}
+
+		}
+
+
+    return $slug;
+}
+
 
 
 
