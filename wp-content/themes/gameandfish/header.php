@@ -248,13 +248,12 @@
 	</script>
 </div>
 <?php if (mobile() == false && tablet() == false) {
-	imo_dart_tag("1x1",false,array("pos"=>"skin"));
 	echo '<div class="expandable">';
 		imo_dart_tag("1080x90");
 	echo '</div>';
 } ?>
-
 <div id="page" class="snap-content smooth-menu">
+<?php if (mobile() == false && tablet() == false) { imo_dart_tag("1x1",false,array("pos"=>"skin")); } ?>
 	<div class="hfeed wrapper" data-role="content" role="main">
 	    <div class="layout-frame">
 	        <div id="branding" class="header clearfix" role="banner">

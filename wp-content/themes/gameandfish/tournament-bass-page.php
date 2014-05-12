@@ -22,7 +22,11 @@ imo_sidebar(); ?>
     <div class="general-frame">
         <div id="content" role="main">  
             <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="clearfix js-responsive-section">
-            	<?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
+            	<?php $custom_fields = get_post_custom($post_id);
+		        $checked = ( isset ($custom_fields['social_exclude'])   ) ? 'checked="checked"' : '' ;
+		        if ($checked ==""){ ?>
+					<?php if(function_exists('wpsocialite_markup')){ wpsocialite_markup(); } ?>
+				<?php } ?>
 			</div>
 			<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="article-brief clearfix js-responsive-section">
 				<?php while ( have_posts() ) : the_post(); ?>

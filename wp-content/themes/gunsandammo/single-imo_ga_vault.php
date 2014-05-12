@@ -46,7 +46,7 @@ get_header(); ?>
 				    </div>
 				    <?php } ?>
 				
-				    <div class="addthis-below" <?php if(mobile()){ echo 'style="width: 320px;"'; } ?>><?php if (function_exists('imo_add_this')) {imo_add_this();} ?></div>
+				    <?php if(function_exists('wpsocialite_markup')){ wpsocialite_markup(); } ?>
 				    <!-- .entry-header -->
 				    <div class="entry-content-holder">
 				        <?php if ( is_search() ) : // Only display Excerpts for Search ?>
@@ -97,7 +97,7 @@ get_header(); ?>
 			        </div><!-- .entry-content -->
 			        <?php endif; ?>
 			        <div class="article-brief">
-			         	<div class="addthis-below" <?php if(mobile()){ echo 'style="width: 320px;"'; } ?>><?php if (function_exists('imo_add_this')) {imo_add_this();} ?></div>
+			         	 <?php if(function_exists('wpsocialite_markup')){ wpsocialite_markup(); } ?>
 				    </div>
 			        <div class="author-info article-brief">
 			                <div class="author-avatar">

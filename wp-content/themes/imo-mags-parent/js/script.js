@@ -11,7 +11,7 @@ jQuery(window).load(function() {
 });
 
 jQuery(document).ready(function () {
-
+	
 	jQuery('.sidebar-widget-featured li.sidebar-featured').hover(function () {
         jQuery(this).find('.feat-text').animate({'bottom': '-80px'});
 

@@ -16,7 +16,6 @@ get_header(); ?>
                         </h1>
                         <div class="sponsor"><?php imo_dart_tag("240x60"); ?></div>
 					</div>
-                    		<div class="addthis-below" <?php if(mobile()){ echo 'style="width: 320px;"'; } ?>><?php if (function_exists('imo_add_this')) {imo_add_this();} ?></div>
                             
                     <?php 
                     if(function_exists('z_taxonomy_image_url')){
@@ -26,16 +25,6 @@ get_header(); ?>
                         if ( ! empty( $category_description ) )
                             echo apply_filters( 'category_archive_meta', '<div data-position="' . $dataPos = $dataPos + 1 . '" class="category-archive-meta taxdescription js-responsive-section">' . $category_description . '</div>' );
                     ?>
-                        
-                    <!--<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="filter-by jq-filter-by js-responsive-section">               
-                        <strong>filter by:</strong>
-                        <ul class="filter-links">
-                            <li><a href="#">Latest</a></li>
-                            <li><a href="#">Most Viewed</a></li>
-                            <li><a href="#">Most Discussed</a></li>
-                            <li><a href="#">Most Shared</a></li>
-                        </ul>
-                    </div>-->
                     
                     <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section main-content-preppend">
 						<?php $i = 1; while ( have_posts() ) : the_post(); ?>
