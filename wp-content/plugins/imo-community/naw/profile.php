@@ -284,10 +284,10 @@ if(mobile()){
 												<div id="imo-add-this-spid" style="display:none;"></div>
 							                    <ul class="prof-like">
 							                    	<li>
-														<div addthis:url="http://<?php echo $_SERVER['SERVER_NAME']; ?>/community/post/<?php echo $post->id; ?>" addthis:title="' . htmlentities(<?php echo $post->title; ?>) . '" class="addthis_toolbox addthis_default_style ">
-															<a class="addthis_button_facebook_like"fb:like:layout="button_count"></a>
-														</div>
-														<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4de0e5f24e016c81"></script>
+														<?php 
+														 	$url = 'http://'.$_SERVER['SERVER_NAME'].'/community/post/'.$post->id;
+															if(function_exists('wpsocialite_markup')){ wpsocialite_markup( array("url"=>$url,"button_override"=>"facebook") ); } 
+														?>
 							                    	</li>
 							                    </ul>
 											</div>
