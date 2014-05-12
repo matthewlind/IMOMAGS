@@ -22,7 +22,7 @@ $byline = get_post_meta($postID, 'ecpt_byline', true);
         </h1>
         <?php endif; // is_single() ?>
         <div class="post-date"><?php the_time('F jS, Y'); ?>&nbsp;&nbsp;|&nbsp;&nbsp;</div>
-        <div addthis:url="<?php the_permalink(); ?>" addthis:title="<?php the_title(); ?>" class="addthis_toolbox addthis_default_style" id="posts-container"><a class="addthis_button_facebook_like"fb:like:layout="button_count"></a></div>
+        <?php if(function_exists('wpsocialite_markup')){ wpsocialite_markup('button_override=facebook'); } ?>
 
         <a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>
 	</div>
@@ -62,7 +62,6 @@ $byline = get_post_meta($postID, 'ecpt_byline', true);
         <?php else : ?>
         <div class="entry-content">
             <?php echo get_the_post_thumbnail( $postID, "large"); ?>
-            <h4>By <a class="author-link" href="/author/<?php echo get_the_author_meta( "user_nicename" ); ?>/"><?php the_author(); ?></a></h4>
             <?php the_content( __( 'more <span class="meta-nav">&raquo;</span>', 'twentytwelve' ) ); ?>
 			<ul>
                 <!-- <li><b>Species: </b><?php echo $species; ?></li> -->
@@ -76,7 +75,7 @@ $byline = get_post_meta($postID, 'ecpt_byline', true);
         <?php endif; ?>
 
          <div class="article-brief">
-         	<div class="addthis-below" <?php if(mobile()){ echo 'style="width: 320px;"'; } ?>><?php if (function_exists('imo_add_this')) {imo_add_this();} ?></div>
+         	<?php if(function_exists('wpsocialite_markup')){ wpsocialite_markup(); } ?>
 	    </div>
 
         <?php the_widget('imo_related_footer_widget'); ?>

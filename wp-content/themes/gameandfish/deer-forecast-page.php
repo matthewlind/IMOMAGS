@@ -126,7 +126,7 @@ imo_sidebar(); ?>
         <div class="general-frame">
             <div id="content" role="main" class="forecast-content">  
 	            <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="clearfix js-responsive-section">
-	            	<?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
+	            	<?php if(function_exists('wpsocialite_markup')){ wpsocialite_markup(); } ?>
 				</div>
 											
             	<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="article-brief clearfix js-responsive-section">

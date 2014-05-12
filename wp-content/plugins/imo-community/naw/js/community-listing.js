@@ -1,6 +1,7 @@
 jQuery(document).ready(function($) {
 	
 
+
     //Set the filter to the default settings
     filter = {};
     filterReset();
@@ -45,10 +46,15 @@ jQuery(document).ready(function($) {
 
                 var postHTML = _.template( $('#post-template').html() , { post: post });
                 $("#posts-container").append(postHTML);
-				
-				addthis.toolbox('.addthis_toolbox');
-
-            });
+			
+				//Parse current slide like button
+				try{
+					FB.XFBML.parse();
+			    }catch(e){
+			    		//console.log(e);
+			    }
+	
+	            });
                         			
 			adPlacement();
             //hide the ajax loading spinner

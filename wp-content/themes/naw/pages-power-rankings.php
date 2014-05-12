@@ -40,7 +40,7 @@ the_post();
 
 	</div>
 	<div class="col-abc">
-		<?php if (function_exists('imo_add_this')) {imo_add_this();} ?>
+		<?php if(function_exists('wpsocialite_markup')){ wpsocialite_markup(); } ?>
 		<div style="float:left;"><img class="wp-image-14234 alignnone" title="NAW Power Rankings 2013" src="http://www.northamericanwhitetail.com/files/2013/09/NAW-Power-Rankings-20131.jpg" alt="" width="325" height="184" />
 			<div class="pr-rankings">
 				<script type="text/javascript">document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/imo.northamericanwhitetail/;sect=week1;manf=;pos=;page=naw_power_rankings_week_1;subs=;sz=240x60;dcopt=;tile=;ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));</script><noscript><a href="http://ad.doubleclick.net/adj/imo.northamericanwhitetail/;sect=week1;manf=;pos=;page=naw_power_rankings_week_1;subs=;sz=240x60;dcopt=;tile=;ord=6545512368?"><img src="http://ad.doubleclick.net/ad/imo.northamericanwhitetail/;sect=week1;manf=;pos=;page=naw_power_rankings_week_1;subs=;sz=240x60;dcopt=;tile=;ord=6545512368?" border="0" /></a></noscript>

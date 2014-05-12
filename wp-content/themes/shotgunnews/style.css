@@ -44,7 +44,6 @@ body{background:url(images/bg/shotgunnews-bg.jpg) no-repeat center top black;}
 .menu-top-menu-container li{padding: 2px 8px 2px 10px;}
 .expandable{
 	padding-top: 70px;
-	margin-bottom: -65px;
 	z-index: 999;
 	position: relative;
 }

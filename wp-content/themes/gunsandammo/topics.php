@@ -83,7 +83,7 @@ imo_sidebar(); ?>
 					        <span>Shooting</span> 
 					    </h2>
 					</div>
-					<div class="addthis-below" <?php if(mobile()){ echo 'style="width: 320px;"'; } ?>><?php if (function_exists('imo_add_this')) {imo_add_this();} ?></div>
+					<?php if(function_exists('wpsocialite_markup')){ wpsocialite_markup(); } ?>
 	                <div class="clearfix">
 	                    <ul>
 	                   	 	<?php if( function_exists('showFeaturedList') ){ echo showFeaturedPosts(array('set_id' => 5)); } ?>

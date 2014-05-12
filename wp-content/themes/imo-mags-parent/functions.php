@@ -39,6 +39,78 @@ function custom_excerpt_length( $length ) {
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
+
+class social_post_metabox{
+
+    function admin_init()
+    {
+        $screens = apply_filters('social_post_metabox_screens', array('post', 'page') );
+        foreach($screens as $screen)
+        {
+        add_meta_box('Sharing', 'Sharing', array($this, 'post_metabox'), $screen, 'side', 'default'  );
+        }
+        add_action('save_post', array($this, 'save_post') );
+        
+        add_filter('default_hidden_meta_boxes', array($this,  'default_hidden_meta_boxes' )  );
+    }
+
+    function default_hidden_meta_boxes($hidden)
+    {
+        $hidden[] = 'social';
+        return $hidden;
+    }
+
+    function post_metabox(){
+        global $post_id;
+
+        if ( is_null($post_id) )
+            $checked = '';
+        else
+        {
+            $custom_fields = get_post_custom($post_id);
+            $checked = ( isset ($custom_fields['social_exclude'])   ) ? 'checked="checked"' : '' ;
+        }
+
+        wp_nonce_field('social_postmetabox_nonce', 'social_postmetabox_nonce');
+        echo '<label for="social_show_option">';
+        _e("Remove Sharing:", 'myplugin_textdomain' );
+        echo '</label> ';
+        echo '<input type="checkbox" id="social_show_option" name="social_show_option" value="1" '.$checked.'>';
+    }
+
+    function save_post($post_id)
+    {
+        if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
+            return;
+
+        if ( ! isset($_POST['social_postmetabox_nonce'] ) ||  !wp_verify_nonce( $_POST['social_postmetabox_nonce'], 'social_postmetabox_nonce' ) ) 
+            return;
+
+        if ( ! isset($_POST['social_show_option']) )
+        {
+            delete_post_meta($post_id, 'social_exclude');
+        }
+        else
+        {
+            $custom_fields = get_post_custom($post_id);
+            if (! isset ($custom_fields['social_exclude'][0])  )
+            {
+                add_post_meta($post_id, 'social_exclude', 'true');
+            }
+            else
+            {
+                update_post_meta($post_id, 'social_exclude', 'true' , $custom_fields['social_exclude'][0]  ); 
+            }
+        }
+
+    }
+
+}
+
+$social_post_metabox = new social_post_metabox;
+add_action('admin_init', array($social_post_metabox, 'admin_init'));
+
+
 class AddParentClass_Walker extends Walker_Nav_Menu
 {
 
@@ -174,6 +246,17 @@ function parent_theme_widgets_init()
         'before_title' => '<h3 class="widget-title">',
         'after_title' => '</h3>',
     ) );
+	
+	//Community Sidebar
+	register_sidebar( array(
+	    'name' => __( 'Community Sidebar', 'imo-mags-parent' ),
+	    'id' => 'sidebar-4',
+	    'description' => __( 'The sidebar for community pages', 'twentyeleven' ),
+	    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+	    'after_widget' => "</div>",
+	    'before_title' => '<h3 class="widget-title">',
+	    'after_title' => '</h3>',
+	) );
 
 	register_sidebar( array(
         'name' => __( 'Mobile Widgets', 'imo-mags-parent' ),
@@ -192,6 +275,7 @@ function parent_theme_widgets_init()
         'before_title' => '<h3 class="widget-title">',
         'after_title' => '</h3>',
     ) );
+	
 
     // register_widget( 'Twenty_Eleven_Ephemera_Widget' );
 

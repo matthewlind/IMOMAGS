@@ -38,9 +38,7 @@ $acf_byline = get_field("byline",$postID);
         <small>ADVERTISEMENT</small>
     </div>
     <?php } ?>
-
-   <div class="addthis-below" <?php if(mobile()){ echo 'style="width: 320px;"'; } ?>><?php if (function_exists('imo_add_this')) {imo_add_this();} ?></div>
-	
+    	
     <!-- .entry-header -->
     <div class="entry-content-holder">
         <?php if ( is_search() ) : // Only display Excerpts for Search ?>
@@ -54,10 +52,6 @@ $acf_byline = get_field("byline",$postID);
         </div><!-- .entry-content -->
         <?php endif; ?>
         
-        <div class="article-brief single-addthis">
-         	<div class="addthis-below" <?php if(mobile()){ echo 'style="width: 320px;"'; } ?>><?php if (function_exists('imo_add_this')) {imo_add_this();} ?></div>
-	    </div>
-			    
 	    <?php imo_dart_tag("564x252"); ?>
 	    	   
 	    <?php if ( function_exists('yarpp_plugin_activate') ): ?>
