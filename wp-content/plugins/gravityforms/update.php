@@ -1,4 +1,9 @@
 <?php
+
+if(!class_exists('GFForms')){
+    die();
+}
+
 class GFUpdate{
     public static function update_page(){
         if(!GFCommon::current_user_can_any("gravityforms_view_updates"))
@@ -13,13 +18,13 @@ class GFUpdate{
 
         <link rel="stylesheet" href="<?php echo GFCommon::get_base_url() . "/css/admin.css"?>" />
 
-        <div class="wrap">
-        
-        	<div class="icon32" id="gravity-update-icon"><br></div>
+        <div class="wrap <?php echo GFCommon::get_browser_class() ?>">
           <h2><?php echo _e("Gravity Forms Updates", "gravityforms") ?></h2>
             <?php
 
             $version_info = GFCommon::get_version_info(false);
+            do_action("gform_after_check_update");
+
             if(version_compare(GFCommon::$version, $version_info["version"], '<')) {
                 $plugin_file = "gravityforms/gravityforms.php";
                 $upgrade_url = wp_nonce_url('update.php?action=upgrade-plugin&amp;plugin=' . urlencode($plugin_file), 'upgrade-plugin_' . $plugin_file);
@@ -61,8 +66,7 @@ class GFUpdate{
                 jQuery(document).ready(function(){
                     jQuery.post(ajaxurl,{
                             action:"gf_upgrade_license",
-                            gf_upgrade_license: "<?php echo wp_create_nonce("gf_upgrade_license") ?>",
-                            cookie: encodeURIComponent(document.cookie)},
+                            gf_upgrade_license: "<?php echo wp_create_nonce("gf_upgrade_license") ?>"},
 
                             function(data){
                                 if(data.trim().length > 0)
@@ -77,4 +81,3 @@ class GFUpdate{
 
 
 }
-?>

@@ -1,4 +1,9 @@
 <?php
+
+if(!class_exists('GFForms')){
+    die();
+}
+
 add_action( 'widgets_init', 'gf_register_widget' );
 
 if(!function_exists("gf_register_widget")){
@@ -10,9 +15,13 @@ function gf_register_widget() {
 if(!class_exists("GFWidget")){
 class GFWidget extends WP_Widget {
 
-    function GFWidget() {
-        $this->WP_Widget( 'gform_widget', 'Form',
-                            array( 'classname' => 'gform_widget', 'description' => __('Gravity Forms Widget', "gravityforms") ),
+    function __construct() {
+
+        load_plugin_textdomain( 'gravityforms', false, '/gravityforms/languages' );
+
+        $description = __('Gravity Forms Widget', "gravityforms");
+        $this->WP_Widget( 'gform_widget', __('Form', 'gravityforms'),
+                            array( 'classname' => 'gform_widget', 'description' => $description ),
                             array( 'width' => 200, 'height' => 250, 'id_base' => 'gform_widget' )
                             );
     }
@@ -34,7 +43,7 @@ class GFWidget extends WP_Widget {
         //creating form
         $form = RGFormsModel::get_form_meta($instance['form_id']);
 
-        if(empty($instance["disable_scripts"])){
+        if(empty($instance["disable_scripts"]) && !is_admin()){
             RGForms::print_form_scripts($form, $instance["ajax"]);
         }
 
