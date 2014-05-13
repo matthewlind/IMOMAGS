@@ -330,7 +330,7 @@ body{background-color: black;}
 .mob-aside-menu .mob-fb{
 	text-align: center;
 }
-.mob-aside-menu  .email-signup{
+.mob-aside-menu .email-signup{
 	font: 13px "open_sansregular", sans-serif !important;
 	padding: 8px 0 20px !important;
 	text-transform: none !important;
@@ -1029,10 +1029,10 @@ element:hover, element.hover_effect {
 }
 .community-header .header-section:first-child{border: none;width: 253px;padding: 0;}
 .community-header img{vertical-align: 12px;width: 200px;margin: 0 auto;display: block;}
-.community-header .header-section h3 a{padding-left: 26px;color: white;}
+.community-header .header-section h3 a{padding-left: 16px;color: white;}
 .community-header .header-section h3 a:hover{color: #acacac;}
 
-.community-header ul.sub-list{display: inline-block;padding-left: 26px;vertical-align: text-top;}
+.community-header ul.sub-list{display: inline-block;padding-left: 16px;vertical-align: text-top;}
 .community-header ul  li a{font-size: 14px;color: #acacac;}
 .community-header ul li a:hover{color: white;}
 .community-mobile-menu{display: none;}
@@ -2710,7 +2710,6 @@ select.alter-sel {width:100%;}
         left:-10px;
     }
 	.widget_imo_like_leaderboard_widget{width:310px;margin:20px auto;}
-	.widget_imo_like_leaderboard_widget .fb-like{width:auto !important;}
 	.widget_imo_like_leaderboard_widget .like-wrap{margin-left:2px;}	
 }
 @media only screen and (max-width: 510px) {
@@ -3359,7 +3358,7 @@ input[type="button"].btn-block {
   margin-bottom:10px;
   font: 15px/1.1 "open_sansbold", sans-serif;
 }
-
+.widget_imo_like_leaderboard_widget .fb-like{width:auto !important;}
 /* = Footer
  ******************************************************************************/
 .foot-logo {
@@ -3503,6 +3502,7 @@ input[type="button"].btn-block {
 	.sub-menu a {padding:15px 10px 13px;}
 	.gf-photo-corner, .gf-photo-corner-biggame, .gf-photo-corner-deer, .gf-photo-corner-fowl, .gf-photo-corner-turkey, .gf-photo-corner-smallgame, .gf-photo-corner-fish, .your-pack-banner{display: none;}
 	.page-template-banner-page-php .article-holder{margin-top: 0;}
+	
 }
 
 /*@media only screen and (max-width: 1046px) {
