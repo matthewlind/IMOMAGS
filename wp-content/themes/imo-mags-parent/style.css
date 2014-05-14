@@ -363,6 +363,13 @@ a:hover { color: #040503; }
     overflow:hidden;
     background:url(images/ico/loadingAnimation.gif) no-repeat 50% !important;
 }
+
+img.border-image {
+
+  border: 1px solid black !important;
+  margin: 7px !important;
+}
+
 /* Header
  ******************************************************************************/
 .header {
