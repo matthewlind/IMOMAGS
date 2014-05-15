@@ -20,6 +20,6 @@ get_template_part( 'nav', get_post_format() );
 
         </div><!-- #content -->
     </div><!-- #primary -->
-    <?php imo_community_sidebar(); ?>
+    <?php imo_sidebar(); ?>
 </div>
 <?php get_footer(); ?>

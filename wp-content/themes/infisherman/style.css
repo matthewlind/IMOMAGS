@@ -147,7 +147,7 @@ General comments (optional).
     border-top:0;
     overflow:hidden;
 }
-.sub-menu {    background:url(images/bg/body.jpg) repeat;}
+.sub-menu {background:url(images/bg/body.jpg) repeat;}
 .sub-menu li {
     border:1px solid #d8d8d8;
     border-width:1px 0 0;

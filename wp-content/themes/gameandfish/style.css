@@ -986,11 +986,6 @@ element:hover, element.hover_effect {
 .rankings h3{font-size: 24px;}
 
 /* Community - Reader Photos */
-.main{border-top: none;}
-.general, .sidebar-area{border-top: none;}
-#community-wrap{background:#1c1c1c;padding: 0 30px;overflow: hidden;}
-.post-type-archive-reader_photos .general{border: none;width: 650px;}
-.post-type-archive-reader_photos .sidebar-area .singl-post-photo{margin-bottom: 20px;background: #3b3b3b;}
 .share-photo-now{
 	padding: 14px 0 6px;
 	width: 100%;
