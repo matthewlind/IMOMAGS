@@ -56,6 +56,11 @@ class imo_settings_api {
         //register settings fields
         foreach ($this->settings_fields as $section => $field) {
             foreach ($field as $option) {
+
+                if (empty($option['desc'])) {
+                    $option['desc'] = "";
+                }
+
                 $args = array(
                     'id' => $option['name'],
                     'desc' => $option['desc'],
@@ -104,7 +109,7 @@ class imo_settings_api {
         $html .= sprintf( '<label for="%1$s[%2$s]"> %3$s</label>', $args['section'], $args['id'], $args['desc'] );
 
 		$html .= sprintf( '
-	
+
 		' );
 
 
@@ -196,7 +201,7 @@ class imo_settings_api {
      * @param string $default default text if it's not found
      * @return string
      */
-	 
+
 	function get_option( $option, $section, $default = '' ) {
 
         $options = get_option( $section );
@@ -218,18 +223,18 @@ class imo_settings_api {
 								echo '<div style="display:none;">';
 								settings_fields( 'imo_tab_settings' );
                             	do_settings_sections( 'imo_tab_settings' );
-								echo '</div>';			
+								echo '</div>';
 								$settings = get_option('imo_tab_settings');
 								$tab_count_plus_one = intval($settings['imo_tab_count'])+1;
 								echo '<input type="hidden" id="imo_tab_settings[imo_tab_count]" name="imo_tab_settings[imo_tab_count]" value="'.$tab_count_plus_one.'">';
 								echo '<input type="submit" name="submit" id="submit" class="button button-primary" value="Create Meta Box">';
 								echo '</form>';
-								
+
 								echo '<form id="imo_tab_settings_form_delete" method="post" action="options.php" style="float:left;margin-left: 15px;display:inline-block;">';
 								echo '<div style="display:none;">';
 								settings_fields( 'imo_tab_settings' );
                             	do_settings_sections( 'imo_tab_settings' );
-								echo '</div>';				
+								echo '</div>';
 								$settings = get_option('imo_tab_settings');
 								$tab_count_minus_one = intval($settings['imo_tab_count'])-1;
 								$tab_to_delete = $settings['imo_group_delete'];
@@ -266,14 +271,14 @@ class imo_settings_api {
      */
     function show_forms() {
         ?>
-        
+
     <script type="text/javascript">
 		jQuery(document).ready(function($) {
 	<?php
 	$tab_count = count($this->settings_sections)-1;
 	while($tab_count > 0){
 	?>
-	<?php	
+	<?php
 	$imo_all_cats = get_categories(
 		array(
 			'type'			=> 'post',
@@ -283,7 +288,7 @@ class imo_settings_api {
 		)
 	);
 	foreach($imo_all_cats as $category) {
-	?>	
+	?>
 			$("input[type='checkbox'][name*='<?php echo 'imo_tab_'.$tab_count.'['.$category->cat_ID.']'; ?>']").click(function() {
 				if (this.checked) {
 					$("input[type='checkbox'][name*='<?php echo '['.$category->cat_ID.']'; ?>']").attr("checked", false);
@@ -294,10 +299,10 @@ class imo_settings_api {
 					$(".child-of-<?php echo 'imo_tab_'.$tab_count.'-'.$category->cat_ID; ?>").attr("checked", false);
 				}
 			});
-	<?php } 
+	<?php }
 	$tab_count--;
 	} ?>
-	
+
 	<?php $tab_count = count($this->settings_sections)-1;?>
 	$("<?php while($tab_count > 0) { echo '#imo_tab_'.$tab_count.'_form, '; $tab_count --;}?>#imo-null-div").submit(function() {
 			$('.form-submit-success').hide();
@@ -314,18 +319,18 @@ class imo_settings_api {
 				$(".form-submit-saving").hide();
 				$(".form-submit-success").fadeIn( function(){
 					location.reload();
-				}); 
+				});
 			});
 			';
 	$tab_count--;
-	} ?>	
+	} ?>
 
-		return false; 
+		return false;
 	});
-	
-	
-	
-	
+
+
+
+
 	});
 	</script>
         <div class="metabox-holder">
@@ -345,12 +350,12 @@ class imo_settings_api {
                				<div class="form-submit-success imo-success-or-error">Reloading</div>
                             <div class="clear"></div>
 
-                            <?php 
+                            <?php
 							//Auto Form HTML
 							settings_fields( $form['id'] );
                             //do_settings_sections( $form['id'] );
 							?>
-                            
+
 <!--- Manual Form HTML -->
 <h4>Group Name</h4><br/>
 <input type="text" class="regular-text title-input" id="<?php echo $form['id'];?>[imo_group_title]" name="<?php echo $form['id'];?>[imo_group_title]" value="<?php echo $options['imo_group_title'];?>">
@@ -370,7 +375,7 @@ $imo_group_cats = '';
 		);
 
 		$imo_group_cats .= '<div class="cat-list">';
-		
+
 		//For categories without children
 		$cat_count = 1;
 		foreach($imo_get_cats as $category) {
@@ -389,8 +394,8 @@ $imo_group_cats = '';
 			}
 		}
 		$imo_group_cats .= '</div>';
-		
-		
+
+
 		//For categories with children
 		foreach($imo_get_cats as $category) {
 			$options = get_option($form['id']);
@@ -408,15 +413,15 @@ $imo_group_cats = '';
 				$imo_group_cats .= '<input type="checkbox" class="checkbox" id="'.$form['id'].'['.$category->cat_ID.']" name="'.$form['id'].'['.$category->cat_ID.']" value="on"'.checked( 'on', $options[$category->cat_ID], false ).'/> <b>'.$category->cat_name.'</b><br/><br/>';
 				foreach($imo_get_child_cats as $child_category) {
 					$imo_group_cats .= '<input type="checkbox" class="checkbox child-checkbox child-of-'.$form['id'].'-'.$category->cat_ID.' '.$category->cat_ID.'-child" id="'.$form['id'].'['.$child_category->cat_ID.']" name="'.$form['id'].'['.$child_category->cat_ID.']" value="on" '.checked( 'on', $options[$child_category->cat_ID], false ).'/> '.$child_category->cat_name.'<br/><br/>';
-				}	
+				}
 				$imo_group_cats .= '</div>';
 				$cat_count++;
 				if($cat_count % 6 == 0) $imo_group_cats .= '<div class="clear"></div>';
 			}
 		}
-		
-		
-		
+
+
+
 		$imo_group_cats .= '<div class="clear"></div>';
 		echo $imo_group_cats;
 ?>

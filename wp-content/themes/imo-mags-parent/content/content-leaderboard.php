@@ -19,7 +19,7 @@ $dataPos = 0;
 
 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>"  id="post-<?php the_ID(); ?>" <?php post_class('article-brief clearfix js-responsive-section'); ?>>
 	<div class="article-holder">
-		<div class="addthis-below" <?php if(mobile()){ echo 'style="width: 320px;"'; } ?>><?php if (function_exists('imo_add_this')) {imo_add_this();} ?></div>
+		<?php if(function_exists('wpsocialite_markup')){ wpsocialite_markup(); } ?>
 		<?php the_content(); ?>
 
 
@@ -33,7 +33,7 @@ $dataPos = 0;
 	                $sql = "SELECT *,CONVERT(likes.meta_value, UNSIGNED INTEGER) as like_count FROM wp_14_posts as posts
 	                        JOIN wp_14_postmeta AS likes ON (posts.ID = likes.post_id AND likes.meta_key = 'facebook_like_count')
 	                        WHERE post_type = 'reader_photos'
-	                        AND posts.ID NOT IN (49658,49182,49252,48942,49681)
+	                        AND posts.ID NOT IN (49658,49182,49252,48942,49681,50087)
 	                        AND post_status = 'publish'
 	                        ORDER BY like_count DESC LIMIT 25";
 

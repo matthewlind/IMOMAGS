@@ -9,15 +9,18 @@
  */
 
 
-add_filter('media_buttons_context', 'inline_post_media_button');
-function inline_post_media_button($context) {
+// add_filter('media_buttons_context', 'inline_post_media_button');
+add_action('media_buttons','inline_post_media_button',11);
+function inline_post_media_button() {
 
 	$imgURL = plugins_url('inline-post-icon.png', __FILE__);
 
 	$frameURL = plugins_url('inline-post-frame.html', __FILE__);
 
-	$inline_post_media_button = ' %s' . '<a href="'.$frameURL.'?TB_iframe=true" class="thickbox"><img src="'.$imgURL.'"></a>';
-	return sprintf($context, $inline_post_media_button);
+	$inline_post_media_button = '<a href="'.$frameURL.'?TB_iframe=true" class="thickbox"><img src="'.$imgURL.'"></a>';
+
+
+	echo $inline_post_media_button;
   }
 
 

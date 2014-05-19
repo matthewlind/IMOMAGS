@@ -48,7 +48,6 @@ function split_120_ad(){ ?>
 function social_networks(){
 	echo '<div class="socials">';
 		echo '<a href="'.FACEBOOK_LINK.'" class="facebook">Facebook</a>';
-	    echo '<a href="'.TWITTER_LINK.'" class="twitter">Twitter</a>';
 	    echo '<a href="'.RSS_LINK.'" class="rss">RSS</a>';
 	echo '</div>';
 }

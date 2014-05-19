@@ -244,17 +244,6 @@ function imo_community_setup_routes($wp_rewrite) {
 
 }
 
-//Community Sidebar
-register_sidebar( array(
-    'name' => __( 'Community Sidebar', 'imo-mags-parent' ),
-    'id' => 'sidebar-4',
-    'description' => __( 'The sidebar for community pages', 'twentyeleven' ),
-    'before_widget' => '<div id="%1$s" class="widget %2$s">',
-    'after_widget' => "</div>",
-    'before_title' => '<h3 class="widget-title">',
-    'after_title' => '</h3>',
-) );
-
 add_filter('query_vars', 'imo_community_query_vars');
 function imo_community_query_vars($query_vars)
 {

@@ -358,6 +358,13 @@ a:hover { color: #040503; }
     overflow:hidden;
     background:url(images/ico/loadingAnimation.gif) no-repeat 50% !important;
 }
+
+img.border-image {
+
+  border: 1px solid black !important;
+  margin: 7px !important;
+}
+
 /* Header
  ******************************************************************************/
 .header {
@@ -1828,9 +1835,9 @@ a.category-name-link:hover{
 .taxdescription p{
 	overflow: hidden;
 }
-.category-img{clear: both;}
+.category-img{clear: both;padding-bottom: 10px;}
 .category-img img{
-	width: 80px;
+	width: 120px;
 	height: auto;
 	float: left;
 	margin: 0px 9px 10px 8px;
@@ -4496,9 +4503,6 @@ table.likes-leaderboard .entry-title {
     .menu-subscribe a img {
         width:50px;
     }
-	.category-img{
-		display: none;
-	}
 	.posts-list .article-brief{margin-top: 10px;}
 }
 @media only screen and (max-width: 510px) {
@@ -4526,7 +4530,6 @@ table.likes-leaderboard .entry-title {
 	.home-featured:nth-child(odd), .home-featured:first-child{padding: 0;}
 }
 @media only screen and (max-width: 340px) {
-
 	.snap-drawer-right{
 		width: 266px;
 	}

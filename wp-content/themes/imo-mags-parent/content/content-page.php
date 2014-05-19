@@ -18,9 +18,9 @@ $dataPos = 0;
 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>"  id="post-<?php the_ID(); ?>" <?php post_class('article-brief clearfix js-responsive-section'); ?>>
 	<div class="article-holder">
 		<?php $custom_fields = get_post_custom($post_id);
-        $checked = ( isset ($custom_fields['addthis_exclude'])   ) ? 'checked="checked"' : '' ;
+        $checked = ( isset ($custom_fields['social_exclude'])   ) ? 'checked="checked"' : '' ;
         if ($checked ==""){ ?>
-			<div class="addthis-below" <?php if(mobile()){ echo 'style="width: 320px;"'; } ?>><?php if (function_exists('imo_add_this')) {imo_add_this();} ?></div>
+			<?php if(function_exists('wpsocialite_markup')){ wpsocialite_markup(); } ?>
 		<?php }
 		the_content(); ?>
 		<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'twentyeleven' ) . '</span>', 'after' => '</div>' ) ); ?>

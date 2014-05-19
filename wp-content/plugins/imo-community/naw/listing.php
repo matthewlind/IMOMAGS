@@ -145,12 +145,9 @@ if( desktop ){
 						<li><%= niceScore %></li>
                     </ul>
                     <ul class="prof-like">
-                    	<li>
-                    		<div addthis:url="http://<?php echo $_SERVER['SERVER_NAME']; ?>/community/post/<%= post.id %>" addthis:title="<%= post.title %>" class="addthis_toolbox addthis_default_style ">
-								<a class="addthis_button_facebook_like"fb:like:layout="button_count"></a>
-							</div>
-							
-                       </li>
+						<li><div class="fb-like" data-href="http://<?php echo $_SERVER['SERVER_NAME']; ?>/community/post/<%= post.id %>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div></li>
+                    </ul>
+                    </div>
                     </ul>
                 </div>
             </div>

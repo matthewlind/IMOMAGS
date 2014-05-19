@@ -43,7 +43,7 @@ class imo_like_leaderboard_widget extends WP_Widget {
                                     $sql = "SELECT *,CONVERT(likes.meta_value, UNSIGNED INTEGER) as like_count FROM wp_14_posts as posts
                                             JOIN wp_14_postmeta AS likes ON (posts.ID = likes.post_id AND likes.meta_key = 'facebook_like_count')
                                             WHERE post_type = 'reader_photos'
-                                            AND posts.ID NOT IN (49658,49182,49252,48942,49681)
+                                            AND posts.ID NOT IN (49658,49182,49252,48942,49681,50087)
                                             AND post_status = 'publish'
                                             ORDER BY like_count DESC LIMIT $count";
 

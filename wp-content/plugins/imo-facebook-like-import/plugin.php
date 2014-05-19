@@ -112,7 +112,7 @@ function imo_facebook_import_likes() {
     $startDate = get_option("options_like_import_start_date","2014-04-12");
     $endDate = get_option("options_like_import_end_date","2014-06-12");
 
-    $query = "SELECT * FROM $wpdb->posts WHERE post_type = '$post_type' AND (post_date BETWEEN '$startDate' AND '$endDate') ORDER BY id DESC LIMIT 200";
+    $query = "SELECT * FROM $wpdb->posts WHERE post_type = '$post_type' AND (post_date BETWEEN '$startDate' AND '$endDate') ORDER BY id DESC";
 
     //echo $query;
     $posts = $wpdb->get_results( $query );
@@ -122,8 +122,14 @@ function imo_facebook_import_likes() {
 
     foreach ($posts as $post) {
 
+        $postID = $post->ID;
+        $permalink = get_permalink($postID);
 
-        $getURL = $fbGraphURL . $post->guid;
+        $permalink = str_replace(".deva", ".com", $permalink);
+        $permalink = str_replace(".fox", ".com", $permalink);
+        $permalink = str_replace(".devj", ".com", $permalink);
+
+        $getURL = $fbGraphURL . $permalink;
 
         $fbResult = json_decode( file_get_contents($getURL) );
 
@@ -137,7 +143,7 @@ function imo_facebook_import_likes() {
 
 
 
-        echo "$shares: {$post->guid}<br>";
+        echo "$shares: {$permalink}<br>";
         update_post_meta($post->ID, "facebook_like_count", $shares);
 
         flush();

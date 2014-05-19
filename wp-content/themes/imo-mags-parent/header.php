@@ -51,7 +51,6 @@
 	<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
 	<![endif]-->
 	<?php
-		include_once get_stylesheet_directory() . "/head-includes.php";
 	    /* We add some JavaScript to pages with the comment form
 	     * to support sites with threaded comments (when in use).
 	     */
@@ -78,7 +77,7 @@
 		$service_link = get_option('service_link' );
 		$subs_form_link = get_option('subs_form_link' );
 		$i4ky = get_option('i4ky' );
-		
+		include_once get_stylesheet_directory() . "/head-includes.php";
 	?>
 	<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/dart.js" type="text/javascript"></script>
@@ -297,12 +296,12 @@
 </div>
 
 <?php if (mobile() == false && tablet() == false) {  
-	imo_dart_tag("1x1",false,array("pos"=>"skin")); 
 	echo '<div class="expandable">';
 		imo_dart_tag("1080x90");
 	echo '</div>';
 } ?>
 <div id="page" class="snap-content smooth-menu">
+<?php if (mobile() == false && tablet() == false) { imo_dart_tag("1x1",false,array("pos"=>"skin")); } ?>
 	<div class="hfeed wrapper" data-role="content" role="main">
 	    <div class="layout-frame">
 	        <div id="branding" class="header clearfix" role="banner">

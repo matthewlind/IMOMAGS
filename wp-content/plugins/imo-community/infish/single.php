@@ -285,12 +285,7 @@ $time = date("g:i A", strtotime($timestamp));
                 </div>
             </div>
 
-            <div addthis:url="http://www.in-fisherman.com/photos/<?php echo $data->id; ?>" addthis:title="<?php echo $data->title; ?>" class="addthis_toolbox addthis_default_style "<?php if(mobile()){ echo ' style="width: 320px;"'; } ?>>
-				<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-				<a class="addthis_button_tweet"></a>
-				<a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
-				<a class="addthis_counter addthis_pill_style"></a>
-			</div>
+            <?php if(function_exists('wpsocialite_markup')){ wpsocialite_markup(); } ?>
 
         <?php
         	$width = "/convert?w=730&fit=scale&rotate=exif";

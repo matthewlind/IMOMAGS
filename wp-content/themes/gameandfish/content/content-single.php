@@ -38,8 +38,6 @@ $acf_byline = get_field("byline",$postID);
         <small>ADVERTISEMENT</small>
     </div>
     <?php } ?>
-
-    <div class="addthis-below"><?php if (function_exists('imo_add_this')) {imo_add_this();} ?></div>
     <!-- .entry-header -->
     <div class="entry-content-holder">
         <?php if ( is_search() ) : // Only display Excerpts for Search ?>
@@ -52,11 +50,7 @@ $acf_byline = get_field("byline",$postID);
             <?php wp_link_pages( array( 'before' => '<div class="page-links">' . 'Pages:', 'after' => '</div>' ) ); ?>
         </div><!-- .entry-content -->
         <?php endif; ?>
-
-         <div class="article-brief">
-         	<div class="addthis-below" <?php if(mobile()){ echo 'style="width: 320px;"'; } ?>><?php if (function_exists('imo_add_this')) {imo_add_this();} ?></div>
-	    </div>
-		
+        		
         <?php the_widget('imo_related_footer_widget'); ?>
 
 	    <?php imo_dart_tag("564x252"); ?>

@@ -43,18 +43,17 @@ function imo_sidebar($type){
 		echo '<div class="sidebar-area">';
 			echo '<div class="sidebar">';
 				echo '<div class="widget_advert-widget">';
-				imo_dart_tag("300x250");
+				echo '<iframe id="sidebar-iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?ad_code='.$dartDomain.'"></iframe>';
 				echo '</div>';
 			echo '</div>';
 		    get_sidebar($type);
-
-			    	echo '<div id="responderfollow"></div>';
-					echo '<div class="sidebar advert">';
-						echo '<div class="widget_advert-widget">';
-							echo '<iframe id="sticky-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-sticky.php?ad_code='.$dartDomain.'"></iframe>';
-						echo '</div>';
-						get_sidebar("sticky");
+		    	echo '<div id="responderfollow"></div>';
+				echo '<div class="sidebar advert">';
+					echo '<div class="widget_advert-widget">';
+						echo '<iframe id="sticky-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-sticky.php?ad_code='.$dartDomain.'"></iframe>';
 					echo '</div>';
+					get_sidebar("sticky");
+				echo '</div>';
 		echo '</div>';
 	}
 }

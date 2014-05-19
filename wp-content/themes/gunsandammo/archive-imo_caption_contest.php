@@ -16,8 +16,7 @@ get_header(); ?>
                         </h1>
 						<div class="sponsor"><?php echo get_imo_dart_tag("240x60",1,false,array("page"=>"caption_contest","sect"=>"caption_contest")); ?></div>
 					</div>
-                    		<div class="addthis-below" <?php if(mobile()){ echo 'style="width: 320px;"'; } ?>><?php if (function_exists('imo_add_this')) {imo_add_this();} ?></div>
-                            
+					<?php if(function_exists('wpsocialite_markup')){ wpsocialite_markup(); } ?>                            
                     <?php 
                     if(function_exists('z_taxonomy_image_url')){
                     	if (z_taxonomy_image_url()) echo '<div class="category-img"><img src="'.z_taxonomy_image_url().'" alt="'.single_cat_title( '', false ).'" title="'.single_cat_title( '', false ).'" /></div>'; 

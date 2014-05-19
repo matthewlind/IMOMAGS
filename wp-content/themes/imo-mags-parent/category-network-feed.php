@@ -45,34 +45,30 @@ imo_sidebar(); ?>
 
 <div id="primary" class="general category-page">
 	<div id="content" role="main" class="<?php echo $h1Class; ?> general-frame">
+		<?php if(function_exists('z_taxonomy_image_url')){ 
+        	if ($imageURL) {
+            	echo '<div class="sponsor"><?php imo_dart_tag("240x60"); ?></div>';
+            	echo '<div class="category-img"><img src="'.$imageURL.'" alt="'.single_cat_title( '', false ).'" title="'.single_cat_title( '', false ).'" /></div>';
+			}
+        }
+    	$category_description = category_description();
+        if ( ! empty( $category_description ) )
+            echo apply_filters( 'category_archive_meta', '<div class="category-archive-meta taxdescription js-responsive-section">' . $category_description . '</div>' );
+		?> 
 		<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header clearfix js-responsive-section">
-		
+			
 			<?php if ($fullWidthImage != "") { ?>
 				<h1><img alt="<?php single_cat_title(''); ?>" class="full-width-header" src="<?php echo $imageURL; ?>" title="<?php single_cat_title(''); ?>"><span style="display:none;"><?php single_cat_title(''); ?></span></h1>
 			<?php } else { ?>
-			
-				<?php if ($imageURL): ?>
-					<div class="header-bonus" style="background-image:url('<?php echo $imageURL; ?>');">
-						<!-- <img src="<?php echo $imageURL; ?>"> -->
-					</div>
-				<?php endif; ?>
-	
-			    <h1 class="header-info page-title <?php echo $h1Class; ?>">
+			    <h1 class="header-info page-title <?php echo $h1Class; ?>" style="<?php if(function_exists('z_taxonomy_image_url')){ if ($imageURL){ echo 'text-indent:-9999px;height:0;background:none;'; } } ?>">
 			    	<?php printf('<span>' . single_cat_title( '', false ) . '</span>' ); ?>
-			    	<div class="icon"></div>
+			    	<div class="icon" style="<?php if(function_exists('z_taxonomy_image_url')){ if ($imageURL){ echo 'text-indent:-9999px;height:0;'; } } ?>"></div>
 			    </h1>
-			    <div class="sponsor"><?php imo_dart_tag("240x60"); ?></div>
-		
-				<?php 
-				if(function_exists('z_taxonomy_image_url')){
-					if (z_taxonomy_image_url()) echo '<div class="category-img"><img src="'.z_taxonomy_image_url().'" alt="'.single_cat_title( '', false ).'" title="'.single_cat_title( '', false ).'" /></div>'; ?>                    
-		            <?php
-		            	$category_description = category_description();
-		                    if ( ! empty( $category_description ) )
-		                        echo apply_filters( 'category_archive_meta', '<div data-position="' . $dataPos = $dataPos + 1 . '" class="category-archive-meta taxdescription js-responsive-section">' . $category_description . '</div>' );
-		             ?>
-		
-				<?php } } ?>
+			    <?php if(function_exists('z_taxonomy_image_url')){ 
+                	if ($imageURL == false){ ?>
+						<div class="sponsor"><?php imo_dart_tag("240x60"); ?></div>
+                <?php } } ?>  
+			<?php } ?>
             </div>
 
 		</div><!-- .page-header -->

@@ -9,6 +9,14 @@ jQuery(document).ready(function($) {
 
 	var totalCount;
 
+	var domain = document.domain;
+
+	domain = domain.replace(".deva",".com");
+	domain = domain.replace(".fox",".com");
+	domain = domain.replace(".devb",".com");
+	domain = domain.replace(".devc",".com");
+	domain = domain.replace(".devj",".com");
+
 	//Check to see if category-cross-site-feed exists:
 	if ($(".category-cross-site-feed").length > 0) {
 		//if yes, display some things
@@ -167,9 +175,15 @@ jQuery(document).ready(function($) {
 		        $articleTemplate.find("a").attr("href",data[i].post_url);
 
 		        $articleTemplate.find(".entry-category a").text("From " + data[i].brand + " Magazine");
+
+
+
 		        $articleTemplate.find(".entry-category a").attr("href","http://" + data[i].domain)
 
 
+		        if (domain == data[i].domain) {
+		        	$articleTemplate.find(".entry-category a").hide();
+		        }
 
 		        if (data[i].domain == document.domain || data[i].domain == 'www.gunsandammo.com') { //FIX BEFORE GOING TO PROD
 		        	var $category = $articleTemplate.find(".cat-feat-label").clone();

@@ -13,6 +13,7 @@ Version: 0.1
 Stable tag: 0.1
 License: GPL2
 */
+
 	
 function madness_func( $atts ) {
 	global $ismobile;
@@ -97,8 +98,8 @@ function jsGAMRender($mobile) {
   if($mobile) {
 	$outp.= '<div class="ga-madness-votestats"></div>';
 	
-	if (function_exists('imo_add_this'))
-		 	$outp.='<div class="addthis-below">'.imo_add_this(false). '</div>';
+	//if (function_exists('wpsocialite_markup'))
+		 	//$outp.= wpsocialite_markup();
 		 	
 	$outp.= '<div id="madtabs">'
 		 .  '  <ul class="rounds">'
@@ -213,7 +214,8 @@ function jsGAMRender($mobile) {
 		 .  '  <li class="'.(($madnessround==6)? "active-round":"").'">Final Four<div>April 4-7</div></li>'
 		 .  '  <li class="'.(($madnessround==7)? "active-round":"").'">Final Round<div>April 8-11</div></li>'
 		 .  '</ul>'
-		 .  '<div class="addthis-below">'.imo_add_this(false). '</div>';
+		 //.  wpsocialite_markup()
+		 ;
 	
 	if($madnessround == 7) {		 
 	$outp.= '<div class="ga-madness-votestats" style="margin-bottom:20px;clear:both;"></div>'
