@@ -72,14 +72,6 @@ a.flex-prev, a.flex-next, a.menu-link, a.main-menu-link, .socials a, a.btn-base,
 	-webkit-transition: 0s !important;-moz-transition: 0s !important;transition: 0s !important;
 }
 
-/*
- * Socialite Look-a-like defaults
- */
-.wpsocialite.small {padding: 0 !important;margin: 0 auto !important;}
-.wpsocialite.small .socialite { background:none; }
-.wpsocialite.small > li, .wpsocialite.small .socialite{width: 90px !important;}
-.fb_iframe_widget span{vertical-align: baseline !important;}
-
 /* Normalizing form elements
 *******************************************************************************/
 fieldset { border: none; }
