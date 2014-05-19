@@ -994,7 +994,6 @@ element:hover, element.hover_effect {
 .rankings h3{font-size: 24px;}
 
 /* Community - Reader Photos */
-<<<<<<< HEAD
 .main{border-top: none;}
 #community-wrap{background:#1c1c1c;padding: 0 30px;overflow: hidden;}
 #community-wrap .general-frame{width: auto;}
@@ -1005,8 +1004,6 @@ element:hover, element.hover_effect {
 .post-type-archive-reader_photos .sidebar-area .singl-post-photo{margin-bottom: 20px;background: #3b3b3b;}
 .post-type-archive-reader_photos .posts-list span{font-style: normal;}
 .post-type-archive-reader_photos .btn-default.mobile{margin: 10px auto;display: block;width: 95%;}
-=======
->>>>>>> 0891535794e2cfca5412b75e0961eb826971ed7e
 .share-photo-now{
 	padding: 14px 0 6px;
 	width: 100%;
@@ -1044,13 +1041,8 @@ element:hover, element.hover_effect {
 	position: relative;
 }
 .community-header .header-section:first-child{border: none;width: 253px;padding: 0;}
-<<<<<<< HEAD
-.community-header img{vertical-align: 12px;width: 200px;margin: 4px auto 0;display: block;}
-.community-header .header-section h3 a{padding-left: 26px;color: white;}
-=======
 .community-header img{vertical-align: 12px;width: 200px;margin: 0 auto;display: block;}
 .community-header .header-section h3 a{padding-left: 16px;color: white;}
->>>>>>> 0891535794e2cfca5412b75e0961eb826971ed7e
 .community-header .header-section h3 a:hover{color: #acacac;}
 
 .community-header ul.sub-list{display: inline-block;padding-left: 16px;vertical-align: text-top;}
@@ -2583,6 +2575,54 @@ select.alter-sel {width:100%;}
 #state-list-menu{
 	overflow-y: scroll !important;
 }
+
+.flex-direction-nav{
+		display:none;
+	}
+	
+#photoTopControls .sliderPrev{
+	display: inline-block;
+	width: 33px;
+	height: 46px;
+	border-radius:3px;
+	border:1px solid #5A5A5A;
+	cursor:pointer;
+	background: #5A5A5A url('http://www.gameandfishmag.com/wp-content/plugins/imo-flex-gallery/img/imo-flex-next-prev.png') no-repeat -3px 9px !important;
+}
+
+#photoTopControls .sliderNext{
+	display: inline-block;
+	width: 33px;
+	height: 46px;
+	border-radius:3px;
+	border:1px solid #5A5A5A;
+	cursor:pointer;
+	background: #5A5A5A url('http://www.gameandfishmag.com/wp-content/plugins/imo-flex-gallery/img/imo-flex-next-prev.png') no-repeat -43px 9px !important;
+}
+
+.flex-slide img {
+	position: relative;
+	display: inline !important;
+	max-width: 99.5%;
+	width: auto;
+	height: auto !important;
+	max-height: 435px;
+	vertical-align: middle;
+}
+
+#photoAlbumGallery #carousel .slides img{
+	width:75px !important;
+}
+
+#photoAlbumGallery .the_slide{
+	text-align:center;
+}
+
+#photoAlbumGallery .flex-slide img{
+	width:auto !important;
+}
+
+
 /***** END Photos Page ******/
 
 /* Responsive styles */
@@ -2760,18 +2800,15 @@ select.alter-sel {width:100%;}
 @media only screen and (max-width: 880px) {
 	.dif-full-post {width: 50%;}
 	.title-crumbs h1{max-width: 360px;}
-<<<<<<< HEAD
 	.post-type-archive-reader_photos .general{float: none;width: 100% !important;padding: 0;}
 	.post-type-archive-reader_photos .main{padding-left: 0;padding-right: 0;}
 	.post-type-archive-reader_photos .sidebar-area{display: block;float: none;clear: both;margin: 0 auto;}
 	.community-header .header-section{padding: 18px !important;}
 	.community-header ul.sub-list{padding-left: 10px;}
-=======
 	.post-type-archive-reader_photos .main{padding-left: 0;padding-right: 0;}
 	.post-type-archive-reader_photos .general{width: 100%;}
 	.post-type-archive-reader_photos .sidebar-area{display: block;float: none;}
 	.feat-img{max-height: 640px;}
->>>>>>> 0891535794e2cfca5412b75e0961eb826971ed7e
 }
 @media only screen and (max-width: 820px) {
     .delete-attachment{
@@ -2926,9 +2963,7 @@ select.alter-sel {width:100%;}
 }
 
 /* single column */
-<<<<<<< HEAD
 @media only screen and (max-width: 610px) {	
-	.post-type-archive-reader_photos .sidebar-area{display: block;float: none;}
 	#community-wrap{padding: 0;}
 	#community-wrap .posts-list{margin: 0;}
 	.community-header .community-logo{padding: 0 !important;}
@@ -2949,10 +2984,7 @@ select.alter-sel {width:100%;}
 	#community-wrap .general-frame{padding-bottom: 10px;margin-bottom: 0;}
 	#community-wrap .btn-bar{padding-top: 1px;}
 	#photoTopControls .sliderPrev{float: left;}
-=======
-@media only screen and (max-width: 610px) {
 	.post-type-archive-reader_photos .sidebar-area{display: block;float: none;}
->>>>>>> 0891535794e2cfca5412b75e0961eb826971ed7e
 	.slider-section{margin: 0px;padding: 0 10px;min-height: 0;}
 	.slider-section .singl-post-photo{width: auto;}
 	.slider-section .title-crumbs, .slider-section .custom-title h1{padding-right: 0;max-width: 100%;}
@@ -2981,8 +3013,7 @@ select.alter-sel {width:100%;}
         top:0;
         left:-10px;
     }
-<<<<<<< HEAD
-    
+
     #photoSlider .slides li{
     		text-align: center;
     		height: 380px;
@@ -3018,10 +3049,8 @@ select.alter-sel {width:100%;}
 		border-color:#000 !important;
 	}
 	
-=======
 	.widget_imo_like_leaderboard_widget{width:310px;margin:20px auto;}
 	.widget_imo_like_leaderboard_widget .like-wrap{margin-left:2px;}	
->>>>>>> 0891535794e2cfca5412b75e0961eb826971ed7e
 }
 @media only screen and (max-width: 510px) {
     .dif-post h3 {
@@ -3906,12 +3935,9 @@ input[type="button"].btn-block {
 	.state-list ul{max-width: 120px;padding: 0 20px;}
 	.signup-box .input-row{width: 130px;margin: 0;}
 	.newsletter-box.bottom-newsletter .check-row{text-align: left;}
-<<<<<<< HEAD
 	#community-iframe-ad.mobile-gallery-ad{left: -10px;right: auto;}
-=======
 	.widget_imo_like_leaderboard_widget .banner img{width:300px;}
 
->>>>>>> 0891535794e2cfca5412b75e0961eb826971ed7e
 }
 
 @media (min-width: 768px) {

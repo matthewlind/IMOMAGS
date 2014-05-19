@@ -246,14 +246,9 @@ function parent_theme_widgets_init()
         'before_title' => '<h3 class="widget-title">',
         'after_title' => '</h3>',
     ) );
-<<<<<<< HEAD
-    
-    register_sidebar( array(
-=======
-	
+
 	//Community Sidebar
 	register_sidebar( array(
->>>>>>> 0891535794e2cfca5412b75e0961eb826971ed7e
 	    'name' => __( 'Community Sidebar', 'imo-mags-parent' ),
 	    'id' => 'sidebar-4',
 	    'description' => __( 'The sidebar for community pages', 'twentyeleven' ),
