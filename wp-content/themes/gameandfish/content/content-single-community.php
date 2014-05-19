@@ -10,6 +10,55 @@ $postID = get_the_ID();
 $byline = get_post_meta($postID, 'ecpt_byline', true);
 ?>
 
+<<<<<<< HEAD
+<style type="text/css" media="screen">
+	.flex-direction-nav{
+		display:none;
+	}
+	
+	#photoTopControls .sliderPrev{
+		display: inline-block;
+		width: 33px;
+		height: 46px;
+		border-radius:3px;
+		border:1px solid #5A5A5A;
+		cursor:pointer;
+		background: #5A5A5A url('http://www.gameandfishmag.com/wp-content/plugins/imo-flex-gallery/img/imo-flex-next-prev.png') no-repeat -3px 9px !important;
+	}
+	
+	#photoTopControls .sliderNext{
+		display: inline-block;
+		width: 33px;
+		height: 46px;
+		border-radius:3px;
+		border:1px solid #5A5A5A;
+		cursor:pointer;
+		background: #5A5A5A url('http://www.gameandfishmag.com/wp-content/plugins/imo-flex-gallery/img/imo-flex-next-prev.png') no-repeat -43px 9px !important;
+	}
+	
+	.flex-slide img {
+		position: relative;
+		display: inline !important;
+		max-width: 99.5%;
+		width: auto;
+		height: auto !important;
+		max-height: 435px;
+		vertical-align: middle;
+	}
+	
+	#photoAlbumGallery #carousel .slides img{
+		width:75px !important;
+	}
+	
+	#photoAlbumGallery .the_slide{
+		text-align:center;
+	}
+	
+	#photoAlbumGallery .flex-slide img{
+		width:auto !important;
+	}
+</style>
+=======
 <div id="post-<?php the_ID(); ?>" <?php post_class('full-post'); ?>>
     <?php if ( is_single() ) : ?>
     <?php if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(); } ?>
@@ -23,9 +72,28 @@ $byline = get_post_meta($postID, 'ecpt_byline', true);
         <?php endif; // is_single() ?>
         <div class="post-date"><?php the_time('F jS, Y'); ?>&nbsp;&nbsp;|&nbsp;&nbsp;</div>
         <?php if(function_exists('wpsocialite_markup')){ wpsocialite_markup('button_override=facebook'); } ?>
+>>>>>>> 0891535794e2cfca5412b75e0961eb826971ed7e
 
-        <a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>
+<div class="spinner">
+  <h2>Loading, Please Wait.</h2>
+</div>
+<div id="photoTopControls" style="text-align: right;">
+	<div class="sliderPrev"></div>
+	<div class="sliderNext"></div>
+</div>
+<div>
+  Like Goes Here
+</div><div id="photoAlbumGallery">
+	<div id="slider" class="flexslider">
+		<ul class="slides"></ul>
 	</div>
+<<<<<<< HEAD
+	
+	<div id="carousel" class="flexslider">
+		<ul class="slides"></ul>
+	</div>
+</div>
+=======
 
     <?php if ( mobile() ){ ?>
     <div class="image-banner posts-image-banner">
@@ -101,3 +169,4 @@ $byline = get_post_meta($postID, 'ecpt_byline', true);
 
 	               </div><!-- .entry-meta -->
 	</div><!-- #post -->
+>>>>>>> 0891535794e2cfca5412b75e0961eb826971ed7e

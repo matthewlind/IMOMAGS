@@ -15,6 +15,12 @@ get_template_part( 'nav', get_post_format() );
                 <?php get_template_part( 'content/content-category-reader_photos', get_post_format() ); ?>
 
             <?php endif; ?>
+<<<<<<< HEAD
+        </div><!-- #content -->
+    </div><!-- #primary -->
+    <?php imo_community_sidebar(); ?>
+</div><!-- #community-wrap -->
+=======
             <?php social_footer(); ?>
             <a href="#" class="back-top jq-go-top">back to top</a>
 
@@ -22,4 +28,5 @@ get_template_part( 'nav', get_post_format() );
     </div><!-- #primary -->
     <?php imo_sidebar(); ?>
 </div>
+>>>>>>> 0891535794e2cfca5412b75e0961eb826971ed7e
 <?php get_footer(); ?>

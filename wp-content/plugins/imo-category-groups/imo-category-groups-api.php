@@ -460,8 +460,10 @@ $imo_group_cats = '';
                 }
                 if (activetab != '' && $(activetab).length ) {
                     $(activetab).fadeIn();
+					$(activetab).addClass('active-tab');
                 } else {
                     $('.group:first').fadeIn();
+					$(activetab).addClass('active-tab');
                 }
                 $('.group .collapsed').each(function(){
                     $(this).find('input:checked').parent().parent().parent().nextAll().each(
@@ -489,6 +491,8 @@ $imo_group_cats = '';
                     }
                     $('.group').hide();
                     $(clicked_group).fadeIn();
+					$('.group').removeClass('active-tab');
+					$(clicked_group).addClass('active-tab');
                     evt.preventDefault();
                 });
             });

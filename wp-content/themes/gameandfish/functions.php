@@ -1,5 +1,4 @@
 <?php
-
 define("JETPACK_SITE", "gamefish");
 define("DARTADGEN_SITE", "imo.gameandfish");
 define("USE_IFRAME_ADS",FALSE);
@@ -443,8 +442,6 @@ function gf_wp_community_init() {
     wp_enqueue_script( 'gf-wp-community-listing', get_stylesheet_directory_uri() . '/js/community-listing.js', array("jquery",'underscore','bootstrap-dropdown'), '0.1', true );
 
 }
-
-
 
 //Configure G&F community
 //This section does nothing unless imo-community plugin is enabled

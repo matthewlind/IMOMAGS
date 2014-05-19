@@ -199,13 +199,6 @@ function runBigAssQuery($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_s
                 $stateSelect = "";
             }
 
-
-
-
-
-
-
-
             $siteCount++;
 
             $siteBrand = $brand[$domain];
@@ -224,10 +217,20 @@ JOIN wp_{$siteID}_posts as attachments ON (attachments.post_parent = posts.ID)
 JOIN wp_{$siteID}_postmeta as meta ON (meta.meta_value = attachments.ID)
 JOIN wp_users as users ON (users.`ID` = posts.post_author)
 JOIN wp_{$siteID}_postmeta as postmeta ON (posts.ID = postmeta.post_id)
+
+JOIN wp_{$siteID}_postmeta as camera_corner_taken ON (posts.ID = camera_corner_taken.post_id)
+JOIN wp_{$siteID}_postmeta as camera_corner_when ON (posts.ID = camera_corner_when.post_id)
+JOIN wp_{$siteID}_postmeta as camera_corner_who ON (posts.ID = camera_corner_who.post_id)
+
 JOIN wp_{$siteID}_postmeta as attachmentmeta ON (attachments.ID = attachmentmeta.post_id)
 AND posts.post_status = "publish"
 AND postmeta.meta_key = '_thumbnail_id'
 AND attachmentmeta.meta_key = '_wp_attachment_metadata'
+
+AND camera_corner_taken.meta_key = 'camera_corner_taken'
+AND camera_corner_when.meta_key = 'camera_corner_when'
+AND camera_corner_who.meta_key = 'camera_corner_who'
+
 AND posts.post_type = '$post_type'
 $termQuery
 $stateQuery
@@ -245,9 +248,6 @@ EOT;
 
             }
 
-
-
-
             $executeArray = array_merge($executeArray,$termList);
 
         }//End foreach()
@@ -258,6 +258,7 @@ EOT;
         }
 
         $stmt = $db->prepare($sql);
+
 
          // print_r($termList);
          // echo $sql;
@@ -335,36 +336,26 @@ EOT;
 
                 $posts[$key]->terms = getPostTerms($post->ID,$siteIDs[$post->domain]);
 
-
+				#fix to always get 150x150 thumb
+				$thumb = str_replace("-640x640.jpg", "-150x150.jpg", $post->img_url);
+				$posts[$key]->thumb = $thumb;
             }
 
-
+			
 
         }
-
-
 
         $db = "";
 
         if (!empty($posts)) {
             return $posts;
-        } else {
-
-
-
-                return "FAILURE - NO POSTS FROM QUERY: $term WITH SORT: $sort \n";
-
-
+		} else {
+        		return "FAILURE - NO POSTS FROM QUERY: $term WITH SORT: $sort \n";
         }
-
-
-
 
     } catch(PDOException $e) {
         echo $e->getMessage();
     }
-
-
 
 }
 

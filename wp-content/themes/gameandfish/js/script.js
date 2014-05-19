@@ -1,7 +1,7 @@
 jQuery(document).ready(function($) {
 	
 	/*** Community menu ***/	
-	jQuery(function($) {
+	//jQuery(function($) {
 		
 		//replace category links from WP menu with community link urls
 		jQuery("#menu-hunting-community-menu li a, #menu-fishing-community-menu li a").each(function() {
@@ -9,7 +9,7 @@ jQuery(document).ready(function($) {
 			var site = document.domain;
 			href = href.replace(site, "");
 			href = href.replace("http://", "");
-			jQuery(this).attr('href', '/photos' + href);		
+			jQuery(this).attr('href', '/photos' + href);
 		});
 		
 		//layout in columns
@@ -41,18 +41,9 @@ jQuery(document).ready(function($) {
 		            }
 		        }
 		    });
-		    jQuery(".community-header").slideDown();
-		}
-	});
-	
-	//toggle the mobile menu
-	jQuery('.community-mobile-menu').toggle(function(){
-        jQuery('.community-header .header-section.menu-hunt, .community-header .header-section.menu-fish').fadeIn('slow');
-
-	    },function(){
-	        jQuery('.community-header .header-section.menu-hunt, .community-header .header-section.menu-fish').slideUp('fast');
-
-	});
+		    jQuery(".community-header").show().css("overflow","visible");
+		}	
+	//});
 
 
 	//*******************************************************
