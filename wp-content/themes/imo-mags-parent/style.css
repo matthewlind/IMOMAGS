@@ -3127,6 +3127,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 .content-banner-section.footer-728{
 	 border: solid #dddcdb;
 	 border-width: 1px 0;
+	 clear: both;
 }
 .footer {
     padding:0 0 90px;
