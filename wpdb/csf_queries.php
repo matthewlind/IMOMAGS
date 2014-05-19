@@ -336,11 +336,12 @@ EOT;
 
                 $posts[$key]->terms = getPostTerms($post->ID,$siteIDs[$post->domain]);
 
+				#fix to always get 150x150 thumb
+				$thumb = str_replace("-640x640.jpg", "-150x150.jpg", $post->img_url);
+				$posts[$key]->thumb = $thumb;
             }
 
-			#fix to always get 150x150 thumb
-			$thumb = str_replace("-640x640.jpg", "-150x150.jpg", $post->img_url);
-			$posts[$key]->thumb = $thumb;
+			
 
         }
 

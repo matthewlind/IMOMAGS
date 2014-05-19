@@ -6,14 +6,29 @@ $catSlug = $category->slug;
 <div class='community-posts' style="background:#000;">
     <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section main-content-preppend" slug="<?php echo $catSlug; ?>">
     
-    <style type="text/css" media="screen">
-    		.flex-direction-nav .flex-next, .flex-direction-nav .flex-prev{
-			display:none;
-		}
-    </style>
-    
-    <div id="photoTopControls">
-		<div class="sliderPrev"></div>
+    <?php if( mobile() ):?>
+		<!-- <div id="state-menu-bar" class="btn-group btn-bar">
+		    <button type="button" class="btn btn-default dropdown-toggle mobile" data-toggle="dropdown">
+		    <span class="menu-title browse-community" style="text-transform:normal;">Browse by State</span> <span class="caret"></span>
+		    </button>
+		    <ul id="state-list-menu" class="dropdown-menu filter" role="menu"></ul>
+		</div> -->
+		
+		<div id="state-menu-bar" class="btn-group btn-bar">
+		    <button type="button" class="btn btn-default mobile">
+		    <span class="menu-title browse-community" style="text-transform:normal;">Browse by State</span> <span class="caret"></span>
+		    </button>
+		    <ul id="state-list-menu" class="dropdown-menu filter"></ul>
+		</div>
+	<?php endif; ?>
+	
+	<div class="photos-title">
+	    	<h2><?php echo ($category->name)? : 'All Photos'; ?></h2>
+		<div class="state-header"></div>
+    	</div>
+
+    <div id="photoTopControls" class="desktop">
+   		<div class="sliderPrev"></div>
 		<div class="sliderNext"></div>
 	</div>
 	<div id="photoGalleryLike">
@@ -26,20 +41,37 @@ $catSlug = $category->slug;
 	</div>
 	<div id="photoGalleryBody">
 		<div class="spinner">
-			<img src="wp-content/themes/gameandfish/images/spinner-black.gif" alt="" />
+			<img src="/wp-content/themes/gameandfish/images/spinner-black.gif" alt="" />
 		</div>
-		<div id="photoSlider" class="flexslider">
-    			<ul class="slides"></ul>
-	    </div>
-	    <div id="photoSliderThumbs" class="flexslider">
-	    		<ul class="slides"></ul>
-	    </div>
+		<!-- <div id="photoTopControls" class="mobile">
+			<div class="sliderPrev"></div>
+			<div class="sliderNext"></div>
+		</div> -->
+		<div id="photoSliderContainer">
+			<!-- <div class="sliderPrev"></div> -->
+			<div id="photoSlider" class="flexslider">
+	    			<ul class="slides"></ul>
+		    </div>
+		    <!-- <div class="sliderNext"></div> -->
+		</div>
+		<div id="photoSliderThumbsContainer">
+			<!-- <div class="sliderPrev"></div>
+			<div id="photoSliderThumbs" class="flexslider">
+		    		<ul class="slides"></ul>
+		    </div>
+		    <div class="sliderNext"></div> -->
+		</div>
     </div>
     <div id="photoGalleryTitle">
+    	 <?php if( mobile() ) {
+			$dartDomain = get_option("dart_domain", $default = false);
+			echo '<iframe id="community-iframe-ad" class="mobile-gallery-ad" width="320" height="50" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?size=320x50&ad_code='.$dartDomain.'"></iframe>'; 
+		} ?>
 		<h2></h2>
+		<span class="photoGalleryState"></span> <span class="photoGalleryCategory"></span>
 	</div>
 	<div id="photoGalleryBottomContent"></div>
-
+	
     	<?php $i = 1; while ( have_posts() ) : the_post(); ?>
 
             <?php
@@ -53,17 +85,7 @@ $catSlug = $category->slug;
     			$community_cat = $community_category->slug;
             ?>
 
-
-        <?php if ( (($i - (($paged -1) * 2 ))%6) == 0 ): ?>
-
-            <?php if ( mobile() ){ ?>
-            <div class="image-banner posts-image-banner">
-                <?php imo_dart_tag("300x250",array("pos"=>"mob")); ?>
-            </div>
-            <?php } ?>
-        <?php endif;?>
-
-        <?php $i++; endwhile; ?>
+	<?php $i++; endwhile; ?>
         
 
     </div>
