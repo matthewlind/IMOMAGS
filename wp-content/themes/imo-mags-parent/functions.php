@@ -246,7 +246,7 @@ function parent_theme_widgets_init()
         'before_title' => '<h3 class="widget-title">',
         'after_title' => '</h3>',
     ) );
-	
+
 	//Community Sidebar
 	register_sidebar( array(
 	    'name' => __( 'Community Sidebar', 'imo-mags-parent' ),

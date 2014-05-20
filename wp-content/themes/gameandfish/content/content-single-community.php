@@ -24,8 +24,24 @@ $byline = get_post_meta($postID, 'ecpt_byline', true);
         <div class="post-date"><?php the_time('F jS, Y'); ?>&nbsp;&nbsp;|&nbsp;&nbsp;</div>
         <?php if(function_exists('wpsocialite_markup')){ wpsocialite_markup('button_override=facebook'); } ?>
 
-        <a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>
+<div class="spinner">
+  <h2>Loading, Please Wait.</h2>
+</div>
+<div id="photoTopControls" style="text-align: right;">
+	<div class="sliderPrev"></div>
+	<div class="sliderNext"></div>
+</div>
+<div>
+  Like Goes Here
+</div>
+<div id="photoAlbumGallery">
+	<div id="slider" class="flexslider">
+		<ul class="slides"></ul>
 	</div>
+	<!-- <div id="carousel" class="flexslider">
+		<ul class="slides"></ul>
+	</div> -->
+</div>
 
     <?php if ( mobile() ){ ?>
     <div class="image-banner posts-image-banner">
