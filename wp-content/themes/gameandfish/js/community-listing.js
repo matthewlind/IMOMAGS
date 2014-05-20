@@ -233,9 +233,7 @@ var PhotosGallery = (function(){
 		},
 		templateSlide : function(v){
 			return '<li slide-count="' + v.slide_count + '">\
-				<a href="' + v.post_url + '">\
-					<img src="' + v.img_url + '" />\
-				</a>\
+				<img src="' + v.img_url + '" />\
 			</li>';
 		},
 		templateThumbs : function(v){
@@ -409,7 +407,8 @@ var PhotosGallery = (function(){
 				
 			if(typeof(slideData) == 'object'){
 
-				$('#photoGalleryTitle h2').html(slideData.post_title);
+				$('#photoGalleryTitle h2 a').html(slideData.post_title);
+				$('#photoGalleryTitle h2 a').attr("href",slideData.post_url);
 				$('#photoGalleryLike .photoGalleryLikeRight').html('');
 				$('#photoGalleryLike .photoGalleryLikeRight').html( self.templateLikeButton(slideData) );
 				$('#photoGalleryBottomContent').html( self.templateBottomContent(slideData) );
@@ -552,7 +551,7 @@ var PhotoStateMenu = (function(){
 		},
 		tempateSelectAll : function(){
 			return '<li>\
-				<a href="http://www.gameandfishmag.devf/photos/">All States</a>\
+				<a href="/photos/">All States</a>\
 			</li><div class="divider"></div>';
 		},
 		templateMenu : function(i,v, stateCount){
@@ -669,7 +668,7 @@ var ReaderPhotos = (function(e){
 		},
 		requestData : function(){
 			var self = this;
-			$.getJSON( "http://www.gameandfishmag.devf/wp-admin/admin-ajax.php",{
+			$.getJSON( "/wp-admin/admin-ajax.php",{
 				action : "get_photos"
 			}, function(json){
 				self.getData(json);

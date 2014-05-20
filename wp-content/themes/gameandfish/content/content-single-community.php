@@ -22,33 +22,20 @@ $byline = get_post_meta($postID, 'ecpt_byline', true);
         </h1>
         <?php endif; // is_single() ?>
         <div class="post-date"><?php the_time('F jS, Y'); ?>&nbsp;&nbsp;|&nbsp;&nbsp;</div>
-        <?php if(function_exists('wpsocialite_markup')){ wpsocialite_markup('button_override=facebook'); } ?>
-
-<div class="spinner">
-  <h2>Loading, Please Wait.</h2>
-</div>
-<div id="photoTopControls" style="text-align: right;">
-	<div class="sliderPrev"></div>
-	<div class="sliderNext"></div>
-</div>
-<div>
-  Like Goes Here
-</div>
-<div id="photoAlbumGallery">
-	<div id="slider" class="flexslider">
-		<ul class="slides"></ul>
-	</div>
-	<!-- <div id="carousel" class="flexslider">
-		<ul class="slides"></ul>
-	</div> -->
-</div>
-
-    <?php if ( mobile() ){ ?>
-    <div class="image-banner posts-image-banner">
-        <?php imo_dart_tag("300x250",array("pos"=>"mob")); ?>
-        <small>ADVERTISEMENT</small>
+		<?php if ( mobile() ){ ?>
+			<div class="image-banner posts-image-banner">
+				<?php imo_dart_tag("300x250",array("pos"=>"mob")); ?>
+				<small>ADVERTISEMENT</small>
+			</div>
+		<?php } ?>
     </div>
-    <?php } ?>
+    <div class="share-photo-now clearfix">
+    	<div class="share-container">
+        	<?php if( get_field("cc_sweeps_viral_msg_3","options") ){ ?><h2><?php echo get_field("cc_sweeps_viral_msg_3","options"); ?></h2><?php } ?>
+        	<?php if(function_exists('wpsocialite_markup')){ wpsocialite_markup('button_override=facebook'); } ?>
+        	<?php if( get_field("cc_sweeps_viral_msg_2","options") ){ ?><p><?php echo get_field("cc_sweeps_viral_msg_2","options"); ?></p><?php } ?>
+    	</div>
+    </div>
 
     <?php $checked = get_field("cc_sweeps_viral_msg","options");
 	if ($_GET['message'] == "share" && $checked) { ?>
@@ -90,8 +77,8 @@ $byline = get_post_meta($postID, 'ecpt_byline', true);
         </div><!-- .entry-content -->
         <?php endif; ?>
 
-         <div class="article-brief">
-         	<?php if(function_exists('wpsocialite_markup')){ wpsocialite_markup(); } ?>
+        <div class="article-brief">
+        	<?php if(function_exists('wpsocialite_markup')){ wpsocialite_markup('button_override=facebook'); } ?>
 	    </div>
 
         <?php the_widget('imo_related_footer_widget'); ?>
