@@ -22,6 +22,7 @@ $byline = get_post_meta($postID, 'ecpt_byline', true);
         </h1>
         <?php endif; // is_single() ?>
         <div class="post-date"><?php the_time('F jS, Y'); ?>&nbsp;&nbsp;|&nbsp;&nbsp;</div>
+
 		<?php if ( mobile() ){ ?>
 			<div class="image-banner posts-image-banner">
 				<?php imo_dart_tag("300x250",array("pos"=>"mob")); ?>
