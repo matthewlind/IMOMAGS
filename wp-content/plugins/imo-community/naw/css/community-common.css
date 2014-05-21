@@ -651,7 +651,7 @@ select.alter-sel {width:100%;}
 }
 .full-post-img {
     border:1px solid #fff;
-    margin-bottom: 20px;
+    /*margin-bottom: 20px;*/
 }
 .full-post-img img {
     width:100%;
