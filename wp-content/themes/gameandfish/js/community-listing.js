@@ -40,7 +40,7 @@ var PhotosGallery = (function(){
 				// Clear Containers
 				self.refreshSlider();
 				
-				// Load Slides
+				// Get Posts
 				self.getPosts();
 				
 				if(	self.isMobile() && !self.isIpad() ){
@@ -108,6 +108,7 @@ var PhotosGallery = (function(){
 		hideSpinner  : function(){
 			$('#photoSlider').show();
 			$('#photoSliderThumbs').show();
+			$('.spinner').fadeOut();
 			$('.spinner').hide();
 		},
 		refreshSlider : function(){
@@ -132,19 +133,7 @@ var PhotosGallery = (function(){
 			var $photoSlider = $(element);
 			$photoSlider.removeData("flexslider");
 			var $photoSlides = $photoSlider.find('.slides');
-			$photoSlides.find('li').attr('style','');         // Clear styles left by Flexslider
-			
-			//var slides = $photoSlider.find('.slides').html(); // Save Slides
-			
-			
-			// If thumbnail slider, add controls
-			// if(element == '#photoSliderThumbs'){
-				// $photoSlider.html('<div class="sliderPrev"></div><ul class="slides"></ul><div class="sliderNext"></div>');    // Remove everything and add new ul
-			// }else{
-				// $photoSlider.html('<ul class="slides"></ul>');    // Remove everything and add new ul
-			// }
-			
-			//$photoSlider.find('.slides').append( slides );    // Append saved slides to ul
+			$photoSlides.find('li').attr('style',''); // Clear styles left by Flexslider
 		},
 		getPostCount: function(args, callback){
 			var self = this;
@@ -173,7 +162,7 @@ var PhotosGallery = (function(){
 				args.count = self.count;
 			}
 
-			//Change Get Count to 0 to request data
+			//Remove get_count to get data
 			delete args['get_count'];
 
 			//Get Data
@@ -196,10 +185,10 @@ var PhotosGallery = (function(){
 				
 			    // add one on every ajax request
 			    self.requestCount++;
-				
+			    
 				// Load flexslider
 				self.loadSlider();
-				
+
 			});
 		},
 		getPosts : function(){
@@ -255,8 +244,8 @@ var PhotosGallery = (function(){
 		loadSlider : function(){
 			var self = this;
 			
-			self.hideSpinner();
-
+			//self.hideSpinner();
+			
 			// Load Thumbs Flexslider
 			$('#photoSliderThumbs').flexslider({
 				animation     : "slide",
@@ -266,11 +255,11 @@ var PhotosGallery = (function(){
 				useCSS        : false,
 				itemWidth     : 77,
 				itemMargin    : 0,
-				startAt       : self.startAt,
+				//startAt       : self.startAt,
 				asNavFor      : '#photoSlider',
 				minItems      : 7,
     				maxItems      : 7,
-    				start         : function(slider){	
+    				start         : function(slider){
     					$('#photoSliderThumbsContainer .sliderPrev').on('click touchend', function(event){
 						event.preventDefault();
 						slider.flexAnimate( slider.getTarget("prev") );
@@ -278,7 +267,6 @@ var PhotosGallery = (function(){
 					
 					$('#photoSliderThumbsContainer .sliderNext').on('click touchend', function(event){
 						event.preventDefault();
-						//slider.flexAnimate( slider.currentSlide + 1);
 						slider.flexAnimate( slider.getTarget("next") );
 					});
     				}
@@ -295,8 +283,10 @@ var PhotosGallery = (function(){
 				touch          : false,
 				sync           : "#photoSliderThumbs",
 				startAt        : self.startAt,
-				before: function(slider){
-					
+				before         : function(slider){
+					if(slider.animatingTo > 0){
+						$('#photoTopControls .sliderPrev').show();
+					}
 				},
 				after          : function(slider){
 					self.parseSlider(slider);
@@ -321,6 +311,14 @@ var PhotosGallery = (function(){
 					if(self.startAt == 0){
 						//Hide Previous Contro button onload
 						$('#photoTopControls .sliderPrev').hide();
+						
+						self.hideSpinner();
+					}else{
+						slider.flexAnimate(slider.getTarget("next"), true);
+						setTimeout(function(){
+							slider.flexAnimate(slider.getTarget("prev"), true);
+							self.hideSpinner();
+						},1000);
 					}
 					
 					//Enable swipe in mobile
@@ -339,6 +337,7 @@ var PhotosGallery = (function(){
 					$('#photoTopControls .sliderNext').on('click', function(event){
 						event.preventDefault();
 						
+
 						var nextSlide = parseInt( $('#photoSlider .flex-active-slide').attr('slide-count')) + 1;
 
 						// //This condition is to fix bug not selecting second slide
@@ -356,7 +355,7 @@ var PhotosGallery = (function(){
 					});
 				},
 				end : function(slider){
-					var slidesInDOMCount = $('#photoSlider .slides li').length;
+					var slidesInDOMCount = $('#photoSlider .slides li').length;	
 					
 					// skip if it has reached the end
 					if(slidesInDOMCount >= self.totalCount){
@@ -365,12 +364,10 @@ var PhotosGallery = (function(){
 					
 					if( slidesInDOMCount == slider.count ){
 						if(self.state == null){
-							if(slider.count == (slider.currentSlide + 2)){
-								self.currentSlide = slider.currentSlide;
-								self.skip         = slider.count + 10;
-								self.startAt      = slider.currentSlide + 1;
-								self.getPosts();
-							}
+							self.currentSlide = slider.animatingTo;
+							self.skip         = slider.count + 10;
+							self.startAt      = slider.animatingTo;
+							self.getPosts();
 						}
 					}
 				}
@@ -466,44 +463,6 @@ var PhotoStateMenu = (function(){
 					$(element).append( self.templateMenu(i, v, stateCount) );
 				});
 				
-				// if(stateCount == 50){
-					// setTimeout(function(){
-// 						
-						// // $('#state-list-menu a.filter-menu').on('click touchend', function(e){
-// // 												
-							// // //e.preventDefault();
-// // 							
-							// // alert('clicked');
-// // 							
-							// // if( $(this).attr('state') == '#' ){
-								// // window.location.replace("/add-new-photo");
-							// // }else{
-								// // //Close menu
-								// // $('#state-list-menu').hide(function(){
-									// // $('.btn-bar').removeClass('open');
-								// // });
-// // 								
-								// // PhotoGallery.init( $(this).attr('state') );
-							// // }
-						// // });
-// // 						
-						// // $('#state-menu-bar').on('click touchstart', function(e){
-							// // e.preventDefault();
-							// // if( !$('.btn-bar').hasClass('isOpen') ){
-								// // $('#state-list-menu').show();
-								// // $('#state-menu-bar').addClass('isOpen');
-							// // }else{
-								// // $('#state-list-menu').hide();
-								// // $('#state-menu-bar').removeClass('isOpen');
-							// // }
-						// // });
-// 						
-					// }, 2000);
-				// }
-// 				
-				// stateCount++;
-				
-				
 				$('#state-menu-bar').on('click', function(e){
 					//e.preventDefault();
 					if( !$(this).hasClass('isOpen') ){
@@ -513,9 +472,7 @@ var PhotoStateMenu = (function(){
 						$('#state-list-menu').hide();
 						$(this).removeClass('isOpen');
 					}
-				});
-				
-				
+				});				
 			
 			});
 

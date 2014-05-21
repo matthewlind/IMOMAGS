@@ -140,13 +140,7 @@ body{background-color: black;}
 	background-position: -206px 0;
 }
 
-/*
- * Socialite Look-a-like defaults
- */
-.wpsocialite.small {padding: 0 !important;margin: 0 auto !important;}
-.wpsocialite.small .socialite { background:none !important; }
-.wpsocialite.small > li, .wpsocialite.small .socialite{width: 90px !important;}
-.fb_iframe_widget span{vertical-align: baseline !important;}
+
 
 /* main top navigation */
 .menu-top-menu-container li{border-left:1px dashed #ccc;}
@@ -2471,7 +2465,7 @@ select.alter-sel {width:100%;}
 	/*height: 400px;*/
 	text-align: center;
 	position:absolute;
-	min-height:500px;
+	min-height:680px;
 	z-index: 999999;
 	top:0;
 	left:0;
@@ -2523,7 +2517,7 @@ select.alter-sel {width:100%;}
 
 #photoGalleryLike .photoGalleryLikeRight{
 	display: inline-block;
-		position:relative;
+	position:relative;
 }
 
 #photoGalleryLike .photoGalleryLikeLeft h3{
