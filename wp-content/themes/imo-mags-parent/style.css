@@ -3130,6 +3130,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 .content-banner-section.footer-728{
 	 border: solid #dddcdb;
 	 border-width: 1px 0;
+	 clear: both;
 }
 .footer {
     padding:0 0 90px;
@@ -4504,6 +4505,10 @@ table.likes-leaderboard .entry-title {
         width:50px;
     }
 	.posts-list .article-brief{margin-top: 10px;}
+	.fixed-connect.fixed-connect-mobile{top: 0;bottom: auto;width: 100%;height: auto;display: none;}
+	.fixed-connect.fixed-connect-mobile .currentIssue{display: none;}
+	.fixed-connect.fixed-connect-mobile .subscribe, .fixed-connect input[type="submit"]{margin: 5px auto;float: none;text-align: center;width: 140px;}
+	.fixed-connect.fixed-connect-mobile .close{margin-top: 5px;}
 }
 @media only screen and (max-width: 510px) {
     .entry-content-holder {
