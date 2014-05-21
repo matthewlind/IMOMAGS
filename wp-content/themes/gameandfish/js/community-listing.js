@@ -67,10 +67,9 @@ var PhotosGallery = (function(){
 			}
 			
 			self.refreshSlider();
-			
 			self.getPosts();
 		},
-		url          : 'http://www.gameandfishmag.fox/wpdb/network-feed-cached.php',
+		url          : '/wpdb/network-feed-cached.php',
 		state        : null,
 		startAt      : 0,
 		count        : 10,
@@ -110,6 +109,7 @@ var PhotosGallery = (function(){
 			$('#photoSlider').show();
 			$('#photoSliderThumbs').show();
 			$('.spinner').fadeOut();
+			$('.spinner').hide();
 		},
 		refreshSlider : function(){
 			$('#photoSlider').flexslider('destroy');
@@ -188,6 +188,7 @@ var PhotosGallery = (function(){
 			    
 				// Load flexslider
 				self.loadSlider();
+
 			});
 		},
 		getPosts : function(){
@@ -217,16 +218,15 @@ var PhotosGallery = (function(){
 			self.getPostCount(args, function(count){
 				self.getPostData(args, count);
 			});
+
 		},
 		templateSlide : function(v){
 			return '<li slide-count="' + v.slide_count + '">\
-				<a href="' + v.post_url + '">\
-					<img src="' + v.img_url + '" />\
-				</a>\
+				<img src="' + v.img_url + '" />\
 			</li>';
 		},
 		templateThumbs : function(v){
-			return '<li thumb-count="' + v.slide_count + '">\
+			return '<li>\
 				<img src="' + v.thumb + '" />\
 			</li>';
 		},
@@ -337,6 +337,7 @@ var PhotosGallery = (function(){
 					$('#photoTopControls .sliderNext').on('click', function(event){
 						event.preventDefault();
 						
+
 						var nextSlide = parseInt( $('#photoSlider .flex-active-slide').attr('slide-count')) + 1;
 
 						// //This condition is to fix bug not selecting second slide
@@ -403,7 +404,8 @@ var PhotosGallery = (function(){
 				
 			if(typeof(slideData) == 'object'){
 
-				$('#photoGalleryTitle h2').html(slideData.post_title);
+				$('#photoGalleryTitle h2 a').html(slideData.post_title);
+				$('#photoGalleryTitle h2 a').attr("href",slideData.post_url);
 				$('#photoGalleryLike .photoGalleryLikeRight').html('');
 				$('#photoGalleryLike .photoGalleryLikeRight').html( self.templateLikeButton(slideData) );
 				$('#photoGalleryBottomContent').html( self.templateBottomContent(slideData) );
@@ -470,8 +472,10 @@ var PhotoStateMenu = (function(){
 						$('#state-list-menu').hide();
 						$(this).removeClass('isOpen');
 					}
-				});
+				});				
+			
 			});
+
 		},
 		getData: function(state, callback){
 			var self   = this,
