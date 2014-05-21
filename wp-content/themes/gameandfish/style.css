@@ -2465,7 +2465,7 @@ select.alter-sel {width:100%;}
 	/*height: 400px;*/
 	text-align: center;
 	position:absolute;
-	min-height:500px;
+	min-height:680px;
 	z-index: 999999;
 	top:0;
 	left:0;
@@ -2517,7 +2517,7 @@ select.alter-sel {width:100%;}
 
 #photoGalleryLike .photoGalleryLikeRight{
 	display: inline-block;
-		position:relative;
+	position:relative;
 }
 
 #photoGalleryLike .photoGalleryLikeLeft h3{
