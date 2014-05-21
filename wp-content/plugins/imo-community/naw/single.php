@@ -271,23 +271,52 @@ if($data->post_type == "report"){
 
                 </div>
             </div>
-			
+
 		<?php if(function_exists('wpsocialite_markup')){ wpsocialite_markup(); } ?>
 
-        <?php if( strpos($data->img_url,'filepicker') ){ 
+        <?php
+        if( strpos($data->img_url,'filepicker') ){
 			$width = "/convert?w=730&fit=scale&rotate=exif";
+
+            $width = "";
+
         	if(mobile()){
         		$width = "/convert?w=478";
-        	}	
-		}else{
-        	$width = "";
-		}
-        	
-        $media = "";
-        $media = "<div class='full-post-img'><img src='$data->img_url$width'></div>";
+        	}
 
-        echo $media; 
-        
+             $media = "";
+            $media = "<div class='full-post-img'><img src='$data->img_url$width'></div>";
+
+            echo $media;
+
+		}else{
+
+            foreach ($attachmentData as $attachment) {
+                $media = "";
+                $caption = "";
+
+                if ($attachment->post_type == "youtube") {
+
+                    $videoID = $attachment->meta;
+                    $media = "<div class='full-post-img'>";
+                    $media .= '<iframe width="640" height="480" src="http://www.youtube.com/embed/' . $videoID . '" frameborder="0" allowfullscreen></iframe>';
+                    $media .= "</div>$caption";
+
+                } else {
+
+                    $photoURL = str_replace("thumb", "medium", $attachment->img_url);
+                    $media = "<div class='full-post-img'><img src='$photoURL'></div>$caption";
+
+                }
+
+
+                echo $media;
+
+            }
+		}
+
+
+
         if ($data->master) { ?>
 	        <div class="manametitle">
 	            <div class="maname"><span class="firstname"><?php echo $data->first_name; ?></span> <span class="lastname"><?php echo $data->last_name; ?></span></div>
@@ -297,29 +326,7 @@ if($data->post_type == "report"){
        <?php }//end if ?>
 
 
-        <?php
-        	foreach ($attachmentData as $attachment) {
-	        	$media = "";
-				$caption = "";
 
-	            if ($attachment->post_type == "youtube") {
-
-	                $videoID = $attachment->meta;
-	                $media = "<div class='full-post-img'>";
-	                $media .= '<iframe width="640" height="480" src="http://www.youtube.com/embed/' . $videoID . '" frameborder="0" allowfullscreen></iframe>';
-	                $media .= "</div>$caption";
-
-	            } else {
-
-	                $photoURL = str_replace("thumb", "medium", $attachment->img_url);
-	                $media = "<div class='full-post-img'><img src='$photoURL'></div>$caption";
-
-	            }
-
-
-	            echo $media;
-
-			} ?>
 			<div class='full-text'>
 
 				<?php if($data->body){ ?>
@@ -329,7 +336,7 @@ if($data->post_type == "report"){
 	            <?php } ?>
 				<div class="clearfix">
                 <a href="#reply_field" class="post-it">Post a Reply</a>
-          
+
                 <?php if(function_exists('wpsocialite_markup')){ wpsocialite_markup(); } ?>
             </div>
         </div>

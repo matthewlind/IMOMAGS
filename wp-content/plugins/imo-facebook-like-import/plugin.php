@@ -19,7 +19,7 @@ register_activation_hook( __FILE__, 'prefix_activation' );
 add_action( 'imo_facebook_import_event_hook', 'imo_facebook_import_likes' );
 
 function prefix_activation() {
-    wp_schedule_event( time(), 'twicedaily', 'imo_facebook_import_event_hook' );
+    wp_schedule_event( time(), 'hourly', 'imo_facebook_import_event_hook' );
 }
 
 register_deactivation_hook( __FILE__, 'prefix_deactivation' );
@@ -117,40 +117,151 @@ function imo_facebook_import_likes() {
     //echo $query;
     $posts = $wpdb->get_results( $query );
 
+    //print_r($posts);
 
-    $fbGraphURL = "http://graph.facebook.com/?id=";
 
-    foreach ($posts as $post) {
 
-        $postID = $post->ID;
-        $permalink = get_permalink($postID);
 
-        $permalink = str_replace(".deva", ".com", $permalink);
-        $permalink = str_replace(".fox", ".com", $permalink);
-        $permalink = str_replace(".devj", ".com", $permalink);
 
-        $getURL = $fbGraphURL . $permalink;
 
-        $fbResult = json_decode( file_get_contents($getURL) );
 
-        $shares = 0;
 
-        if (!empty($fbResult->shares)) {
+    $totalPostCount = count($posts);
+    $postCount = 0;
 
-            $shares = $fbResult->shares;
+    //echo "tpc: $totalPostCount";
+
+    $getAtOnce = 48;
+
+    $FBrequestCount = ceil($totalPostCount / $getAtOnce);
+
+    //echo "fbrq: $FBrequestCount ";
+
+    for ($i=0; $i < $FBrequestCount; $i++) {
+
+        //echo "heiy: $i";
+
+        $startIndex = $i * $getAtOnce;
+        $endIndex = ($i + 1) * $getAtOnce;
+
+        if ($endIndex > $totalPostCount) {
+            $endIndex = $totalPostCount;
         }
 
+        $fbGraphURL = "http://graph.facebook.com/?ids=";
+
+
+        echo "---------------------------------------------------------<br>";
+
+        for ($j=$startIndex; $j < $endIndex; $j++) {
+
+            //echo "hejy: $j";
+
+            $post = $posts[$j];
 
 
 
-        echo "$shares: {$permalink}<br>";
-        update_post_meta($post->ID, "facebook_like_count", $shares);
+            $postID = $post->ID;
+            $permalink = get_permalink($postID);
 
-        flush();
+            $permalink = str_replace(".deva", ".com", $permalink);
+            $permalink = str_replace(".fox", ".com", $permalink);
+            $permalink = str_replace(".devj", ".com", $permalink);
 
 
+
+
+            $fbGraphURL .= $permalink . ",";
+
+        }
+
+        $fbGraphURL = rtrim($fbGraphURL, ',');
+
+        //echo $fbGraphURL;
+
+        $fbResults = json_decode( file_get_contents($fbGraphURL) );
+
+        //print_r($fbResults);
+
+        foreach ($fbResults as $FBID => $result) {
+
+            $shares = 0;
+
+
+            if (!empty($result->shares)) {
+
+                $shares = $result->shares;
+            }
+
+
+
+
+
+
+            echo "$shares: {$FBID}<br>";
+            update_post_meta($post->ID, "facebook_like_count", $shares);
+
+            flush();
+        }
 
     }
+
+
+    $countQuery = "SELECT SUM(CONVERT(likes.meta_value, UNSIGNED INTEGER)) as like_count FROM wp_14_posts as posts
+                                        JOIN wp_14_postmeta AS likes ON (posts.ID = likes.post_id AND likes.meta_key = 'facebook_like_count')
+                                        WHERE post_type = '$post_type'
+                                        AND posts.ID NOT IN (49658,49182,49252,48942,49681,50087)
+                                        AND post_status = 'publish'
+                                        AND (post_date BETWEEN '$startDate' AND '$endDate')
+                                        ORDER BY like_count";
+
+    $totalLikes = $wpdb->get_var( $countQuery );
+
+    echo "<br>TOTAL LIKES: $totalLikes";
+
+
+    // foreach ($posts as $post) {
+
+    //     $postCount++;
+
+
+    //     if (($postCount % 45) == 0) {
+
+
+
+
+
+    //     }
+
+    //     $postID = $post->ID;
+    //     $permalink = get_permalink($postID);
+
+    //     $permalink = str_replace(".deva", ".com", $permalink);
+    //     $permalink = str_replace(".fox", ".com", $permalink);
+    //     $permalink = str_replace(".devj", ".com", $permalink);
+
+    //     $getURL = $fbGraphURL . $permalink;
+
+    //     $fbResult = json_decode( file_get_contents($getURL) );
+
+    //     $shares = 0;
+
+    //     if (!empty($fbResult->shares)) {
+
+    //         $shares = $fbResult->shares;
+    //     }
+
+
+
+
+    //     echo "$shares: {$permalink}<br>";
+    //     update_post_meta($post->ID, "facebook_like_count", $shares);
+
+    //     flush();
+
+
+
+    // }
 
 }
 
