@@ -21,14 +21,16 @@ $playerKey = get_option('playerKey_'.$categoryID, false);
 $network_video_title = get_option('network_video_title_'.$categoryID, false);
 
 get_header();
-
 if ($post_type == reader_photos) {
     get_template_part( 'nav', get_post_format() );
+    echo '<div id="community-wrap">';
+}else{
+	imo_sidebar();
 }
 
 
 ?>
-        <?php imo_sidebar(); ?>
+	
         <div id="primary" class="general">
             <div id="content" role="main" class="general-frame">
 
@@ -56,14 +58,16 @@ if ($post_type == reader_photos) {
                         </div><!-- .entry-content -->
                     </div><!-- #post-0 -->
 
-                <?php endif; ?>
+                <?php endif; 
 
-
-
-
-                <?php social_footer(); ?>
-                <a href="#" class="back-top jq-go-top">back to top</a>
-
+                if ($post_type != reader_photos){	
+	                social_footer(); 
+	                echo '<a href="#" class="back-top jq-go-top">back to top</a>';
+				} ?>
             </div><!-- #content -->
         </div><!-- #primary -->
+    <?php if ($post_type == reader_photos){	
+    	imo_community_sidebar(); 
+    	echo '</div>';
+    } ?>
 <?php get_footer(); ?>

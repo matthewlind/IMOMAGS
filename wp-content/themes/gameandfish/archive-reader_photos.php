@@ -15,11 +15,8 @@ get_template_part( 'nav', get_post_format() );
                 <?php get_template_part( 'content/content-category-reader_photos', get_post_format() ); ?>
 
             <?php endif; ?>
-            <?php social_footer(); ?>
-            <a href="#" class="back-top jq-go-top">back to top</a>
-
         </div><!-- #content -->
     </div><!-- #primary -->
-    <?php imo_sidebar(); ?>
-</div>
+    <?php imo_community_sidebar(); ?>
+</div><!-- #community-wrap -->
 <?php get_footer(); ?>

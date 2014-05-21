@@ -347,8 +347,16 @@ jQuery('.snap-drawers').on("click", ".mob-aside-menu .has-drop", function(e){
     e.preventDefault();
 });
 
+jQuery(window).scroll(function () {
+	if (jQuery(window).scrollTop() > 50) {
+		jQuery('.fixed-connect-mobile').fadeIn();
+	}else{
+		jQuery('.fixed-connect-mobile').fadeOut("fast");
+	}
+});
+
 jQuery('.fixed-connect .close').click(function(){
-	jQuery('.fixed-connect').slideUp();
+	jQuery('.fixed-connect').remove();
 });
 
 //placeholder

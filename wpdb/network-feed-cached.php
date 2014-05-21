@@ -135,7 +135,11 @@ if ($fileAge > $fileExpirationTime) {
     $fileIsStale = true;
 }
 
+/** Use for DEV **/
 //echo $fileName;
+//echo writeFileAndReturnData($fileName,$tempFileName,$network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_size,$state,$post_set_merge,$get_count,$post_type);
+//exit;
+/** END USE FOR DEV **/
 
 if ($fileExists) {
     //return file

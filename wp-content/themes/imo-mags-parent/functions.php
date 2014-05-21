@@ -246,7 +246,7 @@ function parent_theme_widgets_init()
         'before_title' => '<h3 class="widget-title">',
         'after_title' => '</h3>',
     ) );
-	
+
 	//Community Sidebar
 	register_sidebar( array(
 	    'name' => __( 'Community Sidebar', 'imo-mags-parent' ),
@@ -856,27 +856,29 @@ function fixed_connect_footer(){
 	$formID = get_option("newsletter_id");
 
 ?>
-<div class="fixed-connect">
+<div class="fixed-connect<?php if(mobile()){ echo ' fixed-connect-mobile';} ?>">
 	<div class="close"><a href="javascript:void(0);" title="Collapse bottom bar"><img src="<?php echo get_template_directory_uri(); ?>/images/ico/close_icon_small.png" alt="Collapse bottom bar"></a>
 	</div>
 	<div class="container">
-		<div class="currentIssue">
-			<div class="journal">
-                <?php
-                    global $IMO_USER_STATE;
-
-                    $sportsmanStates = array("GA","MI","MN","WI","AR","TN","TX");
-
-                    $cover = get_option('magazine_cover_uri');
-
-                     if (in_array($IMO_USER_STATE, $sportsmanStates)) {
-                        $cover = get_option('magazine_cover_alt_uri');
-                    }
-                ?>
-
-		        <img src="<?php echo $cover; ?>" alt="Subscribe">
-		    </div>
-		</div>
+		<?php if(!mobile()){ ?>
+			<div class="currentIssue">
+				<div class="journal">
+	                <?php
+	                    global $IMO_USER_STATE;
+	
+	                    $sportsmanStates = array("GA","MI","MN","WI","AR","TN","TX");
+	
+	                    $cover = get_option('magazine_cover_uri');
+	
+	                     if (in_array($IMO_USER_STATE, $sportsmanStates)) {
+	                        $cover = get_option('magazine_cover_alt_uri');
+	                    }
+	                ?>
+	
+			        <img src="<?php echo $cover; ?>" alt="Subscribe">
+			    </div>
+			</div>
+			<?php } ?>
 		<div class="subscribe">
 		<?php $dartDomain = get_option("dart_domain", $default = false);
 	    if($dartDomain == "imo.gunsandammo" || $dartDomain == "imo.in-fisherman" || $dartDomain == "imo.shotgunnews" || $dartDomain == "imo.shootingtimes"){ ?>

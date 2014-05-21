@@ -71,6 +71,9 @@ img     { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
 a.flex-prev, a.flex-next, a.menu-link, a.main-menu-link, .socials a, a.btn-base, .btn-base, a.btn-cancel, a.user-btn, .flex-control-nav a, .flex-control-paging li a, a.open-search, a.open-menu, a.go-top, a.view-post, a.gal-prev, a.gal-next, .btn-fb-login, .comment-count{
 	-webkit-transition: 0s !important;-moz-transition: 0s !important;transition: 0s !important;
 }
+.desktop{display: block;}
+.tablet-landscape, .tablet-portrait, .mobile{display: none;}
+
 
 /* Normalizing form elements
 *******************************************************************************/
@@ -657,7 +660,7 @@ img.border-image {
     background:url(images/sprite.png) no-repeat -41px 0;
 }
 input.gsc-search-button-v2{
-	width: 30px !important;
+	width: 31px !important;
 	height: 30px !important;
 	line-height: 0 !important;
 	cursor: pointer !important;
@@ -3127,6 +3130,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 .content-banner-section.footer-728{
 	 border: solid #dddcdb;
 	 border-width: 1px 0;
+	 clear: both;
 }
 .footer {
     padding:0 0 90px;
@@ -4071,6 +4075,8 @@ table.likes-leaderboard .entry-title {
 }
 
 @media only screen and (max-width: 610px) {
+	.mobile{display: block;}
+	.desktop{display: none;}
 	.home-featured .image-banner{margin: 0 auto;width: 300px;}
 	.hide-extra{display: none;}
 
@@ -4499,6 +4505,10 @@ table.likes-leaderboard .entry-title {
         width:50px;
     }
 	.posts-list .article-brief{margin-top: 10px;}
+	.fixed-connect.fixed-connect-mobile{top: 0;bottom: auto;width: 100%;height: auto;display: none;}
+	.fixed-connect.fixed-connect-mobile .currentIssue{display: none;}
+	.fixed-connect.fixed-connect-mobile .subscribe, .fixed-connect input[type="submit"]{margin: 5px auto;float: none;text-align: center;width: 140px;}
+	.fixed-connect.fixed-connect-mobile .close{margin-top: 5px;}
 }
 @media only screen and (max-width: 510px) {
     .entry-content-holder {
