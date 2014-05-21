@@ -34,12 +34,9 @@ $byline = get_post_meta($postID, 'ecpt_byline', true);
     	<div class="share-container">
         	<?php if( get_field("cc_sweeps_viral_msg_3","options") ){ ?><h2><?php echo get_field("cc_sweeps_viral_msg_3","options"); ?></h2><?php } ?>
         	<?php if(function_exists('wpsocialite_markup')){ wpsocialite_markup('button_override=facebook'); } ?>
-        	<?php if( get_field("cc_sweeps_viral_msg_2","options") ){ ?><p><?php echo get_field("cc_sweeps_viral_msg_2","options"); ?></p><?php } ?>
-    	</div>
-    </div>
 
     <?php $checked = get_field("cc_sweeps_viral_msg","options");
-	if ($_GET['message'] == "share" && $checked) { ?>
+	if ($_GET['message'] == "share") { ?>
 	    <div id="fb-root"></div>
 		<script>(function(d, s, id) {
 		  var js, fjs = d.getElementsByTagName(s)[0];
@@ -48,15 +45,13 @@ $byline = get_post_meta($postID, 'ecpt_byline', true);
 		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
 		  fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));</script>
-	    <div class="share-photo-now clearfix">
-	    	<div class="share-container">
 	        	<?php if( get_field("cc_sweeps_viral_msg_1","options") ){ ?><h2><?php echo get_field("cc_sweeps_viral_msg_1","options"); ?></h2>
-	        	<div class="fb-share-button" data-href="<?php the_permalink(); ?>" data-type="button_count"></div><?php } ?>
-	        	<?php if( get_field("cc_sweeps_viral_msg_2","options") ){ ?><p><?php echo get_field("cc_sweeps_viral_msg_2","options"); ?></p><?php } ?>
-	        	<?php if( get_field("cc_sweeps_viral_img","options") ){ ?><img src="<?php echo get_field("cc_sweeps_viral_img","options"); ?>" alt="Camera Corner Sweeps" title="Camera Corner Sweeps" /><?php } ?>
-	    	</div>
-	    </div>
-    <?php } ?>
+	        	<div class="fb-share-button" data-href="<?php the_permalink(); ?>" data-type="button_count"></div><?php } 
+	 } 
+	 if ($checked){ 
+	        	if( get_field("cc_sweeps_viral_msg_2","options") ){ ?><p><?php echo get_field("cc_sweeps_viral_msg_2","options"); ?></p><?php } } ?>
+    	</div>
+    </div>
     <!-- .entry-header -->
     <div class="entry-content-holder">
         <?php if ( is_search() ) : // Only display Excerpts for Search ?>
