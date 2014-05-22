@@ -9,7 +9,40 @@
  * 
  * Used to replace Flexslider left and right swipe events
  */
-(function($){$.fn.touchwipe=function(settings){var config={min_move_x:20,min_move_y:20,wipeLeft:function(){},wipeRight:function(){},wipeUp:function(){},wipeDown:function(){},preventDefaultEvents:true};if(settings)$.extend(config,settings);this.each(function(){var startX;var startY;var isMoving=false;function cancelTouch(){this.removeEventListener('touchmove',onTouchMove);startX=null;isMoving=false}function onTouchMove(e){if(config.preventDefaultEvents){e.preventDefault()}if(isMoving){var x=e.touches[0].pageX;var y=e.touches[0].pageY;var dx=startX-x;var dy=startY-y;if(Math.abs(dx)>=config.min_move_x){cancelTouch();if(dx>0){config.wipeLeft()}else{config.wipeRight()}}else if(Math.abs(dy)>=config.min_move_y){cancelTouch();if(dy>0){config.wipeDown()}else{config.wipeUp()}}}}function onTouchStart(e){if(e.touches.length==1){startX=e.touches[0].pageX;startY=e.touches[0].pageY;isMoving=true;this.addEventListener('touchmove',onTouchMove,false)}}if('ontouchstart'in document.documentElement){this.addEventListener('touchstart',onTouchStart,false)}});return this}})(jQuery);
+;(function($){$.fn.touchwipe=function(settings){var config={min_move_x:20,min_move_y:20,wipeLeft:function(){},wipeRight:function(){},wipeUp:function(){},wipeDown:function(){},preventDefaultEvents:true};if(settings)$.extend(config,settings);this.each(function(){var startX;var startY;var isMoving=false;function cancelTouch(){this.removeEventListener('touchmove',onTouchMove);startX=null;isMoving=false}function onTouchMove(e){if(config.preventDefaultEvents){e.preventDefault()}if(isMoving){var x=e.touches[0].pageX;var y=e.touches[0].pageY;var dx=startX-x;var dy=startY-y;if(Math.abs(dx)>=config.min_move_x){cancelTouch();if(dx>0){config.wipeLeft()}else{config.wipeRight()}}else if(Math.abs(dy)>=config.min_move_y){cancelTouch();if(dy>0){config.wipeDown()}else{config.wipeUp()}}}}function onTouchStart(e){if(e.touches.length==1){startX=e.touches[0].pageX;startY=e.touches[0].pageY;isMoving=true;this.addEventListener('touchmove',onTouchMove,false)}}if('ontouchstart'in document.documentElement){this.addEventListener('touchstart',onTouchStart,false)}});return this}})(jQuery);
+
+;(function() {
+    var message = "We've detected that you have an ad blocker enabled! Please disable it and help support our work!";
+
+        // Define a function for showing the message.
+        // Set a timeout of 2 seconds to give adblocker
+        // a chance to do its thing
+        var tryMessage = function() {
+            setTimeout(function() {
+                if(!document.getElementsByClassName) return;
+                var ads = document.getElementsByClassName('afs_ads'),
+                    ad  = ads[ads.length - 1];
+
+                if(!ad
+                    || ad.innerHTML.length == 0
+                    || ad.clientHeight === 0) {
+                    alert(message);
+                    //window.location.href = '[URL of the donate page. Remove the two slashes at the start of thsi line to enable.]';
+                } else {
+                    ad.style.display = 'none';
+                }
+
+            }, 2000);
+        }
+
+        /* Attach a listener for page load ... then show the message */
+        if(window.addEventListener) {
+            window.addEventListener('load', tryMessage, false);
+        } else {
+            window.attachEvent('onload', tryMessage); //IE
+        }
+})();
+
 
 /**
  * Photo Slider
@@ -69,7 +102,7 @@ var PhotosGallery = (function(){
 			self.refreshSlider();
 			self.getPosts();
 		},
-		url          : '/wpdb/network-feed-cached.php',
+		url          : 'http://gameandfishmag.com/wpdb/network-feed-cached.php',
 		state        : null,
 		startAt      : 0,
 		count        : 10,
@@ -479,7 +512,7 @@ var PhotoStateMenu = (function(){
 		},
 		getData: function(state, callback){
 			var self   = this,
-				url    = '/wpdb/network-feed-cached.php',
+				url    = 'http://gameandfishmag.com/wpdb/network-feed-cached.php',
 				args   = {
 					post_type	   : 'reader_photos',
 					domain		   : 'www.gameandfishmag.com',
