@@ -62,6 +62,7 @@ function imo_sidebar($type){
 function imo_community_sidebar(){
 	$dartDomain = get_option("dart_domain", $default = false);
 	echo '<div class="sidebar-area">';
+		echo '<div class="afs_ads">&nbsp</div>';
 		echo '<label class="upload-button">';
         echo '<a href="/add-new-photo/"><span class="singl-post-photo"><span>Share Your Photo Now!</span></span></a>';
         echo '<input id="image-upload" class="common-image-upload" type="file" name="photo-upload">';
