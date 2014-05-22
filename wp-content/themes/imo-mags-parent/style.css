@@ -708,6 +708,16 @@ input.gsc-search-button-v2{
 .socials a.youtube:hover {background-position:-307px 0;}
 .socials a.rss {background-position:-206px 0;}
 .socials a.rss:hover {background-position:-340px 0;}
+
+/*
+ * Socialite Look-a-like defaults
+ */
+.wpsocialite.small {padding: 0 !important;margin: 0 auto !important;}
+.wpsocialite.small .socialite { background:none !important; }
+.wpsocialite.small > li, .wpsocialite.small .socialite{width: 90px !important;}
+.fb_iframe_widget span{vertical-align: baseline !important;}
+
+
 /* main top navigation */
 .menu-top-menu-container.subscribe-left li{padding-right: 2px;}
 .menu-top-menu-container {
