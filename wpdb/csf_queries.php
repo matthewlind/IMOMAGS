@@ -204,7 +204,7 @@ function runBigAssQuery($network,$term,$taxonomy,$sort,$count,$skip,$thumbnail_s
             $siteBrand = $brand[$domain];
 
             $sql .= <<<EOT
-(SELECT DISTINCT posts.ID, posts.post_title, posts.post_name, posts.post_date, $stateSelect posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url,users.user_nicename as user_nicename, users.display_name as author,users.`ID` as user_id, "$siteBrand" as brand,attachmentmeta.meta_value as attachment_meta,
+(SELECT DISTINCT posts.ID, camera_corner_taken.meta_value as camera_corner_taken,camera_corner_when.meta_value as camera_corner_when,camera_corner_who.meta_value as camera_corner_who, posts.post_title, posts.post_name, posts.post_date, $stateSelect posts.post_content as post_content, posts.post_excerpt,attachments.guid as img_url,users.user_nicename as user_nicename, users.display_name as author,users.`ID` as user_id, "$siteBrand" as brand,attachmentmeta.meta_value as attachment_meta,
 (SELECT count(comment_ID) from wp_{$siteID}_comments as comments WHERE comment_post_id = posts.ID AND comments.comment_approved = 1) as comment_count, "$domain" as domain
 FROM wp_{$siteID}_term_relationships as relationships
 JOIN wp_{$siteID}_term_relationships as relationships2 ON (relationships.`object_id` = relationships2.`object_id`)
