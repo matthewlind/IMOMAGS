@@ -183,7 +183,24 @@ function imo_facebook_import_likes() {
 
         //print_r($fbResults);
 
-        foreach ($fbResults as $FBID => $result) {
+        for ($k=$startIndex; $k < $endIndex; $k++) {
+
+            //echo "1";
+
+            $post = $posts[$k];
+
+            //print_r($post);
+
+            $postID = $post->ID;
+            $permalink = get_permalink($postID);
+
+            $permalink = str_replace(".deva", ".com", $permalink);
+            $permalink = str_replace(".fox", ".com", $permalink);
+            $permalink = str_replace(".devj", ".com", $permalink);
+
+
+            $result = $fbResults->$permalink;
+
 
             $shares = 0;
 
@@ -193,16 +210,14 @@ function imo_facebook_import_likes() {
                 $shares = $result->shares;
             }
 
-
-
-
-
-
-            echo "$shares: {$FBID}<br>";
+            echo "$shares: {$permalink} : POST ID: {$post->ID}<br>";
             update_post_meta($post->ID, "facebook_like_count", $shares);
 
-            flush();
+            //flush();
+
         }
+
+
 
     }
 

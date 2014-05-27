@@ -17,6 +17,7 @@ define("FACEBOOK_APP_ID","624736570896056");
 define("FACEBOOK_APP_SECRET","4011410d01c27af26e016760c03492ea");
 
 include_once("widgets/gf-community-slider.php");
+include_once("wordpress-community.php");
 
 //community menus
 register_nav_menus(array(

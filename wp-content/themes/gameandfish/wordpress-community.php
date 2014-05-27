@@ -1,11 +1,4 @@
 <?php
-/*
-Plugin Name: IMO Wordpress Community
-Plugin URI: http://www.imomags.com/
-Description: Helps Setup Custom Post Types,User Permissions and Rewrites for a Wordpress-based photo community
-Version: 0.1
-Author: Aaron Baker
-*/
 
 register_activation_hook( __FILE__, 'imo_wordpress_community_flush' );
 register_deactivation_hook( __FILE__, 'imo_wordpress_community_flush' );
@@ -54,7 +47,6 @@ function imo_wordpress_community_post_slug( $slug, $post_ID, $post_status, $post
 
     return $slug;
 }
-
 
 
 
