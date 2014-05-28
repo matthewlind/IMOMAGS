@@ -11,15 +11,33 @@
 
 include("widget.php");
 
+
+/////////////////////////////////////////
+//Create page for CRON Updates
+add_action("init", "imo_facebook_like_update_cron");
+
+function imo_facebook_like_update_cron() {
+    if (preg_match("/^\/facebook-like-updater\.php(\?(.+)?)?$/", $_SERVER['REQUEST_URI'])) {
+        header('Content-type: text/html');
+        header("Cache-Control: public");
+        // Cache for 1 week
+        header('Expires: '.gmdate('D, d M Y H:i:s', time() + 5) . 'GMT');
+
+        imo_facebook_import_likes();
+        die();
+    }
+}
+
 /////////////////////////////////////////
 //Setup Schedule for Facebook Like import
 
 register_activation_hook( __FILE__, 'prefix_activation' );
 
-add_action( 'imo_facebook_import_event_hook', 'imo_facebook_import_likes' );
+//add_action( 'imo_facebook_import_event_hook', 'imo_facebook_import_likes' );
 
 function prefix_activation() {
-    wp_schedule_event( time(), 'hourly', 'imo_facebook_import_event_hook' );
+     wp_clear_scheduled_hook( 'imo_facebook_import_event_hook' );
+    //wp_schedule_event( time(), 'twicedaily', 'imo_facebook_import_event_hook' );
 }
 
 register_deactivation_hook( __FILE__, 'prefix_deactivation' );
@@ -183,7 +201,24 @@ function imo_facebook_import_likes() {
 
         //print_r($fbResults);
 
-        foreach ($fbResults as $FBID => $result) {
+        for ($k=$startIndex; $k < $endIndex; $k++) {
+
+            //echo "1";
+
+            $post = $posts[$k];
+
+            //print_r($post);
+
+            $postID = $post->ID;
+            $permalink = get_permalink($postID);
+
+            $permalink = str_replace(".deva", ".com", $permalink);
+            $permalink = str_replace(".fox", ".com", $permalink);
+            $permalink = str_replace(".devj", ".com", $permalink);
+
+
+            $result = $fbResults->$permalink;
+
 
             $shares = 0;
 
@@ -193,16 +228,14 @@ function imo_facebook_import_likes() {
                 $shares = $result->shares;
             }
 
-
-
-
-
-
-            echo "$shares: {$FBID}<br>";
+            echo "$shares: {$permalink} : POST ID: {$post->ID}<br>";
             update_post_meta($post->ID, "facebook_like_count", $shares);
 
-            flush();
+            //flush();
+
         }
+
+
 
     }
 
