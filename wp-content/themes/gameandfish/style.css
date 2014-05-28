@@ -2490,7 +2490,8 @@ select.alter-sel {width:100%;}
 #photoGalleryTitle{
 	padding:0 30px;
 }
-
+#photoGalleryTitle .fb-share-button{top:4px;left:2px;}
+#photoGalleryTitle .bookmark{margin:0;text-decoration: underline;color:white;cursor: pointer;}
 #photoGalleryTitle h2 a{
 	color:#fff;
 	padding-bottom: 5px;
