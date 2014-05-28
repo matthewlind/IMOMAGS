@@ -63,12 +63,12 @@ $catSlug = $category->slug;
 		</div>
     </div>
     <div id="photoGalleryTitle">
-    	 <?php if( mobile() ) {
+    	<?php if( mobile() ) {
 			$dartDomain = get_option("dart_domain", $default = false);
 			echo '<iframe id="community-iframe-ad" class="mobile-gallery-ad" width="320" height="50" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?size=320x50&ad_code='.$dartDomain.'"></iframe>'; 
 		} ?>
 		<h2><a href=""></a></h2>
-		<span class="photoGalleryState"></span> <span class="photoGalleryCategory"></span>
+		<span class="photoGalleryState"></span> <span class="photoGalleryCategory"></span> <span class="photoGalleryShare"><span class="fb-share-button" data-href="" data-title="" data-type="button_count"></span> <!--<span class="bookmark" value="">Copy share link</span>-->
 	</div>
 	<div id="photoGalleryBottomContent"></div>
 	
