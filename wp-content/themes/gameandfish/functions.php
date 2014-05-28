@@ -66,12 +66,12 @@ function imo_community_sidebar(){
         echo '<a href="/add-new-photo/"><span class="singl-post-photo"><span>Share Your Photo Now!</span></span></a>';
         echo '<input id="image-upload" class="common-image-upload" type="file" name="photo-upload">';
 		echo '</label>';
-		get_sidebar("community");
 		echo '<div class="sidebar">';
 			echo '<div class="widget_advert-widget">';
 			echo '<iframe id="community-iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?ad_code='.$dartDomain.'"></iframe>';
 			echo '</div>';
 		echo '</div>';
+		get_sidebar("community");
 	echo '</div>';
 }
 

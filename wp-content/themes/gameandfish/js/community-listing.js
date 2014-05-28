@@ -11,39 +11,38 @@
  */
 ;(function($){$.fn.touchwipe=function(settings){var config={min_move_x:20,min_move_y:20,wipeLeft:function(){},wipeRight:function(){},wipeUp:function(){},wipeDown:function(){},preventDefaultEvents:true};if(settings)$.extend(config,settings);this.each(function(){var startX;var startY;var isMoving=false;function cancelTouch(){this.removeEventListener('touchmove',onTouchMove);startX=null;isMoving=false}function onTouchMove(e){if(config.preventDefaultEvents){e.preventDefault()}if(isMoving){var x=e.touches[0].pageX;var y=e.touches[0].pageY;var dx=startX-x;var dy=startY-y;if(Math.abs(dx)>=config.min_move_x){cancelTouch();if(dx>0){config.wipeLeft()}else{config.wipeRight()}}else if(Math.abs(dy)>=config.min_move_y){cancelTouch();if(dy>0){config.wipeDown()}else{config.wipeUp()}}}}function onTouchStart(e){if(e.touches.length==1){startX=e.touches[0].pageX;startY=e.touches[0].pageY;isMoving=true;this.addEventListener('touchmove',onTouchMove,false)}}if('ontouchstart'in document.documentElement){this.addEventListener('touchstart',onTouchStart,false)}});return this}})(jQuery);
 
-// ;(function() {
-    // var message = "We've detected that you have an ad blocker enabled! Please disable it and help support our work!";
-// 
-        // // Define a function for showing the message.
-        // // Set a timeout of 2 seconds to give adblocker
-        // // a chance to do its thing
-        // var tryMessage = function() {
-            // setTimeout(function() {
-                // if(!document.getElementsByClassName) return;
-                // var ads = document.getElementsByClassName('afs_ads'),
-                    // ad  = ads[ads.length - 1];
-// 
-                // if(!ad
-                    // || ad.innerHTML.length == 0
-                    // || ad.clientHeight === 0) {
-                    // alert(message);
-                    // //window.location.href = '[URL of the donate page. Remove the two slashes at the start of thsi line to enable.]';
-                // } else {
-                    // ad.style.display = 'none';
-                // }
-// 
-            // }, 2000);
-        // }
-// 
-        // /* Attach a listener for page load ... then show the message */
-        // if(window.addEventListener) {
-            // window.addEventListener('load', tryMessage, false);
-        // } else {
-            // window.attachEvent('onload', tryMessage); //IE
-        // }
-// })();
+/*(function() {
+    var message = "We've detected that you have an ad blocker enabled! Please enable it to view this page";
 
+        // Define a function for showing the message.
+        // Set a timeout of 2 seconds to give adblocker
+        // a chance to do its thing
+        var tryMessage = function() {
+            setTimeout(function() {
+                if(!document.getElementsByClassName) return;
+                var ads = document.getElementsByClassName('afs_ads'),
+                    ad  = ads[ads.length - 1];
 
+                if(!ad
+                    || ad.innerHTML.length == 0
+                    || ad.clientHeight === 0) {
+                    //jQuery('<iframe id="sticky-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-sticky.php?ad_code=imo.gameandfish"></iframe>').insertAfter('.iframe-community-ad').remove();
+                    alert(message);
+                    //window.location.href = '[URL of the donate page. Remove the two slashes at the start of thsi line to enable.]';
+                } else {
+                    ad.style.display = 'none';
+                }
+
+            }, 2000);
+        }
+
+        if(window.addEventListener) {
+            window.addEventListener('load', tryMessage, false);
+        } else {
+            window.attachEvent('onload', tryMessage); //IE
+        }
+})();
+*/
 /**
  * Photo Slider
  * @url    : http://www.gameandfishmag.com/photos/
@@ -102,7 +101,7 @@ var PhotosGallery = (function(){
 			self.refreshSlider();
 			self.getPosts();
 		},
-		url          : '/wpdb/network-feed-cached.php',
+		url          : 'http://www.gameandfishmag.com/wpdb/network-feed-cached.php',
 		state        : null,
 		startAt      : 0,
 		count        : 10,
@@ -145,14 +144,17 @@ var PhotosGallery = (function(){
 			$('.spinner').hide();
 		},
 		refreshSlider : function(){
-			$('#photoSlider').flexslider('destroy');
-			$('#photoSlider').remove();
-			$('#photoSliderContainer').html('<div id="photoSlider" class="flexslider"><ul class="slides"></ul></div>');
-			
-			$('#photoSliderThumbs').flexslider('destroy');
-			$('#photoSliderThumbs').remove();
-			$('#photoSliderThumbsContainer').html('<div class="sliderPrev"></div><div id="photoSliderThumbs" class="flexslider"><ul class="slides"></ul></div><div class="sliderNext"></div>');
-			
+			if($('#photoSlider').length){
+				$('#photoSlider').flexslider('destroy');
+				$('#photoSlider').remove();
+				$('#photoSliderContainer').html('<div id="photoSlider" class="flexslider"><ul class="slides"></ul></div>');
+				
+				$('#photoSliderThumbs').flexslider('destroy');
+				$('#photoSliderThumbs').remove();
+				$('#photoSliderThumbsContainer').html('<div class="sliderPrev"></div><div id="photoSliderThumbs" class="flexslider"><ul class="slides"></ul></div><div class="sliderNext"></div>');
+	
+			}
+						
 			$('#photoSliderThumbs').width( $('#photoSliderThumbsContainer').width()-80 );	
 			window.onresize = function(event) {
 				$('#photoSliderThumbs').width( $('#photoSliderThumbsContainer').width()-80 );	
@@ -416,7 +418,7 @@ var PhotosGallery = (function(){
 				$('#photoGalleryTitle .photoGalleryCategory').html( terms[0].name.toUpperCase() );
 				$('#photoGalleryTitle .photoGalleryState').show();
 				$('#photoGalleryTitle .photoGalleryCategory').show();
-				
+								
 				//self.slug = (typeof terms[0].slug != 'undefined') ? terms[0].slug : '';
 				var slug = terms[0].slug;
 
@@ -432,11 +434,12 @@ var PhotosGallery = (function(){
 			}
 		},
 		parseSlider : function(slider){
-			var self      = this,
-				slideData = self.data[parseInt(slider.currentSlide)];
-				
+			var self = this,
+			
+			slideData = self.data[parseInt(slider.currentSlide)];			
+			
 			if(typeof(slideData) == 'object'){
-
+				
 				$('#photoGalleryTitle h2 a').html(slideData.post_title);
 				$('#photoGalleryTitle h2 a').attr("href",slideData.post_url);
 				$('#photoGalleryLike .photoGalleryLikeRight').html('');
@@ -445,20 +448,31 @@ var PhotosGallery = (function(){
 				//$('#photoGalleryTitle .photoGalleryState').html( slideData.terms[1].name.toUpperCase() );
 				//$('#photoGalleryTitle .photoGalleryCategory').html( slideData.terms[0].name.toUpperCase() );
 				$('#photoSlider .slides li').css('display','table');
-				
 				// Parse only State and Category in the bottom
 				self.parseTerms(slideData.terms, function(slug){
 					//Refresh Ad
-				    _gaq.push(['_trackPageview','/photos/'+ slug]);
+					var _gaq = _gaq || [];
+				    _gaq.push(['_trackPageview', window.location.pathname + slideData.post_name]);
+				    //console.log(  _gaq );
 					document.getElementById('community-iframe-ad').contentWindow.location.reload();
 				});
-	
+				
+				/*$("#photoGalleryTitle .bookmark").click(function() {				
+			    	console.log(slideData.post_url);
+					window.prompt("Copy to clipboard: Ctrl+C, Enter", slideData.post_url);
+				});
+				*/
 				//Parse current slide like button
 				try{
+					$('meta[property=og\\:url]').attr('content',slideData.post_url);
+					$('meta[property=og\\:title]').attr('content',slideData.post_title);
+					$('meta[property=og\\:image]').attr('content',slideData.img_url);	
+					$('#photoGalleryTitle .fb-share-button').attr("data-href",slideData.post_url);
 					FB.XFBML.parse();
 			    }catch(e){
 			    		//console.log(e);
 			    }
+					    
 		   }
 		}
 	};
@@ -512,7 +526,7 @@ var PhotoStateMenu = (function(){
 		},
 		getData: function(state, callback){
 			var self   = this,
-				url    = '/wpdb/network-feed-cached.php',
+				url    = 'http://www.gameandfishmag.com/wpdb/network-feed-cached.php',
 				args   = {
 					post_type	   : 'reader_photos',
 					domain		   : 'www.gameandfishmag.com',
