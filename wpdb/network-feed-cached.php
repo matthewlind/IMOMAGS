@@ -1,4 +1,15 @@
 <?php
+//***************************************************************
+//*********************  HEED THIS WARNING! *********************
+//***************************************************************
+//*** This file contains dangerous black magic that may cause ***
+//*** insanity. Please contact aaron.baker@imoutdoors.com     ***
+//*** before making changes.                                  ***
+//***************************************************************
+//*********************** Evil awaits. **************************
+//***************************************************************
+
+
 
 //All of these parameters can be overridden in the query string
 $network = "shooting"; //e.g. "hunting","fishing","everything"
