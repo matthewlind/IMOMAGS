@@ -5,13 +5,15 @@ register_deactivation_hook( __FILE__, 'imo_wordpress_community_flush' );
 
 
 
-//G&F Wordpress Community Config
-add_action("init","ff_wp_community_init",2);
-function ff_wp_community_init() {
+//FF Wordpress Community Scripts Config
+add_action("wp_enqueue_scripts","ff_wp_community_scripts");
+function ff_wp_community_scripts() {
 
-    wp_enqueue_script( 'bootstrap-dropdown', get_stylesheet_directory_uri() . '/js/bootstrap-dropdown.js', array("jquery",'underscore'), '0.1', true );
-    wp_enqueue_script( 'ff-wp-community-listing', get_stylesheet_directory_uri() . '/js/community-listing.js', array("jquery",'underscore','bootstrap-dropdown'), '0.1', true );
+    if ( is_post_type_archive( "reader_photos" )  ) {
 
+        wp_enqueue_script( 'bootstrap-dropdown', get_stylesheet_directory_uri() . '/js/bootstrap-dropdown.js', array("jquery",'underscore'), '0.1', true );
+        wp_enqueue_script( 'gf-wp-community-listing', get_stylesheet_directory_uri() . '/js/community-listing.js', array("jquery",'underscore','bootstrap-dropdown'), '0.1', true );
+    }
 }
 
 
