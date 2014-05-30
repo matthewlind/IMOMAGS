@@ -12,6 +12,8 @@ define("RSS_LINK", "http://www.flyfisherman.com/feed/");
 define("SITE_LINK", "flyfisherman.com");
 define("SITE_NAME", "Fly Fisherman");
 
+include_once("wordpress-community.php");
+
 function imo_sidebar($type){
 	//Speed up mobile load time by not loading sidebar in the background
 	if(!mobile()){
