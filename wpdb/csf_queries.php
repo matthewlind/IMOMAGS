@@ -271,7 +271,7 @@ EOT;
 
 
          // print_r($termList);
-          echo $sql;
+          //echo $sql;
           print_r($executeArray);
 
         // $siteCount = 5;
