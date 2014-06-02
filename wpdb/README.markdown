@@ -1,6 +1,8 @@
 # wpdb - What is this?
 
-This directory contains scripts that are used to generate JSON feeds that populate various pages and widgets across the IMO network. It's called WPDB because all of the scripts access the imomags WordPress Database. These scripts are designed to avoid bootstrapping an entire WordPress install just to return a little bit of data. All of the scripts in this directory use the database configuration in the **mysql.php** file. Many of the scripts in this directory are obsolete and no longer used. Here are a few that I know that we still need:
+This directory contains scripts that are used to generate JSON feeds that populate various pages and widgets across the IMO network. It's called WPDB because all of the scripts access the imomags WordPress Database. These scripts are designed to avoid bootstrapping an entire WordPress install just to return a little bit of data. All of the scripts in this directory use the database configuration in the **mysql.php** file. 
+
+Many of the scripts in this directory are obsolete and no longer used. Here are a few that I know that we still need:
 
 ## Used Scripts
 
