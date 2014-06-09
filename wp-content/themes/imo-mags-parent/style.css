@@ -599,7 +599,7 @@ img.border-image {
 }
 .subscribe-now p {margin:0 0 8px;}
 .subscribe-links {
-    font:bold 10px "Source Sans Pro", Helvetica, Arial, sans-serif;
+    font:bold 12px "Source Sans Pro", Helvetica, Arial, sans-serif;
     text-transform:uppercase;
     float:right;
     clear:both;
@@ -725,7 +725,7 @@ input.gsc-search-button-v2{
     float:left;
     margin:-18px 0 10px 10px;
     position:relative;
-    font:14px "Source Sans Pro", Helvetica, Arial, sans-serif;
+    font:16px "Source Sans Pro", Helvetica, Arial, sans-serif;
     font-weight: 600;
 }
 .menu-top-menu-container li {
@@ -1284,7 +1284,7 @@ a.category-name-link:hover{
 .special-features .home-featured{width: 39.5%;border: none;padding: 23px 2px 0 20px;float: left;text-align: center;}
 .special-features .home-featured:last-child{padding-left: 0;}
 .special-features .home-featured.features{background: #eec432;width: 21%;position: relative;min-height: 68px;padding: 23px 2px 0;}
-.special-features .home-featured.features h3{text-transform: uppercase;font-family: "Source Sans Pro";font-weight: 900;}
+.special-features .home-featured.features h3{text-transform: uppercase;font-weight: 900;}
 .special-features .feat-text h3{font-size: 18px;}
 .special-features .feat-text h3 a{text-decoration: underline;}
 .special-features .feat-text h3 a:hover{text-decoration: none;color: #040503;}
@@ -3139,7 +3139,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 
 
 /*** subscribe fixed ***/
-.fixed-connect{width:100%;height:42px;position:fixed;bottom:0;background:#545454;color:#fff;font-family:"Source Sans Pro","Helvetica",Arial,sans-serif;font-weight: 700;opacity:.99;z-index:999999999999999;}
+.fixed-connect{width:100%;height:42px;position:fixed;bottom:0;background:#545454;color:#fff;font-family:"Source Sans Pro","Helvetica",Arial,sans-serif;font-weight: 600;opacity:.99;z-index:999999999999999;}
 .fixed-connect .container{max-width:1060px;margin:0 auto;padding:0 20px 0 20px;}
 .fixed-connect a{color:#fff;text-decoration:none;}
 .fixed-connect .currentIssue{width:100px;height:83px;float:left;margin:-54px 0 0 0;}
@@ -3172,14 +3172,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 }
 .fixed-connect .newsletter input.active{color:#444;}
 .fixed-connect .newsletter .button.noInput{display:none;}
-.fixed-connect .follow{float:left;border-left:1px solid #fff;margin:0 0 0 15px;height:42px;font-size:14px;padding:0 0 0 10px;}
+.fixed-connect .follow{float:left;border-left:1px solid #fff;margin:0 0 0 15px;height:42px;font-size:16px;padding:0 0 0 10px;}
 .fixed-connect .follow .follow-us{float:left;margin-top: 12px;}
 .fixed-connect .socials{padding-left: 4px;}
 .fixed-connect .socials a{margin-top: 6px;}
 .fixed-connect .close{float:right;margin:9px 11px 0 0;}
 .fixed-connectExpand{background:#eaeaea;border-left:1px solid #ccc;border-top:1px solid #ccc;position:fixed;bottom:0;right:0;z-index:100;display:none;}
 .fixed-connectExpand a{color:#999;text-decoration:none;font-size:20px;font-weight:700;width:100%;height:100%;display:block;padding:3px 7px 3px 7px;}
-.fixed-connect form{float: left;font-size: 10px;}
+.fixed-connect form{float: left;font-size: 12px;}
 
 /* = Footer
  ******************************************************************************/

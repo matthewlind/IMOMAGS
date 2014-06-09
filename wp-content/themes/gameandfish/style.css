@@ -95,7 +95,8 @@ body{background-color: black;}
 	padding: 10px 0;
 	margin: 0;
 	float: left;
-	font: 14px "open_sansbold", Helvetica, sans-serif;
+	font: 14px "Source Sans Pro", Helvetica, sans-serif;
+	font-weight: 700;
 }
 .menu-top-menu-container li{padding: 2px 18px;}
 .filter-links li:before,
@@ -113,7 +114,7 @@ body{background-color: black;}
 }
 .h-mdl-widget{float: left;margin: 0 0 0 70px;}
 .socials-hold{float: none;}
-.aside-socials strong{color: white;text-shadow: 0px 1px 1px black;font-family: "open_sansbold", Helvetica, Arial, sans-serif;}
+.aside-socials strong{color: white;text-shadow: 0px 1px 1px black;font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;font-weight: 700;}
 .header .socials{padding-top: 4px;}
 .socials a.facebook:hover {
 	background-position: -239px 0;
@@ -266,7 +267,7 @@ body{background-color: black;}
 	background: linear-gradient(to bottom,  #373737 0%,#212121 75%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#373737', endColorstr='#212121',GradientType=0 ); /* IE6-8 */
 }
-.submenu-category-title, .drop-feat-post h5 a{font-family: "open_sanssemibold", Helvetica, sans-serif;}
+.submenu-category-title, .drop-feat-post h5 a{font-family: "Source Sans Pro", Helvetica, sans-serif;font-weight: 600;}
 .snap-drawers .menu-top-menu-container{padding:0;}
 .snap-drawers .mob-aside-menu li, .snap-drawers .menu-top-menu-container li{
 	border-top: 1px solid rgba(255,255,255,.2);
@@ -333,7 +334,7 @@ body{background-color: black;}
 	text-align: center;
 }
 .mob-aside-menu .email-signup{
-	font: 13px "open_sansregular", sans-serif !important;
+	font: 13px "Source Sans Pro", sans-serif !important;
 	padding: 8px 0 20px !important;
 	text-transform: none !important;
 }
@@ -405,12 +406,14 @@ body{background-color: black;}
 	float: left;
 	padding: 0 54px 0 50px;
 	height: 38px;
-	font: 18px/38px "open_sansbold", sans-serif;
+	font: 18px/38px "Source Sans Pro", sans-serif;
+	font-weight: 700;
 	letter-spacing: 0.05em;
 	background: #7a0c11;
 }
 .newsletter-sidebar h3{
-	font: 22px/52px "open_sansbold", sans-serif;
+	font: 22px/52px "Source Sans Pro", sans-serif;
+	font-weight: 700;
 	background: #7a0c11;
 	height: 50px;
 }
@@ -440,7 +443,7 @@ body{background-color: black;}
 }
 .newsletter-box .ez-checkbox {margin: 11px 0 0 16px;}
 .newsletter-box .signup-box .check-row label {
-	font: 12px/1.1 "open_sansregular", sans-serif;
+	font: 12px/1.1 "Source Sans Pro", sans-serif;
 	width: auto;
 	padding: 12px 0 0 6px;
 	color: #ddd;
@@ -505,7 +508,7 @@ a.category-name-link:hover{background: #F1C548;color: black;}
 }
 
 .widgettitle {
-	font: 22px "open_sansbold", Helvetica, Arial, sans-serif;
+	font: 22px "Source Sans Pro", Helvetica, Arial, sans-serif;font-weight: 700;
 
 margin: 0 0 10px;
 }
@@ -527,7 +530,7 @@ margin: 0 0 10px;
 
 .widget_imo_related_footer_widget .sidebar-widget-featured li.sidebar-featured div.feat-post .feat-text {
 	min-height: 150px;
-	font: 16px/1.2 "open_sansbold", "Helvetica", sans-serif;
+	font: 16px/1.2 "Source Sans Pro", "Helvetica", sans-serif;font-weight: 700;
 }
 
 .sidebar-widget-featured li.footer-featured div.feat-post {
@@ -538,7 +541,7 @@ overflow: hidden;
 .widget_imo_related_footer_widget li {
 width: 200px;
 display: inline-block;
-margin-right:20px;
+margin-right:19px;
 margin-bottom:20px;
 }
 
@@ -650,7 +653,8 @@ blockquote{color: #cda220;}
 
 .inline-post h1 {
 	margin-top:0.3em;
-	font: 30px/1.1 "open_sansbold", Helvetica, Arial, serif;
+	font: 30px/1.1 "Source Sans Pro", Helvetica, Arial, serif;
+	font-weight: 700;
 	margin-bottom:0.3em;
 }
 
@@ -809,7 +813,7 @@ p.state-name{
 .forecast-filter h3, #state{float: left;}
 #state{margin-top: 3px;}
 .forecast-filter h3{padding-right: 10px;}
-h3.no-state-detection{font: 20px/1.3 "open_sansbold",sans-serif;}
+h3.no-state-detection{font: 20px/1.3 "Source Sans Pro",sans-serif;font-weight: 700;}
 #forecast{
         width: 670px;
 }
@@ -1076,12 +1080,12 @@ element:hover, element.hover_effect {
 
 /***breadcrumbs ***/
 .breadcrumbs {
-    font:12px/1 "open_sansbold", sans-serif;
+    font:12px/1 "Source Sans Pro", sans-serif;font-weight: 700;
 }
 .breadcrumbs li {display:inline-block;}
 .breadcrumbs li:first-child:before {display:none;}
 .breadcrumbs a {
-    font-family:"open_sansregular";
+    font-family:"Source Sans Pro";
     color:#acacac;
     padding:0 4px;
 }
@@ -1132,7 +1136,7 @@ h2{
 }
 .title-underline h1 span {
     color:#000;
-    font:15px "open_sansregular", sans-serif;
+    font:15px "Source Sans Pro", sans-serif;
 }
 .browse-holder {
     margin:0 0 30px;
@@ -1152,7 +1156,8 @@ h2{
 }
 .browse-item h3 {
     color:#3c3c3c;
-    font:13px/1.2 "open_sanssemibold", sans-serif;
+    font:14px/1.2 "Source Sans Pro", sans-serif;
+    font-weight: 600;
     padding:12px 20px 10px;
     position:relative;
     white-space:nowrap;
@@ -1218,7 +1223,8 @@ h2{
     padding:15px 5px;
     color:#6f6e6e;
     text-align:center;
-    font:13px1.2 "open_sanssemibold", sans-serif;
+    font:14px/1.2 "Source Sans Pro", sans-serif;
+    font-weight: 600;
 }
 .browse-drop a:hover {color:#040503;}
 .filter-fade-out,
@@ -1303,7 +1309,8 @@ h2{
 	padding: 0;
 	border: 1px solid #dbdbd9;
 	color: #040503;
-	font: 16px/1.1 "open_sansbold", sans-serif;
+	font: 18px/1.1 "Source Sans Pro", sans-serif;
+	font-weight: 700;
 	background: url(../images/body.jpg) repeat;
 }
 .share-photo span {
@@ -1327,7 +1334,8 @@ h2{
     border:1px solid #d9d9d9;
     position:relative;
     padding:15px 40px 14px 15px;
-    font:15px/1.1 "open_sansbold", sans-serif;
+    font:15px/1.1 "Source Sans Pro", sans-serif;
+    font-weight: 700;
     text-transform:uppercase;
     cursor:pointer;
     margin:0 0 10px;
@@ -1389,7 +1397,8 @@ select.alter-sel {width:100%;}
     overflow:hidden;
 }
 .profile-panel h4 {
-    font:13px "open_sansbold", sans-serif;
+    font:13px "Source Sans Pro", sans-serif;
+    font-weight: 700;
     color:#040503;
     margin:0 0 3px;
     text-transform: capitalize;
@@ -1397,7 +1406,8 @@ select.alter-sel {width:100%;}
 .prof-tags li {
     display:inline-block;
     vertical-align:top;
-    font:12px/1 "open_sansbold", sans-serif;
+    font:12px/1 "Source Sans Pro", sans-serif;
+    font-weight: 700;
     position:relative;
     padding:0 12px 0 0;
     margin:0 5px 0 0;
@@ -1432,7 +1442,7 @@ select.alter-sel {width:100%;}
 .replies li {
     display:inline-block;
     vertical-align:top;
-    font:12px/1 "open_sansregular", sans-serif;
+    font:14px/1 "Source Sans Pro", sans-serif;
     padding:0 12px 0 0;
     margin:0 5px 0 0;
 }
@@ -1544,7 +1554,8 @@ select.alter-sel {width:100%;}
     position: relative;
 }
 .form-link {
-    font:12px/1 "open_sansbold", sans-serif;
+    font:12px/1 "Source Sans Pro", sans-serif;
+    font-weight: 700;
     text-align:center;
     padding:0 0 18px;
 }
@@ -1618,7 +1629,8 @@ select.alter-sel {width:100%;}
 .add-photo-link {
     display:block;
     padding:12px 5px;
-    font:16px "open_sansbold", sans-serif;
+    font:16px "Source Sans Pro", sans-serif;
+    font-weight: 700;
     text-align:center;
     cursor:pointer;
 }
@@ -1659,7 +1671,8 @@ select.alter-sel {width:100%;}
 .cat-popup h3 {
     color:#3c3c3c;
     margin-top:14px;
-    font:16px "open_sansbold", sans-serif;
+    font:18px "Source Sans Pro", sans-serif;
+    font-weight: 700;
     text-transform:none;
 }
 .browse-list {
@@ -1679,7 +1692,8 @@ select.alter-sel {width:100%;}
 }
 .browse-list a:hover {color:#c9242c;}
 .popup-title {
-    font:15px/1.2 "open_sansbold", sans-serif;
+    font:15px/1.2 "Source Sans Pro", sans-serif;
+    font-weight: 700;
     color:#3c3c3c;
     padding:20px 0 20px;
     text-align:center;
@@ -1721,7 +1735,8 @@ select.alter-sel {width:100%;}
     width: 630px;
 }
 .dif-full-post h1 {
-    font: 26px "open_sansbold", "Helvetica", Arial, sans-serif;
+    font: 26px "Source Sans Pro", "Helvetica", Arial, sans-serif;
+    font-weight: 700;
 	color: white;
 	margin: 0;
 	padding: 10px 0;
@@ -1758,7 +1773,8 @@ select.alter-sel {width:100%;}
     vertical-align:middle;
 }
 .post-it {
-    font:13px "open_sansbold", sans-serif;
+    font:13px "Source Sans Pro", sans-serif;
+    font-weight: 700;
     text-decoration:underline;
 }
 .post-it:hover {
@@ -1782,7 +1798,7 @@ select.alter-sel {width:100%;}
 .replies-box h2 a {
     margin:0 0 0 8px;
     text-transform:none;
-    font:13px "open_sansregular", sans-serif;
+    font:13px "Source Sans Pro", sans-serif;
 }
 .replies-list li {
     padding:25px 75px 20px 23px;
@@ -1795,7 +1811,8 @@ select.alter-sel {width:100%;}
 }
 .reply-text {overflow:hidden;}
 .replies-list h3 {
-    font:13px "open_sansbold", sans-serif;
+    font:15px "Source Sans Pro", sans-serif;
+    font-weight: 700;
     color:#040503;
     margin:0;
 }
@@ -1871,7 +1888,8 @@ select.alter-sel {width:100%;}
     border:1px solid #d8d8d8;
     position:relative;
     color:#3c3c3c;
-    font:15px/50px "open_sansbold", sans-serif;
+    font:15px/50px "Source Sans Pro", sans-serif;
+    font-weight: 700;
     text-transform:uppercase;
 }
 .attach-photo:hover,
@@ -1999,7 +2017,8 @@ select.alter-sel {width:100%;}
     display:block;
     margin:0 0 4px;
     text-align:center;
-    font:16px "open_sansbold", sans-serif;
+    font:16px "Source Sans Pro", sans-serif;
+    font-weight: 700;
     color:#7e7e7e;
     text-transform:uppercase;
 }
@@ -2037,11 +2056,12 @@ select.alter-sel {width:100%;}
 }
 .user-points {
     display:block;
-    font:15px/1.1 "open_sansregular", sans-serif;
+    font:17px/1.1 "Source Sans Pro", sans-serif;
     color:#3c3c3c;
 }
 .user-points b {
-    font:20px/1.1 "open_sansbold", sans-serif;
+    font:20px/1.1 "Source Sans Pro", sans-serif;
+    font-weight: 700;
 }
 .edit-section {
     padding:0;
@@ -2140,7 +2160,8 @@ select.alter-sel {width:100%;}
 }
 .user-col .profile-photo {margin:0 8px 0 0;}
 .user-from {
-    font:12px "open_sansbold", sans-serif;
+    font:14px "Source Sans Pro", sans-serif;
+    font-weight: 700;
     text-transform:uppercase;
     color:#777;
     padding:7px 0 0;
@@ -2181,7 +2202,7 @@ select.alter-sel {width:100%;}
     border-top:1px solid #fff;
 }
 .profile-btn-panel h3 {
-    font:17px "open_sansregular", sans-serif;
+    font:17px "Source Sans Pro", sans-serif;
     color:#040503;
     margin:0 0 8px;
 }
@@ -2224,7 +2245,7 @@ select.alter-sel {width:100%;}
 .tabs a {
     display:block;
     height:41px;
-    font:17px/40px "open_sansregular", sans-serif;
+    font:17px/40px "Source Sans Pro", sans-serif;
     background:#fff;
     color:#040503;
     padding:0 24px;
@@ -2248,7 +2269,8 @@ select.alter-sel {width:100%;}
 }
 .tabs a span {
     color:#040503;
-    font-family:"open_sansbold";
+    font-family:"Source Sans Pro";
+    font-weight: 700;
 }
 .tabs .active a span,
 .tabs a:hover span {color:#fff;}
@@ -2260,7 +2282,7 @@ select.alter-sel {width:100%;}
 .reply-item {
     border:1px solid #fff;
     padding:20px 26px;
-    font:15px "open_sansregular", sans-serif;
+    font:15px "Source Sans Pro", sans-serif;
     color:#040503;
 }
 .reply-item p {padding:0 0 5px;}
@@ -2284,7 +2306,8 @@ select.alter-sel {width:100%;}
     width:182px;
     margin:10px 18px 0 0;
     color:#040503;
-    font:13px/1.1 "open_sansbold", sans-serif;
+    font:13px/1.1 "Source Sans Pro", sans-serif;
+    font-weight: 700;
     text-transform:uppercase;
     text-align:right;
 }
@@ -2317,7 +2340,7 @@ select.alter-sel {width:100%;}
     background:#fff;
     padding:6px 10px 7px;
     width:333px;
-    font:13px "open_sansregular", sans-serif;
+    font:13px "Source Sans Pro", sans-serif;
     color:#040503;
     display:inline-block;
     vertical-align:top;
@@ -2331,7 +2354,8 @@ select.alter-sel {width:100%;}
     max-width:330px;
 }
 .form .required {
-    font:16px/1 "open_sansbold", sans-serif;
+    font:16px/1 "Source Sans Pro", sans-serif;
+    font-weight: 700;
     color:#040503;
     display:inline-block;
     vertical-align:top;
@@ -2342,7 +2366,8 @@ select.alter-sel {width:100%;}
     background:#e5e5e5;
     border:1px solid #d9d9d9;
     padding:5px;
-    font:10px "open_sansbold", sans-serif;
+    font:10px "Source Sans Pro", sans-serif;
+    font-weight: 700;
     color:#3c3c3c;
     text-transform:uppercase;
     text-align:center;
@@ -3123,7 +3148,7 @@ select.alter-sel {width:100%;}
         width:100%;
     }
     .tabs a {
-        font-family:"open_sansbold";
+        font-family:"Source Sans Pro";font-weight: 700;
     }
     .tabs .active a:after {display:none;}
     .simple-replies {border-top:0;}
@@ -3232,8 +3257,8 @@ select.alter-sel {width:100%;}
   border: 1px solid transparent;
 
   color: #3c3c3c;
-  font: 14px/1.2 "open_sanssemibold", sans-serif;
-
+  font: 14px/1.2 "Source Sans Pro", sans-serif;
+  font-weight:600;
   white-space: nowrap;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -3693,7 +3718,8 @@ input[type="button"].btn-block {
   width:100%;
   text-align:left;
   margin-bottom:10px;
-  font: 15px/1.1 "open_sansbold", sans-serif;
+  font: 15px/1.1 "Source Sans Pro", sans-serif;
+  font-weight: 700;
 }
 .widget_imo_like_leaderboard_widget .fb-like{width:auto !important;}
 /* = Footer
@@ -3807,7 +3833,8 @@ input[type="button"].btn-block {
 		border-width:0;
 	}
 	.menu-subscribe a{
-		font-family: "open_sansbold", Helvetica, Arial, sans-serif;
+		font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+		font-weight: 700;
 		color: #cda220;
 		height: 60px;
 		padding-top: 20px;
@@ -3823,7 +3850,8 @@ input[type="button"].btn-block {
 	.subs-btn {
 		display: inline-block;
 		height: 28px;
-		font: 15px/28px "open_sanssemibold", serif;
+		font: 15px/28px "Source Sans Pro", serif;
+		font-weight: 700;
 		color: white;
 		text-shadow: 0 -1px 0 #373737;
 		margin: 0 8px;

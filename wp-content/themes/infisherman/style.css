@@ -158,7 +158,8 @@ General comments (optional).
 .drop-feat-post h5 a {color:#040503;}
 .drop-feat-post h5 a:hover {color:#c9242c;}
 .hot-link a{
-	font: 14px/1.2 "open_sansbold", Helvetica, sans-serif;
+	font: 14px/1.2 "Source Sans Pro", Helvetica, sans-serif;
+	font-weight: 700;
 	padding: 0 0 0 28px;
 	color: #c9242c;
 	background:url(../../wp-content/plugins/imo-community/infish/images/sprite.png) no-repeat -370px -112px;
@@ -175,7 +176,7 @@ General comments (optional).
 	text-align: center;
 }
 .mob-aside-menu  .email-signup{
-	font: 13px "open_sansregular", sans-serif !important;
+	font: 13px "Source Sans Pro", sans-serif !important;
 	padding: 8px 0 20px !important;
 	text-transform: none !important;
 }
@@ -228,7 +229,8 @@ General comments (optional).
     border:0;
 }
 .sub-menu a {
-    font:16px/1.1 "open_sanssemibold", "Helvetica Neue", "Helvetica", Helvetica, Arial, Arial, sans-serif;
+    font:16px/1.1 "Source Sans Pro", "Helvetica Neue", "Helvetica", Helvetica, Arial, Arial, sans-serif;
+    font-weight: 600;
     color:#6f6e6e;
     display:block;
     padding:15px 10px 13px; /*left w/ arrows: 36px;*/
