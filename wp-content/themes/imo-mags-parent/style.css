@@ -194,12 +194,12 @@ h1, h2, h3, h4, h5, h6  { font-weight: normal; margin: 0; }
 
 }
 @font-face {
-    font-family: 'open_sansregular';
+    font-family: 'open_sanssemibold';
     src: url('fonts/opensans-regular-webfont.eot');
     src: url('fonts/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
          url('fonts/opensans-regular-webfont.woff') format('woff'),
          url('fonts/opensans-regular-webfont.ttf') format('truetype'),
-         url('fonts/opensans-regular-webfont.svg#open_sansregular') format('svg');
+         url('fonts/opensans-regular-webfont.svg#Source Sans Pro') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -275,7 +275,7 @@ h1, h2, h3, h4, h5, h6  { font-weight: normal; margin: 0; }
 *******************************************************************************/
 body {
     color:#3c3c3c;
-    font:16px "open_sansregular", Helvetica, Arial, sans-serif;
+    font:18px "Source Sans Pro", Helvetica, Arial, sans-serif;
     overflow: hidden;
 }
 a       { color: #c9242c; }
@@ -515,7 +515,7 @@ img.border-image {
     float:right;
     width:154px;
     margin:4px 0 0;
-    font:12px "open_sansregular", Helvetica, Arial, sans-serif;
+    font:12px "Source Sans Pro", Helvetica, Arial, sans-serif;
 }
 .subscribe-now .stag-bold {
     font-size:18px;
@@ -534,7 +534,8 @@ img.border-image {
 }
 .pager-holder .btn-base{display: none;}
 .btn-base {
-    font:16px/26px "open_sanssemibold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font:16px/26px "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 600;
     color:#fff;
     padding: 0 8px;
     margin:0;
@@ -598,7 +599,7 @@ img.border-image {
 }
 .subscribe-now p {margin:0 0 8px;}
 .subscribe-links {
-    font:bold 10px "open_sansregular", Helvetica, Arial, sans-serif;
+    font:bold 10px "Source Sans Pro", Helvetica, Arial, sans-serif;
     text-transform:uppercase;
     float:right;
     clear:both;
@@ -642,7 +643,7 @@ img.border-image {
     float:left;
     width:174px;
     padding:0 0 0 8px;
-    font:italic 14px/28px "open_sansregular", Helvetica, Arial, sans-serif;
+    font:italic 14px/28px "Source Sans Pro", Helvetica, Arial, sans-serif;
     color:#3c3c3c;
     border:0;
     background:none;
@@ -724,7 +725,8 @@ input.gsc-search-button-v2{
     float:left;
     margin:-18px 0 10px 10px;
     position:relative;
-    font:14px "open_sanssemibold", Helvetica, Arial, sans-serif;
+    font:14px "Source Sans Pro", Helvetica, Arial, sans-serif;
+    font-weight: 600;
 }
 .menu-top-menu-container li {
     display:inline-block;
@@ -773,7 +775,8 @@ input.gsc-search-button-v2{
     display:block;
     height:42px;
     color:#fff;
-    font:19px/42px "open_sansbold", Helvetica, Arial, sans-serif;
+    font:19px/42px "Source Sans Pro", Helvetica, Arial, sans-serif;
+    font-weight: 700;
     text-transform:uppercase;
     padding:0 18px 0 22px;
 }
@@ -814,7 +817,8 @@ input.gsc-search-button-v2{
     border:0;
 }
 .sub-menu a {
-    font:16px/1.1 "open_sanssemibold", "Helvetica Neue", "Helvetica", Arial, sans-serif;
+    font:16px/1.1 "Source Sans Pro", "Helvetica Neue", "Helvetica", Arial, sans-serif;
+    font-weight: 600;
     color:#6f6e6e;
     display:block;
     padding:15px 10px 13px; /*left w/ arrows: 36px;*/
@@ -919,7 +923,8 @@ input.gsc-search-button-v2{
     left:-4px;*/
     background:#6d7468;
     padding:6px 28px 3px;
-    font:15px "open_sansbold", Helvetica, Arial, sans-serif;
+    font:15px "Source Sans Pro", Helvetica, Arial, sans-serif;
+    font-weight: 700;
     color:#fff;
     text-transform:uppercase;
 }
@@ -960,7 +965,8 @@ input.gsc-search-button-v2{
     position:absolute;
     right:34px;
     bottom:11px;
-    font: 11px "open_sansbold", Helvetica, Arial, sans-serif;
+    font: 11px "Source Sans Pro", Helvetica, Arial, sans-serif;
+    font-weight: 700;
     color:#7e7e7e;
     text-transform:uppercase;
 }
@@ -997,7 +1003,8 @@ input.gsc-search-button-v2{
 }
 .general-title h2 {
     float:left;
-    font:25px "open_sansbold", Helvetica, Arial, sans-serif;
+    font:25px "Source Sans Pro", Helvetica, Arial, sans-serif;
+    font-weight: 700;
     color:#040503;
     text-transform:uppercase;
 }
@@ -1008,9 +1015,28 @@ input.gsc-search-button-v2{
 .expandable{margin: 0 auto;width: 1080px;}
 .expandable img{margin: 0 auto !important;display: block;}
 
+/*** Video Portal ***/
+.post-type-archive-video .main, .post-type-archive-video .general, .post-type-archive-video .content-banner-section, .post-type-archive-video #page, .post-type-archive-video .content-banner-section.footer-728{background: black;border: none;}
+#video-portal{background: black;}
+#video-portal .video-portal-title{text-indent: -9999px;height: 0;}
+#video-gallery{padding-top: 30px;}
+#video-gallery, #player{background: black;}
+.thumbs-full{width: 100%;clear: both;margin-bottom: 20px;padding: 0 12px;background: #1c1c1c;}
+#video-thumbs li{display: inline-block;position: relative;margin: 12px 6px;}
+#video-thumbs li img{box-shadow: none;border: 1px solid;border-color:#1c1c1c;}
+#video-thumbs li h3{display: block;color: white;position: absolute;padding:2px;text-align: center;font-size: 0.8em;margin:0;width: 100%;bottom: 0;
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.6);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+}
+#video-thumbs a{height: 100px;cursor: pointer;}
+#video-portal .sidebar .fb-like{margin-right: 20px;}
+
 /*** sportsman channel video widget ***/
 .widget_channel-video-widget{width: 310px;}
-
+.video-sidebar h1{color: white;font-size: 20px;min-height: 60px;}
+.video-sidebar .share-video{margin-bottom: 15px;}
 .video-box {
     margin:0 0 45px;
 }
@@ -1063,7 +1089,8 @@ input.gsc-search-button-v2{
 }
 .see-all {
     float:right;
-    font: 12px "open_sansbold", Helvetica, Arial, sans-serif;
+    font: 12px "Source Sans Pro", Helvetica, Arial, sans-serif;
+    font-weight: 700;
     text-transform:uppercase;
 }
 .see-all:after {
@@ -1089,7 +1116,8 @@ input.gsc-search-button-v2{
 }
 .cat-feat-label {
     display:block;
-    font:13px/1.2 "open_sansbold", Helvetica, Arial, sans-serif;
+    font:13px/1.2 "Source Sans Pro", Helvetica, Arial, sans-serif;
+    font-weight: 700;
     color:#fff;
     text-transform:uppercase;
     max-width: 350px;
@@ -1129,7 +1157,8 @@ a.category-name-link:hover{
 .feat-text h3 {
     color:#040503;
     padding:0;
-    font:24px/1.2em "open_sanssemibold", "Helvetica Neue", "Helvetica", Arial, sans-serif;
+    font:24px/1.2em "Source Sans Pro", "Helvetica Neue", "Helvetica", Arial, sans-serif;
+    font-weight: 600;
     max-width: 360px;
 }
 .article-brief h3 a,
@@ -1137,14 +1166,15 @@ a.category-name-link:hover{
 .article-brief h3 a:hover,
 .feat-text h3 a:hover {color:#afafaf;}
 .feat-tags a {
-    font:16px "open_sansbold", Helvetica, Arial, sans-serif;
+    font:16px "Source Sans Pro", Helvetica, Arial, sans-serif;
+    font-weight: 700;
     display:inline-block;
     vertical-align:top;
 }
 .cat-label-inline {
     display:inline-block;
     vertical-align:top;
-    font:13px "open_sansregular", Helvetica, Arial, sans-serif;
+    font:13px "Source Sans Pro", Helvetica, Arial, sans-serif;
     color:#7e7e7e;
     padding:0 0 0 10px;
     margin:4px 0 0 10px;
@@ -1254,7 +1284,7 @@ a.category-name-link:hover{
 .special-features .home-featured{width: 39.5%;border: none;padding: 23px 2px 0 20px;float: left;text-align: center;}
 .special-features .home-featured:last-child{padding-left: 0;}
 .special-features .home-featured.features{background: #eec432;width: 21%;position: relative;min-height: 68px;padding: 23px 2px 0;}
-.special-features .home-featured.features h3{text-transform: uppercase;font-family: "open_sansbold";}
+.special-features .home-featured.features h3{text-transform: uppercase;font-family: "Source Sans Pro";font-weight: 900;}
 .special-features .feat-text h3{font-size: 18px;}
 .special-features .feat-text h3 a{text-decoration: underline;}
 .special-features .feat-text h3 a:hover{text-decoration: none;color: #040503;}
@@ -1286,8 +1316,8 @@ a.category-name-link:hover{
 
 .inline-post .inline-details {
   margin-top:1.5em;
-
-  font-family: "open_sansbold";
+  font-weight: 700;
+  font-family: "Source Sans Pro";
   font-size: 14px;
     /*overflow: hidden;*/
 
@@ -1300,7 +1330,8 @@ a.category-name-link:hover{
 
 .inline-post h1 {
     margin-top:0.1em;
-    font: 20px/1.0 "open_sansbold", Helvetica, Arial, serif;
+    font: 20px/1.0 "Source Sans Pro", Helvetica, Arial, serif;
+    font-weight: 700;
     margin-bottom:0.3em;
 }
 
@@ -1365,7 +1396,8 @@ a.category-name-link:hover{
     height:26px;
     text-align:center;
     color:#fff;
-    font:12px/20px "open_sansbold", Helvetica, Arial, sans-serif;
+    font:12px/20px "Source Sans Pro", Helvetica, Arial, sans-serif;
+    font-weight: 700;
     background:url(images/sprite.png) no-repeat -134px -36px;
 }
 .article-brief .comment-count:hover, .featured-area .comment-count:hover{
@@ -1460,7 +1492,8 @@ a.category-name-link:hover{
 .social-title {
     float:left;
     padding:18px 16px 0 20px;
-    font:16px "open_sansbold", Helvetica, Arial, sans-serif;
+    font:16px "Source Sans Pro", Helvetica, Arial, sans-serif;
+    font-weight: 700;
     color:#000;
     text-transform:uppercase;
     text-shadow:0 1px 0 #fff;
@@ -1493,7 +1526,8 @@ a.category-name-link:hover{
 }.category .page-header{margin: 0;padding: 0;}
 .page-header h1 {
     float:left;
-    font:45px/1.2 "open_sansbold", Helvetica, Arial, sans-serif;
+    font:45px/1.2 "Source Sans Pro", Helvetica, Arial, sans-serif;
+    font-weight: 700;
     color:#040503;
     text-transform:uppercase;
 }
@@ -1533,7 +1567,8 @@ a.category-name-link:hover{
     border-width:0 0 1px;
     padding:15px 16px;
     margin:0 0 15px;
-    font:11px "open_sansbold", Helvetica, Arial, sans-serif;
+    font:11px "Source Sans Pro", Helvetica, Arial, sans-serif;
+    font-weight: 700;
     color:#7e7e7e;
 }
 .filter-by strong {
@@ -1585,7 +1620,8 @@ a.category-name-link:hover{
     width:120px;
     height:40px;
     text-align:center;
-    font:12px "open_sansbold", Helvetica, Arial, sans-serif;
+    font:12px "Source Sans Pro", Helvetica, Arial, sans-serif;
+    font-weight: 700;
     text-transform:uppercase;
     padding:18px 0 0;
     position:relative;
@@ -1645,7 +1681,8 @@ a.category-name-link:hover{
     position: relative;
 }
 .post-header h1, .page-title.author a{
-    font:40px/1.2 "open_sansbold", Helvetica, Arial, serif;
+    font:40px/1.2 "Source Sans Pro", Helvetica, Arial, serif;
+    font-weight: 700;
     color:#040503;
     margin:0 0 10px;
     clear: both;
@@ -1876,7 +1913,8 @@ a.category-name-link:hover{
 }
 .snap-drawers .menu-top-menu-container a,
 .snap-drawers .mob-aside-menu > div > ul > li > a {
-    font:17px "open_sansbold", Helvetica, Arial, sans-serif;
+    font:17px "Source Sans Pro", Helvetica, Arial, sans-serif;
+    font-weight: 600;
     color:#3c3c3c;
     text-transform:uppercase;
     padding:16px 24px 16px 16px;
@@ -2277,7 +2315,8 @@ a.change-location:before {
     height: auto;
 }
 .widget-title{
-    font:22px "open_sansbold", Helvetica, Arial, sans-serif;
+    font:22px "Source Sans Pro", Helvetica, Arial, sans-serif;
+    font-weight: 700;
     text-transform:uppercase;
     margin:0 0 10px;
 }
@@ -2294,7 +2333,7 @@ a.change-location:before {
     padding:14px 15px 13px;
 }
 .aside-video-tag {
-    font:11px Helvetica, "open_sansregular", Helvetica, Arial, sans-serif;
+    font:11px Helvetica, "Source Sans Pro", Helvetica, Arial, sans-serif;
     color:#7e7e7e;
     margin:0 0 2px;
 }
@@ -2343,7 +2382,8 @@ a.change-location:before {
     height:50px;
     text-align:center;
     color:#fff;
-    font: 22px/52px "open_sansbold", sans-serif;
+    font: 22px/52px "Source Sans Pro", sans-serif;
+    font-weight: 700;
     text-transform:uppercase;
 }
 .signup-mdl {
@@ -2352,7 +2392,8 @@ a.change-location:before {
     border-width:0 0 1px;
 }
 .signup-box .intro-text {
-    font:14px "open_sansbold", Helvetica, Arial, sans-serif;
+    font:14px "Source Sans Pro", Helvetica, Arial, sans-serif;
+    font-weight: 700;
     margin:0;
     padding-bottom: 12px;
 }
@@ -2366,7 +2407,7 @@ a.change-location:before {
 }
 
 .signup-box input[type="text"]{
-    font:italic 13px/16px "open_sansregular", Helvetica, Arial, sans-serif !important;
+    font:italic 13px/16px "Source Sans Pro", Helvetica, Arial, sans-serif !important;
     color:#3c3c3c;
     width:100% !important;
     padding:7px 9px 5px !important;
@@ -2381,7 +2422,8 @@ a.change-location:before {
 .signup-box .check-row label {
     display:inline-block;
     vertical-align:top;
-    font:12px/1.1 "open_sansbold", Helvetica, Arial, sans-serif;
+    font:12px/1.1 "Source Sans Pro", Helvetica, Arial, sans-serif;
+    font-weight: 700;
     color:#7e7e7e;
     width:242px;
     padding:2px 0 0 6px;
@@ -2426,7 +2468,7 @@ a.change-location:before {
 .recipes-box h3 a {color:#040503;}
 .recipes-box h3 a:hover {color:#c6262d;}
 .recipes-box .comment-count {
-    font:12px Helvetica, "open_sansregular", Helvetica, Arial, sans-serif;
+    font:12px Helvetica, "Source Sans Pro", Helvetica, Arial, sans-serif;
     color:#7e7e7e;
 }
 .recipes-box {
@@ -2494,13 +2536,15 @@ margin-bottom:15px;
 }
 
 .sidebar-widget-featured-thumbs li.sidebar-featured p {
-	font: 14px "open_sansbold", "Helvetica", sans-serif;
+	font: 16px "Source Sans Pro", "Helvetica", sans-serif;
+	font-weight: 700;
     color:black;
 }
 .sidebar-widget-featured li.sidebar-featured{margin-bottom: 10px;}
 .sidebar-widget-featured li.sidebar-featured div.feat-post{position: relative;overflow: hidden;}
 .sidebar-widget-featured li.sidebar-featured div.feat-post .feat-text {
-	font: 20px/1.3 "open_sansbold", "Helvetica", sans-serif;
+	font: 20px/1.3 "Source Sans Pro", "Helvetica", sans-serif;
+	font-weight: 700;
     border:none;
     min-height: 80px;
 	position: absolute;
@@ -2536,7 +2580,8 @@ margin-bottom:15px;
 }
 
 .sidebar-widget-featured-thumbs li.footer-featured p {
-  font: 14px "open_sansbold", "Helvetica", sans-serif;
+  	font: 14px "Source Sans Pro", "Helvetica", sans-serif;
+  	font-weight: 700;
     color:black;
 }
 .sidebar-widget-featured li.footer-featured{margin-bottom: 10px;}
@@ -2544,7 +2589,8 @@ margin-bottom:15px;
 .sidebar-widget-featured li.footer-featured div.feat-post{position: relative;overflow: hidden;}
 
 .sidebar-widget-featured li.footer-featured div.feat-post .footer-feat-text {
-  font: 14px/1.2 "open_sansbold", "Helvetica", sans-serif;
+	font: 14px/1.2 "Source Sans Pro", "Helvetica", sans-serif;
+	font-weight: 700;
     border:none;
     height: 50px;
     margin-top:10px;
@@ -2644,7 +2690,7 @@ margin-bottom:15px;
 	padding: 6px 0;
 	color: white;
 }
-.subscribe-form-block h4{float: left;font: 18px/1.2 "open_sansbold", Helvetica, Arial, sans-serif;width: 140px;text-align: center;}
+.subscribe-form-block h4{float: left;font: 18px/1.2 "Source Sans Pro", Helvetica, Arial, sans-serif;width: 140px;text-align: center;font-weight: 700;}
 .widget_subscribe-form{
 	background: white;
 	padding: 10px;
@@ -2692,7 +2738,7 @@ margin-bottom:15px;
 .widget_subscribe-form input{width: 150px;}
 .widget_subscribe-form .zipCode{width: 44px;float: right;}
 .widget_subscribe-form select{width: 100px;float: left;margin-right: 6px;}
-.widget_subscribe-form .mag-copy{font:14px/1.2 "open_sansbold", Helvetica, Arial, sans-serif;padding: 4px 2px;text-align: center;}
+.widget_subscribe-form .mag-copy{font:14px/1.2 "Source Sans Pro", Helvetica, Arial, sans-serif;padding: 4px 2px;text-align: center;font-weight: 700;}
 
 /*** TEMP GIFT GUIDE OVERRIDES ***/
 #gift-guide .widget-title span{
@@ -3093,7 +3139,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 
 
 /*** subscribe fixed ***/
-.fixed-connect{width:100%;height:42px;position:fixed;bottom:0;background:#545454;color:#fff;font-family:"open_sansbold","Helvetica",Arial,sans-serif;opacity:.99;z-index:999999999999999;}
+.fixed-connect{width:100%;height:42px;position:fixed;bottom:0;background:#545454;color:#fff;font-family:"Source Sans Pro","Helvetica",Arial,sans-serif;font-weight: 700;opacity:.99;z-index:999999999999999;}
 .fixed-connect .container{max-width:1060px;margin:0 auto;padding:0 20px 0 20px;}
 .fixed-connect a{color:#fff;text-decoration:none;}
 .fixed-connect .currentIssue{width:100px;height:83px;float:left;margin:-54px 0 0 0;}
@@ -3206,7 +3252,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 }
 .foot-nav {
     float:left;
-    font: 12px "open_sansbold", Helvetica, Arial, sans-serif;
+    font: 12px "Source Sans Pro", Helvetica, Arial, sans-serif;
+    font-weight: 700;
 }
 .foot-nav li {
     float:left;
@@ -3228,7 +3275,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 }
 .copyright {
     float:left;
-    font:12px "open_sanssemibold", Helvetica, Arial, sans-serif;
+    font:12px "Source Sans Pro", Helvetica, Arial, sans-serif;
+    font-weight: 600;
 }
 .copyright img {
     display:inline-block;
@@ -3657,7 +3705,6 @@ table.likes-leaderboard .entry-title {
 	.fixed-connect .follow{display: none;}
 
 }
-
 @media only screen and (max-width: 936px) {
 	.full-post .cat-feat-label, .sponsor img{float: none;margin-top: 0;}
     .social-title {
@@ -3728,7 +3775,7 @@ table.likes-leaderboard .entry-title {
 	.home-featured .feat-text, .posts-list .article-holder{min-height: 0;}
 
 	.double-posts .cat-feat-label {
-	    font:10px/1.2 "open_sansbold", Helvetica, Arial, sans-serif;
+	    font:10px/1.2 "Source Sans Pro", Helvetica, Arial, sans-serif;font-weight: 700;
 	}
 	.general-frame {
         width:auto;
