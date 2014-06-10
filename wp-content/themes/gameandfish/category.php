@@ -1,6 +1,7 @@
 <?php
 $cat = get_category( get_query_var( 'cat' ) );
 $cat_slug = $cat->slug;
+$cat_name = $cat->cat_name;
 if($cat_slug == "pike-muskie"){
 	$cat_slug = "pike_amp_muskie";
 }
@@ -20,6 +21,11 @@ $playerID = get_option('playerID_'.$categoryID, false);
 $playerKey = get_option('playerKey_'.$categoryID, false);
 $network_video_title = get_option('network_video_title_'.$categoryID, false);
 
+$queried_object = get_queried_object(); 
+$taxonomy = $queried_object->taxonomy;
+$term_id = $queried_object->term_id;  
+$features = get_field('featured_category_posts', $taxonomy . '_' . $term_id);
+
 get_header();
 if ($post_type == reader_photos) {
     get_template_part( 'nav', get_post_format() );
@@ -30,12 +36,36 @@ if ($post_type == reader_photos) {
 
 
 ?>
-	
         <div id="primary" class="general">
             <div id="content" role="main" class="general-frame">
 
+				<?php if( $features ){ ?>
+					<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="featured-area clearfix js-responsive-section">
+			            <div class="clearfix">
+			                <ul>
+								<?php foreach( $features as $feature ): 
+							    	$title = $feature->post_title;
+							    	$url = $feature->guid;
+							    	$tracking = "_gaq.push(['_trackEvent','Special Features $cat_name','$title','$url']);";
+									$thumb = get_the_post_thumbnail($feature->ID,"list-thumb"); ?>
+							    	<li class='home-featured'>
+							            <div class='feat-post'>
+							                <div class='feat-img'><a href='<?php echo $url; ?>' onclick='<?php echo $tracking ?>'><?php echo $thumb; ?></a></div>
+							                <div class='feat-text'>
+							                	<div class='clearfix'>
+							                    	<h3><a href='<?php echo $url; ?>' onclick='<?php echo $tracking; ?>'><?php echo $title ?></a></h3>
+							                	</div>
+							            </div>
+							            <div class='feat-sep'><div></div></div>
+							        </li>
+				                <?php endforeach; ?>
+			               	</ul>
+			            </div>
+			        </div>
 
-                <?php if ( have_posts() ) : ?>
+					<?php }
+
+                   if ( have_posts() ) : ?>
 
                     <?php if ($post_type == reader_photos) : ?>
                         <?php get_template_part( 'content/content-category-reader_photos', get_post_format() ); ?>

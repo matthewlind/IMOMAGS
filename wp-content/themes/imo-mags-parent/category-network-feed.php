@@ -25,7 +25,12 @@ $categoryID = get_query_var('cat');
 
 $this_category = get_category($cat);
 $categorySlug =  $this_category->category_nicename;
+$cat_name = $this_category->cat_name;
 
+$queried_object = get_queried_object(); 
+$taxonomy = $queried_object->taxonomy;
+$term_id = $queried_object->term_id;  
+$features = get_field('featured_category_posts', $taxonomy . '_' . $term_id);
 
 $useNetworkFeed = get_option('use_network_feed_'.$categoryID, false);
 $fullWidthImage = get_option('full_width_image_'.$categoryID, false);
@@ -73,16 +78,30 @@ imo_sidebar(); ?>
 
 		</div><!-- .page-header -->
 		
-		<?php if( $post_set_id ){ ?>
+		<?php if( $features ){ ?>
 		<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="featured-area clearfix js-responsive-section">
             <div class="clearfix">
                 <ul>
-               	 	<?php if( function_exists('showFeaturedList') ){  echo showFeaturedPosts(array('set_id' => $post_set_id)); } ?>
+					<?php foreach( $features as $feature ): 
+						$title = $feature->post_title;
+               	 		$url = $feature->guid;
+						$thumb = get_the_post_thumbnail($feature->ID, "list-thumb");
+						$tracking = "_gaq.push(['_trackEvent','Special Features '" . $this_category->name . "','$title','$url']);"; ?>
+                   	 	<li class="home-featured">
+                            <div class="feat-post">
+                                <div class="feat-img"><a href="<?php echo $url; ?>" onclick="<?php echo $tracking; ?>"><?php echo $thumb; ?></a></div>
+                                <div class="feat-text">
+                                	<div class="clearfix">
+                                    	<h3><a href="<?php echo $url; ?>" onclick="<?php echo $tracking; ?>"><?php echo $title; ?></a></h3>
+                                	</div>
+                                </div>
+                                <div class="feat-sep"><div></div></div>
+                            </div>
+                         </li>					
+                    <?php endforeach; ?>
                	</ul>
             </div>
-      
         </div>
-
 		<?php } 
 		
 		if( $playerID && $playerKey ){ ?>

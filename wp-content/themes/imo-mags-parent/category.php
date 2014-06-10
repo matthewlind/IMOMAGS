@@ -1,17 +1,23 @@
 <?php
 $cat = get_category( get_query_var( 'cat' ) );
 $cat_slug = $cat->slug;
+$cat_name = $cat->cat_name;
 if($cat_slug == "pike-muskie"){
 	$cat_slug = "pike_amp_muskie";
 }
 if($cat_slug == "trout-salmon"){
 	$cat_slug = "trout_amp_salmon";
 }
-
+$featuredCatID = $cat->id;
 $dataPos = 0;
 
 $categoryID = get_query_var('cat');
 
+$queried_object = get_queried_object(); 
+$taxonomy = $queried_object->taxonomy;
+$term_id = $queried_object->term_id;  
+$features = get_field('featured_category_posts', $taxonomy . '_' . $term_id);
+ 
 $fullWidthImage = get_option('full_width_image_'.$categoryID, false);
 $post_set_id = get_option('post_set_id_'.$categoryID, false);
 $playerID = get_option('playerID_'.$categoryID, false);
@@ -48,29 +54,32 @@ get_header(); ?>
                         <?php } } ?>
 					</div>
 
-                    
-                    <!--<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="filter-by jq-filter-by js-responsive-section">
-                        <strong>filter by:</strong>
-                        <ul class="filter-links">
-                            <li><a href="#">Latest</a></li>
-                            <li><a href="#">Most Viewed</a></li>
-                            <li><a href="#">Most Discussed</a></li>
-                            <li><a href="#">Most Shared</a></li>
-                        </ul>
-                    </div>-->
-                    <?php if( $post_set_id ){ ?>
-					<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="featured-area clearfix js-responsive-section">
+                    <?php if( $features ){ ?>
+                    <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="featured-area clearfix js-responsive-section">
 			            <div class="clearfix">
 			                <ul>
-			               	 	<?php if( function_exists('showFeaturedList') ){  echo showFeaturedPosts(array('set_id' => $post_set_id)); } ?>
-			               	</ul>
-			            </div>
+       		                    <?php foreach( $features as $feature ): 
+							    	$title = $feature->post_title;
+							    	$url = $feature->guid;
+							    	$tracking = "_gaq.push(['_trackEvent','Special Features $cat_name','$title','$url']);";
+									$thumb = get_the_post_thumbnail($feature->ID,"list-thumb"); ?>
+							    	<li class='home-featured'>
+							            <div class='feat-post'>
+							                <div class='feat-img'><a href='<?php echo $url; ?>' onclick='<?php echo $tracking ?>'><?php echo $thumb; ?></a></div>
+							                <div class='feat-text'>
+							                	<div class='clearfix'>
+							                    	<h3><a href='<?php echo $url; ?>' onclick='<?php echo $tracking; ?>'><?php echo $title ?></a></h3>
+							                	</div>
+							            </div>
+							            <div class='feat-sep'><div></div></div>
+							        </li>
+				                <?php endforeach; ?>
+				           </ul>
+				    </div>
+				</div>
+				<?php }
 
-			        </div>
-
-					<?php }
-
-                    if( $playerID && $playerKey ){ ?>
+                if( $playerID && $playerKey ){ ?>
 						<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section">
 							<div class="general-title clearfix">
 				                <h2><?php echo $network_video_title; ?></h2>

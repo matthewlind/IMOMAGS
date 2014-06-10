@@ -1,16 +1,30 @@
 <?php
-get_header(); ?>
+get_header();
+$features = get_field('article_featured_stories','options' ); ?>
 <div class="special-features">
 	<ul>
 		<li class="home-featured features">
 			<div class="arrow-right"></div>
 			<div class="feat-post">
 	        	<div class="feat-text">
-	        		<h3>Special Features</h3>
+	        		<h3><?php echo get_field('featured_title','options' ); ?></h3>
 	            </div>
 	        </div>
 		</li>
-		<?php if( function_exists('showFeaturedList')){ echo showFeaturedPosts(array('set_id' => 2)); } ?>
+		<?php if( $features ):
+		foreach( $features as $feature ): ?>
+		<li class="home-featured">
+            <div class="feat-post">
+                <div class="feat-text">
+                	<div class="clearfix">
+                    	<h3><a href="<?php echo $feature->guid; ?>"><?php echo $feature->post_title; ?></a></h3>
+                	</div>
+            </div>
+            <div class="feat-sep"><div></div></div>
+        </div>
+      </li>
+      <?php endforeach;
+      endif; ?>
 	</ul>
 </div>
     <div class="inner-main">

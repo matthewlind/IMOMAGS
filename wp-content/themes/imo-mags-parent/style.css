@@ -1251,7 +1251,7 @@ a.category-name-link:hover{
 .home-featured{
 	display: inline-block;
 	vertical-align: top;
-	width: 50%;
+	width: 49%;
 	padding: 30px 0 0 30px;
 	border-top: 1px solid #d8d7d6;
 }
@@ -2400,12 +2400,10 @@ a.change-location:before {
 .signup-box .f-row {
     padding:0 0 14px;
 }
-
 .login-form-facebook {
     margin-left:200px;
     margin-bottom:10px;
 }
-
 .signup-box input[type="text"]{
     font:italic 13px/16px "Source Sans Pro", Helvetica, Arial, sans-serif !important;
     color:#3c3c3c;
@@ -3474,7 +3472,7 @@ table.likes-leaderboard .entry-title {
     .main {padding:0 20px 20px;}
     .home-featured{
         padding:20px 0 0 20px;
-        width:50%;
+        width:49%;
     }
     .home-featured:nth-child(odd){padding: 20px 20px 0 0;}
     .general {
@@ -3753,7 +3751,7 @@ table.likes-leaderboard .entry-title {
         margin-left:0px;
         margin-bottom:10px;
     }
-    .banner-box {width: 300px;margin: 0 auto 20px;;display: block;}
+    .banner-box {width: 300px;margin: 0 auto 20px;display: block;}
 	.fb-box {width: 300px;margin: 0 auto;display: block;}
 }
 
@@ -4149,7 +4147,7 @@ table.likes-leaderboard .entry-title {
 		position: relative;
 		height: 32px;
 	}
-	.home-featured{border-bottom: none;display: inline-block;width: 50%;padding-left: 15px;}
+	.home-featured{border-bottom: none;display: inline-block;width: 49%;padding-left: 15px;}
 	.home-featured:nth-child(odd), .home-featured:first-child {border-bottom: none;border-right: none;padding-right: 15px;}
 	.special-features .home-featured, .special-features .home-featured.features{width: 100%;float: none;padding: 0;min-height: 0;}
 	.special-features .home-featured.features .feat-text{padding: 6px 0;}
