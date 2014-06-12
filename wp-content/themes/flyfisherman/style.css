@@ -75,6 +75,67 @@ a.category-name-link:hover{background: #2f7bb2;color: white;}
 .paging-posts .flex-direction-nav .flex-next {background-position:-107px 0 !important;}
 .paging-posts .flex-direction-nav .flex-next:hover {background-position:-189px 0 !important;}
 
+
+/* Community - Reader Photos */
+.main{border-top: none;}
+#community-wrap{background:#1c1c1c;padding: 0 30px;overflow: hidden;}
+#community-wrap .general-frame{width: auto;}
+#community-wrap .posts-list {margin: 30px 0 16px;border-top: none;}
+.community-header .btn-default{width: 236px;margin: 14px 10px 0;}
+.community-header .dropdown-menu{top: -14px;width: 100%;margin: 0;}
+.post-type-archive-reader_photos .general{border: none;width: 647px;}
+.post-type-archive-reader_photos .sidebar-area .singl-post-photo{margin-bottom: 20px;background: #3b3b3b;}
+.post-type-archive-reader_photos .posts-list span{font-style: normal;}
+.post-type-archive-reader_photos .btn-default.mobile{margin: 10px auto;display: block;width: 95%;}
+.share-photo-now{
+	padding: 14px 0 6px;
+	width: 100%;
+	border: 4px solid #f9cc39;
+	text-align: center;
+}
+.share-container .wpsocialite{display: inline-block !important;}
+.share-container .wpsocialite iframe{top: 12px;}
+.share-photo-now .share-container{margin: 0 auto;display: block;}
+.share-photo-now .share-container h2{display: inline-block;margin: 0;padding:0;font-size: 20px;}
+.share-photo-now .share-container .fb-share-button{display: inline-block;line-height: 17px;margin-left: 10px;}
+.single-reader_photos .fb-like{height: auto;overflow: visible;}
+.single-reader_photos .post-header h1{margin: 0;}
+.share-photo-now .share-container p{margin: 2px 0 6px;}
+.single-reader_photos .post-date, .single-reader_photos .post-header .wpsocialite.small{display: inline-block !important;}
+.single-reader_photos .post-header .wpsocialite.small iframe{top: 10px;}
+.single-reader_photos .post-header .wpsocialite.small .socialite{height: auto !important;}
+.post-type-archive-reader_photos .dif-post h3{margin-bottom: 2px;}
+.post-type-archive-reader_photos .replies a:after{background: none;border-radius: none;}
+.photos-title{float: left;color: white;padding: 0 30px;text-align: left;}
+.community-pager{
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.community-pager .more {
+	margin:auto;
+}
+
+/***Community header ***/
+.community-header{background: #1c1c1c;border-bottom: 4px solid #f9cc39;overflow: hidden;}
+.community-header .header-section{
+	display: inline-block;
+	background: #1c1c1c;
+	padding: 18px 18px 18px 0;
+	border-left: 1px solid #3b3b3b;
+	vertical-align: middle;
+	position: relative;
+}
+.community-header .header-section:first-child{border: none;width: 253px;padding: 0;}
+.community-header img{vertical-align: 12px;width: 200px;margin: 0 auto;display: block;}
+.community-header .header-section h3 a{padding-left: 16px;color: white;}
+.community-header .header-section h3 a:hover{color: #acacac;}
+
+.community-header ul.sub-list{display: inline-block;padding-left: 16px;vertical-align: text-top;}
+.community-header ul  li a{font-size: 14px;color: #acacac;}
+.community-header ul li a:hover{color: white;}
+.community-mobile-menu{display: none;}
+
 /***** Photos Page ******/
 #photoTopControls{
 		text-align: right;
@@ -338,6 +399,10 @@ a.category-name-link:hover{background: #2f7bb2;color: white;}
 
 
 /***** END Photos Page ******/
+
+.gform_button {
+padding: 10px;
+}
 
 /* =Responsive Breakpoints
 *******************************************************************************/

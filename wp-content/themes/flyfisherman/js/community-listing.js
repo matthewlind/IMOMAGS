@@ -51,6 +51,54 @@
 
 jQuery( document ).ready(function( $ ) {
 
+
+
+	/*** Community menu ***/
+	//jQuery(function($) {
+
+		//replace category links from WP menu with community link urls
+		jQuery("#menu-photos-community-menu li a, #menu-flies-community-menu li a").each(function() {
+			var href = jQuery(this).attr('href');
+			var site = document.domain;
+			href = href.replace(site, "");
+			href = href.replace("http://", "");
+			jQuery(this).attr('href', '/photos/fish-photos' + href);
+		});
+
+		//layout in columns
+		if(jQuery(window).width() > 610){
+		    var num_cols = 3,
+		    container = jQuery('.community-header ul.menu'),
+		    listItem = 'li',
+		    listClass = 'sub-list';
+		    container.each(function() {
+		        var items_per_col = new Array(),
+		        items = jQuery(this).find(listItem),
+		        min_items_per_col = Math.floor(items.length / num_cols),
+		        difference = items.length - (min_items_per_col * num_cols);
+		        for (var i = 0; i < num_cols; i++) {
+		            if (i < difference) {
+		                items_per_col[i] = min_items_per_col + 1;
+		            } else {
+		                items_per_col[i] = min_items_per_col;
+		            }
+		        }
+		        for (var i = 0; i < num_cols; i++) {
+		            jQuery(this).append(jQuery('<ul ></ul>').addClass(listClass));
+		            for (var j = 0; j < items_per_col[i]; j++) {
+		                var pointer = 0;
+		                for (var k = 0; k < i; k++) {
+		                    pointer += items_per_col[k];
+		                }
+		                jQuery(this).find('.' + listClass).last().append(items[j + pointer]);
+		            }
+		        }
+		    });
+		    jQuery(".community-header").show().css("overflow","visible");
+		}
+	//});
+
+
 	var PhotosGallery = (function(){
 		var $   = jQuery,
 		Private = {
@@ -233,7 +281,7 @@ jQuery( document ).ready(function( $ ) {
 				var self = this,
 					args = {
 						post_type	   : 'reader_photos',
-						domain		   : 'www.flyfisherman.deva',
+						domain		   : 'www.flyfisherman.com',
 						thumbnail_size : 'community-square-retina',
 						term           : self.term,
 					 	skip           : self.skip,
@@ -259,11 +307,28 @@ jQuery( document ).ready(function( $ ) {
 
 			},
 			templateSlide : function(v){
+
+				//alert(window.location.host);
+
+				if (window.location.host != "www.flyfisherman.com") {
+
+					v.img_url = v.img_url.replace("www.flyfisherman.com",window.location.host);
+				};
+
+
 				return '<li slide-count="' + v.slide_count + '">\
 					<img src="' + v.img_url + '" />\
 				</li>';
 			},
 			templateThumbs : function(v){
+
+
+				if (window.location.host != "www.flyfisherman.com") {
+
+					v.thumb = v.thumb.replace("www.flyfisherman.com",window.location.host);
+				};
+
+
 				return '<li>\
 					<img src="' + v.thumb + '" />\
 				</li>';
@@ -272,12 +337,7 @@ jQuery( document ).ready(function( $ ) {
 				return '<div class="fb-like" data-href="' + v.post_url + '" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>';
 			},
 			templateBottomContent : function(v){
-				return '<p class="photoGalleryDescription">' + v.post_content + '</p>\
-				<p class="photoGalleryExtras">\
-					Taken At: <span>' + v.camera_corner_taken + '</span><br/>\
-					Taken On: <span>' + v.camera_corner_when + '</span><br/>\
-					With: <span>' + v.camera_corner_who + '</span><br/>\
-				</p>';
+				return '<p class="photoGalleryDescription">' + v.post_content + '</p>';
 			},
 			loadSlider : function(){
 				var self = this;
@@ -534,7 +594,7 @@ jQuery( document ).ready(function( $ ) {
 					url    = 'http://www.flyfisherman.deva/wpdb/network-feed-cached.php',
 					args   = {
 						post_type	   : 'reader_photos',
-						domain		   : 'www.flyfisherman.deva',
+						domain		   : 'www.flyfisherman.com',
 						thumbnail_size : 'community-square-retina',
 						//term           : self.term,
 						count		   : 9999999,

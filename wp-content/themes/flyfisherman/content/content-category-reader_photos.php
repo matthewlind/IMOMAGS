@@ -3,20 +3,27 @@
 $category2 = get_category_by_slug( get_query_var( "category_name_2" ) );
 $category3 = get_category_by_slug( get_query_var( "category_name_3" ) );
 
+$catSlug2 = get_query_var( "category_name_2" );
+$catSlug3 = get_query_var( "category_name_3" );
+
 $categoryID1 = get_query_var('cat');
 $categoryID2 = $category2->term_id;
 $categoryID3 = $category3->term_id;
+
+$cat = get_query_var('cat');
+$category = get_category ($cat);
+$catSlug = $category->slug;
 
 $termArray = array_filter( Array($categoryID1,$categoryID2,$categoryID3) );
 //print_r( Array($categoryID1,$categoryID2,$categoryID3) );
 
 
-echo "CAT: $categoryID1  $categoryID2  $categoryID3";
+//echo "CAT 1: $catSlug 2: $catSlug2 3: $catSlug3";
 
 
 ?>
 <div class='community-posts' style="background:#000;">
-    <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section main-content-preppend" slug="<?php echo $catSlug; ?>">
+    <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section main-content-preppend" slug="<?php echo $catSlug; ?>" secondary-slug="<?php echo $catSlug2; ?>">
 
     <?php if( mobile() ):?>
 		<!-- <div id="state-menu-bar" class="btn-group btn-bar">

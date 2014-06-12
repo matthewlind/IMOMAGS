@@ -3,7 +3,7 @@ get_header(); ?>
 
 <div class="inner-main">
 
-    <?php //get_template_part( 'nav', get_post_format() ); ?>
+    <?php get_template_part( 'nav', get_post_format() ); ?>
 	<?php imo_sidebar(); ?>
 	<div id="primary" class="general">
         <div id="content" class="general-frame" role="main">

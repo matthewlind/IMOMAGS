@@ -3,11 +3,9 @@
 $dataPos = 0;
 
 get_header();
-
+get_template_part( 'nav', get_post_format() );
 
 ?>
-
-<h1>TEMPLATE</h1>
 
 
 <div id="community-wrap">
@@ -21,6 +19,6 @@ get_header();
             <?php endif; ?>
         </div><!-- #content -->
     </div><!-- #primary -->
-    <?php //imo_community_sidebar(); ?>
+    <?php imo_community_sidebar(); ?>
 </div><!-- #community-wrap -->
 <?php get_footer(); ?>
