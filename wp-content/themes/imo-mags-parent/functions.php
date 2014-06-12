@@ -21,6 +21,7 @@ $subs_link = get_option("subs_link");
 add_filter('wp_mail_from', 'new_mail_from');
 add_filter('wp_mail_from_name', 'new_mail_from_name');
  
+ 
 function new_mail_from($old) {
 	$url = home_url();
 	$url = str_replace("http://www.", "", $url);
