@@ -734,6 +734,263 @@ function imo_parent_theme_init() {
 
 }
 
+//Featured ACF
+if(function_exists("register_field_group"))
+{
+	register_field_group(array (
+		'id' => 'acf_category-options',
+		'title' => 'Category Options',
+		'fields' => array (
+			array (
+				'key' => 'field_5395f9a91cb2a',
+				'label' => 'Featured Category Posts',
+				'name' => 'featured_category_posts',
+				'type' => 'relationship',
+				'return_format' => 'object',
+				'post_type' => array (
+					0 => 'post',
+				),
+				'taxonomy' => array (
+					0 => 'all',
+				),
+				'filters' => array (
+					0 => 'search',
+				),
+				'result_elements' => array (
+					0 => 'featured_image',
+					1 => 'post_type',
+					2 => 'post_title',
+				),
+				'max' => '',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'ef_taxonomy',
+					'operator' => '==',
+					'value' => 'category',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+	register_field_group(array (
+		'id' => 'acf_post-options',
+		'title' => 'Post Options',
+		'fields' => array (
+			array (
+				'key' => 'field_5395f6d8ea787',
+				'label' => 'Promo Title',
+				'name' => 'promo_title',
+				'type' => 'text',
+				'instructions' => 'Rewrite the title to be shorter or more catchy for when the story appears around the site.',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'post',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'acf_after_title',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+	register_field_group(array (
+		'id' => 'acf_article-options',
+		'title' => 'Article Options',
+		'fields' => array (
+			array (
+				'key' => 'field_5396107ccddd5',
+				'label' => 'Featured Title',
+				'name' => 'featured_title',
+				'type' => 'text',
+				'instructions' => 'Choose the title of this featured area',
+				'default_value' => 'Special Features',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_53960ffccddd4',
+				'label' => 'Article Featured Stories',
+				'name' => 'article_featured_stories',
+				'type' => 'relationship',
+				'instructions' => 'Choose 2 stories that appear above every post ',
+				'return_format' => 'object',
+				'post_type' => array (
+					0 => 'post',
+				),
+				'taxonomy' => array (
+					0 => 'all',
+				),
+				'filters' => array (
+					0 => 'search',
+				),
+				'result_elements' => array (
+					0 => 'featured_image',
+					1 => 'post_type',
+					2 => 'post_title',
+				),
+				'max' => 2,
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'options_page',
+					'operator' => '==',
+					'value' => 'acf-options',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 30,
+	));
+	register_field_group(array (
+		'id' => 'acf_homepage-options',
+		'title' => 'Homepage Options',
+		'fields' => array (
+			array (
+				'key' => 'field_5395f79a968de',
+				'label' => 'Homepage Featured Stories',
+				'name' => 'homepage_featured_stories',
+				'type' => 'relationship',
+				'return_format' => 'object',
+				'post_type' => array (
+					0 => 'post',
+				),
+				'taxonomy' => array (
+					0 => 'all',
+				),
+				'filters' => array (
+					0 => 'search',
+				),
+				'result_elements' => array (
+					0 => 'featured_image',
+					1 => 'post_type',
+					2 => 'post_title',
+				),
+				'max' => 6,
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'options_page',
+					'operator' => '==',
+					'value' => 'acf-options',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 31,
+	));
+
+	register_field_group(array (
+		'id' => 'acf_special-features-override',
+		'title' => 'Special Features Override',
+		'fields' => array (
+			array (
+				'key' => 'field_5398ab4434b57',
+				'label' => 'Featured Stories',
+				'name' => 'featured_stories',
+				'type' => 'relationship',
+				'instructions' => 'Choose TWO stories to feature about the story for this article only (will override the global article featured).',
+				'return_format' => 'object',
+				'post_type' => array (
+					0 => 'all',
+				),
+				'taxonomy' => array (
+					0 => 'all',
+				),
+				'filters' => array (
+					0 => 'search',
+					1 => 'post_type',
+				),
+				'result_elements' => array (
+					0 => 'featured_image',
+					1 => 'post_type',
+					2 => 'post_title',
+				),
+				'max' => 2,
+			),
+			array (
+				'key' => 'field_5398ab9de2816',
+				'label' => 'Featured Stories Title',
+				'name' => 'featured_stories_title',
+				'type' => 'text',
+				'instructions' => 'Choose a special callout for these stories, or leave it alone and it will use the global title.',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'post',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+}
+
+
 
 //SHORTCODES
 
