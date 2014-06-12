@@ -1,12 +1,12 @@
 /**
  * jQuery Plugin to obtain touch gestures from iPhone, iPod Touch and iPad, should also work with Android mobile phones (not tested yet!)
  * Common usage: wipe images (left and right to show the previous or next image)
- * 
+ *
  * @author Andreas Waltl, netCU Internetagentur (http://www.netcu.de)
  * @version 1.1.1 (9th December 2010) - fix bug (older IE's had problems)
  * @version 1.1 (1st September 2010) - support wipe up and wipe down
  * @version 1.0 (15th July 2010)
- * 
+ *
  * Used to replace Flexslider left and right swipe events
  */
 ;(function($){$.fn.touchwipe=function(settings){var config={min_move_x:20,min_move_y:20,wipeLeft:function(){},wipeRight:function(){},wipeUp:function(){},wipeDown:function(){},preventDefaultEvents:true};if(settings)$.extend(config,settings);this.each(function(){var startX;var startY;var isMoving=false;function cancelTouch(){this.removeEventListener('touchmove',onTouchMove);startX=null;isMoving=false}function onTouchMove(e){if(config.preventDefaultEvents){e.preventDefault()}if(isMoving){var x=e.touches[0].pageX;var y=e.touches[0].pageY;var dx=startX-x;var dy=startY-y;if(Math.abs(dx)>=config.min_move_x){cancelTouch();if(dx>0){config.wipeLeft()}else{config.wipeRight()}}else if(Math.abs(dy)>=config.min_move_y){cancelTouch();if(dy>0){config.wipeDown()}else{config.wipeUp()}}}}function onTouchStart(e){if(e.touches.length==1){startX=e.touches[0].pageX;startY=e.touches[0].pageY;isMoving=true;this.addEventListener('touchmove',onTouchMove,false)}}if('ontouchstart'in document.documentElement){this.addEventListener('touchstart',onTouchStart,false)}});return this}})(jQuery);
@@ -53,28 +53,28 @@ var PhotosGallery = (function(){
 	Private = {
 		init: function(state){
 			var self = this;
-			
+
 			if(state){
 				//Set state
 				self.state = state;
-				
+
 				if(state == 'all'){
 					$('.state-header').html('');
 				}
-				
+
 				// Change State Name in header
 				if(typeof(self.state) == 'object'){
 					$('.state-header').html('');
 				}else{
 					$('.state-header').html( PhotoStateMenuBuild.getStateByCode(self.state) );
 				}
-				
+
 				// Clear Containers
 				self.refreshSlider();
-				
+
 				// Get Posts
 				self.getPosts();
-				
+
 				if(	self.isMobile() && !self.isIpad() ){
 					//Take to top of page
 					window.scrollTo(0,170);
@@ -84,20 +84,20 @@ var PhotosGallery = (function(){
 						$('#state-list-menu').hide();
 						$('#state-menu-bar').removeClass('isOpen');
 					}
-					
+
 					//Take to top of page
 					window.scrollTo(0,402);
 				}
-				
+
 				//Close Menu
 				return false;
 			}
-			
+
 			//hide Thumb container in mobile and not iPad
 			if( self.isMobile() && !self.isIpad() ){
 				$('#photoSliderThumbsContainer').hide();
 			}
-			
+
 			self.refreshSlider();
 			self.getPosts();
 		},
@@ -148,16 +148,16 @@ var PhotosGallery = (function(){
 				$('#photoSlider').flexslider('destroy');
 				$('#photoSlider').remove();
 				$('#photoSliderContainer').html('<div id="photoSlider" class="flexslider"><ul class="slides"></ul></div>');
-				
+
 				$('#photoSliderThumbs').flexslider('destroy');
 				$('#photoSliderThumbs').remove();
 				$('#photoSliderThumbsContainer').html('<div class="sliderPrev"></div><div id="photoSliderThumbs" class="flexslider"><ul class="slides"></ul></div><div class="sliderNext"></div>');
-	
+
 			}
-						
-			$('#photoSliderThumbs').width( $('#photoSliderThumbsContainer').width()-80 );	
+
+			$('#photoSliderThumbs').width( $('#photoSliderThumbsContainer').width()-80 );
 			window.onresize = function(event) {
-				$('#photoSliderThumbs').width( $('#photoSliderThumbsContainer').width()-80 );	
+				$('#photoSliderThumbs').width( $('#photoSliderThumbsContainer').width()-80 );
 			};
 		},
 		removeSlider : function(element){
@@ -175,19 +175,19 @@ var PhotosGallery = (function(){
 			// Get Count
 			$.getJSON(self.url, args, function(data){
 				var count = (parseInt(data[0].count) > 0) ? parseInt(data[0].count) : 0;
-				
+
 				if(count > 0){
 					self.totalCount = count;
 				}
-				
+
 				callback(self.totalCount);
 			});
 		},
 		getPostData: function(args, count){
 			var self = this;
-			
+
 			args.skip = (self.requestCount * self.count);
-			
+
 			// Total count for state
 			if (typeof(self.state) == 'string'){
 				args.count = count;
@@ -203,24 +203,24 @@ var PhotosGallery = (function(){
 			//Get Data
 			$.getJSON(self.url, args, function(data){
 				self.data = $.merge(self.data, data);
-				
+
 				self.refreshSlider();
-				
+
 				self.slideCount = 0;
-				
+
 				//Insert data into DOM
 				$.each(self.data, function(i, v){
 					v.slide_count  = self.slideCount;
 					v.requestCount = self.requestCount;
 					$('#photoSlider .slides').append( self.templateSlide(v) );
 					$('#photoSliderThumbs .slides').append( self.templateThumbs(v) );
-					
+
 					self.slideCount++;
 				});
-				
+
 			    // add one on every ajax request
 			    self.requestCount++;
-			    
+
 				// Load flexslider
 				self.loadSlider();
 
@@ -236,20 +236,20 @@ var PhotosGallery = (function(){
 				 	skip           : self.skip,
 				 	get_count      : 1
 				};
-			
+
 			self.showSpinner();
-			
+
 			// Remmove PhotoSlider
 			self.removeSlider('#photoSlider');
 			self.removeSlider('#photoSliderThumbs');
-			
+
 			// Set State args
 			if (typeof(self.state) == 'string'){
 				args.state   = self.state;
 				args.skip    = 0;
 				self.startAt = 0;
 			}
-			
+
 			self.getPostCount(args, function(count){
 				self.getPostData(args, count);
 			});
@@ -278,9 +278,9 @@ var PhotosGallery = (function(){
 		},
 		loadSlider : function(){
 			var self = this;
-			
+
 			//self.hideSpinner();
-			
+
 			// Load Thumbs Flexslider
 			$('#photoSliderThumbs').flexslider({
 				animation     : "slide",
@@ -299,7 +299,7 @@ var PhotosGallery = (function(){
 						event.preventDefault();
 						slider.flexAnimate( slider.getTarget("prev") );
 					});
-					
+
 					$('#photoSliderThumbsContainer .sliderNext').on('click touchend', function(event){
 						event.preventDefault();
 						slider.flexAnimate( slider.getTarget("next") );
@@ -325,14 +325,14 @@ var PhotosGallery = (function(){
 				},
 				after          : function(slider){
 					self.parseSlider(slider);
-					
+
 					// Hide Show Controls
 					if(slider.currentSlide > 0){
 						$('#photoTopControls .sliderPrev').show();
 					}else{
 						$('#photoTopControls .sliderPrev').hide();
 					}
-					
+
 					if(self.totalCount == (slider.currentSlide + 1)){
 						$('#photoTopControls .sliderNext').hide();
 					}else{
@@ -342,11 +342,11 @@ var PhotosGallery = (function(){
 				start : function(slider){
 					//Parse first slide
 					self.parseSlider(slider);
-					
+
 					if(self.startAt == 0){
 						//Hide Previous Contro button onload
 						$('#photoTopControls .sliderPrev').hide();
-						
+
 						self.hideSpinner();
 					}else{
 						slider.flexAnimate(slider.getTarget("next"), true);
@@ -355,7 +355,7 @@ var PhotosGallery = (function(){
 							self.hideSpinner();
 						},1000);
 					}
-					
+
 					//Enable swipe in mobile
 					if( self.isMobile() ){
 						$('#photoGalleryBody').touchwipe({
@@ -368,10 +368,10 @@ var PhotosGallery = (function(){
 							 preventDefaultEvents: false
 						});
 					}
-					
+
 					$('#photoTopControls .sliderNext').on('click', function(event){
 						event.preventDefault();
-						
+
 
 						var nextSlide = parseInt( $('#photoSlider .flex-active-slide').attr('slide-count')) + 1;
 
@@ -380,23 +380,23 @@ var PhotosGallery = (function(){
 							$('#photoSliderThumbs').find('.flex-active-slide').next().addClass('flex-active-slide');
 							$('#photoSliderThumbs').find('.flex-active-slide').prev().removeClass('flex-active-slide');
 						}
-						
+
 						slider.flexAnimate(slider.getTarget("next"));
 					});
-					
+
 					$('#photoTopControls .sliderPrev').on('click', function(event){
 						event.preventDefault();
         					slider.flexAnimate(slider.getTarget("prev"));
 					});
 				},
 				end : function(slider){
-					var slidesInDOMCount = $('#photoSlider .slides li').length;	
-					
+					var slidesInDOMCount = $('#photoSlider .slides li').length;
+
 					// skip if it has reached the end
 					if(slidesInDOMCount >= self.totalCount){
 						return false;
 					}
-					
+
 					if( slidesInDOMCount == slider.count ){
 						if(self.state == null){
 							self.currentSlide = slider.animatingTo;
@@ -418,7 +418,7 @@ var PhotosGallery = (function(){
 				$('#photoGalleryTitle .photoGalleryCategory').html( terms[0].name.toUpperCase() );
 				$('#photoGalleryTitle .photoGalleryState').show();
 				$('#photoGalleryTitle .photoGalleryCategory').show();
-								
+
 				//self.slug = (typeof terms[0].slug != 'undefined') ? terms[0].slug : '';
 				var slug = terms[0].slug;
 
@@ -429,17 +429,17 @@ var PhotosGallery = (function(){
 					$('#photoGalleryTitle .photoGalleryState').hide();
 					$('#photoGalleryTitle .photoGalleryCategory').hide();
 				}
-				
+
 				callback('all');
 			}
 		},
 		parseSlider : function(slider){
 			var self = this,
-			
-			slideData = self.data[parseInt(slider.currentSlide)];			
-			
+
+			slideData = self.data[parseInt(slider.currentSlide)];
+
 			if(typeof(slideData) == 'object'){
-				
+
 				$('#photoGalleryTitle h2 a').html(slideData.post_title);
 				$('#photoGalleryTitle h2 a').attr("href",slideData.post_url);
 				$('#photoGalleryLike .photoGalleryLikeRight').html('');
@@ -456,8 +456,8 @@ var PhotosGallery = (function(){
 				    //console.log(  _gaq );
 					document.getElementById('community-iframe-ad').contentWindow.location.reload();
 				});
-				
-				/*$("#photoGalleryTitle .bookmark").click(function() {				
+
+				/*$("#photoGalleryTitle .bookmark").click(function() {
 			    	console.log(slideData.post_url);
 					window.prompt("Copy to clipboard: Ctrl+C, Enter", slideData.post_url);
 				});
@@ -466,17 +466,17 @@ var PhotosGallery = (function(){
 				try{
 					$('meta[property=og\\:url]').attr('content',slideData.post_url);
 					$('meta[property=og\\:title]').attr('content',slideData.post_title);
-					$('meta[property=og\\:image]').attr('content',slideData.img_url);	
+					$('meta[property=og\\:image]').attr('content',slideData.img_url);
 					$('#photoGalleryTitle .fb-share-button').attr("data-href",slideData.post_url);
 					FB.XFBML.parse();
 			    }catch(e){
 			    		//console.log(e);
 			    }
-					    
+
 		   }
 		}
 	};
-	
+
 	return {
 		init: function(state){
 			Private.init(state);
@@ -494,22 +494,22 @@ var PhotoStateMenu = (function(){
 		stateCount : 0,
 		buildMenu  : function(element){
 			var self = this;
-			
+
 			//Clear Menu
 			$(element).html('');
 			//$(element).css('overflow','hidden');
-			
+
 			var stateCount = 0;
-			
+
 			//Add All States Option
 			$(element).append( self.tempateSelectAll );
-			
+
 			//Build Menu
 			$.each(self.states, function(i,v){
-				self.getData(i, function(stateCount){
-					$(element).append( self.templateMenu(i, v, stateCount) );
-				});
-				
+				var stateCount = 1;
+
+				$(element).append( self.templateMenu(i, v, stateCount) );
+
 				$('#state-menu-bar').on('click', function(e){
 					//e.preventDefault();
 					if( !$(this).hasClass('isOpen') ){
@@ -519,8 +519,8 @@ var PhotoStateMenu = (function(){
 						$('#state-list-menu').hide();
 						$(this).removeClass('isOpen');
 					}
-				});				
-			
+				});
+
 			});
 
 		},
@@ -537,13 +537,13 @@ var PhotoStateMenu = (function(){
 				 	state          : state,
 				 	get_count      : 1
 				};
-			
+
 			$.getJSON(url, args, function(data){
 				//console.log(data)
 				if(data == 'bad term'){
 					callback('No Photos');
 				}
-				
+
 				var count = null;
 				if(data[0].count == 0 || typeof(data[0].count) == 'undefined'){
 					count = 'No Photos';
@@ -562,12 +562,12 @@ var PhotoStateMenu = (function(){
 			var state = '<li>\
 				<a href="" onclick="PhotoGallery.init(\''+i.toUpperCase()+'\'); return false;" class="filter-menu" state="'+ i +'">'+ v +'</a>\
 			</li><div class="divider"></div>';
-			
+
 			var no_photos = '<li>\
 				<a href="/add-new-photo" class="filter-menu" state="#">'+ v +' ('+ stateCount +') Share Photo</a>\
 			</li><div class="divider"></div>';
 
-			return (stateCount == 'No Photos') ? no_photos : state; 
+			return (stateCount == 'No Photos') ? no_photos : state;
 		},
 		states: {
 			"AR" : "Arizona",
@@ -633,7 +633,7 @@ var PhotoStateMenu = (function(){
 			return Private.states[code];
 		}
 	};
-	
+
 });
 
 var ReaderPhotos = (function(e){
@@ -660,7 +660,7 @@ var ReaderPhotos = (function(e){
 					self.loadSlider( self.default_slide );
 				}
 			});
-			
+
 		},
 		getHash: function(){
 			var hashString   = window.location.hash;
@@ -680,7 +680,7 @@ var ReaderPhotos = (function(e){
 		},
 		loadSlider: function(default_slide){
 			var self = this;
-			
+
 			$('#carousel').flexslider({
 				animation: "slide",
 				controlNav: false,
@@ -690,7 +690,7 @@ var ReaderPhotos = (function(e){
 				itemMargin: 5,
 				asNavFor: '#slider'
 			});
-			   
+
 			$('#slider').flexslider({
 				animation: "slide",
 				controlNav: false,
@@ -720,7 +720,7 @@ var ReaderPhotos = (function(e){
 			return '<li>' + data.thumbnail + '</li>';
 		}
 	};
-	
+
 	return {
 		init: function(){
 			ReaderPhotos.init();
@@ -734,19 +734,19 @@ var PhotoGallery        = new PhotosGallery;
 var PhotoStateMenuBuild = new PhotoStateMenu;
 
 jQuery( document ).ready(function( $ ){
-	
+
 	//Initialize
 	ReaderPhoto.init();
 	PhotoGallery.init();
 	PhotoStateMenuBuild.init('#main .dropdown-menu');
-	
+
 	//Toggle Photos Menu
 	jQuery('.community-mobile-menu').on('click touchstart', function(e){
 		e.preventDefault();
 		jQuery('.menu-hunt, .menu-fish').toggle();
 	});
-	
-	
+
+
 	// $('body').touchwipe({
 		 // wipeLeft: function() {
 		 	// alert('left');
@@ -758,14 +758,14 @@ jQuery( document ).ready(function( $ ){
 		 // },
 		 // preventDefaultEvents: false
 	// });
-	
+
 });
 	//Stop Here, If not in use plese, delete everything after this line;
 
 	// var $postTemplateCopy = $(".dif-post").first().clone();
-// 
+//
 	// var querySettings = {};
-// 
+//
 	// querySettings.state = null;
 	// querySettings.skip = 0;
 	// querySettings.showAtOnce = 10;
@@ -775,110 +775,110 @@ jQuery( document ).ready(function( $ ){
 	//alert("ok");
 
 	// $("a.filter-menu").click(function(ev){
-// 
+//
 		// $(".posts-list").empty();
 		// //console.log("clear");
-// 
+//
 		// ev.preventDefault();
-// 
-// 
-// 
+//
+//
+//
 		// querySettings.state = $(this).attr('state');
 		// querySettings.skip = 0;
-// 
-// 
-// 
+//
+//
+//
 		// getPosts();
-// 
+//
 	// });
 
 
 	// $("#community-nav").on("change",function(ev){
-// 
+//
 		// var url = $(this).val();
 		// window.location.href = url;
-// 
-// 
+//
+//
 	// });
-// 
-// 
+//
+//
 	// $(".community-pager .more").click(function(ev){
-// 
+//
 		// ev.preventDefault();
-// 
+//
 		// if (querySettings.skip == 0) {
-// 
+//
 			// getTotalCount();
 		// }
-// 
+//
 		// querySettings.skip += querySettings.showAtOnce;
-// 
+//
 		// getPosts();
-// 
+//
 		// if (querySettings.skip + querySettings.showAtOnce > querySettings.totalCount) {
-// 
+//
 			// $(".community-pager .more").fadeOut();
 		// }
-// 
+//
 	// });
-// 
+//
 	// function getTotalCount() {
-// 
+//
 		// var url =  "/wpdb/network-feed-cached.php?post_type=reader_photos&domain=www.gameandfishmag.com&thumbnail_size=community-square-retina"
-// 
+//
 				 // + "&term=" + querySettings.term
 				 // + "&get_count=1";
-// 
+//
 		// if (querySettings.state != null) {
 			// url += "&state=" + querySettings.state;
 		// }
-// 
+//
 		// $.getJSON(url,function(countArray){
-// 
+//
 			// var count = countArray[0].count;
 			// querySettings.totalCount = count;
 		// });
-// 
-// 
-// 
-// 
+//
+//
+//
+//
 	// }
-// 
+//
 	// function getPosts() {
-// 			
+//
 		// var url =  "/wpdb/network-feed-cached.php?post_type=reader_photos&domain=www.gameandfishmag.com&thumbnail_size=community-square-retina"
-// 
+//
 				 // + "&term=" + querySettings.term
 				 // + "&count=" + querySettings.showAtOnce
 				 // + "&skip=" + querySettings.skip;
-// 
+//
 		// if (querySettings.state != null) {
 			// url += "&state=" + querySettings.state;
 		// }
-// 
-// 
-// 
+//
+//
+//
 		// //console.log(url);
 		// $.getJSON(url,function(posts){
-// 
+//
 			// if(typeof posts =='object')
 			// {
-// 
-// 
-// 
+//
+//
+//
 				// $.each(posts,function(index,post){
-// 
-// 
+//
+//
 					// console.log(post);
-// 
+//
 					// $postTemplate = $postTemplateCopy.clone();
-// 
+//
 					// var imgURL = post.img_url;
 					// imgURL.replace("www.gameandfishmag.com",document.domain);
-// 
+//
 					// var userURL = "/author/" + post.user_nicename + "/";
-// 
-// 
+//
+//
 					// $postTemplate.find("div.feat-img img").attr("src",imgURL.replace("www.gameandfishmag.com",document.domain));
 					// $postTemplate.find("div.feat-img img").attr("alt",post.post_title);
 					// $postTemplate.find(".dif-post-text h3 a").html(post.post_title);
@@ -887,51 +887,50 @@ jQuery( document ).ready(function( $ ){
 					// $postTemplate.find(".profile-data h4 a").html(post.author);
 					// $postTemplate.find(".profile-photo img").attr("src","/avatar?uid=" + post.user_id);
 					// $postTemplate.find("ul.replies li a").html(post.comment_count + "replies");
-// 
+//
 					// $postTemplate.find("a").attr("href","/photos/" + post.post_name);
-// 					
+//
 					// $postTemplate.find("a.author-link").attr("href",userURL);
-// 
+//
 					// $postTemplate.find("ul.prof-tags").html("");
-// 
-// 
-// 
+//
+//
+//
 					// $.each(post.terms,function(index,term){
-// 
-// 
-// 						
+//
+//
+//
 						// $postTemplate.find("ul.prof-tags").append("<li>" + term.name + "</li>");
-// 
+//
 					// });
-// 
-// 					
-// 					
-// 
+//
+//
+//
+//
 					// $(".posts-list").append($postTemplate);
 					// addthis.toolbox('.addthis_toolbox');
 				// });
 				// //$(".community-pager .more").fadeIn();
-// 
+//
 			// } else if (querySettings.state != null) {
-// 
-// 
-// 
+//
+//
+//
 				// var catName = $(".page-title").attr("cat-title");
-// 
+//
 				// var resultsString = "<h2>Sorry, we don't have any " + catName + " photos in " + querySettings.state + ". <br><a href='/photos/new'>Want to post one?</a></h2>";
-// 
+//
 				// $(".posts-list").append(resultsString);
-// 
+//
 				// $(".community-pager .more").fadeOut();
-// 
-// 
+//
+//
 			// }
-// 
-// 
-// 
-// 
+//
+//
+//
+//
 		// });
-// 
-// 
+//
+//
 	// }
-
