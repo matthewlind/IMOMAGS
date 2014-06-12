@@ -75,6 +75,26 @@ a.category-name-link:hover{background: #2f7bb2;color: white;}
 .paging-posts .flex-direction-nav .flex-next {background-position:-107px 0 !important;}
 .paging-posts .flex-direction-nav .flex-next:hover {background-position:-189px 0 !important;}
 
+/***Community header ***/
+.community-header{background: #1c1c1c;border-bottom: 4px solid #f9cc39;overflow: hidden;}
+.community-header .header-section{
+	display: inline-block;
+	background: #1c1c1c;
+	padding: 18px 18px 18px 0;
+	border-left: 1px solid #3b3b3b;
+	vertical-align: middle;
+	position: relative;
+}
+.community-header .header-section:first-child{border: none;width: 253px;padding: 0;}
+.community-header img{vertical-align: 12px;width: 200px;margin: 0 auto;display: block;}
+.community-header .header-section h3 a{padding-left: 16px;color: white;}
+.community-header .header-section h3 a:hover{color: #acacac;}
+
+.community-header ul.sub-list{display: inline-block;padding-left: 16px;vertical-align: text-top;}
+.community-header ul  li a{font-size: 14px;color: #acacac;}
+.community-header ul li a:hover{color: white;}
+.community-mobile-menu{display: none;}
+
 /***** Photos Page ******/
 #photoTopControls{
 		text-align: right;
@@ -338,6 +358,10 @@ a.category-name-link:hover{background: #2f7bb2;color: white;}
 
 
 /***** END Photos Page ******/
+
+.gform_button {
+padding: 10px;
+}
 
 /* =Responsive Breakpoints
 *******************************************************************************/
