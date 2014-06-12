@@ -14,7 +14,7 @@ include("widget.php");
 
 /////////////////////////////////////////
 //Create page for CRON Updates
-add_action("init", "imo_facebook_like_update_cron");
+add_action("init", "imo_facebook_like_update_cron",23);
 
 function imo_facebook_like_update_cron() {
     if (preg_match("/^\/facebook-like-updater\.php(\?(.+)?)?$/", $_SERVER['REQUEST_URI'])) {
