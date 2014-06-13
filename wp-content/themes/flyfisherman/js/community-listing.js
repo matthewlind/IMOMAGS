@@ -152,7 +152,7 @@ jQuery( document ).ready(function( $ ) {
 				self.refreshSlider();
 				self.getPosts();
 			},
-			url          : 'http://www.flyfisherman.deva/wpdb/network-feed-cached.php',
+			url          : 'http://www.flyfisherman.com/wpdb/network-feed-cached.php',
 			state        : null,
 			startAt      : 0,
 			count        : 10,
@@ -591,7 +591,7 @@ jQuery( document ).ready(function( $ ) {
 			},
 			getData: function(state, callback){
 				var self   = this,
-					url    = 'http://www.flyfisherman.deva/wpdb/network-feed-cached.php',
+					url    = 'http://www.flyfisherman.com/wpdb/network-feed-cached.php',
 					args   = {
 						post_type	   : 'reader_photos',
 						domain		   : 'www.flyfisherman.com',
