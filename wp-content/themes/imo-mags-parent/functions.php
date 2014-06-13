@@ -21,6 +21,7 @@ $subs_link = get_option("subs_link");
 add_filter('wp_mail_from', 'new_mail_from');
 add_filter('wp_mail_from_name', 'new_mail_from_name');
  
+ 
 function new_mail_from($old) {
 	$url = home_url();
 	$url = str_replace("http://www.", "", $url);
@@ -811,6 +812,51 @@ if(function_exists("register_field_group"))
 					'group_no' => 0,
 				),
 			),
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'reviews',
+					'order_no' => 0,
+					'group_no' => 1,
+				),
+			),
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'video',
+					'order_no' => 0,
+					'group_no' => 2,
+				),
+			),
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'imo_video',
+					'order_no' => 0,
+					'group_no' => 3,
+				),
+			),
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'imo_ga_vault',
+					'order_no' => 0,
+					'group_no' => 4,
+				),
+			),
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'magazines',
+					'order_no' => 0,
+					'group_no' => 5,
+				),
+			),
 		),
 		'options' => array (
 			'position' => 'acf_after_title',
@@ -977,6 +1023,51 @@ if(function_exists("register_field_group"))
 					'value' => 'post',
 					'order_no' => 0,
 					'group_no' => 0,
+				),
+			),
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'reviews',
+					'order_no' => 0,
+					'group_no' => 1,
+				),
+			),
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'video',
+					'order_no' => 0,
+					'group_no' => 2,
+				),
+			),
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'imo_video',
+					'order_no' => 0,
+					'group_no' => 3,
+				),
+			),
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'imo_ga_vault',
+					'order_no' => 0,
+					'group_no' => 4,
+				),
+			),
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'magazines',
+					'order_no' => 0,
+					'group_no' => 5,
 				),
 			),
 		),
