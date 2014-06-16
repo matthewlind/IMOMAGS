@@ -201,7 +201,7 @@ font-size: 14px;
 	margin-top: 6px;
 	padding-right: 20px;
 	color: #fff;
-	font-size: 14px;
+	font-size: 15px;
 	font-weight: normal;
 	line-height: 20px;
 }
@@ -442,7 +442,7 @@ padding: 0 15px 0 15px;
 
 .flex-gallery-button,
 a.flex-gallery-button {
-	font-size: 12px;
+	font-size: 14px;
 	height: 30px;
 	line-height: 30px;
 	font-weight: bold;

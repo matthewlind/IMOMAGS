@@ -5,23 +5,40 @@ $videoTitle = get_option('video_title', false);
 $playerID = get_option('home_player_id', false);
 $playerKey = get_option('home_player_Key', false);
 $camp = get_option('home_player_camp', false);
+$features = get_field('homepage_featured_stories','options' ); 
 
 get_header(); ?>
 	<?php imo_sidebar(); ?>
 	<div id="primary" class="general">
         <div class="general-frame">
             <div id="content" role="main">
-            <?php if ( is_home() ) : ?>
-
-                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="featured-area clearfix js-responsive-section">
-                    <div class="clearfix">
-                        <ul>
-                       	 	<?php if( function_exists('showFeaturedList') ){ echo showFeaturedPosts(array('set_id' => 1)); } ?>
-                       	</ul>
-                    </div>
-                </div>
-                
-                <?php if( $playerID && $playerKey ){ ?>
+            <?php if ( is_home() ) : 
+				if( $features ): ?>
+	                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="featured-area clearfix js-responsive-section">
+	                    <div class="clearfix">
+	                        <ul>
+	                       	 	<?php foreach( $features as $feature ): 
+	                       	 		$title = $feature->post_title;
+	                       	 		$url = $feature->guid;
+									$thumb = get_the_post_thumbnail($feature->ID, "list-thumb");
+									$tracking = "_gaq.push(['_trackEvent','Special Features Homepage','$title','$url']);"; ?>
+		                       	 	<li class="home-featured">
+		                                <div class="feat-post">
+		                                    <div class="feat-img"><a href="<?php echo $url; ?>" onclick="<?php echo $tracking; ?>"><?php echo $thumb; ?></a></div>
+		                                    <div class="feat-text">
+		                                    	<div class="clearfix">
+			                                    	<h3><a href="<?php echo $url; ?>" onclick="<?php echo $tracking; ?>"><?php echo $title; ?></a></h3>
+		                                    	</div>
+			                                </div>
+			                                <div class="feat-sep"><div></div></div>
+			                            </div>
+			                         </li>
+								<?php endforeach; ?>
+	                       	</ul>
+	                    </div>
+	                </div>
+                <?php endif;
+                if( $playerID && $playerKey ){ ?>
 				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header js-responsive-section">
 					<div class="section-title videos">
 					    <h2>

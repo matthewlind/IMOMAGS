@@ -42,7 +42,7 @@ a.category-name-link:hover{background: #57534c;color: white;}
 .subscribe-links a:hover{color: #afafaf;}
 .ui-panel .mob-aside-menu > div > ul > li > a.has-drop:after {border-top: 7px solid #57534c;}
 subscribe-links a{color: white;}
-.subscribe-now span{font: "open_sansbold";}
+.subscribe-now span{font: "Source Sans Pro";font-weight: 700;}
 .get-newsletter{text-shadow: 0 -1px 0 #000;}
 .home .comment-count, .category .comment-count{display: none;}
 .menu-subscribe a, .snap-drawers .menu-top-menu-container a:hover, .snap-drawers .mob-aside-menu > div > ul > li > a:hover{color: #2b80bd;}

@@ -20,8 +20,8 @@ $subs_link = get_option("subs_link");
 /** changing default wordpres email settings */
 add_filter('wp_mail_from', 'new_mail_from');
 add_filter('wp_mail_from_name', 'new_mail_from_name');
- 
- 
+
+
 function new_mail_from($old) {
 	$url = home_url();
 	$url = str_replace("http://www.", "", $url);
@@ -51,7 +51,7 @@ class social_post_metabox{
         add_meta_box('Sharing', 'Sharing', array($this, 'post_metabox'), $screen, 'side', 'default'  );
         }
         add_action('save_post', array($this, 'save_post') );
-        
+
         add_filter('default_hidden_meta_boxes', array($this,  'default_hidden_meta_boxes' )  );
     }
 
@@ -81,10 +81,10 @@ class social_post_metabox{
 
     function save_post($post_id)
     {
-        if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
+        if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
             return;
 
-        if ( ! isset($_POST['social_postmetabox_nonce'] ) ||  !wp_verify_nonce( $_POST['social_postmetabox_nonce'], 'social_postmetabox_nonce' ) ) 
+        if ( ! isset($_POST['social_postmetabox_nonce'] ) ||  !wp_verify_nonce( $_POST['social_postmetabox_nonce'], 'social_postmetabox_nonce' ) )
             return;
 
         if ( ! isset($_POST['social_show_option']) )
@@ -100,7 +100,7 @@ class social_post_metabox{
             }
             else
             {
-                update_post_meta($post_id, 'social_exclude', 'true' , $custom_fields['social_exclude'][0]  ); 
+                update_post_meta($post_id, 'social_exclude', 'true' , $custom_fields['social_exclude'][0]  );
             }
         }
 
@@ -235,6 +235,7 @@ function parent_theme_setup()
     add_image_size("imo-mini-slider-thumb",70,70,TRUE);
     add_image_size("community-square",320,320,TRUE);
     add_image_size("community-square-retina",640,640,TRUE);
+    add_image_size("video-thumb",130,90,TRUE);
 }
 
 function parent_theme_widgets_init()
@@ -276,7 +277,7 @@ function parent_theme_widgets_init()
         'before_title' => '<h3 class="widget-title">',
         'after_title' => '</h3>',
     ) );
-	
+
 
     // register_widget( 'Twenty_Eleven_Ephemera_Widget' );
 
@@ -735,6 +736,50 @@ function imo_parent_theme_init() {
 
 }
 
+
+add_action( 'init', 'codex_video_init' );
+/**
+ * Register a video post type.
+ *
+ * @link http://codex.wordpress.org/Function_Reference/register_post_type
+ */
+function codex_video_init() {
+	$labels = array(
+		'name'               => _x( 'Videos', 'post type general name', 'your-plugin-textdomain' ),
+		'singular_name'      => _x( 'Video', 'post type singular name', 'your-plugin-textdomain' ),
+		'menu_name'          => _x( 'Videos', 'admin menu', 'your-plugin-textdomain' ),
+		'name_admin_bar'     => _x( 'Video', 'add new on admin bar', 'your-plugin-textdomain' ),
+		'add_new'            => _x( 'Add New', 'video', 'your-plugin-textdomain' ),
+		'add_new_item'       => __( 'Add New Video', 'your-plugin-textdomain' ),
+		'new_item'           => __( 'New Video', 'your-plugin-textdomain' ),
+		'edit_item'          => __( 'Edit Video', 'your-plugin-textdomain' ),
+		'view_item'          => __( 'View Video', 'your-plugin-textdomain' ),
+		'all_items'          => __( 'All Videos', 'your-plugin-textdomain' ),
+		'search_items'       => __( 'Search Videos', 'your-plugin-textdomain' ),
+		'parent_item_colon'  => __( 'Parent Videos:', 'your-plugin-textdomain' ),
+		'not_found'          => __( 'No videos found.', 'your-plugin-textdomain' ),
+		'not_found_in_trash' => __( 'No videos found in Trash.', 'your-plugin-textdomain' ),
+	);
+
+	$args = array(
+		'labels'             => $labels,
+		'public'             => true,
+		'publicly_queryable' => true,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+		'query_var'          => true,
+		'rewrite'            => array( 'slug' => 'video' ),
+		'capability_type'    => 'post',
+		'has_archive'        => true,
+		'hierarchical'       => false,
+		'menu_position'      => null,
+		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' )
+	);
+
+	register_post_type( 'video', $args );
+}
+
+
 //Featured ACF
 if(function_exists("register_field_group"))
 {
@@ -805,56 +850,11 @@ if(function_exists("register_field_group"))
 		'location' => array (
 			array (
 				array (
-					'param' => 'post_type',
+					'param' => 'options_page',
 					'operator' => '==',
-					'value' => 'post',
+					'value' => 'acf-options',
 					'order_no' => 0,
 					'group_no' => 0,
-				),
-			),
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'reviews',
-					'order_no' => 0,
-					'group_no' => 1,
-				),
-			),
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'video',
-					'order_no' => 0,
-					'group_no' => 2,
-				),
-			),
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'imo_video',
-					'order_no' => 0,
-					'group_no' => 3,
-				),
-			),
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'imo_ga_vault',
-					'order_no' => 0,
-					'group_no' => 4,
-				),
-			),
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'magazines',
-					'order_no' => 0,
-					'group_no' => 5,
 				),
 			),
 		),
@@ -972,231 +972,8 @@ if(function_exists("register_field_group"))
 		),
 		'menu_order' => 31,
 	));
-
-	register_field_group(array (
-		'id' => 'acf_special-features-override',
-		'title' => 'Special Features Override',
-		'fields' => array (
-			array (
-				'key' => 'field_5398ab4434b57',
-				'label' => 'Featured Stories',
-				'name' => 'featured_stories',
-				'type' => 'relationship',
-				'instructions' => 'Choose TWO stories to feature about the story for this article only (will override the global article featured).',
-				'return_format' => 'object',
-				'post_type' => array (
-					0 => 'all',
-				),
-				'taxonomy' => array (
-					0 => 'all',
-				),
-				'filters' => array (
-					0 => 'search',
-					1 => 'post_type',
-				),
-				'result_elements' => array (
-					0 => 'featured_image',
-					1 => 'post_type',
-					2 => 'post_title',
-				),
-				'max' => 2,
-			),
-			array (
-				'key' => 'field_5398ab9de2816',
-				'label' => 'Featured Stories Title',
-				'name' => 'featured_stories_title',
-				'type' => 'text',
-				'instructions' => 'Choose a special callout for these stories, or leave it alone and it will use the global title.',
-				'default_value' => '',
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-				'formatting' => 'html',
-				'maxlength' => '',
-			),
-		),
-		'location' => array (
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'post',
-					'order_no' => 0,
-					'group_no' => 0,
-				),
-			),
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'reviews',
-					'order_no' => 0,
-					'group_no' => 1,
-				),
-			),
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'video',
-					'order_no' => 0,
-					'group_no' => 2,
-				),
-			),
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'imo_video',
-					'order_no' => 0,
-					'group_no' => 3,
-				),
-			),
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'imo_ga_vault',
-					'order_no' => 0,
-					'group_no' => 4,
-				),
-			),
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'magazines',
-					'order_no' => 0,
-					'group_no' => 5,
-				),
-			),
-		),
-		'options' => array (
-			'position' => 'normal',
-			'layout' => 'default',
-			'hide_on_screen' => array (
-			),
-		),
-		'menu_order' => 0,
-	));
 }
 
-
-
-//SHORTCODES
-
-//shortcode featured sliders for pages
-/*function imo_featured_flexslider( $atts ) {
-	$post = new WP_Query( 'category_name=featured&posts_per_page=4' ); ?>
-    <div class="post-slider loading-block js-responsive-section">
-        <div class="jq-featured-slider onload-hidden">
-            <ul class="slides-inner slides">
-                <?php while ($post->have_posts()) : $post->the_post();
-
-	                $thumb = wp_get_attachment_url( get_post_thumbnail_id($post->ID)); ?>
-
-	                <li data-thumb="<?php echo $thumb; ?>">
-	                    <a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('large-featured-thumb-x');?></a>
-	                    <div class="nl-txt">
-	                        <h2><a href="<?php the_permalink(); ?>" ><?php $title = the_title('','',FALSE); echo substr($title, 0, 70); if (strlen($title) > 70) echo "..."; ?></a></h2>
-	                   </div>
-	                </li>
-	            <?php endwhile; ?>
-            </ul>
-        </div>
-    </div>
-	<script type="text/javascript">
-	jQuery(document).ready(function(){
-		jQuery('.jq-featured-slider').flexslider({
-			animation: "slide",
-			animationSpeed: 200,
-			controlNav: "thumbnails",
-			slideshow: true
-		});
-		jQuery('ol.flex-control-thumbs img').resizecrop({
-		  width:98,
-		  height:76,
-		  vertical:"middle"
-		});
-		//fix
-		jQuery('ol.flex-control-thumbs li:first-child img').addClass("flex-active");
-	});
-	</script>
-<?php }
-wp_enqueue_style('flexslider-css',get_template_directory_uri() . '/js/flexslider/flexslider.css', __FILE__);
-wp_enqueue_script('flex-slider-js',get_template_directory_uri() . '/js/flexslider/jquery.flexslider.js',array('jquery'));
-wp_enqueue_script('resizecrop-js',get_template_directory_uri() . '/js/jquery.resizecrop-1.0.3.js', __FILE__);
-
-add_shortcode( 'imo-featured-flexslider', 'imo_featured_flexslider' );
-
-
-
-// shortcode loop for pages
-//[loop pagination="false" category="news" posts_per_page=20 query="" type="list"]
-function myLoop($atts, $content = null) {
-	extract(shortcode_atts(array(
-		"pagination" => 'true',
-		"query" => '',
-		"category" => '',
-		"posts_per_page" => 20,
-		"type" => 'excerpt'
-	), $atts));
-	global $wp_query,$paged,$post;
-	$temp = $wp_query;
-	$wp_query= null;
-	$wp_query = new WP_Query();
-	if($pagination == 'true'){
-		$query .= '&paged='.$paged;
-	}
-	$query .= '&post_type=post';
-	if(!empty($category)){
-		$query .= '&category_name='.$category;
-	}
-	if(!empty($posts_per_page)){
-		$query .= '&posts_per_page='.$posts_per_page;
-	}
-	if(!empty($query)){
-		$query .= $query;
-	}
-	$wp_query->query($query);
-	ob_start();
-
-	if($type == "excerpt"){
-
-		while ($wp_query->have_posts()) : $wp_query->the_post();  ?>
-			<div class="post type-post status-publish format-standard hentry category-breeds entry entry-excerpt clearfix has-img">
-				<div class="entry-summary">
-					<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( array(190,120),array('class' => 'entry.has-img entry-summary entry-img'));?></a>
-					<div class="entry-info">
-						<h2 class="entry-title"><a rel="bookmark" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-						<?php the_date(); ?>
-						<a href="<?php the_permalink(); ?>/#comments" title="<?php the_title(); ?>"><?php comments_number(); ?></a>
-					</div>
-					<?php the_excerpt(); ?>
-				</div>
-			</div>
-
-		<?php endwhile;
-	}
-
-	if($type == "list"){
-		while ($wp_query->have_posts()) : $wp_query->the_post();  ?>
-				<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
-		<?php endwhile;
-	}
-
-	if(pagination == 'true'){ ?>
-	<div class="navigation">
-	  <div class="alignleft"><?php previous_posts_link('« Previous') ?></div>
-	  <div class="alignright"><?php next_posts_link('More »') ?></div>
-	</div>
-	<?php } ?>
-	<?php $wp_query = null; $wp_query = $temp;
-	$content = ob_get_contents();
-	ob_end_clean();
-	return $content;
-}
-add_shortcode("loop", "myLoop");*/
 
 
 function fixed_connect_footer(){
@@ -1213,16 +990,16 @@ function fixed_connect_footer(){
 				<div class="journal">
 	                <?php
 	                    global $IMO_USER_STATE;
-	
+
 	                    $sportsmanStates = array("GA","MI","MN","WI","AR","TN","TX");
-	
+
 	                    $cover = get_option('magazine_cover_uri');
-	
+
 	                     if (in_array($IMO_USER_STATE, $sportsmanStates)) {
 	                        $cover = get_option('magazine_cover_alt_uri');
 	                    }
 	                ?>
-	
+
 			        <img src="<?php echo $cover; ?>" alt="Subscribe">
 			    </div>
 			</div>
