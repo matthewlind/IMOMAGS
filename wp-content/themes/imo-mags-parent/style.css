@@ -904,6 +904,11 @@ input.gsc-search-button-v2{
     width:648px;
     padding-bottom: 20px;
 }
+.reader-photo-slider{background: #1c1c1c;}
+.single .entry-content .reader-photo-slider ul, .single .entry-content .reader-photo-slider ol{padding-left: 0;list-style: none !important;}      
+.reader-photo-slider li{width: 646px;}
+.reader-photo-slider li img{margin: 0 auto;}
+.reader-photo-slider .flex-direction-nav, .reader-photo-slider .flex-direction-nav .flex-next, .reader-photo-slider .flex-direction-nav .flex-prev{display: block;}
 .gallery-slider .flex-direction-nav a{
 	top: 480px;
 	background-color: black;
