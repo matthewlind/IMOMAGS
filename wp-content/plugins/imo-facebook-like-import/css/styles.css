@@ -16,7 +16,7 @@ line-height: 1.2;text-align: center;}
 .widget_imo_like_leaderboard_widget ul.leaderboard-list li.footer-link a{color: white;font-size: 0.8em;text-decoration:underline;}
 .widget_imo_like_leaderboard_widget ul.leaderboard-list li.footer-link a:hover{text-decoration:none;}
 .widget_imo_like_leaderboard_widget .like-wrap{float: left;margin: 18px 2px 18px 16px;}
-.widget_imo_like_leaderboard_widget .fb-like{float: left;margin: 22px 25px;}
+.widget_imo_like_leaderboard_widget .fb-like{float: left;margin: 22px 20px;}
 .widget_imo_like_leaderboard_widget a.enter{
 	color:#222;
 	clear: both;

@@ -94,11 +94,12 @@ a.category-name-link:hover{background: #623d11;color: white;}
 	float: right;
 	width: 144px;
 	margin: 0 0 0px 0;
-	font: 14px "open_sansbold", Helvetica, Arial, sans-serif;
+	font: 14px "Source Sans Pro", Helvetica, Arial, sans-serif;
+	font-weight: 700;
 	line-height: 1.2;
 }
 .subscribe-now .btn-base{margin-top: 2px;}
-.subscribe-now span{font: "open_sansbold";}
+.subscribe-now span{font: "Source Sans Pro";font-weight: 700;}
 .subscribe-box .journal{margin: 0 0 0 26px;}
 .get-newsletter{text-shadow: 0 -1px 0 #000;}
 li.menu-parent{line-height: 1.7;font-weight: bold;}
@@ -662,7 +663,8 @@ h2.reviews-form-header span {
 	.snap-drawers .mob-aside-menu > div > ul > li > a.has-drop::after{top:24px;border-top-color: white;}
 	.mobile-menu-banner{height: 50px;}
 	.menu-subscribe a{
-		font-family: "open_sansbold", Helvetica, Arial, sans-serif;
+		font-family: "Source Sans Prosansbold", Helvetica, Arial, sans-serif;
+		font-weight: 700;
 		color: white;
 		height: 60px;
 		padding-top: 20px;

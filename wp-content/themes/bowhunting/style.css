@@ -43,7 +43,7 @@ a.category-name-link:hover{background: #623d11;color: white;}
 .subscribe-links a:hover{color: #afafaf;}
 .ui-panel .mob-aside-menu > div > ul > li > a.has-drop:after {border-top: 7px solid #623d11;}
 subscribe-links a{color: white;}
-.subscribe-now span{font: "open_sansbold";}
+.subscribe-now span{font: "Source Sans Pro";font-weight: 700;}
 .get-newsletter{text-shadow: 0 -1px 0 #000;}
 
 /*socials for dark backgrounds*/
@@ -158,7 +158,8 @@ subscribe-links a{color: white;}
 	.snap-drawers .mob-aside-menu > div > ul > li > a.has-drop::after{top:18px;}
 	.mobile-menu-banner{height: 50px;}
 	.menu-subscribe a{
-		font-family: "open_sansbold", Helvetica, Arial, sans-serif;
+		font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+		font-weight: 700;
 		color: #cda220;
 		height: 60px;
 		padding-top: 20px;

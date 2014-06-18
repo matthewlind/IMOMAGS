@@ -5,6 +5,9 @@ register_deactivation_hook( __FILE__, 'imo_wordpress_community_flush' );
 
 
 
+
+
+
 //FF Wordpress Community Scripts Config
 add_action("wp_enqueue_scripts","ff_wp_community_scripts");
 function ff_wp_community_scripts() {
@@ -21,6 +24,30 @@ function imo_wordpress_community_flush() {
 
 	flush_rewrite_rules( false );
 }
+
+
+
+function ff_login_form_shortcode( $atts, $content = null ) {
+
+	extract( shortcode_atts( array(
+      'redirect' => ''
+      ), $atts ) );
+
+	if (!is_user_logged_in()) {
+		if($redirect) {
+			$redirect_url = $redirect;
+		} else {
+			$redirect_url = get_permalink();
+		}
+		$form = wp_login_form(array('echo' => false, 'redirect' => $redirect_url ));
+
+		$registrationURL = wp_registration_url();;
+
+		$form .= "<p>Don't Have an account? </p><a href='$registrationURL'>Register</a>";
+	}
+	return $form;
+}
+add_shortcode('loginform', 'ff_login_form_shortcode');
 
 
 function imo_wordpress_534_add_custom_query_var( $vars ){
