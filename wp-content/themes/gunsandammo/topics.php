@@ -76,21 +76,7 @@ imo_sidebar(); ?>
         <div class="general-frame">
             <div id="content" role="main">
             	
-	             <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header featured-area clearfix js-responsive-section">
-	                <div class="section-title posts">
-					    <h2 class="">
-					        <div class="icon"></div>
-					        <span>Shooting</span> 
-					    </h2>
-					</div>
-					<?php if(function_exists('wpsocialite_markup')){ wpsocialite_markup(); } ?>
-	                <div class="clearfix">
-	                    <ul>
-	                   	 	<?php if( function_exists('showFeaturedList') ){ echo showFeaturedPosts(array('set_id' => 5)); } ?>
-	                   	</ul>
-	                </div>
-	            </div>
-	           
+	            	           
 	            <?php foreach($shootingTerms as $term){ ?>
 	            <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header clearfix js-responsive-section">
 	            	
@@ -104,20 +90,29 @@ imo_sidebar(); ?>
 					</div>
 				
                     <div class="ga-lists-featured">
-                    	
-							<?php if( function_exists('showFeaturedList') ){ echo showFeaturedPosts(array('set_id' => $term['featured'] )); } ?>                
+                    	<?php $featured_query = new WP_Query( 'category_name=' . $term['slug'] . '&posts_per_page=1');                    
+						while ($featured_query->have_posts()) : $featured_query->the_post(); ?>	
+	                    	<li class="home-featured">
+	                        	<div class="feat-post">
+                                    <div class="feat-img"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail("list-thumb"); ?></a></div>
+                                    <div class="feat-text">
+                                    	<div class="clearfix">
+	                                    	<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                                    	</div>
+									</div>
+									<div class="feat-sep"><div></div></div>
+								</div>
+	                       </li>
+						<?php $i++; endwhile; wp_reset_postdata(); ?>
 					</div>
 					
                     <div class="ga-lists-list">
 	                    <div class="fancy">
 							<ul>
-								<?php $slug = 'featured';
-								$category = get_category_by_slug($slug);
-								
-								$lists_query = new WP_Query( 'category_name=' . $value->slug . '&posts_per_page=8&cat=-' . $category->cat_ID );                     
+								<?php $lists_query = new WP_Query( 'category_name=' . $term['slug'] . '&posts_per_page=8&offset=1');                     
 								while ($lists_query->have_posts()) : $lists_query->the_post(); ?>			
 									<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
-								<?php $i++; endwhile; ?>
+								<?php $i++; endwhile; wp_reset_postdata(); ?>
 							</ul>
 						</div>
 						<hr class="cfct-div-solid">

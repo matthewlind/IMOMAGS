@@ -6,6 +6,7 @@ $playerID = get_option('home_player_id', false);
 $playerKey = get_option('home_player_Key', false);
 $camp = get_option('home_player_camp', false);
 $features = get_field('homepage_featured_stories','options' ); 
+$lists = get_field('lists_homepage_featured','options' ); 
 
 get_header(); ?>
 	<?php imo_sidebar(); ?>
@@ -22,7 +23,7 @@ get_header(); ?>
 	                       	 		$url = $feature->guid;
 									$thumb = get_the_post_thumbnail($feature->ID, "list-thumb");
 									$tracking = "_gaq.push(['_trackEvent','Special Features Homepage','$title','$url']);"; ?>
-		                       	 	<li class="home-featured">
+		                       	 	<li class="home-featured" featured_id="<?php echo $feature->ID ?>">
 		                                <div class="feat-post">
 		                                    <div class="feat-img"><a href="<?php echo $url; ?>" onclick="<?php echo $tracking; ?>"><?php echo $thumb; ?></a></div>
 		                                    <div class="feat-text">
@@ -75,10 +76,28 @@ get_header(); ?>
 					        <span>The G&amp;A Lists</span> 
 					    </h2>
 					</div>
-				
-                    <div class="ga-lists-featured">
-							<?php if( function_exists('showFeaturedList') ){ echo showFeaturedPosts(array('set_id' => 3)); } ?>                
-					</div>
+					<?php if( $lists ): ?>
+						  <div class="ga-lists-featured">
+							  <?php foreach( $lists as $list ): 
+	                       	 		$title = $list->post_title;
+	                       	 		$url = $list->guid;
+									$thumb = get_the_post_thumbnail($list->ID, "list-thumb");
+									$tracking = "_gaq.push(['_trackEvent','Special Features Homepage','$title','$url']);"; ?>
+		                       	 	<li class="home-featured">
+		                                <div class="feat-post">
+		                                    <div class="feat-img"><a href="<?php echo $url; ?>" onclick="<?php echo $tracking; ?>"><?php echo $thumb; ?></a></div>
+		                                    <div class="feat-text">
+		                                    	<div class="clearfix">
+			                                    	<h3><a href="<?php echo $url; ?>" onclick="<?php echo $tracking; ?>"><?php echo $title; ?></a></h3>
+		                                    	</div>
+			                                </div>
+			                                <div class="feat-sep"><div></div></div>
+			                            </div>
+			                         </li>
+								<?php endforeach; ?>
+	                    </div>
+	                
+					<?php endif; ?>
 					
                     <div class="ga-lists-list">
 	                    <div class="fancy">
@@ -120,27 +139,28 @@ get_header(); ?>
                     
                     while ($more_query->have_posts()) : $more_query->the_post(); ?>
 					
-                    <div class="post article-brief clearfix">
-                        <!--<div class="posts-list-sep"><div class="bar"></div></div>-->
-                        <a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('list-thumb'); ?></a>
-                        <div class="article-holder">
-                            <div class="clearfix">
-                                <?php //if(function_exists('primary_and_secondary_categories')){echo primary_and_secondary_categories();} ?>
-                            </div>
-                            <h3 class="entry-title">
-                                <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
-                            </h3>
-                            <span>by <?php the_author(); ?></span>
-                            <!--<a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('list-thumb');?></a>-->
-                            <!-- .entry-header -->
-                           <a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>
-                            <div class="entry-content">
-                                <?php the_excerpt(); ?>
-                                <?php //the_content( __( 'more <span class="meta-nav">&raquo;</span>', 'twentytwelve' ) ); ?>
-                                <?php wp_link_pages( array( 'before' => '<div class="page-links">' . 'Pages:', 'after' => '</div>' ) ); ?>
-                            </div><!-- .entry-content -->
-                        </div>
-                    </div><!-- #post -->
+	                    <div class="<?php the_ID(); ?> post article-brief clearfix">
+	                        <!--<div class="posts-list-sep"><div class="bar"></div></div>-->
+	                        <a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('list-thumb'); ?></a>
+	                        <div class="article-holder">
+	                            <div class="clearfix">
+	                                <?php //if(function_exists('primary_and_secondary_categories')){echo primary_and_secondary_categories();} ?>
+	                            </div>
+	                            <h3 class="entry-title">
+	                                <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
+	                            </h3>
+	                            <span>by <?php the_author(); ?></span>
+	                            <!--<a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('list-thumb');?></a>-->
+	                            <!-- .entry-header -->
+	                           <a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>
+	                            <div class="entry-content">
+	                                <?php the_excerpt(); ?>
+	                                <?php //the_content( __( 'more <span class="meta-nav">&raquo;</span>', 'twentytwelve' ) ); ?>
+	                                <?php wp_link_pages( array( 'before' => '<div class="page-links">' . 'Pages:', 'after' => '</div>' ) ); ?>
+	                            </div><!-- .entry-content -->
+	                        </div>
+	                    </div><!-- #post -->
+			      
                     <?php if ( (($i - (($paged -1) * 2 ))%6) == 0 ): ?>
                         <?php if ( mobile() ){ ?>
                         <div class="image-banner posts-image-banner">

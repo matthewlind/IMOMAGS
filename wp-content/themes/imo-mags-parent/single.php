@@ -1,30 +1,48 @@
 <?php
 get_header();
-$features = get_field('article_featured_stories','options' ); ?>
+if(get_field('featured_stories')){
+	$features = get_field('featured_stories'); 
+}else{
+	$features = get_field('article_featured_stories','options' ); 
+}
+?>
 <div class="special-features">
 	<ul>
 		<li class="home-featured features">
 			<div class="arrow-right"></div>
 			<div class="feat-post">
 	        	<div class="feat-text">
-	        		<h3><?php echo get_field('featured_title','options' ); ?></h3>
+	        	<h3>
+		        	<?php if(get_field('featured_stories_title')){
+		        		echo get_field("featured_stories_title"); 
+	        		}else if(get_field("featured_title","options")){ 
+	        			echo get_field("featured_title","options"); 
+	        		} ?>
+	        	</h3>
 	            </div>
 	        </div>
 		</li>
-		<?php if( $features ):
-		foreach( $features as $feature ): ?>
-		<li class="home-featured">
-            <div class="feat-post">
-                <div class="feat-text">
-                	<div class="clearfix">
-                    	<h3><a href="<?php echo $feature->guid; ?>"><?php echo $feature->post_title; ?></a></h3>
-                	</div>
-            </div>
-            <div class="feat-sep"><div></div></div>
-        </div>
-      </li>
-      <?php endforeach;
-      endif; ?>
+		<?php if( $features ){
+			foreach( $features as $feature ): 
+			
+				if(get_field("promo_title",$feature->ID)){
+			    	$title = get_field("promo_title",$feature->ID);
+				}else{
+			    	$title = $feature->post_title;
+				} 
+					
+				$url = $feature->guid;
+		    	$tracking = "_gaq.push(['_trackEvent','Special Features Article','$title','$url']);";
+				$thumb = get_the_post_thumbnail($feature->ID,"list-thumb"); ?>
+		    	<li class='home-featured'>
+		            <div class='feat-post'>
+		                <div class='feat-text'>
+		                    <h3><a href='<?php echo $url; ?>' onclick='<?php echo $tracking; ?>'><?php echo $title ?></a></h3>
+		                </div>
+		            </div>
+		        </li>
+		    <?php endforeach; ?>
+	<?php } ?>
 	</ul>
 </div>
     <div class="inner-main">

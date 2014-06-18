@@ -78,8 +78,8 @@ $(document).ready(function($) {
 		    for (i = start; i < end; i++) {
 		        count++;
 		        var $articleTemplate = $("#site-feed").clone();
-
-		        $articleTemplate.attr("id","site-feed-" + data[i].post_name + count);
+		        $articleTemplate.attr("id","site-feed-" + data[i].post_name + count).addClass(data[i].ID);
+		        
 		        $articleTemplate.find("a").attr("href",data[i].post_url);
 
 		        $articleTemplate.find(".cat-feat-label").append($("<a href='" + data[i].domain + "' style='color:#006699;'>From " + data[i].brand + " Magazine</a>"));
@@ -126,6 +126,24 @@ $(document).ready(function($) {
 
 
 		        $articleTemplate.appendTo(".cross-site-feed").fadeIn();
+		        
+		        //remove any duplicate posts that are already in the featured area   
+				var post;
+				var remove;
+				var featuredArray = [];
+				
+				jQuery('.featured-area').find(".home-featured").each(function(index){
+					featuredArray.push(jQuery(this).attr("featured_id"));
+				});
+				
+				jQuery.each(featuredArray, function (i, item) {
+					post = jQuery(".posts-list").find("."+item);
+					remove = post.selector;
+					
+				    if(remove == '.posts-list .'+item){ 
+				        jQuery(remove).remove(); 
+				   }
+				});
 
 		        $(data[i].terms).each(function(index) {
 	        		//Hide featured posts

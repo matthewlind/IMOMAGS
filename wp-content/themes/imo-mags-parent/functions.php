@@ -509,6 +509,47 @@ function isset_related_posts()
     return (false == strpos($output, 'No related photos'));
 }
 
+
+
+
+
+/**
+ * Reader Photo Slider Shortcode
+ *
+ * [reader-photo-slider]
+ *
+**/
+
+function reader_photo_slider() {
+
+	$id = get_the_ID();
+	$features = get_field('reader_photos',$id ); 
+	
+	if( $features ): ?>
+		<div id="photoSlider" class="reader-photo-slider loading-block clearfix">
+	        <div class="photo-slider onload-hidden">
+	            <ul class="slides-inner slides">
+                
+    				<?php foreach( $features as $feature ): 
+	           	 		$title = $feature->post_title;
+	           	 		$url = $feature->guid;
+						$thumb = get_the_post_thumbnail($feature->ID,"community-square-retina"); ?>
+	
+	               	 	<li>
+	                    	<div><a href="<?php echo $url; ?>"><?php echo $thumb; ?></a></div>
+	                        <h3><a href="<?php echo $url; ?>"><?php echo $title; ?></a></h3>
+	                    </li>
+				    <?php endforeach; ?>
+				
+            </ul>
+        </div>
+    </div>  
+	<?php endif; 
+	wp_enqueue_script('flexslider-reader-js','/wp-content/themes/imo-mags-parent/js/plugins/flexslider/jquery.flexslider.js', __FILE__);
+}
+
+add_shortcode( 'reader-photo-slider', 'reader_photo_slider' );
+
 /**
  * Callback Handler for the admin_menu action.
  */
@@ -848,11 +889,56 @@ if(function_exists("register_field_group"))
 		'location' => array (
 			array (
 				array (
-					'param' => 'options_page',
+					'param' => 'post_type',
 					'operator' => '==',
-					'value' => 'acf-options',
+					'value' => 'post',
 					'order_no' => 0,
 					'group_no' => 0,
+				),
+			),
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'reviews',
+					'order_no' => 0,
+					'group_no' => 1,
+				),
+			),
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'video',
+					'order_no' => 0,
+					'group_no' => 2,
+				),
+			),
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'imo_video',
+					'order_no' => 0,
+					'group_no' => 3,
+				),
+			),
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'imo_ga_vault',
+					'order_no' => 0,
+					'group_no' => 4,
+				),
+			),
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'magazines',
+					'order_no' => 0,
+					'group_no' => 5,
 				),
 			),
 		),
@@ -970,7 +1056,115 @@ if(function_exists("register_field_group"))
 		),
 		'menu_order' => 31,
 	));
+
+	register_field_group(array (
+		'id' => 'acf_special-features-override',
+		'title' => 'Special Features Override',
+		'fields' => array (
+			array (
+				'key' => 'field_5398ab4434b57',
+				'label' => 'Featured Stories',
+				'name' => 'featured_stories',
+				'type' => 'relationship',
+				'instructions' => 'Choose TWO stories to feature about the story for this article only (will override the global article featured).',
+				'return_format' => 'object',
+				'post_type' => array (
+					0 => 'all',
+				),
+				'taxonomy' => array (
+					0 => 'all',
+				),
+				'filters' => array (
+					0 => 'search',
+					1 => 'post_type',
+				),
+				'result_elements' => array (
+					0 => 'featured_image',
+					1 => 'post_type',
+					2 => 'post_title',
+				),
+				'max' => 2,
+			),
+			array (
+				'key' => 'field_5398ab9de2816',
+				'label' => 'Featured Stories Title',
+				'name' => 'featured_stories_title',
+				'type' => 'text',
+				'instructions' => 'Choose a special callout for these stories, or leave it alone and it will use the global title.',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'post',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'reviews',
+					'order_no' => 0,
+					'group_no' => 1,
+				),
+			),
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'video',
+					'order_no' => 0,
+					'group_no' => 2,
+				),
+			),
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'imo_video',
+					'order_no' => 0,
+					'group_no' => 3,
+				),
+			),
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'imo_ga_vault',
+					'order_no' => 0,
+					'group_no' => 4,
+				),
+			),
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'magazines',
+					'order_no' => 0,
+					'group_no' => 5,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
 }
+
 
 
 

@@ -616,7 +616,7 @@ a.change-location:before {
 .home .home-featured:first-child, .home .home-featured:nth-child(odd){padding-right: 30px}
 .home .home-featured .feat-text, .category .home-featured .feat-text{padding: 14px 32px 24px 18px;border-left: 4px solid #040503;border-bottom: 1px solid #d8d7d6;}
 .home-featured, .category .home-featured:first-child, .category .home-featured:nth-child(2) {border-top: none !important;}
-.home-featured:nth-child(odd){border-right: none;padding: 30px 0px 0 0;}
+.category .home-featured:nth-child(odd){border-right: none;padding: 30px 0px 0 0;}
 
 /* Core Experts
  ******************************************************************************/

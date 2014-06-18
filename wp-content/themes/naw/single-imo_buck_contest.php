@@ -7,19 +7,6 @@ $thumbnailID = get_post_meta($post->ID,"product",true);
 $thumbnailImage = wp_get_attachment_image($thumbnailID,"thumbnail");
 
 get_header(); ?>
-<div class="special-features">
-	<ul>
-		<li class="home-featured features">
-			<div class="arrow-right"></div>
-			<div class="feat-post">
-	        	<div class="feat-text">
-	        		<h3>Special Features</h3>
-	            </div>
-	        </div>
-		</li>
-		<?php if( function_exists('showFeaturedList')){ echo showFeaturedPosts('1'); } ?>
-	</ul>
-</div>
     <div class="inner-main">
     	<?php imo_sidebar();?>
 		<div id="primary" class="general">

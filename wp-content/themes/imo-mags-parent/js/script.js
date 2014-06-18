@@ -12,6 +12,28 @@ jQuery(window).load(function() {
 
 jQuery(document).ready(function () {
 	
+	if(jQuery(".featured-area").length && jQuery(".posts-list").length){
+		//remove any duplicate posts that are already in the featured area   
+		var post;
+		var remove;
+		var featuredArray = [];
+		
+		jQuery('.featured-area').find(".home-featured").each(function(index){
+			featuredArray.push(jQuery(this).attr("featured_id"));
+		});
+		
+		jQuery.each(featuredArray, function (i, item) {
+			post = jQuery(".posts-list").find("."+item);
+			jQuery(".posts-list").find(".post-"+item).addClass(item);
+			
+			remove = post.selector;
+			
+		    if(remove == '.posts-list .'+item || remove == '.posts-list .'+category){ 
+		        jQuery(remove).remove(); 
+		   }
+		});
+	}
+	//sidebar featured text  overlay
 	jQuery('.sidebar-widget-featured li.sidebar-featured').hover(function () {
         jQuery(this).find('.feat-text').animate({'bottom': '-80px'});
 
@@ -314,6 +336,15 @@ jQuery(function(){
           itemWidth: 318,
           itemMargin: 0,
         });*/
+        
+    jQuery('#photoSlider.reader-photo-slider .photo-slider').flexslider({
+		slideshow: false, 
+		animation: "slide",
+		animationSpeed: 200,
+		controlNav: false,               
+		directionNav: true
+	});
+
 
     jQuery('.jq-custom-form input[type="checkbox"]').ezMark();
     jQuery('.jq-custom-form input[type="checkbox"]').show();
