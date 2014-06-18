@@ -94,7 +94,9 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 			</div><!-- #footer -->
 		</div><!-- .wrapper -->
 	</div><!-- #page -->
-	
+	<?php if( get_field("display_survey","options") == true ){ ?><div id="imo-modal"><a class="modal-close" href="javascript:void(0);" title="Collapse bottom bar"><img src="/wp-content/themes/imo-mags-parent/images/ico/close_icon_small.png" alt="Collapse bottom bar"></a><a href="<?php echo get_field("survey_url","options"); ?>"><img class="survey-img" src="<?php echo get_field("survey_image","options"); ?>" alt="survey" title="Survey" /></a></div><?php } ?>
+
+
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery.tipTip.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery.cookie.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/breakpoints.js"></script>
@@ -104,6 +106,8 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/helper.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/plugins/jquery.placeholder.min.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/plugins/jquery.touchSwipe.min.js"></script>
+    <!--<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/plugins/Smart-jQuery-Brightcove-Video-Plugin/jquery.brightcove-video.js"></script>
+    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/video-portal.js"></script>-->
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/script.js"></script>
     <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/script.js"></script>
     <link rel="STYLESHEET" type="text/css" href="<?php bloginfo('template_directory'); ?>/js/plugins/flexslider/flexslider.css">

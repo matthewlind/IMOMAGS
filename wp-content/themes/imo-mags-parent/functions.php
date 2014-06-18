@@ -1166,6 +1166,68 @@ if(function_exists("register_field_group"))
 }
 
 
+//Survey ACF
+if(function_exists("register_field_group"))
+{
+	register_field_group(array (
+		'id' => 'acf_survey',
+		'title' => 'Survey',
+		'fields' => array (
+			array (
+				'key' => 'field_53a1d16893eb1',
+				'label' => 'Display survey?',
+				'name' => 'display_survey',
+				'type' => 'true_false',
+				'message' => '',
+				'default_value' => 0,
+			),
+			array (
+				'key' => 'field_53a1cfab0e370',
+				'label' => 'Survey url',
+				'name' => 'survey_url',
+				'type' => 'text',
+				'instructions' => 'Link to the survey',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_53a1cfc00e371',
+				'label' => 'Survey image',
+				'name' => 'survey_image',
+				'type' => 'text',
+				'instructions' => 'link to the survey image',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'options_page',
+					'operator' => '==',
+					'value' => 'acf-options',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'side',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+}
 
 
 function fixed_connect_footer(){
