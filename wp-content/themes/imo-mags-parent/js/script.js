@@ -96,10 +96,13 @@ jQuery(document).ready(function () {
 		if(jQuery.cookie('hide_alert') == null){
 
 			jQuery("#tiptip_holder").show();
+			jQuery("#imo-modal").show();
+			
 			jQuery(".community-tooltip").tipTip();
 
-			jQuery(".user-btn").click(function(){
+			jQuery(".user-btn, .modal-close").click(function(){
 				jQuery("#tiptip_holder").hide();
+				jQuery("#imo-modal").hide();
 				jQuery.cookie('hide_alert', true);
 			});
 		}
