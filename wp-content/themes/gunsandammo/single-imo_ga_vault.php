@@ -4,18 +4,50 @@ $productDescription = get_post_meta($post->ID,"product_description",true);
 $thumbnailID = get_post_meta($post->ID,"product",true);
 
 $thumbnailImage = wp_get_attachment_image($thumbnailID,"thumbnail");
-get_header(); ?>
+get_header(); 
+if(get_field('featured_stories')){
+	$features = get_field('featured_stories'); 
+}else{
+	$features = get_field('article_featured_stories','options' ); 
+}
+?>
 <div class="special-features">
 	<ul>
 		<li class="home-featured features">
 			<div class="arrow-right"></div>
 			<div class="feat-post">
 	        	<div class="feat-text">
-	        		<h3>Special Features</h3>
+	        	<h3>
+		        	<?php if(get_field('featured_stories_title')){
+		        		echo get_field("featured_stories_title"); 
+	        		}else if(get_field("featured_title","options")){ 
+	        			echo get_field("featured_title","options"); 
+	        		} ?>
+	        	</h3>
 	            </div>
 	        </div>
 		</li>
-		<?php if( function_exists('showFeaturedList')){ echo showFeaturedPosts(array('set_id' => 2)); } ?>
+		<?php if( $features ){
+			foreach( $features as $feature ): 
+			
+				if(get_field("promo_title",$feature->ID)){
+			    	$title = get_field("promo_title",$feature->ID);
+				}else{
+			    	$title = $feature->post_title;
+				} 
+					
+				$url = $feature->guid;
+		    	$tracking = "_gaq.push(['_trackEvent','Special Features Post','$title','$url']);";
+				$thumb = get_the_post_thumbnail($feature->ID,"list-thumb"); ?>
+		    	<li class='home-featured'>
+		            <div class='feat-post'>
+		                <div class='feat-text'>
+		                    <h3><a href='<?php echo $url; ?>' onclick='<?php echo $tracking; ?>'><?php echo $title ?></a></h3>
+		                </div>
+		            </div>
+		        </li>
+		    <?php endforeach; ?>
+	<?php } ?>
 	</ul>
 </div>
     <div class="inner-main">

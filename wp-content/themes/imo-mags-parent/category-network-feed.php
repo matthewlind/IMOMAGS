@@ -87,7 +87,7 @@ imo_sidebar(); ?>
                	 		$url = $feature->guid;
 						$thumb = get_the_post_thumbnail($feature->ID, "list-thumb");
 						$tracking = "_gaq.push(['_trackEvent','Special Features '" . $this_category->name . "','$title','$url']);"; ?>
-                   	 	<li class="home-featured">
+                   	 	<li class="home-featured" featured_id="<?php echo $feature->ID ?>">
                             <div class="feat-post">
                                 <div class="feat-img"><a href="<?php echo $url; ?>" onclick="<?php echo $tracking; ?>"><?php echo $thumb; ?></a></div>
                                 <div class="feat-text">

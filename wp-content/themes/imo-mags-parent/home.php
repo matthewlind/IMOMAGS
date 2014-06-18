@@ -25,7 +25,7 @@ get_header(); ?>
                        	 		$url = $feature->guid;
 								$thumb = get_the_post_thumbnail($feature->ID,"list-thumb");
 								$tracking = "_gaq.push(['_trackEvent','Special Features Homepage','$title','$url']);"; ?>
-	                       	 	<li class="home-featured">
+	                       	 	<li class="home-featured" featured_id="<?php echo $feature->ID ?>">
 	                                <div class="feat-post">
 	                                    <div class="feat-img"><a href="<?php echo $url; ?>" onclick="<?php echo $tracking; ?>"><?php echo $thumb; ?></a></div>
 	                                    <div class="feat-text">
@@ -93,7 +93,7 @@ get_header(); ?>
 
                     while ($more_query->have_posts()) : $more_query->the_post(); ?>
 					
-                    <div class="post article-brief clearfix">
+                    <div class="<?php the_ID(); ?> post article-brief clearfix">
                         <!--<div class="posts-list-sep"><div class="bar"></div></div>-->
                         <a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('list-thumb');?></a>
                         <div class="article-holder">

@@ -48,7 +48,7 @@ if ($post_type == reader_photos) {
 							    	$url = $feature->guid;
 							    	$tracking = "_gaq.push(['_trackEvent','Special Features $cat_name','$title','$url']);";
 									$thumb = get_the_post_thumbnail($feature->ID,"list-thumb"); ?>
-							    	<li class='home-featured'>
+							    	<li class='home-featured' featured_id="<?php echo $feature->ID ?>">
 							            <div class='feat-post'>
 							                <div class='feat-img'><a href='<?php echo $url; ?>' onclick='<?php echo $tracking ?>'><?php echo $thumb; ?></a></div>
 							                <div class='feat-text'>

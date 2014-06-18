@@ -15,6 +15,7 @@
  */
  
 $dataPos = 0;
+$features = get_field('reviews_featured','options' ); 
 get_header();
 imo_sidebar(); ?>
 <div id="primary" class="general">
@@ -30,9 +31,32 @@ imo_sidebar(); ?>
 				</div>
 				<?php if(function_exists('wpsocialite_markup')){ wpsocialite_markup(); } ?>                
 				<div class="clearfix">
-                    <ul>
-                   	 	<?php if( function_exists('showFeaturedList') ){ echo showFeaturedPosts(array('set_id' => 4)); } ?>
-                   	</ul>
+					<?php if( $features ): ?>
+	                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="featured-area clearfix js-responsive-section">
+	                    <div class="clearfix">
+	                        <ul>
+	                       	 	<?php foreach( $features as $feature ): 
+	                       	 		$title = $feature->post_title;
+	                       	 		$url = $feature->guid;
+									$thumb = get_the_post_thumbnail($feature->ID, "list-thumb");
+									$tracking = "_gaq.push(['_trackEvent','Special Features Reviews','$title','$url']);"; ?>
+		                       	 	<li class="home-featured" featured_id="<?php echo $feature->ID ?>">
+		                                <div class="feat-post">
+		                                    <div class="feat-img"><a href="<?php echo $url; ?>" onclick="<?php echo $tracking; ?>"><?php echo $thumb; ?></a></div>
+		                                    <div class="feat-text">
+		                                    	<div class="clearfix">
+			                                    	<h3><a href="<?php echo $url; ?>" onclick="<?php echo $tracking; ?>"><?php echo $title; ?></a></h3>
+		                                    	</div>
+			                                </div>
+			                                <div class="feat-sep"><div></div></div>
+			                            </div>
+			                         </li>
+								<?php endforeach; ?>
+	                       	</ul>
+	                    </div>
+	                </div>
+                <?php endif; ?>
+
                 </div>
             </div>
 
@@ -103,7 +127,7 @@ imo_sidebar(); ?>
 						
 						$query = new WP_Query( $args );
 						while ( $query->have_posts() ) : $query->the_post(); ?>
-							<div class="post article-brief clearfix">
+							<div class="<?php the_ID(); ?> post article-brief clearfix">
 								<a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('list-thumb'); ?></a>
 								<div class="article-holder">
 								    <div class="clearfix">
