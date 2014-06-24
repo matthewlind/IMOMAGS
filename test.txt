@@ -1,3 +1,0 @@
-2014-06-24
-Alan Hicks
-- Testing pushes and whatnot from a fork
