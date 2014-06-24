@@ -12,6 +12,9 @@ define("RSS_LINK", "http://www.flyfisherman.com/feed/");
 define("SITE_LINK", "flyfisherman.com");
 define("SITE_NAME", "Fly Fisherman");
 
+define("FACEBOOK_APP_ID","1434587330141886");
+define("FACEBOOK_APP_SECRET","f2e131f499d466e6cc939becd5e7e53d");
+
 include_once("wordpress-community.php");
 
 
