@@ -11,9 +11,9 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 			</div>
 		<?php } ?>
 		</div><!-- .layout-frame -->
-		
+
 		<div id="footer" class="footer" role="contentinfo">
-		    
+
 		        <div class="intermedia">
 		            <div class="frame">
 		                <h4>The Intermedia Outdoors Network</h4>
@@ -61,7 +61,7 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 		                        </div>
 		                    </div>
 		                </div>
-		                
+
 		            </div>
 		        </div>
 		        <div class="f-nav-section clearfix">
@@ -94,7 +94,7 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 			</div><!-- #footer -->
 		</div><!-- .wrapper -->
 	</div><!-- #page -->
-	<?php if( get_field("display_survey","options") == true ){ ?><div id="imo-modal"><a class="modal-close" href="javascript:void(0);" title="Collapse bottom bar"><img src="/wp-content/themes/imo-mags-parent/images/ico/close_icon_small.png" alt="Collapse bottom bar"></a><a href="<?php echo get_field("survey_url","options"); ?>"><img class="survey-img" src="<?php echo get_field("survey_image","options"); ?>" alt="survey" title="Survey" /></a></div><?php } ?>
+	<?php if( get_field("display_survey","options") == true ){ ?><div id="imo-modal"><a class="modal-close" href="javascript:void(0);" title="Collapse bottom bar"><img src="/wp-content/themes/imo-mags-parent/images/ico/close_icon_small.png" alt="Collapse bottom bar"></a><a target="_blank" href="<?php echo get_field("survey_url","options"); ?>"><img class="survey-img" src="<?php echo get_field("survey_image","options"); ?>" alt="survey" title="Survey" /></a></div><?php } ?>
 
 
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery.tipTip.js"></script>

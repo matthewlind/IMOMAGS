@@ -22,6 +22,28 @@ add_filter('wp_mail_from', 'new_mail_from');
 add_filter('wp_mail_from_name', 'new_mail_from_name');
 
 
+
+function imo_login_form_shortcode( $atts, $content = null ) {
+
+    extract( shortcode_atts( array(
+      'redirect' => ''
+      ), $atts ) );
+
+    if (!is_user_logged_in()) {
+        if($redirect) {
+            $redirect_url = $redirect;
+        } else {
+            $redirect_url = get_permalink();
+        }
+        $form = wp_login_form(array('echo' => false, 'redirect' => $redirect_url ));
+    }
+    return $form;
+}
+add_shortcode('loginform', 'imo_login_form_shortcode');
+
+
+
+
 function new_mail_from($old) {
 	$url = home_url();
 	$url = str_replace("http://www.", "", $url);
@@ -524,28 +546,28 @@ function isset_related_posts()
 function reader_photo_slider() {
 
 	$id = get_the_ID();
-	$features = get_field('reader_photos',$id ); 
-	
+	$features = get_field('reader_photos',$id );
+
 	if( $features ): ?>
 		<div id="photoSlider" class="reader-photo-slider loading-block clearfix">
 	        <div class="photo-slider onload-hidden">
 	            <ul class="slides-inner slides">
-                
-    				<?php foreach( $features as $feature ): 
+
+    				<?php foreach( $features as $feature ):
 	           	 		$title = $feature->post_title;
 	           	 		$url = $feature->guid;
 						$thumb = get_the_post_thumbnail($feature->ID,"community-square-retina"); ?>
-	
+
 	               	 	<li>
 	                    	<div><a href="<?php echo $url; ?>"><?php echo $thumb; ?></a></div>
 	                        <h3><a href="<?php echo $url; ?>"><?php echo $title; ?></a></h3>
 	                    </li>
 				    <?php endforeach; ?>
-				
+
             </ul>
         </div>
-    </div>  
-	<?php endif; 
+    </div>
+	<?php endif;
 	wp_enqueue_script('flexslider-reader-js','/wp-content/themes/imo-mags-parent/js/plugins/flexslider/jquery.flexslider.js', __FILE__);
 }
 

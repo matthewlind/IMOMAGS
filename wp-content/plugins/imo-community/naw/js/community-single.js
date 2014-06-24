@@ -5,10 +5,10 @@ jQuery(document).ready(function(){
 //****************** NEW COMMENT SUBMISSION ****************
 //*******************************************************
     $("#comment-form").submit(function(){
-    
+
 		$("#comment-form .btn-submit").hide();
         $(".loading-gif").fadeIn();
-        
+
         var formDataObject = $("#comment-form").formParams();
         var newPostData = $.extend(formDataObject,userIMO);
 
@@ -16,24 +16,81 @@ jQuery(document).ready(function(){
 
             var postData = $.parseJSON(data);
 
-			
+
 			$("ul.replies-list").append('<li id="new-comment"></li>');
 			$("ul.replies-list li#new-comment").hide().append('<div class="profile-photo"><a href="/profile/' + postData.username + '"><img src="/avatar?uid=' + postData.user_id + '" alt="' + postData.display_name + '"></a></div><div class="reply-text"><h3><a href="/profile/' + postData.username + '">' + postData.display_name + '</a></h3><p>' + postData.body + '</p></div></li>').fadeIn("slow");
-			
+
 			$('html, body').animate({
 				scrollTop: $("#new-comment").offset().top
 			});
 			$("#new-comment").removeAttr("id");
 			$("#comment-form textarea").val("");
-            
+
             $(".loading-gif").fadeOut('fast');
             $("#comment-form .btn-submit").delay(700).fadeIn();
-            
+
         });
 
         return false;
 
     });
+
+
+//*******************************************************
+//****************** COMMENT EDITOR TOOLS ****************
+//*******************************************************
+//Add editor tools for single posts
+$(".editor-functions").change(function(){
+
+
+
+    var etype = $(this).val();
+
+
+    var postData = userIMO;
+
+    postData.post_id = $(this).attr("spid");
+    postData.etype = etype;
+
+    if (etype == "edit") {
+
+        var url = "/edit-your-post/?post_id=" + postData.post_id;
+        window.location = url;
+
+    } else if (etype == "delete") {
+
+        $.ajax({
+            url: '/community-api/posts/' + postData.post_id,
+            type: 'DELETE',
+            data: postData,
+            success: function(data) {
+                if (data.error) {
+                    alert(data.error);
+                } else {
+                    alert("Delete done! Reload the page and it should be blank.");
+                }
+            }
+        });
+
+    } else if (etype == "contact") {
+
+        window.location.href = "mailto:" + $(this).attr("email");
+
+    } else {
+        $.post("/slim/api/post/flagadmin", postData, function(data){
+
+            if (data.error) {
+                alert(data.error);
+            } else {
+                alert(etype + " done!");
+            }
+        });
+    }
+
+
+
+});
+
 
 
 //*************************************************

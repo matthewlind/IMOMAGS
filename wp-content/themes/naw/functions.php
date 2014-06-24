@@ -16,6 +16,10 @@ include_once("widgets/naw-community-slider.php");
 ** Enqueue Scripts
 **
 ***/
+
+
+
+
 function naw_scripts_method() {
     wp_deregister_script( 'jquery' );
     wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js');
@@ -109,7 +113,7 @@ function naw_community_init() {
 
 
 	//External Community Configurations
-	
+
 	include("community-config/state-report.php");
 	include("community-config/report.php");
 	include("community-config/general.php");

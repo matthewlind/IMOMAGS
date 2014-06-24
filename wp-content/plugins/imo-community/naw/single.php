@@ -438,11 +438,11 @@ if($data->post_type == "report"){
 			            } ?>
 
 		            </div>
-		            <a href="#" class="flag-badge single-flag-button" spid="<?php echo $spid; ?>"></a>
+		            <a href="#" class="flag-badge single-flag-button" spid="<?php echo $comment->id; ?>"></a>
 		        </li>
 
 		        <?php if (current_user_can('edit_superposts')) { ?>
-			    <select class="editor-functions" spid="<?php echo $spid; ?>" email="<?php echo $postUserEmail; ?>">
+			    <select class="editor-functions" spid="<?php echo $comment->id; ?>" email="<?php echo $postUserEmail; ?>">
 			    	<option>EDITOR OPTIONS</option>
 			    	<option value="edit">Edit</option>
 			    	<option value="unapprove">Unapprove</option>
