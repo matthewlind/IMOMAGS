@@ -92,7 +92,7 @@ function authSuccess(data,$clickedButton){
         jQuery("#community-menu-nav small").fadeOut(400);
         //$userBar.fadeIn();
         $submit.fadeIn(400);
-		
+
 		jQuery(".browse-item").removeClass("item-active");
         jQuery(".browse-holder").removeClass("browse-panel-opened");
         jQuery(".filter-fade-out").removeClass("filter-fade-in");
@@ -102,14 +102,14 @@ function authSuccess(data,$clickedButton){
         jQuery("#new-post-form").submit();
         jQuery("#comment-form").submit();
 
-        
+
 
         jQuery(".login-message").fadeOut();
         jQuery(".join-logged-in").find(".profile-photo img").attr("src","/avatar?uid=" + data.user_id);
         jQuery(".join-logged-in").fadeIn(function(){
 
         });
-		
+
         //$userBar.fadeIn();
         $userWidget.fadeIn(500,function(){
 
@@ -175,8 +175,13 @@ function authSuccess(data,$clickedButton){
     if ($clickedButton.hasClass("go-to-profile")) {
     	window.location="/login/?action=edit-profile";
     }
+
     if ($clickedButton.hasClass("go-to-profile-naw")) {
     	window.location="/login/?action=edit-profile";
+    }
+
+    if ($clickedButton.hasClass("go-to-post-photo")) {
+    	window.location="/post-photo";
     }
 
     jQuery(".fast-login-then-post-button").fadeOut(400,function(){
@@ -235,7 +240,7 @@ jQuery(document).ready(function($) {
 
 
 	  	  $('#login-modal').modal('hide');
-	  	  	  	  
+
 		  $clickedButton = $('#imo-ajax-login-form #lwa_wp-submit');
 		  $('.general-com .basic-popup').removeClass('popup-opened');
 	  	  $('html, body').animate({
