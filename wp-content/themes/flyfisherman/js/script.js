@@ -7,12 +7,30 @@ jQuery( document ).ready(function( $ ) {
 	//jQuery(function($) {
 
 		//replace category links from WP menu with community link urls
-		jQuery("#menu-photos-community-menu li a, #menu-flies-community-menu li a").each(function() {
+		jQuery("#menu-photos-community-menu li a").each(function() {
 			var href = jQuery(this).attr('href');
 			var site = document.domain;
 			href = href.replace(site, "");
 			href = href.replace("http://", "");
-			jQuery(this).attr('href', '/photos/fish-photos' + href);
+
+
+			if (href == "/scenic-photos/") {
+
+				jQuery(this).attr('href', '/photos' + href);
+			} else {
+
+				jQuery(this).attr('href', '/photos/fish-photos' + href);
+			}
+		});
+
+		jQuery("#menu-flies-community-menu li a").each(function() {
+			var href = jQuery(this).attr('href');
+			var site = document.domain;
+			href = href.replace(site, "");
+			href = href.replace("http://", "");
+			jQuery(this).attr('href', '/photos/flies' + href);
+
+
 		});
 
 		//layout in columns
