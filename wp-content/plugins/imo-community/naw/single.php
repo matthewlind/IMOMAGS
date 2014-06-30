@@ -49,6 +49,8 @@ $spid =  get_query_var("spid");
 
 $apiURL = "http://$hostname/community-api/posts/$spid?get_comments=1";
 
+
+
 $file = file_get_contents($apiURL);
 
 //SET TEMPLATE VARIABLES
@@ -441,8 +443,12 @@ if($data->post_type == "report"){
 		            <a href="#" class="flag-badge single-flag-button" spid="<?php echo $comment->id; ?>"></a>
 		        </li>
 
-		        <?php if (current_user_can('edit_superposts')) { ?>
-			    <select class="editor-functions" spid="<?php echo $comment->id; ?>" email="<?php echo $postUserEmail; ?>">
+		        <?php if (current_user_can('edit_superposts')) {
+
+                    $commentUser = get_userdata( $comment->user_id );
+
+                ?>
+			    <select class="editor-functions" spid="<?php echo $comment->id; ?>" email="<?php echo $commentUser->user_email; ?>">
 			    	<option>EDITOR OPTIONS</option>
 			    	<option value="edit">Edit</option>
 			    	<option value="unapprove">Unapprove</option>
