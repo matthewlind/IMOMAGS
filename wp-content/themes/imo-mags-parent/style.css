@@ -905,7 +905,7 @@ input.gsc-search-button-v2{
     padding-bottom: 20px;
 }
 .reader-photo-slider{background: #1c1c1c;}
-.single .entry-content .reader-photo-slider ul, .single .entry-content .reader-photo-slider ol{padding-left: 0;list-style: none !important;}      
+.single .entry-content .reader-photo-slider ul, .single .entry-content .reader-photo-slider ol{padding-left: 0;list-style: none !important;}
 .reader-photo-slider li{width: 646px;}
 .reader-photo-slider li img{margin: 0 auto;}
 .reader-photo-slider .flex-direction-nav, .reader-photo-slider .flex-direction-nav .flex-next, .reader-photo-slider .flex-direction-nav .flex-prev{display: block;}
@@ -2411,6 +2411,64 @@ a.change-location:before {
     margin-left:200px;
     margin-bottom:10px;
 }
+
+.btn-fb-login {
+    display:block;
+    width:300px;
+    height:65px;
+    overflow:hidden;
+    text-indent:-9999px;
+    margin:0 0 8px;
+    background:url(/wp-content/plugins/imo-facebook-auth/facebook-login-button.png);
+}
+
+.btn-fb-login:hover {opacity:0.8;}
+
+.btn-fb-signup {
+    display:block;
+    width:300px;
+    height:65px;
+    overflow:hidden;
+    text-indent:-9999px;
+    margin:0 0 8px;
+    background:url(/wp-content/plugins/imo-facebook-auth/facebook-signup-button.png);
+}
+
+.signup-container {
+  margin-top:20px;
+  display:none;
+}
+
+
+.login-username label,
+.login-password label {
+margin: 10px 0 4px 0;
+font-weight: bold;
+display: block;
+line-height: 1.3em;
+clear: both;
+}
+
+
+
+.login-username input.
+.login-password input {
+width: 47%;
+padding-right: 2px;
+outline-style: none;
+font-size: 11px;
+font-family: inherit;
+padding: 5px 2px 5px 2px;
+letter-spacing: normal;
+border-radius: 3px;
+border: 1px solid #aaa;
+}
+
+#wp-submit {
+  padding:10px;
+}
+
+
 .signup-box input[type="text"]{
     font:italic 13px/16px "Source Sans Pro", Helvetica, Arial, sans-serif !important;
     color:#3c3c3c;

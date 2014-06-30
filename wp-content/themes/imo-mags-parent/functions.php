@@ -41,6 +41,18 @@ function imo_login_form_shortcode( $atts, $content = null ) {
 }
 add_shortcode('loginform', 'imo_login_form_shortcode');
 
+function imo_overridable_message( $atts, $content = null ) {
+
+    extract( shortcode_atts( array(
+      'text' => 'asdf'
+      ), $atts ) );
+
+    if ($_GET['override']) {
+        $text = $_GET['override'];
+    }
+    return $text;
+}
+add_shortcode('override', 'imo_overridable_message');
 
 
 
