@@ -8,7 +8,7 @@
 		<div class="sponsor"><?php imo_dart_tag("240x60"); ?></div>
 	</div>
 	<div class="header-section menu-hunt">
-		<h3><a href="/photos/hunting">Photos</a></h3>
+		<h3><a href="/photos/fish-photos">Photos</a></h3>
 		<?php if(has_nav_menu( 'photos' )){
 	    	wp_nav_menu(array(
 	            'menu_class'=>'menu',
@@ -18,7 +18,7 @@
 	</div>
 
 	<div class="header-section menu-fish">
-		<h3><a href="/photos/fishing">Flies</a></h3>
+		<h3><a href="/photos/flies">Flies</a></h3>
 		<?php if(has_nav_menu( 'flies' )){
 	    	wp_nav_menu(array(
 	            'menu_class'=>'menu',
