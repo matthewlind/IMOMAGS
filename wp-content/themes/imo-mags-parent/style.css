@@ -2686,6 +2686,75 @@ margin-bottom:15px;
 	width: 100%;
 }
 
+/*** Show Pages ***/
+.page-template-show-page-php .layout-frame{width: 100%;}
+.page-template-show-page-php .general{float: none;border: none;width: 100%;}
+
+/* header */
+.page-template-show-page-php #subscribe-area {
+    width:auto;
+}
+.page-template-show-page-php .subscribe-now span{display: none;}
+.page-template-show-page-php .header .subscribe-box .journal,
+.page-template-show-page-php .h-search-form,
+.page-template-show-page-php .header .subscribe-box .btn-base span,
+.page-template-show-page-php .header .subscribe-links,
+.page-template-show-page-php .header .subscribe-now p,
+.page-template-show-page-php .header .menu-top-menu-container,
+.page-template-show-page-php .header .menu-main-menu-container,
+.page-template-show-page-php .header .menu-header-menu-container {
+   display:none;
+}
+.page-template-show-page-php .header {
+   padding:0 0 4px;
+   height:44px;
+}
+.page-template-show-page-php .logo {
+   width:130px;
+   height:auto;
+}
+.page-template-show-page-php .logo img{width:130px;}
+.page-template-show-page-php .user-btn,
+.page-template-show-page-php .open-search,
+.page-template-show-page-php .open-menu {
+   display:block;
+}
+.page-template-show-page-php .header .socials {
+   position:absolute;
+   top:0;
+   right:60px;
+   border:1px solid #dddcdb;
+   border-width:0 0 0 1px;
+   padding:6px 15px 0 7px;
+   height:44px;
+}
+.page-template-show-page-php .header .socials a {
+   margin:0 0 0 8px;
+}
+.page-template-show-page-php .subscribe-now {
+   margin:0;
+}
+.page-template-show-page-php #subscribe-area {
+   margin:0;
+   position:absolute;
+   top:8px;
+   right:255px;
+}
+.page-template-show-page-php .h-search-open {
+   display: block !important;
+   position:absolute;
+   top:43px;
+   left:0;
+   border-top: 1px solid #dddcdb;
+   border-bottom: 1px solid #dddcdb;
+   padding:10px;
+   width:100%;
+}
+.page-template-show-page-php .search-field input{width: 95%;}
+.page-template-show-page-php #imo-tophat{display: none;}
+.page-template-show-page-php .gsc-results-wrapper-overlay{top:42px !important;padding: 0 20px !important;}
+
+
 /*** Subscribe widget ***/
 .subscribe-form-block{height: 320px;}
 .subs-header{
