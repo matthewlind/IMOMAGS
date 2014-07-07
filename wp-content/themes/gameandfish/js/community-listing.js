@@ -452,10 +452,11 @@ if(jQuery('#photoSlider').length){
 					$('#photoSlider .slides li').css('display','table');
 					// Parse only State and Category in the bottom
 					self.parseTerms(slideData.terms, function(slug){
-						//Refresh Ad
+						
+						//window.history.pushState(null, slideData.post_title, slideData.post_name );
 						var _gaq = _gaq || [];
 					    _gaq.push(['_trackPageview', window.location.pathname + slideData.post_name]);
-					    //console.log(  _gaq );
+					    //Refresh Ad
 						document.getElementById('community-iframe-ad').contentWindow.location.reload();
 					});
 					
