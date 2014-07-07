@@ -9,6 +9,8 @@ if (userIMO.perms == "editor") { //if we have moderator,admin,or editor permissi
 		if ($(".dif-full-post").length > 0) { //If were on a post single page
 			//if all that is good, add the admin tools to the page
 
+			$editPostLink = $("<a href='/edit-your-post/?post_id=" + IMO_COMMUNITY_CONFIG.spid + "' style='color:red'>EDIT POST </a> <b>|</b> ");
+
 			$deletePostLink = $("<a href='#' style='color:red'>DELETE POST </a> <b>|</b> ");
 			$deletePostLink.on("click",function(ev){
 
@@ -122,6 +124,7 @@ if (userIMO.perms == "editor") { //if we have moderator,admin,or editor permissi
 			$(".dif-full-post").prepend($banIPLink);
 			$(".dif-full-post").prepend($banEmailLink);
 			$(".dif-full-post").prepend($deletePostLink);
+			$(".dif-full-post").prepend($editPostLink);
 			$(".dif-full-post").prepend("ADMIN TOOLS: ");
 
 		}

@@ -20,7 +20,42 @@ $subs_link = get_option("subs_link");
 /** changing default wordpres email settings */
 add_filter('wp_mail_from', 'new_mail_from');
 add_filter('wp_mail_from_name', 'new_mail_from_name');
- 
+
+
+
+function imo_login_form_shortcode( $atts, $content = null ) {
+
+    extract( shortcode_atts( array(
+      'redirect' => ''
+      ), $atts ) );
+
+    if (!is_user_logged_in()) {
+        if($redirect) {
+            $redirect_url = $redirect;
+        } else {
+            $redirect_url = get_permalink();
+        }
+        $form = wp_login_form(array('echo' => false, 'redirect' => $redirect_url ));
+    }
+    return $form;
+}
+add_shortcode('loginform', 'imo_login_form_shortcode');
+
+function imo_overridable_message( $atts, $content = null ) {
+
+    extract( shortcode_atts( array(
+      'text' => 'asdf'
+      ), $atts ) );
+
+    if ($_GET['override']) {
+        $text = $_GET['override'];
+    }
+    return $text;
+}
+add_shortcode('override', 'imo_overridable_message');
+
+
+
 function new_mail_from($old) {
 	$url = home_url();
 	$url = str_replace("http://www.", "", $url);
@@ -50,7 +85,7 @@ class social_post_metabox{
         add_meta_box('Sharing', 'Sharing', array($this, 'post_metabox'), $screen, 'side', 'default'  );
         }
         add_action('save_post', array($this, 'save_post') );
-        
+
         add_filter('default_hidden_meta_boxes', array($this,  'default_hidden_meta_boxes' )  );
     }
 
@@ -80,10 +115,10 @@ class social_post_metabox{
 
     function save_post($post_id)
     {
-        if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
+        if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
             return;
 
-        if ( ! isset($_POST['social_postmetabox_nonce'] ) ||  !wp_verify_nonce( $_POST['social_postmetabox_nonce'], 'social_postmetabox_nonce' ) ) 
+        if ( ! isset($_POST['social_postmetabox_nonce'] ) ||  !wp_verify_nonce( $_POST['social_postmetabox_nonce'], 'social_postmetabox_nonce' ) )
             return;
 
         if ( ! isset($_POST['social_show_option']) )
@@ -99,7 +134,7 @@ class social_post_metabox{
             }
             else
             {
-                update_post_meta($post_id, 'social_exclude', 'true' , $custom_fields['social_exclude'][0]  ); 
+                update_post_meta($post_id, 'social_exclude', 'true' , $custom_fields['social_exclude'][0]  );
             }
         }
 
@@ -276,7 +311,7 @@ function parent_theme_widgets_init()
         'before_title' => '<h3 class="widget-title">',
         'after_title' => '</h3>',
     ) );
-	
+
 
     // register_widget( 'Twenty_Eleven_Ephemera_Widget' );
 
@@ -523,28 +558,28 @@ function isset_related_posts()
 function reader_photo_slider() {
 
 	$id = get_the_ID();
-	$features = get_field('reader_photos',$id ); 
-	
+	$features = get_field('reader_photos',$id );
+
 	if( $features ): ?>
 		<div id="photoSlider" class="reader-photo-slider loading-block clearfix">
 	        <div class="photo-slider onload-hidden">
 	            <ul class="slides-inner slides">
-                
-    				<?php foreach( $features as $feature ): 
+
+    				<?php foreach( $features as $feature ):
 	           	 		$title = $feature->post_title;
 	           	 		$url = $feature->guid;
 						$thumb = get_the_post_thumbnail($feature->ID,"community-square-retina"); ?>
-	
+
 	               	 	<li>
 	                    	<div><a href="<?php echo $url; ?>"><?php echo $thumb; ?></a></div>
 	                        <h3><a href="<?php echo $url; ?>"><?php echo $title; ?></a></h3>
 	                    </li>
 				    <?php endforeach; ?>
-				
+
             </ul>
         </div>
-    </div>  
-	<?php endif; 
+    </div>
+	<?php endif;
 	wp_enqueue_script('flexslider-reader-js','/wp-content/themes/imo-mags-parent/js/plugins/flexslider/jquery.flexslider.js', __FILE__);
 }
 
@@ -775,6 +810,7 @@ function imo_parent_theme_init() {
 
 
 }
+
 
 add_action( 'init', 'codex_video_init' );
 /**
@@ -1244,16 +1280,16 @@ function fixed_connect_footer(){
 				<div class="journal">
 	                <?php
 	                    global $IMO_USER_STATE;
-	
+
 	                    $sportsmanStates = array("GA","MI","MN","WI","AR","TN","TX");
-	
+
 	                    $cover = get_option('magazine_cover_uri');
-	
+
 	                     if (in_array($IMO_USER_STATE, $sportsmanStates)) {
 	                        $cover = get_option('magazine_cover_alt_uri');
 	                    }
 	                ?>
-	
+
 			        <img src="<?php echo $cover; ?>" alt="Subscribe">
 			    </div>
 			</div>

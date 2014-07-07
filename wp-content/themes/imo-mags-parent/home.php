@@ -5,7 +5,7 @@ $playerID = get_option('home_player_id', false);
 $playerKey = get_option('home_player_Key', false);
 $camp = get_option('home_player_camp', false);
 $videoTitle = get_option('video_title', false);
-$features = get_field('homepage_featured_stories','options' ); 
+$features = get_field('homepage_featured_stories','options' );
 
 get_header(); ?>
 	<?php imo_sidebar(); ?>
@@ -20,8 +20,16 @@ get_header(); ?>
                     </div>-->
                     <div class="clearfix">
                         <ul>
-							<?php foreach( $features as $feature ): 
+							<?php foreach( $features as $feature ):
                        	 		$title = $feature->post_title;
+
+
+                       	 		if ($feature->promo_title) {
+
+                       	 			$title = $feature->promo_title;
+                       	 		}
+
+
                        	 		$url = $feature->guid;
 								$thumb = get_the_post_thumbnail($feature->ID,"list-thumb");
 								$tracking = "_gaq.push(['_trackEvent','Special Features Homepage','$title','$url']);"; ?>
@@ -40,26 +48,26 @@ get_header(); ?>
                        	</ul>
                     </div>
                 </div>
-				<?php endif; 
+				<?php endif;
 				//Shotgun news ad units
 				//if( mobile() && function_exists('split_120_ad') ){ ?>
 				<!--<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="js-responsive-section">-->
-					<?php //split_120_ad(); ?>			
+					<?php //split_120_ad(); ?>
 				<!--</div>-->
 				<?php //} ?>
-				
+
 				<?php if( $playerID && $playerKey ){ ?>
 				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section">
 					<div class="general-title clearfix">
 		                <h2><?php echo $videoTitle; ?></h2>
 		                <div class="sponsor"><?php echo get_imo_dart_tag("240x60",1,false,array("camp"=>"$camp")); ?></div>
 		            </div>
-					
+
 					<!-- Start of Brightcove Player -->
 					<div style="display:none"></div>
-									
+
 					<script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
-					
+
 					<object id="myExperience" class="BrightcoveExperience">
 					  <param name="bgcolor" value="#FFFFFF" />
 					  <param name="width" value="480" />
@@ -71,28 +79,28 @@ get_header(); ?>
 					  <param name="dynamicStreaming" value="true" />
 					</object>
 					<script type="text/javascript">brightcove.createExperiences();</script>
-					<!-- End of Brightcove Player -->		
+					<!-- End of Brightcove Player -->
 				</div>
 				<?php } ?>
-		
+
 				<?php if ( mobile() ){ get_sidebar("mobile"); } ?>
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section main-content-preppend">
 					<!--<div class="general-title clearfix">
                         <h2>Popular</h2>
                     </div>-->
-                    <?php 
+                    <?php
 					$slug = 'featured';
 					$category = get_category_by_slug($slug);
-					
+
 					$fslug = 'forecasts';
 					$fcategory = get_category_by_slug($fslug);
-					
+
 					$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-                    $more_query = new WP_Query( 'post_type=post&posts_per_page=20&paged=' . $paged. '&cat=-' . $category->cat_ID.",-".$fcategory->cat_ID );                     
+                    $more_query = new WP_Query( 'post_type=post&posts_per_page=20&paged=' . $paged. '&cat=-' . $category->cat_ID.",-".$fcategory->cat_ID );
                     $i++;
 
                     while ($more_query->have_posts()) : $more_query->the_post(); ?>
-					
+
                     <div class="<?php the_ID(); ?> post article-brief clearfix">
                         <!--<div class="posts-list-sep"><div class="bar"></div></div>-->
                         <a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('list-thumb');?></a>
@@ -117,7 +125,7 @@ get_header(); ?>
                     <?php if ( (($i - (($paged -1) * 2 ))%6) == 0 ): ?>
                         <?php if ( mobile() ){ ?>
                         <div class="image-banner posts-image-banner">
-                            <?php imo_dart_tag("300x250",array("pos"=>"mob")); ?> 
+                            <?php imo_dart_tag("300x250",array("pos"=>"mob")); ?>
                         </div>
                         <?php } ?>
                     <?php endif;?>

@@ -48,12 +48,12 @@ Theme My Login will always look in your theme's directory first, before using th
 }
 .btn-fb-login {
     display:block;
-    width:274px;
-    height:42px;
+    width:300px;
+    height:65px;
     overflow:hidden;
     text-indent:-9999px;
     margin:0 0 8px;
-    background:url(http://www.gameandfishmag.com/wp-content/themes/gameandfish/images/sprite.png) no-repeat 0 -270px;
+    background:url(/wp-content/plugins/imo-facebook-auth/facebook-login-button.png);
 }
 
 .imo-community-new-post {
