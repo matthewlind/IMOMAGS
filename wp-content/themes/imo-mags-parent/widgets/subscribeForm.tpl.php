@@ -17,11 +17,13 @@
 
 <!-- Magazine sign up  -->
 <div class="block subscribe-form-block" id="store">
-<div class="subs-header"><h4><?php print get_option('headline_1'); ?></h4><h4><?php print get_option('headline_2'); ?></h4></div>
+<!-- <div class="subs-header"><h4><?php print get_option('headline_1'); ?></h4><h4><?php print get_option('headline_2'); ?></h4></div> -->
+	<div class="subs-header"><h1><?php print get_option('headline_1'); ?></h1></div>
     <div class="content">
     	<div class="mag-cover">
     		<a href="<?php print get_option("subs_link");?>"><img src='<?php print $cover; ?>'></a>
 			<div class="mag-copy"><?php print get_option('deal_copy' ); ?></div>
+			<div class="now-ontablets">Now on Tablets!</div>
     	</div>
         <div class="subscribeAdMod">
             <div class="subscribeAdModContent">
@@ -45,11 +47,13 @@
                         <input type="text" class="form-text" name="lastname" placeholder="Last Name" />
                     </div>
                     <div class="subscribe-row">
-                        <input type="text" class="form-text" name="address" placeholder="Address 1" />
+                        <input type="text" class="form-text" name="address" placeholder="Address" />
                     </div>
-                    <div class="subscribe-row">
+                    <!--
+<div class="subscribe-row">
                         <input type="text" class="form-text" name="address2" placeholder="Address 2" />
                     </div>
+-->
                     <div class="subscribe-row">
                         <input type="text" class="form-text" name="city" placeholder="City" />
                     </div>
@@ -65,8 +69,8 @@
                     <div class="subscribe-row">
                         <input type="text" class="form-text" name="our_email" placeholder="Email" />
                     </div>
-                    <div class="subscribeButton btn-base">
-                        <input type="submit" value="Subscribe" class="submit-button">
+                    <div class="subscribeButton btn-green">
+                        <input type="submit" value="CONTINUE" class="submit-button">
                     </div>
                 </form>
 
