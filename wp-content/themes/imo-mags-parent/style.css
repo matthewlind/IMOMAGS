@@ -2744,6 +2744,98 @@ margin-bottom:15px;
 	width: 100%;
 }
 
+/*** Video & Show Pages ***/
+.page-template-show-page-php .layout-frame{width: 100%;}
+.page-template-show-page-php .general{float: none;border: none;width: 100%;}
+
+/* header */
+.post-type-archive-video #subscribe-area, .page-template-show-page-php #subscribe-area {
+    width:auto;
+}
+.post-type-archive-video .subscribe-now span, 
+.page-template-show-page-php .subscribe-now span{display: none;}
+.post-type-archive-video .header .subscribe-box .journal, 
+.page-template-show-page-php .header .subscribe-box .journal,
+.post-type-archive-video .h-search-form, 
+.page-template-show-page-php .h-search-form,
+.post-type-archive-video .header .subscribe-box .btn-base span,
+.page-template-show-page-php .header .subscribe-box .btn-base span,
+.post-type-archive-video .header .subscribe-links, 
+.page-template-show-page-php .header .subscribe-links,
+.post-type-archive-video .header .subscribe-now p, 
+.page-template-show-page-php .header .subscribe-now p,
+.post-type-archive-video .header .menu-top-menu-container, 
+.page-template-show-page-php .header .menu-top-menu-container,
+.post-type-archive-video .header .menu-main-menu-container, 
+.page-template-show-page-php .header .menu-main-menu-container,
+.post-type-archive-video .header .menu-header-menu-container, 
+.page-template-show-page-php .header .menu-header-menu-container {
+   display:none;
+}
+.post-type-archive-video .header, 
+.page-template-show-page-php .header {
+   padding:0 0 4px;
+   height:44px;
+}
+.post-type-archive-video .logo, 
+.page-template-show-page-php .logo {
+   width:130px;
+   height:auto;
+}
+.post-type-archive-video .logo img, 
+.page-template-show-page-php .logo img{width:130px;}
+.post-type-archive-video .user-btn, 
+.page-template-show-page-php .user-btn,
+.post-type-archive-video .open-search,, 
+.page-template-show-page-php .open-search,
+.post-type-archive-video .open-menu, 
+.page-template-show-page-php .open-menu {
+   display:block;
+}
+.post-type-archive-video .header .socials, 
+.page-template-show-page-php .header .socials {
+   position:absolute;
+   top:0;
+   right:60px;
+   border:1px solid #dddcdb;
+   border-width:0 0 0 1px;
+   padding:6px 15px 0 7px;
+   height:44px;
+}
+.post-type-archive-video .header .socials a, 
+.page-template-show-page-php .header .socials a {
+   margin:0 0 0 8px;
+}
+.post-type-archive-video .subscribe-now, 
+.page-template-show-page-php .subscribe-now {
+   margin:0;
+}
+.post-type-archive-video #subscribe-area, 
+.page-template-show-page-php #subscribe-area {
+   margin:0;
+   position:absolute;
+   top:8px;
+   right:255px;
+}
+.post-type-archive-video .h-search-open, 
+.page-template-show-page-php .h-search-open {
+   display: block !important;
+   position:absolute;
+   top:43px;
+   left:0;
+   border-top: 1px solid #dddcdb;
+   border-bottom: 1px solid #dddcdb;
+   padding:10px;
+   width:100%;
+}
+.post-type-archive-video .search-field input, 
+.page-template-show-page-php .search-field input{width: 95%;}
+.post-type-archive-video #imo-tophat, 
+.page-template-show-page-php #imo-tophat{display: none;}
+.post-type-archive-video .gsc-results-wrapper-overlay, 
+.page-template-show-page-php .gsc-results-wrapper-overlay{top:42px !important;padding: 0 20px !important;}
+
+
 /*** Subscribe widget ***/
 .subscribe-form-block{height: 320px;}
 .subs-header{
