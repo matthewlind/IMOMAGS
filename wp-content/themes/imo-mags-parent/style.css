@@ -2843,14 +2843,14 @@ box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.1);
 	text-align: center;
 	vertical-align: middle;
 	cursor: pointer;
-	background: #619961; /* Old browsers */
-	background: -moz-linear-gradient(top,  #619961 15%, #619961 15%, #3f6c3f 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(15%,#619961), color-stop(15%,#619961), color-stop(100%,#3f6c3f)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #619961 15%,#619961 15%,#3f6c3f 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #619961 15%,#619961 15%,#3f6c3f 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #619961 15%,#619961 15%,#3f6c3f 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #619961 15%,#619961 15%,#3f6c3f 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#619961', endColorstr='#3f6c3f',GradientType=0 ); /* IE6-9 */
+	background: #494949; /* Old browsers */
+	background: -moz-linear-gradient(top,  #494949 0%, #2d2d2d 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#494949), color-stop(100%,#2d2d2d)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #494949 0%,#2d2d2d 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #494949 0%,#2d2d2d 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #494949 0%,#2d2d2d 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #494949 0%,#2d2d2d 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#494949', endColorstr='#2d2d2d',GradientType=0 ); /* IE6-9 */
 	border: 1px solid #cccccc;
 	border-color: #e6e6e6 #e6e6e6 #bfbfbf;
 	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
@@ -2858,8 +2858,10 @@ box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.1);
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
+/*
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
 	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+*/
 	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
 	-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
 	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
@@ -2868,14 +2870,14 @@ box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.1);
 	color: #333333;
 	text-decoration: none;
 	/* background-position: 0 -5px; */
-	background: #76ad70; /* Old browsers */
-	background: -moz-linear-gradient(top,  #76ad70 0%, #43724d 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#76ad70), color-stop(100%,#43724d)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #76ad70 0%,#43724d 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #76ad70 0%,#43724d 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #76ad70 0%,#43724d 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #76ad70 0%,#43724d 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#76ad70', endColorstr='#43724d',GradientType=0 ); /* IE6-9 */
+	background: #545454; /* Old browsers */
+	background: -moz-linear-gradient(top,  #545454 0%, #353535 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#545454), color-stop(100%,#353535)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #545454 0%,#353535 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #545454 0%,#353535 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #545454 0%,#353535 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #545454 0%,#353535 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#545454', endColorstr='#353535',GradientType=0 ); /* IE6-9 */
 	-webkit-transition: background 1s linear;
 	-moz-transition: background 1s linear;
 	-o-transition: background 1s linear;
