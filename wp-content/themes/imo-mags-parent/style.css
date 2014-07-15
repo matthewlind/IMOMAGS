@@ -2756,10 +2756,318 @@ margin-bottom:15px;
 }
 
 /*** Video & Show Pages ***/
-.page-template-show-page-php .layout-frame{width: 100%;}
-.page-template-show-page-php .general{float: none;border: none;width: 100%;}
+.page-template-show-page-php {
+	background: url('images/shows/petersens-back.png');
+   /*  background-position: center; */
+    background-repeat: no-repeat;
+	/*
+-webkit-background-size: cover;
+	background-size: cover;
+*/
+	background-size: 100% auto;
+	background-color: #2a2a2a;
+}
+.page-template-show-page-php .main {
+	padding: 0;
+}
+.page-template-show-page-php .layout-frame{
+	width: 100%;
+}
+.page-template-show-page-php .general{
+	width: 1080px;
+	margin: 0 auto;
+	float: none;
+	border: none;
+	padding: 0;
+	font-family: 'jubilat', serif;
+}
+.page-template-show-page-php .general-frame {
+	width: 100%;
+}
 
-/* header */
+/* header ==================================== */
+
+.page-template-show-page-php .page-header {
+	margin: 0;
+}
+.page-template-show-page-php #header-top {
+	width: 100%;
+	height: 122px;
+	background-color: rgba(0,0,0,0.4);
+	margin: 35px 0 0 0;
+}
+
+.page-template-show-page-php .content-banner-section {
+	background: transparent;
+	margin-top: 10px;
+}
+.page-template-show-page-php .main {
+	border: none;
+}
+.page-template-show-page-php .main, .content-banner-section {
+	background: transparent;
+}
+
+.page-template-show-page-php .shows-logo {
+	float: left;
+	width: 200px;
+	height: 122px;
+}
+.page-template-show-page-php .shows-logo img {
+  	position: absolute;
+	top: -5px;
+	width: 174px;
+	margin-left: 15px;
+}
+.page-template-show-page-php .shows-title {
+	float: left;
+	max-width: 700px;
+	margin: 20px 0 0 20px;
+}
+.page-template-show-page-php .shows-title h1 {
+	font-family: "jubilat", serif;
+	font-weight: 400;
+	font-size: 30px;
+	color: #ffffff;
+	text-align: left;
+}
+.page-template-show-page-php .shows-title .fb_iframe_widget {
+	margin-top: 10px;
+}
+.page-template-show-page-php .shows-sponsor {
+	float: right;
+	width: 200px;
+	height: 122px;
+	margin-top: 15px;
+}
+.page-template-show-page-php .shows-sponsor span {
+	font-family: 'open_sanssemibold', Helvetica, Arial, sans-serif;
+	text-transform: uppercase;
+	font-size: 16px;
+	text-align: center;
+	color: #cccccc;	
+	display: block;
+}
+.page-template-show-page-php .shows-sponsor img {
+	max-height: 50%;
+	max-width: 70%;
+	margin: 10px auto 0;
+	text-align: center;
+	display: block;
+}
+
+/* navigation ==================================== */
+
+.page-template-show-page-php #shows-nav {
+	height: 40px;
+	width: 100%;
+	background-color: rgba(37,37,37,0.6);
+}
+.page-template-show-page-php #shows-nav ul {
+	padding: 0 20px 0 20px;
+	vertical-align: middle;
+	line-height: 40px;
+	display: inline-block;
+}
+.page-template-show-page-php #shows-nav ul li {
+	display: inline;
+	padding-right: 16px;
+}
+.page-template-show-page-php #shows-nav ul li a {
+	color: #ffffff;
+	font-family: 'jubilat', serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 5px 15px;
+}
+.page-template-show-page-php #shows-nav ul li a:hover {
+	color: #e8e1c5;
+}
+.page-template-show-page-php #shows-player-area {
+	width: 100%;
+	background-color: #252525;
+	padding: 0 35px 40px;
+	overflow: hidden;
+}
+/* when to watch ==================================== */
+.page-template-show-page-php #when-to-watch {
+	width: 100%;
+	height: 106px;
+	overflow: hidden;
+	padding-top: 23px;
+}
+.page-template-show-page-php #when-to-watch .when-label {
+	float: left;
+}
+.page-template-show-page-php #when-to-watch .when-label h3 {
+	color: #ffffff;
+	font: 24px/29px 'jubilat', serif;
+	font-weight: 300;
+}
+
+.page-template-show-page-php .schedule-item {
+	float: left;
+	margin: 5px 0 0 35px;
+	border-left: 2px solid #848484;
+	height: 49px;
+	padding-left: 20px;
+}
+.page-template-show-page-php .schedule-item .episode-title {
+	color: #80b880;
+	font-size: 16px;
+}
+.page-template-show-page-php .schedule-item .episode-time {
+	color: #ffffff;
+	font-size: 16px;
+}
+
+.page-template-show-page-php .remind-me {
+	font:13px/18px "open_sanssemibold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    height: 53px;
+    width: 108px;
+    float: right;
+    padding: 0;
+    margin: 2px 2px 0 0;
+	color: #ffffff;
+	text-align: left;
+	cursor: pointer;
+	background: #494949; /* Old browsers */
+	background: -moz-linear-gradient(top,  #494949 0%, #2d2d2d 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#494949), color-stop(100%,#2d2d2d)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #494949 0%,#2d2d2d 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #494949 0%,#2d2d2d 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #494949 0%,#2d2d2d 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #494949 0%,#2d2d2d 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#494949', endColorstr='#2d2d2d',GradientType=0 ); /* IE6-9 */
+	border: 1px solid #cccccc;
+	border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	box-shadow: 0 4px 5px rgba(0,0,0,0.3);
+}
+.page-template-show-page-php .remind-me span {
+	margin: 7px 0 0 15px;
+	display: block;
+}
+/* video player ==================================== */
+
+.page-template-show-page-php #video-player-area {
+	position: relative;
+}
+.page-template-show-page-php #video-player-area .video-player-wrap {
+	width: 100%;
+	padding-right: 345px;
+	height: 373px;
+}
+.page-template-show-page-php #video-player-area .video-player-wrap .player {
+	height: 373px;
+	width: 100%;
+	background-color: #555;
+}
+.page-template-show-page-php #video-player-area .new-show {
+	height: 373px;
+	width: 310px;
+	background-color: #555;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+/* video description ==================================== */
+.page-template-show-page-php #description-area {
+	margin-top: 35px;
+	color: #ffffff;
+}
+.page-template-show-page-php #description-area .unify {
+	width: 60%;
+	margin-right: 9.325%;
+	float: left;
+}
+.page-template-show-page-php #description-area .unify .show-video-date {
+	font-size: 12px;
+}
+.page-template-show-page-php #description-area .unify h1 {
+	font-size: 39px;
+}
+.page-template-show-page-php #description-area .unify p {
+	font-size: 18px;
+	font-weight: 300;
+	line-height: 130%;
+}
+.page-template-show-page-php #description-area .ad-block {
+	width: 30.67716%;
+	height: 250px;
+	background-color: green;
+	float: left;
+	margin-top: 15px;
+}
+/* social share ==================================== */
+.page-template-show-page-php .social-share div {
+	float: left;
+	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+	text-align: center;
+}
+.page-template-show-page-php .social-share .share-results {
+	min-width: 40px;
+	max-width: 70px;
+	margin-right: 10px;
+	position: relative;
+}
+.page-template-show-page-php .social-share .share-results span:first-child {
+	font-size: 35px;
+	font-weight: 600;
+	color: #fcc05e;
+} 
+.page-template-show-page-php .social-share .share-results .shares {
+	margin: -10px auto 0;
+	width: 100%;
+}
+.page-template-show-page-php .social-share .share-results .shares span {
+	font-size: 12px;
+	color: #555;
+	text-align: center;
+} 
+/*
+.page-template-show-page-php .social-share .share-results .vertical-ln {
+	position: absolute;
+	width: 2px;
+	height: 30px;
+	background-color: #666;
+}
+*/
+.page-template-show-page-php .social-share .social-share-btns {
+	height: 47px;
+	border-left: 2px solid #666;
+	padding-left: 15px;
+	margin-top: 10px;
+}
+.page-template-show-page-php .social-share .social-share-btns div {
+	height: 35px;
+	width: 35px;
+	margin: 6px 15px 0 0;
+}
+.page-template-show-page-php .social-share .social-share-btns div i {
+	font-size: 25px;
+	padding-top: 6px;
+	color: #ffffff;
+}
+.page-template-show-page-php .social-share .facebook-share {
+	background-color: #4764b8;
+}
+.page-template-show-page-php .social-share .google-share {
+	background-color: #dc5634;
+}
+.page-template-show-page-php .social-share .twitter-share {
+	background-color: #0097ca;
+}
+
+
+
+
+
+
+
 .post-type-archive-video #subscribe-area, .page-template-show-page-php #subscribe-area {
     width:auto;
 }
@@ -2847,10 +3155,10 @@ margin-bottom:15px;
 .page-template-show-page-php .gsc-results-wrapper-overlay{top:42px !important;padding: 0 20px !important;}
 
 
+
 /*** Subscribe widget ***/
 .subscribe-form-block{height: 320px;}
 .subs-header{
-	/* background: #373737; */
 	width: 100%;
 	height: 54px;
 	padding: 6px 0;
@@ -3960,6 +4268,13 @@ table.likes-leaderboard .entry-title {
 		border-left-color: rgba(25,25,25,0.92);
 	}
 	.fixed-connect .follow{display: none;}
+	
+	#shows-player-area {
+		width: 100%;
+	}
+	.page-template-show-page-php .general {
+		width: 100%;
+	}
 
 }
 @media only screen and (max-width: 936px) {

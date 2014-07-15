@@ -396,7 +396,8 @@ function parent_theme_widgets_init()
         'top' => 'Top Menu',
         'bottom' => 'Main Menu',
         'mobile' => 'Mobile Menu',
-        'community' => 'Community Menu'
+        'community' => 'Community Menu',
+        'shows_menu' => 'Shows Menu'
     ));
 
 }
@@ -1307,7 +1308,7 @@ function fixed_connect_footer(){
 
 				<script type="text/javascript">
 				/***********************************************
-				* Textarea Maxlength script- © Dynamic Drive (www.dynamicdrive.com)
+				* Textarea Maxlength script- ï¿½ Dynamic Drive (www.dynamicdrive.com)
 				* This notice must stay intact for legal use.
 				* Visit http://www.dynamicdrive.com/ for full source code
 				***********************************************/
