@@ -94,22 +94,13 @@ $dataPos = 0;
 						</div>	
 					</a>
 				</div>
-				<div id="channel-widget-cfct-module-abc707593608d874b9949799141a26e6" class="widget widget_channel-widget">
 		
-			<script>// <![CDATA[
-			function popwin(loc,winname,w,h,scroll,resize) { 	var newwin = window.open( loc, winname, "width="+w+",height="+h+",top="+((screen.height - h) / 2)+",left="+((screen.width - w) / 2)+",location=no,scrollbars="+scroll+",menubar=no,toolbar=no,resizable="+resize); } // function..popwin
-			// ]]></script>
-			<div id="locateChannel">
-			<div id="channelControlsContainer">
-			<h4>PHTV is Available On Sportsman Channel:</h4>
-			<div id="channelControls"><input id="zip" class="searchbox" name="zip" type="text" value="Enter Your ZIP" /> <a href="#">
-			<input class="button" type="submit" value="GO!" /></a></div>
-			</div>
-			</div>
-		</div><!-- end of .widget_channel-widget -->		
+			<?php get_template_part( 'widgets/sportsmanLocator' ); ?>		
 			</div><!-- end of .social-share -->
 		</div><!-- end of .unify -->
-		<div class="ad-block"></div>
+		<div class="ad-block">
+
+		</div>
 		
 		
 	</div><!-- end of #description-area -->
