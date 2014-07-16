@@ -18,33 +18,28 @@ get_header(); ?>
 	<div id="primary" class="general">
         <div class="general-frame">
             <div id="content" role="main">
-				<?php while ( have_posts() ) : the_post(); ?>
-					<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header clearfix js-responsive-section">
-						<h1 class="page-title<?php if(is_page("guns-ammo-tv-2")){ echo ' section-title videos'; } ?>">
-							<div class="icon"></div>
-							<span><?php 
-							
-							
-							the_title(); 
-							
-							
-							?></span>
-					    </h1>
+					<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header marquee-img clearfix js-responsive-section">
+						<h1 class="page-title hidden-seo"><?php the_title(); ?></h1>
+						<img src="/wp-content/themes/petersenshunting/images/b2b/b2b_marquee_placeholder.jpg" alt="b2b_marquee_placeholder" width="" height="" />
 					</div>
 					
-					<div data-position="<?php echo $dataPos = $dataPos + 1; ?>"  id="post-<?php the_ID(); ?>" <?php post_class('clearfix js-responsive-section'); ?>>
-						<?php 
+			
+					
+					<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="show-video clearfix js-responsive-section">
 						
 						
-				
-						//the_content(); 
+						<div id="sidebar-area">
+							<div class="sidebar">
+								<?php imo_dart_tag("300x250"); ?>
+							</div>
+						</div>
+						<div class="article-holder">
+							<h2>Title</h2>
+							<div>Content</div>
+						</div>
 						
 						
-						
-						?>
-					</div><!-- #post-<?php the_ID(); ?> -->
-
-				<?php endwhile; // end of the loop. ?>
+					</div>
             </div><!-- #content -->
         </div>
     </div><!-- #primary -->

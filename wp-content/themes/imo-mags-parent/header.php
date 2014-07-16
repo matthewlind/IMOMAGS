@@ -408,17 +408,17 @@
                     ));   ?>
                 <!-- #access -->
         </div><!-- #branding -->
-		
-        <div class="content-banner-section">
-        	<?php if (mobile() == false) { ?>
-	        	<div class="mdl-banner">
-					 <?php imo_dart_tag("728x90"); ?>
-				</div>
-				<?php }else{ ?>
-					<div class="mob-mdl-banner">
-						<?php imo_dart_tag("320x50",true); ?>
+		<?php if(get_field("full_width") != true){ ?>
+	        <div class="content-banner-section">
+	        	<?php if (mobile() == false) { ?>
+		        	<div class="mdl-banner">
+						 <?php imo_dart_tag("728x90"); ?>
 					</div>
-				<?php } ?>
-        </div>
-        
+					<?php }else{ ?>
+						<div class="mob-mdl-banner">
+							<?php imo_dart_tag("320x50",true); ?>
+						</div>
+					<?php } ?>
+	        </div>
+        <?php } ?>
         <div id="main" class="main clearfix js-responsive-layout">
