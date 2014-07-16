@@ -94,7 +94,7 @@ $dataPos = 0;
 						</div>	
 					</a>
 				</div>
-		
+			<!-- this widget is located in imo-mags-parent/widgets -->
 			<?php get_template_part( 'widgets/sportsmanLocator' ); ?>		
 			</div><!-- end of .social-share -->
 		</div><!-- end of .unify -->
