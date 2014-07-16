@@ -15,6 +15,7 @@ define("SITE_LINK", "gunsandammo.com");
 define("SITE_NAME", "Guns & Ammo");
 
 include_once('taxonomies.php');
+include_once('widgets/caption-contest.php');
 include_once('widgets/ga-vault.php');
 include_once('widgets/ipad-app.php');
 include_once('widgets/ipad-app-reloaded.php');

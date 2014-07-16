@@ -466,6 +466,176 @@ h2.reviews-form-header span {
 
 /*** Caption Contest ***/
 
+.single-imo_caption_contest .prize-box {
+  border: 5px solid #999999;
+  background-color: #dddddd;
+  margin: 10px 10px 30px 10px;
+  padding: 10px 10px 10px 10px;
+  min-height: 170px;
+}
+.single-imo_caption_contest .prize-box .prize-thumb {
+  float: left;
+  padding: 10px;
+}
+.single-imo_caption_contest .caption-banner {
+  margin-left: auto;
+  margin-right: auto;
+  background-image: url("images/red-banner.png");
+  width: 385px;
+  height: 49px;
+  color: #FFFFFF;
+  text-align: center;
+  top: 34px;
+  position: relative;
+  z-index: 1000;
+}
+.single-imo_caption_contest .caption-banner-text {
+  font-family: "stagbold";
+  text-transform: uppercase;
+  font-size: 22px;
+  color: white;
+  line-height: 43px;
+  text-shadow: 1px 1px 0px #000000;
+  filter: dropshadow(color=black, offx=1, offy=1);
+}
+.single-imo_caption_contest .caption-contest {
+  overflow: hidden;
+  *zoom: 1;
+  background: #1C1C1C;
+  clear: both;
+  margin-bottom: 30px;
+  padding: 16px;
+}
+.single-imo_caption_contest .caption-contest .wp-post-image {
+  display: block;
+  max-width: 100%;
+}
+.single-imo_caption_contest .caption-contest h2 {
+  color: white;
+  margin: 28px 0;
+  text-align: center;
+}
+.single-imo_caption_contest .caption-contest .avatar {
+  float: left;
+  margin: 0 18px 0 30px;
+  position: relative;
+}
+.single-imo_caption_contest .caption-contest .winning-caption {
+  float: left;
+  width: 490px;
+}
+.single-imo_caption_contest .caption-contest .author {
+  color: #ce181e;
+  font-size: 15px;
+  font-weight: bold;
+}
+.single-imo_caption_contest .caption-contest .caption {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-weight: normal;
+  color: white;
+  font-size: 18px;
+  margin-bottom: 32px;
+}
+.single-imo_caption_contest #main #idc-container .idc-head h3 {
+  background-image: url("images/section_title_captions.gif");
+}
+#caption_contest_promo {
+  	background: url("images/widget_caption_contest_bg.jpg") 0 0 no-repeat black;
+	color: white;
+	text-align: center;
+	width: 300px;
+	padding-bottom: 10px;
+}
+#caption_contest_promo p{font-family: georgia;}
+#caption_contest_promo p.view-all-p {
+	line-height: 24px;
+	font-size: 16px;
+	margin-top: 10px;
+}
+#caption_contest_promo p.view-all-p a:hover{color: white;}
+#caption_contest_promo .banner {
+  text-indent: -119988px;
+  overflow: hidden;
+  text-align: left;
+  height: 200px;
+}
+#caption_contest_promo .wp-post-image {
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  border: 5px solid white;
+  max-width: 180px;
+  *display: inline;
+}
+#caption_contest_promo a.button {
+	background: white;
+	border: none;
+	color: black;
+	padding: 0 28px 0 12px;
+	display: inline-block;
+	font-family: "stagmedium";
+	font-size: 14px;
+	height: 35px;
+	line-height: 35px;
+	position: relative;
+	text-align: center;
+	vertical-align: baseline;
+}
+#caption_contest_promo a.button span {
+	display: inline-block;
+	vertical-align: middle;
+	position: absolute;
+	top: 13px;
+}
+#caption_contest_promo a.button span, #caption_contest_promo a.button:hover span {
+	background: url("images/ga-icons.png") no-repeat;
+}
+#caption_contest_promo a.button span {
+  background-position: 0 -16px;
+  height: 9px;
+  width: 7px;
+  right: 12px;
+}
+#caption_contest_promo a.button:hover {
+  background: #ce181e;
+  color: white;
+}
+#caption_contest_promo a.button:hover span {
+  background-position: 0 -50px;
+  height: 9px;
+  width: 7px;
+}
+#caption_contest_promo .prize {
+  margin: 24px 0 18px;
+}
+#caption_contest_promo .prize h6 {
+  font-family: "Helvetica Nueue", Helvetica, Arial, sans-serif;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 1;
+}
+#caption_contest_promo .prize p {
+  color: #D9D9D9;
+  font-size: 14px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 250px;
+}
+#caption_contest_promo .sponsor{
+	float:none;
+	width: 240px;
+	margin: 0 auto;
+}
+#caption_contest_promo .sponsor img, .imo_caption_contest .sponsor img{float: none;}
+.post-type-archive-imo_caption_contest .sponsor img{margin-top: 2px;}
+
+
+/*** GA Vault ***/
+
 .single-imo_ga_vault .prize-box {
   border: 5px solid #999999;
   background-color: #dddddd;
@@ -632,6 +802,7 @@ h2.reviews-form-header span {
 }
 #ga_vault_promo .sponsor img, .imo_ga_vault .sponsor img{float: none;}
 .post-type-archive-imo_ga_vault .sponsor img{margin-top: 2px;}
+
 
 .ga-lists-featured{float: left;padding-right: 10px;}
 .ga-lists-list{float: right;padding-left: 10px;text-align: center;margin-bottom: 30px;}
