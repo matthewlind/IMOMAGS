@@ -94,14 +94,14 @@ $dataPos = 0;
 						</div>	
 					</a>
 				</div>
-			<!-- this widget is located in imo-mags-parent/widgets -->
-			<?php get_template_part( 'widgets/sportsmanLocator' ); ?>		
+			
 			</div><!-- end of .social-share -->
 		</div><!-- end of .unify -->
 		<div class="ad-block">
 
 		</div>
-		
+		<!-- this widget is located in imo-mags-parent/widgets -->
+		<?php get_template_part( 'widgets/sportsmanLocator' ); ?>		
 		
 	</div><!-- end of #description-area -->
 </div><!-- end of #shows_player_area -->
