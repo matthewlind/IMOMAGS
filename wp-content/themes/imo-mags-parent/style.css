@@ -2756,7 +2756,7 @@ margin-bottom:15px;
 }
 
 /*** Video & Show Pages ***/
-/*========================================================*/
+
 .page-template-show-page-php {
 	background: url('images/shows/petersens-back.png');
    /*  background-position: center; */
@@ -2975,6 +2975,8 @@ margin-bottom:15px;
 	right: 0;
 	top: 0;
 }
+.full-content .layout-frame{width: 100%;}
+.full-content .general{float: none;border: none;width: 1080px;margin: 0 auto;}
 /* video description ==================================== */
 .page-template-show-page-php #description-area {
 	position: relative;
@@ -3177,9 +3179,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 .full-content .gsc-results-wrapper-overlay{top:42px !important;padding: 0 20px !important;}
 
 /*** full width pages ***/
-.full-width.full-content .main{padding: 0;border: none
-	
-}
+.full-width.full-content .main{padding: 0;border: none}
 .full-width.full-content .general{width: 100%;padding: 0;}
 .full-width.full-content .general-frame{width: 100%;}
 .full-content .marquee-img img{width: 100%;display: block;}
