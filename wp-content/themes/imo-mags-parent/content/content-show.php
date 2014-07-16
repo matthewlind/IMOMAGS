@@ -113,7 +113,7 @@ $dataPos = 0;
 	
 	
 	//leverage some of the advanced custom fields to add content here instead of the default WP content	
-	the_content(); 
+	//the_content(); 
 	
 	
 	
