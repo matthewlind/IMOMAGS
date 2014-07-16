@@ -1112,7 +1112,6 @@ if(function_exists("register_field_group"))
 				),
 				'filters' => array (
 					0 => 'search',
-					1 => 'post_type',
 				),
 				'result_elements' => array (
 					0 => 'featured_image',
@@ -1250,6 +1249,39 @@ if(function_exists("register_field_group"))
 					'param' => 'options_page',
 					'operator' => '==',
 					'value' => 'acf-options',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'side',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+	register_field_group(array (
+		'id' => 'acf_full-width-pages',
+		'title' => 'Full Width Pages',
+		'fields' => array (
+			array (
+				'key' => 'field_53c6a004666f2',
+				'label' => 'Full Width',
+				'name' => 'full_width',
+				'type' => 'true_false',
+				'instructions' => 'Check if you want this page to be full width with no site skin.',
+				'message' => '',
+				'default_value' => 0,
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'page',
 					'order_no' => 0,
 					'group_no' => 0,
 				),
