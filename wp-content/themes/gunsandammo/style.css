@@ -26,7 +26,7 @@ body{background:#2d2d2d;}
 .logo{margin-left: 30px;}
 .main{border: none;}
 .general{border: none;padding: 0;}
-.posts-list{padding-top: 0;border-top: none;}
+.posts-list{padding-top: 0;border-top: none;} 
 .category-video .posts-list{border: none;}
 .subscribe-form-block h4{color: white;}
 .subscribe-box .journal {margin: -18px 0 0 0;}
