@@ -2755,8 +2755,12 @@ margin-bottom:15px;
 	width: 100%;
 }
 
-/*** Video & Show Pages ***/
+/*** Video & Show Pages ***
+********************************************************
+********************************************************/
 
+/*** Petersens Hunting Adventures TV ***
+***************************/
 .page-template-show-page-php {
 	background: url('images/shows/petersens-back.png');
    /*  background-position: center; */
@@ -2785,7 +2789,8 @@ margin-bottom:15px;
 .page-template-show-page-php .general-frame {
 	width: 100%;
 }
-
+.full-content .layout-frame{width: 100%;}
+.full-content .general{float: none;border: none;width: 1080px;margin: 0 auto;}
 /* header ==================================== */
 
 .page-template-show-page-php .page-header {
@@ -2975,8 +2980,7 @@ margin-bottom:15px;
 	right: 0;
 	top: 0;
 }
-.full-content .layout-frame{width: 100%;}
-.full-content .general{float: none;border: none;width: 1080px;margin: 0 auto;}
+
 /* video description ==================================== */
 .page-template-show-page-php #description-area {
 	position: relative;
@@ -3116,6 +3120,64 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 
 
 
+/*** Border to Border Show ***
+******************************/
+
+/*** b2b header ***/
+
+.b2b .page-header {
+	height: 800px;
+	background-image: url("../petersenshunting/images/b2b/b2b_marquee_placeholder.jpg");
+	background-size: cover;
+	background-position: center;
+	margin: 0;
+}
+/*** b2b map ***/
+.b2b #b2b-map {
+	background-image: url("../petersenshunting/images/b2b/map-back.jpg");
+	background-repeat: repeat;
+	width: 100%;
+	overflow: hidden;
+}
+#b2b-map #map-wrap {
+	margin: 0 auto;
+}
+#b2b-map #map-wrap img {
+	margin: 0 auto;
+	display: block;
+}
+/*** b2b Article ************************/
+.b2b #article-wrap {
+	padding: 140px 0 100px 0 ;
+	
+}
+.b2b #article-wrap h1 {
+	font-family: "merriweather",serif;
+}
+.b2b .a-text {
+	margin: auto 25%;
+	width: 725px;
+}
+.b2b .block-aside {
+	float: right;
+	margin: 10px 20px;
+	width: 150px;
+}
+.b2b .block-aside .ad-aside {
+	width: 310px;
+}
+/*** b2b Stats ***/
+.b2b .overall-stats {
+	width: 120%;
+	border: 1px solid green;
+}
+.b2b .overall-stats .stats-item {
+	width: 172px;
+	border-left: 2px solid #888888;
+	border-right: 2px solid #888888;
+	min-height: 160px;
+}
+
 
 
 .full-content .subscribe-now span{display: none;}
@@ -3215,7 +3277,7 @@ box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.1);
 	clear: both;
 	float: right;
 }
-.widget_subscribe-form .subscribeButton{float: right;margin:0;}
+.subscribeButton{float: right;margin:0;}
 .widget_subscribe-form input[type="text"], .widget_subscribe-form select{
  background-color: #ffffff;
   border: 1px solid #cccccc;
@@ -3228,9 +3290,9 @@ box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.1);
           transition: border linear 0.2s, box-shadow linear 0.2s;
 
   display: inline-block;
-  height: 27px;
+  height: 23px;
   padding: 4px 6px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   font-size: 14px;
   line-height: 20px;
   color: #333;
@@ -3258,18 +3320,19 @@ box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.1);
 .widget_subscribe-form input{width: 150px;}
 .widget_subscribe-form .zipCode{width: 44px;float: right;}
 .widget_subscribe-form select{width: 100px;float: left;margin-right: 6px;}
-.widget_subscribe-form .mag-copy{font:22px/1.2 "bebas_neue", Helvetica, Arial, sans-serif;padding: 4px 2px;text-align: left;font-weight: 700; color: #568b56;}
+.widget_subscribe-form .mag-copy{font:22px/1.2 "bebas_neue", Helvetica, Arial, sans-serif;padding: 4px 2px;text-align: left;font-weight: 700; color: #568b56; }
 
-
-.widget_subscribe-form .subscribeButton {
+.subscribeButton {
     font:16px/26px "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 600;
     color:#fff;
     height: 35px;
+    width: 100%;
     padding: 0;
     margin: 2px 0 0 0;
-	line-height: 26px;
+	line-height: 31px;
 	color: #ffffff;
+	text-transform: uppercase;
 	text-align: center;
 	vertical-align: middle;
 	cursor: pointer;
@@ -3288,37 +3351,34 @@ box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.1);
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
-/*
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
-	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
-*/
 	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
 	-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
 	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
 }
-.widget_subscribe-form  .subscribeButton:hover {
+.subscribeButton:hover {
 	color: #333333;
 	text-decoration: none;
 	/* background-position: 0 -5px; */
-	background: #545454; /* Old browsers */
-	background: -moz-linear-gradient(top,  #545454 0%, #353535 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#545454), color-stop(100%,#353535)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #545454 0%,#353535 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #545454 0%,#353535 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #545454 0%,#353535 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #545454 0%,#353535 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#545454', endColorstr='#353535',GradientType=0 ); /* IE6-9 */
+	background: #636363; /* Old browsers */
+	background: -moz-linear-gradient(top,  #636363 0%, #3f3f3f 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#636363), color-stop(100%,#3f3f3f)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #636363 0%,#3f3f3f 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #636363 0%,#3f3f3f 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #636363 0%,#3f3f3f 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #636363 0%,#3f3f3f 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#636363', endColorstr='#3f3f3f',GradientType=0 ); /* IE6-9 */
 	-webkit-transition: background 1s linear;
 	-moz-transition: background 1s linear;
 	-o-transition: background 1s linear;
 	transition: background 1s linear;
 }
-.widget_subscribe-form .subscribeButton input {
+.subscribeButton input {
 	background: transparent;
 	border: none;
 	color: #ffffff;
 	text-align: center;
 	vertical-align:bottom;
+	text-transform: uppercase;
 }
 .now-ontablets {
 	font-family: "jubilat", "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;

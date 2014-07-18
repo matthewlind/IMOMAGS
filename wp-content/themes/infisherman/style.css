@@ -16,6 +16,13 @@ General comments (optional).
 .general{padding-top: 30px;}
 .menu-top-menu-container.subscribe-left a{color: #c9242c !important;}
 
+/* Helper Classes *********/
+.color-red {
+	color: #c6262d;
+}
+.color-white {
+	color: #ffffff;
+}
 /* Header
  ******************************************************************************/
 .wp-post-image{
@@ -606,10 +613,15 @@ a.change-location:before {
     margin-right:auto;
     margin-left:auto;
 }
-.widget_subscribe-form .subscribeButton{float: right;margin: 0 7px 8px 0;}
-.subs-header {background: url(images/bg/menu-hover.png) repeat 100% 0;color: white;}
-
-
+.subscribeButton{float: right;margin: 2px 7px 8px 0; width: auto; line-height: 25px;}
+.subscribeButton:hover {background:url(images/bg/bg-btn.png) no-repeat 100% 0;background-position:100% -35px;}
+.subscribeButton input {text-transform: capitalize;}
+.subs-header {background: url(images/bg/menu-hover.png) repeat 100% 0;color: white;margin-bottom: 7px;}
+.subs-header h1 {margin-top: 10px; color: white; font-size: 20px;}
+.widget_subscribe-form .mag-copy p {margin: 5px 0 0 0;}
+.widget_subscribe-form .mag-copy .stag-bold, .stag-reg, b {font:20px/1.2 "bebas_neue", Helvetica, Arial, sans-serif;padding: 4px 0;text-align: left;font-weight: 700; color: #c6262d;}
+.subscribe-box .stag-reg {font-family:"stagregular";}
+.subscribe-box b {font: 12px "Source Sans Pro", Helvetica, Arial, sans-serif; color: #333333; font-weight: bold;}
 /*** Homepage featured ***/
 .featured-area{margin-bottom: 20px;}
 .home .home-featured{border: none !important;padding: 0 0 30px;}

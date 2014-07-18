@@ -49,11 +49,9 @@
                     <div class="subscribe-row">
                         <input type="text" class="form-text" name="address" placeholder="Address" />
                     </div>
-                    <!--
-<div class="subscribe-row">
+					<div class="subscribe-row">
                         <input type="text" class="form-text" name="address2" placeholder="Address 2" />
                     </div>
--->
                     <div class="subscribe-row">
                         <input type="text" class="form-text" name="city" placeholder="City" />
                     </div>
@@ -69,8 +67,8 @@
                     <div class="subscribe-row">
                         <input type="text" class="form-text" name="our_email" placeholder="Email" />
                     </div>
-                    <div class="subscribeButton btn-green">
-                        <input type="submit" value="CONTINUE" class="submit-button">
+                    <div class="subscribeButton btn-base">
+                        <input type="submit" value="Subscribe" class="submit-button">
                     </div>
                 </form>
 
