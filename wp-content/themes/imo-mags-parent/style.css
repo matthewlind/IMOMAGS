@@ -3320,8 +3320,7 @@ box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.1);
 .widget_subscribe-form input{width: 150px;}
 .widget_subscribe-form .zipCode{width: 44px;float: right;}
 .widget_subscribe-form select{width: 100px;float: left;margin-right: 6px;}
-.widget_subscribe-form .mag-copy{font:22px/1.2 "bebas_neue", Helvetica, Arial, sans-serif;padding: 4px 2px;text-align: left;font-weight: 700; color: #568b56;}
-
+.widget_subscribe-form .mag-copy{font:22px/1.2 "bebas_neue", Helvetica, Arial, sans-serif;padding: 4px 2px;text-align: left;font-weight: 700; color: #568b56; }
 
 .subscribeButton {
     font:16px/26px "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
