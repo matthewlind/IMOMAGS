@@ -397,7 +397,8 @@ function parent_theme_widgets_init()
         'bottom' => 'Main Menu',
         'mobile' => 'Mobile Menu',
         'community' => 'Community Menu',
-        'shows_menu' => 'Shows Menu'
+        'shows_menu' => 'Shows Menu',
+        'b2b' => 'B2B Menu'
     ));
 
 }

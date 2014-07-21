@@ -13,11 +13,13 @@ jQuery( document ).ready(function($) {
 	// Border to Border Show
 	function fullHightHeader(){
 		$(pageHeader).css({
-			"height": ((windowHight - headerHight) + "px")
+			"height": ((windowHight - headerHight - 40) + "px")
 		});
-		$(mapImage).css({
+		/*
+$(mapImage).css({
 			"height": ((windowHight - 35) + "px")
 		});
+*/
 	}	
 		fullHightHeader();
 
@@ -31,11 +33,13 @@ jQuery( document ).ready(function($) {
 		// Border to Border Show
 		function fullHightHeader(){
 			$(pageHeader).css({
-				"height": ((windowHight - headerHight) + "px")		
+				"height": ((windowHight - headerHight - 40) + "px")		
 			});
-			$(mapImage).css({
+			/*
+$(mapImage).css({
 				"height": ((windowHight - 35) + "px")
 			});
+*/
 		}
 		fullHightHeader();
 		// Consolw Logs
