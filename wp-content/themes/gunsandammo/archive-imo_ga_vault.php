@@ -12,7 +12,7 @@ get_header(); ?>
 					$postID = $post->ID; ?>
 					<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="facts js-responsive-section" title="<?php the_title(); ?>" slug="<?php echo $post->post_name; ?>">
 						<?php the_post_thumbnail('list-thumb'); ?>
-						<p><?php the_content(); ?></p>
+						<?php the_content(); ?>
 						<div class="fact-share">
 							<a class="facebook-share" href="http://www.facebook.com/share.php?u=<?php the_permalink(); ?>"><img src="/wp-content/themes/gunsandammo/images/facts/share-button.png" alt="share-button" width="" height="" />Share</a>
 							<a class="twitter-share" href="http://twitter.com/share?text=<?php the_permalink(); ?>"><img src="/wp-content/themes/gunsandammo/images/facts/tweet.png" alt="tweet" width="" height="" />Tweet</a>						

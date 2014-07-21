@@ -71,7 +71,7 @@ class GAReviewWidget extends \WP_Widget {
 	<div class="section-title posts">
 	    <h2 class="reviews-form-header">
 	        <div class="icon"></div>
-	        <span>Latest Reviews</span> 
+	        <span>Proofhouse - Reviews</span> 
 	    </h2>
 	    <form action="<?php $_SELF['REQUEST_URI']; ?>" method="post" id="form" class="reviews-form">
 			<div class="review-select1">

@@ -9,7 +9,7 @@
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="facts js-responsive-section">
 				    <?php while ( have_posts() ) : the_post(); ?>
 						<?php the_post_thumbnail('list-thumb'); ?>
-						<p><?php the_content(); ?></p>
+						<?php the_content(); ?>
 					<?php endwhile; ?>
 					<div class="fact-share">
 						<a class="facebook-share" href="http://www.facebook.com/share.php?u=<?php the_permalink(); ?>"><img src="/wp-content/themes/gunsandammo/images/facts/share-button.png" alt="share-button" width="" height="" />Share</a>
