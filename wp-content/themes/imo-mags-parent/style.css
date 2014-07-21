@@ -3189,7 +3189,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 	
 }
 .b2b #article-wrap section {
-	padding-bottom: 110px;	
+	padding-bottom: 130px;	
 }
 .b2b #article-wrap h1 {
 	font-family: "merriweather",serif;
@@ -3197,13 +3197,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 	font-weight:bold;
 	margin-bottom: 30px;
 }
+.b2b #article-wrap h2 {
+	font-family: "merriweather",serif;
+	font-size: 20px;
+	font-weight:bold;
+	margin-bottom: 10px;
+}
 .b2b .a-text {
 	margin: auto 25%;
 	max-width: 725px;
 }
 .b2b .block-aside {
 	float: right;
-	margin: 10px 20px;
+	margin: 10px 20px 30px;
 	width: 150px;
 }
 .b2b .block-aside .ad-aside {
@@ -3212,10 +3218,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 /*** b2b Stats ***/
 .b2b .overall-stats {
 	width: 150%;
-	margin-top: 40px;
+	margin-top: 60px;
 	overflow: hidden;
 }
-.b2b .overall-stats .stats-item {
+.b2b .stats-item {
 	width: 172px;
 	border-right: 1px solid #e0e0e0;
 	min-height: 160px;
@@ -3225,7 +3231,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 	text-align: center;
 	padding: 0 8px;
 }
-.b2b .overall-stats .stats-item:first-child {border-left: 1px solid #e0e0e0;}
+.b2b .stats-item:first-child {border-left: 1px solid #e0e0e0;}
 
 .b2b .stats-item span:nth-child(1) {
 	font-size: 50px;
@@ -3258,6 +3264,139 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 .b2b .episode-heading h1 {
 	padding-top: 9px;
 }
+/*** b2b links-aside ***/
+.b2b .links-aside {
+	position: relative;
+	width: 310px;
+	min-height: 300px;
+
+}
+.b2b .links-aside img {
+	margin: 0 auto;
+	width: 220px;
+	display: block;
+}
+.b2b .links-aside ul {
+	position: absolute;
+	top: 20px; 
+	left: 20px;
+	max-width: 300px;
+}
+.b2b .links-aside ul li {
+	margin-bottom: 20px;
+}
+.b2b .links-aside a {
+	color: #d9713d;
+	font-weight: 600;
+	font-size: 19px;
+}	
+.b2b .links-aside i {
+	color: #d9713d;
+	padding-left: 6px;
+}
+/*** b2b slideshow ***/
+
+.a-slideshow {
+	width: 142%;
+	margin-bottom: 60px;
+}
+.a-slideshow-thumbs {
+	float: right;
+}
+.a-slideshow-thumb {
+	height: 50px;
+	width: 50px;
+	opacity: .5;
+	border: 2px solid #ddd;
+	margin: 13px 0 0 13px;
+	cursor: pointer;
+	-webkit-transition: opacity 0.5s;
+	-moz-transition: opacity 0.5s;
+	-ms-transition: opacity 0.5s;
+	-o-transition: opacity 0.5s;
+	transition: opacity 0.5s;
+}
+.a-slideshow-thumb--active {
+	opacity: 1;
+	border-color: #999;
+}
+.a-slideshow-caption {
+	width: 60%;
+	color: #888;
+	margin-top: 10px;
+	padding: 3px 0 30px 0;
+	font-size: 14px;
+}
+/*** b2b Species Info ***/
+.species-info {
+	width: 149%;
+	margin: 60px 0;
+	overflow: hidden;
+}
+.species-description {
+	max-width: 520px; 
+	overflow: hidden;
+	font-size: 14px;
+	margin-right: 35px;
+	float: left;
+}
+.species-description img {
+	height: 230px;
+	width: 172px;
+	float: left;
+	margin: 0 30px 0 0;
+}
+.species-stats {
+	float: left;
+	margin-top: 39px;
+}
+
+/*** b2b Full width image ***/
+.a-cell {
+	position: relative;
+}
+.a-inner-cell {
+	width: 100%;
+	height: 600px;
+	/* background-attachment: fixed; */
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-bottom: 0;
+}
+.a-cell-caption {
+	position: absolute;
+	right: 16%;
+	height: 200px;
+	bottom: -160px;
+	background-color: #fff;
+	width: 310px;
+	padding: 0 20px;
+}
+.a-cell-caption p {
+	font-size: 14px;
+	border-bottom: 1px solid #888;
+	padding-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 .full-content .subscribe-now span{display: none;}

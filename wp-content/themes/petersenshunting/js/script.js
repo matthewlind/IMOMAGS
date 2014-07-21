@@ -4,7 +4,7 @@ jQuery( document ).ready(function($) {
 	//Variables
 	var windowHight 	= $(window).height();
 	var windowWidth 	= $(window).width(); 
-	var pageHeader  	= $(".page-header");
+	var pageHeader  	= $(".b2b .page-header");
 	var mapImage    	= $("#b2b-map-img");
 	var headerHight 	= $(".header").height();
 	console.log(windowHight);
@@ -15,11 +15,7 @@ jQuery( document ).ready(function($) {
 		$(pageHeader).css({
 			"height": ((windowHight - headerHight - 40) + "px")
 		});
-		/*
-$(mapImage).css({
-			"height": ((windowHight - 35) + "px")
-		});
-*/
+
 	}	
 		fullHightHeader();
 
@@ -35,11 +31,7 @@ $(mapImage).css({
 			$(pageHeader).css({
 				"height": ((windowHight - headerHight - 40) + "px")		
 			});
-			/*
-$(mapImage).css({
-				"height": ((windowHight - 35) + "px")
-			});
-*/
+
 		}
 		fullHightHeader();
 		// Consolw Logs
