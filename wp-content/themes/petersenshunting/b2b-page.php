@@ -37,47 +37,48 @@ get_header(); ?>
 <!-- 					<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="show-video clearfix js-responsive-section"> -->
 				<article id="article-wrap">
 					<section class="about-show">
-						<h1 class="a-text">The Overland Hunting Quest</h1>
+						<h1 class="a-text"><?php the_field("article_headline");?></h1>
 						<div class="a-text">
 							<div class="block-aside">
 								<div class="ad-aside">
 								<?php imo_dart_tag("300x250"); ?>
 								</div>
 							</div>
-							<p>Border to Border was born by a desire to rekindle the adventure of hunting. Like the hunters of old who trekked through the West with only basic provisions, a map of the land and a desire to see new country, we intend to recapture that adventure and excitement in a modern world. The rules are simple and self imposed: travel overland from Mexico to Alaska hunting every state crossed. The only meat consumed is what is killed along the way. All hunts are on land open to the public. No fancy lodges or hotels—every one of the 45 nights will be spent camping out. No guides or outfitter, just friends and family.
-							</p>
-							<p>The goal of Border to Border is to not only entertain and rekindle the American love of adventure, but inspire, educate and motivate viewers for their own DIY hunting adventure.
-							</p>
+							<?php
+							if( get_field('about_text') )
+							{
+								while( has_sub_field('about_text') )
+								{ 
+									$paragraph = get_sub_field('paragraph');
+							 
+									echo "<p>" . $paragraph . "</p>";
+								}
+							}
+							?>
+
+							
+							<?php if( get_field('show_stats') ): ?>
 							<div class="overall-stats">
+								<?php while( has_sub_field('show_stats')): 
+									$stats_number = get_sub_field("stats_number");
+									$stats_title = get_sub_field("stats_title");
+									$stats_comment = get_sub_field("stats_comment");
+								?>
 								<div class="stats-item">
-									<span>6</span>
-									<p>Number of States to Cross</p>
-									<span>(And 1 Canadian Province)</span>
+									<span><?php echo $stats_number; ?></span>
+									<p><?php echo $stats_title; ?></p>
+									<span><?php echo $stats_comment; ?></span>
 								</div>
-								<div class="stats-item">
-									<span>6000</span>
-									<p>Number of Miles to Travel</p>
-									<span>(Round Trip)</span>
-								</div>
-								<div class="stats-item">
-									<span>2000</span>
-									<p>Number of States to Cross</p>
-									<span>(And 1 Canadian Province)</span>
-								</div>
-								<div class="stats-item">
-									<span>8</span>
-									<p>Number of States to Cross</p>
-									<span>(And 1 Canadian Province)</span>
-								</div>
-								<div class="stats-item">
-									<span>25</span>
-									<p>Number of States to Cross</p>
-									<span>(And 1 Canadian Province)</span>
-								</div>
-							</div>
+								<?php endwhile; ?>
+							</div>	
+							<?php endif; ?>
 						</div><!-- .a-text -->	
 					</section><!-- .about-show -->	
-					<section class="episode1">	
+					
+					
+					
+					<!--
+<section class="episode1">	
 						<div class="episode-heading a-text">
 							<div><span>#1</span></div>
 							<h1>New Mexico Antelope</h1>
@@ -113,7 +114,7 @@ get_header(); ?>
 										</div>
 									</div>
 								</div>
-							</div><!-- .a-slideshow -->
+							</div>
 							<p>The only hook is the New Mexico antelope season runs for only three days starting in late August. I will be hunting 150 miles southeast of Raton, NM on a piece or property I never seen before, but have looked at topo maps and talked to guys who have hunted the property in previous years. Even though I am doing research before hitting the ground, three days isn’t a lot of time to get to know an area, find a good antelope and get a shot.
 							</p>
 							<p>Tick tock, tick tock… hopefully our first episode doesn’t come down to us eating tag soup 
@@ -139,8 +140,8 @@ get_header(); ?>
 										<span>(And 1 Canadian Province)</span>
 									</div>
 								</div>
-							</div><!-- .species-info -->
-						</div><!-- .a-text -->
+							</div>
+						</div>
 						<div class="a-cell">
 							<div class="a-inner-cell" style="background-image: url('/wp-content/themes/petersenshunting/images/b2b/tanzania-wildlife.jpg');"></div>
 							<div class="a-cell-caption">
@@ -148,7 +149,12 @@ get_header(); ?>
 								</p>
 							</div>
 						</div>
-					</section>		
+					</section>	
+-->	
+					
+					
+					
+					
 					
 					<?php $this_page_id=$wp_query->post->ID; ?>
 					<?php
