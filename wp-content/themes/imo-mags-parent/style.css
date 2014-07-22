@@ -3325,7 +3325,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 	color: #888;
 	margin-top: 10px;
 	padding: 3px 0 30px 0;
-	font-size: 14px;
+	font-size: 15px;
 }
 /*** b2b Species Info ***/
 .species-info {
@@ -3336,15 +3336,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 .species-description {
 	max-width: 520px; 
 	overflow: hidden;
-	font-size: 14px;
+	font-size: 15px;
 	margin-right: 35px;
 	float: left;
 }
 .species-description img {
-	height: 230px;
-	width: 172px;
+	height: 225px;
+	width: 149px;
 	float: left;
 	margin: 0 30px 0 0;
+	border: none;
 }
 .species-stats {
 	float: left;
@@ -3367,14 +3368,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 .a-cell-caption {
 	position: absolute;
 	right: 16%;
-	height: 200px;
-	bottom: -160px;
+	top: 560px;
 	background-color: #fff;
 	width: 310px;
 	padding: 0 20px;
 }
 .a-cell-caption p {
-	font-size: 14px;
+	font-size: 15px;
 	border-bottom: 1px solid #888;
 	padding-bottom: 20px;
 }

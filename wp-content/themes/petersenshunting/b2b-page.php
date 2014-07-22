@@ -172,76 +172,98 @@ get_header(); ?>
 							the_post();
 							
 					$ep_num = get_field("episode_number");
+					$state_img = get_field("state_image");
+					$slideshow_imgs = get_field("slideshow_imgs");
+					$slideshow_cap = get_field("slideshow_caption");
+					$species_info = get_field("species_info");
+					$full_width_image_back = get_field("full_width_image_back");
+					$full_width_image_caption = get_field("full_width_image_caption");
 					?>
-					<section class="episode<?php echo $ep_num ?>">	
+					<section class="episode<?php echo $ep_num ; ?>">	
 						<div class="episode-heading a-text">
-							<div><span>#<?php echo $ep_num ?></span></div>
-							<h1>New Mexico Antelope</h1>
+							<div><span>#<?php echo $ep_num ;?></span></div>
+							<h1><?php echo get_the_title(); ?></h1>
 						</div>
 						<div class="a-text">
 							<div class="block-aside">
 								<div class="links-aside">
-									<img src="/wp-content/themes/petersenshunting/images/b2b/states/new-mexico.png">
+									<?php if( !empty($state_img) ): ?> 
+										<img src="<?php echo $state_img['url']; ?>" alt="<?php echo $state_img['alt']; ?>" /> 
+										<?php endif; ?>	
 									<ul class="list-links-aside">
-										<li><a href="">Plan your DIY trip to New Mexico</a><i class="fa fa-angle-double-right"></i></li>
-										<li><a href="">Places we hunted</a><i class="fa fa-angle-double-right"></i></li>
-										<li><a href="">License Requirements and Fees</a><i class="fa fa-angle-double-right"></i></li>
-										<li><a href="">Some useful link</a><i class="fa fa-angle-double-right"></i></li>
+									<?php while(has_sub_field("aside_links")): ?>
+										<li><a href="<?php the_sub_field('aside_link'); the_sub_field('aside_external_link');?>" target="_blank"><?php the_sub_field('aside_link_name'); ?></a><i class="fa fa-angle-double-right"></i></li>
+										<?php endwhile; ?>
 									</ul>
 								</div>
 							</div>
-							<p>New Mexico is an amazing state for hunters who love diversity. Home to some of North American’s only free range, fair chase “exotics”, New Mexico boasts a healthy population of aoudad, oryx and ibex as well as native game such as elk, mule deer, couse whitetail, mountain lion, black bears, desert and Rock Mountain big horn sheep. 
-							</p>
-							<p>For this expedition to be a success I have to get to Alaska before the winter sets in and the seasons close, which means we have to start early. Luckily one of the earliest seasons in the country is in New Mexico for antelope. Considering New Mexico also is home to the largest antelope in the United States that makes for a perfect place to start our adventure.
-							</p>
+							<?php while(has_sub_field("text_beginning")): ?>
+							<p><?php the_sub_field('paragraph'); ?></p>
+							<?php endwhile; ?>
 							<div class="a-slideshow">
 								<div class="a-slideshow-container">
 									<div class="a-slideshow-images">
-										<img src="/wp-content/themes/petersenshunting/images/b2b/placeholder-slideshow.jpg">
-									</div>
-									<div class="a-slideshow-thumbs">
+										<?php if( !empty($slideshow_imgs) ): ?> 
+										<img src="<?php echo $slideshow_imgs['url']; ?>" alt="<?php echo $slideshow_imgs['alt']; ?>" /> 
+										<?php endif; ?>								
+										</div>
+									<!--
+<div class="a-slideshow-thumbs">
 										<img class="a-slideshow-thumb" src="/wp-content/themes/petersenshunting/images/b2b/thumb.jpg">
 										<img class="a-slideshow-thumb a-slideshow-thumb--active" src="/wp-content/themes/petersenshunting/images/b2b/thumb.jpg">
 									</div>
+-->
 									<div class="a-slideshow-captions">
-										<div class="a-slideshow-caption">
-										For this expedition to be a success I have to get to Alaska before the winter sets in and the seasons close, which means we have to start early.
-										</div>
+										<?php if( !empty($slideshow_cap) ): ?> 
+										<div class="a-slideshow-caption"><?php echo $slideshow_cap; ?></div>
+										<?php endif; ?>	
 									</div>
 								</div>
 							</div><!-- .a-slideshow -->
-							<p>The only hook is the New Mexico antelope season runs for only three days starting in late August. I will be hunting 150 miles southeast of Raton, NM on a piece or property I never seen before, but have looked at topo maps and talked to guys who have hunted the property in previous years. Even though I am doing research before hitting the ground, three days isn’t a lot of time to get to know an area, find a good antelope and get a shot.
-							</p>
-							<p>Tick tock, tick tock… hopefully our first episode doesn’t come down to us eating tag soup 
-							</p>
-							<p>I will be joined on this hunt by outdoor writer and long time friend Jeff Johnston who is spending his fall vagabond around the west on his own cross country trip. Meeting up and sharing some laughs around the fire will be a great way to kick off the Border to Border adventure. 
-							</p>
+							<?php while(has_sub_field("text_end")): ?>
+							<p><?php the_sub_field('paragraph'); ?></p>
+							<?php endwhile; ?>
+														
+							<?php if($species_info): ?>						
+							<?php while( has_sub_field('species_info') ): ?>
+							<?php 
+							$species_img = get_sub_field("species_image");
+							$species_title = get_sub_field("species_title");
+							$species_description = get_sub_field("species_description");
+							
+							?>
 							<div class="species-info">
-								<div class="species-description">
-									<img src="">
-									<h2>New Mexico Antelope</h2>
-									<p>The pronghorn, Antilocapra americana, is a species of artiodactyl mammal indigenous to interior western and central North America. Though not an antelope, it is often known colloquially in North America as the prong buck, pronghorn antelope, cabri (native American) or simply antelope[3] because it closely resembles the true antelopes of the Old World and fills a similar ecological niche due to convergent evolution										
-									</p>
-								</div>
-								<div class="species-stats">
-									<div class="stats-item">
-										<span>2000</span>
-										<p>Number of States to Cross</p>
-										<span>(And 1 Canadian Province)</span>
-									</div>
-									<div class="stats-item">
-										<span>2000</span>
-										<p>Number of States to Cross</p>
-										<span>(And 1 Canadian Province)</span>
-									</div>
-								</div>
+								<div class="species-description">									
+									<img src="<?php  echo $species_img['url']; ?>" alt="<?php echo $species_img['alt']; ?>" /> 
+									<h2><?php echo $species_title; ?></h2>
+									<p><?php echo $species_description; ?></p>
+								</div><!-- .species-description -->
+								<?php if( get_sub_field('species_stats') ): ?>
+									<div class="species-stats">
+									<?php while( has_sub_field('species_stats') ): ?>
+									<?php
+									$species_stats_num = get_sub_field("species_stats_num");
+									$species_stats_title = get_sub_field("species_stats_title");
+									$species_stats_comment = get_sub_field("species_stats_comment");
+									?>
+										<div class="stats-item">
+											<span><?php echo $species_stats_num; ?></span>
+											<p><?php echo $species_stats_title; ?></p>
+											<?php if( !empty($species_stats_comment) ): ?> 
+											<span><?php echo $species_stats_comment; ?></span>
+											<?php endif; ?>	
+										</div>
+									<?php endwhile; ?>
+									</div><!-- .species-stats -->
+								<?php endif; ?>
 							</div><!-- .species-info -->
+							<?php endwhile; ?>
+						<?php endif; ?>
 						</div><!-- .a-text -->
 						<div class="a-cell">
-							<div class="a-inner-cell" style="background-image: url('/wp-content/themes/petersenshunting/images/b2b/tanzania-wildlife.jpg');"></div>
+							<div class="a-inner-cell" style="background-image: url('<?php echo $full_width_image_back;?>');"></div>
 							<div class="a-cell-caption">
-								<p>There are plenty of places to drop your kayak on the back side of the island. Bring a tow rope, a board for your jack, and a shovel to dig out with in case you get stuck.		
-								</p>
+								<p><?php echo $full_width_image_caption;?></p>
 							</div>
 						</div>
 					</section>	
