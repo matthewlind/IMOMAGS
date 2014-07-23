@@ -189,7 +189,7 @@
 
 <div id="page" class="snap-content smooth-menu">
 <?php if (mobile() == false && tablet() == false) { imo_dart_tag("1x1",false,array("pos"=>"skin")); } ?>
-	<div class="hfeed wrapper" data-role="content" role="main">
+	<div class="hfeed wrapper <?php if(get_field("full_width") == true){ echo ' full-width full-content'; }else if(has_post_format( 'video' )){ echo ' full-width full-content'; } ?>" data-role="content" role="main">
 	    <div class="layout-frame">
 	        <div id="branding" class="header clearfix" role="banner">
 	
