@@ -3156,37 +3156,48 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 	box-shadow: 0 3px 8px black;
 }
 /*** b2b Menu Navigation ************************/
-.b2b #nav-wrap {
+.b2b .nav-wrap {
 	height: 56px;
 	background-color: #3d4a55;
 	width: 100%;
 }
-.b2b #shows-nav {
+.b2b .shows-nav {
 	position: relative;
 	height: 56px;
 	background-color: #3d4a55;
 	width: 100%;
 }
-.b2b #shows-nav ul {
-	margin: 0 auto;
+.b2b .shows-nav ul {
 	line-height: 56px;
 	text-align: center;
 }
-.b2b #shows-nav ul li {
+.b2b .shows-nav ul li {
 	display: inline;
 	border-right: 1px solid #cccccc;
 }
-.b2b #shows-nav ul li:first-child {border-left: 1px solid #cccccc;}
-.b2b #shows-nav ul li a {
+.b2b .shows-nav ul li:first-child {border-left: 1px solid #cccccc;}
+.b2b .shows-nav ul li a {
 	font-family: "merriweather",serif;
 	color: #ffffff;	
 	padding: 0 30px;
 }
-
+.b2b .sticky-shows-nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 400;
+	height: 39px;
+}
+.b2b .sticky-shows-nav ul {
+	line-height: 39px;
+}
+.b2b .sticky-shows-nav ul li a {
+	font-size: 14px;
+}
 /*** b2b Article ************************/
 .b2b #article-wrap {
 	padding: 140px 0 100px 0 ;
-	
+	position: relative;
 }
 .b2b #article-wrap section {
 	padding-bottom: 130px;	
@@ -3382,19 +3393,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 
 /*** b2b Map left ***/
 .b2b .map-left {
-	position: fixed;
-	left: 0;
-	top: 0;
-	height: 1px;
-	width: 230px;
-	background-color: #fff;
-	z-index: 100;
+	position: absolute;
+	left:0;
+	top: 60px;
+	height: 100%;
+	width: 22%;
+	background-color: rgba(255,255,255,0.8);
+	z-index: 300;
 }
 .b2b .map-left svg {
-	width: 100px;
-	height: 600px;
+	width: 70%;
+	margin-left: 20%;
+	margin-top: 50px;
 }
-
 
 
 
