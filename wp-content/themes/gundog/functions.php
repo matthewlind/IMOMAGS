@@ -15,22 +15,27 @@ define("SITE_NAME", "Gun Dog Magazine");
 function imo_sidebar($type){
 	//Speed up mobile load time by not loading sidebar in the background
 	if(!mobile()){
-		$dartDomain = get_option("dart_domain", $default = false);
-		echo '<div class="sidebar-area">';
-			echo '<div class="sidebar">';
-				echo '<div class="widget_advert-widget">';
-				imo_dart_tag("300x250");
-				echo '</div>';
-			echo '</div>';
-		    get_sidebar($type);
+		$dartDomain = get_option("dart_domain", $default = false); ?>
+		<div class="sidebar-area">
+			<div class="sidebar">
+				<div class="widget_advert-widget">
+					<!-- Site - Gundog/home/home_Rectangle_ATF -->
+					<div id='div-300x50-rectangle-atf'>
+						<script type='text/javascript'>
+							googletag.cmd.push(function() { googletag.display('div-300x50-rectangle-atf'); });
+						</script>
+					</div>
+				</div>
+			</div>
+		    <?php get_sidebar($type);
 
-			    	echo '<div id="responderfollow"></div>';
-					echo '<div class="sidebar advert">';
-						echo '<div class="widget_advert-widget">';
-							echo '<iframe id="sticky-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-sticky.php?ad_code='.$dartDomain.'"></iframe>';
-						echo '</div>';
-						get_sidebar("sticky");
-					echo '</div>';
+	    	echo '<div id="responderfollow"></div>';
+			echo '<div class="sidebar advert">';
+				echo '<div class="widget_advert-widget">';
+					echo '<iframe id="sticky-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-sticky.php?ad_code='.$dartDomain.'"></iframe>';
+				echo '</div>';
+				get_sidebar("sticky");
+			echo '</div>';
 		echo '</div>';
 	}
 }
