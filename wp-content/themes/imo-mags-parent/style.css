@@ -398,7 +398,7 @@ img.border-image {
     height: auto;
 }
 .smooth-menu{
-	-webkit-transform:translate3d(0,0,0);
+	/* -webkit-transform:translate3d(0,0,0); */
 	-webkit-backface-visibility: hidden;
 }
 
@@ -3298,7 +3298,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 
 .a-slideshow {
 	width: 142%;
-	margin-bottom: 60px;
+	margin: 60px 0;
 }
 .a-slideshow-thumbs {
 	float: right;
@@ -3355,6 +3355,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 /*** b2b Full width image ***/
 .a-cell {
 	position: relative;
+	z-index: 200;
 }
 .a-inner-cell {
 	width: 100%;
@@ -3368,7 +3369,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 .a-cell-caption {
 	position: absolute;
 	right: 16%;
-	top: 560px;
+	top: 555px;
 	background-color: #fff;
 	width: 310px;
 	padding: 0 20px;
@@ -3379,9 +3380,20 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 	padding-bottom: 20px;
 }
 
-
-
-
+/*** b2b Map left ***/
+.b2b .map-left {
+	position: fixed;
+	left: 0;
+	top: 0;
+	height: 1px;
+	width: 230px;
+	background-color: #fff;
+	z-index: 100;
+}
+.b2b .map-left svg {
+	width: 100px;
+	height: 600px;
+}
 
 
 
@@ -5095,13 +5107,14 @@ table.likes-leaderboard .entry-title {
         max-width: none;
     }
     .smooth-menu, .header {
-		-webkit-transform:translate3d(0,0,0);
+	/* 	-webkit-transform:translate3d(0,0,0); */
 		-webkit-backface-visibility: hidden;
 		-webkit-transition: left 200ms ease-in-out 0.2s;
 		-moz-transition: left 200ms ease-in-out 0.2s;
 		transition: left 200ms ease-in-out 0.2s;
 	}
     .header {
+   		-webkit-transform:translate3d(0,0,0);
         margin:0;
         background-position:0 100%;    }
     .logo {

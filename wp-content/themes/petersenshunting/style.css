@@ -146,6 +146,7 @@ subscribe-links a{color: white;}
 .open-menu{border: none;}
 .open-search{background-position-x: -352px;}
 
+
 @media only screen and (max-width: 1096px) {
 	.logo img{width: 130px !important;}
 	.logo img {margin-top: 2px;}
