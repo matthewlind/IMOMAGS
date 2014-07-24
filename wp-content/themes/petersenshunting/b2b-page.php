@@ -23,8 +23,27 @@ get_header(); ?>
 				</div>
 				<div id="b2b-map">
 					<div class="shadow-block"></div>
-					<div id="map-wrap">
-						<img id="b2b-map-img" src="/wp-content/themes/petersenshunting/images/b2b/b2b-map.jpg">
+					<div class="map-wrap">
+						<img class="b2b-map-img" src="/wp-content/themes/petersenshunting/images/b2b/b2b-map.jpg">
+						<div class="b2b-map-text">
+							<div class="b2b-rules">
+								<h1>RULES</h1>
+								<ul>
+									<li>1. Never spend the night under a roof</li>
+									<li>2. Survive on what you kill or catch and the basic provisions in your kit</li>
+									<li>3. No guides…all DIY hunts and fishing with over-the-counter tags/licenses</li>
+								</ul>
+							</div>
+							<div class="b2b-map-txt text-al">ALASKA</div>
+							<div class="b2b-map-txt text-bc">BRITISH COLUMBIA</div>
+							<div class="b2b-map-txt text-ws">WASHINGTON</div>
+							<div class="b2b-map-txt text-id">IDAHO</div>
+							<div class="b2b-map-txt text-wy">WYOMING</div>
+							<div class="b2b-map-txt text-co">COLORADO</div>
+							<div class="b2b-map-txt text-nm">NEW MEXICO</div>
+							<div class="b2b-map-txt text-st">Start</div>
+							<div class="b2b-map-txt text-fn">Finish</div>
+						</div>
 					</div>
 				</div><!-- #b2b-map -->
 				

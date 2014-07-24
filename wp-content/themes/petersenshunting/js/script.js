@@ -5,9 +5,12 @@ jQuery( document ).ready(function($) {
 	var windowHeight 	= $(window).height();
 	var windowWidth 	= $(window).width(); 
 	var pageHeader  	= $(".b2b .page-header");
-	var mapLeft  		= $(".b2b .map-left svg");
-	var mapImage    	= $("#b2b-map-img");
 	var headerHight 	= $(".header").height();
+	var mapLeft  		= $(".b2b .map-left svg");
+	var mapImage    	= $(".b2b-map-img");
+	var mapImageHeight  = $(".b2b-map-img").height();
+	var mapImageWidth   = $(".b2b-map-img").width();
+	var mapText		 	= $(".b2b-map-text");
 	
 	// Handles for every episode section
 	var ep1 = $('.episode-1').offset().top;
@@ -31,29 +34,7 @@ jQuery( document ).ready(function($) {
 	//hide the trip progress line 
 	 $(".road").hide();
 
-	// side map stick to top function
-	function sideMapStick() {
-		var docTop = $(document).scrollTop();
-		var mapLeftTop = $('#article-wrap').offset().top;
-		if (docTop > (mapLeftTop + 60)) {
-			$(".map-left").css({"position" : "fixed", "top" : "0" });	
-		}	else if (docTop < (mapLeftTop + 60)) {
-			$(".map-left").css({"position" : "absolute", "top" : "60"});	
-		}
-	}
-	sideMapStick();
-	// .shows-nav stick to top function
-	function showsNavStick() {
-		var docTop = $(document).scrollTop();
-		var navTop = $('.nav-wrap').offset().top;
-		if (docTop > navTop) {
-			$(".shows-nav").addClass("sticky-shows-nav");	
-		}	else if (docTop < navTop) {
-			$(".shows-nav").removeClass("sticky-shows-nav");	
-		}
-	}
-	showsNavStick();
-// functions for progress lines drawing
+	// functions for progress lines drawing
 /////////////////////////
 function drawLines1(){
     $.each(path1, function(i, val){
@@ -278,34 +259,49 @@ function drawLines6(){
 	}	 
 }
 ////////////////////////
-	
-	
-	$(window).scroll(function() {
-	showsNavStick();
+	// side map stick to top function
+	function sideMapStick() {
+		var docTop = $(document).scrollTop();
+		var mapLeftTop = $('#article-wrap').offset().top;
+		if (docTop > (mapLeftTop + 60)) {
+			$(".map-left").css({"position" : "fixed", "top" : "0" });	
+		}	else if (docTop < (mapLeftTop + 60)) {
+			$(".map-left").css({"position" : "absolute", "top" : "60"});	
+		}
+	}
 	sideMapStick();
-    $(".road").show();
-    drawLines1();
-	drawLines2();
-    drawLines3();
-    drawLines4();
-    drawLines5();
-    drawLines6();
-	});
-	
-	
-
-
+	// .shows-nav stick to top function
+	function showsNavStick() {
+		var docTop = $(document).scrollTop();
+		var navTop = $('.nav-wrap').offset().top;
+		if (docTop > navTop) {
+			$(".shows-nav").addClass("sticky-shows-nav");	
+		}	else if (docTop < navTop) {
+			$(".shows-nav").removeClass("sticky-shows-nav");	
+		}
+	}
+	showsNavStick();
+	// .b2b-map-text repeting height and width of the .b2b-map-image
+	function mapTextSize(){
+		$(mapText).css({"height": (mapImageHeight + "px"), "width": (mapImageWidth + "px") });
+	}	
+	mapTextSize();
 	// .pageHeader - full hight - function
 	function fullHightHeader(){
-		$(pageHeader).css({"height": ((windowHeight - headerHight - 40) + "px") });
+		if (windowWidth > 768) {
+			$(pageHeader).css({"height": ((windowHeight - headerHight - 30) + "px") });
+		}
 	}	
 	fullHightHeader();
 
 	// Functions triggered on window resize
 	$(window).on("resize", function() { 
 		var windowHeight = $(window).height(); 
-		var windowWidth = $(window).width(); 	
-
+		var windowWidth = $(window).width(); 
+		var mapImage    	= $(".b2b-map-img");
+		var mapImageHeight  = $(".b2b-map-img").height();
+		var mapImageWidth   = $(".b2b-map-img").width();
+		var mapText		 	= $(".b2b-map-text");	
 
 		// .map-left - hight - adjustment - function
 		function heightMapLeft(){
@@ -316,11 +312,29 @@ function drawLines6(){
 		
 		// .pageHeader - full hight - function
 		function fullHightHeader(){
-			$(pageHeader).css({"height": ((windowHeight - headerHight - 40) + "px") });
+			if (windowWidth > 768) {
+				$(pageHeader).css({"height": ((windowHeight - headerHight - 40) + "px") });
+			}
 		}
 		fullHightHeader();
-		// Consolw Logs
-		console.log(windowHeight);
+		
+		// .b2b-map-text repeting height and width of the .b2b-map-image
+		function mapTextSize(){
+			$(mapText).css({"height": (mapImageHeight + "px"), "width": (mapImageWidth + "px") });
+		}
+		mapTextSize();
+	});
+	
+	$(window).scroll(function() {
+		showsNavStick();
+		sideMapStick();
+	    $(".road").show();
+	    drawLines1();
+		drawLines2();
+	    drawLines3();
+	    drawLines4();
+	    drawLines5();
+	    drawLines6();
 	});
 	
 });
