@@ -5158,7 +5158,7 @@ table.likes-leaderboard .entry-title {
         max-width: none;
     }
     .smooth-menu, .header {
-	/* 	-webkit-transform:translate3d(0,0,0); */
+		-webkit-transform:translate3d(0,0,0); 
 		-webkit-backface-visibility: hidden;
 		-webkit-transition: left 200ms ease-in-out 0.2s;
 		-moz-transition: left 200ms ease-in-out 0.2s;
