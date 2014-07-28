@@ -1,0 +1,41 @@
+article.earlier {
+	display:none;
+}
+	
+#schedule .flex-direction-nav li a.flex-next, #schedule .flex-direction-nav li a.flex-prev {
+	height: 68px;
+	width: 40px;
+	display: block;
+	position: absolute;
+	top: 0;
+}
+
+.show-content {
+	margin-bottom: 12px;
+}
+
+.tiled-grid .scheduleheader {
+	margin-bottom:4px;
+}
+.scheduleheader span.scheduletitle {
+	margin-left:-12px;
+	color:#003965;
+	font-size:52px;
+	font-weight:bold;
+}
+.scheduleheader span.schedulesubtitle {
+	font-size:14px;
+	color:#777777;
+	text-transform:none;
+}
+
+.readmore-expanded, .readmore-collapse {
+	display:inline;	
+}
+.rmhide {
+  display: none;
+}
+
+.read-more-hide, .read-more-show {
+	font-size: 90%;
+}

@@ -2758,27 +2758,27 @@ margin-bottom:15px;
 /*** Video & Show Pages ***
 ********************************************************
 ********************************************************/
+#show-featured #video-thumbs{padding-bottom: 60px;}
+#show-featured #video-thumbs li {width: 248px;vertical-align: top;}
+#show-featured .thumbs-full{margin-bottom: 0;}
+#show-featured .thumbs-full img{width: 248px;height: 165px;border: none;}
+#show-featured #video-thumbs li h3 {text-align:left;color: black;position: relative;padding: 2px;font-size: 1em;margin: 0;bottom: auto;background-color: white;}
+#show-destination .inner-main, #show-destination .thumbs-full, #show-destination .sidebar-area{background: white;}
+#show-destination .inner-main{padding: 80px 30px 0;}
+#show-destination  .play-btn{background:url(images/shows/play-btn.png) no-repeat;width: 47px;height: 47px;position: absolute;left: 0;top: 56px;margin: auto;right: 0;}
+#sponsors-area{min-height: 660px;padding: 30px 0;}
+#sponsors-area ul{margin-top: 30px;}
+#sponsors-area .sponsor-img{display: inline-block;margin: 0 30px 30px 0;}
 
 /*** Petersens Hunting Adventures TV ***
 ***************************/
-.page-template-show-page-php {
-	background: url('images/shows/petersens-back.png');
-   /*  background-position: center; */
-    background-repeat: no-repeat;
-	/*
--webkit-background-size: cover;
-	background-size: cover;
-*/
-	background-size: 100% auto;
-	background-color: #2a2a2a;
-}
-.page-template-show-page-php .main {
+.tv-show .main {
 	padding: 0;
 }
-.page-template-show-page-php .layout-frame{
+.tv-show .layout-frame{
 	width: 100%;
 }
-.page-template-show-page-php .general{
+.tv-show .general{
 	width: 1080px;
 	margin: 0 auto;
 	float: none;
@@ -2786,67 +2786,67 @@ margin-bottom:15px;
 	padding: 0;
 	font-family: 'jubilat', serif;
 }
-.page-template-show-page-php .general-frame {
+.tv-show .general-frame {
 	width: 100%;
 }
 .full-content .layout-frame{width: 100%;}
 .full-content .general{float: none;border: none;width: 1080px;margin: 0 auto;}
 /* header ==================================== */
 
-.page-template-show-page-php .page-header {
+.tv-show .page-header {
 	margin: 0;
 }
-.page-template-show-page-php #header-top {
+.tv-show #header-top {
 	width: 100%;
 	height: 122px;
 	background-color: rgba(0,0,0,0.4);
 	margin: 35px 0 0 0;
 }
 
-.page-template-show-page-php .content-banner-section {
+.tv-show .content-banner-section {
 	background: transparent;
 	margin-top: 10px;
 }
-.page-template-show-page-php .main {
+.tv-show .main {
 	border: none;
 }
-.page-template-show-page-php .main, .content-banner-section {
+.tv-show .main, .content-banner-section {
 	background: transparent;
 }
 
-.page-template-show-page-php .shows-logo {
+.tv-show .shows-logo {
 	float: left;
 	width: 200px;
 	height: 122px;
 }
-.page-template-show-page-php .shows-logo img {
+.tv-show .shows-logo img {
   	position: absolute;
 	top: -5px;
 	width: 174px;
 	margin-left: 15px;
 }
-.page-template-show-page-php .shows-title {
+.tv-show .shows-title {
 	float: left;
 	max-width: 700px;
 	margin: 20px 0 0 20px;
 }
-.page-template-show-page-php .shows-title h1 {
+.tv-show .shows-title h1 {
 	font-family: "jubilat", serif;
 	font-weight: 400;
 	font-size: 30px;
 	color: #ffffff;
 	text-align: left;
 }
-.page-template-show-page-php .shows-title .fb_iframe_widget {
+.tv-show .shows-title .fb_iframe_widget {
 	margin-top: 10px;
 }
-.page-template-show-page-php .shows-sponsor {
+.tv-show .shows-sponsor {
 	float: right;
 	width: 200px;
 	height: 122px;
 	margin-top: 15px;
 }
-.page-template-show-page-php .shows-sponsor span {
+.tv-show .shows-sponsor span {
 	font-family: 'open_sanssemibold', Helvetica, Arial, sans-serif;
 	text-transform: uppercase;
 	font-size: 16px;
@@ -2854,7 +2854,7 @@ margin-bottom:15px;
 	color: #cccccc;	
 	display: block;
 }
-.page-template-show-page-php .shows-sponsor img {
+.tv-show .shows-sponsor img {
 	max-height: 50%;
 	max-width: 70%;
 	margin: 10px auto 0;
@@ -2864,70 +2864,71 @@ margin-bottom:15px;
 
 /* navigation ==================================== */
 
-.page-template-show-page-php #shows-nav {
+.tv-show #shows-nav {
 	height: 40px;
 	width: 100%;
 	background-color: rgba(37,37,37,0.6);
 }
-.page-template-show-page-php #shows-nav ul {
+.tv-show #shows-nav ul {
 	padding: 0 20px 0 20px;
 	vertical-align: middle;
 	line-height: 40px;
 	display: inline-block;
 }
-.page-template-show-page-php #shows-nav ul li {
+.tv-show #shows-nav ul li {
 	display: inline;
 	padding-right: 16px;
 }
-.page-template-show-page-php #shows-nav ul li a {
+.tv-show #shows-nav ul li a {
 	color: #ffffff;
 	font-family: 'jubilat', serif;
 	font-size: 16px;
 	font-weight: 400;
 	padding: 5px 15px;
 }
-.page-template-show-page-php #shows-nav ul li a:hover {
+.tv-show #shows-nav ul li a:hover {
 	color: #e8e1c5;
 }
-.page-template-show-page-php #shows-player-area {
+.tv-show #shows-player-area {
 	width: 100%;
 	background-color: #252525;
 	padding: 0 35px 40px;
 	overflow: hidden;
 }
 /* when to watch ==================================== */
-.page-template-show-page-php #when-to-watch {
+.tv-show #when-to-watch {
 	width: 100%;
 	height: 106px;
 	overflow: hidden;
 	padding-top: 23px;
 }
-.page-template-show-page-php #when-to-watch .when-label {
+.tv-show #when-to-watch .when-label {
 	float: left;
 }
-.page-template-show-page-php #when-to-watch .when-label h3 {
+.tv-show #when-to-watch .when-label h3 {
 	color: #ffffff;
 	font: 24px/29px 'jubilat', serif;
 	font-weight: 300;
 }
 
-.page-template-show-page-php .schedule-item {
+.tv-show .schedule-item {
 	float: left;
 	margin: 5px 0 0 35px;
 	border-left: 2px solid #848484;
 	height: 49px;
 	padding-left: 20px;
 }
-.page-template-show-page-php .schedule-item .episode-title {
+.tv-show .schedule-item .episode-title {
 	color: #80b880;
 	font-size: 16px;
 }
-.page-template-show-page-php .schedule-item .episode-time {
+.tv-show .schedule-item .episode-time {
 	color: #ffffff;
 	font-size: 16px;
+	display: block;
 }
 
-.page-template-show-page-php .remind-me {
+.tv-show .remind-me {
 	font:13px/18px "open_sanssemibold", "Helvetica Neue", Helvetica, Arial, sans-serif;
     height: 53px;
     width: 108px;
@@ -2953,26 +2954,26 @@ margin-bottom:15px;
 	border-radius: 4px;
 	box-shadow: 0 4px 5px rgba(0,0,0,0.3);
 }
-.page-template-show-page-php .remind-me span {
+.tv-show .remind-me span {
 	margin: 7px 0 0 15px;
 	display: block;
 }
 /* video player ==================================== */
 
-.page-template-show-page-php #video-player-area {
+.tv-show #video-player-area {
 	position: relative;
 }
-.page-template-show-page-php #video-player-area .video-player-wrap {
+.tv-show #video-player-area .video-player-wrap {
 	width: 100%;
 	padding-right: 345px;
 	height: 373px;
 }
-.page-template-show-page-php #video-player-area .video-player-wrap .player {
+.tv-show #video-player-area .video-player-wrap .player {
 	height: 373px;
 	width: 100%;
 	background-color: #555;
 }
-.page-template-show-page-php #video-player-area .new-show {
+.tv-show #video-player-area .new-show {
 	height: 373px;
 	width: 310px;
 	background-color: #555;
@@ -2982,29 +2983,29 @@ margin-bottom:15px;
 }
 
 /* video description ==================================== */
-.page-template-show-page-php #description-area {
+.tv-show #description-area {
 	position: relative;
 	margin-top: 35px;
 	color: #ffffff;
 	overflow: hidden;
 }
-.page-template-show-page-php #description-area .unify {
+.tv-show #description-area .unify {
 	width: 60%;
 	margin-right: 9.325%;
 	float: left;
 }
-.page-template-show-page-php #description-area .unify .show-video-date {
+.tv-show #description-area .unify .show-video-date {
 	font-size: 12px;
 }
-.page-template-show-page-php #description-area .unify h1 {
+.tv-show #description-area .unify h1 {
 	font-size: 39px;
 }
-.page-template-show-page-php #description-area .unify p {
+.tv-show #description-area .unify p {
 	font-size: 18px;
 	font-weight: 300;
 	line-height: 130%;
 }
-.page-template-show-page-php #description-area .ad-block {
+.tv-show #description-area .ad-block {
 	width: 30.67716%;
 	height: 250px;
 	background-color: green;
@@ -3012,77 +3013,77 @@ margin-bottom:15px;
 	margin-top: 15px;
 }
 /* social share ==================================== */
-.page-template-show-page-php .social-share div {
+.tv-show .social-share div {
 	float: left;
 	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 	text-align: center;
 }
-.page-template-show-page-php .social-share .share-results {
+.tv-show .social-share .share-results {
 	min-width: 40px;
 	max-width: 70px;
 	margin-right: 10px;
 	position: relative;
 }
-.page-template-show-page-php .social-share .share-results span:first-child {
+.tv-show .social-share .share-results span:first-child {
 	font-size: 35px;
 	font-weight: 600;
 	color: #fcc05e;
 } 
-.page-template-show-page-php .social-share .share-results .shares {
+.tv-show .social-share .share-results .shares {
 	margin: -10px auto 0;
 	width: 100%;
 }
-.page-template-show-page-php .social-share .share-results .shares span {
+.tv-show .social-share .share-results .shares span {
 	font-size: 12px;
 	color: #555;
 	text-align: center;
 } 
-.page-template-show-page-php .social-share .social-share-btns {
+.tv-show .social-share .social-share-btns {
 	height: 47px;
 	border-left: 2px solid #666;
 	padding-left: 15px;
 	margin-top: 10px;
 }
-.page-template-show-page-php .social-share .social-share-btns div {
+.tv-show .social-share .social-share-btns div {
 	height: 35px;
 	width: 35px;
 	margin: 6px 15px 0 0;
 }
-.page-template-show-page-php .social-share .social-share-btns div i {
+.tv-show .social-share .social-share-btns div i {
 	font-size: 25px;
 	padding-top: 6px;
 	color: #ffffff;
 }
-.page-template-show-page-php .social-share .facebook-share {
+.tv-show .social-share .facebook-share {
 	background-color: #4764b8;
 }
-.page-template-show-page-php .social-share .google-share {
+.tv-show .social-share .google-share {
 	background-color: #dc5634;
 }
-.page-template-show-page-php .social-share .twitter-share {
+.tv-show .social-share .twitter-share {
 	background-color: #0097ca;
 }
 /* sportsman locator ==================================== */
 
-.page-template-show-page-php #locateChannel {
+.tv-show #locateChannel {
 	position: absolute;
 	height: 60px;
 	right: 0;
 	bottom: 0;
 	box-shadow: inset 0px 2px 3px black;
 }
-.page-template-show-page-php #channelControlsContainer {
+.tv-show #channelControlsContainer {
 	margin-top: 10px;
 }
-.page-template-show-page-php #channelControlsContainer img {
+.tv-show #channelControlsContainer img {
 	float: left;
 	height: 31px;
 	margin: 5px 32px 0 20px;
 }
-.page-template-show-page-php #channelControlsContainer #channelControls {
+.tv-show #channelControlsContainer #channelControls {
 	float: left;
 }
-.page-template-show-page-php #channelControls #zip {
+.tv-show #channelControls #zip {
 	width: 128px;
 	height: 40px;
 	background-color: #555555;
@@ -3093,10 +3094,10 @@ margin-bottom:15px;
 	text-align: center;
 	margin-right: 28px;
 }
-.page-template-show-page-php #channelControls a {
+.tv-show #channelControls a {
 	margin-top: 2px;
 }
-.page-template-show-page-php #channelControls a input {
+.tv-show #channelControls a input {
 	width: 170px;
 	height: 40px;
 	margin: 0px 20px 0 0;
@@ -3116,9 +3117,38 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 	font-weight:bold;
 }
 
-
-
-
+/* homepage schedule */
+#upcoming{background: #eee;height: 100px;overflow-y:hidden;width: 100%;}
+#upcoming .tiled-grid{background: #eee;padding: 0;}
+#upcoming .tiled-grid .tiled-grid-entry{min-height: 0;color: #2d2d2d;}
+#upcoming .tonight-bg {z-index: 0;height: 100%;background: #003965;opacity: 1;}
+#upcoming .tiled-grid .tiled-grid-entry.on-tonight{background: url(images/shows/on-tonight-logo.jpg) no-repeat right top #003965;margin: 0;height: 100px;position: relative;z-index: 1;padding: 30px 120px 0px 0;text-align: right;border: none;}
+#upcoming .tiled-grid .tiled-grid-entry.on-tonight h2, #upcoming .tiled-grid .tiled-grid-entry.on-tonight a{margin: 0;color: white;}
+#upcoming .tiled-grid .col{margin: 0;padding: 16px 0 18px 8px;border-right: 1px solid rgba(204, 204, 204, 0.23);}
+#upcoming .tiled-grid .tiled-grid-entry span{display: block;font-weight: bold;}
+.show-title a{color: #901901;}
+.tonight-schedule{position: relative;max-height: 100px;width: 66%;margin-left: 23%;}
+.tonight-schedule ul.slides li{width: 300px !important;overflow-y: hidden;}
+.tonight-schedule .flex-viewport{max-height: 100px;}
+.tonight-schedule .flex-direction-nav a{position: absolute;top: 0;z-index: 2;text-indent: -9999px;width: 62px;height: 100px;}
+.tonight-schedule .flex-direction-nav a.flex-prev{background: url(images/shows/left-arrow.png) no-repeat 0 0 #dedddd !important;right: -30px;}
+.tonight-schedule .flex-direction-nav a.flex-next{background: url(images/shows/right-arrow.png) no-repeat 0 0 #dedddd !important;right: -110px;}
+.tonight-schedule .flex-direction-nav a.flex-disabled{opacity: 0.6;}
+.col-1, .col-4 {
+clear: both;
+margin-left: 0;
+}
+.span_1_of_4 {
+width: 23.8%;
+}
+.col {
+display: block;
+float: left;
+margin: 1% 0 3.3% 4.5%;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
 
 /*** Border to Border Show ***
 ******************************/
@@ -4362,7 +4392,7 @@ table.likes-leaderboard .entry-title {
 	#shows-player-area {
 		width: 100%;
 	}
-	.page-template-show-page-php .general {
+	.tv-show .general {
 		width: 100%;
 	}
 
