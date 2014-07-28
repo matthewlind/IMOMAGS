@@ -296,6 +296,10 @@ margin-top: 50px;
 .b2b .shows-nav ul li { border-right: 1px solid #566e83;}
 
 /* b2b article **********/	
+.b2b #article-wrap {padding: 50px 0;}
+.b2b #article-wrap section {padding-bottom: 180px;}
+.b2b #article-wrap section:first-child {padding-bottom: 120px;}
+.b2b #article-wrap h1 {font-size: 32px;}
 .b2b .block-aside {width: 95.5%;padding-left: 0;}	
 
 .b2b .stats-item { width: 144px; min-height: 152px;}
@@ -304,7 +308,12 @@ margin-top: 50px;
 .species-description {width: 100%;}
 .species-description img {width: 100px; height: 151px;}
 
-
+.a-inner-cell {height:320px;}
+.a-cell-caption {
+    right: auto;
+    top: 320px;
+    width: 100%;
+}
 
 
 }/* end @media */

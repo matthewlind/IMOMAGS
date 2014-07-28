@@ -18,7 +18,7 @@ get_header(); ?>
 	<div id="primary" class="general b2b">
         <div class="general-frame">
             <div id="content" role="main">
-				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header marquee-img clearfix js-responsive-section">
+				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header marquee-img clearfix js-responsive-section b2b-header">
 					<h1 class="page-title hidden-seo"><?php the_title(); ?></h1>
 				</div>
 				<div id="b2b-map">
@@ -132,7 +132,7 @@ get_header(); ?>
 							<h1><?php echo get_the_title(); ?></h1>
 						</div>
 						<div class="a-text">
-							<div class="block-aside">
+							<div class="block-aside ">
 								<div class="links-aside">
 									<?php if( !empty($state_img) ): ?> 
 										<img src="<?php echo $state_img['url']; ?>" alt="<?php echo $state_img['alt']; ?>" /> 

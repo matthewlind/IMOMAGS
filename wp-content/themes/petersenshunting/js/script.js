@@ -4,7 +4,7 @@ jQuery( document ).ready(function($) {
 	//Variables
 	var windowHeight 	= $(window).height();
 	var windowWidth 	= $(window).width(); 
-	var pageHeader  	= $(".b2b .page-header");
+	var pageHeader  	= $(".b2b-header");
 	var headerHight 	= $(".header").height();
 	var mapLeft  		= $(".b2b .map-left svg");
 	var mapImage    	= $(".b2b-map-img");

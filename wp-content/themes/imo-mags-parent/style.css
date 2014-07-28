@@ -3125,7 +3125,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 
 /*** b2b header ***/
 
-.b2b .page-header {
+.b2b-header {
 	height: 800px;
 	background-image: url("../petersenshunting/images/b2b/b2b_marquee_placeholder.jpg");
 	background-size: cover;
