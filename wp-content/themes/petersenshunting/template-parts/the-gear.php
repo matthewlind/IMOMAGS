@@ -17,7 +17,7 @@
 		?>
 		<div class="gear-item clearf">
 			<h2><?php echo $gear_name; ?></h2>
-			<p class="gear-link"><a href="<?php echo $gear_link; ?>" target="_blank">Visit website</a><i class="fa fa-angle-double-right"></i></p>
+			<p class="item-link"><a href="<?php echo $gear_link; ?>" target="_blank">Visit website</a><i class="fa fa-angle-double-right"></i></p>
 			<p><?php echo $gear_description; ?> </p>
 			<div class="img-video-container">
 				<div class="gear-video"></div>

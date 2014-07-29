@@ -3503,21 +3503,20 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 }
 .gear-item {
 	padding-bottom: 100px;
-	/* overflow: hidden; */
 }
 #article-wrap .gear-item h2 {
 	font-size: 30px;
 	margin: 0;
 }
-.gear-item .gear-link {
+.item-link {
 	margin: 5px 0 0 0;
 }
-.gear-item .gear-link a {
+.item-link a {
 	color: #d9713d;
 	font-weight: 600;
 	font-size: 19px;
 }
-.gear-item .gear-link i {
+.item-link i {
 	color: #d9713d;
 	margin-left: 5px;
 }
@@ -3544,11 +3543,27 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 	margin-right: 20px;
 }
 
+/*** b2b The Truck Page ************************/
 
-
-
-
-
+.truck-image img {
+	margin: 0 auto;
+	display: block;
+}
+.truck-item {
+	padding-bottom: 80px;
+}
+#article-wrap .truck-item h2 {
+	font-size: 30px;
+	margin: 0;
+}
+.truck-item .img-video-container {
+	width: 100%;
+}
+.truck-item .img-video-container img {
+	float: right;
+	max-width: 150px;
+	margin-left: 35px;
+}
 
 
 

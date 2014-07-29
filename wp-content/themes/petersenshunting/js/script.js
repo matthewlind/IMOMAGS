@@ -425,7 +425,31 @@ function drawLines6(){
 	  });
 	  
 	  } // End if of .border-to-border
-	  
+if ($(".the-truck")[0]){
+
+	$('#thumbs-truck').flexslider({
+		animation: "slide",
+	    controlNav: false,
+	    animationLoop: true,
+	    slideshow: false,
+	    itemWidth: 54,
+	    itemMargin: 5,
+	    asNavFor: '#slider-truck'
+	});
+	
+	$('#slider-truck').flexslider({
+		animation: "fade",
+	    controlNav: false,
+	    directionNav: true,   
+	    animationLoop: true,
+	    slideshow: true,                
+		slideshowSpeed: 8000,          
+		animationSpeed: 600,
+	    sync: "#thumbs-truck"
+	});
+	
+}  // End if of .the-truck
+	
 	// side map stick to top function
 	function sideMapStick() {
 		var docTop = $(document).scrollTop();
@@ -503,8 +527,6 @@ function drawLines6(){
 	    drawLines5();
 	    drawLines6();
 	});
-	
-	
 	
 	};
 });

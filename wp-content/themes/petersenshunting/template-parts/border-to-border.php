@@ -55,7 +55,7 @@ $state_img = get_field("state_image");
 $species_info = get_field("species_info");
 $full_width_image_back = get_field("full_width_image_back");
 $full_width_image_caption = get_field("full_width_image_caption");
-$images_slider = get_field("image_slider");
+$images_slider = get_field("images_slider");
 ?>
 <section class="episode-<?php echo $ep_num ; ?>">	
 	<div class="episode-heading a-text">
@@ -82,33 +82,32 @@ $images_slider = get_field("image_slider");
 		<!-- Start .a-slideshow -->
 		<?php if( !empty($images_slider) ): ?> 
 		<div class="a-slideshow">
-		<div id="slider-<?php echo $flex_id_num; ?>" class="flexslider slider-wrap">
-		  <ul class="slides">
-		  <?php while(has_sub_field("images_slider")): 
-			  $image_slider = get_sub_field("image_slider");
-			  $caption_slider = get_sub_field("caption_slider");
-		  ?>
-		    <li>
-		      <img src="<?php echo $image_slider['url']; ?>" alt="<?php echo $image_slider['alt']; ?>" />
-		       <p class="flex-caption"><?php echo $caption_slider; ?></p>
-		    </li>
-		  <?php endwhile; ?>  
-		  </ul>
+			<div id="slider-<?php echo $flex_id_num; ?>" class="flexslider slider-wrap">
+			  <ul class="slides">
+			  <?php while(has_sub_field("images_slider")): 
+				  $image_slider = get_sub_field("image_slider");
+				  $caption_slider = get_sub_field("caption_slider");
+			  ?>
+			    <li>
+			      <img src="<?php echo $image_slider['url']; ?>" alt="<?php echo $image_slider['alt']; ?>" />
+			       <p class="flex-caption"><?php echo $caption_slider; ?></p>
+			    </li>
+			  <?php endwhile; ?>  
+			  </ul>
+			</div>
+			<div id="thumbs-<?php echo $flex_id_num; ?>" class="flexslider thumbs-wrap">
+			  <ul class="slides">
+			  <?php while(has_sub_field("images_slider")): 
+				  $image_slider = get_sub_field("image_slider");
+				  $caption_slider = get_sub_field("caption_slider");
+			  ?>
+			    <li style="background-image: url('<?php echo $image_slider['url']; ?>')">
+			    </li>
+			  <?php endwhile; ?>  
+			  </ul>
+			</div>
 		</div>
-		<div id="thumbs-<?php echo $flex_id_num; ?>" class="flexslider thumbs-wrap">
-		  <ul class="slides">
-		  <?php while(has_sub_field("images_slider")): 
-			  $image_slider = get_sub_field("image_slider");
-			  $caption_slider = get_sub_field("caption_slider");
-		  ?>
-		    <li style="background-image: url('<?php echo $image_slider['url']; ?>')">
-		    </li>
-		  <?php endwhile; ?>  
-		  </ul>
-		</div>
-		
-		</div><!--END .a-slideshow -->
-		<?php endif; ?>	
+		<?php endif; ?><!--END .a-slideshow -->	
 		
 		<?php while(has_sub_field("text_end")): ?>
 		<p><?php the_sub_field('paragraph'); ?></p>
