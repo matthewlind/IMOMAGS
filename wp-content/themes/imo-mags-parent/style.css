@@ -3156,7 +3156,7 @@ box-sizing: border-box;
 /*** b2b header ***/
 
 .b2b-header {
-	height: 800px;
+	height: 900px;
 	background-image: url("../petersenshunting/images/b2b/b2b_marquee_placeholder.jpg");
 	background-size: cover;
 	background-position: center;
@@ -3271,6 +3271,9 @@ box-sizing: border-box;
 .b2b #article-wrap section {
 	padding-bottom: 130px;	
 }
+.b2b #article-wrap .about-show {
+	padding-bottom: 80px;
+}
 .b2b #article-wrap h1 {
 	font-family: "merriweather",serif;
 	font-size: 40px;
@@ -3381,32 +3384,67 @@ box-sizing: border-box;
 	width: 142%;
 	margin: 60px 0;
 }
-.a-slideshow-thumbs {
+.a-slideshow .slider-wrap {
+	position: relative;
+}
+.a-slideshow .slider-wrap img {
+	max-height: 625px;
+}
+.a-slideshow .slider-wrap p {
+	font-size: 14px;
+	color: #777;
+	max-width: 62%;
+}
+.a-slideshow .slider-wrap .flex-direction-nav {
+	position: absolute;
+	top: 10%;
+	width: 100%;
+}
+.a-slideshow .slider-wrap .flex-direction-nav .flex-prev {
+	left: -35px;
+	opacity: 0.1;
+	-webkit-transition:opacity 0.1s ease-in, left  0.3s ease-in !important; /* For Safari 3.1 to 6.0 */
+    transition:opacity 0.1s ease-in, left  0.3s ease-in !important;
+}
+.a-slideshow .slider-wrap:hover .flex-direction-nav .flex-prev {
+	left: 20px;
+	opacity: 0.7;
+}
+.a-slideshow .slider-wrap .flex-direction-nav .flex-prev:hover {
+	opacity: 0.9;
+}
+.a-slideshow .slider-wrap .flex-direction-nav .flex-next {
+	right: -35px;
+	opacity: 0.1;
+	-webkit-transition:opacity 0.1s ease-in, right  0.3s ease-in !important; /* For Safari 3.1 to 6.0 */
+    transition:opacity 0.1s ease-in, right  0.3s ease-in !important;
+}
+.a-slideshow .slider-wrap:hover .flex-direction-nav .flex-next {
+	right: 20px;
+	opacity: 0.7;
+}
+.a-slideshow .slider-wrap .flex-direction-nav .flex-next:hover {
+	opacity: 0.9;
+}
+.a-slideshow .thumbs-wrap ul {
+	width: auto !important;
 	float: right;
 }
-.a-slideshow-thumb {
-	height: 50px;
-	width: 50px;
-	opacity: .5;
-	border: 2px solid #ddd;
-	margin: 13px 0 0 13px;
+.a-slideshow .thumbs-wrap li {
+	height: 52px;
+	background-size: auto 50px;
+	background-position:center;
+	background-repeat: no-repeat;
+	margin: 0 0 0 15px;
+	border: 2px solid #999;
+	opacity: 0.5;
 	cursor: pointer;
-	-webkit-transition: opacity 0.5s;
-	-moz-transition: opacity 0.5s;
-	-ms-transition: opacity 0.5s;
-	-o-transition: opacity 0.5s;
-	transition: opacity 0.5s;
 }
-.a-slideshow-thumb--active {
-	opacity: 1;
-	border-color: #999;
-}
-.a-slideshow-caption {
-	width: 60%;
-	color: #888;
-	margin-top: 10px;
-	padding: 3px 0 30px 0;
-	font-size: 15px;
+.a-slideshow .thumbs-wrap li.flex-active-slide { opacity: 1;}
+.a-slideshow .thumbs-wrap .flex-direction-nav li {border: none;}
+.a-slideshow .thumbs-wrap img {
+	height: 50px;
+	max-width: auto;
 }
 /*** b2b Species Info ***/
 .species-info {
@@ -4059,7 +4097,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 	list-style:decimal;
 	margin-left: 40px;
 }
-.category-master-angler .jq-ma-slider ol {
+.category-master-angler .jq-mslider-wrap ol {
 	margin-left:0;
 }
 .hide-master-angler{
@@ -5188,7 +5226,7 @@ table.likes-leaderboard .entry-title {
         max-width: none;
     }
     .smooth-menu, .header {
-		-webkit-transform:translate3d(0,0,0); 
+		/* -webkit-transform:translate3d(0,0,0);  */
 		-webkit-backface-visibility: hidden;
 		-webkit-transition: left 200ms ease-in-out 0.2s;
 		-moz-transition: left 200ms ease-in-out 0.2s;
