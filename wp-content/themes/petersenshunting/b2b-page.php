@@ -18,6 +18,64 @@ get_header(); ?>
 	<div id="primary" class="general b2b">
         <div class="general-frame">
             <div id="content" role="main">
+			<!-- This script is fixin header height to 100%
+				Should be placed before .page-header element
+			-->
+		<!--
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+            <script>
+            jQuery(window).load(function() {
+            	//Variables
+				var windowHeight 	= $(window).height();
+				var windowWidth 	= $(window).width(); 
+				var pageHeader  	= $(".b2b-header");
+				var headerHight 	= $(".header").height();
+				var mapLeft  		= $(".b2b .map-left svg");
+				var mapImage    	= $(".b2b-map-img");
+				var mapImageHeight  = $(".b2b-map-img").height();
+				var mapImageWidth   = $(".b2b-map-img").width();
+				var mapText		 	= $(".b2b-map-text");
+
+	            // .b2b-map-text repeting height and width of the .b2b-map-image
+				function mapTextSize(){
+					$(mapText).css({"height": (mapImageHeight + "px"), "width": (mapImageWidth + "px") });
+				}	
+				mapTextSize();
+	            // .pageHeader - full hight - function
+				function fullHightHeader(){
+					if (windowWidth > 768) {
+						$(pageHeader).css({"height": ((windowHeight - headerHight - 30) + "px") });
+					}
+				}	
+				fullHightHeader();
+				$(window).on("resize", function() { 
+					var windowHeight = $(window).height(); 
+					var windowWidth = $(window).width(); 
+					var mapImage    	= $(".b2b-map-img");
+					var mapImageHeight  = $(".b2b-map-img").height();
+					var mapImageWidth   = $(".b2b-map-img").width();
+					var mapText		 	= $(".b2b-map-text");	
+			
+					
+					// .pageHeader - full hight - function
+					function fullHightHeader(){
+						if (windowWidth > 768) {
+							$(pageHeader).css({"height": ((windowHeight - headerHight - 40) + "px") });
+						}
+					}
+					fullHightHeader();
+					
+					// .b2b-map-text repeting height and width of the .b2b-map-image
+					function mapTextSize(){
+						$(mapText).css({"height": (mapImageHeight + "px"), "width": (mapImageWidth + "px") });
+					}
+					mapTextSize();
+				});
+    
+			});
+            
+            </script>
+-->
 				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header marquee-img clearfix js-responsive-section b2b-header">
 					<h1 class="page-title hidden-seo"><?php the_title(); ?></h1>
 				</div>
@@ -99,6 +157,8 @@ get_header(); ?>
 			
 					<?php $this_page_id=$wp_query->post->ID; ?>
 					<?php
+					$flex_num = 1;
+					
 					$args = array(
 						'posts_per_page' 	=> -1,
 						'orderby'		 	=> 'date',
@@ -117,7 +177,8 @@ get_header(); ?>
 						while (have_posts())
 						{
 							the_post();
-							
+					
+					$flex_id_num = $flex_num++;		
 					$ep_num = get_field("episode_number");
 					$state_img = get_field("state_image");
 					$slideshow_imgs = get_field("slideshow_imgs");
@@ -125,6 +186,7 @@ get_header(); ?>
 					$species_info = get_field("species_info");
 					$full_width_image_back = get_field("full_width_image_back");
 					$full_width_image_caption = get_field("full_width_image_caption");
+					$image_slider = get_field("image_slider");
 					?>
 					<section class="episode-<?php echo $ep_num ; ?>">	
 						<div class="episode-heading a-text">
@@ -147,26 +209,40 @@ get_header(); ?>
 							<?php while(has_sub_field("text_beginning")): ?>
 							<p><?php the_sub_field('paragraph'); ?></p>
 							<?php endwhile; ?>
+							
+							<!-- Start .a-slideshow -->
+							<?php if( !empty($image_slider) ): ?> 
 							<div class="a-slideshow">
-								<div class="a-slideshow-container">
-									<div class="a-slideshow-images">
-										<?php if( !empty($slideshow_imgs) ): ?> 
-										<img src="<?php echo $slideshow_imgs['url']; ?>" alt="<?php echo $slideshow_imgs['alt']; ?>" /> 
-										<?php endif; ?>								
-										</div>
-									<!--
-<div class="a-slideshow-thumbs">
-										<img class="a-slideshow-thumb" src="/wp-content/themes/petersenshunting/images/b2b/thumb.jpg">
-										<img class="a-slideshow-thumb a-slideshow-thumb--active" src="/wp-content/themes/petersenshunting/images/b2b/thumb.jpg">
-									</div>
--->
-									<div class="a-slideshow-captions">
-										<?php if( !empty($slideshow_cap) ): ?> 
-										<div class="a-slideshow-caption"><?php echo $slideshow_cap; ?></div>
-										<?php endif; ?>	
-									</div>
-								</div>
+							<div id="slider-<?php echo $flex_id_num; ?>" class="flexslider slider-wrap">
+							  <ul class="slides">
+							  <?php while(has_sub_field("image_slider")): 
+								  $image_slider = get_sub_field("image_slider");
+								  $caption_slider = get_sub_field("caption_slider");
+							  ?>
+							    <li>
+							      <img src="<?php echo $image_slider['url']; ?>" alt="<?php echo $image_slider['alt']; ?>" />
+							       <p class="flex-caption"><?php echo $caption_slider; ?></p>
+							    </li>
+							  <?php endwhile; ?>  
+							  </ul>
+							</div>
+							<div id="thumbs-<?php echo $flex_id_num; ?>" class="flexslider thumbs-wrap">
+							  <ul class="slides">
+							  <?php while(has_sub_field("image_slider")): 
+								  $image_slider = get_sub_field("image_slider");
+								  $caption_slider = get_sub_field("caption_slider");
+							  ?>
+							    <li style="background-image: url('<?php echo $image_slider['url']; ?>')">
+							    </li>
+							  <?php endwhile; ?>  
+							  </ul>
+							</div>
+							
 							</div><!-- .a-slideshow -->
+							<?php endif; ?>	
+							
+							
+							
 							<?php while(has_sub_field("text_end")): ?>
 							<p><?php the_sub_field('paragraph'); ?></p>
 							<?php endwhile; ?>

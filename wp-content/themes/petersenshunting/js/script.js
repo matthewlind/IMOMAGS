@@ -1,6 +1,6 @@
 
 jQuery( document ).ready(function($) {
-	
+	if ($(".b2b")[0]){
 	//Variables
 	var windowHeight 	= $(window).height();
 	var windowWidth 	= $(window).width(); 
@@ -259,6 +259,169 @@ function drawLines6(){
 	}	 
 }
 ////////////////////////
+
+	//Flex slider
+	 $('#thumbs-1').flexslider({
+	    animation: "slide",
+	    controlNav: false,
+	    animationLoop: true,
+	    slideshow: false,
+	    itemWidth: 54,
+	    itemMargin: 5,
+	    asNavFor: '#slider-1'
+	  });
+	   
+	  $('#slider-1').flexslider({
+	    animation: "fade",
+	    controlNav: false,
+	    directionNav: true,   
+	    animationLoop: true,
+	    slideshow: true,                
+		slideshowSpeed: 8000,          
+		animationSpeed: 600,
+	    sync: "#thumbs-1"
+	  });
+	  
+	  ////////////////////////
+	  $('#thumbs-2').flexslider({
+	    animation: "slide",
+	    controlNav: false,
+	    animationLoop: true,
+	    slideshow: false,
+	    itemWidth: 54,
+	    itemMargin: 5,
+	    asNavFor: '#slider-2'
+	  });
+	   
+	  $('#slider-2').flexslider({
+	    animation: "fade",
+	    controlNav: false,
+	    animationLoop: true,
+	    slideshow: true,                
+		slideshowSpeed: 8000,          
+		animationSpeed: 600,
+	    sync: "#thumbs-2"
+	  });
+	   ////////////////////////
+	  $('#thumbs-3').flexslider({
+	    animation: "slide",
+	    controlNav: false,
+	    animationLoop: true,
+	    slideshow: false,
+	    itemWidth: 54,
+	    itemMargin: 5,
+	    asNavFor: '#slider-3'
+	  });
+	   
+	  $('#slider-3').flexslider({
+	    animation: "fade",
+	    controlNav: false,
+	    animationLoop: true,
+	    slideshow: true,                
+		slideshowSpeed: 8000,          
+		animationSpeed: 600,
+	    sync: "#thumbs-3"
+	  });
+	   ////////////////////////
+	  $('#thumbs-4').flexslider({
+	    animation: "slide",
+	    controlNav: false,
+	    animationLoop: true,
+	    slideshow: false,
+	    itemWidth: 54,
+	    itemMargin: 5,
+	    asNavFor: '#slider-4'
+	  });
+	   
+	  $('#slider-4').flexslider({
+	    animation: "fade",
+	    controlNav: false,
+	    animationLoop: true,
+	    slideshow: true,                
+		slideshowSpeed: 8000,          
+		animationSpeed: 600,
+	    sync: "#thumbs-4"
+	  });
+	   ////////////////////////
+	  $('#thumbs-5').flexslider({
+	    animation: "slide",
+	    controlNav: false,
+	    animationLoop: true,
+	    slideshow: false,
+	    itemWidth: 54,
+	    itemMargin: 5,
+	    asNavFor: '#slider-5'
+	  });
+	   
+	  $('#slider-5').flexslider({
+	    animation: "fade",
+	    controlNav: false,
+	    animationLoop: true,
+	    slideshow: true,                
+		slideshowSpeed: 8000,          
+		animationSpeed: 600,
+	    sync: "#thumbs-5"
+	  });
+	   ////////////////////////
+	  $('#thumbs-6').flexslider({
+	    animation: "slide",
+	    controlNav: false,
+	    animationLoop: true,
+	    slideshow: false,
+	    itemWidth: 54,
+	    itemMargin: 5,
+	    asNavFor: '#slider-6'
+	  });
+	   
+	  $('#slider-6').flexslider({
+	    animation: "fade",
+	    controlNav: false,
+	    animationLoop: true,
+	    slideshow: true,                
+		slideshowSpeed: 8000,          
+		animationSpeed: 600,
+	    sync: "#thumbs-6"
+	  });
+	   ////////////////////////
+	  $('#thumbs-7').flexslider({
+	    animation: "slide",
+	    controlNav: false,
+	    animationLoop: true,
+	    slideshow: false,
+	    itemWidth: 54,
+	    itemMargin: 5,
+	    asNavFor: '#slider-7'
+	  });
+	   
+	  $('#slider-7').flexslider({
+	    animation: "fade",
+	    controlNav: false,
+	    animationLoop: true,
+	    slideshow: true,                
+		slideshowSpeed: 8000,          
+		animationSpeed: 600,
+	    sync: "#thumbs-7"
+	  });
+	   ////////////////////////
+	  $('#thumbs-8').flexslider({
+	    animation: "slide",
+	    controlNav: false,
+	    animationLoop: true,
+	    slideshow: false,
+	    itemWidth: 54,
+	    itemMargin: 5,
+	    asNavFor: '#slider-8'
+	  });
+	   
+	  $('#slider-8').flexslider({
+	    animation: "fade",
+	    controlNav: true,
+	    animationLoop: true,
+	    slideshow: true,                
+		slideshowSpeed: 8000,          
+		animationSpeed: 600,
+	    sync: "#thumbs-8"
+	  });
 	// side map stick to top function
 	function sideMapStick() {
 		var docTop = $(document).scrollTop();
@@ -337,4 +500,7 @@ function drawLines6(){
 	    drawLines6();
 	});
 	
+	
+	
+	};
 });
