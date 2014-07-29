@@ -12,6 +12,7 @@ jQuery( document ).ready(function($) {
 	var mapImageWidth   = $(".b2b-map-img").width();
 	var mapText		 	= $(".b2b-map-text");
 	
+	if ($(".border-to-border")[0]){
 	// Handles for every episode section
 	var ep1 = $('.episode-1').offset().top;
 	var ep2 = $('.episode-2').offset().top;
@@ -422,6 +423,9 @@ function drawLines6(){
 		animationSpeed: 600,
 	    sync: "#thumbs-8"
 	  });
+	  
+	  } // End if of .border-to-border
+	  
 	// side map stick to top function
 	function sideMapStick() {
 		var docTop = $(document).scrollTop();

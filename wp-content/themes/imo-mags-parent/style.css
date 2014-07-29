@@ -299,6 +299,17 @@ a:hover { color: #040503; }
 
 /* =Useful classes
 *******************************************************************************/
+.clearf:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.clearf { display: inline-block; }
+* html .clearf { height: 1%; }
+.clearf { display: block; }
 
 .clearfix:before, .clearfix:after,
 .container:before, .container:after,
@@ -3235,7 +3246,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 }
 /*** b2b Article ************************/
 .b2b #article-wrap {
-	padding: 140px 0 100px 0 ;
+	padding: 100px 0 100px 0 ;
 	position: relative;
 }
 .b2b #article-wrap section {
@@ -3486,10 +3497,52 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 }
 
 
-
-
-
-
+/*** b2b The Gear Page ************************/
+.gear-about {
+	padding-bottom: 50px;
+}
+.gear-item {
+	padding-bottom: 100px;
+	/* overflow: hidden; */
+}
+#article-wrap .gear-item h2 {
+	font-size: 30px;
+	margin: 0;
+}
+.gear-item .gear-link {
+	margin: 5px 0 0 0;
+}
+.gear-item .gear-link a {
+	color: #d9713d;
+	font-weight: 600;
+	font-size: 19px;
+}
+.gear-item .gear-link i {
+	color: #d9713d;
+	margin-left: 5px;
+}
+.img-video-container {
+	margin-top: 30px;
+	width: 150%;
+}
+.gear-item .gear-img {
+	width: 267px;
+	height: 240px;
+	float: left;
+}
+.gear-item .gear-img img {
+	max-height: 100%;
+	max-width: 100%;
+	margin: 0 auto;
+	display: block;
+}
+.gear-item .gear-video {
+	width: 425px;
+	height: 240px;
+	border: 1px solid grey;
+	float: left;
+	margin-right: 20px;
+}
 
 
 

@@ -228,15 +228,18 @@ subscribe-links a{color: white;}
 .b2b #article-wrap h1 {font-size: 34px;}
 
 .a-slideshow .slider-wrap p {font-size: 13px;max-width: 100%;}
-	
+.a-slideshow .slider-wrap .flex-direction-nav {top: 5%;}
+.a-slideshow .slider-wrap .flex-direction-nav .flex-prev {left: 20px;opacity: 0.7;}
+.a-slideshow .slider-wrap .flex-direction-nav .flex-next {right: 20px;opacity: 0.7;}	
 /* b2b left map **********/	
 .b2b .map-left svg {
 width: 92%;
 margin-left: 8%;
 margin-top: 50px;
 }
-	
-	
+/* b2b the-gear page **********/		
+.the-gear .a-text {margin: auto 5%;max-width: 800px;}
+
 	
 	
 	
@@ -244,6 +247,8 @@ margin-top: 50px;
 
 }/* end @media */
 @media only screen and (max-width: 880px) {
+/* Border to Border **
+**********************************/
 .map-left {display: none;}
 /* b2b article */
 .b2b .block-aside {width: 40%;}	
@@ -253,11 +258,13 @@ margin-top: 50px;
 .b2b .overall-stats {width: 100%;}
 
 .a-slideshow { width: 100%;}
+
 .species-info { width: 100%;}
 
 }/* end @media */
 @media only screen and (max-width: 760px) {
-
+/* Border to Border **
+**********************************/
 /* b2b map **********/
 #b2b-map .map-wrap {margin: 40px auto 220px;}
 .b2b-rules {
@@ -280,7 +287,7 @@ margin-top: 50px;
 
 .b2b .block-aside {width: 100%; padding-left: 20px;}
 
-
+.a-slideshow .slider-wrap .flex-direction-nav {top: -10%;}
 
 .a-inner-cell {height:320px;}
 .a-cell-caption {right: auto;top: 320px;width: 100%;}	
@@ -288,6 +295,8 @@ margin-top: 50px;
 }/* end @media */
 
 @media only screen and (max-width: 460px) {
+/* Border to Border **
+**********************************/
 .b2b .page-header {height: 320px;}	
 
 /* b2b map **********/
@@ -312,6 +321,10 @@ margin-top: 50px;
 
 .b2b .stats-item { width: 144px; min-height: 152px;}
 .b2b .stats-item:first-child {border-left: 1px solid #e0e0e0;}
+
+.a-slideshow .slider-wrap .flex-direction-nav {top: -20%;}
+.a-slideshow .slider-wrap .flex-direction-nav .flex-prev {left: 10px;}
+.a-slideshow .slider-wrap .flex-direction-nav .flex-next {right: 10px;}
 
 .species-description {width: 100%;}
 .species-description img {width: 100px; height: 151px;}
