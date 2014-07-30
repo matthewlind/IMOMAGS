@@ -1133,7 +1133,6 @@ if(function_exists("register_field_group"))
 					1 => 'post_type',
 					2 => 'post_title',
 				),
-				'max' => 6,
 			),
 		),
 		'location' => array (
