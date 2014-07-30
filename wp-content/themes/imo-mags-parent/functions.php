@@ -1113,7 +1113,7 @@ if(function_exists("register_field_group"))
 				'maxlength' => '',
 			),
 			array (
-				'key' => 'field_5395f79a968de',
+				'key' => 'field_5395f79a968df',
 				'label' => 'Sidebar Featured Stories',
 				'name' => 'sidebar_featured_stories',
 				'type' => 'relationship',
@@ -1152,7 +1152,7 @@ if(function_exists("register_field_group"))
 			'hide_on_screen' => array (
 			),
 		),
-		'menu_order' => 31,
+		'menu_order' => 32,
 	));
 	register_field_group(array (
 		'id' => 'acf_special-features-override',
