@@ -13,6 +13,7 @@ include_once('widgets/ford-widget.php');
 include_once('widgets/community-login-widget.php');
 include_once('widgets/user-info.php');
 include_once('widgets/forecast.php');
+include_once('widgets/featured-sidebar-widget.php');
 
 $magazine_img = get_option("magazine_cover_uri", get_stylesheet_directory_uri(). "/images/pic/journals.png" );
 $subs_link = get_option("subs_link");
@@ -1094,7 +1095,65 @@ if(function_exists("register_field_group"))
 		),
 		'menu_order' => 31,
 	));
-
+	register_field_group(array (
+		'id' => 'acf_sidebar-options',
+		'title' => 'Sidebar Options',
+		'fields' => array (
+			array (
+				'key' => 'field_5396107ccddd5',
+				'label' => 'Featured Title',
+				'name' => 'sidebar_featured_title',
+				'type' => 'text',
+				'instructions' => 'Choose the title of this featured area',
+				'default_value' => 'Special Features',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_5395f79a968de',
+				'label' => 'Sidebar Featured Stories',
+				'name' => 'sidebar_featured_stories',
+				'type' => 'relationship',
+				'return_format' => 'object',
+				'post_type' => array (
+					0 => 'post',
+				),
+				'taxonomy' => array (
+					0 => 'all',
+				),
+				'filters' => array (
+					0 => 'search',
+				),
+				'result_elements' => array (
+					0 => 'featured_image',
+					1 => 'post_type',
+					2 => 'post_title',
+				),
+				'max' => 6,
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'options_page',
+					'operator' => '==',
+					'value' => 'acf-options',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 31,
+	));
 	register_field_group(array (
 		'id' => 'acf_special-features-override',
 		'title' => 'Special Features Override',
