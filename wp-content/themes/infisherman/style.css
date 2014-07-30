@@ -613,6 +613,8 @@ a.change-location:before {
     margin-right:auto;
     margin-left:auto;
 }
+/* subscribe widget */
+.widget_subscribe-form {background-color: #ffffff;box-shadow: none;}
 .subscribeButton{float: right;margin: 2px 7px 8px 0; width: auto; line-height: 25px;}
 .subscribeButton:hover {background:url(images/bg/bg-btn.png) no-repeat 100% 0;background-position:100% -35px;}
 .subscribeButton input {text-transform: capitalize;}
