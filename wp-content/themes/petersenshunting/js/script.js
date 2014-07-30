@@ -1,6 +1,15 @@
-
+jQuery(window).load(function(){
+	// Load The Truck, The Gear pages scrolled down to the .nav-wrap
+	if (jQuery(".b2b")[0]){
+		if (jQuery(".the-truck")[0] || jQuery(".the-gear")[0]) {
+			var navTop = jQuery('.nav-wrap').offset().top;
+		    window.scrollTo(0,(navTop - 50));
+		}
+    }
+});
 jQuery( document ).ready(function($) {
 	if ($(".b2b")[0]){
+
 	//Variables
 	var windowHeight 	= $(window).height();
 	var windowWidth 	= $(window).width(); 
@@ -424,9 +433,9 @@ function drawLines6(){
 	    sync: "#thumbs-8"
 	  });
 	  
-	  } // End if of .border-to-border
-if ($(".the-truck")[0]){
+} // End if of .border-to-border
 
+if ($(".the-truck")[0]){
 	$('#thumbs-truck').flexslider({
 		animation: "slide",
 	    controlNav: false,
@@ -436,7 +445,6 @@ if ($(".the-truck")[0]){
 	    itemMargin: 5,
 	    asNavFor: '#slider-truck'
 	});
-	
 	$('#slider-truck').flexslider({
 		animation: "fade",
 	    controlNav: false,
@@ -447,7 +455,6 @@ if ($(".the-truck")[0]){
 		animationSpeed: 600,
 	    sync: "#thumbs-truck"
 	});
-	
 }  // End if of .the-truck
 	
 	// side map stick to top function

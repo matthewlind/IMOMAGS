@@ -146,11 +146,6 @@ subscribe-links a{color: white;}
 .open-menu{border: none;}
 .open-search{background-position-x: -352px;}
 
-@media only screen and (max-width: 1161px) {
-/* .b2b .stats-item {border-left: 1px solid #e0e0e0; } */
-
-}/* end @media */
-
 @media only screen and (max-width: 1096px) {
 	.logo img{width: 130px !important;}
 	.logo img {margin-top: 2px;}
@@ -201,21 +196,13 @@ subscribe-links a{color: white;}
 .b2b .page-header {height: 500px;}	
 
 /* b2b map **********/
-.b2b-rules h1 {
-	font-size: 36px;
-	margin-bottom: 5px;
-}
-.b2b-rules ul li {
-	margin-bottom: 10px;
-	font-size: 16px;
-}
+.b2b-rules h1 {font-size: 36px; margin-bottom: 5px;}
+.b2b-rules ul li {margin-bottom: 10px; font-size: 16px;}
 
 .b2b .text-st {left: 43%; font-size: 28px;}
 .b2b .text-fn {left: 35%; font-size: 28px;}
 
-.b2b-map-txt {
-	font-size: 12px;
-}
+.b2b-map-txt {font-size: 12px;}
 
 /* b2b navigation **********/
 .b2b .shows-nav {height: 39px;}
@@ -232,11 +219,7 @@ subscribe-links a{color: white;}
 .a-slideshow .slider-wrap .flex-direction-nav .flex-prev {left: 20px;opacity: 0.7;}
 .a-slideshow .slider-wrap .flex-direction-nav .flex-next {right: 20px;opacity: 0.7;}	
 /* b2b left map **********/	
-.b2b .map-left svg {
-width: 92%;
-margin-left: 8%;
-margin-top: 50px;
-}
+.b2b .map-left svg {width: 92%; margin-left: 8%; margin-top: 50px;}
 /* b2b the-gear page **********/		
 .the-gear .a-text {margin: auto 5%;max-width: 800px;}
 
@@ -267,13 +250,7 @@ margin-top: 50px;
 **********************************/
 /* b2b map **********/
 #b2b-map .map-wrap {margin: 40px auto 220px;}
-.b2b-rules {
-	bottom: -190px; 
-	left: 0;
-	color: #fff;
-	max-width: 100%;
-	padding: 0 30px;
-}
+.b2b-rules {bottom: -190px; left: 0;color: #fff; max-width: 100%; padding: 0 30px;}
 .b2b-map-txt {font-size: 10px;}
 /* b2b navigation **********/
 .b2b .shows-nav ul li a {padding: 0 11px;}
@@ -291,6 +268,10 @@ margin-top: 50px;
 
 .a-inner-cell {height:320px;}
 .a-cell-caption {right: auto;top: 320px;width: 100%;}	
+/* b2b The Gear page **********/
+.img-video-container{width: 100%;}
+.gear-item .gear-img {width: 100%;height: 200px; margin-top: 30px;}
+.gear-item .gear-video {margin: 0 auto;}
 
 }/* end @media */
 
@@ -316,7 +297,7 @@ margin-top: 50px;
 .b2b .shows-nav ul li { border-right: 1px solid #566e83;}
 
 /* b2b article **********/	
-
+.b2b #article-wrap p {font-size: 16px;}
 .b2b .block-aside {width: 95.5%;padding-left: 0;}	
 
 .b2b .stats-item { width: 144px; min-height: 152px;}
@@ -328,8 +309,9 @@ margin-top: 50px;
 
 .species-description {width: 100%;}
 .species-description img {width: 100px; height: 151px;}
-
-
-
+/* b2b The Gear page **********/
+.gear-item .gear-video {max-width: 100%;}
+.gear-item {padding-bottom: 50px;}
+#article-wrap .gear-item h2 {font-size: 26px;}
 
 }/* end @media */

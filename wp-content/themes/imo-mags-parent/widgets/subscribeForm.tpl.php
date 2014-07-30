@@ -37,9 +37,7 @@
                 
                 
                 
-                    <input type="hidden" name="i4Ky" value="<?php print get_option('i4ky')?>" />
                     <input type="hidden" name="pkey" value="<?php print get_option('i4ky')?>" />
-                    <input type="hidden" name="iMagId" value="<?php print get_option('iMagId')?>" />
                     <div class="subscribe-row">
                         <input type="text" class="form-text" name="firstname" placeholder="First Name" />
                     </div>

@@ -56,6 +56,7 @@ $species_info = get_field("species_info");
 $full_width_image_back = get_field("full_width_image_back");
 $full_width_image_caption = get_field("full_width_image_caption");
 $images_slider = get_field("images_slider");
+$small_game = get_field("small_game");
 ?>
 <section class="episode-<?php echo $ep_num ; ?>">	
 	<div class="episode-heading a-text">
@@ -68,17 +69,34 @@ $images_slider = get_field("images_slider");
 			<div class="links-aside">
 				<?php if( !empty($state_img) ): ?> 
 					<img src="<?php echo $state_img['url']; ?>" alt="<?php echo $state_img['alt']; ?>" /> 
-					<?php endif; ?>	
+				<?php endif; ?>	
 				<ul class="list-links-aside">
 				<?php while(has_sub_field("aside_links")): ?>
 					<li><a href="<?php the_sub_field('aside_link'); the_sub_field('aside_external_link');?>" target="_blank"><?php the_sub_field('aside_link_name'); ?></a><i class="fa fa-angle-double-right"></i></li>
-					<?php endwhile; ?>
+				<?php endwhile; ?>
 				</ul>
 			</div>
 		</div><!-- END .block-aside -->	
 		<?php while(has_sub_field("text_beginning")): ?>
 		<p><?php the_sub_field('paragraph'); ?></p>
 		<?php endwhile; ?>
+		<!-- Start .s-game-wrap -->
+		<?php if( !empty($small_game) ): ?> 
+		<div class="s-game-wrap clearf">
+			<?php while(has_sub_field("small_game")): 
+				$specie_name = get_sub_field("specie_name");
+				$specie_img = get_sub_field("specie_img");
+				$cover_image = get_sub_field("cover_image");
+			?>
+			<div class="s-game-item">
+				<img src="<?php echo $specie_img['url']; ?>" alt="<?php echo $specie_img['alt']; ?>">
+				<img class="s-game-cover" src="<?php echo $cover_image['url']; ?>" alt="<?php echo $cover_image['alt']; ?>">
+				<p><?php echo $specie_name;?></p>
+			</div>	
+			<?php endwhile; ?>	
+		</div>
+		<?php endif; ?>	
+		<!-- END .s-game-wrap -->
 		<!-- Start .a-slideshow -->
 		<?php if( !empty($images_slider) ): ?> 
 		<div class="a-slideshow">
