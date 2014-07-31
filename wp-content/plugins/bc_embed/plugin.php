@@ -34,12 +34,7 @@ function wp_embed_handler_brightcove ( $matches, $attr, $url, $rawattr ) {
     $adServerURL = "http://ad.doubleclick.net/pfadx/" .  get_option("dart_domain", _imo_dart_guess_domain())  ."/video";
 
 
-    $output = '
-                            <div id="BCLcontainingBlock">
-                             <div class="BCLvideoWrapper">
-
-    <!-- Start of Brightcove Player -->
-
+    $output = '<!-- Start of Brightcove Player -->
 
 <!--
 By use of this code snippet, I agree to the Brightcove Publisher T and C
@@ -47,34 +42,33 @@ found at https://accounts.brightcove.com/en/terms-and-conditions/.
 -->
 
 <script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+<div id="player">
 
-<object id="myExperience" class="BrightcoveExperience">
-  <param name="bgcolor" value="#FFFFFF" />
-  <param name="width" value="%4$s" />
-  <param name="height" value="%5$s" />
-  <param name="playerID" value="%1$s" />
-  <param name="playerKey" value="%6$s" />
-  <param name="isVid" value="true" />
-  <param name="isUI" value="true" />
-  <param name="dynamicStreaming" value="true" />
-  <param name="linkBaseURL" value="%7$s" />
-  <param name="@videoPlayer" value="%3$s" />
-  <param name="media_delivery" value="http" />
-  <param name="adServerURL" value="%8$s" />
+	<object id="myExperience" class="BrightcoveExperience">
+	  <param name="bgcolor" value="#FFFFFF" />
+	  <param name="width" value="%4$s" />
+	  <param name="height" value="%5$s" />
+	  <param name="playerID" value="%1$s" />
+	  <param name="playerKey" value="%6$s" />
+	  <param name="isVid" value="true" />
+	  <param name="isUI" value="true" />
+	  <param name="dynamicStreaming" value="true" />
+	  <param name="linkBaseURL" value="%7$s" />
+	  <param name="@videoPlayer" value="%3$s" />
+	  <param name="media_delivery" value="http" />
+	  <param name="adServerURL" value="%8$s" />
+	
+	</object>
+	
+	<!--
+	This script tag will cause the Brightcove Players defined above it to be created as soon
+	as the line is read by the browser. If you wish to have the player instantiated only after
+	the rest of the HTML is processed and the page load is complete, remove the line.
+	-->
+	<script type="text/javascript">brightcove.createExperiences();</script>
+	
+	<!-- End of Brightcove Player -->
 
-</object>
-
-<!--
-This script tag will cause the Brightcove Players defined above it to be created as soon
-as the line is read by the browser. If you wish to have the player instantiated only after
-the rest of the HTML is processed and the page load is complete, remove the line.
--->
-<script type="text/javascript">brightcove.createExperiences();</script>
-
-<!-- End of Brightcove Player -->
-
-
-</div>
 </div>';
 
 
