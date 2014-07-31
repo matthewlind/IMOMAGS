@@ -815,7 +815,105 @@ function imo_parent_theme_init() {
 
 }
 
+//IMO VIDEO
+/* Define the Video ID metabox */
 
+add_action( 'add_meta_boxes', 'imo_video_add_custom_box' );
+add_action( 'save_post', 'imo_video_save_postdata' );
+
+/* Adds a box to the main column on the Post and Page edit screens */
+function imo_video_add_custom_box() {
+    add_meta_box( 
+        'imo_video_sectionid',
+        __( 'Choose Brightcove Video', 'imo_video_textdomain' ),
+        'imo_video_inner_custom_box',
+        'post',
+        'side',
+        'high' 
+    );
+    add_meta_box( 
+        'imo_video_legacy',
+        __( 'Legacy URL', 'imo_video_legacy_domain' ),
+        'imo_video_inner_custom_box_legacy',
+        'post' 
+    );
+
+}
+/* Prints the box content */
+function imo_video_inner_custom_box_legacy( $post ) {
+
+  // Use nonce for verification
+  wp_nonce_field( plugin_basename( __FILE__ ), 'imo_video_noncename' );
+  
+  
+  $valueTag = "value='" .  get_post_meta($post->ID, '_video_legacy_url', TRUE) . "'";
+  
+  
+  // The actual fields for data entry
+  echo '<input type="text" id="imo_video_legacy_url" name="imo_video_legacy_url" size="50" ' . $valueTag . ' />';
+}
+/* Prints the box content */
+function imo_video_inner_custom_box( $post ) {
+
+  // Use nonce for verification
+  wp_nonce_field( plugin_basename( __FILE__ ), 'imo_video_noncename' );
+  
+  
+  $valueTag = "value='" .  get_post_meta($post->ID, '_video_id', TRUE) . "'";
+  
+  
+  // The actual fields for data entry
+  echo '<label for="imo_video_video_id">';
+       _e("Video ID", 'imo_video_textdomain' );
+  echo '</label> ';
+  echo '<input type="text" id="imo_video_video_id" name="imo_video_video_id" placeholder="36124564556" size="25" ' . $valueTag . ' />';
+  echo '<p>A <b>Featured Image</b> will automatically be downloaded from Brightcove when this post is published.  There is no need to add a Featured Image.</p>';
+
+
+ //_log(imo_video_bc_import_gather_videos());
+
+}
+
+/* When the post is saved, saves our custom data */
+function imo_video_save_postdata( $post_id ) {
+  // verify if this is an auto save routine. 
+  // If it is our form has not been submitted, so we dont want to do anything
+  if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
+      return;
+  // verify this came from the our screen and with proper authorization,
+  // because save_post can be triggered at other times
+
+  if ( !wp_verify_nonce( $_POST['imo_video_noncename'], plugin_basename( __FILE__ ) ) )
+      return;
+
+  // Check permissions
+  if ( 'page' == $_POST['post_type'] ) 
+  {
+    if ( !current_user_can( 'edit_page', $post_id ) )
+        return;
+  }
+  else
+  {
+    if ( !current_user_can( 'edit_post', $post_id ) )
+        return;
+  }
+
+  // OK, we're authenticated: we need to find and save the data
+
+  $mydata = $_POST['imo_video_video_id'];
+  $legacyURL = $_POST['imo_video_legacy_url'];
+
+  // Do something with $mydata 
+  // probably using add_post_meta(), update_post_meta(), or 
+  // a custom table (see Further Reading section below)
+  update_post_meta($post_id, '_video_legacy_url', esc_attr($legacyURL) );
+  update_post_meta($post_id, '_video_id', esc_attr($mydata) );
+
+  //Get The thumbnail
+  $videoID = $mydata;
+
+ 
+}
 
 //Featured ACF
 if(function_exists("register_field_group"))
