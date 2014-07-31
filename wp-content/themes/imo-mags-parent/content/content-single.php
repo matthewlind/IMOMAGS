@@ -8,9 +8,7 @@
  */
 $postID = get_the_ID();
 $byline = get_post_meta($postID, 'ecpt_byline', true);
-$acf_byline = get_field("byline",$postID);
-?>
-
+$acf_byline = get_field("byline",$postID); ?>
 <div id="post-<?php the_ID(); ?>" <?php post_class('full-post'); ?>>
     <?php if ( is_single() ) : ?>
     <?php if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(); } ?>
@@ -47,13 +45,43 @@ $acf_byline = get_field("byline",$postID);
         </div><!-- .entry-summary -->
         <?php else : ?>
         <div class="entry-content">
-            <?php the_content( __( 'more <span class="meta-nav">&raquo;</span>', 'twentytwelve' ) ); ?>
+        	
+		<?php
+	
+			$video_id = get_post_meta(get_the_ID(), '_video_id', TRUE);
+			$player_id = get_option("bc_player_id" );
+			$player_key = get_option("bc_player_key");
+			$adServerURL = "http://ad.doubleclick.net/pfadx/" .  get_option("dart_domain", _imo_dart_guess_domain())  ."/video";
+			$video_link = !empty($the_ID) ? get_permalink($the_ID) :  site_url() . $_SERVER['REQUEST_URI']; 
+			if($video_id){ ?>
+				
+					<!-- Start of Brightcove Player -->
+			    	<script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+			    	<div id="player">
+			    		<object id="myExperience" class="BrightcoveExperience">
+				    		<param name="bgcolor" value="#FFFFFF" />
+				    		<param name="width" value="640" />
+				    		<param name="height" value="360" />
+				    		<param name="playerID" value="<?php echo $player_id;?>" />
+				    		<param name="playerKey" value="<?php echo $player_key; ?>" />
+				    		<param name="isVid" value="true" /><param name="isUI" value="true" />
+				    		<param name="dynamicStreaming" value="true" />
+				    		<param name="linkBaseURL" value="<?php echo $video_link; ?>" />
+				    		<param name="@videoPlayer" value="<?php echo $video_id; ?>" />
+				    		<param name="adServerURL" value="<?php echo $adServerURL; ?>" />
+				    		<param name="media_delivery" value="http" />
+				    		<param name="wmode" value="transparent" />
+			    		</object>
+			    	    <script type="text/javascript">brightcove.createExperiences();</script>
+	    	    </div>
+            <?php }
+            the_content( __( 'more <span class="meta-nav">&raquo;</span>', 'twentytwelve' ) ); ?>
+                       
             <?php wp_link_pages( array( 'before' => '<div class="page-links">' . 'Pages:', 'after' => '</div>' ) ); ?>
         </div><!-- .entry-content -->
         <?php endif; ?>
-        
 	    <?php imo_dart_tag("564x252"); ?>
-	    	   
+	    <?php //imo_dart_tag("648x131"); ?>	   
 	    <?php if ( function_exists('yarpp_plugin_activate') ): ?>
 		    <?php if ( isset_related_posts() ): ?>	
 			    <?php if(mobile() || tablet()){ ?>
