@@ -56,12 +56,17 @@ get_header(); ?>
 					
 				<article id="article-wrap" class="<?php echo $slug_b2b; ?>">
 					<?php 
-					/*
-$template_parts_folder = "template-parts/";
-					$tparts_route = echo $template_parts_folder . $slug_b2b;
-*/
+					// Make shore that template part name and slug of this page is the same
 					 get_template_part("template-parts/{$slug_b2b}"); 
-					 ?>
+					 
+					 
+					// If page's parent's slug is how-to-guides
+					if($post->post_parent) { $post_data = get_post($post->post_parent);
+						 if ($post_data->post_name == "how-to-guides") {
+							 get_template_part("template-parts/how-to-guides"); 
+						 };
+					};
+					?>
 					 
 				</article><!-- End #article-wrap -->
             </div><!-- End #content -->

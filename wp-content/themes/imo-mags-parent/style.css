@@ -3133,16 +3133,32 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 
 /*** Border to Border Show ***
 ******************************/
-
+.b2b-orange {
+	color: #d9713d;
+}
+.b2b a {
+	color: #d9713d;
+}
 /*** b2b header ***/
+.b2b {
+	opacity: .01;
+	-webkit-transition:opacity 0.5s ease-in !important; /* For Safari 3.1 to 6.0 */
+    transition:opacity 0.2s ease-in !important;
+}
 
 .b2b-header {
 	height: 900px;
+	background-color: grey;
 	background-image: url("../petersenshunting/images/b2b/b2b_marquee_placeholder.jpg");
 	background-size: cover;
 	background-position: center;
 	margin: 0;
 	box-shadow: 0 5px 5px black;
+	/*
+opacity: .01;
+	-webkit-transition:opacity 0.5s ease-in !important; 
+    transition:opacity 0.2s ease-in !important;
+*/
 }
 .b2b .shadow-block {
 	position: absolute;
@@ -3224,6 +3240,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 .b2b .shows-nav ul li {
 	display: inline;
 	border-right: 1px solid #cccccc;
+	position: relative;
+}
+.b2b .shows-nav ul li.current-menu-item a {
+	color: #ff894f;
 }
 .b2b .shows-nav ul li:first-child {border-left: 1px solid #cccccc;}
 .b2b .shows-nav ul li a {
@@ -3231,11 +3251,24 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 	color: #ffffff;	
 	padding: 0 30px;
 }
+.b2b .show-nav-arrow {
+	position:absolute;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 10px 7px 10px;
+	border-color: transparent transparent #ffffff transparent;
+	left:0;
+    right:0;
+    margin-left:auto;
+    margin-right:auto;
+    bottom: -17px;
+}
 .b2b .sticky-shows-nav {
 	position: fixed;
 	top: 0;
 	left: 0;
-	z-index: 400;
+	z-index: 99999;
 	height: 39px;
 }
 .b2b .sticky-shows-nav ul {
@@ -3246,11 +3279,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 }
 /*** b2b Article ************************/
 .b2b #article-wrap {
-	padding: 100px 0 100px 0 ;
+	padding: 100px 0 40px 0 ;
 	position: relative;
 }
 .b2b #article-wrap section {
 	padding-bottom: 130px;	
+}
+.b2b #article-wrap section.diy-section {
+	padding-bottom: 60px;	
 }
 .b2b #article-wrap .about-show {
 	padding-bottom: 80px;
@@ -3362,13 +3398,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 /*** b2b small game items ***/
 .s-game-wrap {
 	width: 100%;
-	margin: 45px 0 85px 0;
+	margin: 45px 0;
 }
 .s-game-item {
 	position: relative;
 	width: 180px;
 	height: 180px;
-	margin-right: 35px;
+	margin: 0 35px 47px 0;
 	float: left;
 }
 .s-game-item img {
@@ -3529,7 +3565,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 	padding-bottom: 50px;
 }
 .gear-item {
-	padding-bottom: 100px;
+	padding-bottom: 80px;
 }
 #article-wrap .gear-item h2 {
 	font-size: 30px;
@@ -3564,7 +3600,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 }
 .gear-item .gear-video {
 	width: 425px;
-	height: 240px;
+	height: 272px;
 	border: 1px solid grey;
 	float: left;
 	margin-right: 20px;
@@ -3591,6 +3627,50 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 	max-width: 150px;
 	margin-left: 35px;
 }
+/*** b2b How-to Guide Page ************************/
+.b2b .how-to-list {
+	color: #d86f3c;
+	font-size: 30px;
+	font-family: "merriweather", serif;
+	font-weight: bolder;
+}
+.b2b .how-to-list li {
+	margin-bottom: 20px;
+}
+.diy-states {
+	position: absolute;
+	left: 4%;
+	top: 100px;
+	font-size: 20px;
+	font-weight: 600;
+}
+.sticky-diy-states {
+	position: fixed;
+	left: 4%;
+	top: 100px;
+}
+.diy-states li {
+	margin-bottom: 10px;
+	color: #d9713d;
+}
+.diy-states i {
+	padding-left: 5px;
+}
+.diy-links a {
+	color: #d9713d;
+}
+.b2b-license-fees li {
+	margin-bottom: 6px;
+}
+
+
+
+
+
+
+
+
+
 
 
 

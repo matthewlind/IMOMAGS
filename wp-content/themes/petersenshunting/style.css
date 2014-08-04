@@ -209,7 +209,7 @@ subscribe-links a{color: white;}
 .b2b .shows-nav ul {line-height: 39px;}
 .b2b .shows-nav ul li a {font-size: 14px;}	
 .b2b .nav-wrap {height: 39px;}
-
+.b2b .show-nav-arrow {bottom: -8px;}
 /* b2b article **********/	
 .b2b #article-wrap {padding: 100px 0 100px 0;}	
 .b2b #article-wrap h1 {font-size: 34px;}
@@ -234,6 +234,7 @@ subscribe-links a{color: white;}
 **********************************/
 .map-left {display: none;}
 /* b2b article */
+.b2b #article-wrap {padding: 60px 0 100px 0;}
 .b2b .block-aside {width: 40%;}	
 .b2b .links-aside {min-height:200px;}	
 .b2b .a-text {margin: auto 5%;max-width: 800px;}
@@ -243,6 +244,9 @@ subscribe-links a{color: white;}
 .a-slideshow { width: 100%;}
 
 .species-info { width: 100%;}
+/* b2b DIY **********/
+.diy-states {position: relative;top: auto;left: auto;margin: auto 5% 35px;width: 75%;}
+.diy-states li {margin-right: 35px;display: inline;float: left;width: 40%;}
 
 }/* end @media */
 @media only screen and (max-width: 760px) {
@@ -272,6 +276,9 @@ subscribe-links a{color: white;}
 .img-video-container{width: 100%;}
 .gear-item .gear-img {width: 100%;height: 200px; margin-top: 30px;}
 .gear-item .gear-video {margin: 0 auto;}
+/* b2b DIY **********/
+.diy-states {width: 90%;}
+.diy-states li {width: 40%;}
 
 }/* end @media */
 
@@ -303,6 +310,8 @@ subscribe-links a{color: white;}
 .b2b .stats-item { width: 144px; min-height: 152px;}
 .b2b .stats-item:first-child {border-left: 1px solid #e0e0e0;}
 
+.s-game-item {float: none; margin: 47px auto;width: 130px; height: 130px;}
+#article-wrap .s-game-item img {margin-bottom: 0;}
 .a-slideshow .slider-wrap .flex-direction-nav {top: -20%;}
 .a-slideshow .slider-wrap .flex-direction-nav .flex-prev {left: 10px;}
 .a-slideshow .slider-wrap .flex-direction-nav .flex-next {right: 10px;}
@@ -313,5 +322,7 @@ subscribe-links a{color: white;}
 .gear-item .gear-video {max-width: 100%;}
 .gear-item {padding-bottom: 50px;}
 #article-wrap .gear-item h2 {font-size: 26px;}
-
+/* b2b DIY **********/
+.diy-states {width: 110%;font-size: 16px;margin: auto 5% 35px;}
+.diy-states li {width: 37%;}
 }/* end @media */

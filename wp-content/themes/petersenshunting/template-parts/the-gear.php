@@ -20,7 +20,44 @@
 			<p class="item-link"><a href="<?php echo $gear_link; ?>" target="_blank">Visit website</a><i class="fa fa-angle-double-right"></i></p>
 			<p><?php echo $gear_description; ?> </p>
 			<div class="img-video-container">
-				<div class="gear-video"></div>
+				<div class="gear-video">
+					
+					
+					<div id="#player">
+					<!-- Start of Brightcove Player -->
+					<div style="display:none"></div>
+					
+					<!--
+					By use of this code snippet, I agree to the Brightcove Publisher T and C
+					found at https://accounts.brightcove.com/en/terms-and-conditions/.
+					-->
+					
+					<script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+					
+					<object id="myExperience" class="BrightcoveExperience">
+					  <param name="bgcolor" value="#FFFFFF" />
+					  <param name="width" value="480" />
+					  <param name="height" value="270" />
+					  <param name="playerID" value="1445501637001" />
+					  <param name="playerKey" value="AQ~~,AAAAALyrRUk~,m8Wuv4JIiTp4WJ_vxf089O1HdEWslAPu" />
+					  <param name="isVid" value="true" />
+					  <param name="isUI" value="true" />
+					  <param name="dynamicStreaming" value="true" />
+					  <param name="@videoPlayer" value="<?php echo $gear_video; ?> " /></object>
+					</object>
+					
+					<!--
+					This script tag will cause the Brightcove Players defined above it to be created as soon
+					as the line is read by the browser. If you wish to have the player instantiated only after
+					the rest of the HTML is processed and the page load is complete, remove the line.
+					-->
+					<script type="text/javascript">brightcove.createExperiences();</script>
+					
+					<!-- End of Brightcove Player -->
+					</div>
+					
+					
+				</div>
 				<div class="gear-img"><img src="<?php echo $gear_image['url']; ?>" alt="<?php echo $gear_image['alt']; ?>" ></div>
 			</div>
 		</div>
@@ -30,56 +67,3 @@
 	</div><!-- .a-text -->	
 </section><!-- .about-show -->	
 
-
-<!--  a test of brightcove player -->
-<section>
-<div class="a-text">
-<script type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script> 
-<div id="player"></div>
-<div class="thumbs-full">
-<ul id="video-thumbs">
-<?php while (have_posts()) : the_post(); $i++; 
-$post_id = get_the_id();
-$post = get_post($post_id);
-$slug = $post->post_name;
-$thumb_url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-?>
-<li id="thumb-<?php echo $i; ?>"><span class="play-btn"></span><a class="video-thumb" data-slug="<?php echo $slug; ?>" data-img_url="<?php echo $thumb_url; ?>" data-post_url="<?php echo get_permalink(); ?>" data-title="<?php echo get_the_title(); ?>" data-videoid="<?php echo get_field( "brightcove_id",get_the_ID() ); ?>"><?php the_post_thumbnail("show-thumb"); ?><h3><?php the_title(); ?></h3></a></li>
-<?php endwhile;?>
-</ul>
-</div>
-<script>
-video_id = jQuery("#video-thumbs li:first-child").attr("data-videoid");
-loadVideo(video_id);
-jQuery("#video-thumbs li a").click(function(){
-video_id = jQuery(this).attr("data-videoid");
-jQuery(this).find("img").css("border-color","white");
-title = jQuery(this).attr("data-title");
-slug = jQuery(this).attr("data-slug");
-img_url = jQuery(this).attr("data-img_url");
-post_url = jQuery(this).attr("data-post_url");
-jQuery(".sidebar h1").text(title);
-loadVideo(video_id);
-
-});
-function loadVideo(id){
-   
-   var htm = '';
-  
-   htm = '<object id="myExperience" class="BrightcoveExperience">'
-   +  '<param name="bgcolor" value="#000000" />'
-   +  '<param name="wmode" value="transparent">'
-   +  '<param name="width" value="100%" />'
-   +  '<param name="height" value="350" />'
-   +  '<param name="playerID" value="1445501637001" />'
-   +  '<param name="isVid" value="true" />'
-   +  '<param name="isUI" value="true" />'
-   +  '<param name="quality" value="high">'
-   +  '<param name="@videoPlayer" value="' + id + '" /></object>';
-jQuery("#player").html(htm);
-player = brightcove.createExperiences();
-}
-
-</script>
-</div>
-</section>

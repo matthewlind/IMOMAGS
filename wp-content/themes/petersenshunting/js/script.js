@@ -1,7 +1,7 @@
 jQuery(window).load(function(){
 	// Load The Truck, The Gear pages scrolled down to the .nav-wrap
 	if (jQuery(".b2b")[0]){
-		if (jQuery(".the-truck")[0] || jQuery(".the-gear")[0]) {
+		if (jQuery(".the-truck")[0] || jQuery(".the-gear")[0] || jQuery(".how-to-guide")[0] || jQuery('*[class^="diy"]')) {
 			var navTop = jQuery('.nav-wrap').offset().top;
 		    window.scrollTo(0,(navTop - 50));
 		}
@@ -22,15 +22,6 @@ jQuery( document ).ready(function($) {
 	var mapText		 	= $(".b2b-map-text");
 	
 	if ($(".border-to-border")[0]){
-	// Handles for every episode section
-	var ep1 = $('.episode-1').offset().top;
-	var ep2 = $('.episode-2').offset().top;
-	var ep3 = $('.episode-3').offset().top;
-	var ep4 = $('.episode-4').offset().top;
-	var ep5 = $('.episode-5').offset().top;
-	var ep6 = $('.episode-6').offset().top;
-	var ep7 = $('.episode-7').offset().top;
-	var ep8 = $('.episode-8').offset().top;
 	
 	//Handels for every SVG Road Path 
 	var path1 = $(".road-1");
@@ -56,7 +47,8 @@ function drawLines1(){
 	  var length = 0;
 	  var pathLength = line.getTotalLength();
 	  var docTop = $(document).scrollTop();
-	  
+	  var ep1 = $('.episode-1').offset().top;
+	  var ep2 = $('.episode-2').offset().top;
 	  var distanceFromTop = docTop - ep1;
 	  if (distanceFromTop < 0) {
 		  distanceFromTop = 0;
@@ -67,7 +59,7 @@ function drawLines1(){
 	  var percentDone = (distanceFromTop / distanceLeft);
 	  length = percentDone * pathLength;
 	  line.style.strokeDasharray = [length,pathLength].join(' ');  
-	  
+  
 	   // Changing fill of svg elements
 	   if ((ep1 < (docTop + 300)) && (ep2 > (docTop + 300))) {
 		    $(".newmexico-polygon").attr("fill", "#f6f6f6");
@@ -92,6 +84,8 @@ function drawLines2(){
 	  var length = 0;
 	  var pathLength = line.getTotalLength();
 	  var docTop = $(document).scrollTop();
+	  var ep2 = $('.episode-2').offset().top;
+	  var ep3 = $('.episode-3').offset().top;
 	  
 	  var distanceFromTop = docTop - ep2;
 	  if (distanceFromTop < 0) {
@@ -99,7 +93,7 @@ function drawLines2(){
 	  } else {
 		  distanceFromTop = docTop - ep2;
 	  }
-	  var distanceLeft = ep3 - ep2 - 140;
+	  var distanceLeft = ep3 - ep2;
 	  var percentDone = (distanceFromTop / distanceLeft);
 	  length = percentDone * pathLength;
 	  line.style.strokeDasharray = [length,pathLength].join(' ');
@@ -113,7 +107,8 @@ function drawLines2(){
 		    $(".colorado-polygon").attr("fill", "#fff");
 		    $(".colorado-text").attr("fill", "#888");
 		    $(".colorado-circle").attr("r", "6.7").attr("fill", "#777777");	    
-		} 	    	   
+		} 	
+		 	   
 	}
 }
 /////////////////////////////////////
@@ -127,6 +122,8 @@ function drawLines3(){
 	  var length = 0;
 	  var pathLength = line.getTotalLength();
 	  var docTop = $(document).scrollTop();
+	  var ep3 = $('.episode-3').offset().top;
+	  var ep4 = $('.episode-4').offset().top;
 	  
 	  var distanceFromTop = docTop - ep3;
 	  if (distanceFromTop < 0) {
@@ -134,7 +131,7 @@ function drawLines3(){
 	  } else {
 		  distanceFromTop = docTop - ep3;
 	  }
-	  var distanceLeft = ep4 - ep3 - 140;
+	  var distanceLeft = ep4 - ep3;
 	  var percentDone = (distanceFromTop / distanceLeft);
 	  length = percentDone * pathLength;
 	  line.style.strokeDasharray = [length,pathLength].join(' '); 
@@ -162,6 +159,8 @@ function drawLines4(){
 	  var length = 0;
 	  var pathLength = line.getTotalLength();
 	  var docTop = $(document).scrollTop();
+	  var ep4 = $('.episode-4').offset().top;
+	  var ep5 = $('.episode-5').offset().top;
 	  
 	  var distanceFromTop = docTop - ep4;
 	  if (distanceFromTop < 0) {
@@ -198,6 +197,8 @@ function drawLines5(){
 	  var length = 0;
 	  var pathLength = line.getTotalLength();
 	  var docTop = $(document).scrollTop();
+	  var ep5 = $('.episode-5').offset().top;
+	  var ep6 = $('.episode-6').offset().top;
 	  
 	  var distanceFromTop = docTop - ep5;
 	  if (distanceFromTop < 0) {
@@ -233,6 +234,9 @@ function drawLines6(){
 	  var length = 0;
 	  var pathLength = line.getTotalLength();
 	  var docTop = $(document).scrollTop();
+	  var ep6 = $('.episode-6').offset().top;
+	  var ep7 = $('.episode-7').offset().top;
+	  var ep8 = $('.episode-7').offset().top;
 	  
 	  var distanceFromTop = docTop - ep6;
 	  if (distanceFromTop < 0) {
@@ -466,31 +470,45 @@ if ($(".the-truck")[0]){
 		}	else if (docTop < (mapLeftTop + 60)) {
 			$(".map-left").css({"position" : "absolute", "top" : "60"});	
 		}
-	}
-	sideMapStick();
+	}   sideMapStick();
+	
+	$(".b2b").css({"opacity": 1});
+	$(".current-menu-item").append("<div class='show-nav-arrow'></div>");
 	// .shows-nav stick to top function
 	function showsNavStick() {
 		var docTop = $(document).scrollTop();
 		var navTop = $('.nav-wrap').offset().top;
 		if (docTop > navTop) {
-			$(".shows-nav").addClass("sticky-shows-nav");	
+			$(".shows-nav").addClass("sticky-shows-nav");
+			$(".show-nav-arrow").css({"bottom" : "-8px", "left": 0, "border-width": "0 7px 5px 7px"});	
 		}	else if (docTop < navTop) {
-			$(".shows-nav").removeClass("sticky-shows-nav");	
+			$(".shows-nav").removeClass("sticky-shows-nav");
+			$(".show-nav-arrow").css({"bottom" : "-17px", "left": 0,"right": 0, "border-width": "0 10px 7px 10px"});	
 		}
-	}
-	showsNavStick();
+	}   showsNavStick();
+	
+	// .diy-states stick to top function
+	function showsNavStates() {
+		var docTop = $(document).scrollTop();
+		var navTop = $('.nav-wrap').offset().top;
+		if (docTop > navTop) {
+			$(".diy-states").addClass("sticky-diy-states");
+		}	else if (docTop < navTop) {
+			$(".diy-states").removeClass("sticky-diy-states");
+		}
+	}   showsNavStates();
+	
 	// .b2b-map-text repeting height and width of the .b2b-map-image
 	function mapTextSize(){
 		$(mapText).css({"height": (mapImageHeight + "px"), "width": (mapImageWidth + "px") });
-	}	
-	mapTextSize();
+	}	mapTextSize();
+	
 	// .pageHeader - full hight - function
 	function fullHightHeader(){
 		if (windowWidth > 768) {
-			$(pageHeader).css({"height": ((windowHeight - headerHight - 30) + "px") });
+			$(pageHeader).css({"height": ((windowHeight - headerHight - 30) + "px")});
 		}
-	}	
-	fullHightHeader();
+	}	fullHightHeader();
 
 	// Functions triggered on window resize
 	$(window).on("resize", function() { 
@@ -505,27 +523,25 @@ if ($(".the-truck")[0]){
 		function heightMapLeft(){
 			var mapWidth = windowHeight * 0.85;
 			$(mapLeft).css({"height": (mapWidth + "px")});	
-		}	
-		heightMapLeft();
+		}	heightMapLeft();
 		
 		// .pageHeader - full hight - function
 		function fullHightHeader(){
 			if (windowWidth > 768) {
 				$(pageHeader).css({"height": ((windowHeight - headerHight - 40) + "px") });
 			}
-		}
-		fullHightHeader();
+		} 	fullHightHeader();
 		
 		// .b2b-map-text repeting height and width of the .b2b-map-image
 		function mapTextSize(){
 			$(mapText).css({"height": (mapImageHeight + "px"), "width": (mapImageWidth + "px") });
-		}
-		mapTextSize();
+		}	mapTextSize();
 	});
 	
 	$(window).scroll(function() {
 		showsNavStick();
 		sideMapStick();
+		showsNavStates();
 	    $(".road").show();
 	    drawLines1();
 		drawLines2();
