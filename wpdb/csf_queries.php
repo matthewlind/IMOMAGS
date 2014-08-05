@@ -314,9 +314,9 @@ EOT;
             $postContent = preg_replace ("/^\[.+]/", "", $postContent);
             $postContent = delete_all_between("[","]",$postContent);
 
-            $postContent = substr($postContent,0,120) . "...";
+            //$postContent = substr($postContent,0,120) . "...";
 
-
+			
             if (!$get_count) {
 
                 $posts[$key]->post_content = $postContent;

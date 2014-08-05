@@ -3,18 +3,8 @@
 /**
  *head-includes.php makes special things special.
  */
-if (is_single()) { 
-	$author = get_the_author(); ?>
-  	<script type="text/javascript">
-  		var _gaq = _gaq || [];
-		<?php 
-		echo " _gaq.push(['_setCustomVar', 1,'author','". addslashes($author) . "', 3]);"; 
-		//$category = get_the_category();
-		//echo " _gaq.push(['_setCustomVar', 2,'category','". $category[0]->cat_name . "', 3]);"; 
-		?>
-		_gaq.push(['_trackPageview']);
-	</script>
-<?php } ?>
+
+?>
 
 <!-- BEGIN Tynt Script -->
 <script type="text/javascript">
