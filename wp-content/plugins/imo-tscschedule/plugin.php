@@ -115,27 +115,34 @@ function jsTSCSRender($mobile, $atts) {
 		foreach($showjson as $show) {
 			
 			if($show["SeriesID"] == $atts["postid"]) {
-				
+				//var_dump($show);
+				//if($show["NewEpisode"]=="YES") {
 				foreach($show["Timeslots"] as $slot){
 					
 					
 					$time = $slot["src"];
+					
+					
+					
 					$date = new DateTime($slot["rdate"]);
+					
+					
 					$dateResult = $date->format('M d');
 					
 					$expired = $result .' ' . $time;
 					
 					$aired = new DateTime($expired);
-					$airedResult = $aired->format('M d H');
-					
-				}
-				if($airedResult >= date("M d H")){
+					$airedResult = $aired->format('m d H');
+					//var_dump($airedResult);
+					}
+				
+				if($airedResult >= date("m d H")){
 					echo '<div class="schedule-item">';
 					echo '<span class="episode-title">'.$show["EpisodeTitle"].'</span>';
 					echo '<span class="episode-time">'.$dateResult.': '.$time.' ET/PT</span>';						
 					echo '</div>';
 				}
-				
+			//}
 								
 			}	
 										
