@@ -571,9 +571,8 @@ if ($(".the-truck")[0]){
 			$(mapText).css({"height": (mapImageHeight + "px"), "width": (mapImageWidth + "px") });
 		}	mapTextSize();
 	});
-	
 	$(window).scroll(function() {
-	  	if($(window).scrollTop() >= $(".border-to-border").offset().top){
+	  	if($(window).scrollTop() >= $(".b2b").offset().top){
 			$('#page').removeClass("smooth-menu");
 		}else{
 			$('#page').addClass("smooth-menu");
@@ -587,9 +586,7 @@ if ($(".the-truck")[0]){
 	    drawLines3();
 	    drawLines4();
 	    drawLines5();
-	    drawLines6();
-	    
-	  
+	    drawLines6();	    
 	});
 	
 	};
