@@ -1,6 +1,15 @@
-
+jQuery(window).load(function(){
+	// Load The Truck, The Gear pages scrolled down to the .nav-wrap
+	if (jQuery(".b2b")[0]){
+		if (jQuery(".the-truck")[0] || jQuery(".the-gear")[0] || jQuery(".how-to-guide")[0] || jQuery('*[class^="diy"]')[0]) {
+			var navTop = jQuery('.nav-wrap').offset().top;
+		    window.scrollTo(0,(navTop - 50));
+		}
+    }
+});
 jQuery( document ).ready(function($) {
 	if ($(".b2b")[0]){
+
 	//Variables
 	var windowHeight 	= $(window).height();
 	var windowWidth 	= $(window).width(); 
@@ -12,15 +21,7 @@ jQuery( document ).ready(function($) {
 	var mapImageWidth   = $(".b2b-map-img").width();
 	var mapText		 	= $(".b2b-map-text");
 	
-	// Handles for every episode section
-	var ep1 = $('.episode-1').offset().top;
-	var ep2 = $('.episode-2').offset().top;
-	var ep3 = $('.episode-3').offset().top;
-	var ep4 = $('.episode-4').offset().top;
-	var ep5 = $('.episode-5').offset().top;
-	var ep6 = $('.episode-6').offset().top;
-	var ep7 = $('.episode-7').offset().top;
-	var ep8 = $('.episode-8').offset().top;
+	if ($(".border-to-border")[0]){
 	
 	//Handels for every SVG Road Path 
 	var path1 = $(".road-1");
@@ -46,7 +47,8 @@ function drawLines1(){
 	  var length = 0;
 	  var pathLength = line.getTotalLength();
 	  var docTop = $(document).scrollTop();
-	  
+	  var ep1 = $('.episode-1').offset().top;
+	  var ep2 = $('.episode-2').offset().top;
 	  var distanceFromTop = docTop - ep1;
 	  if (distanceFromTop < 0) {
 		  distanceFromTop = 0;
@@ -57,7 +59,7 @@ function drawLines1(){
 	  var percentDone = (distanceFromTop / distanceLeft);
 	  length = percentDone * pathLength;
 	  line.style.strokeDasharray = [length,pathLength].join(' ');  
-	  
+  
 	   // Changing fill of svg elements
 	   if ((ep1 < (docTop + 300)) && (ep2 > (docTop + 300))) {
 		    $(".newmexico-polygon").attr("fill", "#f6f6f6");
@@ -82,6 +84,8 @@ function drawLines2(){
 	  var length = 0;
 	  var pathLength = line.getTotalLength();
 	  var docTop = $(document).scrollTop();
+	  var ep2 = $('.episode-2').offset().top;
+	  var ep3 = $('.episode-3').offset().top;
 	  
 	  var distanceFromTop = docTop - ep2;
 	  if (distanceFromTop < 0) {
@@ -89,7 +93,7 @@ function drawLines2(){
 	  } else {
 		  distanceFromTop = docTop - ep2;
 	  }
-	  var distanceLeft = ep3 - ep2 - 140;
+	  var distanceLeft = ep3 - ep2;
 	  var percentDone = (distanceFromTop / distanceLeft);
 	  length = percentDone * pathLength;
 	  line.style.strokeDasharray = [length,pathLength].join(' ');
@@ -103,7 +107,8 @@ function drawLines2(){
 		    $(".colorado-polygon").attr("fill", "#fff");
 		    $(".colorado-text").attr("fill", "#888");
 		    $(".colorado-circle").attr("r", "6.7").attr("fill", "#777777");	    
-		} 	    	   
+		} 	
+		 	   
 	}
 }
 /////////////////////////////////////
@@ -117,6 +122,8 @@ function drawLines3(){
 	  var length = 0;
 	  var pathLength = line.getTotalLength();
 	  var docTop = $(document).scrollTop();
+	  var ep3 = $('.episode-3').offset().top;
+	  var ep4 = $('.episode-4').offset().top;
 	  
 	  var distanceFromTop = docTop - ep3;
 	  if (distanceFromTop < 0) {
@@ -124,7 +131,7 @@ function drawLines3(){
 	  } else {
 		  distanceFromTop = docTop - ep3;
 	  }
-	  var distanceLeft = ep4 - ep3 - 140;
+	  var distanceLeft = ep4 - ep3;
 	  var percentDone = (distanceFromTop / distanceLeft);
 	  length = percentDone * pathLength;
 	  line.style.strokeDasharray = [length,pathLength].join(' '); 
@@ -152,6 +159,8 @@ function drawLines4(){
 	  var length = 0;
 	  var pathLength = line.getTotalLength();
 	  var docTop = $(document).scrollTop();
+	  var ep4 = $('.episode-4').offset().top;
+	  var ep5 = $('.episode-5').offset().top;
 	  
 	  var distanceFromTop = docTop - ep4;
 	  if (distanceFromTop < 0) {
@@ -188,6 +197,8 @@ function drawLines5(){
 	  var length = 0;
 	  var pathLength = line.getTotalLength();
 	  var docTop = $(document).scrollTop();
+	  var ep5 = $('.episode-5').offset().top;
+	  var ep6 = $('.episode-6').offset().top;
 	  
 	  var distanceFromTop = docTop - ep5;
 	  if (distanceFromTop < 0) {
@@ -223,6 +234,9 @@ function drawLines6(){
 	  var length = 0;
 	  var pathLength = line.getTotalLength();
 	  var docTop = $(document).scrollTop();
+	  var ep6 = $('.episode-6').offset().top;
+	  var ep7 = $('.episode-7').offset().top;
+	  var ep8 = $('.episode-8').offset().top;
 	  
 	  var distanceFromTop = docTop - ep6;
 	  if (distanceFromTop < 0) {
@@ -422,6 +436,52 @@ function drawLines6(){
 		animationSpeed: 600,
 	    sync: "#thumbs-8"
 	  });
+	  
+} // End if of .border-to-border
+
+if ($(".the-truck")[0]){
+	$('#thumbs-truck').flexslider({
+		animation: "slide",
+	    controlNav: false,
+	    animationLoop: true,
+	    slideshow: false,
+	    itemWidth: 54,
+	    itemMargin: 5,
+	    asNavFor: '#slider-truck'
+	});
+	$('#slider-truck').flexslider({
+		animation: "fade",
+	    controlNav: false,
+	    directionNav: true,   
+	    animationLoop: true,
+	    slideshow: true,                
+		slideshowSpeed: 8000,          
+		animationSpeed: 600,
+	    sync: "#thumbs-truck"
+	});
+	
+	$('#thumbs-truck-2').flexslider({
+		animation: "slide",
+	    controlNav: false,
+	    animationLoop: true,
+	    slideshow: false,
+	    itemWidth: 54,
+	    itemMargin: 5,
+	    asNavFor: '#slider-truck-2'
+	});
+	$('#slider-truck-2').flexslider({
+		animation: "fade",
+	    controlNav: false,
+	    directionNav: true,   
+	    animationLoop: true,
+	    slideshow: true,                
+		slideshowSpeed: 8000,          
+		animationSpeed: 600,
+	    sync: "#thumbs-truck-2"
+	});
+
+}  // End if of .the-truck
+	
 	// side map stick to top function
 	function sideMapStick() {
 		var docTop = $(document).scrollTop();
@@ -431,31 +491,58 @@ function drawLines6(){
 		}	else if (docTop < (mapLeftTop + 60)) {
 			$(".map-left").css({"position" : "absolute", "top" : "60"});	
 		}
-	}
-	sideMapStick();
+	}   sideMapStick();
+	// Attaches smooth animation jumps
+	var generalDoc = $('html, body');
+	var mapNavLinks = $(".map-left-links a");
+	$(mapNavLinks).click(function() {
+	    generalDoc.animate({
+	        scrollTop: (($($.attr(this, 'href') ).offset().top) - 60)
+	    }, 800, "swing");
+	    return false;
+	});
+
+	$(".b2b").css({"opacity": 1});
+	
+	if ($('*[class^="diy"]')[0]) {
+		$(".shows-nav ul li:last-child").addClass("current-menu-item")
+	};
+	$(".current-menu-item").append("<div class='show-nav-arrow'></div>");
 	// .shows-nav stick to top function
 	function showsNavStick() {
 		var docTop = $(document).scrollTop();
 		var navTop = $('.nav-wrap').offset().top;
 		if (docTop > navTop) {
-			$(".shows-nav").addClass("sticky-shows-nav");	
+			$(".shows-nav").addClass("sticky-shows-nav");
+			$(".show-nav-arrow").css({"bottom" : "-8px", "left": 0, "border-width": "0 7px 5px 7px"});	
 		}	else if (docTop < navTop) {
-			$(".shows-nav").removeClass("sticky-shows-nav");	
+			$(".shows-nav").removeClass("sticky-shows-nav");
+			$(".show-nav-arrow").css({"bottom" : "-17px", "left": 0,"right": 0, "border-width": "0 10px 7px 10px"});	
 		}
-	}
-	showsNavStick();
+	}   showsNavStick();
+	
+	// .diy-states stick to top function
+	function showsNavStates() {
+		var docTop = $(document).scrollTop();
+		var navTop = $('.nav-wrap').offset().top;
+		if (docTop > navTop) {
+			$(".diy-states").addClass("sticky-diy-states");
+		}	else if (docTop < navTop) {
+			$(".diy-states").removeClass("sticky-diy-states");
+		}
+	}   showsNavStates();
+	
 	// .b2b-map-text repeting height and width of the .b2b-map-image
 	function mapTextSize(){
 		$(mapText).css({"height": (mapImageHeight + "px"), "width": (mapImageWidth + "px") });
-	}	
-	mapTextSize();
+	}	mapTextSize();
+	
 	// .pageHeader - full hight - function
 	function fullHightHeader(){
 		if (windowWidth > 768) {
-			$(pageHeader).css({"height": ((windowHeight - headerHight - 30) + "px") });
+			$(pageHeader).css({"height": ((windowHeight - headerHight - 30) + "px")});
 		}
-	}	
-	fullHightHeader();
+	}	fullHightHeader();
 
 	// Functions triggered on window resize
 	$(window).on("resize", function() { 
@@ -470,27 +557,30 @@ function drawLines6(){
 		function heightMapLeft(){
 			var mapWidth = windowHeight * 0.85;
 			$(mapLeft).css({"height": (mapWidth + "px")});	
-		}	
-		heightMapLeft();
+		}	heightMapLeft();
 		
 		// .pageHeader - full hight - function
 		function fullHightHeader(){
 			if (windowWidth > 768) {
 				$(pageHeader).css({"height": ((windowHeight - headerHight - 40) + "px") });
 			}
-		}
-		fullHightHeader();
+		} 	fullHightHeader();
 		
 		// .b2b-map-text repeting height and width of the .b2b-map-image
 		function mapTextSize(){
 			$(mapText).css({"height": (mapImageHeight + "px"), "width": (mapImageWidth + "px") });
-		}
-		mapTextSize();
+		}	mapTextSize();
 	});
 	
 	$(window).scroll(function() {
+	  	if($(window).scrollTop() >= $(".border-to-border").offset().top){
+			$('#page').removeClass("smooth-menu");
+		}else{
+			$('#page').addClass("smooth-menu");
+		}
 		showsNavStick();
 		sideMapStick();
+		showsNavStates();
 	    $(".road").show();
 	    drawLines1();
 		drawLines2();
@@ -498,9 +588,9 @@ function drawLines6(){
 	    drawLines4();
 	    drawLines5();
 	    drawLines6();
+	    
+	  
 	});
-	
-	
 	
 	};
 });
