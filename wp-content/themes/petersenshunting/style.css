@@ -194,6 +194,9 @@ subscribe-links a{color: white;}
 /* Border to Border **
 **********************************/
 .b2b .page-header {height: 500px;}	
+.b2b-title {width: 45%;right: 6%;}
+.header-info {right: 6%; width: 70%;top:54%;}
+.black-wrap {font-size: 10px; margin-bottom: 10px;}
 
 /* b2b map **********/
 .b2b-rules h1 {font-size: 36px; margin-bottom: 5px;}
@@ -232,6 +235,13 @@ subscribe-links a{color: white;}
 @media only screen and (max-width: 880px) {
 /* Border to Border **
 **********************************/
+.b2b-title {width: 48%;right: 3%; top:35%;}
+.header-info {right: 3%; width: 48%;top:48%;}
+.black-wrap{background-color: rgba(0,0,0,0.5);}
+.black-wrap2{width: 85%;}
+.b2b .b2b-header .b2b-logo {width: 120px;margin-top: -11px;}
+.b2b .b2b-header .b2b-sportsman-logo {width: 160px;margin-top: 42px;}
+
 .map-left {display: none;}
 /* b2b article */
 .b2b #article-wrap {padding: 60px 0 100px 0;}
@@ -252,6 +262,9 @@ subscribe-links a{color: white;}
 @media only screen and (max-width: 760px) {
 /* Border to Border **
 **********************************/
+.b2b-title {width: 51%;top:33%;}
+.header-info{width: 51%;}
+.b2b .b2b-header .b2b-sportsman-logo{width: 130px;}
 /* b2b map **********/
 #b2b-map .map-wrap {margin: 40px auto 220px;}
 .b2b-rules {bottom: -190px; left: 0;color: #fff; max-width: 100%; padding: 0 30px;}
@@ -286,9 +299,15 @@ subscribe-links a{color: white;}
 /* Border to Border **
 **********************************/
 .b2b .page-header {height: 320px;}	
-
+.b2b-title {width: 90%;top: 1%;left: 0;right: 0;margin-left: auto;margin-right: auto;}
+.b2b .b2b-header .b2b-img-phtv {margin-bottom: 2px !important;width: 56%;}
+.header-info{width: 52%; top: 18%;}
+.black-wrap2 {width: 100%;}
+.b2b .b2b-header .b2b-logo {margin-top: -13px;width: 103px;margin-right: 31px;}
+.b2b .b2b-header .b2b-sportsman-logo{display: none;}
+.b2b-title span {color: white;font-size: 16px;font-weight: 500;text-shadow: 1px 2px 5px black;}
 /* b2b map **********/
-.b2b-rules {bottom: -185px; }
+.b2b-rules {bottom: -185px;}
 .b2b-map-txt {font-size: 8px;}
 .b2b .text-al {left: 18%;}
 .b2b .text-id {top:36%;}

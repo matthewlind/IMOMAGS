@@ -1,4 +1,7 @@
-<?php $images_slider = get_field("images_slider"); ?>
+<?php
+	$images_slider = get_field("images_slider"); 
+	$truck_image_slider = get_field("truck_image_slider");
+?>
 <section>
 	<div class="truck-image">
 		<img src="/wp-content/themes/petersenshunting/images/b2b/aev_brute_doublecab_studio_profile_side.jpg"
@@ -31,6 +34,36 @@
 			<div id="thumbs-truck" class="flexslider thumbs-wrap">
 			  <ul class="slides">
 			  <?php while(has_sub_field("images_slider")): 
+				  $image_slider = get_sub_field("image_slider");
+				  $caption_slider = get_sub_field("caption_slider");
+			  ?>
+			    <li style="background-image: url('<?php echo $image_slider['url']; ?>')">
+			    </li>
+			  <?php endwhile; ?>  
+			  </ul>
+			</div>
+		</div>
+		<?php endif; ?><!--END .a-slideshow -->	
+		
+		<!-- Start .a-slideshow -->
+		<?php if( !empty($truck_image_slider) ): ?> 
+		<div class="a-slideshow">
+			<div id="slider-truck-2" class="flexslider slider-wrap">
+			  <ul class="slides">
+			  <?php while(has_sub_field("truck_image_slider")): 
+				  $image_slider = get_sub_field("image_slider");
+				  $caption_slider = get_sub_field("caption_slider");
+			  ?>
+			    <li>
+			      <img src="<?php echo $image_slider['url']; ?>" alt="<?php echo $image_slider['alt']; ?>" />
+			       <p class="flex-caption"><?php echo $caption_slider; ?></p>
+			    </li>
+			  <?php endwhile; ?>  
+			  </ul>
+			</div>
+			<div id="thumbs-truck-2" class="flexslider thumbs-wrap">
+			  <ul class="slides">
+			  <?php while(has_sub_field("truck_image_slider")): 
 				  $image_slider = get_sub_field("image_slider");
 				  $caption_slider = get_sub_field("caption_slider");
 			  ?>

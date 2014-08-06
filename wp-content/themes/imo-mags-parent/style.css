@@ -409,7 +409,7 @@ img.border-image {
     height: auto;
 }
 .smooth-menu{
-	/* -webkit-transform:translate3d(0,0,0); */
+	-webkit-transform:translate3d(0,0,0);
 	-webkit-backface-visibility: hidden;
 }
 
@@ -3147,18 +3147,72 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 }
 
 .b2b-header {
+	position: relative;
 	height: 900px;
 	background-color: grey;
-	background-image: url("../petersenshunting/images/b2b/b2b_marquee_placeholder.jpg");
+	background-image: url("../petersenshunting/images/b2b/header-image.jpg");
 	background-size: cover;
 	background-position: center;
 	margin: 0;
 	box-shadow: 0 5px 5px black;
-	/*
-opacity: .01;
-	-webkit-transition:opacity 0.5s ease-in !important; 
-    transition:opacity 0.2s ease-in !important;
-*/
+}
+.b2b-title {
+	position: absolute;
+	width: 40%;
+	right: 10%;
+	top: 39%;
+}
+.b2b-title span {
+	float: left;
+	font-family: "franklin-gothic-urw-cond",sans-serif;
+	color: #871c19;
+	font-size: 18px;
+	font-weight: 600;
+}
+.b2b .b2b-header .b2b-img-phtv {
+	width: 50%;
+	float: left;
+	margin-bottom: 5px;
+}
+.b2b .b2b-header .b2b-img-title {
+	width: 100%;
+	float: left;
+}
+.b2b .b2b-header .b2b-sportsman-logo {
+	float: right;
+	width: 200px;
+	margin-right: 10px;
+	margin-top: 35px;
+}
+.b2b .b2b-header .b2b-logo {
+	float: right;
+	width: 145px;
+	margin-top: -21px;
+	margin-right: -18px;
+	clear: both;
+}
+.header-info {
+	position: absolute;
+	width: 591px;
+	height: 300px;
+	top: 56%;
+	right: 10%;
+}
+.header-info-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.black-wrap {
+	background-color: black;
+	color: white;
+	font-family: "franklin-gothic-urw-cond",sans-serif;
+	font-size: 12px;
+	text-transform: uppercase;
+	padding: 0 5px;
+	float: right;
+	text-align: right;
+	margin-bottom: 15px;
 }
 .b2b .shadow-block {
 	position: absolute;
@@ -3558,8 +3612,9 @@ opacity: .01;
 	margin-left: 20%;
 	margin-top: 50px;
 }
-
-
+.map-left-links a {
+	cursor: pointer;
+}
 /*** b2b The Gear Page ************************/
 .gear-about {
 	padding-bottom: 50px;
@@ -5371,7 +5426,7 @@ table.likes-leaderboard .entry-title {
         max-width: none;
     }
     .smooth-menu, .header {
-		/* -webkit-transform:translate3d(0,0,0);  */
+		-webkit-transform:translate3d(0,0,0);  
 		-webkit-backface-visibility: hidden;
 		-webkit-transition: left 200ms ease-in-out 0.2s;
 		-moz-transition: left 200ms ease-in-out 0.2s;

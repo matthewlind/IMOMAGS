@@ -1,7 +1,7 @@
 jQuery(window).load(function(){
 	// Load The Truck, The Gear pages scrolled down to the .nav-wrap
 	if (jQuery(".b2b")[0]){
-		if (jQuery(".the-truck")[0] || jQuery(".the-gear")[0] || jQuery(".how-to-guide")[0] || jQuery('*[class^="diy"]')) {
+		if (jQuery(".the-truck")[0] || jQuery(".the-gear")[0] || jQuery(".how-to-guide")[0] || jQuery('*[class^="diy"]')[0]) {
 			var navTop = jQuery('.nav-wrap').offset().top;
 		    window.scrollTo(0,(navTop - 50));
 		}
@@ -236,7 +236,7 @@ function drawLines6(){
 	  var docTop = $(document).scrollTop();
 	  var ep6 = $('.episode-6').offset().top;
 	  var ep7 = $('.episode-7').offset().top;
-	  var ep8 = $('.episode-7').offset().top;
+	  var ep8 = $('.episode-8').offset().top;
 	  
 	  var distanceFromTop = docTop - ep6;
 	  if (distanceFromTop < 0) {
@@ -459,6 +459,27 @@ if ($(".the-truck")[0]){
 		animationSpeed: 600,
 	    sync: "#thumbs-truck"
 	});
+	
+	$('#thumbs-truck-2').flexslider({
+		animation: "slide",
+	    controlNav: false,
+	    animationLoop: true,
+	    slideshow: false,
+	    itemWidth: 54,
+	    itemMargin: 5,
+	    asNavFor: '#slider-truck-2'
+	});
+	$('#slider-truck-2').flexslider({
+		animation: "fade",
+	    controlNav: false,
+	    directionNav: true,   
+	    animationLoop: true,
+	    slideshow: true,                
+		slideshowSpeed: 8000,          
+		animationSpeed: 600,
+	    sync: "#thumbs-truck-2"
+	});
+
 }  // End if of .the-truck
 	
 	// side map stick to top function
@@ -471,8 +492,21 @@ if ($(".the-truck")[0]){
 			$(".map-left").css({"position" : "absolute", "top" : "60"});	
 		}
 	}   sideMapStick();
-	
+	// Attaches smooth animation jumps
+	var generalDoc = $('html, body');
+	var mapNavLinks = $(".map-left-links a");
+	$(mapNavLinks).click(function() {
+	    generalDoc.animate({
+	        scrollTop: (($($.attr(this, 'href') ).offset().top) - 60)
+	    }, 800, "swing");
+	    return false;
+	});
+
 	$(".b2b").css({"opacity": 1});
+	
+	if ($('*[class^="diy"]')[0]) {
+		$(".shows-nav ul li:last-child").addClass("current-menu-item")
+	};
 	$(".current-menu-item").append("<div class='show-nav-arrow'></div>");
 	// .shows-nav stick to top function
 	function showsNavStick() {
@@ -539,6 +573,11 @@ if ($(".the-truck")[0]){
 	});
 	
 	$(window).scroll(function() {
+	  	if($(window).scrollTop() >= $(".border-to-border").offset().top){
+			$('#page').removeClass("smooth-menu");
+		}else{
+			$('#page').addClass("smooth-menu");
+		}
 		showsNavStick();
 		sideMapStick();
 		showsNavStates();
@@ -549,6 +588,8 @@ if ($(".the-truck")[0]){
 	    drawLines4();
 	    drawLines5();
 	    drawLines6();
+	    
+	  
 	});
 	
 	};

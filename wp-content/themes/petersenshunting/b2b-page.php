@@ -20,6 +20,25 @@ get_header(); ?>
         <div class="general-frame">
             <div id="content" role="main">
 				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header marquee-img clearfix js-responsive-section b2b-header">
+					<div class="b2b-title">
+						<img class="b2b-img-phtv" src="/wp-content/themes/petersenshunting/images/b2b/ph-presents.png">
+						<img class="b2b-img-title" src="/wp-content/themes/petersenshunting/images/b2b/b2b-title.png">
+						<span>WITH MIKE SCHOBY</span>
+					</div>
+					<div class="header-info clearf">
+						<div class="header-info-inner clearf">
+							<div class="black-wrap">
+								<h2>An 8- part DIY Transcontinental hunting expedition from mexico to alaska
+</h2>
+							</div>
+							<div class="black-wrap black-wrap2">
+								<h2>Coming In November 23 to Sportsman Channel</h2>
+							</div>
+							<img class="b2b-logo" src="/wp-content/themes/petersenshunting/images/b2b/b2b-logo.png">
+							<img class="b2b-sportsman-logo" src="/wp-content/themes/petersenshunting/images/b2b/sportsmench-logo.png">
+							
+						</div>
+					</div>
 					<h1 class="page-title hidden-seo"><?php the_title(); ?></h1>
 				</div>
 				<div id="b2b-map">
