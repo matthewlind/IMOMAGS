@@ -13,6 +13,7 @@ include_once('widgets/ford-widget.php');
 include_once('widgets/community-login-widget.php');
 include_once('widgets/user-info.php');
 include_once('widgets/forecast.php');
+include_once('widgets/featured-sidebar-widget.php');
 
 $magazine_img = get_option("magazine_cover_uri", get_stylesheet_directory_uri(). "/images/pic/journals.png" );
 $subs_link = get_option("subs_link");
@@ -270,6 +271,7 @@ function parent_theme_setup()
     add_image_size("community-square",320,320,TRUE);
     add_image_size("community-square-retina",640,640,TRUE);
     add_image_size("video-thumb",130,90,TRUE);
+    add_image_size("show-thumb",248,165,TRUE);
 }
 
 function parent_theme_widgets_init()
@@ -813,49 +815,105 @@ function imo_parent_theme_init() {
 
 }
 
+//IMO VIDEO
+/* Define the Video ID metabox */
 
-add_action( 'init', 'codex_video_init' );
-/**
- * Register a video post type.
- *
- * @link http://codex.wordpress.org/Function_Reference/register_post_type
- */
-function codex_video_init() {
-	$labels = array(
-		'name'               => _x( 'Videos', 'post type general name', 'your-plugin-textdomain' ),
-		'singular_name'      => _x( 'Video', 'post type singular name', 'your-plugin-textdomain' ),
-		'menu_name'          => _x( 'Videos', 'admin menu', 'your-plugin-textdomain' ),
-		'name_admin_bar'     => _x( 'Video', 'add new on admin bar', 'your-plugin-textdomain' ),
-		'add_new'            => _x( 'Add New', 'video', 'your-plugin-textdomain' ),
-		'add_new_item'       => __( 'Add New Video', 'your-plugin-textdomain' ),
-		'new_item'           => __( 'New Video', 'your-plugin-textdomain' ),
-		'edit_item'          => __( 'Edit Video', 'your-plugin-textdomain' ),
-		'view_item'          => __( 'View Video', 'your-plugin-textdomain' ),
-		'all_items'          => __( 'All Videos', 'your-plugin-textdomain' ),
-		'search_items'       => __( 'Search Videos', 'your-plugin-textdomain' ),
-		'parent_item_colon'  => __( 'Parent Videos:', 'your-plugin-textdomain' ),
-		'not_found'          => __( 'No videos found.', 'your-plugin-textdomain' ),
-		'not_found_in_trash' => __( 'No videos found in Trash.', 'your-plugin-textdomain' ),
-	);
+add_action( 'add_meta_boxes', 'imo_video_add_custom_box' );
+add_action( 'save_post', 'imo_video_save_postdata' );
 
-	$args = array(
-		'labels'             => $labels,
-		'public'             => true,
-		'publicly_queryable' => true,
-		'show_ui'            => true,
-		'show_in_menu'       => true,
-		'query_var'          => true,
-		'rewrite'            => array( 'slug' => 'video' ),
-		'capability_type'    => 'post',
-		'has_archive'        => true,
-		'hierarchical'       => false,
-		'menu_position'      => null,
-		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' )
-	);
+/* Adds a box to the main column on the Post and Page edit screens */
+function imo_video_add_custom_box() {
+    add_meta_box( 
+        'imo_video_sectionid',
+        __( 'Choose Brightcove Video', 'imo_video_textdomain' ),
+        'imo_video_inner_custom_box',
+        'post',
+        'side',
+        'high' 
+    );
+    add_meta_box( 
+        'imo_video_legacy',
+        __( 'Legacy URL', 'imo_video_legacy_domain' ),
+        'imo_video_inner_custom_box_legacy',
+        'post' 
+    );
 
-	register_post_type( 'video', $args );
+}
+/* Prints the box content */
+function imo_video_inner_custom_box_legacy( $post ) {
+
+  // Use nonce for verification
+  wp_nonce_field( plugin_basename( __FILE__ ), 'imo_video_noncename' );
+  
+  
+  $valueTag = "value='" .  get_post_meta($post->ID, '_video_legacy_url', TRUE) . "'";
+  
+  
+  // The actual fields for data entry
+  echo '<input type="text" id="imo_video_legacy_url" name="imo_video_legacy_url" size="50" ' . $valueTag . ' />';
+}
+/* Prints the box content */
+function imo_video_inner_custom_box( $post ) {
+
+  // Use nonce for verification
+  wp_nonce_field( plugin_basename( __FILE__ ), 'imo_video_noncename' );
+  
+  
+  $valueTag = "value='" .  get_post_meta($post->ID, '_video_id', TRUE) . "'";
+  
+  
+  // The actual fields for data entry
+  echo '<label for="imo_video_video_id">';
+       _e("Video ID", 'imo_video_textdomain' );
+  echo '</label> ';
+  echo '<input type="text" id="imo_video_video_id" name="imo_video_video_id" placeholder="36124564556" size="25" ' . $valueTag . ' />';
+  echo '<p>A <b>Featured Image</b> will automatically be downloaded from Brightcove when this post is published.  There is no need to add a Featured Image.</p>';
+
+
+ //_log(imo_video_bc_import_gather_videos());
+
 }
 
+/* When the post is saved, saves our custom data */
+function imo_video_save_postdata( $post_id ) {
+  // verify if this is an auto save routine. 
+  // If it is our form has not been submitted, so we dont want to do anything
+  if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
+      return;
+  // verify this came from the our screen and with proper authorization,
+  // because save_post can be triggered at other times
+
+  if ( !wp_verify_nonce( $_POST['imo_video_noncename'], plugin_basename( __FILE__ ) ) )
+      return;
+
+  // Check permissions
+  if ( 'page' == $_POST['post_type'] ) 
+  {
+    if ( !current_user_can( 'edit_page', $post_id ) )
+        return;
+  }
+  else
+  {
+    if ( !current_user_can( 'edit_post', $post_id ) )
+        return;
+  }
+
+  // OK, we're authenticated: we need to find and save the data
+
+  $mydata = $_POST['imo_video_video_id'];
+  $legacyURL = $_POST['imo_video_legacy_url'];
+
+  // Do something with $mydata 
+  // probably using add_post_meta(), update_post_meta(), or 
+  // a custom table (see Further Reading section below)
+  update_post_meta($post_id, '_video_legacy_url', esc_attr($legacyURL) );
+  update_post_meta($post_id, '_video_id', esc_attr($mydata) );
+
+  //Get The thumbnail
+  $videoID = $mydata;
+
+ 
+}
 
 //Featured ACF
 if(function_exists("register_field_group"))
@@ -1094,7 +1152,64 @@ if(function_exists("register_field_group"))
 		),
 		'menu_order' => 31,
 	));
-
+	register_field_group(array (
+		'id' => 'acf_sidebar-options',
+		'title' => 'Sidebar Options',
+		'fields' => array (
+			array (
+				'key' => 'field_5396107ccddd5',
+				'label' => 'Featured Title',
+				'name' => 'sidebar_featured_title',
+				'type' => 'text',
+				'instructions' => 'Choose the title of this featured area',
+				'default_value' => 'Special Features',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_5395f79a968df',
+				'label' => 'Sidebar Featured Stories',
+				'name' => 'sidebar_featured_stories',
+				'type' => 'relationship',
+				'return_format' => 'object',
+				'post_type' => array (
+					0 => 'post',
+				),
+				'taxonomy' => array (
+					0 => 'all',
+				),
+				'filters' => array (
+					0 => 'search',
+				),
+				'result_elements' => array (
+					0 => 'featured_image',
+					1 => 'post_type',
+					2 => 'post_title',
+				),
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'options_page',
+					'operator' => '==',
+					'value' => 'acf-options',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 32,
+	));
 	register_field_group(array (
 		'id' => 'acf_special-features-override',
 		'title' => 'Special Features Override',
@@ -1478,3 +1593,416 @@ function fixed_connect_footer(){
 	</div>
 
 <?php }
+
+//post formats
+add_theme_support( 'post-formats', array( 'video', 'gallery' ) );
+
+add_action('template_include', 'load_single_template');
+function load_single_template($template) {
+  $new_template = '';
+ 
+  // single post template
+  if( is_single() ) {
+    global $post;
+ 
+    // template for post with video format
+    if ( has_post_format( 'video' )) {
+      // use template file single-video.php for video format
+      $new_template = locate_template(array('single-video.php' ));
+    }
+ 
+  }
+  return ('' != $new_template) ? $new_template : $template;
+}
+
+if(function_exists("register_field_group"))
+{
+	register_field_group(array (
+		'id' => 'acf_show-page-home',
+		'title' => 'Show Page Home',
+		'fields' => array (
+			array (
+				'key' => 'field_53ceb4a4f00ca',
+				'label' => 'TV Page',
+				'name' => 'tv_page',
+				'type' => 'true_false',
+				'instructions' => 'Check to edit as a TV show page',
+				'message' => '',
+				'default_value' => 0,
+			),
+			array (
+				'key' => 'field_53cd5aadfceb8',
+				'label' => 'Show Menu',
+				'name' => 'show_menu',
+				'type' => 'repeater',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_53ceb4a4f00ca',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
+				'instructions' => 'Assign the show navigation',
+				'sub_fields' => array (
+					array (
+						'key' => 'field_53cd5ad1fceb9',
+						'label' => 'Name',
+						'name' => 'name',
+						'type' => 'text',
+						'conditional_logic' => array (
+							'status' => 1,
+							'rules' => array (
+								array (
+									'field' => 'field_53ceb4a4f00ca',
+									'operator' => '==',
+									'value' => '1',
+								),
+							),
+							'allorany' => 'all',
+						),
+						'column_width' => '',
+						'default_value' => '',
+						'placeholder' => 'Home',
+						'prepend' => '',
+						'append' => '',
+						'formatting' => 'html',
+						'maxlength' => '',
+					),
+					array (
+						'key' => 'field_53cd5ae5fceba',
+						'label' => 'URL',
+						'name' => 'url',
+						'type' => 'text',
+						'conditional_logic' => array (
+							'status' => 1,
+							'rules' => array (
+								array (
+									'field' => 'field_53ceb4a4f00ca',
+									'operator' => '==',
+									'value' => '1',
+								),
+							),
+							'allorany' => 'all',
+						),
+						'column_width' => '',
+						'default_value' => '',
+						'placeholder' => '/bowhunter-tv/about',
+						'prepend' => '',
+						'append' => '',
+						'formatting' => 'html',
+						'maxlength' => '',
+					),
+				),
+				'row_min' => '',
+				'row_limit' => '',
+				'layout' => 'table',
+				'button_label' => 'Add Row',
+			),
+			array (
+				'key' => 'field_53cd59621035f',
+				'label' => 'Background Skin',
+				'name' => 'background_skin',
+				'type' => 'text',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_53ceb4a4f00ca',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
+				'instructions' => 'The url of the show\'s background image',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_53cd598f10360',
+				'label' => 'Show Logo',
+				'name' => 'show_logo',
+				'type' => 'text',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_53ceb4a4f00ca',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
+				'instructions' => 'the url of the show logo image',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_53cd5a876d31a',
+				'label' => 'Show Title',
+				'name' => 'show_title',
+				'type' => 'text',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_53ceb4a4f00ca',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
+				'instructions' => 'Choose if you want a title next to the logo',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_53cd5b42ce9ee',
+				'label' => 'When to Watch',
+				'name' => 'when_to_watch',
+				'type' => 'text',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_53ceb4a4f00ca',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
+				'instructions' => 'Use the show ID to link the when to watch schedule',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_53cd5b61ce9ef',
+				'label' => 'Remind Me',
+				'name' => 'remind_me',
+				'type' => 'text',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_53ceb4a4f00ca',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
+				'instructions' => 'The Remind me to watch url',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_53cd6197d13df',
+				'label' => 'Facebook',
+				'name' => 'facebook',
+				'type' => 'text',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_53ceb4a4f00ca',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
+				'instructions' => 'facebook page url',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_53cd61e9d13e0',
+				'label' => 'Twitter',
+				'name' => 'twitter',
+				'type' => 'text',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_53ceb4a4f00ca',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
+				'instructions' => 'Twitter follow link',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_53cd6204d13e1',
+				'label' => 'Google',
+				'name' => 'google',
+				'type' => 'text',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_53ceb4a4f00ca',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
+				'instructions' => 'Google Plus link',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_53cd623df2156',
+				'label' => 'Shares',
+				'name' => 'shares',
+				'type' => 'text',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_53ceb4a4f00ca',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
+				'instructions' => 'link to share count',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_53cd627d2f0bd',
+				'label' => 'Sponsors',
+				'name' => 'sponsors',
+				'type' => 'repeater',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_53ceb4a4f00ca',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
+				'instructions' => 'Sponsor Images',
+				'sub_fields' => array (
+					array (
+						'key' => 'field_53cd62af2f0c0',
+						'label' => 'name',
+						'name' => 'name',
+						'type' => 'text',
+						'instructions' => 'Sponsor name',
+						'column_width' => '',
+						'default_value' => '',
+						'placeholder' => '',
+						'prepend' => '',
+						'append' => '',
+						'formatting' => 'html',
+						'maxlength' => '',
+					),
+					array (
+						'key' => 'field_53cd62972f0be',
+						'label' => 'image',
+						'name' => 'image',
+						'type' => 'text',
+						'instructions' => 'Image url',
+						'column_width' => '',
+						'default_value' => '',
+						'placeholder' => '',
+						'prepend' => '',
+						'append' => '',
+						'formatting' => 'html',
+						'maxlength' => '',
+					),
+					array (
+						'key' => 'field_53cd62a52f0bf',
+						'label' => 'url',
+						'name' => 'url',
+						'type' => 'text',
+						'instructions' => 'Sponsor link',
+						'column_width' => '',
+						'default_value' => '',
+						'placeholder' => '',
+						'prepend' => '',
+						'append' => '',
+						'formatting' => 'html',
+						'maxlength' => '',
+					),
+				),
+				'row_min' => '',
+				'row_limit' => '',
+				'layout' => 'table',
+				'button_label' => 'Add Row',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'ef_taxonomy',
+					'operator' => '==',
+					'value' => 'category',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+}
+

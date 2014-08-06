@@ -56,7 +56,7 @@ function imo_ga_vault_init() {
 		'hierarchical' => false,
 		'menu_position' => null,
 		'supports' => array('title','thumbnail','excerpt','editor','comments'),
-		'taxonomies' => array('video_channel','post_tag','activity','location','gear','species','blogs'),
+		'taxonomies' => array('video_channel','post_tag','activity','location','gear','species','blogs','category'),
 	  ); 
 	  register_post_type('imo_ga_vault',$args);
 

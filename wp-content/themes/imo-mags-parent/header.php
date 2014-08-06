@@ -64,6 +64,7 @@
 	     */
 	    wp_enqueue_script("jquery");
 	    wp_head();
+	    $postID = get_the_ID();
 	    $dartDomain = get_option("dart_domain", $default = false);
 	    $magazine_img = get_option('magazine_cover_uri' );
 	    if($dartDomain == "imo.gunsandammo" || $dartDomain == "imo.in-fisherman" || $dartDomain == "imo.shotgunnews" || $dartDomain == "imo.shootingtimes"){
@@ -93,6 +94,20 @@
 	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.jfollow.js" type="text/javascript"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/flash_heed.js" type="text/javascript"></script>
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/snap.js"></script>
+	<!-- Begin comScore Tag -->
+	<script>
+	  var _comscore = _comscore || [];
+	  _comscore.push({ c1: "2", c2: "8031814" });
+	  (function() {
+	    var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+	    s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+	    el.parentNode.insertBefore(s, el);
+	  })();
+	</script>
+	<noscript>
+	  <img src="http://b.scorecardresearch.com/p?c1=2&c2=8031814&cv=2.0&cj=1" />
+	</noscript>
+	<!-- End comScore Tag -->
 	<script type='text/javascript'>
 		var googletag = googletag || {};
 		googletag.cmd = googletag.cmd || [];
@@ -311,7 +326,7 @@
 } ?>
 <div id="page" class="snap-content smooth-menu">
 <?php if (mobile() == false && tablet() == false) { imo_dart_tag("1x1",false,array("pos"=>"skin")); } ?>
-	<div class="hfeed wrapper <?php if(get_field("full_width") == true){ echo ' full-width full-content'; }else if(is_page_template( "show-page.php" )){ echo ' full-content'; } ?>" data-role="content" role="main">
+	<div class="hfeed wrapper <?php if(get_field("full_width") == true){ echo ' full-width full-content'; }else if(is_single() && has_post_format( 'video' ) || is_category("tv")){ echo ' tv-show full-content'; } ?>" data-role="content" role="main">
 	    <div class="layout-frame">
 	        <div id="branding" class="header clearfix" role="banner">
 	

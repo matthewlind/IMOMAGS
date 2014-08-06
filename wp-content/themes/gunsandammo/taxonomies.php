@@ -1030,3 +1030,5 @@ if(!function_exists('ecpt_format_date')) {
 		return $date;
 	}
 }
+
+

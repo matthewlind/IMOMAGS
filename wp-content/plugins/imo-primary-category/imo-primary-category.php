@@ -47,6 +47,46 @@ require_once 'imo-primary-category-core.php';
 **
 ***/
 
+//get the cat ID 
+add_action('init', 'the_primary_category_ID');
+function the_primary_category_ID($cat_base = null) {
+	
+	$id = get_the_ID();
+	$allCats = get_the_category( $id );
+	
+	
+	$categoryID = get_post_meta($id);
+	$catID = $categoryID["_category_permalink"];
+	
+	
+	$obj = (object) $catID[0];
+	return $obj->scalar; 
+	
+	  
+	 
+	
+}
+
+//get the cat slug 
+add_action('init', 'the_primary_category_slug');
+function the_primary_category_slug($cat_base = null) {
+	
+	$id = get_the_ID();
+	$allCats = get_the_category( $id );
+	
+	
+	$categoryID = get_post_meta($id);
+	$catID = $categoryID["_category_permalink"];
+	$categoryName = get_term_by('id', $catID[0], 'category');
+	$slug = $categoryName->slug;
+	
+	return $slug;
+	
+}
+
+
+
+
 
 //Show only the primary category
 add_action('init', 'the_primary_category');
