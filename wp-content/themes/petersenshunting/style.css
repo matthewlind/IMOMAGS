@@ -235,7 +235,7 @@ subscribe-links a{color: white;}
 @media only screen and (max-width: 880px) {
 /* Border to Border **
 **********************************/
-.b2b-title {width: 48%;right: 3%; top:35%;}
+.b2b-title {width: 48%;right: 3%; top:32%;}
 .header-info {right: 3%; width: 48%;top:48%;}
 .black-wrap{background-color: rgba(0,0,0,0.5);}
 .black-wrap2{width: 85%;}
@@ -265,6 +265,7 @@ subscribe-links a{color: white;}
 .b2b-title {width: 51%;top:33%;}
 .header-info{width: 51%;}
 .b2b .b2b-header .b2b-sportsman-logo{width: 130px;}
+.b2b-header {background-image: url("../petersenshunting/images/b2b/header-image-mobile.jpg");}
 /* b2b map **********/
 #b2b-map .map-wrap {margin: 40px auto 220px;}
 .b2b-rules {bottom: -190px; left: 0;color: #fff; max-width: 100%; padding: 0 30px;}
