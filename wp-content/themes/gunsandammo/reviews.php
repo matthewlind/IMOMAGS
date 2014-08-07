@@ -26,7 +26,7 @@ imo_sidebar(); ?>
                 <div class="section-title posts">
 				    <h2 class="">
 				        <div class="icon"></div>
-				        <span>Reviews</span> 
+				        <span>Proofhouse - Reviews</span> 
 				    </h2>
 				</div>
 				<?php if(function_exists('wpsocialite_markup')){ wpsocialite_markup(); } ?>                
