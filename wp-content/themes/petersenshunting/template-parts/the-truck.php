@@ -74,7 +74,7 @@
 			</div>
 		</div>
 		<?php endif; ?><!--END .a-slideshow -->	
-		
+
 		<?php if( get_field('gear_items') ): ?>
 		<?php while( has_sub_field('gear_items')): 
 			$gear_name = get_sub_field("gear_name");

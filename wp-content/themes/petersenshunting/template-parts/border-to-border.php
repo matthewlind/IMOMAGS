@@ -167,12 +167,14 @@ $small_game = get_field("small_game");
 		<?php endwhile; ?>
 	<?php endif; ?>
 	</div><!-- END .a-text -->
+	<?php if( !empty($full_width_image_back) ): ?> 
 	<div class="a-cell">
 		<div class="a-inner-cell" style="background-image: url('<?php echo $full_width_image_back;?>');"></div>
 		<div class="a-cell-caption">
 			<p><?php echo $full_width_image_caption;?></p>
 		</div>
 	</div><!-- END .a-cell -->
+	<?php endif; ?><!--END .a-cell -->	
 </section>	
 <?php			
 	} // End While
