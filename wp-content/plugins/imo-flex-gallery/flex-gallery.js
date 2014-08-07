@@ -59,6 +59,7 @@ function imoFlexInitiate(isCommunity, galleryID, totalSlides, isFullScreenNow, i
 				var theSlideTitleLink = jQuery('#flex-content-title-'+theSlide+' a').attr('href');
 				var totalSlidesCount = totalSlides;
 				
+				var _gaq = _gaq || [];
 				_gaq.push(['_trackPageview',"/" + window.location.pathname + "#" + slider.currentSlide]);
 				document.getElementById('gallery-iframe-ad').contentWindow.location.reload();
 				

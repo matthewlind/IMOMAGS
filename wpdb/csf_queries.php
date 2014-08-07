@@ -313,8 +313,11 @@ EOT;
             $postContent = str_replace("\\", "", $postContent);
             $postContent = preg_replace ("/^\[.+]/", "", $postContent);
             $postContent = delete_all_between("[","]",$postContent);
-
-            //$postContent = substr($postContent,0,120) . "...";
+			
+			if ($post->post_type != "reader_photos"){
+				 $postContent = substr($postContent,0,120) . "...";
+			}
+           
 
 			
             if (!$get_count) {

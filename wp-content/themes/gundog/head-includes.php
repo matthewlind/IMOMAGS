@@ -153,7 +153,7 @@ googletag.defineSlot('/4930/imo.gundog/<?php echo $term; ?>/breeds_Mobile_Adhesi
 googletag.defineSlot('/4930/imo.gundog/<?php echo $term; ?>/breeds_Mobile_Flex', [1, 1], 'div-1x1-mobile-flex').addService(googletag.pubads());
 googletag.defineSlot('/4930/imo.gundog/<?php echo $term; ?>/breeds_Mobile_Leaderboard', [320, 50], 'div-320x50-mobile-leaderboard').addService(googletag.pubads());
 googletag.defineSlot('/4930/imo.gundog/<?php echo $term; ?>/breeds_Pushdown', [[728, 90], [1080, 90]], 'div-pushdown').addService(googletag.pubads());*/
-googletag.defineSlot('/4930/imo.gundog', [[300, 250], [300, 600]], 'div-300x50-rectangle-atf').addService(googletag.pubads());
+googletag.defineSlot('/4930/imo.gundog/<?php echo $term; ?>/<?php echo $term; ?>_Rectangle_ATF', [[300, 250], [300, 600]], 'div-300x50-rectangle-atf').addService(googletag.pubads());
 /*googletag.defineSlot('/4930/imo.gundog/<?php echo $term; ?>/breeds_Rectangle_BTF', [[300, 250], [300, 600]], 'div-300x50-rectangle-btf').addService(googletag.pubads());
 googletag.defineSlot('/4930/imo.gundog/<?php echo $term; ?>/breeds_Screenshift', [1, 1], 'div-1x1-screenshift').addService(googletag.pubads());
 googletag.defineSlot('/4930/imo.gundog/<?php echo $term; ?>/breeds_Skin', [1, 1], 'div-1x1-skin').addService(googletag.pubads());
