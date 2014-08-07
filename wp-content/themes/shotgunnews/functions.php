@@ -34,17 +34,6 @@ function imo_sidebar($type){
 	}
 }
 
-function split_120_ad(){ ?>
-	<!-- Site - Shotgun News -->
-	<div class="image-banner">
-		<div id='div-gpt-ad-1386782139095-2'>
-			<script type='text/javascript'>
-				googletag.cmd.push(function() { googletag.display('div-gpt-ad-1386782139095-2'); });
-			</script>
-		</div>
-	</div>
-<?php } 
-
 function social_networks(){
 	echo '<div class="socials">';
 		echo '<a href="'.FACEBOOK_LINK.'" class="facebook">Facebook</a>';

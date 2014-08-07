@@ -108,37 +108,7 @@
 	  <img src="http://b.scorecardresearch.com/p?c1=2&c2=8031814&cv=2.0&cj=1" />
 	</noscript>
 	<!-- End comScore Tag -->
-	<script type='text/javascript'>
-		var googletag = googletag || {};
-		googletag.cmd = googletag.cmd || [];
-		(function() {
-		var gads = document.createElement('script');
-		gads.async = true;
-		gads.type = 'text/javascript';
-		var useSSL = 'https:' == document.location.protocol;
-		gads.src = (useSSL ? 'https:' : 'http:') +
-		'//www.googletagservices.com/tag/js/gpt.js';
-		var node = document.getElementsByTagName('script')[0];
-		node.parentNode.insertBefore(gads, node);
-		})();
-	</script>
 	 
-	<script type='text/javascript'>
-		googletag.cmd.push(function() {
-			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [1, 1], 'div-gpt-ad-1386782139095-0').addService(googletag.pubads());
-			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [240, 60], 'div-gpt-ad-1386782139095-1').addService(googletag.pubads());
-			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 120], 'div-gpt-ad-1386782139095-2').addService(googletag.pubads());
-			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], 'div-gpt-ad-1386782139095-3').addService(googletag.pubads());
-			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 300], 'div-gpt-ad-1386782139095-4').addService(googletag.pubads());
-			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 600], 'div-gpt-ad-1386782139095-5').addService(googletag.pubads());
-			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 602], 'div-gpt-ad-1386782139095-6').addService(googletag.pubads());
-			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [728, 90], 'div-gpt-ad-1386782139095-7').addService(googletag.pubads());
-			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [1080, 90], 'div-gpt-ad-1386782139095-8').addService(googletag.pubads());
-			googletag.pubads().enableSingleRequest();
-			googletag.pubads().enableVideoAds();
-			googletag.enableServices();
-		});
-	</script>
 	<?php if ( defined('JETPACK_SITE') && mobile() == false && tablet() == false): ?>
 		<script type='text/javascript' src='http://ads.jetpackdigital.com/sites/<?php print JETPACK_SITE; ?>/jpd.js'></script>
 	<?php endif; ?>
@@ -326,7 +296,7 @@
 } ?>
 <div id="page" class="snap-content smooth-menu">
 <?php if (mobile() == false && tablet() == false) { imo_dart_tag("1x1",false,array("pos"=>"skin")); } ?>
-	<div class="hfeed wrapper <?php if(get_field("full_width") == true){ echo ' full-width full-content'; }else if(is_single() && has_post_format( 'video' ) || is_category("tv")){ echo ' tv-show full-content'; } ?>" data-role="content" role="main">
+	<div class="hfeed wrapper <?php if(get_field("full_width") == true){ echo ' full-width full-content'; }else if(is_single() && has_post_format( 'video' ) || is_category("tv") || is_category("show-galleries") || in_category("show-galleries")){ echo ' tv-show full-content'; } ?>" data-role="content" role="main">
 	    <div class="layout-frame">
 	        <div id="branding" class="header clearfix" role="banner">
 	
