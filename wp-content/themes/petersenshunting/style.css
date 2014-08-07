@@ -329,6 +329,7 @@ subscribe-links a{color: white;}
 
 .b2b .stats-item { width: 144px; min-height: 152px;}
 .b2b .stats-item:first-child {border-left: 1px solid #e0e0e0;}
+.episode-5 .stats-item span:nth-child(1) {font-size: 40px;}
 
 .s-game-item {float: none; margin: 47px auto;width: 130px; height: 130px;}
 #article-wrap .s-game-item img {margin-bottom: 0;}
