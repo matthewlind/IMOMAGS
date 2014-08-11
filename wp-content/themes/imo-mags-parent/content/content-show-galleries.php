@@ -35,7 +35,7 @@ $slug = $post_data['post_name'];
 					if( have_rows('gallery_images') ):
 						while( have_rows('gallery_images', $postID) ): the_row(); ?>
 							<li>
-								<img src="<?php the_sub_field('photo'); ?>" alt="" title="" />
+								<img src="<?php the_sub_field('image'); ?>" alt="" title="" />
 								<div id="description-area">
 									<div class="unify">
 										<div class="content-height">
