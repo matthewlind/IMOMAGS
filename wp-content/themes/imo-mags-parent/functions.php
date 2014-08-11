@@ -22,7 +22,14 @@ $subs_link = get_option("subs_link");
 add_filter('wp_mail_from', 'new_mail_from');
 add_filter('wp_mail_from_name', 'new_mail_from_name');
 
-
+// filter that creates category single pages
+add_filter('single_template', create_function(
+	'$the_template',
+	'foreach( (array) get_the_category() as $cat ) {
+		if ( file_exists(TEMPLATEPATH . "/single-{$cat->slug}.php") )
+		return TEMPLATEPATH . "/single-{$cat->slug}.php"; }
+	return $the_template;' )
+);
 
 function imo_login_form_shortcode( $atts, $content = null ) {
 
@@ -1615,6 +1622,8 @@ function load_single_template($template) {
   return ('' != $new_template) ? $new_template : $template;
 }
 
+
+//Show Pages
 if(function_exists("register_field_group"))
 {
 	register_field_group(array (
@@ -2005,4 +2014,93 @@ if(function_exists("register_field_group"))
 		'menu_order' => 0,
 	));
 }
+
+add_action( 'wp_ajax_nopriv_load-filter', 'prefix_load_cat_posts' );
+add_action( 'wp_ajax_load-filter', 'prefix_load_cat_posts' );
+function prefix_load_cat_posts () {
+    $cat_id = $_POST[ 'cat' ];
+    $offset = $_POST[ 'offset' ];
+    
+    if($cat_id == "all"){
+	     $args = array( 
+		    'tax_query' => array(
+			    array(
+			      'taxonomy' => 'post_format',
+			      'field' => 'slug',
+			      'terms' => 'post-format-video'
+			    )
+			  ),
+		'offset' => $offset,
+		'showposts' => 8 
+		); 
+    }else{
+    
+	    $args = array (
+	        'tax_query' => array(
+	        'relation' => 'AND',
+			    array(
+			        'taxonomy' => 'category',
+			        'field' => 'slug',
+			        'terms' => array ( $cat_id ),
+			    ),
+			    array(
+			      'taxonomy' => 'post_format',
+			      'field' => 'slug',
+			      'terms' => 'post-format-video'
+			    )
+			  ),
+		'offset' => $offset,
+		'showposts' => 8 
+		  );
+	}
+	$posts = get_posts( $args );
+	
+	
+	global $post;
+	
+	ob_start ();
+	
+	$i = $offset;
+	
+	foreach ( $posts as $post ) {
+		$i++;
+		setup_postdata( $post ); 
+		
+		$post_id = $post->ID;
+		$slug = $post->post_name;
+		$thumb_url = wp_get_attachment_url( get_post_thumbnail_id($post_id) );
+		$cats = get_the_category( $post_id );
+		
+		$video_id = get_post_meta($post_id, '_video_id', TRUE);
+		$videoLink = !empty($post_id) ? get_permalink($post_id) :  site_url() . $_SERVER['REQUEST_URI']; 
+		$adServerURL = "http://ad.doubleclick.net/pfadx/" .  get_option("dart_domain", _imo_dart_guess_domain())  ."/tv";
+		?>
+		<li id="thumb-<?php echo $i; ?>">
+			<div class="data-description" style="display:none;"><?php the_content(); ?></div>
+			<a class="video-thumb" data-slug="<?php echo $slug; ?>" data-img_url="<?php echo $thumb_url; ?>" data-post_url="<?php echo get_permalink(); ?>" data-title="<?php echo get_the_title(); ?>" data-date="<?php the_time('F jS, Y'); ?>" data-videoid="<?php echo $video_id; ?>" adServerURL="<?php echo $adServerURL; ?>" videoLink="<?php echo $videoLink; ?>">
+				<?php the_post_thumbnail("show-thumb"); ?>
+				<h3><?php the_title(); ?></h3>
+				<span class="play-btn"></span>
+			</a>
+		</li>
+			
+	<?php } 
+	wp_reset_postdata();
+
+	$response = ob_get_contents();
+	ob_end_clean();
+	
+	echo $response;
+	die(1);
+}
+
+
+
+
+
+
+
+
+
+
 

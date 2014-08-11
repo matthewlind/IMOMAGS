@@ -1,0 +1,29 @@
+{
+	"name": "brightcoveVideo",
+	"title": "jQuery Brightcove Video",
+	"description": "Helps you create custom dynamic solutions that work with the Brightcove Video platform.",
+	"keywords": [
+		"video",
+		"media",
+		"brightcove",
+		"api"
+	],
+	"author": {
+		"name": "Carmine Olivo",
+		"url": "https://github.com/carmineolivo"
+	},
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "http://co.mit-license.org/"
+		}
+	],
+	"dependencies": {
+		"jquery": ">=1.6"
+	},
+	"bugs": "https://github.com/carmineolivo/jquery.brightcove-video/issues",
+	"homepage": "https://github.com/carmineolivo/jquery.brightcove-video",
+	"docs": "https://github.com/carmineolivo/jquery.brightcove-video#brightcove-video",
+	"download": "https://github.com/carmineolivo/jquery.brightcove-video/archive/1.0.7.zip",
+	"version": "1.0.7"
+}

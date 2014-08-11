@@ -296,7 +296,7 @@
 } ?>
 <div id="page" class="snap-content smooth-menu">
 <?php if (mobile() == false && tablet() == false) { imo_dart_tag("1x1",false,array("pos"=>"skin")); } ?>
-	<div class="hfeed wrapper <?php if(get_field("full_width") == true){ echo ' full-width full-content'; }else if(is_single() && has_post_format( 'video' ) || is_category("tv") || is_category("show-galleries") || in_category("show-galleries")){ echo ' tv-show full-content'; } ?>" data-role="content" role="main">
+	<div class="hfeed wrapper <?php if(get_field("full_width") == true){ echo ' full-width full-content'; }else if(is_single() && in_category("show-galleries") && has_post_format( 'video' ) || is_category("tv") || is_category("show-galleries")){ echo ' tv-show full-content'; } ?>" data-role="content" role="main">
 	    <div class="layout-frame">
 	        <div id="branding" class="header clearfix" role="banner">
 	
