@@ -1699,7 +1699,7 @@ if(function_exists("register_field_group"))
 						),
 						'column_width' => '',
 						'default_value' => '',
-						'placeholder' => '/bowhunter-tv/about',
+						'placeholder' => '/tv/about',
 						'prepend' => '',
 						'append' => '',
 						'formatting' => 'html',
