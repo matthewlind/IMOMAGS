@@ -49,14 +49,8 @@ get_header(); ?>
                     </div>
                 </div>
 				<?php endif;
-				//Shotgun news ad units
-				//if( mobile() && function_exists('split_120_ad') ){ ?>
-				<!--<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="js-responsive-section">-->
-					<?php //split_120_ad(); ?>
-				<!--</div>-->
-				<?php //} ?>
-
-				<?php if( $playerID && $playerKey ){ ?>
+				
+				if( $playerID && $playerKey ){ ?>
 				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section">
 					<div class="general-title clearfix">
 		                <h2><?php echo $videoTitle; ?></h2>

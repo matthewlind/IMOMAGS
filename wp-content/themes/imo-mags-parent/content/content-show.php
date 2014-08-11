@@ -6,118 +6,167 @@
  * @subpackage Twenty_Eleven
  * @since Twenty Eleven 1.0
  */
-$dataPos = 0;
+$postID = get_the_ID();
+$idObj = get_category_by_slug('tv'); 
+$id = $idObj->term_id;
+$acfID = 'category_' . $id;
+$format = get_post_format( $postID );
+$adServerURL = "http://ad.doubleclick.net/pfadx/" .  get_option("dart_domain", _imo_dart_guess_domain())  ."/tv";
+$videoLink = !empty($postID) ? get_permalink($postID) :  site_url() . $_SERVER['REQUEST_URI']; 
 ?>
-<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header clearfix js-responsive-section">
-	<div id="header-top">
-		<div class="shows-logo">
-			<img src="<?php bloginfo('stylesheet_directory'); ?>/images/shows/petersenhuntlogo_color.png" alt="">
-		</div>
-		<div class="shows-title">
-		<div>
-			<h1 class="page-title<?php if(is_page("guns-ammo-tv-2")){ echo ' section-title videos'; } ?>">
-				<div class="icon"></div>
-				<span><?php 
-				//leverage some of the advanced custom fields to add content here instead of the default WP title	
-				the_title(); 				
-				?></span>
-		    </h1>
-		</div>
-		    <div class="fb-like" data-href="https://www.facebook.com/PetersensHuntingMag" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false">			    
-		    </div>
-		</div><!-- end of #shows-title -->
-		<div class="shows-sponsor">
-			<span>presented by</span>
-			<img src="<?php bloginfo('stylesheet_directory'); ?>/images/shows/federal-logo.png" alt="">
-		</div>
-	</div><!-- end of #header-top -->
-	<div id="shows-nav">
-		<?php	wp_nav_menu( array( 'theme_location' => 'shows_menu', 'container' => '0' ) ); ?>
-	</div>
-</div><!-- end of .page-header -->
+<style type="text/css">
+	body {
+		background: url(<?php echo get_field('background_skin',$acfID); ?>);
+	    background-repeat: no-repeat;
+		background-size: 100% auto;
+		background-color: #2a2a2a;
+	}
+</style>
+<?php 
+if( !is_single() ){
+	query_posts(array( 
+    'tax_query' => array(
+	    array(
+	      'taxonomy' => 'post_format',
+	      'field' => 'slug',
+	      'terms' => 'post-format-video'
+	    )
+	  ),
+    'showposts' => 1 
+	)); 
+}
+while (have_posts()) : the_post();
+$video_id = get_post_meta(get_the_ID(), '_video_id', TRUE); ?>
+<div id="show-destination" playerID="<?php echo get_field("tv_player_id","options"); ?>" adServerURL="<?php echo $adServerURL; ?>" videoLink="<?php echo $videoLink; ?>">
+	<?php get_template_part( 'content/show-header' ); ?>
+		<div id="video-player-area">
+			<div id="video-gallery" class="video-player-wrap">
+	
+				<script type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script> 
+				<div id="player"></div>
+				
+				<div id="description-area">
+					<div class="unify">
+						<div class="content-height">
+							<span class="show-video-date"><?php the_time('F jS, Y'); ?></span>
+							<h1 class="video-title" data-videoid="<?php echo $video_id; ?>" data-slug="<?php echo $post->post_name;?>"><?php the_title(); ?></h1>
+							<div class="video-description"><?php the_content(); ?></div>
+						</div>
+						<div class="video-more-content" style="display:none;"><div class="more-link">Read More</div></div>
+						<div class="social-share">
+							<div class="share-results">
+								<span>2K</span>				
+								<div class="shares"><span>SHARES</span></div>		
+							</div>
+							<div class="social-share-btns">
+								<a class="reload-fb" href="http://www.facebook.com/sharer.php?u=<?php the_permalink();?>&amp;t=<?php the_title(); ?>" title="Share on Facebook." target="_blank">
+									<div class="facebook-share">
+										<i class="fa fa-facebook"></i>
+									</div>
+								</a>
+								<a class="reload-twitter" href="http://twitter.com/home/?status=<?php the_title(); ?> - <?php the_permalink(); ?>" title="Tweet this!" target="_blank">
+									<div class="twitter-share">
+										<i class="fa fa-twitter"></i>
+									</div>	
+								</a>
+								<a class="reload-google" href="https://plus.google.com/share?url=<?php the_permalink(); ?>" onclick="javascript:window.open(this.href,
+			  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+									<div class="google-share">
+										<i class="fa fa-google-plus"></i>
+									</div>
+								</a>
+							</div>
+						
+						</div><!-- end of .social-share -->
+					</div><!-- end of .unify -->
+										
+				</div><!-- end of #description-area -->
+				<div class="video-player-sidebar">
+					<div class="new-show"></div>
+					<div class="ad-block">
+						<?php imo_dart_tag("300x250"); ?>
+					</div>
+				</div>
+			</div>
+			<!-- this widget is located in imo-mags-parent/widgets -->
+			<?php get_template_part( 'widgets/sportsmanLocator' ); ?>
+		</div><!-- end of #video-player-area -->
+		
+	</div><!-- end of #shows_player_area -->
+	<?php endwhile; ?> 
+	<div id="show-featured">
+		
+		<?php query_posts(array( 
+		    'tax_query' => array(
+			    array(
+			      'taxonomy' => 'post_format',
+			      'field' => 'slug',
+			      'terms' => 'post-format-video'
+			    )
+			  ),
+		    'showposts' => 8 
+			)); 
+		?>
 
-
-<div id="shows-player-area">
-	<div id="when-to-watch">
-		<div class="when-label">
-			<h3>WHEN TO<br>WATCH</h3>
+		<div class="thumbs-full">
+			<ul id="video-filter">
+			
+				<li><a slug="all" class="video-thumb-active video-ajax">Most Recent</a></li>
+				<li><a slug="bestshots" class="video-ajax">Bestshots</a></li>
+	
+			</ul>
+			<ul id="video-thumbs">
+				<?php while (have_posts()) : the_post(); $i++; 
+					$post_id = get_the_id();
+					$post = get_post($post_id);
+					$slug = $post->post_name;
+					$thumb_url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+					$cats = get_the_category( $post_id );
+					
+					$video_id = get_post_meta(get_the_ID(), '_video_id', TRUE);
+					$videoLink = !empty($post_id) ? get_permalink($post_id) :  site_url() . $_SERVER['REQUEST_URI']; 
+				?>					
+					<li id="thumb-<?php echo $i; ?>">
+						<div class="data-description" style="display:none;"><?php the_content(); ?></div>
+						<a class="video-thumb" data-slug="<?php echo $slug; ?>" data-img_url="<?php echo $thumb_url; ?>" data-post_url="<?php echo get_permalink(); ?>" data-title="<?php echo get_the_title(); ?>" data-date="<?php the_time('F jS, Y'); ?>" data-videoid="<?php echo $video_id; ?>" adServerURL="<?php echo $adServerURL; ?>" videoLink="<?php echo $videoLink; ?>">
+							<?php the_post_thumbnail("show-thumb"); ?>
+							<h3><?php the_title(); ?></h3>
+							<span class="play-btn"></span>
+						</a>
+					</li>
+			
+				<?php endwhile; ?>
+			</ul>
+			<a class="paginate-videos">Load more videos</a>
 		</div>
-		<div class="schedule-item">
-			<span class="episode-title">Episode 11: Bezoar libex</span><br>
-			<span class="episode-time">Jun 02: SUN 9:00pm ET/PT</span>
-		</div>
-		<div class="schedule-item">
-			<span class="episode-title">Episode 11: Bezoar libex</span><br>
-			<span class="episode-time">Jun 02: SUN 9:00pm ET/PT</span>
-		</div>
-		<div class="schedule-item">
-			<span class="episode-title">Episode 11: Bezoar libex</span><br>
-			<span class="episode-time">Jun 02: SUN 9:00pm ET/PT</span>
-		</div>
-		<div class="remind-me">
-			<span>REMIND ME<br> TO WATCH</span>
-		</div>
-	</div><!-- end of #when-to-watch -->
-	<div id="video-player-area">
-		<div class="video-player-wrap">
-			<div class="player">
+		<div id="upcoming">
+			<div class="container tiled-grid clr">
+				<div class="tonight-bg"></div>
+				<div class="tiled-grid-entry on-tonight clr span_1_of_4 col col-1">
+					<h2>On Tonight</h2>
+					<a class="" href="/schedule">Full Schedule</a>
+				</div>
+				<div class="tonight-schedule">
+					<ul class="slides">
+						<?php echo do_shortcode('[tscschedule format="tonight"]'); ?>
+					</ul>
+				</div>
 			</div>
 		</div>
-		<div class="new-show"></div>
-	</div><!-- end of #video-player-area -->
-	<div id="description-area">
-		<div class="unify">
-			<span class="show-video-date">THURSDAY, JUNE 5, 2014</span>
-			<h1>Thalay Sagar: Prayers in the Wind</h1>
-			<p>Lorem ipsum dolor sit amet, Paul McSorley and Joshua, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-			</p>
-			<div class="social-share">
-				<div class="share-results">
-					<span>2K</span>				
-					<div class="shares"><span>SHARES</span></div>		
-				</div>
-				<div class="social-share-btns">
-					<a href="http://www.facebook.com/sharer.php?u=<?php the_permalink();?>&amp;t=<?php the_title(); ?>" title="Share on Facebook.">
-						<div class="facebook-share">
-							<i class="fa fa-facebook"></i>
-						</div>
-					</a>
-					<a href="https://plus.google.com/share?url=<?php the_permalink(); ?>" onclick="javascript:window.open(this.href,
-  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
-						<div class="google-share">
-							<i class="fa fa-google-plus"></i>
-						</div>
-					</a>
-					<a href="http://twitter.com/home/?status=<?php the_title(); ?> - <?php the_permalink(); ?>" title="Tweet this!">
-						<div class="twitter-share">
-							<i class="fa fa-twitter"></i>
-						</div>	
-					</a>
-				</div>
+		<div id="imo-store">
 			
-			</div><!-- end of .social-share -->
-		</div><!-- end of .unify -->
-		<div class="ad-block">
-
 		</div>
-		<!-- this widget is located in imo-mags-parent/widgets -->
-		<?php get_template_part( 'widgets/sportsmanLocator' ); ?>		
-		
-	</div><!-- end of #description-area -->
-</div><!-- end of #shows_player_area -->
-<div id="sponsors-area">
-	<div class=""
+	</div>
+	<?php get_template_part( 'content/show-sponsors' ); ?>
 </div>
-<div data-position="<?php echo $dataPos = $dataPos + 1; ?>"  id="post-<?php the_ID(); ?>" <?php post_class('clearfix js-responsive-section'); ?>>
-	<?php 
-	
-	
-	//leverage some of the advanced custom fields to add content here instead of the default WP content	
-	//the_content(); 
 	
 	
 	
-	?>
-</div><!-- #post-<?php the_ID(); ?> -->
-               
-
+	
+	
+	
+	
+	
+	
+	
+	
