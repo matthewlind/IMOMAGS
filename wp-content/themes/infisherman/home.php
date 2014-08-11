@@ -6,18 +6,43 @@ get_header(); ?>
         <div class="general-frame">
             <div id="content" role="main">
             <?php if ( is_home() ) : ?>
-            	<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="featured-area clearfix js-responsive-section">
-                    <!--<div class="general-title clearfix">
-                        <h2>Featured</h2>
-                    </div>-->
-                    <div class="clearfix">
-                        <ul>
-                       	 	<?php if( function_exists('showFeaturedList') ){ echo showFeaturedPosts('1'); } ?>
-                       	</ul>
-                    </div>
-              
-                </div>
-                <?php if(mobile()){ ?>
+               <?php if( $features ): ?>
+	                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="featured-area clearfix js-responsive-section">
+	                    <!--<div class="general-title clearfix">
+	                        <h2>Featured</h2>
+	                    </div>-->
+	                    <div class="clearfix">
+	                        <ul>
+								<?php foreach( $features as $feature ):
+	                       	 		$title = $feature->post_title;
+	
+	
+	                       	 		if ($feature->promo_title) {
+	
+	                       	 			$title = $feature->promo_title;
+	                       	 		}
+	
+	
+	                       	 		$url = $feature->guid;
+									$thumb = get_the_post_thumbnail($feature->ID,"list-thumb");
+									$tracking = "_gaq.push(['_trackEvent','Special Features Homepage','$title','$url']);"; ?>
+		                       	 	<li class="home-featured" featured_id="<?php echo $feature->ID ?>">
+		                                <div class="feat-post">
+		                                    <div class="feat-img"><a href="<?php echo $url; ?>" onclick="<?php echo $tracking; ?>"><?php echo $thumb; ?></a></div>
+		                                    <div class="feat-text">
+		                                    	<div class="clearfix">
+			                                    	<h3><a href="<?php echo $url; ?>" onclick="<?php echo $tracking; ?>"><?php echo $title; ?></a></h3>
+		                                    	</div>
+			                                </div>
+			                                <div class="feat-sep"><div></div></div>
+			                            </div>
+			                         </li>
+								<?php endforeach; ?>
+	                       	</ul>
+	                    </div>
+	                </div>
+				<?php endif;                
+                if(mobile()){ ?>
 	                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="js-responsive-section">
 						<?php the_widget( 'Community_Slider' ); ?>
 					</div>

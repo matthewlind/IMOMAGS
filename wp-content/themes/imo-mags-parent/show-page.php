@@ -1,7 +1,7 @@
 <?php
 /**
- * Template Name: Show Page
- * Description: A Page Template for Headers with Banners instead of titles.
+ * Template Name: Show Page Child
+ * Description: A Page Template for About pages and other child pages for shows.
  *
  * The showcase template in Twenty Eleven consists of a featured posts section using sticky posts,
  * another recent posts area (with the latest post shown in full and the rest as a list)
@@ -19,7 +19,7 @@ get_header(); ?>
         <div class="general-frame">
             <div id="content" role="main">
 				<?php while ( have_posts() ) : the_post(); ?>
-					<?php get_template_part( 'content/content-show' ); ?>
+					<?php get_template_part( 'content/content-show-child' ); ?>
 				<?php endwhile; // end of the loop. ?>
             </div><!-- #content -->
         </div>

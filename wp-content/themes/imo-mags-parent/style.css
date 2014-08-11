@@ -2786,20 +2786,35 @@ margin-bottom:15px;
 #show-featured #video-thumbs li h3 {text-align:left;color: black;position: relative;padding: 2px;font-size: 1em;margin: 0;bottom: auto;background-color: white;}
 #show-destination .inner-main, #show-destination .thumbs-full, #show-destination .sidebar-area{background: white;}
 #show-destination .inner-main{padding: 80px 30px 0;}
-#show-destination  .play-btn{background:url(images/shows/play-btn.png) no-repeat;width: 47px;height: 47px;position: absolute;left: 0;top: 56px;margin: auto;right: 0;}
+#show-destination .play-btn{background:url(images/shows/play-btn.png) no-repeat;width: 47px;height: 47px;position: absolute;left: 0;top: 56px;margin: auto;right: 0;}
 #sponsors-area{min-height: 660px;padding: 30px 0;}
 #sponsors-area ul{margin-top: 30px;}
 #sponsors-area .sponsor-img{display: inline-block;margin: 0 30px 30px 0;}
 
+/*** Show Galleries ***/
+#show-gallery .slides img{display: block;margin: 0 auto;max-height: 450px;}
+#description-area.gallery-title-area{margin-bottom: 20px;}
+#description-area.gallery-title-area .unify, .tv-show #show-gallery #description-area .unify{min-height: 0 !important;}
+.video-title.side-title{color: white;font-size: 1.5em;min-height: 70px;}
+#show-gallery .content-height{min-height: 0 !important;max-height: 1000px !important;padding: 15px 0;}
+.sponsor-pad .inner-main{padding: 30px;background: white;}
+.tv-show .locate-helper #locateChannel{float: left;}
+#more-galleries{padding-top: 20px;color: white;}
+#more-galleries a{color: white;}
+#more-galleries h2{padding-bottom: 5px;text-transform: uppercase;font-size: 1em;}
+#more-galleries h3{padding-bottom: 5px;}
+#more-galleries .flex-direction-nav a{top: 110px;}
 /*** Petersens Hunting Adventures TV ***
 ***************************/
-.tv-show .main {
+.tv-show .main, .page-template-show-page-php .main {
 	padding: 0;
+	border: none;
+	background: none;
 }
-.tv-show .layout-frame{
+.tv-show .layout-frame, .page-template-show-page-php .layout-frame{
 	width: 100%;
 }
-.tv-show .general{
+.tv-show .general, .page-template-show-page-php .general{
 	width: 1080px;
 	margin: 0 auto;
 	float: none;
@@ -2807,7 +2822,7 @@ margin-bottom:15px;
 	padding: 0;
 	font-family: 'jubilat', serif;
 }
-.tv-show .general-frame {
+.tv-show .general-frame, .page-template-show-page-php .general-frame{
 	width: 100%;
 }
 .full-content .layout-frame{width: 100%;}
@@ -2817,57 +2832,50 @@ margin-bottom:15px;
 .tv-show .page-header {
 	margin: 0;
 }
-.tv-show #header-top {
+#header-top {
 	width: 100%;
 	height: 122px;
 	background-color: rgba(0,0,0,0.4);
 	margin: 10px 0 0 0;
 }
 
-.tv-show .content-banner-section {
+.tv-show .content-banner-section, .page-template-show-page-php .content-banner-section{
 	background: transparent;
 	margin-top: 10px;
 }
-.tv-show .main {
-	border: none;
-}
-.tv-show .main, .content-banner-section {
-	background: transparent;
-}
-
-.tv-show .shows-logo {
+.shows-logo {
 	float: left;
 	width: 200px;
 	height: 122px;
 }
-.tv-show .shows-logo img {
+.shows-logo img {
   	position: absolute;
 	top: -5px;
 	width: 174px;
 	margin-left: 15px;
 }
-.tv-show .shows-title {
+.shows-title {
 	float: left;
 	max-width: 700px;
 	margin: 20px 0 0 20px;
 }
-.tv-show .shows-title h1 {
+.shows-title h1 {
 	font-family: "jubilat", serif;
 	font-weight: 400;
 	font-size: 30px;
 	color: #ffffff;
 	text-align: left;
 }
-.tv-show .shows-title .fb_iframe_widget {
+.shows-title .fb_iframe_widget {
 	margin-top: 10px;
 }
-.tv-show .shows-sponsor {
+.shows-sponsor {
 	float: right;
 	width: 200px;
 	height: 122px;
 	margin-top: 15px;
 }
-.tv-show .shows-sponsor span {
+.shows-sponsor span {
 	font-family: 'open_sanssemibold', Helvetica, Arial, sans-serif;
 	text-transform: uppercase;
 	font-size: 16px;
@@ -2875,7 +2883,7 @@ margin-bottom:15px;
 	color: #cccccc;	
 	display: block;
 }
-.tv-show .shows-sponsor img {
+.shows-sponsor img {
 	max-height: 50%;
 	max-width: 70%;
 	margin: 10px auto 0;
@@ -2885,71 +2893,76 @@ margin-bottom:15px;
 
 /* navigation ==================================== */
 
-.tv-show #shows-nav {
+#shows-nav {
 	height: 40px;
 	width: 100%;
 	background-color: rgba(37,37,37,0.6);
 }
-.tv-show #shows-nav ul {
+#shows-nav ul {
 	padding: 0 20px 0 20px;
 	vertical-align: middle;
 	line-height: 40px;
 	display: inline-block;
 }
-.tv-show #shows-nav ul li {
+#shows-nav ul li {
 	display: inline;
 	padding-right: 16px;
 }
-.tv-show #shows-nav ul li a {
+#shows-nav ul li a {
 	color: #ffffff;
 	font-family: 'jubilat', serif;
 	font-size: 16px;
 	font-weight: 400;
 	padding: 5px 15px;
 }
-.tv-show #shows-nav ul li a:hover {
+#shows-nav ul li a:hover {
 	color: #e8e1c5;
 }
-.tv-show #shows-player-area {
+#shows-player-area {
 	width: 100%;
 	background-color: #252525;
 	padding: 0 35px 40px;
 	overflow: hidden;
+	min-height: 800px;
 }
+.page-template-show-page-php #shows-player-area{background: white;}
+.page-template-show-page-php .widget_advert-widget{margin-bottom: 20px;}
+
+
 /* when to watch ==================================== */
-.tv-show #when-to-watch {
+#when-to-watch {
 	width: 100%;
 	height: 106px;
 	overflow: hidden;
 	padding-top: 23px;
 }
-.tv-show #when-to-watch .when-label {
+#when-to-watch .when-label {
 	float: left;
 }
-.tv-show #when-to-watch .when-label h3 {
+#when-to-watch .when-label h3 {
 	color: #ffffff;
 	font: 24px/29px 'jubilat', serif;
 	font-weight: 300;
 }
 
-.tv-show .schedule-item {
+.schedule-item {
 	float: left;
 	margin: 5px 0 0 35px;
 	border-left: 2px solid #848484;
 	height: 49px;
 	padding-left: 20px;
 }
-.tv-show .schedule-item .episode-title {
+.schedule-item .episode-title {
 	color: #80b880;
 	font-size: 16px;
 }
-.tv-show .schedule-item .episode-time {
+.schedule-item .episode-time {
 	color: #ffffff;
 	font-size: 16px;
 	display: block;
 }
 
-.tv-show .remind-me {
+.remind-me {
 	font:13px/18px "open_sanssemibold", "Helvetica Neue", Helvetica, Arial, sans-serif;
     height: 53px;
     width: 108px;
@@ -2975,7 +2988,7 @@ margin-bottom:15px;
 	border-radius: 4px;
 	box-shadow: 0 4px 5px rgba(0,0,0,0.3);
 }
-.tv-show .remind-me span {
+.remind-me span {
 	margin: 7px 0 0 15px;
 	display: block;
 }
@@ -3119,11 +3132,13 @@ margin-bottom:15px;
 /* sportsman locator ==================================== */
 
 .tv-show #locateChannel {
-	position: absolute;
+	position: relative;
 	height: 60px;
 	right: 0;
 	bottom: 0;
 	box-shadow: inset 0px 2px 3px black;
+	float: right;
+	margin-top: 20px;
 }
 .tv-show #channelControlsContainer {
 	margin-top: 10px;
@@ -3202,6 +3217,27 @@ margin: 1% 0 3.3% 4.5%;
 -moz-box-sizing: border-box;
 box-sizing: border-box;
 }
+
+/*** Show Child Pages ***/
+.show-child-general{
+	float: left;
+	width: 680px;
+	border: 1px solid #dddcdb;
+	border-width: 0 1px 0 0;
+	padding: 0 30px 0 0;
+	background: white;
+}
+.show-child-general-frame{
+	width: 648px;
+	padding-bottom: 20px;
+}
+
+
+/*** video filter ***/
+#video-filter li{display: inline-block;padding: 10px;}
+#video-filter li a{color: #252525;padding: 4px 10px;cursor: pointer;}
+#video-filter li a.video-thumb-active{color: white;background: #252525;}
+.no-mo-videos{text-align: center;padding: 80px 0 20px;}
 
 /*** Border to Border Show ***
 ******************************/
@@ -4754,7 +4790,7 @@ table.likes-leaderboard .entry-title {
         width:49%;
     }
     .home-featured:nth-child(odd){padding: 20px 20px 0 0;}
-    .general {
+    .general, .show-child-general {
         padding:0 20px 0 0;
         border:0;
         overflow:hidden;
@@ -4762,7 +4798,7 @@ table.likes-leaderboard .entry-title {
         display:block;
         float:none;
     }
-    .general-frame {
+    .general-frame, .show-child-general-frame {
         width:auto;
     }
     .post-slider h2 {
@@ -5059,7 +5095,7 @@ table.likes-leaderboard .entry-title {
 	.double-posts .cat-feat-label {
 	    font:10px/1.2 "Source Sans Pro", Helvetica, Arial, sans-serif;font-weight: 700;
 	}
-	.general-frame {
+	.general-frame, .show-child-general-frame {
         width:auto;
     }
     .posts-list{padding-top: 0;}
@@ -5168,7 +5204,7 @@ table.likes-leaderboard .entry-title {
 	.general{
 		padding-right: 10px;
 	}
-	.general-frame {
+	.general-frame, .show-child-general-frame {
         width:auto;
     }
     .featured-area{padding-top: 10px;}
@@ -5338,7 +5374,7 @@ table.likes-leaderboard .entry-title {
 }
 @media only screen and (max-width: 700px) {
 	.search-field input{width: 90%;}
-	.general-frame{
+	.general-frame, .show-child-general-frame{
 		width: auto;
 	}
     .double-posts .feat-img {
