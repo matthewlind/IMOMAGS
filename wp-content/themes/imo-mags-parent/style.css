@@ -3751,8 +3751,9 @@ box-sizing: border-box;
 }
 .truck-item .img-video-container img {
 	float: right;
-	max-width: 150px;
-	margin-left: 35px;
+	max-width: 170px;
+	margin-left: 20px;
+	margin-bottom: 20px;
 }
 /*** b2b How-to Guide Page ************************/
 .b2b .how-to-list {
