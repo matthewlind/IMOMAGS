@@ -3172,6 +3172,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 .tv-show .article-brief {
 	border-bottom: none;
 }
+
+
+
 /* homepage schedule */
 #upcoming{background: #eee;height: 100px;overflow-y:hidden;width: 100%;}
 #upcoming .tiled-grid{background: #eee;padding: 0;}
