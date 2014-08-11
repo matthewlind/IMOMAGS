@@ -2013,6 +2013,84 @@ if(function_exists("register_field_group"))
 		),
 		'menu_order' => 0,
 	));
+	register_field_group(array (
+		'id' => 'acf_post-format-galleries',
+		'title' => 'Post Format: Galleries',
+		'fields' => array (
+			array (
+				'key' => 'field_53e90c18b4eae',
+				'label' => 'Gallery Images',
+				'name' => 'gallery_images',
+				'type' => 'repeater',
+				'sub_fields' => array (
+					array (
+						'key' => 'field_53e90c43b4eaf',
+						'label' => 'Image',
+						'name' => 'image',
+						'type' => 'text',
+						'instructions' => 'url of the image',
+						'column_width' => '',
+						'default_value' => '',
+						'placeholder' => '',
+						'prepend' => '',
+						'append' => '',
+						'formatting' => 'html',
+						'maxlength' => '',
+					),
+					array (
+						'key' => 'field_53e90c63b4eb0',
+						'label' => 'title',
+						'name' => 'title',
+						'type' => 'text',
+						'instructions' => 'Image Title',
+						'column_width' => '',
+						'default_value' => '',
+						'placeholder' => '',
+						'prepend' => '',
+						'append' => '',
+						'formatting' => 'html',
+						'maxlength' => '',
+					),
+					array (
+						'key' => 'field_53e90c6eb4eb1',
+						'label' => 'Description',
+						'name' => 'description',
+						'type' => 'text',
+						'instructions' => 'Image description',
+						'column_width' => '',
+						'default_value' => '',
+						'placeholder' => '',
+						'prepend' => '',
+						'append' => '',
+						'formatting' => 'html',
+						'maxlength' => '',
+					),
+				),
+				'row_min' => '',
+				'row_limit' => '',
+				'layout' => 'table',
+				'button_label' => 'Add Row',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'post',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
 }
 
 add_action( 'wp_ajax_nopriv_load-filter', 'prefix_load_cat_posts' );

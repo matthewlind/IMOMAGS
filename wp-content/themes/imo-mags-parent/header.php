@@ -1,4 +1,4 @@
-<?php
+<?php 
 ?><!DOCTYPE html>
 <!-- bid: <?php global $blog_id; print $blog_id ?>; env: <?php if(defined("WEB_ENV")) { print WEB_ENV; } else { print "production"; } ?> -->
 <!-- X-Device-Type Varnish Header Found: <?php global $varnishHeaderExists; echo ($varnishHeaderExists ? "YES" : 'NO'); ?> -->
@@ -79,7 +79,7 @@
 		$subs_form_link = get_option('subs_form_link' );
 		$i4ky = get_option('i4ky' );
 		include_once get_stylesheet_directory() . "/head-includes.php";
-	?>
+		?>
 	<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -296,7 +296,7 @@
 } ?>
 <div id="page" class="snap-content smooth-menu">
 <?php if (mobile() == false && tablet() == false) { imo_dart_tag("1x1",false,array("pos"=>"skin")); } ?>
-	<div class="hfeed wrapper <?php if(get_field("full_width") == true){ echo ' full-width full-content'; }else if(is_single() && in_category("show-galleries") && has_post_format( 'video' ) || is_category("tv") || is_category("show-galleries")){ echo ' tv-show full-content'; } ?>" data-role="content" role="main">
+	<div class="hfeed wrapper <?php if(get_field("full_width") == true){ echo ' full-width full-content'; }else if( is_page_template('show-page.php') || is_category("tv") || is_category("show-galleries") || (is_single() && (has_post_format( 'video' ) || in_category("show-galleries")) ) ){ echo ' tv-show full-content'; } ?>" data-role="content" role="main">
 	    <div class="layout-frame">
 	        <div id="branding" class="header clearfix" role="banner">
 	
