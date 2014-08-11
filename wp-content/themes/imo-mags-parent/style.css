@@ -3219,6 +3219,7 @@ box-sizing: border-box;
 .show-child-general-frame{
 	width: 648px;
 	padding-bottom: 20px;
+	background: transparent;
 }
 
 
