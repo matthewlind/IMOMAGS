@@ -5,7 +5,7 @@ jQuery(document).ready(function($) {
 	img_url = $(".facts img").attr("src");
 
 	window.history.pushState(null, title, slug );
-	var _gaq = _gaq || [];
+	//var _gaq = _gaq || [];
 	_gaq.push(['_trackPageview', window.location.pathname]);
 	post_url = document.location.href;
 

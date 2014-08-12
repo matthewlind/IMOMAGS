@@ -1,6 +1,6 @@
 jQuery(document).ready(function ($) {
 	
-	var _gaq = _gaq || [];
+	//var _gaq = _gaq || [];
 	
 	//brightcove video portal
 	if( $("#video-gallery").length ){
