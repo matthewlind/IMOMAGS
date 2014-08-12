@@ -299,6 +299,17 @@ a:hover { color: #040503; }
 
 /* =Useful classes
 *******************************************************************************/
+.clearf:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.clearf { display: inline-block; }
+* html .clearf { height: 1%; }
+.clearf { display: block; }
 
 .clearfix:before, .clearfix:after,
 .container:before, .container:after,
@@ -398,7 +409,7 @@ img.border-image {
     height: auto;
 }
 .smooth-menu{
-	/* -webkit-transform:translate3d(0,0,0); */
+	-webkit-transform:translate3d(0,0,0);
 	-webkit-backface-visibility: hidden;
 }
 
@@ -3231,16 +3242,86 @@ box-sizing: border-box;
 
 /*** Border to Border Show ***
 ******************************/
-
+.b2b-orange {
+	color: #d9713d;
+}
+.b2b a {
+	color: #d9713d;
+}
 /*** b2b header ***/
+.b2b {
+	opacity: .01;
+	-webkit-transition:opacity 0.5s ease-in !important; /* For Safari 3.1 to 6.0 */
+    transition:opacity 0.2s ease-in !important;
+}
 
 .b2b-header {
+	position: relative;
 	height: 900px;
-	background-image: url("../petersenshunting/images/b2b/b2b_marquee_placeholder.jpg");
+	background-color: grey;
+	background-image: url("../petersenshunting/images/b2b/header-image.jpg");
 	background-size: cover;
 	background-position: center;
 	margin: 0;
 	box-shadow: 0 5px 5px black;
+}
+.b2b-title {
+	position: absolute;
+	width: 40%;
+	right: 10%;
+	top: 39%;
+}
+.b2b-title span {
+	float: left;
+	font-family: "franklin-gothic-urw-cond",sans-serif;
+	color: #871c19;
+	font-size: 18px;
+	font-weight: 600;
+}
+.b2b .b2b-header .b2b-img-phtv {
+	width: 50%;
+	float: left;
+	margin-bottom: 5px;
+}
+.b2b .b2b-header .b2b-img-title {
+	width: 100%;
+	float: left;
+}
+.b2b .b2b-header .b2b-sportsman-logo {
+	float: right;
+	width: 200px;
+	margin-right: 10px;
+	margin-top: 35px;
+}
+.b2b .b2b-header .b2b-logo {
+	float: right;
+	width: 145px;
+	margin-top: -21px;
+	margin-right: -18px;
+	clear: both;
+}
+.header-info {
+	position: absolute;
+	width: 591px;
+	height: 300px;
+	top: 56%;
+	right: 10%;
+}
+.header-info-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.black-wrap {
+	background-color: black;
+	color: white;
+	font-family: "franklin-gothic-urw-cond",sans-serif;
+	font-size: 12px;
+	text-transform: uppercase;
+	padding: 0 5px;
+	float: right;
+	text-align: right;
+	margin-bottom: 15px;
 }
 .b2b .shadow-block {
 	position: absolute;
@@ -3322,6 +3403,10 @@ box-sizing: border-box;
 .b2b .shows-nav ul li {
 	display: inline;
 	border-right: 1px solid #cccccc;
+	position: relative;
+}
+.b2b .shows-nav ul li.current-menu-item a {
+	color: #ff894f;
 }
 .b2b .shows-nav ul li:first-child {border-left: 1px solid #cccccc;}
 .b2b .shows-nav ul li a {
@@ -3329,11 +3414,24 @@ box-sizing: border-box;
 	color: #ffffff;	
 	padding: 0 30px;
 }
+.b2b .show-nav-arrow {
+	position:absolute;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 10px 7px 10px;
+	border-color: transparent transparent #ffffff transparent;
+	left:0;
+    right:0;
+    margin-left:auto;
+    margin-right:auto;
+    bottom: -17px;
+}
 .b2b .sticky-shows-nav {
 	position: fixed;
 	top: 0;
 	left: 0;
-	z-index: 400;
+	z-index: 99999;
 	height: 39px;
 }
 .b2b .sticky-shows-nav ul {
@@ -3344,11 +3442,14 @@ box-sizing: border-box;
 }
 /*** b2b Article ************************/
 .b2b #article-wrap {
-	padding: 140px 0 100px 0 ;
+	padding: 100px 0 40px 0 ;
 	position: relative;
 }
 .b2b #article-wrap section {
 	padding-bottom: 130px;	
+}
+.b2b #article-wrap section.diy-section {
+	padding-bottom: 60px;	
 }
 .b2b #article-wrap .about-show {
 	padding-bottom: 80px;
@@ -3456,6 +3557,33 @@ box-sizing: border-box;
 .b2b .links-aside i {
 	color: #d9713d;
 	padding-left: 6px;
+}
+/*** b2b small game items ***/
+.s-game-wrap {
+	width: 100%;
+	margin: 45px 0;
+}
+.s-game-item {
+	position: relative;
+	width: 180px;
+	height: 180px;
+	margin: 0 35px 47px 0;
+	float: left;
+}
+.s-game-item img {
+	width: 100%;
+	height: 100%;
+}
+.s-game-item img.s-game-cover {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.s-game-item p {
+	text-align: center;
+	color: #d9713d;
+	font-weight: bold;
+	margin-top: 12px;
 }
 /*** b2b slideshow ***/
 
@@ -3593,9 +3721,111 @@ box-sizing: border-box;
 	margin-left: 20%;
 	margin-top: 50px;
 }
+.map-left-links a {
+	cursor: pointer;
+}
+/*** b2b The Gear Page ************************/
+.gear-about {
+	padding-bottom: 50px;
+}
+.gear-item {
+	padding-bottom: 80px;
+}
+#article-wrap .gear-item h2 {
+	font-size: 30px;
+	margin: 0;
+}
+.item-link {
+	margin: 5px 0 0 0;
+}
+.item-link a {
+	color: #d9713d;
+	font-weight: 600;
+	font-size: 19px;
+}
+.item-link i {
+	color: #d9713d;
+	margin-left: 5px;
+}
+.img-video-container {
+	margin-top: 30px;
+	width: 150%;
+}
+.gear-item .gear-img {
+	width: 267px;
+	height: 240px;
+	float: left;
+}
+.gear-item .gear-img img {
+	max-height: 100%;
+	max-width: 100%;
+	margin: 0 auto;
+	display: block;
+}
+.gear-item .gear-video {
+	width: 425px;
+	height: 272px;
+	border: 1px solid grey;
+	float: left;
+	margin-right: 20px;
+}
 
+/*** b2b The Truck Page ************************/
 
-
+.truck-image img {
+	margin: 0 auto;
+	display: block;
+}
+.truck-item {
+	padding-bottom: 80px;
+}
+#article-wrap .truck-item h2 {
+	font-size: 30px;
+	margin: 0;
+}
+.truck-item .img-video-container {
+	width: 100%;
+}
+.truck-item .img-video-container img {
+	float: right;
+	max-width: 150px;
+	margin-left: 35px;
+}
+/*** b2b How-to Guide Page ************************/
+.b2b .how-to-list {
+	color: #d86f3c;
+	font-size: 30px;
+	font-family: "merriweather", serif;
+	font-weight: bolder;
+}
+.b2b .how-to-list li {
+	margin-bottom: 20px;
+}
+.diy-states {
+	position: absolute;
+	left: 4%;
+	top: 100px;
+	font-size: 20px;
+	font-weight: 600;
+}
+.sticky-diy-states {
+	position: fixed;
+	left: 4%;
+	top: 100px;
+}
+.diy-states li {
+	margin-bottom: 10px;
+	color: #d9713d;
+}
+.diy-states i {
+	padding-left: 5px;
+}
+.diy-links a {
+	color: #d9713d;
+}
+.b2b-license-fees li {
+	margin-bottom: 6px;
+}
 
 
 
@@ -5305,7 +5535,7 @@ table.likes-leaderboard .entry-title {
         max-width: none;
     }
     .smooth-menu, .header {
-		/* -webkit-transform:translate3d(0,0,0);  */
+		-webkit-transform:translate3d(0,0,0);  
 		-webkit-backface-visibility: hidden;
 		-webkit-transition: left 200ms ease-in-out 0.2s;
 		-moz-transition: left 200ms ease-in-out 0.2s;
