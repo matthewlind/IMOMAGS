@@ -17,14 +17,14 @@ get_header(); ?>
 				<span><?php the_title(); ?></span>
 		    </h1>
 		    <?php if(mobile()){ ?>
-		    	<img class="madness-logo-mobile" src="/wp-content/themes/gunsandammo/images/ga-madness/GA-gun-madness-galco-small.png" alt="G&A Madness" title="G&A Madness" />
+		    	<img class="madness-logo-mobile" src="/wp-content/plugins/bowmadness/images/BoB_logo3.png" alt="G&A Madness" title="G&A Madness" />
 				<?php echo "<div style='text-align:center;'>".get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"presentingmadness"))."</div>"; 
 			} ?>
 		    <ul id="ga-madness-nav">
 				<li><a href="/bracket">Bow Bracket</a></li>
 				<li><a href="/bracket/enter">Enter</a></li>
 				<?php if(!mobile()){ ?>
-					<li class="madness-logo"><img src="/wp-content/themes/gunsandammo/images/ga-madness/GA-gun-madness-galco-small.png" alt="G&A Madness" title="G&A Madness" />
+					<li class="madness-logo"><img src="/wp-content/plugins/bowmadness/images/BoB_logo3.png" alt="G&A Madness" title="G&A Madness" />
 					</li>
 				<?php } ?>
 				<li><a href="/bracket/prizes">Prizes & Rules</a></li>
