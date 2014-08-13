@@ -48,8 +48,10 @@ $videoLink = !empty($postID) ? get_permalink($postID) :  site_url() . $_SERVER['
 						<?php the_content(); ?>
 					</div>
 				</div>
-		</div>
-		</div>
+				
+				<?php get_template_part( 'content/content-show-about' ); ?>
+			</div><!-- end of .show-child-general-frame -->
+		</div><!-- end of .show-child-general -->
 	</div><!-- end of #shows_player_area :::: this div ends an open div in the show header template-->
 
 	<div id="imo-store">
