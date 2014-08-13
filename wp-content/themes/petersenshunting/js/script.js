@@ -492,7 +492,14 @@ if ($(".the-truck")[0]){
 			$(".map-left").css({"position" : "absolute", "top" : "60"});	
 		}
 	}   sideMapStick();
-	// Attaches smooth animation jumps
+	
+	// .map-left - hight - adjustment - function
+		function heightMapLeft(){
+			var mapWidth = windowHeight * 0.85;
+			$(mapLeft).css({"height": (mapWidth + "px")});	
+		}	heightMapLeft();
+		
+	// Attaches smooth animation scroll jumps to map links
 	var generalDoc = $('html, body');
 	var mapNavLinks = $(".map-left-links a");
 	$(mapNavLinks).click(function() {
