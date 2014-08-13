@@ -471,7 +471,7 @@ jQuery( document ).ready(function( $ ) {
 					// Parse only State and Category in the bottom
 					self.parseTerms(slideData.terms, function(slug){
 						//Refresh Ad
-						var _gaq = _gaq || [];
+						//var _gaq = _gaq || [];
 					    _gaq.push(['_trackPageview', window.location.pathname + slideData.post_name]);
 					    //console.log(  _gaq );
 						//document.getElementById('community-iframe-ad').contentWindow.location.reload();

@@ -1,6 +1,6 @@
 jQuery(document).ready(function ($) {
 	
-	var _gaq = _gaq || [];
+	//var _gaq = _gaq || [];
 	
 	//brightcove video portal
 	if( $("#video-gallery").length ){
@@ -264,10 +264,10 @@ jQuery(document).ready(function ($) {
 		$('#carousel').flexslider({
 		    animation: "slide",
 		    controlNav: false,
+		    directionNav: true, 
 		    animationLoop: false,
 		    slideshow: false,
-		    itemWidth: 50,
-		    itemMargin: 5,
+		    itemWidth: 200,
 		    asNavFor: '#show-gallery'
 		});
 		

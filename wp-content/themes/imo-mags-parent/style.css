@@ -3289,6 +3289,9 @@ box-sizing: border-box;
 	padding-bottom: 20px;
 	background: transparent;
 }
+
+.tv-show #carousel{position: relative;}
+
 .page-template-show-page-php #shows-player-area {
 	background-color: white;
 }
