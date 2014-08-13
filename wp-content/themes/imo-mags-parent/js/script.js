@@ -11,6 +11,11 @@ jQuery(window).load(function() {
 });
 
 jQuery(document).ready(function () {
+	// TV-show functions
+	function heightToggle() {
+		jQuery(".m-shows-airtime").toggleClass("height-auto");
+	}
+	// End TV-show functions
 	
 	if(jQuery(".featured-area").length && jQuery(".posts-list").length){
 		//remove any duplicate posts that are already in the featured area   
