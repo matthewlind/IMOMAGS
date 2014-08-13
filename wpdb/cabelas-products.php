@@ -50,6 +50,10 @@ $app->get('/products', function () {
 			$slug = "hunting";
 		}
 
+		// Added by Ben Gray
+		if (strstr($site,"gunsandammo") || strstr($site,"handgunsmag") || strstr($site,"rifleshootermag") || strstr($site,"shootingtimes") || strstr($site,"shotgunnews")) {
+			$slug = "shooting";
+		}
 
 
 		$slugParts = explode(",",$slug);
