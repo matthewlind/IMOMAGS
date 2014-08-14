@@ -1,5 +1,6 @@
 <?php
 $dataPos = 0;
+$features = get_field('homepage_featured_stories','options' );
 get_header(); ?>
 	<?php imo_sidebar(); ?>
 	<div id="primary" class="general">
