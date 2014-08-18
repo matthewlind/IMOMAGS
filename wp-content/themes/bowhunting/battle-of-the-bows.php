@@ -18,13 +18,13 @@ get_header(); ?>
 		    </h1>
 		    <?php if(mobile()){ ?>
 		    	<img class="madness-logo-mobile" src="/wp-content/plugins/bowmadness/images/BoB_logo3.png" alt="Bow Madness" title="Bow Madness" />
-				<?php echo "<div style='text-align:center;'>".get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"presentingmadness"))."</div>"; 
+				<?php 
 			} ?>
 		    <ul id="ga-madness-nav">
 				<li><a href="/bracket">Bow Bracket</a></li>
 				<li><a href="/bracket/enter">Enter</a></li>
 				<?php if(!mobile()){ ?>
-					<li class="madness-logo"><img src="/wp-content/plugins/bowmadness/images/BoB_logo3.png" alt="G&A Madness" title="G&A Madness" />
+					<li class="madness-logo"><img src="/wp-content/plugins/bowmadness/images/BoB_logo3.png" alt="Bow Madness" title="Bow Madness" />
 					</li>
 				<?php } ?>
 				<li><a href="/bracket/prizes">Prizes & Rules</a></li>

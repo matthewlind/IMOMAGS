@@ -76,8 +76,11 @@ function renderGAMpopup($mobile) {
 							</ul>
 						</div>
 		    		</div>
-		    		<div class="modal-footer-content-right">
-		    			<div id="div-gpt-ad-1386782139095-3"></div>
+		    		<div id="popupAdRight" class="modal-footer-content-right">
+		    			<div id="div-bob_region_1_medium_rectangle"></div>
+		    			<div id="div-bob_region_2_medium_rectangle"></div>
+						<div id="div-bob_region_3_medium_rectangle"></div>
+						<div id="div-bob_region_4_medium_rectangle"></div>
 		    		</div>
 	    		</div>
 	    	</div>
@@ -92,113 +95,110 @@ EOF;
 function jsGAMRender($mobile) {
 	$outp = "";
 	//$mobile = true;
-	$ismobile = ($mobile)? "true":"false"; 
-	$madnessround = 1;
-
+	$ismobile = ($mobile)? "true":"false";
+	 
+	$results = file_get_contents("http://apps.imoutdoors.com/bracket/getActiveRound?bracketid=2");
+	
+	$results = json_decode($results,true);
+	
+	$madnessround = $results[0]['activeround'];
+	
+	
   if($mobile) {
 	$outp.= '<div class="ga-madness-votestats"></div>';
 	
 	//if (function_exists('wpsocialite_markup'))
 		 	//$outp.= wpsocialite_markup();
 		 	
+	$ad1 = '<div id="div-bob_region_sponsor_1"></div>';
+	$ad2 = '<div id="div-bob_region_sponsor_2"></div>';
+	$ad3 = '<div id="div-bob_region_sponsor_3"></div>';
+	$ad4 = '<div id="div-bob_region_sponsor_4"></div>';
+		 	
 	$outp.= '<div id="madtabs">'
 		 .  '  <ul class="rounds">'
-		 .  '    <li><a href="#madtabs-1">1st</a></li>'
-		 .  '    <li><a href="#madtabs-2">2nd</a></li>'
+		 //.  '    <li><a href="#madtabs-1">1st</a></li>'
+		 .  '    <li><a href="#madtabs-2">1st</a></li>'
 		 .  '    <li><a href="#madtabs-3">Sweet 16</a></li>'
 		 .  '    <li><a href="#madtabs-4">Elite 8</a></li>'
 		 .  '    <li><a href="#madtabs-5">Final 4</a></li>'
 		 .  '    <li class="final-round"><a href="#madtabs-6">Final</a></li>'
 		 .  '  </ul>'
 					
-		 .  '  <div id="madtabs-1">'
-		 .  '    <div class="gun-types">'
-		 .  '      <select>'
-		 .  '        <option value="">SELECT A GUN REGION</option>'
-		 .  '        <option value="#handguns">Handguns</option>'
-		 .  '        <option value="#shotguns">Shotguns</option>'
-		 .  '        <option value="#rifles">Rifles</option>'
-		 .  '        <option value="#ar15s">AR-15s</option>'
-		 .  '      </select>'
-		 .  '    </div>'
-		 .  '    <h2 id="handguns">Handguns</h2>'
-		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"handgunsmadness")) .'</div>'
-		 .  '    <div class="mreg1"></div>'
-		 .  '    <h2 id="rifles">Rifles</h2>'
-		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"riflesmadness")) .'</div>'
-		 .  '    <div class="mreg3"></div>'
-		 .  '    <h2 id="ar15s">Modern Sporting Rifles</h2>'
-		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"arsmadness")) .'</div>'
-		 .  '    <div class="mreg4"></div>'
-		 .  '    <h2 id="shotguns">Shotguns</h2>'
-		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"shotgunsmadness")) .'</div>'
-		 .  '    <div class="mreg2"></div>'
-
-		 .  '  </div>'
-		 .  '  <div id="madtabs-2">'
-
-		 .  '    <h2 id="handguns">Handguns</h2>'
-		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"handgunsmadness")) .'</div>'
-		 .  '    <div class="mreg1"></div>'
-		 .  '    <h2 id="rifles">Rifles</h2>'
-		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"riflesmadness")) .'</div>'
-		 .  '    <div class="mreg3"></div>'
-		 .  '    <h2 id="ar15s">Modern Sporting Rifles</h2>'
-		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"arsmadness")) .'</div>'
-		 .  '    <div class="mreg4"></div>'
-		 .  '    <h2 id="shotguns">Shotguns</h2>'
-		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"shotgunsmadness")) .'</div>'
-		 .  '    <div class="mreg2"></div>'
+		 .  '  <div style="clear:both;" id="madtabs-2">'
+		// .  '    <div class="gun-types">'
+		// .  '      <select>'
+		// .  '        <option value="">SELECT A BOW REGION</option>'
+		// .  '        <option value="#compound1">Compound 1</option>'
+		// .  '        <option value="#compound2">Compound 2</option>'
+		// .  '        <option value="#crossbows1">Crossbows 1</option>'
+		// .  '        <option value="#crossbows2">Crossbows 2</option>'
+		// .  '      </select>'
+		// .  '    </div>'
 		 
-		 .  '  </div>'
-		 .  '  <div id="madtabs-3">'
-		 .  '    <h2 id="handguns">Handguns</h2>'
-		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"handgunsmadness")) .'</div>'
+		 .  '    <h2 id="compound1">Compound A</h2>'
+		 . 			$ad1
 		 .  '    <div class="mreg1"></div>'
-		 .  '    <h2 id="rifles">Rifles</h2>'
-		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"riflesmadness")) .'</div>'
+		 .  '    <h2 id="compound2">Compound B</h2>'
+		 .  		$ad2
 		 .  '    <div class="mreg3"></div>'
-		 .  '    <h2 id="ar15s">Modern Sporting Rifles</h2>'
-		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"arsmadness")) .'</div>'
+		 .  '    <h2 id="crossbows1">Crossbows A</h2>'
+		 .  		$ad3
 		 .  '    <div class="mreg4"></div>'
-		 .  '    <h2 id="shotguns">Shotguns</h2>'
-		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"shotgunsmadness")) .'</div>'
+		 .  '    <h2 id="crossbows2">Crossbows B</h2>'
+		 .  		$ad4
+		 .  '    <div class="mreg2"></div>'
+
+		 .  '  </div>'
+
+		 .  '  <div id="madtabs-3">'
+		 .  '    <h2 id="compound1">Compound A</h2>'
+		 . 			$ad1
+		 .  '    <div class="mreg1"></div>'
+		 .  '    <h2 id="compound2">Compound B</h2>'
+		 .  		$ad2
+		 .  '    <div class="mreg3"></div>'
+		 .  '    <h2 id="crossbows1">Crossbows A</h2>'
+		 .  		$ad3
+		 .  '    <div class="mreg4"></div>'
+		 .  '    <h2 id="crossbows2">Crossbows B</h2>'
+		 .  		$ad4
 		 .  '    <div class="mreg2"></div>'
 		 
 		 .  '  </div>'
 		 .  '  <div id="madtabs-4">'
 
-		 .  '    <h2 id="handguns">Handguns</h2>'
-		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"handgunsmadness")) .'</div>'
+		 .  '    <h2 id="compound2">Compound A</h2>'
+		 . 			$ad1
 		 .  '    <div class="mreg1"></div>'
-		 .  '    <h2 id="rifles">Rifles</h2>'
-		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"riflesmadness")) .'</div>'
+		 .  '    <h2 id="compound2">Compound B</h2>'
+		 .  		$ad2
 		 .  '    <div class="mreg3"></div>'
-		 .  '    <h2 id="ar15s">Modern Sporting Rifles</h2>'
-		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"arsmadness")) .'</div>'
+		 .  '    <h2 id="crossbows1">Crossbows B</h2>'
+		 .  		$ad3
 		 .  '    <div class="mreg4"></div>'
-		 .  '    <h2 id="shotguns">Shotguns</h2>'
-		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"shotgunsmadness")) .'</div>'
+		 .  '    <h2 id="crossbows2">Crossbows A</h2>'
+		 .  		$ad4
 		 .  '    <div class="mreg2"></div>'
 		 		 
 		 .  '  </div>'
 		 .  '  <div id="madtabs-5">'
-		 .  '    <br><div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"handgunsmadness")) .'</div>'
-		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"riflesmadness")) .'</div>'
-		 .  '    <div class="mreg5 match61"></div>'
-		 .  '    <div class="mreg6 match62"></div>'
-		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"shotgunsmadness")) .'</div>'
-		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"arsmadness")) .'</div>'
+		 .  '    <br>'. $ad1
+		 .  		$ad2
+		 .  '    <div class="mreg5 match92"></div>'
+		 .  '    <div class="mreg6 match93"></div>'
+		 .  		$ad3
+		 .  		$ad4
 		 
 		 .  '  </div>'
 		 
 		 .  '  <div id="madtabs-6">'
 		 .  '    <br><div style="margin:10px 0px 0px 6px;clear:both;font-size:18px;font-weight:bold;">Championship</div>'
-		 .  '    <div class="mreg7 match63"></div>'
-		 .  '    <br><div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"handgunsmadness")) .'</div>'
-		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"riflesmadness")) .'</div>'
-		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"shotgunsmadness")) .'</div>'
-		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"arsmadness")) .'</div>'
+		 .  '    <div class="mreg7 match94"></div>'
+		 .  '    <br>'. $ad1
+		 .  		$ad2
+		 .  		$ad3
+		 .  		$ad4
 		 
 		 .  '  </div>'		 
 		 .  '</div>';
@@ -217,17 +217,21 @@ function jsGAMRender($mobile) {
 		 //.  wpsocialite_markup()
 		 ;
 	
-	if($madnessround == 7) {		 
+	// After all the voting is done, after round 7, you'll have to 
+	// go into the db and manually change the last match to "8".
+	
+	
+	if($madnessround == 8) {		 
 	$outp.= '<div class="ga-madness-votestats" style="margin-bottom:20px;clear:both;"></div>'
 		 .  '<div class="regions region-final" style="display:block;">'
 		 .  '  <div class="finalsadvert" style="margin-top:0px;">'
-		 .       get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"presentingmadness"))
+		 .  ' <div id="bob_presenting_sponsor"></div>'
 		 .  '  </div>'
 		 .  '  <div class="final-wrapper">'
 		 .  '    <h2>Final Round</h2>'
-		 .  '    <div class="column column5 match61"></div>'
-		 .  '    <div class="column column6 match63" style="padding-top:20px;"></div>'
-		 .  '    <div class="column column7 match62"></div>'
+		 .  '    <div class="column column5 match92"></div>'
+		 .  '    <div class="column column6 match94" style="padding-top:20px;"></div>'
+		 .  '    <div class="column column7 match93"></div>'
 		 .  '  </div>'		 
 		 .  '</div>';
 	}
@@ -238,10 +242,10 @@ function jsGAMRender($mobile) {
 	$outp.= '<div class="ga-madness">'
 		 .  '<div class="region-titles">'
 		 .	'  <div class="region-left">'
-		 .	'    <h2>Compound</h2>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"handgunsmadness"))
+		 .	'    <h2>Compound A</h2><div id="div-bob_region_sponsor_1"></div>'
 		 .	'  </div>'
 		 .	'  <div class="region-right">'
-		 .	'    <h2>Compound</h2>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"riflesmadness"))
+		 .	'    <h2>Compound B</h2><div id="div-bob_region_sponsor_2"></div>'
 		 .	'  </div>'
 		 .	'</div>'
 		 
@@ -258,26 +262,26 @@ function jsGAMRender($mobile) {
 		 .	'  <div class="column column4"></div>'
 		 .  '</div>';
 
-	if($madnessround < 7) {		 
+	if($madnessround > 5 && $madnessround < 8 ) {		 
 	$outp.= '<div class="regions region-final"	>'
 		 .  '  <div class="finalsadvert">'
-		 .       get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"presentingmadness"))
+		 .  ' <div id="bob_presenting_sponsor"></div>'		
 		 .  '  </div>'
-		// .  '  <div class="final-wrapper">'
-		//.  '    <h2>Final Round</h2>'
-		// .  '    <div class="column column5 match61"></div>'
-		// .  '    <div class="column column6 match63"></div>'
-		// .  '    <div class="column column7 match62"></div>'
-		 //.  '  </div>'		 
+		 .  '  <div class="final-wrapper">'
+		 .  '    <h2>Final Round</h2>'
+		 .  '    <div class="column column5 match92"></div>'
+		 .  '    <div class="column column6 match94"></div>'
+		 .  '    <div class="column column7 match93"></div>'
+		 .  '  </div>'		 
 		 .  '</div>';
 	}
 		 
 	$outp.= '<div class="region-titles">'
 		 .	'  <div class="region-left">'
-		 .	'    <h2>Crossbows</h2>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"arsmadness"))
+		 .	'    <h2>Crossbows A</h2><div id="div-bob_region_sponsor_3"></div>'
 		 .	'  </div>'
 		 .	'  <div class="region-right">'
-		 .	'    <h2>Crossbows</h2>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"shotgunsmadness"))
+		 .	'    <h2>Crossbows B</h2><div id="div-bob_region_sponsor_4"></div>'
 		 .	'  </div>'
 		 .	'</div>'
 
@@ -306,9 +310,10 @@ function jsGAMRender($mobile) {
 		 .  '	getGAMData(3,3);getGAMData(3,4);getGAMData(3,5);'
 		 .  '	getGAMData(4,3);getGAMData(4,4);getGAMData(4,5);'
 	
-		 .  '	getGAMData(0,"61,62,63");'
+		 .  '	getGAMData(0,"92,93,94");'
 		 .  '   getStats();'
 		 .  '   setTimeout(function(){makeGAMPopup()}, 1000);'
+
 		 .	'});';
 
 	$outp.= '</script>';
