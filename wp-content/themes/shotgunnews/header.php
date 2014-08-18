@@ -75,6 +75,7 @@
 		$subs_form_link = get_option('subs_form_link' );
 		$i4ky = get_option('i4ky' );
 		$dartDomain = get_option("dart_domain", $default = false);
+		include_once get_template_directory() . "/head-includes.php";
 		include_once get_stylesheet_directory() . "/head-includes.php";
 	?>
 	<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
