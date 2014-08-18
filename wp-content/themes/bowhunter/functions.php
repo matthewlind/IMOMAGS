@@ -12,29 +12,6 @@ define("RSS_LINK", "http://www.bowhunter.com/feed/");
 define("SITE_LINK", "bowhunter.com");
 define("SITE_NAME", "Bowhunter");
 
-function imo_sidebar($type){
-	//Speed up mobile load time by not loading sidebar in the background
-	if(!mobile()){
-		$dartDomain = get_option("dart_domain", $default = false);
-		echo '<div class="sidebar-area">';
-			echo '<div class="sidebar">';
-				echo '<div class="widget_advert-widget">';
-				imo_dart_tag("300x250");
-				echo '</div>';
-			echo '</div>';
-		    get_sidebar($type);
-
-			    	echo '<div id="responderfollow"></div>';
-					echo '<div class="sidebar advert">';
-						echo '<div class="widget_advert-widget">';
-							echo '<iframe id="sticky-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-sticky.php?ad_code='.$dartDomain.'"></iframe>';
-						echo '</div>';
-						get_sidebar("sticky");
-					echo '</div>';
-		echo '</div>';
-	}
-}
-
 function social_networks(){
 	echo '<div class="socials">';
 		echo '<a href="'.FACEBOOK_LINK.'" class="facebook">Facebook</a>';
@@ -64,4 +41,6 @@ function social_footer(){ ?>
 		<?php social_networks(); ?>
 	</div>
 <?php }
+
+
 
