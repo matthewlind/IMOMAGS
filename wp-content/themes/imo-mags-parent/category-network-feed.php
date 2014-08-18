@@ -52,7 +52,7 @@ imo_sidebar(); ?>
 	<div id="content" role="main" class="<?php echo $h1Class; ?> general-frame">
 		<?php if(function_exists('z_taxonomy_image_url')){ 
         	if ($imageURL) {
-            	echo '<div class="sponsor"><?php imo_dart_tag("240x60"); ?></div>';
+            	echo '<div class="sponsor">'.imo_ad_placement("sponsor_logo_240x60")'.</div>';
             	echo '<div class="category-img"><img src="'.$imageURL.'" alt="'.single_cat_title( '', false ).'" title="'.single_cat_title( '', false ).'" /></div>';
 			}
         }
@@ -71,7 +71,7 @@ imo_sidebar(); ?>
 			    </h1>
 			    <?php if(function_exists('z_taxonomy_image_url')){ 
                 	if ($imageURL == false){ ?>
-						<div class="sponsor"><?php imo_dart_tag("240x60"); ?></div>
+						<div class="sponsor"><?php imo_ad_placement("sponsor_logo_240x60"); ?></div>
                 <?php } } ?>  
 			<?php } ?>
             </div>
@@ -149,7 +149,7 @@ imo_sidebar(); ?>
 			        	
 			            <?php if ( mobile() ){ ?>
 			            <div class="image-banner posts-image-banner">
-			                <?php imo_dart_tag("300x250",array("pos"=>"mob")); ?> 
+			                <?php imo_ad_placement("mobile_leaderboard_320x50"); ?>	
 			            </div>
 			            <?php } ?>
 			        <?php endif;

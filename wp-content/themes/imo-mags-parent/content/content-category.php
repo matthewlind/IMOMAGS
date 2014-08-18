@@ -5,7 +5,7 @@
         printf('<span>' . single_cat_title( '', false ) . '</span>' );
         ?>
     </h1>
-    <div class="sponsor"><?php imo_dart_tag("240x60"); ?></div>
+    <div class="sponsor"><?php imo_ad_placement("sponsor_logo_240x60"); ?></div>
 </div>
 
 <?php
@@ -89,7 +89,7 @@ if( $playerID && $playerKey ){ ?>
 
         <?php if ( mobile() ){ ?>
         <div class="image-banner posts-image-banner">
-            <?php imo_dart_tag("300x250",array("pos"=>"mob")); ?>
+            <?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>
         </div>
         <?php } ?>
     <?php endif;?>

@@ -34,7 +34,7 @@ the_post();
 		</div>
 		<div id="responderfollow"></div>
 		<div class="sidebar advert">
-			<?php imo_dart_tag("300x250",false,array("pos"=>"btf")); ?>
+			<?php imo_ad_placement("btf_medium_rectangle_300x250"); ?>
 			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('scroll-sidebar')) : else : ?><?php endif; ?>
 		</div>
 

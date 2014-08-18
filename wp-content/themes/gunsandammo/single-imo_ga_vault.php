@@ -4,7 +4,7 @@
             <div id="content" role="main">
 				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="facts-header clearfix js-responsive-section">
 		            <h1>G&A Vault</h1><span>Instantly increase your gun knowledge</span>
-					<div class="sponsor"><?php echo get_imo_dart_tag("240x60",1,false,array("page"=>"ga_vault","sect"=>"ga_vault")); ?></div>
+					<div class="sponsor"><?php imo_ad_placement("sponsor_logo_240x60"); ?>	</div>
 				</div>
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="facts js-responsive-section">
 				    <?php while ( have_posts() ) : the_post(); ?>
@@ -20,7 +20,7 @@
 				
 				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="facts-footer js-responsive-section">
 		        	<ul>
-		        		<li class="widgets"><?php imo_dart_tag("300x250"); ?></li>
+		        		<li class="widgets"><?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>	</li>
 		        		<li class="widgets">
 		        			<h3>Related Stories</h3>
 							<div class="fancy">

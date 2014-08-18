@@ -155,8 +155,6 @@ jQuery(document).ready(function () {
 			jQuery("#tiptip_holder").hide();
 			jQuery(".snap-drawer-right").hide();
 			jQuery(".snap-drawer-left").show();
-			//var _gaq = _gaq || [];
-        	_gaq.push(['_trackPageview',"/" + window.location.pathname + "-mobile-menu-open"]);
 			document.getElementById('menu-iframe-ad').contentWindow.location.reload();
 			snapper.open("left");
 
