@@ -52,7 +52,7 @@ $app->get('/products', function () {
 
 		// Added by Ben Gray
 		if (strstr($site,"gunsandammo") || strstr($site,"handgunsmag") || strstr($site,"rifleshootermag") || strstr($site,"shootingtimes") || strstr($site,"shotgunnews")) {
-			$slug = "shooting";
+			$slug = "guns";
 		}
 
 
