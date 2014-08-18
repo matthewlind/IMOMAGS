@@ -51,7 +51,7 @@ else if (is_single()) {
 
     }
 
-    if ($post->post_type == "reviews"){
+    /*if ($post->post_type == "reviews"){
     	$terms = wp_get_post_terms( $post->ID, "guntype");
 
     	$count = 0;
@@ -66,7 +66,7 @@ else if (is_single()) {
         	$term .= ",";
         $term .= "post_type_review";
 
-    }
+    }*/
 
     if (get_option("dart_domain") == "imo.floridasportsman") {
 
