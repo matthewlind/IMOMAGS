@@ -127,7 +127,7 @@ if ( is_user_logged_in() ) {
             <img src="wp-content/plugins/imo-community/solunar/images/banner/banner-back.jpg" width="1020" height="176" alt="" />
         </div>
         <div class="sponsor">
-        	<?php imo_dart_tag("240x60"); ?>
+        	<?php imo_ad_placement("sponsor_logo_240x60"); ?>
         </div>
         <div class="location-box jq-custom-form">
             <form action="#">

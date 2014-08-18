@@ -87,6 +87,7 @@
 		$subs_form_link = get_option('subs_form_link' );
 		$i4ky = get_option('i4ky' );
 		$dartDomain = get_option("dart_domain", $default = false);
+		include_once get_template_directory() . "/head-includes.php";
 		include_once get_stylesheet_directory() . "/head-includes.php";
 	?>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/dart.js" type="text/javascript"></script>
@@ -241,19 +242,9 @@
 </div>
 
 <?php fixed_connect_footer(); ?>
-<!-- Site - Bowhunter -->
-<div id='div-gpt-ad-1386788577276-9'>
-	<script type='text/javascript'>
-		googletag.cmd.push(function() { googletag.display('div-gpt-ad-1386788577276-9'); });
-	</script>
-</div>
-<?php if (mobile() == false && tablet() == false) {
-	echo '<div class="expandable">';
-		imo_dart_tag("1080x90");
-	echo '</div>';
-} ?>
+
 <div id="page" class="snap-content smooth-menu">
-<?php if (mobile() == false && tablet() == false) { imo_dart_tag("1x1",false,array("pos"=>"skin")); } ?>
+	<?php if (mobile() == false && tablet() == false) { imo_ad_placement("site_skin_1x1"); } ?>
 	<div class="hfeed wrapper <?php if(get_field("full_width") == true){ echo ' full-width full-content'; }else if(is_single() && has_post_format( 'video' ) || is_category("tv")){ echo ' tv-show full-content'; } ?>" data-role="content" role="main">
 	    <div class="layout-frame">
 	        <div id="branding" class="header clearfix" role="banner">
@@ -480,11 +471,11 @@
         <div class="content-banner-section">
          	<?php if (mobile() == false) { ?>
         	<div class="mdl-banner">
-				 <?php imo_dart_tag("728x90"); ?>
+				<?php imo_ad_placement("atf_leaderboard_728x90"); ?>
 			</div>
 			<?php }else{ ?>
 				<div class="mob-mdl-banner">
-					<?php imo_dart_tag("320x50",true); ?>
+					<?php imo_ad_placement("mobile_leaderboard_320x50"); ?>
 				</div>
 			<?php } ?>
         </div>

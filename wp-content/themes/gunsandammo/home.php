@@ -52,7 +52,7 @@ get_header(); ?>
 					        <div class="icon"></div>
 					        <span><?php echo $videoTitle; ?></span>
 					    </h2>
-					    <div class="sponsor"><?php echo get_imo_dart_tag("240x60",1,false,array("camp"=>"$camp")); ?></div>
+					    <div class="sponsor"><?php imo_ad_placement("sponsor_logo_240x60"); ?>	</div>
 		            </div>
 
 					<!-- Start of Brightcove Player -->
@@ -170,7 +170,7 @@ get_header(); ?>
                     <?php if ( (($i - (($paged -1) * 2 ))%6) == 0 ): ?>
                         <?php if ( mobile() ){ ?>
                         <div class="image-banner posts-image-banner">
-                            <?php imo_dart_tag("300x250",array("pos"=>"mob")); ?>
+                            <?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>
                         </div>
                         <?php } ?>
                     <?php endif;?>

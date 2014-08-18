@@ -14,7 +14,7 @@ $acf_byline = get_field("byline",$postID);
 <div id="post-<?php the_ID(); ?>" <?php post_class('full-post'); ?>>
     <?php if ( is_single() ) : ?>
     <?php if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(); } ?>
-    <div class="sponsor"><?php imo_dart_tag("240x60"); ?></div>
+    <div class="sponsor"><?php imo_ad_placement("sponsor_logo_240x60"); ?></div>
     <div class="post-header">
         <h1 class="entry-title"><?php the_title(); ?></h1>
         <?php else : ?>
@@ -34,7 +34,7 @@ $acf_byline = get_field("byline",$postID);
 
     <?php if ( mobile() ){ ?>
     <div class="image-banner posts-image-banner">
-        <?php imo_dart_tag("300x250",array("pos"=>"mob")); ?>
+        <?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>
         <small>ADVERTISEMENT</small>
     </div>
     <?php } ?>
@@ -53,7 +53,7 @@ $acf_byline = get_field("byline",$postID);
         		
         <?php the_widget('imo_related_footer_widget'); ?>
 
-	    <?php imo_dart_tag("564x252"); ?>
+	    <?php imo_ad_placement("e_commerce_widget"); ?>	
 
 	    <?php if ( function_exists('yarpp_plugin_activate') ): ?>
 		    <?php if ( isset_related_posts() ): ?>

@@ -38,23 +38,6 @@ if(!function_exists('_log')){
   }
 }
 
-function imo_community_sidebar(){
-	$dartDomain = get_option("dart_domain", $default = false);
-	echo '<div class="sidebar-area">';
-		echo '<div class="afs_ads">&nbsp</div>';
-		echo '<label class="upload-button">';
-        echo '<a href="/add-new-photo/"><span class="singl-post-photo"><span>Share Your Photo Now!</span></span></a>';
-        echo '<input id="image-upload" class="common-image-upload" type="file" name="photo-upload">';
-		echo '</label>';
-		echo '<div class="sidebar">';
-			echo '<div class="widget_advert-widget">';
-			echo '<iframe id="community-iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?ad_code='.$dartDomain.'"></iframe>';
-			echo '</div>';
-		echo '</div>';
-		get_sidebar("community");
-	echo '</div>';
-}
-
 function social_networks(){
 	echo '<div class="socials">';
 		echo '<a href="'.FACEBOOK_LINK.'" class="facebook" target="_blank">Facebook</a>';

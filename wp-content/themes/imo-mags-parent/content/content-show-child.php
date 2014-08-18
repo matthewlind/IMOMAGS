@@ -30,7 +30,7 @@ $videoLink = !empty($postID) ? get_permalink($postID) :  site_url() . $_SERVER['
 		<div class="sidebar-area">
 			<div class="sidebar">
 				<div class="widget_advert-widget">
-				<?php imo_dart_tag("300x250"); ?>
+					<?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>
 				</div>
 			</div>
 			<?php get_sidebar(); ?>

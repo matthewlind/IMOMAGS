@@ -16,7 +16,7 @@ $acfID = 'category_' . $id; ?>
 	<div class="sidebar-area">
 		<div id="responderfollow"></div>
 		<div class="sidebar advert">
-			<div class="widget_advert-widget widget"><?php imo_dart_tag("300x250",array(pos=>btf)); ?></div>
+			<div class="widget_advert-widget widget"><?php imo_ad_placement("btf_medium_rectangle_300x250"); ?></div>
 			<?php the_widget( 'imo\SubscribeWidget' ); ?>	
 		</div>
 	</div>

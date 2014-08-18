@@ -347,13 +347,13 @@ $post_type = str_replace("-", " ", $post_type_primary)
 	    </div>
 	</div>
 	<?php if(!mobile()){ ?>
-		<div class="slider-sidebar"><?php imo_dart_tag("300x50"); ?></div>
+		<div class="slider-sidebar"><?php imo_ad_placement("atf_medium_rectangle_300x250"); ?></div>
 	<?php } ?>
 </div>
 <?php imo_sidebar("community"); ?>
 <div class="general general-com">
 	<?php if(mobile()){ ?>
-		<div class="slider-sidebar-mobile"><?php imo_dart_tag("300x50"); ?></div>
+		<div class="slider-sidebar-mobile"><?php imo_ad_placement("mobile_leaderboard_320x50"); ?></div>
 	<?php } ?>
 
 
