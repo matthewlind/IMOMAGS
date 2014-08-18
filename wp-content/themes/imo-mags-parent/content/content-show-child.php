@@ -28,7 +28,7 @@ $slug_tv = get_post( $post )->post_name;
 	}
 </style>
 <div id="show-destination" playerID="<?php echo get_field("tv_player_id","options"); ?>" adServerURL="<?php echo $adServerURL; ?>" videoLink="<?php echo $videoLink; ?>">
-	<?php get_template_part( 'content/show-header' ); ?>
+	<?php get_template_part( 'content/tv-show/show-header' ); ?>
 		<div class="sidebar-area">
 			<div class="sidebar">
 				<div class="widget_advert-widget">
@@ -55,12 +55,9 @@ $slug_tv = get_post( $post )->post_name;
 			</div><!-- end of .show-child-general-frame -->
 		</div><!-- end of .show-child-general -->
 	</div><!-- end of #shows_player_area :::: this div ends an open div in the show header template-->
-	<div id="shows-player-area">
+	<div class="shows-player-area">
 		<div class="schedule-area">
-			<div class="w-on-sportsman">
-				
-			</div>
-			<div class="show-child-general">
+			<div class="schedule-area-left">
 				<div class="w2w-box">
 					<div class="w2w-schedule">
 						<h1>WHEN TO WATCH</h1>
@@ -100,10 +97,45 @@ $slug_tv = get_post( $post )->post_name;
 						    </div>
 					</div><!-- end of .w2w-get-sport -->
 				</div><!-- end of .w2w-box -->
-			</div><!-- end of .show-child-general -->	
-				
+			</div><!-- end of .schedule-area-left -->	
+			
+			
+			<div class="w-sport">
+				<div class="w-sport-head">
+					<h2>WHAT'S ON<br>SPORTSMAN NOW</h2>
+					<img src="/wp-content/themes/imo-mags-parent/images/ico/schedule-widget-logo.png">
+				</div>
+				<div class="w-sport-schedule">
+					<ul>
+						<li>
+							<span>3:00PM</span><br>
+							<span>Saltwater Experience</span>
+						</li>
+						<li>
+							<span>3:30PM</span><br>
+							<span>Reel Time Florida Sportsman</span>
+						</li>
+						<li>
+							<span>4:00PM</span><br>
+							<span>Saltwater Experience</span>
+						</li>
+						<li>
+							<span>4:30PM</span><br>
+							<span>Reel Time Florida Sportsman</span>
+						</li>
+						<li>
+							<span>4:00PM</span><br>
+							<span>Saltwater Experience</span>
+						</li>
+					</ul>
+					<div class="w-sport-button">
+						<a href="#">FULL SCHEDULE</a>
+					</div>
+				</div>
+			</div><!-- end of .w-sport -->
+	
 		</div><!-- end of .schedule-area -->
-	</div><!-- end of #shows-player-area -->
+	</div><!-- end of .shows-player-area -->
 	<div id="imo-store">
 			
 	</div>

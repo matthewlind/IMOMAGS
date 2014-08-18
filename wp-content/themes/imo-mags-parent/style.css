@@ -2779,14 +2779,16 @@ margin-bottom:15px;
 /*** Video & Show Pages ***
 ********************************************************
 ********************************************************/
+#show-featured {background-color: white; padding-top: 50px; font-family: 'Open Sans', Helvetica, Arial, sans-serif;}
+#show-featured #video-filter {margin: 0 0 20px 3px;}
 #show-featured #video-thumbs{padding-bottom: 60px;}
-#show-featured #video-thumbs li {width: 248px;vertical-align: top;}
-#show-featured .thumbs-full{margin-bottom: 0;}
-#show-featured .thumbs-full img{width: 248px;height: 165px;border: none;}
-#show-featured #video-thumbs li h3 {text-align:left;color: black;position: relative;padding: 2px;font-size: 1em;margin: 0;bottom: auto;background-color: white;}
+#show-featured #video-thumbs li {width: 22%;vertical-align: top;margin: 0 1.3% 20px;}
+#show-featured .thumbs-full{margin-bottom: 0; padding: 0 25px;}
+#show-featured .thumbs-full img{width: 100%;height: auto;border: none;}
+#show-featured #video-thumbs li h3 {text-align:left;color: black;position: relative;padding: 2px;font-size: 13px;margin: 0;bottom: auto;background-color: white;padding-top: 9px;}
 #show-destination .inner-main, #show-destination .thumbs-full, #show-destination .sidebar-area{background: white;}
 #show-destination .inner-main{padding: 80px 30px 0;}
-#show-destination  .play-btn{background:url(images/shows/play-btn.png) no-repeat;width: 47px;height: 47px;position: absolute;left: 0;top: 56px;margin: auto;right: 0;}
+#show-destination  .play-btn{background:url(images/shows/play-btn.png) no-repeat;width: 47px;height: 47px;position: absolute;left: 0;top: 29%;margin: auto;right: 0;}
 #sponsors-area{min-height: 660px;padding: 30px 0;}
 #sponsors-area ul{margin-top: 30px;}
 #sponsors-area .sponsor-img{display: inline-block;margin: 0 30px 30px 0;}
@@ -2839,12 +2841,13 @@ margin-bottom:15px;
 	float: left;
 	width: 200px;
 	height: 122px;
+	padding: 15px;
 }
 .tv-show .shows-logo img {
-  	position: absolute;
-	top: -5px;
-	width: 174px;
-	margin-left: 15px;
+  	position: relative;
+	top: 28px;
+	width: 100%;
+	margin-left: 0;
 }
 .tv-show .shows-title {
 	float: left;
@@ -2859,13 +2862,13 @@ margin-bottom:15px;
 	text-align: left;
 }
 .tv-show .shows-title .fb_iframe_widget {
-	margin-top: 10px;
+	margin-top: 0;
 }
 .tv-show .shows-sponsor {
 	float: right;
-	width: 200px;
-	height: 122px;
-	margin-top: 15px;
+	max-width: 200px;
+	max-height: 117px;
+	margin: 15px 15px 0 0;
 }
 .tv-show .shows-sponsor span {
 	font-family: 'open_sanssemibold', Helvetica, Arial, sans-serif;
@@ -2893,7 +2896,7 @@ margin-bottom:15px;
 .tv-show #shows-nav ul {
 	padding: 0 20px 0 20px;
 	vertical-align: middle;
-	line-height: 40px;
+	line-height: 43px;
 	display: inline-block;
 }
 .tv-show #shows-nav ul li {
@@ -2903,17 +2906,17 @@ margin-bottom:15px;
 .tv-show #shows-nav ul li a {
 	color: #ffffff;
 	font-family: 'jubilat', serif;
-	font-size: 16px;
+	font-size: 18px;
 	font-weight: 400;
-	padding: 5px 15px;
+	padding: 0 15px;
 }
 .tv-show #shows-nav ul li a:hover {
 	color: #e8e1c5;
 }
-.tv-show #shows-player-area {
+.tv-show .shows-player-area {
 	width: 100%;
 	background-color: #252525;
-	padding: 0 35px 40px;
+	padding: 12px 35px 40px;
 	overflow: hidden;
 }
 /* when to watch ==================================== */
@@ -2938,14 +2941,19 @@ margin-bottom:15px;
 	border-left: 2px solid #848484;
 	height: 49px;
 	padding-left: 20px;
+	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+.tv-show .schedule-item:nth-child(n+5) {
+	display: none;
 }
 .tv-show .schedule-item .episode-title {
 	color: #80b880;
-	font-size: 16px;
+	font-size: 15px;
+	font-weight: bold;
 }
 .tv-show .schedule-item .episode-time {
 	color: #ffffff;
-	font-size: 16px;
+	font-size: 15px;
 	display: block;
 }
 
@@ -3181,9 +3189,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 	padding-bottom: 20px;
 	background: transparent;
 }
-.page-template-show-page-php #shows-player-area {
+.page-template-show-page-php .shows-player-area {
 	background-color: white;
 	padding-top: 8px;
+}
+.page-template-show-page-php .schedule-item .episode-time {color: black;}
+.page-template-show-page-php .tv-show .schedule-item {border-left: 2px solid #C7C7C7;}
+.page-template-show-page-php .tv-show #when-to-watch .when-label h3 {color: black;}
+.page-template-show-page-php .tv-show #when-to-watch {
+	margin-bottom: 35px;
+	height: 111px;
+	border-image-slice: 30;
+	border-image-width: 0 0 12px 0;
+	border-image-outset: 6px 0px 0px 0px;
+	border-image-repeat: repeat repeat;
+	border-image-source: url("/wp-content/themes/imo-mags-parent/images/temp/stripe12.png");
 }
 
 /* tv-show about page ==================================== */
@@ -3367,6 +3387,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 /* tv-show * When to Watch * and * What on Sportsman * ================= */
 
 .tv-show .schedule-area {
+	position: relative;
 	width: 100%;
 	padding-top: 35px;
 	background: white;
@@ -3376,10 +3397,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 	border-image-repeat: repeat repeat; 
 	border-image-source: url("/wp-content/themes/imo-mags-parent/images/temp/stripe12.png");
 }
+.schedule-area-left {
+	padding-right: 380px;
+}
 .tv-show .w2w-box {
 	background-color: #252525;
-	width: 630px;
-	padding-bottom: 20px;
+	width: 100%;
 	text-align: center;
 	padding: 35px 20px;
 	color: white;
@@ -3416,24 +3439,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 .tv-show .w2w-list li {
 	margin-bottom: 10px;
 }
-.w-on-sportsman {
-	height: 400px;
-	background-color: #ffd900;
-	float: right;
-	width: 310px;
-	padding: 30px 0 0;
-}
 .w2w-get-sport img {
 	max-width: 300px;
 	margin: 30px 0;
 }
-
-
-
-
 /* sportsman locator ==================================== */
 
-
+.w2w-get-sport h4 {
+	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+	font-weight: bold;
+}
 .tv-show .channelControlsContainer {
 	margin-top: 20px;
 }
@@ -3444,20 +3459,20 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 	width: 128px;
 	height: 40px;
 	background-color: #555555;
-	color: #cccccc;
+	color: #f4f4f4;
 	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-	font-size: 13px;
-	border:1px solid #777777;
+	font-size: 14px;
+	border:1px solid #888888;
 	text-align: center;
-	margin-right: 28px;
+	margin-right: 25px;
 }
 .tv-show .channelControls a {
 	margin-top: 2px;
 }
 .tv-show .channelControls a input {
 	width: 170px;
-	height: 40px;
-	margin: 0px 20px 0 0;
+	height: 41px;
+	margin: 0;
 	background: rgba(99,140,94,1);
 	background: -moz-linear-gradient(top, rgba(99,140,94,1) 0%, rgba(99,140,94,1) 44%, rgba(61,99,61,1) 100%);
 	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(99,140,94,1)), color-stop(44%, rgba(99,140,94,1)), color-stop(100%, rgba(61,99,61,1)));
@@ -3474,17 +3489,60 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 	font-weight:bold;
 }
 
-
-
-
-
-
-
-
-
-
-
-
+/* WHAT'S ON SPORTSMAN NOW ==================================== */
+.w-sport {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin-top: 35px;
+	width: 310px;
+	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+.w-sport-head {
+	background-color: #003965;
+	padding: 12px 20px 18px;
+	width: 100%;
+	color: white;
+	position: relative;
+}
+.w-sport-head h2 {
+	font-size: 24px;
+}
+.w-sport-head img {
+	position: absolute;
+	right: 10px;
+	top: 17px;
+}
+.w-sport-schedule {
+	background-color: #ebebeb;
+	padding: 20px;
+}
+.w-sport-schedule ul {
+	margin-bottom: 26px;
+}
+.w-sport-schedule ul li {
+	margin-bottom: 18px;
+}
+.w-sport-schedule ul li span:first-child {
+	font-size: 16px;
+}
+.w-sport-schedule ul li span:last-child {
+	color: #cd0e02;
+}
+.w-sport-button {
+	background-image: url("/wp-content/themes/imo-mags-parent/images/btn/button.png");
+	width: 196px;
+	height: 44px;
+}
+.w-sport-button a {
+	padding: 10px 20px;
+	display: block;
+	color: #003965;
+	font-weight: 600;
+}
+.w-sport-button a:hover {
+	color: #1f68a0;
+}
 
 
 
@@ -3527,8 +3585,8 @@ box-sizing: border-box;
 
 /*** video filter ***/
 #video-filter li{display: inline-block;padding: 10px;}
-#video-filter li a{color: #252525;padding: 4px 10px;cursor: pointer;}
-#video-filter li a.video-thumb-active{color: white;background: #252525;}
+#video-filter li a{color: #252525;padding: 5px 10px;cursor: pointer; font-size: 16px;}
+#video-filter li a.video-thumb-active{color: white;background: #555555;}
 .no-mo-videos{text-align: center;padding: 80px 0 20px;}
 
 /*** Border to Border Show ***
@@ -4150,6 +4208,7 @@ box-sizing: border-box;
 .full-content .logo{
    width:130px;
    height:auto;
+   margin: 4px 0 0 18px;
 }
 .full-content .logo img{width:130px;}
 .full-content .user-btn, 
@@ -5311,14 +5370,14 @@ table.likes-leaderboard .entry-title {
 	}
 	.fixed-connect .follow{display: none;}
 	
-	#shows-player-area {
-		width: 100%;
-	}
-	.tv-show .general {
-		width: 100%;
-	}
+	.shows-player-area {width: 100%;}
+	.tv-show .general {width: 100%;}
 	
 	/* TV Show Pages **************/
+	.tv-show #when-to-watch .when-label h3 {font-size: 20px;}
+	.tv-show .schedule-item{margin: 5px 0 0 20px;}
+	
+	#show-featured #video-thumbs li {margin: 0 1.2% 20px;}
 	
 	.show-child-general{padding: 0 20px 0 0;border: 0;overflow: hidden;width: auto;display: block;float: none;}
 	.show-child-general-frame {width: auto;}
@@ -5328,9 +5387,15 @@ table.likes-leaderboard .entry-title {
 	.tv-show .m-shows-copy {width: 100%;}
 	
 	.tv-show .schedule-area {width: auto;}
-	.tv-show .w2w-box {width: auto;}
+	.schedule-area-left {padding-right: 330px;}
+	.tv-show .w2w-box {width: 100%;}
 
 } /* End of @media */
+@media only screen and (max-width: 981px) {
+	.tv-show #when-to-watch {padding-top: 20px;}
+	.tv-show .schedule-item .episode-title {font-size: 14px;}
+	.tv-show .schedule-item .episode-time {font-size: 13px;}
+}/* End of @media */
 @media only screen and (max-width: 936px) {
 	.full-post .cat-feat-label, .sponsor img{float: none;margin-top: 0;}
     .social-title {
@@ -5383,6 +5448,14 @@ table.likes-leaderboard .entry-title {
 	.fb-box {width: 300px;margin: 0 auto;display: block;}
 	
 	/* TV Show Pages **************/
+	.tv-show .shows-logo {width: 160px;}
+	.tv-show .shows-logo img {top: 30px;width: 100%;}
+	.tv-show .shows-title {max-width: 410px;}
+	.tv-show .shows-title h1 {font-size: 23px;}
+	
+	.tv-show .schedule-item .episode-title {font-size: 15px;}
+	.tv-show .schedule-item .episode-time {font-size: 15px;}
+	.tv-show .schedule-item:nth-child(n+4) {display: none;}
 	.tv-show .m-shows-buttons {width: 100%;}
 	
 	.tv-show .host-head {margin-bottom: 30px;}
@@ -5696,6 +5769,28 @@ table.likes-leaderboard .entry-title {
     .message-not-found {
         font-size:28px;
     }
+    
+    /* TV Show Pages ********/
+    .tv-show #header-top {margin: 100px 0 0 0;overflow: hidden;}
+    .tv-show .shows-logo {float: none;width: 200px;height: 122px;position: absolute;top: -21px;left: 0;right: 0;margin: auto;}
+    .tv-show .shows-title {max-width: 100%;width: 100%;margin: 20px 0 0 0;}
+	.tv-show .shows-title h1 {font-size: 23px; text-align: center;}
+	.tv-show .shows-title .fb_iframe_widget {display: block; text-align: center;margin-top: 7px;}
+    .tv-show .shows-sponsor span {display: none;}
+    .tv-show .shows-sponsor img {display: none;}
+    .tv-show .shows-player-area {padding: 20px 20px 40px;}
+    .tv-show #shows-nav ul { padding: 1px 20px 0 20px;}
+    .tv-show #when-to-watch {display: none;}
+    
+    .w2w-schedule .btn-green {width: 100%;}
+    .w2w-get-sport img {max-width: 100%;}
+    /* Sportsman locator ********/
+	.tv-show .channelControlsContainer {margin-top: 20px;}
+	.tv-show .channelControlsContainer #channelControls {float: left;}
+	.tv-show .channelControls #zip {margin: 0 0 20px 0;}
+	.tv-show .channelControls a {margin-top: 2px;}
+	.tv-show .channelControls a input {width: 170px;height: 41px;margin: 0;}
+
 } /* End of @media */
 @media only screen and (max-width: 700px) {
 	.search-field input{width: 90%;}
@@ -5772,6 +5867,9 @@ table.likes-leaderboard .entry-title {
         display:block;
         padding:8px 0;
     }
+    /* TV Show Pages ************/
+    #show-featured #video-thumbs li {margin: 0 1.1% 12px;}
+    
 } /* End of @media */
 
 @media only screen and (max-width: 610px) {
@@ -6121,92 +6219,35 @@ table.likes-leaderboard .entry-title {
         position:static !important;
         margin:0 auto 26px !important;
     }
-    .foot-social {
-        margin:0 0 20px;
-    }
+    .foot-social { margin:0 0 20px;}
     .hidden-widget-title {display:block;}
     .aside-video-box {margin-bottom:32px;}
-    .recipes-holder {
-        margin-bottom:20px;
-        margin-top:32px;
-    }
-    .aside-post-panel {
-        text-align:center;
-    }
+    .recipes-holder {margin-bottom:20px; margin-top:32px;}
+    .aside-post-panel { text-align:center; }
     /* footer */
-    .footer {
-        padding-bottom:0;
-    }
-    .intermedia {
-        padding:26px 0 20px;
-    }
-    .intermedia h4 {
-        font-size:20px;
-        margin:0 0 23px;
-       padding:0 10px 16px;
-    }
-    .footer h5 {
-        display:none;
-    }
-    .foot-columns {
-        padding-left:0;
-    }
-    .f-two-columns {
-        padding-left:16px;
-    }
-    .f-two-columns .column {
-        display:block;
-        width:100%;
-        clear:both;
-    }
-    .intermedia-list li {
-        padding:0 0 8px;
-    }
-    .intermedia-list a img {
-        display:none;
-    }
-    .intermedia-list a span {
-        display:block;
-    }
-    .intermedia-list a {
-        color:#6e6e6e;
-        font:14px/1.2 Helvetica, Arial, sans-serif;
-    }
+    .footer {padding-bottom:0;}
+    .intermedia { padding:26px 0 20px;}
+    .intermedia h4 {font-size:20px;margin:0 0 23px; padding:0 10px 16px;}
+    .footer h5 {display:none;}
+    .foot-columns { padding-left:0;}
+    .f-two-columns { padding-left:16px;}
+    .f-two-columns .column { display:block; width:100%; clear:both;}
+    .intermedia-list li { padding:0 0 8px;}
+    .intermedia-list a img {display:none;}
+    .intermedia-list a span { display:block;}
+    .intermedia-list a { color:#6e6e6e; font:14px/1.2 Helvetica, Arial, sans-serif;}
     .intermedia-list a:hover {color:#836c03;}
-    .f-nav-section {
-        padding:20px 0 12px 5px;
-    }
-    .mobile-element-320 {
-        display:block;
-    }
-    .foot-nav {
-       float:none;
-        width:100%;
-        text-align:center;
-        font-weight:bold;
-    }
-    .foot-nav li {
-        float:none;
-        text-align:center;
-        padding:0 0 10px;
-    }
-    .cbp-spmenu-vertical {
-         width:228px;
-    }
-    .mobile-orientation.cbp-spmenu-push-toright .wrapper {
-        left: 228px;
-    }
-   .mobile-menu-banner img {
-        margin-top:-6px;
-    }
+    .f-nav-section {padding:20px 0 12px 5px;}
+    .mobile-element-320 {display:block;}
+    .foot-nav {float:none;width:100%;text-align:center;font-weight:bold;}
+    .foot-nav li { float:none;text-align:center;padding:0 0 10px;}
+    .cbp-spmenu-vertical { width:228px;}
+    .mobile-orientation.cbp-spmenu-push-toright .wrapper {left: 228px;}
+	.mobile-menu-banner img {margin-top:-6px;}
 
-    .menu-subscribe a {
-        font-size:15px;
-        padding:10px 5px 10px 70px;
-    }
-    .menu-subscribe a img {
-        width:50px;
-    }
+    .menu-subscribe a {font-size:15px;padding:10px 5px 10px 70px;}
+    .menu-subscribe a img {width:50px;}
+    
 	.posts-list .article-brief{margin-top: 10px;}
 	.fixed-connect.fixed-connect-mobile{top: 0;bottom: auto;width: 100%;height: auto;display: none;}
 	.fixed-connect.fixed-connect-mobile .currentIssue{display: none;}
@@ -6214,9 +6255,16 @@ table.likes-leaderboard .entry-title {
 	.fixed-connect.fixed-connect-mobile .close{margin-top: 5px;}
 	
 	/* TV Show Pages **************/
-	.tv-show #shows-player-area {padding: 0 20px 40px;}
+	#show-featured #video-thumbs li {width: 30%;margin: 0 1.25% 12px;}
+	#show-featured .thumbs-full {padding: 0 10px;}
+	
+	.tv-show .shows-player-area {padding: 12px 20px 40px;}
 	.show-child-general {padding: 0;}
 	.tv-show .host-info img {max-width: 300px;}	
+	
+	.schedule-area-left {padding-right: 0;}
+	.tv-show .w2w-box {width: 100%;}
+	.w-sport {position: relative;width: 100%;}
 } /* End of @media */
 @media only screen and (max-width: 510px) {
     .entry-content-holder {
@@ -6233,6 +6281,10 @@ table.likes-leaderboard .entry-title {
         bottom:18px;
     }
     .header .socials, #subscribe-area{display: none;}
+    
+    /* TV Show Pages **************/
+    #show-featured #video-thumbs li {width: 42%;margin: 0 3.6% 12px;}
+    
 } /* End of @media */
 @media only screen and (max-width: 460px) {
 	.posts-list .article-brief img{float:none;width: 100%;}

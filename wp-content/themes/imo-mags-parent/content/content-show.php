@@ -38,8 +38,8 @@ if( !is_single() ){
 while (have_posts()) : the_post();
 $video_id = get_post_meta(get_the_ID(), '_video_id', TRUE); ?>
 <div id="show-destination" playerID="<?php echo get_field("tv_player_id","options"); ?>" adServerURL="<?php echo $adServerURL; ?>" videoLink="<?php echo $videoLink; ?>">
-	<?php get_template_part( 'content/show-header' ); ?>
-		<div id="video-player-area">
+	<?php get_template_part( 'content/tv-show/show-header' ); ?>
+		<div class="video-player-area">
 			<div id="video-gallery" class="video-player-wrap">
 	
 				<script type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script> 
