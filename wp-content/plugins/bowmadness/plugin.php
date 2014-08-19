@@ -71,8 +71,8 @@ function renderGAMpopup($mobile) {
 						<div class="related-content">
 			    			<h4>Related Stories</h4>
 							<ul>
-			    				<li><a href="" class="mfp-player1link">Review: <span class="mfp-player1name"></span></a></li>
-								<li><a href="" class="mfp-player2link">Review: <span class="mfp-player2name"></span></a></li>
+			    				<li><a href="" target="_blank" class="mfp-player1link">Review: <span class="mfp-player1name"></span></a></li>
+								<li><a href="" target="_blank" class="mfp-player2link">Review: <span class="mfp-player2name"></span></a></li>
 							</ul>
 						</div>
 		    		</div>
