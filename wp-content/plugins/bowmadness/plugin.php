@@ -66,13 +66,13 @@ function renderGAMpopup($mobile) {
 	    		<div class="modal-footer-content">
 		    		<div class="modal-footer-content-left">
 		    			<div id="popupsponsor">
-		    				<a href="http://www.gunsandammo.com/bracket/enter/"></a>
+		    				<a href="http://www.bowhuntingmag.com/battle-of-the-bows/enter/"></a>
 		    			</div>
 						<div class="related-content">
 			    			<h4>Related Stories</h4>
 							<ul>
-			    				<li><a href="" class="mfp-player1link">Review: <span class="mfp-player1name"></span></a></li>
-								<li><a href="" class="mfp-player2link">Review: <span class="mfp-player2name"></span></a></li>
+			    				<li><a href="" target="_blank" class="mfp-player1link">Review: <span class="mfp-player1name"></span></a></li>
+								<li><a href="" target="_blank" class="mfp-player2link">Review: <span class="mfp-player2name"></span></a></li>
 							</ul>
 						</div>
 		    		</div>
@@ -262,10 +262,10 @@ function jsGAMRender($mobile) {
 		 .	'  <div class="column column4"></div>'
 		 .  '</div>';
 
-	if($madnessround > 5 && $madnessround < 8 ) {		 
+	if($madnessround < 8) {		 
 	$outp.= '<div class="regions region-final"	>'
 		 .  '  <div class="finalsadvert">'
-		 .  ' <div id="bob_presenting_sponsor"></div>'		
+		 .  ' <div id="div-bob_presenting_sponsor"></div>'		
 		 .  '  </div>'
 		 .  '  <div class="final-wrapper">'
 		 .  '    <h2>Final Round</h2>'
