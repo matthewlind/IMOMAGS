@@ -173,7 +173,7 @@
 				dataType: "json",
 
 				success: function(resp, status, jqxhr) {		
-				console.log(region); // returns ints 1, 2, 3 or 4			
+				//console.log(region); // returns ints 1, 2, 3 or 4			
 					pdata = resp.data[0];
 					pdata.mid_data_mid = pdata.id;
 					pdata.player1image_img = pdata.player1image;
@@ -422,7 +422,6 @@
 								slidecnt++;
 																
 								if(item.data.region != region) {
-									console.log('changed');
 								}
 								
 								region = parseInt(item.data.region);
