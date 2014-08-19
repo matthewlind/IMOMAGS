@@ -1,5 +1,6 @@
 	var madnessround;
 	var popads = [];
+			
 	jQuery(window).load(function() {
 		jQuery('.ga-madness ul.rounds').css("overflow","visible");
 	});
@@ -150,20 +151,20 @@
 		return M.join(' ');
 	})();
 	
-	function getRandomInt(min, max) {
-    	return Math.floor(Math.random() * (max - min + 1)) + min;
-	}
+	
 	
 	function makeGAMPopup() {
-		 
-		 var randomInt = getRandomInt(0,4);
-		 
+
+		
+		
 		 jQuery(".closedm").on("click", function() {
+			
 			var pdata;
 		 	var region = jQuery(this).data("region");
 		 	var mid = jQuery(this).data("mid");
 		 	var round = jQuery(this).data("round");
-
+		 	
+		 	
 		 	jQuery.ajax({
 				type: "GET",
 				url: "http://apps.imoutdoors.com/bracket/getMatches",
@@ -190,13 +191,8 @@
 						'zeiss' : 'zeiss-BoB-popup-358x90.jpg'
 					}
 					*/
-					popads[0] = 'maps-BoB-popup-358x90.jpg';
-					popads[1] = 'rage-BoB-popup-358x90.jpg';
-					popads[2] = 'scent-lok-BoB-popup-358x90.jpg';
-					popads[3] = 'trail-cam-BoB-popup-358x90.jpg';
-					popads[4] = 'zeiss-BoB-popup-358x90.jpg';
 					
-					var randomPopad = popads[randomInt];
+					
 					
 					var regions = {'1':'Compound A', '2':'Compound B', '3':'Crossbows A', '4':'Crossbows B'}
 					var roundtitles = {/*'2':'First Round', */'3':'First Round', '4':'Sweet Sixteen', '5':'Elite Eight', '6':'Final Four', '7':'Championship'}
@@ -205,6 +201,7 @@
 					pdata.campaign = campaigns[parseInt(pdata.region)-1];
 					
 					jQuery.magnificPopup.open({
+								
 						items: pdata,
 						inline: {
 		            		markup: jQuery('#tmplGAMpopup').html()
@@ -249,6 +246,15 @@
 							},
 							open: function() {
 								
+								popads[0] = 'maps-BoB-popup-358x90.jpg';
+								popads[1] = 'rage-BoB-popup-358x90.jpg';
+								popads[2] = 'scent-lok-BoB-popup-358x90.jpg';
+								popads[3] = 'trail-cam-BoB-popup-358x90.jpg';
+								popads[4] = 'zeiss-BoB-popup-358x90.jpg';
+								
+								var randomInt = Math.floor((Math.random() * 4) + 0);
+								
+								var randomPopad = popads[randomInt];
 								googletag.cmd.push(function() {
 									
 									googletag.display('div-bob_region_'+region+'_medium_rectangle');								
@@ -313,7 +319,7 @@
 					popads[2] = 'scent-lok-BoB-popup-358x90.jpg';
 					popads[3] = 'trail-cam-BoB-popup-358x90.jpg';
 					popads[4] = 'zeiss-BoB-popup-358x90.jpg';
-					
+					var randomInt = Math.floor((Math.random() * 4) + 0);
 					var randomPopad = popads[randomInt];
 					
 					var regions = {'1':'Compound A', '2':'Compound B', '3':'Crossbows A', '4':'Crossbows B'}
@@ -437,9 +443,9 @@
 									//+'dcopt=;tile=1;ord='+(Math.floor((Math.random()) * 100000000))+'></script>';
 									//postscribe('#gpt-ad-1386782139095-3',bidadtag);
 									
-									googletag.cmd.push(function() {
+							//		googletag.cmd.push(function() {
 										googletag.display('div-bob_region_'+region+'_medium_rectangle');
-									});
+							//		});
 									
 								}, 200);
 							}
