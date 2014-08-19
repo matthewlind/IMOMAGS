@@ -25,6 +25,8 @@
 
 		});
 		
+		
+		
 		//jQuery('#madtabs').tabs({selected: (madnessround-1)});
 		
 	});
@@ -92,9 +94,23 @@
 				resp[0].tvotes = parseInt(resp[0].tvotes);
 				var vcount = resp[0].tvotes.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 				jQuery(".ga-madness-votestats").html("<strong>Total Votes:</strong><br />"+vcount+"");
-			
+				
 			}
 		});		
+	}
+	
+	function autoPopup() {
+		var location = window.location.href;
+		var fullHash = location.split('#')[1];
+		//console.log(hash);
+		
+		if(typeof(fullHash) != 'undefined') {
+			//console.log('hash is defined and it is ' + hash);
+			//console.log(jQuery("div[data-mid='"+hash+"']").html());
+			var hashNumber = fullHash.substring(5);
+			
+			jQuery("div[data-mid='"+hashNumber+"']").trigger("click");
+		}
 	}
 	
 	function writeGAMBracket(data) {
