@@ -15,6 +15,13 @@ jQuery(document).ready(function () {
 	function heightToggle() {
 		jQuery(".m-shows-airtime").toggleClass("height-auto");
 	}
+	
+	jQuery(".air-times-btn").click(function(){
+		jQuery(this).parents().eq(2).find(".m-shows-airtimes").toggleClass("height-auto");
+	});
+	
+	
+
 	// End TV-show functions
 	
 	if(jQuery(".featured-area").length && jQuery(".posts-list").length){
