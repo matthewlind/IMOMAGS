@@ -262,10 +262,10 @@ function jsGAMRender($mobile) {
 		 .	'  <div class="column column4"></div>'
 		 .  '</div>';
 
-	if($madnessround > 5 && $madnessround < 8 ) {		 
+	if($madnessround < 8) {		 
 	$outp.= '<div class="regions region-final"	>'
 		 .  '  <div class="finalsadvert">'
-		 .  ' <div id="bob_presenting_sponsor"></div>'		
+		 .  ' <div id="div-bob_presenting_sponsor"></div>'		
 		 .  '  </div>'
 		 .  '  <div class="final-wrapper">'
 		 .  '    <h2>Final Round</h2>'
