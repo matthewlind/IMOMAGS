@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Battle of the Bows Page
+ * Template Name: Battle of the Bows Enter Page
  * Description: A full width page template without the sidebar and viral sweeps for Battle of the Bows entries.
  *
  * @package WordPress
