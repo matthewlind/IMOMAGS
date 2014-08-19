@@ -25,6 +25,8 @@
 
 		});
 		
+		
+		
 		//jQuery('#madtabs').tabs({selected: (madnessround-1)});
 		
 	});
@@ -92,9 +94,23 @@
 				resp[0].tvotes = parseInt(resp[0].tvotes);
 				var vcount = resp[0].tvotes.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 				jQuery(".ga-madness-votestats").html("<strong>Total Votes:</strong><br />"+vcount+"");
-			
+				
 			}
 		});		
+	}
+	
+	function autoPopup() {
+		var location = window.location.href;
+		var fullHash = location.split('#')[1];
+		//console.log(hash);
+		
+		if(typeof(fullHash) != 'undefined') {
+			//console.log('hash is defined and it is ' + hash);
+			//console.log(jQuery("div[data-mid='"+hash+"']").html());
+			var hashNumber = fullHash.substring(5);
+			
+			jQuery("div[data-mid='"+hashNumber+"']").trigger("click");
+		}
 	}
 	
 	function writeGAMBracket(data) {
@@ -173,7 +189,7 @@
 				dataType: "json",
 
 				success: function(resp, status, jqxhr) {		
-				console.log(region); // returns ints 1, 2, 3 or 4			
+				//console.log(region); // returns ints 1, 2, 3 or 4			
 					pdata = resp.data[0];
 					pdata.mid_data_mid = pdata.id;
 					pdata.player1image_img = pdata.player1image;
@@ -255,11 +271,12 @@
 								var randomInt = Math.floor((Math.random() * 4) + 0);
 								
 								var randomPopad = popads[randomInt];
+								
 								googletag.cmd.push(function() {
 									
-									googletag.pubads().clear('div-bob_region_'+region - 1+'_medium_rectangle');
+									googletag.pubads().clear('div-bob_region_'+ region-1 +'_medium_rectangle');
 									
-									googletag.display('div-bob_region_'+region+'_medium_rectangle');								
+									googletag.display('div-bob_region_' + region + '_medium_rectangle');								
 								
 								});
 								
@@ -399,7 +416,7 @@
 									if(region==6) {
 										jQuery("div[data-region='5'][data-idx='0'][data-round='6']").trigger("click");
 									}
-									else if(slidecnt<(8/(Math.pow(2,(round-1)))))
+									else if(slidecnt<(16/(Math.pow(2,(round-1)))))
 										jQuery.magnificPopup.instance.next();
 									else {
 										slidecnt = 0;
@@ -421,7 +438,6 @@
 								slidecnt++;
 																
 								if(item.data.region != region) {
-									console.log('changed');
 								}
 								
 								region = parseInt(item.data.region);
@@ -449,7 +465,13 @@
 									//+'dcopt=;tile=1;ord='+(Math.floor((Math.random()) * 100000000))+'></script>';
 									//postscribe('#gpt-ad-1386782139095-3',bidadtag);
 									
+									jQuery('#div-bob_region_1_medium_rectangle').empty();
+									jQuery('#div-bob_region_2_medium_rectangle').empty();
+									jQuery('#div-bob_region_3_medium_rectangle').empty();
+									jQuery('#div-bob_region_4_medium_rectangle').empty();
+									
 									googletag.cmd.push(function() {
+										//googletag.pubads().clear('div-bob_region_'+ region-1 +'_medium_rectangle');
 										googletag.display('div-bob_region_'+region+'_medium_rectangle');
 									});
 									
