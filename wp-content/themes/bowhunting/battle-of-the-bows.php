@@ -27,7 +27,7 @@ get_header(); ?>
 					<li class="madness-logo"><img src="/wp-content/plugins/bowmadness/images/BoB_logo3.png" alt="Bow Madness" title="Bow Madness" />
 					</li>
 				<?php } ?>
-				<li><a href="/battle-of-the-bows/prizes">Prizes & Rules</a></li>
+				<li><a href="/battle-of-the-bows/prizes-rules">Prizes & Rules</a></li>
 				<li><a href="/battle-of-the-bows/how-it-works">How it Works</a></li>
 			</ul>
 		</div>
