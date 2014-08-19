@@ -66,7 +66,7 @@ function renderGAMpopup($mobile) {
 	    		<div class="modal-footer-content">
 		    		<div class="modal-footer-content-left">
 		    			<div id="popupsponsor">
-		    				<a href="http://www.bowhuntingmag.com/battle-of-the-bows/enter/"></a>
+		    				<a href="http://www.bowhuntingmag.com/battle-of-the-bows/enter/" target="_blank"></a>
 		    			</div>
 						<div class="related-content">
 			    			<h4>Related Stories</h4>
