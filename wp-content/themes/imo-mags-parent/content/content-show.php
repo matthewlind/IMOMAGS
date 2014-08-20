@@ -213,7 +213,7 @@ $video_id = get_post_meta(get_the_ID(), '_video_id', TRUE); ?>
 </style>
 -->
 	
-	<div id="palce4schedule"></div>
+	<div id="palce4schedule"><?php the_widget("imo\IMOStoreWidget"); ?></div>
 
 
 	

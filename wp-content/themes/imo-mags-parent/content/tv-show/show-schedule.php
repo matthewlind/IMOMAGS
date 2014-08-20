@@ -44,37 +44,8 @@
 		
 		
 		<div class="w-sport">
-			<div class="w-sport-head">
-				<h2>WHAT'S ON<br>SPORTSMAN NOW</h2>
-				<img src="/wp-content/themes/imo-mags-parent/images/ico/schedule-widget-logo.png">
-			</div>
-			<div class="w-sport-schedule">
-				<ul>
-					<li>
-						<span>3:00PM</span><br>
-						<span>Saltwater Experience</span>
-					</li>
-					<li>
-						<span>3:30PM</span><br>
-						<span>Reel Time Florida Sportsman</span>
-					</li>
-					<li>
-						<span>4:00PM</span><br>
-						<span>Saltwater Experience</span>
-					</li>
-					<li>
-						<span>4:30PM</span><br>
-						<span>Reel Time Florida Sportsman</span>
-					</li>
-					<li>
-						<span>4:00PM</span><br>
-						<span>Saltwater Experience</span>
-					</li>
-				</ul>
-				<div class="w-sport-button">
-					<a href="#">FULL SCHEDULE</a>
-				</div>
-			</div>
+			<?php the_widget( 'Schedule_Widget' ); ?>
+		</div>
 		</div><!-- end of .w-sport -->
 	</div><!-- end of .schedule-area -->
 </div><!-- end of .shows-player-area -->

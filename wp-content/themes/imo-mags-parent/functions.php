@@ -14,6 +14,7 @@ include_once('widgets/community-login-widget.php');
 include_once('widgets/user-info.php');
 include_once('widgets/forecast.php');
 include_once('widgets/featured-sidebar-widget.php');
+include_once('widgets/tsc-schedule.php');
 
 $magazine_img = get_option("magazine_cover_uri", get_stylesheet_directory_uri(). "/images/pic/journals.png" );
 $subs_link = get_option("subs_link");
