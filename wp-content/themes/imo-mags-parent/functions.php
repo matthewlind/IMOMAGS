@@ -1551,9 +1551,9 @@ if(function_exists("register_field_group"))
 		'location' => array (
 			array (
 				array (
-					'param' => 'page',
+					'param' => 'page_template',
 					'operator' => '==',
-					'value' => '8558',
+					'value' => 'show-page.php',
 					'order_no' => 0,
 					'group_no' => 0,
 				),
@@ -1621,9 +1621,9 @@ if(function_exists("register_field_group"))
 		'location' => array (
 			array (
 				array (
-					'param' => 'page',
+					'param' => 'page_template',
 					'operator' => '==',
-					'value' => '8562',
+					'value' => 'show-page.php',
 					'order_no' => 0,
 					'group_no' => 0,
 				),
@@ -1638,6 +1638,7 @@ if(function_exists("register_field_group"))
 		'menu_order' => 0,
 	));
 }
+
 
 function fixed_connect_footer(){
 
