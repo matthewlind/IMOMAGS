@@ -31,6 +31,20 @@ add_filter('single_template', create_function(
 	return $the_template;' )
 );
 
+function sub_footer(){ ?>
+	<div class="sub-boxes">
+		<div class="sub-box banner-box">
+			<?php imo_ad_placement("btf_medium_rectangle_300x250"); ?>	
+		</div>
+		<div class="sub-box fb-box">
+			<div class="newsletter-box bottom-newsletter">
+				<?php the_widget("Signup_Widget_Header", "title=GET THE NEWSLETTER!"); ?>
+			</div>
+		</div>
+	</div>
+	<?php
+}
+
 function imo_login_form_shortcode( $atts, $content = null ) {
 
     extract( shortcode_atts( array(
