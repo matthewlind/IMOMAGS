@@ -19,14 +19,38 @@ $videoLink = !empty($postID) ? get_permalink($postID) :  site_url() . $_SERVER['
 // post slug
 $slug_tv = get_post( $post )->post_name; 
 ?>
+<!-- this style is loading small image for the background. We need it because it is loading faster then the script so you don't see flickering -->
 <style type="text/css">
 	body {
-		background: url(<?php echo get_field('background_skin',$acfID); ?>);
-	    background-repeat: no-repeat;
-		background-size: 100% auto;
-		background-color: #2a2a2a;
+		background: url("/wp-content/themes/imo-mags-parent/images/shows/dark-background.jpg");
+	    background-repeat: repeat;
+		background-color:#2a2a2a;
 	}
 </style>
+<!-- script loading smaller image for mobile devices -->
+<script typ="text/javascript">
+    jQuery(document).ready(function(){
+    var windowWidth 	= jQuery(window).width(); 
+    	if (windowWidth < 760) {
+	         jQuery("#palce4schedule").load("/wp-content/themes/imo-mags-parent/content/tv-show/show-schedule.php");
+	         jQuery("body").css({
+	         "background-image" : "url(<?php echo get_field('background_skin_mobile',$acfID); ?>)",
+	         "background-repeat" : "no-repeat",
+	         "background-size" : "160% auto",
+	         "background-position" : "20% 0",
+	         "background-color" : "#2a2a2a"
+	         });
+         }
+        if (windowWidth > 760) {
+	        jQuery("body").css({
+	         "background-image" : "url(<?php echo get_field('background_skin',$acfID); ?>)",
+	         "background-repeat" : "no-repeat",
+	         "background-size" : "100% auto",
+	         "background-color" : "#2a2a2a"
+	         });
+        }
+    });
+</script>
 <div id="show-destination" playerID="<?php echo get_field("tv_player_id","options"); ?>" adServerURL="<?php echo $adServerURL; ?>" videoLink="<?php echo $videoLink; ?>">
 	<?php get_template_part( 'content/tv-show/show-header' ); ?>
 		<div class="sidebar-area">

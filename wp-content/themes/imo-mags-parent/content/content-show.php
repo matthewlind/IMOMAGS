@@ -35,11 +35,12 @@ $video_id = get_post_meta(get_the_ID(), '_video_id', TRUE); ?>
 <!-- this style is loading small image for the background. We need it because it is loading faster then the script so you don't see flickering -->
 <style type="text/css">
 	body {
-		background: url("/wp-content/themes/imo-mags-parent/images/shows/sponsors-box.jpg");
+		background: url("/wp-content/themes/imo-mags-parent/images/shows/dark-background.jpg");
 	    background-repeat: repeat;
-		background-color: white;
+		background-color:#2a2a2a;
 	}
 </style>
+<!-- script loading smaller image for mobile devices -->
 <script typ="text/javascript">
     jQuery(document).ready(function(){
     var windowWidth 	= jQuery(window).width(); 
