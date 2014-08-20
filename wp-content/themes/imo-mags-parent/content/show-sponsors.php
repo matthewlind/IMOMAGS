@@ -27,7 +27,16 @@ $acfID = 'category_' . $id; ?>
 				<?php if( have_rows('sponsors',$acfID) ): ?>
 						<ul>
 						<?php while( have_rows('sponsors',$acfID) ): the_row(); ?>
-							<li class="sponsor-img"><a href="<?php echo get_sub_field('url'); ?>"><img src="<?php echo get_sub_field('image'); ?>" alt="<?php echo get_sub_field('name'); ?>" /></a></li>
+							<li class="sponsor-img">
+								<?php
+								$image = get_sub_field('image');
+								
+								$url = $image['url'];
+								$title = $image['title'];
+								$alt = $image['alt'];
+								$caption = $image['caption'];
+								?>
+							<a href="<?php echo get_sub_field('url'); ?>"><img src="<?php echo $url; ?>" alt="<?php echo $alt; ?>" title="<?php echo $title; ?>" /></a></li>
 						<?php endwhile; ?>
 						</ul>
 				<?php endif; ?>

@@ -3301,6 +3301,7 @@ box-sizing: border-box;
 #video-filter li a{color: #252525;padding: 4px 10px;cursor: pointer;}
 #video-filter li a.video-thumb-active{color: white;background: #252525;}
 .no-mo-videos{text-align: center;padding: 80px 0 20px;}
+.paginate-videos{cursor: pointer;}
 
 /*** Border to Border Show ***
 ******************************/

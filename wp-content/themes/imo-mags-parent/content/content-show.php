@@ -54,10 +54,10 @@ $video_id = get_post_meta(get_the_ID(), '_video_id', TRUE); ?>
 						</div>
 						<div class="video-more-content" style="display:none;"><div class="more-link">Read More</div></div>
 						<div class="social-share">
-							<div class="share-results">
+							<!--<div class="share-results">
 								<span>2K</span>				
 								<div class="shares"><span>SHARES</span></div>		
-							</div>
+							</div>-->
 							<div class="social-share-btns">
 								<a class="reload-fb" href="http://www.facebook.com/sharer.php?u=<?php the_permalink();?>&amp;t=<?php the_title(); ?>" title="Share on Facebook." target="_blank">
 									<div class="facebook-share">
