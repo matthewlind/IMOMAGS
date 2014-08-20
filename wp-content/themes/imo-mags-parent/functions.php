@@ -1420,7 +1420,209 @@ if(function_exists("register_field_group"))
 		'menu_order' => 0,
 	));
 }
-
+// TV Show acf
+if(function_exists("register_field_group"))
+{
+	register_field_group(array (
+		'id' => 'acf_tv-video-portal',
+		'title' => 'TV & Video Portal',
+		'fields' => array (
+			array (
+				'key' => 'field_53e8ed6a110a7',
+				'label' => 'TV player ID',
+				'name' => 'tv_player_id',
+				'type' => 'text',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'options_page',
+					'operator' => '==',
+					'value' => 'acf-options',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+	register_field_group(array (
+		'id' => 'acf_tv-abouthosts-page',
+		'title' => 'TV - About&Hosts Page',
+		'fields' => array (
+			array (
+				'key' => 'field_53eba15050b75',
+				'label' => 'Host Item',
+				'name' => 'host_item',
+				'type' => 'repeater',
+				'sub_fields' => array (
+					array (
+						'key' => 'field_53eba6fb5df0a',
+						'label' => 'Host Photo',
+						'name' => 'host_photo',
+						'type' => 'image',
+						'column_width' => '',
+						'save_format' => 'object',
+						'preview_size' => 'thumbnail',
+						'library' => 'all',
+					),
+					array (
+						'key' => 'field_53eba7205df0b',
+						'label' => 'Host Name',
+						'name' => 'host_name',
+						'type' => 'text',
+						'column_width' => '',
+						'default_value' => '',
+						'placeholder' => '',
+						'prepend' => '',
+						'append' => '',
+						'formatting' => 'html',
+						'maxlength' => '',
+					),
+					array (
+						'key' => 'field_53eba72d5df0c',
+						'label' => 'Host Fact',
+						'name' => 'host_fact',
+						'type' => 'text',
+						'column_width' => '',
+						'default_value' => '',
+						'placeholder' => '',
+						'prepend' => '',
+						'append' => '',
+						'formatting' => 'html',
+						'maxlength' => '',
+					),
+					array (
+						'key' => 'field_53eba73e5df0d',
+						'label' => 'Host Fact Image',
+						'name' => 'host_fact_img',
+						'type' => 'image',
+						'column_width' => '',
+						'save_format' => 'object',
+						'preview_size' => 'thumbnail',
+						'library' => 'all',
+					),
+					array (
+						'key' => 'field_53eba7555df0e',
+						'label' => 'Host Copy',
+						'name' => 'host_copy',
+						'type' => 'textarea',
+						'column_width' => '',
+						'default_value' => '',
+						'placeholder' => '',
+						'maxlength' => '',
+						'formatting' => 'br',
+					),
+				),
+				'row_min' => '',
+				'row_limit' => '',
+				'layout' => 'table',
+				'button_label' => 'Add Host',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'page',
+					'operator' => '==',
+					'value' => '8558',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+	register_field_group(array (
+		'id' => 'acf_tv-more-shows-page',
+		'title' => 'TV - More Shows Page',
+		'fields' => array (
+			array (
+				'key' => 'field_53eb877bd344b',
+				'label' => 'Show Item',
+				'name' => 'show_item',
+				'type' => 'repeater',
+				'sub_fields' => array (
+					array (
+						'key' => 'field_53ebb28bdf5c7',
+						'label' => 'Show Title',
+						'name' => 'show_title',
+						'type' => 'text',
+						'column_width' => '',
+						'default_value' => '',
+						'placeholder' => '',
+						'prepend' => '',
+						'append' => '',
+						'formatting' => 'html',
+						'maxlength' => '',
+					),
+					array (
+						'key' => 'field_53ebb29ddf5c8',
+						'label' => 'Show Image',
+						'name' => 'show_image',
+						'type' => 'image',
+						'column_width' => '',
+						'save_format' => 'object',
+						'preview_size' => 'thumbnail',
+						'library' => 'all',
+					),
+					array (
+						'key' => 'field_53ebb2b0df5c9',
+						'label' => 'Show Description',
+						'name' => 'show_description',
+						'type' => 'textarea',
+						'column_width' => '',
+						'default_value' => '',
+						'placeholder' => '',
+						'maxlength' => '',
+						'formatting' => 'br',
+					),
+				),
+				'row_min' => '',
+				'row_limit' => '',
+				'layout' => 'table',
+				'button_label' => 'Add Show',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'page',
+					'operator' => '==',
+					'value' => '8562',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+}
 
 function fixed_connect_footer(){
 

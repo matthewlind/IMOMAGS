@@ -3751,8 +3751,7 @@ margin: 1% 0 3.3% 4.5%;
 box-sizing: border-box;
 }
 
-<<<<<<< HEAD
-=======
+
 /*** Show Child Pages ***/
 .show-child-general{
 	float: left;
@@ -3773,7 +3772,6 @@ box-sizing: border-box;
 .page-template-show-page-php #shows-player-area {
 	background-color: white;
 }
->>>>>>> def6ef5f32b68565e5d6cc0ba88423f181f714ee
 
 /*** video filter ***/
 #video-filter li{display: inline-block;padding: 10px;}
