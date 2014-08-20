@@ -1,3 +1,4 @@
+
 <?php
 /**
  * The template used for displaying page content in show-page.php
@@ -14,14 +15,7 @@ $format = get_post_format( $postID );
 $adServerURL = "http://ad.doubleclick.net/pfadx/" .  get_option("dart_domain", _imo_dart_guess_domain())  ."/tv";
 $videoLink = !empty($postID) ? get_permalink($postID) :  site_url() . $_SERVER['REQUEST_URI']; 
 ?>
-<style type="text/css">
-	body {
-		background: url(<?php echo get_field('background_skin',$acfID); ?>);
-	    background-repeat: no-repeat;
-		background-size: 100% auto;
-		background-color: #2a2a2a;
-	}
-</style>
+
 <?php 
 if( !is_single() ){
 	query_posts(array( 
@@ -37,22 +31,58 @@ if( !is_single() ){
 }
 while (have_posts()) : the_post();
 $video_id = get_post_meta(get_the_ID(), '_video_id', TRUE); ?>
+
+<!-- this style is loading small image for the background. We need it because it is loading faster then the script so you don't see flickering -->
+<style type="text/css">
+	body {
+		background: url("/wp-content/themes/imo-mags-parent/images/shows/dark-background.jpg");
+	    background-repeat: repeat;
+		background-color:#2a2a2a;
+	}
+</style>
+<!-- script loading smaller image for mobile devices -->
+<script typ="text/javascript">
+    jQuery(document).ready(function(){
+    var windowWidth 	= jQuery(window).width(); 
+    	if (windowWidth < 760) {
+	         jQuery("#palce4schedule").load("/wp-content/themes/imo-mags-parent/content/tv-show/show-schedule.php");
+	         jQuery("body").css({
+	         "background-image" : "url(<?php echo get_field('background_skin_mobile',$acfID); ?>)",
+	         "background-repeat" : "no-repeat",
+	         "background-size" : "160% auto",
+	         "background-position" : "20% 0",
+	         "background-color" : "#2a2a2a"
+	         });
+         }
+        if (windowWidth > 760) {
+	        jQuery("body").css({
+	         "background-image" : "url(<?php echo get_field('background_skin',$acfID); ?>)",
+	         "background-repeat" : "no-repeat",
+	         "background-size" : "100% auto",
+	         "background-color" : "#2a2a2a"
+	         });
+        }
+    });
+</script>
 <div id="show-destination" playerID="<?php echo get_field("tv_player_id","options"); ?>" adServerURL="<?php echo $adServerURL; ?>" videoLink="<?php echo $videoLink; ?>">
-	<?php get_template_part( 'content/show-header' ); ?>
-		<div id="video-player-area">
-			<div id="video-gallery" class="video-player-wrap">
-	
+	<?php get_template_part( 'content/tv-show/show-header' ); ?>
+		<div class="video-player-area">
+			<div id="video-gallery" class="video-player-wrap clearf">
 				<script type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script> 
 				<div id="player"></div>
-				
-				<div id="description-area">
-					<div class="unify">
-						<div class="content-height">
-							<span class="show-video-date"><?php the_time('F jS, Y'); ?></span>
-							<h1 class="video-title" data-videoid="<?php echo $video_id; ?>" data-slug="<?php echo $post->post_name;?>"><?php the_title(); ?></h1>
-							<div class="video-description"><?php the_content(); ?></div>
-						</div>
-						<div class="video-more-content" style="display:none;"><div class="more-link">Read More</div></div>
+				<div class="new-show">
+					<img src="/wp-content/themes/imo-mags-parent/images/temp/new-show.jpg">
+				</div>
+			</div><!-- end of .video-player-wrap -->
+			<div id="description-area">
+				<div class="unify">
+					<div class="content-height">
+						<span class="show-video-date"><?php the_time('F jS, Y'); ?></span>
+						<h1 class="video-title" data-videoid="<?php echo $video_id; ?>" data-slug="<?php echo $post->post_name;?>"><?php the_title(); ?></h1>
+						<div class="video-description"><?php the_content(); ?></div>
+					</div>
+					<div class="video-more-content" style="display:none;"><div class="more-link">Read More</div></div>
+					<div class="social-share clearf">
 						<div class="social-share">
 							<!--<div class="share-results">
 								<span>2K</span>				
@@ -85,16 +115,23 @@ $video_id = get_post_meta(get_the_ID(), '_video_id', TRUE); ?>
 					<div class="new-show"></div>
 					<div class="ad-block">
 						<?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>
+
 					</div>
-				</div>
+			</div><!-- end of #description-area -->
+			<!--
+<div class="video-player-sidebar">
+				
+				
 			</div>
+-->
+			
 			<!-- this widget is located in imo-mags-parent/widgets -->
 			<?php get_template_part( 'widgets/sportsmanLocator' ); ?>
 		</div><!-- end of #video-player-area -->
 		
 	</div><!-- end of #shows_player_area -->
 	<?php endwhile; ?> 
-	<div id="show-featured">
+	<div id="show-featured" class="clearf">
 		
 		<?php query_posts(array( 
 		    'tax_query' => array(
@@ -110,10 +147,8 @@ $video_id = get_post_meta(get_the_ID(), '_video_id', TRUE); ?>
 
 		<div class="thumbs-full">
 			<ul id="video-filter">
-			
 				<li><a slug="all" class="video-thumb-active video-ajax">Most Recent</a></li>
 				<li><a slug="bestshots" class="video-ajax">Bestshots</a></li>
-	
 			</ul>
 			<ul id="video-thumbs">
 				<?php while (have_posts()) : the_post(); $i++; 
@@ -137,27 +172,45 @@ $video_id = get_post_meta(get_the_ID(), '_video_id', TRUE); ?>
 			
 				<?php endwhile; ?>
 			</ul>
-			<a class="paginate-videos">Load more videos</a>
-		</div>
-		<div id="upcoming">
-			<div class="container tiled-grid clr">
-				<div class="tonight-bg"></div>
-				<div class="tiled-grid-entry on-tonight clr span_1_of_4 col col-1">
-					<h2>On Tonight</h2>
-					<a class="" href="/schedule">Full Schedule</a>
-				</div>
-				<div class="tonight-schedule">
-					<ul class="slides">
-						<?php echo do_shortcode('[tscschedule format="tonight"]'); ?>
-					</ul>
-				</div>
+			<div class="btn-grey-sm paginate-videos">
+				<a class="paginate-videos">Load more videos <i class="fa fa-long-arrow-down"></a></i>
 			</div>
-		</div>
+		</div><!-- end of .thumbs-full -->
+		
 		<div id="imo-store">
 			
 		</div>
-	</div>
-	<?php get_template_part( 'content/show-sponsors' ); ?>
+	</div><!-- end of #show-featured -->
+	<div id="upcoming">
+		<div class="container tiled-grid clr">
+			<div class="tonight-bg"></div>
+			<div class="tiled-grid-entry on-tonight clr span_1_of_4 col col-1">
+				<h3>On Tonight</h3>
+				<a class="" href="/schedule">Full Schedule <i class="fa fa-angle-double-right"></i></a>
+			</div>
+			<div class="tonight-schedule">
+				<ul class="slides">
+					<?php echo do_shortcode('[tscschedule format="tonight"]'); ?>
+				</ul>
+			</div>
+		</div>
+	</div><!-- end of #upcoming -->
+	<!--
+<style type="text/css">
+	body {
+		background: url(<?php echo get_field('background_skin',$acfID); ?>);
+	    background-repeat: no-repeat;
+		background-size: 100% auto;
+		background-color: #2a2a2a;
+	}
+</style>
+-->
+	
+	<div id="palce4schedule"></div>
+
+
+	
+	<?php get_template_part( 'content/tv-show/show-sponsors' ); ?>
 </div>
 	
 	

@@ -12,7 +12,7 @@ $idObj = get_category_by_slug('tv');
 $id = $idObj->term_id;
 $acfID = 'category_' . $id; ?>
 
-<div class="inner-main">
+<div class="shows-player-area sponsors-wrap">
 	<div class="sidebar-area">
 		<div id="responderfollow"></div>
 		<div class="sidebar advert">
@@ -20,10 +20,10 @@ $acfID = 'category_' . $id; ?>
 			<?php the_widget( 'imo\SubscribeWidget' ); ?>	
 		</div>
 	</div>
-	<div id="primary" class="general">
-	    <div id="content" class="general-frame" role="main">
+	<div id="primary" class="show-child-general">
+	    <div id="content" class="show-child-general-frame" role="main">
 			<div id="sponsors-area">
-				<h2>Sponsors</h2>
+				<h1>Sponsors</h1>
 				<?php if( have_rows('sponsors',$acfID) ): ?>
 						<ul>
 						<?php while( have_rows('sponsors',$acfID) ): the_row(); ?>
@@ -36,7 +36,11 @@ $acfID = 'category_' . $id; ?>
 								$alt = $image['alt'];
 								$caption = $image['caption'];
 								?>
-							<a href="<?php echo get_sub_field('url'); ?>"><img src="<?php echo $url; ?>" alt="<?php echo $alt; ?>" title="<?php echo $title; ?>" /></a></li>
+								<a href="<?php echo get_sub_field('url'); ?>">
+									<img class="sposors-box-img" src="<?php echo $url; ?>" alt="<?php echo $alt; ?>" title="<?php echo $title; ?>" />
+									<img class="sponsors-logo-img" src="<?php echo get_sub_field('image'); ?>" alt="<?php echo get_sub_field('name'); ?>" />
+								</a>
+							</li>
 						<?php endwhile; ?>
 						</ul>
 				<?php endif; ?>

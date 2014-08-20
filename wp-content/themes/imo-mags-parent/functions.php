@@ -1736,6 +1736,30 @@ if(function_exists("register_field_group"))
 				'maxlength' => '',
 			),
 			array (
+				'key' => 'field_53cd59621035k',
+				'label' => 'Background Skin Mobile',
+				'name' => 'background_skin_mobile',
+				'type' => 'text',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_53ceb4a4f00ca',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
+				'instructions' => 'The url of the show\'s background image for mobile to reduce loading time',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
 				'key' => 'field_53cd598f10360',
 				'label' => 'Show Logo',
 				'name' => 'show_logo',
