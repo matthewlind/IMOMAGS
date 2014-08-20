@@ -1420,7 +1420,209 @@ if(function_exists("register_field_group"))
 		'menu_order' => 0,
 	));
 }
-
+// TV Show acf
+if(function_exists("register_field_group"))
+{
+	register_field_group(array (
+		'id' => 'acf_tv-video-portal',
+		'title' => 'TV & Video Portal',
+		'fields' => array (
+			array (
+				'key' => 'field_53e8ed6a110a7',
+				'label' => 'TV player ID',
+				'name' => 'tv_player_id',
+				'type' => 'text',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'options_page',
+					'operator' => '==',
+					'value' => 'acf-options',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+	register_field_group(array (
+		'id' => 'acf_tv-abouthosts-page',
+		'title' => 'TV - About&Hosts Page',
+		'fields' => array (
+			array (
+				'key' => 'field_53eba15050b75',
+				'label' => 'Host Item',
+				'name' => 'host_item',
+				'type' => 'repeater',
+				'sub_fields' => array (
+					array (
+						'key' => 'field_53eba6fb5df0a',
+						'label' => 'Host Photo',
+						'name' => 'host_photo',
+						'type' => 'image',
+						'column_width' => '',
+						'save_format' => 'object',
+						'preview_size' => 'thumbnail',
+						'library' => 'all',
+					),
+					array (
+						'key' => 'field_53eba7205df0b',
+						'label' => 'Host Name',
+						'name' => 'host_name',
+						'type' => 'text',
+						'column_width' => '',
+						'default_value' => '',
+						'placeholder' => '',
+						'prepend' => '',
+						'append' => '',
+						'formatting' => 'html',
+						'maxlength' => '',
+					),
+					array (
+						'key' => 'field_53eba72d5df0c',
+						'label' => 'Host Fact',
+						'name' => 'host_fact',
+						'type' => 'text',
+						'column_width' => '',
+						'default_value' => '',
+						'placeholder' => '',
+						'prepend' => '',
+						'append' => '',
+						'formatting' => 'html',
+						'maxlength' => '',
+					),
+					array (
+						'key' => 'field_53eba73e5df0d',
+						'label' => 'Host Fact Image',
+						'name' => 'host_fact_img',
+						'type' => 'image',
+						'column_width' => '',
+						'save_format' => 'object',
+						'preview_size' => 'thumbnail',
+						'library' => 'all',
+					),
+					array (
+						'key' => 'field_53eba7555df0e',
+						'label' => 'Host Copy',
+						'name' => 'host_copy',
+						'type' => 'textarea',
+						'column_width' => '',
+						'default_value' => '',
+						'placeholder' => '',
+						'maxlength' => '',
+						'formatting' => 'br',
+					),
+				),
+				'row_min' => '',
+				'row_limit' => '',
+				'layout' => 'table',
+				'button_label' => 'Add Host',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'page',
+					'operator' => '==',
+					'value' => '8558',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+	register_field_group(array (
+		'id' => 'acf_tv-more-shows-page',
+		'title' => 'TV - More Shows Page',
+		'fields' => array (
+			array (
+				'key' => 'field_53eb877bd344b',
+				'label' => 'Show Item',
+				'name' => 'show_item',
+				'type' => 'repeater',
+				'sub_fields' => array (
+					array (
+						'key' => 'field_53ebb28bdf5c7',
+						'label' => 'Show Title',
+						'name' => 'show_title',
+						'type' => 'text',
+						'column_width' => '',
+						'default_value' => '',
+						'placeholder' => '',
+						'prepend' => '',
+						'append' => '',
+						'formatting' => 'html',
+						'maxlength' => '',
+					),
+					array (
+						'key' => 'field_53ebb29ddf5c8',
+						'label' => 'Show Image',
+						'name' => 'show_image',
+						'type' => 'image',
+						'column_width' => '',
+						'save_format' => 'object',
+						'preview_size' => 'thumbnail',
+						'library' => 'all',
+					),
+					array (
+						'key' => 'field_53ebb2b0df5c9',
+						'label' => 'Show Description',
+						'name' => 'show_description',
+						'type' => 'textarea',
+						'column_width' => '',
+						'default_value' => '',
+						'placeholder' => '',
+						'maxlength' => '',
+						'formatting' => 'br',
+					),
+				),
+				'row_min' => '',
+				'row_limit' => '',
+				'layout' => 'table',
+				'button_label' => 'Add Show',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'page',
+					'operator' => '==',
+					'value' => '8562',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+}
 
 function fixed_connect_footer(){
 
@@ -1736,6 +1938,30 @@ if(function_exists("register_field_group"))
 				'maxlength' => '',
 			),
 			array (
+				'key' => 'field_53cd59621035k',
+				'label' => 'Background Skin Mobile',
+				'name' => 'background_skin_mobile',
+				'type' => 'text',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_53ceb4a4f00ca',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
+				'instructions' => 'The url of the show\'s background image for mobile to reduce loading time',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
 				'key' => 'field_53cd598f10360',
 				'label' => 'Show Logo',
 				'name' => 'show_logo',
@@ -1928,29 +2154,18 @@ if(function_exists("register_field_group"))
 				'maxlength' => '',
 			),
 			array (
-				'key' => 'field_53cd627d2f0bd',
+				'key' => 'field_53f4b2515ed4c',
 				'label' => 'Sponsors',
 				'name' => 'sponsors',
 				'type' => 'repeater',
-				'conditional_logic' => array (
-					'status' => 1,
-					'rules' => array (
-						array (
-							'field' => 'field_53ceb4a4f00ca',
-							'operator' => '==',
-							'value' => '1',
-						),
-					),
-					'allorany' => 'all',
-				),
-				'instructions' => 'Sponsor Images',
+				'instructions' => 'Add sponsor images.',
 				'sub_fields' => array (
 					array (
-						'key' => 'field_53cd62af2f0c0',
-						'label' => 'name',
+						'key' => 'field_53f4b2725ed4d',
+						'label' => 'Sponsor Name',
 						'name' => 'name',
 						'type' => 'text',
-						'instructions' => 'Sponsor name',
+						'instructions' => 'Name of the sponsor.',
 						'column_width' => '',
 						'default_value' => '',
 						'placeholder' => '',
@@ -1960,25 +2175,22 @@ if(function_exists("register_field_group"))
 						'maxlength' => '',
 					),
 					array (
-						'key' => 'field_53cd62972f0be',
-						'label' => 'image',
+						'key' => 'field_53f4b2845ed4e',
+						'label' => 'Sponsor Image',
 						'name' => 'image',
-						'type' => 'text',
-						'instructions' => 'Image url',
+						'type' => 'image',
+						'instructions' => 'Sponsor Image.',
 						'column_width' => '',
-						'default_value' => '',
-						'placeholder' => '',
-						'prepend' => '',
-						'append' => '',
-						'formatting' => 'html',
-						'maxlength' => '',
+						'save_format' => 'object',
+						'preview_size' => 'thumbnail',
+						'library' => 'all',
 					),
 					array (
-						'key' => 'field_53cd62a52f0bf',
-						'label' => 'url',
+						'key' => 'field_53f4b2a75ed4f',
+						'label' => 'Sponsor URL',
 						'name' => 'url',
 						'type' => 'text',
-						'instructions' => 'Sponsor link',
+						'instructions' => 'Sponsor link.',
 						'column_width' => '',
 						'default_value' => '',
 						'placeholder' => '',
@@ -2032,7 +2244,7 @@ if(function_exists("register_field_group"))
 						'save_format' => 'object',
 						'preview_size' => 'thumbnail',
 						'library' => 'all',
-						'instructions' => 'url of the image',
+						'instructions' => 'Select an image',
 						'default_value' => '',
 						'placeholder' => '',
 						'prepend' => '',

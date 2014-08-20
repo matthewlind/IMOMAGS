@@ -18,19 +18,32 @@ $acfID = 'category_' . $id; ?>
 			<img src="<?php echo get_field('show_logo',$acfID); ?>" alt="">
 		</div>
 		<div class="shows-title">
-		
+			<h1><?php echo get_field('show_title',$acfID); ?></h1>
 		    <div class="fb-like" data-href="" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false">			    
 		    </div>
 		</div><!-- end of #shows-title -->
 		<div class="shows-sponsor">
 			<span>presented by</span>
-			<img src="<?php bloginfo('stylesheet_directory'); ?>/images/shows/federal-logo.png" alt="">
+			<img src="/wp-content/themes/petersenshunting/images/shows/federal-logo.png" alt="">
 		</div>
 	</div><!-- end of #header-top -->
 	<div id="shows-nav">
 		<?php if( have_rows('show_menu',$acfID) ): ?>
 			<div class="menu">
 				<ul>
+					<li class="page-item-mobile">
+						<a href="#">
+							<?php 
+								$post = get_post($postID);
+								$slug = $post->post_name;	
+								if($post->post_parent) { 
+									$post_data = get_post($post->post_parent);
+									$parent_slug = $post_data->post_name; 
+								}
+									echo $slug;		
+							?>
+						</a>
+					 </li>
 				<?php while( have_rows('show_menu',$acfID) ): the_row(); ?>
 					<li class="page_item"><a href="<?php echo get_sub_field('url'); ?>"><?php echo get_sub_field('name'); ?></a></li>
 				<?php endwhile; ?>
@@ -42,7 +55,7 @@ $acfID = 'category_' . $id; ?>
 </div><!-- end of .page-header -->
 
 
-<div id="shows-player-area">
+<div class="shows-player-area">
 	<div id="when-to-watch">
 		<div class="when-label">
 			<h3>WHEN TO<br>WATCH</h3>
