@@ -31,8 +31,7 @@ $acfID = 'category_' . $id; ?>
 		<?php if( have_rows('show_menu',$acfID) ): ?>
 			<div class="menu">
 				<ul>
-					<li class="page-item-mobile">
-						<a href="#">
+					<li class="page_item page-item-mobile page-item-mobile-btn">
 							<?php 
 								$post = get_post($postID);
 								$slug = $post->post_name;	
@@ -40,12 +39,34 @@ $acfID = 'category_' . $id; ?>
 									$post_data = get_post($post->post_parent);
 									$parent_slug = $post_data->post_name; 
 								}
-									echo $slug;		
+								if (empty($parent_slug)) {
+									echo "Home";
+								} elseif ($parent_slug == "tv") {
+									if ($slug == "photo") {
+										echo "Photo";
+									} elseif ($slug == "about") {
+										echo "About & Hosts";
+									} elseif ($slug == "shows") {
+										echo "More Shows";
+									} else {
+										echo "Menu";
+									}
+								}	
 							?>
-						</a>
+							<i class="fa fa-caret-down"></i>
+						<div class="mobile-dropdown-menu">
+							<ul>
+								<?php while( have_rows('show_menu',$acfID) ): the_row(); ?>
+									<li class="page_item"><a href="<?php echo get_sub_field('url'); ?>"><?php echo get_sub_field('name'); ?></a></li>
+								<?php endwhile; ?>
+							</ul>
+						</div>
+					 </li>
+					 <li class="page_item page-item-mobile">
+					 	<a href="/tv/shows">More Shows</a>
 					 </li>
 				<?php while( have_rows('show_menu',$acfID) ): the_row(); ?>
-					<li class="page_item"><a href="<?php echo get_sub_field('url'); ?>"><?php echo get_sub_field('name'); ?></a></li>
+					<li class="page_item non-mobile-item"><a href="<?php echo get_sub_field('url'); ?>"><?php echo get_sub_field('name'); ?></a></li>
 				<?php endwhile; ?>
 				</ul>
 			</div>

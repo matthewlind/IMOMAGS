@@ -386,7 +386,6 @@ img.border-image {
   border: 1px solid black !important;
   margin: 7px !important;
 }
-
 /* Header
  ******************************************************************************/
 .header {
@@ -2915,10 +2914,10 @@ margin-bottom:15px;
 .tv-show #shows-nav ul {
 	padding: 0 20px 0 20px;
 	vertical-align: middle;
-	line-height: 43px;
-	display: inline-block;
+	line-height: 41px;
 }
 .tv-show #shows-nav ul li {
+	position: relative;
 	display: inline;
 	padding-right: 16px;
 }
@@ -2938,6 +2937,55 @@ margin-bottom:15px;
 	background-color: #252525;
 	padding: 12px 35px 40px;
 	overflow: hidden;
+}
+/* navigation mobile ==================================== */
+.tv-show #shows-nav ul li.page-item-mobile {
+	color: #ffffff;
+	font-family: 'jubilat', serif;
+	font-size: 18px;
+	font-weight: 400;
+	padding: 0 15px;
+	text-shadow: 1px 1px 2px black;
+	display: none;
+	cursor: pointer;
+}
+.tv-show #shows-nav .mobile-dropdown-menu {
+	max-height: 0;
+	position: absolute;
+	top: 38px;
+	left: 0;
+	overflow: hidden;
+	background-color: #2a2a2a;
+	width: 200px;
+	z-index: 9999;
+	opacity: 0; 
+	border: solid #333;
+	padding: 1px 0;
+	border-width: 0 1px 1px;
+	transition: max-height 1s, opacity 0.2s !important;
+}
+.tv-show #shows-nav .mobile-dropdown-menu ul {
+	padding: 0;
+}
+.tv-show #shows-nav .mobile-dropdown-menu ul li {
+	display: list-item;
+	border-bottom: 1px solid #333;
+	padding-right: 0;
+}
+.tv-show #shows-nav .mobile-dropdown-menu ul li:hover {
+	background-color: #333;
+}
+.tv-show #shows-nav .mobile-dropdown-menu ul li:last-child {
+	border-bottom: none;
+}
+.tv-show #shows-nav .mobile-dropdown-menu ul li a {
+	font-size: 16px;
+	display: block;
+	width: 100%;
+}
+.tv-show #shows-nav .menu ul li .mob-m-visible {
+	max-height: 1000px;
+	opacity: 1;
 }
 /* when to watch ==================================== */
 .tv-show #when-to-watch {
@@ -5932,6 +5980,8 @@ table.likes-leaderboard .entry-title {
     }
     
     /* TV Show Pages **************/
+  
+    
     .tv-show .video-player-area .new-show {display: none;}
     .tv-show .video-player-area .video-player-wrap {padding-right: 0;}
 	.tv-show .video-player-area .video-player-wrap {width: 108%;margin-left: -4%;}
@@ -5989,7 +6039,11 @@ table.likes-leaderboard .entry-title {
 	.tv-show .shows-title .fb_iframe_widget {display: block; text-align: center;margin-top: 7px;}
 	.tv-show .shows-sponsor {display: none;}
     .tv-show .shows-player-area {padding: 20px 20px 40px;}
-    .tv-show #shows-nav ul { padding: 1px 20px 0 20px;}
+    
+    .tv-show #shows-nav ul li.page-item-mobile {display: inline-block; padding: 0 5px;}
+    .tv-show #shows-nav ul { padding: 1px 20px 0 20px;line-height: 35px;}
+    .tv-show #shows-nav ul .non-mobile-item {display: none;}
+    
     .tv-show #when-to-watch {display: none;}
     
     .tv-show .video-player-area .video-player-wrap {width: 104%;margin-left: -2%;}
