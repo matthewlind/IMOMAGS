@@ -3751,6 +3751,29 @@ margin: 1% 0 3.3% 4.5%;
 box-sizing: border-box;
 }
 
+<<<<<<< HEAD
+=======
+/*** Show Child Pages ***/
+.show-child-general{
+	float: left;
+	width: 680px;
+	border: 1px solid #dddcdb;
+	border-width: 0 1px 0 0;
+	padding: 0 30px 0 0;
+	background: white;
+}
+.show-child-general-frame{
+	width: 648px;
+	padding-bottom: 20px;
+	background: transparent;
+}
+
+.tv-show #carousel{position: relative;}
+
+.page-template-show-page-php #shows-player-area {
+	background-color: white;
+}
+>>>>>>> def6ef5f32b68565e5d6cc0ba88423f181f714ee
 
 /*** video filter ***/
 #video-filter li{display: inline-block;padding: 10px;}

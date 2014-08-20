@@ -110,7 +110,7 @@ if( desktop ){
     		<img src="<?php echo plugins_url('images/naw-plus.png' , __FILE__ ); ?>" alt="NAW Community" class="custom-tite-logo">
             <div class="title-crumbs">
             	<h1>Q&A</h1>
-                <div class="sponsor"><?php imo_dart_tag("240x60"); ?></div>
+                <div class="sponsor"><?php imo_ad_placement("sponsor_logo_240x60"); ?></div>
 			</div>
         </div>
 

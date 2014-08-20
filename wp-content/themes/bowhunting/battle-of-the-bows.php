@@ -17,18 +17,18 @@ get_header(); ?>
 				<span><?php the_title(); ?></span>
 		    </h1>
 		    <?php if(mobile()){ ?>
-		    	<img class="madness-logo-mobile" src="/wp-content/themes/gunsandammo/images/ga-madness/GA-gun-madness-galco-small.png" alt="G&A Madness" title="G&A Madness" />
-				<?php echo "<div style='text-align:center;'>".get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"presentingmadness"))."</div>"; 
+		    	<img class="madness-logo-mobile" src="/wp-content/plugins/bowmadness/images/BoB_logo3.png" alt="Bow Madness" title="Bow Madness" />
+				<?php 
 			} ?>
 		    <ul id="ga-madness-nav">
-				<li><a href="/bracket">Bow Bracket</a></li>
-				<li><a href="/bracket/enter">Enter</a></li>
+				<li><a href="/battle-of-the-bows">Bow Bracket</a></li>
+				<li><a href="/battle-of-the-bows/enter">Enter</a></li>
 				<?php if(!mobile()){ ?>
-					<li class="madness-logo"><img src="/wp-content/themes/gunsandammo/images/ga-madness/GA-gun-madness-galco-small.png" alt="G&A Madness" title="G&A Madness" />
+					<li class="madness-logo"><img src="/wp-content/plugins/bowmadness/images/BoB_logo3.png" alt="Bow Madness" title="Bow Madness" />
 					</li>
 				<?php } ?>
-				<li><a href="/bracket/prizes">Prizes & Rules</a></li>
-				<li><a href="/bracket/how-it-works">How it Works</a></li>
+				<li><a href="/battle-of-the-bows/prizes-rules">Prizes & Rules</a></li>
+				<li><a href="/battle-of-the-bows/how-it-works">How it Works</a></li>
 			</ul>
 		</div>
 		<div data-position="<?php echo $dataPos = $dataPos + 1; ?>"  id="post-<?php the_ID(); ?>" <?php post_class('article-brief clearfix js-responsive-section'); ?>>

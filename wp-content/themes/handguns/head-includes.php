@@ -5,7 +5,6 @@
  */
 
 ?>
-
 <!-- BEGIN Tynt Script -->
 <script type="text/javascript">
 if(document.location.protocol=='http:'){

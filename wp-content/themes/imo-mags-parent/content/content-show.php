@@ -112,7 +112,11 @@ $video_id = get_post_meta(get_the_ID(), '_video_id', TRUE); ?>
 					</div>
 				</div><!-- end of .unify -->
 					<div class="ad-block">
+<<<<<<< HEAD
 							<?php imo_dart_tag("300x250"); ?>
+=======
+						<?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>
+>>>>>>> def6ef5f32b68565e5d6cc0ba88423f181f714ee
 					</div>
 			</div><!-- end of #description-area -->
 			<!--

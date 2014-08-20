@@ -23,10 +23,10 @@ jQuery(document).ready(function($) {
 	function adPlacement() {
 			$("#posts-container .community-ad").remove();
 			if ($(window).width() <  1096 ) {
-				$('<div class="community-ad"><div class="image-banner"><iframe id="community-listing-ad" width=300 height=250 marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-community-ad.php?ad_code=imo.in-fisherman"></iframe></div></div>')
+				$('<div class="community-ad"><div class="image-banner"><iframe id="community-listing-ad" width=300 height=250 marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-community-ad.php?ad_code=imo.northamericanwhitetail"></iframe></div></div>')
 				.insertAfter("#posts-container .dif-post:nth-child(5n)");
 			}else{
-				$('<div class="community-ad"><div class="image-banner"><iframe id="community-listing-ad" width=300 height=250 marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-community-ad.php?ad_code=imo.in-fisherman"></iframe></div></div>')
+				$('<div class="community-ad"><div class="image-banner"><iframe id="community-listing-ad" width=300 height=250 marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-community-ad.php?ad_code=imo.northamericanwhitetail"></iframe></div></div>')
 				.insertAfter("#posts-container .dif-post:nth-child(9n)");
 			}
 	}

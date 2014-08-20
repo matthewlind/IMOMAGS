@@ -6,7 +6,7 @@
 	<div class="a-text">
 		<div class="block-aside">
 			<div class="ad-aside">
-			<?php imo_dart_tag("300x250"); ?>
+				<?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>	
 			</div>
 		</div>
 		<?php 

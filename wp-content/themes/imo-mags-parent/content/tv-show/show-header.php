@@ -36,13 +36,9 @@ $acfID = 'category_' . $id; ?>
 							<?php 
 								$post = get_post($postID);
 								$slug = $post->post_name;	
-								
-							
-								
 								if($post->post_parent) { 
 									$post_data = get_post($post->post_parent);
 									$parent_slug = $post_data->post_name; 
-									
 								}
 									echo $slug;		
 							?>

@@ -1,5 +1,6 @@
 <?php
 $dataPos = 0;
+$features = get_field('homepage_featured_stories','options' );
 get_header(); ?>
 	<?php imo_sidebar(); ?>
 	<div id="primary" class="general">
@@ -265,7 +266,7 @@ get_header(); ?>
                 <div class="links-holder">
                     <div class="image-banner">
                      <?php if (mobile()) {
-	                 	imo_dart_tag("300x250",array("pos"=>"mob"));
+	                 	imo_ad_placement("atf_medium_rectangle_300x250");
 	                 } ?>
                     </div>
                     <div>

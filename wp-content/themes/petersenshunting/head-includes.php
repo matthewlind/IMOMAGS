@@ -5,7 +5,6 @@
  */
 
 ?>
-
 <meta name="apple-itunes-app" content="app-id=571296605">
 <!-- BEGIN Tynt Script -->
 <script type="text/javascript">

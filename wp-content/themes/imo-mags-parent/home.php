@@ -54,7 +54,7 @@ get_header(); ?>
 				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section">
 					<div class="general-title clearfix">
 		                <h2><?php echo $videoTitle; ?></h2>
-		                <div class="sponsor"><?php echo get_imo_dart_tag("240x60",1,false,array("camp"=>"$camp")); ?></div>
+		                <div class="sponsor"><?php imo_ad_placement("sponsor_logo_240x60"); ?></div>
 		            </div>
 
 					<!-- Start of Brightcove Player -->
@@ -91,9 +91,12 @@ get_header(); ?>
 					
 					$tvslug = 'tv';
 					$tvcategory = get_category_by_slug($tvslug);
+					
+					$Galleryslug = 'show-galleries';
+					$Gallerycategory = get_category_by_slug($Galleryslug);
 
 					$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-                    $more_query = new WP_Query( 'post_type=post&posts_per_page=20&paged=' . $paged. '&cat=-' . $category->cat_ID.",-".$fcategory->cat_ID.",-".$tvcategory->cat_ID );
+                    $more_query = new WP_Query( 'post_type=post&posts_per_page=20&paged=' . $paged. '&cat=-' . $category->cat_ID.",-".$fcategory->cat_ID.",-".$Gallerycategory->cat_ID.",-".$tvcategory->cat_ID );
                     $i++;
 
                     while ($more_query->have_posts()) : $more_query->the_post(); ?>
@@ -122,7 +125,7 @@ get_header(); ?>
                     <?php if ( (($i - (($paged -1) * 2 ))%6) == 0 ): ?>
                         <?php if ( mobile() ){ ?>
                         <div class="image-banner posts-image-banner">
-                            <?php imo_dart_tag("300x250",array("pos"=>"mob")); ?>
+                            <?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>
                         </div>
                         <?php } ?>
                     <?php endif;?>

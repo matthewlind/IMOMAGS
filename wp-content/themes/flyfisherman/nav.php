@@ -9,13 +9,14 @@
 	</div>
 	<div class="header-section menu-hunt">
 		<h3><a href="/photos/fish-photos">Photos</a></h3>
-		<?php if(has_nav_menu( 'photos' )){
+		<?php /*if(has_nav_menu( 'photos' )){
 	    	wp_nav_menu(array(
 	            'menu_class'=>'menu',
 	            'theme_location'=>'photos',
 			));
-        } ?>
-	</div>
+        }*/ ?>
+        <a class="photo-menu" slug="coldwater">Coldwater</a>	
+    </div>
 
 	<div class="header-section menu-fish">
 		<h3><a href="/photos/flies">Flies</a></h3>

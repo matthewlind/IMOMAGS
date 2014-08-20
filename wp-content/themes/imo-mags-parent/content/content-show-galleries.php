@@ -35,7 +35,20 @@ $slug = $post_data['post_name'];
 					if( have_rows('gallery_images') ):
 						while( have_rows('gallery_images', $postID) ): the_row(); ?>
 							<li>
-								<?php var_dump(the_sub_field('image')); ?>
+								<?php
+								$image = get_sub_field('image');
+								$url = $image['url'];
+								$title = $image['title'];
+								$alt = $image['alt'];
+								$caption = $image['caption'];
+							 
+								// thumbnail
+								$size = 'post-thumb';
+								$thumb = $image['sizes'][ $size ];
+								$width = $image['sizes'][ $size . '-width' ];
+								$height = $image['sizes'][ $size . '-height' ];
+								?>
+								<img src="<?php echo $thumb; ?>" alt="<?php echo $alt; ?>" title="<?php echo $title; ?>" />
 								<div id="description-area">
 									<div class="unify">
 										<div class="content-height">
@@ -49,16 +62,30 @@ $slug = $post_data['post_name'];
 					endif; ?>
 				</ul>
 			</div>
-			<?php 
-			//if( have_rows('gallery_images') ):
-				//while( have_rows('gallery_images', $postID) ): the_row(); ?>
-					<!--<div id="carousel" class="flexslider">
+								<div id="carousel" class="flexslider">
 						<ul class="slides">
-							<li><img src="<?php the_sub_field('photo'); ?>" alt="" title="" /></li>
+						<?php 
+			if( have_rows('gallery_images') ):
+				while( have_rows('gallery_images', $postID) ): the_row(); 
+								$image = get_sub_field('image');
+								$url = $image['url'];
+								$title = $image['title'];
+								$alt = $image['alt'];
+								$caption = $image['caption'];
+							 
+								// thumbnail
+								$size = 'index-thumb';
+								$thumb = $image['sizes'][ $size ];
+								$width = $image['sizes'][ $size . '-width' ];
+								$height = $image['sizes'][ $size . '-height' ];
+								?>
+							<li><img src="<?php echo $thumb; ?>" alt="" title="" /></li>
+							
+							<?php endwhile;
+			endif; ?>
 						</ul>
-					</div>-->
-				<?php //endwhile;
-			//endif; ?>
+					</div>
+				
 			<div class="locate-helper">
 				<!-- this widget is located in imo-mags-parent/widgets -->
 				<?php get_template_part( 'widgets/sportsmanLocator' ); ?>	
@@ -94,7 +121,7 @@ $slug = $post_data['post_name'];
 						</div><!-- end of .unify -->
 					</div><!-- end of #description-area -->
 					<div class="ad-block">
-						<?php imo_dart_tag("300x250"); ?>
+						<?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>
 					</div>
 					<div id="more-galleries">
 						<h2>More Galleries</h2>
