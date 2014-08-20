@@ -88,10 +88,10 @@
 .ga-madness .addthis-below{width: 250px;clear: both;margin-top: 70px;}
 .regions{width: 49%;display: inline-block;}
 .region-final{width: 100%;margin: 0 0 0;}
-.region-final .column6 .matchup{border-width: 0;margin-top: 15px;}
+.region-final .column6 .matchup{border-width: 0;margin-top: 35px;}
 .region-final .column6 .rank-top{border-bottom: 1px solid #2d2d2d;margin: 0;padding: 0 10px 8px;}
 .region-final .column{width: 33%;}
-.final-wrapper{width: 60%;margin: 15px auto 10px;}
+.final-wrapper{width: 60%;margin: 0px auto 10px;}
 .final-wrapper h2{text-align: center;}
 .final-wrapper img{margin: 0 auto;display: block;}
 .region1, .region3{margin-right: 10px;}
@@ -137,7 +137,7 @@ ul#ga-madness-nav{
 	list-style: none;
 	height: 50px;
 	position: relative;
-	margin-top: 50px;
+	margin-top: 40px;
 }
 #ga-madness-nav .madness-logo{width: 36%;background: white;}
 #ga-madness-nav .madness-logo-mobile{display: none;}
@@ -145,15 +145,15 @@ ul#ga-madness-nav{
 	margin: 0 auto 20px;
 	display: block;
 	width: 90%;
-	margin-top: -55px;
+	margin-top: -40px;
 }
 ul#ga-madness-nav li{
 	float: left;
-	padding: 14px 0 0;
+	padding: 16px 0 0;
 	width: 16%;
 	text-align: center;
 	margin: 0;
-	border-top: 4px solid black;
+	/*border-top: 4px solid black;*/
 }
 
 ul#ga-madness-nav li a{
@@ -493,6 +493,8 @@ ul#ga-madness-nav li a:hover{
 	.addthis-below{padding: 12px 0 14px;}
 	.page-template-ga-madness-php .page-header{border-width: 0;}
 	.popup-inner{padding: 27px 10px;}
+	ul#ga-madness-nav li {border: none !important;}
+	.ga-madness-votestats {clear:both; text-align:center; margin-top: 0; margin-bottom: 0; font-size:x-large;}
 }
 @media only screen and (max-width: 340px){
 	.ga-madness ul.rounds li{padding: 10px 8px;}
@@ -505,4 +507,8 @@ ul#ga-madness-nav li a:hover{
 
 .clearer {
 	clear:both;
+}
+
+ul#ga-madness-nav li {
+	border: none !important;
 }

@@ -31,23 +31,19 @@ $acfID = 'category_' . $id; ?>
 		<?php if( have_rows('show_menu',$acfID) ): ?>
 			<div class="menu">
 				<ul>
-					<!--
-<li class="page-item-mobile">
+					<li class="page-item-mobile">
 						<a href="#">
 							<?php 
 								$post = get_post($postID);
 								$slug = $post->post_name;	
-								
-								echo $slug;		
-								
 								if($post->post_parent) { 
 									$post_data = get_post($post->post_parent);
-									echo $post_data->post_name; 
+									$parent_slug = $post_data->post_name; 
 								}
+									echo $slug;		
 							?>
 						</a>
 					 </li>
--->
 				<?php while( have_rows('show_menu',$acfID) ): the_row(); ?>
 					<li class="page_item"><a href="<?php echo get_sub_field('url'); ?>"><?php echo get_sub_field('name'); ?></a></li>
 				<?php endwhile; ?>

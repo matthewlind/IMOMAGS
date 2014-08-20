@@ -1,5 +1,6 @@
-	var madnessround = 1;
-	
+	var madnessround;
+	var popads = [];
+			
 	jQuery(window).load(function() {
 		jQuery('.ga-madness ul.rounds').css("overflow","visible");
 	});
@@ -10,28 +11,45 @@
 			if(value)
 				jQuery('html, body').animate({scrollTop: jQuery("h2#" + value).offset().top}, "slow");
 		});
-		jQuery('#madtabs').tabs({selected: (madnessround-1)});
+		
+		jQuery.ajax({
+			type: "GET",
+			url: "http://apps.imoutdoors.com/bracket/getActiveRound",
+			data: {"format": "json", "bracketid": 2},
+			dataType: "json",
+			
+			success: function(resp, status, jqxhr) {
+				madnessround = resp.activeround;
+				jQuery('#madtabs').tabs({selected: (madnessround-1)});
+			}
+
+		});
+		
+		
+		
+		//jQuery('#madtabs').tabs({selected: (madnessround-1)});
 		
 	});
 	
 	function getGAMData(region, round) {
-
+		
 		jQuery.ajax({
 			type: "GET",
 			url: "http://apps.imoutdoors.com/bracket/getMatches",
 			data: {"format": "json", "round":round, "region": region, "bracketid": 2},
 			dataType: "json",
 
-			success: function(resp, status, jqxhr) {
+			success: function(resp, status, jqxhr) {	
+					
 				if(ismobile) {
 					if(resp.type == "finals"){
 						var finalone = {};finalone[0] = resp.data[0];
 						var finaltwo = {};finaltwo[0] = resp.data[1];
 						var finall   = {};finall[0]   = resp.data[2];
 	
-						jQuery(".match61").html(writeGAMBracket(finalone));
-						jQuery(".match62").html(writeGAMBracket(finaltwo));
-						jQuery(".match63").html(writeGAMBracket(finall));
+						jQuery(".match92").html(writeGAMBracket(finalone));
+						jQuery(".match93").html(writeGAMBracket(finaltwo));
+						jQuery(".match94").html(writeGAMBracket(finall));
 					}
 					else {
 						jQuery("#madtabs-"+(parseInt(round)-1)+" .mreg"+region).html(writeGAMBracket(resp.data));
@@ -43,9 +61,9 @@
 						var finaltwo = {};finaltwo[0] = resp.data[1];
 						var finall   = {};finall[0]   = resp.data[2];
 	
-						jQuery(".match61").html(writeGAMBracket(finalone));
-						jQuery(".match62").html(writeGAMBracket(finaltwo));
-						jQuery(".match63").html(writeGAMBracket(finall));
+						jQuery(".match92").html(writeGAMBracket(finalone));
+						jQuery(".match93").html(writeGAMBracket(finaltwo));
+						jQuery(".match94").html(writeGAMBracket(finall));
 						
 					}
 					else {
@@ -76,9 +94,23 @@
 				resp[0].tvotes = parseInt(resp[0].tvotes);
 				var vcount = resp[0].tvotes.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 				jQuery(".ga-madness-votestats").html("<strong>Total Votes:</strong><br />"+vcount+"");
-			
+				
 			}
 		});		
+	}
+	
+	function autoPopup() {
+		var location = window.location.href;
+		var fullHash = location.split('#')[1];
+		//console.log(hash);
+		
+		if(typeof(fullHash) != 'undefined') {
+			//console.log('hash is defined and it is ' + hash);
+			//console.log(jQuery("div[data-mid='"+hash+"']").html());
+			var hashNumber = fullHash.substring(5);
+			
+			jQuery("div[data-mid='"+hashNumber+"']").trigger("click");
+		}
 	}
 	
 	function writeGAMBracket(data) {
@@ -135,22 +167,29 @@
 		return M.join(' ');
 	})();
 	
+	
+	
 	function makeGAMPopup() {
-		 
+
+		
+		
 		 jQuery(".closedm").on("click", function() {
+			
 			var pdata;
 		 	var region = jQuery(this).data("region");
 		 	var mid = jQuery(this).data("mid");
 		 	var round = jQuery(this).data("round");
-
+		 	
+		 	
 		 	jQuery.ajax({
 				type: "GET",
 				url: "http://apps.imoutdoors.com/bracket/getMatches",
-				data: {"format": "json", "round":jQuery(this).data("mid"), "region": "0"},
+				data: {"format": "json", "round":jQuery(this).data("mid"), "region": "0", "bracketid": 2},
 				//data: {"format": "json", "round": "2", "region": region},
 				dataType: "json",
 
-				success: function(resp, status, jqxhr) {					
+				success: function(resp, status, jqxhr) {		
+				//console.log(region); // returns ints 1, 2, 3 or 4			
 					pdata = resp.data[0];
 					pdata.mid_data_mid = pdata.id;
 					pdata.player1image_img = pdata.player1image;
@@ -160,19 +199,25 @@
 					delete pdata.player1link;
 					delete pdata.player2link;
 			 
-					var popads = {
-						'handgunsmadness' : 'Laserlyte-GA-MAdness-popup-300x120.jpg',
-						'riflesmadness' : 'Burris-GA-MAdness-popup-300x120.jpg',
-						'arsmadness' : 'Pelican-GA-MAdness-popup-300x120.jpg',
-						'shotgunsmadness' : 'Winchester-GA-MAdness-popup-300x120.jpg'
+					/*var popads = {
+						'maps' : 'maps-BoB-popup-358x90.jpg',
+						'rage' : 'rage-BoB-popup-358x90.jpg',
+						'scent' : 'scent-lok-BoB-popup-358x90.jpg',
+						'trail' : 'trail-cam-BoB-popup-358x90.jpg',
+						'zeiss' : 'zeiss-BoB-popup-358x90.jpg'
 					}
-					var regions = {'1':'Compound', '2':'Compound', '3':'Crossbows', '4':'Crossbows'}
+					*/
+					
+					
+					
+					var regions = {'1':'Compound A', '2':'Compound B', '3':'Crossbows A', '4':'Crossbows B'}
 					var roundtitles = {/*'2':'First Round', */'3':'First Round', '4':'Sweet Sixteen', '5':'Elite Eight', '6':'Final Four', '7':'Championship'}
 					
-					var campaigns = new Array('handgunsmadness', 'riflesmadness', 'arsmadness', 'shotgunsmadness');
+					var campaigns = new Array('handgunsmadness', 'riflesmadness', 'arsmadness', 'shotgunsmadness', 'zeiss');
 					pdata.campaign = campaigns[parseInt(pdata.region)-1];
 					
 					jQuery.magnificPopup.open({
+								
 						items: pdata,
 						inline: {
 		            		markup: jQuery('#tmplGAMpopup').html()
@@ -190,8 +235,12 @@
 								region = parseInt(item.data.region);
 								round = parseInt(item.data.round);
 								campaign = campaigns[region-1];
-								campimg = "/wp-content/themes/gunsandammo/images/ga-madness/"+popads[campaign];
+								//campimg = "/wp-content/plugins/bowmadness/ads/"+popads[campaign];
+								campimg = "/wp-content/plugins/bowmadness/ads/" + randomPopad;
+								
 								template.find("#popupsponsor a").html('<img src="'+campimg+'" />');
+								
+								//template.find("#div-bob_region_1_medium_rectangle").html('<img src="'+campimg+'" />');
 																
 								var roundtitle = roundtitles[round];
 								var regiontitle = (round<6)? (regions[region]+": "):"";
@@ -212,10 +261,25 @@
 								template.find("#popvoteon2").html('<div class="popvoted '+((pwin=="1")? "popvoted-no":"")+'">'+per2+"% ("+score2+' Votes)</div>');
 							},
 							open: function() {
-
+								
+								popads[0] = 'maps-BoB-popup-358x90.jpg';
+								popads[1] = 'rage-BoB-popup-358x90.jpg';
+								popads[2] = 'scent-lok-BoB-popup-358x90.jpg';
+								popads[3] = 'trail-cam-BoB-popup-358x90.jpg';
+								popads[4] = 'zeiss-BoB-popup-358x90.jpg';
+								
+								var randomInt = Math.floor((Math.random() * 4) + 0);
+								
+								var randomPopad = popads[randomInt];
+								
 								googletag.cmd.push(function() {
-									googletag.display('div-gpt-ad-1386782139095-3');
+									
+									googletag.pubads().clear('div-bob_region_'+ region-1 +'_medium_rectangle');
+									
+									googletag.display('div-bob_region_' + region + '_medium_rectangle');								
+								
 								});
+								
 								_gaq.push(['_trackPageview',"/" + window.location.pathname + "/match"+pdata.mid_data_mid]);
 								
 							}
@@ -261,13 +325,23 @@
 						
 					});
 					
-					var popads = {
-						'handgunsmadness' : 'Laserlyte-GA-MAdness-popup-300x120.jpg',
-						'riflesmadness' : 'Burris-GA-MAdness-popup-300x120.jpg',
-						'arsmadness' : 'Pelican-GA-MAdness-popup-300x120.jpg',
-						'shotgunsmadness' : 'Winchester-GA-MAdness-popup-300x120.jpg'
+				/*	var popads = {
+						'handgunsmadness' : 'maps-BoB-popup-358x90.jpg',
+						'riflesmadness' : 'rage-BoB-popup-358x90.jpg',
+						'arsmadness' : 'scent-lok-BoB-popup-358x90.jpg',
+						'shotgunsmadness' : 'trail-cam-BoB-popup-358x90.jpg',
+						'zeiss' : 'zeiss-BoB-popup-358x90'
 					}
-					var regions = {'1':'Compound', '2':'Compound', '3':'Crossbows', '4':'Crossbows'}
+				*/
+					popads[0] = 'maps-BoB-popup-358x90.jpg';
+					popads[1] = 'rage-BoB-popup-358x90.jpg';
+					popads[2] = 'scent-lok-BoB-popup-358x90.jpg';
+					popads[3] = 'trail-cam-BoB-popup-358x90.jpg';
+					popads[4] = 'zeiss-BoB-popup-358x90.jpg';
+					var randomInt = Math.floor((Math.random() * 4) + 0);
+					var randomPopad = popads[randomInt];
+					
+					var regions = {'1':'Compound A', '2':'Compound B', '3':'Crossbows A', '4':'Crossbows B'}
 					var roundtitles = {/*'2':'First Round', */'3':'First Round', '4':'Sweet Sixteen', '5':'Elite Eight', '6':'Final Four', '7':'Championship'}
 					
 					var campaigns = new Array('handgunsmadness', 'riflesmadness', 'arsmadness', 'shotgunsmadness');
@@ -317,7 +391,8 @@
 								//campaign = campaigns[region-1];
 								campaign = item.data.campaign;
 								
-								campimg = "/wp-content/themes/gunsandammo/images/ga-madness/"+popads[campaign];
+								//campimg = "/wp-content/themes/gunsandammo/images/ga-madness/"+popads[campaign];
+								campimg = "/wp-content/plugins/bowmadness/ads/" + randomPopad;
 								template.find("#popupsponsor a").html('<img src="'+campimg+'" />');
 																
 								var roundtitle = roundtitles[round];
@@ -341,7 +416,7 @@
 									if(region==6) {
 										jQuery("div[data-region='5'][data-idx='0'][data-round='6']").trigger("click");
 									}
-									else if(slidecnt<(8/(Math.pow(2,(round-1)))))
+									else if(slidecnt<(16/(Math.pow(2,(round-1)))))
 										jQuery.magnificPopup.instance.next();
 									else {
 										slidecnt = 0;
@@ -361,12 +436,15 @@
 							change: function() {
 								var item = jQuery.magnificPopup.instance.currItem;
 								slidecnt++;
+																
+								if(item.data.region != region) {
+								}
 								
 								region = parseInt(item.data.region);
+								
 								campaign = campaigns[region-1];
 								
 								_gaq.push(['_trackPageview',"/" + window.location.pathname + "/match"+item.data.id]);
-								
 								
 								setTimeout(function() {
 									jQuery(".gunone img, .guntwo img, .gunone h2, .guntwo h2").css({ opacity: 1 });
@@ -387,8 +465,14 @@
 									//+'dcopt=;tile=1;ord='+(Math.floor((Math.random()) * 100000000))+'></script>';
 									//postscribe('#gpt-ad-1386782139095-3',bidadtag);
 									
+									jQuery('#div-bob_region_1_medium_rectangle').empty();
+									jQuery('#div-bob_region_2_medium_rectangle').empty();
+									jQuery('#div-bob_region_3_medium_rectangle').empty();
+									jQuery('#div-bob_region_4_medium_rectangle').empty();
+									
 									googletag.cmd.push(function() {
-										googletag.display('div-gpt-ad-1386782139095-3');
+										//googletag.pubads().clear('div-bob_region_'+ region-1 +'_medium_rectangle');
+										googletag.display('div-bob_region_'+region+'_medium_rectangle');
 									});
 									
 								}, 200);

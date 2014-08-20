@@ -115,7 +115,6 @@ $video_id = get_post_meta(get_the_ID(), '_video_id', TRUE); ?>
 					<div class="new-show"></div>
 					<div class="ad-block">
 						<?php imo_ad_placement("btf_medium_rectangle_300x250"); ?>
-
 					</div>
 			</div><!-- end of #description-area -->
 			<!--
