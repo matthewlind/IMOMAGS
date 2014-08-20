@@ -3257,7 +3257,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 #sponsors-area .sponsor-img {
 	display: inline-block;
 	width: 30%;
-	margin: 0 1.45% 20px;
+	margin: 0 1.35% 20px;
 	border: 1px solid #ccc;
 	position: relative;
 }
@@ -3286,13 +3286,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 
 /*** Show Child Pages ***/
 .show-child-general{
-	float: left;
 	width: 680px;
 	padding: 0 30px 0 0;
 	background: white;
 }
 .show-child-general-frame{
-	width: 630px;
+	width: 600px;
 	padding-bottom: 20px;
 	background: transparent;
 }

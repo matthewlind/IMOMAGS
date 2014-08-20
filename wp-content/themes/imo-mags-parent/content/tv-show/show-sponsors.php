@@ -38,7 +38,6 @@ $acfID = 'category_' . $id; ?>
 								?>
 								<a href="<?php echo get_sub_field('url'); ?>">
 									<img class="sposors-box-img" src="<?php echo $url; ?>" alt="<?php echo $alt; ?>" title="<?php echo $title; ?>" />
-									<img class="sponsors-logo-img" src="<?php echo get_sub_field('image'); ?>" alt="<?php echo get_sub_field('name'); ?>" />
 								</a>
 							</li>
 						<?php endwhile; ?>
