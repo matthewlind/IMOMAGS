@@ -313,7 +313,7 @@ function jsGAMRender($mobile) {
 		 .  '	getGAMData(0,"92,93,94");'
 		 .  '   getStats();'
 		 .  '   setTimeout(function(){makeGAMPopup()}, 1000);'
-		 .  '   setTimeout(function(){autoPopup()}, 1500);'
+		 .  '   setTimeout(function(){autoPopup()}, 2000);'
 		 .	'});';
 
 	$outp.= '</script>';
