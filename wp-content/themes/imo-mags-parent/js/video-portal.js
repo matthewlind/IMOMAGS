@@ -9,7 +9,6 @@ jQuery(document).ready(function ($) {
 		video_id,
 		title,
 		description,
-		date,
 		slug,
 		img_url,			
 		post_url;
@@ -43,11 +42,9 @@ jQuery(document).ready(function ($) {
 		//load the data differently for category and single pages
 		function loadVideoOnPageLoad(){
 			if($(".single-format-video").length){
-				console.log("hello");
 				video_id = $(".video-title").attr("data-videoid");
 				title = $(".video-title").attr("data-title");
 				description = $(".video-title").parent().find(".data-description").html();
-				date = $(".video-title").attr("data-date");
 				slug = $(".video-title").attr("data-slug");
 				img_url = $(".video-title").attr("data-img_url");
 				post_url = $(".video-title").attr("data-post_url");
@@ -56,12 +53,10 @@ jQuery(document).ready(function ($) {
 				video_id = $("#video-thumbs li").first().find("a").attr("data-videoid");
 				title = $("#video-thumbs li").first().find("a").attr("data-title");
 				description = $("#video-thumbs li").first().parent().find(".data-description").html();
-				date = $("#video-thumbs li").first().find("a").attr("data-date");
 				slug = $("#video-thumbs li").first().find("a").attr("data-slug");
 				img_url = $("#video-thumbs li").first().find("a").attr("data-img_url");
 				post_url = $("#video-thumbs li").first().find("a").attr("data-post_url");
 				videoInit();
-				console.log("else");
 			}
 			
 		}
@@ -71,7 +66,6 @@ jQuery(document).ready(function ($) {
 			video_id = $(this).attr("data-videoid");
 			title = $(this).attr("data-title");
 			description = $(this).parent().find(".data-description").html();
-			date = $(this).attr("data-date");
 			slug = $(this).attr("data-slug");
 			img_url = $(this).attr("data-img_url");
 			post_url = $(this).attr("data-post_url");
@@ -79,7 +73,6 @@ jQuery(document).ready(function ($) {
 			// place data into html
 			$("h1.video-title").text(title);
 			$(".video-description").html(description);
-			$(".show-video-date").text(date);
 			
 			videoInit();
 			$('html, body').animate({
@@ -101,16 +94,14 @@ jQuery(document).ready(function ($) {
 		    var url = window.location.pathname.toString();
 		    var newSlug = url.replace(url, slug);
 			//change the url
-			window.history.pushState({ video_id: video_id, slug: slug, title: title, description: description, date: date, post_url: post_url, img_url: img_url }, title, "/tv/" + newSlug );
+			window.history.pushState({ video_id: video_id, slug: slug, title: title, description: description, post_url: post_url, img_url: img_url }, title, "/tv/" + newSlug );
 			//track back/foward browser history and reload the videos
 			window.onpopstate = function(event) {
 	            video_id = event.state.video_id;
 	            loadVideo(video_id);
 	            // place data into html
-	            $(".show-video-date").text(event.state.title);
 				$("h1.video-title").text(event.state.title);
 				$(".video-description").html(event.state.description);
-				$(".show-video-date").text(event.state.date);
 				slug = event.state.slug;
 				title = event.state.title;
 				post_url = event.state.post_url;
@@ -196,6 +187,14 @@ jQuery(document).ready(function ($) {
 			cat_ajax_get(catID);
 		});
 		
+		$('select.seasons-filter').on('change', function (e) {
+			postoffset = 0;
+			var catID = this.value;
+			$("#ajax-loader").show();
+			cat_ajax_get(catID);
+			$("a.paginate-videos").show();
+		});
+		
 		$(".video-ajax").click(function(){
 			$("#video-filter a").removeClass("video-thumb-active");
 			$(this).addClass("video-thumb-active");
@@ -229,7 +228,6 @@ jQuery(document).ready(function ($) {
 						video_id = $(this).attr("data-videoid");
 						title = $(this).attr("data-title");
 						description = $(this).parent().find(".data-description").html();
-						date = $(this).attr("data-date");
 						slug = $(this).attr("data-slug");
 						img_url = $(this).attr("data-img_url");
 						post_url = $(this).attr("data-post_url");
@@ -237,7 +235,6 @@ jQuery(document).ready(function ($) {
 						// place data into html
 						$("h1.video-title").text(title);
 						$(".video-description").html(description);
-						$(".show-video-date").text(date);
 						
 						videoInit();
 						$('html, body').animate({

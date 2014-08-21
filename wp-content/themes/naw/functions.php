@@ -38,19 +38,7 @@ function social_networks(){
 	echo '</div>';
 }
 
-function sub_footer(){ ?>
-	<div class="sub-boxes">
-		<div class="sub-box banner-box">
-			<?php imo_dart_tag("300x250",array("pos"=>"mid")); ?>
-		</div>
-		<div class="sub-box fb-box">
-			<div class="newsletter-box bottom-newsletter">
-				<?php the_widget("Signup_Widget_Header", "title=GET THE NEWSLETTER!"); ?>
-			</div>
-		</div>
-	</div>
-	<?php
-}
+
 
 function social_footer(){ ?>
 	<div class="foot-social clearfix">

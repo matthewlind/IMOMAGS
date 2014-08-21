@@ -77,7 +77,6 @@ $video_id = get_post_meta(get_the_ID(), '_video_id', TRUE); ?>
 			<div id="description-area">
 				<div class="unify">
 					<div class="content-height">
-						<span class="show-video-date"><?php the_time('F jS, Y'); ?></span>
 						<h1 class="video-title" data-videoid="<?php echo $video_id; ?>" data-slug="<?php echo $post->post_name;?>"><?php the_title(); ?></h1>
 						<div class="video-description"><?php the_content(); ?></div>
 					</div>
@@ -145,9 +144,18 @@ $video_id = get_post_meta(get_the_ID(), '_video_id', TRUE); ?>
 		?>
 
 		<div class="thumbs-full">
+			<select class="seasons-filter">
+				<option value="">Sort by Season</option>
+				<option value="Season-10">Season 10</option>
+				<option value="Season-9">Season 9</option>
+				<option value="Season-8">Season 8</option>
+				<option value="Season-7">Season 7</option>
+			</select>
 			<ul id="video-filter">
 				<li><a slug="all" class="video-thumb-active video-ajax">Most Recent</a></li>
-				<li><a slug="bestshots" class="video-ajax">Bestshots</a></li>
+				<li><a slug="tech-talk" class="video-ajax">Tech Talk</a></li>
+				<li><a slug="moment-of-truth" class="video-ajax">Moment of Truth</a></li>
+				<li><a slug="dead-on" class="video-ajax">Dead On</a></li>
 			</ul>
 			<ul id="video-thumbs">
 				<?php while (have_posts()) : the_post(); $i++; 
@@ -162,7 +170,7 @@ $video_id = get_post_meta(get_the_ID(), '_video_id', TRUE); ?>
 				?>					
 					<li id="thumb-<?php echo $i; ?>">
 						<div class="data-description" style="display:none;"><?php the_content(); ?></div>
-						<a class="video-thumb" data-slug="<?php echo $slug; ?>" data-img_url="<?php echo $thumb_url; ?>" data-post_url="<?php echo get_permalink(); ?>" data-title="<?php echo get_the_title(); ?>" data-date="<?php the_time('F jS, Y'); ?>" data-videoid="<?php echo $video_id; ?>" adServerURL="<?php echo $adServerURL; ?>" videoLink="<?php echo $videoLink; ?>">
+						<a class="video-thumb" data-slug="<?php echo $slug; ?>" data-img_url="<?php echo $thumb_url; ?>" data-post_url="<?php echo get_permalink(); ?>" data-title="<?php echo get_the_title(); ?>" data-videoid="<?php echo $video_id; ?>" adServerURL="<?php echo $adServerURL; ?>" videoLink="<?php echo $videoLink; ?>">
 							<?php the_post_thumbnail("show-thumb"); ?>
 							<h3><?php the_title(); ?></h3>
 							<span class="play-btn"></span>
@@ -175,10 +183,6 @@ $video_id = get_post_meta(get_the_ID(), '_video_id', TRUE); ?>
 				<a class="paginate-videos">Load more videos <i class="fa fa-long-arrow-down"></a></i>
 			</div>
 		</div><!-- end of .thumbs-full -->
-		
-		<div id="imo-store">
-			
-		</div>
 	</div><!-- end of #show-featured -->
 	<div id="upcoming">
 		<div class="container tiled-grid clr">
@@ -194,22 +198,10 @@ $video_id = get_post_meta(get_the_ID(), '_video_id', TRUE); ?>
 			</div>
 		</div>
 	</div><!-- end of #upcoming -->
-	<!--
-<style type="text/css">
-	body {
-		background: url(<?php echo get_field('background_skin',$acfID); ?>);
-	    background-repeat: no-repeat;
-		background-size: 100% auto;
-		background-color: #2a2a2a;
-	}
-</style>
--->
-	
-	<div id="palce4schedule"></div>
-
-
-	
-	<?php get_template_part( 'content/tv-show/show-sponsors' ); ?>
+	<?php 
+		get_template_part( 'content/tv-show/show-store' ); 
+		get_template_part( 'content/tv-show/show-sponsors' ); 
+	?>
 </div>
 	
 	
