@@ -58,7 +58,7 @@ try {
             JOIN wp_{$currentSiteID}_posts as attachments ON (attachments.ID = postmeta.meta_value)
             JOIN wp_{$currentSiteID}_postmeta as attachmentmeta ON (attachments.ID = attachmentmeta.post_id)
             WHERE posts.post_title LIKE ?
-            AND posts.post_type IN ('post')
+            AND posts.post_type IN ('post','reviews')
             AND posts.post_status = 'publish'
             AND postmeta.meta_key = '_thumbnail_id'
             AND attachmentmeta.meta_key = '_wp_attachment_metadata'

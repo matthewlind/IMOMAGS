@@ -3215,7 +3215,7 @@ border-color: #2665bf #2665bf #2665bf;
 } 
 .tv-show .social-share .social-share-btns {
 	height: 47px;
-	border-left: 2px solid #666;
+	/*border-left: 2px solid #666;*/
 	padding-left: 15px;
 	margin-top: 10px;
 }
@@ -3305,7 +3305,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 #sponsors-area .sponsor-img {
 	display: inline-block;
 	width: 30%;
-	margin: 0 1.45% 20px;
+	margin: 0 1.35% 20px;
 	border: 1px solid #ccc;
 	position: relative;
 }
@@ -3334,13 +3334,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 
 /*** Show Child Pages ***/
 .show-child-general{
-	float: left;
 	width: 680px;
 	padding: 0 30px 0 0;
 	background: white;
 }
 .show-child-general-frame{
-	width: 630px;
+	width: 600px;
 	padding-bottom: 20px;
 	background: transparent;
 }
@@ -3799,33 +3798,18 @@ margin: 1% 0 3.3% 4.5%;
 box-sizing: border-box;
 }
 
-
-/*** Show Child Pages ***/
-.show-child-general{
-	float: left;
-	width: 680px;
-	border: 1px solid #dddcdb;
-	border-width: 0 1px 0 0;
-	padding: 0 30px 0 0;
-	background: white;
-}
-.show-child-general-frame{
-	width: 648px;
-	padding-bottom: 20px;
-	background: transparent;
-}
-
 .tv-show #carousel{position: relative;}
-
 .page-template-show-page-php #shows-player-area {
 	background-color: white;
 }
+
 
 /*** video filter ***/
 #video-filter li{display: inline-block;padding: 10px;}
 #video-filter li a{color: #252525;padding: 5px 10px;cursor: pointer; font-size: 16px;}
 #video-filter li a.video-thumb-active{color: white;background: #555555;}
 .no-mo-videos{text-align: center;padding: 80px 0 20px;}
+.paginate-videos{cursor: pointer;}
 
 /*** Border to Border Show ***
 ******************************/

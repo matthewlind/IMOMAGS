@@ -81,36 +81,38 @@ $video_id = get_post_meta(get_the_ID(), '_video_id', TRUE); ?>
 						<h1 class="video-title" data-videoid="<?php echo $video_id; ?>" data-slug="<?php echo $post->post_name;?>"><?php the_title(); ?></h1>
 						<div class="video-description"><?php the_content(); ?></div>
 					</div>
+					<div class="video-more-content" style="display:none;"><div class="more-link">Read More</div></div>
 					<div class="social-share clearf">
-						<div class="share-results">
-							<span>2K</span>				
-							<div class="shares"><span>SHARES</span></div>		
-						</div>
-						<div class="social-share-btns">
-							<a class="reload-fb" href="http://www.facebook.com/sharer.php?u=<?php the_permalink();?>&amp;t=<?php the_title(); ?>" title="Share on Facebook." target="_blank">
-								<div class="facebook-share">
-									<i class="fa fa-facebook"></i>
-								</div>
-							</a>
-							<a class="reload-twitter" href="http://twitter.com/home/?status=<?php the_title(); ?> - <?php the_permalink(); ?>" title="Tweet this!" target="_blank">
-								<div class="twitter-share">
-									<i class="fa fa-twitter"></i>
-								</div>	
-							</a>
-							<a class="reload-google" href="https://plus.google.com/share?url=<?php the_permalink(); ?>" onclick="javascript:window.open(this.href,
-		  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
-								<div class="google-share">
-									<i class="fa fa-google-plus"></i>
-								</div>
-							</a>
-						</div><!-- end of .social-share-btns -->
-					</div><!-- end of .social-share -->
-
-					
-					<div class="video-more-content" style="display:none;">
-						<div class="more-link">Read More</div>
-					</div>
-				</div><!-- end of .unify -->
+						<div class="social-share">
+							<!--<div class="share-results">
+								<span>2K</span>				
+								<div class="shares"><span>SHARES</span></div>		
+							</div>-->
+							<div class="social-share-btns">
+								<a class="reload-fb" href="http://www.facebook.com/sharer.php?u=<?php the_permalink();?>&amp;t=<?php the_title(); ?>" title="Share on Facebook." target="_blank">
+									<div class="facebook-share">
+										<i class="fa fa-facebook"></i>
+									</div>
+								</a>
+								<a class="reload-twitter" href="http://twitter.com/home/?status=<?php the_title(); ?> - <?php the_permalink(); ?>" title="Tweet this!" target="_blank">
+									<div class="twitter-share">
+										<i class="fa fa-twitter"></i>
+									</div>	
+								</a>
+								<a class="reload-google" href="https://plus.google.com/share?url=<?php the_permalink(); ?>" onclick="javascript:window.open(this.href,
+			  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+									<div class="google-share">
+										<i class="fa fa-google-plus"></i>
+									</div>
+								</a>
+							</div>
+						
+						</div><!-- end of .social-share -->
+					</div><!-- end of .unify -->
+										
+				</div><!-- end of #description-area -->
+				<div class="video-player-sidebar">
+					<div class="new-show"></div>
 					<div class="ad-block">
 						<?php imo_ad_placement("btf_medium_rectangle_300x250"); ?>
 					</div>
@@ -170,7 +172,7 @@ $video_id = get_post_meta(get_the_ID(), '_video_id', TRUE); ?>
 				<?php endwhile; ?>
 			</ul>
 			<div class="btn-grey-sm paginate-videos">
-				<a href="">Load more videos <i class="fa fa-long-arrow-down"></a></i>
+				<a class="paginate-videos">Load more videos <i class="fa fa-long-arrow-down"></a></i>
 			</div>
 		</div><!-- end of .thumbs-full -->
 		
