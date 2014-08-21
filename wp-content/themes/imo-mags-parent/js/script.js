@@ -26,13 +26,13 @@ jQuery(document).ready(function () {
 	jQuery(".page-item-mobile-btn").click(function(event){
 		event.stopPropagation();
 		jQuery(this).find(".mobile-dropdown-menu").toggleClass("mob-m-visible");
-	});
+	});
+
 	jQuery("body").click(function(){
 		if (jQuery(".mobile-dropdown-menu").hasClass("mob-m-visible")){
 			jQuery(".mobile-dropdown-menu").removeClass("mob-m-visible");
 		}
 	});	
-	
 	
 	
 
