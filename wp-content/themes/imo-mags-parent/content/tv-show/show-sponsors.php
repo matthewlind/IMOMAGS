@@ -23,7 +23,7 @@ $acfID = 'category_' . $id; ?>
 	<div id="primary" class="show-child-general">
 	    <div id="content" class="show-child-general-frame" role="main">
 			<div id="sponsors-area">
-				<h1>Sponsors</h1>
+				<h2>Sponsors</h2>
 				<?php if( have_rows('sponsors',$acfID) ): ?>
 						<ul>
 						<?php while( have_rows('sponsors',$acfID) ): the_row(); ?>

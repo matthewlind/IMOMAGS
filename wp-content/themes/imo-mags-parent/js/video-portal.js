@@ -183,14 +183,14 @@ jQuery(document).ready(function ($) {
 		var postoffset = 0;
 		$("a.paginate-videos").click(function(){
 			postoffset = postoffset + 8;
-			$("#ajax-loader").show();
+			$(".loading-gif").show();
 			cat_ajax_get(catID);
 		});
 		
 		$('select.seasons-filter').on('change', function (e) {
 			postoffset = 0;
 			var catID = this.value;
-			$("#ajax-loader").show();
+			$(".loading-gif").show();
 			cat_ajax_get(catID);
 			$("a.paginate-videos").show();
 		});
@@ -200,7 +200,7 @@ jQuery(document).ready(function ($) {
 			$(this).addClass("video-thumb-active");
 			postoffset = 0;
 			catID = $(this).attr("slug");
-			$("#ajax-loader").show();
+			$(".loading-gif").show();
 			cat_ajax_get(catID);
 			$("a.paginate-videos").show();
 		});
@@ -222,7 +222,7 @@ jQuery(document).ready(function ($) {
 		            }else{
 		            	$("#video-thumbs").html(response);
 		            }
-		            $("#ajax-loader").hide();
+		            $(".loading-gif").hide();
 					//initiate video on click
 					$("a.video-thumb").click(function(){
 						video_id = $(this).attr("data-videoid");

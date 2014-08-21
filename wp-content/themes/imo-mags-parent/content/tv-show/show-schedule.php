@@ -5,20 +5,15 @@
 				<div class="w2w-schedule">
 					<h1>WHEN TO WATCH</h1>
 					<ul class="w2w-list">
-						<li>
-							<span class="episode-title">Episode 11: Bezoar Libex</span><br>
-							<span class="episode-time"><span>Premiere Date: </span>Jun 02: SUN 9:00pm ET/PT</span>
-						</li>
-						<li>
-							<span class="episode-title">Episode 11: Bezoar Libex</span><br>
-							<span class="episode-time"><span>Premiere Date: </span>Jun 02: SUN 9:00pm ET/PT</span>
-						</li>
-						<li>
-							<span class="episode-title">Episode 11: Bezoar Libex</span><br>
-							<span class="episode-time"><span>Premiere Date: </span>Jun 02: SUN 9:00pm ET/PT</span>
-						</li>
+						<?php 
+							$idObj = get_category_by_slug('tv'); 
+							$id = $idObj->term_id;
+							$acfID = 'category_' . $id;
+							$whenToWatch = get_field('when_to_watch',$acfID);
+							echo do_shortcode("[tscschedule format='inline' postid='".$whenToWatch."']"); 
+						?>
 					</ul>
-					<div class="btn-green">
+					<div class="show-btn">
 						<a href="#">remind me to watch</a>
 					</div>
 					<div class="grey-line"></div>
