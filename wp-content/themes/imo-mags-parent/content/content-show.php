@@ -153,9 +153,9 @@ $video_id = get_post_meta(get_the_ID(), '_video_id', TRUE); ?>
 			</select>
 			<ul id="video-filter">
 				<li><a slug="all" class="video-thumb-active video-ajax">Most Recent</a></li>
-				<li><a slug="tech-talk" class="video-ajax">tech-talk</a></li>
-				<li><a slug="moment-of-truth" class="video-ajax">moment-of-truth</a></li>
-				<li><a slug="dead-on" class="video-ajax">dead-on</a></li>
+				<li><a slug="tech-talk" class="video-ajax">Tech Talk</a></li>
+				<li><a slug="moment-of-truth" class="video-ajax">Moment of Truth</a></li>
+				<li><a slug="dead-on" class="video-ajax">Dead On</a></li>
 			</ul>
 			<ul id="video-thumbs">
 				<?php while (have_posts()) : the_post(); $i++; 
@@ -183,10 +183,6 @@ $video_id = get_post_meta(get_the_ID(), '_video_id', TRUE); ?>
 				<a class="paginate-videos">Load more videos <i class="fa fa-long-arrow-down"></a></i>
 			</div>
 		</div><!-- end of .thumbs-full -->
-		
-		<div id="imo-store">
-			
-		</div>
 	</div><!-- end of #show-featured -->
 	<div id="upcoming">
 		<div class="container tiled-grid clr">
@@ -202,22 +198,10 @@ $video_id = get_post_meta(get_the_ID(), '_video_id', TRUE); ?>
 			</div>
 		</div>
 	</div><!-- end of #upcoming -->
-	<!--
-<style type="text/css">
-	body {
-		background: url(<?php echo get_field('background_skin',$acfID); ?>);
-	    background-repeat: no-repeat;
-		background-size: 100% auto;
-		background-color: #2a2a2a;
-	}
-</style>
--->
-	
-	<div id="palce4schedule"><?php the_widget("imo\IMOStoreWidget"); ?></div>
-
-
-	
-	<?php get_template_part( 'content/tv-show/show-sponsors' ); ?>
+	<?php 
+		get_template_part( 'content/tv-show/show-store' ); 
+		get_template_part( 'content/tv-show/show-sponsors' ); 
+	?>
 </div>
 	
 	

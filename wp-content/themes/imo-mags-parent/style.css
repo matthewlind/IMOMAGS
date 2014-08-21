@@ -2810,6 +2810,11 @@ margin-bottom:15px;
 	border-image-repeat: repeat repeat;
 	border-image-source: url("/wp-content/themes/imo-mags-parent/images/border-stripes.png");
 }
+
+/*** Show Store Widget ***/
+#show-store{width: 100%;background: #ebebeb;}
+#show-store .store-left{width: 33%;display: inline-block;}
+#show-store .widget_store-widget{width: 66%;display: inline-block;}
 /*** Petersens Hunting Adventures TV ***
 ***************************/
 .tv-show .main {
