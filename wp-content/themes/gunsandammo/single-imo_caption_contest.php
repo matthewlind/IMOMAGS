@@ -67,9 +67,8 @@ if(get_field('featured_stories')){
 				        <h1 class="entry-title">
 				            <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
 				        </h1>
-				        <?php endif; // is_single()
-				        if(get_the_author() != "admin" && get_the_author() != "infisherman"){ ?>
-				        <em class="meta-date-author">by <span class="author-item"><?php the_author_link(); ?></span>&nbsp;&nbsp;|&nbsp;&nbsp;<?php } the_time('F jS, Y'); ?></em>
+				        <?php endif; // is_single() ?>
+				        <em class="meta-date-author">by <span class="author-item">G&A Staff</span>&nbsp;&nbsp;|&nbsp;&nbsp;<?php the_time('F jS, Y'); ?></em>
 				        <a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>
 				    </div>
 				                        	

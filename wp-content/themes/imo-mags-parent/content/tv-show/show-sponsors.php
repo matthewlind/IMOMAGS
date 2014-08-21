@@ -28,9 +28,16 @@ $acfID = 'category_' . $id; ?>
 						<ul>
 						<?php while( have_rows('sponsors',$acfID) ): the_row(); ?>
 							<li class="sponsor-img">
+								<?php
+								$image = get_sub_field('image');
+								
+								$url = $image['url'];
+								$title = $image['title'];
+								$alt = $image['alt'];
+								$caption = $image['caption'];
+								?>
 								<a href="<?php echo get_sub_field('url'); ?>">
-									<img class="sposors-box-img" src="/wp-content/themes/imo-mags-parent/images/shows/sponsors-box.jpg">
-									<img class="sponsors-logo-img" src="<?php echo get_sub_field('image'); ?>" alt="<?php echo get_sub_field('name'); ?>" />
+									<img class="sposors-box-img" src="<?php echo $url; ?>" alt="<?php echo $alt; ?>" title="<?php echo $title; ?>" />
 								</a>
 							</li>
 						<?php endwhile; ?>
