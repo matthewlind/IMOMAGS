@@ -212,7 +212,7 @@ function jsGAMRender($mobile) {
 		 .  '  <li class="'.(($madnessround==4)? "active-round":"").'">Sweet 16<div>August 25-31</div></li>'
 		 .  '  <li class="'.(($madnessround==5)? "active-round":"").'">Elite 8<div>September 1-7</div></li>'
 		 .  '  <li class="'.(($madnessround==6)? "active-round":"").'">Final Four<div>September 8-14</div></li>'
-		 .  '  <li class="'.(($madnessround==7)? "active-round":"").'">Final Round<div>Semptember 15-19</div></li>'
+		 .  '  <li class="'.(($madnessround==7)? "active-round":"").'">Final Round<div>September 15-19</div></li>'
 		 .  '</ul>'
 		 //.  wpsocialite_markup()
 		 ;
