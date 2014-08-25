@@ -14,7 +14,7 @@
 						?>
 					</ul>
 					<div class="show-btn">
-						<a href="#">remind me to watch</a>
+						<a href="<?php echo get_field('remind_me',$acfID); ?>" target="_blank">remind me to watch</a>
 					</div>
 					<div class="grey-line"></div>
 				</div><!-- end of .w2w-schedule -->

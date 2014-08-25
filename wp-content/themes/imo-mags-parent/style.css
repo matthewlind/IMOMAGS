@@ -36,7 +36,21 @@ audio, canvas, video { display: inline-block; }
 audio:not([controls]) { display: none; height: 0; }
 [hidden] { display: none; }
 svg:not(:root)  { overflow: hidden; }
-
+#progressBar {
+        width: 400px;
+        height: 22px;
+        border: 1px solid #111;
+        background-color: #292929;
+}
+ 
+#progressBar div {
+        height: 100%;
+        color: #fff;
+        text-align: right;
+        line-height: 22px; /* same as #progressBar height if we want text middle aligned */
+        width: 0;
+        background-color: #0099ff;
+}
 /* Tags reset
 *******************************************************************************/
 html {
@@ -2781,7 +2795,7 @@ margin-bottom:15px;
 ********************************************************/
 #show-featured {background-color: white; padding: 50px 0 75px; font-family: 'Open Sans', Helvetica, Arial, sans-serif;}
 #show-featured #video-filter {margin: 0 0 35px 3px;display: inline-block;}
-#show-featured #video-filter .seasons-filter{display: inline-block;}
+#show-featured .seasons-filter{display: inline-block;}
 #show-featured #video-thumbs{padding-bottom: 25px;}
 #show-featured #video-thumbs li {width: 22%;vertical-align: top;margin: 0 1.3% 20px;}
 #show-featured .thumbs-full{margin-bottom: 0; padding: 0 25px;position:relative;}
@@ -2963,6 +2977,57 @@ margin-bottom:15px;
 	padding: 12px 35px 40px;
 	overflow: hidden;
 }
+
+/* navigation mobile  more text for test ==================================== */
+.tv-show #shows-nav ul li.page-item-mobile {
+	color: #ffffff;
+	font-family: 'jubilat', serif;
+	font-size: 18px;
+	font-weight: 400;
+	padding: 0 15px;
+	text-shadow: 1px 1px 2px black;
+	display: none;
+	cursor: pointer;
+}
+.tv-show #shows-nav .mobile-dropdown-menu {
+	max-height: 0;
+	position: absolute;
+	top: 38px;
+	left: 0;
+	overflow: hidden;
+	background-color: #2a2a2a;
+	width: 200px;
+	z-index: 9999;
+	opacity: 0; 
+	border: solid #333;
+	padding: 1px 0;
+	border-width: 0 1px 1px;
+	transition: max-height 1s, opacity 0.2s !important;
+}
+.tv-show #shows-nav .mobile-dropdown-menu ul {
+	padding: 0;
+}
+.tv-show #shows-nav .mobile-dropdown-menu ul li {
+	display: list-item;
+	border-bottom: 1px solid #333;
+	padding-right: 0;
+}
+.tv-show #shows-nav .mobile-dropdown-menu ul li:hover {
+	background-color: #333;
+}
+.tv-show #shows-nav .mobile-dropdown-menu ul li:last-child {
+	border-bottom: none;
+}
+.tv-show #shows-nav .mobile-dropdown-menu ul li a {
+	font-size: 16px;
+	display: block;
+	width: 100%;
+}
+.tv-show #shows-nav .menu ul li .mob-m-visible {
+	max-height: 1000px;
+	opacity: 1;
+}
+
 /* when to watch ==================================== */
 .tv-show #when-to-watch {
 	width: 100%;
@@ -3142,7 +3207,7 @@ margin-bottom:15px;
 	line-height: 130%;
 	margin: 0 0 18px; 
 }
-.tv-show #description-area .ad-block {
+.tv-show .ad-block {
 	position: absolute;
 	margin-bottom: 20px;
 	width: 300px;
@@ -4446,7 +4511,7 @@ box-sizing: border-box;
    margin:0;
    position:absolute;
    top:8px;
-   right:255px;
+   right:150px;
 }
 .full-content .h-search-open {
    display: block !important;
@@ -5681,7 +5746,8 @@ table.likes-leaderboard .entry-title {
 	.tv-show .host-info {text-align: center;}
 	
 	#sponsors-area .sponsor-img {margin: 0 1.3% 20px;}
-
+	#upcoming .tiled-grid .tiled-grid-entry.on-tonight {background: #003965;padding: 30px 0 0 10px;text-align: left;width: 120px;}
+	
 } /* End of media */
 
 @media only screen and (max-width: 880px) {
@@ -5965,7 +6031,11 @@ table.likes-leaderboard .entry-title {
     .tv-show .host-info img {max-width: 100%;max-height: 100px;}
     
     #sponsors-area .sponsor-img {margin: 0 2.1% 20px; width: 45%;}
-    
+    .tv-show #locateChannel{position: relative;}
+	#upcoming .tiled-grid .tiled-grid-entry.on-tonight{padding: 20px 5px 0;}
+	#upcoming .flex-direction-nav{display: none;}
+	#show-store .store-left {padding-left: 20px;}
+	
 } /* End of media */
 @media only screen and (max-width: 760px) {
 
@@ -6025,7 +6095,10 @@ table.likes-leaderboard .entry-title {
 	.tv-show .channelControls #zip {margin: 0 0 20px 0;}
 	.tv-show .channelControls a {margin-top: 2px;}
 	.tv-show .channelControls a input {width: 170px;height: 41px;margin: 0;}
-
+	#video-filter li{padding: 0;}
+	#video-filter li a{padding: 5px 8px;}
+	.tv-show .shows-player-area{padding-left: 20px;padding-right: 20px;}
+	
 } /* End of media */
 @media only screen and (max-width: 700px) {
 	.search-field input{width: 90%;}
@@ -6107,9 +6180,9 @@ table.likes-leaderboard .entry-title {
     .tv-show #locateChannel {display: none;}
     #show-featured #video-thumbs li {margin: 0 1.1% 12px;}
     #show-destination .play-btn {top: 15%;}
-    
      #sponsors-area .sponsor-img {margin: 0 2% 20px; width: 45%;}
-    
+     #show-store .store-left {padding-left: 10px;}
+    #show-featured #video-filter {margin: 20px 0 25px 3px;display: block;}
 } /* End of media */
 
 @media only screen and (max-width: 610px) {
@@ -6507,6 +6580,12 @@ table.likes-leaderboard .entry-title {
 	.w-sport {position: relative;width: 100%;}
 	
 	#sponsors-area .sponsor-img {width: 29.9%;margin: 0 1.35% 20px;}
+	#show-store .store-left, #show-store .widget_store-widget {float: none;width: 100%;}
+	#show-store .store-left {height: auto;text-align: center;padding-bottom: 20px;border-bottom: 1px solid #ccc;}
+	#show-store .store-sep{display: none;}
+	.tv-show .content-banner-section{margin: 0;}
+	.tv-show #description-area{margin: 10px 0 0;}
+	.tv-show #description-area .unify{min-height: auto;}
 	
 } /* End of media */
 @media only screen and (max-width: 510px) {
@@ -6621,6 +6700,24 @@ table.likes-leaderboard .entry-title {
 	.btn-green:first-child {margin-bottom: 10px;}
 	.w2w-schedule h1 {font-size: 25px;}
 	.w-sport-head h2 {font-size: 22px;}
+	.tv-show div.sponsors-wrap{padding-left: 10px;padding-right: 10px;}
+	.tonight-schedule .flex-direction-nav a{width: 20px;height: 100px;}
+	.tonight-schedule .flex-direction-nav a.flex-prev{background: url(images/arrow-left.png) no-repeat 10px 30px #dedddd;left: 0;}
+	.tonight-schedule .flex-direction-nav a.flex-next{background: url(images/arrow-right.png) no-repeat 10px 30px #dedddd;right: 40px;}
+	#upcoming {height: auto;overflow-y: visible;}
+	#upcoming .tonight-bg{display: none;}
+	#upcoming .tiled-grid .tiled-grid-entry.on-tonight{padding: 4px 0;text-align: center;width: 100%;height: auto;}
+	.tonight-schedule {margin-left: 0;width: 100%;padding:0clear: both;overflow: hidden;}
+	.tonight-schedule ul.slides li{height: 100px;}
+	#upcoming .tiled-grid .col{padding: 16px 60px 18px 8px;}
+	.tv-show .shows-player-area{padding-left: 15px;padding-right: 15px;}
+	#show-featured{padding-top: 20px;}
+	#show-featured .thumbs-full .loading-gif{top:-16px;}
+	.video-filter li{padding: 5px 0;text-align: center;border-right: 1px solid #ccc;}
+	#show-featured .thumbs-full .loading-gif.bottom-paginate{bottom: -55px;left: 6px;}
+	.tv-show #description-area{margin: 0;}	
+	.w2w-schedule .show-btn{width: 220px;font-size: 12px;}
+	
 } /* End of media */
 
 /* Webkit Hacks  */

@@ -44,7 +44,7 @@ while (have_posts()) : the_post();
 	<script typ="text/javascript">
 	    jQuery(document).ready(function(){
 	    var windowWidth 	= jQuery(window).width(); 
-	    	if (windowWidth < 760) {
+	    	if (windowWidth < 760 && windowWidth > 611) {
 		         jQuery("#palce4schedule").load("/wp-content/themes/imo-mags-parent/content/tv-show/show-schedule.php");
 		         jQuery("body").css({
 		         "background-image" : "url(<?php echo get_field('background_skin_mobile',$acfID); ?>)",
@@ -53,8 +53,17 @@ while (have_posts()) : the_post();
 		         "background-position" : "20% 0",
 		         "background-color" : "#2a2a2a"
 		         });
-	         }
-	        if (windowWidth > 760) {
+	         }else if (windowWidth < 610) {
+		         jQuery("body").css({
+		         "background-image" : "url(<?php echo get_field('background_skin_mobile',$acfID); ?>)",
+		         "background-repeat" : "no-repeat",
+		         "background-size" : "160% auto",
+		         "background-position" : "20% 50px",
+		         "background-color" : "#2a2a2a"
+
+		         });
+
+	         }else if (windowWidth > 760){
 		        jQuery("body").css({
 		         "background-image" : "url(<?php echo get_field('background_skin',$acfID); ?>)",
 		         "background-repeat" : "no-repeat",
@@ -70,9 +79,11 @@ while (have_posts()) : the_post();
 				<div id="video-gallery" class="video-player-wrap clearf">
 					<script type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script> 
 					<div id="player"></div>
-					<div class="new-show">
-						<img src="/wp-content/themes/imo-mags-parent/images/temp/new-show.jpg">
+					<?php if( !mobile() ){ ?>
+					<div class="ad-block">
+						<?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>
 					</div>
+					<?php } ?>
 				</div><!-- end of .video-player-wrap -->
 				<div id="description-area">
 					<div class="unify">
@@ -112,10 +123,8 @@ while (have_posts()) : the_post();
 					</div><!-- end of #description-area -->
 					<div class="video-player-sidebar">
 						<div class="new-show"></div>
-						<div class="ad-block">
-							<?php imo_ad_placement("btf_medium_rectangle_300x250"); ?>
-						</div>
-				</div><!-- end of #description-area -->
+	
+					</div><!-- end of #description-area -->
 				<!-- this widget is located in imo-mags-parent/widgets -->
 				<?php get_template_part( 'widgets/sportsmanLocator' ); ?>
 			</div><!-- end of #video-player-area -->
@@ -136,6 +145,7 @@ while (have_posts()) : the_post();
 	?>
 
 	<div class="thumbs-full">
+	
 		<div class="loading-gif"></div>
 		<select class="seasons-filter">
 			<option value="">Sort by Season</option>

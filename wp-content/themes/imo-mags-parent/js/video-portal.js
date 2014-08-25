@@ -4,7 +4,7 @@ jQuery(document).ready(function ($) {
 	
 	//brightcove video portal
 	if( $("#video-gallery").length ){
-		
+	
 		var player,
 		video_id,
 		title,
@@ -60,6 +60,10 @@ jQuery(document).ready(function ($) {
 			}
 			
 		}
+		
+		jQuery(window).bind('orientationchange', function() {
+			loadVideo(video_id);
+		});
 		
 		//initiate video on click
 		$("a.video-thumb").click(function(){
@@ -208,12 +212,14 @@ jQuery(document).ready(function ($) {
 		});
 		
 		function cat_ajax_get(catID) {
+			var pollInterval;
 		    var ajaxurl = '/wp-admin/admin-ajax.php';
 		    $.ajax({
 		        type: 'POST',
 		        url: ajaxurl,
 		        data: {"action": "load-filter", cat: catID, offset: postoffset },
 		        success: function(response) {
+                  
 		            if(postoffset > 1){
 		            	if(!response){
 		            		$("a.paginate-videos").hide();
@@ -245,7 +251,9 @@ jQuery(document).ready(function ($) {
 		            return false;
 		        }
 		    });
-		}		
+		}
+		
+
 	}
 	
 	//Gallery Page
