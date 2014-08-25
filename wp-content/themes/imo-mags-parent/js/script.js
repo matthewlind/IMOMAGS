@@ -34,8 +34,7 @@ jQuery(document).ready(function () {
 		}
 	});	
 	
-	
-
+		
 	// End TV-show functions
 	
 	if(jQuery(".featured-area").length && jQuery(".posts-list").length){

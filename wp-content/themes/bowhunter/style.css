@@ -140,6 +140,25 @@ subscribe-links a{color: white;}
 .open-menu{border: none;}
 .open-search{background-position-x: -352px;}
 
+
+/*** Show pages ***/
+.tv-show .schedule-item .episode-title, .tv-show .w2w-list .episode-title{color: #6ba4c2;}
+.tv-show #channelControls a input, .tv-show .channelControls a input, .tv-show .show-btn, .tv-show .remind-me, .page-template-show-page-php .tv-show .remind-me{
+	color: white;
+	border: none;
+	text-transform: uppercase;
+	background: #4c9cff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #4c9cff 0%, #2665bf 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4c9cff), color-stop(100%,#2665bf)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #4c9cff 0%,#2665bf 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #4c9cff 0%,#2665bf 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #4c9cff 0%,#2665bf 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #4c9cff 0%,#2665bf 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c9cff', endColorstr='#2665bf',GradientType=0 ); /* IE6-9 */
+	border-color: #2665bf #2665bf #2665bf;
+}
+
+
 @media only screen and (max-width: 1096px) {
 	.logo img{width: 130px !important;}
 	.header .socials{right: 44px;}

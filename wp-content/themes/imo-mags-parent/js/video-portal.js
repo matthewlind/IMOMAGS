@@ -82,7 +82,9 @@ jQuery(document).ready(function ($) {
 		});
 			
 		function videoInit(){
-	
+			$('html, body').animate({
+		        scrollTop: $("#show-destination").offset().top
+		    }, 0);
 			moreContent();
 			loadVideo(video_id);
 			updateSocial(slug,title,post_url,img_url);
@@ -94,10 +96,10 @@ jQuery(document).ready(function ($) {
 		    var url = window.location.pathname.toString();
 		    var newSlug = url.replace(url, slug);
 			//change the url
-			window.history.pushState({ video_id: video_id, slug: slug, title: title, description: description, post_url: post_url, img_url: img_url }, title, "/tv/" + newSlug );
+			window.history.pushState({ id: video_id, slug: slug, title: title, description: description, post_url: post_url, img_url: img_url }, title, "/tv/" + newSlug );
 			//track back/foward browser history and reload the videos
 			window.onpopstate = function(event) {
-	            video_id = event.state.video_id;
+	            video_id = event.state.id;
 	            loadVideo(video_id);
 	            // place data into html
 				$("h1.video-title").text(event.state.title);
@@ -183,14 +185,14 @@ jQuery(document).ready(function ($) {
 		var postoffset = 0;
 		$("a.paginate-videos").click(function(){
 			postoffset = postoffset + 8;
-			$("#ajax-loader").show();
+			$(".loading-gif").show();
 			cat_ajax_get(catID);
 		});
 		
 		$('select.seasons-filter').on('change', function (e) {
 			postoffset = 0;
 			var catID = this.value;
-			$("#ajax-loader").show();
+			$(".loading-gif").show();
 			cat_ajax_get(catID);
 			$("a.paginate-videos").show();
 		});
@@ -200,7 +202,7 @@ jQuery(document).ready(function ($) {
 			$(this).addClass("video-thumb-active");
 			postoffset = 0;
 			catID = $(this).attr("slug");
-			$("#ajax-loader").show();
+			$(".loading-gif").show();
 			cat_ajax_get(catID);
 			$("a.paginate-videos").show();
 		});
@@ -222,9 +224,9 @@ jQuery(document).ready(function ($) {
 		            }else{
 		            	$("#video-thumbs").html(response);
 		            }
-		            $("#ajax-loader").hide();
+		            $(".loading-gif").hide();
 					//initiate video on click
-					$("a.video-thumb").click(function(){
+					$("a.video-thumb").on("click", function(){
 						video_id = $(this).attr("data-videoid");
 						title = $(this).attr("data-title");
 						description = $(this).parent().find(".data-description").html();
@@ -236,11 +238,9 @@ jQuery(document).ready(function ($) {
 						$("h1.video-title").text(title);
 						$(".video-description").html(description);
 						
-						videoInit();
-						$('html, body').animate({
-					        scrollTop: $("#when-to-watch").offset().top
-					    }, 0);
 						_gaq.push(['_trackPageview', window.location.pathname + slug]);
+						videoInit();
+						
 					});
 		            return false;
 		        }

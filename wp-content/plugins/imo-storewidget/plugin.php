@@ -60,8 +60,8 @@ class IMOStoreWidget extends \WP_Widget {
 </h3>
 <div style="" id="imoprodgallery">
 </div>
-
-<script src="http://shop.intermediaoutdoors.com/pg1/imoprodgallery.js" type="text/javascript"></script>
+<!--<script src="http://shop.intermediaoutdoors.com/pg1/imoprodgallery.js" type="text/javascript"></script>-->
+<script src="http://store.intermediaoutdoors.com/pg/prodgallery148.js" type="text/javascript"></script>
 <?php
         print $after_widget;
     }

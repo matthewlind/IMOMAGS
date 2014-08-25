@@ -15,7 +15,7 @@ $acfID = 'category_' . $id; ?>
 <div class="clearfix js-responsive-section">
 	<div id="header-top">
 		<div class="shows-logo">
-			<img src="<?php echo get_field('show_logo',$acfID); ?>" alt="">
+			<a href="/tv"><img src="<?php echo get_field('show_logo',$acfID); ?>" alt="<?php echo get_field('show_title',$acfID); ?>"></a>
 		</div>
 		<div class="shows-title">
 			<h1><?php echo get_field('show_title',$acfID); ?></h1>
@@ -23,8 +23,7 @@ $acfID = 'category_' . $id; ?>
 		    </div>
 		</div><!-- end of #shows-title -->
 		<div class="shows-sponsor">
-			<span>presented by</span>
-			<img src="/wp-content/themes/petersenshunting/images/shows/federal-logo.png" alt="">
+			<?php imo_ad_placement("sponsor_logo_240x60"); ?>
 		</div>
 	</div><!-- end of #header-top -->
 	<div id="shows-nav">
@@ -82,9 +81,30 @@ $acfID = 'category_' . $id; ?>
 			<h3>WHEN TO<br>WATCH</h3>
 		</div>
 		
-		<?php echo do_shortcode("[tscschedule format='singleshow' postid='1016']"); ?>		
-		
-		<div class="remind-me">
+		<?php 
+		$whenToWatch = get_field('when_to_watch',$acfID);
+		echo do_shortcode("[tscschedule format='singleshow' postid='".$whenToWatch."']"); ?>	
+				
+		<a href="<?php echo get_field('remind_me',$acfID); ?>"" class="remind-me show-btn" target="_blank">
 			<span>REMIND ME<br> TO WATCH</span>
-		</div>
+		</a>
 	</div><!-- end of #when-to-watch -->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
