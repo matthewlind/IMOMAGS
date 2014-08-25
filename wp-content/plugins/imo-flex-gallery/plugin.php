@@ -131,6 +131,7 @@ function galleryOutput($gallery, $pictures, $totalSlides, $dartDomain, $communit
 	} else {
 		global $wpdb;
 		$title = stripcslashes($pictures[0]->title);
+		$slug = $pictures[0]->name;
 		$prefix = $wpdb->prefix;
 		$nextGalLimit = $wpdb->get_var($wpdb->prepare("SELECT * FROM {$prefix}ngg_gallery ORDER BY gid DESC LIMIT 0, 1"));
 		$nextGalStart = $wpdb->get_var($wpdb->prepare("SELECT * FROM {$prefix}ngg_gallery ORDER BY gid ASC LIMIT 0, 1"));
@@ -315,7 +316,7 @@ $desktop_tablet_output .= <<<EOF_a
 
 				</div>
 				<div class="slide-out-ad">
-					<iframe id="gallery-iframe-ad" height=280 width=330 src="/iframe-ad-gallery.php?ad_code=$dartDomain&ajax_gallery-$gallery"></iframe>
+					<iframe id="gallery-iframe-ad" height=280 width=330 src="/iframe-ad-gallery.php?ad_code=$dartDomain&ajax_gallery-$gallery&gallery_title=$slug"></iframe>
 				</div>
 			</div>
 		</div>
@@ -396,7 +397,7 @@ EOFmobile_community;
 		<div class="general-title clearfix">
 		    <h2><span>$title</span></h2>
 		</div>
-		<iframe id="gallery-iframe-ad" width="320" height="50" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?size=320x50&ad_code=$dartDomain"></iframe>
+		<iframe id="gallery-iframe-ad" width="320" height="50" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?size=320x50&ad_code=$dartDomain&gallery_title=$slug"></iframe>
 		<span class="slide-count">$totalSlides</span>
 		    <ul class="slides">
 EOT;

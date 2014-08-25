@@ -19,8 +19,8 @@ jQuery(document).ready(function () {
 	jQuery(".air-times-btn").click(function(){
 		jQuery(this).parents().eq(2).find(".m-shows-airtimes").toggleClass("height-auto");
 	});
-	
 
+	
 
 
 	jQuery(".page-item-mobile-btn").click(function(event){

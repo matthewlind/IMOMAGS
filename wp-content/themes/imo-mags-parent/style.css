@@ -903,8 +903,13 @@ input.gsc-search-button-v2{
 /* Main Section
  ******************************************************************************/
 .mdl-banner{
-	width: 728px;
-	margin: 0 auto;
+    margin: 0 auto;
+}
+.mdl-banner.mdl-728{
+    width: 728px;
+}
+.mdl-banner.mdl-expandable{
+    height: 100px;
 }
 .mdl-banner object{margin-top: 4px;}
 .mdl-banner img{
@@ -913,7 +918,15 @@ input.gsc-search-button-v2{
 }
 .mdl-banner iframe{
 	margin-top: 4px !important;
+	margin: auto;
+	position: absolute;
+	height: 100%;
+	z-index: 9999999999999999;
+	width: 1080px;
+	left: 0;
+	right: 0;
 }
+
 .mob-mdl-banner{
 	width: 320px;
 	margin: 0 auto;
