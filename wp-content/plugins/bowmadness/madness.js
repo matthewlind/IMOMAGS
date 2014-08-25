@@ -208,7 +208,8 @@
 					}
 					*/
 					
-					
+					var randomInt = Math.floor((Math.random() * 4) + 0);
+					var randomPopad = popads[randomInt];
 					
 					var regions = {'1':'Compound A', '2':'Compound B', '3':'Crossbows A', '4':'Crossbows B'}
 					var roundtitles = {/*'2':'First Round', */'3':'First Round', '4':'Sweet Sixteen', '5':'Elite Eight', '6':'Final Four', '7':'Championship'}
@@ -268,9 +269,9 @@
 								popads[3] = 'trail-cam-BoB-popup-358x90.jpg';
 								popads[4] = 'zeiss-BoB-popup-358x90.jpg';
 								
-								var randomInt = Math.floor((Math.random() * 4) + 0);
+								//var randomInt = Math.floor((Math.random() * 4) + 0);
 								
-								var randomPopad = popads[randomInt];
+								//var randomPopad = popads[randomInt];
 								
 								googletag.cmd.push(function() {
 									
