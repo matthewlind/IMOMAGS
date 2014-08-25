@@ -33,7 +33,6 @@ jQuery(document).ready(function () {
 			jQuery(".mobile-dropdown-menu").removeClass("mob-m-visible");
 		}
 	});	
-
 	// End TV-show functions
 	
 	if(jQuery(".featured-area").length && jQuery(".posts-list").length){
