@@ -3,6 +3,11 @@
 /**
  *head-includes.php makes special things special.
  */
+ 
+if( is_preview() ){
+	echo '<script type="text/javascript">var _gaq = _gaq || [];</script>';
+}
+
 $dartDomain = get_option("dart_domain", $default = false);
 
 $id = get_the_ID();
