@@ -20,8 +20,19 @@ jQuery(document).ready(function () {
 		jQuery(this).parents().eq(2).find(".m-shows-airtimes").toggleClass("height-auto");
 	});
 	
-	
 
+
+
+	jQuery(".page-item-mobile-btn").click(function(event){
+		event.stopPropagation();
+		jQuery(this).find(".mobile-dropdown-menu").toggleClass("mob-m-visible");
+	});
+
+	jQuery("body").click(function(){
+		if (jQuery(".mobile-dropdown-menu").hasClass("mob-m-visible")){
+			jQuery(".mobile-dropdown-menu").removeClass("mob-m-visible");
+		}
+	});	
 	// End TV-show functions
 	
 	if(jQuery(".featured-area").length && jQuery(".posts-list").length){

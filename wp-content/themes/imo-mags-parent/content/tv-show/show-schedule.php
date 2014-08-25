@@ -5,21 +5,16 @@
 				<div class="w2w-schedule">
 					<h1>WHEN TO WATCH</h1>
 					<ul class="w2w-list">
-						<li>
-							<span class="episode-title">Episode 11: Bezoar Libex</span><br>
-							<span class="episode-time"><span>Premiere Date: </span>Jun 02: SUN 9:00pm ET/PT</span>
-						</li>
-						<li>
-							<span class="episode-title">Episode 11: Bezoar Libex</span><br>
-							<span class="episode-time"><span>Premiere Date: </span>Jun 02: SUN 9:00pm ET/PT</span>
-						</li>
-						<li>
-							<span class="episode-title">Episode 11: Bezoar Libex</span><br>
-							<span class="episode-time"><span>Premiere Date: </span>Jun 02: SUN 9:00pm ET/PT</span>
-						</li>
+						<?php 
+							$idObj = get_category_by_slug('tv'); 
+							$id = $idObj->term_id;
+							$acfID = 'category_' . $id;
+							$whenToWatch = get_field('when_to_watch',$acfID);
+							echo do_shortcode("[tscschedule format='inline' postid='".$whenToWatch."']"); 
+						?>
 					</ul>
-					<div class="btn-green">
-						<a href="#">remind me to watch</a>
+					<div class="show-btn">
+						<a href="<?php echo get_field('remind_me',$acfID); ?>" target="_blank">remind me to watch</a>
 					</div>
 					<div class="grey-line"></div>
 				</div><!-- end of .w2w-schedule -->
@@ -44,37 +39,8 @@
 		
 		
 		<div class="w-sport">
-			<div class="w-sport-head">
-				<h2>WHAT'S ON<br>SPORTSMAN NOW</h2>
-				<img src="/wp-content/themes/imo-mags-parent/images/ico/schedule-widget-logo.png">
-			</div>
-			<div class="w-sport-schedule">
-				<ul>
-					<li>
-						<span>3:00PM</span><br>
-						<span>Saltwater Experience</span>
-					</li>
-					<li>
-						<span>3:30PM</span><br>
-						<span>Reel Time Florida Sportsman</span>
-					</li>
-					<li>
-						<span>4:00PM</span><br>
-						<span>Saltwater Experience</span>
-					</li>
-					<li>
-						<span>4:30PM</span><br>
-						<span>Reel Time Florida Sportsman</span>
-					</li>
-					<li>
-						<span>4:00PM</span><br>
-						<span>Saltwater Experience</span>
-					</li>
-				</ul>
-				<div class="w-sport-button">
-					<a href="#">FULL SCHEDULE</a>
-				</div>
-			</div>
+			<?php the_widget( 'Schedule_Widget' ); ?>
+		</div>
 		</div><!-- end of .w-sport -->
 	</div><!-- end of .schedule-area -->
 </div><!-- end of .shows-player-area -->

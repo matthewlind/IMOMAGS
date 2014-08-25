@@ -63,13 +63,13 @@ $slug_tv = get_post( $post )->post_name;
 		</div><!-- end of .sidebar-area -->
 		<div class="show-child-general">
 			<div class="show-child-general-frame">
-				<div class="page-header clearfix js-responsive-section">
+				<div class="show-header js-responsive-section">
 					<h1 class="page-title">
 						<span><?php the_title(); ?></span>
 				    </h1>
 				</div>
 				
-				<div id="post-<?php the_ID(); ?>" <?php post_class('article-brief clearfix js-responsive-section'); ?>>
+				<div id="post-<?php the_ID(); ?>" <?php post_class('article-brief js-responsive-section'); ?>>
 					<div class="article-holder">
 						<?php the_content(); ?>
 					</div>

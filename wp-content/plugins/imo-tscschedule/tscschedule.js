@@ -59,9 +59,9 @@ function makeTonightBar() {
 	centraltime = centralhoura.join(":");
 
     ul+= '<li class="tiled-grid-entry clr span_1_of_4 col">'
-      +  '<span class="show-time">'+tsval.time+'&nbsp;'+tsval.ampm+' EP</span>'
-      +  '<span class="show-title"><a href="/shows/'+tsval.Show.PostName+'">'
-      +  tsval.Show.SeriesTitle+'</a></span>'
+		      +  '<span class="show-time">'+tsval.time+'&nbsp;'+tsval.ampm+' EP</span>'
+		      +  '<span class="show-title"><a href="http://thesportsmanchannel.com/schedule/" target="_blank">'
+		      +  tsval.Show.SeriesTitle+'</a></span>'
       +  '</li>';
   });
 

@@ -15,7 +15,7 @@ $acfID = 'category_' . $id; ?>
 <div class="clearfix js-responsive-section">
 	<div id="header-top">
 		<div class="shows-logo">
-			<img src="<?php echo get_field('show_logo',$acfID); ?>" alt="">
+			<a href="/tv"><img src="<?php echo get_field('show_logo',$acfID); ?>" alt="<?php echo get_field('show_title',$acfID); ?>"></a>
 		</div>
 		<div class="shows-title">
 			<h1><?php echo get_field('show_title',$acfID); ?></h1>
@@ -23,16 +23,14 @@ $acfID = 'category_' . $id; ?>
 		    </div>
 		</div><!-- end of #shows-title -->
 		<div class="shows-sponsor">
-			<span>presented by</span>
-			<img src="/wp-content/themes/petersenshunting/images/shows/federal-logo.png" alt="">
+			<?php imo_ad_placement("sponsor_logo_240x60"); ?>
 		</div>
 	</div><!-- end of #header-top -->
 	<div id="shows-nav">
 		<?php if( have_rows('show_menu',$acfID) ): ?>
 			<div class="menu">
 				<ul>
-					<li class="page-item-mobile">
-						<a href="#">
+					<li class="page_item page-item-mobile page-item-mobile-btn">
 							<?php 
 								$post = get_post($postID);
 								$slug = $post->post_name;	
@@ -40,12 +38,34 @@ $acfID = 'category_' . $id; ?>
 									$post_data = get_post($post->post_parent);
 									$parent_slug = $post_data->post_name; 
 								}
-									echo $slug;		
+								if (empty($parent_slug)) {
+									echo "Home";
+								} elseif ($parent_slug == "tv") {
+									if ($slug == "photo") {
+										echo "Photo";
+									} elseif ($slug == "about") {
+										echo "About & Hosts";
+									} elseif ($slug == "shows") {
+										echo "More Shows";
+									} else {
+										echo "Menu";
+									}
+								}	
 							?>
-						</a>
+							<i class="fa fa-caret-down"></i>
+						<div class="mobile-dropdown-menu">
+							<ul>
+								<?php while( have_rows('show_menu',$acfID) ): the_row(); ?>
+									<li class="page_item"><a href="<?php echo get_sub_field('url'); ?>"><?php echo get_sub_field('name'); ?></a></li>
+								<?php endwhile; ?>
+							</ul>
+						</div>
+					 </li>
+					 <li class="page_item page-item-mobile">
+					 	<a href="/tv/shows">More Shows</a>
 					 </li>
 				<?php while( have_rows('show_menu',$acfID) ): the_row(); ?>
-					<li class="page_item"><a href="<?php echo get_sub_field('url'); ?>"><?php echo get_sub_field('name'); ?></a></li>
+					<li class="page_item non-mobile-item"><a href="<?php echo get_sub_field('url'); ?>"><?php echo get_sub_field('name'); ?></a></li>
 				<?php endwhile; ?>
 				</ul>
 			</div>
@@ -61,9 +81,30 @@ $acfID = 'category_' . $id; ?>
 			<h3>WHEN TO<br>WATCH</h3>
 		</div>
 		
-		<?php echo do_shortcode("[tscschedule format='singleshow' postid='1016']"); ?>		
-		
-		<div class="remind-me">
+		<?php 
+		$whenToWatch = get_field('when_to_watch',$acfID);
+		echo do_shortcode("[tscschedule format='singleshow' postid='".$whenToWatch."']"); ?>	
+				
+		<a href="<?php echo get_field('remind_me',$acfID); ?>"" class="remind-me show-btn" target="_blank">
 			<span>REMIND ME<br> TO WATCH</span>
-		</div>
+		</a>
 	</div><!-- end of #when-to-watch -->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

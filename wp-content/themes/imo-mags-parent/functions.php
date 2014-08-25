@@ -14,6 +14,7 @@ include_once('widgets/community-login-widget.php');
 include_once('widgets/user-info.php');
 include_once('widgets/forecast.php');
 include_once('widgets/featured-sidebar-widget.php');
+include_once('widgets/tsc-schedule.php');
 
 $magazine_img = get_option("magazine_cover_uri", get_stylesheet_directory_uri(). "/images/pic/journals.png" );
 $subs_link = get_option("subs_link");
@@ -30,6 +31,20 @@ add_filter('single_template', create_function(
 		return TEMPLATEPATH . "/single-{$cat->slug}.php"; }
 	return $the_template;' )
 );
+
+function sub_footer(){ ?>
+	<div class="sub-boxes">
+		<div class="sub-box banner-box">
+			<?php imo_ad_placement("btf_medium_rectangle_300x250"); ?>	
+		</div>
+		<div class="sub-box fb-box">
+			<div class="newsletter-box bottom-newsletter">
+				<?php the_widget("Signup_Widget_Header", "title=GET THE NEWSLETTER!"); ?>
+			</div>
+		</div>
+	</div>
+	<?php
+}
 
 function imo_login_form_shortcode( $atts, $content = null ) {
 
