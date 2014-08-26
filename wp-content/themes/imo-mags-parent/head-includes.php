@@ -144,7 +144,8 @@ node.parentNode.insertBefore(gads, node);
 <script type='text/javascript'>
 googletag.cmd.push(function() {
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Adhesive_Medium_Rectangle_300x250', [300, 250], 'div-adhesive_medium_rectangle_300x250').addService(googletag.pubads());
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/ATF_Leaderboard_728x90', [[320, 50], [728, 90], [1080, 90]], 'div-atf_leaderboard_728x90').addService(googletag.pubads());
+googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/ATF_Leaderboard_728x90', [[728, 90]], 'div-atf_leaderboard_728x90').addService(googletag.pubads());
+googletag.defineSlot('/4930/imo.bowhunting/Pushdown_1080x90', [1080, 90], 'div-pushdown_1080x90').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/ATF_Medium_Rectangle_300x250', [[300, 250], [300, 600]], 'div-atf_medium_rectangle_300x250').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/BTF_Leaderboard_728x90', [728, 90], 'div-btf_leaderboard_728x90').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/BTF_Medium_Rectangle_300x250', [300, 250], 'div-btf_medium_rectangle_300x250').addService(googletag.pubads());

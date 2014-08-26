@@ -903,17 +903,30 @@ input.gsc-search-button-v2{
 /* Main Section
  ******************************************************************************/
 .mdl-banner{
-	width: 728px;
-	margin: 0 auto;
+    margin: 0 auto;
+}
+.mdl-banner.mdl-728{
+    width: 728px;
+}
+.mdl-banner.mdl-expandable{
+    /*height: 100px;*/
 }
 .mdl-banner object{margin-top: 4px;}
 .mdl-banner img{
 	padding: 4px 0;
 	display: block;
 }
-.mdl-banner iframe{
+.mdl-banner.mdl-expandable iframe{
 	margin-top: 4px !important;
+	margin: auto;
+	position: absolute;
+	/*height: 100%;*/
+	z-index: 9999999999999999;
+	width: 1080px;
+	left: 0;
+	right: 0;
 }
+
 .mob-mdl-banner{
 	width: 320px;
 	margin: 0 auto;
@@ -5071,7 +5084,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 
 
 
-
+/*** mobile adhesion ***/
+.mobile-adhesion{width:320px;position:fixed;bottom:0;z-index: 999999999;margin:auto;left: 0;right: 0;}
 
 /*** subscribe fixed ***/
 .fixed-connect{width:100%;height:42px;position:fixed;bottom:0;background:#545454;color:#fff;font-family:"Source Sans Pro","Helvetica",Arial,sans-serif;font-weight: 600;opacity:.99;z-index:999999999999999;}
