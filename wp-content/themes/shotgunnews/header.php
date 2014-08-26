@@ -282,15 +282,19 @@
         </div><!-- #branding -->
 		
         <div class="content-banner-section">
-        	<?php if (mobile() == false) { ?>
-	        	<div class="mdl-banner">
+        	<?php if (mobile()) { ?>
+        		<div class="mob-mdl-banner">
+					<?php imo_ad_placement("mobile_leaderboard_320x50"); ?>
+				</div>
+			<?php }else{ ?>
+				<div class="mdl-banner mdl-728">
 					<?php imo_ad_placement("atf_leaderboard_728x90"); ?>
 				</div>
-				<?php }else{ ?>
-					<div class="mob-mdl-banner">
-						<?php imo_ad_placement("mobile_leaderboard_320x50"); ?>
-					</div>
-				<?php } ?>
+				<div class="mdl-banner mdl-expandable">
+					<?php imo_ad_placement("pushdown_1080x90"); ?>
+				</div>
+			<?php } ?>
+
         </div>
         
         <div id="main" class="main clearfix js-responsive-layout">
