@@ -17,14 +17,14 @@ get_header(); ?>
 				<span><?php the_title(); ?></span>
 		    </h1>
 		    <?php if(mobile()){ ?>
-		    	<img class="madness-logo-mobile" src="/wp-content/plugins/bowmadness/images/BoB_logo3.png" alt="Bow Madness" title="Bow Madness" />
+		    	<img class="madness-logo-mobile" src="/wp-content/plugins/bowmadness/images/bowmadness-logo.png" alt="Bow Madness" title="Bow Madness" />
 				<?php 
 			} ?>
 		    <ul id="ga-madness-nav">
 				<li><a href="/battle-of-the-bows">Bow Bracket</a></li>
 				<li><a href="/battle-of-the-bows/enter">Enter</a></li>
 				<?php if(!mobile()){ ?>
-					<li class="madness-logo"><img src="/wp-content/plugins/bowmadness/images/BoB_logo3.png" alt="Bow Madness" title="Bow Madness" />
+					<li class="madness-logo"><img src="/wp-content/plugins/bowmadness/images/bowmadness-logo.png" alt="Bow Madness" title="Bow Madness" />
 					</li>
 				<?php } ?>
 				<li><a href="/battle-of-the-bows/prizes-rules">Prizes & Rules</a></li>
