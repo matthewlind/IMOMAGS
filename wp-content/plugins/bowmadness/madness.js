@@ -19,8 +19,8 @@
 			dataType: "json",
 			
 			success: function(resp, status, jqxhr) {
-				madnessround = resp.activeround;
-				jQuery('#madtabs').tabs({selected: (madnessround-2)});
+				madnessround = resp[0].activeround;
+				jQuery('#madtabs').tabs({active: (madnessround - 3)});
 			}
 
 		});
@@ -52,7 +52,7 @@
 						jQuery(".match94").html(writeGAMBracket(finall));
 					}
 					else {
-						jQuery("#madtabs-"+(parseInt(round)-2)+" .mreg"+region).html(writeGAMBracket(resp.data));
+						jQuery("#madtabs-"+(parseInt(round) - 1)+" .mreg"+region).html(writeGAMBracket(resp.data));
 					}
 				}
 				else {
@@ -170,8 +170,6 @@
 	
 	
 	function makeGAMPopup() {
-
-		
 		
 		 jQuery(".closedm").on("click", function() {
 			
