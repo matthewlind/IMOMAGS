@@ -20,7 +20,7 @@
 			
 			success: function(resp, status, jqxhr) {
 				madnessround = resp.activeround;
-				jQuery('#madtabs').tabs({selected: (madnessround-1)});
+				jQuery('#madtabs').tabs({selected: (madnessround-2)});
 			}
 
 		});
@@ -52,7 +52,7 @@
 						jQuery(".match94").html(writeGAMBracket(finall));
 					}
 					else {
-						jQuery("#madtabs-"+(parseInt(round)-1)+" .mreg"+region).html(writeGAMBracket(resp.data));
+						jQuery("#madtabs-"+(parseInt(round)-2)+" .mreg"+region).html(writeGAMBracket(resp.data));
 					}
 				}
 				else {
@@ -198,15 +198,6 @@
 					pdata.player2link_href = pdata.player2link;
 					delete pdata.player1link;
 					delete pdata.player2link;
-			 
-					/*var popads = {
-						'maps' : 'maps-BoB-popup-358x90.jpg',
-						'rage' : 'rage-BoB-popup-358x90.jpg',
-						'scent' : 'scent-lok-BoB-popup-358x90.jpg',
-						'trail' : 'trail-cam-BoB-popup-358x90.jpg',
-						'zeiss' : 'zeiss-BoB-popup-358x90.jpg'
-					}
-					*/
 					
 					var randomInt = Math.floor((Math.random() * 4) + 0);
 					var randomPopad = popads[randomInt];
@@ -326,14 +317,6 @@
 						
 					});
 					
-				/*	var popads = {
-						'handgunsmadness' : 'maps-BoB-popup-358x90.jpg',
-						'riflesmadness' : 'rage-BoB-popup-358x90.jpg',
-						'arsmadness' : 'scent-lok-BoB-popup-358x90.jpg',
-						'shotgunsmadness' : 'trail-cam-BoB-popup-358x90.jpg',
-						'zeiss' : 'zeiss-BoB-popup-358x90'
-					}
-				*/
 					popads[0] = 'maps-BoB-popup-358x90.jpg';
 					popads[1] = 'rage-BoB-popup-358x90.jpg';
 					popads[2] = 'scent-lok-BoB-popup-358x90.jpg';
