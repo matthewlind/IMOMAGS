@@ -6,11 +6,14 @@
  * @subpackage Twenty_Eleven
  * @since Twenty Eleven 1.0
  */
+$idObj = get_category_by_slug('tv'); 
+$id = $idObj->term_id;
+$acfID = 'category_' . $id;
 ?>
 <div id="show-store">
 	<div class="store-left">
 		<h2>Store</h2>
-		<p>Bowhunter TV</p>
+		<p><?php echo get_field('show_title',$acfID); ?></p>
 		<a href="https://store.intermediaoutdoors.com/brands.php?brand=<?php echo bloginfo("name"); ?>" class="show-btn" target="_blank">Visit Store</a>
 	</div>
 	<div class="store-sep"></div>

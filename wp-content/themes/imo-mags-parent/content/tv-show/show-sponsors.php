@@ -36,7 +36,7 @@ $acfID = 'category_' . $id; ?>
 								$alt = $image['alt'];
 								$caption = $image['caption'];
 								?>
-								<a href="<?php echo get_sub_field('url'); ?>">
+								<a href="<?php echo get_sub_field('url'); ?>" target="_blank">
 									<img class="sposors-box-img" src="<?php echo $url; ?>" alt="<?php echo $alt; ?>" title="<?php echo $title; ?>" />
 								</a>
 							</li>

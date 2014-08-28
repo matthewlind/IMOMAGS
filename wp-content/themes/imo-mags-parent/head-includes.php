@@ -170,6 +170,7 @@ googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/battle_of_the_bows/bob_re
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/battle_of_the_bows/bob_region_sponsor_3', [240, 60], 'div-bob_region_sponsor_3').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/battle_of_the_bows/bob_region_sponsor_4', [240, 60], 'div-bob_region_sponsor_4').addService(googletag.pubads());
 
+googletag.pubads().collapseEmptyDivs();
 googletag.pubads().setTargeting("sect","<?php echo $term; ?>");
 googletag.pubads().setTargeting("camp","<?php echo $camp; ?>");
 googletag.pubads().setTargeting("Audience segment","<?php echo $term; ?>");

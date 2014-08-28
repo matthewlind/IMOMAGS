@@ -1474,6 +1474,7 @@ if(function_exists("register_field_group"))
 		),
 		'menu_order' => 0,
 	));
+	
 	register_field_group(array (
 		'id' => 'acf_tv-abouthosts-page',
 		'title' => 'TV - About&Hosts Page',
@@ -2174,6 +2175,18 @@ if(function_exists("register_field_group"))
 				'label' => 'Sponsors',
 				'name' => 'sponsors',
 				'type' => 'repeater',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_53ceb4a4f00ca',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
+
 				'instructions' => 'Add sponsor images.',
 				'sub_fields' => array (
 					array (
@@ -2323,7 +2336,83 @@ if(function_exists("register_field_group"))
 		'menu_order' => 0,
 	));
 }
+if(function_exists("register_field_group"))
+{
+	register_field_group(array (
+		'id' => 'acf_filter',
+		'title' => 'Filter',
+		'fields' => array (
+			array (
+				'key' => 'field_53ff6a48bef97',
+				'label' => 'Season Filter',
+				'name' => 'season_filter',
+				'type' => 'taxonomy',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_53ceb4a4f00ca',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
 
+				'instructions' => 'Choose the seasons to filter by.',
+				'taxonomy' => 'category',
+				'field_type' => 'checkbox',
+				'allow_null' => 0,
+				'load_save_terms' => 0,
+				'return_format' => 'id',
+				'multiple' => 0,
+			),
+			array (
+				'key' => 'field_53ff6b8b9f459',
+				'label' => 'Category Filter',
+				'name' => 'category_filter',
+				'type' => 'taxonomy',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_53ceb4a4f00ca',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
+
+				'instructions' => 'Choose the categories to filter by.',
+				'taxonomy' => 'category',
+				'field_type' => 'checkbox',
+				'allow_null' => 0,
+				'load_save_terms' => 0,
+				'return_format' => 'id',
+				'multiple' => 0,
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'ef_taxonomy',
+					'operator' => '==',
+					'value' => 'category',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+}
 add_action( 'wp_ajax_nopriv_load-filter', 'prefix_load_cat_posts' );
 add_action( 'wp_ajax_load-filter', 'prefix_load_cat_posts' );
 function prefix_load_cat_posts () {

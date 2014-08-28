@@ -87,18 +87,27 @@ while (have_posts()) : the_post();
 				</div><!-- end of .video-player-wrap -->
 				<div id="description-area">
 					<div class="unify">
-						<div class="content-height">
-							<h1 class="video-title" data-videoid="<?php echo $video_id; ?>" data-slug="<?php echo $post->post_name;?>"><?php the_title(); ?></h1>
-							<div class="video-description"><?php the_content(); ?></div>
-						</div>
+						<h1 class="video-title" data-videoid="<?php echo $video_id; ?>" data-slug="<?php echo $post->post_name;?>"><?php the_title(); ?></h1>
+						<ul class="social-buttons">
+						    <li>
+						        <a href="http://twitter.com/share" class="socialite twitter-share" data-text="<?php the_title(); ?>" data-url="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" data-count="none" rel="nofollow" target="_blank"><span class="vhidden"></span></a>
+						    </li>
+						    <li>
+						        <a href="https://plus.google.com/share?url=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" data-annotation="none" class="socialite googleplus-one g-plusone" data-href="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" rel="nofollow" target="_blank"><span class="vhidden"></span></a>
+						    </li>
+						    <li>
+						        <a href="http://www.facebook.com/sharer.php?u=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>&t=<?php the_title(); ?>" class="socialite facebook-like" data-href="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" data-send="false" data-layout="button" data-width="60" data-show-faces="false" rel="nofollow" target="_blank"><span class="vhidden"></span></a>
+						    </li>
+						</ul>
+						<div class="video-description"><?php the_content(); ?></div>
 						<div class="video-more-content" style="display:none;"><div class="more-link">Read More</div></div>
-						<div class="social-share clearf">
+						<!--<div class="social-share clearf">
 							<div class="social-share">
-								<!--<div class="share-results">
+								<div class="share-results">
 									<span>2K</span>				
 									<div class="shares"><span>SHARES</span></div>		
-								</div>-->
-								<div class="social-share-btns">
+								</div>
+									<div class="social-share-btns">
 									<a class="reload-fb" href="http://www.facebook.com/sharer.php?u=<?php the_permalink();?>&amp;t=<?php the_title(); ?>" title="Share on Facebook." target="_blank">
 										<div class="facebook-share">
 											<i class="fa fa-facebook"></i>
@@ -145,21 +154,31 @@ while (have_posts()) : the_post();
 	?>
 
 	<div class="thumbs-full">
-	
-		<div class="loading-gif"></div>
-		<select class="seasons-filter">
-			<option value="">Sort by Season</option>
-			<option value="Season-10">Season 10</option>
-			<option value="Season-9">Season 9</option>
-			<option value="Season-8">Season 8</option>
-			<option value="Season-7">Season 7</option>
-		</select>
-		<ul id="video-filter">
-			<li><a slug="all" class="video-thumb-active video-ajax">Most Recent</a></li>
-			<li><a slug="tech-talk" class="video-ajax">Tech Talk</a></li>
-			<li><a slug="moment-of-truth" class="video-ajax">Moment of Truth</a></li>
-			<li><a slug="dead-on" class="video-ajax">Dead On</a></li>
-		</ul>
+		<?php $seasons = get_field("season_filter", $acfID);
+		if( $seasons ){ ?>
+			<div class="loading-gif"></div>
+			<select class="seasons-filter">
+				<option value="">Sort by Season</option>
+				<?php 
+				foreach( $seasons as $season ){  
+					$seasonNumber = get_term_by('id', $season, 'category'); ?>
+					<option value="<?php echo $seasonNumber->slug; ?>"><?php echo $seasonNumber->name; ?></option>
+				<?php } ?>
+			</select>
+		<?php } ?>
+
+		<?php $categories = get_field("category_filter", $acfID);
+		if( $categories ){ ?>
+			<ul id="video-filter">		
+				<li><a slug="all" class="video-thumb-active video-ajax">Most Recent</a></li>
+				<?php 
+				foreach( $categories as $category ){  
+					$categoryList = get_term_by('id', $category, 'category'); ?>
+					<li><a slug="<?php echo $categoryList->slug; ?>" class="video-ajax"><?php echo $categoryList->name; ?></a></li>
+				<?php } ?>
+			</ul>
+		<?php } ?>
+
 		<ul id="video-thumbs">
 			<?php while (have_posts()) : the_post(); $i++; 
 				$post_id = get_the_id();
@@ -182,8 +201,8 @@ while (have_posts()) : the_post();
 		
 			<?php endwhile; ?>
 		</ul>
-		<div class="btn-grey-sm paginate-videos">
-			<a class="paginate-videos">Load more videos <i class="fa fa-long-arrow-down"></a></i>
+		<div class="paginate-videos">
+			<a class="paginate-videos show-btn">Load more videos <i class="fa fa-long-arrow-down"></a></i>
 			<div class="loading-gif bottom-paginate"></div>
 		</div>
 	</div><!-- end of .thumbs-full -->
@@ -193,7 +212,7 @@ while (have_posts()) : the_post();
 		<div class="tonight-bg"></div>
 		<div class="tiled-grid-entry on-tonight clr span_1_of_4 col col-1">
 			<h3>On Tonight</h3>
-			<a class="" href="/schedule">Full Schedule <i class="fa fa-angle-double-right"></i></a>
+			<a class="" href="http://thesportsmanchannel.com/schedule" tarfet="_blank">Full Schedule <i class="fa fa-angle-double-right"></i></a>
 		</div>
 		<div class="tonight-schedule">
 			<ul class="slides">

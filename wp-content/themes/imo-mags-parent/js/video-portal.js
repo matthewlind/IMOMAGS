@@ -1,7 +1,5 @@
 jQuery(document).ready(function ($) {
 	
-	//var _gaq = _gaq || [];
-	
 	//brightcove video portal
 	if( $("#video-gallery").length ){
 	
@@ -36,9 +34,9 @@ jQuery(document).ready(function ($) {
 				//});
 		    });
 		})();
-
-		loadVideoOnPageLoad();
 		
+		
+
 		//load the data differently for category and single pages
 		function loadVideoOnPageLoad(){
 			if($(".single-format-video").length){
@@ -58,7 +56,7 @@ jQuery(document).ready(function ($) {
 				post_url = $("#video-thumbs li").first().find("a").attr("data-post_url");
 				videoInit();
 			}
-			
+			Socialite.load();
 		}
 		
 		jQuery(window).bind('orientationchange', function() {
@@ -89,7 +87,7 @@ jQuery(document).ready(function ($) {
 			$('html, body').animate({
 		        scrollTop: $("#show-destination").offset().top
 		    }, 0);
-			moreContent();
+			//moreContent();
 			loadVideo(video_id);
 			updateSocial(slug,title,post_url,img_url);
 			updateURL();
@@ -100,7 +98,8 @@ jQuery(document).ready(function ($) {
 		    var url = window.location.pathname.toString();
 		    var newSlug = url.replace(url, slug);
 			//change the url
-			window.history.pushState({ id: video_id, slug: slug, title: title, description: description, post_url: post_url, img_url: img_url }, title, "/tv/" + newSlug );
+			var stateObj = { id: video_id, slug: slug, title: title, description: description, post_url: post_url, img_url: img_url };
+			window.history.pushState(stateObj, title, "/tv/" + newSlug );
 			//track back/foward browser history and reload the videos
 			window.onpopstate = function(event) {
 	            video_id = event.state.id;
@@ -252,6 +251,11 @@ jQuery(document).ready(function ($) {
 		        }
 		    });
 		}
+		
+		
+		
+		loadVideoOnPageLoad();
+		
 		
 
 	}

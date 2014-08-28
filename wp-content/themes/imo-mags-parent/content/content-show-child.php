@@ -78,28 +78,26 @@ $slug_tv = get_post( $post )->post_name;
 				<?php get_template_part( "content/tv-show/{$slug_tv}" ); ?>
 			</div><!-- end of .show-child-general-frame -->
 		</div><!-- end of .show-child-general -->
-	</div><!-- end of #shows_player_area :::: this div ends an open div in the show header template-->
-	<div class="wrap4padding"><div class="border-stripes"></div></div>
-	<?php get_template_part( "content/tv-show/show-schedule" ); ?>
-	
-	<div id="imo-store">
-			
-	</div>
-	
-	<?php get_template_part( 'content/tv-show/show-sponsors' ); ?>
-	</div>
-	
-</div>
+	</div><!-- end of #show-destination -->
+</div><!-- end of #shows_player_area :::: this div ends an open div in the show header template-->
+<div class="wrap4padding"><div class="border-stripes"></div></div>
+<?php 
+get_template_part( "content/tv-show/show-schedule" );
+get_template_part( 'content/tv-show/show-store' ); 
+get_template_part( 'content/tv-show/show-sponsors' ); ?>
 
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
