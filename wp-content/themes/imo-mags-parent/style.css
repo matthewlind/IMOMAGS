@@ -1098,7 +1098,7 @@ input.gsc-search-button-v2{
 #video-portal .sidebar .fb-like{margin-right: 20px;}
 
 /*** sportsman channel video widget ***/
-.widget_channel-video-widget{width: 310px;}
+.widget_channel-video-widget{width: 310px;position: relative;}
 .video-sidebar h1{color: white;font-size: 20px;min-height: 60px;}
 .video-sidebar .share-video{margin-bottom: 15px;}
 .video-box {
@@ -2811,12 +2811,18 @@ margin-bottom:15px;
 #show-featured .seasons-filter{display: inline-block;}
 #show-featured #video-thumbs{padding-bottom: 25px;}
 #show-featured #video-thumbs li {width: 22%;vertical-align: top;margin: 0 1.3% 20px;}
-#show-featured .thumbs-full{margin-bottom: 0; padding: 0 25px;position:relative;}
+#show-featured .thumbs-full{margin-bottom: 0; padding: 0 25px;position:relative;background: white;}
 #show-featured .thumbs-full img{width: 100%;height: auto;border: none;}
 #show-featured #video-thumbs li h3 {text-align:left;color: black;position: relative;padding: 2px;font-size: 13px;margin: 0;bottom: auto;background-color: white;padding-top: 9px;}
 #show-featured .thumbs-full .paginate-videos {
-	float: left;
-	margin-left: 13px;
+	width: 260px;
+	text-align: center;
+	height: 50px;
+	vertical-align: middle;
+	line-height: 48px;
+	font-size: 14px;
+	font-weight: 600;
+	margin: 0 auto;
 }
 #show-featured .thumbs-full .loading-gif{
 	display: none;
@@ -2826,10 +2832,9 @@ margin-bottom:15px;
 	top: -25px;
 }
 #show-featured .thumbs-full .loading-gif.bottom-paginate{
-	bottom: -22px;
-	left: 230px;
 	top: auto;
-	width: 240px;
+	width: 260px;
+	position: relative;
 }
 #show-destination .inner-main, #show-destination .thumbs-full, #show-destination .sidebar-area{background: white;}
 #show-destination .inner-main{padding: 80px 30px 0;}
@@ -2906,7 +2911,7 @@ margin-bottom:15px;
 
 .tv-show .shows-logo {
 	float: left;
-	width: 200px;
+	width: 300px;
 	height: 122px;
 	padding: 15px;
 }
@@ -2930,7 +2935,7 @@ margin-bottom:15px;
 	text-shadow: 1px 1px 3px black;
 }
 .tv-show .shows-title .fb_iframe_widget {
-	margin-top: 0;
+	margin-top: 60px;
 }
 .tv-show .shows-sponsor {
 	float: right;
@@ -3190,7 +3195,7 @@ margin-bottom:15px;
 /* video description ==================================== */
 .tv-show #description-area {
 	position: relative;
-	margin-top: 35px;
+	margin-top: 15px;
 	color: #ffffff;
 	overflow: hidden;
 }
@@ -3248,7 +3253,11 @@ margin-bottom:15px;
 	top: 20px;
 	cursor: pointer;
 }
+.video-description{clear: both;}
 /* social share ==================================== */
+.tv-show .social-buttons li{float: left;}
+.tv-show .socialite.googleplus-one{width: 50px;}
+.tv-show .twitter-share{width: 70px;}
 .tv-show .social-share {
 	margin-top: 10px;
 }
@@ -3653,7 +3662,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 .tv-show .schedule-area {
 	position: relative;
 	width: 100%;
-	padding-top: 50px;
+	padding: 50px 0 40px;
 	background: white;
 }
 .schedule-area-left {
@@ -3831,9 +3840,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 	text-align: left;
 	border: none;
 }
-#upcoming .on-tonight a {margin: 0; color: white; font-size: 12px;text-transform: uppercase; padding-top: 12px;display: inline-block;}
+#upcoming .on-tonight a {margin: 0; color: white; font-size: 12px;text-transform: uppercase; padding-top: 12px;display: inline-block;font-family: 'Open Sans', Helvetica, Arial, sans-serif;}
 #upcoming .on-tonight a:hover {color: red;}
-#upcoming .on-tonight h3 {margin: 0; color: white; font-size: 23px;}
+#upcoming .on-tonight h3 {margin: 0; color: white; font-size: 23px;font-family: 'Open Sans', Helvetica, Arial, sans-serif;}
 #upcoming .tiled-grid .col{margin: 0;padding: 16px 0 18px 8px;border-right: 1px solid rgba(204, 204, 204, 0.23);}
 #upcoming .tiled-grid .tiled-grid-entry span{display: block;}
 #upcoming .flex-direction-nav .flex-prev{right: -55px;left: auto;background: url(images/shows/left-arrow.png) no-repeat 0 0 #dedddd !important;}

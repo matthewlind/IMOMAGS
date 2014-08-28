@@ -18,8 +18,8 @@ $acfID = 'category_' . $id; ?>
 			<a href="/tv"><img src="<?php echo get_field('show_logo',$acfID); ?>" alt="<?php echo get_field('show_title',$acfID); ?>"></a>
 		</div>
 		<div class="shows-title">
-			<h1><?php echo get_field('show_title',$acfID); ?></h1>
-		    <div class="fb-like" data-href="" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false">			    
+			<h1><?php //echo get_field('show_title',$acfID); ?></h1>
+		    <div class="fb-like" data-href="<?php echo site_url(); ?>/tv/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false">			    
 		    </div>
 		</div><!-- end of #shows-title -->
 		<div class="shows-sponsor">
@@ -85,7 +85,7 @@ $acfID = 'category_' . $id; ?>
 		$whenToWatch = get_field('when_to_watch',$acfID);
 		echo do_shortcode("[tscschedule format='singleshow' postid='".$whenToWatch."']"); ?>	
 				
-		<a href="<?php echo get_field('remind_me',$acfID); ?>"" class="remind-me show-btn" target="_blank">
+		<a href="<?php echo get_field('remind_me',$acfID); ?>" class="remind-me show-btn" target="_blank">
 			<span>REMIND ME<br> TO WATCH</span>
 		</a>
 	</div><!-- end of #when-to-watch -->
