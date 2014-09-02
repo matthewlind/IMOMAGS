@@ -19,6 +19,8 @@ $videoLink = !empty($postID) ? get_permalink($postID) :  site_url() . $_SERVER['
 <?php 
 if( !is_single() ){
 	query_posts(array( 
+	'post_type' => 'post',
+	'post_status' => 'publish',
     'tax_query' => array(
 	    array(
 	      'taxonomy' => 'post_format',
@@ -82,6 +84,8 @@ while (have_posts()) : the_post();
 					<?php if( !mobile() ){ ?>
 					<div class="ad-block">
 						<?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>
+						<div class="new-show"></div>
+						<?php get_template_part( 'widgets/sportsmanLocator' ); ?>
 					</div>
 					<?php } ?>
 				</div><!-- end of .video-player-wrap -->
@@ -90,13 +94,13 @@ while (have_posts()) : the_post();
 						<h1 class="video-title" data-videoid="<?php echo $video_id; ?>" data-slug="<?php echo $post->post_name;?>"><?php the_title(); ?></h1>
 						<ul class="social-buttons">
 						    <li>
-						        <a href="http://twitter.com/share" class="socialite twitter-share" data-text="<?php the_title(); ?>" data-url="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" data-count="none" rel="nofollow" target="_blank"><span class="vhidden"></span></a>
+						        <a href="http://twitter.com/share" class="socialite twitter-share reload-twitter" data-text="<?php the_title(); ?>" data-url="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" data-count="none" rel="nofollow" target="_blank"><span class="vhidden"></span></a>
 						    </li>
 						    <li>
-						        <a href="https://plus.google.com/share?url=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" data-annotation="none" class="socialite googleplus-one g-plusone" data-href="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" rel="nofollow" target="_blank"><span class="vhidden"></span></a>
+						        <a href="https://plus.google.com/share?url=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" data-annotation="none" class="socialite googleplus-one g-plusone reload-google" data-href="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" rel="nofollow" target="_blank"><span class="vhidden"></span></a>
 						    </li>
 						    <li>
-						        <a href="http://www.facebook.com/sharer.php?u=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>&t=<?php the_title(); ?>" class="socialite facebook-like" data-href="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" data-send="false" data-layout="button" data-width="60" data-show-faces="false" rel="nofollow" target="_blank"><span class="vhidden"></span></a>
+						        <a href="http://www.facebook.com/sharer.php?u=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>&t=<?php the_title(); ?>" class="socialite facebook-like reload-fb" data-href="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" data-send="false" data-layout="button" data-width="60" data-show-faces="false" rel="nofollow" target="_blank"><span class="vhidden"></span></a>
 						    </li>
 						</ul>
 						<div class="video-description"><?php the_content(); ?></div>
@@ -130,18 +134,14 @@ while (have_posts()) : the_post();
 						</div><!-- end of .unify -->
 											
 					</div><!-- end of #description-area -->
-					<div class="video-player-sidebar">
-						<div class="new-show"></div>
-	
-					</div><!-- end of #description-area -->
 				<!-- this widget is located in imo-mags-parent/widgets -->
-				<?php get_template_part( 'widgets/sportsmanLocator' ); ?>
 			</div><!-- end of #video-player-area -->
 		</div><!-- end of #show-destination-->
 	</div><!-- end of #shows_player_area from show-header.php-->
 <?php endwhile; ?> 
 <div id="show-featured" class="clearf">
 	<?php query_posts(array( 
+
 	    'tax_query' => array(
 		    array(
 		      'taxonomy' => 'post_format',
