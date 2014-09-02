@@ -122,27 +122,16 @@ else {
         "sect" => "misc",
     );
 }
-
-
-
-   
 ?>
 <script type='text/javascript'>
-var googletag = googletag || {};
-googletag.cmd = googletag.cmd || [];
 (function() {
-var gads = document.createElement('script');
-gads.async = true;
-gads.type = 'text/javascript';
 var useSSL = 'https:' == document.location.protocol;
-gads.src = (useSSL ? 'https:' : 'http:') + 
+var src = (useSSL ? 'https:' : 'http:') +
 '//www.googletagservices.com/tag/js/gpt.js';
-var node = document.getElementsByTagName('script')[0];
-node.parentNode.insertBefore(gads, node);
+document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
 })();
 </script>
 <script type='text/javascript'>
-googletag.cmd.push(function() {
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Adhesive_Medium_Rectangle_300x250', [300, 250], 'div-adhesive_medium_rectangle_300x250').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/ATF_Leaderboard_728x90', [[728, 90]], 'div-atf_leaderboard_728x90').addService(googletag.pubads());
 googletag.defineSlot('/4930/imo.bowhunting/Pushdown_1080x90', [1080, 90], 'div-pushdown_1080x90').addService(googletag.pubads());
@@ -158,7 +147,7 @@ googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Photo_Gallery_Medium_Rect
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Screen_Shift_1x1', [1, 1], 'div-screen_shift_1x1').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Site_Skin_1x1', [1, 1], 'div-site_skin_1x1').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Sponsor_Logo_240x60', [240, 60], 'div-sponsor_logo_240x60').addService(googletag.pubads());
-
+<?php if(is_page( 'battle-of-the-bows' )){ ?>
 //Battle of the Bows
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/battle_of_the_bows/bob_presenting_sponsor', [240, 60], 'div-bob_presenting_sponsor').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/battle_of_the_bows/bob_region_1_medium_rectangle', [300, 250], 'div-bob_region_1_medium_rectangle').addService(googletag.pubads());
@@ -169,16 +158,17 @@ googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/battle_of_the_bows/bob_re
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/battle_of_the_bows/bob_region_sponsor_2', [240, 60], 'div-bob_region_sponsor_2').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/battle_of_the_bows/bob_region_sponsor_3', [240, 60], 'div-bob_region_sponsor_3').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/battle_of_the_bows/bob_region_sponsor_4', [240, 60], 'div-bob_region_sponsor_4').addService(googletag.pubads());
-
-googletag.pubads().collapseEmptyDivs();
+<?php } ?>
 googletag.pubads().setTargeting("sect","<?php echo $term; ?>");
 googletag.pubads().setTargeting("camp","<?php echo $camp; ?>");
 googletag.pubads().setTargeting("Audience segment","<?php echo $term; ?>");
 
 googletag.pubads().enableSingleRequest();
+googletag.pubads().enableSyncRendering();
 googletag.pubads().enableVideoAds();
+googletag.pubads().collapseEmptyDivs();
 googletag.enableServices();
-});
+
 </script>
 <?php 
 //sidebar

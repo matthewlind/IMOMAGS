@@ -5,5 +5,5 @@
 				<?php get_template_part( 'content/content-show' ); ?>
             </div><!-- #content -->
         </div>
-    </div><!-- #primary -->z
+    </div><!-- #primary -->
 <?php get_footer(); ?>

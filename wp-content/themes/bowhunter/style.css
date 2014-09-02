@@ -143,7 +143,7 @@ subscribe-links a{color: white;}
 
 /*** Show pages ***/
 .tv-show .schedule-item .episode-title, .tv-show .w2w-list .episode-title{color: #6ba4c2;}
-.tv-show #channelControls a input, .tv-show .channelControls a input, .tv-show .show-btn, .tv-show .remind-me, .page-template-show-page-php .tv-show .remind-me{
+.tv-show .channelControls a input, .tv-show .show-btn, .tv-show .remind-me, .page-template-show-page-php .tv-show .remind-me{
 	color: white;
 	border: none;
 	text-transform: uppercase;
