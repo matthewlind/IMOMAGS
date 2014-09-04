@@ -100,7 +100,7 @@ var videoPortal = (function(e){
 				post_url = $("#video-thumbs li").first().find("a").attr("data-post_url");
 			}
 					
-			self.videoInit();
+			self.videoInit(video_id,slug,title,description,post_url,img_url);
 			jQuery(window).bind('orientationchange', function() {
 				self.loadVideo(video_id);
 			});
@@ -108,6 +108,9 @@ var videoPortal = (function(e){
 			
 			//initiate video on click
 			$("a.video-thumb").click(function(){
+				$('html, body').animate({
+			        scrollTop: $("#when-to-watch").offset().top
+			    }, 0);
 				video_id = $(this).attr("data-videoid");
 				title = $(this).attr("data-title");
 				description = $(this).parent().find(".data-description").html();
@@ -119,10 +122,8 @@ var videoPortal = (function(e){
 				$("h1.video-title").text(title);
 				$(".video-description").html(description);
 				
-				self.videoInit();
-				$('html, body').animate({
-			        scrollTop: $("#when-to-watch").offset().top
-			    }, 0);
+				self.videoInit(video_id,slug,title,description,post_url,img_url);
+				
 			    //socialite
 				$(".social-buttons li").remove();
 				$('<li><a href="http://twitter.com/share" class="socialite twitter-share reload-twitter" data-text="' + title + '" data-url="' + post_url + '" data-count="none" rel="nofollow" target="_blank"><span class="vhidden"></span></a></li><li><a href="https://plus.google.com/share?url=<' + post_url + '" data-annotation="none" class="socialite googleplus-one g-plusone reload-google" data-href="' + post_url + '" rel="nofollow" target="_blank"><span class="vhidden"></span></a></li> <li><a href="http://www.facebook.com/sharer.php?u=' + post_url + '&t=' + title + '" class="socialite facebook-like reload-fb" data-href="' + post_url + '" data-send="false" data-layout="button" data-width="60" data-show-faces="false" rel="nofollow" target="_blank"><span class="vhidden"></span></a></li>').appendTo(".social-buttons");
@@ -131,7 +132,7 @@ var videoPortal = (function(e){
 			//show page default
 				_gaq.push(['_trackPageview', window.location.pathname + slug]);
 			});
-	
+
 			//video filter
 			var catID = "all";
 			var postoffset = 0;
@@ -183,7 +184,10 @@ var videoPortal = (function(e){
 			            }
 			            $(".loading-gif").hide();
 						//initiate video on click
-						$("a.video-thumb").on("click", function(){
+						$("a.video-thumb").click(function(){
+							$('html, body').animate({
+						        scrollTop: $("#when-to-watch").offset().top
+						    }, 0);
 							video_id = $(this).attr("data-videoid");
 							title = $(this).attr("data-title");
 							description = $(this).parent().find(".data-description").html();
@@ -195,10 +199,19 @@ var videoPortal = (function(e){
 							$("h1.video-title").text(title);
 							$(".video-description").html(description);
 							
-							_gaq.push(['_trackPageview', window.location.pathname + slug]);
-							self.videoInit();
+							self.videoInit(video_id,slug,title,description,post_url,img_url);
 							
+						    //socialite
+							$(".social-buttons li").remove();
+							$('<li><a href="http://twitter.com/share" class="socialite twitter-share reload-twitter" data-text="' + title + '" data-url="' + post_url + '" data-count="none" rel="nofollow" target="_blank"><span class="vhidden"></span></a></li><li><a href="https://plus.google.com/share?url=<' + post_url + '" data-annotation="none" class="socialite googleplus-one g-plusone reload-google" data-href="' + post_url + '" rel="nofollow" target="_blank"><span class="vhidden"></span></a></li> <li><a href="http://www.facebook.com/sharer.php?u=' + post_url + '&t=' + title + '" class="socialite facebook-like reload-fb" data-href="' + post_url + '" data-send="false" data-layout="button" data-width="60" data-show-faces="false" rel="nofollow" target="_blank"><span class="vhidden"></span></a></li>').appendTo(".social-buttons");
+							Socialite.load();
+						
+						//show page default
+							_gaq.push(['_trackPageview', window.location.pathname + slug]);
 						});
+
+						self.videoInit(video_id,slug,title,description,post_url,img_url);
+							
 			            return false;
 			        }
 			    });
@@ -228,8 +241,9 @@ var videoPortal = (function(e){
 			    });
 			})();
 		},
-		videoInit: function(){
+		videoInit: function(video_id,slug,title,description,post_url,img_url){
 			var self = this;
+			
 			// Detecting IE
 		    var oldIE;
 		    if ($('html').is('#ie6, #ie7, #ie8, #ie9')) {
@@ -240,10 +254,11 @@ var videoPortal = (function(e){
 		    }
 			self.updateSocial(slug,title,post_url,img_url);
 			self.loadVideo(video_id);
+			
 		},
 		updateURL: function(video_id,slug,title,description,post_url,img_url ){
 			var self = this;
-		
+			
 			// strip out the current slug and push the new slug
 		    var url = window.location.pathname.toString();
 		    var newSlug = url.replace(url, slug);
@@ -264,6 +279,7 @@ var videoPortal = (function(e){
 				$('title').text(title);
 				_gaq.push(['_trackPageview', window.location.pathname + slug]);
 			};
+			
 		},
 		updateSocial: function(slug,title,post_url,img_url){
 			try{

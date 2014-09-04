@@ -156,16 +156,7 @@ get_header(); ?>
 					                </div><!-- .entry-content -->
 								</div>
 							</div>
-						    <?php if ( (($i - (($paged -1) * 2 ))%6) == 0 ): ?>
-		                    	
-		                        <?php if ( mobile() ){ ?>
-		                        <div class="image-banner posts-image-banner">
-		                            <?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>	 
-		                        </div>
-		                        <?php } 
-		                    endif; 
-		                    $i++; 
-		                endwhile;
+							<?php $i++; endwhile;
 					else : 
 						if($IMO_USER_STATE_NICENAME || $_POST['state']){ ?>
 							<h2>There are no current forecasts for <?php echo $state; ?>. Please choose another state.</h2>

@@ -65,7 +65,7 @@ imo_sidebar(); ?>
 			<?php if ($fullWidthImage != "") { ?>
 				<h1><img alt="<?php single_cat_title(''); ?>" class="full-width-header" src="<?php echo $imageURL; ?>" title="<?php single_cat_title(''); ?>"><span style="display:none;"><?php single_cat_title(''); ?></span></h1>
 			<?php } else { ?>
-			    <h1 class="header-info page-title <?php echo $h1Class; ?>" style="<?php if(function_exists('z_taxonomy_image_url')){ if ($imageURL){ echo 'text-indent:-9999px;height:0;background:none;'; } } ?>">
+			    <h1 class="page-title <?php echo $h1Class; ?>" style="<?php if(function_exists('z_taxonomy_image_url')){ if ($imageURL){ echo 'text-indent:-9999px;height:0;background:none;'; } } ?>">
 			    	<?php printf('<span>' . single_cat_title( '', false ) . '</span>' ); ?>
 			    	<div class="icon" style="<?php if(function_exists('z_taxonomy_image_url')){ if ($imageURL){ echo 'text-indent:-9999px;height:0;'; } } ?>"></div>
 			    </h1>
@@ -143,17 +143,8 @@ imo_sidebar(); ?>
 								$category_slug = $cat->slug;
 			                    echo do_shortcode('[imo-slideshow community=true gallery='. $category_slug .']'); ?>
 			               </div>
-			            <?php } } ?>
-						
-			        <?php if ( (($i - (($paged -1) * 2 ))%6) == 0 ): ?>
-			        	
-			            <?php if ( mobile() ){ ?>
-			            <div class="image-banner posts-image-banner">
-			                <?php imo_ad_placement("mobile_leaderboard_320x50"); ?>	
-			            </div>
-			            <?php } ?>
-			        <?php endif;
-			        $i++; endwhile;                  
+			            <?php } } 						
+			            $i++; endwhile;                  
 			} else { ?>
       
 				<div class="category-cross-site-feed" term="<?php echo $categorySlug; ?>" dart="<?php echo $code; ?>" thumb="list-thumb"><!-- This term= attribute is searched for --></div>

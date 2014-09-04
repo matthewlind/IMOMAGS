@@ -16,7 +16,14 @@ jQuery(document).ready(function ($) {
 					        ) {
 		            slug = $(this).attr("data-slug");
 		            title = $(this).find(".entry-title a").attr("data-title");
-					updateURL(slug,title);
+					// Detecting IE
+				    var oldIE;
+				    if ($('html').is('#ie6, #ie7, #ie8, #ie9')) {
+				        oldIE = true;
+				    }
+					if(!oldIE){
+						updateURL(slug,title);
+					}
 		        }
 		    });
 		});
@@ -30,12 +37,48 @@ jQuery(document).ready(function ($) {
 			window.history.pushState({ slug: slug }, title, "/trading-post/" + newSlug );
 			$('title').text(title);
 			_gaq.push(['_trackPageview', window.location.pathname + slug]);
-			//track back/foward browser history and reload the videos
+			//track back/foward browser history 
 			window.onpopstate = function(event) {
 	        	slug = event.state.slug;
 	        	$('title').text(title);
-				
+	        	//console.log("#" + slug);
+				$('html, body').animate({
+			        scrollTop: $("#" + slug).offset().top
+			    }, 0);
 			};
+		}
+	
+	
+		
+		$('select.trading-post-filter').on('change', function (e) {
+			var catID = this.value;
+			var tradingPostName = "Trading Post";
+			$(".loading-gif").show();
+			cat_ajax_get(tradingPostName,catID);
+		});
+				
+							
+		function cat_ajax_get(tradingPostName,catID) {
+			var data;
+			var ajaxurl = '/wp-admin/admin-ajax.php';
+		    $.ajax({
+		        type: 'POST',
+		        url: ajaxurl,
+		        data: {"action": "cat-filter", tradingPost: tradingPostName, cat: catID },
+		        success: function(response) {
+	
+					if(!data){
+						console.log("help!");
+					}
+		        	$(".main-content-preppend").html("");
+	              	$(response).appendTo(".main-content-preppend");	        
+			        $(".loading-gif").hide();
+					//_gaq.push(['_trackPageview', window.location.pathname + slug]);
+				
+							
+		        return false;
+		        }
+		    });
 		}
 	}
 });

@@ -85,16 +85,7 @@ if( $playerID && $playerKey ){ ?>
            </div>
         <?php } } ?>
 
-    <?php if ( (($i - (($paged -1) * 2 ))%6) == 0 ): ?>
-
-        <?php if ( mobile() ){ ?>
-        <div class="image-banner posts-image-banner">
-            <?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>
-        </div>
-        <?php } ?>
-    <?php endif;?>
-
-    <?php $i++; endwhile; ?>
+        <?php $i++; endwhile; ?>
 
 </div>
 

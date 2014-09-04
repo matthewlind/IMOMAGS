@@ -1,20 +1,14 @@
 <?php
-$cat = get_category( get_query_var( 'cat' ) );
-$cat_slug = $cat->slug;
-$cat_name = $cat->cat_name;
-if($cat_slug == "pike-muskie"){
-	$cat_slug = "pike_amp_muskie";
-}
-if($cat_slug == "trout-salmon"){
-	$cat_slug = "trout_amp_salmon";
-}
-$featuredCatID = $cat->id;
+
 $dataPos = 0;
+$idObj = get_category_by_slug('trading-post'); 
+$id = $idObj->term_id;
+$acfID = 'category_' . $id;
 
 get_header(); ?>
     <div class="sidebar-area">
     	<div class="sidebar">
-    		<div class="widget_advert-widget">
+    		<div class="widget_advert-widget widget">
     			<?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>
     		</div>
     		<div class="widget widget_text">
@@ -53,14 +47,19 @@ get_header(); ?>
 	                    <p>Today's hot new products from Shotgun News</p>
 	                    <?php $url = "http://www.shotgunnews.fox/trading-post/";
 						if(function_exists('wpsocialite_markup')){ wpsocialite_markup(array('url' => $url )); } ?>
-	                    <select class="trading-post-filter">
+						<?php $cats = get_field("category_filter", $acfID);
+						if( $cats ){ ?>
+						 <select class="trading-post-filter">
 							<option value="">Filter Products</option>
-							<option value=""></option>
-							<option value=""></option>
-							<option value=""></option>
-							<option value=""></option>
+							<?php 
+							foreach( $cats as $cat ){  
+								$category = get_term_by('id', $cat, 'category'); ?>
+								<option value="<?php echo $category->name; ?>"><?php echo $category->name; ?></option>
+							<?php } ?>
 						</select>
+					<?php } ?>
                     </div>
+                    <div class="loading-gif"></div>
                     <?php if(function_exists('z_taxonomy_image_url')){ 
                     	if (z_taxonomy_image_url() == false){ ?>
 							<div class="sponsor"><?php imo_ad_placement("sponsor_logo_240x60"); ?></div>
@@ -69,36 +68,8 @@ get_header(); ?>
 
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section main-content-preppend">
 					<?php $i = 1; while ( have_posts() ) : the_post(); ?>
-                           
-                        <div id="post-<?php the_ID(); ?>" <?php post_class('article-brief clearfix'); ?>  data-slug="<?php echo $post->post_name;?>">
-							<h3 class="entry-title">
-								<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark" data-title="<?php the_title(); ?>"><?php the_title(); ?></a>
-							</h3>
-							<div class="article-content">
-								<div class="thumb-area">
-							    	<a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('list-thumb'); ?></a>
-							    	<?php $url = get_the_permalink();
-							    	if(function_exists('wpsocialite_markup')){ wpsocialite_markup(array('url' => $url )); } ?>
-								</div>
-						        <div class="article-holder">
-						    		<div class="entry-content">
-						    			<?php the_content( __( 'more <span class="meta-nav">&raquo;</span>', 'twentytwelve' ) ); ?>
-						    			<?php //the_excerpt(); ?>
-						    		</div><!-- .entry-content -->
-						        </div>
-							</div>
-						</div><!-- #post -->
-
-				
-                    <?php if ( (($i - (($paged -1) * 2 ))%6) == 0 ): ?>
-
-                    <div class="image-banner posts-image-banner">
-                       <?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>
-                    </div>
-                    <?php endif;?>
-
+                        <?php get_template_part( 'content/content-trading-post', get_post_format() ); ?>
                     <?php $i++; endwhile; ?>
-
                 </div>
 
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="pager-holder js-responsive-section">

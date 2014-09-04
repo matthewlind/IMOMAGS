@@ -4,9 +4,17 @@ jQuery(document).ready(function($) {
 	slug = $(".facts").attr("slug");
 	img_url = $(".facts img").attr("src");
 
-	window.history.pushState(null, title, slug );
-	//var _gaq = _gaq || [];
+	// Detecting IE
+    var oldIE;
+    if ($('html').is('#ie6, #ie7, #ie8, #ie9')) {
+        oldIE = true;
+    }
+	if(!oldIE){
+		window.history.pushState(null, title, slug );
+	}
+
 	_gaq.push(['_trackPageview', window.location.pathname]);
+	
 	post_url = document.location.href;
 
 	try{

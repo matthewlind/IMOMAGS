@@ -3207,7 +3207,6 @@ margin-bottom:15px;
 .tv-show #description-area .unify {
 	width: 100%;
 	padding-right: 340px;
-	min-height: 325px;
 }
 .tv-show #description-area .unify .show-video-date {
 	font-size: 12px;
@@ -5141,7 +5140,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 }
 .content-banner-section.footer-728 .mdl-banner{width: 728px;}
 .footer {
-    padding:0 0 90px;
+    padding:0 0 140px;
     color:#999;
     position:relative;
     z-index:2;
@@ -6548,7 +6547,7 @@ table.likes-leaderboard .entry-title {
     .recipes-holder {margin-bottom:20px; margin-top:32px;}
     .aside-post-panel { text-align:center; }
     /* footer */
-    .footer {padding-bottom:0;}
+    .footer {padding-bottom:50px;}
     .intermedia { padding:26px 0 20px;}
     .intermedia h4 {font-size:20px;margin:0 0 23px; padding:0 10px 16px;}
     .footer h5 {display:none;}
