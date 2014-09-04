@@ -57,9 +57,10 @@ body{background:url(images/bg/shotgunnews-bg.jpg) no-repeat center top black;}
 .trading-post .article-brief .entry-content{margin: 0;}
 .trading-post .wpsocialite.small > li:last-child, .trading-post .wpsocialite.small .socialite:last-child{width: 60px !important;}
 .trading-post .page-header .header-content{clear: both;}
-.trading-post-filter{margin: 10px 0 20px;}
+.trading-post-filter{margin: 10px 0 20px;float: left;}
 .trading-post .wpsocialite.small > li, .trading-post  .wpsocialite.small .socialite {width: 85px !important;}
 .trading-post .posts-image-banner, .trading-post .links-holder .image-banner{display: block;}
+.trading-post .loading-gif{width: 208px;height: 13px;float: left;margin: 14px 0 0 10px;display: none;}
 
 /* Tags reset
 *******************************************************************************/

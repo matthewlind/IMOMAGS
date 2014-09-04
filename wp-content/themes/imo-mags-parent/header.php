@@ -289,7 +289,7 @@
 <?php 
 	include_once get_stylesheet_directory() . "/network-bar.php";
 	fixed_connect_footer(); 
-	if ( mobile() ) { ?><div class="mobile-adhesion"><?php imo_ad_placement("mobile_adhesion_320x50"); ?></div><?php } ?>
+	if ( !mobile() ) { ?><div class="mobile-adhesion"><?php imo_ad_placement("mobile_adhesion_320x50"); ?></div><?php } ?>
 
 <div id="page" class="snap-content smooth-menu">
 	<?php imo_ad_placement("site_skin_1x1"); ?>

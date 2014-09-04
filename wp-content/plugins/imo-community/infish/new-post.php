@@ -74,6 +74,7 @@ include 'common-templates.php';
 							<label class="upload-button">
 								<span class="add-photo-link">ATTACH PHOTO</span>
 								<input id="image-upload" type="file" name="photo-upload">
+
 							</label>
 						</div>
 					</div>
@@ -420,7 +421,6 @@ include 'common-templates.php';
 	</div>
 
 </div>
-
 
 
 

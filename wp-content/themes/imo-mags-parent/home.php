@@ -122,15 +122,7 @@ get_header(); ?>
                             </div><!-- .entry-content -->
                         </div>
                     </div><!-- #post -->
-                    <?php if ( (($i - (($paged -1) * 2 ))%6) == 0 ): ?>
-                        <?php if ( mobile() ){ ?>
-                        <div class="image-banner posts-image-banner">
-                            <?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>
-                        </div>
-                        <?php } ?>
-                    <?php endif;?>
-
-                <?php $i++; endwhile; ?>
+                    <?php endwhile; ?>
                 </div>
 				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="pager-holder js-responsive-section">
                     <a href="#" class="btn-base">Load More</a>

@@ -409,7 +409,6 @@ jQuery(window).scroll(function () {
 		jQuery('.fixed-connect-mobile').fadeOut("fast");
 	}
 });
-
 jQuery('.fixed-connect .close').click(function(){
 	jQuery('.fixed-connect').remove();
 });
