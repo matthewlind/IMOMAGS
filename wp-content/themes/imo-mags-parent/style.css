@@ -2164,6 +2164,8 @@ a.category-name-link:hover{
 	text-align: center;
 	padding: 0;
 }
+.left-125{float: left;padding-left: 5px;}
+.right-125{float: right;padding-right: 5px;}
 .sidebar-area .widget {
     margin:0 auto 20px;
 }
@@ -3318,13 +3320,10 @@ margin-bottom:15px;
 	height: 140px;
 	padding: 10px;
 	margin-top: 20px;
-}
-.tv-show #channelControlsContainer {
-	margin-top: 10px;
+	position: relative;
 }
 .tv-show #channelControlsContainer img {
-	float: right;
-	margin-bottom: 20px;
+	margin: -15px 0 19px -15px;
 }
 .tv-show #channelControls #zip {
 	width: 110px;

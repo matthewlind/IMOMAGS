@@ -11,72 +11,9 @@ var videoPortal = (function(e){
 	var videoPortal = {
 		init: function(){	
 			
-		
 			this.loadVideoOnPageLoad();
-			
-			/*
-			//Gallery Page
-		    if( $("#show-gallery").length ){
-		    	$(".wpsocialite.small").remove();	
-		    
-				if( $(".category-show-galleries").length ){
-					title =  $(".video-title").text();
-					slug = $("#show-gallery").attr("slug");
-					window.history.replaceState(null, title, slug );
-				}
-				
-				$('#carousel').flexslider({
-				    animation: "slide",
-				    controlNav: false,
-				    directionNav: true, 
-				    animationLoop: false,
-				    slideshow: false,
-				    itemWidth: 200,
-				    asNavFor: '#show-gallery'
-				});
-				
-				$('#show-gallery').flexslider({
-			        animation: "slide",
-			        animationSpeed: 200,
-			        slideshow: false,
-			        controlNav: false,
-			        sync: "#carousel",
-			        start: function(){
-			        	$("#show-gallery .flex-direction-nav").appendTo("#show-gallery .flex-viewport");
-			    		imageTitle = $(".flex-active-slide").find(".image-title").text();
-				    	$(".side-title").text(imageTitle);
-			        },
-			        after: function(){
-				        imageTitle = $(".flex-active-slide").find(".image-title").text();
-				    	$(".side-title").text(imageTitle);
-			        }
-			    });
-			    
-			    $('#more-galleries').flexslider({
-			    	animation: "slide",
-			        animationSpeed: 200,
-			        slideshow: false,
-			        controlNav: false,
-			        start: function(){
-			        	$("#more-galleries .flex-direction-nav").appendTo("#more-galleries .flex-viewport");
-			        }
-			     });
-			}
-			//hide long description content
-				function moreContent(){
-					if($(".content-height").height() > 340){
-						$(".video-more-content").show();
-						$(".content-height").css("max-height", "285px");
-					}else if($(".content-height").height() < 340){
-						$(".video-more-content").hide();
-						$(".content-height").css("max-height","100%");
-					}
-			
-					$(".video-more-content .more-link").click(function(){
-						$(".video-more-content").hide();
-						$(".content-height").css("max-height","100%");
-					});
-				}*/
+			this.videoFilter();
+			this.thumbClick();
 
 		},
 		loadVideoOnPageLoad : function(){
@@ -105,7 +42,9 @@ var videoPortal = (function(e){
 				self.loadVideo(video_id);
 			});
 			Socialite.load();
-			
+		},
+		thumbClick : function(){
+			var self = this;
 			//initiate video on click
 			$("a.video-thumb").click(function(){
 				$('html, body').animate({
@@ -123,23 +62,29 @@ var videoPortal = (function(e){
 				$(".video-description").html(description);
 				
 				self.videoInit(video_id,slug,title,description,post_url,img_url);
-				
-			    //socialite
-				$(".social-buttons li").remove();
-				$('<li><a href="http://twitter.com/share" class="socialite twitter-share reload-twitter" data-text="' + title + '" data-url="' + post_url + '" data-count="none" rel="nofollow" target="_blank"><span class="vhidden"></span></a></li><li><a href="https://plus.google.com/share?url=<' + post_url + '" data-annotation="none" class="socialite googleplus-one g-plusone reload-google" data-href="' + post_url + '" rel="nofollow" target="_blank"><span class="vhidden"></span></a></li> <li><a href="http://www.facebook.com/sharer.php?u=' + post_url + '&t=' + title + '" class="socialite facebook-like reload-fb" data-href="' + post_url + '" data-send="false" data-layout="button" data-width="60" data-show-faces="false" rel="nofollow" target="_blank"><span class="vhidden"></span></a></li>').appendTo(".social-buttons");
-				Socialite.load();
+				self.socialite(video_id,slug,title,description,post_url,img_url);
+			    
 			
 			//show page default
 				_gaq.push(['_trackPageview', window.location.pathname + slug]);
 			});
-
+		},
+		socialite : function(video_id,slug,title,description,post_url,img_url){
+			$(".wpsocialite.small").remove();	
+			//socialite
+			$(".social-buttons li").remove();
+			$('<li><a href="http://twitter.com/share" class="socialite twitter-share reload-twitter" data-text="' + title + '" data-url="' + post_url + '" data-count="none" rel="nofollow" target="_blank"><span class="vhidden"></span></a></li><li><a href="https://plus.google.com/share?url=<' + post_url + '" data-annotation="none" class="socialite googleplus-one g-plusone reload-google" data-href="' + post_url + '" rel="nofollow" target="_blank"><span class="vhidden"></span></a></li> <li><a href="http://www.facebook.com/sharer.php?u=' + post_url + '&t=' + title + '" class="socialite facebook-like reload-fb" data-href="' + post_url + '" data-send="false" data-layout="button" data-width="60" data-show-faces="false" rel="nofollow" target="_blank"><span class="vhidden"></span></a></li>').appendTo(".social-buttons");
+			Socialite.load();
+		},
+		videoFilter : function(){
+			var self = this;
 			//video filter
 			var catID = "all";
 			var postoffset = 0;
 			$("a.paginate-videos").click(function(){
 				postoffset = postoffset + 8;
 				$(".loading-gif").show();
-				cat_ajax_get(catID);
+				self.getAJAX(catID,postoffset);
 			});
 			
 			$('select.seasons-filter').on('change', function (e) {
@@ -148,7 +93,7 @@ var videoPortal = (function(e){
 				postoffset = 0;
 				var catID = this.value;
 				$(".loading-gif").show();
-				cat_ajax_get(catID);
+				self.getAJAX(catID,postoffset);
 				$("a.paginate-videos").show();
 			});
 			
@@ -159,64 +104,45 @@ var videoPortal = (function(e){
 				postoffset = 0;
 				catID = $(this).attr("slug");
 				$(".loading-gif").show();
-				cat_ajax_get(catID);
+				self.getAJAX(catID,postoffset);
 				$("a.paginate-videos").show();
 			});
-			
-			function cat_ajax_get(catID) {
-				var pollInterval;
-			    var ajaxurl = '/wp-admin/admin-ajax.php';
-			    $.ajax({
-			        type: 'POST',
-			        url: ajaxurl,
-			        data: {"action": "load-filter", cat: catID, offset: postoffset },
-			        success: function(response) {
-	                  
-			            if(postoffset > 1){
-			            	if(!response){
-			            		$("a.paginate-videos").hide();
-				            	$('<h3 class="no-mo-videos">No more videos, please try a different category.</h3>').appendTo("#video-thumbs");
-			            	}else{
-				            	$(response).appendTo("#video-thumbs");
-			            	}
-			            }else{
-			            	$("#video-thumbs").html(response);
-			            }
-			            $(".loading-gif").hide();
-						//initiate video on click
-						$("a.video-thumb").click(function(){
-							$('html, body').animate({
-						        scrollTop: $("#when-to-watch").offset().top
-						    }, 0);
-							video_id = $(this).attr("data-videoid");
-							title = $(this).attr("data-title");
-							description = $(this).parent().find(".data-description").html();
-							slug = $(this).attr("data-slug");
-							img_url = $(this).attr("data-img_url");
-							post_url = $(this).attr("data-post_url");
-							
-							// place data into html
-							$("h1.video-title").text(title);
-							$(".video-description").html(description);
-							
-							self.videoInit(video_id,slug,title,description,post_url,img_url);
-							
-						    //socialite
-							$(".social-buttons li").remove();
-							$('<li><a href="http://twitter.com/share" class="socialite twitter-share reload-twitter" data-text="' + title + '" data-url="' + post_url + '" data-count="none" rel="nofollow" target="_blank"><span class="vhidden"></span></a></li><li><a href="https://plus.google.com/share?url=<' + post_url + '" data-annotation="none" class="socialite googleplus-one g-plusone reload-google" data-href="' + post_url + '" rel="nofollow" target="_blank"><span class="vhidden"></span></a></li> <li><a href="http://www.facebook.com/sharer.php?u=' + post_url + '&t=' + title + '" class="socialite facebook-like reload-fb" data-href="' + post_url + '" data-send="false" data-layout="button" data-width="60" data-show-faces="false" rel="nofollow" target="_blank"><span class="vhidden"></span></a></li>').appendTo(".social-buttons");
-							Socialite.load();
+		},
+		getAJAX : function(catID,postoffset){
+			var self = this;
+			var pollInterval;
+		    var ajaxurl = '/wp-admin/admin-ajax.php';
+		    $.ajax({
+		        type: 'POST',
+		        url: ajaxurl,
+		        data: {"action": "load-filter", cat: catID, offset: postoffset },
+		        xhrFields: {
+				onprogress: function (e) {
+						if (e.lengthComputable) {
+							console.log(e.loaded / e.total * 100 + '%');
+						}
+					}
+				},
+		        success: function(response) {
+                  
+		            if(postoffset > 1){
+		            	if(!response){
+		            		$("a.paginate-videos").hide();
+			            	$('<h3 class="no-mo-videos">No more videos, please try a different category.</h3>').appendTo("#video-thumbs");
+		            	}else{
+			            	$(response).appendTo("#video-thumbs");
+		            	}
+		            }else{
+		            	$("#video-thumbs").html(response);
+		            }
+		            $(".loading-gif").hide();
+					//initiate video on click
+					$("a.video-thumb").bind('click', self.thumbClick());
 						
-						//show page default
-							_gaq.push(['_trackPageview', window.location.pathname + slug]);
-						});
-
-						self.videoInit(video_id,slug,title,description,post_url,img_url);
-							
-			            return false;
-			        }
-			    });
-			}
-			
+		            return false;
+		        }
+		    });
+		
 		},
 		brightcoveRequest: function(){
 			var bcID;
@@ -337,15 +263,103 @@ var videoPortal = (function(e){
 	}
 });
 
-//Instantiate
-var onPageLoad         = new videoPortal;
+//Gallery Page
+var showGallery = (function(e){
+	var $ = jQuery;
+	
+	var showGallery = {
+		init: function(){	
+			
+			this.loadGallery();
 
+		},
+		loadGallery : function(){
+	
+	    	$(".wpsocialite.small").remove();	
+	    
+			if( $(".category-show-galleries").length ){
+				title =  $(".video-title").text();
+				slug = $("#show-gallery").attr("slug");
+				window.history.replaceState(null, title, slug );
+			}
+			
+			$('#carousel').flexslider({
+			    animation: "slide",
+			    controlNav: false,
+			    directionNav: true, 
+			    animationLoop: false,
+			    slideshow: false,
+			    itemWidth: 200,
+			    asNavFor: '#show-gallery'
+			});
+			
+			$('#show-gallery').flexslider({
+		        animation: "slide",
+		        animationSpeed: 200,
+		        slideshow: false,
+		        controlNav: false,
+		        sync: "#carousel",
+		        start: function(){
+		        	$("#show-gallery .flex-direction-nav").appendTo("#show-gallery .flex-viewport");
+		    		imageTitle = $(".flex-active-slide").find(".image-title").text();
+			    	$(".side-title").text(imageTitle);
+		        },
+		        after: function(){
+			        imageTitle = $(".flex-active-slide").find(".image-title").text();
+			    	$(".side-title").text(imageTitle);
+		        }
+		    });
+		    
+		    $('#more-galleries').flexslider({
+		    	animation: "slide",
+		        animationSpeed: 200,
+		        slideshow: false,
+		        controlNav: false,
+		        start: function(){
+		        	$("#more-galleries .flex-direction-nav").appendTo("#more-galleries .flex-viewport");
+		        }
+		     });
+		}
+
+	};
+
+	return {
+		init: function(){
+			showGallery.init();
+		}
+	}
+});
+
+
+//Instantiate
+var onPageLoadVideo       = new videoPortal;
+var onPageLoadGallery     = new showGallery;
 
 jQuery( document ).ready(function( $ ){
 
 	//Initialize
 	if( $("#video-gallery").length ){
-		onPageLoad.init();
+		onPageLoadVideo.init();
 	}
-
+	//Initialize
+	if( $("#show-gallery").length ){
+		onPageLoadGallery.init();
+	}
+	
+	
+		//hide long description content
+		/*function moreContent(){
+			if($(".content-height").height() > 340){
+				$(".video-more-content").show();
+				$(".content-height").css("max-height", "285px");
+			}else if($(".content-height").height() < 340){
+				$(".video-more-content").hide();
+				$(".content-height").css("max-height","100%");
+			}
+	
+			$(".video-more-content .more-link").click(function(){
+				$(".video-more-content").hide();
+				$(".content-height").css("max-height","100%");
+			});
+		}*/
 });

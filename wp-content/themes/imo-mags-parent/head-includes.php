@@ -159,6 +159,12 @@ googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/battle_of_the_bows/bob_re
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/battle_of_the_bows/bob_region_sponsor_3', [240, 60], 'div-bob_region_sponsor_3').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/battle_of_the_bows/bob_region_sponsor_4', [240, 60], 'div-bob_region_sponsor_4').addService(googletag.pubads());
 <?php } ?>
+<?php if( is_category( 'trading-post' ) || in_category( 'trading-post' ) ){ ?>
+googletag.defineSlot('/4930/imo.shotgunnews/ATF_Button_1', [125, 125], 'div-atf_button_1').addService(googletag.pubads());
+googletag.defineSlot('/4930/imo.shotgunnews/ATF_Button_2', [125, 125], 'div-atf_button_2').addService(googletag.pubads());
+googletag.defineSlot('/4930/imo.shotgunnews/BTF_Button_1', [125, 125], 'div-btf_button_1').addService(googletag.pubads());
+googletag.defineSlot('/4930/imo.shotgunnews/BTF_Button_2', [125, 125],'div-btf_button_2').addService(googletag.pubads());
+<?php } ?>
 googletag.pubads().setTargeting("sect","<?php echo $term; ?>");
 googletag.pubads().setTargeting("camp","<?php echo $camp; ?>");
 googletag.pubads().setTargeting("Audience segment","<?php echo $term; ?>");
@@ -166,7 +172,7 @@ googletag.pubads().setTargeting("Audience segment","<?php echo $term; ?>");
 googletag.pubads().enableSingleRequest();
 googletag.pubads().enableSyncRendering();
 googletag.pubads().enableVideoAds();
-googletag.pubads().collapseEmptyDivs();
+//googletag.pubads().collapseEmptyDivs();
 googletag.enableServices();
 
 </script>
