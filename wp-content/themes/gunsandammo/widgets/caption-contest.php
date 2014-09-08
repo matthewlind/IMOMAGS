@@ -22,7 +22,7 @@ class Caption_Contest_Widget extends WP_Widget {
       </div>
       
       <?php $img_src = wp_get_attachment_image_src(get_post_thumbnail_id($contestID), "medium"); ?>
-      <a href="<?php echo get_page_link($contestID); ?>">
+      <a href="<?php echo get_permalink($contestID); ?>">
         <img src="<?php echo $img_src[0]; ?>" class="wp-post-image" alt="<?php the_title(); ?>" />
       </a>
 	    
@@ -32,7 +32,7 @@ class Caption_Contest_Widget extends WP_Widget {
         <p><?php echo get_post_meta($contestID, 'product_name', true); ?></p>
 	    </div>
 	    
-	    <a href="<?php echo get_page_link($contestID); ?>" class="button">Enter The Contest <span></span></a>
+	    <a href="<?php echo get_permalink($contestID); ?>" class="button">Enter The Contest <span></span></a>
       <p class="view-all-p"><a href="/caption-contest" class="view-all">View All Caption Contests</a>
     </p>
     </aside>

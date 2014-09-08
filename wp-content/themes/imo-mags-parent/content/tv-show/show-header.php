@@ -78,7 +78,8 @@ $acfID = 'category_' . $id; ?>
 <div class="shows-player-area">
 	<div id="when-to-watch">
 		<div class="when-label">
-			<h3>WHEN TO<br>WATCH</h3>
+			<h3>WHEN TO WATCH</h3>
+			<a href="http://thesportsmanchannel.com" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/logos/sc-logo.png" alt="sc-logo" width="" height="" /></a>
 		</div>
 		
 		<?php 

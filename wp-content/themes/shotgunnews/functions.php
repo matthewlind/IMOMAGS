@@ -34,19 +34,24 @@ function trading_post_cat_posts () {
     $tradingPostID = get_cat_ID( $tradingPostName );
     $filterName = $_POST[ 'cat' ];
 	$filterID = get_cat_ID( $filterName );
+	$offset = $_POST[ 'offset' ];
 	
 	if($filterID == ""){
 		$args = array( 
 			'post_type' => 'post',
 			'post_status' => 'publish',
-			'category_name' => $tradingPostName
+			'category_name' => $tradingPostName,
+			'offset' => $offset,
+			'posts_per_page' => 10
 		); 
 
 	}else{
 		$args = array( 
 			'post_type' => 'post',
 			'post_status' => 'publish',
-			'category__and' => array( $tradingPostID, $filterID )
+			'category__and' => array( $tradingPostID, $filterID ),
+			'offset' => $offset,
+			'posts_per_page' => 10
 		); 
 
 	}
@@ -70,15 +75,22 @@ function trading_post_cat_posts () {
 		?>
 	
 		
-		<div id="post-<?php the_ID(); ?>" <?php post_class('article-brief clearfix'); ?>  data-slug="<?php echo $slug; ?>">
+		<div id="post-<?php the_ID(); ?>" <?php post_class('post article-brief clearfix'); ?>  data-slug="<?php echo $slug; ?>">
 			<h3 class="entry-title">
-				<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark" data-title="<?php the_title(); ?>"><?php the_title(); ?></a>
+				<?php the_title(); ?>
 			</h3>
+			<em class="meta-date-author"><?php the_time('F jS, Y'); ?></em>
 			<div class="article-content">
 				<div class="thumb-area">
-			    	<a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('list-thumb'); ?></a>
-			    	<?php $url = get_the_permalink();
-			    	if(function_exists('wpsocialite_markup')){ wpsocialite_markup(array('url' => $url )); } ?>
+			    	<?php the_post_thumbnail('list-thumb'); ?>
+			    	<?php $url = get_the_permalink(); ?>
+			    	<div class="fb-like" data-href="<?php echo $url; ?>" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+	    	<a data-url="<?php echo $url; ?>" href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+			<span class="googleplus">
+				<script src="https://apis.google.com/js/platform.js" async defer></script>
+				<div class="g-plusone" data-size="medium" data-href="<?php echo $url; ?>"></div>
+			</span>
 				</div>
 		        <div class="article-holder">
 		    		<div class="entry-content">

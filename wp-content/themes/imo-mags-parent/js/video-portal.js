@@ -88,13 +88,15 @@ var videoPortal = (function(e){
 			});
 			
 			$('select.seasons-filter').on('change', function (e) {
-				$("#video-filter a").removeClass("video-thumb-active");
-				$("#video-filter a").first().addClass("video-thumb-active");
-				postoffset = 0;
-				var catID = this.value;
-				$(".loading-gif").show();
-				self.getAJAX(catID,postoffset);
-				$("a.paginate-videos").show();
+				if(this.value != ""){
+					$("#video-filter a").removeClass("video-thumb-active");
+					$("#video-filter a").first().addClass("video-thumb-active");
+					postoffset = 0;
+					var catID = this.value;
+					$(".loading-gif").show();
+					self.getAJAX(catID,postoffset);
+					$("a.paginate-videos").show();
+				}
 			});
 			
 			$(".video-ajax").click(function(){
@@ -231,8 +233,8 @@ var videoPortal = (function(e){
 		loadVideo: function(video_id){
 			//load videos
 		    var playerID = $("#show-destination").attr("playerID");
-		    videoLink = $("#show-destination").attr("videoLink");
-		    adServerURL = $("#show-destination").attr("adServerURL");
+		    var videoLink = $("#show-destination").attr("videoLink");
+		    var adServerURL = $("#show-destination").attr("adServerURL");
 		    		    
 		    var htm = '';
 		   

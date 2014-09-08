@@ -2809,13 +2809,20 @@ margin-bottom:15px;
 ********************************************************
 ********************************************************/
 #show-featured {background-color: white; padding: 50px 0 75px; font-family: 'Open Sans', Helvetica, Arial, sans-serif;}
-#show-featured #video-filter {margin: 0 0 35px 3px;display: inline-block;}
-#show-featured .seasons-filter{display: inline-block;}
-#show-featured #video-thumbs{padding-bottom: 25px;}
+#show-featured #video-filter {margin: 0 0 40px 3px;display: block;}
+#show-featured .seasons-filter{display: inline-block;float: right;}
+#show-featured #video-thumbs{padding-bottom: 25px;clear: both;}
 #show-featured #video-thumbs li {width: 22%;vertical-align: top;margin: 0 1.3% 20px;}
 #show-featured .thumbs-full{margin-bottom: 0; padding: 0 25px;position:relative;background: white;}
 #show-featured .thumbs-full img{width: 100%;height: auto;border: none;}
-#show-featured #video-thumbs li h3 {text-align:left;color: black;position: relative;padding: 2px;font-size: 13px;margin: 0;bottom: auto;background: white;padding-top: 9px;}
+#show-featured #video-thumbs li h3 {font: 20px/24px 'jubilat', serif;text-align:left;color: black;position: relative;padding: 2px;margin: 0;bottom: auto;background: white;}
+
+/*** video filter ***/
+#video-filter li{display: inline-block;padding: 10px;}
+#video-filter li a{color: #252525;padding: 10px;cursor: pointer; font-size: 14px;background: #eee;}
+#video-filter li a.video-thumb-active{color: white;background: #555555;}
+.no-mo-videos{text-align: center;padding: 80px 0 20px;}
+.paginate-videos{cursor: pointer;}
 #show-featured .thumbs-full .paginate-videos {
 	width: 260px;
 	text-align: center;
@@ -2840,8 +2847,8 @@ margin-bottom:15px;
 }
 #show-destination .inner-main, #show-destination .thumbs-full, #show-destination .sidebar-area{background: white;}
 #show-destination .inner-main{padding: 80px 30px 0;}
-#show-destination  .play-btn{background:url(images/shows/play-btn.png) no-repeat;width: 47px;height: 47px;position: absolute;left: 0;top: 28%;margin: auto;right: 0;}
-
+#video-thumbs .play-btn{background:url(images/shows/play-btn.png) no-repeat;width: 47px;height: 47px;position: absolute;left: 0;top: 22%;margin: auto;right: 0;}
+#video-thumbs .season-number{color: #6ba4c2;font-size: 14px;}
 .wrap4padding {
 	padding: 0 35px;
 	background-color: white;
@@ -3058,12 +3065,18 @@ margin-bottom:15px;
 .tv-show #when-to-watch .when-label {
 	float: left;
 }
+.tv-show #when-to-watch img{
+	width: 160px;
+	height: auto;
+	float: right;
+}
 .tv-show #when-to-watch .when-label h3 {
 	color: #ffffff;
-	font: 24px/29px 'jubilat', serif;
+	font: 13px/20px 'jubilat', serif;
 	font-weight: 300;
+	text-align: right;
 }
-
+.tv-show .schedule-item:first-child{margin-left: 20px !important;}
 .tv-show .schedule-item {
 	float: left;
 	margin: 5px 0 0 35px;
@@ -3072,6 +3085,7 @@ margin-bottom:15px;
 	padding-left: 20px;
 	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 }
+
 .tv-show .schedule-item:nth-child(n+5) {
 	display: none;
 }
@@ -3863,13 +3877,6 @@ box-sizing: border-box;
 	background-color: white;
 }
 
-
-/*** video filter ***/
-#video-filter li{display: inline-block;padding: 10px;}
-#video-filter li a{color: #252525;padding: 5px 10px;cursor: pointer; font-size: 16px;}
-#video-filter li a.video-thumb-active{color: white;background: #555555;}
-.no-mo-videos{text-align: center;padding: 80px 0 20px;}
-.paginate-videos{cursor: pointer;}
 
 /*** Border to Border Show ***
 ******************************/
