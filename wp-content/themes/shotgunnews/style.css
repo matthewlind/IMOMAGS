@@ -50,7 +50,7 @@ body{background:url(images/bg/shotgunnews-bg.jpg) no-repeat center top black;}
 
 
 /*** Trading post ***/
-.trading-post .entry-title{width: 100%;max-width: 100%;margin-bottom: 10px;}
+.trading-post .entry-title{width: 100%;max-width: 100%;margin-bottom: 4px;}
 .trading-post .thumb-area{float: left;width: 235px;}
 .trading-post .article-brief {padding: 10px 0 20px;}
 .trading-post .article-brief .attachment-list-thumb{float: none;margin-bottom: 10px;}
@@ -61,7 +61,10 @@ body{background:url(images/bg/shotgunnews-bg.jpg) no-repeat center top black;}
 .trading-post .wpsocialite.small > li, .trading-post  .wpsocialite.small .socialite {width: 85px !important;}
 .trading-post .posts-image-banner, .trading-post .links-holder .image-banner{display: block;}
 .trading-post .loading-gif{width: 208px;height: 13px;float: left;margin: 14px 0 0 10px;display: none;}
-
+.single .trading-post p{color: #3c3c3c;font: 18px "Source Sans Pro", Helvetica, Arial, sans-serif;}
+.trading-post .meta-date-author{padding: 0 0 10px;}
+.trading-post .thumb-area .googleplus div{width: 40px !important;}
+.trading-post .thumb-area .twitter-share-button{width: 90px !important;}
 /* Tags reset
 *******************************************************************************/
 a, 

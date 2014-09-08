@@ -1,5 +1,5 @@
 <?php
-
+//Single template located in parent theme utilizing custom single template function.
 $dataPos = 0;
 $idObj = get_category_by_slug('trading-post'); 
 $id = $idObj->term_id;
@@ -11,14 +11,26 @@ get_header(); ?>
     		<div class="widget_advert-widget widget">
     			<?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>
     		</div>
+    		<div class="widget_advert-widget widget left-125">
+    			<?php imo_ad_placement("atf_button_1"); ?>
+    		</div>
+    		<div class="widget_advert-widget widget right-125">
+    			<?php imo_ad_placement("atf_button_2"); ?>
+    		</div>
     		<div class="widget widget_text">
     			<iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FShotgunNews&amp;width=310&amp;height=184&amp;colorscheme=light&amp;show_faces=true&amp;border_color=%23DDDDDD&amp;stream=false&amp;header=false&amp;appId=218070564894418" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:310px; height:184px;" allowTransparency="true" id="fb-sidebar"></iframe>    		</div>
     	</div>
     	<div id="responderfollow"></div>
 		<div class="sidebar advert">
-			<div class="widget_advert-widget">
+			<div class="widget_advert-widget widget">
 				<?php imo_ad_placement("btf_medium_rectangle_300x250"); ?>
 			</div>
+			<div class="widget_advert-widget widget left-125">
+    			<?php imo_ad_placement("btf_button_1"); ?>
+			</div>
+			<div class="widget_advert-widget widget right-125">
+    			<?php imo_ad_placement("btf_button_2"); ?>
+    		</div>
 		</div>
     </div>
     <div id="primary" class="general trading-post">
@@ -37,12 +49,7 @@ get_header(); ?>
                         echo apply_filters( 'category_archive_meta', '<div class="category-archive-meta taxdescription js-responsive-section">' . $category_description . '</div>' );
                 ?>
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header clearfix js-responsive-section">
-                    <h1 class="page-title" style="<?php if(function_exists('z_taxonomy_image_url')){ if (z_taxonomy_image_url()){ echo 'text-indent:-9999px;height:0;'; } } ?>">
-					<div class="icon" style="<?php if(function_exists('z_taxonomy_image_url')){ if (z_taxonomy_image_url()){ echo 'text-indent:-9999px;height:0;'; } } ?>"></div>
-                    <?php
-                        printf('<span>' . single_cat_title( '', false ) . '</span>' );
-                        ?>
-                    </h1>
+                    <h1 class="page-title"><span>Trading Post</span></h1>
                     <div class="header-content">
 	                    <p>Today's hot new products from Shotgun News</p>
 	                    <?php $url = "http://www.shotgunnews.fox/trading-post/";
@@ -73,8 +80,7 @@ get_header(); ?>
                 </div>
 
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="pager-holder js-responsive-section">
-                    <a href="#" class="btn-base">Load More</a>
-                    <div class="next-link" style="display:none;"><?php next_posts_link(); ?></div>
+                    <a href="#" class="btn-base paginate-posts">Load More</a>
                     <a href="#" class="go-top jq-go-top">go top</a>
 
                     <img src="/wp-content/themes/imo-mags-parent/images/ajax-loader.gif" id="ajax-loader" style="display:none;"/>
