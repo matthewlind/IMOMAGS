@@ -454,7 +454,10 @@
 									
 									googletag.cmd.push(function() {
 										//googletag.pubads().clear('div-bob_region_'+ region-1 +'_medium_rectangle');
-										googletag.display('div-bob_region_'+region+'_medium_rectangle');
+										if (region > 4) {
+											adRegion = 2;
+										}
+										googletag.display('div-bob_region_'+adRegion+'_medium_rectangle');
 									});
 									
 								}, 200);

@@ -177,7 +177,7 @@ googletag.pubads().enableSingleRequest();
 
 // This is the culprit that is causing the site skin to work but making the bob ads disappear, let's make this conditional (i.e. KLUDGE!!!!!)
 <?php if(!is_page( 'battle-of-the-bows' )){ ?>
-googletag.pubads().enableSyncRendering();
+	googletag.pubads().enableSyncRendering();
 <?php } ?>
 
 
