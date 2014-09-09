@@ -147,7 +147,7 @@ googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Photo_Gallery_Medium_Rect
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Screen_Shift_1x1', [1, 1], 'div-screen_shift_1x1').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Site_Skin_1x1', [1, 1], 'div-site_skin_1x1').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Sponsor_Logo_240x60', [240, 60], 'div-sponsor_logo_240x60').addService(googletag.pubads());
-<?php if(is_page( 'battle-of-the-bows' )){ ?>
+<?php if(is_page( 'battle-of-the-bows-2' )){ ?>
 
 //Battle of the Bows
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/battle_of_the_bows/bob_presenting_sponsor', [240, 60], 'div-bob_presenting_sponsor').addService(googletag.pubads());
@@ -176,8 +176,8 @@ googletag.pubads().enableSingleRequest();
 
 
 // This is the culprit that is causing the site skin to work but making the bob ads disappear, let's make this conditional (i.e. KLUDGE!!!!!)
-<?php if(!is_page( 'battle-of-the-bows' )){ ?>
-googletag.pubads().enableSyncRendering();
+<?php if(!is_page( 'battle-of-the-bows-2' )){ ?>
+	googletag.pubads().enableSyncRendering();
 <?php } ?>
 
 
