@@ -89,14 +89,17 @@ get_header(); ?>
 					$fslug = 'forecasts';
 					$fcategory = get_category_by_slug($fslug);
 					
+					$deerForecasts = 'deer-forecast';
+					$DFcategory = get_category_by_slug($deerForecasts);
+					
 					$tvslug = 'tv';
 					$tvcategory = get_category_by_slug($tvslug);
 					
 					$Galleryslug = 'show-galleries';
-					$Gallerycategory = get_category_by_slug($Galleryslug);
+					$Gallerycategory = get_category_by_slug($Galleryslug);		
 
 					$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-                    $more_query = new WP_Query( 'post_type=post&posts_per_page=20&paged=' . $paged. '&cat=-' . $category->cat_ID.",-".$fcategory->cat_ID.",-".$Gallerycategory->cat_ID.",-".$tvcategory->cat_ID );
+                    $more_query = new WP_Query( 'post_type=post&posts_per_page=20&paged=' . $paged. '&cat=-' . $category->cat_ID.",-".$fcategory->cat_ID.",-".$DFcategory->cat_ID.",-".$Gallerycategory->cat_ID.",-".$tvcategory->cat_ID );
                     $i++;
 
                     while ($more_query->have_posts()) : $more_query->the_post(); ?>
