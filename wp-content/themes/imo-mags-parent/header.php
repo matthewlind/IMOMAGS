@@ -400,9 +400,9 @@
 					<div class="mdl-banner mdl-728">
 						<?php imo_ad_placement("atf_leaderboard_728x90"); ?>
 					</div>
-					<div class="mdl-banner mdl-expandable">
-						<?php imo_ad_placement("pushdown_1080x90"); ?>
-					</div>
+					<!--<div class="mdl-banner mdl-expandable">
+						<?php //imo_ad_placement("pushdown_1080x90"); ?>
+					</div>-->
 				<?php } ?>
 	        </div>
         <?php } ?>
