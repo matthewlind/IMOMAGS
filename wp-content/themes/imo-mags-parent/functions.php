@@ -2474,31 +2474,24 @@ function prefix_load_cat_posts () {
 		$post_id = $post->ID;
 		$slug = $post->post_name;
 		$thumb_url = wp_get_attachment_url( get_post_thumbnail_id($post_id) );
-		$cats = get_the_category( $post_id );
-		foreach($cats as $cat){
-			$catSlug = $cat->slug;
-			$catName = $cat->name;
-		}
 		$video_id = get_post_meta($post_id, '_video_id', TRUE);
 		$videoLink = !empty($post_id) ? get_permalink($post_id) :  site_url() . $_SERVER['REQUEST_URI']; 
 		$adServerURL = "http://ad.doubleclick.net/pfadx/" .  get_option("dart_domain", _imo_dart_guess_domain())  ."/tv";
-		if( $seasons ){ 
-			foreach( $seasons as $season ){  
-				$seasonNumber = get_term_by('id', $season, 'category');
-				if($seasonNumber->slug == $catSlug){
-					$showSeason = $catName;
-					$seasonSlug = $catSlug;
-					
-				}
-			} 
-		} 
-		?>
+		$cats = get_the_category( $post_id );
+		foreach($cats as $cat){
+			$catSlug = $cat->slug;
+			if(strpos($catSlug,'season') !== false){
+				$catSlug = $cat->slug;
+				$catName = $cat->name;
+			}
+		} ?>
+
 		
 		<li id="thumb-<?php echo $i; ?>">
 			<div class="data-description" style="display:none;"><?php the_content(); ?></div>
 			<a class="video-thumb" data-slug="<?php echo $slug; ?>" data-img_url="<?php echo $thumb_url; ?>" data-post_url="<?php echo get_permalink(); ?>" data-title="<?php echo get_the_title(); ?>" data-date="<?php the_time('F jS, Y'); ?>" data-videoid="<?php echo $video_id; ?>" adServerURL="<?php echo $adServerURL; ?>" videoLink="<?php echo $videoLink; ?>">
 				<?php the_post_thumbnail("show-thumb"); ?>
-				<span class="season-number"><?php echo $showSeason; ?></span>
+				<span class="season-number"><?php echo $catName; ?></span>
 				<h3><?php the_title(); ?></h3>
 				<span class="play-btn"></span>
 			</a>

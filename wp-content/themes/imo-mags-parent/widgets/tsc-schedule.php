@@ -47,7 +47,7 @@ class Schedule_Widget extends WP_Widget {
 				<div class="w-sport-button">
 					<a href="http://thesportsmanchannel.com/schedule" target="_blank">FULL SCHEDULE</a>
 				</div>
-
+			</div>
 		<?php echo $args['after_widget'];
 	}
 	
