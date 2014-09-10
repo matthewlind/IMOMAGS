@@ -186,28 +186,23 @@ while (have_posts()) : the_post();
 				$slug = $post->post_name;
 				$thumb_url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 				$cats = get_the_category( $post_id );
-				foreach($cats as $cat){
-					$catSlug = $cat->slug;
-					$catName = $cat->name;
-				}
+				
 				$video_id = get_post_meta(get_the_ID(), '_video_id', TRUE);
 				$videoLink = !empty($post_id) ? get_permalink($post_id) :  site_url() . $_SERVER['REQUEST_URI']; 
 				
-				if( $seasons ){ 
-					foreach( $seasons as $season ){  
-						$seasonNumber = get_term_by('id', $season, 'category');
-						if($seasonNumber->slug == $catSlug){
-							$showSeason = $catName;
-							$seasonSlug = $catSlug;
-							
-						}
-					} 
+				foreach($cats as $cat){
+					$catSlug = $cat->slug;
+					
+					if(strpos($catSlug,'season') !== false){
+						$catSlug = $cat->slug;
+						$catName = $cat->name;
+					}
 				} ?>
 				<li id="thumb-<?php echo $i; ?>">
 					<div class="data-description" style="display:none;"><?php the_content(); ?></div>
 					<a class="video-thumb" data-slug="<?php echo $slug; ?>" data-img_url="<?php echo $thumb_url; ?>" data-post_url="<?php echo get_permalink(); ?>" data-title="<?php echo get_the_title(); ?>" data-videoid="<?php echo $video_id; ?>" adServerURL="<?php echo $adServerURL; ?>" videoLink="<?php echo $videoLink; ?>">
 						<?php the_post_thumbnail("show-thumb"); ?>
-						<span slug="<?php echo $seasonSlug; ?>" class="season-number"><?php echo $showSeason; ?></span>
+						<span class="season-number"><?php echo $catName; ?></span>
 						<h3><?php the_title(); ?></h3>
 						<span class="play-btn"></span>
 					</a>
