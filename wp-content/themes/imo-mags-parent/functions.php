@@ -2413,6 +2413,44 @@ if(function_exists("register_field_group"))
 		'menu_order' => 0,
 	));
 }
+if(function_exists("register_field_group"))
+{
+	register_field_group(array (
+		'id' => 'acf_scroll-tracking',
+		'title' => 'Scroll Tracking',
+		'fields' => array (
+			array (
+				'key' => 'field_5410b1fb2b42d',
+				'label' => 'Enable GA scroll tracking',
+				'name' => 'scroll_tracking',
+				'type' => 'true_false',
+				'message' => '',
+				'default_value' => 0,
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'options_page',
+					'operator' => '==',
+					'value' => 'acf-options',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+}
+
+
+
 add_action( 'wp_ajax_nopriv_load-filter', 'prefix_load_cat_posts' );
 add_action( 'wp_ajax_load-filter', 'prefix_load_cat_posts' );
 function prefix_load_cat_posts () {
