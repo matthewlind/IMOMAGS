@@ -5,7 +5,7 @@
  * Licensed under the MIT and GPL licenses.
  */
 ;(function ( $, window, document, undefined ) {
-
+	console.log("active");
   "use strict";
 
   var defaults = {
@@ -68,9 +68,9 @@
      */
 
     function sendEvent(action, label, scrollDistance, timing) {
-
+		
       if (googleTagManager) {
-
+		  
         dataLayer.push({'event': 'ScrollDistance', 'eventCategory': 'Scroll Depth', 'eventAction': action, 'eventLabel': label, 'eventValue': 1, 'eventNonInteraction': options.nonInteraction});
 
         if (options.pixelDepth && arguments.length > 2 && scrollDistance > lastPixelDepth) {
@@ -102,7 +102,7 @@
         if (classicGA) {
 
           _gaq.push(['_trackEvent', 'Scroll Depth', action, label, 1, options.nonInteraction]);
-
+		  
           if (options.pixelDepth && arguments.length > 2 && scrollDistance > lastPixelDepth) {
             lastPixelDepth = scrollDistance;
             _gaq.push(['_trackEvent', 'Scroll Depth', 'Pixel Depth', rounded(scrollDistance), 1, options.nonInteraction]);
