@@ -174,7 +174,6 @@ googletag.pubads().enableSyncRendering();
 googletag.pubads().enableVideoAds();
 //googletag.pubads().collapseEmptyDivs();
 googletag.enableServices();
-
 </script>
 <?php 
 //sidebar
