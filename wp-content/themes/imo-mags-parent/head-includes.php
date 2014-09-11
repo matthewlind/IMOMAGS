@@ -175,22 +175,13 @@ googletag.pubads().setTargeting("Audience segment","<?php echo $term; ?>");
 googletag.pubads().enableSingleRequest();
 googletag.pubads().enableSyncRendering();
 
-
-
 googletag.pubads().enableVideoAds();
 //googletag.pubads().collapseEmptyDivs();
 googletag.enableServices();
 </script>
+
 <?php 
 //sidebar
-
-/***
-
-
-CREATE NEW IFRAME ADS WITH NEW GOOGLE TAGS
-
-
-***/
 function imo_sidebar($type){
 	//Speed up mobile load time by not loading sidebar in the background
 	if(!mobile()){
