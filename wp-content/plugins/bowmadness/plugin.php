@@ -76,12 +76,7 @@ function renderGAMpopup($mobile) {
 							</ul>
 						</div>
 		    		</div>
-		    		<div id="popupAdRight" class="modal-footer-content-right">
-		    			<div id="div-bob_region_1_medium_rectangle"></div>
-		    			<div id="div-bob_region_2_medium_rectangle"></div>
-						<div id="div-bob_region_3_medium_rectangle"></div>
-						<div id="div-bob_region_4_medium_rectangle"></div>
-		    		</div>
+		    		<div id="popupAdRight" class="modal-footer-content-right"></div>
 	    		</div>
 	    	</div>
 	    </div>
@@ -110,10 +105,10 @@ function jsGAMRender($mobile) {
 	//if (function_exists('wpsocialite_markup'))
 		 	//$outp.= wpsocialite_markup();
 		 	
-	$ad1 = '<div id="div-bob_region_sponsor_1"></div>';
-	$ad2 = '<div id="div-bob_region_sponsor_2"></div>';
-	$ad3 = '<div id="div-bob_region_sponsor_3"></div>';
-	$ad4 = '<div id="div-bob_region_sponsor_4"></div>';
+	$ad1 = '<div id="div-bob_region_sponsor_1"><script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-bob_region_sponsor_1"); });</script></div>';
+	$ad2 = '<div id="div-bob_region_sponsor_2"><script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-bob_region_sponsor_2"); });</script></div>';
+	$ad3 = '<div id="div-bob_region_sponsor_3"><script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-bob_region_sponsor_3"); });</script></div>';
+	$ad4 = '<div id="div-bob_region_sponsor_4"><script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-bob_region_sponsor_4"); });</script></div>';
 		 	
 	$outp.= '<div id="madtabs">'
 		 .  '  <ul class="rounds">'
@@ -242,10 +237,10 @@ function jsGAMRender($mobile) {
 	$outp.= '<div class="ga-madness">'
 		 .  '<div class="region-titles">'
 		 .	'  <div class="region-left">'
-		 .	'    <h2>Compound A</h2><div id="div-bob_region_sponsor_1"></div>'
+		 .	'    <h2>Compound A</h2><div id="div-bob_region_sponsor_1"><script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-bob_region_sponsor_1"); });</script></div>'
 		 .	'  </div>'
 		 .	'  <div class="region-right">'
-		 .	'    <h2>Compound B</h2><div id="div-bob_region_sponsor_2"></div>'
+		 .	'    <h2>Compound B</h2><div id="div-bob_region_sponsor_2"><script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-bob_region_sponsor_2"); });</script></div>'
 		 .	'  </div>'
 		 .	'</div>'
 		 
@@ -265,23 +260,23 @@ function jsGAMRender($mobile) {
 	if($madnessround < 8) {		 
 	$outp.= '<div class="regions region-final"	>'
 		 .  '  <div class="finalsadvert">'
-		 .  ' <div id="div-bob_presenting_sponsor"></div>'		
+		 .  ' <div id="div-bob_presenting_sponsor"><script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-bob_presenting_sponsor"); });</script></div>'		
 		 .  '  </div>'
 		 .  '  <div class="final-wrapper">'
 		 .  '    <h2>Final Round</h2>'
-		 .  '    <div class="column column5 match92"></div>'
-		 .  '    <div class="column column6 match94"></div>'
-		 .  '    <div class="column column7 match93"></div>'
+		 .  '    <div class="column column5 final-modal match92"></div>'
+		 .  '    <div class="column column6 final-modal match94"></div>'
+		 .  '    <div class="column column7 final-modal match93"></div>'
 		 .  '  </div>'		 
 		 .  '</div>';
 	}
 		 
 	$outp.= '<div class="region-titles">'
 		 .	'  <div class="region-left">'
-		 .	'    <h2>Crossbows A</h2><div id="div-bob_region_sponsor_3"></div>'
+		 .	'    <h2>Crossbows A</h2><div id="div-bob_region_sponsor_3"><script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-bob_region_sponsor_3"); });</script></div>'
 		 .	'  </div>'
 		 .	'  <div class="region-right">'
-		 .	'    <h2>Crossbows B</h2><div id="div-bob_region_sponsor_4"></div>'
+		 .	'    <h2>Crossbows B</h2><div id="div-bob_region_sponsor_4"><script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-bob_region_sponsor_4"); });</script></div>'
 		 .	'  </div>'
 		 .	'</div>'
 

@@ -184,7 +184,6 @@ googletag.pubads().enableSingleRequest();
 googletag.pubads().enableVideoAds();
 //googletag.pubads().collapseEmptyDivs();
 googletag.enableServices();
-
 </script>
 <?php 
 //sidebar

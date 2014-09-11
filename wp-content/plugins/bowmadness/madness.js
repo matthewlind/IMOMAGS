@@ -261,14 +261,11 @@
 								//var randomInt = Math.floor((Math.random() * 4) + 0);
 								
 								//var randomPopad = popads[randomInt];
+								jQuery("#popupAdRight .popupad").remove();
 								
-								googletag.cmd.push(function() {
+								jQuery("#popupAdRight").append('<div id="div-bob_region_'+ region +'_medium_rectangle" class="popupad"><iframe id="bracket-iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-bracket.php?ad_code=imo.bowhunting&bracket=battle_of_the_bows&size=bob_region_'+ region +'_medium_rectangle"></iframe></div>');
 									
-									googletag.pubads().clear('div-bob_region_'+ region-1 +'_medium_rectangle');
-									
-									googletag.display('div-bob_region_' + region + '_medium_rectangle');								
 								
-								});
 								
 								_gaq.push(['_trackPageview',"/" + window.location.pathname + "/match"+pdata.mid_data_mid]);
 								
@@ -281,6 +278,9 @@
 		 
 		 		 
 		 jQuery(".activem").on("click", function() {
+		 	
+		 	var finalRound = jQuery(this).parent().hasClass("final-modal");
+		 	console.log(finalRound);
 		 	var pdata;
 		 	var region = jQuery(this).data("region");
 		 	var mid = jQuery(this).data("mid");
@@ -446,20 +446,9 @@
 									//+'camp='+campaign+';sect=;manf=;pos=;page=ga_madness;subs=;sz=300x250;'
 									//+'dcopt=;tile=1;ord='+(Math.floor((Math.random()) * 100000000))+'></script>';
 									//postscribe('#gpt-ad-1386782139095-3',bidadtag);
-									
-									jQuery('#div-bob_region_1_medium_rectangle').empty();
-									jQuery('#div-bob_region_2_medium_rectangle').empty();
-									jQuery('#div-bob_region_3_medium_rectangle').empty();
-									jQuery('#div-bob_region_4_medium_rectangle').empty();
-									
-									googletag.cmd.push(function() {
-										//googletag.pubads().clear('div-bob_region_'+ region-1 +'_medium_rectangle');
-										if (region > 4) {
-											adRegion = 2;
-										}
-										googletag.display('div-bob_region_'+adRegion+'_medium_rectangle');
-									});
-									
+
+									jQuery("#popupAdRight .popupad").remove();
+									jQuery("#popupAdRight").append('<div id="div-bob_championship_medium_rectangle" class="popupad"><iframe id="bracket-iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-bracket.php?ad_code=imo.bowhunting&bracket=battle_of_the_bows&size=bob_championship_medium_rectangle"></iframe></div>');									
 								}, 200);
 							}
 						}
