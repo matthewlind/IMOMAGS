@@ -148,6 +148,7 @@ googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Screen_Shift_1x1', [1, 1]
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Site_Skin_1x1', [1, 1], 'div-site_skin_1x1').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Sponsor_Logo_240x60', [240, 60], 'div-sponsor_logo_240x60').addService(googletag.pubads());
 <?php if(is_page( 'battle-of-the-bows' )){ ?>
+
 //Battle of the Bows
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/battle_of_the_bows/bob_presenting_sponsor', [240, 60], 'div-bob_presenting_sponsor').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/battle_of_the_bows/bob_region_1_medium_rectangle', [300, 250], 'div-bob_region_1_medium_rectangle').addService(googletag.pubads());
@@ -158,7 +159,9 @@ googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/battle_of_the_bows/bob_re
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/battle_of_the_bows/bob_region_sponsor_2', [240, 60], 'div-bob_region_sponsor_2').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/battle_of_the_bows/bob_region_sponsor_3', [240, 60], 'div-bob_region_sponsor_3').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/battle_of_the_bows/bob_region_sponsor_4', [240, 60], 'div-bob_region_sponsor_4').addService(googletag.pubads());
+
 <?php } ?>
+
 <?php if( is_category( 'trading-post' ) || in_category( 'trading-post' ) ){ ?>
 googletag.defineSlot('/4930/imo.shotgunnews/ATF_Button_1', [125, 125], 'div-atf_button_1').addService(googletag.pubads());
 googletag.defineSlot('/4930/imo.shotgunnews/ATF_Button_2', [125, 125], 'div-atf_button_2').addService(googletag.pubads());
@@ -170,7 +173,14 @@ googletag.pubads().setTargeting("camp","<?php echo $camp; ?>");
 googletag.pubads().setTargeting("Audience segment","<?php echo $term; ?>");
 
 googletag.pubads().enableSingleRequest();
-googletag.pubads().enableSyncRendering();
+
+
+// This is the culprit that is causing the site skin to work but making the bob ads disappear, let's make this conditional (i.e. KLUDGE!!!!!)
+<?php if(!is_page( 'battle-of-the-bows' )){ ?>
+	googletag.pubads().enableSyncRendering();
+<?php } ?>
+
+
 googletag.pubads().enableVideoAds();
 //googletag.pubads().collapseEmptyDivs();
 googletag.enableServices();

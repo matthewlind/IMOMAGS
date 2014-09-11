@@ -146,7 +146,7 @@ function jsGAMRender($mobile) {
 
 		 .  '  </div>'
 
-		 .  '  <div id="madtabs-3">'
+		 .  '  <div style="clear:both;" id="madtabs-3">'
 		 .  '    <h2 id="compound1">Compound A</h2>'
 		 . 			$ad1
 		 .  '    <div class="mreg1"></div>'
@@ -161,7 +161,7 @@ function jsGAMRender($mobile) {
 		 .  '    <div class="mreg2"></div>'
 		 
 		 .  '  </div>'
-		 .  '  <div id="madtabs-4">'
+		 .  '  <div style="clear:both;" id="madtabs-4">'
 
 		 .  '    <h2 id="compound2">Compound A</h2>'
 		 . 			$ad1
@@ -177,7 +177,7 @@ function jsGAMRender($mobile) {
 		 .  '    <div class="mreg2"></div>'
 		 		 
 		 .  '  </div>'
-		 .  '  <div id="madtabs-5">'
+		 .  '  <div style="clear:both;" id="madtabs-5">'
 		 .  '    <br>'. $ad1
 		 .  		$ad2
 		 .  '    <div class="mreg5 match92"></div>'
@@ -187,7 +187,7 @@ function jsGAMRender($mobile) {
 		 
 		 .  '  </div>'
 		 
-		 .  '  <div id="madtabs-6">'
+		 .  '  <div style="clear:both;" id="madtabs-6">'
 		 .  '    <br><div style="margin:10px 0px 0px 6px;clear:both;font-size:18px;font-weight:bold;">Championship</div>'
 		 .  '    <div class="mreg7 match94"></div>'
 		 .  '    <br>'. $ad1
@@ -309,6 +309,10 @@ function jsGAMRender($mobile) {
 		 .  '   getStats();'
 		 .  '   setTimeout(function(){makeGAMPopup()}, 1000);'
 		 .  '   setTimeout(function(){autoPopup()}, 2000);'
+		 .  '   setTimeout(function(){
+		 			//alert(madnessround);
+		 			//jQuery("#madtabs").tabs({selected: (madnessround - 2)})
+		 		}, 3000);'
 		 .	'});';
 
 	$outp.= '</script>';
