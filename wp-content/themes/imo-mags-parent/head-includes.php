@@ -173,12 +173,8 @@ googletag.pubads().setTargeting("camp","<?php echo $camp; ?>");
 googletag.pubads().setTargeting("Audience segment","<?php echo $term; ?>");
 
 googletag.pubads().enableSingleRequest();
+googletag.pubads().enableSyncRendering();
 
-
-// This is the culprit that is causing the site skin to work but making the bob ads disappear, let's make this conditional (i.e. KLUDGE!!!!!)
-<?php if(!is_page( 'battle-of-the-bows' )){ ?>
-	googletag.pubads().enableSyncRendering();
-<?php } ?>
 
 
 googletag.pubads().enableVideoAds();
