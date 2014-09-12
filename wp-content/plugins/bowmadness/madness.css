@@ -201,6 +201,8 @@ ul#ga-madness-nav li a:hover{
 }
 .ga-madness .action-closed:before{content: "RESULTS";}
 
+.ga-madness .bob-promo-image{width:300px;height:125px;margin: 0 auto;display: block;}
+.ga-madness .bob-promo-image img{margin-top: 10px}
 
 .basic-popup .modal-footer{width: 100%;margin-top: 30px;}
 .modal-footer {margin-top: 10px;}

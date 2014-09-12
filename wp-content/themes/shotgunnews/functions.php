@@ -110,3 +110,42 @@ function trading_post_cat_posts () {
 	echo $response;
 	die(1);
 }
+if(function_exists("register_field_group"))
+{
+	register_field_group(array (
+		'id' => 'acf_trading-post',
+		'title' => 'Trading Post',
+		'fields' => array (
+			array (
+				'key' => 'field_54075c93e9977',
+				'label' => 'Category Filter',
+				'name' => 'category_filter',
+				'type' => 'taxonomy',
+				'taxonomy' => 'category',
+				'field_type' => 'checkbox',
+				'allow_null' => 0,
+				'load_save_terms' => 0,
+				'return_format' => 'id',
+				'multiple' => 0,
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'ef_taxonomy',
+					'operator' => '==',
+					'value' => 'category',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+}
