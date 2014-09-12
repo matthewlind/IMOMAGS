@@ -154,18 +154,16 @@ while (have_posts()) : the_post();
 	?>
 
 	<div class="thumbs-full">
-		<?php $seasons = get_field("season_filter", $acfID);
-		if( $seasons ){ ?>
+	
+				
 			<div class="loading-gif"></div>
 			<select class="seasons-filter">
 				<option value="">Sort by Season</option>
-				<?php 
-				foreach( $seasons as $season ){  
-					$seasonNumber = get_term_by('id', $season, 'category'); ?>
-					<option value="<?php echo $seasonNumber->slug; ?>"><?php echo $seasonNumber->name; ?></option>
-				<?php } ?>
+				<option value="season-10">Season 10</option>
+				<option value="season-10">Season 9</option>
+				<option value="season-10">Season 8</option>
+				<option value="season-10">Season 7</option>
 			</select>
-		<?php } ?>
 
 		<?php $categories = get_field("category_filter", $acfID);
 		if( $categories ){ ?>

@@ -88,6 +88,16 @@ EOF;
 	return $outp;
 }
 function jsGAMRender($mobile) {
+	
+	
+	$pageID = get_the_ID();
+	$image = get_field("promo_image",$pageID);
+
+	if( !empty($image) ){
+		$promo = '<div class="bob-promo-image"><a href="'.get_field("image_url").'" target="_blank"><img src="'.$image["url"].'" alt="'.$image["alt"].'" /></a></div>';
+	}else{
+		$promo = "";
+	}
 	$outp = "";
 	//$mobile = true;
 	$ismobile = ($mobile)? "true":"false";
@@ -210,8 +220,8 @@ function jsGAMRender($mobile) {
 		 .  '  <li class="'.(($madnessround==7)? "active-round":"").'">Final Round<div>September 15-19</div></li>'
 		 .  '</ul>'
 		 //.  wpsocialite_markup()
-		 ;
-	
+		
+		 .  $promo;		
 	// After all the voting is done, after round 7, you'll have to 
 	// go into the db and manually change the last match to "8".
 	
@@ -320,5 +330,56 @@ function jsGAMRender($mobile) {
 	
 	return $outp;
 }
+
+//Promo image custom field
+if(function_exists("register_field_group"))
+{
+	register_field_group(array (
+		'id' => 'acf_battle-of-the-bows',
+		'title' => 'Battle of the Bows',
+		'fields' => array (
+			array (
+				'key' => 'field_54130668ddfc4',
+				'label' => 'Promo Image',
+				'name' => 'promo_image',
+				'type' => 'image',
+				'save_format' => 'object',
+				'preview_size' => 'thumbnail',
+				'library' => 'all',
+			),
+			array (
+				'key' => 'field_5413068dddfc5',
+				'label' => 'Image URL',
+				'name' => 'image_url',
+				'type' => 'text',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'page_template',
+					'operator' => '==',
+					'value' => 'battle-of-the-bows.php',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+}
+
 
 ?>
