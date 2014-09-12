@@ -160,9 +160,9 @@ while (have_posts()) : the_post();
 			<select class="seasons-filter">
 				<option value="">Sort by Season</option>
 				<option value="season-10">Season 10</option>
-				<option value="season-10">Season 9</option>
-				<option value="season-10">Season 8</option>
-				<option value="season-10">Season 7</option>
+				<option value="season-9">Season 9</option>
+				<option value="season-8">Season 8</option>
+				<option value="season-7">Season 7</option>
 			</select>
 
 		<?php $categories = get_field("category_filter", $acfID);
