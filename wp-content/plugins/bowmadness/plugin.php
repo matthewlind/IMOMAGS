@@ -206,7 +206,8 @@ function jsGAMRender($mobile) {
 		 .  		$ad4
 		 
 		 .  '  </div>'		 
-		 .  '</div>';
+		 .  '</div>'
+		 .  $promo;
 
   }
   else {
@@ -220,8 +221,7 @@ function jsGAMRender($mobile) {
 		 .  '  <li class="'.(($madnessround==7)? "active-round":"").'">Final Round<div>September 15-19</div></li>'
 		 .  '</ul>'
 		 //.  wpsocialite_markup()
-		
-		 .  $promo;		
+		;
 	// After all the voting is done, after round 7, you'll have to 
 	// go into the db and manually change the last match to "8".
 	
@@ -303,7 +303,8 @@ function jsGAMRender($mobile) {
 		 .	'  <div class="column column4"></div>'
 		 .  '</div>'
 	 
-		 .  '</div>';
+		 .  '</div>'
+		 .  $promo;
   }	
 
 	$outp.= '<script type="text/javascript">';
