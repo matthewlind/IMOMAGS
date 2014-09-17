@@ -168,11 +168,11 @@ while (have_posts()) : the_post();
 		<?php $categories = get_field("category_filter", $acfID);
 		if( $categories ){ ?>
 			<ul id="video-filter">		
-				<li><a slug="all" class="video-thumb-active video-ajax">Most Recent</a></li>
+				<li><a slug="most-recent" class="active-slug video-thumb-active video-ajax">Most Recent</a></li>
 				<?php 
 				foreach( $categories as $category ){  
 					$categoryList = get_term_by('id', $category, 'category'); ?>
-					<li><a slug="<?php echo $categoryList->slug; ?>" class="video-ajax"><?php echo $categoryList->name; ?></a></li>
+					<li id="<?php echo $categoryList->slug; ?>"><a slug="<?php echo $categoryList->slug; ?>" class="video-ajax"><?php echo $categoryList->name; ?></a></li>
 				<?php } ?>
 			</ul>
 		<?php } ?>

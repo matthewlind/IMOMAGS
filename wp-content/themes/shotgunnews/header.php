@@ -177,6 +177,12 @@
 
 		</div>
 	</div>
+	
+	<!--<div class="snap-drawer snap-drawer-right" id="right-drawer">
+        <div>
+			<?php //echo the_widget("imo\NetworkTopicsWidgetMobile"); ?>
+        </div>
+	</div>-->
 </div>
 
 <?php 

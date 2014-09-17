@@ -38,24 +38,21 @@ get_header(); ?>
 			
             <?php if ( have_posts() ) : ?>
 				<?php
+					$catID = get_cat_ID( "Trading Post" );
                     if(function_exists('z_taxonomy_image_url')){ 
-                    	if (z_taxonomy_image_url()) {
-	                    	echo '<div class="sponsor">'.imo_ad_placement("sponsor_logo_240x60").'</div>';
-	                    	echo '<div class="category-img"><img src="'.z_taxonomy_image_url().'" alt="'.single_cat_title( '', false ).'" title="'.single_cat_title( '', false ).'" /></div>';
+                    	if (z_taxonomy_image_url($catID)) {
+	                    	echo '<div class="category-img"><img src="'.z_taxonomy_image_url($catID).'" alt="Trading Post" title="Trading Post" /></div>';
 						}
                     }
-                	$category_description = category_description();
-                    if ( ! empty( $category_description ) )
-                        echo apply_filters( 'category_archive_meta', '<div class="category-archive-meta taxdescription js-responsive-section">' . $category_description . '</div>' );
                 ?>
+                <div class="sponsor"><?php imo_ad_placement("sponsor_logo_240x60"); ?></div>
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header clearfix js-responsive-section">
-                    <h1 class="page-title" style="<?php if(function_exists('z_taxonomy_image_url')){ if (z_taxonomy_image_url()){ echo 'text-indent:-9999px;height:0;'; } } ?>">
-					<div class="icon" style="<?php if(function_exists('z_taxonomy_image_url')){ if (z_taxonomy_image_url()){ echo 'text-indent:-9999px;height:0;'; } } ?>"></div>
-                    	<span>Trading Post</span>
-                    </h1>
+                    <h1 class="page-title"><span>Trading Post</span></h1>
                     <div class="header-content">
-	                    <p>Today's hot new products from Shotgun News</p>
-	                    <?php $url = "http://www.shotgunnews.fox/trading-post/";
+                    	<?php $category_description = category_description($catID);
+							if ( ! empty( $category_description ) )
+							echo apply_filters( 'category_archive_meta', '<p>' . $category_description . '</p>' );
+						$url = "http://www.shotgunnews.com/trading-post/";
 						if(function_exists('wpsocialite_markup')){ wpsocialite_markup(array('url' => $url )); } ?>
 						<?php $cats = get_field("category_filter", $acfID);
 						if( $cats ){ ?>
@@ -70,11 +67,7 @@ get_header(); ?>
 					<?php } ?>
                     </div>
                     <div class="loading-gif"></div>
-                    <?php if(function_exists('z_taxonomy_image_url')){ 
-                    	if (z_taxonomy_image_url() == false){ ?>
-							<div class="sponsor"><?php imo_ad_placement("sponsor_logo_240x60"); ?></div>
-                    <?php } } ?>
-				</div>
+               	</div>
 
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section main-content-preppend">
 					<?php $i = 1; while ( have_posts() ) : the_post(); ?>
