@@ -2463,7 +2463,7 @@ function prefix_load_cat_posts () {
     $cat_id = $_POST[ 'cat' ];
     $offset = $_POST[ 'offset' ];
     
-    if($cat_id == "all"){
+    if($cat_id == "most-recent"){
 	     $args = array( 
 		    'tax_query' => array(
 			    array(
@@ -2524,8 +2524,7 @@ function prefix_load_cat_posts () {
 			}
 		} ?>
 
-		
-		<li id="thumb-<?php echo $i; ?>">
+		<li id="thumb-<?php echo $i; ?>" data-videoid="<?php echo $video_id; ?>">
 			<div class="data-description" style="display:none;"><?php the_content(); ?></div>
 			<a class="video-thumb" data-slug="<?php echo $slug; ?>" data-img_url="<?php echo $thumb_url; ?>" data-post_url="<?php echo get_permalink(); ?>" data-title="<?php echo get_the_title(); ?>" data-date="<?php the_time('F jS, Y'); ?>" data-videoid="<?php echo $video_id; ?>" adServerURL="<?php echo $adServerURL; ?>" videoLink="<?php echo $videoLink; ?>">
 				<?php the_post_thumbnail("show-thumb"); ?>

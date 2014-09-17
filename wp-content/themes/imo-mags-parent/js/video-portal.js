@@ -21,6 +21,7 @@ var videoPortal = (function(e){
 			var self = this;
 			self.brightcoveRequest();
 			$(".wpsocialite.small").remove();	
+		
 			if($(".single-format-video").length){
 				video_id = $(".video-title").attr("data-videoid");
 				title = $(".video-title").attr("data-title");
@@ -29,6 +30,18 @@ var videoPortal = (function(e){
 				img_url = $(".video-title").attr("data-img_url");
 				post_url = $(".video-title").attr("data-post_url");
 			}else{
+				var filterSlug = window.location.hash.substr(1);
+				if(filterSlug){
+					postoffset = 0;
+					$(".loading-gif").show();
+					self.getAJAXonLoad(filterSlug,postoffset);
+					$("a.paginate-videos").show();
+					$("#video-filter a").removeClass("video-thumb-active");
+					$("#video-filter a").removeClass("active-slug");
+					$("#" + filterSlug + " a").addClass("video-thumb-active");
+					$("#" + filterSlug + " a").addClass("active-slug");
+				}
+			
 				video_id = $("#video-thumbs li").first().find("a").attr("data-videoid");
 				title = $("#video-thumbs li").first().find("a").attr("data-title");
 				description = $("#video-thumbs li").first().parent().find(".data-description").html();
@@ -36,9 +49,23 @@ var videoPortal = (function(e){
 				img_url = $("#video-thumbs li").first().find("a").attr("data-img_url");
 				post_url = $("#video-thumbs li").first().find("a").attr("data-post_url");
 			}
-					
-			self.videoInit(video_id,slug,title,description,post_url,img_url);
-			jQuery(window).bind('orientationchange', function() {
+			self.loadVideo(video_id);	
+			
+			
+			
+			$("#player").mousedown(function (e){
+				self.updateSocial(slug,title,post_url,img_url);
+				// Detecting IE
+			    var oldIE;
+			    if ($('html').is('#ie6, #ie7, #ie8, #ie9')) {
+			        oldIE = true;
+			    }
+				if(!oldIE){
+			    	self.updateURL(video_id,slug,title,description,post_url,img_url);
+			    }
+			});
+			
+			$(window).bind('orientationchange', function() {
 				self.loadVideo(video_id);
 			});
 			Socialite.load();
@@ -79,7 +106,7 @@ var videoPortal = (function(e){
 		videoFilter : function(){
 			var self = this;
 			//video filter
-			var catID = "all";
+			var catID = $(".active-slug").attr("slug");
 			var postoffset = 0;
 			$("a.paginate-videos").click(function(){
 				postoffset = postoffset + 8;
@@ -90,6 +117,7 @@ var videoPortal = (function(e){
 			$('select.seasons-filter').on('change', function (e) {
 				if(this.value != ""){
 					$("#video-filter a").removeClass("video-thumb-active");
+					$("#video-filter a").removeClass("active-slug");
 					$("#video-filter a").first().addClass("video-thumb-active");
 					postoffset = 0;
 					var catID = this.value;
@@ -101,8 +129,19 @@ var videoPortal = (function(e){
 			
 			$(".video-ajax").click(function(){
 				$("#video-filter a").removeClass("video-thumb-active");
+				$("#video-filter a").removeClass("active-slug");
 				$(this).addClass("video-thumb-active");
+				$(this).addClass("active-slug");
 				$('select.seasons-filter').val( $(".seasons-filter option:first").val() );
+				var slug = $(this).attr("slug");
+				// Detecting IE
+			    var oldIE;
+			    if ($('html').is('#ie6, #ie7, #ie8, #ie9')) {
+			        oldIE = true;
+			    }
+				if(!oldIE){
+			    	self.updateFilterURL(slug,title,post_url);
+			    }
 				postoffset = 0;
 				catID = $(this).attr("slug");
 				$(".loading-gif").show();
@@ -141,6 +180,34 @@ var videoPortal = (function(e){
 					//initiate video on click
 					$("a.video-thumb").bind('click', self.thumbClick());
 						
+		            return false;
+		        }
+		    });
+		
+		},
+		getAJAXonLoad : function(catID,postoffset){
+			var self = this;
+			var pollInterval;
+		    var ajaxurl = '/wp-admin/admin-ajax.php';
+		    $.ajax({
+		        type: 'POST',
+		        url: ajaxurl,
+		        data: {"action": "load-filter", cat: catID, offset: postoffset },
+		        xhrFields: {
+				onprogress: function (e) {
+						if (e.lengthComputable) {
+							console.log(e.loaded / e.total * 100 + '%');
+						}
+					}
+				},
+		        success: function(response) {
+		        	
+		        	
+                    $("#video-thumbs").html(response);
+   		            
+		            $(".loading-gif").hide();
+				
+							
 		            return false;
 		        }
 		    });
@@ -193,6 +260,31 @@ var videoPortal = (function(e){
 			//change the url
 			var stateObj = { video_id: video_id, slug: slug, title: title, description: description, post_url: post_url, img_url: img_url };
 			window.history.pushState(stateObj, title, "/tv/" + newSlug );
+			//track back/foward browser history and reload the videos
+			window.onpopstate = function(event) {
+	            video_id = event.state.video_id;
+	            self.loadVideo(video_id);
+	            // place data into html
+				$("h1.video-title").text(event.state.title);
+				$(".video-description").html(event.state.description);
+				slug = event.state.slug;
+				title = event.state.title;
+				post_url = event.state.post_url;
+				img_url = event.state.img_url;
+				$('title').text(title);
+				_gaq.push(['_trackPageview', window.location.pathname + slug]);
+			};
+			
+		},
+		updateFilterURL: function(slug,title,post_url ){
+			var self = this;
+			
+			// strip out the current slug and push the new slug
+		    var url = window.location.pathname.toString();
+		    var newSlug = url.replace(url, slug);
+			//change the url
+			var stateObj = { slug: slug, title: title, post_url: post_url };
+			window.history.pushState(stateObj, title, "/tv#" + newSlug );
 			//track back/foward browser history and reload the videos
 			window.onpopstate = function(event) {
 	            video_id = event.state.video_id;

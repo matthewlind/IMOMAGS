@@ -65,6 +65,10 @@ body{background:url(images/bg/shotgunnews-bg.jpg) no-repeat center top black;}
 .trading-post .meta-date-author{padding: 0 0 10px;}
 .trading-post .thumb-area .googleplus div{width: 40px !important;}
 .trading-post .thumb-area .twitter-share-button{width: 90px !important;}
+.trading-post .category-img img{width: 375px;height: auto;margin: 10px 0 0;}
+.trading-post h1.page-title{text-indent: -99999px;height: 0;}
+.trading-post .article-holder .entry-content{display: block;}
+
 /* Tags reset
 *******************************************************************************/
 a, 
@@ -138,12 +142,17 @@ a.category-name-link:hover{background: #025da4;color: white;}
 	#subscribe-area{right: 195px;margin-right: 0;}
 	.search-field input {width: 80%;}
 }
-
-
-
-
-
-
+@media only screen and (max-width: 880px){
+	.trading-post .thumb-area{float:none;width: 100%;}
+}
+@media only screen and (max-width: 610px){
+	.trading-post .posts-list .article-holder{padding: 8px 27px 12px 0;}
+	.trading-post .fb_iframe_widget_fluid{width: 90px !important;display: inline-block !important;}
+	
+}
+@media only screen and (max-width: 340px){
+	.trading-post .thumb-area{float:none;width: 100%;}
+}
 
 
 
