@@ -18,13 +18,13 @@ foreach($campaign as $c){
 
 if(is_home()){
 	$term = "home";
-	$page = "home";
+	$pageName = "home";
 }
 else if (is_category()) {
 	$cat = get_query_var('cat');
 	$yourcat = get_category ($cat);
 	$term = $yourcat->slug;
-	$page = $yourcat->slug;
+	$pageName = $yourcat->slug;
 
 }
 else if (is_single()) {
@@ -42,13 +42,13 @@ else if (is_single()) {
         	$term .= ",";
     }
 
-	$page = get_the_title();
+	$pageName = get_the_title();
 
     if ($post->post_type == "imo_caption_contest") {
         if ($term != "")
         	$term .= ",";
         $term .= "caption_contest";
-        //$page = "caption_contest";
+        $pageName = "caption_contest";
 
     }
 
@@ -56,7 +56,7 @@ else if (is_single()) {
         if ($term != "")
         	$term .= ",";
         $term .= "video";
-        //$page = "video";
+        $pageName = "video";
 
     }
 
@@ -105,7 +105,7 @@ else if (is_single()) {
 }
 else if (is_page()) {
     global $post;
-    //$page = get_the_title();
+    $pageName = get_the_title();
     $term = (isset($page->cat_name)) ? $page->cat_name : $page->post_name;
     $params = array(
         "sect" => $term,
@@ -173,7 +173,7 @@ googletag.defineSlot('/4930/imo.shotgunnews/BTF_Button_1', [125, 125], 'div-btf_
 googletag.defineSlot('/4930/imo.shotgunnews/BTF_Button_2', [125, 125],'div-btf_button_2').addService(googletag.pubads());
 <?php } ?>
 googletag.pubads().setTargeting("sect","<?php echo $term; ?>");
-googletag.pubads().setTargeting("page","<?php echo $page; ?>");
+googletag.pubads().setTargeting("page","<?php echo $pageName; ?>");
 googletag.pubads().setTargeting("camp","<?php echo $camp; ?>");
 googletag.pubads().setTargeting("Audience segment","<?php echo $term; ?>");
 
