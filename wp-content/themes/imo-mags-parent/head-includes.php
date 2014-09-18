@@ -24,6 +24,7 @@ else if (is_category()) {
 	$cat = get_query_var('cat');
 	$yourcat = get_category ($cat);
 	$term = $yourcat->slug;
+	$page = $yourcat->slug;
 
 }
 else if (is_single()) {
@@ -47,6 +48,7 @@ else if (is_single()) {
         if ($term != "")
         	$term .= ",";
         $term .= "caption_contest";
+        //$page = "caption_contest";
 
     }
 
@@ -54,6 +56,7 @@ else if (is_single()) {
         if ($term != "")
         	$term .= ",";
         $term .= "video";
+        //$page = "video";
 
     }
 
@@ -102,7 +105,7 @@ else if (is_single()) {
 }
 else if (is_page()) {
     global $post;
-    $page = get_the_title();
+    //$page = get_the_title();
     $term = (isset($page->cat_name)) ? $page->cat_name : $page->post_name;
     $params = array(
         "sect" => $term,
