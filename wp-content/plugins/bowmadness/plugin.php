@@ -230,7 +230,11 @@ function jsGAMRender($mobile) {
 	$outp.= '<div class="ga-madness-votestats" style="margin-bottom:20px;clear:both;"></div>'
 		 .  '<div class="regions region-final" style="display:block;">'
 		 .  '  <div class="finalsadvert" style="margin-top:0px;">'
-		 .  ' <div id="bob_presenting_sponsor"></div>'
+		 
+		// .  ' <div id="bob_presenting_sponsor"></div>'
+		
+		 .  ' <div id="div-bob_presenting_sponsor"><script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-bob_presenting_sponsor"); });</script></div>'
+		 
 		 .  '  </div>'
 		 .  '  <div class="final-wrapper">'
 		 .  '    <h2>Final Round</h2>'
