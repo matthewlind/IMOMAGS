@@ -226,16 +226,20 @@ function jsGAMRender($mobile) {
 	// go into the db and manually change the last match to "8".
 	
 	
-	if($madnessround == 8) {		 
+	if($madnessround >= 8) {		 
 	$outp.= '<div class="ga-madness-votestats" style="margin-bottom:20px;clear:both;"></div>'
 		 .  '<div class="regions region-final" style="display:block;">'
 		 .  '  <div class="finalsadvert" style="margin-top:0px;">'
-		 .  ' <div id="bob_presenting_sponsor"></div>'
+		 
+		// .  ' <div id="bob_presenting_sponsor"></div>'
+		
+		 .  ' <div id="div-bob_presenting_sponsor"><script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-bob_presenting_sponsor"); });</script></div>'
+		 
 		 .  '  </div>'
 		 .  '  <div class="final-wrapper">'
 		 .  '    <h2>Final Round</h2>'
 		 .  '    <div class="column column5 match92"></div>'
-		 .  '    <div class="column column6 match94" style="padding-top:20px;"></div>'
+		 .  '    <div class="column column6 match94" style="xpadding-top:20px;"></div>'
 		 .  '    <div class="column column7 match93"></div>'
 		 .  '  </div>'		 
 		 .  '</div>';
