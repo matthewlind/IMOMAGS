@@ -37,13 +37,13 @@ var tradingPost = (function(e){
 			            slug = $(this).attr("data-slug");
 			            title = $(this).find(".entry-title a").attr("data-title");
 						// Detecting IE
-					    var oldIE;
+					   /* var oldIE;
 					    if ($('html').is('#ie6, #ie7, #ie8, #ie9')) {
 					        oldIE = true;
 					    }
 						if(!oldIE){
 							self.updateURL(slug,title);
-						}
+						}*/
 			        }
 			    });
 			});
@@ -105,6 +105,7 @@ var tradingPost = (function(e){
 			        $("#ajax-loader, .loading-gif").hide();
 			        FB.XFBML.parse();
 			        twttr.widgets.load();
+			        $(".trading-post .entry-content .wpsocialite.small").remove();
 					//_gaq.push(['_trackPageview', window.location.pathname + slug]);
 					return false;
 		        }
