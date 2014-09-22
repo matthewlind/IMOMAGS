@@ -23,7 +23,7 @@ var tradingPost = (function(e){
                 }
             }); 
             
-			$(document).bind('scroll',function(e){
+			$(document).on('scroll',function(e){
 				
 			    $('.post').each(function(e){
 			   
@@ -37,13 +37,13 @@ var tradingPost = (function(e){
 			            slug = $(this).attr("data-slug");
 			            title = $(this).find(".entry-title a").attr("data-title");
 						// Detecting IE
-					   /* var oldIE;
+					   var oldIE;
 					    if ($('html').is('#ie6, #ie7, #ie8, #ie9')) {
 					        oldIE = true;
 					    }
 						if(!oldIE){
 							self.updateURL(slug,title);
-						}*/
+						}
 			        }
 			    });
 			});
@@ -55,7 +55,7 @@ var tradingPost = (function(e){
 		    var url = window.location.pathname.toString();
 		    var newSlug = url.replace(url, slug);
 			//change the url
-			window.history.pushState({ slug: slug }, title, "/trading-post/" + newSlug );
+			window.history.replaceState({ slug: slug }, title, "/trading-post/" + newSlug );
 			$('title').text(title);
 			_gaq.push(['_trackPageview', window.location.pathname + slug]);
 			//track back/foward browser history 
@@ -128,7 +128,7 @@ var onPageLoad = new tradingPost;
 
 
 jQuery( document ).ready(function( $ ){
-
+	
 	//Initialize
 	if($(".trading-post").length){
 		$(".trading-post .entry-content .wpsocialite.small").remove();
