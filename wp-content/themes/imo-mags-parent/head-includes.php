@@ -104,8 +104,10 @@ else if (is_single()) {
 
 }
 else if (is_page()) {
+	
     global $post;
-    $pageName = get_the_title();
+    
+    $pageName = $post->post_title;
     $term = (isset($page->cat_name)) ? $page->cat_name : $page->post_name;
     $params = array(
         "sect" => $term,

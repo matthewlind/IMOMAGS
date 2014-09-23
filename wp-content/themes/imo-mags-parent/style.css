@@ -1063,9 +1063,8 @@ input.gsc-search-button-v2{
     text-transform:uppercase;
 }
 .general-title h2 span {color:#040503;}
-.sponsor {float:right;}
-.sponsor img{float: right;}
-.single .sponsor{float: none;}
+.sponsor {clear: both;}
+.single .sponsor{float: right;}
 .expandable{margin: 0 auto;width: 1080px;}
 .expandable img{margin: 0 auto !important;display: block;}
 
