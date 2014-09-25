@@ -23,10 +23,14 @@ function bowmadness_func( $atts ) {
 add_shortcode( 'bowmadness', 'bowmadness_func' );
 
 	wp_enqueue_script( 'madnessjs', plugin_dir_url( __FILE__ ) . 'madness.js', array( 'jquery' ) );
+	
 	wp_enqueue_style( 'madnesscss', plugin_dir_url( __FILE__ ) . 'madness.css' );
 	wp_enqueue_script( 'magnificjs', plugin_dir_url( __FILE__ ) . 'jquery.magnific-popup.js');
 	wp_enqueue_style( 'magnificcss', plugin_dir_url( __FILE__ ) . 'magnific-popup.css');
 	
+	wp_enqueue_script( 'jquery', plugin_dir_url( __FILE__ ) . '//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js', array( 'jquery' ) );
+	wp_enqueue_script( 'jquerydfp', plugin_dir_url( __FILE__ ) . 'jquery.dfp.min.js');
+
 	wp_enqueue_script( 'htmlparser', plugin_dir_url( __FILE__ ) . 'htmlParser.js');
 	wp_enqueue_script( 'postscribe', plugin_dir_url( __FILE__ ) . 'postscribe.js');
 	wp_enqueue_script( 'xdomainrequest', plugin_dir_url( __FILE__ ) . 'xdomainrequest.min.js');
@@ -76,7 +80,16 @@ function renderGAMpopup($mobile) {
 							</ul>
 						</div>
 		    		</div>
+<<<<<<< HEAD
+		    		<div id="popupAdRight" class="modal-footer-content-right">
+		    			<div class="adunit" id="div-bob_region_1_medium_rectangle"></div>
+		    			<div class="adunit" id="div-bob_region_2_medium_rectangle"></div>
+						<div class="adunit" id="div-bob_region_3_medium_rectangle"></div>
+						<div class="adunit" id="div-bob_region_4_medium_rectangle"></div>
+		    		</div>
+=======
 		    		<div id="popupAdRight" class="modal-footer-content-right"></div>
+>>>>>>> 46f4e9e0bbd5510471afd941e8a5f909c516efaf
 	    		</div>
 	    	</div>
 	    </div>
@@ -115,10 +128,17 @@ function jsGAMRender($mobile) {
 	//if (function_exists('wpsocialite_markup'))
 		 	//$outp.= wpsocialite_markup();
 		 	
+<<<<<<< HEAD
+	$ad1 = '<div class="adunit" id="div-bob_region_sponsor_1" ></div>';
+	$ad2 = '<div class="adunit" id="div-bob_region_sponsor_2"></div>';
+	$ad3 = '<div class="adunit" id="div-bob_region_sponsor_3"></div>';
+	$ad4 = '<div class="adunit" id="div-bob_region_sponsor_4"></div>';
+=======
 	$ad1 = '<div id="div-bob_region_sponsor_1"><script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-bob_region_sponsor_1"); });</script></div>';
 	$ad2 = '<div id="div-bob_region_sponsor_2"><script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-bob_region_sponsor_2"); });</script></div>';
 	$ad3 = '<div id="div-bob_region_sponsor_3"><script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-bob_region_sponsor_3"); });</script></div>';
 	$ad4 = '<div id="div-bob_region_sponsor_4"><script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-bob_region_sponsor_4"); });</script></div>';
+>>>>>>> 46f4e9e0bbd5510471afd941e8a5f909c516efaf
 		 	
 	$outp.= '<div id="madtabs">'
 		 .  '  <ul class="rounds">'
@@ -230,11 +250,7 @@ function jsGAMRender($mobile) {
 	$outp.= '<div class="ga-madness-votestats" style="margin-bottom:20px;clear:both;"></div>'
 		 .  '<div class="regions region-final" style="display:block;">'
 		 .  '  <div class="finalsadvert" style="margin-top:0px;">'
-		 
-		// .  ' <div id="bob_presenting_sponsor"></div>'
-		
-		 .  ' <div id="div-bob_presenting_sponsor"><script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-bob_presenting_sponsor"); });</script></div>'
-		 
+		 .  ' <div id="bob_presenting_sponsor"></div>'
 		 .  '  </div>'
 		 .  '  <div class="final-wrapper">'
 		 .  '    <h2>Final Round</h2>'
@@ -251,10 +267,17 @@ function jsGAMRender($mobile) {
 	$outp.= '<div class="ga-madness">'
 		 .  '<div class="region-titles">'
 		 .	'  <div class="region-left">'
+<<<<<<< HEAD
+		 .	'    <h2>Compound A</h2><div class="adunit" id="bob_region_sponsor_1" data-dimensions="240x60"></div>'
+		 .	'  </div>'
+		 .	'  <div class="region-right">'
+		 .	'    <h2>Compound B</h2><div class="adunit" id="bob_region_sponsor_2" data-dimensions="240x60"></div>'
+=======
 		 .	'    <h2>Compound A</h2><div id="div-bob_region_sponsor_1"><script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-bob_region_sponsor_1"); });</script></div>'
 		 .	'  </div>'
 		 .	'  <div class="region-right">'
 		 .	'    <h2>Compound B</h2><div id="div-bob_region_sponsor_2"><script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-bob_region_sponsor_2"); });</script></div>'
+>>>>>>> 46f4e9e0bbd5510471afd941e8a5f909c516efaf
 		 .	'  </div>'
 		 .	'</div>'
 		 
@@ -287,10 +310,17 @@ function jsGAMRender($mobile) {
 		 
 	$outp.= '<div class="region-titles">'
 		 .	'  <div class="region-left">'
+<<<<<<< HEAD
+		 .	'    <h2>Crossbows A</h2><div class="adunit" id="bob_region_sponsor_3" data-dimensions="240x60"></div>'
+		 .	'  </div>'
+		 .	'  <div class="region-right">'
+		 .	'    <h2>Crossbows B</h2><div class="adunit" id="bob_region_sponsor_4" data-dimensions="240x60"></div>'
+=======
 		 .	'    <h2>Crossbows A</h2><div id="div-bob_region_sponsor_3"><script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-bob_region_sponsor_3"); });</script></div>'
 		 .	'  </div>'
 		 .	'  <div class="region-right">'
 		 .	'    <h2>Crossbows B</h2><div id="div-bob_region_sponsor_4"><script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-bob_region_sponsor_4"); });</script></div>'
+>>>>>>> 46f4e9e0bbd5510471afd941e8a5f909c516efaf
 		 .	'  </div>'
 		 .	'</div>'
 
@@ -319,15 +349,14 @@ function jsGAMRender($mobile) {
 		 .  '	getGAMData(2,3);getGAMData(2,4);getGAMData(2,5);'
 		 .  '	getGAMData(3,3);getGAMData(3,4);getGAMData(3,5);'
 		 .  '	getGAMData(4,3);getGAMData(4,4);getGAMData(4,5);'
-	
+				 
 		 .  '	getGAMData(0,"92,93,94");'
 		 .  '   getStats();'
 		 .  '   setTimeout(function(){makeGAMPopup()}, 1000);'
-		 .  '   setTimeout(function(){autoPopup()}, 2000);'
-		 .  '   setTimeout(function(){
-		 			//alert(madnessround);
-		 			//jQuery("#madtabs").tabs({selected: (madnessround - 2)})
-		 		}, 3000);'
+		 .  '   setTimeout(function(){autoPopup()}, 2000);'		 
+		// .	'	setTimeout(function(){
+		// 			jQuery.dfp("4930/imo.bowhunting/battle_of_the_bows")
+		// 		}, 3000);'
 		 .	'});';
 
 	$outp.= '</script>';
