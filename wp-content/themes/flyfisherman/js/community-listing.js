@@ -111,7 +111,7 @@ jQuery( document ).ready(function( $ ) {
 				self.getPosts();
 				
 			},
-			url          : 'http://www.flyfisherman.fox/wpdb/network-feed-cached.php',
+			url          : 'http://www.flyfisherman.com/wpdb/network-feed-cached.php',
 			state        : function(){								
 						var terms = window.location.hash.substr(1);
 						if(terms.indexOf('&') > -1){
@@ -655,7 +655,7 @@ jQuery( document ).ready(function( $ ) {
 			},
 			getData: function(state,  callback){
 				var self   = this,
-					url    = 'http://www.flyfisherman.fox/wpdb/network-feed-cached.php',
+					url    = 'http://www.flyfisherman.com/wpdb/network-feed-cached.php',
 					args   = {
 						post_type	   : 'reader_photos',
 						domain		   : 'www.flyfisherman.com',
