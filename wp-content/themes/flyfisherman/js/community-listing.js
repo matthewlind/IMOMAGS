@@ -60,7 +60,9 @@ jQuery( document ).ready(function( $ ) {
 		Private = {
 			init: function(state){
 				var self = this;
-
+					
+				//self.updateTerm();
+				
 				if(state){
 					//Set state
 					self.state = state;
@@ -104,20 +106,39 @@ jQuery( document ).ready(function( $ ) {
 				if( self.isMobile() && !self.isIpad() ){
 					$('#photoSliderThumbsContainer').hide();
 				}
-
+			
 				self.refreshSlider();
 				self.getPosts();
+				
 			},
-			url          : 'http://www.flyfisherman.com/wpdb/network-feed-cached.php',
-			state        : null,
+			url          : 'http://www.flyfisherman.fox/wpdb/network-feed-cached.php',
+			state        : function(){								
+						var terms = window.location.hash.substr(1);
+						if(terms.indexOf('&') > -1){
+							theTerms = terms.split('&');
+							var term1 = theTerms[1];
+							return term1;
+						}else{
+							return "all";
+						}
+					},
+
 			startAt      : 0,
 			count        : 10,
 			slideCount   : 0,
 			requestCount : 0,
 			totalCount   : 0,
 			skip         : 0,
-			term         : $(".posts-list").attr("slug"),
-			state        : ($(".posts-list").attr("secondary-slug").length > 0) ? $(".posts-list").attr("secondary-slug") : null,
+			term         : function(){
+							var terms = window.location.hash.substr(1);
+							if(terms.indexOf('&') > -1){
+								theTerms = terms.split('&');
+								var term1 = theTerms[0];
+								return term1;
+							}else{
+								return "all";
+							}
+			},
 			currentSlide : 0,
 			data         : [],
 			isMobile     : function(){
@@ -193,7 +214,6 @@ jQuery( document ).ready(function( $ ) {
 			},
 			getPostData: function(args, count){
 				var self = this;
-
 				args.skip = (self.requestCount * self.count);
 
 				// Total count for state
@@ -211,40 +231,86 @@ jQuery( document ).ready(function( $ ) {
 				//Get Data
 				$.getJSON(self.url, args, function(data){
 					self.data = $.merge(self.data, data);
-
 					self.refreshSlider();
 
 					self.slideCount = 0;
-
+					
 					//Insert data into DOM
 					$.each(self.data, function(i, v){
 						v.slide_count  = self.slideCount;
 						v.requestCount = self.requestCount;
 						$('#photoSlider .slides').append( self.templateSlide(v) );
 						$('#photoSliderThumbs .slides').append( self.templateThumbs(v) );
+						
+
 
 						self.slideCount++;
 					});
-
+					
 				    // add one on every ajax request
 				    self.requestCount++;
+				    
+					if($(".reader_photo-post").length){
+	    				
+	    				var thumbImage = $('.reader_photo-post .attachment-legacy-thumb ').attr("src");
+	    				$('#photoSliderThumbs .slides li').removeClass('flex-active-slide');
+	    				$("#photoSliderThumbs .slides").prepend('<li class="flex-active-slide"></li>');
+	    				$("#photoSliderThumbs .flex-active-slide").append('<img src="' + thumbImage +'">');
+						
+						$("#photoSlider .slides li").removeClass('flex-active-slide');
+						$("#photoSlider .slides").prepend('<li class="flex-active-slide"></li>');
+						
+						
+						$("#photoSlider .slides li").removeAttr("slide-count");
+						$("#photoSlider .slides li").each(function(i){
+							$(this).attr('slide-count',i);
+						});
+						
+						var singleImage = $(".reader_photo-post .attachment-community-square-retina").attr("src");
+						$("#photoSlider .flex-active-slide").append('<img src="' + singleImage +'">');
+						
+						var title = $('.entry-title').text();
+						$('#photoGalleryTitle a').text(title);
+										
+						cat1 = $('.cat-feat-label a:first-child').text();
+						cat2 = $('.cat-feat-label a:nth(2)').text();
+						$('.photoGalleryState').text(cat1).show();
+						$('.photoGalleryCategory').text(cat2).show();
+						
+						var desc = $('.entry-content p').text();
+						$('.photoGalleryDescription').text(desc);
+						var styles = $("#photoSlider .slides li:nth-child(2)").attr("style");
+	    				$('#photoSlider .flex-active-slide').attr("style",styles);
 
+						var thumbStyles = $("#photoSliderThumbs .slides li:nth-child(2)").attr("style");
+	    				$('#photoSliderThumbs .flex-active-slide').attr("style",thumbStyles);
+
+						$('reader_photo-post').remove();
+						//"/photos/" + window.location.pathname
+						//console.log( $('#photoSliderThumbs .slides li').attr("id") );
+						//if( $('#photoSliderThumbs .slides li').attr("slug") ==  "/photos/" + window.location.pathname){
+							//$('/photos/' + window.location.pathname).remove();
+							
+						//}
+					}
 					// Load flexslider
 					self.loadSlider();
-
+					
 				});
 			},
 			getPosts : function(){
+				
 				var self = this,
-					args = {
-						post_type	   : 'reader_photos',
-						domain		   : 'www.flyfisherman.com',
-						thumbnail_size : 'community-square-retina',
-						term           : self.term,
-					 	skip           : self.skip,
-					 	get_count      : 1
-					};
-
+				args = {
+					post_type	   : 'reader_photos',
+					domain		   : 'www.flyfisherman.com',
+					thumbnail_size : 'community-square-retina',
+					term           : self.term,
+					state          : self.state,
+					skip           : self.skip,
+				 	get_count      : 1
+				};
+				
 				self.showSpinner();
 
 				// Remmove PhotoSlider
@@ -265,15 +331,14 @@ jQuery( document ).ready(function( $ ) {
 			},
 			templateSlide : function(v){
 
-				//alert(window.location.host);
-
+				
 				if (window.location.host != "www.flyfisherman.com") {
 
 					v.img_url = v.img_url.replace("www.flyfisherman.com",window.location.host);
 				};
 
 
-				return '<li slide-count="' + v.slide_count + '">\
+				return '<li slug="" title="' + v.post_title + '" slide-count="' + v.slide_count + '">\
 					<img src="' + v.img_url + '" />\
 				</li>';
 			},
@@ -286,7 +351,7 @@ jQuery( document ).ready(function( $ ) {
 				};
 
 
-				return '<li>\
+				return '<li slug="' + v.post_name + '">\
 					<img src="' + v.thumb + '" />\
 				</li>';
 			},
@@ -342,10 +407,19 @@ jQuery( document ).ready(function( $ ) {
 						if(slider.animatingTo > 0){
 							$('#photoTopControls .sliderPrev').show();
 						}
+						
 					},
 					after          : function(slider){
+						$("#photoSlider .slides li:first-child").removeClass('flex-active-slide');
+						
 						self.parseSlider(slider);
+						
+						slideData = self.data[parseInt(slider.currentSlide)];
+						//console.log(slideData);
+						term = slideData.terms[0].slug;
+						//console.log(term);
 
+						self.updateURL(slideData.post_name,term);
 						// Hide Show Controls
 						if(slider.currentSlide > 0){
 							$('#photoTopControls .sliderPrev').show();
@@ -360,6 +434,7 @@ jQuery( document ).ready(function( $ ) {
 						}
 					},
 					start : function(slider){
+						
 						//Parse first slide
 						self.parseSlider(slider);
 
@@ -388,7 +463,7 @@ jQuery( document ).ready(function( $ ) {
 								 preventDefaultEvents: false
 							});
 						}
-
+						
 						$('#photoTopControls .sliderNext').on('click', function(event){
 							event.preventDefault();
 
@@ -408,6 +483,9 @@ jQuery( document ).ready(function( $ ) {
 							event.preventDefault();
 	        					slider.flexAnimate(slider.getTarget("prev"));
 						});
+					
+				
+						
 					},
 					end : function(slider){
 						var slidesInDOMCount = $('#photoSlider .slides li').length;
@@ -457,10 +535,14 @@ jQuery( document ).ready(function( $ ) {
 				var self = this,
 
 				slideData = self.data[parseInt(slider.currentSlide)];
-
+				
 				if(typeof(slideData) == 'object'){
-
-					$('#photoGalleryTitle h2 a').html(slideData.post_title);
+					slide = $('#photoSlider .slides').find("li").attr("slide-count");
+					if(slide == slider.currentSlide){
+						slidez = $(this).attr("title");
+					}
+					console.log(slide);
+					$('#photoGalleryTitle h2 a').html(slidez);
 					$('#photoGalleryTitle h2 a').attr("href",slideData.post_url);
 					$('#photoGalleryLike .photoGalleryLikeRight').html('');
 					$('#photoGalleryLike .photoGalleryLikeRight').html( self.templateLikeButton(slideData) );
@@ -470,6 +552,7 @@ jQuery( document ).ready(function( $ ) {
 					$('#photoSlider .slides li').css('display','table');
 					// Parse only State and Category in the bottom
 					self.parseTerms(slideData.terms, function(slug){
+						
 						//Refresh Ad
 						//var _gaq = _gaq || [];
 					    _gaq.push(['_trackPageview', window.location.pathname + slideData.post_name]);
@@ -494,6 +577,30 @@ jQuery( document ).ready(function( $ ) {
 				    }
 
 			   }
+			},
+			updateURL: function(slug,term){
+				var self = this;
+				
+				// strip out the current slug and push the new slug
+			    var url = window.location.pathname.toString();
+			    var newSlug = url.replace(url, slug);
+				//change the url
+				var stateObj = { slug: slug, term: term };
+				window.history.replaceState(stateObj, null, "/photos/" + newSlug );
+				//track back/foward browser history and reload the videos
+				//window.onpopstate = function(event) {
+		          // $("#photoSlider").text();
+				  // $("#photoGalleryTitle h2 a").text(event.state.title);
+				  // $(".photoGalleryDescription").text(event.state.description);
+				  // $("#photoSlider li img").attr("src",post_url);
+		         // _gaq.push(['_trackPageview', window.location.pathname + slug]);
+				//};
+				
+			},
+			singlePage: function(){
+				var self = this;
+				
+								
 			}
 		};
 
@@ -546,9 +653,9 @@ jQuery( document ).ready(function( $ ) {
 				});
 
 			},
-			getData: function(state, callback){
+			getData: function(state,  callback){
 				var self   = this,
-					url    = 'http://www.flyfisherman.com/wpdb/network-feed-cached.php',
+					url    = 'http://www.flyfisherman.fox/wpdb/network-feed-cached.php',
 					args   = {
 						post_type	   : 'reader_photos',
 						domain		   : 'www.flyfisherman.com',
@@ -561,7 +668,6 @@ jQuery( document ).ready(function( $ ) {
 					};
 
 				$.getJSON(url, args, function(data){
-					//console.log(data)
 					if(data == 'bad term'){
 						callback('No Photos');
 					}
@@ -740,8 +846,7 @@ jQuery( document ).ready(function( $ ) {
 			},
 			templateThumb: function(data){
 				return '<li>' + data.thumbnail + '</li>';
-			}
-		};
+			}		};
 
 		return {
 			init: function(){
@@ -761,8 +866,8 @@ jQuery( document ).ready(function( $ ) {
 		ReaderPhoto.init();
 		PhotoGallery.init();
 		PhotoStateMenuBuild.init('#main .dropdown-menu');
-
-		//Toggle Photos Menu
+		
+				//Toggle Photos Menu
 		jQuery('.community-mobile-menu').on('click touchstart', function(e){
 			e.preventDefault();
 			jQuery('.menu-hunt, .menu-fish').toggle();
