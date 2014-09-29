@@ -2171,6 +2171,57 @@ if(function_exists("register_field_group"))
 				'maxlength' => '',
 			),
 			array (
+				'key' => 'field_54297167d11cb',
+				'label' => 'Seasons',
+				'name' => 'seasons',
+				'type' => 'repeater',
+				'instructions' => 'List which seasons to display in the season filter. Please list them from newest to oldest.',
+				'sub_fields' => array (
+					array (
+						'key' => 'field_542972383f704',
+						'label' => 'Season',
+						'name' => 'season',
+						'type' => 'text',
+						'column_width' => '',
+						'default_value' => '',
+						'placeholder' => 'Season 8',
+						'prepend' => '',
+						'append' => '',
+						'formatting' => 'html',
+						'maxlength' => '',
+					),
+				),
+				'row_min' => '',
+				'row_limit' => '',
+				'layout' => 'table',
+				'button_label' => 'Add Row',
+			),
+			array (
+				'key' => 'field_53ff6b8b9f459',
+				'label' => 'Category Filter',
+				'name' => 'category_filter',
+				'type' => 'taxonomy',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_53ceb4a4f00ca',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
+
+				'instructions' => 'Choose the categories to filter by.',
+				'taxonomy' => 'category',
+				'field_type' => 'checkbox',
+				'allow_null' => 0,
+				'load_save_terms' => 0,
+				'return_format' => 'id',
+				'multiple' => 0,
+			),
+			array (
 				'key' => 'field_53f4b2515ed4c',
 				'label' => 'Sponsors',
 				'name' => 'sponsors',
@@ -2336,83 +2387,7 @@ if(function_exists("register_field_group"))
 		'menu_order' => 0,
 	));
 }
-if(function_exists("register_field_group"))
-{
-	register_field_group(array (
-		'id' => 'acf_filter',
-		'title' => 'Filter',
-		'fields' => array (
-			array (
-				'key' => 'field_53ff6a48bef97',
-				'label' => 'Season Filter',
-				'name' => 'season_filter',
-				'type' => 'taxonomy',
-				'conditional_logic' => array (
-					'status' => 1,
-					'rules' => array (
-						array (
-							'field' => 'field_53ceb4a4f00ca',
-							'operator' => '==',
-							'value' => '1',
-						),
-					),
-					'allorany' => 'all',
-				),
 
-				'instructions' => 'Choose the seasons to filter by.',
-				'taxonomy' => 'category',
-				'field_type' => 'checkbox',
-				'allow_null' => 0,
-				'load_save_terms' => 0,
-				'return_format' => 'id',
-				'multiple' => 0,
-			),
-			array (
-				'key' => 'field_53ff6b8b9f459',
-				'label' => 'Category Filter',
-				'name' => 'category_filter',
-				'type' => 'taxonomy',
-				'conditional_logic' => array (
-					'status' => 1,
-					'rules' => array (
-						array (
-							'field' => 'field_53ceb4a4f00ca',
-							'operator' => '==',
-							'value' => '1',
-						),
-					),
-					'allorany' => 'all',
-				),
-
-				'instructions' => 'Choose the categories to filter by.',
-				'taxonomy' => 'category',
-				'field_type' => 'checkbox',
-				'allow_null' => 0,
-				'load_save_terms' => 0,
-				'return_format' => 'id',
-				'multiple' => 0,
-			),
-		),
-		'location' => array (
-			array (
-				array (
-					'param' => 'ef_taxonomy',
-					'operator' => '==',
-					'value' => 'category',
-					'order_no' => 0,
-					'group_no' => 0,
-				),
-			),
-		),
-		'options' => array (
-			'position' => 'normal',
-			'layout' => 'no_box',
-			'hide_on_screen' => array (
-			),
-		),
-		'menu_order' => 0,
-	));
-}
 if(function_exists("register_field_group"))
 {
 	register_field_group(array (

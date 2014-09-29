@@ -157,13 +157,18 @@ while (have_posts()) : the_post();
 	
 				
 			<div class="loading-gif"></div>
-			<select class="seasons-filter">
-				<option value="">Sort by Season</option>
-				<option value="season-10">Season 10</option>
-				<option value="season-9">Season 9</option>
-				<option value="season-8">Season 8</option>
-				<option value="season-7">Season 7</option>
-			</select>
+			<?php if( have_rows('seasons', $acfID) ): ?>
+				
+				<select class="seasons-filter">
+					<option value="">Sort by Season</option>
+					<?php while ( have_rows('seasons', $acfID) ) : the_row(); 
+						$slug = str_replace(" ", "-", get_sub_field('season', $acfID)); ?>
+						<option value="<?php echo $slug; ?>"><?php echo get_sub_field('season', $acfID); ?></option>
+					<?php endwhile; ?>
+				</select>
+			<?php endif; ?>
+
+			
 
 		<?php $categories = get_field("category_filter", $acfID);
 		if( $categories ){ ?>

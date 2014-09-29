@@ -57,7 +57,7 @@ var tradingPost = (function(e){
 			//change the url
 			window.history.replaceState({ slug: slug }, title, "/trading-post/" + newSlug );
 			$('title').text(title);
-			_gaq.push(['_trackPageview', window.location.pathname + slug]);
+			//_gaq.push(['_trackPageview', window.location.pathname + slug]);
 			//track back/foward browser history 
 			window.onpopstate = function(event) {
 	        	slug = event.state.slug;

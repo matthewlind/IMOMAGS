@@ -182,7 +182,9 @@
 	include_once get_stylesheet_directory() . "/network-bar.php";
 	fixed_connect_footer(); 
 ?>
-
+<div class="mdl-banner mdl-expandable">
+	<?php imo_ad_placement("pushdown_1080x90"); ?>
+</div>
 <div id="page" class="snap-content smooth-menu">
 	<?php if (mobile() == false && tablet() == false) { imo_ad_placement("site_skin_1x1"); } ?>
 	<div class="hfeed wrapper <?php if(get_field("full_width") == true){ echo ' full-width full-content'; }else if(is_single() && has_post_format( 'video' ) || is_category("tv")){ echo ' tv-show full-content'; } ?>" data-role="content" role="main">
