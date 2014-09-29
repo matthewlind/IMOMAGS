@@ -18,7 +18,8 @@ get_header(); ?>
     			<?php imo_ad_placement("atf_button_2"); ?>
     		</div>
     		<div class="widget widget_text">
-    			<iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FShotgunNews&amp;width=310&amp;height=184&amp;colorscheme=light&amp;show_faces=true&amp;border_color=%23DDDDDD&amp;stream=false&amp;header=false&amp;appId=218070564894418" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:310px; height:184px;" allowTransparency="true" id="fb-sidebar"></iframe>    		</div>
+    			<iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FShotgunNews&amp;width=310&amp;height=184&amp;colorscheme=light&amp;show_faces=true&amp;border_color=%23DDDDDD&amp;stream=false&amp;header=false&amp;appId=218070564894418" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:310px; height:184px;" allowTransparency="true" id="fb-sidebar"></iframe>    		
+    		</div>
     	</div>
     	<div id="responderfollow"></div>
 		<div class="sidebar advert">
