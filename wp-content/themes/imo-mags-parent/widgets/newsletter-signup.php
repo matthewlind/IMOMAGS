@@ -11,103 +11,39 @@ class Signup_Widget extends WP_Widget {
  
     $title = empty($instance['title']) ? '' : apply_filters('widget_title', $instance['title']); 
     
-	$formID = get_option("newsletter_id");
+	$formID = get_option('newsletter_id');
 	
-	?>
-	
-	
-<div class="widget newsletter-sidebar">	
-	<script type="text/javascript">
-	/***********************************************
-	* Textarea Maxlength script- © Dynamic Drive (www.dynamicdrive.com)
-	* This notice must stay intact for legal use.
-	* Visit http://www.dynamicdrive.com/ for full source code
-	***********************************************/
-	function ismaxlength(obj, mlength)
-	{
-	  if (obj.value.length > mlength)
-	    obj.value = obj.value.substring(0, mlength)
+	$url = "http://".$_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI]; 
+	//string urlencode ( string $url );
+	//$url.str_replace("errorcode=4&errorcontrol=Email%20Address", "", $url);
+    $errorcode = $_GET["errorcode"];
+    $errorcontrol = $_GET["errorControl"];
+
+    switch($errorcode) {
+
+        case "1" : $strError = "An error has occurred while attempting to save your subscriber information."; break;
+        case "2" : $strError = "The list provided does not exist."; break;
+        case "3" : $strError = "Information was not provided for a mandatory field. (".$errorcontrol.")"; break;
+        case "4" : $strError = "Please provide a valid email address.".$errorcontrol; break;
+        case "5" : $strError = "Information provided is not unique. (".$errorcontrol.")"; break;
+        case "6" : $strError = "An error has occurred while attempting to save your subscriber information."; break;
+        case "7" : $strError = "An error has occurred while attempting to save your subscriber information."; break;
+        case "8" : $strError = "Subscriber already exists."; break;
+        case "9" : $strError = "An error has occurred while attempting to save your subscriber information."; break;
+        case "10" : $strError = "An error has occurred while attempting to save your subscriber information."; break;
+          //case "11" : This error does not exist.
+        case "12" : $strError = "The subscriber you are attempting to insert is on the master unsubscribe list or the global unsubscribe list."; break;
+        default : $strError = "Other"; break;
+          //case "13" : Check that the list ID and/or MID specified in your code is correct.
 	}
-	</script>
-	
-	
-	<form method="post" name="profileform" action="https://intermediaoutdoors.informz.net/clk/remote_post.asp">
-	      
-		<SCRIPT LANGUAGE="JavaScript">
-		function moveCaret(event, objThisField, objNextField, objPrevField, nSize)
-		{
-			var keynum;
-			if(window.event) // IE	
-				keynum = event.keyCode;	
-			else if(event.which) // Netscape/Firefox/Opera	
-				keynum = event.which;				
-			if (keynum == 37 || keynum == 39 || keynum == 38 || keynum == 40 || keynum == 8) //left, right, up, down arrows, backspace
-			{		
-				var nCaretPosition = getCaretPosition(objThisField);		
-				if (keynum == 39 && nCaretPosition == nSize)
-					moveToNextField(objNextField);		   
-				if ((keynum == 37 || keynum == 8) && nCaretPosition == 0)			
-					moveToPrevField(objPrevField);		   
-				return;
-			}
-			if (keynum == 9) //Tab
-			return;
-		if (objThisField.value.length >= nSize && objNextField != null)
-			moveToNextField(objNextField);
-	}  
-	function moveToNextField(objNextField)
-	{
-		if (objNextField == null)
-			return;
-		objNextField.focus();
-		if (document.selection) //IE
-		{
-			oSel = document.selection.createRange ();
-			oSel.moveStart ('character', 0);
-			oSel.moveEnd ('character', objNextField.value.length);
-			oSel.select();							
-		}
-		else
-		{
-		   objNextField.selectionStart = 0;
-	       objNextField.selectionEnd = objNextField.value.length;
-		}
-	}
-	function moveToPrevField(objPrevField)
-	{
-		if (objPrevField == null)
-			return;
-		objPrevField.focus();
-		if (document.selection) //IE
-		{		
-			oSel = document.selection.createRange ();
-			oSel.moveStart ('character', 0);
-			oSel.moveEnd ('character', objPrevField.value.length);
-			oSel.select ();					
-		}
-		else
-		{
-		   objPrevField.selectionStart = 0;
-	       objPrevField.selectionEnd = objNextField.value.length;
-		}
-	}
-	function getCaretPosition(objField)
-	{
-		var nCaretPosition = 0;
-		if (document.selection) //IE
-		{
-		   var oSel = document.selection.createRange ();
-		   oSel.moveStart ('character', -objField.value.length);
-		   nCaretPosition = oSel.text.length;
-		}	
-		if (objField.selectionStart || objField.selectionStart == '0')
-	       nCaretPosition = objField.selectionStart;
-		return nCaretPosition;
-	}
-	</script>
-	
-	
-	   <div class="signup-box jq-custom-form">
+?>
+		
+<div id="newsletter-signup" class="widget newsletter-sidebar">	
+	<form action="http://cl.exct.net/subscribe.aspx?lid=<?php echo $formID; ?>" name="subscribeForm" method="post">
+		<input type="hidden" name="thx" value="<?php echo $url; ?>#subscribe-success" />
+		<input type="hidden" name="err" value="<?php echo $url; ?>" />
+		<input type="hidden" name="MID" value="6283180" />
+        <div class="signup-box jq-custom-form">
 	        <fieldset>
 	             <?php if(!empty($title)) : ?>
 				 	<h3><?php echo $title; ?></h3>
@@ -115,32 +51,25 @@ class Signup_Widget extends WP_Widget {
 	            <div class="signup-mdl">
 	                <p class="intro-text">Sign up to receive the latest updates from <?php echo SITE_NAME; ?></p>
 	                <div class="f-row">
-						<input alt="Email Address" type="text" name="email" size="25" maxlength="100" value="" placeholder="Enter Your Email..." >
+						<input alt="Email Address" type="text" name="Email Address" size="25" maxlength="100" value="" placeholder="Enter Your Email..." >
 	                </div>
-	                <script type="text/javascript">
-						function ShowDescriptions(SubDomain,val, brid) {
-							myWindow = window.open(SubDomain + '/description.asp?brid=' + brid + '&id=' + val, 'Description', 'location=no,height=180,width=440,resizeable=no,scrollbars=yes,dependent=yes');
-							myWindow.focus()
-						}
-					</script>
-	                <div class="f-row check-row">
+	                <!--<div class="f-row check-row">
 	                    <input alt="Third Party" type="checkbox" checked="checked" value="22697" name="interests" id="receive" />
 	                    <input type="hidden" name="OptoutInfo" value="">
 	                    <label for="receive">Yes, I'd like to receive offers from your partners</label>
-	                </div>
+	                </div>-->
 	             </div>
 	                <div class="signup-btn-row">
-	                    <span class="btn-base"><input type="submit" value="Sign Up" name="update" ></span>
+	                    <span class="btn-base"><input type="submit" value="Sign Up" /></span>
 	                </div>
-	                <input type=hidden name=fid value=<?php echo $formID; ?>>
-					<input type=hidden name=b value=4038>
-					<input type=hidden name=returnUrl value="http://<?php echo $_SERVER['SERVER_NAME']; ?>/?zmsg=1">  
-	            
+					<input type="radio" name="SubAction" value="sub_add_update" checked="checked" style="display:none;" />
+
 			</fieldset>
 	    
 		</div>
 	</form>
 </div>
+
 <?php	}
  
 	function update($new_instance, $old_instance) {

@@ -6639,6 +6639,7 @@ table.likes-leaderboard .entry-title {
 
 } /* End of media */
 @media only screen and (max-width: 340px) {
+	.alignright, .alignleft{display: block;float: none;margin: 0 auto;}
 	.snap-drawer-right{
 		width: 266px;
 	}
