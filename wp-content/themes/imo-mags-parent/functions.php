@@ -38,9 +38,7 @@ function sub_footer(){ ?>
 			<?php imo_ad_placement("btf_medium_rectangle_300x250"); ?>	
 		</div>
 		<div class="sub-box fb-box">
-			<div class="newsletter-box bottom-newsletter">
-				<?php the_widget("Signup_Widget_Header", "title=GET THE NEWSLETTER!"); ?>
-			</div>
+			<?php the_widget("Signup_Widget", "title=GET THE NEWSLETTER!"); ?>
 		</div>
 	</div>
 	<?php
@@ -1678,145 +1676,74 @@ function fixed_connect_footer(){
 	   <?php } ?>
 		</div>
 		<div class="newsletter">
+			<?php
+			$formID = get_option('newsletter_id');
+	
+	
+		    $errorcode = $_GET["errorcode"];
+		    $errorcontrol = $_GET["errorControl"];
+		
+		    switch($errorcode) {
+		
+		        case "1" : $strError = "An error has occurred while attempting to save your subscriber information."; break;
+		        case "2" : $strError = "The list provided does not exist."; break;
+		        case "3" : $strError = "Information was not provided for a mandatory field. (".$errorcontrol.")"; break;
+		        case "4" : $strError = "Please provide an email address.".$errorcontrol; break;
+		        case "5" : $strError = "Information provided is not unique. (".$errorcontrol.")"; break;
+		        case "6" : $strError = "An error has occurred while attempting to save your subscriber information."; break;
+		        case "7" : $strError = "An error has occurred while attempting to save your subscriber information."; break;
+		        case "8" : $strError = "Subscriber already exists."; break;
+		        case "9" : $strError = "An error has occurred while attempting to save your subscriber information."; break;
+		        case "10" : $strError = "An error has occurred while attempting to save your subscriber information."; break;
+		          //case "11" : This error does not exist.
+		        case "12" : $strError = "The subscriber you are attempting to insert is on the master unsubscribe list or the global unsubscribe list."; break;
+		        default : $strError = "Other"; break;
+		          //case "13" : Check that the list ID and/or MID specified in your code is correct.
+			}
+			?>
+														
 			<div class="title">Get The Newsletter</div>
+			
+			<form action="http://cl.exct.net/subscribe.aspx?lid=<?php echo $formID; ?>" name="subscribeForm" method="post">
+				<input type="hidden" name="thx" value="http://www.gameandfishmag.fox#subscribe-success" />
+				<input type="hidden" name="err" value="http://www.gameandfishmag.fox/" />
+				<input type="hidden" name="MID" value="6283180" />
+		        
 
-				<script type="text/javascript">
-				/***********************************************
-				* Textarea Maxlength script- � Dynamic Drive (www.dynamicdrive.com)
-				* This notice must stay intact for legal use.
-				* Visit http://www.dynamicdrive.com/ for full source code
-				***********************************************/
-				function ismaxlength(obj, mlength)
-				{
-				  if (obj.value.length > mlength)
-				    obj.value = obj.value.substring(0, mlength)
-				}
-				</script>
-
-				<form method="post" name="profileform" action="https://intermediaoutdoors.informz.net/clk/remote_post.asp">
-
-					<SCRIPT LANGUAGE="JavaScript">
-						function moveCaret(event, objThisField, objNextField, objPrevField, nSize)
-						{
-							var keynum;
-							if(window.event) // IE
-								keynum = event.keyCode;
-							else if(event.which) // Netscape/Firefox/Opera
-								keynum = event.which;
-							if (keynum == 37 || keynum == 39 || keynum == 38 || keynum == 40 || keynum == 8) //left, right, up, down arrows, backspace
-							{
-								var nCaretPosition = getCaretPosition(objThisField);
-								if (keynum == 39 && nCaretPosition == nSize)
-									moveToNextField(objNextField);
-								if ((keynum == 37 || keynum == 8) && nCaretPosition == 0)
-									moveToPrevField(objPrevField);
-								return;
-							}
-							if (keynum == 9) //Tab
-							return;
-						if (objThisField.value.length >= nSize && objNextField != null)
-							moveToNextField(objNextField);
-					}
-					function moveToNextField(objNextField)
-					{
-						if (objNextField == null)
-							return;
-						objNextField.focus();
-						if (document.selection) //IE
-						{
-							oSel = document.selection.createRange ();
-							oSel.moveStart ('character', 0);
-							oSel.moveEnd ('character', objNextField.value.length);
-							oSel.select();
-						}
-						else
-						{
-						   objNextField.selectionStart = 0;
-					       objNextField.selectionEnd = objNextField.value.length;
-						}
-					}
-					function moveToPrevField(objPrevField)
-					{
-						if (objPrevField == null)
-							return;
-						objPrevField.focus();
-						if (document.selection) //IE
-						{
-							oSel = document.selection.createRange ();
-							oSel.moveStart ('character', 0);
-							oSel.moveEnd ('character', objPrevField.value.length);
-							oSel.select ();
-						}
-						else
-						{
-						   objPrevField.selectionStart = 0;
-					       objPrevField.selectionEnd = objNextField.value.length;
-						}
-					}
-					function getCaretPosition(objField)
-					{
-						var nCaretPosition = 0;
-						if (document.selection) //IE
-						{
-						   var oSel = document.selection.createRange ();
-						   oSel.moveStart ('character', -objField.value.length);
-						   nCaretPosition = oSel.text.length;
-						}
-						if (objField.selectionStart || objField.selectionStart == '0')
-					       nCaretPosition = objField.selectionStart;
-						return nCaretPosition;
-					}
-					</script>
-
-					<fieldset>
-						<input alt="Email Address" type="text" name="email" size="25" maxlength="100" value="" placeholder="Enter Your Email..." >
-				        <script type="text/javascript">
-							function ShowDescriptions(SubDomain,val, brid) {
-								myWindow = window.open(SubDomain + '/description.asp?brid=' + brid + '&id=' + val, 'Description', 'location=no,height=180,width=440,resizeable=no,scrollbars=yes,dependent=yes');
-								myWindow.focus()
-							}
-						</script>
-
-				        <input alt="Third Party" type="checkbox" checked="checked" value="22697" name="interests" id="receive" />
+				<fieldset>
+						<input alt="Email Address" type="text" name="Email Address" size="25" maxlength="100" value="" placeholder="Enter Your Email..." >
+				        <!--<input alt="Third Party" type="checkbox" checked="checked" value="22697" name="interests" id="receive" />
 				        <input type="hidden" name="OptoutInfo" value="">
-				        <div class="opt-in">Yes, I'd like to receive offers from your partners</div>
-						<input type="submit" value="Sign Up" name="update" >
-				        <input type=hidden name=fid value=<?php echo $formID; ?>>
-						<input type=hidden name=b value=4038>
-						<input type=hidden name=returnUrl value="http://<?php echo $_SERVER['SERVER_NAME']; ?>/?zmsg=1">
+				        <div class="opt-in">Yes, I'd like to receive offers from your partners</div>-->
+				        
+						<input type="submit" value="Sign Up" style="margin-left: 20px;" />
+				      
 
-					</fieldset>
-				</form>
-				<script language='javascript'>
-				fullURL = document.URL
-				sAlertStr = ''
-				nLoc = fullURL.indexOf('&')
-				if (nLoc == -1)
-					nLoc = fullURL.length
-				if (fullURL.indexOf('zreq=') > 0){
-					sRequired = fullURL.substring(fullURL.indexOf('zreq=')+5, nLoc)
-					if (sRequired.length > 0){
-						sRequired = ',' + sRequired.replace('%20',' ')
-						sRequired = sRequired.replace(/,/g,'\n  - ')
-						sAlertStr = 'The following item(s) are required: '+sRequired + '\n'
-					}
-
+				</fieldset>
+			</form>
+			<script type="text/javascript">
+				var querystring = window.location.search.substring(1);
+				var vars = querystring.split('&');
+				var subsSuccess = window.location.hash.substr(1)
+		
+				if(subsSuccess == "subscribe-success"){
+					alert('Thank you for subscribing to the Florida Sportsman Newsletter.');
 				}
-				if (sAlertStr.length > 0){
-					alert(sAlertStr)
-				}else if( document.URL.indexOf('zmsg=1') > -1){
-					alert('Thank you for subscribing.')
-				}
+				else if(vars[0] == "errorcode=4"){
+					alert('<?php echo $strError; ?>');
+				}	
+			</script>
 
-				</script>
-
+		
+			<div class="follow" style="margin-top: -8px;">
+            	<div class="follow-us">Follow us:</div>
+                <?php social_networks(); ?>
 			</div>
-			<div class="follow">
-              <div class="follow-us">Follow us:</div>
-              <?php social_networks(); ?>
-			</div>
+				
 		</div>
+		
 	</div>
+</div>
 
 <?php }
 
@@ -2175,6 +2102,18 @@ if(function_exists("register_field_group"))
 				'label' => 'Seasons',
 				'name' => 'seasons',
 				'type' => 'repeater',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_53ceb4a4f00ca',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
+
 				'instructions' => 'List which seasons to display in the season filter. Please list them from newest to oldest.',
 				'sub_fields' => array (
 					array (
