@@ -2880,6 +2880,7 @@ margin-bottom:15px;
 }
 .tv-show .layout-frame{
 	width: 100%;
+	background: transparent;
 }
 .tv-show .general{
 	width: 1080px;
