@@ -3079,14 +3079,14 @@ margin-bottom:15px;
 }
 .tv-show .schedule-item {
 	float: left;
-	margin: 5px 0 0 35px;
+	margin: 5px 0 0 15px;
 	border-left: 2px solid #848484;
 	height: 49px;
-	padding-left: 20px;
+	padding-left: 16px;
 	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 }
 
-.tv-show .schedule-item:nth-child(n+5) {
+.tv-show .schedule-item:nth-child(n+7) {
 	display: none;
 }
 .tv-show .schedule-item .episode-title {
@@ -3098,6 +3098,7 @@ margin-bottom:15px;
 	color: #ffffff;
 	font-size: 15px;
 	display: block;
+	padding-top: 12px;
 }
 
 .tv-show .show-btn {

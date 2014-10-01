@@ -46,7 +46,13 @@ function getTSCSwpshows() {
 	
 	return $posts;
 }
-
+function comprdate($a, $b) {
+	if($a["rdate"]!=$b["rdate"])
+		return($a["rdate"]>$b["rdate"]);
+	else
+		return($a["rtime"]>$b["rtime"]);
+}
+function comprtime($a, $b) {return($a["rtime"]>$b["rtime"]);}
 
 function jsTSCSRender($mobile, $atts) {
 
@@ -105,48 +111,78 @@ function jsTSCSRender($mobile, $atts) {
 	}
 
 	if($format=="singleshow") {
-		//$outp = "";
+		$outp = "";
 		
 		date_default_timezone_set('America/New_York');
 
+		//$datapath = "http://www.imoutdoors.com/tscschedule/server/apitest.php?show=".$seriesid;
+		//$data = file_get_contents ($datapath);
+		//$showjson = json_decode($data, true);
+
 		$nextweek = date("Y/m/d",strtotime("+8 days"));
+		//print_r($showjson);
 		
 		//print_r($showjson);
+		$slots = array();
+		
 		foreach($showjson as $show) {
 			
 			if($show["SeriesID"] == $atts["postid"]) {
 				//var_dump($show);
 				//if($show["NewEpisode"]=="YES") {
-				foreach($show["Timeslots"] as $slot){
+				
+				
+				foreach($show["Timeslots"] as $timeslot){
+					//if($timeslot["rtime"]<"02:00:00" || $timeslot["rtime"]>"22:30:00" ) {
+					//	continue;
+					//}
 					
+					$timeslot["title"] = $show["EpisodeTitle"];
+					$slots[] = $timeslot;
+				}
+			}
+		}
+		
+		usort($slots, "comprdate");
+		
+		//print_r($slots);	
+		$doneslots = array();
+		foreach($slots as $slot) {	
+			
+			$time = $slot["src"];		
+			if(in_array($time, $doneslots)) 
+				continue;		
+			
+			$date = new DateTime($slot["rdate"]);
+			$now = new DateTime();
+			$nhour = $now->format("H:i:s");
+			
+			//if($slot["rtime"]<$nhour && ($date->format("D") == $now->format("D")))
+			//	continue;
+			
+		
+			$doneslots[] = $time;		
 					
-					$time = $slot["src"];
-					
-					
-					
-					$date = new DateTime($slot["rdate"]);
+			
+			
 					
 					
 					$dateResult = $date->format('M d');
-					
-					$expired = $result .' ' . $time;
-					
-					$aired = new DateTime($expired);
-					$airedResult = $aired->format('m d H');
-					//var_dump($airedResult);
-					}
+					$dateResult = $date->format('D');
+					$dateResult = "";
+									
+					$outp .= '<div class="schedule-item">';
+					//$outp .= '<span class="episode-title">'.$show["EpisodeTitle"].'</span>';
+					$outp .= '<span class="episode-time">'.$dateResult.''.$time.' ET</span>';						
+					$outp .= '</div>';
 				
-				if($airedResult >= date("m d H")){
-					echo '<div class="schedule-item">';
-					echo '<span class="episode-title">'.$show["EpisodeTitle"].'</span>';
-					echo '<span class="episode-time">'.$dateResult.': '.$time.' ET/PT</span>';						
-					echo '</div>';
-				}
-			//}
-								
-			}	
+			
+				//$outp = 				
+			
+				
 										
 		}
+		print $outp;
 				
 		
 	}else if($format=="inline") {
