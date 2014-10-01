@@ -1727,11 +1727,12 @@ function fixed_connect_footer(){
 				var subsSuccess = window.location.hash.substr(1)
 		
 				if(subsSuccess == "subscribe-success"){
-					alert('Thank you for subscribing to the Florida Sportsman Newsletter.');
+					alert('Thank you for subscribing to the <?php echo SITE_NAME; ?> Newsletter.');
 				}
-				else if(vars[0] == "errorcode=4"){
+				else if(vars[0] == "errorcode=1" || vars[0] == "errorcode=2" || vars[0] == "errorcode=3" || vars[0] == "errorcode=4" || vars[0] == "errorcode=5" || vars[0] == "errorcode=6" || vars[0] == "errorcode=7" || vars[0] == "errorcode=8" || vars[0] == "errorcode=9" || vars[0] == "errorcode=10" || vars[0] == "errorcode=12"){
 					alert('<?php echo $strError; ?>');
 				}	
+		
 			</script>
 
 		
