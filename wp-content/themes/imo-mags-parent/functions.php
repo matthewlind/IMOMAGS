@@ -1679,7 +1679,7 @@ function fixed_connect_footer(){
 			<?php
 			$formID = get_option('newsletter_id');
 	
-	
+			$url = "http://".$_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI];
 		    $errorcode = $_GET["errorcode"];
 		    $errorcontrol = $_GET["errorControl"];
 		
@@ -1705,18 +1705,18 @@ function fixed_connect_footer(){
 			<div class="title">Get The Newsletter</div>
 			
 			<form action="http://cl.exct.net/subscribe.aspx?lid=<?php echo $formID; ?>" name="subscribeForm" method="post">
-				<input type="hidden" name="thx" value="http://www.gameandfishmag.fox#subscribe-success" />
-				<input type="hidden" name="err" value="http://www.gameandfishmag.fox/" />
+				<input type="hidden" name="thx" value="<?php echo $url; ?>#subscribe-success" />
+				<input type="hidden" name="err" value="<?php echo $url; ?>" />
 				<input type="hidden" name="MID" value="6283180" />
 		        
 
 				<fieldset>
-						<input alt="Email Address" type="text" name="Email Address" size="25" maxlength="100" value="" placeholder="Enter Your Email..." >
-				        <!--<input alt="Third Party" type="checkbox" checked="checked" value="22697" name="interests" id="receive" />
-				        <input type="hidden" name="OptoutInfo" value="">
-				        <div class="opt-in">Yes, I'd like to receive offers from your partners</div>-->
-				        
-						<input type="submit" value="Sign Up" style="margin-left: 20px;" />
+					<input alt="Email Address" type="text" name="Email Address" size="25" maxlength="100" value="" placeholder="Enter Your Email..." >
+			        <!--<input alt="Third Party" type="checkbox" checked="checked" value="22697" name="interests" id="receive" />
+			        <input type="hidden" name="OptoutInfo" value="">
+			        <div class="opt-in">Yes, I'd like to receive offers from your partners</div>-->
+			        
+					<input type="submit" value="Sign Up" style="margin-left: 20px;" />
 				      
 
 				</fieldset>
