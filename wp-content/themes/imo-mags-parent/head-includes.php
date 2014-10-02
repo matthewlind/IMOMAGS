@@ -108,10 +108,8 @@ else if (is_page()) {
     global $post;
     
     $pageName = $post->post_title;
-    $term = (isset($page->cat_name)) ? $page->cat_name : $page->post_name;
-    $params = array(
-        "sect" => $term,
-    ); }
+    $term = $post->post_name;
+}
 else if ( is_tax() || is_tag() || is_category() ) {
     if (is_category()) {
         $tax_title = single_cat_title('', False);

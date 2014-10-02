@@ -44,7 +44,7 @@ class Forecast_Widget extends WP_Widget {
 	background: url(img/Deer-Forecast-2013-300.jpg) no-repeat center top;	
 	border-top: 3px solid #FF6600;
 	width: 300px;
-	height: 250px;
+	height: auto;
 	display: block;
 }
 .forecast-widget .forecast-widget-sponsor{
