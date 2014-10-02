@@ -140,7 +140,7 @@ get_header();
 	<div class="forecast-map">	
 		
 			<p class="state-name">Select Your State</p>
-			<div id="us-map-forecast"></div>
+			<div id="us-map-forecast" style="min-width:840px;height:600px;padding:20px;margin-left:60px;position:absolute;top:50px;"></div>
 			<div class="modal">
 				<p class="state-selection">Select Your Forecast</p>
 				<a href="" class="deer-forecast">Places For Whitetail</a>
