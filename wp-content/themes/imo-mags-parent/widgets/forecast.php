@@ -82,16 +82,7 @@ class Forecast_Widget extends WP_Widget {
 </style>	
 <div class="widget forecast-widget">	
 	<div class="forecast-widget-sponsor">
-		<!-- 240x60 Ad: -->
-	    <script type="text/javascript">
-	    document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/<?php echo $dartDomain; ?>/;camp=<?php echo $campaign; ?>;sect=;manf=;pos=;page=;subs=;sz=240x60;dcopt=;tile=;ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
-	    </script>
-	    <noscript>
-	    <a href="http://ad.doubleclick.net/adj/<?php echo $dartDomain; ?>/;camp=<?php echo $campaign; ?>;sect=;manf=;pos=;page=;subs=;sz=240x60;dcopt=;tile=;ord=6545512368?">
-	    <img src="http://ad.doubleclick.net/ad/<?php echo $dartDomain; ?>/;camp=<?php echo $campaign; ?>;sect=;manf=;pos=;page=;subs=;sz=240x60;dcopt=;tile=;ord=6545512368?" border="0" />
-	    </a>
-	    </noscript>
-	    <!-- END 240x60 Ad: -->
+		<?php imo_ad_placement("Deer_Forecast_Sponsor_Logo_240x60"); ?>
 	</div>
 	<a href="http://www.gameandfishmag.com/<?php echo $url; ?>/" class="forecast-image" onclick="_gaq.push(['_trackEvent','Forecast Widget','<?php echo $campaign; ?>','<?php echo $url; ?>']);"><img src="<?php echo $img; ?>" alt="<?php echo $title; ?>" /></a>
 	<div class="state-filter">
