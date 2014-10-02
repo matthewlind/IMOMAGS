@@ -147,7 +147,7 @@ $(document).ready(function($) {
 
 		        $(data[i].terms).each(function(index) {
 	        		//Hide featured posts
-			        if(this.slug == 'home-featured' || this.slug == 'tv'){
+			        if(this.slug == 'home-featured'){
 						$articleTemplate.hide();
 					}
 					// Place video button on videos
