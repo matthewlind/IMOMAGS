@@ -139,13 +139,8 @@ get_header();
   
 	<div class="forecast-map">	
 		
-			<div class="<?php if(is_page("deer-forecast")){ echo 'sponsor-logo'; }else{ echo 'sponsor-logo-below'; } ?>">
-				<div id="forecast"></div>
-				<!-- 240x60 Ad: -->
-                <?php imo_ad_placement("sponsor_logo_240x60"); ?>		
-            </div>
 			<p class="state-name">Select Your State</p>
-			<div id="us-map-forecast" style="min-width:840px;height:600px;padding:20px;margin-left:60px;position:absolute;top:50px;"></div>
+			<div id="us-map-forecast"></div>
 			<div class="modal">
 				<p class="state-selection">Select Your Forecast</p>
 				<a href="" class="deer-forecast">Places For Whitetail</a>
@@ -153,10 +148,7 @@ get_header();
 				<a class="trophy-buck">Trophy Bucks</a>
 				<a class="close"></a>
 			</div>
-
-			<?php if(is_page("deer-forecast")){ ?>
-				<img src="<?php bloginfo("stylesheet_directory"); ?>/images/pic/deer-forecast-logo-sm.png" alt="Deer Forecast" class="deer-logo" />
-			<?php } ?>
+			<img src="<?php bloginfo("stylesheet_directory"); ?>/images/pic/deer-forecast-logo-sm.png" alt="Deer Forecast" class="deer-logo" />
 		</div>
 
 	
