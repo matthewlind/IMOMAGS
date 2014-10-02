@@ -147,9 +147,9 @@ $(document).ready(function($) {
 
 		        $(data[i].terms).each(function(index) {
 	        		//Hide featured posts
-			        if(this.slug == 'home-featured'){
-						$articleTemplate.hide();
-						}
+			        if(this.slug == 'home-featured' || this.slug == 'tv'){
+						$articleTemplate.remove();
+					}
 					// Place video button on videos
 					if(this.slug == 'video'){
 						$articleTemplate.find("a.no-olay").addClass("video-excerpt");
