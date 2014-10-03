@@ -807,6 +807,7 @@ p.state-name{
 }
 
 /*** Forecast Page ***/
+#ie9 #map_base, #ie10 #map_base, #ie11 #map_base{height: 600px;}
 .page-template-deer-forecast-page-php .main{width: 100%;}
 .page-template-deer-forecast-page-php .sidebar-area{position: relative;}
 #us-map-forecast{max-height: 650px;min-height: 300px;}

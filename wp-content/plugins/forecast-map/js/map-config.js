@@ -160,7 +160,7 @@
 	'map_16':{
 		'namesId':'KS',
 		'name': 'KANSAS',
-		'url':'/deer-forecast/KANSAS-deer-hunting-forecast-2014/',
+		'url':'/deer-forecast/great-plains-deer-hunting-forecast-2014/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -682,7 +682,7 @@ var map_config_2013 = {
 	'map_16':{
 		'namesId':'KS',
 		'name': 'KANSAS',
-		'url':'/deer-forecast/KANSAS-deer-forecast-2013/',
+		'url':'/deer-forecast/great-plains-deer-forecast-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',

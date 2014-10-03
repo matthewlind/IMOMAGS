@@ -23,6 +23,8 @@ get_header();
 		<span><?php echo get_the_title($postID); ?></span>
     </h1>
 </div>
+<!-- 240x60 Ad: -->
+<div class="sponsor"><?php imo_ad_placement("sponsor_logo_240x60"); ?></div>
 <div class="forecast-year">Choose forecast year:</div>
 	<form>
 	  <select id="target" class="target">
@@ -31,10 +33,9 @@ get_header();
 	  </select>
 	</form>     
 					        
-<?php if(mobile() == true || tablet() == true){ ?>
+<?php if(mobile() == true){ ?>
 	
-	<!-- 240x60 Ad: -->
-     <div class="sponsor"><?php imo_ad_placement("sponsor_logo_240x60"); ?></div>
+	
    
 	<form name="menuform" class="forecast-menu previous-year" style="display:none;">
 	<select name="menu4">
