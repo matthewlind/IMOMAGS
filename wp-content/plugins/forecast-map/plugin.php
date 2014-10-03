@@ -7,7 +7,7 @@
 Plugin Name: Forecast Map
 Plugin URI: https://imomags.com
 Description: Helps setup an interactive map of US States
-Author: aaron
+Author: IMOfox
 Author URI:
 Version: 0.1
 Stable tag: 0.1
@@ -15,10 +15,10 @@ License: IMO
 */ 
 
 
-add_action('wp_enqueue_scripts', 'imo_usa_map_init', 50);
+add_action('wp_enqueue_scripts', 'imo_forecast_map_init', 50);
 
 
-function imo_usa_map_init() {
+function imo_forecast_map_init() {
 	
 	//mobile map touch fix
 	if(mobile() == true){ ?>
