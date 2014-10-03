@@ -84,7 +84,7 @@ class Forecast_Widget extends WP_Widget {
 	<div class="forecast-widget-sponsor">
 		<?php imo_ad_placement("Deer_Forecast_Sponsor_Logo_240x60"); ?>
 	</div>
-	<a href="http://www.gameandfishmag.com/<?php echo $url; ?>/" class="forecast-image" onclick="_gaq.push(['_trackEvent','Forecast Widget','<?php echo $campaign; ?>','<?php echo $url; ?>']);"><img src="<?php echo $img; ?>" alt="<?php echo $title; ?>" /></a>
+	<a href="http://www.gameandfishmag.com/deer-forecast/" class="forecast-image" onclick="_gaq.push(['_trackEvent','Forecast Widget','<?php echo $campaign; ?>','<?php echo $url; ?>']);"><img src="<?php echo $img; ?>" alt="<?php echo $title; ?>" /></a>
 	<div class="state-filter">
 		<form name="menuform" class="forecast-menu">
 			<select name="menu4">

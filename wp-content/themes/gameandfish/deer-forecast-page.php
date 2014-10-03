@@ -23,6 +23,8 @@ get_header();
 		<span><?php echo get_the_title($postID); ?></span>
     </h1>
 </div>
+<!-- 240x60 Ad: -->
+<div class="sponsor"><?php imo_ad_placement("sponsor_logo_240x60"); ?></div>
 <div class="forecast-year">Choose forecast year:</div>
 	<form>
 	  <select id="target" class="target">
@@ -31,10 +33,9 @@ get_header();
 	  </select>
 	</form>     
 					        
-<?php if(mobile() == true || tablet() == true){ ?>
+<?php if(mobile() == true){ ?>
 	
-	<!-- 240x60 Ad: -->
-     <div class="sponsor"><?php imo_ad_placement("sponsor_logo_240x60"); ?></div>
+	
    
 	<form name="menuform" class="forecast-menu previous-year" style="display:none;">
 	<select name="menu4">
@@ -137,10 +138,10 @@ get_header();
 
 <?php }else{ ?>
   
-	<div class="forecast-map">	
+	<div class="forecast-map year-2014">	
 		
 			<p class="state-name">Select Your State</p>
-			<div id="us-map-forecast" style="min-width:840px;height:600px;padding:20px;margin-left:60px;position:absolute;top:50px;"></div>
+			<div id="us-map-forecast"></div>
 			<div class="modal">
 				<p class="state-selection">Select Your Forecast</p>
 				<a href="" class="deer-forecast">Places For Whitetail</a>
@@ -152,8 +153,10 @@ get_header();
 		</div>
 
 	
-<?php } 
-imo_sidebar(); ?>
+<?php } ?>
+
+<div>
+<?php imo_sidebar(); ?>
 	<div id="primary" class="general">
         <div class="general-frame">
             <div id="content" role="main" class="forecast-content">  
@@ -213,5 +216,6 @@ imo_sidebar(); ?>
 		 	</div><!-- #content -->
         </div>
     </div><!-- #primary -->
+</div>
 <div class="overlay"></div>
 <?php get_footer(); ?>
