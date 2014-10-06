@@ -1,6 +1,22 @@
 jQuery(document).ready(function () {
 ////////////////////////////////////
-
+jQuery( ".target" ).change(function() {
+	if(jQuery( this ).val() == 2014 ){
+		jQuery(".forecast-map").removeClass("year-2013");
+		jQuery(".forecast-map").addClass("year-2014");
+		jQuery(".page-title span").text("GAME & FISH 2014 DEER FORECAST");
+		jQuery(".previous-year").fadeOut();
+		jQuery(".current-year").show();
+		jQuery("title").text("GAME & FISH 2014 DEER FORECAST");
+	}else if(jQuery( this ).val() == 2013 ){
+		jQuery(".forecast-map").removeClass("year-2014");
+		jQuery(".forecast-map").addClass("year-2013");
+		jQuery(".page-title span").text("GAME & FISH 2013 DEER FORECAST");
+		jQuery(".current-year").fadeOut();
+		jQuery(".previous-year").show();
+		jQuery("title").text("GAME & FISH 2013 DEER FORECAST");
+	}
+});
 var colors = new Array();
 
 colors[8] = "#000000";
@@ -135,17 +151,17 @@ function getMapForContainer(containerNameString) {
 			
 			if(state != "md" && state != "de" && state != "nj" && state != "id" && state != "ut" && state != "mt" && state != "nv"){
 				
-				if(jQuery( "select option:selected" ).val() == 2014 ){
+				/*if(jQuery( "select option:selected" ).val() == 2014 ){
 				 	var postURL = "/deer-forecast/" + $region + "-deer-hunting-forecast-2014/";
 				 	jQuery(".page-title span").text("GAME & FISH 2014 DEER FORECAST");
 				 }else{
 				 	var postURL = "/deer-forecast/" + $region + "-deer-forecast-2013/#forecast";
 				 	var trophyPostURL = "/deer-forecast/" + $region + "-trophy-bucks-2013/#forecast";
-				 }
+				 }*/
 				//map touch vs click mobile/tablet fix
 				
 				if($mobile == true){
-					console.log("works");
+					//console.log("works");
 					
 					jQuery(st[0]).live('touchstart touchend', function(e) {
 						e.stopPropagation();
