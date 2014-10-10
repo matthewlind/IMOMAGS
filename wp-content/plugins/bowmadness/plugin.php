@@ -76,12 +76,7 @@ function renderGAMpopup($mobile) {
 							</ul>
 						</div>
 		    		</div>
-		    		<div id="popupAdRight" class="modal-footer-content-right">
-		    			<div id="div-bob_region_1_medium_rectangle"></div>
-		    			<div id="div-bob_region_2_medium_rectangle"></div>
-						<div id="div-bob_region_3_medium_rectangle"></div>
-						<div id="div-bob_region_4_medium_rectangle"></div>
-		    		</div>
+		    		<div id="popupAdRight" class="modal-footer-content-right"></div>
 	    		</div>
 	    	</div>
 	    </div>
@@ -93,6 +88,16 @@ EOF;
 	return $outp;
 }
 function jsGAMRender($mobile) {
+	
+	
+	$pageID = get_the_ID();
+	$image = get_field("promo_image",$pageID);
+
+	if( !empty($image) ){
+		$promo = '<div class="bob-promo-image"><a href="'.get_field("image_url").'" target="_blank"><img src="'.$image["url"].'" alt="'.$image["alt"].'" /></a></div>';
+	}else{
+		$promo = "";
+	}
 	$outp = "";
 	//$mobile = true;
 	$ismobile = ($mobile)? "true":"false";
@@ -110,10 +115,10 @@ function jsGAMRender($mobile) {
 	//if (function_exists('wpsocialite_markup'))
 		 	//$outp.= wpsocialite_markup();
 		 	
-	$ad1 = '<div id="div-bob_region_sponsor_1"></div>';
-	$ad2 = '<div id="div-bob_region_sponsor_2"></div>';
-	$ad3 = '<div id="div-bob_region_sponsor_3"></div>';
-	$ad4 = '<div id="div-bob_region_sponsor_4"></div>';
+	$ad1 = '<div id="div-bob_region_sponsor_1"><script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-bob_region_sponsor_1"); });</script></div>';
+	$ad2 = '<div id="div-bob_region_sponsor_2"><script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-bob_region_sponsor_2"); });</script></div>';
+	$ad3 = '<div id="div-bob_region_sponsor_3"><script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-bob_region_sponsor_3"); });</script></div>';
+	$ad4 = '<div id="div-bob_region_sponsor_4"><script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-bob_region_sponsor_4"); });</script></div>';
 		 	
 	$outp.= '<div id="madtabs">'
 		 .  '  <ul class="rounds">'
@@ -151,7 +156,7 @@ function jsGAMRender($mobile) {
 
 		 .  '  </div>'
 
-		 .  '  <div id="madtabs-3">'
+		 .  '  <div style="clear:both;" id="madtabs-3">'
 		 .  '    <h2 id="compound1">Compound A</h2>'
 		 . 			$ad1
 		 .  '    <div class="mreg1"></div>'
@@ -166,7 +171,7 @@ function jsGAMRender($mobile) {
 		 .  '    <div class="mreg2"></div>'
 		 
 		 .  '  </div>'
-		 .  '  <div id="madtabs-4">'
+		 .  '  <div style="clear:both;" id="madtabs-4">'
 
 		 .  '    <h2 id="compound2">Compound A</h2>'
 		 . 			$ad1
@@ -182,7 +187,7 @@ function jsGAMRender($mobile) {
 		 .  '    <div class="mreg2"></div>'
 		 		 
 		 .  '  </div>'
-		 .  '  <div id="madtabs-5">'
+		 .  '  <div style="clear:both;" id="madtabs-5">'
 		 .  '    <br>'. $ad1
 		 .  		$ad2
 		 .  '    <div class="mreg5 match92"></div>'
@@ -192,7 +197,7 @@ function jsGAMRender($mobile) {
 		 
 		 .  '  </div>'
 		 
-		 .  '  <div id="madtabs-6">'
+		 .  '  <div style="clear:both;" id="madtabs-6">'
 		 .  '    <br><div style="margin:10px 0px 0px 6px;clear:both;font-size:18px;font-weight:bold;">Championship</div>'
 		 .  '    <div class="mreg7 match94"></div>'
 		 .  '    <br>'. $ad1
@@ -201,7 +206,8 @@ function jsGAMRender($mobile) {
 		 .  		$ad4
 		 
 		 .  '  </div>'		 
-		 .  '</div>';
+		 .  '</div>'
+		 .  $promo;
 
   }
   else {
@@ -215,8 +221,7 @@ function jsGAMRender($mobile) {
 		 .  '  <li class="'.(($madnessround==7)? "active-round":"").'">Final Round<div>September 15-19</div></li>'
 		 .  '</ul>'
 		 //.  wpsocialite_markup()
-		 ;
-	
+		;
 	// After all the voting is done, after round 7, you'll have to 
 	// go into the db and manually change the last match to "8".
 	
@@ -225,7 +230,11 @@ function jsGAMRender($mobile) {
 	$outp.= '<div class="ga-madness-votestats" style="margin-bottom:20px;clear:both;"></div>'
 		 .  '<div class="regions region-final" style="display:block;">'
 		 .  '  <div class="finalsadvert" style="margin-top:0px;">'
-		 .  ' <div id="bob_presenting_sponsor"></div>'
+		 
+		// .  ' <div id="bob_presenting_sponsor"></div>'
+		
+		 .  ' <div id="div-bob_presenting_sponsor"><script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-bob_presenting_sponsor"); });</script></div>'
+		 
 		 .  '  </div>'
 		 .  '  <div class="final-wrapper">'
 		 .  '    <h2>Final Round</h2>'
@@ -242,10 +251,10 @@ function jsGAMRender($mobile) {
 	$outp.= '<div class="ga-madness">'
 		 .  '<div class="region-titles">'
 		 .	'  <div class="region-left">'
-		 .	'    <h2>Compound A</h2><div id="div-bob_region_sponsor_1"></div>'
+		 .	'    <h2>Compound A</h2><div id="div-bob_region_sponsor_1"><script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-bob_region_sponsor_1"); });</script></div>'
 		 .	'  </div>'
 		 .	'  <div class="region-right">'
-		 .	'    <h2>Compound B</h2><div id="div-bob_region_sponsor_2"></div>'
+		 .	'    <h2>Compound B</h2><div id="div-bob_region_sponsor_2"><script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-bob_region_sponsor_2"); });</script></div>'
 		 .	'  </div>'
 		 .	'</div>'
 		 
@@ -265,23 +274,23 @@ function jsGAMRender($mobile) {
 	if($madnessround < 8) {		 
 	$outp.= '<div class="regions region-final"	>'
 		 .  '  <div class="finalsadvert">'
-		 .  ' <div id="div-bob_presenting_sponsor"></div>'		
+		 .  ' <div id="div-bob_presenting_sponsor"><script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-bob_presenting_sponsor"); });</script></div>'		
 		 .  '  </div>'
 		 .  '  <div class="final-wrapper">'
 		 .  '    <h2>Final Round</h2>'
-		 .  '    <div class="column column5 match92"></div>'
-		 .  '    <div class="column column6 match94"></div>'
-		 .  '    <div class="column column7 match93"></div>'
+		 .  '    <div class="column column5 final-modal match92"></div>'
+		 .  '    <div class="column column6 final-modal match94"></div>'
+		 .  '    <div class="column column7 final-modal match93"></div>'
 		 .  '  </div>'		 
 		 .  '</div>';
 	}
 		 
 	$outp.= '<div class="region-titles">'
 		 .	'  <div class="region-left">'
-		 .	'    <h2>Crossbows A</h2><div id="div-bob_region_sponsor_3"></div>'
+		 .	'    <h2>Crossbows A</h2><div id="div-bob_region_sponsor_3"><script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-bob_region_sponsor_3"); });</script></div>'
 		 .	'  </div>'
 		 .	'  <div class="region-right">'
-		 .	'    <h2>Crossbows B</h2><div id="div-bob_region_sponsor_4"></div>'
+		 .	'    <h2>Crossbows B</h2><div id="div-bob_region_sponsor_4"><script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-bob_region_sponsor_4"); });</script></div>'
 		 .	'  </div>'
 		 .	'</div>'
 
@@ -298,7 +307,8 @@ function jsGAMRender($mobile) {
 		 .	'  <div class="column column4"></div>'
 		 .  '</div>'
 	 
-		 .  '</div>';
+		 .  '</div>'
+		 .  $promo;
   }	
 
 	$outp.= '<script type="text/javascript">';
@@ -314,6 +324,10 @@ function jsGAMRender($mobile) {
 		 .  '   getStats();'
 		 .  '   setTimeout(function(){makeGAMPopup()}, 1000);'
 		 .  '   setTimeout(function(){autoPopup()}, 2000);'
+		 .  '   setTimeout(function(){
+		 			//alert(madnessround);
+		 			//jQuery("#madtabs").tabs({selected: (madnessround - 2)})
+		 		}, 3000);'
 		 .	'});';
 
 	$outp.= '</script>';
@@ -321,5 +335,56 @@ function jsGAMRender($mobile) {
 	
 	return $outp;
 }
+
+//Promo image custom field
+if(function_exists("register_field_group"))
+{
+	register_field_group(array (
+		'id' => 'acf_battle-of-the-bows',
+		'title' => 'Battle of the Bows',
+		'fields' => array (
+			array (
+				'key' => 'field_54130668ddfc4',
+				'label' => 'Promo Image',
+				'name' => 'promo_image',
+				'type' => 'image',
+				'save_format' => 'object',
+				'preview_size' => 'thumbnail',
+				'library' => 'all',
+			),
+			array (
+				'key' => 'field_5413068dddfc5',
+				'label' => 'Image URL',
+				'name' => 'image_url',
+				'type' => 'text',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'page_template',
+					'operator' => '==',
+					'value' => 'battle-of-the-bows.php',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+}
+
 
 ?>

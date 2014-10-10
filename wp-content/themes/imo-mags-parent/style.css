@@ -36,7 +36,21 @@ audio, canvas, video { display: inline-block; }
 audio:not([controls]) { display: none; height: 0; }
 [hidden] { display: none; }
 svg:not(:root)  { overflow: hidden; }
-
+#progressBar {
+        width: 400px;
+        height: 22px;
+        border: 1px solid #111;
+        background-color: #292929;
+}
+ 
+#progressBar div {
+        height: 100%;
+        color: #fff;
+        text-align: right;
+        line-height: 22px; /* same as #progressBar height if we want text middle aligned */
+        width: 0;
+        background-color: #0099ff;
+}
 /* Tags reset
 *******************************************************************************/
 html {
@@ -889,17 +903,30 @@ input.gsc-search-button-v2{
 /* Main Section
  ******************************************************************************/
 .mdl-banner{
-	width: 728px;
-	margin: 0 auto;
+    margin: 0 auto;
+}
+.mdl-banner.mdl-728{
+    width: 728px;
+}
+.mdl-banner.mdl-expandable{
+    /*height: 100px;*/
 }
 .mdl-banner object{margin-top: 4px;}
 .mdl-banner img{
 	padding: 4px 0;
 	display: block;
 }
-.mdl-banner iframe{
+.mdl-banner.mdl-expandable iframe{
 	margin-top: 4px !important;
+	margin: auto;
+	position: absolute;
+	/*height: 100%;*/
+	z-index: 9999999999999999;
+	width: 1080px;
+	left: 0;
+	right: 0;
 }
+
 .mob-mdl-banner{
 	width: 320px;
 	margin: 0 auto;
@@ -1036,9 +1063,8 @@ input.gsc-search-button-v2{
     text-transform:uppercase;
 }
 .general-title h2 span {color:#040503;}
-.sponsor {float:right;}
-.sponsor img{float: right;}
-.single .sponsor{float: none;}
+.sponsor {clear: both;}
+.single .sponsor{float: right;}
 .expandable{margin: 0 auto;width: 1080px;}
 .expandable img{margin: 0 auto !important;display: block;}
 
@@ -1071,7 +1097,7 @@ input.gsc-search-button-v2{
 #video-portal .sidebar .fb-like{margin-right: 20px;}
 
 /*** sportsman channel video widget ***/
-.widget_channel-video-widget{width: 310px;}
+.widget_channel-video-widget{width: 310px;position: relative;}
 .video-sidebar h1{color: white;font-size: 20px;min-height: 60px;}
 .video-sidebar .share-video{margin-bottom: 15px;}
 .video-box {
@@ -2137,6 +2163,8 @@ a.category-name-link:hover{
 	text-align: center;
 	padding: 0;
 }
+.left-125{float: left;padding-left: 5px;}
+.right-125{float: right;padding-right: 5px;}
 .sidebar-area .widget {
     margin:0 auto 20px;
 }
@@ -2152,6 +2180,7 @@ a.category-name-link:hover{
 	margin-left: 5px;
 }
 iframe[style]#fb-sidebar{background-color: white !important;}
+.fb_iframe_widget iframe{z-index: 9999;}
 .foot-social .fb_iframe_widget iframe{max-height: 20px;max-width: 90px;}
 .ford-outfitters-widget{padding: 0 5px;}
 /* solunar widget */
@@ -2780,15 +2809,29 @@ margin-bottom:15px;
 ********************************************************
 ********************************************************/
 #show-featured {background-color: white; padding: 50px 0 75px; font-family: 'Open Sans', Helvetica, Arial, sans-serif;}
-#show-featured #video-filter {margin: 0 0 35px 3px;}
-#show-featured #video-thumbs{padding-bottom: 25px;}
+#show-featured #video-filter {margin: 0 0 40px 3px;display: block;}
+#show-featured .seasons-filter{display: inline-block;float: right;}
+#show-featured #video-thumbs{padding-bottom: 25px;clear: both;}
 #show-featured #video-thumbs li {width: 22%;vertical-align: top;margin: 0 1.3% 20px;}
-#show-featured .thumbs-full{margin-bottom: 0; padding: 0 25px;position:relative;}
+#show-featured .thumbs-full{margin-bottom: 0; padding: 0 25px;position:relative;background: white;}
 #show-featured .thumbs-full img{width: 100%;height: auto;border: none;}
-#show-featured #video-thumbs li h3 {text-align:left;color: black;position: relative;padding: 2px;font-size: 13px;margin: 0;bottom: auto;background-color: white;padding-top: 9px;}
+#show-featured #video-thumbs li h3 {font: 20px/24px 'jubilat', serif;text-align:left;color: black;position: relative;padding: 2px;margin: 0;bottom: auto;background: white;}
+
+/*** video filter ***/
+#video-filter li{display: inline-block;padding: 10px;}
+#video-filter li a{color: #252525;padding: 10px;cursor: pointer; font-size: 14px;background: #eee;}
+#video-filter li a.video-thumb-active{color: white;background: #555555;}
+.no-mo-videos{text-align: center;padding: 80px 0 20px;}
+.paginate-videos{cursor: pointer;}
 #show-featured .thumbs-full .paginate-videos {
-	float: left;
-	margin-left: 13px;
+	width: 260px;
+	text-align: center;
+	height: 50px;
+	vertical-align: middle;
+	line-height: 48px;
+	font-size: 14px;
+	font-weight: 600;
+	margin: 0 auto;
 }
 #show-featured .thumbs-full .loading-gif{
 	display: none;
@@ -2798,15 +2841,14 @@ margin-bottom:15px;
 	top: -25px;
 }
 #show-featured .thumbs-full .loading-gif.bottom-paginate{
-	bottom: -22px;
-	left: 230px;
 	top: auto;
-	width: 240px;
+	width: 260px;
+	position: relative;
 }
 #show-destination .inner-main, #show-destination .thumbs-full, #show-destination .sidebar-area{background: white;}
 #show-destination .inner-main{padding: 80px 30px 0;}
-#show-destination  .play-btn{background:url(images/shows/play-btn.png) no-repeat;width: 47px;height: 47px;position: absolute;left: 0;top: 28%;margin: auto;right: 0;}
-
+#video-thumbs .play-btn{background:url(images/shows/play-btn.png) no-repeat;width: 47px;height: 47px;position: absolute;left: 0;top: 22%;margin: auto;right: 0;}
+#video-thumbs .season-number{color: #6ba4c2;font-size: 14px;}
 .wrap4padding {
 	padding: 0 35px;
 	background-color: white;
@@ -2823,7 +2865,6 @@ margin-bottom:15px;
 	border-image-source: url("/wp-content/themes/imo-mags-parent/images/border-stripes.png");
 }
 
-
 /*** Show Store Widget ***/
 #show-store{width: 100%;background: #ebebeb;}
 #show-store .store-left{width: 32%;display: inline-block;float: left;padding: 0 0 0 50px;height: 315px;}
@@ -2839,6 +2880,7 @@ margin-bottom:15px;
 }
 .tv-show .layout-frame{
 	width: 100%;
+	background: transparent;
 }
 .tv-show .general{
 	width: 1080px;
@@ -2879,7 +2921,7 @@ margin-bottom:15px;
 
 .tv-show .shows-logo {
 	float: left;
-	width: 200px;
+	width: 300px;
 	height: 122px;
 	padding: 15px;
 }
@@ -2903,7 +2945,7 @@ margin-bottom:15px;
 	text-shadow: 1px 1px 3px black;
 }
 .tv-show .shows-title .fb_iframe_widget {
-	margin-top: 0;
+	margin-top: 60px;
 }
 .tv-show .shows-sponsor {
 	float: right;
@@ -2963,7 +3005,6 @@ margin-bottom:15px;
 	padding: 12px 35px 40px;
 	overflow: hidden;
 }
-<<<<<<< HEAD
 
 /* navigation mobile  ==================================== */
 .tv-show #shows-nav ul li.page-item-mobile {
@@ -3014,8 +3055,6 @@ margin-bottom:15px;
 	max-height: 1000px;
 	opacity: 1;
 }
-=======
->>>>>>> 29edd38adee3bd4235265b7dd15954ec2fe9ca1e
 /* when to watch ==================================== */
 .tv-show #when-to-watch {
 	width: 100%;
@@ -3026,21 +3065,27 @@ margin-bottom:15px;
 .tv-show #when-to-watch .when-label {
 	float: left;
 }
+.tv-show #when-to-watch img{
+	width: 160px;
+	height: auto;
+	float: right;
+}
 .tv-show #when-to-watch .when-label h3 {
 	color: #ffffff;
-	font: 24px/29px 'jubilat', serif;
+	font: 13px/20px 'jubilat', serif;
 	font-weight: 300;
+	text-align: right;
 }
-
 .tv-show .schedule-item {
 	float: left;
-	margin: 5px 0 0 35px;
+	margin: 5px 0 0 15px;
 	border-left: 2px solid #848484;
 	height: 49px;
-	padding-left: 20px;
+	padding-left: 16px;
 	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 }
-.tv-show .schedule-item:nth-child(n+5) {
+
+.tv-show .schedule-item:nth-child(n+7) {
 	display: none;
 }
 .tv-show .schedule-item .episode-title {
@@ -3052,6 +3097,7 @@ margin-bottom:15px;
 	color: #ffffff;
 	font-size: 15px;
 	display: block;
+	padding-top: 12px;
 }
 
 .tv-show .show-btn {
@@ -3165,7 +3211,7 @@ margin-bottom:15px;
 /* video description ==================================== */
 .tv-show #description-area {
 	position: relative;
-	margin-top: 35px;
+	margin-top: 15px;
 	color: #ffffff;
 	overflow: hidden;
 }
@@ -3177,7 +3223,6 @@ margin-bottom:15px;
 .tv-show #description-area .unify {
 	width: 100%;
 	padding-right: 340px;
-	min-height: 325px;
 }
 .tv-show #description-area .unify .show-video-date {
 	font-size: 12px;
@@ -3195,7 +3240,7 @@ margin-bottom:15px;
 	line-height: 130%;
 	margin: 0 0 18px; 
 }
-.tv-show #description-area .ad-block {
+.tv-show .ad-block {
 	position: absolute;
 	margin-bottom: 20px;
 	width: 300px;
@@ -3223,7 +3268,11 @@ margin-bottom:15px;
 	top: 20px;
 	cursor: pointer;
 }
+.video-description{clear: both;}
 /* social share ==================================== */
+.tv-show .social-buttons li{float: left;}
+.tv-show .socialite.googleplus-one{width: 50px;}
+.tv-show .twitter-share{width: 70px;}
 .tv-show .social-share {
 	margin-top: 10px;
 }
@@ -3278,57 +3327,40 @@ margin-bottom:15px;
 	background-color: #0097ca;
 }
 /* sportsman locator ==================================== */
-
+.tv-show .widget #locateChannel{width: 310px;height: 160px;}
 .tv-show #locateChannel {
-	position: absolute;
-	height: 60px;
-	right: 0;
-	bottom: 0;
-	box-shadow: inset 0px 2px 3px black;
-}
-.tv-show #channelControlsContainer {
-	margin-top: 10px;
+	width: 300px;	
+	background: #003965;
+	height: 150px;
+	padding: 10px;
+	margin-top: 20px;
+	position: relative;
 }
 .tv-show #channelControlsContainer img {
-	float: left;
-	height: 31px;
-	margin: 5px 32px 0 20px;
-}
-.tv-show #channelControlsContainer #channelControls {
-	float: left;
+	margin: -14px 0 19px -14px;
 }
 .tv-show #channelControls #zip {
-	width: 128px;
+	width: 110px;
 	height: 40px;
-	background-color: #555555;
-	color: #cccccc;
+	color: black;
 	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 	font-size: 13px;
 	border:1px solid #777777;
 	text-align: center;
-	margin-right: 28px;
+	float: left;
 }
 .tv-show #channelControls a {
 	margin-top: 2px;
 }
 .tv-show #channelControls a input {
-	width: 170px;
+	width: 160px;
 	height: 40px;
-	margin: 0px 20px 0 0;
-	background: rgba(99,140,94,1);
-background: -moz-linear-gradient(top, rgba(99,140,94,1) 0%, rgba(99,140,94,1) 44%, rgba(61,99,61,1) 100%);
-background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(99,140,94,1)), color-stop(44%, rgba(99,140,94,1)), color-stop(100%, rgba(61,99,61,1)));
-background: -webkit-linear-gradient(top, rgba(99,140,94,1) 0%, rgba(99,140,94,1) 44%, rgba(61,99,61,1) 100%);
-background: -o-linear-gradient(top, rgba(99,140,94,1) 0%, rgba(99,140,94,1) 44%, rgba(61,99,61,1) 100%);
-background: -ms-linear-gradient(top, rgba(99,140,94,1) 0%, rgba(99,140,94,1) 44%, rgba(61,99,61,1) 100%);
-background: linear-gradient(to bottom, rgba(99,140,94,1) 0%, rgba(99,140,94,1) 44%, rgba(61,99,61,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', endColorstr='#3d633d', GradientType=0 );
-	border: none;
-	border-radius: 4px;
-	box-shadow: 0 4px 5px rgba(0,0,0,0.3);
+	background: #911901;
+	float: right;
 	color: white;
 	font: 16px 'Open Sans', Helvetica, Arial, sans-serif;
 	font-weight:bold;
+	border: none;
 }
 /* tv-show sponsors ==================================== */
 #sponsors-area {
@@ -3628,7 +3660,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 .tv-show .schedule-area {
 	position: relative;
 	width: 100%;
-	padding-top: 50px;
+	padding: 50px 0 40px;
 	background: white;
 }
 .schedule-area-left {
@@ -3806,9 +3838,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#638c5e', end
 	text-align: left;
 	border: none;
 }
-#upcoming .on-tonight a {margin: 0; color: white; font-size: 12px;text-transform: uppercase; padding-top: 12px;display: inline-block;}
+#upcoming .on-tonight a {margin: 0; color: white; font-size: 12px;text-transform: uppercase; padding-top: 12px;display: inline-block;font-family: 'Open Sans', Helvetica, Arial, sans-serif;}
 #upcoming .on-tonight a:hover {color: red;}
-#upcoming .on-tonight h3 {margin: 0; color: white; font-size: 23px;}
+#upcoming .on-tonight h3 {margin: 0; color: white; font-size: 23px;font-family: 'Open Sans', Helvetica, Arial, sans-serif;}
 #upcoming .tiled-grid .col{margin: 0;padding: 16px 0 18px 8px;border-right: 1px solid rgba(204, 204, 204, 0.23);}
 #upcoming .tiled-grid .tiled-grid-entry span{display: block;}
 #upcoming .flex-direction-nav .flex-prev{right: -55px;left: auto;background: url(images/shows/left-arrow.png) no-repeat 0 0 #dedddd !important;}
@@ -3845,13 +3877,6 @@ box-sizing: border-box;
 	background-color: white;
 }
 
-
-/*** video filter ***/
-#video-filter li{display: inline-block;padding: 10px;}
-#video-filter li a{color: #252525;padding: 5px 10px;cursor: pointer; font-size: 16px;}
-#video-filter li a.video-thumb-active{color: white;background: #555555;}
-.no-mo-videos{text-align: center;padding: 80px 0 20px;}
-.paginate-videos{cursor: pointer;}
 
 /*** Border to Border Show ***
 ******************************/
@@ -4499,7 +4524,7 @@ box-sizing: border-box;
    margin:0;
    position:absolute;
    top:8px;
-   right:255px;
+   right:150px;
 }
 .full-content .h-search-open {
    display: block !important;
@@ -4511,7 +4536,7 @@ box-sizing: border-box;
    padding:10px;
    width:100%;
 }
-.full-content .search-field input{width: 95%;}
+
 .full-content #imo-tophat{display: none;}
 .full-content .gsc-results-wrapper-overlay{top:42px !important;padding: 0 20px !important;}
 
@@ -5059,7 +5084,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 
 
 
-
+/*** mobile adhesion ***/
+.mobile-adhesion{width:320px;position:fixed;bottom:0;z-index: 999999999;margin:auto;left: 0;right: 0;}
 
 /*** subscribe fixed ***/
 .fixed-connect{width:100%;height:42px;position:fixed;bottom:0;background:#545454;color:#fff;font-family:"Source Sans Pro","Helvetica",Arial,sans-serif;font-weight: 600;opacity:.99;z-index:999999999999999;}
@@ -5118,8 +5144,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 	 border-width: 1px 0;
 	 clear: both;
 }
+.content-banner-section.footer-728 .mdl-banner{width: 728px;}
 .footer {
-    padding:0 0 90px;
+    padding:0 0 140px;
     color:#999;
     position:relative;
     z-index:2;
@@ -5734,7 +5761,8 @@ table.likes-leaderboard .entry-title {
 	.tv-show .host-info {text-align: center;}
 	
 	#sponsors-area .sponsor-img {margin: 0 1.3% 20px;}
-
+	#upcoming .tiled-grid .tiled-grid-entry.on-tonight {background: #003965;padding: 30px 0 0 10px;text-align: left;width: 120px;}
+	
 } /* End of media */
 
 @media only screen and (max-width: 880px) {
@@ -6018,7 +6046,11 @@ table.likes-leaderboard .entry-title {
     .tv-show .host-info img {max-width: 100%;max-height: 100px;}
     
     #sponsors-area .sponsor-img {margin: 0 2.1% 20px; width: 45%;}
-    
+    .tv-show #locateChannel{position: relative;}
+	#upcoming .tiled-grid .tiled-grid-entry.on-tonight{padding: 20px 5px 0;}
+	#upcoming .flex-direction-nav{display: none;}
+	#show-store .store-left {padding-left: 20px;}
+	
 } /* End of media */
 @media only screen and (max-width: 760px) {
 
@@ -6078,7 +6110,10 @@ table.likes-leaderboard .entry-title {
 	.tv-show .channelControls #zip {margin: 0 0 20px 0;}
 	.tv-show .channelControls a {margin-top: 2px;}
 	.tv-show .channelControls a input {width: 170px;height: 41px;margin: 0;}
-
+	#video-filter li{padding: 0;}
+	#video-filter li a{padding: 5px 8px;}
+	.tv-show .shows-player-area{padding-left: 20px;padding-right: 20px;}
+	
 } /* End of media */
 @media only screen and (max-width: 700px) {
 	.search-field input{width: 90%;}
@@ -6160,9 +6195,9 @@ table.likes-leaderboard .entry-title {
     .tv-show #locateChannel {display: none;}
     #show-featured #video-thumbs li {margin: 0 1.1% 12px;}
     #show-destination .play-btn {top: 15%;}
-    
      #sponsors-area .sponsor-img {margin: 0 2% 20px; width: 45%;}
-    
+     #show-store .store-left {padding-left: 10px;}
+    #show-featured #video-filter {margin: 20px 0 25px 3px;display: block;}
 } /* End of media */
 
 @media only screen and (max-width: 610px) {
@@ -6518,7 +6553,7 @@ table.likes-leaderboard .entry-title {
     .recipes-holder {margin-bottom:20px; margin-top:32px;}
     .aside-post-panel { text-align:center; }
     /* footer */
-    .footer {padding-bottom:0;}
+    .footer {padding-bottom:50px;}
     .intermedia { padding:26px 0 20px;}
     .intermedia h4 {font-size:20px;margin:0 0 23px; padding:0 10px 16px;}
     .footer h5 {display:none;}
@@ -6560,6 +6595,12 @@ table.likes-leaderboard .entry-title {
 	.w-sport {position: relative;width: 100%;}
 	
 	#sponsors-area .sponsor-img {width: 29.9%;margin: 0 1.35% 20px;}
+	#show-store .store-left, #show-store .widget_store-widget {float: none;width: 100%;}
+	#show-store .store-left {height: auto;text-align: center;padding-bottom: 20px;border-bottom: 1px solid #ccc;}
+	#show-store .store-sep{display: none;}
+	.tv-show .content-banner-section{margin: 0;}
+	.tv-show #description-area{margin: 10px 0 0;}
+	.tv-show #description-area .unify{min-height: auto;}
 	
 } /* End of media */
 @media only screen and (max-width: 510px) {
@@ -6599,6 +6640,7 @@ table.likes-leaderboard .entry-title {
 
 } /* End of media */
 @media only screen and (max-width: 340px) {
+	.alignright, .alignleft{display: block;float: none;margin: 0 auto;}
 	.snap-drawer-right{
 		width: 266px;
 	}
@@ -6674,6 +6716,24 @@ table.likes-leaderboard .entry-title {
 	.btn-green:first-child {margin-bottom: 10px;}
 	.w2w-schedule h1 {font-size: 25px;}
 	.w-sport-head h2 {font-size: 22px;}
+	.tv-show div.sponsors-wrap{padding-left: 10px;padding-right: 10px;}
+	.tonight-schedule .flex-direction-nav a{width: 20px;height: 100px;}
+	.tonight-schedule .flex-direction-nav a.flex-prev{background: url(images/arrow-left.png) no-repeat 10px 30px #dedddd;left: 0;}
+	.tonight-schedule .flex-direction-nav a.flex-next{background: url(images/arrow-right.png) no-repeat 10px 30px #dedddd;right: 40px;}
+	#upcoming {height: auto;overflow-y: visible;}
+	#upcoming .tonight-bg{display: none;}
+	#upcoming .tiled-grid .tiled-grid-entry.on-tonight{padding: 4px 0;text-align: center;width: 100%;height: auto;}
+	.tonight-schedule {margin-left: 0;width: 100%;padding:0clear: both;overflow: hidden;}
+	.tonight-schedule ul.slides li{height: 100px;}
+	#upcoming .tiled-grid .col{padding: 16px 60px 18px 8px;}
+	.tv-show .shows-player-area{padding-left: 15px;padding-right: 15px;}
+	#show-featured{padding-top: 20px;}
+	#show-featured .thumbs-full .loading-gif{top:-16px;}
+	.video-filter li{padding: 5px 0;text-align: center;border-right: 1px solid #ccc;}
+	#show-featured .thumbs-full .loading-gif.bottom-paginate{bottom: -55px;left: 6px;}
+	.tv-show #description-area{margin: 0;}	
+	.w2w-schedule .show-btn{width: 220px;font-size: 12px;}
+	
 } /* End of media */
 
 /* Webkit Hacks  */

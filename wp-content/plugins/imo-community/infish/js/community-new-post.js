@@ -1,5 +1,5 @@
 jQuery(document).ready(function($) {
-
+	
 	//Get post_type from community config
 	var postTypes = IMO_COMMUNITY_CONFIG.post_types;
 
@@ -211,21 +211,21 @@ jQuery(document).ready(function($) {
 	//****************** UPLOAD IMAGES **********************
 	//*******************************************************
 	$("#new-post-form #image-upload").change(function(ev){//After the user selects a file
-
+		
 		var fileInput = ev.currentTarget;
-
+		
 		if (!fileInput.value) {
 			//If they don't select anything... Do nothing
 		    //console.log("Choose an Image to upload.");
 		} else {
-
+			
 			$('#progressBar').fadeIn();
 
 			filepicker.setKey('ANCtGPesfQI6nKja0ipqBz');
-
+			
 		    filepicker.store(fileInput, function(FPFile){//Begin the upload
-
-
+					
+					
 		    		//If upload is good:
 		            //console.log("Store successful:", FPFile);
 
@@ -234,7 +234,7 @@ jQuery(document).ready(function($) {
 
 		            //Check if post is image
 		            if (FPFile.mimetype.indexOf("image") != -1) {
-
+						
 			            var newAttachment = {};
 			            newAttachment.img_url = FPFile.url;
 			            newAttachment.post_type = "photo";
@@ -260,7 +260,7 @@ jQuery(document).ready(function($) {
 			            	ev.preventDefault();
 
 			            	$(".add-photo-link").slideDown();
-
+							
 
 			            	$attachmentTemplate.slideUp();
 
@@ -281,14 +281,19 @@ jQuery(document).ready(function($) {
 
 
 		        }, function(FPError) {
-		            //console.log(FPError.toString());
+		            	console.log(FPError.toString());
+		           		alert("We're sorry, your image is bigger than your catch! Please upload a smaller file size less than 8MB.");
 		        }, function(progress) {
 		        	//upload progress
 		            //console.log("Loading: "+progress+"%");//PROGRESS INDICATOR!!!!!
 
 		            //progress bar
+		            
 		            $('#progressBar div').css("width",progress*3 + "px");
 		            $('#progressBar span').text("Uploading: "+progress+"%");
+		           // if(progress == 100){
+			           // $('#progressBar span').text("Upload Complete!");
+		           // }
 
 		        }
 		   );

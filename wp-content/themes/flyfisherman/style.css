@@ -83,10 +83,10 @@ a.category-name-link:hover{background: #2f7bb2;color: white;}
 #community-wrap .posts-list {margin: 30px 0 16px;border-top: none;}
 .community-header .btn-default{width: 236px;margin: 14px 10px 0;}
 .community-header .dropdown-menu{top: -14px;width: 100%;margin: 0;}
-.post-type-archive-reader_photos .general{border: none;width: 647px;}
-.post-type-archive-reader_photos .sidebar-area .singl-post-photo{margin-bottom: 20px;background: #3b3b3b;}
-.post-type-archive-reader_photos .posts-list span{font-style: normal;}
-.post-type-archive-reader_photos .btn-default.mobile{margin: 10px auto;display: block;width: 95%;}
+#community-wrap .general{border: none;width: 647px;}
+#community-wrap .sidebar-area .singl-post-photo{margin-bottom: 20px;background: #3b3b3b;}
+#community-wrap .posts-list span{font-style: normal;}
+#community-wrap .btn-default.mobile{margin: 10px auto;display: block;width: 95%;}
 .share-photo-now{
 	padding: 14px 0 6px;
 	width: 100%;
@@ -104,8 +104,8 @@ a.category-name-link:hover{background: #2f7bb2;color: white;}
 .single-reader_photos .post-date, .single-reader_photos .post-header .wpsocialite.small{display: inline-block !important;}
 .single-reader_photos .post-header .wpsocialite.small iframe{top: 10px;}
 .single-reader_photos .post-header .wpsocialite.small .socialite{height: auto !important;}
-.post-type-archive-reader_photos .dif-post h3{margin-bottom: 2px;}
-.post-type-archive-reader_photos .replies a:after{background: none;border-radius: none;}
+#community-wrap .dif-post h3{margin-bottom: 2px;}
+#community-wrap .replies a:after{background: none;border-radius: none;}
 .photos-title{float: left;color: white;padding: 0 30px;text-align: left;}
 .community-pager{
 	text-align: center;

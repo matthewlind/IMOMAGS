@@ -13,6 +13,12 @@
 <!--[if IE 8]>
 <html id="ie8" <?php language_attributes(); ?>>
 <![endif]-->
+<!--[if IE 9]>
+<html id="ie9" <?php language_attributes(); ?>>
+<![endif]-->
+<!--[if IE 10]>
+<html id="ie10" <?php language_attributes(); ?>>
+<![endif]-->
 <!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
 <html <?php language_attributes(); ?>>
 <!--<![endif]-->
@@ -84,9 +90,6 @@
 	<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-	<!-- Adobe Typekit Fonts -->
-	<script type="text/javascript" src="//use.typekit.net/mxo7xsy.js"></script>
-	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<!-- Font Awsome Icons -->
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 	
@@ -283,9 +286,15 @@
 <?php 
 	include_once get_stylesheet_directory() . "/network-bar.php";
 	fixed_connect_footer(); 
-?>
+	if ( mobile() ) { ?><div class="mobile-adhesion"><?php imo_ad_placement("mobile_adhesion_320x50"); ?></div><?php } ?>
+
 <div id="page" class="snap-content smooth-menu">
-	<?php if (mobile() == false && tablet() == false) { imo_ad_placement("site_skin_1x1"); } ?>
+	<?php if (mobile() == false && tablet() == false) { ?>
+		<div class="mdl-banner mdl-expandable">
+			<?php imo_ad_placement("pushdown_1080x90"); ?>
+		</div>
+	<?php } ?>
+	<?php imo_ad_placement("site_skin_1x1"); ?>
 	<div class="hfeed wrapper <?php if(get_field("full_width") == true){ echo ' full-width full-content'; }else if( is_page_template('show-page.php') || is_category("tv") || is_category("show-galleries") || (is_single() && (has_post_format( 'video' ) || in_category("show-galleries")) ) ){ echo ' tv-show full-content'; } ?>" data-role="content" role="main">
 	    <div class="layout-frame">
 	        <div id="branding" class="header clearfix" role="banner">
@@ -385,15 +394,15 @@
         </div><!-- #branding -->
 		<?php if(get_field("full_width") != true){ ?>
 	        <div class="content-banner-section">
-	        	<?php if (mobile() == false) { ?>
-		        	<div class="mdl-banner">
+	        	<?php if (mobile()) { ?>
+	        		<div class="mob-mdl-banner">
+						<?php imo_ad_placement("mobile_leaderboard_320x50"); ?>
+					</div>
+				<?php }else{ ?>
+					<div class="mdl-banner mdl-728">
 						<?php imo_ad_placement("atf_leaderboard_728x90"); ?>
 					</div>
-					<?php }else{ ?>
-						<div class="mob-mdl-banner">
-							<?php imo_ad_placement("mobile_leaderboard_320x50"); ?>
-						</div>
-					<?php } ?>
+				<?php } ?>
 	        </div>
         <?php } ?>
         <div id="main" class="main clearfix js-responsive-layout">

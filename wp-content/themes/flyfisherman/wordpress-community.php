@@ -11,8 +11,9 @@ register_deactivation_hook( __FILE__, 'imo_wordpress_community_flush' );
 //FF Wordpress Community Scripts Config
 add_action("wp_enqueue_scripts","ff_wp_community_scripts");
 function ff_wp_community_scripts() {
-
-    if ( is_post_type_archive( "reader_photos" )  ) {
+	$photos = get_post_type();
+	
+    if ( is_post_type_archive( "reader_photos" ) || $photos == "reader_photos" ) {
 
         wp_enqueue_script( 'bootstrap-dropdown', get_stylesheet_directory_uri() . '/js/bootstrap-dropdown.js', array("jquery",'underscore'), '0.1', true );
         wp_enqueue_script( 'gf-wp-community-listing', get_stylesheet_directory_uri() . '/js/community-listing.js', array("jquery",'underscore','bootstrap-dropdown'), '0.1', true );
@@ -59,7 +60,26 @@ add_filter( 'query_vars', 'imo_wordpress_534_add_custom_query_var' );
 
 add_action('init', 'category_cpt_rewrites');
 function category_cpt_rewrites() {
+	
+	/*
+	$photos = get_field("photos_menu", "options"); 
+		if( $photos ){ 
+			foreach( $photos as $photo ){  
+				$categoryList = get_term_by('id', $photo, 'category'); 
+				$slug = $categoryList->slug;
+				$rule = "photos" . '/'.$slug.'/(.+?)/?$';
+			    $rewrite = 'index.php?post_type=' . "reader_photos" . '&category_name=$matches[1]&category_name_2='.$slug;
+			    add_rewrite_rule($rule,$rewrite,'top');
+				
+				$rule = "photos" . '/'.$slug;
+			    $rewrite = 'index.php?post_type=' . "reader_photos" . '&category_name='.$slug;
+			    add_rewrite_rule($rule,$rewrite,'top');
+				
+			} 
+		} 
+	$flies = get_field("flies_menu", "options"); 
 
+	
     $rule = "photos" . '/fish-photos/(.+?)/?$';
     $rewrite = 'index.php?post_type=' . "reader_photos" . '&category_name=$matches[1]&category_name_2=fish-photos';
     add_rewrite_rule($rule,$rewrite,'top');
@@ -83,7 +103,7 @@ function category_cpt_rewrites() {
     $rule = "photos" . '/flies';
     $rewrite = 'index.php?post_type=' . "reader_photos" . '&category_name=flies';
     add_rewrite_rule($rule,$rewrite,'top');
-
+*/	
  //    $rule = "photos" . '/hunting';
  //    $rewrite = 'index.php?post_type=' . "reader_photos" . '&category_name=hunting';
  //    add_rewrite_rule($rule,$rewrite,'top');

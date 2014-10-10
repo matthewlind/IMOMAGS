@@ -149,7 +149,7 @@ $(document).ready(function($) {
 	        		//Hide featured posts
 			        if(this.slug == 'home-featured'){
 						$articleTemplate.hide();
-						}
+					}
 					// Place video button on videos
 					if(this.slug == 'video'){
 						$articleTemplate.find("a.no-olay").addClass("video-excerpt");

@@ -1,5 +1,6 @@
 <?php 
 $code = $_GET['ad_code'];
+$title = $_GET['gallery_title'];
 
 if (!empty($_GET['size'])) {
   $size = $_GET['size'];
@@ -25,7 +26,10 @@ node.parentNode.insertBefore(gads, node);
 </script>
 <script type='text/javascript'>
 googletag.cmd.push(function() {
-googletag.defineSlot('/4930/<?php echo $code; ?>/ATF_Medium_Rectangle_300x250', [300, 250], 'div-atf_medium_rectangle_300x250').addService(googletag.pubads());
+googletag.defineSlot('/4930/<?php echo $code; ?>/Photo_Gallery_Medium_Rectangle', [[300, 250], [320, 50]], 'div-photo_gallery_medium_rectangle').addService(googletag.pubads());
+
+googletag.pubads().setTargeting("sect","<?php echo $title; ?>");
+googletag.pubads().setTargeting("Audience segment","<?php echo $title; ?>");
 
 googletag.pubads().enableSingleRequest();
 googletag.pubads().enableVideoAds();
@@ -35,9 +39,9 @@ googletag.enableServices();
 
 </head>
 <body>
-<div id='div-atf_medium_rectangle_300x250'>
+<div id='div-photo_gallery_medium_rectangle'>
 		<script type='text/javascript'>
-			googletag.cmd.push(function() { googletag.display('div-atf_medium_rectangle_300x250'); });
+			googletag.cmd.push(function() { googletag.display('div-photo_gallery_medium_rectangle'); });
 		</script>
 	</div>
 

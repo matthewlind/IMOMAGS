@@ -89,14 +89,17 @@ get_header(); ?>
 					$fslug = 'forecasts';
 					$fcategory = get_category_by_slug($fslug);
 					
+					$deerForecasts = 'deer-forecast';
+					$DFcategory = get_category_by_slug($deerForecasts);
+					
 					$tvslug = 'tv';
 					$tvcategory = get_category_by_slug($tvslug);
 					
 					$Galleryslug = 'show-galleries';
-					$Gallerycategory = get_category_by_slug($Galleryslug);
+					$Gallerycategory = get_category_by_slug($Galleryslug);		
 
 					$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-                    $more_query = new WP_Query( 'post_type=post&posts_per_page=20&paged=' . $paged. '&cat=-' . $category->cat_ID.",-".$fcategory->cat_ID.",-".$Gallerycategory->cat_ID.",-".$tvcategory->cat_ID );
+                    $more_query = new WP_Query( 'post_type=post&posts_per_page=20&paged=' . $paged. '&cat=-' . $category->cat_ID.",-".$fcategory->cat_ID.",-".$DFcategory->cat_ID.",-".$Gallerycategory->cat_ID.",-".$tvcategory->cat_ID );
                     $i++;
 
                     while ($more_query->have_posts()) : $more_query->the_post(); ?>
@@ -109,7 +112,19 @@ get_header(); ?>
                                 <?php //if(function_exists('primary_and_secondary_categories')){echo primary_and_secondary_categories();} ?>
                             </div>
                             <h3 class="entry-title">
-                                <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
+                                <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">
+	                                 <?php 	
+		                                $id = get_the_ID();
+		                                $promo = get_field( "promo_title", $id );
+		                       	 		if ($promo) {
+	
+		                       	 			$loopTitle = $promo;
+		                       	 		}else{
+			                       	 		$loopTitle = get_the_title();
+		                       	 		}
+	
+		                               echo $loopTitle ?>                                
+                                </a>
                             </h3>
                             <span>by <?php the_author(); ?></span>
                             <!--<a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('list-thumb');?></a>-->
@@ -122,15 +137,7 @@ get_header(); ?>
                             </div><!-- .entry-content -->
                         </div>
                     </div><!-- #post -->
-                    <?php if ( (($i - (($paged -1) * 2 ))%6) == 0 ): ?>
-                        <?php if ( mobile() ){ ?>
-                        <div class="image-banner posts-image-banner">
-                            <?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>
-                        </div>
-                        <?php } ?>
-                    <?php endif;?>
-
-                <?php $i++; endwhile; ?>
+                    <?php endwhile; ?>
                 </div>
 				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="pager-holder js-responsive-section">
                     <a href="#" class="btn-base">Load More</a>

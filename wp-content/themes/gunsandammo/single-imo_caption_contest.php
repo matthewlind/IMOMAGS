@@ -131,27 +131,7 @@ if(get_field('featured_stories')){
 			        <div class="article-brief">
 			         	<div class="addthis-below" <?php if(mobile()){ echo 'style="width: 320px;"'; } ?>><?php if (function_exists('imo_add_this')) {imo_add_this();} ?></div>
 				    </div>
-					<?php 
-					if(get_the_author() != "admin" && get_the_author() != "infisherman"){ ?>
-			        <div class="author-info article-brief">
-			                <div class="author-avatar">
-			                    <?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'twentytwelve_author_bio_avatar_size', 68 ) ); ?>
-			                </div><!-- .author-avatar -->
-			                <div class="author-description">
-			                    <h2><?php printf( __( 'About %s', 'twentytwelve' ), get_the_author() ); ?></h2>
-			                    <p><?php the_author_meta( 'description' ); ?>
-				                    <div class="author-link">
-				                        <a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author">
-				                            <?php printf( __( 'View all stories by %s <span class="meta-nav">&rarr;</span>', 'twentytwelve' ), get_the_author() ); ?>
-				                        </a>
-				                    </div><!-- .author-link -->
-			                    </p>
-			                   
-			                </div><!-- .author-description -->
-			            </div><!-- .author-info -->
-				    </div>
-				    <?php } ?>
-				    
+									    
 				    <?php imo_ad_placement("e_commerce_widget"); ?>	
 				    	   
 				    <?php if ( function_exists('yarpp_plugin_activate') ): ?>

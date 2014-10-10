@@ -44,7 +44,7 @@ class Forecast_Widget extends WP_Widget {
 	background: url(img/Deer-Forecast-2013-300.jpg) no-repeat center top;	
 	border-top: 3px solid #FF6600;
 	width: 300px;
-	height: 250px;
+	height: auto;
 	display: block;
 }
 .forecast-widget .forecast-widget-sponsor{
@@ -82,62 +82,53 @@ class Forecast_Widget extends WP_Widget {
 </style>	
 <div class="widget forecast-widget">	
 	<div class="forecast-widget-sponsor">
-		<!-- 240x60 Ad: -->
-	    <script type="text/javascript">
-	    document.write(unescape('%3Cscript src="http://ad.doubleclick.net/adj/<?php echo $dartDomain; ?>/;camp=<?php echo $campaign; ?>;sect=;manf=;pos=;page=;subs=;sz=240x60;dcopt=;tile=;ord='+dartadsgen_rand+'?"%3E%3C/script%3E'));
-	    </script>
-	    <noscript>
-	    <a href="http://ad.doubleclick.net/adj/<?php echo $dartDomain; ?>/;camp=<?php echo $campaign; ?>;sect=;manf=;pos=;page=;subs=;sz=240x60;dcopt=;tile=;ord=6545512368?">
-	    <img src="http://ad.doubleclick.net/ad/<?php echo $dartDomain; ?>/;camp=<?php echo $campaign; ?>;sect=;manf=;pos=;page=;subs=;sz=240x60;dcopt=;tile=;ord=6545512368?" border="0" />
-	    </a>
-	    </noscript>
-	    <!-- END 240x60 Ad: -->
+		<?php imo_ad_placement("Deer_Forecast_Sponsor_Logo_240x60"); ?>
 	</div>
-	<a href="http://www.gameandfishmag.com/<?php echo $url; ?>/" class="forecast-image" onclick="_gaq.push(['_trackEvent','Forecast Widget','<?php echo $campaign; ?>','<?php echo $url; ?>']);"><img src="<?php echo $img; ?>" alt="<?php echo $title; ?>" /></a>
+	<a href="http://www.gameandfishmag.com/deer-forecast/" class="forecast-image" onclick="_gaq.push(['_trackEvent','Forecast Widget','<?php echo $campaign; ?>','<?php echo $url; ?>']);"><img src="<?php echo $img; ?>" alt="<?php echo $title; ?>" /></a>
 	<div class="state-filter">
 		<form name="menuform" class="forecast-menu">
 			<select name="menu4">
 				<option value="">Choose State: Deer Forecast</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/alabama-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">alabama</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/rocky-mountain-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">arizona</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/arkansas-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">arkansas</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/california-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">california</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/new-england-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">connecticut</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/florida-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">florida</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/georgia-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">georgia</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/idaho-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">idaho</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/illinois-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">illinois</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/indiana-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">indiana</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/iowa-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">iowa</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/great-plains-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">kansas</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/kentucky-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">kentucky</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/louisiana-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">louisiana</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/maine-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">maine</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/new-england-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">massachusetts</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/michigan-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">michigan</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/minnesota-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">minnesota</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/mississippi-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">mississippi</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/missouri-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">missouri</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/great-plains-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">nebraska</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/new-england-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">new hampshire</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/rocky-mountain-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">new mexico</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/new-york-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">new york</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/north-carolina-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">north carolina</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/great-plains-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">north dakota</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/ohio-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">ohio</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/oklahoma-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">oklahoma</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/washington-oregon-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">oregon</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/pennsylvania-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">pennsylvania</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/new-england-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">rhode island</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/south-carolina-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">south carolina</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/great-plains-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">south dakota</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/tennessee-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">tennessee</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/texas-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">texas</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/vermont-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">vermont</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/virginia-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">virginia</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/washington-oregon-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">washington</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/west-virginia-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">west virginia</option>
-				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/wisconsin-<?php echo $species; ?>-forecast-<?php echo $year; ?>/#forecast">wisconsin</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/alabama-<?php echo $url; ?>-forecast-<?php echo $year; ?>">alabama</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/rocky-mountain-<?php echo $url; ?>-forecast-<?php echo $year; ?>">arizona</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/arkansas-<?php echo $url; ?>-forecast-<?php echo $year; ?>">arkansas</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/california-<?php echo $url; ?>-forecast-<?php echo $year; ?>">california</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/new-england-<?php echo $url; ?>-forecast-<?php echo $year; ?>">connecticut</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/florida-<?php echo $url; ?>-forecast-<?php echo $year; ?>">florida</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/georgia-<?php echo $url; ?>-forecast-<?php echo $year; ?>">georgia</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/idaho-<?php echo $url; ?>-forecast-<?php echo $year; ?>">idaho</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/illinois-<?php echo $url; ?>-forecast-<?php echo $year; ?>">illinois</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/indiana-<?php echo $url; ?>-forecast-<?php echo $year; ?>">indiana</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/iowa-<?php echo $url; ?>-forecast-<?php echo $year; ?>">iowa</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/great-plains-<?php echo $url; ?>-forecast-<?php echo $year; ?>">kansas</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/kentucky-<?php echo $url; ?>-forecast-<?php echo $year; ?>">kentucky</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/louisiana-<?php echo $url; ?>-forecast-<?php echo $year; ?>">louisiana</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/maine-<?php echo $url; ?>-forecast-<?php echo $year; ?>">maine</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/new-england-<?php echo $url; ?>-forecast-<?php echo $year; ?>">massachusetts</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/michigan-<?php echo $url; ?>-forecast-<?php echo $year; ?>">michigan</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/minnesota-<?php echo $url; ?>-forecast-<?php echo $year; ?>">minnesota</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/mississippi-<?php echo $url; ?>-forecast-<?php echo $year; ?>">mississippi</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/missouri-<?php echo $url; ?>-forecast-<?php echo $year; ?>">missouri</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/great-plains-<?php echo $url; ?>-forecast-<?php echo $year; ?>">nebraska</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/new-england-<?php echo $url; ?>-forecast-<?php echo $year; ?>">new hampshire</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/rocky-mountain-<?php echo $url; ?>-forecast-<?php echo $year; ?>">new mexico</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/new-york-<?php echo $url; ?>-forecast-<?php echo $year; ?>">new york</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/north-carolina-<?php echo $url; ?>-forecast-<?php echo $year; ?>">north carolina</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/great-plains-<?php echo $url; ?>-forecast-<?php echo $year; ?>">north dakota</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/ohio-<?php echo $url; ?>-forecast-<?php echo $year; ?>">ohio</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/oklahoma-<?php echo $url; ?>-forecast-<?php echo $year; ?>">oklahoma</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/washington-oregon-<?php echo $url; ?>-forecast-<?php echo $year; ?>">oregon</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/pennsylvania-<?php echo $url; ?>-forecast-<?php echo $year; ?>">pennsylvania</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/new-england-<?php echo $url; ?>-forecast-<?php echo $year; ?>">rhode island</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/south-carolina-<?php echo $url; ?>-forecast-<?php echo $year; ?>">south carolina</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/great-plains-<?php echo $url; ?>-forecast-<?php echo $year; ?>">south dakota</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/tennessee-<?php echo $url; ?>-forecast-<?php echo $year; ?>">tennessee</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/texas-<?php echo $url; ?>-forecast-<?php echo $year; ?>">texas</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/vermont-<?php echo $url; ?>-forecast-<?php echo $year; ?>">vermont</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/virginia-<?php echo $url; ?>-forecast-<?php echo $year; ?>">virginia</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/washington-oregon-<?php echo $url; ?>-forecast-<?php echo $year; ?>">washington</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/west-virginia-<?php echo $url; ?>-forecast-<?php echo $year; ?>">west virginia</option>
+				<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/wisconsin-<?php echo $url; ?>-forecast-<?php echo $year; ?>">wisconsin</option>
 				
 			</select>
 			<input type="button" name="Submit" value="Go" class="forecast-submit" 
@@ -151,44 +142,44 @@ class Forecast_Widget extends WP_Widget {
 				<form name="menuform" class="forecast-menu">
 					<select name="menu4">
 						<option value="">Choose State: Trophy Bucks</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/alabama-trophy-bucks-<?php echo $year; ?>/#forecast">alabama</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/arkansas-trophy-bucks-<?php echo $year; ?>/#forecast">arkansas</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/california-trophy-bucks-<?php echo $year; ?>/#forecast">california</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/new-england-trophy-bucks-<?php echo $year; ?>/#forecast">connecticut</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/florida-trophy-bucks-<?php echo $year; ?>/#forecast">florida</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/georgia-trophy-bucks-<?php echo $year; ?>/#forecast">georgia</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/idaho-trophy-bucks-<?php echo $year; ?>/#forecast">idaho</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/illinois-trophy-bucks-<?php echo $year; ?>/#forecast">illinois</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/indiana-trophy-bucks-<?php echo $year; ?>/#forecast">indiana</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/iowa-trophy-bucks-<?php echo $year; ?>/#forecast">iowa</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/great-plains-trophy-bucks-<?php echo $year; ?>/#forecast">kansas</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/kentucky-trophy-bucks-<?php echo $year; ?>/#forecast">kentucky</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/louisiana-trophy-bucks-<?php echo $year; ?>/#forecast">louisiana</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/maine-trophy-bucks-<?php echo $year; ?>/#forecast">maine</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/new-england-trophy-bucks-<?php echo $year; ?>/#forecast">massachusetts</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/michigan-trophy-bucks-<?php echo $year; ?>/#forecast">michigan</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/minnesota-trophy-bucks-<?php echo $year; ?>/#forecast">minnesota</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/mississippi-trophy-bucks-<?php echo $year; ?>/#forecast">mississippi</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/missouri-trophy-bucks-<?php echo $year; ?>/#forecast">missouri</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/great-plains-trophy-bucks-<?php echo $year; ?>/#forecast">nebraska</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/new-england-trophy-bucks-<?php echo $year; ?>/#forecast">new hampshire</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/rocky-mountain-trophy-bucks-<?php echo $year; ?>/#forecast">new mexico</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/new-york-trophy-bucks-<?php echo $year; ?>/#forecast">new york</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/north-carolina-trophy-bucks-<?php echo $year; ?>/#forecast">north carolina</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/great-plains-trophy-bucks-<?php echo $year; ?>/#forecast">north dakota</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/ohio-trophy-bucks-<?php echo $year; ?>/#forecast">ohio</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/oklahoma-trophy-bucks-<?php echo $year; ?>/#forecast">oklahoma</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/washington-oregon-trophy-bucks-<?php echo $year; ?>/#forecast">oregon</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/pennsylvania-trophy-bucks-<?php echo $year; ?>/#forecast">pennsylvania</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/new-england-trophy-bucks-<?php echo $year; ?>/#forecast">rhode island</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/south-carolina-trophy-bucks-<?php echo $year; ?>/#forecast">south carolina</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/great-plains-trophy-bucks-<?php echo $year; ?>/#forecast">south dakota</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/tennessee-trophy-bucks-<?php echo $year; ?>/#forecast">tennessee</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/texas-trophy-bucks-<?php echo $year; ?>/#forecast">texas</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/vermont-trophy-bucks-<?php echo $year; ?>/#forecast">vermont</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/virginia-trophy-bucks-<?php echo $year; ?>/#forecast">virginia</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/west-virginia-trophy-bucks-<?php echo $year; ?>/#forecast">west virginia</option>
-						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/wisconsin-trophy-bucks-<?php echo $year; ?>/#forecast">wisconsin</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/alabama-trophy-bucks-<?php echo $year; ?>">alabama</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/arkansas-trophy-bucks-<?php echo $year; ?>">arkansas</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/california-trophy-bucks-<?php echo $year; ?>">california</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/new-england-trophy-bucks-<?php echo $year; ?>">connecticut</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/florida-trophy-bucks-<?php echo $year; ?>">florida</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/georgia-trophy-bucks-<?php echo $year; ?>">georgia</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/idaho-trophy-bucks-<?php echo $year; ?>">idaho</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/illinois-trophy-bucks-<?php echo $year; ?>">illinois</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/indiana-trophy-bucks-<?php echo $year; ?>">indiana</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/iowa-trophy-bucks-<?php echo $year; ?>">iowa</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/great-plains-trophy-bucks-<?php echo $year; ?>">kansas</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/kentucky-trophy-bucks-<?php echo $year; ?>">kentucky</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/louisiana-trophy-bucks-<?php echo $year; ?>">louisiana</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/maine-trophy-bucks-<?php echo $year; ?>">maine</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/new-england-trophy-bucks-<?php echo $year; ?>">massachusetts</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/michigan-trophy-bucks-<?php echo $year; ?>">michigan</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/minnesota-trophy-bucks-<?php echo $year; ?>">minnesota</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/mississippi-trophy-bucks-<?php echo $year; ?>">mississippi</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/missouri-trophy-bucks-<?php echo $year; ?>">missouri</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/great-plains-trophy-bucks-<?php echo $year; ?>">nebraska</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/new-england-trophy-bucks-<?php echo $year; ?>">new hampshire</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/rocky-mountain-trophy-bucks-<?php echo $year; ?>">new mexico</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/new-york-trophy-bucks-<?php echo $year; ?>">new york</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/north-carolina-trophy-bucks-<?php echo $year; ?>">north carolina</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/great-plains-trophy-bucks-<?php echo $year; ?>">north dakota</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/ohio-trophy-bucks-<?php echo $year; ?>">ohio</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/oklahoma-trophy-bucks-<?php echo $year; ?>">oklahoma</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/washington-oregon-trophy-bucks-<?php echo $year; ?>">oregon</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/pennsylvania-trophy-bucks-<?php echo $year; ?>">pennsylvania</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/new-england-trophy-bucks-<?php echo $year; ?>">rhode island</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/south-carolina-trophy-bucks-<?php echo $year; ?>">south carolina</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/great-plains-trophy-bucks-<?php echo $year; ?>">south dakota</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/tennessee-trophy-bucks-<?php echo $year; ?>">tennessee</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/texas-trophy-bucks-<?php echo $year; ?>">texas</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/vermont-trophy-bucks-<?php echo $year; ?>">vermont</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/virginia-trophy-bucks-<?php echo $year; ?>">virginia</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/west-virginia-trophy-bucks-<?php echo $year; ?>">west virginia</option>
+						<option value="http://www.gameandfishmag.com/<?php echo $species; ?>-forecast/wisconsin-trophy-bucks-<?php echo $year; ?>">wisconsin</option>
 						
 					</select>
 					<input type="button" name="Submit" value="Go" class="forecast-submit" 
@@ -215,7 +206,7 @@ class Forecast_Widget extends WP_Widget {
 		$instance['url'] = strip_tags($new_instance['url']);
 		$instance['campaign'] = strip_tags($new_instance['campaign']);
 		$instance['year'] = strip_tags($new_instance['year']);
-		$instance['species'] = strip_tags($new_instance['species']);
+		$instance['species'] = $new_instance['species'];
 		$instance['trophy'] = $new_instance['trophy'];
 		
 		return $instance;
@@ -230,7 +221,7 @@ class Forecast_Widget extends WP_Widget {
 		$url = strip_tags($instance['url']);
 		$campaign = strip_tags($instance['campaign']);
 		$year = strip_tags($instance['year']);
-		$species = strip_tags(strtolower($instance['species']));
+		$species = strtolower($instance['species']);
 		$trophy = $instance['trophy'];
 		
 ?>			

@@ -55,12 +55,15 @@ $slug_tv = get_post( $post )->post_name;
 	<?php get_template_part( 'content/tv-show/show-header' ); ?>
 		<div class="sidebar-area">
 			<div class="sidebar">
-				<div class="widget_advert-widget">
+				<div class="widget_advert-widget widget">
 					<?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>
 				</div>
-			</div>
-			<?php get_sidebar(); ?>
+				<?php the_widget( 'Schedule_Widget' ); ?>
+				<div class="widget"><?php get_template_part( 'widgets/sportsmanLocator' ); ?></div>
+				<?php the_widget( 'imo\SubscribeWidget' ); ?>
+			</div><!-- end of .sidebar -->
 		</div><!-- end of .sidebar-area -->
+
 		<div class="show-child-general">
 			<div class="show-child-general-frame">
 				<div class="show-header js-responsive-section">
@@ -78,28 +81,26 @@ $slug_tv = get_post( $post )->post_name;
 				<?php get_template_part( "content/tv-show/{$slug_tv}" ); ?>
 			</div><!-- end of .show-child-general-frame -->
 		</div><!-- end of .show-child-general -->
-	</div><!-- end of #shows_player_area :::: this div ends an open div in the show header template-->
-	<div class="wrap4padding"><div class="border-stripes"></div></div>
-	<?php get_template_part( "content/tv-show/show-schedule" ); ?>
-	
-	<div id="imo-store">
-			
-	</div>
-	
-	<?php get_template_part( 'content/tv-show/show-sponsors' ); ?>
-	</div>
-	
-</div>
+	</div><!-- end of #show-destination -->
+</div><!-- end of #shows_player_area :::: this div ends an open div in the show header template-->
+<div class="wrap4padding"><div class="border-stripes"></div></div>
+<?php 
+//get_template_part( "content/tv-show/show-schedule" );
+get_template_part( 'content/tv-show/show-store' ); 
+get_template_part( 'content/tv-show/show-sponsors' ); ?>
 
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
+
+
+
+
 	

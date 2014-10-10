@@ -153,7 +153,19 @@ get_header(); ?>
 	                                <?php //if(function_exists('primary_and_secondary_categories')){echo primary_and_secondary_categories();} ?>
 	                            </div>
 	                            <h3 class="entry-title">
-	                                <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
+	                                <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">
+		                                <?php 	
+		                                $id = get_the_ID();
+		                                $promo = get_field( "promo_title", $id );
+		                       	 		if ($promo) {
+	
+		                       	 			$loopTitle = $promo;
+		                       	 		}else{
+			                       	 		$loopTitle = get_the_title();
+		                       	 		}
+	
+		                               echo $loopTitle ?>
+	                                </a>
 	                            </h3>
 	                            <span>by <?php the_author(); ?></span>
 	                            <!--<a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('list-thumb');?></a>-->
@@ -167,14 +179,7 @@ get_header(); ?>
 	                        </div>
 	                    </div><!-- #post -->
 
-                    <?php if ( (($i - (($paged -1) * 2 ))%6) == 0 ): ?>
-                        <?php if ( mobile() ){ ?>
-                        <div class="image-banner posts-image-banner">
-                            <?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>
-                        </div>
-                        <?php } ?>
-                    <?php endif;?>
-
+                    
                 <?php $i++; endwhile; ?>
                 </div>
 				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="pager-holder js-responsive-section">

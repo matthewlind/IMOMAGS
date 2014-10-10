@@ -14,7 +14,6 @@ $acf_byline = get_field("byline",$postID);
 <div id="post-<?php the_ID(); ?>" <?php post_class('full-post'); ?>>
     <?php if ( is_single() ) : ?>
     <?php if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(); } ?>
-    <div class="sponsor"><?php imo_ad_placement("sponsor_logo_240x60"); ?></div>
     <div class="post-header">
         <h1 class="entry-title"><?php the_title(); ?></h1>
         <?php else : ?>
@@ -40,6 +39,7 @@ $acf_byline = get_field("byline",$postID);
     <?php } ?>
     <!-- .entry-header -->
     <div class="entry-content-holder">
+    	<div class="sponsor"><?php imo_ad_placement("sponsor_logo_240x60"); ?></div>
         <?php if ( is_search() ) : // Only display Excerpts for Search ?>
         <div class="entry-summary">
             <?php the_excerpt(); ?>

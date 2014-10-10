@@ -85,8 +85,8 @@
 .votebartext {color: #c9242c; float:left;}
 
 .ga-madness-wrapper{width: 100%;}
-.ga-madness .addthis-below{width: 250px;clear: both;margin-top: 70px;}
-.regions{width: 49%;display: inline-block;}
+.ga-madness .addthis-below{width: 250px;clear: both; margin-top: 70px;}
+.regions{width: 49%; display: inline-block; }
 .region-final{width: 100%;margin: 0 0 0;}
 .region-final .column6 .matchup{border-width: 0;margin-top: 35px;}
 .region-final .column6 .rank-top{border-bottom: 1px solid #2d2d2d;margin: 0;padding: 0 10px 8px;}
@@ -201,6 +201,8 @@ ul#ga-madness-nav li a:hover{
 }
 .ga-madness .action-closed:before{content: "RESULTS";}
 
+.ga-madness .bob-promo-image{width:300px;height:125px;margin: 0 auto;display: block;}
+.ga-madness .bob-promo-image img{margin-top: 10px}
 
 .basic-popup .modal-footer{width: 100%;margin-top: 30px;}
 .modal-footer {margin-top: 10px;}
@@ -511,4 +513,21 @@ ul#ga-madness-nav li a:hover{
 
 ul#ga-madness-nav li {
 	border: none !important;
+}
+
+/* 
+Target Firefox specifically 
+- Note this will target any Gecko browser - 
+*/
+@-moz-document url-prefix() {
+	.regions {
+		margin-top: 60px;
+	}
+	.finalsadvert {
+		width: 240px;
+		margin: 0 auto 0;
+	}
+	#bob_presenting_sponsor {
+			
+	}
 }

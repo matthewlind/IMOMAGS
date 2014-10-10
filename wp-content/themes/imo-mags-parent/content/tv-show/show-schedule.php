@@ -14,12 +14,12 @@
 						?>
 					</ul>
 					<div class="show-btn">
-						<a href="#">remind me to watch</a>
+						<a href="<?php echo get_field('remind_me',$acfID); ?>" target="_blank">remind me to watch</a>
 					</div>
 					<div class="grey-line"></div>
 				</div><!-- end of .w2w-schedule -->
 				<div class="w2w-get-sport">
-					<img src="/wp-content/themes/imo-mags-parent/images/logos/sportsman-channel.png">
+					<img src="/wp-content/themes/imo-mags-parent/images/logos/sc-finder-logo.png">
 					<h4>GET SPORTSMAN CHANEL</h4>
 					<script>
 					function popwin(loc,winname,w,h,scroll,resize) {

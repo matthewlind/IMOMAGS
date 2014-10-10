@@ -13,6 +13,12 @@
 <!--[if IE 8]>
 <html id="ie8" <?php language_attributes(); ?>>
 <![endif]-->
+<!--[if IE 9]>
+<html id="ie9" <?php language_attributes(); ?>>
+<![endif]-->
+<!--[if IE 10]>
+<html id="ie10" <?php language_attributes(); ?>>
+<![endif]-->
 <!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
 <html <?php language_attributes(); ?>>
 <!--<![endif]-->
@@ -128,6 +134,7 @@
 	<?php if ( defined('JETPACK_SITE') && mobile() == false && tablet() == false): ?>
 		<script type='text/javascript' src='http://ads.jetpackdigital.com/sites/<?php print JETPACK_SITE; ?>/jpd.js'></script>
 	<?php endif; ?>
+	<script async src="http://cdn.mediavoice.com/nativeads/script/IMOutdoors/GnFTEST.js"></script>
 </head>
 
 <body <?php body_class(); ?>  >
@@ -244,6 +251,12 @@
 <?php fixed_connect_footer(); ?>
 
 <div id="page" class="snap-content smooth-menu">
+	<?php if (mobile() == false && tablet() == false) { ?>
+		<div class="mdl-banner mdl-expandable">
+			<?php imo_ad_placement("pushdown_1080x90"); ?>
+		</div>
+	<?php } ?>
+
 	<?php if (mobile() == false && tablet() == false) { imo_ad_placement("site_skin_1x1"); } ?>
 	<div class="hfeed wrapper <?php if(get_field("full_width") == true){ echo ' full-width full-content'; }else if(is_single() && has_post_format( 'video' ) || is_category("tv")){ echo ' tv-show full-content'; } ?>" data-role="content" role="main">
 	    <div class="layout-frame">
@@ -469,14 +482,17 @@
            <a href="#">X</a>
        </div>
         <div class="content-banner-section">
-         	<?php if (mobile() == false) { ?>
-        	<div class="mdl-banner">
-				<?php imo_ad_placement("atf_leaderboard_728x90"); ?>
-			</div>
-			<?php }else{ ?>
-				<div class="mob-mdl-banner">
+         	<?php if (mobile()) { ?>
+        		<div class="mob-mdl-banner">
 					<?php imo_ad_placement("mobile_leaderboard_320x50"); ?>
 				</div>
+			<?php }else{ ?>
+				<div class="mdl-banner mdl-728">
+					<?php imo_ad_placement("atf_leaderboard_728x90"); ?>
+				</div>
+				<!--<div class="mdl-banner mdl-expandable">
+					<?php //imo_ad_placement("pushdown_1080x90"); ?>
+				</div>-->
 			<?php } ?>
         </div>
 

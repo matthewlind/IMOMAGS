@@ -19,10 +19,9 @@ jQuery(document).ready(function () {
 	jQuery(".air-times-btn").click(function(){
 		jQuery(this).parents().eq(2).find(".m-shows-airtimes").toggleClass("height-auto");
 	});
+
 	
-
-
-
+	
 	jQuery(".page-item-mobile-btn").click(function(event){
 		event.stopPropagation();
 		jQuery(this).find(".mobile-dropdown-menu").toggleClass("mob-m-visible");
@@ -33,8 +32,6 @@ jQuery(document).ready(function () {
 			jQuery(".mobile-dropdown-menu").removeClass("mob-m-visible");
 		}
 	});	
-	
-		
 	// End TV-show functions
 	
 	if(jQuery(".featured-area").length && jQuery(".posts-list").length){
@@ -411,7 +408,6 @@ jQuery(window).scroll(function () {
 		jQuery('.fixed-connect-mobile').fadeOut("fast");
 	}
 });
-
 jQuery('.fixed-connect .close').click(function(){
 	jQuery('.fixed-connect').remove();
 });

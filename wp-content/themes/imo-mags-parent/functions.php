@@ -38,9 +38,7 @@ function sub_footer(){ ?>
 			<?php imo_ad_placement("btf_medium_rectangle_300x250"); ?>	
 		</div>
 		<div class="sub-box fb-box">
-			<div class="newsletter-box bottom-newsletter">
-				<?php the_widget("Signup_Widget_Header", "title=GET THE NEWSLETTER!"); ?>
-			</div>
+			<?php the_widget("Signup_Widget", "title=GET THE NEWSLETTER!"); ?>
 		</div>
 	</div>
 	<?php
@@ -1474,6 +1472,7 @@ if(function_exists("register_field_group"))
 		),
 		'menu_order' => 0,
 	));
+	
 	register_field_group(array (
 		'id' => 'acf_tv-abouthosts-page',
 		'title' => 'TV - About&Hosts Page',
@@ -1677,145 +1676,75 @@ function fixed_connect_footer(){
 	   <?php } ?>
 		</div>
 		<div class="newsletter">
+			<?php
+			$formID = get_option('newsletter_id');
+	
+			$url = "http://".$_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI];
+		    $errorcode = $_GET["errorcode"];
+		    $errorcontrol = $_GET["errorControl"];
+		
+		    switch($errorcode) {
+		
+		        case "1" : $strError = "An error has occurred while attempting to save your subscriber information."; break;
+		        case "2" : $strError = "The list provided does not exist."; break;
+		        case "3" : $strError = "Information was not provided for a mandatory field. (".$errorcontrol.")"; break;
+		        case "4" : $strError = "Please provide an email address.".$errorcontrol; break;
+		        case "5" : $strError = "Information provided is not unique. (".$errorcontrol.")"; break;
+		        case "6" : $strError = "An error has occurred while attempting to save your subscriber information."; break;
+		        case "7" : $strError = "An error has occurred while attempting to save your subscriber information."; break;
+		        case "8" : $strError = "Subscriber already exists."; break;
+		        case "9" : $strError = "An error has occurred while attempting to save your subscriber information."; break;
+		        case "10" : $strError = "An error has occurred while attempting to save your subscriber information."; break;
+		          //case "11" : This error does not exist.
+		        case "12" : $strError = "The subscriber you are attempting to insert is on the master unsubscribe list or the global unsubscribe list."; break;
+		        default : $strError = "Other"; break;
+		          //case "13" : Check that the list ID and/or MID specified in your code is correct.
+			}
+			?>
+														
 			<div class="title">Get The Newsletter</div>
+			
+			<form action="http://cl.exct.net/subscribe.aspx?lid=<?php echo $formID; ?>" name="subscribeForm" method="post">
+				<input type="hidden" name="thx" value="<?php echo $url; ?>#subscribe-success" />
+				<input type="hidden" name="err" value="<?php echo $url; ?>" />
+				<input type="hidden" name="MID" value="6283180" />
+		        
 
-				<script type="text/javascript">
-				/***********************************************
-				* Textarea Maxlength script- � Dynamic Drive (www.dynamicdrive.com)
-				* This notice must stay intact for legal use.
-				* Visit http://www.dynamicdrive.com/ for full source code
-				***********************************************/
-				function ismaxlength(obj, mlength)
-				{
-				  if (obj.value.length > mlength)
-				    obj.value = obj.value.substring(0, mlength)
+				<fieldset>
+					<input alt="Email Address" type="text" name="Email Address" size="25" maxlength="100" value="" placeholder="Enter Your Email..." >
+			        <!--<input alt="Third Party" type="checkbox" checked="checked" value="22697" name="interests" id="receive" />
+			        <input type="hidden" name="OptoutInfo" value="">
+			        <div class="opt-in">Yes, I'd like to receive offers from your partners</div>-->
+			        
+					<input type="submit" value="Sign Up" style="margin-left: 20px;" />
+				      
+
+				</fieldset>
+			</form>
+			<script type="text/javascript">
+				var querystring = window.location.search.substring(1);
+				var vars = querystring.split('&');
+				var subsSuccess = window.location.hash.substr(1)
+		
+				if(subsSuccess == "subscribe-success"){
+					alert('Thank you for subscribing to the <?php echo SITE_NAME; ?> Newsletter.');
 				}
-				</script>
+				else if(vars[0] == "errorcode=1" || vars[0] == "errorcode=2" || vars[0] == "errorcode=3" || vars[0] == "errorcode=4" || vars[0] == "errorcode=5" || vars[0] == "errorcode=6" || vars[0] == "errorcode=7" || vars[0] == "errorcode=8" || vars[0] == "errorcode=9" || vars[0] == "errorcode=10" || vars[0] == "errorcode=12"){
+					alert('<?php echo $strError; ?>');
+				}	
+		
+			</script>
 
-				<form method="post" name="profileform" action="https://intermediaoutdoors.informz.net/clk/remote_post.asp">
-
-					<SCRIPT LANGUAGE="JavaScript">
-						function moveCaret(event, objThisField, objNextField, objPrevField, nSize)
-						{
-							var keynum;
-							if(window.event) // IE
-								keynum = event.keyCode;
-							else if(event.which) // Netscape/Firefox/Opera
-								keynum = event.which;
-							if (keynum == 37 || keynum == 39 || keynum == 38 || keynum == 40 || keynum == 8) //left, right, up, down arrows, backspace
-							{
-								var nCaretPosition = getCaretPosition(objThisField);
-								if (keynum == 39 && nCaretPosition == nSize)
-									moveToNextField(objNextField);
-								if ((keynum == 37 || keynum == 8) && nCaretPosition == 0)
-									moveToPrevField(objPrevField);
-								return;
-							}
-							if (keynum == 9) //Tab
-							return;
-						if (objThisField.value.length >= nSize && objNextField != null)
-							moveToNextField(objNextField);
-					}
-					function moveToNextField(objNextField)
-					{
-						if (objNextField == null)
-							return;
-						objNextField.focus();
-						if (document.selection) //IE
-						{
-							oSel = document.selection.createRange ();
-							oSel.moveStart ('character', 0);
-							oSel.moveEnd ('character', objNextField.value.length);
-							oSel.select();
-						}
-						else
-						{
-						   objNextField.selectionStart = 0;
-					       objNextField.selectionEnd = objNextField.value.length;
-						}
-					}
-					function moveToPrevField(objPrevField)
-					{
-						if (objPrevField == null)
-							return;
-						objPrevField.focus();
-						if (document.selection) //IE
-						{
-							oSel = document.selection.createRange ();
-							oSel.moveStart ('character', 0);
-							oSel.moveEnd ('character', objPrevField.value.length);
-							oSel.select ();
-						}
-						else
-						{
-						   objPrevField.selectionStart = 0;
-					       objPrevField.selectionEnd = objNextField.value.length;
-						}
-					}
-					function getCaretPosition(objField)
-					{
-						var nCaretPosition = 0;
-						if (document.selection) //IE
-						{
-						   var oSel = document.selection.createRange ();
-						   oSel.moveStart ('character', -objField.value.length);
-						   nCaretPosition = oSel.text.length;
-						}
-						if (objField.selectionStart || objField.selectionStart == '0')
-					       nCaretPosition = objField.selectionStart;
-						return nCaretPosition;
-					}
-					</script>
-
-					<fieldset>
-						<input alt="Email Address" type="text" name="email" size="25" maxlength="100" value="" placeholder="Enter Your Email..." >
-				        <script type="text/javascript">
-							function ShowDescriptions(SubDomain,val, brid) {
-								myWindow = window.open(SubDomain + '/description.asp?brid=' + brid + '&id=' + val, 'Description', 'location=no,height=180,width=440,resizeable=no,scrollbars=yes,dependent=yes');
-								myWindow.focus()
-							}
-						</script>
-
-				        <input alt="Third Party" type="checkbox" checked="checked" value="22697" name="interests" id="receive" />
-				        <input type="hidden" name="OptoutInfo" value="">
-				        <div class="opt-in">Yes, I'd like to receive offers from your partners</div>
-						<input type="submit" value="Sign Up" name="update" >
-				        <input type=hidden name=fid value=<?php echo $formID; ?>>
-						<input type=hidden name=b value=4038>
-						<input type=hidden name=returnUrl value="http://<?php echo $_SERVER['SERVER_NAME']; ?>/?zmsg=1">
-
-					</fieldset>
-				</form>
-				<script language='javascript'>
-				fullURL = document.URL
-				sAlertStr = ''
-				nLoc = fullURL.indexOf('&')
-				if (nLoc == -1)
-					nLoc = fullURL.length
-				if (fullURL.indexOf('zreq=') > 0){
-					sRequired = fullURL.substring(fullURL.indexOf('zreq=')+5, nLoc)
-					if (sRequired.length > 0){
-						sRequired = ',' + sRequired.replace('%20',' ')
-						sRequired = sRequired.replace(/,/g,'\n  - ')
-						sAlertStr = 'The following item(s) are required: '+sRequired + '\n'
-					}
-
-				}
-				if (sAlertStr.length > 0){
-					alert(sAlertStr)
-				}else if( document.URL.indexOf('zmsg=1') > -1){
-					alert('Thank you for subscribing.')
-				}
-
-				</script>
-
+		
+			<div class="follow" style="margin-top: -8px;">
+            	<div class="follow-us">Follow us:</div>
+                <?php social_networks(); ?>
 			</div>
-			<div class="follow">
-              <div class="follow-us">Follow us:</div>
-              <?php social_networks(); ?>
-			</div>
+				
 		</div>
+		
 	</div>
+</div>
 
 <?php }
 
@@ -2170,10 +2099,85 @@ if(function_exists("register_field_group"))
 				'maxlength' => '',
 			),
 			array (
+				'key' => 'field_54297167d11cb',
+				'label' => 'Seasons',
+				'name' => 'seasons',
+				'type' => 'repeater',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_53ceb4a4f00ca',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
+
+				'instructions' => 'List which seasons to display in the season filter. Please list them from newest to oldest.',
+				'sub_fields' => array (
+					array (
+						'key' => 'field_542972383f704',
+						'label' => 'Season',
+						'name' => 'season',
+						'type' => 'text',
+						'column_width' => '',
+						'default_value' => '',
+						'placeholder' => 'Season 8',
+						'prepend' => '',
+						'append' => '',
+						'formatting' => 'html',
+						'maxlength' => '',
+					),
+				),
+				'row_min' => '',
+				'row_limit' => '',
+				'layout' => 'table',
+				'button_label' => 'Add Row',
+			),
+			array (
+				'key' => 'field_53ff6b8b9f459',
+				'label' => 'Category Filter',
+				'name' => 'category_filter',
+				'type' => 'taxonomy',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_53ceb4a4f00ca',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
+
+				'instructions' => 'Choose the categories to filter by.',
+				'taxonomy' => 'category',
+				'field_type' => 'checkbox',
+				'allow_null' => 0,
+				'load_save_terms' => 0,
+				'return_format' => 'id',
+				'multiple' => 0,
+			),
+			array (
 				'key' => 'field_53f4b2515ed4c',
 				'label' => 'Sponsors',
 				'name' => 'sponsors',
 				'type' => 'repeater',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_53ceb4a4f00ca',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
+
 				'instructions' => 'Add sponsor images.',
 				'sub_fields' => array (
 					array (
@@ -2324,13 +2328,57 @@ if(function_exists("register_field_group"))
 	));
 }
 
+if(function_exists("register_field_group"))
+{
+	register_field_group(array (
+		'id' => 'acf_scroll-tracking',
+		'title' => 'Scroll Tracking',
+		'fields' => array (
+			array (
+				'key' => 'field_5410b1fb2b42d',
+				'label' => 'Enable GA scroll tracking',
+				'name' => 'scroll_tracking',
+				'type' => 'true_false',
+				'message' => '',
+				'default_value' => 0,
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'options_page',
+					'operator' => '==',
+					'value' => 'acf-options',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+}
+
+
+
 add_action( 'wp_ajax_nopriv_load-filter', 'prefix_load_cat_posts' );
 add_action( 'wp_ajax_load-filter', 'prefix_load_cat_posts' );
 function prefix_load_cat_posts () {
+	
+	$idObj = get_category_by_slug('tv'); 
+	$id = $idObj->term_id;
+	$acfID = 'category_' . $id;
+	$seasons = get_field("season_filter", $acfID);
+	
     $cat_id = $_POST[ 'cat' ];
     $offset = $_POST[ 'offset' ];
     
-    if($cat_id == "all"){
+    if($cat_id == "most-recent"){
 	     $args = array( 
 		    'tax_query' => array(
 			    array(
@@ -2371,6 +2419,7 @@ function prefix_load_cat_posts () {
 	
 	$i = $offset;
 	
+
 	foreach ( $posts as $post ) {
 		$i++;
 		setup_postdata( $post ); 
@@ -2378,16 +2427,23 @@ function prefix_load_cat_posts () {
 		$post_id = $post->ID;
 		$slug = $post->post_name;
 		$thumb_url = wp_get_attachment_url( get_post_thumbnail_id($post_id) );
-		$cats = get_the_category( $post_id );
-		
 		$video_id = get_post_meta($post_id, '_video_id', TRUE);
 		$videoLink = !empty($post_id) ? get_permalink($post_id) :  site_url() . $_SERVER['REQUEST_URI']; 
 		$adServerURL = "http://ad.doubleclick.net/pfadx/" .  get_option("dart_domain", _imo_dart_guess_domain())  ."/tv";
-		?>
-		<li id="thumb-<?php echo $i; ?>">
+		$cats = get_the_category( $post_id );
+		foreach($cats as $cat){
+			$catSlug = $cat->slug;
+			if(strpos($catSlug,'season') !== false){
+				$catSlug = $cat->slug;
+				$catName = $cat->name;
+			}
+		} ?>
+
+		<li id="thumb-<?php echo $i; ?>" data-videoid="<?php echo $video_id; ?>">
 			<div class="data-description" style="display:none;"><?php the_content(); ?></div>
 			<a class="video-thumb" data-slug="<?php echo $slug; ?>" data-img_url="<?php echo $thumb_url; ?>" data-post_url="<?php echo get_permalink(); ?>" data-title="<?php echo get_the_title(); ?>" data-date="<?php the_time('F jS, Y'); ?>" data-videoid="<?php echo $video_id; ?>" adServerURL="<?php echo $adServerURL; ?>" videoLink="<?php echo $videoLink; ?>">
 				<?php the_post_thumbnail("show-thumb"); ?>
+				<span class="season-number"><?php echo $catName; ?></span>
 				<h3><?php the_title(); ?></h3>
 				<span class="play-btn"></span>
 			</a>

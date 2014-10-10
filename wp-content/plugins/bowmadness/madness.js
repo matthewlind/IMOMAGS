@@ -19,8 +19,8 @@
 			dataType: "json",
 			
 			success: function(resp, status, jqxhr) {
-				madnessround = resp.activeround;
-				jQuery('#madtabs').tabs({selected: (madnessround-1)});
+				madnessround = resp[0].activeround;
+				jQuery('#madtabs').tabs({active: (madnessround - 3)});
 			}
 
 		});
@@ -52,7 +52,7 @@
 						jQuery(".match94").html(writeGAMBracket(finall));
 					}
 					else {
-						jQuery("#madtabs-"+(parseInt(round)-1)+" .mreg"+region).html(writeGAMBracket(resp.data));
+						jQuery("#madtabs-"+(parseInt(round) - 1)+" .mreg"+region).html(writeGAMBracket(resp.data));
 					}
 				}
 				else {
@@ -170,8 +170,6 @@
 	
 	
 	function makeGAMPopup() {
-
-		
 		
 		 jQuery(".closedm").on("click", function() {
 			
@@ -198,21 +196,12 @@
 					pdata.player2link_href = pdata.player2link;
 					delete pdata.player1link;
 					delete pdata.player2link;
-			 
-					/*var popads = {
-						'maps' : 'maps-BoB-popup-358x90.jpg',
-						'rage' : 'rage-BoB-popup-358x90.jpg',
-						'scent' : 'scent-lok-BoB-popup-358x90.jpg',
-						'trail' : 'trail-cam-BoB-popup-358x90.jpg',
-						'zeiss' : 'zeiss-BoB-popup-358x90.jpg'
-					}
-					*/
 					
 					var randomInt = Math.floor((Math.random() * 4) + 0);
 					var randomPopad = popads[randomInt];
 					
 					var regions = {'1':'Compound A', '2':'Compound B', '3':'Crossbows A', '4':'Crossbows B'}
-					var roundtitles = {/*'2':'First Round', */'3':'First Round', '4':'Sweet Sixteen', '5':'Elite Eight', '6':'Final Four', '7':'Championship'}
+					var roundtitles = {/*'2':'First Round', */'3':'First Round', '4':'Sweet Sixteen', '5':'Elite Eight', '6':'Final Four', '7':'Championship','8':'Championship'}
 					
 					var campaigns = new Array('handgunsmadness', 'riflesmadness', 'arsmadness', 'shotgunsmadness', 'zeiss');
 					pdata.campaign = campaigns[parseInt(pdata.region)-1];
@@ -272,14 +261,11 @@
 								//var randomInt = Math.floor((Math.random() * 4) + 0);
 								
 								//var randomPopad = popads[randomInt];
+								jQuery("#popupAdRight .popupad").remove();
 								
-								googletag.cmd.push(function() {
+								jQuery("#popupAdRight").append('<div id="div-bob_region_'+ region +'_medium_rectangle" class="popupad"><iframe id="bracket-iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-bracket.php?ad_code=imo.bowhunting&bracket=battle_of_the_bows&size=bob_region_'+ region +'_medium_rectangle"></iframe></div>');
 									
-									googletag.pubads().clear('div-bob_region_'+ region-1 +'_medium_rectangle');
-									
-									googletag.display('div-bob_region_' + region + '_medium_rectangle');								
 								
-								});
 								
 								_gaq.push(['_trackPageview',"/" + window.location.pathname + "/match"+pdata.mid_data_mid]);
 								
@@ -292,6 +278,9 @@
 		 
 		 		 
 		 jQuery(".activem").on("click", function() {
+		 	
+		 	var finalRound = jQuery(this).parent().hasClass("final-modal");
+		 	console.log(finalRound);
 		 	var pdata;
 		 	var region = jQuery(this).data("region");
 		 	var mid = jQuery(this).data("mid");
@@ -326,14 +315,6 @@
 						
 					});
 					
-				/*	var popads = {
-						'handgunsmadness' : 'maps-BoB-popup-358x90.jpg',
-						'riflesmadness' : 'rage-BoB-popup-358x90.jpg',
-						'arsmadness' : 'scent-lok-BoB-popup-358x90.jpg',
-						'shotgunsmadness' : 'trail-cam-BoB-popup-358x90.jpg',
-						'zeiss' : 'zeiss-BoB-popup-358x90'
-					}
-				*/
 					popads[0] = 'maps-BoB-popup-358x90.jpg';
 					popads[1] = 'rage-BoB-popup-358x90.jpg';
 					popads[2] = 'scent-lok-BoB-popup-358x90.jpg';
@@ -465,17 +446,9 @@
 									//+'camp='+campaign+';sect=;manf=;pos=;page=ga_madness;subs=;sz=300x250;'
 									//+'dcopt=;tile=1;ord='+(Math.floor((Math.random()) * 100000000))+'></script>';
 									//postscribe('#gpt-ad-1386782139095-3',bidadtag);
-									
-									jQuery('#div-bob_region_1_medium_rectangle').empty();
-									jQuery('#div-bob_region_2_medium_rectangle').empty();
-									jQuery('#div-bob_region_3_medium_rectangle').empty();
-									jQuery('#div-bob_region_4_medium_rectangle').empty();
-									
-									googletag.cmd.push(function() {
-										//googletag.pubads().clear('div-bob_region_'+ region-1 +'_medium_rectangle');
-										googletag.display('div-bob_region_'+region+'_medium_rectangle');
-									});
-									
+
+									jQuery("#popupAdRight .popupad").remove();
+									jQuery("#popupAdRight").append('<div id="div-bob_championship_medium_rectangle" class="popupad"><iframe id="bracket-iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-bracket.php?ad_code=imo.bowhunting&bracket=battle_of_the_bows&size=bob_championship_medium_rectangle"></iframe></div>');									
 								}, 200);
 							}
 						}

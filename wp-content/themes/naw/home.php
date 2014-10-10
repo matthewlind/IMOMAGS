@@ -77,14 +77,6 @@ get_header(); ?>
                         <h2>Latest</h2>
                     </div>
                     <div class="cross-site-feed" term=""></div>
-                        <?php if ( (($i - (($paged -1) * 2 ))%6) == 0 ): ?>
-                        <?php if ( mobile() ){ ?>
-                        <div class="image-banner posts-image-banner">
-                            <?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>
-                        </div>
-                        <?php } ?>
-                    <?php endif;?>
-
                 </div>
 				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="pager-holder js-responsive-section">
                     <a href="#" class="btn-base cross-site-feed-more-button">Load More</a>

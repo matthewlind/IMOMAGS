@@ -174,13 +174,15 @@ font-size: 14px;
 .flex-gallery-slide-out {
 	position:relative;
 	overflow: hidden;
-	z-index: 9000;
+	z-index: 99999999;
 	height:100%;
 	float: left;
 	padding: 15px 15px 0px 0px;
 	color:white;
 	visibility: hidden;
 	background: #000000;
+	margin-top: 1px;
+	min-height: 610px;
 }
 .flex-gallery-slide-out-inner {
 	visibility: hidden;

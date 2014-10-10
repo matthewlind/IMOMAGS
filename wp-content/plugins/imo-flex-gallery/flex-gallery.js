@@ -442,7 +442,7 @@ function positionSlideOut(callback) {
 			'height':galHeight - adHeight + 58 - commFeatHeight
 		});
 		
-		jQuery('.flex-gallery-slide-out').insertBefore('#footer');	
+		jQuery('.flex-gallery-slide-out').insertBefore('#page');	
 		jQuery('.flex-gallery-slide-out').css({
 			'left':galWidth + galPos.left,
 			'height':galHeight,
