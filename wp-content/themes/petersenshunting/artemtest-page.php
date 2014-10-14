@@ -18,8 +18,7 @@ get_header(); ?>
 <?php get_template_part("widgets/tune-in-widget"); ?>
 <?php imo_sidebar(); ?>
 	
-	<div id="primary" class="general">
-	
+	<div id="primary" class="general">	
 	<div class="widget widget_channel-video-widget">
 	
 	</div>
