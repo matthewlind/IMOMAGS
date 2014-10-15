@@ -138,7 +138,7 @@ document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
 <script type='text/javascript'>
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Adhesive_Medium_Rectangle_300x250', [300, 250], 'div-adhesive_medium_rectangle_300x250').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/ATF_Leaderboard_728x90', [[728, 90]], 'div-atf_leaderboard_728x90').addService(googletag.pubads());
-googletag.defineSlot('/4930/imo.bowhunting/Pushdown_1080x90', [1080, 90], 'div-pushdown_1080x90').addService(googletag.pubads());
+googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Pushdown_1080x90', [1080, 90], 'div-pushdown_1080x90').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/ATF_Medium_Rectangle_300x250', [[300, 250], [300, 600]], 'div-atf_medium_rectangle_300x250').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/BTF_Leaderboard_728x90', [728, 90], 'div-btf_leaderboard_728x90').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/BTF_Medium_Rectangle_300x250', [300, 250], 'div-btf_medium_rectangle_300x250').addService(googletag.pubads());
@@ -168,10 +168,10 @@ googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/battle_of_the_bows/bob_re
 <?php } ?>
 
 <?php if( is_category( 'trading-post' ) || in_category( 'trading-post' ) ){ ?>
-googletag.defineSlot('/4930/imo.shotgunnews/ATF_Button_1', [125, 125], 'div-atf_button_1').addService(googletag.pubads());
-googletag.defineSlot('/4930/imo.shotgunnews/ATF_Button_2', [125, 125], 'div-atf_button_2').addService(googletag.pubads());
-googletag.defineSlot('/4930/imo.shotgunnews/BTF_Button_1', [125, 125], 'div-btf_button_1').addService(googletag.pubads());
-googletag.defineSlot('/4930/imo.shotgunnews/BTF_Button_2', [125, 125],'div-btf_button_2').addService(googletag.pubads());
+googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/ATF_Button_1', [125, 125], 'div-atf_button_1').addService(googletag.pubads());
+googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/ATF_Button_2', [125, 125], 'div-atf_button_2').addService(googletag.pubads());
+googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/BTF_Button_1', [125, 125], 'div-btf_button_1').addService(googletag.pubads());
+googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/BTF_Button_2', [125, 125],'div-btf_button_2').addService(googletag.pubads());
 <?php } ?>
 googletag.pubads().setTargeting("sect","<?php echo $term; ?>");
 googletag.pubads().setTargeting("page","<?php echo $pageName; ?>");
