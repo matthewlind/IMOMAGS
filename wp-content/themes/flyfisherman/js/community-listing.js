@@ -538,11 +538,9 @@ jQuery( document ).ready(function( $ ) {
 				
 				if(typeof(slideData) == 'object'){
 					slide = $('#photoSlider .slides').find("li").attr("slide-count");
-					if(slide == slider.currentSlide){
-						slidez = $(this).attr("title");
-					}
-					console.log(slide);
-					$('#photoGalleryTitle h2 a').html(slidez);
+			
+					console.log(slideData);
+					$('#photoGalleryTitle h2 a').html(slideData.post_title);
 					$('#photoGalleryTitle h2 a').attr("href",slideData.post_url);
 					$('#photoGalleryLike .photoGalleryLikeRight').html('');
 					$('#photoGalleryLike .photoGalleryLikeRight').html( self.templateLikeButton(slideData) );
