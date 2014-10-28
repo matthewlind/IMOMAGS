@@ -72,7 +72,19 @@ $small_game = get_field("small_game");
 				<?php endif; ?>	
 				<ul class="list-links-aside">
 				<?php while(has_sub_field("aside_links")): ?>
-					<li><a href="<?php the_sub_field('aside_link'); the_sub_field('aside_external_link');?>" target="_blank"><?php the_sub_field('aside_link_name'); ?></a><i class="fa fa-angle-double-right"></i></li>
+					<li><a href="<?php
+						$aside_link = get_sub_field("aside_link");
+						$aside_link_name = get_sub_field("aside_link_name");
+						$aside_external_link = get_sub_field("aside_external_link");
+						if ( empty($aside_external_link) ):
+							echo $aside_link;
+						endif;
+							
+						if ( !empty($aside_external_link) ):
+							echo $aside_external_link;
+						endif;
+							?>" target="_blank"><?php echo $aside_link_name; ?></a><i class="fa fa-angle-double-right"></i>
+					 </li>
 				<?php endwhile; ?>
 				</ul>
 			</div>
