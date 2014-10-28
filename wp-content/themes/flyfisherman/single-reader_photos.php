@@ -5,10 +5,7 @@ $dataPos = 0;
 get_header();
 get_template_part( 'nav', get_post_format() );
 
-?>
-
-
-<div id="community-wrap">
+imo_sidebar(); ?>
     <div id="primary" class="general">
         <div id="content" role="main" class="general-frame">
 
@@ -20,8 +17,8 @@ get_template_part( 'nav', get_post_format() );
         </div><!-- #content -->
     </div><!-- #primary -->
 
-</div><!-- #community-wrap -->
-<?php imo_community_sidebar(); ?>
+
+
 
 <?php get_footer(); ?>
                
