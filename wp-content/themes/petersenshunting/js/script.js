@@ -509,7 +509,7 @@ if ($(".the-truck")[0]){
 	    return false;
 	});
 
-	$(".b2b").css({"opacity": 1});	
+	
 	
 	if ($('*[class^="diy"]')[0]) {
 		$(".shows-nav ul li:last-child").addClass("current-menu-item")
@@ -595,6 +595,8 @@ if ($(".the-truck")[0]){
 	    drawLines5();
 	    drawLines6();	    
 	});
+	
+	$(".b2b").css({"opacity": 1});	
 	
 	};
 });
