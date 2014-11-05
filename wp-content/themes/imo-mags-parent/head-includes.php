@@ -25,7 +25,7 @@ else if (is_category()) {
 	$yourcat = get_category ($cat);
 	$term = $yourcat->slug;
 	$pageName = $yourcat->slug;
-
+ 
 }
 else if (is_single()) {
     global $the_ID;
@@ -137,11 +137,11 @@ document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
 </script>
 <script type='text/javascript'>
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Adhesive_Medium_Rectangle_300x250', [300, 250], 'div-adhesive_medium_rectangle_300x250').addService(googletag.pubads());
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/ATF_Leaderboard_728x90', [[728, 90]], 'div-atf_leaderboard_728x90').addService(googletag.pubads());
+googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/ATF_Leaderboard_728x90', [728, 90], 'div-atf_leaderboard_728x90').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Pushdown_1080x90', [1080, 90], 'div-pushdown_1080x90').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/ATF_Medium_Rectangle_300x250', [[300, 250], [300, 600]], 'div-atf_medium_rectangle_300x250').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/BTF_Leaderboard_728x90', [728, 90], 'div-btf_leaderboard_728x90').addService(googletag.pubads());
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/BTF_Medium_Rectangle_300x250', [300, 250], 'div-btf_medium_rectangle_300x250').addService(googletag.pubads());
+googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/BTF_Medium_Rectangle_300x250', [[300, 250], [300, 600]], 'div-btf_medium_rectangle_300x250').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/e_commerce_widget', [564, 252], 'div-e_commerce_widget').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Interstitial_1x1', [1, 1], 'div-interstitial_1x1').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Mobile_Adhesion_320x50', [320, 50], 'div-mobile_adhesion_320x50').addService(googletag.pubads());

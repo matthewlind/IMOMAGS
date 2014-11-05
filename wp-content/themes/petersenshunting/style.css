@@ -11,6 +11,370 @@ General comments (optional).
 */
 
 @import url("../imo-mags-parent/style.css");
+@import url("fonts/iconmoon.css");
+
+/* Helper Classes Test
+===============================================================================*/
+.stupid-p {
+	padding-top: 300px;
+}
+.gap-test {
+	height: 50px;
+}
+/* END Helper Classes Test END
+********************************************************************************/
+
+/* Tune In Artem Test
+===============================================================================*/
+
+.tune-in-container {
+	min-height: 100px;
+	background: #e9e9e9;
+	padding: 0;
+	position: relative;
+	float: left;
+	margin: 30px 0;
+	width: 100%;
+	font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+}
+.t-video-link {
+	float: left;
+	background-color: #bababa;
+	padding: 10px;
+	position: relative;
+}
+.t-video-thumb {
+	width: 131px;
+	height: 80px;
+	background: url("/wp-content/themes/petersenshunting/images/b2b/video-thumb.jpg") no-repeat;
+	background-size: cover;
+	border: 1px solid #898989;
+}
+.t-video-thumb i {
+	display: inline-table;
+	line-height: 80px;
+	font-size: 50px;
+	text-align: center;
+	width: 100%;
+	color: rgba(255,255,255,0.7);
+}
+.t-arrow {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 20px 0 20px 20px;
+	border-color: transparent transparent transparent #bababa;
+	position: absolute;
+	top: 30px;
+	right: -15px;
+}
+.t-show-description {
+	float: left;
+	margin-left: 40px;
+	width: 380px;
+	padding: 10px 0 5px;
+}
+.t-show-description h4 {
+	font-size: 16px;
+}
+.t-schedule {
+	color: #c9242c;
+	font-size: 24px;
+	font-weight: bold;
+	display: block;
+	margin: 4px 0 2px;
+}
+.t-episode-descr {
+	font-size: 16px;
+}
+.t-right-side {
+	float: left;
+	margin-left: 15px;
+}
+.t-triangle {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 50px 0 50px 40px;
+	border-color: transparent transparent transparent #bababa;
+	float: left;
+}
+.t-right-side span {
+	font-size: 22px;
+	font-weight: 900;
+	color: black;
+	display: block;
+	margin: 21px 0 0 60px ;
+}
+.t-remind-me {
+	display: inline-block;
+	background-color: red;
+	font: 700 14px/40px sans-serif;
+	color: white;
+	padding: 0 15px;
+	text-align: center;
+	float: right;
+	font-size: 16px;
+	margin: 25px 20px 0 0;
+	line-height: 50px;
+	background: #d31e0f; /* Old browsers */
+	background: -moz-linear-gradient(top,  #d31e0f 0%, #ad2c22 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d31e0f), color-stop(100%,#ad2c22)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #d31e0f 0%,#ad2c22 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #d31e0f 0%,#ad2c22 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #d31e0f 0%,#ad2c22 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #d31e0f 0%,#ad2c22 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d31e0f', endColorstr='#ad2c22',GradientType=0 ); /* IE6-9 */
+	box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+.t-remind-me:hover {
+	background: #e81b1b; /* Old browsers */
+	background: -moz-linear-gradient(top,  #e81b1b 0%, #c42727 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e81b1b), color-stop(100%,#c42727)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #e81b1b 0%,#c42727 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #e81b1b 0%,#c42727 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #e81b1b 0%,#c42727 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #e81b1b 0%,#c42727 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e81b1b', endColorstr='#c42727',GradientType=0 ); /* IE6-9 */
+	color: white;
+}
+.t-remind-me span {
+	display: none;
+}
+.vis-on-mobile {
+	display: none;
+}
+/* Tune In Artem Test END
+********************************************************************************/
+
+
+
+/* Video Widget Bowhunter TV
+===============================================================================*/
+.video-widget-bowhunter {
+	background: url("/wp-content/themes/petersenshunting/images/video-widget/video-widget-bowhunter-back.jpg") #1b1919 no-repeat;
+	background-size: 100% auto;
+	font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+}
+.vw-head {
+	padding: 20px 10px;
+}
+.vw-head p {
+	color: white;
+	text-align: center;
+	font-size: 15px;
+	font-weight: 900;
+	margin: 10px 0 20px;
+}
+.vw-head p span {
+	color: #dd302a;
+}
+.vw-logo {
+	margin: 0 auto;
+	display: block;
+}
+.vw-logo-sportsman {
+	display: block;
+	width: 114px;
+	margin: 0 auto;
+}
+.vw-video-area {
+	width: 282px;
+	height: 179px;
+	margin: 0 auto;
+	border: 1px solid #333333;
+	position: relative;
+	background-size: cover !important;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+.vw-video-area i {
+	position: absolute;
+	top: 0;
+	line-height: 179px;
+	text-align: center;
+	font-size: 150px;
+	color: white;
+	width: 100%;
+}
+.video-widget-bowhunter .btn-wrap {
+	width: 100%;
+	text-align: center;
+}
+.video-widget-bowhunter .vw-btn {
+	display: inline-block;
+	margin: 15px auto; 
+	text-align: center;
+	padding: 0 10px;
+	line-height: 30px;
+	border-radius: 4px;
+	color: white;
+	font-size: 14px;
+	font-weight: 600;
+	text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+	background: #bb3a1c; /* Old browsers */
+	background: -moz-linear-gradient(top,  #bb3a1c 0%, #97141a 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#bb3a1c), color-stop(100%,#97141a)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #bb3a1c 0%,#97141a 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #bb3a1c 0%,#97141a 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #bb3a1c 0%,#97141a 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #bb3a1c 0%,#97141a 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bb3a1c', endColorstr='#97141a',GradientType=0 ); /* IE6-9 */
+}
+.video-widget-bowhunter .vw-btn {
+	background: #ce421e; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ce421e 0%, #b21e20 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ce421e), color-stop(100%,#b21e20)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ce421e 0%,#b21e20 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ce421e 0%,#b21e20 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ce421e 0%,#b21e20 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #ce421e 0%,#b21e20 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ce421e', endColorstr='#b21e20',GradientType=0 ); /* IE6-9 */
+}
+.vw-line {
+	height: 1px;
+	width: 80%;
+	margin: 5px auto 13px;
+	background: #1b1919; /* Old browsers */
+	background: -moz-linear-gradient(left,  #1b1919 0%, #ffffff 15%, #ffffff 50%, #ffffff 85%, #1b1919 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#1b1919), color-stop(15%,#ffffff), color-stop(50%,#ffffff), color-stop(85%,#ffffff), color-stop(100%,#1b1919)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left,  #1b1919 0%,#ffffff 15%,#ffffff 50%,#ffffff 85%,#1b1919 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left,  #1b1919 0%,#ffffff 15%,#ffffff 50%,#ffffff 85%,#1b1919 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left,  #1b1919 0%,#ffffff 15%,#ffffff 50%,#ffffff 85%,#1b1919 100%); /* IE10+ */
+	background: linear-gradient(to right,  #1b1919 0%,#ffffff 15%,#ffffff 50%,#ffffff 85%,#1b1919 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1b1919', endColorstr='#1b1919',GradientType=1 ); /* IE6-9 */
+}
+.vw-get-sportsman {
+	margin: 0 auto 18px;
+	width: 100%;
+}
+
+.vw-get-sportsman img {
+	display: inline-block;
+	float: left;
+	width: 35px;
+	height: 34px;
+	vertical-align: middle;
+	line-height: 34px;
+	margin: 0 8px 0 25px;
+}
+.vw-get-sportsman a {
+	display: inline-block;
+	float: left;
+	font-size: 14px;
+	color: white;
+	vertical-align: middle;
+	line-height: 34px;
+}
+.vw-get-sportsman i {
+	display: inline-block;
+	float: left;
+	font-size: 34px;
+	color: white;
+	vertical-align: middle;
+	line-height: 34px;
+	margin-left: -3px;
+}
+/* Video Widget Bowhunter TV END
+********************************************************************************/
+
+
+
+/* Sportsman Widget Sidebar
+===============================================================================*/
+.snw-container {
+	background-color: #e8e8e8;
+	width: 310px;
+	font-family: "Open Sans", sans-serif;
+}
+.snw-head {
+	background-color: #7a1320;
+	overflow: hidden;
+}
+.snw-logo {
+	float: left;
+	height: 54px;
+	width: 207px;
+	padding: 12px 0 0 23px;	
+	background-color: #7a1320;
+}
+.snw-logo img {
+	width: 156px;
+}
+.snw-news {
+	width: 103px;
+	height: 54px;
+	float: left;
+	background: url("/wp-content/themes/petersenshunting/images/sportsman-news-widget/snw-news.jpg") #1e3861;
+	background-size: 100% 100%;
+}
+.snw-main {
+	padding: 10px 20px 34px;
+}
+.snw-list > li {
+	padding: 10px 0;
+}
+.snw-list-thumb {
+	float: left;
+	width: 100px;
+	height: 63px;
+	background-color: #313131;
+	margin-right: 10px;
+}
+.snw-list-thumb img {
+	width: 100%;
+	height: 100%;
+	opacity: 0.9;
+}
+.snw-list > li > a {
+	display: block;
+	overflow: hidden;
+}
+.snw-list > li > a:hover .snw-list-thumb img {
+	opacity: 1;
+}
+.snw-list > li > a:hover .snw-list-title {
+	color: #7a1320;
+}
+.snw-list-title {
+	display: block;
+	float: left;
+	width: 160px;
+	font-weight: bold;
+	font-size: 14px;
+	color: #333333;
+}
+a.snw-more-btn {
+	font-size: 12px;
+	color: #787878;
+	float: right;
+}
+a.snw-more-btn:hover {
+	color: #333333;
+	text-decoration: underline;
+}
+.snw-footer {
+	height: 30px;
+	background-color: #7a1320;
+	text-align: center;
+}
+.snw-footer span {
+	color: white;
+	font-size: 14px;	
+}
+.snw-footer span a {
+	color: white;
+	text-decoration: underline;
+}
+.snw-footer span a:hover {
+	color: #efefef;
+}
+/* END Sportsman Widget Sidebar END
+********************************************************************************/
+
+
+
+
+
 
 body, .header {background: #333;}
 
@@ -19,9 +383,9 @@ body, .header {background: #333;}
 .main, .content-banner-section{background: white;}
 .menu-main-menu-container {background: url(images/bg/my-nav-bg.jpg) repeat-x;}
 .page-header h1 {
-color: #040503;
-font-size: 36px;
-text-transform: uppercase;
+	color: #040503;
+	font-size: 36px;
+	text-transform: uppercase;
 }
 
 /* Tags reset
@@ -749,6 +1113,16 @@ subscribe-links a{color: white;}
 
 
 @media only screen and (max-width: 1096px) {
+/* Tune In Artem Test
+********************************************************************************/
+.t-right-side span {
+font-size: 20px;
+margin: 23px 0 0 50px;
+}
+
+/* Tune In Artem Test END
+********************************************************************************/
+
 	.logo img{width: 130px !important;}
 	.logo img {margin-top: 2px;}
 	.header, .h-search-open{background: black;}
@@ -834,7 +1208,32 @@ subscribe-links a{color: white;}
 	
 
 }/* end @media */
+
+@media only screen and (max-width: 1023px) {
+/* Tune In Artem Test
+********************************************************************************/
+.t-right-side span {
+	display: none;
+}
+/* Tune In Artem Test END
+********************************************************************************/
+
+
+}/* end @media */
 @media only screen and (max-width: 880px) {
+/* Tune In Artem Test
+********************************************************************************/
+.t-right-side {
+	display: none;
+}
+
+
+
+
+/* Tune In Artem Test END
+********************************************************************************/
+
+
 /* Border to Border **
 **********************************/
 .b2b-title {width: 48%;right: 3%; top:29%;}
@@ -862,6 +1261,18 @@ subscribe-links a{color: white;}
 
 }/* end @media */
 @media only screen and (max-width: 760px) {
+/* Tune In Artem Test
+********************************************************************************/
+.t-video-link {
+	display: none;
+}
+.t-show-description {
+	margin-left: 20px;
+}
+
+/* Tune In Artem Test END
+********************************************************************************/
+
 /* Border to Border **
 **********************************/
 .b2b-title {width: 51%;top:33%;}
@@ -900,6 +1311,53 @@ subscribe-links a{color: white;}
 }/* end @media */
 
 @media only screen and (max-width: 460px) {
+/* Tune In Artem Test
+********************************************************************************/
+.t-video-link {
+	display: block;
+	padding: 19px 10px;
+}
+.t-video-thumb {
+	width: 102px;
+	height: 62px;
+}
+.t-video-thumb i {
+	line-height: 62px;
+	font-size: 43px;
+}
+.t-show-description {
+	width: auto;
+	padding: 14px 0 5px;
+}
+.invis-on-mobile {
+	display: none;
+}
+.t-schedule {
+	font-size: 17px;
+}
+.vis-on-mobile {
+	display: inline;
+	font-size: 14px;
+}
+.t-show-description h4 {
+	font-size: 14px;
+}
+.t-episode-descr {
+	display: none;
+}
+.t-remind-me {
+	width: 100%;
+	margin: 0;
+	line-height: 38px;
+}
+.t-remind-me span {
+	display: inline;
+}
+/* Tune In Artem Test END
+********************************************************************************/
+
+
+
 /* Border to Border **
 **********************************/
 .b2b .page-header {height: 320px;}	
