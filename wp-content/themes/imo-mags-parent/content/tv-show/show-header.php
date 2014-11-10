@@ -19,8 +19,6 @@ $acfID = 'category_' . $id; ?>
 		</div>
 		<div class="shows-title">
 			<h1><?php //echo get_field('show_title',$acfID); ?></h1>
-		    <div class="fb-like" data-href="<?php echo site_url(); ?>/tv/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false">			    
-		    </div>
 		</div><!-- end of #shows-title -->
 		<div class="shows-sponsor">
 			<?php imo_ad_placement("sponsor_logo_240x60"); ?>
@@ -64,9 +62,11 @@ $acfID = 'category_' . $id; ?>
 					 <li class="page_item page-item-mobile">
 					 	<a href="/tv/shows">More Shows</a>
 					 </li>
-				<?php while( have_rows('show_menu',$acfID) ): the_row(); ?>
+					<?php while( have_rows('show_menu',$acfID) ): the_row(); ?>
 					<li class="page_item non-mobile-item"><a href="<?php echo get_sub_field('url'); ?>"><?php echo get_sub_field('name'); ?></a></li>
-				<?php endwhile; ?>
+					<?php endwhile; ?>
+					<li><div class="fb-like" data-href="<?php echo site_url(); ?>/tv/" data-layout="button" data-action="like" data-show-faces="true" data-share="false"></div></li>
+	
 				</ul>
 			</div>
 		<?php endif; ?>
