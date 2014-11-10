@@ -223,7 +223,7 @@ while (have_posts()) : the_post();
 	<div class="container tiled-grid clr">
 		<div class="tonight-bg"></div>
 		<div class="tiled-grid-entry on-tonight clr span_1_of_4 col col-1">
-			<h3>On Tonight</h3>
+			<h3>Sportsman Channel Tonight</h3>
 			<a class="" href="http://thesportsmanchannel.com/schedule" tarfet="_blank">Full Schedule <i class="fa fa-angle-double-right"></i></a>
 		</div>
 		<div class="tonight-schedule">
