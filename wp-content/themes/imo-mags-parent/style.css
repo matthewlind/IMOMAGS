@@ -836,7 +836,7 @@ input.gsc-search-button-v2{
     width:240px;
     background:#fff;
     border-top:0;
-    overflow:hidden;
+    overflow:visible;
 }
 .menu-main-menu-container li:hover .drop-down, .menu-header-menu-container li:hover .drop-down {top:48px;}
 .sub-menu {
@@ -1934,6 +1934,133 @@ a.category-name-link:hover{
 	max-height: 45px;
 	overflow: hidden;
 }
+
+/* Tune In Artem Test
+===============================================================================*/
+
+.tune-in-container {
+	min-height: 100px;
+	background: #e9e9e9;
+	padding: 0;
+	position: relative;
+	float: left;
+	margin: 30px 0;
+	width: 100%;
+	font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+}
+.t-video-link {
+	float: left;
+	background-color: #bababa;
+	padding: 10px;
+	position: relative;
+}
+.t-video-thumb {
+	width: 131px;
+	height: 80px;
+	background-size: cover;
+	border: 1px solid #898989;
+}
+.t-video-thumb .wp-post-image{width: 131px;height:auto;}
+.t-video-thumb i {
+	position: absolute;
+	font-size: 50px;
+	text-align: center;
+	width: 100%;
+	color: rgba(255,255,255,0.7);
+	z-index: 9;
+	top: 24px;
+	left: 0px;
+}
+.t-arrow {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 20px 0 20px 20px;
+	border-color: transparent transparent transparent #bababa;
+	position: absolute;
+	top: 30px;
+	right: -15px;
+}
+.t-show-description {
+	float: left;
+	margin-left: 40px;
+	width: 380px;
+	padding: 10px 0 5px;
+}
+.t-show-description h4 {
+	font-size: 16px;
+}
+.t-schedule {
+	color: #c9242c;
+	font-size: 24px;
+	font-weight: bold;
+	display: block;
+	margin: 4px 0 2px;
+}
+.t-episode-descr {
+	font-size: 16px;
+}
+.t-right-side {
+	float: left;
+	margin-left: 15px;
+}
+.t-triangle {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 50px 0 50px 40px;
+	border-color: transparent transparent transparent #bababa;
+	float: left;
+}
+.t-right-side span {
+	font-size: 22px;
+	font-weight: 900;
+	color: black;
+	display: block;
+	margin: 21px 0 0 60px ;
+}
+.t-remind-me {
+	display: inline-block;
+	background-color: red;
+	font: 700 14px/40px sans-serif;
+	color: white;
+	padding: 0 15px;
+	text-align: center;
+	float: right;
+	font-size: 16px;
+	margin: 25px 20px 0 0;
+	line-height: 50px;
+	background: #d31e0f; /* Old browsers */
+	background: -moz-linear-gradient(top,  #d31e0f 0%, #ad2c22 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d31e0f), color-stop(100%,#ad2c22)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #d31e0f 0%,#ad2c22 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #d31e0f 0%,#ad2c22 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #d31e0f 0%,#ad2c22 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #d31e0f 0%,#ad2c22 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d31e0f', endColorstr='#ad2c22',GradientType=0 ); /* IE6-9 */
+	box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+.t-remind-me:hover {
+	background: #e81b1b; /* Old browsers */
+	background: -moz-linear-gradient(top,  #e81b1b 0%, #c42727 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e81b1b), color-stop(100%,#c42727)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #e81b1b 0%,#c42727 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #e81b1b 0%,#c42727 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #e81b1b 0%,#c42727 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #e81b1b 0%,#c42727 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e81b1b', endColorstr='#c42727',GradientType=0 ); /* IE6-9 */
+	color: white;
+}
+.t-remind-me span {
+	display: none;
+}
+.vis-on-mobile {
+	display: none;
+}
+/* Tune In Artem Test END
+********************************************************************************/
+
+
 /* = General styles for Category / Tag / etc. pages
 ---------------------------------------------------------------------- */
 .category .feat-text{
@@ -2978,11 +3105,11 @@ margin-bottom:15px;
 	border-top: 1px solid #222;
 	border-bottom: 1px solid #1B1B1B;
 }
+.tv-show #shows-nav .fb-like{float: right;margin: 2px 0 0;}
 .tv-show #shows-nav ul {
 	padding: 0 20px 0 20px;
 	vertical-align: middle;
-	line-height: 43px;
-	display: inline-block;
+	line-height: 37px;
 }
 .tv-show #shows-nav ul li {
 	display: inline;
@@ -3834,13 +3961,13 @@ margin-bottom:15px;
 	margin: 0;height: 100px;
 	position: relative;
 	z-index: 1;
-	padding: 30px 20px;
+	padding: 10px 20px;
 	text-align: left;
 	border: none;
 }
 #upcoming .on-tonight a {margin: 0; color: white; font-size: 12px;text-transform: uppercase; padding-top: 12px;display: inline-block;font-family: 'Open Sans', Helvetica, Arial, sans-serif;}
 #upcoming .on-tonight a:hover {color: red;}
-#upcoming .on-tonight h3 {margin: 0; color: white; font-size: 23px;font-family: 'Open Sans', Helvetica, Arial, sans-serif;}
+#upcoming .on-tonight h3 {margin: 0; color: white; font-size: 14px;font-family: 'Open Sans', Helvetica, Arial, sans-serif;width: 70%;}
 #upcoming .tiled-grid .col{margin: 0;padding: 16px 0 18px 8px;border-right: 1px solid rgba(204, 204, 204, 0.23);}
 #upcoming .tiled-grid .tiled-grid-entry span{display: block;}
 #upcoming .flex-direction-nav .flex-prev{right: -55px;left: auto;background: url(images/shows/left-arrow.png) no-repeat 0 0 #dedddd !important;}
@@ -5761,7 +5888,7 @@ table.likes-leaderboard .entry-title {
 	.tv-show .host-info {text-align: center;}
 	
 	#sponsors-area .sponsor-img {margin: 0 1.3% 20px;}
-	#upcoming .tiled-grid .tiled-grid-entry.on-tonight {background: #003965;padding: 30px 0 0 10px;text-align: left;width: 120px;}
+	#upcoming .tiled-grid .tiled-grid-entry.on-tonight {background: #003965;padding: 10px 0 0 10px;text-align: left;width: 120px;}
 	
 } /* End of media */
 
@@ -6047,7 +6174,7 @@ table.likes-leaderboard .entry-title {
     
     #sponsors-area .sponsor-img {margin: 0 2.1% 20px; width: 45%;}
     .tv-show #locateChannel{position: relative;}
-	#upcoming .tiled-grid .tiled-grid-entry.on-tonight{padding: 20px 5px 0;}
+	#upcoming .tiled-grid .tiled-grid-entry.on-tonight{padding: 10px 5px 0;}
 	#upcoming .flex-direction-nav{display: none;}
 	#show-store .store-left {padding-left: 20px;}
 	
@@ -6624,6 +6751,51 @@ table.likes-leaderboard .entry-title {
     
 } /* End of media */
 @media only screen and (max-width: 460px) {
+	/* Tune In Artem Test
+	********************************************************************************/
+	.t-video-link {
+		display: block;
+		padding: 19px 10px;
+	}
+	.t-video-thumb {
+		width: 102px;
+		height: 62px;
+	}
+	.t-video-thumb i {
+		line-height: 62px;
+		font-size: 43px;
+	}
+	.t-show-description {
+		width: auto;
+		padding: 14px 0 5px;
+	}
+	.invis-on-mobile {
+		display: none;
+	}
+	.t-schedule {
+		font-size: 17px;
+	}
+	.vis-on-mobile {
+		display: inline;
+		font-size: 14px;
+	}
+	.t-show-description h4 {
+		font-size: 14px;
+	}
+	.t-episode-descr {
+		display: none;
+	}
+	.t-remind-me {
+		width: 100%;
+		margin: 0;
+		line-height: 38px;
+	}
+	.t-remind-me span {
+		display: inline;
+	}
+	/* Tune In Artem Test END
+	********************************************************************************/
+
 	.posts-list .article-brief img{float:none;width: 100%;}
 	.posts-list, .posts-list .article-brief:first-child{border: none;margin: 0;}
 	.posts-list .article-holder, .home-featured{padding:8px 0 12px;position: relative;}
