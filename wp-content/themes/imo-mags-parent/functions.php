@@ -15,9 +15,23 @@ include_once('widgets/user-info.php');
 include_once('widgets/forecast.php');
 include_once('widgets/featured-sidebar-widget.php');
 include_once('widgets/tsc-schedule.php');
+include_once('widgets/tune-in-widget.php');
 
 $magazine_img = get_option("magazine_cover_uri", get_stylesheet_directory_uri(). "/images/pic/journals.png" );
 $subs_link = get_option("subs_link");
+
+add_filter( 'the_content', 'featured_image_in_feed' );
+function featured_image_in_feed( $content ) {
+    global $post;
+    if( is_feed() ) {
+        if ( has_post_thumbnail( $post->ID ) ){
+            $output = get_the_post_thumbnail( $post->ID, 'medium', array( 'style' => 'float:right; margin:0 0 10px 10px;' ) );
+            $content = $output . $content;
+        }
+    }
+    return $content;
+}
+
 
 /** changing default wordpres email settings */
 add_filter('wp_mail_from', 'new_mail_from');
@@ -273,8 +287,6 @@ class AddParentClass_Walker extends Walker_Nav_Menu
         $output .= apply_filters( 'walker_nav_menu_end_el', '</li>', $item, $depth, $args );
     }
 }
-
-
 
 function parent_theme_setup()
 {
@@ -2364,8 +2376,151 @@ if(function_exists("register_field_group"))
 	));
 }
 
-
-
+/**
+if(function_exists("register_field_group"))
+{
+	register_field_group(array (
+		'id' => 'acf_tune-in-widget',
+		'title' => 'Tune In Widget',
+		'fields' => array (
+			array (
+				'key' => 'field_544ea5046cf05',
+				'label' => 'Display Widget',
+				'name' => 'display_widget',
+				'type' => 'true_false',
+				'message' => '',
+				'default_value' => 0,
+			),
+			array (
+				'key' => 'field_544ea4bb54d2b',
+				'label' => 'Show Post',
+				'name' => 'show_post',
+				'type' => 'relationship',
+				'instructions' => 'Show Title',
+				'return_format' => 'object',
+				'post_type' => array (
+					0 => 'post',
+				),
+				'taxonomy' => array (
+					0 => 'all',
+				),
+				'filters' => array (
+					0 => 'search',
+				),
+				'result_elements' => array (
+					0 => 'featured_image',
+					1 => 'post_type',
+					2 => 'post_title',
+				),
+				'max' => 1,
+			),
+			array (
+				'key' => 'field_545a65a45c65d',
+				'label' => 'Short Title',
+				'name' => 'short_title',
+				'type' => 'text',
+				'instructions' => 'Show a promo title that is shorter for this widget.',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_544ea7c566ded',
+				'label' => 'Start',
+				'name' => 'start',
+				'type' => 'date_picker',
+				'instructions' => 'Choose the day you would like this to start',
+				'date_format' => 'yymmdd',
+				'display_format' => 'dd/mm/yy',
+				'first_day' => 1,
+			),
+			array (
+				'key' => 'field_545a5e3d93396',
+				'label' => 'End',
+				'name' => 'end',
+				'type' => 'date_picker',
+				'instructions' => 'Choose the day you would like this to end',
+				'date_format' => 'yymmdd',
+				'display_format' => 'dd/mm/yy',
+				'first_day' => 1,
+			),
+			array (
+				'key' => 'field_545a5e6a88396',
+				'label' => 'Air Time',
+				'name' => 'air_time',
+				'type' => 'text',
+				'instructions' => 'Airtime language',
+				'default_value' => '',
+				'placeholder' => 'Premieres Sunday at 8pm EST',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_544ea4d74f654',
+				'label' => 'Show Description',
+				'name' => 'show_description',
+				'type' => 'text',
+				'instructions' => 'Show Description',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_544ea724356d9',
+				'label' => 'Show URL',
+				'name' => 'show_url',
+				'type' => 'text',
+				'instructions' => 'URL to the TV show page',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_544ea4e24f655',
+				'label' => 'Remind Me',
+				'name' => 'remind_me',
+				'type' => 'text',
+				'instructions' => 'url of the remind me button',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'options_page',
+					'operator' => '==',
+					'value' => 'acf-options',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+}
+*/
 add_action( 'wp_ajax_nopriv_load-filter', 'prefix_load_cat_posts' );
 add_action( 'wp_ajax_load-filter', 'prefix_load_cat_posts' );
 function prefix_load_cat_posts () {

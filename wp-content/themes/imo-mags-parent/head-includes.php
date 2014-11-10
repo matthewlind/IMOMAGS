@@ -152,6 +152,7 @@ googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Screen_Shift_1x1', [1, 1]
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Site_Skin_1x1', [1, 1], 'div-site_skin_1x1').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Sponsor_Logo_240x60', [240, 60], 'div-sponsor_logo_240x60').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Deer_Forecast_Sponsor_Logo_240x60', [240, 60], 'div-Deer_Forecast_Sponsor_Logo_240x60').addService(googletag.pubads());
+googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Polar_Native_Ad_2x2', [2, 2], 'div-Polar_Native_Ad_2x2').addService(googletag.pubads());
 <?php if(is_page( 'battle-of-the-bows' )){ ?>
 
 //Battle of the Bows
@@ -188,8 +189,8 @@ googletag.enableServices();
 
 <?php 
 //sidebar
-function imo_sidebar($type){
-	//Speed up mobile load time by not loading sidebar in the background
+function imo_sidebar($type){ 
+	 //Speed up mobile load time by not loading sidebar in the background
 	if(!mobile()){
 		$dartDomain = get_option("dart_domain", $default = false); ?>
 		<div class="sidebar-area">
@@ -213,7 +214,6 @@ function imo_sidebar($type){
 function imo_community_sidebar(){
 	$dartDomain = get_option("dart_domain", $default = false);
 	echo '<div class="sidebar-area">';
-		echo '<div class="afs_ads">&nbsp</div>';
 		echo '<label class="upload-button">';
         echo '<a href="/post-photo/"><span class="singl-post-photo"><span>Share Your Photo Now!</span></span></a>';
         //echo '<input id="image-upload" class="common-image-upload" type="file" name="photo-upload">';
@@ -224,6 +224,17 @@ function imo_community_sidebar(){
 			echo '</div>';
 		echo '</div>';
 		get_sidebar("community");
+		
+		if($dartDomain == "imo.flyfisherman"){
+			echo '<div id="responderfollow"></div>';
+				echo '<div class="sidebar advert">';
+					echo '<div class="widget_advert-widget">';
+						echo '<iframe id="sticky-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-sticky.php?ad_code='.$dartDomain.'"></iframe>';
+					echo '</div>';
+					get_sidebar("sticky");
+				echo '</div>';
+		}		
+		
 	echo '</div>';
 }
 
