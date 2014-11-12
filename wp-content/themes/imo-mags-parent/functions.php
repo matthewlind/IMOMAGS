@@ -20,19 +20,6 @@ include_once('widgets/tune-in-widget.php');
 $magazine_img = get_option("magazine_cover_uri", get_stylesheet_directory_uri(). "/images/pic/journals.png" );
 $subs_link = get_option("subs_link");
 
-add_filter( 'the_content', 'featured_image_in_feed' );
-function featured_image_in_feed( $content ) {
-    global $post;
-    if( is_feed() ) {
-        if ( has_post_thumbnail( $post->ID ) ){
-            $output = get_the_post_thumbnail( $post->ID, 'medium', array( 'style' => 'float:right; margin:0 0 10px 10px;' ) );
-            $content = $output . $content;
-        }
-    }
-    return $content;
-}
-
-
 /** changing default wordpres email settings */
 add_filter('wp_mail_from', 'new_mail_from');
 add_filter('wp_mail_from_name', 'new_mail_from_name');
@@ -2376,7 +2363,6 @@ if(function_exists("register_field_group"))
 	));
 }
 
-/**
 if(function_exists("register_field_group"))
 {
 	register_field_group(array (
@@ -2416,10 +2402,10 @@ if(function_exists("register_field_group"))
 			),
 			array (
 				'key' => 'field_545a65a45c65d',
-				'label' => 'Short Title',
-				'name' => 'short_title',
+				'label' => 'Show Title',
+				'name' => 'title',
 				'type' => 'text',
-				'instructions' => 'Show a promo title that is shorter for this widget.',
+				'instructions' => 'Title of the show.',
 				'default_value' => '',
 				'placeholder' => '',
 				'prepend' => '',
@@ -2429,32 +2415,88 @@ if(function_exists("register_field_group"))
 			),
 			array (
 				'key' => 'field_544ea7c566ded',
-				'label' => 'Start',
-				'name' => 'start',
-				'type' => 'date_picker',
-				'instructions' => 'Choose the day you would like this to start',
-				'date_format' => 'yymmdd',
-				'display_format' => 'dd/mm/yy',
-				'first_day' => 1,
-			),
-			array (
-				'key' => 'field_545a5e3d93396',
-				'label' => 'End',
-				'name' => 'end',
-				'type' => 'date_picker',
-				'instructions' => 'Choose the day you would like this to end',
-				'date_format' => 'yymmdd',
-				'display_format' => 'dd/mm/yy',
-				'first_day' => 1,
+				'label' => 'Day of the Week',
+				'name' => 'day',
+				'type' => 'select',
+				'instructions' => 'Choose the reoccurring day of the week you would like this to show.',
+				'choices' => array (
+					'Sunday' => 'Sunday',
+					'Monday' => 'Monday',
+					'Tuesday' => 'Tuesday',
+					'Wednesday' => 'Wednesday',
+					'Thursday' => 'Thursday',
+					'Friday' => 'Friday',
+					'Saturday' => 'Saturday',
+				),
+				'default_value' => '',
+				'allow_null' => 0,
+				'multiple' => 0,
 			),
 			array (
 				'key' => 'field_545a5e6a88396',
 				'label' => 'Air Time',
 				'name' => 'air_time',
-				'type' => 'text',
-				'instructions' => 'Airtime language',
+				'type' => 'select',
+				'instructions' => 'Select what time the show airs.',
+				'choices' => array (
+					'0000' => '12:30am',
+					'0100' => '1am',
+					'0130' => '1:30am',
+					'0200' => '2am',
+					'0230' => '2:30am',
+					'0300' => '3am',
+					'0330' => '3:30am',
+					'0400' => '4am',
+					'0430' => '4:30am',
+					'0500' => '5am',
+					'0530' => '5:30am',
+					'0600' => '6am',
+					'0630' => '6:30am',
+					'0700' => '7am',
+					'0730' => '7:30am',
+					'0800' => '8am',
+					'0830' => '8:30am',
+					'0900' => '9am',
+					'0930' => '9:30am',
+					1000 => '10am',
+					1030 => '10:30am',
+					1100 => '11am',
+					1130 => '11:30am',
+					1200 => '12:30pm',
+					1300 => '1pm',
+					1330 => '1:30pm',
+					1400 => '2pm',
+					1430 => '2:30pm',
+					'01500' => '3pm',
+					1530 => '3:30pm',
+					1600 => '4pm',
+					1630 => '4:30pm',
+					1700 => '5pm',
+					1730 => '5:30pm',
+					1800 => '6pm',
+					1830 => '6:30pm',
+					1900 => '7pm',
+					1930 => '7:30pm',
+					2000 => '8pm',
+					2030 => '8:30pm',
+					2100 => '9pm',
+					2130 => '9:30pm',
+					2200 => '10pm',
+					2230 => '10:30pm',
+					2300 => '11pm',
+					2330 => '11:30pm',
+				),
 				'default_value' => '',
-				'placeholder' => 'Premieres Sunday at 8pm EST',
+				'allow_null' => 0,
+				'multiple' => 0,
+			),
+			array (
+				'key' => 'field_54625356a712c',
+				'label' => 'Show Promo',
+				'name' => 'show_promo',
+				'type' => 'text',
+				'default_value' => '',
+				'placeholder' => 'Tonight at 8pm EST',
 				'prepend' => '',
 				'append' => '',
 				'formatting' => 'html',
@@ -2520,7 +2562,7 @@ if(function_exists("register_field_group"))
 		'menu_order' => 0,
 	));
 }
-*/
+
 add_action( 'wp_ajax_nopriv_load-filter', 'prefix_load_cat_posts' );
 add_action( 'wp_ajax_load-filter', 'prefix_load_cat_posts' );
 function prefix_load_cat_posts () {
