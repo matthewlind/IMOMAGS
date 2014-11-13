@@ -12,15 +12,8 @@ get_header(); ?>
 	<div id="primary" class="general">
         <div class="general-frame">
             <div id="content" role="main">
-            <?php if ( is_home() ) : ?>
-            	<?php if( $features ): ?>
-                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="featured-area clearfix js-responsive-section">
-                    <!--<div class="general-title clearfix">
-                        <h2>Featured</h2>
-                    </div>-->
-                    <div class="clearfix">
-                        <ul>
-							<?php foreach( $features as $feature ):
+            
+   							<?php foreach( $features as $feature ):
                        	 		$title = $feature->post_title;
 
 
@@ -54,7 +47,6 @@ get_header(); ?>
 				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section">
 					<div class="general-title clearfix">
 		                <h2><?php echo $videoTitle; ?></h2>
-		                <div class="sponsor"><?php imo_ad_placement("sponsor_logo_240x60"); ?></div>
 		            </div>
 
 					<!-- Start of Brightcove Player -->

@@ -19,6 +19,7 @@ foreach($campaign as $c){
 if(is_home()){
 	$term = "home";
 	$pageName = "home";
+	$camp = "";
 }
 else if (is_category()) {
 	$cat = get_query_var('cat');
