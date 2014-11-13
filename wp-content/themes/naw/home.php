@@ -48,7 +48,6 @@ get_header(); ?>
 				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section">
 					<div class="general-title clearfix">
 		                <h2><?php echo $videoTitle; ?></h2>
-		                <div class="sponsor"><?php imo_ad_placement("sponsor_logo_240x60"); ?></div>
 		            </div>
 					
 					<!-- Start of Brightcove Player -->

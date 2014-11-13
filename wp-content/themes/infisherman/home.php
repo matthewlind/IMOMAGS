@@ -195,9 +195,7 @@ get_header(); ?>
                     <div class="general-title clearfix">
                         <h2>Master <span>Anglers</span></h2>
                     </div>
-                    <?php $hostname = $_SERVER['SERVER_NAME'];
-					$jsonData = file_get_contents('http://'.$hostname.'/community-api/posts?master=1&per_page=10&sort=DESC');
-					$pictures = json_decode($jsonData); ?>
+                    
                     <div class="clearfix">
                         <div class="master-angler-banner">	
                         	<div class="master-angler-copy">
@@ -208,21 +206,17 @@ get_header(); ?>
                         <div class="single-post-slider loading-block">
 							<div class="jq-slider onload-hidden">
                                 <ul class="slides-inner slides">
-                                   <?php foreach ($pictures as $picture) { ?>
+                                   <?php $fetured_slider_query = new WP_Query( 'category_name='.MASTER_ANGLERS.'&posts_per_page=10' ); 
+                                   while ( $fetured_slider_query->have_posts() ) : $fetured_slider_query->the_post(); ?>
 								   <li>
                                         <div class="feat-post">
-                                            <div class="feat-img"><a href="/photos/<?php echo $picture->id; ?>" ><img src="<?php echo $picture->img_url; ?>/convert?w=335&h=225&fit=crop&rotate=exif" alt="<?php echo $picture->title; ?>" /></a></div>
+                                            <div class="feat-img"><?php the_post_thumbnail("post-home-small-thumb"); ?></a></div>
                                             <div class="feat-text">
-                                                <h3><a href="/photos/<?php echo $picture->id; ?>" ><?php echo $picture->title; ?></a></h3>
-
-                                               <!--<div class="shares-count">
-                                                    <?php render_shares_count(get_permalink(), $picture->id) ?> <span>Shares</span>
-                                                </div>
-                                                <a class="view-post" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">&nbsp;</a>
-                                            </div>-->
+                                                <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                                         </div>
                                     </li>
-                                    <?php } ?>
+                                    <?php endwhile; ?>
+
                                 </ul>
                             </div>
                             <div class="post-panel clearfix">
