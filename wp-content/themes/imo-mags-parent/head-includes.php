@@ -152,7 +152,6 @@ googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Screen_Shift_1x1', [1, 1]
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Site_Skin_1x1', [1, 1], 'div-site_skin_1x1').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Sponsor_Logo_240x60', [240, 60], 'div-sponsor_logo_240x60').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Deer_Forecast_Sponsor_Logo_240x60', [240, 60], 'div-Deer_Forecast_Sponsor_Logo_240x60').addService(googletag.pubads());
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Polar_Native_Ad_2x2', [2, 2], 'div-Polar_Native_Ad_2x2').addService(googletag.pubads());
 <?php if(is_page( 'battle-of-the-bows' )){ ?>
 
 //Battle of the Bows
@@ -189,8 +188,9 @@ googletag.enableServices();
 
 <?php 
 //sidebar
-function imo_sidebar($type){ 
-	 //Speed up mobile load time by not loading sidebar in the background
+function imo_sidebar($type){
+
+   	//Speed up mobile load time by not loading sidebar in the background
 	if(!mobile()){
 		$dartDomain = get_option("dart_domain", $default = false); ?>
 		<div class="sidebar-area">
