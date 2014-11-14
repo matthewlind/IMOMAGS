@@ -28,3 +28,4 @@ if(document.location.protocol=='http:'){
   <img src="http://b.scorecardresearch.com/p?c1=2&c2=8031814&cv=2.0&cj=1" />
 </noscript>
 <!-- End comScore Tag -->
+<script async src="http://cdn.mediavoice.com/nativeads/script/IMOutdoors/mv_gunsammo.js"></script>

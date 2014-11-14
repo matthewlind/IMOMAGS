@@ -249,18 +249,3 @@ function imo_ad_placement($size){ ?>
 	</div>
 
 <?php } ?>
-
-
-<script async src="http://cdn.mediavoice.com/nativeads/script/IMOutdoors/mv_peteshunt.js"></script>
-<script async src="http://cdn.mediavoice.com/nativeads/script/IMOutdoors/mv_petesbowh.js"></script>
-<script async src="http://cdn.mediavoice.com/nativeads/script/IMOutdoors/mv_bowh.js"></script>
-<script async src="http://cdn.mediavoice.com/nativeads/script/IMOutdoors/mv_northamerwhit.js"></script>
-<script async src="http://cdn.mediavoice.com/nativeads/script/IMOutdoors/mv_wild.js"></script>
-<script async src="http://cdn.mediavoice.com/nativeads/script/IMOutdoors/mv_gundog.js"></script>
-<script async src="http://cdn.mediavoice.com/nativeads/script/IMOutdoors/mv_hand.js"></script>
-<script async src="http://cdn.mediavoice.com/nativeads/script/IMOutdoors/mv_riflshoo.js"></script>
-<script async src="http://cdn.mediavoice.com/nativeads/script/IMOutdoors/mv_shootime.js"></script>
-<script async src="http://cdn.mediavoice.com/nativeads/script/IMOutdoors/mv_gunsammo.js"></script>
-<script async src="http://cdn.mediavoice.com/nativeads/script/IMOutdoors/mv_shotnews.js"></script>
-<script async src="http://cdn.mediavoice.com/nativeads/script/IMOutdoors/mv_infish.js"></script>
-<script async src="http://cdn.mediavoice.com/nativeads/script/IMOutdoors/mv_flyfish.js"></script>
