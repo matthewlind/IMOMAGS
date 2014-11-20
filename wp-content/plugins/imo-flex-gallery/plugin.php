@@ -397,7 +397,7 @@ EOFmobile_community;
 		<div class="general-title clearfix">
 		    <h2><span>$title</span></h2>
 		</div>
-		<iframe id="gallery-iframe-ad" width="320" height="50" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?size=320x50&ad_code=$dartDomain&gallery_title=$slug"></iframe>
+		<iframe id="gallery-iframe-ad" width="320" height="50" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-gallery-mobile.php?size=320x50&ad_code=$dartDomain&gallery_title=$slug"></iframe>
 		<span class="slide-count">$totalSlides</span>
 		    <ul class="slides">
 EOT;
