@@ -11,15 +11,15 @@ if( is_preview() ){
 $dartDomain = get_option("dart_domain", $default = false);
 
 $id = get_the_ID();
+if(is_single()){
 $campaign = wp_get_post_terms($id,"campaign");
-foreach($campaign as $c){
-	$camp = $c->name;
+	foreach($campaign as $c){
+		$camp = $c->name;
+	}
 }
-
 if(is_home()){
 	$term = "home";
 	$pageName = "home";
-	$camp = "";
 }
 else if (is_category()) {
 	$cat = get_query_var('cat');
@@ -148,12 +148,14 @@ googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Interstitial_1x1', [1, 1]
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Mobile_Adhesion_320x50', [320, 50], 'div-mobile_adhesion_320x50').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Mobile_Flex_1x1', [1, 1], 'div-mobile_flex_1x1').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Mobile_Leaderboard_320x50', [320, 50], 'div-mobile_leaderboard_320x50').addService(googletag.pubads());
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Photo_Gallery_Medium_Rectangle', [[300, 250], [320, 50]], 'div-photo_gallery_medium_rectangle').addService(googletag.pubads());
+googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Photo_Gallery_Medium_Rectangle', [300, 250], 'div-photo_gallery_medium_rectangle').addService(googletag.pubads());
+googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Photo_Gallery_Mobile_Banner', [320, 50], 'div-photo_gallery_mobile_banner').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Screen_Shift_1x1', [1, 1], 'div-screen_shift_1x1').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Site_Skin_1x1', [1, 1], 'div-site_skin_1x1').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Sponsor_Logo_240x60', [240, 60], 'div-sponsor_logo_240x60').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Deer_Forecast_Sponsor_Logo_240x60', [240, 60], 'div-Deer_Forecast_Sponsor_Logo_240x60').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Polar_Native_Ad_2x2', [2, 2], 'div-polar_native_ad_2x2').addService(googletag.pubads());
+
 <?php if(is_page( 'battle-of-the-bows' )){ ?>
 
 //Battle of the Bows
