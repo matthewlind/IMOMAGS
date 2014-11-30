@@ -13,246 +13,6 @@ General comments (optional).
 @import url("../imo-mags-parent/style.css");
 @import url("fonts/iconmoon.css");
 
-/* Helper Classes Test
-===============================================================================*/
-.stupid-p {
-	padding-top: 300px;
-}
-.gap-test {
-	height: 50px;
-}
-/* END Helper Classes Test END
-********************************************************************************/
-
-
-
-
-/* Video Widget Bowhunter TV
-===============================================================================*/
-.video-widget-bowhunter {
-	background: url("/wp-content/themes/petersenshunting/images/video-widget/video-widget-bowhunter-back.jpg") #1b1919 no-repeat;
-	background-size: 100% auto;
-	font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
-}
-.vw-head {
-	padding: 20px 10px;
-}
-.vw-head p {
-	color: white;
-	text-align: center;
-	font-size: 15px;
-	font-weight: 900;
-	margin: 10px 0 20px;
-}
-.vw-head p span {
-	color: #dd302a;
-}
-.vw-logo {
-	margin: 0 auto;
-	display: block;
-}
-.vw-logo-sportsman {
-	display: block;
-	width: 114px;
-	margin: 0 auto;
-}
-.vw-video-area {
-	width: 282px;
-	height: 179px;
-	margin: 0 auto;
-	border: 1px solid #333333;
-	position: relative;
-	background-size: cover !important;
-	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-}
-.vw-video-area i {
-	position: absolute;
-	top: 0;
-	line-height: 179px;
-	text-align: center;
-	font-size: 150px;
-	color: white;
-	width: 100%;
-}
-.video-widget-bowhunter .btn-wrap {
-	width: 100%;
-	text-align: center;
-}
-.video-widget-bowhunter .vw-btn {
-	display: inline-block;
-	margin: 15px auto; 
-	text-align: center;
-	padding: 0 10px;
-	line-height: 30px;
-	border-radius: 4px;
-	color: white;
-	font-size: 14px;
-	font-weight: 600;
-	text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-	background: #bb3a1c; /* Old browsers */
-	background: -moz-linear-gradient(top,  #bb3a1c 0%, #97141a 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#bb3a1c), color-stop(100%,#97141a)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #bb3a1c 0%,#97141a 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #bb3a1c 0%,#97141a 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #bb3a1c 0%,#97141a 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #bb3a1c 0%,#97141a 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bb3a1c', endColorstr='#97141a',GradientType=0 ); /* IE6-9 */
-}
-.video-widget-bowhunter .vw-btn {
-	background: #ce421e; /* Old browsers */
-	background: -moz-linear-gradient(top,  #ce421e 0%, #b21e20 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ce421e), color-stop(100%,#b21e20)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #ce421e 0%,#b21e20 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #ce421e 0%,#b21e20 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #ce421e 0%,#b21e20 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #ce421e 0%,#b21e20 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ce421e', endColorstr='#b21e20',GradientType=0 ); /* IE6-9 */
-}
-.vw-line {
-	height: 1px;
-	width: 80%;
-	margin: 5px auto 13px;
-	background: #1b1919; /* Old browsers */
-	background: -moz-linear-gradient(left,  #1b1919 0%, #ffffff 15%, #ffffff 50%, #ffffff 85%, #1b1919 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#1b1919), color-stop(15%,#ffffff), color-stop(50%,#ffffff), color-stop(85%,#ffffff), color-stop(100%,#1b1919)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(left,  #1b1919 0%,#ffffff 15%,#ffffff 50%,#ffffff 85%,#1b1919 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(left,  #1b1919 0%,#ffffff 15%,#ffffff 50%,#ffffff 85%,#1b1919 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(left,  #1b1919 0%,#ffffff 15%,#ffffff 50%,#ffffff 85%,#1b1919 100%); /* IE10+ */
-	background: linear-gradient(to right,  #1b1919 0%,#ffffff 15%,#ffffff 50%,#ffffff 85%,#1b1919 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1b1919', endColorstr='#1b1919',GradientType=1 ); /* IE6-9 */
-}
-.vw-get-sportsman {
-	margin: 0 auto 18px;
-	width: 100%;
-}
-
-.vw-get-sportsman img {
-	display: inline-block;
-	float: left;
-	width: 35px;
-	height: 34px;
-	vertical-align: middle;
-	line-height: 34px;
-	margin: 0 8px 0 25px;
-}
-.vw-get-sportsman a {
-	display: inline-block;
-	float: left;
-	font-size: 14px;
-	color: white;
-	vertical-align: middle;
-	line-height: 34px;
-}
-.vw-get-sportsman i {
-	display: inline-block;
-	float: left;
-	font-size: 34px;
-	color: white;
-	vertical-align: middle;
-	line-height: 34px;
-	margin-left: -3px;
-}
-/* Video Widget Bowhunter TV END
-********************************************************************************/
-
-
-
-/* Sportsman Widget Sidebar
-===============================================================================*/
-.snw-container {
-	background-color: #e8e8e8;
-	width: 310px;
-	font-family: "Open Sans", sans-serif;
-}
-.snw-head {
-	background-color: #7a1320;
-	overflow: hidden;
-}
-.snw-logo {
-	float: left;
-	height: 54px;
-	width: 207px;
-	padding: 12px 0 0 23px;	
-	background-color: #7a1320;
-}
-.snw-logo img {
-	width: 156px;
-}
-.snw-news {
-	width: 103px;
-	height: 54px;
-	float: left;
-	background: url("/wp-content/themes/petersenshunting/images/sportsman-news-widget/snw-news.jpg") #1e3861;
-	background-size: 100% 100%;
-}
-.snw-main {
-	padding: 10px 20px 34px;
-}
-.snw-list > li {
-	padding: 10px 0;
-}
-.snw-list-thumb {
-	float: left;
-	width: 100px;
-	height: 63px;
-	background-color: #313131;
-	margin-right: 10px;
-}
-.snw-list-thumb img {
-	width: 100%;
-	height: 100%;
-	opacity: 0.9;
-}
-.snw-list > li > a {
-	display: block;
-	overflow: hidden;
-}
-.snw-list > li > a:hover .snw-list-thumb img {
-	opacity: 1;
-}
-.snw-list > li > a:hover .snw-list-title {
-	color: #7a1320;
-}
-.snw-list-title {
-	display: block;
-	float: left;
-	width: 160px;
-	font-weight: bold;
-	font-size: 14px;
-	color: #333333;
-}
-a.snw-more-btn {
-	font-size: 12px;
-	color: #787878;
-	float: right;
-}
-a.snw-more-btn:hover {
-	color: #333333;
-	text-decoration: underline;
-}
-.snw-footer {
-	height: 30px;
-	background-color: #7a1320;
-	text-align: center;
-}
-.snw-footer span {
-	color: white;
-	font-size: 14px;	
-}
-.snw-footer span a {
-	color: white;
-	text-decoration: underline;
-}
-.snw-footer span a:hover {
-	color: #efefef;
-}
-/* END Sportsman Widget Sidebar END
-********************************************************************************/
-
-
-
-
-
 
 body, .header {background: #333;}
 
@@ -991,16 +751,6 @@ subscribe-links a{color: white;}
 
 
 @media only screen and (max-width: 1096px) {
-/* Tune In Artem Test
-********************************************************************************/
-.t-right-side span {
-font-size: 20px;
-margin: 23px 0 0 50px;
-}
-
-/* Tune In Artem Test END
-********************************************************************************/
-
 	.logo img{width: 130px !important;}
 	.logo img {margin-top: 2px;}
 	.header, .h-search-open{background: black;}
@@ -1080,38 +830,9 @@ margin: 23px 0 0 50px;
 /* b2b the-gear page **********/		
 .the-gear .a-text {margin: auto 5%;max-width: 800px;}
 
-	
-	
-	
-	
-
 }/* end @media */
 
-@media only screen and (max-width: 1023px) {
-/* Tune In Artem Test
-********************************************************************************/
-.t-right-side span {
-	display: none;
-}
-/* Tune In Artem Test END
-********************************************************************************/
-
-
-}/* end @media */
-@media only screen and (max-width: 880px) {
-/* Tune In Artem Test
-********************************************************************************/
-.t-right-side {
-	display: none;
-}
-
-
-
-
-/* Tune In Artem Test END
-********************************************************************************/
-
-
+@media only screen and (max-width: 980px){
 /* Border to Border **
 **********************************/
 .b2b-title {width: 48%;right: 3%; top:29%;}
@@ -1138,18 +859,9 @@ margin: 23px 0 0 50px;
 .diy-states li {margin-right: 35px;display: inline;float: left;width: 40%;}
 
 }/* end @media */
-@media only screen and (max-width: 760px) {
-/* Tune In Artem Test
-********************************************************************************/
-.t-video-link {
-	display: none;
-}
-.t-show-description {
-	margin-left: 20px;
-}
 
-/* Tune In Artem Test END
-********************************************************************************/
+@media only screen and (max-width: 760px) {
+
 
 /* Border to Border **
 **********************************/
@@ -1190,7 +902,7 @@ margin: 23px 0 0 50px;
 
 
 
-
+@media only screen and (max-width: 340px){
 /* Border to Border **
 **********************************/
 .b2b .page-header {height: 320px;}	
