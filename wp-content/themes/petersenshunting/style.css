@@ -748,8 +748,6 @@ subscribe-links a{color: white;}
 }
 .b2b-map img{margin: 0 auto;}
 
-
-
 @media only screen and (max-width: 1096px) {
 	.logo img{width: 130px !important;}
 	.logo img {margin-top: 2px;}
@@ -832,7 +830,7 @@ subscribe-links a{color: white;}
 
 }/* end @media */
 
-@media only screen and (max-width: 980px){
+@media only screen and (max-width: 880px){
 /* Border to Border **
 **********************************/
 .b2b-title {width: 48%;right: 3%; top:29%;}
@@ -861,7 +859,6 @@ subscribe-links a{color: white;}
 }/* end @media */
 
 @media only screen and (max-width: 760px) {
-
 
 /* Border to Border **
 **********************************/
@@ -950,8 +947,4 @@ subscribe-links a{color: white;}
 .diy-states {width: 110%;font-size: 16px;margin: auto 5% 35px;}
 .diy-states li {width: 40%;margin-right: 5px;}
 	
-}/* end @media */
-
-@media only screen and (max-width: 340px){
-
 }/* end @media */
