@@ -77,14 +77,16 @@ a.category-name-link:hover{background: #2f7bb2;color: white;}
 
 
 /* Community - Reader Photos */
-.main{border-top: none;}
+.page-community .main{border-top: none;}
+.page-community .general{border: none;padding: 20px 0 0;}
+.page-community .posts-list{border: none;}
 #community-wrap{background:#1c1c1c;padding: 0 30px;overflow: hidden;}
 #community-wrap .general-frame{width: auto;}
-#community-wrap .posts-list {margin: 30px 0 16px;border-top: none;}
+.community-header{padding: 20px 0;}
 .community-header .btn-default{width: 236px;margin: 14px 10px 0;}
 .community-header .dropdown-menu{top: -14px;width: 100%;margin: 0;}
 #community-wrap .general{border: none;width: 647px;}
-#community-wrap .sidebar-area .singl-post-photo{margin-bottom: 20px;background: #3b3b3b;}
+.sidebar-area .singl-post-photo{margin-bottom: 20px;background: #2f7bb2 !important;text-shadow:none;}
 #community-wrap .posts-list span{font-style: normal;}
 #community-wrap .btn-default.mobile{margin: 10px auto;display: block;width: 95%;}
 .share-photo-now{
@@ -117,7 +119,7 @@ a.category-name-link:hover{background: #2f7bb2;color: white;}
 }
 
 /***Community header ***/
-.community-header{background: #1c1c1c;border-bottom: 4px solid #f9cc39;overflow: hidden;}
+.community-header{background: #1c1c1c;border-bottom: 4px solid #2f7bb2;overflow: hidden;}
 .community-header .header-section{
 	display: inline-block;
 	background: #1c1c1c;
@@ -125,6 +127,7 @@ a.category-name-link:hover{background: #2f7bb2;color: white;}
 	border-left: 1px solid #3b3b3b;
 	vertical-align: middle;
 	position: relative;
+	padding: 10px 0;
 }
 .community-header .header-section:first-child{border: none;width: 253px;padding: 0;}
 .community-header img{vertical-align: 12px;width: 200px;margin: 0 auto;display: block;}
