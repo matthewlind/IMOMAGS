@@ -16,7 +16,45 @@
 
 get_header(); ?>
 	<?php $slug_b2b = get_post( $post )->post_name; ?> 
+	<?php $b2b_page_id = "21387"; ?>
 	<div id="primary" class="general b2b">
+			<div class="modal-overlay" id="modal-dialog" data-hidden="true">
+				<div class="modal-content" id="modal-holder">
+				
+					<h1 id="modal-title">Border to Border - The Trailer</h1>
+					<div id="#player"><!-- Start of Brightcove Player -->
+						<div style="display:none"></div>
+						<!--
+						By use of this code snippet, I agree to the Brightcove Publisher T and C
+						found at https://accounts.brightcove.com/en/terms-and-conditions/.
+						-->
+						<script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+						
+						<object id="myExperience" class="BrightcoveExperience">
+						  <param name="bgcolor" value="#FFFFFF" />
+						  <param name="width" value="480" />
+						  <param name="height" value="270" />
+						  <param name="playerID" value="1445501637001" />
+						  <param name="playerKey" value="AQ~~,AAAAALyrRUk~,m8Wuv4JIiTp4WJ_vxf089O1HdEWslAPu" />
+						  <param name="isVid" value="true" />
+						  <param name="isUI" value="true" />
+						  <param name="dynamicStreaming" value="true" />
+						  <param name="@videoPlayer" value="<?php echo get_field('brightcove_video_number', $b2b_page_id);?>" /></object>
+						</object>
+						
+						<!--
+						This script tag will cause the Brightcove Players defined above it to be created as soon
+						as the line is read by the browser. If you wish to have the player instantiated only after
+						the rest of the HTML is processed and the page load is complete, remove the line.
+						-->
+						<script type="text/javascript">brightcove.createExperiences();</script>
+					</div><!-- End of Brightcove Player -->
+					<div class="btn-close" id="modal_close" type="button">x</div>
+				
+				</div> <!-- end .modal-content -->
+			
+			</div> <!-- end .modal-overlay -->
+	
         <div class="general-frame">
             <div id="content" role="main">
 				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header marquee-img clearfix js-responsive-section b2b-header">
@@ -28,22 +66,66 @@ get_header(); ?>
 					<div class="header-info clearf">
 						<div class="header-info-inner clearf">
 							<div class="black-wrap">
-								<h2>An 8- part DIY Transcontinental hunting expedition from mexico to alaska
-</h2>
+								<h2><?php the_field('main_poster_text_1', $b2b_page_id); ?></h2>
 							</div>
 							<div class="black-wrap black-wrap2">
-								<h2>Coming In November 23 to Sportsman Channel</h2>
+								<h2><?php the_field('main_poster_text_2', $b2b_page_id); ?></h2>
 							</div>
 							<img class="b2b-logo" src="/wp-content/themes/petersenshunting/images/b2b/b2b-logo.png">
-							<img class="b2b-sportsman-logo" src="/wp-content/themes/petersenshunting/images/b2b/sportsmench-logo.png">
-							
+							<a href="http://www.thesportsmanchannel.com/" target="_blank"><img class="b2b-sportsman-logo" src="/wp-content/themes/petersenshunting/images/b2b/sportsmench-logo.png"></a>
+							<a href="#!" type="button" id="modal_open">
+								<div class="b2b-trailer-wrap">
+									<img src="/wp-content/themes/petersenshunting/images/b2b/trailer-img.jpg">
+									<span>Watch The Trailer</span>
+								</div>
+							</a>
 						</div>
 					</div>
 					<h1 class="page-title hidden-seo"><?php the_title(); ?></h1>
 				</div>
 				<div id="b2b-map">
+					<script>
+						var mapImage    	= jQuery(".b2b-map-img");
+						var mapImageHeight  = jQuery(".b2b-map-img").height();
+						var mapImageWidth   = jQuery(".b2b-map-img").width();
+						var mapText		 	= jQuery(".b2b-map-text");
+					// .b2b-map-text repeting height and width of the .b2b-map-image
+					function mapTextSize(){
+						jQuery(mapText).css({"height": (mapImageHeight + "px"), "width": (mapImageWidth + "px") });
+					}
+					</script>
 					<div class="shadow-block"></div>
 					<div class="map-wrap">
+						<div class="map-trailer">
+							<h4>Watch The Trailer</h4>
+							<div id="#player"><!-- Start of Brightcove Player -->
+								<div style="display:none"></div>
+								<!--
+								By use of this code snippet, I agree to the Brightcove Publisher T and C
+								found at https://accounts.brightcove.com/en/terms-and-conditions/.
+								-->
+								<script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+								
+								<object id="myExperience" class="BrightcoveExperience">
+								  <param name="bgcolor" value="#FFFFFF" />
+								  <param name="width" value="480" />
+								  <param name="height" value="270" />
+								  <param name="playerID" value="1445501637001" />
+								  <param name="playerKey" value="AQ~~,AAAAALyrRUk~,m8Wuv4JIiTp4WJ_vxf089O1HdEWslAPu" />
+								  <param name="isVid" value="true" />
+								  <param name="isUI" value="true" />
+								  <param name="dynamicStreaming" value="true" />
+								  <param name="@videoPlayer" value="<?php echo get_field('brightcove_video_number', $b2b_page_id);?>" /></object>
+								</object>
+								
+								<!--
+								This script tag will cause the Brightcove Players defined above it to be created as soon
+								as the line is read by the browser. If you wish to have the player instantiated only after
+								the rest of the HTML is processed and the page load is complete, remove the line.
+								-->
+								<script type="text/javascript">brightcove.createExperiences();</script>
+							</div><!-- End of Brightcove Player -->
+						</div>
 						<img class="b2b-map-img" src="/wp-content/themes/petersenshunting/images/b2b/b2b-map.jpg">
 						<div class="b2b-map-text">
 							<div class="b2b-rules">
@@ -78,7 +160,6 @@ get_header(); ?>
 					// Make shore that template part name and slug of this page is the same
 					 get_template_part("template-parts/{$slug_b2b}"); 
 					 
-					 
 					// If page's parent's slug is how-to-guides
 					if($post->post_parent) { $post_data = get_post($post->post_parent);
 						 if ($post_data->post_name == "how-to-guides") {
@@ -88,7 +169,10 @@ get_header(); ?>
 					?>
 					 
 				</article><!-- End #article-wrap -->
+							    
             </div><!-- End #content -->
         </div><!-- End general-frame -->
     </div><!-- End #primary -->
+    
+    
 <?php get_footer(); ?>

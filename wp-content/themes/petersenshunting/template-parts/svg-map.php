@@ -138,44 +138,44 @@
 <g class="map-left-links">
 
 <a href=".episode-1">
-<text class="newmexico-text maps-text" transform="matrix(1 0 0 1 19.9513 1209.87)" fill="#555" font-family="'Helvetica'" font-size="27">#1. New Mexico</text>
+<text class="newmexico-text maps-text" transform="matrix(1 0 0 1 19.9513 1209.87)" fill="#555" font-family="'Helvetica'" font-size="27">&nbsp;&nbsp;&nbsp;&nbsp;New Mexico</text>
 <rect x="4.6" y="1174.8" fill="rgba(255,255,255,0.01)" width="214.7" height="52"/>
 </a>
 <circle class="newmexico-circle" fill="#777777" cx="195.5" cy="1246.9" r="6.7"/>
 
 <a href=".episode-2">
-<text class="colorado-text maps-text" transform="matrix(1 0 0 1 176.1244 1086.3011)" fill="#555" font-family="'Helvetica'" font-size="27">#2. Colorado</text>
+<text class="colorado-text maps-text" transform="matrix(1 0 0 1 176.1244 1086.3011)" fill="#555" font-family="'Helvetica'" font-size="27">&nbsp;&nbsp;&nbsp;&nbsp;Colorado</text>
 <rect x="156.7" y="1053.6" fill="rgba(255,255,255,0.01)" width="185.9" height="52"/>
 </a>
 <circle class="colorado-circle" fill="#777777" cx="358.3" cy="1079.6" r="6.7"/>
 
 <a href=".episode-3">
 <rect x="144.4" y="961.2" fill="rgba(255,255,255,0.01)" width="185.9" height="52"/>
-<text class="wyoming-text maps-text" transform="matrix(1 0 0 1 163.8014 991.9824)" fill="#555" font-family="'Helvetica'" font-size="27">#3. Wyoming</text>
+<text class="wyoming-text maps-text" transform="matrix(1 0 0 1 163.8014 991.9824)" fill="#555" font-family="'Helvetica'" font-size="27">&nbsp;&nbsp;&nbsp;&nbsp;Wyoming</text>
 </a>
 <circle class="wyoming-circle" fill="#777777" cx="350.4" cy="987.6" r="6.7"/>
 
 <a href=".episode-4">
 <rect x="160.3" y="818.6" fill="rgba(255,255,255,0.01)" width="141.6" height="52"/>
-<text class="idaho-text maps-text" transform="matrix(1 0 0 1 178.9079 852.8061)" fill="#555" font-family="'Helvetica'" font-size="27">#4. Idaho</text>
+<text class="idaho-text maps-text" transform="matrix(1 0 0 1 178.9079 852.8061)" fill="#555" font-family="'Helvetica'" font-size="27">&nbsp;&nbsp;&nbsp;&nbsp;Idaho</text>
 </a>
 <circle class="idaho-circle" fill="#777777" cx="314.4" cy="848.1" r="6.7"/>
 
 <a href=".episode-5">
 <rect x="27.7" y="640.8" fill="rgba(255,255,255,0.01)" width="200.9" height="52"/>
-<text class="washington-text maps-text" transform="matrix(1 0 0 1 39.5995 674.9968)" fill="#555" font-family="'Helvetica'" font-size="27">#5. Washington</text>
+<text class="washington-text maps-text" transform="matrix(1 0 0 1 39.5995 674.9968)" fill="#555" font-family="'Helvetica'" font-size="27">&nbsp;&nbsp;&nbsp;&nbsp;Washington</text>
 </a>
 <circle class="washington-circle" fill="#777777" cx="245.5" cy="668.8" r="6.7"/>
 
 <a href=".episode-6">
 <rect x="16.7" y="437.4" fill="rgba(255,255,255,0.01)" width="258" height="52"/>
-<text class="bc-text maps-text" transform="matrix(1 0 0 1 21.8539 471.2992)" fill="#555" font-family="'Helvetica'" font-size="27">#6. British Columbia</text>
+<text class="bc-text maps-text" transform="matrix(1 0 0 1 21.8539 471.2992)" fill="#555" font-family="'Helvetica'" font-size="27">&nbsp;&nbsp;&nbsp;&nbsp;British Columbia</text>
 </a>
 <circle class="bc-circle" fill="#777777" cx="291.6" cy="463.4" r="6.7"/>
 
 <a href=".episode-7">
 <rect x="49.3" y="257.1" fill="rgba(255,255,255,0.01)" width="171.6" height="52"/>
-<text class="alaska-text maps-text" transform="matrix(1 0 0 1 55.3605 291.7699)" fill="#555" font-family="'Helvetica'" font-size="27">#7,8. Alaska </text>
+<text class="alaska-text maps-text" transform="matrix(1 0 0 1 55.3605 291.7699)" fill="#555" font-family="'Helvetica'" font-size="27">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alaska</text>
 </a>
 <circle class="alaska-circle" fill="#777777" cx="230.4" cy="288.2" r="6.7"/>
 

@@ -10,9 +10,12 @@
 			</div>
 		</div>
 		<?php 
-		if( get_field('about_text') ) {
+		/*
+if( get_field('about_text') ) {
 			while( has_sub_field('about_text') ) { $paragraph = get_sub_field('paragraph'); echo "<p>" . $paragraph . "</p>"; } 
 			}
+*/
+the_content();
 		?>
 		<?php if( get_field('show_stats') ): ?>
 		<div class="overall-stats">
@@ -59,10 +62,7 @@ $images_slider = get_field("images_slider");
 $small_game = get_field("small_game");
 ?>
 <section class="episode-<?php echo $ep_num ; ?>">	
-	<div class="episode-heading a-text">
-		<div><span>#<?php echo $ep_num ;?></span></div>
-		<h1><?php echo get_the_title(); ?></h1>
-	</div>
+	<h1 class="a-text"><?php echo get_the_title(); ?></h1>
 	<div class="a-text">
 	<!-- Links with a state image on the background -->
 		<div class="block-aside ">
@@ -92,23 +92,6 @@ $small_game = get_field("small_game");
 		<?php while(has_sub_field("text_beginning")): ?>
 		<p><?php the_sub_field('paragraph'); ?></p>
 		<?php endwhile; ?>
-		<!-- Start .s-game-wrap -->
-		<?php if( !empty($small_game) ): ?> 
-		<div class="s-game-wrap clearf">
-			<?php while(has_sub_field("small_game")): 
-				$specie_name = get_sub_field("specie_name");
-				$specie_img = get_sub_field("specie_img");
-				$cover_image = get_sub_field("cover_image");
-			?>
-			<div class="s-game-item">
-				<img src="<?php echo $specie_img['url']; ?>" alt="<?php echo $specie_img['alt']; ?>">
-				<img class="s-game-cover" src="<?php echo $cover_image['url']; ?>" alt="<?php echo $cover_image['alt']; ?>">
-				<p><?php echo $specie_name;?></p>
-			</div>	
-			<?php endwhile; ?>	
-		</div>
-		<?php endif; ?>	
-		<!-- END .s-game-wrap -->
 		<!-- Start .a-slideshow -->
 		<?php if( !empty($images_slider) ): ?> 
 		<div class="a-slideshow">
