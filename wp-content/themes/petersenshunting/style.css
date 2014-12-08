@@ -1018,7 +1018,7 @@ subscribe-links a{color: white;}
 .b2b .text-fn {top: 8%;left: 36%; font-size: 20px;}
 .map-trailer {display: block;}
 .map-trailer .BrightcoveExperience {max-height: 181px;}
-.map-trailer h4 {color: white;margin: 0 0 10px;font-family: "merriweather",serif;text-align: center; }
+.map-trailer h4 {color: white;margin: 0 0 10px;text-align: center; text-transform: uppercase; text-shadow: 1px 1px 3px rgba(0,0,0,.8); }
 /* b2b navigation **********/
 .b2b .shows-nav ul li a {font-size: 11px;padding: 0 5px;}
 .b2b .shows-nav ul li:first-child { border-left: none;}
