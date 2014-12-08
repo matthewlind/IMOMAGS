@@ -541,7 +541,7 @@ if ($(".the-truck")[0]){
 	
 	// .b2b-map-text repeting height and width of the .b2b-map-image
 	function mapTextSize(){
-		$(mapText).css({"height": (mapImageHeight + "px"), "width": (mapImageWidth + "px") });
+		$(mapText).css({"display" : "block", "height": (mapImageHeight + "px"), "width": (mapImageWidth + "px") });
 	}	mapTextSize();
 	
 	// .pageHeader - full hight - function
@@ -579,11 +579,13 @@ if ($(".the-truck")[0]){
 		}	mapTextSize();
 	});
 	$(window).scroll(function() {
-	  	if($(window).scrollTop() >= $(".b2b").offset().top){
+	  	/*
+if($(window).scrollTop() >= $(".b2b").offset().top){
 			$('#page').removeClass("smooth-menu");
 		}else{
 			$('#page').addClass("smooth-menu");
 		}
+*/
 		showsNavStick();
 		sideMapStick();
 		showsNavStates();
@@ -598,5 +600,46 @@ if ($(".the-truck")[0]){
 	
 	$(".b2b").css({"opacity": 1});	
 	
+	// Anable to use position: fixed;
+	$('#page').removeClass("smooth-menu");
+	
+	// MODAL WINDOW function
+	(function() {
+	
+	  'use strict';
+	
+	  // list out the vars
+	  var mOverlay = getId('modal-dialog'),
+	      mOpen = getId('modal_open'),
+	      mClose = getId('modal_close'),
+	      modal = getId('modal-holder'),
+	      modalOpen = false,
+	      lastFocus;
+	
+	
+	  function getId ( id ) {
+	    return document.getElementById(id);
+	  }
+	
+	
+	  // Let's open the modal
+	  function modalShow () {
+	    mOverlay.setAttribute('data-hidden', 'false'); 
+	    modalOpen = true; 
+	  }
+	
+	
+	  function modalClose ( event ) {
+	    mOverlay.setAttribute('data-hidden', 'true');
+	  }
+	
+	//   window.onload = modalShow();
+	  mOpen.addEventListener('click', modalShow);
+	  mClose.addEventListener('click', modalClose);
+	
+	})();
+	
 	};
 });
+
+
