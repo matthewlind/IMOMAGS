@@ -17,8 +17,7 @@
 get_header(); ?>
 	<?php 
 		$slug_b2b = get_post( $post )->post_name;
-		$b2b_page_home = get_page_by_path( 'border-to-border' );
-		$b2b_page_id = get_the_ID( $b2b_page_home )
+		$b2b_page_id = get_page_by_path( 'border-to-border' )->ID;
 	?>
 	<div id="primary" class="general b2b">
 			<div class="modal-overlay" id="modal-dialog" data-hidden="true">
