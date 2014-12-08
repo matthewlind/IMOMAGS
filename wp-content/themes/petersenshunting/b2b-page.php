@@ -15,8 +15,11 @@
  */
 
 get_header(); ?>
-	<?php $slug_b2b = get_post( $post )->post_name; ?> 
-	<?php $b2b_page_id = "21387"; ?>
+	<?php 
+		$slug_b2b = get_post( $post )->post_name;
+		$b2b_page_home = get_page_by_path( 'border-to-border' );
+		$b2b_page_id = get_the_ID( $b2b_page_home )
+	?>
 	<div id="primary" class="general b2b">
 			<div class="modal-overlay" id="modal-dialog" data-hidden="true">
 				<div class="modal-content" id="modal-holder">
