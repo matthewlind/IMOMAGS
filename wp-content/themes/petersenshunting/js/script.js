@@ -581,11 +581,13 @@ jQuery( document ).ready(function($) {
 		  	
 		$(window).scroll(function() {
 			
+/*
 if($(window).scrollTop() >= $(".b2b").offset().top){
 				$('#page').removeClass("smooth-menu");
 			}else{
 				$('#page').addClass("smooth-menu");
 			}
+*/
 
 			showsNavStick();
 			sideMapStick();
@@ -602,7 +604,7 @@ if($(window).scrollTop() >= $(".b2b").offset().top){
 		$(".b2b").css({"opacity": 1});	
 		
 		// Anable to use position: fixed;
-		//$('#page').removeClass("smooth-menu");
+		$('#page').removeClass("smooth-menu");
 		
 		// MODAL WINDOW function
 		(function() {
