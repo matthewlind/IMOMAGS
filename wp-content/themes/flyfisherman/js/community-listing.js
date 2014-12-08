@@ -332,7 +332,7 @@ jQuery( document ).ready(function( $ ) {
 			templateSlide : function(v){
 
 				
-				if (window.location.host != "www.flyfisherman.com") {
+				if (window.location.host != "www.flyfisherman.fox") {
 
 					v.img_url = v.img_url.replace("www.flyfisherman.com",window.location.host);
 				};
@@ -345,7 +345,7 @@ jQuery( document ).ready(function( $ ) {
 			templateThumbs : function(v){
 
 
-				if (window.location.host != "www.flyfisherman.com") {
+				if (window.location.host != "www.flyfisherman.fox") {
 
 					v.thumb = v.thumb.replace("www.flyfisherman.com",window.location.host);
 				};
@@ -410,7 +410,6 @@ jQuery( document ).ready(function( $ ) {
 						
 					},
 					after          : function(slider){
-						$("#photoSlider .slides li:first-child").removeClass('flex-active-slide');
 						
 						self.parseSlider(slider);
 						
@@ -539,7 +538,6 @@ jQuery( document ).ready(function( $ ) {
 				if(typeof(slideData) == 'object'){
 					slide = $('#photoSlider .slides').find("li").attr("slide-count");
 			
-					console.log(slideData);
 					$('#photoGalleryTitle h2 a').html(slideData.post_title);
 					$('#photoGalleryTitle h2 a').attr("href",slideData.post_url);
 					$('#photoGalleryLike .photoGalleryLikeRight').html('');

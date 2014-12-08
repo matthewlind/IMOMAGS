@@ -82,13 +82,6 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 		                <img src="<?php bloginfo('template_directory'); ?>/images/logos/outdoors.png" class="copyright-img" alt="" />
 		                <p>&copy; <?php echo date("Y"); ?> InterMedia Outdoors. All Rights Reserved</p>
 		            </div>
-		            <div class="foot-sub-logos">
-		                <!--<strong>In partnership with</strong>-->
-		                <img class="sub-logo" src="<?php bloginfo('template_directory'); ?>/images/logos/universal.png" alt="">
-		                <img class="sub-logo" src="<?php bloginfo('template_directory'); ?>/images/logos/nbc.png" alt="">
-		                <img class="sub-logo" src="<?php bloginfo('template_directory'); ?>/images/logos/msnbc.png" alt="">
-		                <img class="sub-logo" src="<?php bloginfo('template_directory'); ?>/images/logos/msn.png" alt="">
-		            </div>
 		        </div>
 
 			</div><!-- #footer -->
