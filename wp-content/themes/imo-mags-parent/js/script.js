@@ -251,7 +251,7 @@ jQuery(document).ready(function () {
 	                        jQuery(".pager-holder a.btn-base").hide();
 	                    }
 	                    jQuery("#ajax-loader").hide();
-	                    FB.XFBML.parse();
+	                   
 	                    //refresh the sticky ad on load more
 	                    if (jQuery(window).width() >  610 ) {
 	                    	document.getElementById('sticky-iframe-ad').contentWindow.location.reload();
