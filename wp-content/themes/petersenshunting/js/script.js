@@ -643,7 +643,7 @@ if($(window).scrollTop() >= $(".b2b").offset().top){
 		})();	
 		
 		/**
-		 * FUNCTION FOR MANIPULATING YOUTUBE VIDEO (like stoping the video when the modal window is closed)
+		 * FUNCTION FOR MANIPULATING YOUTUBE VIDEO (like stoping the video when the modal window is closed.)
 		 *
 		 * Q: I have embedded a YouTube video using <iframe src="http://www.youtube.com/embed/As2rZGPGKDY" />but the function doesn't execute any function!
 		 * A: You have to add ?enablejsapi=1 at the end of your URL: /embed/vid_id?enablejsapi=1.
