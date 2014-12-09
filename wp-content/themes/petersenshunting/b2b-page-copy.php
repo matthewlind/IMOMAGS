@@ -1,35 +1,47 @@
 <?php
-/**
- * Template Name: Border To Border Page
- * Description: A Page Template for Border To Border Show.
- *
- * The showcase template in Twenty Eleven consists of a featured posts section using sticky posts,
- * another recent posts area (with the latest post shown in full and the rest as a list)
- * and a left sidebar holding aside posts.
- *
- * We are creating two queries to fetch the proper posts and a custom widget for the sidebar.
- *
- * @package WordPress
- * @subpackage Twenty_Eleven
- * @since Twenty Eleven 1.0
- */
-
 get_header(); ?>
 	<?php 
 		$slug_b2b = get_post( $post )->post_name;
 		$b2b_page_id = get_page_by_path( 'border-to-border' )->ID;
 	?>
 	<div id="primary" class="general b2b">
-		<div class="modal-overlay" id="modal-dialog" data-hidden="true">
-			<div class="modal-content" id="modal-holder">
+			<div class="modal-overlay" id="modal-dialog" data-hidden="true">
+				<div class="modal-content" id="modal-holder">
+				
+					<h1 id="modal-title">Border to Border - The Trailer</h1>
+					<div id="#player"><!-- Start of Brightcove Player -->
+						<div style="display:none"></div>
+						<!--
+						By use of this code snippet, I agree to the Brightcove Publisher T and C
+						found at https://accounts.brightcove.com/en/terms-and-conditions/.
+						-->
+						<script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+						
+						<object id="myExperience" class="BrightcoveExperience">
+						  <param name="bgcolor" value="#FFFFFF" />
+						  <param name="width" value="480" />
+						  <param name="height" value="270" />
+						  <param name="playerID" value="1445501637001" />
+						  <param name="playerKey" value="AQ~~,AAAAALyrRUk~,m8Wuv4JIiTp4WJ_vxf089O1HdEWslAPu" />
+						  <param name="isVid" value="true" />
+						  <param name="isUI" value="true" />
+						  <param name="dynamicStreaming" value="true" />
+						  <param name="@videoPlayer" value="<?php echo get_field('brightcove_video_number', $b2b_page_id);?>" /></object>
+						</object>
+						
+						<!--
+						This script tag will cause the Brightcove Players defined above it to be created as soon
+						as the line is read by the browser. If you wish to have the player instantiated only after
+						the rest of the HTML is processed and the page load is complete, remove the line.
+						-->
+						<script type="text/javascript">brightcove.createExperiences();</script>
+					</div><!-- End of Brightcove Player -->
+					<div class="btn-close" id="modal_close" type="button">x</div>
+				
+				</div> <!-- end .modal-content -->
 			
-				<h1 id="modal-title">Border to Border - The Trailer</h1>
-				<div id="yt-player">
-					<iframe width="560" height="315" src="<?php echo get_field('youtube_video_link', $b2b_page_id);?>?enablejsapi=1" frameborder="0" allowfullscreen></iframe>
-				</div>
-				<div class="btn-close" id="modal_close" type="button">x</div>
-			</div> <!-- end .modal-content -->
-		</div> <!-- end .modal-overlay -->
+			</div> <!-- end .modal-overlay -->
+	
         <div class="general-frame">
             <div id="content" role="main">
 				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header marquee-img clearfix js-responsive-section b2b-header">
@@ -73,24 +85,44 @@ get_header(); ?>
 					<div class="map-wrap">
 						<div class="map-trailer">
 							<h4>Watch The Trailer</h4>
-							<div class="map-trailer-wrap">
-								<iframe width="320" height="180" src="<?php echo get_field('youtube_video_link', $b2b_page_id);?>" frameborder="0" allowfullscreen></iframe>
-							</div>
+							<div id="#player"><!-- Start of Brightcove Player -->
+								<div style="display:none"></div>
+								<!--
+								By use of this code snippet, I agree to the Brightcove Publisher T and C
+								found at https://accounts.brightcove.com/en/terms-and-conditions/.
+								-->
+								<script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+								
+								<object id="myExperience" class="BrightcoveExperience">
+								  <param name="bgcolor" value="#FFFFFF" />
+								  <param name="width" value="480" />
+								  <param name="height" value="270" />
+								  <param name="playerID" value="1445501637001" />
+								  <param name="playerKey" value="AQ~~,AAAAALyrRUk~,m8Wuv4JIiTp4WJ_vxf089O1HdEWslAPu" />
+								  <param name="isVid" value="true" />
+								  <param name="isUI" value="true" />
+								  <param name="dynamicStreaming" value="true" />
+								  <param name="@videoPlayer" value="<?php echo get_field('brightcove_video_number', $b2b_page_id);?>" /></object>
+								</object>
+								
+								<!--
+								This script tag will cause the Brightcove Players defined above it to be created as soon
+								as the line is read by the browser. If you wish to have the player instantiated only after
+								the rest of the HTML is processed and the page load is complete, remove the line.
+								-->
+								<script type="text/javascript">brightcove.createExperiences();</script>
+							</div><!-- End of Brightcove Player -->
 						</div>
 						<img class="b2b-map-img" src="/wp-content/themes/petersenshunting/images/b2b/b2b-map.jpg">
 						<div class="b2b-map-text">
-							<?php if( have_rows('b2b_rules') ): ?>
 							<div class="b2b-rules">
 								<h1>RULES</h1>
 								<ul>
-									<?php while ( have_rows('b2b_rules') ) : the_row();
-										$text_line = get_sub_field('text_line');
-									?>
-									<li><?php echo $text_line; ?></li>
-									<?php endwhile; ?>
+									<li>1. Never spend the night under a roof</li>
+									<li>2. Survive on what you kill or catch and the basic provisions in your kit</li>
+									<li>3. No guides…all DIY hunts and fishing with over-the-counter tags/licenses</li>
 								</ul>
-							</div><!-- end .b2b-rules -->
-							<?php endif; ?>	
+							</div>
 							<div class="b2b-map-txt text-al">ALASKA</div>
 							<div class="b2b-map-txt text-bc">BRITISH COLUMBIA</div>
 							<div class="b2b-map-txt text-ws">WASHINGTON</div>
