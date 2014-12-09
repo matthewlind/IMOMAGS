@@ -290,7 +290,7 @@ jQuery( document ).ready(function($) {
 				controlNav: false,
 				directionNav: true,   
 				animationLoop: true,
-				slideshow: true,                
+				slideshow: false,                
 				slideshowSpeed: 8000,          
 				animationSpeed: 600,
 				sync: "#thumbs-1"
@@ -311,7 +311,7 @@ jQuery( document ).ready(function($) {
 				animation: "fade",
 				controlNav: false,
 				animationLoop: true,
-				slideshow: true,                
+				slideshow: false,                
 				slideshowSpeed: 8000,          
 				animationSpeed: 600,
 				sync: "#thumbs-2"
@@ -331,7 +331,7 @@ jQuery( document ).ready(function($) {
 				animation: "fade",
 				controlNav: false,
 				animationLoop: true,
-				slideshow: true,                
+				slideshow: false,                
 				slideshowSpeed: 8000,          
 				animationSpeed: 600,
 				sync: "#thumbs-3"
@@ -351,7 +351,7 @@ jQuery( document ).ready(function($) {
 				animation: "fade",
 				controlNav: false,
 				animationLoop: true,
-				slideshow: true,                
+				slideshow: false,                
 				slideshowSpeed: 8000,          
 				animationSpeed: 600,
 				sync: "#thumbs-4"
@@ -371,7 +371,7 @@ jQuery( document ).ready(function($) {
 				animation: "fade",
 				controlNav: false,
 				animationLoop: true,
-				slideshow: true,                
+				slideshow: false,                
 				slideshowSpeed: 8000,          
 				animationSpeed: 600,
 				sync: "#thumbs-5"
@@ -391,7 +391,7 @@ jQuery( document ).ready(function($) {
 				animation: "fade",
 				controlNav: false,
 				animationLoop: true,
-				slideshow: true,                
+				slideshow: false,                
 				slideshowSpeed: 8000,          
 				animationSpeed: 600,
 				sync: "#thumbs-6"
@@ -411,7 +411,7 @@ jQuery( document ).ready(function($) {
 				animation: "fade",
 				controlNav: false,
 				animationLoop: true,
-				slideshow: true,                
+				slideshow: false,                
 				slideshowSpeed: 8000,          
 				animationSpeed: 600,
 				sync: "#thumbs-7"
@@ -431,7 +431,7 @@ jQuery( document ).ready(function($) {
 				animation: "fade",
 				controlNav: true,
 				animationLoop: true,
-				slideshow: true,                
+				slideshow: false,                
 				slideshowSpeed: 8000,          
 				animationSpeed: 600,
 				sync: "#thumbs-8"
@@ -454,7 +454,7 @@ jQuery( document ).ready(function($) {
 				    controlNav: false,
 				    directionNav: true,   
 				    animationLoop: true,
-				    slideshow: true,                
+				    slideshow: false,                
 					slideshowSpeed: 8000,          
 					animationSpeed: 600,
 				    sync: "#thumbs-truck"
@@ -474,7 +474,7 @@ jQuery( document ).ready(function($) {
 				    controlNav: false,
 				    directionNav: true,   
 				    animationLoop: true,
-				    slideshow: true,                
+				    slideshow: false,                
 					slideshowSpeed: 8000,          
 					animationSpeed: 600,
 				    sync: "#thumbs-truck-2"
