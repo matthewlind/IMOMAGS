@@ -354,9 +354,6 @@ subscribe-links a{color: white;}
 	left: 0;
 	z-index: 99999;
 	height: 39px;
-	
-	 /* it fixes the bug when scrolling it stops to act weird */
-	backface-visibility:hidden;
 }
 .b2b .sticky-shows-nav ul {
 	line-height: 39px;
@@ -935,7 +932,6 @@ subscribe-links a{color: white;}
 .b2b-trailer-wrap {width: 140px;}
 
 .map-left {display: none;}
-.modal-overlay {padding-top: 3.5em;}
 /* b2b article */
 .b2b #article-wrap {padding: 60px 0 100px 0;}
 .b2b .block-aside {width: 40%;}	
@@ -950,6 +946,7 @@ subscribe-links a{color: white;}
 /* b2b DIY **********/
 .diy-states {position: relative;top: auto;left: auto;margin: auto 5% 35px;width: 75%;}
 .diy-states li {margin-right: 35px;display: inline;float: left;width: 40%;}
+
 }/* end media */
 
 @media only screen and (max-width: 760px) {
@@ -1021,7 +1018,6 @@ subscribe-links a{color: white;}
 .map-trailer {display: block;}
 .map-trailer .BrightcoveExperience {max-height: 181px;}
 .map-trailer h4 {color: white;margin: 0 0 10px;text-align: center; text-transform: uppercase; text-shadow: 1px 1px 3px rgba(0,0,0,.8); font-weight: 500;font-family: sans-serif; }
-.map-trailer-wrap {margin: 0 auto;width: 320px;}
 /* b2b navigation **********/
 .b2b .shows-nav ul li a {font-size: 11px;padding: 0 5px;}
 .b2b .shows-nav ul li:first-child { border-left: none;}

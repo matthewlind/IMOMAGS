@@ -1,4 +1,4 @@
-jQuery(window).load(function () {
+jQuery(window).load(function(){
 	// Load The Truck, The Gear pages scrolled down to the .nav-wrap
 	if (jQuery(".b2b")[0]){
 		if (jQuery(".the-truck")[0] || jQuery(".the-gear")[0] || jQuery(".how-to-guide")[0] || jQuery('*[class^="diy"]')[0]) {
@@ -9,7 +9,7 @@ jQuery(window).load(function () {
 });
 jQuery( document ).ready(function($) {
 	if ($(".b2b")[0]){
-		
+
 		//Variables
 		var windowHeight 	= $(window).height();
 		var windowWidth 	= $(window).width(); 
@@ -439,48 +439,48 @@ jQuery( document ).ready(function($) {
 	  
 		} // End if of .border-to-border
 
-		if ($(".the-truck")[0]){
-			$('#thumbs-truck').flexslider({
-				animation: "slide",
-			    controlNav: false,
-			    animationLoop: true,
-			    slideshow: false,
-			    itemWidth: 54,
-			    itemMargin: 5,
-			    asNavFor: '#slider-truck'
-			});
-			$('#slider-truck').flexslider({
-				animation: "fade",
-			    controlNav: false,
-			    directionNav: true,   
-			    animationLoop: true,
-			    slideshow: false,                
-				slideshowSpeed: 8000,          
-				animationSpeed: 600,
-			    sync: "#thumbs-truck"
-			});
+			if ($(".the-truck")[0]){
+				$('#thumbs-truck').flexslider({
+					animation: "slide",
+				    controlNav: false,
+				    animationLoop: true,
+				    slideshow: false,
+				    itemWidth: 54,
+				    itemMargin: 5,
+				    asNavFor: '#slider-truck'
+				});
+				$('#slider-truck').flexslider({
+					animation: "fade",
+				    controlNav: false,
+				    directionNav: true,   
+				    animationLoop: true,
+				    slideshow: false,                
+					slideshowSpeed: 8000,          
+					animationSpeed: 600,
+				    sync: "#thumbs-truck"
+				});
+				
+				$('#thumbs-truck-2').flexslider({
+					animation: "slide",
+				    controlNav: false,
+				    animationLoop: true,
+				    slideshow: false,
+				    itemWidth: 54,
+				    itemMargin: 5,
+				    asNavFor: '#slider-truck-2'
+				});
+				$('#slider-truck-2').flexslider({
+					animation: "fade",
+				    controlNav: false,
+				    directionNav: true,   
+				    animationLoop: true,
+				    slideshow: false,                
+					slideshowSpeed: 8000,          
+					animationSpeed: 600,
+				    sync: "#thumbs-truck-2"
+				});
 			
-			$('#thumbs-truck-2').flexslider({
-				animation: "slide",
-			    controlNav: false,
-			    animationLoop: true,
-			    slideshow: false,
-			    itemWidth: 54,
-			    itemMargin: 5,
-			    asNavFor: '#slider-truck-2'
-			});
-			$('#slider-truck-2').flexslider({
-				animation: "fade",
-			    controlNav: false,
-			    directionNav: true,   
-			    animationLoop: true,
-			    slideshow: false,                
-				slideshowSpeed: 8000,          
-				animationSpeed: 600,
-			    sync: "#thumbs-truck-2"
-			});
-		
-		}  // End if of .the-truck						
+			}  // End if of .the-truck						
 	
 		// side map stick to top function
 		function sideMapStick() {
@@ -640,6 +640,7 @@ if($(window).scrollTop() >= $(".b2b").offset().top){
 		  mOpen.addEventListener('click', modalShow);
 		  mClose.addEventListener('click', modalClose);
 		
+<<<<<<< HEAD
 		})();	
 		
 		/**

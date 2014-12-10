@@ -1101,14 +1101,10 @@ input.gsc-search-button-v2{
 .widget_news-widget{width: 310px;}
 .tsc-news-header{background: url(images/logos/tsc-news-header.jpg) no-repeat;width: 310px;height: 52px;}
 .tsc-news-widget ul{background: #e8e8e8;}
-.tsc-news-widget li{background: #e8e8e8;height: 90px;padding: 20px;}
-.tsc-news-widget a{font-size: 14px;color: black;display: block;}
+.tsc-news-widget li{background: #e8e8e8;min-height: 50px;padding: 10px;}
+.tsc-news-widget a{font-size: 14px;color: black;}
+.tsc-news-widget .tsc-more-link{text-align: right;}
 .ad-sponsor{background: #7c141f;}
-.tsc-news-widget .image-adjust{width: 100px;height: 65px;overflow: hidden;margin: 0 10px 10px 0; float: left;}
-.tsc-news-widget .image-adjust img{width:100px;height:auto;}
-.tsc-news-widget .tsc-more-link{height: auto;padding: 12px 20px 30px;}
-.tsc-news-widget .tsc-more-link a{font-size: 12px;font-weight: bold;float: right;color: gray;}
-.tsc-news-widget .tsc-more-link a:first-child{float: left;}
 
 /*** sportsman channel video widget ***/
 .widget_channel-video-widget{width: 310px;position: relative;}
