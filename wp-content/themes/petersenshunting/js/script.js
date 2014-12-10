@@ -640,7 +640,6 @@ if($(window).scrollTop() >= $(".b2b").offset().top){
 		  mOpen.addEventListener('click', modalShow);
 		  mClose.addEventListener('click', modalClose);
 		
-<<<<<<< HEAD
 		})();	
 		
 		/**
