@@ -11,6 +11,19 @@ jQuery(window).load(function() {
 });
 
 jQuery(document).ready(function () {
+	
+	// E-Commerce Widget Flexslider
+	jQuery('#ecw-flexslider').flexslider({
+		animation: "slide",
+		animationLoop: false,
+		slideshow: false,
+		itemWidth: 136,
+		itemMargin: 60,
+		touch: true,
+		directionNav: true,
+		controlNav: false
+	});
+	
 	// TV-show functions
 	function heightToggle() {
 		jQuery(".m-shows-airtime").toggleClass("height-auto");
