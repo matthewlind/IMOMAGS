@@ -4969,14 +4969,14 @@ table.likes-leaderboard .entry-title {
 }
 #ecw-flexslider .flex-direction-nav .flex-prev {
 	left: -55px;
-	background: url("/wp-content/themes/petersenshunting/images/e-commerce-widget/arrows-ecommerce.png") 0 -144px no-repeat !important;
+	background: url("/wp-content/themes/imo-mags-parent/images/btn/arrows-ecommerce.png") 0 -144px no-repeat !important;
 }
 #ecw-flexslider .flex-direction-nav .flex-prev:hover {
 	background-position: 0 -216px !important;
 }
 #ecw-flexslider .flex-direction-nav .flex-next {
 	right: -55px;
-	background: url("/wp-content/themes/petersenshunting/images/e-commerce-widget/arrows-ecommerce.png") 0 0 no-repeat !important;
+	background: url("/wp-content/themes/imo-mags-parent/images/btn/arrows-ecommerce.png") 0 0 no-repeat !important;
 }
 #ecw-flexslider .flex-direction-nav .flex-next:hover {
 	background-position: 0 -72px !important;

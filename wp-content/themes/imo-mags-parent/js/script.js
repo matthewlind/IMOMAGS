@@ -13,7 +13,7 @@ jQuery(window).load(function() {
 jQuery(document).ready(function () {
 	
 	// E-Commerce Widget Flexslider
-	$('#ecw-flexslider').flexslider({
+	jQuery('#ecw-flexslider').flexslider({
 		animation: "slide",
 		animationLoop: false,
 		slideshow: false,
