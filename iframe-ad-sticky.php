@@ -25,7 +25,7 @@ node.parentNode.insertBefore(gads, node);
 </script>
 <script type='text/javascript'>
 googletag.cmd.push(function() {
-googletag.defineSlot('/4930/<?php echo $code; ?>/Photo_Gallery_Medium_Rectangle', [[300, 250], [320, 50]], 'div-photo_gallery_medium_rectangle').addService(googletag.pubads());
+googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/BTF_Medium_Rectangle_300x250', [[300, 250], [300, 600]], 'div-btf_medium_rectangle_300x250').addService(googletag.pubads());
 
 googletag.pubads().enableSingleRequest();
 googletag.pubads().enableVideoAds();
@@ -35,9 +35,9 @@ googletag.enableServices();
 
 </head>
 <body>
-<div id='div-photo_gallery_medium_rectangle'>
+<div id='div-btf_medium_rectangle_300x250'>
 		<script type='text/javascript'>
-			googletag.cmd.push(function() { googletag.display('div-photo_gallery_medium_rectangle'); });
+			googletag.cmd.push(function() { googletag.display('div-btf_medium_rectangle_300x250'); });
 		</script>
 	</div>
 
