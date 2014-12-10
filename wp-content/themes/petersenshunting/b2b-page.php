@@ -74,7 +74,7 @@ get_header(); ?>
 						<div class="map-trailer">
 							<h4>Watch The Trailer</h4>
 							<div class="map-trailer-wrap">
-								<iframe width="320" height="180" src="<?php echo get_field('youtube_video_link', $b2b_page_id);?>" frameborder="0" allowfullscreen></iframe>
+									<iframe width="320" height="180" src="<?php echo get_field('youtube_video_link', $b2b_page_id);?>" frameborder="0" allowfullscreen></iframe>
 							</div>
 						</div>
 						<img class="b2b-map-img" src="/wp-content/themes/petersenshunting/images/b2b/b2b-map.jpg">
