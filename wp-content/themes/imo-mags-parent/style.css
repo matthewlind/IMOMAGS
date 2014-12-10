@@ -4868,6 +4868,132 @@ table.likes-leaderboard .entry-title {
       font-weight: bold;
       font-size:18px;
 }
+/* E-Commerce
+********************************************************************************/
+.e-commerce-widget {
+	font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+	border-bottom: 5px solid #363636;
+	padding-bottom: 20px;
+}
+.ecw-head {
+	min-height: 37px;
+	background-color: #363636;
+	padding: 0 20px;
+	margin-bottom: 20px;
+}
+.ecw-head h1 {
+	float: left;
+	color: white;
+	font-size: 18px;
+	font-weight: 900;
+	display: block;
+	line-height: 37px;
+}
+.ecw-head span {
+	display: block;
+	float: right;
+	line-height: 37px;
+	color: white;
+	font-size: 14px;
+}
+.ecw-head span a {
+	color: white;
+	font-weight: bold;
+}
+.ecw-head span a:hover {
+	color: #d79800;
+}
+#ecw-flexslider {
+	position: relative;
+	width: 530px;
+	margin: 0 auto;
+}
+#ecw-flexslider > div > ul > li {
+	margin-right: 60px;
+	text-align: center;
+}
+.ecw-image {
+	width: 136px;
+	height: 136px;
+	text-align: center;
+	white-space: nowrap;
+	margin-bottom: 20px;
+}
+.ecw-helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+.ecw-image img {
+	max-height: 136px;
+	max-width: 136px;
+	vertical-align: middle;
+}
+.ecw-product-name {
+	height: 50px;
+	font-size: 16px;
+	line-height: 16px;
+	color: #2a2a2a;
+	margin-bottom: 7px;
+}
+.ecw-price {
+	display: inline-block;
+	text-align: center;
+	color: #d79800;
+	margin-bottom: 13px;
+	width: 100%;
+}
+.ecw-buy-btn {
+	display: inline-block;
+	text-align: center;
+	padding: 0 25px;
+	margin-bottom: 2px;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.07);
+	line-height: 30px;
+	border-radius: 4px;
+	color: #2a2a2a;
+	font-family: "Open Sans", Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	border: 1px solid #c2c2c2;
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ffffff 0%, #f2f2f2 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f2f2f2)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#f2f2f2 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ffffff 0%,#f2f2f2 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ffffff 0%,#f2f2f2 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #ffffff 0%,#f2f2f2 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f2f2f2',GradientType=0 ); /* IE6-9 */
+} 
+.ecw-buy-btn:hover {
+	color: #d79800;
+}
+#ecw-flexslider .flex-direction-nav .flex-prev {
+	left: -55px;
+	background: url("/wp-content/themes/petersenshunting/images/e-commerce-widget/arrows-ecommerce.png") 0 -144px no-repeat !important;
+}
+#ecw-flexslider .flex-direction-nav .flex-prev:hover {
+	background-position: 0 -216px !important;
+}
+#ecw-flexslider .flex-direction-nav .flex-next {
+	right: -55px;
+	background: url("/wp-content/themes/petersenshunting/images/e-commerce-widget/arrows-ecommerce.png") 0 0 no-repeat !important;
+}
+#ecw-flexslider .flex-direction-nav .flex-next:hover {
+	background-position: 0 -72px !important;
+}
+#ecw-flexslider .flex-direction-nav a {
+	position: absolute;
+	display: block;
+	top: 102px;
+	width: 36px;
+	height: 65px;
+	opacity: 1;
+}
+#ecw-flexslider .flex-direction-nav a.flex-disabled {
+	display: none;
+}
+/* END E-Commerce
+********************************************************************************/
 
 /* =Responsive Breakpoints
 *******************************************************************************/
@@ -5226,6 +5352,16 @@ table.likes-leaderboard .entry-title {
 	#sponsors-area .sponsor-img {margin: 0 1.4% 20px;}
 
 } /* End of media */
+@media only screen and (max-width: 1023px) {
+/* E-Commerce
+********************************************************************************/
+.ecw-head { padding: 8px; }
+.ecw-head h1 { float: none;line-height: 20px;text-align: center;}
+.ecw-head span {float: none;line-height: 20px;text-align: center;}
+#ecw-flexslider {width: 334px;}
+/* END E-Commerce
+********************************************************************************/
+} /* End of media */
 @media only screen and (max-width: 981px) {
 	.tv-show #when-to-watch {padding-top: 20px;}
 	.tv-show .schedule-item .episode-title {font-size: 14px;}
@@ -5428,6 +5564,13 @@ table.likes-leaderboard .entry-title {
 	.tv-show #channelControls a input {width: 300px;}
 	.tv-show #channelControls #zip {width: 160px;}
 	.tv-show .m-shows-airtimes .btn-green {width: 100%;}
+	
+	/* E-Commerce Widget
+	***************************/
+	#ecw-flexslider .flex-direction-nav .flex-prev {left: -36px;}
+	#ecw-flexslider .flex-direction-nav .flex-next {right: -36px;}
+	/* END E-Commerce Widget
+	***************************/
 	
 } /* End of media */
 @media only screen and (max-width: 820px) {
@@ -5650,6 +5793,14 @@ table.likes-leaderboard .entry-title {
 	#video-filter li{padding: 0;}
 	#video-filter li a{padding: 5px 8px;}
 	.tv-show .shows-player-area{padding-left: 20px;padding-right: 20px;}
+	
+	/* E-Commerce Widget
+	************************/
+	#ecw-flexslider .flex-direction-nav .flex-prev {left: -55px;}
+	#ecw-flexslider .flex-direction-nav .flex-next {right: -55px;}
+	#ecw-flexslider {width: 136px;}
+	/* END E-Commerce Widget
+	************************/
 	
 } /* End of media */
 @media only screen and (max-width: 700px) {
@@ -6139,6 +6290,10 @@ table.likes-leaderboard .entry-title {
 	.tv-show #description-area{margin: 10px 0 0;}
 	.tv-show #description-area .unify{min-height: auto;}
 	
+	/* E-Commerce Widget ************************/
+	#ecw-flexslider {width: 334px;}
+	/* END E-Commerce Widget ************************/
+	
 } /* End of media */
 @media only screen and (max-width: 510px) {
     .entry-content-holder {
@@ -6219,6 +6374,12 @@ table.likes-leaderboard .entry-title {
 	
 	#sponsors-area .sponsor-img {width: 45%;margin: 0 2% 20px;}
 	.tv-show div.sponsors-wrap {padding: 30px 20px 40px;}
+	
+	/* E-Commerce Widget ************************/
+	#ecw-flexslider {width: 136px;}
+	#ecw-flexslider .flex-direction-nav .flex-prev {left: -52%;}
+	#ecw-flexslider .flex-direction-nav .flex-next {right: -52%;}
+	/* END E-Commerce Widget ************************/
 
 } /* End of media */
 @media only screen and (max-width: 340px) {
