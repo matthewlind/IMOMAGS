@@ -10,27 +10,24 @@ if (!empty($_GET['size'])) {
 <html>
 <head>
 <script type='text/javascript'>
-var googletag = googletag || {};
-googletag.cmd = googletag.cmd || [];
 (function() {
-var gads = document.createElement('script');
-gads.async = true;
-gads.type = 'text/javascript';
 var useSSL = 'https:' == document.location.protocol;
-gads.src = (useSSL ? 'https:' : 'http:') + 
+var src = (useSSL ? 'https:' : 'http:') +
 '//www.googletagservices.com/tag/js/gpt.js';
-var node = document.getElementsByTagName('script')[0];
-node.parentNode.insertBefore(gads, node);
+document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
 })();
 </script>
 <script type='text/javascript'>
-googletag.cmd.push(function() {
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/BTF_Medium_Rectangle_300x250', [[300, 250], [300, 600]], 'div-btf_medium_rectangle_300x250').addService(googletag.pubads());
+googletag.defineSlot('/4930/<?php echo $code; ?>/BTF_Medium_Rectangle_300x250', [[300, 250], [300, 600]], 'div-btf_medium_rectangle_300x250').addService(googletag.pubads());
+
+googletag.pubads().setTargeting("sect","<?php echo $title; ?>");
+googletag.pubads().setTargeting("Audience segment","<?php echo $title; ?>");
 
 googletag.pubads().enableSingleRequest();
+googletag.pubads().enableSyncRendering();
+
 googletag.pubads().enableVideoAds();
 googletag.enableServices();
-});
 </script>
 
 </head>
