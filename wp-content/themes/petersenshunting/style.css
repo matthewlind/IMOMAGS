@@ -185,7 +185,7 @@ subscribe-links a{color: white;}
 	position: absolute;
 	width: 40%;
 	right: 10%;
-	top: 39%;
+	top: 31%;
 }
 .b2b-title span {
 	float: left;
@@ -204,23 +204,26 @@ subscribe-links a{color: white;}
 	float: left;
 }
 .b2b .b2b-header .b2b-sportsman-logo {
-	float: right;
+	/* float: right; */
 	width: 200px;
-	margin-right: 10px;
-	margin-top: 35px;
+	margin-right: 0;
+	margin-top: 0;
 }
 .b2b .b2b-header .b2b-logo {
 	float: right;
-	width: 145px;
-	margin-top: -21px;
-	margin-right: -18px;
-	clear: both;
+	width: 163px;
+	margin-top: -16px;
+	margin-right: 22px;
+}
+.b2b-sport-trailer {
+	float: right;
+	width: 201px;
 }
 .header-info {
 	position: absolute;
 	width: 591px;
 	height: 300px;
-	top: 56%;
+	top: 48%;
 	right: 10%;
 }
 .header-info-inner {
@@ -441,8 +444,9 @@ subscribe-links a{color: white;}
   color: #d86f3c;
 }
 .b2b-trailer-wrap {
-	width: 185px;
-	float: left;
+	width: 200px;
+	/* float: left; */
+	margin-top: 13px;
 }
 .b2b-trailer-wrap:hover {
 	opacity: 0.9;
@@ -885,10 +889,11 @@ subscribe-links a{color: white;}
 **********************************/
 .b2b .page-header {height: 500px;}	
 .b2b-title {width: 45%;right: 6%;}
-.header-info {right: 6%; width: 53%;top:54%;}
+.header-info {right: 6%; width: 53%;top:47%;}
 .black-wrap {margin-bottom: 10px;}
-.b2b .b2b-header .b2b-sportsman-logo {width: 150px;margin-top: 46px;}
-.b2b-trailer-wrap {width: 160px;margin-top: 10px;}
+.b2b .b2b-header .b2b-sportsman-logo {width: 180px;}
+.b2b-trailer-wrap {width: 180px;}
+.b2b-sport-trailer {margin-top: 3px;width: 180px;}
 
 /* b2b map **********/
 .b2b-rules h1 {font-size: 36px; margin-bottom: 5px;}
@@ -923,13 +928,16 @@ subscribe-links a{color: white;}
 @media only screen and (max-width: 880px){
 /* Border to Border **
 **********************************/
-.b2b-title {width: 48%;right: 3%; top:29%;}
-.header-info {right: 3%; width: 55%;top:48%;}
+.b2b-title {width: 48%;right: 3%; top:28%;}
+.header-info {right: 3%; width: 55%;top:43%;}
 .black-wrap{background-color: rgba(0,0,0,0.5);}
 .black-wrap2{width: 85%;}
+.black-wrap h2, .black-wrap2 h2 {font-size: 16px;}
 .b2b .b2b-header .b2b-logo {width: 120px;margin-top: -11px;}
-.b2b .b2b-header .b2b-sportsman-logo {width: 150px;margin-top: 46px;}
-.b2b-trailer-wrap {width: 140px;}
+.b2b .b2b-header .b2b-sportsman-logo {width: 150px:}
+.b2b-trailer-wrap {width: 150px;}
+.b2b-trailer-wrap span {background-color: rgba(0,0,0,0.5);}
+.b2b-sport-trailer {width: 150px;}
 
 .map-left {display: none;}
 /* b2b article */
@@ -954,12 +962,13 @@ subscribe-links a{color: white;}
 /* Border to Border **
 **********************************/
 .b2b-title {width: 51%;top:33%;}
-.header-info{width: 51%;}
+.header-info{width: 51%;top: 48%;}
 .b2b .b2b-header .b2b-sportsman-logo{width: 130px;}
 .b2b-header {background-image: url("../petersenshunting/images/b2b/header-image-mobile.jpg");}
 .black-wrap h2 {font-size: 10px;}
-.b2b-trailer-wrap {float: right;}
-.b2b .b2b-header .b2b-sportsman-logo {margin-top: 10px;}
+.b2b-trailer-wrap {width: 130px;}
+.b2b-sport-trailer {width: 130px;}
+.b2b-trailer-wrap span {font-size: 12px;}
 
 /* b2b map **********/
 #b2b-map .map-wrap {margin: 40px auto 220px;}
@@ -1018,6 +1027,7 @@ subscribe-links a{color: white;}
 .map-trailer {display: block;}
 .map-trailer .BrightcoveExperience {max-height: 181px;}
 .map-trailer h4 {color: white;margin: 0 0 10px;text-align: center; text-transform: uppercase; text-shadow: 1px 1px 3px rgba(0,0,0,.8); font-weight: 500;font-family: sans-serif; }
+.map-trailer-wrap {margin: 0 auto;width: 320px;}
 /* b2b navigation **********/
 .b2b .shows-nav ul li a {font-size: 11px;padding: 0 5px;}
 .b2b .shows-nav ul li:first-child { border-left: none;}

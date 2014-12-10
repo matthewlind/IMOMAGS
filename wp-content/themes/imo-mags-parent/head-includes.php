@@ -139,7 +139,7 @@ document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
 <script type='text/javascript'>
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Adhesive_Medium_Rectangle_300x250', [300, 250], 'div-adhesive_medium_rectangle_300x250').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/ATF_Leaderboard_728x90', [728, 90], 'div-atf_leaderboard_728x90').addService(googletag.pubads());
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Pushdown_1080x90', [1080, 90], 'div-pushdown_1080x90').addService(googletag.pubads());
+
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/ATF_Medium_Rectangle_300x250', [[300, 250], [300, 600]], 'div-atf_medium_rectangle_300x250').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/BTF_Leaderboard_728x90', [728, 90], 'div-btf_leaderboard_728x90').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/BTF_Medium_Rectangle_300x250', [[300, 250], [300, 600]], 'div-btf_medium_rectangle_300x250').addService(googletag.pubads());
@@ -151,10 +151,14 @@ googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Mobile_Leaderboard_320x50
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Photo_Gallery_Medium_Rectangle', [300, 250], 'div-photo_gallery_medium_rectangle').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Photo_Gallery_Mobile_Banner', [320, 50], 'div-photo_gallery_mobile_banner').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Screen_Shift_1x1', [1, 1], 'div-screen_shift_1x1').addService(googletag.pubads());
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Site_Skin_1x1', [1, 1], 'div-site_skin_1x1').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Sponsor_Logo_240x60', [240, 60], 'div-sponsor_logo_240x60').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Deer_Forecast_Sponsor_Logo_240x60', [240, 60], 'div-Deer_Forecast_Sponsor_Logo_240x60').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Polar_Native_Ad_2x2', [2, 2], 'div-polar_native_ad_2x2').addService(googletag.pubads());
+
+<?php if(!is_page( 'border-to-border' )){ ?>
+googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Site_Skin_1x1', [1, 1], 'div-site_skin_1x1').addService(googletag.pubads());
+googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Pushdown_1080x90', [1080, 90], 'div-pushdown_1080x90').addService(googletag.pubads());
+<?php } ?>
 
 <?php if(is_page( 'battle-of-the-bows' )){ ?>
 
