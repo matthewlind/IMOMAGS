@@ -357,6 +357,8 @@ subscribe-links a{color: white;}
 	left: 0;
 	z-index: 99999;
 	height: 39px;
+	/* it fixes the bug when scrolling it stops to act weird */
+	backface-visibility:hidden;
 }
 .b2b .sticky-shows-nav ul {
 	line-height: 39px;
@@ -939,13 +941,14 @@ subscribe-links a{color: white;}
 .b2b-trailer-wrap span {background-color: rgba(0,0,0,0.5);}
 .b2b-sport-trailer {width: 150px;}
 
+
 .map-left {display: none;}
 /* b2b article */
 .b2b #article-wrap {padding: 60px 0 100px 0;}
 .b2b .block-aside {width: 40%;}	
 .b2b .links-aside {min-height:200px;}	
 .b2b .a-text {margin: auto 5%;max-width: 800px;}
-
+.thumbs-wrap {display: none;}
 .b2b .overall-stats {width: 100%;}
 
 .a-slideshow { width: 100%;}

@@ -38,7 +38,7 @@ the_content();
 $this_page_id=$wp_query->post->ID; 
 $flex_num = 1;
 $args = array(
-	'posts_per_page' 	=> 0,
+	'posts_per_page' 	=> -1,
 	'orderby'		 	=> 'date',
 	'order'			 	=> 'ASC',
 	'post_parent' 		=> $this_page_id,
@@ -60,6 +60,9 @@ $full_width_image_caption = get_field("full_width_image_caption");
 $images_slider = get_field("images_slider");
 $small_game = get_field("small_game");
 ?>
+
+<?php echo do_shortcode( '[ajax_load_more post_type="page" meta_key="is_episode" meta_value="1" order="ASC" posts_per_page="7" max_pages="3" transition="fade"]' ); ?>
+
 <section class="episode-<?php echo $ep_num ; ?>">	
 	<h1 class="a-text"><?php echo get_the_title(); ?></h1>
 	<div class="a-text">
