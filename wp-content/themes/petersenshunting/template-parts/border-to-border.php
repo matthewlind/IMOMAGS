@@ -38,7 +38,7 @@ the_content();
 $this_page_id=$wp_query->post->ID; 
 $flex_num = 1;
 $args = array(
-	'posts_per_page' 	=> 0,
+	'posts_per_page' 	=> -1,
 	'orderby'		 	=> 'date',
 	'order'			 	=> 'ASC',
 	'post_parent' 		=> $this_page_id,
