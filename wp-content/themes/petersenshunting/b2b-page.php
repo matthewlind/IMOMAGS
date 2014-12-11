@@ -46,14 +46,18 @@ get_header(); ?>
 							<div class="black-wrap black-wrap2">
 								<h2><?php the_field('main_poster_text_2', $b2b_page_id); ?></h2>
 							</div>
+							<div class="b2b-sport-trailer">
+								<a href="http://www.thesportsmanchannel.com/" target="_blank"><img class="b2b-sportsman-logo" src="/wp-content/themes/petersenshunting/images/b2b/sportsman-logo.jpg"></a>
+								<a href="#!" type="button" id="modal_open">
+									<div class="b2b-trailer-wrap">
+										<img src="/wp-content/themes/petersenshunting/images/b2b/trailer-img.jpg">
+										<span>Watch The Trailer</span>
+									</div>
+								</a>
+							</div>
+							
 							<img class="b2b-logo" src="/wp-content/themes/petersenshunting/images/b2b/b2b-logo.png">
-							<a href="http://www.thesportsmanchannel.com/" target="_blank"><img class="b2b-sportsman-logo" src="/wp-content/themes/petersenshunting/images/b2b/sportsmench-logo.png"></a>
-							<a href="#!" type="button" id="modal_open">
-								<div class="b2b-trailer-wrap">
-									<img src="/wp-content/themes/petersenshunting/images/b2b/trailer-img.jpg">
-									<span>Watch The Trailer</span>
-								</div>
-							</a>
+							
 						</div>
 					</div>
 					<h1 class="page-title hidden-seo"><?php the_title(); ?></h1>
@@ -79,12 +83,12 @@ get_header(); ?>
 						</div>
 						<img class="b2b-map-img" src="/wp-content/themes/petersenshunting/images/b2b/b2b-map.jpg">
 						<div class="b2b-map-text">
-							<?php if( have_rows('b2b_rules') ): ?>
+							<?php if( have_rows('b2b_rules', $b2b_page_id) ): ?>
 							<div class="b2b-rules">
 								<h1>RULES</h1>
 								<ul>
-									<?php while ( have_rows('b2b_rules') ) : the_row();
-										$text_line = get_sub_field('text_line');
+									<?php while ( have_rows('b2b_rules', $b2b_page_id) ) : the_row();
+										$text_line = get_sub_field('text_line', $b2b_page_id);
 									?>
 									<li><?php echo $text_line; ?></li>
 									<?php endwhile; ?>
