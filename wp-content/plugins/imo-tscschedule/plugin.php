@@ -58,7 +58,7 @@ function jsTSCSRender($mobile, $atts) {
 
 	$format = $atts["format"];
 
-	$datapath = "http://www.imoutdoors.com/tscschedule/scheduledata.php";
+	$datapath = "http://apps.imoutdoors.com/tscschedule/scheduledata.php";
 	$data = file_get_contents ($datapath);
     $showjson = json_decode($data, true);
 	
@@ -115,7 +115,7 @@ function jsTSCSRender($mobile, $atts) {
 		
 		date_default_timezone_set('America/New_York');
 
-		//$datapath = "http://www.imoutdoors.com/tscschedule/server/apitest.php?show=".$seriesid;
+		//$datapath = "http://apps.imoutdoors.com/tscschedule/server/apitest.php?show=".$seriesid;
 		//$data = file_get_contents ($datapath);
 		//$showjson = json_decode($data, true);
 
