@@ -266,18 +266,18 @@ jQuery( document ).ready(function($) {
 						$(".bc-circle").attr("r", "6.7").attr("fill", "#777777");
 					} 
 				    
-				   // Changing fill of the state shape
-				  /*
-			if ((ep7 < (docTop + 300)) && (ep8 > (docTop + 300))) {
+					// Changing fill of the state shape
+				
+				   	if (ep7 < (docTop + 300) ) {
 					   $(".alaska-polygon").children().attr("fill", "#f6f6f6");
 					   $(".alaska-text").attr("fill", "#333");
 					   $(".alaska-circle").attr("r", "11").attr("fill", "#222222");
-				    } else if ((ep8 < (docTop + -700)) || (ep7 > (docTop - 300))) {
+				    } else if (ep7 > docTop) {
 					   $(".alaska-polygon").children().attr("fill", "#fff");
 					   $(".alaska-text").attr("fill", "#888");
 					   $(".alaska-circle").attr("r", "6.7").attr("fill", "#777777");
 				    } 
-			*/ 
+			
 				}// end drawLine	 
 			}// end drawLines6
 	////////////////////////						
