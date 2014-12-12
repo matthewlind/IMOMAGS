@@ -113,7 +113,7 @@ get_header(); ?>
 					</div>
 				</div><!-- #b2b-nav-wrap -->
 				<!-- Make home page visible faster then other pages -->
-				<?php if (is_page($b2b_page_id)){ ?>
+				<?php if (is_page('border-to-border')){ ?>
 					<script>
 						var windowHeight 	= jQuery(window).height();
 						var windowWidth 	= jQuery(window).width();
