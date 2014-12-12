@@ -61,7 +61,7 @@ get_header(); ?>
 						</div>
 					</div>
 					<h1 class="page-title hidden-seo"><?php the_title(); ?></h1>
-				</div>
+				</div><!-- end .b2b-header -->
 				<div id="b2b-map">
 					<script>
 						var mapImage    	= jQuery(".b2b-map-img");
@@ -107,13 +107,26 @@ get_header(); ?>
 						</div>
 					</div>
 				</div><!-- #b2b-map -->
-				
 				<div class="nav-wrap">
 					<div class="shows-nav">
 						<?php	wp_nav_menu( array( 'theme_location' => 'b2b', 'container' => '0' ) ); ?>
 					</div>
 				</div><!-- #b2b-nav-wrap -->
-					
+				<!-- Make home page visible faster then other pages -->
+				<?php if (is_page($b2b_page_id)){ ?>
+					<script>
+						var windowHeight 	= jQuery(window).height();
+						var windowWidth 	= jQuery(window).width();
+						var pageHeader  	= jQuery(".b2b-header");
+						var headerHight 	= jQuery(".header").height();
+						function fullHightHeader(){
+							if (windowWidth > 768) {
+								jQuery(pageHeader).css({"height": ((windowHeight - headerHight - 40) + "px")});
+							}
+						}	fullHightHeader();
+						jQuery(".b2b").css({"opacity": 1});
+					</script>
+				<?php } ?>	
 				<article id="article-wrap" class="<?php echo $slug_b2b; ?>">
 					<?php 
 					// Make shore that template part name and slug of this page is the same
