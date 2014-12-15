@@ -21,6 +21,14 @@ jQuery( document ).ready(function($) {
 		var mapImageWidth   = $(".b2b-map-img").width();
 		var mapText		 	= $(".b2b-map-text");
 		
+		// .pageHeader - full hight - function
+		function fullHightHeader(){
+			if (windowWidth > 768) {
+				$(pageHeader).css({"height": ((windowHeight - headerHight - 40) + "px")});
+			}
+		}	fullHightHeader();
+		$(".b2b").css({"opacity": 1});	
+		
 		if ($(".border-to-border")[0]){
 		
 			//Handels for every SVG Road Path 
@@ -258,18 +266,18 @@ jQuery( document ).ready(function($) {
 						$(".bc-circle").attr("r", "6.7").attr("fill", "#777777");
 					} 
 				    
-				   // Changing fill of the state shape
-				  /*
-			if ((ep7 < (docTop + 300)) && (ep8 > (docTop + 300))) {
+					// Changing fill of the state shape
+				
+				   	if (ep7 < (docTop + 300) ) {
 					   $(".alaska-polygon").children().attr("fill", "#f6f6f6");
 					   $(".alaska-text").attr("fill", "#333");
 					   $(".alaska-circle").attr("r", "11").attr("fill", "#222222");
-				    } else if ((ep8 < (docTop + -700)) || (ep7 > (docTop - 300))) {
+				    } else if (ep7 > docTop) {
 					   $(".alaska-polygon").children().attr("fill", "#fff");
 					   $(".alaska-text").attr("fill", "#888");
 					   $(".alaska-circle").attr("r", "6.7").attr("fill", "#777777");
 				    } 
-			*/ 
+			
 				}// end drawLine	 
 			}// end drawLines6
 	////////////////////////						
@@ -544,12 +552,7 @@ jQuery( document ).ready(function($) {
 			$(mapText).css({"display" : "block", "height": (mapImageHeight + "px"), "width": (mapImageWidth + "px") });
 		}	mapTextSize();
 		
-		// .pageHeader - full hight - function
-		function fullHightHeader(){
-			if (windowWidth > 768) {
-				$(pageHeader).css({"height": ((windowHeight - headerHight - 30) + "px")});
-			}
-		}	fullHightHeader();
+		
 	
 		// Functions triggered on window resize
 		$(window).on("resize", function() { 
@@ -600,8 +603,6 @@ if($(window).scrollTop() >= $(".b2b").offset().top){
 		    drawLines5();
 		    drawLines6();	    
 		});
-		
-		$(".b2b").css({"opacity": 1});	
 		
 		// Anable to use position: fixed;
 		$('#page').removeClass("smooth-menu");

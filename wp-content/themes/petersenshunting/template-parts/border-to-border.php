@@ -164,9 +164,11 @@ $small_game = get_field("small_game");
 	<?php if( !empty($full_width_image_back) ): ?> 
 	<div class="a-cell">
 		<div class="a-inner-cell" style="background-image: url('<?php echo $full_width_image_back;?>');"></div>
+		<?php if ($full_width_image_caption): ?>
 		<div class="a-cell-caption">
 			<p><?php echo $full_width_image_caption;?></p>
 		</div>
+		<?php endif ?>
 	</div><!-- END .a-cell -->
 	<?php endif; ?><!--END .a-cell -->	
 </section>	
