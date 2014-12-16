@@ -2603,8 +2603,10 @@ select.alter-sel {width:100%;}
 
 .flex-direction-nav{
 		display:none;
-	}
-
+}
+#ecw-flexslider .flex-direction-nav {
+	display: block;
+}
 #photoTopControls .sliderPrev{
 	display: inline-block;
 	width: 33px;
