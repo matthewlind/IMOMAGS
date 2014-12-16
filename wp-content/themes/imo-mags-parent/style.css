@@ -64,15 +64,18 @@ html, button, input, select, textarea {
 }
 blockquote, q { quotes: none; }
 blockquote{
-	color: black;
-	font-family: adelle,sans-serif;
+	font-family: "Source Sans Pro", helvetica,sans-serif;
 	font-style: normal;
 	font-weight: 600;
-	font-size: 1.25em;
+	font-size: 1.2em;
+	color: #cda220;
 	line-height: 1.375em;
-	margin-bottom: 0.625em;
-	margin-top: 0.625em;
-	padding: 20px 30px;
+	margin-bottom: 2em;
+	margin-top: 2em;
+	padding: 0px 1.2em;
+	border-left: 4px solid #cda220;
+	margin-left: 1.2em;
+	position: relative;
 }
 blockquote:before, blockquote:after,
 q:before, q:after { content: ''; content: none; }
@@ -1390,7 +1393,7 @@ a.category-name-link:hover{
 }
 
 .inline-post .inline-details {
-  margin-top:1.5em;
+  margin-top: 0.5em;
   font-weight: 700;
   font-family: "Source Sans Pro";
   font-size: 14px;
@@ -1415,10 +1418,11 @@ a.category-name-link:hover{
 }
 
 .wp-caption.inline-post {
-
-  max-width:none;
+	background-color: #f0f0f0;
+	border-bottom: none;  
+	max-width:none;
+	margin: 25px 0;
 }
-
 
 /* posts list */
 .posts-list {margin:0 0 16px;clear: both;border-top: 1px solid #d8d7d6;padding-top: 12px;}
@@ -1742,7 +1746,7 @@ a.category-name-link:hover{
 .single .inner-main{clear: both;}
 .single .entry-content{
 	font-family: Georgia,Times,serif;
-	font-size: 1.1875em;
+	font-size: 1.05em;
 	line-height: 1.6;
 	margin: 1em 0;
 }
@@ -2869,19 +2873,15 @@ margin-bottom:15px;
  ******************************************************************************/
 #wpadminbar {z-index: 999999999 !important;}
 .wp-caption {
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	-khtml-border-radius: 3px;
-	border-radius: 3px;
 	overflow: hidden;
 	padding: 5px;
 	position: relative;
-	background: #e0e0e0;
 	margin: 20px 0;
 	max-width: 580px;
+	border-bottom: 1px solid #666666;
 }
 .wp-caption .wp-caption-text {
-	margin: 6px 2px 0 2px;
+	margin: 15px 15px 10px 15px;
 	font-size: 14px;
 }
 .author-info{
