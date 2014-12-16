@@ -1386,7 +1386,7 @@ a.category-name-link:hover{
 
 
 .inline-post a img.wp-post-image {
-    max-width:130px;
+    max-width:300px;
     width: 30%;
     float:left;
     margin:10px 20px 10px 10px;
@@ -4870,6 +4870,7 @@ table.likes-leaderboard .entry-title {
 	font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
 	border-bottom: 5px solid #363636;
 	padding-bottom: 20px;
+	margin: 45px 0;
 }
 .ecw-head {
 	min-height: 37px;
