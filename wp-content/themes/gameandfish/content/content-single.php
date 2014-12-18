@@ -51,7 +51,7 @@ $acf_byline = get_field("byline",$postID);
         </div><!-- .entry-content -->
         <?php endif; ?>
         		
-        <?php the_widget('imo_related_footer_widget'); ?>
+        <?php //the_widget('imo_related_footer_widget'); ?>
 
 	    <?php imo_ad_placement("e_commerce_widget"); ?>	
 
