@@ -97,30 +97,24 @@ $small_game = get_field("small_game");
 			<div id="slider-<?php echo $flex_id_num; ?>" class="flexslider slider-wrap">
 			  <ul class="slides">
 			  <?php while(has_sub_field("images_slider")): 
-				  $image = get_sub_field("image_slider");
+					$image = get_sub_field("image_slider");
+					$caption_slider = get_sub_field("caption_slider");
 				  
-				  // vars
-				$url = $image['url'];
-				$title = $image['title'];
-				$alt = $image['alt'];
-				$caption = $image['caption'];
-			
-				// thumbnail
-				if (mobile() == false) { 
-					$size = 'full';
-				} else {
-					$size = 'medium';
-				}
-				$thumb = $image['sizes'][ $size ];
-				$width = $image['sizes'][ $size . '-width' ];
-				$height = $image['sizes'][ $size . '-height' ];
-				  
-				  
-				  
+					// vars
+					$url = $image['url'];
+					$title = $image['title'];
+					$alt = $image['alt'];
+					$caption = $image['caption'];
+					
+					$size = 'large';
+					
+					$thumb = $image['sizes'][ $size ];
+					$width = $image['sizes'][ $size . '-width' ];
+					$height = $image['sizes'][ $size . '-height' ];
 			  ?>
 			    <li>
-			      <img src="<?php echo $thumb; ?>" alt="<?php echo $alt; ?>" />
-			       <p class="flex-caption"><?php echo $caption; ?></p>
+					<img src="<?php if (mobile() == false) { echo $url; } else { echo $thumb; } ?>" alt="<?php echo $alt; ?>" />
+					<p class="flex-caption"><?php echo $caption_slider; ?></p>
 			    </li>
 			  <?php endwhile; ?>  
 			  </ul>
@@ -128,10 +122,10 @@ $small_game = get_field("small_game");
 			<div id="thumbs-<?php echo $flex_id_num; ?>" class="flexslider thumbs-wrap">
 			  <ul class="slides">
 			  <?php while(has_sub_field("images_slider")): 
-				  $image_slider = get_sub_field("image_slider");
+				  $image = get_sub_field("image_slider");
 				  $caption_slider = get_sub_field("caption_slider");
 			  ?>
-			    <li style="background-image: url('<?php echo $image_slider['url']; ?>')">
+			    <li style="background-image: url('<?php echo $image['url']; ?>')">
 			    </li>
 			  <?php endwhile; ?>  
 			  </ul>
