@@ -106,7 +106,7 @@ $small_game = get_field("small_game");
 					$alt = $image['alt'];
 					$caption = $image['caption'];
 					
-					$size = 'large';
+					$size = 'medium';
 					
 					$thumb = $image['sizes'][ $size ];
 					$width = $image['sizes'][ $size . '-width' ];
