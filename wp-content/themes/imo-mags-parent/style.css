@@ -64,15 +64,18 @@ html, button, input, select, textarea {
 }
 blockquote, q { quotes: none; }
 blockquote{
-	color: black;
-	font-family: adelle,sans-serif;
+	font-family: "Source Sans Pro", helvetica,sans-serif;
 	font-style: normal;
 	font-weight: 600;
-	font-size: 1.25em;
+	font-size: 1.2em;
+	color: #cda220;
 	line-height: 1.375em;
-	margin-bottom: 0.625em;
-	margin-top: 0.625em;
-	padding: 20px 30px;
+	margin-bottom: 2em;
+	margin-top: 2em;
+	padding: 0px 1.2em;
+	border-left: 4px solid #cda220;
+	margin-left: 1.2em;
+	position: relative;
 }
 blockquote:before, blockquote:after,
 q:before, q:after { content: ''; content: none; }
@@ -1117,14 +1120,10 @@ input.gsc-search-button-v2{
 .widget_news-widget{width: 310px;}
 .tsc-news-header{background: url(images/logos/tsc-news-header.jpg) no-repeat;width: 310px;height: 52px;}
 .tsc-news-widget ul{background: #e8e8e8;}
-.tsc-news-widget li{background: #e8e8e8;height: 90px;padding: 20px;}
-.tsc-news-widget a{font-size: 14px;color: black;display: block;}
+.tsc-news-widget li{background: #e8e8e8;min-height: 50px;padding: 10px;}
+.tsc-news-widget a{font-size: 14px;color: black;}
+.tsc-news-widget .tsc-more-link{text-align: right;}
 .ad-sponsor{background: #7c141f;}
-.tsc-news-widget .image-adjust{width: 100px;height: 65px;overflow: hidden;margin: 0 10px 10px 0; float: left;}
-.tsc-news-widget .image-adjust img{width:100px;height:auto;}
-.tsc-news-widget .tsc-more-link{height: auto;padding: 12px 20px 30px;}
-.tsc-news-widget .tsc-more-link a{font-size: 12px;font-weight: bold;float: right;color: gray;}
-.tsc-news-widget .tsc-more-link a:first-child{float: left;}
 
 /*** sportsman channel video widget ***/
 .widget_channel-video-widget{width: 310px;position: relative;}
@@ -1404,14 +1403,14 @@ a.category-name-link:hover{
 
 
 .inline-post a img.wp-post-image {
-    max-width:130px;
+    max-width:300px;
     width: 30%;
     float:left;
     margin:10px 20px 10px 10px;
 }
 
 .inline-post .inline-details {
-  margin-top:1.5em;
+  margin-top: 0.5em;
   font-weight: 700;
   font-family: "Source Sans Pro";
   font-size: 14px;
@@ -1425,8 +1424,8 @@ a.category-name-link:hover{
 }
 
 .inline-post h1 {
-    margin-top:0.1em;
-    font: 20px/1.0 "Source Sans Pro", Helvetica, Arial, serif;
+    margin-top:0.3em;
+    font: 25px/1.0 "Source Sans Pro", Helvetica, Arial, serif;
     font-weight: 700;
     margin-bottom:0.3em;
 }
@@ -1436,10 +1435,11 @@ a.category-name-link:hover{
 }
 
 .wp-caption.inline-post {
-
-  max-width:none;
+	background-color: #f0f0f0;
+	border-bottom: none;  
+	max-width:none;
+	margin: 25px 0;
 }
-
 
 /* posts list */
 .posts-list {margin:0 0 16px;clear: both;border-top: 1px solid #d8d7d6;padding-top: 12px;}
@@ -2890,19 +2890,15 @@ margin-bottom:15px;
  ******************************************************************************/
 #wpadminbar {z-index: 999999999 !important;}
 .wp-caption {
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	-khtml-border-radius: 3px;
-	border-radius: 3px;
 	overflow: hidden;
 	padding: 5px;
 	position: relative;
-	background: #e0e0e0;
 	margin: 20px 0;
 	max-width: 580px;
+	border-bottom: 1px solid #666666;
 }
 .wp-caption .wp-caption-text {
-	margin: 6px 2px 0 2px;
+	margin: 15px 15px 10px 15px;
 	font-size: 14px;
 }
 .author-info{
@@ -4885,6 +4881,133 @@ table.likes-leaderboard .entry-title {
       font-weight: bold;
       font-size:18px;
 }
+/* E-Commerce
+********************************************************************************/
+.e-commerce-widget {
+	font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+	border-bottom: 5px solid #363636;
+	padding-bottom: 20px;
+	margin: 45px 0;
+}
+.ecw-head {
+	min-height: 37px;
+	background-color: #363636;
+	padding: 0 20px;
+	margin-bottom: 20px;
+}
+.ecw-head h1 {
+	float: left;
+	color: white;
+	font-size: 18px;
+	font-weight: 900;
+	display: block;
+	line-height: 37px;
+}
+.ecw-head span {
+	display: block;
+	float: right;
+	line-height: 37px;
+	color: white;
+	font-size: 14px;
+}
+.ecw-head span a {
+	color: white;
+	font-weight: bold;
+}
+.ecw-head span a:hover {
+	color: #d79800;
+}
+#ecw-flexslider {
+	position: relative;
+	width: 530px;
+	margin: 0 auto;
+}
+#ecw-flexslider > div > ul > li {
+	margin-right: 60px;
+	text-align: center;
+}
+.ecw-image {
+	width: 136px;
+	height: 136px;
+	text-align: center;
+	white-space: nowrap;
+	margin-bottom: 20px;
+}
+.ecw-helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+.ecw-image img {
+	max-height: 136px;
+	max-width: 136px;
+	vertical-align: middle;
+}
+.ecw-product-name {
+	height: 50px;
+	font-size: 16px;
+	line-height: 16px;
+	color: #2a2a2a;
+	margin-bottom: 7px;
+}
+.ecw-price {
+	display: inline-block;
+	text-align: center;
+	color: #d79800;
+	margin-bottom: 13px;
+	width: 100%;
+}
+.ecw-buy-btn {
+	display: inline-block;
+	text-align: center;
+	padding: 0 25px;
+	margin-bottom: 2px;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.07);
+	line-height: 30px;
+	border-radius: 4px;
+	color: #2a2a2a;
+	font-family: "Open Sans", Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	border: 1px solid #c2c2c2;
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ffffff 0%, #f2f2f2 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f2f2f2)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#f2f2f2 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ffffff 0%,#f2f2f2 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ffffff 0%,#f2f2f2 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #ffffff 0%,#f2f2f2 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f2f2f2',GradientType=0 ); /* IE6-9 */
+} 
+.ecw-buy-btn:hover {
+	color: #d79800;
+}
+#ecw-flexslider .flex-direction-nav .flex-prev {
+	left: -55px;
+	background: url("/wp-content/themes/imo-mags-parent/images/btn/arrows-ecommerce.png") 0 -144px no-repeat !important;
+}
+#ecw-flexslider .flex-direction-nav .flex-prev:hover {
+	background-position: 0 -216px !important;
+}
+#ecw-flexslider .flex-direction-nav .flex-next {
+	right: -55px;
+	background: url("/wp-content/themes/imo-mags-parent/images/btn/arrows-ecommerce.png") 0 0 no-repeat !important;
+}
+#ecw-flexslider .flex-direction-nav .flex-next:hover {
+	background-position: 0 -72px !important;
+}
+#ecw-flexslider .flex-direction-nav a {
+	position: absolute;
+	display: block;
+	top: 102px;
+	width: 36px;
+	height: 65px;
+	opacity: 1;
+}
+#ecw-flexslider .flex-direction-nav a.flex-disabled {
+	display: none;
+}
+/* END E-Commerce
+********************************************************************************/
 
 /* =Responsive Breakpoints
 *******************************************************************************/
@@ -5243,6 +5366,16 @@ table.likes-leaderboard .entry-title {
 	#sponsors-area .sponsor-img {margin: 0 1.4% 20px;}
 
 } /* End of media */
+@media only screen and (max-width: 1023px) {
+/* E-Commerce
+********************************************************************************/
+.ecw-head { padding: 8px; }
+.ecw-head h1 { float: none;line-height: 20px;text-align: center;}
+.ecw-head span {float: none;line-height: 20px;text-align: center;}
+#ecw-flexslider {width: 334px;}
+/* END E-Commerce
+********************************************************************************/
+} /* End of media */
 @media only screen and (max-width: 981px) {
 	.tv-show #when-to-watch {padding-top: 20px;}
 	.tv-show .schedule-item .episode-title {font-size: 14px;}
@@ -5445,6 +5578,13 @@ table.likes-leaderboard .entry-title {
 	.tv-show #channelControls a input {width: 300px;}
 	.tv-show #channelControls #zip {width: 160px;}
 	.tv-show .m-shows-airtimes .btn-green {width: 100%;}
+	
+	/* E-Commerce Widget
+	***************************/
+	#ecw-flexslider .flex-direction-nav .flex-prev {left: -36px;}
+	#ecw-flexslider .flex-direction-nav .flex-next {right: -36px;}
+	/* END E-Commerce Widget
+	***************************/
 	
 } /* End of media */
 @media only screen and (max-width: 820px) {
@@ -5667,6 +5807,14 @@ table.likes-leaderboard .entry-title {
 	#video-filter li{padding: 0;}
 	#video-filter li a{padding: 5px 8px;}
 	.tv-show .shows-player-area{padding-left: 20px;padding-right: 20px;}
+	
+	/* E-Commerce Widget
+	************************/
+	#ecw-flexslider .flex-direction-nav .flex-prev {left: -55px;}
+	#ecw-flexslider .flex-direction-nav .flex-next {right: -55px;}
+	#ecw-flexslider {width: 136px;}
+	/* END E-Commerce Widget
+	************************/
 	
 } /* End of media */
 @media only screen and (max-width: 700px) {
@@ -6156,6 +6304,10 @@ table.likes-leaderboard .entry-title {
 	.tv-show #description-area{margin: 10px 0 0;}
 	.tv-show #description-area .unify{min-height: auto;}
 	
+	/* E-Commerce Widget ************************/
+	#ecw-flexslider {width: 334px;}
+	/* END E-Commerce Widget ************************/
+	
 } /* End of media */
 @media only screen and (max-width: 510px) {
     .entry-content-holder {
@@ -6236,6 +6388,12 @@ table.likes-leaderboard .entry-title {
 	
 	#sponsors-area .sponsor-img {width: 45%;margin: 0 2% 20px;}
 	.tv-show div.sponsors-wrap {padding: 30px 20px 40px;}
+	
+	/* E-Commerce Widget ************************/
+	#ecw-flexslider {width: 136px;}
+	#ecw-flexslider .flex-direction-nav .flex-prev {left: -52%;}
+	#ecw-flexslider .flex-direction-nav .flex-next {right: -52%;}
+	/* END E-Commerce Widget ************************/
 
 } /* End of media */
 @media only screen and (max-width: 340px) {

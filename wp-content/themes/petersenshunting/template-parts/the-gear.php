@@ -20,18 +20,15 @@
 			<p class="item-link"><a href="<?php echo $gear_link; ?>" target="_blank">Visit website</a><i class="fa fa-angle-double-right"></i></p>
 			<p><?php echo $gear_description; ?> </p>
 			<div class="img-video-container">
+				<?php if ($gear_video) : ?>
 				<div class="gear-video">
 					
-					
-					<div id="#player">
-					<!-- Start of Brightcove Player -->
+					<div id="#player"><!-- Start of Brightcove Player -->
 					<div style="display:none"></div>
-					
 					<!--
 					By use of this code snippet, I agree to the Brightcove Publisher T and C
 					found at https://accounts.brightcove.com/en/terms-and-conditions/.
 					-->
-					
 					<script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
 					
 					<object id="myExperience" class="BrightcoveExperience">
@@ -52,18 +49,17 @@
 					the rest of the HTML is processed and the page load is complete, remove the line.
 					-->
 					<script type="text/javascript">brightcove.createExperiences();</script>
+					</div><!-- End of Brightcove Player -->
 					
-					<!-- End of Brightcove Player -->
-					</div>
-					
-					
-				</div>
+				</div><!-- .gear-video -->	
+				<?php endif; ?>
+				<?php if ($gear_image) : ?>
 				<div class="gear-img"><img src="<?php echo $gear_image['url']; ?>" alt="<?php echo $gear_image['alt']; ?>" ></div>
+				<?php endif; ?>
 			</div>
 		</div>
 		<?php endwhile; ?>	
 		<?php endif; ?><!-- End .gear-item -->
-
 	</div><!-- .a-text -->	
 </section><!-- .about-show -->	
 

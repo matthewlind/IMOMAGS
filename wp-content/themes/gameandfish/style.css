@@ -641,7 +641,7 @@ blockquote{color: #cda220;}
 
 .inline-post a img.wp-post-image {
     max-width:300px;
-    width: 40%;
+    width: 30%;
     float:left;
     margin:10px 20px 10px 10px;
 }
@@ -653,7 +653,7 @@ blockquote{color: #cda220;}
 
 .inline-post h1 {
 	margin-top:0.3em;
-	font: 30px/1.1 "Source Sans Pro", Helvetica, Arial, serif;
+	font: 25px/1.1 "Source Sans Pro", Helvetica, Arial, serif;
 	font-weight: 700;
 	margin-bottom:0.3em;
 }
@@ -4477,8 +4477,10 @@ select.alter-sel {width:100%;}
 
 .flex-direction-nav{
 		display:none;
-	}
-
+}
+#ecw-flexslider .flex-direction-nav {
+	display: block;
+}
 #photoTopControls .sliderPrev{
 	display: inline-block;
 	width: 33px;

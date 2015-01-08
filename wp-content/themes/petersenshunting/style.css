@@ -154,11 +154,11 @@ subscribe-links a{color: white;}
 .open-search{background-position-x: -352px;}
 
 
-
 /*** Border to Border Show ***
 ******************************/
 .b2b-orange {
 	color: #d9713d;
+	
 }
 .b2b a {
 	color: #d9713d;
@@ -171,7 +171,6 @@ subscribe-links a{color: white;}
     -webkit-transition-delay:0.9s !important; /* For Safari 3.1 to 6.0 */
     transition-delay:0.9s !important;
 }
-
 .b2b-header {
 	position: relative;
 	height: 900px;
@@ -186,7 +185,7 @@ subscribe-links a{color: white;}
 	position: absolute;
 	width: 40%;
 	right: 10%;
-	top: 39%;
+	top: 31%;
 }
 .b2b-title span {
 	float: left;
@@ -205,23 +204,26 @@ subscribe-links a{color: white;}
 	float: left;
 }
 .b2b .b2b-header .b2b-sportsman-logo {
-	float: right;
+	/* float: right; */
 	width: 200px;
-	margin-right: 10px;
-	margin-top: 35px;
+	margin-right: 0;
+	margin-top: 0;
 }
 .b2b .b2b-header .b2b-logo {
 	float: right;
-	width: 145px;
-	margin-top: -21px;
-	margin-right: -18px;
-	clear: both;
+	width: 163px;
+	margin-top: -16px;
+	margin-right: 22px;
+}
+.b2b-sport-trailer {
+	float: right;
+	width: 201px;
 }
 .header-info {
 	position: absolute;
 	width: 591px;
 	height: 300px;
-	top: 56%;
+	top: 48%;
 	right: 10%;
 }
 .header-info-inner {
@@ -264,6 +266,9 @@ subscribe-links a{color: white;}
 	display: block;
 	max-height: 720px;
 }
+.map-trailer {
+	display: none;
+}
 /*** b2b map text ***/
 .b2b-map-text {
 	position:absolute;
@@ -271,6 +276,7 @@ subscribe-links a{color: white;}
     left:0;
     right:0;
 	margin: 40px auto 0;
+	display: none;
 }
 .b2b-rules {
 	position: absolute;
@@ -351,12 +357,114 @@ subscribe-links a{color: white;}
 	left: 0;
 	z-index: 99999;
 	height: 39px;
+	/* it fixes the bug when scrolling it stops to act weird */
+	backface-visibility:hidden;
 }
 .b2b .sticky-shows-nav ul {
 	line-height: 39px;
 }
 .b2b .sticky-shows-nav ul li a {
 	font-size: 14px;
+}
+/*** b2b Modal ************************/
+.modal-overlay {
+  background: rgba(0,0,0,.8);
+  height: 100%;
+  left: 0;
+  display: flex;
+  overflow: auto;
+  padding: 1.5em;
+  position: fixed;
+  top: 0;
+  transition: opacity .2s;
+  width: 100%;
+  z-index: -1;
+}
+
+.modal-overlay[data-hidden="true"] {
+  opacity: 0;
+}
+
+.modal-overlay[data-hidden="false"] {
+  opacity: 1;
+  z-index: 99999;
+}
+
+/*
+  Modal Content Area
+*/
+.modal-content {
+  background: #000000;
+  margin: auto;
+  max-width: 650px;
+  overflow: auto;
+  overflow-x: hidden;
+  padding: 1.5em;
+  position: relative;
+  transform: scale(.8);
+  transition: transform .3s;
+  width: 100%;
+  box-shadow: 1px 1px 40px rgba(0,0,0,.7);
+}
+
+.modal-overlay[data-hidden="false"] .modal-content {
+  transform: scale(1);
+}
+
+/*
+  General Modal Content
+*/
+#modal-title {
+  margin: 0 0 20px;
+  padding-right: 1.25em;
+  color: white;
+  font: 400 19px Helvetica, Arial, sans-serif;
+}
+/*
+  Close Modal Button
+*/
+.btn-close {
+  background: none;
+  color: #ffffff;
+/*
+  font-family: Helvetica, Arial;
+  font-size: 2em;
+  font-weight: 800;
+*/
+  font: 700 2em Helvetica, Arial, sans-serif;
+  border: none;
+  line-height: .65em;
+  cursor: pointer;
+  right: .25em;
+  padding: 0;
+  position: absolute;
+  top: .25em;
+  z-index: 2;
+  text-decoration: none;
+}
+.btn-close:hover {
+  color: #d86f3c;
+}
+.b2b-trailer-wrap {
+	width: 200px;
+	/* float: left; */
+	margin-top: 13px;
+}
+.b2b-trailer-wrap:hover {
+	opacity: 0.9;
+}
+.b2b-trailer-wrap img {
+	width: 100%;
+}
+.b2b-trailer-wrap span {
+	display: inline-block;
+	background-color: black;
+	text-align: right;
+	color: white;
+	width: 100%;
+	font-size: 16px;
+	padding: 2px 10px 2px 5px;
+	box-sizing: border-box;
 }
 /*** b2b Article ************************/
 .b2b #article-wrap {
@@ -426,26 +534,12 @@ subscribe-links a{color: white;}
 .b2b .stats-item span:nth-child(3) {
 	font-size: 12px;
 }
+.b2b .species-stats .stats-item span:nth-child(1) {
+	font-size: 42px;
+	line-height: 68px;
+}
 /*** b2b Episodes ***/
-.b2b .episode-heading div {
-	height: 52px;
-	width: 52px;
-	border-radius: 10px 0 10px 10px;
-	background-color: #333333;
-	float: left;
-	margin-right: 22px;
-}
-.b2b .episode-heading div span {
-	color: #ffffff;
-	text-align: center;
-	line-height: 52px;
-	font-family: 'bebas-neue', 'Open Sans', Helvetica, Arial, sans-serif;
-	font-size: 40px;
-	display: block;
-}
-.b2b .episode-heading h1 {
-	padding-top: 9px;
-}
+
 /*** b2b links-aside ***/
 .b2b .links-aside {
 	position: relative;
@@ -748,8 +842,6 @@ subscribe-links a{color: white;}
 }
 .b2b-map img{margin: 0 auto;}
 
-
-
 @media only screen and (max-width: 1096px) {
 	.logo img{width: 130px !important;}
 	.logo img {margin-top: 2px;}
@@ -799,8 +891,11 @@ subscribe-links a{color: white;}
 **********************************/
 .b2b .page-header {height: 500px;}	
 .b2b-title {width: 45%;right: 6%;}
-.header-info {right: 6%; width: 53%;top:54%;}
+.header-info {right: 6%; width: 53%;top:47%;}
 .black-wrap {margin-bottom: 10px;}
+.b2b .b2b-header .b2b-sportsman-logo {width: 180px;}
+.b2b-trailer-wrap {width: 180px;}
+.b2b-sport-trailer {margin-top: 3px;width: 180px;}
 
 /* b2b map **********/
 .b2b-rules h1 {font-size: 36px; margin-bottom: 5px;}
@@ -830,17 +925,22 @@ subscribe-links a{color: white;}
 /* b2b the-gear page **********/		
 .the-gear .a-text {margin: auto 5%;max-width: 800px;}
 
-}/* end @media */
+}/* end media */
 
-@media only screen and (max-width: 980px){
+@media only screen and (max-width: 880px){
 /* Border to Border **
 **********************************/
-.b2b-title {width: 48%;right: 3%; top:29%;}
-.header-info {right: 3%; width: 48%;top:48%;}
+.b2b-title {width: 48%;right: 3%; top:28%;}
+.header-info {right: 3%; width: 55%;top:43%;}
 .black-wrap{background-color: rgba(0,0,0,0.5);}
 .black-wrap2{width: 85%;}
+.black-wrap h2, .black-wrap2 h2 {font-size: 16px;}
 .b2b .b2b-header .b2b-logo {width: 120px;margin-top: -11px;}
-.b2b .b2b-header .b2b-sportsman-logo {width: 160px;margin-top: 42px;}
+.b2b .b2b-header .b2b-sportsman-logo {width: 150px:}
+.b2b-trailer-wrap {width: 150px;}
+.b2b-trailer-wrap span {background-color: rgba(0,0,0,0.5);}
+.b2b-sport-trailer {width: 150px;}
+
 
 .map-left {display: none;}
 /* b2b article */
@@ -848,7 +948,7 @@ subscribe-links a{color: white;}
 .b2b .block-aside {width: 40%;}	
 .b2b .links-aside {min-height:200px;}	
 .b2b .a-text {margin: auto 5%;max-width: 800px;}
-
+.thumbs-wrap {display: none;}
 .b2b .overall-stats {width: 100%;}
 
 .a-slideshow { width: 100%;}
@@ -858,18 +958,21 @@ subscribe-links a{color: white;}
 .diy-states {position: relative;top: auto;left: auto;margin: auto 5% 35px;width: 75%;}
 .diy-states li {margin-right: 35px;display: inline;float: left;width: 40%;}
 
-}/* end @media */
+}/* end media */
 
 @media only screen and (max-width: 760px) {
-
 
 /* Border to Border **
 **********************************/
 .b2b-title {width: 51%;top:33%;}
-.header-info{width: 51%;}
+.header-info{width: 51%;top: 48%;}
 .b2b .b2b-header .b2b-sportsman-logo{width: 130px;}
 .b2b-header {background-image: url("../petersenshunting/images/b2b/header-image-mobile.jpg");}
 .black-wrap h2 {font-size: 10px;}
+.b2b-trailer-wrap {width: 130px;}
+.b2b-sport-trailer {width: 130px;}
+.b2b-trailer-wrap span {font-size: 12px;}
+
 /* b2b map **********/
 #b2b-map .map-wrap {margin: 40px auto 220px;}
 .b2b-rules {bottom: -190px; left: 0;color: #fff; max-width: 100%; padding: 0 30px;}
@@ -898,7 +1001,7 @@ subscribe-links a{color: white;}
 .diy-states {width: 90%;}
 .diy-states li {width: 40%;}
 
-}/* end @media */
+}/* end media */
 @media only screen and (max-width: 460px){
 	/* Border to Border **
 **********************************/
@@ -910,8 +1013,13 @@ subscribe-links a{color: white;}
 .b2b .b2b-header .b2b-logo {margin-top: -13px;width: 103px;margin-right: 31px;}
 .b2b .b2b-header .b2b-sportsman-logo{display: none;}
 .b2b-title span {color: white;font-size: 16px;font-weight: 500;text-shadow: 1px 2px 5px black;}
+.b2b-trailer-wrap {display: none;}
+
 /* b2b map **********/
-.b2b-rules {bottom: -185px;}
+#b2b-map .map-wrap {margin: 20px auto 220px;}
+#b2b-map .map-wrap img {margin: 10px auto;}
+.b2b-map-text {top:208px;}
+.b2b-rules {bottom: -185px; }
 .b2b-map-txt {font-size: 8px;}
 .b2b .text-al {left: 18%;}
 .b2b .text-id {top:36%;}
@@ -919,9 +1027,12 @@ subscribe-links a{color: white;}
 .b2b-rules ul li {font-size: 14px;}
 .b2b .text-st {left: 34%; font-size: 20px;}
 .b2b .text-fn {top: 8%;left: 36%; font-size: 20px;}
-
+.map-trailer {display: block;}
+.map-trailer .BrightcoveExperience {max-height: 181px;}
+.map-trailer h4 {color: white;margin: 0 0 10px;text-align: center; text-transform: uppercase; text-shadow: 1px 1px 3px rgba(0,0,0,.8); font-weight: 500;font-family: sans-serif; }
+.map-trailer-wrap {margin: 0 auto;width: 320px;}
 /* b2b navigation **********/
-.b2b .shows-nav ul li a {font-size: 12px;padding: 0 5px;}
+.b2b .shows-nav ul li a {font-size: 11px;padding: 0 5px;}
 .b2b .shows-nav ul li:first-child { border-left: none;}
 .b2b .shows-nav ul li:last-child { border-right: none;}
 .b2b .shows-nav ul li { border-right: 1px solid #566e83;}
@@ -932,7 +1043,7 @@ subscribe-links a{color: white;}
 .b2b .stats-item { width: 144px; min-height: 167px;}
 .b2b .stats-item:first-child {border-left: 1px solid #e0e0e0;}
 .episode-5 .stats-item span:nth-child(1) {font-size: 40px;}
-.b2b .species-stats .stats-item span:nth-child(1) {font-size: 40px;}
+.b2b .species-stats .stats-item span:nth-child(1) {font-size: 35px;}
 .s-game-item {float: none; margin: 47px auto;width: 130px; height: 130px;}
 #article-wrap .s-game-item img {margin-bottom: 0;}
 .a-slideshow .slider-wrap .flex-direction-nav {top: -20%;}
@@ -942,6 +1053,7 @@ subscribe-links a{color: white;}
 
 .species-description {width: 100%;}
 .species-description img {width: 100px; height: 151px;}
+
 /* b2b The Gear page **********/
 .gear-item .gear-video {max-width: 100%;}
 .gear-item {padding-bottom: 50px;}
@@ -950,8 +1062,4 @@ subscribe-links a{color: white;}
 .diy-states {width: 110%;font-size: 16px;margin: auto 5% 35px;}
 .diy-states li {width: 40%;margin-right: 5px;}
 	
-}/* end @media */
-
-@media only screen and (max-width: 340px){
-
-}/* end @media */
+}/* end media */

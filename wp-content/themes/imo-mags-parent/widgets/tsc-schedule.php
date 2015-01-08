@@ -60,7 +60,7 @@ class Schedule_Widget extends WP_Widget {
 	 */	
 	private function phpTSCSRender() {
 	
-		$datapath = "http://www.imoutdoors.com/tscschedule/scheduledata.php";
+		$datapath = "http://apps.imoutdoors.com/tscschedule/scheduledata.php";
 		$data = file_get_contents ($datapath);
 	    $showjson = json_decode($data, true);
 		
@@ -71,8 +71,7 @@ class Schedule_Widget extends WP_Widget {
 			 . "ORDER BY post_title"; 
 		$showposts = $wpdb->get_results($sql);
 	
-		
-		$showposts = getTSCSwpshows();
+		//$showposts = getTSCSwpshows();
 	
 		$wpshows = array();
 		foreach($showposts as $post) {
