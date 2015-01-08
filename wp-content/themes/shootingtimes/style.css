@@ -15,6 +15,7 @@ body{background:#2d2d2d;}
 .header{background:#2d2d2d;padding-top: 74px;}
 
 .header, .header .subscribe-links a{color: white;}
+.logo{margin-top: 18px;}
 .layout-frame{border: none;background: none;}
 .main, .content-banner-section{background: white;}
 .expandable{
@@ -189,8 +190,8 @@ subscribe-links a{color: white;}
 	 }
 	 .logo {
 		width: 105px;
-		height: 42px;
-		margin:5px 0 0 0;
+		height: auto;
+		margin:6px 0 0 0;
 	}
 	.logo img{width: 140px;}
 }

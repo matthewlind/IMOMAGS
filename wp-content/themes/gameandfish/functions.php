@@ -6,25 +6,20 @@ define("SUBS_LINK", "http://subs.gameandfishmag.com/");
 define("GIFT_LINK", "http://subs.gameandfishmag.com/gift");
 define("SERVICE_LINK", "https://secure.palmcoastd.com/pcd/eServ?iServ=MDE0ODg0NDcwNSZpVHlwZT1FTlRFUg==");
 define("SUBS_DEAL_STRING", "Save Over 70% off<br/> the Cover Price");
-
 define("FACEBOOK_LINK", "https://www.facebook.com/GameAndFish");
 define("TWITTER_LINK", "https://www.twitter.com/@gameandfishmag");
 define("RSS_LINK", "http://www.gameandfishmag.com/feed/");
 define("SITE_LINK", "gameandfishmag.com");
 define("SITE_NAME", "Game & Fish");
-
 define("FACEBOOK_APP_ID","624736570896056");
 define("FACEBOOK_APP_SECRET","4011410d01c27af26e016760c03492ea");
-
 include_once("widgets/gf-community-slider.php");
 include_once("wordpress-community.php");
-
 //community menus
 register_nav_menus(array(
     'hunting' => 'Hunting Community Menu',
     'fishing' => 'Fishing Community Menu'
 ));
-
 /* This function allows for logging when debugging mode is on */
 if(!function_exists('_log')){
   function _log( $message ) {
@@ -37,7 +32,6 @@ if(!function_exists('_log')){
     }
   }
 }
-
 function social_networks(){
 	echo '<div class="socials">';
 		echo '<a href="'.FACEBOOK_LINK.'" class="facebook" target="_blank">Facebook</a>';
@@ -45,9 +39,6 @@ function social_networks(){
 	    echo '<a href="'.RSS_LINK.'" class="rss" target="_blank">RSS</a>';
 	echo '</div>';
 }
-
-
-
 function social_footer(){ ?>
 	<div class="foot-social clearfix">
 		<strong class="social-title">Like us on Facebook to <span>stay updated !</span></strong>
@@ -55,18 +46,13 @@ function social_footer(){ ?>
 		<?php social_networks(); ?>
 	</div>
 <?php }
-
-
 //SETTINGS PAGE FOR US STATE POST SETS
 add_action("admin_menu", "gf_post_sets_menu");
-
 function gf_post_sets_menu() {
     add_menu_page("Game & Fish State Post Sets", "G&F State Post Sets", "editor", 'gf-post-sets', "gf_post_sets_page");
     add_action("admin_init", "gf_post_sets_settings");
 }
-
 function gf_post_sets_settings () {
-
 register_setting( 'gf-post-sets-settings-group', 'AL_state_post_set');
 register_setting( 'gf-post-sets-settings-group', 'AK_state_post_set');
 register_setting( 'gf-post-sets-settings-group', 'AZ_state_post_set');
@@ -118,10 +104,7 @@ register_setting( 'gf-post-sets-settings-group', 'WA_state_post_set');
 register_setting( 'gf-post-sets-settings-group', 'WV_state_post_set');
 register_setting( 'gf-post-sets-settings-group', 'WI_state_post_set');
 register_setting( 'gf-post-sets-settings-group', 'WY_state_post_set');
-
 }
-
-
 function gf_post_sets_page() {
 ?>
 <div class="wrap">
@@ -336,93 +319,19 @@ function gf_post_sets_page() {
     <th scope="row">WY</th>
     <td><input type="text" name="WY_state_post_set" value="<?php echo get_option('WY_state_post_set'); ?>" /></td>
  </tr>
-
   </table>
-
     <p class="submit">
     <input type="submit" class="button-primary" value="<?php _e('Save Changes') ?>" />
     </p>
 </form>
 </div>
-
 <?php
 }
-
 function custom_post_author_archive($query) {
     if ($query->is_author) {
 
         $query->set( 'post_type', array('reader_photos', 'reader_photo', 'post') );
-
     }
-
     remove_action( 'pre_get_posts', 'custom_post_author_archive' );
 }
 add_action('pre_get_posts', 'custom_post_author_archive');
-
-
-
-
-/******************************************************************************************
- * Admin Settings Menu for Community New Post Promo Image
- ******************************************************************************************/
-
-/* add_settings_field callback */
-function gf_community_promo_settings_option() {
-    echo "<input type='text' name='community_promo_image_url' id='gf-promo-settings' value='".get_option("community_promo_image_url", "" )."' />";
-}
-
-function gf_community_promo_settings_section() {
-    echo "";
-}
-
-/* admin_menu callback. */
-function gf_community_promo_settings_init() {
-    add_settings_section("community_promo_settings", __("Community Promo Settings"), "gf_community_promo_settings_section", "general");
-    add_settings_field("community_promo_image_url", __("Community Promo Image URL"), "gf_community_promo_settings_option", "general", "community_promo_settings");
-    register_setting("general", "community_promo_image_url");
-}
-add_action("admin_menu", "gf_community_promo_settings_init");
-
-
-
-
-//G&F Wordpress Community Config
-add_action("wp_enqueue_scripts","gf_wp_community_scripts");
-function gf_wp_community_scripts() {
-
-    if ( is_post_type_archive( "reader_photos" )  ) {
-
-        wp_enqueue_script( 'bootstrap-dropdown', get_stylesheet_directory_uri() . '/js/bootstrap-dropdown.js', array("jquery",'underscore'), '0.1', true );
-        wp_enqueue_script( 'gf-wp-community-listing', get_stylesheet_directory_uri() . '/js/community-listing.js', array("jquery",'underscore','bootstrap-dropdown'), '0.1', true );
-    }
-}
-
-//Configure G&F community
-//This section does nothing unless imo-community plugin is enabled
-add_action("init","gf_community_init",0);
-function gf_community_init() {
-
-	//////////////////////////////////
-	//Community Configuration
-	//////////////////////////////////
-	//External Community Configurations
-
-	include("community-config/community-term-list.php"); //Post types array is moved here
-	include("community-config/general.php");
-	include("community-config/new-post.php");
-	//include("community-config/single.php");
-	include("community-config/profile.php");
-	include("community-config/edit-profile.php");
-	include("community-config/admin.php");
-	//include("community-config/listing.php");
-	include("community-config/nested-listing.php");
-	include("community-config/nested-single.php");
-	include("community-config/state-report.php");
-
-	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	//NOTE: Configuration order matters! More specific URLs should appear before less specific urls on the same path.
-	// For example, the "single" page_type below needs to appear before "listing" page type on the same path.
-	//Also, solunar-calendar-mobile should appear before solunar-calendar
-	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-}

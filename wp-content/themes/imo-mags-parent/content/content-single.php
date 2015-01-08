@@ -80,7 +80,9 @@ $acf_byline = get_field("byline",$postID); ?>
             <?php wp_link_pages( array( 'before' => '<div class="page-links">' . 'Pages:', 'after' => '</div>' ) ); ?>
         </div><!-- .entry-content -->
         <?php endif; ?>
-	    <?php imo_ad_placement("e_commerce_widget"); ?>   
+        <div id="container">
+	    <?php imo_ad_placement("e_commerce_widget"); ?> 
+        </div>  
 	    <?php if ( function_exists('yarpp_plugin_activate') ): ?>
 		    <?php if ( isset_related_posts() ): ?>	
 			    <?php if(mobile() || tablet()){ ?>

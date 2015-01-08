@@ -86,7 +86,9 @@ a.category-name-link:hover{background: #2f7bb2;color: white;}
 .community-header .btn-default{width: 236px;margin: 14px 10px 0;}
 .community-header .dropdown-menu{top: -14px;width: 100%;margin: 0;}
 #community-wrap .general{border: none;width: 647px;}
-.sidebar-area .singl-post-photo{margin-bottom: 20px;background: #2f7bb2 !important;text-shadow:none;}
+.singl-post-photo{background: #2f7bb2 !important;text-shadow:none;}
+.sidebar-area .singl-post-photo{margin-bottom: 20px;}
+.header-section .singl-post-photo{margin: 10px auto 0;width: 90%;}
 #community-wrap .posts-list span{font-style: normal;}
 #community-wrap .btn-default.mobile{margin: 10px auto;display: block;width: 95%;}
 .share-photo-now{
@@ -125,9 +127,9 @@ a.category-name-link:hover{background: #2f7bb2;color: white;}
 	background: #1c1c1c;
 	padding: 18px 18px 18px 0;
 	border-left: 1px solid #3b3b3b;
-	vertical-align: middle;
+	vertical-align: top;
 	position: relative;
-	padding: 10px 0;
+	height: 118px;
 }
 .community-header .header-section:first-child{border: none;width: 253px;padding: 0;}
 .community-header img{vertical-align: 12px;width: 200px;margin: 0 auto;display: block;}
@@ -415,4 +417,43 @@ padding: 10px;
 	.header .socials{right: 44px;}
 	.logo{width: 115px;}
 
+}
+@media only screen and (max-width: 610px) {
+	.header-section .singl-post-photo{margin: 0 10px 0 0;float: right;width: 50%;}
+	.community-header .community-logo img{margin: 0 20px 30px !important;}
+	.community-header{display: block;}
+	.community-header .header-section.menu-hunt, .community-header .header-section.menu-fish{text-align: center;padding: 0 0 4px;display: none;}
+	.community-header .header-section.menu-hunt{margin-top: 10px;}
+	.community-header .header-section.menu-fish{margin-bottom: 10px;}
+	.community-menu-open{display: block !important;}
+	.community-header .header-section:first-child{width: 100%;}
+	.community-header .community-mobile-menu {
+		width: 114px;
+	background: white;
+	padding: 5px;
+	font-size: 14px;
+	line-height: 1.5;
+	right: 0;
+	border-radius: 0;
+	height: 34px;
+	border: 1px solid #adadad;
+	display: block;
+	margin: 0 auto;
+	cursor: pointer;
+	clear: both;	
+	}
+	.community-header .community-logo{width: 100%;}
+	.community-header .community-logo img{width: 120px;margin: 10px 20px;float: left;}
+	.community-header .header-section .select-arrow{
+		position: absolute;
+		right: 39%;
+		margin-top: 9px;
+		border-top: 6px solid #000000;
+		border-right: 6px solid transparent;
+		border-left: 6px solid transparent;
+		border-bottom: 0 dotted;
+	}
+	.community-header li.menu-item{padding: 6px 0;}
+	.community-header ul li a{font-size: 16px;}
+	.community-header .header-section h3 a{padding: 0;}
 }

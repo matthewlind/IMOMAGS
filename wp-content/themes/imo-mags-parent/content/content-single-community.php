@@ -12,7 +12,41 @@ $byline = get_post_meta($postID, 'ecpt_byline', true);
 
 <div id="post-<?php the_ID(); ?>" <?php post_class('full-post'); ?>>
     <?php if ( is_single() ) : ?>
-    <?php if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(); } ?>
+   
+    
+    <div class="rp-navigation">
+	    <?php $prevPost = get_previous_post(true);
+		if($prevPost) {?>
+			<div class="nav-box previous" style="float:left;">
+				<p><?php next_post_link('%link',"<span>&laquo;</span> Previous Photo", TRUE); ?></p>
+		        <?php $prevthumbnail = get_the_post_thumbnail($prevPost->ID, array(60,60) );}?>
+		        <?php previous_post_link('%link',"$prevthumbnail  %title", TRUE); ?>
+			</div>
+	
+	    <?php $nextPost = get_next_post(true);
+		if($nextPost) { ?>
+		    <div class="nav-box next" style="float:right;">
+		    	<p style="text-align:right;"><?php next_post_link('%link',"Next Photo <span>&raquo;</span>", TRUE); ?></p>
+				<?php $nextthumbnail = get_the_post_thumbnail($nextPost->ID, array(60,60) ); } ?>
+				<?php next_post_link('%link',"$nextthumbnail  %title", TRUE); ?>
+			</div>
+    </div>
+    
+	<span class="cat-feat-label">
+	    <?php
+		$categories = get_the_category();
+		$separator = ' ';
+		$output = '';
+		
+		if($categories){
+			foreach($categories as $category) {
+				$tracking = "_gaq.push(['_trackEvent','Category','".$category->cat_name."']);";
+				$output .= '<a class="category-name-link" onclick="'.$tracking.'" href="/photos?'.$category->slug.'" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $category->name ) ) . '">'.$category->cat_name.'</a>'.$separator;
+			}
+		echo trim($output, $separator);
+		}
+		?>
+	</span>
     <div class="sponsor"><?php imo_ad_placement("sponsor_logo_240x60"); ?></div>
     <div class="post-header">
         <h1 class="entry-title"><?php the_title(); ?></h1>
@@ -21,7 +55,7 @@ $byline = get_post_meta($postID, 'ecpt_byline', true);
             <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
         </h1>
         <?php endif; // is_single() ?>
-        <div class="post-date"><?php the_time('F jS, Y'); ?>&nbsp;&nbsp;|&nbsp;&nbsp;</div>
+        <div class="post-date"><?php the_time('F jS, Y'); ?></div>
 
 		<?php if ( mobile() ){ ?>
 			<div class="image-banner posts-image-banner">
@@ -41,14 +75,16 @@ $byline = get_post_meta($postID, 'ecpt_byline', true);
         <?php else : ?>
         <div class="entry-content">
             <?php echo get_the_post_thumbnail( $postID, "large"); ?>
-            <?php the_content( __( 'more <span class="meta-nav">&raquo;</span>', 'twentytwelve' ) ); ?>
-			<!-- <ul>
-                <li><b>Species: </b><?php echo $species; ?></li>
-                <li><b>Taken At: </b><?php echo get_post_meta($postID,"camera_corner_taken",true); ?></li>
-                <li><b>Taken On: </b><?php echo get_post_meta($postID,"camera_corner_when",true); ?></li>
-                <li><b>With: </b><?php echo get_post_meta($postID,"camera_corner_who",true); ?></li>
-            </ul> -->
-
+            <?php the_content( __( 'more <span class="meta-nav">&raquo;</span>', 'twentytwelve' ) );
+            
+            if(get_post_meta($postID,"camera_corner_taken",true)){ ?>
+				<ul>
+	                <li><b>Taken At: </b><?php echo get_post_meta($postID,"camera_corner_taken",true); ?></li>
+	                <li><b>Taken On: </b><?php echo get_post_meta($postID,"camera_corner_when",true); ?></li>
+	                <li><b>With: </b><?php echo get_post_meta($postID,"camera_corner_who",true); ?></li>
+	            </ul> 
+			<?php } ?>
+			
             <?php wp_link_pages( array( 'before' => '<div class="page-links">' . 'Pages:', 'after' => '</div>' ) ); ?>
         </div><!-- .entry-content -->
         <?php endif; ?>
