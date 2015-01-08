@@ -11,6 +11,20 @@ jQuery(window).load(function() {
 });
 
 jQuery(document).ready(function () {
+	if( jQuery('#ecw-flexslider').length ) {
+		// E-Commerce Widget Flexslider
+		jQuery('#ecw-flexslider').flexslider({
+			animation: "slide",
+			animationLoop: false,
+			slideshow: false,
+			itemWidth: 136,
+			itemMargin: 60,
+			touch: true,
+			directionNav: true,
+			controlNav: false
+		});
+	}
+	
 	// TV-show functions
 	function heightToggle() {
 		jQuery(".m-shows-airtime").toggleClass("height-auto");
@@ -251,7 +265,7 @@ jQuery(document).ready(function () {
 	                        jQuery(".pager-holder a.btn-base").hide();
 	                    }
 	                    jQuery("#ajax-loader").hide();
-	                    FB.XFBML.parse();
+	                   
 	                    //refresh the sticky ad on load more
 	                    if (jQuery(window).width() >  610 ) {
 	                    	document.getElementById('sticky-iframe-ad').contentWindow.location.reload();
