@@ -956,7 +956,24 @@ input.gsc-search-button-v2{
     width:648px;
     padding-bottom: 20px;
 }
+.rp-navigation{
+	height: 100px;
+	padding: 0 10px;
+	background: #e1e1e1;
+	margin: 0 0 10px 0;
+}
+.full-post .rp-navigation .nav-box .wp-post-image{width: auto;height: 50px;}
+.nav-box.previous img{float: left;}
+.nav-box.next img{float: right;}
+.nav-box a{color: black;padding: 5px;vertical-align: middle;font-size: 14px;text-transform:capitalize;}
+.nav-box p{font-size: 12px;font-weight: bold;}
 .reader-photo-slider{background: #1c1c1c;}
+.no-results.not-found .singl-post-photo{margin-bottom: 20px;background: #3b3b3b;}
+.no-results.not-found .singl-post-photo{width: 300px;display: block;margin: 30px auto;}
+.no-results.not-found .singl-post-photo span{color:#f9cc39;}
+.no-results.not-found .pager-holder{display: none;}
+.post-type-archive-reader_photos .posts-list span{font-style: normal;}
+.post-type-archive-reader_photos .pager-holder .btn-base{display: block;}
 .single .entry-content .reader-photo-slider ul, .single .entry-content .reader-photo-slider ol{padding-left: 0;list-style: none !important;}
 .reader-photo-slider li{width: 646px;}
 .reader-photo-slider li img{margin: 0 auto;}
@@ -1099,7 +1116,6 @@ input.gsc-search-button-v2{
 #video-thumbs a{height: 100px;cursor: pointer;}
 #video-portal .sidebar .fb-like{margin-right: 20px;}
 
-
 /* TSC News Widget */
 .widget_news-widget{width: 310px;}
 .tsc-news-header{background: url(images/logos/tsc-news-header.jpg) no-repeat;width: 310px;height: 52px;}
@@ -1209,6 +1225,7 @@ input.gsc-search-button-v2{
     font-size:14px;
     max-width: 400px;
     float: left;
+    clear: both;
 }
 a.category-name-link.primary-cat{
 	background: #c6262d;
@@ -1746,7 +1763,7 @@ a.category-name-link:hover{
 .single .inner-main{clear: both;}
 .single .entry-content{
 	font-family: Georgia,Times,serif;
-	font-size: 1.05em;
+	font-size: 0.9875em;
 	line-height: 1.6;
 	margin: 1em 0;
 }

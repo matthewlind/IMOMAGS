@@ -284,7 +284,57 @@ jQuery(document).ready(function () {
         });
     });
 
-
+	var postoffset = 0;
+	var catID = jQuery(".posts-list").attr("id");
+	var photoType = jQuery(".posts-list").attr("type");
+	var isFly = jQuery(".posts-list").attr("isFly");
+	
+	jQuery("a.paginate-photos").click(function(){
+		postoffset = postoffset + 10;
+		jQuery(".loading-gif").show();
+		var data;
+	    if(isFly){
+		    jQuery.ajax({
+		        type: 'POST',
+		        url: '/wp-admin/admin-ajax.php',
+		        data: {"action": "ff-photos-filter", cat: catID, offset: postoffset, type: photoType},
+		        success: function(response) {
+	            	if(!response){
+	            		
+	            		jQuery(".pager-holder").hide();
+		            	jQuery('<h3 class="no-mo-videos">No more photos, please try a different category.</h3>').appendTo(".main-content-preppend");
+	            	}else{
+		            	jQuery(response).appendTo(".main-content-preppend");
+	            	}
+		            jQuery("#ajax-loader").hide();
+					FB.XFBML.parse();
+		            return false;
+		        }
+		    });
+	    
+	    }else{
+		    jQuery.ajax({
+		        type: 'POST',
+		        url: '/wp-admin/admin-ajax.php',
+		        data: {"action": "photos-filter", cat: catID, offset: postoffset},
+		        success: function(response) {
+	            	if(!response){
+	            		
+	            		jQuery(".pager-holder").hide();
+		            	jQuery('<h3 class="no-mo-videos">No more photos, please try a different category.</h3>').appendTo(".main-content-preppend");
+	            	}else{
+		            	jQuery(response).appendTo(".main-content-preppend");
+	            	}
+		            jQuery("#ajax-loader").hide();
+					FB.XFBML.parse();
+		            return false;
+		        }
+		    });
+	    }	 
+	       
+	});
+	
+	
 // Flash ad z-index pecking order fix
 jQuery(function(){
 	FlashHeed.heed();
