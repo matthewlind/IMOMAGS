@@ -22,6 +22,14 @@ define("FACEBOOK_APP_ID","172626882923364");
 define("FACEBOOK_APP_SECRET","60a79f156a44dc9a57096bf9ed3d1a80");
 
 include_once("widgets/if-community-slider.php");
+include_once("wordpress-community.php");
+
+
+//community menus
+register_nav_menus(array(
+    'photos' => 'Photos Community Menu',
+    'flies' => 'Flies Community Menu'
+));
 
 /* This function allows for logging when debugging mode is on */
 if(!function_exists('_log')){
