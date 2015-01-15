@@ -1,18 +1,3 @@
-Skip to content
- This repository
-Explore
-Gist
-Blog
-Help
-artre artre
- 
-9  Unwatch 
-  Star 0
- Fork 0imoutdoors/IMOMags PRIVATE
- branch: master  IMOMags/wp-content/themes/imo-mags-parent/style.css
-foxjbowdenfoxjbowden a day ago fix for custom image sizes not being responsive in WP, gallery ad sho…
-6 contributors foxjbowdenAaron BakerSalahStudiosAlanHicksjbeasley82JeffBurrows
-6543 lines (6260 sloc)  183.22 kb RawBlameHistory   
 /*
 Theme Name: IMO Parent Theme
 Theme URI: http://imomags.com/
@@ -6554,5 +6539,3 @@ table.likes-leaderboard .entry-title {
     p, h2, h3 { orphans: 3; widows: 3; }
     h2, h3 { page-break-after: avoid; }
 }
-Status API Training Shop Blog About
-© 2015 GitHub, Inc. Terms Privacy Security Contact
