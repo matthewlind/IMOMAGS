@@ -2656,7 +2656,180 @@ function prefix_load_cat_posts () {
 	die(1);
 }
 
+// G&F Reader Photo pagination
+add_action( 'wp_ajax_nopriv_photos-filter', 'prefix_load_photos_posts' );
+add_action( 'wp_ajax_photos-filter', 'prefix_load_photos_posts' );
+function prefix_load_photos_posts () {
+	
 
+	$cat_id = $_POST[ 'cat' ];
+    $offset = $_POST[ 'offset' ];
+    
+    if($cat_id){
+	    $args = array(
+			'post_type' => 'reader_photos',
+			'offset' => $offset,
+			'showposts' => 10,
+			'tax_query' => array(
+			  'relation' => 'AND',
+			  array(
+			     'taxonomy' => 'category',
+			     'field' => 'slug',
+			     'terms' => array( $cat_id )
+			  )
+			)
+		);
+
+    }else{
+	    $args = array(
+			'post_type' => 'reader_photos',
+			'offset' => $offset,
+			'showposts' => 10,
+		);
+
+    }
+			
+	$posts = get_posts( $args );
+	
+	
+	global $post;
+	
+	ob_start ();
+	
+	$i = $offset;
+	
+
+	foreach ( $posts as $post ) {
+		$i++;
+		setup_postdata( $post ); 
+		?>
+		
+		<div class="dif-post post">
+	        <div class="feat-img">
+				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail("list-thumb"); ?></a>
+	        </div>
+	        <div class="dif-post-text">
+	            <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+	            <div class="profile-panel">
+	                <div class="profile-data">
+	                    <ul class="prof-like">
+	                    	<li>
+	                    		<div class="fb-like fb_iframe_widget" data-href="<?php echo get_permalink(); ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+	                       </li>
+	                    </ul>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+
+					
+	<?php } 
+	wp_reset_postdata();
+
+	$response = ob_get_contents();
+	ob_end_clean();
+	
+	echo $response;
+	die(1);
+}
+
+
+// FlyFish Reader Photo pagination
+add_action( 'wp_ajax_nopriv_ff-photos-filter', 'prefix_load_ff_photos_posts' );
+add_action( 'wp_ajax_ff-photos-filter', 'prefix_load_ff_photos_posts' );
+function prefix_load_ff_photos_posts () {
+	
+	$piece2 = $_POST[ 'cat' ];
+    $offset = $_POST[ 'offset' ];
+	$piece1 = $_POST[ 'type' ];
+
+	if($piece1 && $piece2){
+		 $args = array(
+			   'post_type' => 'reader_photos',
+			   'offset' => $offset,
+			   'showposts' => 10,
+			   'tax_query' => array(
+			      'relation' => 'AND',
+			      array(
+			         'taxonomy' => 'category',
+			         'field' => 'slug',
+			         'terms' => array( $piece1 )
+			      ),
+			      array (
+			         'taxonomy' => 'category',
+			         'field' => 'slug',
+			         'terms' => array( $piece2 )
+			      )
+			   )
+			);
+	}else if($piece1 && !$piece2){
+		$args = array(
+		   'post_type' => 'reader_photos',
+		   'offset' => $offset,
+		   'showposts' => 10,
+		   'tax_query' => array(
+		      'relation' => 'AND',
+		      array(
+		         'taxonomy' => 'category',
+		         'field' => 'slug',
+		         'terms' => array( $piece1 )
+		      )
+		   )
+		);
+
+	}else if(!$piece1 && !$piece2){
+		
+		$args = array(
+		   'post_type' => 'reader_photos',
+		   'offset' => $offset,
+		   'showposts' => 10
+		);
+
+	}	
+		
+	$posts = get_posts( $args );
+	
+	
+	global $post;
+	
+	ob_start ();
+	
+	$i = $offset;
+	
+
+	foreach ( $posts as $post ) {
+		$i++;
+		setup_postdata( $post ); 
+		?>
+		
+		<div class="dif-post post">
+	        <div class="feat-img">
+				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail("list-thumb"); ?></a>
+	        </div>
+	        <div class="dif-post-text">
+	            <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+	            <div class="profile-panel">
+	                <div class="profile-data">
+	                    <ul class="prof-like">
+	                    	<li>
+	                    		<div class="fb-like fb_iframe_widget" data-href="<?php echo get_permalink(); ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+	                       </li>
+	                    </ul>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+
+					
+	<?php } 
+	wp_reset_postdata();
+
+	$response = ob_get_contents();
+	ob_end_clean();
+	
+	echo $response;
+	die(1);
+}
 
 
 

@@ -14,7 +14,7 @@ document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
 </script>
 <script type='text/javascript'>
 
-googletag.defineSlot('/4930/<?php echo $code; ?>/Photo_Gallery_Medium_Rectangle', [[300, 250],[320, 50]], 'div-photo_gallery_medium_rectangle').addService(googletag.pubads());
+googletag.defineSlot('/4930/<?php echo $code; ?>/Photo_Gallery_Medium_Rectangle', [300, 250], 'div-photo_gallery_medium_rectangle').addService(googletag.pubads());
 
 googletag.pubads().setTargeting("sect","<?php echo $title; ?>");
 googletag.pubads().setTargeting("Audience segment","<?php echo $title; ?>");
