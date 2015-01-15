@@ -4948,7 +4948,7 @@ table.likes-leaderboard .entry-title {
 }
 .ecw-product-name {
 	height: 50px;
-	font-size: 16px;
+	font-size: 13px;
 	line-height: 16px;
 	color: #2a2a2a;
 	margin-bottom: 7px;
@@ -4983,6 +4983,9 @@ table.likes-leaderboard .entry-title {
 } 
 .ecw-buy-btn:hover {
 	color: #d79800;
+}
+#ecw-flexslider .flex-direction-nav {
+	display: block;
 }
 #ecw-flexslider .flex-direction-nav .flex-prev {
 	left: -55px;
