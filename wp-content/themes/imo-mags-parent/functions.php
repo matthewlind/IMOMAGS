@@ -223,7 +223,7 @@ class AddParentClass_Walker extends Walker_Nav_Menu
         $children = get_posts(array('post_type' => 'nav_menu_item', 'nopaging' => true, 'numberposts' => 1, 'meta_key' => '_menu_item_menu_item_parent', 'meta_value' => $item->ID));
         if (!empty($children)) {
             $has_drop = 'has-drop';
-            $template = '%1$s<a%2$s>%3$s%4$s%5$s</a><div class="drop-down">%6$s';
+            $template = '%1$s<a%2$s>%3$s%4$s%5$s</a><div class="drop-down clearfix">%6$s';
         }
 
         $attributes .= ' class="menu-link ' . $has_drop . ' ' . ( $depth > 0 ? 'sub-menu-link' : 'main-menu-link' ) . '"';
