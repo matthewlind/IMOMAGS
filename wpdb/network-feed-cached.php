@@ -29,7 +29,7 @@ $thumbnail_size = null; //Specify a Wordpress thumbnail size. e.g. "thumbnail". 
 
 //This controls how long a file should be cached
 //Set to -1 to force a refresh. (This could potentially be used to refresh the data after editors submit new posts.)
-$fileExpirationTime = 1800; //in seconds (1800 = 30 minutes)
+$fileExpirationTime = 3200; //in seconds (1800 = 30 minutes)
 
 
 
