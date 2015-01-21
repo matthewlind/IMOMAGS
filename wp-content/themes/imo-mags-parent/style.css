@@ -453,6 +453,9 @@ img.border-image {
 	-o-transition: width 0.3s ease;
 	transition: width 0.3s ease;
 }
+.snap-drawer > div {
+	overflow-x: hidden;
+}
 .snap-drawer-left {
 	left: 0;
 	z-index: 1;
