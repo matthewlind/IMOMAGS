@@ -12,6 +12,7 @@ define("TWITTER_LINK", "https://www.twitter.com/@HuntingMag");
 define("RSS_LINK", "http://www.petersenshunting.com/feed/");
 define("SITE_LINK", "petersenshunting.com");
 define("SITE_NAME", "Petersens Hunting");
+include_once("wordpress-community.php");
 
 function my_connection_types() {
 	// Make sure the Posts 2 Posts plugin is active.
