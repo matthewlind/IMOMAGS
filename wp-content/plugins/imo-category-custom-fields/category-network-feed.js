@@ -96,7 +96,7 @@ jQuery(document).ready(function($) {
 
 		var fileName = "/wpdb/network-feed-cached.php?network=everything&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce + "&thumbnail_size="+ thumb;
 
-
+		
 		if (document.domain.indexOf('gunsandammo') !== -1) {
 			var fileName = "/wpdb/network-feed-cached.php?network=shooting&term=" + term + "&sort=" + sort + "&skip=" + start + "&count=" + showAtOnce + "&thumbnail_size="+ thumb;
 		}
@@ -151,7 +151,7 @@ jQuery(document).ready(function($) {
 
 		$(".load-spinner").show();
 		var getdata = $.getJSON(fileName, function(data) {
-
+			
 	    //$(".animal-container").html("");
 
 	    	$(".load-spinner").hide();
@@ -253,8 +253,12 @@ jQuery(document).ready(function($) {
 		if (start == 0) {
 			fileName = fileName + "&get_count=1";
 			var getCountData = $.getJSON(fileName, function(data) {
-
+				console.log(getCountData);
 				totalCount = data[0].count;
+				if(totalCount > showAtOnce){
+					$(".category-cross-site-feed-more-button").css("display","block");
+				}
+				
 
 			});
 		}
