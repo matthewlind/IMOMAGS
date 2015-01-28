@@ -5,10 +5,8 @@ Description: The Parent theme for all responsive sites.
 Author: IMO
 Author URI: http://imomags.com/
 Version: 1.0
-
 License:
 License URI:
-
 General comments (optional).
 */
 /* Global reset
@@ -454,6 +452,9 @@ img.border-image {
 	-ms-transition: width 0.3s ease;
 	-o-transition: width 0.3s ease;
 	transition: width 0.3s ease;
+}
+.snap-drawer > div {
+	overflow-x: hidden;
 }
 .snap-drawer-left {
 	left: 0;
@@ -4950,7 +4951,7 @@ table.likes-leaderboard .entry-title {
 }
 .ecw-product-name {
 	height: 50px;
-	font-size: 16px;
+	font-size: 13px;
 	line-height: 16px;
 	color: #2a2a2a;
 	margin-bottom: 7px;
@@ -4985,6 +4986,9 @@ table.likes-leaderboard .entry-title {
 } 
 .ecw-buy-btn:hover {
 	color: #d79800;
+}
+#ecw-flexslider .flex-direction-nav {
+	display: block;
 }
 #ecw-flexslider .flex-direction-nav .flex-prev {
 	left: -55px;
