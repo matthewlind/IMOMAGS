@@ -21,23 +21,18 @@ define("_BC_DEFAULT_PLAYER_KEY", "AQ~~,AAAAAETeEfI~,i-5J2ubuAMtrBswh0PvpouAMH3Ey
 /**
  * New Embed Handler for Brightcove videos.
  */
-function wp_embed_handler_new_brightcove ( $matches, $attr, $url, $rawattr ) {
+function bcplayer_function($atts){
+   extract(shortcode_atts(array(
+      'id' => "",
+   ), $atts));
+   //Set width and height for the default video player
 
-    //Set width and height for the default video player
-    $width = 620;
-    $height = 349;
-
-    // videoid should be alpha numeric. remove all and any non numbers from the string.
-    // we don't want to use an int conversion, becuase ids are very large and will overflow.
-    $videoid = preg_replace('/[^0-9]/', '', esc_attr($matches[1]));
-    global $the_ID;
-    $video_link = !empty($the_ID) ? get_permalink($the_ID) :  site_url() . $_SERVER['REQUEST_URI'];
-
-
-    $adServerURL = "http://ad.doubleclick.net/pfadx/" .  get_option("dart_domain", _imo_dart_guess_domain())  ."/video";
-
-
-    $output = '<!-- Start of Brightcove Player -->
+   $adServerURL = "http://ad.doubleclick.net/pfadx/" .  get_option("dart_domain", _imo_dart_guess_domain())  ."/video";
+   
+   $playerID = get_option("bc_new_player_id", _BC_NEW_PLAYER_ID );
+   $playerKey = get_option("bc_new_player_key", _BC_NEW_PLAYER_KEY );
+   
+   $return_string = '<!-- Start of Brightcove Player -->
 
 <!--
 By use of this code snippet, I agree to the Brightcove Publisher T and C
@@ -49,17 +44,14 @@ found at https://accounts.brightcove.com/en/terms-and-conditions/.
 
 	<object id="myExperience" class="BrightcoveExperience">
 	  <param name="bgcolor" value="#FFFFFF" />
-	  <param name="width" value="%4$s" />
-	  <param name="height" value="%5$s" />
-	  <param name="playerID" value="%1$s" />
-	  <param name="playerKey" value="%6$s" />
+	  <param name="playerID" value="'.$playerID.'" />
+	  <param name="playerKey" value="'.$playerKey.'" />
 	  <param name="isVid" value="true" />
 	  <param name="isUI" value="true" />
 	  <param name="dynamicStreaming" value="true" />
-	  <param name="linkBaseURL" value="%7$s" />
-	  <param name="@videoPlayer" value="%3$s" />
+	  <param name="@videoPlayer" value="'.$id.'" />
 	  <param name="media_delivery" value="http" />
-	  <param name="adServerURL" value="%8$s" />
+	  <param name="adServerURL" value="'.$adServerURL.'" />
 	
 	</object>
 	
@@ -73,23 +65,14 @@ found at https://accounts.brightcove.com/en/terms-and-conditions/.
 	<!-- End of Brightcove Player -->
 
 </div>';
-
-
-
-    $embed = sprintf( $output,
-        get_option("bc_new_player_id", _BC_NEW_PLAYER_ID ),
-        _BC_PUBLISHER_ID,
-        $videoid,
-        $width,
-        $height,
-        get_option("bc_new_player_key", _BC_NEW_PLAYER_KEY ),
-
-        $video_link,
-	$adServerURL
-    );
-    return apply_filters( 'embed_brightcove', $embed, $matches, $attr, $url, $rawattr );
+   
+   return $return_string;
 }
 
+function register_shortcodes(){
+   add_shortcode('bcplayer', 'bcplayer_function');
+}
+add_action( 'init', 'register_shortcodes');
 
 /**
  * Old Embed Handler for Brightcove videos.
