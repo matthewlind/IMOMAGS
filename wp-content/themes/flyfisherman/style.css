@@ -139,7 +139,7 @@ a.category-name-link:hover{background: #2f7bb2;color: white;}
 .community-header ul  li a{font-size: 14px;color: #acacac;}
 .community-header ul li a:hover{color: white;}
 .community-mobile-menu{display: none;}
-.community-nav-below{background: #2f7bb2;height: 38px;}
+.community-nav-below{background: #2f7bb2;}
 .community-nav-below .singl-post-photo{float: left;height: 30px;font: 14px/28px "stagmedium", serif;color:white;text-shadow:none;margin: 4px 20px 0;width: 218px;background: #333;}
 
 /***** Photos Page ******/

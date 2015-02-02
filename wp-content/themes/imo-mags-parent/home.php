@@ -49,6 +49,38 @@ get_header(); ?>
                     </div>
                 </div>
 				<?php endif;
+				if($dartdomain == "imo.in-fisherman"){ ?>
+				<hr class="cfct-div-solid">
+				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header loading-block js-responsive-section fishhead-homepage">
+					<div class="general-title clearfix">
+						<h2 class="general-title">Fishhead Photos</h2>
+		            </div>
+			        <div class="explore-posts">
+			            <div class="jq-explore-slider-sidebar">
+			                <ul class="slides">
+								<?php $lists_query = new WP_Query( 'post_type=fish_head_photos&posts_per_page=10' );
+								while ($lists_query->have_posts()) : $lists_query->the_post(); ?>
+				          			<li>
+									 <div class="feat-post">
+					                    <div class="feat-img">
+						                    <a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail("index-thumb"); ?></a>
+						                     <?php if(in_category("master-angler")){ ?><span class="badge"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/pic/badge-ma.png" alt="Master Angler" /></span><?php } ?>
+					                     </div>
+					                   
+						                    <div class="feat-text">
+						                        <a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a>
+						                     </div>
+						                </div>
+					                </li>
+								<?php endwhile; ?>
+							</ul>
+						</div>
+					</div>
+					<div class="fishhead-see-more">
+						<a href="/photos/">See More Fishhead Photos<span></span></a>
+					</div>
+				</div>
+				<?php }
 				
 				if( $playerID && $playerKey ){ ?>
 				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section">
@@ -116,36 +148,6 @@ get_header(); ?>
 							<a class="cta" href="/midwest-finesse/">See More Midwest Finesse<span></span></a>
 	                    </div>
 	                </div>
-					<hr class="cfct-div-solid">
-					<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header loading-block js-responsive-section fishhead-homepage">
-						<div class="general-title clearfix">
-							<h2 class="general-title">Fishhead Photos</h2>
-			            </div>
-				        <div class="explore-posts">
-				            <div class="jq-explore-slider-sidebar">
-				                <ul class="slides">
-									<?php $lists_query = new WP_Query( 'post_type=fish_head_photos&posts_per_page=10' );
-									while ($lists_query->have_posts()) : $lists_query->the_post(); ?>
-					          			<li>
-										 <div class="feat-post">
-						                    <div class="feat-img">
-							                    <a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail("index-thumb"); ?></a>
-							                     <?php if(in_category("master-angler")){ ?><span class="badge"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/pic/badge-ma.png" alt="Master Angler" /></span><?php } ?>
-						                     </div>
-						                   
-							                    <div class="feat-text">
-							                        <a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a>
-							                     </div>
-							                </div>
-						                </li>
-									<?php endwhile; ?>
-								</ul>
-							</div>
-						</div>
-						<div class="fishhead-see-more">
-							<a href="/photos/">See More Fishhead Photos<span></span></a>
-						</div>
-					</div>
 				<?php } ?>
 				
 				<?php if ( mobile() ){ get_sidebar("mobile"); } ?>
