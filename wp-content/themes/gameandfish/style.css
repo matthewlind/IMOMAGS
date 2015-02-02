@@ -669,7 +669,7 @@ blockquote{color: #cda220;}
 .sidebar-area{clear: both;}
 
 /***Community header ***/
-.community-header{background: #1c1c1c;border-bottom: 4px solid #f9cc39;}
+.community-header{background: #1c1c1c;border-bottom: 4px solid #f9cc39;display: none;}
 .community-header .header-section{
 	display: inline-block;
 	background: #1c1c1c;
@@ -685,7 +685,8 @@ blockquote{color: #cda220;}
 .community-header ul.community-nav{display: inline-block;padding-left: 26px;vertical-align: text-top;}
 .community-header ul.community-nav li a{font-size: 14px;color: #acacac;}
 .community-header ul.community-nav li a:hover{color: white;}
-.community-header .header-section .select-arrow{
+.community-nav-below .community-state-drop{float: left;position: relative;padding: 4px 0 26px 16px;}
+.community-nav-below .select-arrow{
 	position: absolute;
 	right: 67px;
 	margin-top: 21px;
@@ -693,9 +694,11 @@ blockquote{color: #cda220;}
 	border-right: 6px solid transparent;
 	border-left: 6px solid transparent;
 	border-bottom: 0 dotted;
+	right: 6px;
+	margin-top: 13px;
 }
-.community-header .header-section select{
-	margin: 7px auto 0 auto;
+.community-nav-below select{
+	margin: 0 auto;
 	display: block;
 	width: 130px;
 	background: white;
@@ -704,10 +707,12 @@ blockquote{color: #cda220;}
 	line-height: 1;
 	border: 0;
 	border-radius: 0;
-	height: 34px;
+	height: 30px;
 	-webkit-appearance: none;
 	border: 1px solid #adadad;
 }
+.community-nav-below{background: #f9cc39;height: 35px;}
+.community-nav-below .singl-post-photo{float: left;height: 30px;font: 14px/28px "stagmedium", serif;color:white;text-shadow:none;margin: 4px 20px 0;width: 218px;}
 
 /*** sponsor logos ***/
 .community-header .sponsor{float: none;}

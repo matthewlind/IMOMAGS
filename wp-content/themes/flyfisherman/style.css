@@ -82,11 +82,11 @@ a.category-name-link:hover{background: #2f7bb2;color: white;}
 .page-community .posts-list{border: none;}
 #community-wrap{background:#1c1c1c;padding: 0 30px;overflow: hidden;}
 #community-wrap .general-frame{width: auto;}
-.community-header{padding: 20px 0;}
+.community-header{padding: 20px 0 0;}
 .community-header .btn-default{width: 236px;margin: 14px 10px 0;}
 .community-header .dropdown-menu{top: -14px;width: 100%;margin: 0;}
 #community-wrap .general{border: none;width: 647px;}
-.singl-post-photo{background: #2f7bb2 !important;text-shadow:none;}
+.singl-post-photo{text-shadow:none;}
 .sidebar-area .singl-post-photo{margin-bottom: 20px;}
 .header-section .singl-post-photo{margin: 10px auto 0;width: 90%;}
 #community-wrap .posts-list span{font-style: normal;}
@@ -121,7 +121,7 @@ a.category-name-link:hover{background: #2f7bb2;color: white;}
 }
 
 /***Community header ***/
-.community-header{background: #1c1c1c;border-bottom: 4px solid #2f7bb2;overflow: hidden;}
+.community-header{background: #1c1c1c;overflow: hidden;display: none;}
 .community-header .header-section{
 	display: inline-block;
 	background: #1c1c1c;
@@ -129,7 +129,6 @@ a.category-name-link:hover{background: #2f7bb2;color: white;}
 	border-left: 1px solid #3b3b3b;
 	vertical-align: top;
 	position: relative;
-	height: 118px;
 }
 .community-header .header-section:first-child{border: none;width: 253px;padding: 0;}
 .community-header img{vertical-align: 12px;width: 200px;margin: 0 auto;display: block;}
@@ -140,6 +139,8 @@ a.category-name-link:hover{background: #2f7bb2;color: white;}
 .community-header ul  li a{font-size: 14px;color: #acacac;}
 .community-header ul li a:hover{color: white;}
 .community-mobile-menu{display: none;}
+.community-nav-below{background: #2f7bb2;height: 38px;}
+.community-nav-below .singl-post-photo{float: left;height: 30px;font: 14px/28px "stagmedium", serif;color:white;text-shadow:none;margin: 4px 20px 0;width: 218px;background: #333;}
 
 /***** Photos Page ******/
 #photoTopControls{

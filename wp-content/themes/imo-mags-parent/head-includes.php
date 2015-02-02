@@ -222,10 +222,6 @@ function imo_sidebar($type){
 function imo_community_sidebar(){
 	$dartDomain = get_option("dart_domain", $default = false);
 	echo '<div class="sidebar-area">';
-		echo '<label class="upload-button">';
-        echo '<a href="/post-photo/"><span class="singl-post-photo"><span>Share Your Photo Now!</span></span></a>';
-        //echo '<input id="image-upload" class="common-image-upload" type="file" name="photo-upload">';
-		echo '</label>';
 		echo '<div class="sidebar">';
 			echo '<div class="widget_advert-widget">';
 			echo '<iframe id="community-iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?ad_code='.$dartDomain.'"></iframe>';

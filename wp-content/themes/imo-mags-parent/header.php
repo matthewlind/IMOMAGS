@@ -130,11 +130,7 @@
 
 <div class="snap-drawers">
     <div class="snap-drawer snap-drawer-left" id="left-drawer">
-        <div>
-			<div class="mobile-menu-banner">
-				<iframe id="menu-iframe-ad" width="320" height="50" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-menu.php?size=320x50&ad_code=<?php echo $dartDomain; ?>"></iframe>
-			</div>	
-	
+        <div>	
 	        <div class="mob-aside-menu">
 	            <?php
 	            if(has_nav_menu( 'mobile' )){
@@ -209,10 +205,6 @@
 	
 		<div class="snap-drawer snap-drawer-right" id="right-drawer">
 			 <div>
-				<div class="mobile-menu-banner">
-					<iframe id="menu-iframe-ad" width="320" height="50" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-menu.php?size=320x50&ad_code=<?php echo $dartDomain; ?>"></iframe>
-				</div>	
-		
 		        <div class="mob-aside-menu">
 		            <div class="menu-community-menu-container">
 			       		<ul id="menu-community-menu" class="menu">

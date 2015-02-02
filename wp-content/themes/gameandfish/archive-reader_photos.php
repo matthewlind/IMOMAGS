@@ -40,7 +40,7 @@ $args = array(
 
 						<article id="post-0" class="post no-results not-found">
 							<header class="entry-header">
-								<h1 class="entry-title">No one has submitted a photo for this state yet.</h1>
+								<h1 class="entry-title">No one has submitted a photo for <?php echo $term; ?> yet.</h1>
 								<p>Would you like to submit a photo for this state?</p>
 								<label class="upload-button"><a href="/post-photo/"><span class="singl-post-photo"><span>Share Your Photo Now!</span></span></a></label>
 							</header><!-- .entry-header -->
