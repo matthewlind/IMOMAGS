@@ -1,6 +1,6 @@
 <?php
 $dataPos = 0;
-
+$dartdomain = get_option('dart_domain', false);
 $playerID = get_option('home_player_id', false);
 $playerKey = get_option('home_player_Key', false);
 $camp = get_option('home_player_camp', false);
@@ -74,8 +74,80 @@ get_header(); ?>
 					<script type="text/javascript">brightcove.createExperiences();</script>
 					<!-- End of Brightcove Player -->
 				</div>
-				<?php } ?>
+				<?php }
+				if($dartdomain == "imo.in-fisherman"){ ?>
+					<hr class="cfct-div-solid">
+					<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header clearfix js-responsive-section">
+	                 	<div class="general-title clearfix">
+						    <h2 class="general-title">Midwest Finesse</h2>
+						</div>
+						<div class="midwest-featured">
+							<?php $lists_query = new WP_Query( 'category_name=midwest-finesse&posts_per_page=1' );
+							while ($lists_query->have_posts()) : $lists_query->the_post(); ?>
+						
+							 	<li class="home-featured">
+							        <div class="feat-post">
+							            <div class="feat-img"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail("list-thumb"); ?></a></div>
+							            <div class="feat-text">
+							            	<div class="clearfix">
+							                	<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+							            	</div>
+							            </div>
+										<div class="feat-sep"><div></div></div>
+								    </div>
+							    </li>
+							<?php endwhile; ?>
+	                    </div>
 
+
+	                    <div class="midwest-list">
+		                    <div class="fancy">
+								<ul>
+									<?php $slug = 'featured';
+									$category = get_category_by_slug($slug);
+	
+									$lists_query = new WP_Query( 'category_name=midwest-finesse&posts_per_page=8&offset=1' );
+									while ($lists_query->have_posts()) : $lists_query->the_post(); ?>
+										<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+									<?php $i++; endwhile; ?>
+								</ul>
+							</div>
+							<hr class="cfct-div-solid">
+							<a class="cta" href="/midwest-finesse/">See More Midwest Finesse<span></span></a>
+	                    </div>
+	                </div>
+					<hr class="cfct-div-solid">
+					<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header loading-block js-responsive-section fishhead-homepage">
+						<div class="general-title clearfix">
+							<h2 class="general-title">Fishhead Photos</h2>
+			            </div>
+				        <div class="explore-posts">
+				            <div class="jq-explore-slider-sidebar">
+				                <ul class="slides">
+									<?php $lists_query = new WP_Query( 'post_type=fish_head_photos&posts_per_page=10' );
+									while ($lists_query->have_posts()) : $lists_query->the_post(); ?>
+					          			<li>
+										 <div class="feat-post">
+						                    <div class="feat-img">
+							                    <a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail("index-thumb"); ?></a>
+							                     <?php if(in_category("master-angler")){ ?><span class="badge"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/pic/badge-ma.png" alt="Master Angler" /></span><?php } ?>
+						                     </div>
+						                   
+							                    <div class="feat-text">
+							                        <a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a>
+							                     </div>
+							                </div>
+						                </li>
+									<?php endwhile; ?>
+								</ul>
+							</div>
+						</div>
+						<div class="fishhead-see-more">
+							<a href="/photos/">See More Fishhead Photos<span></span></a>
+						</div>
+					</div>
+				<?php } ?>
+				
 				<?php if ( mobile() ){ get_sidebar("mobile"); } ?>
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section main-content-preppend">
 					<!--<div class="general-title clearfix">

@@ -1703,6 +1703,7 @@ a.category-name-link:hover{
     position:relative;
     margin:0 0 20px;
     overflow:hidden;
+    clear: both;
 }
 .pager-holder .btn-base {
     margin:4px auto;
@@ -4452,6 +4453,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 
 /* Community
  ******************************************************************************/
+.community-nav-below{height: auto;overflow: auto;}
+.singl-post-photo span {
+	background: url(images/ico/camera-white.png) no-repeat;
+	padding: 2px 0 0 30px;
+}
 .mob-share a{
 	margin: 6px auto;
 	width: 96%;
@@ -5912,6 +5918,7 @@ table.likes-leaderboard .entry-title {
 } /* End of media */
 
 @media only screen and (max-width: 610px) {
+	.community-nav-below .singl-post-photo{width: 90% !important;}
 	.mobile{display: block;}
 	.desktop{display: none;}
 	.home-featured .image-banner{margin: 0 auto;width: 300px;}

@@ -2,7 +2,7 @@ jQuery(window).load(function() {
 	jQuery('.onload-hidden').removeClass('onload-hidden');
     jQuery('.onload-hidden-abs').removeClass('onload-hidden-abs');
     jQuery('.loading-block').removeClass('loading-block');
-    //jQuery('#at4m-mobile').appendTo("#page");
+    jQuery('.fishhead-homepage').css("max-height","none");
     jQuery('td.gsc-input').removeClass('gsc-input');
     jQuery('.gsc-search-button').attr('src','').removeClass('gsc-search-button');
     jQuery(".feat-text.exp").css("height","0px");

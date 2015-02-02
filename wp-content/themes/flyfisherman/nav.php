@@ -1,7 +1,6 @@
 <div class="community-header">
 	<div class="header-section community-logo">
 		<a href="/photos/"><img src="/wp-content/themes/flyfisherman/images/ff-photosflies-logo.png" alt="Flyfisherman Photos & Flies" title="Flyfisherman Photos & Flies" /></a>
-		<label class="upload-button"><a href="/post-photo/"><span class="singl-post-photo"><span>Share Your Photo Now!</span></span></a></label>
 		<div class="community-mobile-menu"><div class="select-arrow"></div>Photos Menu</div>
 	</div>
 	<?php $photos = get_field("photos_menu", "options"); ?>
@@ -29,4 +28,5 @@
 			<?php } ?>
 		</ul>
 	</div>
+	<div class="community-nav-below"><a href="/post-photo/"><span class="singl-post-photo"><span>Share Your Photo Now!</span></span></a></div>
 </div>

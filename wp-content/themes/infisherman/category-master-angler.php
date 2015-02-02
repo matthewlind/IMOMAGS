@@ -1,16 +1,4 @@
 <?php
-//Gallery Scripts
-wp_enqueue_script('flexslider-js',plugins_url('imo-flex-gallery/jquery.flexslider.js'));
-wp_enqueue_style('flexslider-css',plugins_url('imo-flex-gallery/flexslider.css'));
-wp_enqueue_script('flex-gallery-js',plugins_url('imo-flex-gallery/flex-gallery.js'));
-wp_enqueue_script('jquery-mobile',plugins_url('imo-flex-gallery/jquery.mobile.custom.min.js'));
-wp_enqueue_script('jquery-ui-slide-effect',plugins_url('imo-flex-gallery/jquery-ui-slide-effect.min.js'));
-wp_enqueue_script('jquery-scrollface',plugins_url('imo-flex-gallery/jquery.scrollface.min.js'));
-wp_enqueue_script('jquery-buffet',plugins_url('imo-flex-gallery/jquery.buffet.min.js'));
-wp_enqueue_script('jquery-mousewheel',plugins_url('imo-flex-gallery/jquery.mousewheel.min.js'));
-wp_enqueue_script('perfect-scrollbar-js',plugins_url('imo-flex-gallery/perfect-scrollbar-0.4.3.with-mousewheel.min.js'));
-wp_enqueue_style('ajax-gallery-css',plugins_url('imo-flex-gallery/flex-gallery.css','imo-flex-gallery'));
-wp_enqueue_style('perfect-scrollbar-css',plugins_url('imo-flex-gallery/perfect-scrollbar-0.4.3.min.css'));
 
 $dataPos = 0;
 get_header(); 
@@ -25,7 +13,6 @@ imo_sidebar(); ?>
                             printf('<span>' . single_cat_title( '', false ) . '</span>' );
                             ?>
                         </h1>
-						<div class="sponsor"><?php //imo_dart_tag("240x60"); ?></div>
                    </div>
 
                     <?php if (z_taxonomy_image_url()) echo '<div class="category-img"><img src="'.z_taxonomy_image_url().'" alt="'.single_cat_title( '', false ).'" title="'.single_cat_title( '', false ).'" /></div>'; ?>
@@ -33,9 +20,7 @@ imo_sidebar(); ?>
                     	$category_description = category_description();
                             if ( ! empty( $category_description ) )
                                 echo apply_filters( 'category_archive_meta', '<div data-position="'.$dataPos = $dataPos + 1 .'" class="category-archive-meta taxdescription js-responsive-section">' . $category_description . '</div>' ); ?>
-	                <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="js-responsive-section">
-	                	<?php echo do_shortcode('[imo-slideshow community=true gallery=master-angler]'); ?>
-					</div>
+	               
 
                     <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="article-brief js-responsive-section ma-info">
 
@@ -95,9 +80,16 @@ imo_sidebar(); ?>
                             <li><a href="#">Most Shared</a></li>
                         </ul>
                     </div>-->
-                    <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" id="ma-entries" class="posts-list js-responsive-section main-content-preppend"></div>
+                    <div class="page-community">
+	                    <div id="content" role="main" class="general">
+		                    <?php while ( have_posts() ) : the_post(); ?>
 							
-						<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="pager-holder js-responsive-section">
+								<?php get_template_part( 'content/content-category-reader_photos', get_post_format() ); ?>
+							
+							<?php endwhile; ?>		
+	                    </div>		
+                    </div>			
+					<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="pager-holder js-responsive-section">
 	                    <a href="#" class="btn-base load-more" style="display:block;">Load More</a>
 	                    <a href="#" class="go-top jq-go-top">go top</a>
 	
