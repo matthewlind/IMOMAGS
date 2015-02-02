@@ -4453,7 +4453,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 
 /* Community
  ******************************************************************************/
-.community-nav-below{height: auto;overflow: auto;}
+.community-nav-below{height: 35px;overflow: auto;}
 .singl-post-photo span {
 	background: url(images/ico/camera-white.png) no-repeat;
 	padding: 2px 0 0 30px;
@@ -5918,6 +5918,7 @@ table.likes-leaderboard .entry-title {
 } /* End of media */
 
 @media only screen and (max-width: 610px) {
+	.community-nav-below{height: auto;overflow: auto;}
 	.community-nav-below .singl-post-photo{width: 90% !important;}
 	.mobile{display: block;}
 	.desktop{display: none;}
