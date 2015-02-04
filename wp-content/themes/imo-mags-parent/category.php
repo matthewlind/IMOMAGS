@@ -118,7 +118,7 @@ get_header(); ?>
                                  * If you want to overload this in a child theme then include a file
                                  * called content-___.php (where ___ is the Post Format name) and that will be used instead.
                                  */
-                                get_template_part( 'content/content', get_post_format() );
+                                get_template_part( 'content/content', get_post_format("standard") );
 
                                 $community_category = get_category( get_query_var( 'cat' ) );
 								$community_cat = $community_category->slug;
