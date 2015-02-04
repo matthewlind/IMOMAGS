@@ -1,27 +1,5 @@
 <?php
 
-register_activation_hook( __FILE__, 'imo_wordpress_community_flush' );
-register_deactivation_hook( __FILE__, 'imo_wordpress_community_flush' );
-
-
-//Wordpress Community Scripts Config
-add_action("wp_enqueue_scripts","ff_wp_community_scripts");
-function ff_wp_community_scripts() {
-	$photos = get_post_type();
-	
-    if ( is_post_type_archive( "fish_head_photos" ) || $photos == "fish_head_photos" ) {
-
-        wp_enqueue_script( 'bootstrap-dropdown', get_stylesheet_directory_uri() . '/js/bootstrap-dropdown.js', array("jquery",'underscore'), '0.1', true );
-        wp_enqueue_script( 'gf-wp-community-listing', get_stylesheet_directory_uri() . '/js/community-listing.js', array("jquery",'underscore','bootstrap-dropdown'), '0.1', true );
-    }
-}
-
-
-function imo_wordpress_community_flush() {
-
-	flush_rewrite_rules( false );
-}
-
 add_action('init', 'cptui_register_my_cpt_fish_head_photos');
 function cptui_register_my_cpt_fish_head_photos() {
 	register_post_type(

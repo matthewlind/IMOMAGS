@@ -1296,6 +1296,41 @@ div.login-register-block {
 	.general {padding-top: 10px;}
 }
 @media only screen and (max-width: 610px) {
+	.community-header{display: block;}
+	.community-header .header-section.menu-hunt, .community-header .header-section.menu-fish{text-align: center;padding: 0 0 4px;display: none;}
+	.community-header .header-section.menu-hunt{margin-top: 10px;}
+	.community-header .header-section.menu-fish{margin-bottom: 10px;}
+	.community-menu-open{display: block !important;}
+	.community-header .header-section:first-child{width: 100%;}
+	.community-header .community-mobile-menu {
+		width: 114px;
+		background: white;
+		padding: 5px;
+		font-size: 14px;
+		line-height: 1.5;
+		right: 0;
+		border-radius: 0;
+		height: 34px;
+		border: 1px solid #adadad;
+		position: absolute;
+		display: block;
+		margin: 0 28px 0 0;
+		cursor: pointer;
+		top:22%;
+	}
+	.community-header .community-logo{width: 100%;}
+	.community-header .community-logo img{width: 120px;margin: 10px 20px;float: left;}
+	.community-header .header-section .select-arrow{
+		position: absolute;
+		right: 4px;
+		margin-top: 9px;
+		border-top: 6px solid #000000;
+		border-right: 6px solid transparent;
+		border-left: 6px solid transparent;
+		border-bottom: 0 dotted;
+	}
+	.community-header li.menu-item{padding: 6px 0;}
+	.community-header ul li a{font-size: 16px;}
 	.header .socials, #subscribe-area{display: none;}
 	.article-brief .comment-count{display: none;}
 	.feat-text,

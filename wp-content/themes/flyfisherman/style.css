@@ -430,24 +430,24 @@ padding: 10px;
 	.community-header .header-section:first-child{width: 100%;}
 	.community-header .community-mobile-menu {
 		width: 114px;
-	background: white;
-	padding: 5px;
-	font-size: 14px;
-	line-height: 1.5;
-	right: 0;
-	border-radius: 0;
-	height: 34px;
-	border: 1px solid #adadad;
-	display: block;
-	margin: 0 auto;
-	cursor: pointer;
-	clear: both;	
+		background: white;
+		padding: 5px;
+		font-size: 14px;
+		line-height: 1.5;
+		right: 0;
+		border-radius: 0;
+		height: 34px;
+		border: 1px solid #adadad;
+		display: block;
+		margin: 6px 20px 0;
+		cursor: pointer;
+		float: right;
 	}
 	.community-header .community-logo{width: 100%;}
 	.community-header .community-logo img{width: 120px;margin: 10px 20px;float: left;}
 	.community-header .header-section .select-arrow{
 		position: absolute;
-		right: 39%;
+		right: 31px;
 		margin-top: 9px;
 		border-top: 6px solid #000000;
 		border-right: 6px solid transparent;
@@ -457,4 +457,5 @@ padding: 10px;
 	.community-header li.menu-item{padding: 6px 0;}
 	.community-header ul li a{font-size: 16px;}
 	.community-header .header-section h3 a{padding: 0;}
+	.community-nav-below{height: 38px;}
 }

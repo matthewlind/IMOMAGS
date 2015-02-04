@@ -30,6 +30,12 @@ jQuery(document).ready(function($) {
 	
 	/*** Community menu ***/
 	
+	//Toggle Photos Menu
+	jQuery('.community-mobile-menu').on('click touchstart', function(e){
+		e.preventDefault();
+		jQuery('.menu-hunt, .menu-fish').toggle();
+	});
+
 	//layout in columns
 	if(jQuery(window).width() > 610){
 	    var num_cols = 4,

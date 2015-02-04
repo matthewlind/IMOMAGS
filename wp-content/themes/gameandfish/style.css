@@ -4957,6 +4957,9 @@ select.alter-sel {width:100%;}
 
 	.widget_imo_like_leaderboard_widget{width:310px;margin:20px auto;}
 	.widget_imo_like_leaderboard_widget .like-wrap{margin-left:2px;}
+	
+	.community-nav-below .singl-post-photo{float: none;}
+	.community-state-drop{float: none !important;padding: 0 !important;margin: 10px auto;clear: both;width: 130px;}
 }
 @media only screen and (max-width: 510px) {
     .dif-post h3 {

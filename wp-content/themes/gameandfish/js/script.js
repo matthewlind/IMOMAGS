@@ -1,6 +1,13 @@
 jQuery(document).ready(function($) {
 	
 	/*** Community menu ***/	
+	
+	//Toggle Photos Menu
+	jQuery('.community-mobile-menu').on('click touchstart', function(e){
+		e.preventDefault();
+		jQuery('.menu-hunt, .menu-fish').toggle();
+	});
+	
 	jQuery('#state-select').bind('change', function () {
 	var url = jQuery(this).val(); // get selected value
 	if (url) { // require a URL
