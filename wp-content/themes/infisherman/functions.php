@@ -338,5 +338,152 @@ function prefix_load_fishhead_photos_posts () {
 	die(1);
 }
 
+//Configure infish community
+//This section does nothing unless imo-community plugin is enabled
+add_action("init","infish_community_init",0);
+function infish_community_init() {
+
+		
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//NOTE: Configuration order matters! More specific URLs should appear before less specific urls on the same path.
+	// For example, the "single" page_type below needs to appear before "listing" page type on the same path.
+	//Also, solunar-calendar-mobile should appear before solunar-calendar
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+	///////////////////////////////////////////
+	//Underscore Testing Page Configuration
+	///////////////////////////////////////////
+	$IMO_COMMUNITY_CONFIG = NULL;
+	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "underscore_test";//This slug will override ANY setting in wordpress.
+	$IMO_COMMUNITY_CONFIG['page_title'] = "Underscore"; //On single pages, title is taken from Post
+	$IMO_COMMUNITY_CONFIG['template'] = '/infish/underscore-test.php';
+	$IMO_COMMUNITY_CONFIG['dart_page'] = 'infish_community';
+	$IMO_COMMUNITY_CONFIG['dart_sect'] = 'infishcommunity';
+	$IMO_COMMUNITY_CONFIG['post_types'] = $inFishPostTypes;
+
+
+	$IMO_COMMUNITY_CONFIG['additional_scripts'] = array(
+		//Third Part Scripts
+		array(
+			"script-name" => "underscore-js",
+			"script-path" => "js/underscore-min.js",
+			"script-dependencies" => array('jquery')
+		),
+		array(
+			"script-name" => "underscore-testing-js",
+			"script-path" => "infish/js/underscore-test.js",
+			"script-dependencies" => array('jquery',"underscore-js")
+		)
+	);
+
+
+	global $IMO_COMMUNITY;
+	$IMO_COMMUNITY['underscore-test'] = $IMO_COMMUNITY_CONFIG;
+
+
+	
+
+	
+	global $IMO_COMMUNITY;
+	$IMO_COMMUNITY['solunar-calendar-ipad'] = $IMO_COMMUNITY_CONFIG;
+	/////////////////////////////////////////////////
+	/////////////////////////////////////////////////
+
+
+
+
+	//////////////////////////////////
+	//Mobile Solunar Calendar config
+	//////////////////////////////////
+	$IMO_COMMUNITY_CONFIG = NULL;
+	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "solunar-calendar-mobile";//This slug will override ANY setting in wordpress.
+	$IMO_COMMUNITY_CONFIG['page_title'] = 'Best Times';
+	$IMO_COMMUNITY_CONFIG['template'] = '/solunar-mobile/solunar-template-mobile.php';
+	$IMO_COMMUNITY_CONFIG['dart_page'] = 'solunar_calendar';
+	$IMO_COMMUNITY_CONFIG['dart_sect'] = 'solunarcalendar';
+	$IMO_COMMUNITY_CONFIG['post_types'] = null;
+
+	global $IMO_COMMUNITY;
+
+	$IMO_COMMUNITY['solunar-calendar-mobile'] = $IMO_COMMUNITY_CONFIG;
+	/////////////////////////////////////////////////
+
+
+
+	//////////////////////////////////
+	//Solunar Calendar config
+	//////////////////////////////////
+	$IMO_COMMUNITY_CONFIG = NULL;
+	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "solunar-calendar";//This slug will override ANY setting in wordpress.
+	$IMO_COMMUNITY_CONFIG['page_title'] = 'Solunar Calendar';
+	$IMO_COMMUNITY_CONFIG['template'] = '/solunar/solunar-template.php';
+	$IMO_COMMUNITY_CONFIG['post_types'] = null;
+	$IMO_COMMUNITY_CONFIG['dart_page'] = 'solunar_calendar';
+	$IMO_COMMUNITY_CONFIG['dart_sect'] = 'solunarcalendar';
+	$IMO_COMMUNITY_CONFIG['additional_scripts'] = array(
+		array(
+			"script-name" => "jquery-mousewheel-zf",
+			"script-path" => "solunar/js/plugins/zfselect/js/jquery.mousewheel.js",
+			"script-dependencies" => array('jquery')
+		),
+		array(
+			"script-name" => "jquery-zfselect",
+			"script-path" => "solunar/js/plugins/zfselect/js/jquery.zfselect.min.js",
+			"script-dependencies" => array('jquery')
+		),
+		array(
+			"script-name" => "jquery-carousel-fred",
+			"script-path" => "solunar/js/plugins/carouFredSel/jquery.carouFredSel-6.2.0-packed.js",
+			"script-dependencies" => array('jquery')
+		),
+		array(
+			"script-name" => "lodash",
+			"script-path" => "solunar/js/lodash.min.js",
+			"script-dependencies" => array('jquery')
+		),
+		array(
+			"script-name" => "solunar-googletag",
+			"script-path" => "solunar/js/googletag.js",
+			"script-dependencies" => null,
+			"show-in-header" => true
+		),
+		array(
+			"script-name" => "solunar-app",
+			"script-path" => "solunar/js/script.js",
+			"script-dependencies" => array('jquery','lodash','jquery-carousel-fred','jquery-zfselect','jquery-mousewheel-zf')
+		),
+
+	);
+
+	$IMO_COMMUNITY_CONFIG['additional_styles'] = array(
+		array(
+			"style-name" => "solunar-style-css",
+			"style-path" => "solunar/css/styles.css?v=2",
+			"style-dependencies" => null
+		),
+		array(
+			"style-name" => "zfselect-css",
+			"style-path" => "solunar/js/plugins/zfselect/css/zfselect.css",
+			"style-dependencies" => null
+		),
+		array(
+			"style-name" => "flexslider-css",
+			"style-path" => "solunar/js/plugins/flexslider/flexslider.css",
+			"style-dependencies" => null
+		),
+	);
+	global $IMO_COMMUNITY;
+	$IMO_COMMUNITY['solunar-calendar'] = $IMO_COMMUNITY_CONFIG;
+	/////////////////////////////////////////////////
+	/////////////////////////////////////////////////
+
+
+
+
+
+
+}
 
 
