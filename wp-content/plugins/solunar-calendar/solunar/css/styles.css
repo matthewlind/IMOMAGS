@@ -1,0 +1,1005 @@
+﻿/* =Useful classes
+*******************************************************************************/
+html {
+    height: 100%;
+    background:#fff;
+}
+body {
+    background: #fff;
+
+    width: 100%;
+}
+/* fonts */
+@font-face {
+    font-family: 'stagitalic';
+    src: url('../fonts/stag-mediumitalic-webfont-webfont.eot');
+    src: url('../fonts/stag-mediumitalic-webfont-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/stag-mediumitalic-webfont-webfont.woff') format('woff'),
+         url('../fonts/stag-mediumitalic-webfont-webfont.ttf') format('truetype'),
+         url('../fonts/stag-mediumitalic-webfont-webfont.svg#stagitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'stagregular';
+    src: url('../fonts/stag-medium-webfont-webfont.eot');
+    src: url('../fonts/stag-medium-webfont-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/stag-medium-webfont-webfont.woff') format('woff'),
+         url('../fonts/stag-medium-webfont-webfont.ttf') format('truetype'),
+         url('../fonts/stag-medium-webfont-webfont.svg#stagregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'stagbold';
+    src: url('../fonts/stag-bold-webfont-webfont.eot');
+    src: url('../fonts/stag-bold-webfont-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/stag-bold-webfont-webfont.woff') format('woff'),
+         url('../fonts/stag-bold-webfont-webfont.ttf') format('truetype'),
+         url('../fonts/stag-bold-webfont-webfont.svg#stagbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'proxima_novaextrabold';
+    src: url('../fonts/proximanova-extrabold-webfont.eot');
+    src: url('../fonts/proximanova-extrabold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/proximanova-extrabold-webfont.woff') format('woff'),
+         url('../fonts/proximanova-extrabold-webfont.ttf') format('truetype'),
+         url('../fonts/proximanova-extrabold-webfont.svg#proxima_novaextrabold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'proxima_novasemibold';
+    src: url('../fonts/proximanova-semibold-webfont.eot');
+    src: url('../fonts/proximanova-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/proximanova-semibold-webfont.woff') format('woff'),
+         url('../fonts/proximanova-semibold-webfont.ttf') format('truetype'),
+         url('../fonts/proximanova-semibold-webfont.svg#proxima_novasemibold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'proxima_nova_rgregular';
+    src: url('../fonts/proximanova-regular-webfont.eot');
+    src: url('../fonts/proximanova-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/proximanova-regular-webfont.woff') format('woff'),
+         url('../fonts/proximanova-regular-webfont.ttf') format('truetype'),
+         url('../fonts/proximanova-regular-webfont.svg#proxima_nova_rgregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'proxima_nova_rgbold';
+    src: url('../fonts/proximanova-bold-webfont.eot');
+    src: url('../fonts/proximanova-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/proximanova-bold-webfont.woff') format('woff'),
+         url('../fonts/proximanova-bold-webfont.ttf') format('truetype'),
+         url('../fonts/proximanova-bold-webfont.svg#proxima_nova_rgbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.debug    { border: 1px dotted red !important; }
+.hidden   { display: none; visibility: hidden; }
+.no-marg  { margin: 0 !important; }
+.no-pad   { padding: 0 !important; }
+.no-bg    { background: none !important; }
+.no-bd    { border: none !important; }
+.fl-l     { float: left !important; }
+.fl-r     { float: right !important; }
+.a-center { text-align: center; }
+.a-left   { text-align: left; }
+.a-right  { text-align: right; }
+.ir {     /* image replacement */
+    border: 0;
+    font: 0/0 a;
+    text-shadow: none;
+    color: transparent;
+    background-color: transparent;
+}
+.hr {
+    height: 1px;
+    font: 0/0 Serif;
+    border-bottom: 1px dotted #888;
+    margin: 15px 0;
+}
+
+
+/* Useful classes */
+
+/* Main styles */
+.frame {
+    width:1005px;
+    margin:0 auto;
+}
+.wide-banner img {
+    display:block;
+}
+.sponsor{float: none;}
+.sponsor img{margin: -65px auto 0;float: none;display: block;}
+.location-box {
+    border-bottom:1px solid #eaeaea;
+    padding:30px 40px 37px 35px;
+    background:url(../images/bg/light-hue.jpg) repeat;
+}
+.form-text {
+    font:30px/1.2 "stagregular", serif;
+    color:#3c3c3c;
+    display:inline-block;
+    vertical-align:top;
+    padding-right:4px;
+}
+.location-box select {
+    width:240px;
+}
+.location-box input[type="text"] {
+    display:inline-block;
+    font:28px/33px "stagitalic", serif;
+    color:#b2b2b2;
+    border:1px dotted #9a9a9a;
+    border-width:0 0 1px;
+    background:none;
+    vertical-align:top;
+    padding:2px 8px 4px;
+    width:215px;
+    margin:0 10px 0 0;
+
+    border-right: 1px solid #bababa;
+	border-top: 1px solid #bababa;
+	border-left: 1px solid #bababa;
+	background-color: white;
+}
+.submit-small {
+    width:74px;
+    height:43px;
+    border:0;
+    text-align:center;
+    font:22px/26px "stagbold", serif;
+    color:#fff;
+    cursor:pointer;
+    margin:0;
+    background:url(../images/btn/submit-small.png) no-repeat;
+}
+.submit-small:hover {color:#b2b2b2;}
+.location-box .zf-select {
+    display:inline-block;
+    border-bottom:1px dotted #9a9a9a;
+    bottom:-3px;
+    vertical-align:top;
+    margin:0 7px 0 2px;
+}
+.cal-title {
+    width:428px;
+    padding:14px 32px 0 47px;
+    margin:-30px auto 7px;
+    background:#fff;
+    border-top:1px solid #eaeaea;
+}
+.cal-title select {
+    width:350px;
+}
+.cal-title .zf-select .select-text {
+    font:52px/43px "stagbold", serif;
+    height:62px;
+    padding-right:46px;
+}
+.cal-title .zf-select .select-btn {
+    background-position:0 -37px;
+    width:39px;
+    height:62px;
+}
+.calendar-holder {
+    border-bottom:3px solid #e5e5e5;
+    margin:0 0 23px;
+}
+.calendar-data {
+    width:100%;
+    border-collapse:collapse;
+    background:url(../images/bg/calendar.png) repeat-y;
+}
+.calendar-data th {
+    border:0;
+    text-align:center;
+    vertical-align:top;
+    font:16px/19px "proxima_novasemibold", sans-serif;
+    color:#3c3c3c;
+    padding:14px 5px 12px;
+    background:#fff;
+}
+.calendar-data td {
+    border:1px solid #bababa;
+    border-width:1px 0 1px 1px;
+    width:143px;
+    height:132px;
+    vertical-align:top;
+}
+.calendar-data td.other-month {background:url(../images/bg/light-hue.jpg) repeat;}
+.calendar-data tr td:first-child {
+    border-left:0;
+}
+
+
+.calendar-data .celldata {
+    border:1px solid #bababa;
+    border-width:1px 0 1px 1px;
+    width:143px;
+    height:132px;
+    vertical-align:top;
+}
+
+.calendar-data td > div {
+    height:132px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    cursor:pointer;
+    position:relative;
+}
+
+.calendar-data div.fishday {
+    height:132px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    cursor:pointer;
+    position:relative;
+
+}
+
+.calendar-data div.fishday.active {
+	border:3px solid #3c3c3c;
+}
+.calendar-data div.fishday.today {
+    background-color: #fef2e8;
+}
+
+
+.calendar-data div.fishday.active .a-event {
+    padding:46px 0px 0 13px;
+}
+
+.calendar-data .a-event {
+    position:relative;
+    padding:46px 2px 0 16px;
+    border-top:10px solid #e9e9e9;
+    height:100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.calendar-data td > div.active .a-event {
+    border-top-width:7px;
+    padding-left:11px;
+    padding-right:2px;
+}
+
+
+.calendar-data .fishday-red .a-event {border-color:#c9242c;}
+.calendar-data .fishday-orange .a-event {border-color:#e3730f;}
+.calendar-data .fishday-orangelight .a-event {border-color:#eab204;}
+.calendar-data .fishday-yellow .a-event {border-color:#edd96b;}
+
+.calendar-data .fishday-level4 .a-event {border-color:#c9242c;}
+.calendar-data .fishday-level3 .a-event {border-color:#e3730f;}
+.calendar-data .fishday-level2 .a-event {border-color:#eab204;}
+.calendar-data .fishday-level1 .a-event {border-color:#edd96b;}
+
+
+.calendar-data .other-month .a-event {border-top:0;}
+.ico-solunar {
+    position:absolute;
+    top:13px;
+    left:11px;
+}
+.calendar-data td > div.active .ico-solunar {left:8px;}
+.c-date {
+    position:absolute;
+    top:15px;
+    right:20px;
+    color:#3c3c3c;
+    font:23px/1 "proxima_novaextrabold", sans-serif;
+}
+.calendar-data td > div.active .c-date {right:17px;}
+.day-data {
+    list-style:none;
+}
+.w-col .day-data {padding:0 0 7px;}
+.cal-popup .day-data {
+    display:inline-block;
+    vertical-align:top;
+}
+.day-data li {
+    margin:8px 0 0;
+    padding:0 0 0 19px;
+    position:relative;
+    font:13px "proxima_nova_rgregular", sans-serif;
+    color:#3c3c3c;
+}
+.day-data li:first-child {margin-top:0;}
+.day-data li:after {
+    position:absolute;
+    top:2px;
+    left:0;
+    width:13px;
+    height:13px;
+    content:"";
+    background:url(../images/sprite.png) no-repeat;
+}
+.day-data li.best-p:after {background-position:0 0;}
+.day-data li.major-p:after {background-position:0 -16px;}
+.day-data li.minor-p:after {background-position:0 -32px;}
+.day-data .best-p {
+    font-weight:bold;
+}
+
+.times-list li.best-time-label {
+    margin-bottom:30px;
+}
+
+.day-data span {
+    color:#a2a2a2;
+    font-weight:bold;
+}
+
+
+
+.cal-popup {
+    position:absolute;
+    top:2px;
+    left:55px;
+    width:300px;
+    background:#fff;
+    border:1px solid #c2c2c2;
+    border-radius:3px;
+    color:#3c3c3c;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    z-index:999;
+    cursor:default;
+    -webkit-box-shadow: 4px 4px 20px 2px #393939;
+    box-shadow: 4px 4px 20px 2px #393939;
+    display:none;
+}
+
+div.fishday.active .cal-popup {
+	left:52px;
+	top:-1px;
+}
+
+.far-right .cal-popup {
+	left:auto;
+	right:137px;
+}
+
+.far-right div.fishday.active .cal-popup {
+    left:auto;
+    right:134px;
+}
+
+
+.cal-popup:after,
+.cal-popup:before {
+    right: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+.cal-popup:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-right-color: #ffffff;
+    border-width: 12px;
+    top: 12px;
+
+}
+.cal-popup:before {
+    border-color: rgba(194, 194, 194, 0);
+    border-right-color: #c2c2c2;
+    border-width: 13px;
+    top: 11px;
+}
+
+
+.far-right .cal-popup:after,
+.far-right .cal-popup:before {
+    left: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+.far-right .cal-popup:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-left-color: #ffffff;
+    border-width: 12px;
+    top: 12px;
+
+}
+.far-right .cal-popup:before {
+    border-color: rgba(194, 194, 194, 0);
+    border-left-color: #c2c2c2;
+    border-width: 13px;
+    top: 11px;
+}
+
+
+
+
+.close-popup {
+    position:absolute;
+    top:0;
+    right:0;
+    width:48px;
+    height:45px;
+    z-index:999999;
+}
+.close-popup:before {
+    position:absolute;
+    top:6px;
+    right:8px;
+    width:22px;
+    height:22px;
+    background:#c9242c;
+    text-align:center;
+    color:#fff;
+    border-radius:11px;
+    font:14px/20px "proxima_nova_rgbold", sans-serif;
+    border-bottom:1px solid #54393a;
+    content:"x";
+}
+.close-popup:hover {text-decoration:none;}
+.close-popup:hover:before {background:#e9565d; color:#fff; text-decoration:none;}
+.cal-popup-inner {
+    padding:22px 22px 0 28px;
+    border-bottom:5px solid #eab204;
+}
+.cal-popup h3 {
+    font:26px/1.2 "stagbold", serif;
+    color:#c9242c;
+    margin:0 0 10px;
+}
+.cal-popup h3 span {
+    color:#3c3c3c;
+    font-family:"stagregular";
+}
+.cal-row {
+    padding:19px 0 17px;
+    border-top:1px solid #eaeaea;
+}
+
+.cal-row.related-articles ul {
+
+    margin-left:20px;
+    margin-top:10px;
+}
+
+.cal-row.related-articles li{
+
+    margin-bottom:10px;
+    list-style-type: square;
+
+}
+
+.cal-row.related-articles li a{
+
+    /*font-weight: bold;*/
+
+}
+
+.cal-row.related-articles h3 {
+    color:black;
+    font-size: 20px;
+
+}
+
+.moon-data,
+.sun-data {
+    display:inline-block;
+    vertical-align:top;
+    color:#3c3c3c;
+    list-style:none;
+    padding:0 0 0 66px;
+    min-height:42px;
+    position:relative;
+    margin:0 20px 0 0;
+    font:14px "proxima_nova_rgbold", sans-serif;
+}
+.moon-data:after,
+.sun-data:after {
+    position:absolute;
+    top:0;
+    left:0;
+    width:58px;
+    height:37px;
+    content:"";
+    background:url(../images/sprite.png) no-repeat -16px 0;
+}
+.moon-data:after {
+    top:3px;
+    width:51px;
+    background-position:-74px 0;
+}
+.moon-data {
+    margin:0;
+    padding-left:58px;
+}
+.moon-data span,
+.sun-data span {
+    font-family:"proxima_nova_rgregular";
+    color:#a2a2a2;
+}
+.moon-data li,
+.sun-data li {
+    margin:2px 0 0;
+}
+.times-list {
+    list-style:none;
+    display:inline-block;
+    vertical-align:top;
+    width:96px;
+    text-align:right;
+    margin:0 16px 0 0;
+    font:14px "proxima_nova_rgbold", sans-serif;
+}
+.times-list li {margin:0 0 5px;}
+.presented-by {
+    text-align:center;
+}
+.presented-by img,
+.presented-by span {
+    display:inline-block;
+    vertical-align:middle;
+}
+.presented-by span {padding:0 8px 0 0;}
+.sub-widgets {
+    margin:0 0 53px;
+}
+.w-col {
+    display:inline-block;
+    vertical-align:top;
+    width:300px;
+    margin:0 0 0 48px;
+    color:#3c3c3c;
+    font:14px "proxima_nova_rgregular", sans-serif;
+}
+.w-col:first-child {
+    margin-left:17px;
+}
+.w-col3 {
+    width:300px;
+    margin-left:32px;
+}
+.w-col h3 {
+    font:18px/1.2 "stagregular", serif;
+    color:#3c3c3c;
+    margin:12px 0;
+}
+.w-col .day-data .best-p {font-weight:normal;}
+.chart {
+    width:294px;
+    padding:22px 0 0;
+}
+.chart img {
+    display:block;
+    margin:0 0 10px;
+}
+.chart span {
+    float:left;
+}
+.chart strong {float:right;}
+.w-col p {
+    line-height:1.6;
+}
+.custom-form .f-row {padding:0 0 3px;}
+.custom-form input[type="text"]{
+    display: inline-block;
+    vertical-align:top;
+    font:18px/21px "stagitalic", serif;
+    color:#b2b2b2;
+    border:1px dotted #9a9a9a;
+    border-width:0 0 1px;
+    background:none;
+    padding:5px 0 7px;
+    width:201px;
+}
+.custom-form .submit-small {
+    display:inline-block;
+    vertical-align:top;
+    margin:-9px 0 0 12px;
+}
+.gallery-block {padding:0 0 50px;}
+.gallery-block h2 {
+    text-align:center;
+    font:24px/1.2 "stagregular", serif;
+    color:#3c3c3c;
+    margin:0 0 32px;
+    position:relative;
+}
+.gallery-block h2 span {
+    position:relative;
+    z-index:2;
+    background:#fff;
+    padding:0 26px;
+}
+.gallery-block h2:before {
+    content:"";
+    height:1px;
+    width:100%;
+    background:#eaeaea;
+    position:absolute;
+    left:0;
+    top:16px;
+    z-index:1;
+}
+/* carousel */
+.list_carousel {
+    margin: 0 0 0 40px;
+    width: 960px;
+    position:relative;
+}
+.list_carousel ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: block;
+}
+.list_carousel li {
+    width: 230px;
+    padding: 0;
+    margin: 0 10px 0 0;
+    display: block;
+    float: left;
+}
+.gal-prev,
+.gal-next {
+    position:absolute;
+    top:51px;
+    width:17px;
+    height:27px;
+    overflow:hidden;
+    text-indent:-9999px;
+    background:url(../images/sprite.png) no-repeat -127px 0;
+}
+.gal-prev {
+    left:-33px;
+}
+.gal-prev:hover {background-position:-161px 0;}
+.gal-next {
+    right:-16px;
+    background-position:-144px 0;
+}
+.gal-next:hover {background-position:-178px 0;}
+.cal-carousel .gal-prev {
+    top:75px;
+    left:12px;
+}
+.cal-carousel .gal-next {
+    top:75px;
+    right:16px;
+}
+.slide-thumb img {
+    display:block;
+    border:3px solid #3f3a39;
+}
+.slide-thumb:hover img {border-color:#98020a;}
+.slide-thumb {
+    display:block;
+    margin:0 0 14px;
+}
+.list_carousel h3 {
+    font:18px "stagregular", serif;
+    color:#c9242c;
+    margin:0 0 7px;
+}
+.list_carousel h3 a {color:#c9242c;}
+.list_carousel h3 a:hover {
+    color:#3c3c3c;
+    text-decoration:none;
+}
+.list_carousel em {
+    display:block;
+    color:#3c3c3c;
+    font:14px "proxima_nova_rgregular", sans-serif;
+}
+/* solunar widget */
+.solunar-widget {
+    padding:20px 9px 34px;
+    width:282px;
+    margin:0 0 22px;
+    background:url(../images/bg/solunar-widget.jpg) repeat-y;
+}
+.fisher-logo{
+    display:block;
+    margin:0 auto 10px;
+    width:234px;
+    height:49px;
+    overflow:hidden;
+    text-indent:-9999px;
+    background:url(../images/logo-infisherman.png) no-repeat;
+}
+.presented-by {
+    text-align:center;
+    margin:0 0 11px;
+}
+.presented-by span,
+.presented-by img {
+    display:inline-block;
+    vertical-align:middle;
+}
+.presented-by span {
+    font:15px "proxima_nova_rgregular", sans-serif;
+    color:#000;
+    padding:0 6px 0 0;
+}
+.single-calendar {
+    width:286px;
+    height:268px;
+    margin:0 0 22px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding:8px 20px 20px;
+    background:url(../images/bg/single-calendar.png) no-repeat;
+}
+.single-calendar h3 {
+    text-align:center;
+    color:#fff;
+    font:17px "stagregular", serif;
+    text-shadow: -1px -1px 0 #81151a;
+    margin:0 0 28px;
+    word-spacing:2px;
+}
+/* calendar carousel */
+.cal-carousel {
+    margin: 0;
+    width: 246px;
+    position:relative;
+}
+.cal-carousel ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: block;
+}
+.cal-carousel li {
+    width: 246px;
+    padding: 0;
+    margin: 0;
+    display: block;
+    float: left;
+    text-align:center;
+    color:#3c3c3c;
+}
+.location {
+    margin:0 0 10px;
+}
+.location strong {
+    font:24px "stagregular", serif;
+}
+a.change-location {
+    position:relative;
+    padding:0 5px 0 0;
+    color:#c9242c;
+    font:13px "proxima_nova_rgbold", sans-serif;
+}
+a.change-location:after, a.change-location:before {
+    left: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+a.change-location:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-left-color: #ffffff;
+    border-width: 2px;
+    top: 50%;
+    margin-top: -2px;
+}
+a.change-location:before {
+    border-color: rgba(201, 36, 44, 0);
+    border-left-color: #c9242c;
+    border-width: 5px;
+    top: 50%;
+    margin-top: -5px;
+}
+.solunar-ico {
+    font-size:0;
+    line-height:0;
+    margin:0 0 15px;
+    padding:0 5px 0 0;
+}
+.solunar-date {
+    font:16px "proxima_novasemibold", sans-serif;
+    margin:0 0 4px;
+}
+.solunar-date span {
+    display:inline-block;
+    vertical-align:top;
+}
+.solunar-date span:after,
+.solunar-date span:before {
+    display:inline-block;
+    vertical-align:top;
+    height:1px;
+    width:43px;
+    background:#eaeaea;
+    content:"";
+    margin:7px 6px 0 6px;
+}
+.solunar-time {
+    font:18px "proxima_novaextrabold", sans-serif;
+}
+.solunar-time span {color:#a2a2a2;}
+.widget-text {
+    font:14px/1.4 "proxima_nova_rgregular", sans-serif;
+    color:#cbcbcb;
+    text-align:center;
+    margin:0 0 23px;
+}
+.widget-text a {
+    font-family:"proxima_novasemibold";
+    color:#ee313a;
+    text-decoration:underline;
+}
+.widget-text a:hover {text-decoration:none;}
+.widget-text p {margin:0;}
+.solunar-widget .get-more,
+.get-more {
+    display:block;
+    margin:0 auto;
+    width:257px;
+    height:62px;
+    padding:0 5px;
+    text-align:center;
+    color:#fff;
+    font:18px/62px "stagbold", serif;
+    background:url(../images/btn/get-more.png) no-repeat;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-shadow:0 -2px 1px #433b3b;
+}
+.solunar-widget .get-more:hover,
+.get-more:hover {
+    text-decoration:none;
+}
+.solunar-widget .get-more:active,
+.get-more:active {
+    text-decoration:none;
+    color:#94040b;
+}
+
+
+.location-box .zf-select .select-text {
+
+	border-right: 1px solid #bababa;
+	border-top: 1px solid #bababa;
+	border-left: 1px solid #bababa;
+	background-color: white;
+	height: 33px;
+
+}
+#zf-select-sel1 .select-btn{
+	right: 10px;
+}
+.zf-select .select-btn {
+padding-right: 4px;
+
+}
+
+.location-box .zf-select {
+    width:270px !important;
+
+}
+
+
+h1.location-header {
+    font: 18px "stagitalic", serif;
+    text-align: center;
+    color:#b2b2b2;
+    margin-top:10px;
+}
+
+/* Wordpress Fixes */
+
+
+
+#main {
+    margin: 0 0 0 6px;
+}
+#main-content {
+    border:none;
+}
+
+#main-content .str-content {
+    border:none;
+    padding-top:0px;
+}
+
+#footer-content {
+    border:0px;
+}
+
+body #header {
+    margin-top:0px;
+}
+
+@media only screen and (max-width: 800px) {
+	.frame, .calendar-data td, .calendar-data div.fishday, .gallery-block{
+		height: 100%;
+		width: auto;
+	}
+	.location-box{
+		padding: 30px 0 35px 4px;
+	}
+	.list_carousel{
+		width: 600px;
+	}
+	.list_carousel li{
+		width: 210px;
+	}
+	.gal-next{
+		right: 140px;
+	}
+	.form-text, .zf-select .select-text, .location-box input[type="text"]{
+		font: 16px/2.2 "stagregular", serif;
+	}
+	.location-box input[type="text"]{width: 157px;}
+	.cal-title .zf-select .select-text {
+		font: 52px/43px "stagbold", serif;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
