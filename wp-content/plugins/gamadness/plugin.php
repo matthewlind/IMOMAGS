@@ -275,10 +275,10 @@ function jsGAMRender($mobile) {
 		 
 	$outp.= '<div class="region-titles">'
 		 .	'  <div class="region-left">'
-		 .	'    <h2>Modern Sporting Rifles</h2>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"arsmadness"))
+		 .	'    <h2>Handguns</h2>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"arsmadness"))
 		 .	'  </div>'
 		 .	'  <div class="region-right">'
-		 .	'    <h2>Shotguns</h2>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"shotgunsmadness"))
+		 .	'    <h2>Rifles</h2>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"shotgunsmadness"))
 		 .	'  </div>'
 		 .	'</div>'
 
