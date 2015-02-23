@@ -31,6 +31,7 @@ add_shortcode( 'madness', 'madness_func' );
 	wp_enqueue_script( 'postscribe', plugin_dir_url( __FILE__ ) . 'postscribe.js');
 	wp_enqueue_script( 'xdomainrequest', plugin_dir_url( __FILE__ ) . 'xdomainrequest.min.js');
 	
+	
 
 function renderGAMpopup($mobile) {
 	$outp = "";
