@@ -267,7 +267,7 @@
 						'arsmadness' : 'Pelican-GA-MAdness-popup-300x120.jpg',
 						'shotgunsmadness' : 'Winchester-GA-MAdness-popup-300x120.jpg'
 					}
-					var regions = {'1':'Handguns', '2':'Rifles', '3':'Modern Sporting Rifles', '4':'Shotguns'}
+					var regions = {'1':'Handguns', '2':'Rifles', '3':'Handguns', '4':'Rifles'}
 					var roundtitles = {'2':'First Round', '3':'Second Round', '4':'Sweet Sixteen', '5':'Elite Eight', '6':'Final Four', '7':'Championship'}
 					
 					var campaigns = new Array('handgunsmadness', 'riflesmadness', 'arsmadness', 'shotgunsmadness');
