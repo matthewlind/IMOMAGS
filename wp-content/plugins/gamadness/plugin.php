@@ -96,7 +96,7 @@ function jsGAMRender($mobile) {
 	$ismobile = ($mobile)? "true":"false"; 
 	$madnessround = 7;
 
-  if($mobile) {
+  if($mobile) { // If it's a mobile device //
 	$outp.= '<div class="ga-madness-votestats"></div>';
 	
 	//if (function_exists('wpsocialite_markup'))
@@ -205,7 +205,7 @@ function jsGAMRender($mobile) {
 		 .  '</div>';
 
   }
-  else {
+  else { // If it's not a mobile device //
 	
 	$outp.= '<ul class="schedule">'
 		 .  '  <li class="'.(($madnessround==2)? "active-round":"").'">First Round<div>March 18-23</div></li>'
