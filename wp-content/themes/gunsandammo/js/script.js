@@ -1,31 +1,18 @@
 jQuery(document).ready(function($) {
+	if( $(".post-type-archive-imo_ga_vault").length ){
+		title = $(".facts").attr("title");
+		slug = $(".facts").attr("slug");
+		img_url = $(".facts img").attr("src");
 	
-	title = $(".facts").attr("title");
-	slug = $(".facts").attr("slug");
-	img_url = $(".facts img").attr("src");
-
-	// Detecting IE
-    var oldIE;
-    if ($('html').is('#ie6, #ie7, #ie8, #ie9')) {
-        oldIE = true;
-    }
-	if(!oldIE){
-		window.history.pushState(null, title, slug );
-	}
-
-	_gaq.push(['_trackPageview', window.location.pathname]);
+		var ua = window.navigator.userAgent;
+	    var msie = ua.indexOf("MSIE ");
 	
-	post_url = document.location.href;
-
-	try{
-		jQuery('meta[property=og\\:url]').attr('content',post_url);
-		jQuery('meta[property=og\\:title]').attr('content',title);
-		jQuery('meta[property=og\\:image]').attr('content',img_url);	
-		jQuery('.fb-share').attr("data-href",post_url);
-		FB.XFBML.parse();
-	}catch(e){
-		//console.log(e);
+	    if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))      // If Internet Explorer, return version number
+	        console.log("true");
+	    else                 // If another browser, return 0
+	        window.history.pushState(null, title, slug );
+			console.log("false");
+		_gaq.push(['_trackPageview', window.location.pathname]);
 	}
-
 });
 

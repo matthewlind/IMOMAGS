@@ -56,7 +56,7 @@ if ( is_user_logged_in() ) {
         <div class="fishday fishday-level<%= data.peakcode %> <%= data.today %>">
             <div class="a-event">
                 <em class="c-date"><%= data.day %></em>
-                <span class="ico-solunar"><img src="wp-content/plugins/imo-community/solunar/images/ico2/moon_<%= data.mooncode %>.png" width="24" height="24" alt="" /></span>
+                <span class="ico-solunar"><img src="wp-content/plugins/solunar-calendar/solunar/images/ico2/moon_<%= data.mooncode %>.png" width="24" height="24" alt="" /></span>
                 <ul class="day-data">
                     <li class="best-p"><%= data.times[0].start %> - <%= data.times[0].end %></li>
                     <li class="best-p"><%= data.times[1].start %> - <%= data.times[1].end %></li>
@@ -124,7 +124,7 @@ if ( is_user_logged_in() ) {
 
     <div class="frame">
         <div class="wide-banner">
-            <img src="wp-content/plugins/imo-community/solunar/images/banner/banner-back.jpg" width="1020" height="176" alt="" />
+            <img src="wp-content/plugins/solunar-calendar/solunar/images/banner/banner-back.jpg" width="1020" height="176" alt="" />
         </div>
         <div class="sponsor">
         	<?php imo_ad_placement("sponsor_logo_240x60"); ?>
@@ -254,7 +254,7 @@ if ( is_user_logged_in() ) {
 
                 </ul>
                 <div class="chart">
-                    <img src="wp-content/plugins/imo-community/solunar/images/fishing-chart.png" width="294" height="16" alt="" />
+                    <img src="wp-content/plugins/solunar-calendar/solunar/images/fishing-chart.png" width="294" height="16" alt="" />
                     <div class="clearfix">
                         <span>Could be better...</span>
                         <strong>Great day to fish!</strong>
@@ -311,7 +311,7 @@ if ( is_user_logged_in() ) {
 </div>
 
 <!--[if lt IE 10]>
-    <script type="text/javascript" src="wp-content/plugins/imo-community/solunar/js/plugins/jquery.placeholder.min.js"></script>
+    <script type="text/javascript" src="wp-content/plugins/solunar-calendar/solunar/js/plugins/jquery.placeholder.min.js"></script>
     <script type="text/javascript" >
         $(function(){
             $('input[placeholder], textarea[placeholder]').placeholder();
