@@ -9,7 +9,7 @@ define("SITE_NAME", "North American Whitetail");
 
 include_once('widgets/buck-contest.php');
 include_once('widgets/get-app.php');
-include_once("widgets/naw-community-slider.php");
+include_once("wordpress-community.php");
 
 /***
 **
@@ -49,54 +49,80 @@ function social_footer(){ ?>
 <?php }
 
 
-//Configure naw community
-//This section does nothing unless imo-community plugin is enabled
-add_action("init","naw_community_init",0);
-function naw_community_init() {
+// NAW Photo pagination
+add_action( 'wp_ajax_nopriv_fishhead-photos-filter', 'prefix_load_fishhead_photos_posts' );
+add_action( 'wp_ajax_fishhead-photos-filter', 'prefix_load_fishhead_photos_posts' );
+function prefix_load_fishhead_photos_posts () {
+	
 
-	//////////////////////////////////
-	//Community Configuration
-	//////////////////////////////////
+	$cat_id = $_POST[ 'cat' ];
+    $offset = $_POST[ 'offset' ];
+    
+    if($cat_id){
+	    $args = array(
+			'post_type' => 'rack_room',
+			'offset' => $offset,
+			'showposts' => 10,
+			'tax_query' => array(
+			  'relation' => 'AND',
+			  array(
+			     'taxonomy' => 'category',
+			     'field' => 'slug',
+			     'terms' => array( $cat_id )
+			  )
+			)
+		);
 
-	//This Post Types array is used in multiple configurations
-	$nawPostTypes = array(
+    }else{
+	    $args = array(
+			'post_type' => 'rack_room',
+			'offset' => $offset,
+			'showposts' => 10,
+		);
 
-		"report" => array(
-			"display_name" => "State Rut Report",
-			"post_list_style" => "tile"
-		),
+    }
+			
+	$posts = get_posts( $args );
+	
+	
+	global $post;
+	
+	ob_start ();
+	
+	$i = $offset;
+	
 
-		"general" => array(
-			"display_name" => "General Discussion",
-			"post_list_style" => "tile"
-		),
+	foreach ( $posts as $post ) {
+		$i++;
+		setup_postdata( $post ); 
+		?>
+		
+		<div class="dif-post post">
+	        <div class="feat-img">
+				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail("list-thumb"); ?></a>
+	        </div>
+	        <div class="dif-post-text">
+	            <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+	            <div class="profile-panel">
+	                <div class="profile-data">
+	                    <ul class="prof-like">
+	                    	<li>
+	                    		<div class="fb-like fb_iframe_widget" data-href="<?php echo get_permalink(); ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+	                       </li>
+	                    </ul>
+	                </div>
+	            </div>
+	            <?php if(in_category("master-angler")){ ?><span class="badge"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/pic/badge-ma.png" alt="Master Angler" /></span><?php } ?>
+	        </div>
+	    </div>
 
-		"question" => array(
-			"display_name" => "Questions",
-			"post_list_style" => "tile"
-		)
-	);
+					
+	<?php } 
+	wp_reset_postdata();
 
-
-	//External Community Configurations
-
-	include("community-config/state-report.php");
-	include("community-config/report.php");
-	include("community-config/general.php");
-	include("community-config/question.php");
-	include("community-config/new-post.php");
-	include("community-config/single.php");
-	include("community-config/profile.php");
-	include("community-config/edit-profile.php");
-	include("community-config/admin.php");
-	include("community-config/listing.php");
-
-	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	//NOTE: Configuration order matters! More specific URLs should appear before less specific urls on the same path.
-	// For example, the "single" page_type below needs to appear before "listing" page type on the same path.
-	//Also, solunar-calendar-mobile should appear before solunar-calendar
-	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+	$response = ob_get_contents();
+	ob_end_clean();
+	
+	echo $response;
+	die(1);
 }
-
-

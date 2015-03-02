@@ -1,5 +1,4 @@
 <?php
-
 add_theme_support( 'post-thumbnails' );
 add_action( 'widgets_init', 'parent_theme_widgets_init' );
 add_action('after_setup_theme', 'parent_theme_setup');
@@ -2830,12 +2829,3 @@ function prefix_load_ff_photos_posts () {
 	echo $response;
 	die(1);
 }
-
-
-
-
-
-
-
-
-

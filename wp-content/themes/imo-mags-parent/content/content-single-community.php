@@ -16,20 +16,22 @@ $byline = get_post_meta($postID, 'ecpt_byline', true);
     
     <div class="rp-navigation">
 	    <?php $prevPost = get_previous_post(true);
-		if($prevPost) {?>
+		if($prevPost) { ?>
 			<div class="nav-box previous" style="float:left;">
 				<p><?php next_post_link('%link',"<span>&laquo;</span> Previous Photo", TRUE); ?></p>
-		        <?php $prevthumbnail = get_the_post_thumbnail($prevPost->ID, array(60,60) );}?>
+		        <?php $prevthumbnail = get_the_post_thumbnail($prevPost->ID, array(60,60) ); ?>
 		        <?php previous_post_link('%link',"$prevthumbnail  %title", TRUE); ?>
 			</div>
 	
-	    <?php $nextPost = get_next_post(true);
+	    <?php } 
+	    $nextPost = get_next_post(true);
 		if($nextPost) { ?>
 		    <div class="nav-box next" style="float:right;">
 		    	<p style="text-align:right;"><?php next_post_link('%link',"Next Photo <span>&raquo;</span>", TRUE); ?></p>
-				<?php $nextthumbnail = get_the_post_thumbnail($nextPost->ID, array(60,60) ); } ?>
+				<?php $nextthumbnail = get_the_post_thumbnail($nextPost->ID, array(60,60) ); ?>
 				<?php next_post_link('%link',"$nextthumbnail  %title", TRUE); ?>
 			</div>
+			<?php } ?>
     </div>
     
 	<span class="cat-feat-label">
@@ -56,6 +58,7 @@ $byline = get_post_meta($postID, 'ecpt_byline', true);
         </h1>
         <?php endif; // is_single() ?>
         <div class="post-date"><?php the_time('F jS, Y'); ?></div>
+        <a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>
 
 		<?php if ( mobile() ){ ?>
 			<div class="image-banner posts-image-banner">

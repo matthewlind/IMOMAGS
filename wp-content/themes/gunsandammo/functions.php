@@ -6,20 +6,16 @@ define("GIFT_LINK", "http://subs.gunsandammo.com/gift");
 define("SERVICE_LINK", "http://subs.gunsandammo.com/service");
 define("SUBS_DEAL_STRING", "Save 80%");
 define("DRUPAL_SITE", TRUE);
-
-
 define("FACEBOOK_LINK", "http://www.facebook.com/GunsAndAmmoMag");
 define("TWITTER_LINK", "http://twitter.com/gunsandammomag");
 define("RSS_LINK", "http://feeds.feedburner.com/GunsAndAmmoMag");
 define("SITE_LINK", "gunsandammo.com");
 define("SITE_NAME", "Guns & Ammo");
-
 include_once('taxonomies.php');
 include_once('widgets/caption-contest.php');
 include_once('widgets/ga-vault.php');
 include_once('widgets/ipad-app.php');
 include_once('widgets/ipad-app-reloaded.php');
-
 function social_networks(){
 	echo '<div class="socials">';
 		echo '<a href="'.FACEBOOK_LINK.'" class="facebook">Facebook</a>';
@@ -27,9 +23,6 @@ function social_networks(){
 	    echo '<a href="'.RSS_LINK.'" class="rss">RSS</a>';
 	echo '</div>';
 }
-
-
-
 function social_footer(){ ?>
 	<div class="foot-social clearfix">
 		<strong class="social-title">Like us on Facebook to <span>stay updated !</span></strong>
@@ -38,21 +31,15 @@ function social_footer(){ ?>
 	</div>
 	<?php 
 }
-
 /*New Menu for TV*/
-
 add_action( 'init', 'register_rt_menu' );
-
 function register_rt_menu() {
 	register_nav_menu( 'tv-menu', __( 'TV Menu' ) );
 }
-
 add_action( 'init', 'register_pd_menu' );
-
 function register_pd_menu() {
 	register_nav_menu( 'pdtv-menu', __( 'PD Menu' ) );
 }
-
 /*Remove Pages From Search*/
 function ga_remove_pages_from_search() {
     global $wp_post_types;
@@ -69,13 +56,11 @@ function imo_mags_ga_scripts() {
     array('jquery')
   );
 }
-
 /*
 ** Add JSON feeds for AJAX requests
 **
 */
 add_action("init", "imo_ga_json");
-
 function imo_ga_json() {
 
     //manufacturer.json
@@ -246,4 +231,3 @@ function wpse_5057_match_multiple_taxonomy_terms($where_clause, $wp_query) {
 
 }
 add_action('posts_where','wpse_5057_match_multiple_taxonomy_terms',10,2); // Hook this to posts_where
-

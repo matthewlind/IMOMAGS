@@ -152,7 +152,7 @@ a.category-name-link:hover{background: #623d11;color: white;}
 .submenu-category-title {color:white;}
 .open-menu{border: none;}
 .open-search{background-position-x: -352px;}
-.btn-red, .singl-post-photo{
+/*.btn-red, .singl-post-photo{
 	text-shadow: none !important;
 	background: none repeat scroll 0 0 #347FE7 !important;
 	border: 1px solid #2861B2;
@@ -170,7 +170,7 @@ a.category-name-link:hover{background: #623d11;color: white;}
 	padding: 10px 0;
 	text-transform: uppercase;
 	width: 178px;
-}
+}*/
 .join-box{
 	padding:0 18px 1px 0;
 	border: 1px solid #d0cfcd !important;
@@ -183,7 +183,7 @@ a.category-name-link:hover{background: #623d11;color: white;}
 #join .flex-control-nav {bottom: 10px;}
 #join .flex-direction-nav a{top:96px !important;}
 .horz-logo{
-	background: url(http://www.northamericanwhitetail.fox/wp-content/plugins/imo-community/naw/images/naw-plus.png) no-repeat 20px 4px;
+	background: url(http://www.northamericanwhitetail.com/wp-content/plugins/imo-community/naw/images/naw-plus.png) no-repeat 20px 4px;
 	width: 310px;
 	height: 56px;
 	display: block;

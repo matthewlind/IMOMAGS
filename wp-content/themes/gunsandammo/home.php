@@ -52,6 +52,7 @@ get_header(); ?>
 					        <div class="icon"></div>
 					        <span><?php echo $videoTitle; ?></span>
 					    </h2>
+					    <div class="sponsor"><?php imo_ad_placement("sponsor_logo_240x60"); ?>	</div>
 		            </div>
 
 					<!-- Start of Brightcove Player -->

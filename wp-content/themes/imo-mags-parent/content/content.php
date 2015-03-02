@@ -1,5 +1,5 @@
 <div id="post-<?php the_ID(); ?>" <?php post_class('article-brief clearfix'); ?>>
-    
+   
     	<a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('list-thumb'); ?></a>
         <div class="article-holder">
 		    <div class="clearfix">

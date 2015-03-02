@@ -453,7 +453,7 @@ ul.fancy li, ol.fancy li {
 	position: relative;
 }
 .community-header .header-section:first-child{border: none;padding: 0;}
-.community-header img{margin: 10px 62px;display: block;}
+.community-header img{margin: 10px 32px;display: block;width: 190px;}
 .community-header .header-section h3 a{padding-left: 16px;color: white;}
 .community-header .header-section h3 a:hover{color: #acacac;}
 
