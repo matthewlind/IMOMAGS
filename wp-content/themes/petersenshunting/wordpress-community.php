@@ -1,5 +1,14 @@
 <?php
 
+register_activation_hook( __FILE__, 'imo_wordpress_community_flush' );
+register_deactivation_hook( __FILE__, 'imo_wordpress_community_flush' );
+
+
+function imo_wordpress_community_flush() {
+
+	flush_rewrite_rules( false );
+}
+
 add_action('init', 'cptui_register_my_cpt_rack_room');
 function cptui_register_my_cpt_rack_room() {
 	register_post_type(

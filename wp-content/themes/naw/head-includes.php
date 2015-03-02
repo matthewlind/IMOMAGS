@@ -116,8 +116,6 @@ if(document.location.protocol=='http:'){
 */
 
 -->
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('url'); ?>/wp-content/themes/imo-mags-northamericanwhitetail/MyFontsWebfontsKit.css">
-<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/css/community-common.css" />
-
+	<link rel="stylesheet" type="text/css" href="<?php bloginfo('url'); ?>/wp-content/themes/imo-mags-northamericanwhitetail/MyFontsWebfontsKit.css">
 <script async src="http://cdn.mediavoice.com/nativeads/script/IMOutdoors/mv_northamerwhit.js"></script>
 

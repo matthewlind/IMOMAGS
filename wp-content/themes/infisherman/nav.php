@@ -1,6 +1,6 @@
 <div class="community-header">
 	<div class="header-section community-logo">
-		<a href="/photos/"><img src="/wp-content/themes/infisherman/images/logos/fishhead3.png" alt="In-Fisherman Photos & Flies" title="In-Fisherman Photos & Flies" /></a>
+		<a href="/photos/"><img src="/wp-content/plugins/imo-community/infish/images/fishhead2.png" alt="In-Fisherman Photos & Flies" title="In-Fisherman Photos & Flies" /></a>
 		<div class="community-mobile-menu"><div class="select-arrow"></div>Photos Menu</div>
 	</div>
 	<?php $photos = get_field("photos_menu", "options"); ?>
