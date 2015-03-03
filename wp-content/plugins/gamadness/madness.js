@@ -1,4 +1,6 @@
-	var madnessround = 6;
+	var madnessround;
+	var bracket = 3;
+	
 	
 	jQuery(window).load(function() {
 		jQuery('.ga-madness ul.rounds').css("overflow","visible");
@@ -10,16 +12,27 @@
 			if(value)
 				jQuery('html, body').animate({scrollTop: jQuery("h2#" + value).offset().top}, "slow");
 		});
-		jQuery('#madtabs').tabs({selected: (madnessround-1)});
-		
+		jQuery.ajax({
+			type: "GET",
+			url: "http://apps.imoutdoors.com/bracket/getActiveRound",
+			data: {"format": "json", "bracketid": bracket},
+			dataType: "json",
+			
+			success: function(resp, status, jqxhr) {
+				madnessround = resp[0].activeround;
+				jQuery('#madtabs').tabs({active: (madnessround - 3)});
+			}
+
+		});		
 	});
+
 	
 	function getGAMData(region, round) {
 
 		jQuery.ajax({
 			type: "GET",
-			url: "http://www.imoutdoors.com/bracket/getMatches",
-			data: {"format": "json", "round":round, "region": region},
+			url: "http://apps.imoutdoors.com/bracket/getMatches",
+			data: {"format": "json", "round":round, "region": region, "bracketid": bracket},
 			dataType: "json",
 
 			success: function(resp, status, jqxhr) {
@@ -29,9 +42,9 @@
 						var finaltwo = {};finaltwo[0] = resp.data[1];
 						var finall   = {};finall[0]   = resp.data[2];
 	
-						jQuery(".match61").html(writeGAMBracket(finalone));
-						jQuery(".match62").html(writeGAMBracket(finaltwo));
-						jQuery(".match63").html(writeGAMBracket(finall));
+						jQuery(".match95").html(writeGAMBracket(finalone));
+						jQuery(".match96").html(writeGAMBracket(finaltwo));
+						jQuery(".match97").html(writeGAMBracket(finall));
 					}
 					else {
 						jQuery("#madtabs-"+(parseInt(round)-1)+" .mreg"+region).html(writeGAMBracket(resp.data));
@@ -43,9 +56,9 @@
 						var finaltwo = {};finaltwo[0] = resp.data[1];
 						var finall   = {};finall[0]   = resp.data[2];
 	
-						jQuery(".match61").html(writeGAMBracket(finalone));
-						jQuery(".match62").html(writeGAMBracket(finaltwo));
-						jQuery(".match63").html(writeGAMBracket(finall));
+						jQuery(".match95").html(writeGAMBracket(finalone));
+						jQuery(".match96").html(writeGAMBracket(finaltwo));
+						jQuery(".match97").html(writeGAMBracket(finall));
 						
 					}
 					else {
@@ -67,8 +80,8 @@
 	function getStats() {
 		jQuery.ajax({
 			type: "GET",
-			url: "http://www.imoutdoors.com/bracket/getTotalVotes",
-			data: {},
+			url: "http://apps.imoutdoors.com/bracket/getTotalVotes",
+			data: {"bracketid":bracket},
 			dataType: "json",
 
 			success: function(resp, status, jqxhr) {
@@ -145,8 +158,8 @@
 
 		 	jQuery.ajax({
 				type: "GET",
-				url: "http://www.imoutdoors.com/bracket/getMatches",
-				data: {"format": "json", "round":jQuery(this).data("mid"), "region": "0"},
+				url: "http://apps.imoutdoors.com/bracket/getMatches",
+				data: {"format": "json", "round":jQuery(this).data("mid"), "region": "0", "bracketid": bracket},
 				//data: {"format": "json", "round": "2", "region": region},
 				dataType: "json",
 
@@ -224,9 +237,25 @@
 				}
 			 });
 		 });
-		 
-		 		 
+		 	 
 		 jQuery(".activem").on("click", function() {
+		 	// reCAPTCHA 
+		 	//var isHuman;
+		 	//
+		 	//jQuery.ajax({
+			//	type: "GET",
+			//	url: "http://apps.imoutdoors.com/bracket/getHuman",
+			//	data: {"test": "data"},
+			//	dataType: "json",
+			//	success: function(data) {
+			//		 isHuman = data.isHuman;
+			//		 alert("Are you a human? " + isHuman);
+			//	}
+			//});
+		 	
+		 	
+				 	
+		 	
 		 	var pdata;
 		 	var region = jQuery(this).data("region");
 		 	var mid = jQuery(this).data("mid");
@@ -242,12 +271,13 @@
 		 	
 		 	jQuery.ajax({
 				type: "GET",
-				url: "http://www.imoutdoors.com/bracket/getMatches",
+				url: "http://apps.imoutdoors.com/bracket/getMatches",
 				//data: {"format": "json", "round":jQuery(this).data("mid"), "region": "0"},
-				data: {"format": "json", "round": round, "region": region},
+				data: {"format": "json", "round": round, "region": region, "bracketid": bracket},
 				dataType: "json",
 
 				success: function(resp, status, jqxhr) {					
+					
 					pdata = resp.data;
 					
 					jQuery.each(pdata, function(i, row) {
@@ -338,6 +368,7 @@
 								//postscribe('#div-gpt-ad-1386782139095-3',bidadtag);
 								
 								jQuery(".next-matchup").on("click", function() {
+																		
 									if(region==6) {
 										jQuery("div[data-region='5'][data-idx='0'][data-round='6']").trigger("click");
 									}
@@ -361,6 +392,24 @@
 							change: function() {
 								var item = jQuery.magnificPopup.instance.currItem;
 								slidecnt++;
+																
+								remainder = slidecnt % 4;
+								
+								switch(remainder) {
+									case 0:
+										waitUntilExists("popupAD",function(){
+											jQuery("#popupAD").css("display", "block");	
+											setTimeout(function() {
+												jQuery(".next-matchup").show();
+											}, 201);						
+										})
+										break;
+									default:
+										waitUntilExists("popupAD",function(){
+											jQuery("#popupAD").css("display", "none");							
+										})
+										
+								}
 								
 								region = parseInt(item.data.region);
 								campaign = campaigns[region-1];
@@ -405,8 +454,8 @@
 
 		jQuery.ajax({
 			type: "GET",
-			url: "http://www.imoutdoors.com/bracket/matchVote",
-			data: {"format": "json", "id":match, "voted": pnum},
+			url: "http://apps.imoutdoors.com/bracket/matchVote",
+			data: {"format": "json", "id":match, "voted": pnum, "bracketid": bracket},
 			dataType: "json",
 			success: function(data) {
 				var score1 = parseInt(data[0].player1score);

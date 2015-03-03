@@ -26,7 +26,8 @@ add_shortcode( 'madness', 'madness_func' );
 	wp_enqueue_style( 'madnesscss', plugin_dir_url( __FILE__ ) . 'madness.css' );
 	wp_enqueue_script( 'magnificjs', plugin_dir_url( __FILE__ ) . 'jquery.magnific-popup.js');
 	wp_enqueue_style( 'magnificcss', plugin_dir_url( __FILE__ ) . 'magnific-popup.css');
-	
+	wp_enqueue_style( 'popupAD', plugin_dir_url( __FILE__ ) . 'popupAD.css');
+	wp_enqueue_script( 'waituntilexists', plugin_dir_url( __FILE__ ) . 'waituntilexists.js');
 	wp_enqueue_script( 'htmlparser', plugin_dir_url( __FILE__ ) . 'htmlParser.js');
 	wp_enqueue_script( 'postscribe', plugin_dir_url( __FILE__ ) . 'postscribe.js');
 	wp_enqueue_script( 'xdomainrequest', plugin_dir_url( __FILE__ ) . 'xdomainrequest.min.js');
@@ -40,6 +41,18 @@ function renderGAMpopup($mobile) {
     <div class="white-popup mfp-hidden"><div class="mfp-close"></div>
         <div class='mfp-counter'></div>
 	    <div class="popup-inner clearfix gun">
+	    	
+	    	
+	    	
+	    	<div id="popupAD">Advertisement
+	    	
+	    		<div class="close-ad" onclick="jQuery('#popupAD').css('display', 'none');jQuery('.next-matchup').hide();">Go to the next matchup <span>&raquo;</span></div>
+	    		
+	    	</div>
+	    	
+	    	
+	    	
+	    
 	    	<h3 id="popuptitle">The Matchup</h3>
 			<div class="popmatchbrackettop"></div>
 			<div class="popmatchbracket"></div>
@@ -87,14 +100,17 @@ function renderGAMpopup($mobile) {
 </script>
 EOF;
 
-
 	return $outp;
 }
 function jsGAMRender($mobile) {
 	$outp = "";
 	//$mobile = true;
 	$ismobile = ($mobile)? "true":"false"; 
-	$madnessround = 7;
+	$results = file_get_contents("http://apps.imoutdoors.com/bracket/getActiveRound?bracketid=3");
+	
+	$results = json_decode($results,true);
+	
+	$madnessround = $results[0]['activeround'];
 
   if($mobile) { // If it's a mobile device //
 	$outp.= '<div class="ga-madness-votestats"></div>';
@@ -206,7 +222,7 @@ function jsGAMRender($mobile) {
 
   }
   else { // If it's not a mobile device //
-	
+
 	$outp.= '<ul class="schedule">'
 		 .  '  <li class="'.(($madnessround==2)? "active-round":"").'">First Round<div>March 18-23</div></li>'
 		 .  '  <li class="'.(($madnessround==3)? "active-round":"").'">Second Round<div>March 24-27</div></li>'
@@ -226,14 +242,14 @@ function jsGAMRender($mobile) {
 		 .  '  </div>'
 		 .  '  <div class="final-wrapper">'
 		 .  '    <h2>Final Round</h2>'
-		 .  '    <div class="column column5 match61"></div>'
-		 .  '    <div class="column column6 match63" style="padding-top:20px;"></div>'
-		 .  '    <div class="column column7 match62"></div>'
+		 .  '    <div class="column column5 match95"></div>'
+		 .  '    <div class="column column6 match97" style="padding-top:20px;"></div>'
+		 .  '    <div class="column column7 match96"></div>'
 		 .  '  </div>'		 
 		 .  '</div>';
 	}
 	else {
-		$outp.= '<div class="ga-madness-votestats"></div>';
+		$outp.= '<div class="ga-madness-votestats" style="clear:both;"></div>';
 	}
 
 	$outp.= '<div class="ga-madness">'
@@ -258,7 +274,7 @@ function jsGAMRender($mobile) {
 		 .	'  <div class="column column3"></div>'
 		 .	'  <div class="column column4"></div>'
 		 .  '</div>';
-
+/*
 	if($madnessround < 7) {		 
 	$outp.= '<div class="regions region-final">'
 		 .  '  <div class="finalsadvert">'
@@ -266,13 +282,13 @@ function jsGAMRender($mobile) {
 		 .  '  </div>'
 		 .  '  <div class="final-wrapper">'
 		 .  '    <h2>Final Round</h2>'
-		 .  '    <div class="column column5 match61"></div>'
-		 .  '    <div class="column column6 match63"></div>'
-		 .  '    <div class="column column7 match62"></div>'
+		 .  '    <div class="column column5 match95"></div>'
+		 .  '    <div class="column column6 match97"></div>'
+		 .  '    <div class="column column7 match96"></div>'
 		 .  '  </div>'		 
 		 .  '</div>';
 	}
-		 
+*/		 
 	$outp.= '<div class="region-titles">'
 		 .	'  <div class="region-left">'
 		 .	'    <h2>Handguns</h2>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"arsmadness"))
@@ -307,7 +323,7 @@ function jsGAMRender($mobile) {
 		 .  '	getGAMData(3,2);getGAMData(3,3);getGAMData(3,4);getGAMData(3,5);'
 		 .  '	getGAMData(4,2);getGAMData(4,3);getGAMData(4,4);getGAMData(4,5);'
 	
-		 .  '	getGAMData(0,"61,62,63");'
+		 .  '	getGAMData(0,"95,96,97");'
 		 .  '   getStats();'
 		 .  '   setTimeout(function(){makeGAMPopup()}, 1000);'
 		 .	'});';
