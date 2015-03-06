@@ -26,6 +26,11 @@
 		});		
 	});
 
+	function closeInterstitial() {
+		jQuery('#popupAD').css('display', 'none');
+		jQuery('.next-matchup').hide();
+		jQuery('.mfp-close').css('display', 'block');
+	}
 	
 	function getGAMData(region, round) {
 
@@ -240,18 +245,25 @@
 		 	 
 		 jQuery(".activem").on("click", function() {
 		 	// reCAPTCHA 
-		 	//var isHuman;
-		 	//
-		 	//jQuery.ajax({
-			//	type: "GET",
-			//	url: "http://apps.imoutdoors.com/bracket/getHuman",
-			//	data: {"test": "data"},
-			//	dataType: "json",
-			//	success: function(data) {
-			//		 isHuman = data.isHuman;
-			//		 alert("Are you a human? " + isHuman);
-			//	}
-			//});
+		 	var isHuman;
+		 	
+		 	jQuery.ajax({
+			  type: "GET",
+			  url: "http://apps.imoutdoors.com/bracket/getHuman",
+			  data: {"test": "data"},
+			  dataType: "json",
+			  success: function(data) {
+			  	 isHuman = data.isHuman;
+			  	 if(isHuman == 'false') {
+				  	 console.log('Not a human');
+				  	 location.reload();
+			  	 }
+			  	 if(isHuman == 'true') {
+				  	 console.log('Is a human');
+			  	 }
+			  	 
+			  }
+			});
 		 	
 		 	
 				 	
@@ -399,6 +411,7 @@
 									case 0:
 										waitUntilExists("popupAD",function(){
 											jQuery("#popupAD").css("display", "block");	
+											jQuery(".mfp-close").css("display", "none");
 											setTimeout(function() {
 												jQuery(".next-matchup").show();
 											}, 201);						
@@ -406,7 +419,8 @@
 										break;
 									default:
 										waitUntilExists("popupAD",function(){
-											jQuery("#popupAD").css("display", "none");							
+											jQuery("#popupAD").css("display", "none");
+											jQuery(".mfp-close").css("display", "block");							
 										})
 										
 								}
