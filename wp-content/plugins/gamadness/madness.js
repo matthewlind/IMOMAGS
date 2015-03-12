@@ -1,5 +1,6 @@
 	var madnessround;
 	var bracket = 3;
+	var popads = [];
 	
 	jQuery(window).load(function() {
 		jQuery('.ga-madness ul.rounds').css("overflow","visible");
@@ -210,12 +211,15 @@
 				
 			});
 			
-			var popads = {
-				'handgunsmadness' : 'Laserlyte-GA-MAdness-popup-300x120.jpg',
-				'riflesmadness' : 'Burris-GA-MAdness-popup-300x120.jpg',
-				'arsmadness' : 'Pelican-GA-MAdness-popup-300x120.jpg',
-				'shotgunsmadness' : 'Winchester-GA-MAdness-popup-300x120.jpg'
-			}
+			popads[0] = 'GA-MAdness-popup-358x90-burris.jpg';
+			popads[1] = 'GA-MAdness-popup-358x90-galco.jpg';
+			popads[2] = 'GA-MAdness-popup-358x90-laserlyte.jpg';
+			popads[3] = 'GA-MAdness-popup-358x90-pelican.jpg';
+			popads[4] = 'GA-MAdness-popup-358x90-winchester.jpg';
+			
+			var randomInt = Math.floor((Math.random() * 4) + 0);
+			var randomPopad = popads[randomInt];
+			
 			var regions = {'1':'Handguns', '2':'Rifles', '3':'Handguns', '4':'Rifles'}
 			var roundtitles = {'2':'First Round', '3':'Second Round', '4':'Sweet Sixteen', '5':'Elite Eight', '6':'Final Four', '7':'Championship'}
 			
@@ -266,7 +270,7 @@
 						//campaign = campaigns[region-1];
 						campaign = item.data.campaign;
 						
-						campimg = "/wp-content/themes/gunsandammo/images/ga-madness/"+popads[campaign];
+						campimg = "/wp-content/plugins/gamadness/ads/enter/" + randomPopad;
 						template.find("#popupsponsor a").html('<img src="'+campimg+'" />');
 														
 						var roundtitle = roundtitles[round];
@@ -313,7 +317,6 @@
 						slidecnt++;
 						console.log(slidecnt);								
 						remainder = slidecnt % 4;
-						
 						switch(remainder) {
 							case 0:
 								waitUntilExists("popupAD",function(){
@@ -394,13 +397,10 @@
 					pdata.player2link_href = pdata.player2link;
 					delete pdata.player1link;
 					delete pdata.player2link;
-			 
-					var popads = {
-						'handgunsmadness' : 'Laserlyte-GA-MAdness-popup-300x120.jpg',
-						'riflesmadness' : 'Burris-GA-MAdness-popup-300x120.jpg',
-						'arsmadness' : 'Pelican-GA-MAdness-popup-300x120.jpg',
-						'shotgunsmadness' : 'Winchester-GA-MAdness-popup-300x120.jpg'
-					}
+					
+					var randomInt = Math.floor((Math.random() * 4) + 0);
+					var randomPopad = popads[randomInt];
+
 					var regions = {'1':'Handguns', '2':'Rifles', '3':'Handguns', '4':'Rifles'}
 					var roundtitles = {'2':'First Round', '3':'Second Round', '4':'Sweet Sixteen', '5':'Elite Eight', '6':'Final Four', '7':'Championship'}
 					
@@ -425,7 +425,7 @@
 								region = parseInt(item.data.region);
 								round = parseInt(item.data.round);
 								campaign = campaigns[region-1];
-								campimg = "/wp-content/themes/gunsandammo/images/ga-madness/"+popads[campaign];
+								campimg = "/wp-content/plugins/gamadness/ads/enter/" + randomPopad;
 								template.find("#popupsponsor a").html('<img src="'+campimg+'" />');
 																
 								var roundtitle = roundtitles[round];
@@ -447,7 +447,13 @@
 								template.find("#popvoteon2").html('<div class="popvoted '+((pwin=="1")? "popvoted-no":"")+'">'+per2+"% ("+score2+' Votes)</div>');
 							},
 							open: function() {
-
+								popads[0] = 'GA-MAdness-popup-358x90-burris.jpg';
+								popads[1] = 'GA-MAdness-popup-358x90-galco.jpg';
+								popads[2] = 'GA-MAdness-popup-358x90-laserlyte.jpg';
+								popads[3] = 'GA-MAdness-popup-358x90-pelican.jpg';
+								popads[4] = 'GA-MAdness-popup-358x90-winchester.jpg';
+								
+								
 								googletag.cmd.push(function() {
 									googletag.display('div-gpt-ad-1386782139095-3');
 								});
