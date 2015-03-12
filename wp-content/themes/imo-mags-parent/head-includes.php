@@ -160,18 +160,37 @@ googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Site_Skin_1x1', [1, 1], '
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Pushdown_1080x90', [1080, 90], 'div-pushdown_1080x90').addService(googletag.pubads());
 <?php } ?>
 
+<?php if(is_page('bracket')) { ?>
+// ADS FOR GAMADNESS 2015
+var googletag = googletag || {};
+googletag.cmd = googletag.cmd || [];
+(function() {
+var gads = document.createElement('script');
+gads.async = true;
+gads.type = 'text/javascript';
+var useSSL = 'https:' == document.location.protocol;
+gads.src = (useSSL ? 'https:' : 'http:') + 
+'//www.googletagservices.com/tag/js/gpt.js';
+var node = document.getElementsByTagName('script')[0];
+node.parentNode.insertBefore(gads, node);
+})();
+
+googletag.cmd.push(function() {
+googletag.defineSlot('/4930/imo.gunsandammo/guns_and_ammo_madness/gam_bracket_medium_rectangle', [300, 250], 'div-gpt-ad-1426097842267-0').addService(googletag.pubads());
+googletag.defineSlot('/4930/imo.gunsandammo/guns_and_ammo_madness/gam_presenting_sponsor', [240, 60], 'div-gpt-ad-1426097842267-1').addService(googletag.pubads());
+googletag.defineSlot('/4930/imo.gunsandammo/guns_and_ammo_madness/gam_region_sponsor_1', [240, 60], 'div-gpt-ad-1426097842267-2').addService(googletag.pubads());
+googletag.defineSlot('/4930/imo.gunsandammo/guns_and_ammo_madness/gam_region_sponsor_2', [240, 60], 'div-gpt-ad-1426097842267-3').addService(googletag.pubads());
+googletag.defineSlot('/4930/imo.gunsandammo/guns_and_ammo_madness/gam_region_sponsor_3', [240, 60], 'div-gpt-ad-1426097842267-4').addService(googletag.pubads());
+googletag.defineSlot('/4930/imo.gunsandammo/guns_and_ammo_madness/gam_region_sponsor_4', [240, 60], 'div-gpt-ad-1426097842267-5').addService(googletag.pubads());
+googletag.pubads().enableSingleRequest();
+googletag.enableServices();
+});
+<?php } ?>
+
 <?php if(is_page( 'battle-of-the-bows' )){ ?>
 
 //Battle of the Bows
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/battle_of_the_bows/bob_presenting_sponsor', [240, 60], 'div-bob_presenting_sponsor').addService(googletag.pubads());
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/battle_of_the_bows/bob_region_1_medium_rectangle', [300, 250], 'div-bob_region_1_medium_rectangle').addService(googletag.pubads());
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/battle_of_the_bows/bob_region_2_medium_rectangle', [300, 250], 'div-bob_region_2_medium_rectangle').addService(googletag.pubads());
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/battle_of_the_bows/bob_region_3_medium_rectangle', [300, 250], 'div-bob_region_3_medium_rectangle').addService(googletag.pubads());
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/battle_of_the_bows/bob_region_4_medium_rectangle', [300, 250], 'div-bob_region_4_medium_rectangle').addService(googletag.pubads());
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/battle_of_the_bows/bob_region_sponsor_1', [240, 60], 'div-bob_region_sponsor_1').addService(googletag.pubads());
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/battle_of_the_bows/bob_region_sponsor_2', [240, 60], 'div-bob_region_sponsor_2').addService(googletag.pubads());
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/battle_of_the_bows/bob_region_sponsor_3', [240, 60], 'div-bob_region_sponsor_3').addService(googletag.pubads());
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/battle_of_the_bows/bob_region_sponsor_4', [240, 60], 'div-bob_region_sponsor_4').addService(googletag.pubads());
+
 
 <?php } ?>
 

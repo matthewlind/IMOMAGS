@@ -1,0 +1,29 @@
+#popupAD {
+	width: 1006px;
+	height: 745px;
+	background: gray;
+	position: absolute;
+	z-index: 9999;
+}
+
+#popupAD .close-ad {
+	margin-top: 50px;
+	font-style: italic;
+	padding: 5px 12px;
+	background: #c9242c;
+	width: 100%;
+	text-align: center;
+	margin: -4px auto 10px;
+	color: white;
+	cursor: pointer;
+	width: 240px;
+}
+
+@media only screen and (max-width: 420px){
+	#popupAD {
+		width: 95%;
+		height: 95%;
+	}	
+
+
+}
