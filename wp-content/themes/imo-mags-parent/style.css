@@ -2114,8 +2114,6 @@ a.category-name-link:hover{
 }
 .category-img{clear: both;padding-bottom: 10px;}
 .category-img img{
-	width: 120px;
-	height: auto;
 	float: left;
 	margin: 0px 9px 10px 8px;
 }

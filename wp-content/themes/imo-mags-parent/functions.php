@@ -19,7 +19,7 @@ include_once('widgets/tune-in-widget.php');
 
 $magazine_img = get_option("magazine_cover_uri", get_stylesheet_directory_uri(). "/images/pic/journals.png" );
 $subs_link = get_option("subs_link");
-
+remove_action('wp_head', 'wp_generator');
 /** changing default wordpres email settings */
 add_filter('wp_mail_from', 'new_mail_from');
 add_filter('wp_mail_from_name', 'new_mail_from_name');
@@ -34,15 +34,8 @@ add_filter('single_template', create_function(
 );
 
 function sub_footer(){ ?>
-	<div class="sub-boxes">
-		<div class="sub-box banner-box">
-			<?php imo_ad_placement("btf_medium_rectangle_300x250"); ?>	
-		</div>
-		<div class="sub-box fb-box">
-			<?php the_widget("Signup_Widget", "title=GET THE NEWSLETTER!"); ?>
-		</div>
-	</div>
-	<?php
+	<!-- future promotional area -->
+<?php
 }
 
 function imo_login_form_shortcode( $atts, $content = null ) {
