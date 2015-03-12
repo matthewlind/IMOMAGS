@@ -18,3 +18,12 @@
 	cursor: pointer;
 	width: 240px;
 }
+
+@media only screen and (max-width: 420px){
+	#popupAD {
+		width: 95%;
+		height: 95%;
+	}	
+
+
+}
