@@ -159,11 +159,11 @@
 		jQuery.cookie('isHuman', false);
 		grecaptcha.reset();
 	}
-	
+
 	function verifyHuman(mid) {
 		jQuery('#captchaWrapper').css("display","block");
 		jQuery('#faded').css("display","block");
-		
+		jQuery("html, body").animate({ scrollTop: 0 }, "slow");
 		jQuery("#proceed").on("click", function() {
 			jQuery.ajax({
 		   	type: "GET",
@@ -466,7 +466,9 @@
 			 });
 		 });
 		 		 		  	 
-		 jQuery(".activem").on("click", function() {
+		 jQuery(".activem").on("click", function(e) {
+			console.log(e);
+			
 		 	var pdata;
 		 	var region = jQuery(this).data("region");
 		 	var mid = jQuery(this).data("mid");

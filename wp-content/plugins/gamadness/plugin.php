@@ -14,7 +14,6 @@ Stable tag: 0.1
 License: GPL2
 */
 
-session_start();
 	
 function madness_func( $atts ) {
 	global $ismobile;
@@ -56,7 +55,7 @@ function renderGAMpopup($mobile) {
 	    	
 	    	
 	    	<div id="popupAD">
-	    	
+	    		Advertisement
 	    	
 	    		<div class="close-ad" onclick="closeInterstitial();">Go to the next matchup <span>&raquo;</span></div>
 	    		
@@ -233,13 +232,7 @@ function jsGAMRender($mobile) {
 
   }
   else { // If it's not a mobile device //
-	$outp.= '<div id="faded" style="display: none;"></div>';
-	$outp.= '
-	<div id="captchaWrapper">
-		<span>Filler Text Here:</span><br />
-		<div class="g-recaptcha" data-sitekey="6LdWGAMTAAAAANfZM5fbK5aNYozpopkz-v_LhhR0"></div>
-		<button id="proceed">Proceed</button>
-	</div>';
+	
 
 	$outp.= '<ul class="schedule">'
 		 .  '  <li class="'.(($madnessround==2)? "active-round":"").'">First Round<div>March 17-22</div></li>'
@@ -387,7 +380,14 @@ function jsGAMRender($mobile) {
 	$outp.= '</script>';
 
 	$outp.= renderGAMpopup();
+	$outp.= '
+	<div id="captchaWrapper">
+	   <span>Filler Text Here:</span><br />
+	   <div class="g-recaptcha" data-sitekey="6LdWGAMTAAAAANfZM5fbK5aNYozpopkz-v_LhhR0"></div>
+	   <button id="proceed">Proceed</button>
+	</div>';
 	
+	$outp.= '<div id="faded"></div>';
 	return $outp;
 }
 
