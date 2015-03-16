@@ -342,7 +342,7 @@ function jsGAMRender($mobile) {
 		 .	'  <div class="column column3"></div>'
 		 .	'  <div class="column column4"></div>'
 		 .  '</div>'
-		 .  '<button style="display: none;" onclick="removeCookie();">Remove CAPTCHA Cookie</button>'
+		 .  '<button xstyle="display: none;" onclick="removeCookie();">Remove CAPTCHA Cookie</button>'
 		 .  '</div>';
   }	
 
