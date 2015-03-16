@@ -31,6 +31,7 @@
 	function closeInterstitial() {
 		jQuery('#popupAD').css('display', 'none');
 		jQuery('.next-matchup').hide();
+		jQuery('.filler').show();
 		jQuery('.mfp-close').css('display', 'block');
 	}
 	
@@ -348,7 +349,7 @@
 									
 									setTimeout(function() {
 										jQuery(".next-matchup").show();
-										
+										jQuery('.filler').hide();
 									}, 201);						
 									
 									
@@ -387,6 +388,7 @@
 								logVote(jQuery(this).data("mid"),jQuery(this).data("pnum"));
 							});
 							jQuery(".next-matchup").hide();
+							jQuery('.filler').show();
 							jQuery(".vote-again").hide();
 							
 							//jQuery('#gpt-ad-1386782139095-3').empty();
@@ -466,6 +468,7 @@
 								var regiontitle = (round<6)? (regions[region]+": "):"";
 								template.find("#popuptitle").html(regiontitle+roundtitle);
 								template.find(".next-matchup").hide();
+								jQuery('.filler').show();
 								template.find(".vote-again").hide();
 								
 								var score1 = parseInt(pdata.player1score);
@@ -550,6 +553,7 @@
 				}
 				else {
 					jQuery(".next-matchup").show();
+					jQuery('.filler').hide();
 				}
 			}
 		});

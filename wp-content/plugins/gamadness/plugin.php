@@ -68,6 +68,7 @@ function renderGAMpopup($mobile) {
 		    	</div>
 	    	</div>
 	    	<div class="next-matchup">Go to the next matchup <span>&raquo;</span></div>
+	    	<div class="filler">&nbsp;</div>
 	    	<div class="vote-again">Vote again <span>&raquo;</span></div>
 	    	
 	    	<div class="modal-footer">
