@@ -34,17 +34,6 @@ add_shortcode( 'madness', 'madness_func' );
 	wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js');
 	wp_enqueue_script( 'jquery-cookie', plugin_dir_url( __FILE__ ) . 'jquery-cookie.js');
 	
-// Going to put this into the popupAD below at some point
-//<!-- Site - Guns and Ammo/guns_and_ammo_madness/gam_bracket_medium_rectangle -->
-//				<div id='div-gpt-ad-1426097842267-0' style='width:300px; height:250px;'>
-//					<script type='text/javascript'>
-//						googletag.cmd.push(function() { 
-//							googletag.display('div-gpt-ad-1426097842267-0'); 
-//						});
-//					</script>
-//				</div>
-
-
 function renderGAMpopup($mobile) {
 	$outp = "";
 	$outp.= <<<EOF
@@ -53,14 +42,10 @@ function renderGAMpopup($mobile) {
         <div class='mfp-counter'></div>
 	    <div class="popup-inner clearfix gun">
 	    	
-	    	
 	    	<div id="popupAD">
-	    		Advertisement
-	    	
-	    		<div class="close-ad" onclick="closeInterstitial();">Go to the next matchup <span>&raquo;</span></div>
-	    		
+	    		<div id='div-gpt-ad-1426097842267-0' style='width:300px; height:250px; margin: 100px auto 50px;'></div>
+	    		<div class='close-ad' onclick='closeInterstitial();'>Go to the next matchup <span>&raquo;</span></div>
 	    	</div>
-	    	
 	    
 	    	<h3 id="popuptitle">The Matchup</h3>
 			<div class="popmatchbrackettop"></div>
@@ -93,8 +78,8 @@ function renderGAMpopup($mobile) {
 					<div class="related-content">
 		    			<h4>Related Stories</h4>
 						<ul>
-		    				<li><a href="" class="mfp-player1link">Review: <span class="mfp-player1name"></span></a></li>
-							<li><a href="" class="mfp-player2link">Review: <span class="mfp-player2name"></span></a></li>
+		    				<li><a href="" target="_blank" class="mfp-player1link">Review: <span class="mfp-player1name"></span></a></li>
+							<li><a href="" target="_blank" class="mfp-player2link">Review: <span class="mfp-player2name"></span></a></li>
 						</ul>
 					</div>
 	    		</div>
@@ -123,8 +108,7 @@ function jsGAMRender($mobile) {
 		 	//$outp.= wpsocialite_markup();
 	$outp.= '<div id="faded" style="display: none;"></div>';
 	$outp.= '
-	<div id="captchaWrapper">
-		<span>Filler text here:</span><br />
+	<div id="captchaWrapper"><br />
 		<div class="g-recaptcha" data-sitekey="6LdWGAMTAAAAANfZM5fbK5aNYozpopkz-v_LhhR0"></div>
 		<button id="proceed">Proceed</button>
 	</div>';	 	
@@ -357,7 +341,7 @@ function jsGAMRender($mobile) {
 		 .	'  <div class="column column3"></div>'
 		 .	'  <div class="column column4"></div>'
 		 .  '</div>'
-		 .  '<button onclick="removeCookie();">Remove CAPTCHA Cookie</button>'
+		 .  '<button style="display: none;" onclick="removeCookie();">Remove CAPTCHA Cookie</button>'
 		 .  '</div>';
   }	
 
@@ -375,6 +359,7 @@ function jsGAMRender($mobile) {
 		 .  '	getGAMData(0,"155,156,157");'
 		 .  '   getStats();'
 		 .  '   setTimeout(function(){makeGAMPopup()}, 1000);'
+		 .  '   setTimeout(function(){autoPopup()}, 2000);'
 		 .	'});';
 
 	$outp.= '</script>';
@@ -382,7 +367,7 @@ function jsGAMRender($mobile) {
 	$outp.= renderGAMpopup();
 	$outp.= '
 	<div id="captchaWrapper">
-	   <span>Filler Text Here:</span><br />
+	<br />
 	   <div class="g-recaptcha" data-sitekey="6LdWGAMTAAAAANfZM5fbK5aNYozpopkz-v_LhhR0"></div>
 	   <button id="proceed">Proceed</button>
 	</div>';
