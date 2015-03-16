@@ -108,8 +108,7 @@ function jsGAMRender($mobile) {
 		 	//$outp.= wpsocialite_markup();
 	$outp.= '<div id="faded" style="display: none;"></div>';
 	$outp.= '
-	<div id="captchaWrapper">
-		<span>Filler text here:</span><br />
+	<div id="captchaWrapper"><br />
 		<div class="g-recaptcha" data-sitekey="6LdWGAMTAAAAANfZM5fbK5aNYozpopkz-v_LhhR0"></div>
 		<button id="proceed">Proceed</button>
 	</div>';	 	
@@ -368,7 +367,7 @@ function jsGAMRender($mobile) {
 	$outp.= renderGAMpopup();
 	$outp.= '
 	<div id="captchaWrapper">
-	   <span>Filler Text Here:</span><br />
+	<br />
 	   <div class="g-recaptcha" data-sitekey="6LdWGAMTAAAAANfZM5fbK5aNYozpopkz-v_LhhR0"></div>
 	   <button id="proceed">Proceed</button>
 	</div>';
