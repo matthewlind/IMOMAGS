@@ -220,11 +220,11 @@ function jsGAMRender($mobile) {
 	
 
 	$outp.= '<ul class="schedule">'
-		 .  '  <li class="'.(($madnessround==2)? "active-round":"").'">First Round<div>March 17-22</div></li>'
+		 .  '  <li class="'.(($madnessround==2)? "active-round":"").'">First Round<div>March 17-23</div></li>'
 		 .  '  <li class="'.(($madnessround==3)? "active-round":"").'">Second Round<div>March 23-26</div></li>'
-		 .  '  <li class="'.(($madnessround==4)? "active-round":"").'">Sweet 16<div>March 27-31</div></li>'
-		 .  '  <li class="'.(($madnessround==5)? "active-round":"").'">Elite 8<div>April 1-5</div></li>'
-		 .  '  <li class="'.(($madnessround==6)? "active-round":"").'">Final Four<div>April 6-7</div></li>'
+		 .  '  <li class="'.(($madnessround==4)? "active-round":"").'">Sweet 16<div>March 26-31</div></li>'
+		 .  '  <li class="'.(($madnessround==5)? "active-round":"").'">Elite 8<div>April 1-6</div></li>'
+		 .  '  <li class="'.(($madnessround==6)? "active-round":"").'">Final Four<div>April 6-8</div></li>'
 		 .  '  <li class="'.(($madnessround==7)? "active-round":"").'">Final Round<div>April 8-10</div></li>'
 		 .  '</ul>'
 		 //.  wpsocialite_markup()
