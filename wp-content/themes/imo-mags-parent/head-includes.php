@@ -187,12 +187,6 @@ googletag.enableServices();
 });
 <?php } ?>
 
-<?php if(is_page( 'battle-of-the-bows' )){ ?>
-
-//Battle of the Bows
-
-
-<?php } ?>
 
 <?php if( is_category( 'trading-post' ) || in_category( 'trading-post' ) ){ ?>
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/ATF_Button_1', [125, 125], 'div-atf_button_1').addService(googletag.pubads());

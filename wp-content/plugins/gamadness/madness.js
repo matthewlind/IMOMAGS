@@ -101,6 +101,25 @@
 		});		
 	}
 	
+	function autoPopup() {
+		var location = window.location.href;
+		var fullHash = location.split('#')[1];
+		var hashNumber = fullHash.substring(5);
+		console.log(hashNumber);
+		
+		if(jQuery.cookie('isHuman') == "true") {
+		 	if(typeof(fullHash) != 'undefined') {
+				
+				
+				jQuery("#match"+hashNumber).trigger("click");
+			}
+	 	} else {
+		 	verifyHuman(hashNumber);
+	 	}
+		
+	}
+
+	
 	function writeGAMBracket(data) {
 		var outp = "";
 		jQuery.each(data, function(i, row) {
@@ -163,7 +182,9 @@
 	function verifyHuman(mid) {
 		jQuery('#captchaWrapper').css("display","block");
 		jQuery('#faded').css("display","block");
+		
 		jQuery("html, body").animate({ scrollTop: 0 }, "slow");
+		
 		jQuery("#proceed").on("click", function() {
 			jQuery.ajax({
 		   	type: "GET",
@@ -315,23 +336,37 @@
 					change: function() {
 						var item = jQuery.magnificPopup.instance.currItem;
 						slidecnt++;
-						console.log(slidecnt);								
 						remainder = slidecnt % 4;
 						switch(remainder) {
 							case 0:
 								waitUntilExists("popupAD",function(){
 									jQuery("#popupAD").css("display", "block");	
+									
 									jQuery(".mfp-close").css("display", "none");
+									
+									//jQuery('#popupAD').html("Ad should be here<br /><div id='div-gpt-ad-1426097842267-0' style='width:300px; height:250px;'></div> <div class='close-ad' onclick='closeInterstitial();'>Go to the next matchup <span>&raquo;</span></div>");
+									
 									setTimeout(function() {
 										jQuery(".next-matchup").show();
+										
 									}, 201);						
-								})
+									
+									
+								});
+								setTimeout(function() {
+									//alert('pushing the google ad now');
+									googletag.cmd.push(function() {
+										googletag.display('div-gpt-ad-1426097842267-0');
+									});
+									jQuery("#div-gpt-ad-1426097842267-0").css("z-index", "9999");
+								}, 500);
+								
 								break;
 							default:
 								waitUntilExists("popupAD",function(){
 									jQuery("#popupAD").css("display", "none");
-									jQuery(".mfp-close").css("display", "block");							
-								})
+									jQuery(".mfp-close").css("display", "block");	
+								});
 								
 						}
 						
@@ -371,8 +406,7 @@
 		}
  	});
  	}	 	
-	
-	
+		
 	function makeGAMPopup() {
 		 
 		 jQuery(".closedm").on("click", function() {
@@ -452,7 +486,6 @@
 								popads[2] = 'GA-MAdness-popup-358x90-laserlyte.jpg';
 								popads[3] = 'GA-MAdness-popup-358x90-pelican.jpg';
 								popads[4] = 'GA-MAdness-popup-358x90-winchester.jpg';
-								
 								
 								googletag.cmd.push(function() {
 									googletag.display('div-gpt-ad-1386782139095-3');
