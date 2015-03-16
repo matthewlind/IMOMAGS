@@ -225,6 +225,10 @@ ul#ga-madness-nav li a:hover{
 	cursor: pointer;
 	width: 240px;
 }
+.filler {
+	padding: 5px 12px;
+	margin: -4px auto 10px;
+}
 .filter-fade-out,
 .btn-close-popup,
 .btn-cancel {display:none;}
