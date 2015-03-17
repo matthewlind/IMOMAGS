@@ -105,16 +105,18 @@
 	function autoPopup() {
 	   var location = window.location.href;
 	   var fullHash = location.split('#')[1];
-	
+	   
 	   if(typeof(fullHash) != 'undefined') {
 	   	var hashNumber = fullHash.substring(5);
+	   		
+	   	if(jQuery.cookie('isHuman') == "true") {
+	   		jQuery("#match"+hashNumber).trigger("click");
+		} else {
+		   	verifyHuman(hashNumber);
+		}
 	   }
 	   	
-	   if(jQuery.cookie('isHuman') == "true") {
-	   	jQuery("#match"+hashNumber).trigger("click");
-	 	} else {
-	    	verifyHuman(hashNumber);
-	 	}
+	   
 	   
 	}
 
