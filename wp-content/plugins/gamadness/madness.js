@@ -103,21 +103,19 @@
 	}
 	
 	function autoPopup() {
-		var location = window.location.href;
-		var fullHash = location.split('#')[1];
-		var hashNumber = fullHash.substring(5);
-		console.log(hashNumber);
-		
-		if(jQuery.cookie('isHuman') == "true") {
-		 	if(typeof(fullHash) != 'undefined') {
-				
-				
-				jQuery("#match"+hashNumber).trigger("click");
-			}
+	   var location = window.location.href;
+	   var fullHash = location.split('#')[1];
+	
+	   if(typeof(fullHash) != 'undefined') {
+	   	var hashNumber = fullHash.substring(5);
+	   }
+	   	
+	   if(jQuery.cookie('isHuman') == "true") {
+	   	jQuery("#match"+hashNumber).trigger("click");
 	 	} else {
-		 	verifyHuman(hashNumber);
+	    	verifyHuman(hashNumber);
 	 	}
-		
+	   
 	}
 
 	
@@ -376,7 +374,6 @@
 						
 						_gaq.push(['_trackPageview',"/" + window.location.pathname + "/match"+item.data.id]);
 						
-						
 						setTimeout(function() {
 							jQuery(".gunone img, .guntwo img, .gunone h2, .guntwo h2").css({ opacity: 1 });
 							var btn1 = '<div class="popup-vote-btn" data-mid="'+item.data.id+'" data-pnum="1">VOTE</div>';
@@ -386,6 +383,7 @@
 							
 							jQuery(".popup-vote-btn").on("click", function() {
 								logVote(jQuery(this).data("mid"),jQuery(this).data("pnum"));
+								console.log("clicked on " + jQuery(this).data("mid"),jQuery(this).data("pnum"));
 							});
 							jQuery(".next-matchup").hide();
 							jQuery('.filler').show();
@@ -502,9 +500,7 @@
 			 });
 		 });
 		 		 		  	 
-		 jQuery(".activem").on("click", function(e) {
-			console.log(e);
-			
+		 jQuery(".activem").on("click", function() {
 		 	var pdata;
 		 	var region = jQuery(this).data("region");
 		 	var mid = jQuery(this).data("mid");
@@ -532,13 +528,14 @@
 	}
 	
 	function logVote(match, pnum) {
-
+		
 		jQuery.ajax({
 			type: "GET",
 			url: "http://apps.imoutdoors.com/bracket/matchVote",
 			data: {"format": "json", "id":match, "voted": pnum, "bracketid": bracket},
 			dataType: "json",
 			success: function(data) {
+				console.log("logVote success return = " + data);
 				var score1 = parseInt(data[0].player1score);
 				var score2 = parseInt(data[0].player2score);
 

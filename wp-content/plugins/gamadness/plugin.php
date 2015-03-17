@@ -13,7 +13,6 @@ Version: 0.1
 Stable tag: 0.1
 License: GPL2
 */
-
 	
 function madness_func( $atts ) {
 	global $ismobile;
@@ -93,6 +92,11 @@ EOF;
 	return $outp;
 }
 function jsGAMRender($mobile) {
+	session_start();
+	$sessID = session_id();
+	file_get_contents("http://apps.imoutdoors.com/bracket/initSession?sessid=$sessID");
+	
+
 	$outp = "";
 	//$mobile = true;
 	$ismobile = ($mobile)? "true":"false"; 
@@ -220,8 +224,8 @@ function jsGAMRender($mobile) {
 	
 
 	$outp.= '<ul class="schedule">'
-		 .  '  <li class="'.(($madnessround==2)? "active-round":"").'">First Round<div>March 17-23</div></li>'
-		 .  '  <li class="'.(($madnessround==3)? "active-round":"").'">Second Round<div>March 23-26</div></li>'
+		 .  '  <li class="'.(($madnessround==2)? "active-round":"").'">1st Round<div>March 17-23</div></li>'
+		 .  '  <li class="'.(($madnessround==3)? "active-round":"").'">2nd Round<div>March 23-26</div></li>'
 		 .  '  <li class="'.(($madnessround==4)? "active-round":"").'">Sweet 16<div>March 26-31</div></li>'
 		 .  '  <li class="'.(($madnessround==5)? "active-round":"").'">Elite 8<div>April 1-6</div></li>'
 		 .  '  <li class="'.(($madnessround==6)? "active-round":"").'">Final Four<div>April 6-8</div></li>'
