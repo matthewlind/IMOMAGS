@@ -75,10 +75,12 @@
 				}
 			},
 			fail: function() {
-				alert("Communication Failure");
+				//alert("Communication Failure");
+				console.log("Communication Failure");
 			},
 			error: function(jqXHR, textStatus, errorThrown) {
-				alert(errorThrown);
+				//alert("error " + errorThrown);
+				console.log(errorThrown);
 			}
 			
 		});
@@ -513,7 +515,8 @@
 		 	if(yourBrowser.substring(0,6)=="MSIE 8") {
 			 	var msg = "Unfortunately, bracket voting requires a modern web browser.\r\n\r\n"
 			 			+ "You need to upgrade your browser in order to continue.";
-			 	alert(msg);	
+			 	//alert("Message: " + msg);	
+			 	console.log(msg);
 		 	}
 		 	
 		 	// reCAPTCHA 

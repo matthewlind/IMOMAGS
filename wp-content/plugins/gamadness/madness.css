@@ -556,7 +556,7 @@ ul#ga-madness-nav li a:hover{
 	.popup-inner{padding: 27px 10px;}
 }
 @media only screen and (max-width: 340px){
-	.ga-madness ul.rounds li{padding: 10px 8px;}
+	.ga-madness ul.rounds li{padding: 8px 6px;}
 	.ga-madness ul.rounds li.ui-tabs-selected a:after {top: 38px;}
 	ul#ga-madness-nav{list-style: none;height: auto;position: relative;margin: 0 auto 0 -11px;width: 370px;}
 }
@@ -596,4 +596,11 @@ ul#ga-madness-nav li a:hover{
 	background: black;
 	opacity: 0.6;
 	
+	
+	
 } 
+
+a.ui-tabs-anchor {
+	font-family: arial !important;
+	font-weight: normal !important;
+}
