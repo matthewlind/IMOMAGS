@@ -45,6 +45,7 @@ add_action( 'init', 'register_rt_menu' );
 
 function register_rt_menu() {
 	register_nav_menu( 'tv-menu', __( 'TV Menu' ) );
+	register_nav_menu( 'shoot101_menu', __( 'Shoot101' ) );
 }
 
 add_action( 'init', 'register_pd_menu' );
