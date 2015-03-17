@@ -95,7 +95,6 @@ function jsGAMRender($mobile) {
 	session_start();
 	$sessID = session_id();
 	file_get_contents("http://apps.imoutdoors.com/bracket/initSession?sessid=$sessID");
-	
 
 	$outp = "";
 	//$mobile = true;
@@ -354,7 +353,7 @@ function jsGAMRender($mobile) {
 
 	$outp.= '<script type="text/javascript">';
 	$outp.= 'var ismobile = '.$ismobile.';';
-	
+	$outp.= 'var madness = "'.$sessID.'";';
 	$outp.= 'jQuery(document).ready(function() {'
 		 .  '	getGAMData(1,2);getGAMData(1,3);getGAMData(1,4);getGAMData(1,5);'
 		 .  '	getGAMData(2,2);getGAMData(2,3);getGAMData(2,4);getGAMData(2,5);'

@@ -532,7 +532,7 @@
 		jQuery.ajax({
 			type: "GET",
 			url: "http://apps.imoutdoors.com/bracket/matchVote",
-			data: {"format": "json", "id":match, "voted": pnum, "bracketid": bracket},
+			data: {"format": "json", "id":match, "voted": pnum, "bracketid": bracket, "madness": madness },
 			dataType: "json",
 			success: function(data) {
 				console.log("logVote success return = " + data);
