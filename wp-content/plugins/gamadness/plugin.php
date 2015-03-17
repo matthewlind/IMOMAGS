@@ -73,7 +73,7 @@ function renderGAMpopup($mobile) {
 	    	<div class="modal-footer">
 	    		<div class="modal-footer-content">
 	    			<div id="popupsponsor">
-	    				<a href="http://www.gunsandammo.com/bracket/enter/"></a>
+	    				<a target="_blank" href="http://www.gunsandammo.com/bracket/enter/"></a>
 	    			</div>
 					<div class="related-content">
 		    			<h4>Related Stories</h4>
