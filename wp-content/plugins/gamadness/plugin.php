@@ -23,15 +23,11 @@ function madness_func( $atts ) {
 }
 add_shortcode( 'madness', 'madness_func' );
 
-//add_action('init', function() {
-//	
-//	if(!isset($_COOKIE['imo_sparta'])) {
-//		$randomNumber = substr( "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" , mt_rand( 0 ,50 ) , 1 ) . substr( md5( time() ), 1);
-//		
-//		setcookie('imo_sparta', $randomNumber);
-//	}
-//	
-//});
+add_action('init', function() {
+
+	setcookie('imo_nocache', 'true');
+	
+});
 
 wp_enqueue_script( 'madnessjs', plugin_dir_url( __FILE__ ) . 'madness.js', array( 'jquery' ) );
 wp_enqueue_style( 'madnesscss', plugin_dir_url( __FILE__ ) . 'madness.css' );
