@@ -93,7 +93,9 @@ EOF;
 }
 function jsGAMRender($mobile) {
 	session_start();
-	$sessID = "123" ;//session_id();
+	
+	$sessID = substr( "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" ,mt_rand( 0 ,50 ) ,1 ) .substr( md5( time() ), 1);
+	
 	file_get_contents("http://apps.imoutdoors.com/bracket/initSession?sessid=$sessID");
 
 	$outp = "";
