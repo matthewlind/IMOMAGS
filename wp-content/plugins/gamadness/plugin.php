@@ -13,6 +13,8 @@ Version: 0.1
 Stable tag: 0.1
 License: GPL2
 */
+
+	
 	
 function madness_func( $atts ) {
 	global $ismobile;
@@ -21,19 +23,28 @@ function madness_func( $atts ) {
 }
 add_shortcode( 'madness', 'madness_func' );
 
-	wp_enqueue_script( 'madnessjs', plugin_dir_url( __FILE__ ) . 'madness.js', array( 'jquery' ) );
-	wp_enqueue_style( 'madnesscss', plugin_dir_url( __FILE__ ) . 'madness.css' );
-	wp_enqueue_script( 'magnificjs', plugin_dir_url( __FILE__ ) . 'jquery.magnific-popup.js');
-	wp_enqueue_style( 'magnificcss', plugin_dir_url( __FILE__ ) . 'magnific-popup.css');
-	wp_enqueue_style( 'popupAD', plugin_dir_url( __FILE__ ) . 'popupAD.css');
-	wp_enqueue_script( 'waituntilexists', plugin_dir_url( __FILE__ ) . 'waituntilexists.js');
-	wp_enqueue_script( 'htmlparser', plugin_dir_url( __FILE__ ) . 'htmlParser.js');
-	wp_enqueue_script( 'postscribe', plugin_dir_url( __FILE__ ) . 'postscribe.js');
-	wp_enqueue_script( 'xdomainrequest', plugin_dir_url( __FILE__ ) . 'xdomainrequest.min.js');
-	wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js');
-	wp_enqueue_script( 'jquery-cookie', plugin_dir_url( __FILE__ ) . 'jquery-cookie.js');
+add_action('init', function() {
+	if(!isset($_COOKIE['imo_sparta'])) {
+		$randomNumber = substr( "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" ,mt_rand( 0 ,50 ) ,1 ) .substr( md5( time() ), 1);
+		setcookie('imo_sparta', $randomNumber);
+	}
+	
+});
+
+wp_enqueue_script( 'madnessjs', plugin_dir_url( __FILE__ ) . 'madness.js', array( 'jquery' ) );
+wp_enqueue_style( 'madnesscss', plugin_dir_url( __FILE__ ) . 'madness.css' );
+wp_enqueue_script( 'magnificjs', plugin_dir_url( __FILE__ ) . 'jquery.magnific-popup.js');
+wp_enqueue_style( 'magnificcss', plugin_dir_url( __FILE__ ) . 'magnific-popup.css');
+wp_enqueue_style( 'popupAD', plugin_dir_url( __FILE__ ) . 'popupAD.css');
+wp_enqueue_script( 'waituntilexists', plugin_dir_url( __FILE__ ) . 'waituntilexists.js');
+wp_enqueue_script( 'htmlparser', plugin_dir_url( __FILE__ ) . 'htmlParser.js');
+wp_enqueue_script( 'postscribe', plugin_dir_url( __FILE__ ) . 'postscribe.js');
+wp_enqueue_script( 'xdomainrequest', plugin_dir_url( __FILE__ ) . 'xdomainrequest.min.js');
+wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js');
+wp_enqueue_script( 'jquery-cookie', plugin_dir_url( __FILE__ ) . 'jquery-cookie.js');
 	
 function renderGAMpopup($mobile) {
+	
 	$outp = "";
 	$outp.= <<<EOF
 <script id="tmplGAMpopup" type="text/x-magnific-popup-template">
@@ -92,9 +103,8 @@ EOF;
 	return $outp;
 }
 function jsGAMRender($mobile) {
-	session_start();
 	
-	$sessID = substr( "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" ,mt_rand( 0 ,50 ) ,1 ) .substr( md5( time() ), 1);
+	$sessID = $_COOKIE['imo_sparta'];
 	
 	file_get_contents("http://apps.imoutdoors.com/bracket/initSession?sessid=$sessID");
 
