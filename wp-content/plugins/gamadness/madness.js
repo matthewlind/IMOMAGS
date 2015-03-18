@@ -36,7 +36,7 @@
 	}
 	
 	function getGAMData(region, round) {
-
+		//jQuery.cookie('test', 'hi');
 		jQuery.ajax({
 			type: "GET",
 			url: "http://apps.imoutdoors.com/bracket/getMatches",
