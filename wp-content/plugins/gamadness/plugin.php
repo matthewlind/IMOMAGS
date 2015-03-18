@@ -23,13 +23,15 @@ function madness_func( $atts ) {
 }
 add_shortcode( 'madness', 'madness_func' );
 
-add_action('init', function() {
-	if(!isset($_COOKIE['imo_sparta'])) {
-		$randomNumber = substr( "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" ,mt_rand( 0 ,50 ) ,1 ) .substr( md5( time() ), 1);
-		setcookie('imo_sparta', $randomNumber);
-	}
-	
-});
+//add_action('init', function() {
+//	
+//	if(!isset($_COOKIE['imo_sparta'])) {
+//		$randomNumber = substr( "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" , mt_rand( 0 ,50 ) , 1 ) . substr( md5( time() ), 1);
+//		
+//		setcookie('imo_sparta', $randomNumber);
+//	}
+//	
+//});
 
 wp_enqueue_script( 'madnessjs', plugin_dir_url( __FILE__ ) . 'madness.js', array( 'jquery' ) );
 wp_enqueue_style( 'madnesscss', plugin_dir_url( __FILE__ ) . 'madness.css' );
@@ -104,7 +106,7 @@ EOF;
 }
 function jsGAMRender($mobile) {
 	
-	$sessID = $_COOKIE['imo_sparta'];
+	$sessID = substr( "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" , mt_rand( 0 ,50 ) , 1 ) . substr( md5( time() ), 1); //$_COOKIE['imo_sparta'];
 	
 	file_get_contents("http://apps.imoutdoors.com/bracket/initSession?sessid=$sessID");
 
