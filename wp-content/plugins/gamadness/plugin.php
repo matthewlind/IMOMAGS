@@ -93,7 +93,7 @@ EOF;
 }
 function jsGAMRender($mobile) {
 	session_start();
-	$sessID = session_id();
+	$sessID = "123" ;//session_id();
 	file_get_contents("http://apps.imoutdoors.com/bracket/initSession?sessid=$sessID");
 
 	$outp = "";
@@ -106,7 +106,7 @@ function jsGAMRender($mobile) {
 	$madnessround = $results[0]['activeround'];
 
   if($mobile) { // If it's a mobile device //
-//	$outp.= '<div class="ga-madness-votestats"></div>';
+	$outp.= '<div class="ga-madness-votestats"></div>';
 	
 	//if (function_exists('wpsocialite_markup'))
 		 	//$outp.= wpsocialite_markup();

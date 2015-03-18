@@ -82,7 +82,7 @@ html, body { min-height: 100%; }
 	background: white url("../../themes/gunsandammo/images/dropdown-arrow.png") no-repeat scroll 97% 12px;
 	padding: 3px 10px;
 }
-.ga-madness-votestats {text-align:center;margin-bottom: -44px;font-size:x-large;}
+.ga-madness-votestats {text-align:center;margin-bottom: 15px; font-size:x-large; }
 .votebar {background-color: #c9242c; height:20px;float:left;}
 .votebartext {color: #c9242c; float:left;}
 
@@ -520,7 +520,7 @@ ul#ga-madness-nav li a:hover{
 }
 @media only screen and (max-width: 610px){
 	ul#ga-madness-nav{list-style: none;height: 30px;position: relative;margin: 0 auto;width: 332px;}
-	ul#ga-madness-nav li{float: left;padding: 0 4px 0;width: auto;text-align: center;margin: 0;border-left: 1px solid #ccc;line-height: 1;}	
+	ul#ga-madness-nav li{float: left;padding: 0 2px 0;width: auto;text-align: center;margin: 0;border-left: 1px solid #ccc;line-height: 1;}	
 	ul#ga-madness-nav li:first-child{border-width: 0;}
 	ul#ga-madness-nav li a{font-size: 14px;}
 	#ga-madness-nav .madness-logo{display: none;}
@@ -570,11 +570,7 @@ ul#ga-madness-nav li a:hover{
     height: 175px;
     background-color: white;
 	position: absolute;
-	left: 50%;
-	top: 0;
-	margin-top: -87px;
-	xmargin-left: -200px;
-	 
+	xtop: 0;	 
 }
 
 .g-recaptcha {
@@ -604,3 +600,7 @@ a.ui-tabs-anchor {
 	font-family: arial !important;
 	font-weight: normal !important;
 }
+
+.ga-madness ul.rounds li {
+  padding: 8px 8px !important;
+ }

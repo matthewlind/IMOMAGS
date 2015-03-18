@@ -185,9 +185,9 @@
 	function verifyHuman(mid) {
 		jQuery('#captchaWrapper').css("display","block");
 		jQuery('#faded').css("display","block");
-		
-		jQuery("html, body").animate({ scrollTop: 0 }, "slow");
-		
+		var scroll = jQuery(window).scrollTop();
+		jQuery('#captchaWrapper').css('margin-top',scroll);
+				
 		jQuery("#proceed").on("click", function() {
 			jQuery.ajax({
 		   	type: "GET",
