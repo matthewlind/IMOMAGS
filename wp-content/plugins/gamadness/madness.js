@@ -234,14 +234,7 @@
 				
 			});
 			
-			popads[0] = 'GA-MAdness-popup-358x90-burris.jpg';
-			popads[1] = 'GA-MAdness-popup-358x90-galco.jpg';
-			popads[2] = 'GA-MAdness-popup-358x90-laserlyte.jpg';
-			popads[3] = 'GA-MAdness-popup-358x90-pelican.jpg';
-			popads[4] = 'GA-MAdness-popup-358x90-winchester.jpg';
 			
-			var randomInt = Math.floor((Math.random() * 4) + 0);
-			var randomPopad = popads[randomInt];
 			
 			var regions = {'1':'Handguns', '2':'Rifles', '3':'Handguns', '4':'Rifles'}
 			var roundtitles = {'2':'First Round', '3':'Second Round', '4':'Sweet Sixteen', '5':'Elite Eight', '6':'Final Four', '7':'Championship'}
@@ -293,7 +286,18 @@
 						//campaign = campaigns[region-1];
 						campaign = item.data.campaign;
 						
-						campimg = "/wp-content/plugins/gamadness/ads/enter/" + randomPopad;
+						popads[0] = 'GA-MAdness-popup-358x90-burris.jpg';
+						popads[1] = 'GA-MAdness-popup-358x90-galco.jpg';
+						popads[2] = 'GA-MAdness-popup-358x90-laserlyte.jpg';
+						popads[3] = 'GA-MAdness-popup-358x90-pelican.jpg';
+						popads[4] = 'GA-MAdness-popup-358x90-winchester.jpg';
+						
+						var randomInt = Math.floor(Math.random() * 5);
+						console.log("Random Number= " + randomInt);
+						//var randomPopad = ;
+
+						
+						campimg = "/wp-content/plugins/gamadness/ads/enter/" + popads[randomInt];
 						template.find("#popupsponsor a").html('<img src="'+campimg+'" />');
 														
 						var roundtitle = roundtitles[round];
@@ -461,8 +465,18 @@
 							markupParse: function(template, values, item) {
 								region = parseInt(item.data.region);
 								round = parseInt(item.data.round);
+								
+								popads[0] = 'GA-MAdness-popup-358x90-burris.jpg';
+								popads[1] = 'GA-MAdness-popup-358x90-galco.jpg';
+								popads[2] = 'GA-MAdness-popup-358x90-laserlyte.jpg';
+								popads[3] = 'GA-MAdness-popup-358x90-pelican.jpg';
+								popads[4] = 'GA-MAdness-popup-358x90-winchester.jpg';
+								
+								var randomInt = Math.floor(Math.random() * 5);
+								console.log("Random Number= " + randomInt);
+						
 								campaign = campaigns[region-1];
-								campimg = "/wp-content/plugins/gamadness/ads/enter/" + randomPopad;
+								campimg = "/wp-content/plugins/gamadness/ads/enter/" + popads[randomInt];
 								template.find("#popupsponsor a").html('<img src="'+campimg+'" />');
 																
 								var roundtitle = roundtitles[round];
@@ -485,11 +499,7 @@
 								template.find("#popvoteon2").html('<div class="popvoted '+((pwin=="1")? "popvoted-no":"")+'">'+per2+"% ("+score2+' Votes)</div>');
 							},
 							open: function() {
-								popads[0] = 'GA-MAdness-popup-358x90-burris.jpg';
-								popads[1] = 'GA-MAdness-popup-358x90-galco.jpg';
-								popads[2] = 'GA-MAdness-popup-358x90-laserlyte.jpg';
-								popads[3] = 'GA-MAdness-popup-358x90-pelican.jpg';
-								popads[4] = 'GA-MAdness-popup-358x90-winchester.jpg';
+
 								
 								jQuery('#popupAD').remove();
 								
