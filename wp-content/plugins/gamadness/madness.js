@@ -417,7 +417,7 @@
 		 	var region = jQuery(this).data("region");
 		 	var mid = jQuery(this).data("mid");
 		 	var round = jQuery(this).data("round");
-
+		 	
 		 	jQuery.ajax({
 				type: "GET",
 				url: "http://apps.imoutdoors.com/bracket/getMatches",
@@ -491,11 +491,13 @@
 								popads[3] = 'GA-MAdness-popup-358x90-pelican.jpg';
 								popads[4] = 'GA-MAdness-popup-358x90-winchester.jpg';
 								
-								googletag.cmd.push(function() {
-									googletag.display('div-gpt-ad-1386782139095-3');
-								});
-								_gaq.push(['_trackPageview',"/" + window.location.pathname + "/match"+pdata.mid_data_mid]);
+								jQuery('#popupAD').remove();
 								
+								//googletag.cmd.push(function() {
+								//	googletag.display('div-gpt-ad-1386782139095-3');
+								//});
+								//_gaq.push(['_trackPageview',"/" + window.location.pathname + "/match"+pdata.mid_data_mid]);
+								//
 							}
 						}
 					});
