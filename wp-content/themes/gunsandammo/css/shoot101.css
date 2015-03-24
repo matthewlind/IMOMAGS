@@ -252,15 +252,6 @@ a img.aligncenter {
 	margin: 5px auto;
 	float: none;
 }
-.wp-caption.alignnone {
-/*     margin: 5px 20px 20px 0; */
-}
-.wp-caption.alignleft {
-/*     margin: 5px 20px 20px 0; */
-}
-.wp-caption.alignright {
-/*     margin: 5px 0 20px 20px; */
-}
 .wp-caption img {
     border: 0 none;
     height: auto;
@@ -636,17 +627,12 @@ a img.aligncenter {
 }
 
 
-
-
-
-}
-
 /* ==========================================================================
    4.0 Footer
    ========================================================================== */
 .s-footer {
 	max-width: 100%;
-	padding: 20px;
+	padding: 50px 20px 20px;
 /* 	position: relative; */
 }   
 .s-mag-cover {
@@ -764,7 +750,6 @@ a img.aligncenter {
 .main-nav {margin: 0 0 0 21px;}
 .social-buttons ul {margin-right:21px;}
 
-
 /* Footer *******************/  
 
 .s-mag-descr h1 {
@@ -794,9 +779,11 @@ a img.aligncenter {
 .s-mag-btns a:first-child {
 	margin-right: 2%;
 }
+/*
 .footer-message {
 	display: none;
 }
+*/
 
 
 }/* end of media */
@@ -898,13 +885,47 @@ a img.aligncenter {
 	padding-top: 20.9933333%;
 }
 
-
-
+.rel-logo {
+	display: inline-block;
+}
+.p-rel-header {
+	margin: 0 1%;
+}
+.p-rel-header > h5 {
+	display: inline-block;
+	margin: 5px 0 7px 25px;
+}
+.rel-wrap {
+	margin: 30px 0;
+}
+.rel-link {
+	display: block;
+	float: left;
+	margin: 0 1% 6%;
+	width: 23%;	
+}
+.rel-wrap a:nth-child(4n+3) {
+	clear:none;
+}
+.rel-wrap a:nth-child(4n+5) {
+	clear:left;
+}
+.rel-link h3 {
+	font-size: 13px;
+	color: #e9e9e9;
+	font-weight: 400;
+}
+.rel-box {
+	width: 100%;
+	padding-top: 82%;
+	background-size: cover;
+	background-position:center center;
+}
 
 /* Footer *******************/  
 .s-footer {
 	margin: 0 4%;
-	padding: 0;
+	padding: 50px 0 0;
 	position: relative;
 }
 .s-mag-descr h1 {
@@ -916,9 +937,6 @@ a img.aligncenter {
 }
 .s-mag-buy h2 {
     font-size: 36px;
-}
-.s-copyright {
-	text-align: left;
 }
 
 
@@ -1011,7 +1029,12 @@ a img.aligncenter {
 .p-container {
 	margin-bottom: 80px;
 }
-
+.rel-logo {
+	width: 150px;
+}
+.p-rel-header > h5 {
+	font-size: 16px;
+}
 
 /* Footer *******************/ 
 .s-mag-buy {
@@ -1026,7 +1049,7 @@ a img.aligncenter {
     width: 62%;
 }
 .s-mag-buy h2 {
-    font-size: 28px;
+    font-size: 26px;
 }
 
 
@@ -1113,15 +1136,20 @@ a img.aligncenter {
 }
 
 /* Related Articles *******************/
+/*
 .p-rel-header {
 	height: 52px;
 }
 .rel-logo {
 	height: 37px;
 }
+*/
 .p-rel-header > h5 {
     margin-left:30px;
-    font-size: 16px;
+    font-size: 17px;
+}
+.rel-logo {
+	width: 170px;
 }
 .rel-link h3 {
 	font-size: 18px;
@@ -1137,8 +1165,14 @@ a img.aligncenter {
 }
 
 /* Footer *******************/ 
+.s-mag {
+	position: relative;
+}
 .s-mag-buy {
-	width: auto;
+  position: absolute;
+  bottom: -9px;
+  left: 30%;
+  width: auto;
 }
 .s-mag-cover {
     margin-right: 5%;
@@ -1150,6 +1184,15 @@ a img.aligncenter {
 }
 .s-mag-buy h2 {
     font-size: 30px;
+}
+.footer-message h2 {
+	text-align: left;
+}
+.f-social-buttons {
+	text-align: left;
+}
+.s-copyright {
+	float: left;
 }
 	
 }/* END OF MEDIA */
@@ -1242,7 +1285,6 @@ a img.aligncenter {
 	width: 857px;
 	float: left;
 	margin-right: 30px;
-	position: relative;
 	border-right: 2px solid #a6a6a6;
 }
 .s-mag-cover {
@@ -1271,13 +1313,13 @@ a img.aligncenter {
   font-size: 21px;
 }
 .footer-message {
-	top: 57px;
+	top: 107px;
 	display: block;
 	position: absolute;
 	text-align: right;
-	right: 4%;
+	right: 0;
 	width: 100%;
-	padding-left: 1001px;
+	padding-left: 75%;
 	font-family: "Lora", serif;
 }
 .s-copyright {

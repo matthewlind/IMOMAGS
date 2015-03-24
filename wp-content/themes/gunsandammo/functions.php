@@ -250,6 +250,7 @@ add_action('posts_where','wpse_5057_match_multiple_taxonomy_terms',10,2); // Hoo
 
 
 // adding single post template for category shoot101. Every post that is in cat shoot101 will use this template.
+/*
 add_action('template_include', 'load_single_template');
   function load_single_template($template) {
     $new_template = '';
@@ -266,6 +267,7 @@ add_action('template_include', 'load_single_template');
     }
     return ('' != $new_template) ? $new_template : $template;
 }
+*/
 
 add_filter('img_caption_shortcode', 'fix_img_caption_shortcode', 10, 3);
 
