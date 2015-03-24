@@ -19,7 +19,7 @@
 			</div>
 		</div><!-- end .s-mag-descr -->
 	</div><!-- end .s-mag-descr -->
-	<div class="footer-message">
+	<div class="footer-message clearfix">
 		<h2>Help grow shooting in America. Share this with a new shooter!</h2>
 		<div class="f-social-buttons">
 			<ul>
@@ -29,9 +29,25 @@
 			</ul>
 		</div>
 	</div>
-	<div class="s-copyright">
-        <p>© 2015 InterMedia Outdoors. All Rights Reserved</p>
-    </div>
+	<div class="m-footer-bottom">
+		<div class="m-logo-nav">
+			<div class="m-imo-logo">
+				<a href="http://www.imoutdoors.com/"><img src="/wp-content/themes/gunsandammo/images/shoot101/imo-logo.png"></a>
+			</div>
+			<div class="m-footer-nav">
+				<ul>
+					<li><a href="http://www.imoutdoors.com/about/what-we-do/" target="_blank">ABOUT</a></li>
+					<li><a href="http://www.imoutdoors.com/advertise/" target="_blank">ADVERTISE</a></li>
+					<li><a href="http://www.imoutdoors.com/about/contact/" target="_blank">CONTACT</a></li>
+					<li><a href="http://www.imoutdoors.com/about/careers/" target="_blank">CAREERS</a></li>
+					<li><a href="http://www.imoutdoors.com/about/privacy/" target="_blank">PRIVACY POLICY</a></li>
+				</ul>
+			</div>
+		</div><!-- end .m-logo-nav -->
+		<div class="m-copyright">
+	        <p>© 2015 InterMedia Outdoors. All Rights Reserved</p>
+	    </div>
+	</div><!-- end .m-footer-bottom -->
 
 </footer>
 

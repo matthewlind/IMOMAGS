@@ -715,11 +715,39 @@ a img.aligncenter {
 .f-social-buttons ul li a:hover {
 	color: white;
 }
-.s-copyright {
+.m-footer-bottom {
+	float: left;
+	width: 100%;
+	padding-top: 30px;
+	border-top: 1px solid #333333;
+}
+
+.m-imo-logo {
+	width: 110px;
+	margin: 0 auto 15px;
+}
+.m-imo-logo img {
+	width: 100%;
+}
+.m-footer-nav ul {
+	list-style: none;
+	text-align: center;
+	padding: 0;
+	margin: 0 0 20px;
+}
+.m-footer-nav ul li a {
+	color: 	#e9e9e9;
+	font-size: 12px;
+	font-weight: 600;
+}
+.m-footer-nav ul li a:hover {
+	color: #ee7700;
+}
+.m-copyright {
 	margin-top: 30px;
 	text-align: center;
 }
-.s-copyright p {
+.m-copyright p {
 	font-size: 13px;
 }
 
@@ -779,11 +807,7 @@ a img.aligncenter {
 .s-mag-btns a:first-child {
 	margin-right: 2%;
 }
-/*
-.footer-message {
-	display: none;
-}
-*/
+
 
 
 }/* end of media */
@@ -938,8 +962,30 @@ a img.aligncenter {
 .s-mag-buy h2 {
     font-size: 36px;
 }
-
-
+.m-imo-logo {
+	width: 110px;
+	margin: 0 20px 0 0;
+	display: inline-block;
+}
+.m-imo-logo img {
+	width: 100%;
+}
+.m-footer-nav {
+	display: inline-block;
+}
+.m-footer-nav ul {
+	text-align: left;
+}
+.m-footer-nav ul li {
+	display: inline-block;
+}
+.m-footer-nav ul li a {
+	padding: 5px 15px;
+}
+.m-copyright {
+	margin-top: 15px;
+	text-align: left;
+}
 /* Wordpress Defaults *******************/  
 
 .aligncenter,
@@ -1037,6 +1083,19 @@ a img.aligncenter {
 }
 
 /* Footer *******************/ 
+.footer-message {
+	margin-top: 20px;
+	border-top: 1px solid #333333;
+}
+.footer-message h2 {
+	text-align: left;
+	float: left;
+}
+.f-social-buttons {
+	text-align: right;
+	float: right;
+	margin: 10px auto 0;
+}
 .s-mag-buy {
 	width: 62%;
 }
@@ -1191,7 +1250,8 @@ a img.aligncenter {
 .f-social-buttons {
 	text-align: left;
 }
-.s-copyright {
+.m-copyright {
+	margin-top: 0;
 	float: left;
 }
 	
@@ -1321,10 +1381,10 @@ a img.aligncenter {
 	width: 100%;
 	padding-left: 75%;
 	font-family: "Lora", serif;
+	border-top: none;
 }
-.s-copyright {
-	float: left;
-	width: 100%;
+.m-footer-bottom {
+	margin-top: 50px;
 }
 .footer-message h2 {
 	font-size: 24px;
@@ -1345,9 +1405,6 @@ a img.aligncenter {
 }
 .f-social-buttons ul li a {
 	font-size: 30px;
-}
-.s-copyright {
-	text-align: left;
 }
 
 }/* END OF MEDIA */
