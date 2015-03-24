@@ -506,12 +506,12 @@ a img.aligncenter {
     margin: 5px 0 7px;
 }
 .rel-wrap {
-	margin: 30px -2%;
+	margin: 30px -2% 0;
 }
 .rel-link {
 	display: block;
 	float: left;
-	margin: 0 2% 6%;
+	margin: 0 2% 10px;
 	width: 46%;	
 }
 .rel-wrap a:nth-child(4n+3) {
@@ -555,20 +555,39 @@ a img.aligncenter {
 	background-position: center center;
 }
 .m-article {
-	padding: 0 20px;
-}   
+	padding: 0 20px 20px;
+} 
+.m-article .m-hlep-grow {
+	font: 400 14px/17px "Titillium Web", sans-serif;
+	color: #58595b;
+	width: 218px;
+} 
+.m-article .m-social-wrap:last-child {
+	margin-top: 40px;
+} 
+.m-article .m-social-buttons ul li:first-child {
+	margin-left: 0;
+}
+.m-article .m-social-buttons ul li {
+	margin: 0 5px;
+}
+.m-article .m-social-buttons ul li a {
+	color: #ee7700;
+	font-size: 25px;
+}
 .m-article h1 {
 	font-size: 32px;
 	line-height: 36px;
 	text-transform: uppercase;
+	margin-bottom: 15px;
 }
 .m-article h3 {
 	font-size: 21px;
 	line-height: 27px;
 	font-weight: 300;
-	margin-bottom: 0;
+	margin: 0;
 }
-.a-author {
+.m-post-byline {
 	font-size: 13px;
 	font-weight: 300;
 	display: inline-block;
@@ -630,10 +649,12 @@ a img.aligncenter {
 /* ==========================================================================
    4.0 Footer
    ========================================================================== */
+.category .s-footer {
+	padding: 20px 20px 20px;
+}
 .s-footer {
 	max-width: 100%;
 	padding: 50px 20px 20px;
-/* 	position: relative; */
 }   
 .s-mag-cover {
 	float: left;
@@ -719,7 +740,7 @@ a img.aligncenter {
 	float: left;
 	width: 100%;
 	padding-top: 30px;
-	border-top: 1px solid #333333;
+	border-top: 1px solid #444444;
 }
 
 .m-imo-logo {
@@ -807,8 +828,13 @@ a img.aligncenter {
 .s-mag-btns a:first-child {
 	margin-right: 2%;
 }
-
-
+/* Single Article *******************/ 
+.m-article .m-hlep-grow {
+	width: auto;
+}
+.rel-link {
+	margin-bottom:20px;
+}
 
 }/* end of media */
 
@@ -920,12 +946,10 @@ a img.aligncenter {
 	margin: 5px 0 7px 25px;
 }
 .rel-wrap {
-	margin: 30px 0;
+	margin: 30px 0 0;
 }
 .rel-link {
-	display: block;
-	float: left;
-	margin: 0 1% 6%;
+	margin: 0 1% 30px;
 	width: 23%;	
 }
 .rel-wrap a:nth-child(4n+3) {
@@ -945,8 +969,15 @@ a img.aligncenter {
 	background-size: cover;
 	background-position:center center;
 }
+/* Single Article *******************/
+.m-article {
+	padding: 0 35px 20px;
+} 
 
 /* Footer *******************/  
+.category .s-footer {
+	padding: 20px 0 0;
+}
 .s-footer {
 	margin: 0 4%;
 	padding: 50px 0 0;
@@ -1085,7 +1116,7 @@ a img.aligncenter {
 /* Footer *******************/ 
 .footer-message {
 	margin-top: 20px;
-	border-top: 1px solid #333333;
+	border-top: 1px solid #444444;
 }
 .footer-message h2 {
 	text-align: left;
@@ -1195,14 +1226,6 @@ a img.aligncenter {
 }
 
 /* Related Articles *******************/
-/*
-.p-rel-header {
-	height: 52px;
-}
-.rel-logo {
-	height: 37px;
-}
-*/
 .p-rel-header > h5 {
     margin-left:30px;
     font-size: 17px;
@@ -1215,12 +1238,12 @@ a img.aligncenter {
 }
 
 /* Single Articles *******************/
+.m-article {
+	padding: 0 0 20px;
+	margin: 0 17%;
+}
 .m-article-image {
 	padding-top: 39%;
-}
-.m-article {
-	padding: 0px;
-	margin: 0 17%;
 }
 
 /* Footer *******************/ 
@@ -1261,7 +1284,6 @@ a img.aligncenter {
 
 /* Single Articles *******************/
 .m-article {
-	padding: 0px;
 	margin: 0 25%;
 }
 /* Related Articles *******************/
@@ -1373,7 +1395,7 @@ a img.aligncenter {
   font-size: 21px;
 }
 .footer-message {
-	top: 107px;
+	top: 65px;
 	display: block;
 	position: absolute;
 	text-align: right;
