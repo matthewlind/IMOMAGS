@@ -39,3 +39,11 @@ jQuery(document).ready(function($) {
 	}
 
 });
+
+jQuery( window ).resize(function() {
+	var windowWidth = jQuery(window).width();
+	
+	if (windowWidth < 600) {
+		jQuery( ".post-box" ).eq(-1).css("margin", "0 0 30px");
+	}
+});

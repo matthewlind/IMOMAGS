@@ -86,6 +86,16 @@
 	    wp_dequeue_script('network-topics-js');
 		wp_dequeue_style('network-topics-css');
 		
+		// wpsocialite
+		wp_dequeue_script('socialite-lib');
+        wp_dequeue_script('wpsocialite');
+        wp_dequeue_style('socialite-css');
+        
+        // addthis
+        wp_dequeue_script( 'addthis' );
+        wp_dequeue_script( 'addthis_options_page_script');
+        wp_dequeue_style( 'addthis' );
+		
 		// Prevent loading scripts from plugins you don't use END
 		
 
@@ -141,25 +151,29 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 -->
-<div class="s101 <?php if (is_category( 'shoot101' )) { echo "cat-shoot101"; } ?>">
-	<header>
-		<div class="top-panel">
-			<a href="http://www.gunsandammo.com/" class="icon-arrow-left2">Back to Guns & Ammo</a>
-		</div>
+<div class="top-panel">
+	<a href="http://www.gunsandammo.com/" class="icon-arrow-left">Back to Guns & Ammo</a>
+</div>
+<div class="s101 <?php /* if (is_category( 'shoot101' )) { echo "cat-shoot101"; } */ if ( in_category( 'shoot101' )) { echo "cat-shoot101";}?>">
+	
+	<header class="main-header">
+		
 		<div class="menu-area clearfix">
 			<div class="shoot101-logo">
 				<img  src="/wp-content/themes/gunsandammo/images/shoot101/Shoot101-logo-light.png">
 			</div>
-			<nav id="site-navigation" class="main-nav" role="navigation">
-				<?php wp_nav_menu( array( 'theme_location' => 'shoot101_menu', 'container' => '0' ) ); ?>
-			</nav>
-			<div class="social-buttons">
-				<ul>
-					<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php print(urlencode(get_permalink())); ?>&title=<?php print(urlencode(the_title())); ?>" class="icon-facebook"></a></li>
-					<li><a href="http://twitter.com/intent/tweet?status=<?php print(urlencode(the_title())); ?>+<?php print(urlencode(get_permalink())); ?>" class="icon-twitter"></a></li>
-					<li><a class="icon-mail"></a></li>
-				</ul>
-			</div>
+<!-- 			<div class="nav-container"> -->
+				<nav id="site-navigation" class="main-nav" role="navigation">
+					<?php wp_nav_menu( array( 'theme_location' => 'shoot101_menu', 'container' => '0' ) ); ?>
+				</nav>
+				<div class="social-buttons">
+					<ul>
+						<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php print(urlencode(get_permalink())); ?>&title=<?php print(urlencode(the_title())); ?>" class="icon-facebook"></a></li>
+						<li><a href="http://twitter.com/intent/tweet?status=<?php print(urlencode(the_title())); ?>+<?php print(urlencode(get_permalink())); ?>" class="icon-twitter"></a></li>
+						<li><a class="icon-mail"></a></li>
+					</ul>
+				</div>
+<!-- 			</div> -->
 		</div>
 	</header>
 

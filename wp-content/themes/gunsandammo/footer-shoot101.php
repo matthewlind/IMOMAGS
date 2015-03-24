@@ -1,6 +1,38 @@
 </div>
-<footer class="s-footer">
-	<h1>This is footer</h1>
+<footer class="s-footer clearfix">
+	<div class="s-mag clearfix">
+		<div class="s-mag-cover">
+			<img src="/wp-content/themes/gunsandammo/images/shoot101/mag-cover.jpg">
+		</div>
+		<div class="s-mag-descr">
+			<h1>Learn, Train, Live</h1>
+			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis.</p>
+		</div>
+		<div class="s-mag-buy">
+			<h2>NOW AVAILABLE ON NEWSSTANDS!</h2>
+			<div class="s-or">
+				<div>OR</div>			
+			</div>
+			<div class="s-mag-btns clearfix">
+				<a class="orange-btn" href="">BUY THE MAGAZINE NOW!</a>
+				<a class="orange-btn" href="">GET THE DIGITAL EDITION!</a>
+			</div>
+		</div><!-- end .s-mag-descr -->
+	</div><!-- end .s-mag-descr -->
+	<div class="footer-message">
+		<h2>Help grow shooting in America. Share this with a new shooter!</h2>
+		<div class="f-social-buttons">
+			<ul>
+				<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php print(urlencode(get_permalink())); ?>&title=<?php print(urlencode(the_title())); ?>" class="icon-facebook"></a></li>
+				<li><a href="http://twitter.com/intent/tweet?status=<?php print(urlencode(the_title())); ?>+<?php print(urlencode(get_permalink())); ?>" class="icon-twitter"></a></li>
+				<li><a class="icon-mail"></a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="s-copyright">
+        <p>© 2015 InterMedia Outdoors. All Rights Reserved</p>
+    </div>
+
 </footer>
 
 <!--
