@@ -18,11 +18,11 @@ echo get_template_part( 'header', 'shoot101' );
 <div class="sponsors-disclaimer">
 	<span>BROGHT TO YOU BY VISTA OUTDOOR INC. AND ITS FAMILY OF <a href="#">BRANDS</a></span>
 </div>
-<div class="article-wrap clearfix">
-	<div class="article-image" style="background-image: url('/wp-content/themes/gunsandammo/images/shoot101/shooter-photo.jpg');">
+<div class="m-article-wrap clearfix">
+	<div class="m-article-image" style="background-image: url('/wp-content/themes/gunsandammo/images/shoot101/shooter-photo.jpg');">
 		
 	</div>
-	<article class="article clearfix">
+	<article class="m-article clearfix">
 			<div class="m-social-buttons">
 				<ul>
 					<li><a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer.php?s=100&amp;p[title]=<?php echo urlencode(the_title());?>&amp;p[summary]=<?php echo urlencode(the_title()) ?>&amp;p[url]=<?php echo urlencode(get_permalink()); ?>&amp;p[images][0]=<?php echo urlencode($image[0])?>" ></a></li>
@@ -62,7 +62,7 @@ echo get_template_part( 'header', 'shoot101' );
 	
 	
 	</article>
-</div><!-- end .article-wrap -->
+</div><!-- end .m-article-wrap -->
 
 
 

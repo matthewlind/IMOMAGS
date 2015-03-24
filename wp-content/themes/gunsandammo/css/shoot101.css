@@ -245,9 +245,9 @@ a img.aligncenter {
 	width: 100%;
 	text-align: left;
 }
-.article .wp-caption.alignright,
-.article .wp-caption.alignleft,
-.article .wp-caption.alignnone {
+.m-article .wp-caption.alignright,
+.m-article .wp-caption.alignleft,
+.m-article .wp-caption.alignnone {
 	display: block;
 	margin: 5px auto;
 	float: none;
@@ -543,26 +543,26 @@ a img.aligncenter {
 .wpsocialite {
 	display: none !important;
 }
-.article-wrap {
+.m-article-wrap {
 	width: 100%;
 	background-color: white;
 	color: #222222;
 }   
-.article-image {
+.m-article-image {
 	width: 100%;
 	padding-top: 50%;
 	background-size: cover;
 	background-position: center center;
 }
-.article {
+.m-article {
 	padding: 0 20px;
 }   
-.article h1 {
+.m-article h1 {
 	font-size: 32px;
 	line-height: 36px;
 	text-transform: uppercase;
 }
-.article h3 {
+.m-article h3 {
 	font-size: 21px;
 	line-height: 27px;
 	font-weight: 300;
@@ -574,11 +574,11 @@ a img.aligncenter {
 	display: inline-block;
 	margin-bottom: 8px;
 }
-.article p {
+.m-article p {
 	font: 400 17px/28px "Lora", sans-serif;
 }
 
-.article blockquote {
+.m-article blockquote {
 	position: relative;
 	margin: 30px 0;
 	padding-left: 30px;
@@ -587,7 +587,7 @@ a img.aligncenter {
 	line-height: 30px;
 	border-left: 9px solid #ee7700;
 } 
-.article blockquote::before {
+.m-article blockquote::before {
 	font-family: 'icomoon';
 	speak: none;
 	font-style: normal;
@@ -606,7 +606,7 @@ a img.aligncenter {
     -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
     transform: rotate(-90deg);
 }
-.article blockquote::after {
+.m-article blockquote::after {
 	font-family: 'icomoon';
 	speak: none;
 	font-style: normal;
@@ -1021,18 +1021,18 @@ a img.aligncenter {
 	max-width: 100%;
 	text-align: left;
 }
-.article .wp-caption.aligncenter {
+.m-article .wp-caption.aligncenter {
 	margin: 30px auto 30px;
 }
-.article .wp-caption.alignnone {
+.m-article .wp-caption.alignnone {
 	margin: 30px 0 30px;
 	float: none;
 }
-.article .wp-caption.alignright {
+.m-article .wp-caption.alignright {
 	float: right;
 	margin: 8px 0 30px 40px;
 }
-.article .wp-caption.alignleft {
+.m-article .wp-caption.alignleft {
 	float: left;
     margin: 8px 40px 30px 0;
 }
@@ -1215,10 +1215,10 @@ a img.aligncenter {
 }
 
 /* Single Articles *******************/
-.article-image {
+.m-article-image {
 	padding-top: 39%;
 }
-.article {
+.m-article {
 	padding: 0px;
 	margin: 0 17%;
 }
@@ -1260,7 +1260,7 @@ a img.aligncenter {
 @media only screen and (min-width: 1025px) {/* big landscape tablets, laptops, and desktops */
 
 /* Single Articles *******************/
-.article {
+.m-article {
 	padding: 0px;
 	margin: 0 25%;
 }
@@ -1299,26 +1299,26 @@ a img.aligncenter {
 	max-width: 100%;
 	text-align: left;
 }
-.article .wp-caption.aligncenter {
+.m-article .wp-caption.aligncenter {
 	margin: 30px auto 30px;
 }
-.article .wp-caption.alignnone {
+.m-article .wp-caption.alignnone {
 	margin: 30px 0 30px;
 	float: none;
 }
-.article .wp-caption.alignright {
+.m-article .wp-caption.alignright {
 /* 	width: 150px !important; */
 	margin-right: -150px;
 }
-.article .wp-caption.alignleft {
+.m-article .wp-caption.alignleft {
 /* 	width: 150px !important; */
     margin-left: -150px;
 }
-.article .wp-caption.alignright img {
+.m-article .wp-caption.alignright img {
 	width: 300px;
 	max-width: 300px;
 }
-.article .wp-caption.alignleft img {
+.m-article .wp-caption.alignleft img {
 	width: 300px;
 	max-width: 300px;
 }

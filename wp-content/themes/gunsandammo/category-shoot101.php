@@ -161,30 +161,4 @@
 </div><!-- end .content -->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php echo get_template_part( 'footer', 'shoot101' ); ?>
