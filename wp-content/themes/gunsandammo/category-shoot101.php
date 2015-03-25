@@ -10,7 +10,6 @@
 	$cat_name = $cat->cat_name;
 */
 ?>
-
 <div class="sponsors-disclaimer">
 	<span>BROGHT TO YOU BY VISTA OUTDOOR INC. AND ITS FAMILY OF <a href="#">BRANDS</a></span>
 </div>
@@ -58,7 +57,7 @@
 					<ul>
 						<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php print(urlencode(get_permalink())); ?>&title=<?php print(urlencode(the_title())); ?>" class="icon-facebook"></a></li>
 						<li><a href="http://twitter.com/intent/tweet?status=<?php print(urlencode(the_title())); ?>+<?php print(urlencode(get_permalink())); ?>" class="icon-twitter"></a></li>
-						<li><a class="icon-mail"></a></li>
+						<li><a href="mailto:?subject=Article I came across&body=Check out this article! Title: '<?php the_title(); ?>'. Link: <?php the_permalink(); ?>" class="icon-mail"></a></li>
 					</ul>
 				</div>
 			</div><!-- end .featured-message -->
@@ -109,7 +108,6 @@
 					}
 					wp_reset_postdata();
 				?>
-			
 			</div><!-- end .p-container -->
 			<div class="rel-container clearfix">
 				<header class="p-rel-header clearfix">
@@ -119,8 +117,7 @@
 					<h5>RELATED ARTICLES FROM GUNS & AMMO</h5>
 					<div class="rel-triangle"></div>
 				</header>
-				<div class="rel-wrap clearfix">
-					
+				<div class="rel-wrap clearfix">					
 					<?php
 						$args = array (
 							'category_name'         	=> 'shoot101',			
