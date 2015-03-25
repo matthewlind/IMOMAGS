@@ -51,13 +51,19 @@
 	    ?></title>
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<!--[if IE 8]><style type="text/css">img{max-width: none !important;}.BCLvideoWrapper object{width:480px !important;}</style><![endif]-->
-	<?php if ( in_category('shoot101') ) { ?>
-		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/css/shoot101.css" />
-	<?php } else { ?>
+	
+	
+	<?php
+	if (is_home()) { ?>
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
-	<?php } ?> 
-	
-	
+	<?php }	else { 
+		if ( in_category('shoot101')) { ?>
+			<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/css/shoot101.css" />
+	<?php } else { ?>
+			<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
+	<?php	}
+	}
+	?>
 	
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	<!--[if lt IE 9]>
@@ -112,7 +118,7 @@
 	 
 	<script type='text/javascript'>
 		googletag.cmd.push(function() {
-		googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [1, 1], 'div-gpt-ad-1386782139095-0').addService(googletag.pubads());
+			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [1, 1], 'div-gpt-ad-1386782139095-0').addService(googletag.pubads());
 			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [240, 60], 'div-gpt-ad-1386782139095-1').addService(googletag.pubads());
 			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 120], 'div-gpt-ad-1386782139095-2').addService(googletag.pubads());
 			googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], 'div-gpt-ad-1386782139095-3').addService(googletag.pubads());
@@ -126,23 +132,20 @@
 			googletag.enableServices();
 		});
 	</script>
-	
-		
-	
-	
 	<?php if ( defined('JETPACK_SITE') && mobile() == false && tablet() == false): ?>
 		<script type='text/javascript' src='http://ads.jetpackdigital.com/sites/<?php print JETPACK_SITE; ?>/jpd.js'></script>
 	<?php endif; ?>
 </head>
 
 <body <?php body_class(); ?>  >
-<h1>
 <?php
-	
-	
-if ( is_category('shoot101') ) {
-	get_template_part('content/content', 'header-microsite');
-} else if (!is_category('shoot101') ) {
-	get_template_part('content/content', 'header');
-}
+	if (is_home()) {
+		get_template_part('content/content', 'header');
+	}	else {
+		if ( in_category('shoot101')) {
+			get_template_part('content/content', 'header-microsite');
+		} else {
+			get_template_part('content/content', 'header');
+		}
+	}
 ?>
