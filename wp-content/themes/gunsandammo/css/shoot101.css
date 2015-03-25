@@ -1,0 +1,1484 @@
+/*  ==========================================================================
+	TABLE OF CONTENTS: 
+============================================================================== 
+1.0 Icons 
+2.0 Defaults
+	2.1 WYSIWYG and general wordpress styles
+3.0 Helper classes
+4.0 Buttons
+5.0 Wrappers
+6.0 Header
+7.0 Home Page Styles
+8.0 Footer Styles
+9.0 Off the canvas menu
+10.0 Brand Page Styles
+11.0 Single Post Styles
+12.0 SIP Styles
+13.0 Inside Page Styles
+14.0 Default Template Page Styles
+15.0 About Pages
+16.0 Media Queries
+17.0 Print styles
+
+============================================================================== */
+@import url("normalize.css");
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,300,200,600,700);
+@import url(http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
+
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot?-c7153v');
+	src:url('fonts/icomoon.eot?#iefix-c7153v') format('embedded-opentype'),
+		url('fonts/icomoon.woff?-c7153v') format('woff'),
+		url('fonts/icomoon.ttf?-c7153v') format('truetype'),
+		url('fonts/icomoon.svg?-c7153v#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-triangle-down:before {
+	content: "\f05b";
+}
+
+.icon-arrow-left:before {
+	content: "\e600";
+}
+
+.icon-mail:before {
+	content: "\ea86";
+}
+
+.icon-facebook:before {
+	content: "\ea8e";
+}
+
+.icon-twitter:before {
+	content: "\ea93";
+}
+
+.icon-angle-right:before {
+	content: "\f105";
+}
+
+
+/* ==========================================================================
+	1.0 Defaults 
+========================================================================== */
+
+html, body {
+	height: 100%;
+	background-color: #202020;
+}
+body {
+	font-family: 'Titillium Web', sans-serif;
+	color: #e9e9e9;
+	
+/*
+	-webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+*/
+}
+.s101 {
+	width: 100%;
+}
+a:hover, a:active, label:focus, label:active, i:hover {
+	outline: none;
+	text-decoration: none;
+	-webkit-transition:color 0.1s;
+	-moz-transition:color 0.1s;
+	transition:color 0.1s;
+}
+a {
+	color: #ee7700;
+	-webkit-transition:color 0.1s;
+	-moz-transition:color 0.1s;
+	transition:color 0.1s;
+}
+a:hover {
+	color: #ff3000;	
+}
+h1, h2, h3, h4, h5 { 
+	font-weight: 600; 
+	font-style: normal; 
+}
+/* ==========================================================================
+   2.0 Helper classes
+   ========================================================================== */
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+.hidden {
+    visibility: hidden;
+}
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+    *zoom: 1;
+}
+
+
+
+/* ==========================================================================
+	3.0 Buttons
+========================================================================== */
+.orange-btn {
+	display: inline-block;
+	text-align: center;
+	padding: 10px 5px 9px;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.07);
+	line-height: 10px;
+	color: #222222;
+	font: 700 10px 'Titillium Web', Helvetica, Arial, sans-serif;
+	-webkit-transition:all 0.4s;
+	-moz-transition:all 0.4s;
+	transition:all 0.4s;
+background: #ff8a00; /* Old browsers */
+background: -moz-linear-gradient(top, #ff8a00 0%, #fea802 96%, #ff8a00 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff8a00), color-stop(96%,#fea802), color-stop(100%,#ff8a00)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #ff8a00 0%,#fea802 96%,#ff8a00 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #ff8a00 0%,#fea802 96%,#ff8a00 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #ff8a00 0%,#fea802 96%,#ff8a00 100%); /* IE10+ */
+background: linear-gradient(to bottom, #ff8a00 0%,#fea802 96%,#ff8a00 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff8a00', endColorstr='#ff8a00',GradientType=0 ); /* IE6-9 */
+
+}
+.orange-btn:hover {
+	color: black;
+	-webkit-transition:all 0.2s;
+	-moz-transition:all 0.2s;
+	transition:all 0.2s;
+	border-radius: 4px;
+background: #ff9900; /* Old browsers */
+background: -moz-linear-gradient(top, #ff9900 0%, #ffb702 4%, #ff9900 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff9900), color-stop(4%,#ffb702), color-stop(100%,#ff9900)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #ff9900 0%,#ffb702 4%,#ff9900 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #ff9900 0%,#ffb702 4%,#ff9900 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #ff9900 0%,#ffb702 4%,#ff9900 100%); /* IE10+ */
+background: linear-gradient(to bottom, #ff9900 0%,#ffb702 4%,#ff9900 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9900', endColorstr='#ff9900',GradientType=0 ); /* IE6-9 */
+}
+/* ==========================================================================
+	3.0 WordPress Core
+========================================================================== */
+
+.alignnone {
+    margin: 5px 20px 20px 0;
+}
+.aligncenter,
+div.aligncenter {
+    display: block;
+    margin: 5px auto 5px auto;
+}
+.alignright {
+    float:right;
+    margin: 5px 0 20px 20px;
+}
+.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+a img.alignright {
+    float: right;
+    margin: 5px 0 20px 20px;
+}
+a img.alignnone {
+    margin: 5px 20px 20px 0;
+}
+a img.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+a img.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+.wp-caption {
+	max-width: 100%;
+	width: 100%;
+	text-align: left;
+}
+.m-article .wp-caption.alignright,
+.m-article .wp-caption.alignleft,
+.m-article .wp-caption.alignnone {
+	display: block;
+	margin: 5px auto;
+	float: none;
+}
+.wp-caption img {
+    border: 0 none;
+    height: auto;
+    margin: 0;
+/*     max-width: 98.5%; */
+	max-width: 100%;
+    padding: 0;
+    width: auto;
+}
+.wp-caption p.wp-caption-text {
+	position: relative;
+    font-size: 12px;
+    line-height: 17px;
+    margin: 0;
+    padding: 3px 4px 5px;
+	border-bottom: 2px solid #ee7700;
+    font-family: "Source Sans Pro", sans-serif;
+    width: 100%;
+}
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar. */
+}
+/* ==========================================================================
+   4.0 Home Page
+   ========================================================================== */
+
+/* Header *******************/
+.main-header {
+	width: 100%;
+}
+.top-panel {
+	height: 30px;
+	width: 100%;
+	background-color: #333333;
+	text-align: center;
+}
+.top-panel a:before {
+	font-family: 'icomoon';
+	font-size: 12px;
+	margin-right: 5px;
+}
+.top-panel a {
+	color: #888888;
+	font: 700 16px/30px "lora", serif;
+}
+.shoot101-logo {
+	width: 100%;
+	display: block;
+	border-bottom: 1px solid #444444;
+}
+.shoot101-logo img {
+	width: 200px;
+	display: block;
+	padding: 12px 0 17px;
+	margin: 0 auto;
+}
+.category .cat-shoot101 .all-stories {
+	display: none;
+}
+.single .cat-shoot101 .main-nav {
+	float: none;
+	text-align: center;
+	margin: 0 auto;
+}
+.single .cat-shoot101 .main-nav ul li {
+	float: none;
+}
+/* Main-nav */
+.main-nav {display: block; float: left; margin: 0 0 0 20px; position: relative; z-index: 30;}	
+.main-nav ul {margin: 0; padding: 0;}
+.main-nav ul li {display: inline-block; float: left;margin-top: 13px; height: 11px; border-left: 1px solid #e9e9e9;}
+.main-nav ul li a {display: block;padding: 0 11px;color: #c2c2c2;font:13px/13px "Titilium Web", sans-serif ;}
+.main-nav ul li:hover a {color: white;}
+.main-nav ul li:last-child {border-right: 1px solid #e9e9e9;} 
+.main-nav ul li:first-child a {margin: 0;}
+.main-nav > ul li.menu-item-has-children {position: relative;}
+.main-nav > ul li.menu-item-has-children:hover ul {display: block;}
+.main-nav > ul li.menu-item-has-children > a {background: url("/wp-content/themes/imo_marketing/images/all-pages/caret.png") 88% 25px no-repeat;}
+.main-nav > ul li.market-solutions > a {background: url("/wp-content/themes/imo_marketing/images/all-pages/caret.png") 93% 25px no-repeat;}
+.main-nav > ul li.menu-item-has-children:hover > a {background: url("/wp-content/themes/imo_marketing/images/all-pages/caret.png") 88% -21px no-repeat;}
+.main-nav > ul li.menu-item-has-children ul {display: none;min-width: 185px;position: absolute;margin: 0;padding: 3px 0 5px 0;background: #000000;z-index: 9999;}
+.main-nav > ul li.menu-item-has-children ul li {display: block;width: 100%;padding: 0 12px;}
+.main-nav > ul li.menu-item-has-children ul li:hover {background-color: #191919;}
+.main-nav > ul li.menu-item-has-children ul li a {display: block;font-size: 14px;font-weight: 200;font-family: 'Roboto', sans-serif;padding: 10px 5px;border-bottom: 1px solid #363636;}
+.main-nav > ul li.menu-item-has-children ul li:last-child a {border: none;}
+.main-nav > ul li.menu-item-has-children ul li a:hover {color: #d8d1c6;}
+.main-nav > ul li.menu-item-has-children ul > li.menu-item-has-children {position: relative;}
+.main-nav > ul li.menu-item-has-children ul > li.menu-item-has-children > a {background: url("/wp-content/themes/imo_marketing/images/all-pages/caret.png") 88% 21px no-repeat;}
+.main-nav > ul li.menu-item-has-children ul > li.menu-item-has-children > .sub-menu {display: none;position: absolute;top: 0; left: 185px;padding: 0 0 1px 0;background-color: #191919;}
+.main-nav > ul li.menu-item-has-children ul > li.menu-item-has-children:hover > .sub-menu {display: block;}
+.main-nav > ul li.menu-item-has-children ul > li.menu-item-has-children > .sub-menu li:hover {background-color: #222222;}
+
+
+.social-buttons {
+	float: right;
+}
+.single .cat-shoot101 .social-buttons {
+	float: none;
+	text-align: center;
+	margin: 0 auto;
+}
+.social-buttons ul {
+	list-style: none;
+	margin: 8px 20px 8px 0;
+	padding: 0;
+}
+.social-buttons ul li {
+	display: inline;
+	margin-left: 10px;
+}
+.social-buttons ul li a {
+	font-size: 19px;
+	color: #a0a0a0;
+}
+.social-buttons ul li a:hover {
+	color: white;
+}
+.sponsors-disclaimer {
+	background-color: #333333;
+	text-align: center;
+	min-height: 30px;
+	font-size: 10px;
+	line-height: 30px;
+	color: #c2c2c2;
+}
+.single .cat-shoot101 .sponsors-disclaimer {
+	max-width: 100%;
+	width: 100%;
+	margin: 0 auto;
+}
+.sponsors-disclaimer a {
+	text-decoration: underline;
+}
+.sponsors-disclaimer a:hover {
+	color: #ee7700;
+}
+
+/* Content *******************/
+
+.content {
+	max-width: 100%;
+	padding: 20px;
+}
+.featured-message {
+	width: 100%;
+	border-top: 2px solid #959595;
+	border-bottom: 2px solid #959595;
+	min-height: 100px;
+	margin-bottom: 35px;
+	float: left;
+	text-align: center;
+}
+.featured-message span {
+	width: 100%;
+	display: inline-block;
+	font:700 13px "Lora", serif;
+	margin: 20px 0 0;
+}
+.m-social-buttons {
+	margin: 0 auto 15px;
+}
+.m-social-buttons ul {
+	list-style: none;
+	margin: 8px 0;
+	padding: 0;
+}
+.m-social-buttons ul li {
+	display: inline;
+	margin: 0 5px;
+}
+.m-social-buttons ul li a {
+	font-size: 25px;
+	color: #a0a0a0;
+}
+.m-social-buttons ul li a:hover {
+	color: white;
+}
+.p-container {
+	margin-bottom: 40px;
+}
+.link-box {
+	display: block;
+}
+.post-box {
+	width: 100%;
+	float: left;
+	margin-bottom: 30px;
+	background-size: cover;
+	background-position: center center;
+	padding-top: 67%;
+	-webkit-transition:opacity 0.1s;
+	-moz-transition:opacity 0.1s;
+	transition:opacity 0.1s;
+}
+.post-box:hover {
+	opacity: 0.9;
+	-webkit-transition:opacity 0.1s;
+	-moz-transition:opacity 0.1s;
+	transition:opacity 0.1s;
+}
+
+/* Related Articles *******************/
+.rel-container {
+	border-bottom: 1px solid #444444;
+}
+.p-rel-header {
+	border-bottom: 1px solid #959595;
+	position: relative;
+}
+.rel-triangle::after {
+    bottom: -19px;
+    content: "\f05b";
+    font-family: "icomoon";
+    position: absolute;
+    right: 0;
+    color: #959595;
+    font-size: 30px;
+}
+.rel-logo {
+	width: 120px;
+}
+.rel-logo img {
+	width: 100%;
+}
+.p-rel-header > h5 {
+    font-size: 13px;
+    margin: 5px 0 7px;
+}
+.rel-wrap {
+	margin: 30px -2% 0;
+}
+.rel-link {
+	display: block;
+	float: left;
+	margin: 0 2% 10px;
+	width: 46%;	
+}
+.rel-wrap a:nth-child(4n+3) {
+	clear: left;
+}
+.rel-link h3 {
+	font-size: 13px;
+	color: #e9e9e9;
+	font-weight: 400;
+}
+.rel-box {
+	width: 100%;
+	padding-top: 82%;
+	background-size: cover;
+	background-position:center center;
+}
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   2.0 Single Article
+   ========================================================================== */
+.wpsocialite {
+	display: none !important;
+}
+.m-article-wrap {
+	width: 100%;
+	background-color: white;
+	color: #222222;
+}   
+.m-article-image {
+	width: 100%;
+	padding-top: 50%;
+	background-size: cover;
+	background-position: center center;
+}
+.m-article {
+	padding: 0 20px 20px;
+} 
+.m-article .m-hlep-grow {
+	font: 400 14px/17px "Titillium Web", sans-serif;
+	color: #58595b;
+	width: 218px;
+} 
+.m-article .m-social-wrap:last-child {
+	margin-top: 40px;
+} 
+.m-article .m-social-buttons ul li:first-child {
+	margin-left: 0;
+}
+.m-article .m-social-buttons ul li {
+	margin: 0 5px;
+}
+.m-article .m-social-buttons ul li a {
+	color: #ee7700;
+	font-size: 25px;
+}
+.m-article h1 {
+	font-size: 32px;
+	line-height: 36px;
+	text-transform: uppercase;
+	margin-bottom: 15px;
+}
+.m-article h3 {
+	font-size: 21px;
+	line-height: 27px;
+	font-weight: 300;
+	margin: 0;
+}
+.m-post-byline {
+	font-size: 13px;
+	font-weight: 300;
+	display: inline-block;
+	margin-bottom: 8px;
+}
+.m-article p {
+	font: 400 17px/28px "Lora", sans-serif;
+}
+
+.m-article blockquote {
+	position: relative;
+	margin: 30px 0;
+	padding-left: 30px;
+	font-weight: 200;
+	font-size: 26px;
+	line-height: 30px;
+	border-left: 9px solid #ee7700;
+} 
+.m-article blockquote::before {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	content: "\f05b";
+	color: white;
+	
+	position: absolute;
+	top: -13px;
+	left: -16px;
+	
+	-ms-transform: rotate(-90deg); /* IE 9 */
+    -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+    transform: rotate(-90deg);
+}
+.m-article blockquote::after {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	content: "\f05b";
+	color: white;
+	
+	position: absolute;
+	bottom: -13px;
+	left: -12px;
+	
+	-ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    transform: rotate(90deg);
+}
+
+
+/* ==========================================================================
+   4.0 Footer
+   ========================================================================== */
+.category .s-footer {
+	padding: 20px 20px 20px;
+}
+.s-footer {
+	max-width: 100%;
+	padding: 50px 20px 20px;
+}   
+.s-mag-cover {
+	float: left;
+	width: 44%;
+	margin-right: 6%;
+}
+.s-mag-cover img {
+	width: 100%;
+}
+.s-mag-descr {
+	float: left;
+	width: 50%;	
+}
+.s-mag-descr h1 {
+	font-size: 19px;
+	margin: -8px 0 0;
+}
+.s-mag-descr p {
+	font-size: 12px;
+	margin: 5px 0 0;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+.s-mag-buy {
+	float: left;
+	width: 100%;
+}
+.s-mag-buy h2 {
+	font-size: 18px;
+	font-weight: 200;
+}
+.s-or {
+	position: relative;
+	height: 12px;
+	border-top: 1px solid #959595;
+	border-bottom: 1px solid #959595;
+}
+.s-or > div {
+	position: absolute;
+	left: 0;right: 0; top: -8px; 
+	margin: 0 auto;
+	width: 40px;
+	height: 20px;
+	background-color: #202020;
+	text-align: center;
+	font-weight: 200;
+}
+.s-mag-btns {
+	width: 100%;
+	float: left;
+	margin: 15px 0;
+}
+.s-mag-btns .orange-btn {
+	width: 48%;
+}
+.s-mag-btns a:first-child {
+	margin-right: 2.5%;
+}
+.footer-message h2 {
+	font-size: 19px;
+	text-align: center;
+}
+.f-social-buttons {
+	margin: 0 auto 15px;
+	text-align: center;
+}
+.f-social-buttons ul {
+	list-style: none;
+	margin: 8px 0;
+	padding: 0;
+}
+.f-social-buttons ul li {
+	display: inline;
+	margin: 0 5px;
+}
+.f-social-buttons ul li a {
+	font-size: 25px;
+	color: #a0a0a0;
+}
+.f-social-buttons ul li a:hover {
+	color: white;
+}
+.m-footer-bottom {
+	float: left;
+	width: 100%;
+	padding-top: 30px;
+	border-top: 1px solid #444444;
+}
+
+.m-imo-logo {
+	width: 110px;
+	margin: 0 auto 15px;
+}
+.m-imo-logo img {
+	width: 100%;
+}
+.m-footer-nav ul {
+	list-style: none;
+	text-align: center;
+	padding: 0;
+	margin: 0 0 20px;
+}
+.m-footer-nav ul li a {
+	color: 	#e9e9e9;
+	font-size: 12px;
+	font-weight: 600;
+}
+.m-footer-nav ul li a:hover {
+	color: #ee7700;
+}
+.m-copyright {
+	margin-top: 30px;
+	text-align: center;
+}
+.m-copyright p {
+	font-size: 13px;
+}
+
+
+/* ==========================================================================
+   16.0 Media Queries
+   ========================================================================== */
+@media only screen and (min-width: 375px) {/* iPhone 6 */
+
+/* Footer *******************/  
+.s-mag-descr h1 {
+	font-size: 23px;
+}
+.s-mag-buy h2 {
+    font-size: 21px;
+    margin-bottom: 7px;
+}
+.s-mag-descr p {
+	font-size: 15px;
+}
+
+}/* end of media */
+
+
+@media only screen and (min-width: 480px) {/* smartphones, Android phones, landscape iPhone */
+
+/* Header *******************/
+.main-nav {margin: 0 0 0 21px;}
+.social-buttons ul {margin-right:21px;}
+
+/* Footer *******************/  
+
+.s-mag-descr h1 {
+	font-size: 29px;
+}
+.s-mag-descr p {
+	font-size: 16px;
+}
+.s-mag-buy h2 {
+	font-size: 29px;
+	margin-bottom: 10px;
+}
+.s-or {
+	height: 14px;
+	margin-bottom: 5px;
+}
+.s-or > div {
+	top: -9px; 
+	width: 46px;
+	height: 25px;
+	font-size: 19px;
+}
+.s-mag-btns .orange-btn {
+	width: 48.5%;
+	font-size: 13px;
+}
+.s-mag-btns a:first-child {
+	margin-right: 2%;
+}
+/* Single Article *******************/ 
+.m-article .m-hlep-grow {
+	width: auto;
+}
+.rel-link {
+	margin-bottom:20px;
+}
+
+}/* end of media */
+
+
+@media only screen and (min-width: 600px) {/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+
+/* Header *******************/
+.main-header {
+	width: 92%;
+	margin: 0 auto;	
+}
+.menu-area {
+	position: relative;
+}
+.shoot101-logo {
+	width: auto;
+	border-bottom: none;
+	float: left;
+}
+.shoot101-logo img {
+	margin: 0;
+}
+.single .cat-shoot101 .main-nav {
+	float: left;
+	text-align: left;
+	margin: 50px 0 0 20px;
+}
+.main-nav {
+ 	margin: 50px 0 0 20px; 
+ }
+.social-buttons {
+	float: none;
+	position: absolute;
+	bottom: 2px;
+	right: 1px;
+}
+.social-buttons ul {
+	margin: 8px 0;
+}
+
+.social-buttons ul li a {
+	font-size: 24px;
+}
+.sponsors-disclaimer {
+	text-align: left;
+}
+.category .cat-shoot101 .sponsors-disclaimer {
+	width: 92%;
+	margin: 0 auto;
+}
+.sponsors-disclaimer span {
+	margin-left: 20px;
+}
+
+
+/* Content *******************/
+
+.content {
+	padding: 0 4%;
+}
+.posts-wrap {
+	margin: 35px -1%;
+}
+
+.featured-message {
+	width: 98%;
+	margin: 1% 1% 4%;
+	border-top: 4px solid #959595;
+	border-bottom: 4px solid #959595;
+}
+.featured-message span {
+	font-size: 18px;
+}
+.p-feat-container a:nth-child(3n+1) .post-box, 
+.p-feat-container a:nth-child(3n+2) .post-box{
+	margin: 0 1% 3.2%;
+	width: 48%;
+	padding-top: 32.16%;
+}
+.p-feat-container a:nth-child(3n+3) .post-box {
+	margin: 0 1% 3.2% ;
+	width: 98%;
+	padding-top: 33.22%;
+}
+
+.p-container a:nth-of-type(5n+1) .post-box,
+.p-container a:nth-of-type(5n+2) .post-box {
+	margin: 0 1% 3.2%;
+	width: 48%;
+	padding-top: 32.16%;
+}
+
+.p-container a:nth-of-type(5n+3) .post-box,
+.p-container a:nth-of-type(5n+4) .post-box,
+.p-container a:nth-of-type(5n+5) .post-box {
+	margin: 0 1% 3.2% ;
+	width: 31.333333%;
+	padding-top: 20.9933333%;
+}
+
+.rel-logo {
+	display: inline-block;
+}
+.p-rel-header {
+	margin: 0 1%;
+}
+.p-rel-header > h5 {
+	display: inline-block;
+	margin: 5px 0 7px 25px;
+}
+.rel-wrap {
+	margin: 30px 0 0;
+}
+.rel-link {
+	margin: 0 1% 30px;
+	width: 23%;	
+}
+.rel-wrap a:nth-child(4n+3) {
+	clear:none;
+}
+.rel-wrap a:nth-child(4n+5) {
+	clear:left;
+}
+.rel-link h3 {
+	font-size: 13px;
+	color: #e9e9e9;
+	font-weight: 400;
+}
+.rel-box {
+	width: 100%;
+	padding-top: 82%;
+	background-size: cover;
+	background-position:center center;
+}
+/* Single Article *******************/
+.m-article {
+	padding: 0 35px 20px;
+} 
+
+/* Footer *******************/  
+.category .s-footer {
+	padding: 20px 0 0;
+}
+.s-footer {
+	margin: 0 4%;
+	padding: 50px 0 0;
+	position: relative;
+}
+.s-mag-descr h1 {
+	font-size: 39px;
+	margin-top: -15px;
+}
+.s-mag-descr p {
+    font-size: 18px;
+}
+.s-mag-buy h2 {
+    font-size: 36px;
+}
+.m-imo-logo {
+	width: 110px;
+	margin: 0 20px 0 0;
+	display: inline-block;
+}
+.m-imo-logo img {
+	width: 100%;
+}
+.m-footer-nav {
+	display: inline-block;
+}
+.m-footer-nav ul {
+	text-align: left;
+}
+.m-footer-nav ul li {
+	display: inline-block;
+}
+.m-footer-nav ul li a {
+	padding: 5px 15px;
+}
+.m-copyright {
+	margin-top: 15px;
+	text-align: left;
+}
+/* Wordpress Defaults *******************/  
+
+.aligncenter,
+div.aligncenter {
+    display: block;
+    margin: 5px auto 5px auto;
+}
+.alignright {
+    float:right;
+    margin: 5px 0 20px 20px;
+}
+.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+a img.alignright {
+    float: right;
+    margin: 5px 0 20px 20px;
+}
+a img.alignnone {
+    margin: 5px 20px 20px 0;
+}
+a img.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+a img.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+.wp-caption {
+	max-width: 100%;
+	text-align: left;
+}
+.m-article .wp-caption.aligncenter {
+	margin: 30px auto 30px;
+}
+.m-article .wp-caption.alignnone {
+	margin: 30px 0 30px;
+	float: none;
+}
+.m-article .wp-caption.alignright {
+	float: right;
+	margin: 8px 0 30px 40px;
+}
+.m-article .wp-caption.alignleft {
+	float: left;
+    margin: 8px 40px 30px 0;
+}
+.wp-caption.alignright {
+/*     margin: 5px 0 20px 20px; */
+}
+.wp-caption img {
+    border: 0 none;
+    height: auto;
+/*     max-width: 98.5%; */
+	max-width: 100%;
+    padding: 0;
+    width: auto;
+}
+.wp-caption p.wp-caption-text {
+    font-size: 14px;
+    line-height: 19px;
+    padding: 0 5px 10px;
+}
+
+}/* end of media */
+
+@media only screen and (min-width: 700px) {
+
+/* Content *******************/
+.featured-message {
+	padding: 10px 0;
+}	
+.featured-message span {
+	font-size: 20px;
+	margin-bottom: 8px;
+}
+.m-social-buttons ul li {
+	display: inline;
+	margin: 0 10px;
+}
+.m-social-buttons ul li a {
+	font-size: 37px;
+}
+.p-container {
+	margin-bottom: 80px;
+}
+.rel-logo {
+	width: 150px;
+}
+.p-rel-header > h5 {
+	font-size: 16px;
+}
+
+/* Footer *******************/ 
+.footer-message {
+	margin-top: 20px;
+	border-top: 1px solid #444444;
+}
+.footer-message h2 {
+	text-align: left;
+	float: left;
+}
+.f-social-buttons {
+	text-align: right;
+	float: right;
+	margin: 10px auto 0;
+}
+.s-mag-buy {
+	width: 62%;
+}
+.s-mag-cover {
+    margin-right: 5%;
+    width: 33%;
+}
+.s-mag-descr {
+    float: left;
+    width: 62%;
+}
+.s-mag-buy h2 {
+    font-size: 26px;
+}
+
+
+}/* END OF MEDIA */
+
+@media only screen and (min-width: 920px) {
+
+/* Header *******************/
+.shoot101-logo {
+	float: none;
+	position: absolute;
+	width: 200px;
+	left:0; right: 0;
+	margin: 0 auto;
+}
+.shoot101-logo img {
+	margin: 0;
+}
+.single .cat-shoot101 .main-nav, .main-nav {
+ 	margin: 53px 0 15px 2px; 
+}
+.main-nav ul li {height: 13px;}
+.main-nav ul li a {
+  font: 15px/15px "Titilium Web", sans-serif;
+}
+.social-buttons ul {
+	margin: 8px 0;
+}
+
+.social-buttons ul li a {
+	font-size: 24px;
+}
+.sponsors-disclaimer {
+	text-align: center;
+	width: 92%;
+	margin: 0 auto;
+}
+.sponsors-disclaimer span {
+	margin-left: 0;
+	font-size: 15px;
+}
+
+
+/* Content *******************/
+
+.content {
+	padding: 0 4%;
+}
+.posts-wrap {
+	margin: 35px -0.5%;
+}
+.p-feat-container a:nth-child(3n+1) .post-box, 
+.p-feat-container a:nth-child(3n+2) .post-box{
+	margin: 0 0.5% 2.5%;
+	width: 49%;
+	padding-top: 32.83%;
+}
+
+.p-feat-container a:nth-child(3n+3) .post-box {
+	margin: 0 0.5% 2.5% ;
+	width: 99%;
+	padding-top: 33.66%;
+}
+.featured-message {
+	width: 99%;
+	margin: 0 0.5% 35px;
+	border-top: 4px solid #959595;
+	border-bottom: 4px solid #959595;
+}
+
+.p-container a:nth-of-type(5n+1) .post-box,
+.p-container a:nth-of-type(5n+2) .post-box {
+	margin: 0 0.5% 2.5%;
+	width: 49%;
+	padding-top: 32.83%;
+}
+
+.p-container a:nth-of-type(5n+3) .post-box,
+.p-container a:nth-of-type(5n+4) .post-box,
+.p-container a:nth-of-type(5n+5) .post-box {
+	margin: 0 0.5% 2.5% ;
+	width: 32.3333333%;
+	padding-top: 21.66333333%;
+}
+
+/* Related Articles *******************/
+.p-rel-header > h5 {
+    margin-left:30px;
+    font-size: 17px;
+}
+.rel-logo {
+	width: 170px;
+}
+.rel-link h3 {
+	font-size: 18px;
+}
+
+/* Single Articles *******************/
+.m-article {
+	padding: 0 0 20px;
+	margin: 0 17%;
+}
+.m-article-image {
+	padding-top: 39%;
+}
+
+/* Footer *******************/ 
+.s-mag {
+	position: relative;
+}
+.s-mag-buy {
+  position: absolute;
+  bottom: -9px;
+  left: 30%;
+  width: auto;
+}
+.s-mag-cover {
+    margin-right: 5%;
+    width: 25%;
+}
+.s-mag-descr {
+    float: left;
+    width: 70%;
+}
+.s-mag-buy h2 {
+    font-size: 30px;
+}
+.footer-message h2 {
+	text-align: left;
+}
+.f-social-buttons {
+	text-align: left;
+}
+.m-copyright {
+	margin-top: 0;
+	float: left;
+}
+	
+}/* END OF MEDIA */
+
+@media only screen and (min-width: 1025px) {/* big landscape tablets, laptops, and desktops */
+
+/* Single Articles *******************/
+.m-article {
+	margin: 0 25%;
+}
+/* Related Articles *******************/
+
+.rel-link h3 {
+	font-size: 19px;
+}
+/* Wordpress Defaults *******************/  
+
+.alignright {
+    float:right;
+    margin: 5px 0 20px 20px;
+}
+.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+a img.alignright {
+    float: right;
+    margin: 5px 0 20px 20px;
+}
+a img.alignnone {
+    margin: 5px 20px 20px 0;
+}
+a img.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+a img.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+.wp-caption {
+	max-width: 100%;
+	text-align: left;
+}
+.m-article .wp-caption.aligncenter {
+	margin: 30px auto 30px;
+}
+.m-article .wp-caption.alignnone {
+	margin: 30px 0 30px;
+	float: none;
+}
+.m-article .wp-caption.alignright {
+/* 	width: 150px !important; */
+	margin-right: -150px;
+}
+.m-article .wp-caption.alignleft {
+/* 	width: 150px !important; */
+    margin-left: -150px;
+}
+.m-article .wp-caption.alignright img {
+	width: 300px;
+	max-width: 300px;
+}
+.m-article .wp-caption.alignleft img {
+	width: 300px;
+	max-width: 300px;
+}
+.wp-caption p.wp-caption-text {
+    font-size: 14px;
+    line-height: 19px;
+    padding: 0 5px 10px;
+}
+
+
+}/* END OF MEDIA */
+
+@media only screen and (min-width: 1250px) {/* large desktops */
+
+/* Header *******************/
+.main-header, .content, .sponsors-disclaimer {
+	margin: 0 auto;
+	max-width: 1442px;
+}
+
+
+/* Footer *******************/ 
+.s-mag {
+	width: 857px;
+	float: left;
+	margin-right: 30px;
+	border-right: 2px solid #a6a6a6;
+}
+.s-mag-cover {
+    margin-right: 5%;
+    width: 30%;
+}
+.s-mag-descr {
+    float: left;
+    width: 65%;
+    padding-right: 5%;
+}
+.s-mag-buy {
+  position: absolute;
+  bottom: -9px;
+  left: 35%;
+}
+.s-mag-buy h2 {
+    font-size: 34px;
+}
+.s-or {
+  height: 16px;
+}
+.s-or > div {
+  top: -10px;
+  width: 50px;
+  font-size: 21px;
+}
+.footer-message {
+	top: 65px;
+	display: block;
+	position: absolute;
+	text-align: right;
+	right: 0;
+	width: 100%;
+	padding-left: 75%;
+	font-family: "Lora", serif;
+	border-top: none;
+}
+.m-footer-bottom {
+	margin-top: 50px;
+}
+.footer-message h2 {
+	font-size: 24px;
+	text-align: right;
+}
+.f-social-buttons {
+	margin: 0 0 15px;
+	text-align: right;
+}
+.f-social-buttons ul li {
+	margin: 0 5px;
+}
+.f-social-buttons ul li:first-child {
+	margin: 0 5px;
+}
+.f-social-buttons ul li:last-child {
+	margin: 0 0 0 5px;
+}
+.f-social-buttons ul li a {
+	font-size: 30px;
+}
+
+}/* END OF MEDIA */
+
+
+
+@media only screen and (min-width: 1450px) {/* large desktops */
+
+/* Header *******************/
+.main-header, .content, .sponsors-disclaimer, .s-footer {
+	margin: 0 auto;
+	max-width: 1442px;
+}
+/* Content *******************/
+.content {
+	padding: 0;
+}
+
+ 
+
+
+}/* END OF MEDIA */
+
+/* ==========================================================================
+   17.0 Print styles
+   ========================================================================== */
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    a,
+    a:visited { text-decoration: underline;}
+    a[href]:after {content: " (" attr(href) ")";}
+    abbr[title]:after { content: " (" attr(title) ")";}
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {content: "";}
+    pre,
+    blockquote {border: 1px solid #999;page-break-inside: avoid;}
+    thead {display: table-header-group;}
+    tr,
+    img {page-break-inside: avoid;}
+    img { max-width: 100% !important;}
+
+    @page {margin: 0.5cm;}
+    p,
+    h2,
+    h3 { orphans: 3; widows: 3;}
+    h2,
+    h3 { page-break-after: avoid;}
+}

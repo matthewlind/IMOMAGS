@@ -45,6 +45,7 @@ add_action( 'init', 'register_rt_menu' );
 
 function register_rt_menu() {
 	register_nav_menu( 'tv-menu', __( 'TV Menu' ) );
+	register_nav_menu( 'shoot101_menu', __( 'Shoot101' ) );
 }
 
 add_action( 'init', 'register_pd_menu' );
@@ -247,3 +248,38 @@ function wpse_5057_match_multiple_taxonomy_terms($where_clause, $wp_query) {
 }
 add_action('posts_where','wpse_5057_match_multiple_taxonomy_terms',10,2); // Hook this to posts_where
 
+
+// adding single post template for category shoot101. Every post that is in cat shoot101 will use this template.
+/*
+add_action('template_include', 'load_single_template');
+  function load_single_template($template) {
+    $new_template = '';
+
+    // single post template
+    if( is_single() ) {
+      global $post;
+      // 'shoot101' is category slug
+
+      if( has_term('shoot101', 'category', $post) ) {
+        $new_template = locate_template(array('single-shoot101.php' ));
+      }
+
+    }
+    return ('' != $new_template) ? $new_template : $template;
+}
+*/
+
+add_filter('img_caption_shortcode', 'fix_img_caption_shortcode', 10, 3);
+
+function fix_img_caption_shortcode($val, $attr, $content = null) {
+    extract(shortcode_atts(array(
+        'id'    => '',
+        'align' => '',
+        'width' => '',
+        'caption' => ''
+    ), $attr));
+
+    if ( 1 > (int) $width || empty($caption) ) return $val;
+
+    return '<div id="' . $id . '" class="wp-caption ' . esc_attr($align) . '" style="width: ' . (0 + (int) $width) . 'px">' . do_shortcode( $content ) . '<p class="wp-caption-text">' . $caption . '</p></div>';
+}
