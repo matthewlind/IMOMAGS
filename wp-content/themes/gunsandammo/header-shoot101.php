@@ -101,8 +101,24 @@
 
 		 
 		wp_head();
+		
+		$magazine_img = get_option('magazine_cover_uri' );
+		$subs_link = get_option('subs_link'); 
+		$iMagID = get_option('iMagID' );
+		$deal_copy = get_option('deal_copy' );
+		$gift_link = get_option('gift_link' );
+		$service_link = get_option('service_link' );
+		$subs_form_link = get_option('subs_form_link' );
+		$i4ky = get_option('i4ky' );
+		$dartDomain = get_option("dart_domain", $default = false);
+		include_once get_template_directory() . "/head-includes.php";
+		include_once get_stylesheet_directory() . "/head-includes.php";
 	?>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/dart.js" type="text/javascript"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.jfollow.js" type="text/javascript"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/flash_heed.js" type="text/javascript"></script>
+	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/snap.js"></script>
+	
 	<script type='text/javascript'>
 		var googletag = googletag || {};
 		googletag.cmd = googletag.cmd || [];
