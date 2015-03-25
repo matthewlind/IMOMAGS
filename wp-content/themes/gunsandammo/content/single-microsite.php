@@ -3,8 +3,8 @@
  * Template Name: Shoot101
  * Description: A page template for shoot101 articles
  */
-
-echo get_template_part( 'header', 'shoot101' ); 
+get_header(); 
+// echo get_template_part( 'header', 'shoot101' ); 
 	$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );	
 	$postID = get_the_ID();
 	$byline = get_post_meta($postID, 'ecpt_byline', true);

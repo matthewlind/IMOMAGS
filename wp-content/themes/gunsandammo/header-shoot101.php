@@ -156,7 +156,12 @@
 </head>
 
 <body <?php body_class(); ?>  >
-
+	
+	
+	<?php 
+		fixed_connect_footer();
+		if ( mobile() ) { ?><div class="mobile-adhesion"><?php imo_ad_placement("mobile_adhesion_320x50"); ?></div><?php } ?>
+	
 	<div class="top-panel">
 		<a href="http://www.gunsandammo.com/" class="icon-arrow-left">Back to Guns & Ammo</a>
 	</div>
