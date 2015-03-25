@@ -1,5 +1,6 @@
 <?php
-	echo get_template_part( 'header', 'shoot101' );
+	get_header();
+// 	echo get_template_part( 'header', 'shoot101' );
 	// The opening class in the header is .scroller-inner
 /*
 	$parrent_id = wp_get_post_parent_id( $post_ID ); 
@@ -11,7 +12,7 @@
 */
 ?>
 <div class="sponsors-disclaimer">
-	<span>BROGHT TO YOU BY VISTA OUTDOOR INC. AND ITS FAMILY OF <a href="#">BRANDS</a></span>
+	<span>BROGHT TO YOU BY VISTA OUTDOOR INC. AND ITS FAMILY OF <a href="http://www.vistaoutdoor.com/" target="_blank">BRANDS</a></span>
 </div>
 <div class="content">
 		<div class="posts-wrap">

@@ -111,6 +111,9 @@ a {
 }
 a:hover {
 	color: #ff3000;	
+	-webkit-transition:color 0.1s;
+	-moz-transition:color 0.1s;
+	transition:color 0.1s;
 }
 h1, h2, h3, h4, h5 { 
 	font-weight: 600; 
@@ -579,7 +582,7 @@ a img.aligncenter {
 	font-size: 32px;
 	line-height: 36px;
 	text-transform: uppercase;
-	margin-bottom: 15px;
+	margin-bottom: 5px;
 }
 .m-article h3 {
 	font-size: 21px;
@@ -605,41 +608,34 @@ a img.aligncenter {
 	font-size: 26px;
 	line-height: 30px;
 	border-left: 9px solid #ee7700;
+	font: 300 26px "Titillium Web", sans-serif;
 } 
-.m-article blockquote::before {
+.m-article blockquote p {
+	font: 300 26px "Titillium Web", sans-serif;
+}
+.m-article blockquote::before, .m-article blockquote::after {
 	font-family: 'icomoon';
 	speak: none;
 	font-style: normal;
 	font-weight: normal;
 	font-variant: normal;
+	font-size: 35px;
 	text-transform: none;
 	line-height: 1;
 	content: "\f05b";
-	color: white;
-	
+	color: white;	
 	position: absolute;
-	top: -13px;
-	left: -16px;
-	
+} 
+.m-article blockquote::before {	
+	top: -16px;
+	left: -19px;	
 	-ms-transform: rotate(-90deg); /* IE 9 */
     -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
     transform: rotate(-90deg);
 }
 .m-article blockquote::after {
-	font-family: 'icomoon';
-	speak: none;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
-	content: "\f05b";
-	color: white;
-	
-	position: absolute;
-	bottom: -13px;
-	left: -12px;
-	
+	bottom: -16px;
+	left: -15px;
 	-ms-transform: rotate(90deg); /* IE 9 */
     -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
     transform: rotate(90deg);
@@ -652,6 +648,67 @@ a img.aligncenter {
 	padding-bottom: 20px;
 	border-bottom: 1px solid #444444;
 }
+.m-buy-mag {
+	width: 300px;
+}
+.m-buy-mag h2 {
+	font-size: 31px;
+	line-height: 37px;
+	margin: 20px 0;
+}
+.m-buy-mag-bottom {
+	width: 100%;
+}
+.m-buy-mag-bottom a {
+	display: block;
+	float: left;
+	width: 134px;
+	height: 96px;
+	font-size: 17px;
+	line-height: 24px;
+	margin-bottom: 13px;
+	border: 1px solid #e1e1e1;
+	padding: 11px 19px;
+	border-radius: 1px;
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ffffff 0%, #e3e3e3 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e3e3e3)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#e3e3e3 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ffffff 0%,#e3e3e3 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ffffff 0%,#e3e3e3 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #ffffff 0%,#e3e3e3 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e3e3e3',GradientType=0 ); /* IE6-9 */
+	-webkit-transition:color 0s;
+	-moz-transition:color 0s;
+	transition:color 0s;
+}
+.m-buy-mag-bottom a:hover {
+	color: white;
+	border: 1px solid #ff9900;
+	background: #ffb702; /* Old browsers */
+	border-radius: 4px;
+	font-weight: 600;
+background: -moz-linear-gradient(top, #ffb702 0%, #ff9900 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffb702), color-stop(100%,#ff9900)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #ffb702 0%,#ff9900 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #ffb702 0%,#ff9900 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #ffb702 0%,#ff9900 100%); /* IE10+ */
+background: linear-gradient(to bottom, #ffb702 0%,#ff9900 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', endColorstr='#ff9900',GradientType=0 ); /* IE6-9 */
+	-webkit-transition:color 0s;
+	-moz-transition:color 0s;
+	transition:color 0s;
+}
+.m-buy-mag-img {
+	width: 155px;
+	height: 205px;
+	float: left;
+	margin-right: 11px;
+	background-image: url("/wp-content/themes/gunsandammo/images/shoot101/mag-cover.jpg");
+	background-size: cover;
+	background-position: center center;
+}
+
 /* ==========================================================================
    4.0 Footer
    ========================================================================== */
@@ -996,6 +1053,12 @@ a img.aligncenter {
     padding-top: 32.16%;
     width: 48%;
 }
+.m-article blockquote {
+	font-size: 30px;
+} 
+.m-article blockquote p {
+	font-size: 30px;
+}
 
 /* Footer *******************/  
 .category .s-footer {
@@ -1134,6 +1197,10 @@ a img.aligncenter {
 }
 .p-rel-header > h5 {
 	font-size: 16px;
+}
+.m-article h1 {
+	font-size: 40px;
+	line-height: 46px;
 }
 
 /* Footer *******************/ 
@@ -1324,6 +1391,10 @@ a img.aligncenter {
 /* Single Articles *******************/
 .m-article {
 	margin: 0 25%;
+}
+.m-article h1 {
+	font-size: 45px;
+	line-height: 52px;
 }
 /* Related Articles *******************/
 
