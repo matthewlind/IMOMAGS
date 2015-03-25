@@ -984,6 +984,10 @@ a img.aligncenter {
 	padding: 0;
 	margin: 0 4%;
 }
+.m-more h2 {
+	font-weight: 300;
+	font-size: 30px;
+}
 .m-more-wrap {
 	margin: 0 -1%;
 }
@@ -1270,7 +1274,7 @@ a img.aligncenter {
 	margin: 0 4%;
 }
 .m-more h2 {
-	margin-left: 1%;
+	margin-left: -2px;
 }
 .m-more-wrap {
 	margin: 0 -0.5%;
