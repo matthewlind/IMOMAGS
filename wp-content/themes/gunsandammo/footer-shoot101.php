@@ -1,4 +1,4 @@
-</div>
+</div><!-- end .s101 -->
 <footer class="s-footer clearfix">
 	<div class="s-mag clearfix">
 		<div class="s-mag-cover">
@@ -48,7 +48,6 @@
 	        <p>© 2015 InterMedia Outdoors. All Rights Reserved</p>
 	    </div>
 	</div><!-- end .m-footer-bottom -->
-
 </footer>
 
 <!--

@@ -10,7 +10,6 @@
 	$cat_name = $cat->cat_name;
 */
 ?>
-
 <div class="sponsors-disclaimer">
 	<span>BROGHT TO YOU BY VISTA OUTDOOR INC. AND ITS FAMILY OF <a href="#">BRANDS</a></span>
 </div>
@@ -109,7 +108,6 @@
 					}
 					wp_reset_postdata();
 				?>
-			
 			</div><!-- end .p-container -->
 			<div class="rel-container clearfix">
 				<header class="p-rel-header clearfix">
@@ -119,8 +117,7 @@
 					<h5>RELATED ARTICLES FROM GUNS & AMMO</h5>
 					<div class="rel-triangle"></div>
 				</header>
-				<div class="rel-wrap clearfix">
-					
+				<div class="rel-wrap clearfix">					
 					<?php
 						$args = array (
 							'category_name'         	=> 'shoot101',			
