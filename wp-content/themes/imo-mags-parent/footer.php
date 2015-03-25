@@ -66,11 +66,11 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 		        </div>
 		        <div class="f-nav-section clearfix">
 		            <ul class="foot-nav">
-		                <li><a href="http://www.imoutdoorsmedia.com/IM3/">ABOUT</a></li>
-		                <li><a href="http://www.imoutdoorsmedia.com/">ADVERTISE</a></li>
-		                <li><a href="/contact">CONTACT</a></li>
-		                <li><a href="http://imomags.com/careers/">CAREERS</a></li>
-						<li><a href="http://www.imoutdoorsmedia.com/IM3/privacy.php">PRIVACY POLICY</a></li>
+		                <li><a href="http://www.imoutdoors.com/about/" target="_blank">ABOUT</a></li>
+		                <li><a href="http://www.imoutdoors.com/advertise" target="_blank">ADVERTISE</a></li>
+		                <li><a href="http://www.imoutdoors.com/about/contact" target="_blank">CONTACT</a></li>
+		                <li><a href="http://www.imoutdoors.com/about/careers" target="_blank">CAREERS</a></li>
+						<li><a href="http://www.imoutdoors.com/about/privacy" target="_blank">PRIVACY POLICY</a></li>
 		                <!--<li class="mobile-element-320"><a href="#">SPONSORSHIP/ADVERTISING</a></li>
 		                <li class="mobile-element-320"><a href="#">TERMS OF USE</a></li>
 		                <li class="mobile-element-320"><a href="#">LINK TO US</a></li>
@@ -79,7 +79,7 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 		        </div>
 		        <div class="copyright-section clearfix">
 		            <div class="copyright">
-		                <img src="<?php bloginfo('template_directory'); ?>/images/logos/outdoors.png" class="copyright-img" alt="" />
+		                <a href="http://www.imoutdoors.com/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/images/logos/outdoors.png" class="copyright-img" alt="" /></a>
 		                <p>&copy; <?php echo date("Y"); ?> InterMedia Outdoors. All Rights Reserved</p>
 		            </div>
 		        </div>

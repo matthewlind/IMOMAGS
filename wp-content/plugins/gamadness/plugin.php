@@ -15,6 +15,7 @@ License: GPL2
 */
 
 	
+	
 function madness_func( $atts ) {
 	global $ismobile;
 
@@ -22,23 +23,38 @@ function madness_func( $atts ) {
 }
 add_shortcode( 'madness', 'madness_func' );
 
-	wp_enqueue_script( 'madnessjs', plugin_dir_url( __FILE__ ) . 'madness.js', array( 'jquery' ) );
-	wp_enqueue_style( 'madnesscss', plugin_dir_url( __FILE__ ) . 'madness.css' );
-	wp_enqueue_script( 'magnificjs', plugin_dir_url( __FILE__ ) . 'jquery.magnific-popup.js');
-	wp_enqueue_style( 'magnificcss', plugin_dir_url( __FILE__ ) . 'magnific-popup.css');
-	
-	wp_enqueue_script( 'htmlparser', plugin_dir_url( __FILE__ ) . 'htmlParser.js');
-	wp_enqueue_script( 'postscribe', plugin_dir_url( __FILE__ ) . 'postscribe.js');
-	wp_enqueue_script( 'xdomainrequest', plugin_dir_url( __FILE__ ) . 'xdomainrequest.min.js');
-	
+add_action('init', function() {
 
+	setcookie('imo_nocache', 'true');
+	
+});
+
+wp_enqueue_script( 'madnessjs', plugin_dir_url( __FILE__ ) . 'madness.js', array( 'jquery' ) );
+wp_enqueue_style( 'madnesscss', plugin_dir_url( __FILE__ ) . 'madness.css' );
+wp_enqueue_script( 'magnificjs', plugin_dir_url( __FILE__ ) . 'jquery.magnific-popup.js');
+wp_enqueue_style( 'magnificcss', plugin_dir_url( __FILE__ ) . 'magnific-popup.css');
+wp_enqueue_style( 'popupAD', plugin_dir_url( __FILE__ ) . 'popupAD.css');
+wp_enqueue_script( 'waituntilexists', plugin_dir_url( __FILE__ ) . 'waituntilexists.js');
+wp_enqueue_script( 'htmlparser', plugin_dir_url( __FILE__ ) . 'htmlParser.js');
+wp_enqueue_script( 'postscribe', plugin_dir_url( __FILE__ ) . 'postscribe.js');
+wp_enqueue_script( 'xdomainrequest', plugin_dir_url( __FILE__ ) . 'xdomainrequest.min.js');
+wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js');
+wp_enqueue_script( 'jquery-cookie', plugin_dir_url( __FILE__ ) . 'jquery-cookie.js');
+	
 function renderGAMpopup($mobile) {
+	
 	$outp = "";
 	$outp.= <<<EOF
 <script id="tmplGAMpopup" type="text/x-magnific-popup-template">
     <div class="white-popup mfp-hidden"><div class="mfp-close"></div>
         <div class='mfp-counter'></div>
 	    <div class="popup-inner clearfix gun">
+	    	
+	    	<div id="popupAD">
+	    		<div id='div-gpt-ad-1426097842267-0' style='width:300px; height:250px; margin: 100px auto 50px;'></div>
+	    		<div class='close-ad' onclick='closeInterstitial();'>Go to the next matchup <span>&raquo;</span></div>
+	    	</div>
+	    
 	    	<h3 id="popuptitle">The Matchup</h3>
 			<div class="popmatchbrackettop"></div>
 			<div class="popmatchbracket"></div>
@@ -60,25 +76,21 @@ function renderGAMpopup($mobile) {
 		    	</div>
 	    	</div>
 	    	<div class="next-matchup">Go to the next matchup <span>&raquo;</span></div>
+	    	<div class="filler">&nbsp;</div>
 	    	<div class="vote-again">Vote again <span>&raquo;</span></div>
 	    	
 	    	<div class="modal-footer">
 	    		<div class="modal-footer-content">
-		    		<div class="modal-footer-content-left">
-		    			<div id="popupsponsor">
-		    				<a href="http://www.gunsandammo.com/bracket/enter/"></a>
-		    			</div>
-						<div class="related-content">
-			    			<h4>Related Stories</h4>
-							<ul>
-			    				<li><a href="" class="mfp-player1link">Review: <span class="mfp-player1name"></span></a></li>
-								<li><a href="" class="mfp-player2link">Review: <span class="mfp-player2name"></span></a></li>
-							</ul>
-						</div>
-		    		</div>
-		    		<div class="modal-footer-content-right">
-		    			<div id="div-gpt-ad-1386782139095-3"></div>
-		    		</div>
+	    			<div id="popupsponsor">
+	    				<a target="_blank" href="http://www.gunsandammo.com/bracket/enter/"></a>
+	    			</div>
+					<div class="related-content">
+		    			<h4>Related Stories</h4>
+						<ul>
+		    				<li><a href="" target="_blank" class="mfp-player1link"><span class="mfp-player1name"></span></a></li>
+							<li><a href="" target="_blank" class="mfp-player2link"><span class="mfp-player2name"></span></a></li>
+						</ul>
+					</div>
 	    		</div>
 	    	</div>
 	    </div>
@@ -86,21 +98,34 @@ function renderGAMpopup($mobile) {
 </script>
 EOF;
 
-
 	return $outp;
 }
 function jsGAMRender($mobile) {
+	
+	$sessID = substr( "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" , mt_rand( 0 ,50 ) , 1 ) . substr( md5( time() ), 1); //$_COOKIE['imo_sparta'];
+	
+	file_get_contents("http://apps.imoutdoors.com/bracket/initSession?sessid=$sessID");
+
 	$outp = "";
 	//$mobile = true;
 	$ismobile = ($mobile)? "true":"false"; 
-	$madnessround = 7;
+	$results = file_get_contents("http://apps.imoutdoors.com/bracket/getActiveRound?bracketid=3");
+	
+	$results = json_decode($results,true);
+	
+	$madnessround = $results[0]['activeround'];
 
-  if($mobile) {
+  if($mobile) { // If it's a mobile device //
 	$outp.= '<div class="ga-madness-votestats"></div>';
 	
 	//if (function_exists('wpsocialite_markup'))
 		 	//$outp.= wpsocialite_markup();
-		 	
+	$outp.= '<div id="faded" style="display: none;"></div>';
+	$outp.= '
+	<div id="captchaWrapper"><br />
+		<div class="g-recaptcha" data-sitekey="6LdWGAMTAAAAANfZM5fbK5aNYozpopkz-v_LhhR0"></div>
+		<button id="proceed">Proceed</button>
+	</div>';	 	
 	$outp.= '<div id="madtabs">'
 		 .  '  <ul class="rounds">'
 		 .  '    <li><a href="#madtabs-1">1st</a></li>'
@@ -115,38 +140,38 @@ function jsGAMRender($mobile) {
 		 .  '    <div class="gun-types">'
 		 .  '      <select>'
 		 .  '        <option value="">SELECT A GUN REGION</option>'
-		 .  '        <option value="#handguns">Handguns</option>'
-		 .  '        <option value="#shotguns">Shotguns</option>'
-		 .  '        <option value="#rifles">Rifles</option>'
-		 .  '        <option value="#ar15s">AR-15s</option>'
+		 .  '        <option value="handguns1">Handguns</option>'
+		 .  '        <option value="rifles1">Rifles</option>'
+		 .  '        <option value="handguns2">Handguns</option>'
+		 .  '        <option value="rifles2">Rifles</option>'
 		 .  '      </select>'
 		 .  '    </div>'
-		 .  '    <h2 id="handguns">Handguns</h2>'
+		 .  '    <h2 id="handguns1">Handguns</h2>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"handgunsmadness")) .'</div>'
 		 .  '    <div class="mreg1"></div>'
-		 .  '    <h2 id="rifles">Rifles</h2>'
+		 .  '    <h2 id="rifles1">Rifles</h2>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"riflesmadness")) .'</div>'
 		 .  '    <div class="mreg3"></div>'
-		 .  '    <h2 id="ar15s">Modern Sporting Rifles</h2>'
+		 .  '    <h2 id="handguns2">Handguns</h2>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"arsmadness")) .'</div>'
 		 .  '    <div class="mreg4"></div>'
-		 .  '    <h2 id="shotguns">Shotguns</h2>'
+		 .  '    <h2 id="rifles2">Rifles</h2>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"shotgunsmadness")) .'</div>'
 		 .  '    <div class="mreg2"></div>'
 
 		 .  '  </div>'
 		 .  '  <div id="madtabs-2">'
 
-		 .  '    <h2 id="handguns">Handguns</h2>'
+		 .  '    <h2 id="handguns2">Handguns</h2>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"handgunsmadness")) .'</div>'
 		 .  '    <div class="mreg1"></div>'
 		 .  '    <h2 id="rifles">Rifles</h2>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"riflesmadness")) .'</div>'
 		 .  '    <div class="mreg3"></div>'
-		 .  '    <h2 id="ar15s">Modern Sporting Rifles</h2>'
+		 .  '    <h2 id="ar15s">Handguns</h2>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"arsmadness")) .'</div>'
 		 .  '    <div class="mreg4"></div>'
-		 .  '    <h2 id="shotguns">Shotguns</h2>'
+		 .  '    <h2 id="shotguns">Rifles</h2>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"shotgunsmadness")) .'</div>'
 		 .  '    <div class="mreg2"></div>'
 		 
@@ -158,10 +183,10 @@ function jsGAMRender($mobile) {
 		 .  '    <h2 id="rifles">Rifles</h2>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"riflesmadness")) .'</div>'
 		 .  '    <div class="mreg3"></div>'
-		 .  '    <h2 id="ar15s">Modern Sporting Rifles</h2>'
+		 .  '    <h2 id="ar15s">Handguns</h2>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"arsmadness")) .'</div>'
 		 .  '    <div class="mreg4"></div>'
-		 .  '    <h2 id="shotguns">Shotguns</h2>'
+		 .  '    <h2 id="shotguns">Rifles</h2>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"shotgunsmadness")) .'</div>'
 		 .  '    <div class="mreg2"></div>'
 		 
@@ -174,10 +199,10 @@ function jsGAMRender($mobile) {
 		 .  '    <h2 id="rifles">Rifles</h2>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"riflesmadness")) .'</div>'
 		 .  '    <div class="mreg3"></div>'
-		 .  '    <h2 id="ar15s">Modern Sporting Rifles</h2>'
+		 .  '    <h2 id="ar15s">Handguns</h2>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"arsmadness")) .'</div>'
 		 .  '    <div class="mreg4"></div>'
-		 .  '    <h2 id="shotguns">Shotguns</h2>'
+		 .  '    <h2 id="shotguns">Rifles</h2>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"shotgunsmadness")) .'</div>'
 		 .  '    <div class="mreg2"></div>'
 		 		 
@@ -185,8 +210,8 @@ function jsGAMRender($mobile) {
 		 .  '  <div id="madtabs-5">'
 		 .  '    <br><div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"handgunsmadness")) .'</div>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"riflesmadness")) .'</div>'
-		 .  '    <div class="mreg5 match61"></div>'
-		 .  '    <div class="mreg6 match62"></div>'
+		 .  '    <div class="mreg5 match155"></div>'
+		 .  '    <div class="mreg6 match156"></div>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"shotgunsmadness")) .'</div>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"arsmadness")) .'</div>'
 		 
@@ -194,7 +219,7 @@ function jsGAMRender($mobile) {
 		 
 		 .  '  <div id="madtabs-6">'
 		 .  '    <br><div style="margin:10px 0px 0px 6px;clear:both;font-size:18px;font-weight:bold;">Championship</div>'
-		 .  '    <div class="mreg7 match63"></div>'
+		 .  '    <div class="mreg7 match157"></div>'
 		 .  '    <br><div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"handgunsmadness")) .'</div>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"riflesmadness")) .'</div>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"shotgunsmadness")) .'</div>'
@@ -204,44 +229,64 @@ function jsGAMRender($mobile) {
 		 .  '</div>';
 
   }
-  else {
+  else { // If it's not a mobile device //
 	
+
 	$outp.= '<ul class="schedule">'
-		 .  '  <li class="'.(($madnessround==2)? "active-round":"").'">First Round<div>March 18-23</div></li>'
-		 .  '  <li class="'.(($madnessround==3)? "active-round":"").'">Second Round<div>March 24-27</div></li>'
-		 .  '  <li class="'.(($madnessround==4)? "active-round":"").'">Sweet 16<div>March 28-31</div></li>'
-		 .  '  <li class="'.(($madnessround==5)? "active-round":"").'">Elite 8<div>April 1-3</div></li>'
-		 .  '  <li class="'.(($madnessround==6)? "active-round":"").'">Final Four<div>April 4-7</div></li>'
-		 .  '  <li class="'.(($madnessround==7)? "active-round":"").'">Final Round<div>April 8-11</div></li>'
+		 .  '  <li class="'.(($madnessround==2)? "active-round":"").'">1st Round<div>March 17-23</div></li>'
+		 .  '  <li class="'.(($madnessround==3)? "active-round":"").'">2nd Round<div>March 23-26</div></li>'
+		 .  '  <li class="'.(($madnessround==4)? "active-round":"").'">Sweet 16<div>March 26-31</div></li>'
+		 .  '  <li class="'.(($madnessround==5)? "active-round":"").'">Elite 8<div>April 1-6</div></li>'
+		 .  '  <li class="'.(($madnessround==6)? "active-round":"").'">Final Four<div>April 6-8</div></li>'
+		 .  '  <li class="'.(($madnessround==7)? "active-round":"").'">Final Round<div>April 8-10</div></li>'
 		 .  '</ul>'
 		 //.  wpsocialite_markup()
 		 ;
 	
-	if($madnessround == 7) {		 
+	if($madnessround == 8) {		 
 	$outp.= '<div class="ga-madness-votestats" style="margin-bottom:20px;clear:both;"></div>'
 		 .  '<div class="regions region-final" style="display:block;">'
-		 .  '  <div class="finalsadvert" style="margin-top:0px;">'
-		 .       get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"presentingmadness"))
-		 .  '  </div>'
+		 
+		 .  '<div class="finalsadvert" style="margin-top:0px;">'
+		 .  ' 	<!-- Site - Guns and Ammo/guns_and_ammo_madness/gam_presenting_sponsor -->'
+		 .	'	<div id="div-gpt-ad-1426097842267-1" >'
+		 .	'		<script type="text/javascript">'
+		 .	'			googletag.cmd.push(function() { googletag.display("div-gpt-ad-1426097842267-1"); });'
+		 .	'		</script>'
+		 .	'	</div>'	 
+		 .  '</div>'
+			
 		 .  '  <div class="final-wrapper">'
 		 .  '    <h2>Final Round</h2>'
-		 .  '    <div class="column column5 match61"></div>'
-		 .  '    <div class="column column6 match63" style="padding-top:20px;"></div>'
-		 .  '    <div class="column column7 match62"></div>'
+		 .  '    <div class="column column5 match155"></div>'
+		 .  '    <div class="column column6 match156" style="padding-top:20px;"></div>'
+		 .  '    <div class="column column7 match157"></div>'
 		 .  '  </div>'		 
 		 .  '</div>';
 	}
 	else {
-		$outp.= '<div class="ga-madness-votestats"></div>';
+		$outp.= '<div class="ga-madness-votestats" style="clear:both;"></div>';
 	}
 
 	$outp.= '<div class="ga-madness">'
 		 .  '<div class="region-titles">'
 		 .	'  <div class="region-left">'
-		 .	'    <h2>Handguns</h2>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"handgunsmadness"))
+		 .	'    <h2>Handguns</h2>'
+		 .	'		<!-- Site - Guns and Ammo/guns_and_ammo_madness/gam_region_sponsor_1 -->'
+		 .	'		<div id="div-gpt-ad-1426097842267-2" >'
+		 .	'			<script type="text/javascript">'
+		 .	'				googletag.cmd.push(function() { googletag.display("div-gpt-ad-1426097842267-2"); });'
+		 .	'			</script>'
+		 .	'		</div>'
 		 .	'  </div>'
 		 .	'  <div class="region-right">'
-		 .	'    <h2>Rifles</h2>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"riflesmadness"))
+		 .	'    <h2>Rifles</h2>'
+		 .	'		<!-- Site - Guns and Ammo/guns_and_ammo_madness/gam_region_sponsor_2 -->'
+	 	 .	'		<div id="div-gpt-ad-1426097842267-3" >'
+	 	 .	'			<script type="text/javascript">'
+	 	 .	'				googletag.cmd.push(function() { googletag.display("div-gpt-ad-1426097842267-3"); });'
+	 	 .	'			</script>'
+	 	 .	'		</div>'
 		 .	'  </div>'
 		 .	'</div>'
 		 
@@ -258,26 +303,43 @@ function jsGAMRender($mobile) {
 		 .	'  <div class="column column4"></div>'
 		 .  '</div>';
 
-	if($madnessround < 7) {		 
+	if($madnessround < 8) {		 
 	$outp.= '<div class="regions region-final">'
-		 .  '  <div class="finalsadvert">'
-		 .       get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"presentingmadness"))
-		 .  '  </div>'
+		 .  '<div class="finalsadvert" style="margin-top:0px;">'
+		 .  ' 	<!-- Site - Guns and Ammo/guns_and_ammo_madness/gam_presenting_sponsor -->'
+		 .	'	<div id="div-gpt-ad-1426097842267-1" >'
+		 .	'		<script type="text/javascript">'
+		 .	'			googletag.cmd.push(function() { googletag.display("div-gpt-ad-1426097842267-1"); });'
+		 .	'		</script>'
+		 .	'	</div>'		 
+		 .  '</div>'
 		 .  '  <div class="final-wrapper">'
 		 .  '    <h2>Final Round</h2>'
-		 .  '    <div class="column column5 match61"></div>'
-		 .  '    <div class="column column6 match63"></div>'
-		 .  '    <div class="column column7 match62"></div>'
+		 .  '    <div class="column column5 match155"></div>'
+		 .  '    <div class="column column6 match156"></div>'
+		 .  '    <div class="column column7 match157"></div>'
 		 .  '  </div>'		 
 		 .  '</div>';
 	}
 		 
 	$outp.= '<div class="region-titles">'
 		 .	'  <div class="region-left">'
-		 .	'    <h2>Modern Sporting Rifles</h2>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"arsmadness"))
+		 .	'    <h2>Handguns</h2>'
+		 .	'	 <!-- Site - Guns and Ammo/guns_and_ammo_madness/gam_region_sponsor_3 -->'
+		 .	'	 	<div id="div-gpt-ad-1426097842267-4" >'
+		 .	'	 		<script type="text/javascript">'
+		 .	'	 			googletag.cmd.push(function() { googletag.display("div-gpt-ad-1426097842267-4"); });'
+		 .	'	 		</script>'
+		 .	'	 	</div>'
 		 .	'  </div>'
 		 .	'  <div class="region-right">'
-		 .	'    <h2>Shotguns</h2>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"shotgunsmadness"))
+		 .	'    <h2>Rifles</h2>'
+		 .	'	 <!-- Site - Guns and Ammo/guns_and_ammo_madness/gam_region_sponsor_4 -->'
+		 .	'	 	<div id="div-gpt-ad-1426097842267-5" >'
+		 .	'	 		<script type="text/javascript">'
+		 .	'	 			googletag.cmd.push(function() { googletag.display("div-gpt-ad-1426097842267-5"); });'
+		 .	'	 		</script>'
+		 .	'	 	</div>'
 		 .	'  </div>'
 		 .	'</div>'
 
@@ -293,27 +355,38 @@ function jsGAMRender($mobile) {
 		 .	'  <div class="column column3"></div>'
 		 .	'  <div class="column column4"></div>'
 		 .  '</div>'
-	 
+		 .  '<button style="display: none;" onclick="removeCookie();">Remove CAPTCHA Cookie</button>'
 		 .  '</div>';
   }	
 
+  // Below gets executed regardless of mobile
+
 	$outp.= '<script type="text/javascript">';
 	$outp.= 'var ismobile = '.$ismobile.';';
-	
+	$outp.= 'var madness = "'.$sessID.'";';
 	$outp.= 'jQuery(document).ready(function() {'
 		 .  '	getGAMData(1,2);getGAMData(1,3);getGAMData(1,4);getGAMData(1,5);'
 		 .  '	getGAMData(2,2);getGAMData(2,3);getGAMData(2,4);getGAMData(2,5);'
 		 .  '	getGAMData(3,2);getGAMData(3,3);getGAMData(3,4);getGAMData(3,5);'
 		 .  '	getGAMData(4,2);getGAMData(4,3);getGAMData(4,4);getGAMData(4,5);'
 	
-		 .  '	getGAMData(0,"61,62,63");'
+		 .  '	getGAMData(0,"155,156,157");'
 		 .  '   getStats();'
 		 .  '   setTimeout(function(){makeGAMPopup()}, 1000);'
+		 .  '   setTimeout(function(){autoPopup()}, 2000);'
 		 .	'});';
 
 	$outp.= '</script>';
+
 	$outp.= renderGAMpopup();
+	$outp.= '
+	<div id="captchaWrapper">
+	<br />
+	   <div class="g-recaptcha" data-sitekey="6LdWGAMTAAAAANfZM5fbK5aNYozpopkz-v_LhhR0"></div>
+	   <button id="proceed">Proceed</button>
+	</div>';
 	
+	$outp.= '<div id="faded"></div>';
 	return $outp;
 }
 
