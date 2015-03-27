@@ -22,21 +22,43 @@ get_header();
 		<?php echo get_template_part("content/social", "buttons"); ?>
 		<h1><?php the_title();?></h1>
 		<?php if(get_the_author() != "admin" && get_the_author() != "infisherman"){ ?><span class="m-post-byline">Words by <?php echo $author; ?> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;</span><?php } ?><?php if ($acf_byline) { ?><span class="m-post-byline"><?php echo $acf_byline;?></span><?php } ?>
-		<?php the_content(); ?>
-		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.
-		</p>
-		<div id="attachment_30512" class="wp-caption alignright" style="width: 300px">
-			<div class="m-buy-mag">
-				<h2>NOW AVAILABLE ON NEWSSTANDS!</h2>
-				<div class="m-buy-mag-bottom clearfix">
-					<div class="m-buy-mag-img"></div>
-					<a href="https://store.intermediaoutdoors.com/" target="_blank">BUY THE MAGAZINE NOW!</a>
-					<a href="https://store.intermediaoutdoors.com/" target="_blank">GET THE DIGITAL EDITION!</a>
-				</div>
-			</div>
-		</div>
-		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.
-		</p>
+		<?php 
+			
+			
+			$content = apply_filters('the_content', $post->post_content);
+			$mag_after_p = 0;
+			$ad1_after_p = 2;
+			$contents = explode("</p>", $content);
+			$p_counter = 0;
+			foreach($contents as $content){
+			    echo $content.'</p>';
+			   
+			    if($p_counter == $mag_after_p){ ?>
+			    	<div class="inline-content" style="width: 300px"> 
+			    		<div class="m-buy-mag"> 
+			    			<h2>NOW AVAILABLE ON NEWSSTANDS!</h2> 
+			    			<div class="m-buy-mag-bottom clearfix"> 				
+			    				<div class="m-buy-mag-img"></div> 
+			    				<a href="https://store.intermediaoutdoors.com/" target="_blank">BUY THE MAGAZINE NOW!</a> 
+			    				<a href="https://store.intermediaoutdoors.com/" target="_blank">GET THE DIGITAL EDITION!</a> 
+			    			</div>
+			    		</div>
+			    	</div>
+				<?php }
+	
+			    if($p_counter == $ad1_after_p){
+			    	echo '<div class="inline-content">';
+						imo_ad_placement("atf_medium_rectangle_300x250"); 
+					echo '</div>';
+				}
+			    $p_counter++;
+			}
+			  
+			           
+		
+			
+		?>
+
 		<?php echo get_template_part("content/social", "buttons"); ?>
 	</article>
 </div><!-- end .m-article-wrap -->
