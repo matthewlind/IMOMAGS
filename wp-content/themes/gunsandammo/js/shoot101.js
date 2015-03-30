@@ -40,6 +40,17 @@ jQuery(document).ready(function($) {
 
 });
 
+jQuery(window).scroll(function () {
+	if (jQuery(window).scrollTop() > 50) {
+		jQuery('.fixed-connect-mobile').fadeIn();
+	}else{
+		jQuery('.fixed-connect-mobile').fadeOut("fast");
+	}
+});
+jQuery('.fixed-connect .close').click(function(){
+	jQuery('.fixed-connect').remove();
+});
+
 jQuery( window ).resize(function() {
 	var windowWidth = jQuery(window).width();
 	
