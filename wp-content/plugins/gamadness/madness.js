@@ -293,7 +293,7 @@
 						popads[4] = 'GA-MAdness-popup-358x90-winchester.jpg';
 						
 						var randomInt = Math.floor(Math.random() * 5);
-						console.log("Random Number= " + randomInt);
+						//console.log("Random Number= " + randomInt);
 						//var randomPopad = ;
 
 						
@@ -318,7 +318,6 @@
 						//postscribe('#div-gpt-ad-1386782139095-3',bidadtag);
 						
 						jQuery(".next-matchup").on("click", function() {
-																
 							if(region==6) {
 								jQuery("div[data-region='5'][data-idx='0'][data-round='6']").trigger("click");
 							}
@@ -326,6 +325,11 @@
 								jQuery.magnificPopup.instance.next();
 							else {
 								slidecnt = 0;
+								
+								if(!jQuery.cookie("slideCount")) {
+									jQuery.cookie("slideCount",0,{ expires: 1 }); // Create a cookie that expires in a day
+								}
+								
 								var nextRegion = parseInt(region)+1;
 								if(nextRegion == 5) nextRegion = 1;
 								
@@ -339,10 +343,19 @@
 
 						
 					},
+					close: function() {
+						jQuery.removeCookie('slideCount');	
+					},
 					change: function() {
 						var item = jQuery.magnificPopup.instance.currItem;
 						slidecnt++;
-						remainder = slidecnt % 4;
+						
+						var incrementedCount = jQuery.cookie("slideCount");
+						incrementedCount++;
+
+						jQuery.cookie("slideCount", incrementedCount);
+												
+						remainder = incrementedCount % 4;
 						switch(remainder) {
 							case 0:
 								waitUntilExists("popupAD",function(){
@@ -390,7 +403,7 @@
 							
 							jQuery(".popup-vote-btn").on("click", function() {
 								logVote(jQuery(this).data("mid"),jQuery(this).data("pnum"));
-								console.log("clicked on " + jQuery(this).data("mid"),jQuery(this).data("pnum"));
+								//console.log("clicked on " + jQuery(this).data("mid"),jQuery(this).data("pnum"));
 							});
 							jQuery(".next-matchup").hide();
 							jQuery('.filler').show();
@@ -551,7 +564,7 @@
 			data: {"format": "json", "id":match, "voted": pnum, "bracketid": bracket, "madness": madness },
 			dataType: "json",
 			success: function(data) {
-				console.log("logVote success return = " + data);
+				//console.log("logVote success return = " + data);
 				var score1 = parseInt(data[0].player1score);
 				var score2 = parseInt(data[0].player2score);
 
