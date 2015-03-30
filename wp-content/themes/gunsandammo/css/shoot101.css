@@ -219,7 +219,7 @@ div.aligncenter {
     display: block;
     margin: 5px auto 5px auto;
 }
-.alignright {
+/*.alignright {
     float:right;
     margin: 5px 0 20px 20px;
 }
@@ -230,14 +230,14 @@ div.aligncenter {
 a img.alignright {
     float: right;
     margin: 5px 0 20px 20px;
-}
+}*/
 a img.alignnone {
     margin: 5px 20px 20px 0;
 }
-a img.alignleft {
+/*a img.alignleft {
     float: left;
     margin: 5px 20px 20px 0;
-}
+}*/
 a img.aligncenter {
     display: block;
     margin-left: auto;
@@ -252,7 +252,7 @@ a img.aligncenter {
 .m-article .wp-caption.alignleft,
 .m-article .wp-caption.alignnone {
 	display: block;
-	margin: 5px auto;
+	/*margin: 5px auto;*/
 	float: none;
 }
 .wp-caption img {
@@ -1179,7 +1179,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 }
 /* Wordpress Defaults *******************/  
 
-.aligncenter,
+/*.aligncenter,
 div.aligncenter {
     display: block;
     margin: 5px auto 5px auto;
@@ -1195,14 +1195,14 @@ div.aligncenter {
 a img.alignright {
     float: right;
     margin: 5px 0 20px 20px;
-}
+}*/
 a img.alignnone {
     margin: 5px 20px 20px 0;
 }
-a img.alignleft {
+/*a img.alignleft {
     float: left;
     margin: 5px 20px 20px 0;
-}
+}*/
 a img.aligncenter {
     display: block;
     margin-left: auto;
@@ -1221,11 +1221,11 @@ a img.aligncenter {
 }
 .m-article .wp-caption.alignright {
 	float: right;
-	margin: 8px 0 30px 40px;
+	/*margin: 8px 0 30px 40px;*/
 }
 .m-article .wp-caption.alignleft {
 	float: left;
-    margin: 8px 40px 30px 0;
+    /*margin: 8px 40px 30px 0;*/
 }
 .wp-caption.alignright {
 /*     margin: 5px 0 20px 20px; */
@@ -1494,7 +1494,7 @@ a img.alignnone {
 }
 a img.alignleft {
     float: left;
-    margin: 5px 20px 20px 0;
+   /*margin: 5px 20px 20px 0;*/
 }
 a img.aligncenter {
     display: block;
@@ -1512,11 +1512,11 @@ a img.aligncenter {
 	margin: 30px 0 30px;
 	float: none;
 }
-.m-article .wp-caption.alignright {
+.m-article .alignright {
 /* 	width: 150px !important; */
 	margin-right: -150px;
 }
-.m-article .wp-caption.alignleft {
+.m-article .alignleft {
 /* 	width: 150px !important; */
     margin-left: -150px;
 }
