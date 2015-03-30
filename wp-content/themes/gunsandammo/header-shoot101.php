@@ -51,41 +51,58 @@
 	    ?></title>
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<!--[if IE 8]><style type="text/css">img{max-width: none !important;}.BCLvideoWrapper object{width:480px !important;}</style><![endif]-->
-	
-	
-	<?php
-	if (is_home()) { ?>
-		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
-	<?php }	else { 
-		if ( in_category('shoot101')) { ?>
-			<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/css/shoot101.css" />
-	<?php } else { ?>
-			<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
-	<?php	}
-	}
-	?>
-	
+	<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/css/shoot101.css" />
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	<!--[if lt IE 9]>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
 	<![endif]-->
 	<?php
+		wp_enqueue_script("jquery");
+		 
+		// Prevent loading scripts from plugins you don't use
 		
-	    /* We add some JavaScript to pages with the comment form
-	     * to support sites with threaded comments (when in use).
-	     */
-	    if ( is_singular() && get_option( 'thread_comments' ) )
-	        wp_enqueue_script( 'comment-reply' );
+		// nextgen-gallery
+		wp_dequeue_script('ngg-slideshow');
+		wp_dequeue_script( 'shutter' );
+		wp_dequeue_style('NextGEN');
+		wp_dequeue_style( 'thickbox');
+		wp_dequeue_style('shutter');
+		
+		// easy-table-creator
+		wp_dequeue_script('easy_table_creator_js');
+		wp_dequeue_script('easy_table_creator_tablesorter_js');
+		
+		
+		wp_dequeue_script( 'madnessjs');
+		wp_dequeue_style( 'madnesscss');
+		wp_dequeue_script( 'magnificjs');
+		wp_dequeue_style( 'magnificcss');		
+		wp_dequeue_script( 'htmlparser');
+		wp_dequeue_script( 'postscribe');
+		wp_dequeue_script( 'xdomainrequest');
+		wp_dequeue_script('hoverintent');
+		wp_dequeue_script('wpubermenu');
+		wp_dequeue_script('jquery-flexslider');
+	    wp_dequeue_script('network-topics-js');
+		wp_dequeue_style('network-topics-css');
+		
+		// wpsocialite
+		wp_dequeue_script('socialite-lib');
+        wp_dequeue_script('wpsocialite');
+        wp_dequeue_style('socialite-css');
+        
+        // addthis
+        wp_dequeue_script( 'addthis' );
+        wp_dequeue_script( 'addthis_options_page_script');
+        wp_dequeue_style( 'addthis' );
+		
+		// Prevent loading scripts from plugins you don't use END
+		
 
-	    /* Always have wp_head() just before the closing </head>
-	     * tag of your theme, or you will break many plugins, which
-	     * generally use this hook to add elements to <head> such
-	     * as styles, scripts, and meta tags.
-	     */
-	    wp_enqueue_script("jquery");
-	    wp_head();
-	    
-	    $magazine_img = get_option('magazine_cover_uri' );
+		 
+		wp_head();
+		
+		$magazine_img = get_option('magazine_cover_uri' );
 		$subs_link = get_option('subs_link'); 
 		$iMagID = get_option('iMagID' );
 		$deal_copy = get_option('deal_copy' );
@@ -101,6 +118,7 @@
 	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.jfollow.js" type="text/javascript"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/flash_heed.js" type="text/javascript"></script>
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/snap.js"></script>
+	
 	<script type='text/javascript'>
 		var googletag = googletag || {};
 		googletag.cmd = googletag.cmd || [];
@@ -138,14 +156,52 @@
 </head>
 
 <body <?php body_class(); ?>  >
-<?php
-	if (is_home()) {
-		get_template_part('content/content', 'header');
-	}	else {
-		if ( in_category('shoot101')) {
-			get_template_part('content/content', 'header-microsite');
-		} else {
-			get_template_part('content/content', 'header');
-		}
-	}
-?>
+	
+	
+	<?php 
+		fixed_connect_footer();
+		if ( mobile() ) { ?><div class="mobile-adhesion"><?php imo_ad_placement("mobile_adhesion_320x50"); ?></div><?php } ?>
+	
+	<div class="top-panel">
+		<a href="http://www.gunsandammo.com/" class="icon-arrow-left">Back to Guns & Ammo</a>
+	</div>
+	<div class="s101 <?php /* if (is_category( 'shoot101' )) { echo "cat-shoot101"; } */ if ( in_category( 'shoot101' )) { echo "cat-shoot101";}?>">
+		
+		<header class="main-header">
+			
+			<div class="menu-area clearfix">
+				<?php
+				    $category_id = get_cat_ID( 'shoot101' );				
+				    $category_link = get_category_link( $category_id );
+				?>
+				<div class="shoot101-logo">
+					<a href="<?php echo esc_url( $category_link ); ?>" title="shoot101"><img  src="/wp-content/themes/gunsandammo/images/shoot101/Shoot101-logo-light.png"></a>
+				</div>
+	<!-- 			<div class="nav-container"> -->
+					<nav id="site-navigation" class="main-nav" role="navigation">
+						<?php wp_nav_menu( array( 'theme_location' => 'shoot101_menu', 'container' => '0' ) ); ?>
+					</nav>
+					<div class="social-buttons">
+						<ul>
+							<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php print(urlencode(get_permalink())); ?>&title=<?php print(urlencode(the_title())); ?>" class="icon-facebook"></a></li>
+							<li><a href="http://twitter.com/intent/tweet?status=<?php print(urlencode(the_title())); ?>+<?php print(urlencode(get_permalink())); ?>" class="icon-twitter"></a></li>
+							<li><a href="mailto:?subject=Article I came across&body=Check out this article! Title: '<?php the_title(); ?>'. Link: <?php the_permalink(); ?>" class="icon-mail"></a></li>
+						</ul>
+					</div>
+	<!-- 			</div> -->
+			</div>
+		</header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
