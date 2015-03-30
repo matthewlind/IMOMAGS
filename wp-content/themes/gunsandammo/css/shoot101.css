@@ -654,7 +654,9 @@ a img.aligncenter {
 .m-buy-mag h2 {
 	font-size: 31px;
 	line-height: 37px;
-	margin: 20px 0;
+	margin: 0 0 20px;
+	text-align: center;
+	font-weight: 400;
 }
 .m-buy-mag-bottom {
 	width: 100%;
@@ -707,6 +709,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 	background-image: url("/wp-content/themes/gunsandammo/images/shoot101/mag-cover.jpg");
 	background-size: cover;
 	background-position: center center;
+}
+.alignright-content {
+	width: 300px;
+	margin: 30px -10px;
 }
 
 /* ==========================================================================
@@ -1533,7 +1539,7 @@ a img.aligncenter {
     line-height: 19px;
     padding: 0 5px 10px;
 }
-.inline-content {
+.alignright-content {
 	float: right;
 	margin-right: -150px;
 }
