@@ -12,7 +12,7 @@ get_header();
 	$author = get_the_author();
 ?>
 <div class="sponsors-disclaimer">
-	<span>BROGHT TO YOU BY VISTA OUTDOOR INC. AND ITS FAMILY OF <a href="http://www.vistaoutdoor.com/" target="_blank">BRANDS</a></span>
+	<span>BROGHT TO YOU BY VISTA OUTDOOR INC. AND ITS FAMILY OF <a href="http://www.vistaoutdoor.com/brands/" target="_blank">BRANDS</a></span>
 </div>
 <div class="m-article-wrap clearfix">
 	<div class="m-article-image" style="background-image: url('<?php echo $image[0]; ?>');">

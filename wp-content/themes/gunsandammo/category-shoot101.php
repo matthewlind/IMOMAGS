@@ -12,7 +12,7 @@
 */
 ?>
 <div class="sponsors-disclaimer">
-	<span>BROGHT TO YOU BY VISTA OUTDOOR INC. AND ITS FAMILY OF <a href="http://www.vistaoutdoor.com/" target="_blank">BRANDS</a></span>
+	<span>BROGHT TO YOU BY VISTA OUTDOOR INC. AND ITS FAMILY OF <a href="http://www.vistaoutdoor.com/brands/" target="_blank">BRANDS</a></span>
 </div>
 <div class="content">
 		<div class="posts-wrap">
