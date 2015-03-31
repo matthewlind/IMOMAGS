@@ -137,7 +137,7 @@
 	<?php endif; ?>
 </head>
 
-<body <?php body_class(); ?>  >
+<body <?php body_class(); ?> domain="<?php echo $dartDomain; ?>" >
 <?php
 	if (is_home()) {
 		get_template_part('content/content', 'header');

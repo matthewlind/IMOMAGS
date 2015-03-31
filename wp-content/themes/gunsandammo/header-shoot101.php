@@ -20,6 +20,7 @@
 <html id="ie10" <?php language_attributes(); ?>>
 <![endif]-->
 <!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+
 <html <?php language_attributes(); ?>>
 <!--<![endif]-->
 <head>
@@ -101,7 +102,6 @@
 
 		 
 		wp_head();
-		
 		$magazine_img = get_option('magazine_cover_uri' );
 		$subs_link = get_option('subs_link'); 
 		$iMagID = get_option('iMagID' );
@@ -155,8 +155,8 @@
 	<?php endif; ?>
 </head>
 
-<body <?php body_class(); ?>  >
-	
+<body <?php body_class(); ?> >
+	<?php var_dump($dartDomain); ?>
 	
 	<?php 
 		fixed_connect_footer();
