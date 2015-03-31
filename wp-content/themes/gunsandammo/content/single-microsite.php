@@ -21,7 +21,7 @@ get_header();
 	<article class="m-article clearfix">
 		<?php echo get_template_part("content/social", "buttons"); ?>
 		<h1><?php the_title();?></h1>
-		<?php if(get_the_author() != "admin" && get_the_author() != "infisherman"){ ?><span class="m-post-byline">Words by <?php echo $author; ?> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;</span><?php } ?><?php if ($acf_byline) { ?><span class="m-post-byline"><?php echo $acf_byline;?></span><?php } ?>
+		<?php if(get_the_author() != "admin" && get_the_author() != "infisherman"){ ?><span class="m-post-byline">Words by <?php echo $author; ?></span><?php } ?><?php if ($acf_byline) { ?><span class="m-post-byline">&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $acf_byline;?></span><?php } ?>
 		<?php 
 			$content = apply_filters('the_content', $post->post_content);
 			$mag_after_p = 0;
