@@ -781,6 +781,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 .socials a.rss {background-position:-206px 0;}
 .socials a.rss:hover {background-position:-340px 0;}
 
+.fixed-connect fieldset {
+	padding: 0 0.625em 0.75em;
+}
+
 /* ==========================================================================
    7.0 Footer
    ========================================================================== */
