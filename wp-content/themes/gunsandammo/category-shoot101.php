@@ -1,15 +1,8 @@
 <?php
 	get_header();
-// 	echo get_template_part( 'header', 'shoot101' );
-	// The opening class in the header is .scroller-inner
-/*
-	$parrent_id = wp_get_post_parent_id( $post_ID ); 
-	$post_slug = $post->post_name;
 	
-	$cat = get_category( get_query_var( 'cat' ) );
-	$cat_slug = $cat->slug;
-	$cat_name = $cat->cat_name;
-*/
+    $category_id = get_cat_ID( 'shoot101' );
+    $category_link = get_category_link( $category_id );
 ?>
 <div class="sponsors-disclaimer">
 	<span>BROGHT TO YOU BY VISTA OUTDOOR INC. AND ITS FAMILY OF <a href="http://www.vistaoutdoor.com/brands/" target="_blank">BRANDS</a></span>
@@ -58,7 +51,7 @@
 					<ul>
 						<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php print(urlencode(get_permalink())); ?>&title=<?php print(urlencode(the_title())); ?>" class="icon-facebook"></a></li>
 						<li><a href="http://twitter.com/intent/tweet?status=<?php print(urlencode(the_title())); ?>+<?php print(urlencode(get_permalink())); ?>" class="icon-twitter"></a></li>
-						<li><a href="mailto:?subject=Article I came across&body=Check out this article! Title: '<?php the_title(); ?>'. Link: <?php the_permalink(); ?>" class="icon-mail"></a></li>
+						<li><a href="mailto:?subject=Website I came across&body=Check out this website! A starter's guide every new shooter should read. <?php echo $category_link; ?>" class="icon-mail"></a></li>
 					</ul>
 				</div>
 			</div><!-- end .featured-message -->

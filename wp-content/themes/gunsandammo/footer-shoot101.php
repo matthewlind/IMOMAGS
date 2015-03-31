@@ -1,3 +1,7 @@
+<?php
+	$category_id = get_cat_ID( 'shoot101' );
+	$category_link = get_category_link( $category_id );	
+?>
 </div><!-- end .s101 -->
 <footer class="s-footer clearfix">
 	<div class="s-mag clearfix">
@@ -25,7 +29,7 @@
 			<ul>
 				<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php print(urlencode(get_permalink())); ?>&title=<?php print(urlencode(the_title())); ?>" class="icon-facebook"></a></li>
 				<li><a href="http://twitter.com/intent/tweet?status=<?php print(urlencode(the_title())); ?>+<?php print(urlencode(get_permalink())); ?>" class="icon-twitter"></a></li>
-				<li><a href="mailto:?subject=Article I came across&body=Check out this article! Title: '<?php the_title(); ?>'. Link: <?php the_permalink(); ?>" class="icon-mail"></a></li>
+				<li><a href="mailto:?subject=Website I came across&body=Check out this website! A starter's guide every new shooter should read. <?php echo $category_link; ?>" class="icon-mail"></a></li>
 			</ul>
 		</div>
 	</div>
