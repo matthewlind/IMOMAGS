@@ -14,8 +14,8 @@
 				<div>OR</div>			
 			</div>
 			<div class="s-mag-btns clearfix">
-				<a class="orange-btn" href="">BUY THE MAGAZINE NOW!</a>
-				<a class="orange-btn" href="">GET THE DIGITAL EDITION!</a>
+				<a class="orange-btn" href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101">BUY THE MAGAZINE NOW!</a>
+				<a class="orange-btn" href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101">GET THE DIGITAL EDITION!</a>
 			</div>
 		</div><!-- end .s-mag-descr -->
 	</div><!-- end .s-mag-descr -->
