@@ -32,7 +32,7 @@ get_header();
 			    echo $content.'</p>';
 			   
 			    if($p_counter == $mag_after_p){ ?>
-			    	<div class="alignright-content"> 
+			    	<div class="alignright-content m-buy-wrap"> 
 			    		<div class="m-buy-mag"> 
 			    			<h2>NOW AVAILABLE ON NEWSSTANDS!</h2> 
 			    			<div class="m-buy-mag-bottom clearfix"> 				
