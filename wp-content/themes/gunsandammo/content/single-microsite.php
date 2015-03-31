@@ -47,8 +47,8 @@ get_header();
 				<?php }
 	
 			    if($p_counter == $ad1_after_p){
-			    	echo '<div class="inline-content">';
-						imo_ad_placement("atf_medium_rectangle_300x250"); 
+			    	echo '<div class="inline-content inline-ad">';
+						//imo_ad_placement("atf_medium_rectangle_300x250"); 
 					echo '</div>';
 				}
 			    $p_counter++;
