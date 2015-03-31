@@ -2824,6 +2824,12 @@ function prefix_load_ff_photos_posts () {
 	die(1);
 }
 
+/*
+ *  Set default values for the upload media box
+ */
+//update_option('image_default_align', 'center' );
+update_option('image_default_link_type', 'none' );
+//update_option('image_default_size', 'large' );
 
 
 
