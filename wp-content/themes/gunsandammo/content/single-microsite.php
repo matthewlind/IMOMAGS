@@ -32,7 +32,7 @@ get_header();
 			    echo $content.'</p>';
 			   
 			    if($p_counter == $mag_after_p){ ?>
-			    	<div class="alignright-content"> 
+			    	<div class="alignright-content m-buy-wrap"> 
 			    		<div class="m-buy-mag"> 
 			    			<h2>NOW AVAILABLE ON NEWSSTANDS!</h2> 
 			    			<div class="m-buy-mag-bottom clearfix"> 				
@@ -45,8 +45,8 @@ get_header();
 				<?php }
 	
 			    if($p_counter == $ad1_after_p){
-			    	echo '<div class="alignright-content">';
-						imo_ad_placement("atf_medium_rectangle_300x250"); 
+			    	echo '<div class="alignright-content inline-ad">';
+						//imo_ad_placement("atf_medium_rectangle_300x250"); 
 					echo '</div>';
 				}
 			    $p_counter++;

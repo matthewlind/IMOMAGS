@@ -1,3 +1,9 @@
+jQuery(window).load(function() {
+	domain = jQuery("body").attr("domain");
+	console.log(domain);
+	jQuery(".inline-ad").append('<iframe width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-atf.php?ad_code=' + domain + '"></iframe>');
+});
+
 jQuery(document).ready(function($) {
 
 	var windowWidth = $(window).width(),
