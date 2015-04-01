@@ -38,7 +38,7 @@ get_header();
 			    			<div class="m-buy-mag-bottom clearfix"> 				
 			    				<div class="m-buy-mag-img"></div> 
 			    				<a href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">BUY THE MAGAZINE NOW!</a> 
-			    				<a href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">GET THE DIGITAL EDITION!</a> 
+			    				<a style="display: none;" href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">GET THE DIGITAL EDITION!</a> 
 			    			</div>
 			    		</div>
 			    	</div>

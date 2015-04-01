@@ -19,7 +19,7 @@
 			</div>
 			<div class="s-mag-btns clearfix">
 				<a class="orange-btn" href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101">BUY THE MAGAZINE NOW!</a>
-				<a class="orange-btn" href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101">GET THE DIGITAL EDITION!</a>
+				<a style="display: none;" class="orange-btn" href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101">GET THE DIGITAL EDITION!</a>
 			</div>
 		</div><!-- end .s-mag-descr -->
 	</div><!-- end .s-mag-descr -->
