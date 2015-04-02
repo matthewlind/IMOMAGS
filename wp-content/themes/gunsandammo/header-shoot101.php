@@ -156,7 +156,6 @@
 </head>
 
 <body <?php body_class(); ?> >
-	<?php var_dump($dartDomain); ?>
 	
 	<?php 
 		//fixed_connect_footer();
