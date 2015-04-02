@@ -559,9 +559,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9900', end
 	color: #58595b;
 	width: 218px;
 } 
-.m-article .m-social-wrap:last-child {
+/*
+.m-article .m-social-bottom {
 	margin-top: 40px;
 } 
+*/
 .m-article .m-social-buttons ul li:first-child {
 	margin-left: 0;
 }
@@ -571,6 +573,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9900', end
 .m-article .m-social-buttons ul li a {
 	color: #ee7700;
 	font-size: 25px;
+	-webkit-transition:color 0.2s;
+	-moz-transition:color 0.2s;
+	transition:color 0.2s;
+}
+.m-article .m-social-buttons ul li a:hover {
+	color: #ff9000;
+	-webkit-transition:color 0.2s;
+	-moz-transition:color 0.2s;
+	transition:color 0.2s;
 }
 .m-article h1 {
 	font-size: 32px;
@@ -633,7 +644,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9900', end
 	-ms-transform: rotate(90deg); /* IE 9 */
     -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
     transform: rotate(90deg);
-}
+} 
+/* More Articles ***********/
 .m-more {
 	max-width: 100%;
 	padding: 0 20px;
@@ -650,7 +662,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9900', end
 	line-height: 37px;
 	margin: 0 0 20px;
 	text-align: center;
-	font-weight: 400;
+	font-weight: 200;
 }
 .m-buy-mag-bottom {
 	width: 100%;
@@ -908,6 +920,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 .sponsors-disclaimer {text-align: left;}
 .category .cat-shoot101 .sponsors-disclaimer {width: 92%;margin: 0 auto;}
 .sponsors-disclaimer span {margin-left: 20px;}
+
+/* Fixed Content *******************/
 .fixed-connect{display: block; width:100%;height:42px;position:fixed;top:auto; bottom:0;background:#545454;color:#fff;font-family:"Source Sans Pro","Helvetica",Arial,sans-serif;font-weight: 600;opacity:.99;z-index:999999999999999;}
 .fixed-connect .container{max-width:1060px;margin:0 auto;padding:0 20px 0 20px;}
 .fixed-connect a{color:#fff;text-decoration:none;}
@@ -916,30 +930,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 .fixed-connect .subscribe, .fixed-connect input[type="submit"]{float:left;height:28px;padding: 0 6px;text-transform: uppercase;background:red;margin:8px 0 0 0;font-size:20px;}
 .fixed-connect .subscribe a{height:100%;width:100%;display:block;}
 .fixed-connect .newsletter{float:left;margin:0 0 0 15px;font-size:14px;padding:8px 0 0 10px;border-left: 1px solid white;height: 42px;}
-.fixed-connect .newsletter .title{
-	float: left;
-	margin-top: 4px;
-}
+.fixed-connect .newsletter .title{float: left;margin-top: 4px;}
 .fixed-connect fieldset{border: none;}
-.fixed-connect .newsletter input{
-	font-size: 14px;
-	color: black;
-	border: none;
-	float: left;
-	margin: 2px 0 0 8px;
-	width: 130px;
-	padding: 4px;
-}
+.fixed-connect .newsletter input{font-size: 14px;color: black;border: none;float: left;margin: 2px 0 0 8px;width: 130px;padding: 4px;}
 .fixed-connect .opt-in{float: left;width: 160px;}
 .fixed-connect .newsletter input[type="checkbox"]{height: 24px;width: 20px !important;}
-.fixed-connect .newsletter input[type="submit"]{
-	width: auto;
-	background: red;
-	font-size: 20px;
-	margin: 0;
-	padding: 0 4px;
-	color: white;
-}
+.fixed-connect .newsletter input[type="submit"]{width: auto;background: red;font-size: 20px;margin: 0;padding: 0 4px;color: white;}
 .fixed-connect .newsletter input.active{color:#444;}
 .fixed-connect .newsletter .button.noInput{display:none;}
 .fixed-connect .follow{float:left;border-left:1px solid #fff;margin:0 0 0 15px;height:42px;font-size:16px;padding:0 0 0 10px;}
@@ -950,21 +946,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 .fixed-connectExpand{background:#eaeaea;border-left:1px solid #ccc;border-top:1px solid #ccc;position:fixed;bottom:0;right:0;z-index:100;display:none;}
 .fixed-connectExpand a{color:#999;text-decoration:none;font-size:20px;font-weight:700;width:100%;height:100%;display:block;padding:3px 7px 3px 7px;}
 .fixed-connect form{float: left;font-size: 12px;}
-.socials {
-    float:right;
-    font-size:0;
-    line-height:0;
-    padding:0 0 3px;
-}
-.socials a {
-    display:inline-block;
-    width:30px;
-    height:30px;
-    overflow:hidden;
-    text-indent:-99999px;
-    margin:0 0 0 3px;
-    background:url(../images/sprite.png) no-repeat;
-}
+.socials {float:right; font-size:0; line-height:0; padding:0 0 3px;}
+.socials a { display:inline-block; width:30px; height:30px; overflow:hidden; text-indent:-99999px; margin:0 0 0 3px; background:url(../images/sprite.png) no-repeat;}
 .socials a.facebook {background-position:-105px 0;}
 .socials a.facebook:hover {background-position:-239px 0;}
 .socials a.twitter {background-position:-140px 0;}
@@ -974,15 +957,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 .socials a.rss {background-position:-206px 0;}
 .socials a.rss:hover {background-position:-340px 0;}
 
-.fixed-connect fieldset {
-	padding: 0 0.625em 0.75em;
-}
-
+.fixed-connect fieldset {padding: 0 0.625em 0.75em;}
 
 /* Content *******************/
-
 .content {padding: 0 4%;}
-.posts-wrap {margin: 35px -1%; border-bottom: none;}
+.posts-wrap {margin: 35px -1%;}
 .featured-message {width: 98%;margin: 1% 1% 4%;border-top: 4px solid #959595;border-bottom: 4px solid #959595;}
 .featured-message span {font-size: 18px;}
 .p-feat-container a:nth-child(3n+1) .post-box, 
@@ -1017,6 +996,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 .m-article blockquote p {font-size: 30px;}
 .alignright-content {margin: 30px 0 30px 30px;float: right;}
 .alignright-content.m-buy-wrap {margin: 2px 0 30px 30px;float: right;}
+.m-article-bottom .m-social-wrap {float: left;width: 200px;margin-top: 70px;}
+.m-article-bottom .m-social-buttons ul li {margin: 0 8px;}
+.m-article-bottom .m-social-buttons ul li:first-child {margin-left: 0;}
+.m-article-bottom .m-social-buttons ul li a {font-size: 40px;}
+.m-article-bottom .m-hlep-grow {font: 600 20px/25px "Titillium Web", sans-serif;color: #222222;}
 
 /* Footer *******************/  
 .category .s-footer {padding: 20px 0 50px;}
@@ -1052,7 +1036,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 .p-container {margin-bottom: 35px;}
 .rel-logo {width: 150px;}
 .p-rel-header > h5 {font-size: 16px;}
+
+/* Single Article *******************/
 .m-article h1 {font-size: 40px;line-height: 46px;}
+.m-article-bottom .m-social-wrap {width: 300px;margin-top: 40px;}
+.m-article-bottom .m-social-buttons ul li a {font-size: 50px;}
+.m-article-bottom .m-hlep-grow {font:600 30px/35px "Titillium Web", sans-serif;}
 
 /* Footer *******************/ 
 .footer-message {margin-top: 20px;border-top: 1px solid #444444;}
@@ -1106,6 +1095,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 .m-more h2 {margin-left: -2px;}
 .m-more-wrap {margin: 0 -0.5%;}
 .m-more-wrap .post-box { margin: 0 0.5% 2.5%; padding-top: 21.6633%; width: 32.3333%;}
+.m-article-bottom .m-social-wrap {width: 360px;}
 
 /* Footer *******************/ 
 .s-mag {position: relative;}
