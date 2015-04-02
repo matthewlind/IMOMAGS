@@ -59,9 +59,9 @@
 				<span>Help grow shooting in America.  Share this with a new shooter!</span>
 				<div class="m-social-buttons">
 					<ul>
-						<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php print(urlencode(get_permalink())); ?>&title=<?php print(urlencode(the_title())); ?>" class="icon-facebook"></a></li>
-						<li><a href="http://twitter.com/intent/tweet?status=<?php print(urlencode(the_title())); ?>+<?php print(urlencode(get_permalink())); ?>" class="icon-twitter"></a></li>
-						<li><a href="mailto:?subject=Website I came across&body=Check out this website! A starter's guide every new shooter should read. <?php echo $category_link; ?>" class="icon-mail"></a></li>
+						<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php print(urlencode(get_permalink())); ?>&title=<?php print(urlencode(the_title())); ?>" class="icon-facebook" target="_blank"></a></li>
+						<li><a href="http://twitter.com/intent/tweet?status=<?php print(urlencode(the_title())); ?>+<?php print(urlencode(get_permalink())); ?>" class="icon-twitter"  target="_blank"></a></li>
+						<li><a href="mailto:?subject=Website I came across&body=Check out this website! A starter's guide every new shooter should read. <?php echo $category_link; ?>" class="icon-mail"  target="_blank"></a></li>
 					</ul>
 				</div>
 			</div><!-- end .featured-message -->
