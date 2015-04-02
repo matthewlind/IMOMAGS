@@ -11,6 +11,8 @@
 		<div class="posts-wrap">
 			<div class="p-feat-container clearfix">
 				<?php
+				$post_counter = 0;	
+					
 				$args = array (
 					'category_name'         	=> 'shoot101',			
 					'posts_per_page'      		=> 3,
@@ -30,13 +32,21 @@
 					while ( $query->have_posts() ) {
 						$query->the_post();			
 						$image_id = get_post_meta(get_the_ID(),"image", true);
-						$image = wp_get_attachment_image_src($image_id, "large");
+						$image = wp_get_attachment_image_src($image_id, "full");
+						
+						$wide_image_id = get_post_meta(get_the_ID(),"image_wide", true);
+						$image_wide = wp_get_attachment_image_src($wide_image_id, "full");
 						//$image = wp_get_attachment_image_src($image_id, $image_size);
 				?>
 				<a class="link-box" href="<?php the_permalink(); ?>">	
+					<?php if ($post_counter == 2 && mobile() == false) { ?>
+					<div class="post-box" style="background-image: url('<?php echo $image_wide[0]; ?>')"></div>	
+					<?php } else { ?>
 					<div class="post-box" style="background-image: url('<?php echo $image[0]; ?>')"></div>
+					<?php } ?>
 				</a>
 				<?php
+					$post_counter++;	
 						}
 					} else {
 						echo "not found";
@@ -49,9 +59,9 @@
 				<span>Help grow shooting in America.  Share this with a new shooter!</span>
 				<div class="m-social-buttons">
 					<ul>
-						<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php print(urlencode(get_permalink())); ?>&title=<?php print(urlencode(the_title())); ?>" class="icon-facebook"></a></li>
-						<li><a href="http://twitter.com/intent/tweet?status=<?php print(urlencode(the_title())); ?>+<?php print(urlencode(get_permalink())); ?>" class="icon-twitter"></a></li>
-						<li><a href="mailto:?subject=Website I came across&body=Check out this website! A starter's guide every new shooter should read. <?php echo $category_link; ?>" class="icon-mail"></a></li>
+						<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php print(urlencode(get_permalink())); ?>&title=<?php print(urlencode(the_title())); ?>" class="icon-facebook" target="_blank"></a></li>
+						<li><a href="http://twitter.com/intent/tweet?status=<?php print(urlencode(the_title())); ?>+<?php print(urlencode(get_permalink())); ?>" class="icon-twitter"  target="_blank"></a></li>
+						<li><a href="mailto:?subject=Website I came across&body=Check out this website! A starter's guide every new shooter should read. <?php echo $category_link; ?>" class="icon-mail"  target="_blank"></a></li>
 					</ul>
 				</div>
 			</div><!-- end .featured-message -->
@@ -103,51 +113,8 @@
 					wp_reset_postdata();
 				?>
 			</div><!-- end .p-container -->
-			<div class="rel-container clearfix">
-				<header class="p-rel-header clearfix">
-					<div class="rel-logo">
-						<img src="/wp-content/themes/gunsandammo/images/logo-white.png">
-					</div>
-					<h5>RELATED ARTICLES FROM GUNS & AMMO</h5>
-					<div class="rel-triangle"></div>
-				</header>
-				<div class="rel-wrap clearfix">					
-					<?php
-						$args = array (
-							'category_name'         	=> 'shoot101',			
-							'posts_per_page'      		=> 4,
-							'order'						=> 'DESC',
-							'meta_query' => array(
-							  array(
-							    'key' => 'featured_post',
-							    'value' => '0',
-							    'compare' => '=='
-							  )
-							)
-						);
-						// The Query
-						$query = new WP_Query( $args );
-						// The Loop
-						if ( $query->have_posts() ) {
-							while ( $query->have_posts() ) {
-								$query->the_post();			
-								$image_id = get_post_meta(get_the_ID(),"image", true);
-								$image = wp_get_attachment_image_src($image_id, "large");
-								//$image = wp_get_attachment_image_src($image_id, $image_size);
-					?>
-						<a class="rel-link" href="<?php the_permalink(); ?>">
-							<div class="rel-box" style="background-image: url('<?php echo $image[0]; ?>')"></div>
-							<h3><?php the_title();?></h3>
-						</a>
-					<?php
-							}
-						} else {
-							echo "not found";
-						}
-						wp_reset_postdata();
-					?>
-				</div>
-			</div><!-- end .p-ga-container -->
+			
+			<?php // echo get_template_part( 'content/relative', 'microsite' ); ?>
 		</div><!-- end .posts-wrap -->
 </div><!-- end .content -->
 
