@@ -1,5 +1,5 @@
 <?php 
-	fixed_connect_footer();
+	//fixed_connect_footer();
 	if ( mobile() ) { ?><div class="mobile-adhesion"><?php imo_ad_placement("mobile_adhesion_320x50"); ?></div><?php } ?>
 
 <div class="top-panel">
@@ -15,7 +15,7 @@
 			    $category_link = get_category_link( $category_id );
 			?>
 			<div class="shoot101-logo">
-				<a href="<?php echo esc_url( $category_link ); ?>" title="shoot101"><img  src="/wp-content/themes/gunsandammo/images/shoot101/Shoot101-logo-light.png"></a>
+				<a href="/shoot101/" title="shoot101"><img  src="/wp-content/themes/gunsandammo/images/shoot101/Shoot101-logo-light.png"></a>
 			</div>
 <!-- 			<div class="nav-container"> -->
 				<nav id="site-navigation" class="main-nav" role="navigation">
