@@ -982,7 +982,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 /* Content *******************/
 
 .content {padding: 0 4%;}
-.posts-wrap {margin: 35px -1%; border-bottom: none;}
+.posts-wrap {margin: 35px -1%;}
 .featured-message {width: 98%;margin: 1% 1% 4%;border-top: 4px solid #959595;border-bottom: 4px solid #959595;}
 .featured-message span {font-size: 18px;}
 .p-feat-container a:nth-child(3n+1) .post-box, 
