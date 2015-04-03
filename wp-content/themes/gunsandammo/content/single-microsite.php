@@ -15,7 +15,7 @@ get_header();
 	<span>BROUGHT TO YOU BY VISTA OUTDOOR INC. AND ITS FAMILY OF <a href="http://www.vistaoutdoor.com/brands/" target="_blank">BRANDS</a></span>
 </div>
 <div class="m-article-wrap clearfix">
-	<div class="m-article-image" style="background-image: url('<?php echo $image[0]; ?>');"></div>
+	<?php if($image[0]) { ?> <div class="m-article-image" style="background-image: url('<?php echo $image[0]; ?>');"></div> <?php }?>
 	<article class="m-article clearfix">
 		<?php echo get_template_part("content/social", "buttons"); ?>
 		<h1><?php the_title();?></h1>
