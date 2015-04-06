@@ -10,7 +10,7 @@
 		</div>
 		<div class="s-mag-descr">
 			<h1>Learn, Train, Live</h1>
-			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis.</p>
+			<p>Know someone interested in the shooting sports? Start them off right with Shoot 101, the ideal magazine for mastering the basics of safe, responsible shooting. Compiled by the publishers of Guns & Ammo and filled with educational, entertaining articles, Shoot 101 is a wealth of information for novice and expert shooters alike.</p>
 		</div>
 		<div class="s-mag-buy">
 			<h2>NOW AVAILABLE ON NEWSSTANDS!</h2>
