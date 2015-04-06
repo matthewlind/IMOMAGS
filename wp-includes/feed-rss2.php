@@ -4,11 +4,10 @@
  *
  * @package WordPress
  */
-
+ 
 header('Content-Type: ' . feed_content_type('rss-http') . '; charset=' . get_option('blog_charset'), true);
 $more = 1;
 
-echo '<?xml version="1.0" encoding="'.get_option('blog_charset').'"?'.'>';
 
 /**
  * Fires between the xml and rss tags in a feed.
@@ -16,7 +15,7 @@ echo '<?xml version="1.0" encoding="'.get_option('blog_charset').'"?'.'>';
  * @since 4.0.0
  *
  * @param string $context Type of feed. Possible values include 'rss2', 'rss2-comments',
- *                        'rdf', 'atom', and 'atom-comments'.
+ *						  'rdf', 'atom', and 'atom-comments'.
  */
 do_action( 'rss_tag_pre', 'rss2' );
 ?>
@@ -53,7 +52,7 @@ do_action( 'rss_tag_pre', 'rss2' );
 		 * @since 2.1.0
 		 *
 		 * @param string $duration The update period. Accepts 'hourly', 'daily', 'weekly', 'monthly',
-		 *                         'yearly'. Default 'hourly'.
+		 *						 'yearly'. Default 'hourly'.
 		 */
 		echo apply_filters( 'rss_update_period', $duration );
 	?></sy:updatePeriod>
@@ -66,7 +65,7 @@ do_action( 'rss_tag_pre', 'rss2' );
 		 * @since 2.1.0
 		 *
 		 * @param string $frequency An integer passed as a string representing the frequency
-		 *                          of RSS updates within the update period. Default '1'.
+		 *						  of RSS updates within the update period. Default '1'.
 		 */
 		echo apply_filters( 'rss_update_frequency', $frequency );
 	?></sy:updateFrequency>
