@@ -5,7 +5,8 @@
  */
 get_header(); 
 // echo get_template_part( 'header', 'shoot101' ); 
-	$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );	
+	$image_full = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+	$image_large = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'lafge' );	
 	$postID = get_the_ID();
 	$byline = get_post_meta($postID, 'ecpt_byline', true);
 	$acf_byline = get_field("byline",$postID); 
@@ -15,7 +16,17 @@ get_header();
 	<span>BROUGHT TO YOU BY VISTA OUTDOOR INC. AND ITS FAMILY OF <a href="http://www.vistaoutdoor.com/brands/" target="_blank">BRANDS</a></span>
 </div>
 <div class="m-article-wrap clearfix">
-	<?php if($image[0]) { ?> <div class="m-article-image" style="background-image: url('<?php echo $image[0]; ?>');"></div> <?php }?>
+	<?php if(mobile() == true) {
+		if($image_large[0]) { ?>
+			<div class="m-article-image" style="background-image: url('<?php echo $image_large[0]; ?>');"></div>
+	<?php	}
+		
+	} else {
+		if($image_full[0]) { ?>
+			<div class="m-article-image" style="background-image: url('<?php echo $image_full[0]; ?>');"></div>
+	<?php	}
+	}
+	?>
 	<article class="m-article clearfix">
 		<?php echo get_template_part("content/social", "buttons"); ?>
 		<h1><?php the_title();?></h1>
