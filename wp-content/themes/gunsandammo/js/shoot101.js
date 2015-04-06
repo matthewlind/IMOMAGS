@@ -5,7 +5,7 @@ jQuery(window).load(function() {
 });
 */
 jQuery(document).ready(function($) {
-
+	$(".wpsocialite.small").remove();
 	var windowWidth = $(window).width(),
 		box1_width = $( ".post-box" ).eq(-1).width(),		
 		box2_width = $( ".post-box" ).eq(-2).width(),
