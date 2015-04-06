@@ -243,7 +243,7 @@ function jsGAMRender($mobile) {
 		 //.  wpsocialite_markup()
 		 ;
 	
-	if($madnessround == 8) {		 
+	if($madnessround == 6) {		 
 	$outp.= '<div class="ga-madness-votestats" style="margin-bottom:20px;clear:both;"></div>'
 		 .  '<div class="regions region-final" style="display:block;">'
 		 
@@ -303,7 +303,7 @@ function jsGAMRender($mobile) {
 		 .	'  <div class="column column4"></div>'
 		 .  '</div>';
 
-	if($madnessround < 8) {		 
+	if($madnessround < 6) {		 
 	$outp.= '<div class="regions region-final">'
 		 .  '<div class="finalsadvert" style="margin-top:0px;">'
 		 .  ' 	<!-- Site - Guns and Ammo/guns_and_ammo_madness/gam_presenting_sponsor -->'
