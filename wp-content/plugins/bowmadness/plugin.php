@@ -226,7 +226,7 @@ function jsGAMRender($mobile) {
 	// go into the db and manually change the last match to "8".
 	
 	
-	if($madnessround == 8) {		 
+	if($madnessround == 6) {		 
 	$outp.= '<div class="ga-madness-votestats" style="margin-bottom:20px;clear:both;"></div>'
 		 .  '<div class="regions region-final" style="display:block;">'
 		 .  '  <div class="finalsadvert" style="margin-top:0px;">'
@@ -271,7 +271,7 @@ function jsGAMRender($mobile) {
 		 .	'  <div class="column column4"></div>'
 		 .  '</div>';
 
-	if($madnessround < 8) {		 
+	if($madnessround < 6) {		 
 	$outp.= '<div class="regions region-final"	>'
 		 .  '  <div class="finalsadvert">'
 		 .  ' <div id="div-bob_presenting_sponsor"><script type="text/javascript">googletag.cmd.push(function() { googletag.display("div-bob_presenting_sponsor"); });</script></div>'		
