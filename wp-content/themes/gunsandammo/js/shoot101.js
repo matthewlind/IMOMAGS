@@ -46,6 +46,7 @@ jQuery(document).ready(function($) {
 
 });
 
+/*
 jQuery(window).scroll(function () {
 	if (jQuery(window).scrollTop() > 50) {
 		jQuery('.fixed-connect-mobile').fadeIn();
@@ -53,6 +54,7 @@ jQuery(window).scroll(function () {
 		jQuery('.fixed-connect-mobile').fadeOut("fast");
 	}
 });
+*/
 jQuery('.fixed-connect .close').click(function(){
 	jQuery('.fixed-connect').remove();
 });
