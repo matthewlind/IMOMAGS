@@ -238,9 +238,9 @@ function jsGAMRender($mobile) {
 		 .  '  </div>'
 		 .  '  <div class="final-wrapper">'
 		 .  '    <h2>Final Round</h2>'
-		 .  '    <div class="column column5 match92"></div>'
-		 .  '    <div class="column column6 match94" style="padding-top:20px;"></div>'
-		 .  '    <div class="column column7 match93"></div>'
+		 .  '    <div class="column column5 match155"></div>'
+		 .  '    <div class="column column7 match157" style="padding-top:20px;"></div>'
+		 .  '    <div class="column column6 match156"></div>'
 		 .  '  </div>'		 
 		 .  '</div>';
 	}
@@ -278,9 +278,9 @@ function jsGAMRender($mobile) {
 		 .  '  </div>'
 		 .  '  <div class="final-wrapper">'
 		 .  '    <h2>Final Round</h2>'
-		 .  '    <div class="column column5 final-modal match92"></div>'
-		 .  '    <div class="column column6 final-modal match94"></div>'
-		 .  '    <div class="column column7 final-modal match93"></div>'
+		 .  '    <div class="column column5 final-modal match155"></div>'
+		 .  '    <div class="column column7 final-modal match157"></div>'
+		 .  '    <div class="column column6 final-modal match156"></div>'
 		 .  '  </div>'		 
 		 .  '</div>';
 	}
@@ -320,7 +320,7 @@ function jsGAMRender($mobile) {
 		 .  '	getGAMData(3,3);getGAMData(3,4);getGAMData(3,5);'
 		 .  '	getGAMData(4,3);getGAMData(4,4);getGAMData(4,5);'
 	
-		 .  '	getGAMData(0,"92,93,94");'
+		 .  '	getGAMData(0,"155,157,156");'
 		 .  '   getStats();'
 		 .  '   setTimeout(function(){makeGAMPopup()}, 1000);'
 		 .  '   setTimeout(function(){autoPopup()}, 2000);'
