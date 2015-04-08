@@ -345,6 +345,10 @@
 						jQuery(".vote-again").on("click", function() {
 							jQuery("div[data-mid='63']").trigger("click");
 						});
+						if(round == 8) {
+							jQuery(".next-matchup").html("Vote again &raquo;");
+							jQuery(".close-ad").text("Close");
+						}
 
 						
 					},
