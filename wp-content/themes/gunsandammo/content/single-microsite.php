@@ -121,7 +121,8 @@ get_header();
 			'category_name'         	=> 'shoot101',			
 			'posts_per_page'      		=> 6,
 			'order'						=> 'DESC',
-			'orderby'					=> 'rand'
+			'orderby'					=> 'rand',
+			'post__not_in'				=> array($postID)
 		);
 		$query = new WP_Query( $args );
 		if ( $query->have_posts() ) {
