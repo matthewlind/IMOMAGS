@@ -186,6 +186,7 @@
 	}
 
 	function verifyHuman(mid) {
+		
 		jQuery('#captchaWrapper').css("display","block");
 		jQuery('#faded').css("display","block");
 		var scroll = jQuery(window).scrollTop();

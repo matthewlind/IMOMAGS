@@ -569,7 +569,7 @@ ul#ga-madness-nav li a:hover{
 	width: 400px;
     height: 175px;
     background-color: white;
-	position: relative;
+	position: absolute;
 	float: left;
  }
 
@@ -583,7 +583,7 @@ ul#ga-madness-nav li a:hover{
 
 #faded {
 	display: none;
-	position: relative;
+	position: fixed;
 	top: 0;
 	left: 0;
 	z-index: 3000;
