@@ -570,7 +570,8 @@ ul#ga-madness-nav li a:hover{
     height: 175px;
     background-color: white;
 	position: absolute;
-}
+	float: left;
+ }
 
 .g-recaptcha {
 	padding: 10px 0 10px 50px;	
@@ -599,4 +600,7 @@ a.ui-tabs-anchor {
 
 .ga-madness ul.rounds li {
   padding: 8px 8px !important;
+ }
+ .page-header {
+	 position: static !important;
  }
