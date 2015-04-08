@@ -54,7 +54,7 @@
 	
 	
 	<?php
-	if (is_home()) { ?>
+	if (is_home() || is_search()) { ?>
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 	<?php }	else { 
 		if ( in_category('shoot101')) { ?>
@@ -139,7 +139,7 @@
 
 <body <?php body_class(); ?> domain="<?php echo $dartDomain; ?>" >
 <?php
-	if (is_home()) {
+	if (is_home() || is_search()) {
 		get_template_part('content/content', 'header');
 	}	else {
 		if ( in_category('shoot101')) {

@@ -28,7 +28,17 @@ get_header();
 	}
 	?>
 	<article class="m-article clearfix">
-		<?php echo get_template_part("content/social", "buttons"); ?>
+		<div class="m-social-wrap">
+			<p class="m-hlep-grow">Help Grow Shooting in America. Share this with a new shooter!</p>
+			<ul class="share-count social-buttons">
+			<li>
+		        <a href="http://www.facebook.com/sharer.php?u=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>&t=<?php the_title(); ?>" class="socialite facebook-like reload-fb" data-href="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" data-send="false" data-layout="button_count" data-share="true" data-action="like" data-width="60" data-show-faces="false" rel="nofollow" target="_blank"><span class="vhidden"></span></a>
+		    </li>
+		    <li>
+		        <a href="http://twitter.com/share" class="socialite twitter-share reload-twitter" data-text="<?php the_title(); ?>" data-url="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" rel="nofollow" target="_blank"><span class="vhidden"></span></a>
+		    </li>
+		</ul>
+
 		<h1><?php the_title();?></h1>
 		<?php if(get_the_author() != "admin" && get_the_author() != "infisherman"){ ?><span class="m-post-byline">Words by <?php echo $author; ?></span><?php } ?><?php if ($acf_byline) { ?><span class="m-post-byline">&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $acf_byline;?></span><?php } ?>
 		
@@ -79,20 +89,24 @@ get_header();
 			 the_content();
 		}
 		?>
+
 		
 		<!-- end of the_content(); -->
+
 		
 		<div class="m-article-bottom clearfix">
 			<div class="m-social-wrap">
 				<p class="m-hlep-grow">Help Grow Shooting in America. Share this with a new shooter!</p>
-				<div class="m-social-buttons">
-					<ul>
-						<li><a class="icon-facebook" target="_blank" href="http://www.facebook.com/sharer.php?s=100&amp;p[title]=<?php echo urlencode(the_title());?>&amp;p[summary]=<?php echo urlencode(the_title()) ?>&amp;p[url]=<?php echo urlencode(get_permalink()); ?>&amp;p[images][0]=<?php echo urlencode($image[0])?>" ></a></li>
-						<li><a href="http://twitter.com/intent/tweet?status=<?php print(urlencode(the_title())); ?>+<?php print(urlencode(get_permalink())); ?>" class="icon-twitter" target="_blank"></a></li>
-						<li><a href="mailto:?subject=Article I came across&body=Check out this article! '<?php the_title(); ?>' <?php the_permalink(); ?>" class="icon-mail"></a></li>
-					</ul>
-				</div>
-			</div><!-- .m-social-wrap -->
+
+				<ul class="share-count social-buttons">
+					<li>
+				        <a href="http://www.facebook.com/sharer.php?u=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>&t=<?php the_title(); ?>" class="socialite facebook-like reload-fb" data-href="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" data-send="false" data-layout="button_count" data-share="true" data-action="like" data-width="60" data-show-faces="false" rel="nofollow" target="_blank"><span class="vhidden"></span></a>
+				    </li>
+				    <li>
+				        <a href="http://twitter.com/share" class="socialite twitter-share reload-twitter" data-text="<?php the_title(); ?>" data-url="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" rel="nofollow" target="_blank"><span class="vhidden"></span></a>
+				    </li>
+				</ul>
+			</div><!-- end .m-social-wrap -->
 			<div class="alignright-content inline-ad">
 				<?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>
 			</div>
