@@ -537,11 +537,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9900', end
 /* ==========================================================================
    6.0 Single Article
    ========================================================================== */
-/* social share ==================================== */
-.wpsocialite{display: none !important;}
-.single .cat-shoot101 .share-count.social-buttons{position: relative;bottom: auto;right: auto;text-align: left;margin: 0;list-style: none;padding: 0 0 20px 0;}
-.single .cat-shoot101 .share-count.social-buttons li{float: left;margin-right: 10px;}
-.single .cat-shoot101 .share-count.social-buttons .twitter-share{margin-top: 2px;}
+.wpsocialite {
+	display: none !important;
+}
 .m-article-wrap {
 	width: 100%;
 	background-color: white;
@@ -590,7 +588,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9900', end
 	line-height: 36px;
 	text-transform: uppercase;
 	margin-bottom: 5px;
-	clear: both;
 }
 .m-article h3 {
 	font-size: 21px;
@@ -727,7 +724,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 	margin: 30px -10px;
 }
 /* Quiz styles ***********/
-iframe.interact-embed {
+.m-article iframe.interact-embed {
 	width: 100%;
 }
 /* ==========================================================================
@@ -1102,7 +1099,8 @@ iframe.interact-embed {
 .m-more-wrap {margin: 0 -0.5%;}
 .m-more-wrap .post-box { margin: 0 0.5% 2.5%; padding-top: 21.6633%; width: 32.3333%;}
 .m-article-bottom .m-social-wrap {width: 360px;}
-iframe.interact-embed {width: 800px;}
+.m-article iframe.interact-embed {width: 800px;}
+
 /* Footer *******************/ 
 .s-mag {position: relative;}
 .s-mag-buy {position: absolute; bottom: -9px;left: 30%; width: auto;}
