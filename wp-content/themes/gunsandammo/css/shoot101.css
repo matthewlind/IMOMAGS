@@ -723,7 +723,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 	width: 300px;
 	margin: 30px -10px;
 }
-
+/* Quiz styles ***********/
+iframe.interact-embed {
+	width: 100%;
+}
 /* ==========================================================================
    Temporary copied css from styles.css for mobile adhesion and fixed connect bar
    ========================================================================== */
@@ -1096,7 +1099,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 .m-more-wrap {margin: 0 -0.5%;}
 .m-more-wrap .post-box { margin: 0 0.5% 2.5%; padding-top: 21.6633%; width: 32.3333%;}
 .m-article-bottom .m-social-wrap {width: 360px;}
-
+iframe.interact-embed {width: 800px;}
 /* Footer *******************/ 
 .s-mag {position: relative;}
 .s-mag-buy {position: absolute; bottom: -9px;left: 30%; width: auto;}
