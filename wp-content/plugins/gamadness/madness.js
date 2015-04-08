@@ -2,8 +2,11 @@
 	var bracket = 3;
 	var popads = [];
 	
+	
+	
 	jQuery(window).load(function() {
 		jQuery('.ga-madness ul.rounds').css("overflow","visible");
+		
 	});
 	
 	jQuery(document).ready(function($) {
@@ -25,6 +28,7 @@
 
 		});	
 		
+				
 	});
 
 
@@ -182,6 +186,7 @@
 	}
 
 	function verifyHuman(mid) {
+		
 		jQuery('#captchaWrapper').css("display","block");
 		jQuery('#faded').css("display","block");
 		var scroll = jQuery(window).scrollTop();

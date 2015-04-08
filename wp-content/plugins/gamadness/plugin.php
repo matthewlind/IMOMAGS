@@ -243,7 +243,7 @@ function jsGAMRender($mobile) {
 		 //.  wpsocialite_markup()
 		 ;
 	
-	if($madnessround == 6) {		 
+	if($madnessround == 8) {		 
 	$outp.= '<div class="ga-madness-votestats" style="margin-bottom:20px;clear:both;"></div>'
 		 .  '<div class="regions region-final" style="display:block;">'
 		 
