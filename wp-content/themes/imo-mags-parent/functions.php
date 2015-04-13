@@ -2653,21 +2653,14 @@ function prefix_load_cat_posts () {
 add_action( 'wp_ajax_nopriv_photos-filter', 'prefix_load_photos_posts' );
 add_action( 'wp_ajax_photos-filter', 'prefix_load_photos_posts' );
 function prefix_load_photos_posts () {
-
-	$dartDomain = get_option("dart_domain", $default = false);
-
-	if($dartDomain == "imo.hunting"){
-		$postType = "rack_room";
-	}else{
-		$postType = "reader_photos";
-	}
+	
 
 	$cat_id = $_POST[ 'cat' ];
     $offset = $_POST[ 'offset' ];
     
     if($cat_id){
 	    $args = array(
-			'post_type' => $postType,
+			'post_type' => 'reader_photos',
 			'offset' => $offset,
 			'showposts' => 10,
 			'tax_query' => array(
@@ -2682,7 +2675,7 @@ function prefix_load_photos_posts () {
 
     }else{
 	    $args = array(
-			'post_type' => $postType,
+			'post_type' => 'reader_photos',
 			'offset' => $offset,
 			'showposts' => 10,
 		);

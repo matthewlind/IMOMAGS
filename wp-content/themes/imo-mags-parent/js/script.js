@@ -289,7 +289,6 @@ jQuery(document).ready(function () {
 	
 	jQuery("a.paginate-photos").click(function(){
 		postoffset = postoffset + 10;
-
 		jQuery(".loading-gif").show();
 		var data;
 	    if(isFly){
@@ -317,18 +316,16 @@ jQuery(document).ready(function () {
 		        url: '/wp-admin/admin-ajax.php',
 		        data: {"action": "photos-filter", cat: catID, offset: postoffset},
 		        success: function(response) {
-	            	if(response){
-	            		jQuery(response).appendTo(".main-content-preppend");
+	            	if(!response){
 	            		
-	            	}else{
-		            	
-		            	jQuery(".pager-holder").hide();
+	            		jQuery(".pager-holder").hide();
 		            	jQuery('<h3 class="no-mo-videos">No more photos, please try a different category.</h3>').appendTo(".main-content-preppend");
+	            	}else{
+		            	jQuery(response).appendTo(".main-content-preppend");
 	            	}
 		            jQuery("#ajax-loader").hide();
 					FB.XFBML.parse();
 		            return false;
-		            
 		        }
 		    });
 	    }	 

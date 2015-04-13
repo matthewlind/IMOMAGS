@@ -75,7 +75,7 @@ $acf_byline = get_field("byline",$postID); ?>
 			    	    <script type="text/javascript">brightcove.createExperiences();</script>
 	    	    </div>
             <?php }
-			the_content( __( 'more <span class="meta-nav">&raquo;</span>', 'twentytwelve' ) ); ?>
+            the_content( __( 'more <span class="meta-nav">&raquo;</span>', 'twentytwelve' ) ); ?>
                        
             <?php wp_link_pages( array( 'before' => '<div class="page-links">' . 'Pages:', 'after' => '</div>' ) ); ?>
         </div><!-- .entry-content -->
