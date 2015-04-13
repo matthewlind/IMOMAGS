@@ -56,7 +56,7 @@ if(date("l") == $day && $current_time < $end_time && get_field("display_widget",
 </div>
 <?php } ?>
     <div class="inner-main">
-    	<?php //imo_sidebar(); ?>
+    	<?php imo_sidebar(); ?>
 		<div id="primary" class="general">
             <div id="content" class="general-frame" role="main">
 
