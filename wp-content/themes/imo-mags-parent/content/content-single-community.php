@@ -8,40 +8,28 @@
  */
 $postID = get_the_ID();
 $byline = get_post_meta($postID, 'ecpt_byline', true);
+$dartDomain = get_option("dart_domain", $default = false);
 ?>
 
 <div id="post-<?php the_ID(); ?>" <?php post_class('full-post'); ?>>
     <?php if ( is_single() ) : ?>
-   
-    
-    <div class="rp-navigation">
-	    <?php $prevPost = get_previous_post(true);
-		if($prevPost) {?>
-			<div class="nav-box previous" style="float:left;">
-				<p><?php next_post_link('%link',"<span>&laquo;</span> Previous Photo", TRUE); ?></p>
-		        <?php $prevthumbnail = get_the_post_thumbnail($prevPost->ID, array(60,60) );}?>
-		        <?php previous_post_link('%link',"$prevthumbnail  %title", TRUE); ?>
-			</div>
-	
-	    <?php $nextPost = get_next_post(true);
-		if($nextPost) { ?>
-		    <div class="nav-box next" style="float:right;">
-		    	<p style="text-align:right;"><?php next_post_link('%link',"Next Photo <span>&raquo;</span>", TRUE); ?></p>
-				<?php $nextthumbnail = get_the_post_thumbnail($nextPost->ID, array(60,60) ); } ?>
-				<?php next_post_link('%link',"$nextthumbnail  %title", TRUE); ?>
-			</div>
-    </div>
     
 	<span class="cat-feat-label">
 	    <?php
 		$categories = get_the_category();
 		$separator = ' ';
 		$output = '';
+		if($dartDomain == "imo.hunting"){
+			$photosURL = "/rack-room?";
+		}else{
+			$photosURL = "/photos?";
+		}
+		
 		
 		if($categories){
 			foreach($categories as $category) {
 				$tracking = "_gaq.push(['_trackEvent','Category','".$category->cat_name."']);";
-				$output .= '<a class="category-name-link" onclick="'.$tracking.'" href="/photos?'.$category->slug.'" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $category->name ) ) . '">'.$category->cat_name.'</a>'.$separator;
+				$output .= '<a class="category-name-link" onclick="'.$tracking.'" href="'.$photosURL.$category->slug.'" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $category->name ) ) . '">'.$category->cat_name.'</a>'.$separator;
 			}
 		echo trim($output, $separator);
 		}

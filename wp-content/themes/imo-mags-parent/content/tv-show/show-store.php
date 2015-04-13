@@ -14,7 +14,7 @@ $acfID = 'category_' . $id;
 	<div class="store-left">
 		<h2>Store</h2>
 		<p><?php echo get_field('show_title',$acfID); ?></p>
-		<a href="https://store.intermediaoutdoors.com/brands.php?brand=<?php echo bloginfo("name"); ?>" class="show-btn" target="_blank">Visit Store</a>
+		<a href="https://store.intermediaoutdoors.com/brands.php?brand=<?php echo str_replace("-", "", get_bloginfo("name")); ?>" class="show-btn" target="_blank">Visit Store</a>
 	</div>
 	<div class="store-sep"></div>
 	<?php the_widget("imo\IMOStoreWidget"); ?></div>

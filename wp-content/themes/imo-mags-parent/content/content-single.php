@@ -75,7 +75,34 @@ $acf_byline = get_field("byline",$postID); ?>
 			    	    <script type="text/javascript">brightcove.createExperiences();</script>
 	    	    </div>
             <?php }
-            the_content( __( 'more <span class="meta-nav">&raquo;</span>', 'twentytwelve' ) ); ?>
+			$show_after_p = 0;
+			$ad_count = 2;
+			$content = apply_filters('the_content', $post->post_content);
+			if(substr_count($content, '<p>') > $show_after_p)
+			{
+				$contents = explode("</p>", $content);
+				$p_count = 0;
+				foreach($contents as $content)
+				{
+					echo $content;
+					//var_dump($p_count);
+					if($p_count == $show_after_p)
+					{
+					the_widget("imo\SubscribeWidget");
+					}
+					if($p_count == $ad_count)
+					{
+					echo '<div class="alignright">';
+					imo_ad_placement("atf_medium_rectangle_300x250"); 
+					echo '</div>';
+					}
+					
+					echo "</p>";
+					$p_count++;
+				}
+			}
+
+            //the_content( __( 'more <span class="meta-nav">&raquo;</span>', 'twentytwelve' ) ); ?>
                        
             <?php wp_link_pages( array( 'before' => '<div class="page-links">' . 'Pages:', 'after' => '</div>' ) ); ?>
         </div><!-- .entry-content -->
