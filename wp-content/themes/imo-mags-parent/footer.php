@@ -52,12 +52,10 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 		                            </ul>
 		                        </div>
 		                        <div class="column column4">
-		                            <h5>TV & More</h5>
+		                            <h5>More</h5>
 		                            <ul class="intermedia-list">
-		                            	 <li><a target="_blank" href="http://www.outdoorchannel.com/"><img src="<?php bloginfo('template_directory'); ?>/images/logos/OC_grey.png" alt=""><span>Outdoor Channel</span></a></li>
-		                            	  <li><a target="_blank" href="http://www.thesportsmanchannel.com/"><img src="<?php bloginfo('template_directory'); ?>/images/logos/spmn-footer.png" alt=""><span>The Sportsman Channel</span></a></li>
-		                            	  <li><a target="_blank" href="http://www.worldfishingnetwork.com/"><img src="<?php bloginfo('template_directory'); ?>/images/logos/wfn-header-logo-grey.png" alt=""><span>World Fishing Network</span></a></li>
 		                                <li><a target="_blank" href="http://www.gameandfishmag.com/"><img src="<?php bloginfo('template_directory'); ?>/images/logos/more-gamefish.png" alt=""><span>Game &amp; Fish</span></a></li>
+		                                <li><a target="_blank" href="http://www.thesportsmanchannel.com/"><img src="<?php bloginfo('template_directory'); ?>/images/logos/spmn-footer.png" alt=""><span>The Sportsman Channel</span></a></li>
 		                                <li><a target="_blank" href="http://store.imoutdoors.com/"><img src="<?php bloginfo('template_directory'); ?>/images/logos/more-outdoors.png" alt=""><span>The IMO Store</span></a></li>
 		                            </ul>
 		                        </div>
@@ -68,8 +66,8 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 		        </div>
 		        <div class="f-nav-section clearfix">
 		            <ul class="foot-nav">
-		                <li><a href="http://www.imoutdoors.com/" target="_blank">ABOUT</a></li>
-		                <li><a href="http://www.imoutdoors.com/" target="_blank">ADVERTISE</a></li>
+		                <li><a href="http://www.imoutdoors.com/about/" target="_blank">ABOUT</a></li>
+		                <li><a href="http://www.imoutdoors.com/advertise" target="_blank">ADVERTISE</a></li>
 		                <li><a href="http://www.imoutdoors.com/about/contact" target="_blank">CONTACT</a></li>
 		                <li><a href="http://www.imoutdoors.com/about/careers" target="_blank">CAREERS</a></li>
 						<li><a href="http://www.imoutdoors.com/about/privacy" target="_blank">PRIVACY POLICY</a></li>
