@@ -664,6 +664,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9900', end
 	padding-bottom: 20px;
 	border-bottom: 1px solid #444444;
 }
+/* Buy Mag Widget ***********/
 .m-buy-mag {
 	width: 300px;
 }
@@ -677,8 +678,18 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9900', end
 .m-buy-mag-bottom {
 	width: 100%;
 }
-.m-buy-mag-bottom a {
+.m-buy-mag-img {
+	width: 155px;
+	height: 205px;
+	float: left;
+	margin-right: 11px;
+	background-image: url("/wp-content/themes/gunsandammo/images/shoot101/mag-cover.jpg");
+	background-size: cover;
+	background-position: center center;
+}
+.m-buy-mag-bottom > a, .m-buy-mag-bottom .m-buy-dig {
 	display: block;
+	position: relative;
 	float: left;
 	width: 134px;
 	height: 96px;
@@ -717,18 +728,71 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 	-moz-transition:color 0s;
 	transition:color 0s;
 }
-.m-buy-mag-bottom a:last-child {
+.m-buy-mag-bottom .m-buy-dig {
 	margin-bottom: 0;
+	overflow: hidden;
+	color: #ee7700;
 }
-.m-buy-mag-img {
-	width: 155px;
-	height: 205px;
+.m-buy-mag-bottom .m-buy-dig:hover .m-dig-drop {
+	top: 0;
+	-webkit-transition:top 0.7s ease;
+	-moz-transition:top 0.7s ease;
+	transition:top 0.7s ease;
+}
+.m-dig-drop {
+	-webkit-transition:top 1s;
+	-moz-transition:top 1s;
+	transition:top 1s;
+	position: absolute;
+	top: 95px;right: 0; bottom: 0; left: 0;
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ffffff 0%, #e3e3e3 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e3e3e3)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#e3e3e3 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ffffff 0%,#e3e3e3 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ffffff 0%,#e3e3e3 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #ffffff 0%,#e3e3e3 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e3e3e3',GradientType=0 ); /* IE6-9 */
+}
+.m-dig-drop ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	text-align: left;
+}
+.m-dig-drop ul li {
+	height: 31px;
+	width: 100%;
+}
+.m-dig-drop ul li:first-child {
+	height: 33px;
+}
+.m-dig-drop ul li a {
+	display: block;
+	width: 100%;
+	height: 31px;
+	padding: 3px 5px;
+}
+.m-dig-drop ul li:first-child a {
+	height: 33px;
+	padding: 5px 5px 3px;
+}
+.m-dig-drop ul li a:hover {
+	background-color: orange;
+}
+.m-dig-drop ul li a img {
+	width: 20px;
+	height: 20px;
 	float: left;
-	margin-right: 11px;
-	background-image: url("/wp-content/themes/gunsandammo/images/shoot101/mag-cover.jpg");
-	background-size: cover;
-	background-position: center center;
+	margin-right: 10px;
 }
+.m-dig-drop ul li a span {
+	font:400 12px/20px "Source Sans Pro", sans-serif;
+	color: #333333;
+	display: block;
+	float: left;
+}
+
 .alignright-content {
 	width: 300px;
 	margin: 30px -10px;
@@ -820,10 +884,68 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 }
 .s-mag-btns .orange-btn {
 	width: 48%;
+	position: relative;
 }
-.s-mag-btns a:first-child {
+.s-mag-btns a.orange-btn {
 	margin-right: 2.5%;
 }
+.s-mag-btns div.orange-btn {
+	cursor: default;
+	position: relative;
+}
+
+.s-mag-btns div.orange-btn:hover .buy-mag-drop {
+	display: block;
+}
+.buy-mag-drop {
+	display: none;
+	position: absolute;
+	right: 0;
+	left: 0;
+	top: 32px;
+	border: 3px solid #ff8b00;
+	background-color: #333333;
+}
+.buy-mag-drop ul {
+	padding: 0;
+	list-style: none;
+	text-align: left;
+	margin: 7px 0;
+}
+.buy-mag-drop ul li {
+	padding-left: 10px;
+	height: 33px;
+	width: 100%;
+	display: inline-block;
+}
+.buy-mag-drop ul li:hover {
+	background-color: #202020;
+}
+.buy-mag-drop ul li a img {
+	display: block;
+	width: 25px;
+	height: 25px;
+	margin-right: 10px;
+	float: left;
+}
+.buy-mag-drop ul li a {
+	color: white;
+	width: 100%;
+	height: 33px;
+	display: block;
+	padding: 4px 0;
+}
+.buy-mag-drop ul li a span {
+	display: block;
+	float: left;
+	font: 400 11px/25px "Source Sans Pro", sans-serif;
+}
+
+
+
+
+
+
 .footer-message h2 {
 	font-size: 19px;
 	text-align: center;
@@ -914,6 +1036,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 .s-or > div {top: -9px; width: 46px;height: 25px;font-size: 19px;}
 .s-mag-btns .orange-btn {width: 48.5%;font-size: 13px;}
 .s-mag-btns a:first-child {margin-right: 2%;}
+.buy-mag-drop {top: 37px;}
+.buy-mag-drop ul li a span {font-size: 14px;line-height: 28px;}
 
 /* Single Article *******************/ 
 .m-article .m-hlep-grow {width: auto;}
