@@ -15,4 +15,6 @@ if(document.location.protocol=='http:'){
 </script>
 <!-- END Tynt Script -->
 <link href='http://fonts.googleapis.com/css?family=Merriweather:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/css/community-common.css" />
+<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/css/community-listing.css" />
 <script async src="http://cdn.mediavoice.com/nativeads/script/IMOutdoors/mv_peteshunt.js"></script>

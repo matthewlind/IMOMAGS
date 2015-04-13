@@ -242,7 +242,7 @@
 			
 			
 			var regions = {'1':'Handguns', '2':'Rifles', '3':'Handguns', '4':'Rifles'}
-			var roundtitles = {'2':'First Round', '3':'Second Round', '4':'Sweet Sixteen', '5':'Elite Eight', '6':'Final Four', '7':'Championship'}
+			var roundtitles = {'2':'First Round', '3':'Second Round', '4':'Sweet Sixteen', '5':'Elite Eight', '6':'Final Four', '8':'Championship'}
 			
 			var campaigns = new Array('handgunsmadness', 'riflesmadness', 'arsmadness', 'shotgunsmadness');
 			if(parseInt(pdata[0].region) == 5) {
@@ -345,6 +345,10 @@
 						jQuery(".vote-again").on("click", function() {
 							jQuery("div[data-mid='63']").trigger("click");
 						});
+						if(round == 8) {
+							jQuery(".next-matchup").html("Vote again &raquo;");
+							jQuery(".close-ad").text("Close");
+						}
 
 						
 					},
@@ -461,7 +465,7 @@
 					var randomPopad = popads[randomInt];
 
 					var regions = {'1':'Handguns', '2':'Rifles', '3':'Handguns', '4':'Rifles'}
-					var roundtitles = {'2':'First Round', '3':'Second Round', '4':'Sweet Sixteen', '5':'Elite Eight', '6':'Final Four', '7':'Championship'}
+					var roundtitles = {'2':'First Round', '3':'Second Round', '4':'Sweet Sixteen', '5':'Elite Eight', '6':'Final Four', '8':'Championship'}
 					
 					var campaigns = new Array('handgunsmadness', 'riflesmadness', 'handgunsmadness', 'riflesmadness');
 					pdata.campaign = campaigns[parseInt(pdata.region)-1];
