@@ -57,8 +57,16 @@ get_header();
 			    			<h2>NOW AVAILABLE ON NEWSSTANDS!</h2> 
 			    			<div class="m-buy-mag-bottom clearfix"> 				
 			    				<div class="m-buy-mag-img"></div> 
-			    				<a href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">BUY THE MAGAZINE NOW!</a> 
-			    				<a style="display: none;" href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">GET THE DIGITAL EDITION!</a> 
+			    				<a href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">BUY PRINT MAGAZINE NOW!</a> 
+			    				<a href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">GET THE DIGITAL EDITION!
+									<div class="m-dig-drop">
+										<ul>
+											<li><a href=""><img src="/wp-content/themes/gunsandammo/images/shoot101/itunes-logo.png"><span>iTunes</span></a></li>
+											<li><a href=""><img src="/wp-content/themes/gunsandammo/images/shoot101/google_play_icon.png"><span>Google Play</span></a></li>
+											<li><a href=""><img src="/wp-content/themes/gunsandammo/images/shoot101/windows-store-icon.png"><span>Windows Store</span></a></li>
+										</ul>
+									</div><!-- .m-buy-mag-hover -->	
+			    				</a> 
 			    			</div>
 			    		</div>
 			    	</div>
@@ -80,8 +88,17 @@ get_header();
     			<h2>NOW AVAILABLE ON NEWSSTANDS!</h2> 
     			<div class="m-buy-mag-bottom clearfix"> 				
     				<div class="m-buy-mag-img"></div> 
-    				<a href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">BUY THE MAGAZINE NOW!</a> 
-    				<a style="display: none;" href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">GET THE DIGITAL EDITION!</a> 
+    				<a href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">BUY PRINT MAGAZINE NOW!</a> 
+    				<div class="m-buy-dig" href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">
+						<span>GET THE DIGITAL EDITION!</span>
+	    				<div class="m-dig-drop">
+							<ul>
+								<li><a href=""><img src="/wp-content/themes/gunsandammo/images/shoot101/itunes-logo.png"><span>iTunes</span></a></li>
+								<li><a href=""><img src="/wp-content/themes/gunsandammo/images/shoot101/google_play_icon.png"><span>Google Play</span></a></li>
+								<li><a href=""><img src="/wp-content/themes/gunsandammo/images/shoot101/windows-store-icon.png"><span>Windows Store</span></a></li>
+							</ul>
+						</div><!-- .m-buy-mag-hover -->										
+    				</div> 
     			</div>
     		</div>
     	</div>

@@ -1,47 +1,10 @@
+</div><!-- .rigged -->
+
 <?php
 	$category_id = get_cat_ID( 'shoot101' );
 	$category_link = get_category_link( $category_id );	
 ?>
-</div><!-- end .s101 -->
 <footer class="s-footer clearfix">
-	<div class="s-mag clearfix">
-		<div class="s-mag-cover">
-			<img src="/wp-content/themes/gunsandammo/images/shoot101/mag-cover.jpg">
-		</div>
-		<div class="s-mag-descr">
-			<h1>Learn, Train, Live</h1>
-			<p>Know someone interested in the shooting sports? Start them off right with Shoot 101, the ideal magazine for mastering the basics of safe, responsible shooting. Compiled by the publishers of Guns & Ammo and filled with educational, entertaining articles, Shoot 101 is a wealth of information for novice and expert shooters alike.</p>
-		</div>
-		<div class="s-mag-buy">
-			<h2>NOW AVAILABLE ON NEWSSTANDS!</h2>
-			<div class="s-or">
-				<div>OR</div>			
-			</div>
-			<div class="s-mag-btns clearfix">
-				<a class="orange-btn" href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101">BUY THE MAGAZINE NOW!</a>
-				<div class="orange-btn" href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101">
-					GET THE DIGITAL EDITION!
-					<div class="buy-mag-drop">
-						<ul>
-							<li><a href=""><img src="/wp-content/themes/gunsandammo/images/shoot101/itunes-logo.png"><span>iTunes</span></a></li>
-							<li><a href=""><img src="/wp-content/themes/gunsandammo/images/shoot101/google_play_icon.png"><span>Google Play</span></a></li>
-							<li><a href=""><img src="/wp-content/themes/gunsandammo/images/shoot101/windows-store-icon.png"><span>Windows Store</span></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div><!-- end .s-mag-descr -->
-	</div><!-- end .s-mag-descr -->
-	<div class="footer-message clearfix">
-		<h2>Help grow shooting in America. Share this with a new shooter!</h2>
-		<div class="f-social-buttons">
-			<ul>
-				<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>&title=<?php if(is_category("shoot101")){ echo "Shoot101: A starter's guide every new shooter should read."; }else{ print(urlencode(the_title())); } ?>" class="icon-facebook" target="_blank"></a></li>
-						<li><a href="http://twitter.com/intent/tweet?status=<?php if(is_category("shoot101")){ echo "Shoot101: A starter's guide every new shooter should read."; }else{ print(urlencode(the_title())); } ?>+<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" class="icon-twitter" target="_blank"></a></li>
-						<li><a href="mailto:?subject=Article I came across&body=Check out this article! Title: '<?php the_title(); ?>'. Link: <?php the_permalink(); ?>" class="icon-mail" target="_blank"></a></li>
-			</ul>
-		</div>
-	</div>
 	<div class="m-footer-bottom">
 		<div class="m-logo-nav">
 			<div class="m-imo-logo">
@@ -82,7 +45,7 @@
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/script.js"></script>
     <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/script.js"></script>
 -->
-	<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/shoot101.js"></script>
+	<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/rigged-and-ready.js"></script>
 <!--
     <link rel="STYLESHEET" type="text/css" href="<?php bloginfo('template_directory'); ?>/js/plugins/flexslider/flexslider.css">
     <link rel="STYLESHEET" type="text/css" href="<?php bloginfo('template_directory'); ?>/js/plugins/ezmark/css/ezmark.css">

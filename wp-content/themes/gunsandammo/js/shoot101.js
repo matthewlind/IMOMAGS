@@ -44,7 +44,18 @@ jQuery(document).ready(function($) {
 		moveBox();
 	}
 
-});
+/*
+	$(".m-buy-dig").hover(	
+		 function() {
+			 console.log("hover");
+	    $(".m-dig-hover").fadeIn().slideUp();
+	  }, function() {
+	    $(".m-dig-hover").fadeOut().slideDown();
+	  }
+	);
+*/
+
+}); // end of document.ready
 
 /*
 jQuery(window).scroll(function () {
