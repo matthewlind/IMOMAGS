@@ -319,9 +319,7 @@ jQuery(document).ready(function () {
 		        console.log(data.length);
 	            	if(data.length > 1){
 	            		jQuery(data).appendTo(".main-content-preppend");
-	            		
 	            	}else{
-		            	
 		            	jQuery(".pager-holder").hide();
 		            	jQuery('<h3 class="no-mo-videos">No more photos, please try a different category.</h3>').appendTo(".main-content-preppend");
 	            	}

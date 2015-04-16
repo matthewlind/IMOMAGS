@@ -2655,11 +2655,19 @@ add_action( 'wp_ajax_photos-filter', 'prefix_load_photos_posts' );
 function prefix_load_photos_posts () {
 
 	$dartDomain = get_option("dart_domain", $default = false);
-
+	
 	if($dartDomain == "imo.hunting"){
+	
 		$postType = "rack_room";
+		
+	}else if($dartDomain == "imo.in-fisherman"){
+	
+		$postType = "fish_head_photos";
+		
 	}else{
+	
 		$postType = "reader_photos";
+		
 	}
 
 	$cat_id = $_POST[ 'cat' ];
