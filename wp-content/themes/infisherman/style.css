@@ -731,6 +731,36 @@ ul.fancy li, ol.fancy li {
 /***** END Photos Page ******/
 
 
+/*** TV page ***/
+.remind-me{
+	color: white;
+	text-align: left;
+	height: 53px;
+	width: 108px;
+	float: right;
+	text-align: center;
+	padding: 0;
+	background: #c6262d; /* Old browsers */
+	background: -moz-linear-gradient(top,  #c6262d 0%, #9e0017 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c6262d), color-stop(100%,#9e0017)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #c6262d 0%,#9e0017 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #c6262d 0%,#9e0017 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #c6262d 0%,#9e0017 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #c6262d 0%,#9e0017 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c6262d', endColorstr='#9e0017',GradientType=0 ); /* IE6-9 */
+}
+.remind-me:hover{
+	background: #f23043; /* Old browsers */
+	background: -moz-linear-gradient(top,  #f23043 0%, #bf001c 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f23043), color-stop(100%,#bf001c)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #f23043 0%,#bf001c 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #f23043 0%,#bf001c 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #f23043 0%,#bf001c 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #f23043 0%,#bf001c 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f23043', endColorstr='#bf001c',GradientType=0 ); /* IE6-9 */
+}
+.posts-list .remind-me span{color: white;}
+
 /* Main Section
  ******************************************************************************/
 .post-slider {

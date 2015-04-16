@@ -2,6 +2,7 @@ var videoPortal = (function(e){
 	var $ = jQuery;
 	var player,
 		video_id,
+		videoLink,
 		title,
 		description,
 		slug,
@@ -24,6 +25,7 @@ var videoPortal = (function(e){
 		
 			if($(".single-format-video").length){
 				video_id = $(".video-title").attr("data-videoid");
+				videoLink = $("#show-destination").attr("videoLink");
 				title = $(".video-title").attr("data-title");
 				description = $(".video-title").parent().find(".data-description").html();
 				slug = $(".video-title").attr("data-slug");
@@ -43,13 +45,14 @@ var videoPortal = (function(e){
 				}
 			
 				video_id = $("#video-thumbs li").first().find("a").attr("data-videoid");
+				videoLink = $("#show-destination").attr("videoLink");
 				title = $("#video-thumbs li").first().find("a").attr("data-title");
 				description = $("#video-thumbs li").first().parent().find(".data-description").html();
 				slug = $("#video-thumbs li").first().find("a").attr("data-slug");
 				img_url = $("#video-thumbs li").first().find("a").attr("data-img_url");
 				post_url = $("#video-thumbs li").first().find("a").attr("data-post_url");
 			}
-			self.loadVideo(video_id);	
+			self.loadVideo(video_id,videoLink);	
 			
 			
 			
@@ -78,6 +81,7 @@ var videoPortal = (function(e){
 			        scrollTop: $("#when-to-watch").offset().top
 			    }, 0);
 				video_id = $(this).attr("data-videoid");
+				videoLink =  $(this).attr("data-post_url");
 				title = $(this).attr("data-title");
 				description = $(this).parent().find(".data-description").html();
 				slug = $(this).attr("data-slug");
@@ -88,7 +92,7 @@ var videoPortal = (function(e){
 				$("h1.video-title").text(title);
 				$(".video-description").html(description);
 				
-				self.videoInit(video_id,slug,title,description,post_url,img_url);
+				self.videoInit(video_id,videoLink,slug,title,description,post_url,img_url);
 				self.socialite(video_id,slug,title,description,post_url,img_url);
 			    
 			
@@ -236,7 +240,7 @@ var videoPortal = (function(e){
 			    });
 			})();
 		},
-		videoInit: function(video_id,slug,title,description,post_url,img_url){
+		videoInit: function(video_id,videoLink,slug,title,description,post_url,img_url){
 			var self = this;
 			
 			// Detecting IE
@@ -248,7 +252,7 @@ var videoPortal = (function(e){
 		    	self.updateURL(video_id,slug,title,description,post_url,img_url);
 		    }
 			self.updateSocial(slug,title,post_url,img_url);
-			self.loadVideo(video_id);
+			self.loadVideo(video_id,videoLink);
 			
 		},
 		updateURL: function(video_id,slug,title,description,post_url,img_url ){
@@ -322,10 +326,9 @@ var videoPortal = (function(e){
 			$(".reload-twitter").attr("href","http://twitter.com/home/?status=" + title + " - " + post_url);
 			$(".reload-google").attr("href","https://plus.google.com/share?url=" + post_url);*/
 		},
-		loadVideo: function(video_id){
+		loadVideo: function(video_id,videoLink){
 			//load videos
 		    var playerID = $("#show-destination").attr("playerID");
-		    var videoLink = $("#show-destination").attr("videoLink");
 		    var adServerURL = $("#show-destination").attr("adServerURL");
 		    		    
 		    var htm = '';
