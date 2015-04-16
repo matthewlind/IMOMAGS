@@ -1,33 +1,6 @@
 jQuery(document).ready(function($) {
 	
-	
-	var postoffset = 0;
-	var catID = jQuery(".posts-list").attr("id");
-	
-	jQuery("a.paginate-photos").click(function(){
-		postoffset = postoffset + 10;
-		jQuery(".loading-gif").show();
-		var data;
-	    jQuery.ajax({
-	        type: 'POST',
-	        url: '/wp-admin/admin-ajax.php',
-	        data: {"action": "fishhead-photos-filter", cat: catID, offset: postoffset},
-	        success: function(response) {
-            	if(response.length <= 1){
-            		jQuery(".pager-holder").hide();
-	            	jQuery('<h3 class="no-mo-videos">No more photos, please try a different category.</h3>').appendTo(".main-content-preppend");
-            	}else{
-	            	jQuery(response).appendTo(".main-content-preppend");
-            	}
-	            jQuery("#ajax-loader").hide();
-				FB.XFBML.parse();
-	            return false;
-	        }
-	    });
-     
-	       
-	});
-	
+		
 	/*** Community menu ***/
 	
 	//Toggle Photos Menu

@@ -38,8 +38,15 @@ $args = array(
              	if ( $loop->have_posts() ) :
 					while ( $loop->have_posts() ) : $loop->the_post();
 					 	get_template_part( 'content/content-category-reader_photos', get_post_format() ); 
-					endwhile;
-				else : ?>
+					endwhile; ?>
+					 </div>
+            <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="pager-holder js-responsive-section">
+			    <a href="#" class="btn-base paginate-photos">Load More</a>
+			    <a href="#" class="go-top jq-go-top">go top</a>
+			
+			    <img src="/wp-content/themes/imo-mags-parent/images/ajax-loader.gif" id="ajax-loader" style="display:none;"/>
+			</div>
+				<?php else : ?>
 
 					<article id="post-0" class="post no-results not-found">
 						<header class="entry-header">
@@ -55,21 +62,20 @@ $args = array(
              	
 	            while ( have_posts() ) : the_post(); 
 				 	get_template_part( 'content/content-category-reader_photos', get_post_format() ); 
-				endwhile;
-
-             } ?>
-             
-             
-            
-        </div>
-        <?php if ( $loop->have_posts() || have_posts() ) : ?>
+				endwhile; ?>
+				 </div>
             <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="pager-holder js-responsive-section">
 			    <a href="#" class="btn-base paginate-photos">Load More</a>
 			    <a href="#" class="go-top jq-go-top">go top</a>
 			
 			    <img src="/wp-content/themes/imo-mags-parent/images/ajax-loader.gif" id="ajax-loader" style="display:none;"/>
 			</div>
-		<?php endif; ?>
+
+             <?php } ?>
+             
+             
+            
+       
     </div><!-- #content -->
 </div><!-- #primary -->
 
