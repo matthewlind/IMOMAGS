@@ -6,14 +6,15 @@
 	<header class="m-main-header clearfix">
 		<div class="m-nav-erea clearfix">
 			<div class="m-nav clearfix">
-				<div class="m-compass">
-					<span>SOMESIDE</span>
+				<div class="m-compass-wrap">
+					<div class="m-compass"></div>
+					<span>SOUTHEAST</span>
 				</div>
 				<div class="m-choose-btn">
 					<span>CHOOSE</span><i class="icon-chevron-thin-right"></i><span>LOCATION</span>
 				</div>
 			</div><!-- .r-nav -->
-			<div class="social-buttons">
+			<div class="m-social-buttons">
 				<ul>
 					<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>&title=<?php if(is_category("shoot101")){ echo "Shoot101: A starter's guide every new shooter should read."; }else{ print(urlencode(the_title())); } ?>" class="icon-facebook" target="_blank"></a></li>
 					<li><a href="http://twitter.com/intent/tweet?status=<?php if(is_category("shoot101")){ echo "Shoot101: A starter's guide every new shooter should read."; }else{ print(urlencode(the_title())); } ?>+<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" class="icon-twitter" target="_blank"></a></li>

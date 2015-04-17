@@ -7,9 +7,7 @@
 <footer class="s-footer clearfix">
 	<div class="m-footer-bottom">
 		<div class="m-logo-nav">
-			<div class="m-imo-logo">
-				<a href="http://www.imoutdoors.com/"><img src="/wp-content/themes/gunsandammo/images/shoot101/imo-logo.png"></a>
-			</div>
+			<a href="http://www.imoutdoors.com/"><div class="m-imo-logo"></div></a>
 			<div class="m-footer-nav">
 				<ul>
 					<li><a href="http://www.imoutdoors.com/about/what-we-do/" target="_blank">ABOUT</a></li>
