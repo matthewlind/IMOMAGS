@@ -1,7 +1,7 @@
 <div class="top-panel">
 	<a href="http://www.in-/" class="icon-arrow-left">Back to Guns & Ammo</a>
 </div>
-<div class="s101 <?php /* if (is_category( 'shoot101' )) { echo "cat-shoot101"; } */ if ( in_category( 'shoot101' )) { echo "cat-shoot101";}?>">
+<div class="m-microsite">
 	
 	<header class="m-main-header clearfix">
 		<div class="m-nav-erea clearfix">

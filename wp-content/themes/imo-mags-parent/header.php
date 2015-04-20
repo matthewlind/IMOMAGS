@@ -53,10 +53,14 @@
 	<!--[if IE 8]><style type="text/css">img{max-width: none !important;}.BCLvideoWrapper object{width:480px !important;}</style><![endif]-->
 	
 	<?php
+	$rigged_cat = array("riggedready", "northeast", "southeast", "midwest", "southwest", "northwest");	
+		
+		
+		
 	if (is_home() || is_search()) { ?>
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 	<?php }	else { 
-		if ( in_category('rigged-and-ready') || is_category('rigged-and-ready')) { ?>
+		if ( in_category($rigged_cat) || is_category($rigged_cat)) { ?>
 			<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/css/rigged-and-ready.css" />
 	<?php } else { ?>
 			<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
@@ -131,11 +135,13 @@
 
 <body <?php body_class(); ?>  >
 <?php
+	
+	
 	if (is_home() || is_search()) {
 		get_template_part('header/header', 'default');
 	}	else {
-		if ( in_category('rigged-and-ready') || is_category('rigged-and-ready')) {
- 			get_template_part('header/header', 'rigged-and-ready'); 			
+		if ( in_category($rigged_cat) || is_category($rigged_cat)) {
+ 			get_template_part('header/header', 'riggedready'); 			
 		} else {
 			get_template_part('header/header', 'default');
 		}

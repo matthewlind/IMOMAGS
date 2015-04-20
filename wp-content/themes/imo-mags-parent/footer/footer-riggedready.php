@@ -1,4 +1,4 @@
-</div><!-- .rigged -->
+
 
 <?php
 	$category_id = get_cat_ID( 'shoot101' );
@@ -24,6 +24,8 @@
 	</div><!-- end .m-footer-bottom -->
 </footer>
 
+
+</div><!-- .m-microsite -->
 <!--
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery.tipTip.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery.cookie.js"></script>
