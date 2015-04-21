@@ -4,7 +4,7 @@
 	$category_id = get_cat_ID( 'shoot101' );
 	$category_link = get_category_link( $category_id );	
 ?>
-<footer class="s-footer clearfix">
+<footer class="m-footer clearfix">
 	<div class="m-footer-bottom">
 		<div class="m-logo-nav">
 			<a href="http://www.imoutdoors.com/"><div class="m-imo-logo"></div></a>

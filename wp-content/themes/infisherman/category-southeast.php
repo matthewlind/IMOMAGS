@@ -1,9 +1,10 @@
 <?php get_header(); ?>
-<div class="content-wrap" style="background: url('/wp-content/themes/infisherman/images/rigged-and-ready/regions-fade-bottom/southeast.png') center top / 100% no-repeat;">
-	<div class="content">
+<div class="m-content-wrap">
+	<div class="m-content-shadow"></div>
+	<div class="m-content">
 			<div class="m-direction">
 				<div class="m-triangle"></div>
-				<span>Southwest</span>
+				<span>Southeast</span>
 			</div>
 			<div class="posts-wrap">
 				<div class="p-container clearfix">
@@ -48,10 +49,63 @@
 				
 				<?php // echo get_template_part( 'content/relative', 'microsite' ); ?>
 			</div><!-- end .posts-wrap -->
-	</div><!-- end .content -->				
-</div><!-- end .content-wrap -->					
-				
-				
+	</div><!-- end .m-content -->				
+</div><!-- end .m-content-wrap -->					
+<div class="m-truck-container m-truck-region">
+	<div class="m-truck">
+		<div class="m-truck-title clearfix">
+			<h3>RIGGED & READY</h3>
+			<div title="track tips"></div>
+		</div>
+		<p>Explore the all new 2015<br> RAM 1500</p>
+		<a href="" class="blue-round-btn">
+			<span class="m-text-under">READ NOW</span>
+			<div class="m-btn-horizontal"></div>
+			<div class="m-btn-vertical"></div>
+			<span class="m-text-over">READ NOW</span>
+		</a>
+	</div>
+</div>	
+<!-- <div class="m-loc-section"> -->
+	
+	<div class="m-loc">
+		<h2>Choose different location</h2>
+		<div class="m-loc-wrap ">
+			<ul class="clearfix">
+				<li>
+					<a href="">
+						<div class="m-loc-circle"></div>
+						<span>NORTHEAST</span>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<div class="m-loc-circle"></div>
+						<span>SOUTHEAST</span>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<div class="m-loc-circle"></div>
+						<span>MIDWEST</span>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<div class="m-loc-circle"></div>
+						<span>SOUTHWEST</span>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<div class="m-loc-circle"></div>
+						<span>NORTHWEST</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>			
+<!-- </div>				 -->
 				
 	
 
