@@ -18,12 +18,6 @@
 #community-wrap .posts-list span{font-style: normal;}
 #community-wrap .btn-default.mobile{margin: 10px auto;display: block;width: 95%;}
 .post-type-archive-rack_room .pager-holder .btn-base{display: block;}
-.share-photo-now{
-	padding: 14px 0 6px;
-	width: 100%;
-	border: 4px solid #f9cc39;
-	text-align: center;
-}
 .share-container .wpsocialite{display: inline-block !important;}
 .share-container .wpsocialite iframe{top: 12px;}
 .share-photo-now .share-container{margin: 0 auto;display: block;}

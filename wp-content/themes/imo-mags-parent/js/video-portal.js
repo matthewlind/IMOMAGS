@@ -95,8 +95,8 @@ var videoPortal = (function(e){
 				self.videoInit(video_id,videoLink,slug,title,description,post_url,img_url);
 				self.socialite(video_id,slug,title,description,post_url,img_url);
 			    
-			
-			//show page default
+				console.log(video_id);
+				//show page default
 				_gaq.push(['_trackPageview', window.location.pathname + slug]);
 			});
 		},
