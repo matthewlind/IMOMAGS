@@ -19,7 +19,7 @@
 			</div>
 			<div class="s-mag-btns clearfix">
 				<a class="orange-btn" href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101">BUY THE MAGAZINE NOW!</a>
-				<div class="orange-btn" href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101">
+				<!--<div class="orange-btn" href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101">
 					GET THE DIGITAL EDITION!
 					<div class="buy-mag-drop">
 						<ul>
@@ -28,7 +28,7 @@
 							<li><a href=""><img src="/wp-content/themes/gunsandammo/images/shoot101/windows-store-icon.png"><span>Windows Store</span></a></li>
 						</ul>
 					</div>
-				</div>
+				</div>-->
 			</div>
 		</div><!-- end .s-mag-descr -->
 	</div><!-- end .s-mag-descr -->
