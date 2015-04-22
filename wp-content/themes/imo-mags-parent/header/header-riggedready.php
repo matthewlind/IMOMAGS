@@ -23,5 +23,5 @@
 			</div><!-- .social-buttons -->
 		</div><!-- .r-nav-erea -->
 		<div class="m-circle-wrap"><div class="m-circle"></div></div>
-		<a href="/rigged-and-ready/" title="Rigged and Ready"><div class="m-logo"></div></a>
+		<a href="/riggedready/" title="Rigged and Ready"><div class="m-logo"></div></a>
 	</header>

@@ -65,47 +65,45 @@
 			<span class="m-text-over">READ NOW</span>
 		</a>
 	</div>
-</div>	
-<!-- <div class="m-loc-section"> -->
-	
-	<div class="m-loc">
-		<h2>Choose different location</h2>
-		<div class="m-loc-wrap ">
-			<ul class="clearfix">
-				<li>
-					<a href="">
-						<div class="m-loc-circle"></div>
-						<span>NORTHEAST</span>
-					</a>
-				</li>
-				<li>
-					<a href="">
-						<div class="m-loc-circle"></div>
-						<span>SOUTHEAST</span>
-					</a>
-				</li>
-				<li>
-					<a href="">
-						<div class="m-loc-circle"></div>
-						<span>MIDWEST</span>
-					</a>
-				</li>
-				<li>
-					<a href="">
-						<div class="m-loc-circle"></div>
-						<span>SOUTHWEST</span>
-					</a>
-				</li>
-				<li>
-					<a href="">
-						<div class="m-loc-circle"></div>
-						<span>NORTHWEST</span>
-					</a>
-				</li>
-			</ul>
-		</div>
-	</div>			
-<!-- </div>				 -->
+</div><!-- .m-truck-container -->		
+<div class="m-loc">
+	<h2>Choose different location</h2>
+	<div class="m-loc-wrap">
+		<ul class="clearfix">
+			<li>
+				<a href="">
+					<div class="m-loc-circle"></div>
+					<span>NORTHEAST</span>
+				</a>
+			</li>
+			<li>
+				<a href="">
+					<div class="m-loc-circle"></div>
+					<span>SOUTHEAST</span>
+				</a>
+			</li>
+			<li>
+				<a href="">
+					<div class="m-loc-circle"></div>
+					<span>MIDWEST</span>
+				</a>
+			</li>
+			<li>
+				<a href="">
+					<div class="m-loc-circle"></div>
+					<span>SOUTHWEST</span>
+				</a>
+			</li>
+			<li>
+				<a href="">
+					<div class="m-loc-circle"></div>
+					<span>NORTHWEST</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div><!-- .m-loc -->				
+
 				
 	
 

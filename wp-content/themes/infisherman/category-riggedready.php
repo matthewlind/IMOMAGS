@@ -11,7 +11,7 @@
 			</a>
 		</li>
 		<li class="m-se">
-			<a href="">
+			<a href="/riggedready/southeast/">
 				<div class="m-direction">
 					<div class="m-triangle"></div>
 					<span>Southeast</span>
