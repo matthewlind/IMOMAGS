@@ -4466,6 +4466,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 	background: url(images/ico/camera-white.png) no-repeat;
 	padding: 2px 0 0 30px;
 }
+.share-photo-now{
+	padding: 0 0 10px;
+	width: 100%;
+	border: 4px solid #f9cc39;
+	text-align: center;
+}
 .mob-share a{
 	margin: 6px auto;
 	width: 96%;
@@ -5390,14 +5396,33 @@ table.likes-leaderboard .entry-title {
 
 } /* End of media */
 @media only screen and (max-width: 1023px) {
-/* E-Commerce
-********************************************************************************/
-.ecw-head { padding: 8px; }
-.ecw-head h1 { float: none;line-height: 20px;text-align: center;}
-.ecw-head span {float: none;line-height: 20px;text-align: center;}
-#ecw-flexslider {width: 334px;}
-/* END E-Commerce
-********************************************************************************/
+	/* E-Commerce
+	********************************************************************************/
+	.ecw-head { padding: 8px; }
+	.ecw-head h1 { float: none;line-height: 20px;text-align: center;}
+	.ecw-head span {float: none;line-height: 20px;text-align: center;}
+	#ecw-flexslider {width: 334px;}
+	/* END E-Commerce
+	********************************************************************************/
+	.home #when-to-watch img{
+		float: none;
+		margin: 0 auto;
+		display: block;
+	}
+	.home #when-to-watch .when-label h3 {text-align: center;}
+	.home #when-to-watch .when-label {float: none;}
+	.home .schedule-mobile{clear: both;}
+	.home .schedule-item{border: none;}
+	.home .remind-me {
+	  padding: 8px 0;
+	  float: none;
+	  width: 80%;
+	  margin: 0 auto;
+	  display: block;
+	  clear: both;
+	  height: auto;
+	}
+
 } /* End of media */
 @media only screen and (max-width: 981px) {
 	.tv-show #when-to-watch {padding-top: 20px;}

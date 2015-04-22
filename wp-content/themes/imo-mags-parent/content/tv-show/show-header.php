@@ -86,7 +86,7 @@ $acfID = 'category_' . $id; ?>
 		$whenToWatch = get_field('when_to_watch',$acfID);
 		echo do_shortcode("[tscschedule format='singleshow' postid='".$whenToWatch."']"); ?>	
 				
-		<a href="<?php echo get_field('remind_me',$acfID); ?>" class="remind-me show-btn" target="_blank">
+		<a href="<?php echo get_field('remind_me',$acfID); ?>" class="remind-me" target="_blank">
 			<span>REMIND ME<br> TO WATCH</span>
 		</a>
 	</div><!-- end of #when-to-watch -->

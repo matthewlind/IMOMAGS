@@ -52,7 +52,14 @@ $dartDomain = get_option("dart_domain", $default = false);
 			</div>
 		<?php } ?>
     </div>
-	<?php if(function_exists('wpsocialite_markup')){ wpsocialite_markup(); } ?>
+    <?php if ($_GET['message'] == "share") { ?>
+	    <div class="share-photo-now clearfix">
+	    	<div class="share-container">
+	        	<h2>Like this photo on Facebook!</h2>
+	        	<?php if(function_exists('wpsocialite_markup')){ wpsocialite_markup('button_override=facebook'); } ?>
+			</div>
+	    </div>
+    <?php } ?>
 
     <!-- .entry-header -->
     <div class="entry-content-holder">
