@@ -20,7 +20,7 @@ jQuery( document ).ready(function($) {
 		
 	//layout in columns
 	if($(window).width() > 610){
-	    var num_cols = 4,
+	    var num_cols = 6,
 	    container = $('.community-header ul.menu'),
 	    listItem = 'li',
 	    listClass = 'sub-list';

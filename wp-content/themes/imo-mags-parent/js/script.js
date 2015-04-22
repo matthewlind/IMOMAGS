@@ -297,14 +297,13 @@ jQuery(document).ready(function () {
 		        type: 'POST',
 		        url: '/wp-admin/admin-ajax.php',
 		        data: {"action": "ff-photos-filter", cat: catID, offset: postoffset, type: photoType},
-		        success: function(response) {
-	            	if(!response){
-	            		
-	            		jQuery(".pager-holder").hide();
-		            	jQuery('<h3 class="no-mo-videos">No more photos, please try a different category.</h3>').appendTo(".main-content-preppend");
+		        success: function(data) {
+	            	if(data.length > 1){
+						jQuery(data).appendTo(".main-content-preppend");	            		
 	            	}else{
-		            	jQuery(response).appendTo(".main-content-preppend");
-	            	}
+		            	jQuery(".pager-holder").hide();
+		            	jQuery('<h3 class="no-mo-videos">No more photos, please try a different category.</h3>').appendTo(".main-content-preppend");
+		           	}
 		            jQuery("#ajax-loader").hide();
 					FB.XFBML.parse();
 		            return false;
@@ -316,12 +315,11 @@ jQuery(document).ready(function () {
 		        type: 'POST',
 		        url: '/wp-admin/admin-ajax.php',
 		        data: {"action": "photos-filter", cat: catID, offset: postoffset},
-		        success: function(response) {
-	            	if(response){
-	            		jQuery(response).appendTo(".main-content-preppend");
-	            		
+		        success: function(data) {
+		        console.log(data.length);
+	            	if(data.length > 1){
+	            		jQuery(data).appendTo(".main-content-preppend");
 	            	}else{
-		            	
 		            	jQuery(".pager-holder").hide();
 		            	jQuery('<h3 class="no-mo-videos">No more photos, please try a different category.</h3>').appendTo(".main-content-preppend");
 	            	}

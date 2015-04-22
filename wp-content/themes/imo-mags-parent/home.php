@@ -80,34 +80,69 @@ get_header(); ?>
 						<a href="/photos/">See More Fishhead Photos<span></span></a>
 					</div>
 				</div>
-				<?php }
 				
-				if( $playerID && $playerKey ){ ?>
-				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section">
+				<?php					
+					query_posts(array( 
+						'post_type' => 'post',
+						'post_status' => 'publish',
+					    'tax_query' => array(
+						    array(
+						      'taxonomy' => 'post_format',
+						      'field' => 'slug',
+						      'terms' => 'post-format-video'
+						    )
+						  ),
+					    'showposts' => 1 
+					)); 
+					while (have_posts()) : the_post();
+					$video_id = get_post_meta(get_the_ID(), '_video_id', TRUE);
+					
+					$idObj = get_category_by_slug('tv'); 
+					$id = $idObj->term_id;
+					$acfID = 'category_' . $id; 
+				?>
+				<div class="posts-list js-responsive-section">
 					<div class="general-title clearfix">
-		                <h2><?php echo $videoTitle; ?></h2>
+		                <h2>In Fisherman TV</h2>
 		            </div>
-
+					<div id="when-to-watch">
+						<div class="when-label">
+							<h3>WHEN TO WATCH</h3>
+							<a href="http://thesportsmanchannel.com" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/logos/sportsman-header-logo.jpg" alt="sc-logo" width="" height="" /></a>
+						</div>
+							<?php echo do_shortcode("[tscschedule format='singleshow' postid='1068']"); ?>	
+						
+						<a href="<?php echo get_field('remind_me',$acfID); ?>" class="remind-me show-btn" target="_blank">
+							<span>REMIND ME TO WATCH</span>
+						</a>
+					</div><!-- end of #when-to-watch -->
 					<!-- Start of Brightcove Player -->
 					<div style="display:none"></div>
 
 					<script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
 
 					<object id="myExperience" class="BrightcoveExperience">
-					  <param name="bgcolor" value="#FFFFFF" />
-					  <param name="width" value="480" />
-					  <param name="height" value="628" />
-					  <param name="playerID" value="<?php echo $playerID; ?>" />
-					  <param name="playerKey" value="<?php echo $playerKey; ?>" />
-					  <param name="isVid" value="true" />
-					  <param name="isUI" value="true" />
-					  <param name="dynamicStreaming" value="true" />
+						<param name="bgcolor" value="#000000" />
+						<param name="wmode" value="transparent">
+						<param name="width" value="100%" />'
+						<param name="height" value="350" />'
+			    		<param name="quality" value="high">'
+				  	    <param name="playerID" value="<?php echo get_field("tv_player_id","options"); ?>" />
+				  	    <param name="isVid" value="true" />
+					    <param name="isUI" value="true" />
+					    <param name="dynamicStreaming" value="true" />
+					    <param name="linkBaseURL" value="<?php echo get_the_permalink(); ?>" />
+					    <param name="@videoPlayer" value="<?php echo $video_id; ?>" />
 					</object>
 					<script type="text/javascript">brightcove.createExperiences();</script>
 					<!-- End of Brightcove Player -->
 				</div>
-				<?php }
-				if($dartdomain == "imo.in-fisherman"){ ?>
+				<div class="fishhead-see-more">
+					<a href="/tv/">See More In Fisherman TV<span></span></a>
+				</div>
+				<?php endwhile; ?> 
+				
+			
 					<hr class="cfct-div-solid">
 					<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header clearfix js-responsive-section">
 	                 	<div class="general-title clearfix">
@@ -148,7 +183,36 @@ get_header(); ?>
 							<a class="cta" href="/midwest-finesse/">See More Midwest Finesse<span></span></a>
 	                    </div>
 	                </div>
-				<?php } ?>
+				<?php }else{ 
+				
+				
+				if( $playerID && $playerKey ){ ?>
+				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section">
+					<div class="general-title clearfix">
+		                <h2><?php echo $videoTitle; ?></h2>
+		            </div>
+
+					<!-- Start of Brightcove Player -->
+					<div style="display:none"></div>
+
+					<script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+
+					<object id="myExperience" class="BrightcoveExperience">
+					  <param name="bgcolor" value="#FFFFFF" />
+					  <param name="width" value="480" />
+					  <param name="height" value="628" />
+					  <param name="playerID" value="<?php echo $playerID; ?>" />
+					  <param name="playerKey" value="<?php echo $playerKey; ?>" />
+					  <param name="isVid" value="true" />
+					  <param name="isUI" value="true" />
+					  <param name="dynamicStreaming" value="true" />
+					</object>
+					<script type="text/javascript">brightcove.createExperiences();</script>
+					<!-- End of Brightcove Player -->
+				</div>
+				<?php } 
+					}
+				?>
 				
 				<?php if ( mobile() ){ get_sidebar("mobile"); } ?>
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section main-content-preppend">

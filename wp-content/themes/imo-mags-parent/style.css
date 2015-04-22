@@ -3215,27 +3215,29 @@ margin-bottom:15px;
 	opacity: 1;
 }
 /* when to watch ==================================== */
-.tv-show #when-to-watch {
+#when-to-watch {
 	width: 100%;
 	height: 106px;
 	overflow: hidden;
 	padding-top: 20px;
 }
-.tv-show #when-to-watch .when-label {
+#when-to-watch .when-label {
 	float: left;
 }
-.tv-show #when-to-watch img{
+#when-to-watch img{
 	width: 160px;
 	height: auto;
 	float: right;
 }
-.tv-show #when-to-watch .when-label h3 {
+#when-to-watch .when-label h3 {
 	color: #ffffff;
 	font: 13px/20px 'jubilat', serif;
 	font-weight: 300;
 	text-align: right;
 }
-.tv-show .schedule-item {
+.home #when-to-watch{background: #252525;padding: 5px;margin-bottom: 5px;height: auto;}
+
+.schedule-item {
 	float: left;
 	margin: 5px 0 0 15px;
 	border-left: 2px solid #848484;
@@ -3243,7 +3245,14 @@ margin-bottom:15px;
 	padding-left: 16px;
 	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 }
-
+.home .schedule-item {
+  margin: 12px 0 0 10px;
+  border-left: 2px solid #848484;
+  height: 30px;
+}
+.home .schedule-item:nth-child(n+5) {
+	display: none;
+}
 .tv-show .schedule-item:nth-child(n+7) {
 	display: none;
 }
@@ -3278,7 +3287,7 @@ margin-bottom:15px;
 	border-radius: 4px;
 	
 }
-.tv-show .remind-me{
+.remind-me{
 	font:13px/18px "open_sanssemibold", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	color: #ffffff;
 	text-align: left;
@@ -3297,7 +3306,7 @@ margin-bottom:15px;
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#494949', endColorstr='#2d2d2d',GradientType=0 ); /* IE6-9 */
 	box-shadow: 0 4px 5px rgba(0,0,0,0.3);
 }
-.tv-show .remind-me:hover{
+.remind-me:hover{
 	background: #5e5e5e; /* Old browsers */
 	background: -moz-linear-gradient(top,  #5e5e5e 0%, #333333 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5e5e5e), color-stop(100%,#333333)); /* Chrome,Safari4+ */
@@ -3307,6 +3316,7 @@ margin-bottom:15px;
 	background: linear-gradient(to bottom,  #5e5e5e 0%,#333333 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5e5e5e', endColorstr='#333333',GradientType=0 ); /* IE6-9 */
 }
+.home .remind-me{width: 100px;padding: 8px 0;}
 .page-template-show-page-php .tv-show .remind-me {
 	background: #a5a5a5; /* Old browsers */
 	background: -moz-linear-gradient(top,  #a5a5a5 0%, #838383 100%); /* FF3.6+ */
@@ -4456,6 +4466,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 	background: url(images/ico/camera-white.png) no-repeat;
 	padding: 2px 0 0 30px;
 }
+.share-photo-now{
+	padding: 0 0 10px;
+	width: 100%;
+	border: 4px solid #f9cc39;
+	text-align: center;
+}
 .mob-share a{
 	margin: 6px auto;
 	width: 96%;
@@ -5380,14 +5396,33 @@ table.likes-leaderboard .entry-title {
 
 } /* End of media */
 @media only screen and (max-width: 1023px) {
-/* E-Commerce
-********************************************************************************/
-.ecw-head { padding: 8px; }
-.ecw-head h1 { float: none;line-height: 20px;text-align: center;}
-.ecw-head span {float: none;line-height: 20px;text-align: center;}
-#ecw-flexslider {width: 334px;}
-/* END E-Commerce
-********************************************************************************/
+	/* E-Commerce
+	********************************************************************************/
+	.ecw-head { padding: 8px; }
+	.ecw-head h1 { float: none;line-height: 20px;text-align: center;}
+	.ecw-head span {float: none;line-height: 20px;text-align: center;}
+	#ecw-flexslider {width: 334px;}
+	/* END E-Commerce
+	********************************************************************************/
+	.home #when-to-watch img{
+		float: none;
+		margin: 0 auto;
+		display: block;
+	}
+	.home #when-to-watch .when-label h3 {text-align: center;}
+	.home #when-to-watch .when-label {float: none;}
+	.home .schedule-mobile{clear: both;}
+	.home .schedule-item{border: none;}
+	.home .remind-me {
+	  padding: 8px 0;
+	  float: none;
+	  width: 80%;
+	  margin: 0 auto;
+	  display: block;
+	  clear: both;
+	  height: auto;
+	}
+
 } /* End of media */
 @media only screen and (max-width: 981px) {
 	.tv-show #when-to-watch {padding-top: 20px;}

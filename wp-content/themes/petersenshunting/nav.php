@@ -5,7 +5,6 @@
 	</div>
 	<?php $hunting = get_field("hunting_menu", "options"); ?>
 	<div class="header-section menu-hunt">
-		<h3><a href="/rack-room?big-game">Big Game</a></h3>
 		<ul class="menu">
 			<?php if( $hunting ){ 
 				foreach( $hunting as $hunt ){  
