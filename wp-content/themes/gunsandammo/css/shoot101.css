@@ -738,12 +738,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 	-moz-transition:top 0.7s ease;
 	transition:top 0.7s ease;
 }
-.m-buy-mag-bottom .m-dig-dropit {
-	top: 0;
-	-webkit-transition:top 0.7s ease;
-	-moz-transition:top 0.7s ease;
-	transition:top 0.7s ease;
-}
 .m-dig-drop {
 	-webkit-transition:top 1s;
 	-moz-transition:top 1s;
