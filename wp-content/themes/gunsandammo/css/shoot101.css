@@ -254,10 +254,6 @@ a img.aligncenter {
 .clearfix {
     *zoom: 1;
 }
-.hover {
--webkit-user-select: none;
--webkit-touch-callout: none;        
-}
 
 
 /* ==========================================================================
@@ -736,7 +732,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 	overflow: hidden;
 	color: #ee7700;
 }
-.m-buy-mag-bottom .m-buy-dig:hover .m-dig-drop, .m-buy-mag-bottom .m-buy-dig.hover-efect .m-dig-drop  {
+.m-buy-mag-bottom .m-buy-dig:hover .m-dig-drop  {
 	top: 0;
 	-webkit-transition:top 0.7s ease;
 	-moz-transition:top 0.7s ease;
@@ -903,7 +899,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 	position: relative;
 }
 
-.s-mag-btns .orange-btn-drop:hover .buy-mag-drop, .s-mag-btns .orange-btn-drop.hover-effect .buy-mag-drop {
+.s-mag-btns div.orange-btn:hover .buy-mag-drop {
 	display: block;
 }
 .buy-mag-drop {

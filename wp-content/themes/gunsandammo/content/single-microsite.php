@@ -58,7 +58,7 @@ get_header();
 		    			<div class="m-buy-mag-bottom clearfix"> 				
 		    				<div class="m-buy-mag-img"></div> 
 		    				<a href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">BUY PRINT MAGAZINE NOW!</a> 
-		    				<div class="m-buy-dig hover" href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">
+		    				<div class="m-buy-dig" href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">
 								<span>GET THE DIGITAL EDITION!</span>
 			    				<div class="m-dig-drop">
 									<ul>
@@ -98,7 +98,7 @@ get_header();
     			<div class="m-buy-mag-bottom clearfix"> 				
     				<div class="m-buy-mag-img"></div> 
     				<a href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">BUY PRINT MAGAZINE NOW!</a> 
-    				<div class="m-buy-dig hover" href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">
+    				<div class="m-buy-dig" href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">
 						<span>GET THE DIGITAL EDITION!</span>
 	    				<div class="m-dig-drop">
 							<ul>
