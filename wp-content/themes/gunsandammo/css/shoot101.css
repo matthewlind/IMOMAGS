@@ -903,7 +903,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 	position: relative;
 }
 
-.s-mag-btns div.orange-btn:hover .buy-mag-drop {
+.s-mag-btns .orange-btn-drop:hover .buy-mag-drop, .s-mag-btns .orange-btn-drop.hover-effect .buy-mag-drop {
 	display: block;
 }
 .buy-mag-drop {

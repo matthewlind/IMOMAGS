@@ -43,53 +43,9 @@ jQuery(document).ready(function($) {
 	if (windowWidth > 600) {
 		moveBox();
 	}
-	
-	
-	
-	
+		
 // Simulate a hover with a touch in touch enabled browsers
-	$('.hover').bind('touchstart', function(e) {
-        //e.preventDefault();
-        $(this).toggleClass('hover-effect');
-    });
-/*
-    if ($('.hover').hasClass('hover-effect')) {
-        $('.hover').unbind('touchstart touchend', function(e) {
-	        e.preventDefault();
-        });
-    }
-*/
-    
-    
-    
-    
-    
-/*
-	$(".m-buy-dig").hover(	
-		 function() {
-			 console.log("hover");
-	    $(".m-dig-hover").fadeIn().slideUp();
-	  }, function() {
-	    $(".m-dig-hover").fadeOut().slideDown();
-	  }
-	);
-*/
-	// Shoot101 - buy magazine - widget
-	
-//	CHANGE IT TO THIS!!!!!!!!!!!!!!!!!!!!!!!!!!! 
-	
-//	http://stackoverflow.com/questions/2851663/how-do-i-simulate-a-hover-with-a-touch-in-touch-enabled-browsers
-/*
-	if (windowWidth < ) {
-		$(".m-buy-dig").click(function() {
-			event.stopPropagation();
-	    	$(".m-dig-drop").addClass("m-dig-dropit");
-		});
-		$(".m-article").click(function() {	
-	    	$(".m-dig-drop").removeClass("m-dig-dropit");
-		});
-	}
-*/
+	$('body').bind('touchstart', function() {});	
 
 }); // end of document.ready
 

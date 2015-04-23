@@ -18,8 +18,8 @@
 				<div>OR</div>			
 			</div>
 			<div class="s-mag-btns clearfix">
-				<a class="orange-btn" href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101">BUY THE MAGAZINE NOW!</a>
-				<div class="orange-btn" href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101">
+				<a class="orange-btn" href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">BUY THE MAGAZINE NOW!</a>
+				<div class="orange-btn orange-btn-drop hover">
 					GET THE DIGITAL EDITION!
 					<div class="buy-mag-drop">
 						<ul>
