@@ -66,7 +66,7 @@
 	
 	<!-- STYLES ************************************************** -->
 	
-	<?php	if ( $microsite = true ){ 
+	<?php	if ( $microsite){ 
 			include('css/styles-microsites.php');
 			echo "<!-- This is microsite AAAAAAA -->";
 	} else { ?>
@@ -80,7 +80,7 @@
     ?>
     <!-- HEAD INCLUDES ************************************************** -->
 	<?php	
-		if ( $microsite = true ){ 
+		if ( $microsite){ 
 				echo "<!-- This is microsite AAAAAAA -->";
 				get_template_part('head-includes', 'microsite.php');
 		} else { 
@@ -97,7 +97,7 @@
 <body <?php body_class(); ?>  >
 
 	<?php	
-		if ( $microsite = true ){ 
+		if ( $microsite ){ 
 				echo "<!-- This is microsite AAAAAAABBBB  -->";
 				include('header-content/header-content-microsites.php');
 // 				get_template_part('header-content/header-content', 'microsites.php');
