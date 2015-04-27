@@ -1,4 +1,6 @@
 <?php
+	$microsite = true;
+	
 	$cat = get_query_var('cat');
 	$thiscat = get_category ($cat);
 	$catslug = $thiscat->slug;
@@ -33,7 +35,7 @@
 	
 	
 	 else { 
-		get_template_part('footer/footer', "microsite");
+		get_template_part('footer/microsite-footers/footer', "microsite");
 	}  
 
 ?>

@@ -1,5 +1,11 @@
-<?php get_header(); 
+<?php 
+	global $microsite;
+	$microsite = true;
+	
+	get_header(); 
 // echo get_template_part( 'header', 'shoot101' ); 
+	
+
 	$image_full = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 	$image_large = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'lafge' );	
 	$postID = get_the_ID();
@@ -32,11 +38,9 @@
 		</div><!-- end .m-social-wrap -->
 		<h1><?php the_title();?></h1>
 		<?php if(get_the_author() != "admin" && get_the_author() != "infisherman"){ ?><span class="m-post-byline">Words by <?php echo $author; ?></span><?php } ?><?php if ($acf_byline) { ?><span class="m-post-byline">&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $acf_byline;?></span><?php } ?>
-<!--
 		<div class="alignright-content inline-ad">
 			<?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>
 		</div>
--->
 		<?php the_content(); ?>
 		<!-- end of the_content(); -->
 		

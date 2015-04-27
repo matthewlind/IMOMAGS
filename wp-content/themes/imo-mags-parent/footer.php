@@ -1,5 +1,7 @@
 <?php	
-	if ( $microsite = true ){ 
+	global $microsite ;
+	
+	if ( $microsite ){ 
 		echo "<!-- This is microsite AAAAAAABBBB  -->";
 			get_template_part('footer/footer', 'microsite');
 			
@@ -7,4 +9,5 @@
 		echo "<!-- NOT A microsite  -->";
 			get_template_part('footer/footer', 'default');
 	} 
+	
 ?>

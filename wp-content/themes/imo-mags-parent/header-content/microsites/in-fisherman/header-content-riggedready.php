@@ -1,5 +1,5 @@
 <div class="top-panel">
-	<a href="http://www.in-/" class="icon-arrow-left">Back to In-Fisherman</a>
+	<a href="<?php echo site_url(); ?>" class="icon-arrow-left">Back to In-Fisherman</a>
 </div>
 <div class="m-microsite">
 	
