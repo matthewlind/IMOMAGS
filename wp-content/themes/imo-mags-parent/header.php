@@ -62,16 +62,12 @@
 	<![endif]-->
 	
 	
-	
-	
 	<!-- STYLES ************************************************** -->
 	
 	<?php	if ( $microsite){ 
 			include('css/styles-microsites.php');
-			echo "<!-- This is microsite AAAAAAA -->";
 	} else { ?>
 			<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
-			<!-- NOT A microsite -->
 	<?php	
 	} 
 	
@@ -81,18 +77,7 @@
     
     
     <!-- HEAD INCLUDES ************************************************** -->
-	<?php	
-/*
-		if ( $microsite){ 
-				echo "<!-- This is microsite AAAAAAA -->";
-				get_template_part('head-includes', 'microsite');
-		} else { 
-				echo "<!-- NOT A microsite  -->";
-				get_template_part('head-includes', 'default');
-				
-		}
-*/ 
-	?>
+    
 	<?php
     /* We add some JavaScript to pages with the comment form
      * to support sites with threaded comments (when in use).
@@ -163,12 +148,10 @@
 
 	<?php	
 		if ( $microsite ){ 
-				echo "<!-- This is microsite AAAAAAABBBB  -->";
-				include('header-content/header-content-microsites.php');
-// 				get_template_part('header-content/header-content', 'microsites.php');
+// 				include('header-content/header-content-microsites.php');
+ 				get_template_part('header-content/header-content', 'microsites');
 		} 
 		else { 
-				echo "<!-- NOT A microsite  -->";
 				get_template_part('header-content/header-content', 'default');
 		} 
 	?>

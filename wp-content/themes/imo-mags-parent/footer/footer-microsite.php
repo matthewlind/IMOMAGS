@@ -11,16 +11,7 @@
 		get_template_part('footer/microsite-footers/in-fisherman/footer', $catslug);
 	} 
 	
-// Gans & Ammo
-	elseif (site_url() == "http://www.gunsandammo.com/") { 
-		get_template_part('footer/microsite-footers/in-fisherman/footer', $catslug);
-	} 
-	
-// Game & Fish
-	elseif (site_url() == "http://www.gameandfishmag.com/") { 
-		get_template_part('footer/microsite-footers/in-fisherman/footer', $catslug);
-	} 
-	
+		
 // In-Fisherman
 	elseif (site_url() == "http://www.in-fisherman.artem") { 
 		$rigged_cat = array("riggedready", "northeast", "southeast", "midwest", "southwest", "northwest");

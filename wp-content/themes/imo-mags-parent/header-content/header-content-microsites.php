@@ -6,18 +6,8 @@
 	
 	// Petersens Hunting
 	if (site_url() == "http://www.petersenshunting.com/") { 
-		include("wp-content/themes/imo-mags-parent/header-content/microsites/in-fisherman/header-content-". $catslug . ".php");
-	} 
-	
-	// Gans & Ammo
-	elseif (site_url() == "http://www.gunsandammo.com/") { 
-		include("wp-content/themes/imo-mags-parent/header-content/microsites/in-fisherman/header-content-". $catslug . ".php");
-	} 
-	
-	// Game & Fish
-	elseif (site_url() == "http://www.gameandfishmag.com/") { 
-		include("wp-content/themes/imo-mags-parent/header-content/microsites/in-fisherman/header-content-". $catslug . ".php");
-	} 
+		include("wp-content/themes/imo-mags-parent/header-content/microsites/petersenshunting/header-content-". $catslug . ".php");
+	} 	
 	
 	// In-Fisherman
 	elseif (site_url() == "http://www.in-fisherman.artem") { 
@@ -30,6 +20,7 @@
 			include("wp-content/themes/imo-mags-parent/header-content/microsites/in-fisherman/header-content-". $catslug . ".php");
 		}
 	}
+	
 	
 	 else { 
 		include("wp-content/themes/imo-mags-parent/header-content/microsites/header-content-microsite");
