@@ -37,7 +37,7 @@
 		    /*
 		     * Print the <title> tag based on what is being viewed.
 		     */
-		    global $page, $paged;
+		    global $page, $paged, $microsite ;
 	
 		    wp_title( '| ', true, 'right' );
 	
