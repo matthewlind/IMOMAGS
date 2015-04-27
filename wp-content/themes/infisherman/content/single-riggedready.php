@@ -37,9 +37,7 @@
 			<?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>
 		</div>
 -->
-		<?php
-			 the_content();
-		?>
+		<?php the_content(); ?>
 		<!-- end of the_content(); -->
 		
 		<div class="m-article-bottom clearfix">

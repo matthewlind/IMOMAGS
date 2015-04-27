@@ -1,4 +1,7 @@
-<?php get_header(); ?>
+<?php
+	$microsite = true;
+	get_header(); 
+?>
 
 <div class="m-home-wrap">
 	<ul class="m-regn clearfix">
@@ -60,9 +63,4 @@
 	</div>	
 </div>				
 				
-				
-				
-				
-	
-
 <?php get_footer(); ?>

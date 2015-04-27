@@ -1,5 +1,3 @@
-
-
 <?php
 	$category_id = get_cat_ID( 'shoot101' );
 	$category_link = get_category_link( $category_id );	

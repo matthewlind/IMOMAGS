@@ -1,4 +1,7 @@
-<?php get_header(); ?>
+<?php
+	$microsite = true;
+	get_header(); 
+?>
 <div class="m-content-wrap">
 	<div class="m-content-shadow"></div>
 	<div class="m-content">
