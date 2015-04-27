@@ -13,7 +13,7 @@
 	
 		
 // In-Fisherman
-	elseif (site_url() == "http://www.in-fisherman.artem") { 
+	elseif (site_url() == "http://www.in-fisherman.com") { 
 		$rigged_cat = array("riggedready", "northeast", "southeast", "midwest", "southwest", "northwest");
 		
 		if ( is_category($rigged_cat) || in_category($rigged_cat)) {
