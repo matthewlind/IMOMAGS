@@ -256,7 +256,6 @@ a img.aligncenter {
 }
 
 
-
 /* ==========================================================================
 	4.0 Buttons
 ========================================================================== */
@@ -733,7 +732,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 	overflow: hidden;
 	color: #ee7700;
 }
-.m-buy-mag-bottom .m-buy-dig:hover .m-dig-drop {
+.m-buy-mag-bottom .m-buy-dig:hover .m-dig-drop  {
 	top: 0;
 	-webkit-transition:top 0.7s ease;
 	-moz-transition:top 0.7s ease;

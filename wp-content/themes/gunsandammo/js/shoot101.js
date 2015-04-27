@@ -43,17 +43,9 @@ jQuery(document).ready(function($) {
 	if (windowWidth > 600) {
 		moveBox();
 	}
-
-/*
-	$(".m-buy-dig").hover(	
-		 function() {
-			 console.log("hover");
-	    $(".m-dig-hover").fadeIn().slideUp();
-	  }, function() {
-	    $(".m-dig-hover").fadeOut().slideDown();
-	  }
-	);
-*/
+		
+// Simulate a hover with a touch in touch enabled browsers
+	$('body').bind('touchstart', function() {});	
 
 }); // end of document.ready
 
