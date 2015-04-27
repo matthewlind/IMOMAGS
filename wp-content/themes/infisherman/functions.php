@@ -408,4 +408,71 @@ function infish_community_init() {
 
 }
 
+// Category template ingerit 
+
+/*
+add_action('template_redirect', 'inherit_cat_template');
+
+function inherit_cat_template() {
+
+	if (is_category()) {
+
+		$catid = get_query_var('cat');
+		//$yourcat = get_category ($catid);
+		//$catslug = $yourcat->slug;
+		$cat = &get_category($catid);
+		
+		if ( file_exists(TEMPLATEPATH . '/category-' . $cat->slug . '.php') ) {
+			include( TEMPLATEPATH . '/category-' . $cat->slug . '.php');
+			exit;
+		}
+		
+		
+		
+		$parent = $cat->category_parent;
+		
+		while ($parent){
+		$cat = &get_category($parent);
+		if ( file_exists(TEMPLATEPATH . '/category-' . $cat->slug . '.php') ) {
+			include (TEMPLATEPATH . '/category-' . $cat->slug . '.php');
+			exit;
+		}
+		$parent = $cat->category_parent;
+		}
+	}
+}
+*/
+
+
+
+/*
+add_action('template_redirect', 'inherit_cat_template');
+
+function inherit_cat_template() {
+
+	if (is_category()) {
+
+		$catid = get_query_var('cat');
+		
+		if ( file_exists(TEMPLATEPATH . '/category-' . $catid . '.php') ) {
+			include( TEMPLATEPATH . '/category-' . $catid . '.php');
+			exit;
+		}
+		
+		$cat = &get_category($catid);
+		
+		$parent = $cat->category_parent;
+		
+		while ($parent){
+		$cat = &get_category($parent);
+		if ( file_exists(TEMPLATEPATH . '/category-' . $cat->cat_ID . '.php') ) {
+			include (TEMPLATEPATH . '/category-' . $cat->cat_ID . '.php');
+			exit;
+		}
+		$parent = $cat->category_parent;
+		}
+	}
+}
+*/
+
 
