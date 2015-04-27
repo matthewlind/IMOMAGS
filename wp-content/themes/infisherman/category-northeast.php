@@ -7,14 +7,14 @@
 	<div class="m-content">
 			<div class="m-direction">
 				<div class="m-triangle"></div>
-				<span>Southeast</span>
+				<span>Northeast</span>
 			</div>
 			<div class="posts-wrap">
 				<div class="p-container clearfix">
 					<?php			
 					// WP_Query arguments
 					$args = array (
-						'category_name'         	=> 'southeast',			
+						'category_name'         	=> 'northeast',			
 						'posts_per_page'      		=> -1,
 						'order'						=> 'DESC',
 					);
