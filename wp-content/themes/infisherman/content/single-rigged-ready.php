@@ -4,7 +4,8 @@
 	
 	get_header(); 
 // echo get_template_part( 'header', 'shoot101' ); 
-	
+	$category = get_the_category(); 
+	$cat_slug = $category[0]->slug;
 
 	$image_full = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 	$image_large = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'lafge' );	
@@ -85,7 +86,7 @@
 	<div class="m-more-wrap clearfix">
 		<?php
 		$args = array (
-			'category_name'         	=> 'southeast',			
+			'category_name'         	=> $cat_slug,			
 			'posts_per_page'      		=> 6,
 			'order'						=> 'DESC',
 			'orderby'					=> 'rand',
@@ -116,31 +117,31 @@
 	<div class="m-loc-wrap">
 		<ul class="clearfix">
 			<li>
-				<a href="/rigged-ready/northeast/">
+				<a href="/rigged-ready/ne/">
 					<div class="m-loc-circle"></div>
 					<span>NORTHEAST</span>
 				</a>
 			</li>
 			<li>
-				<a href="/rigged-ready/southeast/">
+				<a href="/rigged-ready/se/">
 					<div class="m-loc-circle"></div>
 					<span>SOUTHEAST</span>
 				</a>
 			</li>
 			<li>
-				<a href="/rigged-ready/midwest/">
+				<a href="/rigged-ready/mw/">
 					<div class="m-loc-circle"></div>
 					<span>MIDWEST</span>
 				</a>
 			</li>
 			<li>
-				<a href="/rigged-ready/southwest/">
+				<a href="/rigged-ready/sw/">
 					<div class="m-loc-circle"></div>
 					<span>SOUTHWEST</span>
 				</a>
 			</li>
 			<li>
-				<a href="/rigged-ready/northwest/">
+				<a href="/rigged-ready/nw/">
 					<div class="m-loc-circle"></div>
 					<span>NORTHWEST</span>
 				</a>

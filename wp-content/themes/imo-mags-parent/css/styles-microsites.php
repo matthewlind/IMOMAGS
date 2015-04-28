@@ -21,7 +21,7 @@
 <?php	} elseif ($site_url == "http://www.in-fisherman") { ?>
 	
 	
-	<?php	$rigged_cat = array("rigged-ready", "northeast", "southeast", "midwest", "southwest", "northwest");
+	<?php	$rigged_cat = array("rigged-ready", "ne", "se", "mw", "sw", "nw");
 		
 			if ( is_category($rigged_cat) || in_category($rigged_cat)) {	
 	?>
