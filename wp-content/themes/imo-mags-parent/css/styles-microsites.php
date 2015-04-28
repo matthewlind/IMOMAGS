@@ -14,7 +14,7 @@
 
 
 <!-- In-fisherman -->		
-<?php	} elseif (site_url() == "http://www.in-fisherman.artem") { ?>
+<?php	} elseif (site_url() == "http://www.in-fisherman.com") { ?>
 	
 	
 	<?php	$rigged_cat = array("riggedready", "northeast", "southeast", "midwest", "southwest", "northwest");
