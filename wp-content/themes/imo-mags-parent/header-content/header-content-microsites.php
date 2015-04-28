@@ -3,14 +3,18 @@
 	$thiscat = get_category ($cat);
 	$catslug = $thiscat->slug;
 	
+	$url_string = site_url();
+	$url_suffixes = array(".com", ".artem", ".fox");
+	$site_url = str_replace($url_suffixes, "", $url_string);
+	
 	
 	// Petersens Hunting
-	if (site_url() == "http://www.petersenshunting.com/") { 
+	if ($site_url == "http://www.petersenshunting") { 
 		include("wp-content/themes/imo-mags-parent/header-content/microsites/petersenshunting/header-content-". $catslug . ".php");
 	} 	
 	
 	// In-Fisherman
-	elseif (site_url() == "http://www.in-fisherman.com") { 
+	elseif ($site_url == "http://www.in-fisherman") { 
 		$rigged_cat = array("riggedready", "northeast", "southeast", "midwest", "southwest", "northwest");
 		
 		if ( is_category($rigged_cat) || in_category($rigged_cat)) {
