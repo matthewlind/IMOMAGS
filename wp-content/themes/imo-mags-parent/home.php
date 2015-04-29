@@ -138,7 +138,7 @@ get_header(); ?>
 					<!-- End of Brightcove Player -->
 				</div>
 				<div class="fishhead-see-more">
-					<a href="/tv/">See More In Fisherman TV<span></span></a>
+					<a href="/tv/">Watch More Videos<span></span></a>
 				</div>
 				<?php endwhile; ?> 
 				

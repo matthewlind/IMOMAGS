@@ -194,6 +194,12 @@ googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/ATF_Button_2', [125, 125]
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/BTF_Button_1', [125, 125], 'div-btf_button_1').addService(googletag.pubads());
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/BTF_Button_2', [125, 125],'div-btf_button_2').addService(googletag.pubads());
 <?php } ?>
+
+<?php if($microsite){ ?>
+googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Microsite_ATF_300x250', [300, 250], 'div-microsite_ATF_300x250').addService(googletag.pubads());
+googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Microsite_BTF_300x250', [300, 250], 'div-microsite_BTF_300x250').addService(googletag.pubads());
+<?php } ?>
+
 googletag.pubads().setTargeting("sect","<?php echo $term; ?>");
 googletag.pubads().setTargeting("page","<?php echo $pageName; ?>");
 googletag.pubads().setTargeting("camp","<?php echo $camp; ?>");

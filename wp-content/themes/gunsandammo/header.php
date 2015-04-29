@@ -32,7 +32,7 @@
 	    /*
 	     * Print the <title> tag based on what is being viewed.
 	     */
-	    global $page, $paged;
+	    global $page, $paged, $microsite;
 
 	    wp_title( '| ', true, 'right' );
 
@@ -54,16 +54,13 @@
 	
 	
 	<?php
-	if (is_home() || is_search()) { ?>
-		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
-	<?php }	else { 
-		if ( in_category('shoot101')) { ?>
+
+		if ( $microsite ){ ?>
 			<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/css/shoot101.css" />
 	<?php } else { ?>
 			<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
-	<?php	}
-	}
-	?>
+	<?php	} ?>
+
 	
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	<!--[if lt IE 9]>
@@ -139,13 +136,9 @@
 
 <body <?php body_class(); ?> domain="<?php echo $dartDomain; ?>" >
 <?php
-	if (is_home() || is_search()) {
+	if ( $microsite ){
+		get_template_part('content/content', 'header-microsite');
+	}else{
 		get_template_part('content/content', 'header');
-	}	else {
-		if ( in_category('shoot101')) {
-			get_template_part('content/content', 'header-microsite');
-		} else {
-			get_template_part('content/content', 'header');
-		}
 	}
 ?>
