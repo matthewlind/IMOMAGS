@@ -13,6 +13,7 @@
 	$byline = get_post_meta($postID, 'ecpt_byline', true);
 	$acf_byline = get_field("byline",$postID); 
 	$author = get_the_author();
+	$subtitle = get_field("subtitle");
 ?>
 <div class="m-article-wrap clearfix">
 	<?php if(mobile() == true) {
@@ -38,6 +39,7 @@
 			</ul>
 		</div><!-- end .m-social-wrap -->
 		<h1><?php the_title();?></h1>
+		<h2 class="m-subtitle"><?php echo $subtitle; ?></h2>
 		<?php if(get_the_author() != "admin" && get_the_author() != "infisherman"){ ?><span class="m-post-byline">Words by <?php echo $author; ?></span><?php } ?><?php if ($acf_byline) { ?><span class="m-post-byline">&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $acf_byline;?></span><?php } ?>
 		<div class="alignright-content inline-ad">
 			<?php imo_ad_placement("microsite_ATF_300x250"); ?>
