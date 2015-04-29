@@ -1,5 +1,5 @@
 <div class="top-panel">
-	<a href="http://www.in-/" class="icon-arrow-left">Back to In-Fisherman</a>
+	<a href="<?php echo site_url(); ?>" class="icon-arrow-left">Back to In-Fisherman</a>
 </div>
 <div class="m-microsite">
 	
@@ -23,5 +23,5 @@
 			</div><!-- .social-buttons -->
 		</div><!-- .r-nav-erea -->
 		<div class="m-circle-wrap"><div class="m-circle"></div></div>
-		<a href="/riggedready/" title="Rigged and Ready"><div class="m-logo"></div></a>
+		<a href="/rigged-ready/" title="Rigged and Ready"><div class="m-logo"></div></a>
 	</header>

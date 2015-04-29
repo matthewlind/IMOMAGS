@@ -6,7 +6,7 @@
 <div class="m-home-wrap">
 	<ul class="m-regn clearfix">
 		<li class="m-ne">
-			<a href="">
+			<a href="/rigged-ready/ne/">
 				<div class="m-direction">
 					<div class="m-triangle"></div>
 					<span>Northeast</span>
@@ -14,7 +14,7 @@
 			</a>
 		</li>
 		<li class="m-se">
-			<a href="/riggedready/southeast/">
+			<a href="/rigged-ready/se/">
 				<div class="m-direction">
 					<div class="m-triangle"></div>
 					<span>Southeast</span>
@@ -22,7 +22,7 @@
 			</a>
 		</li>
 		<li class="m-mw">
-			<a href="">
+			<a href="/rigged-ready/mw/">
 				<div class="m-direction">
 					<div class="m-triangle"></div>
 					<span>Midwest</span>
@@ -30,7 +30,7 @@
 			</a>
 		</li>
 		<li class="m-sw">
-			<a href="">
+			<a href="/rigged-ready/sw/">
 				<div class="m-direction">
 					<div class="m-triangle"></div>
 					<span>Southwest</span>
@@ -38,7 +38,7 @@
 			</a>
 		</li>
 		<li class="m-nw">
-			<a href="">
+			<a href="/rigged-ready/nw/">
 				<div class="m-direction">
 					<div class="m-triangle"></div>
 					<span>Northwest</span>

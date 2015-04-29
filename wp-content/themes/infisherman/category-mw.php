@@ -7,14 +7,14 @@
 	<div class="m-content">
 			<div class="m-direction">
 				<div class="m-triangle"></div>
-				<span>Southeast</span>
+				<span>Midwest</span>
 			</div>
 			<div class="posts-wrap">
 				<div class="p-container clearfix">
 					<?php			
 					// WP_Query arguments
 					$args = array (
-						'category_name'         	=> 'southeast',			
+						'category_name'         	=> 'mw',			
 						'posts_per_page'      		=> -1,
 						'order'						=> 'DESC',
 					);
@@ -74,38 +74,38 @@
 	<div class="m-loc-wrap">
 		<ul class="clearfix">
 			<li>
-				<a href="">
+				<a href="/rigged-ready/ne/">
 					<div class="m-loc-circle"></div>
 					<span>NORTHEAST</span>
 				</a>
 			</li>
 			<li>
-				<a href="">
+				<a href="/rigged-ready/se/">
 					<div class="m-loc-circle"></div>
 					<span>SOUTHEAST</span>
 				</a>
 			</li>
 			<li>
-				<a href="">
+				<a href="/rigged-ready/mw/">
 					<div class="m-loc-circle"></div>
 					<span>MIDWEST</span>
 				</a>
 			</li>
 			<li>
-				<a href="">
+				<a href="/rigged-ready/sw/">
 					<div class="m-loc-circle"></div>
 					<span>SOUTHWEST</span>
 				</a>
 			</li>
 			<li>
-				<a href="">
+				<a href="/rigged-ready/nw/">
 					<div class="m-loc-circle"></div>
 					<span>NORTHWEST</span>
 				</a>
 			</li>
 		</ul>
 	</div>
-</div><!-- .m-loc -->				
+</div><!-- .m-loc -->			
 
 				
 	

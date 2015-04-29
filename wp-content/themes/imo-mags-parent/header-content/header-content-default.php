@@ -1,3 +1,19 @@
+<?php 
+  	$postID = get_the_ID();
+    $dartDomain = get_option("dart_domain", $default = false);
+    $magazine_img = get_option('magazine_cover_uri' );
+    if($dartDomain == "imo.gunsandammo" || $dartDomain == "imo.in-fisherman" || $dartDomain == "imo.shotgunnews" || $dartDomain == "imo.shootingtimes"){
+	    $subs_link = get_option('subs_link');
+    }else{
+		$subs_link = get_option('subs_link') . "/?pkey=";
+    }
+	$iMagID = get_option('iMagID' );
+	$deal_copy = get_option('deal_copy' );
+	$gift_link = get_option('gift_link' );
+	$service_link = get_option('service_link' );
+	$subs_form_link = get_option('subs_form_link' );
+	$i4ky = get_option('i4ky' );		
+?>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];

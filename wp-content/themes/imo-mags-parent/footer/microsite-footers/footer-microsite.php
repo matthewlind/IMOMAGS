@@ -1,6 +1,9 @@
 <?php
+	$microsite = true;
+/*
 	$category_id = get_cat_ID( 'shoot101' );
 	$category_link = get_category_link( $category_id );	
+*/
 ?>
 <footer class="m-footer clearfix">
 	<div class="m-footer-bottom">

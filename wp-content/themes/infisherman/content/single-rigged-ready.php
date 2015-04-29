@@ -1,5 +1,12 @@
-<?php get_header(); 
+<?php 
+	global $microsite;
+	$microsite = true;
+	
+	get_header(); 
 // echo get_template_part( 'header', 'shoot101' ); 
+	$category = get_the_category(); 
+	$cat_slug = $category[0]->slug;
+
 	$image_full = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 	$image_large = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'lafge' );	
 	$postID = get_the_ID();
@@ -32,11 +39,9 @@
 		</div><!-- end .m-social-wrap -->
 		<h1><?php the_title();?></h1>
 		<?php if(get_the_author() != "admin" && get_the_author() != "infisherman"){ ?><span class="m-post-byline">Words by <?php echo $author; ?></span><?php } ?><?php if ($acf_byline) { ?><span class="m-post-byline">&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $acf_byline;?></span><?php } ?>
-<!--
 		<div class="alignright-content inline-ad">
 			<?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>
 		</div>
--->
 		<?php the_content(); ?>
 		<!-- end of the_content(); -->
 		
@@ -81,7 +86,7 @@
 	<div class="m-more-wrap clearfix">
 		<?php
 		$args = array (
-			'category_name'         	=> 'southeast',			
+			'category_name'         	=> $cat_slug,			
 			'posts_per_page'      		=> 6,
 			'order'						=> 'DESC',
 			'orderby'					=> 'rand',
@@ -112,31 +117,31 @@
 	<div class="m-loc-wrap">
 		<ul class="clearfix">
 			<li>
-				<a href="">
+				<a href="/rigged-ready/ne/">
 					<div class="m-loc-circle"></div>
 					<span>NORTHEAST</span>
 				</a>
 			</li>
 			<li>
-				<a href="">
+				<a href="/rigged-ready/se/">
 					<div class="m-loc-circle"></div>
 					<span>SOUTHEAST</span>
 				</a>
 			</li>
 			<li>
-				<a href="">
+				<a href="/rigged-ready/mw/">
 					<div class="m-loc-circle"></div>
 					<span>MIDWEST</span>
 				</a>
 			</li>
 			<li>
-				<a href="">
+				<a href="/rigged-ready/sw/">
 					<div class="m-loc-circle"></div>
 					<span>SOUTHWEST</span>
 				</a>
 			</li>
 			<li>
-				<a href="">
+				<a href="/rigged-ready/nw/">
 					<div class="m-loc-circle"></div>
 					<span>NORTHWEST</span>
 				</a>
