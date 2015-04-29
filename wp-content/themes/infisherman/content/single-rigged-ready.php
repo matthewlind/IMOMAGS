@@ -40,7 +40,7 @@
 		<h1><?php the_title();?></h1>
 		<?php if(get_the_author() != "admin" && get_the_author() != "infisherman"){ ?><span class="m-post-byline">Words by <?php echo $author; ?></span><?php } ?><?php if ($acf_byline) { ?><span class="m-post-byline">&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $acf_byline;?></span><?php } ?>
 		<div class="alignright-content inline-ad">
-			<?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>
+			<?php imo_ad_placement("microsite_ATF_300x250"); ?>
 		</div>
 		<?php the_content(); ?>
 		<!-- end of the_content(); -->
@@ -58,7 +58,7 @@
 				</ul>
 			</div><!-- end .m-social-wrap -->
 			<div class="alignright-content inline-ad">
-				<?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>
+				<?php imo_ad_placement("microsite_BTF_300x250"); ?>
 			</div>
 		</div><!-- .m-article-bottom -->
 	</article>

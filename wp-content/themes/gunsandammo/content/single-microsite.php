@@ -130,7 +130,7 @@ get_header();
 				</ul>
 			</div><!-- end .m-social-wrap -->
 			<div class="alignright-content inline-ad">
-				<?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>
+				<?php imo_ad_placement("microsite_BTF_300x250"); ?>
 			</div>
 		</div><!-- .m-article-bottom -->
 	</article>

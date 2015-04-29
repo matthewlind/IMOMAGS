@@ -1,4 +1,5 @@
 <?php
+	$microsite = true;
 	get_header();
 	
     $category_id = get_cat_ID( 'shoot101' );
