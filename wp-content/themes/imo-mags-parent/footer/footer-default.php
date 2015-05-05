@@ -81,8 +81,7 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 		        </div>
 		        <div class="copyright-section clearfix">
 		            <div class="copyright">
-		                <a href="http://www.imoutdoors.com/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/images/logos/outdoors.png" class="copyright-img" alt="" /></a>
-		                <p>&copy; <?php echo date("Y"); ?> InterMedia Outdoors. All Rights Reserved</p>
+		                <p>&copy; <?php echo date("Y"); ?> Outdoor Sportsman Group. All Rights Reserved</p>
 		            </div>
 		        </div>
 
