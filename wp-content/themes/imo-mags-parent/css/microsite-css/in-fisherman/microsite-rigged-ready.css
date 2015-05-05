@@ -636,26 +636,11 @@ body h1, body h2, body h3, body h4, body h5 {
 	position: absolute;
 	top: 0; bottom:0; left:0; right: 0;
 }
-.m-regn .m-ne {
-	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/northeast.jpg") center 25% no-repeat; 
-	background-size: 200%;
-}
-.m-regn .m-se {
-	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/southeast.jpg") center 25% no-repeat;
-	background-size: 200%;
-}
-.m-regn .m-mw {
-	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/midwest.jpg") center 25% no-repeat;
-	background-size: 200%;
-}
-.m-regn .m-sw {
-	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/southwest.jpg") center 25% no-repeat;
-	background-size: 200%;
-}
-.m-regn .m-nw {
-	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/northwest.jpg") center 25% no-repeat;
-	background-size: 200%;
-}
+.m-regn .m-ne {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/mobile/northeast.jpg") no-repeat center center / 100%;}
+.m-regn .m-se {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/mobile/southeast.jpg") no-repeat center center / 100%;}
+.m-regn .m-mw {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/mobile/midwest.jpg") no-repeat center center / 100%;}
+.m-regn .m-sw {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/mobile/southwest.jpg") no-repeat center center / 100%;}
+.m-regn .m-nw {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/mobile/northwest.jpg") no-repeat center center / 100%;}
 .m-direction {
 	position: absolute;
 	top: 0; bottom:0; left:0; right: 0; margin: auto;
@@ -763,19 +748,19 @@ body h1, body h2, body h3, body h4, body h5 {
 	background-repeat: no-repeat;
 }
 .category-ne .m-content-wrap {
-	background-image: url('/wp-content/themes/infisherman/images/rigged-and-ready/regions-fade-bottom/southeast.jpg');
+	background-image: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/mobile/northeast.jpg");
 }
 .category-se .m-content-wrap {
-	background-image: url('/wp-content/themes/infisherman/images/rigged-and-ready/regions-fade-bottom/southeast.jpg');
+	background-image: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/mobile/southeast.jpg");
 }
 .category-mw .m-content-wrap {
-	background-image: url('/wp-content/themes/infisherman/images/rigged-and-ready/regions-fade-bottom/southeast.jpg');
+	background-image: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/mobile/midwest.jpg");
 }
 .category-sw .m-content-wrap {
-	background-image: url('/wp-content/themes/infisherman/images/rigged-and-ready/regions-fade-bottom/southeast.jpg');
+	background-image: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/mobile/southwest.jpg");
 }
 .category-nw .m-content-wrap {
-	background-image: url('/wp-content/themes/infisherman/images/rigged-and-ready/regions-fade-bottom/southeast.jpg');
+	background-image: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/mobile/northwest.jpg");
 }
 .m-content-shadow {
 	position: absolute;
@@ -807,8 +792,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 	background-size: cover;
 	background-position: center center;
 	padding-top: 67%;
+	-webkit-transition:opacity 0.1s;
+	-moz-transition:opacity 0.1s;
+	transition:opacity 0.1s;
 }
-
+.post-box:hover {
+	opacity: 0.9;
+	-webkit-transition:opacity 0.1s;
+	-moz-transition:opacity 0.1s;
+	transition:opacity 0.1s;
+}
 
 /* ==========================================================================
    Choose Location Footer
@@ -1270,7 +1263,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 
 /* Home Page *******************/
 .m-home-wrap {margin-bottom: 150px;}
-.m-home-wrap .m-regn > li {background-size: 100%;}
 .m-direction {width: 106px;height:106px;}
 .m-triangle {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") -35px -172px no-repeat;background-size: 192px;}
 .m-direction span {font: 700 16px/106px "Lato", sans-serif;}
@@ -1400,6 +1392,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 .m-choose-btn span:last-child {top: 13px;}
 .m-logo {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") no-repeat 0 0 / 167px ;width: 167px;height: 127px;top: 10px;}
 
+/* Map *******************/
+.m-map-absolute {top: -12px;}
+
 /* Region Page *******************/
 .m-content-shadow {top: 6.1%;}
 
@@ -1434,6 +1429,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 .m-direction {width: 85px;height: 85px;-webkit-transition: all 0.3s ease;transition: all 0.3s ease;}
 .m-triangle {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") -25px -133px no-repeat;background-size: 150px;}
 .m-direction span {font: 700 14px/85px "Lato", sans-serif;}
+.m-regn .m-ne {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/desktop/northeast.jpg") no-repeat 25% center / 100%;}
+.m-regn .m-se {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/desktop/southeast.jpg") no-repeat 51% center / 100%;}
+.m-regn .m-mw {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/desktop/midwest.jpg") no-repeat center / 100%;}
+.m-regn .m-sw {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/desktop/southwest.jpg") no-repeat 55% center / 100%;}
+.m-regn .m-nw {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/desktop/northwest.jpg") no-repeat 70% center / 100%;}
 
 /* Truck Container *******************/
 .m-truck-container {position: relative;height: 133px;bottom: auto;}
@@ -1449,6 +1449,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 .p-container a:nth-of-type(5n+3) .post-box,
 .p-container a:nth-of-type(5n+4) .post-box,
 .p-container a:nth-of-type(5n+5) .post-box {margin: 0 0.5% 2.5% ;width: 32.3333333%;padding-top: 21.66333333%;}
+
+.category-ne .m-content-wrap {background-image: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions-back/northeast.jpg");}
+.category-se .m-content-wrap {background-image: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions-back/southeast.jpg");}
+.category-mw .m-content-wrap {background-image: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions-back/midwest.jpg");}
+.category-sw .m-content-wrap {background-image: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions-back/southwest.jpg");}
+.category-nw .m-content-wrap {background-image: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions-back/northwest.jpg");}
 
 /* Choose Location Footer *******************/ 
 .m-loc-wrap {margin: 0 -3%;}
@@ -1528,7 +1534,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 @media only screen and (min-width: 1450px) {/* large desktops */
 
 /* Header *******************/
-.m-nav-erea { padding: 0; margin: 12px auto 0; max-width: 1442px; }
+.m-nav-erea { padding: 0; margin: 12px auto 0; max-width: 1442px; position: static; }
+/* Map *****************/
+.m-map-absolute {top:0;}
 
 /* Home Page *******************/
 .m-direction {width: 106px;height:106px;}
@@ -1560,8 +1568,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 
 @media only screen and (min-width: 1700px) {/* very large desktops */
 
+/* Header *******************/
+.m-nav-erea { position: relative; }
 /* Map *****************/
-.m-map-absolute {position: absolute;left: -125px;width: 390px;}
+.m-map-absolute {position: absolute;left: -125px;width: 390px; top: -12px;}
 .m-map-circle {left: 0;}
 .m-map-shift > h5 {left: 30px;}
 .m-map-wrap {left: 60px;}
