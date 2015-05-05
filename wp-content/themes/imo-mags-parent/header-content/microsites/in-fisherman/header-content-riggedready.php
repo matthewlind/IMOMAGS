@@ -56,7 +56,6 @@
 								echo "NORTHWEST";
 							} else {
 								echo $category[0]->cat_name;
-								echo $category[1]->cat_name;
 							}
 						?>
 					</span>
