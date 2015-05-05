@@ -44,18 +44,18 @@
 							
 							if (is_category("rigged-ready")) {
 								echo " ";
-							} else if (is_category("ne")) {
+							} else if (is_category("ne") || in_category("ne")) {
 								echo "NORTHEAST";
-							} else if (is_category("se")) {
+							} else if (is_category("se") || in_category("se")) {
 								echo "SOUTHEAST";
-							} else if (is_category("mw")) {
+							} else if (is_category("mw") || in_category("mw")) {
 								echo "MIDWEST";
-							} else if (is_category("sw")) {
+							} else if (is_category("sw") || in_category("sw")) {
 								echo "SOUTHWEST";
-							} else if (is_category("nw")) {
+							} else if (is_category("nw") || in_category("nw")) {
 								echo "NORTHWEST";
 							} else {
-								echo $category[0]->cat_name;
+								echo " ";
 							}
 						?>
 					</span>
