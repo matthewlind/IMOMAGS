@@ -57,7 +57,7 @@
 	</div>
 </div><!-- .m-truck-container -->		
 <div class="m-loc">
-	<h2>Choose different location</h2>
+	<h2>Choose a Different Region</h2>
 	<div class="m-loc-wrap">
 		<ul class="clearfix">
 			<li>

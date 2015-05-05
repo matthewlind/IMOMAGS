@@ -26,7 +26,7 @@
 							} else if (in_category("ne")) {
 								echo "transform: rotate(-90deg);";
 							} else if (in_category("se")) {
-								echo "SOUTHEAST";
+								echo " ";
 							} else if (in_category("mw")) {
 								echo "transform: rotate(-180deg);";
 							} else if (in_category("sw")) {
@@ -42,10 +42,21 @@
 						<?php 
 							$category = get_the_category(); 
 							
-							if (is_category("rigged-ready") || in_category("rigged-ready")) {
+							if (is_category("rigged-ready")) {
 								echo " ";
-							}  else {
+							} else if (is_category("ne")) {
+								echo "NORTHEAST";
+							} else if (is_category("se")) {
+								echo "SOUTHEAST";
+							} else if (is_category("mw")) {
+								echo "MIDWEST";
+							} else if (is_category("sw")) {
+								echo "SOUTHWEST";
+							} else if (is_category("nw")) {
+								echo "NORTHWEST";
+							} else {
 								echo $category[0]->cat_name;
+								echo $category[1]->cat_name;
 							}
 						?>
 					</span>
