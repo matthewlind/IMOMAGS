@@ -8,7 +8,7 @@
 <footer class="m-footer clearfix">
 	<div class="m-footer-bottom">
 		<div class="m-logo-nav">
-			<a href="http://www.imoutdoors.com/"><div class="m-imo-logo"></div></a>
+<!-- 			<a href="http://www.imoutdoors.com/"><div class="m-imo-logo"></div></a> -->
 			<div class="m-footer-nav">
 				<ul>
 					<li><a href="http://www.imoutdoors.com/about/what-we-do/" target="_blank">ABOUT</a></li>
@@ -20,7 +20,7 @@
 			</div>
 		</div><!-- end .m-logo-nav -->
 		<div class="m-copyright">
-	        <p>© 2015 InterMedia Outdoors. All Rights Reserved</p>
+	        <p>© 2015 Outdoor Sportsman Group. All Rights Reserved</p>
 	    </div>
 	</div><!-- end .m-footer-bottom -->
 </footer>

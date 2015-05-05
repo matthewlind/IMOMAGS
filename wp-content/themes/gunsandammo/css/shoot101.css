@@ -1157,6 +1157,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 .m-footer-nav ul {text-align: left;}
 .m-footer-nav ul li {display: inline-block;}
 .m-footer-nav ul li a {padding: 5px 15px;}
+.m-footer-nav ul li a:first-child {padding-left: 0}
 .m-copyright {margin-top: 15px;text-align: left;}
 
 /* Wordpress Defaults *******************/  
