@@ -44,9 +44,11 @@
 	</div>
 	<div class="m-footer-bottom">
 		<div class="m-logo-nav">
+<!--
 			<div class="m-imo-logo">
 				<a href="http://www.imoutdoors.com/"><img src="/wp-content/themes/gunsandammo/images/shoot101/imo-logo.png"></a>
 			</div>
+-->
 			<div class="m-footer-nav">
 				<ul>
 					<li><a href="http://www.imoutdoors.com/about/what-we-do/" target="_blank">ABOUT</a></li>
@@ -58,35 +60,11 @@
 			</div>
 		</div><!-- end .m-logo-nav -->
 		<div class="m-copyright">
-	        <p>© 2015 InterMedia Outdoors. All Rights Reserved</p>
+	        <p>© 2015 Outdoor Sportsman Group. All Rights Reserved</p>
 	    </div>
 	</div><!-- end .m-footer-bottom -->
 </footer>
-
-<!--
-    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery.tipTip.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery.cookie.js"></script>
--->
-<!--     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/breakpoints.js"></script> -->
-<!-- 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/plugins/flexslider/jquery.flexslider.js"></script> -->
-<!--
-    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/plugins/ezmark/js/jquery.ezmark.min.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/plugins/classie.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/helper.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/plugins/jquery.placeholder.min.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/plugins/jquery.touchSwipe.min.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/plugins/Smart-jQuery-Brightcove-Video-Plugin/jquery.brightcove-video.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/video-portal.js"></script>
--->
-<!--
-    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/script.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/script.js"></script>
--->
 	<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/shoot101.js"></script>
-<!--
-    <link rel="STYLESHEET" type="text/css" href="<?php bloginfo('template_directory'); ?>/js/plugins/flexslider/flexslider.css">
-    <link rel="STYLESHEET" type="text/css" href="<?php bloginfo('template_directory'); ?>/js/plugins/ezmark/css/ezmark.css">
--->
 	<!--[if lt IE 9]><script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->
 
 	<?php wp_footer(); ?>

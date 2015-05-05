@@ -6,6 +6,7 @@
 // echo get_template_part( 'header', 'shoot101' ); 
 	$category = get_the_category(); 
 	$cat_slug = $category[0]->slug;
+	$cat_name = $category[0]->cat_name;
 
 	$image_full = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 	$image_large = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'lafge' );	
@@ -74,7 +75,7 @@
 			<div title="track tips"></div>
 		</div>
 		<p>Explore the all new 2015<br> RAM 1500</p>
-		<a href="" class="blue-round-btn">
+		<a href="/rigged-ready/2015-ram-1500/" class="blue-round-btn">
 			<span class="m-text-under">READ NOW</span>
 			<div class="m-btn-horizontal"></div>
 			<div class="m-btn-vertical"></div>
@@ -84,7 +85,15 @@
 </div><!-- .m-truck-container -->
 
 <div class="m-more">
-	<h2>More Stories</h2>
+	<h2>More Stories
+		<?php  			
+			if (is_category("rigged-ready") || in_category("rigged-ready")) {
+				echo " ";
+			}  else {
+				echo "from the " . $category[0]->cat_name;
+			}
+		?> 
+	</h2>
 	<div class="m-more-wrap clearfix">
 		<?php
 		$args = array (
@@ -115,7 +124,7 @@
 </div><!-- .m-more -->
 
 <div class="m-loc">
-	<h2>Choose different location</h2>
+	<h2>Choose a Different Region</h2>
 	<div class="m-loc-wrap">
 		<ul class="clearfix">
 			<li>

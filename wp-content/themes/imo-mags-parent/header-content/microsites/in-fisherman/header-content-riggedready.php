@@ -21,7 +21,7 @@
 				<div class="m-compass-wrap">
 					<div class="m-compass" style="
 						<?php 
-							if (is_category("rigged-ready")) {
+							if (is_category("rigged-ready") || in_category("rigged-ready")) {
 								echo " ";
 							} else if (in_category("ne")) {
 								echo "transform: rotate(-90deg);";
@@ -36,26 +36,16 @@
 							} else {
 								echo " ";
 							}
-						?>
-							
-						"></div>
-					
+						?>">
+					</div>				
 					<span>
 						<?php 
-							if (is_category("rigged-ready")) {
+							$category = get_the_category(); 
+							
+							if (is_category("rigged-ready") || in_category("rigged-ready")) {
 								echo " ";
-							} else if (in_category("ne")) {
-								echo "NORTHEAST";
-							} else if (in_category("se")) {
-								echo "SOUTHEAST";
-							} else if (in_category("mw")) {
-								echo "MIDWEST";
-							} else if (in_category("sw")) {
-								echo "SOUTWEST";
-							} else if (in_category("nw")) {
-								echo "NORTHWEST";
 							}  else {
-								echo " ";
+								echo $category[0]->cat_name;
 							}
 						?>
 					</span>

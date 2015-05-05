@@ -24,19 +24,8 @@
 					if ( $query->have_posts() ) {
 						while ( $query->have_posts() ) {
 							$query->the_post();
-						
-						//$box_size = get_post_meta(get_the_ID(),"box_size", true);
-						//later you can add cnditional if mobile $image_size = "medium"
-		/*
-						if ($box_size == "wide") {
-							$image_size = "full";
-						}  else {
-							$image_size = "large";
-						}
-		*/					
-						$image_id = get_post_meta(get_the_ID(),"image", true);
-						$image = wp_get_attachment_image_src($image_id, "large");
-						//$image = wp_get_attachment_image_src($image_id, $image_size);
+							$image_id = get_post_meta(get_the_ID(),"image", true);
+							$image = wp_get_attachment_image_src($image_id, "large");
 					?>
 					<a class="link-box" href="<?php the_permalink(); ?>">	
 						<div class="post-box" style="background-image: url('<?php echo $image[0]; ?>')"></div>
@@ -49,8 +38,6 @@
 						wp_reset_postdata();
 					?>
 				</div><!-- end .p-container -->
-				
-				<?php // echo get_template_part( 'content/relative', 'microsite' ); ?>
 			</div><!-- end .posts-wrap -->
 	</div><!-- end .m-content -->				
 </div><!-- end .m-content-wrap -->					
@@ -61,7 +48,7 @@
 			<div title="track tips"></div>
 		</div>
 		<p>Explore the all new 2015<br> RAM 1500</p>
-		<a href="" class="blue-round-btn">
+		<a href="/rigged-ready/2015-ram-1500/" class="blue-round-btn">
 			<span class="m-text-under">READ NOW</span>
 			<div class="m-btn-horizontal"></div>
 			<div class="m-btn-vertical"></div>
@@ -70,7 +57,7 @@
 	</div>
 </div><!-- .m-truck-container -->		
 <div class="m-loc">
-	<h2>Choose different location</h2>
+	<h2>Choose a Different Region</h2>
 	<div class="m-loc-wrap">
 		<ul class="clearfix">
 			<li>
