@@ -67,9 +67,9 @@
 			</div><!-- .m-nav -->
 			<div class="m-social-buttons">
 				<ul>
-					<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>&title=<?php if(is_category("shoot101")){ echo "Shoot101: A starter's guide every new shooter should read."; }else{ print(urlencode(the_title())); } ?>" class="icon-facebook" target="_blank"></a></li>
-					<li><a href="http://twitter.com/intent/tweet?status=<?php if(is_category("shoot101")){ echo "Shoot101: A starter's guide every new shooter should read."; }else{ print(urlencode(the_title())); } ?>+<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" class="icon-twitter" target="_blank"></a></li>
-					<li><a href="mailto:?subject=Article I came across&body=Check out this article! Title: '<?php the_title(); ?>'. Link: <?php the_permalink(); ?>" class="icon-mail" target="_blank"></a></li>
+					<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>&title=Rigged and Ready: Your regional guide to the nation's best fishing." class="icon-facebook" target="_blank"></a></li>
+					<li><a href="http://twitter.com/intent/tweet?status=Rigged and Ready: Your regional guide to the nation's best fishing." class="icon-twitter" target="_blank"></a></li>
+					<li><a href="mailto:?subject=Website I came across&body=Check out this website! Rigged and Ready: Your regional guide to the nation's best fishing. <?php echo site_url() . "/rigged-ready"; ?>" class="icon-mail" target="_blank"></a></li>
 				</ul>
 			</div><!-- .m-social-buttons -->
 		</div><!-- .m-nav-erea -->
