@@ -764,6 +764,19 @@ body h1, body h2, body h3, body h4, body h5 {
 .category-nw .m-content-wrap {
 	background-image: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/mobile/northwest.jpg");
 }
+
+.category-ne .m-triangle {
+	transform: rotate(-90deg);
+}
+.category-mw .m-triangle {
+	transform: rotate(135deg);
+}
+.category-sw .m-triangle {
+	transform: rotate(90deg);
+}
+.category-nw .m-triangle {
+	transform: rotate(180deg);
+}
 .m-content-shadow {
 	position: absolute;
 	z-index: 50;
@@ -1151,6 +1164,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 }
 .m-article hr {
 	clear: both;
+	margin-bottom: 40px;
 }
 
 
