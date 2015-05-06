@@ -86,18 +86,36 @@
 
 <div class="m-more">
 	<h2>More Stories
-		<?php  			
+		<?php  
+			if (is_category("ne") || in_category("ne")) {
+				$cat_slug1 = "ne"; $cat_name1 = "from the Northeast";
+			} else if (is_category("se") || in_category("se")) {
+				$cat_slug1 = "se"; $cat_name1 = "from the Southeast";
+			} else if (is_category("mw") || in_category("mw")) {
+				$cat_slug1 = "mw"; $cat_name1 = "from the Midwest";
+			} else if (is_category("sw") || in_category("sw")) {
+				$cat_slug1 = "sw"; $cat_name1 = "from the Southwest";
+			} else if (is_category("nw") || in_category("nw")) {
+				$cat_slug1 = "nw"; $cat_name1 = "from the Northwest";
+			} else {
+				$cat_slug1 = "rigged-ready"; $cat_name1 = " ";
+			}
+			
+			echo $cat_name1;
+						
+/*
 			if (is_category("rigged-ready") || in_category("rigged-ready")) {
 				echo " ";
 			}  else {
 				echo "from the " . $category[0]->cat_name;
 			}
+*/
 		?> 
 	</h2>
 	<div class="m-more-wrap clearfix">
-		<?php
+		<?php		
 		$args = array (
-			'category_name'         	=> $cat_slug,			
+			'category_name'         	=> $cat_slug1,			
 			'posts_per_page'      		=> 6,
 			'order'						=> 'DESC',
 			'orderby'					=> 'rand',
