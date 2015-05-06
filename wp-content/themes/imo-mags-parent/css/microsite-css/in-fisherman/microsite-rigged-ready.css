@@ -344,6 +344,8 @@ html, body {
 body {
 	font-family: 'Lato', sans-serif;
 	color: #eeeeee;
+	overflow: hidden;
+	overflow-y: auto;
 }
 .m-microsite {
 	width: 100%;
