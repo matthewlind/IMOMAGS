@@ -89,13 +89,13 @@
 		<?php  
 			if (in_category("ne")) {
 				$cat_slug1 = "ne"; $cat_name1 = "from the Northeast";
-			} else if (in_category("se")) {
+			} elseif (in_category("se")) {
 				$cat_slug1 = "se"; $cat_name1 = "from the Southeast";
-			} else if (in_category("mw")) {
+			} elseif (in_category("mw")) {
 				$cat_slug1 = "mw"; $cat_name1 = "from the Midwest";
-			} else if (in_category("sw")) {
+			} elseif (in_category("sw")) {
 				$cat_slug1 = "sw"; $cat_name1 = "from the Southwest";
-			} else if (in_category("nw")) {
+			} elseif (in_category("nw")) {
 				$cat_slug1 = "nw"; $cat_name1 = "from the Northwest";
 			} else {
 				$cat_slug1 = "rigged-ready"; $cat_name1 = " ";

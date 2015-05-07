@@ -15,7 +15,7 @@
 				$post_counter = 0;	
 					
 				$args = array (
-					'category_name'         	=> 'shoot101',			
+					'category_name'         	=> 'wheels-afield',			
 					'posts_per_page'      		=> 3,
 					'order'						=> 'DESC',
 					'meta_query' => array(
@@ -37,7 +37,6 @@
 						
 						$wide_image_id = get_post_meta(get_the_ID(),"image_wide", true);
 						$image_wide = wp_get_attachment_image_src($wide_image_id, "full");
-						//$image = wp_get_attachment_image_src($image_id, $image_size);
 				?>
 				<a class="link-box" href="<?php the_permalink(); ?>">	
 					<?php if ($post_counter == 2 && mobile() == false) { ?>
@@ -72,7 +71,7 @@
 				//$cat_id = $id_obj->term_id;
 				// WP_Query arguments
 				$args = array (
-					'category_name'         	=> 'shoot101',			
+					'category_name'         	=> 'wheels-afield',			
 					'posts_per_page'      		=> -1,
 					'order'						=> 'DESC',
 					'meta_query' => array(
@@ -88,20 +87,9 @@
 				// The Loop
 				if ( $query->have_posts() ) {
 					while ( $query->have_posts() ) {
-						$query->the_post();
-					
-					//$box_size = get_post_meta(get_the_ID(),"box_size", true);
-					//later you can add cnditional if mobile $image_size = "medium"
-	/*
-					if ($box_size == "wide") {
-						$image_size = "full";
-					}  else {
-						$image_size = "large";
-					}
-	*/					
-					$image_id = get_post_meta(get_the_ID(),"image", true);
-					$image = wp_get_attachment_image_src($image_id, "large");
-					//$image = wp_get_attachment_image_src($image_id, $image_size);
+						$query->the_post();				
+						$image_id = get_post_meta(get_the_ID(),"image", true);
+						$image = wp_get_attachment_image_src($image_id, "large");
 				?>
 				<a class="link-box" href="<?php the_permalink(); ?>">	
 					<div class="post-box" style="background-image: url('<?php echo $image[0]; ?>')"></div>
