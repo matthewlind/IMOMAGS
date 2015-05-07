@@ -914,6 +914,7 @@ input.gsc-search-button-v2{
 }
 .mdl-banner.mdl-expandable{
     /*height: 100px;*/
+    width: 1080px;
 }
 .mdl-banner object{margin-top: 4px;}
 .mdl-banner img{
