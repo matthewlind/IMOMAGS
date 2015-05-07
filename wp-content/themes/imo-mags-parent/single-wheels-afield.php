@@ -1,10 +1,8 @@
 <?php
-/**
- * Template Name: Shoot101
- * Description: A page template for shoot101 articles
- */
-get_header(); 
-// echo get_template_part( 'header', 'shoot101' ); 
+	global $microsite;
+	$microsite = true;
+	get_header(); 
+	
 	$image_full = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 	$image_large = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'lafge' );	
 	$postID = get_the_ID();
@@ -140,7 +138,7 @@ get_header();
 	<div class="m-more-wrap clearfix">
 		<?php
 		$args = array (
-			'category_name'         	=> 'shoot101',			
+			'category_name'         	=> 'wheels-afield',			
 			'posts_per_page'      		=> 6,
 			'order'						=> 'DESC',
 			'orderby'					=> 'rand',
@@ -167,4 +165,4 @@ get_header();
 </div><!-- .m-more -->
 
 
-<?php echo get_template_part( 'footer', 'shoot101' ); ?>
+<?php get_footer(); ?>

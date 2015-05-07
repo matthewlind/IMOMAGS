@@ -2,7 +2,7 @@
 	$microsite = true;
 	get_header();
 	
-    $category_id = get_cat_ID( 'shoot101' );
+    $category_id = get_cat_ID( 'wheels-afield' );
     $category_link = get_category_link( $category_id );
 ?>
 <div class="sponsors-disclaimer">
@@ -108,4 +108,4 @@
 </div><!-- end .content -->
 
 
-<?php echo get_template_part( 'footer', 'shoot101' ); ?>
+<?php get_footer(); ?>

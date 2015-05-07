@@ -1,5 +1,6 @@
 <?php
-	$category_id = get_cat_ID( 'shoot101' );
+	$microsite = true;
+	$category_id = get_cat_ID( 'wheels-afield' );
 	$category_link = get_category_link( $category_id );	
 ?>
 		</div><!-- end .s101 -->
@@ -64,9 +65,8 @@
 				    </div>
 				</div><!-- end .m-footer-bottom -->
 			</footer>
-	<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/shoot101.js"></script>
+	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/microsite-js/petersenshunting/script-wheels-afield.js"></script>
 	<!--[if lt IE 9]><script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->
-
 	<?php wp_footer(); ?>
 	<?php if(get_field("scroll_tracking","options")){ ?>
 	<script src="<?php bloginfo('template_directory'); ?>/js/jquery.scrolldepth.js"></script>
