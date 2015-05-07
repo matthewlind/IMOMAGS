@@ -11,13 +11,19 @@
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/normalize.css" />
 
 
-<!-- Petersens Hunting -->
+<!------------------------------------------------------------------------
+	Petersens Hunting 
+-------------------------------------------------------------------------->
 <?php
-	if ($site_url == "http://www.petersenshunting") { ?>
-		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/css/microsite-css/petersenshunting/microsite-<?php echo $catslug ?>.css" />
-
-
-<!-- In-fisherman -->		
+	if ($site_url == "http://www.petersenshunting") { 
+		
+		if ( is_category("wheels-afield") || in_category("wheels-afield")) {
+	?>
+		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/petersenshunting/microsite-wheels-afield.css" />
+<?php   } ?>
+<!------------------------------------------------------------------------
+	In-fisherman 
+-------------------------------------------------------------------------->			
 <?php	} elseif ($site_url == "http://www.in-fisherman") { ?>
 	
 	
@@ -34,7 +40,9 @@
 
 
 		
-		
+<!------------------------------------------------------------------------
+	Else 
+-------------------------------------------------------------------------->		
 <?php	} else { ?>
 		<!-- <?php echo site_url(); ?> -->
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/css/microsite-css/microsite.css" />
