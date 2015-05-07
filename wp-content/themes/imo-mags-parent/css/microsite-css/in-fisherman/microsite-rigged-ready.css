@@ -2,15 +2,18 @@
 	TABLE OF CONTENTS: 
 ============================================================================== 
 1.0 Icons 
-2.0 Defaults
-	2.1 WYSIWYG and general wordpress styles
+2.0 WYSIWYG and general wordpress styles
 3.0 Helper classes
 4.0 Buttons
-5.0 Home Page Styles
-6.0 Single Article
-7.0 Footer
-8.0 Media Queries
-9.0 Print styles
+4.1 Defaults
+5.0 Header 
+6.0 Home Page
+7.0 Region(child category) Page 
+8.0 Choose Location Footer
+9.0 Single Article
+10.0 Footer
+11.0 Media Queries
+12.0 Print styles
 
 ============================================================================== */
 /* @import url("normalize.css"); */
@@ -84,7 +87,7 @@
 
 
 /* ==========================================================================
-	2.1 WordPress Core
+	2.0 WordPress Core
 ========================================================================== */
 
 .alignnone {
@@ -333,8 +336,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9900', end
 	opacity: 1;
 }
 
+
 /* ==========================================================================
-	2.0 Defaults 
+	4.1 Defaults 
 ========================================================================== */
 
 html, body {
@@ -375,6 +379,7 @@ body h1, body h2, body h3, body h4, body h5 {
 	font-family: "Merriweather", "Lato", serif;
 	color: #222222;
 }
+
 
 /* ==========================================================================
    5.0 Header
@@ -608,7 +613,7 @@ body h1, body h2, body h3, body h4, body h5 {
 
 
 /* ==========================================================================
-   5.0 Home Page
+   6.0 Home Page
    ========================================================================== */
 
 .m-home-wrap {
@@ -739,7 +744,7 @@ body h1, body h2, body h3, body h4, body h5 {
 
 
 /* ==========================================================================
-   5.0 Region Page
+   7.0 Region Page
    ========================================================================== */
 
 /* Content *******************/
@@ -819,7 +824,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 }
 
 /* ==========================================================================
-   Choose Location Footer
+   8.0 Choose Location Footer
    ========================================================================== */
    
 .m-loc {
@@ -898,12 +903,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 .m-loc-wrap > ul > li > a:hover .m-loc-circle {
 	-webkit-transition: all 0.6s ease;
 	transition: all 0.6s ease;
-	box-shadow: 0 0 100px /* #016797 */ rgba(1,103,151,0.7);
+	box-shadow: 0 0 100px rgba(1,103,151,0.7);
+}
+.m-shiny-circle {
+	box-shadow: 0 0 50px rgba(1,103,151,0.7);
 }
 
 
 /* ==========================================================================
-   6.0 Single Article
+   9.0 Single Article
    ========================================================================== */
    
 .wpsocialite{display: none !important;}
@@ -1184,7 +1192,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 
 
 /* ==========================================================================
-   7.0 Footer
+   10.0 Footer
    ========================================================================== */
    
 .m-footer {
@@ -1228,7 +1236,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 
 
 /* ==========================================================================
-   8.0 Media Queries
+   11.0 Media Queries
    ========================================================================== */
    
 @media only screen and (min-width: 375px) {/* iPhone 6 */
@@ -1595,7 +1603,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 }/* END OF MEDIA */
 
 /* ==========================================================================
-   9.0 Print styles
+   12.0 Print styles
    ========================================================================== */
 @media print {
     * {
