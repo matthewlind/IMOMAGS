@@ -11,38 +11,30 @@
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/normalize.css" />
 
 
-<!------------------------------------------------------------------------
-	Petersens Hunting 
--------------------------------------------------------------------------->
-<?php if ($site_url == "http://www.petersenshunting") { 
+<!-- Petersens Hunting -->
+<?php
+	if ($site_url == "http://www.petersenshunting") { ?>
+		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/css/microsite-css/petersenshunting/microsite-<?php echo $catslug ?>.css" />
+
+
+<!-- In-fisherman -->		
+<?php	} elseif ($site_url == "http://www.in-fisherman") { ?>
 	
-			if ( is_category("wheels-afield") || in_category("wheels-afield")) {	
-?>			
-		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/css/microsite-css/petersenshunting/microsite-wheels-afield.css" />
-<?php 
-			}
-		} // end if ($site_url == )
-?>
-
-
-<!------------------------------------------------------------------------
-	In-fisherman 
--------------------------------------------------------------------------->	
-<?php elseif ($site_url == "http://www.in-fisherman") { 
-
-		$rigged_cat = array("rigged-ready", "ne", "se", "mw", "sw", "nw");
+	
+	<?php	$rigged_cat = array("rigged-ready", "ne", "se", "mw", "sw", "nw");
 		
 			if ( is_category($rigged_cat) || in_category($rigged_cat)) {	
-?>
+	?>
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/in-fisherman/microsite-rigged-ready.css" />
 <?php	} else { ?>
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/in-fisherman/microsite-<?php echo $catslug ?>.css" />
 <?php	} ?>
 
+
+
+
 		
-<!------------------------------------------------------------------------
-	Else 
--------------------------------------------------------------------------->		
+		
 <?php	} else { ?>
 		<!-- <?php echo site_url(); ?> -->
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/css/microsite-css/microsite.css" />
