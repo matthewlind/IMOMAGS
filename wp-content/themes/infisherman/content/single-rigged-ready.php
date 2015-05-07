@@ -87,29 +87,20 @@
 <div class="m-more">
 	<h2>More Stories
 		<?php  
-			if (is_category("ne") || in_category("ne")) {
+			if (in_category("ne")) {
 				$cat_slug1 = "ne"; $cat_name1 = "from the Northeast";
-			} else if (is_category("se") || in_category("se")) {
+			} else if (in_category("se")) {
 				$cat_slug1 = "se"; $cat_name1 = "from the Southeast";
-			} else if (is_category("mw") || in_category("mw")) {
+			} else if (in_category("mw")) {
 				$cat_slug1 = "mw"; $cat_name1 = "from the Midwest";
-			} else if (is_category("sw") || in_category("sw")) {
+			} else if (in_category("sw")) {
 				$cat_slug1 = "sw"; $cat_name1 = "from the Southwest";
-			} else if (is_category("nw") || in_category("nw")) {
+			} else if (in_category("nw")) {
 				$cat_slug1 = "nw"; $cat_name1 = "from the Northwest";
 			} else {
 				$cat_slug1 = "rigged-ready"; $cat_name1 = " ";
 			}
-			
 			echo $cat_name1;
-						
-/*
-			if (is_category("rigged-ready") || in_category("rigged-ready")) {
-				echo " ";
-			}  else {
-				echo "from the " . $category[0]->cat_name;
-			}
-*/
 		?> 
 	</h2>
 	<div class="m-more-wrap clearfix">
@@ -142,36 +133,36 @@
 </div><!-- .m-more -->
 
 <div class="m-loc">
-	<h2>Choose a Different Region</h2>
+	<h2>Choose A Region</h2>
 	<div class="m-loc-wrap">
 		<ul class="clearfix">
 			<li>
 				<a href="/rigged-ready/ne/">
-					<div class="m-loc-circle"></div>
+					<div class="m-loc-circle <?php if (in_category("ne")) { echo "m-shiny-circle"; }?>"></div>
 					<span>NORTHEAST</span>
 				</a>
 			</li>
 			<li>
 				<a href="/rigged-ready/se/">
-					<div class="m-loc-circle"></div>
+					<div class="m-loc-circle <?php if (in_category("se")) { echo "m-shiny-circle"; }?>"></div>
 					<span>SOUTHEAST</span>
 				</a>
 			</li>
 			<li>
 				<a href="/rigged-ready/mw/">
-					<div class="m-loc-circle"></div>
+					<div class="m-loc-circle <?php if (in_category("mw")) { echo "m-shiny-circle"; }?>"></div>
 					<span>MIDWEST</span>
 				</a>
 			</li>
 			<li>
 				<a href="/rigged-ready/sw/">
-					<div class="m-loc-circle"></div>
+					<div class="m-loc-circle <?php if (in_category("sw")) { echo "m-shiny-circle"; }?>"></div>
 					<span>SOUTHWEST</span>
 				</a>
 			</li>
 			<li>
 				<a href="/rigged-ready/nw/">
-					<div class="m-loc-circle"></div>
+					<div class="m-loc-circle <?php if (in_category("nw")) { echo "m-shiny-circle"; }?>"></div>
 					<span>NORTHWEST</span>
 				</a>
 			</li>
