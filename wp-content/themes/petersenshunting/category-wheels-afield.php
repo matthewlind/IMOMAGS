@@ -5,9 +5,11 @@
     $category_id = get_cat_ID( 'wheels-afield' );
     $category_link = get_category_link( $category_id );
 ?>
+<!--
 <div class="sponsors-disclaimer">
 	<span>BROUGHT TO YOU BY VISTA OUTDOOR INC. AND ITS FAMILY OF <a href="http://www.vistaoutdoor.com/brands/" target="_blank">BRANDS</a></span>
 </div>
+-->
 <div class="content">
 		<div class="posts-wrap">
 			<div class="p-feat-container clearfix">
@@ -56,7 +58,7 @@
 			</div><!-- end .p-feat-container -->
 						
 			<div class="featured-message">
-				<span>Help grow shooting in America.  Share this with a new shooter!</span>
+				<span>Wheels Afield. Share it!</span>
 				<div class="m-social-buttons">
 					<ul>
 						<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>&title=Shoot101: A starter's guide every new shooter should read." class="icon-facebook" target="_blank"></a></li>

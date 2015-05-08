@@ -55,29 +55,20 @@
 		    			<h2>NOW AVAILABLE ON NEWSSTANDS!</h2> 
 		    			<div class="m-buy-mag-bottom clearfix"> 				
 		    				<div class="m-buy-mag-img"></div> 
-		    				<a href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">BUY PRINT MAGAZINE NOW!</a> 
-		    				<div class="m-buy-dig" href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">
+		    				<a href="https://store.intermediaoutdoors.com/products.php?product=Wheels-Afield-2015" target="_blank">BUY PRINT MAGAZINE NOW!</a> 
+		    				<div class="m-buy-dig">
 								<span>GET THE DIGITAL EDITION!</span>
 			    				<div class="m-dig-drop">
 									<ul>
-										<li><a href="https://itunes.apple.com/us/app/shoot-101/id980668053?ls=1&mt=8" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/itunes-logo.png"><span>iTunes</span></a></li>
-										<li><a href="https://play.google.com/store/apps/details?id=com.imo.shooting101" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/google_play_icon.png"><span>Google Play</span></a></li>
-										<li><a href="http://apps.microsoft.com/windows/en-us/app/shoot-101/0560cb9d-d461-4856-9abd-d3efb69862d9" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/windows-store-icon.png"><span>Windows Store</span></a></li>
+										<li><a href="https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=985774523&mt=8" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/itunes-logo.png"><span>iTunes</span></a></li>
+										<li><a href="" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/google_play_icon.png"><span>Google Play</span></a></li>
+										<li><a href="" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/windows-store-icon.png"><span>Windows Store</span></a></li>
 									</ul>
 								</div><!-- .m-buy-mag-hover -->										
 		    				</div> 
 		    			</div>
 		    		</div>
 		    	</div>
-<!--
-		    	<script>
-			    	jQuery(document).ready(function($) {
-				    	$(".m-buy-dig").click(function() {
-					    	$(".m-dig-drop").addClass("m-dig-dropit")
-				    	});
-				    });
-			    </script>
--->
 				<?php }	
 /*
 			    if($p_counter == $ad1_after_p){
@@ -95,14 +86,14 @@
     			<h2>NOW AVAILABLE ON NEWSSTANDS!</h2> 
     			<div class="m-buy-mag-bottom clearfix"> 				
     				<div class="m-buy-mag-img"></div> 
-    				<a href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">BUY PRINT MAGAZINE NOW!</a> 
-    				<div class="m-buy-dig" href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">
+    				<a href="https://store.intermediaoutdoors.com/products.php?product=Wheels-Afield-2015" target="_blank">BUY PRINT MAGAZINE NOW!</a> 
+    				<div class="m-buy-dig">
 						<span>GET THE DIGITAL EDITION!</span>
 	    				<div class="m-dig-drop">
 							<ul>
-								<li><a href="https://itunes.apple.com/us/app/shoot-101/id980668053?ls=1&mt=8" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/itunes-logo.png"><span>iTunes</span></a></li>
-								<li><a href="https://play.google.com/store/apps/details?id=com.imo.shooting101" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/google_play_icon.png"><span>Google Play</span></a></li>
-								<li><a href="http://apps.microsoft.com/windows/en-us/app/shoot-101/0560cb9d-d461-4856-9abd-d3efb69862d9" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/windows-store-icon.png"><span>Windows Store</span></a></li>
+								<li><a href="https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=985774523&mt=8" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/itunes-logo.png"><span>iTunes</span></a></li>
+								<li><a href="" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/google_play_icon.png"><span>Google Play</span></a></li>
+								<li><a href="" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/windows-store-icon.png"><span>Windows Store</span></a></li>
 							</ul>
 						</div><!-- .m-buy-mag-hover -->										
     				</div> 
