@@ -371,10 +371,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9900', end
 .social-buttons {
 	float: right;
 }
-.single .cat-shoot101 .social-buttons {
+.single .m-article .social-buttons {
 	float: none;
-	text-align: center;
-	margin: 0 auto;
+/* 	text-align: center; */
+	margin: 0;
+	position: relative;
+	list-style: none;
+	padding: 0;
+}
+.single .m-article .social-buttons li {
+	display: inline-block;
+}
+.single .m-article .social-buttons ul {
+	
 }
 .social-buttons ul {
 	list-style: none;

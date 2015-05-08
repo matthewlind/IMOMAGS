@@ -10,13 +10,18 @@
 	$site_url = str_replace($url_suffixes, "", $url_string);
 	
 	
-// Petersens Hunting
+/* ------------------------------------------------------------------------
+	Petersens Hunting 
+---------------------------------------------------------------------------*/
 	if ($site_url == "http://www.petersenshunting") { 
-		get_template_part('footer/microsite-footers/in-fisherman/footer', $catslug);
+		if ( is_category("wheels-afield") || in_category("wheels-afield")) {
+			get_template_part("footer/microsite-footers/petersenshunting/footer", "wheels-afield");		}
 	} 
 	
 		
-// In-Fisherman
+/* ------------------------------------------------------------------------
+	In-Fisherman 
+---------------------------------------------------------------------------*/
 	elseif ($site_url == "http://www.in-fisherman") { 
 		$rigged_cat = array("rigged-ready", "ne", "se", "mw", "sw", "nw");
 		
@@ -27,8 +32,11 @@
 			get_template_part('footer/microsite-footers/in-fisherman/footer', $catslug);
 		}
 	}
+
 	
-	
+/* ------------------------------------------------------------------------
+	Else 
+---------------------------------------------------------------------------*/	
 	 else { 
 		get_template_part('footer/microsite-footers/footer', "microsite");
 	}  
