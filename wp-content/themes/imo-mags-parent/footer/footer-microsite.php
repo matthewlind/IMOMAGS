@@ -21,7 +21,7 @@
 		$rigged_cat = array("rigged-ready", "ne", "se", "mw", "sw", "nw");
 		
 		if ( is_category($rigged_cat) || in_category($rigged_cat)) {
-			get_template_part('footer/microsite-footers/in-fisherman/footer', "riggedready");
+			get_template_part('footer/microsite-footers/in-fisherman/footer', "rigged-ready");
 		} 
 		else {
 			get_template_part('footer/microsite-footers/in-fisherman/footer', $catslug);
