@@ -8,12 +8,19 @@
 	$site_url = str_replace($url_suffixes, "", $url_string);
 	
 	
-	// Petersens Hunting
+/* ------------------------------------------------------------------------
+	Petersens Hunting 
+---------------------------------------------------------------------------*/
 	if ($site_url == "http://www.petersenshunting") { 
-		include("wp-content/themes/imo-mags-parent/header-content/microsites/petersenshunting/header-content-". $catslug . ".php");
+		if ( is_category("wheels-afield") || in_category("wheels-afield")) {
+			get_template_part("header-content/microsites/petersenshunting/header-content", "wheels-afield");
+		}
 	} 	
-	
-	// In-Fisherman
+
+
+/* ------------------------------------------------------------------------
+	In-Fisherman 
+---------------------------------------------------------------------------*/	 
 	elseif ($site_url == "http://www.in-fisherman") { 
 		$rigged_cat = array("rigged-ready", "ne", "se", "mw", "sw", "nw");
 		
@@ -25,7 +32,10 @@
 		}
 	}
 	
-	
+
+/* ------------------------------------------------------------------------
+	Else 
+---------------------------------------------------------------------------*/	
 	 else { 
 		include("wp-content/themes/imo-mags-parent/header-content/microsites/header-content-microsite");
 	} 
