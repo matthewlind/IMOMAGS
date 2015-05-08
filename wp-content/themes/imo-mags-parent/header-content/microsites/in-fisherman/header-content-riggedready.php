@@ -23,15 +23,15 @@
 						<?php 
 							if (is_category("rigged-ready") || in_category("rigged-ready")) {
 								echo " ";
-							} else if (in_category("ne")) {
+							} elseif (in_category("ne")) {
 								echo "transform: rotate(-90deg);";
-							} else if (in_category("se")) {
+							} elseif (in_category("se")) {
 								echo " ";
-							} else if (in_category("mw")) {
+							} elseif (in_category("mw")) {
 								echo "transform: rotate(-180deg);";
-							} else if (in_category("sw")) {
+							} elseif (in_category("sw")) {
 								echo "transform: rotate(-180deg);";
-							} else if (in_category("nw")) {
+							} elseif (in_category("nw")) {
 								echo "transform: rotate(90deg);";
 							} else {
 								echo " ";
@@ -44,15 +44,15 @@
 							
 							if (is_category("rigged-ready")) {
 								echo " ";
-							} else if (is_category("ne") || in_category("ne")) {
+							} elseif (is_category("ne") || in_category("ne")) {
 								echo "NORTHEAST";
-							} else if (is_category("se") || in_category("se")) {
+							} elseif (is_category("se") || in_category("se")) {
 								echo "SOUTHEAST";
-							} else if (is_category("mw") || in_category("mw")) {
+							} elseif (is_category("mw") || in_category("mw")) {
 								echo "MIDWEST";
-							} else if (is_category("sw") || in_category("sw")) {
+							} elseif (is_category("sw") || in_category("sw")) {
 								echo "SOUTHWEST";
-							} else if (is_category("nw") || in_category("nw")) {
+							} elseif (is_category("nw") || in_category("nw")) {
 								echo "NORTHWEST";
 							} else {
 								echo " ";
