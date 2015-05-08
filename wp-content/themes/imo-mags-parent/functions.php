@@ -412,7 +412,8 @@ function parent_theme_widgets_init()
         'mobile' => 'Mobile Menu',
         'community' => 'Community Menu',
         'shows_menu' => 'Shows Menu',
-        'b2b' => 'B2B Menu'
+        'b2b' => 'B2B Menu',
+        'wheels_afield' => 'Wheels Afield'
     ));
 
 }

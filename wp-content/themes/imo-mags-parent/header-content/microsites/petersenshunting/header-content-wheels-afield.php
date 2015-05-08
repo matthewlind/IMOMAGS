@@ -19,7 +19,7 @@
 			</div>
 <!-- 			<div class="nav-container"> -->
 				<nav id="site-navigation" class="main-nav" role="navigation">
-					<?php wp_nav_menu( array( 'theme_location' => 'shoot101_menu', 'container' => '0' ) ); ?>
+					<?php wp_nav_menu( array( 'theme_location' => 'wheels_afield', 'container' => '0' ) ); ?>
 				</nav>
 				<div class="social-buttons">
 					<ul>

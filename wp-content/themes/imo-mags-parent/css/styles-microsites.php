@@ -19,8 +19,12 @@
 		
 		if ( is_category("wheels-afield") || in_category("wheels-afield")) {
 	?>
-		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/petersenshunting/microsite-wheels-afield.css" />
-<?php   } ?>
+		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/petersenshunting2/microsite-wheels-afield.css" />
+<?php   } else { ?>
+		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/css/microsite-css/microsite.css" />
+<?php	}    ?>
+
+
 <!------------------------------------------------------------------------
 	In-fisherman 
 -------------------------------------------------------------------------->			
@@ -37,9 +41,6 @@
 <?php	} ?>
 
 
-
-
-		
 <!------------------------------------------------------------------------
 	Else 
 -------------------------------------------------------------------------->		
