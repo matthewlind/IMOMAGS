@@ -1,16 +1,16 @@
 <?php
-	$category_id = get_cat_ID( 'shoot101' );
+	$category_id = get_cat_ID( 'wheels-afield' );
 	$category_link = get_category_link( $category_id );	
 ?>
 </div><!-- end .s101 -->
 <footer class="s-footer clearfix">
 	<div class="s-mag clearfix">
 		<div class="s-mag-cover">
-			<img src="/wp-content/themes/gunsandammo/images/shoot101/mag-cover.jpg">
+			<img src="/wp-content/themes/petersenshunting/images/wheels-afield/wheels-afield-mag-cover.jpg">
 		</div>
 		<div class="s-mag-descr">
-			<h1>Learn, Train, Live</h1>
-			<p>Know someone interested in the shooting sports? Start them off right with Shoot 101, the ideal magazine for mastering the basics of safe, responsible shooting. Compiled by the publishers of Guns & Ammo and filled with educational, entertaining articles, Shoot 101 is a wealth of information for novice and expert shooters alike.</p>
+			<h1>Wheels Afield Magazine</h1>
+			<p>What is Wheels Afield? It is overland vehicles and equipment, field sports, and adventure travel. In short, if it involves the outdoors and requires a vehicle to access it, it is Wheels Afield.</p>
 		</div>
 		<div class="s-mag-buy">
 			<h2>NOW AVAILABLE ON NEWSSTANDS!</h2>
@@ -18,14 +18,14 @@
 				<div>OR</div>			
 			</div>
 			<div class="s-mag-btns clearfix">
-				<a class="orange-btn" href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">BUY THE MAGAZINE NOW!</a>
+				<a class="orange-btn" href="https://store.intermediaoutdoors.com/products.php?product=Wheels-Afield-2015" target="_blank">BUY THE MAGAZINE NOW!</a>
 				<div class="orange-btn">
 					GET THE DIGITAL EDITION!
 					<div class="buy-mag-drop">
 						<ul>
-							<li><a href="https://itunes.apple.com/us/app/shoot-101/id980668053?ls=1&mt=8" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/itunes-logo.png"><span>iTunes</span></a></li>
-							<li><a href="https://play.google.com/store/apps/details?id=com.imo.shooting101" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/google_play_icon.png"><span>Google Play</span></a></li>
-							<li><a href="http://apps.microsoft.com/windows/en-us/app/shoot-101/0560cb9d-d461-4856-9abd-d3efb69862d9" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/windows-store-icon.png"><span>Windows Store</span></a></li>
+							<li><a href="https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=985774523&mt=8" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/itunes-logo.png"><span>iTunes</span></a></li>
+							<li><a href="" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/google_play_icon.png"><span>Google Play</span></a></li>
+							<li><a href="" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/windows-store-icon.png"><span>Windows Store</span></a></li>
 						</ul>
 					</div>
 				</div>
@@ -33,14 +33,14 @@
 		</div><!-- end .s-mag-descr -->
 	</div><!-- end .s-mag-descr -->
 	<div class="footer-message clearfix">
-		<h2>Help grow shooting in America. Share this with a new shooter!</h2>
+		<h2>Wheels Afield. Share it!</h2>
 		<div class="f-social-buttons">
 			<ul>
-				<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>&title=<?php if(is_category("shoot101")){ echo "Shoot101: A starter's guide every new shooter should read."; }else{ print(urlencode(the_title())); } ?>" class="icon-facebook" target="_blank"></a></li>
-						<li><a href="http://twitter.com/intent/tweet?status=<?php if(is_category("shoot101")){ echo "Shoot101: A starter's guide every new shooter should read."; }else{ print(urlencode(the_title())); } ?>+<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" class="icon-twitter" target="_blank"></a></li>
-						<li><a href="mailto:?subject=Article I came across&body=Check out this article! Title: '<?php the_title(); ?>'. Link: <?php the_permalink(); ?>" class="icon-mail" target="_blank"></a></li>
+				<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>&title=Wheels Afield Magazine" class="icon-facebook" target="_blank"></a></li>
+				<li><a href="http://twitter.com/intent/tweet?status=Wheels Afield Magazine" class="icon-twitter" target="_blank"></a></li>
+				<li><a href="mailto:?subject=Website I came across&body=Check out this website! Wheels Afield Magazine. <?php echo site_url() . "/rigged-ready"; ?>" class="icon-mail" target="_blank"></a></li>
 			</ul>
-		</div>
+		</div><!-- .m-social-buttons -->
 	</div>
 	<div class="m-footer-bottom">
 		<div class="m-logo-nav">
