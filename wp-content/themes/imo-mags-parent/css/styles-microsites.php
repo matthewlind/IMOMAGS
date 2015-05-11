@@ -10,15 +10,26 @@
 
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/normalize.css" />
 
-
-<!-- Petersens Hunting -->
 <?php
-	if ($site_url == "http://www.petersenshunting") { ?>
-		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/css/microsite-css/petersenshunting/microsite-<?php echo $catslug ?>.css" />
+/* ------------------------------------------------------------------------
+	Petersens Hunting 
+-------------------------------------------------------------------------- */
+
+	if ($site_url == "http://www.petersenshunting") { 
+		
+		if ( is_category("wheels-afield") || in_category("wheels-afield")) {
+	?>
+		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/petersenshunting/microsite-wheels-afield.css" />
+<?php   } else { ?>
+		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/css/microsite-css/microsite.css" />
+<?php	}    ?>
 
 
-<!-- In-fisherman -->		
-<?php	} elseif ($site_url == "http://www.in-fisherman") { ?>
+<?php
+/* ------------------------------------------------------------------------
+	In-fisherman 
+-------------------------------------------------------------------------- */		
+	} elseif ($site_url == "http://www.in-fisherman") { ?>
 	
 	
 	<?php	$rigged_cat = array("rigged-ready", "ne", "se", "mw", "sw", "nw");
@@ -30,12 +41,11 @@
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/in-fisherman/microsite-<?php echo $catslug ?>.css" />
 <?php	} ?>
 
-
-
-
-		
-		
-<?php	} else { ?>
+<?php
+/*------------------------------------------------------------------------
+	Else 
+--------------------------------------------------------------------------*/	
+	} else { ?>
 		<!-- <?php echo site_url(); ?> -->
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/css/microsite-css/microsite.css" />
 		
