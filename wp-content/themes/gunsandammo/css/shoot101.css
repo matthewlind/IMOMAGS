@@ -320,6 +320,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9900', end
 	color: #888888;
 	font: 700 16px/30px "lora", serif;
 }
+.top-panel a:hover {
+	color: #bbbbbb;
+}
 .shoot101-logo {
 	width: 100%;
 	display: block;
@@ -798,6 +801,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 }
 .m-article hr {
 	clear: both;
+	margin-bottom: 40px;
 }
 /* Quiz styles ***********/
 .m-article iframe.interact-embed {
