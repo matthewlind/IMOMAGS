@@ -10,9 +10,11 @@
 	$acf_byline = get_field("byline",$postID); 
 	$author = get_the_author();
 ?>
+<!--
 <div class="sponsors-disclaimer">
 	<span>BROUGHT TO YOU BY VISTA OUTDOOR INC. AND ITS FAMILY OF <a href="http://www.vistaoutdoor.com/brands/" target="_blank">BRANDS</a></span>
 </div>
+-->
 <div class="m-article-wrap clearfix">
 	<?php if(mobile() == true) {
 		if($image_large[0]) { ?>
@@ -27,7 +29,7 @@
 	?>
 	<article class="m-article clearfix">
 		<div class="m-social-wrap">
-			<p class="m-hlep-grow">Help Grow Shooting in America. Share this with a new shooter!</p>
+<!-- 			<p class="m-hlep-grow">Help Grow Shooting in America. Share this with a new shooter!</p> -->
 			<ul class="share-count social-buttons">
 				<li>
 					<a href="http://www.facebook.com/sharer.php?u=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>&t=<?php the_title(); ?>" class="socialite facebook-like reload-fb" data-href="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" data-send="false" data-layout="button_count" data-share="true" data-action="like" data-width="60" data-show-faces="false" rel="nofollow" target="_blank"><span class="vhidden"></span></a>
@@ -108,7 +110,7 @@
 		
 		<div class="m-article-bottom clearfix">
 			<div class="m-social-wrap">
-				<p class="m-hlep-grow">Help Grow Shooting in America. Share this with a new shooter!</p>
+				<p class="m-hlep-grow">Share This Article</p>
 				<ul class="share-count social-buttons">
 					<li>
 				         <a href="http://www.facebook.com/sharer.php?u=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>&t=<?php the_title(); ?>" class="socialite facebook-like reload-fb" data-href="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" data-send="false" data-layout="button_count" data-share="true" data-action="like" data-width="60" data-show-faces="false" rel="nofollow" target="_blank"><span class="vhidden"></span></a>

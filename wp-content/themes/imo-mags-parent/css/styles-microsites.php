@@ -10,11 +10,11 @@
 
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/normalize.css" />
 
-
-<!------------------------------------------------------------------------
-	Petersens Hunting 
--------------------------------------------------------------------------->
 <?php
+/* ------------------------------------------------------------------------
+	Petersens Hunting 
+-------------------------------------------------------------------------- */
+
 	if ($site_url == "http://www.petersenshunting") { 
 		
 		if ( is_category("wheels-afield") || in_category("wheels-afield")) {
@@ -25,10 +25,11 @@
 <?php	}    ?>
 
 
-<!------------------------------------------------------------------------
+<?php
+/* ------------------------------------------------------------------------
 	In-fisherman 
--------------------------------------------------------------------------->			
-<?php	} elseif ($site_url == "http://www.in-fisherman") { ?>
+-------------------------------------------------------------------------- */		
+	} elseif ($site_url == "http://www.in-fisherman") { ?>
 	
 	
 	<?php	$rigged_cat = array("rigged-ready", "ne", "se", "mw", "sw", "nw");
@@ -40,11 +41,11 @@
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/in-fisherman/microsite-<?php echo $catslug ?>.css" />
 <?php	} ?>
 
-
-<!------------------------------------------------------------------------
+<?php
+/*------------------------------------------------------------------------
 	Else 
--------------------------------------------------------------------------->		
-<?php	} else { ?>
+--------------------------------------------------------------------------*/	
+	} else { ?>
 		<!-- <?php echo site_url(); ?> -->
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/css/microsite-css/microsite.css" />
 		
