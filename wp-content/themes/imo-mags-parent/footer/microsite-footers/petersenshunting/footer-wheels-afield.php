@@ -24,8 +24,8 @@
 					<div class="buy-mag-drop">
 						<ul>
 							<li><a href="https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=985774523&mt=8" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/itunes-logo.png"><span>iTunes</span></a></li>
-							<li><a href="" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/google_play_icon.png"><span>Google Play</span></a></li>
-							<li><a href="" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/windows-store-icon.png"><span>Windows Store</span></a></li>
+							<li><a href="https://play.google.com/store/apps/details?id=com.imo.wheelsafield" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/google_play_icon.png"><span>Google Play</span></a></li>
+							<li><a href="http://apps.microsoft.com/windows/en-us/app/wheels-afield/865f31ca-7ea7-462f-9bad-0712025e3fd4" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/windows-store-icon.png"><span>Windows Store</span></a></li>
 						</ul>
 					</div>
 				</div>
@@ -38,7 +38,7 @@
 			<ul>
 				<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>&title=Wheels Afield Magazine" class="icon-facebook" target="_blank"></a></li>
 				<li><a href="http://twitter.com/intent/tweet?status=Wheels Afield Magazine" class="icon-twitter" target="_blank"></a></li>
-				<li><a href="mailto:?subject=Website I came across&body=Check out this website! Wheels Afield Magazine. <?php echo site_url() . "/rigged-ready"; ?>" class="icon-mail" target="_blank"></a></li>
+				<li><a href="mailto:?subject=Website I came across&body=Check out this website! Wheels Afield Magazine. <?php echo site_url() . "/wheels-afield"; ?>" class="icon-mail" target="_blank"></a></li>
 			</ul>
 		</div><!-- .m-social-buttons -->
 	</div>

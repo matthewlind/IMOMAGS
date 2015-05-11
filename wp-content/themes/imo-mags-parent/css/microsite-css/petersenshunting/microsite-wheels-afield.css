@@ -315,6 +315,9 @@ h1, h2, h3, h4, h5 {
 	color: #888888;
 	font: 700 16px/30px "lora", serif;
 }
+.top-panel a:hover {
+	color: #bbbbbb;
+}
 .microsite-logo {
 	width: 100%;
 	display: block;
@@ -1003,7 +1006,7 @@ h1, h2, h3, h4, h5 {
 	font-weight: 600;
 }
 .m-footer-nav ul li a:hover {
-	color: #ee7700;
+	color: #bb9632;
 }
 .m-copyright {
 	margin-top: 30px;
