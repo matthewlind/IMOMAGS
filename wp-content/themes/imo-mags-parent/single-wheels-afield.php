@@ -54,7 +54,8 @@
 			    if($p_counter == $mag_after_p){ ?>
 				<div class="alignright-content m-buy-wrap"> 
 		    		<div class="m-buy-mag" style="margin-top: 45px;"> 
-		    			<h2>NOW AVAILABLE ON NEWSSTANDS!</h2> 
+		    			<h2>NOW AVAILABLE ON NEWSSTANDS!!</h2> 
+		    			
 		    			<div class="m-buy-mag-bottom clearfix"> 				
 		    				<div class="m-buy-mag-img"></div> 
 		    				<a href="https://store.intermediaoutdoors.com/products.php?product=Wheels-Afield-2015" target="_blank">BUY PRINT MAGAZINE NOW!</a> 
@@ -85,7 +86,8 @@
 		} else { ?>
 		<div class="alignright-content m-buy-wrap"> 
     		<div class="m-buy-mag" style="margin-top: 45px;"> 
-    			<h2>NOW AVAILABLE ON NEWSSTANDS!</h2> 
+    			<h2>NOW AVAILABLE ON NEWSSTANDS!</h2>
+    			<?php echo do_shortcode('[osgimfirst bipad=34837)]'); ?>
     			<div class="m-buy-mag-bottom clearfix"> 				
     				<div class="m-buy-mag-img"></div> 
     				<a href="https://store.intermediaoutdoors.com/products.php?product=Wheels-Afield-2015" target="_blank">BUY PRINT MAGAZINE NOW!</a> 
