@@ -504,7 +504,7 @@ body h1, body h2, body h3, body h4, body h5 {
 	position: absolute;
 	height: 230px;
 	width: 100%;
-	top: -225px;
+	top: -255px;
 	left: 0;
 	-webkit-transition:all 0.5s ease;
 	-moz-transition:all 0.5s ease;
