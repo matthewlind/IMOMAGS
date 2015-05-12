@@ -58,7 +58,7 @@
 			</div><!-- end .p-feat-container -->
 						
 			<div class="featured-message">
-				<span>Wheels Afield. Share it!</span>
+				<span>Love Guns, Gear, & Vehicles? Then Share it!</span>
 				<div class="m-social-buttons">
 					<ul>
 						<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>&title=Wheels Afield Magazine" class="icon-facebook" target="_blank"></a></li>

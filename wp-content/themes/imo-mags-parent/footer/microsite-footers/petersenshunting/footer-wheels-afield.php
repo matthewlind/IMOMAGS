@@ -33,7 +33,7 @@
 		</div><!-- end .s-mag-descr -->
 	</div><!-- end .s-mag-descr -->
 	<div class="footer-message clearfix">
-		<h2>Wheels Afield. Share it!</h2>
+		<h2>Love Guns, Gear, & Vehicles? Then Share it!</h2>
 		<div class="f-social-buttons">
 			<ul>
 				<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>&title=Wheels Afield Magazine" class="icon-facebook" target="_blank"></a></li>

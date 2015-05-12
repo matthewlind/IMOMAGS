@@ -13,11 +13,13 @@
 9.0 Print styles
 
 ============================================================================== */
-@import url("normalize.css");
+/* @import url("normalize.css"); 
 @import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,300,200,600,700);
 @import url(http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic);
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
+@import url(http://fonts.googleapis.com/css?family=Roboto:900,500,400italic,100,700italic,300,700,500italic,400); */
 
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,300,600,700,800);
 /* ==========================================================================
 	1.0 Icons  
 ========================================================================== */
@@ -137,7 +139,7 @@ a img.aligncenter {
     margin: 0;
     padding: 3px 10px 10px;
 	border-bottom: 2px solid #bb9632;
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: 'Open Sans', sans-serif;
     width: 100%;
 }
 .screen-reader-text {
@@ -226,7 +228,7 @@ a img.aligncenter {
 	box-shadow: 0 2px 4px rgba(0,0,0,0.07);
 	line-height: 10px;
 	color: #222222;
-	font: 700 10px 'Titillium Web', Helvetica, Arial, sans-serif;
+	font: 700 10px 'Open Sans', Helvetica, Arial, sans-serif;
 	-webkit-transition:all 0.4s;
 	-moz-transition:all 0.4s;
 	transition:all 0.4s;
@@ -265,7 +267,7 @@ html, body {
 	background-color: #202020;
 }
 body {
-	font-family: 'Titillium Web', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	color: #e9e9e9;
 }
 .wheels-afield {
@@ -313,7 +315,7 @@ h1, h2, h3, h4, h5 {
 }
 .top-panel a {
 	color: #888888;
-	font: 700 16px/30px "lora", serif;
+	font: 700 16px/30px 'Open Sans', serif;
 }
 .top-panel a:hover {
 	color: #bbbbbb;
@@ -347,7 +349,7 @@ h1, h2, h3, h4, h5 {
 .main-nav {display: block; float: left; margin: 0 0 0 20px; position: relative; z-index: 30;}	
 .main-nav ul {margin: 0; padding: 0;}
 .main-nav ul li {display: inline-block; float: left;margin-top: 13px; height: 11px; border-left: 1px solid #e9e9e9;}
-.main-nav ul li a {display: block;padding: 0 11px;color: #c2c2c2;font:13px/13px "Titilium Web", sans-serif ;}
+.main-nav ul li a {display: block;padding: 0 11px;color: #c2c2c2;font:13px/13px 'Open Sans', sans-serif ;}
 .main-nav ul li:hover a {color: #bb9632;}
 .main-nav ul li:hover {border-left: 1px solid #bb9632;-webkit-transition:all 0.1s;-moz-transition:all 0.1s;transition:all 0.1s;}
 .main-nav ul li:last-child {border-right: 1px solid #e9e9e9;} 
@@ -361,7 +363,7 @@ h1, h2, h3, h4, h5 {
 .main-nav > ul li.menu-item-has-children ul {display: none;min-width: 185px;position: absolute;margin: 0;padding: 3px 0 5px 0;background: #000000;z-index: 9999;}
 .main-nav > ul li.menu-item-has-children ul li {display: block;width: 100%;padding: 0 12px;}
 .main-nav > ul li.menu-item-has-children ul li:hover {background-color: #191919;}
-.main-nav > ul li.menu-item-has-children ul li a {display: block;font-size: 14px;font-weight: 200;font-family: 'Roboto', sans-serif;padding: 10px 5px;border-bottom: 1px solid #363636;}
+.main-nav > ul li.menu-item-has-children ul li a {display: block;font-size: 14px;font-weight: 200;font-family: 'Open Sans', sans-serif;padding: 10px 5px;border-bottom: 1px solid #363636;}
 .main-nav > ul li.menu-item-has-children ul li:last-child a {border: none;}
 .main-nav > ul li.menu-item-has-children ul li a:hover {color: #d8d1c6;}
 .main-nav > ul li.menu-item-has-children ul > li.menu-item-has-children {position: relative;}
@@ -442,7 +444,7 @@ h1, h2, h3, h4, h5 {
 .featured-message span {
 	width: 100%;
 	display: inline-block;
-	font:700 13px "Lora", serif;
+	font: 600 13px 'Open Sans', serif;
 	margin: 20px 0 0;
 }
 .m-social-buttons {
@@ -571,7 +573,7 @@ h1, h2, h3, h4, h5 {
 	padding: 0 20px 20px;
 } 
 .m-article .m-hlep-grow {
-	font: 400 14px/17px "Titillium Web", sans-serif;
+	font: 400 14px/17px 'Open Sans', sans-serif;
 	color: #58595b;
 	width: 218px;
 } 
@@ -603,7 +605,7 @@ h1, h2, h3, h4, h5 {
 	transition:color 0.2s;
 }
 .m-article h1 {
-	font-size: 32px;
+	font-size: 31px;
 	line-height: 36px;
 	text-transform: uppercase;
 	margin-bottom: 5px;
@@ -616,13 +618,13 @@ h1, h2, h3, h4, h5 {
 	margin: 0;
 }
 .m-post-byline {
-	font-size: 13px;
-	font-weight: 300;
+	font-size: 11px;
+	font-weight: 400;
 	display: inline-block;
 	margin-bottom: 8px;
 }
 .m-article p {
-	font: 400 17px/28px "Lora", sans-serif;
+	font: 400 16px/27px 'Open Sans', sans-serif;
 }
 
 .m-article blockquote {
@@ -633,10 +635,10 @@ h1, h2, h3, h4, h5 {
 	font-size: 26px;
 	line-height: 30px;
 	border-left: 9px solid #bb9632;
-	font: 300 26px "Titillium Web", sans-serif;
+	font: 300 26px 'Open Sans', sans-serif;
 } 
 .m-article blockquote p {
-	font: 300 26px "Titillium Web", sans-serif;
+	font: 400 26px 'Open Sans', sans-serif;
 }
 .m-article blockquote::before, .m-article blockquote::after {
 	font-family: 'icomoon';
@@ -796,7 +798,7 @@ h1, h2, h3, h4, h5 {
 	margin-right: 10px;
 }
 .m-dig-drop ul li a span {
-	font:400 12px/20px "Source Sans Pro", sans-serif;
+	font:400 12px/20px 'Open Sans', sans-serif;
 	color: #333333;
 	display: block;
 	float: left;
@@ -856,20 +858,20 @@ h1, h2, h3, h4, h5 {
 }
 .s-mag-descr h1 {
 	font-size: 19px;
-	margin: -8px 0 0;
+	margin: -8px 0 15px;
 }
 .s-mag-descr p {
 	font-size: 12px;
 	margin: 5px 0 0;
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 }
 .s-mag-buy {
 	float: left;
 	width: 100%;
 }
 .s-mag-buy h2 {
-	font-size: 18px;
-	font-weight: 200;
+	font-size: 17px;
+	font-weight: 300;
 }
 .s-or {
 	position: relative;
@@ -948,7 +950,7 @@ h1, h2, h3, h4, h5 {
 .buy-mag-drop ul li a span {
 	display: block;
 	float: left;
-	font: 400 11px/25px "Source Sans Pro", sans-serif;
+	font: 400 11px/25px 'Open Sans', sans-serif;
 }
 
 
@@ -1041,7 +1043,7 @@ h1, h2, h3, h4, h5 {
 /* Footer *******************/  
 .s-mag-descr h1 {font-size: 29px;}
 .s-mag-descr p {font-size: 16px;}
-.s-mag-buy h2 {font-size: 29px;margin-bottom: 10px;}
+.s-mag-buy h2 {font-size: 27px;margin-bottom: 10px;}
 .s-or {height: 14px;margin-bottom: 5px;}
 .s-or > div {top: -9px; width: 46px;height: 25px;font-size: 19px;}
 .s-mag-btns .mustard-btn {width: 48.5%;font-size: 13px;}
@@ -1062,9 +1064,9 @@ h1, h2, h3, h4, h5 {
 .main-header {width: 92%;margin: 0 auto;}
 .menu-area {position: relative;}
 .microsite-logo {width: auto;border-bottom: none;float: left;}
-.microsite-logo img {margin: 0;}
-.single .wheels-afield .main-nav {float: left;text-align: left;margin: 50px 0 0 20px;}
-.main-nav {margin: 50px 0 0 20px;}
+.microsite-logo img {margin: 0; width: 200px;}
+.single .wheels-afield .main-nav {float: left;text-align: left;margin: 37px 0 0 20px;}
+.main-nav {margin: 37px 0 0 20px;}
 .social-buttons {float: none;position: absolute;bottom: 2px;right: 1px;}
 .social-buttons ul {margin: 8px 0;}
 .social-buttons ul li a {font-size: 24px;}
@@ -1073,7 +1075,7 @@ h1, h2, h3, h4, h5 {
 .sponsors-disclaimer span {margin-left: 20px;}
 
 /* Fixed Content *******************/
-.fixed-connect{display: block; width:100%;height:42px;position:fixed;top:auto; bottom:0;background:#545454;color:#fff;font-family:"Source Sans Pro","Helvetica",Arial,sans-serif;font-weight: 600;opacity:.99;z-index:999999999999999;}
+.fixed-connect{display: block; width:100%;height:42px;position:fixed;top:auto; bottom:0;background:#545454;color:#fff;font-family:'Open Sans',"Helvetica",Arial,sans-serif;font-weight: 600;opacity:.99;z-index:999999999999999;}
 .fixed-connect .container{max-width:1060px;margin:0 auto;padding:0 20px 0 20px;}
 .fixed-connect a{color:#fff;text-decoration:none;}
 .fixed-connect .currentIssue{width:100px;height:83px;float:left;margin:-54px 0 0 0;}
@@ -1143,6 +1145,8 @@ h1, h2, h3, h4, h5 {
 .m-article {padding: 0 35px 20px;} 
 .m-more {width: 92%;padding: 0;margin: 0 4%;}
 .m-more h2 {font-weight: 300;font-size: 30px;}
+.m-post-byline {font-size: 13px;}
+.m-article p {font: 400 17px/28px 'Open Sans', sans-serif;}
 .m-more-wrap {margin: 0 -1%;}
 .m-more-wrap .post-box { margin: 0 1% 3.2%; padding-top: 32.16%; width: 48%;}
 .m-article blockquote {font-size: 30px;} 
@@ -1154,11 +1158,11 @@ h1, h2, h3, h4, h5 {
 .m-article-bottom .m-social-buttons ul li {margin: 0 8px;}
 .m-article-bottom .m-social-buttons ul li:first-child {margin-left: 0;}
 .m-article-bottom .m-social-buttons ul li a {font-size: 40px;}
-.m-article-bottom .m-hlep-grow {font: 700 20px/25px "Titillium Web", sans-serif;color: #222222;margin-bottom: 15px;}
+.m-article-bottom .m-hlep-grow {font: 700 20px/25px 'Open Sans', sans-serif;color: #222222;margin-bottom: 15px;}
 /* Footer *******************/  
 .category .s-footer {padding: 20px 0 50px;}
 .s-footer {margin: 0 4%;padding: 50px 0;position: relative;}
-.s-mag-descr h1 {font-size: 39px;margin-top: -15px;}
+.s-mag-descr h1 {font-size: 38px;margin: -15px 0 25px;}
 .s-mag-descr p {font-size: 18px;}
 .s-mag-buy h2 {font-size: 36px;}
 .m-imo-logo {width: 110px;margin: 0 20px 0 0;display: inline-block;}
@@ -1184,7 +1188,7 @@ h1, h2, h3, h4, h5 {
 
 /* Content *******************/
 .featured-message {padding: 10px 0;}	
-.featured-message span {font-size: 20px;margin-bottom: 8px;}
+.featured-message span {font-size: 24px;margin-bottom: 8px;}
 .m-social-buttons ul li {display: inline;margin: 0 10px;}
 .m-social-buttons ul li a {font-size: 37px;}
 .p-container {margin-bottom: 35px;}
@@ -1197,7 +1201,7 @@ h1, h2, h3, h4, h5 {
 .m-article h1 {font-size: 40px;line-height: 46px;}
 .m-article-bottom .m-social-wrap {width: 300px;margin-top: 40px;}
 .m-article-bottom .m-social-buttons ul li a {font-size: 50px;}
-.m-article-bottom .m-hlep-grow {font:600 30px/30px "Titillium Web", sans-serif;}
+.m-article-bottom .m-hlep-grow {font:600 30px/30px 'Open Sans', sans-serif;}
 
 /* Footer *******************/ 
 .footer-message {margin-top: 20px;border-top: 1px solid #444444;}
@@ -1215,10 +1219,10 @@ h1, h2, h3, h4, h5 {
 
 /* Header *******************/
 .microsite-logo {float: none;position: absolute;width: 250px;left:0; right: 0;margin: 0 auto;}
-.microsite-logo img {margin: 0;}
+.microsite-logo img {margin: 0; width: 250px;}
 .single .wheels-afield .main-nav, .main-nav {margin: 53px 0 15px 2px; }
 .main-nav ul li {height: 13px;}
-.main-nav ul li a {font: 15px/15px "Titilium Web", sans-serif;}
+.main-nav ul li a {font: 15px/15px 'Open Sans', sans-serif;}
 .social-buttons ul {margin: 8px 0;}
 .social-buttons ul li a {font-size: 24px;}
 .sponsors-disclaimer {text-align: center;width: 92%;margin: 0 auto;}
@@ -1253,7 +1257,7 @@ h1, h2, h3, h4, h5 {
 .m-more h2 {margin-left: -2px;}
 .m-more-wrap {margin: 0 -0.5%;}
 .m-more-wrap .post-box { margin: 0 0.5% 2.5%; padding-top: 21.6633%; width: 32.3333%;}
-.m-article-bottom .m-social-wrap {width: 360px;}
+.m-article-bottom .m-social-wrap {width: 277px;}
 .m-article iframe.interact-embed {width: 800px;}
 
 /* Footer *******************/ 
@@ -1261,6 +1265,7 @@ h1, h2, h3, h4, h5 {
 .s-mag-buy {position: absolute; bottom: -9px;left: 30%; width: auto;}
 .s-mag-cover { margin-right: 5%; width: 25%;}
 .s-mag-descr { float: left; width: 70%;}
+.s-mag-descr h1 {margin-bottom: 10px;}
 .s-mag-buy h2 { font-size: 30px;}
 .footer-message h2 {text-align: left;}
 .f-social-buttons {text-align: left;}
@@ -1300,10 +1305,10 @@ h1, h2, h3, h4, h5 {
 .s-mag-cover { margin-right: 5%; width: 30%;}
 .s-mag-descr { float: left; width: 65%; padding-right: 5%;}
 .s-mag-buy {position: absolute; bottom: -9px;left: 35%;}
-.s-mag-buy h2 {font-size: 34px;}
+.s-mag-buy h2 {font-size: 32px;}
 .s-or {height: 16px;}
 .s-or > div { top: -10px; width: 50px;font-size: 21px;}
-.footer-message {top: 65px;display: block;position: absolute;text-align: right;right: 0;width: 100%;padding-left: 75%;font-family: "Lora", serif;border-top: none;}
+.footer-message {top: 65px;display: block;position: absolute;text-align: right;right: 0;width: 100%;padding-left: 75%;font-family: 'Open Sans', serif;border-top: none;}
 .m-footer-bottom {margin-top: 50px;}
 .footer-message h2 {font-size: 24px;text-align: right;float: right;}
 .f-social-buttons {margin: 0 0 15px;text-align: right;}
