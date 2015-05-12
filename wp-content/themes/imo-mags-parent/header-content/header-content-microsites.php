@@ -4,7 +4,7 @@
 	$catslug = $thiscat->slug;
 	
 	$url_string = site_url();
-	$url_suffixes = array(".com", ".com/", ".artem", ".artem/", ".fox", ".fox/");
+	$url_suffixes = array(".com", ".com/", ".artem", ".artem/", ".fox", ".fox/", ".devj", ".devj/");
 	$site_url = str_replace($url_suffixes, "", $url_string);
 	
 	
