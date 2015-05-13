@@ -1,11 +1,15 @@
 <?php 
+	$dartDomain = get_option("dart_domain", $default = false);
+	
 	$cat = get_query_var('cat');
 	$thiscat = get_category ($cat);
 	$catslug = $thiscat->slug;
 	
+/*
 	$url_string = site_url();
 	$url_suffixes = array(".com", ".com/", ".artem", ".artem/", ".fox", ".fox/", ".devj", ".devj/");
 	$site_url = str_replace($url_suffixes, "", $url_string);
+*/
 ?>
 
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/normalize.css" />
@@ -15,7 +19,7 @@
 	Petersens Hunting 
 -------------------------------------------------------------------------- */
 
-	if ($site_url == "http://www.petersenshunting") { 
+	if ($dartDomain == "imo.hunting") { 
 		
 		if ( is_category("wheels-afield") || in_category("wheels-afield")) {
 	?>
@@ -29,7 +33,7 @@
 /* ------------------------------------------------------------------------
 	In-fisherman 
 -------------------------------------------------------------------------- */		
-	} elseif ($site_url == "http://www.in-fisherman") { ?>
+	} elseif ($dartDomain == "imo.in-fisherman") { ?>
 	
 	
 	<?php	$rigged_cat = array("rigged-ready", "ne", "se", "mw", "sw", "nw");
