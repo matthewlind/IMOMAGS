@@ -1101,6 +1101,10 @@ h1, h2, h3, h4, h5 {
 .s-mag-descr h1 {font-size: 29px;}
 .s-mag-descr p {font-size: 16px;}
 .s-mag-buy h2 {font-size: 27px;margin-bottom: 10px;}
+.s-mag-buy .pubfinderformcont label {font-size: 15px;}
+.s-mag-buy .pubfinderform {width: 198px;}
+.s-mag-buy #pubfinderzip {width: 62%; text-align: center; color: #eeeeee;}
+.s-mag-buy #pubfinderzipgo {width: 35%;}
 .s-or {height: 14px;margin-bottom: 5px;}
 .s-or > div {top: -9px; width: 46px;height: 25px;font-size: 19px;}
 .s-mag-btns .mustard-btn {width: 48.5%;font-size: 13px;}
