@@ -13,7 +13,13 @@
 			<p>What is Wheels Afield? It is overland vehicles and equipment, field sports, and adventure travel. In short, if it involves the outdoors and requires a vehicle to access it, it is Wheels Afield.</p>
 		</div>
 		<div class="s-mag-buy">
+			
 			<h2>NOW AVAILABLE ON NEWSSTANDS!</h2>
+			<?php 
+				if (is_category()) {
+					echo do_shortcode('[osgimfirst bipad=34837]');
+				}
+			?>
 			<div class="s-or">
 				<div>OR</div>			
 			</div>
