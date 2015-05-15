@@ -373,6 +373,93 @@ h1, h2, h3, h4, h5 {
 .main-nav > ul li.menu-item-has-children ul > li.menu-item-has-children > .sub-menu li:hover {background-color: #222222;}
 
 
+
+.m-buymag-drop {
+	width: 280px;
+	height: 400px;
+	background-color: #333333;
+	position: absolute;
+	top: 39px; left: 0;
+	z-index: 900;
+	padding: 10px;
+}
+.m-buymag-drop ul > li, .m-buymag-drop ul > li:last-child, .m-buymag-drop ul > li:last-child:hover, .m-buymag-drop ul > li:hover {
+	border: none;
+}
+.m-buymag-drop ul > li {
+	margin: 0;
+	width: 100%;
+}
+.m-buymag-drop #pubfinderzipcont {
+	height: auto;
+	width: 100%;
+}
+.m-buymag-drop .pubfinderformcont {
+	margin: 0;
+	width: 100%;
+}
+
+.m-buymag-drop .pubfinderformcont label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.m-buymag-drop #pubfinderzipcont {
+	width: 100%;
+}
+.m-buymag-drop .pubfinderform {
+	border: none;
+	padding: 2px 2px 3px 3px;
+	background: rgb(216,194,138); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(216,194,138,1) 0%, rgba(187,150,51,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(216,194,138,1)), color-stop(100%,rgba(187,150,51,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(216,194,138,1) 0%,rgba(187,150,51,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(216,194,138,1) 0%,rgba(187,150,51,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(216,194,138,1) 0%,rgba(187,150,51,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(216,194,138,1) 0%,rgba(187,150,51,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8c28a', endColorstr='#bb9633',GradientType=0 ); /* IE6-9 */
+}
+.m-buymag-drop .pubfinderform:hover {
+	background: rgb(214,180,94); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(214,180,94,1) 6%, rgba(214,180,94,1) 6%, rgba(178,137,32,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(6%,rgba(214,180,94,1)), color-stop(6%,rgba(214,180,94,1)), color-stop(100%,rgba(178,137,32,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(214,180,94,1) 6%,rgba(214,180,94,1) 6%,rgba(178,137,32,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(214,180,94,1) 6%,rgba(214,180,94,1) 6%,rgba(178,137,32,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(214,180,94,1) 6%,rgba(214,180,94,1) 6%,rgba(178,137,32,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(214,180,94,1) 6%,rgba(214,180,94,1) 6%,rgba(178,137,32,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6b45e', endColorstr='#b28920',GradientType=0 ); /* IE6-9 */
+}
+.m-buymag-drop .pubfinderform ::-webkit-input-placeholder { color: #cccccc; }
+.m-buymag-drop .pubfinderform :-moz-placeholder { color: #cccccc;  }
+.m-buymag-drop .pubfinderform ::-moz-placeholder { color: #cccccc;  }
+.m-buymag-drop .pubfinderform :-ms-input-placeholder {  color: #cccccc;  }
+.m-buymag-drop #pubfinderzipgo {
+	color: black;
+	font-weight: 600;	
+}
+.m-buymag-drop #pubfinderzip {
+	color: #eeeeee;
+	background-color: #333333;
+	border: none;
+	text-align: center;
+	height: 23px;
+}
+.m-buymag-drop #pubfinderzip 
+.pubfinderzipresult, .pubfinderpoplist {
+	color: #222222;
+}
+
+
+
+
+
+
+
+
+
+
+
 .social-buttons {
 	float: right;
 }
@@ -908,6 +995,10 @@ h1, h2, h3, h4, h5 {
 	background: linear-gradient(to bottom,  rgba(214,180,94,1) 6%,rgba(214,180,94,1) 6%,rgba(178,137,32,1) 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6b45e', endColorstr='#b28920',GradientType=0 ); /* IE6-9 */
 }
+.s-mag-buy .pubfinderform ::-webkit-input-placeholder { color: #cccccc; }
+.s-mag-buy .pubfinderform :-moz-placeholder { color: #cccccc;  }
+.s-mag-buy .pubfinderform ::-moz-placeholder { color: #cccccc;  }
+.s-mag-buy .pubfinderform :-ms-input-placeholder {  color: #cccccc;  }
 .s-mag-buy #pubfinderzipgo {
 	color: black;
 	font-weight: 600;	
@@ -919,7 +1010,8 @@ h1, h2, h3, h4, h5 {
 	text-align: center;
 	height: 23px;
 }
-.pubfinderzipresult {
+.s-mag-buy #pubfinderzip 
+.pubfinderzipresult, .pubfinderpoplist {
 	color: #222222;
 }
 

@@ -16,9 +16,11 @@
 			
 			<h2>NOW AVAILABLE ON NEWSSTANDS!</h2>
 			<?php 
+/*
 				if (is_category()) {
 					echo do_shortcode('[osgimfirst bipad=34837]');
 				}
+*/
 			?>
 			<div class="s-or">
 				<div>OR</div>			

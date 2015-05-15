@@ -16,6 +16,16 @@
 			<div class="nav-container clearfix">
 				<nav id="site-navigation" class="main-nav" role="navigation">
 					<?php wp_nav_menu( array( 'theme_location' => 'wheels_afield', 'container' => '0' ) ); ?>
+					
+					<div class="m-buymag-drop">
+						<ul>
+							<li class="clearfix"><?php echo do_shortcode('[osgimfirst bipad=34837]'); ?></li>
+							<li> </li>
+							<li> </li>
+						</ul>
+						
+					</div>
+						
 				</nav>
 				<div class="social-buttons">
 					<ul>
