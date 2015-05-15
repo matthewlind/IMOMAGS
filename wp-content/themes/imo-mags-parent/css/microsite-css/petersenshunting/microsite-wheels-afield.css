@@ -348,7 +348,7 @@ h1, h2, h3, h4, h5 {
 /* Main-nav */
 .main-nav {display: block; float: left; margin: 0 0 0 20px; position: relative; z-index: 30;}	
 .main-nav ul {margin: 0; padding: 0;}
-.main-nav ul li {display: inline-block; float: left;margin-top: 13px; height: 11px; border-left: 1px solid #e9e9e9;}
+.main-nav > ul > li {display: inline-block; float: left;margin-top: 13px; height: 11px; border-left: 1px solid #e9e9e9;}
 .main-nav ul li a {display: block;padding: 0 11px;color: #c2c2c2;font:13px/13px 'Open Sans', sans-serif ;}
 .main-nav ul li:hover a {color: #bb9632;}
 .main-nav ul li:hover {border-left: 1px solid #bb9632;-webkit-transition:all 0.1s;-moz-transition:all 0.1s;transition:all 0.1s;}
@@ -371,94 +371,6 @@ h1, h2, h3, h4, h5 {
 .main-nav > ul li.menu-item-has-children ul > li.menu-item-has-children > .sub-menu {display: none;position: absolute;top: 0; left: 185px;padding: 0 0 1px 0;background-color: #191919;}
 .main-nav > ul li.menu-item-has-children ul > li.menu-item-has-children:hover > .sub-menu {display: block;}
 .main-nav > ul li.menu-item-has-children ul > li.menu-item-has-children > .sub-menu li:hover {background-color: #222222;}
-
-
-
-.m-buymag-drop {
-	width: 280px;
-	height: 400px;
-	background-color: #333333;
-	position: absolute;
-	top: 39px; left: 0;
-	z-index: 900;
-	padding: 10px;
-}
-.m-buymag-drop ul > li, .m-buymag-drop ul > li:last-child, .m-buymag-drop ul > li:last-child:hover, .m-buymag-drop ul > li:hover {
-	border: none;
-}
-.m-buymag-drop ul > li {
-	margin: 0;
-	width: 100%;
-}
-.m-buymag-drop #pubfinderzipcont {
-	height: auto;
-	width: 100%;
-}
-.m-buymag-drop .pubfinderformcont {
-	margin: 0;
-	width: 100%;
-}
-
-.m-buymag-drop .pubfinderformcont label {
-    display: block;
-    font-size: 14px;
-    margin-bottom: 10px;
-}
-
-.m-buymag-drop #pubfinderzipcont {
-	width: 100%;
-}
-.m-buymag-drop .pubfinderform {
-	border: none;
-	padding: 2px 2px 3px 3px;
-	background: rgb(216,194,138); /* Old browsers */
-	background: -moz-linear-gradient(top,  rgba(216,194,138,1) 0%, rgba(187,150,51,1) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(216,194,138,1)), color-stop(100%,rgba(187,150,51,1))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  rgba(216,194,138,1) 0%,rgba(187,150,51,1) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  rgba(216,194,138,1) 0%,rgba(187,150,51,1) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  rgba(216,194,138,1) 0%,rgba(187,150,51,1) 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  rgba(216,194,138,1) 0%,rgba(187,150,51,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8c28a', endColorstr='#bb9633',GradientType=0 ); /* IE6-9 */
-}
-.m-buymag-drop .pubfinderform:hover {
-	background: rgb(214,180,94); /* Old browsers */
-	background: -moz-linear-gradient(top,  rgba(214,180,94,1) 6%, rgba(214,180,94,1) 6%, rgba(178,137,32,1) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(6%,rgba(214,180,94,1)), color-stop(6%,rgba(214,180,94,1)), color-stop(100%,rgba(178,137,32,1))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  rgba(214,180,94,1) 6%,rgba(214,180,94,1) 6%,rgba(178,137,32,1) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  rgba(214,180,94,1) 6%,rgba(214,180,94,1) 6%,rgba(178,137,32,1) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  rgba(214,180,94,1) 6%,rgba(214,180,94,1) 6%,rgba(178,137,32,1) 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  rgba(214,180,94,1) 6%,rgba(214,180,94,1) 6%,rgba(178,137,32,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6b45e', endColorstr='#b28920',GradientType=0 ); /* IE6-9 */
-}
-.m-buymag-drop .pubfinderform ::-webkit-input-placeholder { color: #cccccc; }
-.m-buymag-drop .pubfinderform :-moz-placeholder { color: #cccccc;  }
-.m-buymag-drop .pubfinderform ::-moz-placeholder { color: #cccccc;  }
-.m-buymag-drop .pubfinderform :-ms-input-placeholder {  color: #cccccc;  }
-.m-buymag-drop #pubfinderzipgo {
-	color: black;
-	font-weight: 600;	
-}
-.m-buymag-drop #pubfinderzip {
-	color: #eeeeee;
-	background-color: #333333;
-	border: none;
-	text-align: center;
-	height: 23px;
-}
-.m-buymag-drop #pubfinderzip 
-.pubfinderzipresult, .pubfinderpoplist {
-	color: #222222;
-}
-
-
-
-
-
-
-
-
-
-
 
 .social-buttons {
 	float: right;
@@ -960,72 +872,6 @@ h1, h2, h3, h4, h5 {
 	font-size: 17px;
 	font-weight: 300;
 }
-.s-mag-buy #pubfinderzipcont {
-	width: 100%;
-}
-.s-mag-buy .pubfinderformcont {
-	margin: 0;
-	width: 100%;
-}
-.s-mag-buy .pubfinderformcont label {
-	float: left;
-	font-size: 11px;
-	margin-top: 8px;
-}
-.s-mag-buy .pubfinderform {
-	border: none;
-	float: right;
-	padding: 2px 2px 3px 3px;
-	background: rgb(216,194,138); /* Old browsers */
-	background: -moz-linear-gradient(top,  rgba(216,194,138,1) 0%, rgba(187,150,51,1) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(216,194,138,1)), color-stop(100%,rgba(187,150,51,1))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  rgba(216,194,138,1) 0%,rgba(187,150,51,1) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  rgba(216,194,138,1) 0%,rgba(187,150,51,1) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  rgba(216,194,138,1) 0%,rgba(187,150,51,1) 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  rgba(216,194,138,1) 0%,rgba(187,150,51,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8c28a', endColorstr='#bb9633',GradientType=0 ); /* IE6-9 */
-}
-.s-mag-buy .pubfinderform:hover {
-	background: rgb(214,180,94); /* Old browsers */
-	background: -moz-linear-gradient(top,  rgba(214,180,94,1) 6%, rgba(214,180,94,1) 6%, rgba(178,137,32,1) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(6%,rgba(214,180,94,1)), color-stop(6%,rgba(214,180,94,1)), color-stop(100%,rgba(178,137,32,1))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  rgba(214,180,94,1) 6%,rgba(214,180,94,1) 6%,rgba(178,137,32,1) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  rgba(214,180,94,1) 6%,rgba(214,180,94,1) 6%,rgba(178,137,32,1) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  rgba(214,180,94,1) 6%,rgba(214,180,94,1) 6%,rgba(178,137,32,1) 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  rgba(214,180,94,1) 6%,rgba(214,180,94,1) 6%,rgba(178,137,32,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6b45e', endColorstr='#b28920',GradientType=0 ); /* IE6-9 */
-}
-.s-mag-buy .pubfinderform ::-webkit-input-placeholder { color: #cccccc; }
-.s-mag-buy .pubfinderform :-moz-placeholder { color: #cccccc;  }
-.s-mag-buy .pubfinderform ::-moz-placeholder { color: #cccccc;  }
-.s-mag-buy .pubfinderform :-ms-input-placeholder {  color: #cccccc;  }
-.s-mag-buy #pubfinderzipgo {
-	color: black;
-	font-weight: 600;	
-}
-.s-mag-buy #pubfinderzip {
-	color: #eeeeee;
-	background-color: #333333;
-	border: none;
-	text-align: center;
-	height: 23px;
-}
-.s-mag-buy #pubfinderzip 
-.pubfinderzipresult, .pubfinderpoplist {
-	color: #222222;
-}
-
-
-
-
-
-
-
-
-
-
-
-
 .s-or {
 	position: relative;
 	height: 12px;
@@ -1108,12 +954,6 @@ h1, h2, h3, h4, h5 {
 	float: left;
 	font: 400 11px/25px 'Open Sans', sans-serif;
 }
-
-
-
-
-
-
 .footer-message h2 {
 	font-size: 19px;
 	text-align: center;
@@ -1175,6 +1015,233 @@ h1, h2, h3, h4, h5 {
 }
 
 /* ==========================================================================
+   7.0 Zip code finder
+   ========================================================================== */
+   
+/* footer zip ****************/
+#pubfinderzipcontfoot {
+	width: 100%;
+}
+#pubfinderzipcontfoot .pubfinderformcont {
+	margin: 0;
+	width: 100%;
+}
+#pubfinderzipcontfoot .pubfinderformcont label {
+	float: left;
+	font-size: 11px;
+	margin-top: 8px;
+}
+#pubfinderzipcontfoot .pubfinderform {
+	border: none;
+	float: right;
+	padding: 2px 2px 3px 3px;
+	background: rgb(216,194,138); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(216,194,138,1) 0%, rgba(187,150,51,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(216,194,138,1)), color-stop(100%,rgba(187,150,51,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(216,194,138,1) 0%,rgba(187,150,51,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(216,194,138,1) 0%,rgba(187,150,51,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(216,194,138,1) 0%,rgba(187,150,51,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(216,194,138,1) 0%,rgba(187,150,51,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8c28a', endColorstr='#bb9633',GradientType=0 ); /* IE6-9 */
+}
+#pubfinderzipcontfoot .pubfinderform:hover {
+	background: rgb(214,180,94); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(214,180,94,1) 6%, rgba(214,180,94,1) 6%, rgba(178,137,32,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(6%,rgba(214,180,94,1)), color-stop(6%,rgba(214,180,94,1)), color-stop(100%,rgba(178,137,32,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(214,180,94,1) 6%,rgba(214,180,94,1) 6%,rgba(178,137,32,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(214,180,94,1) 6%,rgba(214,180,94,1) 6%,rgba(178,137,32,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(214,180,94,1) 6%,rgba(214,180,94,1) 6%,rgba(178,137,32,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(214,180,94,1) 6%,rgba(214,180,94,1) 6%,rgba(178,137,32,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6b45e', endColorstr='#b28920',GradientType=0 ); /* IE6-9 */
+}
+#pubfinderzipcontfoot .pubfinderform ::-webkit-input-placeholder, #pubfinderzipconthead .pubfinderform ::-webkit-input-placeholder { color: #cccccc; }
+#pubfinderzipcontfoot .pubfinderform :-moz-placeholder, #pubfinderzipconthead .pubfinderform :-moz-placeholder { color: #cccccc;  }
+#pubfinderzipcontfoot .pubfinderform ::-moz-placeholder, #pubfinderzipconthead .pubfinderform ::-moz-placeholder { color: #cccccc;  }
+#pubfinderzipcontfoot .pubfinderform :-ms-input-placeholder, #pubfinderzipconthead .pubfinderform :-ms-input-placeholder {  color: #cccccc;  }
+
+#pubfinderzipcontfoot .pubfinderzipgo {
+	color: black;
+	font-weight: 600;
+	padding: 2px 1px 0;	
+}
+#pubfinderzipcontfoot .pubfinderzipgo:hover {
+	color: white;
+}
+#pubfinderzipcontfoot .pubfinderzip {
+	color: #eeeeee;
+	background-color: #333333;
+	border: none;
+	text-align: center;
+	height: 23px;
+}
+#pubfinderzipcontfoot .pubfinderzipresult, #pubfinderzipcontfoot .pubfinderpoplist, #pubfinderzipconthead .pubfinderzipresult, #pubfinderzipconthead .pubfinderpoplist {
+	color: #222222;
+}
+
+
+/* header zip ****************/
+
+.m-buymag-drop {
+	display: none;
+	width: 280px;
+	background-color: #333333;
+	position: absolute;
+	top: 39px; 
+	left: 0;
+	z-index: 900;
+	padding: 10px;
+	font-size: 14px;
+	color: #e9e9e9;
+	text-align: left;
+}
+.single .m-buymag-drop {
+	left: 0; right: 0; top:36px; margin: 0 auto; 
+	display: none;
+}
+.m-display-block,  .single .m-display-block {
+	display: block;
+}
+.m-buymag-drop ul li a {
+	font-size: 14px;
+	color: #e9e9e9;
+}
+.m-buymag-drop ul > li, .m-buymag-drop ul > li:last-child, .m-buymag-drop ul > li:last-child:hover, .m-buymag-drop ul > li:hover {
+	border: none;
+}
+.m-buymag-drop > ul > li {
+	margin: 0;
+	width: 100%;
+	height: auto;
+	margin-bottom: 17px;
+}
+.m-buymag-drop > ul > li:nth-child(2) {
+	border-top: 1px solid #777777;
+	border-bottom: 1px solid #777777;
+	margin-top: 2px;
+}
+.m-buymag-drop > ul > li:nth-child(2) a {
+	padding: 15px 0 16px;
+}
+.m-buymag-drop > ul > li:nth-child(2) a::after {
+	content: "\e600";
+	font-family: "icomoon";
+	color: #bb9632;
+	display: inline-block;
+	transform: rotate(180deg);
+	margin-left: 14px;
+	vertical-align: middle;
+}
+.m-buymag-drop > ul > li:nth-child(3) {
+	margin-bottom: 0;
+}
+.m-buymag-drop > ul > li:nth-child(3):hover a {
+	color: #e9e9e9;
+}
+.m-list-dig {
+	border: 3px solid #B28920;
+	background-color: #333333;
+	margin-top: 12px;
+}
+.m-list-dig ul {
+	padding: 0;
+	list-style: none;
+	text-align: left;
+	margin: 7px 0;
+}
+.m-list-dig ul li {
+	padding-left: 10px;
+	height: 33px;
+	width: 100%;
+	display: inline-block;
+}
+.m-list-dig ul li:hover {
+	background-color: #202020;
+}
+.m-list-dig ul li a img {
+	display: block;
+	width: 25px;
+	height: 25px;
+	margin-right: 12px;
+	float: left;
+}
+.m-list-dig ul li a {
+	color: white;
+	width: 100%;
+	height: 33px;
+	display: block;
+	padding: 4px 0;
+}
+.m-buymag-drop .m-list-dig > ul > li:hover a {
+	color: #B28920;
+}
+.m-list-dig ul li a span {
+	display: block;
+	float: left;
+	font: 400 13px/25px 'Open Sans', sans-serif;
+}
+#pubfinderzipconthead {
+	width: 100%;
+	margin-top: 0;
+}
+#pubfinderzipconthead .pubfinderformcont {
+	margin: 0;
+	width: 100%;
+}
+#pubfinderzipconthead .pubfinderformcont label {
+	font-size: 14px;
+	margin-top: 8px;
+}
+#pubfinderzipconthead .pubfinderform {
+	margin: 10px 0 0;
+	width: 100%;
+	border: none;
+	padding: 2px 2px 3px 3px;
+	background: rgb(216,194,138); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(216,194,138,1) 0%, rgba(187,150,51,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(216,194,138,1)), color-stop(100%,rgba(187,150,51,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(216,194,138,1) 0%,rgba(187,150,51,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(216,194,138,1) 0%,rgba(187,150,51,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(216,194,138,1) 0%,rgba(187,150,51,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(216,194,138,1) 0%,rgba(187,150,51,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8c28a', endColorstr='#bb9633',GradientType=0 ); /* IE6-9 */
+}
+#pubfinderzipconthead .pubfinderform:hover {
+	background: rgb(214,180,94); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(214,180,94,1) 6%, rgba(214,180,94,1) 6%, rgba(178,137,32,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(6%,rgba(214,180,94,1)), color-stop(6%,rgba(214,180,94,1)), color-stop(100%,rgba(178,137,32,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(214,180,94,1) 6%,rgba(214,180,94,1) 6%,rgba(178,137,32,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(214,180,94,1) 6%,rgba(214,180,94,1) 6%,rgba(178,137,32,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(214,180,94,1) 6%,rgba(214,180,94,1) 6%,rgba(178,137,32,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(214,180,94,1) 6%,rgba(214,180,94,1) 6%,rgba(178,137,32,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6b45e', endColorstr='#b28920',GradientType=0 ); /* IE6-9 */
+}
+#pubfinderzipconthead .pubfinderzipgo {
+	color: black;
+	font-weight: 600;
+	padding: 2px 1px 0;
+	width: 35%;	
+}
+#pubfinderzipconthead .pubfinderzipgo:hover {
+	color: white;
+}
+#pubfinderzipconthead .pubfinderzip {
+	color: #eeeeee;
+	background-color: #333333;
+	border: none;
+	text-align: center;
+	height: 23px;
+	width: 62%;
+}
+#pubfinderzipconthead .pubfinderpop {
+	right: auto !important;
+	left: -20px !important;
+	width: 300px;
+	top: -10px !important;
+}
+
+
+
+/* ==========================================================================
    8.0 Media Queries
    ========================================================================== */
 @media only screen and (min-width: 375px) {/* iPhone 6 */
@@ -1200,24 +1267,23 @@ h1, h2, h3, h4, h5 {
 .s-mag-descr h1 {font-size: 29px;}
 .s-mag-descr p {font-size: 16px;}
 .s-mag-buy h2 {font-size: 27px;margin-bottom: 10px;}
-.s-mag-buy .pubfinderformcont label {font-size: 15px;margin-top: 4px;}
-.s-mag-buy .pubfinderform {width: 198px;}
-.s-mag-buy #pubfinderzip {width: 62%; text-align: center; color: #eeeeee;}
-.s-mag-buy .pubfinderformcont label:after {
-	content: "\e600";
-	font-family: "icomoon";
-	font-size: 12px;
-	transform: rotate(180deg);
-	display: inline-block;
-	margin-left: 18px;
-}
-.s-mag-buy #pubfinderzipgo {width: 35%;}
 .s-or {height: 14px;margin-top: 14px;}
 .s-or > div {top: -9px; width: 46px;height: 25px;font-size: 19px;}
 .s-mag-btns .mustard-btn {width: 48.5%;font-size: 13px;}
 .s-mag-btns a:first-child {margin-right: 2%;}
 .buy-mag-drop {top: 37px;}
 .buy-mag-drop ul li a span {font-size: 14px;line-height: 28px;}
+
+
+/* Zip code finder *******************/
+
+/* foot */
+#pubfinderzipcontfoot .pubfinderformcont label {font-size: 15px;margin-top: 4px;}
+#pubfinderzipcontfoot .pubfinderform {width: 198px;}
+#pubfinderzipcontfoot .pubfinderzip {width: 62%; text-align: center; color: #eeeeee;}
+#pubfinderzipcontfoot .pubfinderformcont label:after {content: "\e600";font-family: "icomoon";font-size: 12px;transform: rotate(180deg);display: inline-block;margin-left: 18px;}
+#pubfinderzipcontfoot .pubfinderzipgo {width: 35%;}
+
 
 /* Single Article *******************/ 
 .m-article .m-hlep-grow {width: auto;}
@@ -1327,11 +1393,8 @@ h1, h2, h3, h4, h5 {
 .m-article-bottom .m-social-buttons ul li:first-child {margin-left: 0;}
 .m-article-bottom .m-social-buttons ul li a {font-size: 40px;}
 .m-article-bottom .m-hlep-grow {font: 700 20px/25px 'Open Sans', sans-serif;color: #222222;margin-bottom: 15px;}
+
 /* Footer *******************/ 
-.s-mag-buy .pubfinderformcont label {font-size: 18px;} 
-.s-mag-buy .pubfinderform {
-    width: 254px;
-}
 .category .s-footer {padding: 20px 0 50px;}
 .s-footer {margin: 0 4%;padding: 50px 0;position: relative;}
 .s-mag-descr h1 {font-size: 38px;margin: -15px 0 25px;}
@@ -1346,8 +1409,16 @@ h1, h2, h3, h4, h5 {
 .m-footer-nav ul li a:first-child {padding-left: 0}
 .m-copyright {margin-top: 15px;text-align: left;}
 
-/* Wordpress Defaults *******************/  
+/* Zip code finder *******************/
 
+/* foot */
+#pubfinderzipcontfoot .pubfinderformcont label {font-size: 18px;} 
+#pubfinderzipcontfoot .pubfinderform {width: 254px;}
+/* head */
+.single .m-buymag-drop {left: 35px; right: auto; top: 44px;}
+
+
+/* Wordpress Defaults *******************/  
 .m-article .aligncenter {margin: 30px auto;}
 .m-article .alignnone {margin: 30px 0;float: none;}
 .m-article .alignright {float: right;margin: 8px 0 20px 30px;width: 300px;}
@@ -1383,17 +1454,14 @@ h1, h2, h3, h4, h5 {
 .s-mag-cover { margin-right: 5%; width: 33%;}
 .s-mag-descr { float: left; width: 62%;}
 .s-mag-buy h2 { font-size: 26px;}
-.category .s-or {
-    margin-top: 10px;
-}
-.category .s-mag-buy h2 {margin-bottom: 6px;}
-.category .s-mag-btns {margin-top: 11px;}
-.s-mag-buy .pubfinderformcont label {
-    font-size: 15px;
-}
-.s-mag-buy .pubfinderform {
-    width: 45%;
-}
+.s-or {margin-top: 10px;}
+.s-mag-buy h2 {margin-bottom: 6px;}
+.s-mag-btns {margin-top: 11px;}
+
+/* Zip code finder *******************/
+/* foot */
+#pubfinderzipcontfoot .pubfinderformcont label {font-size: 15px;}
+#pubfinderzipcontfoot .pubfinderform {width: 45%;}
 
 }/* END OF MEDIA */
 
@@ -1403,8 +1471,8 @@ h1, h2, h3, h4, h5 {
 .microsite-logo {float: none;position: absolute;width: 250px;left:0; right: 0;margin: 0 auto;}
 .microsite-logo img {margin: 0; width: 250px;}
 .single .wheels-afield .main-nav, .main-nav {margin: 53px 0 15px 2px; }
-.main-nav ul li {height: 13px;}
-.main-nav ul li a {font: 15px/15px 'Open Sans', sans-serif;}
+.main-nav > ul > li {height: 13px;}
+.main-nav > ul > li > a {font: 15px/15px 'Open Sans', sans-serif;}
 .social-buttons ul {margin: 8px 0;}
 .social-buttons ul li a {font-size: 24px;}
 .sponsors-disclaimer {text-align: center;width: 92%;margin: 0 auto;}
@@ -1452,18 +1520,15 @@ h1, h2, h3, h4, h5 {
 .footer-message h2 {text-align: left;}
 .f-social-buttons {text-align: left;}
 .m-copyright {margin-top: 0;float: left;}
+.s-or > div {width: 66px;}
 
-.category .s-or > div {width: 66px;}
-.s-mag-buy .pubfinderform {
-    width: 43.5%;
-}
-.s-mag-buy .pubfinderformcont label {font-size: 16px;}
-.s-mag-buy .pubfinderformcont label::after {
-    font-size: 13px;
-    margin-left: 27px;
-}
-
-
+/* Zip code finder *******************/
+/* foot */
+#pubfinderzipcontfoot .pubfinderform { width: 43.5%;}
+#pubfinderzipcontfoot .pubfinderformcont label {font-size: 16px;}
+#pubfinderzipcontfoot .pubfinderformcont label::after {font-size: 13px; margin-left: 27px;}
+/* head */
+.single .m-buymag-drop {left: 112px;top: 47px;}	
 	
 }/* END OF MEDIA */
 
@@ -1484,13 +1549,10 @@ h1, h2, h3, h4, h5 {
 .alignright-content {float: right;margin-right: -150px;}
 
 /* Footer *******************/ 
-/*
-.category .s-or {
-  margin-top: 12px;
-  margin-bottom: 4px;
-}
-*/
-.s-mag-buy .pubfinderformcont label {
+
+/* Zip code finder *******************/
+/* foot */
+#pubfinderzipcontfoot .pubfinderformcont label {
   font-size: 17.2px;
 }
 

@@ -45,19 +45,30 @@ jQuery(document).ready(function($) {
 	}
 		
 // Simulate a hover with a touch in touch enabled browsers
-	$('body').bind('touchstart', function() {});	
+	$('body').bind('touchstart', function() {});
+
+// Main Nav, buy magazine dorp down menu	
+	buyMag = $('li.buy-mag');
+	buyMagLink = $('li.buy-mag a');
+	buyMagDrop = $('.m-buymag-drop');
+	
+	buyMagLink.click(function(event){
+		event.preventDefault();
+	});
+	buyMagDrop.click(function(event){
+		event.stopPropagation();
+	});
+	buyMag.click(function(event){
+		event.stopPropagation();
+		buyMagDrop.toggleClass("m-display-block");
+	});
+	$("body").click(function(){
+		buyMagDrop.removeClass("m-display-block");
+	});
+		
 
 }); // end of document.ready
 
-/*
-jQuery(window).scroll(function () {
-	if (jQuery(window).scrollTop() > 50) {
-		jQuery('.fixed-connect-mobile').fadeIn();
-	}else{
-		jQuery('.fixed-connect-mobile').fadeOut("fast");
-	}
-});
-*/
 jQuery('.fixed-connect .close').click(function(){
 	jQuery('.fixed-connect').remove();
 });
