@@ -873,11 +873,68 @@ h1, h2, h3, h4, h5 {
 	font-size: 17px;
 	font-weight: 300;
 }
+.s-mag-buy #pubfinderzipcont {
+	width: 100%;
+}
+.s-mag-buy .pubfinderformcont {
+	margin: 0;
+	width: 100%;
+}
+.s-mag-buy .pubfinderformcont label {
+	float: left;
+	font-size: 11px;
+	margin-top: 8px;
+}
+.s-mag-buy .pubfinderform {
+	border: none;
+	float: right;
+	padding: 1px 2px 4px 4px;
+	background: rgb(216,194,138); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(216,194,138,1) 0%, rgba(187,150,51,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(216,194,138,1)), color-stop(100%,rgba(187,150,51,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(216,194,138,1) 0%,rgba(187,150,51,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(216,194,138,1) 0%,rgba(187,150,51,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(216,194,138,1) 0%,rgba(187,150,51,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(216,194,138,1) 0%,rgba(187,150,51,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8c28a', endColorstr='#bb9633',GradientType=0 ); /* IE6-9 */
+}
+.s-mag-buy .pubfinderform:hover {
+	background: rgb(214,180,94); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(214,180,94,1) 6%, rgba(214,180,94,1) 6%, rgba(178,137,32,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(6%,rgba(214,180,94,1)), color-stop(6%,rgba(214,180,94,1)), color-stop(100%,rgba(178,137,32,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(214,180,94,1) 6%,rgba(214,180,94,1) 6%,rgba(178,137,32,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(214,180,94,1) 6%,rgba(214,180,94,1) 6%,rgba(178,137,32,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(214,180,94,1) 6%,rgba(214,180,94,1) 6%,rgba(178,137,32,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(214,180,94,1) 6%,rgba(214,180,94,1) 6%,rgba(178,137,32,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6b45e', endColorstr='#b28920',GradientType=0 ); /* IE6-9 */
+}
+.s-mag-buy #pubfinderzipgo {
+	color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .s-or {
 	position: relative;
 	height: 12px;
 	border-top: 1px solid #959595;
 	border-bottom: 1px solid #959595;
+}
+.category .s-or {
+	margin-top: 11px;
 }
 .s-or > div {
 	position: absolute;
@@ -1044,6 +1101,10 @@ h1, h2, h3, h4, h5 {
 .s-mag-descr h1 {font-size: 29px;}
 .s-mag-descr p {font-size: 16px;}
 .s-mag-buy h2 {font-size: 27px;margin-bottom: 10px;}
+.s-mag-buy .pubfinderformcont label {font-size: 15px;}
+.s-mag-buy .pubfinderform {width: 198px;}
+.s-mag-buy #pubfinderzip {width: 62%; text-align: center; color: #eeeeee;}
+.s-mag-buy #pubfinderzipgo {width: 35%;}
 .s-or {height: 14px;margin-bottom: 5px;}
 .s-or > div {top: -9px; width: 46px;height: 25px;font-size: 19px;}
 .s-mag-btns .mustard-btn {width: 48.5%;font-size: 13px;}
