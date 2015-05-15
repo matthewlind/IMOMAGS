@@ -888,7 +888,7 @@ h1, h2, h3, h4, h5 {
 .s-mag-buy .pubfinderform {
 	border: none;
 	float: right;
-	padding: 1px 2px 4px 4px;
+	padding: 2px 2px 3px 3px;
 	background: rgb(216,194,138); /* Old browsers */
 	background: -moz-linear-gradient(top,  rgba(216,194,138,1) 0%, rgba(187,150,51,1) 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(216,194,138,1)), color-stop(100%,rgba(187,150,51,1))); /* Chrome,Safari4+ */
@@ -910,11 +910,18 @@ h1, h2, h3, h4, h5 {
 }
 .s-mag-buy #pubfinderzipgo {
 	color: black;
+	font-weight: 600;	
 }
-
-
-
-
+.s-mag-buy #pubfinderzip {
+	color: #eeeeee;
+	background-color: #333333;
+	border: none;
+	text-align: center;
+	height: 23px;
+}
+.pubfinderzipresult {
+	color: #222222;
+}
 
 
 
@@ -1101,11 +1108,19 @@ h1, h2, h3, h4, h5 {
 .s-mag-descr h1 {font-size: 29px;}
 .s-mag-descr p {font-size: 16px;}
 .s-mag-buy h2 {font-size: 27px;margin-bottom: 10px;}
-.s-mag-buy .pubfinderformcont label {font-size: 15px;}
+.s-mag-buy .pubfinderformcont label {font-size: 15px;margin-top: 4px;}
 .s-mag-buy .pubfinderform {width: 198px;}
 .s-mag-buy #pubfinderzip {width: 62%; text-align: center; color: #eeeeee;}
+.s-mag-buy .pubfinderformcont label:after {
+	content: "\e600";
+	font-family: "icomoon";
+	font-size: 12px;
+	transform: rotate(180deg);
+	display: inline-block;
+	margin-left: 18px;
+}
 .s-mag-buy #pubfinderzipgo {width: 35%;}
-.s-or {height: 14px;margin-bottom: 5px;}
+.s-or {height: 14px;margin-top: 14px;}
 .s-or > div {top: -9px; width: 46px;height: 25px;font-size: 19px;}
 .s-mag-btns .mustard-btn {width: 48.5%;font-size: 13px;}
 .s-mag-btns a:first-child {margin-right: 2%;}
@@ -1220,7 +1235,11 @@ h1, h2, h3, h4, h5 {
 .m-article-bottom .m-social-buttons ul li:first-child {margin-left: 0;}
 .m-article-bottom .m-social-buttons ul li a {font-size: 40px;}
 .m-article-bottom .m-hlep-grow {font: 700 20px/25px 'Open Sans', sans-serif;color: #222222;margin-bottom: 15px;}
-/* Footer *******************/  
+/* Footer *******************/ 
+.s-mag-buy .pubfinderformcont label {font-size: 18px;} 
+.s-mag-buy .pubfinderform {
+    width: 254px;
+}
 .category .s-footer {padding: 20px 0 50px;}
 .s-footer {margin: 0 4%;padding: 50px 0;position: relative;}
 .s-mag-descr h1 {font-size: 38px;margin: -15px 0 25px;}
@@ -1272,7 +1291,17 @@ h1, h2, h3, h4, h5 {
 .s-mag-cover { margin-right: 5%; width: 33%;}
 .s-mag-descr { float: left; width: 62%;}
 .s-mag-buy h2 { font-size: 26px;}
-
+.category .s-or {
+    margin-top: 10px;
+}
+.category .s-mag-buy h2 {margin-bottom: 6px;}
+.category .s-mag-btns {margin-top: 11px;}
+.s-mag-buy .pubfinderformcont label {
+    font-size: 15px;
+}
+.s-mag-buy .pubfinderform {
+    width: 45%;
+}
 
 }/* END OF MEDIA */
 
@@ -1323,7 +1352,7 @@ h1, h2, h3, h4, h5 {
 
 /* Footer *******************/ 
 .s-mag {position: relative;}
-.s-mag-buy {position: absolute; bottom: -9px;left: 30%; width: auto;}
+.s-mag-buy {position: absolute; bottom: -9px;left: 30%; width: auto;z-index: 400;}
 .s-mag-cover { margin-right: 5%; width: 25%;}
 .s-mag-descr { float: left; width: 70%;}
 .s-mag-descr h1 {margin-bottom: 10px;}
@@ -1331,6 +1360,18 @@ h1, h2, h3, h4, h5 {
 .footer-message h2 {text-align: left;}
 .f-social-buttons {text-align: left;}
 .m-copyright {margin-top: 0;float: left;}
+
+.category .s-or > div {width: 66px;}
+.s-mag-buy .pubfinderform {
+    width: 43.5%;
+}
+.s-mag-buy .pubfinderformcont label {font-size: 16px;}
+.s-mag-buy .pubfinderformcont label::after {
+    font-size: 13px;
+    margin-left: 27px;
+}
+
+
 	
 }/* END OF MEDIA */
 
@@ -1349,6 +1390,17 @@ h1, h2, h3, h4, h5 {
 .m-article .alignright {margin-right: -150px;}
 .m-article .alignleft { margin-left: -150px;}
 .alignright-content {float: right;margin-right: -150px;}
+
+/* Footer *******************/ 
+/*
+.category .s-or {
+  margin-top: 12px;
+  margin-bottom: 4px;
+}
+*/
+.s-mag-buy .pubfinderformcont label {
+  font-size: 17.2px;
+}
 
 
 }/* END OF MEDIA */
@@ -1369,7 +1421,7 @@ h1, h2, h3, h4, h5 {
 .s-mag-buy h2 {font-size: 32px;}
 .s-or {height: 16px;}
 .s-or > div { top: -10px; width: 50px;font-size: 21px;}
-.footer-message {top: 65px;display: block;position: absolute;text-align: right;right: 0;width: 100%;padding-left: 75%;font-family: 'Open Sans', serif;border-top: none;}
+.footer-message {top: 65px;display: block;position: absolute;text-align: right;right: 0;width: 100%;padding-left: 75%;font-family: 'Open Sans', serif;border-top: none;z-index: 300;}
 .m-footer-bottom {margin-top: 50px;}
 .footer-message h2 {font-size: 24px;text-align: right;float: right;}
 .f-social-buttons {margin: 0 0 15px;text-align: right;}
