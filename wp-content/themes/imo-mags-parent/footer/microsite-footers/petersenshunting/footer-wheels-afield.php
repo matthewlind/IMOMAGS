@@ -15,11 +15,7 @@
 		<div class="s-mag-buy">
 			
 			<h2>NOW AVAILABLE ON NEWSSTANDS!</h2>
-			<?php 
-				if (is_category()) {
-					echo do_shortcode('[osgimfirst bipad=34837]');
-				}
-			?>
+			<?php echo do_shortcode('[osgimpubissue bipad="34837" alias="foot" vertical="up" gotxt="Lookup Zip!"]'); ?>
 			<div class="s-or">
 				<div>OR</div>			
 			</div>
