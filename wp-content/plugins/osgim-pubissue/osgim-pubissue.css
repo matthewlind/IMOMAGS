@@ -1,16 +1,17 @@
 .m-buy-mag h2 {
   margin: 0 0 2px;
 }
-#pubfinderzipcont {
+.pubfinderzipcont {
+	margin:8px 0px;
 	height:32px;
+	clear:both;
 }
-#pubfindercont {
+.pubfindercont {
 	position:relative;
 	margin:0px;
 	padding:0px;
 }
 .pubfinderformcont {
-	margin:9px 0px;
 	float:right;
 	padding: 0px;
 	vertical-align: text-bottom;
@@ -21,9 +22,11 @@
 }
 .pubfinderform {
 	margin-left: 2px;
-	margin-right:-1px;
 	padding: 1px 2px 3px;
 	border-radius: 2px;
+	display: inline-block;
+	vertical-align:middle;
+	width:133px;
 }
 
 .pubfinderform, .pubfinderpoptitle, .pubfinderpopfoot {
@@ -59,7 +62,7 @@ background: rgb(214,180,94); /* Old browsers */
 }
 
 
-#pubfinderzip {
+.pubfinderzip {
 	padding: 3px;
 	outline: none;
 	width:82px;
@@ -67,33 +70,38 @@ background: rgb(214,180,94); /* Old browsers */
 	border: 1px solid #e1e1e1;
 }
 
-#pubfinderzipgo {
+.pubfinderzipgo {
 	border: none;
 	background: none;
 	color: #B28920;
 	font-size: 15px;
 	font-family: 'Open Sans', sans-serif;;
 	padding: 2px 5px 0 1px;
-	width:42px;
+	
 	outline: none;
 	vertical-align: text-bottom;
 }
-.pubfinderform:hover #pubfinderzipgo,
-#pubfinderzipgo:hover {
+.pubfinderform:hover .pubfinderzipgo,
+.pubfinderzipgo:hover {
 	color: white;
 	font-weight: 600;
 }
 
 
-#pubfinderpop {
+.pubfinderpop {
 	margin-top: 39px;
 	height: 240px;
 	background-color: #fafafa;
+	width:300px;v
+	border: 1px solid #aaaaaa; 
+	display:none;
+	z-index: 2000;
 }
 .pubfinderpoptitle {
 	font:11px 'Open Sans', sans-serif;
 	color:#333333;
 	height:46px;
+	background-color: #dddddd;
 }
 .pubfinderpoptitle div {
 	font:13px 'Open Sans', sans-serif;
@@ -102,10 +110,13 @@ background: rgb(214,180,94); /* Old browsers */
 .pubfinderpoplist {
 	font:13px sans-serif;
 	height:160px;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 .pubfinderzipresult {
 	font-family: 'Open Sans', sans-serif;
 	padding: 5px 6px;
+	color:#444444;
 }
 .pubfinderziploc {
 	margin-bottom: 6px;
@@ -120,8 +131,18 @@ background: rgb(214,180,94); /* Old browsers */
 	
 }
 .pubfinderpopfoot {
-	height: 32px;
+	height: 34px;
+	background-color: #dddddd;
+	text-align: right;
 }
-#pubfinderpopclose {
+.pubfinderpopfoot div {
+	padding: 4px 6px;
+}
+.pubfinderpopclose {
 	font-size:14px;
+}
+
+
+#pubfinderzipcontfoot . {
+	
 }
