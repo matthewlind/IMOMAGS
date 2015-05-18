@@ -62,7 +62,7 @@ jQuery(document).ready(function($) {
 		event.stopPropagation();
 		buyMagDrop.toggleClass("m-display-block");
 	});
-	$("body").click(function(){
+	$("body, .m-buymag-drop i").click(function(){
 		buyMagDrop.removeClass("m-display-block");
 	});
 		
