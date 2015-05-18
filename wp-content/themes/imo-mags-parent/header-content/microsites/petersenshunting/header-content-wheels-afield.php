@@ -19,9 +19,12 @@
 					
 					<div class="m-buymag-drop">
 						<ul>
-							<li class="clearfix"><?php echo do_shortcode('[osgimpubissue bipad="34837" alias="head" vertical="down"]'); ?></li>
+							<li class="clearfix">
+								<i class="icon-cross"></i>
+								<?php echo do_shortcode('[osgimpubissue bipad="34837" alias="head" vertical="down"]'); ?>
+							</li>
 							<li>
-								<a href="https://store.intermediaoutdoors.com/search.php?search_query=wheels&x=0&y=0" target="_blank">Order Print Magazine Online</a>
+								<a href="https://store.intermediaoutdoors.com/products.php?product=Wheels-Afield-2015" target="_blank">Order Print Magazine Online</a>
 							</li>
 							<li> 
 								<span>Get The Digital Edition:</span>
