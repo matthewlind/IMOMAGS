@@ -1,7 +1,3 @@
-<?php 
-	//fixed_connect_footer();
-	if ( mobile() ) { ?><div class="mobile-adhesion"><?php imo_ad_placement("mobile_adhesion_320x50"); ?></div><?php } ?>
-
 <div class="top-panel">
 	<a href="<?php echo site_url(); ?>" class="icon-arrow-left">Back to Petersen's Hunting</a>
 </div>
