@@ -69,10 +69,6 @@ jQuery(document).ready(function($) {
 
 }); // end of document.ready
 
-jQuery('.fixed-connect .close').click(function(){
-	jQuery('.fixed-connect').remove();
-});
-
 jQuery( window ).resize(function() {
 	var windowWidth = jQuery(window).width();
 	
