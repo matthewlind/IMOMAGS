@@ -582,10 +582,10 @@ body h1, body h2, body h3, body h4, body h5 {
 }
 .m-logo {
 	position: absolute;
-	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") 0 0 / 121px no-repeat;
-	width: 121px;
-	height: 91px;
-	top: 81px;left: 0; right: 0;
+	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") 0 0 / 124px no-repeat;
+	width: 124px;
+	height: 95px;
+	top: 82px;left: 0; right: 0;
 	margin-left: auto; margin-right: auto;
 	z-index: 900;
 }
@@ -695,7 +695,7 @@ body h1, body h2, body h3, body h4, body h5 {
 	width: 100%;
 	height: 266px;
 	bottom: -266px;
-	box-shadow: 0 4px 3px black;
+	box-shadow: 0 3px 4px black;
 	background: #313131; /* Old browsers */
 	background: -moz-linear-gradient(top,  #313131 0%, #000000 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#313131), color-stop(100%,#000000)); /* Chrome,Safari4+ */
@@ -713,8 +713,7 @@ body h1, body h2, body h3, body h4, body h5 {
 	position: relative;
 	height: 100%;
 	width: 100%;
-	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/truck-ram.png") left bottom no-repeat;
-	background-size: 1480px;
+	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/truck-ram-mobile.png") no-repeat left bottom / 480px;
 	text-align: center;
 }
 .m-truck-title {
@@ -742,7 +741,9 @@ body h1, body h2, body h3, body h4, body h5 {
 	display: inline-block;
 	margin: 50px auto 15px;	
 }
-
+.m-truck > p sup {
+	font-weight: 700;
+}
 
 /* ==========================================================================
    7.0 Region Page
@@ -1257,10 +1258,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 
 /* Header *******************/
 .m-main-header {height: 76px;}
-.m-logo {top: 16px;}
+.m-logo {top: 17px;}
 .m-circle-wrap {display: none;}
 .m-social-buttons ul {margin-top:17px;}
 
+/* Home Page *******************/
+.m-truck {
+	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/truck-ram.png") no-repeat left bottom / 1480px;
+}
 /* Region Page *******************/ 
 .category-ne .m-direction, .category-se .m-direction, .category-mw .m-direction, .category-sw .m-direction, .category-nw .m-direction {top: 80px;}
 .m-content {padding: 214px 20px 20px 20px;}
@@ -1415,7 +1420,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 .m-choose-btn i {font-size: 27px;top: 1px;}
 .m-choose-btn span {font: 700 11px/15px "Lato", sans-serif;left: 18px;}
 .m-choose-btn span:last-child {top: 13px;}
-.m-logo {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") no-repeat 0 0 / 167px ;width: 167px;height: 127px;top: 10px;}
+.m-logo {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") no-repeat 0 0 / 168px ;width: 168px;height: 128px;top: 13px;}
 
 /* Region Page *******************/
 .m-content-shadow {top: 6.1%;}
