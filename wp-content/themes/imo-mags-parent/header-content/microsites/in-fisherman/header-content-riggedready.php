@@ -8,7 +8,9 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <div class="top-panel">
-	<a href="<?php echo site_url(); ?>" class="icon-arrow-left">Back to In-Fisherman</a>
+	<div class="top-panel-absolute">
+		<a href="<?php echo site_url(); ?>" class="icon-arrow-left">Back to In-Fisherman</a>
+	</div>
 </div>
 <div class="m-microsite">
 	
@@ -16,14 +18,12 @@
 		<div class="m-nav-erea clearfix">
 			<div class="m-map-absolute">
 				<div class="m-map-relative">
-					<div class="m-map-shift">
-						<div class="m-map-circle"></div>
-						<h5>Where would you like to fish?</h5>
-						<div class="m-map-wrap">
-							<?php  get_template_part('../infisherman/content/map', 'rigged-ready'); ?>
-						</div>
-						<i class="icon-cross"></i>
+					<div class="m-map-circle"></div>
+					<h5>Where would you like to fish?</h5>
+					<div class="m-map-wrap">
+						<?php  get_template_part('../infisherman/content/map', 'rigged-ready'); ?>
 					</div>
+					<i class="icon-cross"></i>
 				</div>
 			</div><!-- .m-map-container -->			
 			<div class="m-nav clearfix">
@@ -33,15 +33,15 @@
 							if (is_category("rigged-ready") || in_category("rigged-ready")) {
 								echo " ";
 							} elseif (in_category("ne")) {
-								echo "transform: rotate(-90deg);";
+								echo "-webkit-transform: rotate(-90deg);transform: rotate(-90deg);";
 							} elseif (in_category("se")) {
 								echo " ";
 							} elseif (in_category("mw")) {
-								echo "transform: rotate(-180deg);";
+								echo "-webkit-transform: rotate(-180deg);transform: rotate(-180deg);";
 							} elseif (in_category("sw")) {
-								echo "transform: rotate(-180deg);";
+								echo "-webkit-transform: rotate(-180deg); transform: rotate(-180deg);";
 							} elseif (in_category("nw")) {
-								echo "transform: rotate(90deg);";
+								echo "-webkit-transform: rotate(90deg);transform: rotate(90deg);";
 							} else {
 								echo " ";
 							}

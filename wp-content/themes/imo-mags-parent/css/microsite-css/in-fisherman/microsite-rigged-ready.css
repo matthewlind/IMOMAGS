@@ -390,7 +390,16 @@ body h1, body h2, body h3, body h4, body h5 {
 	background-color: #333333;
 	text-align: center;
 }
-.top-panel a:before {
+.top-panel-absolute {
+	position: absolute;
+	width: 100%;
+	height: 30px;
+	top: 0;
+	left: 0;
+	background-color: #333333;
+	z-index: 1000;
+}
+.top-panel-absolute a:before {
 	font-family: 'icomoon';
 	font-size: 12px;
 	margin-right: 5px;
@@ -490,28 +499,19 @@ body h1, body h2, body h3, body h4, body h5 {
 .m-map-absolute {
 	position: absolute;
 	left: 0;
-	top: -10px;
+	top: -270px;
 	width: 320px;
 	z-index: 1000;
+	z-index: 950;
 }
 .m-map-relative {
 	position: relative;
 	width: 100%;
 	overflow: hidden;
-	height: 0;
-}
-.m-map-shift {
-	position: absolute;
 	height: 230px;
-	width: 100%;
-	top: -255px;
-	left: 0;
-	-webkit-transition:all 0.5s ease;
-	-moz-transition:all 0.5s ease;
-	transition:all 0.5s ease;
 }
 .m-map-shift-down {
-	top: 0;
+	top: -12px;
 }
 .m-map-circle {
 	width: 390px;
@@ -523,7 +523,7 @@ body h1, body h2, body h3, body h4, body h5 {
 	left: -70px;
 	z-index: 1010;
 }
-.m-map-shift > h5 {
+.m-map-relative > h5 {
 	position: absolute;
 	left: 20px;
 	top: -10px;
@@ -542,7 +542,7 @@ body h1, body h2, body h3, body h4, body h5 {
 .m-map-wrap a {
 	display: block;
 }
-.m-map-shift > i {
+.m-map-relative > i {
 	position: absolute;
 	display: block;
 	width: 40px;
@@ -554,7 +554,7 @@ body h1, body h2, body h3, body h4, body h5 {
 	padding: 10px;
 	cursor: pointer;
 }
-.m-map-shift > i:hover {
+.m-map-relative > i:hover {
 	color: #1981b2;
 }
 .m-map-region {
@@ -695,7 +695,7 @@ body h1, body h2, body h3, body h4, body h5 {
 	width: 100%;
 	height: 266px;
 	bottom: -266px;
-	box-shadow: 0 5px 4px black;
+	box-shadow: 0 4px 3px black;
 	background: #313131; /* Old browsers */
 	background: -moz-linear-gradient(top,  #313131 0%, #000000 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#313131), color-stop(100%,#000000)); /* Chrome,Safari4+ */
@@ -1417,9 +1417,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 .m-choose-btn span:last-child {top: 13px;}
 .m-logo {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") no-repeat 0 0 / 167px ;width: 167px;height: 127px;top: 10px;}
 
-/* Map *******************/
-.m-map-absolute {top: -12px;}
-
 /* Region Page *******************/
 .m-content-shadow {top: 6.1%;}
 
@@ -1505,6 +1502,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 
 @media only screen and (min-width: 1025px) {/* big landscape tablets, laptops, and desktops */
 
+/* Header *******************/
+.m-map-absolute {-webkit-transition: top 0.5s ease;-moz-transition: top 0.5s ease;transition: top 0.5s ease;}
 /* Home Page *******************/
 .m-home-wrap {height: 65%;}
 
@@ -1560,8 +1559,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 
 /* Header *******************/
 .m-nav-erea { padding: 0; margin: 12px auto 0; max-width: 1442px; position: static; }
-/* Map *****************/
-.m-map-absolute {top:0;}
 
 /* Home Page *******************/
 .m-direction {width: 106px;height:106px;}
@@ -1596,7 +1593,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 /* Header *******************/
 .m-nav-erea { position: relative; }
 /* Map *****************/
-.m-map-absolute {position: absolute;left: -125px;width: 390px; top: -12px;}
+.m-map-absolute {left: -125px;width: 390px;}
 .m-map-circle {left: 0;}
 .m-map-shift > h5 {left: 30px;}
 .m-map-wrap {left: 60px;}

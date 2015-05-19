@@ -75,7 +75,7 @@
 			<h3>RIGGED & READY</h3>
 			<div title="track tips"></div>
 		</div>
-		<p>Explore the all new 2015<br> RAM 1500</p>
+		<p>Explore the RAM 1500<br> Outdoorsman</p>
 		<a href="/rigged-ready/2015-ram-1500-outdoorsman/" class="blue-round-btn">
 			<span class="m-text-under">READ NOW</span>
 			<div class="m-btn-horizontal"></div>
