@@ -19,29 +19,9 @@
 			</div><!-- .m-map-container -->			
 			<div class="m-nav clearfix">
 				<div class="m-compass-wrap">
-					<div class="m-compass" style="
-						<?php 
-							if (is_category("rigged-ready") || in_category("rigged-ready")) {
-								echo " ";
-							} elseif (in_category("ne")) {
-								echo "-webkit-transform: rotate(-90deg);transform: rotate(-90deg);";
-							} elseif (in_category("se")) {
-								echo " ";
-							} elseif (in_category("mw")) {
-								echo "-webkit-transform: rotate(-180deg);transform: rotate(-180deg);";
-							} elseif (in_category("sw")) {
-								echo "-webkit-transform: rotate(-180deg); transform: rotate(-180deg);";
-							} elseif (in_category("nw")) {
-								echo "-webkit-transform: rotate(90deg);transform: rotate(90deg);";
-							} else {
-								echo " ";
-							}
-						?>">
-					</div>				
+					<div class="m-compass"></div>				
 					<span>
 						<?php 
-							$category = get_the_category(); 
-							
 							if (is_category("rigged-ready")) {
 								echo " ";
 							} elseif (is_category("ne") || in_category("ne")) {
@@ -67,8 +47,8 @@
 			</div><!-- .m-nav -->
 			<div class="m-social-buttons">
 				<ul>
-					<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>&title=Rigged and Ready: Your regional guide to the nation's best fishing." class="icon-facebook" target="_blank"></a></li>
-					<li><a href="http://twitter.com/intent/tweet?status=Rigged and Ready: Your regional guide to the nation's best fishing." class="icon-twitter" target="_blank"></a></li>
+					<li><a href="http://www.facebook.com/sharer/sharer.php?u=http://www.in-fisherman.com/rigged-ready/&title=Rigged and Ready: Your regional guide to the nation's best fishing." class="icon-facebook" target="_blank"></a></li>
+					<li><a href="http://twitter.com/intent/tweet?status=Rigged and Ready: Your regional guide to the nation's best fishing.+http://www.in-fisherman.com/rigged-ready/" class="icon-twitter" target="_blank"></a></li>
 					<li><a href="mailto:?subject=Website I came across&body=Check out this website! Rigged and Ready: Your regional guide to the nation's best fishing. <?php echo site_url() . "/rigged-ready"; ?>" class="icon-mail" target="_blank"></a></li>
 				</ul>
 			</div><!-- .m-social-buttons -->
