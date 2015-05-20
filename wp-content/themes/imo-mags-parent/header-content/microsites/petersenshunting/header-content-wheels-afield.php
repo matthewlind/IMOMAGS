@@ -43,9 +43,9 @@
 				</nav>
 				<div class="social-buttons">
 					<ul>
-						<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>&title=Wheels Afield Magazine" class="icon-facebook" target="_blank"></a></li>
-						<li><a href="http://twitter.com/intent/tweet?status=Wheels Afield Magazine" class="icon-twitter" target="_blank"></a></li>
-						<li><a href="mailto:?subject=Website I came across&body=Check out this website! Wheels Afield Magazine. <?php echo site_url() . "/wheels-afield"; ?>" class="icon-mail" target="_blank"></a></li>
+						<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo (urlencode(site_url())) . '/wheels-afield'; ?>&title=Wheels Afield Magazine" class="icon-facebook" target="_blank"></a></li>
+						<li><a href="http://twitter.com/intent/tweet?status=Wheels Afield Magazine+http://www.petersenshunting.com/wheels-afield/" class="icon-twitter" target="_blank"></a></li>
+						<li><a href="mailto:?subject=Website I came across&body=Check out this website! Wheels Afield Magazine. <?php echo (urlencode(site_url())) . '/wheels-afield'; ?>" class="icon-mail" target="_blank"></a></li>
 					</ul>
 				</div><!-- .m-social-buttons -->
 			</div><!-- .nav-container -->
