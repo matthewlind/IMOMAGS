@@ -658,7 +658,6 @@ body h1, body h2, body h3, body h4, body h5 {
 .m-triangle {
 	width: 100%;
 	height:100%;
-/* 	outline: 1px dotted black; */
 	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") -25px -133px no-repeat;
 	background-size: 150px;
 	text-align: center;
@@ -870,7 +869,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 	-webkit-transition: all 0.6s ease;
 	transition: all 0.6s ease;
 }
-
 .m-loc-wrap > ul > li:nth-child(3) {
 	clear: both;
 	float: none;
@@ -1167,7 +1165,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 	display: block;
 	float: left;
 }
-
 .alignright-content {
 	width: 300px;
 	margin: 30px -10px;
@@ -1263,9 +1260,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 .m-social-buttons ul {margin-top:17px;}
 
 /* Home Page *******************/
-.m-truck {
-	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/truck-ram.png") no-repeat left bottom / 1480px;
-}
+.m-truck {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/truck-ram.png") no-repeat left bottom / 1480px;}
+
 /* Region Page *******************/ 
 .category-ne .m-direction, .category-se .m-direction, .category-mw .m-direction, .category-sw .m-direction, .category-nw .m-direction {top: 80px;}
 .m-content {padding: 214px 20px 20px 20px;}
@@ -1360,9 +1356,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 .category-ne .m-triangle, .category-se .m-triangle, .category-mw .m-triangle, .category-sw .m-triangle, .category-nw .m-triangle  {
 	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") -33px -197px / 230px no-repeat;
 }
-.category-ne .m-direction span, .category-se .m-direction span, .category-mw .m-direction span, .category-sw .m-direction span, .category-nw .m-direction span {
-	font: 700 21px/140px "Lato", sans-serif;
-}
+.category-ne .m-direction span, .category-se .m-direction span, .category-mw .m-direction span, .category-sw .m-direction span, .category-nw .m-direction span {font: 700 21px/140px "Lato", sans-serif;}
 
 /* Single Article *******************/
 .m-article {padding: 0 35px 20px;} 
@@ -1509,6 +1503,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 
 /* Header *******************/
 .m-map-absolute {-webkit-transition: top 0.5s ease;-moz-transition: top 0.5s ease;transition: top 0.5s ease;}
+
 /* Home Page *******************/
 .m-home-wrap {height: 65%;}
 
