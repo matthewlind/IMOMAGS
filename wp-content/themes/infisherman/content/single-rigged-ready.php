@@ -53,10 +53,10 @@
 				<p class="m-hlep-grow">Share This Article</p>
 				<ul class="share-count social-buttons">
 					<li>
-						<div class="fb-like" data-href="<?php the_permalink(); ?>" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+						<a href="http://www.facebook.com/sharer.php?u=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>&t=<?php the_title(); ?>" class="socialite facebook-like reload-fb" data-href="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" data-send="false" data-layout="button_count" data-share="true" data-action="like" data-width="60" data-show-faces="false" rel="nofollow" target="_blank"><span class="vhidden"></span></a> 
 					</li>
 				    <li>
-				        <a href="https://twitter.com/share" class="twitter-share-button" data-via="ArtemKovalyk" data-text="<?php the_title(); ?>" data-url="<?php the_permalink(); ?>">Tweet</a>
+				         <a href="http://twitter.com/share" class="socialite twitter-share reload-twitter" data-text="<?php the_title(); ?>" data-url="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" rel="nofollow" target="_blank"><span class="vhidden"></span></a> 
 				    </li>
 				</ul>
 			</div><!-- end .m-social-wrap -->
