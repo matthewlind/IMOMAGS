@@ -2,6 +2,7 @@
 @import url(http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic);
 
 
+
 /* ==========================================================================
 	4.0 Buttons
 ========================================================================== */
@@ -367,113 +368,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9900', end
 }
 
 /* ==========================================================================
-   11.0 Media Queries
-   ========================================================================== */
-   
-@media only screen and (min-width: 375px) {/* iPhone 6 */
-
-/* Header *******************/ 
-
-/* Single Article **************/
-.alignright-content {margin: 30px auto;}
-
-/* Footer *******************/  
-
-
-}/* end of media */
-
-@media only screen and (min-width: 480px) {/* smartphones, Android phones, landscape iPhone */
-
-/* Home Page *******************/
-.m-truck {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/truck-ram.png") no-repeat left bottom / 1480px;}
-
-/* Choose Location Footer *******************/ 
-.m-loc-wrap {margin: 0 -5%;}
-.m-loc-wrap > ul {padding: 20px 0 0;}
-.m-loc-wrap > ul > li {width: 23.3%;margin: 0 5% 30px;}
-
-.m-loc-wrap > ul > li:nth-child(3) {clear: none;float: left;margin: 0 5% 30px;}
-.m-loc-wrap > ul > li:nth-child(4) {margin-left: 23.3%;}
-
-
-}/* end of media */
-
-@media only screen and (min-width: 600px) {/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-
-/* Track Container *******************/
-.m-truck-container {height: 150px;bottom: -150px;}
-.m-truck-region, .m-truck-single {bottom: auto;}
-.m-truck {background-size: 1480px;text-align: right;padding: 0 30px;}
-.m-truck-title {top: 10px;left:auto; right: 30px;}
-.m-truck > p > br {display: none;}
-.m-truck > p {margin: 52px auto 15px;	}
-
-/* Choose Location Footer *******************/
-.m-loc {margin: 60px auto 20px;width: 92%;}
-.m-loc-wrap > ul {padding: 30px 0 0;}
-.m-loc-wrap > ul > li > a > span {font-size: 16px;margin-top: 8px;}
-
-/* Single Article *******************/
-.m-more {width: 92%;padding: 0;margin: 60px 4% 0;}
-.m-more-wrap {margin: 0 -1%;}
-.m-more-wrap .post-box { margin: 0 1% 3.2%; padding-top: 32.16%; width: 48%;}
-.m-article blockquote {font-size: 30px;margin: 50px 0;} 
-.m-article blockquote p {font-size: 26px;}
-.alignright-content {margin: 30px 0 30px 30px;float: right;}
-.alignright-content.m-buy-wrap {margin: 2px 0 30px 30px;float: right;}
-.m-article-bottom {clear:both; margin: 40px 0 0;}
-.m-article-bottom .m-social-wrap {float: left;width: 200px;margin-top: 70px;}
-.m-article-bottom .m-social-buttons ul li {margin: 0 8px;}
-.m-article-bottom .m-social-buttons ul li:first-child {margin-left: 0;}
-.m-article-bottom .m-social-buttons ul li a {font-size: 40px;}
-.m-article-bottom .m-hlep-grow {font: 700 20px/25px "Lato", sans-serif;color: #222222;}
-
-/* Footer *******************/ 
-.m-footer {padding: 60px 0 42px;margin: 10px auto 0;width: 92%;}
-.m-imo-logo {margin: 0 20px 0 0;display: inline-block;}
-.m-footer-nav {display: inline-block;}
-.m-footer-nav ul {text-align: left;}
-.m-footer-nav ul li {display: inline-block;}
-.m-footer-nav ul li a {padding: 5px 12px;font-size: 11px;}
-.m-footer-nav ul li a:first-child {padding-left: 0;}
-.m-copyright {margin-top: 15px;text-align: left;}
-
-/* Wordpress Defaults *******************/  
-.m-article .aligncenter {margin: 30px auto;}
-.m-article .alignnone {margin: 30px 0;float: none;}
-.m-article .alignright {float: right;margin: 8px 0 20px 30px;width: 300px;}
-.m-article .alignleft {float: left; margin: 8px 30px 20px 0;width: 300px;}
-.wp-caption p.wp-caption-text { font-size: 14px; line-height: 19px;}
-
-}/* end of media */
-
-
-@media only screen and (min-width: 920px) {
-
-
-/* Truck Container *******************/
-.m-truck-container {position: relative;height: 133px;bottom: auto;}
-.m-truck {background-size: 1640px;text-align: center;}
-.m-truck-title {top:6px;left:0; right: 0; margin: 0 auto;}
-.m-truck > p {margin: 46px auto 13px;	}
-
-/* Choose Location Footer *******************/ 
-.m-loc-wrap {margin: 0 -3%;}
-.m-loc-wrap > ul {padding: 40px 0 0;}
-.m-loc-wrap > ul > li {width: 14%;margin: 0 3% 30px;}
-.m-loc-wrap > ul > li:nth-child(3) {margin: 0 3% 30px;}
-.m-loc-wrap > ul > li:nth-child(4) {margin-left: 3%;}
-
-/* .m-article-bottom .m-social-wrap {width: 360px;} */
-.m-article iframe.interact-embed {width: 800px;}
-
-/* Footer *******************/ 
-.m-copyright {margin-top: 0;float: left;}
-	
-}/* END OF MEDIA */
-
-
-/* ==========================================================================
    12.0 Print styles
    ========================================================================== */
 @media print {
@@ -505,6 +399,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9900', end
     h2,
     h3 { page-break-after: avoid;}
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
