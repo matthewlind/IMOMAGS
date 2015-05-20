@@ -389,6 +389,7 @@ body h1, body h2, body h3, body h4, body h5 {
 	width: 100%;
 	background-color: #333333;
 	text-align: center;
+	position: relative;
 }
 .top-panel-absolute {
 	position: absolute;
