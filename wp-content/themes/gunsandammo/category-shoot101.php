@@ -60,9 +60,9 @@
 				<span>Help grow shooting in America.  Share this with a new shooter!</span>
 				<div class="m-social-buttons">
 					<ul>
-						<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>&title=Shoot101: A starter's guide every new shooter should read." class="icon-facebook" target="_blank"></a></li>
-						<li><a href="http://twitter.com/intent/tweet?status=Shoot101: A starter's guide every new shooter should read.+<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" class="icon-twitter"  target="_blank"></a></li>
-						<li><a href="mailto:?subject=Website I came across&body=Check out this website! A starter's guide every new shooter should read. <?php echo $category_link; ?>" class="icon-mail"  target="_blank"></a></li>
+						<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo (urlencode(site_url())) . '/shoot101'; ?>&title=Shoot101: A starter's guide every new shooter should read." class="icon-facebook" target="_blank"></a></li>
+						<li><a href="http://twitter.com/intent/tweet?status=Shoot101: A starter's guide every new shooter should read.+http://www.gunsandammo.com/shoot101/" class="icon-twitter" target="_blank"></a></li>
+						<li><a href="mailto:?subject=Article I came across&body=Shoot101: A starter's guide every new shooter should read. <?php echo (urlencode(site_url())) . '/shoot101'; ?>" class="icon-mail" target="_blank"></a></li>
 					</ul>
 				</div>
 			</div><!-- end .featured-message -->

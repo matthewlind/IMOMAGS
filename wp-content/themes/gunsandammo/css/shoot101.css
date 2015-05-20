@@ -1293,11 +1293,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 .s-mag {width: 857px;float: left;margin-right: 30px;border-right: 2px solid #a6a6a6;}
 .s-mag-cover { margin-right: 5%; width: 30%;}
 .s-mag-descr { float: left; width: 65%; padding-right: 5%;}
-.s-mag-buy {position: absolute; bottom: -9px;left: 35%;}
+.s-mag-buy {position: absolute; bottom: -9px;left: 35%;z-index: 500;}
 .s-mag-buy h2 {font-size: 34px;}
 .s-or {height: 16px;}
 .s-or > div { top: -10px; width: 50px;font-size: 21px;}
-.footer-message {top: 65px;display: block;position: absolute;text-align: right;right: 0;width: 100%;padding-left: 75%;font-family: "Lora", serif;border-top: none;}
+.footer-message {top: 65px;display: block;position: absolute;text-align: right;right: 0;width: 100%;padding-left: 75%;font-family: "Lora", serif;border-top: none;z-index: 400;}
 .m-footer-bottom {margin-top: 50px;}
 .footer-message h2 {font-size: 24px;text-align: right;}
 .f-social-buttons {margin: 0 0 15px;text-align: right;}
