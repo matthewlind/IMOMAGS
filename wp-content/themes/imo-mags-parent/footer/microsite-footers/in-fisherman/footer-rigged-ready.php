@@ -29,7 +29,7 @@
       var cb = function() {
         var l = document.createElement('link'); l.rel = 'stylesheet';
         l.href = '<?php bloginfo('template_directory'); ?>/css/microsite-css/in-fisherman/under-fold-rigged-ready.css';
-        var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+        var h = document.getElementsByTagName('link')[0]; h.parentNode.insertBefore(l, h);
       };
       var raf = requestAnimationFrame || mozRequestAnimationFrame ||
           webkitRequestAnimationFrame || msRequestAnimationFrame;
