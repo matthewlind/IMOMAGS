@@ -68,6 +68,11 @@
 			include('css/styles-microsites.php');
 	} else { ?>
 			<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
+			<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
+			<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>
+			<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+			<!-- Font Awsome Icons -->
+			<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 	<?php	
 	} 
 	
@@ -90,10 +95,6 @@
      * generally use this hook to add elements to <head> such
      * as styles, scripts, and meta tags.
      */
-/*
-    wp_enqueue_script("jquery");
-    wp_head();
-*/
     $postID = get_the_ID();
     $dartDomain = get_option("dart_domain", $default = false);
     $magazine_img = get_option('magazine_cover_uri' );
@@ -111,11 +112,7 @@
 	include_once get_template_directory() . "/head-includes.php";
 	include_once get_stylesheet_directory() . "/head-includes.php";
 	?>
-<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-<!-- Font Awsome Icons -->
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
 
 <script src="<?php echo get_template_directory_uri(); ?>/js/dart.js" type="text/javascript"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.jfollow.js" type="text/javascript"></script>
