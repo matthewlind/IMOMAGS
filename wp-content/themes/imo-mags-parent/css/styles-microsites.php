@@ -12,7 +12,7 @@
 */
 ?>
 
-<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/normalize.css" />
+<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/normalize.min.css" />
 
 <?php
 /* ------------------------------------------------------------------------
