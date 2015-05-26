@@ -736,10 +736,52 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 .m-article p {
 	font: 400 17px/28px "Lora", sans-serif;
 }
-
-
-
-
+/* ==========================================================================
+   11.0 Sweepstakes
+   ========================================================================== */
+.category-sweeps .m-article-image {
+	position: relative;
+	width: 100%;
+	padding-top: 0;
+	height: 420px;
+	background: url('/wp-content/themes/infisherman/images/rigged-and-ready/sweepstakes/fishing-nosara@2.jpg') no-repeat center center / cover;
+}
+.category-sweeps .m-article-image .m-direction {
+	width: 157px;
+	height: 107px;
+	top: 30px;
+	bottom: auto;
+	text-align: center;
+	background: url('/wp-content/themes/infisherman/images/rigged-and-ready/sweepstakes/sweep-triangle.png') no-repeat center / 100%;
+}
+.category-sweeps .m-article-image .m-direction span {
+	font-size: 28px;
+	line-height: 96px;
+}
+.m-sweep-text {
+	position: absolute;
+	width: 90%;
+	top: 145px; left: 0; right: 0;
+	margin: 0 auto;
+	text-align: center;
+}
+.m-sweep-text h1 {
+	font: 900 22px "Merriweather";
+	color: white;
+	text-shadow: 1px 2px 4px rgba(0,0,0,.7);
+}
+.m-sweep-text h1 span {
+	font: 900 36px "Lato";
+	color: #1d9fcc;
+	text-shadow: 2px 3px 5px rgba(0,0,0,.8);
+	padding-top: 9px;
+	display: inline-block;
+}
+.m-sweep-text p {
+	color: white;
+	text-shadow: 1px 2px 4px rgba(0,0,0,.7);
+	line-height: 1.5em;
+}
 /* ==========================================================================
    11.0 Media Queries
    ========================================================================== */
