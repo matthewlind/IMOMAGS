@@ -56,6 +56,7 @@ $acfID = 'category_' . $id; ?>
 								<?php while( have_rows('show_menu',$acfID) ): the_row(); ?>
 									<li class="page_item"><a href="<?php echo get_sub_field('url'); ?>"><?php echo get_sub_field('name'); ?></a></li>
 								<?php endwhile; ?>
+									<li class="page_item"><a href="<?php echo get_field('show_store',$acfID); ?>" target="_blank">Store</a></li>
 							</ul>
 						</div>
 					 </li>
@@ -65,6 +66,7 @@ $acfID = 'category_' . $id; ?>
 					<?php while( have_rows('show_menu',$acfID) ): the_row(); ?>
 					<li class="page_item non-mobile-item"><a href="<?php echo get_sub_field('url'); ?>"><?php echo get_sub_field('name'); ?></a></li>
 					<?php endwhile; ?>
+					<li class="page_item"><a href="<?php echo get_field('show_store',$acfID); ?>" target="_blank">Store</a></li>
 					<li><div class="fb-like" data-href="<?php echo site_url(); ?>/tv/" data-layout="button" data-action="like" data-show-faces="true" data-share="false"></div></li>
 	
 				</ul>

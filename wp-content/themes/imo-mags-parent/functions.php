@@ -1948,6 +1948,30 @@ if(function_exists("register_field_group"))
 				'maxlength' => '',
 			),
 			array (
+				'key' => 'field_53cd5a876d31b',
+				'label' => 'Store URL',
+				'name' => 'show_store',
+				'type' => 'text',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_53ceb4a4f00ca',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
+				'instructions' => 'Link to the store',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),		
+			array (
 				'key' => 'field_53cd5b42ce9ee',
 				'label' => 'When to Watch',
 				'name' => 'when_to_watch',
