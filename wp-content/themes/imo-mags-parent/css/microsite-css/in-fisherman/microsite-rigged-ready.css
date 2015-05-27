@@ -797,8 +797,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 	width: 280px;
 	margin: 0 auto 10px;
 }
-.m-sweep-enter h1 {
-	font: 700 37.5px "Lato", sans-serif;
+.category-sweeps .m-sweep-enter h1 {
+	font: 700 37px "Lato", sans-serif;
 	color: #1d9fcc;
 	text-align: center;
 	margin-top: 20px;
@@ -1003,7 +1003,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 .category-sweeps .m-article-image .m-direction {
 	width: 213px;
 	height: 146px;
-	top: 33px;
+	top: 41px;
 	bottom: auto;
 }
 .category-sweeps .m-article-image .m-direction span {
@@ -1095,6 +1095,22 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 /* .m-article-bottom .m-social-wrap {width: 360px;} */
 .m-article iframe.interact-embed {width: 800px;}
 
+/* Sweepstakes *******************/
+.category-sweeps .m-article {margin: 0 12%;}
+.m-sweep-blocks {
+	margin: 5px 0 70px;
+}
+.m-sweep-left {
+	float: left;
+	width: 46%;
+	margin-right: 4%;
+}
+.m-sweep-right {
+	float: left;
+	width: 46%;
+	margin: 8px 0 0;
+}
+
 /* Footer *******************/ 
 .m-copyright {margin-top: 0;float: left;}
 	
@@ -1131,6 +1147,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 .m-article .alignright {margin-right: -150px;}
 .m-article .alignleft { margin-left: -150px;}
 .alignright-content {float: right;margin-right: -150px;}
+
+/* Sweepstakes *******************/
+.category-sweeps .m-article {margin: 0 auto; width: 800px;}
+.category-sweeps .m-social-wrap:last-child {margin-bottom: 100px;}
+/*
+.category-sweeps .m-article-wrap {
+	background: url('/wp-content/themes/infisherman/images/rigged-and-ready/sweepstakes/billfish.png') #fff no-repeat center bottom / 90%;
+}
+*/
 
 /* Footer *********************/
 .m-footer {padding-top:100px;}
