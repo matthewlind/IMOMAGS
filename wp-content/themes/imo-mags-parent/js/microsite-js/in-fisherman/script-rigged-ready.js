@@ -1,17 +1,14 @@
 jQuery(document).ready(function($) {
 	
-	var mapShift = $(".m-map-shift"),
+	var mapShift = $(".m-map-absolute"),
 		mapRelative = $(".m-map-relative");
-	
-	$(".m-nav").click(function(e){
+		
+	$(".m-nav").on("click", function(e){
 		e.stopPropagation();
 		mapShift.addClass("m-map-shift-down");
-		mapRelative.css("height", "230px");
 	});
-	
-	$(".m-map-shift > i, body").click(function(){
+	$("body, .m-map-shift > i").on("click", function(){ 
 		mapShift.removeClass("m-map-shift-down");
-		mapRelative.css("height", "0");
 	});
 	
 }); // end doc.ready

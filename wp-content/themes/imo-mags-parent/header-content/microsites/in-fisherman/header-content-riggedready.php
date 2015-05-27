@@ -1,56 +1,26 @@
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=432932696867322";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
 <div class="top-panel">
-	<a href="<?php echo site_url(); ?>" class="icon-arrow-left">Back to In-Fisherman</a>
+	<div class="top-panel-absolute">
+		<a href="<?php echo site_url(); ?>" class="icon-arrow-left">Back to In-Fisherman</a>
+	</div>
 </div>
 <div class="m-microsite">
-	
 	<header class="m-main-header clearfix">
 		<div class="m-nav-erea clearfix">
 			<div class="m-map-absolute">
 				<div class="m-map-relative">
-					<div class="m-map-shift">
-						<div class="m-map-circle"></div>
-						<h5>Where would you like to fish?</h5>
-						<div class="m-map-wrap">
-							<?php  get_template_part('../infisherman/content/map', 'rigged-ready'); ?>
-						</div>
-						<i class="icon-cross"></i>
+					<div class="m-map-circle"></div>
+					<h5>Where would you like to fish?</h5>
+					<div class="m-map-wrap">
+						<?php  get_template_part('../infisherman/content/map', 'rigged-ready'); ?>
 					</div>
+					<i class="icon-cross"></i>
 				</div>
 			</div><!-- .m-map-container -->			
 			<div class="m-nav clearfix">
 				<div class="m-compass-wrap">
-					<div class="m-compass" style="
-						<?php 
-							if (is_category("rigged-ready") || in_category("rigged-ready")) {
-								echo " ";
-							} elseif (in_category("ne")) {
-								echo "transform: rotate(-90deg);";
-							} elseif (in_category("se")) {
-								echo " ";
-							} elseif (in_category("mw")) {
-								echo "transform: rotate(-180deg);";
-							} elseif (in_category("sw")) {
-								echo "transform: rotate(-180deg);";
-							} elseif (in_category("nw")) {
-								echo "transform: rotate(90deg);";
-							} else {
-								echo " ";
-							}
-						?>">
-					</div>				
+					<div class="m-compass"></div>				
 					<span>
 						<?php 
-							$category = get_the_category(); 
-							
 							if (is_category("rigged-ready")) {
 								echo " ";
 							} elseif (is_category("ne") || in_category("ne")) {
@@ -76,8 +46,8 @@
 			</div><!-- .m-nav -->
 			<div class="m-social-buttons">
 				<ul>
-					<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>&title=Rigged and Ready: Your regional guide to the nation's best fishing." class="icon-facebook" target="_blank"></a></li>
-					<li><a href="http://twitter.com/intent/tweet?status=Rigged and Ready: Your regional guide to the nation's best fishing." class="icon-twitter" target="_blank"></a></li>
+					<li><a href="http://www.facebook.com/sharer/sharer.php?u=http://www.in-fisherman.com/rigged-ready/&title=Rigged and Ready: Your regional guide to the nation's best fishing." class="icon-facebook" target="_blank"></a></li>
+					<li><a href="http://twitter.com/intent/tweet?status=Rigged and Ready: Your regional guide to the nation's best fishing.+http://www.in-fisherman.com/rigged-ready/" class="icon-twitter" target="_blank"></a></li>
 					<li><a href="mailto:?subject=Website I came across&body=Check out this website! Rigged and Ready: Your regional guide to the nation's best fishing. <?php echo site_url() . "/rigged-ready"; ?>" class="icon-mail" target="_blank"></a></li>
 				</ul>
 			</div><!-- .m-social-buttons -->

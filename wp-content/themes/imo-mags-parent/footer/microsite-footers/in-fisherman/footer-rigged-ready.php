@@ -25,6 +25,17 @@
 
 
 </div><!-- .m-microsite -->
+	<script>
+      var cb = function() {
+        var l = document.createElement('link'); l.rel = 'stylesheet';
+        l.href = '<?php bloginfo('template_directory'); ?>/css/microsite-css/in-fisherman/under-fold-rigged-ready.css';
+        var h = document.getElementsByTagName('link')[0]; h.parentNode.insertBefore(l, h);
+      };
+      var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+          webkitRequestAnimationFrame || msRequestAnimationFrame;
+      if (raf) raf(cb);
+      else window.addEventListener('load', cb);
+    </script>
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/microsite-js/in-fisherman/script-rigged-ready.js"></script>
 	<!--[if lt IE 9]><script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->
 
