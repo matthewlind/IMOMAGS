@@ -3007,7 +3007,8 @@ margin-bottom:15px;
 }
 #show-destination .inner-main, #show-destination .thumbs-full, #show-destination .sidebar-area{background: white;}
 #show-destination .inner-main{padding: 80px 30px 0;}
-#video-thumbs .play-btn{background:url(images/shows/play-btn.png) no-repeat;width: 47px;height: 47px;position: absolute;left: 0;top: 22%;margin: auto;right: 0;}
+#video-thumbs .thumb-wrap {position: relative;} 
+#video-thumbs .play-btn{background:url(images/shows/play-btn.png) no-repeat;width: 47px;height: 47px;position: absolute;left: 0;top: 0;margin: auto;right: 0;bottom: 0;}
 #video-thumbs .season-number{color: #6ba4c2;font-size: 14px;}
 .wrap4padding {
 	padding: 0 35px;
@@ -3066,6 +3067,7 @@ margin-bottom:15px;
 	height: 122px;
 	background-color: rgba(0,0,0,0.4);
 	margin: 10px 0 0 0;
+	position: relative;
 }
 
 .tv-show .content-banner-section {
@@ -3078,18 +3080,20 @@ margin-bottom:15px;
 .tv-show .main, .content-banner-section {
 	background: transparent;
 }
-
 .tv-show .shows-logo {
-	float: left;
-	width: 300px;
+	position: absolute;
+	width: 260px;
 	height: 122px;
-	padding: 15px;
+	right: 0; left: 0;
+	margin: 0 auto;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: contain;
 }
-.tv-show .shows-logo img {
-  	position: relative;
-	top: 28px;
+.tv-show .shows-logo a {
+	display: block;
 	width: 100%;
-	margin-left: 0;
+	height: 100%;
 }
 .tv-show .shows-title {
 	float: left;
@@ -3159,12 +3163,7 @@ margin-bottom:15px;
 .tv-show #shows-nav ul li a:hover {
 	color: #e8e1c5;
 }
-.tv-show .shows-player-area {
-	width: 100%;
-	background-color: #252525;
-	padding: 12px 35px 40px;
-	overflow: hidden;
-}
+
 
 /* navigation mobile  ==================================== */
 .tv-show #shows-nav ul li.page-item-mobile {
@@ -3214,6 +3213,14 @@ margin-bottom:15px;
 .tv-show #shows-nav .menu ul li .mob-m-visible {
 	max-height: 1000px;
 	opacity: 1;
+}
+
+.tv-show .shows-player-area {
+	position: relative;
+	width: 100%;
+	background-color: #252525;
+	padding: 12px 35px 40px;
+	overflow: hidden;
 }
 /* when to watch ==================================== */
 #when-to-watch {
@@ -3345,39 +3352,26 @@ margin-bottom:15px;
 	display: block;
 }
 .tv-show .cat-feat-label{display: inline-block;margin-right: 4px;}
-/* video player ==================================== */
 
+
+/* video player ==================================== */
 .tv-show .video-player-area {
 	position: relative;
+	float: left;
+	width: 100%;
+	padding-right: 335px;
+	min-height: 765px;
 }
 .tv-show .video-player-area .video-player-wrap {
 	width: 100%;
-	padding-right: 33.3%;
+/* 	padding-right: 33.3%; */
 }
 .tv-show .video-player-area .video-player-wrap .player {
 	width: 60%;
 	background-color: #555;
 	float: left;
 }
-/*
-.tv-show .video-player-area .video-player-sidebar{
-	width: 310px;
-	position: absolute;
-	right: 0;
-	top: 0;
-}
-*/
-.tv-show .video-player-area .new-show {
-	position: absolute;
-	background-color: #555;
-	margin-bottom: 20px;
-	width: 29.7%;
-	top: 0;
-	right: 0;
-}
-.tv-show .video-player-area .new-show img {
-	width: 100%;
-}
+
 /* video description ==================================== */
 .tv-show #description-area {
 	position: relative;
@@ -3392,30 +3386,28 @@ margin-bottom:15px;
 }
 .tv-show #description-area .unify {
 	width: 100%;
-	padding-right: 340px;
 }
-.tv-show #description-area .unify .show-video-date {
-	font-size: 12px;
-	text-transform: uppercase;
-	display: inline-block;
-	margin-bottom: 15px;
-}
-.tv-show #description-area .unify h1 {
+.tv-show .unify h1 {
 	font-size: 39px;
-	margin-bottom: 10px;
+	margin:10px 0;
 }
-.tv-show #description-area .unify p {
+.tv-show .unify p {
 	font-size: 18px;
 	font-weight: 300;
 	line-height: 130%;
-	margin: 0 0 18px; 
+	margin-bottom:18px; 
 }
-.tv-show .ad-block {
+.tv-show .shows-player-area .ad-block {
 	position: absolute;
+	display: block !important;
 	margin-bottom: 20px;
 	width: 300px;
-	top: 0;
-	right: 0;
+	top: 120px;
+	right: 35px;
+}
+.tv-show .tv-ad-container {
+	margin-bottom: 20px;
+	width:300px;
 }
 .video-more-content{
 	width: 100%;
@@ -3440,6 +3432,7 @@ margin-bottom:15px;
 }
 .video-description{clear: both;}
 /* social share ==================================== */
+.tv-show .social-buttons {margin-bottom: 10px;}
 .tv-show .social-buttons li{float: left;}
 .tv-show .socialite.googleplus-one{width: 50px;}
 .tv-show .twitter-share{width: 70px;}
@@ -5374,7 +5367,7 @@ table.likes-leaderboard .entry-title {
 	/* TV Show Pages **************/
 	.tv-show .shows-title {max-width: 530px;}
 	
-	.tv-show #when-to-watch .when-label h3 {font-size: 20px;}
+/* 	.tv-show #when-to-watch .when-label h3 {font-size: 20px;} */
 	.tv-show .schedule-item{margin: 5px 0 0 20px;}
 	
 	#show-featured #video-thumbs li {margin: 0 1.2% 20px;}
@@ -5482,7 +5475,7 @@ table.likes-leaderboard .entry-title {
 	.fb-box {width: 300px;margin: 0 auto;display: block;}
 	
 	/* TV Show Pages **************/
-	.tv-show .shows-logo {width: 160px;}
+	.tv-show .shows-logo {width: 260px;}
 	.tv-show .shows-logo img {top: 30px;width: 100%;}
 	.tv-show .shows-title {max-width: 410px;}
 	.tv-show .shows-title h1 {font-size: 23px;}
@@ -5624,8 +5617,10 @@ table.likes-leaderboard .entry-title {
 	.tv-show .video-player-area {padding-bottom: 90px;}
 	.tv-show #locateChannel {right: 0;left: 0;}
 	.tv-show #channelControlsContainer #channelControls {float: right;}
+/*
 	.tv-show #channelControls a input {width: 300px;}
 	.tv-show #channelControls #zip {width: 160px;}
+*/
 	.tv-show .m-shows-airtimes .btn-green {width: 100%;}
 	
 	/* E-Commerce Widget
@@ -5777,13 +5772,14 @@ table.likes-leaderboard .entry-title {
     }
     
     /* TV Show Pages **************/
-    .tv-show .video-player-area .new-show {display: none;}
     .tv-show .video-player-area .video-player-wrap {padding-right: 0;}
 	.tv-show .video-player-area .video-player-wrap {width: 108%;margin-left: -4%;}
 	.tv-show #description-area .unify h1 {font-size: 30px;}
     
+/*
     .tv-show #channelControls a input {width: 220px;}
     .tv-show #channelControls #zip {width: 150px;}
+*/
     #show-destination .play-btn {top: 17%;}
     
     .tv-show .host-info img {max-width: 100%;max-height: 100px;}
@@ -5831,31 +5827,32 @@ table.likes-leaderboard .entry-title {
     }
     
     /* TV Show Pages ********/
-    .tv-show #header-top {margin: 100px 0 0 0;overflow: hidden; height: auto;padding: 0 5px;}
-    .tv-show .shows-logo {float: none;width: 200px;height: 122px;position: absolute;top: -21px;left: 0;right: 0;margin: auto;}
+    .tv-show #header-top {height: 100px;}
+    .tv-show .shows-logo {;width: 200px;height: 100px;}
     .tv-show .shows-title {max-width: 100%;width: 100%;margin: 20px 0 0 0;}
 	.tv-show .shows-title h1 {font-size: 23px; text-align: center;}
 	.tv-show .shows-title .fb_iframe_widget {display: block; text-align: center;margin-top: 7px;}
 	.tv-show .shows-sponsor {display: none;}
-    .tv-show .shows-player-area {padding: 20px 20px 40px;}
+    .tv-show .shows-player-area {padding: 35px 35px 20px;}
+    .tv-show #shows-nav {height: auto;}
     .tv-show #shows-nav ul { padding: 1px 20px 0 20px;}
     .tv-show #when-to-watch {display: none;}
     
-    .tv-show .video-player-area .video-player-wrap {width: 104%;margin-left: -2%;}
-    .tv-show #description-area .ad-block {display: none;}
+    .tv-show .video-player-area {float: none; padding: 0; min-height: 0;}
+    .tv-show .video-player-area .video-player-wrap {width: 100%; margin-left: 0;}
+    .tv-show .shows-player-area .ad-block {display: none;}
+    .tv-show .tv-ad-container { display: none; }
+    
     .tv-show #description-area .unify {padding-right: 0;}
     
     .w2w-schedule .btn-green {width: 100%;}
     .w2w-get-sport img {max-width: 100%;}
+    
+    #show-featured {  padding: 20px 0 55px;}
     /* Sportsman locator ********/
-	.tv-show .channelControlsContainer {margin-top: 20px;}
-	.tv-show .channelControlsContainer #channelControls {float: left;}
-	.tv-show .channelControls #zip {margin: 0 0 20px 0;}
-	.tv-show .channelControls a {margin-top: 2px;}
-	.tv-show .channelControls a input {width: 170px;height: 41px;margin: 0;}
+	.tv-show #locateChannel {display: none;}
 	#video-filter li{padding: 0;}
-	#video-filter li a{padding: 5px 8px;}
-	.tv-show .shows-player-area{padding-left: 20px;padding-right: 20px;}
+	#video-filter li a{padding: 5px 8px; display: inline-block; margin-bottom: 10px;}
 	
 	/* E-Commerce Widget
 	************************/
@@ -5868,27 +5865,14 @@ table.likes-leaderboard .entry-title {
 } /* End of media */
 @media only screen and (max-width: 700px) {
 	.search-field input{width: 90%;}
-	.general-frame{
-		width: auto;
-	}
-    .double-posts .feat-img {
-        width:168px;
-    }
+	.general-frame{width: auto;}
+    .double-posts .feat-img {width:168px;}
 
     .double-posts .feat-img,
-    .article-brief .attachment-index-thumb {
-        width:30%;
-    }
-    .full-post .entry-content {
-        padding:10px;
-    }
-    .entry-content-holder {
-        padding:52px 0 0;
-    }
-    .taxdescription{
-	    padding: 8px 17px;
-		margin-bottom: 10px;
-    }
+    .article-brief .attachment-index-thumb {width:30%;}
+    .full-post .entry-content {padding:10px;}
+    .entry-content-holder {padding:52px 0 0;}
+    .taxdescription{padding: 8px 17px;margin-bottom: 10px;}
     .filter-by {
         width:100%;
         border:1px solid #d8d8d8;
@@ -5942,12 +5926,12 @@ table.likes-leaderboard .entry-title {
         padding:8px 0;
     }
     /* TV Show Pages ************/
+    .tv-show #shows-nav .fb-like{margin: 0;}
     .tv-show .video-player-area {padding-bottom: 0;}
-    .tv-show #locateChannel {display: none;}
     #show-featured #video-thumbs li {margin: 0 1.1% 12px;}
     #show-destination .play-btn {top: 15%;}
-     #sponsors-area .sponsor-img {margin: 0 2% 20px; width: 45%;}
-     #show-store .store-left {padding-left: 10px;}
+    #sponsors-area .sponsor-img {margin: 0 2% 20px; width: 45%;}
+    #show-store .store-left {padding-left: 10px;}
     #show-featured #video-filter {margin: 20px 0 25px 3px;display: block;}
 } /* End of media */
 
@@ -6339,7 +6323,7 @@ table.likes-leaderboard .entry-title {
 	#show-featured #video-thumbs li {width: 30%;margin: 0 1.25% 12px;}
 	#show-featured .thumbs-full {padding: 0 10px;}
 	.wrap4padding {padding: 0 20px;}
-	.tv-show .shows-player-area {padding: 12px 20px 40px;}
+	.tv-show .shows-player-area {padding: 12px 20px 20px;}
 	.show-child-general {padding: 0;}
 	.tv-show .host-info img {max-width: 300px;}	
 	
@@ -6377,6 +6361,7 @@ table.likes-leaderboard .entry-title {
     .header .socials, #subscribe-area{display: none;}
     
     /* TV Show Pages **************/
+    .tv-show #shows-nav ul li a {font-size: 12.3px;padding: 0;display: inline-block;}
     #show-featured #video-thumbs li {width: 42%;margin: 0 3.6% 12px;}
     
 } /* End of media */

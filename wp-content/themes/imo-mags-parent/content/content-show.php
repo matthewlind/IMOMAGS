@@ -34,7 +34,7 @@ if( !is_single() ){
 while (have_posts()) : the_post();
 	$video_id = get_post_meta(get_the_ID(), '_video_id', TRUE); ?>
 	
-	<!-- this style is loading small image for the background. We need it because it is loading faster then the script so you don't see flickering -->
+	<!-- this style is loading small image for the background. We need it here because it's loading faster then the script so you don't see flickering -->
 	<style type="text/css">
 		body {
 			background: url("/wp-content/themes/imo-mags-parent/images/shows/dark-background.jpg");
@@ -77,22 +77,30 @@ while (have_posts()) : the_post();
 	</script>
 	<div id="show-destination" playerID="<?php echo get_field("tv_player_id","options"); ?>" adServerURL="<?php echo $adServerURL; ?>" videoLink="<?php echo $videoLink; ?>">
 		<?php get_template_part( 'content/tv-show/show-header' ); ?>
+		<div class="shows-player-area clearfix">
+			<div id="when-to-watch">
+				<div class="when-label">
+					<h3>WHEN TO WATCH</h3>
+					<a href="http://thesportsmanchannel.com" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/logos/sportsman-header-logo.jpg" alt="sc-logo" width="" height="" /></a>
+				</div>
+				
+				<?php 
+				$whenToWatch = get_field('when_to_watch',$acfID);
+				echo do_shortcode("[tscschedule format='singleshow' postid='".$whenToWatch."']"); ?>	
+						
+				<a href="<?php echo get_field('remind_me',$acfID); ?>" class="remind-me" target="_blank">
+					<span>REMIND ME<br> TO WATCH</span>
+				</a>
+			</div><!-- end of #when-to-watch -->
 			<div class="video-player-area">
 				<div id="video-gallery" class="video-player-wrap clearf">
 					<script type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script> 
 					<div id="player"></div>
-					<?php if( !mobile() ){ ?>
-					<div class="ad-block">
-						<?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>
-						<div class="new-show"></div>
-						<?php get_template_part( 'widgets/sportsmanLocator' ); ?>
-					</div>
-					<?php } ?>
 				</div><!-- end of .video-player-wrap -->
 				<div id="description-area">
 					<div class="unify">
 						<h1 class="video-title" data-videoid="<?php echo $video_id; ?>" data-slug="<?php echo $post->post_name;?>"><?php the_title(); ?></h1>
-						<ul class="social-buttons">
+						<ul class="social-buttons clearfix">
 						    <li>
 						        <a href="http://twitter.com/share" class="socialite twitter-share reload-twitter" data-text="<?php the_title(); ?>" data-url="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" data-count="none" rel="nofollow" target="_blank"><span class="vhidden"></span></a>
 						    </li>
@@ -104,40 +112,23 @@ while (have_posts()) : the_post();
 						    </li>
 						</ul>
 						<div class="video-description"><?php the_content(); ?></div>
-						<div class="video-more-content" style="display:none;"><div class="more-link">Read More</div></div>
-						<!--<div class="social-share clearf">
-							<div class="social-share">
-								<div class="share-results">
-									<span>2K</span>				
-									<div class="shares"><span>SHARES</span></div>		
-								</div>
-									<div class="social-share-btns">
-									<a class="reload-fb" href="http://www.facebook.com/sharer.php?u=<?php the_permalink();?>&amp;t=<?php the_title(); ?>" title="Share on Facebook." target="_blank">
-										<div class="facebook-share">
-											<i class="fa fa-facebook"></i>
-										</div>
-									</a>
-									<a class="reload-twitter" href="http://twitter.com/home/?status=<?php the_title(); ?> - <?php the_permalink(); ?>" title="Tweet this!" target="_blank">
-										<div class="twitter-share">
-											<i class="fa fa-twitter"></i>
-										</div>	
-									</a>
-									<a class="reload-google" href="https://plus.google.com/share?url=<?php the_permalink(); ?>" onclick="javascript:window.open(this.href,
-				  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
-										<div class="google-share">
-											<i class="fa fa-google-plus"></i>
-										</div>
-									</a>
-								</div>
-							
-							</div><!-- end of .social-share -->
-						</div><!-- end of .unify -->
-											
-					</div><!-- end of #description-area -->
-				<!-- this widget is located in imo-mags-parent/widgets -->
+						<div class="video-more-content" style="display:none;"><div class="more-link">Read More</div></div>					
+					</div><!-- end of .unify -->										
+				</div><!-- end of #description-area -->
+				
 			</div><!-- end of #video-player-area -->
-		</div><!-- end of #show-destination-->
-	</div><!-- end of #shows_player_area from show-header.php-->
+							
+			<div class="ad-block">
+				<div class="tv-ad-container">
+					<?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>
+				</div>
+				<?php get_template_part( 'widgets/sportsmanLocator' ); ?>
+			</div>
+				
+				<!-- this widget is located in imo-mags-parent/widgets -->
+
+		</div><!-- end of .shows_player_area-->
+	</div><!-- end of #show-destination-->
 <?php endwhile; ?> 
 <div id="show-featured" class="clearf">
 	<?php query_posts(array( 
@@ -204,10 +195,12 @@ while (have_posts()) : the_post();
 				<li id="thumb-<?php echo $i; ?>">
 					<div class="data-description" style="display:none;"><?php the_content(); ?></div>
 					<a class="video-thumb" data-slug="<?php echo $slug; ?>" data-img_url="<?php echo $thumb_url; ?>" data-post_url="<?php echo get_permalink(); ?>" data-title="<?php echo get_the_title(); ?>" data-videoid="<?php echo $video_id; ?>" adServerURL="<?php echo $adServerURL; ?>" videoLink="<?php echo $videoLink; ?>">
-						<?php the_post_thumbnail("show-thumb"); ?>
+						<div class="thumb-wrap">
+							<?php the_post_thumbnail("show-thumb"); ?>
+							<span class="play-btn"></span>
+						</div>
 						<span class="season-number"><?php echo $catName; ?></span>
 						<h3><?php the_title(); ?></h3>
-						<span class="play-btn"></span>
 					</a>
 				</li>
 		
