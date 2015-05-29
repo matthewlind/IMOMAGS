@@ -5138,26 +5138,6 @@ table.likes-leaderboard .entry-title {
 	.fixed-connect.fixed-connect-mobile .subscribe, .fixed-connect input[type="submit"]{margin: 5px auto;float: none;text-align: center;width: 140px;}
 	.fixed-connect.fixed-connect-mobile .close{margin-top: 5px;}
 	
-	/* TV Show Pages **************/
-	#show-featured #video-thumbs li {width: 30%;margin: 0 1.25% 12px;}
-	#show-featured .thumbs-full {padding: 0 10px;}
-	.wrap4padding {padding: 0 20px;}
-	.tv-show .shows-player-area {padding: 12px 20px 20px;}
-	.show-child-general {padding: 0;}
-	.tv-show .host-info img {max-width: 300px;}	
-	
-	.schedule-area-left {padding-right: 0;}
-	.tv-show .w2w-box {width: 100%;}
-	.w-sport {position: relative;width: 100%;}
-	
-	#sponsors-area .sponsor-img {width: 29.9%;margin: 0 1.35% 20px;}
-	#show-store .store-left, #show-store .widget_store-widget {float: none;width: 100%;}
-	#show-store .store-left {height: auto;text-align: center;padding-bottom: 20px;border-bottom: 1px solid #ccc;}
-	#show-store .store-sep{display: none;}
-	.tv-show .content-banner-section{margin: 0;}
-	.tv-show #description-area{margin: 10px 0 0;}
-	.tv-show #description-area .unify{min-height: auto;}
-	
 	/* E-Commerce Widget ************************/
 	#ecw-flexslider {width: 334px;}
 	/* END E-Commerce Widget ************************/
@@ -5179,11 +5159,8 @@ table.likes-leaderboard .entry-title {
     }
     .header .socials, #subscribe-area{display: none;}
     
-    /* TV Show Pages **************/
-    .tv-show #shows-nav ul li a {font-size: 12.3px;padding: 0;display: inline-block;}
-    #show-featured #video-thumbs li {width: 42%;margin: 0 3.6% 12px;}
-    
 } /* End of media */
+
 @media only screen and (max-width: 460px) {
 	/* Tune In Artem Test
 	********************************************************************************/
@@ -5237,13 +5214,6 @@ table.likes-leaderboard .entry-title {
 	.home-featured {float: none;width: 100%;padding: 0;}
 	.home-featured:nth-child(odd), .home-featured:first-child{padding: 0;}
 	
-	/* TV Show Pages **************/
-	#show-destination .play-btn {top: 17%;}
-	.tv-show .host-head {margin-bottom: 20px;}
-	
-	#sponsors-area .sponsor-img {width: 45%;margin: 0 2% 20px;}
-	.tv-show div.sponsors-wrap {padding: 30px 20px 40px;}
-	
 	/* E-Commerce Widget ************************/
 	#ecw-flexslider {width: 136px;}
 	#ecw-flexslider .flex-direction-nav .flex-prev {left: -52%;}
@@ -5251,6 +5221,7 @@ table.likes-leaderboard .entry-title {
 	/* END E-Commerce Widget ************************/
 
 } /* End of media */
+
 @media only screen and (max-width: 340px) {
 	.alignright, .alignleft{display: block;float: none;margin: 0 auto;}
 	.snap-drawer-right{
@@ -5319,32 +5290,7 @@ table.likes-leaderboard .entry-title {
 	width:120px;
 	float:left;
 	margin-right:10px;
-	}
-	
-	/* TV Show Pages **************/
-	.tv-show .host-info img {max-width: 100%;}	
-	.tv-show .m-shows-info {padding-bottom: 105px;}
-  	.tv-show .m-shows-info .m-shows-buttons .btn-green {width: 100%;}
-	.btn-green:first-child {margin-bottom: 10px;}
-	.w2w-schedule h1 {font-size: 25px;}
-	.w-sport-head h2 {font-size: 22px;}
-	.tv-show div.sponsors-wrap{padding-left: 10px;padding-right: 10px;}
-	.tonight-schedule .flex-direction-nav a{width: 20px;height: 100px;}
-	.tonight-schedule .flex-direction-nav a.flex-prev{background: url(images/arrow-left.png) no-repeat 10px 30px #dedddd;left: 0;}
-	.tonight-schedule .flex-direction-nav a.flex-next{background: url(images/arrow-right.png) no-repeat 10px 30px #dedddd;right: 40px;}
-	#upcoming {height: auto;overflow-y: visible;}
-	#upcoming .tonight-bg{display: none;}
-	#upcoming .tiled-grid .tiled-grid-entry.on-tonight{padding: 4px 0;text-align: center;width: 100%;height: auto;}
-	.tonight-schedule {margin-left: 0;width: 100%;padding:0clear: both;overflow: hidden;}
-	.tonight-schedule ul.slides li{height: 100px;}
-	#upcoming .tiled-grid .col{padding: 16px 60px 18px 8px;}
-	.tv-show .shows-player-area{padding-left: 15px;padding-right: 15px;}
-	#show-featured{padding-top: 20px;}
-	#show-featured .thumbs-full .loading-gif{top:-16px;}
-	.video-filter li{padding: 5px 0;text-align: center;border-right: 1px solid #ccc;}
-	#show-featured .thumbs-full .loading-gif.bottom-paginate{bottom: -55px;left: 6px;}
-	.tv-show #description-area{margin: 0;}	
-	.w2w-schedule .show-btn{width: 220px;font-size: 12px;}
+	}	
 	
 } /* End of media */
 
