@@ -36,7 +36,7 @@
 	} elseif ($dartDomain == "imo.in-fisherman") { ?>
 	
 	
-	<?php	$rigged_cat = array("rigged-ready", "ne", "se", "mw", "sw", "nw");
+	<?php	$rigged_cat = array("rigged-ready", "ne", "se", "mw", "sw", "nw", "sweeps");
 		
 			if ( is_category($rigged_cat) || in_category($rigged_cat)) {	
 	?>
