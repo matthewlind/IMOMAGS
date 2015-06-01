@@ -34,7 +34,7 @@
 		        <script type="text/javascript" src="https://www.viralsweep.com/external/widget.js"></script>
 			</div>
 			<div class="m-sweep-right">
-				<p>Fish 3 Full Action Packed Days with Fishing Nosara. Take a break to explore the Rain Forest Canopy , take a Horseback adventure into the Mountains , Snorkel the perfect beaches and reefs around  Nosara and explore the area in your street legal Safari Cart.
+				<p>Fish 3-Full Action Packed Days “Powered by Ram” with Fishing  Nosara. Take a break to explore the Rain Forest Canopy, Take a Horseback adventure into the Mountains, Snorkel the beautiful reefs, Relax on the beaches and Explore the local area in your street legal Safari Cart.
 				</p>
 				<div class="video-container">
 					<iframe width="560" height="315" src="https://www.youtube.com/embed/HdWgmCikSas" frameborder="0" allowfullscreen></iframe>
