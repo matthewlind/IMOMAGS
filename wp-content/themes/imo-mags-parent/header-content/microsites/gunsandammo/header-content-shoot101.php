@@ -5,7 +5,7 @@
 <div class="top-panel">
 	<a href="http://www.gunsandammo.com/" class="icon-arrow-left">Back to Guns & Ammo</a>
 </div>
-<div class="s101 <?php /* if (is_category( 'shoot101' )) { echo "cat-shoot101"; } */ if ( in_category( 'shoot101' )) { echo "cat-shoot101";}?>">
+<div class="s101 <?php if ( in_category( 'shoot101' )) { echo "cat-shoot101";}?>">
 	
 	<header class="main-header">
 		

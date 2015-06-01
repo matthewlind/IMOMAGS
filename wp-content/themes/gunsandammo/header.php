@@ -55,9 +55,9 @@
 	
 	<?php
 
-		if ( $microsite ){ ?>
-			<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/css/shoot101.css" />
-	<?php } else { ?>
+		if ( $microsite ){ 
+			include get_template_directory().'/css/styles-microsites.php';
+		} else { ?>
 			<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 	<?php	} ?>
 
@@ -137,7 +137,7 @@
 <body <?php body_class(); ?> domain="<?php echo $dartDomain; ?>" >
 <?php
 	if ( $microsite ){
-		get_template_part('content/content', 'header-microsite');
+		get_template_part('../imo-mags-parent/header-content/header-content', 'microsites');
 	}else{
 		get_template_part('content/content', 'header');
 	}

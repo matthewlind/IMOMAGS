@@ -30,6 +30,18 @@
 		}
 	}
 
+/* ------------------------------------------------------------------------
+	Guns & Ammo 
+---------------------------------------------------------------------------*/
+	elseif ($dartDomain == "imo.gunsandammo") { 
+		
+		if ( is_category('shoot101') || in_category('shoot101')) {
+			get_template_part('footer/microsite-footers/gunsandammo/footer', "shoot101");
+		} 
+		else {
+			get_template_part('footer/microsite-footers/gunsandammo/footer', $catslug);
+		}
+	}
 	
 /* ------------------------------------------------------------------------
 	Else 

@@ -46,6 +46,20 @@
 <?php	} ?>
 
 <?php
+	
+/* ------------------------------------------------------------------------
+	Guns and Ammo 
+-------------------------------------------------------------------------- */		
+	} elseif ($dartDomain == "imo.gunsandammo") { 
+		
+		if ( is_category('shoot101') || in_category('shoot101')) {	
+	?>
+		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/gunsandammo/microsite-shoot101.css" />
+<?php	} else { ?>
+		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/gunsandammo/microsite-<?php echo $catslug ?>.css" />
+<?php	} ?>
+
+<?php
 /*------------------------------------------------------------------------
 	Else 
 --------------------------------------------------------------------------*/	
