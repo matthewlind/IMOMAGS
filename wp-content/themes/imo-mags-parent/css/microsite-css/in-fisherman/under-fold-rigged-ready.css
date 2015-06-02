@@ -1,49 +1,13 @@
 /* ==========================================================================
 	4.0 Buttons
 ========================================================================== */
-.orange-btn {
-	display: inline-block;
-	text-align: center;
-	padding: 10px 5px 9px;
-	box-shadow: 0 2px 4px rgba(0,0,0,0.07);
-	line-height: 10px;
-	color: #222222;
-	font: 700 10px 'Titillium Web', Helvetica, Arial, sans-serif;
-	-webkit-transition:all 0.4s;
-	-moz-transition:all 0.4s;
-	transition:all 0.4s;
-background: #ff8a00; /* Old browsers */
-background: -moz-linear-gradient(top, #ff8a00 0%, #fea802 96%, #ff8a00 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff8a00), color-stop(96%,#fea802), color-stop(100%,#ff8a00)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top, #ff8a00 0%,#fea802 96%,#ff8a00 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top, #ff8a00 0%,#fea802 96%,#ff8a00 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top, #ff8a00 0%,#fea802 96%,#ff8a00 100%); /* IE10+ */
-background: linear-gradient(to bottom, #ff8a00 0%,#fea802 96%,#ff8a00 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff8a00', endColorstr='#ff8a00',GradientType=0 ); /* IE6-9 */
-
-}
-.orange-btn:hover {
-	color: black;
-	-webkit-transition:all 0.2s;
-	-moz-transition:all 0.2s;
-	transition:all 0.2s;
-	border-radius: 4px;
-background: #ff9900; /* Old browsers */
-background: -moz-linear-gradient(top, #ff9900 0%, #ffb702 4%, #ff9900 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff9900), color-stop(4%,#ffb702), color-stop(100%,#ff9900)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top, #ff9900 0%,#ffb702 4%,#ff9900 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top, #ff9900 0%,#ffb702 4%,#ff9900 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top, #ff9900 0%,#ffb702 4%,#ff9900 100%); /* IE10+ */
-background: linear-gradient(to bottom, #ff9900 0%,#ffb702 4%,#ff9900 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9900', endColorstr='#ff9900',GradientType=0 ); /* IE6-9 */
-}
 
 .blue-round-btn {
 	display: inline-block;
 	text-align: center;
 	padding: 0 25px;
-	box-shadow: 0 1px 3px rgba(0,0,0,0.07);
-	text-shadow: 0 1px 3px rgba(0,0,0,0.07);
+	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 	color: #19a0cf;
 	font: 400 14px/30px 'Lato', Helvetica, Arial, sans-serif;
 	border: 2px solid #19a0cf;
@@ -178,6 +142,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9900', end
 	margin-left: 10px;
 	vertical-align: middle;
 }
+.m-banners .m-truck-container:first-child .m-truck-title > div {
+	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") 0px -381px / 233px no-repeat;
+	width: 145px;
+}
 .m-truck > p {
 	font-size: 20px;
 	font-weight: 900;
@@ -187,7 +155,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9900', end
 }
 .m-truck > p sup {
 	font-weight: 700;
-}   
+}  
+.m-banners .m-truck-container:first-child .blue-round-btn {
+	box-shadow: 1px 3px 4px rgba(0,0,0,1);
+	text-shadow: 1px 3px 4px rgba(0,0,0,1);
+	color: #1ea9da;
+	border-color: #1ea9da;
+}
+.m-banners .m-truck-container:first-child .blue-round-btn:hover {
+	color: #eeeeee;
+} 
 
 
 /* ==========================================================================

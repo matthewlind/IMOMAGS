@@ -9,7 +9,7 @@
 			<span>WIN!</span>
 		</div>
 		<div class="m-sweep-text">
-			<h1>Get Rigged & Ready<br><span>TO FISH COSTA RICA!</span></h1>
+			<h1>Get Rigged & Ready<br><span>TO FISH<br> COSTA RICA!</span></h1>
 			<p>Win an all-expense paid 7 Night 6 Day Fishing trip for two in Nosara, Costa Rica home to some of the best Sport Fishing in Central America.</p>
 		</div>
 	</div><!-- .m-article-image -->
@@ -34,8 +34,7 @@
 		        <script type="text/javascript" src="https://www.viralsweep.com/external/widget.js"></script>
 			</div>
 			<div class="m-sweep-right">
-				<p>Fish 3-Full Action Packed Days “Powered by Ram” with Fishing  Nosara. Take a break to explore the Rain Forest Canopy, Take a Horseback adventure into the Mountains, Snorkel the beautiful reefs, Relax on the beaches and Explore the local area in your street legal Safari Cart.
-				</p>
+				<p>Fish 3 Full Action Packed Days with Fishing Nosara. Take a break to explore the Rain Forest Canopy , take a Horseback adventure into the Mountains , Snorkel the perfect beaches and reefs around  Nosara and explore the area in your street legal Safari Cart.</p>
 				<div class="video-container">
 					<iframe width="560" height="315" src="https://www.youtube.com/embed/HdWgmCikSas" frameborder="0" allowfullscreen></iframe>
 				</div>
@@ -60,15 +59,15 @@
 	<div class="m-truck-container">
 		<div class="m-truck">
 			<div class="m-truck-title clearfix">
-				<h3>RIGGED & READY</h3>
+				<h3>RAM Outdoorsman<sup>&reg;</sup></h3>
 				<div title="track tips"></div>
 			</div>
-			<p>Explore the RAM 1500<br> Outdoorsman<sup>&reg;</sup></p>
-			<a href="/rigged-ready/2015-ram-1500-outdoorsman/" class="blue-round-btn">
-				<span class="m-text-under">READ NOW</span>
+			<p>Win a 7 Night 6 Day Fishing trip in<br> Costa Rica</p>
+			<a href="/rigged-ready/sweeps/" class="blue-round-btn">
+				<span class="m-text-under">ENTER TO WIN</span>
 				<div class="m-btn-horizontal"></div>
 				<div class="m-btn-vertical"></div>
-				<span class="m-text-over">READ NOW</span>
+				<span class="m-text-over">ENTER TO WIN</span>
 			</a>
 		</div>
 	</div><!-- .m-truck-container -->

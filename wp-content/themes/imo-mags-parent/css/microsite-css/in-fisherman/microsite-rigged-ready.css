@@ -884,7 +884,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 /* Sweepstakes *******************/ 
 .category-sweeps .m-article-image {height: 370px;}
 .m-sweep-left {width: 400px;margin: 0 auto;}
-
+.m-sweep-text h1 span br {display: none;}
 
 /* Single Article *******************/ 
 /* Footer *******************/  
@@ -1054,7 +1054,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 .m-nav-erea { padding: 0 4%;}
 
 /* Home Page *******************/
-.m-home-wrap {margin-bottom: 280px;height: 67%;}
+.m-home-wrap {margin-bottom: 280px;height: 66%;}
 .m-regn {height: 100%;}
 .m-home-wrap .m-regn > li {width: 20%;height: 100%;padding-top: 0;background-size: cover;}
 .m-regn > li > a {-webkit-transition: all 0.4s ease;transition: all 0.4s ease;}
