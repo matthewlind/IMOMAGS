@@ -45,10 +45,8 @@
 				</div>
 			</a>
 		</li>
-	</ul>
-	
-<?php get_template_part('content/sweeps-banner', 'rigged-ready'); ?>
-	
+	</ul>	
+	<?php get_template_part('content/rigged-ready/sweeps', 'banner'); ?>	
 </div><!-- .m-home-wrap -->				
 				
 <?php get_footer(); ?>
