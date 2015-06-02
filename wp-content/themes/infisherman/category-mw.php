@@ -42,7 +42,7 @@
 	</div><!-- end .m-content -->				
 </div><!-- end .m-content-wrap -->	
 
-<div class="m-banners m-banners-region">
+<div class="m-banners clearfix m-banners-region">
 	<div class="m-truck-container">
 		<div class="m-truck">
 			<div class="m-truck-title clearfix">
