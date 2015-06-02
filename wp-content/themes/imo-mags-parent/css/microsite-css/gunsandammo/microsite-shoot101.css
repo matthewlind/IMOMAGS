@@ -833,7 +833,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9900', end
 .s-footer {
 	max-width: 100%;
 	padding: 50px 20px 42px;
-}   
+}  
+.s-mag {
+	z-index: 450;
+} 
 .s-mag-cover {
 	float: left;
 	width: 44%;

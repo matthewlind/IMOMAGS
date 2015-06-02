@@ -857,6 +857,9 @@ h1, h2, h3, h4, h5 {
 	max-width: 100%;
 	padding: 50px 20px 42px;
 }   
+.s-mag {
+	z-index: 450;
+}
 .s-mag-cover {
 	float: left;
 	width: 44%;
