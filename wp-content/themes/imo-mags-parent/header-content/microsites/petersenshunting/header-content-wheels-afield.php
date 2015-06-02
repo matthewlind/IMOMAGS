@@ -15,8 +15,7 @@
 			</div>
 			<div class="nav-container clearfix">
 				<nav id="site-navigation" class="main-nav" role="navigation">
-					<?php wp_nav_menu( array( 'theme_location' => 'wheels_afield', 'container' => '0' ) ); ?>
-					
+					<?php wp_nav_menu( array( 'theme_location' => 'wheels_afield', 'container' => '0' ) ); ?>					
 					<div class="m-buymag-drop">
 						<ul>
 							<li class="clearfix">
@@ -37,9 +36,7 @@
 								</div>
 							</li>
 						</ul>
-						
-					</div>
-						
+					</div><!-- .m-buymag-drop -->
 				</nav>
 				<div class="social-buttons">
 					<ul>

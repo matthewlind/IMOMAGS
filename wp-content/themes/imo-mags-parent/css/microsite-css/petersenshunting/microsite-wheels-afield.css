@@ -1446,7 +1446,6 @@ h1, h2, h3, h4, h5 {
 /* head */
 .single .m-buymag-drop {left: 35px; right: auto; top: 44px;}
 
-
 /* Wordpress Defaults *******************/  
 .m-article .aligncenter {margin: 30px auto;}
 .m-article .alignnone {margin: 30px 0;float: none;}
@@ -1604,7 +1603,7 @@ h1, h2, h3, h4, h5 {
 .s-mag {width: 857px;float: left;margin-right: 30px;border-right: 2px solid #a6a6a6;}
 .s-mag-cover { margin-right: 5%; width: 30%;}
 .s-mag-descr { float: left; width: 65%; padding-right: 5%;}
-.s-mag-buy {position: absolute; bottom: -9px;left: 35%;}
+.s-mag-buy {position: absolute; bottom: -9px;left: 35%;z-index: 500;}
 .s-mag-buy h2 {font-size: 32px;}
 .s-or {height: 16px;}
 .s-or > div { top: -10px; width: 50px;font-size: 21px;}

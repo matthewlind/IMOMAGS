@@ -14,6 +14,7 @@
 		</div>
 		<div class="s-mag-buy">
 			<h2>NOW AVAILABLE ON NEWSSTANDS!</h2>
+			<?php echo do_shortcode('[osgimpubissue bipad="30314" alias="foot" vertical="up" gotxt="GO!"]'); ?>
 			<div class="s-or">
 				<div>OR</div>			
 			</div>
@@ -64,7 +65,7 @@
 	    </div>
 	</div><!-- end .m-footer-bottom -->
 </footer>
-	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/microsite-js/gunsandammo/shoot101.js"></script>
+	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/microsite-js/gunsandammo/script-shoot101.js"></script>
 	<!--[if lt IE 9]><script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->
 
 	<?php wp_footer(); ?>
