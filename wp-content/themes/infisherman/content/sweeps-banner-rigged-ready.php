@@ -1,4 +1,4 @@
-<div class="m-banners m-banners-region">
+<div class="m-banners <?php if ( !is_category('rigged-ready') && in_category('rigged-ready')) { echo 'clearfix m-banners-region';}?>">
 	<div class="m-truck-container">
 		<div class="m-truck">
 			<div class="m-truck-title clearfix">
