@@ -20,7 +20,7 @@
 	In-Fisherman 
 ---------------------------------------------------------------------------*/	 
 	elseif ($dartDomain == "imo.in-fisherman") { 
-		$rigged_cat = array("rigged-ready", "ne", "se", "mw", "sw", "nw");
+		$rigged_cat = array("rigged-ready", "ne", "se", "mw", "sw", "nw", "sweeps");
 		
 		if ( is_category($rigged_cat) || in_category($rigged_cat)) {
 			include("wp-content/themes/imo-mags-parent/header-content/microsites/in-fisherman/header-content-riggedready.php");
