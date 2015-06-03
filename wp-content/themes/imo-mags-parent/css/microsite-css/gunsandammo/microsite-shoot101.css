@@ -1306,16 +1306,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9900', end
 .m-buymag-drop > ul > li:nth-child(2) .unavailble-mag {
 	top: 0; bottom:0; left: 0; right: 0;
 }
-.m-buymag-drop > ul > li:nth-child(2):hover .unavailble-mag {
-	display: block;
-}
 /* foot */
 .s-mag-btns .orange-btn:first-child .unavailble-mag {
 	top: -27px;
 	left: 0;
-}
-.s-mag-btns .orange-btn:first-child:hover .unavailble-mag {
-	display: block;
+	text-align: left;
 }
 /* single article */
 .m-buy-mag-bottom .m-buy-dig:nth-child(2) .unavailble-mag {
@@ -1324,7 +1319,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9900', end
 .m-buy-mag-bottom .m-buy-dig:nth-child(2) .unavailble-mag p {
 	font-size: 11px;
 }
-.m-buy-mag-bottom .m-buy-dig:nth-child(2):hover .unavailble-mag {
+/* all hover */
+.m-buymag-drop > ul > li:nth-child(2):hover .unavailble-mag, .s-mag-btns .orange-btn:first-child:hover .unavailble-mag, .m-buy-mag-bottom .m-buy-dig:nth-child(2):hover .unavailble-mag {
 	display: block;
 }
 
@@ -1637,6 +1633,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9900', end
 .m-article .alignright {margin-right: -150px;}
 .m-article .alignleft { margin-left: -150px;}
 .alignright-content {float: right;margin-right: -150px;}
+
+/* Footer *******************/
+.s-mag-btns .orange-btn:first-child {margin-right: 2%;}
 
 /* message unavailable magazine in online store ****************/
 /* foot */
