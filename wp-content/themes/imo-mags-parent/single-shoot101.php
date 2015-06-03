@@ -59,15 +59,20 @@
 		    			<h2>NOW AVAILABLE ON NEWSSTANDS!</h2>
 		    			<?php echo do_shortcode('[osgimpubissue bipad="30314" alias="mid"]'); ?> 
 		    			<div class="m-buy-mag-bottom clearfix"> 				
-		    				<div class="m-buy-mag-img"></div> 
-		    				<a href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">BUY PRINT MAGAZINE NOW!</a> 
+		    				<div class="m-buy-mag-img"></div>
+		    				<div class="m-buy-dig">
+		    					<a href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">BUY PRINT MAGAZINE NOW!</a> 
+		    					<div class="unavailble-mag">
+									<p>The print magazine is temporarily unavailable in the online store. Instead find it in your area using your zip code, or get the digital edition.</p>
+								</div>
+		    				</div> 
 		    				<div class="m-buy-dig" href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">
 								<span>GET THE DIGITAL EDITION!</span>
 			    				<div class="m-dig-drop">
 									<ul>
-										<li><a href="https://itunes.apple.com/us/app/shoot-101/id980668053?ls=1&mt=8" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/itunes-logo.png"><span>iTunes</span></a></li>
-										<li><a href="https://play.google.com/store/apps/details?id=com.imo.shooting101" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/google_play_icon.png"><span>Google Play</span></a></li>
-										<li><a href="http://apps.microsoft.com/windows/en-us/app/shoot-101/0560cb9d-d461-4856-9abd-d3efb69862d9" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/windows-store-icon.png"><span>Windows Store</span></a></li>
+										<li><a href="https://itunes.apple.com/us/app/shoot-101/id980668053?ls=1&mt=8" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/itunes-logo.png"><span>iTunes</span></a></li>
+										<li><a href="https://play.google.com/store/apps/details?id=com.imo.shooting101" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/google_play_icon.png"><span>Google Play</span></a></li>
+										<li><a href="http://apps.microsoft.com/windows/en-us/app/shoot-101/0560cb9d-d461-4856-9abd-d3efb69862d9" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/windows-store-icon.png"><span>Windows Store</span></a></li>
 									</ul>
 								</div><!-- .m-buy-mag-hover -->										
 		    				</div> 
@@ -101,14 +106,19 @@
     			<?php echo do_shortcode('[osgimpubissue bipad="30314" alias="mid"]'); ?>
     			<div class="m-buy-mag-bottom clearfix"> 				
     				<div class="m-buy-mag-img"></div> 
-    				<a href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">BUY PRINT MAGAZINE NOW!</a> 
+    				<div class="m-buy-dig">
+    					<a href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">BUY PRINT MAGAZINE NOW!</a> 
+    					<div class="unavailble-mag">
+							<p>The print magazine is temporarily unavailable in the online store. Instead find it in your area using your zip code, or get the digital edition.</p>
+						</div>
+    				</div>
     				<div class="m-buy-dig" href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">
 						<span>GET THE DIGITAL EDITION!</span>
 	    				<div class="m-dig-drop">
 							<ul>
-								<li><a href="https://itunes.apple.com/us/app/shoot-101/id980668053?ls=1&mt=8" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/itunes-logo.png"><span>iTunes</span></a></li>
-								<li><a href="https://play.google.com/store/apps/details?id=com.imo.shooting101" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/google_play_icon.png"><span>Google Play</span></a></li>
-								<li><a href="http://apps.microsoft.com/windows/en-us/app/shoot-101/0560cb9d-d461-4856-9abd-d3efb69862d9" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/windows-store-icon.png"><span>Windows Store</span></a></li>
+								<li><a href="https://itunes.apple.com/us/app/shoot-101/id980668053?ls=1&mt=8" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/itunes-logo.png"><span>iTunes</span></a></li>
+								<li><a href="https://play.google.com/store/apps/details?id=com.imo.shooting101" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/google_play_icon.png"><span>Google Play</span></a></li>
+								<li><a href="http://apps.microsoft.com/windows/en-us/app/shoot-101/0560cb9d-d461-4856-9abd-d3efb69862d9" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/windows-store-icon.png"><span>Windows Store</span></a></li>
 							</ul>
 						</div><!-- .m-buy-mag-hover -->										
     				</div> 

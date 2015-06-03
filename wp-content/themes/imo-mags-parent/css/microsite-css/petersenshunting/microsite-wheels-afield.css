@@ -924,7 +924,6 @@ h1, h2, h3, h4, h5 {
 	cursor: default;
 	position: relative;
 }
-
 .s-mag-btns div.mustard-btn:hover .buy-mag-drop {
 	display: block;
 }
@@ -941,7 +940,7 @@ h1, h2, h3, h4, h5 {
 	padding: 0;
 	list-style: none;
 	text-align: left;
-	margin: 7px 0;
+	margin: 14px 0 7px;
 }
 .buy-mag-drop ul li {
 	padding-left: 10px;
@@ -1001,7 +1000,6 @@ h1, h2, h3, h4, h5 {
 	padding-top: 30px;
 	border-top: 1px solid #444444;
 }
-
 .m-imo-logo {
 	width: 110px;
 	margin: 0 auto 15px;
@@ -1094,7 +1092,6 @@ h1, h2, h3, h4, h5 {
 #pubfinderzipcontfoot .pubfinderzipresult, #pubfinderzipcontfoot .pubfinderpoplist, #pubfinderzipconthead .pubfinderzipresult, #pubfinderzipconthead .pubfinderpoplist {
 	color: #222222;
 }
-
 
 /* header zip ****************/
 
@@ -1270,7 +1267,6 @@ h1, h2, h3, h4, h5 {
 	width: 300px;
 	top: -10px !important;
 }
-
 
 
 /* ==========================================================================
