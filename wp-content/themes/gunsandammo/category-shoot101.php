@@ -120,4 +120,4 @@
 </div><!-- end .content -->
 
 
-<?php echo get_template_part( 'footer', 'shoot101' ); ?>
+<?php get_template_part( '../imo-mags-parent/footer/footer', 'microsite' ); ?>

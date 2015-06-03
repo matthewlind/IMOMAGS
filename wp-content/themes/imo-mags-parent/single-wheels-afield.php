@@ -62,9 +62,9 @@
 								<span>GET THE DIGITAL EDITION!</span>
 			    				<div class="m-dig-drop">
 									<ul>
-										<li><a href="https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=985774523&mt=8" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/itunes-logo.png"><span>iTunes</span></a></li>
-										<li><a href="https://play.google.com/store/apps/details?id=com.imo.wheelsafield" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/google_play_icon.png"><span>Google Play</span></a></li>
-										<li><a href="http://apps.microsoft.com/windows/en-us/app/wheels-afield/865f31ca-7ea7-462f-9bad-0712025e3fd4" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/windows-store-icon.png"><span>Windows Store</span></a></li>
+										<li><a href="https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=985774523&mt=8" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/itunes-logo.png"><span>iTunes</span></a></li>
+										<li><a href="https://play.google.com/store/apps/details?id=com.imo.wheelsafield" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/google_play_icon.png"><span>Google Play</span></a></li>
+										<li><a href="http://apps.microsoft.com/windows/en-us/app/wheels-afield/865f31ca-7ea7-462f-9bad-0712025e3fd4" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/windows-store-icon.png"><span>Windows Store</span></a></li>
 									</ul>
 								</div><!-- .m-buy-mag-hover -->										
 		    				</div> 
@@ -85,7 +85,7 @@
 		} else { ?>
 		<div class="alignright-content m-buy-wrap"> 
     		<div class="m-buy-mag" style="margin-top: 45px;"> 
-    			<h2>NOW AVAILABLE ON NEWSSTANDS!</h2>
+    			<h2>NOW AVAILABLE ON NEWSSTANDS!</h2> 
     			<?php echo do_shortcode('[osgimpubissue bipad="34837" alias="mid"]'); ?>
     			<div class="m-buy-mag-bottom clearfix"> 				
     				<div class="m-buy-mag-img"></div> 
@@ -94,9 +94,9 @@
 						<span>GET THE DIGITAL EDITION!</span>
 	    				<div class="m-dig-drop">
 							<ul>
-								<li><a href="https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=985774523&mt=8" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/itunes-logo.png"><span>iTunes</span></a></li>
-								<li><a href="https://play.google.com/store/apps/details?id=com.imo.wheelsafield" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/google_play_icon.png"><span>Google Play</span></a></li>
-								<li><a href="http://apps.microsoft.com/windows/en-us/app/wheels-afield/865f31ca-7ea7-462f-9bad-0712025e3fd4" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/windows-store-icon.png"><span>Windows Store</span></a></li>
+								<li><a href="https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=985774523&mt=8" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/itunes-logo.png"><span>iTunes</span></a></li>
+								<li><a href="https://play.google.com/store/apps/details?id=com.imo.wheelsafield" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/google_play_icon.png"><span>Google Play</span></a></li>
+								<li><a href="http://apps.microsoft.com/windows/en-us/app/wheels-afield/865f31ca-7ea7-462f-9bad-0712025e3fd4" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/windows-store-icon.png"><span>Windows Store</span></a></li>
 							</ul>
 						</div><!-- .m-buy-mag-hover -->										
     				</div> 

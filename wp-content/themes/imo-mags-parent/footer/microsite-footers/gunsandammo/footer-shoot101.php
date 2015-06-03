@@ -14,18 +14,24 @@
 		</div>
 		<div class="s-mag-buy">
 			<h2>NOW AVAILABLE ON NEWSSTANDS!</h2>
+			<?php echo do_shortcode('[osgimpubissue bipad="30314" alias="foot" vertical="up" gotxt="GO!"]'); ?>
 			<div class="s-or">
 				<div>OR</div>			
 			</div>
 			<div class="s-mag-btns clearfix">
-				<a class="orange-btn" href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">BUY THE MAGAZINE NOW!</a>
+				<div class="orange-btn">
+					<a href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">BUY THE MAGAZINE NOW!</a>
+					<div class="unavailble-mag">
+						<p>The print magazine is temporarily unavailable in the online store. Instead find it in your area using your zip code, or get the digital edition.</p>
+					</div>
+				</div>
 				<div class="orange-btn">
 					GET THE DIGITAL EDITION!
 					<div class="buy-mag-drop">
 						<ul>
-							<li><a href="https://itunes.apple.com/us/app/shoot-101/id980668053?ls=1&mt=8" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/itunes-logo.png"><span>iTunes</span></a></li>
-							<li><a href="https://play.google.com/store/apps/details?id=com.imo.shooting101" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/google_play_icon.png"><span>Google Play</span></a></li>
-							<li><a href="http://apps.microsoft.com/windows/en-us/app/shoot-101/0560cb9d-d461-4856-9abd-d3efb69862d9" target="_blank"><img src="/wp-content/themes/gunsandammo/images/shoot101/windows-store-icon.png"><span>Windows Store</span></a></li>
+							<li><a href="https://itunes.apple.com/us/app/shoot-101/id980668053?ls=1&mt=8" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/itunes-logo.png"><span>iTunes</span></a></li>
+							<li><a href="https://play.google.com/store/apps/details?id=com.imo.shooting101" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/google_play_icon.png"><span>Google Play</span></a></li>
+							<li><a href="http://apps.microsoft.com/windows/en-us/app/shoot-101/0560cb9d-d461-4856-9abd-d3efb69862d9" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/windows-store-icon.png"><span>Windows Store</span></a></li>						
 						</ul>
 					</div>
 				</div>
@@ -64,7 +70,7 @@
 	    </div>
 	</div><!-- end .m-footer-bottom -->
 </footer>
-	<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/shoot101.js"></script>
+	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/microsite-js/gunsandammo/script-shoot101.js"></script>
 	<!--[if lt IE 9]><script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->
 
 	<?php wp_footer(); ?>

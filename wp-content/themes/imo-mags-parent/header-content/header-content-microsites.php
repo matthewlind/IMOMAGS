@@ -25,11 +25,18 @@
 		if ( is_category($rigged_cat) || in_category($rigged_cat)) {
 			include("wp-content/themes/imo-mags-parent/header-content/microsites/in-fisherman/header-content-riggedready.php");
 		} 
-		else {
-			include("wp-content/themes/imo-mags-parent/header-content/microsites/in-fisherman/header-content-". $catslug . ".php");
-		}
 	}
 	
+	
+/* ------------------------------------------------------------------------
+	Guns & Ammo 
+---------------------------------------------------------------------------*/
+	elseif ($dartDomain == "imo.gunsandammo") { 		
+		if ( is_category('shoot101') || in_category('shoot101')) {
+			get_template_part('header-content/microsites/gunsandammo/header-content', "shoot101");
+		} 
+	}	
+
 
 /* ------------------------------------------------------------------------
 	Else 

@@ -13,7 +13,6 @@
 9.0 Print styles
 
 ============================================================================== */
-@import url("normalize.css");
 @import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,300,200,600,700);
 @import url(http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic);
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
@@ -348,8 +347,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9900', end
 /* Main-nav */
 .main-nav {display: block; float: left; margin: 0 0 0 20px; position: relative; z-index: 30;}	
 .main-nav ul {margin: 0; padding: 0;}
-.main-nav ul li {display: inline-block; float: left;margin-top: 13px; height: 11px; border-left: 1px solid #e9e9e9;}
-.main-nav ul li a {display: block;padding: 0 11px;color: #c2c2c2;font:13px/13px "Titilium Web", sans-serif ;}
+.main-nav > ul > li {display: inline-block; float: left;margin-top: 13px; height: 11px; border-left: 1px solid #e9e9e9;}
+.main-nav > ul > li > a {display: block;padding: 0 11px;color: #c2c2c2;font:13px/13px "Titilium Web", sans-serif ;}
 .main-nav ul li:hover a {color: white;}
 .main-nav ul li:last-child {border-right: 1px solid #e9e9e9;} 
 .main-nav ul li:first-child a {margin: 0;}
@@ -689,7 +688,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9900', end
 	background-size: cover;
 	background-position: center center;
 }
-.m-buy-mag-bottom > a, .m-buy-mag-bottom .m-buy-dig {
+.m-buy-mag-bottom .m-buy-dig {
 	display: block;
 	position: relative;
 	float: left;
@@ -713,19 +712,30 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9900', end
 	-moz-transition:color 0s;
 	transition:color 0s;
 }
-.m-buy-mag-bottom a:hover {
+.m-buy-mag-bottom .m-buy-dig > a {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.m-buy-mag-bottom .m-buy-dig:nth-child(2) {
+	margin-bottom: 13px;
+}
+.m-buy-mag-bottom .m-buy-dig:nth-child(2):hover a {
+	color: white;
+}
+.m-buy-mag-bottom .m-dig-drop a:hover, .m-buy-mag-bottom .m-buy-dig:nth-child(2):hover {
 	color: white;
 	border: 1px solid #ff9900;
-	background: #ffb702; /* Old browsers */
 	border-radius: 4px;
 	font-weight: 600;
-background: -moz-linear-gradient(top, #ffb702 0%, #ff9900 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffb702), color-stop(100%,#ff9900)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top, #ffb702 0%,#ff9900 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top, #ffb702 0%,#ff9900 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top, #ffb702 0%,#ff9900 100%); /* IE10+ */
-background: linear-gradient(to bottom, #ffb702 0%,#ff9900 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', endColorstr='#ff9900',GradientType=0 ); /* IE6-9 */
+	background: #ffb702; /* Old browsers */
+	background: -moz-linear-gradient(top, #ffb702 0%, #ff9900 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffb702), color-stop(100%,#ff9900)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ffb702 0%,#ff9900 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ffb702 0%,#ff9900 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ffb702 0%,#ff9900 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #ffb702 0%,#ff9900 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', endColorstr='#ff9900',GradientType=0 ); /* IE6-9 */
 	-webkit-transition:color 0s;
 	-moz-transition:color 0s;
 	transition:color 0s;
@@ -834,7 +844,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 .s-footer {
 	max-width: 100%;
 	padding: 50px 20px 42px;
-}   
+}  
+.s-mag {
+	z-index: 450;
+} 
 .s-mag-cover {
 	float: left;
 	width: 44%;
@@ -870,6 +883,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 	border-top: 1px solid #959595;
 	border-bottom: 1px solid #959595;
 }
+.category .s-or {
+	margin-top: 11px;
+}
 .s-or > div {
 	position: absolute;
 	left: 0;right: 0; top: -8px; 
@@ -889,7 +905,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 	width: 48%;
 	position: relative;
 }
-.s-mag-btns a.orange-btn {
+.s-mag-btns .orange-btn > a {
+	color: #222222;
+}
+.s-mag-btns .orange-btn:first-child {
 	margin-right: 2.5%;
 }
 .s-mag-btns div.orange-btn {
@@ -913,7 +932,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 	padding: 0;
 	list-style: none;
 	text-align: left;
-	margin: 7px 0;
+	margin: 14px 0 7px;
 }
 .buy-mag-drop ul li {
 	padding-left: 10px;
@@ -943,12 +962,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 	float: left;
 	font: 400 11px/25px "Source Sans Pro", sans-serif;
 }
-
-
-
-
-
-
 .footer-message h2 {
 	font-size: 19px;
 	text-align: center;
@@ -979,7 +992,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 	padding-top: 30px;
 	border-top: 1px solid #444444;
 }
-
 .m-imo-logo {
 	width: 110px;
 	margin: 0 auto 15px;
@@ -1009,6 +1021,309 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 	font-size: 13px;
 }
 
+
+/* ==========================================================================
+   7.0 Zip code finder
+   ========================================================================== */
+   
+/* single article content area **************/
+.single .pubfinderzipgo {
+	color: #ee7700;
+	width: 40px;
+	padding: 0;
+}
+.single .pubfinderform:hover {
+	border: 1px solid #ff9900;
+	background: -moz-linear-gradient(top, #ffb702 0%, #ff9900 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffb702), color-stop(100%,#ff9900)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ffb702 0%,#ff9900 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ffb702 0%,#ff9900 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ffb702 0%,#ff9900 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #ffb702 0%,#ff9900 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', endColorstr='#ff9900',GradientType=0 ); /* IE6-9 */
+}
+   
+/* footer zip ****************/
+#pubfinderzipcontfoot {
+	width: 100%;
+}
+#pubfinderzipcontfoot .pubfinderformcont {
+	margin: 0;
+	width: 100%;
+}
+#pubfinderzipcontfoot .pubfinderformcont label {
+	float: left;
+	font-size: 11px;
+	margin-top: 8px;
+}
+#pubfinderzipcontfoot .pubfinderform {
+	border: none;
+	float: right;
+	padding: 2px 2px 3px 3px;
+	background: #ff8a00; /* Old browsers */
+	background: -moz-linear-gradient(top, #ff8a00 0%, #fea802 96%, #ff8a00 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff8a00), color-stop(96%,#fea802), color-stop(100%,#ff8a00)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ff8a00 0%,#fea802 96%,#ff8a00 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ff8a00 0%,#fea802 96%,#ff8a00 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ff8a00 0%,#fea802 96%,#ff8a00 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #ff8a00 0%,#fea802 96%,#ff8a00 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff8a00', endColorstr='#ff8a00',GradientType=0 ); /* IE6-9 */
+}
+#pubfinderzipcontfoot .pubfinderform:hover {
+	background: #ff9900; /* Old browsers */
+	background: -moz-linear-gradient(top, #ff9900 0%, #ffb702 4%, #ff9900 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff9900), color-stop(4%,#ffb702), color-stop(100%,#ff9900)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ff9900 0%,#ffb702 4%,#ff9900 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ff9900 0%,#ffb702 4%,#ff9900 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ff9900 0%,#ffb702 4%,#ff9900 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #ff9900 0%,#ffb702 4%,#ff9900 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9900', endColorstr='#ff9900',GradientType=0 ); /* IE6-9 */
+}
+#pubfinderzipcontfoot .pubfinderform ::-webkit-input-placeholder, #pubfinderzipconthead .pubfinderform ::-webkit-input-placeholder { color: #cccccc; }
+#pubfinderzipcontfoot .pubfinderform :-moz-placeholder, #pubfinderzipconthead .pubfinderform :-moz-placeholder { color: #cccccc;  }
+#pubfinderzipcontfoot .pubfinderform ::-moz-placeholder, #pubfinderzipconthead .pubfinderform ::-moz-placeholder { color: #cccccc;  }
+#pubfinderzipcontfoot .pubfinderform :-ms-input-placeholder, #pubfinderzipconthead .pubfinderform :-ms-input-placeholder {  color: #cccccc;  }
+
+#pubfinderzipcontfoot .pubfinderzipgo {
+	color: black;
+	font-weight: 600;
+	padding: 2px 1px 0;	
+}
+#pubfinderzipcontfoot .pubfinderzipgo:hover {
+	color: white;
+}
+#pubfinderzipcontfoot .pubfinderzip {
+	color: #eeeeee;
+	background-color: #333333;
+	border: none;
+	text-align: center;
+	height: 23px;
+}
+#pubfinderzipcontfoot .pubfinderzipresult, #pubfinderzipcontfoot .pubfinderpoplist, #pubfinderzipconthead .pubfinderzipresult, #pubfinderzipconthead .pubfinderpoplist {
+	color: #222222;
+}
+
+
+/* header zip ****************/
+
+.m-buymag-drop {
+	display: none;
+	width: 280px;
+	background-color: #333333;
+	position: absolute;
+	top: 39px; 
+	left: 0;
+	z-index: 900;
+	padding: 10px;
+	font-size: 14px;
+	color: #e9e9e9;
+	text-align: left;
+	box-shadow: 0 2px 4px rgba(0,0,0,.6);
+}
+.single .m-buymag-drop {
+	left: 0; right: 0; top:36px; margin: 0 auto; 
+	display: none;
+}
+.m-display-block,  .single .m-display-block {
+	display: block;
+}
+.m-buymag-drop ul li a {
+	font-size: 14px;
+	color: #e9e9e9;
+}
+.m-buymag-drop ul > li, .m-buymag-drop ul > li:last-child, .m-buymag-drop ul > li:last-child:hover, .m-buymag-drop ul > li:hover {
+	border: none;
+}
+.m-buymag-drop > ul > li {
+	margin: 0;
+	width: 100%;
+	height: auto;
+	margin-bottom: 17px;
+}
+.m-buymag-drop > ul > li:nth-child(1) {
+	margin-top: 10px;
+	position: relative;
+}
+.m-buymag-drop i {
+	color: #eeeeee;
+	position: absolute;
+	right: -10px;
+	top: -20px;
+	padding: 10px;
+	cursor: pointer;
+}
+.m-buymag-drop i:hover {
+	color: #bb9632;
+}
+.m-buymag-drop > ul > li:nth-child(2) {
+	position: relative;
+	border-top: 1px solid #777777;
+	border-bottom: 1px solid #777777;
+}
+.m-buymag-drop > ul > li:nth-child(2) a {
+	padding: 15px 0 16px;
+	display: block;
+}
+.m-buymag-drop > ul > li:nth-child(2) a:hover {
+	color: #ee7700;
+}
+.m-buymag-drop > ul > li:nth-child(2) a::after {
+	content: "\e600";
+	font-family: "icomoon";
+	color: #ee7700;
+	display: inline-block;
+	-webkit-transform: rotate(180deg);
+	transform: rotate(180deg);
+	margin-left: 14px;
+	vertical-align: middle;
+}
+.m-buymag-drop > ul > li:nth-child(3) {
+	margin-bottom: 0;
+}
+.m-buymag-drop > ul > li:nth-child(3):hover a {
+	color: #e9e9e9;
+}
+.m-list-dig {
+	border: 3px solid #ee7700;
+	background-color: #333333;
+	margin-top: 12px;
+}
+.m-list-dig ul {
+	padding: 0;
+	list-style: none;
+	text-align: left;
+	margin: 7px 0;
+}
+.m-list-dig ul li {
+	padding-left: 10px;
+	height: 33px;
+	width: 100%;
+	display: inline-block;
+}
+.m-list-dig ul li:hover {
+	background-color: #202020;
+}
+.m-list-dig ul li a img {
+	display: block;
+	width: 25px;
+	height: 25px;
+	margin-right: 12px;
+	float: left;
+}
+.m-list-dig ul li a {
+	color: white;
+	width: 100%;
+	height: 33px;
+	display: block;
+	padding: 4px 0;
+}
+.m-buymag-drop .m-list-dig > ul > li:hover a {
+	color: #ee7700;
+}
+.m-list-dig ul li a span {
+	display: block;
+	float: left;
+	font: 400 13px/25px 'Open Sans', sans-serif;
+}
+#pubfinderzipconthead {
+	width: 100%;
+	margin-top: 0;
+}
+#pubfinderzipconthead .pubfinderformcont {
+	margin: 0;
+	width: 100%;
+}
+#pubfinderzipconthead .pubfinderformcont label {
+	font-size: 14px;
+	margin-top: 8px;
+}
+#pubfinderzipconthead .pubfinderform {
+	margin: 10px 0 0;
+	width: 100%;
+	border: none;
+	padding: 2px 2px 3px 3px;
+	background: #ff8a00; /* Old browsers */
+	background: -moz-linear-gradient(top, #ff8a00 0%, #fea802 96%, #ff8a00 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff8a00), color-stop(96%,#fea802), color-stop(100%,#ff8a00)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ff8a00 0%,#fea802 96%,#ff8a00 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ff8a00 0%,#fea802 96%,#ff8a00 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ff8a00 0%,#fea802 96%,#ff8a00 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #ff8a00 0%,#fea802 96%,#ff8a00 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff8a00', endColorstr='#ff8a00',GradientType=0 ); /* IE6-9 */
+}
+#pubfinderzipconthead .pubfinderform:hover {
+	background: #ff9900; /* Old browsers */
+	background: -moz-linear-gradient(top, #ff9900 0%, #ffb702 4%, #ff9900 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff9900), color-stop(4%,#ffb702), color-stop(100%,#ff9900)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ff9900 0%,#ffb702 4%,#ff9900 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ff9900 0%,#ffb702 4%,#ff9900 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ff9900 0%,#ffb702 4%,#ff9900 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #ff9900 0%,#ffb702 4%,#ff9900 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9900', endColorstr='#ff9900',GradientType=0 ); /* IE6-9 */
+}
+#pubfinderzipconthead .pubfinderzipgo {
+	color: black;
+	font-weight: 600;
+	padding: 2px 1px 0;
+	width: 35%;	
+}
+#pubfinderzipconthead .pubfinderzipgo:hover {
+	color: white;
+}
+#pubfinderzipconthead .pubfinderzip {
+	color: #eeeeee;
+	background-color: #333333;
+	border: none;
+	text-align: center;
+	height: 23px;
+	width: 62%;
+}
+#pubfinderzipconthead .pubfinderpop {
+	right: auto !important;
+	left: -20px !important;
+	width: 300px;
+	top: -10px !important;
+}
+
+/* message unavailable magazine in online store ****************/
+
+.unavailble-mag {
+	position: absolute;
+	background-color: #f5f5f5;		
+	padding: 3px 5px;
+	display: none;
+	cursor: default;
+}
+.unavailble-mag p {
+	margin: 0;
+	font-size: 12px;
+	font-weight: normal;
+	line-height: 15px;
+	color: #db6e00;
+	font-family: "Titillium Web", sans-serif;
+}
+/* header */
+.m-buymag-drop > ul > li:nth-child(2) .unavailble-mag {
+	top: 0; bottom:0; left: 0; right: 0;
+}
+/* foot */
+.s-mag-btns .orange-btn:first-child .unavailble-mag {
+	top: -27px;
+	left: 0;
+	text-align: left;
+}
+/* single article */
+.m-buy-mag-bottom .m-buy-dig:nth-child(2) .unavailble-mag {
+	top: 0; bottom:0; left: 0; right: 0;
+}
+.m-buy-mag-bottom .m-buy-dig:nth-child(2) .unavailble-mag p {
+	font-size: 11px;
+}
+/* all hover */
+.m-buymag-drop > ul > li:nth-child(2):hover .unavailble-mag, .s-mag-btns .orange-btn:first-child:hover .unavailble-mag, .m-buy-mag-bottom .m-buy-dig:nth-child(2):hover .unavailble-mag {
+	display: block;
+}
+
 /* ==========================================================================
    8.0 Media Queries
    ========================================================================== */
@@ -1035,12 +1350,25 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 .s-mag-descr h1 {font-size: 29px;}
 .s-mag-descr p {font-size: 16px;}
 .s-mag-buy h2 {font-size: 29px;margin-bottom: 10px;}
-.s-or {height: 14px;margin-bottom: 5px;}
+.s-or {height: 14px;/* margin-bottom: 5px; */}
 .s-or > div {top: -9px; width: 46px;height: 25px;font-size: 19px;}
 .s-mag-btns .orange-btn {width: 48.5%;font-size: 13px;}
-.s-mag-btns a:first-child {margin-right: 2%;}
+.s-mag-btns .orange-btn:first-child {margin-right: 2%;}
 .buy-mag-drop {top: 37px;}
 .buy-mag-drop ul li a span {font-size: 14px;line-height: 28px;}
+
+/* Zip code finder *******************/
+
+/* foot */
+#pubfinderzipcontfoot .pubfinderformcont label {font-size: 15px;margin-top: 4px;}
+#pubfinderzipcontfoot .pubfinderform {width: 198px;}
+#pubfinderzipcontfoot .pubfinderzip {width: 62%; text-align: center; color: #eeeeee;}
+#pubfinderzipcontfoot .pubfinderformcont label:after {content: "\e600";font-family: "icomoon";font-size: 12px;transform: rotate(180deg);display: inline-block;margin-left: 18px;}
+#pubfinderzipcontfoot .pubfinderzipgo { width: 35%;}
+
+/* message unavailable magazine in online store ****************/
+/* foot */
+.s-mag-btns .orange-btn:first-child .unavailble-mag {top: -7px;}
 
 /* Single Article *******************/ 
 .m-article .m-hlep-grow {width: auto;}
@@ -1164,6 +1492,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 .m-footer-nav ul li a:first-child {padding-left: 0}
 .m-copyright {margin-top: 15px;text-align: left;}
 
+/* Zip code finder *******************/
+
+/* foot */
+#pubfinderzipcontfoot .pubfinderformcont label {font-size: 18px;} 
+#pubfinderzipcontfoot .pubfinderform {width: 254px;}
+/* head */
+.single .m-buymag-drop {left: 35px; right: auto; top: 44px;}
+.m-buymag-drop {top: 42px;left: -2px;}
+
 /* Wordpress Defaults *******************/  
 
 .m-article .aligncenter {margin: 30px auto;}
@@ -1202,6 +1539,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 .s-mag-descr { float: left; width: 62%;}
 .s-mag-buy h2 { font-size: 26px;}
 
+/* Aaaaaaa *******************/ 
+.s-or {margin-top: 10px;}
+.s-mag-buy h2 {margin-bottom: 6px;}
+.s-mag-btns {margin-top: 11px;}
+
+/* Zip code finder *******************/
+/* foot */
+#pubfinderzipcontfoot .pubfinderformcont label {font-size: 15px;}
+#pubfinderzipcontfoot .pubfinderform {width: 45%;}
 
 }/* END OF MEDIA */
 
@@ -1211,8 +1557,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 .shoot101-logo {float: none;position: absolute;width: 200px;left:0; right: 0;margin: 0 auto;}
 .shoot101-logo img {margin: 0;}
 .single .cat-shoot101 .main-nav, .main-nav {margin: 53px 0 15px 2px; }
-.main-nav ul li {height: 13px;}
-.main-nav ul li a {font: 15px/15px "Titilium Web", sans-serif;}
+.main-nav > ul > li {height: 13px;}
+.main-nav > ul > li > a {font: 15px/15px "Titilium Web", sans-serif;}
 .social-buttons ul {margin: 8px 0;}
 .social-buttons ul li a {font-size: 24px;}
 .sponsors-disclaimer {text-align: center;width: 92%;margin: 0 auto;}
@@ -1252,13 +1598,23 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 
 /* Footer *******************/ 
 .s-mag {position: relative;}
-.s-mag-buy {position: absolute; bottom: -9px;left: 30%; width: auto;}
+.s-mag-buy {position: absolute; bottom: -9px;left: 30%; width: auto;z-index: 400;}
 .s-mag-cover { margin-right: 5%; width: 25%;}
 .s-mag-descr { float: left; width: 70%;}
-.s-mag-buy h2 { font-size: 30px;}
+.s-mag-descr h1 {margin-bottom: 10px;}
+.s-mag-buy h2 { font-size: 30px;margin-bottom: -7px;}
 .footer-message h2 {text-align: left;}
 .f-social-buttons {text-align: left;}
 .m-copyright {margin-top: 0;float: left;}
+.s-or > div {width: 66px;}
+
+/* Zip code finder *******************/
+/* foot */
+#pubfinderzipcontfoot .pubfinderform { width: 43%;}
+#pubfinderzipcontfoot .pubfinderformcont label {font-size: 15px;}
+#pubfinderzipcontfoot .pubfinderformcont label::after {font-size: 13px; margin-left: 27px;}
+/* head */
+.single .m-buymag-drop {left: 112px;top: 47px;}
 	
 }/* END OF MEDIA */
 
@@ -1278,6 +1634,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 .m-article .alignleft { margin-left: -150px;}
 .alignright-content {float: right;margin-right: -150px;}
 
+/* Footer *******************/
+.s-mag-btns .orange-btn:first-child {margin-right: 2%;}
+
+/* message unavailable magazine in online store ****************/
+/* foot */
+.s-mag-btns .orange-btn:first-child .unavailble-mag {top: -5px;}
 
 }/* END OF MEDIA */
 
@@ -1296,7 +1658,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 .s-mag-buy {position: absolute; bottom: -9px;left: 35%;z-index: 500;}
 .s-mag-buy h2 {font-size: 34px;}
 .s-or {height: 16px;}
-.s-or > div { top: -10px; width: 50px;font-size: 21px;}
+.s-or > div { top: -10px; font-size: 21px;}
 .footer-message {top: 65px;display: block;position: absolute;text-align: right;right: 0;width: 100%;padding-left: 75%;font-family: "Lora", serif;border-top: none;z-index: 400;}
 .m-footer-bottom {margin-top: 50px;}
 .footer-message h2 {font-size: 24px;text-align: right;}
@@ -1305,6 +1667,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 .f-social-buttons ul li:first-child {margin: 0 5px;}
 .f-social-buttons ul li:last-child {margin: 0 0 0 5px;}
 .f-social-buttons ul li a {font-size: 30px;}
+
+/* Zip code finder *******************/
+/* foot */
+#pubfinderzipcontfoot .pubfinderformcont label {font-size: 17.3px;}
+#pubfinderzipcontfoot .pubfinderformcont label::after {margin-left: 28px;}
+#pubfinderzipcontfoot .pubfinderform {width: 43.6%;}
 
 }/* END OF MEDIA */
 
