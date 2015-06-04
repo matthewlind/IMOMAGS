@@ -40,7 +40,7 @@
 #show-destination .inner-main, #show-destination .thumbs-full, #show-destination .sidebar-area{background: white;}
 #show-destination .inner-main{padding: 80px 30px 0;}
 #video-thumbs .thumb-wrap {position: relative;} 
-#video-thumbs .play-btn{background:url(images/shows/play-btn.png) no-repeat;width: 47px;height: 47px;position: absolute;left: 0;top: 0;margin: auto;right: 0;bottom: 0;}
+#video-thumbs .play-btn{background:url('/wp-content/themes/imo-mags-parent/images/shows/play-btn.png') no-repeat;width: 47px;height: 47px;position: absolute;left: 0;top: 0;margin: auto;right: 0;bottom: 0;}
 #video-thumbs .season-number{color: #6ba4c2;font-size: 14px;}
 .wrap4padding {
 	padding: 0 35px;
