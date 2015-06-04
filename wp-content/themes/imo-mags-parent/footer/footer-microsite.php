@@ -20,7 +20,7 @@
 	In-Fisherman 
 ---------------------------------------------------------------------------*/
 	elseif ($dartDomain == "imo.in-fisherman") { 
-		$rigged_cat = array("rigged-ready", "ne", "se", "mw", "sw", "nw");
+		$rigged_cat = array("rigged-ready", "ne", "se", "mw", "sw", "nw", "sweeps");
 		
 		if ( is_category($rigged_cat) || in_category($rigged_cat)) {
 			get_template_part('footer/microsite-footers/in-fisherman/footer', "rigged-ready");
@@ -30,6 +30,18 @@
 		}
 	}
 
+/* ------------------------------------------------------------------------
+	Guns & Ammo 
+---------------------------------------------------------------------------*/
+	elseif ($dartDomain == "imo.gunsandammo") { 
+		
+		if ( is_category('shoot101') || in_category('shoot101')) {
+			get_template_part('footer/microsite-footers/gunsandammo/footer', "shoot101");
+		} 
+		else {
+			get_template_part('footer/microsite-footers/gunsandammo/footer', $catslug);
+		}
+	}
 	
 /* ------------------------------------------------------------------------
 	Else 

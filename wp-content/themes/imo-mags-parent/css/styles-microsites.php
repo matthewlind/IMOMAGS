@@ -36,13 +36,27 @@
 	} elseif ($dartDomain == "imo.in-fisherman") { ?>
 	
 	
-	<?php	$rigged_cat = array("rigged-ready", "ne", "se", "mw", "sw", "nw");
+	<?php	$rigged_cat = array("rigged-ready", "ne", "se", "mw", "sw", "nw", "sweeps");
 		
 			if ( is_category($rigged_cat) || in_category($rigged_cat)) {	
 	?>
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/in-fisherman/microsite-rigged-ready.css" />
 <?php	} else { ?>
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/in-fisherman/microsite-<?php echo $catslug ?>.css" />
+<?php	} ?>
+
+<?php
+	
+/* ------------------------------------------------------------------------
+	Guns and Ammo 
+-------------------------------------------------------------------------- */		
+	} elseif ($dartDomain == "imo.gunsandammo") { 
+		
+		if ( is_category('shoot101') || in_category('shoot101')) {	
+	?>
+		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/gunsandammo/microsite-shoot101.css" />
+<?php	} else { ?>
+		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/gunsandammo/microsite-<?php echo $catslug ?>.css" />
 <?php	} ?>
 
 <?php

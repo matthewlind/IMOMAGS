@@ -506,7 +506,7 @@ body h1, body h2, body h3, body h4, body h5 {
 .m-home-wrap {
 	width: 100%;
 	position: relative;
-	margin-bottom: 266px;
+	margin-bottom: 532px;
 }
 .m-regn {
 	width: 100%;
@@ -736,8 +736,99 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 .m-article p {
 	font: 400 17px/28px "Lora", sans-serif;
 }
-
-
+/* ==========================================================================
+   11.0 Sweepstakes
+   ========================================================================== */
+.category-sweeps .m-article-image {
+	position: relative;
+	width: 100%;
+	padding-top: 0;
+	height: 420px;
+	background: url('/wp-content/themes/infisherman/images/rigged-and-ready/sweepstakes/fishing-nosara@2.jpg') no-repeat center center / cover;
+}
+.category-sweeps .m-article-image .m-direction {
+	width: 157px;
+	height: 107px;
+	top: 30px;
+	bottom: auto;
+	text-align: center;
+	background: url('/wp-content/themes/infisherman/images/rigged-and-ready/sweepstakes/sweep-triangle.png') no-repeat center / 100%;
+}
+.category-sweeps .m-article-image .m-direction span {
+	font-size: 28px;
+	line-height: 96px;
+}
+.m-sweep-text {
+	position: absolute;
+	width: 90%;
+	top: 145px; left: 0; right: 0;
+	margin: 0 auto;
+	text-align: center;
+}
+.m-sweep-text h1 {
+	font: 900 22px "Merriweather";
+	color: white;
+	text-shadow: 1px 2px 4px rgba(0,0,0,.7);
+}
+.m-sweep-text h1 span {
+	font: 900 36px "Lato";
+	color: #1d9fcc;
+	text-shadow: 2px 3px 5px rgba(0,0,0,.8);
+	padding-top: 9px;
+	display: inline-block;
+}
+.m-sweep-text p {
+	color: white;
+	text-shadow: 1px 2px 4px rgba(0,0,0,.7);
+	line-height: 1.5em;
+}
+.category-sweeps .m-social-wrap {
+	width: 221px;
+	margin: 20px auto 0;
+}
+.category-sweeps .m-social-wrap:last-child {
+	width: 221px;
+	margin: 40px auto;
+}
+.m-sweep-left {
+	width: 100%;
+}
+.m-sweep-enter {
+	width: 280px;
+	margin: 0 auto 10px;
+}
+.category-sweeps .m-sweep-enter h1 {
+	font: 700 37px "Lato", sans-serif;
+	color: #1d9fcc;
+	text-align: center;
+	margin-top: 20px;
+}
+.m-sweep-enter > div {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 30px 140px 0 140px;
+	border-color: #eeeeee transparent transparent transparent;
+}
+.m-sweep-right {
+	width: 100%;
+	margin: 10px 0 0;
+}
+.video-container {
+	margin: 30px 0;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+}
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 
 
 /* ==========================================================================
@@ -766,7 +857,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 .m-social-buttons ul {margin-top:17px;}
 
 /* Home Page *******************/
-.m-truck {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/truck-ram.png") no-repeat left bottom / 1480px;}
+/* .m-truck {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/truck-ram.png") no-repeat left bottom / 1480px;} */
+
+/* Banners *******************/
+.m-truck-container:first-child .m-truck {
+	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sweeps-banner.png") no-repeat left bottom / 1280px;
+}
+.m-truck-container:last-child .m-truck {
+	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/truck-ram.png") no-repeat left bottom / 1280px;
+}
 
 /* Region Page *******************/ 
 .category-ne .m-direction, .category-se .m-direction, .category-mw .m-direction, .category-sw .m-direction, .category-nw .m-direction {top: 80px;}
@@ -782,6 +881,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 .m-loc-wrap > ul > li:nth-child(3) {clear: none;float: left;margin: 0 5% 30px;}
 .m-loc-wrap > ul > li:nth-child(4) {margin-left: 23.3%;}
 
+/* Sweepstakes *******************/ 
+.category-sweeps .m-article-image {height: 370px;}
+.m-sweep-left {width: 400px;margin: 0 auto;}
+.m-sweep-text h1 span br {display: none;}
+
 /* Single Article *******************/ 
 /* Footer *******************/  
 
@@ -794,15 +898,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 /* Header *******************/
 
 /* Home Page *******************/
-.m-home-wrap {margin-bottom: 150px;}
+.m-home-wrap {margin-bottom: 300px;}
 .m-direction {width: 106px;height:106px;}
 .m-triangle {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") -35px -172px no-repeat;background-size: 192px;}
 .m-direction span {font: 700 16px/106px "Lato", sans-serif;}
 
-/* Track Container *******************/
-.m-truck-container {height: 150px;bottom: -150px;}
-.m-truck-region, .m-truck-single {bottom: auto;}
-.m-truck {background-size: 1480px;text-align: right;padding: 0 30px;}
+/* Banners *******************/
+.m-banners {
+	height: 274px;
+	bottom: -282px;
+}
+.m-truck-container {height: 150px;}
+.m-banners-region, .m-banners-single {bottom: auto;}
+.m-truck {/* background-size: 1480px; */text-align: right;padding: 0 30px;}
 .m-truck-title {top: 10px;left:auto; right: 30px;}
 .m-truck > p > br {display: none;}
 .m-truck > p {margin: 52px auto 15px;	}
@@ -898,6 +1006,43 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 .m-article-bottom .m-hlep-grow {width: 300px; margin-bottom: 10px;}
 .m-loc h2, .m-more h2 {font-size: 23px;}
 
+/* Sweepstakes *******************/
+
+.category-sweeps .m-article-image {
+	height: 454px;
+	background: url('/wp-content/themes/infisherman/images/rigged-and-ready/sweepstakes/fishing-nosara.jpg') no-repeat center center / cover;
+}
+.category-sweeps .m-article-image .m-direction {
+	width: 213px;
+	height: 146px;
+	top: 41px;
+	bottom: auto;
+}
+.category-sweeps .m-article-image .m-direction span {
+	font-size: 36px;
+	line-height: 131px;
+}
+.m-sweep-text {
+	max-width: 685px;
+	top: 185px;
+}
+.m-sweep-text h1 {
+	font: 900 36px "Merriweather";
+	margin-bottom: 0;
+}
+.m-sweep-text h1 span {
+	font: 900 65px "Lato";
+	padding-top: 0;
+}
+.m-sweep-text p {
+	font-size: 19px;
+	margin-top: 0.6em;
+}
+.m-sweep-right {
+	margin: 35px 0 0;
+}
+
+
 /* Footer *******************/ 
 .m-footer-nav ul li a {padding: 5px 15px;font-size: 12px;}
 
@@ -909,7 +1054,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 .m-nav-erea { padding: 0 4%;}
 
 /* Home Page *******************/
-.m-home-wrap {margin-bottom: 133px;height: 67%;}
+.m-home-wrap {margin-bottom: 280px;height: 66%;}
 .m-regn {height: 100%;}
 .m-home-wrap .m-regn > li {width: 20%;height: 100%;padding-top: 0;background-size: cover;}
 .m-regn > li > a {-webkit-transition: all 0.4s ease;transition: all 0.4s ease;}
@@ -924,11 +1069,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 .m-regn .m-sw {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/desktop/southwest.jpg") no-repeat 55% center / 100%;}
 .m-regn .m-nw {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/desktop/northwest.jpg") no-repeat 70% center / 100%;}
 
-/* Truck Container *******************/
+/* Banners *******************/
 .m-truck-container {position: relative;height: 133px;bottom: auto;}
+.m-banners {bottom: -274px;}
+.m-banners-region {bottom: auto;}
+/*
 .m-truck {background-size: 1640px;text-align: center;}
 .m-truck-title {top:6px;left:0; right: 0; margin: 0 auto;}
 .m-truck > p {margin: 46px auto 13px;	}
+*/
 
 /* Region Page *******************/
 .m-content-shadow {height: 600px;top: 22%;}
@@ -962,6 +1111,22 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 /* .m-article-bottom .m-social-wrap {width: 360px;} */
 .m-article iframe.interact-embed {width: 800px;}
 
+/* Sweepstakes *******************/
+.category-sweeps .m-article {margin: 0 12%;}
+.m-sweep-blocks {
+	margin: 5px 0 70px;
+}
+.m-sweep-left {
+	float: left;
+	width: 46%;
+	margin-right: 4%;
+}
+.m-sweep-right {
+	float: left;
+	width: 46%;
+	margin: 8px 0 0;
+}
+
 /* Footer *******************/ 
 .m-copyright {margin-top: 0;float: left;}
 	
@@ -973,7 +1138,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 .m-map-absolute {-webkit-transition: top 0.5s ease;-moz-transition: top 0.5s ease;transition: top 0.5s ease;}
 
 /* Home Page *******************/
-.m-home-wrap {height: 65%;}
+.m-home-wrap {height: 65%;margin-bottom: 133px;}
+
+/* Banners *******************/
+.m-banners {height: auto;bottom: auto;}
+.m-truck-container {width: 50%;}
+.m-truck-container:first-child {
+  margin-bottom: 0;
+}
 
 /* Single Articles *******************/
 .m-article {margin: 0 25%;}
@@ -998,6 +1170,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 .m-article .alignright {margin-right: -150px;}
 .m-article .alignleft { margin-left: -150px;}
 .alignright-content {float: right;margin-right: -150px;}
+
+/* Sweepstakes *******************/
+.category-sweeps .m-article {margin: 0 auto; width: 800px;}
+.category-sweeps .m-social-wrap:last-child {margin-bottom: 100px;}
+/*
+.category-sweeps .m-article-wrap {
+	background: url('/wp-content/themes/infisherman/images/rigged-and-ready/sweepstakes/billfish.png') #fff no-repeat center bottom / 90%;
+}
+*/
 
 /* Footer *********************/
 .m-footer {padding-top:100px;}
@@ -1047,7 +1228,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 }
 .m-content {padding: 470px 0 0;}
 .category-ne .m-direction, .category-se .m-direction, .category-mw .m-direction, .category-sw .m-direction, .category-nw .m-direction {top: 155px;}
-.m-truck-region, .m-truck-single {margin: 0 auto; max-width: 1442px;}
+.m-banners-region, .m-banners-single {margin: 0 auto; max-width: 1442px;}
 .m-loc-wrap > ul > li > a > span {font-size: 18px;margin-top: 10px;}
 
 /* Single Articles *******************/

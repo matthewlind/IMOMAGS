@@ -44,10 +44,10 @@ jQuery(document).ready(function($) {
 		moveBox();
 	}
 		
-// Simulate a hover with a touch in touch enabled browsers
+	// Simulate a hover with a touch in touch enabled browsers
 	$('body').bind('touchstart', function() {});
 
-// Main Nav, buy magazine dorp down menu	
+	// Main Nav, buy magazine dorp down menu	
 	buyMag = $('li.buy-mag');
 	buyMagLink = $('li.buy-mag a');
 	buyMagDrop = $('.m-buymag-drop');
