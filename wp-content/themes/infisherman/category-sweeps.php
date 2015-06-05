@@ -17,10 +17,10 @@
 		<div class="m-social-wrap">
 			<ul class="share-count social-buttons">
 				<li>
-					<a href="http://www.facebook.com/sharer.php?u=<?php echo (urlencode(site_url())) . '/rigged-ready/sweeps/'; ?>&t=Rigged and Ready RAM Outdoorsman Sweepstakes" class="socialite facebook-like reload-fb" data-href="<?php echo (urlencode(site_url())) . '/rigged-ready/sweeps/'; ?>" data-send="false" data-layout="button_count" data-share="true" data-action="like" data-width="60" data-show-faces="false" rel="nofollow" target="_blank"><span class="vhidden"></span></a> 
+					<a href="http://www.facebook.com/sharer.php?u=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>&t=Rigged and Ready RAM Outdoorsman Sweepstakes" class="socialite facebook-like reload-fb" data-href="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" data-send="false" data-layout="button_count" data-share="true" data-action="like" data-width="60" data-show-faces="false" rel="nofollow" target="_blank"><span class="vhidden"></span></a> 
 				</li>
 			    <li>
-			         <a href="http://twitter.com/share" class="socialite twitter-share reload-twitter" data-text="Rigged and Ready RAM Outdoorsman Sweepstakes" data-url="<?php echo (urlencode(site_url())) . '/rigged-ready/sweeps/'; ?>" rel="nofollow" target="_blank"><span class="vhidden"></span></a> 
+			         <a href="http://twitter.com/share" class="socialite twitter-share reload-twitter" data-text="Rigged and Ready RAM Outdoorsman Sweepstakes" data-url="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" rel="nofollow" target="_blank"><span class="vhidden"></span></a> 
 			    </li>
 			</ul>
 		</div><!-- .m-social-wrap -->
@@ -45,10 +45,10 @@
 		<div class="m-social-wrap">
 			<ul class="share-count social-buttons">
 				<li>
-					<a href="http://www.facebook.com/sharer.php?u=<?php echo (urlencode(site_url())) . '/rigged-ready/sweeps/'; ?>&t=Rigged and Ready RAM Outdoorsman Sweepstakes" class="socialite facebook-like reload-fb" data-href="<?php echo (urlencode(site_url())) . '/rigged-ready/sweeps/'; ?>" data-send="false" data-layout="button_count" data-share="true" data-action="like" data-width="60" data-show-faces="false" rel="nofollow" target="_blank"><span class="vhidden"></span></a> 
+					<a href="http://www.facebook.com/sharer.php?u=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>&t=Rigged and Ready RAM Outdoorsman Sweepstakes" class="socialite facebook-like reload-fb" data-href="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" data-send="false" data-layout="button_count" data-share="true" data-action="like" data-width="60" data-show-faces="false" rel="nofollow" target="_blank"><span class="vhidden"></span></a> 
 				</li>
 			    <li>
-			         <a href="http://twitter.com/share" class="socialite twitter-share reload-twitter" data-text="Rigged and Ready RAM Outdoorsman Sweepstakes" data-url="<?php echo (urlencode(site_url())) . '/rigged-ready/sweeps/'; ?>" rel="nofollow" target="_blank"><span class="vhidden"></span></a> 
+			         <a href="http://twitter.com/share" class="socialite twitter-share reload-twitter" data-text="Rigged and Ready RAM Outdoorsman Sweepstakes" data-url="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" rel="nofollow" target="_blank"><span class="vhidden"></span></a> 
 			    </li>
 			</ul>
 		</div><!-- .m-social-wrap -->
