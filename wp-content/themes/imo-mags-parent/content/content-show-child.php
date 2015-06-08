@@ -31,22 +31,14 @@ $slug_tv = get_post( $post )->post_name;
 <script typ="text/javascript">
     jQuery(document).ready(function(){
     var windowWidth 	= jQuery(window).width(); 
-    	if (windowWidth < 760) {
+    	if (windowWidth <= 610) {
 	         jQuery("#palce4schedule").load("/wp-content/themes/imo-mags-parent/content/tv-show/show-schedule.php");
 	         jQuery("body").css({
-	         "background-image" : "url(<?php echo get_field('background_skin_mobile',$acfID); ?>)",
-	         "background-repeat" : "no-repeat",
-	         "background-size" : "160% auto",
-	         "background-position" : "20% 0",
-	         "background-color" : "#2a2a2a"
+	         "background-image" : "url(<?php echo get_field('background_skin_mobile',$acfID); ?>)"
 	         });
-         }
-        if (windowWidth > 760) {
+         } else {
 	        jQuery("body").css({
-	         "background-image" : "url(<?php echo get_field('background_skin',$acfID); ?>)",
-	         "background-repeat" : "no-repeat",
-	         "background-size" : "100% auto",
-	         "background-color" : "#2a2a2a"
+	         "background-image" : "url(<?php echo get_field('background_skin',$acfID); ?>)"
 	         });
         }
     });

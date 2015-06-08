@@ -1204,7 +1204,7 @@ box-sizing: border-box;
 @media only screen and (max-width: 610px) {
 	body.page-template-show-page-php, body.category-tv {
 		background-size: 160% auto;
-		background-position: center 100px !important;
+		background-position: center 100px;
 	}
 
 	#show-featured #video-thumbs li {width: 30%;margin: 0 1.25% 12px;}
