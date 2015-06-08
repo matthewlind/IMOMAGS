@@ -1,5 +1,9 @@
 /*** Video & Show Pages ***/
 
+body.page-template-show-page-php, body.category-tv {
+	background: #2a2a2a no-repeat center top / 100%;
+}
+
 #show-featured {background-color: white; padding: 50px 0 75px; font-family: 'Open Sans', Helvetica, Arial, sans-serif;}
 #show-featured #video-filter {margin: 0 0 40px 3px;display: block;}
 #show-featured .seasons-filter{display: inline-block;float: right;}
@@ -1196,6 +1200,10 @@ box-sizing: border-box;
 } /* End of media */   
 
 @media only screen and (max-width: 610px) {
+	body.page-template-show-page-php, body.category-tv {
+		background-size: 160% auto;
+		background-position: center 100px !important;
+	}
 
 	#show-featured #video-thumbs li {width: 30%;margin: 0 1.25% 12px;}
 	#show-featured .thumbs-full {padding: 0 10px;}

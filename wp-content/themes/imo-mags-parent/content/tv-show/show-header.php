@@ -75,8 +75,23 @@ $show_logo = get_field('show_logo',$acfID);
 			</div>
 		<?php endif; ?>
 
-	</div>
-</div><!-- end of .page-header -->	
+	</div><!-- #shows-nav -->
+</div><!-- .js-responsive-section -->	
+<div class="shows-player-area">		
+	<div id="when-to-watch">		
+		<div class="when-label">		
+			<h3>WHEN TO WATCH</h3>		
+			<a href="http://thesportsmanchannel.com" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/logos/sportsman-header-logo.jpg" alt="sc-logo" width="" height="" /></a>		
+		</div>		
+				
+		<?php 		
+		$whenToWatch = get_field('when_to_watch',$acfID);		
+		echo do_shortcode("[tscschedule format='singleshow' postid='".$whenToWatch."']"); ?>			
+						
+		<a href="<?php echo get_field('remind_me',$acfID); ?>" class="remind-me" target="_blank">		
+			<span>REMIND ME<br> TO WATCH</span>		
+		</a>		
+	</div><!-- end of #when-to-watch -->
 
 
 	

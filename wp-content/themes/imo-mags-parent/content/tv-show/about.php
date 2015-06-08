@@ -17,8 +17,10 @@ if( !empty($host_item) ):
 			<div class="host-photo" style="background-image: url('<?php echo $host_photo['url']; ?>');"></div>
 			<div class="host-info">
 				<h2><?php echo $host_name; ?></h2>
+				<?php if ($host_fact): ?>
 				<p><?php echo $host_fact; ?></p>
 				<img src="<?php echo $host_fact_img['url']; ?>" alt="<?php echo $host_fact_img['alt']; ?>">
+				<?php endif; ?>
 			</div>
 		</div><!-- end of .host-head  TEST-->
 		<div class="host-copy">

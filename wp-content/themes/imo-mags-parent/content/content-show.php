@@ -35,6 +35,7 @@ while (have_posts()) : the_post();
 	$video_id = get_post_meta(get_the_ID(), '_video_id', TRUE); ?>
 	
 	<!-- this style is loading small image for the background. We need it here because it's loading faster then the script so you don't see flickering -->
+<!--
 	<style type="text/css">
 		body {
 			background: url("/wp-content/themes/imo-mags-parent/images/shows/dark-background.jpg");
@@ -42,56 +43,27 @@ while (have_posts()) : the_post();
 			background-color:#2a2a2a;
 		}
 	</style>
+-->
 	<!-- script loading smaller image for mobile devices -->
 	<script typ="text/javascript">
 	    jQuery(document).ready(function(){
 	    var windowWidth 	= jQuery(window).width(); 
 	    	if (windowWidth < 760 && windowWidth > 611) {
 		         jQuery("#palce4schedule").load("/wp-content/themes/imo-mags-parent/content/tv-show/show-schedule.php");
-		         jQuery("body").css({
-		         "background-image" : "url(<?php echo get_field('background_skin_mobile',$acfID); ?>)",
-		         "background-repeat" : "no-repeat",
-		         "background-size" : "160% auto",
-		         "background-position" : "20% 0",
-		         "background-color" : "#2a2a2a"
-		         });
-	         }else if (windowWidth < 610) {
-		         jQuery("body").css({
-		         "background-image" : "url(<?php echo get_field('background_skin_mobile',$acfID); ?>)",
-		         "background-repeat" : "no-repeat",
-		         "background-size" : "160% auto",
-		         "background-position" : "20% 50px",
-		         "background-color" : "#2a2a2a"
-
-		         });
-
-	         }else if (windowWidth > 760){
-		        jQuery("body").css({
-		         "background-image" : "url(<?php echo get_field('background_skin',$acfID); ?>)",
-		         "background-repeat" : "no-repeat",
-		         "background-size" : "100% auto",
-		         "background-color" : "#2a2a2a"
-		         });
-	        }
+			}else if (windowWidth < 610) {
+				jQuery("body").css({
+					"background-image" : "url(<?php echo get_field('background_skin_mobile',$acfID); ?>)"
+				});
+			
+			}else if (windowWidth > 611){
+				jQuery("body").css({
+					"background-image" : "url(<?php echo get_field('background_skin',$acfID); ?>)"
+				});
+			}
 	    });
 	</script>
 	<div id="show-destination" playerID="<?php echo get_field("tv_player_id","options"); ?>" adServerURL="<?php echo $adServerURL; ?>" videoLink="<?php echo $videoLink; ?>">
 		<?php get_template_part( 'content/tv-show/show-header' ); ?>
-		<div class="shows-player-area clearfix">
-			<div id="when-to-watch">
-				<div class="when-label">
-					<h3>WHEN TO WATCH</h3>
-					<a href="http://thesportsmanchannel.com" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/logos/sportsman-header-logo.jpg" alt="sc-logo" width="" height="" /></a>
-				</div>
-				
-				<?php 
-				$whenToWatch = get_field('when_to_watch',$acfID);
-				echo do_shortcode("[tscschedule format='singleshow' postid='".$whenToWatch."']"); ?>	
-						
-				<a href="<?php echo get_field('remind_me',$acfID); ?>" class="remind-me" target="_blank">
-					<span>REMIND ME<br> TO WATCH</span>
-				</a>
-			</div><!-- end of #when-to-watch -->
 			<div class="video-player-area">
 				<div id="video-gallery" class="video-player-wrap clearf">
 					<script type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script> 
