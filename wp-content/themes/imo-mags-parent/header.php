@@ -64,17 +64,22 @@
 	
 	<!-- STYLES ************************************************** -->
 	
-	<?php	if ( $microsite){ 
-			include('css/styles-microsites.php');
-	} else { ?>
-			<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
-			<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
-			<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>
-			<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-			<!-- Font Awsome Icons -->
-			<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 	<?php	
-	} 
+	if ( $microsite){ 
+		include('css/styles-microsites.php');
+	} 	else { 
+			if (is_category("tv") || in_category("tv") || is_page_template( "show-page.php" )) { ?>
+				<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' );?>/css/category-tv.css" />
+	<?php	} // end if if (is_category("tv") ?>	
+		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
+		<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+		<!-- Font Awsome Icons -->
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">	
+	<?php		
+
+	} // end else
 	
 	wp_enqueue_script("jquery");
     wp_head();
