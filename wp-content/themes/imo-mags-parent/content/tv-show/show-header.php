@@ -17,15 +17,19 @@ $show_logo = get_field('show_logo',$acfID);
 ?>
 
 <div class="clearfix js-responsive-section">
-	<div id="header-top">
-		<div class="shows-logo" style="background-image: url('<?php echo $show_logo; ?>');">
-			<a href="/tv"><!-- <img src="<?php echo get_field('show_logo',$acfID); ?>" alt="<?php echo get_field('show_title',$acfID); ?>"> --></a>
+	<div id="header-top" class="clearfix">
+		<div class="header-left">
+			<div class="header-left-wrap">
+				<div class="shows-logo" style="background-image: url('<?php echo $show_logo; ?>');">
+					<a href="/tv"><!-- <img src="<?php echo get_field('show_logo',$acfID); ?>" alt="<?php echo get_field('show_title',$acfID); ?>"> --></a>
+				</div>
+				<div class="shows-title">
+					<h1><?php //echo get_field('show_title',$acfID); ?></h1>
+				</div><!-- end of #shows-title -->
+			</div>
 		</div>
-		<div class="shows-title">
-			<h1><?php //echo get_field('show_title',$acfID); ?></h1>
-		</div><!-- end of #shows-title -->
-		<div class="shows-sponsor">
-			<?php imo_ad_placement("sponsor_logo_240x60"); ?>
+		<div class="header-right">
+			<?php get_template_part( 'widgets/sportsmanLocator' ); ?>
 		</div>
 	</div><!-- end of #header-top -->
 	<div id="shows-nav">

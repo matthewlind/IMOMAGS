@@ -7,9 +7,11 @@ function popwin(loc,winname,w,h,scroll,resize) {
 
 <div id="locateChannel">
     <div id="channelControlsContainer">
-    	<img src="/wp-content/themes/imo-mags-parent/images/logos/sc-finder-logo.png" alt="sportsman chanel logo">
+	    <span>Find it in your area!</span>
+	    <div class="tv-finder-logo"></div>
+<!--     	<img src="/wp-content/themes/imo-mags-parent/images/logos/sc-finder-logo.png" alt="sportsman chanel logo"> -->
 		<div id="channelControls">
-		    <input type="text" name="zip" id="zip" onfocus="if(this.value == this.defaultValue) this.value = '';" value="Enter Your ZIP" class="searchbox" />
+		    <input type="text" name="zip" id="zip" onfocus="if(this.value == this.defaultValue) this.value = '';" value="Your ZIP" class="searchbox" />
 		    <a href="#" onclick="javascript:popwin('http://thesportsmanchannel.viewerlink.tv/?zip='+document.getElementById('zip').value,'indicator',615,550,'yes','yes');"><input type="submit" value="GET SPORTSMAN!" class="button" /></a>
 		</div>
     </div>

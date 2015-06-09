@@ -157,7 +157,7 @@ subscribe-links a{color: white;}
 ******************************/
 .tv-show .shows-logo {
   height: 142px;
-  margin-top: -20px;
+  top: -24px;
 }
 .tv-show #header-top {
 	margin-top: 25px;
