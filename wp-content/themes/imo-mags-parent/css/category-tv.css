@@ -1274,7 +1274,14 @@ box-sizing: border-box;
 	#video-filter li{padding: 0;}
 	#video-filter li a{padding: 5px 8px; display: inline-block; margin-bottom: 10px;}
 	/* Sportsman locator header ********/
-	.header-right #locateChannel {display: block;}	
+	.header-right #locateChannel {display: block;}
+	.tv-show .header-left {padding-right: 243px;}
+	.tv-show .header-right {padding: 4px 35px; width: 238px;}
+	.header-right #channelControlsContainer > span {font-size: 13px;}
+	.header-right .tv-finder-logo {width: 160px; margin: 1px auto 6px;}
+	.header-right #channelControlsContainer #channelControls {float: none;}
+	.header-right #channelControls #zip {height: 22px; width: 65px;}
+	.header-right #channelControls a input {height: 22px; width: 97px; font-size: 11px;}	
 
 } /* End of media */
 
@@ -1317,6 +1324,10 @@ box-sizing: border-box;
 	.tv-show .shows-logo {left: 20px;}
 	.tv-show #shows-nav ul {padding: 1px 6px 0;}
 	
+	/* Sportsman locator header ********/
+	.tv-show .header-left {padding-right: 213px;}
+	.tv-show .header-right {padding: 4px 20px;width: 207px;}
+	
 } /* End of media */  
 
 @media only screen and (max-width: 510px) {
@@ -1341,8 +1352,8 @@ box-sizing: border-box;
 	.tv-show .host-head {margin-bottom: 20px;}
 	
 	#sponsors-area .sponsor-img {width: 45%;margin: 0 2% 20px;}
-	.tv-show div.sponsors-wrap {padding: 30px 20px 40px;}    
-    
+	.tv-show div.sponsors-wrap {padding: 30px 20px 40px;} 
+	    
 } /* End of media */     
     
 @media only screen and (max-width: 340px) {
