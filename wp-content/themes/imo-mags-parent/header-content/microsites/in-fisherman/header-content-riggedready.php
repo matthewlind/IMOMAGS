@@ -1,5 +1,5 @@
 <?php if (is_category('sweeps')) : ?>
-    <script>	
+	<script>	
 		jQuery('head').append('<meta property="og:image" content="http://www.in-fisherman.com/files/2015/06/RR-sweeps-no-btn-968x504FB.jpg" />');
 	</script>
 <?php endif; ?>
