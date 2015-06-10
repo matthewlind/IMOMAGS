@@ -196,7 +196,6 @@ body.category-tv #imo-tophat, body.page-template-show-page-php #imo-tophat{
 }
 
 /* navigation ==================================== */
-
 .tv-show #shows-nav {
 	height: 40px;
 	width: 100%;
@@ -204,7 +203,11 @@ body.category-tv #imo-tophat, body.page-template-show-page-php #imo-tophat{
 	border-top: 1px solid #222;
 	border-bottom: 1px solid #1B1B1B;
 }
-.tv-show #shows-nav .fb-like{float: right;margin: 2px 0 0;}
+.tv-show #shows-nav .fb-like {
+	float: right; 
+	margin: 6px 14px 0 0;
+	height: 25px;
+}
 .tv-show #shows-nav ul {
 	padding: 0 20px 0 20px;
 	vertical-align: middle;
@@ -225,7 +228,6 @@ body.category-tv #imo-tophat, body.page-template-show-page-php #imo-tophat{
 .tv-show #shows-nav ul li a:hover {
 	color: #e8e1c5;
 }
-
 
 /* navigation mobile  ==================================== */
 .tv-show #shows-nav ul li.page-item-mobile {
@@ -276,7 +278,6 @@ body.category-tv #imo-tophat, body.page-template-show-page-php #imo-tophat{
 	max-height: 1000px;
 	opacity: 1;
 }
-
 .tv-show .shows-player-area {
 	position: relative;
 	width: 100%;
@@ -337,7 +338,6 @@ body.category-tv #imo-tophat, body.page-template-show-page-php #imo-tophat{
 	display: block;
 	padding-top: 12px;
 }
-
 .tv-show .show-btn {
 	font:18px/18px "open_sanssemibold", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	height: 30px;
@@ -375,8 +375,10 @@ body.category-tv #imo-tophat, body.page-template-show-page-php #imo-tophat{
 	background: linear-gradient(to bottom,  #494949 0%,#2d2d2d 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#494949', endColorstr='#2d2d2d',GradientType=0 ); /* IE6-9 */
 	box-shadow: 0 4px 5px rgba(0,0,0,0.3);
+	border-radius: 3px;
 }
 .remind-me:hover{
+	color: white;
 	background: #5e5e5e; /* Old browsers */
 	background: -moz-linear-gradient(top,  #5e5e5e 0%, #333333 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5e5e5e), color-stop(100%,#333333)); /* Chrome,Safari4+ */
@@ -422,7 +424,7 @@ body.category-tv #imo-tophat, body.page-template-show-page-php #imo-tophat{
 	float: left;
 	width: 100%;
 	padding-right: 335px;
-	min-height: 765px;
+	min-height: 598px;
 }
 .tv-show .video-player-area .video-player-wrap {
 	width: 100%;
@@ -620,7 +622,7 @@ body.category-tv #imo-tophat, body.page-template-show-page-php #imo-tophat{
 	margin: 5px 0 10px;
 }
 .header-right #channelControls #zip {
-	width: 73px;
+	width: 82px;
 	height: 25px;
 	background: white;
 	float: left;
@@ -632,17 +634,16 @@ body.category-tv #imo-tophat, body.page-template-show-page-php #imo-tophat{
 	margin-top: 0;
 }
 .header-right #channelControls a input {
-	width: 115px;
+	width: 108px;
 	height: 25px;
-	background: rgb(66,139,202); /* Old browsers */
-background: -moz-linear-gradient(top,  rgba(66,139,202,1) 0%, rgba(39,84,123,1) 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(66,139,202,1)), color-stop(100%,rgba(39,84,123,1))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  rgba(66,139,202,1) 0%,rgba(39,84,123,1) 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  rgba(66,139,202,1) 0%,rgba(39,84,123,1) 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  rgba(66,139,202,1) 0%,rgba(39,84,123,1) 100%); /* IE10+ */
-background: linear-gradient(to bottom,  rgba(66,139,202,1) 0%,rgba(39,84,123,1) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#428bca', endColorstr='#27547b',GradientType=0 ); /* IE6-9 */
-
+	background: #428bca; /* Old browsers */
+	background: -moz-linear-gradient(top,  #428bca 0%, #27547b 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#428bca), color-stop(100%,#27547b)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #428bca 0%,#27547b 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #428bca 0%,#27547b 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #428bca 0%,#27547b 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #428bca 0%,#27547b 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#428bca', endColorstr='#27547b',GradientType=0 ); /* IE6-9 */
 	float: none;
 	color: white;
 	font: 600 12px 'Source Sans Pro', Helvetica, Arial, sans-serif;
@@ -738,9 +739,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#428bca', end
 	font-family: 'Open Sans', sans-serif;
 }
 
-
 /* tv-show host-item ================= */
-
 .tv-items-wrap {
 	font-family: 'Open Sans', sans-serif;
 }
@@ -1000,6 +999,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#428bca', end
 	max-width: 300px;
 	margin: 30px 0;
 }
+
 /* sportsman locator ==================================== */
 
 .w2w-get-sport h4 {
@@ -1047,6 +1047,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#428bca', end
 }
 
 /* WHAT'S ON SPORTSMAN NOW ==================================== */
+
 .w-sport {
 	position: absolute;
 	top: 0;
@@ -1100,7 +1101,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#428bca', end
 .w-sport-button a:hover {
 	color: #1b94e0;
 }
-
 
 /* homepage schedule */
 #upcoming{
@@ -1221,7 +1221,6 @@ box-sizing: border-box;
 
 @media only screen and (max-width: 880px) {
 
-	.tv-show .video-player-area {padding-bottom: 90px;}
 	.tv-show #locateChannel {right: 0;left: 0;}
 	.tv-show #channelControlsContainer #channelControls {float: right;}
 	.tv-show .m-shows-airtimes .btn-green {width: 100%;}
@@ -1274,12 +1273,13 @@ box-sizing: border-box;
 	.tv-show #locateChannel {display: none;}
 	#video-filter li{padding: 0;}
 	#video-filter li a{padding: 5px 8px; display: inline-block; margin-bottom: 10px;}
+	/* Sportsman locator header ********/
+	.header-right #locateChannel {display: block;}	
 
 } /* End of media */
 
 @media only screen and (max-width: 700px) {
 
-    .tv-show #shows-nav .fb-like{margin: 0;}
     .tv-show .video-player-area {padding-bottom: 0;}
     #show-featured #video-thumbs li {margin: 0 1.1% 12px;}
     #show-destination .play-btn {top: 15%;}
@@ -1287,13 +1287,12 @@ box-sizing: border-box;
     #show-store .store-left {padding-left: 10px;}
     #show-featured #video-filter {margin: 20px 0 25px 3px;display: block;}
     
+    .tv-show #shows-nav ul li a {font-size: 16px;}
+    
 } /* End of media */   
 
 @media only screen and (max-width: 610px) {
-	body.page-template-show-page-php, body.category-tv {
-		background-size: 160% auto;
-		background-position: center 100px;
-	}
+	body.page-template-show-page-php, body.category-tv {background-size: 160% auto; background-position: center 100px;}
 
 	#show-featured #video-thumbs li {width: 30%;margin: 0 1.25% 12px;}
 	#show-featured .thumbs-full {padding: 0 10px;}
@@ -1314,16 +1313,29 @@ box-sizing: border-box;
 	.tv-show #description-area{margin: 10px 0 0;}
 	.tv-show #description-area .unify{min-height: auto;}
 	
+	/* Header ********/
+	.tv-show .shows-logo {left: 20px;}
+	.tv-show #shows-nav ul {padding: 1px 6px 0;}
+	
 } /* End of media */  
 
 @media only screen and (max-width: 510px) {
 	
+	/* Header ********/
     .tv-show #shows-nav ul li a {font-size: 12.3px;padding: 0;display: inline-block;}
+    .tv-show #shows-nav ul {padding: 1px 20px 0;}
+    .tv-show #shows-nav .fb-like {margin: 6px 0 0;}
+    
     #show-featured #video-thumbs li {width: 42%;margin: 0 3.6% 12px;}
     
 } /* End of media */    
     
 @media only screen and (max-width: 460px) {
+	
+	/* Header ********/
+	.tv-show .header-left {padding-right: 0;}
+	.tv-show .header-right {display: none;}
+	.tv-show .shows-logo {left: 0; right: 0; margin: 0 auto;background-position: center center;}
 	
 	#show-destination .play-btn {top: 17%;}
 	.tv-show .host-head {margin-bottom: 20px;}

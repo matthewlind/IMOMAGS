@@ -94,7 +94,7 @@ while (have_posts()) : the_post();
 				<div class="tv-ad-container">
 					<?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>
 				</div>
-				<?php get_template_part( 'widgets/sportsmanLocator' ); ?>
+				<?php //get_template_part( 'widgets/sportsmanLocator' ); ?>
 			</div>
 				
 				<!-- this widget is located in imo-mags-parent/widgets -->
