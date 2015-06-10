@@ -1,3 +1,9 @@
+<?php if (is_category('sweeps')) : ?>
+    <script>	
+		jQuery('head').append('<meta property="og:image" content="http://www.in-fisherman.com/files/2015/06/RR-sweeps-no-btn-968x504FB.jpg" />');
+	</script>
+<?php endif; ?>
+
 <div class="top-panel">
 	<div class="top-panel-absolute">
 		<a href="<?php echo site_url(); ?>" class="icon-arrow-left">Back to In-Fisherman</a>
