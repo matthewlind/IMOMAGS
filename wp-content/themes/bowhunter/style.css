@@ -213,30 +213,3 @@ subscribe-links a{color: white;}
 		color: #c9242c !important;
 	 }
 }
-
-@media only screen and (max-width: 760px) {
-	
-	/*** Show pages ***/
-	.tv-show .header-left {padding-right: 243px;}
-	.tv-show .header-right {padding: 4px 35px; width: 238px;}
-	.header-right #channelControlsContainer > span {font-size: 13px;}
-	.header-right .tv-finder-logo {width: 160px; margin: 1px auto 6px;}
-	.header-right #channelControlsContainer #channelControls {float: none;}
-	.header-right #channelControls #zip {height: 22px; width: 65px;}
-	.header-right #channelControls a input {height: 22px; width: 97px; font-size: 11px;}
-}
-
-@media only screen and (max-width: 610px) {
-	.tv-show .header-left {padding-right: 213px;}
-	.tv-show .header-right {padding: 4px 20px;width: 207px;}
-}
-
-@media only screen and (max-width: 460px) {
-	.tv-show .header-left {padding-right: 0;}
-	.tv-show .header-right {display: none;}
-	.tv-show .shows-logo {left: 0; right: 0; margin: 0 auto;background-position: center center;}
-}
-	
-	
-	
-	

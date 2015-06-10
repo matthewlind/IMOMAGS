@@ -976,6 +976,9 @@ subscribe-links a{color: white;}
 **********************************/
 .tv-show #header-top {height: 122px;}
 
+.header-right .tv-finder-logo {margin: 6px auto 10px;}
+.tv-show .header-right {padding-top: 11px;}
+
 /* Border to Border **
 **********************************/
 .b2b-title {width: 51%;top:33%;}
