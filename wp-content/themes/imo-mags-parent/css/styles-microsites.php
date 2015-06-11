@@ -36,13 +36,31 @@
 	} elseif ($dartDomain == "imo.in-fisherman") { ?>
 	
 	
-	<?php	$rigged_cat = array("rigged-ready", "ne", "se", "mw", "sw", "nw");
+	<?php	$rigged_cat = array("rigged-ready", "ne", "se", "mw", "sw", "nw", "sweeps");
 		
 			if ( is_category($rigged_cat) || in_category($rigged_cat)) {	
 	?>
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/in-fisherman/microsite-rigged-ready.css" />
+				<?php // This meta is inserted to display featured share image for facebook
+					if ( is_category('sweeps')) { ?>
+						<meta property="og:image" content="http://www.in-fisherman.com/files/2015/06/RR-sweeps-no-btn-968x504FB.jpg" />
+				<?php } ?>
 <?php	} else { ?>
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/in-fisherman/microsite-<?php echo $catslug ?>.css" />
+<?php	} ?>
+
+<?php
+	
+/* ------------------------------------------------------------------------
+	Guns and Ammo 
+-------------------------------------------------------------------------- */		
+	} elseif ($dartDomain == "imo.gunsandammo") { 
+		
+		if ( is_category('shoot101') || in_category('shoot101')) {	
+	?>
+		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/gunsandammo/microsite-shoot101.css" />
+<?php	} else { ?>
+		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/gunsandammo/microsite-<?php echo $catslug ?>.css" />
 <?php	} ?>
 
 <?php

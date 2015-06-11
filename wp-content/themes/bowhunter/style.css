@@ -143,10 +143,21 @@ subscribe-links a{color: white;}
 
 /*** Show pages ***/
 .tv-show .schedule-item .episode-title, .tv-show .w2w-list .episode-title{color: #6ba4c2;}
-.tv-show .channelControls a input, .tv-show .show-btn, .tv-show .remind-me, .page-template-show-page-php .tv-show .remind-me{
+.tv-show .channelControls a input, .tv-show .show-btn, .tv-show .remind-me, .page-template-show-page-php .tv-show .remind-me, .header-right #channelControls a input{
 	color: white;
 	border: none;
 	text-transform: uppercase;
+	background: #498ded; /* Old browsers */
+	background: -moz-linear-gradient(top,  #498ded 0%, #225baa 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#498ded), color-stop(100%,#225baa)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #498ded 0%,#225baa 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #498ded 0%,#225baa 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #498ded 0%,#225baa 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #498ded 0%,#225baa 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#498ded', endColorstr='#225baa',GradientType=0 ); /* IE6-9 */
+	border-color: #2665bf #2665bf #2665bf;
+}
+.tv-show .channelControls a input:hover, .tv-show .show-btn:hover, .tv-show .remind-me:hover, .page-template-show-page-php .tv-show .remind-me:hover, .header-right #channelControls a input:hover {
 	background: #4c9cff; /* Old browsers */
 	background: -moz-linear-gradient(top,  #4c9cff 0%, #2665bf 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4c9cff), color-stop(100%,#2665bf)); /* Chrome,Safari4+ */
@@ -155,7 +166,6 @@ subscribe-links a{color: white;}
 	background: -ms-linear-gradient(top,  #4c9cff 0%,#2665bf 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  #4c9cff 0%,#2665bf 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c9cff', endColorstr='#2665bf',GradientType=0 ); /* IE6-9 */
-	border-color: #2665bf #2665bf #2665bf;
 }
 
 

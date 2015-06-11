@@ -155,8 +155,14 @@ subscribe-links a{color: white;}
 
 /*** TV page ***
 ******************************/
-.tv-show .shows-logo {padding: 0 15px;}
-.tv-show .shows-logo img {width: 48%;top:0;}
+.tv-show .shows-logo {
+  height: 142px;
+  top: -24px;
+}
+.tv-show #header-top {
+	margin-top: 25px;
+}
+
 
 /*** Border to Border Show ***
 ******************************/
@@ -965,6 +971,13 @@ subscribe-links a{color: white;}
 }/* end media */
 
 @media only screen and (max-width: 760px) {
+
+/* TV Shows **
+**********************************/
+.tv-show #header-top {height: 122px;}
+
+.header-right .tv-finder-logo {margin: 6px auto 10px;}
+.tv-show .header-right {padding-top: 11px;}
 
 /* Border to Border **
 **********************************/

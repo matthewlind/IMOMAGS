@@ -857,6 +857,9 @@ h1, h2, h3, h4, h5 {
 	max-width: 100%;
 	padding: 50px 20px 42px;
 }   
+.s-mag {
+	z-index: 450;
+}
 .s-mag-cover {
 	float: left;
 	width: 44%;
@@ -921,7 +924,6 @@ h1, h2, h3, h4, h5 {
 	cursor: default;
 	position: relative;
 }
-
 .s-mag-btns div.mustard-btn:hover .buy-mag-drop {
 	display: block;
 }
@@ -938,7 +940,7 @@ h1, h2, h3, h4, h5 {
 	padding: 0;
 	list-style: none;
 	text-align: left;
-	margin: 7px 0;
+	margin: 14px 0 7px;
 }
 .buy-mag-drop ul li {
 	padding-left: 10px;
@@ -998,7 +1000,6 @@ h1, h2, h3, h4, h5 {
 	padding-top: 30px;
 	border-top: 1px solid #444444;
 }
-
 .m-imo-logo {
 	width: 110px;
 	margin: 0 auto 15px;
@@ -1091,7 +1092,6 @@ h1, h2, h3, h4, h5 {
 #pubfinderzipcontfoot .pubfinderzipresult, #pubfinderzipcontfoot .pubfinderpoplist, #pubfinderzipconthead .pubfinderzipresult, #pubfinderzipconthead .pubfinderpoplist {
 	color: #222222;
 }
-
 
 /* header zip ****************/
 
@@ -1267,7 +1267,6 @@ h1, h2, h3, h4, h5 {
 	width: 300px;
 	top: -10px !important;
 }
-
 
 
 /* ==========================================================================
@@ -1446,7 +1445,6 @@ h1, h2, h3, h4, h5 {
 /* head */
 .single .m-buymag-drop {left: 35px; right: auto; top: 44px;}
 
-
 /* Wordpress Defaults *******************/  
 .m-article .aligncenter {margin: 30px auto;}
 .m-article .alignnone {margin: 30px 0;float: none;}
@@ -1604,7 +1602,7 @@ h1, h2, h3, h4, h5 {
 .s-mag {width: 857px;float: left;margin-right: 30px;border-right: 2px solid #a6a6a6;}
 .s-mag-cover { margin-right: 5%; width: 30%;}
 .s-mag-descr { float: left; width: 65%; padding-right: 5%;}
-.s-mag-buy {position: absolute; bottom: -9px;left: 35%;}
+.s-mag-buy {position: absolute; bottom: -9px;left: 35%;z-index: 500;}
 .s-mag-buy h2 {font-size: 32px;}
 .s-or {height: 16px;}
 .s-or > div { top: -10px; width: 50px;font-size: 21px;}
