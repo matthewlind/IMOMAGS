@@ -14,7 +14,7 @@
 			    $category_id = get_cat_ID( 'shoot101' );				
 			    $category_link = get_category_link( $category_id );
 			?>
-			<div class="shoot101-logo">
+			<div class="microsite-logo">
 				<a href="/shoot101/" title="shoot101"><img  src="/wp-content/themes/gunsandammo/images/shoot101/Shoot101-logo-light.png"></a>
 			</div>
 <!-- 			<div class="nav-container"> -->

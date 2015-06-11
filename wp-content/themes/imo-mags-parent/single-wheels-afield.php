@@ -57,7 +57,9 @@
 		    			<?php echo do_shortcode('[osgimpubissue bipad="34837" alias="mid"]'); ?>
 		    			<div class="m-buy-mag-bottom clearfix"> 				
 		    				<div class="m-buy-mag-img"></div> 
-		    				<a href="https://store.intermediaoutdoors.com/products.php?product=Wheels-Afield-2015" target="_blank">BUY PRINT MAGAZINE NOW!</a> 
+		    				<div class="m-buy-dig">
+		    					<a href="https://store.intermediaoutdoors.com/products.php?product=Wheels-Afield-2015" target="_blank">BUY PRINT MAGAZINE NOW!</a> 
+		    				</div>
 		    				<div class="m-buy-dig">
 								<span>GET THE DIGITAL EDITION!</span>
 			    				<div class="m-dig-drop">
@@ -89,7 +91,9 @@
     			<?php echo do_shortcode('[osgimpubissue bipad="34837" alias="mid"]'); ?>
     			<div class="m-buy-mag-bottom clearfix"> 				
     				<div class="m-buy-mag-img"></div> 
-    				<a href="https://store.intermediaoutdoors.com/products.php?product=Wheels-Afield-2015" target="_blank">BUY PRINT MAGAZINE NOW!</a> 
+    				<div class="m-buy-dig">
+    					<a href="https://store.intermediaoutdoors.com/products.php?product=Wheels-Afield-2015" target="_blank">BUY PRINT MAGAZINE NOW!</a> 
+    				</div>
     				<div class="m-buy-dig">
 						<span>GET THE DIGITAL EDITION!</span>
 	    				<div class="m-dig-drop">
