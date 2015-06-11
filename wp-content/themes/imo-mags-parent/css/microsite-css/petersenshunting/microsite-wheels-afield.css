@@ -7,32 +7,17 @@
 body {
 	font-family: 'Open Sans', sans-serif;
 }
-/*
-.wheels-afield {
-	width: 100%;
-}
-*/
 a {
 	color: #bb9632;
-/*
-	-webkit-transition:color 0.1s;
-	-moz-transition:color 0.1s;
-	transition:color 0.1s;
-*/
 }
 a:hover {
 	color: #a07500;	
-/*
-	-webkit-transition:color 0.1s;
-	-moz-transition:color 0.1s;
-	transition:color 0.1s;
-*/
 }
-
 
 /* ==========================================================================
 	4.0 Buttons
 ========================================================================== */
+
 .s-buy-btn {
 	font: 700 10px 'Open Sans', Helvetica, Arial, sans-serif;
 	background: rgb(216,194,138); /* Old browsers */
@@ -76,31 +61,16 @@ a:hover {
 	display: none;
 }
 
-
 /* Main-nav */
 .main-nav ul li a {font-family: 'Open Sans';}
-
-
 .main-nav ul li:hover a {color: #bb9632;}
-
 .main-nav ul li:hover {border-left: 1px solid #bb9632;-webkit-transition:all 0.1s;-moz-transition:all 0.1s;transition:all 0.1s;}
-
-
 .main-nav ul li:last-child:hover {border-right: 1px solid #bb9632;-webkit-transition:all 0.1s;-moz-transition:all 0.1s;transition:all 0.1s;} 
-
-
 .main-nav > ul li.menu-item-has-children ul li a {font-family: 'Open Sans', sans-serif;}
-
-
-
-
-
 
 .social-buttons ul li a:hover {
 	color: #bb9632;
 }
-
-
 
 
 /* ==========================================================================
@@ -108,27 +78,21 @@ a:hover {
    ========================================================================== */
 
 /* Content *******************/
-
 .featured-message span {
 	font-family: "Open Sans", serif;
 }
-
-
 .m-social-buttons ul li a:hover {
 	color: #bb9632;
 }
 
 
-
 /* ==========================================================================
    6.0 Single Article
    ========================================================================== */
-   
 
 .m-article .m-hlep-grow {
 	font-family: "Open Sans", sans-serif;
 } 
-
 .m-post-byline {
 	font-size: 11px;
 	font-weight: 400;
@@ -147,7 +111,6 @@ a:hover {
 .m-buy-mag-img {
 	background-image: url("/wp-content/themes/petersenshunting/images/wheels-afield/wheels-afield-mag-cover.jpg");
 }
-
 .m-buy-mag-bottom > a, .m-buy-mag-bottom .m-buy-dig {
 	color: #B28920;
 }
@@ -167,7 +130,6 @@ a:hover {
 }
 
 
-
 /* ==========================================================================
    7.0 Footer
    ========================================================================== */
@@ -175,8 +137,6 @@ a:hover {
 .s-mag-descr h1 {
 	margin: -8px 0 15px;
 }
-
-
 .s-mag-descr p {
 	font-family: 'Open Sans', sans-serif;
 }
@@ -184,142 +144,28 @@ a:hover {
 	font-size: 17px;
 	font-weight: 300;
 }
-
-
-
-
-
-
-
-.s-mag-btns a.s-buy-btn {
-	margin-right: 2.5%;
-}
-
-
-
 .buy-mag-drop {
-	display: none;
-	position: absolute;
-	right: 0;
-	left: 0;
 	top: 31px;
 	border: 3px solid #B28920;
-	background-color: #333333;
-}
-.buy-mag-drop ul {
-	padding: 0;
-	list-style: none;
-	text-align: left;
-	margin: 14px 0 7px;
-}
-.buy-mag-drop ul li {
-	padding-left: 10px;
-	height: 33px;
-	width: 100%;
-	display: inline-block;
-}
-.buy-mag-drop ul li:hover {
-	background-color: #202020;
-}
-.buy-mag-drop ul li a img {
-	display: block;
-	width: 25px;
-	height: 25px;
-	margin-right: 10px;
-	float: left;
-}
-.buy-mag-drop ul li a {
-	color: white;
-	width: 100%;
-	height: 33px;
-	display: block;
-	padding: 4px 0;
 }
 .buy-mag-drop ul li a span {
-	display: block;
-	float: left;
-	font: 400 11px/25px 'Open Sans', sans-serif;
-}
-.footer-message h2 {
-	font-size: 19px;
-	text-align: center;
-}
-.f-social-buttons {
-	margin: 0 auto 15px;
-	text-align: center;
-}
-.f-social-buttons ul {
-	list-style: none;
-	margin: 8px 0;
-	padding: 0;
-}
-.f-social-buttons ul li {
-	display: inline;
-	margin: 0 5px;
-}
-.f-social-buttons ul li a {
-	font-size: 25px;
-	color: #a0a0a0;
+	font-family: 'Open Sans', sans-serif;
 }
 .f-social-buttons ul li a:hover {
 	color: #bb9632;
 }
-.m-footer-bottom {
-	float: left;
-	width: 100%;
-	padding-top: 30px;
-	border-top: 1px solid #444444;
-}
-.m-imo-logo {
-	width: 110px;
-	margin: 0 auto 15px;
-}
-.m-imo-logo img {
-	width: 100%;
-}
-.m-footer-nav ul {
-	list-style: none;
-	text-align: center;
-	padding: 0;
-	margin: 0 0 20px;
-}
-.m-footer-nav ul li a {
-	color: 	#e9e9e9;
-	font-size: 12px;
-	font-weight: 600;
-}
 .m-footer-nav ul li a:hover {
 	color: #bb9632;
 }
-.m-copyright {
-	margin-top: 30px;
-	text-align: center;
-}
-.m-copyright p {
-	font-size: 13px;
-}
+
 
 /* ==========================================================================
    7.0 Zip code finder
    ========================================================================== */
    
 /* footer zip ****************/
-#pubfinderzipcontfoot {
-	width: 100%;
-}
-#pubfinderzipcontfoot .pubfinderformcont {
-	margin: 0;
-	width: 100%;
-}
-#pubfinderzipcontfoot .pubfinderformcont label {
-	float: left;
-	font-size: 11px;
-	margin-top: 8px;
-}
+
 #pubfinderzipcontfoot .pubfinderform {
-	border: none;
-	float: right;
-	padding: 2px 2px 3px 3px;
 	background: rgb(216,194,138); /* Old browsers */
 	background: -moz-linear-gradient(top,  rgba(216,194,138,1) 0%, rgba(187,150,51,1) 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(216,194,138,1)), color-stop(100%,rgba(187,150,51,1))); /* Chrome,Safari4+ */
@@ -339,162 +185,18 @@ a:hover {
 	background: linear-gradient(to bottom,  rgba(214,180,94,1) 6%,rgba(214,180,94,1) 6%,rgba(178,137,32,1) 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6b45e', endColorstr='#b28920',GradientType=0 ); /* IE6-9 */
 }
-#pubfinderzipcontfoot .pubfinderform ::-webkit-input-placeholder, #pubfinderzipconthead .pubfinderform ::-webkit-input-placeholder { color: #cccccc; }
-#pubfinderzipcontfoot .pubfinderform :-moz-placeholder, #pubfinderzipconthead .pubfinderform :-moz-placeholder { color: #cccccc;  }
-#pubfinderzipcontfoot .pubfinderform ::-moz-placeholder, #pubfinderzipconthead .pubfinderform ::-moz-placeholder { color: #cccccc;  }
-#pubfinderzipcontfoot .pubfinderform :-ms-input-placeholder, #pubfinderzipconthead .pubfinderform :-ms-input-placeholder {  color: #cccccc;  }
-
-#pubfinderzipcontfoot .pubfinderzipgo {
-	color: black;
-	font-weight: 600;
-	padding: 2px 1px 0;	
-}
-#pubfinderzipcontfoot .pubfinderzipgo:hover {
-	color: white;
-}
-#pubfinderzipcontfoot .pubfinderzip {
-	color: #eeeeee;
-	background-color: #333333;
-	border: none;
-	text-align: center;
-	height: 23px;
-}
-#pubfinderzipcontfoot .pubfinderzipresult, #pubfinderzipcontfoot .pubfinderpoplist, #pubfinderzipconthead .pubfinderzipresult, #pubfinderzipconthead .pubfinderpoplist {
-	color: #222222;
-}
 
 /* header zip ****************/
-
-.m-buymag-drop {
-	display: none;
-	width: 280px;
-	background-color: #333333;
-	position: absolute;
-	top: 39px; 
-	left: 0;
-	z-index: 900;
-	padding: 10px;
-	font-size: 14px;
-	color: #e9e9e9;
-	text-align: left;
-}
-.single .m-buymag-drop {
-	left: 0; right: 0; top:36px; margin: 0 auto; 
-	display: none;
-}
-.m-display-block,  .single .m-display-block {
-	display: block;
-}
-.m-buymag-drop ul li a {
-	font-size: 14px;
-	color: #e9e9e9;
-}
-.m-buymag-drop ul > li, .m-buymag-drop ul > li:last-child, .m-buymag-drop ul > li:last-child:hover, .m-buymag-drop ul > li:hover {
-	border: none;
-}
-.m-buymag-drop > ul > li {
-	margin: 0;
-	width: 100%;
-	height: auto;
-	margin-bottom: 17px;
-}
-.m-buymag-drop > ul > li:nth-child(1) {
-	margin-top: 10px;
-	position: relative;
-}
-.m-buymag-drop i {
-	color: #eeeeee;
-	position: absolute;
-	right: -10px;
-	top: -20px;
-	padding: 10px;
-	cursor: pointer;
-}
-.m-buymag-drop i:hover {
-	color: #bb9632;
-}
-.m-buymag-drop > ul > li:nth-child(2) {
-	border-top: 1px solid #777777;
-	border-bottom: 1px solid #777777;
-}
-.m-buymag-drop > ul > li:nth-child(2) a {
-	padding: 15px 0 16px;
-}
 .m-buymag-drop > ul > li:nth-child(2) a::after {
-	content: "\e600";
-	font-family: "icomoon";
 	color: #bb9632;
-	display: inline-block;
-	-webkit-transform: rotate(180deg);
-	transform: rotate(180deg);
-	margin-left: 14px;
-	vertical-align: middle;
-}
-.m-buymag-drop > ul > li:nth-child(3) {
-	margin-bottom: 0;
-}
-.m-buymag-drop > ul > li:nth-child(3):hover a {
-	color: #e9e9e9;
 }
 .m-list-dig {
-	border: 3px solid #B28920;
-	background-color: #333333;
-	margin-top: 12px;
-}
-.m-list-dig ul {
-	padding: 0;
-	list-style: none;
-	text-align: left;
-	margin: 7px 0;
-}
-.m-list-dig ul li {
-	padding-left: 10px;
-	height: 33px;
-	width: 100%;
-	display: inline-block;
-}
-.m-list-dig ul li:hover {
-	background-color: #202020;
-}
-.m-list-dig ul li a img {
-	display: block;
-	width: 25px;
-	height: 25px;
-	margin-right: 12px;
-	float: left;
-}
-.m-list-dig ul li a {
-	color: white;
-	width: 100%;
-	height: 33px;
-	display: block;
-	padding: 4px 0;
+	border-color: #B28920;
 }
 .m-buymag-drop .m-list-dig > ul > li:hover a {
 	color: #B28920;
 }
-.m-list-dig ul li a span {
-	display: block;
-	float: left;
-	font: 400 13px/25px 'Open Sans', sans-serif;
-}
-#pubfinderzipconthead {
-	width: 100%;
-	margin-top: 0;
-}
-#pubfinderzipconthead .pubfinderformcont {
-	margin: 0;
-	width: 100%;
-}
-#pubfinderzipconthead .pubfinderformcont label {
-	font-size: 14px;
-	margin-top: 8px;
-}
 #pubfinderzipconthead .pubfinderform {
-	margin: 10px 0 0;
-	width: 100%;
-	border: none;
-	padding: 2px 2px 3px 3px;
 	background: rgb(216,194,138); /* Old browsers */
 	background: -moz-linear-gradient(top,  rgba(216,194,138,1) 0%, rgba(187,150,51,1) 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(216,194,138,1)), color-stop(100%,rgba(187,150,51,1))); /* Chrome,Safari4+ */
@@ -514,28 +216,8 @@ a:hover {
 	background: linear-gradient(to bottom,  rgba(214,180,94,1) 6%,rgba(214,180,94,1) 6%,rgba(178,137,32,1) 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6b45e', endColorstr='#b28920',GradientType=0 ); /* IE6-9 */
 }
-#pubfinderzipconthead .pubfinderzipgo {
-	color: black;
-	font-weight: 600;
-	padding: 2px 1px 0;
-	width: 35%;	
-}
-#pubfinderzipconthead .pubfinderzipgo:hover {
-	color: white;
-}
-#pubfinderzipconthead .pubfinderzip {
-	color: #eeeeee;
-	background-color: #333333;
-	border: none;
-	text-align: center;
-	height: 23px;
-	width: 62%;
-}
-#pubfinderzipconthead .pubfinderpop {
-	right: auto !important;
-	left: -20px !important;
-	width: 300px;
-	top: -10px !important;
+.unavailble-mag p {
+	font-family: 'Open Sans', sans-serif;
 }
 
 
@@ -543,311 +225,69 @@ a:hover {
    8.0 Media Queries
    ========================================================================== */
 @media only screen and (min-width: 375px) {/* iPhone 6 */
-
-/* Single Article **************/
-.alignright-content {margin: 30px auto;}
-
-/* Footer *******************/  
-.s-mag-descr h1 {font-size: 23px;}
-.s-mag-buy h2 {font-size: 21px;margin-bottom: 7px;}
-.s-mag-descr p {font-size: 15px;}
+.s-mag-buy h2 {
+  font-size: 21px;
+  margin-bottom: 7px;
+}
 
 }/* end of media */
-
 
 @media only screen and (min-width: 480px) {/* smartphones, Android phones, landscape iPhone */
 
-/* Header *******************/
-.main-nav {margin: 0 0 0 21px;}
-.social-buttons ul {margin-right:21px;}
-
 /* Footer *******************/  
-.s-mag-descr h1 {font-size: 29px;}
-.s-mag-descr p {font-size: 16px;}
 .s-mag-buy h2 {font-size: 27px;margin-bottom: 10px;}
 .s-or {height: 14px;margin-top: 14px;}
-.s-or > div {top: -9px; width: 46px;height: 25px;font-size: 19px;}
-.s-mag-btns .s-buy-btn {width: 48.5%;font-size: 13px;}
-.s-mag-btns a:first-child {margin-right: 2%;}
-.buy-mag-drop {top: 37px;}
-.buy-mag-drop ul li a span {font-size: 14px;line-height: 28px;}
-
-
-/* Zip code finder *******************/
-
-/* foot */
-#pubfinderzipcontfoot .pubfinderformcont label {font-size: 15px;margin-top: 4px;}
-#pubfinderzipcontfoot .pubfinderform {width: 198px;}
-#pubfinderzipcontfoot .pubfinderzip {width: 62%; text-align: center; color: #eeeeee;}
-#pubfinderzipcontfoot .pubfinderformcont label:after {content: "\e600";font-family: "icomoon";font-size: 12px;transform: rotate(180deg);display: inline-block;margin-left: 18px;}
-#pubfinderzipcontfoot .pubfinderzipgo {width: 35%;}
-
-
-/* Single Article *******************/ 
-.m-article .m-hlep-grow {width: auto;}
-/* .rel-link {margin-bottom:20px;} */
 
 }/* end of media */
-
 
 @media only screen and (min-width: 600px) {/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
 
 /* Header *******************/
-.main-header {width: 92%;margin: 0 auto;}
-.menu-area {position: relative;}
-.microsite-logo {width: auto;border-bottom: none;float: left;}
-.microsite-logo img {margin: 0; width: 200px;}
-.single .wheels-afield .main-nav {float: left;text-align: left;margin: 37px 0 0 20px;}
 .main-nav {margin: 37px 0 0 20px;}
-.social-buttons {float: none;position: absolute;bottom: 2px;right: 1px;}
-.social-buttons ul {margin: 8px 0;}
-.social-buttons ul li a {font-size: 24px;}
-.sponsors-disclaimer {text-align: left;}
-.category .wheels-afield .sponsors-disclaimer {width: 92%;margin: 0 auto;}
-.sponsors-disclaimer span {margin-left: 20px;}
 
-/* Fixed Content *******************/
-.fixed-connect{display: block; width:100%;height:42px;position:fixed;top:auto; bottom:0;background:#545454;color:#fff;font-family:'Open Sans',"Helvetica",Arial,sans-serif;font-weight: 600;opacity:.99;z-index:999999999999999;}
-.fixed-connect .container{max-width:1060px;margin:0 auto;padding:0 20px 0 20px;}
-.fixed-connect a{color:#fff;text-decoration:none;}
-.fixed-connect .currentIssue{width:100px;height:83px;float:left;margin:-54px 0 0 0;}
-.fixed-connect .currentIssue img{width: 100%;height: auto;}
-.fixed-connect .subscribe, .fixed-connect input[type="submit"]{float:left;height:28px;padding: 0 6px;text-transform: uppercase;background:red;margin:8px 0 0 0;font-size:20px;}
-.fixed-connect .subscribe a{height:100%;width:100%;display:block;}
-.fixed-connect .newsletter{float:left;margin:0 0 0 15px;font-size:14px;padding:8px 0 0 10px;border-left: 1px solid white;height: 42px;}
-.fixed-connect .newsletter .title{float: left;margin-top: 4px;}
-.fixed-connect fieldset{border: none;}
-.fixed-connect .newsletter input{font-size: 14px;color: black;border: none;float: left;margin: 2px 0 0 8px;width: 130px;padding: 4px;}
-.fixed-connect .opt-in{float: left;width: 160px;}
-.fixed-connect .newsletter input[type="checkbox"]{height: 24px;width: 20px !important;}
-.fixed-connect .newsletter input[type="submit"]{width: auto;background: red;font-size: 20px;margin: 0;padding: 0 4px;color: white;}
-.fixed-connect .newsletter input.active{color:#444;}
-.fixed-connect .newsletter .button.noInput{display:none;}
-.fixed-connect .follow{float:left;border-left:1px solid #fff;margin:0 0 0 15px;height:42px;font-size:16px;padding:0 0 0 10px;}
-.fixed-connect .follow .follow-us{float:left;margin-top: 12px;}
-.fixed-connect .socials{padding-left: 4px;}
-.fixed-connect .socials a{margin-top: 6px;}
-.fixed-connect .close{float:right;margin:9px 11px 0 0;}
-.fixed-connectExpand{background:#eaeaea;border-left:1px solid #ccc;border-top:1px solid #ccc;position:fixed;bottom:0;right:0;z-index:100;display:none;}
-.fixed-connectExpand a{color:#999;text-decoration:none;font-size:20px;font-weight:700;width:100%;height:100%;display:block;padding:3px 7px 3px 7px;}
-.fixed-connect form{float: left;font-size: 12px;}
-.socials {float:right; font-size:0; line-height:0; padding:0 0 3px;}
-.socials a { display:inline-block; width:30px; height:30px; overflow:hidden; text-indent:-99999px; margin:0 0 0 3px; background:url(../images/sprite.png) no-repeat;}
-.socials a.facebook {background-position:-105px 0;}
-.socials a.facebook:hover {background-position:-239px 0;}
-.socials a.twitter {background-position:-140px 0;}
-.socials a.twitter:hover {background-position:-273px 0;}
-.socials a.youtube {background-position:-172px 0;}
-.socials a.youtube:hover {background-position:-307px 0;}
-.socials a.rss {background-position:-206px 0;}
-.socials a.rss:hover {background-position:-340px 0;}
-
-.fixed-connect fieldset {padding: 0 0.625em 0.75em;}
-
-/* Content *******************/
-.content {padding: 0 4%;}
-.posts-wrap {margin: 35px -1%;}
-.featured-message {width: 98%;margin: 1% 1% 4%;border-top: 4px solid #959595;border-bottom: 4px solid #959595;}
-.featured-message span {font-size: 18px;}
-.p-feat-container a:nth-child(3n+1) .post-box, 
-.p-feat-container a:nth-child(3n+2) .post-box{margin: 0 1% 3.2%;width: 48%;padding-top: 32.16%;}
-.p-feat-container a:nth-child(3n+3) .post-box {margin: 0 1% 3.2% ;width: 98%;padding-top: 33.22%;}
-
-.p-container a:nth-of-type(5n+1) .post-box,
-.p-container a:nth-of-type(5n+2) .post-box {margin: 0 1% 3.2%;width: 48%;padding-top: 32.16%;}
-
-.p-container a:nth-of-type(5n+3) .post-box,
-.p-container a:nth-of-type(5n+4) .post-box,
-.p-container a:nth-of-type(5n+5) .post-box {margin: 0 1% 3.2% ;width: 31.333333%;padding-top: 20.9933333%;}
-
-/*
-.rel-logo {display: inline-block;}
-.p-rel-header {margin: 0 1%;}
-.p-rel-header > h5 {display: inline-block;margin: 5px 0 7px 25px;}
-.rel-wrap {margin: 30px 0 0;}
-.rel-link {margin: 0 1% 30px;width: 23%;}
-.rel-wrap a:nth-child(4n+3) {clear:none;}
-.rel-wrap a:nth-child(4n+5) {clear:left;}
-.rel-link h3 {font-size: 13px;color: #e9e9e9;font-weight: 400;}
-.rel-box {width: 100%;padding-top: 82%;background-size: cover;background-position:center center;}
-*/
+.s-mag-buy h2 {font-size: 36px;}
 
 /* Single Article *******************/
-.m-buy-mag h2 {text-align: left;}
-.m-article {padding: 0 35px 20px;} 
-.m-more {width: 92%;padding: 0;margin: 0 4%;}
-.m-more h2 {font-weight: 300;font-size: 30px;}
-.m-post-byline {font-size: 13px;}
-.m-article p {font: 400 17px/28px 'Open Sans', sans-serif;}
-.m-more-wrap {margin: 0 -1%;}
-.m-more-wrap .post-box { margin: 0 1% 3.2%; padding-top: 32.16%; width: 48%;}
-.m-article blockquote {font-size: 30px;} 
-.m-article blockquote p {font-size: 30px;}
-.alignright-content {margin: 30px 0 30px 30px;float: right;}
-.alignright-content.m-buy-wrap {margin: 2px 0 30px 30px;float: right;}
-.m-article-bottom {clear:both;}
-.m-article-bottom .m-social-wrap {float: left;width: 200px;margin-top: 70px;}
-.m-article-bottom .m-social-buttons ul li {margin: 0 8px;}
-.m-article-bottom .m-social-buttons ul li:first-child {margin-left: 0;}
-.m-article-bottom .m-social-buttons ul li a {font-size: 40px;}
-.m-article-bottom .m-hlep-grow {font: 700 20px/25px 'Open Sans', sans-serif;color: #222222;margin-bottom: 15px;}
+/* .m-article p {font: 400 17px/28px 'Open Sans', sans-serif;} */
+
+.m-article-bottom .m-hlep-grow {font-family: 'Open Sans', sans-serif;}
 
 /* Footer *******************/ 
-.category .s-footer {padding: 20px 0 50px;}
-.s-footer {margin: 0 4%;padding: 50px 0;position: relative;}
 .s-mag-descr h1 {font-size: 38px;margin: -15px 0 25px;}
-.s-mag-descr p {font-size: 18px;}
-.s-mag-buy h2 {font-size: 36px;}
-.m-imo-logo {width: 110px;margin: 0 20px 0 0;display: inline-block;}
-.m-imo-logo img {width: 100%;}
-.m-footer-nav {display: inline-block;}
-.m-footer-nav ul {text-align: left;}
-.m-footer-nav ul li {display: inline-block;}
-.m-footer-nav ul li a {padding: 5px 15px;}
-.m-footer-nav ul li a:first-child {padding-left: 0}
-.m-copyright {margin-top: 15px;text-align: left;}
-
-/* Zip code finder *******************/
-
-/* foot */
-#pubfinderzipcontfoot .pubfinderformcont label {font-size: 18px;} 
-#pubfinderzipcontfoot .pubfinderform {width: 254px;}
-/* head */
-.single .m-buymag-drop {left: 35px; right: auto; top: 44px;}
-
-/* Wordpress Defaults *******************/  
-.m-article .aligncenter {margin: 30px auto;}
-.m-article .alignnone {margin: 30px 0;float: none;}
-.m-article .alignright {float: right;margin: 8px 0 20px 30px;width: 300px;}
-.m-article .alignleft {float: left; margin: 8px 30px 20px 0;width: 300px;}
-.wp-caption p.wp-caption-text { font-size: 14px; line-height: 19px;}
 
 }/* end of media */
 
 @media only screen and (min-width: 700px) {
 
-/* Content *******************/
-.featured-message {padding: 10px 0;}	
-.featured-message span {font-size: 24px;margin-bottom: 8px;}
-.m-social-buttons ul li {display: inline;margin: 0 10px;}
-.m-social-buttons ul li a {font-size: 37px;}
-.p-container {margin-bottom: 35px;}
-/*
-.rel-logo {width: 150px;}
-.p-rel-header > h5 {font-size: 16px;}
-*/
+/* Content *******************/	
+.featured-message span {font-size: 24px;}
 
 /* Single Article *******************/
-.m-article h1 {font-size: 40px;line-height: 46px;}
-.m-article-bottom .m-social-wrap {width: 300px;margin-top: 40px;}
-.m-article-bottom .m-social-buttons ul li a {font-size: 50px;}
-.m-article-bottom .m-hlep-grow {font:600 30px/30px 'Open Sans', sans-serif;}
-
-/* Footer *******************/ 
-.footer-message {margin-top: 20px;border-top: 1px solid #444444;}
-.footer-message h2 {text-align: left;float: left;}
-.f-social-buttons {text-align: right;float: right;margin: 10px auto 0;}
-.s-mag-buy {width: 62%;}
-.s-mag-cover { margin-right: 5%; width: 33%;}
-.s-mag-descr { float: left; width: 62%;}
-.s-mag-buy h2 { font-size: 26px;}
-.s-or {margin-top: 10px;}
-.s-mag-buy h2 {margin-bottom: 6px;}
-.s-mag-btns {margin-top: 11px;}
-
-/* Zip code finder *******************/
-/* foot */
-#pubfinderzipcontfoot .pubfinderformcont label {font-size: 15px;}
-#pubfinderzipcontfoot .pubfinderform {width: 45%;}
+.m-article-bottom .m-hlep-grow {font-family: 'Open Sans', sans-serif;}
 
 }/* END OF MEDIA */
 
 @media only screen and (min-width: 920px) {
 
 /* Header *******************/
-.microsite-logo {float: none;position: absolute;width: 250px;left:0; right: 0;margin: 0 auto;}
-.microsite-logo img {margin: 0; width: 250px;}
-.single .wheels-afield .main-nav, .main-nav {margin: 53px 0 15px 2px; }
-.main-nav > ul > li {height: 13px;}
-.main-nav > ul > li > a {font: 15px/15px 'Open Sans', sans-serif;}
-.social-buttons ul {margin: 8px 0;}
-.social-buttons ul li a {font-size: 24px;}
-.sponsors-disclaimer {text-align: center;width: 92%;margin: 0 auto;}
-.sponsors-disclaimer span {margin-left: 0;font-size: 15px;}
-
-/* Content *******************/
-.content {padding: 0 4%;}
-.posts-wrap {margin: 35px -0.5%;}
-.p-feat-container a:nth-child(3n+1) .post-box, 
-.p-feat-container a:nth-child(3n+2) .post-box{margin: 0 0.5% 2.5%;width: 49%;padding-top: 32.83%;}
-.p-feat-container a:nth-child(3n+3) .post-box {margin: 0 0.5% 2.5% ;width: 99%;padding-top: 33.66%;}
-.featured-message {width: 99%;margin: 0 0.5% 35px;border-top: 4px solid #959595;border-bottom: 4px solid #959595;}
-
-.p-container a:nth-of-type(5n+1) .post-box,
-.p-container a:nth-of-type(5n+2) .post-box {margin: 0 0.5% 2.5%;width: 49%;padding-top: 32.83%;}
-
-.p-container a:nth-of-type(5n+3) .post-box,
-.p-container a:nth-of-type(5n+4) .post-box,
-.p-container a:nth-of-type(5n+5) .post-box {margin: 0 0.5% 2.5% ;width: 32.3333333%;padding-top: 21.66333333%;}
-
-/* Related Articles *******************/
-/*
-.p-rel-header > h5 {margin-left:30px;font-size: 17px;}
-.rel-logo {width: 170px;}
-.rel-link h3 {font-size: 18px;}
-*/
+.microsite-logo {width: 250px;}
+.single .wheels-afield .main-nav, .main-nav {margin: 53px 0 15px 2px;}
+.main-nav > ul > li > a {font-family:'Open Sans', sans-serif;}
 
 /* Single Article *******************/
-.m-article {padding: 0 0 20px;margin: 0 17%;}
-.m-article-image {padding-top: 39%;}
-.m-more {width: 92%;padding: 0;margin: 0 4%;}
-.m-more h2 {margin-left: -2px;}
-.m-more-wrap {margin: 0 -0.5%;}
-.m-more-wrap .post-box { margin: 0 0.5% 2.5%; padding-top: 21.6633%; width: 32.3333%;}
 .m-article-bottom .m-social-wrap {width: 277px;}
-.m-article iframe.interact-embed {width: 800px;}
-
-/* Footer *******************/ 
-.s-mag {position: relative;}
-.s-mag-buy {position: absolute; bottom: -9px;left: 30%; width: auto;z-index: 400;}
-.s-mag-cover { margin-right: 5%; width: 25%;}
-.s-mag-descr { float: left; width: 70%;}
-.s-mag-descr h1 {margin-bottom: 10px;}
-.s-mag-buy h2 { font-size: 30px;}
-.footer-message h2 {text-align: left;}
-.f-social-buttons {text-align: left;}
-.m-copyright {margin-top: 0;float: left;}
-.s-or > div {width: 66px;}
-
+.s-mag-buy h2 {font-size: 30px;}
 /* Zip code finder *******************/
 /* foot */
 #pubfinderzipcontfoot .pubfinderform { width: 43.5%;}
 #pubfinderzipcontfoot .pubfinderformcont label {font-size: 16px;}
-#pubfinderzipcontfoot .pubfinderformcont label::after {font-size: 13px; margin-left: 27px;}
-/* head */
-.single .m-buymag-drop {left: 112px;top: 47px;}	
 	
 }/* END OF MEDIA */
 
 @media only screen and (min-width: 1025px) {/* big landscape tablets, laptops, and desktops */
 
 /* Header *******************/
-.m-buymag-drop i {display: none;}
 .m-buymag-drop > ul > li:nth-child(1) {margin-top: 5px;}
-
-/* Single Articles *******************/
-.m-article {margin: 0 25%;}
-.m-article h1 {font-size: 45px;line-height: 52px;}
-.alignright-content {margin-right:-150px;}
-.alignright-content.m-buy-wrap {margin-right: -150px;}
-
-/* Related Articles *******************/
-/* .rel-link h3 {font-size: 19px;} */
-
-/* Wordpress Defaults *******************/  
-.m-article .alignright {margin-right: -150px;}
-.m-article .alignleft { margin-left: -150px;}
-.alignright-content {float: right;margin-right: -150px;}
 
 /* Footer *******************/ 
 
@@ -856,7 +296,6 @@ a:hover {
 #pubfinderzipcontfoot .pubfinderformcont label {
   font-size: 17.2px;
 }
-
 
 }/* END OF MEDIA */
 
@@ -869,21 +308,10 @@ a:hover {
 .m-article {margin: 0 auto; width: 700px;}
 
 /* Footer *******************/ 
-.s-mag {width: 857px;float: left;margin-right: 30px;border-right: 2px solid #a6a6a6;}
-.s-mag-cover { margin-right: 5%; width: 30%;}
-.s-mag-descr { float: left; width: 65%; padding-right: 5%;}
-.s-mag-buy {position: absolute; bottom: -9px;left: 35%;z-index: 500;}
-.s-mag-buy h2 {font-size: 32px;}
-.s-or {height: 16px;}
-.s-or > div { top: -10px; width: 50px;font-size: 21px;}
-.footer-message {top: 65px;display: block;position: absolute;text-align: right;right: 0;width: 100%;padding-left: 75%;font-family: 'Open Sans', serif;border-top: none;z-index: 300;}
-.m-footer-bottom {margin-top: 50px;}
-.footer-message h2 {font-size: 24px;text-align: right;float: right;}
-.f-social-buttons {margin: 0 0 15px;text-align: right;}
-.f-social-buttons ul li {margin: 0 5px;}
-.f-social-buttons ul li:first-child {margin: 0 5px;}
-.f-social-buttons ul li:last-child {margin: 0 0 0 5px;}
-.f-social-buttons ul li a {font-size: 30px;}
+.s-mag-buy h2 {font-size: 32px;margin-bottom: 8px;}
+.s-or > div {width: 50px;}
+.footer-message {font-family: 'Open Sans', serif;}
+.s-mag-buy .pubfinderzipcont {margin: -4px 0px;}
 
 }/* END OF MEDIA */
 
@@ -899,36 +327,3 @@ a:hover {
 .m-more {width: auto;margin: 0 auto;max-width: 1442px;}
 
 }/* END OF MEDIA */
-
-/* ==========================================================================
-   9.0 Print styles
-   ========================================================================== */
-@media print {
-    * {
-        background: transparent !important;
-        color: #000 !important;
-        box-shadow: none !important;
-        text-shadow: none !important;
-    }
-    a,
-    a:visited { text-decoration: underline;}
-    a[href]:after {content: " (" attr(href) ")";}
-    abbr[title]:after { content: " (" attr(title) ")";}
-
-    .ir a:after,
-    a[href^="javascript:"]:after,
-    a[href^="#"]:after {content: "";}
-    pre,
-    blockquote {border: 1px solid #999;page-break-inside: avoid;}
-    thead {display: table-header-group;}
-    tr,
-    img {page-break-inside: avoid;}
-    img { max-width: 100% !important;}
-
-    @page {margin: 0.5cm;}
-    p,
-    h2,
-    h3 { orphans: 3; widows: 3;}
-    h2,
-    h3 { page-break-after: avoid;}
-}
