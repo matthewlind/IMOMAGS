@@ -306,8 +306,6 @@ body.category-tv #imo-tophat, body.page-template-show-page-php #imo-tophat{
 	font-weight: 300;
 	text-align: right;
 }
-.home #when-to-watch{background: #252525;padding: 5px;margin-bottom: 5px;height: auto;}
-
 .schedule-item {
 	float: left;
 	margin: 5px 0 0 15px;
@@ -315,14 +313,6 @@ body.category-tv #imo-tophat, body.page-template-show-page-php #imo-tophat{
 	height: 49px;
 	padding-left: 16px;
 	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-}
-.home .schedule-item {
-  margin: 12px 0 0 10px;
-  border-left: 2px solid #848484;
-  height: 30px;
-}
-.home .schedule-item:nth-child(n+5) {
-	display: none;
 }
 .tv-show .schedule-item:nth-child(n+7) {
 	display: none;
@@ -388,7 +378,6 @@ body.category-tv #imo-tophat, body.page-template-show-page-php #imo-tophat{
 	background: linear-gradient(to bottom,  #5e5e5e 0%,#333333 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5e5e5e', endColorstr='#333333',GradientType=0 ); /* IE6-9 */
 }
-.home .remind-me{width: 100px;padding: 8px 0;}
 .page-template-show-page-php .tv-show .remind-me {
 	background: #a5a5a5; /* Old browsers */
 	background: -moz-linear-gradient(top,  #a5a5a5 0%, #838383 100%); /* FF3.6+ */
