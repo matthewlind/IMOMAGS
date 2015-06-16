@@ -14,7 +14,7 @@
 		</div>
 	</div><!-- .m-article-image -->
 	<article class="m-article clearfix">
-		<div class="m-social-wrap">
+		<div class="m-social-wrap clearfix">
 			<ul class="share-count social-buttons">
 				<li>
 					<a href="http://www.facebook.com/sharer.php?u=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>&t=Rigged and Ready RAM Outdoorsman Sweepstakes" class="socialite facebook-like reload-fb" data-href="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" data-send="false" data-layout="button_count" data-share="true" data-action="like" data-width="60" data-show-faces="false" rel="nofollow" target="_blank"><span class="vhidden"></span></a> 
