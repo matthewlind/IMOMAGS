@@ -1284,6 +1284,47 @@ div.login-register-block {
     background:url(images/logos/fisherman-logo.png) no-repeat;
 }
 
+/* when to watch ==================================== */
+#when-to-watch {
+	width: 100%;
+	height: 106px;
+	overflow: hidden;
+	padding-top: 20px;
+}
+#when-to-watch .when-label {
+	float: left;
+}
+#when-to-watch img{
+	width: 160px;
+	height: auto;
+	float: right;
+}
+#when-to-watch .when-label h3 {
+	color: #ffffff;
+	font: 13px/20px 'jubilat', serif;
+	font-weight: 300;
+	text-align: right;
+}
+.home #when-to-watch{background: #252525;padding: 5px;margin-bottom: 5px;height: auto;}
+
+.schedule-item {
+	float: left;
+	margin: 5px 0 0 15px;
+	border-left: 2px solid #848484;
+	height: 49px;
+	padding-left: 16px;
+	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+.home .schedule-item {
+  margin: 12px 0 0 10px;
+  border-left: 2px solid #848484;
+  height: 30px;
+}
+.home .schedule-item:nth-child(n+5) {
+	display: none;
+}
+.home .remind-me{width: 100px;/* padding: 8px 0; */}
+
 /* =Responsive Breakpoints
 *******************************************************************************/
 @media only screen and (max-width: 1096px) {
@@ -1313,6 +1354,27 @@ div.login-register-block {
 	 .general {padding-top: 20px;}
 	 .home .home-featured:nth-child(odd){padding-top: 0;}
 }
+@media only screen and (max-width: 1023px) {
+	.home .remind-me {
+	  padding: 8px 0;
+	  float: none;
+	  width: 80%;
+	  margin: 0 auto;
+	  display: block;
+	  clear: both;
+	  height: auto;
+	}
+	
+	.home #when-to-watch img{
+		float: none;
+		margin: 0 auto;
+		display: block;
+	}
+	.home #when-to-watch .when-label h3 {text-align: center;}
+	.home #when-to-watch .when-label {float: none;}
+	.home .schedule-mobile{clear: both;}
+	.home .schedule-item{border: none;}
+} /* End of media */
 @media only screen and (max-width: 880px) {
 	.home .home-featured, .home .home-featured:nth-child(odd), .home .home-featured:first-child{padding: 0 0 20px 0;}
 	.posts-list .article-brief {margin-top: 10px;}

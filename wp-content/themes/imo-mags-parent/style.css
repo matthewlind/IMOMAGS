@@ -2891,7 +2891,6 @@ margin-bottom:15px;
   color: white;*/
 }
 
-
 /* = WP default overrides
  ******************************************************************************/
 #wpadminbar {z-index: 999999999 !important;}
@@ -4300,24 +4299,6 @@ table.likes-leaderboard .entry-title {
 	#ecw-flexslider {width: 334px;}
 	/* END E-Commerce
 	********************************************************************************/
-	.home #when-to-watch img{
-		float: none;
-		margin: 0 auto;
-		display: block;
-	}
-	.home #when-to-watch .when-label h3 {text-align: center;}
-	.home #when-to-watch .when-label {float: none;}
-	.home .schedule-mobile{clear: both;}
-	.home .schedule-item{border: none;}
-	.home .remind-me {
-	  padding: 8px 0;
-	  float: none;
-	  width: 80%;
-	  margin: 0 auto;
-	  display: block;
-	  clear: both;
-	  height: auto;
-	}
 
 } /* End of media */
 
