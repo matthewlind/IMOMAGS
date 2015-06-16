@@ -230,6 +230,7 @@ a img.aligncenter {
 ========================================================================== */
 
 .s-buy-btn {
+	font: 700 10px 'Source Sans Pro', Helvetica, Arial, sans-serif;
 	display: inline-block;
 	text-align: center;
 	padding: 10px 5px 9px;
@@ -239,6 +240,14 @@ a img.aligncenter {
 	-webkit-transition:all 0.4s;
 	-moz-transition:all 0.4s;
 	transition:all 0.4s;
+	background: #ff8a00; /* Old browsers */
+	background: -moz-linear-gradient(top, #ff8a00 0%, #fea802 96%, #ff8a00 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff8a00), color-stop(96%,#fea802), color-stop(100%,#ff8a00)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ff8a00 0%,#fea802 96%,#ff8a00 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ff8a00 0%,#fea802 96%,#ff8a00 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ff8a00 0%,#fea802 96%,#ff8a00 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #ff8a00 0%,#fea802 96%,#ff8a00 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff8a00', endColorstr='#ff8a00',GradientType=0 ); /* IE6-9 */
 }
 .s-buy-btn:hover {
 	color: black;
@@ -246,6 +255,15 @@ a img.aligncenter {
 	-moz-transition:all 0.2s;
 	transition:all 0.2s;
 	border-radius: 4px;
+	background: #ff9900; /* Old browsers */
+	background: -moz-linear-gradient(top, #ff9900 0%, #ffb702 4%, #ff9900 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff9900), color-stop(4%,#ffb702), color-stop(100%,#ff9900)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ff9900 0%,#ffb702 4%,#ff9900 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ff9900 0%,#ffb702 4%,#ff9900 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ff9900 0%,#ffb702 4%,#ff9900 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #ff9900 0%,#ffb702 4%,#ff9900 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9900', endColorstr='#ff9900',GradientType=0 ); /* IE6-9 */
+
 }
 
 
@@ -300,6 +318,12 @@ h1, h2, h3, h4, h5 {
 	width: 100%;
 	display: block;
 	border-bottom: 1px solid #444444;
+}
+.microsite-logo img {
+	width: 200px;
+	display: block;
+	padding: 12px 0 17px;
+	margin: 0 auto;
 }
 .single .main-nav {
 	float: none;
@@ -434,6 +458,10 @@ h1, h2, h3, h4, h5 {
 .single .share-count.social-buttons li{float: left;margin-right: 10px;}
 .single .share-count.social-buttons .twitter-share{margin-top: 2px;}
 
+.m-post-byline {
+	font-size: 13px;
+	font-weight: 300;
+}
 .m-article-wrap {
 	width: 100%;
 	background-color: white;

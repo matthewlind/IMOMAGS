@@ -19,7 +19,7 @@ a:hover {
 ========================================================================== */
 
 .s-buy-btn {
-	font: 700 10px 'Open Sans', Helvetica, Arial, sans-serif;
+	font-family:'Open Sans', sans-serif;
 	background: rgb(216,194,138); /* Old browsers */
 	background: -moz-linear-gradient(top,  rgba(216,194,138,1) 0%, rgba(187,150,51,1) 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(216,194,138,1)), color-stop(100%,rgba(187,150,51,1))); /* Chrome,Safari4+ */
