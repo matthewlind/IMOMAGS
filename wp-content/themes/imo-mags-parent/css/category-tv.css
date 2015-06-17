@@ -1108,7 +1108,7 @@ body.category-tv #imo-tophat, body.page-template-show-page-php #imo-tophat{
 #upcoming .tiled-grid .tiled-grid-entry{min-height: 0;color: #2d2d2d;}
 #upcoming .tonight-bg {z-index: 0;height: 100%;background: #003965;opacity: 1;}
 #upcoming .tiled-grid .tiled-grid-entry.on-tonight{
-	background: url(images/shows/on-tonight-logo.jpg) no-repeat right top #003965;
+	background: url(/wp-content/themes/imo-mags-parent/images/shows/on-tonight-logo.jpg) no-repeat right top #003965;
 	margin: 0;height: 100px;
 	position: relative;
 	z-index: 1;
@@ -1121,8 +1121,8 @@ body.category-tv #imo-tophat, body.page-template-show-page-php #imo-tophat{
 #upcoming .on-tonight h3 {margin: 0; color: white; font-size: 14px;font-family: 'Open Sans', Helvetica, Arial, sans-serif;width: 70%;}
 #upcoming .tiled-grid .col{margin: 0;padding: 16px 0 18px 8px;border-right: 1px solid rgba(204, 204, 204, 0.23);}
 #upcoming .tiled-grid .tiled-grid-entry span{display: block;}
-#upcoming .flex-direction-nav .flex-prev{right: -55px;left: auto;background: url(images/shows/left-arrow.png) no-repeat 0 0 #dedddd !important;}
-#upcoming .flex-direction-nav .flex-next{background: url(images/shows/right-arrow.png) no-repeat 0 0 #dedddd !important;right: -117px;}
+#upcoming .flex-direction-nav .flex-prev{right: -55px;left: auto;background: url(/wp-content/themes/imo-mags-parent/images/shows/left-arrow.png) no-repeat 0 0 #dedddd !important;}
+#upcoming .flex-direction-nav .flex-next{background: url(/wp-content/themes/imo-mags-parent/images/shows/right-arrow.png) no-repeat 0 0 #dedddd !important;right: -117px;}
 
 .show-title a{color: #901901;}
 .tonight-schedule{position: relative;max-height: 100px;width: 66%;margin-left: 23%;}
