@@ -6,6 +6,8 @@
  * @subpackage Twenty_Eleven
  * @since Twenty Eleven 1.0
  */
+$tv_page = true; 
+ 
 $idObj = get_category_by_slug('tv'); 
 $id = $idObj->term_id;
 $acfID = 'category_' . $id;

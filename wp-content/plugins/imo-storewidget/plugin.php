@@ -9,6 +9,7 @@ Author URI: http://imomags.com
 */
 namespace imo;
 
+$tv_page = true;
 /**
  * IMOStoreWidget
  *
@@ -61,7 +62,8 @@ class IMOStoreWidget extends \WP_Widget {
 <div style="" id="imoprodgallery">
 </div>
 <!---->
-<?php if(is_category("tv") || in_category("tv") || is_page_template( "show-page.php" )){ ?>
+<?php /* if(is_category("tv") || in_category("tv") || is_page_template( "show-page.php" )) */ ?>
+<?php if ($tv_page){ ?>
 	<script src="http://store.intermediaoutdoors.com/pg/prodgallery148.js" type="text/javascript"></script>
 <?php }else{ ?>
 	<script src="http://shop.intermediaoutdoors.com/pg1/imoprodgallery.js" type="text/javascript"></script>

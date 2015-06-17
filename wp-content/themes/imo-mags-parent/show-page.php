@@ -13,6 +13,7 @@
  * @subpackage Twenty_Eleven
  * @since Twenty Eleven 1.0
  */
+$tv_page = true;
 get_header(); ?>
 	<div id="primary" class="general">
         <div class="general-frame">

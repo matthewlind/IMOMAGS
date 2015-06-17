@@ -1,5 +1,7 @@
 
 <?php
+	
+$tv_page = true;
 /**
  * The template used for displaying page content in show-page.php
  *

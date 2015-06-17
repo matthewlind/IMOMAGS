@@ -1,4 +1,10 @@
-<?php get_header(); ?>
+<?php 
+$tv_page = true;
+get_header(); 
+
+
+
+?>
 	<div id="primary" class="general">
         <div class="general-frame">
             <div id="content" role="main">
