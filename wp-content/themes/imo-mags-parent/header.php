@@ -37,7 +37,7 @@
 		    /*
 		     * Print the <title> tag based on what is being viewed.
 		     */
-		    global $page, $paged, $microsite, $tv_page ;
+		    global $page, $paged, $microsite ;
 	
 		    wp_title( '| ', true, 'right' );
 	
@@ -68,7 +68,7 @@
 	if ( $microsite){ 
 		include('css/styles-microsites.php');
 	} 	else { 
-			if ($tv_page)/* (is_category("tv") || in_category("tv") || is_page_template( "show-page.php" )) */ { ?>
+			if (is_category("tv") || in_category("tv") || is_page_template( "show-page.php" )) { ?>
 				<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' );?>/css/category-tv.css" />
 	<?php	} // end if if (is_category("tv") ?>	
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
