@@ -944,10 +944,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb702', end
 	font: 400 11px/25px "Source Sans Pro", sans-serif;
 }
 
-
-
-
-
+/* ==========================================================================
+   7.0 Footer
+   ========================================================================== */
 
 .footer-message h2 {
 	font-size: 19px;
