@@ -245,6 +245,8 @@ a:hover {
 
 @media only screen and (min-width: 1250px) {/* large desktops */
 
+
+.s-mag-buy h2 {font-size: 34px;}
 /* Zip code finder *******************/
 /* foot */
 #pubfinderzipcontfoot .pubfinderformcont label {font-size: 17.3px;}
