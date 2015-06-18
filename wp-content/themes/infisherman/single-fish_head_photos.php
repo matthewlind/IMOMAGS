@@ -11,7 +11,9 @@ imo_community_sidebar(); ?>
             <?php if ( have_posts() ) : ?>
 
                 <?php get_template_part( 'content/content-single', "community" ); ?>
-								
+				<div class="post-comments-area">
+                    <?php comments_template( '', true ); ?>
+                </div>					
             <?php endif; ?>
         </div><!-- #content -->
     </div><!-- #primary -->

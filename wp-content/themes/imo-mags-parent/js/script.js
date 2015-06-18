@@ -252,9 +252,9 @@ jQuery(document).ready(function () {
 	                url: jQuery(".next-link a").attr('href'),
 	                dataType: 'html',
 	                success: function(data) {
-						
+						console.log(data);
 	                    jQuery('.main-content-preppend').append(
-	                        jQuery(data).find('.posts-list.js-responsive-section').find(findId).hide()
+	                        jQuery(data).find('.posts-list').find(findId).hide()
 	                    );
 	                    jQuery('.main-content-preppend').find(findId).show('slow');
 	                    if (jQuery(data).find('.next-link a').length) {
