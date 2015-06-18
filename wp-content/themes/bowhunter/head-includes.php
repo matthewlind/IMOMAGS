@@ -14,3 +14,4 @@ if(document.location.protocol=='http:'){
 </script>
 <!-- END Tynt Script -->
 <script async src="http://cdn.mediavoice.com/nativeads/script/IMOutdoors/mv_bowh.js"></script>
+<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/css/community-common.css" />
