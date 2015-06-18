@@ -19,8 +19,10 @@
 				<div>OR</div>			
 			</div>
 			<div class="s-mag-btns clearfix">
-				<a class="mustard-btn" href="https://store.intermediaoutdoors.com/products.php?product=Wheels-Afield-2015" target="_blank">BUY THE MAGAZINE NOW!</a>
-				<div class="mustard-btn">
+				<div class="s-buy-btn">
+					<a href="https://store.intermediaoutdoors.com/products.php?product=Wheels-Afield-2015" target="_blank">BUY THE MAGAZINE NOW!</a>
+				</div>
+				<div class="s-buy-btn">
 					GET THE DIGITAL EDITION!
 					<div class="buy-mag-drop">
 						<ul>

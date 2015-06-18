@@ -23,9 +23,10 @@
 		
 		if ( is_category("wheels-afield") || in_category("wheels-afield")) {
 	?>
+		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/microsite-default.css" />
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/petersenshunting/microsite-wheels-afield.css" />
 <?php   } else { ?>
-		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/css/microsite-css/microsite.css" />
+		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/microsite-default.css" />
 <?php	}    ?>
 
 
@@ -58,9 +59,10 @@
 		
 		if ( is_category('shoot101') || in_category('shoot101')) {	
 	?>
+		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/microsite-default.css" />
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/gunsandammo/microsite-shoot101.css" />
 <?php	} else { ?>
-		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/gunsandammo/microsite-<?php echo $catslug ?>.css" />
+		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/microsite-default.css" />
 <?php	} ?>
 
 <?php
@@ -69,6 +71,6 @@
 --------------------------------------------------------------------------*/	
 	} else { ?>
 		<!-- <?php echo site_url(); ?> -->
-		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/css/microsite-css/microsite.css" />
+		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/microsite-default.css" />
 		
 <?php	} ?>

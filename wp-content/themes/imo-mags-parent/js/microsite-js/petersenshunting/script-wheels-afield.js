@@ -1,9 +1,7 @@
-/*
-jQuery(window).load(function() {
-	domain = jQuery("body").attr("domain");
-	jQuery(".inline-ad").append('<iframe width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-atf.php?ad_code=' + domain + '"></iframe>');
-});
-*/
+jQuery(window).load(function() {		
+	domain = jQuery("body").attr("domain");		
+	jQuery(".inline-ad").append('<iframe width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-atf.php?ad_code=' + domain + '"></iframe>');		
+});		
 jQuery(document).ready(function($) {
 	$(".wpsocialite.small").remove();
 	var windowWidth = $(window).width(),
@@ -68,10 +66,6 @@ jQuery(document).ready(function($) {
 		
 
 }); // end of document.ready
-
-jQuery('.fixed-connect .close').click(function(){
-	jQuery('.fixed-connect').remove();
-});
 
 jQuery( window ).resize(function() {
 	var windowWidth = jQuery(window).width();

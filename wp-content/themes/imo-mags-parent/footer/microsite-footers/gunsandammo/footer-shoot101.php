@@ -19,13 +19,13 @@
 				<div>OR</div>			
 			</div>
 			<div class="s-mag-btns clearfix">
-				<div class="orange-btn">
+				<div class="s-buy-btn">
 					<a href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">BUY THE MAGAZINE NOW!</a>
 					<div class="unavailble-mag">
 						<p>The print magazine is temporarily unavailable in the online store. Instead find it in your area using your zip code, or get the digital edition.</p>
 					</div>
 				</div>
-				<div class="orange-btn">
+				<div class="s-buy-btn">
 					GET THE DIGITAL EDITION!
 					<div class="buy-mag-drop">
 						<ul>
