@@ -64,7 +64,7 @@ a:hover {
 /* Main-nav */
 .main-nav ul li a {font-family: 'Open Sans';}
 .main-nav ul li:hover a {color: #bb9632;}
-.main-nav ul li:hover {border-left: 1px solid #bb9632;-webkit-transition:all 0.1s;-moz-transition:all 0.1s;transition:all 0.1s;}
+.main-nav > ul > li:hover {border-left: 1px solid #bb9632;-webkit-transition:all 0.1s;-moz-transition:all 0.1s;transition:all 0.1s;}
 .main-nav ul li:last-child:hover {border-right: 1px solid #bb9632;-webkit-transition:all 0.1s;-moz-transition:all 0.1s;transition:all 0.1s;} 
 .main-nav > ul li.menu-item-has-children ul li a {font-family: 'Open Sans', sans-serif;}
 
