@@ -196,6 +196,9 @@ a:hover {
 .m-buymag-drop .m-list-dig > ul > li:hover a {
 	color: #B28920;
 }
+.m-buymag-drop i:hover {
+	color: #bb9632;
+}
 #pubfinderzipconthead .pubfinderform {
 	background: rgb(216,194,138); /* Old browsers */
 	background: -moz-linear-gradient(top,  rgba(216,194,138,1) 0%, rgba(187,150,51,1) 100%); /* FF3.6+ */
