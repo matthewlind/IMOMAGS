@@ -413,7 +413,8 @@ function parent_theme_widgets_init()
         'community' => 'Community Menu',
         'shows_menu' => 'Shows Menu',
         'b2b' => 'B2B Menu',
-        'wheels_afield' => 'Wheels Afield'
+        'wheels_afield' => 'Wheels Afield',
+        'microsite' => 'Microsite Menu'
     ));
 
 }

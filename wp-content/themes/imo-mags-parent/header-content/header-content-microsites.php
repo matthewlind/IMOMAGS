@@ -17,6 +17,16 @@
 
 
 /* ------------------------------------------------------------------------
+	Wildfowl 
+---------------------------------------------------------------------------*/
+	elseif ($dartDomain == "imo.wildfowl") { 		
+		if ( is_category('gear-guide') || in_category('gear-guide')) {
+			get_template_part('header-content/microsites/wildfowl/header-content', 'gear-guide');
+		} 
+	}
+	
+	
+/* ------------------------------------------------------------------------
 	In-Fisherman 
 ---------------------------------------------------------------------------*/	 
 	elseif ($dartDomain == "imo.in-fisherman") { 
@@ -33,7 +43,7 @@
 ---------------------------------------------------------------------------*/
 	elseif ($dartDomain == "imo.gunsandammo") { 		
 		if ( is_category('shoot101') || in_category('shoot101')) {
-			get_template_part('header-content/microsites/gunsandammo/header-content', "shoot101");
+			get_template_part('header-content/microsites/gunsandammo/header-content', 'shoot101');
 		} 
 	}	
 

@@ -228,6 +228,9 @@ get_header(); ?>
 					
 					$slug = 'wheels-afield';
 					$wheelsAfield = get_category_by_slug($slug);
+					
+					$slug = 'gear-guide';
+					$gearGuide = get_category_by_slug($slug);
 
 					$fslug = 'forecasts';
 					$fcategory = get_category_by_slug($fslug);
@@ -242,7 +245,7 @@ get_header(); ?>
 					$Gallerycategory = get_category_by_slug($Galleryslug);		
 
 					$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-                    $more_query = new WP_Query( 'post_type=post&posts_per_page=20&paged=' . $paged. '&cat=-' . $category->cat_ID.",-".$fcategory->cat_ID.",-".$DFcategory->cat_ID.",-".$Gallerycategory->cat_ID.",-".$tvcategory->cat_ID.",-".$riggedReady->cat_ID.",-".$wheelsAfield->cat_ID );
+                    $more_query = new WP_Query( 'post_type=post&posts_per_page=20&paged=' . $paged. '&cat=-' . $category->cat_ID.",-".$fcategory->cat_ID.",-".$DFcategory->cat_ID.",-".$Gallerycategory->cat_ID.",-".$tvcategory->cat_ID.",-".$riggedReady->cat_ID.",-".$gearGuide->cat_ID.",-".$wheelsAfield->cat_ID );
                     $i++;
 
                     while ($more_query->have_posts()) : $more_query->the_post(); ?>
