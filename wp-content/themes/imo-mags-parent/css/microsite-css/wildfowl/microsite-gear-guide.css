@@ -4,9 +4,6 @@
 	2.0 Defaults 
 ========================================================================== */
 
-body {
-	font-family: 'Open Sans', sans-serif;
-}
 a {
 	color: #bb9632;
 }
@@ -19,7 +16,6 @@ a:hover {
 ========================================================================== */
 
 .s-buy-btn {
-	font-family:'Open Sans', sans-serif;
 	background: rgb(216,194,138); /* Old browsers */
 	background: -moz-linear-gradient(top,  rgba(216,194,138,1) 0%, rgba(187,150,51,1) 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(216,194,138,1)), color-stop(100%,rgba(187,150,51,1))); /* Chrome,Safari4+ */
@@ -45,9 +41,6 @@ a:hover {
    5.0 Header
    ========================================================================== */
 
-.top-panel a {
-	font-family: 'Open Sans';
-}
 .microsite-logo img {
 	width: 250px;
 	display: block;
@@ -62,11 +55,10 @@ a:hover {
 }
 
 /* Main-nav */
-.main-nav ul li a {font-family: 'Open Sans';}
+
 .main-nav ul li:hover a {color: #bb9632;}
 .main-nav > ul > li:hover {border-left: 1px solid #bb9632;-webkit-transition:all 0.1s;-moz-transition:all 0.1s;transition:all 0.1s;}
 .main-nav ul li:last-child:hover {border-right: 1px solid #bb9632;-webkit-transition:all 0.1s;-moz-transition:all 0.1s;transition:all 0.1s;} 
-.main-nav > ul li.menu-item-has-children ul li a {font-family: 'Open Sans', sans-serif;}
 
 .social-buttons ul li a:hover {
 	color: #bb9632;
@@ -78,9 +70,6 @@ a:hover {
    ========================================================================== */
 
 /* Content *******************/
-.featured-message span {
-	font-family: "Open Sans", serif;
-}
 .m-social-buttons ul li a:hover {
 	color: #bb9632;
 }
@@ -90,24 +79,13 @@ a:hover {
    6.0 Single Article
    ========================================================================== */
 
-.m-article .m-hlep-grow {
-	font-family: "Open Sans", sans-serif;
-} 
 .m-post-byline {
 	font-size: 11px;
 	font-weight: 400;
 }
-.m-article p {
-	font: 400 16px/27px 'Open Sans', sans-serif;
-}
-
 .m-article blockquote {
 	border-left: 9px solid #bb9632;
-	font-family: "Open Sans", sans-serif;
 } 
-.m-article blockquote p {
-	font: 400 26px 'Open Sans', sans-serif;
-}
 .m-buy-mag-img {
 	background-image: url("/wp-content/themes/petersenshunting/images/wheels-afield/wheels-afield-mag-cover.jpg");
 }
@@ -137,9 +115,6 @@ a:hover {
 .s-mag-descr h1 {
 	margin: -8px 0 15px;
 }
-.s-mag-descr p {
-	font-family: 'Open Sans', sans-serif;
-}
 .s-mag-buy h2 {
 	font-size: 17px;
 	font-weight: 300;
@@ -147,9 +122,6 @@ a:hover {
 .buy-mag-drop {
 	top: 31px;
 	border: 3px solid #B28920;
-}
-.buy-mag-drop ul li a span {
-	font-family: 'Open Sans', sans-serif;
 }
 .f-social-buttons ul li a:hover {
 	color: #bb9632;
@@ -219,9 +191,6 @@ a:hover {
 	background: linear-gradient(to bottom,  rgba(214,180,94,1) 6%,rgba(214,180,94,1) 6%,rgba(178,137,32,1) 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6b45e', endColorstr='#b28920',GradientType=0 ); /* IE6-9 */
 }
-.unavailble-mag p {
-	font-family: 'Open Sans', sans-serif;
-}
 
 
 /* ==========================================================================
@@ -251,9 +220,6 @@ a:hover {
 .s-mag-buy h2 {font-size: 36px;}
 
 /* Single Article *******************/
-/* .m-article p {font: 400 17px/28px 'Open Sans', sans-serif;} */
-
-.m-article-bottom .m-hlep-grow {font-family: 'Open Sans', sans-serif;}
 
 /* Footer *******************/ 
 .s-mag-descr h1 {font-size: 38px;margin: -13px 0 10px;}
@@ -265,9 +231,6 @@ a:hover {
 /* Content *******************/	
 .featured-message span {font-size: 24px;}
 
-/* Single Article *******************/
-.m-article-bottom .m-hlep-grow {font-family: 'Open Sans', sans-serif;}
-
 }/* END OF MEDIA */
 
 @media only screen and (min-width: 920px) {
@@ -275,7 +238,6 @@ a:hover {
 /* Header *******************/
 .microsite-logo {width: 250px;}
 .single .wheels-afield .main-nav, .main-nav {margin: 53px 0 15px 2px;}
-.main-nav > ul > li > a {font-family:'Open Sans', sans-serif;}
 
 /* Single Article *******************/
 .m-article-bottom .m-social-wrap {width: 277px;}
@@ -313,7 +275,6 @@ a:hover {
 /* Footer *******************/ 
 .s-mag-buy h2 {font-size: 32px;margin-bottom: 8px;}
 .s-or > div {width: 50px;}
-.footer-message {font-family: 'Open Sans', serif;}
 .s-mag-buy .pubfinderzipcont {margin: -4px 0px;}
 
 }/* END OF MEDIA */
