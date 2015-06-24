@@ -7,6 +7,7 @@
 	$thiscat = get_category ($cat);
 	$catslug = $thiscat->slug;
 	
+	
 /* ------------------------------------------------------------------------
 	Petersens Hunting 
 ---------------------------------------------------------------------------*/
@@ -14,7 +15,21 @@
 		if ( is_category("wheels-afield") || in_category("wheels-afield")) {
 			get_template_part("footer/microsite-footers/petersenshunting/footer", "wheels-afield");		}
 	} 
-	
+
+
+/* ------------------------------------------------------------------------
+	Wildfowl 
+---------------------------------------------------------------------------*/
+	elseif ($dartDomain == "imo.wildfowl") { 
+		
+		if ( is_category('gear-guide') || in_category('gear-guide')) {
+			get_template_part('footer/microsite-footers/wildfowl/footer', "gear-guide");
+		} 
+		else {
+			get_template_part('footer/microsite-footers/wildfowl/footer', $catslug);
+		}
+	}	
+
 		
 /* ------------------------------------------------------------------------
 	In-Fisherman 
@@ -29,6 +44,7 @@
 			get_template_part('footer/microsite-footers/in-fisherman/footer', $catslug);
 		}
 	}
+
 
 /* ------------------------------------------------------------------------
 	Guns & Ammo 
