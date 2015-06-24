@@ -40,6 +40,7 @@ a:hover {
 }
 
 /* Main-nav */
+.main-nav ul li a {font-family: 'Titillium Web';}
 .main-nav > ul > li > a {font-family: 'Titillium Web';}
 .main-nav ul li:hover a {color: white;}
 .main-nav > ul li.menu-item-has-children ul li a {font-family: 'Titillium Web', sans-serif;}
@@ -119,13 +120,21 @@ a:hover {
 /* ==========================================================================
    7.0 Footer
    ========================================================================== */
-   
+.s-mag-descr p {
+	font-family: 'Source Sans Pro', sans-serif;
+}   
 .s-mag-btns .s-buy-btn > a {
 	color: #222222;
 }
 .buy-mag-drop {
 	top: 32px;
 	border: 3px solid #ff8b00;
+}
+.buy-mag-drop ul li a span {
+	font-family: "Source Sans Pro", sans-serif;
+}
+.footer-message h2 {
+	font-family: 'Lora', serif;
 }
 
 /* ==========================================================================
@@ -245,7 +254,7 @@ a:hover {
 
 @media only screen and (min-width: 1250px) {/* large desktops */
 
-
+.footer-message {font-family: "Titillium Web", sans-serif;}
 .s-mag-buy h2 {font-size: 34px;}
 /* Zip code finder *******************/
 /* foot */
