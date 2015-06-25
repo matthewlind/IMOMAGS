@@ -1,6 +1,9 @@
 <?php
 	$microsite = true;
 	get_header();
+	
+	
+	$dartDomain = get_option("dart_domain", $default = false);
 ?>
 <div class="content">
 		<div class="posts-wrap">
@@ -9,7 +12,7 @@
 				$post_counter = 0;	
 					
 				$args = array (
-					'category_name'         	=> 'gear-guide',			
+					'category_name'         	=> 'crossbow-revolution',			
 					'posts_per_page'      		=> 3,
 					'order'						=> 'DESC',
 					'meta_query' => array(
@@ -50,12 +53,12 @@
 			</div><!-- end .p-feat-container -->
 						
 			<div class="featured-message">
-				<span>Love Guns, Gear, & Vehicles? Then Share it!</span>
+				<span>Love Guns, Gear, & Vehicles? Then Share it!<?php echo $dartDomain; ?></span>
 				<div class="m-social-buttons">
 					<ul>
-						<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo (urlencode(site_url())) . '/gear-guide'; ?>&title=Wheels Afield Magazine" class="icon-facebook" target="_blank"></a></li>
-						<li><a href="http://twitter.com/intent/tweet?status=Wildfowl Gear Guide+http://www.wildfowlmag.com/gear-guide" class="icon-twitter" target="_blank"></a></li>
-						<li><a href="mailto:?subject=Website I came across&body=Check out this website! Wheels Afield Magazine. <?php echo (urlencode(site_url())) . '/gear-guide'; ?>" class="icon-mail" target="_blank"></a></li>
+						<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo (urlencode(site_url())) . '/crossbow-revolution'; ?>&title=Wheels Afield Magazine" class="icon-facebook" target="_blank"></a></li>
+						<li><a href="http://twitter.com/intent/tweet?status=Wildfowl Gear Guide+http://www.wildfowlmag.com/crossbow-revolution" class="icon-twitter" target="_blank"></a></li>
+						<li><a href="mailto:?subject=Website I came across&body=Check out this website! Wheels Afield Magazine. <?php echo (urlencode(site_url())) . '/crossbow-revolution'; ?>" class="icon-mail" target="_blank"></a></li>
 					</ul>				
 				</div>
 			</div><!-- end .featured-message -->
@@ -65,7 +68,7 @@
 				//$cat_id = $id_obj->term_id;
 				// WP_Query arguments
 				$args = array (
-					'category_name'         	=> 'gear-guide',			
+					'category_name'         	=> 'crossbow-revolution',			
 					'posts_per_page'      		=> -1,
 					'order'						=> 'DESC',
 					'meta_query' => array(
