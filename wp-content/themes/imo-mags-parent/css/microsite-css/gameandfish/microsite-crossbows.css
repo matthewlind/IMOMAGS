@@ -76,6 +76,58 @@ a:hover {
 	color: #4785d5;
 }
 
+/* Related Articles *******************/
+.rel-container {
+	border-bottom: 1px solid #444444;
+}
+.p-rel-header {
+	border-bottom: 1px solid #959595;
+	position: relative;
+}
+.rel-triangle::after {
+    bottom: -19px;
+    content: "\f05b";
+    font-family: "icomoon";
+    position: absolute;
+    right: 0;
+    color: #959595;
+    font-size: 30px;
+}
+.rel-logo {
+	width: 120px;
+}
+.rel-logo img {
+	width: 100%;
+}
+.p-rel-header > h5 {
+    font-size: 13px;
+    margin: 5px 0 7px;
+}
+.rel-wrap {
+	margin: 30px -2% 0;
+}
+.rel-link {
+	display: block;
+	float: left;
+	margin: 0 2% 10px;
+	width: 46%;	
+}
+.rel-wrap a:nth-child(4n+3) {
+	clear: left;
+}
+.rel-link h3 {
+	font-size: 13px;
+	color: #e9e9e9;
+	font-weight: 400;
+}
+.rel-box {
+	width: 100%;
+	padding-top: 82%;
+	background-size: cover;
+	background-position:center center;
+}
+
+
 
 /* ==========================================================================
    6.0 Single Article
@@ -245,6 +297,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6eaeea', end
 .microsite-logo {width: 250px;}
 .single .wheels-afield .main-nav, .main-nav {margin: 53px 0 15px 2px;}
 
+/* Related Articles *******************/
+.p-rel-header > h5 {margin-left:30px;font-size: 17px;}
+.rel-logo {width: 170px;}
+.rel-link h3 {font-size: 18px;}
+
 /* Single Article *******************/
 .m-article-bottom .m-social-wrap {width: 277px;}
 .s-mag-buy h2 {font-size: 30px;}
@@ -259,6 +316,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6eaeea', end
 
 /* Header *******************/
 .m-buymag-drop > ul > li:nth-child(1) {margin-top: 5px;}
+
+/* Related Articles *******************/
+.rel-link h3 {font-size: 19px;}
 
 /* Footer *******************/ 
 
