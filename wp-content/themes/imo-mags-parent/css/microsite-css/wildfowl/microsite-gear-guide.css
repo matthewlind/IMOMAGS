@@ -89,7 +89,7 @@ a:hover {
 	border-left: 9px solid #4785d5;
 } 
 .m-buy-mag-img {
-	background-image: url("/wp-content/themes/petersenshunting/images/wheels-afield/wheels-afield-mag-cover.jpg");
+	background-image: url(../../../images/microsites/wildfowl/gear-guide/gear-guide-mag-cover.jpg);
 }
 .m-buy-mag-bottom > a, .m-buy-mag-bottom .m-buy-dig {
 	color: #4785d5;

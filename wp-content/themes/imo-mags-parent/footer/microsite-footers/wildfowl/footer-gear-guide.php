@@ -6,7 +6,7 @@
 <footer class="s-footer clearfix">
 	<div class="s-mag clearfix">
 		<div class="s-mag-cover">
-			<img src="/wp-content/themes/petersenshunting/images/wheels-afield/wheels-afield-mag-cover.jpg">
+			<img src="<?php bloginfo('template_directory');?>/images/microsites/wildfowl/gear-guide/gear-guide-mag-cover.jpg">
 		</div>
 		<div class="s-mag-descr">
 			<h1>Wheels Afield Magazine</h1>
@@ -67,7 +67,7 @@
 	    </div>
 	</div><!-- end .m-footer-bottom -->
 </footer>
-	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/microsite-js/petersenshunting/script-wheels-afield.js"></script>
+	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/microsite-js/petersenshunting/script-gear-guide.js"></script>
 	<!--[if lt IE 9]><script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->
 
 	<?php wp_footer(); ?>
