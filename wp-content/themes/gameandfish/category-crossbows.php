@@ -99,6 +99,7 @@
 					wp_reset_postdata();
 				?>
 			</div><!-- end .p-container -->
+			<?php get_template_part( 'content/relative', 'microsite' ); ?>
 			
 			<?php // echo get_template_part( 'content/relative', 'microsite' ); ?>
 		</div><!-- end .posts-wrap -->
