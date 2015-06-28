@@ -335,3 +335,92 @@ function custom_post_author_archive($query) {
     remove_action( 'pre_get_posts', 'custom_post_author_archive' );
 }
 add_action('pre_get_posts', 'custom_post_author_archive');
+
+
+
+
+
+
+
+
+
+// Load more posts with Ajax, category 'crossbows', link www.gameandfishmag.com/gear-accessories/gear-hunting/crossbows/
+
+if ( is_admin() ) {  
+    add_action( 'wp_ajax_load_posts_action', 'load_crossbows_posts' );
+    add_action( 'wp_ajax_nopriv_load_posts_action', 'load_crossbows_posts' );
+} else {
+    // Add non-Ajax front-end action hooks here
+}
+
+add_action( 'wp_enqueue_scripts', 'my_enqueue_cross' );
+function my_enqueue_cross() {	
+	// Get the mumber of posts in 'crossbows' category. Then us it in you js file			
+	$postsInCat = get_term_by('slug','crossbows','category');
+	$postsInCat = $postsInCat->count;
+	
+	wp_enqueue_script( 'script-crossbows', get_template_directory_uri() . '/js/microsite-js/gameandfish/script-crossbows.js', array( 'jquery' ), '1.0', true );	
+		
+	wp_localize_script( 'script-crossbows', 'ajax_object',
+        array( 
+        	'ajax_url' => admin_url( 'admin-ajax.php' ),
+        	'crossbows_posts_cout' => $postsInCat
+        ) 
+	);
+}
+
+function load_crossbows_posts() {
+	global $wpdb;           
+    ob_clean();  
+
+    $id_rev = get_category_by_slug('crossbow-revolution'); 
+	$exclude_id = $id_rev->term_id;
+    $offset = intval($_POST[ 'number_of_post_boxes' ]);
+    
+    $args = array (
+		'category_name'         	=> 'crossbows',			
+		'posts_per_page'      		=> 8,
+		'post_status'				=> 'publish',
+		'offset' 					=> $offset,
+		'order'						=> 'DESC',
+		'category__not_in' 			=> array( $exclude_id )
+	);
+	// The Query
+	$query = new WP_Query( $args );
+	// The Loop
+	if ( $query->have_posts() ) {
+		while ( $query->have_posts() ) {
+			$query->the_post();			
+			$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+?>
+	<a class="rel-link" href="<?php the_permalink(); ?>">
+		<div class="rel-box" style="background-image: url('<?php echo $feat_image; ?>')"></div>
+		<div class="rel-title">
+			<h3><?php the_title();?></h3>
+		</div>
+	</a>
+<?php
+		}
+	} else { ?>
+	<a class="rel-link" href="" style="cursor: default;">
+		<h2>No more posts</h2>
+	</a>
+<?php	}
+	wp_reset_postdata(); 	
+   
+	wp_die();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
