@@ -47,7 +47,7 @@
 	Game and Fish 
 -------------------------------------------------------------------------- */		
 	} elseif ($dartDomain == "imo.gameandfish") { 
-		if ( is_category('crossbows') || in_category('crossbows')) {	
+		if ( is_category('crossbows') || in_category('crossbows') || in_category('crossbow-revolution')) {	
 	?>
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/microsite-default.css" />
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/gameandfish/microsite-crossbows.css" />

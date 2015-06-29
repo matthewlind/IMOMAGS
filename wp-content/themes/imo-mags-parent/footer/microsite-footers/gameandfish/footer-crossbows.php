@@ -1,7 +1,3 @@
-<?php
-	$category_id = get_cat_ID( 'crossbows' );
-	$category_link = get_category_link( $category_id );	
-?>
 </div><!-- end .s101 -->
 <footer class="s-footer clearfix">
 	<div class="s-mag clearfix">
