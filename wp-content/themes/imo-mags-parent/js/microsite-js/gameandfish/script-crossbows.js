@@ -1,5 +1,4 @@
-(function($) {
-	
+(function($) {	
 /*====================================================
 	Ajax for 'load more posts'
 ======================================================*/
@@ -37,10 +36,6 @@
 					});
 				}, 500);
 			}
-			
-			
-			
-			
 			return false; // to prevent default behaviour of an <a> element
 		});
 	});
@@ -75,18 +70,6 @@ jQuery(document).ready(function($) {
 		}
 	}//end isBox
 		
-	/*	// Debug
-		var arrayBoxData = $( ".post-box" )
-				.map(function() {
-				return $( this ).width();
-				})
-				.get(),
-		console.log(arrayBoxData);
-		console.log(box1_width);
-		console.log(box2_width);
-		console.log(box_width_diff);
-		console.log(box_width_diff_real);
-	*/
 	if (windowWidth > 600) {
 		moveBox();
 	}

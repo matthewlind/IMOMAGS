@@ -344,7 +344,7 @@ add_action('pre_get_posts', 'custom_post_author_archive');
 
 
 
-// Load more posts with Ajax, category 'crossbows', link www.gameandfishmag.com/gear-accessories/gear-hunting/crossbows/
+// Load more posts with Ajax, category 'crossbows'
 
 if ( is_admin()) {  
     add_action( 'wp_ajax_load_posts_action', 'load_crossbows_posts' );
