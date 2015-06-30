@@ -20,7 +20,7 @@
 			</div>
 			<div class="s-mag-btns clearfix">
 				<div class="s-buy-btn">
-					<a href="https://store.intermediaoutdoors.com/products.php?product=Wheels-Afield-2015" target="_blank">BUY THE MAGAZINE NOW!</a>
+					<a href="https://store.intermediaoutdoors.com/products.php?product=Wildfowl-Equipment-Issue-2015" target="_blank">BUY THE MAGAZINE NOW!</a>
 				</div>
 				<div class="s-buy-btn">
 					<a href="">GET THE DIGITAL EDITION!</a>
@@ -39,9 +39,9 @@
 		<h2>Love Guns, Gear, & Vehicles? Then Share it!</h2>
 		<div class="f-social-buttons">
 			<ul>
-				<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo (urlencode(site_url())) . '/wheels-afield'; ?>&title=Wheels Afield Magazine" class="icon-facebook" target="_blank"></a></li>
-				<li><a href="http://twitter.com/intent/tweet?status=Wheels Afield Magazine+http://www.petersenshunting.com/wheels-afield/" class="icon-twitter" target="_blank"></a></li>
-				<li><a href="mailto:?subject=Website I came across&body=Check out this website! Wheels Afield Magazine. <?php echo (urlencode(site_url())) . '/wheels-afield'; ?>" class="icon-mail" target="_blank"></a></li>
+				<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo (urlencode(site_url())) . '/gear-guide'; ?>&title=Wildfowl Gear Guide" class="icon-facebook" target="_blank"></a></li>
+				<li><a href="http://twitter.com/intent/tweet?status=Wildfowl Gear Guide+http://www.wildfowlmag.com/gear-guide/" class="icon-twitter" target="_blank"></a></li>
+				<li><a href="mailto:?subject=Website I came across&body=Check out this website! Wildfowl Gear Guide <?php echo (urlencode(site_url())) . '/gear-guide'; ?>" class="icon-mail" target="_blank"></a></li>
 			</ul>
 		</div><!-- .m-social-buttons -->
 	</div>

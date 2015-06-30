@@ -10,11 +10,6 @@
 	$acf_byline = get_field("byline",$postID); 
 	$author = get_the_author();
 ?>
-<!--
-<div class="sponsors-disclaimer">
-	<span>BROUGHT TO YOU BY VISTA OUTDOOR INC. AND ITS FAMILY OF <a href="http://www.vistaoutdoor.com/brands/" target="_blank">BRANDS</a></span>
-</div>
--->
 <div class="m-article-wrap clearfix">
 	<?php if(mobile() == true) {
 		if($image_large[0]) { ?>
@@ -58,7 +53,7 @@
 		    			<div class="m-buy-mag-bottom clearfix"> 				
 		    				<div class="m-buy-mag-img"></div> 
 		    				<div class="m-buy-dig">
-		    					<a href="https://store.intermediaoutdoors.com/products.php?product=Wheels-Afield-2015" target="_blank">BUY PRINT MAGAZINE NOW!</a> 
+		    					<a href="https://store.intermediaoutdoors.com/products.php?product=Wildfowl-Equipment-Issue-2015" target="_blank">BUY PRINT MAGAZINE NOW!</a> 
 		    				</div>
 		    				<div class="m-buy-dig">
 								<span>GET THE DIGITAL EDITION!</span>
@@ -92,7 +87,7 @@
     			<div class="m-buy-mag-bottom clearfix"> 				
     				<div class="m-buy-mag-img"></div> 
     				<div class="m-buy-dig">
-    					<a href="https://store.intermediaoutdoors.com/products.php?product=Wheels-Afield-2015" target="_blank">BUY PRINT MAGAZINE NOW!</a> 
+    					<a href="https://store.intermediaoutdoors.com/products.php?product=Wildfowl-Equipment-Issue-2015" target="_blank">BUY PRINT MAGAZINE NOW!</a> 
     				</div>
     				<div class="m-buy-dig">
 						<span>GET THE DIGITAL EDITION!</span>

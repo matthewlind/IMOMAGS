@@ -7,7 +7,7 @@
 		
 		<div class="menu-area clearfix">
 			<div class="microsite-logo">
-				<a href="/wheels-afield/" title="shoot101"><img src="/wp-content/themes/imo-mags-parent/images/microsites/gameandfish/crossbow-revolution/CRM-Logo.jpg"></a>
+				<a href="/gear-accessories/gear-hunting/crossbows/" title="shoot101"><img src="/wp-content/themes/imo-mags-parent/images/microsites/gameandfish/crossbow-revolution/CRM-Logo.jpg"></a>
 			</div>
 			<div class="nav-container clearfix">
 				<nav id="site-navigation" class="main-nav" role="navigation">
