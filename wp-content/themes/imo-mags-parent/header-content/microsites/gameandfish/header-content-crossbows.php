@@ -7,7 +7,7 @@
 		
 		<div class="menu-area clearfix">
 			<div class="microsite-logo">
-				<a href="/wheels-afield/" title="shoot101"><img src="/wp-content/themes/petersenshunting/images/wheels-afield/wheels-afield-logo.png"></a>
+				<a href="/wheels-afield/" title="shoot101"><img src="/wp-content/themes/imo-mags-parent/images/microsites/gameandfish/crossbow-revolution/CRM-Logo.jpg"></a>
 			</div>
 			<div class="nav-container clearfix">
 				<nav id="site-navigation" class="main-nav" role="navigation">
@@ -36,9 +36,9 @@
 				</nav>
 				<div class="social-buttons">
 					<ul>
-						<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo (urlencode(site_url())) . '/wheels-afield'; ?>&title=Wheels Afield Magazine" class="icon-facebook" target="_blank"></a></li>
-						<li><a href="http://twitter.com/intent/tweet?status=Wheels Afield Magazine+http://www.petersenshunting.com/wheels-afield/" class="icon-twitter" target="_blank"></a></li>
-						<li><a href="mailto:?subject=Website I came across&body=Check out this website! Wheels Afield Magazine. <?php echo (urlencode(site_url())) . '/wheels-afield'; ?>" class="icon-mail" target="_blank"></a></li>
+						<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo (urlencode(site_url())) . '/gear-accessories/gear-hunting/crossbows/'; ?>&title=Crossbow Revolution Magazine" class="icon-facebook" target="_blank"></a></li>
+						<li><a href="http://twitter.com/intent/tweet?status=Crossbow Revolution Magazine+http://www.gameandfishmag.com/gear-accessories/gear-hunting/crossbows/" class="icon-twitter" target="_blank"></a></li>
+						<li><a href="mailto:?subject=Website I came across&body=Check out this website! Crossbow Revolution Magazine. <?php echo (urlencode(site_url())) . '/gear-accessories/gear-hunting/crossbows/'; ?>" class="icon-mail" target="_blank"></a></li>
 					</ul>
 				</div><!-- .m-social-buttons -->
 			</div><!-- .nav-container -->

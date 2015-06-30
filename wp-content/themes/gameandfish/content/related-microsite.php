@@ -9,7 +9,7 @@
 		<div class="rel-logo">
 			<img src="<?php bloginfo('template_directory'); ?>/images/microsites/gameandfish/gameandfish-logo-white.png">
 		</div>
-		<h5>PREVIOUS ARTICLES FROM GAME & FISH</h5>
+		<h5>MORE CROSSBOW COVERAGE FROM GAME & FISH</h5>
 		<div class="rel-triangle"></div>
 	</header>
 	<div class="rel-wrap clearfix">					

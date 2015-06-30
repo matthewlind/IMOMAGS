@@ -233,7 +233,7 @@ a img.aligncenter {
 	font: 700 10px 'Open Sans', Helvetica, Arial, sans-serif;
 	display: inline-block;
 	text-align: center;
-	padding: 13px 5px 13px;
+/* 	padding: 13px 5px 13px; */
 	box-shadow: 0 2px 4px rgba(0,0,0,0.07);
 	line-height: 10px;
 	color: #222222;
@@ -780,6 +780,8 @@ h1, h2, h3, h4, h5 {
 }
 .s-mag-btns .s-buy-btn > a {
 	color: #222222;
+	padding: 13px;
+	display: inline-block;
 }
 .s-mag-btns div.s-buy-btn {
 	cursor: default;

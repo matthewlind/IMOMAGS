@@ -56,9 +56,9 @@
 				<span>Love Guns, Gear, & Vehicles? Then Share it!<?php echo $dartDomain; ?></span>
 				<div class="m-social-buttons">
 					<ul>
-						<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo (urlencode(site_url())) . '/crossbow-revolution'; ?>&title=Wheels Afield Magazine" class="icon-facebook" target="_blank"></a></li>
-						<li><a href="http://twitter.com/intent/tweet?status=Wildfowl Gear Guide+http://www.wildfowlmag.com/crossbow-revolution" class="icon-twitter" target="_blank"></a></li>
-						<li><a href="mailto:?subject=Website I came across&body=Check out this website! Wheels Afield Magazine. <?php echo (urlencode(site_url())) . '/crossbow-revolution'; ?>" class="icon-mail" target="_blank"></a></li>
+						<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo (urlencode(site_url())) . '/gear-accessories/gear-hunting/crossbows/'; ?>&title=Crossbow Revolution Magazine" class="icon-facebook" target="_blank"></a></li>
+						<li><a href="http://twitter.com/intent/tweet?status=Crossbow Revolution Magazine+http://www.gameandfishmag.com/gear-accessories/gear-hunting/crossbows/" class="icon-twitter" target="_blank"></a></li>
+						<li><a href="mailto:?subject=Website I came across&body=Check out this website! Crossbow Revolution Magazine. <?php echo (urlencode(site_url())) . '/gear-accessories/gear-hunting/crossbows/'; ?>" class="icon-mail" target="_blank"></a></li>
 					</ul>				
 				</div>
 			</div><!-- end .featured-message -->

@@ -2,7 +2,7 @@
 <footer class="s-footer clearfix">
 	<div class="s-mag clearfix">
 		<div class="s-mag-cover">
-			<img src="<?php bloginfo('template_directory');?>/images/microsites/wildfowl/gear-guide/gear-guide-mag-cover.jpg">
+			<img src="<?php bloginfo('template_directory');?>/images/microsites/gameandfish/crossbow-revolution/crossbow-revolution-cover-min.jpg">
 		</div>
 		<div class="s-mag-descr">
 			<h1>Wheels Afield Magazine</h1>
@@ -16,10 +16,10 @@
 			</div>
 			<div class="s-mag-btns clearfix">
 				<div class="s-buy-btn">
-					<a href="https://store.intermediaoutdoors.com/products.php?product=Wheels-Afield-2015" target="_blank">BUY THE MAGAZINE NOW!</a>
+					<a href="https://store.intermediaoutdoors.com/products.php?product=Game-%26-Fish-Crossbow-Revolution-2015" target="_blank">BUY THE MAGAZINE NOW!</a>
 				</div>
 				<div class="s-buy-btn">
-					GET THE DIGITAL EDITION!
+					<a href=""> GET THE DIGITAL EDITION! </a>
 					<div class="buy-mag-drop">
 						<ul>
 							<li><a href="https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=985774523&mt=8" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/itunes-logo.png"><span>iTunes</span></a></li>
@@ -35,9 +35,9 @@
 		<h2>Love Guns, Gear, & Vehicles? Then Share it!</h2>
 		<div class="f-social-buttons">
 			<ul>
-				<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo (urlencode(site_url())) . '/wheels-afield'; ?>&title=Wheels Afield Magazine" class="icon-facebook" target="_blank"></a></li>
-				<li><a href="http://twitter.com/intent/tweet?status=Wheels Afield Magazine+http://www.petersenshunting.com/wheels-afield/" class="icon-twitter" target="_blank"></a></li>
-				<li><a href="mailto:?subject=Website I came across&body=Check out this website! Wheels Afield Magazine. <?php echo (urlencode(site_url())) . '/wheels-afield'; ?>" class="icon-mail" target="_blank"></a></li>
+				<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo (urlencode(site_url())) . '/gear-accessories/gear-hunting/crossbows/'; ?>&title=Crossbow Revolution Magazine" class="icon-facebook" target="_blank"></a></li>
+				<li><a href="http://twitter.com/intent/tweet?status=Crossbow Revolution Magazine+http://www.gameandfishmag.com/gear-accessories/gear-hunting/crossbows/" class="icon-twitter" target="_blank"></a></li>
+				<li><a href="mailto:?subject=Website I came across&body=Check out this website! Crossbow Revolution Magazine. <?php echo (urlencode(site_url())) . '/gear-accessories/gear-hunting/crossbows/'; ?>" class="icon-mail" target="_blank"></a></li>
 			</ul>
 		</div><!-- .m-social-buttons -->
 	</div>
