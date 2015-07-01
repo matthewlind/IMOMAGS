@@ -53,7 +53,7 @@
 			</div><!-- end .p-feat-container -->
 						
 			<div class="featured-message">
-				<span>Love Guns, Gear, & Vehicles? Then Share it!<?php echo $dartDomain; ?></span>
+				<span>Love Crossbows? Then Share it!</span>
 				<div class="m-social-buttons">
 					<ul>
 						<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo (urlencode(site_url())) . '/gear-accessories/gear-hunting/crossbows/'; ?>&title=Crossbow Revolution Magazine" class="icon-facebook" target="_blank"></a></li>

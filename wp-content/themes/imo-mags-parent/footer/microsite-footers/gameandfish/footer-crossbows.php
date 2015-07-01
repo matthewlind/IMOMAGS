@@ -6,7 +6,7 @@
 		</div>
 		<div class="s-mag-descr">
 			<h1>Wheels Afield Magazine</h1>
-			<p>What is Wheels Afield? It is overland vehicles and equipment, field sports, and adventure travel. In short, if it involves the outdoors and requires a vehicle to access it, it is Wheels Afield.</p>
+			<p>Crossbow Revolution is the leading crossbow authority for reviews, news, game-changing innovations and high-octane hunts. Join the revolution!</p>
 		</div>
 		<div class="s-mag-buy">			
 			<h2>NOW AVAILABLE ON NEWSSTANDS!</h2>
@@ -32,7 +32,7 @@
 		</div><!-- end .s-mag-descr -->
 	</div><!-- end .s-mag-descr -->
 	<div class="footer-message clearfix">
-		<h2>Love Guns, Gear, & Vehicles? Then Share it!</h2>
+		<h2>Love Crossbows? Then Share it!</h2>
 		<div class="f-social-buttons">
 			<ul>
 				<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo (urlencode(site_url())) . '/gear-accessories/gear-hunting/crossbows/'; ?>&title=Crossbow Revolution Magazine" class="icon-facebook" target="_blank"></a></li>
