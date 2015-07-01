@@ -1,6 +1,6 @@
 <div class="community-header">
 	<div class="header-section community-logo">
-		<!--<a href="/photos/"><img src="/wp-content/themes/petersenshunting/images/logos/TheRackRoom.png" alt="Reader Photos" title="Reader Photos" /></a>-->
+		<a href="/photos/"><img src="/wp-content/themes/gundog/images/gundog-photos.png" alt="Reader Photos" title="Reader Photos" /></a>
 		<div class="community-mobile-menu"><div class="select-arrow"></div>Photos Menu</div>
 	</div>
 	<?php $photosMenu = get_field("photos_menu", "options"); ?>

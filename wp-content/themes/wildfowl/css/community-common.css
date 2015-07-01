@@ -53,7 +53,7 @@
 	height: 118px;
 }
 .community-header .header-section:first-child{border: none;width: 253px;padding: 0;}
-.community-header img{vertical-align: 12px;width: 200px;margin: 35px auto 0;display: block;}
+.community-header img{vertical-align: 12px;width: 200px;margin: 6px auto 0;display: block;}
 .community-header .header-section h3 a{padding-left: 16px;color: white;}
 .community-header .header-section h3 a:hover{color: #acacac;}
 
