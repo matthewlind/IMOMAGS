@@ -48,38 +48,29 @@ function social_footer(){ ?>
 	</div>
 <?php }
 
-
 //Configure naw community
 //This section does nothing unless imo-community plugin is enabled
 add_action("init","naw_community_init",0);
 function naw_community_init() {
-
 	//////////////////////////////////
 	//Community Configuration
 	//////////////////////////////////
-
 	//This Post Types array is used in multiple configurations
 	$nawPostTypes = array(
-
 		"report" => array(
 			"display_name" => "State Rut Report",
 			"post_list_style" => "tile"
 		),
-
 		"general" => array(
 			"display_name" => "General Discussion",
 			"post_list_style" => "tile"
 		),
-
 		"question" => array(
 			"display_name" => "Questions",
 			"post_list_style" => "tile"
 		)
 	);
-
-
 	//External Community Configurations
-
 	include("community-config/state-report.php");
 	include("community-config/report.php");
 	include("community-config/general.php");
@@ -90,13 +81,49 @@ function naw_community_init() {
 	include("community-config/edit-profile.php");
 	include("community-config/admin.php");
 	include("community-config/listing.php");
-
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//NOTE: Configuration order matters! More specific URLs should appear before less specific urls on the same path.
 	// For example, the "single" page_type below needs to appear before "listing" page type on the same path.
 	//Also, solunar-calendar-mobile should appear before solunar-calendar
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 }
 
+add_action('init', 'cptui_register_my_cpt_reader_photos');
+function cptui_register_my_cpt_reader_photos() {
+	register_post_type(
+		'reader_photos', array(
+			'label' => 'NAW Community',
+			'description' => 'Upload a photo',
+			'public' => true,
+			'show_ui' => true,
+			'show_in_menu' => true,
+			'capability_type' => 'reader_post',
+			'map_meta_cap' => true,
+			'hierarchical' => false,
+			'rewrite' => array('slug' => 'community'),
+			'query_var' => true,
+			'has_archive' => true,
+			'supports' => array('title','editor','excerpt','trackbacks','custom-fields','comments','revisions','thumbnail','author','page-attributes'),
+			'taxonomies' => array('category'),
+			'labels' => array (
+			  'name' => 'NAW Community',
+			  'singular_name' => 'NAW Community',
+			  'menu_name' => 'NAW Community',
+			  'add_new' => 'Add NAW Community',
+			  'add_new_item' => 'Add New NAW Community',
+			  'edit' => 'Edit',
+			  'edit_item' => 'Edit NAW Community',
+			  'new_item' => 'New NAW Community',
+			  'view' => 'View NAW Community',
+			  'view_item' => 'View NAW Community',
+			  'search_items' => 'Search NAW Community',
+			  'not_found' => 'No NAW Community Found',
+			  'not_found_in_trash' => 'No NAW Community Found in Trash',
+			  'parent' => 'Parent NAW Community',
+			)
+		)
+	);
+
+
+}
 
