@@ -5,12 +5,12 @@
 			<img src="<?php bloginfo('template_directory');?>/images/microsites/gameandfish/crossbow-revolution/crossbow-revolution-cover-min.jpg">
 		</div>
 		<div class="s-mag-descr">
-			<h1>Wheels Afield Magazine</h1>
+			<h1>Crossbow Revolution</h1>
 			<p>Crossbow Revolution is the leading crossbow authority for reviews, news, game-changing innovations and high-octane hunts. Join the revolution!</p>
 		</div>
 		<div class="s-mag-buy">			
 			<h2>NOW AVAILABLE ON NEWSSTANDS!</h2>
-			<?php echo do_shortcode('[osgimpubissue bipad="34837" alias="foot" vertical="up" gotxt="GO!"]'); ?>
+			<?php // echo do_shortcode('[osgimpubissue bipad="34837" alias="foot" vertical="up" gotxt="GO!"]'); ?>
 			<div class="s-or">
 				<div>OR</div>			
 			</div>
@@ -22,9 +22,9 @@
 					<a href=""> GET THE DIGITAL EDITION! </a>
 					<div class="buy-mag-drop">
 						<ul>
-							<li><a href="https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=985774523&mt=8" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/itunes-logo.png"><span>iTunes</span></a></li>
-							<li><a href="https://play.google.com/store/apps/details?id=com.imo.wheelsafield" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/google_play_icon.png"><span>Google Play</span></a></li>
-							<li><a href="http://apps.microsoft.com/windows/en-us/app/wheels-afield/865f31ca-7ea7-462f-9bad-0712025e3fd4" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/windows-store-icon.png"><span>Windows Store</span></a></li>
+							<li><a href="https://itunes.apple.com/us/app/crossbow-revolution/id668713688?mt=8" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/itunes-logo.png"><span>iTunes</span></a></li>
+							<li><a href="https://play.google.com/store/apps/details?id=com.imo.crossbow&hl=en" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/google_play_icon.png"><span>Google Play</span></a></li>
+							<li><a href="http://apps.microsoft.com/windows/en-us/app/crossbow-revolution/d38658b6-51e0-4687-bfd5-e2e2bbec0ce8" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/windows-store-icon.png"><span>Windows Store</span></a></li>
 						</ul>
 					</div>
 				</div>

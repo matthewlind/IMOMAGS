@@ -67,7 +67,7 @@
 	    </div>
 	</div><!-- end .m-footer-bottom -->
 </footer>
-	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/microsite-js/petersenshunting/script-gear-guide.js"></script>
+	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/microsite-js/wildfowl/script-gear-guide.js"></script>
 	<!--[if lt IE 9]><script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->
 
 	<?php wp_footer(); ?>

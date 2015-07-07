@@ -996,16 +996,16 @@ h1, h2, h3, h4, h5 {
 .m-buymag-drop i:hover {
 	color: #ee7700;
 }
-.m-buymag-drop > ul > li:nth-child(2) {
+.m-buymag-drop > ul > li.m-buy-online {
 	position: relative;
 	border-top: 1px solid #777777;
 	border-bottom: 1px solid #777777;
 }
-.m-buymag-drop > ul > li:nth-child(2) a {
+.m-buymag-drop > ul > li.m-buy-online a {
 	padding: 15px 0 16px;
 	display: block;
 }
-.m-buymag-drop > ul > li:nth-child(2) a::after {
+.m-buymag-drop > ul > li.m-buy-online a::after {
 	content: "\e600";
 	font-family: "icomoon";
 	color: #ee7700;
