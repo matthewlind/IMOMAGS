@@ -11,7 +11,7 @@ class Ford_Widget extends WP_Widget {
 	$dartDomain = get_option("dart_domain", $default = false);
 ?>
 <div class="widget ford-outfitters-widget">
-	<?php imo_dart_tag("300x602"); ?>
+	<?php imo_ad_placement("sweeps_widget_300x602"); ?>
 </div>
 <?php }
 }
