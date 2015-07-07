@@ -5,7 +5,7 @@
 			<img src="<?php bloginfo('template_directory');?>/images/microsites/gameandfish/crossbow-revolution/crossbow-revolution-cover-min.jpg">
 		</div>
 		<div class="s-mag-descr">
-			<h1>Crossbow Revolution</h1>
+			<h1>Buy Crossbow Revolution</h1>
 			<p>Crossbow Revolution is the leading crossbow authority for reviews, news, game-changing innovations and high-octane hunts. Join the revolution!</p>
 		</div>
 		<div class="s-mag-buy">			
