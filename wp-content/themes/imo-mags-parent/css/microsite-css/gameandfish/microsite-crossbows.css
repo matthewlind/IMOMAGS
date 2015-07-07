@@ -281,7 +281,8 @@ a:hover {
 	border-left: 9px solid #c42c08;
 } 
 .m-buy-mag-img {
-	background-image: url(../../../images/microsites/wildfowl/gear-guide/gear-guide-mag-cover.jpg);
+	background-image: url(../../../images/microsites/gameandfish/crossbow-revolution/crossbow-revolution-cover-single.jpg);
+	border: 1px solid #e1e1e1;
 }
 .m-buy-mag-bottom > a, .m-buy-mag-bottom .m-buy-dig {
 	color: #c42c08;
