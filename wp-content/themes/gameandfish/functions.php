@@ -338,12 +338,6 @@ add_action('pre_get_posts', 'custom_post_author_archive');
 
 
 
-
-
-
-
-
-
 // Load more posts with Ajax, category 'crossbows'
 
 if ( is_admin()) {  
@@ -353,19 +347,15 @@ if ( is_admin()) {
     // Add non-Ajax front-end action hooks here
 }
 
-
-
-	add_action( 'wp_enqueue_scripts', 'my_enqueue_cross' );
-
-
+add_action( 'wp_enqueue_scripts', 'my_enqueue_cross' );
 function my_enqueue_cross() {	
 	global $cat;
-	if ( is_category('crossbows') || in_category('crossbows') || in_category('crossbow-revolution')) {
+	if ( is_category('crossbows')) {
 		// Get the mumber of posts in 'crossbows' category. Then us it in you js file			
 		$postsInCat = get_term_by('slug','crossbows','category');
 		$postsInCat = $postsInCat->count;
 		
-		wp_enqueue_script( 'script-crossbows', get_template_directory_uri() . '/js/microsite-js/gameandfish/script-crossbows.js', array( 'jquery' ), '1.0', true );	
+		wp_enqueue_script( 'script-crossbows', get_template_directory_uri() . '/js/microsite-js/gameandfish/script-crossbows-ajax.js', array( 'jquery' ), '1.0', true );	
 			
 		wp_localize_script( 'script-crossbows', 'ajax_object',
 	        array( 
@@ -376,7 +366,6 @@ function my_enqueue_cross() {
 	
 	}
 }
-
 function load_crossbows_posts() {
 	global $wpdb;           
     ob_clean();  
