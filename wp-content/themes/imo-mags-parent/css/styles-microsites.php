@@ -27,10 +27,10 @@
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/petersenshunting/microsite-wheels-afield.css" />
 <?php   } else { ?>
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/microsite-default.css" />
-<?php	}    ?>
+<?php	}    
 
 
-<?php
+
 /* ------------------------------------------------------------------------
 	Wildfowl 
 -------------------------------------------------------------------------- */		
@@ -39,9 +39,24 @@
 	?>
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/microsite-default.css" />
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/wildfowl/microsite-gear-guide.css" />
+<!-- 		<meta property="og:image" content="http://www.in-fisherman.com/files/2015/06/RR-sweeps-no-btn-968x504FB.jpg" /> -->			
+<?php	} 
+
+
+/* ------------------------------------------------------------------------
+	Game and Fish 
+-------------------------------------------------------------------------- */		
+	} elseif ($dartDomain == "imo.gameandfish") { 
+		if ( is_category('crossbows') || in_category('crossbows') || in_category('crossbow-revolution')) {	
+	?>
+		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/microsite-default.css" />
+		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/gameandfish/microsite-crossbows.css" />
 <!-- 		<meta property="og:image" content="http://www.in-fisherman.com/files/2015/06/RR-sweeps-no-btn-968x504FB.jpg" /> -->
 				
+<?php	} else { ?>
+		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/microsite-default.css" />
 <?php	} 
+	
 
 /* ------------------------------------------------------------------------
 	In-fisherman 
@@ -60,9 +75,8 @@
 			<?php } ?>
 <?php	} else { ?>
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/in-fisherman/microsite-<?php echo $catslug ?>.css" />
-<?php	} ?>
+<?php	} 
 
-<?php
 	
 /* ------------------------------------------------------------------------
 	Guns and Ammo 

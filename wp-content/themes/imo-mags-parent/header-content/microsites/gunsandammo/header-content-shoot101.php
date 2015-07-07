@@ -26,7 +26,7 @@
 								<i class="icon-cross"></i>
 								<?php echo do_shortcode('[osgimpubissue bipad="30314" alias="head" vertical="down"]'); ?>
 							</li>
-							<li>
+							<li class="m-buy-online">
 								<a href="https://store.intermediaoutdoors.com/products.php?product=Wheels-Afield-2015" target="_blank">Order Print Magazine Online</a>
 								<div class="unavailble-mag">
 									<p>The print magazine is temporarily unavailable in the online store. Instead find it in your area using your zip code, or get the digital edition.</p>

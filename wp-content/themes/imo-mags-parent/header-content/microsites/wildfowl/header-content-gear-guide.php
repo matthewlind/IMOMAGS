@@ -7,7 +7,7 @@
 		
 		<div class="menu-area clearfix">
 			<div class="microsite-logo">
-				<a href="/wheels-afield/" title="shoot101"><img src="/wp-content/themes/petersenshunting/images/wheels-afield/wheels-afield-logo.png"></a>
+				<a href="/gear-guide/" title="shoot101"><img src="/wp-content/themes/imo-mags-parent/images/microsites/wildfowl/gear-guide/Wildfowl_Logo.png"></a>
 			</div>
 			<div class="nav-container clearfix">
 				<nav id="site-navigation" class="main-nav" role="navigation">
@@ -16,9 +16,9 @@
 						<ul>
 							<li class="clearfix">
 								<i class="icon-cross"></i>
-								<?php echo do_shortcode('[osgimpubissue bipad="34837" alias="head" vertical="down"]'); ?>
+								<?php //echo do_shortcode('[osgimpubissue bipad="34837" alias="head" vertical="down"]'); ?>
 							</li>
-							<li>
+							<li class="m-buy-online">
 								<a href="https://store.intermediaoutdoors.com/products.php?product=Wheels-Afield-2015" target="_blank">Order Print Magazine Online</a>
 							</li>
 							<li> 
@@ -36,9 +36,9 @@
 				</nav>
 				<div class="social-buttons">
 					<ul>
-						<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo (urlencode(site_url())) . '/wheels-afield'; ?>&title=Wheels Afield Magazine" class="icon-facebook" target="_blank"></a></li>
-						<li><a href="http://twitter.com/intent/tweet?status=Wheels Afield Magazine+http://www.petersenshunting.com/wheels-afield/" class="icon-twitter" target="_blank"></a></li>
-						<li><a href="mailto:?subject=Website I came across&body=Check out this website! Wheels Afield Magazine. <?php echo (urlencode(site_url())) . '/wheels-afield'; ?>" class="icon-mail" target="_blank"></a></li>
+						<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo (urlencode(site_url())) . '/gear-guide'; ?>&title=Wildfowl Gear Guide" class="icon-facebook" target="_blank"></a></li>
+						<li><a href="http://twitter.com/intent/tweet?status=Wildfowl Gear Guide+http://www.wildfowlmag.com/gear-guide/" class="icon-twitter" target="_blank"></a></li>
+						<li><a href="mailto:?subject=Website I came across&body=Check out this website! Wildfowl Gear Guide <?php echo (urlencode(site_url())) . '/gear-guide'; ?>" class="icon-mail" target="_blank"></a></li>
 					</ul>
 				</div><!-- .m-social-buttons -->
 			</div><!-- .nav-container -->

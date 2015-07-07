@@ -60,7 +60,7 @@ a:hover {
 
 .main-nav ul li:hover a {color: #4785d5;}
 .main-nav > ul > li:hover {border-left: 1px solid #4785d5;-webkit-transition:all 0.1s;-moz-transition:all 0.1s;transition:all 0.1s;}
-.main-nav ul li:last-child:hover {border-right: 1px solid #4785d5;-webkit-transition:all 0.1s;-moz-transition:all 0.1s;transition:all 0.1s;} 
+.main-nav > ul > li:last-child:hover {border-right: 1px solid #4785d5;-webkit-transition:all 0.1s;-moz-transition:all 0.1s;transition:all 0.1s;} 
 
 .social-buttons ul li a:hover {
 	color: #4785d5;
