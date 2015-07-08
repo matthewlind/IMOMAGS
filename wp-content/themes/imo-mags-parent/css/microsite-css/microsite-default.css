@@ -336,6 +336,9 @@ h1, h2, h3, h4, h5 {
 .single .main-nav ul li {
 	float: none;
 }
+.category .all-stories {
+	display: none;
+}
 /* Main-nav */
 .main-nav {display: block; float: left; margin: 0 0 0 20px; position: relative; z-index: 30;}	
 .main-nav ul {margin: 0; padding: 0;}
