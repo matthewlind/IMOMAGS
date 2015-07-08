@@ -1,3 +1,18 @@
+<?php
+	global $IMO_USER_STATE;
+
+    $sportsmanStates = array("GA","MI","MN","WI","AR","TN","TX");
+
+    $magazine_img = get_option('magazine_cover_uri');
+
+     if (in_array($IMO_USER_STATE, $sportsmanStates)) {
+        $magazine_img = get_option('magazine_cover_alt_uri');
+    }	
+    
+    $deal_copy = get_option('deal_copy' );
+	
+?>
+
 <div class="snap-drawers">
     <div class="snap-drawer snap-drawer-left" id="left-drawer">
         <div>
