@@ -59,9 +59,9 @@
 								<span>GET THE DIGITAL EDITION!</span>
 			    				<div class="m-dig-drop">
 									<ul>
-										<li><a href="https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=985774523&mt=8" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/itunes-logo.png"><span>iTunes</span></a></li>
-										<li><a href="https://play.google.com/store/apps/details?id=com.imo.wheelsafield" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/google_play_icon.png"><span>Google Play</span></a></li>
-										<li><a href="http://apps.microsoft.com/windows/en-us/app/wheels-afield/865f31ca-7ea7-462f-9bad-0712025e3fd4" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/windows-store-icon.png"><span>Windows Store</span></a></li>
+										<li><a href="https://itunes.apple.com/us/app/wildfowl/id582719568?mt=8" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/itunes-logo.png"><span>iTunes</span></a></li>
+										<li><a href="https://play.google.com/store/apps/details?id=com.imo.wifp&hl=en" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/google_play_icon.png"><span>Google Play</span></a></li>
+										<li><a href="http://apps.microsoft.com/windows/en-us/app/wildfowl/c5bb5e65-71d4-47cb-957d-876fc1e1c432" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/windows-store-icon.png"><span>Windows Store</span></a></li>
 									</ul>
 								</div><!-- .m-buy-mag-hover -->										
 		    				</div> 
@@ -93,9 +93,9 @@
 						<span>GET THE DIGITAL EDITION!</span>
 	    				<div class="m-dig-drop">
 							<ul>
-								<li><a href="https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=985774523&mt=8" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/itunes-logo.png"><span>iTunes</span></a></li>
-								<li><a href="https://play.google.com/store/apps/details?id=com.imo.wheelsafield" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/google_play_icon.png"><span>Google Play</span></a></li>
-								<li><a href="http://apps.microsoft.com/windows/en-us/app/wheels-afield/865f31ca-7ea7-462f-9bad-0712025e3fd4" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/windows-store-icon.png"><span>Windows Store</span></a></li>
+								<li><a href="https://itunes.apple.com/us/app/wildfowl/id582719568?mt=8" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/itunes-logo.png"><span>iTunes</span></a></li>
+								<li><a href="https://play.google.com/store/apps/details?id=com.imo.wifp&hl=en" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/google_play_icon.png"><span>Google Play</span></a></li>
+								<li><a href="http://apps.microsoft.com/windows/en-us/app/wildfowl/c5bb5e65-71d4-47cb-957d-876fc1e1c432" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/windows-store-icon.png"><span>Windows Store</span></a></li>
 							</ul>
 						</div><!-- .m-buy-mag-hover -->										
     				</div> 
