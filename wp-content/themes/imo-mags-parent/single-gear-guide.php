@@ -49,7 +49,7 @@
 				<div class="alignright-content m-buy-wrap"> 
 		    		<div class="m-buy-mag" style="margin-top: 45px;"> 
 		    			<h2>NOW AVAILABLE ON NEWSSTANDS!</h2> 
-		    			<?php echo do_shortcode('[osgimpubissue bipad="34837" alias="mid"]'); ?>
+		    			<?php // echo do_shortcode('[osgimpubissue bipad="34837" alias="mid"]'); ?>
 		    			<div class="m-buy-mag-bottom clearfix"> 				
 		    				<div class="m-buy-mag-img"></div> 
 		    				<div class="m-buy-dig">
@@ -83,7 +83,7 @@
 		<div class="alignright-content m-buy-wrap"> 
     		<div class="m-buy-mag" style="margin-top: 45px;"> 
     			<h2>NOW AVAILABLE ON NEWSSTANDS!</h2> 
-    			<?php echo do_shortcode('[osgimpubissue bipad="34837" alias="mid"]'); ?>
+    			<?php // echo do_shortcode('[osgimpubissue bipad="34837" alias="mid"]'); ?>
     			<div class="m-buy-mag-bottom clearfix"> 				
     				<div class="m-buy-mag-img"></div> 
     				<div class="m-buy-dig">

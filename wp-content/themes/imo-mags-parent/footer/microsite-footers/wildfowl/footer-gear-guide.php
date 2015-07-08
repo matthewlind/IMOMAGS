@@ -14,7 +14,7 @@
 		</div>
 		<div class="s-mag-buy">			
 			<h2>NOW AVAILABLE ON NEWSSTANDS!</h2>
-			<?php echo do_shortcode('[osgimpubissue bipad="34837" alias="foot" vertical="up" gotxt="GO!"]'); ?>
+			<?php // echo do_shortcode('[osgimpubissue bipad="34837" alias="foot" vertical="up" gotxt="GO!"]'); ?>
 			<div class="s-or">
 				<div>OR</div>			
 			</div>
