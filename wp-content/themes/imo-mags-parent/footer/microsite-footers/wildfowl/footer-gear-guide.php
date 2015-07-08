@@ -9,8 +9,8 @@
 			<img src="<?php bloginfo('template_directory');?>/images/microsites/wildfowl/gear-guide/gear-guide-mag-cover.jpg">
 		</div>
 		<div class="s-mag-descr">
-			<h1>Wheels Afield Magazine</h1>
-			<p>What is Wheels Afield? It is overland vehicles and equipment, field sports, and adventure travel. In short, if it involves the outdoors and requires a vehicle to access it, it is Wheels Afield.</p>
+			<h1>Buy Wildfowl Magazine</h1>
+			<p>Wildfowl magazine focuses on the hunt in every flyway, from northern prairies to southern timber and rice fields, and from eastern tidal marshes to the rich valleys and deltas out West.</p>
 		</div>
 		<div class="s-mag-buy">			
 			<h2>NOW AVAILABLE ON NEWSSTANDS!</h2>
@@ -26,9 +26,9 @@
 					<a href="">GET THE DIGITAL EDITION!</a>
 					<div class="buy-mag-drop">
 						<ul>
-							<li><a href="https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=985774523&mt=8" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/itunes-logo.png"><span>iTunes</span></a></li>
-							<li><a href="https://play.google.com/store/apps/details?id=com.imo.wheelsafield" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/google_play_icon.png"><span>Google Play</span></a></li>
-							<li><a href="http://apps.microsoft.com/windows/en-us/app/wheels-afield/865f31ca-7ea7-462f-9bad-0712025e3fd4" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/windows-store-icon.png"><span>Windows Store</span></a></li>
+							<li><a href="https://itunes.apple.com/us/app/wildfowl/id582719568?mt=8" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/itunes-logo.png"><span>iTunes</span></a></li>
+							<li><a href="https://play.google.com/store/apps/details?id=com.imo.wifp&hl=en" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/google_play_icon.png"><span>Google Play</span></a></li>
+							<li><a href="http://apps.microsoft.com/windows/en-us/app/wildfowl/c5bb5e65-71d4-47cb-957d-876fc1e1c432" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/windows-store-icon.png"><span>Windows Store</span></a></li>
 						</ul>
 					</div>
 				</div>
