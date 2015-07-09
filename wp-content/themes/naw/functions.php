@@ -92,7 +92,7 @@ add_action('init', 'cptui_register_my_cpt_reader_photos');
 function cptui_register_my_cpt_reader_photos() {
 	register_post_type(
 		'reader_photos', array(
-			'label' => 'NAW Community',
+			'label' => 'Reader Photos',
 			'description' => 'Upload a photo',
 			'public' => true,
 			'show_ui' => true,
@@ -100,30 +100,29 @@ function cptui_register_my_cpt_reader_photos() {
 			'capability_type' => 'reader_post',
 			'map_meta_cap' => true,
 			'hierarchical' => false,
-			'rewrite' => array('slug' => 'community'),
+			'rewrite' => array('slug' => 'photos'),
 			'query_var' => true,
 			'has_archive' => true,
 			'supports' => array('title','editor','excerpt','trackbacks','custom-fields','comments','revisions','thumbnail','author','page-attributes'),
 			'taxonomies' => array('category'),
 			'labels' => array (
-			  'name' => 'NAW Community',
-			  'singular_name' => 'NAW Community',
-			  'menu_name' => 'NAW Community',
-			  'add_new' => 'Add NAW Community',
-			  'add_new_item' => 'Add New NAW Community',
+			  'name' => 'Reader Photos',
+			  'singular_name' => 'Reader Photo',
+			  'menu_name' => 'Reader Photos',
+			  'add_new' => 'Add Reader Photo',
+			  'add_new_item' => 'Add New Reader Photo',
 			  'edit' => 'Edit',
-			  'edit_item' => 'Edit NAW Community',
-			  'new_item' => 'New NAW Community',
-			  'view' => 'View NAW Community',
-			  'view_item' => 'View NAW Community',
-			  'search_items' => 'Search NAW Community',
-			  'not_found' => 'No NAW Community Found',
-			  'not_found_in_trash' => 'No NAW Community Found in Trash',
-			  'parent' => 'Parent NAW Community',
+			  'edit_item' => 'Edit Reader Photo',
+			  'new_item' => 'New Reader Photo',
+			  'view' => 'View Reader Photo',
+			  'view_item' => 'View Reader Photo',
+			  'search_items' => 'Search Reader Photos',
+			  'not_found' => 'No Reader Photos Found',
+			  'not_found_in_trash' => 'No Reader Photos Found in Trash',
+			  'parent' => 'Parent Reader Photo',
 			)
 		)
 	);
 
 
 }
-
