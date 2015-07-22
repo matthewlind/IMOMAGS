@@ -46,21 +46,18 @@ a:hover {
 .microsite-logo img {
 	width: 250px;
 	display: block;
-	padding: 22px 0 16px;
+	padding: 28px 0 16px;
 	margin: 0 auto;
 }
 .nav-container {
 	border-bottom: 1px solid #333333;
-}
-.category-wheels-afield .all-stories {
-	display: none;
 }
 
 /* Main-nav */
 
 .main-nav ul li:hover a {color: #4785d5;}
 .main-nav > ul > li:hover {border-left: 1px solid #4785d5;-webkit-transition:all 0.1s;-moz-transition:all 0.1s;transition:all 0.1s;}
-.main-nav ul li:last-child:hover {border-right: 1px solid #4785d5;-webkit-transition:all 0.1s;-moz-transition:all 0.1s;transition:all 0.1s;} 
+.main-nav > ul > li:last-child:hover {border-right: 1px solid #4785d5;-webkit-transition:all 0.1s;-moz-transition:all 0.1s;transition:all 0.1s;} 
 
 .social-buttons ul li a:hover {
 	color: #4785d5;
@@ -89,7 +86,7 @@ a:hover {
 	border-left: 9px solid #4785d5;
 } 
 .m-buy-mag-img {
-	background-image: url("/wp-content/themes/petersenshunting/images/wheels-afield/wheels-afield-mag-cover.jpg");
+	background-image: url(../../../images/microsites/wildfowl/gear-guide/gear-guide-mag-cover.jpg);
 }
 .m-buy-mag-bottom > a, .m-buy-mag-bottom .m-buy-dig {
 	color: #4785d5;
@@ -99,15 +96,14 @@ a:hover {
 }
 .m-buy-mag-bottom .m-dig-drop a:hover, .m-buy-mag-bottom .m-buy-dig:nth-child(2):hover {
 	border: 1px solid #4785d5;
-background: #7db9e8; /* Old browsers */
-background: -moz-linear-gradient(top,  #7db9e8 0%, #1e5799 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7db9e8), color-stop(100%,#1e5799)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  #7db9e8 0%,#1e5799 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  #7db9e8 0%,#1e5799 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  #7db9e8 0%,#1e5799 100%); /* IE10+ */
-background: linear-gradient(to bottom,  #7db9e8 0%,#1e5799 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', endColorstr='#1e5799',GradientType=0 ); /* IE6-9 */
-
+	background: #7db9e8; /* Old browsers */
+	background: -moz-linear-gradient(top,  #7db9e8 0%, #1e5799 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7db9e8), color-stop(100%,#1e5799)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #7db9e8 0%,#1e5799 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #7db9e8 0%,#1e5799 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #7db9e8 0%,#1e5799 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #7db9e8 0%,#1e5799 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', endColorstr='#1e5799',GradientType=0 ); /* IE6-9 */
 }
 .m-dig-drop ul li:hover a span {color: white;}
 
