@@ -42,7 +42,7 @@
 }
 
 /***Community header ***/
-.community-header{background: #333;border-bottom: 4px solid #6d7468;overflow: hidden;display: none;}
+.community-header{background: #333;border-bottom: 4px solid #188c95;overflow: hidden;display: none;}
 .community-header .header-section{
 	display: inline-block;
 	background: #333;
@@ -53,7 +53,7 @@
 	height: 118px;
 }
 .community-header .header-section:first-child{border: none;width: 253px;padding: 0;}
-.community-header img{vertical-align: 12px;width: 200px;margin: 35px auto 0;display: block;}
+.community-header img{vertical-align: 12px;width: 200px;margin: 6px auto 0;display: block;}
 .community-header .header-section h3 a{padding-left: 16px;color: white;}
 .community-header .header-section h3 a:hover{color: #acacac;}
 
@@ -61,7 +61,7 @@
 .community-header ul  li a{font-size: 14px;color: #acacac;}
 .community-header ul li a:hover{color: white;}
 .community-mobile-menu{display: none;}
-.community-nav-below{background: #6D746E;}
+.community-nav-below{background: #188c95;}
 .community-nav-below .singl-post-photo{float: left;height: 30px;font: 14px/28px "stagmedium", serif;color:white;text-shadow:none;margin: 4px 20px 0;width: 218px;background: #333;}
 .breadcrumbs {
     border-top:1px solid #d8d8d7;
