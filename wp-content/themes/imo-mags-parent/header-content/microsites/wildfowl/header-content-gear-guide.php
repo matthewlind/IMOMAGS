@@ -7,7 +7,7 @@
 		
 		<div class="menu-area clearfix">
 			<div class="microsite-logo">
-				<a href="/gear-guide/" title="shoot101"><img src="/wp-content/themes/imo-mags-parent/images/microsites/wildfowl/gear-guide/Wildfowl_Logo.png"></a>
+				<a href="/gear-guide/" title="shoot101"><img src="/wp-content/themes/imo-mags-parent/images/microsites/wildfowl/gear-guide/wildfowl-gear-guide-logo.png"></a>
 			</div>
 			<div class="nav-container clearfix">
 				<nav id="site-navigation" class="main-nav" role="navigation">
