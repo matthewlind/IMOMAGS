@@ -36,7 +36,7 @@
 		</div><!-- end .s-mag-descr -->
 	</div><!-- end .s-mag-descr -->
 	<div class="footer-message clearfix">
-		<h2>Love Guns, Gear, & Vehicles? Then Share it!</h2>
+		<h2>Love Wildfowl Hunting? Then Share it!</h2>
 		<div class="f-social-buttons">
 			<ul>
 				<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo (urlencode(site_url())) . '/gear-guide'; ?>&title=Wildfowl Gear Guide" class="icon-facebook" target="_blank"></a></li>

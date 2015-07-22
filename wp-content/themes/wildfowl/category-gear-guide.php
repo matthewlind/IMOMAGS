@@ -50,7 +50,7 @@
 			</div><!-- end .p-feat-container -->
 						
 			<div class="featured-message">
-				<span>Love Guns, Gear, & Vehicles? Then Share it!</span>
+				<span>Love Wildfowl Hunting? Then Share it!</span>
 				<div class="m-social-buttons">
 					<ul>
 						<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo (urlencode(site_url())) . '/gear-guide'; ?>&title=Wildfowl Gear Guide" class="icon-facebook" target="_blank"></a></li>
