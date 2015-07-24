@@ -65,6 +65,13 @@ jQuery(document).ready(function($) {
 	$("body, .m-buymag-drop i").click(function(){
 		buyMagDrop.removeClass("m-display-block");
 	});
+	
+	// add .disabled-link class to an <a> tag to disable it's dfault begavior 
+	disabledLink = $('.disabled-link');
+	disabledLink.click(function(event){
+		event.preventDefault();
+	});
+	
 
 }); // end of document.ready
 

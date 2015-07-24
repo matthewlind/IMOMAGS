@@ -23,7 +23,7 @@
 					<a href="https://store.intermediaoutdoors.com/products.php?product=Wildfowl-Equipment-Issue-2015" target="_blank">BUY THE MAGAZINE NOW!</a>
 				</div>
 				<div class="s-buy-btn">
-					<a href="">GET THE DIGITAL EDITION!</a>
+					<a class="disabled-link" href="">GET THE DIGITAL EDITION!</a>
 					<div class="buy-mag-drop">
 						<ul>
 							<li><a href="https://itunes.apple.com/us/app/wildfowl/id582719568?mt=8" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/itunes-logo.png"><span>iTunes</span></a></li>

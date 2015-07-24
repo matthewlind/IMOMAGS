@@ -1115,6 +1115,7 @@ h1, h2, h3, h4, h5 {
 	padding: 3px 5px;
 	display: none;
 	cursor: default;
+	z-index: 5000;
 }
 .unavailble-mag p {
 	margin: 0;
@@ -1135,14 +1136,15 @@ h1, h2, h3, h4, h5 {
 	text-align: left;
 }
 /* single article */
-.m-buy-mag-bottom .m-buy-dig:nth-child(2) .unavailble-mag {
+.m-buy-mag-bottom .m-buy-dig .unavailble-mag {
 	top: 0; bottom:0; left: 0; right: 0;
 }
-.m-buy-mag-bottom .m-buy-dig:nth-child(2) .unavailble-mag p {
+.m-buy-mag-bottom .m-buy-dig .unavailble-mag p {
 	font-size: 11px;
+	line-height: 14px;
 }
 /* all hover */
-.m-buymag-drop > ul > li:nth-child(2):hover .unavailble-mag, .s-mag-btns .s-buy-btn:hover .unavailble-mag, .m-buy-mag-bottom .m-buy-dig:nth-child(2):hover .unavailble-mag {
+.m-buymag-drop > ul > li:nth-child(2):hover .unavailble-mag, .s-mag-btns .s-buy-btn:hover .unavailble-mag, .m-buy-mag-bottom .m-buy-dig:hover .unavailble-mag {
 	display: block;
 }
 

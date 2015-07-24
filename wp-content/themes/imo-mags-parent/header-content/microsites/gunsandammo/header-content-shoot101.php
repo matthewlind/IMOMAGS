@@ -4,11 +4,16 @@
 		
 	$idObj = get_category_by_slug('shoot101'); 
 	$cat_id = $idObj->term_id;
+	$term_cat_id = 'category_'.$cat_id;
 	
-	$end_date_newsstand = get_field('end_date_newsstands', 'category'.'_'.$cat_id);
-	$mag_online_store = get_field('mag_online_store', 'category'.'_'.$cat_id);
-	$digital_edition_available = get_field('digital_edition_available', 'category'.'_'.$cat_id);	
-	$online_store_url = get_field('online_store_url', 'category'.'_'.$cat_id);
+	$logo = get_field('logo', $term_cat_id);
+	
+	$hide_all_buy_mag_options = get_field('hide_all_buy_mag_options', $term_cat_id);	
+	$message_unavailable = get_field('message_unavailable', $term_cat_id);	
+	$end_date_newsstand = get_field('end_date_newsstands', $term_cat_id);
+	$mag_online_store = get_field('mag_online_store', $term_cat_id);
+	$digital_edition_available = get_field('digital_edition_available', $term_cat_id);
+	$online_store_url = get_field('online_store_url', $term_cat_id);
 	
 	$today = date("Ymd"); 	
 		
@@ -29,11 +34,13 @@
 */
 			?>
 			<div class="microsite-logo">
-				<a href="/shoot101/" title="shoot101"><img  src="/wp-content/themes/gunsandammo/images/shoot101/Shoot101-logo-light.png"></a>
+				<a href="/shoot101/" title="shoot101"><img  src="<?php echo $logo['url'];?>" alt="<?php echo $logo['alt']; ?>"></a>
 			</div>
 <!-- 			<div class="nav-container"> -->
 				<nav id="site-navigation" class="main-nav" role="navigation">
 					<?php wp_nav_menu( array( 'theme_location' => 'shoot101_menu', 'container' => '0' ) ); ?>
+					
+					<?php if ($hide_all_buy_mag_options == false) { ?>
 					<div class="m-buymag-drop">
 						<ul>
 							<li class="clearfix">
@@ -72,7 +79,18 @@
 							</li>
 							<?php } } ?>
 						</ul>						
-					</div><!-- .m-buymag-drop -->					
+					</div><!-- .m-buymag-drop -->	
+					<?php } /* end if ($hide_all_buy_mag_options == false) */
+						else { ?>
+						<div class="m-buymag-drop">
+							<ul>
+								<li class="clearfix">
+									<i class="icon-cross"></i>
+									<?php echo $message_unavailable; ?>
+								</li>
+							</ul>						
+						</div><!-- .m-buymag-drop -->
+					<?php	}?>				
 				</nav>
 				<div class="social-buttons">
 					<ul>
