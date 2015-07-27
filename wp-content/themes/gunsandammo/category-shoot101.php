@@ -2,12 +2,21 @@
 	$microsite = true;
 	get_header();
 	
-    $category_id = get_cat_ID( 'shoot101' );
-    $category_link = get_category_link( $category_id );
+    $idObj = get_category_by_slug('shoot101'); 
+	$cat_id = $idObj->term_id;
+	$term_cat_id = 'category_'.$cat_id;
+	
+	$social_share_message = get_field('social_share_message', $term_cat_id);
+	$sponsors_disclaimer = get_field('sponsors_disclaimer', $term_cat_id);
+	
 ?>
+
+<?php if( in_array( 'sponsors_disclaimer', get_field('additional_elements', $term_cat_id) ) ) { ?>
 <div class="sponsors-disclaimer">
-	<span>BROUGHT TO YOU BY VISTA OUTDOOR INC. AND ITS FAMILY OF <a href="http://www.vistaoutdoor.com/brands/" target="_blank">BRANDS</a></span>
+	<span><?php echo $sponsors_disclaimer; ?></span>
 </div>
+<?php } ?>
+
 <div class="content">
 		<div class="posts-wrap">
 			<div class="p-feat-container clearfix">
@@ -57,7 +66,7 @@
 			</div><!-- end .p-feat-container -->
 						
 			<div class="featured-message">
-				<span>Help grow shooting in America.  Share this with a new shooter!</span>
+				<span><?php echo $social_share_message; ?></span>
 				<div class="m-social-buttons">
 					<ul>
 						<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo (urlencode(site_url())) . '/shoot101'; ?>&title=Shoot101: A starter's guide every new shooter should read." class="icon-facebook" target="_blank"></a></li>

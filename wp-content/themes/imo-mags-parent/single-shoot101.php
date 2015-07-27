@@ -13,6 +13,18 @@
 	$byline = get_post_meta($postID, 'ecpt_byline', true);
 	$acf_byline = get_field("byline",$postID); 
 	$author = get_the_author();
+	
+	$idObj = get_category_by_slug('shoot101'); 
+	$cat_id = $idObj->term_id;
+	$term_cat_id = 'category_'.$cat_id;
+	
+	$hide_all_buy_mag_options = get_field('hide_all_buy_mag_options', $term_cat_id);
+	$end_date_newsstand = get_field('end_date_newsstands', $term_cat_id);
+	$mag_online_store = get_field('mag_online_store', $term_cat_id);
+	$digital_edition_available = get_field('digital_edition_available', $term_cat_id);
+	$online_store_url = get_field('online_store_url', $term_cat_id);
+	
+	$today = date("Ymd"); 
 ?>
 <div class="sponsors-disclaimer">
 	<span>BROUGHT TO YOU BY VISTA OUTDOOR INC. AND ITS FAMILY OF <a href="http://www.vistaoutdoor.com/brands/" target="_blank">BRANDS</a></span>
@@ -53,28 +65,47 @@
 			foreach($contents as $content){
 			    echo $content.'</p>';
 			   
-			    if($p_counter == $mag_after_p){ ?>
+			    if($p_counter == $mag_after_p && $hide_all_buy_mag_options == false){ ?>
+			   
 				<div class="alignright-content m-buy-wrap"> 
 		    		<div class="m-buy-mag" style="margin-top: 45px;"> 
-		    			<h2>NOW AVAILABLE ON NEWSSTANDS!</h2>
-		    			<?php echo do_shortcode('[osgimpubissue bipad="30314" alias="mid"]'); ?> 
+			    		<?php if ($end_date_newsstand > $today  ) :	?>
+		    			<h2>NOW AVAILABLE ON NEWSSTANDS!</h2> 
+		    			<?php echo do_shortcode('[osgimpubissue bipad="30314" alias="mid"]'); 
+			    			endif;
+		    			?>
 		    			<div class="m-buy-mag-bottom clearfix"> 				
-		    				<div class="m-buy-mag-img"></div>
+		    				<div class="m-buy-mag-img"></div> 
 		    				<div class="m-buy-dig">
-		    					<a href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">BUY PRINT MAGAZINE NOW!</a> 
+		    					<a href="<?php echo $online_store_url; ?>" target="_blank">BUY PRINT MAGAZINE NOW!</a> 
+		    					<?php if ($mag_online_store == false) : ?>
 		    					<div class="unavailble-mag">
 									<p>The print magazine is temporarily unavailable in the online store. Instead find it in your area using your zip code, or get the digital edition.</p>
 								</div>
-		    				</div> 
+								<?php endif; ?>
+		    				</div>
 		    				<div class="m-buy-dig" href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">
 								<span>GET THE DIGITAL EDITION!</span>
-			    				<div class="m-dig-drop">
-									<ul>
-										<li><a href="https://itunes.apple.com/us/app/shoot-101/id980668053?ls=1&mt=8" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/itunes-logo.png"><span>iTunes</span></a></li>
-										<li><a href="https://play.google.com/store/apps/details?id=com.imo.shooting101" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/google_play_icon.png"><span>Google Play</span></a></li>
-										<li><a href="http://apps.microsoft.com/windows/en-us/app/shoot-101/0560cb9d-d461-4856-9abd-d3efb69862d9" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/windows-store-icon.png"><span>Windows Store</span></a></li>
-									</ul>
-								</div><!-- .m-buy-mag-hover -->										
+								<?php
+									if ($digital_edition_available == true && have_rows('digital_edition_urls', $term_cat_id)) { 
+										while ( have_rows('digital_edition_urls', $term_cat_id) ) { the_row();
+										$itunes_url = get_sub_field('itunes_url');
+										$google_play_url = get_sub_field('google_play_url');
+										$windows_store_url = get_sub_field('windows_store_url');
+								?>
+									<div class="m-dig-drop">
+										<ul>
+											<li><a href="<?php echo $itunes_url; ?>" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/itunes-logo.png"><span>iTunes</span></a></li>
+											<li><a href="<?php echo $google_play_url; ?>" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/google_play_icon.png"><span>Google Play</span></a></li>
+											<li><a href="<?php echo $windows_store_url; ?>" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/windows-store-icon.png"><span>Windows Store</span></a></li>						
+										</ul>
+									</div>
+								<?php }  // end while
+									} else { ?>
+									<div class="unavailble-mag">
+										<p>Digital edition is temporarily unavailable. Instead find it in your area using your zip code, or get the the print magazine in the online store.</p>
+									</div>
+								<?php } ?>									
 		    				</div> 
 		    			</div>
 		    		</div>
@@ -99,33 +130,53 @@
 			    $p_counter++;
 			}
 			
-		} else { ?>
-		<div class="alignright-content m-buy-wrap"> 
-    		<div class="m-buy-mag" style="margin-top: 45px;"> 
-    			<h2>NOW AVAILABLE ON NEWSSTANDS!</h2> 
-    			<?php echo do_shortcode('[osgimpubissue bipad="30314" alias="mid"]'); ?>
-    			<div class="m-buy-mag-bottom clearfix"> 				
-    				<div class="m-buy-mag-img"></div> 
-    				<div class="m-buy-dig">
-    					<a href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">BUY PRINT MAGAZINE NOW!</a> 
-    					<div class="unavailble-mag">
-							<p>The print magazine is temporarily unavailable in the online store. Instead find it in your area using your zip code, or get the digital edition.</p>
-						</div>
-    				</div>
-    				<div class="m-buy-dig" href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">
-						<span>GET THE DIGITAL EDITION!</span>
-	    				<div class="m-dig-drop">
-							<ul>
-								<li><a href="https://itunes.apple.com/us/app/shoot-101/id980668053?ls=1&mt=8" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/itunes-logo.png"><span>iTunes</span></a></li>
-								<li><a href="https://play.google.com/store/apps/details?id=com.imo.shooting101" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/google_play_icon.png"><span>Google Play</span></a></li>
-								<li><a href="http://apps.microsoft.com/windows/en-us/app/shoot-101/0560cb9d-d461-4856-9abd-d3efb69862d9" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/windows-store-icon.png"><span>Windows Store</span></a></li>
-							</ul>
-						</div><!-- .m-buy-mag-hover -->										
-    				</div> 
-    			</div>
-    		</div>
-    	</div>
+		} else { 
+			if ($hide_all_buy_mag_options == false) { ?>
+			<div class="alignright-content m-buy-wrap"> 
+	    		<div class="m-buy-mag" style="margin-top: 45px;"> 
+		    		<?php if ($end_date_newsstand > $today  ) :	?>
+	    			<h2>NOW AVAILABLE ON NEWSSTANDS!</h2> 
+	    			<?php echo do_shortcode('[osgimpubissue bipad="30314" alias="mid"]'); 
+		    			endif;
+	    			?>
+	    			<div class="m-buy-mag-bottom clearfix"> 				
+	    				<div class="m-buy-mag-img"></div> 
+	    				<div class="m-buy-dig">
+	    					<a href="<?php echo $online_store_url; ?>" target="_blank">BUY PRINT MAGAZINE NOW!</a> 
+	    					<?php if ($mag_online_store == false) : ?>
+	    					<div class="unavailble-mag">
+								<p>The print magazine is temporarily unavailable in the online store. Instead find it in your area using your zip code, or get the digital edition.</p>
+							</div>
+							<?php endif; ?>
+	    				</div>
+	    				<div class="m-buy-dig" href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">
+							<span>GET THE DIGITAL EDITION!</span>
+							<?php
+								if ($digital_edition_available == true && have_rows('digital_edition_urls', $term_cat_id)) { 
+									while ( have_rows('digital_edition_urls', $term_cat_id) ) { the_row();
+									$itunes_url = get_sub_field('itunes_url');
+									$google_play_url = get_sub_field('google_play_url');
+									$windows_store_url = get_sub_field('windows_store_url');
+							?>
+								<div class="m-dig-drop">
+									<ul>
+										<li><a href="<?php echo $itunes_url; ?>" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/itunes-logo.png"><span>iTunes</span></a></li>
+										<li><a href="<?php echo $google_play_url; ?>" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/google_play_icon.png"><span>Google Play</span></a></li>
+										<li><a href="<?php echo $windows_store_url; ?>" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/windows-store-icon.png"><span>Windows Store</span></a></li>						
+									</ul>
+								</div>
+							<?php }  // end while
+								} else { ?>
+								<div class="unavailble-mag">
+									<p>Digital edition is temporarily unavailable. Instead find it in your area using your zip code, or get the the print magazine in the online store.</p>
+								</div>
+							<?php } ?>									
+	    				</div> 
+	    			</div>
+	    		</div>
+	    	</div>
 		<?php
+			}
 			 the_content();
 		}
 		?>
