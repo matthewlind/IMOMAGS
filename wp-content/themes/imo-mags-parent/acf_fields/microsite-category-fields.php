@@ -7,7 +7,7 @@ if(function_exists("register_field_group"))
 		'title' => 'Microsite Category Fields',
 		'fields' => array (
 			array (
-				'key' => 'field_55b1006abd7b5',
+				'key' => 'field_55b29c0ed940d',
 				'label' => 'Is Microsite',
 				'name' => 'is_microsite',
 				'type' => 'true_false',
@@ -16,34 +16,27 @@ if(function_exists("register_field_group"))
 				'default_value' => 0,
 			),
 			array (
-				'key' => 'field_55b10246ae98e',
-				'label' => 'End Date for Newsstands',
-				'name' => 'end_date_newsstands',
-				'type' => 'date_picker',
-				'instructions' => 'Date when this SIP will stop to be available on newsstands',
+				'key' => 'field_55b29d0600034',
+				'label' => 'Hide all "buy mag" options',
+				'name' => 'hide_all_buy_mag_options',
+				'type' => 'true_false',
 				'conditional_logic' => array (
 					'status' => 1,
 					'rules' => array (
 						array (
-							'field' => 'field_55b1006abd7b5',
+							'field' => 'field_55b29c0ed940d',
 							'operator' => '==',
-							'value' => '1',
-						),
-						array (
-							'field' => 'field_55b25258eefa0',
-							'operator' => '!=',
 							'value' => '1',
 						),
 					),
 					'allorany' => 'all',
 				),
-				'date_format' => 'yymmdd',
-				'display_format' => 'dd/mm/yy',
-				'first_day' => 1,
+				'message' => '',
+				'default_value' => 0,
 			),
 			array (
-				'key' => 'field_55b10956cfcb5',
-				'label' => 'Mag is	Available in Online Store',
+				'key' => 'field_55b29d9000035',
+				'label' => 'Mag is Available in Online Store',
 				'name' => 'mag_online_store',
 				'type' => 'true_false',
 				'instructions' => 'Check if this SIP is available in our online store',
@@ -51,12 +44,12 @@ if(function_exists("register_field_group"))
 					'status' => 1,
 					'rules' => array (
 						array (
-							'field' => 'field_55b1006abd7b5',
+							'field' => 'field_55b29c0ed940d',
 							'operator' => '==',
 							'value' => '1',
 						),
 						array (
-							'field' => 'field_55b25258eefa0',
+							'field' => 'field_55b29d0600034',
 							'operator' => '!=',
 							'value' => '1',
 						),
@@ -67,7 +60,35 @@ if(function_exists("register_field_group"))
 				'default_value' => 1,
 			),
 			array (
-				'key' => 'field_55b128846eecc',
+				'key' => 'field_55b29dda88d35',
+				'label' => 'Online Store URL',
+				'name' => 'online_store_url',
+				'type' => 'text',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_55b29c0ed940d',
+							'operator' => '==',
+							'value' => '1',
+						),
+						array (
+							'field' => 'field_55b29d9000035',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_55b29e2a88d38',
 				'label' => 'Digital Edition is Available',
 				'name' => 'digital_edition_available',
 				'type' => 'true_false',
@@ -76,12 +97,12 @@ if(function_exists("register_field_group"))
 					'status' => 1,
 					'rules' => array (
 						array (
-							'field' => 'field_55b1006abd7b5',
+							'field' => 'field_55b29c0ed940d',
 							'operator' => '==',
 							'value' => '1',
 						),
 						array (
-							'field' => 'field_55b25258eefa0',
+							'field' => 'field_55b29d0600034',
 							'operator' => '!=',
 							'value' => '1',
 						),
@@ -92,7 +113,7 @@ if(function_exists("register_field_group"))
 				'default_value' => 1,
 			),
 			array (
-				'key' => 'field_55b13a226e8c9',
+				'key' => 'field_55b29e608e051',
 				'label' => 'Digital Edition Urls',
 				'name' => 'digital_edition_urls',
 				'type' => 'repeater',
@@ -100,18 +121,13 @@ if(function_exists("register_field_group"))
 					'status' => 1,
 					'rules' => array (
 						array (
-							'field' => 'field_55b128846eecc',
+							'field' => 'field_55b29c0ed940d',
 							'operator' => '==',
 							'value' => '1',
 						),
 						array (
-							'field' => 'field_55b1006abd7b5',
+							'field' => 'field_55b29e2a88d38',
 							'operator' => '==',
-							'value' => '1',
-						),
-						array (
-							'field' => 'field_55b25258eefa0',
-							'operator' => '!=',
 							'value' => '1',
 						),
 					),
@@ -119,7 +135,7 @@ if(function_exists("register_field_group"))
 				),
 				'sub_fields' => array (
 					array (
-						'key' => 'field_55b13a5d6e8ca',
+						'key' => 'field_55b29e7d8e052',
 						'label' => 'iTunes URL',
 						'name' => 'itunes_url',
 						'type' => 'text',
@@ -132,7 +148,7 @@ if(function_exists("register_field_group"))
 						'maxlength' => '',
 					),
 					array (
-						'key' => 'field_55b13a736e8cb',
+						'key' => 'field_55b29e8e8e053',
 						'label' => 'Google Play URL',
 						'name' => 'google_play_url',
 						'type' => 'text',
@@ -145,7 +161,7 @@ if(function_exists("register_field_group"))
 						'maxlength' => '',
 					),
 					array (
-						'key' => 'field_55b13a836e8cc',
+						'key' => 'field_55b29e9b8e054',
 						'label' => 'Windows Store URL',
 						'name' => 'windows_store_url',
 						'type' => 'text',
@@ -164,117 +180,7 @@ if(function_exists("register_field_group"))
 				'button_label' => 'Add Row',
 			),
 			array (
-				'key' => 'field_55b13d3f8d5f9',
-				'label' => 'Online Store URL',
-				'name' => 'online_store_url',
-				'type' => 'text',
-				'conditional_logic' => array (
-					'status' => 1,
-					'rules' => array (
-						array (
-							'field' => 'field_55b10956cfcb5',
-							'operator' => '==',
-							'value' => '1',
-						),
-						array (
-							'field' => 'field_55b1006abd7b5',
-							'operator' => '==',
-							'value' => '1',
-						),
-						array (
-							'field' => 'field_55b25258eefa0',
-							'operator' => '!=',
-							'value' => '1',
-						),
-					),
-					'allorany' => 'all',
-				),
-				'default_value' => '',
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-				'formatting' => 'html',
-				'maxlength' => '',
-			),
-			array (
-				'key' => 'field_55b24e6a82e5b',
-				'label' => 'Mag Info',
-				'name' => 'mag_info',
-				'type' => 'repeater',
-				'conditional_logic' => array (
-					'status' => 1,
-					'rules' => array (
-						array (
-							'field' => 'field_55b1006abd7b5',
-							'operator' => '==',
-							'value' => '1',
-						),
-					),
-					'allorany' => 'all',
-				),
-				'sub_fields' => array (
-					array (
-						'key' => 'field_55b24e8882e5c',
-						'label' => 'Mag Cover Image',
-						'name' => 'mag_cover_image',
-						'type' => 'image',
-						'column_width' => '',
-						'save_format' => 'object',
-						'preview_size' => 'thumbnail',
-						'library' => 'all',
-					),
-					array (
-						'key' => 'field_55b24eaf82e5d',
-						'label' => 'Mag Title',
-						'name' => 'mag_title',
-						'type' => 'text',
-						'column_width' => '',
-						'default_value' => '',
-						'placeholder' => 'Buy Wildfowl Magazine',
-						'prepend' => '',
-						'append' => '',
-						'formatting' => 'html',
-						'maxlength' => '',
-					),
-					array (
-						'key' => 'field_55b24ee082e5e',
-						'label' => 'Mag Description',
-						'name' => 'mag_description',
-						'type' => 'textarea',
-						'column_width' => '',
-						'default_value' => '',
-						'placeholder' => 'Try to make it not more than 156 chars. Limited to 200 chars',
-						'maxlength' => 200,
-						'rows' => 4,
-						'formatting' => 'br',
-					),
-				),
-				'row_min' => 1,
-				'row_limit' => 1,
-				'layout' => 'table',
-				'button_label' => 'Add Row',
-			),
-			array (
-				'key' => 'field_55b25258eefa0',
-				'label' => 'Hide all buy mag options',
-				'name' => 'hide_all_buy_mag_options',
-				'type' => 'true_false',
-				'conditional_logic' => array (
-					'status' => 1,
-					'rules' => array (
-						array (
-							'field' => 'field_55b1006abd7b5',
-							'operator' => '==',
-							'value' => '1',
-						),
-					),
-					'allorany' => 'all',
-				),
-				'message' => '',
-				'default_value' => 0,
-			),
-			array (
-				'key' => 'field_55b2573409ba2',
+				'key' => 'field_55b29f43a3447',
 				'label' => 'Message displayed if mag is unavailable in stores',
 				'name' => 'message_unavailable',
 				'type' => 'text',
@@ -282,12 +188,12 @@ if(function_exists("register_field_group"))
 					'status' => 1,
 					'rules' => array (
 						array (
-							'field' => 'field_55b1006abd7b5',
+							'field' => 'field_55b29c0ed940d',
 							'operator' => '==',
 							'value' => '1',
 						),
 						array (
-							'field' => 'field_55b25258eefa0',
+							'field' => 'field_55b29d0600034',
 							'operator' => '==',
 							'value' => '1',
 						),
@@ -302,7 +208,7 @@ if(function_exists("register_field_group"))
 				'maxlength' => '',
 			),
 			array (
-				'key' => 'field_55b25b0ca3036',
+				'key' => 'field_55b29f68fe676',
 				'label' => 'Logo',
 				'name' => 'logo',
 				'type' => 'image',
@@ -310,7 +216,7 @@ if(function_exists("register_field_group"))
 					'status' => 1,
 					'rules' => array (
 						array (
-							'field' => 'field_55b1006abd7b5',
+							'field' => 'field_55b29c0ed940d',
 							'operator' => '==',
 							'value' => '1',
 						),
@@ -322,7 +228,7 @@ if(function_exists("register_field_group"))
 				'library' => 'all',
 			),
 			array (
-				'key' => 'field_55b25c9266620',
+				'key' => 'field_55b29f84fe677',
 				'label' => 'Social Share Message',
 				'name' => 'social_share_message',
 				'type' => 'text',
@@ -330,7 +236,7 @@ if(function_exists("register_field_group"))
 					'status' => 1,
 					'rules' => array (
 						array (
-							'field' => 'field_55b1006abd7b5',
+							'field' => 'field_55b29c0ed940d',
 							'operator' => '==',
 							'value' => '1',
 						),
@@ -345,7 +251,91 @@ if(function_exists("register_field_group"))
 				'maxlength' => '',
 			),
 			array (
-				'key' => 'field_55b279d517de4',
+				'key' => 'field_55b29fb1fe678',
+				'label' => 'Mag Info',
+				'name' => 'mag_info',
+				'type' => 'repeater',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_55b29c0ed940d',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
+				'sub_fields' => array (
+					array (
+						'key' => 'field_55b29fd1fe679',
+						'label' => 'Mag Cover Image',
+						'name' => 'mag_cover_image',
+						'type' => 'image',
+						'column_width' => '',
+						'save_format' => 'object',
+						'preview_size' => 'thumbnail',
+						'library' => 'all',
+					),
+					array (
+						'key' => 'field_55b29fe1fe67a',
+						'label' => 'Mag Title',
+						'name' => 'mag_title',
+						'type' => 'text',
+						'column_width' => '',
+						'default_value' => '',
+						'placeholder' => '',
+						'prepend' => '',
+						'append' => '',
+						'formatting' => 'html',
+						'maxlength' => '',
+					),
+					array (
+						'key' => 'field_55b29ff0fe67b',
+						'label' => 'Mag Description',
+						'name' => 'mag_description',
+						'type' => 'textarea',
+						'column_width' => '',
+						'default_value' => '',
+						'placeholder' => 'Try to make it not more than 156 chars. Limited to 200 chars',
+						'maxlength' => 200,
+						'rows' => 3,
+						'formatting' => 'br',
+					),
+				),
+				'row_min' => 1,
+				'row_limit' => 1,
+				'layout' => 'table',
+				'button_label' => 'Add Row',
+			),
+			array (
+				'key' => 'field_55b2a04f8407c',
+				'label' => 'End Date for Newsstands',
+				'name' => 'end_date_newsstands',
+				'type' => 'date_picker',
+				'instructions' => 'Date when this SIP will stop to be available on newsstands',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_55b29c0ed940d',
+							'operator' => '==',
+							'value' => '1',
+						),
+						array (
+							'field' => 'field_55b29d0600034',
+							'operator' => '!=',
+							'value' => '1',
+						),
+					),
+					'allorany' => 'all',
+				),
+				'date_format' => 'yymmdd',
+				'display_format' => 'dd/mm/yy',
+				'first_day' => 1,
+			),
+			array (
+				'key' => 'field_55b2a08c8407e',
 				'label' => 'Additional Elements',
 				'name' => 'additional_elements',
 				'type' => 'checkbox',
@@ -353,7 +343,7 @@ if(function_exists("register_field_group"))
 					'status' => 1,
 					'rules' => array (
 						array (
-							'field' => 'field_55b1006abd7b5',
+							'field' => 'field_55b29c0ed940d',
 							'operator' => '==',
 							'value' => '1',
 						),
@@ -369,7 +359,7 @@ if(function_exists("register_field_group"))
 				'layout' => 'horizontal',
 			),
 			array (
-				'key' => 'field_55b28241b4836',
+				'key' => 'field_55b2a0be8407f',
 				'label' => 'Sponsors Disclaimer Text and Link',
 				'name' => 'sponsors_disclaimer',
 				'type' => 'textarea',
@@ -377,12 +367,12 @@ if(function_exists("register_field_group"))
 					'status' => 1,
 					'rules' => array (
 						array (
-							'field' => 'field_55b1006abd7b5',
+							'field' => 'field_55b29c0ed940d',
 							'operator' => '==',
 							'value' => '1',
 						),
 						array (
-							'field' => 'field_55b279d517de4',
+							'field' => 'field_55b2a08c8407e',
 							'operator' => '==',
 							'value' => 'sponsors_disclaimer',
 						),
@@ -416,6 +406,7 @@ if(function_exists("register_field_group"))
 		'menu_order' => 0,
 	));
 }
+
 
 /// END ACF for microsites
 
