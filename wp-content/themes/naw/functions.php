@@ -17,8 +17,19 @@ include_once("widgets/naw-community-slider.php");
 **
 ***/
 
+add_action( 'init', 'my_add_shortcodes' );
 
+function my_add_shortcodes() {
 
+	add_shortcode( 'my-login-form', 'my_login_form_shortcode' );
+}
+function my_login_form_shortcode() {
+
+	if ( is_user_logged_in() )
+		return '';
+
+	return '<p>Login to share a photo.</p>'.wp_login_form( array( 'echo' => false ) ).'<p>New to NAW Community? <a href="/register">Register Here</a></p><p><a href="'.wp_lostpassword_url().'">Lost Your Password?</a></p>';
+}
 
 function naw_scripts_method() {
     wp_deregister_script( 'jquery' );
