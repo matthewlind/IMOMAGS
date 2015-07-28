@@ -11,12 +11,6 @@ include_once('widgets/buck-contest.php');
 include_once('widgets/get-app.php');
 include_once("widgets/naw-community-slider.php");
 
-/***
-**
-** Enqueue Scripts
-**
-***/
-
 add_action( 'init', 'my_add_shortcodes' );
 
 function my_add_shortcodes() {
@@ -25,12 +19,17 @@ function my_add_shortcodes() {
 }
 function my_login_form_shortcode() {
 
-	if ( is_user_logged_in() )
-		return '';
+	if ( !is_user_logged_in() )
+		
 
-	return '<p>Login to share a photo.</p>'.wp_login_form( array( 'echo' => false ) ).'<p>New to NAW Community? <a href="/register">Register Here</a></p><p><a href="'.wp_lostpassword_url().'">Lost Your Password?</a></p>';
+	echo '<p>Login to share a photo.</p>'.wp_login_form( array( 'echo' => false ) ).'<p>New to NAW Community? <a href="/register">Register Here</a></p><p><a href="'.wp_lostpassword_url().'">Lost Your Password?</a></p>';
 }
 
+/***
+**
+** Enqueue Scripts
+**
+***/
 function naw_scripts_method() {
     wp_deregister_script( 'jquery' );
     wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js');

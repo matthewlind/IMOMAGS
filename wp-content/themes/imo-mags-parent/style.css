@@ -1089,6 +1089,23 @@ input.gsc-search-button-v2{
 .expandable{margin: 0 auto;width: 1080px;}
 .expandable img{margin: 0 auto !important;display: block;}
 
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+}
+ 
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
 /*** Video Portal ***/
 .post-type-archive-video .main, .post-type-archive-video .general, .post-type-archive-video .content-banner-section, .post-type-archive-video #page, .post-type-archive-video .content-banner-section.footer-728{background: black;border: none;}
 #video-portal{background: black;}
