@@ -1115,6 +1115,7 @@ h1, h2, h3, h4, h5 {
 	padding: 3px 5px;
 	display: none;
 	cursor: default;
+	z-index: 5000;
 }
 .unavailble-mag p {
 	margin: 0;
@@ -1129,20 +1130,21 @@ h1, h2, h3, h4, h5 {
 	top: 0; bottom:0; left: 0; right: 0;
 }
 /* foot */
-.s-mag-btns .s-buy-btn:first-child .unavailble-mag {
+.s-mag-btns .s-buy-btn .unavailble-mag {
 	top: -27px;
 	left: 0;
 	text-align: left;
 }
 /* single article */
-.m-buy-mag-bottom .m-buy-dig:nth-child(2) .unavailble-mag {
+.m-buy-mag-bottom .m-buy-dig .unavailble-mag {
 	top: 0; bottom:0; left: 0; right: 0;
 }
-.m-buy-mag-bottom .m-buy-dig:nth-child(2) .unavailble-mag p {
+.m-buy-mag-bottom .m-buy-dig .unavailble-mag p {
 	font-size: 11px;
+	line-height: 14px;
 }
 /* all hover */
-.m-buymag-drop > ul > li:nth-child(2):hover .unavailble-mag, .s-mag-btns .s-buy-btn:first-child:hover .unavailble-mag, .m-buy-mag-bottom .m-buy-dig:nth-child(2):hover .unavailble-mag {
+.m-buymag-drop > ul > li:nth-child(2):hover .unavailble-mag, .s-mag-btns .s-buy-btn:hover .unavailble-mag, .m-buy-mag-bottom .m-buy-dig:hover .unavailble-mag {
 	display: block;
 }
 
@@ -1379,6 +1381,7 @@ h1, h2, h3, h4, h5 {
 /* Footer *******************/ 
 .s-mag {position: relative;}
 .s-mag-buy {position: absolute; bottom: -9px;left: 30%; width: auto;z-index: 400;}
+.s-mag-buy.no-newsstands {width: 44%;}
 .s-mag-cover { margin-right: 5%; width: 25%;}
 .s-mag-descr { float: left; width: 70%;}
 .s-mag-descr h1 {margin-bottom: 10px;}
@@ -1430,6 +1433,7 @@ h1, h2, h3, h4, h5 {
 .s-mag-cover { margin-right: 5%; width: 30%;}
 .s-mag-descr { float: left; width: 65%; padding-right: 5%;}
 .s-mag-buy {position: absolute; bottom: -9px;left: 35%;z-index: 500;}
+.s-mag-buy.no-newsstands {width: 60%;}
 .s-mag-buy h2 {font-size: 30px;}
 .s-or {height: 16px;}
 .s-or > div { top: -10px; font-size: 21px;}
