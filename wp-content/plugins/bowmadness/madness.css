@@ -118,14 +118,14 @@ ul#ga-madness-nav{
 	position: relative;
 	margin-top: -6px;
 }
-#ga-madness-nav .madness-logo{width: 36%;background: white;}
+#ga-madness-nav .madness-logo{width: 36%;background: white;margin-top: 5px;}
 #ga-madness-nav .madness-logo-mobile{display: none;}
 #ga-madness-nav .madness-logo img{
 	margin: 6px auto 20px;
 	display: block;
 	width: 90%;
-	margin-top: -30px;
 }
+
 ul#ga-madness-nav li{
 	float: left;
 	padding: 14px 0 0;
