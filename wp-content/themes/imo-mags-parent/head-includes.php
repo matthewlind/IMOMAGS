@@ -165,7 +165,7 @@ googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Pushdown_1080x90', [1080,
 
 
 
-<?php if(is_page("battle-of-the-bows-2")) { ?>
+<?php if(is_page("battle-of-the-bows")) { ?>
 var googletag = googletag || {};
 googletag.cmd = googletag.cmd || [];
 (function() {
