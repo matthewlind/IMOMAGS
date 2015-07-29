@@ -165,7 +165,8 @@ googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Pushdown_1080x90', [1080,
 
 
 
-<?php if(is_page("battle-of-the-bows") || is_page("battle-of-the-bows-2")) { ?>
+
+// Begin bowmadness2015 tags
 var googletag = googletag || {};
 googletag.cmd = googletag.cmd || [];
 (function() {
@@ -188,8 +189,8 @@ googletag.defineSlot('/4930/imo.bowhunting/battle_of_the_bows/bob_region_sponsor
 googletag.pubads().enableSingleRequest();
 googletag.enableServices();
 });
+// End bowmadness2015 tags
 
-<?php } ?>
 
 
 <?php if( is_category( 'trading-post' ) || in_category( 'trading-post' ) ){ ?>
