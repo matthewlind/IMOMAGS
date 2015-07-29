@@ -305,7 +305,7 @@ function jsGAMRender($mobile) {
 	if($madnessround < 6) {		 
 	$outp.= '<div class="regions region-final">'
 		 .  '<div class="finalsadvert" style="margin-top:0px;">'
-		 .  ' 	<!-- Site - Bowhunting/battle_of_the_bows/bob_region_sponsor_1 -->'
+		 .  ' 	<!-- Site - Bowhunting/battle_of_the_bows/bob_presenting_sponsor -->'
 		 .	'		<div id="div-gpt-ad-1438179181782-0" style="width:240px; height:60px;">'
 		 .  '		<script type="text/javascript">'
 		 .	'	googletag.cmd.push(function() { googletag.display("div-gpt-ad-1438179181782-0"); });'
@@ -314,9 +314,9 @@ function jsGAMRender($mobile) {
 		 .  '</div>'
 		 .  '  <div class="final-wrapper">'
 		 .  '    <h2>Final Round</h2>'
-		 .  '    <div class="column column5 match155"></div>'
-		 .  '    <div class="column column6 match157"></div>'
-		 .  '    <div class="column column7 match156"></div>'
+		 .  '    <div class="column column5 match186"></div>'
+		 .  '    <div class="column column6 match187"></div>'
+		 .  '    <div class="column column7 match188"></div>'
 		 .  '  </div>'		 
 		 .  '</div>';
 	}
@@ -337,7 +337,7 @@ function jsGAMRender($mobile) {
 		 .	'	 	<div id="div-gpt-ad-1438179181782-4" >'
 		 .	'	 		<script type="text/javascript">'
 		 .	'	 			googletag.cmd.push(function() { googletag.display("div-gpt-ad-1438179181782-4"); });'
-		 .	'	 		</script>'
+		 .	'	 		</script>'							
 		 .	'	 	</div>'
 		 .	'  </div>'
 		 .	'</div>'
@@ -369,7 +369,7 @@ function jsGAMRender($mobile) {
 		 .  '	getGAMData(3,2);getGAMData(3,3);getGAMData(3,4);getGAMData(3,5);'
 		 .  '	getGAMData(4,2);getGAMData(4,3);getGAMData(4,4);getGAMData(4,5);'
 	
-		 .  '	getGAMData(0,"155,156,157");'
+		 .  '	getGAMData(0,"186,187,188");'
 		 .  '   getStats();'
 		 .  '   setTimeout(function(){makeGAMPopup()}, 1000);'
 		 .  '   setTimeout(function(){autoPopup()}, 2000);'
