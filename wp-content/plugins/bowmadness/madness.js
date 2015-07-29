@@ -53,9 +53,9 @@
 						var finaltwo = {};finaltwo[0] = resp.data[1];
 						var finall   = {};finall[0]   = resp.data[2];
 	
-						jQuery(".match155").html(writeGAMBracket(finalone));
-						jQuery(".match156").html(writeGAMBracket(finaltwo));
-						jQuery(".match157").html(writeGAMBracket(finall));
+						jQuery(".match186").html(writeGAMBracket(finalone));
+						jQuery(".match187").html(writeGAMBracket(finaltwo));
+						jQuery(".match188").html(writeGAMBracket(finall));
 					}
 					else {
 						jQuery("#madtabs-"+(parseInt(round)-1)+" .mreg"+region).html(writeGAMBracket(resp.data));
@@ -67,9 +67,9 @@
 						var finaltwo = {};finaltwo[0] = resp.data[1];
 						var finall   = {};finall[0]   = resp.data[2];
 	
-						jQuery(".match155").html(writeGAMBracket(finalone));
-						jQuery(".match156").html(writeGAMBracket(finaltwo));
-						jQuery(".match157").html(writeGAMBracket(finall));
+						jQuery(".match186").html(writeGAMBracket(finalone));
+						jQuery(".match187").html(writeGAMBracket(finaltwo));
+						jQuery(".match188").html(writeGAMBracket(finall));
 						
 					}
 					else {
