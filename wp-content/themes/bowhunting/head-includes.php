@@ -1,7 +1,7 @@
 <?php
 
 /**
- *head-includes.php makes special things special.
+ *head-includes.php makes special things special. <-- who wrote this? what crap.
  */
 
 ?>

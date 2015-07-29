@@ -161,8 +161,11 @@ googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Site_Skin_1x1', [1, 1], '
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Pushdown_1080x90', [1080, 90], 'div-pushdown_1080x90').addService(googletag.pubads());
 <?php } ?>
 
-<?php if(is_page('bracket')) { ?>
-// ADS FOR GAMADNESS 2015
+
+
+
+
+<?php if(is_page("battle-of-the-bows-2")) { ?>
 var googletag = googletag || {};
 googletag.cmd = googletag.cmd || [];
 (function() {
@@ -177,15 +180,15 @@ node.parentNode.insertBefore(gads, node);
 })();
 
 googletag.cmd.push(function() {
-googletag.defineSlot('/4930/imo.gunsandammo/guns_and_ammo_madness/gam_bracket_medium_rectangle', [300, 250], 'div-gpt-ad-1426097842267-0').addService(googletag.pubads());
-googletag.defineSlot('/4930/imo.gunsandammo/guns_and_ammo_madness/gam_presenting_sponsor', [240, 60], 'div-gpt-ad-1426097842267-1').addService(googletag.pubads());
-googletag.defineSlot('/4930/imo.gunsandammo/guns_and_ammo_madness/gam_region_sponsor_1', [240, 60], 'div-gpt-ad-1426097842267-2').addService(googletag.pubads());
-googletag.defineSlot('/4930/imo.gunsandammo/guns_and_ammo_madness/gam_region_sponsor_2', [240, 60], 'div-gpt-ad-1426097842267-3').addService(googletag.pubads());
-googletag.defineSlot('/4930/imo.gunsandammo/guns_and_ammo_madness/gam_region_sponsor_3', [240, 60], 'div-gpt-ad-1426097842267-4').addService(googletag.pubads());
-googletag.defineSlot('/4930/imo.gunsandammo/guns_and_ammo_madness/gam_region_sponsor_4', [240, 60], 'div-gpt-ad-1426097842267-5').addService(googletag.pubads());
+googletag.defineSlot('/4930/imo.bowhunting/battle_of_the_bows/bob_presenting_sponsor', [240, 60], 'div-gpt-ad-1438179181782-0').addService(googletag.pubads());
+googletag.defineSlot('/4930/imo.bowhunting/battle_of_the_bows/bob_region_sponsor_1', [240, 60], 'div-gpt-ad-1438179181782-1').addService(googletag.pubads());
+googletag.defineSlot('/4930/imo.bowhunting/battle_of_the_bows/bob_region_sponsor_2', [240, 60], 'div-gpt-ad-1438179181782-2').addService(googletag.pubads());
+googletag.defineSlot('/4930/imo.bowhunting/battle_of_the_bows/bob_region_sponsor_3', [240, 60], 'div-gpt-ad-1438179181782-3').addService(googletag.pubads());
+googletag.defineSlot('/4930/imo.bowhunting/battle_of_the_bows/bob_region_sponsor_4', [240, 60], 'div-gpt-ad-1438179181782-4').addService(googletag.pubads());
 googletag.pubads().enableSingleRequest();
 googletag.enableServices();
 });
+
 <?php } ?>
 
 
