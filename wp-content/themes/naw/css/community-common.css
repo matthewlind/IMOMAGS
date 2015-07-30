@@ -1,3 +1,7 @@
+.community-header ul li a.family{color: #d12f2a;}
+.memories-promo{padding: 20px 30px;margin-bottom: 30px;}
+.memories-promo h2{color: white;  margin-bottom: 10px;}
+.memories-promo p{color: #bbb;}
 .input {
 	outline-style: none;
 	font-size: inherit;
@@ -69,7 +73,7 @@
 .header-section.menu-main{padding: 18px;}
 .community-header .header-section.menu-main ul li a{font-size: 1.2em;}
 .community-header ul.sub-list{display: inline-block;padding-left: 16px;vertical-align: text-top;}
-.community-header ul li a{font-size: 14px;color: #acacac;}
+.community-header ul li a{font-size: 16px;color: #acacac;}
 .community-header ul li a:hover{color: white;}
 .community-mobile-menu{display: none;}
 .community-nav-below{background: #ddd;height: 37px;overflow: hidden;}
