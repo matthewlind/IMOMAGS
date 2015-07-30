@@ -21,16 +21,20 @@ $args = array(
       )
    )
 );
-
-
 ?>
     <div id="primary" class="page-community">
         <div id="content" role="main" class="general">
 			<div id="<?php echo $term; ?>" data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list js-responsive-section main-content-preppend">
-
-	           <?php		
-	           $loop = new WP_Query( $args );		
-	           if($term){
+				<?php if($term == "memories"){ ?>
+					<div class="memories-promo" style="background:url(<?php echo get_field("memories_background", "options"); ?>) no-repeat;">
+						<h2><?php echo get_field("memories_header", "options"); ?></h2>
+						<p><?php echo get_field("memories_copy", "options"); ?></p>
+					</div>
+					
+				<?php } ?>
+				<?php		
+	            $loop = new WP_Query( $args );		
+	            if($term){
 	             	
 	             	if ( $loop->have_posts() ) :
 						while ( $loop->have_posts() ) : $loop->the_post();
