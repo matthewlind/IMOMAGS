@@ -291,18 +291,18 @@
 						//campaign = campaigns[region-1];
 						campaign = item.data.campaign;
 						
-						popads[0] = 'GA-MAdness-popup-358x90-burris.jpg';
-						popads[1] = 'GA-MAdness-popup-358x90-galco.jpg';
-						popads[2] = 'GA-MAdness-popup-358x90-laserlyte.jpg';
-						popads[3] = 'GA-MAdness-popup-358x90-pelican.jpg';
-						popads[4] = 'GA-MAdness-popup-358x90-winchester.jpg';
+						popads[0] = 'bowning-BoB-popup-358x90.jpg';
+						popads[1] = 'carbon-express-BoB-popup-358x90.jpg';
+						popads[2] = 'OMP-BoB-popup-358x90.jpg';
+						popads[3] = 'realtree-BoB-popup-358x90.jpg';
+						popads[4] = 'slash-BoB-popup-358x90.jpg';
 						
 						var randomInt = Math.floor(Math.random() * 5);
 						//console.log("Random Number= " + randomInt);
 						//var randomPopad = ;
 
 						
-						campimg = "/wp-content/plugins/gamadness/ads/enter/" + popads[randomInt];
+						campimg = "/wp-content/plugins/bowmadness/ads/" + popads[randomInt];
 						template.find("#popupsponsor a").html('<img src="'+campimg+'" />');
 														
 						var roundtitle = roundtitles[round];
@@ -396,9 +396,9 @@
 								setTimeout(function() {
 									//alert('pushing the google ad now');
 									googletag.cmd.push(function() {
-										googletag.display('div-gpt-ad-1426097842267-0');
+										googletag.display('div-gpt-ad-1438288024184-0');
 									});
-									jQuery("#div-gpt-ad-1426097842267-0").css("z-index", "9999");
+									jQuery("#div-gpt-ad-1438288024184-0").css("z-index", "9999");
 								}, 500);
 								
 								break;
