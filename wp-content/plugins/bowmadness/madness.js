@@ -291,7 +291,7 @@
 						//campaign = campaigns[region-1];
 						campaign = item.data.campaign;
 						
-						popads[0] = 'bowning-BoB-popup-358x90.jpg';
+						popads[0] = 'browning-BoB-popup-358x90';
 						popads[1] = 'carbon-express-BoB-popup-358x90.jpg';
 						popads[2] = 'OMP-BoB-popup-358x90.jpg';
 						popads[3] = 'realtree-BoB-popup-358x90.jpg';
