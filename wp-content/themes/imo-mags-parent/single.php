@@ -63,7 +63,7 @@ if(date("l") == $day && $current_time < $end_time && get_field("display_widget",
                 <?php while ( have_posts() ) : the_post(); ?>
                     <?php get_template_part( 'content/content-single', get_post_format() ); ?>
 
-                    <div class="post-comments-area">
+                    <div id="comments" class="post-comments-area">
                         <?php comments_template( '', true ); ?>
                     </div>
 

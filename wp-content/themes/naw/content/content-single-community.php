@@ -9,6 +9,7 @@
 $postID = get_the_ID();
 $byline = get_post_meta($postID, 'ecpt_byline', true);
 $dartDomain = get_option("dart_domain", $default = false);
+$author = get_user_meta($user_id); 
 ?>
 
 <div id="post-<?php the_ID(); ?>" <?php post_class('full-post'); ?>>
@@ -43,10 +44,15 @@ $dartDomain = get_option("dart_domain", $default = false);
             <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
         </h1>
         <?php endif; // is_single() ?>
-        
-        <div class="post-date"><?php the_time('F jS, Y'); ?></div>
-        
-
+       
+        <div class="profile-panel">
+            <div class="profile-data">
+                <h4><?php the_author(); ?></h4>
+  	            <div class="clearfix"></div>
+	            <?php the_time('F jS, Y'); ?><div class="bullet"></div>
+	            <a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>
+	            </div>
+	        </div>        
 
 		<?php if ( mobile() ){ ?>
 			<div class="image-banner posts-image-banner">
