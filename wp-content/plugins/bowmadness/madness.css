@@ -1,5 +1,14 @@
 /***GA MADNESS ***/
 html, body { min-height: 100%; }
+
+.page-template-battle-of-the-bows .layout-frame {
+	background: url(images/main-background-forest.jpg) white repeat-y center top / 100%;
+}
+
+.page-template-battle-of-the-bows .main, .page-template-battle-of-the-bows .article-brief {
+	background: none;
+}
+
 .ga-madness ul.schedule{margin: 0 auto;display: block; max-width: 472px;}
 .ga-madness ul.schedule li{
 	background: #e0e0e0;
@@ -116,9 +125,16 @@ ul#ga-madness-nav{
 	list-style: none;
 	height: 50px;
 	position: relative;
-	margin-top: -6px;
+	margin: 110px auto 120px;
 }
-#ga-madness-nav .madness-logo{width: 36%;background: white;margin-top: 5px;}
+#ga-madness-nav .madness-logo{
+	width: 24%;
+	position: absolute;
+	left: 0; 
+	right: 0;
+	top: -120px;
+	margin: auto;
+}
 #ga-madness-nav .madness-logo-mobile{display: none;}
 #ga-madness-nav .madness-logo img{
 	margin: 6px auto 20px;
@@ -133,9 +149,17 @@ ul#ga-madness-nav li{
 	text-align: center;
 	margin: 0;
 }
+ul#ga-madness-nav li:nth-child(n+4) {
+	float: right;
+}
 
 ul#ga-madness-nav li a{
 	font-family: "stagmedium",serif;
+    border: 2px solid grey;
+    border-radius: 5px;
+    padding: 5px 17px;
+    min-width: 150px;
+    display: inline-block;
 }
 ul#ga-madness-nav li a:hover{
 	color: #2d2d2d;
