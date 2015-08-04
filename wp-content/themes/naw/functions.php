@@ -11,6 +11,14 @@ include_once('widgets/buck-contest.php');
 include_once('widgets/get-app.php');
 include_once("widgets/naw-community-slider.php");
 
+function custom_post_author_archive( &$query )
+{
+    if ( $query->is_author )
+        $query->set( 'post_type', 'reader_photos' );
+    remove_action( 'pre_get_posts', 'reader_photos' ); // run once!
+}
+add_action( 'pre_get_posts', 'custom_post_author_archive' );
+
 add_action( 'init', 'my_add_shortcodes' );
 
 function my_add_shortcodes() {
@@ -102,7 +110,7 @@ add_action('init', 'cptui_register_my_cpt_reader_photos');
 function cptui_register_my_cpt_reader_photos() {
 	register_post_type(
 		'reader_photos', array(
-			'label' => 'Reader Photos',
+			'label' => 'Community',
 			'description' => 'Upload a photo',
 			'public' => true,
 			'show_ui' => true,
@@ -116,20 +124,20 @@ function cptui_register_my_cpt_reader_photos() {
 			'supports' => array('title','editor','excerpt','trackbacks','custom-fields','comments','revisions','thumbnail','author','page-attributes'),
 			'taxonomies' => array('category'),
 			'labels' => array (
-			  'name' => 'Reader Photos',
-			  'singular_name' => 'Reader Photo',
-			  'menu_name' => 'Reader Photos',
-			  'add_new' => 'Add Reader Photo',
-			  'add_new_item' => 'Add New Reader Photo',
+			  'name' => 'Community',
+			  'singular_name' => 'Community',
+			  'menu_name' => 'Community',
+			  'add_new' => 'Add Community Photo',
+			  'add_new_item' => 'Add New Community Photo',
 			  'edit' => 'Edit',
-			  'edit_item' => 'Edit Reader Photo',
-			  'new_item' => 'New Reader Photo',
-			  'view' => 'View Reader Photo',
-			  'view_item' => 'View Reader Photo',
-			  'search_items' => 'Search Reader Photos',
-			  'not_found' => 'No Reader Photos Found',
-			  'not_found_in_trash' => 'No Reader Photos Found in Trash',
-			  'parent' => 'Parent Reader Photo',
+			  'edit_item' => 'Edit Community Photo',
+			  'new_item' => 'New Community Photo',
+			  'view' => 'View Community Photo',
+			  'view_item' => 'View Community Photo',
+			  'search_items' => 'Search Community',
+			  'not_found' => 'No Community Photo Found',
+			  'not_found_in_trash' => 'No Community Photo Found in Trash',
+			  'parent' => 'Parent Community',
 			)
 		)
 	);

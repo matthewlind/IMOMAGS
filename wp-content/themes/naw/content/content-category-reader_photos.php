@@ -25,7 +25,7 @@ if($dartDomain == "imo.hunting"){
         <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
         <div class="profile-panel">
             <div class="profile-data">
-                <h4><?php the_author(); ?></h4>
+                <h4><a href="/author/<?php the_author_link(); ?>"><?php the_author(); ?></a></h4>
                 <ul class="prof-tags">
                 	<?php foreach($categories as $category) { ?>
                     	<li><a href="<?php echo $photosURL.$category->slug; ?>"><?php echo $category->cat_name; ?></a></li>    

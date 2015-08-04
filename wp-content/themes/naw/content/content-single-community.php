@@ -36,7 +36,6 @@ $author = get_user_meta($user_id);
 		}
 		?>
 	</span>
-    <div class="sponsor"><?php imo_ad_placement("sponsor_logo_240x60"); ?></div>
     <div class="post-header">
         <h1 class="entry-title"><?php the_title(); ?></h1>
         <?php else : ?>
@@ -47,7 +46,7 @@ $author = get_user_meta($user_id);
        
         <div class="profile-panel">
             <div class="profile-data">
-                <h4><?php the_author(); ?></h4>
+                <h4><a href="/author/<?php the_author_link(); ?>"><?php the_author(); ?></a></h4>
   	            <div class="clearfix"></div>
 	            <?php the_time('F jS, Y'); ?><div class="bullet"></div>
 	            <a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>
