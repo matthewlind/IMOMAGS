@@ -46,7 +46,7 @@ $author = get_user_meta($user_id);
        
         <div class="profile-panel">
             <div class="profile-data">
-                <h4><a href="<?php the_author_link(); ?>"><?php the_author(); ?></a></h4>
+                <h4><a href="/author/<?php the_author_link(); ?>"><?php the_author(); ?></a></h4>
   	            <div class="clearfix"></div>
 	            <?php the_time('F jS, Y'); ?><div class="bullet"></div>
 	            <a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>
