@@ -513,11 +513,14 @@ ul#ga-madness-nav li a:hover{
 	text-align: center;
 	margin: 10px auto;
 	color:#eeeeee;
+	text-shadow: 1px 1px 2px black;
+	font-weight: 600;
 }
 .popvoted-no {
 	color: #111111;
 /* 	background: #eaa7aa; */
 	background: url(images/boxes-back.jpg) center center / 100%;
+	text-shadow: none;
 }
 .vote-section.gun h2 {
 	text-align: center;
