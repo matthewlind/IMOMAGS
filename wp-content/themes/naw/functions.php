@@ -11,6 +11,7 @@ include_once('widgets/buck-contest.php');
 include_once('widgets/get-app.php');
 include_once("widgets/naw-community-slider.php");
 
+
 function custom_post_author_archive( &$query )
 {
     if ( $query->is_author )
@@ -31,7 +32,7 @@ function MySwitchUser($output)
 {
 
     //global $post is available here, hence you can check for the post type here
-    $users = get_users('role=naw_community');
+    $users = get_users();
 
     $output = "<select id=\"post_author_override\" name=\"post_author_override\" class=\"\">";
 
