@@ -95,10 +95,6 @@ html, body { min-height: 100%; }
 	border: 1px solid #2d2d2d;
 	border-width: 1px 1px 1px 0;
 	position: relative;
-	opacity: 0.5;
-}
-.matchup:hover {
-	opacity: 0.8;
 }
 .matchup .contender{color: #2d2d2d;height: 100%;min-height:100%;position: relative;cursor: pointer;}
 .matchup .rank span{font-size: 12px;color:#c9242c;float: left;padding-right: 2px;}
@@ -281,7 +277,10 @@ ul#ga-madness-nav li a:hover{
 	background: url(images/button-back.jpg) center center / 130%;
 }
 .ga-madness .action-closed:before{content: "RESULTS";}
-
+.ga-madness .action-closed:hover {
+	outline: 2px solid white;
+	box-shadow: 0 0 5px black;
+}
 
 .basic-popup .modal-footer{width: 100%;margin-top: 30px;}
 .modal-footer {margin-top: 10px;}
