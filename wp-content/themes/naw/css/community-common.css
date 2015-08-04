@@ -13,6 +13,7 @@
 	border: 1px solid #aaa;
 }
 .gform_button{padding: 10px;}
+.no-results.not-found .singl-post-photo span{color: white;}
 .page-community .general{
 	padding-right: 0;
 }
@@ -408,7 +409,7 @@ select.alter-sel {width:100%;}
 .dif-post h3 {
     font:22px "stagregular", sans-serif;
     color:#040503;
-    margin:0 0 13px;
+    margin:0;
 }
 .dif-post h3 a {color:#040503;}
 .profile-panel h4 a:hover,
@@ -431,10 +432,10 @@ select.alter-sel {width:100%;}
 .profile-panel h4 {
     font:13px "open_sansbold", sans-serif;
     color:#040503;
-    margin:0 0 3px;
+    margin:0 0 10px;
     text-transform: capitalize;
 }
-.profile-panel h4 a {color:#040503;}
+.profile-panel h4 a {color:#5A5A59;}
 .prof-tags li {
     display:inline-block;
     vertical-align:top;
