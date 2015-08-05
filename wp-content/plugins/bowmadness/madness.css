@@ -688,6 +688,7 @@ ul#ga-madness-nav li a:hover{
 		border-radius: 5px;
 		padding-top: 10px;
 		float: none;
+		transform: none;
 	}
 	.g-recaptcha {
 		padding: 10px 0;	
