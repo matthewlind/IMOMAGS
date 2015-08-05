@@ -20,12 +20,6 @@ function custom_post_author_archive( &$query )
 }
 add_action( 'pre_get_posts', 'custom_post_author_archive' );
 
-add_action( 'init', 'my_add_shortcodes' );
-
-function my_add_shortcodes() {
-
-	add_shortcode( 'my-login-form', 'my_login_form_shortcode' );
-}
 
 add_filter('wp_dropdown_users', 'MySwitchUser');
 function MySwitchUser($output)
@@ -48,6 +42,12 @@ function MySwitchUser($output)
     return $output;
 }
 
+add_action( 'init', 'my_add_shortcodes' );
+
+function my_add_shortcodes() {
+
+	add_shortcode( 'my-login-form', 'my_login_form_shortcode' );
+}
 
 function my_login_form_shortcode() {
 
