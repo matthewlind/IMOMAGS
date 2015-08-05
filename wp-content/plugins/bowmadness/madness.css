@@ -679,7 +679,6 @@ ul#ga-madness-nav li a:hover{
 }/* end @media */
 
 @media only screen and (max-width:320px) {
-	.ga-madness ul.rounds li a{font-size: 10px;}
 	.white-popup {margin-left: -7px;width: 320px;}
 }/* end @media */
 
@@ -704,5 +703,5 @@ ul#ga-madness-nav li a:hover{
 
 a.ui-tabs-anchor {font-family: arial !important;font-weight: normal !important;}
 
-.ga-madness ul.rounds li {padding: 8px 8px !important;}
+.ga-madness ul.rounds li {padding: 8px 7px !important;}
 .page-header {position: static !important; }
