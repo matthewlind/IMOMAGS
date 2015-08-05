@@ -644,6 +644,7 @@ ul#ga-madness-nav li a:hover{
 	#madtabs .matchup .contender{color: white;}	
 	.matchup .contender {background-image: none;}
 	.ui-tabs-panel h2{float: left;margin: 8px 0;}
+	.ga-madness ul.rounds {margin: 5px auto 30px;}
 	.ga-madness a.go-top.jq-go-top{margin-bottom: 20px;}
 	.ga-madness .matchup .rank{padding: 6px 4px;font-size: 14px;}
 	.matchup .rank span{color: white !important;padding-right: 4px;}
@@ -678,6 +679,7 @@ ul#ga-madness-nav li a:hover{
 }/* end @media */
 
 @media only screen and (max-width:320px) {
+	.ga-madness ul.rounds li a{text-transform: uppercase;color: white;font-size: 10px;}
 	.white-popup {margin-left: -7px;width: 320px;}
 }/* end @media */
 
