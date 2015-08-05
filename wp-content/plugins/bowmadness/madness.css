@@ -662,6 +662,7 @@ ul#ga-madness-nav li a:hover{
 		margin: auto;
 		left: auto;
 	}
+	ul#ga-madness-nav li:nth-child(n+4) {float: left;}
 	.popup-inner .related-content h4{margin-top: 20px;}
 	.vote-section.gun h2{font-size: 19px;}
 	.popvoted {width: 150px;}
@@ -675,7 +676,7 @@ ul#ga-madness-nav li a:hover{
 	
 		#captchaWrapper {
 		display: none;
-		width: 300px;
+		width: 302px;
 	    height: 175px;
 	    background-color: white;
 	    text-align: center;
@@ -709,9 +710,11 @@ ul#ga-madness-nav li a:hover{
 }/* end @media */
 
 
+/*
 #captchaWrapper {display: none;width: 400px;height: 175px;background-color: white;position: absolute;float: left;}
 
 .g-recaptcha {padding: 10px 0 10px 50px;	}
+*/
 
 #proceed {padding: 5px;}
 
