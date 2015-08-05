@@ -534,6 +534,7 @@ ul#ga-madness-nav li a:hover{
 	text-align: center;
 }
 
+/*
 #captchaWrapper {
 	display: none;
 	width: 400px;
@@ -547,6 +548,23 @@ ul#ga-madness-nav li a:hover{
 	z-index: 9999;
 	border-radius: 5px;
 	padding-top: 10px;
+}
+*/
+#captchaWrapper {
+	display: none;
+	width: 400px;
+    height: 175px;
+    background-color: white;
+    text-align: center;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: 400px auto 0;
+    position: absolute;
+	z-index: 9999;
+	border-radius: 5px;
+	padding-top: 10px;
+	float: none;
 }
 .g-recaptcha {
 	padding: 10px 0 10px 50px;	
@@ -674,26 +692,8 @@ ul#ga-madness-nav li a:hover{
 	.page-template-ga-madness-php .page-header{border-width: 0;}
 	.popup-inner{padding: 27px 10px;}
 	
-		#captchaWrapper {
-		display: none;
-		width: 302px;
-	    height: 175px;
-	    background-color: white;
-	    text-align: center;
-		top: 0;
-		left: 0;
-		right: 0;
-		margin: 400px auto 0;
-	    position: absolute;
-		z-index: 9999;
-		border-radius: 5px;
-		padding-top: 10px;
-		float: none;
-		transform: none;
-	}
-	.g-recaptcha {
-		padding: 10px 0;	
-	}
+	#captchaWrapper {width: 302px;}
+	.g-recaptcha {padding: 10px 0;}
 	
 }/* end @media */
 
