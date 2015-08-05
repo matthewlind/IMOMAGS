@@ -127,14 +127,14 @@ function jsGAMRender($mobile) {
 	</div>';	 	
 	$outp.= '<div id="madtabs">'
 		 .  '  <ul class="rounds">'
-		 .  '    <li><a href="#madtabs-1">1st</a></li>'
-		 .  '    <li><a href="#madtabs-2">2nd</a></li>'
+		 //.  '    <li><a href="#madtabs-1">1st</a></li>'
+		 .  '    <li><a href="#madtabs-2">Round 1</a></li>'
 		 .  '    <li><a href="#madtabs-3">Sweet 16</a></li>'
 		 .  '    <li><a href="#madtabs-4">Elite 8</a></li>'
 		 .  '    <li><a href="#madtabs-5">Final 4</a></li>'
 		 .  '    <li class="final-round"><a href="#madtabs-6">Final</a></li>'
 		 .  '  </ul>'
-					
+		/*			
 		 .  '  <div id="madtabs-1">'
 		 .  '    <div class="gun-types">'
 		 .  '      <select>'
@@ -159,6 +159,7 @@ function jsGAMRender($mobile) {
 		 .  '    <div class="mreg2"></div>'
 
 		 .  '  </div>'
+		 */
 		 .  '  <div id="madtabs-2">'
 
 		 .  '    <h2 id="handguns2">Compound</h2>'
