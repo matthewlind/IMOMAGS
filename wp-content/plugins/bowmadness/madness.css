@@ -679,7 +679,7 @@ ul#ga-madness-nav li a:hover{
 }/* end @media */
 
 @media only screen and (max-width:320px) {
-	.ga-madness ul.rounds li a{text-transform: uppercase;color: white;font-size: 10px;}
+	.ga-madness ul.rounds li a{font-size: 10px;}
 	.white-popup {margin-left: -7px;width: 320px;}
 }/* end @media */
 
