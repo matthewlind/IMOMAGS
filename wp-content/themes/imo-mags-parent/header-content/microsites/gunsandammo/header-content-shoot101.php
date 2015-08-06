@@ -2,7 +2,9 @@
 	//fixed_connect_footer();
 	if ( mobile() ) { ?><div class="mobile-adhesion"><?php imo_ad_placement("mobile_adhesion_320x50"); ?></div><?php } 
 		
-	$idObj = get_category_by_slug('shoot101'); 
+	$cat_slug = 'shoot101';	
+		
+	$idObj = get_category_by_slug($cat_slug); 
 	$cat_id = $idObj->term_id;
 	$term_cat_id = 'category_'.$cat_id;
 	
@@ -22,7 +24,7 @@
 <div class="top-panel">
 	<a href="http://www.gunsandammo.com/" class="icon-arrow-left">Back to Guns & Ammo</a>
 </div>
-<div class="s101 <?php if ( in_category( 'shoot101' )) { echo "cat-shoot101";}?>">
+<div class="s101 cat-shoot101">
 	
 	<header class="main-header">
 		

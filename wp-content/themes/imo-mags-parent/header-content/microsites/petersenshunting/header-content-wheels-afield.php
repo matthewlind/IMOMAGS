@@ -1,3 +1,24 @@
+<?php 
+	//fixed_connect_footer();
+		
+	$cat_slug = 'wheels-afield';	
+		
+	$idObj = get_category_by_slug($cat_slug); 
+	$cat_id = $idObj->term_id;
+	$term_cat_id = 'category_'.$cat_id;
+	
+	$logo = get_field('logo', $term_cat_id);
+	
+	$hide_all_buy_mag_options = get_field('hide_all_buy_mag_options', $term_cat_id);	
+	$message_unavailable = get_field('message_unavailable', $term_cat_id);	
+	$end_date_newsstand = get_field('end_date_newsstands', $term_cat_id);
+	$mag_online_store = get_field('mag_online_store', $term_cat_id);
+	$digital_edition_available = get_field('digital_edition_available', $term_cat_id);
+	$online_store_url = get_field('online_store_url', $term_cat_id);
+	
+	$today = date("Ymd"); 	
+		
+?>
 <div class="top-panel">
 	<a href="<?php echo site_url(); ?>" class="icon-arrow-left">Back to Petersen's Hunting</a>
 </div>
