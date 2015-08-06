@@ -3,6 +3,7 @@
 	if ( mobile() ) { ?><div class="mobile-adhesion"><?php imo_ad_placement("mobile_adhesion_320x50"); ?></div><?php } 
 		
 	$cat_slug = 'shoot101';	
+	$theme_location = 'shoot101_menu';
 		
 	$idObj = get_category_by_slug($cat_slug); 
 	$cat_id = $idObj->term_id;
@@ -22,25 +23,18 @@
 ?>
 
 <div class="top-panel">
-	<a href="http://www.gunsandammo.com/" class="icon-arrow-left">Back to Guns & Ammo</a>
+	<a href="<?php echo site_url(); ?>" class="icon-arrow-left">Back to Guns & Ammo</a>
 </div>
 <div class="s101 cat-shoot101">
 	
 	<header class="main-header">
 		
 		<div class="menu-area clearfix">
-			<?php
-/*
-			    $category_id = get_cat_ID( 'shoot101' );				
-			    $category_link = get_category_link( $category_id );
-*/
-			?>
 			<div class="microsite-logo">
-				<a href="/shoot101/" title="shoot101"><img  src="<?php echo $logo['url'];?>" alt="<?php echo $logo['alt']; ?>"></a>
+				<a href="/<?php echo $cat_slug; ?>/" title="shoot101"><img  src="<?php echo $logo['url'];?>" alt="<?php echo $logo['alt']; ?>"></a>
 			</div>
-<!-- 			<div class="nav-container"> -->
 				<nav id="site-navigation" class="main-nav" role="navigation">
-					<?php wp_nav_menu( array( 'theme_location' => 'shoot101_menu', 'container' => '0' ) ); ?>
+					<?php wp_nav_menu( array( 'theme_location' => $theme_location, 'container' => '0' ) ); ?>
 					
 					<?php if ($hide_all_buy_mag_options == false) { ?>
 					<div class="m-buymag-drop">
