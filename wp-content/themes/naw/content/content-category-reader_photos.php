@@ -32,12 +32,16 @@ if($dartDomain == "imo.hunting"){
                     <?php } ?>                
                 </ul>
 	            <div class="clearfix"></div>
-	                <ul class="replies">
-	                    <li><?php the_time('F jS, Y'); ?><div class="bullet"></div></li>
-	                    <li><a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(). " ".$reply; ?></a></li>
-	                </ul>
-	            </div>
-	        </div>        
-        <?php if(in_category("master-angler")){ ?><span class="badge"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/pic/badge-ma.png" alt="Master Angler" /></span><?php } ?>
+                <ul class="replies">
+                    <li><?php the_time('F jS, Y'); ?><div class="bullet"></div></li>
+                    <li><a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(). " ".$reply; ?></a></li>
+                </ul>
+                <ul class="prof-like">
+                	<li>
+                		<div class="fb-like fb_iframe_widget" data-href="<?php echo get_permalink(); ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+                   </li>
+                </ul>
+            </div>
+	    </div>        
     </div>
 </div>

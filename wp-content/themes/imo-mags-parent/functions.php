@@ -2729,7 +2729,9 @@ function prefix_load_photos_posts () {
 		);
 
     }
-			
+    
+	
+
 	$posts = get_posts( $args );
 	
 	
@@ -2741,8 +2743,17 @@ function prefix_load_photos_posts () {
 	
 
 	foreach ( $posts as $post ) {
+		$comment_number = get_comments_number();
+		if($comment_number == 1){
+			$reply = "reply";
+		}else{
+			$reply = "replies";
+		}
+
+		$categories = get_the_category($post->id);
 		$i++;
 		setup_postdata( $post ); 
+		
 		?>
 		
 		<div class="dif-post post">
@@ -2753,6 +2764,21 @@ function prefix_load_photos_posts () {
 	            <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 	            <div class="profile-panel">
 	                <div class="profile-data">
+	                	<?php if($dartDomain == "imo.northamericanwhitetail"){ ?>
+							<h4><a href="/author/<?php echo get_the_author_meta("user_nicename"); ?>"><?php the_author(); ?></a></h4>
+							
+							 <ul class="prof-tags">
+			                	<?php foreach($categories as $category) { ?>
+			                    	<li><a href="/community/?<?php echo $category->slug; ?>"><?php echo $category->cat_name; ?></a></li>    
+			                    <?php } ?>                
+			                </ul>
+				            <div class="clearfix"></div>
+			                <ul class="replies">
+			                    <li><?php the_time('F jS, Y'); ?><div class="bullet"></div></li>
+			                    <li><a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(). " ".$reply; ?></a></li>
+			                </ul>
+			
+						<?php } ?>
 	                    <ul class="prof-like">
 	                    	<li>
 	                    		<div class="fb-like fb_iframe_widget" data-href="<?php echo get_permalink(); ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
