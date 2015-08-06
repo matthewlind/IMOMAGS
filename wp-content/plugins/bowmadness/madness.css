@@ -18,6 +18,22 @@ html, body { min-height: 100%; }
 	-webkit-justify-content: space-between;
 	width: 100%; 
 }
+.page-header {
+	position: relative;
+}
+.bob-social-top li, .bob-social-bottom li {
+	display: inline-block;
+	margin-right: 5px;
+}
+.bob-social-top {
+	position: absolute;
+	right: 35px;
+	top: 20px;
+}
+.bob-social-bottom {
+	text-align: center;
+	margin: 0 auto 30px;
+}
 /*
 .ga-madness ul.schedule li{
 	background: #e0e0e0;
@@ -28,7 +44,6 @@ html, body { min-height: 100%; }
 }
 */
 .ga-madness ul.schedule li{
-/* 	outline: 1px dotted red; */
 	color: #2d2d2d;
 	font-weight: 600;
 	padding: 6px 10px;
@@ -651,6 +666,7 @@ ul#ga-madness-nav li a:hover{
 } /* end @media */
 
 @media only screen and (max-width: 610px){
+	.bob-social-top {position: relative;right: auto;top: auto; margin: 10px auto 5px;text-align: center;}
 	ul#ga-madness-nav{display: flex;flex-direction: row;flex-wrap: wrap; justify-content:space-between; list-style: none;height: 30px;position: relative;margin: 0 auto;/* width: 332px; */}
 	ul#ga-madness-nav li a {font-size: 12px; padding: 5px 5px;min-width: 30px; border: none;}
 	ul#ga-madness-nav li{float: left;padding: 0 2px 0;width: auto;text-align: center;margin: 0;border-left: 1px solid #ccc;line-height: 1;}	
