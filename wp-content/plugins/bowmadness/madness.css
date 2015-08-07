@@ -29,10 +29,13 @@ html, body { min-height: 100%; }
 	position: absolute;
 	right: 35px;
 	top: 20px;
+	z-index: 200;
 }
 .bob-social-bottom {
 	text-align: center;
 	margin: 0 auto 30px;
+	position: relative;
+	z-index: 200;
 }
 .ga-madness ul.schedule li{
 	color: #2d2d2d;
