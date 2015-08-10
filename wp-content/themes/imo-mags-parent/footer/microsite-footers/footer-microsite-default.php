@@ -37,7 +37,7 @@
 				
 				<?php if ($end_date_newsstand > $today  ) {	?>
 					<h2>NOW AVAILABLE ON NEWSSTANDS!</h2>
-					<?php echo do_shortcode('[osgimpubissue bipad="30314" alias="foot" vertical="up" gotxt="GO!"]'); ?>
+					<?php echo do_shortcode('[osgimpubissue bipad="'.$zip_finder_bipad.'" alias="foot" vertical="up" gotxt="GO!"]'); ?>
 					<div class="s-or">
 						<div>OR</div>			
 					</div>
@@ -112,6 +112,7 @@
 		    </div>
 		</div><!-- end .m-footer-bottom -->
 	</footer>
+	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/microsite-js/microsite-default.js"></script>
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/microsite-js/<?php echo $script_folder_name; ?>/script-<?php echo $cat_slug; ?>.js"></script>
 	<!--[if lt IE 9]><script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->
 

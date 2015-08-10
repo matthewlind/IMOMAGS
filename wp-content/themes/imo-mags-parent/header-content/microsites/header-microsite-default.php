@@ -36,7 +36,7 @@
 							<i class="icon-cross"></i>
 							<?php 
 								if ($end_date_newsstand > $today  ) {
-									echo do_shortcode('[osgimpubissue bipad="34837" alias="head" vertical="down"]'); 
+									echo do_shortcode('[osgimpubissue bipad="'.$zip_finder_bipad.'" alias="head" vertical="down"]'); 
 								}
 							?>
 						</li>
