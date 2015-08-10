@@ -1,10 +1,4 @@
-<?php 
-	//fixed_connect_footer();
-	if ( mobile() ) { ?><div class="mobile-adhesion"><?php imo_ad_placement("mobile_adhesion_320x50"); ?></div><?php } 
-		
-	$cat_slug = 'shoot101';	
-	$theme_location = 'shoot101_menu';
-		
+<?php		
 	$idObj = get_category_by_slug($cat_slug); 
 	$cat_id = $idObj->term_id;
 	$term_cat_id = 'category_'.$cat_id;
@@ -19,19 +13,19 @@
 	$digital_edition_available = get_field('digital_edition_available', $term_cat_id);
 	$online_store_url = get_field('online_store_url', $term_cat_id);
 	
-	$today = date("Ymd"); 	
-		
+	$today = date("Ymd"); 			
 ?>
-
 <div class="top-panel">
-	<a href="<?php echo site_url(); ?>" class="icon-arrow-left">Back to Guns & Ammo</a>
-</div>	
+	<a href="<?php echo site_url(); ?>" class="icon-arrow-left">Back to <?php echo $blog_title; ?></a>
+</div>
+	
 <header class="main-header">
 	
 	<div class="menu-area clearfix">
 		<div class="microsite-logo">
 			<a href="/<?php echo $cat_slug; ?>/" title="<?php echo $cat_name; ?>"><img  src="<?php echo $logo['url'];?>" alt="<?php echo $logo['alt']; ?>"></a>
 		</div>
+		<div class="nav-container clearfix">
 			<nav id="site-navigation" class="main-nav" role="navigation">
 				<?php wp_nav_menu( array( 'theme_location' => $theme_location, 'container' => '0' ) ); ?>
 				
@@ -42,7 +36,7 @@
 							<i class="icon-cross"></i>
 							<?php 
 								if ($end_date_newsstand > $today  ) {
-									echo do_shortcode('[osgimpubissue bipad="30314" alias="head" vertical="down"]'); 
+									echo do_shortcode('[osgimpubissue bipad="34837" alias="head" vertical="down"]'); 
 								}
 							?>
 						</li>
@@ -86,14 +80,23 @@
 						</ul>						
 					</div><!-- .m-buymag-drop -->
 				<?php	}?>				
-			</nav>
+			</nav>				
 			<div class="social-buttons">
+				<?php 
+				if( have_rows('site_share_buttons', $term_cat_id) ) : 						
+					while ( have_rows('site_share_buttons', $term_cat_id) ) : the_row();
+						$face_twit_title = get_sub_field('face_twit_title');
+						$email_subject = get_sub_field('email_subject');
+						$email_message = get_sub_field('email_message');
+				?>
 				<ul>
-					<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo (urlencode(site_url())) . '/shoot101'; ?>&title=Shoot101: A starter's guide every new shooter should read." class="icon-facebook" target="_blank"></a></li>
-					<li><a href="http://twitter.com/intent/tweet?status=Shoot101: A starter's guide every new shooter should read.+http://www.gunsandammo.com/shoot101/" class="icon-twitter" target="_blank"></a></li>
-					<li><a href="mailto:?subject=Article I came across&body=Shoot101: A starter's guide every new shooter should read. <?php echo (urlencode(site_url())) . '/shoot101'; ?>" class="icon-mail" target="_blank"></a></li>
+					<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo (urlencode(site_url())) . '/'. $cat_slug; ?>&title=<?php echo $face_twit_title; ?>" class="icon-facebook" target="_blank"></a></li>
+					<li><a href="http://twitter.com/intent/tweet?status=<?php echo $face_twit_title; ?>+<?php echo (urlencode(site_url())) . '/'. $cat_slug; ?>" class="icon-twitter" target="_blank"></a></li>
+					<li><a href="mailto:?subject=<?php echo $email_subject; ?>&body=<?php echo $email_message . ' ' . (urlencode(site_url())) . '/'. $cat_slug; ?>" class="icon-mail" target="_blank"></a></li>
 				</ul>
-			</div>
-<!-- 			</div> -->
-	</div>
+				<?php endwhile; 
+					endif;?>
+			</div><!-- .m-social-buttons -->
+		</div><!-- .nav-container -->
+	</div><!-- .menu-area -->
 </header>

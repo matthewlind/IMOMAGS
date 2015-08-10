@@ -1,12 +1,9 @@
 <?php
-/**
- * Template Name: Shoot101
- * Description: A page template for shoot101 articles
- */
  	global $microsite;
 	$microsite = true; 
-	get_header(); 
-// echo get_template_part( 'header', 'shoot101' ); 
+	get_header();
+	$cat_slug = 'shoot101';
+	 
 	$image_full = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 	$image_large = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'lafge' );	
 	$postID = get_the_ID();
@@ -14,7 +11,7 @@
 	$acf_byline = get_field("byline",$postID); 
 	$author = get_the_author();
 	
-	$idObj = get_category_by_slug('shoot101'); 
+	$idObj = get_category_by_slug($cat_slug); 
 	$cat_id = $idObj->term_id;
 	$term_cat_id = 'category_'.$cat_id;
 	
@@ -23,12 +20,18 @@
 	$mag_online_store = get_field('mag_online_store', $term_cat_id);
 	$digital_edition_available = get_field('digital_edition_available', $term_cat_id);
 	$online_store_url = get_field('online_store_url', $term_cat_id);
+	$sponsors_disclaimer = get_field('sponsors_disclaimer', $term_cat_id);
+	$social_share_message = get_field('social_share_message', $term_cat_id);
 	
 	$today = date("Ymd"); 
 ?>
+
+<?php if( in_array( 'sponsors_disclaimer', get_field('additional_elements', $term_cat_id) ) ) { ?>
 <div class="sponsors-disclaimer">
-	<span>BROUGHT TO YOU BY VISTA OUTDOOR INC. AND ITS FAMILY OF <a href="http://www.vistaoutdoor.com/brands/" target="_blank">BRANDS</a></span>
+	<span><?php echo $sponsors_disclaimer; ?></span>
 </div>
+<?php } ?>
+
 <div class="m-article-wrap clearfix">
 	<?php if(mobile() == true) {
 		if($image_large[0]) { ?>
@@ -43,7 +46,7 @@
 	?>
 	<article class="m-article clearfix">
 		<div class="m-social-wrap">
-			<p class="m-hlep-grow">Help Grow Shooting in America. Share this with a new shooter!</p>
+			<p class="m-hlep-grow"><?php echo $social_share_message; ?></p>
 			<ul class="share-count social-buttons">
 				<li>
 					<a href="http://www.facebook.com/sharer.php?u=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>&t=<?php the_title(); ?>" class="socialite facebook-like reload-fb" data-href="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" data-send="false" data-layout="button_count" data-share="true" data-action="like" data-width="60" data-show-faces="false" rel="nofollow" target="_blank"><span class="vhidden"></span></a>
@@ -84,7 +87,7 @@
 								</div>
 								<?php endif; ?>
 		    				</div>
-		    				<div class="m-buy-dig" href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">
+		    				<div class="m-buy-dig" href="#" target="_blank">
 								<span>GET THE DIGITAL EDITION!</span>
 								<?php
 									if ($digital_edition_available == true && have_rows('digital_edition_urls', $term_cat_id)) { 
@@ -149,7 +152,7 @@
 							</div>
 							<?php endif; ?>
 	    				</div>
-	    				<div class="m-buy-dig" href="https://store.intermediaoutdoors.com/products.php?product=Shoot-101" target="_blank">
+	    				<div class="m-buy-dig" href="#" target="_blank">
 							<span>GET THE DIGITAL EDITION!</span>
 							<?php
 								if ($digital_edition_available == true && have_rows('digital_edition_urls', $term_cat_id)) { 
@@ -184,7 +187,7 @@
 		
 		<div class="m-article-bottom clearfix">
 			<div class="m-social-wrap">
-				<p class="m-hlep-grow">Help Grow Shooting in America. Share this with a new shooter!</p>
+				<p class="m-hlep-grow"><?php echo $social_share_message; ?></p>
 				<ul class="share-count social-buttons">
 					<li>
 				         <a href="http://www.facebook.com/sharer.php?u=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>&t=<?php the_title(); ?>" class="socialite facebook-like reload-fb" data-href="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" data-send="false" data-layout="button_count" data-share="true" data-action="like" data-width="60" data-show-faces="false" rel="nofollow" target="_blank"><span class="vhidden"></span></a>
@@ -205,7 +208,7 @@
 	<div class="m-more-wrap clearfix">
 		<?php
 		$args = array (
-			'category_name'         	=> 'shoot101',			
+			'category_name'         	=> $cat_slug,			
 			'posts_per_page'      		=> 6,
 			'order'						=> 'DESC',
 			'orderby'					=> 'rand',

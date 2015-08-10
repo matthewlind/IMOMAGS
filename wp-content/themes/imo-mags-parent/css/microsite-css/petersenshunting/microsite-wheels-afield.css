@@ -237,7 +237,7 @@ a:hover {
 
 /* Header *******************/
 .microsite-logo {width: 250px;}
-.single .wheels-afield .main-nav, .main-nav {margin: 53px 0 15px 2px;}
+.single .main-nav, .main-nav {margin: 53px 0 15px 2px;}
 
 /* Single Article *******************/
 .m-article-bottom .m-social-wrap {width: 277px;}

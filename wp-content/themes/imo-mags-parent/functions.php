@@ -33,6 +33,10 @@ add_filter('single_template', create_function(
 	return $the_template;' )
 );
 
+/// ACF for microsites. Original "Microsite Category Fields" exported from Petersens's Hunting site 
+include_once('acf_fields/microsite-category-fields.php');
+
+
 function sub_footer(){ ?>
 	<!-- future promotional area -->
 <?php
@@ -2581,10 +2585,6 @@ if(function_exists("register_field_group"))
 		'menu_order' => 0,
 	));
 }
-
-/// ACF for microsites. Original "Microsite Category Fields live on gunsandammo.com. If you want to add fields to this group, edit it on gunsandammo.com, export php and paste the output to microsite-category-fields.php. 
-//include_once('acf_fields/microsite-category-fields.php');
-
 
 
 add_action( 'wp_ajax_nopriv_load-filter', 'prefix_load_cat_posts' );
