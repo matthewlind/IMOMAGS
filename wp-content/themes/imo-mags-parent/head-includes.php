@@ -164,7 +164,7 @@ googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Pushdown_1080x90', [1080,
 
 
 
-
+<?php if( is_page_template( 'battle-of-the-bows.php' ) || is_page_template( 'battle-of-the-bows.php-child' ) || is_page_template( 'battle-of-the-bows-enter.php' ) ){ ?>
 
 // Begin bowmadness2015 tags (put in by Ben)
 
@@ -197,7 +197,7 @@ googletag.enableServices();
 
 // End bowmadness2015 tags
 
-
+<?php } ?>
 
 <?php if( is_category( 'trading-post' ) || in_category( 'trading-post' ) ){ ?>
 googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/ATF_Button_1', [125, 125], 'div-atf_button_1').addService(googletag.pubads());
