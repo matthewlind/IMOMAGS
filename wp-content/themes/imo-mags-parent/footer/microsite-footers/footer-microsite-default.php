@@ -41,9 +41,9 @@
 					<div class="s-or">
 						<div>OR</div>			
 					</div>
-				<?php } else { if($buy_mag_foot_message) { ?>
+				<?php } else {  ?>
 					<h2><?php echo $buy_mag_foot_message; ?> </h2>
-				<?php} } ?>
+				<?php } ?>
 				<div class="s-mag-btns clearfix">
 					<div class="s-buy-btn">
 						<a href="<?php echo $online_store_url; ?>" target="_blank">BUY THE MAGAZINE NOW!</a>
@@ -112,7 +112,7 @@
 		    </div>
 		</div><!-- end .m-footer-bottom -->
 	</footer>
-	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/microsite-js/petersenshunting/script-<?php echo $cat_slug; ?>.js"></script>
+	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/microsite-js/<?php echo $script_folder_name; ?>/script-<?php echo $cat_slug; ?>.js"></script>
 	<!--[if lt IE 9]><script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->
 
 	<?php wp_footer(); ?>
