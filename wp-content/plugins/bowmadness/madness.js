@@ -571,7 +571,7 @@
 		 	
 		 	// reCAPTCHA 
 		 	
-		 	if(jQuery.cookie('isHuman') != "true") {
+		 	if(jQuery.cookie('isHuman') == "true") {
 			 	votePopup(pdata, region, mid, round, slide, slidecnt);
 		 	} else {
 			 	verifyHuman(mid);
