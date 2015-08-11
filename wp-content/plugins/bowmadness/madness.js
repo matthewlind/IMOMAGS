@@ -37,6 +37,7 @@
 		jQuery('.next-matchup').hide();
 		jQuery('.filler').show();
 		jQuery('.mfp-close').css('display', 'block');
+		//jQuery("#popupAD .popupad").remove();
 	}
 	
 	function getGAMData(region, round) {
@@ -405,7 +406,6 @@
 								break;
 							default:
 								waitUntilExists("popupAD",function(){
-									jQuery("#popupAD .popupad").remove();
 									jQuery("#popupAD").css("display", "none");
 									jQuery(".mfp-close").css("display", "block");	
 								});
