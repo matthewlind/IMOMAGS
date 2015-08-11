@@ -50,7 +50,6 @@ function renderGAMpopup($mobile) {
 	    <div class="popup-inner clearfix gun">
 	    	
 	    	<div id="popupAD">
-	    		<div id='div-gpt-ad-1438288024184-0' style='width:300px; height:250px; margin: 100px auto 50px;'></div>
 	    		<div class='close-ad' onclick='closeInterstitial();'>Go to the next matchup <span>&raquo;</span></div>
 	    	</div>
 	    

@@ -383,7 +383,8 @@
 									jQuery("#popupAD").css("display", "block");	
 									
 									jQuery(".mfp-close").css("display", "none");
-									
+									jQuery("#popupAD").prepend('<div id="div-gpt-ad-1426097842267-0" class="popupad" style="margin-bottom: 30px;"><iframe id="bracket-iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-bracket.php?ad_code=imo.bowhunting&bracket=battle_of_the_bows&size=div-gpt-ad-1426097842267-0"></iframe></div>');
+
 									//jQuery('#popupAD').html("Ad should be here<br /><div id='div-gpt-ad-1426097842267-0' style='width:300px; height:250px;'></div> <div class='close-ad' onclick='closeInterstitial();'>Go to the next matchup <span>&raquo;</span></div>");
 									
 									setTimeout(function() {
@@ -404,6 +405,7 @@
 								break;
 							default:
 								waitUntilExists("popupAD",function(){
+									jQuery("#popupAD .popupad").remove();
 									jQuery("#popupAD").css("display", "none");
 									jQuery(".mfp-close").css("display", "block");	
 								});
