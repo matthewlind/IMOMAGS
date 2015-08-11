@@ -467,7 +467,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6eaeea', end
 
 /* Header *******************/
 .microsite-logo {width: 250px;}
-.single .wheels-afield .main-nav, .main-nav {margin: 53px 0 15px 2px;}
+.single .main-nav, .main-nav {margin: 53px 0 15px 2px;}
 
 /* Related Articles *******************/
 .p-rel-header {margin: 0 0.5%;}

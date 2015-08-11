@@ -116,7 +116,6 @@
 					wp_reset_postdata();
 				?>
 			</div><!-- end .p-container -->
-			
-			<?php // echo get_template_part( 'content/relative', 'microsite' ); ?>
+			<?php if ($dartDomain == "imo.gameandfish") { include(get_template_directory() . '/content/microsite-category/related-microsite.php'); } else { }?>
 		</div><!-- end .posts-wrap -->
 </div><!-- end .content -->
