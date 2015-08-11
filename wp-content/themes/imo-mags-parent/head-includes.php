@@ -166,24 +166,6 @@ googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Pushdown_1080x90', [1080,
 
 <?php if( is_page_template( 'battle-of-the-bows.php' ) || is_page_template( 'battle-of-the-bows.php-child' ) || is_page_template( 'battle-of-the-bows-enter.php' ) ){ ?>
 
-// Begin bowmadness2015 tags (put in by Ben)
-
-var googletag = googletag || {};
-googletag.cmd = googletag.cmd || [];
-(function() {
-var gads = document.createElement('script');
-gads.async = true;
-gads.type = 'text/javascript';
-var useSSL = 'https:' == document.location.protocol;
-gads.src = (useSSL ? 'https:' : 'http:') + 
-'//www.googletagservices.com/tag/js/gpt.js';
-var node = document.getElementsByTagName('script')[0];
-node.parentNode.insertBefore(gads, node);
-})();
-
-
-
-googletag.cmd.push(function() {
 googletag.defineSlot('/4930/imo.bowhunting/battle_of_the_bows/bob_championship_medium_rectangle', [300, 250], 'div-gpt-ad-1438288024184-0').addService(googletag.pubads());
 googletag.defineSlot('/4930/imo.bowhunting/battle_of_the_bows/bob_mobile_leaderboard', [320, 50], 'div-gpt-ad-1438288024184-1').addService(googletag.pubads());
 googletag.defineSlot('/4930/imo.bowhunting/battle_of_the_bows/bob_presenting_sponsor', [240, 60], 'div-gpt-ad-1438288024184-2').addService(googletag.pubads());
@@ -191,11 +173,6 @@ googletag.defineSlot('/4930/imo.bowhunting/battle_of_the_bows/bob_region_sponsor
 googletag.defineSlot('/4930/imo.bowhunting/battle_of_the_bows/bob_region_sponsor_2', [240, 60], 'div-gpt-ad-1438288024184-4').addService(googletag.pubads());
 googletag.defineSlot('/4930/imo.bowhunting/battle_of_the_bows/bob_region_sponsor_3', [240, 60], 'div-gpt-ad-1438288024184-5').addService(googletag.pubads());
 googletag.defineSlot('/4930/imo.bowhunting/battle_of_the_bows/bob_region_sponsor_4', [240, 60], 'div-gpt-ad-1438288024184-6').addService(googletag.pubads());
-googletag.pubads().enableSingleRequest();
-googletag.enableServices();
-});
-
-// End bowmadness2015 tags
 
 <?php } ?>
 
