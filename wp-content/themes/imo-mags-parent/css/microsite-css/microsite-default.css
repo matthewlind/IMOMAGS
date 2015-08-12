@@ -468,6 +468,21 @@ h1, h2, h3, h4, h5 {
 	-moz-transition:opacity 0.1s;
 	transition:opacity 0.1s;
 }
+.top-ad-home {
+	width: 100%;
+	float: left;
+	margin-bottom: 30px;
+	text-align: center;
+}
+.top-ad-home p {
+	font: 10px/13px sans-serif;
+	color: #999;
+	margin: 0;
+}
+.top-ad-home > div {
+	width: 300px;
+	margin: 0 auto;
+}
 
 
 /* ==========================================================================
@@ -1242,14 +1257,17 @@ h1, h2, h3, h4, h5 {
 .social-buttons ul li a {font-size: 24px;}
 .header-mag-cover {	display: none;}
 
-/* Content *******************/
+/* Home *******************/
 .content {padding: 0 4%;}
 .posts-wrap {margin: 35px -1%;}
 .featured-message {width: 98%;margin: 1% 1% 4%;border-top: 4px solid #959595;border-bottom: 4px solid #959595;}
 .featured-message span {font-size: 18px;}
-.p-feat-container a:nth-child(3n+1) .post-box, 
-.p-feat-container a:nth-child(3n+2) .post-box{margin: 0 1% 3.2%;width: 48%;padding-top: 32.16%;}
-.p-feat-container a:nth-child(3n+3) .post-box {margin: 0 1% 3.2% ;width: 98%;padding-top: 33.22%;}
+.p-feat-container > a:nth-child(3n+1) .post-box, 
+.p-feat-container > a:nth-child(3n+2) .post-box{margin: 0 1% 4%;width: 48%;padding-top: 32.16%;}
+/* .p-feat-container > a:nth-child(3n+3) .post-box {margin: 0 1% 3.2% ;width: 98%;padding-top: 33.22%;} */
+
+.top-ad-home {margin: -1.6% 1% 3.2%;width: 48%;}
+
 
 .p-container a:nth-of-type(5n+1) .post-box,
 .p-container a:nth-of-type(5n+2) .post-box {margin: 0 1% 3.2%;width: 48%;padding-top: 32.16%;}
@@ -1388,12 +1406,13 @@ h1, h2, h3, h4, h5 {
 .sponsors-disclaimer {text-align: center;width: 92%;margin: 0 auto;}
 .sponsors-disclaimer span {margin-left: 0;font-size: 15px;}
 
-/* Content *******************/
+/* Home *******************/
 .content {padding: 0 4%;}
 .posts-wrap {margin: 35px -0.5%;}
-.p-feat-container a:nth-child(3n+1) .post-box, 
-.p-feat-container a:nth-child(3n+2) .post-box{margin: 0 0.5% 2.5%;width: 49%;padding-top: 32.83%;}
-.p-feat-container a:nth-child(3n+3) .post-box {margin: 0 0.5% 2.5% ;width: 99%;padding-top: 33.66%;}
+.p-feat-container > a:nth-child(3n+1) .post-box, 
+.p-feat-container > a:nth-child(3n+2) .post-box{margin: 0 0.5% 2.5%;width: 49%;padding-top: 32.83%;}
+/* .p-feat-container > a:nth-child(3n+3) .post-box {margin: 0 0.5% 2.5% ;width: 99%;padding-top: 33.66%;} */
+.top-ad-home {margin: 0 1% 3.2%;width: 48%;}
 .featured-message {width: 99%;margin: 0 0.5% 35px;border-top: 4px solid #959595;border-bottom: 4px solid #959595;}
 
 .p-container a:nth-of-type(5n+1) .post-box,
@@ -1447,6 +1466,13 @@ h1, h2, h3, h4, h5 {
 
 @media only screen and (min-width: 1025px) {/* big landscape tablets, laptops, and desktops */
 
+/* Home *******************/
+.p-feat-container > a:nth-child(3n+1) .post-box, 
+.p-feat-container > a:nth-child(3n+2) .post-box{margin: 0 0.5% 2.5% ;width: 32.3333333%;padding-top: 21.66333333%;}
+.p-feat-container > a:nth-child(3n+4) .post-box {margin: 0 0.5% 2.5% ;width: 99%;padding-top: 33.66%;}
+.top-ad-home {margin: -2.1% 0.5% 2.5%; width: 32.3333333%;}
+.top-ad-home p { font: 12px/21px sans-serif; color: #c2c2c2;}
+
 /* Single Articles *******************/
 .m-article {margin: 0 25%;}
 .m-top-ad {bottom: 0; right: 30px; width: 330px; height: 265px;text-align: center; padding-top: 0;}
@@ -1472,6 +1498,9 @@ h1, h2, h3, h4, h5 {
 /* Header *******************/
 .main-header, .content, .sponsors-disclaimer {margin: 0 auto;max-width: 1442px;}
 
+/* Home *******************/
+.top-ad-home {margin: 0 0.5% 2.5%;padding-bottom: 1%;background-color: #333333;}
+
 /* Single Articles *******************/
 .m-article {margin: 0 auto; width: 700px;}
 
@@ -1493,6 +1522,14 @@ h1, h2, h3, h4, h5 {
 .f-social-buttons ul li:last-child {margin: 0 0 0 5px;}
 .f-social-buttons ul li a {font-size: 30px;}
 
+}/* end of media */
+
+@media only screen and (min-width: 1450px) {/* large desktops */
+
+/* Home *******************/
+.top-ad-home {padding-bottom: 2.44%;}
+.top-ad-home p { padding-top: 10px;}
+	
 }/* end of media */
 
 /* ==========================================================================

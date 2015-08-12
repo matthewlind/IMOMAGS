@@ -44,13 +44,21 @@
 					$image_wide = wp_get_attachment_image_src($wide_image_id, "full");
 			?>
 			<a class="link-box" href="<?php the_permalink(); ?>">	
-				<?php if ($post_counter == 2 && mobile() == false) { ?>
+				<?php if ($post_counter == 2 && mobile() == false && tablet() == false ) { ?>
 				<div class="post-box" style="background-image: url('<?php echo $image_wide[0]; ?>')"></div>	
 				<?php } else { ?>
 				<div class="post-box" style="background-image: url('<?php echo $image[0]; ?>')"></div>
 				<?php } ?>
 			</a>
 			<?php
+					if ($post_counter == 1) { ?>
+						<div class="top-ad-home"> 
+							<p>ADVERTISMENT</p>
+							<?php imo_ad_placement("microsite_BTF_300x250"); ?>
+				    	</div>
+			<?php	}
+				
+				
 				$post_counter++;	
 					}
 				} else {
