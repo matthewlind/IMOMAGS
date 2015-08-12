@@ -13,6 +13,13 @@
 	$digital_edition_available = get_field('digital_edition_available', $term_cat_id);
 	$online_store_url = get_field('online_store_url', $term_cat_id);
 	
+/*
+	$rows = get_field('mag_info', $term_cat_id ); // get all the rows
+	$first_row = $rows[0]; // get the first row
+	$first_row_image = $first_row['mag_cover_image' ]; // get the sub field value
+	$mag_cover_image = wp_get_attachment_image_src( $first_row_image, 'full' );
+*/
+	
 	$today = date("Ymd"); 			
 ?>
 <div class="top-panel">
@@ -97,6 +104,12 @@
 				<?php endwhile; 
 					endif;?>
 			</div><!-- .m-social-buttons -->
+			<?php if (have_rows('mag_info', $term_cat_id)) { 
+					while ( have_rows('mag_info', $term_cat_id) ) { the_row();
+						$mag_cover_image = get_sub_field('mag_cover_image');
+			?>
+			<img class="header-mag-cover" src="<?php echo $mag_cover_image['url']; ?>" alt="<?php echo $mag_cover_image['alt']; ?>">
+			<?php } } ?>
 		</div><!-- .nav-container -->
 	</div><!-- .menu-area -->
 </header>

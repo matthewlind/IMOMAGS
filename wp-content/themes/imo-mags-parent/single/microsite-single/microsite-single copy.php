@@ -68,7 +68,48 @@
 			    if($p_counter == $mag_after_p && $hide_all_buy_mag_options == false){ ?>
 			   
 				<div class="alignright-content m-buy-wrap"> 
-		    		<?php imo_ad_placement("microsite_BTF_300x250"); ?>
+		    		<div class="m-buy-mag" style="margin-top: 45px;"> 
+			    		<?php if ($end_date_newsstand > $today  ) {	?>
+							<h2>NOW AVAILABLE ON NEWSSTANDS!</h2>
+							<?php echo do_shortcode('[osgimpubissue bipad="'.$zip_finder_bipad.'" alias="mid"]'); ?>
+						<?php } else {  ?>
+							<h2><?php echo $buy_mag_foot_message; ?> </h2>
+						<?php } ?>
+		    			<div class="m-buy-mag-bottom clearfix"> 				
+		    				<div class="m-buy-mag-img"></div> 
+		    				<div class="m-buy-dig">
+		    					<a href="<?php echo $online_store_url; ?>" target="_blank">BUY PRINT MAGAZINE NOW!</a> 
+		    					<?php if ($mag_online_store == false) : ?>
+		    					<div class="unavailble-mag">
+									<p>The print magazine is temporarily unavailable in the online store. Instead find it in your area using your zip code, or get the digital edition.</p>
+								</div>
+								<?php endif; ?>
+		    				</div>
+		    				<div class="m-buy-dig" href="#" target="_blank">
+								<span>GET THE DIGITAL EDITION!</span>
+								<?php
+									if ($digital_edition_available == true && have_rows('digital_edition_urls', $term_cat_id)) { 
+										while ( have_rows('digital_edition_urls', $term_cat_id) ) { the_row();
+										$itunes_url = get_sub_field('itunes_url');
+										$google_play_url = get_sub_field('google_play_url');
+										$windows_store_url = get_sub_field('windows_store_url');
+								?>
+									<div class="m-dig-drop">
+										<ul>
+											<li><a href="<?php echo $itunes_url; ?>" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/itunes-logo.png"><span>iTunes</span></a></li>
+											<li><a href="<?php echo $google_play_url; ?>" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/google_play_icon.png"><span>Google Play</span></a></li>
+											<li><a href="<?php echo $windows_store_url; ?>" target="_blank"><img src="/wp-content/themes/imo-mags-parent/images/microsites/digit-store-icons/windows-store-icon.png"><span>Windows Store</span></a></li>						
+										</ul>
+									</div>
+								<?php }  // end while
+									} else { ?>
+									<div class="unavailble-mag">
+										<p>Digital edition is temporarily unavailable. Instead find it in your area using your zip code, or get the the print magazine in the online store.</p>
+									</div>
+								<?php } ?>									
+		    				</div> 
+		    			</div>
+		    		</div>
 		    	</div>
 <!--
 		    	<script>
