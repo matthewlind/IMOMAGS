@@ -218,7 +218,7 @@ a:hover {
 
 /* Header *******************/
 .sponsors-disclaimer {text-align: left;}
-.category .cat-shoot101 .sponsors-disclaimer {width: 92%;margin: 0 auto;}
+.category .category-shoot101 .sponsors-disclaimer {width: 92%;margin: 0 auto;}
 .sponsors-disclaimer span {margin-left: 20px;}
 
 /* Single Article *******************/
@@ -236,9 +236,8 @@ a:hover {
 @media only screen and (min-width: 920px) {
 
 /* Header *******************/
-.sponsors-disclaimer {
-  text-align: center;
-}
+.single .main-nav, .main-nav {margin: 53px 0 15px 2px;}
+.sponsors-disclaimer {text-align: center;}
 
 /* Footer *******************/ 
 .s-mag-buy h2 {margin-bottom: -7px;}
