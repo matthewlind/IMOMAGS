@@ -37,7 +37,7 @@
 			<div class="m-article-image" style="background-image: url('<?php echo $image_full[0]; ?>');">
 				<div class="m-top-ad">
 					<p>ADVERTISMENT</p>
-					<div><?php imo_ad_placement("microsite_BTF_300x250"); ?></div>	
+					<div><?php imo_ad_placement("microsite_ATF_300x250"); ?></div>	
 				</div>
 			</div>
 	<?php } } ?>
@@ -68,25 +68,11 @@
 			    if($p_counter == $mag_after_p && $hide_all_buy_mag_options == false){ ?>
 			   
 				<div class="alignright-content m-buy-wrap"> 
-		    		<?php imo_ad_placement("microsite_BTF_300x250"); ?>
+		    		<?php imo_ad_placement("microsite_ATF_300x250"); ?>
 		    	</div>
-<!--
-		    	<script>
-			    	jQuery(document).ready(function($) {
-				    	$(".m-buy-dig").click(function() {
-					    	$(".m-dig-drop").addClass("m-dig-dropit")
-				    	});
-				    });
-			    </script>
--->
+
 				<?php }	
-/*
-			    if($p_counter == $ad1_after_p){
-			    	//echo '<div class="alignright-content inline-ad">';
-						//imo_ad_placement("atf_medium_rectangle_300x250"); 
-					//echo '</div>';
-				}
-*/
+
 			    $p_counter++;
 			}
 			
