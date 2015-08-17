@@ -502,17 +502,17 @@
 								region = parseInt(item.data.region);
 								round = parseInt(item.data.round);
 								
-								popads[0] = 'GA-MAdness-popup-358x90-burris.jpg';
-								popads[1] = 'GA-MAdness-popup-358x90-galco.jpg';
-								popads[2] = 'GA-MAdness-popup-358x90-laserlyte.jpg';
-								popads[3] = 'GA-MAdness-popup-358x90-pelican.jpg';
-								popads[4] = 'GA-MAdness-popup-358x90-winchester.jpg';
+								popads[0] = 'browning-BoB-popup-358x90.jpg';
+								popads[1] = 'carbon-express-BoB-popup-358x90.jpg';
+								popads[2] = 'OMP-BoB-popup-358x90.jpg';
+								popads[3] = 'realtree-BoB-popup-358x90.jpg';
+								popads[4] = 'slash-BoB-popup-358x90.jpg';
 								
 								var randomInt = Math.floor(Math.random() * 5);
-								console.log("Random Number= " + randomInt);
+								//console.log("Random Number= " + randomInt);
 						
 								campaign = campaigns[region-1];
-								campimg = "/wp-content/plugins/gamadness/ads/enter/" + popads[randomInt];
+								campimg = "/wp-content/plugins/bowmadness/ads/" + popads[randomInt];
 								template.find("#popupsponsor a").html('<img src="'+campimg+'" />');
 																
 								var roundtitle = roundtitles[round];
