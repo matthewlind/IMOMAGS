@@ -119,10 +119,10 @@
 	text-align: center;
 }
 .m-truck-container:first-child .m-truck {
-	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sweeps-banner-mobile.png") no-repeat left bottom / 480px;
+	background: url("/wp-content/themes/gameandfish/images/deer-zone/sweeps-banner-mobile.png") no-repeat left bottom / 480px;
 }
 .m-truck-container:last-child .m-truck {
-	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/truck-ram-mobile.png") no-repeat left bottom / 480px;
+	background: url("/wp-content/themes/gameandfish/images/deer-zone/truck-ram-mobile.png") no-repeat left bottom / 480px;
 }
 .m-truck-title {
 	position: absolute;
@@ -138,12 +138,12 @@
 	height:32px;
 	width: 130px;
 	display: inline-block;
-	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") 0px -490px / 233px no-repeat;
+	background: url("/wp-content/themes/gameandfish/images/deer-zone/sprite.png") 0px -490px / 233px no-repeat;
 	margin-left: 10px;
 	vertical-align: middle;
 }
 .m-banners .m-truck-container:first-child .m-truck-title > div {
-	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") 0px -381px / 233px no-repeat;
+	background: url("/wp-content/themes/gameandfish/images/deer-zone/sprite.png") 0px -381px / 233px no-repeat;
 	width: 145px;
 }
 .m-truck > p {
@@ -208,7 +208,7 @@
 .m-loc-circle {
 	width: 100%;
 	padding-top: 100%;
-	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/choose-location-footer.jpg") no-repeat 0 0 / 100%;
+	background: url("/wp-content/themes/gameandfish/images/deer-zone/choose-location-footer.jpg") no-repeat 0 0 / 100%;
 	-webkit-transition: all 0.6s ease;
 	transition: all 0.6s ease;
 }
@@ -331,7 +331,7 @@
 	width: 113px;
 	height: 35px;
 	margin: 0 auto 15px;
-	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") 0px -318px / 202px no-repeat;
+	background: url("/wp-content/themes/gameandfish/images/deer-zone/sprite.png") 0px -318px / 202px no-repeat;
 }
 .m-footer-nav ul {
 	list-style: none;
