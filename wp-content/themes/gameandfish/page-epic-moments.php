@@ -1,15 +1,15 @@
-<?php
-	$microsite = true;
-	get_header(); 
-	
+<?php 
+	get_header('sweeps');	
 ?>
+
+
 <div class="m-article-wrap clearfix">	
 	<div class="m-article-image">
-		<div class="m-direction">
-			<span>WIN!</span>
-		</div>
+
+		
 		<div class="m-sweep-text">
-			<p>Win an all-expense paid 7 Night 6 Day Fishing trip for two in Nosara, </p>
+			<img class="epic-logo" src="<?php bloginfo('stylesheet_directory');?>/images/epic-moments/logo-epic-moment.png">
+			<p>Win an all-expense paid 7 Night 6 Day Fishing trip for two in Nosara, Costa Rica home to some of the best Sport Fishing in Central America.</p>
 		</div>
 	</div><!-- .m-article-image -->
 	<article class="m-article clearfix">
@@ -50,11 +50,14 @@
 			         <a href="http://twitter.com/share" class="socialite twitter-share reload-twitter" data-text="Rigged and Ready RAM Outdoorsman Sweepstakes" data-url="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" rel="nofollow" target="_blank"><span class="vhidden"></span></a> 
 			    </li>
 			</ul>
-		</div><!-- .m-social-wrap -->
+		</div><!-- .m-social-wrap-->
 	</article>
 </div><!-- .m-article-wrap -->
-					
-<?php get_template_part('content/rigged-ready/sweeps', 'banner'); ?>						
-<?php get_template_part('content/rigged-ready/choose', 'location-bottom'); ?>			
+<footer>
+	Footer
+</footer>
 
-<?php get_footer(); ?> 
+	<?php wp_footer(); ?>
+
+</body>
+</html>
