@@ -53,7 +53,13 @@
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/gameandfish/microsite-crossbows.css" />
 <!-- 		<meta property="og:image" content="http://www.in-fisherman.com/files/2015/06/RR-sweeps-no-btn-968x504FB.jpg" /> -->
 				
-<?php	} else { ?>
+<?php	} elseif ( is_category('deer-zone') || in_category('deer-zone')) { ?>
+		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/gameandfish/microsite-rigged-ready.css" />
+			<?php // This meta is inserted to display featured share image for facebook
+				if ( is_category('sweeps')) { ?>
+					<meta property="og:image" content="http://www.in-fisherman.com/files/2015/06/RR-sweeps-no-btn-968x504FB.jpg" />
+			<?php } ?>
+<?		} else { ?>
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/microsite-default.css" />
 <?php	} 
 	

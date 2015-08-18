@@ -118,7 +118,8 @@
 <body <?php body_class(); ?>  >
 <?php
 	if ( $microsite ){
-		get_template_part('../imo-mags-parent/header-content/microsites/gameandfish/header-content', 'crossbows');
+		//get_template_part('../imo-mags-parent/header-content/microsites/gameandfish/header-content', 'crossbows');
+		get_template_part('../imo-mags-parent/header-content/header-content', 'microsites');
 	}else{
 		get_template_part('content/content', 'header');
 	}

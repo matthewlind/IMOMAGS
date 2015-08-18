@@ -37,7 +37,10 @@
 	elseif ($dartDomain == "imo.gameandfish") { 		
 		if ( is_category('crossbows') || in_category('crossbows') || in_category('crossbow-revolution')) {
 			get_template_part('footer/microsite-footers/gameandfish/footer', "crossbows");
+		} elseif ( is_category('deer-zone') || in_category('deer-zone')) {
+			get_template_part('footer/microsite-footers/gameandfish/footer', "deer-zone");
 		} 
+		
 	}
 
 		
