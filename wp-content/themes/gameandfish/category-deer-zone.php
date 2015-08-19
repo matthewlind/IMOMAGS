@@ -6,7 +6,7 @@
 <div class="m-home-wrap">
 	<ul class="m-regn clearfix">
 		<li class="m-ne">
-			<a href="/rigged-ready/ne/">
+			<a href="/deer-zone/ne/">
 				<div class="m-direction">
 					<div class="m-triangle"></div>
 					<span>Northeast</span>
@@ -14,7 +14,7 @@
 			</a>
 		</li>
 		<li class="m-se">
-			<a href="/rigged-ready/se/">
+			<a href="/deer-zone/se/">
 				<div class="m-direction">
 					<div class="m-triangle"></div>
 					<span>Southeast</span>
@@ -22,7 +22,7 @@
 			</a>
 		</li>
 		<li class="m-mw">
-			<a href="/rigged-ready/mw/">
+			<a href="/deer-zone/mw/">
 				<div class="m-direction">
 					<div class="m-triangle"></div>
 					<span>Midwest</span>
@@ -30,7 +30,7 @@
 			</a>
 		</li>
 		<li class="m-sw">
-			<a href="/rigged-ready/sw/">
+			<a href="/deer-zone/sw/">
 				<div class="m-direction">
 					<div class="m-triangle"></div>
 					<span>Southwest</span>
@@ -38,7 +38,7 @@
 			</a>
 		</li>
 		<li class="m-nw">
-			<a href="/rigged-ready/nw/">
+			<a href="/deer-zone/nw/">
 				<div class="m-direction">
 					<div class="m-triangle"></div>
 					<span>Northwest</span>
@@ -46,7 +46,7 @@
 			</a>
 		</li>
 	</ul>	
-	<?php get_template_part('content/rigged-ready/sweeps', 'banner'); ?>	
+	<?php get_template_part('content/deer-zone/sweeps', 'banner'); ?>	
 </div><!-- .m-home-wrap -->				
 				
 <?php get_footer(); ?>
