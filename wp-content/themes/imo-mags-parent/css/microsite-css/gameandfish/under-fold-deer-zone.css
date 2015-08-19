@@ -8,9 +8,9 @@
 	padding: 0 25px;
 	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
 	text-shadow: 0 1px 3px rgba(0,0,0,0.5);
-	color: #19a0cf;
+	color: #f47521;
 	font: 400 14px/30px 'Lato', Helvetica, Arial, sans-serif;
-	border: 2px solid #19a0cf;
+	border: 2px solid #f47521;
 	height: 36px;	
 	border-radius: 18px;
 	-webkit-transition:all 0.4s;
@@ -31,7 +31,7 @@
 	width: 100%;
 	position: absolute;
 	top:0; bottom: 0;left:0; right: 0; margin: auto;
-	background-color: #19a0cf;
+	background-color: #f47521;
 	opacity: 0;
 	-webkit-transition:all 0.4s;
 	-moz-transition:all 0.4s;
@@ -43,7 +43,7 @@
 	height: 100%;
 	position: absolute;
 	top:0; bottom: 0;left:0; right: 0; margin: auto;
-	background-color: #19a0cf;
+	background-color: #f47521;
 	opacity: 0;
 	-webkit-transition:all 0.4s;
 	-moz-transition:all 0.4s;
@@ -129,7 +129,7 @@
 	top:6px;left:0; right: 0; margin: 0 auto;
 }
 .m-truck-title h3 {
-	color: #19a0cf;
+	color: #f47521;
 	font-size: 14px;
 	display: inline-block;
 	font-family: "Lato", sans-serif;
@@ -159,8 +159,8 @@
 .m-banners .m-truck-container:first-child .blue-round-btn {
 	box-shadow: 1px 3px 4px rgba(0,0,0,1);
 	text-shadow: 1px 3px 4px rgba(0,0,0,1);
-	color: #1ea9da;
-	border-color: #1ea9da;
+	color: #f47521;
+	border-color: #f47521;
 }
 .m-banners .m-truck-container:first-child .blue-round-btn:hover {
 	color: #eeeeee;
@@ -246,10 +246,10 @@
 .m-loc-wrap > ul > li > a:hover .m-loc-circle {
 	-webkit-transition: all 0.6s ease;
 	transition: all 0.6s ease;
-	box-shadow: 0 0 100px rgba(1,103,151,0.7);
+	box-shadow: 0 0 100px rgba(244,117,33,0.7);
 }
 .m-shiny-circle {
-	box-shadow: 0 0 50px rgba(1,103,151,0.7);
+	box-shadow: 0 0 50px rgba(244,117,33,0.7);
 }
 
 /* ==========================================================================
@@ -263,7 +263,7 @@
 	font-weight: 200;
 	font-size: 26px;
 	line-height: 30px;
-	border-left: 9px solid #19a0cf;
+	border-left: 9px solid #f47521;
 	font: 300 26px "Titillium Web", sans-serif;
 } 
 .m-article blockquote p {
@@ -345,7 +345,7 @@
 	font-weight: 400;	
 }
 .m-footer-nav ul li a:hover {
-	color: #19a0cf;
+	color: #f47521;
 }
 .m-copyright {
 	margin-top: 30px;

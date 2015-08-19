@@ -14,6 +14,7 @@
 
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/normalize.min.css" />
 
+
 <?php
 /* ------------------------------------------------------------------------
 	Petersens Hunting 
@@ -31,6 +32,7 @@
 
 
 
+
 /* ------------------------------------------------------------------------
 	Wildfowl 
 -------------------------------------------------------------------------- */		
@@ -43,26 +45,32 @@
 <?php	} 
 
 
+
+
 /* ------------------------------------------------------------------------
 	Game and Fish 
 -------------------------------------------------------------------------- */		
 	} elseif ($dartDomain == "imo.gameandfish") { 
+		
+		$deer_zone_cat = array("deer-zone", "ne", "se", "mw", "sw", "nw", "dz-sweeps");
+		
 		if ( is_category('crossbows') || in_category('crossbows') || in_category('crossbow-revolution')) {	
-	?>
+?>
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/microsite-default.css" />
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/gameandfish/microsite-crossbows.css" />
-<!-- 		<meta property="og:image" content="http://www.in-fisherman.com/files/2015/06/RR-sweeps-no-btn-968x504FB.jpg" /> -->
 				
-<?php	} elseif ( is_category('deer-zone') || in_category('deer-zone')) { ?>
-		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/gameandfish/microsite-rigged-ready.css" />
-			<?php // This meta is inserted to display featured share image for facebook
+<?php	} elseif ( is_category("deer-zone") || in_category("deer-zone")) { ?>
+		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/gameandfish/microsite-deer-zone.css" />
+<?php // This meta is inserted to display featured share image for facebook
 				if ( is_category('sweeps')) { ?>
-					<meta property="og:image" content="http://www.in-fisherman.com/files/2015/06/RR-sweeps-no-btn-968x504FB.jpg" />
-			<?php } ?>
+<!-- 					<meta property="og:image" content="http://www.in-fisherman.com/files/2015/06/RR-sweeps-no-btn-968x504FB.jpg" /> -->
+<?php 				} ?>
 <?		} else { ?>
-		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/microsite-default.css" />
+			<!-- NOTHING -->
 <?php	} 
 	
+
+
 
 /* ------------------------------------------------------------------------
 	In-fisherman 
@@ -83,6 +91,8 @@
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/in-fisherman/microsite-<?php echo $catslug ?>.css" />
 <?php	} 
 
+
+
 	
 /* ------------------------------------------------------------------------
 	Guns and Ammo 
@@ -98,6 +108,9 @@
 <?php	} ?>
 
 <?php
+	
+	
+	
 /*------------------------------------------------------------------------
 	Else 
 --------------------------------------------------------------------------*/	

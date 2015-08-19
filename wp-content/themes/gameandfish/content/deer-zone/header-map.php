@@ -1,6 +1,6 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 752.5 422.1" enable-background="new 0 0 752.5 422.1" xml:space="preserve">
-<a xlink:href="/rigged-ready/nw/">	
+<a xlink:href="/deer-zone/nw/">	
 	<g class="m-map-northwest m-map-region">
 		<path class="m-map-path" fill="#333333" d="M51.5,36.4l4.8-9.9l-1.5-10.7l-1.8-7c0,0,38.1,9.3,68.1,14.3s108.6,16.7,135.1,14.8
 			c-2.5,57.1-5.6,129.7-5.6,129.7l24.4,0.9l-1.4,65.7c0,0-89.5-2.7-154-13.2c-0.4,20.9-7.9,13-9.4,13s-1.8,14.7-1.8,14.7l0.7,12.7
@@ -11,7 +11,7 @@
 		<text transform="matrix(1 0 0 1 28.5077 148.9843)" fill="#EEEEEE" font-family="'Lato'" font-size="30">NORTHWEST</text>
 	</g>
 </a>	
-<a xlink:href="/rigged-ready/sw/">	
+<a xlink:href="/deer-zone/sw/">	
 	<g class="m-map-southwest m-map-region">
 		<path class="m-map-path" fill="#444444" d="M98.9,289.9l3.6-3c0,0,1.1-10.6,2.1-12.5s4.8-9.1,4.8-9.1l-2.1-10.9l1-13.9c0,0-3.4-6.6,1.7-7.3
 			c5.2-0.7,7.1,10.1,8-7.7c0.1-2.7,1.3-5.4,1.3-5.4s122.6,22.5,249.8,11.4c0.4,8.2-0.8,7.9,2.5,18.1s1.9,21,2,25.9
@@ -22,7 +22,7 @@
 		<text transform="matrix(1 0 0 1 147.5077 286.8578)" fill="#EEEEEE" font-family="'Lato'" font-size="30">SOUTHWEST</text>
 	</g>
 </a>
-<a xlink:href="/rigged-ready/se/">	
+<a xlink:href="/deer-zone/se/">	
 	<g class="m-map-southeast m-map-region">
 		<path class="m-map-path" fill="#333333" d="M369.8,240.6c0,0,53.4-3.9,55.1-4.3c1.7-0.4,0.7,7.3,0.7,7.7c0,0.3,8.6-1.2,9.1-2.2
 			c0.5-1,6.2-13.3,5.4-15.1c-0.8-1.8,2.8-1.6,5.4-2.1c2.7-0.4,4.9-6.6,6.1-8.5c1.2-1.9,5.4-5.9,9.1-6.8c3.7-1,15.6-4.4,15.6-4.4
@@ -39,7 +39,7 @@
 		<text transform="matrix(1 0 0 1 411.2679 286.8578)" fill="#EEEEEE" font-family="'Lato'" font-size="30">SOUTHEAST</text>
 	</g>
 </a>
-<a xlink:href="/rigged-ready/mw/">	
+<a xlink:href="/deer-zone/mw/">	
 	<g class="m-map-midwest m-map-region">
 		<path class="m-map-path" fill="#555555" d="M256.9,37.9c0,0,79.7,3,95.5-0.5c4.7-0.1,4.7-0.1,4.7-0.1s-1.3,4.4,1.8,4.3c3.1-0.1,11.7-0.3,15,0.2
 			s7.2,5.8,10.7,5.7c3.6-0.1,7.9-0.6,13.3-0.1c5.5,0.4,11,0,11.3,0.4c0.3,0.4,7.4-0.7,4.4,1.5c-3,2.3-10.4,8.4-13.5,10.5
@@ -57,7 +57,7 @@
 		<text transform="matrix(1 0 0 1 292.5077 148.9843)" fill="#EEEEEE" font-family="'Lato'" font-size="30">MIDWEST</text>
 	</g>
 </a>
-<a xlink:href="/rigged-ready/ne/">	
+<a xlink:href="/deer-zone/ne/">	
 	<g class="m-map-northeast m-map-region">
 		<path class="m-map-path" fill="#444444" d="M533.7,128c0,0,16.8-10.8,14.8-15.3c-2-4.6-8.1-9.7,3.6-11.1c11.7-1.4,29.1-1.8,25.7-11.3
 			c-3.4-9.5-6.4-13.5,0.4-19.1s44.6-16.7,44.6-16.7l3.5-6.3l3.6-3.6c0,0-0.3-8.7,0.5-14.1c0.8-5.4,2.2-12.8,3.3-16.6

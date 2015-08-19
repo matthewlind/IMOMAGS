@@ -1,8 +1,4 @@
-<?php
-	$microsite = true;
-	$category_id = get_cat_ID( 'shoot101' );
-	$category_link = get_category_link( $category_id );	
-?>
+<?php $microsite = true; ?>
 <footer class="m-footer clearfix">
 	<div class="m-footer-bottom">
 		<div class="m-logo-nav">
@@ -28,7 +24,7 @@
 	<script>
       var cb = function() {
         var l = document.createElement('link'); l.rel = 'stylesheet';
-        l.href = '<?php bloginfo('template_directory'); ?>/css/microsite-css/in-fisherman/under-fold-rigged-ready.css';
+        l.href = '<?php bloginfo('template_directory'); ?>/css/microsite-css/gameandfish/under-fold-deer-zone.css';
         var h = document.getElementsByTagName('link')[0]; h.parentNode.insertBefore(l, h);
       };
       var raf = requestAnimationFrame || mozRequestAnimationFrame ||
