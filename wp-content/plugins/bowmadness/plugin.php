@@ -302,7 +302,7 @@ function jsGAMRender($mobile) {
 		 .	'  <div class="column column4"></div>'
 		 .  '</div>';
 
-	if($madnessround < 6) {		 
+	//if($madnessround < 6) {		 
 	$outp.= '<div class="regions region-final">'
 		 .  '<div class="finalsadvert" style="margin-top:0px;">'
 		 .  ' 	<!-- Site - Bowhunting/battle_of_the_bows/bob_presenting_sponsor -->'
@@ -315,11 +315,11 @@ function jsGAMRender($mobile) {
 		 .  '  <div class="final-wrapper">'
 		 .  '    <h2>Final Round</h2>'
 		 .  '    <div class="column column5 match186"></div>'
-		 .  '    <div class="column column6 match187"></div>'
-		 .  '    <div class="column column7 match188"></div>'
+		 .  '    <div class="column column6 match188"></div>'
+		 .  '    <div class="column column7 match187"></div>'
 		 .  '  </div>'		 
 		 .  '</div>';
-	}
+	//}
 		 
 	$outp.= '<div class="region-titles">'
 		 .	'  <div class="region-left">'
@@ -371,8 +371,8 @@ function jsGAMRender($mobile) {
 	
 		 .  '	getGAMData(0,"186,187,188");'
 		 .  '   getStats();'
-		 .  '   setTimeout(function(){makeGAMPopup()}, 2000);'
-		 .  '   setTimeout(function(){autoPopup()}, 2500);'
+		 .  '   setTimeout(function(){makeGAMPopup()}, 3000);'
+		 .  '   setTimeout(function(){autoPopup()}, 3500);'
 		 .	'});';
 
 	$outp.= '</script>';
