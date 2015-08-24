@@ -256,7 +256,7 @@ function jsGAMRender($mobile) {
 		 .  '</div>'
 			
 		 .  '  <div class="final-wrapper">'
-		 .  '    <h2>Final Round</h2>'
+		 //.  '    <h2>Final Round</h2>'
 		 .  '    <div class="column column5 match155"></div>'
 		 .  '    <div class="column column6 match157" style="padding-top:20px;"></div>'
 		 .  '    <div class="column column7 match156"></div>'
