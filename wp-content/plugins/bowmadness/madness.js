@@ -23,7 +23,7 @@
 			
 			success: function(resp, status, jqxhr) {
 				madnessround = resp[0].activeround;
-				jQuery('#madtabs').tabs({active: (madnessround - 3)});
+				jQuery('#madtabs').tabs({active: (madnessround - 4)});
 			}
 
 		});	
