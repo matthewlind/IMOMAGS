@@ -1240,9 +1240,9 @@ h1, h2, h3, h4, h5 {
 /* Header *******************/
 .main-header {width: 92%;margin: 0 auto;}
 .menu-area {position: relative;}
-.microsite-logo {width: auto;border-bottom: none;float: left;}
+.microsite-logo {width: auto;border-bottom: none;float: left; z-index: 300;}
 .microsite-logo img {margin: 0;}
-.nav-container {height: auto;}
+.nav-container {height: auto; z-index: 200;}
 .main-nav {margin: 50px 0 0 20px;}
 .single .main-nav, .main-nav {float: left;text-align: left;margin: 50px 0 0 20px;}
 .single .main-nav > ul, .main-nav > ul {margin: 0; width: auto;}
