@@ -6,7 +6,7 @@
 				<div title="track tips"></div>
 			</div>
 			<p>Win a 7 Night 6 Day Fishing trip in<br> Costa Rica</p>
-			<a href="/deer-zone/dr-sweeps/" class="blue-round-btn">
+			<a href="/deer-zone/dz-sweeps/" class="blue-round-btn">
 				<span class="m-text-under">ENTER TO WIN!</span>
 				<div class="m-btn-horizontal"></div>
 				<div class="m-btn-vertical"></div>

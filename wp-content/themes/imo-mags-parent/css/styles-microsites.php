@@ -59,7 +59,7 @@
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/microsite-default.css" />
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/gameandfish/microsite-crossbows.css" />
 				
-<?php	} elseif ( is_category("deer-zone") || in_category("deer-zone")) { ?>
+<?php	} elseif ( is_category($deer_zone_cat) || in_category($deer_zone_cat)) { ?>
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' ); ?>/css/microsite-css/gameandfish/microsite-deer-zone.css" />
 <?php // This meta is inserted to display featured share image for facebook
 				if ( is_category('sweeps')) { ?>

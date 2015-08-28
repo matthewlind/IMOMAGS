@@ -55,7 +55,7 @@
 	</article>
 </div><!-- .m-article-wrap -->
 					
-<?php get_template_part('content/rigged-ready/sweeps', 'banner'); ?>						
-<?php get_template_part('content/rigged-ready/choose', 'location-bottom'); ?>			
+<?php get_template_part('content/deer-zone/sweeps', 'banner'); ?>						
+<?php get_template_part('content/deer-zone/choose', 'location-bottom'); ?>			
 
 <?php get_footer(); ?> 
