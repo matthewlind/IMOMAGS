@@ -71,7 +71,7 @@
 	</article>
 </div><!-- .m-article-wrap -->
 
-<?php get_template_part('content/'.$category_parent_slug.'/sweeps', 'banner'); ?>
+<?php get_template_part('content//microsite-template-parts/'.$category_parent_slug.'/sweeps', 'banner'); ?>
 
 <div class="m-more">
 	<h2>More Stories
@@ -121,7 +121,7 @@
 	</div><!-- .m-more-wrap -->
 </div><!-- .m-more -->
 
-<?php get_template_part('content/'.$category_parent_slug.'/choose', 'location-bottom'); ?>
+<?php get_template_part('content/microsite-template-parts/'.$category_parent_slug.'/choose', 'location-bottom'); ?>
 
 
 <?php get_footer(); ?>

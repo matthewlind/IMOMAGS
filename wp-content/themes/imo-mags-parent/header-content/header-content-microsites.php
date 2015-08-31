@@ -29,10 +29,12 @@
 /* ------------------------------------------------------------------------
 	Game and Fish 
 ---------------------------------------------------------------------------*/
-	elseif ($dartDomain == "imo.gameandfish") { 		
+	elseif ($dartDomain == "imo.gameandfish") { 
+		$deer_zone_cat = array("deer-zone", "ne", "se", "mw", "sw", "nw", "dz-sweeps");
+				
 		if ( is_category('crossbows') || in_category('crossbows') || in_category('crossbow-revolution')) {
 			get_template_part('header-content/microsites/gameandfish/header-content', 'crossbows');
-		} elseif ( is_category('deer-zone') || in_category('deer-zone')) {
+		} elseif ( is_category($deer_zone_cat) || in_category($deer_zone_cat)) {
 			get_template_part('header-content/microsites/gameandfish/header-content', 'deer-zone');
 		} 
 	}

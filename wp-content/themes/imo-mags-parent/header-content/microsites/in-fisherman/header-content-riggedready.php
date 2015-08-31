@@ -11,7 +11,7 @@
 					<div class="m-map-circle"></div>
 					<h5>Where would you like to fish?</h5>
 					<div class="m-map-wrap">
-						<?php  get_template_part('../infisherman/content/rigged-ready/header', 'map'); ?>
+						<?php  get_template_part('content/microsite-template-parts/rigged-ready/header', 'map'); ?>
 					</div>
 					<i class="icon-cross"></i>
 				</div>
