@@ -8,9 +8,11 @@
 	$cat_slug = $category[0]->slug;
 	$cat_name = $category[0]->cat_name;
 	
+/*
 	$category_parent_id = $category[0]->category_parent;
 	$category_parent = get_term( $category_parent_id, 'category' );
 	$category_parent_slug = $category_parent->slug;
+*/
 
 	$image_full = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 	$image_large = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'lafge' );	
@@ -71,7 +73,16 @@
 	</article>
 </div><!-- .m-article-wrap -->
 
-<?php get_template_part('content//microsite-template-parts/'.$category_parent_slug.'/sweeps', 'banner'); ?>
+<?php
+	
+	if (in_category('rigged-ready')) {
+		get_template_part('content//microsite-template-parts/rigged-ready/sweeps', 'banner'); 
+	} elseif (in_category('deer-zone')) {
+		get_template_part('content//microsite-template-parts/deer-zone/sweeps', 'banner'); 
+	}
+	
+	 
+?>
 
 <div class="m-more">
 	<h2>More Stories
@@ -121,7 +132,12 @@
 	</div><!-- .m-more-wrap -->
 </div><!-- .m-more -->
 
-<?php get_template_part('content/microsite-template-parts/'.$category_parent_slug.'/choose', 'location-bottom'); ?>
-
-
-<?php get_footer(); ?>
+<?php 
+	if (in_category('rigged-ready')) {
+		get_template_part('content/microsite-template-parts/rigged-ready/choose', 'location-bottom');  
+	} elseif (in_category('deer-zone')) {
+		get_template_part('content/microsite-template-parts/deer-zone/choose', 'location-bottom');  
+	}
+	
+	get_footer(); 
+?>
