@@ -9,5 +9,5 @@
 	$cat_slug =  $yourcat->slug;
 	
 	
-	include(get_stylesheet_directory() . '/content/deer-zone/region-category-template.php');
+	include(get_template_directory() . '/content/microsite-template-parts/deer-zone/region-category-template.php');
 ?>

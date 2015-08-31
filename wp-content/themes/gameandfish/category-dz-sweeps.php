@@ -55,7 +55,7 @@
 	</article>
 </div><!-- .m-article-wrap -->
 					
-<?php get_template_part('content/deer-zone/sweeps', 'banner'); ?>						
-<?php get_template_part('content/deer-zone/choose', 'location-bottom'); ?>			
+<?php get_template_part('../imo-mags-parent/content/microsite-template-parts/deer-zone/sweeps', 'banner'); ?>						
+<?php get_template_part('../imo-mags-parent/content/microsite-template-parts/deer-zone/choose', 'location-bottom'); ?>		
 
 <?php get_footer(); ?> 
