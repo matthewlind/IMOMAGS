@@ -8,9 +8,8 @@
 		<div class="m-direction">
 			<span>WIN!</span>
 		</div>
-		<div class="m-sweep-text">
-			<h1>Get Rigged & Ready<br><span>TO FISH<br> COSTA RICA!</span></h1>
-			<p>Win an all-expense paid 7 Night 6 Day Fishing trip for two in Nosara, Costa Rica home to some of the best Sport Fishing in Central America.</p>
+		<div class="sweep-text">
+
 		</div>
 	</div><!-- .m-article-image -->
 	<article class="m-article clearfix">
