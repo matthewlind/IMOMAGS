@@ -8,9 +8,9 @@
 	padding: 0 25px;
 	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
 	text-shadow: 0 1px 3px rgba(0,0,0,0.5);
-	color: #f47521;
+	color: #19a0cf;
 	font: 400 14px/30px 'Lato', Helvetica, Arial, sans-serif;
-	border: 2px solid #f47521;
+	border: 2px solid #19a0cf;
 	height: 36px;	
 	border-radius: 18px;
 	-webkit-transition:all 0.4s;
@@ -31,7 +31,7 @@
 	width: 100%;
 	position: absolute;
 	top:0; bottom: 0;left:0; right: 0; margin: auto;
-	background-color: #f47521;
+	background-color: #19a0cf;
 	opacity: 0;
 	-webkit-transition:all 0.4s;
 	-moz-transition:all 0.4s;
@@ -43,7 +43,7 @@
 	height: 100%;
 	position: absolute;
 	top:0; bottom: 0;left:0; right: 0; margin: auto;
-	background-color: #f47521;
+	background-color: #19a0cf;
 	opacity: 0;
 	-webkit-transition:all 0.4s;
 	-moz-transition:all 0.4s;
@@ -119,17 +119,17 @@
 	text-align: center;
 }
 .m-truck-container:first-child .m-truck {
-	background: url("/wp-content/themes/gameandfish/images/deer-zone/sweeps-banner-mobile.png") no-repeat left bottom / 480px;
+	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sweeps-banner-mobile.png") no-repeat left bottom / 480px;
 }
 .m-truck-container:last-child .m-truck {
-	background: url("/wp-content/themes/gameandfish/images/deer-zone/truck-ram-mobile.png") no-repeat left bottom / 480px;
+	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/truck-ram-mobile.png") no-repeat left bottom / 480px;
 }
 .m-truck-title {
 	position: absolute;
 	top:6px;left:0; right: 0; margin: 0 auto;
 }
 .m-truck-title h3 {
-	color: #f47521;
+	color: #19a0cf;
 	font-size: 14px;
 	display: inline-block;
 	font-family: "Lato", sans-serif;
@@ -138,12 +138,12 @@
 	height:32px;
 	width: 130px;
 	display: inline-block;
-	background: url("/wp-content/themes/gameandfish/images/deer-zone/sprite.png") 0px -490px / 233px no-repeat;
+	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") 0px -490px / 233px no-repeat;
 	margin-left: 10px;
 	vertical-align: middle;
 }
 .m-banners .m-truck-container:first-child .m-truck-title > div {
-	background: url("/wp-content/themes/gameandfish/images/deer-zone/sprite.png") 0px -381px / 233px no-repeat;
+	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") 0px -381px / 233px no-repeat;
 	width: 145px;
 }
 .m-truck > p {
@@ -159,8 +159,8 @@
 .m-banners .m-truck-container:first-child .blue-round-btn {
 	box-shadow: 1px 3px 4px rgba(0,0,0,1);
 	text-shadow: 1px 3px 4px rgba(0,0,0,1);
-	color: #f47521;
-	border-color: #f47521;
+	color: #1ea9da;
+	border-color: #1ea9da;
 }
 .m-banners .m-truck-container:first-child .blue-round-btn:hover {
 	color: #eeeeee;
@@ -208,7 +208,7 @@
 .m-loc-circle {
 	width: 100%;
 	padding-top: 100%;
-	background: url("/wp-content/themes/gameandfish/images/deer-zone/choose-location-footer.jpg") no-repeat 0 0 / 100%;
+	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/choose-location-footer.jpg") no-repeat 0 0 / 100%;
 	-webkit-transition: all 0.6s ease;
 	transition: all 0.6s ease;
 }
@@ -246,10 +246,10 @@
 .m-loc-wrap > ul > li > a:hover .m-loc-circle {
 	-webkit-transition: all 0.6s ease;
 	transition: all 0.6s ease;
-	box-shadow: 0 0 100px rgba(244,117,33,0.7);
+	box-shadow: 0 0 100px rgba(1,103,151,0.7);
 }
 .m-shiny-circle {
-	box-shadow: 0 0 50px rgba(244,117,33,0.7);
+	box-shadow: 0 0 50px rgba(1,103,151,0.7);
 }
 
 /* ==========================================================================
@@ -263,7 +263,7 @@
 	font-weight: 200;
 	font-size: 26px;
 	line-height: 30px;
-	border-left: 9px solid #f47521;
+	border-left: 9px solid #19a0cf;
 	font: 300 26px "Titillium Web", sans-serif;
 } 
 .m-article blockquote p {
@@ -331,7 +331,7 @@
 	width: 113px;
 	height: 35px;
 	margin: 0 auto 15px;
-	background: url("/wp-content/themes/gameandfish/images/deer-zone/sprite.png") 0px -318px / 202px no-repeat;
+	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") 0px -318px / 202px no-repeat;
 }
 .m-footer-nav ul {
 	list-style: none;
@@ -345,7 +345,7 @@
 	font-weight: 400;	
 }
 .m-footer-nav ul li a:hover {
-	color: #f47521;
+	color: #19a0cf;
 }
 .m-copyright {
 	margin-top: 30px;
