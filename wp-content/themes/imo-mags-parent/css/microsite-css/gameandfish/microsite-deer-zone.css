@@ -65,11 +65,74 @@ a:hover {
    ========================================================================== */
    
    
-.category-sweeps .m-article-image {
-	background: url('/wp-content/themes/gameandfish/images/deer-zone/sweepstakes/fishing-nosara@2.jpg') no-repeat center center / cover;
+.category-dz-sweeps .m-article-image {
+	position: relative;
+    width: 100%;
+    padding-top: 0;
+    height: 452px;
+	background: url(/wp-content/themes/gameandfish/images/deer-zone/sweepstakes/nebraska@2.jpg) no-repeat center center / cover;
 }
-.category-sweeps .m-article-image .m-direction {
-	background: url('/wp-content/themes/gameandfish/images/deer-zone/sweepstakes/sweep-triangle.png') no-repeat center / 100%;
+.sweeps-text {
+	position: absolute;
+	width: 100%;
+	padding: 0 20px;
+	left: 0; right: 0; top: 30px;
+	margin: 0 auto;
+	text-align: center;
+}
+.sweeps-text h1 {
+	font: 700 20px "Lato", sans-serif;
+	color: white;
+	text-shadow: 1px 1px 5px rgba(0,0,0,.7);
+	margin-bottom: 10px;
+}
+.sweeps-text-img {
+	width: 280px;
+	height: 100px;
+	margin: 0 auto;
+	background: url(/wp-content/themes/gameandfish/images/deer-zone/sweepstakes/nebraska-hunt@2.png) no-repeat top left / 100%;
+}
+.photo-collage {
+	position: absolute;
+	width: 320px;
+	height: 200px;
+	padding: 0 20px;
+	left: 0; right: 0; top: 180px;
+	margin: 0 auto;
+}
+.photo-collage > div {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.collage-1 {
+	position: absolute;
+	width: 155px;
+	top: 0; left: 0;
+	z-index: 200;
+}
+.collage-2 {
+	position: absolute;
+	width: 155px;
+	top: 20px; right: 0;
+	z-index: 100;
+}
+.sweeps-dark-bar {
+	position: absolute;
+	width: 100%;
+	height: 112px;
+	background-color: rgba(0,0,0,.4);
+	bottom: 0;
+	padding: 10px 20px;
+}
+.sweeps-dark-bar p {
+	color: white;
+	text-align: center;
+	margin: 0;
+}
+.sweeps-dark-bar span {
+	color: #f47521;
+	font-size: 20px;
 }
 
 
@@ -108,7 +171,7 @@ a:hover {
 .m-logo {background: url("/wp-content/themes/gameandfish/images/deer-zone/sprite.png") no-repeat 0 0 / 250px ;width: 250px;height: 132px;top: 8px;}
 
 /* Sweepstakes *******************/
-.category-sweeps .m-article-image {
+.category-dz-sweeps .m-article-image {
 	height: 454px;
 	background: url('/wp-content/themes/gameandfish/images/deer-zone/sweepstakes/fishing-nosara.jpg') no-repeat center center / cover;
 }
