@@ -248,13 +248,13 @@ a:hover, a:active, label:focus, label:active, i:hover {
 	transition:color 0.1s;
 }
 a {
-	color: #f47521;
+	color: #278bae;
 	-webkit-transition:color 0.1s;
 	-moz-transition:color 0.1s;
 	transition:color 0.1s;
 }
 a:hover {
-	color: #f47521;	
+	color: #19a0cf;	
 	-webkit-transition:color 0.1s;
 	-moz-transition:color 0.1s;
 	transition:color 0.1s;
@@ -296,7 +296,7 @@ body h1, body h2, body h3, body h4, body h5 {
 	font: 700 16px/30px "Lora", serif;
 }
 .top-panel a:hover {
-	color: #f47521;	
+	color: #19a0cf;	
 }
 
 .m-main-header {
@@ -325,7 +325,7 @@ body h1, body h2, body h3, body h4, body h5 {
 	left:0;right: 0; top:0; bottom:0; margin: auto;
 	width: 100%;
 	height: 100%;
-	background: url("/wp-content/themes/gameandfish/images/deer-zone/sprite.png") 0 -339px / 189px no-repeat;
+	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") 0 -339px / 189px no-repeat;
 	z-index: 100;
 }
 .m-compass-wrap span {
@@ -349,7 +349,7 @@ body h1, body h2, body h3, body h4, body h5 {
     position: absolute;
     top: -1px;
     left: -7px;
-    color: #f47521;
+    color: #278bae;
     -webkit-transition:all 0.5s ease;
 	-moz-transition:all 0.5s ease;
 	transition:all 0.5s ease;
@@ -370,7 +370,7 @@ body h1, body h2, body h3, body h4, body h5 {
 	transition:all 0.5s ease;
 }
 .m-nav:hover .m-choose-btn span {
-	color: #f47521;
+	color: #19a0cf;
 	-webkit-transition:all 0.5s ease;
 	-moz-transition:all 0.5s ease;
 	transition:all 0.5s ease;
@@ -383,10 +383,10 @@ body h1, body h2, body h3, body h4, body h5 {
 }
 .m-logo {
 	position: absolute;
-	background: url("/wp-content/themes/gameandfish/images/deer-zone/sprite.png") 0 0 / 192px no-repeat;
-	width: 192px;
-	height: 102px;
-	top: 76px;left: 0; right: 0;
+	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") 0 0 / 124px no-repeat;
+	width: 124px;
+	height: 95px;
+	top: 82px;left: 0; right: 0;
 	margin-left: auto; margin-right: auto;
 	z-index: 900;
 }
@@ -530,11 +530,11 @@ body h1, body h2, body h3, body h4, body h5 {
 	position: absolute;
 	top: 0; bottom:0; left:0; right: 0;
 }
-.m-regn .m-ne {background: url("/wp-content/themes/gameandfish/images/deer-zone/regions/mobile/northeast.jpg") no-repeat center center / 100%;}
-.m-regn .m-se {background: url("/wp-content/themes/gameandfish/images/deer-zone/regions/mobile/southeast.jpg") no-repeat center center / 100%;}
-.m-regn .m-mw {background: url("/wp-content/themes/gameandfish/images/deer-zone/regions/mobile/midwest.jpg") no-repeat center center / 100%;}
-.m-regn .m-sw {background: url("/wp-content/themes/gameandfish/images/deer-zone/regions/mobile/southwest.jpg") no-repeat center center / 100%;}
-.m-regn .m-nw {background: url("/wp-content/themes/gameandfish/images/deer-zone/regions/mobile/northwest.jpg") no-repeat center center / 100%;}
+.m-regn .m-ne {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/mobile/northeast.jpg") no-repeat center center / 100%;}
+.m-regn .m-se {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/mobile/southeast.jpg") no-repeat center center / 100%;}
+.m-regn .m-mw {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/mobile/midwest.jpg") no-repeat center center / 100%;}
+.m-regn .m-sw {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/mobile/southwest.jpg") no-repeat center center / 100%;}
+.m-regn .m-nw {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/mobile/northwest.jpg") no-repeat center center / 100%;}
 .m-direction {
 	position: absolute;
 	top: 0; bottom:0; left:0; right: 0; margin: auto;
@@ -545,7 +545,7 @@ body h1, body h2, body h3, body h4, body h5 {
 .m-triangle {
 	width: 100%;
 	height:100%;
-	background: url("/wp-content/themes/gameandfish/images/deer-zone/sprite.png") -25px -133px no-repeat;
+	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") -25px -133px no-repeat;
 	background-size: 150px;
 	text-align: center;
 }
@@ -587,19 +587,19 @@ body h1, body h2, body h3, body h4, body h5 {
 	background-repeat: no-repeat;
 }
 .category-ne .m-content-wrap {
-	background-image: url("/wp-content/themes/gameandfish/images/deer-zone/regions/mobile/northeast.jpg");
+	background-image: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/mobile/northeast.jpg");
 }
 .category-se .m-content-wrap {
-	background-image: url("/wp-content/themes/gameandfish/images/deer-zone/regions/mobile/southeast.jpg");
+	background-image: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/mobile/southeast.jpg");
 }
 .category-mw .m-content-wrap {
-	background-image: url("/wp-content/themes/gameandfish/images/deer-zone/regions/mobile/midwest.jpg");
+	background-image: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/mobile/midwest.jpg");
 }
 .category-sw .m-content-wrap {
-	background-image: url("/wp-content/themes/gameandfish/images/deer-zone/regions/mobile/southwest.jpg");
+	background-image: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/mobile/southwest.jpg");
 }
 .category-nw .m-content-wrap {
-	background-image: url("/wp-content/themes/gameandfish/images/deer-zone/regions/mobile/northwest.jpg");
+	background-image: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/mobile/northwest.jpg");
 }
 
 .category-ne .m-triangle {
@@ -744,7 +744,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 	width: 100%;
 	padding-top: 0;
 	height: 420px;
-	background: url('/wp-content/themes/gameandfish/images/deer-zone/sweepstakes/fishing-nosara@2.jpg') no-repeat center center / cover;
+	background: url('/wp-content/themes/infisherman/images/rigged-and-ready/sweepstakes/fishing-nosara@2.jpg') no-repeat center center / cover;
 }
 .category-sweeps .m-article-image .m-direction {
 	width: 157px;
@@ -752,7 +752,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 	top: 30px;
 	bottom: auto;
 	text-align: center;
-	background: url('/wp-content/themes/gameandfish/images/deer-zone/sweepstakes/sweep-triangle.png') no-repeat center / 100%;
+	background: url('/wp-content/themes/infisherman/images/rigged-and-ready/sweepstakes/sweep-triangle.png') no-repeat center / 100%;
 }
 .category-sweeps .m-article-image .m-direction span {
 	font-size: 28px;
@@ -852,19 +852,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 
 /* Header *******************/
 .m-main-header {height: 76px;}
-.m-logo {top: 11px;}
+.m-logo {top: 17px;}
 .m-circle-wrap {display: none;}
 .m-social-buttons ul {margin-top:17px;}
 
 /* Home Page *******************/
-/* .m-truck {background: url("/wp-content/themes/gameandfish/images/deer-zone/truck-ram.png") no-repeat left bottom / 1480px;} */
+/* .m-truck {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/truck-ram.png") no-repeat left bottom / 1480px;} */
 
 /* Banners *******************/
 .m-truck-container:first-child .m-truck {
-	background: url("/wp-content/themes/gameandfish/images/deer-zone/sweeps-banner.png") no-repeat left bottom / 1280px;
+	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sweeps-banner.png") no-repeat left bottom / 1280px;
 }
 .m-truck-container:last-child .m-truck {
-	background: url("/wp-content/themes/gameandfish/images/deer-zone/truck-ram.png") no-repeat left bottom / 1280px;
+	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/truck-ram.png") no-repeat left bottom / 1280px;
 }
 
 /* Region Page *******************/ 
@@ -900,7 +900,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 /* Home Page *******************/
 .m-home-wrap {margin-bottom: 300px;}
 .m-direction {width: 106px;height:106px;}
-.m-triangle {background: url("/wp-content/themes/gameandfish/images/deer-zone/sprite.png") -35px -172px no-repeat;background-size: 192px;}
+.m-triangle {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") -35px -172px no-repeat;background-size: 192px;}
 .m-direction span {font: 700 16px/106px "Lato", sans-serif;}
 
 /* Banners *******************/
@@ -930,7 +930,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 	height:140px;
 }
 .category-ne .m-triangle, .category-se .m-triangle, .category-mw .m-triangle, .category-sw .m-triangle, .category-nw .m-triangle  {
-	background: url("/wp-content/themes/gameandfish/images/deer-zone/sprite.png") -33px -197px / 230px no-repeat;
+	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") -33px -197px / 230px no-repeat;
 }
 .category-ne .m-direction span, .category-se .m-direction span, .category-mw .m-direction span, .category-sw .m-direction span, .category-nw .m-direction span {font: 700 21px/140px "Lato", sans-serif;}
 
@@ -984,13 +984,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 .m-nav-erea { margin-top: 12px; padding: 0 3%;}
 .m-nav {margin-left: 0;}
 .m-compass-wrap {width: 76px;height: 68px;}
-.m-compass {width: 68px;height: 68px;background: url("/wp-content/themes/gameandfish/images/deer-zone/sprite.png") no-repeat 0 -425px / 237px;}
+.m-compass {width: 68px;height: 68px;background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") no-repeat 0 -425px / 237px;}
 .m-compass-wrap span {line-height: 68px;font-size: 13px;}
 .m-choose-btn {margin: 19px 0 0 10px;}
 .m-choose-btn i {font-size: 27px;top: 1px;}
 .m-choose-btn span {font: 700 11px/15px "Lato", sans-serif;left: 18px;}
 .m-choose-btn span:last-child {top: 13px;}
-.m-logo {background: url("/wp-content/themes/gameandfish/images/deer-zone/sprite.png") no-repeat 0 0 / 250px ;width: 250px;height: 132px;top: 8px;}
+.m-logo {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") no-repeat 0 0 / 168px ;width: 168px;height: 128px;top: 13px;}
 
 /* Region Page *******************/
 .m-content-shadow {top: 6.1%;}
@@ -1010,7 +1010,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 
 .category-sweeps .m-article-image {
 	height: 454px;
-	background: url('/wp-content/themes/gameandfish/images/deer-zone/sweepstakes/fishing-nosara.jpg') no-repeat center center / cover;
+	background: url('/wp-content/themes/infisherman/images/rigged-and-ready/sweepstakes/fishing-nosara.jpg') no-repeat center center / cover;
 }
 .category-sweeps .m-article-image .m-direction {
 	width: 213px;
@@ -1061,13 +1061,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 .m-regn > li > a:hover {box-shadow: inset 0 0 10px rgba(0,0,0,0.7);-webkit-transition: all 0.4s ease;transition: all 0.4s ease;}
 .m-regn > li > a:hover .m-direction {-webkit-transform: scale(1.2);transform: scale(1.2);-webkit-transition: all 0.3s ease;transition: all 0.3s ease;}
 .m-direction {width: 85px;height: 85px;-webkit-transition: all 0.3s ease;transition: all 0.3s ease;}
-.m-triangle {background: url("/wp-content/themes/gameandfish/images/deer-zone/sprite.png") -25px -133px no-repeat;background-size: 150px;}
+.m-triangle {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") -25px -133px no-repeat;background-size: 150px;}
 .m-direction span {font: 700 14px/85px "Lato", sans-serif;}
-.m-regn .m-ne {background: url("/wp-content/themes/gameandfish/images/deer-zone/regions/desktop/northeast.jpg") no-repeat 25% center / 100%;}
-.m-regn .m-se {background: url("/wp-content/themes/gameandfish/images/deer-zone/regions/desktop/southeast.jpg") no-repeat 51% center / 100%;}
-.m-regn .m-mw {background: url("/wp-content/themes/gameandfish/images/deer-zone/regions/desktop/midwest.jpg") no-repeat center / 100%;}
-.m-regn .m-sw {background: url("/wp-content/themes/gameandfish/images/deer-zone/regions/desktop/southwest.jpg") no-repeat 55% center / 100%;}
-.m-regn .m-nw {background: url("/wp-content/themes/gameandfish/images/deer-zone/regions/desktop/northwest.jpg") no-repeat 70% center / 100%;}
+.m-regn .m-ne {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/desktop/northeast.jpg") no-repeat 25% center / 100%;}
+.m-regn .m-se {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/desktop/southeast.jpg") no-repeat 51% center / 100%;}
+.m-regn .m-mw {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/desktop/midwest.jpg") no-repeat center / 100%;}
+.m-regn .m-sw {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/desktop/southwest.jpg") no-repeat 55% center / 100%;}
+.m-regn .m-nw {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/desktop/northwest.jpg") no-repeat 70% center / 100%;}
 
 /* Banners *******************/
 .m-truck-container {position: relative;height: 133px;bottom: auto;}
@@ -1088,11 +1088,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 .p-container a:nth-of-type(5n+4) .post-box,
 .p-container a:nth-of-type(5n+5) .post-box {margin: 0 0.5% 2.5% ;width: 32.3333333%;padding-top: 21.66333333%;}
 
-.category-ne .m-content-wrap {background-image: url("/wp-content/themes/gameandfish/images/deer-zone/regions-back/northeast.jpg");}
-.category-se .m-content-wrap {background-image: url("/wp-content/themes/gameandfish/images/deer-zone/regions-back/southeast.jpg");}
-.category-mw .m-content-wrap {background-image: url("/wp-content/themes/gameandfish/images/deer-zone/regions-back/midwest.jpg");}
-.category-sw .m-content-wrap {background-image: url("/wp-content/themes/gameandfish/images/deer-zone/regions-back/southwest.jpg");}
-.category-nw .m-content-wrap {background-image: url("/wp-content/themes/gameandfish/images/deer-zone/regions-back/northwest.jpg");}
+.category-ne .m-content-wrap {background-image: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions-back/northeast.jpg");}
+.category-se .m-content-wrap {background-image: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions-back/southeast.jpg");}
+.category-mw .m-content-wrap {background-image: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions-back/midwest.jpg");}
+.category-sw .m-content-wrap {background-image: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions-back/southwest.jpg");}
+.category-nw .m-content-wrap {background-image: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions-back/northwest.jpg");}
 
 /* Choose Location Footer *******************/ 
 .m-loc-wrap {margin: 0 -3%;}
@@ -1159,7 +1159,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 .m-content-shadow {top: 22%;}
 .m-content {padding: 400px 4% 0;}
 .category-ne .m-direction, .category-se .m-direction, .category-mw .m-direction, .category-sw .m-direction, .category-nw .m-direction {top: 130px;width: 180px;height:180px;}
-.category-ne .m-triangle, .category-se .m-triangle, .category-mw .m-triangle, .category-sw .m-triangle, .category-nw .m-triangle  { background: url("/wp-content/themes/gameandfish/images/deer-zone/sprite.png") no-repeat -50px -271px / 311px;}
+.category-ne .m-triangle, .category-se .m-triangle, .category-mw .m-triangle, .category-sw .m-triangle, .category-nw .m-triangle  { background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") no-repeat -50px -271px / 311px;}
 
 .category-ne .m-direction span, .category-se .m-direction span, .category-mw .m-direction span, .category-sw .m-direction span, .category-nw .m-direction span {font: 700 31px/180px "Lato", sans-serif;}
 
@@ -1176,7 +1176,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 .category-sweeps .m-social-wrap:last-child {margin-bottom: 100px;}
 /*
 .category-sweeps .m-article-wrap {
-	background: url('/wp-content/themes/gameandfish/images/deer-zone/sweepstakes/billfish.png') #fff no-repeat center bottom / 90%;
+	background: url('/wp-content/themes/infisherman/images/rigged-and-ready/sweepstakes/billfish.png') #fff no-repeat center bottom / 90%;
 }
 */
 
@@ -1211,7 +1211,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 
 /* Home Page *******************/
 .m-direction {width: 106px;height:106px;}
-.m-triangle {background: url("/wp-content/themes/gameandfish/images/deer-zone/sprite.png") -35px -172px no-repeat;background-size: 192px;}
+.m-triangle {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") -35px -172px no-repeat;background-size: 192px;}
 .m-direction span {font: 700 16px/106px "Lato", sans-serif;}
 
 /* Region Page *******************/
