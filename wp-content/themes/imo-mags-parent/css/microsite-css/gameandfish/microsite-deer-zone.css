@@ -79,16 +79,17 @@ a:hover {
 	left: 0; right: 0; top: 30px;
 	margin: 0 auto;
 	text-align: center;
+	z-index: 300;
 }
 .sweeps-text h1 {
 	font: 700 20px "Lato", sans-serif;
 	color: white;
 	text-shadow: 1px 1px 5px rgba(0,0,0,.7);
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 }
 .sweeps-text-img {
-	width: 280px;
-	height: 100px;
+	width: 260px;
+	height: 110px;
 	margin: 0 auto;
 	background: url(/wp-content/themes/gameandfish/images/deer-zone/sweepstakes/nebraska-hunt@2.png) no-repeat top left / 100%;
 }
@@ -97,7 +98,7 @@ a:hover {
 	width: 320px;
 	height: 200px;
 	padding: 0 20px;
-	left: 0; right: 0; top: 180px;
+	left: 0; right: 0; top: 192px;
 	margin: 0 auto;
 }
 .photo-collage > div {
@@ -134,6 +135,12 @@ a:hover {
 	color: #f47521;
 	font-size: 20px;
 }
+.category-dz-sweeps .m-social-wrap {
+    width: 240px;
+    margin: 20px auto 0;
+}
+
+
 
 
 @media only screen and (min-width: 480px) {/* smartphones, Android phones, landscape iPhone */
@@ -168,19 +175,65 @@ a:hover {
 
 @media only screen and (min-width: 700px) {
 
-.m-logo {background: url("/wp-content/themes/gameandfish/images/deer-zone/sprite.png") no-repeat 0 0 / 250px ;width: 250px;height: 132px;top: 8px;}
+.m-logo {background: url(/wp-content/themes/gameandfish/images/deer-zone/sprite.png) no-repeat 0 0 / 250px ;width: 250px;height: 132px;top: 8px;}
 
 /* Sweepstakes *******************/
 .category-dz-sweeps .m-article-image {
 	height: 454px;
-	background: url('/wp-content/themes/gameandfish/images/deer-zone/sweepstakes/fishing-nosara.jpg') no-repeat center center / cover;
+	background: url(/wp-content/themes/gameandfish/images/deer-zone/sweepstakes/nebraska.jpg) no-repeat center center / cover;
 }
+.sweeps-text {
+	width: 59%;
+	padding: 0;
+	left: 10%; right: auto; top: 72px;
+	margin: 0;
+	text-align: left;
+}
+.sweeps-text h1 {
+	font-size: 28px;
+}
+.sweeps-text-img {
+	width: 100%;
+	height: auto;
+	padding-top: 35%;
+	margin: 0;
+	background: url(/wp-content/themes/gameandfish/images/deer-zone/sweepstakes/nebraska-hunt.png) no-repeat top left / 100%;
+}
+.photo-collage {
+	width: 30%;
+	height: auto;
+	padding: 0;
+	left: auto; right: 10%; top: 78px;
+	margin: 0;
+}
+.collage-1 {
+	width: 83%;
+	top: 121px;
+}
+.collage-2 {
+	width: 83%;
+	top: 0;
+}
+.sweeps-dark-bar {
+    height: 95px;
+    bottom: 89px;
+    padding: 10px 41% 10px 10%;
+}
+.sweeps-dark-bar p {
+	text-align: left;
+}
+.sweeps-dark-bar span {
+	font-weight: 700;
+}
+
+
 
 .m-compass {
     width: 68px;
     height: 68px;
     background: url("/wp-content/themes/gameandfish/images/deer-zone/sprite.png") no-repeat 0 -425px / 237px;
 }
+
 
 
 }/* end of media */
@@ -203,6 +256,21 @@ a:hover {
 .category-sw .m-content-wrap {background-image: url("/wp-content/themes/gameandfish/images/deer-zone/regions-back/southwest.jpg");}
 .category-nw .m-content-wrap {background-image: url("/wp-content/themes/gameandfish/images/deer-zone/regions-back/northwest.jpg");}
 
+/* Sweepstakes *******************/
+.sweeps-text {
+	width: 56%;
+}
+.sweeps-dark-bar {
+    bottom: 60px;
+    height: 107px;
+}
+.sweeps-dark-bar p {
+    font-size: 20px;
+}
+.collage-1 {
+    top: 151px;
+}
+
 
 }/* end of media */
 
@@ -211,6 +279,37 @@ a:hover {
 
 .category-ne .m-triangle, .category-se .m-triangle, .category-mw .m-triangle, .category-sw .m-triangle, .category-nw .m-triangle  { background: url("/wp-content/themes/gameandfish/images/deer-zone/sprite.png") no-repeat -50px -271px / 311px;}
 
+/* Sweepstakes *******************/
+.category-dz-sweeps .m-article-image {
+    height: 527px;
+}
+.sweeps-text {
+    width: 41%;
+    left: 20%;
+    top: 90px;
+    max-width: 600px;
+}
+.sweeps-text h1 {
+    font-size: 34px;
+}
+.photo-collage {
+    width: 23%;
+    right: 20%;
+    top: 101px;
+    max-width: 350px;
+}
+.collage-1 {
+    top: 171px;
+}
+.sweeps-dark-bar {
+    bottom: 102px;
+    height: 107px;
+    padding: 10px 45% 10px 20%;
+}
+
+
+
+
 }/* end of media */
 
 
@@ -218,7 +317,24 @@ a:hover {
 
 .m-triangle {background: url("/wp-content/themes/gameandfish/images/deer-zone/sprite.png") -35px -172px no-repeat;background-size: 192px;}
 
+/* Sweepstakes *******************/
+.sweeps-text {
+    left: 25%;
+}
+.sweeps-text h1 {
+    font-size: 34px;
+    margin-left: 10px;
+}
+.sweeps-dark-bar {
+    padding: 10px 45% 10px 25%;
+}
+
 }/* end of media */
 
+@media only screen and (min-width: 1900px) {/* large desktops */
 
+.photo-collage {
+    right: 27%;
+}
 
+}/* end of media */
