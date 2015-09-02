@@ -5,12 +5,18 @@
 ?>
 <div class="m-article-wrap clearfix">	
 	<div class="m-article-image">
-		<div class="m-direction">
-			<span>WIN!</span>
+		<div class="sweeps-text">
+			<h1>GET RIGGED AND READY TO</h1>
+			<div class="sweeps-text-img"></div>
 		</div>
-		<div class="m-sweep-text">
-			<h1>Get Rigged & Ready<br><span>TO FISH<br> COSTA RICA!</span></h1>
-			<p>Win an all-expense paid 7 Night 6 Day Fishing trip for two in Nosara, Costa Rica home to some of the best Sport Fishing in Central America.</p>
+		<div class="photo-collage">
+			<div>
+				<img class="collage-1" src="<?php bloginfo('stylesheet_directory');?>/images/deer-zone/sweepstakes/Collage-1.jpg">
+				<img class="collage-2" src="<?php bloginfo('stylesheet_directory');?>/images/deer-zone/sweepstakes/Collage-2.jpg">
+			</div>
+		</div>
+		<div class="sweeps-dark-bar">
+			<p>Enter for your chance to <span>WIN</span> a 4 day, 5 night hunt with Hidden Hills Outfitters on over 90,000 acres of prime Nebraska whitetail habitat.</p>
 		</div>
 	</div><!-- .m-article-image -->
 	<article class="m-article clearfix">
