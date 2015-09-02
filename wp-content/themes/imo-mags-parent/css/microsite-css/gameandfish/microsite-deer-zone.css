@@ -70,7 +70,7 @@ a:hover {
     width: 100%;
     padding-top: 0;
     height: 452px;
-	background: url(/wp-content/themes/gameandfish/images/deer-zone/sweepstakes/nebraska@2.jpg) no-repeat center center / cover;
+	background: url("/wp-content/themes/gameandfish/images/deer-zone/sweepstakes/nebraska@2.jpg") no-repeat center center / cover;
 }
 .sweeps-text {
 	position: absolute;
@@ -91,7 +91,7 @@ a:hover {
 	width: 260px;
 	height: 110px;
 	margin: 0 auto;
-	background: url(/wp-content/themes/gameandfish/images/deer-zone/sweepstakes/nebraska-hunt@2.png) no-repeat top left / 100%;
+	background: url("/wp-content/themes/gameandfish/images/deer-zone/sweepstakes/nebraska-hunt@2.png") no-repeat top left / 100%;
 }
 .photo-collage {
 	position: absolute;
@@ -175,12 +175,12 @@ a:hover {
 
 @media only screen and (min-width: 700px) {
 
-.m-logo {background: url(/wp-content/themes/gameandfish/images/deer-zone/sprite.png) no-repeat 0 0 / 250px ;width: 250px;height: 132px;top: 8px;}
+.m-logo {background: url("/wp-content/themes/gameandfish/images/deer-zone/sprite.png") no-repeat 0 0 / 250px ;width: 250px;height: 132px;top: 8px;}
 
 /* Sweepstakes *******************/
 .category-dz-sweeps .m-article-image {
 	height: 454px;
-	background: url(/wp-content/themes/gameandfish/images/deer-zone/sweepstakes/nebraska.jpg) no-repeat center center / cover;
+	background: url("/wp-content/themes/gameandfish/images/deer-zone/sweepstakes/nebraska.jpg") no-repeat center center / cover;
 }
 .sweeps-text {
 	width: 59%;
@@ -197,7 +197,7 @@ a:hover {
 	height: auto;
 	padding-top: 35%;
 	margin: 0;
-	background: url(/wp-content/themes/gameandfish/images/deer-zone/sweepstakes/nebraska-hunt.png) no-repeat top left / 100%;
+	background: url("/wp-content/themes/gameandfish/images/deer-zone/sweepstakes/nebraska-hunt.png") no-repeat top left / 100%;
 }
 .photo-collage {
 	width: 30%;
