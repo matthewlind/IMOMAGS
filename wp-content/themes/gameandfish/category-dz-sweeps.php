@@ -36,16 +36,25 @@
 					<h1>ENTER TO WIN!</h1>
 					<div></div>
 				</div>
-				<script type="text/javascript">var cnt_id = "f83efcdb-18776";</script>
-		        <script type="text/javascript" src="https://www.viralsweep.com/external/widget.js"></script>
+				<script type="text/javascript"> var cnt_id = "d960c143-22193";</script>
+				<script type="text/javascript" src="https://www.viralsweep.com/external/widget.js"></script>
 			</div>
 			<div class="m-sweep-right">
-				<p>Fish 3 Full Action Packed Days with Fishing Nosara. Take a break to explore the Rain Forest Canopy , take a Horseback adventure into the Mountains , Snorkel the perfect beaches and reefs around  Nosara and explore the area in your street legal Safari Cart.</p>
+				<p class="m-sweeps-firs-p"><a href="http://www.hiddenhillsoutfitters.com/">Outfitter: Hidden Hills Outfitters</a></p>
+				<ul>
+					<li>excellent log cabin lodging with great meals</li>
+					<li>high success on whitetails</li>
+					<li>excellent guides</li>
+					<li>over the counter hunting tags</li>
+					<li>retail price of $4000</li>
+					<li>all lodging, meals and trophy prep of game taken</li>
+					<li>does not included Nebraska hunting licenses, transportation to the lodge, and tips/gratuities</li>
+				</ul>
+<!--
 				<div class="video-container">
 					<iframe width="560" height="315" src="https://www.youtube.com/embed/HdWgmCikSas" frameborder="0" allowfullscreen></iframe>
 				</div>
-				<p>Trip is available in October or November 2015. Arrive Saturday, depart the following Saturday. Trip includes Roundtrip Airfare for 2 from nearest major city in 48 states, all meals, 7 nights lodging at Nosara Paradise Rentals, airport transfers in Costa Rica, Rain Forest and Horseback adventures, 3 full days blue water fishing with Fishing Nosara, use of Safari cart during stay and gratuities.
-				</p>
+-->
 			</div>
 		</div><!-- .m-sweep-blocks -->
 		<div class="m-social-wrap">
