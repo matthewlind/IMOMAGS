@@ -39,6 +39,16 @@ a:hover {
 	background-size: 150px;
 }
 
+.m-map-region:hover .m-map-path {
+	fill: #d65d0d;	
+}
+.m-nav:hover .m-choose-btn span {
+	color: #f47521;
+}
+.m-map-relative > i:hover {
+	color: #f47521;
+}
+
 /* ==========================================================================
    7.0 Region Page
    ========================================================================== */
@@ -210,7 +220,7 @@ a:hover {
 .photo-collage {width: 30%;height: auto;padding: 0;left: auto; right: 10%; top: 78px;margin: 0;}
 .collage-1 {width: 83%;top: 121px;}
 .collage-2 {width: 83%;top: 0;}
-.sweeps-dark-bar {height: 95px;bottom: 89px;padding: 10px 41% 10px 10%;}
+.sweeps-dark-bar {height: 95px;bottom: 89px;padding: 10px 41% 20px 10%;}
 .sweeps-dark-bar p {text-align: left;}
 .sweeps-dark-bar span {font-weight: 700;}
 .m-compass {width: 68px;height: 68px;background: url("/wp-content/themes/gameandfish/images/deer-zone/sprite.png") no-repeat 0 -425px / 237px;}
@@ -238,7 +248,7 @@ a:hover {
 
 /* Sweepstakes *******************/
 .sweeps-text {width: 56%;}
-.sweeps-dark-bar {bottom: 60px;height: 107px;}
+.sweeps-dark-bar {bottom: 60px;height: auto;min-height: 100px;}
 .sweeps-dark-bar p {font-size: 20px;}
 .collage-1 {top: 151px;}
 
@@ -256,7 +266,7 @@ a:hover {
 .sweeps-text h1 {font-size: 34px;}
 .photo-collage {width: 23%;right: 20%;top: 101px;max-width: 350px;}
 .collage-1 {top: 171px;}
-.sweeps-dark-bar {bottom: 102px;height: 107px;padding: 10px 45% 10px 20%;}
+.sweeps-dark-bar {bottom: 102px;padding: 10px 45% 10px 20%;}
 
 
 }/* end of media */
