@@ -16,7 +16,7 @@
 			</div>
 		</div>
 		<div class="sweeps-dark-bar">
-			<p>Enter for your chance to <span>WIN</span> a 4 day, 5 night hunt with Hidden Hills Outfitters on over 90,000 acres of prime Nebraska whitetail habitat.</p>
+			<p>Enter for your chance to <span>WIN</span> a 4 day, 5 night hunt with Hidden Hills Outfitters on over 90,000 acres of prime Nebraska whitetail habitat!</p>
 		</div>
 	</div><!-- .m-article-image -->
 	<article class="m-article clearfix">
@@ -40,15 +40,15 @@
 				<script type="text/javascript" src="https://www.viralsweep.com/external/widget.js"></script>
 			</div>
 			<div class="m-sweep-right">
-				<p class="m-sweeps-firs-p"><a href="http://www.hiddenhillsoutfitters.com/">Outfitter: Hidden Hills Outfitters</a></p>
+				<p class="m-sweeps-firs-p"><a href="http://www.hiddenhillsoutfitters.com/?utm_source=pagelink&utm_medium=website&utm_campaign=riggedandready&utm_term=gameandfish&utm_content=deerzone">Outfitter: Hidden Hills Outfitters</a></p>
 				<ul>
-					<li>excellent log cabin lodging with great meals</li>
-					<li>high success on whitetails</li>
-					<li>excellent guides</li>
-					<li>over the counter hunting tags</li>
-					<li>retail price of $4000</li>
-					<li>all lodging, meals and trophy prep of game taken</li>
-					<li>does not included Nebraska hunting licenses, transportation to the lodge, and tips/gratuities</li>
+					<li>Excellent log cabin lodging with great meals</li>
+					<li>High success on whitetails</li>
+					<li>Excellent guides</li>
+					<li>Over the counter hunting tags</li>
+					<li>Retail price of $4000</li>
+					<li>All lodging, meals and trophy prep of game taken</li>
+					<li>Does not included Nebraska hunting licenses, transportation to the lodge, and tips/gratuities</li>
 				</ul>
 <!--
 				<div class="video-container">
