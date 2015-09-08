@@ -46,7 +46,6 @@
 					<li>High success on whitetails</li>
 					<li>Excellent guides</li>
 					<li>Over the counter hunting tags</li>
-					<li>Retail price of $4000</li>
 					<li>All lodging, meals and trophy prep of game taken</li>
 					<li>Does not included Nebraska hunting licenses, transportation to the lodge, and tips/gratuities</li>
 				</ul>
