@@ -54,10 +54,12 @@
 	
 	
 	<?php
-
 		if ( $microsite ){ 
 			include get_template_directory().'/css/styles-microsites.php';
-		} else { ?>
+		} else { 
+			if (is_category("tv") || in_category("tv") || is_page_template( "show-page.php" )) { ?>
+				<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' );?>/css/category-tv.css" />
+	<?php	} // end if if (is_category("tv") ?>
 			<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 	<?php	} ?>
 
