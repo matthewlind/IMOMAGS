@@ -140,8 +140,11 @@ get_header(); ?>
 					$slug = 'shoot101';
 					$shoot101 = get_category_by_slug($slug);
 					
+					$tvslug = 'tv';
+					$tvcategory = get_category_by_slug($tvslug);
+					
 					$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-                    $more_query = new WP_Query( 'post_type=post&posts_per_page=20&paged=' . $paged. '&cat=-' . $category->cat_ID . '&cat=-' . $shoot101->cat_ID );
+                    $more_query = new WP_Query( 'post_type=post&posts_per_page=20&paged=' . $paged. '&cat=-' . $tvcategory->cat_ID . '&cat=-' . $category->cat_ID . '&cat=-' . $shoot101->cat_ID );
 
                     $i++;
 
