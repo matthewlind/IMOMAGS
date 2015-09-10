@@ -21,7 +21,7 @@
 				<div title="track tips"></div>
 			</div>
 			<p>Explore the RAM 1500<br> Outdoorsman<sup>&reg;</sup></p>
-			<a href="/rigged-ready/2015-ram-1500-outdoorsman/" class="blue-round-btn">
+			<a href="/deer-zone/the-ram-1500-outdoorsman/" class="blue-round-btn">
 				<span class="m-text-under">READ NOW</span>
 				<div class="m-btn-horizontal"></div>
 				<div class="m-btn-vertical"></div>

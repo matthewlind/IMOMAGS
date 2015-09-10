@@ -9,7 +9,7 @@
 			<div class="m-map-absolute">
 				<div class="m-map-relative">
 					<div class="m-map-circle"></div>
-					<h5>Where would you like to fish?</h5>
+					<h5>Where would you like to hunt?</h5>
 					<div class="m-map-wrap">
 						<?php  get_template_part('content/microsite-template-parts/deer-zone/header', 'map'); ?>
 					</div>
