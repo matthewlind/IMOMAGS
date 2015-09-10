@@ -49,11 +49,9 @@
 					<li>All lodging, meals and trophy prep of game taken</li>
 					<li>Does not included Nebraska hunting licenses, transportation to the lodge, and tips/gratuities</li>
 				</ul>
-<!--
 				<div class="video-container">
-					<iframe width="560" height="315" src="https://www.youtube.com/embed/HdWgmCikSas" frameborder="0" allowfullscreen></iframe>
+					<iframe src="http://player.theplatform.com/p/6eFMJC/8K9sMYdh_Hbp/embed/select/zAUAPTEgaNG6?autoPlay=false" width="322" height="250" frameborder="0" allowfullscreen/>Your browser does not support iframes./</iframe/>
 				</div>
--->
 			</div>
 		</div><!-- .m-sweep-blocks -->
 		<div class="m-social-wrap">
