@@ -5,7 +5,7 @@
 				<h3>RAM Outdoorsman<sup>&reg;</sup></h3>
 				<div title="track tips"></div>
 			</div>
-			<p>Win a 7 Night 6 Day Fishing trip in<br> Costa Rica</p>
+			<p>Win a trophy whitetail hunt in<br> Nebraska</p>
 			<a href="/deer-zone/dz-sweeps/" class="blue-round-btn">
 				<span class="m-text-under">ENTER TO WIN!</span>
 				<div class="m-btn-horizontal"></div>
