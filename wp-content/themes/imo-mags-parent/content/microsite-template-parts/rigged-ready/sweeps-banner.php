@@ -1,4 +1,5 @@
 <div class="m-banners <?php if ( !is_category('rigged-ready')) { echo 'clearfix m-banners-region';}?>">
+<!--
 	<div class="m-truck-container">
 		<div class="m-truck">
 			<div class="m-truck-title clearfix">
@@ -13,7 +14,8 @@
 				<span class="m-text-over">ENTER TO WIN!</span>
 			</a>
 		</div>
-	</div><!-- .m-truck-container -->
+	</div>
+--><!-- .m-truck-container -->
 	<div class="m-truck-container">
 		<div class="m-truck">
 			<div class="m-truck-title clearfix">
