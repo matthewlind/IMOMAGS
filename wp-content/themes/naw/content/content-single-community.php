@@ -98,7 +98,7 @@ $author = get_the_author_meta("user_nicename");
 
         <?php the_widget('imo_related_footer_widget'); ?>
 
-	    <?php imo_ad_placement("e_commerce_widget"); ?>
+	    <?php imo_ad_placement("e_commerce_widget_564x252"); ?>
 
 	    <?php if ( function_exists('yarpp_plugin_activate') ): ?>
 		    <?php if ( isset_related_posts() ): ?>
