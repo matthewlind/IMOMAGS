@@ -198,6 +198,7 @@ Theme My Login will always look in your theme's directory first, before using th
                 <span class="btn-red">
 					<input type="submit" name="wp-submit" id="wp-submit<?php $template->the_instance(); ?>" value="<?php _e( 'Log In', 'theme-my-login' ); ?>" tabindex="100" />
 				</span>
+				<input type="hidden" name="redirect_to" value="<?php $template->the_redirect_url( 'login' ); ?>" />
 				<input type="hidden" name="testcookie" value="1" />
 				<input type="hidden" name="instance" value="<?php $template->the_instance(); ?>" />
 				</div>
@@ -205,6 +206,6 @@ Theme My Login will always look in your theme's directory first, before using th
 			</fieldset>
 		</form>
 	<?php $template->the_action_links( array( 'login' => false ) ); ?>
-	<a href="/wp-login.php?action=lostpassword">Forgot Password?</a>
+	<a href="http://imomags.com/lost-password/">Forgot Password?</a>
 	<p>New to NAW Community or having trouble? <a href="/register">Register Here</a></p>
 </div>
