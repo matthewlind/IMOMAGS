@@ -1131,6 +1131,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 
 /* Single Articles *******************/
 .m-article {margin: 0 25%;}
+.m-article.m-article-sweeps {margin: 0 auto; width: 900px;}
 .m-article h1 {font-size: 41px;line-height: 48px;}
 .m-article h2.m-subtitle {font: 300 24px/30px "Lato", sans-serif;}
 .m-post-byline {font-size: 13px;}

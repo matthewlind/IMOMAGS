@@ -19,7 +19,7 @@
 			<p>Enter for your chance to <span>WIN</span> a 4 day, 5 night hunt with Hidden Hills Outfitters on over 90,000 acres of prime Nebraska whitetail habitat!</p>
 		</div>
 	</div><!-- .m-article-image -->
-	<article class="m-article clearfix">
+	<article class="m-article clearfix m-article-sweeps">
 		<div class="m-social-wrap clearfix">
 			<ul class="share-count social-buttons">
 				<li>
@@ -40,7 +40,7 @@
 				<script type="text/javascript" src="https://www.viralsweep.com/external/widget.js"></script>
 			</div>
 			<div class="m-sweep-right">
-				<p class="m-sweeps-firs-p"><a href="http://www.hiddenhillsoutfitters.com/?utm_source=pagelink&utm_medium=website&utm_campaign=riggedandready&utm_term=gameandfish&utm_content=deerzone">Outfitter: Hidden Hills Outfitters</a></p>
+				<p class="m-sweeps-firs-p"><a href="http://www.hiddenhillsoutfitters.com/?utm_source=pagelink&utm_medium=website&utm_campaign=riggedandready&utm_term=gameandfish&utm_content=deerzone" target="_blank">Outfitter: Hidden Hills Outfitters</a></p>
 				<ul>
 					<li>Excellent log cabin lodging with great meals</li>
 					<li>High success on whitetails</li>
