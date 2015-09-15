@@ -5,11 +5,10 @@
 
 <div class="m-article-wrap clearfix">	
 	<div class="m-article-image">
-
-		
 		<div class="m-sweep-text">
 			<img class="epic-logo" src="<?php bloginfo('stylesheet_directory');?>/images/epic-moments/logo-epic-moment.png">
 			<p>Win an all-expense paid 7 Night 6 Day Fishing trip for two in Nosara, Costa Rica home to some of the best Sport Fishing in Central America.</p>
+			<img class="arrows-down" src="<?php bloginfo('stylesheet_directory');?>/images/epic-moments/chevrone.png">
 		</div>
 	</div><!-- .m-article-image -->
 	<article class="m-article clearfix">
@@ -52,12 +51,6 @@
 			</ul>
 		</div><!-- .m-social-wrap-->
 	</article>
+<!-- 	<script src="<?php bloginfo('stylesheet_directory');?>/js/sweeps.js"></script> -->
 </div><!-- .m-article-wrap -->
-<footer>
-	Footer
-</footer>
-
-	<?php wp_footer(); ?>
-
-</body>
-</html>
+<?php get_footer(); ?>
