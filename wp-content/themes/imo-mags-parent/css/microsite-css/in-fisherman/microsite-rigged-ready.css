@@ -27,7 +27,14 @@
 .category-nw .m-content-wrap {
 	background-image: url("/wp-content/themes/infisherman/images/rigged-and-ready/regions/mobile/northwest.jpg");
 }
-
+@media only screen and (min-width: 480px) {
+	
+.m-truck-container:last-child .m-truck	{
+	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/truck-ram.png") no-repeat left bottom / 1550px;
+}
+	
+}/* end of media */	
+	
 
 @media only screen and (min-width: 920px) {
 	
@@ -49,10 +56,12 @@
 
 
 
+@media only screen and (min-width: 1025px) {
 
+.m-truck-container {width: 100%;}
+.m-truck {text-align: center;}
+.m-truck-title {top:4px;left:0; right: 0; margin: 0 auto;}
+.m-truck-title h3 {display: inline-block;font-family: "Lato", sans-serif;}
+.m-truck > p {margin: 45px auto 13px;}
 
-
-
-
-
-
+}/* end of media */
