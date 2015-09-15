@@ -489,9 +489,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 }   
 .m-article-image {
 	width: 100%;
-	padding-top: 90%;
+	padding-top: 600px;
 	position: relative;
-	background: url(../images/epic-moments/poster.png) no-repeat center center / cover;
+	background-color: #f0eee5;
 }
 .m-article {
 	padding: 0 20px 20px;
@@ -553,25 +553,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 /* ==========================================================================
    11.0 Sweepstakes
    ========================================================================== */
-.category-sweeps .m-article-image {
-	position: relative;
-	width: 100%;
-	padding-top: 0;
-	height: 420px;
-	background: url('/wp-content/themes/infisherman/images/rigged-and-ready/sweepstakes/fishing-nosara@2.jpg') no-repeat center center / cover;
-}
-.category-sweeps .m-article-image .m-direction {
-	width: 157px;
-	height: 107px;
-	top: 30px;
-	bottom: auto;
-	text-align: center;
-	background: url('/wp-content/themes/infisherman/images/rigged-and-ready/sweepstakes/sweep-triangle.png') no-repeat center / 100%;
-}
-.category-sweeps .m-article-image .m-direction span {
-	font-size: 28px;
-	line-height: 96px;
-}
 .m-sweep-text {
 	position: absolute;
 	width: 90%;
@@ -596,13 +577,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 }
 .m-sweep-text p {
 	font-size: 17px;
-	color: white;
-/* 	text-shadow: 1px 2px 4px rgba(0,0,0,.7); */
-	line-height: 1.5em;
-	padding: 20px;
+	color: #3e333a;
+	line-height: 140%;
 	border-radius: 5px;
-	background-color: rgba(62,51,58,.7);
-	margin-top: 42px;
+	margin-top: 15px;
+}
+.m-sweep-text p span {
+	color: #de373e;
+	font-weight: bold;
 }
 .category-sweeps .m-social-wrap {
 	width: 240px;
@@ -798,6 +780,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 .m-article .alignleft {float: left; margin: 8px 30px 20px 0;width: 300px;}
 .wp-caption p.wp-caption-text { font-size: 14px; line-height: 19px;}
 
+
+/* Sweeps *******************/ 
+.m-article-image {
+	background: url(../images/epic-moments/poster.jpg) no-repeat center center / cover;
+}
+
 }/* end of media */
 
 @media only screen and (min-width: 700px) {
@@ -954,7 +942,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 
 /* Single Article *******************/
 .m-article {padding: 0 0 20px;margin: 0 17%;}
-.m-article-image {padding-top: 76.5%;}
+.m-article-image {padding-top: 600px;}
 .m-more {width: 92%;padding: 0;margin: 80px 4% 0;}
 .m-more h2 {margin-left: -2px;}
 .m-more-wrap {margin: 0 -0.5%;}

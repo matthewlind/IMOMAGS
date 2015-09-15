@@ -7,8 +7,15 @@
 	<div class="m-article-image">
 		<div class="m-sweep-text">
 			<img class="epic-logo" src="<?php bloginfo('stylesheet_directory');?>/images/epic-moments/logo-epic-moment.png">
-			<p>Win an all-expense paid 7 Night 6 Day Fishing trip for two in Nosara, Costa Rica home to some of the best Sport Fishing in Central America.</p>
-			<img class="arrows-down" src="<?php bloginfo('stylesheet_directory');?>/images/epic-moments/chevrone.png">
+			<p>We’ve all had those memorable, never-to-happen-again outdoors-experiences with family and friends that are worth sharing with fellow sportsmen – and we can’t wait to hear about yours. If it’s truly epic, you could <span>WIN</span> another...</p>
+			<div class="m-sponsors">
+				<img src="<?php bloginfo('stylesheet_directory');?>/images/epic-moments/MLF_Logo.png">
+				<img src="<?php bloginfo('stylesheet_directory');?>/images/epic-moments/honda-logo.jpg">
+			</div>
+			<div class="m-ATV">
+				<img src="<?php bloginfo('stylesheet_directory');?>/images/epic-moments/pioneer1000.png">
+				<img src="<?php bloginfo('stylesheet_directory');?>/images/epic-moments/ATV.png">
+			</div>
 		</div>
 	</div><!-- .m-article-image -->
 	<article class="m-article clearfix">
