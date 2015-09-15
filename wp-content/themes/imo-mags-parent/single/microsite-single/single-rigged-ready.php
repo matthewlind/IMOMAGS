@@ -7,6 +7,12 @@
 	$category = get_the_category(); 
 	$cat_slug = $category[0]->slug;
 	$cat_name = $category[0]->cat_name;
+	
+/*
+	$category_parent_id = $category[0]->category_parent;
+	$category_parent = get_term( $category_parent_id, 'category' );
+	$category_parent_slug = $category_parent->slug;
+*/
 
 	$image_full = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 	$image_large = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'lafge' );	
@@ -39,7 +45,7 @@
 			    </li>
 			</ul>
 		</div><!-- end .m-social-wrap -->
-		<h1><?php the_title();?></h1>
+		<h1><?php the_title(); ?></h1>
 		<?php if ($subtitle) { ?><h2 class="m-subtitle"><?php echo $subtitle; ?></h2><?php } ?>
 		<?php if(get_the_author() != "admin" && get_the_author() != "infisherman"){ ?><span class="m-post-byline">Words by <?php echo $author; ?></span><?php } ?><?php if ($acf_byline) { ?><span class="m-post-byline">&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $acf_byline;?></span><?php } ?>
 		<div class="alignright-content inline-ad">
@@ -67,7 +73,16 @@
 	</article>
 </div><!-- .m-article-wrap -->
 
-<?php get_template_part('content/rigged-ready/sweeps', 'banner'); ?>
+<?php
+	
+	if (in_category('rigged-ready')) {
+		get_template_part('content//microsite-template-parts/rigged-ready/sweeps', 'banner'); 
+	} elseif (in_category('deer-zone')) {
+		get_template_part('content//microsite-template-parts/deer-zone/sweeps', 'banner'); 
+	}
+	
+	 
+?>
 
 <div class="m-more">
 	<h2>More Stories
@@ -83,7 +98,7 @@
 			} elseif (in_category("nw")) {
 				$cat_slug1 = "nw"; $cat_name1 = "from the Northwest";
 			} else {
-				$cat_slug1 = "rigged-ready"; $cat_name1 = " ";
+				$cat_slug1 = $category_parent_slug; $cat_name1 = " ";
 			}
 			echo $cat_name1;
 		?> 
@@ -117,7 +132,12 @@
 	</div><!-- .m-more-wrap -->
 </div><!-- .m-more -->
 
-<?php get_template_part('content/rigged-ready/choose', 'location-bottom'); ?>
-
-
-<?php get_footer(); ?>
+<?php 
+	if (in_category('rigged-ready')) {
+		get_template_part('content/microsite-template-parts/rigged-ready/choose', 'location-bottom');  
+	} elseif (in_category('deer-zone')) {
+		get_template_part('content/microsite-template-parts/deer-zone/choose', 'location-bottom');  
+	}
+	
+	get_footer(); 
+?>

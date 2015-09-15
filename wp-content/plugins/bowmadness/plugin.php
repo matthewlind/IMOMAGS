@@ -209,8 +209,8 @@ function jsGAMRender($mobile) {
 		 .  '  <div id="madtabs-5">'
 		 .  '    <br><div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"handgunsmadness")) .'</div>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"riflesmadness")) .'</div>'
-		 .  '    <div class="mreg5 match155"></div>'
-		 .  '    <div class="mreg6 match156"></div>'
+		 .  '    <div class="mreg5 match186"></div>'
+		 .  '    <div class="mreg6 match187"></div>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"shotgunsmadness")) .'</div>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"arsmadness")) .'</div>'
 		 
@@ -218,7 +218,7 @@ function jsGAMRender($mobile) {
 		 
 		 .  '  <div id="madtabs-6">'
 		 .  '    <br><div style="margin:10px 0px 0px 6px;clear:both;font-size:18px;font-weight:bold;">Championship</div>'
-		 .  '    <div class="mreg7 match157"></div>'
+		 .  '    <div class="mreg7 match188"></div>'
 		 .  '    <br><div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"handgunsmadness")) .'</div>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"riflesmadness")) .'</div>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"shotgunsmadness")) .'</div>'
@@ -256,7 +256,7 @@ function jsGAMRender($mobile) {
 		 .  '</div>'
 			
 		 .  '  <div class="final-wrapper">'
-		 .  '    <h2>Final Round</h2>'
+		 //.  '    <h2>Final Round</h2>'
 		 .  '    <div class="column column5 match155"></div>'
 		 .  '    <div class="column column6 match157" style="padding-top:20px;"></div>'
 		 .  '    <div class="column column7 match156"></div>'
@@ -302,7 +302,7 @@ function jsGAMRender($mobile) {
 		 .	'  <div class="column column4"></div>'
 		 .  '</div>';
 
-	if($madnessround < 6) {		 
+	//if($madnessround < 6) {		 
 	$outp.= '<div class="regions region-final">'
 		 .  '<div class="finalsadvert" style="margin-top:0px;">'
 		 .  ' 	<!-- Site - Bowhunting/battle_of_the_bows/bob_presenting_sponsor -->'
@@ -315,11 +315,11 @@ function jsGAMRender($mobile) {
 		 .  '  <div class="final-wrapper">'
 		 .  '    <h2>Final Round</h2>'
 		 .  '    <div class="column column5 match186"></div>'
-		 .  '    <div class="column column6 match187"></div>'
-		 .  '    <div class="column column7 match188"></div>'
+		 .  '    <div class="column column6 match188"></div>'
+		 .  '    <div class="column column7 match187"></div>'
 		 .  '  </div>'		 
 		 .  '</div>';
-	}
+	//}
 		 
 	$outp.= '<div class="region-titles">'
 		 .	'  <div class="region-left">'
@@ -371,8 +371,8 @@ function jsGAMRender($mobile) {
 	
 		 .  '	getGAMData(0,"186,187,188");'
 		 .  '   getStats();'
-		 .  '   setTimeout(function(){makeGAMPopup()}, 2000);'
-		 .  '   setTimeout(function(){autoPopup()}, 2500);'
+		 .  '   setTimeout(function(){makeGAMPopup()}, 3000);'
+		 .  '   setTimeout(function(){autoPopup()}, 3500);'
 		 .	'});';
 
 	$outp.= '</script>';

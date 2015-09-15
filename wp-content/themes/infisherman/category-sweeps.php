@@ -55,7 +55,9 @@
 	</article>
 </div><!-- .m-article-wrap -->
 					
-<?php get_template_part('content/rigged-ready/sweeps', 'banner'); ?>						
-<?php get_template_part('content/rigged-ready/choose', 'location-bottom'); ?>			
-
-<?php get_footer(); ?> 
+<?php 
+	get_template_part('../imo-mags-parent/content/microsite-template-parts/rigged-ready/sweeps', 'banner'); 				
+	get_template_part('../imo-mags-parent/content/microsite-template-parts/rigged-ready/choose', 'location-bottom'); 	
+	
+	get_footer(); 
+?> 

@@ -56,9 +56,12 @@
 
 		if ( $microsite ){ 
 			get_template_part('../imo-mags-parent/css/styles', 'microsites');
-		} else { ?>
+		} else { 
+			if (is_category("tv") || in_category("tv") || is_page_template( "show-page.php" )) { ?>
+				<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' );?>/css/category-tv.css" />
+			<?php	} // end if if (is_category("tv") ?>	
 			<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
-	<?php	} ?>
+	<?php } ?>
 	
 	
 
@@ -118,7 +121,8 @@
 <body <?php body_class(); ?>  >
 <?php
 	if ( $microsite ){
-		get_template_part('../imo-mags-parent/header-content/microsites/gameandfish/header-content', 'crossbows');
+		//get_template_part('../imo-mags-parent/header-content/microsites/gameandfish/header-content', 'crossbows');
+		get_template_part('../imo-mags-parent/header-content/header-content', 'microsites');
 	}else{
 		get_template_part('content/content', 'header');
 	}

@@ -29,10 +29,13 @@ html, body { min-height: 100%; }
 	position: absolute;
 	right: 35px;
 	top: 20px;
+	z-index: 200;
 }
 .bob-social-bottom {
 	text-align: center;
 	margin: 0 auto 30px;
+	position: relative;
+	z-index: 200;
 }
 .ga-madness ul.schedule li{
 	color: #2d2d2d;
@@ -168,9 +171,16 @@ html, body { min-height: 100%; }
 .regions{width: 49%;display: inline-block;}
 .region-final{width: 100%;margin: -63px 0 50px;}
 .region-final .column6 .matchup{border-width: 0;margin-top: 15px;}
-.region-final .column6 .matchup .contender {background: none; box-shadow: none;}
-.region-final .column6 .rank-top{border-bottom: 1px solid #2d2d2d;margin: 0;padding: 0 10px 8px;}
-.region-final .column{width: 33%;}
+
+.region-final .column6 {width:40%;}
+.region-final .column6 .matchup .contender {margin:-10px 20px 0px;}
+
+.region-final .column6 .rank {padding: 0 10px 10px;}
+.region-final .column6 .rank-top {padding: 10px 10px 8px;}
+
+.region-final .column5 {width: 30%;}
+.region-final .column7 {width: 30%;}
+
 .final-wrapper{width: 60%;margin: 15px auto 10px;}
 .final-wrapper h2{text-align: center;}
 .final-wrapper img{margin: 0 auto;display: block;}

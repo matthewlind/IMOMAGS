@@ -32,7 +32,7 @@ function my_login_form_shortcode() {
 	if ( !is_user_logged_in() )
 		
 
-	echo '<p>Login to share a photo.</p>'.wp_login_form( array( 'echo' => false ) ).'<p>New to NAW Community? <a href="/register">Register Here</a></p><p><a href="'.wp_lostpassword_url().'">Lost Your Password?</a></p>';
+	echo '<p>Login to share a photo.</p>'.wp_login_form( array( 'echo' => false,'label_username' => __( 'Username or Email' ),) ).'<p>New to NAW Community? <a href="/register">Register Here</a></p><p><a href="http://imomags.com/lost-password/">Lost Your Password?</a></p>';
 }
 
 /***
@@ -145,4 +145,11 @@ function cptui_register_my_cpt_reader_photos() {
 	);
 
 
+}
+add_action('after_setup_theme', 'remove_admin_bar');
+
+function remove_admin_bar() {
+	if (!current_user_can('publish_posts')) {
+	  show_admin_bar(false);
+	}
 }

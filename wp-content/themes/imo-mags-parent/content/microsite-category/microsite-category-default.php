@@ -54,7 +54,7 @@
 					if ($post_counter == 1) { ?>
 						<div class="top-ad-home"> 
 							<p>ADVERTISMENT</p>
-							<?php imo_ad_placement("microsite_BTF_300x250"); ?>
+							<?php imo_ad_placement("microsite_ATF_300x250"); ?>
 				    	</div>
 			<?php	}
 				
