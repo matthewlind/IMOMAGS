@@ -489,9 +489,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 }   
 .m-article-image {
 	width: 100%;
-	padding-top: 600px;
+	padding-top: 560px;
 	position: relative;
 	background-color: #f0eee5;
+	background: url(../images/epic-moments/poster-@2.jpg) no-repeat center center / cover;
 }
 .m-article {
 	padding: 0 20px 20px;
@@ -633,13 +634,30 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
     width: 100%;
     height: 100%;
 }
-.btn-enter-now {
-	display: none;
+.m-sponsors {
+	width: 170px;
+	margin: 0 auto 10px;
 }
-.arrows-down {
-	display: none;
+.m-sponsors img {
+	float: left;
+	width: 45%;
 }
-
+.m-sponsors img:first-child {
+	margin-right: 10%;
+}
+.m-ATV {
+	position: absolute;
+	bottom: 0;
+	left: 0; right: 0;
+	width: 200px;
+	margin: 0 auto;
+}
+.m-ATV img {
+	width: 100%;
+}
+.m-ATV img:first-child {
+	margin-bottom: 10px;
+}
 
 /* ==========================================================================
    11.0 Media Queries
@@ -647,49 +665,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
    
 @media only screen and (min-width: 375px) {/* iPhone 6 */
 
-/* Header *******************/ 
 
 /* Single Article **************/
 .alignright-content {margin: 30px auto;}
 
-/* Footer *******************/  
 
 
 }/* end of media */
 
 
 @media only screen and (min-width: 480px) {/* smartphones, Android phones, landscape iPhone */
-
-/* Header *******************/
-.m-main-header {height: 76px;}
-.m-logo {top: 17px;}
-.m-circle-wrap {display: none;}
-.m-social-buttons ul {margin-top:17px;}
-
-/* Home Page *******************/
-/* .m-truck {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/truck-ram.png") no-repeat left bottom / 1480px;} */
-
-/* Banners *******************/
-.m-truck-container:first-child .m-truck {
-	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sweeps-banner.png") no-repeat left bottom / 1280px;
-}
-.m-truck-container:last-child .m-truck {
-	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/truck-ram.png") no-repeat left bottom / 1280px;
-}
-
-/* Region Page *******************/ 
-.category-ne .m-direction, .category-se .m-direction, .category-mw .m-direction, .category-sw .m-direction, .category-nw .m-direction {top: 80px;}
-.m-content {padding: 214px 20px 20px 20px;}
-.m-content-wrap {background-size: 100%;}
-.m-content-shadow {top: 7.2%;}
-
-/* Choose Location Footer *******************/ 
-.m-loc-wrap {margin: 0 -5%;}
-.m-loc-wrap > ul {padding: 20px 0 0;}
-.m-loc-wrap > ul > li {width: 23.3%;margin: 0 5% 30px;}
-
-.m-loc-wrap > ul > li:nth-child(3) {clear: none;float: left;margin: 0 5% 30px;}
-.m-loc-wrap > ul > li:nth-child(4) {margin-left: 23.3%;}
 
 /* Sweepstakes *******************/ 
 .category-sweeps .m-article-image {height: 370px;}
@@ -705,44 +690,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 
 @media only screen and (min-width: 600px) {/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
 
-/* Header *******************/
 
-/* Home Page *******************/
-.m-home-wrap {margin-bottom: 300px;}
-.m-direction {width: 106px;height:106px;}
-.m-triangle {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") -35px -172px no-repeat;background-size: 192px;}
-.m-direction span {font: 700 16px/106px "Lato", sans-serif;}
-
-/* Banners *******************/
-.m-banners {
-	height: 274px;
-	bottom: -282px;
-}
-.m-truck-container {height: 150px;}
-.m-banners-region, .m-banners-single {bottom: auto;}
-.m-truck {/* background-size: 1480px; */text-align: right;padding: 0 30px;}
-.m-truck-title {top: 10px;left:auto; right: 30px;}
-.m-truck > p > br {display: none;}
-.m-truck > p {margin: 52px auto 15px;	}
-
-/* Choose Location Footer *******************/
-.m-loc {margin: 60px auto 20px;width: 92%;}
-.m-loc-wrap > ul {padding: 30px 0 0;}
-.m-loc-wrap > ul > li > a > span {font-size: 16px;margin-top: 8px;}
-
-/* Region Page *******************/
-.m-content-shadow {height: 400px;top: 5%;}
-.m-content {padding: 268px 4% 0;}
-.posts-wrap {margin: 35px -1%;}
-.category-ne .m-direction, .category-se .m-direction, .category-mw .m-direction, .category-sw .m-direction, .category-nw .m-direction {
-	top: 90px; bottom:auto;
-	width: 140px;
-	height:140px;
-}
-.category-ne .m-triangle, .category-se .m-triangle, .category-mw .m-triangle, .category-sw .m-triangle, .category-nw .m-triangle  {
-	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") -33px -197px / 230px no-repeat;
-}
-.category-ne .m-direction span, .category-se .m-direction span, .category-mw .m-direction span, .category-sw .m-direction span, .category-nw .m-direction span {font: 700 21px/140px "Lato", sans-serif;}
 
 /* Single Article *******************/
 .m-article {padding: 0 35px 20px;} 
@@ -792,26 +740,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 
 .m-microsite {height: 100%;}
 
-/* Header *******************/
-.m-main-header {height: 93px;}
-.m-social-buttons ul {margin: 32px 0 0;position: relative;}
-.m-social-buttons ul:after {content: "SHARE";position: absolute;left: 8px;top: -17px;display: inline-block;font: 700 11px "Lato", sans-serif;}
-.m-social-buttons ul li {margin-left: 7px;}
-.m-nav-erea { margin-top: 12px; padding: 0 3%;}
-.m-nav {margin-left: 0;}
-.m-compass-wrap {width: 76px;height: 68px;}
-.m-compass {width: 68px;height: 68px;background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") no-repeat 0 -425px / 237px;}
-.m-compass-wrap span {line-height: 68px;font-size: 13px;}
-.m-choose-btn {margin: 19px 0 0 10px;}
-.m-choose-btn i {font-size: 27px;top: 1px;}
-.m-choose-btn span {font: 700 11px/15px "Lato", sans-serif;left: 18px;}
-.m-choose-btn span:last-child {top: 13px;}
-.m-logo {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") no-repeat 0 0 / 168px ;width: 168px;height: 128px;top: 13px;}
-
-/* Region Page *******************/
-.m-content-shadow {top: 6.1%;}
-
-/* Content *******************/
 
 /* Single Article *******************/
 .m-article h1 {font-size: 37px;line-height: 44px;margin-bottom: 8px;}
@@ -824,61 +752,20 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 
 /* Sweepstakes *******************/
 
-.category-sweeps .m-article-image {
-	height: 454px;
-	background: url('/wp-content/themes/infisherman/images/rigged-and-ready/sweepstakes/fishing-nosara.jpg') no-repeat center center / cover;
-}
-.category-sweeps .m-article-image .m-direction {
-	width: 213px;
-	height: 146px;
-	top: 41px;
-	bottom: auto;
-}
-.category-sweeps .m-article-image .m-direction span {
-	font-size: 36px;
-	line-height: 131px;
-}
 .m-sweep-text {
-	max-width: 485px;
+	max-width: 455px;
 	top: 22px;
 	position: absolute;
 }
 .epic-logo {
-	width: 260px;
-}
-.m-sweep-text h1 {
-	font: 900 36px "Merriweather";
-	margin-bottom: 0;
-}
-.m-sweep-text h1 span {
-	font: 900 65px "Lato";
-	padding-top: 0;
+	width: 180px;
 }
 .m-sweep-text p {
-	font-size: 22px;
-/* 	text-shadow: 1px 2px 4px rgba(0,0,0,.7); */
-	margin-top: 30px;
+	font-size: 18px;
+	margin-top: 10px;
 }
 .m-sweep-right {
 	margin: 35px 0 0;
-}
-.btn-enter-now {
-	background-color: #3e333a;
-	color: #fff;
-	font-size: 15px;
-	font-weight: bold; 
-	display: inline-block;
-	padding: 10px 20px;
-	border-radius: 5px;
-	box-shadow: 1px 1px 5px rgba(0,0,0,.4);
-}
-.btn-enter-now:hover {
-	background-color: #463c42;
-	cursor: pointer;
-}
-.arrows-down {
-	display: inline-block;
-	width: 50px;
 }
 
 
@@ -942,7 +829,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 
 /* Single Article *******************/
 .m-article {padding: 0 0 20px;margin: 0 17%;}
-.m-article-image {padding-top: 600px;}
+.m-article-image {padding-top: 660px;}
 .m-more {width: 92%;padding: 0;margin: 80px 4% 0;}
 .m-more h2 {margin-left: -2px;}
 .m-more-wrap {margin: 0 -0.5%;}
@@ -951,10 +838,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 .m-article iframe.interact-embed {width: 800px;}
 
 /* Sweepstakes *******************/
-.category-sweeps .m-article {margin: 0 12%;}
-.m-sweep-blocks {
-	margin: 5px 0 70px;
-}
 .m-sweep-left {
 	float: left;
 	width: 46%;
@@ -964,6 +847,31 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 	float: left;
 	width: 46%;
 	margin: 8px 0 0;
+}
+.m-sweep-text {
+	max-width: 465px;
+}
+.epic-logo {
+	width: 230px;
+}
+.m-sweep-text p {
+	font-size: 20px;
+	margin-top: 0;
+}
+.m-sweep-right {
+	margin: 35px 0 0;
+}
+.m-sponsors {
+    width: 200px;
+}
+.m-ATV {
+	width: 260px;
+	left: -50px;
+}
+.m-ATV img:first-child {
+    position: absolute;
+    bottom: 0;
+    left: 255px;
 }
 
 	

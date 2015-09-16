@@ -8,14 +8,14 @@
 		<div class="m-sweep-text">
 			<img class="epic-logo" src="<?php bloginfo('stylesheet_directory');?>/images/epic-moments/logo-epic-moment.png">
 			<p>We’ve all had those memorable, never-to-happen-again outdoors-experiences with family and friends that are worth sharing with fellow sportsmen – and we can’t wait to hear about yours. If it’s truly epic, you could <span>WIN</span> another...</p>
-			<div class="m-sponsors">
+			<div class="m-sponsors clearfix">
 				<img src="<?php bloginfo('stylesheet_directory');?>/images/epic-moments/MLF_Logo.png">
 				<img src="<?php bloginfo('stylesheet_directory');?>/images/epic-moments/honda-logo.jpg">
 			</div>
-			<div class="m-ATV">
-				<img src="<?php bloginfo('stylesheet_directory');?>/images/epic-moments/pioneer1000.png">
-				<img src="<?php bloginfo('stylesheet_directory');?>/images/epic-moments/ATV.png">
-			</div>
+		</div>
+		<div class="m-ATV">
+			<img src="<?php bloginfo('stylesheet_directory');?>/images/epic-moments/pioneer1000.png">
+			<img src="<?php bloginfo('stylesheet_directory');?>/images/epic-moments/ATV.png">
 		</div>
 	</div><!-- .m-article-image -->
 	<article class="m-article clearfix">
