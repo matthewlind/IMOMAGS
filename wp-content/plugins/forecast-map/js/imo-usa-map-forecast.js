@@ -1,22 +1,6 @@
 jQuery(document).ready(function () {
 ////////////////////////////////////
-jQuery( ".target" ).change(function() {
-	if(jQuery( this ).val() == 2014 ){
-		jQuery(".forecast-map").removeClass("year-2013");
-		jQuery(".forecast-map").addClass("year-2014");
-		jQuery(".page-title span").text("GAME & FISH 2014 DEER FORECAST");
-		jQuery(".previous-year").fadeOut();
-		jQuery(".current-year").show();
-		jQuery("title").text("GAME & FISH 2014 DEER FORECAST");
-	}else if(jQuery( this ).val() == 2013 ){
-		jQuery(".forecast-map").removeClass("year-2014");
-		jQuery(".forecast-map").addClass("year-2013");
-		jQuery(".page-title span").text("GAME & FISH 2013 DEER FORECAST");
-		jQuery(".current-year").fadeOut();
-		jQuery(".previous-year").show();
-		jQuery("title").text("GAME & FISH 2013 DEER FORECAST");
-	}
-});
+
 var colors = new Array();
 
 colors[8] = "#000000";
