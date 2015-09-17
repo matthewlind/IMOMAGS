@@ -25,110 +25,55 @@ get_header();
 </div>
 <!-- 240x60 Ad: -->
 <div class="sponsor"><?php imo_ad_placement("sponsor_logo_240x60"); ?></div>
-<div class="forecast-year">Choose forecast year:</div>
-	<form>
-	  <select id="target" class="target">
-	    <option value="2014" selected="selected">2014</option>
-	    <option value="2013">2013</option>
-	  </select>
-	</form>     
+  
 					        
 <?php if(mobile() == true){ ?>
-	
-	
-   
-	<form name="menuform" class="forecast-menu previous-year" style="display:none;">
-	<select name="menu4">
-		<option value="">Select Your State</option>
-		<option value="/deer-forecast/alabama-deer-forecast-2013">alabama</option>
-		<option value="/deer-forecast/rocky-mountain-deer-forecast-2013">arizona</option>
-		<option value="/deer-forecast/arkansas-deer-forecast-2013">arkansas</option>
-		<option value="/deer-forecast/california-deer-forecast-2013">california</option>
-		<option value="/deer-forecast/new-england-deer-forecast-2013">connecticut</option>
-		<option value="/deer-forecast/florida-deer-forecast-2013">florida</option>
-		<option value="/deer-forecast/georgia-deer-forecast-2013">georgia</option>
-		<option value="/deer-forecast/idaho-deer-forecast-2013">idaho</option>
-		<option value="/deer-forecast/illinois-deer-forecast-2013">illinois</option>
-		<option value="/deer-forecast/indiana-deer-forecast-2013">indiana</option>
-		<option value="/deer-forecast/iowa-deer-forecast-2013">iowa</option>
-		<option value="/deer-forecast/great-plains-deer-forecast-2013">kansas</option>
-		<option value="/deer-forecast/kentucky-deer-forecast-2013">kentucky</option>
-		<option value="/deer-forecast/louisiana-deer-forecast-2013">louisiana</option>
-		<option value="/deer-forecast/maine-deer-forecast-2013">maine</option>
-		<option value="/deer-forecast/new-england-deer-forecast-2013">massachusetts</option>
-		<option value="/deer-forecast/michigan-deer-forecast-2013">michigan</option>
-		<option value="/deer-forecast/minnesota-deer-forecast-2013">minnesota</option>
-		<option value="/deer-forecast/mississippi-deer-forecast-2013">mississippi</option>
-		<option value="/deer-forecast/missouri-deer-forecast-2013">missouri</option>
-		<option value="/deer-forecast/great-plains-deer-forecast-2013">nebraska</option>
-		<option value="/deer-forecast/new-england-deer-forecast-2013">new hampshire</option>
-		<option value="/deer-forecast/rocky-mountain-deer-forecast-2013">new mexico</option>
-		<option value="/deer-forecast/new-york-deer-forecast-2013">new york</option>
-		<option value="/deer-forecast/north-carolina-deer-forecast-2013">north carolina</option>
-		<option value="/deer-forecast/great-plains-deer-forecast-2013">north dakota</option>
-		<option value="/deer-forecast/ohio-deer-forecast-2013">ohio</option>
-		<option value="/deer-forecast/oklahoma-deer-forecast-2013">oklahoma</option>
-		<option value="/deer-forecast/washington-oregon-deer-forecast-2013">oregon</option>
-		<option value="/deer-forecast/pennsylvania-deer-forecast-2013">pennsylvania</option>
-		<option value="/deer-forecast/new-england-deer-forecast-2013">rhode island</option>
-		<option value="/deer-forecast/south-carolina-deer-forecast-2013">south carolina</option>
-		<option value="/deer-forecast/great-plains-deer-forecast-2013">south dakota</option>
-		<option value="/deer-forecast/tennessee-deer-forecast-2013">tennessee</option>
-		<option value="/deer-forecast/texas-deer-forecast-2013">texas</option>
-		<option value="/deer-forecast/vermont-deer-forecast-2013">vermont</option>
-		<option value="/deer-forecast/virginia-deer-forecast-2013">virginia</option>
-		<option value="/deer-forecast/washington-oregon-deer-forecast-2013">washington</option>
-		<option value="/deer-forecast/west-virginia-deer-forecast-2013">west virginia</option>
-		<option value="/deer-forecast/wisconsin-deer-forecast-2013">wisconsin</option>
-	</select>
-	<input type="button" name="Submit" value="Go" class="forecast-submit" onClick="window.location = this.form.menu4.options[this.form.menu4.selectedIndex].value;">
-	</form>
 	
 	<form name="menuform" class="forecast-menu current-year">
 	<select name="menu4">
 		<option value="">Select Your State</option>
-		<option value="/deer-forecast/alabama-deer-hunting-forecast-2014">alabama</option>
-		<option value="/deer-forecast/rocky-mountain-deer-hunting-forecast-2014">arizona</option>
-		<option value="/deer-forecast/arkansas-deer-hunting-forecast-2014">arkansas</option>
-		<option value="/deer-forecast/california-deer-hunting-forecast-2014">california</option>
-		<option value="/deer-forecast/new-england-deer-hunting-forecast-2014">connecticut</option>
-		<option value="/deer-forecast/rocky-mountain-deer-hunting-forecast-2014">colorado</option>
-		<option value="/deer-forecast/florida-deer-hunting-forecast-2014">florida</option>
-		<option value="/deer-forecast/georgia-deer-hunting-forecast-2014">georgia</option>
-		<option value="/deer-forecast/idaho-deer-hunting-forecast-2014">idaho</option>
-		<option value="/deer-forecast/illinois-deer-hunting-forecast-2014">illinois</option>
-		<option value="/deer-forecast/indiana-deer-hunting-forecast-2014">indiana</option>
-		<option value="/deer-forecast/iowa-deer-hunting-forecast-2014">iowa</option>
-		<option value="/deer-forecast/great-plains-deer-hunting-forecast-2014">kansas</option>
-		<option value="/deer-forecast/kentucky-deer-hunting-forecast-2014">kentucky</option>
-		<option value="/deer-forecast/louisiana-deer-hunting-forecast-2014">louisiana</option>
-		<option value="/deer-forecast/maine-deer-hunting-forecast-2014">maine</option>
-		<option value="/deer-forecast/new-england-deer-hunting-forecast-2014">massachusetts</option>
-		<option value="/deer-forecast/michigan-deer-hunting-forecast-2014">michigan</option>
-		<option value="/deer-forecast/minnesota-deer-hunting-forecast-2014">minnesota</option>
-		<option value="/deer-forecast/mississippi-deer-hunting-forecast-2014">mississippi</option>
-		<option value="/deer-forecast/missouri-deer-hunting-forecast-2014">missouri</option>
-		<option value="/deer-forecast/great-plains-deer-hunting-forecast-2014">nebraska</option>
-		<option value="/deer-forecast/new-england-deer-hunting-forecast-2014">new hampshire</option>
-		<option value="/deer-forecast/rocky-mountain-deer-hunting-forecast-2014">new mexico</option>
-		<option value="/deer-forecast/new-york-deer-hunting-forecast-2014">new york</option>
-		<option value="/deer-forecast/north-carolina-deer-hunting-forecast-2014">north carolina</option>
-		<option value="/deer-forecast/great-plains-deer-hunting-forecast-2014">north dakota</option>
-		<option value="/deer-forecast/ohio-deer-hunting-forecast-2014">ohio</option>
-		<option value="/deer-forecast/oklahoma-deer-hunting-forecast-2014">oklahoma</option>
-		<option value="/deer-forecast/washington-oregon-deer-hunting-forecast-2014">oregon</option>
-		<option value="/deer-forecast/pennsylvania-deer-hunting-forecast-2014">pennsylvania</option>
-		<option value="/deer-forecast/new-england-deer-hunting-forecast-2014">rhode island</option>
-		<option value="/deer-forecast/south-carolina-deer-hunting-forecast-2014">south carolina</option>
-		<option value="/deer-forecast/great-plains-deer-hunting-forecast-2014">south dakota</option>
-		<option value="/deer-forecast/tennessee-deer-hunting-forecast-2014">tennessee</option>
-		<option value="/deer-forecast/texas-deer-hunting-forecast-2014">texas</option>
-		<option value="/deer-forecast/vermont-deer-hunting-forecast-2014">vermont</option>
-		<option value="/deer-forecast/virginia-deer-hunting-forecast-2014">virginia</option>
-		<option value="/deer-forecast/washington-oregon-deer-hunting-forecast-2014">washington</option>
-		<option value="/deer-forecast/west-virginia-deer-hunting-forecast-2014">west virginia</option>
-		<option value="/deer-forecast/wisconsin-deer-hunting-forecast-2014">wisconsin</option>		
-		<option value="/deer-forecast/rocky-mountain-deer-hunting-forecast-2014">Wyoming</option>
+		<option value="/forecasts/alabama-deer-hunting-forecast-2015">alabama</option>
+		<option value="/forecasts/rocky-mountain-deer-hunting-forecast-2015">arizona</option>
+		<option value="/forecasts/arkansas-deer-hunting-forecast-2015">arkansas</option>
+		<option value="/forecasts/california-deer-hunting-forecast-2015">california</option>
+		<option value="/forecasts/new-england-deer-hunting-forecast-2015">connecticut</option>
+		<option value="/forecasts/rocky-mountain-deer-hunting-forecast-2015">colorado</option>
+		<option value="/forecasts/florida-deer-hunting-forecast-2015">florida</option>
+		<option value="/forecasts/georgia-deer-hunting-forecast-2015">georgia</option>
+		<option value="/forecasts/idaho-deer-hunting-forecast-2015">idaho</option>
+		<option value="/forecasts/illinois-deer-hunting-forecast-2015">illinois</option>
+		<option value="/forecasts/indiana-deer-hunting-forecast-2015">indiana</option>
+		<option value="/forecasts/iowa-deer-hunting-forecast-2015">iowa</option>
+		<option value="/forecasts/great-plains-deer-hunting-forecast-2015">kansas</option>
+		<option value="/forecasts/kentucky-deer-hunting-forecast-2015">kentucky</option>
+		<option value="/forecasts/louisiana-deer-hunting-forecast-2015">louisiana</option>
+		<option value="/forecasts/maine-deer-hunting-forecast-2015">maine</option>
+		<option value="/forecasts/new-england-deer-hunting-forecast-2015">massachusetts</option>
+		<option value="/forecasts/michigan-deer-hunting-forecast-2015">michigan</option>
+		<option value="/forecasts/minnesota-deer-hunting-forecast-2015">minnesota</option>
+		<option value="/forecasts/mississippi-deer-hunting-forecast-2015">mississippi</option>
+		<option value="/forecasts/missouri-deer-hunting-forecast-2015">missouri</option>
+		<option value="/forecasts/great-plains-deer-hunting-forecast-2015">nebraska</option>
+		<option value="/forecasts/new-england-deer-hunting-forecast-2015">new hampshire</option>
+		<option value="/forecasts/rocky-mountain-deer-hunting-forecast-2015">new mexico</option>
+		<option value="/forecasts/new-york-deer-hunting-forecast-2015">new york</option>
+		<option value="/forecasts/north-carolina-deer-hunting-forecast-2015">north carolina</option>
+		<option value="/forecasts/great-plains-deer-hunting-forecast-2015">north dakota</option>
+		<option value="/forecasts/ohio-deer-hunting-forecast-2015">ohio</option>
+		<option value="/forecasts/oklahoma-deer-hunting-forecast-2015">oklahoma</option>
+		<option value="/forecasts/washington-oregon-deer-hunting-forecast-2015">oregon</option>
+		<option value="/forecasts/pennsylvania-deer-hunting-forecast-2015">pennsylvania</option>
+		<option value="/forecasts/new-england-deer-hunting-forecast-2015">rhode island</option>
+		<option value="/forecasts/south-carolina-deer-hunting-forecast-2015">south carolina</option>
+		<option value="/forecasts/great-plains-deer-hunting-forecast-2015">south dakota</option>
+		<option value="/forecasts/tennessee-deer-hunting-forecast-2015">tennessee</option>
+		<option value="/forecasts/texas-deer-hunting-forecast-2015">texas</option>
+		<option value="/forecasts/vermont-deer-hunting-forecast-2015">vermont</option>
+		<option value="/forecasts/virginia-deer-hunting-forecast-2015">virginia</option>
+		<option value="/forecasts/washington-oregon-deer-hunting-forecast-2015">washington</option>
+		<option value="/forecasts/west-virginia-deer-hunting-forecast-2015">west virginia</option>
+		<option value="/forecasts/wisconsin-deer-hunting-forecast-2015">wisconsin</option>		
+		<option value="/forecasts/rocky-mountain-deer-hunting-forecast-2015">Wyoming</option>
 	</select>
 	<input type="button" name="Submit" value="Go" class="forecast-submit" onClick="window.location = this.form.menu4.options[this.form.menu4.selectedIndex].value;">
 	</form>

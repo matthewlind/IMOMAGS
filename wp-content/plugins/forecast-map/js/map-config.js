@@ -10,7 +10,7 @@
 	'map_1':{
 		'namesId':'AL',//name's ID (Don't change it)
 		'name': 'ALABAMA',  //state name
-		'url':'/deer-forecast/ALABAMA-deer-hunting-forecast-2014/', //Goto URL
+		'url':'/forecasts/ALABAMA-deer-hunting-forecast-2015/', //Goto URL
 		'target':'_blank', //open link in new window:_blank, open in current window:_self
 		'upcolor':'#EBECED', //state's color when page loads
 		'overcolor':'#FF6600', //state's color when mouse hover
@@ -20,7 +20,7 @@
 	'map_2':{
 		'namesId':'AK',
 		'name': 'ALASKA',
-		'url':'/deer-forecast/ALASKA-deer-hunting-forecast-2014/',
+		'url':'/forecasts/ALASKA-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -30,7 +30,7 @@
 	'map_3':{
 		'namesId':'AZ',
 		'name': 'ARIZONA',
-		'url':'/deer-forecast/rocky-mountain-deer-hunting-forecast-2014/',
+		'url':'/forecasts/rocky-mountain-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -40,7 +40,7 @@
 	'map_4':{
 		'namesId':'AR',
 		'name': 'ARKANSAS',
-		'url':'/deer-forecast/ARKANSAS-deer-hunting-forecast-2014/',
+		'url':'/forecasts/ARKANSAS-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -50,7 +50,7 @@
 	'map_5':{
 		'namesId':'CA',
 		'name': 'CALIFORNIA',
-		'url':'/deer-forecast/CALIFORNIA-deer-hunting-forecast-2014/',
+		'url':'/forecasts/CALIFORNIA-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -60,7 +60,7 @@
 	'map_6':{
 		'namesId':'CO',
 		'name': 'COLORADO',
-		'url':'/deer-forecast/rocky-mountain-deer-hunting-forecast-2014/',
+		'url':'/forecasts/rocky-mountain-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#ccc',
 		'overcolor':'#FF6600',
@@ -70,7 +70,7 @@
 	'map_7':{
 		'namesId':'CT',
 		'name': 'CONNECTICUT',
-		'url':'/deer-forecast/new-england-deer-hunting-forecast-2014/',
+		'url':'/forecasts/new-england-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -80,7 +80,7 @@
 	'map_8':{
 		'namesId':'DE',
 		'name': 'DELAWARE',
-		'url':'/deer-forecast/DELAWARE-deer-hunting-forecast-2014/',
+		'url':'/forecasts/DELAWARE-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -90,7 +90,7 @@
 	'map_9':{
 		'namesId':'FL',
 		'name': 'FLORIDA',
-		'url':'/deer-forecast/FLORIDA-deer-hunting-forecast-2014/',
+		'url':'/forecasts/FLORIDA-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -100,7 +100,7 @@
 	'map_10':{
 		'namesId':'GA',
 		'name': 'GEORGIA',
-		'url':'/deer-forecast/GEORGIA-deer-hunting-forecast-2014/',
+		'url':'/forecasts/GEORGIA-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -110,7 +110,7 @@
 	'map_11':{
 		'namesId':'HI',
 		'name': 'HAWAII',
-		'url':'/deer-forecast/HAWAII-deer-hunting-forecast-2014/',
+		'url':'/forecasts/HAWAII-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -120,7 +120,7 @@
 	'map_12':{
 		'namesId':'ID',
 		'name': 'IDAHO',
-		'url':'/deer-forecast/IDAHO-deer-hunting-forecast-2014/',
+		'url':'/forecasts/IDAHO-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#ccc',
 		'overcolor':'#FF6600',
@@ -130,7 +130,7 @@
 	'map_13':{
 		'namesId':'IL',
 		'name': 'ILLINOIS',
-		'url':'/deer-forecast/ILLINOIS-deer-hunting-forecast-2014/',
+		'url':'/forecasts/ILLINOIS-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -140,7 +140,7 @@
 	'map_14':{
 		'namesId':'IN',
 		'name': 'INDIANA',
-		'url':'/deer-forecast/INDIANA-deer-hunting-forecast-2014/',
+		'url':'/forecasts/INDIANA-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -150,7 +150,7 @@
 	'map_15':{
 		'namesId':'IA',
 		'name': 'IOWA',
-		'url':'/deer-forecast/IOWA-deer-hunting-forecast-2014/',
+		'url':'/forecasts/IOWA-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -160,7 +160,7 @@
 	'map_16':{
 		'namesId':'KS',
 		'name': 'KANSAS',
-		'url':'/deer-forecast/great-plains-deer-hunting-forecast-2014/',
+		'url':'/forecasts/great-plains-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -170,7 +170,7 @@
 	'map_17':{
 		'namesId':'KY',
 		'name': 'KENTUCKY',
-		'url':'/deer-forecast/KENTUCKY-deer-hunting-forecast-2014/',
+		'url':'/forecasts/KENTUCKY-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -180,7 +180,7 @@
 	'map_18':{
 		'namesId':'LA',
 		'name': 'LOUISIANA',
-		'url':'/deer-forecast/LOUISIANA-deer-hunting-forecast-2014/',
+		'url':'/forecasts/LOUISIANA-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -190,7 +190,7 @@
 	'map_19':{
 		'namesId':'ME',
 		'name': 'MAINE',
-		'url':'/deer-forecast/new-england-deer-hunting-forecast-2014/',
+		'url':'/forecasts/new-england-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -200,7 +200,7 @@
 	'map_20':{
 		'namesId':'MD',
 		'name': 'MARYLAND',
-		'url':'/deer-forecast/MARYLAND-deer-hunting-forecast-2014/',
+		'url':'/forecasts/MARYLAND-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#ccc',
 		'overcolor':'#FF6600',
@@ -210,7 +210,7 @@
 	'map_21':{
 		'namesId':'MA',
 		'name': 'MASSACHUSETTS',
-		'url':'/deer-forecast/new-england-deer-hunting-forecast-2014/',
+		'url':'/forecasts/new-england-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -220,7 +220,7 @@
 	'map_22':{
 		'namesId':'MI',
 		'name': 'MICHIGAN',
-		'url':'/deer-forecast/MICHIGAN-deer-hunting-forecast-2014/',
+		'url':'/forecasts/MICHIGAN-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -230,7 +230,7 @@
 	'map_23':{
 		'namesId':'MN',
 		'name': 'MINNESOTA',
-		'url':'/deer-forecast/MINNESOTA-deer-hunting-forecast-2014/',
+		'url':'/forecasts/MINNESOTA-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -240,7 +240,7 @@
 	'map_24':{
 		'namesId':'MS',
 		'name': 'MISSISSIPPI',
-		'url':'/deer-forecast/MISSISSIPPI-deer-hunting-forecast-2014/',
+		'url':'/forecasts/MISSISSIPPI-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -250,7 +250,7 @@
 	'map_25':{
 		'namesId':'MO',
 		'name': 'MISSOURI',
-		'url':'/deer-forecast/MISSOURI-deer-hunting-forecast-2014/',
+		'url':'/forecasts/MISSOURI-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -260,7 +260,7 @@
 	'map_26':{
 		'namesId':'MT',
 		'name': 'MONTANA',
-		'url':'/deer-forecast/MONTANA-deer-hunting-forecast-2014/',
+		'url':'/forecasts/MONTANA-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#ccc',
 		'overcolor':'#FF6600',
@@ -270,7 +270,7 @@
 	'map_27':{
 		'namesId':'NE',
 		'name': 'NEBRASKA',
-		'url':'/deer-forecast/great-plains-deer-hunting-forecast-2014/',
+		'url':'/forecasts/great-plains-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -280,7 +280,7 @@
 	'map_28':{
 		'namesId':'NV',
 		'name': 'NEVADA',
-		'url':'/deer-forecast/NEVADA-deer-hunting-forecast-2014/',
+		'url':'/forecasts/NEVADA-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#ccc',
 		'overcolor':'#FF6600',
@@ -290,7 +290,7 @@
 	'map_29':{
 		'namesId':'NH',
 		'name': 'NEW HAMPSHIRE',
-		'url':'/deer-forecast/new-england-deer-hunting-forecast-2014/',
+		'url':'/forecasts/new-england-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -300,7 +300,7 @@
 	'map_30':{
 		'namesId':'NJ',
 		'name': 'NEW JERSEY',
-		'url':'/deer-forecast/NEW-JERSEY-deer-hunting-forecast-2014/',
+		'url':'/forecasts/NEW-JERSEY-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#ccc',
 		'overcolor':'#FF6600',
@@ -310,7 +310,7 @@
 	'map_31':{
 		'namesId':'NM',
 		'name': 'NEW MEXICO',
-		'url':'/deer-forecast/rocky-mountain-deer-hunting-forecast-2014/',
+		'url':'/forecasts/rocky-mountain-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -320,7 +320,7 @@
 	'map_32':{
 		'namesId':'NY',
 		'name': 'NEW YORK',
-		'url':'/deer-forecast/NEW-YORK-deer-hunting-forecast-2014/',
+		'url':'/forecasts/NEW-YORK-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -330,7 +330,7 @@
 	'map_33':{
 		'namesId':'NC',
 		'name': 'NORTH CAROLINA',
-		'url':'/deer-forecast/NORTH-CAROLINA-deer-hunting-forecast-2014/',
+		'url':'/forecasts/NORTH-CAROLINA-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -340,7 +340,7 @@
 	'map_34':{
 		'namesId':'ND',
 		'name': 'NORTH DAKOTA',
-		'url':'/deer-forecast/great-plains-deer-hunting-forecast-2014/',
+		'url':'/forecasts/great-plains-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -350,7 +350,7 @@
 	'map_35':{
 		'namesId':'OH',
 		'name': 'OHIO',
-		'url':'/deer-forecast/OHIO-deer-hunting-forecast-2014/',
+		'url':'/forecasts/OHIO-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -360,7 +360,7 @@
 	'map_36':{
 		'namesId':'OK',
 		'name': 'OKLAHOMA',
-		'url':'/deer-forecast/OKLAHOMA-deer-hunting-forecast-2014/',
+		'url':'/forecasts/OKLAHOMA-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -370,7 +370,7 @@
 	'map_37':{
 		'namesId':'OR',
 		'name': 'OREGON',
-		'url':'/deer-forecast/washington-oregon-deer-hunting-forecast-2014/',
+		'url':'/forecasts/washington-oregon-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -380,7 +380,7 @@
 	'map_38':{
 		'namesId':'PA',
 		'name': 'PENNSYLVANIA',
-		'url':'/deer-forecast/PENNSYLVANIA-deer-hunting-forecast-2014/',
+		'url':'/forecasts/PENNSYLVANIA-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -390,7 +390,7 @@
 	'map_39':{
 		'namesId':'RI',
 		'name': 'RHODE ISLAND',
-		'url':'/deer-forecast/new-england-deer-hunting-forecast-2014/',
+		'url':'/forecasts/new-england-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -400,7 +400,7 @@
 	'map_40':{
 		'namesId':'SC',
 		'name': 'SOUTH CAROLINA',
-		'url':'/deer-forecast/SOUTH-CAROLINA-deer-hunting-forecast-2014/',
+		'url':'/forecasts/SOUTH-CAROLINA-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -410,7 +410,7 @@
 	'map_41':{
 		'namesId':'SD',
 		'name': 'SOUTH DAKOTA',
-		'url':'/deer-forecast/great-plains-deer-hunting-forecast-2014/',
+		'url':'/forecasts/great-plains-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -420,7 +420,7 @@
 	'map_42':{
 		'namesId':'TN',
 		'name': 'TENNESSEE',
-		'url':'/deer-forecast/TENNESSEE-deer-hunting-forecast-2014/',
+		'url':'/forecasts/TENNESSEE-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -430,7 +430,7 @@
 	'map_43':{
 		'namesId':'TX',
 		'name': 'TEXAS',
-		'url':'/deer-forecast/TEXAS-deer-hunting-forecast-2014/',
+		'url':'/forecasts/TEXAS-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -440,7 +440,7 @@
 	'map_44':{
 		'namesId':'UT',
 		'name': 'UTAH',
-		'url':'/deer-forecast/UTAH-deer-hunting-forecast-2014/',
+		'url':'/forecasts/UTAH-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#ccc',
 		'overcolor':'#FF6600',
@@ -450,7 +450,7 @@
 	'map_45':{
 		'namesId':'VT',
 		'name': 'VERMONT',
-		'url':'/deer-forecast/new-england-deer-hunting-forecast-2014/',
+		'url':'/forecasts/new-england-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -460,7 +460,7 @@
 	'map_46':{
 		'namesId':'VA',
 		'name': 'VIRGINIA',
-		'url':'/deer-forecast/VIRGINIA-deer-hunting-forecast-2014/',
+		'url':'/forecasts/VIRGINIA-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -470,7 +470,7 @@
 	'map_47':{
 		'namesId':'WA',
 		'name': 'WASHINGTON',
-		'url':'/deer-forecast/washington-oregon-deer-hunting-forecast-2014/',
+		'url':'/forecasts/washington-oregon-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -480,7 +480,7 @@
 	'map_48':{
 		'namesId':'WV',
 		'name': 'WEST VIRGINIA',
-		'url':'/deer-forecast/WEST-VIRGINIA-deer-hunting-forecast-2014/',
+		'url':'/forecasts/WEST-VIRGINIA-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -490,7 +490,7 @@
 	'map_49':{
 		'namesId':'WI',
 		'name': 'WISCONSIN',
-		'url':'/deer-forecast/WISCONSIN-deer-hunting-forecast-2014/',
+		'url':'/forecasts/WISCONSIN-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -500,7 +500,7 @@
 	'map_50':{
 		'namesId':'WY',
 		'name': 'WYOMING',
-		'url':'/deer-forecast/rocky-mountain-deer-hunting-forecast-2014/',
+		'url':'/forecasts/rocky-mountain-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#ccc',
 		'overcolor':'#FF6600',
@@ -510,7 +510,7 @@
 	'map_51':{
 		'namesId':'DC',
 		'name': 'WASHINGTON DC',
-		'url':'/deer-forecast/dc-deer-hunting-forecast-2014/',
+		'url':'/forecasts/dc-deer-hunting-forecast-2015/',
 		'target':'_blank',
 		'upcolor':'#ccc',
 		'overcolor':'#0000FF',
@@ -532,7 +532,7 @@ var map_config_2013 = {
 	'map_1':{
 		'namesId':'AL',//name's ID (Don't change it)
 		'name': 'ALABAMA',  //state name
-		'url':'/deer-forecast/ALABAMA-deer-forecast-2013/', //Goto URL
+		'url':'/forecasts/ALABAMA-forecasts-2013/', //Goto URL
 		'target':'_blank', //open link in new window:_blank, open in current window:_self
 		'upcolor':'#EBECED', //state's color when page loads
 		'overcolor':'#FF6600', //state's color when mouse hover
@@ -542,7 +542,7 @@ var map_config_2013 = {
 	'map_2':{
 		'namesId':'AK',
 		'name': 'ALASKA',
-		'url':'/deer-forecast/ALASKA-deer-forecast-2013/',
+		'url':'/forecasts/ALASKA-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -552,7 +552,7 @@ var map_config_2013 = {
 	'map_3':{
 		'namesId':'AZ',
 		'name': 'ARIZONA',
-		'url':'/deer-forecast/rocky-mountain-deer-forecast-2013/',
+		'url':'/forecasts/rocky-mountain-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#ccc',
 		'overcolor':'#FF6600',
@@ -562,7 +562,7 @@ var map_config_2013 = {
 	'map_4':{
 		'namesId':'AR',
 		'name': 'ARKANSAS',
-		'url':'/deer-forecast/ARKANSAS-deer-forecast-2013/',
+		'url':'/forecasts/ARKANSAS-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -572,7 +572,7 @@ var map_config_2013 = {
 	'map_5':{
 		'namesId':'CA',
 		'name': 'CALIFORNIA',
-		'url':'/deer-forecast/CALIFORNIA-deer-forecast-2013/',
+		'url':'/forecasts/CALIFORNIA-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -582,7 +582,7 @@ var map_config_2013 = {
 	'map_6':{
 		'namesId':'CO',
 		'name': 'COLORADO',
-		'url':'/deer-forecast/rocky-mountain-deer-forecast-2013/',
+		'url':'/forecasts/rocky-mountain-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#ccc',
 		'overcolor':'#FF6600',
@@ -592,7 +592,7 @@ var map_config_2013 = {
 	'map_7':{
 		'namesId':'CT',
 		'name': 'CONNECTICUT',
-		'url':'/deer-forecast/new-england-deer-forecast-2013/',
+		'url':'/forecasts/new-england-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -602,7 +602,7 @@ var map_config_2013 = {
 	'map_8':{
 		'namesId':'DE',
 		'name': 'DELAWARE',
-		'url':'/deer-forecast/DELAWARE-deer-forecast-2013/',
+		'url':'/forecasts/DELAWARE-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -612,7 +612,7 @@ var map_config_2013 = {
 	'map_9':{
 		'namesId':'FL',
 		'name': 'FLORIDA',
-		'url':'/deer-forecast/FLORIDA-deer-forecast-2013/',
+		'url':'/forecasts/FLORIDA-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -622,7 +622,7 @@ var map_config_2013 = {
 	'map_10':{
 		'namesId':'GA',
 		'name': 'GEORGIA',
-		'url':'/deer-forecast/GEORGIA-deer-forecast-2013/',
+		'url':'/forecasts/GEORGIA-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -632,7 +632,7 @@ var map_config_2013 = {
 	'map_11':{
 		'namesId':'HI',
 		'name': 'HAWAII',
-		'url':'/deer-forecast/HAWAII-deer-forecast-2013/',
+		'url':'/forecasts/HAWAII-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -642,7 +642,7 @@ var map_config_2013 = {
 	'map_12':{
 		'namesId':'ID',
 		'name': 'IDAHO',
-		'url':'/deer-forecast/IDAHO-deer-forecast-2013/',
+		'url':'/forecasts/IDAHO-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#ccc',
 		'overcolor':'#FF6600',
@@ -652,7 +652,7 @@ var map_config_2013 = {
 	'map_13':{
 		'namesId':'IL',
 		'name': 'ILLINOIS',
-		'url':'/deer-forecast/ILLINOIS-deer-forecast-2013/',
+		'url':'/forecasts/ILLINOIS-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -662,7 +662,7 @@ var map_config_2013 = {
 	'map_14':{
 		'namesId':'IN',
 		'name': 'INDIANA',
-		'url':'/deer-forecast/INDIANA-deer-forecast-2013/',
+		'url':'/forecasts/INDIANA-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -672,7 +672,7 @@ var map_config_2013 = {
 	'map_15':{
 		'namesId':'IA',
 		'name': 'IOWA',
-		'url':'/deer-forecast/IOWA-deer-forecast-2013/',
+		'url':'/forecasts/IOWA-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -682,7 +682,7 @@ var map_config_2013 = {
 	'map_16':{
 		'namesId':'KS',
 		'name': 'KANSAS',
-		'url':'/deer-forecast/great-plains-deer-forecast-2013/',
+		'url':'/forecasts/great-plains-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -692,7 +692,7 @@ var map_config_2013 = {
 	'map_17':{
 		'namesId':'KY',
 		'name': 'KENTUCKY',
-		'url':'/deer-forecast/KENTUCKY-deer-forecast-2013/',
+		'url':'/forecasts/KENTUCKY-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -702,7 +702,7 @@ var map_config_2013 = {
 	'map_18':{
 		'namesId':'LA',
 		'name': 'LOUISIANA',
-		'url':'/deer-forecast/LOUISIANA-deer-forecast-2013/',
+		'url':'/forecasts/LOUISIANA-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -712,7 +712,7 @@ var map_config_2013 = {
 	'map_19':{
 		'namesId':'ME',
 		'name': 'MAINE',
-		'url':'/deer-forecast/new-england-deer-forecast-2013/',
+		'url':'/forecasts/new-england-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -722,7 +722,7 @@ var map_config_2013 = {
 	'map_20':{
 		'namesId':'MD',
 		'name': 'MARYLAND',
-		'url':'/deer-forecast/MARYLAND-deer-forecast-2013/',
+		'url':'/forecasts/MARYLAND-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#ccc',
 		'overcolor':'#FF6600',
@@ -732,7 +732,7 @@ var map_config_2013 = {
 	'map_21':{
 		'namesId':'MA',
 		'name': 'MASSACHUSETTS',
-		'url':'/deer-forecast/new-england-deer-forecast-2013/',
+		'url':'/forecasts/new-england-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -742,7 +742,7 @@ var map_config_2013 = {
 	'map_22':{
 		'namesId':'MI',
 		'name': 'MICHIGAN',
-		'url':'/deer-forecast/MICHIGAN-deer-forecast-2013/',
+		'url':'/forecasts/MICHIGAN-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -752,7 +752,7 @@ var map_config_2013 = {
 	'map_23':{
 		'namesId':'MN',
 		'name': 'MINNESOTA',
-		'url':'/deer-forecast/MINNESOTA-deer-forecast-2013/',
+		'url':'/forecasts/MINNESOTA-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -762,7 +762,7 @@ var map_config_2013 = {
 	'map_24':{
 		'namesId':'MS',
 		'name': 'MISSISSIPPI',
-		'url':'/deer-forecast/MISSISSIPPI-deer-forecast-2013/',
+		'url':'/forecasts/MISSISSIPPI-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -772,7 +772,7 @@ var map_config_2013 = {
 	'map_25':{
 		'namesId':'MO',
 		'name': 'MISSOURI',
-		'url':'/deer-forecast/MISSOURI-deer-forecast-2013/',
+		'url':'/forecasts/MISSOURI-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -782,7 +782,7 @@ var map_config_2013 = {
 	'map_26':{
 		'namesId':'MT',
 		'name': 'MONTANA',
-		'url':'/deer-forecast/MONTANA-deer-forecast-2013/',
+		'url':'/forecasts/MONTANA-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#ccc',
 		'overcolor':'#FF6600',
@@ -792,7 +792,7 @@ var map_config_2013 = {
 	'map_27':{
 		'namesId':'NE',
 		'name': 'NEBRASKA',
-		'url':'/deer-forecast/great-plains-deer-forecast-2013/',
+		'url':'/forecasts/great-plains-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -802,7 +802,7 @@ var map_config_2013 = {
 	'map_28':{
 		'namesId':'NV',
 		'name': 'NEVADA',
-		'url':'/deer-forecast/NEVADA-deer-forecast-2013/',
+		'url':'/forecasts/NEVADA-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#ccc',
 		'overcolor':'#FF6600',
@@ -812,7 +812,7 @@ var map_config_2013 = {
 	'map_29':{
 		'namesId':'NH',
 		'name': 'NEW HAMPSHIRE',
-		'url':'/deer-forecast/new-england-deer-forecast-2013/',
+		'url':'/forecasts/new-england-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -822,7 +822,7 @@ var map_config_2013 = {
 	'map_30':{
 		'namesId':'NJ',
 		'name': 'NEW JERSEY',
-		'url':'/deer-forecast/NEW-JERSEY-deer-forecast-2013/',
+		'url':'/forecasts/NEW-JERSEY-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#ccc',
 		'overcolor':'#FF6600',
@@ -832,7 +832,7 @@ var map_config_2013 = {
 	'map_31':{
 		'namesId':'NM',
 		'name': 'NEW MEXICO',
-		'url':'/deer-forecast/rocky-mountain-deer-forecast-2013/',
+		'url':'/forecasts/rocky-mountain-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -842,7 +842,7 @@ var map_config_2013 = {
 	'map_32':{
 		'namesId':'NY',
 		'name': 'NEW YORK',
-		'url':'/deer-forecast/NEW-YORK-deer-forecast-2013/',
+		'url':'/forecasts/NEW-YORK-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -852,7 +852,7 @@ var map_config_2013 = {
 	'map_33':{
 		'namesId':'NC',
 		'name': 'NORTH CAROLINA',
-		'url':'/deer-forecast/NORTH-CAROLINA-deer-forecast-2013/',
+		'url':'/forecasts/NORTH-CAROLINA-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -862,7 +862,7 @@ var map_config_2013 = {
 	'map_34':{
 		'namesId':'ND',
 		'name': 'NORTH DAKOTA',
-		'url':'/deer-forecast/great-plains-deer-forecast-2013/',
+		'url':'/forecasts/great-plains-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -872,7 +872,7 @@ var map_config_2013 = {
 	'map_35':{
 		'namesId':'OH',
 		'name': 'OHIO',
-		'url':'/deer-forecast/OHIO-deer-forecast-2013/',
+		'url':'/forecasts/OHIO-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -882,7 +882,7 @@ var map_config_2013 = {
 	'map_36':{
 		'namesId':'OK',
 		'name': 'OKLAHOMA',
-		'url':'/deer-forecast/OKLAHOMA-deer-forecast-2013/',
+		'url':'/forecasts/OKLAHOMA-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -892,7 +892,7 @@ var map_config_2013 = {
 	'map_37':{
 		'namesId':'OR',
 		'name': 'OREGON',
-		'url':'/deer-forecast/washington-oregon-deer-forecast-2013/',
+		'url':'/forecasts/washington-oregon-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -902,7 +902,7 @@ var map_config_2013 = {
 	'map_38':{
 		'namesId':'PA',
 		'name': 'PENNSYLVANIA',
-		'url':'/deer-forecast/PENNSYLVANIA-deer-forecast-2013/',
+		'url':'/forecasts/PENNSYLVANIA-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -912,7 +912,7 @@ var map_config_2013 = {
 	'map_39':{
 		'namesId':'RI',
 		'name': 'RHODE ISLAND',
-		'url':'/deer-forecast/new-england-deer-forecast-2013/',
+		'url':'/forecasts/new-england-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -922,7 +922,7 @@ var map_config_2013 = {
 	'map_40':{
 		'namesId':'SC',
 		'name': 'SOUTH CAROLINA',
-		'url':'/deer-forecast/SOUTH-CAROLINA-deer-forecast-2013/',
+		'url':'/forecasts/SOUTH-CAROLINA-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -932,7 +932,7 @@ var map_config_2013 = {
 	'map_41':{
 		'namesId':'SD',
 		'name': 'SOUTH DAKOTA',
-		'url':'/deer-forecast/great-plains-deer-forecast-2013/',
+		'url':'/forecasts/great-plains-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -942,7 +942,7 @@ var map_config_2013 = {
 	'map_42':{
 		'namesId':'TN',
 		'name': 'TENNESSEE',
-		'url':'/deer-forecast/TENNESSEE-deer-forecast-2013/',
+		'url':'/forecasts/TENNESSEE-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -952,7 +952,7 @@ var map_config_2013 = {
 	'map_43':{
 		'namesId':'TX',
 		'name': 'TEXAS',
-		'url':'/deer-forecast/TEXAS-deer-forecast-2013/',
+		'url':'/forecasts/TEXAS-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -962,7 +962,7 @@ var map_config_2013 = {
 	'map_44':{
 		'namesId':'UT',
 		'name': 'UTAH',
-		'url':'/deer-forecast/UTAH-deer-forecast-2013/',
+		'url':'/forecasts/UTAH-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#ccc',
 		'overcolor':'#FF6600',
@@ -972,7 +972,7 @@ var map_config_2013 = {
 	'map_45':{
 		'namesId':'VT',
 		'name': 'VERMONT',
-		'url':'/deer-forecast/new-england-deer-forecast-2013/',
+		'url':'/forecasts/new-england-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -982,7 +982,7 @@ var map_config_2013 = {
 	'map_46':{
 		'namesId':'VA',
 		'name': 'VIRGINIA',
-		'url':'/deer-forecast/VIRGINIA-deer-forecast-2013/',
+		'url':'/forecasts/VIRGINIA-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -992,7 +992,7 @@ var map_config_2013 = {
 	'map_47':{
 		'namesId':'WA',
 		'name': 'WASHINGTON',
-		'url':'/deer-forecast/washington-oregon-deer-forecast-2013/',
+		'url':'/forecasts/washington-oregon-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -1002,7 +1002,7 @@ var map_config_2013 = {
 	'map_48':{
 		'namesId':'WV',
 		'name': 'WEST VIRGINIA',
-		'url':'/deer-forecast/WEST-VIRGINIA-deer-forecast-2013/',
+		'url':'/forecasts/WEST-VIRGINIA-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -1012,7 +1012,7 @@ var map_config_2013 = {
 	'map_49':{
 		'namesId':'WI',
 		'name': 'WISCONSIN',
-		'url':'/deer-forecast/WISCONSIN-deer-forecast-2013/',
+		'url':'/forecasts/WISCONSIN-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#EBECED',
 		'overcolor':'#FF6600',
@@ -1022,7 +1022,7 @@ var map_config_2013 = {
 	'map_50':{
 		'namesId':'WY',
 		'name': 'WYOMING',
-		'url':'/deer-forecast/rocky-mountain-deer-forecast-2013/',
+		'url':'/forecasts/rocky-mountain-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#ccc',
 		'overcolor':'#FF6600',
@@ -1032,7 +1032,7 @@ var map_config_2013 = {
 	'map_51':{
 		'namesId':'DC',
 		'name': 'WASHINGTON DC',
-		'url':'/deer-forecast/dc-deer-forecast-2013/',
+		'url':'/forecasts/dc-forecasts-2013/',
 		'target':'_blank',
 		'upcolor':'#ccc',
 		'overcolor':'#0000FF',
