@@ -69,7 +69,8 @@
 	<?php } ?>
 
 	<?php if (mobile() == false && tablet() == false) { imo_ad_placement("site_skin_1x1"); } ?>
-	<div class="hfeed wrapper <?php if(get_field("full_width") == true){ echo ' full-width full-content'; }else if(is_single() && has_post_format( 'video' ) || is_category("tv")){ echo ' tv-show full-content'; } ?>" data-role="content" role="main">
+	<div class="hfeed wrapper <?php if(get_field("full_width") == true){ echo ' full-width full-content'; }else if( is_page_template('show-page.php') || is_category("tv") || is_category("show-galleries") || (is_single() && (has_post_format( 'video' ) || in_category("show-galleries")) ) ){ echo ' tv-show full-content'; } ?>" data-role="content" role="main">
+
 	    <div class="layout-frame">
 	        <div id="branding" class="header clearfix" role="banner">
 	
