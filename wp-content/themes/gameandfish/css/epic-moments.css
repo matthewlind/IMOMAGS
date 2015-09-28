@@ -84,6 +84,16 @@ body h1, body h2, body h3, body h4, body h5 {
 /* ==========================================================================
    5.0 Header
    ========================================================================== */
+.top-ad-container {
+	background-color: #252525;
+} 
+.top-ad-sweeps {
+	background-color: #55c05f;
+	min-height: 40px;
+	max-width: 728px;
+	margin: 0 auto;
+}  
+   
 .top-panel {
 	height: 30px;
 	width: 100%;
@@ -442,7 +452,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 }
 .m-sweep-enter > h1 {
 	font: 700 37px "Lato", sans-serif;
-	color: #3e333a;
+	color: #de373e;
 	text-align: center;
 	margin-top: 20px;
 }
@@ -521,15 +531,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 	padding-top: 60%;
 	background: purple url() center center / cover no-repeat;
 }
+.article-bottom {
+	margin-bottom: 40px;
+}
 .article-bottom .m-social-wrap {
 	float: left;
-	margin: 0;
+	margin: 20px 0;
 }
 .ad-300x250 {
 	width: 300px;
 	height: 250px;
 	background-color: #55c05f;
 	float: right;
+	margin: 0 -10px;
 }
 /* ==========================================================================
    11.0 Media Queries
@@ -607,6 +621,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 	background: url(../images/epic-moments/poster.jpg) no-repeat center center / cover;
 }
 .m-sweep-text {max-width: 400px; top: 40px;}
+.ad-300x250 {margin: 0;}
+
+
 
 }/* end of media */
 

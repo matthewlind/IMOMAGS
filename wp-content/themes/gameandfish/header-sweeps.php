@@ -120,6 +120,11 @@
 <?php $blog_title = get_bloginfo('name'); ?>
 
 <body <?php body_class(); ?>  >
+	<div class="top-ad-container">
+		<div class="top-ad-sweeps">
+			<?php imo_ad_placement("div-atf_leaderboard_728x90"); ?>
+		</div>
+	</div>
 	<div class="top-panel">
 		<a href="<?php echo site_url(); ?>"><i class="fa fa-arrow-left"></i> Back to <?php echo $blog_title; ?></a>
 	</div>

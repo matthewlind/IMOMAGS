@@ -19,10 +19,10 @@
 		<div class="m-social-wrap clearfix">
 			<ul class="share-count social-buttons">
 				<li>
-					<a href="http://www.facebook.com/sharer.php?u=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>&t=Rigged and Ready RAM Outdoorsman Sweepstakes" class="socialite facebook-like reload-fb" data-href="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" data-send="false" data-layout="button_count" data-share="true" data-action="like" data-width="60" data-show-faces="false" rel="nofollow" target="_blank"><span class="vhidden"></span></a> 
+					<a href="http://www.facebook.com/sharer.php?u=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>&t=Honda Epic Moments Sweepstakes" class="socialite facebook-like reload-fb" data-href="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" data-send="false" data-layout="button_count" data-share="true" data-action="like" data-width="60" data-show-faces="false" rel="nofollow" target="_blank"><span class="vhidden"></span></a> 
 				</li>
 			    <li>
-			         <a href="http://twitter.com/share" class="socialite twitter-share reload-twitter" data-text="Rigged and Ready RAM Outdoorsman Sweepstakes" data-url="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" rel="nofollow" target="_blank"><span class="vhidden"></span></a> 
+			         <a href="http://twitter.com/share" class="socialite twitter-share reload-twitter" data-text="Honda Epic Moments Sweepstakes" data-url="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" rel="nofollow" target="_blank"><span class="vhidden"></span></a> 
 			    </li>
 			</ul>
 		</div><!-- .m-social-wrap -->
@@ -40,9 +40,7 @@
 				<div class="video-container">
 					<iframe width="560" height="315" src="https://www.youtube.com/embed/HdWgmCikSas" frameborder="0" allowfullscreen></iframe>
 				</div>
-				<div class="epic-ad-300x600">
-					
-				</div>
+				<div class="epic-ad-300x600"><?php imo_ad_placement("microsite_BTF_300x250"); ?></div>
 			</div>
 		</div><!-- .m-sweep-blocks -->
 		<div class="editors-block">
@@ -53,11 +51,11 @@
 						<div class="epic-header clearfix">
 							<div class="epic-author"></div>
 							<div class="epic-info">
-								<span>Mike Schoby</span>
-								<h1>Hunting Around The Harvest Lorem Ipusm Dolor</h1>
+								<span>Jeff Weakley</span>
+								<h1>Beautiful Fish</h1>
 							</div>
 						</div>
-						<div class="epic-image"></div>
+						<div class="epic-image" style="background-image: url(wp-content/themes/gameandfish/images/epic-moments/articles/Weakley.jpg);"></div>
 					</a>
 				</div>
 				<div class="epic-article">
@@ -65,11 +63,11 @@
 						<div class="epic-header clearfix">
 							<div class="epic-author"></div>
 							<div class="epic-info">
-								<span>Mike Schoby</span>
-								<h1>Hunting Around The Harvest Lorem Ipusm Dolor</h1>
+								<span>Doug Stange</span>
+								<h1>The Future’s Not Far</h1>
 							</div>
 						</div>
-						<div class="epic-image"></div>
+						<div class="epic-image" style="background-image: url(wp-content/themes/gameandfish/images/epic-moments/articles/Stange.jpg);"></div>
 					</a>
 				</div>
 				<div class="epic-article">
@@ -77,11 +75,11 @@
 						<div class="epic-header clearfix">
 							<div class="epic-author"></div>
 							<div class="epic-info">
-								<span>Mike Schoby</span>
-								<h1>Hunting Around The Harvest Lorem Ipusm Dolor</h1>
+								<span>Jeff Simpson</span>
+								<h1>One Angler’s Evolution</h1>
 							</div>
 						</div>
-						<div class="epic-image"></div>
+						<div class="epic-image" style="background-image: url(wp-content/themes/gameandfish/images/epic-moments/articles/Simpson.jpg);"></div>
 					</a>
 				</div>
 				<div class="epic-article">
@@ -89,11 +87,11 @@
 						<div class="epic-header clearfix">
 							<div class="epic-author"></div>
 							<div class="epic-info">
-								<span>Mike Schoby</span>
-								<h1>Hunting Around The Harvest Lorem Ipusm Dolor</h1>
+								<span>Steve Quinn</span>
+								<h1>From New York City to the Brazilian Jungle</h1>
 							</div>
 						</div>
-						<div class="epic-image"></div>
+						<div class="epic-image" style="background-image: url(wp-content/themes/gameandfish/images/epic-moments/articles/Quinn.jpg);"></div>
 					</a>
 				</div>
 				<div class="epic-article">
@@ -101,11 +99,11 @@
 						<div class="epic-header clearfix">
 							<div class="epic-author"></div>
 							<div class="epic-info">
-								<span>Mike Schoby</span>
-								<h1>Hunting Around The Harvest Lorem Ipusm Dolor</h1>
+								<span>Ross Purnell</span>
+								<h1>Epic Moment</h1>
 							</div>
 						</div>
-						<div class="epic-image"></div>
+						<div class="epic-image" style="background-image: url(wp-content/themes/gameandfish/images/epic-moments/articles/Purnell.jpg);"></div>
 					</a>
 				</div>
 				<div class="epic-article">
@@ -113,11 +111,11 @@
 						<div class="epic-header clearfix">
 							<div class="epic-author"></div>
 							<div class="epic-info">
-								<span>Mike Schoby</span>
-								<h1>Hunting Around The Harvest Lorem Ipusm Dolor</h1>
+								<span>Rob Neumann</span>
+								<h1>The Catfish Coffee Club</h1>
 							</div>
 						</div>
-						<div class="epic-image"></div>
+						<div class="epic-image" style="background-image: url(wp-content/themes/gameandfish/images/epic-moments/articles/Neumann.jpg);"></div>
 					</a>
 				</div>
 				<div class="epic-article">
@@ -125,11 +123,11 @@
 						<div class="epic-header clearfix">
 							<div class="epic-author"></div>
 							<div class="epic-info">
-								<span>Mike Schoby</span>
-								<h1>Hunting Around The Harvest Lorem Ipusm Dolor</h1>
+								<span>Gordon Whittington</span>
+								<h1>My Epic Moment</h1>
 							</div>
 						</div>
-						<div class="epic-image"></div>
+						<div class="epic-image" style="background-image: url(wp-content/themes/gameandfish/images/epic-moments/articles/Whittington.jpg);"></div>
 					</a>
 				</div>
 				<div class="epic-article">
@@ -137,11 +135,11 @@
 						<div class="epic-header clearfix">
 							<div class="epic-author"></div>
 							<div class="epic-info">
-								<span>Mike Schoby</span>
-								<h1>Hunting Around The Harvest Lorem Ipusm Dolor</h1>
+								<span>Curt Wells</span>
+								<h1>Epic Moment</h1>
 							</div>
 						</div>
-						<div class="epic-image"></div>
+						<div class="epic-image" style="background-image: url(wp-content/themes/gameandfish/images/epic-moments/articles/Wells.jpg);"></div>
 					</a>
 				</div>
 				<div class="epic-article">
@@ -149,27 +147,75 @@
 						<div class="epic-header clearfix">
 							<div class="epic-author"></div>
 							<div class="epic-info">
-								<span>Mike Schoby</span>
-								<h1>Hunting Around The Harvest Lorem Ipusm Dolor</h1>
+								<span>Rick R. Van Etten</span>
+								<h1>FIRST PHEASANT</h1>
 							</div>
 						</div>
-						<div class="epic-image"></div>
+						<div class="epic-image" style="background-image: url(wp-content/themes/gameandfish/images/epic-moments/articles/Van-Etten.jpg);"></div>
+					</a>
+				</div>
+				<div class="epic-article">
+					<a href="">
+						<div class="epic-header clearfix">
+							<div class="epic-author"></div>
+							<div class="epic-info">
+								<span>J. Scott Rupp</span>
+								<h1>The Ridge Runner</h1>
+							</div>
+						</div>
+						<div class="epic-image" style="background-image: url(wp-content/themes/gameandfish/images/epic-moments/articles/Rupp.jpg);"></div>
+					</a>
+				</div>
+				<div class="epic-article">
+					<a href="">
+						<div class="epic-header clearfix">
+							<div class="epic-author"></div>
+							<div class="epic-info">
+								<span>Christian Berg</span>
+								<h1>The Running of the Bulls</h1>
+							</div>
+						</div>
+						<div class="epic-image" style="background-image: url(wp-content/themes/gameandfish/images/epic-moments/articles/Berg.jpg);"></div>
+					</a>
+				</div>
+				<div class="epic-article">
+					<a href="">
+						<div class="epic-header clearfix">
+							<div class="epic-author"></div>
+							<div class="epic-info">
+								<span>John Geiger</span>
+								<h1>The Memory of My Boy’s Little Pigfish is Huge</h1>
+							</div>
+						</div>
+						<div class="epic-image" style="background-image: url(wp-content/themes/gameandfish/images/epic-moments/articles/Geiger.jpg);"></div>
+					</a>
+				</div>
+				<div class="epic-article">
+					<a href="">
+						<div class="epic-header clearfix">
+							<div class="epic-author"></div>
+							<div class="epic-info">
+								<span>Ken Dunwoody</span>
+								<h1>The Day In The Bay</h1>
+							</div>
+						</div>
+						<div class="epic-image" style="background-image: url(wp-content/themes/gameandfish/images/epic-moments/articles/Dunwoody.jpg);"></div>
 					</a>
 				</div>
 			</div><!-- .editors-articles -->
-			<div class="article-bottom">
+			<div class="article-bottom clearfix">
 				<div class="m-social-wrap">
 					<span>Like This Page</span>
 					<ul class="share-count social-buttons">
 						<li>
-							<a href="http://www.facebook.com/sharer.php?u=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>&t=Rigged and Ready RAM Outdoorsman Sweepstakes" class="socialite facebook-like reload-fb" data-href="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" data-send="false" data-layout="button_count" data-share="true" data-action="like" data-width="60" data-show-faces="false" rel="nofollow" target="_blank"><span class="vhidden"></span></a> 
+							<a href="http://www.facebook.com/sharer.php?u=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>&t=Honda Epic Moments Sweepstakes" class="socialite facebook-like reload-fb" data-href="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" data-send="false" data-layout="button_count" data-share="true" data-action="like" data-width="60" data-show-faces="false" rel="nofollow" target="_blank"><span class="vhidden"></span></a> 
 						</li>
 					    <li>
-					         <a href="http://twitter.com/share" class="socialite twitter-share reload-twitter" data-text="Rigged and Ready RAM Outdoorsman Sweepstakes" data-url="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" rel="nofollow" target="_blank"><span class="vhidden"></span></a> 
+					         <a href="http://twitter.com/share" class="socialite twitter-share reload-twitter" data-text="Honda Epic Moments Sweepstakes" data-url="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" rel="nofollow" target="_blank"><span class="vhidden"></span></a> 
 					    </li>
 					</ul>
 				</div><!-- .m-social-wrap-->
-				<div class="ad-300x250"></div>
+				<div class="ad-300x250"><?php imo_ad_placement("microsite_BTF_300x250"); ?></div>
 			</div><!-- .article-bottm -->
 		</div><!-- .editors-block-->
 	</article>
