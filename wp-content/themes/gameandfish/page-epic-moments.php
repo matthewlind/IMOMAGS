@@ -12,6 +12,8 @@
 				<img src="<?php bloginfo('stylesheet_directory');?>/images/epic-moments/MLF_Logo.png">
 				<img src="<?php bloginfo('stylesheet_directory');?>/images/epic-moments/honda-logo.jpg">
 				<img src="<?php bloginfo('stylesheet_directory');?>/images/epic-moments/pioneer1000.png">
+				<a href="" class="btn-honda">Learn more about PIONEER 1000</a>
+				<a href="" class="btn-honda">Find a Dealer</a>
 			</div>
 		</div>
 	</div><!-- .m-article-image -->
@@ -32,15 +34,16 @@
 					<h1>ENTER TO WIN!</h1>
 					<div></div>
 				</div>
-				<script type="text/javascript">var cnt_id = "f83efcdb-18776";</script>
-		        <script type="text/javascript" src="https://www.viralsweep.com/external/widget.js"></script>
+				<div class="m-form-wrap">
+					<?php gravity_form(49, false, false, false, '', false); ?>
+				</div>
 			</div>
 			<div class="m-sweep-right">
 				<p>Share your Epic Moment & you could WIN a trip to a Major League Fishing Bass Pro Summit event!</p>
 				<div class="video-container">
 					<iframe width="560" height="315" src="https://www.youtube.com/embed/HdWgmCikSas" frameborder="0" allowfullscreen></iframe>
 				</div>
-				<div class="epic-ad-300x600"><?php imo_ad_placement("microsite_BTF_300x250"); ?></div>
+				<div class="epic-ad-300x600"><?php imo_ad_placement("ATF_Medium_Rectangle_300x250"); ?></div>
 			</div>
 		</div><!-- .m-sweep-blocks -->
 		<div class="editors-block">
@@ -204,8 +207,7 @@
 				</div>
 			</div><!-- .editors-articles -->
 			<div class="article-bottom clearfix">
-				<div class="m-social-wrap">
-					<span>Like This Page</span>
+				<div class="m-social-wrap clearfix">
 					<ul class="share-count social-buttons">
 						<li>
 							<a href="http://www.facebook.com/sharer.php?u=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>&t=Honda Epic Moments Sweepstakes" class="socialite facebook-like reload-fb" data-href="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" data-send="false" data-layout="button_count" data-share="true" data-action="like" data-width="60" data-show-faces="false" rel="nofollow" target="_blank"><span class="vhidden"></span></a> 
@@ -214,7 +216,7 @@
 					         <a href="http://twitter.com/share" class="socialite twitter-share reload-twitter" data-text="Honda Epic Moments Sweepstakes" data-url="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" rel="nofollow" target="_blank"><span class="vhidden"></span></a> 
 					    </li>
 					</ul>
-				</div><!-- .m-social-wrap-->
+				</div><!-- .m-social-wrap -->
 				<div class="ad-300x250"><?php imo_ad_placement("microsite_BTF_300x250"); ?></div>
 			</div><!-- .article-bottm -->
 		</div><!-- .editors-block-->
