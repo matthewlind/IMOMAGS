@@ -122,7 +122,7 @@
 <body <?php body_class(); ?>  >
 	<div class="top-ad-container">
 		<div class="top-ad-sweeps">
-			<?php imo_ad_placement("div-atf_leaderboard_728x90"); ?>
+			<?php imo_ad_placement("atf_leaderboard_728x90"); ?>
 		</div>
 	</div>
 	<div class="top-panel">

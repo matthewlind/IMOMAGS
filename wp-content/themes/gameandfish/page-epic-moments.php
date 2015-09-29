@@ -1,11 +1,10 @@
 <?php 
 	get_header('sweeps');	
 ?>
-
-
-<div class="m-article-wrap clearfix">	
+<div class="m-article-wrap clearfix">
 	<div class="m-article-image">
 		<div class="m-sweep-text">
+		
 			<img class="epic-logo" src="<?php bloginfo('stylesheet_directory');?>/images/epic-moments/logo-epic-moment.png">
 			<p>We’ve all had those memorable, never-to-happen-again outdoors-experiences with family and friends that are worth sharing with fellow sportsmen – and we can’t wait to hear about yours. If it’s truly epic, you could <span>WIN</span> your own epic moment, fishing with a pro brought to you by the all new Honda Pioneer 1000, Game & Fish and Major League Fishing.</p>
 			<div class="m-sponsors clearfix">
