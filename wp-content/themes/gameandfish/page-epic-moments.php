@@ -98,7 +98,7 @@
 						<div class="epic-header clearfix">
 							<div class="epic-info">
 								<span>Ross Purnell</span>
-								<h1>Epic Moment</h1>
+								<h1>Navarino Island Adventure, 55°12'08.6"S 67°24'58.1”W</h1>
 							</div>
 						</div>
 						<div class="epic-image" style="background-image: url(wp-content/themes/gameandfish/images/epic-moments/articles/Purnell.jpg);"></div>
@@ -120,7 +120,7 @@
 						<div class="epic-header clearfix">
 							<div class="epic-info">
 								<span>Gordon Whittington</span>
-								<h1>My Epic Moment</h1>
+								<h1>Return To The Outhouse Stand</h1>
 							</div>
 						</div>
 						<div class="epic-image" style="background-image: url(wp-content/themes/gameandfish/images/epic-moments/articles/Whittington.jpg);"></div>
@@ -131,7 +131,7 @@
 						<div class="epic-header clearfix">
 							<div class="epic-info">
 								<span>Curt Wells</span>
-								<h1>Epic Moment</h1>
+								<h1>First Light</h1>
 							</div>
 						</div>
 						<div class="epic-image" style="background-image: url(wp-content/themes/gameandfish/images/epic-moments/articles/Wells.jpg);"></div>
@@ -142,7 +142,7 @@
 						<div class="epic-header clearfix">
 							<div class="epic-info">
 								<span>Rick R. Van Etten</span>
-								<h1>FIRST PHEASANT</h1>
+								<h1>First Pheasant</h1>
 							</div>
 						</div>
 						<div class="epic-image" style="background-image: url(wp-content/themes/gameandfish/images/epic-moments/articles/Van-Etten.jpg);"></div>
@@ -175,7 +175,7 @@
 						<div class="epic-header clearfix">
 							<div class="epic-info">
 								<span>John Geiger</span>
-								<h1>The Memory of My Boy’s Little Pigfish is Huge</h1>
+								<h1>The Biggest Little Pigfish</h1>
 							</div>
 						</div>
 						<div class="epic-image" style="background-image: url(wp-content/themes/gameandfish/images/epic-moments/articles/Geiger.jpg);"></div>
