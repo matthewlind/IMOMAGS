@@ -28,6 +28,11 @@
 	<meta http-equiv="x-ua-compatible" content="IE=edge" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
+    
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="WIN a Trip to a Major League Fishing Bass Pro Summit Event!" />
+    <meta property="og:description"   content="We’ve all had those memorable, never-to-happen-again outdoors-experiences with family and friends that are worth sharing with fellow sportsmen – and we can’t wait to hear about yours. If it’s truly epic, you could WIN your own epic moment, fishing with a pro brought to you by the all new Honda Pioneer 1000, Game & Fish and Major League Fishing." />
+    <meta property="og:image"         content=" <?php the_post_thumbnail( 'full' ); ?> " />
 	<title><?php
 	    /*
 	     * Print the <title> tag based on what is being viewed.
@@ -120,6 +125,15 @@
 <?php $blog_title = get_bloginfo('name'); ?>
 
 <body <?php body_class(); ?>  >
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=432932696867322";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	
 	<div class="top-ad-container">
 		<div class="top-ad-sweeps">
 			<?php imo_ad_placement("atf_leaderboard_728x90"); ?>

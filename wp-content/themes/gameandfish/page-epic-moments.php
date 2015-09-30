@@ -20,10 +20,11 @@
 		<div class="m-social-wrap clearfix">
 			<ul class="share-count social-buttons">
 				<li>
-					<a href="http://www.facebook.com/sharer.php?u=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>&t=Honda Epic Moments Sweepstakes" class="socialite facebook-like reload-fb" data-href="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" data-send="false" data-layout="button_count" data-share="true" data-action="like" data-width="60" data-show-faces="false" rel="nofollow" target="_blank"><span class="vhidden"></span></a> 
+					<div class="fb-like" data-href="http://www.gameandfishmag.com/epic-moments/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
 				</li>
 			    <li>
-			         <a href="http://twitter.com/share" class="socialite twitter-share reload-twitter" data-text="Honda Epic Moments Sweepstakes" data-url="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" rel="nofollow" target="_blank"><span class="vhidden"></span></a> 
+			         <a href="https://twitter.com/share" class="twitter-share-button" data-text="WIN a Trip to a Major League Fishing Bass Pro Summit Event!">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 			    </li>
 			</ul>
 		</div><!-- .m-social-wrap -->
@@ -51,7 +52,6 @@
 				<div class="epic-article">
 					<a href="">
 						<div class="epic-header clearfix">
-							<div class="epic-author"></div>
 							<div class="epic-info">
 								<span>Jeff Weakley</span>
 								<h1>Beautiful Fish</h1>
@@ -63,7 +63,6 @@
 				<div class="epic-article">
 					<a href="">
 						<div class="epic-header clearfix">
-							<div class="epic-author"></div>
 							<div class="epic-info">
 								<span>Doug Stange</span>
 								<h1>The Future’s Not Far</h1>
@@ -75,7 +74,6 @@
 				<div class="epic-article">
 					<a href="">
 						<div class="epic-header clearfix">
-							<div class="epic-author"></div>
 							<div class="epic-info">
 								<span>Jeff Simpson</span>
 								<h1>One Angler’s Evolution</h1>
@@ -87,7 +85,6 @@
 				<div class="epic-article">
 					<a href="">
 						<div class="epic-header clearfix">
-							<div class="epic-author"></div>
 							<div class="epic-info">
 								<span>Steve Quinn</span>
 								<h1>From New York City to the Brazilian Jungle</h1>
@@ -99,7 +96,6 @@
 				<div class="epic-article">
 					<a href="">
 						<div class="epic-header clearfix">
-							<div class="epic-author"></div>
 							<div class="epic-info">
 								<span>Ross Purnell</span>
 								<h1>Epic Moment</h1>
@@ -111,7 +107,6 @@
 				<div class="epic-article">
 					<a href="">
 						<div class="epic-header clearfix">
-							<div class="epic-author"></div>
 							<div class="epic-info">
 								<span>Rob Neumann</span>
 								<h1>The Catfish Coffee Club</h1>
@@ -123,7 +118,6 @@
 				<div class="epic-article">
 					<a href="">
 						<div class="epic-header clearfix">
-							<div class="epic-author"></div>
 							<div class="epic-info">
 								<span>Gordon Whittington</span>
 								<h1>My Epic Moment</h1>
@@ -135,7 +129,6 @@
 				<div class="epic-article">
 					<a href="">
 						<div class="epic-header clearfix">
-							<div class="epic-author"></div>
 							<div class="epic-info">
 								<span>Curt Wells</span>
 								<h1>Epic Moment</h1>
@@ -147,7 +140,6 @@
 				<div class="epic-article">
 					<a href="">
 						<div class="epic-header clearfix">
-							<div class="epic-author"></div>
 							<div class="epic-info">
 								<span>Rick R. Van Etten</span>
 								<h1>FIRST PHEASANT</h1>
@@ -159,7 +151,6 @@
 				<div class="epic-article">
 					<a href="">
 						<div class="epic-header clearfix">
-							<div class="epic-author"></div>
 							<div class="epic-info">
 								<span>J. Scott Rupp</span>
 								<h1>The Ridge Runner</h1>
@@ -171,7 +162,6 @@
 				<div class="epic-article">
 					<a href="">
 						<div class="epic-header clearfix">
-							<div class="epic-author"></div>
 							<div class="epic-info">
 								<span>Christian Berg</span>
 								<h1>The Running of the Bulls</h1>
@@ -183,7 +173,6 @@
 				<div class="epic-article">
 					<a href="">
 						<div class="epic-header clearfix">
-							<div class="epic-author"></div>
 							<div class="epic-info">
 								<span>John Geiger</span>
 								<h1>The Memory of My Boy’s Little Pigfish is Huge</h1>
@@ -195,7 +184,6 @@
 				<div class="epic-article">
 					<a href="">
 						<div class="epic-header clearfix">
-							<div class="epic-author"></div>
 							<div class="epic-info">
 								<span>Ken Dunwoody</span>
 								<h1>The Day In The Bay</h1>
@@ -207,12 +195,14 @@
 			</div><!-- .editors-articles -->
 			<div class="article-bottom clearfix">
 				<div class="m-social-wrap clearfix">
+					<h2>Share This Page</h2>
 					<ul class="share-count social-buttons">
 						<li>
-							<a href="http://www.facebook.com/sharer.php?u=<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>&t=Honda Epic Moments Sweepstakes" class="socialite facebook-like reload-fb" data-href="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" data-send="false" data-layout="button_count" data-share="true" data-action="like" data-width="60" data-show-faces="false" rel="nofollow" target="_blank"><span class="vhidden"></span></a> 
+							<div class="fb-like" data-href="http://www.gameandfishmag.com/epic-moments/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
 						</li>
 					    <li>
-					         <a href="http://twitter.com/share" class="socialite twitter-share reload-twitter" data-text="Honda Epic Moments Sweepstakes" data-url="<?php echo site_url() . $_SERVER['REQUEST_URI']; ?>" rel="nofollow" target="_blank"><span class="vhidden"></span></a> 
+					         <a href="https://twitter.com/share" class="twitter-share-button" data-text="WIN a Trip to a Major League Fishing Bass Pro Summit Event!">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 					    </li>
 					</ul>
 				</div><!-- .m-social-wrap -->
