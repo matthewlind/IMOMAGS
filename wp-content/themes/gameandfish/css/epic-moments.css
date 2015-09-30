@@ -1,0 +1,517 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900);
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+    *zoom: 1;
+}
+
+
+/* ==========================================================================
+	4.1 Defaults 
+========================================================================== */
+
+html, body {
+	height: 100%;
+	background-color: #1e1e1e;
+}
+#dp_swf_engine {
+	display: none;
+}
+body {
+	font-family: 'Lato', sans-serif;
+	color: #222;
+	overflow: hidden;
+	overflow-y: auto;
+}
+.m-microsite {
+	width: 100%;
+}
+a:hover, a:active, label:focus, label:active, i:hover {
+	outline: none;
+	text-decoration: none;
+	-webkit-transition:color 0.1s;
+	-moz-transition:color 0.1s;
+	transition:color 0.1s;
+}
+a {
+	color: #278bae;
+	-webkit-transition:color 0.1s;
+	-moz-transition:color 0.1s;
+	transition:color 0.1s;
+}
+a:hover {
+	color: #19a0cf;	
+	-webkit-transition:color 0.1s;
+	-moz-transition:color 0.1s;
+	transition:color 0.1s;
+}
+body h1, body h2, body h3, body h4, body h5 { 
+	font-weight: 900; 
+	font-style: normal; 
+	font-family: "Lato", serif;
+	color: #222222;
+}
+
+
+/* ==========================================================================
+   5.0 Header
+   ========================================================================== */
+.top-ad-container {
+	background-color: #252525;
+} 
+.top-ad-sweeps {
+	background-color: #55c05f;
+	min-height: 40px;
+	max-width: 728px;
+	margin: 0 auto;
+}  
+   
+.top-panel {
+	height: 30px;
+	width: 100%;
+	background-color: #333333;
+	text-align: center;
+	position: relative;
+}
+.top-panel-absolute {
+	position: absolute;
+	width: 100%;
+	height: 30px;
+	top: 0;
+	left: 0;
+	background-color: #333333;
+	z-index: 1000;
+}
+.top-panel-absolute a:before {
+	font-family: 'icomoon';
+	font-size: 12px;
+	margin-right: 5px;
+}
+.top-panel a {
+	color: #888888;
+	font: 700 16px/30px "Lora", serif;
+}
+.top-panel a:hover {
+	color: #19a0cf;	
+}
+
+
+/* ==========================================================================
+   9.0 Single Article
+   ========================================================================== */
+   
+.wpsocialite{display: none !important;}
+.m-article .m-social-wrap {margin-top: 20px;}
+.m-article .share-count.social-buttons{position: relative;bottom: auto;right: auto;text-align: left;margin: 0;list-style: none;padding: 0 0 20px 0;}
+.m-article .share-count.social-buttons li{float: left;margin-right: 10px;}
+/* .m-article .share-count.social-buttons li:last-child iframe {margin-top: 3px;} */
+
+.m-article-wrap {
+	width: 100%;
+	background-color: white;
+	color: #222222;
+}   
+.m-article-image {
+	width: 100%;
+	padding-top: 500px;
+	position: relative;
+	background-color: #f0eee5;
+	background: url(../images/epic-moments/poster-@2.jpg) no-repeat center center / cover;
+}
+.m-article {
+	padding: 0 20px 20px;
+	font: 400 17px "Lato", sans-serif;
+} 
+.m-article .m-hlep-grow {
+	font: 400 14px/17px "Lato", sans-serif;
+	color: #555555;
+	width: 218px;
+} 
+.m-article .m-social-buttons ul li:first-child {
+	margin-left: 0;
+}
+.m-article .m-social-buttons ul li {
+	margin: 0 5px;
+}
+.m-article .m-social-buttons ul li a {
+	color: #ee7700;
+	font-size: 25px;
+	-webkit-transition:color 0.2s;
+	-moz-transition:color 0.2s;
+	transition:color 0.2s;
+}
+.m-article .m-social-buttons ul li a:hover {
+	color: #ff9000;
+	-webkit-transition:color 0.2s;
+	-moz-transition:color 0.2s;
+	transition:color 0.2s;
+}
+.m-article .m-sweep-enter h1 {
+	font-size: 30px;
+	margin-bottom: 5px;
+	clear: both;
+}
+.m-article h2.m-subtitle {
+	font: 300 20px/26px "Lato", sans-serif;
+	margin: 0 0 5px;
+	clear: both;
+}
+.m-article h3 {
+	font-size: 21px;
+	line-height: 27px;
+	font-weight: 300;
+	margin: 0;
+}
+.m-post-byline {
+	font: 700 11px "Lato", sans-serif;
+	display: block;
+	text-transform: uppercase;
+	margin-bottom: 8px;
+}
+.m-article .inline-ad:nth-child(1) {
+	margin-top: 19px !important;
+}
+.m-article p {
+	font: 400 17px/28px "Lato", sans-serif;
+}
+/* ==========================================================================
+   11.0 Sweepstakes
+   ========================================================================== */
+.m-sweep-text {
+	position: absolute;
+	width: 90%;
+	top: 15px; left: 0; right: 0;
+	margin: 0 auto;
+	text-align: center;
+}
+.epic-logo {
+	width: 136px;
+}
+.m-sweep-text h1 {
+	font: 900 22px "Merriweather";
+	color: white;
+	text-shadow: 1px 2px 4px rgba(0,0,0,.7);
+}
+.m-sweep-text h1 span {
+	font: 900 36px "Lato";
+	color: #1d9fcc;
+	text-shadow: 2px 3px 5px rgba(0,0,0,.8);
+	padding-top: 9px;
+	display: inline-block;
+}
+.m-sweep-text p {
+	font-size: 16px;
+	color: #3e333a;
+	line-height: 135%;
+	border-radius: 5px;
+	margin-top: 15px;
+}
+.m-sweep-text p span {
+	color: #de373e;
+	font-weight: bold;
+}
+
+.m-sponsors {
+	width: 170px;
+	margin: 0 auto 10px;
+}
+.m-sponsors img {
+	float: left;
+	width: 45%;
+}
+.m-sponsors img:first-child {
+	margin-right: 10%;
+}
+.m-sponsors img:nth-child(3) {
+	width: 100%;
+	margin-top: 12px;
+}
+.btn-honda {
+	display: inline-block;
+	border-radius: 2px;
+	height: 25px;
+	background-color: #888;
+	line-height: 25px;
+	color: #fff;
+	text-shadow: 1px 1px 2px rgba(0,0,0,.1);
+	font-size: 10px;
+	text-transform: uppercase;
+	margin: 15px -15px 0;
+	padding: 0 10px;
+	transition: all 0.5s ease;
+}
+.btn-honda:hover {
+	color: #fff;
+	background-color: #d2202f;
+	transition: all 0.5s ease;
+}
+.m-sponsors .btn-honda:last-child {
+	margin-top: 10px;
+}
+
+.m-social-wrap {
+	width: 240px;
+	margin: 20px auto 0;
+}
+.m-social-wrap:last-child {
+	width: 221px;
+	margin: 40px auto;
+}
+.m-sweep-left {
+	width: 100%;
+}
+.m-sweep-enter {
+	width: 280px;
+	margin: 0 auto 10px;
+}
+.m-sweep-enter > h1 {
+	font: 700 37px "Lato", sans-serif;
+	color: #de373e;
+	text-align: center;
+	margin-top: 20px;
+}
+.m-sweep-enter > div {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 30px 140px 0 140px;
+	border-color: #eeeeee transparent transparent transparent;
+}
+.m-form-wrap {
+	width: 100%;
+	padding: 0 20px 0;
+	border: 20px solid #eee;
+}
+.m-form-wrap .gform_button {
+	background-color: #2c97de;
+	color: #fff;
+	border: none;
+	border-radius: 10px;
+	border-bottom: 4px solid #1a78b6;
+}
+.m-sweep-right {
+	width: 100%;
+	margin: 10px 0 0;
+}
+.video-container {
+	margin: 30px 0;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+}
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.epic-ad-300x600 {
+	width: 300px;
+	height: 600px;
+	margin: 30px -10px;
+	background-color: #55c05f;
+}
+.editors-block {
+	margin-top: 40px;
+}
+.editors-block h1 {
+	font-size: 26px;
+	margin-bottom: 30px;
+}
+.epic-article {
+	float: left;
+	width: 100%;
+	background-color: #eee;
+	margin-bottom: 40px;
+}
+.epic-header {
+	padding: 10px;
+	position: relative;
+}
+.epic-info {
+	width: 100%;
+}
+.epic-info span {
+	color: #ce0a12;
+}
+.epic-info h1 {
+	font-size: 18px;
+	font-weight: 700;
+	margin: 10px 0;
+}
+.epic-image {
+	width: 100%;
+	padding-top: 60%;
+	background: purple url() center center / cover no-repeat;
+}
+.article-bottom {
+	margin-bottom: 40px;
+}
+.article-bottom .m-social-wrap {
+	float: left;
+	margin: 20px 0;
+}
+.ad-300x250 {
+	width: 300px;
+	height: 250px;
+	background-color: #55c05f;
+	float: right;
+	margin: 0 -10px;
+}
+/* ==========================================================================
+   11.0 Media Queries
+   ========================================================================== */
+   
+@media only screen and (min-width: 375px) {/* iPhone 6 */
+
+
+/* Single Article **************/
+.alignright-content {margin: 30px auto;}
+
+.epic-ad-300x600 {
+	margin: 30px auto;
+}
+
+}/* end of media */
+
+
+@media only screen and (min-width: 480px) {/* smartphones, Android phones, landscape iPhone */
+
+/* Sweepstakes *******************/ 
+.m-sweep-left {width: 400px;margin: 0 auto;}
+.m-sweep-text h1 span br {display: none;}
+
+}/* end of media */
+
+
+@media only screen and (min-width: 600px) {/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+
+
+
+/* Single Article *******************/
+.m-article {padding: 0 35px 20px;} 
+.m-post-byline {margin-bottom: 36px;}
+.m-article p {line-height: 30px;}
+.alignright-content.inline-ad {margin-top: 9px;}
+.m-more {width: 92%;padding: 0;margin: 60px 4% 0;}
+.m-more-wrap {margin: 0 -1%;}
+.m-more-wrap .post-box { margin: 0 1% 3.2%; padding-top: 32.16%; width: 48%;}
+.m-article blockquote {font-size: 30px;margin: 50px 0;} 
+.m-article blockquote p {font-size: 26px;}
+.alignright-content {margin: 30px 0 30px 30px;float: right;}
+.alignright-content.m-buy-wrap {margin: 2px 0 30px 30px;float: right;}
+.m-article-bottom {clear:both; margin: 40px 0 0;}
+.m-article-bottom .m-social-wrap {float: left;width: 200px;margin-top: 70px;}
+.m-article-bottom .m-social-buttons ul li {margin: 0 8px;}
+.m-article-bottom .m-social-buttons ul li:first-child {margin-left: 0;}
+.m-article-bottom .m-social-buttons ul li a {font-size: 40px;}
+.m-article-bottom .m-hlep-grow {font: 700 20px/25px "Lato", sans-serif;color: #222222;}
+
+/* Wordpress Defaults *******************/  
+.m-article .aligncenter {margin: 30px auto;}
+.m-article .alignnone {margin: 30px 0;float: none;}
+.m-article .alignright {float: right;margin: 8px 0 20px 30px;width: 300px;}
+.m-article .alignleft {float: left; margin: 8px 30px 20px 0;width: 300px;}
+.wp-caption p.wp-caption-text { font-size: 14px; line-height: 19px;}
+
+
+/* Sweeps *******************/ 
+.m-article-image {background: url(../images/epic-moments/poster.jpg) no-repeat center center / cover;}
+.m-sweep-text {max-width: 400px; top: 30px;}
+.ad-300x250 {margin: 0;}
+.article-bottom .m-social-wrap {margin: 40px 0;}
+
+
+}/* end of media */
+
+@media only screen and (min-width: 700px) {
+
+.m-microsite {height: 100%;}
+
+
+/* Single Article *******************/
+.m-article .m-sweep-enter h1 {font-size: 37px;line-height: 44px;margin-bottom: 8px;}
+.m-article h2.m-subtitle {font: 300 23px/29px "Lato", sans-serif;margin: 0 0 8px;}
+.m-post-byline {font-size: 12px;}
+.m-article-bottom .m-social-wrap {width: 300px;margin-top: 40px;}
+.m-article-bottom .m-social-buttons ul li a {font-size: 50px;}
+.m-article-bottom .m-hlep-grow {width: 300px; margin-bottom: 10px;}
+.m-loc h2, .m-more h2 {font-size: 23px;}
+
+/* Sweepstakes *******************/
+.m-article-image {padding-top: 540px;}
+.m-sweep-text {max-width: 395px;top: 22px;position: absolute;}
+.epic-logo {width: 180px;}
+.m-sweep-text p {font-size: 18px;margin-top: 10px;}
+.m-sweep-right {margin: 35px 0 0;}
+.epic-article {width: 48%;margin-bottom: 80px;}
+.epic-article:nth-child(odd) {margin-right: 4%;}
+.epic-header { padding: 10px 15px;}
+
+
+}/* END OF MEDIA */
+
+@media only screen and (min-width: 920px) {
+
+/* Single Article *******************/
+.m-article {padding: 0 0 20px;margin: 0 auto;width: 800px;}
+
+.m-more {width: 92%;padding: 0;margin: 80px 4% 0;}
+.m-more h2 {margin-left: -2px;}
+.m-more-wrap {margin: 0 -0.5%;}
+.m-more-wrap .post-box { margin: 0 0.5% 2.5%; padding-top: 21.6633%; width: 32.3333%;}
+/* .m-article-bottom .m-social-wrap {width: 360px;} */
+.m-article iframe.interact-embed {width: 800px;}
+
+/* Sweepstakes *******************/
+.m-article-image {padding-top: 563px;}
+.m-sweep-left {float: left;width: 46%;margin-right: 4%;}
+.m-sweep-right {float: left;width: 46%;margin: 8px 0 0;}
+.m-sweep-text {max-width: 460px;}
+.epic-logo {width: 210px;}
+.m-sweep-text p {font-size: 19px;}
+.m-sweep-right {margin: 35px 0 0;}
+.m-sponsors { width: 200px;}
+	
+}/* END OF MEDIA */
+
+@media only screen and (min-width: 1025px) {/* big landscape tablets, laptops, and desktops */
+
+/* Single Articles *******************/
+.m-article .m-sweep-enter h1 {font-size: 36px;line-height: 48px;}
+.m-article h2.m-subtitle {font: 300 24px/30px "Lato", sans-serif;}
+.m-post-byline {font-size: 13px;}
+.alignright-content {margin-right:-150px;}
+.alignright-content.m-buy-wrap {margin-right: -150px;}
+
+
+/* Sweepstakes *******************/
+.category-sweeps .m-article {margin: 0 auto; width: 800px;}
+.category-sweeps .m-social-wrap:last-child {margin-bottom: 100px;}
+
+}/* END OF MEDIA */
+
+@media only screen and (min-width: 1250px) {/* large desktops */
+
+/* Header *******************/
+.main-header, .m-content, .m-footer {margin: 0 auto;max-width: 1442px;}
+
+/* Single Articles *******************/
+.m-more {margin: 80px auto 0;max-width: 1442px;}
+
+
+}/* END OF MEDIA */
+
+
+
+
