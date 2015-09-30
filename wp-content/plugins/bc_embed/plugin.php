@@ -69,8 +69,60 @@ found at https://accounts.brightcove.com/en/terms-and-conditions/.
    return $return_string;
 }
 
+/**
+ * New Fish Embed Handler for Brightcove videos.
+ */
+function bcplayerFish_function($atts){
+   extract(shortcode_atts(array(
+      'id' => "",
+   ), $atts));
+   //Set width and height for the default video player
+
+   $adServerURL = "http://ad.doubleclick.net/pfadx/" .  get_option("dart_domain", _imo_dart_guess_domain())  ."/video";
+   
+   $playerID = get_option("bc_gf2_player_id", _BC_GF2_PLAYER_ID );
+   $playerKey = get_option("bc_gf2_player_key", _BC_GF2_PLAYER_KEY );
+   
+   $return_string = '<!-- Start of Brightcove Player -->
+
+<!--
+By use of this code snippet, I agree to the Brightcove Publisher T and C
+found at https://accounts.brightcove.com/en/terms-and-conditions/.
+-->
+
+<script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+<div id="player">
+
+	<object id="myExperience" class="BrightcoveExperience">
+	  <param name="bgcolor" value="#FFFFFF" />
+	  <param name="playerID" value="'.$playerID.'" />
+	  <param name="playerKey" value="'.$playerKey.'" />
+	  <param name="isVid" value="true" />
+	  <param name="isUI" value="true" />
+	  <param name="dynamicStreaming" value="true" />
+	  <param name="@videoPlayer" value="'.$id.'" />
+	  <param name="media_delivery" value="http" />
+	  <param name="adServerURL" value="'.$adServerURL.'" />
+	
+	</object>
+	
+	<!--
+	This script tag will cause the Brightcove Players defined above it to be created as soon
+	as the line is read by the browser. If you wish to have the player instantiated only after
+	the rest of the HTML is processed and the page load is complete, remove the line.
+	-->
+	<script type="text/javascript">brightcove.createExperiences();</script>
+	
+	<!-- End of Brightcove Player -->
+
+</div>';
+   
+   return $return_string;
+}
+
 function register_shortcodes(){
    add_shortcode('bcplayer', 'bcplayer_function');
+   add_shortcode('bcplayerfish', 'bcplayerFish_function');
 }
 add_action( 'init', 'register_shortcodes');
 
@@ -323,6 +375,7 @@ function _bc_embed_format_tag($brightcove_ID) {
 
 
 wp_embed_register_handler( "brightcoveNew", '#http://brightcoveplayer=([^]]*)#i', "wp_embed_handler_new_brightcove");
+wp_embed_register_handler( "brightcoveFish", '#http://brightcovefish=([^]]*)#i', "wp_embed_handler_gf2_brightcove");
 wp_embed_register_handler( "brightcove", '#http://brightcove=([^]]*)#i', "wp_embed_handler_brightcove");
 wp_embed_register_handler( "brightcovefishing", '#http://brightcovefishing=([^]]*)#i', "wp_embed_handler_brightcove_fishing");
 wp_embed_register_handler( "brightcovemobile", '#http://brightcovemobile=([^]]*)#i', "wp_embed_handler_brightcove_mobile");
@@ -340,6 +393,14 @@ function bc_embed_id_option() {
 
 function bc_embed_new_key_settings_option() {
     echo "<input type='text' name='bc_new_player_key' id='bc-player_bc-new-player-key' value='".get_option("bc_new_player_key", _BC_NEW_PLAYER_KEY )."' />";
+}
+
+function bc_embed_gf2_option() {
+    echo "<input type='text' name='bc_gf2_player_id' id='bc-player_bc-gf2-player-id' value='".get_option("bc_gf2_player_id", _BC_GF2_PLAYER_ID )."' />";
+}
+
+function bc_embed_gf2_key_settings_option() {
+    echo "<input type='text' name='bc_gf2_player_key' id='bc-player_bc-gf2-player-key' value='".get_option("bc_gf2_player_key", _BC_GF2_PLAYER_KEY )."' />";
 }
 
 function bc_embed_settings_option() {
@@ -361,6 +422,9 @@ function imo_bc_embed_settings_init() {
     add_settings_field("bc_new_player_id", __("NEW Brightcove Player ID"), "bc_embed_id_option", "general", "bc_embed_settings");
     add_settings_field("bc_new_player_key", __("NEW Brightcove Player Key"), "bc_embed_new_key_settings_option", "general", "bc_embed_settings");
     
+    add_settings_field("bc_gf2_player_id", __("Fishing Brightcove Player ID"), "bc_embed_gf2_option", "general", "bc_embed_settings");
+    add_settings_field("bc_gf2_player_key", __("Fishing Brightcove Player 2 Key"), "bc_embed_gf2_key_settings_option", "general", "bc_embed_settings");
+    
     add_settings_field("bc_player_id", __("Brightcove Player ID"), "bc_embed_settings_option", "general", "bc_embed_settings");
     add_settings_field("bc_player_key", __("Brightcove Player Key"), "bc_embed_key_settings_option", "general", "bc_embed_settings");
     
@@ -369,5 +433,8 @@ function imo_bc_embed_settings_init() {
     
     register_setting("general", "bc_new_player_id");
     register_setting("general", "bc_new_player_key");
+    
+    register_setting("general", "bc_gf2_player_id");
+    register_setting("general", "bc_gf2_player_key");
 }
 add_action("admin_menu", "imo_bc_embed_settings_init");
