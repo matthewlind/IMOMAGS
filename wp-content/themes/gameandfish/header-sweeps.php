@@ -33,7 +33,8 @@
     <meta property="og:type"          content="website" />
     <meta property="og:title"         content="WIN a Trip to a Major League Fishing Bass Pro Summit Event!" />
     <meta property="og:description"   content="We’ve all had those memorable, never-to-happen-again outdoors-experiences with family and friends that are worth sharing with fellow sportsmen – and we can’t wait to hear about yours. If it’s truly epic, you could WIN your own epic moment, fishing with a pro brought to you by the all new Honda Pioneer 1000, Game & Fish and Major League Fishing." />
-    <meta property="og:image"         content="<?php the_post_thumbnail( 'large' ); ?>" />
+    <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' ); $thumb_url = $thumb['0']; ?>
+    <meta property="og:image"         content="<?php echo $thumb_url; ?>" />
 	<title><?php
 	    /*
 	     * Print the <title> tag based on what is being viewed.

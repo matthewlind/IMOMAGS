@@ -17,7 +17,7 @@
 	4.1 Defaults 
 ========================================================================== */
 
-html, body {
+html {
 	height: 100%;
 	background-color: #1e1e1e;
 }
@@ -27,8 +27,11 @@ html, body {
 body {
 	font-family: 'Lato', sans-serif;
 	color: #222;
+	min-height: 100%;
+/*
 	overflow: hidden;
 	overflow-y: auto;
+*/
 }
 .m-microsite {
 	width: 100%;
@@ -352,7 +355,9 @@ body h1, body h2, body h3, body h4, body h5 {
 .epic-image {
 	width: 100%;
 	padding-top: 60%;
-	background: purple url() center center / cover no-repeat;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
 }
 .article-bottom {
 	margin-bottom: 40px;
