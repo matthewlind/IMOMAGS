@@ -29,10 +29,11 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
     
+	<meta property="og:url"           content="http://www.gameandfishmag.com/epic-moments/" />
     <meta property="og:type"          content="website" />
     <meta property="og:title"         content="WIN a Trip to a Major League Fishing Bass Pro Summit Event!" />
     <meta property="og:description"   content="We’ve all had those memorable, never-to-happen-again outdoors-experiences with family and friends that are worth sharing with fellow sportsmen – and we can’t wait to hear about yours. If it’s truly epic, you could WIN your own epic moment, fishing with a pro brought to you by the all new Honda Pioneer 1000, Game & Fish and Major League Fishing." />
-    <meta property="og:image"         content=" <?php the_post_thumbnail( 'full' ); ?> " />
+    <meta property="og:image"         content="<?php the_post_thumbnail( 'large' ); ?>" />
 	<title><?php
 	    /*
 	     * Print the <title> tag based on what is being viewed.
@@ -136,7 +137,13 @@
 	
 	<div class="top-ad-container">
 		<div class="top-ad-sweeps">
-			<?php imo_ad_placement("atf_leaderboard_728x90"); ?>
+			<?php 
+				if (mobile() == true) {
+					imo_ad_placement("mobile_leaderboard_320x50");
+				} else {
+					imo_ad_placement("atf_leaderboard_728x90");
+				}
+			?>
 		</div>
 	</div>
 	<div class="top-panel">
