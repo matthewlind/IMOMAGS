@@ -1,5 +1,5 @@
 <?php 
-	get_header('sweeps');	
+	get_header('epic-moments');	
 ?>
 <div class="m-article-wrap clearfix">
 	<div class="m-article-image">
@@ -42,7 +42,7 @@
 				<div class="video-container">
 					<iframe width="560" height="315" src="https://www.youtube.com/embed/HdWgmCikSas" frameborder="0" allowfullscreen></iframe>
 				</div>
-				<div class="epic-ad-300x600"><?php imo_ad_placement("atf_medium_rectangle_300x250"); ?></div>
+				<div class="epic-ad-300x600"><?php imo_ad_placement("gpt-ad-1443797577185-1"); ?></div>
 			</div>
 		</div><!-- .m-sweep-blocks -->
 		<div class="editors-block">
@@ -204,6 +204,7 @@
 						<div class="epic-image" style="background-image: url(wp-content/themes/gameandfish/images/epic-moments/articles/Dunwoody.jpg);"></div>
 					</a>
 				</div>
+				<div class="ad-300x250"><?php imo_ad_placement("gpt-ad-1443797577185-0"); ?></div>
 			</div><!-- .editors-articles -->
 			<div class="article-bottom clearfix">
 				<div class="m-social-wrap clearfix">
@@ -218,9 +219,9 @@
 					    </li>
 					</ul>
 				</div><!-- .m-social-wrap -->
-				<div class="ad-300x250"><?php imo_ad_placement("btf_medium_rectangle_300x250"); ?></div>
+				
 			</div><!-- .article-bottm -->
 		</div><!-- .editors-block-->
 	</article>
 </div><!-- .m-article-wrap -->
-<?php get_footer(); ?>
+<?php get_footer('epic-moments'); ?>

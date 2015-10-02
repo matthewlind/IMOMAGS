@@ -140,9 +140,9 @@
 		<div class="top-ad-sweeps">
 			<?php 
 				if (mobile() == true) {
-					imo_ad_placement("mobile_leaderboard_320x50");
+					imo_ad_placement("gpt-ad-1443797577185-2");
 				} else {
-					imo_ad_placement("atf_leaderboard_728x90");
+					imo_ad_placement("gpt-ad-1443797577185-3");
 				}
 			?>
 		</div>
