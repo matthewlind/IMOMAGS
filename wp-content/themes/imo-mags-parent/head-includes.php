@@ -163,6 +163,15 @@ googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Pushdown_1080x90', [1080,
 <?php } ?>
 
 
+<?php if(is_page('epic-moments')) { ?>
+    googletag.defineSlot('/4930/imo.gameandfish/epic_moments_300x250', [300, 250], 'div-gpt-ad-1443797577185-0').addService(googletag.pubads());
+    googletag.defineSlot('/4930/imo.gameandfish/epic_moments_300x600', [300, 600], 'div-gpt-ad-1443797577185-1').addService(googletag.pubads());
+    googletag.defineSlot('/4930/imo.gameandfish/epic_moments_320x50', [320, 50], 'div-gpt-ad-1443797577185-2').addService(googletag.pubads());
+    googletag.defineSlot('/4930/imo.gameandfish/epic_moments_atf_728x90', [728, 90], 'div-gpt-ad-1443797577185-3').addService(googletag.pubads());
+    googletag.defineSlot('/4930/imo.gameandfish/epic_moments_btf_728x90', [728, 90], 'div-gpt-ad-1443797577185-4').addService(googletag.pubads());
+<?php  } ?>
+
+
 
 
 <?php if( is_page_template( 'battle-of-the-bows.php' ) || is_page_template( 'battle-of-the-bows.php-child' ) || is_page_template( 'battle-of-the-bows-enter.php' ) ){ ?>
