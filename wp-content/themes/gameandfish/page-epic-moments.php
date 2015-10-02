@@ -49,7 +49,7 @@
 			<h1>Editors Epic Moments</h1>
 			<div class="editors-articles clearfix">
 				<div class="epic-article">
-					<a href="">
+					<a href="http://www.floridasportsman.com/2015/10/01/beautiful-fish/" target="_blank">
 						<div class="epic-header clearfix">
 							<div class="epic-info">
 								<span>Jeff Weakley</span>
@@ -61,7 +61,7 @@
 					</a>
 				</div>
 				<div class="epic-article">
-					<a href="">
+					<a href="http://www.in-fisherman.com/culture/the-futures-not-far/" target="_blank">
 						<div class="epic-header clearfix">
 							<div class="epic-info">
 								<span>Doug Stange</span>
@@ -73,7 +73,7 @@
 					</a>
 				</div>
 				<div class="epic-article">
-					<a href="">
+					<a href="http://www.in-fisherman.com/culture/one-anglers-evolution/" target="_blank">
 						<div class="epic-header clearfix">
 							<div class="epic-info">
 								<span>Jeff Simpson</span>
@@ -85,7 +85,7 @@
 					</a>
 				</div>
 				<div class="epic-article">
-					<a href="">
+					<a href="http://www.in-fisherman.com/culture/from-new-york-city-to-the-brazilian-jungle/" target="_blank">
 						<div class="epic-header clearfix">
 							<div class="epic-info">
 								<span>Steve Quinn</span>
@@ -97,7 +97,7 @@
 					</a>
 				</div>
 				<div class="epic-article">
-					<a href="">
+					<a href="" target="_blank">
 						<div class="epic-header clearfix">
 							<div class="epic-info">
 								<span>Ross Purnell</span>
@@ -109,7 +109,7 @@
 					</a>
 				</div>
 				<div class="epic-article">
-					<a href="">
+					<a href="http://www.in-fisherman.com/culture/the-catfish-coffee-club/" target="_blank">
 						<div class="epic-header clearfix">
 							<div class="epic-info">
 								<span>Rob Neumann</span>
@@ -121,7 +121,7 @@
 					</a>
 				</div>
 				<div class="epic-article">
-					<a href="">
+					<a href="" target="_blank">
 						<div class="epic-header clearfix">
 							<div class="epic-info">
 								<span>Gordon Whittington</span>
@@ -133,7 +133,7 @@
 					</a>
 				</div>
 				<div class="epic-article">
-					<a href="">
+					<a href="" target="_blank">
 						<div class="epic-header clearfix">
 							<div class="epic-info">
 								<span>Curt Wells</span>
@@ -145,7 +145,7 @@
 					</a>
 				</div>
 				<div class="epic-article">
-					<a href="">
+					<a href="" target="_blank">
 						<div class="epic-header clearfix">
 							<div class="epic-info">
 								<span>Rick R. Van Etten</span>
@@ -157,7 +157,7 @@
 					</a>
 				</div>
 				<div class="epic-article">
-					<a href="">
+					<a href="" target="_blank">
 						<div class="epic-header clearfix">
 							<div class="epic-info">
 								<span>J. Scott Rupp</span>
@@ -169,7 +169,7 @@
 					</a>
 				</div>
 				<div class="epic-article">
-					<a href="">
+					<a href="" target="_blank">
 						<div class="epic-header clearfix">
 							<div class="epic-info">
 								<span>Christian Berg</span>
@@ -181,7 +181,7 @@
 					</a>
 				</div>
 				<div class="epic-article">
-					<a href="">
+					<a href="" target="_blank">
 						<div class="epic-header clearfix">
 							<div class="epic-info">
 								<span>John Geiger</span>
@@ -193,7 +193,7 @@
 					</a>
 				</div>
 				<div class="epic-article">
-					<a href="">
+					<a href="" target="_blank">
 						<div class="epic-header clearfix">
 							<div class="epic-info">
 								<span>Ken Dunwoody</span>
