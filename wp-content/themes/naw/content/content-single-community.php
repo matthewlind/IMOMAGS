@@ -23,7 +23,7 @@ $author = get_the_author_meta("user_nicename");
 		if($dartDomain == "imo.hunting"){
 			$photosURL = "/rack-room?";
 		}else{
-			$photosURL = "/photos?";
+			$photosURL = "/community?";
 		}
 		
 		
