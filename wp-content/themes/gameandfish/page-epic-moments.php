@@ -39,9 +39,37 @@
 			</div>
 			<div class="m-sweep-right">
 				<p>Share your Epic Moment & you could WIN a trip to a Major League Fishing Bass Pro Summit event!</p>
-				<div class="video-container">
-					<iframe width="560" height="315" src="https://www.youtube.com/embed/HdWgmCikSas" frameborder="0" allowfullscreen></iframe>
-				</div>
+				
+				<!-- Start of Brightcove Player -->
+				
+				<div style="display:none"></div>
+				<!--
+				By use of this code snippet, I agree to the Brightcove Publisher T and C 
+				found at https://accounts.brightcove.com/en/terms-and-conditions/. 
+				-->
+				
+				<script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+				
+				<object id="myExperience" class="BrightcoveExperience">
+				  <param name="bgcolor" value="#FFFFFF" />
+				  <param name="width" value="300" />
+				  <param name="height" value="340" />
+				  <param name="playerID" value="4523527151001" />
+				  <param name="playerKey" value="AQ~~,AAAA-01d-uE~,FiwRPPEEyN7bL3karAJNcNEgonsiFyyq" />
+				  <param name="isVid" value="true" />
+				  <param name="isUI" value="true" />
+				  <param name="dynamicStreaming" value="true" />
+				  
+				</object>
+				
+				<!-- 
+				This script tag will cause the Brightcove Players defined above it to be created as soon
+				as the line is read by the browser. If you wish to have the player instantiated only after
+				the rest of the HTML is processed and the page load is complete, remove the line.
+				-->
+				<script type="text/javascript">brightcove.createExperiences();</script>
+				
+				<!-- End of Brightcove Player -->
 				<div class="epic-ad-300x600"><?php imo_ad_placement("gpt-ad-1443797577185-1"); ?></div>
 			</div>
 		</div><!-- .m-sweep-blocks -->
@@ -97,7 +125,7 @@
 					</a>
 				</div>
 				<div class="epic-article">
-					<a href="" target="_blank">
+					<a href="http://www.flyfisherman.com/blogs/editors-notebook/lat-long/" target="_blank">
 						<div class="epic-header clearfix">
 							<div class="epic-info">
 								<span>Ross Purnell</span>
@@ -121,7 +149,7 @@
 					</a>
 				</div>
 				<div class="epic-article">
-					<a href="" target="_blank">
+					<a href="http://www.northamericanwhitetail.com/news/epic-moment-return-to-the-outhouse-stand/" target="_blank">
 						<div class="epic-header clearfix">
 							<div class="epic-info">
 								<span>Gordon Whittington</span>
@@ -133,7 +161,7 @@
 					</a>
 				</div>
 				<div class="epic-article">
-					<a href="" target="_blank">
+					<a href="http://www.bowhunter.com/news/epic-moment-first-light/" target="_blank">
 						<div class="epic-header clearfix">
 							<div class="epic-info">
 								<span>Curt Wells</span>
@@ -145,7 +173,7 @@
 					</a>
 				</div>
 				<div class="epic-article">
-					<a href="" target="_blank">
+					<a href="http://www.gundogmag.com/news/epic-moment-first-pheasant/" target="_blank">
 						<div class="epic-header clearfix">
 							<div class="epic-info">
 								<span>Rick R. Van Etten</span>
@@ -157,7 +185,7 @@
 					</a>
 				</div>
 				<div class="epic-article">
-					<a href="" target="_blank">
+					<a href="http://www.rifleshootermag.com/news/epic-moment-the-ridge-runner/" target="_blank">
 						<div class="epic-header clearfix">
 							<div class="epic-info">
 								<span>J. Scott Rupp</span>
@@ -169,7 +197,7 @@
 					</a>
 				</div>
 				<div class="epic-article">
-					<a href="" target="_blank">
+					<a href="http://www.bowhuntingmag.com/news/epic-moment-the-running-of-the-bulls/" target="_blank">
 						<div class="epic-header clearfix">
 							<div class="epic-info">
 								<span>Christian Berg</span>
@@ -181,7 +209,7 @@
 					</a>
 				</div>
 				<div class="epic-article">
-					<a href="" target="_blank">
+					<a href="http://www.gameandfishmag.com/fishing/epic-moment-the-biggest-little-pigfish/" target="_blank">
 						<div class="epic-header clearfix">
 							<div class="epic-info">
 								<span>John Geiger</span>
@@ -193,7 +221,7 @@
 					</a>
 				</div>
 				<div class="epic-article">
-					<a href="" target="_blank">
+					<a href="http://www.gameandfishmag.com/fishing/epic-moment-the-day-in-the-bay/" target="_blank">
 						<div class="epic-header clearfix">
 							<div class="epic-info">
 								<span>Ken Dunwoody</span>
