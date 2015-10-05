@@ -14,7 +14,7 @@ $output = '';
 if($dartDomain == "imo.hunting"){
 	$photosURL = "/rack-room?";
 }else{
-	$photosURL = "/photos?";
+	$photosURL = "/community?";
 }
 ?>
 <div class="dif-post post">

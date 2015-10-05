@@ -68,46 +68,6 @@ function social_footer(){ ?>
 	</div>
 <?php }
 
-//Configure naw community
-//This section does nothing unless imo-community plugin is enabled
-add_action("init","naw_community_init",0);
-function naw_community_init() {
-	//////////////////////////////////
-	//Community Configuration
-	//////////////////////////////////
-	//This Post Types array is used in multiple configurations
-	$nawPostTypes = array(
-		"report" => array(
-			"display_name" => "State Rut Report",
-			"post_list_style" => "tile"
-		),
-		"general" => array(
-			"display_name" => "General Discussion",
-			"post_list_style" => "tile"
-		),
-		"question" => array(
-			"display_name" => "Questions",
-			"post_list_style" => "tile"
-		)
-	);
-	//External Community Configurations
-	include("community-config/state-report.php");
-	include("community-config/report.php");
-	include("community-config/general.php");
-	include("community-config/question.php");
-	include("community-config/new-post.php");
-	include("community-config/single.php");
-	include("community-config/profile.php");
-	include("community-config/edit-profile.php");
-	include("community-config/admin.php");
-	include("community-config/listing.php");
-	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	//NOTE: Configuration order matters! More specific URLs should appear before less specific urls on the same path.
-	// For example, the "single" page_type below needs to appear before "listing" page type on the same path.
-	//Also, solunar-calendar-mobile should appear before solunar-calendar
-	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-}
-
 add_action('init', 'cptui_register_my_cpt_reader_photos');
 function cptui_register_my_cpt_reader_photos() {
 	register_post_type(
@@ -120,7 +80,7 @@ function cptui_register_my_cpt_reader_photos() {
 			'capability_type' => 'reader_post',
 			'map_meta_cap' => true,
 			'hierarchical' => false,
-			'rewrite' => array('slug' => 'photos'),
+			'rewrite' => array('slug' => 'community'),
 			'query_var' => true,
 			'has_archive' => true,
 			'supports' => array('title','editor','excerpt','trackbacks','custom-fields','comments','revisions','thumbnail','author','page-attributes'),
