@@ -142,10 +142,12 @@
 	margin-left: 10px;
 	vertical-align: middle;
 }
+/*
 .m-banners .m-truck-container:first-child .m-truck-title > div {
 	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") 0px -381px / 233px no-repeat;
 	width: 145px;
 }
+*/
 .m-truck > p {
 	font-size: 20px;
 	font-weight: 900;
