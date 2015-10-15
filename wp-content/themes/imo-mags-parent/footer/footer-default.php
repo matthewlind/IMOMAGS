@@ -114,6 +114,18 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 	<script>
 		jQuery.scrollDepth();
 	</script>
-	<?php } ?>
-</body>
+	<?php } 
+		$dartDomain = get_option("dart_domain", $default = false);
+		if($dartDomain == "imo.bowhunter"){ ?>
+			<script type='text/javascript'>
+			(function(){
+			spoutjs=document.createElement('script'),firstjs=document.getElementsByTagName('script')[0];
+			spoutjs.async=1;
+			spoutjs.src='//cdn.spoutable.com/fbff37bd-6ac1-4e15-acb4-a9e95a9dbb71/spoutable.js';
+			firstjs.parentNode.insertBefore(spoutjs,firstjs)
+			})();
+			</script>
+		<?php } 
+	?>
+	</body>
 </html>
