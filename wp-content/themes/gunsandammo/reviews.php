@@ -63,56 +63,14 @@ imo_sidebar(); ?>
         	<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="posts-list page-header js-responsive-section main-content-preppend">
 	
 				<div class="section-title posts">
-					<h2 class="reviews-form-header">
+					<h2 class="">
 						<div class="icon"></div>
-						<span>Filter Reviews</span> 
+						<span>More Reviews</span> 
 					</h2>
-					<form action="<?php $_SELF['REQUEST_URI']; ?>" method="post" id="form" class="reviews-form">
-						<div class="review-select1">
-							<select class="guntype reviews-select reviews-select-guntype">
-									<option selected="selected" name="guntype" value="">Type</option>
-									<?php
-									$parents = array('parent' => 0);
-									$terms = get_terms("guntype", $parents);
-		 							$count = count($terms);
-		
-		 							
-		
-		
-		 							if ( $count > 0 ){
-										foreach ( $terms as $term ) {
-											$termName = str_replace(" Reviews","",$term->name);
-		       								echo "<option value=".$term->slug.">" . $termName . "</option>";
-		        						}
-									}
-									?>
-							</select>
-						</div>
-						<div class="review-select2">
-							<select name="manufacturer" class="manufacturer reviews-select reviews-select-manufacturer" value="">
-								<option selected="selected" name="Manufacturer" value="">Manufacturer</option> 
-								<?php
-								$terms = get_terms("manufacturer",array("parent" => 0));
-	 							$count = count($terms);
-	 							if ( $count > 0 ){
-									foreach ( $terms as $term ) {
-	       								echo "<option value=".$term->slug.">" . $term->name . "</option>";
-	        						}
-								}
-								?>
-							</select></div>
-							<div class="review-select3">
-							<select class="caliber reviews-select reviews-select-caliber">
-								<option selected="selected" name="caliber" value="">Caliber</option>
-								<option name="null" value="">Choose Manufacturer First...</option>
-							</select>
-						</div>
-					</form>
 				</div>
 	
 				<div class="reviews-section">
 	
-					<div class="reviews-cover" style="display:none;"></div>
 					<div class="reviews-container">
 					<?php
 						
