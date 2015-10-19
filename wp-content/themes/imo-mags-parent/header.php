@@ -138,9 +138,7 @@
 </noscript>
 <!-- End comScore Tag -->
  
-<?php if ( defined('JETPACK_SITE') && mobile() == false && tablet() == false): ?>
-	<script type='text/javascript' src='http://ads.jetpackdigital.com/sites/<?php print JETPACK_SITE; ?>/jpd.js'></script>
-<?php endif; ?>
+<script type='text/javascript' src='http://ads.jetpackdigital.com/sites/<?php print JETPACK_SITE; ?>/jpd.js'></script>
 </head>
 
 

@@ -43,7 +43,7 @@ class TuneIn_Widget extends WP_Widget {
 				<div class="t-show-description">
 					<h4>All New <strong><?php the_field("title", "options"); ?></strong> <span class="invis-on-mobile">on <strong><a href="http://thesportsmanchannel.com" target="_blank">Sportsman Channel</a></strong><span></h4>
 					<span class="t-schedule"><?php the_field("show_promo", "options"); ?></span>
-					<span class="t-episode-descr"><?php if( get_field("show_description", "options") ){ the_field("show_description", "options"); }else{ echo $post->post_title; } ?></span>
+					<span class="t-episode-descr"><?php if( get_field("show_description", "options") ){ the_field("show_description", "options"); } ?></span>
 				</div>
 				<div class="t-right-side">
 					<div class="t-triangle"></div>
