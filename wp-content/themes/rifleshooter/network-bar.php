@@ -8,11 +8,11 @@ if(!mobile() && !tablet()){ ?>
 	
 	<div class="network-nav">
 		<ul>
-			<li class="ga"><a href="http://gunsandammo.com"><div></div></a></li>
-			<li class="hg"><a href="http://handgunsmag.com"><div></div></a></li>
-			<li class="st"><a href="http://shootingtimes.com"><div></div></a></li>
+			<li class="ga"><a href="http://bit.ly/1W2KFJk"><div></div></a></li>
+			<li class="hg"><a href="http://bit.ly/1MSwx4C"><div></div></a></li>
+			<li class="st"><a href="http://bit.ly/1jz6jZZ"><div></div></a></li>
 			<li class="rs-active active"><div></div></li>
-			<li class="sn"><a href="http://shotgunnews.com"><div></div></a></li>
+			<li class="sn"><a href="http://bit.ly/1W2Lt0I"><div></div></a></li>
 		</ul>
 	</div>
 
