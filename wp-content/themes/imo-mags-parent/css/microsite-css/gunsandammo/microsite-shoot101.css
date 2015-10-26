@@ -45,6 +45,9 @@ a:hover {
 .main-nav ul li:hover a {color: white;}
 .main-nav > ul li.menu-item-has-children ul li a {font-family: 'Titillium Web', sans-serif;}
 
+.social-buttons ul li {
+    margin-left: 18px;
+}
 .social-buttons ul li a:hover {
 	color: white;
 }
@@ -220,18 +223,21 @@ a:hover {
 .sponsors-disclaimer {text-align: left;}
 .category .category-shoot101 .sponsors-disclaimer {width: 92%;margin: 0 auto;}
 .sponsors-disclaimer span {margin-left: 20px;}
+.social-buttons ul li {margin-left: 12px;}
 
 /* Single Article *******************/
 .m-article-bottom .m-hlep-grow {font-family: "Titillium Web", sans-serif;}
 
-}/* end of media */
+}/* end media 600px */
+
 
 @media only screen and (min-width: 700px) {
 
 /* Single Article *******************/
 .m-article-bottom .m-hlep-grow {font-family: "Titillium Web", sans-serif;}
 
-}/* END OF MEDIA */
+}/* end media 700px */
+
 
 @media only screen and (min-width: 920px) {
 
@@ -242,14 +248,16 @@ a:hover {
 /* Footer *******************/ 
 .s-mag-buy h2 {margin-bottom: -7px;}
 	
-}/* END OF MEDIA */
+}/* end media 920px */
+
 
 @media only screen and (min-width: 1025px) {/* big landscape tablets, laptops, and desktops */
 
 /* Footer *******************/
 .s-mag-btns .s-buy-btn:first-child {margin-right: 2%;}
 
-}/* END OF MEDIA */
+}/* end media 1025px */
+
 
 @media only screen and (min-width: 1250px) {/* large desktops */
 
@@ -261,7 +269,8 @@ a:hover {
 #pubfinderzipcontfoot .pubfinderformcont label::after {margin-left: 28px;}
 #pubfinderzipcontfoot .pubfinderform {width: 43.6%;}
 
-}/* END OF MEDIA */
+}/* end media 1250px */
+
 
 @media only screen and (min-width: 1450px) {/* large desktops */
 
@@ -273,5 +282,5 @@ a:hover {
 /* Single Articles *******************/
 .m-more {width: auto;margin: 0 auto;max-width: 1442px;}
 
-}/* END OF MEDIA */
+}/* end media 1450px */
 
