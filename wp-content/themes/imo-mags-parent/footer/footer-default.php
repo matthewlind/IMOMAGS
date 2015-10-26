@@ -116,16 +116,31 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 	</script>
 	<?php } 
 		$dartDomain = get_option("dart_domain", $default = false);
-		if($dartDomain == "imo.bowhunter"){ ?>
-			<script type='text/javascript'>
-			(function(){
-			spoutjs=document.createElement('script'),firstjs=document.getElementsByTagName('script')[0];
-			spoutjs.async=1;
-			spoutjs.src='//cdn.spoutable.com/fbff37bd-6ac1-4e15-acb4-a9e95a9dbb71/spoutable.js';
-			firstjs.parentNode.insertBefore(spoutjs,firstjs)
-			})();
-			</script>
-		<?php } 
+		$spoutCode = "fbff37bd-6ac1-4e15-acb4-a9e95a9dbb71";
+		if($dartDomain == "imo.bowhunter"){$spoutCode = "fbff37bd-6ac1-4e15-acb4-a9e95a9dbb71";}
+		else if($dartDomain == "imo.gameandfish"){$spoutCode = "c085fbcc-56a1-4a32-ad95-c446a2835263";}
+		else if($dartDomain == "imo.hunting"){$spoutCode = "0fe486b3-1299-4091-8b3b-b59b95d210b6";}
+		else if($dartDomain == "imo.bowhunting"){$spoutCode = "8e06c175-7fb7-4a6a-adf2-77538072bae6";}
+		else if($dartDomain == "imo.wildfowl"){$spoutCode = "dcbfd136-5fea-4652-ba5f-981bffbb0e89";}
+		else if($dartDomain == "imo.gundog"){$spoutCode = "79ec2a44-0bd6-40fa-a27b-33c7b5a65e62";}
+		else if($dartDomain == "imo.gunsandammo"){$spoutCode = "c788786e-c5bb-4fca-ba16-e0980456adb5";}
+		else if($dartDomain == "imo.handguns"){$spoutCode = "967c8e4b-54e1-4af2-9d00-fcde590cd35e";}
+		else if($dartDomain == "imo.rifleshooter"){$spoutCode = "bde1e660-4cfc-4568-97eb-32816ba651bc";}
+		else if($dartDomain == "imo.shootingtimes"){$spoutCode = "bf7c8d15-238a-4b6c-8d6f-7a22b6104ed0";}
+		else if($dartDomain == "imo.shotgunnews"){$spoutCode = "c0994c41-5829-4bf4-9c09-c2fd4a78f5a0";}
+		else if($dartDomain == "imo.northamericanwhitetail"){$spoutCode = "cd37989d-94bc-492a-83ec-f49883cff342";}
+		else if($dartDomain == "imo.in-fisherman"){$spoutCode = "819461d2-b114-405d-a4a9-5b14d8646b90";}
+		else if($dartDomain == "imo.flyfisherman"){$spoutCode = "bd05e6df-fdb4-40ed-95df-ad017fe57326";}	
 	?>
+
+		<script type='text/javascript'>
+		(function(){
+		spoutjs=document.createElement('script'),firstjs=document.getElementsByTagName('script')[0];
+		spoutjs.async=1;
+		spoutjs.src='//cdn.spoutable.com/<?php echo $spoutCode; ?>/spoutable.js';
+		firstjs.parentNode.insertBefore(spoutjs,firstjs)
+		})();
+		</script>		
+		
 	</body>
 </html>
