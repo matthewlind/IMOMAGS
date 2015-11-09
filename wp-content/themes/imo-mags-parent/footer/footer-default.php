@@ -16,7 +16,7 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 
 		        <div class="intermedia">
 		            <div class="frame">
-		                <h4>The Intermedia Outdoors Network</h4>
+		                <h4>Outdoor Sportsman Group Network</h4>
 		                <div class="foot-columns">
 		                    <div class="f-two-columns">
 		                        <div class="column">
@@ -58,7 +58,7 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 		                            	  <li><a target="_blank" href="http://www.thesportsmanchannel.com/"><img src="<?php bloginfo('template_directory'); ?>/images/logos/spmn-footer.png" alt=""><span>The Sportsman Channel</span></a></li>
 		                            	  <li><a target="_blank" href="http://www.worldfishingnetwork.com/"><img src="<?php bloginfo('template_directory'); ?>/images/logos/wfn-header-logo-grey.png" alt=""><span>World Fishing Network</span></a></li>
 		                                <li><a target="_blank" href="http://www.gameandfishmag.com/"><img src="<?php bloginfo('template_directory'); ?>/images/logos/more-gamefish.png" alt=""><span>Game &amp; Fish</span></a></li>
-		                                <li><a target="_blank" href="http://store.imoutdoors.com/"><img src="<?php bloginfo('template_directory'); ?>/images/logos/more-outdoors.png" alt=""><span>The IMO Store</span></a></li>
+		                                <li><a target="_blank" href="http://store.imoutdoors.com/"><img src="<?php bloginfo('template_directory'); ?>/images/logos/osgstorelogo1-grey.png" alt=""><span>The IMO Store</span></a></li>
 		                            </ul>
 		                        </div>
 		                    </div>
