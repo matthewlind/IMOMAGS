@@ -96,8 +96,6 @@
         }
 
 
-
-
 		$subs_link = get_option('subs_link') . "/?pkey=";
 		$iMagID = get_option('iMagID' );
 		$deal_copy = get_option('deal_copy' );

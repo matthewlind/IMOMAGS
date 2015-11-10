@@ -97,7 +97,7 @@
 						$email_message = get_sub_field('email_message');
 				?>
 				<ul>
-					<?php if (is_category('shoot101') || in_category('shoot101')){?><li><a href="https://www.youtube.com/channel/UCiUI8tBSAW88CEAr7oknkoA" class="icon-youtube" target="_blank"></a></li><?php } ?>
+					<?php if (is_category('shoot101') || in_category('shoot101')){?><li><a href="https://www.youtube.com/channel/UCiUI8tBSAW88CEAr7oknkoA?utm_source=navbarlink&utm_medium=website&utm_campaign=shoot101&utm_content=youtubechannel" class="icon-youtube" target="_blank"></a></li><?php } ?>
 					<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo (urlencode(site_url())) . '/'. $cat_slug; ?>&title=<?php echo $face_twit_title; ?>" class="icon-facebook" target="_blank"></a></li>
 					<li><a href="http://twitter.com/intent/tweet?status=<?php echo $face_twit_title; ?>+<?php echo (urlencode(site_url())) . '/'. $cat_slug; ?>" class="icon-twitter" target="_blank"></a></li>
 					<li><a href="mailto:?subject=<?php echo $email_subject; ?>&body=<?php echo $email_message . ' ' . (urlencode(site_url())) . '/'. $cat_slug; ?>" class="icon-mail" target="_blank"></a></li>
