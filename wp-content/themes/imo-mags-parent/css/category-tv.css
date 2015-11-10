@@ -301,6 +301,8 @@ body.page-template-show-page-php, body.category-tv {
 }
 #when-to-watch .when-label {
 	float: left;
+	margin-top: 3px;
+	margin-right: 28px;
 }
 #when-to-watch img{
 	width: 160px;
@@ -309,17 +311,20 @@ body.page-template-show-page-php, body.category-tv {
 }
 #when-to-watch .when-label h3 {
 	color: #ffffff;
-	font: 13px/20px 'jubilat', serif;
+	font: 15px/20px 'jubilat', serif;
 	font-weight: 300;
 	text-align: right;
 }
 .schedule-item {
 	float: left;
-	margin: 5px 0 0 15px;
+	margin: 5px 0 0;
 	border-left: 2px solid #848484;
 	height: 49px;
-	padding-left: 16px;
+	padding: 0 21px;
 	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+.schedule-item:last-child {
+	border-right: 2px solid #848484;
 }
 .tv-show .schedule-item:nth-child(n+7) {
 	display: none;
@@ -1167,7 +1172,7 @@ box-sizing: border-box;
 	.tv-show .shows-title {max-width: 530px;}
 	.shows-player-area {width: 100%;}
 	.tv-show .general {width: 100%;}
-	.tv-show .schedule-item{margin: 5px 0 0 20px;}
+	.schedule-item {padding: 0 15px;}
 	
 	#show-featured #video-thumbs li {margin: 0 1.2% 20px;}
 	
@@ -1186,6 +1191,7 @@ box-sizing: border-box;
 	#sponsors-area h1 {padding-left: 5px;}
 	#sponsors-area ul {width: 100%; margin-left: 0;}
 	#sponsors-area .sponsor-img {margin: 0 1.4% 20px;}
+	
 } /* End of media */	
 
 @media only screen and (max-width: 981px) {
@@ -1203,7 +1209,8 @@ box-sizing: border-box;
 	
 	.tv-show .schedule-item .episode-title {font-size: 15px;}
 	.tv-show .schedule-item .episode-time {font-size: 15px;}
-	.tv-show .schedule-item:nth-child(n+4) {display: none;}
+	.tv-show .schedule-item:nth-child(n+5) {display: none;}
+	.tv-show .schedule-item:nth-child(n+5) {display: none;}
 	.tv-show .m-shows-buttons {width: 100%;}
 	
 	.tv-show .host-head {margin-bottom: 30px;}
