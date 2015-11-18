@@ -260,6 +260,17 @@ function infish_get_category_title_by_slug($slug)
     return $category->name;
 }
 
+// [navionics center1="12.0" center2="46.0"]
+function navionics_func( $atts ) {
+    $a = shortcode_atts( array(
+        'center1' => '',
+        'center2' => '',
+    ), $atts );
+
+    return "<iframe id='navionics' src='/iframe-navionics.php?&center1={$a['center1']}&center2={$a['center2']}'></iframe>";
+}
+add_shortcode( 'navionics', 'navionics_func' );
+
 //Configure infish community
 //This section does nothing unless imo-community plugin is enabled
 add_action("init","infish_community_init",0);
