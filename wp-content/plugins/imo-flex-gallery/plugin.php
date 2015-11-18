@@ -154,16 +154,21 @@ function galleryOutput($gallery, $pictures, $totalSlides, $dartDomain, $communit
 					  )
 					);
 					$nextGalUrl = get_permalink();
-					$nextGal = '
-						<li class="next-gal-slide">
-							<h2>Next Up: &nbsp;'.stripcslashes($nextGalPics[0]->title).'</h2>
-							<a class="flex-gallery-button">Click Here to View the Next Gallery</a><br/>
-							<img src="'.$nextGalPics[0]->img_url.'"/>
-							<span class="next-gal-id display-none">'.$nextGalID.'</span>
-							<span class="next-gal-url display-none">'.$nextGalUrl.'</span>
-						</li>
-					';
-					$totalSlidesShow;
+					$year = date(Y) - 1;
+					$previous_year = date(Y) - 1;
+
+					if($year < $previous_year){
+							$nextGal = '
+							<li class="next-gal-slide">
+								<h2>Next Up: &nbsp;'.stripcslashes($nextGalPics[0]->title).'</h2>
+								<a class="flex-gallery-button">Click Here to View the Next Gallery</a><br/>
+								<img src="'.$nextGalPics[0]->img_url.'"/>
+								<span class="next-gal-id display-none">'.$nextGalID.'</span>
+								<span class="next-gal-url display-none">'.$nextGalUrl.'</span>
+							</li>
+						';
+						$totalSlidesShow;
+					}
 				}
 
 				wp_reset_postdata();
