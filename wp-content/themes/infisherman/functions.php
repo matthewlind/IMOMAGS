@@ -267,7 +267,9 @@ function navionics_func( $atts ) {
         'center2' => '',
     ), $atts );
 
-    return "<iframe id='navionics' src='/iframe-navionics.php?&center1={$a['center1']}&center2={$a['center2']}'></iframe>";
+    $output = '<iframe id="navionics" src="/iframe-navionics.php?&center1='.$a["center1"].'&center2='.$a["center2"].'"></iframe>';
+    
+    return $output;
 }
 add_shortcode( 'navionics', 'navionics_func' );
 
