@@ -23,12 +23,12 @@ $center2 = $_GET['center2'];
     </style>
 </head>
 <body data-root="http://webapiv2.navionics.com/dist/webapi/images">
-   <div class="test_map_div">TEST</div>
+   <div class="test_map_div"></div>
     <script>
         var webapi = new JNC.Views.BoatingNavionicsMap({
             tagId: '.test_map_div',
             center: [  <?php echo $center1; ?>, <?php echo $center2; ?> ],
-            navKey: '<?php echo $key; ?>'
+            navKey: 'Navionics_webapi_01190'
         });
 
         webapi.showSonarControl(false);
