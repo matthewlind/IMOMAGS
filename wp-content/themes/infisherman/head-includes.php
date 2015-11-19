@@ -17,3 +17,6 @@ if(document.location.protocol=='http:'){
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/css/community-common.css" />
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/css/community-listing.css" />
 <script async src="http://cdn.mediavoice.com/nativeads/script/IMOutdoors/mv_infish.js"></script>
+<script type="text/javascript" src="http://webviewer-api.navionics.com/static/js/proj4js/lib/proj4js-compressed.js"></script>
+ <script type="text/javascript" src="http://webviewer-api.navionics.com/static/js/OpenLayers/OpenLayers.js"></script>
+ <script type="text/javascript" src="http://webviewer-api.navionics.com/static/js/navionics/apimaps.js"></script>

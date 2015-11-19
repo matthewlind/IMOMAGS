@@ -260,14 +260,15 @@ function infish_get_category_title_by_slug($slug)
     return $category->name;
 }
 
-// [navionics center1="12.0" center2="46.0"]
+// [navionics zoom="0" long="12.0" lat="46.0"]
 function navionics_func( $atts ) {
     $a = shortcode_atts( array(
-        'center1' => '',
-        'center2' => '',
+	    'zoom' => '',
+        'long' => '',
+        'lat' => '',
     ), $atts );
 
-    $output = '<iframe id="navionics" src="/iframe-navionics.php?&center1='.$a["center1"].'&center2='.$a["center2"].'"></iframe>';
+    $output = '<iframe id="navionics" src="/iframe-navionics.php?zoom='.$a["zoom"].'&long='.$a["long"].'&lat='.$a["lat"].'"></iframe>';
     
     return $output;
 }
