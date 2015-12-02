@@ -3705,6 +3705,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 .f-two-columns .column4 {padding-left:75px;}
 .intermedia-list li {
     padding:0 0 23px;
+    outline: 1px dotted green;
+    width: 140px;
+    height: 50px;
 }
 .intermedia-list a {
     font-size:0;
