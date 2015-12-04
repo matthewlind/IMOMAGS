@@ -35,19 +35,19 @@ audio:not([controls]) { display: none; height: 0; }
 [hidden] { display: none; }
 svg:not(:root)  { overflow: hidden; }
 #progressBar {
-        width: 400px;
-        height: 22px;
-        border: 1px solid #111;
-        background-color: #292929;
+    width: 400px;
+    height: 22px;
+    border: 1px solid #111;
+    background-color: #292929;
 }
  
 #progressBar div {
-        height: 100%;
-        color: #fff;
-        text-align: right;
-        line-height: 22px; /* same as #progressBar height if we want text middle aligned */
-        width: 0;
-        background-color: #0099ff;
+    height: 100%;
+    color: #fff;
+    text-align: right;
+    line-height: 22px; /* same as #progressBar height if we want text middle aligned */
+    width: 0;
+    background-color: #0099ff;
 }
 /* Tags reset
 *******************************************************************************/
@@ -125,7 +125,7 @@ input::-moz-focus-inner { border: 0; padding: 0; }
     border-radius: 4px;
 }
 #gform_next_button_46_20{
-   padding: 8px 15px;
+    padding: 8px 15px;
     cursor: pointer;
     border: 1px solid #D85E06;
     border-radius: 4px;
@@ -3688,7 +3688,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
     color:#836c03;
     text-transform:uppercase;
     text-shadow:1px 1px 0 #000;
-    margin:0 0 16px;
+    margin:0 0 7px;
 }
 .f-two-columns {
     display:inline-block;
@@ -3705,10 +3705,38 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 .f-two-columns .column4 {padding-left:75px;}
 .intermedia-list li {
     padding:0 0 23px;
-    outline: 1px dotted green;
-    width: 140px;
-    height: 50px;
+/*     outline: 1px dotted green; */
+    width: 130px;
+    height: 56px;
+    background-image: url(images/all/footer-logos-sprites.png);
+    background-size: 750px auto;
+    background-repeat: no-repeat;
 }
+.intermedia-list .f-p-bowhunting 	{background-position: -29px -2px;}
+.intermedia-list .f-na-whitetaile 	{background-position: -28px -63px; background-size: 725px;}
+.intermedia-list .f-gun-dog 		{background-position: -29px -129px; height: 43px;}
+.intermedia-list .f-wildfowl 		{background-position: -28px -182px; background-size: 730px;}
+.intermedia-list .f-bowhunter 		{background-position: -28px -242px; background-size: 730px;}
+.intermedia-list .f-hunting 		{background-position: -29px -309px;}
+.intermedia-list .f-handguns 		{background-position: -217px -2px; background-size: 730px;}
+.intermedia-list .f-rifleshooter 	{background-position: -213px -63px; background-size: 735px;}
+.intermedia-list .f-shooting-times 	{background-position: -210px -120px; background-size: 725px;}
+.intermedia-list .f-firearms-news 	{background-position: -217px -193px; height: 40px;}
+.intermedia-list .f-guns-and-ammo 	{background-position: -217px -248px;}
+.intermedia-list .f-in-fisherman 	{background-position: -404px -4px;}
+.intermedia-list .f-fly-fisherman 	{background-position: -391px -61px; background-size: 725px;}
+.intermedia-list .f-florida-sportsman {background-position:-404px -126px;}
+.intermedia-list .f-bass-fan 		{background-position: -390px -179px; background-size: 725px;}
+.intermedia-list .f-outdoor-channel {background-position: -537px 0; background-size: 650px;}
+.intermedia-list .f-sportsman-ch 	{background-position: -591px -64px;}
+.intermedia-list .f-wfn 			{background-position: -496px -92px; background-size: 600px;}
+.intermedia-list .f-game-and-fish 	{background-position: -591px -186px;}
+.intermedia-list .f-imo-store 		{background-position: -516px -212px; background-size: 650px;}
+
+
+
+
+
 .intermedia-list a {
     font-size:0;
     line-height:0;
@@ -5116,7 +5144,8 @@ table.likes-leaderboard .entry-title {
     .foot-columns { padding-left:0;}
     .f-two-columns { padding-left:16px;}
     .f-two-columns .column { display:block; width:100%; clear:both;}
-    .intermedia-list li { padding:0 0 8px;}
+    .intermedia-list li { padding:0 0 8px; background-image: none; height: auto; width: auto;}
+    .intermedia-list .f-gun-dog, .intermedia-list .f-firearms-news {height: auto;}
     .intermedia-list a img {display:none;}
     .intermedia-list a span { display:block;}
     .intermedia-list a { color:#6e6e6e; font:14px/1.2 Helvetica, Arial, sans-serif;}
