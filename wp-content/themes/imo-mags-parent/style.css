@@ -3301,53 +3301,56 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 }
 .network-nav li div{
 	height: 40px;
+	background-repeat: no-repeat;
+	background-position: center center;
 }
+
 .network-nav li.ga div{
-	background: url("images/tophat/tophat-ga.png") no-repeat center center;
+	background-image: url("images/tophat/tophat-ga.png");
 	width: 109px;
 }
 .network-nav li.hg div{
-	background: url("images/tophat/tophat-hg.png") no-repeat center center;
+	background-image: url("images/tophat/tophat-hg.png");
 	width: 84px;
 }
 .network-nav li.st div{
-	background: url("images/tophat/tophat-st.png") no-repeat center center;
+	background-image: url("images/tophat/tophat-st.png");
 	width: 82px;
 }
 .network-nav li.rs div{
-	background: url("images/tophat/tophat-rs.png") no-repeat center center;
+	background-image: url("images/tophat/tophat-rs.png");
 	width: 116px;
 }
 .network-nav li.sn div{
-	background: url("images/tophat/tophat-sn.png") no-repeat center center;
-	width: 135px;
+	background-image: url("images/tophat/tophat-sn.png");
+	width: 133px;
 }
 .network-nav li.sv div{
-	background: url("images/tophat/tophat-sv.png") no-repeat center center;
+	background-image: url("images/tophat/tophat-sv.png");
 	width: 84px;
 }
 
 
 /* current states */
 .network-nav li.ga-active div{
-	background: url("images/tophat/tophat-active-ga.png") no-repeat center center;
+	background-image: url("images/tophat/tophat-active-ga.png");
 	width:109px;
 }
 .network-nav li.hg-active div{
-	background: url("images/tophat/tophat-active-hg.png") no-repeat center center;
+	background-image: url("images/tophat/tophat-active-hg.png");
 	width: 84px;
 }
 .network-nav li.st-active div{
-	background: url("images/tophat/tophat-active-st.png") no-repeat center center;
+	background-image: url("images/tophat/tophat-active-st.png");
 	width: 82px;
 }
 .network-nav li.rs-active div{
-	background: url("images/tophat/tophat-active-rs.png") no-repeat center center;
+	background-image: url("images/tophat/tophat-active-rs.png");
 	width: 116px;
 }
 .network-nav li.sn-active div{
-	background: url("images/tophat/tophat-active-sn.png") no-repeat center center;
-	width: 135px;
+	background-image: url("images/tophat/tophat-active-sn.png");
+	width: 133px;
 }
 
 /* Hover States */
@@ -3704,8 +3707,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 .f-two-columns .column3 {padding-left:86px;}
 .f-two-columns .column4 {padding-left:75px;}
 .intermedia-list li {
-    padding:0 0 23px;
-/*     outline: 1px dotted green; */
+    padding:0;
     width: 130px;
     height: 56px;
     background-image: url(images/all/footer-logos-sprites.png);
@@ -3733,13 +3735,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 .intermedia-list .f-game-and-fish 	{background-position: -591px -186px;}
 .intermedia-list .f-imo-store 		{background-position: -516px -212px; background-size: 650px;}
 
-
-
-
+.intermedia-list li:hover {
+	opacity: 0.8;
+}
 
 .intermedia-list a {
     font-size:0;
     line-height:0;
+    display: block;
+    height: 100%;
+    width: 100%;
 }
 .intermedia-list a:hover img {
     opacity:0.7;
@@ -5148,7 +5153,7 @@ table.likes-leaderboard .entry-title {
     .intermedia-list .f-gun-dog, .intermedia-list .f-firearms-news {height: auto;}
     .intermedia-list a img {display:none;}
     .intermedia-list a span { display:block;}
-    .intermedia-list a { color:#6e6e6e; font:14px/1.2 Helvetica, Arial, sans-serif;}
+    .intermedia-list a { color:#6e6e6e; font:14px/1.2 Helvetica, Arial, sans-serif; margin-bottom: 5px;}
     .intermedia-list a:hover {color:#836c03;}
     .f-nav-section {padding:20px 0 12px 5px;}
     .mobile-element-320 {display:block;}
