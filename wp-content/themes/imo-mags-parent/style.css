@@ -3715,25 +3715,25 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
     background-repeat: no-repeat;
 }
 .intermedia-list .f-p-bowhunting 	{background-position: -29px -2px;}
-.intermedia-list .f-na-whitetaile 	{background-position: -28px -63px; background-size: 725px;}
-.intermedia-list .f-gun-dog 		{background-position: -29px -129px; height: 43px;}
-.intermedia-list .f-wildfowl 		{background-position: -28px -182px; background-size: 730px;}
-.intermedia-list .f-bowhunter 		{background-position: -28px -242px; background-size: 730px;}
+.intermedia-list .f-na-whitetaile 	{background-position: -28px -63px; 		background-size: 721px;}
+.intermedia-list .f-gun-dog 		{background-position: -29px -129px; 	background-size: 747px; height: 43px;}
+.intermedia-list .f-wildfowl 		{background-position: -28px -182px; 	background-size: 730px;}
+.intermedia-list .f-bowhunter 		{background-position: -28px -242px; 	background-size: 730px;}
 .intermedia-list .f-hunting 		{background-position: -29px -309px;}
-.intermedia-list .f-handguns 		{background-position: -217px -2px; background-size: 730px;}
-.intermedia-list .f-rifleshooter 	{background-position: -213px -63px; background-size: 735px;}
-.intermedia-list .f-shooting-times 	{background-position: -210px -120px; background-size: 725px;}
-.intermedia-list .f-firearms-news 	{background-position: -217px -193px; height: 40px;}
+.intermedia-list .f-handguns 		{background-position: -217px -2px; 		background-size: 730px;}
+.intermedia-list .f-rifleshooter 	{background-position: -213px -63px; 	background-size: 739px;}
+.intermedia-list .f-shooting-times 	{background-position: -207px -120px; 	background-size: 720px;}
+.intermedia-list .f-firearms-news 	{background-position: -217px -193px; 	background-size: 753px; height: 40px;}
 .intermedia-list .f-guns-and-ammo 	{background-position: -217px -248px;}
-.intermedia-list .f-in-fisherman 	{background-position: -404px -4px;}
-.intermedia-list .f-fly-fisherman 	{background-position: -391px -61px; background-size: 725px;}
+.intermedia-list .f-in-fisherman 	{background-position: -403px -4px; 		background-size: 747px;}
+.intermedia-list .f-fly-fisherman 	{background-position: -390px -61px; 	background-size: 723px;}
 .intermedia-list .f-florida-sportsman {background-position:-404px -126px;}
-.intermedia-list .f-bass-fan 		{background-position: -390px -179px; background-size: 725px;}
-.intermedia-list .f-outdoor-channel {background-position: -537px 0; background-size: 650px;}
+.intermedia-list .f-bass-fan 		{background-position: -390px -179px; 	background-size: 725px;}
+.intermedia-list .f-outdoor-channel {background-position: -537px 0; 		background-size: 650px;}
 .intermedia-list .f-sportsman-ch 	{background-position: -591px -64px;}
-.intermedia-list .f-wfn 			{background-position: -496px -92px; background-size: 600px;}
+.intermedia-list .f-wfn 			{background-position: -543px -101px; 	background-size: 657px; height: 60px;}
 .intermedia-list .f-game-and-fish 	{background-position: -591px -186px;}
-.intermedia-list .f-imo-store 		{background-position: -516px -212px; background-size: 650px;}
+.intermedia-list .f-imo-store 		{background-position: -516px -212px; 	background-size: 651px;}
 
 .intermedia-list li:hover {
 	opacity: 0.8;
