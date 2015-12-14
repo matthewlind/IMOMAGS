@@ -1,7 +1,7 @@
 <?php 
-$key = $_GET['key'];
-$center1 = $_GET['center1'];
-$center2 = $_GET['center2'];
+$long = $_GET['long'];
+$lat = $_GET['lat'];
+$zoom = $_GET['zoom'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +27,8 @@ $center2 = $_GET['center2'];
     <script>
         var webapi = new JNC.Views.BoatingNavionicsMap({
             tagId: '.test_map_div',
-            center: [  <?php echo $center1; ?>, <?php echo $center2; ?> ],
+            center: [  <?php echo $long; ?>, <?php echo $lat; ?> ],
+            <?php if($zoom){ ?>zoom: '<?php echo $zoom; ?>',<?php } ?>
             navKey: 'Navionics_webapi_01190'
         });
 
