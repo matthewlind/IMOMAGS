@@ -7,9 +7,9 @@ define("SERVICE_LINK", "https://secure.palmcoastd.com/pcd/eServ?iServ=Mjc3MDE0ND
 define("SUBS_DEAL_STRING", "Save Over 80% off<br/> the Cover Price");
 
 define("FACEBOOK_LINK", "https://www.facebook.com/ShotgunNews");
-define("RSS_LINK", "http://www.shotgunnews.com/feed/");
-define("SITE_LINK", "shotgunnews.com");
-define("SITE_NAME", "Shotgun News");
+define("RSS_LINK", "http://www.firearmsnews.com/feed/");
+//define("SITE_LINK", "shotgunnews.com");
+//define("SITE_NAME", "Shotgun News");
 
 function social_networks(){
 	echo '<div class="socials">';
