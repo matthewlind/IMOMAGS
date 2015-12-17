@@ -6,10 +6,8 @@ define("GIFT_LINK", "https://secure.palmcoastd.com/pcd/eSv?iMagId=27701&i4Ky=IGZ
 define("SERVICE_LINK", "https://secure.palmcoastd.com/pcd/eServ?iServ=Mjc3MDE0NDc4NSZpVHlwZT1FTlRFUg==");
 define("SUBS_DEAL_STRING", "Save Over 80% off<br/> the Cover Price");
 
-define("FACEBOOK_LINK", "https://www.facebook.com/ShotgunNews");
+define("FACEBOOK_LINK", "https://www.facebook.com/FireArmsNews/");
 define("RSS_LINK", "http://www.firearmsnews.com/feed/");
-//define("SITE_LINK", "shotgunnews.com");
-//define("SITE_NAME", "Shotgun News");
 
 function social_networks(){
 	echo '<div class="socials">';
