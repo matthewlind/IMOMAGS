@@ -87,8 +87,8 @@
 .m-banners {
 	position: absolute;
 	width: 100%;
-	height: 540px;
-	bottom: -548px;
+	height: 280px;
+	bottom: -295px;
 }
 .m-truck-container {
 	overflow: hidden;
@@ -119,10 +119,12 @@
 	width: 100%;
 	text-align: center;
 }
+/*
 .m-truck-container:first-child .m-truck {
 	background: url("/wp-content/themes/gameandfish/images/deer-zone/sweeps-banner-mobile.png") no-repeat left bottom / 480px;
 }
-.m-truck-container:last-child .m-truck {
+*/
+.m-truck-container .m-truck {
 	background: url("/wp-content/themes/gameandfish/images/deer-zone/truck-ram-mobile.png") no-repeat left bottom / 480px;
 }
 .m-truck-title {
