@@ -506,7 +506,7 @@ body h1, body h2, body h3, body h4, body h5 {
 .m-home-wrap {
 	width: 100%;
 	position: relative;
-	margin-bottom: 532px;
+	margin-bottom: 280px;
 }
 .m-regn {
 	width: 100%;
@@ -842,10 +842,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 /* .m-truck {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/truck-ram.png") no-repeat left bottom / 1480px;} */
 
 /* Banners *******************/
+/*
 .m-truck-container:first-child .m-truck {
 	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sweeps-banner.png") no-repeat left bottom / 1280px;
 }
-.m-truck-container:last-child .m-truck {
+*/
+.m-truck-container .m-truck {
 	background: url("/wp-content/themes/infisherman/images/rigged-and-ready/truck-ram.png") no-repeat left bottom / 1280px;
 }
 
@@ -880,16 +882,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 /* Header *******************/
 
 /* Home Page *******************/
-.m-home-wrap {margin-bottom: 300px;}
+.m-home-wrap {margin-bottom: 150px;}
 .m-direction {width: 106px;height:106px;}
 .m-triangle {background: url("/wp-content/themes/infisherman/images/rigged-and-ready/sprite.png") -35px -172px no-repeat;background-size: 192px;}
 .m-direction span {font: 700 16px/106px "Lato", sans-serif;}
 
 /* Banners *******************/
-.m-banners {
-	height: 274px;
-	bottom: -282px;
-}
+.m-banners {height: 133px;bottom: -140px;}
 .m-truck-container {height: 150px;}
 .m-banners-region, .m-banners-single {bottom: auto;}
 .m-truck {/* background-size: 1480px; */text-align: right;padding: 0 30px;}
@@ -1036,7 +1035,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 .m-nav-erea { padding: 0 4%;}
 
 /* Home Page *******************/
-.m-home-wrap {margin-bottom: 280px;height: 66%;}
+.m-home-wrap {margin-bottom: 130px;height: 66%;}
 .m-regn {height: 100%;}
 .m-home-wrap .m-regn > li {width: 20%;height: 100%;padding-top: 0;background-size: cover;}
 .m-regn > li > a {-webkit-transition: all 0.4s ease;transition: all 0.4s ease;}
@@ -1053,7 +1052,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e1e1e', e
 
 /* Banners *******************/
 .m-truck-container {position: relative;height: 133px;bottom: auto;}
-.m-banners {bottom: -274px;}
+.m-banners {bottom: -133px;}
 .m-banners-region {bottom: auto;}
 /*
 .m-truck {background-size: 1640px;text-align: center;}

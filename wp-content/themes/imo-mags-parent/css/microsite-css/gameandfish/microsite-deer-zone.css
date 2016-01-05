@@ -176,11 +176,13 @@ a:hover {
 .m-logo {top: 11px;}
 
 /* Banners *******************/
+/*
 .m-truck-container:first-child .m-truck {
 	background: url("/wp-content/themes/gameandfish/images/deer-zone/sweeps-banner.png") no-repeat left bottom / 1280px;
 }
-.m-truck-container:last-child .m-truck {
-	background: url("/wp-content/themes/gameandfish/images/deer-zone/truck-ram.png") no-repeat left bottom / 1280px;
+*/
+.m-truck-container .m-truck {
+	background: url("/wp-content/themes/gameandfish/images/deer-zone/truck-ram.png") no-repeat left bottom / 1550px;
 }
 
 }/* end of media */
@@ -268,6 +270,11 @@ a:hover {
 .collage-1 {top: 171px;}
 .sweeps-dark-bar {bottom: 102px;padding: 10px 45% 10px 20%;}
 
+.m-truck-container {width: 100%;}
+.m-truck {text-align: center;}
+.m-truck-title {top:4px;left:0; right: 0; margin: 0 auto;}
+.m-truck-title h3 {display: inline-block;font-family: "Lato", sans-serif;}
+.m-truck > p {margin: 45px auto 13px;}
 
 }/* end of media */
 
