@@ -3,13 +3,6 @@
 _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.0', null, sprintf( __('Please include a %1$s template in your theme.'), basename(__FILE__) ) );
 ?>
 			</div><!-- #main -->
-		<?php if (mobile() == false) { ?>
-			<div class="content-banner-section footer-728">
-	        	<div class="mdl-banner">
-					 <?php imo_ad_placement("gpt-ad-1443797577185-4"); ?>
-				</div>
-			</div>
-		<?php } ?>
 		</div><!-- .layout-frame -->
 
 		<div id="footer" class="footer" role="contentinfo">

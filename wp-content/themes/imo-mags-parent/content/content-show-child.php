@@ -48,7 +48,7 @@ $slug_tv = get_post( $post )->post_name;
 		<div class="sidebar-area">
 			<div class="sidebar">
 				<div class="widget_advert-widget widget">
-					<?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>
+					<?php imo_ad_placement("300_atf"); ?>
 				</div>
 				<?php the_widget( 'Schedule_Widget' ); ?>
 				<div class="widget"><?php get_template_part( 'widgets/sportsmanLocator' ); ?></div>

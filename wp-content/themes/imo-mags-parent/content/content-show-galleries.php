@@ -121,7 +121,7 @@ $slug = $post_data['post_name'];
 						</div><!-- end of .unify -->
 					</div><!-- end of #description-area -->
 					<div class="ad-block">
-						<?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>
+						<?php imo_ad_placement("300_atf"); ?>
 					</div>
 					<div id="more-galleries">
 						<h2>More Galleries</h2>

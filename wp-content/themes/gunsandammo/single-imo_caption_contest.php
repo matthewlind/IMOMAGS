@@ -60,7 +60,7 @@ if(get_field('featured_stories')){
                     <div id="post-<?php the_ID(); ?>" <?php post_class('full-post'); ?>>
 				    <?php if ( is_single() ) : ?>
 				    <?php if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(); } ?>
-				    <div class="sponsor"><?php imo_ad_placement("sponsor_logo_240x60"); ?></div>
+				    <div class="sponsor"><?php imo_ad_placement("sponsor"); ?></div>
 				    <div class="post-header">
 				        <h1 class="entry-title"><?php the_title(); ?></h1>
 				        <?php else : ?>
@@ -74,7 +74,7 @@ if(get_field('featured_stories')){
 				                        	
 				    <?php if ( mobile() ){ ?>
 				    <div class="image-banner posts-image-banner">
-				        <?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>	
+				        <?php imo_ad_placement("300_atf"); ?>	
 				    </div>
 				    <?php } ?>
 				

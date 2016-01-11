@@ -12,7 +12,7 @@ General comments (optional).
 
 @import url("../imo-mags-parent/style.css");
 body{background:#2d2d2d;}
-.header{background:#2d2d2d;padding-top: 74px;}
+.header{background:#2d2d2d;}
 
 .header, .header .subscribe-links a{color: white;}
 .layout-frame{border: none;background: none;}

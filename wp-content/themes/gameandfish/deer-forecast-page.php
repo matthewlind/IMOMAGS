@@ -24,7 +24,7 @@ get_header();
     </h1>
 </div>
 <!-- 240x60 Ad: -->
-<div class="sponsor"><?php imo_ad_placement("sponsor_logo_240x60"); ?></div>
+<div class="sponsor"><?php imo_ad_placement("sponsor"); ?></div>
   
 					        
 <?php if(mobile() == true){ ?>

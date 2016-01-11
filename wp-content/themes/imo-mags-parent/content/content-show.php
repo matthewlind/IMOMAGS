@@ -91,7 +91,7 @@ while (have_posts()) : the_post();
 							
 			<div class="ad-block">
 				<div class="tv-ad-container">
-					<?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>
+					<?php imo_ad_placement("300_atf"); ?>
 				</div>
 				<?php //get_template_part( 'widgets/sportsmanLocator' ); ?>
 			</div>
