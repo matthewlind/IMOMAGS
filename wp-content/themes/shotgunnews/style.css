@@ -15,13 +15,13 @@ body{background:url(images/bg/shotgunnews-bg.jpg) no-repeat center top black;}
 .header{background-color:white;}
 .logo{margin-left: 30px;}
 .logo img{width: 694px;}
-.tagline{background: url(images/tagline.jpg) no-repeat center top;width: 100%;margin: 0 auto;height: 15px;}
+.tagline{background: url(images/tagline.jpg) no-repeat center top / 100%;width: 100%;margin: 0 auto;height: 15px;}
 #subscribe-area{margin-right: 30px;}
 .subscribe-box .journal{margin: 0;}
 .h-mdl-widget{margin: 0;}
 .sn-menu{background: #040503;height: 44px;clear: both;width: 1020px;margin: 0 auto;}
 .h-search-form{display: none;}
-.open-search{display: block;position: absolute;right: 29px;top: 224px;background-color: white;border:1px solid black;border-width: 1px 1px 1px 0;background-position: -304px -177px;}
+.open-search{display: block;position: absolute;right: 29px;top: 228px;background-color: white;border:1px solid black;border-width: 1px 1px 1px 0;background-position: -304px -177px;}
 .h-search-open {
 	display: block !important;
 	position: absolute;

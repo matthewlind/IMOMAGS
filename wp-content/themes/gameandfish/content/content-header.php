@@ -10,6 +10,14 @@
     }	
     
     $deal_copy = get_option('deal_copy' );
+	$subs_link = get_option('subs_link') . "/?pkey=";
+	$iMagID = get_option('iMagID' );
+	$gift_link = get_option('gift_link' );
+	$service_link = get_option('service_link' );
+	$subs_form_link = get_option('subs_form_link' );
+	$i4ky = get_option('i4ky' );
+	$dartDomain = get_option("dart_domain", $default = false);
+
 	
 ?>
 

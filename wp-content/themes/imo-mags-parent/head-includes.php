@@ -139,7 +139,7 @@ else {
 </script>
 
 <script type='text/javascript'>
-  googletag.cmd.push(function() {
+googletag.cmd.push(function() {
 
 var w = window.innerWidth;
 var h = window.innerHeight;
@@ -147,9 +147,26 @@ var h = window.innerHeight;
     googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [240, 60], 'sponsor').addService(googletag.pubads());
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [2, 2], 'native').addService(googletag.pubads());
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [564, 252], 'e_commerce_widget').addService(googletag.pubads());
+	
+	<?php if($microsite){ ?>
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], 'microsite_ATF_300x250').addService(googletag.pubads().setTargeting('sect', ['micro_atf']));
     googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], 'microsite_BTF_300x250').addService(googletag.pubads().setTargeting('sect', ['micro_btf']));
+	<?php } ?>
+	
+	<?php if(is_page( 'border-to-border' ) || is_page( 'epic-moments' )){ ?>
+	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], 'microsite_ATF_300x250').addService(googletag.pubads().setTargeting('sect', ['micro_atf']));
+	<?php } ?>
 
+
+	<?php if(is_page('epic-moments')) { ?>
+    googletag.defineSlot('/4930/imo.gameandfish/epic_moments_300x250', [300, 250], 'div-gpt-ad-1443797577185-0').addService(googletag.pubads());
+    googletag.defineSlot('/4930/imo.gameandfish/epic_moments_300x600', [300, 600], 'div-gpt-ad-1443797577185-1').addService(googletag.pubads());
+    googletag.defineSlot('/4930/imo.gameandfish/epic_moments_320x50', [320, 50], 'div-gpt-ad-1443797577185-2').addService(googletag.pubads());
+    googletag.defineSlot('/4930/imo.gameandfish/epic_moments_atf_728x90', [728, 90], 'div-gpt-ad-1443797577185-3').addService(googletag.pubads());
+    googletag.defineSlot('/4930/imo.gameandfish/epic_moments_btf_728x90', [728, 90], 'div-gpt-ad-1443797577185-4').addService(googletag.pubads());
+	<?php  } ?>
+
+	
 if (w>=1100)
 {
     googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [3, 3], 'superheader').addService(googletag.pubads());
@@ -178,6 +195,7 @@ if (w<=599)
     googletag.pubads().enableSyncRendering();
     googletag.enableServices();
   });
+
 </script>
 
 <?php 

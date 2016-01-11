@@ -28,6 +28,13 @@
 	<meta http-equiv="x-ua-compatible" content="IE=edge" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
+    
+	<meta property="og:url"           content="http://www.gameandfishmag.com/epic-moments/" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="WIN a Trip to a Major League Fishing Bass Pro Summit Event!" />
+    <meta property="og:description"   content="We’ve all had those memorable, never-to-happen-again outdoors-experiences with family and friends that are worth sharing with fellow sportsmen – and we can’t wait to hear about yours. If it’s truly epic, you could WIN your own epic moment, fishing with a pro brought to you by the all new Honda Pioneer 1000, Game & Fish and Major League Fishing." />
+    <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' ); $thumb_url = $thumb['0']; ?>
+    <meta property="og:image"         content="<?php echo $thumb_url; ?>" />
 	<title><?php
 	    /*
 	     * Print the <title> tag based on what is being viewed.
@@ -56,12 +63,10 @@
 
 		if ( $microsite ){ 
 			get_template_part('../imo-mags-parent/css/styles', 'microsites');
-		} else { 
-			if (is_category("tv") || in_category("tv") || is_page_template( "show-page.php" )) { ?>
-				<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' );?>/css/category-tv.css" />
-			<?php	} // end if if (is_category("tv") ?>	
+		} else { ?>
 			<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
-	<?php } ?>
+			<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/css/epic-moments.css" />
+	<?php	} ?>
 	
 	
 
@@ -96,6 +101,8 @@
         }
 
 
+
+
 		$subs_link = get_option('subs_link') . "/?pkey=";
 		$iMagID = get_option('iMagID' );
 		$deal_copy = get_option('deal_copy' );
@@ -111,15 +118,24 @@
 	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.jfollow.js" type="text/javascript"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/flash_heed.js" type="text/javascript"></script>
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/snap.js"></script>
-	<script type='text/javascript' src='http://ads.jetpackdigital.com/sites/<?php print JETPACK_SITE; ?>/jpd.js'></script>
+	<?php if ( defined('JETPACK_SITE') && mobile() == false && tablet() == false): ?>
+		<script type='text/javascript' src='http://ads.jetpackdigital.com/sites/<?php print JETPACK_SITE; ?>/jpd.js'></script>
+	<?php endif; ?>
 </head>
 
+<!-- CONTENT ************************************************** -->
+<?php $blog_title = get_bloginfo('name'); ?>
+
 <body <?php body_class(); ?>  >
-<?php
-	if ( $microsite ){
-		//get_template_part('../imo-mags-parent/header-content/microsites/gameandfish/header-content', 'crossbows');
-		get_template_part('../imo-mags-parent/header-content/header-content', 'microsites');
-	}else{
-		get_template_part('content/content', 'header');
-	}
-?>
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=432932696867322";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	
+	<div class="top-panel">
+		<a href="<?php echo site_url(); ?>"><i class="fa fa-arrow-left"></i> Back to <?php echo $blog_title; ?></a>
+	</div>

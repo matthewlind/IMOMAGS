@@ -145,98 +145,99 @@ jQuery(document).ready(function () {
 
 	});
 
-
-	var snapper = new Snap({
-		element: document.getElementById('page')
-	});
-
-	var addEvent = function addEvent(element, eventName, func) {
-		if (element.addEventListener) {
-	    	return element.addEventListener(eventName, func, false);
-	    } else if (element.attachEvent) {
-	        return element.attachEvent("on" + eventName, func);
+	if (jQuery('.mob-aside-menu').length ) {
+		var snapper = new Snap({
+			element: document.getElementById('page')
+		});
+	
+		var addEvent = function addEvent(element, eventName, func) {
+			if (element.addEventListener) {
+		    	return element.addEventListener(eventName, func, false);
+		    } else if (element.attachEvent) {
+		        return element.attachEvent("on" + eventName, func);
+		    }
+		};
+	
+		UpdateDrawers = function(){
+			var state = snapper.state(),
+			towards = state.info.towards,
+			opening = state.info.opening;
+			if(opening=='right' && towards=='left'){
+				jQuery(".snap-drawer-left").hide();
+				jQuery(".snap-drawer-right").show();
+	
+			} else if(opening=='left' && towards=='right') {
+				jQuery(".snap-drawer-right").hide();
+				jQuery(".snap-drawer-left").show();
+	
+			}
+		};
+	
+		snapper.on('drag', UpdateDrawers);
+		snapper.on('animating', UpdateDrawers);
+		snapper.on('animated', UpdateDrawers);
+	
+	
+	
+	
+		//Left Menu
+		addEvent(document.getElementById('open-left'), 'click', function(){
+	
+			if( jQuery("body").hasClass("snapjs-left") ){
+				snapper.close();
+				jQuery(".snap-drawer-left").fadeOut();
+	
+			} else {
+				jQuery("#tiptip_holder").hide();
+				jQuery(".snap-drawer-right").hide();
+				jQuery(".snap-drawer-left").show();
+				snapper.open("left");
+	
+			}
+	
+		});
+	
+		//Community Menu
+	
+	    addEvent(document.getElementById('comm-mob-menu'), 'click', function(){
+	
+	    	if( jQuery("body").hasClass("snapjs-right") ){
+	        	jQuery(".snap-drawer-right").fadeOut();
+				snapper.close();
+			} else {
+				jQuery(".snap-drawer-left").hide();
+	        	jQuery(".snap-drawer-right").show();
+	        	jQuery("#jpsuperheader").addClass("jp-right-menu-open");
+	        	snapper.open('right');
+		        _gaq.push(['_trackPageview',"/" + window.location.pathname + "-mobile-menu-open"]);
+			}
+	
+	    });
+	
+		/* Prevent Safari opening links when viewing as a Mobile App */
+		(function (a, b, c) {
+		    if(c in b && b[c]) {
+		        var d, e = a.location,
+		            f = /^(a|html)jQuery/i;
+		        a.addEventListener("click", function (a) {
+		            d = a.target;
+		            while(!f.test(d.nodeName)) d = d.parentNode;
+		            "href" in d && (d.href.indexOf("http") || ~d.href.indexOf(e.host)) && (a.preventDefault(), e.href = d.href)
+		        }, !1)
+		    }
+		})(document, window.navigator, "standalone");
+	
+		// Load more
+		if(jQuery(".next-link a").length){
+		    jQuery("a.btn-base").css("display","block");
 	    }
-	};
-
-	UpdateDrawers = function(){
-		var state = snapper.state(),
-		towards = state.info.towards,
-		opening = state.info.opening;
-		if(opening=='right' && towards=='left'){
-			jQuery(".snap-drawer-left").hide();
-			jQuery(".snap-drawer-right").show();
-
-		} else if(opening=='left' && towards=='right') {
-			jQuery(".snap-drawer-right").hide();
-			jQuery(".snap-drawer-left").show();
-
+	
+		if( jQuery(".mob-aside-menu .menu-main-menu-container").length ){
+			jQuery(".mob-aside-menu .menu-main-menu-container").removeClass("menu-main-menu-container");
+			jQuery(".mob-aside-menu .menu-main-menu-container").addClass("menu-mobile-menu-container");
 		}
-	};
-
-	snapper.on('drag', UpdateDrawers);
-	snapper.on('animating', UpdateDrawers);
-	snapper.on('animated', UpdateDrawers);
-
-
-
-
-	//Left Menu
-	addEvent(document.getElementById('open-left'), 'click', function(){
-
-		if( jQuery("body").hasClass("snapjs-left") ){
-			snapper.close();
-			jQuery(".snap-drawer-left").fadeOut();
-
-		} else {
-			jQuery("#tiptip_holder").hide();
-			jQuery(".snap-drawer-right").hide();
-			jQuery(".snap-drawer-left").show();
-			snapper.open("left");
-
-		}
-
-	});
-
-	//Community Menu
-
-    addEvent(document.getElementById('comm-mob-menu'), 'click', function(){
-
-    	if( jQuery("body").hasClass("snapjs-right") ){
-        	jQuery(".snap-drawer-right").fadeOut();
-			snapper.close();
-		} else {
-			jQuery(".snap-drawer-left").hide();
-        	jQuery(".snap-drawer-right").show();
-        	jQuery("#jpsuperheader").addClass("jp-right-menu-open");
-        	snapper.open('right');
-	        _gaq.push(['_trackPageview',"/" + window.location.pathname + "-mobile-menu-open"]);
-		}
-
-    });
-
-	/* Prevent Safari opening links when viewing as a Mobile App */
-	(function (a, b, c) {
-	    if(c in b && b[c]) {
-	        var d, e = a.location,
-	            f = /^(a|html)jQuery/i;
-	        a.addEventListener("click", function (a) {
-	            d = a.target;
-	            while(!f.test(d.nodeName)) d = d.parentNode;
-	            "href" in d && (d.href.indexOf("http") || ~d.href.indexOf(e.host)) && (a.preventDefault(), e.href = d.href)
-	        }, !1)
-	    }
-	})(document, window.navigator, "standalone");
-
-	// Load more
-	if(jQuery(".next-link a").length){
-	    jQuery("a.btn-base").css("display","block");
-    }
-
-	if( jQuery(".mob-aside-menu .menu-main-menu-container").length ){
-		jQuery(".mob-aside-menu .menu-main-menu-container").removeClass("menu-main-menu-container");
-		jQuery(".mob-aside-menu .menu-main-menu-container").addClass("menu-mobile-menu-container");
 	}
-
+	
     jQuery(".pager-holder a.btn-base").click(function(e){
     	//console.log(_gaq.push(['_trackPageview',window.location.pathname + "/page/"]));
         jQuery("#ajax-loader").show();

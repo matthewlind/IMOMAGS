@@ -14,9 +14,8 @@ $acfID = 'category_' . $id;
 $format = get_post_format( $postID );
 $adServerURL = "http://ad.doubleclick.net/pfadx/" .  get_option("dart_domain", _imo_dart_guess_domain())  ."/tv";
 $videoLink = !empty($postID) ? get_permalink($postID) :  site_url() . $_SERVER['REQUEST_URI']; 
-?>
 
-<?php 
+
 if( !is_single() ){
 	query_posts(array( 
 	'post_type' => 'post',
