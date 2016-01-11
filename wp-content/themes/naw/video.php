@@ -43,7 +43,7 @@ the_post();
 			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar-video')) : else : ?><?php endif; ?>
 		</div>
 		<div id="responderfollow"></div>
-			<?php imo_ad_placement("btf_medium_rectangle_300x250"); ?>
+			<?php imo_ad_placement("300_btf"); ?>
 			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('scroll-sidebar')) : else : ?><?php endif; ?>
 		</div>
 

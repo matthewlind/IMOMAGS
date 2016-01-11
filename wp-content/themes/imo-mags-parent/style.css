@@ -905,9 +905,11 @@ input.gsc-search-button-v2{
 
 /* Main Section
  ******************************************************************************/
-.mdl-banner{
-    margin: 0 auto;
-}
+.imo-superheader{width: 100%;text-align: center;background: black;}
+#superheader{display: inline-block;}
+.mdl-banner{padding: 20px 0;width: 100%;text-align: center;}
+#leaderboard, #billboard{display: inline-block;}
+.footer-728 .mdl-banner{width: 728px;margin: 0 auto;}
 .mdl-banner.mdl-728{
     width: 728px;
 }
@@ -3219,7 +3221,7 @@ h2.related-stories{
 
 #imo-tophat{
 	margin: 0 auto;
-    position: fixed;
+    position: relative;
     width: 100%;
     z-index: 999999999;
 }
@@ -3261,10 +3263,8 @@ h2.related-stories{
 	background: -ms-linear-gradient(top,  #171717 1%,#1c1c1c 31%,#474747 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  #171717 1%,#1c1c1c 31%,#474747 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#171717', endColorstr='#474747',GradientType=0 ); /* IE6-8 */
-
 	display: block;
 	height: 40px;
-    position: absolute;
     width: 100%;
     border-bottom: #262626 1px solid;
     z-index: 0;

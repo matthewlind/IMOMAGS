@@ -121,13 +121,9 @@
 <?php fixed_connect_footer(); ?>
 
 <div id="page" class="snap-content smooth-menu">
-	<?php if (mobile() == false && tablet() == false) { ?>
-		<div class="mdl-banner mdl-expandable">
-			<?php imo_ad_placement("pushdown_1080x90"); ?>
-		</div>
-	<?php } ?>
-
-	<?php if (mobile() == false && tablet() == false) { imo_ad_placement("site_skin_1x1"); } ?>
+	<div class="imo-superheader">
+		<?php imo_ad_placement("superheader"); ?>
+	</div>
 	<div class="hfeed wrapper <?php if(get_field("full_width") == true){ echo ' full-width full-content'; }else if(is_single() && has_post_format( 'video' ) || is_category("tv")){ echo ' tv-show full-content'; } ?>" data-role="content" role="main">
 	    <div class="layout-frame">
 	        <div id="branding" class="header clearfix" role="banner">
@@ -350,19 +346,16 @@
 		<div class="location-services">
            Your Location: <strong>You're in the jungle, baby!</strong>
            <a href="#">X</a>
-       </div>
+        </div>
         <div class="content-banner-section">
-         	<?php if (mobile()) { ?>
-        		<div class="mob-mdl-banner">
-					<?php imo_ad_placement("mobile_leaderboard_320x50"); ?>
-				</div>
-			<?php }else{ ?>
-				<div class="mdl-banner mdl-728">
-					<?php imo_ad_placement("atf_leaderboard_728x90"); ?>
-				</div>
-				<!--<div class="mdl-banner mdl-expandable">
-					<?php //imo_ad_placement("pushdown_1080x90"); ?>
-				</div>-->
-			<?php } ?>
+			<div class="mob-mdl-banner">
+				<?php imo_ad_placement("320_atf"); ?>
+			</div>
+			<div class="mdl-banner">
+				<?php 
+				imo_ad_placement("leaderboard"); 
+				imo_ad_placement("billboard"); 
+				?>
+			</div>
         </div>
 		<div id="main" class="main clearfix js-responsive-layout">

@@ -12,7 +12,7 @@ General comments (optional).
 
 @import url("../imo-mags-parent/style.css");
 body{background:url(images/bg/shotgunnews-bg.jpg) no-repeat center top black;}
-.header{background-color:white;padding-top: 84px;}
+.header{background-color:white;}
 .logo{margin-left: 30px;}
 .logo img{width: 694px;}
 .tagline{background: url(images/tagline.jpg) no-repeat center top;width: 100%;margin: 0 auto;height: 15px;}

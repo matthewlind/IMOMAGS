@@ -338,6 +338,7 @@ var videoPortal = (function(e){
 		    +  '<param name="wmode" value="transparent">'
 		    +  '<param name="width" value="100%" />'
 		    +  '<param name="height" value="350" />'
+		    +  '<param name="autoStart" value="true" />'
 		    +  '<param name="playerID" value="' + playerID + '" />'
 		    +  '<param name="isVid" value="true" />'
 		    +  '<param name="isUI" value="true" />'

@@ -26,7 +26,7 @@ get_header(); ?>
                         printf('<span>' . $state . " " . single_cat_title( '', false ) . '</span>' );
                         ?>
                     </h1>
-                    <div class="sponsor"><?php imo_ad_placement("sponsor_logo_240x60"); ?></div>
+                    <div class="sponsor"><?php imo_ad_placement("sponsor"); ?></div>
 				</div>
                                             
                 <?php 

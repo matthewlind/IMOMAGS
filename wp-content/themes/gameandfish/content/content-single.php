@@ -33,13 +33,13 @@ $acf_byline = get_field("byline",$postID);
 
     <?php if ( mobile() ){ ?>
     <div class="image-banner posts-image-banner">
-        <?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>
+        <?php imo_ad_placement("300_atf"); ?>
         <small>ADVERTISEMENT</small>
     </div>
     <?php } ?>
     <!-- .entry-header -->
     <div class="entry-content-holder">
-    	<div class="sponsor"><?php imo_ad_placement("sponsor_logo_240x60"); ?></div>
+    	<div class="sponsor"><?php imo_ad_placement("sponsor"); ?></div>
         <?php if ( is_search() ) : // Only display Excerpts for Search ?>
         <div class="entry-summary">
             <?php the_excerpt(); ?>
@@ -53,7 +53,7 @@ $acf_byline = get_field("byline",$postID);
         		
         <?php //the_widget('imo_related_footer_widget'); ?>
 
-	    <?php imo_ad_placement("e_commerce_widget_564x252"); ?>	
+	    <?php imo_ad_placement("e_commerce_widget"); ?>	
 
 	    <?php if ( function_exists('yarpp_plugin_activate') ): ?>
 		    <?php if ( isset_related_posts() ): ?>

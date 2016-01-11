@@ -128,82 +128,61 @@ else {
     );
 }
 ?>
+
 <script type='text/javascript'>
-(function() {
-var useSSL = 'https:' == document.location.protocol;
-var src = (useSSL ? 'https:' : 'http:') +
-'//www.googletagservices.com/tag/js/gpt.js';
-document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
-})();
+  (function() {
+    var useSSL = 'https:' == document.location.protocol;
+    var src = (useSSL ? 'https:' : 'http:') +
+        '//www.googletagservices.com/tag/js/gpt.js';
+    document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+  })();
 </script>
 
 <script type='text/javascript'>
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Adhesive_Medium_Rectangle_300x250', [300, 250], 'div-adhesive_medium_rectangle_300x250').addService(googletag.pubads());
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/ATF_Leaderboard_728x90', [728, 90], 'div-atf_leaderboard_728x90').addService(googletag.pubads());
+  googletag.cmd.push(function() {
 
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/ATF_Medium_Rectangle_300x250', [[300, 250], [300, 600]], 'div-atf_medium_rectangle_300x250').addService(googletag.pubads());
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/BTF_Leaderboard_728x90', [728, 90], 'div-btf_leaderboard_728x90').addService(googletag.pubads());
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/BTF_Medium_Rectangle_300x250', [[300, 250], [300, 600]], 'div-btf_medium_rectangle_300x250').addService(googletag.pubads());
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/e_commerce_widget_564x252', [564, 252], 'div-e_commerce_widget_564x252').addService(googletag.pubads());
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Interstitial_1x1', [1, 1], 'div-interstitial_1x1').addService(googletag.pubads());
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Mobile_Adhesion_320x50', [320, 50], 'div-mobile_adhesion_320x50').addService(googletag.pubads());
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Mobile_Flex_1x1', [1, 1], 'div-mobile_flex_1x1').addService(googletag.pubads());
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Mobile_Leaderboard_320x50', [320, 50], 'div-mobile_leaderboard_320x50').addService(googletag.pubads());
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Photo_Gallery_Medium_Rectangle', [300, 250], 'div-photo_gallery_medium_rectangle').addService(googletag.pubads());
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Photo_Gallery_Mobile_Banner', [320, 50], 'div-photo_gallery_mobile_banner').addService(googletag.pubads());
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Screen_Shift_1x1', [1, 1], 'div-screen_shift_1x1').addService(googletag.pubads());
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Sponsor_Logo_240x60', [240, 60], 'div-sponsor_logo_240x60').addService(googletag.pubads());
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Deer_Forecast_Sponsor_Logo_240x60', [240, 60], 'div-Deer_Forecast_Sponsor_Logo_240x60').addService(googletag.pubads());
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Polar_Native_Ad_2x2', [2, 2], 'div-polar_native_ad_2x2').addService(googletag.pubads());
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Sweeps_Widget_300x602', [300, 602], 'div-sweeps_widget_300x602').addService(googletag.pubads());
+var w = window.innerWidth;
+var h = window.innerHeight;
 
-<?php if(!is_page( 'border-to-border' )){ ?>
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Site_Skin_1x1', [1, 1], 'div-site_skin_1x1').addService(googletag.pubads());
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Pushdown_1080x90', [1080, 90], 'div-pushdown_1080x90').addService(googletag.pubads());
-<?php } ?>
+    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [240, 60], 'sponsor').addService(googletag.pubads());
+	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [2, 2], 'native').addService(googletag.pubads());
+	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [564, 252], 'e_commerce_widget').addService(googletag.pubads());
+	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], 'microsite_ATF_300x250').addService(googletag.pubads().setTargeting('sect', ['micro_atf']));
+    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], 'microsite_BTF_300x250').addService(googletag.pubads().setTargeting('sect', ['micro_btf']));
 
+if (w>=1100)
+{
+    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [3, 3], 'superheader').addService(googletag.pubads());
+    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [[970, 250], [728, 90]], 'billboard').addService(googletag.pubads());
+    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [[300, 600], [300, 250]], '300_atf').addService(googletag.pubads());
+    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [728, 90], '728_btf').addService(googletag.pubads());
+}
+if (w>=600 && w<=1099)
+{
+    //googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [1, 1], 'tablet2').addService(googletag.pubads());
+    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [728, 90], 'leaderboard').addService(googletag.pubads());
+    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], '300_atf').addService(googletag.pubads());
+    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [728, 90], '728_btf').addService(googletag.pubads());
+}
+if (w<=599)
+{
+    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [320, 100], [320, 50], '320_atf').addService(googletag.pubads());
+    //googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [1, 1], 'mobile3').addService(googletag.pubads());
+    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], '300_mobile').addService(googletag.pubads());
+    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [320, 100], [320, 50], '320_btf').addService(googletag.pubads());
+}
 
-
-
-<?php if( is_page_template( 'battle-of-the-bows.php' ) || is_page_template( 'battle-of-the-bows.php-child' ) || is_page_template( 'battle-of-the-bows-enter.php' ) ){ ?>
-
-googletag.defineSlot('/4930/imo.bowhunting/battle_of_the_bows/bob_championship_medium_rectangle', [300, 250], 'div-gpt-ad-1438288024184-0').addService(googletag.pubads());
-googletag.defineSlot('/4930/imo.bowhunting/battle_of_the_bows/bob_mobile_leaderboard', [320, 50], 'div-gpt-ad-1438288024184-1').addService(googletag.pubads());
-googletag.defineSlot('/4930/imo.bowhunting/battle_of_the_bows/bob_presenting_sponsor', [240, 60], 'div-gpt-ad-1438288024184-2').addService(googletag.pubads());
-googletag.defineSlot('/4930/imo.bowhunting/battle_of_the_bows/bob_region_sponsor_1', [240, 60], 'div-gpt-ad-1438288024184-3').addService(googletag.pubads());
-googletag.defineSlot('/4930/imo.bowhunting/battle_of_the_bows/bob_region_sponsor_2', [240, 60], 'div-gpt-ad-1438288024184-4').addService(googletag.pubads());
-googletag.defineSlot('/4930/imo.bowhunting/battle_of_the_bows/bob_region_sponsor_3', [240, 60], 'div-gpt-ad-1438288024184-5').addService(googletag.pubads());
-googletag.defineSlot('/4930/imo.bowhunting/battle_of_the_bows/bob_region_sponsor_4', [240, 60], 'div-gpt-ad-1438288024184-6').addService(googletag.pubads());
-
-<?php } ?>
-
-<?php if( is_category( 'trading-post' ) || in_category( 'trading-post' ) ){ ?>
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/ATF_Button_1', [125, 125], 'div-atf_button_1').addService(googletag.pubads());
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/ATF_Button_2', [125, 125], 'div-atf_button_2').addService(googletag.pubads());
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/BTF_Button_1', [125, 125], 'div-btf_button_1').addService(googletag.pubads());
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/BTF_Button_2', [125, 125],'div-btf_button_2').addService(googletag.pubads());
-<?php } ?>
-
-<?php if($microsite){ ?>
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Microsite_ATF_300x250', [300, 250], 'div-microsite_ATF_300x250').addService(googletag.pubads());
-googletag.defineSlot('/4930/<?php echo $dartDomain; ?>/Microsite_BTF_300x250', [300, 250], 'div-microsite_BTF_300x250').addService(googletag.pubads());
-<?php } ?>
-
-googletag.pubads().setTargeting("sect","<?php echo $term; ?>");
-googletag.pubads().setTargeting("page","<?php echo $pageName; ?>");
-googletag.pubads().setTargeting("camp","<?php echo $camp; ?>");
-googletag.pubads().setTargeting("Audience segment","<?php echo $term; ?>");
-
-googletag.pubads().enableSingleRequest();
-googletag.pubads().enableSyncRendering();
-
-googletag.pubads().enableVideoAds();
-//googletag.pubads().collapseEmptyDivs();
-googletag.enableServices();
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().setTargeting('sect', ['<?php echo $term; ?>']);
+    googletag.pubads().collapseEmptyDivs(); 
+    googletag.pubads().enableSyncRendering();
+    googletag.enableServices();
+  });
 </script>
 
 <?php 
 //sidebar
+
 function imo_sidebar($type){
 
    	//Speed up mobile load time by not loading sidebar in the background
@@ -212,7 +191,7 @@ function imo_sidebar($type){
 		<div class="sidebar-area">
 			<div class="sidebar">
 				<div class="widget_advert-widget">
-					<?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>		
+					<?php imo_ad_placement("300_atf"); ?>		
 				</div>
 			</div>
 		    <?php get_sidebar($type);
@@ -227,34 +206,12 @@ function imo_sidebar($type){
 		echo '</div>';
 	}
 }
-function imo_community_sidebar(){
-	$dartDomain = get_option("dart_domain", $default = false);
-	echo '<div class="sidebar-area">';
-		echo '<div class="sidebar">';
-			echo '<div class="widget_advert-widget">';
-			echo '<iframe id="community-iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad.php?ad_code='.$dartDomain.'"></iframe>';
-			echo '</div>';
-		echo '</div>';
-		get_sidebar("community");
-		
-		if($dartDomain == "imo.flyfisherman"){
-			echo '<div id="responderfollow"></div>';
-				echo '<div class="sidebar advert">';
-					echo '<div class="widget_advert-widget">';
-						echo '<iframe id="sticky-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-sticky.php?ad_code='.$dartDomain.'"></iframe>';
-					echo '</div>';
-					get_sidebar("sticky");
-				echo '</div>';
-		}		
-		
-	echo '</div>';
-}
 
 //ad placement
 function imo_ad_placement($size){ ?>
-	<div id='div-<?php echo $size; ?>'>
+	<div id='<?php echo $size; ?>'>
 		<script type='text/javascript'>
-			googletag.cmd.push(function() { googletag.display('div-<?php echo $size; ?>'); });
+			googletag.cmd.push(function() { googletag.display('<?php echo $size; ?>'); });
 		</script>
 	</div>
 

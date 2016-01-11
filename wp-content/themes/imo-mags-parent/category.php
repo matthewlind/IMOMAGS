@@ -33,7 +33,7 @@ get_header(); ?>
 					<?php
 	                    if(function_exists('z_taxonomy_image_url')){ 
 	                    	if (z_taxonomy_image_url()) {
-		                    	echo '<div class="sponsor">'.imo_ad_placement("sponsor_logo_240x60").'</div>';
+		                    	echo '<div class="sponsor">'.imo_ad_placement("sponsor").'</div>';
 		                    	echo '<div class="category-img"><img src="'.z_taxonomy_image_url().'" alt="'.single_cat_title( '', false ).'" title="'.single_cat_title( '', false ).'" /></div>';
 							}
 	                    }
@@ -50,7 +50,7 @@ get_header(); ?>
                         </h1>
                         <?php if(function_exists('z_taxonomy_image_url')){ 
 	                    	if (z_taxonomy_image_url() == false){ ?>
-								<div class="sponsor"><?php imo_ad_placement("sponsor_logo_240x60"); ?></div>
+								<div class="sponsor"><?php imo_ad_placement("sponsor"); ?></div>
                         <?php } } ?>
 					</div>
 
@@ -135,7 +135,7 @@ get_header(); ?>
 
 	                        <?php if ( mobile() ){ ?>
 	                        <div class="image-banner posts-image-banner">
-	                           <?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>
+	                           <?php imo_ad_placement("300_atf"); ?>
 	                        </div>
 	                        <?php } ?>
                         <?php endif;?>
