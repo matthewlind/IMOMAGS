@@ -156,16 +156,6 @@ var h = window.innerHeight;
 	<?php if(is_page( 'border-to-border' ) || is_page( 'epic-moments' )){ ?>
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], 'microsite_ATF_300x250').addService(googletag.pubads().setTargeting('sect', ['micro_atf']));
 	<?php } ?>
-
-
-	<?php if(is_page('epic-moments')) { ?>
-    googletag.defineSlot('/4930/imo.gameandfish/epic_moments_300x250', [300, 250], 'div-gpt-ad-1443797577185-0').addService(googletag.pubads());
-    googletag.defineSlot('/4930/imo.gameandfish/epic_moments_300x600', [300, 600], 'div-gpt-ad-1443797577185-1').addService(googletag.pubads());
-    googletag.defineSlot('/4930/imo.gameandfish/epic_moments_320x50', [320, 50], 'div-gpt-ad-1443797577185-2').addService(googletag.pubads());
-    googletag.defineSlot('/4930/imo.gameandfish/epic_moments_atf_728x90', [728, 90], 'div-gpt-ad-1443797577185-3').addService(googletag.pubads());
-    googletag.defineSlot('/4930/imo.gameandfish/epic_moments_btf_728x90', [728, 90], 'div-gpt-ad-1443797577185-4').addService(googletag.pubads());
-	<?php  } ?>
-
 	
 if (w>=1100)
 {
