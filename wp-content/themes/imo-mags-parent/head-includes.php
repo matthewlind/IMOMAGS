@@ -173,10 +173,10 @@ if (w>=600 && w<=1099)
 }
 if (w<=599)
 {
-    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [320, 100], [320, 50], '320_atf').addService(googletag.pubads());
+    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [[320, 100], [320, 50]], '320_atf').addService(googletag.pubads());
     //googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [1, 1], 'mobile3').addService(googletag.pubads());
     googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], '300_mobile').addService(googletag.pubads());
-    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [320, 100], [320, 50], '320_btf').addService(googletag.pubads());
+    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [[320, 100], [320, 50]], '320_btf').addService(googletag.pubads());
 }
 
     googletag.pubads().enableSingleRequest();
@@ -184,6 +184,8 @@ if (w<=599)
     googletag.pubads().collapseEmptyDivs(); 
     googletag.pubads().enableSyncRendering();
     googletag.enableServices();
+    
+    
   });
 
 </script>
