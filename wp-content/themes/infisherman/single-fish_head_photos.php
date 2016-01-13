@@ -4,7 +4,7 @@ $dataPos = 0;
 
 get_header();
 get_template_part( 'nav', get_post_format() );
-imo_community_sidebar(); ?>
+imo_sidebar(); ?>
     <div id="primary" class="general">
         <div id="content" role="main" class="general-frame">
 

@@ -70,7 +70,7 @@
 				<script type="text/javascript">brightcove.createExperiences();</script>
 				
 				<!-- End of Brightcove Player -->
-				<div class="epic-ad-300x600"><?php imo_ad_placement("gpt-ad-1443797577185-1"); ?></div>
+				<div class="epic-ad-300x600"><?php imo_ad_placement("microsite_ATF_300x250"); ?></div>
 			</div>
 		</div><!-- .m-sweep-blocks -->
 		<div class="editors-block">

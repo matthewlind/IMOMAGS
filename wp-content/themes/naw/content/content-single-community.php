@@ -52,14 +52,7 @@ $author = get_the_author_meta("user_nicename");
 	            <a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>
 	            </div>
 	        </div>        
-
-		<?php if ( mobile() ){ ?>
-			<div class="image-banner posts-image-banner">
-				<?php imo_ad_placement("atf_medium_rectangle_300x250"); ?>
-				<small>ADVERTISEMENT</small>
-			</div>
-		<?php } ?>
-    </div>
+		</div>
     <?php if ($_GET['message'] == "share") { ?>
 	    <div class="share-photo-now clearfix">
 	    	<div class="share-container">
@@ -98,7 +91,7 @@ $author = get_the_author_meta("user_nicename");
 
         <?php the_widget('imo_related_footer_widget'); ?>
 
-	    <?php imo_ad_placement("e_commerce_widget_564x252"); ?>
+	    <?php imo_ad_placement("e_commerce_widget"); ?>
 
 	    <?php if ( function_exists('yarpp_plugin_activate') ): ?>
 		    <?php if ( isset_related_posts() ): ?>

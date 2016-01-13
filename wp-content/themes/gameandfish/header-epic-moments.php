@@ -136,17 +136,6 @@
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));</script>
 	
-	<div class="top-ad-container">
-		<div class="top-ad-sweeps">
-			<?php 
-				if (mobile() == true) {
-					imo_ad_placement("gpt-ad-1443797577185-2");
-				} else {
-					imo_ad_placement("gpt-ad-1443797577185-3");
-				}
-			?>
-		</div>
-	</div>
 	<div class="top-panel">
 		<a href="<?php echo site_url(); ?>"><i class="fa fa-arrow-left"></i> Back to <?php echo $blog_title; ?></a>
 	</div>

@@ -1,38 +1,36 @@
 <?php 
-$code = $_GET['ad_code'];
+$dartDomain = $_GET['ad_code'];
 $title = $_GET['gallery_title'];
 ?>
 <html>
 <head>
 <script type='text/javascript'>
-(function() {
-var useSSL = 'https:' == document.location.protocol;
-var src = (useSSL ? 'https:' : 'http:') +
-'//www.googletagservices.com/tag/js/gpt.js';
-document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
-})();
+  (function() {
+    var useSSL = 'https:' == document.location.protocol;
+    var src = (useSSL ? 'https:' : 'http:') +
+        '//www.googletagservices.com/tag/js/gpt.js';
+    document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+  })();
 </script>
+
 <script type='text/javascript'>
+  googletag.cmd.push(function() {
 
-googletag.defineSlot('/4930/<?php echo $code; ?>/Photo_Gallery_Medium_Rectangle', [300, 250], 'div-photo_gallery_medium_rectangle').addService(googletag.pubads());
+	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], 'gallery_300').addService(googletag.pubads().setTargeting('sect', ['galleries']));
 
-googletag.pubads().setTargeting("sect","<?php echo $title; ?>");
-googletag.pubads().setTargeting("Audience segment","<?php echo $title; ?>");
-
-googletag.pubads().enableSingleRequest();
-googletag.pubads().enableSyncRendering();
-
-googletag.pubads().enableVideoAds();
-googletag.enableServices();
-
-
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().setTargeting('sect', ['<?php echo 'galleries'; ?>']);
+    googletag.pubads().collapseEmptyDivs(); 
+    googletag.pubads().enableSyncRendering();
+    googletag.enableServices();
+  });
 </script>
 
 </head>
 <body>
-	<div id='div-photo_gallery_medium_rectangle'>
+	<div id='gallery_300'>
 		<script type='text/javascript'>
-			googletag.cmd.push(function() { googletag.display('div-photo_gallery_medium_rectangle'); });
+			googletag.cmd.push(function() { googletag.display('gallery_300'); });
 		</script>
 	</div>	
 

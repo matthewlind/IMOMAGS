@@ -1,5 +1,5 @@
 <?php 
-$code = $_GET['ad_code'];
+$dartDomain = $_GET['ad_code'];
 
 if (!empty($_GET['size'])) {
   $size = $_GET['size'];
@@ -10,31 +10,32 @@ if (!empty($_GET['size'])) {
 <html>
 <head>
 <script type='text/javascript'>
-(function() {
-var useSSL = 'https:' == document.location.protocol;
-var src = (useSSL ? 'https:' : 'http:') +
-'//www.googletagservices.com/tag/js/gpt.js';
-document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
-})();
+  (function() {
+    var useSSL = 'https:' == document.location.protocol;
+    var src = (useSSL ? 'https:' : 'http:') +
+        '//www.googletagservices.com/tag/js/gpt.js';
+    document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+  })();
 </script>
+
 <script type='text/javascript'>
-googletag.defineSlot('/4930/<?php echo $code; ?>/BTF_Medium_Rectangle_300x250', [[300, 250], [300, 600]], 'div-btf_medium_rectangle_300x250').addService(googletag.pubads());
+  googletag.cmd.push(function() {
 
-googletag.pubads().setTargeting("sect","<?php echo $title; ?>");
-googletag.pubads().setTargeting("Audience segment","<?php echo $title; ?>");
+    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], '300_btf').addService(googletag.pubads());
 
-googletag.pubads().enableSingleRequest();
-googletag.pubads().enableSyncRendering();
-
-googletag.pubads().enableVideoAds();
-googletag.enableServices();
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().setTargeting('sect', ['<?php echo 'home'; ?>']);
+    googletag.pubads().collapseEmptyDivs(); 
+    googletag.pubads().enableSyncRendering();
+    googletag.enableServices();
+  });
 </script>
 
 </head>
 <body>
-<div id='div-btf_medium_rectangle_300x250'>
+<div id='300_btf'>
 		<script type='text/javascript'>
-			googletag.cmd.push(function() { googletag.display('div-btf_medium_rectangle_300x250'); });
+			googletag.cmd.push(function() { googletag.display('300_btf'); });
 		</script>
 	</div>
 

@@ -4,7 +4,7 @@ get_header(); ?>
     <div id="content" role="main">
     	<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="clearfix js-responsive-section">
             <h1><?php post_type_archive_title(); ?></h1>
-			<div class="sponsor"><?php imo_ad_placement("sponsor_logo_240x60"); ?></div>
+			<div class="sponsor"><?php imo_ad_placement("sponsor"); ?></div>
 		</div>
 		<?php $query = new WP_Query( array ( 'post_type' => 'imo_ga_vault', 'orderby' => 'rand', 'posts_per_page' => '1' ) );
 			if ( $query->have_posts() ) : 
@@ -25,7 +25,7 @@ get_header(); ?>
 		
         <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="facts-footer js-responsive-section">
 		        	<ul>
-		        		<li class="widgets"><?php imo_ad_placement("btf_medium_rectangle_300x250"); ?></li>
+		        		<li class="widgets"><?php imo_ad_placement("300_btf"); ?></li>
 		        		<li class="widgets">
 		        			<h3>Related Stories</h3>
 							<div class="fancy">

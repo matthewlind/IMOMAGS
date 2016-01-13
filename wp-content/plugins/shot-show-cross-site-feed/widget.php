@@ -32,7 +32,7 @@ class SScsfWidget extends \WP_Widget {
 			    
 				</ul>
 				<div class="sponsor-bg">
-					<div class="sponsor"><?php echo get_imo_dart_tag("240x60",1,false,array("sect"=>"","camp"=>"shot_show")); ?></div>				
+					<div class="sponsor"><?php imo_ad_placement("sponsor"); ?></div>				
 				</div>
 				<?php if( $_SERVER['SERVER_NAME'] == "www.petersenshunting.com" || $_SERVER['SERVER_NAME'] == "www.northamericanwhitetail.com" || $_SERVER['SERVER_NAME'] == "www.bowhuntingmag.com" || $_SERVER['SERVER_NAME'] == "www.gundogmag.com" || $_SERVER['SERVER_NAME'] == "www.wildfowlmag.com" || $_SERVER['SERVER_NAME'] == "www.bowhunter.com" || $_SERVER['SERVER_NAME'] == "www.gameandfishmag.com" ){ 
 				?>

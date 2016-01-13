@@ -127,7 +127,7 @@ if ( is_user_logged_in() ) {
             <img src="wp-content/plugins/solunar-calendar/solunar/images/banner/banner-back.jpg" width="1020" height="176" alt="" />
         </div>
         <div class="sponsor">
-        	<?php imo_ad_placement("sponsor_logo_240x60"); ?>
+        	<?php imo_ad_placement("sponsor"); ?>
         </div>
         <div class="location-box jq-custom-form">
             <form action="#">
@@ -279,19 +279,7 @@ if ( is_user_logged_in() ) {
                     </form>
                 </div> -->
             </div>
-            <div class="w-col w-col3">
-                <!-- Site - In-Fisherman/solunar_calendar -->
-                <div id='div-gpt-ad-1365712045023-0'>
-                <script type='text/javascript'>
-                // googletag.cmd.push(function() {
-
-
-                //     googletag.display('div-gpt-ad-1365712045023-0');
-
-                // });
-                </script>
-                </div>
-            </div>
+            <div class="w-col w-col3"><?php imo_ad_placement("300_atf"); ?></div>
         </div>
         <div class="gallery-block">
             <h2><span class="fishing-tips-title">Trout &amp; Salmon Fishing Tips</span></h2>
