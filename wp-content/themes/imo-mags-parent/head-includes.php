@@ -180,7 +180,7 @@ if (w<=599)
 }
 
     googletag.pubads().enableSingleRequest();
-    googletag.pubads().setTargeting('sect', ['<?php echo $term; ?>']);
+    googletag.pubads().setTargeting('sect', ['<?php echo $term; ?>']).setTargeting('camp', ['<?php echo $camp; ?>']);
     googletag.pubads().collapseEmptyDivs(); 
     googletag.pubads().enableSyncRendering();
     googletag.enableServices();

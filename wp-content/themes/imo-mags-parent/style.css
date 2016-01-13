@@ -5192,6 +5192,7 @@ table.likes-leaderboard .entry-title {
         bottom:18px;
     }
     .header .socials, #subscribe-area{display: none;}
+    .mdl-banner{padding: 0;height: 0;}
     
 } /* End of media */
 
