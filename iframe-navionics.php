@@ -32,7 +32,7 @@ $zoom = $_GET['zoom'];
             navKey: 'Navionics_webapi_01190'
         });
 
-        webapi.showSonarControl(false);
+        webapi.showSonarControl(true);
     </script>
 </body>
 </html>
