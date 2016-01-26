@@ -1,6 +1,6 @@
 <?php 
 $dartDomain = $_GET['ad_code'];
-$title = $_GET['gallery_title'];
+$slug = $_GET['gallery_title'];
 ?>
 <html>
 <head>
@@ -19,7 +19,7 @@ $title = $_GET['gallery_title'];
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], 'gallery_300').addService(googletag.pubads().setTargeting('sect', ['galleries']));
 
     googletag.pubads().enableSingleRequest();
-    googletag.pubads().setTargeting('sect', ['<?php echo 'galleries'; ?>']);
+    googletag.pubads().setTargeting('sect', ['<?php echo 'galleries'; ?>']).setTargeting('slug', ['<?php echo $slug; ?>']);
     googletag.pubads().collapseEmptyDivs(); 
     googletag.pubads().enableSyncRendering();
     googletag.enableServices();
