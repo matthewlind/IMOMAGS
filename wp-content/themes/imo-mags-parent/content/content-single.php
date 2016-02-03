@@ -25,7 +25,7 @@ $acf_byline = get_field("byline",$postID); ?>
         <?php if($byline){ ?>&nbsp;&nbsp;|&nbsp;&nbsp;<span class="post-byline author-item"><?php echo $byline; ?></span><?php } ?>
         <?php if($acf_byline){ ?>&nbsp;&nbsp;|&nbsp;&nbsp;<span class="post-byline author-item"><?php echo $acf_byline; ?></span><?php } ?>
         </em>
-        <a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php comments_number(); ?></a>
+        <a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php comments_number('0', '1', '%'); ?></a>
 
     </div>
                         	
