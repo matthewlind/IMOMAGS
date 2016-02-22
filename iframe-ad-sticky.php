@@ -1,5 +1,6 @@
 <?php 
 $dartDomain = $_GET['ad_code'];
+$term = $_GET['term'];
 
 if (!empty($_GET['size'])) {
   $size = $_GET['size'];
@@ -24,7 +25,7 @@ if (!empty($_GET['size'])) {
     googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], '300_btf').addService(googletag.pubads());
 
     googletag.pubads().enableSingleRequest();
-    googletag.pubads().setTargeting('sect', ['<?php echo 'home'; ?>']);
+    googletag.pubads().setTargeting('sect', ['<?php echo $term; ?>']);
     googletag.pubads().collapseEmptyDivs(); 
     googletag.pubads().enableSyncRendering();
     googletag.enableServices();

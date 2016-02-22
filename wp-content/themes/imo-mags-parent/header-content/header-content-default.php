@@ -169,15 +169,12 @@
 		</div>
 	<?php } ?>
 </div>
-<?php 
-	
-	include_once get_stylesheet_directory() . "/network-bar.php";
-	fixed_connect_footer(); ?>
-
+<?php fixed_connect_footer(); ?>
 <div id="page" class="snap-content smooth-menu">
 	<div class="imo-superheader">
 		<?php imo_ad_placement("superheader"); ?>
 	</div>
+	<?php include_once get_stylesheet_directory() . "/network-bar.php"; ?>
 	<div class="hfeed wrapper <?php if(get_field("full_width") == true){ echo ' full-width full-content'; }else if( is_page_template('show-page.php') || is_category("tv") || is_category("show-galleries") || (is_single() && (has_post_format( 'video' ) || in_category("show-galleries")) ) ){ echo ' tv-show full-content'; } ?>" data-role="content" role="main">
 	    <div class="layout-frame">
 	        <div id="branding" class="header clearfix" role="banner">

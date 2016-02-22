@@ -54,9 +54,9 @@ if ( is_rtl() ) {
 	wp_print_scripts();
 
 	$styles = apply_filters( 'gform_preview_styles', array(), $form );
-if ( ! empty( $styles ) ) {
-	wp_print_styles( $styles );
-}
+	if ( ! empty( $styles ) ) {
+		wp_print_styles( $styles );
+	}
 ?>
 
 </head>
@@ -76,6 +76,12 @@ if ( ! empty( $styles ) ) {
 	?>
 </div>
 <?php
+
+/**
+ * Fires in the footer of a Form Preview page
+ *
+ * @param int $_GET['id'] The ID of the form currently being previewed
+ */
 do_action( 'gform_preview_footer', $_GET['id'] );
 ?>
 </body>
