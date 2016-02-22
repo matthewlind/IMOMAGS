@@ -54,11 +54,14 @@ jQuery(document).ready(function($) {
 	});
 	buyMag.click(function(event){
 		event.stopPropagation();
-		buyMagDrop.toggleClass("m-display-block");
+		//buyMagDrop.toggleClass("m-display-block");
+		buyMagDrop.slideToggle(200);
 	});
 	$("body, .m-buymag-drop i").click(function(){
-		buyMagDrop.removeClass("m-display-block");
+		//buyMagDrop.removeClass("m-display-block");
+		buyMagDrop.slideUp(200);
 	});
+	buyMagDrop.mouseleave(function(){buyMagDrop.slideUp(200);})
 	
 	// add .disabled-link class to an <a> tag to disable it's dfault begavior 
 	disabledLink = $('.disabled-link');

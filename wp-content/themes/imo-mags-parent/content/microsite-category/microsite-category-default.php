@@ -20,7 +20,7 @@
 			$post_counter = 0;	
 				
 			$args = array (
-				'category_name'         	=> $cat_slug,			
+				'cat'         				=> $cat_id,			
 				'posts_per_page'      		=> 3,
 				'order'						=> 'DESC',
 				'meta_query' => array(
@@ -87,14 +87,14 @@
 					endif;?>
 			</div><!-- .m-social-buttons -->
 		</div><!-- end .featured-message -->
-		<div class="p-container clearfix">
+		<div id="reg_post_wrap" class="p-container clearfix">
 			<?php
 			//$id_obj = get_category_by_slug('shoot101-featured'); 
 			//$cat_id = $id_obj->term_id;
 			// WP_Query arguments
 			$args = array (
-				'category_name'         	=> $cat_slug,			
-				'posts_per_page'      		=> -1,
+				'cat'       			  	=> $cat_id,			
+				'posts_per_page'      		=> 7,
 				'order'						=> 'DESC',
 				'meta_query' => array(
 				  array(
@@ -113,16 +113,25 @@
 					$image_id = get_post_meta(get_the_ID(),"image", true);
 					$image = wp_get_attachment_image_src($image_id, "large");
 			?>
-			<a class="link-box" href="<?php the_permalink(); ?>">	
+			<a class="link-box reg-post" href="<?php the_permalink(); ?>">	
 				<div class="post-box" style="background-image: url('<?php echo $image[0]; ?>')"></div>
 			</a>
 			<?php
 					}
-				} else {
-					echo "not found";
-				}
+				} 
 				wp_reset_postdata();
 			?>
+			<div class="load-more-reg">
+				<a href="#" id="load_reg_posts" class="btn-think-border load-btn" data-cat="">
+					Load More
+					<i class="icon-arrow-left"></i>
+					<div class="loader-anim display-none">
+						<div class="loader-inner line-spin-fade-loader">
+							<div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div>
+						</div>
+					</div>
+				</a>
+			</div><!-- .load-more-reg -->
 		</div><!-- end .p-container -->
 		<?php if ($dartDomain == "imo.gameandfish") { include(get_template_directory() . '/content/microsite-category/related-microsite.php'); } else { }?>
 	</div><!-- end .posts-wrap -->

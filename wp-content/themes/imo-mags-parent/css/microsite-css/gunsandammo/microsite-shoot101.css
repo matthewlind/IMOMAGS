@@ -35,9 +35,11 @@ a:hover {
 .top-panel a {
 	font-family: "Lora";
 }
+/*
 .category-shoot101 .all-stories {
 	display: none;
 }
+*/
 
 /* Main-nav */
 .main-nav ul li a {font-family: 'Titillium Web';}
