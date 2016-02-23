@@ -33,8 +33,11 @@ add_filter('single_template', create_function(
 	return $the_template;' )
 );
 
-/// ACF for microsites. Original "Microsite Category Fields" exported from Petersens's Hunting site 
+// ACF for microsites. Original "Microsite Category Fields" exported from Petersens's Hunting site 
 include_once('acf_fields/microsite-category-fields.php');
+
+// Microsite Ajax load more posts
+include_once( get_template_directory() .'/functions/microsites/ajax-load-posts.php' );
 
 
 function sub_footer(){ ?>

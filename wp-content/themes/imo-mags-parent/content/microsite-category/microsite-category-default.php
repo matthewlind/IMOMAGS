@@ -1,26 +1,29 @@
 <?php	
-    $idObj = get_category_by_slug($cat_slug); 
-	$cat_id = $idObj->term_id;
-	$term_cat_id = 'category_'.$cat_id;
+	$cat 			= get_query_var('cat');
+	$this_cat 		= get_category($cat);
+	$this_cat_slag 	= $this_cat->slug;
+	$this_cat_id	= $this_cat->term_id;
+	$term_cat_id 	= 'category_'.$this_cat_id;
 	
-	$social_share_message = get_field('social_share_message', $term_cat_id);
-	$sponsors_disclaimer = get_field('sponsors_disclaimer', $term_cat_id);
+	$social_share_message 	= get_field('social_share_message', $term_cat_id);
+	$sponsors_disclaimer 	= get_field('sponsors_disclaimer', $term_cat_id);
 ?>
 
 <?php if( in_array( 'sponsors_disclaimer', get_field('additional_elements', $term_cat_id) ) ) { ?>
 <div class="sponsors-disclaimer">
-	<span><?php echo $sponsors_disclaimer; ?></span>
+	<span><?php echo $sponsors_disclaimer;?></span>
 </div>
 <?php } ?>
 
 <div class="content">
+	<?php echo $this_cat_slag . ' aaaa'; ?>
 	<div class="posts-wrap">
 		<div class="p-feat-container clearfix">
 			<?php
 			$post_counter = 0;	
 				
 			$args = array (
-				'cat'         				=> $cat_id,			
+				'cat'         				=> $this_cat_id,			
 				'posts_per_page'      		=> 3,
 				'order'						=> 'DESC',
 				'meta_query' => array(
@@ -43,7 +46,7 @@
 					$wide_image_id = get_post_meta(get_the_ID(),"image_wide", true);
 					$image_wide = wp_get_attachment_image_src($wide_image_id, "full");
 			?>
-			<a class="link-box" href="<?php the_permalink(); ?>">	
+			<a class="link-box feat-post" href="<?php the_permalink(); ?>">	
 				<?php if ($post_counter == 2 && mobile() == false && tablet() == false ) { ?>
 				<div class="post-box" style="background-image: url('<?php echo $image_wide[0]; ?>')"></div>	
 				<?php } else { ?>
@@ -93,7 +96,7 @@
 			//$cat_id = $id_obj->term_id;
 			// WP_Query arguments
 			$args = array (
-				'cat'       			  	=> $cat_id,			
+				'cat'       			  	=> $this_cat_id,			
 				'posts_per_page'      		=> 7,
 				'order'						=> 'DESC',
 				'meta_query' => array(

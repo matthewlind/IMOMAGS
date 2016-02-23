@@ -1,12 +1,13 @@
 jQuery(document).ready(function($) {
+	
 	$(".wpsocialite.small").remove();
-	var windowWidth = $(window).width(),
-		box1_width = $( ".post-box" ).eq(-1).width(),		
-		box2_width = $( ".post-box" ).eq(-2).width(),
-		box3_width = $( ".post-box" ).eq(-3).width(),
-		box_width_diff = Math.abs(box1_width - box2_width)
-		box_width_diff13 = Math.abs(box1_width - box3_width),
-		box_width_diff23 = Math.abs(box2_width - box3_width),
+	var windowWidth 		= $(window).width(),
+		box1_width 			= $( ".post-box" ).eq(-1).width(),		
+		box2_width 			= $( ".post-box" ).eq(-2).width(),
+		box3_width 			= $( ".post-box" ).eq(-3).width(),
+		box_width_diff 		= Math.abs(box1_width - box2_width)
+		box_width_diff13 	= Math.abs(box1_width - box3_width),
+		box_width_diff23 	= Math.abs(box2_width - box3_width),
 		box_width_diff_real = box2_width - box1_width,
 		box_width_diff_real13 = box3_width - box1_width;
 		
@@ -54,11 +55,9 @@ jQuery(document).ready(function($) {
 	});
 	buyMag.click(function(event){
 		event.stopPropagation();
-		//buyMagDrop.toggleClass("m-display-block");
 		buyMagDrop.slideToggle(200);
 	});
 	$("body, .m-buymag-drop i").click(function(){
-		//buyMagDrop.removeClass("m-display-block");
 		buyMagDrop.slideUp(200);
 	});
 	buyMagDrop.mouseleave(function(){buyMagDrop.slideUp(200);})
