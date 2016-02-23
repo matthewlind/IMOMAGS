@@ -82,7 +82,7 @@ get_header(); ?>
 				</div>
 				
 				<?php					
-					query_posts(array( 
+					$tvPost = new WP_Query(array( 
 						'post_type' => 'post',
 						'post_status' => 'publish',
 					    'tax_query' => array(
@@ -94,14 +94,14 @@ get_header(); ?>
 						  ),
 					    'showposts' => 1 
 					)); 
-					while (have_posts()) : the_post();
+					while ($tvPost->have_posts()) : $tvPost->the_post();
 					$video_id = get_post_meta(get_the_ID(), '_video_id', TRUE);
 					
 					$idObj = get_category_by_slug('tv'); 
 					$id = $idObj->term_id;
 					$acfID = 'category_' . $id; 
 				?>
-				<div class="posts-list js-responsive-section">
+				<div class="js-responsive-section">
 					<div class="general-title clearfix">
 		                <h2>In Fisherman TV</h2>
 		            </div>
@@ -194,7 +194,6 @@ get_header(); ?>
 
 					<!-- Start of Brightcove Player -->
 					<div style="display:none"></div>
-
 					<script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
 
 					<object id="myExperience" class="BrightcoveExperience">
