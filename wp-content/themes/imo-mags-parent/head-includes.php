@@ -129,6 +129,7 @@ else {
 }
 
 $term = str_replace(" &amp; ", "-", $term);
+$term = str_replace("'", "", $term);
 ?>
 
 <script type='text/javascript'>

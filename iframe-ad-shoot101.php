@@ -16,7 +16,7 @@ $term = $_GET['term'];
 <script type='text/javascript'>
   googletag.cmd.push(function() {
 
-    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], '300_btf').addService(googletag.pubads());
+    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], 'microsite_ATF_300x250').addService(googletag.pubads());
 
     googletag.pubads().enableSingleRequest();
     googletag.pubads().setTargeting('sect', ['<?php echo $term; ?>']);
@@ -30,7 +30,7 @@ $term = $_GET['term'];
 <body>
 <div id='300_btf'>
 		<script type='text/javascript'>
-			googletag.cmd.push(function() { googletag.display('300_btf'); });
+			googletag.cmd.push(function() { googletag.display('microsite_ATF_300x250'); });
 		</script>
 	</div>
 
