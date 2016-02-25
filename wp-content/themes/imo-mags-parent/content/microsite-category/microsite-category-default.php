@@ -16,8 +16,7 @@
 <?php } ?>
 
 <div class="content">
-	<?php echo $this_cat_slag . ' aaaa'; ?>
-	<div class="posts-wrap">
+	<div class="posts-wrap" id="posts_wrap">
 		<div class="p-feat-container clearfix">
 			<?php
 			$post_counter = 0;	
@@ -62,7 +61,7 @@
 			<?php	}
 				
 				
-				$post_counter++;	
+					$post_counter++;	
 					}
 				} else {
 					echo "not found";
@@ -124,8 +123,8 @@
 				} 
 				wp_reset_postdata();
 			?>
-			<div class="load-more-reg">
-				<a href="#" id="load_reg_posts" class="btn-think-border load-btn" data-cat="">
+			<div class="load-more-reg" id="load_more_reg">
+				<a href="#" id="load_reg_posts" class="btn-think-border load-btn" data-cat-load="<?php echo $this_cat_slag; ?>">
 					Load More
 					<i class="icon-arrow-left"></i>
 					<div class="loader-anim display-none">

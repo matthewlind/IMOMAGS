@@ -229,6 +229,7 @@ html, body {
 	height: 100%;
 	background-color: #202020;
 	color: #e9e9e9;
+	overflow: scroll !important;
 }
 body {
 	font-family: 'Open Sans', sans-serif;
