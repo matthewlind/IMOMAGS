@@ -53,15 +53,9 @@
 				<?php } ?>
 			</a>
 			<?php
-					if ($post_counter == 1) { ?>
-						<div class="top-ad-home"> 
-							<p>ADVERTISMENT</p>
-							<iframe id="shoot101-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-shoot101.php?ad_code=imo.gunsandammo&term=shoot101">
-							<?php //imo_ad_placement("microsite_ATF_300x250"); ?>
-				    	</div>
-			<?php	}
-				
-				
+					if ($post_counter == 1) { 
+						echo '<div class="top-ad-home"></div>';
+					}
 					$post_counter++;	
 					}
 				} else {

@@ -56,8 +56,9 @@ get_header(); ?>
 					<!-- Start of Brightcove Player -->
 					<div style="display:none"></div>
 
+					
 					<script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
-
+					
 					<object id="myExperience" class="BrightcoveExperience">
 					  <param name="bgcolor" value="#FFFFFF" />
 					  <param name="width" value="480" />
@@ -71,6 +72,7 @@ get_header(); ?>
 					<script type="text/javascript">brightcove.createExperiences();</script>
 					<!-- End of Brightcove Player -->
 				</div>
+				
 				<?php } ?>
 
                 <div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header clearfix js-responsive-section">

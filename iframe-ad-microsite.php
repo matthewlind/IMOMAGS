@@ -28,7 +28,7 @@ $term = $_GET['term'];
 
 </head>
 <body>
-<div id='300_btf'>
+<div id='microsite_ATF_300x250'>
 		<script type='text/javascript'>
 			googletag.cmd.push(function() { googletag.display('microsite_ATF_300x250'); });
 		</script>

@@ -24,7 +24,6 @@ function my_enqueue_microsite() {
 		wp_localize_script( 'script-microsite-ajax', 'ajax_object',
 	        array( 
 	        	'ajax_url' => admin_url( 'admin-ajax.php' ),
-	        	'crossbows_posts_cout' => $postsInCat,
 	        	'term_cat_id' => $term_cat_id,
 	        	'parent_cat_slug' => $this_cat_slag
 	        ) 

@@ -10,7 +10,7 @@ License URI:
 General comments (optional).
 */
 /* Global reset
-*******************************************************************************/
+-----------------------------------------------------**/
 html, body, div, a, object, iframe, blockquote, pre,
 img, dl, dt, dd, ol, ul, li, h1, h2, h3, h4, h5, h6,
 fieldset, form, legend, textarea, button, input, select {padding: 0;margin: 0;}
@@ -25,8 +25,8 @@ fieldset, form, legend, textarea, button, input, select {
     -webkit-font-smoothing: subpixel-antialiased;
 }
 
-/* =HTML5 display definitions
-*******************************************************************************/
+/* HTML5 display definitions
+-----------------------------------------------------*/
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
     display: block;
 }
@@ -50,7 +50,7 @@ svg:not(:root)  { overflow: hidden; }
     background-color: #0099ff;
 }
 /* Tags reset
-*******************************************************************************/
+-----------------------------------------------------*/
 html {
     font-size: 100%;
     overflow-y: scroll;
@@ -91,7 +91,7 @@ a.flex-prev, a.flex-next, a.menu-link, a.main-menu-link, .socials a, a.btn-base,
 .hidden-seo{text-indent: -9999px;height: 0;}
 
 /* Normalizing form elements
-*******************************************************************************/
+-----------------------------------------------------*/
 fieldset { border: none; }
 textarea, button, input, select { font-size: 100%; vertical-align: baseline; }
 textarea { overflow: auto; min-height: 30px; max-height: 400px; resize: vertical; }
@@ -149,7 +149,7 @@ input::-moz-focus-inner { border: 0; padding: 0; }
 /**END Gravity Form Styles**/
 
 /* Normalizing Tags
-*******************************************************************************/
+-----------------------------------------------------*/
 small       { font-size: 85%; }
 strong, th  { font-weight: bold; }
 td, td img  { vertical-align: top; }
@@ -159,7 +159,7 @@ sub         { bottom: -0.25em; }
 h1, h2, h3, h4, h5, h6  { font-weight: normal; margin: 0; }
 
 /* Custom Fonts
-******************************************************************************/
+-----------------------------------------------------*/
 @font-face {
   font-family: "stagmedium";
   src: url("fonts/stag-medium-webfont-webfont.eot");
@@ -298,7 +298,7 @@ h1, h2, h3, h4, h5, h6  { font-weight: normal; margin: 0; }
 }
 
 /* =Minimal base appearance
-*******************************************************************************/
+-----------------------------------------------------*/
 body {
     color:#3c3c3c;
     font:18px "Source Sans Pro", Helvetica, Arial, sans-serif;
@@ -313,7 +313,7 @@ a:hover { color: #040503; }
 .general img, .general div.aligncenter, .general div.alignleft, .general div.alignright{max-width: 100%;height: auto;}
 
 /* =Useful classes
-*******************************************************************************/
+-----------------------------------------------------*/
 .clearf:after {
      visibility: hidden;
      display: block;
@@ -403,7 +403,7 @@ img.border-image {
 }
 
 /* Header
- ******************************************************************************/
+-----------------------------------------------------*/
 .header {
     width:100%;
     padding:10px 0 0;
@@ -904,7 +904,7 @@ input.gsc-search-button-v2{
 
 
 /* Main Section
- ******************************************************************************/
+-----------------------------------------------------*/
 .imo-superheader{width: 100%;text-align: center;background: black;}
 #superheader{display: inline-block;}
 .mdl-banner{padding: 20px 0;width: 100%;text-align: center;}
@@ -1784,7 +1784,7 @@ a.category-name-link:hover{
 .subscribe-banner:hover {opacity:0.7;}
 .subscribe-banner img {display:block; width:100%;}
 /* Single Post Page
- ******************************************************************************/
+-----------------------------------------------------*/
 .single .inner-main{clear: both;}
 .single .entry-content{
 	font-family: Georgia,Times,serif;
@@ -1992,7 +1992,7 @@ a.category-name-link:hover{
 }
 
 /* Tune In Artem Test
-===============================================================================*/
+-----------------------------------------------------*/
 
 .tune-in-container {
 	min-height: 100px;
@@ -2114,11 +2114,11 @@ a.category-name-link:hover{
 	display: none;
 }
 /* Tune In Artem Test END
-********************************************************************************/
+-----------------------------------------------------*/
 
 
 /* = General styles for Category / Tag / etc. pages
----------------------------------------------------------------------- */
+----------------------------------------------------- */
 .category .feat-text{
 	height: auto;
 }
@@ -2137,7 +2137,7 @@ a.category-name-link:hover{
 }
 
 /* = General styles for mobile menu
----------------------------------------------------------------------- */
+----------------------------------------------------- */
 .all-menu{display: none;}
 .snap-drawers .menu-top-menu-container,
 .snap-drawers .mob-aside-menu {
@@ -2321,7 +2321,7 @@ a.category-name-link:hover{
 	margin: 0 auto !important;
 }
 /* = styles for mobile menu end
----------------------------------------------------------------------- */
+-----------------------------------------------------*/
 .message-not-found {
     display:block;
     font:40px "stagbold", serif;
@@ -2330,7 +2330,7 @@ a.category-name-link:hover{
     padding:20px 0;
 }
 /* Sidebar
- ******************************************************************************/
+-----------------------------------------------------*/
 .sidebar-area {
     float:right;
     width:310px;
@@ -2909,7 +2909,7 @@ margin-bottom:15px;
 }
 
 /* = WP default overrides
- ******************************************************************************/
+-----------------------------------------------------*/
 #wpadminbar {z-index: 999999999 !important;}
 .wp-caption {
 	overflow: hidden;
@@ -3376,7 +3376,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 
 
 /* Core Experts
- ******************************************************************************/
+-----------------------------------------------------*/
 .page-template-core-experts-php .article-brief p{
 	padding: 10px 20px;
 }
@@ -3399,7 +3399,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 }
 
 /* Community
- ******************************************************************************/
+-----------------------------------------------------*/
 .community-nav-below{height: 35px;overflow: auto;}
 .singl-post-photo span {
 	background: url(images/ico/camera-white.png) no-repeat;
@@ -3531,7 +3531,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 
 
 /* Master Angler
- ******************************************************************************/
+-----------------------------------------------------*/
 .category-master-angler .page-header img{
 	width: 241px;
 	height: auto;
@@ -3653,7 +3653,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', end
 .modal-close img{background: black;padding: 5px;float: right;}
 
 /* = Footer
- ******************************************************************************/
+-----------------------------------------------------*/
 .content-banner-section.footer-728{
 	 border: solid #dddcdb;
 	 border-width: 1px 0;
@@ -3880,7 +3880,7 @@ table.likes-leaderboard .entry-title {
       font-size:18px;
 }
 /* E-Commerce
-********************************************************************************/
+-----------------------------------------------------*/
 .e-commerce-widget {
 	font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
 	border-bottom: 5px solid #363636;
@@ -4008,10 +4008,10 @@ table.likes-leaderboard .entry-title {
 	display: none;
 }
 /* END E-Commerce
-********************************************************************************/
+-----------------------------------------------------*/
 
-/* =Responsive Breakpoints
-*******************************************************************************/
+/* Responsive Breakpoints
+-----------------------------------------------------*/
 @media only screen and (max-width: 1096px) {
 	#imo-tophat{display: none;}
 	/* body{background: none !important;} */
@@ -4344,13 +4344,13 @@ table.likes-leaderboard .entry-title {
 
 @media only screen and (max-width: 1023px) {
 	/* E-Commerce
-	********************************************************************************/
+	-----------------------------------------------------*/
 	.ecw-head { padding: 8px; }
 	.ecw-head h1 { float: none;line-height: 20px;text-align: center;}
 	.ecw-head span {float: none;line-height: 20px;text-align: center;}
 	#ecw-flexslider {width: 334px;}
 	/* END E-Commerce
-	********************************************************************************/
+	-----------------------------------------------------*/
 
 } /* End of media */
 
@@ -4530,11 +4530,11 @@ table.likes-leaderboard .entry-title {
 	}
 	
 	/* E-Commerce Widget
-	***************************/
+	-----------------------------------------------------*/
 	#ecw-flexslider .flex-direction-nav .flex-prev {left: -36px;}
 	#ecw-flexslider .flex-direction-nav .flex-next {right: -36px;}
 	/* END E-Commerce Widget
-	***************************/
+	-----------------------------------------------------*/
 	
 } /* End of media */
 @media only screen and (max-width: 820px) {
@@ -4714,12 +4714,11 @@ table.likes-leaderboard .entry-title {
     }
     
 	/* E-Commerce Widget
-	************************/
+	-----------------------------------------------------*/
 	#ecw-flexslider .flex-direction-nav .flex-prev {left: -55px;}
 	#ecw-flexslider .flex-direction-nav .flex-next {right: -55px;}
 	#ecw-flexslider {width: 136px;}
-	/* END E-Commerce Widget
-	************************/
+
 	
 } /* End of media */
 @media only screen and (max-width: 700px) {
@@ -5172,9 +5171,9 @@ table.likes-leaderboard .entry-title {
 	.fixed-connect.fixed-connect-mobile .subscribe, .fixed-connect input[type="submit"]{margin: 5px auto;float: none;text-align: center;width: 140px;}
 	.fixed-connect.fixed-connect-mobile .close{margin-top: 5px;}
 	
-	/* E-Commerce Widget ************************/
+	/* E-Commerce Widget */
 	#ecw-flexslider {width: 334px;}
-	/* END E-Commerce Widget ************************/
+	/* END E-Commerce Widget */
 	
 } /* End of media */
 @media only screen and (max-width: 510px) {
@@ -5198,7 +5197,7 @@ table.likes-leaderboard .entry-title {
 
 @media only screen and (max-width: 460px) {
 	/* Tune In Artem Test
-	********************************************************************************/
+	-----------------------------------------------------*/
 	.t-video-link {
 		display: block;
 		padding: 19px 10px;
@@ -5240,7 +5239,7 @@ table.likes-leaderboard .entry-title {
 		display: inline;
 	}
 	/* Tune In Artem Test END
-	********************************************************************************/
+	-----------------------------------------------------*/
 
 	.posts-list .article-brief img{float:none;width: 100%;}
 	.posts-list, .posts-list .article-brief:first-child{border: none;margin: 0;}
@@ -5249,11 +5248,11 @@ table.likes-leaderboard .entry-title {
 	.home-featured {float: none;width: 100%;padding: 0;}
 	.home-featured:nth-child(odd), .home-featured:first-child{padding: 0;}
 	
-	/* E-Commerce Widget ************************/
+	/* E-Commerce Widget */
 	#ecw-flexslider {width: 136px;}
 	#ecw-flexslider .flex-direction-nav .flex-prev {left: -52%;}
 	#ecw-flexslider .flex-direction-nav .flex-next {right: -52%;}
-	/* END E-Commerce Widget ************************/
+	/* END E-Commerce Widget */
 
 } /* End of media */
 
@@ -5342,8 +5341,8 @@ table.likes-leaderboard .entry-title {
 		border-top-color: rgba(20,20,20,0.92);
 	}
 }
-/* =Print styles
-*******************************************************************************/
+/* Print styles
+-----------------------------------------------------*/
 @media print {
     * {
         background: transparent !important;
