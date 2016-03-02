@@ -9,6 +9,7 @@ jQuery(window).load(function() {
 	var li_height = jQuery(".flex-active-slide").height();
 	jQuery(".gallery-slider div.flex-viewport").css("max-height",li_height);
 	
+	// Revert core script making .wp-caption 10px wider then image
 	var wp_caption 			= jQuery(".wp-caption"),
 		wp_caption_widht 	= wp_caption.width() - 10;
 		console.log(wp_caption_widht);
