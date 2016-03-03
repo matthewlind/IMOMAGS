@@ -18,14 +18,16 @@ function my_enqueue_microsite() {
 		$this_cat_slag 	= $this_cat->slug;
 		$this_cat_id	= $this_cat->term_id;
 		$term_cat_id 	= 'category_'.$this_cat_id;
+		$dartDomain 	= get_option("dart_domain", $default = false);
 		
 		wp_enqueue_script( 'script-microsite-ajax', get_template_directory_uri() . '/js/microsite-js/ajax-load-posts.js', array( 'jquery' ), '1.0', true );
 			
 		wp_localize_script( 'script-microsite-ajax', 'ajax_object',
 	        array( 
-	        	'ajax_url' => admin_url( 'admin-ajax.php' ),
-	        	'term_cat_id' => $term_cat_id,
-	        	'parent_cat_slug' => $this_cat_slag
+	        	'ajax_url' 			=> admin_url( 'admin-ajax.php' ),
+	        	'term_cat_id' 		=> $term_cat_id,
+	        	'parent_cat_slug' 	=> $this_cat_slag,
+	        	'dart_domain'		=> $dartDomain
 	        ) 
 		);
 	

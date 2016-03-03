@@ -7,8 +7,9 @@
 			stories_links 	= $(".all-stories a"),
 			this_url		= document.location.href,
 			term_cat_id		= ajax_object.term_cat_id;
-			parent_cat_slug	= ajax_object.parent_cat_slug;	
-		
+			parent_cat_slug	= ajax_object.parent_cat_slug;
+			dartDomain		= ajax_object.dart_domain;	
+					
 		stories_links.each(function() {
 			var d 			= $(this),
 				a_href		= d.attr("href"),
@@ -22,9 +23,7 @@
 				d.attr('data-cat', cat_slug);
 			}	
 		});
-		
-		//$(".sponsors-disclaimer").text(cat_slug);
-		
+				
 		stories_links.click(function(){
 			var d = $(this),
 				data_cat_slug	= d.data("cat"),
@@ -55,7 +54,7 @@
 				top_ad_home.insertAfter(second_feat).show();
 			});
 			
-			return false; // to prevent default behaviour of an <a> element
+			return false;
 		});
 		
 		
@@ -90,10 +89,7 @@
 	
 	jQuery(window).ready(function() {
 			
-		// later add variables insted of 	=imo.gunsandammo&term=shoot101 
-			
-			
-		$('.top-ad-home').append('<p>ADVERTISMENT</p><iframe id="microsite-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-microsite.php?ad_code=imo.gunsandammo&term=shoot101">');
+		$('.top-ad-home').append('<p>ADVERTISMENT</p><iframe id="microsite-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-microsite.php?ad_code=' + dartDomain + '&term=' + parent_cat_slug + '">');
 		
 	});
 
