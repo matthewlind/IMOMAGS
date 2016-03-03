@@ -81,7 +81,7 @@ function load_microsite_posts() {
 		$post_counter++;	
 			}
 		} else {
-			echo "not found";
+			echo "no posts found";
 		}
 		wp_reset_postdata(); 
 ?>
@@ -150,7 +150,7 @@ function load_microsite_posts() {
 <?php		}
 		}
 	} else { 
-		echo "something went wrong";
+		echo "no posts found";
     }
 	wp_reset_postdata();
 ?>
