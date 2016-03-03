@@ -12,7 +12,6 @@ jQuery(window).load(function() {
 	// Revert core script making .wp-caption 10px wider then image
 	var wp_caption 			= jQuery(".wp-caption"),
 		wp_caption_widht 	= wp_caption.width() - 10;
-		console.log(wp_caption_widht);
 	wp_caption.css("width", wp_caption_widht + "px");
 });
 
