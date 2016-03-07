@@ -9,9 +9,11 @@
 			stories_links 	= $(".all-stories a"),
 			this_url		= document.location.href,
 			this_hostname	= document.location.hostname,
-			term_cat_id		= ajax_object.term_cat_id;
-			parent_cat_slug	= ajax_object.parent_cat_slug;
-			dartDomain		= ajax_object.dart_domain;
+			term_cat_id		= ajax_object.term_cat_id,
+			parent_cat_slug	= ajax_object.parent_cat_slug,
+			dartDomain		= ajax_object.dart_domain,
+			top_ad_elem		= $("<div></div>").addClass("top-ad-home");
+			
 			
 		/* Loading Posts on first page load
 		------------------------------------------*/	
@@ -89,7 +91,8 @@
 					'parent_cat_slug': parent_cat_slug
 				};
 				jQuery.post(ajax_object.ajax_url, data, function(response) {
-					top_ad_home.hide().appendTo(".posts-wrap");
+					//top_ad_home.hide().appendTo(".posts-wrap");
+					top_ad_home.remove();
 					feat_container.remove();
 					feat_message.remove();
 					reg_post_wrap.remove();
@@ -98,7 +101,7 @@
 					var feat_posts_after = $(".feat-post"),
 						second_feat		= feat_posts_after[1];
 					
-					top_ad_home.insertAfter(second_feat).show();
+					top_ad_elem.insertAfter(second_feat).show();
 				});
 				
 			});
