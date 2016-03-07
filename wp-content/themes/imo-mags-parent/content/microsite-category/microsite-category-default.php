@@ -7,6 +7,7 @@
 	
 	$social_share_message 	= get_field('social_share_message', $term_cat_id);
 	$sponsors_disclaimer 	= get_field('sponsors_disclaimer', $term_cat_id);
+
 ?>
 
 <?php if( in_array( 'sponsors_disclaimer', get_field('additional_elements', $term_cat_id) ) ) { ?>

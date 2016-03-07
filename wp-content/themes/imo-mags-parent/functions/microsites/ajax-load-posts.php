@@ -78,6 +78,9 @@ function load_microsite_posts() {
 		<?php } ?>
 	</a>
 	<?php
+		if ($post_counter == 1) { 
+			echo '<div class="top-ad-home"></div>';
+		}
 		$post_counter++;	
 			}
 		} else {
@@ -181,7 +184,7 @@ function load_more_m_posts() {
 	$args = array (
 		'category_name'         	=> "$children_cat_slug + $parent_cat_slug",
 		'post_status'				=> 'publish',			
-		'posts_per_page'      		=> 7,
+		'posts_per_page'      		=> 10,
 		'offset'					=> $reg_post_count,
 		'order'						=> 'DESC',
 		'meta_query' => array(
