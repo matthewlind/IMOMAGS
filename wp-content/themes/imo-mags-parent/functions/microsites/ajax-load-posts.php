@@ -36,17 +36,23 @@ function my_enqueue_microsite() {
 function load_microsite_posts() {
 	global $wpdb;          
     ob_clean();  
-    $children_cat_slug = $_POST[ 'cat_slug' ];
+    $subcat = $_POST[ 'cat_slug' ];
     $term_cat_id = $_POST[ 'term_cat_id' ];
     $parent_cat_slug = $_POST[ 'parent_cat_slug' ];
     $social_share_message 	= get_field('social_share_message', $term_cat_id);
+    
+    $cats_to_load = "$subcat + $parent_cat_slug";
+    
+    if (empty($subcat)) {
+	    $cats_to_load = "$parent_cat_slug";
+    }
 ?>
 <div class="p-feat-container clearfix">
 <?php	
 	$post_counter = 0;
 	
 	$args = array (
-		'category_name'         	=> "$children_cat_slug + $parent_cat_slug",
+		'category_name'         	=> $cats_to_load,
 		'post_status'				=> 'publish',			
 		'posts_per_page'      		=> 3,
 		'order'						=> 'DESC',
@@ -111,7 +117,7 @@ function load_microsite_posts() {
 	<?php
 	$p_counter = 0;	
 	$args = array (
-		'category_name'         	=> "$children_cat_slug + $parent_cat_slug",
+		'category_name'         	=> $cats_to_load,
 		'post_status'				=> 'publish',			
 		'posts_per_page'      		=> 7,
 		'order'						=> 'DESC',
@@ -140,7 +146,7 @@ function load_microsite_posts() {
 			if ($p_counter == 7) {
 ?>
 			<div class="load-more-reg" id="load_more_reg">
-				<a href="#" id="load_reg_posts" class="btn-think-border load-btn" data-cat-load="<?php echo $children_cat_slug . "+" . $parent_cat_slug; ?>">
+				<a href="#" id="load_reg_posts" class="btn-think-border load-btn" data-cat-load="<?php echo $cats_to_load; ?>">
 					Load More
 					<i class="icon-arrow-left"></i>
 					<div class="loader-anim display-none">

@@ -11,8 +11,37 @@
 			this_hostname	= document.location.hostname,
 			term_cat_id		= ajax_object.term_cat_id;
 			parent_cat_slug	= ajax_object.parent_cat_slug;
-			dartDomain		= ajax_object.dart_domain;	
+			dartDomain		= ajax_object.dart_domain;
+			
+		/* Loading Posts on first page load
+		------------------------------------------*/	
+		var	url				= window.location.href,
+		    separator 		= "#",
+		    subcat			= url.match(/#(.*)/g);
+		    if (subcat) {
+			    subcat 		= subcat.toString().replace(separator, "");
+		    }		
+		    			    
+		    console.log(subcat);
+
 		
+		var data = {
+				'action': 'load_posts__action',
+				'cat_slug': subcat,
+				'term_cat_id': term_cat_id,
+				'parent_cat_slug': parent_cat_slug
+			};
+		jQuery.post(ajax_object.ajax_url, data, function(response) {
+
+			posts_wrap.prepend(response);
+							
+			$('.top-ad-home').append('<p>ADVERTISMENT</p><iframe id="microsite-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-microsite.php?ad_code=' + dartDomain + '&term=' + parent_cat_slug + '">');
+		});	
+		
+		
+		
+		/* Loading Posts on menu item click
+		------------------------------------------*/
 		if (m_cat_tamplate[0]) {
 			
 			// Add data-cat="{cat_slug}" to each link
@@ -74,31 +103,8 @@
 				
 			});
 			
-/*
-			var	url				= window.location.href,
-			    separator 		= "#",
-			    aaa				= url.match(/#(.*)/g),
-				bbb = aaa.toString().replace(separator, "");
-			    
-			    console.log(bbb);
-
 			
-			var data = {
-					'action': 'load_posts__action',
-					'cat_slug': bbb,
-					'term_cat_id': term_cat_id,
-					'parent_cat_slug': parent_cat_slug
-				};
-			jQuery.post(ajax_object.ajax_url, data, function(response) {
-
-				posts_wrap.prepend(response);
-								
-				var feat_posts_after = $(".feat-post"),
-					second_feat		= feat_posts_after[1];
-								
-				alert("loaded");
-			});
-*/
+			
 			
 			
 			/* Load More Posts Button
