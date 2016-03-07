@@ -23,7 +23,7 @@
 
 <?php if( in_array( 'sponsors_disclaimer', get_field('additional_elements', $term_cat_id) ) ) { ?>
 <div class="sponsors-disclaimer">
-	<span><?php echo $sponsors_disclaimer; ?></span>
+	<span><?php echo $sponsors_disclaimer; ?></span><!-- <button onclick="document.location.href = 'http://www.gunsandammo.artem/shoot101/#ammo'">Click me</button> -->
 </div>
 <?php } ?>
 

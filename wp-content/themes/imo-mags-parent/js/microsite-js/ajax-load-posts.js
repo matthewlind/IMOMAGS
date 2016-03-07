@@ -8,43 +8,38 @@
 			posts_wrap		= $("#posts_wrap"),
 			stories_links 	= $(".all-stories a"),
 			this_url		= document.location.href,
-			this_hostname	= document.location.hostname,
-			term_cat_id		= ajax_object.term_cat_id,
-			parent_cat_slug	= ajax_object.parent_cat_slug,
-			dartDomain		= ajax_object.dart_domain,
-			top_ad_elem		= $("<div></div>").addClass("top-ad-home");
+			origin_url		= document.location.origin;
 			
+			term_cat_id		= ajax_object.term_cat_id;
+			parent_cat_slug	= ajax_object.parent_cat_slug;
+			dartDomain		= ajax_object.dart_domain;
 			
-		/* Loading Posts on first page load
-		------------------------------------------*/	
-		var	url				= window.location.href,
-		    separator 		= "#",
-		    subcat			= url.match(/#(.*)/g);
-		    if (subcat) {
-			    subcat 		= subcat.toString().replace(separator, "");
-		    }		
-		    			    
-		    console.log(subcat);
-
+			var ad_string	= '<p>ADVERTISMENT</p><iframe id="microsite-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-microsite.php?ad_code=' + dartDomain + '&term=' + parent_cat_slug + '">';
 		
-		var data = {
-				'action': 'load_posts__action',
-				'cat_slug': subcat,
-				'term_cat_id': term_cat_id,
-				'parent_cat_slug': parent_cat_slug
-			};
-		jQuery.post(ajax_object.ajax_url, data, function(response) {
-
-			posts_wrap.prepend(response);
-							
-			$('.top-ad-home').append('<p>ADVERTISMENT</p><iframe id="microsite-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-microsite.php?ad_code=' + dartDomain + '&term=' + parent_cat_slug + '">');
-		});	
-		
-		
-		
-		/* Loading Posts on menu item click
-		------------------------------------------*/
+		/* If this is a category page
+		------------------------------------------*/				
 		if (m_cat_tamplate[0]) {
+			
+			// Loading Posts on first page load 
+			var	url				= window.location.href,
+			    separator 		= "#",
+			    subcat			= url.match(/#(.*)/g);
+			    
+			if (subcat) { subcat = subcat.toString().replace(separator, ""); }		
+			    			    		
+			var data = {
+					'action': 'load_posts__action',
+					'cat_slug': subcat,
+					'term_cat_id': term_cat_id,
+					'parent_cat_slug': parent_cat_slug
+				};
+			jQuery.post(ajax_object.ajax_url, data, function(response) {
+	
+				posts_wrap.prepend(response);
+								
+				$('.top-ad-home').append(ad_string);
+			});
+			
 			
 			// Add data-cat="{cat_slug}" to each link
 			stories_links.each(function() {
@@ -53,7 +48,6 @@
 					//cat_slugs	= a_href.match(/(101-)\w+[^\s\/\?]*/g);
 					cat_slugs	= a_href.match(/(\/)\w+[^\s\/\?]*/g);
 					
-				
 				if (cat_slugs) {
 					var cat_slug 	= cat_slugs[cat_slugs.length -1],
 						cat_slug 	= cat_slug.replace("/", "");
@@ -61,6 +55,7 @@
 				}	
 			});
 			
+			// Loading Posts on menu item click 
 			stories_links.click(function(e){
 				e.preventDefault();
 				var d = $(this),
@@ -76,13 +71,7 @@
 				    
 				    newUrl = url.replace(/#(.*)/g,"");
 				    newUrl+=newParam;
-				    document.location.href = newUrl;
-				    
-/*
-				    aass = url.match(/#(.*)/g);
-				    
-				    console.log(aass);
-*/ 
+				    document.location.href = newUrl;				     
 					
 				var data = {
 					'action': 'load_posts__action',
@@ -92,7 +81,7 @@
 				};
 				jQuery.post(ajax_object.ajax_url, data, function(response) {
 					//top_ad_home.hide().appendTo(".posts-wrap");
-					top_ad_home.remove();
+ 					top_ad_home.remove();
 					feat_container.remove();
 					feat_message.remove();
 					reg_post_wrap.remove();
@@ -100,18 +89,14 @@
 									
 					var feat_posts_after = $(".feat-post"),
 						second_feat		= feat_posts_after[1];
-					
-					top_ad_elem.insertAfter(second_feat).show();
+										
+					$('.top-ad-home').append(ad_string);
 				});
 				
 			});
 			
-			
-			
-			
-			
-			/* Load More Posts Button
-			-----------------------------------------*/				
+			// Load More Posts Button
+			//-----------------------------------------//				
 			posts_wrap.on("click", "#load_reg_posts", function(e) {
 				e.preventDefault();
 				
@@ -131,8 +116,6 @@
 					};
 				jQuery.post(ajax_object.ajax_url, data, function(response) {
 					load_more_reg.before(response);
-					
-						
 					loader_anim.addClass('display-none');
 				});
 				
@@ -141,22 +124,32 @@
 		
 				
 		if (m_sngl_template[0]) {
-			
-
-			
-			
-			
-			
-			
+			stories_links.each(function() {
+				var d 			= $(this),
+					a_href		= d.attr("href"),
+					cat_slugs	= a_href.match(/(\/)\w+[^\s\/\?]*/g);
+					
+				if (cat_slugs) {
+					var cat_slug 	= cat_slugs[cat_slugs.length -1],
+						cat_slug 	= cat_slug.replace("/", ""),
+						parent_cat 	= this_url.match(/(\/)\w+[^\s\/\?]*/g);
+						parent_cat	= parent_cat[1],
+						story_href 	= origin_url + parent_cat + "/#" + cat_slug;
+					
+					d.attr('href', story_href);	
+				}	
+			});			
 		}// if m_sngl_template[0]
 		
 	});
 	
 	jQuery(window).ready(function() {
 			
-		$('.top-ad-home').append('<p>ADVERTISMENT</p><iframe id="microsite-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-microsite.php?ad_code=' + dartDomain + '&term=' + parent_cat_slug + '">');
+// 		$('.top-ad-home').append('<p>ADVERTISMENT</p><iframe id="microsite-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-microsite.php?ad_code=' + dartDomain + '&term=' + parent_cat_slug + '">');
 		
 	});
+	
+	
 
 
 })(jQuery);
