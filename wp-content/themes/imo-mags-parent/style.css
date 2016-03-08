@@ -2913,7 +2913,7 @@ margin-bottom:15px;
 #wpadminbar {z-index: 999999999 !important;}
 .wp-caption {
 	overflow: hidden;
-	padding: 5px;
+	padding: 5px 0;
 	position: relative;
 	margin: 20px 0;
 	max-width: 580px;
