@@ -11,8 +11,8 @@ if ( is_admin()) {
 
 add_action( 'wp_enqueue_scripts', 'my_enqueue_microsite' );
 function my_enqueue_microsite() {	
-	global $cat, $microsite;
-	if ( $microsite ) {
+	global $cat, $microsite, $microsite_default;
+	if ( $microsite && $microsite_default) {
 		$cat 			= get_query_var('cat');
 		$this_cat 		= get_category($cat);
 		$this_cat_slag 	= $this_cat->slug;
@@ -216,7 +216,10 @@ function load_more_m_posts() {
 <?php		
 		}
 	} else { ?>
-		<script>jQuery('#load_more_reg').text('No more posts.'); </script>
+		<script>
+			jQuery('#load_more_reg a').text('No more posts').css("color", "#999999"); 
+			jQuery('#load_more_reg').removeAttr("id");
+		</script>
 <?php	}
 	wp_reset_postdata();
    

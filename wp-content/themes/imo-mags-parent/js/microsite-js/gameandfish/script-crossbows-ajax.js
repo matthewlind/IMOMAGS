@@ -29,7 +29,7 @@
 			} else {
 				setTimeout(function(){  
 					$('#load-more-posts').text('NO MORE POSTS').css({
-						'color': '#222222',
+						'color': '#999999',
 						'cursor' : 'default'
 					});
 				}, 500);

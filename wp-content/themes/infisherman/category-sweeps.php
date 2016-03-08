@@ -1,7 +1,7 @@
 <?php
 	$microsite = true;
-	get_header(); 
-	
+	$microsite_rigged = true;
+	get_header(); 	
 ?>
 <div class="m-article-wrap clearfix">	
 	<div class="m-article-image">

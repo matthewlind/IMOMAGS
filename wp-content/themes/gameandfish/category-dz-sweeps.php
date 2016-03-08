@@ -1,5 +1,6 @@
 <?php
 	$microsite = true;
+	$microsite_rigged = true;
 	get_header(); 
 	
 ?>

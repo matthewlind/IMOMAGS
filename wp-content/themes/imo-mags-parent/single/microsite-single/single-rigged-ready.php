@@ -1,6 +1,7 @@
 <?php 
-	global $microsite;
+	global $microsite, $microsite_rigged;
 	$microsite = true;
+	$microsite_rigged = true;
 	
 	get_header(); 
 // echo get_template_part( 'header', 'shoot101' ); 
