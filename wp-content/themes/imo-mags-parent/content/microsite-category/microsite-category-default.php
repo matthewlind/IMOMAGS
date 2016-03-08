@@ -1,26 +1,28 @@
 <?php	
-    $idObj = get_category_by_slug($cat_slug); 
-	$cat_id = $idObj->term_id;
-	$term_cat_id = 'category_'.$cat_id;
+	$cat 			= get_query_var('cat');
+	$this_cat 		= get_category($cat);
+	$this_cat_slag 	= $this_cat->slug;
+	$this_cat_id	= $this_cat->term_id;
+	$term_cat_id 	= 'category_'.$this_cat_id;
 	
-	$social_share_message = get_field('social_share_message', $term_cat_id);
-	$sponsors_disclaimer = get_field('sponsors_disclaimer', $term_cat_id);
+	$social_share_message 	= get_field('social_share_message', $term_cat_id);
+	$sponsors_disclaimer 	= get_field('sponsors_disclaimer', $term_cat_id);
 ?>
 
 <?php if( in_array( 'sponsors_disclaimer', get_field('additional_elements', $term_cat_id) ) ) { ?>
 <div class="sponsors-disclaimer">
-	<span><?php echo $sponsors_disclaimer; ?></span>
+	<span><?php echo $sponsors_disclaimer;?></span>
 </div>
 <?php } ?>
 
 <div class="content">
-	<div class="posts-wrap">
+	<div class="posts-wrap" id="posts_wrap">
 		<div class="p-feat-container clearfix">
 			<?php
 			$post_counter = 0;	
 				
 			$args = array (
-				'category_name'         	=> $cat_slug,			
+				'cat'         				=> $this_cat_id,			
 				'posts_per_page'      		=> 3,
 				'order'						=> 'DESC',
 				'meta_query' => array(
@@ -43,7 +45,7 @@
 					$wide_image_id = get_post_meta(get_the_ID(),"image_wide", true);
 					$image_wide = wp_get_attachment_image_src($wide_image_id, "full");
 			?>
-			<a class="link-box" href="<?php the_permalink(); ?>">	
+			<a class="link-box feat-post" href="<?php the_permalink(); ?>">	
 				<?php if ($post_counter == 2 && mobile() == false && tablet() == false ) { ?>
 				<div class="post-box" style="background-image: url('<?php echo $image_wide[0]; ?>')"></div>	
 				<?php } else { ?>
@@ -51,15 +53,12 @@
 				<?php } ?>
 			</a>
 			<?php
-					if ($post_counter == 1) { ?>
-						<div class="top-ad-home"> 
-							<p>ADVERTISMENT</p>
-							<?php imo_ad_placement("microsite_ATF_300x250"); ?>
-				    	</div>
-			<?php	}
+					if ($post_counter == 1) { 
+						echo '<div class="top-ad-home"></div>';
+			}
 				
 				
-				$post_counter++;	
+					$post_counter++;	
 					}
 				} else {
 					echo "not found";
@@ -87,14 +86,14 @@
 					endif;?>
 			</div><!-- .m-social-buttons -->
 		</div><!-- end .featured-message -->
-		<div class="p-container clearfix">
+		<div id="reg_post_wrap" class="p-container clearfix">
 			<?php
 			//$id_obj = get_category_by_slug('shoot101-featured'); 
 			//$cat_id = $id_obj->term_id;
 			// WP_Query arguments
 			$args = array (
-				'category_name'         	=> $cat_slug,			
-				'posts_per_page'      		=> -1,
+				'cat'       			  	=> $this_cat_id,			
+				'posts_per_page'      		=> 7,
 				'order'						=> 'DESC',
 				'meta_query' => array(
 				  array(
@@ -113,16 +112,25 @@
 					$image_id = get_post_meta(get_the_ID(),"image", true);
 					$image = wp_get_attachment_image_src($image_id, "large");
 			?>
-			<a class="link-box" href="<?php the_permalink(); ?>">	
+			<a class="link-box reg-post" href="<?php the_permalink(); ?>">	
 				<div class="post-box" style="background-image: url('<?php echo $image[0]; ?>')"></div>
 			</a>
 			<?php
 					}
-				} else {
-					echo "not found";
-				}
+				} 
 				wp_reset_postdata();
 			?>
+			<div class="load-more-reg" id="load_more_reg">
+				<a href="#" id="load_reg_posts" class="btn-think-border load-btn" data-cat-load="<?php echo $this_cat_slag; ?>">
+					Load More
+					<i class="icon-arrow-left"></i>
+					<div class="loader-anim display-none">
+						<div class="loader-inner line-spin-fade-loader">
+							<div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div>
+						</div>
+					</div>
+				</a>
+			</div><!-- .load-more-reg -->
 		</div><!-- end .p-container -->
 		<?php if ($dartDomain == "imo.gameandfish") { include(get_template_directory() . '/content/microsite-category/related-microsite.php'); } else { }?>
 	</div><!-- end .posts-wrap -->
