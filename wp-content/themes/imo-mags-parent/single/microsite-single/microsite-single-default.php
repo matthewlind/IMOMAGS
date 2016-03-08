@@ -1,4 +1,10 @@
-<?php	
+<?php
+	global $microsite, $microsite_default;
+	$microsite = true;
+	$microsite_default = true;
+	
+	get_header();
+		
 	$image_full = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 	$image_large = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'lafge' );	
 	$postID = get_the_ID();
@@ -23,7 +29,7 @@
 
 <?php if( in_array( 'sponsors_disclaimer', get_field('additional_elements', $term_cat_id) ) ) { ?>
 <div class="sponsors-disclaimer">
-	<span><?php echo $sponsors_disclaimer; ?></span>
+	<span><?php echo $sponsors_disclaimer; ?></span><!-- <button onclick="document.location.href = 'http://www.gunsandammo.artem/shoot101/#ammo'">Click me</button> -->
 </div>
 <?php } ?>
 
@@ -177,3 +183,5 @@
 		?>
 	</div><!-- .m-more-wrap -->
 </div><!-- .m-more -->
+
+<?php get_template_part( '../imo-mags-parent/footer/footer', 'microsite' ); ?>

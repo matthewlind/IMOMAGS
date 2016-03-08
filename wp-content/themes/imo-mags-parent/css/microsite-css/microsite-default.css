@@ -310,8 +310,8 @@ h1, h2, h3, h4, h5 {
 .main-nav > ul li.menu-item-has-children > a {background: url("/wp-content/themes/imo_marketing/images/all-pages/caret.png") 88% 25px no-repeat;}
 .main-nav > ul li.market-solutions > a {background: url("/wp-content/themes/imo_marketing/images/all-pages/caret.png") 93% 25px no-repeat;}
 .main-nav > ul li.menu-item-has-children:hover > a {background: url("/wp-content/themes/imo_marketing/images/all-pages/caret.png") 88% -21px no-repeat;}
-.main-nav > ul li.menu-item-has-children ul {display: none;min-width: 185px;position: absolute;margin: 0;padding: 3px 0 5px 0;background: #000000;z-index: 9999;}
-.main-nav > ul li.menu-item-has-children ul li {display: block;width: 100%;padding: 0 12px;}
+.main-nav > ul li.menu-item-has-children ul {display: none;min-width: 185px;position: absolute;margin: 0 0 0 -3px;padding: 10px 0 2px 0;background: #252525;z-index: 9999;}
+.main-nav > ul li.menu-item-has-children ul li {display: block;width: 100%;padding: 0 12px; background: #000000;}
 .main-nav > ul li.menu-item-has-children ul li:hover {background-color: #191919;}
 .main-nav > ul li.menu-item-has-children ul li a {display: block;font: 200 14px 'Open Sans' ,sans-serif;padding: 10px 5px;border-bottom: 1px solid #363636;}
 .main-nav > ul li.menu-item-has-children ul li:last-child a {border: none;}
@@ -364,6 +364,7 @@ h1, h2, h3, h4, h5 {
 }
 .posts-wrap {
 	border-bottom: 1px solid #444444;
+	min-height: 1000px;
 }
 
 .featured-message {

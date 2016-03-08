@@ -1,5 +1,6 @@
 <?php
 	$microsite = true;
+	$microsite_default = true;
 	get_header();
 
 	$dartDomain = get_option("dart_domain", $default = false);

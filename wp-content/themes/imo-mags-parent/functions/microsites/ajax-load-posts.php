@@ -11,22 +11,23 @@ if ( is_admin()) {
 
 add_action( 'wp_enqueue_scripts', 'my_enqueue_microsite' );
 function my_enqueue_microsite() {	
-	global $cat, $microsite;
-	if ( $microsite ) {
+	global $cat, $microsite, $microsite_default;
+	if ( $microsite && $microsite_default) {
 		$cat 			= get_query_var('cat');
 		$this_cat 		= get_category($cat);
 		$this_cat_slag 	= $this_cat->slug;
 		$this_cat_id	= $this_cat->term_id;
 		$term_cat_id 	= 'category_'.$this_cat_id;
+		$dartDomain 	= get_option("dart_domain", $default = false);
 		
 		wp_enqueue_script( 'script-microsite-ajax', get_template_directory_uri() . '/js/microsite-js/ajax-load-posts.js', array( 'jquery' ), '1.0', true );
 			
 		wp_localize_script( 'script-microsite-ajax', 'ajax_object',
 	        array( 
-	        	'ajax_url' => admin_url( 'admin-ajax.php' ),
-	        	'crossbows_posts_cout' => $postsInCat,
-	        	'term_cat_id' => $term_cat_id,
-	        	'parent_cat_slug' => $this_cat_slag
+	        	'ajax_url' 			=> admin_url( 'admin-ajax.php' ),
+	        	'term_cat_id' 		=> $term_cat_id,
+	        	'parent_cat_slug' 	=> $this_cat_slag,
+	        	'dart_domain'		=> $dartDomain
 	        ) 
 		);
 	
@@ -35,17 +36,23 @@ function my_enqueue_microsite() {
 function load_microsite_posts() {
 	global $wpdb;          
     ob_clean();  
-    $children_cat_slug = $_POST[ 'cat_slug' ];
+    $subcat = $_POST[ 'cat_slug' ];
     $term_cat_id = $_POST[ 'term_cat_id' ];
     $parent_cat_slug = $_POST[ 'parent_cat_slug' ];
     $social_share_message 	= get_field('social_share_message', $term_cat_id);
+    
+    $cats_to_load = "$subcat + $parent_cat_slug";
+    
+    if (empty($subcat)) {
+	    $cats_to_load = "$parent_cat_slug";
+    }
 ?>
 <div class="p-feat-container clearfix">
 <?php	
 	$post_counter = 0;
 	
 	$args = array (
-		'category_name'         	=> "$children_cat_slug + $parent_cat_slug",
+		'category_name'         	=> $cats_to_load,
 		'post_status'				=> 'publish',			
 		'posts_per_page'      		=> 3,
 		'order'						=> 'DESC',
@@ -77,10 +84,13 @@ function load_microsite_posts() {
 		<?php } ?>
 	</a>
 	<?php
+		if ($post_counter == 1) { 
+			echo '<div class="top-ad-home"></div>';
+		}
 		$post_counter++;	
 			}
 		} else {
-			echo "not found";
+			echo "no posts found";
 		}
 		wp_reset_postdata(); 
 ?>
@@ -107,7 +117,7 @@ function load_microsite_posts() {
 	<?php
 	$p_counter = 0;	
 	$args = array (
-		'category_name'         	=> "$children_cat_slug + $parent_cat_slug",
+		'category_name'         	=> $cats_to_load,
 		'post_status'				=> 'publish',			
 		'posts_per_page'      		=> 7,
 		'order'						=> 'DESC',
@@ -136,7 +146,7 @@ function load_microsite_posts() {
 			if ($p_counter == 7) {
 ?>
 			<div class="load-more-reg" id="load_more_reg">
-				<a href="#" id="load_reg_posts" class="btn-think-border load-btn" data-cat-load="<?php echo $children_cat_slug . "+" . $parent_cat_slug; ?>">
+				<a href="#" id="load_reg_posts" class="btn-think-border load-btn" data-cat-load="<?php echo $cats_to_load; ?>">
 					Load More
 					<i class="icon-arrow-left"></i>
 					<div class="loader-anim display-none">
@@ -149,7 +159,7 @@ function load_microsite_posts() {
 <?php		}
 		}
 	} else { 
-		echo "something went wrong";
+		echo "no posts found";
     }
 	wp_reset_postdata();
 ?>
@@ -180,7 +190,7 @@ function load_more_m_posts() {
 	$args = array (
 		'category_name'         	=> "$children_cat_slug + $parent_cat_slug",
 		'post_status'				=> 'publish',			
-		'posts_per_page'      		=> 7,
+		'posts_per_page'      		=> 10,
 		'offset'					=> $reg_post_count,
 		'order'						=> 'DESC',
 		'meta_query' => array(
@@ -206,7 +216,10 @@ function load_more_m_posts() {
 <?php		
 		}
 	} else { ?>
-		<script>jQuery('#load_more_reg').text('No more posts.'); </script>
+		<script>
+			jQuery('#load_more_reg a').text('No more posts').css("color", "#999999"); 
+			jQuery('#load_more_reg').removeAttr("id");
+		</script>
 <?php	}
 	wp_reset_postdata();
    
