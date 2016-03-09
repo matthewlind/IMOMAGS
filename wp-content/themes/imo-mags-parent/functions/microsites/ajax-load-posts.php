@@ -1,6 +1,6 @@
 <?php
 	
-/* Load Posts from children category
+/* Load Posts to microsite homepage
 --------------------------------------------*/	
 if ( is_admin()) {  
     add_action( 'wp_ajax_load_posts__action', 'load_microsite_posts' );
@@ -146,7 +146,7 @@ function load_microsite_posts() {
 			if ($p_counter == 7) {
 ?>
 			<div class="load-more-reg" id="load_more_reg">
-				<a href="#" id="load_reg_posts" class="btn-think-border load-btn" data-cat-load="<?php echo $cats_to_load; ?>">
+				<a href="#" id="load_reg_posts" class="load-btn" data-cat-load="<?php echo $cats_to_load; ?>">
 					Load More
 					<i class="icon-arrow-left"></i>
 					<div class="loader-anim display-none">
