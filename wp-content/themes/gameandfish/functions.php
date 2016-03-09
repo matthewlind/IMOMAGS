@@ -338,7 +338,7 @@ add_action('pre_get_posts', 'custom_post_author_archive');
 
 
 
-// Load more posts with Ajax, category 'crossbows'
+// Load more posts with Ajax, category 'crossbows', http://www.gameandfishmag.com/gear-accessories/gear-hunting/crossbows/
 
 if ( is_admin()) {  
     add_action( 'wp_ajax_load_posts_action', 'load_crossbows_posts' );
@@ -351,28 +351,22 @@ add_action( 'wp_enqueue_scripts', 'my_enqueue_cross' );
 function my_enqueue_cross() {	
 	global $cat;
 	if ( is_category('crossbows')) {
-		// Get the mumber of posts in 'crossbows' category. Then us it in you js file			
-		$postsInCat = get_term_by('slug','crossbows','category');
-		$postsInCat = $postsInCat->count;
-		
 		wp_enqueue_script( 'script-crossbows', get_template_directory_uri() . '/js/microsite-js/gameandfish/script-crossbows-ajax.js', array( 'jquery' ), '1.0', true );	
-			
 		wp_localize_script( 'script-crossbows', 'ajax_object',
 	        array( 
-	        	'ajax_url' => admin_url( 'admin-ajax.php' ),
-	        	'crossbows_posts_cout' => $postsInCat
+	        	'ajax_url' => admin_url( 'admin-ajax.php' )
 	        ) 
 		);
-	
 	}
 }
+
 function load_crossbows_posts() {
 	global $wpdb;           
     ob_clean();  
 
     $id_rev = get_category_by_slug('crossbow-revolution'); 
 	$exclude_id = $id_rev->term_id;
-    $offset = intval($_POST[ 'number_of_post_boxes' ]);
+    $offset = intval($_POST[ 'rel_link_count' ]);
     
     $args = array (
 		'category_name'         	=> 'crossbows',			
@@ -382,9 +376,7 @@ function load_crossbows_posts() {
 		'order'						=> 'DESC',
 		'category__not_in' 			=> array( $exclude_id )
 	);
-	// The Query
 	$query = new WP_Query( $args );
-	// The Loop
 	if ( $query->have_posts() ) {
 		while ( $query->have_posts() ) {
 			$query->the_post();			
@@ -399,21 +391,15 @@ function load_crossbows_posts() {
 <?php
 		}
 	} else { ?>
-	<a class="rel-link" href="" style="cursor: default;">
-		<h2>No more posts</h2>
-	</a>
+		<script>
+			jQuery('.rel-load-more > a').text('No more posts').css("color", "#999999"); 
+			jQuery('#load-more-posts').removeAttr("id");
+		</script>
 <?php	}
 	wp_reset_postdata(); 	
    
 	wp_die();
 }
-
-
-
-
-
-
-
 
 
 

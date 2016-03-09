@@ -6,7 +6,7 @@
 		var m_cat_tamplate	= $(".category"),
 			m_sngl_template = $(".single"),
 			posts_wrap		= $("#posts_wrap"),
-			stories_links 	= $(".all-stories a"),
+			stories_links 	= $(".all-stories .sub-menu a"),
 			this_url		= document.location.href,
 			origin_url		= document.location.origin;
 			
@@ -16,7 +16,7 @@
 			
 			var ad_string	= '<p>ADVERTISMENT</p><iframe id="microsite-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-microsite.php?ad_code=' + dartDomain + '&term=' + parent_cat_slug + '">';
 		
-		/* If this is a category page
+		/* If this is a category page.
 		------------------------------------------*/				
 		if (m_cat_tamplate[0]) {
 			
@@ -143,13 +143,4 @@
 		
 	});
 	
-	jQuery(window).ready(function() {
-			
-// 		$('.top-ad-home').append('<p>ADVERTISMENT</p><iframe id="microsite-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-microsite.php?ad_code=' + dartDomain + '&term=' + parent_cat_slug + '">');
-		
-	});
-	
-	
-
-
 })(jQuery);
