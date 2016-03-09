@@ -6,7 +6,7 @@
 		var m_cat_tamplate	= $(".category"),
 			m_sngl_template = $(".single"),
 			posts_wrap		= $("#posts_wrap"),
-			stories_links 	= $(".all-stories a"),
+			stories_links 	= $(".all-stories .sub-menu a"),
 			this_url		= document.location.href,
 			origin_url		= document.location.origin;
 			
