@@ -407,10 +407,3 @@ function load_crossbows_posts() {
 
 
 
-
-
-
-
-
-
-
