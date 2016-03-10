@@ -251,105 +251,45 @@ h1, h2, h3, h4, h5 {
    5.0 Header
    ========================================================================== */
 
-.main-header {
+.main-header {	
+	outline: 1px dotted #555;
+	height: 50px;
+}
+.header-inner {
+	padding: 7px 10px;
+	height: 50px;
 	width: 100%;
+	background-color: #252525;
 }
-.top-panel {
-	height: 30px;
-	width: 100%;
-	background-color: #333333;
-	text-align: center;
-}
-.top-panel a:before {
-	font-family: 'icomoon';
-	font-size: 12px;
-	margin-right: 5px;
-}
-.top-panel a {
-	color: #888888;
-	font: 700 16px/30px 'Open Sans', sans-serif;
-}
-.top-panel a:hover {
-	color: #bbbbbb;
-}
-.microsite-logo {
-	width: 100%;
-	display: block;
-	border-bottom: 1px solid #444444;
-}
-.microsite-logo img {
-	width: 200px;
-	display: block;
-	padding: 12px 0 17px;
-	margin: 0 auto;
-}
-/*
-.single .main-nav {
-	float: none;
-	text-align: center;
-	margin: 0 auto;
-}
-*/
-.nav-container {
+.head-left {
 	position: relative;
-	height: 150px;
 }
-.single .main-nav > ul {
-	margin: 57px 0 0;
+.head-left > div {
+	float: left;
 }
-/* Main-nav */
-.main-nav {display: block; float: left; margin: 0 0 0 20px; position: relative; z-index: 30;}	
-.main-nav > ul {margin: 100px 0 0; padding: 0; width: 170px;}
-.main-nav > ul > li {display: inline-block; float: left;margin: 13px 0; height: 15px; border-left: 1px solid #e9e9e9;border-right: 1px solid #e9e9e9;}
-.main-nav ul li a {font-family: 'Open Sans';}
-.main-nav > ul > li > a {display: block;padding: 0 11px;color: #c2c2c2;font:15px/15px 'Open Sans', sans-serif ;}
-/* .main-nav ul li:last-child {border-right: 1px solid #e9e9e9;}  */
-.main-nav ul li:first-child a {margin: 0;}
-.main-nav > ul li.menu-item-has-children {position: relative;}
-.main-nav > ul li.menu-item-has-children:hover ul {display: block;}
-.main-nav > ul li.menu-item-has-children > a {background: url("/wp-content/themes/imo_marketing/images/all-pages/caret.png") 88% 25px no-repeat;}
-.main-nav > ul li.market-solutions > a {background: url("/wp-content/themes/imo_marketing/images/all-pages/caret.png") 93% 25px no-repeat;}
-.main-nav > ul li.menu-item-has-children:hover > a {background: url("/wp-content/themes/imo_marketing/images/all-pages/caret.png") 88% -21px no-repeat;}
-.main-nav > ul li.menu-item-has-children ul {display: none;min-width: 185px;position: absolute;margin: 0 0 0 -3px;padding: 10px 0 2px 0;background: #252525;z-index: 9999;}
-.main-nav > ul li.menu-item-has-children ul li {display: block;width: 100%;padding: 0 12px; background: #000000;}
-.main-nav > ul li.menu-item-has-children ul li:hover {background-color: #191919;}
-.main-nav > ul li.menu-item-has-children ul li a {display: block;font: 200 14px 'Open Sans' ,sans-serif;padding: 10px 5px;border-bottom: 1px solid #363636;}
-.main-nav > ul li.menu-item-has-children ul li:last-child a {border: none;}
-.main-nav > ul li.menu-item-has-children ul li a:hover {color: #d8d1c6;}
-.main-nav > ul li.menu-item-has-children ul > li.menu-item-has-children {position: relative;}
-.main-nav > ul li.menu-item-has-children ul > li.menu-item-has-children > a {background: url("/wp-content/themes/imo_marketing/images/all-pages/caret.png") 88% 21px no-repeat;}
-.main-nav > ul li.menu-item-has-children ul > li.menu-item-has-children > .sub-menu {display: none;position: absolute;top: 0; left: 185px;padding: 0 0 1px 0;background-color: #191919;}
-.main-nav > ul li.menu-item-has-children ul > li.menu-item-has-children:hover > .sub-menu {display: block;}
-.main-nav > ul li.menu-item-has-children ul > li.menu-item-has-children > .sub-menu li:hover {background-color: #222222;}
-
-.social-buttons {
-/* 	float: right; */
+.main-logo {
+	height: 35px;
 	position: absolute;
-	top: 7px;
-	left: 0;
-}
-.single .social-buttons {
-	float: none;
+	width: 100%;
 	text-align: center;
-	margin: 0 auto;
 }
-.social-buttons ul {
-	list-style: none;
-	margin: 8px 20px 8px 0;
-	padding: 0;
+.main-logo img {
+	height: 35px;
 }
-.social-buttons ul li {
-	display: inline;
-	margin-left: 20px;
+
+.menu-head-span {
+	display: none;
 }
-.social-buttons ul li a {
-	font-size: 26px;
-	color: #a0a0a0;
-}
-.header-mag-cover {	
-	float: right;
-	margin: 10px 20px 0 0;
-	height: 130px;
+.head-right {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 35px;
+	padding: 5px 10px;
+	background-color: #262626;
+	box-shadow: 0 -3px 5px black;
+	outline: 1px dotted green;
 }
 
 
