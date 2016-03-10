@@ -122,7 +122,7 @@
 			});
 		} // if m_cat_template[0]			
 		
-				
+		// for this to work url should be like http://website_name.com/main_cat_slug/post_slug . If you would have few cats in the url like in corssbow revolution, you'll have to rewrite this code.		
 		if (m_sngl_template[0]) {
 			stories_links.each(function() {
 				var d 			= $(this),
