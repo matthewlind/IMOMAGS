@@ -13,9 +13,9 @@
 9.0 Print styles
 
 
-/* ==========================================================================
+/*----------------------------------------------------------
 	1.0 Icons  
-========================================================================== */
+----------------------------------------------------------*/
 
 
 @font-face {
@@ -75,16 +75,16 @@
 }
 
 
-/* ==========================================================================
+/*----------------------------------------------------------
 	2.1 WordPress Core
-========================================================================== */
+----------------------------------------------------------*/
 
 .alignnone{margin:5px 20px 20px 0}.aligncenter,div.aligncenter{display:block;margin:5px auto}.alignright{float:right;margin:5px 0 20px 20px}.alignleft{float:left;margin:5px 20px 20px 0}a img.alignright{float:right;margin:5px 0 20px 20px}a img.alignleft,a img.alignnone{margin:5px 20px 20px 0}a img.alignleft{float:left}a img.aligncenter{display:block;margin-left:auto;margin-right:auto}.wp-caption{max-width:100%;width:100%;text-align:left}.m-article .aligncenter,.m-article .alignleft,.m-article .alignnone,.m-article .alignright{display:block;margin:5px auto;float:none;max-width:100%;height:auto}.wp-caption img{border:0;height:auto;margin:0;max-width:100%;padding:0;width:auto}.wp-caption p.wp-caption-text{position:relative;font-size:13px;line-height:17px;margin:0;padding:3px 10px 10px;border-bottom:2px solid #bb9632;font-family:'Open Sans',sans-serif;width:100%}.screen-reader-text{clip:rect(1px,1px,1px,1px);position:absolute!important;height:1px;width:1px;overflow:hidden}.screen-reader-text:focus{background-color:#f1f1f1;border-radius:3px;box-shadow:0 0 2px 2px rgba(0,0,0,.6);clip:auto!important;color:#21759b;display:block;font-size:14px;font-size:.875rem;font-weight:700;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}
 
 
-/* ==========================================================================
+/*----------------------------------------------------------
    3.0 Helper classes
-   ========================================================================== */
+   ----------------------------------------------------------*/
    
 .ir:before {
     content: "";
@@ -130,18 +130,18 @@
     *zoom: 1;
 }
 
-/* ==========================================================================
+/*----------------------------------------------------------
 	3.1 Loaders
-========================================================================== */
+----------------------------------------------------------*/
 
 @-webkit-keyframes line-spin-fade-loader{50%{opacity:.3}100%{opacity:1}}@keyframes line-spin-fade-loader{50%{opacity:.3}100%{opacity:1}}.line-spin-fade-loader{position:relative;top:-10px;left:-4px}.line-spin-fade-loader>div:nth-child(1){top:20px;left:0;-webkit-animation:line-spin-fade-loader 1.2s -.84s infinite ease-in-out;animation:line-spin-fade-loader 1.2s -.84s infinite ease-in-out}.line-spin-fade-loader>div:nth-child(2){top:13.64px;left:13.64px;-webkit-transform:rotate(-45deg);-ms-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-animation:line-spin-fade-loader 1.2s -.72s infinite ease-in-out;animation:line-spin-fade-loader 1.2s -.72s infinite ease-in-out}.line-spin-fade-loader>div:nth-child(3){top:0;left:20px;-webkit-transform:rotate(90deg);-ms-transform:rotate(90deg);transform:rotate(90deg);-webkit-animation:line-spin-fade-loader 1.2s -.6s infinite ease-in-out;animation:line-spin-fade-loader 1.2s -.6s infinite ease-in-out}.line-spin-fade-loader>div:nth-child(4){top:-13.64px;left:13.64px;-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg);-webkit-animation:line-spin-fade-loader 1.2s -.48s infinite ease-in-out;animation:line-spin-fade-loader 1.2s -.48s infinite ease-in-out}.line-spin-fade-loader>div:nth-child(5){top:-20px;left:0;-webkit-animation:line-spin-fade-loader 1.2s -.36s infinite ease-in-out;animation:line-spin-fade-loader 1.2s -.36s infinite ease-in-out}.line-spin-fade-loader>div:nth-child(6){top:-13.64px;left:-13.64px;-webkit-transform:rotate(-45deg);-ms-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-animation:line-spin-fade-loader 1.2s -.24s infinite ease-in-out;animation:line-spin-fade-loader 1.2s -.24s infinite ease-in-out}.line-spin-fade-loader>div:nth-child(7){top:0;left:-20px;-webkit-transform:rotate(90deg);-ms-transform:rotate(90deg);transform:rotate(90deg);-webkit-animation:line-spin-fade-loader 1.2s -.12s infinite ease-in-out;animation:line-spin-fade-loader 1.2s -.12s infinite ease-in-out}.line-spin-fade-loader>div:nth-child(8){top:13.64px;left:-13.64px;-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg);-webkit-animation:line-spin-fade-loader 1.2s 0s infinite ease-in-out;animation:line-spin-fade-loader 1.2s 0s infinite ease-in-out}.line-spin-fade-loader>div{background-color:#fff;border-radius:2px;margin:2px;-webkit-animation-fill-mode:both;animation-fill-mode:both;position:absolute;width:5px;height:15px}
 
 @-webkit-keyframes ball-grid-pulse{0%{-webkit-transform:scale(1);transform:scale(1)}50%{-webkit-transform:scale(.5);transform:scale(.5);opacity:.7}100%{-webkit-transform:scale(1);transform:scale(1);opacity:1}}@keyframes ball-grid-pulse{0%{-webkit-transform:scale(1);transform:scale(1)}50%{-webkit-transform:scale(.5);transform:scale(.5);opacity:.7}100%{-webkit-transform:scale(1);transform:scale(1);opacity:1}}.ball-grid-pulse{width:57px}.ball-grid-pulse>div:nth-child(1){-webkit-animation-delay:.73s;animation-delay:.73s;-webkit-animation-duration:1.3s;animation-duration:1.3s}.ball-grid-pulse>div:nth-child(2){-webkit-animation-delay:.32s;animation-delay:.32s;-webkit-animation-duration:1.3s;animation-duration:1.3s}.ball-grid-pulse>div:nth-child(3){-webkit-animation-delay:.71s;animation-delay:.71s;-webkit-animation-duration:.88s;animation-duration:.88s}.ball-grid-pulse>div:nth-child(4){-webkit-animation-delay:.62s;animation-delay:.62s;-webkit-animation-duration:1.06s;animation-duration:1.06s}.ball-grid-pulse>div:nth-child(5){-webkit-animation-delay:.31s;animation-delay:.31s;-webkit-animation-duration:.62s;animation-duration:.62s}.ball-grid-pulse>div:nth-child(6){-webkit-animation-delay:-.14s;animation-delay:-.14s;-webkit-animation-duration:1.48s;animation-duration:1.48s}.ball-grid-pulse>div:nth-child(7){-webkit-animation-delay:-.1s;animation-delay:-.1s;-webkit-animation-duration:1.47s;animation-duration:1.47s}.ball-grid-pulse>div:nth-child(8){-webkit-animation-delay:.4s;animation-delay:.4s;-webkit-animation-duration:1.49s;animation-duration:1.49s}.ball-grid-pulse>div:nth-child(9){-webkit-animation-delay:.73s;animation-delay:.73s;-webkit-animation-duration:.7s;animation-duration:.7s}.ball-grid-pulse>div{background-color:#fff;width:15px;height:15px;border-radius:100%;margin:2px;-webkit-animation-fill-mode:both;animation-fill-mode:both;display:inline-block;float:left;-webkit-animation-name:ball-grid-pulse;animation-name:ball-grid-pulse;-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite;-webkit-animation-delay:0;animation-delay:0}
 
 
-/* ==========================================================================
+/*----------------------------------------------------------
 	4.0 Buttons
-========================================================================== */
+----------------------------------------------------------*/
 
 .s-buy-btn {
 	font: 700 10px 'Open Sans', Helvetica, Arial, sans-serif;
@@ -221,9 +221,9 @@
 }
 
 
-/* ==========================================================================
+/*----------------------------------------------------------
 	2.0 Defaults 
-========================================================================== */
+----------------------------------------------------------*/
 
 html, body {
 	height: 100%;
@@ -247,24 +247,46 @@ h1, h2, h3, h4, h5 {
 }
 
 
-/* ==========================================================================
+/*----------------------------------------------------------
    5.0 Header
-   ========================================================================== */
-
+----------------------------------------------------------*/
+.top-panel {
+	height: 30px;
+	width: 100%;
+	background-color: #333333;
+	text-align: center;
+}
+.top-panel a:before {
+	font-family: 'icomoon';
+	font-size: 12px;
+	margin-right: 5px;
+}
+.top-panel a {
+	color: #888888;
+	font: 700 16px/30px 'Open Sans', sans-serif;
+}
+.top-panel a:hover {
+	color: #bbbbbb;
+}
 .main-header {	
 	outline: 1px dotted #555;
-	height: 50px;
+ 	height: 75px;
 }
 .header-inner {
-	padding: 7px 10px;
-	height: 50px;
+	padding: 6px 10px;
+	height: 45px;
 	width: 100%;
 	background-color: #252525;
+}
+.header-inner.header-fixed {
+	position: fixed;
+	top: 0;
+	left: 0;
 }
 .head-left {
 	position: relative;
 }
-.head-left > div {
+.menu-wrap {
 	float: left;
 }
 .main-logo {
@@ -274,28 +296,62 @@ h1, h2, h3, h4, h5 {
 	text-align: center;
 }
 .main-logo img {
-	height: 35px;
+	height: 30px;
 }
-
 .menu-head-span {
 	display: none;
+}
+.head-search {
+	float: right;
 }
 .head-right {
 	position: fixed;
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	height: 35px;
-	padding: 5px 10px;
+	height: 40px;
+	padding: 7px 20px;
 	background-color: #262626;
-	box-shadow: 0 -3px 5px black;
-	outline: 1px dotted green;
+	border-top: 1px solid #000;
+	z-index: 2000;
+}
+.head-social {
+	float: left;
+}
+.head-social ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.head-social ul li {
+	display: inline-block;
+	margin-right: 10px;
+}
+.head-social ul li:last-child {
+	margin-right: 0;
+}
+.head-social ul li a {
+	color: #a0a0a0;
+	font-size: 23px;
+}
+.head-subscribe {
+	position: relative;
+	float: right;
+	width: 48%;
+	border-left: 1px solid #a0a0a0;
+	text-align: center;
+}
+.head-subscribe span {
+	color: #cccccc;
+	cursor: pointer;
+}
+.head-subscribe > i {
+	display: none;
 }
 
-
-/* ==========================================================================
+/*----------------------------------------------------------
    5.0 Home Page
-   ========================================================================== */
+----------------------------------------------------------*/
 
 /* Content *******************/
 .content {
@@ -382,9 +438,9 @@ h1, h2, h3, h4, h5 {
 }
 
 
-/* ==========================================================================
+/*----------------------------------------------------------
    6.0 Single Article
-   ========================================================================== */
+----------------------------------------------------------*/
    
 .wpsocialite{display: none !important;}
 .single .share-count.social-buttons{position: relative;bottom: auto;right: auto;text-align: left;margin: 0;list-style: none;padding: 0 0 20px 0;}
@@ -640,9 +696,9 @@ h1, h2, h3, h4, h5 {
 }
 
 
-/* ==========================================================================
+/*----------------------------------------------------------
    7.0 Footer
-   ========================================================================== */
+----------------------------------------------------------*/
    
 .category .s-footer {
 	padding: 20px 20px 50px;
@@ -829,9 +885,9 @@ h1, h2, h3, h4, h5 {
 }
 
 
-/* ==========================================================================
+/*----------------------------------------------------------
    7.0 Zip code finder
-   ========================================================================== */
+   ----------------------------------------------------------*/
 
 /* single article content area **************/
 .single .pubfinderzipgo {
@@ -882,25 +938,28 @@ h1, h2, h3, h4, h5 {
 /* header zip ****************/
 .m-buymag-drop {
 	display: none;
-	width: 280px;
+	width: 320px;
 	background-color: #333333;
 	position: absolute;
-	top: 39px; 
-	left: 0;
+	bottom: 32px; 
+	right: -20px;
 	z-index: 900;
 	padding: 10px;
 	font-size: 14px;
 	color: #e9e9e9;
 	text-align: left;
-	box-shadow: 0 2px 4px rgba(0,0,0,.6);
+	box-shadow: 0 1px 2px rgba(0,0,0,.6);
 }
 .m-buymag-drop ul {
 	padding: 0;
+	list-style: none;
 }
+/*
 .single .m-buymag-drop {
 	left: 0; right: 0; top:36px; margin: 0 auto; 
 	display: none;
 }
+*/
 .m-display-block,  .single .m-display-block {
 	display: block;
 }
@@ -1082,9 +1141,9 @@ h1, h2, h3, h4, h5 {
 }
 
 
-/* ==========================================================================
+/*----------------------------------------------------------
    8.0 Media Queries
-   ========================================================================== */
+   ----------------------------------------------------------*/
    
 @media only screen and (min-width: 375px) {/* iPhone 6 */
 
@@ -1429,9 +1488,9 @@ h1, h2, h3, h4, h5 {
 	
 }/* end of media */
 
-/* ==========================================================================
+/*----------------------------------------------------------
    9.0 Print styles
-   ========================================================================== */
+   ----------------------------------------------------------*/
 @media print {
     * {
         background: transparent !important;

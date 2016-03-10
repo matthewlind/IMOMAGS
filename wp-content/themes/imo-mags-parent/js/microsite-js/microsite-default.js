@@ -32,16 +32,13 @@ jQuery(document).ready(function($) {
 	
 	// Main Nav, buy magazine dorp down menu	
 	buyMag = $('li.buy-mag');
-	buyMagLink = $('li.buy-mag a');
+	buyMagLink = $('#head-subscribe');
 	buyMagDrop = $('.m-buymag-drop');
 	
-	buyMagLink.click(function(event){
-		event.preventDefault();
-	});
 	buyMagDrop.click(function(event){
 		event.stopPropagation();
 	});
-	buyMag.click(function(event){
+	buyMagLink.click(function(event){
 		event.stopPropagation();
 		buyMagDrop.slideToggle(200);
 	});
@@ -56,8 +53,69 @@ jQuery(document).ready(function($) {
 		event.preventDefault();
 	});
 	
+	
+	
+	
+	
+		
+	
 
 }); // end of document.ready
+
+// STICKY HEADER
+var $document 	= $(document),
+	head_inner	= $("#header_inner");
+
+function stickyHead() {
+	
+}
+
+/* Adventure Map
+----------------------------*/
+var stick_start 	= $(".adventure-btf"),
+	stick_stop 		= $(".footer"),
+	r_sticky 		= $(".route"),
+	r_fixed 		= 'r-fixed',
+	r_stickBottom 	= 'r-stick-bottom',
+	map_circle		= $(".circle"),
+    map_text		= $(".map-text");
+    	
+function stickyRoute() {
+    
+    var stick_start_top = stick_start.offset().top,
+    	r_sticky_height = $('.route').height(),
+    	doc_height		= $window.height(),
+    	stick_stop_top 	= stick_stop.offset().top,
+    	docTop			= $document.scrollTop(),
+    	rout_hight 		= 800;
+    	
+    	if (doc_height <= 800) rout_hight = doc_height;
+    	
+    if (docTop >= stick_start_top && docTop <= stick_stop_top - r_sticky_height - 84) {
+		r_sticky.addClass(r_fixed);
+		r_sticky.removeClass(r_stickBottom);
+	} else if (docTop > stick_start_top && docTop > stick_stop_top - r_sticky_height - 84) {
+		r_sticky.addClass(r_stickBottom);
+	} else {
+		r_sticky.removeClass(r_fixed);
+		r_sticky.removeClass(r_stickBottom);
+	}
+	
+	 
+	
+	r_sticky.css("height", rout_hight );
+}
+
+function mapStyle(n, h, j) {
+    h = h || '#59a756';
+    j = j || '#41843E';
+    
+	map_circle.attr("fill", "#ffffff");
+	$("#c" + n).attr("fill", h);
+	
+	map_text.css({'fill': "#999999", "font-weight" : 400});
+	$("#t" + n).css({'fill': j, "font-weight" : 600});
+}
 
 jQuery( window ).resize(function() {
 	var windowWidth = jQuery(window).width();
@@ -65,4 +123,9 @@ jQuery( window ).resize(function() {
 	if (windowWidth < 600) {
 		jQuery( ".post-box" ).eq(-1).css("margin", "0 0 30px");
 	}
+});
+
+document.scroll(function() {
+    if (r_sticky.length) { stickyRoute(); animRoute();}
+	if (adv.length) { load_half(); }
 });
