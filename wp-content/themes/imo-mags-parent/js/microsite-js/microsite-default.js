@@ -36,7 +36,7 @@
 		
 		// Main Nav, buy magazine dorp down menu	
 		buyMag = $('li.buy-mag');
-		buyMagLink = $('#head-subscribe');
+		buyMagLink = $('#head-bottom-subscribe');
 		buyMagDrop = $('.m-buymag-drop');
 		
 		buyMagDrop.click(function(event){
@@ -63,7 +63,7 @@
 	var head_wrap		= $("#header_wrap"),
 		head_main		= $(".main-header"),
 		lastScrollTop 	= 0,
-		delta 			= 35,
+		delta 			= 30,
 		navbarHeight	= head_main.outerHeight(),
 		didScroll;					   
 
@@ -73,7 +73,7 @@
 			
 		//console.log(headMainTop);	
 			
-		if (docTop >= headMainTop)	{
+		if (docTop >= 2)	{
 			head_wrap.addClass('head-fixed');
 		} else {
 			head_wrap.removeClass('head-fixed');
@@ -98,26 +98,14 @@
 	            head_wrap.removeClass('nav-up').addClass('nav-down');
 	        }
 	    }
-	    
 	    lastScrollTop = st;
 	}
-	
-	
-	$( window ).resize(function() {
-		var windowWidth = jQuery(window).width();
-		
-		if (windowWidth < 600) {
-			jQuery( ".post-box" ).eq(-1).css("margin", "0 0 30px");
-		}
-	});
 	
 	
 	$document.scroll(function() {
 		didScroll = true;
 	    stickyHead();
 	});
-	
-	
 	
 	setInterval(function() {
 	    if (didScroll) {
@@ -126,5 +114,13 @@
 	    }
 	}, 250);
 	
+
+	$( window ).resize(function() {
+		var windowWidth = jQuery(window).width();
+		
+		if (windowWidth < 600) {
+			jQuery( ".post-box" ).eq(-1).css("margin", "0 0 30px");
+		}
+	});
 
 })(jQuery);
