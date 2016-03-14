@@ -381,7 +381,7 @@ function jsGAMRender($mobile) {
 	$outp.= '
 	<div id="captchaWrapper">
 	<br />
-	   <div class="g-recaptcha" data-sitekey="6LdWGAMTAAAAANfZM5fbK5aNYozpopkz-v_LhhR0"></div>
+	   <div class="g-recaptcha" data-sitekey="6LeMvRoTAAAAAANfpLHAClGgcs7rgA4bFBVhzcu3"></div>
 	   <button id="proceed">Proceed</button>
 	</div>';
 	
