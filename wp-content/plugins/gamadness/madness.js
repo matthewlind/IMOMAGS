@@ -295,7 +295,7 @@
 						popads[1] = 'GA-MAdness-popup-358x90-galco.jpg';
 						popads[2] = 'GA-MAdness-popup-358x90-laserlyte.jpg';
 						popads[3] = 'GA-MAdness-popup-358x90-pelican.jpg';
-						popads[4] = 'GA-MAdness-popup-358x90-winchester.jpg';
+						//popads[4] = 'GA-MAdness-popup-358x90-winchester.jpg';
 						
 						var randomInt = Math.floor(Math.random() * 5);
 						//console.log("Random Number= " + randomInt);
