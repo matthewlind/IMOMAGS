@@ -109,7 +109,7 @@ function jsGAMRender($mobile) {
 	$outp = "";
 	//$mobile = true;
 	$ismobile = ($mobile)? "true":"false"; 
-	$results = file_get_contents("http://apps.imoutdoors.com/bracket/getActiveRound?bracketid=3");
+	$results = file_get_contents("http://apps.imoutdoors.com/bracket/getActiveRound?bracketid=5");
 	
 	$results = json_decode($results,true);
 	
@@ -210,8 +210,8 @@ function jsGAMRender($mobile) {
 		 .  '  <div id="madtabs-5">'
 		 .  '    <br><div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"handgunsmadness")) .'</div>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"riflesmadness")) .'</div>'
-		 .  '    <div class="mreg5 match155"></div>'
-		 .  '    <div class="mreg6 match156"></div>'
+		 .  '    <div class="mreg5 match217"></div>'
+		 .  '    <div class="mreg6 match218"></div>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"shotgunsmadness")) .'</div>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"arsmadness")) .'</div>'
 		 
@@ -219,7 +219,7 @@ function jsGAMRender($mobile) {
 		 
 		 .  '  <div id="madtabs-6">'
 		 .  '    <br><div style="margin:10px 0px 0px 6px;clear:both;font-size:18px;font-weight:bold;">Championship</div>'
-		 .  '    <div class="mreg7 match157"></div>'
+		 .  '    <div class="mreg7 match219"></div>'
 		 .  '    <br><div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"handgunsmadness")) .'</div>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"riflesmadness")) .'</div>'
 		 .  '    <div>'. get_imo_dart_tag("240x60",1,false,array("sect" => "","camp"=>"shotgunsmadness")) .'</div>'
@@ -233,12 +233,11 @@ function jsGAMRender($mobile) {
 	
 
 	$outp.= '<ul class="schedule">'
-		 .  '  <li class="'.(($madnessround==2)? "active-round":"").'">1st Round<div>March 17-23</div></li>'
-		 .  '  <li class="'.(($madnessround==3)? "active-round":"").'">2nd Round<div>March 23-26</div></li>'
-		 .  '  <li class="'.(($madnessround==4)? "active-round":"").'">Sweet 16<div>March 26-31</div></li>'
-		 .  '  <li class="'.(($madnessround==5)? "active-round":"").'">Elite 8<div>April 1-6</div></li>'
-		 .  '  <li class="'.(($madnessround==6)? "active-round":"").'">Final Four<div>April 6-8</div></li>'
-		 .  '  <li class="'.(($madnessround==8)? "active-round":"").'">Final Round<div>April 8-10</div></li>'
+		 .  '  <li class="'.(($madnessround==3)? "active-round":"").'">1st Round<div>March 15-22</div></li>'
+		 .  '  <li class="'.(($madnessround==4)? "active-round":"").'">Sweet 16<div>March 22-29</div></li>'
+		 .  '  <li class="'.(($madnessround==5)? "active-round":"").'">Elite 8<div>March 29 - April 1-4</div></li>'
+		 .  '  <li class="'.(($madnessround==6)? "active-round":"").'">Final Four<div>April 4-7</div></li>'
+		 .  '  <li class="'.(($madnessround==8)? "active-round":"").'">Final Round<div>April 7-11</div></li>'
 		 .  '</ul>'
 		 //.  wpsocialite_markup()
 		 ;
@@ -258,9 +257,9 @@ function jsGAMRender($mobile) {
 			
 		 .  '  <div class="final-wrapper">'
 		 .  '    <h2>Final Round</h2>'
-		 .  '    <div class="column column5 match155"></div>'
-		 .  '    <div class="column column6 match157" style="padding-top:20px;"></div>'
-		 .  '    <div class="column column7 match156"></div>'
+		 .  '    <div class="column column5 match217"></div>'
+		 .  '    <div class="column column6 match218" style="padding-top:20px;"></div>'
+		 .  '    <div class="column column7 match219"></div>'
 		 .  '  </div>'		 
 		 .  '</div>';
 	}
@@ -315,9 +314,9 @@ function jsGAMRender($mobile) {
 		 .  '</div>'
 		 .  '  <div class="final-wrapper">'
 		 .  '    <h2>Final Round</h2>'
-		 .  '    <div class="column column5 match155"></div>'
-		 .  '    <div class="column column6 match157"></div>'
-		 .  '    <div class="column column7 match156"></div>'
+		 .  '    <div class="column column5 match217"></div>'
+		 .  '    <div class="column column6 match218"></div>'
+		 .  '    <div class="column column7 match219"></div>'
 		 .  '  </div>'		 
 		 .  '</div>';
 	}
@@ -370,7 +369,7 @@ function jsGAMRender($mobile) {
 		 .  '	getGAMData(3,2);getGAMData(3,3);getGAMData(3,4);getGAMData(3,5);'
 		 .  '	getGAMData(4,2);getGAMData(4,3);getGAMData(4,4);getGAMData(4,5);'
 	
-		 .  '	getGAMData(0,"155,156,157");'
+		 .  '	getGAMData(0,"217,218,219");'
 		 .  '   getStats();'
 		 .  '   setTimeout(function(){makeGAMPopup()}, 1000);'
 		 .  '   setTimeout(function(){autoPopup()}, 2000);'
