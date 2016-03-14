@@ -32,17 +32,27 @@
 		}
 			
 		// Simulate a hover with a touch in touch enabled browsers
-		$('body').bind('touchstart', function() {});	
+		$('body').bind('touchstart', function() {});
 		
-		// Main Nav, buy magazine dorp down menu	
-		buyMag = $('li.buy-mag');
-		buyMagLink = $('#head-bottom-subscribe');
-		buyMagDrop = $('.m-buymag-drop');
+		// HAMBURGER ICON ANIMATION
+		$('#nav-icon3').click(function(){
+			$(this).toggleClass('open');
+		});	
+		
+		// Main Nav, buy magazine dorp down menu
+		var buyMagHeadLink 	= $("#head-subscribe"),	
+			buyMag 			= $('li.buy-mag'),
+			buyMagLink 		= $('#head-bottom-subscribe'),
+			buyMagDrop 		= $('.m-buymag-drop');
 		
 		buyMagDrop.click(function(event){
 			event.stopPropagation();
 		});
 		buyMagLink.click(function(event){
+			event.stopPropagation();
+			buyMagDrop.slideToggle(200);
+		});
+		buyMagHeadLink.click(function(event){
 			event.stopPropagation();
 			buyMagDrop.slideToggle(200);
 		});

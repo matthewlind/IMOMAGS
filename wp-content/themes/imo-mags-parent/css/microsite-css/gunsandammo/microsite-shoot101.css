@@ -32,16 +32,8 @@ a:hover {
    5.0 Header
    ========================================================================== */
 
-.top-panel a {
-	font-family: "Lora";
-}
-/*
-.category-shoot101 .all-stories {
-	display: none;
-}
-*/
-
 /* Main-nav */
+/*
 .main-nav ul li a {font-family: 'Titillium Web';}
 .main-nav > ul > li > a {font-family: 'Titillium Web';}
 .main-nav ul li:hover a {color: white;}
@@ -53,25 +45,7 @@ a:hover {
 .social-buttons ul li a:hover {
 	color: white;
 }
-.sponsors-disclaimer {
-	background-color: #333333;
-	text-align: center;
-	min-height: 30px;
-	font-size: 10px;
-	line-height: 30px;
-	color: #c2c2c2;
-}
-.single .sponsors-disclaimer {
-	max-width: 100%;
-	width: 100%;
-	margin: 0 auto;
-}
-.sponsors-disclaimer a {
-	text-decoration: underline;
-}
-.sponsors-disclaimer a:hover {
-	color: #eea200;
-}
+*/
 
 /* ==========================================================================
    5.0 Home Page
@@ -221,12 +195,6 @@ a:hover {
 
 @media only screen and (min-width: 600px) {/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
 
-/* Header *******************/
-.sponsors-disclaimer {text-align: left;}
-.category .category-shoot101 .sponsors-disclaimer {width: 92%;margin: 0 auto;}
-.sponsors-disclaimer span {margin-left: 20px;}
-.social-buttons ul li {margin-left: 12px;}
-
 /* Single Article *******************/
 .m-article-bottom .m-hlep-grow {font-family: "Titillium Web", sans-serif;}
 
@@ -242,10 +210,6 @@ a:hover {
 
 
 @media only screen and (min-width: 920px) {
-
-/* Header *******************/
-.single .main-nav, .main-nav {margin: 53px 0 15px 2px;}
-.sponsors-disclaimer {text-align: center;}
 
 /* Footer *******************/ 
 .s-mag-buy h2 {margin-bottom: -7px;}
