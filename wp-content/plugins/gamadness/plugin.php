@@ -139,10 +139,10 @@ function jsGAMRender($mobile) {
 		 .  '    <div class="gun-types">'
 		 .  '      <select>'
 		 .  '        <option value="">SELECT A GUN REGION</option>'
-		 .  '        <option value="handguns1">Handguns</option>'
-		 .  '        <option value="rifles1">Rifles</option>'
-		 .  '        <option value="handguns2">Handguns</option>'
-		 .  '        <option value="rifles2">Rifles</option>'
+		 .  '        <option value="handguns1">Compacts</option>'
+		 .  '        <option value="rifles1">1911s</option>'
+		 .  '        <option value="handguns2">Polymers</option>'
+		 .  '        <option value="rifles2">Miscellaneous</option>'
 		 .  '      </select>'
 		 .  '    </div>'
 		 .  '    <h2 id="handguns1">Handguns</h2>'
@@ -160,7 +160,6 @@ function jsGAMRender($mobile) {
 
 		 .  '  </div>'
 		 .  '  <div id="madtabs-2">'
-
 		 .  '    <h2 id="handguns2">Handguns</h2>'
 		 .  '    <div>'. imo_ad_placement("region1") .'</div>'
 		 .  '    <div class="mreg1"></div>'
@@ -172,8 +171,7 @@ function jsGAMRender($mobile) {
 		 .  '    <div class="mreg4"></div>'
 		 .  '    <h2 id="shotguns">Rifles</h2>'
 		 .  '    <div>'. imo_ad_placement("region4") .'</div>'
-		 .  '    <div class="mreg2"></div>'
-		 
+		 .  '    <div class="mreg2"></div>'		 
 		 .  '  </div>'
 		 .  '  <div id="madtabs-3">'
 		 .  '    <h2 id="handguns">Handguns</h2>'
@@ -187,8 +185,7 @@ function jsGAMRender($mobile) {
 		 .  '    <div class="mreg4"></div>'
 		 .  '    <h2 id="shotguns">Rifles</h2>'
 		 .  '    <div>'. imo_ad_placement("region4") .'</div>'
-		 .  '    <div class="mreg2"></div>'
-		 
+		 .  '    <div class="mreg2"></div>' 
 		 .  '  </div>'
 		 .  '  <div id="madtabs-4">'
 
@@ -268,16 +265,14 @@ function jsGAMRender($mobile) {
 	$outp.= '<div class="ga-madness">'
 		 .  '<div class="region-titles">'
 		 .	'  <div class="region-left">'
-		 .	'    <h2>Handguns</h2>'
-		 .	'		<div id="region1" >'
+		 .	'    <h2>Compacts</h2>'
 		 .	'			<script type="text/javascript">'
 		 .	'				googletag.cmd.push(function() { googletag.display("region1"); });'
 		 .	'			</script>'
 		 .	'		</div>'
 		 .	'  </div>'
 		 .	'  <div class="region-right">'
-		 .	'    <h2>Rifles</h2>'
-	 	 .	'		<div id="region2" >'
+		 .	'    <h2>1911s</h2>'
 	 	 .	'			<script type="text/javascript">'
 	 	 .	'				googletag.cmd.push(function() { googletag.display("region2"); });'
 	 	 .	'			</script>'
@@ -318,16 +313,14 @@ function jsGAMRender($mobile) {
 		 
 	$outp.= '<div class="region-titles">'
 		 .	'  <div class="region-left">'
-		 .	'    <h2>Handguns</h2>'
-		 .	'	 	<div id="region3" >'
+		 .	'    <h2>Polymers</h2>'
 		 .	'	 		<script type="text/javascript">'
 		 .	'	 			googletag.cmd.push(function() { googletag.display("region3"); });'
 		 .	'	 		</script>'
 		 .	'	 	</div>'
 		 .	'  </div>'
 		 .	'  <div class="region-right">'
-		 .	'    <h2>Rifles</h2>'
-		 .	'	 	<div id="region4" >'
+		 .	'    <h2>Miscellaneous</h2>'
 		 .	'	 		<script type="text/javascript">'
 		 .	'	 			googletag.cmd.push(function() { googletag.display("region4"); });'
 		 .	'	 		</script>'
@@ -374,7 +367,7 @@ function jsGAMRender($mobile) {
 	$outp.= '
 	<div id="captchaWrapper">
 	<br />
-	   <div class="g-recaptcha" data-sitekey="6LdWGAMTAAAAANfZM5fbK5aNYozpopkz-v_LhhR0"></div>
+	   <div class="g-recaptcha" data-sitekey="6LeMvRoTAAAAAANfpLHAClGgcs7rgA4bFBVhzcu3"></div>
 	   <button id="proceed">Proceed</button>
 	</div>';
 	
