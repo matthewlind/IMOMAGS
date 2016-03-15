@@ -241,7 +241,7 @@
 			
 			
 			
-			var regions = {'1':'Handguns', '2':'Rifles', '3':'Handguns', '4':'Rifles'}
+			var regions = {'1':'Compacts', '2':'1911s', '3':'Polymers', '4':'Miscellaneous'}
 			var roundtitles = {'3':'First Round', '4':'Sweet Sixteen', '5':'Elite Eight', '6':'Final Four', '8':'Championship'}
 			
 			var campaigns = new Array('handgunsmadness', 'riflesmadness', 'arsmadness', 'shotgunsmadness');
@@ -297,7 +297,7 @@
 						popads[3] = 'GA-MAdness-popup-358x90-pelican.jpg';
 						//popads[4] = 'GA-MAdness-popup-358x90-winchester.jpg';
 						
-						var randomInt = Math.floor(Math.random() * 5);
+						var randomInt = Math.floor(Math.random() * 4);
 						//console.log("Random Number= " + randomInt);
 						//var randomPopad = ;
 
@@ -464,7 +464,7 @@
 					var randomInt = Math.floor((Math.random() * 4) + 0);
 					var randomPopad = popads[randomInt];
 
-					var regions = {'1':'Handguns', '2':'Handguns', '3':'Handguns', '4':'Handguns'}
+					var regions = {'1':'Compacts', '2':'1911s', '3':'Polymers', '4':'Miscellaneous'}
 					var roundtitles = {'2':'First Round', '3':'Second Round', '4':'Sweet Sixteen', '5':'Elite Eight', '6':'Final Four', '8':'Championship'}
 					
 					var campaigns = new Array('handgunsmadness', 'riflesmadness', 'handgunsmadness', 'riflesmadness');
@@ -492,9 +492,9 @@
 								popads[1] = 'GA-MAdness-popup-358x90-galco.jpg';
 								popads[2] = 'GA-MAdness-popup-358x90-laserlyte.jpg';
 								popads[3] = 'GA-MAdness-popup-358x90-pelican.jpg';
-								popads[4] = 'GA-MAdness-popup-358x90-winchester.jpg';
+								//popads[4] = 'GA-MAdness-popup-358x90-winchester.jpg';
 								
-								var randomInt = Math.floor(Math.random() * 5);
+								var randomInt = Math.floor(Math.random() * 4);
 								console.log("Random Number= " + randomInt);
 						
 								campaign = campaigns[region-1];
