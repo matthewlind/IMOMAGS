@@ -34,10 +34,7 @@
 		// Simulate a hover with a touch in touch enabled browsers
 		$('body').bind('touchstart', function() {});
 		
-		// HAMBURGER ICON ANIMATION
-		$('#nav-icon3').click(function(){
-			$(this).toggleClass('open');
-		});	
+		
 		
 		// Main Nav, buy magazine dorp down menu
 		var buyMagHeadLink 	= $("#head-subscribe"),	
@@ -111,6 +108,34 @@
 	    lastScrollTop = st;
 	}
 	
+	// NAVIGATION
+	var menu_toggle	= $("#h_drop, #m_drop"),
+		h_drop		= $("#h_drop"),
+		nav_icon	= $('#nav-icon3'),
+		menu_drop	= $('#menu_drop'),
+		sposors_dis	= $('.sponsors-disclaimer'),
+		menu_drop_ht= menu_drop.outerHeight() - 5;
+		
+	menu_toggle.click(function(){
+		var clicks = menu_toggle.data('clicks');
+		if (clicks) {
+			// even clicks
+			menu_drop.css("bottom", "0px");
+			nav_icon.removeClass('open');
+		} else {
+			// odd clicks
+			menu_drop.css("bottom", "-"+menu_drop_ht+"px");
+			nav_icon.addClass('open');
+		}
+		menu_toggle.data("clicks", !clicks);			
+	});	
+	menu_drop.mouseleave(function(){
+		if (nav_icon.hasClass('open')) {
+			h_drop.trigger("click");
+		}
+	});
+
+	// end NAVIGATION
 	
 	$document.scroll(function() {
 		didScroll = true;

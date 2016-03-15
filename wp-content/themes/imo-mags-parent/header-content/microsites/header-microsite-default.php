@@ -51,14 +51,21 @@ END;
 			
 <header class="main-header">
 	<div id="header_wrap" class="header-wrap">
+		<nav id="menu_drop" class="menu-drop">
+			<section class="menu-content">
+				<?php wp_nav_menu( array( 'theme_location' => $theme_location, 'container' => '0' ) ); ?>
+			</section>
+			<section class="menu-footer"></section>
+			<section id="m_drop" class="menu-close"><i class="icon-cross"></i><span>&nbsp;CLOSE</span></section>
+		</nav>
 		<div class="head-inner">
 			<div class="head-left">
 				<div class="main-logo">
 					<?php echo $logo; ?>
 				</div>
-				<div class="menu-wrap">
+				<div id="h_drop" class="nav-btn">
 					<div id="nav-icon3"><span></span> <span></span> <span></span> <span></span></div>
-					<span class="menu-head-span">SECTIONS</span>
+					<span class="menu-head-span">MENU</span>
 				</div>
 			</div>
 			<div class="head-right">
@@ -82,6 +89,7 @@ END;
 			</div>
 		<?php } ?>
 	</div><!-- .header-wrap -->
+	
 	<div class="head-bottom">
 		<div class="head-social"><?php echo $social_buttons; ?></div>
 		<div class="head-subscribe">
