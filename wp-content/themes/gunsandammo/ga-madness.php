@@ -30,8 +30,7 @@ get_header(); ?>
 				<li><a href="/bracket">Gun Bracket</a></li>
 				<li><a href="/bracket/enter">Enter</a></li>
 				<?php if(!mobile()){ ?>
-					<li class="madness-logo"><img src="/wp-content/themes/gunsandammo/images/ga-madness/GA-gun-madness-galco-small.png" alt="G&A Madness" title="G&A Madness" />
-					</li>
+					<li class="madness-logo"><img src="/wp-content/themes/gunsandammo/images/ga-madness/GA-gun-madness-galco-small.png" alt="G&A Madness" title="G&A Madness" /></li>
 				<?php } ?>
 				<li><a href="/bracket/prizes">Prizes & Rules</a></li>
 				<li><a href="/bracket/how-it-works">How it Works</a></li>
