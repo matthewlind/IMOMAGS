@@ -23,14 +23,37 @@
 			
 			success: function(resp, status, jqxhr) {
 				madnessround = resp[0].activeround;
-				jQuery('#madtabs').tabs({active: (madnessround - 2)});
+				//jQuery('#madtabs').tabs({active: (madnessround - 3)});
+				
+				madtabs();
 			}
 
 		});	
 		
 				
 	});
-
+	
+	function madtabs() {
+		jQuery('.tabcontent').hide();
+		
+		jQuery('#madtabs a').on("click", function(e) {
+			e.preventDefault();
+			console.log(this.hash.substring(1));
+			jQuery('.rounds > li').removeClass("ui-tabs-selected");
+			jQuery(this).parent().addClass("ui-tabs-selected");
+			
+			jQuery('.tabcontent').hide();
+			jQuery('.'+this.hash.substring(1)+'.tabcontent').show();
+		})
+		
+		var activehash = "madtabs-"+(madnessround-1);
+		//console.log(activehash);	
+		jQuery('.tabcontent').hide();
+		//console.log(parseInt(madnessround-2));
+		jQuery('.rounds li:nth-child('+parseInt(madnessround-2)+')').addClass("ui-tabs-selected");
+		//console.log('.'+activehash+'.tabcontent');
+		jQuery('.'+activehash+'.tabcontent').show();
+	}
 
 	function closeInterstitial() {
 		jQuery('#popupAD').css('display', 'none');
@@ -59,7 +82,7 @@
 						jQuery(".match219").html(writeGAMBracket(finall));
 					}
 					else {
-						jQuery("#madtabs-"+(parseInt(round)-1)+" .mreg"+region).html(writeGAMBracket(resp.data));
+						jQuery(".madtabs-"+(parseInt(round)-1)+" > .mreg"+region).html(writeGAMBracket(resp.data));
 					}
 				}
 				else {
