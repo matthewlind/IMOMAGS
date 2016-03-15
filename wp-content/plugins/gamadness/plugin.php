@@ -201,7 +201,6 @@ function jsGAMRender($mobile) {
 		 .  '    <h2 id="shotguns">Rifles</h2>'
 		 .  '    <div>'. imo_ad_placement("region4") .'</div>'
 		 .  '    <div class="mreg2"></div>'
-		 		 
 		 .  '  </div>'
 		 .  '  <div id="madtabs-5">'
 		 .  '    <br><div>'. imo_ad_placement("region1") .'</div>'
@@ -210,9 +209,7 @@ function jsGAMRender($mobile) {
 		 .  '    <div class="mreg6 match218"></div>'
 		 .  '    <div>'. imo_ad_placement("region4") .'</div>'
 		 .  '    <div>'. imo_ad_placement("region3") .'</div>'
-		 
 		 .  '  </div>'
-		 
 		 .  '  <div id="madtabs-6">'
 		 .  '    <br><div style="margin:10px 0px 0px 6px;clear:both;font-size:18px;font-weight:bold;">Championship</div>'
 		 .  '    <div class="mreg7 match219"></div>'
@@ -220,7 +217,6 @@ function jsGAMRender($mobile) {
 		 .  '    <div>'. imo_ad_placement("region2") .'</div>'
 		 .  '    <div>'. imo_ad_placement("region4") .'</div>'
 		 .  '    <div>'. imo_ad_placement("region3") .'</div>'
-		 
 		 .  '  </div>'		 
 		 .  '</div>';
 
@@ -241,7 +237,6 @@ function jsGAMRender($mobile) {
 	if($madnessround == 8) {		 
 	$outp.= '<div class="ga-madness-votestats" style="margin-bottom:20px;clear:both;"></div>'
 		 .  '<div class="regions region-final" style="display:block;">'
-		 
 		 .  '<div class="finalsadvert" style="margin-top:0px;">'
 		 .	'	<div id="region1" >'
 		 .	'		<script type="text/javascript">'
@@ -249,7 +244,6 @@ function jsGAMRender($mobile) {
 		 .	'		</script>'
 		 .	'	</div>'	 
 		 .  '</div>'
-			
 		 .  '  <div class="final-wrapper">'
 		 .  '    <h2>Final Round</h2>'
 		 .  '    <div class="column column5 match217"></div>'
@@ -266,6 +260,7 @@ function jsGAMRender($mobile) {
 		 .  '<div class="region-titles">'
 		 .	'  <div class="region-left">'
 		 .	'    <h2>Compacts</h2>'
+		 .	'		<div id="region1">'
 		 .	'			<script type="text/javascript">'
 		 .	'				googletag.cmd.push(function() { googletag.display("region1"); });'
 		 .	'			</script>'
@@ -273,13 +268,13 @@ function jsGAMRender($mobile) {
 		 .	'  </div>'
 		 .	'  <div class="region-right">'
 		 .	'    <h2>1911s</h2>'
+		 .	'		<div id="region2">'
 	 	 .	'			<script type="text/javascript">'
 	 	 .	'				googletag.cmd.push(function() { googletag.display("region2"); });'
 	 	 .	'			</script>'
 	 	 .	'		</div>'
 		 .	'  </div>'
 		 .	'</div>'
-		 
 		 .	'<div class="regions region1">'
 		 .	'  <div class="column column1"></div>'
 		 .	'  <div class="column column2"></div>'
@@ -314,12 +309,14 @@ function jsGAMRender($mobile) {
 	$outp.= '<div class="region-titles">'
 		 .	'  <div class="region-left">'
 		 .	'    <h2>Polymers</h2>'
+		 .	'		<div id="region3">'		 
 		 .	'	 		<script type="text/javascript">'
 		 .	'	 			googletag.cmd.push(function() { googletag.display("region3"); });'
 		 .	'	 		</script>'
 		 .	'	 	</div>'
 		 .	'  </div>'
 		 .	'  <div class="region-right">'
+		 .	'		<div id="region4">'
 		 .	'    <h2>Miscellaneous</h2>'
 		 .	'	 		<script type="text/javascript">'
 		 .	'	 			googletag.cmd.push(function() { googletag.display("region4"); });'
