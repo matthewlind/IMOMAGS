@@ -120,7 +120,7 @@
 		var clicks = menu_toggle.data('clicks');
 		if (clicks) {
 			// even clicks
-			menu_drop.css("bottom", "0px");
+			menu_drop.css("bottom", "200px");
 			nav_icon.removeClass('open');
 		} else {
 			// odd clicks
