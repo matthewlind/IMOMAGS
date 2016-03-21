@@ -274,219 +274,25 @@ function navionics_func( $atts ) {
 }
 add_shortcode( 'navionics', 'navionics_func' );
 
-//Configure infish community
-//This section does nothing unless imo-community plugin is enabled
-add_action("init","infish_community_init",0);
-function infish_community_init() {
-
-		
-	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	//NOTE: Configuration order matters! More specific URLs should appear before less specific urls on the same path.
-	// For example, the "single" page_type below needs to appear before "listing" page type on the same path.
-	//Also, solunar-calendar-mobile should appear before solunar-calendar
-	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-	///////////////////////////////////////////
-	//Underscore Testing Page Configuration
-	///////////////////////////////////////////
-	$IMO_COMMUNITY_CONFIG = NULL;
-	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "underscore_test";//This slug will override ANY setting in wordpress.
-	$IMO_COMMUNITY_CONFIG['page_title'] = "Underscore"; //On single pages, title is taken from Post
-	$IMO_COMMUNITY_CONFIG['template'] = '/infish/underscore-test.php';
-	$IMO_COMMUNITY_CONFIG['dart_page'] = 'infish_community';
-	$IMO_COMMUNITY_CONFIG['dart_sect'] = 'infishcommunity';
-	$IMO_COMMUNITY_CONFIG['post_types'] = $inFishPostTypes;
-
-
-	$IMO_COMMUNITY_CONFIG['additional_scripts'] = array(
-		//Third Part Scripts
-		array(
-			"script-name" => "underscore-js",
-			"script-path" => "js/underscore-min.js",
-			"script-dependencies" => array('jquery')
-		),
-		array(
-			"script-name" => "underscore-testing-js",
-			"script-path" => "infish/js/underscore-test.js",
-			"script-dependencies" => array('jquery',"underscore-js")
-		)
-	);
-
-
-	global $IMO_COMMUNITY;
-	$IMO_COMMUNITY['underscore-test'] = $IMO_COMMUNITY_CONFIG;
-
-
-	
-
-	
-	global $IMO_COMMUNITY;
-	$IMO_COMMUNITY['solunar-calendar-ipad'] = $IMO_COMMUNITY_CONFIG;
-	/////////////////////////////////////////////////
-	/////////////////////////////////////////////////
-
-
-
-
-	//////////////////////////////////
-	//Mobile Solunar Calendar config
-	//////////////////////////////////
-	$IMO_COMMUNITY_CONFIG = NULL;
-	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "solunar-calendar-mobile";//This slug will override ANY setting in wordpress.
-	$IMO_COMMUNITY_CONFIG['page_title'] = 'Best Times';
-	$IMO_COMMUNITY_CONFIG['template'] = '/solunar-mobile/solunar-template-mobile.php';
-	$IMO_COMMUNITY_CONFIG['dart_page'] = 'solunar_calendar';
-	$IMO_COMMUNITY_CONFIG['dart_sect'] = 'solunarcalendar';
-	$IMO_COMMUNITY_CONFIG['post_types'] = null;
-
-	global $IMO_COMMUNITY;
-
-	$IMO_COMMUNITY['solunar-calendar-mobile'] = $IMO_COMMUNITY_CONFIG;
-	/////////////////////////////////////////////////
-
-
-
-	//////////////////////////////////
-	//Solunar Calendar config
-	//////////////////////////////////
-	$IMO_COMMUNITY_CONFIG = NULL;
-	$IMO_COMMUNITY_CONFIG['community_home_slug'] = "solunar-calendar";//This slug will override ANY setting in wordpress.
-	$IMO_COMMUNITY_CONFIG['page_title'] = 'Solunar Calendar';
-	$IMO_COMMUNITY_CONFIG['template'] = '/solunar/solunar-template.php';
-	$IMO_COMMUNITY_CONFIG['post_types'] = null;
-	$IMO_COMMUNITY_CONFIG['dart_page'] = 'solunar_calendar';
-	$IMO_COMMUNITY_CONFIG['dart_sect'] = 'solunarcalendar';
-	$IMO_COMMUNITY_CONFIG['additional_scripts'] = array(
-		array(
-			"script-name" => "jquery-mousewheel-zf",
-			"script-path" => "solunar/js/plugins/zfselect/js/jquery.mousewheel.js",
-			"script-dependencies" => array('jquery')
-		),
-		array(
-			"script-name" => "jquery-zfselect",
-			"script-path" => "solunar/js/plugins/zfselect/js/jquery.zfselect.min.js",
-			"script-dependencies" => array('jquery')
-		),
-		array(
-			"script-name" => "jquery-carousel-fred",
-			"script-path" => "solunar/js/plugins/carouFredSel/jquery.carouFredSel-6.2.0-packed.js",
-			"script-dependencies" => array('jquery')
-		),
-		array(
-			"script-name" => "lodash",
-			"script-path" => "solunar/js/lodash.min.js",
-			"script-dependencies" => array('jquery')
-		),
-		array(
-			"script-name" => "solunar-googletag",
-			"script-path" => "solunar/js/googletag.js",
-			"script-dependencies" => null,
-			"show-in-header" => true
-		),
-		array(
-			"script-name" => "solunar-app",
-			"script-path" => "solunar/js/script.js",
-			"script-dependencies" => array('jquery','lodash','jquery-carousel-fred','jquery-zfselect','jquery-mousewheel-zf')
-		),
-
-	);
-
-	$IMO_COMMUNITY_CONFIG['additional_styles'] = array(
-		array(
-			"style-name" => "solunar-style-css",
-			"style-path" => "solunar/css/styles.css?v=2",
-			"style-dependencies" => null
-		),
-		array(
-			"style-name" => "zfselect-css",
-			"style-path" => "solunar/js/plugins/zfselect/css/zfselect.css",
-			"style-dependencies" => null
-		),
-		array(
-			"style-name" => "flexslider-css",
-			"style-path" => "solunar/js/plugins/flexslider/flexslider.css",
-			"style-dependencies" => null
-		),
-	);
-	global $IMO_COMMUNITY;
-	$IMO_COMMUNITY['solunar-calendar'] = $IMO_COMMUNITY_CONFIG;
-	/////////////////////////////////////////////////
-	/////////////////////////////////////////////////
-
-
-
-
-
-
+//page template in solunar directory
+add_filter( 'page_template', 'My_custom_page_template' );
+function My_custom_page_template( $page_template )
+{
+    if ( is_page( 'my-custom-page-slug' ) ) {
+        $page_template = 'solunar/solunar-template.php';
+    }
+    return $page_template;
 }
 
-// Category template ingerit 
-
-/*
-add_action('template_redirect', 'inherit_cat_template');
-
-function inherit_cat_template() {
-
-	if (is_category()) {
-
-		$catid = get_query_var('cat');
-		//$yourcat = get_category ($catid);
-		//$catslug = $yourcat->slug;
-		$cat = &get_category($catid);
-		
-		if ( file_exists(TEMPLATEPATH . '/category-' . $cat->slug . '.php') ) {
-			include( TEMPLATEPATH . '/category-' . $cat->slug . '.php');
-			exit;
-		}
-		
-		
-		
-		$parent = $cat->category_parent;
-		
-		while ($parent){
-		$cat = &get_category($parent);
-		if ( file_exists(TEMPLATEPATH . '/category-' . $cat->slug . '.php') ) {
-			include (TEMPLATEPATH . '/category-' . $cat->slug . '.php');
-			exit;
-		}
-		$parent = $cat->category_parent;
-		}
-	}
+//Configure Solunar Calendar
+function themeslug_enqueue_script() {
+	wp_enqueue_script( 'underscore-js', 'https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js', array('jquery') );
+	wp_enqueue_script( 'jquery-mousewheel-zf', '/wp-content/themes/infisherman/solunar/js/plugins/zfselect/js/jquery.mousewheel.js', array('jquery')  );
+	wp_enqueue_script( 'jquery-zfselect', '/wp-content/themes/infisherman/solunar/js/plugins/zfselect/js/jquery.zfselect.min.js', array('jquery') );
+	wp_enqueue_script( 'jquery-carousel-fred', '/wp-content/themes/infisherman/solunar/js/plugins/carouFredSel/jquery.carouFredSel-6.2.0-packed.js', array('jquery')  );
+	wp_enqueue_script( 'lodash', '/wp-content/themes/infisherman/solunar/js/lodash.min.js', array('jquery')  );
+	wp_enqueue_script( 'solunar-googletag', '/wp-content/themes/infisherman/solunar/js/googletag.js', array('jquery')  );
+	wp_enqueue_script( 'solunar-app', '/wp-content/themes/infisherman/solunar/js/script.js', array('jquery','lodash','jquery-carousel-fred','jquery-zfselect','jquery-mousewheel-zf')  );
 }
-*/
 
-
-
-/*
-add_action('template_redirect', 'inherit_cat_template');
-
-function inherit_cat_template() {
-
-	if (is_category()) {
-
-		$catid = get_query_var('cat');
-		
-		if ( file_exists(TEMPLATEPATH . '/category-' . $catid . '.php') ) {
-			include( TEMPLATEPATH . '/category-' . $catid . '.php');
-			exit;
-		}
-		
-		$cat = &get_category($catid);
-		
-		$parent = $cat->category_parent;
-		
-		while ($parent){
-		$cat = &get_category($parent);
-		if ( file_exists(TEMPLATEPATH . '/category-' . $cat->cat_ID . '.php') ) {
-			include (TEMPLATEPATH . '/category-' . $cat->cat_ID . '.php');
-			exit;
-		}
-		$parent = $cat->category_parent;
-		}
-	}
-}
-*/
-
-
+add_action( 'wp_enqueue_scripts', 'themeslug_enqueue_script' );
