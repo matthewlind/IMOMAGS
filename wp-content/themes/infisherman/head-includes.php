@@ -16,4 +16,7 @@ if(document.location.protocol=='http:'){
 </script>
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/css/community-common.css" />
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/css/community-listing.css" />
+<?php if(is_page("solunar-calendar")){ ?>
+	<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/solunar/css/styles.css" />
+<?php } ?>
 <script async src="http://cdn.mediavoice.com/nativeads/script/IMOutdoors/mv_infish.js"></script>
