@@ -283,19 +283,15 @@ function My_custom_page_template( $page_template )
     }
     return $page_template;
 }
-if(is_page("solunar-calendar")){ 
 
-	//Configure Solunar Calendar
-	function themeslug_enqueue_script() {
+//Configure Solunar Calendar
+function themeslug_enqueue_script() {
+	if(is_page("solunar-calendar")){ 
 		wp_enqueue_script( 'underscore-js', 'https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js', array('jquery') );
-		wp_enqueue_script( 'jquery-mousewheel-zf', '/wp-content/themes/infisherman/solunar/js/plugins/zfselect/js/jquery.mousewheel.js', array('jquery')  );
-		wp_enqueue_script( 'jquery-zfselect', '/wp-content/themes/infisherman/solunar/js/plugins/zfselect/js/jquery.zfselect.min.js', array('jquery') );
 		wp_enqueue_script( 'jquery-carousel-fred', '/wp-content/themes/infisherman/solunar/js/plugins/carouFredSel/jquery.carouFredSel-6.2.0-packed.js', array('jquery')  );
 		wp_enqueue_script( 'lodash', '/wp-content/themes/infisherman/solunar/js/lodash.min.js', array('jquery')  );
 		wp_enqueue_script( 'solunar-googletag', '/wp-content/themes/infisherman/solunar/js/googletag.js', array('jquery')  );
-		wp_enqueue_script( 'solunar-app', '/wp-content/themes/infisherman/solunar/js/script.js', array('jquery','lodash','jquery-carousel-fred','jquery-zfselect','jquery-mousewheel-zf')  );
+		wp_enqueue_script( 'solunar-app', '/wp-content/themes/infisherman/solunar/js/script.js', array('jquery','lodash','jquery-carousel-fred')  );
 	}
-	
-	add_action( 'wp_enqueue_scripts', 'themeslug_enqueue_script' );
-	
 }
+add_action( 'wp_enqueue_scripts', 'themeslug_enqueue_script' );
