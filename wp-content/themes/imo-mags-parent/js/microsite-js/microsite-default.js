@@ -56,7 +56,7 @@
 		$("body, .m-buymag-drop i").click(function(){
 			buyMagDrop.slideUp(200);
 		});
-		buyMagDrop.mouseleave(function(){buyMagDrop.slideUp(200);})
+// 		buyMagDrop.mouseleave(function(){buyMagDrop.slideUp(200);})
 		
 		// add .disabled-link class to an <a> tag to disable it's dfault begavior 
 		disabledLink = $('.disabled-link');
@@ -129,11 +129,13 @@
 		}
 		menu_toggle.data("clicks", !clicks);			
 	});	
+/*
 	menu_drop.mouseleave(function(){
 		if (nav_icon.hasClass('open')) {
 			h_drop.trigger("click");
 		}
 	});
+*/
 
 	// end NAVIGATION
 	

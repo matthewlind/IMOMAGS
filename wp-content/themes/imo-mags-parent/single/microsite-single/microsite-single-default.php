@@ -36,7 +36,6 @@
 		if($image_full[0]) { ?>
 			<div class="m-article-image" style="background-image: url('<?php echo $image_full[0]; ?>');">
 				<div class="m-top-ad">
-					<p>ADVERTISMENT</p>
 					<div><?php imo_ad_placement("microsite_ATF_300x250"); ?></div>	
 				</div>
 			</div>

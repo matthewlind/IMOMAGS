@@ -446,7 +446,7 @@ h1, h2, h3, h4, h5 {
 	font-size: 10px;
 	line-height: 30px;
 	color: #c2c2c2;
-	z-index: 4000;
+	z-index: 2999;
 }
 .single .sponsors-disclaimer {
 	max-width: 100%;
@@ -1120,12 +1120,6 @@ h1, h2, h3, h4, h5 {
 	padding: 0;
 	list-style: none;
 }
-/*
-.single .m-buymag-drop {
-	left: 0; right: 0; top:36px; margin: 0 auto; 
-	display: none;
-}
-*/
 .m-display-block,  .single .m-display-block {
 	display: block;
 }
@@ -1491,9 +1485,6 @@ h1, h2, h3, h4, h5 {
 /* foot */
 #pubfinderzipcontfoot .pubfinderformcont label {font-size: 18px;} 
 #pubfinderzipcontfoot .pubfinderform {width: 254px;}
-/* head */
-/* .single .m-buymag-drop {left: 35px; right: auto; top: 44px;} */
-/* .m-buymag-drop {top: 42px;left: -2px;} */
 
 /* Wordpress Defaults *******************/  
 .m-article .aligncenter {margin: 30px auto;}
@@ -1587,7 +1578,7 @@ h1, h2, h3, h4, h5 {
 .head-subscribe:hover > span {color: #fff;}
 .head-subscribe > i {position: absolute;right: -2px;top: 0;height: 32px;width: 28px;background-color: #a0a0a0;display: block;color: #252525;line-height: 30px;}
 .m-buymag-drop {bottom: auto;top: 42px;right: -3px;}
-.head-mag-cover {position: relative;margin: -10px 0 0 20px;width: 70px;z-index: 3500;}
+.head-mag-cover {position: relative;margin: -19px 0 0 20px;width: 61px;z-index: 3500;}
 .head-mag-cover:hover {z-index: 4500;}
 .head-mag-cover img {width: 100%;}
 .head-bottom {display: none;}
@@ -1602,8 +1593,7 @@ h1, h2, h3, h4, h5 {
 .social-buttons ul {margin: 8px 0;}
 .social-buttons ul li a {font-size: 24px;}
 */
-/* .sponsors-disclaimer {text-align: center;width: 92%;margin: 0 auto;} */
-.sponsors-disclaimer {font-size: 15px;z-index: 4000;position: relative;}
+.sponsors-disclaimer {font-size: 15px;position: relative;}
 
 /* Home *******************/
 .content {padding: 0 4%;}
@@ -1658,8 +1648,6 @@ h1, h2, h3, h4, h5 {
 #pubfinderzipcontfoot .pubfinderform { width: 43%;}
 #pubfinderzipcontfoot .pubfinderformcont label {font-size: 15px;}
 #pubfinderzipcontfoot .pubfinderformcont label::after {font-size: 13px; margin-left: 27px;}
-/* head */
-.single .m-buymag-drop {left: 112px;top: 47px;}
 
 }/* end of media */
 
@@ -1674,7 +1662,7 @@ h1, h2, h3, h4, h5 {
 
 /* Single Articles *******************/
 .m-article {margin: 0 25%;}
-.m-top-ad {bottom: 0; right: 30px; width: 330px; height: 265px;text-align: center; padding-top: 0;}
+.m-top-ad {bottom: 0; right: 30px; width: 330px; height: 265px;text-align: center; padding-top: 15px;}
 .m-top-ad p {display: block; font: 10px/14px sans-serif; color: #aaaaaa;margin: 0;padding-top: 2px;}
 .m-article .m-hlep-grow {width: auto;}
 .m-article h1 {font-size: 45px;line-height: 52px;}
@@ -1698,7 +1686,7 @@ h1, h2, h3, h4, h5 {
 .main-header, .content, .sponsors-disclaimer {margin: 0 auto;max-width: 1442px;}
 
 /* Home *******************/
-.top-ad-home {margin: 0 0.5% 2.5%;padding-bottom: 1%;background-color: #333333;}
+.top-ad-home {margin: 0 0.5% 2.5%;padding-bottom: 1%; padding-top: 1.5%;background-color: #333333;}
 
 /* Single Articles *******************/
 .m-article {margin: 0 auto; width: 700px;}

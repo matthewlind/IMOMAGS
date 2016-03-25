@@ -14,7 +14,7 @@
 			parent_cat_slug	= ajax_object.parent_cat_slug;
 			dartDomain		= ajax_object.dart_domain;
 			
-			var ad_string	= '<p>ADVERTISMENT</p><iframe id="microsite-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-microsite.php?ad_code=' + dartDomain + '&term=' + parent_cat_slug + '">';
+			var ad_string	= '<iframe id="microsite-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-microsite.php?ad_code=' + dartDomain + '&term=' + parent_cat_slug + '">';
 		
 		/* If this is a category page.
 		------------------------------------------*/				
