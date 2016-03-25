@@ -1,5 +1,5 @@
 	var madnessround;
-	var bracket = 3;
+	var bracket = 5;
 	var popads = [];
 	
 	
@@ -23,20 +23,44 @@
 			
 			success: function(resp, status, jqxhr) {
 				madnessround = resp[0].activeround;
-				jQuery('#madtabs').tabs({active: (madnessround - 2)});
+				//jQuery('#madtabs').tabs({active: (madnessround - 3)});
+				
+				madtabs();
 			}
 
 		});	
 		
 				
 	});
-
+	
+	function madtabs() {
+		jQuery('.tabcontent').hide();
+		
+		jQuery('#madtabs a').on("click", function(e) {
+			e.preventDefault();
+			console.log(this.hash.substring(1));
+			jQuery('.rounds > li').removeClass("ui-tabs-selected");
+			jQuery(this).parent().addClass("ui-tabs-selected");
+			
+			jQuery('.tabcontent').hide();
+			jQuery('.'+this.hash.substring(1)+'.tabcontent').show();
+		})
+		
+		var activehash = "madtabs-"+(madnessround-1);
+		//console.log(activehash);	
+		jQuery('.tabcontent').hide();
+		//console.log(parseInt(madnessround-2));
+		jQuery('.rounds li:nth-child('+parseInt(madnessround-2)+')').addClass("ui-tabs-selected");
+		//console.log('.'+activehash+'.tabcontent');
+		jQuery('.'+activehash+'.tabcontent').show();
+	}
 
 	function closeInterstitial() {
 		jQuery('#popupAD').css('display', 'none');
 		jQuery('.next-matchup').hide();
 		jQuery('.filler').show();
 		jQuery('.mfp-close').css('display', 'block');
+		jQuery("#popupAD .popupad").remove();
 	}
 	
 	function getGAMData(region, round) {
@@ -53,12 +77,12 @@
 						var finaltwo = {};finaltwo[0] = resp.data[1];
 						var finall   = {};finall[0]   = resp.data[2];
 	
-						jQuery(".match155").html(writeGAMBracket(finalone));
-						jQuery(".match156").html(writeGAMBracket(finaltwo));
-						jQuery(".match157").html(writeGAMBracket(finall));
+						jQuery(".match217").html(writeGAMBracket(finalone));
+						jQuery(".match218").html(writeGAMBracket(finaltwo));
+						jQuery(".match219").html(writeGAMBracket(finall));
 					}
 					else {
-						jQuery("#madtabs-"+(parseInt(round)-1)+" .mreg"+region).html(writeGAMBracket(resp.data));
+						jQuery(".madtabs-"+(parseInt(round)-1)+" > .mreg"+region).html(writeGAMBracket(resp.data));
 					}
 				}
 				else {
@@ -67,9 +91,9 @@
 						var finaltwo = {};finaltwo[0] = resp.data[1];
 						var finall   = {};finall[0]   = resp.data[2];
 	
-						jQuery(".match155").html(writeGAMBracket(finalone));
-						jQuery(".match156").html(writeGAMBracket(finaltwo));
-						jQuery(".match157").html(writeGAMBracket(finall));
+						jQuery(".match217").html(writeGAMBracket(finalone));
+						jQuery(".match218").html(writeGAMBracket(finaltwo));
+						jQuery(".match219").html(writeGAMBracket(finall));
 						
 					}
 					else {
@@ -241,8 +265,8 @@
 			
 			
 			
-			var regions = {'1':'Handguns', '2':'Rifles', '3':'Handguns', '4':'Rifles'}
-			var roundtitles = {'2':'First Round', '3':'Second Round', '4':'Sweet Sixteen', '5':'Elite Eight', '6':'Final Four', '8':'Championship'}
+			var regions = {'1':'Compacts', '2':'1911s', '3':'Polymers', '4':'Bracket Busters'}
+			var roundtitles = {'3':'First Round', '4':'Sweet Sixteen', '5':'Elite Eight', '6':'Final Four', '8':'Championship'}
 			
 			var campaigns = new Array('handgunsmadness', 'riflesmadness', 'arsmadness', 'shotgunsmadness');
 			if(parseInt(pdata[0].region) == 5) {
@@ -295,9 +319,9 @@
 						popads[1] = 'GA-MAdness-popup-358x90-galco.jpg';
 						popads[2] = 'GA-MAdness-popup-358x90-laserlyte.jpg';
 						popads[3] = 'GA-MAdness-popup-358x90-pelican.jpg';
-						popads[4] = 'GA-MAdness-popup-358x90-winchester.jpg';
+						//popads[4] = 'GA-MAdness-popup-358x90-winchester.jpg';
 						
-						var randomInt = Math.floor(Math.random() * 5);
+						var randomInt = Math.floor(Math.random() * 4);
 						//console.log("Random Number= " + randomInt);
 						//var randomPopad = ;
 
@@ -372,8 +396,8 @@
 									
 									jQuery(".mfp-close").css("display", "none");
 									
-									//jQuery('#popupAD').html("Ad should be here<br /><div id='div-gpt-ad-1426097842267-0' style='width:300px; height:250px;'></div> <div class='close-ad' onclick='closeInterstitial();'>Go to the next matchup <span>&raquo;</span></div>");
-									
+									jQuery("#popupAD").prepend('<div id="div-gpt-ad-1426097842267-0" class="popupad" style="margin-bottom: 30px;"><iframe id="bracket-iframe-ad" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-bracket.php?ad_code=imo.bowhunting&bracket=battle_of_the_bows&size=div-gpt-ad-1426097842267-0"></iframe></div>');
+																		
 									setTimeout(function() {
 										jQuery(".next-matchup").show();
 										jQuery('.filler').hide();
@@ -464,7 +488,7 @@
 					var randomInt = Math.floor((Math.random() * 4) + 0);
 					var randomPopad = popads[randomInt];
 
-					var regions = {'1':'Handguns', '2':'Rifles', '3':'Handguns', '4':'Rifles'}
+					var regions = {'1':'Compacts', '2':'1911s', '3':'Polymers', '4':'Bracket Busters'}
 					var roundtitles = {'2':'First Round', '3':'Second Round', '4':'Sweet Sixteen', '5':'Elite Eight', '6':'Final Four', '8':'Championship'}
 					
 					var campaigns = new Array('handgunsmadness', 'riflesmadness', 'handgunsmadness', 'riflesmadness');
@@ -492,9 +516,9 @@
 								popads[1] = 'GA-MAdness-popup-358x90-galco.jpg';
 								popads[2] = 'GA-MAdness-popup-358x90-laserlyte.jpg';
 								popads[3] = 'GA-MAdness-popup-358x90-pelican.jpg';
-								popads[4] = 'GA-MAdness-popup-358x90-winchester.jpg';
+								//popads[4] = 'GA-MAdness-popup-358x90-winchester.jpg';
 								
-								var randomInt = Math.floor(Math.random() * 5);
+								var randomInt = Math.floor(Math.random() * 4);
 								console.log("Random Number= " + randomInt);
 						
 								campaign = campaigns[region-1];

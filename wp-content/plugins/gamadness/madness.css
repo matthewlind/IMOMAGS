@@ -1,7 +1,7 @@
 /***GA MADNESS ***/
 
 html, body { min-height: 100%; }
-.ga-madness ul.schedule{margin: 0 auto;display: block; max-width: 610px;}
+.ga-madness ul.schedule{margin: 0 auto;display: block; max-width: 516px;}
 .ga-madness ul.schedule li{
 	background: #e0e0e0;
 	color: #2d2d2d;
@@ -365,7 +365,6 @@ ul#ga-madness-nav li a:hover{
 	float: left;
 	width:300px;
 	height:120px;
-	background:  #4c3910;
 	color: white;
 	}
 
