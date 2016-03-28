@@ -24,7 +24,7 @@ function social_footer(){ ?>
 		<?php social_networks(); ?>
 	</div>
 <?php }
-
+/*
 add_action( 'wp_ajax_nopriv_cat-filter', 'trading_post_cat_posts' );
 add_action( 'wp_ajax_cat-filter', 'trading_post_cat_posts' );
 function trading_post_cat_posts () {
@@ -147,3 +147,4 @@ if(function_exists("register_field_group"))
 		'menu_order' => 0,
 	));
 }
+*/
