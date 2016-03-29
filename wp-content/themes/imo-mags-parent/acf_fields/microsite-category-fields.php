@@ -396,7 +396,7 @@ if(function_exists("register_field_group"))
 						'column_width' => '',
 						'default_value' => '',
 						'placeholder' => 'Try to make it not more than 156 chars. Limited to 200 chars',
-						'maxlength' => 200,
+						'maxlength' => 500,
 						'rows' => 3,
 						'formatting' => 'br',
 					),
