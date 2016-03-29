@@ -121,6 +121,7 @@
 		    </div>
 		</div><!-- end .m-footer-bottom -->
 	</footer>
+	</div><!-- .microsite-container -->
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/microsite-js/microsite-default.js"></script>
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/microsite-js/<?php echo $script_folder_name; ?>/script-<?php echo $cat_slug; ?>.js"></script>
 	<!--[if lt IE 9]><script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->

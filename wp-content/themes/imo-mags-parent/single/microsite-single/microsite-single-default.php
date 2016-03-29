@@ -21,17 +21,11 @@
 	$mag_online_store = get_field('mag_online_store', $term_cat_id);
 	$digital_edition_available = get_field('digital_edition_available', $term_cat_id);
 	$online_store_url = get_field('online_store_url', $term_cat_id);
-	$sponsors_disclaimer = get_field('sponsors_disclaimer', $term_cat_id);
 	$social_share_message = get_field('social_share_message', $term_cat_id);
 	
 	$today = date("Ymd"); 
 ?>
 
-<?php if( in_array( 'sponsors_disclaimer', get_field('additional_elements', $term_cat_id) ) ) { ?>
-<div class="sponsors-disclaimer">
-	<span><?php echo $sponsors_disclaimer; ?></span><!-- <button onclick="document.location.href = 'http://www.gunsandammo.artem/shoot101/#ammo'">Click me</button> -->
-</div>
-<?php } ?>
 
 <div class="m-article-wrap clearfix">
 	<?php if(mobile() == true) {
@@ -42,7 +36,6 @@
 		if($image_full[0]) { ?>
 			<div class="m-article-image" style="background-image: url('<?php echo $image_full[0]; ?>');">
 				<div class="m-top-ad">
-					<p>ADVERTISMENT</p>
 					<div><?php imo_ad_placement("microsite_ATF_300x250"); ?></div>	
 				</div>
 			</div>
