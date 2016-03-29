@@ -27,26 +27,6 @@ a:hover {
 	font-family:'Titillium Web', sans-serif;
 }
 
-
-/* ==========================================================================
-   5.0 Header
-   ========================================================================== */
-
-/* Main-nav */
-/*
-.main-nav ul li a {font-family: 'Titillium Web';}
-.main-nav > ul > li > a {font-family: 'Titillium Web';}
-.main-nav ul li:hover a {color: white;}
-.main-nav > ul li.menu-item-has-children ul li a {font-family: 'Titillium Web', sans-serif;}
-
-.social-buttons ul li {
-    margin-left: 18px;
-}
-.social-buttons ul li a:hover {
-	color: white;
-}
-*/
-
 /* ==========================================================================
    5.0 Home Page
    ========================================================================== */
@@ -192,6 +172,7 @@ a:hover {
 /* ==========================================================================
    8.0 Media Queries
    ========================================================================== */
+
 
 @media only screen and (min-width: 600px) {/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
 

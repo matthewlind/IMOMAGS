@@ -43,16 +43,13 @@ a:hover {
    5.0 Header
    ========================================================================== */
 
-.microsite-logo img {
-	width: 250px;
-	display: block;
-	padding: 28px 0 16px;
-	margin: 0 auto;
-}
 .nav-container {
 	border-bottom: 1px solid #333333;
 }
-
+.main-logo img {
+	height: 60%;
+	margin-top: 11px;
+}
 /* Main-nav */
 
 .main-nav ul li:hover a {color: #4785d5;}
@@ -218,7 +215,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6eaeea', end
 
 /* Header *******************/
 .main-nav {margin: 37px 0 0 20px;}
-
+.main-logo img {height: 100%;margin-top: 0;}
 .s-mag-buy h2 {font-size: 36px;}
 
 /* Single Article *******************/

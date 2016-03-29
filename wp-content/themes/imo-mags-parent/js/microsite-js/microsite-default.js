@@ -99,6 +99,8 @@
 	    if (st > lastScrollTop && st > navbarHeight){
 	        // Scroll Down
 	        head_wrap.removeClass('nav-down').addClass('nav-up');
+	        menu_drop.css("bottom", "200px");
+			nav_icon.removeClass('open');
 	    } else {
 	        // Scroll Up
 	        if(st + $(window).height() < $(document).height()) {
@@ -129,13 +131,6 @@
 		}
 		menu_toggle.data("clicks", !clicks);			
 	});	
-/*
-	menu_drop.mouseleave(function(){
-		if (nav_icon.hasClass('open')) {
-			h_drop.trigger("click");
-		}
-	});
-*/
 
 	// end NAVIGATION
 	
@@ -144,12 +139,14 @@
 	    stickyHead();
 	});
 	
+/* Don't delete this code. It will be used on the site redesign , to make the header away on scroll down and to appear on scroll up
 	setInterval(function() {
 	    if (didScroll) {
 	        hasScrolled();
 	        didScroll = false;
 	    }
 	}, 250);
+*/
 	
 
 	$( window ).resize(function() {
