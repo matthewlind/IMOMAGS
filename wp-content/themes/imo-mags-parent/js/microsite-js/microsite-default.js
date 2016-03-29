@@ -5,36 +5,9 @@
 	$document.ready(function() {
 		
 		$(".wpsocialite.small").remove();
-		var windowWidth 		= $(window).width(),
-			box1_width 			= $( ".post-box" ).eq(-1).width(),		
-			box2_width 			= $( ".post-box" ).eq(-2).width(),
-			box3_width 			= $( ".post-box" ).eq(-3).width(),
-			box_width_diff 		= Math.abs(box1_width - box2_width)
-			box_width_diff13 	= Math.abs(box1_width - box3_width),
-			box_width_diff23 	= Math.abs(box2_width - box3_width),
-			box_width_diff_real = box2_width - box1_width,
-			box_width_diff_real13 = box3_width - box1_width;
-			
-		function moveBox() {
-			if (box_width_diff > 50 && box_width_diff_real < 0) {
-				$( ".post-box" ).eq(-1).css("margin", "0 26%");
-			} else if (box_width_diff > 50 && box_width_diff_real > 0) {
-				$( ".post-box" ).eq(-1).css({"margin" : "0 34.5%"});
-			} else if ((box_width_diff < 50 || box_width_diff == 0) && box_width_diff13 > 50 && box_width_diff_real13 > 0) {
-				$( ".post-box" ).eq(-2).css({"margin" : "0 1% 0 17.7%"});
-			} else {
-				
-			}
-		}//end isBox
-			
-		if (windowWidth > 600) {
-			moveBox();
-		}
 			
 		// Simulate a hover with a touch in touch enabled browsers
 		$('body').bind('touchstart', function() {});
-		
-		
 		
 		// Buy magazine dorp down menu
 		var buyMagHeadLink 	= $("#head-subscribe"),	
@@ -138,6 +111,9 @@
 		var clicks = menu_toggle.data('clicks');
 		menu_drop.css("bottom", "200px");
 		nav_icon.removeClass('open');
+		$('body, html').animate({
+		    scrollTop: 0
+		}, 1000, "swing");
 		menu_toggle.data("clicks", !clicks);
 	})
 	// end NAVIGATION
