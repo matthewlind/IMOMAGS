@@ -152,6 +152,6 @@
  				get_template_part('header-content/header-content', 'microsites');
 		} 
 		else { 
-				get_template_part('header-content/header-content', 'default');
+				get_template_part('header-content/header-content', 'redesign');
 		} 
 	?>
