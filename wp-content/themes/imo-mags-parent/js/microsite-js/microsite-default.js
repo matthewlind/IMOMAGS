@@ -36,7 +36,7 @@
 		
 		
 		
-		// Main Nav, buy magazine dorp down menu
+		// Buy magazine dorp down menu
 		var buyMagHeadLink 	= $("#head-subscribe"),	
 			buyMag 			= $('li.buy-mag'),
 			buyMagLink 		= $('#head-bottom-subscribe'),
@@ -116,7 +116,8 @@
 		nav_icon	= $('#nav-icon3'),
 		menu_drop	= $('#menu_drop'),
 		sposors_dis	= $('.sponsors-disclaimer'),
-		menu_drop_ht= menu_drop.outerHeight() - 5;
+		menu_drop_ht	= menu_drop.outerHeight() - 5;
+		
 		
 	menu_toggle.click(function(){
 		var clicks = menu_toggle.data('clicks');
@@ -131,7 +132,14 @@
 		}
 		menu_toggle.data("clicks", !clicks);			
 	});	
-
+	
+	var stories_links = $(".all-stories .sub-menu a");
+	stories_links.click(function(){
+		var clicks = menu_toggle.data('clicks');
+		menu_drop.css("bottom", "200px");
+		nav_icon.removeClass('open');
+		menu_toggle.data("clicks", !clicks);
+	})
 	// end NAVIGATION
 	
 	$document.scroll(function() {
@@ -139,7 +147,7 @@
 	    stickyHead();
 	});
 	
-/* Don't delete this code. It will be used on the site redesign , to make the header away on scroll down and to appear on scroll up
+/* Don't delete this code. It will be used on the site redesign , to make the header go away on scroll down and to appear on scroll up
 	setInterval(function() {
 	    if (didScroll) {
 	        hasScrolled();
