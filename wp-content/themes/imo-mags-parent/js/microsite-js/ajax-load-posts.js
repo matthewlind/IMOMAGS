@@ -60,11 +60,6 @@
 				e.preventDefault();
 				var d = $(this),
 					data_cat_slug	= d.data("cat"),
-					feat_container	= $(".p-feat-container"),
-					reg_post_wrap	= $("#reg_post_wrap"),
-					feat_message	= $(".featured-message"),
-					feat_posts		= $(".feat-post"),
-					top_ad_home		= $(".top-ad-home");
 					url				= window.location.href,
 				    separator 		= "#",
 				    newParam		= separator + data_cat_slug;
@@ -80,11 +75,7 @@
 					'parent_cat_slug': parent_cat_slug
 				};
 				jQuery.post(ajax_object.ajax_url, data, function(response) {
-					//top_ad_home.hide().appendTo(".posts-wrap");
- 					top_ad_home.remove();
-					feat_container.remove();
-					feat_message.remove();
-					reg_post_wrap.remove();
+					posts_wrap.empty();
 					posts_wrap.prepend(response);
 									
 					var feat_posts_after = $(".feat-post"),
@@ -103,7 +94,7 @@
 				var d = $(this),
 					data_child_cat_slug = d.data("cat-load"),
 					loader_anim			= $('.load-btn .loader-anim'),
-					reg_post_count		= $(".reg-post").length,
+					reg_post_count		= $(".link-box").length,
 					load_more_reg		= $("#load_more_reg");
 					
 				loader_anim.removeClass('display-none');

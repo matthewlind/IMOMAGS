@@ -172,7 +172,7 @@ function load_more_m_posts() {
 			$image_id = get_post_meta(get_the_ID(),"image", true);
 			$image = wp_get_attachment_image_src($image_id, "large");
 	?>
-	<a class="link-box reg-post" href="<?php the_permalink(); ?>">	
+	<a class="link-box" href="<?php the_permalink(); ?>">	
 		<div class="post-box" style="background-image: url('<?php echo $image[0]; ?>')"></div>
 	</a>
 <?php		
