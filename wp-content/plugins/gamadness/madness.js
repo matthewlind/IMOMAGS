@@ -214,7 +214,7 @@
 		jQuery('#captchaWrapper').css("display","block");
 		jQuery('#faded').css("display","block");
 		var scroll = jQuery(window).scrollTop();
-		jQuery('#captchaWrapper').css('margin-top',scroll);
+		jQuery('#captchaWrapper').css('margin-top',scroll-250);
 				
 		jQuery("#proceed").on("click", function() {
 			jQuery.ajax({

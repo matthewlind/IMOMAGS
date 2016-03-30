@@ -331,7 +331,7 @@ function jsGAMRender($mobile) {
 	$outp.= '<ul class="schedule">'
 		 .  '  <li class="'.(($madnessround==3)? "active-round":"").'">1st Round<div>March 15-22</div></li>'
 		 .  '  <li class="'.(($madnessround==4)? "active-round":"").'">Sweet 16<div>March 22-29</div></li>'
-		 .  '  <li class="'.(($madnessround==5)? "active-round":"").'">Elite 8<div>March 29 - April 1-4</div></li>'
+		 .  '  <li class="'.(($madnessround==5)? "active-round":"").'">Elite 8<div>March 29 - April 4</div></li>'
 		 .  '  <li class="'.(($madnessround==6)? "active-round":"").'">Final Four<div>April 4-7</div></li>'
 		 .  '  <li class="'.(($madnessround==8)? "active-round":"").'">Final Round<div>April 7-11</div></li>'
 		 .  '</ul>'
