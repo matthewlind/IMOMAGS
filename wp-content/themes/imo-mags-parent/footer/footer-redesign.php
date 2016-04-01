@@ -2,12 +2,13 @@
 
 _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.0', null, sprintf( __('Please include a %1$s template in your theme.'), basename(__FILE__) ) );
 ?>
-			</main><!-- #main -->
+			</div><!-- #main -->
 			<div class="content-banner-section footer-728">
 	        	<div class="mdl-banner">
 					 <?php imo_ad_placement("728_btf"); ?>
 				</div>
 			</div>
+		</div><!-- .layout-frame -->
 
 		<div id="footer" class="footer" role="contentinfo">
 
@@ -83,7 +84,8 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 		        </div>
 
 			</div><!-- #footer -->
-	</div><!-- .wrapper -->
+		</div><!-- .wrapper -->
+	</div><!-- #page -->
 	<?php if( get_field("display_survey","options") == true ){ ?><div id="imo-modal"><a class="modal-close" href="javascript:void(0);" title="Collapse bottom bar"><img src="/wp-content/themes/imo-mags-parent/images/ico/close_icon_small.png" alt="Collapse bottom bar"></a><a target="_blank" href="<?php echo get_field("survey_url","options"); ?>"><img class="survey-img" src="<?php echo get_field("survey_image","options"); ?>" alt="survey" title="Survey" /></a></div><?php } ?>
 
 
@@ -99,8 +101,12 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/plugins/Smart-jQuery-Brightcove-Video-Plugin/jquery.brightcove-video.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/video-portal.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/script.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/redesign/redesign-default.js"></script>
     <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/script.js"></script>
+    
+    
+    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/redesign/redesign-script.js"></script>
+    
+    
     <link rel="STYLESHEET" type="text/css" href="<?php bloginfo('template_directory'); ?>/js/plugins/flexslider/flexslider.css">
     <link rel="STYLESHEET" type="text/css" href="<?php bloginfo('template_directory'); ?>/js/plugins/ezmark/css/ezmark.css">
 	<!--[if lt IE 9]><script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->

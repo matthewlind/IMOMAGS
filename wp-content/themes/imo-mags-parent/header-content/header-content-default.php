@@ -271,7 +271,7 @@
                         'walker'=> new AddParentClass_Walker()
                     ));   ?>
                 <!-- #access -->
-        </div><!-- #branding -->
+				</div><!-- #branding -->
 		<?php if(get_field("full_width") != true){ ?>
 	        <div class="content-banner-section">
 	        	<div class="mob-mdl-banner">
