@@ -179,7 +179,7 @@ function load_more_m_posts() {
 		}
 	} else { ?>
 		<script>
-			jQuery('#load_more_reg a').text('No more posts').css("color", "#999999"); 
+			jQuery('#load_more_reg a').text('No more stories').css("color", "#999999"); 
 			jQuery('#load_more_reg').removeAttr("id");
 		</script>
 <?php	}

@@ -1615,17 +1615,14 @@ h1, h2, h3, h4, h5 {
 
 @media only screen and (min-width: 1450px) {/* large desktops */
 
-.menu-drop {
-/*     padding: 25px 0 0; */
-    margin: 0 auto;
-    right: 0;
-}
+/* Header *******************/
+.menu-drop {right: 0;}
 
-/* Home *******************/
 .main-header, .content, .sponsors-disclaimer, .s-footer, .head-inner, .menu-drop {
     margin: 0 auto;
     max-width: 1442px;
-}	
+}
+.top-ad-home {padding: 30px 0;}	
 }/* end of media */
 
 /*----------------------------------------------------------
