@@ -158,10 +158,10 @@ var h = window.innerHeight;
    	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [240, 60], 'sponsor').addService(googletag.pubads());
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [2, 2], 'native').addService(googletag.pubads());
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [564, 252], 'e_commerce_widget').addService(googletag.pubads());
-	googletag.defineSlot('/4930/imo.floridasportsman', [2, 2], 'standard_native').addService(googletag.pubads());
-	googletag.defineSlot('/4930/imo.floridasportsman', [2, 3], 'vide_native').addService(googletag.pubads());
-	googletag.defineSlot('/4930/imo.floridasportsman', [2, 4], 'collection_native').addService(googletag.pubads());
-	googletag.defineOutOfPageSlot('/4930/imo.floridasportsman','interstitial').addService(googletag.pubads());
+	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [2, 2], 'standard_native').addService(googletag.pubads());
+	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [2, 3], 'vide_native').addService(googletag.pubads());
+	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [2, 4], 'collection_native').addService(googletag.pubads());
+	googletag.defineOutOfPageSlot('/4930/<?php echo $dartDomain; ?>','interstitial').addService(googletag.pubads());
 	
 	<?php if($microsite){ ?>
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], 'microsite_ATF_300x250').addService(googletag.pubads().setTargeting('sect', ['micro_atf']));
