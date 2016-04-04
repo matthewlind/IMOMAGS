@@ -351,8 +351,8 @@ function jsGAMRender($mobile) {
 		 .  '  <div class="final-wrapper">'
 		 .  '    <h2>Final Round</h2>'
 		 .  '    <div class="column column5 match217"></div>'
-		 .  '    <div class="column column6 match218" style="padding-top:20px;"></div>'
-		 .  '    <div class="column column7 match219"></div>'
+		 .  '    <div class="column column6 match219" style="padding-top:20px;"></div>'
+		 .  '    <div class="column column7 match218"></div>'
 		 .  '  </div>'		 
 		 .  '</div>';
 	}
@@ -392,7 +392,7 @@ function jsGAMRender($mobile) {
 		 .	'  <div class="column column4"></div>'
 		 .  '</div>';
 
-	if($madnessround < 6) {		 
+	if($madnessround < 8) {		 
 	$outp.= '<div class="regions region-final">'
 		 .  '<div class="finalsadvert" style="margin-top:0px;">'
 		 .	'	<div id="presenting" >'
@@ -404,8 +404,8 @@ function jsGAMRender($mobile) {
 		 .  '  <div class="final-wrapper">'
 		 .  '    <h2>Final Round</h2>'
 		 .  '    <div class="column column5 match217"></div>'
-		 .  '    <div class="column column6 match218"></div>'
-		 .  '    <div class="column column7 match219"></div>'
+		 .  '    <div class="column column6 match219"></div>'
+		 .  '    <div class="column column7 match218"></div>'
 		 .  '  </div>'		 
 		 .  '</div>';
 	}
