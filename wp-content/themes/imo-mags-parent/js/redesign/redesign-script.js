@@ -100,13 +100,29 @@
 		var clicks = menu_toggle.data('clicks');
 		if (clicks) {
 			// even clicks
+/*
+			menu.animate({
+				bottom : "100%"
+			}, 800);
+*/
 			body.removeClass('menu-open');
-			menu.css("bottom", "100%");
+			menu.removeClass('menu-down');
+			
+			//menu.css("bottom", "100%");
+			
+			
 			nav_icon.removeClass('open');
 		} else {
 			// odd clicks
+/*
+			menu.animate({
+				bottom : 0
+			}, 800);
+*/
 			body.addClass('menu-open');
-			menu.css("bottom", "0");
+			
+			menu.addClass('menu-down');
+// 			menu.css("bottom", "0");
 			nav_icon.addClass('open');
 		}
 		menu_toggle.data("clicks", !clicks);			
