@@ -1,17 +1,9 @@
-<?php
-
-_deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.0', null, sprintf( __('Please include a %1$s template in your theme.'), basename(__FILE__) ) );
-?>
-			</div><!-- #main -->
 			<div class="content-banner-section footer-728">
 	        	<div class="mdl-banner">
 					 <?php imo_ad_placement("728_btf"); ?>
 				</div>
 			</div>
-		</div><!-- .layout-frame -->
-
-		<div id="footer" class="footer" role="contentinfo">
-
+			<footer id="footer" class="footer" role="contentinfo">
 		        <div class="intermedia">
 		            <div class="frame">
 		                <h4>Outdoor Sportsman Group Network</h4>
@@ -82,41 +74,9 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 		                <p>&copy; <?php echo date("Y"); ?> Outdoor Sportsman Group. All Rights Reserved</p>
 		            </div>
 		        </div>
-
-			</div><!-- #footer -->
-		</div><!-- .wrapper -->
-	</div><!-- #page -->
-	<?php if( get_field("display_survey","options") == true ){ ?><div id="imo-modal"><a class="modal-close" href="javascript:void(0);" title="Collapse bottom bar"><img src="/wp-content/themes/imo-mags-parent/images/ico/close_icon_small.png" alt="Collapse bottom bar"></a><a target="_blank" href="<?php echo get_field("survey_url","options"); ?>"><img class="survey-img" src="<?php echo get_field("survey_image","options"); ?>" alt="survey" title="Survey" /></a></div><?php } ?>
-
-
-    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery.tipTip.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery.cookie.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/breakpoints.js"></script>
-	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/plugins/flexslider/jquery.flexslider.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/plugins/ezmark/js/jquery.ezmark.min.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/plugins/classie.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/helper.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/plugins/jquery.placeholder.min.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/plugins/jquery.touchSwipe.min.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/plugins/Smart-jQuery-Brightcove-Video-Plugin/jquery.brightcove-video.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/video-portal.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/script.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/script.js"></script>
-    
-    
+			</footer><!-- #footer -->
+		</div><!-- .wrapper -->	
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/redesign/redesign-script.js"></script>
-    
-    
-    <link rel="STYLESHEET" type="text/css" href="<?php bloginfo('template_directory'); ?>/js/plugins/flexslider/flexslider.css">
-    <link rel="STYLESHEET" type="text/css" href="<?php bloginfo('template_directory'); ?>/js/plugins/ezmark/css/ezmark.css">
-	<!--[if lt IE 9]><script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->
-
 	<?php wp_footer(); ?>
-	<?php if(get_field("scroll_tracking","options")){ ?>
-	<script src="<?php bloginfo('template_directory'); ?>/js/jquery.scrolldepth.js"></script>
-	<script>
-		jQuery.scrollDepth();
-	</script>
-	<?php } ?>
 	</body>
 </html>

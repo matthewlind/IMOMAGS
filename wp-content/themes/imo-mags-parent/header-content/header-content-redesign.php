@@ -24,9 +24,7 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 
-
-<div class="hfeed wrapper <?php if(get_field("full_width") == true){ echo ' full-width full-content'; }else if( is_page_template('show-page.php') || is_category("tv") || is_category("show-galleries") || (is_single() && (has_post_format( 'video' ) || in_category("show-galleries")) ) ){ echo ' tv-show full-content'; } ?>" data-role="content" role="main">
-	
+<div class="wrapper">	
 
 
 
@@ -176,15 +174,6 @@
 		</div>
 	</div>
 </header>
-
-
-
-
-
-
-
-
-	
 <?php if(get_field("full_width") != true){ ?>
     <div class="content-banner-section">
     	<div class="mob-mdl-banner">
@@ -198,4 +187,3 @@
 		</div>
     </div>
 <?php } ?>
-<main id="main" class="main clearfix js-responsive-layout">

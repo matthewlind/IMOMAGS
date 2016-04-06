@@ -1,79 +1,79 @@
 <?php
-get_header('redesign');
-if(get_field('featured_stories')){
-	$features = get_field('featured_stories'); 
-}else{
-	$features = get_field('article_featured_stories','options' ); 
-}
+	get_header('redesign');
+	global $post;
+	
+	$post_id	= $post->ID;
+	$author_id	= $post->post_author;
+	
+	$author 	= get_the_author();
+	
+	$byline 	= get_post_meta($post_id, 'ecpt_byline', true);
+	$acf_byline = get_field("byline", $post_id);
+	
+	// POST CATEGORIES
+	$post_categories = wp_get_post_categories( $post_id );
+	$cat_list = '';
+	foreach($post_categories as $c){
+	    $cat = get_category( $c );
+	    $cat_url = get_category_link( $c );			    
+	    $cat_list .= "<a href='".  $cat_url . "'>" . $cat->name . "</a>";
+	}
+	
+	
+	
+	
+?>
 
-$day = get_field("day", "options");
-$end_time = get_field("air_time", "options");
-
-date_default_timezone_set('US/Eastern');
-$currenttime = date('Hi');
-  
-if(date("l") == $day && $current_time < $end_time && get_field("display_widget","options" == true)){
-	the_widget("TuneIn_Widget");
-}else{ ?>
-	<div class="special-features">
-		<ul>
-			<li class="home-featured features">
-				<div class="arrow-right"></div>
-				<div class="feat-post">
-		        	<div class="feat-text">
-		        	<h3>
-			        	<?php if(get_field('featured_stories_title')){
-			        		echo get_field("featured_stories_title"); 
-		        		}else if(get_field("featured_title","options")){ 
-		        			echo get_field("featured_title","options"); 
-		        		} ?>
-		        	</h3>
-		            </div>
-		        </div>
-			</li>
-			<?php if( $features ){
-				foreach( $features as $feature ): 
-				
-					if(get_field("promo_title",$feature->ID)){
-				    	$title = get_field("promo_title",$feature->ID);
-					}else{
-				    	$title = $feature->post_title;
+<main class="main-single">
+	<article class="article">
+		<header class="article-header">
+			<div class="post-cats">
+				<?php echo $cat_list; ?>
+			</div>
+			<h1><?php the_title(); ?></h1>
+			<div class="byline">
+				<span>
+<?php 				if (!$acf_byline) { 
+						if ($author != 'admin') echo 'by&nbsp;' . $author . '&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;';
+					} else {
+						echo $acf_byline . '&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;';
 					} 
-						
-					$url = $feature->guid;
-			    	$tracking = "_gaq.push(['_trackEvent','Special Features Article','$title','$url']);";
-					$thumb = get_the_post_thumbnail($feature->ID,"list-thumb"); ?>
-			    	<li class='home-featured'>
-			            <div class='feat-post'>
-			                <div class='feat-text'>
-			                    <h3><a href='<?php echo $url; ?>' onclick='<?php echo $tracking; ?>'><?php echo $title ?></a></h3>
-			                </div>
-			            </div>
-			        </li>
-			    <?php endforeach; ?>
-		<?php } ?>
-		</ul>
-</div>
-<?php } ?>
-    <div class="inner-main">
-    	<?php imo_sidebar(); ?>
-		<div id="primary" class="general">
-            <div id="content" class="general-frame" role="main">
+					the_time('F jS, Y'); 
+?>				</span>
+			</div>
+			<div class="social-single">
+				<ul>
+					<li><a href=""><i class="icon-facebook"></i></a></li>
+					<li><a href=""><i class="icon-twitter"></i></a></li>
+					<li><a href=""><i class="icon-envelope"></i></a></li>
+				</ul>
+			</div>
+		</header>
+		<div class="article-body">
+<?php		$content 	= apply_filters('the_content', $post->post_content);
+			$add_p		= get_field('add_p', $post_id); if (!$add_p) $add_p = 0;
+			$contents = explode("</p>", $content);
+			$p_counter = 0;
+			foreach($contents as $content){
+			    echo $content.'</p>';
+			   
+			    if($p_counter == 5){ ?>
+			   
+					<div class="alignright-content m-buy-wrap"> 
+			    		blblbbblaalbalbal blabalbDLGSGJGDSGSG SGSGSJG
+			    	</div>
 
-                <?php while ( have_posts() ) : the_post(); ?>
-                    <?php get_template_part( 'content/content-single', get_post_format() ); ?>
+<?php 			}	
 
-                    <div id="comments" class="post-comments-area">
-                        <?php comments_template( '', true ); ?>
-                    </div>
+			    $p_counter++;
+			    $current_p = $p_counter - ($add_p);
+			}
+			
+?>		</div>
+	</article>
+</main>
 
-                    <div class="hr"></div>
-                    <?php social_footer(); ?>
-					<a href="#" class="back-top jq-go-top">back to top</a>
-                <?php endwhile; // end of the loop. ?>
 
-            </div><!-- #content -->
-        </div><!-- #primary -->
 
-    </div>
+
 <?php get_footer('redesign'); ?>

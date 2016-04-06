@@ -94,7 +94,7 @@
 	2.1 WordPress Core
 ----------------------------------------------------------*/
 
-.alignnone{margin:5px 20px 20px 0}.aligncenter,div.aligncenter{display:block;margin:5px auto}.alignright{float:right;margin:5px 0 20px 20px}.alignleft{float:left;margin:5px 20px 20px 0}a img.alignright{float:right;margin:5px 0 20px 20px}a img.alignleft,a img.alignnone{margin:5px 20px 20px 0}a img.alignleft{float:left}a img.aligncenter{display:block;margin-left:auto;margin-right:auto}.wp-caption{max-width:100%;width:100%;text-align:left}.m-article .aligncenter,.m-article .alignleft,.m-article .alignnone,.m-article .alignright{display:block;margin:5px auto;float:none;max-width:100%;height:auto}.wp-caption img{border:0;height:auto;margin:0;max-width:100%;padding:0;width:auto}.wp-caption p.wp-caption-text{position:relative;font-size:13px;line-height:17px;margin:0;padding:3px 10px 10px;border-bottom:2px solid #bb9632;font-family:'Open Sans',sans-serif;width:100%}.screen-reader-text{clip:rect(1px,1px,1px,1px);position:absolute!important;height:1px;width:1px;overflow:hidden}.screen-reader-text:focus{background-color:#f1f1f1;border-radius:3px;box-shadow:0 0 2px 2px rgba(0,0,0,.6);clip:auto!important;color:#21759b;display:block;font-size:14px;font-size:.875rem;font-weight:700;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}
+/* .alignnone{margin:5px 20px 20px 0}.aligncenter,div.aligncenter{display:block;margin:5px auto}.alignright{float:right;margin:5px 0 20px 20px}.alignleft{float:left;margin:5px 20px 20px 0}a img.alignright{float:right;margin:5px 0 20px 20px}a img.alignleft,a img.alignnone{margin:5px 20px 20px 0}a img.alignleft{float:left}a img.aligncenter{display:block;margin-left:auto;margin-right:auto}.wp-caption{max-width:100%;width:100%;text-align:left}.m-article .aligncenter,.m-article .alignleft,.m-article .alignnone,.m-article .alignright{display:block;margin:5px auto;float:none;max-width:100%;height:auto}.wp-caption img{border:0;height:auto;margin:0;max-width:100%;padding:0;width:auto}.wp-caption p.wp-caption-text{position:relative;font-size:13px;line-height:17px;margin:0;padding:3px 10px 10px;border-bottom:2px solid #bb9632;font-family:'Open Sans',sans-serif;width:100%}.screen-reader-text{clip:rect(1px,1px,1px,1px);position:absolute!important;height:1px;width:1px;overflow:hidden}.screen-reader-text:focus{background-color:#f1f1f1;border-radius:3px;box-shadow:0 0 2px 2px rgba(0,0,0,.6);clip:auto!important;color:#21759b;display:block;font-size:14px;font-size:.875rem;font-weight:700;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000} */
 
 
 /*----------------------------------------------------------
@@ -157,10 +157,12 @@
 html, body {
 	height: 100%;
 	background-color: #fff;
+	
 }
 body {
 	width: 100%;
 	font-family: 'Open Sans', sans-serif;
+/* 	overflow-x: hidden; */
 }
 /*
 .microsite-container {
@@ -170,9 +172,9 @@ body {
 a, a:hover, a:active, label:focus, label:active, i:hover {
 	outline: none;
 	text-decoration: none;
-	-webkit-transition:color 0.1s;
-	-moz-transition:color 0.1s;
-	transition:color 0.1s;
+	-webkit-transition:color 0.3s;
+	-moz-transition:color 0.3s;
+	transition:color 0.3s;
 }
 /*
 h1, h2, h3, h4, h5 { 
@@ -411,7 +413,7 @@ nav {
 	color: #444;
 }
 .menu-content .menu a:hover {
-	color: #666;
+	color: #e66007;
 }
 .menu-content .menu > li > a {
 	font-weight: 900;
@@ -427,12 +429,6 @@ nav {
 	background-color: #252525;
 }
 .menu-close {
-/*
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-*/
 	height: 45px;
 	border-top: 1px solid #ececec;
 	background-color: #fff;
@@ -440,6 +436,9 @@ nav {
 	text-align: center;
 	cursor: pointer;
 	color: #666;
+}
+.menu-close:hover {
+	background-color: #fafafa;
 }
 .menu-close:hover i,
 .menu-close:hover span {
@@ -486,6 +485,13 @@ nav {
 	text-transform: uppercase;
 	height: 40px;
 	padding: 0 10px;
+	-webkit-transition:all 0.4s ease;
+	-moz-transition:all 0.4s ease;
+	-o-transition:all 0.4s ease;
+	transition:all 0.4s ease;
+}
+.newsletter fieldset input:last-child:hover {
+	background-color: #ff8309;
 }
 
 /*----------------------------------------------------------
@@ -816,11 +822,11 @@ nav {
 .head-left > div {float: left;}
 .main-logo {position: static;width: auto;left: auto;right: auto;top: auto;bottom: auto;margin: 14px 0 0;text-align: left;height: 31px;}
 .nav-btn {height: 36px;margin: 11px 5px 0 35px;padding: 0 23px; border-right: 1px solid #fff; border-left: 1px solid #fff;}
-.nav-btn:hover #nav-icon3 > span {background: #ddd;}
+.nav-btn:hover #nav-icon3 > span {background: #eee;}
 #nav-icon3, .menu-head-span {display: inline-block;vertical-align: middle;vertical-align: -webkit-baseline-middle;vertical-align: -moz-middle-with-baseline;}
 #nav-icon3 {margin-right: 10px;}
 .menu-head-span {color: #fff;-webkit-transition: .25s ease-in-out;-moz-transition: .25s ease-in-out;-o-transition: .25s ease-in-out;transition: .25s ease-in-out;}
-.nav-btn:hover .menu-head-span {color: #ddd;-webkit-transition: .25s ease-in-out;-moz-transition: .25s ease-in-out;-o-transition: .25s ease-in-out;transition: .25s ease-in-out;}
+.nav-btn:hover .menu-head-span {color: #eee;-webkit-transition: .25s ease-in-out;-moz-transition: .25s ease-in-out;-o-transition: .25s ease-in-out;transition: .25s ease-in-out;}
 .head-search {margin: 13px 0 0 10px;}
 .head-right {display: block;float: right;height: 36px;width: 50%;margin-top: 11px;}
 .head-right > div {float: right;}
@@ -831,10 +837,12 @@ nav {
 .head-social ul li:nth-of-type a {font-size: 22px;}
 .head-social ul li:last-child a {font-size: 24px;}
 .head-subscribe {position: relative;border: 3px solid #fff;border-radius: 2px;padding: 0 39px 0 10px;height: 36px;width: auto;margin-left: 20px; margin-top: 0;cursor: pointer;}
+.head-subscribe:hover {border-color: #eee;}
 .head-subscribe > span {line-height: 28px;}
-.head-subscribe:hover > span {color: #ddd;}
+.head-subscribe:hover > span {color: #eee;}
 .head-subscribe > i {position: absolute;right: -2px;top: 0;height: 32px;width: 28px;background-color: #fff;display: block;color: #252525;line-height: 30px;}
 .m-buymag-drop {bottom: auto;top: 42px;right: -3px;}
+.head-subscribe:hover > i {background-color: #eee;}
 .head-mag-cover {margin: -23px -15px 0 15px;width: 80px;}
 .head-mag-cover img {width: 100%;}
 .head-bottom {display: none;}

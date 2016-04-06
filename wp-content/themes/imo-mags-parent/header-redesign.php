@@ -28,7 +28,8 @@
 	<!-- DEFAULTS ************************************************** -->
 	
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
-	<meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+<!-- 	<meta name="viewport" content="initial-scale=1, maximum-scale=1" /> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="x-ua-compatible" content="IE=edge" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
@@ -64,26 +65,26 @@
 	
 	<!-- STYLES ************************************************** -->
 	
-	<?php	
+<?php	
 	if ( $microsite){ 
 		include('css/styles-microsites.php');
-	} 	else { 
-			if (is_category("tv") || in_category("tv") || is_page_template( "show-page.php" )) { ?>
+	} else { 
+		if (is_category("tv") || in_category("tv") || is_page_template( "show-page.php" )) { ?>
 				<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' );?>/css/category-tv.css" />
-	<?php	} // end if if (is_category("tv") ?>	
+<?php 	} // end if if (is_category("tv") ?>	
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
-		<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-		<!-- Font Awsome Icons -->
-		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">	
-	<?php		
+<?php		
 
 	} // end else
 	
+	if (is_single()) { ?>
+		
+		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' );?>/css/redesign/single.css" />
+<?php	}
+	
 	wp_enqueue_script("jquery");
     wp_head();
-    ?>
+?>
     
     
     <!-- HEAD INCLUDES ************************************************** -->
@@ -120,25 +121,7 @@
 
 
 <script src="<?php echo get_template_directory_uri(); ?>/js/dart.js" type="text/javascript"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.jfollow.js" type="text/javascript"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/js/flash_heed.js" type="text/javascript"></script>
-<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/snap.js"></script>
-<!-- Begin comScore Tag -->
-<script>
-  var _comscore = _comscore || [];
-  _comscore.push({ c1: "2", c2: "8031814" });
-  (function() {
-    var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
-    s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
-    el.parentNode.insertBefore(s, el);
-  })();
-</script>
-<noscript>
-  <img src="http://b.scorecardresearch.com/p?c1=2&c2=8031814&cv=2.0&cj=1" />
-</noscript>
-<!-- End comScore Tag -->
- 
-<script type='text/javascript' src='http://ads.jetpackdigital.com/sites/<?php print JETPACK_SITE; ?>/jpd.js'></script>
+
 </head>
 
 
