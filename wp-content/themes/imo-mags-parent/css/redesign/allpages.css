@@ -164,6 +164,9 @@ body {
 	font-family: 'Open Sans', sans-serif;
 /* 	overflow-x: hidden; */
 }
+.wrapper {
+	overflow-x: hidden;
+}
 /*
 .microsite-container {
 	overflow-x: hidden;
@@ -494,9 +497,17 @@ nav {
 	background-color: #ff8309;
 }
 
+/* CONTENT BANNER SECTION */
+.content-banner-section {
+	text-align: center;
+}
+.content-banner-section > div {
+	display: inline-block;
+}
+
 /*----------------------------------------------------------
    7.0 Zip code finder
-   ----------------------------------------------------------*/
+----------------------------------------------------------*/
 
 /* single article content area **************/
 .single .pubfinderzipgo {
@@ -789,25 +800,20 @@ nav {
 .menu-footer {padding: 20px 4%;}
 .menu-footer h3 {font-size: 24px;}
 .menu-footer p {font-size: 14px; margin-top: 10px;}
-.newsletter fieldset input:first-child {
-	width: 220px;
-	padding: 0 10px;
-	line-height: 38px;
-}
-.newsletter fieldset input:last-child {
-	margin-left: 20px;
-	font-size: 14px;
-	padding: 0 20px;
-}
+.newsletter fieldset input:first-child {width: 220px;padding: 0 10px;line-height: 38px;}
+.newsletter fieldset input:last-child {margin-left: 20px;font-size: 14px;padding: 0 20px;}
 
-
+/* Content Banner Section */
+.content-banner-section {background-color: #f0f0f0;border-bottom: 1px solid #ddd;padding: 27px 0 20px;}
+.content-banner-section .mob-mdl-banner {display: none;}
 
 }/* end of media */
 
 @media only screen and (min-width: 700px) {
 
 /* Header *******************/
-.sponsors-disclaimer {text-align: center;font-size: 16px;}		
+.sponsors-disclaimer {text-align: center;font-size: 16px;}	
+	
 
 
 }/* end of media */

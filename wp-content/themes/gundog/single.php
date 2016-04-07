@@ -19,9 +19,6 @@
 	    $cat_list .= "<a href='".  $cat_url . "'>" . $cat->name . "</a>";
 	}
 	
-	
-	
-	
 ?>
 
 <main class="main-single">
@@ -43,9 +40,9 @@
 			</div>
 			<div class="social-single">
 				<ul>
-					<li><a href=""><i class="icon-facebook"></i></a></li>
-					<li><a href=""><i class="icon-twitter"></i></a></li>
-					<li><a href=""><i class="icon-envelope"></i></a></li>
+					<li><a href=""><i class="icon-facebook"></i><span>Share</span></a></li>
+					<li><a href=""><i class="icon-twitter"></i><span>Tweet</span></a></li>
+					<li><a href=""><i class="icon-envelope"></i><span>Email</span></a></li>
 				</ul>
 			</div>
 		</header>
@@ -56,10 +53,16 @@
 			$p_counter = 0;
 			foreach($contents as $content){
 			    echo $content.'</p>';
+			    
+			    if ($p_counter == 1) { ?>
+				    <div class="sticky-ad">
+					    <div class="sticky-ad-inner"></div>
+				    </div>
+<?php			}
 			   
-			    if($p_counter == 5){ ?>
+			    if ($current_p == 5){ ?>
 			   
-					<div class="alignright-content m-buy-wrap"> 
+					<div> 
 			    		blblbbblaalbalbal blabalbDLGSGJGDSGSG SGSGSJG
 			    	</div>
 

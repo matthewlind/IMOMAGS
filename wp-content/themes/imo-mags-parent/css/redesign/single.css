@@ -1,5 +1,5 @@
 .article {
-	padding: 20px 16px;
+	padding: 20px 5%;
 }
 .post-cats a {
 	display: inline-block;
@@ -21,7 +21,7 @@
 }
 .article-header > h1 {
 	margin: 0.4em 0;
-	font-size: 26px;
+	font-size: 28px;
 }
 .byline {
 	margin-bottom: 15px;
@@ -58,6 +58,9 @@
 .social-single ul i {
 	line-height: 45px;
 	font-size: 20px;
+}
+.social-single ul span {
+	display: none;
 }
 
 /*---------------------------------------------- */
@@ -104,12 +107,6 @@ a img.aligncenter {
     margin-right: auto
 }
 
-.wp-caption {
-    background: #fff;
-    max-width: 100%; /* Image does not overflow the content area */
-    text-align: center;
-    margin: 0 -16px;
-}
 
 .wp-caption.alignnone {
     margin: 5px 20px 20px 0;
@@ -123,20 +120,19 @@ a img.aligncenter {
     margin: 5px 0 20px 20px;
 }
 
-.wp-caption img {
+.article-body .wp-caption img {
     border: 0 none;
     height: auto;
     margin: 0;
-    max-width: 100%;
+    width: 100%;
     padding: 0;
-    width: auto;
 }
 
 .wp-caption p.wp-caption-text {
-    font-size: 11px;
+    font-size: 13px;
     line-height: 17px;
     margin: 0;
-    padding: 0 4px 5px;
+    padding: 4px 15px 10px;
     border-bottom: 1px solid #999;
 }
 
@@ -169,20 +165,172 @@ a img.aligncenter {
 	z-index: 100000; /* Above WP toolbar. */
 }
 
+
 /* ARTICLE BODY 
 --------------------------------------------*/	
+.article-body {
+	font-size: 18px;
+}
 .article-body .wp-caption {
-    margin: 0 -16px;
-    max-width: 320px;
+    margin: 0 -6%;
+    min-width: 112%;
+    max-width: 100%; /* Image does not overflow the content area */
+    text-align: center;
+    background: #fff;
 }
 .article-body img {
-	max-width: 320px;
+	width: 112%;
 	height: auto;
-	margin: 0 -16px;
+	margin: 0 -6%;
 }
 .video-container iframe {
 	margin: 0 -6px;
 }
+
+/* STICKY AD ******/
+.sticky-ad {
+	margin: 20px -2%;
+}
+.sticky-ad-inner {
+	width: 300px;
+	height: 250px;
+	margin: 0 auto;
+	background-color: #6456ac;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 375px) {/* iPhone 6 */
+
+/* STICKY AD **************/
+
+
+
+}/* end media 375px */ 
+
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 736px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) { /* iPhone Landscape */
+
+
+}
+
+
+@media only screen and (min-width: 600px) {
+
+.post-cats a {font-size: 14px;}
+.article-header > h1 {font-size: 33px;}
+.byline {margin-bottom: 25px;}
+.byline span {font-size: 14px;}
+.social-single ul li a {width: 150px;}
+.social-single ul i,
+.social-single ul span {display: inline; vertical-align: middle; line-height: 45px; margin:0 5px;}
+.social-single ul span {font-size: 15px;}
+.social-single ul li:nth-of-type(3) span {color: #333;}
+
+
+
+
+
+
+
+}/* end of media */
+
+@media only screen and (min-width: 700px) {
+
+.social-single ul li a {width: 189px;}
+
+}/* end of media */
+
+@media only screen and (min-width: 920px) {
+
+
+}/* end of media */
+
+@media only screen and (min-width: 1025px) {/* big landscape tablets, laptops, and desktops */
+
+}/* end of media */
+
+@media only screen and (min-width: 1250px) {/* large desktops */
+
+
+}/* end of media */
+
+@media only screen and (min-width: 1440px) {/* large desktops */
+
+	
+}/* end of media */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
