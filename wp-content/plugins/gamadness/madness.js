@@ -266,7 +266,7 @@
 			
 			
 			var regions = {'1':'Compacts', '2':'1911s', '3':'Polymers', '4':'Bracket Busters'}
-			var roundtitles = {'3':'First Round', '4':'Sweet Sixteen', '5':'Elite Eight', '6':'Final Four', '8':'Championship'}
+			var roundtitles = {'3':'First Round', '4':'Sweet Sixteen', '5':'Elite Eight', '6':'Final Four', '7':'Championship'}
 			
 			var campaigns = new Array('handgunsmadness', 'riflesmadness', 'arsmadness', 'shotgunsmadness');
 			if(parseInt(pdata[0].region) == 5) {
@@ -489,7 +489,7 @@
 					var randomPopad = popads[randomInt];
 
 					var regions = {'1':'Compacts', '2':'1911s', '3':'Polymers', '4':'Bracket Busters'}
-					var roundtitles = {'2':'First Round', '3':'Second Round', '4':'Sweet Sixteen', '5':'Elite Eight', '6':'Final Four', '8':'Championship'}
+					var roundtitles = {'2':'First Round', '3':'Second Round', '4':'Sweet Sixteen', '5':'Elite Eight', '6':'Final Four', '7':'Championship'}
 					
 					var campaigns = new Array('handgunsmadness', 'riflesmadness', 'handgunsmadness', 'riflesmadness');
 					pdata.campaign = campaigns[parseInt(pdata.region)-1];
