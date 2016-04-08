@@ -76,7 +76,7 @@
 		        </div>
 			</footer><!-- #footer -->
 		</div><!-- .wrapper -->	
-    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/redesign/redesign-script.js"></script>
+    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/redesign/all-pages.js"></script>
 	<?php wp_footer(); ?>
 	</body>
 </html>

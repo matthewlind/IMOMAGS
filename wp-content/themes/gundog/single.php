@@ -1,5 +1,6 @@
 <?php
 	get_header('redesign');
+	$is_single_default = true;
 	global $post;
 	
 	$post_id	= $post->ID;
@@ -22,7 +23,7 @@
 ?>
 
 <main class="main-single">
-	<article class="article">
+	<article id="article" class="article">
 		<header class="article-header">
 			<div class="post-cats">
 				<?php echo $cat_list; ?>
@@ -55,7 +56,7 @@
 			    echo $content.'</p>';
 			    
 			    if ($p_counter == 1) { ?>
-				    <div class="sticky-ad">
+				    <div id="sticky-ad" class="sticky-ad">
 					    <div class="sticky-ad-inner"></div>
 				    </div>
 <?php			}
@@ -73,6 +74,8 @@
 			}
 			
 ?>		</div>
+
+		<div id="ad-stop"></div>
 	</article>
 </main>
 

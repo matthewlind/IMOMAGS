@@ -39,6 +39,9 @@ include_once('acf_fields/microsite-category-fields.php');
 // Microsite Ajax load more posts
 include_once( get_template_directory() .'/functions/microsites/ajax-load-posts.php' );
 
+// Redesign functions
+include_once( get_template_directory() .'/functions/redesign/single.php' );
+
 
 function sub_footer(){ ?>
 	<!-- future promotional area -->

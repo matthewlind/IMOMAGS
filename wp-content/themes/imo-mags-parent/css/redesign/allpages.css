@@ -333,6 +333,7 @@ h1, h2, h3, h4, h5 {
 .head-social ul li a {
 	color: #fff;
 	font-size: 25px;
+	vertical-align: middle;
 }
 .head-social ul li:first-child a {
 	font-size: 23px;
@@ -838,10 +839,10 @@ nav {
 .head-right > div {float: right;}
 .head-social {padding-right: 20px;border-right: 1px solid #fff;width: auto; text-align: right;}
 .head-social ul li {margin-right: 9px;}
-.head-social ul li a {line-height: 36px;font-size: 23px;}
-.head-social ul li:first-child a {font-size: 20px;}
-.head-social ul li:nth-of-type a {font-size: 22px;}
-.head-social ul li:last-child a {font-size: 24px;}
+.head-social ul li a {line-height: 36px;font-size: 22px;}
+.head-social ul li:first-child a {font-size: 19px;}
+.head-social ul li:nth-of-type(3) a {font-size: 21px;}
+.head-social ul li:last-child a {font-size: 23px;}
 .head-subscribe {position: relative;border: 3px solid #fff;border-radius: 2px;padding: 0 39px 0 10px;height: 36px;width: auto;margin-left: 20px; margin-top: 0;cursor: pointer;}
 .head-subscribe:hover {border-color: #eee;}
 .head-subscribe > span {line-height: 28px;}

@@ -1,3 +1,6 @@
+.main-single {
+	position: relative;
+}
 .article {
 	padding: 20px 5%;
 }
@@ -64,76 +67,56 @@
 }
 
 /*---------------------------------------------- */
-/*	WordPress Core
+/*	ARTICLE BODY
 /*---------------------------------------------- */
-
-.alignnone {
-    margin: 5px 20px 20px 0;
+.article-body p {
+	font-size: 17px;
+	line-height: 1.8em;
+/* 	font-family: 'Droid Serif', serif; */
+	font-family: 'Merriweather', serif;
 }
 
-.aligncenter,
-div.aligncenter {
-    display: block;
-    margin: 5px auto 5px auto;
+.article-body a {
+	color: #0060f0;
 }
-
-.alignright {
-    float:right;
-    margin: 5px 0 20px 20px;
+.article-body a:hover {
+	text-decoration: underline;
 }
-
-.alignleft {
-    float: left;
-    margin: 5px 20px 20px 0;
+.wp-caption {
+    margin: 0 -6%;
+    min-width: 112%;
+    max-width: 100%;
+    text-align: left;
+    background: #fff;
 }
-
-a img.alignright {
-    float: right;
-    margin: 5px 0 20px 20px;
+.article-body img {
+	width: 112%;
+	height: auto;
+	margin: 0 -6%;
 }
-
-a img.alignnone {
-    margin: 5px 20px 20px 0;
+.video-container iframe {
+	margin: 0 -6px;
 }
-
-a img.alignleft {
-    float: left;
-    margin: 5px 20px 20px 0;
+.sticky-ad-inner {
+	width: 300px;
+	height: 250px;
+	margin: 0 auto;
+	background-color: #6456ac;
 }
-
-a img.aligncenter {
-    display: block;
-    margin-left: auto;
-    margin-right: auto
-}
-
-
-.wp-caption.alignnone {
-    margin: 5px 20px 20px 0;
-}
-
-.wp-caption.alignleft {
-    margin: 5px 20px 20px 0;
-}
-
-.wp-caption.alignright {
-    margin: 5px 0 20px 20px;
-}
-
-.article-body .wp-caption img {
+.wp-caption img {
     border: 0 none;
     height: auto;
     margin: 0;
     width: 100%;
     padding: 0;
 }
-
 .wp-caption p.wp-caption-text {
     font-size: 13px;
     line-height: 17px;
     margin: 0;
     padding: 4px 15px 10px;
-    border-bottom: 1px solid #999;
+    border-bottom: 1px solid #bbb;
+    font-family: 'Open Sans', sans-serif;
 }
 
 /* Text meant only for screen readers. */
@@ -165,38 +148,11 @@ a img.aligncenter {
 	z-index: 100000; /* Above WP toolbar. */
 }
 
-
-/* ARTICLE BODY 
---------------------------------------------*/	
-.article-body {
-	font-size: 18px;
-}
-.article-body .wp-caption {
-    margin: 0 -6%;
-    min-width: 112%;
-    max-width: 100%; /* Image does not overflow the content area */
-    text-align: center;
-    background: #fff;
-}
-.article-body img {
-	width: 112%;
-	height: auto;
-	margin: 0 -6%;
-}
-.video-container iframe {
-	margin: 0 -6px;
-}
-
 /* STICKY AD ******/
 .sticky-ad {
 	margin: 20px -2%;
 }
-.sticky-ad-inner {
-	width: 300px;
-	height: 250px;
-	margin: 0 auto;
-	background-color: #6456ac;
-}
+
 
 
 
@@ -249,24 +205,59 @@ a img.aligncenter {
 .social-single ul span {font-size: 15px;}
 .social-single ul li:nth-of-type(3) span {color: #333;}
 
-
-
-
-
+/* Article Body */
+.wp-caption {margin: 0;min-width: auto;}
+.article-body img {width: auto;margin: 0;max-width: 100%;}
+.alignnone {margin: 5px 20px 20px 0;}
+.aligncenter,
+div.aligncenter {display: block;margin: 5px auto 5px auto;}
+.alignright {float:right;margin: 5px 0 20px 20px;}
+.alignleft {float: left;margin: 5px 20px 20px 0;}
+a img.alignright {float: right;margin: 5px 0 20px 20px;}
+a img.alignnone {margin: 5px 20px 20px 0;}
+a img.alignleft {float: left;margin: 5px 20px 20px 0;}
+a img.aligncenter {display: block;margin-left: auto;margin-right: auto;}
+.wp-caption.alignnone {margin: 5px 20px 20px 0;}
+.wp-caption.alignleft {margin: 5px 20px 20px 0;max-width: 300px;}
+.wp-caption.alignright {margin: 5px 0 20px 20px;max-width: 300px;}
 
 
 }/* end of media */
 
 @media only screen and (min-width: 700px) {
 
-.social-single ul li a {width: 189px;}
 
+
+
+
+
+
+}/* end of media */
+
+@media only screen and (min-width: 760px) {
+
+.article {padding:40px 0;width: 650px;margin: 0 auto;}	
+.social-single ul li a {width: 189px;}	
+	
 }/* end of media */
 
 @media only screen and (min-width: 920px) {
 
 
 }/* end of media */
+
+@media only screen and (min-width: 1020px) {
+
+.article {width: 55%;margin: 0 0 0 5%; }	
+.social-single ul li a {width: 150px;}
+.sticky-ad {position: absolute;top: 60px;right: 6%;}
+.adfixed {position: fixed; top: 75px;}
+.adstick-bottom {position: absolute; top: auto; bottom: 0;}
+.adstick-bottom-sm {position: absolute; top: auto; bottom: 0;}
+
+
+}/* end of media */
+
 
 @media only screen and (min-width: 1025px) {/* big landscape tablets, laptops, and desktops */
 

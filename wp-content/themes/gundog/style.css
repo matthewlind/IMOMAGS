@@ -13,11 +13,12 @@ General comments (optional).
 /* @import url("../imo-mags-parent/style.css"); */
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,800);
 @import url(https://fonts.googleapis.com/css?family=Droid+Serif:700);
-
+@import url(https://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic);
 
 @import url("../imo-mags-parent/css/redesign/allpages.css");
 
 h1, h2 {
 	font-family: 'Droid Serif', serif;
+/* 	font-family: 'Merriweather', serif; */
 	font-weight: 700;
 }

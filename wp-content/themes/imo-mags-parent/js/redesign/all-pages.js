@@ -1,4 +1,6 @@
 (function($) {
+////////////////////
+
 	var $document 		= $(document),
 		body 			= $('body'),
 		window_height	= window.innerHeight,
@@ -68,6 +70,8 @@
 			head_wrap.removeClass('head-fixed');
 		}
 	}
+	
+	
 	
 	function hasScrolled() {
 		var st = $(this).scrollTop();
@@ -144,5 +148,5 @@
 	
 
 
-
+////////////////////
 })(jQuery);
