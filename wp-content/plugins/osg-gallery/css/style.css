@@ -1,0 +1,58 @@
+.gallery-header{background: #bf1f27;padding: 25px;}
+.gallery-title {font-size: 1.2em;color: white;}
+.gallery-count{color: white;}
+.gallery-first-image{opacity: 0.5;}
+.gallery-desc{font-size: .8em;}
+.slides{margin: 0 !important;}
+.flex-slide{text-align: center;}
+.flex-slide p{text-align: left;padding: 0 20px;font-size: 0.85em;}
+.gallery-images .slides, .gallery-images .slides li{padding: 0 !important;}
+.flex-slide img {
+    position: relative;
+    display: inline-block;
+    width: auto;
+    height: auto;
+    max-height: 600px;
+    vertical-align: middle;
+}
+/*.gallery-carousel .slides{
+	margin: auto;
+    position: relative;
+    text-align: center;
+    padding: 10px 0 !important;
+}
+.gallery-carousel .slides li{
+	width: 100px !important;
+    margin: 0 10px 0 0;
+    height: 75px;
+    overflow: hidden;
+    padding: 0 !important;
+}*/
+.flex-direction-nav{
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.flex-direction-nav li{list-style: none !important;padding: 0 !important;}
+
+/*.gallery-carousel {position: relative;}
+.gallery-carousel .flex-direction-nav {
+    position: absolute;
+    top: 10px;
+}
+.gallery-carousel .flex-direction-nav .flex-prev {
+    left: 0;
+    top: 40px;
+}
+.gallery-carousel .flex-direction-nav .flex-next {
+    right: 0;
+    top: 40px;
+}*/
+/* Clearfix for the .slides element */
+.slides:after {content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;}
+
+
+
+
+
+
+
