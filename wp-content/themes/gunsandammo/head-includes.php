@@ -29,15 +29,3 @@ if(document.location.protocol=='http:'){
 </noscript>
 <!-- End comScore Tag -->
 <script async src="http://cdn.mediavoice.com/nativeads/script/IMOutdoors/mv_gunsammo.js"></script>
-<script type="text/javascript">
-	(function(d, s, id) {
-	  window.Wishpond = window.Wishpond || {};
-	  Wishpond.merchantId = '575288';
-	  Wishpond.writeKey = 'a0c8685d09be';
-	  var js, wpjs = d.getElementsByTagName(s)[0];
-	  if (d.getElementById(id)) return;
-	  js = d.createElement(s); js.id = id;
-	  js.src = "//cdn.wishpond.net/connect.js";
-	  wpjs.parentNode.insertBefore(js, wpjs);
-	}(document, 'script', 'wishpond-connect'));
-</script>
