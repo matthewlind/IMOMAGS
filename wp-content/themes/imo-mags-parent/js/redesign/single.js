@@ -5,8 +5,8 @@
 var $document 		= $(document),
 	ad_sticky 		= $("#sticky-ad");	
 	
-	
-if (ad_sticky[0]) {
+
+if (ad_sticky[0]) {	
 	var	stick_start 	= $("#article"),
 		stick_stop 		= $("#ad-stop"),
 		ad_fixed 		= 'adfixed',
@@ -18,32 +18,29 @@ if (ad_sticky[0]) {
 		offset_stop = 337;
 		ad_stickBottom = 'adstick-bottom-sm';
 	}
-	
-	function stickyAd() {
-	    var start	= stick_start.offset().top - 76,
-	    	stop 	= stick_stop.offset().top,
-	    	stop 	= stop - offset_stop,
-	    	d 		= $document.scrollTop();
-	    	
-	    if (d >= start && d <= stop) {
-			ad_sticky.addClass(ad_fixed);
-			ad_sticky.removeClass(ad_bottom);
-		} else if (d >= start && d > stop) {
-			ad_sticky.addClass(ad_bottom);
-		} else {
-			ad_sticky.removeClass(ad_fixed);
-			ad_sticky.removeClass(ad_bottom);
-		}
+}
+
+function stickyAd() {
+    var start	= stick_start.offset().top - 76,
+    	stop 	= stick_stop.offset().top,
+    	stop 	= stop - offset_stop,
+    	d 		= $document.scrollTop();
+    	
+    if (d >= start && d <= stop) {
+		ad_sticky.addClass(ad_fixed);
+		ad_sticky.removeClass(ad_bottom);
+	} else if (d >= start && d > stop) {
+		ad_sticky.addClass(ad_bottom);
+	} else {
+		ad_sticky.removeClass(ad_fixed);
+		ad_sticky.removeClass(ad_bottom);
 	}
-} else {
-	function stickyAd() { }
-}	
+}
 	
 	
 $document.scroll(function() {
-    stickyAd();
+    if (ad_sticky[0]) { stickyAd(); }
 }); // doc scroll
-
 
 
 

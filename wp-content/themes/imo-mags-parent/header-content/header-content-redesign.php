@@ -132,7 +132,7 @@
 					</a> 
 				</div>
 				<div class="head-subscribe" id="head-subscribe">
-					<span>&nbsp;BUY MAGAZINE</span><i class="icon-caret-down"></i>
+					<span>&nbsp;SUBSCRIBE</span><i class="icon-caret-down"></i>
 					<?php include(get_template_directory() . "/content/microsite-template-parts/buy-mag-dropdown.php"); ?>
 				</div>
 				<div class="head-social">
@@ -164,7 +164,7 @@
 			</ul>
 		</div>
 		<div class="head-subscribe">
-			<span id="head-bottom-subscribe">&nbsp;BUY MAGAZINE</span><i class="icon-triangle-down"></i>
+			<span id="head-bottom-subscribe">&nbsp;SUBSCRIBE</span><i class="icon-triangle-down"></i>
 			<?php include(get_template_directory() . "/content/microsite-template-parts/buy-mag-dropdown.php"); ?>
 		</div>
 		<div class="head-mag-cover">
