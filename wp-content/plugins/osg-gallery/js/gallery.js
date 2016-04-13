@@ -24,7 +24,10 @@ jQuery(window).ready(function() {
 		jQuery('.gallery-images').flexslider({
 		  	slideshow: false,
 		  	controlNav: false,
-		  	directionNav: true, 
+		  	prevText: "",
+			nextText: "",
+		  	directionNav: true,
+		  	useCSS: false, 
 		  	//sync: ".gallery-carousel",
 		    after: function (slider) {
 				var theSlide = slider.currentSlide+1;
