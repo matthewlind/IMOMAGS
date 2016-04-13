@@ -1,14 +1,45 @@
 jQuery(window).ready(function() {
-	jQuery(".gallery-first-image").click(function(){
-		//remove first image 
-		jQuery(".gallery-first-image, .first-desc").remove();
+	var first_img_overlay = jQuery(".first-img-overlay");
+	
+	jQuery("#i_load_gallery").click(function(){
+		//remove first image
+		first_img_overlay.fadeIn(100);
+		
+		setTimeout(function(){ 
+			//first_img_overlay.fadeOut(); 
+			jQuery(".gallery-first-image, .first-desc").remove();
+		}, 101);
 		//for each li inside ul add image from url attr
 		// thumbs: , .gallery-carousel .slides li
-		jQuery.each( jQuery( ".gallery-images .slides li" ), function() {
-			var imageURL = jQuery(this).attr("url");
-			var desc = jQuery(this).find("div").text();
-			jQuery(this).prepend('<img src="' + imageURL + '" /><p>' + desc + '</p>');
-		});
+		
+		setTimeout(function(){
+			jQuery.each( jQuery( ".gallery-images .slides li" ), function() {
+				var imageURL = jQuery(this).attr("url");
+				var desc = jQuery(this).find("div").text();
+				jQuery(this).prepend('<div class="flex-img-wrap"><img src="' + imageURL + '" /></div><p>' + desc + '</p>');
+			});
+			jQuery('.gallery-images').flexslider({
+			  	slideshow: false,
+			  	controlNav: false,
+			  	prevText: "",
+				nextText: "",
+			  	directionNav: true,
+			  	animationSpeed: 400, 
+			  	useCSS: false,
+			  	startAt: 1,    
+			  	//sync: ".gallery-carousel",
+			    after: function (slider) {
+					var theSlide = slider.currentSlide+1;
+					jQuery('.gallery-count .curr-count').text(theSlide);
+				}
+		   });
+		}, 101);
+		
+		setTimeout(function(){
+			jQuery(".first-img-overlay span, #i_load_gallery").fadeOut(300); 
+			first_img_overlay.fadeOut(500);
+		}, 1200);
+		//jQuery(".flex-img-wrap").css("opacity", 1);
 		//jQuery('.gallery-carousel .slides').css("border-top","1px solid #ccc");
 		//jQuery('.gallery-carousel .slides').css("border-bottom","1px solid #ccc");
 
@@ -21,19 +52,7 @@ jQuery(window).ready(function() {
 		    itemMargin: 5,
 		    asNavFor: '.gallery-images'
 		});*/
-		jQuery('.gallery-images').flexslider({
-		  	slideshow: false,
-		  	controlNav: false,
-		  	prevText: "",
-			nextText: "",
-		  	directionNav: true,
-		  	useCSS: false, 
-		  	//sync: ".gallery-carousel",
-		    after: function (slider) {
-				var theSlide = slider.currentSlide+1;
-				jQuery('.gallery-count .curr-count').text(theSlide);
-			}
-	   });
+		
 
 	});  	
 });
