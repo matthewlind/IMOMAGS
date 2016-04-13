@@ -132,7 +132,7 @@
 .gallery-first-image .flex-img-wrap {
 	opacity: 1;
 }
-#i_load_gallery {
+.span-load-gallery {
 	position: absolute;
 	display: inline-block;
 	top: 25%;
@@ -145,7 +145,7 @@
 	text-align: center;
 	z-index: 10001;
 }
-#i_load_gallery i {
+.span-load-gallery i {
 	display: inline-block;
 	margin-top: 65px;
 	width: 0;
@@ -155,17 +155,6 @@
 	border-color: transparent transparent transparent #007bff;
 }
 
-#i_load_gallery:hover {
-	color: orange;
-}
-/*
-.gallery-first-image > i:before {
-	font-family: FontAwesome;
-    font-size: 60px;
-    display: inline-block;
-    content: '\f054';
-}
-*/
 .first-img-overlay {
 	position: absolute;
 	background-color: #fff;

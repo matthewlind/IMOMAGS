@@ -1,7 +1,7 @@
 jQuery(window).ready(function() {
 	var first_img_overlay = jQuery(".first-img-overlay");
 	
-	jQuery("#i_load_gallery").click(function(){
+	jQuery(".span-load-gallery").click(function(){
 		//remove first image
 		first_img_overlay.fadeIn(100);
 		
@@ -36,7 +36,7 @@ jQuery(window).ready(function() {
 		}, 101);
 		
 		setTimeout(function(){
-			jQuery(".first-img-overlay span, #i_load_gallery").fadeOut(300); 
+			jQuery(".first-img-overlay span, .span-load-gallery").fadeOut(300); 
 			first_img_overlay.fadeOut(500);
 		}, 1200);
 		//jQuery(".flex-img-wrap").css("opacity", 1);
