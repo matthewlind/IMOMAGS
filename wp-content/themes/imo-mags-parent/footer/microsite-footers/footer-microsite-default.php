@@ -11,6 +11,7 @@
 	$digital_edition_available = get_field('digital_edition_available', $term_cat_id);
 	$online_store_url = get_field('online_store_url', $term_cat_id);
 	$buy_mag_foot_message = get_field('buy_mag_foot_message', $term_cat_id);
+	$mag_descr_desktop 	= get_field('mag_descr_desktop', $term_cat_id);
 	
 	$today = date("Ymd");  	
 ?>
@@ -19,16 +20,29 @@
 			<?php
 				if (have_rows('mag_info', $term_cat_id)) { 
 					while ( have_rows('mag_info', $term_cat_id) ) { the_row();
-						$mag_cover_image = get_sub_field('mag_cover_image');
-						$mag_title = get_sub_field('mag_title');
-						$mag_description = get_sub_field('mag_description');
+						$mag_cover_image 	= get_sub_field('mag_cover_image');
+						$mag_title 			= get_sub_field('mag_title');
+						$mag_description 	= get_sub_field('mag_description');
+						
 					?>
 					<div class="s-mag-cover">
 						<img src="<?php echo $mag_cover_image['url']; ?>" alt="<?php echo $mag_cover_image['alt']; ?>">
 					</div>
 					<div class="s-mag-descr">
 						<h1><?php echo $mag_title; ?></h1>
-						<p><?php echo $mag_description; ?></p>
+						<p>
+						<?php
+							if ($cat_slug == 'shoot101') {
+								if ( mobile() || !$mag_descr_desktop) {
+									echo $mag_description;
+								} else {
+									echo $mag_descr_desktop;
+								}
+							} else {
+								echo $mag_description; 
+							}
+						?>
+						</p>
 					</div>
 			<?php } } ?>
 			
@@ -121,6 +135,7 @@
 		    </div>
 		</div><!-- end .m-footer-bottom -->
 	</footer>
+	</div><!-- .microsite-container -->
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/microsite-js/microsite-default.js"></script>
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/microsite-js/<?php echo $script_folder_name; ?>/script-<?php echo $cat_slug; ?>.js"></script>
 	<!--[if lt IE 9]><script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->

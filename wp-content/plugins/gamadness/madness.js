@@ -23,14 +23,37 @@
 			
 			success: function(resp, status, jqxhr) {
 				madnessround = resp[0].activeround;
-				jQuery('#madtabs').tabs({active: (madnessround - 2)});
+				//jQuery('#madtabs').tabs({active: (madnessround - 3)});
+				
+				madtabs();
 			}
 
 		});	
 		
 				
 	});
-
+	
+	function madtabs() {
+		jQuery('.tabcontent').hide();
+		
+		jQuery('#madtabs a').on("click", function(e) {
+			e.preventDefault();
+			console.log(this.hash.substring(1));
+			jQuery('.rounds > li').removeClass("ui-tabs-selected");
+			jQuery(this).parent().addClass("ui-tabs-selected");
+			
+			jQuery('.tabcontent').hide();
+			jQuery('.'+this.hash.substring(1)+'.tabcontent').show();
+		})
+		
+		var activehash = "madtabs-"+(madnessround-1);
+		//console.log(activehash);	
+		jQuery('.tabcontent').hide();
+		//console.log(parseInt(madnessround-2));
+		jQuery('.rounds li:nth-child('+parseInt(madnessround-2)+')').addClass("ui-tabs-selected");
+		//console.log('.'+activehash+'.tabcontent');
+		jQuery('.'+activehash+'.tabcontent').show();
+	}
 
 	function closeInterstitial() {
 		jQuery('#popupAD').css('display', 'none');
@@ -59,7 +82,7 @@
 						jQuery(".match219").html(writeGAMBracket(finall));
 					}
 					else {
-						jQuery("#madtabs-"+(parseInt(round)-1)+" .mreg"+region).html(writeGAMBracket(resp.data));
+						jQuery(".madtabs-"+(parseInt(round)-1)+" > .mreg"+region).html(writeGAMBracket(resp.data));
 					}
 				}
 				else {
@@ -191,7 +214,7 @@
 		jQuery('#captchaWrapper').css("display","block");
 		jQuery('#faded').css("display","block");
 		var scroll = jQuery(window).scrollTop();
-		jQuery('#captchaWrapper').css('margin-top',scroll);
+		jQuery('#captchaWrapper').css('margin-top',scroll-250);
 				
 		jQuery("#proceed").on("click", function() {
 			jQuery.ajax({
@@ -242,8 +265,8 @@
 			
 			
 			
-			var regions = {'1':'Compacts', '2':'1911s', '3':'Polymers', '4':'Miscellaneous'}
-			var roundtitles = {'3':'First Round', '4':'Sweet Sixteen', '5':'Elite Eight', '6':'Final Four', '8':'Championship'}
+			var regions = {'1':'Compacts', '2':'1911s', '3':'Polymers', '4':'Bracket Busters'}
+			var roundtitles = {'3':'First Round', '4':'Sweet Sixteen', '5':'Elite Eight', '6':'Final Four', '7':'Championship'}
 			
 			var campaigns = new Array('handgunsmadness', 'riflesmadness', 'arsmadness', 'shotgunsmadness');
 			if(parseInt(pdata[0].region) == 5) {
@@ -465,8 +488,8 @@
 					var randomInt = Math.floor((Math.random() * 4) + 0);
 					var randomPopad = popads[randomInt];
 
-					var regions = {'1':'Compacts', '2':'1911s', '3':'Polymers', '4':'Miscellaneous'}
-					var roundtitles = {'2':'First Round', '3':'Second Round', '4':'Sweet Sixteen', '5':'Elite Eight', '6':'Final Four', '8':'Championship'}
+					var regions = {'1':'Compacts', '2':'1911s', '3':'Polymers', '4':'Bracket Busters'}
+					var roundtitles = {'2':'First Round', '3':'Second Round', '4':'Sweet Sixteen', '5':'Elite Eight', '6':'Final Four', '7':'Championship'}
 					
 					var campaigns = new Array('handgunsmadness', 'riflesmadness', 'handgunsmadness', 'riflesmadness');
 					pdata.campaign = campaigns[parseInt(pdata.region)-1];

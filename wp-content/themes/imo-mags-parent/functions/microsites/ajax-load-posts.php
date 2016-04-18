@@ -47,103 +47,62 @@ function load_microsite_posts() {
 	    $cats_to_load = "$parent_cat_slug";
     }
 ?>
-<div class="p-feat-container clearfix">
-<?php	
-	$post_counter = 0;
 	
-	$args = array (
-		'category_name'         	=> $cats_to_load,
-		'post_status'				=> 'publish',			
-		'posts_per_page'      		=> 3,
-		'order'						=> 'DESC',
-		'meta_query' => array(
-		  array(
-		    'key' => 'featured_post',
-		    'value' => '1',
-		    'compare' => '=='
-		  )
-		)
-	);
-	// The Query
-	$query = new WP_Query( $args );
-	// The Loop
-	if ( $query->have_posts() ) {
-		while ( $query->have_posts() ) {
-			$query->the_post();			
-			$image_id = get_post_meta(get_the_ID(),"image", true);
-			$image = wp_get_attachment_image_src($image_id, "full");
-			
-			$wide_image_id = get_post_meta(get_the_ID(),"image_wide", true);
-			$image_wide = wp_get_attachment_image_src($wide_image_id, "full");
-	?>
-	<a class="link-box feat-post" href="<?php the_permalink(); ?>">	
-		<?php if ($post_counter == 2 && mobile() == false && tablet() == false ) { ?>
-		<div class="post-box" style="background-image: url('<?php echo $image_wide[0]; ?>')"></div>	
-		<?php } else { ?>
-		<div class="post-box" style="background-image: url('<?php echo $image[0]; ?>')"></div>
-		<?php } ?>
-	</a>
-	<?php
-		if ($post_counter == 1) { 
-			echo '<div class="top-ad-home"></div>';
-		}
-		$post_counter++;	
-			}
-		} else {
-			echo "no posts found";
-		}
-		wp_reset_postdata(); 
-?>
-</div><!-- end .p-feat-container -->
-<div class="featured-message">
-	<span><?php echo $social_share_message; ?></span>
-	<div class="m-social-buttons">
-		<?php 
-		if( have_rows('site_share_buttons', $term_cat_id) ) { 						
-			while ( have_rows('site_share_buttons', $term_cat_id) ) { the_row();
-				$face_twit_title = get_sub_field('face_twit_title');
-				$email_subject = get_sub_field('email_subject');
-				$email_message = get_sub_field('email_message');
-		?>
-		<ul>
-			<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo (urlencode(site_url())) . '/'. $cat_slug; ?>&title=<?php echo $face_twit_title; ?>" class="icon-facebook" target="_blank"></a></li>
-			<li><a href="http://twitter.com/intent/tweet?status=<?php echo $face_twit_title; ?>+<?php echo (urlencode(site_url())) . '/'. $cat_slug; ?>" class="icon-twitter" target="_blank"></a></li>
-			<li><a href="mailto:?subject=<?php echo $email_subject; ?>&body=<?php echo $email_message . ' ' . (urlencode(site_url())) . '/'. $cat_slug; ?>" class="icon-mail" target="_blank"></a></li>
-		</ul>
-		<?php } }?>
-	</div><!-- .m-social-buttons -->
-</div><!-- end .featured-message -->	
-<div id="reg_post_wrap" class="p-container clearfix">
+
 	<?php
 	$p_counter = 0;	
 	$args = array (
 		'category_name'         	=> $cats_to_load,
 		'post_status'				=> 'publish',			
-		'posts_per_page'      		=> 7,
-		'order'						=> 'DESC',
-		'meta_query' => array(
-			array(
-				'key' => 'featured_post',
-				'value' => '0',
-				'compare' => '=='
-			)
-		)
+		'posts_per_page'      		=> 12,
+		'order'						=> 'DESC'
 	);
 	// The Query
 	$query = new WP_Query( $args );
 	// The Loop
 	if ( $query->have_posts() ) {
 		while ( $query->have_posts() ) {
-			$query->the_post();				
+			$query->the_post();	
+						
 			$image_id = get_post_meta(get_the_ID(),"image", true);
 			$image = wp_get_attachment_image_src($image_id, "large");
-	?>
-	<a class="link-box reg-post" href="<?php the_permalink(); ?>">	
-		<div class="post-box" style="background-image: url('<?php echo $image[0]; ?>')"></div>
-	</a>
+			
+			if ($p_counter == 0) { 
+				echo '<div class="p-feat-container clearfix">';
+			}
+?>
+			<a class="link-box reg-post" href="<?php the_permalink(); ?>">	
+				<div class="post-box" style="background-image: url('<?php echo $image[0]; ?>')"></div>
+			</a>
 <?php
-			$p_counter++;
-			if ($p_counter == 7) {
+			if ($p_counter == 1) { 
+				echo '<div class="top-ad-home"></div>';
+			}
+
+			if ($p_counter == 3) { ?>
+			</div><!-- .p-feat-container -->
+			<div class="featured-message">
+				<span><?php echo $social_share_message; ?></span>
+				<div class="m-social-buttons">
+					<?php 
+					if( have_rows('site_share_buttons', $term_cat_id) ) { 						
+						while ( have_rows('site_share_buttons', $term_cat_id) ) { the_row();
+							$face_twit_title = get_sub_field('face_twit_title');
+							$email_subject = get_sub_field('email_subject');
+							$email_message = get_sub_field('email_message');
+					?>
+					<ul>
+						<li><a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo (urlencode(site_url())) . '/'. $cat_slug; ?>&title=<?php echo $face_twit_title; ?>" class="icon-facebook" target="_blank"></a></li>
+						<li><a href="http://twitter.com/intent/tweet?status=<?php echo $face_twit_title; ?>+<?php echo (urlencode(site_url())) . '/'. $cat_slug; ?>" class="icon-twitter" target="_blank"></a></li>
+						<li><a href="mailto:?subject=<?php echo $email_subject; ?>&body=<?php echo $email_message . ' ' . (urlencode(site_url())) . '/'. $cat_slug; ?>" class="icon-mail" target="_blank"></a></li>
+					</ul>
+					<?php } }?>
+				</div><!-- .m-social-buttons -->
+			</div><!-- end .featured-message -->
+			<div id="reg_post_wrap" class="p-container clearfix">
+				
+<?php		}
+			if ($p_counter == 11) {
 ?>
 			<div class="load-more-reg" id="load_more_reg">
 				<a href="#" id="load_reg_posts" class="load-btn" data-cat-load="<?php echo $cats_to_load; ?>">
@@ -155,8 +114,11 @@ function load_microsite_posts() {
 						</div>
 					</div>
 				</a>
-			</div><!-- .load-more-reg -->	
+			</div><!-- .load-more-reg -->
+		</div><!-- .p-container -->	
 <?php		}
+	
+			$p_counter++;
 		}
 	} else { 
 		echo "no posts found";
@@ -210,14 +172,14 @@ function load_more_m_posts() {
 			$image_id = get_post_meta(get_the_ID(),"image", true);
 			$image = wp_get_attachment_image_src($image_id, "large");
 	?>
-	<a class="link-box reg-post" href="<?php the_permalink(); ?>">	
+	<a class="link-box" href="<?php the_permalink(); ?>">	
 		<div class="post-box" style="background-image: url('<?php echo $image[0]; ?>')"></div>
 	</a>
 <?php		
 		}
 	} else { ?>
 		<script>
-			jQuery('#load_more_reg a').text('No more posts').css("color", "#999999"); 
+			jQuery('#load_more_reg a').text('No more stories').css("color", "#999999"); 
 			jQuery('#load_more_reg').removeAttr("id");
 		</script>
 <?php	}

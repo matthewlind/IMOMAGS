@@ -89,7 +89,7 @@ html, body { min-height: 100%; }
 .ga-madness-wrapper{width: 100%;}
 .ga-madness .addthis-below{width: 250px;clear: both;margin-top: 70px;}
 .regions{width: 49%;display: inline-block;}
-.region-final{width: 100%;margin: 0 0 50px;}
+.region-final{width: 100%;margin: -50px 0 80px;}
 .region-final .column6 .matchup{border-width: 0;margin-top: 15px;}
 .region-final .column6 .rank-top{border-bottom: 1px solid #2d2d2d;margin: 0;padding: 0 10px 8px;}
 .region-final .column{width: 33%;}
@@ -489,17 +489,17 @@ ul#ga-madness-nav li a:hover{
 
 @media only screen and (min-width: 700px){
 
-	.match157 .matchup .rank-bottom {
+	.match219 .matchup .rank-bottom {
 		bottom: 49px;
 		position: absolute;
-		left: 3px;
+		left: 8px;
 	}
-	.match157 .matchup .rank-top {
+	.match219 .matchup .rank-top {
 		xborder-bottom: 1px solid #2d2d2d;
 		margin: 0;
-		padding: 0 0px 8px 6px;
+		padding: 0 0px 8px 11px;
 	}
-	.match157 .action-arrow {
+	.match219 .action-arrow {
 		top: 55px;
 		padding:4px 10px;
 		width:56px;

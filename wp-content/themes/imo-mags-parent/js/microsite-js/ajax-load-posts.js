@@ -14,7 +14,7 @@
 			parent_cat_slug	= ajax_object.parent_cat_slug;
 			dartDomain		= ajax_object.dart_domain;
 			
-			var ad_string	= '<p>ADVERTISMENT</p><iframe id="microsite-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-microsite.php?ad_code=' + dartDomain + '&term=' + parent_cat_slug + '">';
+			var ad_string	= '<iframe id="microsite-iframe-ad" width="310" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="/iframe-ad-microsite.php?ad_code=' + dartDomain + '&term=' + parent_cat_slug + '">';
 		
 		/* If this is a category page.
 		------------------------------------------*/				
@@ -60,11 +60,6 @@
 				e.preventDefault();
 				var d = $(this),
 					data_cat_slug	= d.data("cat"),
-					feat_container	= $(".p-feat-container"),
-					reg_post_wrap	= $("#reg_post_wrap"),
-					feat_message	= $(".featured-message"),
-					feat_posts		= $(".feat-post"),
-					top_ad_home		= $(".top-ad-home");
 					url				= window.location.href,
 				    separator 		= "#",
 				    newParam		= separator + data_cat_slug;
@@ -80,11 +75,7 @@
 					'parent_cat_slug': parent_cat_slug
 				};
 				jQuery.post(ajax_object.ajax_url, data, function(response) {
-					//top_ad_home.hide().appendTo(".posts-wrap");
- 					top_ad_home.remove();
-					feat_container.remove();
-					feat_message.remove();
-					reg_post_wrap.remove();
+					posts_wrap.empty();
 					posts_wrap.prepend(response);
 									
 					var feat_posts_after = $(".feat-post"),
@@ -103,7 +94,7 @@
 				var d = $(this),
 					data_child_cat_slug = d.data("cat-load"),
 					loader_anim			= $('.load-btn .loader-anim'),
-					reg_post_count		= $(".reg-post").length,
+					reg_post_count		= $(".link-box").length,
 					load_more_reg		= $("#load_more_reg");
 					
 				loader_anim.removeClass('display-none');
@@ -122,7 +113,7 @@
 			});
 		} // if m_cat_template[0]			
 		
-		// for this to work url should be like http://website_name.com/main_cat_slug/post_slug . If you would have few cats in the url like in corssbow revolution, you'll have to rewrite this code.		
+		// for this to work url should be like http://website_name.com/main_cat_slug/post_slug . If you would have few cats in the url like in corssbow revolution, you'll have to rewrite this code		
 		if (m_sngl_template[0]) {
 			stories_links.each(function() {
 				var d 			= $(this),

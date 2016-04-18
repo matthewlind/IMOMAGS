@@ -81,9 +81,9 @@ function imo_flex_gallery( $atts ) {
 	$totalSlidesShow = $totalSlides;
 	
 	global $wpdb;
-	$description = stripcslashes($picture->description);
-	$desc = htmlentities($description);
-	$firstImage = '<img src="'.$pictures[0]->img_url.'" alt="'.$pictures[0]->title.'" title="'.$pictures[0]->title.'" /><p class="first-desc">'. $desc .'</p>';
+	$firstDescription = stripcslashes($pictures[0]->description);
+	$firstDescription = htmlspecialchars($firstDescription);
+	$firstImage = '<div class="flex-img-wrap"><img src="'.$pictures[0]->img_url.'" alt="'.$pictures[0]->title.'" title="'.$pictures[0]->title.'" /></div><p class="first-desc">'. $firstDescription .'</p>';
 
 	$title = stripcslashes($pictures[0]->title);
 	$slug = $pictures[0]->name;
@@ -110,7 +110,7 @@ function imo_flex_gallery( $atts ) {
 	}
 	
 	$html .= '<li class="gallery-first-image flex-slide">'. $firstImage .'</li>';
-	$html .= '</ul></div>';
+	$html .= '</ul><span class="span-load-gallery"><i></i></span><section class="first-img-overlay"> <span><div class="loader-inner ball-pulse-sync"><div></div><div></div><div></div></div></span> </section></div>';
 
 	$html .= '</ul></div></div>';
 	
