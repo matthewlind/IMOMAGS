@@ -13,6 +13,7 @@ jQuery(window).ready(function() {
 		// thumbs: , .gallery-carousel .slides li
 		
 		setTimeout(function(){
+			
 			jQuery.each( jQuery( ".gallery-images .slides li" ), function() {
 				var imageURL = jQuery(this).attr("url");
 				var desc = jQuery(this).find("div").text();
@@ -28,6 +29,10 @@ jQuery(window).ready(function() {
 			  	useCSS: false,
 			  	startAt: 1,    
 			  	//sync: ".gallery-carousel",
+			  	start: function(slider){
+				  	var theSlide = slider.currentSlide+1;
+					jQuery('.gallery-count .curr-count').text(theSlide);
+			  	},
 			    after: function (slider) {
 					var theSlide = slider.currentSlide+1;
 					jQuery('.gallery-count .curr-count').text(theSlide);
