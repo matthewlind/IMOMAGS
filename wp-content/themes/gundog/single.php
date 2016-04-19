@@ -52,6 +52,13 @@
 			$add_p		= get_field('add_p', $post_id); if (!$add_p) $add_p = 0;
 			$contents = explode("</p>", $content);
 			$p_counter = 0;
+			
+			$image_count = 9;
+			$ad_interval = 4;
+			$div = gmp_div_r($image_count, $ad_interval);
+			echo $div;
+			
+				
 			foreach($contents as $content){
 			    echo $content.'</p>';
 			    
@@ -133,6 +140,8 @@
 <?php			}
 			    $p_counter++;
 			    $current_p = $p_counter - ($add_p);
+			    
+			    
 			}
 			
 ?>		
