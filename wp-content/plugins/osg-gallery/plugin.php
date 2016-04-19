@@ -106,7 +106,7 @@ function imo_flex_gallery( $atts ) {
 			$imageTitle = $picture->title;
 		}
 			
-		$html .= '<li class="flex-slide" url="'. $imageURL .'" style="display:none;"><div style="display:none;">'. $desc .'</div></li>';
+		$html .= '<li class="flex-slide is-flex-image" url="'. $imageURL .'" style="display:none;"><div style="display:none;">'. $desc .'</div></li>';
 	}
 	
 	$html .= '<li class="gallery-first-image flex-slide">'. $firstImage .'</li>';
