@@ -11,14 +11,17 @@
 	$byline 	= get_post_meta($post_id, 'ecpt_byline', true);
 	$acf_byline = get_field("byline", $post_id);
 	
-	// POST CATEGORIES
+	// POST CATEGORIES	
 	$post_categories = wp_get_post_categories( $post_id );
 	$cat_list = '';
+	$cat_names = array();
 	foreach($post_categories as $c){
 	    $cat = get_category( $c );
-	    $cat_url = get_category_link( $c );			    
+	    $cat_url = get_category_link( $c );
+	    $cat_names[] = $cat->name;			    
 	    $cat_list .= "<a href='".  $cat_url . "'>" . $cat->name . "</a>";
 	}
+	print_r($ttt);
 	
 ?>
 
@@ -52,12 +55,6 @@
 			$add_p		= get_field('add_p', $post_id); if (!$add_p) $add_p = 0;
 			$contents = explode("</p>", $content);
 			$p_counter = 0;
-			
-			$image_count = 9;
-			$ad_interval = 4;
-			$div = gmp_div_r($image_count, $ad_interval);
-			echo $div;
-			
 				
 			foreach($contents as $content){
 			    echo $content.'</p>';
@@ -176,10 +173,13 @@
 			</div>
 			<div id="disqus_thread"></div>
 		</div>
-		<div class="grey-hr"></div>
+		<div class="ad-single-bottom">
+			<div class="asb-inner"></div>
+		</div>
+<!-- 		<div class="grey-hr"></div> -->
 		<div class="single-newsletter">
 			<h3>Don’t forget to sign up!</h3>
-			<p>Get the Top Stories from In-Fisherman Delivered to Your Inbox Every Week</p>
+			<p>Get the Top Stories from <?php bloginfo('name'); ?> Delivered to Your Inbox Every Week</p>
 			<div class="newsletter">
 				<?php
 				$formID = get_option('newsletter_id');
@@ -233,8 +233,46 @@
 			</div>
 		</div>
 		<div id="ad-stop"></div>
+		<?php imo_ad_placement("e_commerce_widget"); ?> 
 	</article>
 </main>
+<div class="more-stories">
+	<h1>Even More <?php echo $cat_names[0]; ?></h1>
+	<div class="ms-inner clearfix">
+	<?php	
+		$post_counter = 0;
+		
+		$args = array (
+			'cat'         		=> $post_categories[0],
+			'posts_per_page'	=> 5,
+			'order'				=> 'DESC',
+			'post__not_in'		=> array("$post_id")
+		);
+		// The Query
+		$query = new WP_Query( $args );
+		// The Loop
+		if ( $query->have_posts() ) {
+			while ( $query->have_posts() ) {
+				$query->the_post();			
+				$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+		?>
+		<a class="ms-box" href="<?php the_permalink(); ?>">
+			<div class="ms-image" style="background-image: url('<?php echo $feat_image; ?>')"></div>
+			<div class="ms-desc"><?php the_title( '<h1>', '</h1>'); ?></div>
+		</a>
+		<?php
+				if ($post_counter == 1) { 
+					echo '<div class="ms-ad"><div class="ms-ad-inner"></div></div>';
+				}
+			$post_counter++;	
+				}
+			} else {
+				echo "no posts found";
+			}
+			wp_reset_postdata(); 
+	?>
+	</div><!--  .ms-inner -->
+</div>
 
 
 

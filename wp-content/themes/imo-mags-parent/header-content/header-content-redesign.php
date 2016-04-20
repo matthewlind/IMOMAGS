@@ -53,7 +53,7 @@
 					<section class="menu-footer">
 						<div class="menu-footer-inner">
 							<h3>Don’t forget to sign up!</h3>
-							<p>Get the Top Stories from In-Fisherman Delivered to Your Inbox Every Week</p>
+							<p>Get the Top Stories from <?php bloginfo('name'); ?> Delivered to Your Inbox Every Week</p>
 							<div class="newsletter">
 								<?php
 								$formID = get_option('newsletter_id');

@@ -2,7 +2,7 @@
 	position: relative;
 }
 .article {
-	padding: 20px 5%;
+	padding: 20px 5% 0;
 }
 .post-cats a {
 	display: inline-block;
@@ -343,13 +343,93 @@ a.ae-title p {
 	background-color: #ccc;
 	margin: 30px 0;
 }
+.ad-single-bottom {
+	margin: 30px 0;
+	text-align: center;
+}
+.asb-inner {
+	width: 300px;
+	height: 250px;
+	display: inline-block;
+	margin: 0 -5%;
+	background-color: #56ac64;
+}
+.single-newsletter {
+	background-color: #ececec;
+	padding: 5px 5% 30px;
+	text-align: center;
+	margin: 0 -5% 30px;
+}
+.single-newsletter h3 {
+	color: #FF6600;
+	font: 600 1.5em 'Stag', serif;
+	margin-bottom: 10px;
+}
+.single-newsletter .newsletter fieldset input:first-child {
+	width: 100%;
+	line-height: 43px;
+	margin: 10px 0 15px;
+	border: 3px solid #aaa;
+}
+.single-newsletter .newsletter fieldset input:last-child {
+	width: 100%;
+	height: 49px;
+}
 
+
+/*---------------------------------------------- */
+/*	MORE STORIES
+/*---------------------------------------------- */
+
+.more-stories {
+	
+}
+.more-stories > h1{
+	text-align: center;
+	font-size: 1.5em;
+	text-transform: uppercase;
+}
+.ms-box {
+	float: left;
+	width: 100%;
+	outline: 1px dotted red;
+	margin-bottom: 20px;
+	display: block;
+}
+.ms-image {
+	width: 100%;
+	padding-top: 62%;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+.ms-desc {
+	padding: 16px;
+	width: 100%;
+}
+.ms-desc h1 {
+	margin: 0;
+	font-size: 1.4em;
+	color: #333;
+}
+.ms-ad {
+	float: left;
+	width: 100%;
+	margin-bottom: 30px;
+}
+.ms-ad-inner {
+	height: 250px;
+	width: 300px;
+	margin: 20px auto;
+	overflow: hidden;
+	background-color: #cda172;
+}
 
 
 @media only screen and (min-width: 375px) {/* iPhone 6 */
 
 .ve-head > span {font-size: 14px;}
-
+.ms-inner h1{font-size: 1.7em;}
 
 }/* end media 375px */ 
 
@@ -367,6 +447,7 @@ a.ae-title p {
 @media only screen and (min-width: 400px) {
 	
 .ve-content h4 {font-size: 16px;}
+.ms-box { margin-bottom: 30px; }
 
 }/* end media 400px */ 
 
@@ -430,9 +511,23 @@ a.ae-title {font-size: 18px;margin-bottom: 10px;}
 
 @media only screen and (min-width: 760px) {
 
-.article {padding:40px 0;width: 600px;margin: 0 auto;}
+.article {padding:40px 0 0;width: 600px;margin: 0 auto;}
 .article-header > h1 {font-size: 41px;}	
 .byline span {font-size: 14px;}	
+.single-newsletter {
+	padding: 5px 30px 20px;
+	text-align: left;
+	margin: 0 0 30px;
+}
+.single-newsletter > p {font-size: 15px;}
+.single-newsletter .newsletter fieldset input:first-child {
+	width: 220px;
+	line-height: 38px;
+}
+.single-newsletter .newsletter fieldset input:last-child {
+	width: auto;
+	height: 44px;
+}
 	
 }/* end of media */
 

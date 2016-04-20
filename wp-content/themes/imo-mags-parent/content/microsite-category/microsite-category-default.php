@@ -12,6 +12,7 @@
 
 <div class="content">
 	<div class="posts-wrap" id="posts_wrap">
+		<?php // html generated here is in file:///data/wordpress/imomags/wp-content/themes/imo-mags-parent/functions/microsites/ajax-load-posts.php ?>
 		
 		<?php if ($dartDomain == "imo.gameandfish") { include(get_template_directory() . '/content/microsite-category/related-microsite.php'); } else { }?>
 	</div><!-- end .posts-wrap -->
