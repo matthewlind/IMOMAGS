@@ -568,47 +568,6 @@ function isset_related_posts()
     return (false == strpos($output, 'No related photos'));
 }
 
-
-
-
-
-/**
- * Reader Photo Slider Shortcode
- *
- * [reader-photo-slider]
- *
-**/
-
-function reader_photo_slider() {
-
-	$id = get_the_ID();
-	$features = get_field('reader_photos',$id );
-
-	if( $features ): ?>
-		<div id="photoSlider" class="reader-photo-slider loading-block clearfix">
-	        <div class="photo-slider onload-hidden">
-	            <ul class="slides-inner slides">
-
-    				<?php foreach( $features as $feature ):
-	           	 		$title = $feature->post_title;
-	           	 		$url = $feature->guid;
-						$thumb = get_the_post_thumbnail($feature->ID,"community-square-retina"); ?>
-
-	               	 	<li>
-	                    	<div><a href="<?php echo $url; ?>"><?php echo $thumb; ?></a></div>
-	                        <h3><a href="<?php echo $url; ?>"><?php echo $title; ?></a></h3>
-	                    </li>
-				    <?php endforeach; ?>
-
-            </ul>
-        </div>
-    </div>
-	<?php endif;
-	wp_enqueue_script('flexslider-reader-js','/wp-content/themes/imo-mags-parent/js/plugins/flexslider/jquery.flexslider.js', __FILE__);
-}
-
-add_shortcode( 'reader-photo-slider', 'reader_photo_slider' );
-
 /**
  * Callback Handler for the admin_menu action.
  */
