@@ -124,7 +124,11 @@
 </head>
 
 <body <?php body_class(); ?>  >
-
+<div id='interstitial'>
+	<script type='text/javascript'>
+		googletag.cmd.push(function() { googletag.display('interstitial'); });
+	</script>
+</div>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];

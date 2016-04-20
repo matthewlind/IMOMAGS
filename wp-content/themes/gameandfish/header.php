@@ -115,6 +115,11 @@
 </head>
 
 <body <?php body_class(); ?>  >
+<div id='interstitial'>
+	<script type='text/javascript'>
+		googletag.cmd.push(function() { googletag.display('interstitial'); });
+	</script>
+</div>
 <?php
 	if ( $microsite ){
 		//get_template_part('../imo-mags-parent/header-content/microsites/gameandfish/header-content', 'crossbows');
