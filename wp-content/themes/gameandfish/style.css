@@ -368,7 +368,6 @@ body{background-color: black;}
 	-o-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
 	box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
 }
-.flex-direction-nav a {background-image: url(images/prev-next.png) !important;}
 .singl-post-photo span{
 	background:url(images/ico/camera-white.png) no-repeat;
 	padding:2px 0 0 30px;
@@ -4442,11 +4441,6 @@ select.alter-sel {width:100%;}
 #photoGalleryBottomContent p, #photoGalleryBottomContent span{
 	color:#fff;
 }
-
-.flex-direction-nav .flex-next, .flex-direction-nav .flex-prev{
-	display:none;
-}
-
 .photoGalleryState{
 	background:#6A7265;
 	color:#FFF !important;
@@ -4478,10 +4472,6 @@ select.alter-sel {width:100%;}
 
 #state-list-menu{
 	overflow-y: scroll !important;
-}
-
-.flex-direction-nav{
-		display:none;
 }
 #ecw-flexslider .flex-direction-nav {
 	display: block;
