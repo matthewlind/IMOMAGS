@@ -238,7 +238,7 @@
 </main>
 <div class="more-stories">
 	<h1>Even More <?php echo $cat_names[0]; ?></h1>
-	<div class="ms-inner clearfix">
+	<div class="ms-inner">
 	<?php	
 		$post_counter = 0;
 		
@@ -272,6 +272,14 @@
 			wp_reset_postdata(); 
 	?>
 	</div><!--  .ms-inner -->
+	<div id="btn_more_stories" class="ms-btn">
+		<span>Show More</span>
+		<div class="loader-anim display-none">
+			<div class="loader-inner line-spin-fade-loader">
+				<div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div>
+			</div>
+		</div>
+	</div>
 </div>
 
 
