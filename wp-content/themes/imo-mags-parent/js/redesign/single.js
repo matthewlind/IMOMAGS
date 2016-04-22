@@ -3,7 +3,10 @@
 
 	
 var $document 		= $(document),
-	ad_sticky 		= $("#sticky-ad");	
+	ad_sticky 		= $("#sticky-ad"),
+	more_stories	= $("#more_stories"),
+	ms_inner		= $("#ms_inner"),
+	ms_h1			= $("#ms_h1");
 	
 
 if (ad_sticky[0]) {	
@@ -37,16 +40,67 @@ function stickyAd() {
 	}
 }
 	
+
+
+// Load More Posts Function
+//-----------------------------------------//
+function loadMorePosts(p, a) {
+	var d = $(this),
+		cat_id 			= d.data("cat"),
+		post_not		= d.data("post-not"),
+		loader_anim		= $('#btn_more_stories .loader-anim'),
+		post_count		= $(".ms-box").length,
+		ms_inner		= $("#ms_inner"),
+		post_per_page	= p,
+		ad_after_post	= a;
+			
+	loader_anim.removeClass('dnone');
 	
-$document.scroll(function() {
-    if (ad_sticky[0]) { stickyAd(); }
-}); // doc scroll
+	$.ajax({
+		method: "POST",
+		url: ajax_object.ajax_url,
+		cache: false,
+		data: {
+			'action'		: 'ms_load_more',
+			'cat_id'		: cat_id,
+			'post_count'	: post_count,
+			'post_not'		: post_not,
+			'post_per_page'	: post_per_page,
+			'ad_after_post' : ad_after_post
+		}
+	})
+	.done(function(response) {
+		ms_inner.append(response);
+		loader_anim.addClass('dnone');
+	})
+	.fail(function() { ms_inner.append( $("<p/>", {text: "The error ocurred. Try to reload the page",style: "color: red;"})); });
+}
 
 
+// Load 'Even More' Section
+//-----------------------------------------//
+function evenMore() {
+	var d 	= $document.scrollTop(),
+	even_m 	= more_stories.offset().top - 100;
+	
+	if (d > even_m) {
+		ms_h1.after( $("<div/>", {'id' : 'ms_inner', 'class' : 'ms-inner'}) );
+		loadMorePosts(5, 1);
+	}
+}
 
-$(document).ready(function() {
+
+$(document).ready(function() {	
+	
+	// Load More Posts Button
+	//-----------------------------------------//				
+	more_stories.on("click", "#btn_more_stories", function() {
+		loadMorePosts(11, 7);	
+	});
+	
 	
 	// Disqus functions
+	//-----------------------------------------//
 	// Load disqus javascript
 	$('#load-comments').on('click', function(){ 
 		var disqus_shortname = 'gundogmag';  // Enter your disqus user name
@@ -85,6 +139,12 @@ $(document).ready(function() {
 });// end document.ready
 
 
+	
+$document.scroll(function() {
+    if (ad_sticky[0]) { stickyAd(); }
+    
+    if (!$('#ms_inner').length) { evenMore(); }
+}); // doc scroll
 
 ////////////////////	
 })(jQuery);

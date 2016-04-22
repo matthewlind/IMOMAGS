@@ -236,9 +236,10 @@
 		<?php imo_ad_placement("e_commerce_widget"); ?> 
 	</article>
 </main>
-<div class="more-stories">
-	<h1>Even More <?php echo $cat_names[0]; ?></h1>
-	<div class="ms-inner">
+<div id="more_stories" class="more-stories">
+	<h1 id="ms_h1">Even More <?php echo $cat_names[0]; ?></h1>
+<!--
+	<div id="ms_inner" class="ms-inner">
 	<?php	
 		$post_counter = 0;
 		
@@ -271,11 +272,12 @@
 			}
 			wp_reset_postdata(); 
 	?>
-	</div><!--  .ms-inner -->
-	<div id="btn_more_stories" class="ms-btn">
+	</div>
+--><!--  .ms-inner -->
+	<div id="btn_more_stories" class="ms-btn" data-cat="<?php echo $post_categories[0]; ?>" data-post-not="<?php echo $post_id; ?>">
 		<span>Show More</span>
-		<div class="loader-anim display-none">
-			<div class="loader-inner line-spin-fade-loader">
+		<div class="loader-anim dnone">
+			<div class="line-spin-fade-loader">
 				<div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div>
 			</div>
 		</div>
