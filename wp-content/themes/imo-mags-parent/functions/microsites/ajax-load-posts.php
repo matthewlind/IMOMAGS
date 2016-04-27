@@ -34,7 +34,6 @@ function my_enqueue_microsite() {
 	}
 }
 function load_microsite_posts() {
-	
 	global $wpdb;          
     ob_clean();  
     $subcat = $_POST[ 'cat_slug' ];

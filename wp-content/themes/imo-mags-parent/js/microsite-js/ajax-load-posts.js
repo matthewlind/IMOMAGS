@@ -25,27 +25,20 @@
 			    separator 		= "#",
 			    subcat			= url.match(/#(.*)/g);
 			    
-			if (subcat) { 
-				posts_wrap.empty();
-				subcat = subcat.toString().replace(separator, ""); 
-				
-					    			    		
-				var data = {
-						'action': 'load_posts__action',
-						'cat_slug': subcat,
-						'term_cat_id': term_cat_id,
-						'parent_cat_slug': parent_cat_slug
-					};
-				jQuery.post(ajax_object.ajax_url, data, function(response) {
-		
-					posts_wrap.prepend(response);
-									
-					$('.top-ad-home').append(ad_string);
-				});
-			} else {
+			if (subcat) { subcat = subcat.toString().replace(separator, ""); }		
+			    			    		
+			var data = {
+					'action': 'load_posts__action',
+					'cat_slug': subcat,
+					'term_cat_id': term_cat_id,
+					'parent_cat_slug': parent_cat_slug
+				};
+			jQuery.post(ajax_object.ajax_url, data, function(response) {
+	
+				posts_wrap.prepend(response);
+								
 				$('.top-ad-home').append(ad_string);
-			}		
-			
+			});
 			
 			
 			// Add data-cat="{cat_slug}" to each link
