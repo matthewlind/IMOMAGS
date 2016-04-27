@@ -27,18 +27,22 @@
 			    
 			if (subcat) { subcat = subcat.toString().replace(separator, ""); }		
 			    			    		
-			var data = {
+			$.ajax({
+				method: "POST",
+				url: ajax_object.ajax_url,
+				cache: false,
+				data: {
 					'action': 'load_posts__action',
 					'cat_slug': subcat,
 					'term_cat_id': term_cat_id,
 					'parent_cat_slug': parent_cat_slug
-				};
-			jQuery.post(ajax_object.ajax_url, data, function(response) {
-	
+				}
+			})
+			.done(function(response) {
 				posts_wrap.prepend(response);
-								
 				$('.top-ad-home').append(ad_string);
-			});
+			})
+			.fail(function() { posts_wrap.prepend( $("<p/>", {text: "The error ocurred. Try to reload the page",style: "color: white;"})); });
 			
 			
 			// Add data-cat="{cat_slug}" to each link
@@ -67,22 +71,23 @@
 				    newUrl = url.replace(/#(.*)/g,"");
 				    newUrl+=newParam;
 				    document.location.href = newUrl;				     
-					
-				var data = {
-					'action': 'load_posts__action',
-					'cat_slug': data_cat_slug,
-					'term_cat_id': term_cat_id,
-					'parent_cat_slug': parent_cat_slug
-				};
-				jQuery.post(ajax_object.ajax_url, data, function(response) {
+				$.ajax({
+					method: "POST",
+					url: ajax_object.ajax_url,
+					cache: false,
+					data: {
+						'action': 'load_posts__action',
+						'cat_slug': data_cat_slug,
+						'term_cat_id': term_cat_id,
+						'parent_cat_slug': parent_cat_slug
+					}
+				})
+				.done(function(response) {
 					posts_wrap.empty();
 					posts_wrap.prepend(response);
-									
-					var feat_posts_after = $(".feat-post"),
-						second_feat		= feat_posts_after[1];
-										
 					$('.top-ad-home').append(ad_string);
-				});
+				})
+				.fail(function() { posts_wrap.prepend( $("<p/>", {text: "The error ocurred. Try to reload the page",style: "color: white;"})); });
 				
 			});
 			
