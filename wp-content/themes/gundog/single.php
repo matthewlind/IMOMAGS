@@ -11,25 +11,30 @@
 	$byline 	= get_post_meta($post_id, 'ecpt_byline', true);
 	$acf_byline = get_field("byline", $post_id);
 	
-	// POST CATEGORIES	
-	$post_categories = wp_get_post_categories( $post_id );
-	$cat_list = '';
-	$cat_names = array();
+	// POST CATEGORIES
+	$post_meta			= get_post_meta($post_id);
+	$primary_cat_id		= $post_meta["_category_permalink"][0];
+	$primary_cat_name	= get_cat_name($primary_cat_id);	
+/*
+	$post_categories 	= wp_get_post_categories( $post_id );
+	$cat_list 			= '';
+	$cat_names 			= array();
 	foreach($post_categories as $c){
-	    $cat = get_category( $c );
-	    $cat_url = get_category_link( $c );
-	    $cat_names[] = $cat->name;			    
+	    $cat 			= get_category( $c );
+	    $cat_url 		= get_category_link( $c );
+	    $cat_names[] 	= $cat->name;	
+	    		    
 	    $cat_list .= "<a href='".  $cat_url . "'>" . $cat->name . "</a>";
 	}
-	print_r($ttt);
-	
+*/
+
 ?>
 
 <main class="main-single">
 	<article id="article" class="article">
 		<header class="article-header">
-			<div class="post-cats">
-				<?php echo $cat_list; ?>
+			<div class="cat-feat-label">
+				<?php if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(); } ?>
 			</div>
 			<h1><?php the_title(); ?></h1>
 			<div class="byline">
@@ -237,44 +242,21 @@
 	</article>
 </main>
 <div id="more_stories" class="more-stories">
-	<h1 id="ms_h1">Even More <?php echo $cat_names[0]; ?></h1>
-<!--
-	<div id="ms_inner" class="ms-inner">
-	<?php	
-		$post_counter = 0;
-		
-		$args = array (
-			'cat'         		=> $post_categories[0],
-			'posts_per_page'	=> 5,
-			'order'				=> 'DESC',
-			'post__not_in'		=> array("$post_id")
-		);
-		// The Query
-		$query = new WP_Query( $args );
-		// The Loop
-		if ( $query->have_posts() ) {
-			while ( $query->have_posts() ) {
-				$query->the_post();			
-				$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-		?>
-		<a class="ms-box" href="<?php the_permalink(); ?>">
-			<div class="ms-image" style="background-image: url('<?php echo $feat_image; ?>')"></div>
-			<div class="ms-desc"><?php the_title( '<h1>', '</h1>'); ?></div>
-		</a>
-		<?php
-				if ($post_counter == 1) { 
-					echo '<div class="ms-ad"><div class="ms-ad-inner"></div></div>';
-				}
-			$post_counter++;	
-				}
-			} else {
-				echo "no posts found";
-			}
-			wp_reset_postdata(); 
-	?>
+	<h1 id="ms_h1">Even More <?php echo $primary_cat_name; ?></h1>
+	<div id="ms_loader">
+		<div class="ms-loader-inner ball-grid-pulse">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
 	</div>
---><!--  .ms-inner -->
-	<div id="btn_more_stories" class="ms-btn" data-cat="<?php echo $post_categories[0]; ?>" data-post-not="<?php echo $post_id; ?>">
+	<div id="btn_more_stories" class="ms-btn" data-cat="<?php echo $primary_cat_id; ?>" data-post-not="<?php echo $post_id; ?>">
 		<span>Show More</span>
 		<div class="loader-anim dnone">
 			<div class="line-spin-fade-loader">

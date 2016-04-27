@@ -75,7 +75,7 @@ function ms_load_more() {
 		}
 	} else { ?>
 		<script>
-			jQuery('#btn_more_stories > span').text('No more posts').css("color", "#999999"); 
+			jQuery('#btn_more_stories > span').text('No more posts').css("color", "#eeeeee"); 
 			jQuery('#btn_more_stories').removeAttr("id");
 		</script>
 <?php }

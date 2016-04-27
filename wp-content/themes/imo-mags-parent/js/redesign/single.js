@@ -3,12 +3,16 @@
 
 	
 var $document 		= $(document),
+	window_height	= $(window).height(),
 	ad_sticky 		= $("#sticky-ad"),
 	more_stories	= $("#more_stories"),
 	ms_inner		= $("#ms_inner"),
+	ms_loader		= $("#ms_loader"),
 	ms_h1			= $("#ms_h1");
-	
 
+	
+// Sticky Ad Function
+//-----------------------------------------//
 if (ad_sticky[0]) {	
 	var	stick_start 	= $("#article"),
 		stick_stop 		= $("#ad-stop"),
@@ -81,11 +85,13 @@ function loadMorePosts(p, a) {
 //-----------------------------------------//
 function evenMore() {
 	var d 	= $document.scrollTop(),
-	even_m 	= more_stories.offset().top - 100;
+	even_m 	= ms_loader.offset().top - window_height + 100;
 	
 	if (d > even_m) {
 		ms_h1.after( $("<div/>", {'id' : 'ms_inner', 'class' : 'ms-inner'}) );
+		
 		loadMorePosts(5, 1);
+		ms_loader.remove();
 	}
 }
 
@@ -95,7 +101,7 @@ $(document).ready(function() {
 	// Load More Posts Button
 	//-----------------------------------------//				
 	more_stories.on("click", "#btn_more_stories", function() {
-		loadMorePosts(11, 7);	
+		loadMorePosts(14, 7);	
 	});
 	
 	
