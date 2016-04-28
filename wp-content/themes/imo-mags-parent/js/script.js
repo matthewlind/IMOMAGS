@@ -352,7 +352,7 @@ jQuery(function(){
 	if (jQuery(".advert").length > 0) {
 		jQuery('.advert').jfollow('#responderfollow');
 	}
-	jQuery('.jq-explore-slider-sidebar').flexslider({
+/*	jQuery('.jq-explore-slider-sidebar').flexslider({
         animation: "slide",
         animationSpeed: 200,
         slideshow: false,
@@ -363,7 +363,7 @@ jQuery(function(){
         minItems: 2,
         maxItems: 4
     });
-/*
+
 	jQuery('.jq-slider').flexslider({
         animation: "slide",
         animationSpeed: 200,
@@ -410,17 +410,7 @@ jQuery(function(){
 
         });
 
-    jQuery('.jq-explore-slider').flexslider({
-        animation: "slide",
-        animationSpeed: 200,
-        slideshow: false,
-        controlNav: false,
-        directionNav: false,
-        itemWidth: 123,
-        itemMargin: 0,
-        minItems: 2,
-        maxItems: 4
-    });        
+   
     jQuery('#photoSlider.reader-photo-slider .photo-slider').flexslider({
 		slideshow: false, 
 		animation: "slide",

@@ -3,7 +3,7 @@
 /**
  *head-includes.php makes special things special.
  */
- 
+
 if( is_preview() ){
 	echo '<script type="text/javascript">var _gaq = _gaq || [];</script>';
 }
@@ -146,7 +146,8 @@ googletag.cmd.push(function() {
 
 var w = window.innerWidth;
 var h = window.innerHeight;
-	
+	    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], '300_btf').setTargeting('pos', ['btf']).addService(googletag.pubads());
+
 	<?php if(is_page("bracket")){ ?>
 		googletag.defineSlot('/4930/imo.gunsandammo/guns_and_ammo_madness/gam_presenting_sponsor', [240, 60], 'presenting').addService(googletag.pubads());
 	    googletag.defineSlot('/4930/imo.gunsandammo/guns_and_ammo_madness/gam_region_sponsor_2', [240, 60], 'region1').addService(googletag.pubads());

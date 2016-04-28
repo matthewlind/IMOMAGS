@@ -25,7 +25,7 @@ class GAReviewWidget extends \WP_Widget {
 
     $defaults = array (
       'post_type' => 'review',
-      'limit' => '16',
+      'limit' => '6',
     );
 
 
@@ -67,7 +67,7 @@ class GAReviewWidget extends \WP_Widget {
     function widget($args, $instance) {
 
 ?>
-<div class="ga-reviews-slider">
+<div class="ga-reviews-slider posts-list page-header js-responsive-section">
 	<div class="section-title posts">
 	    <h2 class="reviews-form-header">
 	        <div class="icon"></div>
@@ -160,9 +160,7 @@ class GAReviewWidget extends \WP_Widget {
                 <h2><?php echo $instance['header']; ?></h2>
             </div>
         <?php } ?>
-        <div class="explore-posts">
-            <div class="jq-explore-slider-sidebar">
-                <ul class="slides">
+				<div class="section-title posts">
 					<?php 
 	
 					// The Loop
@@ -176,22 +174,25 @@ class GAReviewWidget extends \WP_Widget {
 	
 	
 	                $imgSrc = $imgArray[0]; ?>
-	                <li>
-					
-					 <div class="feat-post">
-	                    <div class="feat-img"><a href="<?php echo $url; ?>" ><img src="<?php echo $imgSrc; ?>" alt="<?php echo $title; ?>" /></a></div>
-		                    <div class="feat-text">
-		                        <h3>
-		                        	<a href="<?php echo $url; ?>" ><?php echo $title; ?></a>
-		                        </h3>
-		                     </div>
-		                </div>
-	                </li>
+	                <div class="post article-brief clearfix">
+	                        <a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('list-thumb'); ?></a>
+	                        <div class="article-holder">
+	                            <div class="clearfix"></div>
+	                            <h3 class="entry-title">
+	                              <a href="<?php echo $url; ?>" ><?php echo $title; ?></a>
+	                            </h3>
+	                            <a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>
+	                             <div class="entry-content">
+	                                <?php the_excerpt(); ?>
+	                                <?php //the_content( __( 'more <span class="meta-nav">&raquo;</span>', 'twentytwelve' ) ); ?>
+	                                <?php wp_link_pages( array( 'before' => '<div class="page-links">' . 'Pages:', 'after' => '</div>' ) ); ?>
+	                            </div><!-- .entry-content -->
+	                        </div>
+	                    </div>
 					<?php endwhile; ?>
-				</ul>
+
+			</div>
 		</div>
-	</div>
-</div>
         <?php
         // Reset Post Data
         wp_reset_postdata();
@@ -242,7 +243,7 @@ class GAReviewWidget extends \WP_Widget {
         $args = array(
             'tax_query' => $taxQuery,
             
-            'posts_per_page' => 16,
+            'posts_per_page' => 6,
 
         );
 

@@ -26,6 +26,9 @@ $(window).ready(function() {
 */
 	
 	$(".span-load-gallery").click(function(){
+		
+		//reload the sticky ad
+		document.getElementById('sticky-iframe-ad').contentWindow.location.reload();
 		//remove first image
 		first_img_overlay.fadeIn(100);
 		
@@ -75,7 +78,9 @@ $(window).ready(function() {
 						$('.gallery-count').show();
 						$('.gallery-count .curr-count').text(curSlide);
 					}
-
+					
+					//reload the sticky ad
+					document.getElementById('sticky-iframe-ad').contentWindow.location.reload();
 					
 				}
 		   });

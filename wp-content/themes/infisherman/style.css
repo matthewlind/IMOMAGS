@@ -380,8 +380,7 @@ ul.fancy li, ol.fancy li {
 }
 
 /* Community - Reader Photos */
-.fishhead-homepage{max-height: 48px;padding-bottom: 10px;}
-.fishhead-homepage .flex-control-nav{position: static;padding: 20px 0 10px;}
+.fishhead-homepage{padding-bottom: 10px;}
 .fishhead-homepage .feat-text{
 	min-height: 0;
 	background: transparent;
@@ -725,7 +724,7 @@ ul.fancy li, ol.fancy li {
 #photoAlbumGallery .flex-slide img{
 	width:auto !important;
 }
-
+.home .dif-post{width: 302px;}
 
 
 /***** END Photos Page ******/

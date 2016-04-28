@@ -122,7 +122,7 @@ get_header(); ?>
                     </div>
                 </div>
 
-				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header loading-block js-responsive-section">
+				<div data-position="<?php echo $dataPos = $dataPos + 1; ?>" class="page-header js-responsive-section">
 					<?php the_widget('imo\GAReviewWidget'); ?>
 				</div>
 				<?php if ( mobile() ){ get_sidebar("mobile"); } ?>

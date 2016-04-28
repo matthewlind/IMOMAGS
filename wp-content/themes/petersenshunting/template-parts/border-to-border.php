@@ -187,5 +187,4 @@ $small_game = get_field("small_game");
 <?php			
 	} // End While
 } 	else { echo '<h2>Not Found</h2>'; }
-wp_reset_query();
-?>	
+wp_reset_query(); ?>	
