@@ -2,14 +2,11 @@
 	$cat 			= get_query_var('cat');
 	$this_cat 		= get_category($cat);
 	$this_cat_slag 	= $this_cat->slug;
-	$this_cat_url	= $this_cat->url;
 	$this_cat_id	= $this_cat->term_id;
 	$term_cat_id 	= 'category_'.$this_cat_id;
 	
 	$social_share_message 	= get_field('social_share_message', $term_cat_id);
 ?>
-
-
 
 <div class="content">
 	<div class="posts-wrap" id="posts_wrap">
@@ -41,7 +38,6 @@
 			if ($p_counter == 1) { 
 				echo '<div class="top-ad-home"></div>';
 			}
-
 			if ($p_counter == 3) { ?>
 			</div><!-- .p-feat-container -->
 			<div class="featured-message">

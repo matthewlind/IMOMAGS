@@ -1,5 +1,5 @@
 <?php
-
+apply_filters ( 'admin_memory_limit', 512 );
 add_theme_support( 'post-thumbnails' );
 add_action( 'widgets_init', 'parent_theme_widgets_init' );
 add_action('after_setup_theme', 'parent_theme_setup');
