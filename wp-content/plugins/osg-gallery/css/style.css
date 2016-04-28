@@ -186,7 +186,7 @@
 	height: 80px;
 	width: 40px;
 	border-radius: 4px 0 0 4px;
-	background-color: rgba(100,100,100,.3);
+	background-color: rgba(100,100,100,.5);
 	cursor: pointer;
 	text-align: center;
 	z-index: 10001;

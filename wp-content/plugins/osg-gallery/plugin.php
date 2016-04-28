@@ -12,7 +12,7 @@ add_action('init', 'register_gallery_script');
 add_action('wp_footer', 'print_gallery_script');
 
 function register_gallery_script() {
-	wp_register_script('flexslider-js', plugins_url('js/jquery.flexslider.js', __FILE__));
+	wp_register_script('flexslider-js', get_template_directory_uri().'/plugins/flexslider/jquery.flexslider.js');
 	wp_register_script('gallery-js', plugins_url('js/gallery.js', __FILE__));
 }
 
@@ -120,7 +120,7 @@ function imo_flex_gallery( $atts ) {
 }
 
 
-wp_enqueue_style('flexslider-css',plugins_url('css/flexslider.css', __FILE__));
+wp_enqueue_style('flexslider-css',get_template_directory_uri().'/plugins/flexslider/flexslider.css');
 wp_enqueue_style('gallery-css',plugins_url('css/style.css', __FILE__));
 
 

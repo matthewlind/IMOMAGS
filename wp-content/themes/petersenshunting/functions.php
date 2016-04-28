@@ -33,8 +33,10 @@ add_action( 'wp_loaded', 'my_connection_types' );
 **
 ***/
 function my_scripts_method() {
-      wp_enqueue_script("cross-site-feed", get_stylesheet_directory_uri() . "/js/cross-site-feed.js");
-      wp_enqueue_script("scrollface", get_stylesheet_directory_uri() . "/js/jquery.scrollface.min.js");
+	 if( is_page( 'border-to-border' ) || is_page( 'the-truck' )  ){ 
+		 wp_enqueue_style('flexslider-css',get_template_directory_uri().'/plugins/flexslider/flexslider.css');
+		 wp_enqueue_script('flexslider-js', get_template_directory_uri().'/plugins/flexslider/jquery.flexslider.js'); 
+	}
 }    
  
 add_action('wp_enqueue_scripts', 'my_scripts_method');

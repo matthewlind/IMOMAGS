@@ -16,7 +16,7 @@ $term = $_GET['term'];
 <script type='text/javascript'>
   googletag.cmd.push(function() {
 
-    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], '300_btf').addService(googletag.pubads());
+    googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], '300_btf').setTargeting('pos', ['btf']).addService(googletag.pubads());
 
     googletag.pubads().enableSingleRequest();
     googletag.pubads().setTargeting('sect', ['<?php echo $term; ?>']);
