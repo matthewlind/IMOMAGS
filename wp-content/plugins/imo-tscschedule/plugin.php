@@ -25,6 +25,8 @@ function tscschedule_func($atts) {
 
 	wp_enqueue_script( 'momentjs', plugin_dir_url( __FILE__ ) . 'moment.js', array( 'jquery' ) );
 	wp_enqueue_script( 'tscschedulejs', plugin_dir_url( __FILE__ ) . 'tscschedule.js', array( 'jquery' ) );
+	wp_enqueue_script('flexslider-js', get_template_directory_uri().'/plugins/flexslider/jquery.flexslider.js');
+
 	wp_enqueue_style( 'tscschedulecss', plugin_dir_url( __FILE__ ) . 'tscschedule.css' );
 
 	return jsTSCSRender($ismobile, $atts);
