@@ -1929,7 +1929,7 @@ a.category-name-link:hover{
 	margin-left: 0 !important;
 	max-width:100px;
 }
-#gallery-iframe-ad{position: absolute;bottom: -20px;}
+#gallery-iframe-ad{}
 /*** mobile gallery ***/
 .gallery-slider {
     position:relative;

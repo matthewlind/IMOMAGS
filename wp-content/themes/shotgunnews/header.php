@@ -123,7 +123,7 @@
 	<script type='text/javascript' src='http://ads.jetpackdigital.com/sites/<?php print JETPACK_SITE; ?>/jpd.js'></script>
 </head>
 
-<body <?php body_class(); ?>  >
+<body <?php body_class(); ?> domain="<?php echo $dartDomain; ?>" >
 <div id='interstitial'>
 	<script type='text/javascript'>
 		googletag.cmd.push(function() { googletag.display('interstitial'); });

@@ -89,7 +89,7 @@ function imo_flex_gallery( $atts ) {
 	$slug = $pictures[0]->name;
 	$prefix = $wpdb->prefix;
 	
-	$html = '<div class="osg-gallery"><div class="gallery-header"><div class="gallery-title">GALLERY: '. $title .'</div><div class="gallery-count"><span class="curr-count">1</span> of '. $totalSlidesShow .'</div></div>';
+	$html = '<div class="osg-gallery"><div class="gallery-header"><div class="gallery-title" slug="'. $slug .'">GALLERY: '. $title .'</div><div class="gallery-count"><span class="curr-count">1</span> of '. $totalSlidesShow .'</div></div>';
 	
 	$html .= '<div class="gallery-images"><ul class="slides">';
 	
