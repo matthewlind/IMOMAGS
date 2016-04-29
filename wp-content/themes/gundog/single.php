@@ -56,10 +56,25 @@
 			</div>
 		</header>
 		<div class="article-body">
-<?php		$content 	= apply_filters('the_content', $post->post_content);
-			$add_p		= get_field('add_p', $post_id); if (!$add_p) $add_p = 0;
-			$contents = explode("</p>", $content);
-			$p_counter = 0;
+			
+<?php		
+	
+			$move_el	= get_field('move_el', $post_id); if (!$move_el) $move_el = 0;
+			$p_counter 	= 0;
+			$current_p	= 0;
+			$content 	= apply_filters('the_content', $post->post_content);
+			$contents 	= explode("</p>", $content);
+			$p_number	= count($contents);
+			$interval	= ($p_number >= 25) ? $p_number / 4 : $p_number / 3;
+			$ep			= array();
+			
+			for ($i = $interval; $i <= $p_number; $i+=$interval) { $ep[] = floor($i); }
+			
+			print_r($ep);
+			
+			
+			
+			echo '<br>' . $p_number . '<br>' . $move_el;
 				
 			foreach($contents as $content){
 			    echo $content.'</p>';
@@ -70,7 +85,7 @@
 				    </div>
 <?php			}
 			   
-			    if ($current_p == 5){ ?>
+			    if ($current_p == $ep[0]){ ?>
 					<div class="article-elem">
 						<div class="ae-header">
 							<div></div>
@@ -83,7 +98,7 @@
 						</div>
 			    	</div>
 <?php 			}	
-				if ($current_p == 7){ ?>
+				if ($current_p == $ep[1]){ ?>
 					<div class="article-elem">
 						<div class="ae-header">
 							<div></div>
@@ -103,7 +118,7 @@
 			    	</div>
 <?php			}
 	
-				if ($current_p == 8){ ?>
+				if ($p_number >= 26 && $current_p == $ep[2]){ ?>
 					<div class="video-elem">
 						<div class="ve-head">
 							<h4>DON’T MISS IN-FISHERMAN TV</h4>
@@ -141,7 +156,7 @@
 			    	</div>
 <?php			}
 			    $p_counter++;
-			    $current_p = $p_counter - ($add_p);
+			    $current_p = $p_counter - ($move_el);
 			    
 			    
 			}
