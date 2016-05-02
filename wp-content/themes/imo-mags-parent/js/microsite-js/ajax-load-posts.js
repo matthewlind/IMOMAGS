@@ -44,7 +44,7 @@
 					posts_wrap.prepend(response);
 					$('.top-ad-home').append(ad_string);
 				})
-				.fail(function() { posts_wrap.prepend( $("<p/>", {text: "The error occurred. Try to reload the page",style: "color: white;"})); });
+				.fail(function() { posts_wrap.prepend( $("<p/>", {text: "Something went wrong. Try to reload the page",style: "color: white;"})); });
 			} else {
 				$('.top-ad-home').append(ad_string);
 			}		
@@ -93,7 +93,7 @@
 					posts_wrap.prepend(response);
 					$('.top-ad-home').append(ad_string);
 				})
-				.fail(function() { posts_wrap.prepend( $("<p/>", {text: "The error occurred. Try to reload the page",style: "color: white;"})); });
+				.fail(function() { posts_wrap.prepend( $("<p/>", {text: "Something went wrong. Try to reload the page",style: "color: white;"})); });
 				
 			});
 			
