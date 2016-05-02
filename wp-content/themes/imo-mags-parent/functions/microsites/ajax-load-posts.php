@@ -35,7 +35,7 @@ function my_enqueue_microsite() {
 }
 function load_microsite_posts() {
 	global $wpdb;          
-    ob_clean();  
+    ob_start ();  
     $subcat = $_POST[ 'cat_slug' ];
     $term_cat_id = $_POST[ 'term_cat_id' ];
     $parent_cat_slug = $_POST[ 'parent_cat_slug' ];
@@ -123,10 +123,15 @@ function load_microsite_posts() {
 	} else { 
 		echo "no posts found";
     }
-	wp_reset_postdata();
+	
 ?>
 </div><!-- end .p-container -->				
-<?php		
+<?php	
+	wp_reset_postdata();
+	$response = ob_get_contents();
+	ob_end_clean();
+	
+	echo $response;
 	wp_die();
 }
 
@@ -141,8 +146,10 @@ if ( is_admin()) {
 }
 
 function load_more_m_posts() {
-	global $wpdb;          
-    ob_clean(); 
+	global $wpdb; 
+	
+	ob_start ();         
+    
     
     $children_cat_slug 	= $_POST['data_child_cat_slug'];
     $parent_cat_slug	= $_POST['parent_cat__slug'];
@@ -184,6 +191,9 @@ function load_more_m_posts() {
 		</script>
 <?php	}
 	wp_reset_postdata();
-   
+    $response = ob_get_contents();
+	ob_end_clean();
+	
+	echo $response;
 	wp_die();
 }
