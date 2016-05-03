@@ -6,6 +6,8 @@
 	$term_cat_id 	= 'category_'.$this_cat_id;
 	
 	$social_share_message 	= get_field('social_share_message', $term_cat_id);
+	
+	if ($this_cat_slag == 'crossbows') $this_cat_slag = 'crossbow-revolution';
 ?>
 
 <div class="content">
