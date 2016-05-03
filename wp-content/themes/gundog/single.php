@@ -59,15 +59,25 @@
 			
 <?php		
 	
-			$move_el	= get_field('move_el', $post_id); if (!$move_el) $move_el = 0;
+			$sponsored_el	= get_field('sponsored_el', $post_id); if (!$sponsored_el) $sponsored_el = 0;
+			$inline_ad	= get_field('inline_ad', $post_id); if (!$inline_ad) $inline_ad = 0;
+			$video_el	= get_field('video_el', $post_id); if (!$video_el) $video_el = 0;
 			$p_counter 	= 0;
 			$current_p	= 0;
 			$content 	= apply_filters('the_content', $post->post_content);
 			$contents 	= explode("</p>", $content);
 			$p_number	= count($contents);
-			$interval	= ($p_number >= 25) ? $p_number / 4 : $p_number / 3;
 			$ep			= array();
+			//$interval	= ($p_number >= 25) ? $p_number / 4 : $p_number / 3;
+			$interval	= $p_number / 2;
 			
+			if ($p_number >= 25) {
+				$interval = $p_number / 4;
+			} else if ($p_number >= 15) {
+				$interval = $p_number / 3;
+			} 
+			
+
 			for ($i = $interval; $i <= $p_number; $i+=$interval) { $ep[] = floor($i); }
 			
 			print_r($ep);
@@ -85,7 +95,7 @@
 				    </div>
 <?php			}
 			   
-			    if ($current_p == $ep[0]){ ?>
+			    if ($p_number >= 5 && $p_counter - ($sponsored_el) == $ep[0]){ ?>
 					<div class="article-elem">
 						<div class="ae-header">
 							<div></div>
@@ -98,27 +108,9 @@
 						</div>
 			    	</div>
 <?php 			}	
-				if ($current_p == $ep[1]){ ?>
-					<div class="article-elem">
-						<div class="ae-header">
-							<div></div>
-							<h4><span>Related</span></h4>
-						</div>
-						<div class="ae-content clearfix">
-							<a class="ae-img" href="#">
-								<div style="background-image: url(/wp-content/themes/imo-mags-parent/images/temp/1.jpg)">
-									<div class="ae-play"><div class="ae-triangle"></div></div>
-								</div>
-							</a>
-							<a class="ae-title" href="#">
-								<span>Lure Strategies for Ice Walleyes</span>
-								<p>Check out this video: The In-Fisherman staff reveals some of the season's slickest new lure strategies for ice walleyes.</p>
-							</a>
-						</div>
-			    	</div>
-<?php			}
+
 	
-				if ($p_number >= 26 && $current_p == $ep[2]){ ?>
+				if ($p_number >= 18 && $p_counter - ($video_el) == $ep[1]){ ?>
 					<div class="video-elem">
 						<div class="ve-head">
 							<h4>DON’T MISS IN-FISHERMAN TV</h4>
@@ -155,8 +147,13 @@
 						<a class="ve-link" href="#">Watch More In-Fisherman TV</a>
 			    	</div>
 <?php			}
+				if ($p_number >= 25 && $p_counter - ($inline_ad) == $ep[2]){ ?>
+					<div class="ad-single-inline">
+						<div class="as-inner"></div>
+					</div>
+<?php			}
 			    $p_counter++;
-			    $current_p = $p_counter - ($move_el);
+			    //$current_p = $p_counter - ($sponsored_el);
 			    
 			    
 			}
@@ -194,7 +191,7 @@
 			<div id="disqus_thread"></div>
 		</div>
 		<div class="ad-single-bottom">
-			<div class="asb-inner"></div>
+			<div class="as-inner"></div>
 		</div>
 <!-- 		<div class="grey-hr"></div> -->
 		<div class="single-newsletter">

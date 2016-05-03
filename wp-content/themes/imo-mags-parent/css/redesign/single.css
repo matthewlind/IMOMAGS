@@ -180,6 +180,8 @@ blockquote {
 	padding: 0 0 15px;
 	border-bottom: 1px solid #ccc;
 	margin: 30px 0;
+	overflow: hidden;
+	width: 100%;
 }
 .ae-header {
 	position: relative;
@@ -346,15 +348,22 @@ a.ae-title p {
 	background-color: #ccc;
 	margin: 30px 0;
 }
-.ad-single-bottom {
-	margin: 30px 0;
+.ad-single-inline {
 	text-align: center;
+	margin: 30px 0;
 }
-.asb-inner {
+.as-inner {
 	width: 300px;
 	height: 250px;
 	display: inline-block;
 	margin: 0 -5%;
+	background-color: #FF6600;
+}
+.ad-single-bottom {
+	margin: 30px 0;
+	text-align: center;
+}
+.ad-single-bottom .as-inner {
 	background-color: #56ac64;
 }
 .single-newsletter {
