@@ -3,30 +3,17 @@
 	$is_single_default = true;
 	global $post;
 	
-	$post_id	= $post->ID;
-	$author_id	= $post->post_author;
-	
-	$author 	= get_the_author();
-	
-	$byline 	= get_post_meta($post_id, 'ecpt_byline', true);
-	$acf_byline = get_field("byline", $post_id);
+	$post_id		= $post->ID;
+	$author_id		= $post->post_author;
+	$author 		= get_the_author();
+	$byline 		= get_post_meta($post_id, 'ecpt_byline', true);
+	$acf_byline 	= get_field("byline", $post_id);
+	$tv_player_id 	= get_field("tv_player_id","options");
 	
 	// POST CATEGORIES
 	$post_meta			= get_post_meta($post_id);
 	$primary_cat_id		= $post_meta["_category_permalink"][0];
 	$primary_cat_name	= get_cat_name($primary_cat_id);	
-/*
-	$post_categories 	= wp_get_post_categories( $post_id );
-	$cat_list 			= '';
-	$cat_names 			= array();
-	foreach($post_categories as $c){
-	    $cat 			= get_category( $c );
-	    $cat_url 		= get_category_link( $c );
-	    $cat_names[] 	= $cat->name;	
-	    		    
-	    $cat_list .= "<a href='".  $cat_url . "'>" . $cat->name . "</a>";
-	}
-*/
 
 ?>
 
@@ -59,32 +46,36 @@
 			
 <?php		
 	
-			$sponsored_el	= get_field('sponsored_el', $post_id); if (!$sponsored_el) $sponsored_el = 0;
-			$inline_ad	= get_field('inline_ad', $post_id); if (!$inline_ad) $inline_ad = 0;
-			$video_el	= get_field('video_el', $post_id); if (!$video_el) $video_el = 0;
-			$p_counter 	= 0;
-			$current_p	= 0;
-			$content 	= apply_filters('the_content', $post->post_content);
-			$contents 	= explode("</p>", $content);
-			$p_number	= count($contents);
-			$ep			= array();
-			//$interval	= ($p_number >= 25) ? $p_number / 4 : $p_number / 3;
-			$interval	= $p_number / 2;
+			$sponsored_el	= get_field('sponsored_el', $post_id); 	if (!$sponsored_el) $sponsored_el = 0;
+			$video_el		= get_field('video_el', $post_id); 		if (!$video_el) $video_el = 0;
+			$inline_ad_1	= get_field('inline_ad_1', $post_id); 	if (!$inline_ad_1) $inline_ad_1 = 0;
+			$inline_ad_2	= get_field('inline_ad_2', $post_id); 	if (!$inline_ad_2) $inline_ad_2 = 0;
+			$inline_ad_3	= get_field('inline_ad_3', $post_id); 	if (!$inline_ad_3) $inline_ad_3 = 0;
+			$p_counter 		= 0;
+			$content 		= apply_filters('the_content', $post->post_content);
+			$contents 		= explode("</p>", $content);
+			$p_number		= count($contents);
+			$ep				= array();
+			$vp				= 1; // video element position
+			$ap1			= 2; // inline ad positon
+			$ap2			= 3; // inline ad positon
+			$ap3			= 4; // inline ad positon
+			$interval		= $p_number / 2;
 			
-			if ($p_number >= 25) {
-				$interval = $p_number / 4;
-			} else if ($p_number >= 15) {
-				$interval = $p_number / 3;
-			} 
+			if 		(empty($tv_player_id)) {$video_el = 999; $ap1 = 1; $ap2 = 2; $ap3 = 3;}
+			
+			if 		($p_number >= 25) { $interval = $p_number / 5; }
+			else if ($p_number >= 20) { $interval = $p_number / 4; } 
+			else if ($p_number >= 15) { $interval = $p_number / 3; } 
 			
 
-			for ($i = $interval; $i <= $p_number; $i+=$interval) { $ep[] = floor($i); }
+			for 	($i = $interval; $i <= $p_number; $i+=$interval) { $ep[] = floor($i); }
 			
 			print_r($ep);
 			
 			
 			
-			echo '<br>' . $p_number . '<br>' . $move_el;
+			echo '<br>' . $p_number . '<br>' . $move_el . '<br>Video position: ' . $ep[$vp] . '<br>player id: ' . $tv_player_id;
 				
 			foreach($contents as $content){
 			    echo $content.'</p>';
@@ -95,7 +86,7 @@
 				    </div>
 <?php			}
 			   
-			    if ($p_number >= 5 && $p_counter - ($sponsored_el) == $ep[0]){ ?>
+			    if ($p_number > 5 && $p_counter - ($sponsored_el) == $ep[0]){ ?>
 					<div class="article-elem">
 						<div class="ae-header">
 							<div></div>
@@ -110,7 +101,7 @@
 <?php 			}	
 
 	
-				if ($p_number >= 18 && $p_counter - ($video_el) == $ep[1]){ ?>
+				if ($p_number > 10 && $p_counter - ($video_el) == $ep[$vp]){ ?>
 					<div class="video-elem">
 						<div class="ve-head">
 							<h4>DON’T MISS IN-FISHERMAN TV</h4>
@@ -147,13 +138,12 @@
 						<a class="ve-link" href="#">Watch More In-Fisherman TV</a>
 			    	</div>
 <?php			}
-				if ($p_number >= 25 && $p_counter - ($inline_ad) == $ep[2]){ ?>
+				if ($p_number > 10 && $p_counter - ($inline_ad_1) == $ep[$ap1] || $p_number > 15 && $p_counter - ($inline_ad_2) == $ep[$ap2] || $p_number > 20 && $p_counter - ($inline_ad_3) == $ep[$ap3]){ ?>
 					<div class="ad-single-inline">
 						<div class="as-inner"></div>
 					</div>
 <?php			}
 			    $p_counter++;
-			    //$current_p = $p_counter - ($sponsored_el);
 			    
 			    
 			}
