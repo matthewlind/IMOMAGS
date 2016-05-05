@@ -18,11 +18,7 @@ $disqus_array 		= array(
 	"imo.in-fisherman"	=> "infisherman",
 	"imo.flyfisherman"	=> "flyfisherman"
 );
-
 foreach($disqus_array as $key=>$value) { if($dartDomain == $key) { $disqus_shortname = $value; } }
-
-//echo $disqus_shortname . "<br>" . $dartDomain;
-
 
 if(get_field('featured_stories')){
 	$features = get_field('featured_stories'); 
