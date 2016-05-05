@@ -1845,9 +1845,23 @@ a.category-name-link:hover{
 }
 .post-comments-area {
     background:#fff;
-    border-top:4px solid #040503;
-    padding:32px 27px;
-    margin:0 0 40px;
+    padding:32px 0;
+    margin:0 0 20px;
+}
+.show-comments {
+	width: 100%;
+	height: 45px;
+	border-color: #111;
+	border-width: 4px;
+	border-style: solid;
+	text-align: center;
+	line-height: 37px;
+	color: #111;
+	cursor: pointer;
+}
+.show-comments:hover {
+	border-color: #555;
+	color: #555;
 }
 /* paging posts */
 .paging-posts {
