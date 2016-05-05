@@ -5,7 +5,7 @@ $(window).ready(function() {
 });
 $(window).load(function() {
 	var first_img_overlay 	= $(".first-img-overlay"),
-		slides				= $( ".gallery-images .slides li" ),
+		slides				= $( ".gallery-images .slides li.flex-slide" ),
 		slides_length		= slides.length - 1,
 		slides_remainder	= slides_length % 4,
 		interval_array		= [];
