@@ -56,7 +56,7 @@ $(window).load(function() {
 	$(".span-load-gallery").click(function(){
 		
 		//reload the sticky ad
-		if($('sticky-iframe-ad').length){
+		if($('#sticky-iframe-ad').length){
 			document.getElementById('sticky-iframe-ad').contentWindow.location.reload();
 		}
 		//remove first image
@@ -108,7 +108,7 @@ $(window).load(function() {
 						$('.gallery-count').show();
 						$('.gallery-count .curr-count').text(curSlide);
 					}
-					if($('sticky-iframe-ad').length){
+					if($('#sticky-iframe-ad').length){
 					//reload the sticky ad
 						document.getElementById('sticky-iframe-ad').contentWindow.location.reload();
 					}
