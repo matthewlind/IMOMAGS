@@ -59,7 +59,7 @@ get_header(); ?>
 		            while ($lists_query->have_posts()) : $lists_query->the_post(); ?>
 			        <div class="dif-post post">
 						<div class="feat-img">
-							<a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail("index-thumb"); ?></a>
+							<a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail("list-thumb"); ?></a>
 		                     <?php if(in_category("master-angler")){ ?><span class="badge"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/pic/badge-ma.png" alt="Master Angler" /></span><?php } ?>
 	                    </div>
 					    <div class="dif-post-text">

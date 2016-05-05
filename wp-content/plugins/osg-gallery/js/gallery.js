@@ -1,6 +1,9 @@
 (function($) {
-
 $(window).ready(function() {
+	desc = $( ".gallery-images .slides li:first div" ).text();
+	$(".first-desc").html(desc);
+});
+$(window).load(function() {
 	var first_img_overlay 	= $(".first-img-overlay"),
 		slides				= $( ".gallery-images .slides li" ),
 		slides_length		= slides.length - 1,
@@ -8,29 +11,56 @@ $(window).ready(function() {
 		interval_array		= [];
 		domain				= $("body").attr("domain");
 		slug				= $(".gallery-title").attr("slug");
-		
+	
+	
 	for (i = 4; i <= slides_length; i+=4) {
 		interval_array.push(i);
 	}
 	
-	//var last_i_a = interval_array[interval_array.length-1];
-	//console.log("interval_array: " + interval_array);
 	if (slides_remainder < 2) {
 		interval_array.pop();
 	}
+
+	/*function preloadImages(array) {
+	    if (!preloadImages.list) {
+	        preloadImages.list = [];
+	    }
+	    var list = preloadImages.list;
+	    for (var i = 0; i < array.length; i++) {
+	        var img = new Image();
+	        img.onload = function() {
+	            var index = list.indexOf(this);
+	            if (index !== -1) {
+	                // remove image from the array once it's loaded
+	                // for memory consumption reasons
+	                list.splice(index, 1);
+	            }
+	        }
+	        list.push(img);
+	        img.src = array[i];
+	        console.log(img.src);
+	    }
+	}
 	
-/*
-	console.log("slide length: " + slides_length);
-	console.log("slides remainder: " + slides_remainder);
-	console.log("interval_array: " + interval_array);
+	var images = [];
+	$(slides).each(function(i, elem) {
+	    images.push($(elem).attr("url"));
+	});
+	
+	preloadImages(images);
 */
-	
+	first_img_overlay.fadeOut();
+	$(".span-load-gallery").css("display","inline-block");
+	$(".osg-gallery").fadeIn();
+
 	$(".span-load-gallery").click(function(){
 		
 		//reload the sticky ad
-		document.getElementById('sticky-iframe-ad').contentWindow.location.reload();
+		if($('sticky-iframe-ad').length){
+			document.getElementById('sticky-iframe-ad').contentWindow.location.reload();
+		}
 		//remove first image
-		first_img_overlay.fadeIn(100);
+		//first_img_overlay.fadeIn(100);
 		
 		setTimeout(function(){ 
 			//first_img_overlay.fadeOut(); 
@@ -44,7 +74,7 @@ $(window).ready(function() {
 				var imageURL = $(this).attr("url");
 				var desc = $(this).find("div").text();
 				$(this).attr("slidenum",i+1);
-				$(this).prepend('<div class="flex-img-wrap"><img src="' + imageURL + '" /></div><p>' + desc + '</p>');
+				$(this).prepend('<div class="img-overlay"><span><div class="loader-inner ball-pulse-sync"><div></div><div></div><div></div></div></span></div><div class="flex-img-wrap"><img src="' + imageURL + '" /></div><p>' + desc + '</p>');
 			});
 			// Add ad after every 4th image
 			$.each( interval_array, function( index, value ) {
@@ -78,10 +108,10 @@ $(window).ready(function() {
 						$('.gallery-count').show();
 						$('.gallery-count .curr-count').text(curSlide);
 					}
-					
+					if($('sticky-iframe-ad').length){
 					//reload the sticky ad
-					document.getElementById('sticky-iframe-ad').contentWindow.location.reload();
-					
+						document.getElementById('sticky-iframe-ad').contentWindow.location.reload();
+					}
 				}
 		   });
 		}, 101);

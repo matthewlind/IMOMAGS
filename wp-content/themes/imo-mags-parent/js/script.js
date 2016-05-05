@@ -352,6 +352,7 @@ jQuery(function(){
 	if (jQuery(".advert").length > 0) {
 		jQuery('.advert').jfollow('#responderfollow');
 	}
+	
 /*	jQuery('.jq-explore-slider-sidebar').flexslider({
         animation: "slide",
         animationSpeed: 200,
@@ -399,16 +400,7 @@ jQuery(function(){
           maxItems: 3
         });
 
-    jQuery('.jq-single-paging-slider').flexslider({
-          animation: "slide",
-          animationSpeed: 200,
-          slideshow: false,
-          itemWidth: 340,
-          itemMargin: 0,
-          minItems: 1,
-          maxItems: 1
-
-        });
+    
 
    
     jQuery('#photoSlider.reader-photo-slider .photo-slider').flexslider({

@@ -82,8 +82,8 @@ function imo_flex_gallery( $atts ) {
 	
 	global $wpdb;
 	$firstDescription = stripcslashes($pictures[0]->description);
-	$firstDescription = htmlspecialchars($firstDescription);
-	$firstImage = '<div class="flex-img-wrap"><img src="'.$pictures[0]->img_url.'" alt="'.$pictures[0]->title.'" title="'.$pictures[0]->title.'" /></div><p class="first-desc">'. $firstDescription .'</p>';
+	//$firstDescription = htmlspecialchars($firstDescription);
+	$firstImage = '<div class="flex-img-wrap"><img src="'.$pictures[0]->img_url.'" alt="'.$pictures[0]->title.'" title="'.$pictures[0]->title.'" /></div><p class="first-desc">'.$firstDescription.'</p>';
 
 	$title = stripcslashes($pictures[0]->title);
 	$slug = $pictures[0]->name;
