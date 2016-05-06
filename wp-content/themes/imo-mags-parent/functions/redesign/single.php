@@ -82,18 +82,19 @@ function ms_load_more() {
     
     $cat_id			= $_POST['cat_id'];
     $post_count		= $_POST['post_count'];
-    $post_not		= $_POST['post_not'];
     $post_per_page	= $_POST['post_per_page'];
     $ad_after_post	= $_POST['ad_after_post'];
+    $post_not		= $_POST['post_not'];
+    $post_not_array = explode(',', $post_not);
 	$p_counter		= 0;
-		
+	
 	$args = array (
 		'cat'         		=> $cat_id,
 		'posts_per_page'	=> $post_per_page,
 		'order'				=> 'DESC',
 		'post_status'		=> 'publish',
-		'post__not_in'		=> array("$post_not"),
-		'offset'			=> $post_count,
+		'post__not_in'		=> $post_not_array,
+		'offset'			=> $post_count
 	);
 	// The Query
 	$query = new WP_Query( $args );
@@ -102,7 +103,7 @@ function ms_load_more() {
 		while ( $query->have_posts() ) {
 			$query->the_post();			
 			$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );?>
-	
+			
 			<a class="ms-box" href="<?php the_permalink(); ?>">
 				<div class="ms-image" style="background-image: url('<?php echo $feat_image; ?>')"></div>
 				<div class="ms-desc"><?php the_title( '<h1>', '</h1>'); ?></div>

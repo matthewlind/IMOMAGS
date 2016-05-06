@@ -1,0 +1,145 @@
+.home-wrap section {
+	padding-bottom: 40px;
+	border-bottom: 1px solid #DBDBDB;
+}
+
+.latest-area {
+
+}
+.latest-area > h1 {
+	text-align: center;
+	font-size: 1.3em;
+	text-transform: uppercase;
+	padding: 0 5px;
+	margin: 1.6em 0;
+	font-weight: 700;
+}
+
+
+.l-container {
+	position: relative;
+}
+
+.l-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.l-list li {
+	width: 100%;
+	margin-bottom: 25px;
+}
+.l-img > a {
+	display: block;
+}
+.l-img img{
+	width: 100%;
+	height: auto;
+	display: block;
+}
+.l-info {
+	padding: 7px 15px 10px;
+}
+.l-cats a {
+	color: #395b5d;
+	font-size: 14px;
+	text-transform: uppercase;
+}
+.l-title h3{
+	margin: 0.1em 0 0.3em;
+	font-size: 1.4em;
+	font-family: 'Stag', serif;
+	font-weight: 600;
+	line-height: 1.2;
+}
+.l-title a {
+	color: #333;
+}
+.l-title a:hover {
+	color: #FF6600;
+}
+.l-author {
+	font-size: 13px;
+	color: #888;
+	text-transform: uppercase;
+}
+.l-list .l-ad-wrap {
+	text-align: center;
+	margin-bottom: 35px;
+}
+.l-ad span {
+	font-size: 11px;
+	color: #888;
+	display: inline-block;
+	width: 100%;
+}
+.l-ad-inner {
+	width: 300px;
+	height: 250px;
+	display: inline-block;
+	background-color: #6456ac;
+}
+
+
+
+
+
+@media only screen and (min-width: 375px) {/* iPhone 6 */
+
+.latest-area > h1 {
+	font-size: 1.9em;
+}
+
+
+}/* end media 375px */ 
+
+
+
+
+@media only screen and (min-width: 700px) {
+
+.l-container {padding: 0 30px;  }
+.l-list li {width: 48%;}
+.l-list .l-ad-wrap {text-align: center;margin-bottom: 35px;width: 100%;}
+.l-info {padding: 7px 10px 10px;}
+
+}/* end media 700px */
+
+
+
+
+@media only screen and (min-width: 1020px) {
+
+/* .latest-area {} */
+.l-container {padding-right: 380px;max-width: 1020px; margin: 0 auto;}
+.l-list .l-ad-wrap {position: absolute;top: 0; right: 30px; width: 320px;}
+.l-ad {width: 320px;background-color: #ececec;padding-bottom: 10px;}
+.l-ad span {margin: 9px 0;}
+
+}/* end media 1020px */
+
+@media only screen and (min-width: 1030px) {
+	.l-list li {position: relative; z-index: 1;}
+	.l-container {padding: 0 350px 0 0;}
+	.l-list .l-ad-wrap {right: 0; width: 1020px; z-index: 0;}
+	.l-ad {float: right;}
+	
+}/* end media 1020px */	
+
+@media only screen and (min-width: 1100px) {
+
+
+
+}/* end media 1100px */
+
+
+
+
+
+
+
+

@@ -6,8 +6,9 @@
 	$post_id		= $post->ID;
 	$author_id		= $post->post_author;
 	$author 		= get_the_author();
-	$byline 		= get_post_meta($post_id, 'ecpt_byline', true);
 	$acf_byline 	= get_field("byline", $post_id);
+	//$byline 		= get_post_meta($post_id, 'ecpt_byline', true);
+	
 	$tv_player_id 	= get_field("tv_player_id","options");
 	
 	// POST CATEGORIES
@@ -68,12 +69,9 @@
 			else if ($p_number >= 20) { $interval = $p_number / 4; } 
 			else if ($p_number >= 15) { $interval = $p_number / 3; } 
 			
-
 			for 	($i = $interval; $i <= $p_number; $i+=$interval) { $ep[] = floor($i); }
 			
 			print_r($ep);
-			
-			
 			
 			echo '<br>' . $p_number . '<br>' . $move_el . '<br>Video position: ' . $ep[$vp] . '<br>player id: ' . $tv_player_id;
 				
@@ -258,7 +256,7 @@
           <div></div>
         </div>
 	</div>
-	<div id="btn_more_stories" class="ms-btn" data-cat="<?php echo $primary_cat_id; ?>" data-post-not="<?php echo $post_id; ?>">
+	<div id="btn_more_stories" class="btn-lg" data-cat="<?php echo $primary_cat_id; ?>" data-post-not="<?php echo $post_id; ?>">
 		<span>Show More</span>
 		<div class="loader-anim dnone">
 			<div class="line-spin-fade-loader">

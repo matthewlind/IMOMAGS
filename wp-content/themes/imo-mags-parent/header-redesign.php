@@ -80,7 +80,11 @@
 	if (is_single()) { ?>
 		
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' );?>/css/redesign/single.css" />
-<?php	}
+<?php }
+	
+	if (is_home() || is_category()) { ?>
+		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' );?>/css/redesign/home-and-cat.css" />
+<?php } 
 	
 	wp_enqueue_script("jquery");
     wp_head();

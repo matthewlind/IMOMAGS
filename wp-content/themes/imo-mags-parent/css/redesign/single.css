@@ -441,38 +441,10 @@ a.ae-title p {
 	background-color: #cda172;
 }
 .ms-btn {
-	width: 280px;
-	height: 49px;
-	line-height: 49px;
-	border-radius: 3px;
 	background-color: #FF6600;
-	margin: 30px auto 5px;
-	text-align: center;
-	color: #fff;
-	text-transform: uppercase;
-	position: relative;
-	cursor: pointer;
-	-webkit-transition:all 0.4s ease-in-out;
-	-moz-transition:all 0.4s ease-in-out;
-	transition:all 0.4s ease-in-out;
 }
 .ms-btn:hover {
 	background-color: #ff790d;
-	-ms-transform: scale(1.02);
-    -webkit-transform: scale(1.02);
-    transform: scale(1.02);
-    -webkit-transition:all 0.4s ease-in-out;
-	-moz-transition:all 0.4s ease-in-out;
-	transition:all 0.4s ease-in-out;
-	border-radius: 7px;
-}
-.loader-anim {
-	position: absolute;
-	right: 30px;
-    top: 19px;
-	-ms-transform: scale(0.7);
-    -webkit-transform: scale(0.7);
-    transform: scale(0.7);
 }
 #ms_loader .ball-grid-pulse>div {
 	background-color: #ddd;

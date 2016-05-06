@@ -4,16 +4,21 @@
 	
 var $document 		= $(document),
 	window_height	= $(window).height(),
+	l_container		= $("#l_container"),
+	btn_more_home	= $("#btn_more_home"),
+	cat_id 			= btn_more_home.data("cat"),
+	post_not		= btn_more_home.data("post-not");
+/*
 	ad_sticky 		= $("#sticky-ad"),
 	more_stories	= $("#more_stories"),
 	ms_inner		= $("#ms_inner"),
 	ms_loader		= $("#ms_loader"),
-	ms_h1			= $("#ms_h1"),
-	btn_more_stories= $("#btn_more_stories"),
-	cat_id 			= btn_more_stories.data("cat"),
-	post_not		= btn_more_stories.data("post-not");
+	ms_h1			= $("#ms_h1");
+*/
+	
 
 	
+/*
 // Sticky Ad Function
 //-----------------------------------------//
 if (ad_sticky[0]) {	
@@ -46,20 +51,19 @@ function stickyAd() {
 		ad_sticky.removeClass(ad_bottom);
 	}
 }
+*/
 	
 
 
 // Load More Posts Function
 //-----------------------------------------//
-function loadMorePosts(p, a) {
-	var loader_anim		= $('#btn_more_stories .loader-anim'),
-		post_count		= $(".ms-box").length,
-		ms_inner		= $("#ms_inner"),
-		post_per_page	= p,
-		ad_after_post	= a;
+function loadLatestPosts(p) {
+	var loader_anim		= $('#btn_more_home .loader-anim'),
+		post_count		= $(".l-item").length,
+		latest_list		= $("#latest_list"),
+		post_per_page	= p;
 		
 	console.log(post_not);	
-	console.log(cat_id);
 			
 	loader_anim.removeClass('dnone');
 	
@@ -68,24 +72,24 @@ function loadMorePosts(p, a) {
 		url: ajax_object.ajax_url,
 		cache: false,
 		data: {
-			'action'		: 'ms_load_more',
+			'action'		: 'h_load_latest',
 			'cat_id'		: cat_id,
 			'post_count'	: post_count,
 			'post_not'		: post_not,
-			'post_per_page'	: post_per_page,
-			'ad_after_post' : ad_after_post
+			'post_per_page'	: post_per_page
 		}
 	})
 	.done(function(response) {
-		ms_inner.append(response);
+		latest_list.append(response);
 		loader_anim.addClass('dnone');
 	})
-	.fail(function() { ms_inner.append( $("<p/>", {text: "The error ocurred. Try to reload the page",style: "color: red;"})); });
+	.fail(function() { latest_list.append( $("<p/>", {text: "The error ocurred. Try to reload the page",style: "color: red;"})); });
 }
 
 
 // Load 'Even More' Section
 //-----------------------------------------//
+/*
 function evenMore() {
 	var d 	= $document.scrollTop(),
 	even_m 	= ms_loader.offset().top - window_height + 100;
@@ -97,17 +101,20 @@ function evenMore() {
 		ms_loader.remove();
 	}
 }
+*/
 
 
 $(document).ready(function() {	
 	
 	// Load More Posts Button
 	//-----------------------------------------//				
-	more_stories.on("click", "#btn_more_stories", function() {
-		loadMorePosts(14, 7);	
+	l_container.on("click", "#btn_more_home", function() {
+		loadLatestPosts(8);	
 	});
+
 	
 	
+/*
 	// Disqus functions
 	//-----------------------------------------//
 	// Load disqus javascript
@@ -143,6 +150,7 @@ $(document).ready(function() {
 		setTimeout(delWord, 3000);
 		setTimeout(changeCommPhrase, 4000);
 	} // end Disqus functions
+*/
 	
 	
 });// end document.ready
@@ -150,9 +158,11 @@ $(document).ready(function() {
 
 	
 $document.scroll(function() {
+/*
     if (ad_sticky[0]) { stickyAd(); }
     
     if (!$('#ms_inner').length) { evenMore(); }
+*/
 }); // doc scroll
 
 ////////////////////	
