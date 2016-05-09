@@ -7,7 +7,8 @@ var $document 		= $(document),
 	l_container		= $("#l_container"),
 	btn_more_home	= $("#btn_more_home"),
 	cat_id 			= btn_more_home.data("cat"),
-	post_not		= btn_more_home.data("post-not");
+	post_not		= btn_more_home.data("post-not"),
+	ad_sticky 		= $("#l_ad_wrap");
 /*
 	ad_sticky 		= $("#sticky-ad"),
 	more_stories	= $("#more_stories"),
@@ -18,25 +19,24 @@ var $document 		= $(document),
 	
 
 	
-/*
 // Sticky Ad Function
 //-----------------------------------------//
 if (ad_sticky[0]) {	
-	var	stick_start 	= $("#article"),
-		stick_stop 		= $("#ad-stop"),
+	var	stick_start 	= $("#l_container"),
+		stick_stop 		= $("#btn_more_home"),
 		ad_fixed 		= 'adfixed',
 		ad_bottom 		= 'adstick-bottom',
 		ad_sticky_height= ad_sticky.height(),
-		offset_stop 	= 687;
+		offset_stop 	= 700;
 		
 	if (ad_sticky_height <= 400){
-		offset_stop = 337;
+		offset_stop = 360;
 		ad_stickBottom = 'adstick-bottom-sm';
 	}
 }
 
 function stickyAd() {
-    var start	= stick_start.offset().top - 76,
+    var start	= stick_start.offset().top - 100,
     	stop 	= stick_stop.offset().top,
     	stop 	= stop - offset_stop,
     	d 		= $document.scrollTop();
@@ -51,7 +51,6 @@ function stickyAd() {
 		ad_sticky.removeClass(ad_bottom);
 	}
 }
-*/
 	
 
 
@@ -62,9 +61,7 @@ function loadLatestPosts(p) {
 		post_count		= $(".l-item").length,
 		latest_list		= $("#latest_list"),
 		post_per_page	= p;
-		
-	console.log(post_not);	
-			
+					
 	loader_anim.removeClass('dnone');
 	
 	$.ajax({
@@ -80,6 +77,8 @@ function loadLatestPosts(p) {
 		}
 	})
 	.done(function(response) {
+		ad_sticky.addClass('adfixed');
+		ad_sticky.removeClass('adstick-bottom');
 		latest_list.append(response);
 		loader_anim.addClass('dnone');
 	})
@@ -158,9 +157,9 @@ $(document).ready(function() {
 
 	
 $document.scroll(function() {
-/*
+
     if (ad_sticky[0]) { stickyAd(); }
-    
+/*    
     if (!$('#ms_inner').length) { evenMore(); }
 */
 }); // doc scroll

@@ -41,7 +41,7 @@ $features 	= get_field('homepage_featured_stories','options' );
 						<li class="featured-item" featured_id="<?php echo $feature->ID ?>">
 							<div class="l-img"><a href="<?php echo $url; ?>" onclick="<?php echo $tracking; ?>"><?php echo $thumb; ?></a></div>
 							<div class="l-info">
-								<div class="l-cats"><?php if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(); } ?></div>
+								<div class="l-cats"><?php if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(null, ','); } ?></div>
 								<div class="l-title">
 									<h3><a href="<?php echo $url; ?>" onclick="<?php echo $tracking; ?>"><?php echo $title; ?></a></h3>
 								</div>
@@ -50,7 +50,7 @@ $features 	= get_field('homepage_featured_stories','options' );
 						</li>
 						
 					<?php 
-						if ($feat_counter == 1) { echo "<li class='l-ad-wrap'><div class='l-ad'><span>Advertisment</span><div class='l-ad-inner'></div></div></li>"; }
+						if ($feat_counter == 1) { echo "<li id='l_ad_wrap' class='l-ad-wrap'><div class='l-ad'><span>Advertisment</span><div class='l-ad-inner'></div></div></li>"; }
 						$feat_counter++;
 					} 
 						

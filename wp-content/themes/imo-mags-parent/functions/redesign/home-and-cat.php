@@ -66,7 +66,7 @@ function h_load_latest() {
 			<li class="l-item" featured_id="<?php echo $post->ID ?>">
 				<div class="l-img"><a href="<?php the_permalink(); ?>" onclick="<?php echo $tracking; ?>"><?php echo $thumb; ?></a></div>
 				<div class="l-info">
-					<div class="l-cats"><?php if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(); } ?></div>
+					<div class="l-cats"><?php if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(null, ','); } ?></div>
 					<div class="l-title">
 						<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 					</div>
