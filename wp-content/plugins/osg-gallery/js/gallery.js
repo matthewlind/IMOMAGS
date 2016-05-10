@@ -53,7 +53,7 @@ $(window).load(function() {
 	$(".span-load-gallery").css("display","inline-block");
 	$(".osg-gallery").fadeIn();
 
-	$(".span-load-gallery").click(function(){
+	$(".span-load-gallery, .gallery-first-image").on("click", function(){
 		
 		//reload the sticky ad
 		if($('#sticky-iframe-ad').length){
@@ -74,7 +74,7 @@ $(window).load(function() {
 				var imageURL = $(this).attr("url");
 				var desc = $(this).find("div").text();
 				$(this).attr("slidenum",i+1);
-				$(this).prepend('<div class="img-overlay"><span><div class="loader-inner ball-pulse-sync"><div></div><div></div><div></div></div></span></div><div class="flex-img-wrap"><img src="' + imageURL + '" /></div><p>' + desc + '</p>');
+				$(this).prepend('<div class="image-loading">Loading Image...</div><div class="flex-img-wrap"><img src="' + imageURL + '" /></div><div class="gallery-desc">' + desc + '</div>');
 			});
 			// Add ad after every 4th image
 			$.each( interval_array, function( index, value ) {
@@ -108,6 +108,10 @@ $(window).load(function() {
 						$('.gallery-count').show();
 						$('.gallery-count .curr-count').text(curSlide);
 					}
+					
+					$(".first-img-overlay span, .span-load-gallery").fadeOut(300); 
+					first_img_overlay.fadeOut(500);
+					
 					if($('#sticky-iframe-ad').length){
 					//reload the sticky ad
 						document.getElementById('sticky-iframe-ad').contentWindow.location.reload();
@@ -115,25 +119,6 @@ $(window).load(function() {
 				}
 		   });
 		}, 101);
-		
-		setTimeout(function(){
-			$(".first-img-overlay span, .span-load-gallery").fadeOut(300); 
-			first_img_overlay.fadeOut(500);
-		}, 1200);
-		//jQuery(".flex-img-wrap").css("opacity", 1);
-		//jQuery('.gallery-carousel .slides').css("border-top","1px solid #ccc");
-		//jQuery('.gallery-carousel .slides').css("border-bottom","1px solid #ccc");
-
-		//load flexslider
-		/*jQuery('.gallery-carousel').flexslider({
-		    animation: "slide",
-		    controlNav: false,
-		    animationLoop: false,
-		    slideshow: false,
-		    itemMargin: 5,
-		    asNavFor: '.gallery-images'
-		});*/
-		
 
 	});  	
 });

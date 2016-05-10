@@ -7,6 +7,47 @@
  * Author: Fox
  */
 
+// Gallery ACF Options
+if(function_exists("register_field_group"))
+{
+	register_field_group(array (
+		'id' => 'acf_gallery-color-option',
+		'title' => 'Gallery Color Option',
+		'fields' => array (
+			array (
+				'key' => 'field_5730baf4af6c1',
+				'label' => 'Gallery Color',
+				'name' => 'gallery_color',
+				'type' => 'text',
+				'default_value' => '',
+				'placeholder' => '#000000',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'options_page',
+					'operator' => '==',
+					'value' => 'acf-options',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+}
+
 
 add_action('init', 'register_gallery_script');
 add_action('wp_footer', 'print_gallery_script');
@@ -83,13 +124,17 @@ function imo_flex_gallery( $atts ) {
 	global $wpdb;
 	$firstDescription = stripcslashes($pictures[0]->description);
 	//$firstDescription = htmlspecialchars($firstDescription);
-	$firstImage = '<div class="flex-img-wrap"><img src="'.$pictures[0]->img_url.'" alt="'.$pictures[0]->title.'" title="'.$pictures[0]->title.'" /></div><p class="first-desc">'.$firstDescription.'</p>';
+	$firstImage = '<div class="flex-img-wrap"><img src="'.$pictures[0]->img_url.'" alt="'.$pictures[0]->title.'" title="'.$pictures[0]->title.'" /></div><div class="first-desc gallery-desc">'.$firstDescription.'</div>';
 
 	$title = stripcslashes($pictures[0]->title);
 	$slug = $pictures[0]->name;
 	$prefix = $wpdb->prefix;
-	
-	$html = '<div class="osg-gallery"><div class="gallery-header"><div class="gallery-title" slug="'. $slug .'">GALLERY: '. $title .'</div><div class="gallery-count"><span class="curr-count">1</span> of '. $totalSlidesShow .'</div></div>';
+	$galleryColor = get_field("gallery_color","options");
+	if($galleryColor == NULL){
+		$galleryColor = "#000000";
+	}
+	$html = '<div class="osg-gallery"><style type="text/css">.gallery-header{background: '. $galleryColor .';}.span-load-gallery i, .flex-direction-nav a:before, .flex-direction-nav a.flex-prev:before,.flex-direction-nav a.flex-next:before{border-color: transparent '. $galleryColor .'; }
+</style><div class="gallery-header"><div class="gallery-title" slug="'. $slug .'">GALLERY: '. $title .'</div><div class="gallery-count"><span class="curr-count">1</span> of '. $totalSlidesShow .'</div></div>';
 	
 	$html .= '<div class="gallery-images"><ul class="slides">';
 	
