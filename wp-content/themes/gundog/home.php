@@ -71,7 +71,7 @@ $site_name		= trim(get_bloginfo('name'), "Magazine");
 		</div><!-- .l-container -->
 	</section>
 	<section class="home-subscribe clearfix">
-		<div class="home-subs-wrap">
+		<div class="section-inner-wrap">
 			<div class="subs-container clearfix">
 				<h1>Subscribe & Save!</h1>
 				<img src="<?php echo $magazine_img; ?>" alt="Gun Dog Magazine Cover">
@@ -162,10 +162,88 @@ $site_name		= trim(get_bloginfo('name'), "Magazine");
 			</div>
 		</div>
 	</section>
-	<section class="home-feat-cat clearfix">
-		
-		
+	<section class="section-twins">
+		<div class="section-inner-wrap clearfix">
+			<div class="twins-title">
+				<h1>Breeds</h1>
+				<a href="">More Breeds</a>
+			</div>
+			<div class="twins-thumbs clearfix">
+				<ul>
+					<?php	
+						$args = array ('category_name' => 'breeds','posts_per_page' => 2,'order' => 'DESC');
+						$query = new WP_Query( $args );
+						if ( $query->have_posts() ) {
+							while ( $query->have_posts() ) {
+								$query->the_post();
+								$thumb 	= get_the_post_thumbnail($post->ID,"list-thumb");	
+						?>
+						<li class="twins-item" featured_id="<?php echo $feature->ID ?>">
+							<div class="twins-img"><a href="<?php the_permalink(); ?>" onclick="<?php echo $tracking; ?>"><?php echo $thumb; ?></a></div>
+							<div class="twins-thumb-title">
+								<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+							</div>
+						</li>
+						<?php
+							}
+						} else {
+							echo "no posts found";
+						}
+						wp_reset_postdata(); 
+					?>
+				</ul>
+			</div>
+		</div>
 	</section>
+	<section class="section-twins">
+		<div class="section-inner-wrap clearfix">
+			<div class="twins-title">
+				<h1>Reader Photos</h1>
+				<a class="btn-lg" href="">Upload Your Photo!</a>
+				<a class="link-to-all" href="">See All Reader Photos</a>
+			</div>
+			<div class="twins-thumbs clearfix">
+				<ul>
+					<?php	
+						$string = parse_url($_SERVER[REQUEST_URI]);
+						$term = $string["query"];
+						$args = array(
+						   'post_type' => 'reader_photos',
+						   'posts_per_page' => 2,
+						   'order' => 'DESC'
+						);
+						$query = new WP_Query( $args );
+						if ( $query->have_posts() ) {
+							while ( $query->have_posts() ) {
+								$query->the_post();
+								$thumb 	= get_the_post_thumbnail($post->ID,"list-thumb");	
+						?>
+						<li class="twins-item" featured_id="<?php echo $feature->ID ?>">
+							<div class="twins-img"><a href="<?php the_permalink(); ?>" onclick="<?php echo $tracking; ?>"><?php echo $thumb; ?></a></div>
+							<div class="twins-thumb-title">
+								<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+							</div>
+						</li>
+						<?php
+							}
+						} else {
+							echo "no posts found";
+						}
+						wp_reset_postdata(); 
+					?>
+				</ul>
+			</div>
+		</div>
+	</section>
+	<section class="all-cat-section">
+		<?php 
+		
+			
+			
+			
+		?>
+	</section>
+	
 </div>
 
 

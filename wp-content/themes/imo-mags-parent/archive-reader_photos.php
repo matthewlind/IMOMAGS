@@ -10,6 +10,8 @@ imo_sidebar();
 $string = parse_url($_SERVER[REQUEST_URI]);
 $term = $string["query"];
 
+echo 'aAAaaaaaaaaaa aaaaaassssssSssidheufhefef: ' . $term;
+
 $args = array(
    'post_type' => 'reader_photos',
    'tax_query' => array(

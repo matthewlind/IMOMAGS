@@ -85,8 +85,8 @@
 /* Subscribe Section
 /* --------------------------------- */
 
-.home-subscribe {
-	padding: 20px 20px 30px;
+.home-wrap .home-subscribe {
+	padding: 20px 20px 0;
 }
 .subs-container {
 	text-align: center;
@@ -181,11 +181,67 @@
 	margin: 25px 0 0 5px;
 }
 
+/* Featured Cat Section
+/* --------------------------------- */
+.section-twins {
+	padding: 20px 0 30px;
+}
+.twins-title {
+	padding: 0 20px;
+	text-align: center;
+}
+.link-to-all {
+	color: #395b5d;
+	text-decoration: underline;
+}
+.link-to-all:hover {
+	color: #FF6600;
+}
+.twins-title h1 {
+	font-weight: 900;
+}
+.twins-thumbs {
+	margin-top: 30px;
+}
+.twins-thumbs ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.twins-thumbs ul li {
+	margin-bottom: 40px;
+}
+.twins-img img{
+	width: 100%;
+	height: auto;
+}
+.twins-thumb-title {
+	width: 100%;
+	padding: 0 15px;
+}
+.twins-thumb-title h3 {
+	margin: 0.3em 0 0;
+    font-size: 1.5em;
+    font-family: 'Stag', serif;
+    font-weight: 600;
+    line-height: 1.3;
+}
+.twins-thumb-title a {
+	color: #333;
+}
+.twins-title .btn-lg {
+	margin: 20px auto;
+	max-width: 100%;
+}
+
+
+
+
+
 
 @media only screen and (min-width: 375px) {/* iPhone 6 */
 
 .latest-area > h1 {font-size: 1.9em;}
-/* #store_slider li {margin:0 15px;} */
 .store-item-img {height: 211px;}
 
 }/* end media 375px */ 
@@ -194,7 +250,6 @@
 
 .store-slider-wrap {max-width: 300px; margin: 20px auto 0;}
 .store-item-img {height: 206px;}	
-/* .store-slider-wrap {max-width: 500px; margin: 20px auto 0;} */
 	
 }
 
@@ -220,6 +275,11 @@
 .l-list li {width: 48%;}
 .l-list .l-ad-wrap {text-align: center;margin-bottom: 35px;width: 100%;}
 .l-info {padding: 7px 10px 10px;}
+.home-wrap .section-twins {padding: 30px 30px 50px;}
+.twins-title {float: left; width: 30%; padding: 0 20px 0 0; text-align: left;}
+.twins-thumbs {float: left; width: 70%;}
+.twins-thumbs ul {display: flex; justify-content: space-between;}
+.twins-thumbs ul li {width: 48%; margin-bottom: 0;}
 
 }/* end media 700px */
 
@@ -236,14 +296,18 @@
 .l-list li.adfixed {position: fixed; top: 100px;}
 .l-list li.adstick-bottom {position: absolute; top: auto; bottom: 0;}
 .l-list li.adstick-bottom-sm {position: absolute; top: auto; bottom: 0;}
-
-.home-subscribe {padding: 70px 30px;}
+.home-wrap .home-subscribe {padding: 60px 0;}
+#store_slider {margin-bottom: 10px;}
 .subs-container {width: 45%; float: left; padding-right: 30px;}
 .home-subscribe h1 {margin-top: 0;}
 .store-container {width: 55%; float: left; clear: none; padding-left: 20px;border-left: 1px solid #DBDBDB; position: relative;}
 .store-container h1 {text-align: left; margin-left: 32px;}
 .store-link {position: absolute; right: 0; top: 12px; font-size: 14px;}
 .store-slider-wrap {margin-top: 40px;}
+
+.twins-title {width: 31%;}
+.twins-thumbs {width: 69%;}
+.twins-title .btn-lg {margin: 30px 0;}
 
 }/* end media 1020px */
 
@@ -254,7 +318,7 @@
 .l-list .l-ad-wrap {right: 0; left: 0; margin: 0 auto; width: 1020px; z-index: 0;}
 .l-ad {float: right;}
 .store-slider-wrap {margin-top: 40px;}
-.home-subs-wrap {max-width: 1020px; margin: 0 auto;}
+.section-inner-wrap {max-width: 1020px; margin: 0 auto;}
 /* .store-item-img {height: 148px;} */
 	
 }/* end media 1020px */	
