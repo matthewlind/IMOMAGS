@@ -1813,15 +1813,6 @@ a.category-name-link:hover{
     padding:0;
     margin:0 0 20px;
 }
-.entry-content-holder:after {
-    position:absolute;
-    left:0;
-    bottom:0px;
-    width:100%;
-    height:1px;
-    background:#dbdbd9;
-    content:"";
-}
 .single-addthis{margin-bottom: 20px;}
 .post-byline{color: #333;font-style: italic;font-size: 14px;}
 #at4-whatsnext{z-index: 999999999999999999 !important;}
