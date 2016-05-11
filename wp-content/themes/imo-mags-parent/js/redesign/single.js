@@ -25,13 +25,13 @@ if (ad_sticky[0]) {
 		offset_stop 	= 687;
 		
 	if (ad_sticky_height <= 400){
-		offset_stop = 337;
+		offset_stop = 380;
 		ad_stickBottom = 'adstick-bottom-sm';
 	}
 }
 
 function stickyAd() {
-    var start	= stick_start.offset().top - 76,
+    var start	= stick_start.offset().top - 40,
     	stop 	= stick_stop.offset().top,
     	stop 	= stop - offset_stop,
     	d 		= $document.scrollTop();

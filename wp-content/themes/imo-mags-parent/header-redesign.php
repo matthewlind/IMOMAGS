@@ -84,6 +84,7 @@
 	
 	if (is_home() || is_category()) { ?>
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' );?>/css/redesign/home-and-cat.css" />
+		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' );?>/js/plugins/flexslider/flexslider2.6.css" />
 <?php } 
 	
 	wp_enqueue_script("jquery");

@@ -88,7 +88,7 @@
 	text-decoration: underline;
 }
 .wp-caption {
-    margin: 0 -6%;
+    margin: 30px -6%;
     min-width: 112%;
     max-width: 100%;
     text-align: left;
@@ -493,8 +493,8 @@ a.ae-title p {
 .social-single ul li:nth-of-type(3) span {color: #333;}
 
 /* Article Body */
-.wp-caption {margin: 0;min-width: 0;}
-.article-body img {width: auto;margin: 0;max-width: 100%;}
+.article-body .wp-caption {margin: 40px 0;min-width: 100%;}
+.article-body img {margin: 0;max-width: 100%;}
 .alignnone {margin: 5px 20px 20px 0;}
 .aligncenter,
 div.aligncenter {display: block;margin: 5px auto 5px auto;}
@@ -546,7 +546,7 @@ a.ae-title {font-size: 18px;margin-bottom: 10px;}
 
 @media only screen and (min-width: 760px) {
 
-.article {padding:40px 0 0;width: 600px;margin: 0 auto;}
+.article {padding:40px 0 0;width: 648px;margin: 0 auto;}
 	
 .byline span {font-size: 14px;}	
 .single-newsletter {padding: 5px 30px 20px;text-align: left;margin: 0 0 30px;}
@@ -565,9 +565,9 @@ a.ae-title {font-size: 18px;margin-bottom: 10px;}
 
 @media only screen and (min-width: 1020px) {
 
-.article {margin: 0 0 0 5%; }
-.sticky-ad {position: absolute;top: 60px;right: 5%;}
-.adfixed {position: fixed; top: 75px;}
+.article {margin: 0 0 0 4%; width: 600px;}
+.sticky-ad {position: absolute;top: 60px;right: 6%; margin: 0;}
+.adfixed {position: fixed; top: 100px;}
 .adstick-bottom {position: absolute; top: auto; bottom: 0;}
 .adstick-bottom-sm {position: absolute; top: auto; bottom: 0;}
 
@@ -579,28 +579,28 @@ a.ae-title {font-size: 18px;margin-bottom: 10px;}
 
 
 @media only screen and (min-width: 1025px) {/* big landscape tablets, laptops, and desktops */
-
 }/* end of media */
 
 
 @media only screen and (min-width: 1100px) {
-.article {margin: 0 0 0 13%; }
+.article {margin: 0 0 0 6%;width: 648px; }
 
 }/* end of media */
 
 @media only screen and (min-width: 1250px) {
-.article {margin: 0 0 0 22%; }
+.article {margin: 0 0 0 16%; }
 
 
 }/* end of media */
 
 @media only screen and (min-width: 1350px) {
-.article {margin: 0 0 0 26%; }
+.article {margin: 0 0 0 22%; }
 
 }/* end of media */
 
 @media only screen and (min-width: 1400px) {
-.sticky-ad {right: 7%;}
+.article {margin: 0 0 0 25%; }
+.sticky-ad {right: 6%;}
 .ms-inner {margin: 0 auto; max-width: 1440px;}
 
 }/* end of media */
@@ -611,12 +611,12 @@ a.ae-title {font-size: 18px;margin-bottom: 10px;}
 }/* end of media */
 
 @media only screen and (min-width: 1500px) {/* large desktops */
-.sticky-ad {right: 14%;}
+.sticky-ad {right: 12%;}
 	
 }/* end of media */
 
 @media only screen and (min-width: 1700px) {/* large desktops */
-.sticky-ad {right: 21%;}
+.sticky-ad {right: 20%;}
 	
 }/* end of media */
 

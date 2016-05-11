@@ -210,6 +210,7 @@
 .btn-lg {
 	width: 280px;
 	height: 45px;
+	display: block;
 	line-height: 45px;
 	border-radius: 3px;
 	background-color: #395b5d;
@@ -240,6 +241,30 @@
 	-ms-transform: scale(0.5);
     -webkit-transform: scale(0.5);
     transform: scale(0.5);
+}
+
+.btn-sm {
+	height: 25px;
+	line-height: 25px;
+	color: #fff;
+	display: inline-block;
+	padding: 0 10px;
+	font-size: 12px;
+	border-radius: 3px;
+	cursor: pointer;
+	background-color: #395b5d;
+	-webkit-transition:all 0.4s ease-in-out;
+	-moz-transition:all 0.4s ease-in-out;
+	transition:all 0.4s ease-in-out;
+}
+.btn-sm:hover {
+	background-color: #3f686a;
+	-ms-transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    transform: scale(1.02);
+    -webkit-transition:all 0.4s ease-in-out;
+	-moz-transition:all 0.4s ease-in-out;
+	transition:all 0.4s ease-in-out;
 }
 
 /*----------------------------------------------------------
