@@ -11,64 +11,70 @@ $videoTitle = get_option('video_title', false);
 
 
 get_header('redesign'); 
+
+
 $is_home_cat 	= true;
 $dartdomain 	= get_option('dart_domain', false);
 $magazine_img 	= get_option('magazine_cover_uri' );
 $deal_copy 		= get_option('deal_copy' );
 $features 		= get_field('homepage_featured_stories','options' );
 $site_name		= trim(get_bloginfo('name'), "Magazine");
+
+$this_cat 		= get_category( get_query_var( 'cat' ) );
+$this_cat_id	= $this_cat->term_id;
+$this_cat_name	= $this_cat->name;
+
 ?>
 
 
 <div class="home-wrap">
-	<section class="latest-area">
-		<h1 class="main-h">Latest News & Features</h1>
-		<div id="l_container" class="l-container">
-			<?php 
-				if( $features ){ 
-					$features_ids = array();
-					$feat_counter = 0;
-			?>
-                <ul id="latest_list" class="l-list">
-					<?php 
-					foreach( $features as $feature ){
-						$features_ids[] = $feature->ID;
-						$title 			= $feature->post_title;  if ($feature->promo_title) { $title = $feature->promo_title;}
-						$url 			= $feature->guid;
+	<section class="section-latest-posts">
+		<div id="l_container" class="section-inner-wrap">
+			<h1 class="main-h"><?php echo $this_cat_name;?></h1>
+			<ul id="latest_list" class="c-list">
+			<?php 	
+				$p_counter = 0;		
+				$args = array(
+					'cat'	=> $this_cat_id,
+					'posts_per_page' => 5,
+					'order' => 'DESC'
+				);
+				$query = new WP_Query( $args );
+				if ( $query->have_posts() ) {
+					while ( $query->have_posts() ) {
+						$query->the_post();
+						$thumb 			= get_the_post_thumbnail($post->ID,"list-thumb");
 						$author 		= get_the_author();
-						$acf_byline 	= get_field("byline", $feature->ID);
-						$thumb 			= get_the_post_thumbnail($feature->ID,"list-thumb");
-						$tracking 		= "_gaq.push(['_trackEvent','Special Features Homepage','$title','$url']);"; ?>
-						
-						<li class="featured-item" featured_id="<?php echo $feature->ID ?>">
-							<div class="l-img"><a href="<?php echo $url; ?>" onclick="<?php echo $tracking; ?>"><?php echo $thumb; ?></a></div>
-							<div class="l-info">
-								<div class="l-cats"><?php if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(null, ','); } ?></div>
-								<div class="l-title">
-									<h3><a href="<?php echo $url; ?>" onclick="<?php echo $tracking; ?>"><?php echo $title; ?></a></h3>
-								</div>
-								<div class="l-author"><?php if (!$acf_byline) { if ($author != 'admin') echo 'by '. $author;} else {echo $acf_byline;} ?></div>
+						$acf_byline 	= get_field("byline", $post->ID);
+						?>
+						<li class="c-item">
+							<a href="<?php the_permalink(); ?>"><?php echo $thumb; ?></a>
+							<div class="c-info">
+								<div class="c-cats"><?php if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(null, ','); } ?></div>
+								<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+								<span class="c-author"><?php if (!$acf_byline) { if ($author != 'admin') echo 'by '. $author;} else {echo $acf_byline;} ?></span>
 							</div>
 						</li>
-						
-					<?php 
-						if ($feat_counter == 1) { echo "<li id='l_ad_wrap' class='l-ad-wrap'><div class='l-ad'><span>Advertisement</span><div class='l-ad-inner'></div></div></li>"; }
-						$feat_counter++;
-					} 
-						
-						
-					?>
-               	</ul>
-			<?php } ?>
-			<div id="btn_more_home" class="btn-lg"  data-post-not="<?php echo implode(", ", $features_ids); ?>" data-cat="">
+			<?php		if ($p_counter == 1) {
+							echo '<li class="c-ad ad-wrap"><span class="ad-span">Advertisement</span><div id="c_ad_inner" class="ad-inner"></div></li>';
+						}
+						$p_counter++;
+					}
+				} else {
+					echo "no posts found";
+				}
+				wp_reset_postdata();
+			?>
+			</ul>
+			<div id="btn_more_posts" class="btn-lg"  data-post-not="" data-cat="<?php echo $this_cat_id;?>">
 				<span>Show More</span>
 				<div class="loader-anim dnone">
 					<div class="line-spin-fade-loader">
 						<div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div>
 					</div>
 				</div>
-			</div><!-- .btn-lg -->
-		</div><!-- .l-container -->
+			</div><!-- .btn-lg -->	
+		</div>
 	</section>
 	<section class="home-subscribe clearfix">
 		<div class="section-inner-wrap">
@@ -239,43 +245,43 @@ $site_name		= trim(get_bloginfo('name'), "Magazine");
 		<div class="section-inner-wrap">
 			<h1>Explore <?php echo $site_name;?></h1>
 			<ul class="ec-list">
-			<?php 			
-			$explore_cats 	= get_field('explore_cats','options' );
-			$card_count		= 0;
+<?php 			
+$explore_cats 	= get_field('explore_cats','options' );
+$card_count		= 0;
+
+foreach ($explore_cats as $c) {
+	$cat_name 	= get_cat_name($c);
+	$cat_url	= get_category_link($c);
+	$card_out 	= "<li><h2><a href='$cat_url'>$cat_name</a></h2>";
+	$args = array(
+		'cat'	=> $c,
+		'posts_per_page' => 1,
+		'order' => 'DESC'
+	);
+	$query = new WP_Query( $args );
+	if ( $query->have_posts() ) {
+		while ( $query->have_posts() ) {
+			$query->the_post();
+			$thumb 	= get_the_post_thumbnail($post->ID,"list-thumb");
+			$permalink	= get_permalink();
+			$get_title	= get_the_title();
 			
-			foreach ($explore_cats as $c) {
-				$cat_name 	= get_cat_name($c);
-				$cat_url	= get_category_link($c);
-				$card_out 	= "<li><h2><a href='$cat_url'>$cat_name</a></h2>";
-				$args = array(
-					'cat'	=> $c,
-					'posts_per_page' => 1,
-					'order' => 'DESC'
-				);
-				$query = new WP_Query( $args );
-				if ( $query->have_posts() ) {
-					while ( $query->have_posts() ) {
-						$query->the_post();
-						$thumb 	= get_the_post_thumbnail($post->ID,"list-thumb");
-						$permalink	= get_permalink();
-						$get_title	= get_the_title();
-						
-						$card_out .= "<a href='$permalink'>$thumb</a>";
-						$card_out .=	"<h3><a href='$permalink'>$get_title</a></h3>";	
-					}
-				} else {
-					echo "no posts found";
-				}
-				wp_reset_postdata();
-				$card_out .= "<a class='ec-link' href='$cat_url'>More $cat_name</a></li>";
-				
-				echo $card_out;
-				
-				if ($card_count == 4) {echo '<li class="ec-ad ad-wrap"><span class="ad-span">Advertisement</span><div id="ec_ad_inner" class="ad-inner"></div></li>';}
-				
-				$card_count++;
-			}
-			?>
+			$card_out .= "<a href='$permalink'>$thumb</a>";
+			$card_out .=	"<h3><a href='$permalink'>$get_title</a></h3>";	
+		}
+	} else {
+		echo "no posts found";
+	}
+	wp_reset_postdata();
+	$card_out .= "<a class='ec-link' href='$cat_url'>More $cat_name</a></li>";
+	
+	echo $card_out;
+	
+	if ($card_count == 4) {echo '<li id="ec_ad"><span>Advertisment</span><div class="ec-ad-inner"></div></li>';}
+	
+	$card_count++;
+}
+?>
 			</ul>	
 		</div>
 	</section>

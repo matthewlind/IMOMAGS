@@ -5,10 +5,10 @@
 var $document 		= $(document),
 	window_height	= $(window).height(),
 	l_container		= $("#l_container"),
-	btn_more_home	= $("#btn_more_home"),
-	cat_id 			= btn_more_home.data("cat"),
-	post_not		= btn_more_home.data("post-not"),
-	ad_sticky 		= $("#l_ad_wrap");
+	btn_more_posts	= $("#btn_more_posts"),
+	cat_id 			= btn_more_posts.data("cat"),
+	post_not		= btn_more_posts.data("post-not");
+// 	ad_sticky 		= $("#l_ad_wrap");
 /*
 	ad_sticky 		= $("#sticky-ad"),
 	more_stories	= $("#more_stories"),
@@ -21,6 +21,7 @@ var $document 		= $(document),
 	
 // Sticky Ad Function
 //-----------------------------------------//
+/*
 if (ad_sticky[0]) {	
 	var	stick_start 	= $("#l_container"),
 		stick_stop 		= $("#btn_more_home"),
@@ -51,14 +52,15 @@ function stickyAd() {
 		ad_sticky.removeClass(ad_bottom);
 	}
 }
+*/
 	
 
 
 // Load More Posts Function
 //-----------------------------------------//
 function loadLatestPosts(p) {
-	var loader_anim		= $('#btn_more_home .loader-anim'),
-		post_count		= $(".l-item").length,
+	var loader_anim		= $('#btn_more_posts .loader-anim'),
+		post_count		= $(".c-item").length,
 		latest_list		= $("#latest_list"),
 		post_per_page	= p;
 					
@@ -77,8 +79,6 @@ function loadLatestPosts(p) {
 		}
 	})
 	.done(function(response) {
-		ad_sticky.addClass('adfixed');
-		ad_sticky.removeClass('adstick-bottom');
 		latest_list.append(response);
 		loader_anim.addClass('dnone');
 	})
@@ -107,8 +107,8 @@ $(document).ready(function() {
 	
 	// Load More Posts Button
 	//-----------------------------------------//				
-	l_container.on("click", "#btn_more_home", function() {
-		loadLatestPosts(8);	
+	l_container.on("click", "#btn_more_posts", function() {
+		loadLatestPosts(11);	
 	});
 
 	
@@ -197,7 +197,7 @@ $(window).load(function() {
 	
 $document.scroll(function() {
 
-    if (ad_sticky[0]) { stickyAd(); }
+//     if (ad_sticky[0]) { stickyAd(); }
 /*    
     if (!$('#ms_inner').length) { evenMore(); }
 */

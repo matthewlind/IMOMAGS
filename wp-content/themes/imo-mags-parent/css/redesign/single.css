@@ -433,13 +433,6 @@ a.ae-title p {
 	width: 100%;
 	margin-bottom: 30px;
 }
-.ms-ad-inner {
-	height: 250px;
-	width: 300px;
-	margin: 20px auto;
-	overflow: hidden;
-	background-color: #cda172;
-}
 .ms-btn {
 	background-color: #FF6600;
 }
@@ -540,7 +533,6 @@ a.ae-title {font-size: 18px;margin-bottom: 10px;}
 .ms-inner {display: flex;flex-wrap: wrap;justify-content: space-between;}
 .ms-box,
 .ms-ad {width: 48%;float: none; }
-.ms-ad {background-color: #eee; }
 
 }/* end of media */
 
@@ -579,6 +571,9 @@ a.ae-title {font-size: 18px;margin-bottom: 10px;}
 
 
 @media only screen and (min-width: 1025px) {/* big landscape tablets, laptops, and desktops */
+
+.ms-inner {margin: 0 auto; max-width: 1020px;} 
+
 }/* end of media */
 
 
@@ -601,7 +596,6 @@ a.ae-title {font-size: 18px;margin-bottom: 10px;}
 @media only screen and (min-width: 1400px) {
 .article {margin: 0 0 0 25%; }
 .sticky-ad {right: 6%;}
-.ms-inner {margin: 0 auto; max-width: 1440px;}
 
 }/* end of media */
 

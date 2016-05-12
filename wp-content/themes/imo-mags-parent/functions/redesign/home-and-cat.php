@@ -16,9 +16,9 @@ function register_home_script() {
 }
 
 function print_home_script() {
-	global $is_homy;
+	global $is_home_cat;
 
-	if ( ! $is_homy )
+	if ( ! $is_home_cat )
 		return;
 	wp_print_scripts('home-default-script');
 	wp_print_scripts('home-flex-slider');
@@ -64,24 +64,22 @@ function h_load_latest() {
 			$acf_byline 	= get_field("byline", $post->ID);
 			$thumb 			= get_the_post_thumbnail($post->ID,"list-thumb");
 			?>
-			
-			<li class="l-item" featured_id="<?php echo $post->ID ?>">
-				<div class="l-img"><a href="<?php the_permalink(); ?>" onclick="<?php echo $tracking; ?>"><?php echo $thumb; ?></a></div>
-				<div class="l-info">
-					<div class="l-cats"><?php if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(null, ','); } ?></div>
-					<div class="l-title">
-						<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-					</div>
-					<div class="l-author"><?php if (!$acf_byline) { if ($author != 'admin') echo 'by '. $author;} else {echo $acf_byline;} ?></div>
+			<li class="c-item">
+				<a href="<?php the_permalink(); ?>"><?php echo $thumb; ?></a>
+				<div class="c-info">
+					<div class="c-cats"><?php if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(null, ','); } ?></div>
+					<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+					<span class="c-author"><?php if (!$acf_byline) { if ($author != 'admin') echo 'by '. $author;} else {echo $acf_byline;} ?></span>
 				</div>
 			</li>
-						
-		 
-	<?php	}
+	<?php
+			if ($p_counter == 7) { echo '<li class="c-ad ad-wrap"><span class="ad-span">Advertisement</span><div class="ad-inner"></div></li>'; }
+			$p_counter++;
+		}
 	} else { ?>
 		<script>
-			jQuery('#btn_more_home > span').text('No more posts').css("color", "#eeeeee"); 
-			jQuery('#btn_more_home').removeAttr("id");
+			jQuery('#btn_more_posts > span').text('No more posts').css("color", "#888"); 
+			jQuery('#btn_more_posts').removeAttr("id").css({"cursor" : "default", "background-color" : "#ececec"});
 		</script>
 <?php }
 	wp_reset_postdata();

@@ -102,14 +102,14 @@ function ms_load_more() {
 	if ( $query->have_posts() ) {
 		while ( $query->have_posts() ) {
 			$query->the_post();			
-			$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );?>
+			$feat_image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID) ,"list-thumb" );?>
 			
 			<a class="ms-box" href="<?php the_permalink(); ?>">
-				<div class="ms-image" style="background-image: url('<?php echo $feat_image; ?>')"></div>
+				<div class="ms-image" style="background-image: url(<?php echo $feat_image[0]; ?>)"></div>
 				<div class="ms-desc"><?php the_title( '<h1>', '</h1>'); ?></div>
 			</a>
 <?php		if ($p_counter == $ad_after_post) {
-				echo '<div class="ms-ad"><div class="ms-ad-inner"></div></div>';
+				echo '<div class="ms-ad ad-wrap"><span class="ad-span">Advertisement</span><div class="ad-inner"></div></div>';
 			}
 			$p_counter++;
 		}

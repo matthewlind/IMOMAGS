@@ -644,6 +644,26 @@ nav {
 	display: inline-block;
 }
 
+/* Ads */
+.ad-wrap {
+	text-align: center;
+	padding-bottom: 20px;
+}
+.ad-inner {
+	width: 300px;
+    height: 250px;
+    display: inline-block;
+    background-color: #6456ac;
+}
+.ad-span {
+	font-size: 11px;
+    color: #888;
+    display: inline-block;
+    width: 100%;
+    margin: 17px 0 7px;
+}
+
+
 /*----------------------------------------------------------
    7.0 Zip code finder
 ----------------------------------------------------------*/
@@ -946,13 +966,15 @@ nav {
 .content-banner-section {background-color: #f0f0f0;border-bottom: 1px solid #ddd;padding: 27px 0 20px;}
 .content-banner-section .mob-mdl-banner {display: none;}
 
+
+
 }/* end of media */
 
 @media only screen and (min-width: 700px) {
 
 /* Header *******************/
 .sponsors-disclaimer {text-align: center;font-size: 16px;}	
-	
+.ad-wrap {background-color: #ececec;}	
 
 
 }/* end of media */
