@@ -136,8 +136,8 @@ function imo_flex_gallery( $atts ) {
 	$html = '<div class="osg-gallery"><style type="text/css">.gallery-header{background: '. $galleryColor .';}.span-load-gallery i, .flex-direction-nav a:before, .flex-direction-nav a.flex-prev:before,.flex-direction-nav a.flex-next:before{border-color: transparent '. $galleryColor .'; }
 </style><div class="gallery-header"><div class="gallery-title" slug="'. $slug .'">GALLERY: '. $title .'</div><div class="gallery-count"><span class="curr-count">1</span> of '. $totalSlidesShow .'</div></div>';
 	
-	$html .= '<div class="gallery-images"><ul class="slides">';
-	
+	$html .= '<div id="gallery-start" class="gallery-images"><ul class="slides">';
+	$html .= '<li class="gallery-first-image">'. $firstImage .'</li>';
 	$count = 1;
 	foreach ($pictures as $picture) {
 		if(!empty($picture->img_url)) {
@@ -154,7 +154,7 @@ function imo_flex_gallery( $atts ) {
 		$html .= '<li class="flex-slide is-flex-image" url="'. $imageURL .'" style="display:none;"><div style="display:none;">'. $desc .'</div></li>';
 	}
 	
-	$html .= '<li class="gallery-first-image">'. $firstImage .'</li>';
+	
 	$html .= '</ul><span class="span-load-gallery"><i></i></span><section class="first-img-overlay"> <span><div class="loader-inner ball-pulse-sync"><div></div><div></div><div></div></div></span> </section></div>';
 
 	$html .= '</ul></div></div>';

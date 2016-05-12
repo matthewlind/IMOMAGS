@@ -23,6 +23,7 @@
 	bottom: 25px;
 	right: 10px;
 }
+.ad-continue{cursor: pointer;}
 .image-loading{position: absolute;width: 100%;text-align: center;}
 /* .gallery-first-image{opacity: 0.5;} */
 .gallery-desc{font-size: .8em;text-align: left;padding: 24px 20px 0;}
