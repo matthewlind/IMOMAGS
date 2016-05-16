@@ -23,7 +23,22 @@
 	bottom: 25px;
 	right: 10px;
 }
-.ad-continue{cursor: pointer;}
+.ad-continue{cursor: pointer;text-decoration: underline;}
+.ad-continue:before{
+    border-color: transparent #bf1f27;
+    content: '\f002';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 8px 0 8px 12px;
+    font-size: 1px;
+    font-family: "flexslider-icon";
+    right: 40px;
+    position: absolute;
+    bottom: -61px;
+ }
+    
 .image-loading{position: absolute;width: 100%;text-align: center;}
 /* .gallery-first-image{opacity: 0.5;} */
 .gallery-desc{font-size: .8em;text-align: left;padding: 24px 20px 0;}

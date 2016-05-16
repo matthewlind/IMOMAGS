@@ -53,7 +53,7 @@ $(window).load(function() {
 				$( ".gallery-images .slides li:nth-child("+value+")" ).after('<li class="flex-slide is-flex-ad" slidenum=""><div class="flex-ad-container"><div class="flex-ad-box"><iframe id="gallery-iframe-ad" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" height=280 width=330 src="/iframe-ad-gallery.php?ad_code=' + domain + '&gallery_title=' + slug + '"></iframe><a class="ad-continue">Continue to next image</a></div></div></li>');
 			});
 			// Add ad at the end of the gallery
-			$(".gallery-images .slides").append('<li class="flex-slide is-flex-ad" slidenum=""><div class="flex-ad-container"><div class="flex-ad-box"><iframe id="gallery-iframe-ad" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" height=280 width=330 src="/iframe-ad-gallery.php?ad_code=' + domain + '&gallery_title=' + slug + '"></iframe><a class="ad-continue">Continue to next image</a></div></div></li>');
+			$(".gallery-images .slides").append('<li class="flex-slide is-flex-ad" slidenum=""><div class="flex-ad-container"><div class="flex-ad-box"><iframe id="gallery-iframe-ad" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" height=280 width=330 src="/iframe-ad-gallery.php?ad_code=' + domain + '&gallery_title=' + slug + '"></iframe><a class="ad-continue">Start the gallery over</a></div></div></li>');
 			
 			$('.gallery-images').flexslider({
 			  	slideshow: false,
