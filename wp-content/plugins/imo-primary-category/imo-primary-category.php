@@ -204,7 +204,8 @@ function primary_and_secondary_categories($cat_base = null) {
 		"timely-features",
 		"in-fisherman-blogs",
 		"midwest-finesse",
-		"online-exclusives"
+		"online-exclusives",
+		"sponsored"
     );
 	
     foreach($allCats as $cat){
