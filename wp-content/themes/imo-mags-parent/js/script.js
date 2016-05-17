@@ -9,10 +9,6 @@ jQuery(window).load(function() {
 	var li_height = jQuery(".flex-active-slide").height();
 	jQuery(".gallery-slider div.flex-viewport").css("max-height",li_height);
 	
-	// Revert core script making .wp-caption 10px wider then image
-	var wp_caption 			= jQuery(".wp-caption"),
-		wp_caption_widht 	= wp_caption.width() - 10;
-	wp_caption.css("width", wp_caption_widht + "px");
 });
 
 jQuery(document).ready(function () {
@@ -389,6 +385,7 @@ jQuery(function(){
 	if (jQuery(".advert").length > 0) {
 		jQuery('.advert').jfollow('#responderfollow');
 	}
+	
 /*	jQuery('.jq-explore-slider-sidebar').flexslider({
         animation: "slide",
         animationSpeed: 200,
@@ -436,16 +433,7 @@ jQuery(function(){
           maxItems: 3
         });
 
-    jQuery('.jq-single-paging-slider').flexslider({
-          animation: "slide",
-          animationSpeed: 200,
-          slideshow: false,
-          itemWidth: 340,
-          itemMargin: 0,
-          minItems: 1,
-          maxItems: 1
-
-        });
+    
 
    
     jQuery('#photoSlider.reader-photo-slider .photo-slider').flexslider({

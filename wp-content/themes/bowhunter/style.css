@@ -66,26 +66,6 @@ subscribe-links a{color: white;}
 .open-menu, .user-btn, .open-search, .filter-links li:before, .menu-top-menu-container li:before, .view-post, .back-top:before, .get-newsletter, .cal-carousel .gal-prev, .cal-carousel .gal-next, .full-post .comment-count, 
 .article-brief .comment-count {background-image: url(images/sprite.png);}
 
-/*flexslider*/
-/* Direction Nav */
-.flex-direction-nav a {background:url(images/prev-next.png) no-repeat !important;}
-.flex-direction-nav .flex-next {background-position:-33px 0 !important;}
-.flex-direction-nav .flex-prev {background-position:0 0 !important;}
-.flex-direction-nav .flex-next:hover {background-position:-33px -52px !important;}
-.flex-direction-nav .flex-prev:hover {background-position:0 -52px !important;}
-/* Control Nav */
-.flex-control-paging li a {background:url(images/controls.png) no-repeat !important;}
-.paging-single-post .flex-control-paging li a,
-.double-post-slider .flex-control-paging li a {background-position:0 -32px !important;}
-.flex-control-paging li a:hover,
-.flex-control-paging li a.flex-active {background-position:0 -16px !important; }
-/* YARPP Slider */
-.paging-posts .flex-direction-nav .flex-prev,
-.paging-posts .flex-direction-nav .flex-next{background-color: #e8e7e7 !important;}
-.paging-posts .flex-direction-nav .flex-prev {background-position:-66px 0 !important;}
-.paging-posts .flex-direction-nav .flex-prev:hover {background-position:-148px 0 !important;}
-.paging-posts .flex-direction-nav .flex-next {background-position:-107px 0 !important;}
-.paging-posts .flex-direction-nav .flex-next:hover {background-position:-189px 0 !important;}
 
 /*banners*/
 .gd-reader-photos {
