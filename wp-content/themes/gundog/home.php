@@ -21,15 +21,15 @@ $site_name		= trim(get_bloginfo('name'), "Magazine");
 
 
 <div class="home-wrap">
-	<section class="latest-area">
-		<h1 class="main-h">Latest News & Features</h1>
-		<div id="l_container" class="l-container">
-			<?php 
-				if( $features ){ 
-					$features_ids = array();
-					$feat_counter = 0;
-			?>
-                <ul id="latest_list" class="l-list">
+	<section class="section-latest-posts">
+		<div id="l_container" class="section-inner-wrap">
+				<h1 class="main-h">Latest News & Features</h1>
+				<?php 
+					if( $features ){ 
+						$features_ids = array();
+						$feat_counter = 0;
+				?>
+                <ul id="latest_list" class="c-list">
 					<?php 
 					foreach( $features as $feature ){
 						$features_ids[] = $feature->ID;
@@ -40,6 +40,7 @@ $site_name		= trim(get_bloginfo('name'), "Magazine");
 						$thumb 			= get_the_post_thumbnail($feature->ID,"list-thumb");
 						$tracking 		= "_gaq.push(['_trackEvent','Special Features Homepage','$title','$url']);"; ?>
 						
+<!--
 						<li class="featured-item" featured_id="<?php echo $feature->ID ?>">
 							<div class="l-img"><a href="<?php echo $url; ?>" onclick="<?php echo $tracking; ?>"><?php echo $thumb; ?></a></div>
 							<div class="l-info">
@@ -50,9 +51,19 @@ $site_name		= trim(get_bloginfo('name'), "Magazine");
 								<div class="l-author"><?php if (!$acf_byline) { if ($author != 'admin') echo 'by '. $author;} else {echo $acf_byline;} ?></div>
 							</div>
 						</li>
+-->
+						
+						<li>
+							<a href="<?php echo $url; ?>" onclick="<?php echo $tracking; ?>"><?php echo $thumb; ?></a>
+							<div class="c-info">
+								<div class="c-cats"><?php if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(null, ','); } ?></div>
+								<h2><a href="<?php echo $url; ?>" onclick="<?php echo $tracking; ?>"><?php echo $title; ?></a></h2>
+								<span class="c-author"><?php if (!$acf_byline) { if ($author != 'admin') echo 'by '. $author;} else {echo $acf_byline;} ?></span>
+							</div>
+						</li>
 						
 					<?php 
-						if ($feat_counter == 1) { echo "<li id='l_ad_wrap' class='l-ad-wrap'><div class='l-ad'><span>Advertisement</span><div class='l-ad-inner'></div></div></li>"; }
+						if ($feat_counter == 1) { echo '<li class="c-ad ad-wrap"><span class="ad-span">Advertisement</span><div id="c_ad_inner" class="ad-inner"></div></li>'; }
 						$feat_counter++;
 					} 
 						
@@ -60,7 +71,7 @@ $site_name		= trim(get_bloginfo('name'), "Magazine");
 					?>
                	</ul>
 			<?php } ?>
-			<div id="btn_more_home" class="btn-lg"  data-post-not="<?php echo implode(", ", $features_ids); ?>" data-cat="">
+			<div id="btn_more_posts" class="btn-lg"  data-post-not="<?php echo implode(", ", $features_ids); ?>" data-cat="">
 				<span>Show More</span>
 				<div class="loader-anim dnone">
 					<div class="line-spin-fade-loader">
@@ -70,6 +81,56 @@ $site_name		= trim(get_bloginfo('name'), "Magazine");
 			</div><!-- .btn-lg -->
 		</div><!-- .l-container -->
 	</section>
+<!--
+	<section class="section-latest-posts">
+		<div id="l_container" class="section-inner-wrap">
+			<h1 class="main-h"><?php echo $this_cat_name;?></h1>
+			<ul id="latest_list" class="c-list">
+			<?php 	
+				$p_counter = 0;		
+				$args = array(
+					'cat'	=> $this_cat_id,
+					'posts_per_page' => 5,
+					'order' => 'DESC'
+				);
+				$query = new WP_Query( $args );
+				if ( $query->have_posts() ) {
+					while ( $query->have_posts() ) {
+						$query->the_post();
+						$thumb 			= get_the_post_thumbnail($post->ID,"list-thumb");
+						$author 		= get_the_author();
+						$acf_byline 	= get_field("byline", $post->ID);
+						?>
+						<li class="c-item">
+							<a href="<?php the_permalink(); ?>"><?php echo $thumb; ?></a>
+							<div class="c-info">
+								<div class="c-cats"><?php if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(null, ','); } ?></div>
+								<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+								<span class="c-author"><?php if (!$acf_byline) { if ($author != 'admin') echo 'by '. $author;} else {echo $acf_byline;} ?></span>
+							</div>
+						</li>
+			<?php		if ($p_counter == 1) {
+							echo '<li class="c-ad ad-wrap"><span class="ad-span">Advertisement</span><div id="c_ad_inner" class="ad-inner"></div></li>';
+						}
+						$p_counter++;
+					}
+				} else {
+					echo "no posts found";
+				}
+				wp_reset_postdata();
+			?>
+			</ul>
+			<div id="btn_more_posts" class="btn-lg"  data-post-not="" data-cat="<?php echo $this_cat_id;?>">
+				<span>Show More</span>
+				<div class="loader-anim dnone">
+					<div class="line-spin-fade-loader">
+						<div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</section>
+-->
 	<section class="home-subscribe clearfix">
 		<div class="section-inner-wrap">
 			<div class="subs-container clearfix">
@@ -166,7 +227,7 @@ $site_name		= trim(get_bloginfo('name'), "Magazine");
 		<div class="section-inner-wrap clearfix">
 			<div class="twins-title">
 				<h1>Breeds</h1>
-				<a href="">More Breeds</a>
+				<a class="link-to-all" href="">More Breeds</a>
 			</div>
 			<div class="twins-thumbs clearfix">
 				<ul>

@@ -8,53 +8,6 @@ var $document 		= $(document),
 	btn_more_posts	= $("#btn_more_posts"),
 	cat_id 			= btn_more_posts.data("cat"),
 	post_not		= btn_more_posts.data("post-not");
-// 	ad_sticky 		= $("#l_ad_wrap");
-/*
-	ad_sticky 		= $("#sticky-ad"),
-	more_stories	= $("#more_stories"),
-	ms_inner		= $("#ms_inner"),
-	ms_loader		= $("#ms_loader"),
-	ms_h1			= $("#ms_h1");
-*/
-	
-
-	
-// Sticky Ad Function
-//-----------------------------------------//
-/*
-if (ad_sticky[0]) {	
-	var	stick_start 	= $("#l_container"),
-		stick_stop 		= $("#btn_more_home"),
-		ad_fixed 		= 'adfixed',
-		ad_bottom 		= 'adstick-bottom',
-		ad_sticky_height= ad_sticky.height(),
-		offset_stop 	= 700;
-		
-	if (ad_sticky_height <= 400){
-		offset_stop = 360;
-		ad_stickBottom = 'adstick-bottom-sm';
-	}
-}
-
-function stickyAd() {
-    var start	= stick_start.offset().top - 100,
-    	stop 	= stick_stop.offset().top,
-    	stop 	= stop - offset_stop,
-    	d 		= $document.scrollTop();
-    	
-    if (d >= start && d <= stop) {
-		ad_sticky.addClass(ad_fixed);
-		ad_sticky.removeClass(ad_bottom);
-	} else if (d >= start && d > stop) {
-		ad_sticky.addClass(ad_bottom);
-	} else {
-		ad_sticky.removeClass(ad_fixed);
-		ad_sticky.removeClass(ad_bottom);
-	}
-}
-*/
-	
-
 
 // Load More Posts Function
 //-----------------------------------------//
@@ -82,75 +35,16 @@ function loadLatestPosts(p) {
 		latest_list.append(response);
 		loader_anim.addClass('dnone');
 	})
-	.fail(function() { latest_list.append( $("<p/>", {text: "The error ocurred. Try to reload the page",style: "color: red;"})); });
+	.fail(function() { latest_list.append( $("<p/>", {text: "Something went wrong. Try to reload the page", style: "color: red;"})); });
 }
 
-
-// Load 'Even More' Section
-//-----------------------------------------//
-/*
-function evenMore() {
-	var d 	= $document.scrollTop(),
-	even_m 	= ms_loader.offset().top - window_height + 100;
-	
-	if (d > even_m) {
-		ms_h1.after( $("<div/>", {'id' : 'ms_inner', 'class' : 'ms-inner'}) );
-		
-		loadMorePosts(5, 1);
-		ms_loader.remove();
-	}
-}
-*/
 
 
 $(document).ready(function() {	
-	
-	// Load More Posts Button
-	//-----------------------------------------//				
+				
 	l_container.on("click", "#btn_more_posts", function() {
 		loadLatestPosts(11);	
 	});
-
-	
-	
-/*
-	// Disqus functions
-	//-----------------------------------------//
-	// Load disqus javascript
-	$('#load-comments').on('click', function(){ 
-		var disqus_shortname = 'gundogmag';  // Enter your disqus user name
-        // ajax request to load the disqus javascript
-		$.ajax({
-			type: "GET",
-			url: "http://" + disqus_shortname + ".disqus.com/embed.js",
-			dataType: "script",
-			cache: true
-		});
-		$(this).fadeOut();
-	});
-	 
-	if ($('#spandisqus').length){
-		var commText = document.getElementById("spandisqus");
-		// Delete word 'Comments' from Disqus comments count.
-		function delWord() {
-		    var str = commText.innerHTML; 
-		    var res = str.replace("Comments", "");
-		    var res = res.replace("Comment", "");
-		    commText.innerHTML = res;
-		}
-		// If there is no comments cahnges text to "leave a comment"
-		function changeCommPhrase() {
-			if ($('#spandisqus').text().length <= 0 || $('#spandisqus').text() == "0 ") {
-				$('.show-comm-2').text('');
-				$('#spandisqus').text('');
-				$('.show-comm-1').text('Leave a Comment');
-			}
-		}
-		setTimeout(delWord, 3000);
-		setTimeout(changeCommPhrase, 4000);
-	} // end Disqus functions
-*/
-	
 	
 });// end document.ready
 
@@ -163,7 +57,6 @@ $(window).load(function() {
 		min_items		= 2,
 		max_items		= 2;
 		
-		
 	if (window_width > 600) {
 		item_margin		= 55;
 		min_items		= 3;
@@ -174,9 +67,7 @@ $(window).load(function() {
 		item_margin		= 40;
 		item_width		= 140;
 	} 
-	
-	console.log(item_margin);
-	
+		
 	$('#store_slider').flexslider({
 		slideshow: false,
 		animation: "slide",
@@ -194,14 +85,7 @@ $(window).load(function() {
 	});
 });
 
-	
-$document.scroll(function() {
 
-//     if (ad_sticky[0]) { stickyAd(); }
-/*    
-    if (!$('#ms_inner').length) { evenMore(); }
-*/
-}); // doc scroll
 
 ////////////////////	
 })(jQuery);

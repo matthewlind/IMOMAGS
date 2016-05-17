@@ -189,13 +189,6 @@
 	padding: 0 20px;
 	text-align: center;
 }
-.link-to-all {
-	color: #395b5d;
-	text-decoration: underline;
-}
-.link-to-all:hover {
-	color: #FF6600;
-}
 .twins-thumbs {
 	margin-top: 30px;
 }
@@ -249,10 +242,11 @@
 }
 .ec-list li {
 	width: 100%;
-	background-color: #ececec;
+/* 	background-color: #ececec; */
 	margin-bottom: 30px;
 	padding: 20px 10px 55px;
 	position: relative;
+	border: 1px solid #dbdbdb;
 }
 .ec-list li h2 {
 	margin: 0 0 0.6em;
@@ -346,9 +340,6 @@
     color: #888;
     text-transform: uppercase;
 }
-#c_ad_inner {
-    background-color: #6456ac;
-}
 
 
 @media only screen and (min-width: 374px) {/* iPhone 6 */
@@ -356,7 +347,7 @@
 .main-h {font-size: 1.9em;}
 .store-item-img {height: 211px;}
 .ec-list .ec-ad {background-color: #ececec;}
-#ec_ad_inner {margin-left: 0;}
+#ec_ad_inner {margin: 0 auto;}
 
 }/* end media 375px */ 
 
@@ -380,21 +371,21 @@
 #store_slider .flex-direction-nav a.flex-next {right: -35px;}
 #store_slider .flex-direction-nav a.flex-prev {left: -35px;}
 #store_slider .flex-direction-nav a:hover {background-color: rgba(200, 200, 200,.3);}
-
+#ec_ad {background: transparent;padding: 0 0 20px;}
 
 	
 }
 
 @media only screen and (min-width: 700px) {
 	
-.home-wrap section {padding-bottom: 70px;}
+.home-wrap section {padding-bottom: 35px;}
 .l-container {padding: 0 30px;}
 .l-list li {width: 48%;}
 .l-list .l-ad-wrap {text-align: center;margin-bottom: 35px;width: 100%;}
 .l-info {padding: 7px 10px 10px;}
 .home-wrap .section-twins {padding: 30px 30px 50px;}
-.twins-title {float: left; width: 30%; padding: 0 20px 0 0; text-align: left;}
-.twins-thumbs {float: left; width: 70%;}
+.twins-title {float: left; width: 34%; padding: 0 20px 0 0; text-align: left;}
+.twins-thumbs {float: left; width: 66%;}
 .twins-thumbs ul {display: flex; justify-content: space-between;}
 .twins-thumbs ul li {width: 48%; margin-bottom: 0;}
 .section-exp-cats {padding: 20px 30px;}
@@ -430,8 +421,8 @@
 .store-link {position: absolute; right: 0; top: 12px; font-size: 14px;}
 .store-slider-wrap {margin-top: 40px;}
 
-.twins-title {width: 31%;}
-.twins-thumbs {width: 69%;}
+.twins-title {width: 34%;}
+.twins-thumbs {width: 66%;}
 .twins-title .btn-lg {margin: 30px 0;}
 .section-exp-cats {padding: 30px;}
 .ec-list li,
@@ -447,7 +438,6 @@
 .l-list .l-ad-wrap {right: 0; left: 0; margin: 0 auto; width: 1020px; z-index: 0;}
 .l-ad {float: right;}
 .store-slider-wrap {margin-top: 40px;}
-.section-inner-wrap {max-width: 1020px; margin: 0 auto;}
 /* .store-item-img {height: 148px;} */
 	
 }/* end media 1020px */	

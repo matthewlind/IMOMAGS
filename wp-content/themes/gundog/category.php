@@ -23,7 +23,6 @@ $site_name		= trim(get_bloginfo('name'), "Magazine");
 $this_cat 		= get_category( get_query_var( 'cat' ) );
 $this_cat_id	= $this_cat->term_id;
 $this_cat_name	= $this_cat->name;
-
 ?>
 
 
@@ -171,39 +170,6 @@ $this_cat_name	= $this_cat->name;
 	<section class="section-twins">
 		<div class="section-inner-wrap clearfix">
 			<div class="twins-title">
-				<h1>Breeds</h1>
-				<a href="">More Breeds</a>
-			</div>
-			<div class="twins-thumbs clearfix">
-				<ul>
-					<?php	
-						$args = array ('category_name' => 'breeds','posts_per_page' => 2,'order' => 'DESC');
-						$query = new WP_Query( $args );
-						if ( $query->have_posts() ) {
-							while ( $query->have_posts() ) {
-								$query->the_post();
-								$thumb 	= get_the_post_thumbnail($post->ID,"list-thumb");	
-						?>
-						<li class="twins-item" featured_id="<?php echo $feature->ID ?>">
-							<div class="twins-img"><a href="<?php the_permalink(); ?>" onclick="<?php echo $tracking; ?>"><?php echo $thumb; ?></a></div>
-							<div class="twins-thumb-title">
-								<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-							</div>
-						</li>
-						<?php
-							}
-						} else {
-							echo "no posts found";
-						}
-						wp_reset_postdata(); 
-					?>
-				</ul>
-			</div>
-		</div>
-	</section>
-	<section class="section-twins">
-		<div class="section-inner-wrap clearfix">
-			<div class="twins-title">
 				<h1>Reader Photos</h1>
 				<a class="btn-lg" href="">Upload Your Photo!</a>
 				<a class="link-to-all" href="">See All Reader Photos</a>
@@ -241,50 +207,52 @@ $this_cat_name	= $this_cat->name;
 			</div>
 		</div>
 	</section>
+<!--
 	<section class="section-exp-cats">
 		<div class="section-inner-wrap">
 			<h1>Explore <?php echo $site_name;?></h1>
 			<ul class="ec-list">
-<?php 			
-$explore_cats 	= get_field('explore_cats','options' );
-$card_count		= 0;
-
-foreach ($explore_cats as $c) {
-	$cat_name 	= get_cat_name($c);
-	$cat_url	= get_category_link($c);
-	$card_out 	= "<li><h2><a href='$cat_url'>$cat_name</a></h2>";
-	$args = array(
-		'cat'	=> $c,
-		'posts_per_page' => 1,
-		'order' => 'DESC'
-	);
-	$query = new WP_Query( $args );
-	if ( $query->have_posts() ) {
-		while ( $query->have_posts() ) {
-			$query->the_post();
-			$thumb 	= get_the_post_thumbnail($post->ID,"list-thumb");
-			$permalink	= get_permalink();
-			$get_title	= get_the_title();
-			
-			$card_out .= "<a href='$permalink'>$thumb</a>";
-			$card_out .=	"<h3><a href='$permalink'>$get_title</a></h3>";	
-		}
-	} else {
-		echo "no posts found";
-	}
-	wp_reset_postdata();
-	$card_out .= "<a class='ec-link' href='$cat_url'>More $cat_name</a></li>";
-	
-	echo $card_out;
-	
-	if ($card_count == 4) {echo '<li id="ec_ad"><span>Advertisment</span><div class="ec-ad-inner"></div></li>';}
-	
-	$card_count++;
-}
-?>
+				<?php 			
+				$explore_cats 	= get_field('explore_cats','options' );
+				$card_count		= 0;
+				
+				foreach ($explore_cats as $c) {
+					$cat_name 	= get_cat_name($c);
+					$cat_url	= get_category_link($c);
+					$card_out 	= "<li><h2><a href='$cat_url'>$cat_name</a></h2>";
+					$args = array(
+						'cat'	=> $c,
+						'posts_per_page' => 1,
+						'order' => 'DESC'
+					);
+					$query = new WP_Query( $args );
+					if ( $query->have_posts() ) {
+						while ( $query->have_posts() ) {
+							$query->the_post();
+							$thumb 	= get_the_post_thumbnail($post->ID,"list-thumb");
+							$permalink	= get_permalink();
+							$get_title	= get_the_title();
+							
+							$card_out .= "<a href='$permalink'>$thumb</a>";
+							$card_out .= "<h3><a href='$permalink'>$get_title</a></h3>";	
+						}
+					} else {
+						echo "no posts found";
+					}
+					wp_reset_postdata();
+					$card_out .= "<a class='ec-link' href='$cat_url'>More $cat_name</a></li>";
+					
+					echo $card_out;
+					
+					if ($card_count == 4) {echo '<li id="ec_ad" class="ad-wrap"><span class="ad-span">Advertisement</span><div id="ec_ad_inner" class="ad-inner"></div></li>';}
+					
+					$card_count++;
+				}
+				?>
 			</ul>	
 		</div>
 	</section>
+-->
 </div>
 
 
