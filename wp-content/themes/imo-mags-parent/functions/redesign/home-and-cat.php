@@ -90,3 +90,252 @@ function h_load_latest() {
 	wp_die();
 }
 
+
+
+
+
+// Load Home BTF
+//--------------------------------------------//	
+if ( is_admin()) {  
+    add_action( 'wp_ajax_load_home_btf', 'load_home_btf' );
+    add_action( 'wp_ajax_nopriv_load_home_btf', 'load_home_btf' );
+} else {
+    // Add non-Ajax front-end action hooks here
+}
+
+function load_home_btf() {
+	global $wpdb;          
+    ob_start(); 
+    
+    $is_home_cat 	= true;
+	$dartdomain 	= get_option('dart_domain', false);
+	$magazine_img 	= get_option('magazine_cover_uri' );
+	$deal_copy 		= get_option('deal_copy' );
+	$features 		= get_field('homepage_featured_stories','options' );
+	$site_name		= trim(get_bloginfo('name'), "Magazine"); 
+    
+?>    
+    
+    
+<section id="section_subsicribe" class="home-subscribe clearfix">
+		<div class="section-inner-wrap">
+			<div class="subs-container clearfix">
+				<h1>Subscribe & Save!</h1>
+				<img src="<?php echo $magazine_img; ?>" alt="Gun Dog Magazine Cover">
+				<div class="subs-info">
+					<p><?php echo $deal_copy; ?></p>
+					<a class="btn-lg" href="<?php echo $online_store_url; ?>">Subscribe Now!</a>
+				</div>
+			</div>
+			<div class="store-container">
+				<h1><?php echo $site_name; ?> Store</h1>
+				<a class="store-link" href="">Visit Store</a>
+				<div class="store-slider-wrap">
+					<div id="store_slider" class="flexslider">
+						<ul class="slides">
+							<li>
+								<div class="store-item-img">
+									<a href=""><img src="/wp-content/themes/imo-mags-parent/images/temp/gun-dog.jpg" /></a>
+								</div>
+								<div class="store-item-title"><a href="">1 Lorem Ipsum Dolor Sit Amet</a></div>
+								<a class="btn-sm" href="">Buy Now!</a>
+							</li>
+							<li>
+								<div class="store-item-img">
+									<img src="/wp-content/themes/imo-mags-parent/images/temp/gun-dog-dvd.jpg" />
+								</div>
+								<div class="store-item-title"><a href="">2 Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet</a></div>
+								<a class="btn-sm" href="">Buy Now!</a>
+							</li>
+							<li>
+								<div class="store-item-img">
+									<a href=""><img src="/wp-content/themes/imo-mags-parent/images/temp/gun-dog.jpg" /></a>
+								</div>
+								<div class="store-item-title"><a href="">3 Lorem Ipsum Dolor Sit Amet</a></div>
+								<a class="btn-sm" href="">Buy Now!</a>
+							</li>
+							<li>
+								<div class="store-item-img">
+									<img src="/wp-content/themes/imo-mags-parent/images/temp/mike-bear1.jpg" />
+								</div>
+								<div class="store-item-title"><a href="">4 Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet</a></div>
+								<a class="btn-sm" href="">Buy Now!</a>
+							</li>
+							<li>
+								<div class="store-item-img">
+									<a href=""><img src="/wp-content/themes/imo-mags-parent/images/temp/gun-dog.jpg" /></a>
+								</div>
+								<div class="store-item-title"><a href="">5 Lorem Ipsum Dolor Sit Amet</a></div>
+								<a class="btn-sm" href="">Buy Now!</a>
+							</li>
+							<li>
+								<div class="store-item-img">
+									<img src="/wp-content/themes/imo-mags-parent/images/temp/gun-dog-dvd.jpg" />
+								</div>
+								<div class="store-item-title"><a href="">6 Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet</a></div>
+								<a class="btn-sm" href="">Buy Now!</a>
+							</li>
+							<li>
+								<div class="store-item-img">
+									<a href=""><img src="/wp-content/themes/imo-mags-parent/images/temp/gun-dog.jpg" /></a>
+								</div>
+								<div class="store-item-title"><a href="">7 Lorem Ipsum Dolor Sit Amet</a></div>
+								<a class="btn-sm" href="">Buy Now!</a>
+							</li>
+							<li>
+								<div class="store-item-img">
+									<img src="/wp-content/themes/imo-mags-parent/images/temp/gun-dog-dvd.jpg" />
+								</div>
+								<div class="store-item-title"><a href="">8 Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet</a></div>
+								<a class="btn-sm" href="">Buy Now!</a>
+							</li>
+							<li>
+								<div class="store-item-img">
+									<a href=""><img src="/wp-content/themes/imo-mags-parent/images/temp/gun-dog.jpg" /></a>
+								</div>
+								<div class="store-item-title"><a href="">9 Lorem Ipsum Dolor Sit Amet</a></div>
+								<a class="btn-sm" href="">Buy Now!</a>
+							</li>
+							<li>
+								<div class="store-item-img">
+									<img src="/wp-content/themes/imo-mags-parent/images/temp/gun-dog-dvd.jpg" />
+								</div>
+								<div class="store-item-title"><a href="">10 Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet</a></div>
+								<a class="btn-sm" href="">Buy Now!</a>
+							</li>
+						</ul>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</section>
+	<section class="section-twins">
+		<div class="section-inner-wrap clearfix">
+			<div class="twins-title">
+				<h1>Breeds</h1>
+				<a class="link-to-all" href="">More Breeds</a>
+			</div>
+			<div class="twins-thumbs clearfix">
+				<ul>
+					<?php	
+						$args = array ('category_name' => 'breeds','posts_per_page' => 2,'order' => 'DESC');
+						$query = new WP_Query( $args );
+						if ( $query->have_posts() ) {
+							while ( $query->have_posts() ) {
+								$query->the_post();
+								$thumb 	= get_the_post_thumbnail($post->ID,"list-thumb");	
+						?>
+						<li class="twins-item" featured_id="<?php echo $feature->ID ?>">
+							<div class="twins-img"><a href="<?php the_permalink(); ?>" onclick="<?php echo $tracking; ?>"><?php echo $thumb; ?></a></div>
+							<div class="twins-thumb-title">
+								<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+							</div>
+						</li>
+						<?php
+							}
+						} else {
+							echo "no posts found";
+						}
+						wp_reset_postdata(); 
+					?>
+				</ul>
+			</div>
+		</div>
+	</section>
+	<section class="section-twins">
+		<div class="section-inner-wrap clearfix">
+			<div class="twins-title">
+				<h1>Reader Photos</h1>
+				<a class="btn-lg" href="">Upload Your Photo!</a>
+				<a class="link-to-all" href="">See All Reader Photos</a>
+			</div>
+			<div class="twins-thumbs clearfix">
+				<ul>
+					<?php	
+						$string = parse_url($_SERVER[REQUEST_URI]);
+						$term = $string["query"];
+						$args = array(
+						   'post_type' 		=> 'reader_photos',
+						   'posts_per_page' => 2,
+						   'order' 			=> 'DESC'
+						);
+						$query = new WP_Query( $args );
+						if ( $query->have_posts() ) {
+							while ( $query->have_posts() ) {
+								$query->the_post();
+								$thumb = get_the_post_thumbnail($post->ID,"list-thumb");	
+						?>
+						<li class="twins-item" featured_id="<?php echo $feature->ID ?>">
+							<div class="twins-img"><a href="<?php the_permalink(); ?>" onclick="<?php echo $tracking; ?>"><?php echo $thumb; ?></a></div>
+							<div class="twins-thumb-title">
+								<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+							</div>
+						</li>
+						<?php
+							}
+						} else {
+							echo "no posts found";
+						}
+						wp_reset_postdata(); 
+					?>
+				</ul>
+			</div>
+		</div>
+	</section>
+	<section class="section-exp-cats">
+		<div class="section-inner-wrap">
+			<h1>Explore <?php echo $site_name;?></h1>
+			<ul class="ec-list">
+			<?php 			
+			$explore_cats 	= get_field('explore_cats','options' );
+			$card_count		= 0;
+			
+			foreach ($explore_cats as $c) {
+				$cat_name 	= get_cat_name($c);
+				$cat_url	= get_category_link($c);
+				$card_out 	= "<li><h2><a href='$cat_url'>$cat_name</a></h2>";
+				$args = array(
+					'cat'	=> $c,
+					'posts_per_page' => 1,
+					'order' => 'DESC'
+				);
+				$query = new WP_Query( $args );
+				if ( $query->have_posts() ) {
+					while ( $query->have_posts() ) {
+						$query->the_post();
+						$thumb 	= get_the_post_thumbnail($post->ID,"list-thumb");
+						$permalink	= get_permalink();
+						$get_title	= get_the_title();
+						
+						$card_out .= "<a href='$permalink'>$thumb</a>";
+						$card_out .=	"<h3><a href='$permalink'>$get_title</a></h3>";	
+					}
+				} else {
+					echo "no posts found";
+				}
+				wp_reset_postdata();
+				$card_out .= "<a class='ec-link' href='$cat_url'>More $cat_name</a></li>";
+				
+				echo $card_out;
+				
+				if ($card_count == 4) {echo '<li class="ec-ad ad-wrap"><span class="ad-span">Advertisement</span><div id="ec_ad_inner" class="ad-inner"></div></li>';}
+				
+				$card_count++;
+			}
+			?>
+			</ul>	
+		</div>
+	</section>
+
+	
+	
+<?php	
+	
+	
+	$response = ob_get_contents();
+	ob_end_clean();
+	
+	echo $response;
+	wp_die();
+}
+

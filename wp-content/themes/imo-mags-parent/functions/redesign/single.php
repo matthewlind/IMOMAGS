@@ -24,7 +24,7 @@ function print_single_script() {
 		return;
 
 	wp_print_scripts('single-default-script');
-	wp_print_scripts('single-disqus');
+	//wp_print_scripts('single-disqus');
 }
 
 

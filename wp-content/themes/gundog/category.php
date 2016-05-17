@@ -26,7 +26,7 @@ $this_cat_name	= $this_cat->name;
 ?>
 
 
-<div class="home-wrap">
+<div class="sections-wrap">
 	<section class="section-latest-posts">
 		<div id="l_container" class="section-inner-wrap">
 			<h1 class="main-h"><?php echo $this_cat_name;?></h1>

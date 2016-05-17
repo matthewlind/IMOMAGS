@@ -1,8 +1,8 @@
-.home-wrap section {
+.sections-wrap section {
 	padding-bottom: 40px;
 	border-bottom: 1px solid #DBDBDB;
 }
-.home-wrap h1 {
+.sections-wrap h1 {
 	font-weight: 700;
 }
 .main-h {
@@ -87,7 +87,7 @@
 /* Subscribe Section
 /* --------------------------------- */
 
-.home-wrap .home-subscribe {
+.sections-wrap .home-subscribe {
 	padding: 20px 20px 0;
 }
 .subs-container {
@@ -319,6 +319,12 @@
 .home .c-cats {
 	display: block;
 }
+.c-cats .category-name-link {
+	color: #395b5d;
+}
+.c-cats .category-name-link:hover {
+	color: #FF6600;
+}
 .c-cats {
 	display: none;
 }
@@ -378,12 +384,12 @@
 
 @media only screen and (min-width: 700px) {
 	
-.home-wrap section {padding-bottom: 35px;}
+.sections-wrap section {padding-bottom: 35px;}
 .l-container {padding: 0 30px;}
 .l-list li {width: 48%;}
 .l-list .l-ad-wrap {text-align: center;margin-bottom: 35px;width: 100%;}
 .l-info {padding: 7px 10px 10px;}
-.home-wrap .section-twins {padding: 30px 30px 50px;}
+.sections-wrap .section-twins {padding: 30px 30px 50px;}
 .twins-title {float: left; width: 34%; padding: 0 20px 0 0; text-align: left;}
 .twins-thumbs {float: left; width: 66%;}
 .twins-thumbs ul {display: flex; justify-content: space-between;}
@@ -412,7 +418,7 @@
 .l-list li.adfixed {position: fixed; top: 100px;}
 .l-list li.adstick-bottom {position: absolute; top: auto; bottom: 0;}
 .l-list li.adstick-bottom-sm {position: absolute; top: auto; bottom: 0;}
-.home-wrap .home-subscribe {padding: 60px 0;}
+.sections-wrap .home-subscribe {padding: 60px 0;}
 #store_slider {margin-bottom: 10px;}
 .subs-container {width: 45%; float: left; padding-right: 30px;}
 .home-subscribe h1 {margin-top: 0;}
