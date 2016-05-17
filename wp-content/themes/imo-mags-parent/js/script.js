@@ -9,10 +9,6 @@ jQuery(window).load(function() {
 	var li_height = jQuery(".flex-active-slide").height();
 	jQuery(".gallery-slider div.flex-viewport").css("max-height",li_height);
 	
-	// Revert core script making .wp-caption 10px wider then image
-	var wp_caption 			= jQuery(".wp-caption"),
-		wp_caption_widht 	= wp_caption.width() - 10;
-	wp_caption.css("width", wp_caption_widht + "px");
 });
 
 jQuery(document).ready(function () {
@@ -38,6 +34,43 @@ jQuery(document).ready(function () {
 	jQuery(".air-times-btn").click(function(){
 		jQuery(this).parents().eq(2).find(".m-shows-airtimes").toggleClass("height-auto");
 	});
+	
+	// Disqus functions
+	//-----------------------------------------//
+	// Load disqus javascript
+	var disqus_shortname = jQuery("#load-comments").data("shortname");
+	jQuery('#load-comments').on('click', function(){ 
+		//var disqus_shortname = disq_shortname;  // Enter your disqus user name
+        // ajax request to load the disqus javascript
+		jQuery.ajax({
+			type: "GET",
+			url: "http://" + disqus_shortname + ".disqus.com/embed.js",
+			dataType: "script",
+			cache: true
+		});
+		jQuery(this).fadeOut();
+	});
+	 
+	if (jQuery('#spandisqus').length){
+		var commText = document.getElementById("spandisqus");
+		// Delete word 'Comments' from Disqus comments count.
+		function delWord() {
+		    var str = commText.innerHTML; 
+		    var res = str.replace("Comments", "");
+		    var res = res.replace("Comment", "");
+		    commText.innerHTML = res;
+		}
+		// If there is no comments cahnges text to "leave a comment"
+		function changeCommPhrase() {
+			if (jQuery('#spandisqus').text().length <= 0 || jQuery('#spandisqus').text() == "0 ") {
+				jQuery('.show-comm-2').text('');
+				jQuery('#spandisqus').text('');
+				jQuery('.show-comm-1').text('Leave a Comment');
+			}
+		}
+		setTimeout(delWord, 3000);
+		setTimeout(changeCommPhrase, 4000);
+	} // end Disqus functions
 
 	
 	
@@ -352,6 +385,18 @@ jQuery(function(){
 	if (jQuery(".advert").length > 0) {
 		jQuery('.advert').jfollow('#responderfollow');
 	}
+	
+/*	jQuery('.jq-explore-slider-sidebar').flexslider({
+        animation: "slide",
+        animationSpeed: 200,
+        slideshow: false,
+        controlNav: true,
+        directionNav: true,
+        itemWidth: 123,
+        itemMargin: 0,
+        minItems: 2,
+        maxItems: 4
+    });
 
 	jQuery('.jq-slider').flexslider({
         animation: "slide",
@@ -388,47 +433,9 @@ jQuery(function(){
           maxItems: 3
         });
 
-    jQuery('.jq-single-paging-slider').flexslider({
-          animation: "slide",
-          animationSpeed: 200,
-          slideshow: false,
-          itemWidth: 340,
-          itemMargin: 0,
-          minItems: 1,
-          maxItems: 1
+    
 
-        });
-
-    jQuery('.jq-explore-slider').flexslider({
-        animation: "slide",
-        animationSpeed: 200,
-        slideshow: false,
-        controlNav: false,
-        directionNav: false,
-        itemWidth: 123,
-        itemMargin: 0,
-        minItems: 2,
-        maxItems: 4
-    });
-	jQuery('.jq-explore-slider-sidebar').flexslider({
-        animation: "slide",
-        animationSpeed: 200,
-        slideshow: false,
-        controlNav: true,
-        directionNav: true,
-        itemWidth: 123,
-        itemMargin: 0,
-        minItems: 2,
-        maxItems: 4
-    });
-    /*jQuery('.jq-cabela-slider').flexslider({
-          animation: "slide",
-          animationSpeed: 200,
-          slideshow: false,
-          itemWidth: 318,
-          itemMargin: 0,
-        });*/
-        
+   
     jQuery('#photoSlider.reader-photo-slider .photo-slider').flexslider({
 		slideshow: false, 
 		animation: "slide",
@@ -437,7 +444,7 @@ jQuery(function(){
 		directionNav: true
 	});
 
-
+*/
     jQuery('.jq-custom-form input[type="checkbox"]').ezMark();
     jQuery('.jq-custom-form input[type="checkbox"]').show();
 

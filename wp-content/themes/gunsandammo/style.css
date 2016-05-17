@@ -21,7 +21,6 @@ body, .header{background:#2d2d2d;}
 .single .sidebar-area{padding-top: 4px;}
 .special-features{margin:0;}
 .single .general-frame, .general-frame, .sidebar-area{padding-top: 0;}
-.general-frame{width: 678px;}
 .logo{margin-left: 30px;}
 .main{border: none;}
 .general{border: none;padding: 0;}
@@ -138,18 +137,6 @@ a.category-name-link {background-color: #bbb;}
 a.category-name-link:hover, a.category-name-link.primary-cat:hover{background-color: black;}
 a.category-name-link.primary-cat{background-color: #ce181e;}
 
-/*flexslider*/
-/* Direction Nav */
-.flex-direction-nav .flex-next {background-position:-33px 0 !important;}
-.flex-direction-nav .flex-prev {background-position:0 0 !important;}
-.flex-direction-nav .flex-next:hover {background-position:-33px -52px !important;}
-.flex-direction-nav .flex-prev:hover {background-position:0 -52px !important;}
-/* Control Nav */
-.flex-control-paging li a {background:url(images/controls.png) no-repeat !important;}
-.paging-single-post .flex-control-paging li a,
-.double-post-slider .flex-control-paging li a {background-position:0 -32px !important;}
-.flex-control-paging li a:hover,
-.flex-control-paging li a.flex-active {background-position:0 -16px !important; }
 /* YARPP Slider */
 .paging-posts .flex-direction-nav .flex-prev,
 .paging-posts .flex-direction-nav .flex-next{background-color: #e8e7e7 !important;}

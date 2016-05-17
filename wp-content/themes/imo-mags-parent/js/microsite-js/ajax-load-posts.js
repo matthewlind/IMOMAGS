@@ -25,20 +25,29 @@
 			    separator 		= "#",
 			    subcat			= url.match(/#(.*)/g);
 			    
-			if (subcat) { subcat = subcat.toString().replace(separator, ""); }		
-			    			    		
-			var data = {
-					'action': 'load_posts__action',
-					'cat_slug': subcat,
-					'term_cat_id': term_cat_id,
-					'parent_cat_slug': parent_cat_slug
-				};
-			jQuery.post(ajax_object.ajax_url, data, function(response) {
-	
-				posts_wrap.prepend(response);
-								
+			if (subcat) { 
+				subcat = subcat.toString().replace(separator, "");
+				 
+				$.ajax({
+					method: "POST",
+					url: ajax_object.ajax_url,
+					cache: false,
+					data: {
+						'action': 'load_posts__action',
+						'cat_slug': subcat,
+						'term_cat_id': term_cat_id,
+						'parent_cat_slug': parent_cat_slug
+					}
+				})
+				.done(function(response) {
+					posts_wrap.empty();
+					posts_wrap.prepend(response);
+					$('.top-ad-home').append(ad_string);
+				})
+				.fail(function() { posts_wrap.prepend( $("<p/>", {text: "Something went wrong. Try to reload the page",style: "color: white;"})); });
+			} else {
 				$('.top-ad-home').append(ad_string);
-			});
+			}		
 			
 			
 			// Add data-cat="{cat_slug}" to each link
@@ -60,11 +69,6 @@
 				e.preventDefault();
 				var d = $(this),
 					data_cat_slug	= d.data("cat"),
-					feat_container	= $(".p-feat-container"),
-					reg_post_wrap	= $("#reg_post_wrap"),
-					feat_message	= $(".featured-message"),
-					feat_posts		= $(".feat-post"),
-					top_ad_home		= $(".top-ad-home");
 					url				= window.location.href,
 				    separator 		= "#",
 				    newParam		= separator + data_cat_slug;
@@ -72,26 +76,24 @@
 				    newUrl = url.replace(/#(.*)/g,"");
 				    newUrl+=newParam;
 				    document.location.href = newUrl;				     
-					
-				var data = {
-					'action': 'load_posts__action',
-					'cat_slug': data_cat_slug,
-					'term_cat_id': term_cat_id,
-					'parent_cat_slug': parent_cat_slug
-				};
-				jQuery.post(ajax_object.ajax_url, data, function(response) {
-					//top_ad_home.hide().appendTo(".posts-wrap");
- 					top_ad_home.remove();
-					feat_container.remove();
-					feat_message.remove();
-					reg_post_wrap.remove();
+				
+				$.ajax({
+					method: "POST",
+					url: ajax_object.ajax_url,
+					cache: false,
+					data: {
+						'action': 'load_posts__action',
+						'cat_slug': data_cat_slug,
+						'term_cat_id': term_cat_id,
+						'parent_cat_slug': parent_cat_slug
+					}
+				})
+				.done(function(response) {
+					posts_wrap.empty();
 					posts_wrap.prepend(response);
-									
-					var feat_posts_after = $(".feat-post"),
-						second_feat		= feat_posts_after[1];
-										
 					$('.top-ad-home').append(ad_string);
-				});
+				})
+				.fail(function() { posts_wrap.prepend( $("<p/>", {text: "Something went wrong. Try to reload the page",style: "color: white;"})); });
 				
 			});
 			
@@ -103,7 +105,7 @@
 				var d = $(this),
 					data_child_cat_slug = d.data("cat-load"),
 					loader_anim			= $('.load-btn .loader-anim'),
-					reg_post_count		= $(".reg-post").length,
+					reg_post_count		= $(".link-box").length,
 					load_more_reg		= $("#load_more_reg");
 					
 				loader_anim.removeClass('display-none');

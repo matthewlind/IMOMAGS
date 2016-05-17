@@ -3,7 +3,7 @@
 /**
  *head-includes.php makes special things special.
  */
- 
+
 if( is_preview() ){
 	echo '<script type="text/javascript">var _gaq = _gaq || [];</script>';
 }
@@ -146,7 +146,7 @@ googletag.cmd.push(function() {
 
 var w = window.innerWidth;
 var h = window.innerHeight;
-	
+
 	<?php if(is_page("bracket")){ ?>
 		googletag.defineSlot('/4930/imo.gunsandammo/guns_and_ammo_madness/gam_presenting_sponsor', [240, 60], 'presenting').addService(googletag.pubads());
 	    googletag.defineSlot('/4930/imo.gunsandammo/guns_and_ammo_madness/gam_region_sponsor_2', [240, 60], 'region1').addService(googletag.pubads());
@@ -158,6 +158,10 @@ var h = window.innerHeight;
    	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [240, 60], 'sponsor').addService(googletag.pubads());
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [2, 2], 'native').addService(googletag.pubads());
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [564, 252], 'e_commerce_widget').addService(googletag.pubads());
+	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [2, 2], 'standard_native').addService(googletag.pubads());
+	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [2, 3], 'vide_native').addService(googletag.pubads());
+	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [2, 4], 'collection_native').addService(googletag.pubads());
+	googletag.defineOutOfPageSlot('/4930/<?php echo $dartDomain; ?>','interstitial').addService(googletag.pubads());
 	
 	<?php if($microsite){ ?>
 	googletag.defineSlot('/4930/<?php echo $dartDomain; ?>', [300, 250], 'microsite_ATF_300x250').addService(googletag.pubads().setTargeting('sect', ['micro_atf']));
@@ -200,7 +204,6 @@ if (w<=599)
   });
 
 </script>
-
 <?php 
 //sidebar
 

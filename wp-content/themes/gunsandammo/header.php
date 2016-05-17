@@ -119,6 +119,11 @@
 </head>
 
 <body <?php body_class(); ?> domain="<?php echo $dartDomain; ?>" >
+<div id='interstitial'>
+	<script type='text/javascript'>
+		googletag.cmd.push(function() { googletag.display('interstitial'); });
+	</script>
+</div>
 <?php
 	if ( $microsite ){
 		get_template_part('../imo-mags-parent/header-content/header-content', 'microsites');
