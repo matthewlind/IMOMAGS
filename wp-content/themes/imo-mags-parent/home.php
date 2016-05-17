@@ -271,7 +271,7 @@ get_header(); ?>
 		                               echo $loopTitle ?>                                
                                 </a>
                             </h3>
-                            <span>by <?php the_author(); ?></span>
+                            <span>by <?php the_author(); ?></span><?php if (in_category("sponsored")) echo '<span class="sponsored-cat">&nbsp;&nbsp;|&nbsp;&nbsp;SPONSORED STORY</span>'; ?>
                             <!--<a href="<?php the_permalink(); ?>" ><?php the_post_thumbnail('list-thumb');?></a>-->
                             <!-- .entry-header -->
                             <!--<a class="comment-count" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number(); ?></a>-->
