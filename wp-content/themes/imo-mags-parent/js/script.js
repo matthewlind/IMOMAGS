@@ -8,6 +8,7 @@ jQuery(window).load(function() {
     jQuery(".feat-text.exp").css("height","0px");
 	var li_height = jQuery(".flex-active-slide").height();
 	jQuery(".gallery-slider div.flex-viewport").css("max-height",li_height);
+	
 });
 
 jQuery(document).ready(function () {
