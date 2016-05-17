@@ -34,6 +34,43 @@ jQuery(document).ready(function () {
 	jQuery(".air-times-btn").click(function(){
 		jQuery(this).parents().eq(2).find(".m-shows-airtimes").toggleClass("height-auto");
 	});
+	
+	// Disqus functions
+	//-----------------------------------------//
+	// Load disqus javascript
+	var disqus_shortname = jQuery("#load-comments").data("shortname");
+	jQuery('#load-comments').on('click', function(){ 
+		//var disqus_shortname = disq_shortname;  // Enter your disqus user name
+        // ajax request to load the disqus javascript
+		jQuery.ajax({
+			type: "GET",
+			url: "http://" + disqus_shortname + ".disqus.com/embed.js",
+			dataType: "script",
+			cache: true
+		});
+		jQuery(this).fadeOut();
+	});
+	 
+	if (jQuery('#spandisqus').length){
+		var commText = document.getElementById("spandisqus");
+		// Delete word 'Comments' from Disqus comments count.
+		function delWord() {
+		    var str = commText.innerHTML; 
+		    var res = str.replace("Comments", "");
+		    var res = res.replace("Comment", "");
+		    commText.innerHTML = res;
+		}
+		// If there is no comments cahnges text to "leave a comment"
+		function changeCommPhrase() {
+			if (jQuery('#spandisqus').text().length <= 0 || jQuery('#spandisqus').text() == "0 ") {
+				jQuery('.show-comm-2').text('');
+				jQuery('#spandisqus').text('');
+				jQuery('.show-comm-1').text('Leave a Comment');
+			}
+		}
+		setTimeout(delWord, 3000);
+		setTimeout(changeCommPhrase, 4000);
+	} // end Disqus functions
 
 	
 	
