@@ -1,17 +1,6 @@
 <?php
-// $dataPos = 0;
-
-
-/*
-$playerID = get_option('home_player_id', false);
-$playerKey = get_option('home_player_Key', false);
-$camp = get_option('home_player_camp', false);
-$videoTitle = get_option('video_title', false);
-*/
-
 
 get_header('redesign'); 
-
 
 $is_home_cat 	= true;
 $dartdomain 	= get_option('dart_domain', false);
@@ -23,10 +12,11 @@ $site_name		= trim(get_bloginfo('name'), "Magazine");
 $this_cat 		= get_category( get_query_var( 'cat' ) );
 $this_cat_id	= $this_cat->term_id;
 $this_cat_name	= $this_cat->name;
+
 ?>
 
 
-<div class="sections-wrap">
+<div id="sections_wrap" class="sections-wrap">
 	<section class="section-latest-posts">
 		<div id="l_container" class="section-inner-wrap">
 			<h1 class="main-h"><?php echo $this_cat_name;?></h1>
@@ -75,7 +65,22 @@ $this_cat_name	= $this_cat->name;
 			</div><!-- .btn-lg -->	
 		</div>
 	</section>
-	<section class="home-subscribe clearfix">
+	<section id="section_loader">
+		<div class="ball-grid-pulse clearfix">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+	</section>
+	<?php //the rest of the page is loaded from /functions/redesign/home-and-cat.php  ?>
+<!--
+	<section class="section-subscribe clearfix">
 		<div class="section-inner-wrap">
 			<div class="subs-container clearfix">
 				<h1>Subscribe & Save!</h1>
@@ -207,6 +212,7 @@ $this_cat_name	= $this_cat->name;
 			</div>
 		</div>
 	</section>
+-->
 <!--
 	<section class="section-exp-cats">
 		<div class="section-inner-wrap">

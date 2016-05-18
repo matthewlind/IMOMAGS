@@ -107,17 +107,14 @@ function load_home_btf() {
 	global $wpdb;          
     ob_start(); 
     
-    $is_home_cat 	= true;
-	$dartdomain 	= get_option('dart_domain', false);
+    $page_type		= $_POST['page_type'];
 	$magazine_img 	= get_option('magazine_cover_uri' );
 	$deal_copy 		= get_option('deal_copy' );
-	$features 		= get_field('homepage_featured_stories','options' );
 	$site_name		= trim(get_bloginfo('name'), "Magazine"); 
-    
 ?>    
     
     
-<section id="section_subsicribe" class="home-subscribe clearfix">
+<section id="section_subsicribe" class="section-subscribe clearfix">
 		<div class="section-inner-wrap">
 			<div class="subs-container clearfix">
 				<h1>Subscribe & Save!</h1>
@@ -209,16 +206,24 @@ function load_home_btf() {
 			</div>
 		</div>
 	</section>
+	<?php 
+		if ($page_type == 'home') {
+			$hfc_id = get_field('homepage_featured_category','options' );
+			$hfc_cat_name = get_cat_name($hfc_id);
+			echo($hfc);
+		
+		
+	?>
 	<section class="section-twins">
 		<div class="section-inner-wrap clearfix">
 			<div class="twins-title">
-				<h1>Breeds</h1>
-				<a class="link-to-all" href="">More Breeds</a>
+				<h1><?php echo $hfc_cat_name ?></h1>
+				<a class="link-to-all" href="<?php echo get_category_link($hfc_id); ?>">More <?php echo $hfc_cat_name ?></a>
 			</div>
 			<div class="twins-thumbs clearfix">
 				<ul>
 					<?php	
-						$args = array ('category_name' => 'breeds','posts_per_page' => 2,'order' => 'DESC');
+						$args = array ('cat' => $hfc_id,'posts_per_page' => 2,'order' => 'DESC');
 						$query = new WP_Query( $args );
 						if ( $query->have_posts() ) {
 							while ( $query->have_posts() ) {
@@ -242,6 +247,7 @@ function load_home_btf() {
 			</div>
 		</div>
 	</section>
+	<?php } ?>
 	<section class="section-twins">
 		<div class="section-inner-wrap clearfix">
 			<div class="twins-title">
@@ -282,6 +288,7 @@ function load_home_btf() {
 			</div>
 		</div>
 	</section>
+	<?php if ($page_type == 'home') {?>
 	<section class="section-exp-cats">
 		<div class="section-inner-wrap">
 			<h1>Explore <?php echo $site_name;?></h1>
@@ -325,12 +332,9 @@ function load_home_btf() {
 			?>
 			</ul>	
 		</div>
-	</section>
-
-	
-	
+	</section>	
 <?php	
-	
+	}
 	
 	$response = ob_get_contents();
 	ob_end_clean();

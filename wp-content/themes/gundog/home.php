@@ -1,15 +1,5 @@
 <?php
-// $dataPos = 0;
-
-
-/*
-$playerID = get_option('home_player_id', false);
-$playerKey = get_option('home_player_Key', false);
-$camp = get_option('home_player_camp', false);
-$videoTitle = get_option('video_title', false);
-*/
-
-
+	
 get_header('redesign'); 
 $is_home_cat 	= true;
 $dartdomain 	= get_option('dart_domain', false);
@@ -17,8 +7,8 @@ $magazine_img 	= get_option('magazine_cover_uri' );
 $deal_copy 		= get_option('deal_copy' );
 $features 		= get_field('homepage_featured_stories','options' );
 $site_name		= trim(get_bloginfo('name'), "Magazine");
-?>
 
+?>
 
 <div id="sections_wrap" class="sections-wrap">
 	<section class="section-latest-posts">
@@ -64,10 +54,20 @@ $site_name		= trim(get_bloginfo('name'), "Magazine");
 			</div><!-- .btn-lg -->
 		</div><!-- .l-container -->
 	</section>
+	<section id="section_loader">
+		<div class="ball-grid-pulse clearfix">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+	</section>
+	<?php //the rest of the page is loaded from /functions/redesign/home-and-cat.php  ?>
 </div>
-
-
-
-
 
 <?php get_footer('redesign'); ?>

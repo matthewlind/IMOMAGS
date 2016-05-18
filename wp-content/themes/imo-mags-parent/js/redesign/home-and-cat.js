@@ -9,7 +9,13 @@ var $document 		= $(document),
 	cat_id 			= btn_more_posts.data("cat"),
 	post_not		= btn_more_posts.data("post-not"),
 	sections_wrap	= $("#sections_wrap"),
-	btf_loaded		= false;
+	btf_loaded		= false,
+	section_loader	= $("#section_loader"),
+	page_type		= 'home';
+	
+if ($('.category')[0]) {
+	page_type = 'category';
+}
 
 // Load More Posts Function
 //-----------------------------------------//
@@ -39,30 +45,31 @@ function loadLatestPosts(p) {
 	})
 	.fail(function() { latest_list.append( $("<p/>", {text: "Something went wrong. Try to reload the page", style: "color: red;"})); });
 }
-
+	
 
 
 // Load Home BTF
 //-----------------------------------------//
 function loadHomeBTF() {
-	
+	if (btf_loaded == true) 
+		return;
 	var d = $document.scrollTop(),
 		p = sections_wrap.offset().top;
 	
 	if (d > p) {
-		if (btf_loaded == true) 
-		return;
-		
 		$.ajax({
 			method: "POST",
 			url: ajax_object.ajax_url,
 			cache: false,
 			data: {
-				'action' : 'load_home_btf'
+				'action' 	: 'load_home_btf',
+				'page_type'	: page_type
 			}
 		})
 		.done(function(response) {
+			section_loader.remove();
 			sections_wrap.append(response);
+			
 			var window_width	= $(window).width(),
 				item_width		= 140,
 				item_margin		= 30,
@@ -95,13 +102,11 @@ function loadHomeBTF() {
 				animationSpeed: 400, 
 				useCSS: false
 			});
-	// 		loader_anim.addClass('dnone');
 		})
 		.fail(function() { latest_list.append( $("<p/>", {text: "Something went wrong. Try to reload the page", style: "color: red;"})); });
 		
 		btf_loaded = true;
 	}
-	
 }
 
 

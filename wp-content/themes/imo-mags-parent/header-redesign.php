@@ -82,7 +82,7 @@
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' );?>/css/redesign/single.css" />
 <?php }
 	
-	if (is_home() || is_category()) { ?>
+	if (is_home() || is_category() || is_archive('reader_photos')) { ?>
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' );?>/css/redesign/home-and-cat.css" />
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'template_directory' );?>/js/plugins/flexslider/flexslider2.6.css" />
 <?php } 
