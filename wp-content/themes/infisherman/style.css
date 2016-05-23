@@ -642,10 +642,6 @@ ul.fancy li, ol.fancy li {
 	color:#fff;
 }
 
-.flex-direction-nav .flex-next, .flex-direction-nav .flex-prev{
-	display:none;
-}
-
 .photoGalleryState{
 	background:#6A7265;
 	color:#FFF !important;
@@ -679,9 +675,6 @@ ul.fancy li, ol.fancy li {
 	overflow-y: scroll !important;
 }
 
-.flex-direction-nav{
-		display:none;
-	}
 
 #photoTopControls .sliderPrev{
 	display: inline-block;
