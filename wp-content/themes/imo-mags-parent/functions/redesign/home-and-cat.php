@@ -40,6 +40,7 @@ function h_load_latest() {
     ob_start();  
     
     $cat_id			= $_POST['cat_id'];
+    $cat_slug		= $_POST['cat_slug'];
     $post_count		= $_POST['post_count'];
     $post_per_page	= $_POST['post_per_page'];
 	$post_not		= $_POST['post_not'];
@@ -53,6 +54,7 @@ function h_load_latest() {
 	$args = array (
 		'post_type'			=> $post_type,
 		'cat'         		=> $cat_id,
+		'category_name'		=> $cat_slug,
 		'posts_per_page'	=> $post_per_page,
 		'order'				=> 'DESC',
 		'post_status'		=> 'publish',
@@ -72,8 +74,30 @@ function h_load_latest() {
 			<li class="c-item">
 				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('list-thumb'); ?></a>
 				<div class="c-info">
-					<div class="c-cats"><?php if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(null, ','); } ?></div>
+					<div class="c-cats">
+						<?php 
+							if ($page_type == 'post-type-archive-reader_photos') { 
+								$categories = get_the_category();
+								$separator = ', ';
+								$output = '';
+								if($dartDomain == "imo.hunting"){ $photosURL = "/rack-room?"; }
+								else{$photosURL = "/photos?";}
+								
+								if($categories){
+									foreach($categories as $category) {
+										$tracking = "_gaq.push(['_trackEvent','Category','".$category->cat_name."']);";
+										$output .= '<a class="category-name-link" onclick="'.$tracking.'" href="'.$photosURL.$category->slug.'" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $category->name ) ) . '">'.$category->cat_name.'</a>'.$separator;
+									}
+									echo trim($output, $separator);
+								}
+							} else { 
+								if (function_exists('primary_and_secondary_categories')){ echo primary_and_secondary_categories(null, ','); }
+							} 
+						?>
+					</div>
+					
 					<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+					
 					<?php if ($page_type == 'post-type-archive-reader_photos') { ?>
 						<div class="fb-like fb_iframe_widget" data-href="<?php echo get_permalink(); ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
 					<?php } else { ?>

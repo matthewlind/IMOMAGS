@@ -445,6 +445,15 @@ a.ae-title p {
 }
 .ms-loader-inner {margin: 100px auto 400px; overflow: hidden;}
 
+/* Single Photo */
+.photo-text {
+	margin-bottom: 30px;
+}
+
+
+
+
+
 @media only screen and (min-width: 375px) {/* iPhone 6 */
 
 .ve-head > span {font-size: 14px;}

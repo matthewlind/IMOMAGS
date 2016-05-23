@@ -328,15 +328,23 @@
 .c-list li img {
 	width: 100%;
 	height: auto;
+	display: block;
+}
+.c-list li > a {
+	display: block;
 }
 .c-info {
 	padding: 7px 15px;
 }
-.home .c-cats {
+.home .c-cats,
+.post-type-archive-reader_photos .c-cats {
 	display: block;
+	margin-bottom: 3px;
 }
 .c-cats .category-name-link {
 	color: #395b5d;
+	text-transform: uppercase;
+	font-size: 14px;
 }
 .c-cats .category-name-link:hover {
 	color: #FF6600;
@@ -345,7 +353,7 @@
 	display: none;
 }
 .c-info h2 {
-    margin: 0 0 0.4em;
+    margin: 0 0 0.3em;
     font-size: 1.5em;
     font-family: 'Stag', serif;
     font-weight: 600;
@@ -361,16 +369,6 @@
     font-size: 13px;
     color: #888;
     text-transform: uppercase;
-}
-
-/* Photos Menu Section
-/* --------------------------------- */
-.sections-wrap .section-photo-menu {
-	padding-bottom: 0;
-	border: none;
-}
-.sections-wrap .community-header {
-	display: block;
 }
 
 @media only screen and (min-width: 374px) {/* iPhone 6 */

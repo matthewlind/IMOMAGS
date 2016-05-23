@@ -8,6 +8,7 @@ var $document 		= $(document),
 	btn_more_posts	= $("#btn_more_posts"),
 	cat_id 			= btn_more_posts.data("cat"),
 	post_not		= btn_more_posts.data("post-not"),
+	cat_slug		= btn_more_posts.data("cat-slug"),
 	sections_wrap	= $("#sections_wrap"),
 	btf_loaded		= false,
 	section_loader	= $("#section_loader"),
@@ -39,7 +40,8 @@ function loadLatestPosts(p) {
 			'post_count'	: post_count,
 			'post_not'		: post_not,
 			'post_per_page'	: post_per_page,
-			'page_type'		: page_type
+			'page_type'		: page_type,
+			'cat_slug'		: cat_slug
 		}
 	})
 	.done(function(response) {

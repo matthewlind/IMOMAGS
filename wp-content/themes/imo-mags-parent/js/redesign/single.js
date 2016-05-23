@@ -12,6 +12,7 @@ var $document 		= $(document),
 	btn_more_stories= $("#btn_more_stories"),
 	cat_id 			= btn_more_stories.data("cat"),
 	post_not		= btn_more_stories.data("post-not");
+	post_type		= btn_more_stories.data("post-type");
 
 	
 // Sticky Ad Function
@@ -57,10 +58,7 @@ function loadMorePosts(p, a) {
 		ms_inner		= $("#ms_inner"),
 		post_per_page	= p,
 		ad_after_post	= a;
-		
-	console.log(post_not);	
-	console.log(cat_id);
-			
+					
 	loader_anim.removeClass('dnone');
 	
 	$.ajax({
@@ -73,7 +71,8 @@ function loadMorePosts(p, a) {
 			'post_count'	: post_count,
 			'post_not'		: post_not,
 			'post_per_page'	: post_per_page,
-			'ad_after_post' : ad_after_post
+			'ad_after_post' : ad_after_post,
+			'post_type'		: post_type
 		}
 	})
 	.done(function(response) {

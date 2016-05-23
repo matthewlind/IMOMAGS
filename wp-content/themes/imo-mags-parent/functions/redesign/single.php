@@ -85,11 +85,13 @@ function ms_load_more() {
     $post_per_page	= $_POST['post_per_page'];
     $ad_after_post	= $_POST['ad_after_post'];
     $post_not		= $_POST['post_not'];
+    $post_type		= $_POST['post_type'];
     $post_not_array = explode(',', $post_not);
 	$p_counter		= 0;
 	
 	$args = array (
 		'cat'         		=> $cat_id,
+		'post_type'			=> $post_type,
 		'posts_per_page'	=> $post_per_page,
 		'order'				=> 'DESC',
 		'post_status'		=> 'publish',

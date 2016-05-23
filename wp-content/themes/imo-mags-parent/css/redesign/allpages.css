@@ -1002,6 +1002,24 @@ nav {
 }
 
 
+/* Photos Menu Section
+/* --------------------------------- */
+.sections-wrap .section-photo-menu,
+.main-single .section-photo-menu {
+	border: none;
+}
+.section-inner-wrap .community-header{
+	display: block;
+}
+.community-header ul {
+	list-style: none;
+	margin: 0;
+}
+.community-header ul.menu {
+	padding: 0;
+}
+
+
 
 /*----------------------------------------------------------*/
 /*	Media Queries
