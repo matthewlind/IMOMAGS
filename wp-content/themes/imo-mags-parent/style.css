@@ -314,6 +314,8 @@ a:hover { color: #040503; }
 :focus::-webkit-input-placeholder { color: transparent; }
 :focus::-moz-placeholder { color: transparent; }
 .general img, .general div.aligncenter, .general div.alignleft, .general div.alignright{max-width: 100%;height: auto;}
+.general div.aligncenter img, .general div.alignleft img, .general div.alignright img{width: 100%;}
+.general div.aligncenter, .general div.alignleft, .general div.alignright{width: 100% !important;}
 
 /* =Useful classes
 -----------------------------------------------------*/
@@ -2911,6 +2913,7 @@ margin-bottom:15px;
 .wp-caption .wp-caption-text {
 	margin: 15px 15px 10px 15px;
 	font-size: 14px;
+	text-align: center;
 }
 .author-info{
 	padding: 30px;
