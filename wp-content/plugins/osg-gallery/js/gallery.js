@@ -69,6 +69,10 @@ $(window).load(function() {
 				  	var theSlide = slider.currentSlide+1;
 					$('.gallery-count .curr-count').text(theSlide);
 					$(".first-img-overlay span, .span-load-gallery").fadeOut(300); 
+					
+					$('.ad-continue').click(function () {
+					 	$('.gallery-images').flexslider('next')
+					});
 			  	},
 			    after: function (slider) {
 					var theSlide 	= slider.currentSlide,
@@ -91,9 +95,7 @@ $(window).load(function() {
 						document.getElementById('sticky-iframe-ad').contentWindow.location.reload();
 					}
 					
-					$('.ad-continue').click(function () {
-					 	$('.gallery-images').flexslider('next')
-					});
+					
 				}
 		   });
 		}, 101);
